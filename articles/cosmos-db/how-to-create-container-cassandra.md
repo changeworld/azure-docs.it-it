@@ -9,10 +9,10 @@ ms.date: 10/16/2020
 ms.author: mjbrown
 ms.custom: devx-track-azurecli, devx-track-csharp
 ms.openlocfilehash: 01030a563c15eee7786058c2eae30d23803dfe42
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93101647"
 ---
 # <a name="create-a-container-in-azure-cosmos-db-cassandra-api"></a>Creazione di un contenitore in Azure Cosmos DB API Cassandra
@@ -31,13 +31,13 @@ Questo articolo illustra le diverse modalità di creazione di un contenitore in 
 
 1. [Creare un nuovo account Azure Cosmos](create-cassandra-dotnet.md#create-a-database-account)oppure selezionare un account esistente.
 
-1. Aprire il riquadro **Esplora dati** e selezionare **nuova tabella** . Specificare quindi i dettagli seguenti:
+1. Aprire il riquadro **Esplora dati** e selezionare **nuova tabella**. Specificare quindi i dettagli seguenti:
 
    * Indicare se si intende creare un nuovo keyspace o usarne uno esistente.
    * Immettere un nome per la tabella.
    * Immettere le proprietà e specificare una chiave primaria.
    * Immettere una velocità effettiva da sottoporre a provisioning (ad esempio, 1000 UR).
-   * Selezionare **OK** .
+   * Selezionare **OK**.
 
     :::image type="content" source="./media/how-to-create-container/partitioned-collection-create-cassandra.png" alt-text="Screenshot dell'API Cassandra con la finestra di dialogo Aggiungi tabella":::
 

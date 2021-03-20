@@ -7,10 +7,10 @@ ms.service: mysql
 ms.topic: troubleshooting
 ms.date: 3/18/2020
 ms.openlocfilehash: 81ec7e6f822f24f2b9e6ca4298e9668358c78149
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/12/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94540757"
 ---
 # <a name="how-to-use-explain-to-profile-query-performance-in-azure-database-for-mysql"></a>Come usare EXPLAIN per profilare le prestazioni delle query in Database di Azure per MySQL
@@ -75,7 +75,7 @@ possible_keys: NULL
         Extra: Using where; Using temporary; Using filesort
 ```
 
-Come è possibile osservare dall'output, MySQL non usa alcun indice perché non sono disponibili indici appropriati. Sono inoltre presenti le istruzioni *Using temporary; Using filesort* , che indicano che MySQL crea una tabella temporanea per soddisfare la clausola **GROUP BY**.
+Come è possibile osservare dall'output, MySQL non usa alcun indice perché non sono disponibili indici appropriati. Sono inoltre presenti le istruzioni *Using temporary; Using filesort*, che indicano che MySQL crea una tabella temporanea per soddisfare la clausola **GROUP BY**.
  
 La creazione di un indice solo sulla colonna **c2** non fa alcuna differenza e MySQL deve comunque creare una tabella temporanea:
 
@@ -97,7 +97,7 @@ possible_keys: NULL
         Extra: Using where; Using temporary; Using filesort
 ```
 
-In questo caso, è possibile creare un **indice di copertura** sia su **c1** che su **c2** , aggiungendo il valore di **c2** direttamente nell'indice per evitare ulteriori ricerche di dati.
+In questo caso, è possibile creare un **indice di copertura** sia su **c1** che su **c2**, aggiungendo il valore di **c2** direttamente nell'indice per evitare ulteriori ricerche di dati.
 
 ```sql 
 mysql> ALTER TABLE tb1 ADD KEY covered(c1,c2);

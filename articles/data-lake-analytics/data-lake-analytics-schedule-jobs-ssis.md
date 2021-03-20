@@ -6,10 +6,10 @@ ms.service: data-lake-analytics
 ms.topic: how-to
 ms.date: 07/17/2018
 ms.openlocfilehash: b080b433f5af49e970faba02003fb68e21a08365
-ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/20/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92221452"
 ---
 # <a name="schedule-u-sql-jobs-using-sql-server-integration-services-ssis"></a>Pianificare processi U-SQL tramite SQL Server Integration Services (SSIS)
@@ -89,7 +89,7 @@ Nella visualizzazione struttura del pacchetto SSIS aggiungere un'**attività Fil
     Per creare questa connessione file:
 
    1. Scegliere **\<New Connection...>** nell'impostazione FileConnection.
-   2. Impostare **Tipo di utilizzo** su **File esistente**e **File** sul percorso di qualsiasi file esistente.
+   2. Impostare **Tipo di utilizzo** su **File esistente** e **File** sul percorso di qualsiasi file esistente.
 
        ![Screenshot che mostra l'Editor gestione connessione file con "file esistente" selezionato per "tipo di utilizzo".](./media/data-lake-analytics-schedule-jobs-ssis/configure-file-connection-for-foreach-loop-container.png)
 

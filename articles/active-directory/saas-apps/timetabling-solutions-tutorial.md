@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 04/10/2020
 ms.author: jeedes
 ms.openlocfilehash: 527c0ce1278c920f53a2f63b7708bce09da789e1
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
-ms.translationtype: HT
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/24/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92516345"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-timetabling-solutions"></a>Esercitazione: Integrazione dell'accesso Single Sign-On (SSO) di Azure Active Directory con Timetabling Solutions
@@ -99,7 +99,7 @@ Per abilitare l'accesso Single Sign-On di Azure AD nel portale di Azure, seguire
 
 In questa sezione verrà creato un utente di test di nome B.Simon nel portale di Azure.
 
-1. Nel riquadro sinistro del portale di Azure selezionare **Azure Active Directory** , **Utenti** e quindi **Tutti gli utenti**.
+1. Nel riquadro sinistro del portale di Azure selezionare **Azure Active Directory**, **Utenti** e quindi **Tutti gli utenti**.
 1. Selezionare **Nuovo utente** in alto nella schermata.
 1. In **Proprietà utente** seguire questa procedura:
    1. Nel campo **Nome** immettere `B.Simon`.  
@@ -127,7 +127,7 @@ In questa sezione si abiliterà B.Simon all'uso dell'accesso Single Sign-On di A
 
 ## <a name="configure-timetabling-solutions-sso"></a>Configurare l'accesso Single Sign-On di Timetabling Solutions
 
-Per configurare l'accesso Single Sign-On sul lato **Timetabling Solutions** , è necessario inviare il **valore di identificazione personale** e gli URL appropriati, copiati dal portale di Azure, al [team di supporto di Timetabling Solutions](https://www.timetabling.com.au/contact-us/). La configurazione viene eseguita in modo che la connessione SSO SAML sia impostata correttamente su entrambi i lati.
+Per configurare l'accesso Single Sign-On sul lato **Timetabling Solutions**, è necessario inviare il **valore di identificazione personale** e gli URL appropriati, copiati dal portale di Azure, al [team di supporto di Timetabling Solutions](https://www.timetabling.com.au/contact-us/). La configurazione viene eseguita in modo che la connessione SSO SAML sia impostata correttamente su entrambi i lati.
 
 ### <a name="create-timetabling-solutions-test-user"></a>Creare l'utente di test di Timetabling Solutions
 

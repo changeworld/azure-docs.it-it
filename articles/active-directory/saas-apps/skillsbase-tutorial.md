@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 03/07/2019
 ms.author: jeedes
 ms.openlocfilehash: 9b712756b6daf7380998bb98f56113cab29ebb59
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
-ms.translationtype: HT
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/25/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96015163"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-skills-base"></a>Esercitazione: Integrazione di Azure Active Directory con Skills Base
@@ -120,7 +120,7 @@ Per configurare Single Sign-On di Azure AD con Skills Base, seguire questa proce
 
     a. URL di accesso
 
-    b. Identificatore Azure AD
+    b. Identificatore di Azure AD
 
     c. URL di disconnessione
 
@@ -149,7 +149,7 @@ Per configurare Single Sign-On di Azure AD con Skills Base, seguire questa proce
 
 ### <a name="create-an-azure-ad-test-user"></a>Creare un utente di test di Azure AD
 
-Questa sezione descrive come creare un utente di test di nome Britta Simon nel portale di Azure.
+Questa sezione descrive come creare un utente test denominato Britta Simon nel portale di Azure.
 
 1. Nel riquadro sinistro del portale di Azure, selezionare **Azure Active Directory**, **Utenti** e quindi **Tutti gli utenti**.
 

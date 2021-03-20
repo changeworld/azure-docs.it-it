@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 02/25/2021
 ms.openlocfilehash: ec4ea645e325ef48d4cb5951cd39fd4e9cbe1617
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/03/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "101738056"
 ---
 # <a name="copy-and-transform-data-in-azure-database-for-postgresql-by-using-azure-data-factory"></a>Copiare e trasformare i dati nel database di Azure per PostgreSQL usando Azure Data Factory
@@ -32,7 +32,7 @@ Questo connettore di database di Azure per PostgreSQL è supportato per le attiv
 
 Attualmente, il flusso di dati supporta il server singolo database di Azure per PostgreSQL ma non un server flessibile o iperscalabile (CITUS).
 
-## <a name="getting-started"></a>Guida introduttiva
+## <a name="getting-started"></a>Introduzione
 
 [!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 

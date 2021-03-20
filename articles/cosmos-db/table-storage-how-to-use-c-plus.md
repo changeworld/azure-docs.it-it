@@ -9,10 +9,10 @@ ms.date: 10/07/2019
 author: sakash279
 ms.author: akshanka
 ms.openlocfilehash: 79b58b76954cf15289e85dbf763b7a399897635d
-ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
-ms.translationtype: HT
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/11/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94489880"
 ---
 # <a name="how-to-use-azure-table-storage-and-azure-cosmos-db-table-api-with-c"></a>Come usare l'archiviazione tabelle di Azure e l'API del servizio tabelle di Azure Cosmos DB con C++
@@ -99,7 +99,7 @@ Per testare l'applicazione nel proprio computer Windows locale, è possibile usa
 const utility::string_t storage_connection_string(U("UseDevelopmentStorage=true;"));  
 ```
 
-Per avviare l'emulatore di archiviazione di Azure, dal desktop di Windows selezionare il pulsante **Start** o premere il tasto WINDOWS. Accedere all' *Emulatore di archiviazione di Microsoft Azure* ed eseguirlo. Per altre informazioni, vedere [Usare l'emulatore di archiviazione di Azure per sviluppo e test](../storage/common/storage-use-emulator.md).
+Per avviare l'emulatore di archiviazione di Azure, dal desktop di Windows selezionare il pulsante **Start** o premere il tasto WINDOWS. Accedere all'*Emulatore di archiviazione di Microsoft Azure* ed eseguirlo. Per altre informazioni, vedere [Usare l'emulatore di archiviazione di Azure per sviluppo e test](../storage/common/storage-use-emulator.md).
 
 ### <a name="retrieve-your-connection-string"></a>Recuperare la stringa di connessione
 
@@ -500,10 +500,10 @@ else
 
 ## <a name="troubleshooting"></a>Risoluzione dei problemi
 
-Per Visual Studio Community Edition, se nel progetto si verificano errori di compilazione a causa dei file di inclusione *storage_account.h* e *table.h* , rimuovere l'opzione del compilatore **/permissive-** :
+Per Visual Studio Community Edition, se nel progetto si verificano errori di compilazione a causa dei file di inclusione *storage_account.h* e *table.h*, rimuovere l'opzione del compilatore **/permissive-** :
 
 1. In **Esplora soluzioni** fare clic con il pulsante destro del mouse sul progetto, quindi scegliere **Proprietà**.
-1. Nella finestra di dialogo **Pagine delle proprietà** espandere **Proprietà di configurazione** , quindi **C/C++** e infine selezionare **Lingua**.
+1. Nella finestra di dialogo **Pagine delle proprietà** espandere **Proprietà di configurazione**, quindi **C/C++** e infine selezionare **Lingua**.
 1. Impostare **Modalità di conformità** su **No**.
 
 ## <a name="next-steps"></a>Passaggi successivi

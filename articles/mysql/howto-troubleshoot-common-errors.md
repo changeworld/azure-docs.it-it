@@ -8,10 +8,10 @@ ms.custom: mvc
 ms.topic: overview
 ms.date: 8/20/2020
 ms.openlocfilehash: ca75416a66bcf2c90028c7f1dc11fbe23a9a9bd9
-ms.sourcegitcommit: 484f510bbb093e9cfca694b56622b5860ca317f7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/21/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98631368"
 ---
 # <a name="common-errors"></a>Errori comuni
@@ -25,9 +25,9 @@ L'errore precedente si verifica dopo l'accesso riuscito, ma prima di eseguire qu
 
 Alcuni parametri del server come require_secure_transport non sono supportati a livello di sessione e quindi il tentativo di modificare i valori di questi parametri usando init_connect può generare l'errore 1184 durante la connessione al server MySQL, come illustrato di seguito.
 
-MySQL> mostrare i database; ERRORE 2006 (HY000): il server MySQL non è più connesso. Tentativo di riconnessione in corso... ID connessione: 64897 database corrente: * * * nessuna * * _ errore 1184 (pari 08S01): connessione interrotta 22 al database:' nome-DB ' utente:' utente ' host:' hostIP ' (comando init_connect non riuscito)
+MySQL> mostrare i database; ERRORE 2006 (HY000): il server MySQL non è più connesso. Tentativo di riconnessione in corso... ID connessione: 64897 database corrente: * * * NONE * * * errore 1184 (pari 08S01): connessione interrotta 22 al database:' nome-DB ' utente:' utente ' host:' hostIP ' (comando init_connect non riuscito)
 
-_ *Risoluzione**: è necessario reimpostare init_connect valore nella scheda parametri server portale di Azure e impostare solo i parametri del server supportati usando init_connect parametro. 
+**Soluzione** : è necessario reimpostare init_connect valore nella scheda parametri server portale di Azure e impostare solo i parametri del server supportati usando init_connect parametro. 
 
 
 ## <a name="errors-due-to-lack-of-super-privilege-and-dba-role"></a>Errori dovuti a mancanza del privilegio SUPER e del ruolo DBA

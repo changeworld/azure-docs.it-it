@@ -12,10 +12,10 @@ ms.author: anjangsh
 ms.reviewer: sstein
 ms.date: 01/25/2019
 ms.openlocfilehash: 74343b2f05bb4a59e475449c87524ff66cdd605d
-ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/27/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98919545"
 ---
 # <a name="get-started-with-elastic-database-tools"></a>Iniziare a usare gli strumenti di database elastico

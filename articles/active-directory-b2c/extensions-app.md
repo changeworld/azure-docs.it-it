@@ -11,15 +11,15 @@ ms.date: 09/06/2017
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: dc536fa4292d794e8d89a2564ad10a3c10dd0a3d
-ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/12/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94560855"
 ---
 # <a name="azure-ad-b2c-extensions-app"></a>Azure AD B2C: app Estensioni
 
-Quando viene creata una directory di Azure AD B2C, un'app denominata `b2c-extensions-app. Do not modify. Used by AADB2C for storing user data.` viene creata automaticamente nella nuova directory. Questa app, definita **b2c-extensions-app** , è visibile in *Registrazioni per l'app*. Viene usata dal servizio Azure AD B2C per archiviare informazioni sugli utenti e sugli attributi personalizzati. Se l'app viene eliminata, Azure AD B2C non funzionerà correttamente e questo problema influirà sull'ambiente di produzione.
+Quando viene creata una directory di Azure AD B2C, un'app denominata `b2c-extensions-app. Do not modify. Used by AADB2C for storing user data.` viene creata automaticamente nella nuova directory. Questa app, definita **b2c-extensions-app**, è visibile in *Registrazioni per l'app*. Viene usata dal servizio Azure AD B2C per archiviare informazioni sugli utenti e sugli attributi personalizzati. Se l'app viene eliminata, Azure AD B2C non funzionerà correttamente e questo problema influirà sull'ambiente di produzione.
 
 > [!IMPORTANT]
 > Eliminare l'app b2c-extensions-app solo se si prevede l'eliminazione immediata del tenant. Se l'app rimane eliminata per più di 30 giorni, le informazioni utente andranno perse definitivamente.

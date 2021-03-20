@@ -9,10 +9,10 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 09/04/2020
 ms.openlocfilehash: 674f267d3d99dd22c1ae06b6d32587761d5983ce
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93124918"
 ---
 # <a name="azure-ad-and-transactable-saas-offers-in-the-commercial-marketplace"></a>Offerte SaaS Azure AD e transazionali nel Marketplace commerciale
@@ -27,7 +27,7 @@ Seguendo le istruzioni riportate in questo articolo, si contribuirà a certifica
 
 Quando si [crea l'offerta SaaS](./create-new-saas-offer.md) nel centro per i partner, è possibile scegliere tra una serie di opzioni di elenco specifiche che verranno visualizzate nell'elenco delle offerte. La scelta determina il modo in cui l'offerta viene sottoposta a transazione nel Marketplace commerciale. Le offerte vendute tramite Microsoft sono denominate offerte transazionali. Il cliente viene fatturato per conto di tutte le offerte transazionali. Se si sceglie di vendere tramite Microsoft e ci sono transazioni per conto dell'utente (opzione **Sì** ), si è scelto di creare un'offerta transazionale e questo articolo è adatto all'utente. È consigliabile leggerlo completamente.
 
-Se si sceglie di elencare l'offerta solo tramite il Marketplace commerciale ed elaborare le transazioni in modo indipendente (l'opzione **No** ), sono disponibili tre opzioni per il modo in cui i clienti potenziali potranno accedere all'offerta: ottenere ora (gratuita), versione di valutazione gratuita e contattare l'utente. Se si seleziona **Get it Now (gratuito)** o **versione di valutazione gratuita** , questo articolo non è adatto. Per altre informazioni, vedere [creare la pagina di destinazione per l'offerta SaaS gratuita o di valutazione nel Marketplace commerciale](./azure-ad-free-or-trial-landing-page.md) . Se si seleziona **contattami** , non sono presenti responsabilità dirette del server di pubblicazione. Continuare a creare l'offerta nel centro per i partner.
+Se si sceglie di elencare l'offerta solo tramite il Marketplace commerciale ed elaborare le transazioni in modo indipendente (l'opzione **No** ), sono disponibili tre opzioni per il modo in cui i clienti potenziali potranno accedere all'offerta: ottenere ora (gratuita), versione di valutazione gratuita e contattare l'utente. Se si seleziona **Get it Now (gratuito)** o **versione di valutazione gratuita**, questo articolo non è adatto. Per altre informazioni, vedere [creare la pagina di destinazione per l'offerta SaaS gratuita o di valutazione nel Marketplace commerciale](./azure-ad-free-or-trial-landing-page.md) . Se si seleziona **contattami**, non sono presenti responsabilità dirette del server di pubblicazione. Continuare a creare l'offerta nel centro per i partner.
 
 ## <a name="how-azure-ad-works-with-the-commercial-marketplace-for-saas-offers"></a>Funzionamento del Azure AD con il Marketplace commerciale per le offerte SaaS
 
@@ -35,7 +35,7 @@ Azure AD consente l'acquisto, l'evasione e la gestione di soluzioni di Marketpla
 
 Come illustrato nella figura 1, quando un acquirente seleziona l'offerta, avvia una catena di flussi di lavoro che include l'acquisto, la sottoscrizione e la gestione degli utenti. All'interno di questa catena, l'autore è responsabile di determinati requisiti, con la fornitura di supporto da parte di Microsoft a punti chiave.
 
-**_Figura 1: uso di Azure ad per le offerte SaaS nel Marketplace commerciale_* _
+***Figura 1: uso di Azure AD per le offerte SaaS nel Marketplace commerciale***
 
 :::image type="content" source="./media/azure-ad-saas/azure-ad-saas-flow.png" alt-text="Vengono illustrati i passaggi per la gestione degli acquisti, le sottoscrizioni e il processo di gestione degli utenti facoltativi.":::
 
@@ -45,14 +45,14 @@ Le sezioni seguenti forniscono informazioni dettagliate sui requisiti per ogni p
 
 Questa figura illustra i quattro passaggi del processo per la gestione degli acquisti.
 
-:::image type="content" source="./media/azure-ad-saas/azure-ad-saas-flow-1-4.png" alt-text="Vengono illustrati i passaggi per la gestione degli acquisti, le sottoscrizioni e il processo di gestione degli utenti facoltativi.":::
+:::image type="content" source="./media/azure-ad-saas/azure-ad-saas-flow-1-4.png" alt-text="Vengono illustrati i quattro passaggi del processo per la gestione degli acquisti.":::
 
 Questa tabella fornisce informazioni dettagliate per i passaggi del processo di gestione degli acquisti.
 
 | Passaggio del processo | Azione Editore | Consigliato o obbligatorio per gli editori |
 | ------------ | ------------- | ------------- |
 | 1. l'acquirente accede al Marketplace commerciale con l'identità ID di Azure e seleziona un'offerta SaaS. | Non è richiesta alcuna azione del server di pubblicazione. | Non applicabile |
-| 2. dopo l'acquisto, l'acquirente seleziona _ *Configura account* * in Azure Marketplace o **Configura ora** in AppSource, che indirizza l'acquirente alla pagina di destinazione dell'editore per questa offerta. L'acquirente deve essere in grado di accedere all'applicazione SaaS dell'editore con Azure AD SSO e deve essere richiesto solo il consenso minimo che non richiede l'approvazione Azure AD amministratore. | Progettare una [pagina di destinazione](azure-ad-transactable-saas-landing-page.md) per l'offerta in modo che riceva un utente con l'identità del Azure ad o della account Microsoft (MSA) e faciliti il provisioning o la configurazione aggiuntiva necessaria. | Necessario |
+| 2. dopo l'acquisto, l'acquirente seleziona **Configura account** in Azure Marketplace o **Configura ora** in AppSource, che indirizza l'acquirente alla pagina di destinazione dell'editore per questa offerta. L'acquirente deve essere in grado di accedere all'applicazione SaaS dell'editore con Azure AD SSO e deve essere richiesto solo il consenso minimo che non richiede l'approvazione Azure AD amministratore. | Progettare una [pagina di destinazione](azure-ad-transactable-saas-landing-page.md) per l'offerta in modo che riceva un utente con l'identità del Azure ad o della account Microsoft (MSA) e faciliti il provisioning o la configurazione aggiuntiva necessaria. | Necessario |
 | 3. il server di pubblicazione richiede i dettagli di acquisto dall'API di evasione SaaS. | Utilizzando un [token di accesso](./partner-center-portal/pc-saas-registration.md) generato dall'ID applicazione della pagina di destinazione, [chiamare l'endpoint di risoluzione](./partner-center-portal/pc-saas-fulfillment-api-v2.md#resolve-a-purchased-subscription) per recuperare le specifiche relative all'acquisto. | Necessario |
 | 4. tramite Azure AD e l'API Microsoft Graph, l'editore raccoglie i dettagli aziendali e dell'utente necessari per effettuare il provisioning dell'acquirente nell'applicazione SaaS dell'editore.  | Scomporre il token utente Azure AD per trovare il nome e il messaggio di posta elettronica oppure [chiamare l'API Microsoft Graph](/graph/use-the-api) e utilizzare le autorizzazioni delegate per [recuperare le informazioni](/graph/api/user-get) sull'utente che ha eseguito l'accesso. | Necessario |
 ||||
@@ -61,7 +61,7 @@ Questa tabella fornisce informazioni dettagliate per i passaggi del processo di 
 
 Nella figura sono illustrati i due passaggi del processo per la gestione delle sottoscrizioni.
 
-:::image type="content" source="./media/azure-ad-saas/azure-ad-saas-flow-5-6.png" alt-text="Vengono illustrati i passaggi per la gestione degli acquisti, le sottoscrizioni e il processo di gestione degli utenti facoltativi.":::
+:::image type="content" source="./media/azure-ad-saas/azure-ad-saas-flow-5-6.png" alt-text="Vengono illustrati i due passaggi del processo per la gestione delle sottoscrizioni.":::
 
 In questa tabella vengono descritti i dettagli relativi ai passaggi del processo di gestione delle sottoscrizioni.
 
@@ -75,7 +75,7 @@ In questa tabella vengono descritti i dettagli relativi ai passaggi del processo
 
 Nella figura sono illustrati i tre passaggi del processo per la gestione degli utenti.
 
-:::image type="content" source="./media/azure-ad-saas/azure-ad-saas-flow-7-9.png" alt-text="Vengono illustrati i passaggi per la gestione degli acquisti, le sottoscrizioni e il processo di gestione degli utenti facoltativi.":::
+:::image type="content" source="./media/azure-ad-saas/azure-ad-saas-flow-7-9.png" alt-text="Vengono illustrati i tre passaggi facoltativi del processo per la gestione degli utenti.":::
 
 I passaggi da 7 a 9 sono i passaggi del processo di gestione degli utenti facoltativi. Forniscono vantaggi aggiuntivi per gli editori che supportano Azure AD Single Sign-On (SSO). In questa tabella vengono descritti i dettagli relativi ai passaggi del processo di gestione degli utenti.
 

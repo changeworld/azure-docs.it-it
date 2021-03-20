@@ -10,10 +10,10 @@ ms.date: 07/24/2020
 ms.topic: quickstart
 ms.subservice: blobs
 ms.openlocfilehash: d212029936bcd257ef5a78eeedc98c2d6e1df514
-ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
-ms.translationtype: HT
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/24/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96012783"
 ---
 <!-- Customer intent: As a web application developer I want to interface with Azure Blob storage entirely on the client so that I can build a SPA application that is able to upload and delete files on blob storage. -->
@@ -43,7 +43,7 @@ Tornare al portale di Azure e selezionare l'account di archiviazione. Per defini
 
 La tabella seguente descrive ogni impostazione CORS e spiega i valori usati per definire la regola.
 
-|Impostazione  |valore  | Description |
+|Impostazione  |Valore  | Descrizione |
 |---------|---------|---------|
 | Origini consentite | * | Accetta un elenco delimitato da virgole dei domini impostati come origini accettabili. Impostando il valore su `*`, tutti i domini potranno accedere all'account di archiviazione. |
 | Metodi consentiti     | delete, get, head, merge, post, options e put | Elenca i verbi HTTP che possono essere eseguiti sull'account di archiviazione. Ai fini di questa guida di avvio rapido, selezionare tutte le opzioni disponibili. |
@@ -84,7 +84,7 @@ az storage account generate-sas \
 
 La serie di valori dopo ogni parametro può risultare di difficile interpretazione. Questi valori di parametro provengono dalla prima lettera dell'autorizzazione corrispondente. La tabella seguente spiega la provenienza dei valori:
 
-| Parametro        | valore   | Descrizione  |
+| Parametro        | Valore   | Descrizione  |
 |------------------|---------|---------|
 | *autorizzazioni*    | racwdl  | Questa firma di accesso condiviso consente operazioni di *lettura*, *accodamento*, *creazione*, *scrittura*, *eliminazione* ed *elenco*. |
 | *resource-types* | sco     | Le risorse interessate dalla firma di accesso condiviso sono il *servizio*, il *contenitore* e l'*oggetto*. |

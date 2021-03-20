@@ -9,15 +9,15 @@ ms.date: 12/06/2019
 ms.author: duau
 ms.custom: devx-track-azurepowershell
 ms.openlocfilehash: 0e8a1d48934d73f1035c6f2c4c76e56d9a0e4052
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/19/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92206971"
 ---
 # <a name="connect-a-virtual-network-to-an-expressroute-circuit-using-powershell-classic"></a>Collegare una rete virtuale a un circuito ExpressRoute usando PowerShell (versione classica)
 > [!div class="op_single_selector"]
-> * [Portale di Azure](expressroute-howto-linkvnet-portal-resource-manager.md)
+> * [Azure portal](expressroute-howto-linkvnet-portal-resource-manager.md)
 > * [PowerShell](expressroute-howto-linkvnet-arm.md)
 > * [Interfaccia della riga di comando di Azure](howto-linkvnet-cli.md)
 > * [Video - Portale di Azure](https://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-create-a-connection-between-your-vpn-gateway-and-expressroute-circuit)

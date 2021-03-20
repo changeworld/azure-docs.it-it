@@ -6,10 +6,10 @@ ms.subservice: update-management
 ms.date: 09/17/2020
 ms.topic: conceptual
 ms.openlocfilehash: 39df5888a330a92ae043e34c3043da5b1f566345
-ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/20/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92222527"
 ---
 # <a name="view-update-assessments-in-update-management"></a>Visualizza valutazioni aggiornamenti in Gestione aggiornamenti
@@ -22,7 +22,7 @@ Accedere al [portale di Azure](https://portal.azure.com)
 
 ## <a name="view-update-assessment"></a>Visualizzare la valutazione degli aggiornamenti
 
-Per visualizzare la valutazione degli aggiornamenti da una macchina virtuale di Azure, passare a **macchine virtuali** e selezionare la macchina virtuale nell'elenco. Nel menu a sinistra selezionare **guest + host Updates**e quindi selezionare **Vai a gestione aggiornamenti** nella pagina **guest + host Updates** .
+Per visualizzare la valutazione degli aggiornamenti da una macchina virtuale di Azure, passare a **macchine virtuali** e selezionare la macchina virtuale nell'elenco. Nel menu a sinistra selezionare **guest + host Updates** e quindi selezionare **Vai a gestione aggiornamenti** nella pagina **guest + host Updates** .
 
 In Gestione aggiornamenti, è possibile visualizzare le informazioni relative al computer, gli aggiornamenti mancanti, le distribuzioni degli aggiornamenti e le distribuzioni degli aggiornamenti pianificati.
 

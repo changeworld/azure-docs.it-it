@@ -9,10 +9,10 @@ ms.date: 01/24/2020
 ms.author: sngun
 ms.custom: include file
 ms.openlocfilehash: 941e2ee7b8eba957d970998324156c50a86439af
-ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
-ms.translationtype: HT
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/11/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94503938"
 ---
 1. In una nuova finestra del browser accedere al [portale di Azure](https://portal.azure.com/).
@@ -27,10 +27,10 @@ ms.locfileid: "94503938"
    
 3. Nella pagina **Crea account Azure Cosmos DB** immettere le impostazioni per il nuovo account Azure Cosmos DB. 
  
-    Impostazione|valore|Descrizione
+    Impostazione|Valore|Descrizione
     ---|---|---
     Subscription|Sottoscrizione in uso|Selezionare la sottoscrizione di Azure da usare per l'account Azure Cosmos DB. 
-    Gruppo di risorse|**Crea nuovo** , quindi Nome account|Selezionare **Crea nuovo**. Immettere quindi il nome di un nuovo gruppo di risorse per l'account. Per semplicità, usare lo stesso nome usato come nome dell'account Azure Cosmos DB. 
+    Gruppo di risorse|**Crea nuovo**, quindi Nome account|Selezionare **Crea nuovo**. Immettere quindi il nome di un nuovo gruppo di risorse per l'account. Per semplicità, usare lo stesso nome usato come nome dell'account Azure Cosmos DB. 
     Nome account|Un nome univoco|Immettere un nome univoco per identificare l'account Azure Cosmos DB.<br><br>Il nome dell'account può contenere solo lettere minuscole, numeri e trattini e deve avere una lunghezza compresa tra 3 e 31 caratteri.
     API|Tabella|L'API determina il tipo di account da creare. Azure Cosmos DB offre cinque API: Core (SQL) per i database di documenti, Gremlin per i database a grafo, MongoDB per i database di documenti, Tabella di Azure e Cassandra. È necessario creare un account separato per ogni API. <br><br>Selezionare **Tabella di Azure** perché in questa guida di avvio rapido si creerà una tabella che funziona con l'API Tabella. <br><br>[Altre informazioni sull'API Tabella](../articles/cosmos-db/table-introduction.md).|
     Location|Area più vicina ai propri utenti|Selezionare una posizione geografica in cui ospitare l'account Azure Cosmos DB. Usare la località più vicina agli utenti per offrire loro la massima velocità di accesso ai dati.

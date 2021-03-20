@@ -9,10 +9,10 @@ ms.author: samkemp
 ms.topic: conceptual
 ms.date: 07/17/2020
 ms.openlocfilehash: 3795d531c5c4c543587ab817c05cd1cfeea6be06
-ms.sourcegitcommit: e972837797dbad9dbaa01df93abd745cb357cde1
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/14/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100518539"
 ---
 # <a name="track-experiments-and-deploy-models-in-azure-machine-learning"></a>Tenere traccia degli esperimenti e distribuire modelli in Azure Machine Learning
@@ -164,7 +164,7 @@ Per distribuire il modello di diabete, andare al menu a sinistra nel [Azure Mach
 
 Fare quindi clic sul pulsante __Distribuisci__ nel riquadro Dettagli modello:
 
-![Distribuire](./media/how-to-track-experiments/mlflow-experiments-4.png)
+![Distribuisci](./media/how-to-track-experiments/mlflow-experiments-4.png)
 
 Il modello viene distribuito nel cluster di inferenza (servizio Azure Kubernetes) creato nel passaggio 1. Inserire i dettagli seguenti specificando un nome per il servizio e il nome del cluster di calcolo AKS (creato nel passaggio 1). Si consiglia inoltre di aumentare la __capacità di riserva della CPU__ a 1 (da 0,1) e la __capacità di riserva di memoria__ a 1 (a partire da 0,5). è possibile apportare questo aumento facendo clic su __Avanzate__ e inserendo i dettagli. Fare quindi clic su __Distribuisci__.
 

@@ -12,10 +12,10 @@ ms.author: joanpo
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
 ms.openlocfilehash: 4683bd84873506483209f4a0eb3751a1b163ed48
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/01/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96449890"
 ---
 # <a name="geo-restore-a-dedicated-sql-pool-in-azure-synapse-analytics"></a>Ripristino geografico di un pool SQL dedicato in Azure sinapsi Analytics
@@ -83,7 +83,7 @@ Attenersi alla procedura descritta di seguito per ripristinare un pool SQL dedic
 
 1. Fare clic su Aggiungi e compilare le informazioni richieste nella scheda **nozioni di base** e fare clic su **Avanti: impostazioni aggiuntive**.
 
-   ![Operazioni di base](./media/sql-data-warehouse-restore-from-geo-backup/georestore-dw-1.png)
+   ![Nozioni di base](./media/sql-data-warehouse-restore-from-geo-backup/georestore-dw-1.png)
 
 1. Per **Usa parametro dati esistente** selezionare **backup** e selezionare il backup appropriato dalle opzioni Scorri verso il basso. Fare clic su **Rivedi e crea**.
 

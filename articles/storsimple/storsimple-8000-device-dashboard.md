@@ -1,5 +1,5 @@
 ---
-title: Usare il riepilogo del dispositivo in StorSimple Device Manager Service
+title: Usare il riepilogo del dispositivo in StorSimple Gestione dispositivi Service
 description: Descrive il riepilogo del dispositivo del servizio Gestione dispositivi StorSimple e illustra come usarlo per visualizzare le metriche di archiviazione e gli iniziatori connessi e trovare il numero di serie e il nome qualificato iSCSI.
 services: storsimple
 documentationcenter: NA
@@ -15,10 +15,10 @@ ms.workload: TBD
 ms.date: 07/03/2017
 ms.author: alkohli
 ms.openlocfilehash: 34bbf4d723e46663efe77560245db74d9dea1fc4
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/25/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96017152"
 ---
 # <a name="use-the-device-summary-in-storsimple-device-manager-service"></a>Usare il riepilogo del dispositivo nel servizio Gestione dispositivi StorSimple
@@ -38,7 +38,7 @@ Il pannello del dispositivo StorSimple contiene le opzioni per la gestione del d
 
 ![Barra dei comandi di gestione](./media/storsimple-8000-device-dashboard/device-summary2.png)
 
-## <a name="essentials"></a>Informazioni di base
+## <a name="essentials"></a>Essentials
 
 L'area relativa alle informazioni di base riporta alcune proprietà importanti, ad esempio lo stato, il modello, il nome qualificato iSCSI del dispositivo di destinazione e la versione del software. 
 

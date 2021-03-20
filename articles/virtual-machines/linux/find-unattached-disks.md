@@ -8,10 +8,10 @@ ms.date: 03/30/2018
 ms.author: rogarana
 ms.subservice: disks
 ms.openlocfilehash: 0c3e8bb2ff6f3313e851a4253a95a5ad923a8f70
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/25/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96016217"
 ---
 # <a name="find-and-delete-unattached-azure-managed-and-unmanaged-disks-using-the-azure-cli"></a>Trovare ed eliminare dischi gestiti e non gestiti di Azure che non sono collegati tramite l'interfaccia della riga di comando di Azure

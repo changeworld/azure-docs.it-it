@@ -1,5 +1,5 @@
 ---
-title: "Esercitazione: Integrazione dell'accesso Single Sign-On (SSO) di Azure Active Directory con Achieve3000 | Microsoft Docs"
+title: 'Esercitazione: integrazione di Azure Active Directory Single Sign-On (SSO) con Achieve3000 | Microsoft Docs'
 description: Informazioni su come configurare l'accesso Single Sign-On tra Azure Active Directory e Achieve3000.
 services: active-directory
 author: jeevansd
@@ -12,13 +12,13 @@ ms.topic: tutorial
 ms.date: 10/17/2019
 ms.author: jeedes
 ms.openlocfilehash: 9af00fef9c15ada44a5475bb419387b32b06d139
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
-ms.translationtype: HT
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/21/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92313370"
 ---
-# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-achieve3000"></a>Esercitazione: Integrazione dell'accesso Single Sign-On (SSO) di Azure Active Directory con Achieve3000
+# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-achieve3000"></a>Esercitazione: integrazione di Azure Active Directory Single Sign-On (SSO) con Achieve3000
 
 Questa esercitazione descrive come integrare Achieve3000 con Azure Active Directory (Azure AD). Integrando Achieve3000 con Azure AD, è possibile:
 
@@ -62,10 +62,10 @@ Configurare e testare l'accesso SSO di Azure AD con Achieve3000 usando un utente
 Per configurare e testare l'accesso SSO di Azure AD con Achieve3000, completare le procedure di base seguenti:
 
 1. **[Configurare l'accesso Single Sign-On di Azure AD](#configure-azure-ad-sso)** : per consentire agli utenti di usare questa funzionalità.
-    1. **[Creare un utente di test di Azure AD](#create-an-azure-ad-test-user)** : per testare l'accesso Single Sign-On di Azure AD con l'utente B. Simon.
-    1. **[Assegnare l'utente di test di Azure AD](#assign-the-azure-ad-test-user)** : per abilitare B. Simon all'uso dell'accesso Single Sign-On di Azure AD.
-1. **[Configurare l'accesso Single Sign-On di Achieve3000](#configure-achieve3000-sso)** : per configurare le impostazioni di Single Sign-On sul lato applicazione.
-    1. **[Creare l'utente di test di Achieve3000](#create-achieve3000-test-user)** : per avere una controparte di B.Simon in Achieve3000 collegata alla rappresentazione dell'utente in Azure AD.
+    1. **[Creare un utente di test di Azure AD](#create-an-azure-ad-test-user)** : per testare l'accesso Single Sign-On di Azure AD con l'utente B.Simon.
+    1. **[Assegnare l'utente di test di Azure AD](#assign-the-azure-ad-test-user)** : per abilitare B.Simon all'uso dell'accesso Single Sign-On di Azure AD.
+1. **[Configurare l'accesso Single Sign-On di Achieve3000](#configure-achieve3000-sso)**: per configurare le impostazioni di Single Sign-On sul lato applicazione.
+    1. **[Creare l'utente di test di Achieve3000](#create-achieve3000-test-user)**: per avere una controparte di B.Simon in Achieve3000 collegata alla rappresentazione dell'utente in Azure AD.
 1. **[Testare l'accesso Single Sign-On](#test-sso)** : per verificare se la configurazione funziona.
 
 ## <a name="configure-azure-ad-sso"></a>Configurare l'accesso SSO di Azure AD
@@ -141,7 +141,7 @@ Per configurare l'accesso Single Sign-On sul lato **Achieve3000**, è necessario
 
 ### <a name="create-achieve3000-test-user"></a>Creare un utente di test di Achieve3000
 
-In questa sezione viene creato un utente di nome B.Simon in Achieve3000. Per aggiungere utenti nella piattaforma Achieve3000, rivolgersi al  [team di supporto di Achieve3000](https://www.achieve3000.com/contact-us/). Gli utenti devono essere creati e attivati prima di usare l'accesso Single Sign-On.
+In questa sezione viene creato un utente di nome B.Simon in Achieve3000. Collaborare con il [team di supporto di Achieve3000](https://www.achieve3000.com/contact-us/) per aggiungere gli utenti alla piattaforma Achieve3000. Gli utenti devono essere creati e attivati prima di usare l'accesso Single Sign-On.
 
 ## <a name="test-sso"></a>Testare l'accesso SSO 
 

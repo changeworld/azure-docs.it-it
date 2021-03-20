@@ -10,10 +10,10 @@ ms.date: 04/20/2020
 ms.author: dech
 ms.custom: devx-track-js
 ms.openlocfilehash: 1115d7bb0d6857aa39f246743df54a6cf3fd3676
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
-ms.translationtype: HT
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93098659"
 ---
 # <a name="tutorial-build-a-nodejs-console-app-with-the-javascript-sdk-to-manage-azure-cosmos-db-sql-api-data"></a>Esercitazione: Compilare un'applicazione console Node.js con l'SDK JavaScript per gestire i dati API SQL di Azure Cosmos DB
@@ -124,7 +124,7 @@ Nel file *app.js* copiare e incollare il codice seguente per usare l'endpoint e 
 :::code language="javascript" source="~/cosmosdb-nodejs-get-started/app.js" id="CreateClientObjectDatabaseContainer":::
 
 > [!Note]
-> Se ci si connette all' **emulatore di Cosmos DB** , disabilitare la verifica TLS per il processo del nodo:
+> Se ci si connette all'**emulatore di Cosmos DB**, disabilitare la verifica TLS per il processo del nodo:
 >   ```javascript
 >   process.env.NODE_TLS_REJECT_UNAUTHORIZED = "0";
 >   const client = new CosmosClient({ endpoint, key });
@@ -158,7 +158,7 @@ Azure Cosmos DB supporta la sostituzione del contenuto degli elementi. Copiare e
 
 ## <a name="delete-an-item"></a><a id="DeleteItem"></a>Eliminare un elemento
 
-Azure Cosmos DB supporta l'eliminazione di elementi JSON. Il codice seguente illustra come recuperare un elemento in base al relativo ID ed eliminarlo. Copiare e incollare il codice seguente nel file *app.js* :
+Azure Cosmos DB supporta l'eliminazione di elementi JSON. Il codice seguente illustra come recuperare un elemento in base al relativo ID ed eliminarlo. Copiare e incollare il codice seguente nel file *app.js*:
 
 :::code language="javascript" source="~/cosmosdb-nodejs-get-started/app.js" id="DeleteItem":::
 
@@ -217,7 +217,7 @@ node app.js
 
 ## <a name="clean-up-resources"></a>Pulire le risorse
 
-Quando tali risorse non servono più, è possibile eliminare il gruppo di risorse, l'account Azure Cosmos DB e tutte le risorse correlate. A tale scopo, selezionare il gruppo di risorse usato per l'account Azure Cosmos DB, selezionare **Elimina** , quindi confermare il nome del gruppo di risorse da eliminare.
+Quando tali risorse non servono più, è possibile eliminare il gruppo di risorse, l'account Azure Cosmos DB e tutte le risorse correlate. A tale scopo, selezionare il gruppo di risorse usato per l'account Azure Cosmos DB, selezionare **Elimina**, quindi confermare il nome del gruppo di risorse da eliminare.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

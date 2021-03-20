@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 11/27/2018
 ms.author: mayg
 ms.openlocfilehash: 64e40341ec56a2e1c561b2bcbb5e584830c14015
-ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/01/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93145583"
 ---
 # <a name="overview-of-multi-tenant-support-for-vmware-disaster-recovery-to-azure-with-csp"></a>Panoramica del supporto multi-tenant per il ripristino di emergenza da VMware ad Azure con CSP
@@ -24,11 +24,11 @@ Questo articolo offre una panoramica dell'implementazione e della gestione della
 
 Esistono tre modelli multi-tenant principali:
 
-* **Provider di servizi di hosting condiviso** : il partner possiede l'infrastruttura fisica e usa risorse condivise, ad esempio vCenter, data center, archiviazione fisica e così via, per ospitare le macchine virtuali di più tenant nella stessa infrastruttura. Il partner può fornire il ripristino di emergenza come servizio gestito oppure il tenant può essere proprietario del ripristino di emergenza tramite una soluzione self-service.
+* **Provider di servizi di hosting condiviso**: il partner possiede l'infrastruttura fisica e usa risorse condivise, ad esempio vCenter, data center, archiviazione fisica e così via, per ospitare le macchine virtuali di più tenant nella stessa infrastruttura. Il partner può fornire il ripristino di emergenza come servizio gestito oppure il tenant può essere proprietario del ripristino di emergenza tramite una soluzione self-service.
 
-* **Provider di servizi di hosting dedicato** : il partner possiede l'infrastruttura fisica, ma usa risorse dedicate, ad esempio più vCenter, archivi dati fisici e così via, per ospitare le macchine virtuali di ogni tenant in un'infrastruttura separata. Il partner può fornire il ripristino di emergenza come servizio gestito oppure il tenant può essere proprietario di un'apposita soluzione self-service.
+* **Provider di servizi di hosting dedicato**: il partner possiede l'infrastruttura fisica, ma usa risorse dedicate, ad esempio più vCenter, archivi dati fisici e così via, per ospitare le macchine virtuali di ogni tenant in un'infrastruttura separata. Il partner può fornire il ripristino di emergenza come servizio gestito oppure il tenant può essere proprietario di un'apposita soluzione self-service.
 
-* **Provider di servizi gestiti** : il cliente possiede l'infrastruttura fisica che ospita le macchine virtuali e il partner provvede ad abilitare e gestire il ripristino di emergenza.
+* **Provider di servizi gestiti**: il cliente possiede l'infrastruttura fisica che ospita le macchine virtuali e il partner provvede ad abilitare e gestire il ripristino di emergenza.
 
 ## <a name="shared-hosting-services-provider-hsp"></a>Provider di servizi di hosting condiviso
 
@@ -56,9 +56,9 @@ Il partner gestisce anche un server di elaborazione separato con scalabilità or
 
 Ogni server di configurazione nello scenario multi-tenant usa due account:
 
-- **Account di accesso vCenter** : questo account viene usato per individuare le macchine virtuali tenant. Ha autorizzazioni di accesso vCenter assegnate. Per evitare la divulgazione delle credenziali di accesso, è consigliabile che i partner immettano personalmente queste credenziali nello strumento di configurazione.
+- **Account di accesso vCenter**: questo account viene usato per individuare le macchine virtuali tenant. Ha autorizzazioni di accesso vCenter assegnate. Per evitare la divulgazione delle credenziali di accesso, è consigliabile che i partner immettano personalmente queste credenziali nello strumento di configurazione.
 
-- **Account di accesso alla macchina virtuale** : questo account viene usato per installare l'agente del servizio Mobility nelle macchine virtuali tenant con un push automatico. Si tratta in genere di un account di dominio che un tenant può fornire a un partner o che può essere gestito direttamente dal partner. Se un tenant non intende condividere i dettagli direttamente con il partner, può immettere le credenziali tramite un accesso limitato nel tempo al server di configurazione. In alternativa, con l'assistenza del partner è possibile installare l'agente del servizio Mobility manualmente.
+- **Account di accesso alla macchina virtuale**: questo account viene usato per installare l'agente del servizio Mobility nelle macchine virtuali tenant con un push automatico. Si tratta in genere di un account di dominio che un tenant può fornire a un partner o che può essere gestito direttamente dal partner. Se un tenant non intende condividere i dettagli direttamente con il partner, può immettere le credenziali tramite un accesso limitato nel tempo al server di configurazione. In alternativa, con l'assistenza del partner è possibile installare l'agente del servizio Mobility manualmente.
 
 ## <a name="vcenter-account-requirements"></a>Requisiti dell'account vCenter
 
@@ -76,10 +76,10 @@ Configurare il server di configurazione con un account a cui sia assegnato un ru
 2. Assegnare al ruolo le autorizzazioni seguenti:
 
    * **Datastore** (Archivio dati): Allocate space (Alloca spazio), Browse datastore (Sfoglia archivio dati), Low level file operations (Operazioni file di livello basso), Remove file (Rimuovi file), Update virtual machine files (Aggiorna file macchina virtuale)
-   * **Rete** : assegnazione di rete
+   * **Rete**: assegnazione di rete
    * **Resource** (Risorsa): Assign VM to resource pool (Assegna macchina virtuale a pool di risorse), Migrate powered off VM (Esegui migrazione macchina virtuale spenta), Migrate powered on VM (Esegui migrazione macchina virtuale accesa)
-   * **Attività** : Crea attività, Aggiorna attività
-   * **VM - Configuration (Configurazione)** : All (Tutto)
+   * **Attività**: Crea attività, Aggiorna attività
+   * **VM - Configuration (Configurazione)**: All (Tutto)
    * **VM - Interaction (Interazione)** > Answer question (Rispondi alla domanda), Device connection (Connessione dispositivo), Configure CD media (Configura supporto CD), Configure floppy media (Configura supporto floppy), Power off (Spegni), Power on (Accendi), VMware tools install (Installazione strumenti VMware)
    * **VM - Inventory (Inventario)** > Create from existing (Crea da esistente), Create new (Crea nuovo), Register (Registra), Unregister (Annulla registrazione)
    * **VM - Provisioning** > Allow virtual machine download (Consenti download macchina virtuale), Allow virtual machine files upload (Consenti upload file macchina virtuale)
@@ -104,7 +104,7 @@ L'accesso all'account vCenter è ora completato. Questo passaggio soddisfa i req
 ### <a name="failover-only"></a>Solo failover
 Per limitare le operazioni di ripristino di emergenza fino al solo failover (vale a dire senza le funzionalità di failback), usare la procedura precedente con queste eccezioni:
 
-- Invece di assegnare il ruolo *Azure_Site_Recovery* all'account di accesso a vCenter, assegnare solo il ruolo *Read-Only* . Questo set di autorizzazioni consente il failover e la replica delle macchine virtuali e non consente il failback.
+- Invece di assegnare il ruolo *Azure_Site_Recovery* all'account di accesso a vCenter, assegnare solo il ruolo *Read-Only*. Questo set di autorizzazioni consente il failover e la replica delle macchine virtuali e non consente il failback.
 - Tutte le altre fasi del processo precedente restano invariate. Ogni autorizzazione continua a essere assegnata solo a livello di oggetto e non viene propagata agli oggetti figlio per assicurare l'isolamento del tenant e limitare il rilevamento di macchine virtuali.
 
 ### <a name="deploy-resources-to-the-tenant-subscription"></a>Distribuire le risorse nella sottoscrizione del tenant
@@ -120,7 +120,7 @@ Per limitare le operazioni di ripristino di emergenza fino al solo failover (val
 
 1. Passare al portale di Azure e nell'insieme di credenziali creato in precedenza registrare il server vCenter nel server di configurazione usando l'account vCenter creato.
 2. Completare il processo di preparazione dell'infrastruttura per Site Recovery seguendo la procedura consueta.
-3. Le macchine virtuali sono ora pronte per essere replicate. Verificare che vengano visualizzate solo le VM del tenant in **replica**  >  **selezionare macchine virtuali** .
+3. Le macchine virtuali sono ora pronte per essere replicate. Verificare che vengano visualizzate solo le VM del tenant in **replica**  >  **selezionare macchine virtuali**.
 
 ## <a name="dedicated-hosting-solution"></a>Soluzione di hosting dedicato
 
