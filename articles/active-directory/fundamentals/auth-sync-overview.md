@@ -14,10 +14,10 @@ ms.reviewer: ajburnle
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: ab63bc5bd2819a239741da525eebb2404a47bbf9
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/23/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92441199"
 ---
 # <a name="azure-active-directory-integrations-with-authentication-and-synchronization-protocols"></a>Integrazione di Azure Active Directory con protocolli di autenticazione e di sincronizzazione
@@ -40,7 +40,7 @@ Nella tabella seguente viene illustrata l'integrazione di Azure AD di autenticaz
 
  
 
-| Protocollo di autenticazione| Autenticazione| Autorizzazione| Multi-Factor Authentication| Accesso condizionale |
+| Protocollo di autenticazione| Authentication| Autorizzazione| Multi-Factor Authentication| Accesso condizionale |
 | - |- | - | - | - |
 | [Autenticazione basata su intestazione](auth-header-based.md)|![segno di spunta](./media/authentication-patterns/check.png)| ![segno di spunta](./media/authentication-patterns/check.png)| ![segno di spunta](./media/authentication-patterns/check.png)| ![segno di spunta](./media/authentication-patterns/check.png) |
 | [Autenticazione LDAP](auth-ldap.md)| ![segno di spunta](./media/authentication-patterns/check.png)| | |  |

@@ -15,10 +15,10 @@ ms.author: curtand
 ms.custom: pim ; azuread-video-2020
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: c3c7003ce3e8c65f6fdb7f3d847947114aee251f
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
-ms.translationtype: HT
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/22/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92370186"
 ---
 # <a name="what-is-azure-ad-privileged-identity-management"></a>Che cos'è Azure AD Privileged Identity Management?
@@ -38,8 +38,8 @@ Privileged Identity Management fornisce l'attivazione del ruolo basata sul tempo
 
 - Concedere l'accesso con privilegi **JIT** ad Azure AD e alle risorse di Azure
 - Assegnare l'accesso **con vincoli di tempo** alle risorse usando dati di inizio e fine
-- Richiedere l' **approvazione** per attivare i ruoli con privilegi
-- Applicare l' **autenticazione a più fattori** per attivare qualsiasi ruolo
+- Richiedere l'**approvazione** per attivare i ruoli con privilegi
+- Applicare l'**autenticazione a più fattori** per attivare qualsiasi ruolo
 - Usare la **giustificazione** per comprendere i motivi delle attivazioni da parte degli utenti
 - Ricevere **notifiche** all'attivazione dei ruoli con privilegi
 - Condurre **verifiche di accesso** per assicurarsi che gli utenti necessitino ancora dei ruoli
@@ -47,7 +47,7 @@ Privileged Identity Management fornisce l'attivazione del ruolo basata sul tempo
 
 ## <a name="what-can-i-do-with-it"></a>Che si può fare con questa funzionalità?
 
-Dopo aver configurato Privileged Identity Management, saranno visibili le opzioni **Attività** , **Gestisci** e **Attività** nel menu di spostamento a sinistra. In qualità di amministratore, è possibile scegliere tra opzioni come la gestione dei **ruoli di Azure AD** , la gestione dei **ruoli delle risorse di Azure** o i gruppi di accesso con privilegi. Quando si sceglie ciò che si vuole gestire, verrà visualizzato il set di opzioni appropriato in base all'opzione.
+Dopo aver configurato Privileged Identity Management, saranno visibili le opzioni **Attività**, **Gestisci** e **Attività** nel menu di spostamento a sinistra. In qualità di amministratore, è possibile scegliere tra opzioni come la gestione dei **ruoli di Azure AD**, la gestione dei **ruoli delle risorse di Azure** o i gruppi di accesso con privilegi. Quando si sceglie ciò che si vuole gestire, verrà visualizzato il set di opzioni appropriato in base all'opzione.
 
 ![Screenshot di Privileged Identity Management nel portale di Azure](./media/pim-configure/pim-quickstart.png)
 

@@ -12,10 +12,10 @@ ms.author: sethm
 ms.reviewer: thsomasu
 ms.lastreviewed: 02/14/2019
 ms.openlocfilehash: 141812e83653b458a2562bf73b70117c39bf7be0
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
-ms.translationtype: HT
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/22/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92426565"
 ---
 # <a name="quickstart-create-an-azure-notification-hub-in-the-azure-portal"></a>Guida introduttiva: Creare un hub di notifica di Azure nel portale di Azure
@@ -35,7 +35,7 @@ In questa sezione viene creato uno spazio dei nomi e un hub nello spazio dei nom
 In questa sezione viene creato un hub di notifica in uno spazio dei nomi esistente.
 
 1. Accedere al [portale di Azure](https://portal.azure.com).
-2. Selezionare **Tutti i servizi** nel menu a sinistra, cercare **Hub di notifica** , selezionare la **stella** (`*`) accanto a **Spazi dei nomi dell'hub di notifica** per aggiungerlo alla sezione **PREFERITI** nel menu a sinistra. Selezionare **Spazi dei nomi dell'hub di notifica**.
+2. Selezionare **Tutti i servizi** nel menu a sinistra, cercare **Hub di notifica**, selezionare la **stella** (`*`) accanto a **Spazi dei nomi dell'hub di notifica** per aggiungerlo alla sezione **PREFERITI** nel menu a sinistra. Selezionare **Spazi dei nomi dell'hub di notifica**.
 
       ![Portale di Azure - Selezionare Spazi dei nomi dell'hub di notifica](./media/create-notification-hub-portal/select-notification-hub-namespaces-all-services.png)
 3. Nella pagina **Spazi dei nomi dell'hub di notifica** selezionare lo spazio dei nomi nell'elenco.
@@ -53,7 +53,7 @@ In questa sezione viene creato un hub di notifica in uno spazio dei nomi esisten
 7. Aggiornare la pagina Web **Spazi dei nomi dell'hub di notifica** per visualizzare il nuovo hub nell'elenco.
 
       ![Screenshot che mostra la pagina Web Spazi dei nomi dell'hub di notifica con il nuovo hub nell'elenco.](./media/create-notification-hub-portal/new-hub-in-list.png)
-8. Selezionare l' **hub di notifica** per visualizzare la home page dell'hub di notifica.
+8. Selezionare l'**hub di notifica** per visualizzare la home page dell'hub di notifica.
 
       ![Screenshot che mostra la home page dell'hub di notifica.](./media/create-notification-hub-portal/hub-home-page.png)
 

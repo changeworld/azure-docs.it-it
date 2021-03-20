@@ -7,10 +7,10 @@ ms.topic: how-to
 ms.date: 05/29/2018
 ms.author: twooley
 ms.openlocfilehash: 02544489816f5711ca6e599c2bce03737c747934
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/16/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92106621"
 ---
 # <a name="register-data-from-azure-data-lake-storage-gen1-in-azure-data-catalog"></a>Registrare i dati di Azure Data Lake Storage Gen1 in Azure Data Catalog
@@ -35,7 +35,7 @@ Prima di iniziare questa esercitazione, è necessario disporre di quanto segue:
 
     ![Registrazione di un'origine dati](./media/data-lake-store-with-data-catalog/register-data-source.png "Registrazione di un'origine dati")
 1. Nella pagina successiva fare clic su **Avvia applicazione**. Verrà scaricato il file manifesto dell'applicazione nel computer in uso. Fare doppio clic sul file manifesto per avviare l'applicazione.
-1. Nella pagina di benvenuto fare clic su **Accedi**e immettere le credenziali.
+1. Nella pagina di benvenuto fare clic su **Accedi** e immettere le credenziali.
 
     ![Schermata iniziale](./media/data-lake-store-with-data-catalog/welcome.screen.png "Schermata iniziale")
 1. Nella pagina Selezionare un'origine dati selezionare **Azure Data Lake Store** e quindi fare clic su **Avanti**.

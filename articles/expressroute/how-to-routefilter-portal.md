@@ -9,10 +9,10 @@ ms.date: 10/15/2020
 ms.author: duau
 ms.custom: seodec18
 ms.openlocfilehash: d142028d197f9e279b5f1e05757946dc40d2c153
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
-ms.translationtype: HT
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/16/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92109137"
 ---
 # <a name="tutorial-configure-route-filters-for-microsoft-peering-using-the-azure-portal"></a>Esercitazione: Configurare i filtri di route per il peering Microsoft usando il Portale di Azure
@@ -27,13 +27,13 @@ I filtri di route rappresentano un modo per usare un subset di servizi supportat
 
 I servizi di Microsoft 365 come Exchange Online, SharePoint Online e Skype for Business sono accessibili tramite il peering Microsoft. Quando il peering Microsoft viene configurato in un circuito ExpressRoute, tutti i prefissi relativi a questi servizi vengono annunciati tramite le sessioni BGP stabilite. A ogni prefisso viene associato un valore di community BGP per identificare il servizio offerto tramite il prefisso. Per un elenco dei valori di community BGP e i servizi a cui sono associati, vedere [community BGP](expressroute-routing.md#bgp).
 
-Con la connettività a tutti i servizi di Azure e Microsoft 365 viene annunciato un numero elevato di prefissi tramite BGP. Questo numero elevato aumenta notevolmente le dimensioni delle tabelle di route gestite dai router all'interno della rete. Se si prevede di usare solo un subset dei servizi offerti tramite il peering Microsoft, è possibile ridurre le dimensioni delle tabelle di route in due modi. è possibile:
+Con la connettività a tutti i servizi di Azure e Microsoft 365 viene annunciato un numero elevato di prefissi tramite BGP. Questo numero elevato aumenta notevolmente le dimensioni delle tabelle di route gestite dai router all'interno della rete. Se si prevede di usare solo un subset dei servizi offerti tramite il peering Microsoft, è possibile ridurre le dimensioni delle tabelle di route in due modi. È possibile:
 
 * Escludere i prefissi indesiderati applicando filtri di route alle community BGP. Il filtro di route è una procedura di rete standard usata comunemente in molte reti.
 
 * Definire i filtri di route e applicarli al circuito ExpressRoute. Un filtro di route è una nuova risorsa che consente di selezionare l'elenco dei servizi che si prevede di usare tramite il peering Microsoft. I router ExpressRoute inviano solo l'elenco dei prefissi che appartengono ai servizi identificati nel filtro di route.
 
-In questa esercitazione si apprenderà come:
+In questa esercitazione verranno illustrate le procedure per:
 > [!div class="checklist"]
 > - Ottenere i valori di community BGP.
 > - Creare un filtro di route e una regola di filtro.
@@ -79,27 +79,27 @@ Un filtro di route può includere una sola regola di tipo 'Consenti'. A questa r
 
 1. Inserire il filtro della route in un gruppo di risorse. Assicurarsi che la località sia la stessa del circuito ExpressRoute. Selezionare **Rivedi e crea** e quindi **Crea**.
 
-    :::image type="content" source="./media/how-to-routefilter-portal/create-route-filter-basic.png" alt-text="Screenshot che mostra la pagina Filtro della route":::
+    :::image type="content" source="./media/how-to-routefilter-portal/create-route-filter-basic.png" alt-text="Screenshot che mostra la pagina Crea filtro route con valori di esempio immessi":::
 
 ### <a name="create-a-filter-rule"></a>Creare una regola di filtro
 
 1. Per aggiungere e aggiornare regole, selezionare la scheda Gestisci regola per il filtro di route.
 
-    :::image type="content" source="./media/how-to-routefilter-portal/manage-route-filter.png" alt-text="Screenshot che mostra la pagina Filtro della route":::
+    :::image type="content" source="./media/how-to-routefilter-portal/manage-route-filter.png" alt-text="Screenshot che mostra la pagina di panoramica con l'azione Gestisci regola evidenziata":::
 
 1. Selezionare i servizi a cui connettersi nell'elenco a discesa e al termine salvare la regola.
 
-    :::image type="content" source="./media/how-to-routefilter-portal/add-route-filter-rule.png" alt-text="Screenshot che mostra la pagina Filtro della route":::
+    :::image type="content" source="./media/how-to-routefilter-portal/add-route-filter-rule.png" alt-text="Screenshot che mostra la finestra Gestisci regola con i servizi selezionati nell'elenco a discesa Community di servizi consentite":::
 
 ## <a name="attach-the-route-filter-to-an-expressroute-circuit"></a><a name="attach"></a>Associare il filtro di route a un circuito ExpressRoute
 
 Associare il filtro di route a un circuito facendo clic sul pulsante **+ Aggiungi circuito** e selezionando il circuito ExpressRoute nell'elenco a discesa.
 
-:::image type="content" source="./media/how-to-routefilter-portal/add-circuit-to-route-filter.png" alt-text="Screenshot che mostra la pagina Filtro della route":::
+:::image type="content" source="./media/how-to-routefilter-portal/add-circuit-to-route-filter.png" alt-text="Screenshot che mostra la pagina di panoramica con l'azione Aggiungi circuito selezionata":::
 
 Se il provider di connettività configura il peering per il circuito ExpressRoute, aggiornare il circuito ExpressRoute nella pagina corrispondente prima di selezionare il pulsante **+ Aggiungi circuito**.
 
-:::image type="content" source="./media/how-to-routefilter-portal/refresh-express-route-circuit.png" alt-text="Screenshot che mostra la pagina Filtro della route":::
+:::image type="content" source="./media/how-to-routefilter-portal/refresh-express-route-circuit.png" alt-text="Screenshot che mostra la pagina di panoramica con l'azione Aggiorna selezionata.":::
 
 ## <a name="common-tasks"></a><a name="tasks"></a>Attività comuni
 
@@ -107,30 +107,30 @@ Se il provider di connettività configura il peering per il circuito ExpressRout
 
 È possibile visualizzare le proprietà di un filtro di route quando si apre la risorsa nel portale.
 
-:::image type="content" source="./media/how-to-routefilter-portal/view-route-filter.png" alt-text="Screenshot che mostra la pagina Filtro della route":::
+:::image type="content" source="./media/how-to-routefilter-portal/view-route-filter.png" alt-text="Screenshot che mostra la pagina di panoramica":::
 
 ### <a name="to-update-the-properties-of-a-route-filter"></a><a name="updateproperties"></a>Per aggiornare le proprietà di un filtro di route
 
 1. È possibile aggiornare l'elenco dei valori di community BGP associato a un circuito facendo clic sul pulsante **Gestisci regola**.
 
-    :::image type="content" source="./media/how-to-routefilter-portal/update-route-filter.png" alt-text="Screenshot che mostra la pagina Filtro della route":::
+    :::image type="content" source="./media/how-to-routefilter-portal/update-route-filter.png" alt-text="Filtri per aggiornare la route con l'azione Gestisci regola":::
 
 1. Selezionare le community di servizi e quindi **Salva**.
 
-    :::image type="content" source="./media/how-to-routefilter-portal/add-route-filter-rule.png" alt-text="Screenshot che mostra la pagina Filtro della route":::
+    :::image type="content" source="./media/how-to-routefilter-portal/add-route-filter-rule.png" alt-text="Screenshot che mostra la finestra Gestisci regola con i servizi selezionati":::
 
 ### <a name="to-detach-a-route-filter-from-an-expressroute-circuit"></a><a name="detach"></a>Per rimuovere l'associazione di un filtro di route da un circuito ExpressRoute
 
 Per annullare l'associazione di circuito dal filtro di route, fare clic con il pulsante destro del mouse sul circuito e scegliere **Annulla associazione**.
 
-:::image type="content" source="./media/how-to-routefilter-portal/detach-route-filter.png" alt-text="Screenshot che mostra la pagina Filtro della route":::
+:::image type="content" source="./media/how-to-routefilter-portal/detach-route-filter.png" alt-text="Screenshot che mostra la pagina di panoramica con l'azione Annulla associazione evidenziata":::
 
 
 ## <a name="clean-up-resources"></a>Pulizia delle risorse
 
 È possibile eliminare un filtro di route selezionando il pulsante **Elimina**. Prima di procedere, verificare che il filtro di route non sia associato ad alcun circuito.
 
-:::image type="content" source="./media/how-to-routefilter-portal/delete-route-filter.png" alt-text="Screenshot che mostra la pagina Filtro della route":::
+:::image type="content" source="./media/how-to-routefilter-portal/delete-route-filter.png" alt-text="Eliminare un filtro della route":::
 
 ## <a name="next-steps"></a>Passaggi successivi
 

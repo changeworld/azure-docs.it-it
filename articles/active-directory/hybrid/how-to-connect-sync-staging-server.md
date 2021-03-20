@@ -17,10 +17,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 48584fa4042cf53fa1084e519dca0e64f530ca59
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "90090126"
 ---
 # <a name="azure-ad-connect-staging-server-and-disaster-recovery"></a>Azure AD Connect: server di staging e ripristino di emergenza
@@ -33,7 +33,7 @@ La modalità di gestione temporanea può essere usata per diversi scenari, ad es
 * Testare e distribuire le nuove modifiche della configurazione.
 * Introdurre un nuovo server e rimuovere quello vecchio.
 
-Durante l'installazione è possibile selezionare la **modalità di gestione temporanea**per il server. In questo modo il server sarà attivo per le operazioni di importazione e sincronizzazione, ma non eseguirà esportazioni. Un server in modalità di gestione temporanea non eseguirà la sincronizzazione o il writeback delle password, anche se queste funzionalità sono state selezionate durante l'installazione. Quando si disabilita la modalità di gestione temporanea, il server avvia l'esportazione e abilita la sincronizzazione e il writeback delle password.
+Durante l'installazione è possibile selezionare la **modalità di gestione temporanea** per il server. In questo modo il server sarà attivo per le operazioni di importazione e sincronizzazione, ma non eseguirà esportazioni. Un server in modalità di gestione temporanea non eseguirà la sincronizzazione o il writeback delle password, anche se queste funzionalità sono state selezionate durante l'installazione. Quando si disabilita la modalità di gestione temporanea, il server avvia l'esportazione e abilita la sincronizzazione e il writeback delle password.
 
 > [!NOTE]
 > Si supponga di avere Azure AD Connect con la funzionalità di sincronizzazione dell'hash delle password abilitata. Quando si abilita la modalità di gestione temporanea, il server arresta la sincronizzazione delle modifiche alla password da AD locale. Quando si disabilita la modalità di gestione temporanea, il server riepiloga la sincronizzazione delle modifiche alla password dal punto in cui è stata interrotta. Se il server viene lasciato in modalità di gestione temporanea per un lungo periodo di tempo, la sincronizzazione da parte del server di tutte le modifiche alle password, verificatesi durante un determinato periodo, potrebbe richiedere un po' di tempo.
@@ -151,9 +151,9 @@ write-host "Importing XML" -ForegroundColor Yellow
 $resolvedXMLtoimport=Resolve-Path -Path ([Environment]::ExpandEnvironmentVariables($xmltoimport))
 
 #use an XmlReader to deal with even large files
-$result=$reader = [System.Xml.XmlReader]::Create($resolvedXMLtoimport) 
+$result=$reader = [System.Xml.XmlReader]::Create($resolvedXMLtoimport) 
 $result=$reader.ReadToDescendant('cs-object')
-do 
+do 
 {
     #create the object placeholder
     #adding them up here means we can enforce consistency

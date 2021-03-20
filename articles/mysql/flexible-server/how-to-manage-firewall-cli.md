@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.date: 9/21/2020
 ms.custom: devx-track-azurecli
 ms.openlocfilehash: 84fdd3045d5a1d44ff611134d88fc9793ee203de
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/26/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92545073"
 ---
 # <a name="create-and-manage-azure-database-for-mysql---flexible-server-firewall-rules-using-the-azure-cli"></a>Creare e gestire database di Azure per MySQL: regole flessibili del firewall del server usando l'interfaccia della riga di comando di Azure
@@ -25,7 +25,7 @@ Il server flessibile del Database di Azure per MySQL supporta due tipi di metodi
 - Accesso pubblico (indirizzi IP consentiti)
 - Accesso privato (integrazione rete virtuale)
 
-Questo articolo illustra la creazione di un server MySQL con **accesso pubblico (indirizzi IP consentiti)** usando l'interfaccia della riga di comando di Azure e fornisce una panoramica sui comandi dell'interfaccia della riga di comando di Azure che è possibile usare per creare, aggiornare, eliminare, elencare e visualizzare le regole del firewall dopo la creazione del server. Con l' *accesso pubblico (indirizzi IP consentiti)* , le connessioni al server MySQL sono limitate solo agli indirizzi IP consentiti. Gli indirizzi IP client devono essere consentiti nelle regole del firewall. Per altre informazioni, vedere [accesso pubblico (indirizzi IP consentiti)](./concepts-networking.md#public-access-allowed-ip-addresses). Le regole del firewall possono essere definite al momento della creazione del server (scelta consigliata), ma possono essere aggiunte anche in seguito.
+Questo articolo illustra la creazione di un server MySQL con **accesso pubblico (indirizzi IP consentiti)** usando l'interfaccia della riga di comando di Azure e fornisce una panoramica sui comandi dell'interfaccia della riga di comando di Azure che è possibile usare per creare, aggiornare, eliminare, elencare e visualizzare le regole del firewall dopo la creazione del server. Con l' *accesso pubblico (indirizzi IP consentiti)*, le connessioni al server MySQL sono limitate solo agli indirizzi IP consentiti. Gli indirizzi IP client devono essere consentiti nelle regole del firewall. Per altre informazioni, vedere [accesso pubblico (indirizzi IP consentiti)](./concepts-networking.md#public-access-allowed-ip-addresses). Le regole del firewall possono essere definite al momento della creazione del server (scelta consigliata), ma possono essere aggiunte anche in seguito.
 
 ## <a name="launch-azure-cloud-shell"></a>Avviare Azure Cloud Shell
 
@@ -89,11 +89,11 @@ Vedere la [documentazione di riferimento](/cli/azure/mysql/flexible-server) dell
 L'interfaccia della riga di comando di Azure consente di creare, eliminare, elencare, visualizzare e aggiornare le regole del firewall tramite l'interfaccia della **riga** di comando di Azure.
 
 Comandi:
-- **Crea** : creare una regola del firewall del server flessibile.
-- **elenco** : elencare le regole flessibili del firewall del server.
-- **aggiornamento** : aggiornare una regola del firewall del server flessibile.
-- **Mostra** : Mostra i dettagli di una regola del firewall del server flessibile.
-- **Elimina** : eliminare una regola del firewall flessibile del server.
+- **Crea**: creare una regola del firewall del server flessibile.
+- **elenco**: elencare le regole flessibili del firewall del server.
+- **aggiornamento**: aggiornare una regola del firewall del server flessibile.
+- **Mostra**: Mostra i dettagli di una regola del firewall del server flessibile.
+- **Elimina**: eliminare una regola del firewall flessibile del server.
 
 Vedere la [documentazione di riferimento](/cli/azure/mysql/flexible-server) dell'interfaccia della riga di comando di Azure per l'elenco completo dei parametri CLI configurabili. Ad esempio, nei comandi seguenti è possibile specificare facoltativamente il gruppo di risorse.
 

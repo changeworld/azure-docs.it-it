@@ -4,10 +4,10 @@ description: Crittografare i dati dell'applicazione in archiviazione di Azure e 
 ms.topic: article
 ms.date: 03/06/2020
 ms.openlocfilehash: 6e4cf16118e748e3ee1d1ff4899730463565ec70
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/16/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92108032"
 ---
 # <a name="encrypt-your-application-data-at-rest-using-customer-managed-keys"></a>Crittografare i dati dell'applicazione inattivi usando chiavi gestite dal cliente
@@ -20,7 +20,7 @@ Per crittografare i dati dell'applicazione dell'app per le funzioni è necessari
 
 ## <a name="set-up-encryption-at-rest"></a>Configurare la crittografia inattiva
 
-### <a name="create-an-azure-storage-account"></a>Creare un account di Archiviazione di Azure
+### <a name="create-an-azure-storage-account"></a>Creare un account di archiviazione di Azure
 
 Prima di tutto, [creare un account di archiviazione di Azure](../storage/common/storage-account-create.md) e [crittografarlo con chiavi gestite dal cliente](../storage/common/customer-managed-keys-overview.md). Una volta creato l'account di archiviazione, usare il [Azure Storage Explorer](../vs-azure-tools-storage-manage-with-storage-explorer.md) per caricare i file del pacchetto.
 

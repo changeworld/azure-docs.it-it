@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 10/01/2020
 ms.custom: shresha
 ms.openlocfilehash: 15f1a814b302611029cf6459b8d2df93a32a2d36
-ms.sourcegitcommit: 44844a49afe8ed824a6812346f5bad8bc5455030
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/23/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97740556"
 ---
 # <a name="migrating-to-new-azure-time-series-insights-gen2-api-versions"></a>Migrazione a nuove versioni dell'API Gen2 Azure Time Series Insights
@@ -84,7 +84,7 @@ Se l'applicazione personalizzata effettua chiamate agli endpoint REST seguenti, 
 
 - API modello della serie temporale
   - API impostazioni modello
-    - [Ottieni](/rest/api/time-series-insights/dataaccessgen2/modelsettings/get)
+    - [Recupero](/rest/api/time-series-insights/dataaccessgen2/modelsettings/get)
     - [Aggiornamento](/rest/api/time-series-insights/dataaccessgen2/modelsettings/update)
   - API dell'istanza
     - [Tutte le operazioni batch](/rest/api/time-series-insights/dataaccessgen2/timeseriesinstances/executebatch)
@@ -107,7 +107,7 @@ Per gli endpoint REST seguenti, è necessario aggiornare la versione dell'API a 
   - [Getserie](/rest/api/time-series-insights/dataaccessgen2/query/execute#getseries)
   - [GetAggregateSeries](/rest/api/time-series-insights/dataaccessgen2/query/execute#aggregateseries)
 
-### <a name="examples"></a>Esempi
+### <a name="examples"></a>Esempio
 
 #### <a name="typesbatchput"></a>TypesBatchPut
 

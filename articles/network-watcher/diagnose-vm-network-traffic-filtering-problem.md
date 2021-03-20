@@ -18,10 +18,10 @@ ms.date: 04/20/2018
 ms.author: damendo
 ms.custom: mvc
 ms.openlocfilehash: e78c4a2f30cac1d6c503da6d1d2fdbc1105065e0
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
-ms.translationtype: HT
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/02/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96492506"
 ---
 # <a name="quickstart-diagnose-a-virtual-machine-network-traffic-filter-problem-using-the-azure-portal"></a>Avvio rapido: Diagnosticare un problema di filtro del traffico di rete di una macchina virtuale con il portale di Azure
@@ -40,7 +40,7 @@ Accedere al portale di Azure all'indirizzo https://portal.azure.com.
 2. Selezionare **Calcolo** e quindi **Windows Server 2016 Datacenter** o una versione di **Ubuntu Server**.
 3. Immettere o selezionare le informazioni seguenti, accettare le impostazioni predefinite rimanenti e quindi scegliere **OK**:
 
-    |Impostazione|valore|
+    |Impostazione|Valore|
     |---|---|
     |Nome|myVm|
     |Nome utente| Immettere un nome utente a scelta.|
@@ -76,13 +76,13 @@ Quando si crea una macchina virtuale, per impostazione predefinita Azure consent
 2. Selezionare **Verifica flusso IP** in **Strumenti di diagnostica di rete**.
 3. Selezionare la sottoscrizione, immettere o selezionare i valori seguenti e quindi selezionare **Controllo**, come illustrato nell'immagine seguente:
 
-    |Impostazione            |valore                                                                                              |
+    |Impostazione            |Valore                                                                                              |
     |---------          |---------                                                                                          |
     | Resource group    | Selezionare myResourceGroup                                                                            |
     | Macchina virtuale   | Selezionare myVm                                                                                       |
     | interfaccia di rete | MyVM: il nome dell'interfaccia di rete creata dal portale quando è stata creata la VM è diverso. |
     | Protocollo          | TCP                                                                                               |
-    | Direction         | In uscita                                                                                          |
+    | Direzione         | In uscita                                                                                          |
     | Indirizzo IP locale  | 10.0.0.4                                                                                          |
     | Porta locale      | 60000                                                                                                |
     | Indirizzo IP remoto | 13.107.21.200: uno degli indirizzi per <www.bing.com>.                                             |

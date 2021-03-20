@@ -8,16 +8,16 @@ ms.topic: conceptual
 ms.custom: devx-track-csharp
 ms.date: 08/06/2020
 ms.openlocfilehash: 15c7ed4ca9d04e4bb314eea8b92bef749d2369b1
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/26/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92537661"
 ---
 # <a name="azure-cache-for-redis-management-faqs"></a>Domande frequenti sulla gestione di cache di Azure per Redis
 Questo articolo fornisce le risposte alle domande comuni su come gestire cache di Azure per Redis.
 
-## <a name="common-questions-and-answers"></a>Domande frequenti e risposte
+## <a name="common-questions-and-answers"></a>Domande e risposte comuni
 In questa sezione vengono illustrate le domande frequenti seguenti:
 
 * [Quando è consigliabile abilitare la porta non TLS/SSL per la connessione a Redis?](#when-should-i-enable-the-non-tlsssl-port-for-connecting-to-redis)
@@ -147,7 +147,7 @@ Come configurare questa impostazione:
 * È anche possibile specificare l'impostazione relativa al numero minimo di thread usando l'impostazione di configurazione [*minIoThreads* o  *minWorkerThreads*](/previous-versions/dotnet/netframework-4.0/7w2sway1(v=vs.100)) nell'elemento di configurazione `<processModel>` in `Machine.config`, in genere situato in `%SystemRoot%\Microsoft.NET\Framework\[versionNumber]\CONFIG\`. **Impostare il numero minimo di thread in questo modo non è in genere consigliato, perché si tratta di un'impostazione a livello di sistema.**
 
   > [!NOTE]
-  > Il valore specificato in questo elemento di configurazione è un'impostazione *per core* . Ad esempio, se si ha un computer con 4 core e si vuole che l'impostazione *minIoThreads* sia 200 in fase di esecuzione, occorre usare `<processModel minIoThreads="50"/>`.
+  > Il valore specificato in questo elemento di configurazione è un'impostazione *per core*. Ad esempio, se si ha un computer con 4 core e si vuole che l'impostazione *minIoThreads* sia 200 in fase di esecuzione, occorre usare `<processModel minIoThreads="50"/>`.
   >
 
 ### <a name="enable-server-gc-to-get-more-throughput-on-the-client-when-using-stackexchangeredis"></a>Abilitare il server Garbage Collection in modo da ottenere una velocità effettiva maggiore sul client quando si usa StackExchange.Redis

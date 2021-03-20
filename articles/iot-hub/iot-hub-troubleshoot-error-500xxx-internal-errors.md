@@ -9,27 +9,27 @@ ms.topic: troubleshooting
 ms.date: 01/30/2020
 ms.author: jlian
 ms.openlocfilehash: 1333a135f3e123757e268513f73e8329537e630b
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/26/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92538205"
 ---
 # <a name="500xxx-internal-errors"></a>Errori interni 500xxx
 
-Questo articolo descrive le cause e le soluzioni per gli **errori interni di 500xxx** .
+Questo articolo descrive le cause e le soluzioni per gli **errori interni di 500xxx**.
 
 ## <a name="symptoms"></a>Sintomi
 
 La richiesta all'hub delle cose ha esito negativo con un errore che inizia con 500 e/o una sorta di "errore del server". Di seguito sono riportate alcune possibilità:
 
-* **500001 servererror** : l'hub Internet ha eseguito un problema sul lato server.
+* **500001 servererror**: l'hub Internet ha eseguito un problema sul lato server.
 
-* **500008 GenericTimeout** : l'hub Internet non è riuscito a completare la richiesta di connessione prima del timeout.
+* **500008 GenericTimeout**: l'hub Internet non è riuscito a completare la richiesta di connessione prima del timeout.
 
-* **ServiceUnavailable (nessun codice errore)** : si è verificato un errore interno dell'hub.
+* **ServiceUnavailable (nessun codice errore)**: si è verificato un errore interno dell'hub.
 
-* **InternalServerError (nessun codice errore)** : si è verificato un errore interno dell'hub.
+* **InternalServerError (nessun codice errore)**: si è verificato un errore interno dell'hub.
 
 ## <a name="cause"></a>Causa
 

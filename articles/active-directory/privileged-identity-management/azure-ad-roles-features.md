@@ -15,10 +15,10 @@ ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: e4478c9c286c06d5d6c5593195a0e93abd286b8c
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/22/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92371512"
 ---
 # <a name="management-capabilities-for-azure-ad-roles-in-privileged-identity-management"></a>Funzionalità di gestione per i ruoli di Azure AD in Privileged Identity Management
@@ -42,7 +42,7 @@ In molti casi, anche se non si vuole che gli utenti dispongano di assegnazione i
 
 Vengono inoltre aggiunte nuove impostazioni per i ruoli Azure AD.
 
-- **In precedenza**era possibile configurare solo le impostazioni di attivazione per singolo ruolo. Ovvero le impostazioni di attivazione, ad esempio i requisiti di autenticazione a più fattori e i requisiti del ticket per eventi imprevisti e richieste, sono stati applicati a tutti gli utenti idonei per un ruolo specifico.
+- **In precedenza** era possibile configurare solo le impostazioni di attivazione per singolo ruolo. Ovvero le impostazioni di attivazione, ad esempio i requisiti di autenticazione a più fattori e i requisiti del ticket per eventi imprevisti e richieste, sono stati applicati a tutti gli utenti idonei per un ruolo specifico.
 - A **questo punto**, è possibile configurare se un singolo utente deve eseguire l'autenticazione a più fattori prima di poter attivare un ruolo. Inoltre, è possibile disporre di un controllo avanzato sui messaggi di posta elettronica di Privileged Identity Management correlati a ruoli specifici.
 
 ## <a name="extend-and-renew-assignments"></a>Estendi e rinnova le assegnazioni

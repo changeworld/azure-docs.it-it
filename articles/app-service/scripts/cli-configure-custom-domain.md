@@ -1,5 +1,5 @@
 ---
-title: "Interfaccia della riga di comando: Eseguire il mapping di un dominio personalizzato a un'app"
+title: "INTERFACCIA della riga di comando: eseguire il mapping di un dominio personalizzato a un'app"
 description: Informazioni su come usare l'interfaccia della riga di comando di Azure per automatizzare la distribuzione e la gestione dell'app Servizio app. Questo esempio illustra come eseguire il mapping di un dominio personalizzato a un'app.
 tags: azure-service-management
 ms.assetid: 5ac4a680-cc73-4578-bcd6-8668c08802c2
@@ -8,10 +8,10 @@ ms.topic: sample
 ms.date: 12/11/2017
 ms.custom: mvc, seodec18
 ms.openlocfilehash: b7fa6955de306906de3be75bf465a955e4463ca2
-ms.sourcegitcommit: 273c04022b0145aeab68eb6695b99944ac923465
-ms.translationtype: HT
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/10/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97006515"
 ---
 # <a name="map-a-custom-domain-to-an-app-service-app-using-cli"></a>Eseguire il mapping di un dominio personalizzato a un'app del servizio app usando l'interfaccia della riga di comando

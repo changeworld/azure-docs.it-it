@@ -12,10 +12,10 @@ manager: celestedg
 ms.workload: identity
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 983a803245467145a0b1161a4495e8045759e7ab
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/23/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92442066"
 ---
 # <a name="billing-model-for-azure-ad-external-identities"></a>Modello di fatturazione per Azure AD identità esterne
@@ -51,11 +51,11 @@ Un tenant di Azure AD deve essere collegato a una sottoscrizione di Azure per la
 
     ![Selezionare l'icona directory + sottoscrizione](media/external-identities-pricing/portal-mau-pick-directory.png)
 
-3. In **servizi di Azure**selezionare **Azure Active Directory**.
+3. In **servizi di Azure** selezionare **Azure Active Directory**.
 
 4. Nel menu a sinistra selezionare **Identità esterne**.
 
-5. In **sottoscrizioni**selezionare **sottoscrizioni collegate**.
+5. In **sottoscrizioni** selezionare **sottoscrizioni collegate**.
 
 6. Nell'elenco tenant selezionare la casella di controllo accanto al tenant, quindi selezionare **collega sottoscrizione**.
 
@@ -68,7 +68,7 @@ Un tenant di Azure AD deve essere collegato a una sottoscrizione di Azure per la
 
     ![Selezionare una sottoscrizione e un gruppo di risorse](media/external-identities-pricing/link-subscription-resource.png)
 
-Dopo aver completato questi passaggi, la sottoscrizione di Azure viene fatturata in base ai dettagli di Azure Direct o Enterprise Agreement, se applicabile.
+Dopo aver completato questi passaggi, la sottoscrizione di Azure viene fatturata in base ai dettagli di Azure Direct o Contratto Enterprise, se applicabile.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

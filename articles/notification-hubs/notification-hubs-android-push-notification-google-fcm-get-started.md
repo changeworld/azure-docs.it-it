@@ -17,10 +17,10 @@ ms.author: sethm
 ms.reviewer: thsomasu
 ms.lastreviewed: 09/11/2019
 ms.openlocfilehash: c5485dacc4d9e3210ad69819caf4e36f96c626da
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
-ms.translationtype: HT
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/22/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92428375"
 ---
 # <a name="tutorial-send-push-notifications-to-android-devices-using-firebase-sdk-version-06"></a>Esercitazione: Inviare notifiche push ai dispositivi Android con Firebase SDK versione 0.6
@@ -56,7 +56,7 @@ Il completamento di questa esercitazione costituisce un prerequisito per tutte l
 ## <a name="create-an-android-studio-project"></a>Creare un progetto di Android Studio
 
 1. Avviare Android Studio.
-2. Selezionare **File** , scegliere **New** (Nuovo) e quindi **New Project** (Nuovo progetto). 
+2. Selezionare **File**, scegliere **New** (Nuovo) e quindi **New Project** (Nuovo progetto). 
 2. Nella pagina **Choose your project** (Scegliere il progetto) selezionare **Empty Activity** (Attività vuota) e quindi **Next** (Avanti). 
 3. Nella pagina **Configure your project** (Configurare il progetto) completare questi passaggi: 
     1. Immettere un nome per l'applicazione.
@@ -92,7 +92,7 @@ L'hub è ora configurato per l'uso di Firebase Cloud Messaging. Sono anche dispo
 2. Selezionare la versione di destinazione di Android SDK che viene usata nel progetto. Quindi selezionare **Mostra i dettagli del pacchetto**. 
 
     ![Android SDK Manager: selezionare la versione di destinazione](./media/notification-hubs-android-studio-add-google-play-services/notification-hubs-android-studio-sdk-manager.png)
-3. Selezionare **API Google** , se non è già installato.
+3. Selezionare **API Google**, se non è già installato.
 
     ![Android SDK Manager: selezione di Google APIs (API Google)](./media/notification-hubs-android-studio-add-google-play-services/googole-apis-selected.png)
 4. Passare alla scheda **SDK Tools**. Se lo strumento Google Play Services non è già installato, fare clic su **Google Play Services** come illustrato nell'immagine di seguito. Selezionare **Applica** per installarlo. Prendere nota del percorso dell'SDK per l'uso in un passaggio successivo.
@@ -100,7 +100,7 @@ L'hub è ora configurato per l'uso di Firebase Cloud Messaging. Sono anche dispo
     ![Android SDK Manager: selezione di Google Play Services](./media/notification-hubs-android-studio-add-google-play-services/google-play-services-selected.png)
 3. Se viene visualizzata la finestra di dialogo **Confirm Change** (Conferma modifica), selezionare **OK**. Il programma di installazione componenti installa i componenti richiesti. Al termine dell'installazione dei componenti, selezionare **Finish** (Fine).
 4. Selezionare **OK** per chiudere la finestra di dialogo **Settings for New Projects** (Impostazioni per nuovi progetti).  
-1. Aprire il file AndroidManifest.xml e quindi aggiungere il tag seguente al tag dell' *applicazione*.
+1. Aprire il file AndroidManifest.xml e quindi aggiungere il tag seguente al tag dell'*applicazione*.
 
     ```xml
     <meta-data android:name="com.google.android.gms.version"
@@ -171,12 +171,12 @@ L'hub è ora configurato per l'uso di Firebase Cloud Messaging. Sono anche dispo
 
 ### <a name="add-code"></a>Aggiungere codice
 
-1. Nella visualizzazione del progetto espandere **app** > **src** > **main** > **java**. Fare clic con il pulsante destro del mouse sulla cartella del pacchetto in **java** , scegliere **New** (Nuovo), quindi selezionare **Java Class** (Classe Java). Immettere **Notification Settings** come nome e quindi scegliere **OK**.
+1. Nella visualizzazione del progetto espandere **app** > **src** > **main** > **java**. Fare clic con il pulsante destro del mouse sulla cartella del pacchetto in **java**, scegliere **New** (Nuovo), quindi selezionare **Java Class** (Classe Java). Immettere **Notification Settings** come nome e quindi scegliere **OK**.
 
     Aggiornare questi tre segnaposto nel codice seguente per la classe `NotificationSettings`:
 
-   * **HubListenConnectionString** : la stringa di connessione **DefaultListenAccessSignature** per l'hub. È possibile copiare la stringa di connessione facendo clic su **Criteri di accesso** nell'hub nel [Azure portal].
-   * **HubName** : Usare il nome dell'hub visualizzato nella pagina dell'hub del [Azure portal].
+   * **HubListenConnectionString**: la stringa di connessione **DefaultListenAccessSignature** per l'hub. È possibile copiare la stringa di connessione facendo clic su **Criteri di accesso** nell'hub nel [Azure portal].
+   * **HubName**: Usare il nome dell'hub visualizzato nella pagina dell'hub del [Azure portal].
 
      `NotificationSettings` :
 

@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 01/12/2021
 ms.author: aahi
 ms.openlocfilehash: dda3ece27fd2c687647e0aa289bd1596a87b274f
-ms.sourcegitcommit: 0aec60c088f1dcb0f89eaad5faf5f2c815e53bf8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/14/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98186023"
 ---
 # <a name="telemetry-and-troubleshooting"></a>Telemetria e risoluzione dei problemi
@@ -216,9 +216,9 @@ I log vengono caricati su richiesta con il `getRTCVLogs` metodo IOT Edge, nel `d
 
 
 1. Andare alla pagina del portale dell'hub Internet delle cose, selezionare **dispositivi perimetrali**, quindi selezionare il dispositivo e il modulo di diagnostica. 
-2. Passare alla pagina dei dettagli del modulo e fare clic sulla scheda **_metodo diretto_*.
+2. Passare alla pagina dei dettagli del modulo e fare clic sulla scheda ***metodo diretto*** .
 3. Digitare `getRTCVLogs` sul nome del metodo e una stringa di formato JSON nel payload. È possibile immettere `{}` , che è un payload vuoto. 
-4. Impostare i timeout di connessione e metodo, quindi fare clic su _ * richiama metodo * *.
+4. Impostare i timeout di connessione e metodo, quindi fare clic su **Richiama metodo**.
 5. Selezionare il contenitore di destinazione e compilare una stringa JSON di payload usando i parametri descritti nella sezione relativa alla **sintassi di registrazione** . Fare clic su **Richiama metodo** per eseguire la richiesta.
 
 >[!NOTE]
@@ -239,13 +239,13 @@ La tabella seguente elenca i parametri che è possibile usare quando si eseguono
 | ContainerId | Contenitore di destinazione per il recupero dei log.| `null`, quando non è presente alcun ID contenitore. L'API restituisce tutte le informazioni sui contenitori disponibili con ID.|
 | DoPost | Eseguire l'operazione di caricamento. Quando è impostato su `false` , viene eseguita l'operazione richiesta e vengono restituite le dimensioni di caricamento senza eseguire il caricamento. Se impostato su `true` , avvierà il caricamento asincrono dei log selezionati | `false`, non caricare.|
 | Limitazione | Indica il numero di righe di log da caricare per batch | `1000`, Usare questo parametro per modificare la velocità post. |
-| Filtri | Filtra i log da caricare | `null`, i filtri possono essere specificati come coppie chiave-valore in base alla struttura dei log di analisi spaziale: `[UTC, LocalTime, LOGLEVEL,PID, CLASS, DATA]` . Ad esempio: `{"TimeFilter":[-1,1573255761112]}, {"TimeFilter":[-1,1573255761112]}, {"CLASS":["myNode"]`|
+| Filtri | Filtra i log da caricare | `null`, i filtri possono essere specificati come coppie chiave-valore in base alla struttura dei log di analisi spaziale: `[UTC, LocalTime, LOGLEVEL,PID, CLASS, DATA]` . ad esempio `{"TimeFilter":[-1,1573255761112]}, {"TimeFilter":[-1,1573255761112]}, {"CLASS":["myNode"]`|
 
 Nella tabella seguente sono elencati gli attributi nella risposta alla query.
 
 | Parola chiave | Descrizione|
 |--|--|
-|DoPost| *True* o *false*. Indica se i log sono stati caricati. Quando si sceglie di non caricare i log, l'API restituisce le informazioni * in modo **sincrono** _. Quando si sceglie di caricare i log, l'API restituisce 200, se la richiesta è valida e inizia a caricare i log in _*_modo asincrono_*_.|
+|DoPost| *True* o *false*. Indica se i log sono stati caricati. Quando si sceglie di non caricare i log, l'API restituisce le informazioni * in modo **sincrono** _. Quando si sceglie di caricare i log, l'API restituisce 200, se la richiesta è valida e inizia a caricare i log _ * in _modo asincrono_* *.|
 |TimeFilter| Filtro temporale applicato ai log.|
 |ValueFilters| I filtri delle parole chiave applicati ai log. |
 |TimeStamp| Ora di inizio dell'esecuzione del metodo. |
@@ -298,7 +298,7 @@ Nella tabella seguente sono elencati gli attributi nella risposta alla query.
 }
 ```
 
-Controllare le righe, i tempi e le dimensioni del _*_log di recupero_*_ , se queste impostazioni sembrano corrette, sostituire la prima volta `true` con e che effettueranno il push dei log con gli stessi filtri alle destinazioni. 
+Controllare le righe, i tempi e le dimensioni del ***log di recupero*** , se queste impostazioni sembrano corrette, sostituire la prima volta `true` con e che effettueranno il push dei log con gli stessi filtri alle destinazioni. 
 
 È possibile esportare i log dall'archiviazione BLOB di Azure durante la risoluzione dei problemi. 
 
@@ -316,7 +316,7 @@ La sezione seguente è disponibile per informazioni sul debug e la verifica dell
 
 ### <a name="access-the-kubernetes-api-endpoint"></a>Accedere all'endpoint API Kubernetes. 
 
-1. Nell'interfaccia utente locale del dispositivo andare alla pagina _ *Devices** (dispositivi). 
+1. Nell'interfaccia utente locale del dispositivo andare alla pagina **dispositivi** . 
 2. In **endpoint dispositivo** copiare l'endpoint del servizio API Kubernetes. Questo endpoint è una stringa nel formato seguente: `https://compute..[device-IP-address]`.
 3. Salvare la stringa dell'endpoint. Questa operazione verrà usata in un secondo momento durante la configurazione `kubectl` di per accedere al cluster Kubernetes.
 

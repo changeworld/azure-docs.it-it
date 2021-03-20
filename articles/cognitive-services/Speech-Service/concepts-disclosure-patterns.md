@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 12/03/2019
 ms.author: shlo
 ms.openlocfilehash: aec553b473e0fb2688224e8a8d027f7e9f3a6025
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/03/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "101716619"
 ---
 # <a name="disclosure-design-patterns"></a>Schemi progettuali per le informative
@@ -38,7 +38,7 @@ Usare il grafico seguente per fare riferimento direttamente ai modelli applicabi
 
 
 
-| Se l'esperienza di Voice sintetico... | Consigli | Modelli di progettazione |
+| Se l'esperienza di Voice sintetico... | Consigli | Schemi progettuali |
 | --- | --- | --- |
 | Richiede la divulgazione elevata  | Usare almeno un modello esplicito e i segnali impliciti in primo piano per aiutare gli utenti a compilare le associazioni. |[Divulgazione esplicita](#explicit-disclosure)<br>[Divulgazione implicita](#implicit-disclosure)  |
 | Richiede la divulgazione limitata | La divulgazione può essere minima o superflua, ma può trarre vantaggio da alcuni modelli impliciti. | [Divulgazione delle funzionalità](#capability-disclosure)<br>[Trasparenza conversazione](#conversational-transparency)  |

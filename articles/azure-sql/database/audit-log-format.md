@@ -11,10 +11,10 @@ ms.reviewer: vanto
 ms.custom: sqldbrb=1
 ms.date: 06/03/2020
 ms.openlocfilehash: f5c176db4f679c79bb42c6ceb46b3588e9440874
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/17/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100572214"
 ---
 # <a name="sql-database-audit-log-format"></a>Formato del log di controllo del database SQL
@@ -38,11 +38,11 @@ I log di controllo delle [repliche](read-scale-out.md) di sola lettura vengono a
 
 ### <a name="event-hub"></a>Hub eventi
 
-Gli eventi di controllo vengono scritti nello spazio dei nomi e nell'hub eventi che è stato definito durante la configurazione di controllo e vengono acquisiti nel corpo degli eventi [Apache avro](https://avro.apache.org/) e archiviati usando la formattazione JSON con la codifica UTF-8. Per leggere i log di controllo, è possibile usare [Avro Tools](../../event-hubs/event-hubs-capture-overview.md#use-avro-tools) o strumenti simili in grado di elaborare tale formato.
+Gli eventi di controllo vengono scritti nello spazio dei nomi e nell'hub eventi definito durante la configurazione di controllo e vengono acquisiti nel corpo degli eventi [Apache Avro](https://avro.apache.org/) e archiviati usando la formattazione JSON con la codifica UTF-8. Per leggere i log di controllo, è possibile usare [Avro Tools](../../event-hubs/event-hubs-capture-overview.md#use-avro-tools) o strumenti simili in grado di elaborare tale formato.
 
 ### <a name="log-analytics"></a>Log Analytics
 
-Gli eventi di controllo vengono scritti nell'area di lavoro Log Analytics definita durante la configurazione di controllo, nella `AzureDiagnostics` tabella con la categoria `SQLSecurityAuditEvents` . Per altre informazioni utili sul linguaggio di ricerca e i comandi di Log Analytics, vedere [Guida di riferimento alla ricerca in Log Analytics](../../azure-monitor/logs/log-query-overview.md).
+Gli eventi di controllo vengono scritti nell'area di lavoro Log Analytics definita durante la configurazione del controllo, nella tabella `AzureDiagnostics` con la categoria `SQLSecurityAuditEvents`. Per altre informazioni utili sul linguaggio di ricerca e i comandi di Log Analytics, vedere [Guida di riferimento alla ricerca in Log Analytics](../../azure-monitor/logs/log-query-overview.md).
 
 ## <a name="audit-log-fields"></a><a id="subheading-1"></a>Campi del log di controllo
 

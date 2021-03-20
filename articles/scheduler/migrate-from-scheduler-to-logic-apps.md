@@ -10,10 +10,10 @@ ms.reviewer: klam, estfan
 ms.topic: article
 ms.date: 02/29/2020
 ms.openlocfilehash: 0e9ca2c7b5d15fcc6be451bbe215c8b85d5309eb
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/22/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92368265"
 ---
 # <a name="migrate-azure-scheduler-jobs-to-azure-logic-apps"></a>Eseguire la migrazione da Utilità di pianificazione ad App per la logica di Azure
@@ -59,7 +59,7 @@ Ogni processo di Utilità di pianificazione è univoco. Non esiste quindi alcuno
 
 1. Per il trigger di richiesta, facoltativamente si può fornire uno schema JSON, che consente a Progettazione app per la logica di comprendere la struttura per gli input inclusi nella chiamata in ingresso e semplifica la selezione degli output in un secondo momento nel flusso di lavoro.
 
-   Nella casella**Schema JSON del corpo della richiesta** immettere lo schema, ad esempio:
+   Nella casella **Schema JSON del corpo della richiesta** immettere lo schema, ad esempio:
 
    ![Schema della richiesta](./media/migrate-from-scheduler-to-logic-apps/request-schema.png)
 

@@ -8,10 +8,10 @@ ms.author: helohr
 ms.reviewer: v-cawood; clemr
 manager: lizross
 ms.openlocfilehash: bfc797e0c11a1804d27c6c97fea8cb2ba62dca7a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "88010124"
 ---
 # <a name="configure-microsoft-endpoint-configuration-manager"></a>Configurare Configuration Manager endpoint Microsoft
@@ -47,9 +47,9 @@ Per creare una raccolta:
 
 1. Selezionare **asset e conformità**.
 2. Passare a **Panoramica**  >  **Raccolte dispositivi** e fare clic con il pulsante destro del mouse su **Raccolte dispositivi** e selezionare **Crea raccolta dispositivi** dal menu a discesa.
-3. Nella scheda **generale** del menu visualizzato immettere un nome che descriva la raccolta nel campo **nome** . Nel campo **Comment** è possibile specificare informazioni aggiuntive che descrivono l'elemento della raccolta. Nella **raccolta di limitazione**definire i computer inclusi nella query di raccolta.
+3. Nella scheda **generale** del menu visualizzato immettere un nome che descriva la raccolta nel campo **nome** . Nel campo **Comment** è possibile specificare informazioni aggiuntive che descrivono l'elemento della raccolta. Nella **raccolta di limitazione** definire i computer inclusi nella query di raccolta.
 4. Nella scheda **regole di appartenenza** aggiungere una regola per la query selezionando **Aggiungi regola**, quindi selezionando **regola di query**.
-5. In **Proprietà regola di query**immettere un nome per la regola, quindi definire i parametri della regola selezionando **Modifica istruzione query**.
+5. In **Proprietà regola di query** immettere un nome per la regola, quindi definire i parametri della regola selezionando **Modifica istruzione query**.
 6. Selezionare **Mostra istruzione query**.
 7. Nell'istruzione immettere la stringa seguente:
 

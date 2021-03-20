@@ -8,10 +8,10 @@ ms.date: 10/18/2018
 ms.author: rogarana
 ms.subservice: files
 ms.openlocfilehash: dea88bf93000422ce1d832be4a0f60474ff27938
-ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
-ms.translationtype: HT
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/14/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94629785"
 ---
 # <a name="quickstart-create-and-manage-azure-file-shares-with-azure-storage-explorer"></a>Guida introduttiva: Creare e gestire condivisioni file di Azure con Azure Storage Explorer
@@ -21,7 +21,7 @@ Azure Storage Explorer è un popolare strumento client disponibile per Windows, 
 
 Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) prima di iniziare.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerequisiti
 Questa guida introduttiva richiede l'installazione di Storage Explorer. Per il download e l'installazione, visitare la pagina [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/).
 
 ## <a name="create-a-storage-account"></a>Creare un account di archiviazione
@@ -76,7 +76,7 @@ La directory *myDirectory* verrà elencata nella scheda della condivisione file 
 Al termine, il file verrà visualizzato nell'elenco nel riquadro *myDirectory*.
 
 ### <a name="download-a-file"></a>Scaricare un file
-Per scaricare una copia di un file dalla condivisione file, fare clic con il pulsante destro del mouse sul file e quindi selezionare **Scarica**. Scegliere la posizione in cui si vuole inserire il file nel computer locale e quindi selezionare **Salva**.
+Per scaricare una copia di un file dalla condivisione file, fare clic con il pulsante destro del mouse sul file, quindi selezionare **Download** (Scarica). Scegliere la posizione in cui si vuole inserire il file nel computer locale e quindi selezionare **Salva**.
 
 Lo stato di avanzamento del download verrà visualizzato nel riquadro **Attività** nella parte inferiore della finestra.
 
