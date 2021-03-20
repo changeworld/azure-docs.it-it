@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 04/16/2018
 ms.author: allensu
 ms.openlocfilehash: e20f6ce9540d357b61ae2cfdf0e8f96d127dc6c0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "84343218"
 ---
 # <a name="verizon-specific-http-headers-for-azure-cdn-rules-engine"></a>Intestazioni HTTP specifiche di Verizon per il motore regole della rete CDN di Azure
@@ -42,7 +42,7 @@ X-Host | Indica il nome host della richiesta. | cdn.mydomain.com
 X-Midgress | Indica se la richiesta è stata trasmessa tramite proxy da un server CDN aggiuntivo. Ad esempio, da un server POP a un server shield di origine o da un server POP a un server gateway ADN. <br />Questa intestazione viene aggiunta alla richiesta solo in caso di traffico midgress. In questo caso l'intestazione viene impostata su 1 per indicare che la richiesta è stata trasmessa tramite proxy da un server CDN aggiuntivo.| 1
 [Host](#host-request-header) | Identifica l'host e la porta in cui trovare il contenuto richiesto. | marketing.mydomain.com:80
 [X-Gateway-List](#x-gateway-list-request-header) | ADN: identifica l'elenco di failover dei server gateway ADN assegnati a un'origine cliente. <br />Shield origine: indica il set di server shield di origine assegnati a un'origine cliente. | `icn1,hhp1,hnd1`
-X-EC-_ &lt; Name &gt; _ | Le intestazioni di richiesta che iniziano con *X-EC* (ad esempio X-EC-Tag, [X-EC-Debug](cdn-http-debug-headers.md)) sono riservate per l'uso da parte della rete CDN.| waf-production
+X-EC-_&lt; Name &gt;_ | Le intestazioni di richiesta che iniziano con *X-EC* (ad esempio X-EC-Tag, [X-EC-Debug](cdn-http-debug-headers.md)) sono riservate per l'uso da parte della rete CDN.| waf-production
 
 ## <a name="via-request-header"></a>Intestazione di richiesta Via
 Il formato tramite il quale l'intestazione di richiesta `Via` identifica un server POP è specificato dalla sintassi seguente:

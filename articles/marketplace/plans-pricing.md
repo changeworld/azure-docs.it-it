@@ -8,10 +8,10 @@ author: mingshen
 ms.author: mingshen
 ms.date: 09/02/2020
 ms.openlocfilehash: e97171e61814b832e78f7bd815d8d6f341a90840
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91858173"
 ---
 # <a name="plans-and-pricing-for-commercial-marketplace-offers"></a>Piani e prezzi per le offerte del Marketplace commerciale
@@ -115,7 +115,7 @@ Esaminare attentamente i prezzi prima della pubblicazione, in quanto esistono al
 I prezzi impostati in Stati Uniti dollari (USD) vengono convertiti nella valuta locale di tutti i mercati selezionati usando i tassi di cambio correnti quando vengono salvati. Convalidare questi prezzi prima della pubblicazione esportando il foglio di calcolo dei prezzi e esaminando il prezzo di ogni mercato selezionato.
 
 1. Salvare le modifiche apportate ai prezzi per consentire l'esportazione dei dati relativi ai prezzi. Nella parte inferiore della scheda relativa a **prezzi e disponibilità** selezionare **Salva bozza**.
-1. In **prezzi**selezionare il collegamento **Esporta dati sui prezzi** .
+1. In **prezzi** selezionare il collegamento **Esporta dati sui prezzi** .
 1. Aprire il file exportedPrice.xlsx in Microsoft Excel.
 1. Nel foglio di calcolo, apportare gli aggiornamenti desiderati alle informazioni sui prezzi e quindi salvare il. File CSV.
     > [!NOTE]

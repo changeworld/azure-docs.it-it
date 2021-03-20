@@ -4,10 +4,10 @@ description: Questo argomento descrive lo schema JSON del modulo gemello di anal
 ms.topic: conceptual
 ms.date: 04/27/2020
 ms.openlocfilehash: 8bd86bdc2c8de9ee586e785db2074fa772100420
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "87053059"
 ---
 # <a name="module-twin-json-schema"></a>Schema JSON del modulo gemello
@@ -34,10 +34,10 @@ Analisi video in tempo reale su IoT Edge espone le proprietà gemelle del modulo
 |aadEndpoint |No |No |Endpoint Azure AD specifico del cloud. <br/>Valore predefinito: `https://login.microsoftonline.com` |
 |aadResourceId |No |No |ID di risorsa e destinatari di Azure AD specifici del cloud <br/>Valore predefinito: `https://management.core.windows.net/` |
 |armEndpoint |No |No |Endpoint di gestione delle risorse di Azure specifico per il cloud. <br/>Valore predefinito: `https://management.azure.com/` |
-|diagnosticsLevel |No |Sì |Livello di dettaglio degli eventi: <br/>Informazioni & # x02758; Avviso & # x02758; Errore & # x02758; & critico # x02758; Nessuno |
+|diagnosticsLevel |No |Sì |Livello di dettaglio degli eventi: <br/>&#x02758 informazioni; Avviso &#x02758; Errore &#x02758; &#x02758 critico; Nessuno |
 |diagnosticsEventsOutputName |No |Sì |Output dell'hub per gli eventi di diagnostica. <br/>(Vuoto significa che la diagnostica non è pubblicata)|
 |operationalEventsOutputName|No|Sì|Output dell'hub per gli eventi operativi.<br/>(Vuoto indica che gli eventi operativi non sono pubblicati)
-|logLevel|No|Sì|I tipi validi sono: <br/>& # x000B7; Dettagliato<br/>& # x000B7; Informazioni (impostazione predefinita)<br/>& # x000B7; Avviso<br/>& # x000B7; Errore<br/>& # x000B7; Nessuno|
+|logLevel|No|Sì|I tipi validi sono: <br/>&#x000B7; Dettagliato<br/>&#x000B7; Informazioni (impostazione predefinita)<br/>&#x000B7; Avviso<br/>&#x000B7; Errore<br/>&#x000B7; Nessuno|
 |logCategories|No|Sì|Elenco delimitato da virgole dei seguenti elementi: Application, MediaPipeline, Events <br/>Impostazione predefinita: applicazione, eventi|
 |debugLogsDirectory|No|Sì|Directory per i log di debug. Se vengono generati log, se non sono presenti i log di debug sono disabilitati.
 

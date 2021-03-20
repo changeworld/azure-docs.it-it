@@ -13,10 +13,10 @@ ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.openlocfilehash: b851e52141cf93aba4aab9b2768658f0aac4660f
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/27/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98879916"
 ---
 # <a name="frequently-asked-questions"></a>Domande frequenti
@@ -192,11 +192,11 @@ Un ricercatore di contenuti viene definito come segue:
 
 #### <a name="what-are-common-errors-when-using-the-roslyn-analyzers-task"></a>Quali sono gli errori comuni quando si usa l'attività degli analizzatori Roslyn?
 
-##### <a name="the-project-was-restored-using-a-wrong-microsoftnetcoreapp-version"></a>Il progetto è stato ripristinato con una versione di Microsoft. NETCore. app non corretta
+##### <a name="the-project-was-restored-using-a-wrong-microsoftnetcoreapp-version"></a>Il progetto è stato ripristinato con una versione di Microsoft.NETCore.App non corretta
 
 Messaggio di errore completo:
 
-"Errore: il progetto è stato ripristinato con Microsoft. NETCore. app versione *x.* x. x, ma con le impostazioni correnti, verrebbe invece usata la versione *y. y. y* . To resolve this issue, make sure the same settings are used for restore and for subsequent operations such as build or publish. Typically this issue can occur if the RuntimeIdentifier property is set during build or publish but not during restore" (Il progetto è stato ripristinato tramite Microsoft.NETCore.App versione 2.0.0, ma con le impostazioni correnti avrebbe dovuto essere usata la versione 2.0.6. Per risolvere il problema, assicurarsi che vengano usate le stesse impostazioni per il comando restore e per operazioni successive, quali build o publish. Questo problema si presenta, in genere, se la proprietà RuntimeIdentifier viene impostata durante l'operazione build o publish ma non durante restore).
+"Errore: il progetto è stato ripristinato utilizzando Microsoft.NETCore.App versione *x. x.* x, ma con le impostazioni correnti, verrebbe invece utilizzata la versione *y. y. y* . To resolve this issue, make sure the same settings are used for restore and for subsequent operations such as build or publish. Typically this issue can occur if the RuntimeIdentifier property is set during build or publish but not during restore" (Il progetto è stato ripristinato tramite Microsoft.NETCore.App versione 2.0.0, ma con le impostazioni correnti avrebbe dovuto essere usata la versione 2.0.6. Per risolvere il problema, assicurarsi che vengano usate le stesse impostazioni per il comando restore e per operazioni successive, quali build o publish. Questo problema si presenta, in genere, se la proprietà RuntimeIdentifier viene impostata durante l'operazione build o publish ma non durante restore).
 
 Poiché le attività di analizzatore Roslyn vengono eseguite come parte della compilazione, l'albero di origine nel computer di compilazione deve essere in uno stato compilabile.
 

@@ -6,10 +6,10 @@ ms.topic: conceptual
 ms.date: 09/06/2019
 ms.author: hich
 ms.openlocfilehash: ec0fe8f66ef2ad2458b4ffad0e848591793e5b05
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "75650942"
 ---
 # <a name="deploy-associations-for-a-managed-application-using-azure-policy"></a>Distribuire le associazioni per un'applicazione gestita usando criteri di Azure
@@ -32,7 +32,7 @@ Per altre informazioni sulle associazioni, vedere Caricamento di [risorse dei pr
 ### <a name="prerequisites"></a>Prerequisiti
 Se l'applicazione gestita necessita di autorizzazioni per la sottoscrizione per eseguire un'azione, la distribuzione dei criteri della risorsa di associazione non funzionerà senza concedere le autorizzazioni.
 
-### <a name="policy-assignment"></a>Assegnazione di criteri
+### <a name="policy-assignment"></a>Assegnazione di criterio
 Per usare i criteri predefiniti, creare un'assegnazione di criteri e assegnare le associazioni Distribuisci per i criteri di un'applicazione gestita. Una volta che il criterio è stato assegnato correttamente, i criteri identificano le risorse non conformi e distribuiscono le associazioni per tali risorse.
 
 ![Assegnare i criteri predefiniti](media/concepts-built-in-policy/assign-builtin-policy-managedapp.png)
@@ -43,7 +43,7 @@ In caso di domande sullo sviluppo di provider di risorse personalizzati di Azure
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Questo articolo illustra come usare i criteri predefiniti per distribuire le associazioni. Per ulteriori informazioni, vedere questi articoli:
+Questo articolo illustra come usare i criteri predefiniti per distribuire le associazioni. Per altre informazioni, vedere questi articoli:
 
 - [Concetti: onboarding delle risorse del provider personalizzato di Azure](../custom-providers/concepts-resource-onboarding.md)
 - [Esercitazione: onboarding delle risorse con provider personalizzati](../custom-providers/tutorial-resource-onboarding.md)

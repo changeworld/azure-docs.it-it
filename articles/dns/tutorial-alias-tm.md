@@ -1,5 +1,5 @@
 ---
-title: 'Esercitazione: Creare un record alias per supportare i nomi della radice del dominio - Gestione traffico'
+title: "Esercitazione: creare un record di alias per supportare i nomi dell'apice del dominio-Traffic Manager"
 titleSuffix: Azure DNS
 description: Questa esercitazione illustra come configurare un record alias DNS di Azure per supportare l'uso dei nomi della radice del dominio con Gestione traffico.
 services: dns
@@ -9,13 +9,13 @@ ms.topic: tutorial
 ms.date: 9/25/2018
 ms.author: rohink
 ms.openlocfilehash: 4bdfc950cc1277809811dc2c548a57cc2138a8e4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
-ms.translationtype: HT
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "77149950"
 ---
-# <a name="tutorial-configure-an-alias-record-to-support-apex-domain-names-with-traffic-manager"></a>Esercitazione: Configurare un record alias per supportare nomi di dominio radice con Gestione traffico 
+# <a name="tutorial-configure-an-alias-record-to-support-apex-domain-names-with-traffic-manager"></a>Esercitazione: Configurare un record alias per supportare nomi della radice del dominio con Gestione traffico 
 
 È possibile creare un record alias per la radice del nome di dominio per fare riferimento a un profilo di Gestione traffico di Azure. ad esempio contoso.com. Invece di usare un servizio di reindirizzamento, configurare DNS di Azure in modo che faccia riferimento a un profilo di Gestione traffico direttamente dalla zona. 
 
@@ -73,7 +73,7 @@ Installare IIS sia in **Web-01** che in **Web-02**.
 2. Nel dashboard **Server Manager** selezionare **Aggiungi ruoli e funzionalità**.
 3. Selezionare **Avanti** per tre volte. Nella pagina **Ruoli server** selezionare **Server Web (IIS)** .
 4. Selezionare **Aggiungi funzionalità** e quindi **Avanti**.
-5. Selezionare **Avanti** per quattro volte. Selezionare quindi **Installa**. Il completamento di questa procedura richiede alcuni minuti.
+5. Selezionare **Avanti** per quattro volte. Quindi selezionare **Installa**. Il completamento di questa procedura richiede alcuni minuti.
 6. Al termine dell'installazione, selezionare **Chiudi**.
 7. Aprire un Web browser. Passare a **localhost** per verificare che venga visualizzata la pagina Web di IIS predefinita.
 
@@ -83,9 +83,9 @@ Ripetere questa procedura per installare IIS in **Web-02**.
 ## <a name="create-a-traffic-manager-profile"></a>Creare un profilo di Gestione traffico
 
 1. Aprire il gruppo di risorse **RG-DNS-Alias-TM** e selezionare l'indirizzo IP pubblico **Web-01-ip**. Prendere nota dell'indirizzo IP per usarlo in seguito. Ripetere questo passaggio per l'indirizzo IP pubblico **Web-02-ip**.
-1. Selezionare **Crea una risorsa** > **Rete** > **Profilo di Gestione traffico**.
+1. Selezionare **Crea una risorsa**  >  **rete**  >  **profilo di gestione traffico**.
 2. Per il nome immettere **TM-alias-test**. Inserirla nel gruppo di risorse **RG-DNS-Alias-TM**.
-3. Selezionare **Create** (Crea).
+3. Selezionare **Crea**.
 4. Al termine della distribuzione, selezionare **Vai alla risorsa**.
 5. Nella pagina del profilo di Gestione traffico selezionare **Endpoint** in **Impostazioni**.
 6. Selezionare **Aggiungi**.

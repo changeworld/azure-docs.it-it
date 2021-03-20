@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 12/27/2019
 ms.author: jeedes
 ms.openlocfilehash: 691d35267c255c933a8098b99301fbb795a3cd0c
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
-ms.translationtype: HT
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/26/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96181068"
 ---
 # <a name="tutorial-configure-atlassian-cloud-for-automatic-user-provisioning"></a>Esercitazione: Configurare Atlassian Cloud per il provisioning utenti automatico
@@ -41,7 +41,7 @@ Per lo scenario descritto in questa esercitazione si presuppone che l'utente dis
 * Un account utente in Atlassian Cloud con autorizzazioni di amministratore.
 
 ## <a name="step-1-plan-your-provisioning-deployment"></a>Passaggio 1. Pianificare la distribuzione del provisioning
-1. Vedere le informazioni su [come funziona il servizio di provisioning](../app-provisioning/user-provisioning.md).
+1. Acquisire informazioni su [come funziona il servizio di provisioning](../app-provisioning/user-provisioning.md).
 2. Determinare gli utenti che verranno inclusi nell'[ambito per il provisioning](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
 3. Determinare quali dati [mappare tra Azure AD e Atlassian Cloud](../app-provisioning/customize-application-attributes.md).
 
@@ -86,7 +86,7 @@ Questa sezione descrive la procedura per configurare il servizio di provisioning
 
 3. Selezionare la scheda **Provisioning**.
 
-    ![Screenshot che mostra l'opzione puntini di sospensione per un indicatore KPI selezionata e l'opzione GESTISCI evidenziata.](common/provisioning.png)
+    ![Screenshot delle opzioni disponibili in Gestisci con l'opzione Provisioning evidenziata.](common/provisioning.png)
 
 4. Impostare **Modalità di provisioning** su **Automatico**.
 

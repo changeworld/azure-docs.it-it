@@ -9,10 +9,10 @@ ms.topic: troubleshooting
 ms.date: 01/30/2020
 ms.author: jlian
 ms.openlocfilehash: 8312c3267e826088f34b3bffe1520703eec00bdc
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "76961114"
 ---
 # <a name="403002-iothubquotaexceeded"></a>403002 IoTHubQuotaExceeded
@@ -34,4 +34,4 @@ Viene superata la quota di messaggi giornaliera per l'hub Internet.
 ## <a name="next-steps"></a>Passaggi successivi
 
 * Per comprendere il modo in cui le operazioni vengono conteggiate per la quota, ad esempio query gemelle e metodi diretti, vedere [informazioni sui prezzi dell'hub](iot-hub-devguide-pricing.md#charges-per-operation)
-* Per configurare il monitoraggio per l'utilizzo delle quote giornaliere, impostare un avviso con il *numero totale di messaggi usati*per la metrica. Per istruzioni dettagliate, vedere la pagina relativa alla [configurazione di metriche e avvisi con l'hub](tutorial-use-metrics-and-diags.md#set-up-metrics) Internet.
+* Per configurare il monitoraggio per l'utilizzo delle quote giornaliere, impostare un avviso con il *numero totale di messaggi usati* per la metrica. Per istruzioni dettagliate, vedere la pagina relativa alla [configurazione di metriche e avvisi con l'hub](tutorial-use-metrics-and-diags.md#set-up-metrics) Internet.

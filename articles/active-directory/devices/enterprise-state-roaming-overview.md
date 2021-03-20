@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: na
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: c22baf0a08718883f0c0c9844cc395f607b5b20d
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
-ms.translationtype: HT
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/05/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "77194280"
 ---
 # <a name="what-is-enterprise-state-roaming"></a>Informazioni su Enterprise State Roaming
@@ -32,7 +32,7 @@ Enterprise State Roaming è disponibile in più aree di Azure. L'elenco aggiorna
 | --- | --- |
 | [Abilitare Enterprise State Roaming in Azure Active Directory](enterprise-state-roaming-enable.md) |Il servizio Enterprise State Roaming è disponibile per qualsiasi organizzazione con una sottoscrizione Premium di Azure Active Directory (Azure AD). Per altre informazioni su come ottenere una sottoscrizione di Azure AD, vedere la pagina del [prodotto Azure AD](https://azure.microsoft.com/services/active-directory). |
 | [Domande frequenti su impostazioni e dati in roaming](enterprise-state-roaming-faqs.md) |Questo articolo offre le risposte ad alcune possibili domande degli amministratori IT in merito alle impostazioni e alla sincronizzazione dei dati delle app. |
-| [Criteri di gruppo e impostazioni del software MDM per la sincronizzazione delle impostazioni](enterprise-state-roaming-group-policy-settings.md) |Windows 10 offre impostazioni relative a Criteri di gruppo e ai criteri di gestione di dispositivi mobili per limitare la sincronizzazione delle impostazioni. |
+| [Impostazioni di criteri di gruppo e MDM per la sincronizzazione delle impostazioni](enterprise-state-roaming-group-policy-settings.md) |Windows 10 offre impostazioni relative a Criteri di gruppo e ai criteri di gestione di dispositivi mobili per limitare la sincronizzazione delle impostazioni. |
 | [Riferimento alle impostazioni di roaming di Windows 10](enterprise-state-roaming-windows-settings-reference.md) |Elenco delle impostazioni di cui verrà effettuato il roaming e/o il backup in Windows 10. |
 | [Risoluzione dei problemi](enterprise-state-roaming-troubleshooting.md) |Questo articolo illustra alcuni passaggi di base per la risoluzione dei problemi e contiene un elenco di problemi noti. |
 

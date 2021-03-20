@@ -15,10 +15,10 @@ ms.author: kenwith
 ms.custom: aaddev
 ms.reviewer: paulgarn
 ms.openlocfilehash: 40bf202e0f14f18d817e4e918f8372ba3c0a4ad8
-ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/12/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91950670"
 ---
 # <a name="single-sign-on-saml-protocol"></a>Protocollo SAML per Single Sign-On
@@ -46,7 +46,7 @@ xmlns:samlp="urn:oasis:names:tc:SAML:2.0:protocol">
 </samlp:AuthnRequest>
 ```
 
-| Parametro | Type | Descrizione |
+| Parametro | Tipo | Descrizione |
 | --- | --- | --- |
 | ID | Obbligatoria | Azure AD usa questo attributo per popolare l'attributo `InResponseTo` della risposta restituita. L'ID non deve iniziare con un numero, quindi una strategia comune consiste nell'anteporre una stringa come "id" alla rappresentazione di stringa di un GUID. Ad esempio, `id6c1c178c166d486687be4aaf5e482730` è un ID valido. |
 | Versione | Obbligatoria | Questo parametro deve essere impostato su **2.0**. |

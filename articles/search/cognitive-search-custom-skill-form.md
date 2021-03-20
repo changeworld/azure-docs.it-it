@@ -9,10 +9,10 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 01/21/2020
 ms.openlocfilehash: a3b073cdb90e0c427bfbca15c1440b9122672610
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/27/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98880136"
 ---
 # <a name="example-create-a-form-recognizer-custom-skill"></a>Esempio: creare un'abilità personalizzata di riconoscimento del modulo
@@ -43,7 +43,7 @@ In primo luogo, aggiungere variabili di ambiente a livello di progetto. Individu
 * `FORMS_RECOGNIZER_RETRY_DELAY` con il valore impostato su 1000. Questo valore è il tempo in millisecondi di attesa del programma prima di ritentare la query.
 * `FORMS_RECOGNIZER_MAX_ATTEMPTS` con il valore impostato su 100. Questo valore indica il numero di volte in cui il programma eseguirà una query sul servizio durante il tentativo di ottenere una risposta corretta.
 
-Successivamente, aprire _AnalyzeForm.cs_ e trovare la `fieldMappings` variabile, che fa riferimento all' *field-mappings.jssu* file. Questo file (e la variabile che vi fa riferimento) definisce l'elenco di chiavi che si desidera estrarre dai form e un'etichetta personalizzata per ciascuna chiave. Il valore indica, ad esempio, che lo `{ "Address:", "address" }, { "Invoice For:", "recipient" }` script salverà solo i valori per i campi rilevati `Address:` e `Invoice For:` che verranno etichettati `"address"` rispettivamente con e `"recipient"` .
+Successivamente, aprire _AnalyzeForm. cs_ e trovare la `fieldMappings` variabile, che fa riferimento al *field-mappings.jssul* file. Questo file (e la variabile che vi fa riferimento) definisce l'elenco di chiavi che si desidera estrarre dai form e un'etichetta personalizzata per ciascuna chiave. Il valore indica, ad esempio, che lo `{ "Address:", "address" }, { "Invoice For:", "recipient" }` script salverà solo i valori per i campi rilevati `Address:` e `Invoice For:` che verranno etichettati `"address"` rispettivamente con e `"recipient"` .
 
 Infine, prendere nota della `contentType` variabile. Questo script esegue il modello di riconoscimento form specificato nei documenti remoti a cui fa riferimento l'URL, quindi il tipo di contenuto è `application/json` . Se si desidera analizzare i file locali includendo i relativi flussi di byte nelle richieste HTTP, è necessario modificare il `contentType` [tipo MIME](https://developer.mozilla.org/docs/Web/HTTP/Basics_of_HTTP/MIME_types/Complete_list_of_MIME_types) appropriato per il file.
 
@@ -112,7 +112,7 @@ La risposta dovrebbe essere simile all'esempio seguente:
 Quando si è soddisfatti del comportamento della funzione, è possibile pubblicarla.
 
 1. Nel **Esplora soluzioni** in Visual Studio fare clic con il pulsante destro del mouse sul progetto e scegliere **pubblica**. Scegliere **Crea nuova**  >  **pubblicazione**.
-1. Se non si è ancora connesso Visual Studio al proprio account di Azure, selezionare **Aggiungi un account**.
+1. Se Visual Studio non è ancora stato connesso al proprio account Azure, selezionare **Aggiungi un account.** ...
 1. Seguire le istruzioni visualizzate sullo schermo. Specificare un nome univoco per il servizio app, la sottoscrizione di Azure, il gruppo di risorse, il piano di hosting e l'account di archiviazione che si vuole usare. È possibile creare un nuovo gruppo di risorse, un nuovo piano di hosting e un nuovo account di archiviazione, se non sono già presenti. Al termine, selezionare **Crea**.
 1. Al termine della distribuzione, si noti l'URL del sito. Questo URL è l'indirizzo dell'app per le funzioni in Azure. Salvarlo in un percorso temporaneo.
 1. Nella [portale di Azure](https://portal.azure.com)passare al gruppo di risorse e cercare la `AnalyzeForm` funzione pubblicata. Nella sezione **Gestisci** dovrebbe essere presente un elenco Chiavi host. Copiare la chiave host *predefinita* e salvarla in un percorso temporaneo.

@@ -9,10 +9,10 @@ ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
 ms.openlocfilehash: 7b5017cdeade14e53778b58154456412507c5ce8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "77024875"
 ---
 # <a name="what-is-azure-vmware-solution-by-cloudsimple"></a>Che cos'è la soluzione VMware di Azure di CloudSimple
@@ -37,15 +37,15 @@ La **soluzione VMware di Azure di CloudSimple** è un servizio completamente ges
 ## <a name="benefits"></a>Vantaggi
 
 * **Continuità operativa**. CloudSimple offre accesso nativo alle piattaforme VMware. L'architettura di CloudSimple è compatibile con la esistente:
-    * APPLICAZIONI
-    * Operazioni
+    * Applicazioni
+    * Gestione operativa
     * Sicurezza
     * Backup
     * Ripristino di emergenza
     * Audit
     * Strumenti di conformità
     * Processi
-* **Nessuna**ripetizione del training. La compatibilità della piattaforma VMware consente di utilizzare competenze e conoscenze esistenti.
+* **Nessuna** ripetizione del training. La compatibilità della piattaforma VMware consente di utilizzare competenze e conoscenze esistenti.
 * **Agilità dell'infrastruttura**. Non è più necessario prevedere tutte le esigenze in termini di capacità e quindi si verifica una perdita di capacità o di infrastruttura. CloudSimple viene fornito come servizio cloud ed è possibile aggiungere o ridurre la capacità in qualsiasi momento
 * **Sicurezza**. L'accesso all'ambiente CloudSimple tramite Azure fornisce protezione DDoS incorporata e monitoraggio della sicurezza.
 * **Costo inferiore**. La piattaforma CloudSimple è altamente progettata e fornisce livelli elevati di automazione, efficienza operativa e economie di scalabilità. CloudSimple pubblica inoltre le architetture delle soluzioni che sfruttano la presenza di VMware in un cloud pubblico per ridurre i costi. Gli esempi includono Azure AD, backup in archiviazione di Azure, gateway applicazione, bilanciamento del carico e altro ancora.

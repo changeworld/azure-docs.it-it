@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 08/18/2016
 tags: connectors
 ms.openlocfilehash: 8d3b180b6f1e9dc4ec4b09dd81786cc81e8588da
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "75707187"
 ---
 # <a name="manage-email-calendars-and-contacts-in-outlookcom-by-using-azure-logic-apps"></a>Gestire la posta elettronica, i calendari e i contatti in Outlook.com usando app per la logica di Azure
@@ -47,7 +47,7 @@ Un [trigger](../logic-apps/logic-apps-overview.md#logic-app-concepts) è un even
 
 1. Nel trigger impostare i valori di **frequenza** e **intervallo** .
 
-   Ad esempio, se si desidera che il trigger esegua il polling ogni 15 minuti, impostare la **frequenza** su **minuti**e impostare l' **intervallo** su **15**.
+   Ad esempio, se si desidera che il trigger esegua il polling ogni 15 minuti, impostare la **frequenza** su **minuti** e impostare l' **intervallo** su **15**.
 
 1. Sulla barra degli strumenti della finestra di progettazione selezionare **Save (Salva**) per salvare l'app per la logica.
 

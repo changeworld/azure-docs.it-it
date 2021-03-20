@@ -9,10 +9,10 @@ ms.date: 07/22/2019
 ms.author: sngun
 ms.reviewer: sngun
 ms.openlocfilehash: 136853182e353ad5cd71981db5935fc3babe162e
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93339603"
 ---
 # <a name="migrate-data-to-azure-cosmos-db-sql-api-account-using-striim"></a>Migrare i dati in Azure Cosmos DB account API SQL tramite StriIm
@@ -36,7 +36,7 @@ Questo articolo illustra come usare StriIm per eseguire la migrazione dei dati d
 
    :::image type="content" source="./media/cosmosdb-sql-api-migrate-data-striim/striim-azure-marketplace.png" alt-text="Trova l'elemento StriIm Marketplace":::
 
-1. Immettere quindi le proprietà di configurazione dell'istanza di StriIm. L'ambiente StriIm viene distribuito in una macchina virtuale. Dal riquadro **nozioni di base** immettere il **nome utente della macchina** virtuale e la password della **VM** . questa password viene usata per SSH nella macchina virtuale. Selezionare la **sottoscrizione** , il **gruppo di risorse** e **i dettagli della località** in cui si vuole distribuire StriIm. Al termine, selezionare **OK**.
+1. Immettere quindi le proprietà di configurazione dell'istanza di StriIm. L'ambiente StriIm viene distribuito in una macchina virtuale. Dal riquadro **nozioni di base** immettere il **nome utente della macchina** virtuale e la password della **VM** . questa password viene usata per SSH nella macchina virtuale. Selezionare la **sottoscrizione**, il **gruppo di risorse** e **i dettagli della località** in cui si vuole distribuire StriIm. Al termine, selezionare **OK**.
 
    :::image type="content" source="./media/cosmosdb-sql-api-migrate-data-striim/striim-configure-basic-settings.png" alt-text="Configurare le impostazioni di base per StriIm":::
 
@@ -50,7 +50,7 @@ Questo articolo illustra come usare StriIm per eseguire la migrazione dei dati d
 
    Dopo aver compilato il modulo, selezionare **OK** per continuare.
 
-1. Nel riquadro **impostazioni di accesso StriIm** configurare l' **indirizzo IP pubblico** (scegliere i valori predefiniti), il **nome di dominio per StriIm** , la **password amministratore** che si vuole usare per accedere all'interfaccia utente di StriIm. Configurare una VNET e una subnet (scegliere i valori predefiniti). Dopo aver compilato i dettagli, fare clic su **OK** per continuare.
+1. Nel riquadro **impostazioni di accesso StriIm** configurare l' **indirizzo IP pubblico** (scegliere i valori predefiniti), il **nome di dominio per StriIm**, la **password amministratore** che si vuole usare per accedere all'interfaccia utente di StriIm. Configurare una VNET e una subnet (scegliere i valori predefiniti). Dopo aver compilato i dettagli, fare clic su **OK** per continuare.
 
    :::image type="content" source="./media/cosmosdb-sql-api-migrate-data-striim/striim-access-settings.png" alt-text="Impostazioni di accesso StriIm":::
 
@@ -130,7 +130,7 @@ In questa sezione si configurerà l'account dell'API di Azure Cosmos DB SQL come
 
    :::image type="content" source="./media/cosmosdb-sql-api-migrate-data-striim/striim-login-ui.png" alt-text="Accedere a StriIm":::
 
-1. A questo punto si arriverà alla home page di StriIm. Sono disponibili tre diversi riquadri: **Dashboard** , **app** e **SourcePreview**. Il riquadro dashboard consente di spostare i dati in tempo reale e visualizzarli. Il riquadro app contiene le pipeline di dati di streaming o i flussi di dati. Nella parte destra della pagina è SourcePreview, in cui è possibile visualizzare in anteprima i dati prima di trasferirli.
+1. A questo punto si arriverà alla home page di StriIm. Sono disponibili tre diversi riquadri: **Dashboard**, **app** e **SourcePreview**. Il riquadro dashboard consente di spostare i dati in tempo reale e visualizzarli. Il riquadro app contiene le pipeline di dati di streaming o i flussi di dati. Nella parte destra della pagina è SourcePreview, in cui è possibile visualizzare in anteprima i dati prima di trasferirli.
 
 1. Selezionare il riquadro **app** per il momento. Sono disponibili diverse app di esempio che è possibile usare per acquisire familiarità con StriIm. Tuttavia, in questo articolo verranno creati dei propri. Selezionare il pulsante **Aggiungi app** nell'angolo superiore destro.
 
@@ -144,9 +144,9 @@ In questa sezione si configurerà l'account dell'API di Azure Cosmos DB SQL come
 
    :::image type="content" source="./media/cosmosdb-sql-api-migrate-data-striim/oracle-cdc-cosmosdb.png" alt-text="Selezionare Oracle CDC per Cosmos DB":::
 
-1. Nella pagina successiva assegnare un nome all'applicazione. È possibile specificare un nome, ad esempio **oraToCosmosDB** , e quindi selezionare **Save (Salva** ).
+1. Nella pagina successiva assegnare un nome all'applicazione. È possibile specificare un nome, ad esempio **oraToCosmosDB** , e quindi selezionare **Save (Salva**).
 
-1. Immettere quindi la configurazione di origine dell'istanza di Oracle di origine. Immettere un valore per il **nome dell'origine**. Il nome di origine è semplicemente una convenzione di denominazione per l'applicazione StriIm, è possibile usare un elemento come **src_onPremOracle**. Immettere i valori per Rest dell' **URL** dei parametri di origine, **username** , **password** , scegliere **LogMiner** come Reader per leggere i dati da Oracle. Selezionare **Avanti** per continuare.
+1. Immettere quindi la configurazione di origine dell'istanza di Oracle di origine. Immettere un valore per il **nome dell'origine**. Il nome di origine è semplicemente una convenzione di denominazione per l'applicazione StriIm, è possibile usare un elemento come **src_onPremOracle**. Immettere i valori per Rest dell' **URL** dei parametri di origine, **username**, **password**, scegliere **LogMiner** come Reader per leggere i dati da Oracle. Selezionare **Avanti** per continuare.
 
    :::image type="content" source="./media/cosmosdb-sql-api-migrate-data-striim/configure-source-parameters.png" alt-text="Configurare i parametri di origine":::
 
@@ -164,11 +164,11 @@ In questa sezione si configurerà l'account dell'API di Azure Cosmos DB SQL come
 
    * **Nome destinazione** : specificare un nome descrittivo per la destinazione. 
    * **Input dall'** elenco a discesa selezionare il flusso di input da quello creato nella configurazione Oracle di origine. 
-   * **Raccolte** : immettere le proprietà di configurazione Azure Cosmos DB di destinazione. La sintassi delle raccolte è **sourceschema:. SourceTable, TargetDatabase. TargetContainer**. In questo esempio il valore sarà "SYSTEM. ORDERs, StriimDemo. Orders ". 
+   * **Raccolte**: immettere le proprietà di configurazione Azure Cosmos DB di destinazione. La sintassi delle raccolte è **sourceschema:. SourceTable, TargetDatabase. TargetContainer**. In questo esempio il valore sarà "SYSTEM. ORDERs, StriimDemo. Orders ". 
    * **AccessKey** : PrimaryKey dell'account Azure Cosmos.
    * **ServiceEndpoint** : URI dell'account Azure Cosmos, disponibile nella sezione **chiavi** del portale di Azure. 
 
-   Selezionare **Save (Salva** ) e **Next (avanti** ).
+   Selezionare **Save (Salva** ) e **Next (avanti**).
 
    :::image type="content" source="./media/cosmosdb-sql-api-migrate-data-striim/configure-target-parameters.png" alt-text="Configurare i parametri di destinazione":::
 

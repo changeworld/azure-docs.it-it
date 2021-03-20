@@ -1,6 +1,6 @@
 ---
-title: File di inclusione
-description: File di inclusione
+title: includere file
+description: includere file
 services: event-hubs
 author: spelluru
 ms.service: event-hubs
@@ -9,10 +9,10 @@ ms.date: 10/16/2018
 ms.author: spelluru
 ms.custom: include file
 ms.openlocfilehash: bf107da82fb3f772a341e70ce472f08ea674a450
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
-ms.translationtype: HT
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "75692559"
 ---
 ### <a name="create-a-storage-account-for-event-processor-host"></a>Creare un account di archiviazione per l'host del processore di eventi
@@ -28,8 +28,8 @@ L'host del processore di eventi è un agente intelligente che semplifica la rice
 
 3. Nella pagina **Crea account di archiviazione** eseguire la procedura seguente: 
 
-   1. Immettere un valore in **Nome account di archiviazione**.
-   2. Scegliere una sottoscrizione di Azure contenente l'hub eventi in **Sottoscrizione**.
+   1. Immettere il **nome dell'account di archiviazione**.
+   2. Scegliere una **sottoscrizione** di Azure che contiene l'hub eventi.
    3. Scegliere o creare il **gruppo di risorse** in cui è incluso l'hub eventi.
    4. Selezionare la **località** in cui creare la risorsa. 
    5. Selezionare **Rivedi e crea**.
@@ -45,7 +45,7 @@ L'host del processore di eventi è un agente intelligente che semplifica la rice
 6. Selezionare **Contenitori**.
 
     ![Selezionare il servizio per contenitori BLOB, account di archiviazione, portale di Microsoft Azure](./media/event-hubs-create-storage/select-blob-container-service.png)
-7. Selezionare **+ Contenitore** in alto, immettere un **nome** per il contenitore e selezionare **OK**. 
+7. Selezionare **+ contenitore** nella parte superiore, immettere un **nome** per il contenitore e fare clic su **OK**. 
 
     ![Creare un nuovo contenitore BLOB, account di archiviazione, portale di Microsoft Azure](./media/event-hubs-create-storage/create-new-blob-container.png)
 8. Scegliere **Chiavi di accesso** nel menu della pagina **Account di archiviazione** e copiare il valore di **key1**.

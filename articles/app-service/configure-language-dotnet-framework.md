@@ -6,10 +6,10 @@ ms.custom: devx-track-csharp, devx-track-azurecli
 ms.topic: article
 ms.date: 06/02/2020
 ms.openlocfilehash: 8ed6835583cc4881b19eee14ed392b193324535e
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/27/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92744169"
 ---
 # <a name="configure-an-aspnet-app-for-azure-app-service"></a>Configurare un'app ASP.NET per il servizio app Azure
@@ -71,7 +71,7 @@ ConfigurationManager.ConnectionStrings["MyConnection"];
 }
 ```
 
-Se si configura un'impostazione dell'app con lo stesso nome nel servizio app e in *web.config* , il valore del servizio app avrà la precedenza sul valore di *web.config* . Il valore di *web.config* locale consente di eseguire il debug dell'app in locale, ma il valore del servizio app consente di eseguire l'app in un prodotto con impostazioni di produzione. Le stringhe di connessione funzionano allo stesso modo. In questo modo, è possibile proteggere i segreti dell'applicazione all'esterno del repository di codice e accedere ai valori appropriati senza modificare il codice.
+Se si configura un'impostazione dell'app con lo stesso nome nel servizio app e in *web.config*, il valore del servizio app avrà la precedenza sul valore di *web.config* . Il valore di *web.config* locale consente di eseguire il debug dell'app in locale, ma il valore del servizio app consente di eseguire l'app in un prodotto con impostazioni di produzione. Le stringhe di connessione funzionano allo stesso modo. In questo modo, è possibile proteggere i segreti dell'applicazione all'esterno del repository di codice e accedere ai valori appropriati senza modificare il codice.
 
 ## <a name="deploy-multi-project-solutions"></a>Distribuire soluzioni per più progetti
 

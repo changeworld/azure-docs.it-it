@@ -4,10 +4,10 @@ description: Questo articolo fornisce informazioni sugli SDK client per hub even
 ms.topic: article
 ms.date: 06/23/2020
 ms.openlocfilehash: 9f4eec603245f1e4ea6fa4d97b843ca6a770f2ad
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "88930877"
 ---
 # <a name="azure-event-hubs---client-sdks"></a>Hub eventi di Azure-SDK client
@@ -20,7 +20,7 @@ Questo articolo fornisce le informazioni seguenti per gli SDK supportati da Hub 
 ## <a name="client-sdks"></a>Client SDK
 La tabella seguente descrive tutti i client di runtime di hub eventi di Azure attualmente disponibili. Sebbene alcune di queste librerie includano anche la funzionalità di gestione limitata, esistono librerie specifiche dedicate alle operazioni di gestione. L'obiettivo principale di queste librerie è di **inviare e ricevere messaggi** da un hub eventi.
 
-| Linguaggio | Pacchetto | Informazioni di riferimento | 
+| Linguaggio | Pacchetto | Riferimento | 
 | -------- | ------- | --------------- | 
 | . NET standard (**versione più recente** e supporta sia .NET Core che .NET Framework) | [Azure. Messaging. EventHubs](https://www.nuget.org/packages/Azure.Messaging.EventHubs/) |<ul><li>[Località di GitHub](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/eventhub/Azure.Messaging.EventHubs)</li><li>[Esercitazione](event-hubs-dotnet-standard-getstarted-send.md)</li></ul> |
 |       | [Azure. Messaging. EventHubs. Processor](https://www.nuget.org/packages/Azure.Messaging.EventHubs.Processor/) | <ul><li>[Località di GitHub](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/eventhub/Azure.Messaging.EventHubs.Processor)</li><li>[Esercitazione](event-hubs-dotnet-standard-getstarted-send.md)</li></ul> |
@@ -39,7 +39,7 @@ La tabella seguente descrive tutti i client di runtime di hub eventi di Azure at
 ## <a name="management-sdks"></a>SDK di gestione
 Nella tabella seguente sono elencate tutte le librerie specifiche per la gestione attualmente disponibili. Nessuna di queste librerie contiene operazioni di runtime ed è finalizzata esclusivamente alla **gestione delle entità di hub eventi**.
 
-| Linguaggio | Pacchetto | Informazioni di riferimento | 
+| Linguaggio | Pacchetto | Riferimento | 
 | -------- | ------- | --------------- | 
 | .NET Standard | [Microsoft.Azure.Management.EventHub](https://www.nuget.org/packages/Microsoft.Azure.Management.EventHub) |<ul><li>[Località di GitHub](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/eventhub/Microsoft.Azure.Management.EventHub)</li><li>[Esercitazione](event-hubs-dotnet-standard-getstarted-send.md)</li></ul> |
 

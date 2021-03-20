@@ -12,10 +12,10 @@ ms.date: 03/30/2020
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: 46f04c55b40d4f1bdbbf5fd55eb648d1d3294056
-ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/11/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97108417"
 ---
 # <a name="predicates-and-predicatevalidations"></a>Predicates e PredicateValidations
@@ -42,7 +42,7 @@ L'elemento **Predicates** contiene l'elemento seguente:
 
 L'elemento **Predicate** contiene gli attributi seguenti:
 
-| Attributo | Obbligatorio | Descrizione |
+| Attributo | Obbligatoria | Descrizione |
 | --------- | -------- | ----------- |
 | Id | Sì | Identificatore usato per il predicato. Altri elementi possono usare questo identificatore nei criteri. |
 | Metodo | Sì | Tipo di metodo da usare per la convalida. I valori possibili sono: [IsLengthRange](#islengthrange), [MatchesRegex](#matchesregex), [IncludesCharacters](#includescharacters) o [IsDateRange](#isdaterange).  |
@@ -73,7 +73,7 @@ L'elemento **Parameter** contiene gli attributi seguenti:
 
 Il metodo IsLengthRange controlla se la lunghezza di un valore di attestazione di stringa rientra nell'intervallo dei parametri minimo e massimo specificati. L'elemento predicato supporta i parametri seguenti:
 
-| Parametro | Obbligatorio | Descrizione |
+| Parametro | Obbligatoria | Descrizione |
 | ------- | ----------- | ----------- |
 | Massimo | Sì | Numero massimo di caratteri che è possibile immettere. |
 | Minima | Sì | Numero minimo di caratteri che devono essere immessi. |
@@ -94,7 +94,7 @@ Nell'esempio seguente viene illustrato un metodo IsLengthRange con i parametri `
 
 Il metodo MatchesRegex controlla se un valore di attestazione stringa corrisponde a un'espressione regolare. L'elemento predicato supporta i parametri seguenti:
 
-| Parametro | Obbligatorio | Descrizione |
+| Parametro | Obbligatoria | Descrizione |
 | ------- | ----------- | ----------- |
 | RegularExpression | Sì | Criterio di espressione regolare di cui trovare la corrispondenza. |
 
@@ -112,7 +112,7 @@ L'esempio seguente mostra un metodo `MatchesRegex` con il parametro `RegularExpr
 
 Il metodo IncludesCharacters controlla se un valore di attestazione stringa contiene un set di caratteri. L'elemento predicato supporta i parametri seguenti:
 
-| Parametro | Obbligatorio | Descrizione |
+| Parametro | Obbligatoria | Descrizione |
 | ------- | ----------- | ----------- |
 | CharacterSet | Sì | Set di caratteri che è possibile immettere. Ad esempio, caratteri minuscoli,  `a-z` caratteri maiuscoli `A-Z` , cifre `0-9` o un elenco di simboli, ad esempio `@#$%^&amp;*\-_+=[]{}|\\:',?/~"();!` . |
 
@@ -130,7 +130,7 @@ L'esempio seguente mostra un metodo `IncludesCharacters` con il parametro `Chara
 
 Il metodo IsDateRange controlla se un valore di attestazione data è compreso tra un intervallo di parametri minimo e massimo specificati. L'elemento predicato supporta i parametri seguenti:
 
-| Parametro | Obbligatorio | Descrizione |
+| Parametro | Obbligatoria | Descrizione |
 | ------- | ----------- | ----------- |
 | Massimo | Sì | Data massima consentita per l'immissione. Il formato della data segue la `yyyy-mm-dd` convenzione o `Today` . |
 | Minima | Sì | Data minima che è possibile immettere. Il formato della data segue la `yyyy-mm-dd` convenzione o `Today` .|
@@ -178,7 +178,7 @@ L'elemento **PredicateValidations** contiene l'elemento seguente:
 
 L'elemento **PredicateValidation** contiene l'attributo seguente:
 
-| Attributo | Obbligatorio | Descrizione |
+| Attributo | Obbligatoria | Descrizione |
 | --------- | -------- | ----------- |
 | Id | Sì | Identificatore che viene usato per la convalida del predicato. L'elemento **ClaimType** può usare questo identificatore nei criteri. |
 
@@ -196,7 +196,7 @@ L'elemento **PredicateGroups** contiene l'elemento seguente:
 
 L'elemento **PredicateGroup** contiene l'attributo seguente:
 
-| Attributo | Obbligatorio | Descrizione |
+| Attributo | Obbligatoria | Descrizione |
 | --------- | -------- | ----------- |
 | Id | Sì | Identificatore usato per il gruppo di predicati.  |
 
@@ -209,7 +209,7 @@ L'elemento **PredicateGroup** contiene gli elementi seguenti:
 
 L'elemento **PredicateReferences** contiene gli attributi seguenti:
 
-| Attributo | Obbligatorio | Descrizione |
+| Attributo | Obbligatoria | Descrizione |
 | --------- | -------- | ----------- |
 | MatchAtLeast | No | Specifica che il valore deve corrispondere almeno a quello di molte definizioni di predicato affinché l'input possa essere accettato. Se non specificato, il valore deve corrispondere a tutte le definizioni di predicato. |
 
@@ -221,7 +221,7 @@ L'elemento **PredicateReferences** contiene gli elementi seguenti:
 
 L'elemento **PredicateReference** contiene gli attributi seguenti:
 
-| Attributo | Obbligatorio | Descrizione |
+| Attributo | Obbligatoria | Descrizione |
 | --------- | -------- | ----------- |
 | Id | Sì | Identificatore che viene usato per la convalida del predicato.  |
 

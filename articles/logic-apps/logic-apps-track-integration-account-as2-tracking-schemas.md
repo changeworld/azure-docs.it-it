@@ -9,10 +9,10 @@ ms.reviewer: jonfan, estfan, logicappspm
 ms.topic: article
 ms.date: 01/01/2020
 ms.openlocfilehash: bccf69362279afd9e8148b20b61ff3ea9b472a03
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "76906966"
 ---
 # <a name="create-schemas-for-tracking-as2-messages-in-azure-logic-apps"></a>Creare schemi per tenere traccia dei messaggi AS2 in app per la logica di Azure
@@ -52,7 +52,7 @@ Per monitorare più facilmente il completamento delle operazioni, gli errori e l
 }
 ```
 
-| Proprietà | Obbligatoria | Type | Descrizione |
+| Proprietà | Obbligatoria | Tipo | Descrizione |
 |----------|----------|------|-------------|
 | senderPartnerName | No | string | Nome partner del mittente del messaggio AS2 |
 | receiverPartnerName | No | string | Nome partner del destinatario del messaggio AS2 |
@@ -105,7 +105,7 @@ Per monitorare più facilmente il completamento delle operazioni, gli errori e l
 }
 ```
 
-| Proprietà | Obbligatoria | Type | Descrizione |
+| Proprietà | Obbligatoria | Tipo | Descrizione |
 |----------|----------|------|-------------|
 | senderPartnerName | No | string | Nome partner del mittente del messaggio AS2 |
 | receiverPartnerName | No | string | Nome partner del destinatario del messaggio AS2 |

@@ -12,10 +12,10 @@ ms.workload: infrastructure-services
 ms.date: 09/28/2020
 ms.author: yitoh
 ms.openlocfilehash: 69f9b5a74566879ecf8f15f23e689ebb731da45a
-ms.sourcegitcommit: 1140ff2b0424633e6e10797f6654359947038b8d
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/30/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97814143"
 ---
 # <a name="quickstart-create-and-configure-azure-ddos-protection-standard-using-azure-powershell"></a>Guida introduttiva: creare e configurare la protezione DDoS di Azure standard usando Azure PowerShell
@@ -26,7 +26,7 @@ Un piano di protezione DDoS definisce un set di reti virtuali in cui è abilitat
 
 In questa Guida introduttiva si creerà un piano di protezione DDoS che verrà collegato a una rete virtuale. 
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerequisiti
 
 - Un account Azure con una sottoscrizione attiva. [Creare un account gratuitamente](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - Installazione di Azure PowerShell in locale o Azure Cloud Shell.

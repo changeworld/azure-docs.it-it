@@ -9,14 +9,14 @@ ms.date: 07/25/2019
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 9810a34021aa039354aad24f84aff373229c0190
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "87021478"
 ---
 # <a name="deploy-storsimple-virtual-array---provision-in-vmware"></a>Distribuire StorSimple Virtual Array: eseguire il provisioning in VMware
-![Diagramma che illustra i passaggi necessari per distribuire un array virtuale.La seconda parte del secondo passaggio è denominata provisioning in VMware ed è evidenziata.](./media/storsimple-virtual-array-deploy2-provision-vmware/vmware4.png)
+![Diagramma che illustra i passaggi necessari per distribuire un array virtuale. La seconda parte del secondo passaggio è denominata provisioning in VMware ed è evidenziata.](./media/storsimple-virtual-array-deploy2-provision-vmware/vmware4.png)
 
 ## <a name="overview"></a>Panoramica
 
@@ -86,7 +86,7 @@ Eseguire i passaggi seguenti per il provisioning di un dispositivo virtuale in h
 4. Caricare il file VMDK sul server ESXi. Passare alla scheda **Configuration** nel riquadro di destra. In **Hardware** selezionare **Storage** (Archiviazione).
 
    ![Screenshot che mostra la scheda configurazione del client vSphere. Nella sezione hardware viene evidenziata l'archiviazione.](./media/storsimple-virtual-array-deploy2-provision-vmware/image3.png)
-5. Nel riquadro a destra in **Datastores**selezionare l'archivio dati in cui si vuole caricare il file VMDK. L'archivio dati deve disporre di spazio libero sufficiente per il sistema operativo e i dischi dati.
+5. Nel riquadro a destra in **Datastores** selezionare l'archivio dati in cui si vuole caricare il file VMDK. L'archivio dati deve disporre di spazio libero sufficiente per il sistema operativo e i dischi dati.
 
    ![Screenshot che mostra la pagina archiviazione del client vSphere. La scheda archivi dati è aperta e contiene un elenco di archivi dati. È selezionato un archivio dati.](./media/storsimple-virtual-array-deploy2-provision-vmware/image4.png)
 6. Fare clic con il pulsante destro del mouse e scegliere **Browse Datastore** (Sfoglia archivio dati).
@@ -151,13 +151,13 @@ Eseguire i passaggi seguenti per il provisioning di un dispositivo virtuale in h
 26. Nella pagina **Advanced Options** (Opzioni avanzate) accettare il valore predefinito e fare clic su **Next** (Avanti).
 
     ![Screenshot della pagina Opzioni avanzate. Il pulsante Avanti è evidenziato.](./media/storsimple-virtual-array-deploy2-provision-vmware/image27.png)
-27. Nella pagina **Ready to Complete** , verificare tutte le impostazioni associate alla nuova macchina virtuale. Controllare **Edit the virtual machine settings before completion**. Fare clic su **Continua**.
+27. Nella pagina **Ready to Complete** , verificare tutte le impostazioni associate alla nuova macchina virtuale. Controllare **Edit the virtual machine settings before completion**. Fare clic su **Continue**.
 
     ![Screenshot della pagina pronto per il completamento con un pulsante continua evidenziato. L'opzione modifica le impostazioni della macchina virtuale prima del completamento è selezionata.](./media/storsimple-virtual-array-deploy2-provision-vmware/image28.png)
-28. Nella pagina **Virtual Machines Properties** (Proprietà macchine virtuali) nella scheda **Hardware** individuare l'hardware del dispositivo. Selezionare **New Hard Disk**. Scegliere **Aggiungi**.
+28. Nella pagina **Virtual Machines Properties** (Proprietà macchine virtuali) nella scheda **Hardware** individuare l'hardware del dispositivo. Selezionare **New Hard Disk**. Fare clic su **Aggiungi**.
 
     ![Screenshot della scheda hardware della pagina delle proprietà delle macchine virtuali. Nell'elenco hardware è selezionato nuovo disco rigido. Il pulsante Aggiungi è evidenziato.](./media/storsimple-virtual-array-deploy2-provision-vmware/image29.png)
-29. Viene visualizzata la finestra **Add Hardware** (Aggiungi hardware). Nella pagina **tipo di dispositivo** , in **scegliere il tipo di dispositivo che si desidera aggiungere**, selezionare **disco rigido**e fare clic su **Avanti**.
+29. Viene visualizzata la finestra **Add Hardware** (Aggiungi hardware). Nella pagina **tipo di dispositivo** , in **scegliere il tipo di dispositivo che si desidera aggiungere**, selezionare **disco rigido** e fare clic su **Avanti**.
 
     ![Screenshot della pagina tipo di dispositivo della finestra Aggiungi hardware. Il dispositivo disco rigido è selezionato e il pulsante Avanti è evidenziato.](./media/storsimple-virtual-array-deploy2-provision-vmware/image30.png)
 30. Nella pagina **Select a Disk** (Selezionare un disco) scegliere **Create a new virtual disk** (Crea un nuovo disco virtuale). Fare clic su **Avanti**.

@@ -12,15 +12,15 @@ manager: daveba
 ms.reviewer: nigu
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 5cc99241f5fa7c09c69db13dcb3f6c3aaa75e376
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "87027394"
 ---
 # <a name="migrate-a-classic-policy-in-the-azure-portal"></a>Eseguire la migrazione di un criterio classico nel portale di Azure
 
-Questo articolo illustra come eseguire la migrazione di criteri classici che richiedono ** l'autenticazione a più fattori** per un'applicazione cloud. Anche se non è un prerequisito, è consigliabile leggere [Migrare i criteri classici nel portale di Azure](policy-migration.md) prima di iniziare la migrazione dei criteri classici.
+Questo articolo illustra come eseguire la migrazione di criteri classici che richiedono **l'autenticazione a più fattori** per un'applicazione cloud. Anche se non è un prerequisito, è consigliabile leggere [Migrare i criteri classici nel portale di Azure](policy-migration.md) prima di iniziare la migrazione dei criteri classici.
 
 ![Dettagli dei criteri classici che richiedono l'autenticazione a più fattori per l'app Salesforce](./media/policy-migration/33.png)
 
@@ -32,7 +32,7 @@ Il processo di migrazione è costituito dai passaggi seguenti:
 
 ## <a name="open-a-classic-policy"></a>Aprire un criterio classico
 
-1. Nella [portale di Azure](https://portal.azure.com)passare a **Azure Active Directory**  >  **Security**  >  **accesso condizionale**di sicurezza.
+1. Nella [portale di Azure](https://portal.azure.com)passare a **Azure Active Directory**  >    >  **accesso condizionale** di sicurezza.
 1. Select, **criteri classici**.
 
    ![Visualizzazione criteri classici](./media/policy-migration-mfa/12.png)
@@ -41,13 +41,13 @@ Il processo di migrazione è costituito dai passaggi seguenti:
 
 ## <a name="create-a-new-conditional-access-policy"></a>Creare un nuovo criterio di accesso condizionale
 
-1. Nella [portale di Azure](https://portal.azure.com)passare a **Azure Active Directory**  >  **Security**  >  **accesso condizionale**di sicurezza.
+1. Nella [portale di Azure](https://portal.azure.com)passare a **Azure Active Directory**  >    >  **accesso condizionale** di sicurezza.
 1. Per creare nuovi criteri di accesso condizionale, selezionare **nuovo criterio**.
 1. Nella pagina **Nuovo** digitare un nome per il criterio nella casella di testo **Nome**.
 1. Nella sezione **Assegnazioni** fare clic su **Utenti e gruppi**.
    1. Se nel criterio classico sono selezionati tutti gli utenti, fare clic su **Tutti gli utenti**. 
    1. Se nel criterio classico sono selezionati i gruppi, fare clic su **Utenti e gruppi**, quindi selezionare i gruppi e gli utenti necessari.
-   1. Se sono presenti gruppi esclusi, fare clic sulla scheda**Escludi** e quindi selezionare i gruppi e gli utenti necessari. 
+   1. Se sono presenti gruppi esclusi, fare clic sulla scheda **Escludi** e quindi selezionare i gruppi e gli utenti necessari. 
    1. Selezionare **Operazione completata**
 1. Nella sezione **assegnazione** fare clic su **app Cloud o azioni**.
 1. Nella pagina **app o azioni cloud** seguire questa procedura:
@@ -57,7 +57,7 @@ Il processo di migrazione è costituito dai passaggi seguenti:
    1. Nella pagina **App cloud** fare clic su **Fatto**.
 1. Se è stato selezionato **Richiedi autenticazione a più fattori**:
    1. Nella sezione **Controlli di accesso** fare clic su **Concedi**.
-   1. Nella pagina **Concedi**, fare clic su **Concedi accesso**e quindi su **Richiedi autenticazione a più fattori**.
+   1. Nella pagina **Concedi**, fare clic su **Concedi accesso** e quindi su **Richiedi autenticazione a più fattori**.
    1. Fare clic su **Seleziona**.
 1. Fare clic **su** attiva per abilitare i criteri e quindi selezionare **Salva**.
 

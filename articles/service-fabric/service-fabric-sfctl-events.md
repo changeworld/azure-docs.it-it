@@ -6,10 +6,10 @@ ms.topic: reference
 ms.date: 1/16/2020
 ms.author: jejarry
 ms.openlocfilehash: 635bddef1a98d6ed2b112662d8c9c44fe65e9e32
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "76906099"
 ---
 # <a name="sfctl-events"></a>eventi sfctl
@@ -17,7 +17,7 @@ Recuperare gli eventi dall'archivio eventi, se il servizio EventStore è già in
 
 Il servizio di sistema EventStore può essere aggiunto tramite un aggiornamento della configurazione a qualsiasi cluster SFRP che esegue >= 6,4. Verificare l'URL \: https \: //docs.Microsoft.com/Azure/Service-Fabric/Service-Fabric-Diagnostics-eventstore seguente.
 
-## <a name="commands"></a>Comandi:
+## <a name="commands"></a>Comandi
 
 |Comando|Descrizione|
 | --- | --- |

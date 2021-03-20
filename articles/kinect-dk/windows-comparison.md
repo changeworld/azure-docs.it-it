@@ -8,10 +8,10 @@ ms.date: 06/26/2019
 ms.topic: article
 keywords: Kinect, Windows, V2, Kinect di Azure, confronto, SDK, differenze, hardware, software
 ms.openlocfilehash: 0a8d399370f354524858bdd658ffd65c0494dd4d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "87031576"
 ---
 # <a name="azure-kinect-and-kinect-windows-v2-comparison"></a>Confronto tra Kinect e Kinect per Windows V2 di Azure
@@ -31,8 +31,8 @@ Nella tabella seguente sono elencate le differenze di alto livello tra il kit di
 |                   | Soluzione | 640 x 576 px @30 fps | 512 x 424 px @ 30 fps |
 |                   |            | 512 x 512 px @30 fps |                       |
 |                   |            | 1024x1024 px @15 fps |                       |
-| **Connettività** | Dati | USB 3.1 gen 1 con tipo USB-C  | USB 3,1 gen 1|
-|  | Alimentazione | ALIMENTATORE esterno o USB-C | PSU esterno |
+| **Connettività** | Data | USB 3.1 gen 1 con tipo USB-C  | USB 3,1 gen 1|
+|  | Potenza | ALIMENTATORE esterno o USB-C | PSU esterno |
 |  | Sincronizzazione | Profondità & RGB interna, dispositivo esterno a dispositivo| RGB & Depth solo interno |
 | **Meccanico** | Dimensioni | 103 x 39 x 126 mm | 249 x 66 x 67 mm |
 |  | Massa | 440 g | 970 g |
@@ -46,7 +46,7 @@ La tabella seguente fornisce un confronto delle funzionalità di accesso ai sens
 
 | **Funzionalità**| **Azure Kinect** | **Kinect per Windows** | **Note** |
 |---------|---------|------------|---------|
-| **Depth** | ✔️ | ✔️ |    |   |
+| **Livello nidificazione** | ✔️ | ✔️ |    |   |
 | **IR** | ✔️ | ✔️ |  |
 | **Colore** | ✔️ | ✔️ | Il formato colori supporta le differenze, il DK di Azure Kinect supporta questi controlli della fotocamera: esposizione, bilanciamento del bianco, luminosità, contrasto, saturazione, nitidezza e controllo di guadagno |
 | **Audio** | ✔️ | ✔️ | È possibile accedere ai microfoni di Azure Kinect DK con l'SDK vocale o l'API nativa di Windows |

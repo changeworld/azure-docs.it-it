@@ -14,10 +14,10 @@ ms.reviewer: sumitp
 ms.custom: it-pro;seo-update-azuread-jan
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 0af74967e2de47afeb357e2ac31b1a0ee849ef36
-ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/03/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96547101"
 ---
 # <a name="take-over-an-unmanaged-directory-as-administrator-in-azure-active-directory"></a>Acquisire la proprietà di una directory non gestita come amministratore in Azure Active Directory
@@ -71,7 +71,7 @@ Quando si completano i passaggi precedenti, si è ora l'amministratore globale d
    ![dominio verificato come aggiunto al Azure AD](./media/domains-admin-takeover/add-domain-to-azure-ad.png)
   
 > [!NOTE]
-> Se il nome di dominio viene rimosso, tutti gli utenti del servizio Power BI o Azure Rights Management con licenze assegnate nell'organizzazione Microsoft 365 devono salvare i dashboard. Devono accedere con un nome utente come *user \@ fourthcoffeexyz.onmicrosoft.com* anziché *User \@ fourthcoffee. xyz*.
+> Se il nome di dominio viene rimosso, tutti gli utenti del servizio Power BI o Azure Rights Management con licenze assegnate nell'organizzazione Microsoft 365 devono salvare i dashboard. Devono accedere con un nome utente come *user \@ fourthcoffeexyz.onmicrosoft.com* anziché *User \@ fourthcoffee.xyz*.
 
 ## <a name="external-admin-takeover"></a>Acquisizione di amministrazione esterna
 
@@ -112,7 +112,7 @@ Anche se RMS per utenti singoli è progettato per supportare l'autenticazione Az
 ### <a name="azure-ad-powershell-cmdlets-for-the-forcetakeover-option"></a>Cmdlet di Azure AD PowerShell per l'opzione ForceTakeover
 È possibile visualizzare questi cmdlet usati in [Esempio di PowerShell](#powershell-example).
 
-Cmdlet | Uso
+Cmdlet | Utilizzo
 ------- | -------
 `connect-msolservice` | Quando richiesto, accedere all'organizzazione gestita.
 `get-msoldomain` | Mostra i nomi di dominio associati all'organizzazione corrente.

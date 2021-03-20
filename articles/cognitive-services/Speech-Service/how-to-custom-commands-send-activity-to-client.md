@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 06/18/2020
 ms.author: xiaojul
 ms.openlocfilehash: 52a4dbc4ff01515af8cd7d2503877184a09f7e64
-ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/12/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94566096"
 ---
 # <a name="send-custom-commands-activity-to-client-application"></a>Invia attività comandi personalizzati all'applicazione client
@@ -57,7 +57,7 @@ Completare le attività seguenti:
 
 In [procedura: configurare l'applicazione client con Speech SDK (anteprima)](./how-to-custom-commands-setup-speech-sdk.md)è stata creata un'applicazione client UWP con l'SDK di riconoscimento vocale che gestiva i comandi, ad esempio `turn on the tv` , `turn off the fan` . Con alcuni oggetti visivi aggiunti, è possibile visualizzare il risultato di tali comandi.
 
-Per aggiungere caselle con etichetta con testo che indica **on** o **off** , aggiungere il seguente blocco XML di StackPanel a `MainPage.xaml` .
+Per aggiungere caselle con etichetta con testo che indica **on** o **off**, aggiungere il seguente blocco XML di StackPanel a `MainPage.xaml` .
 
 ```xml
 <StackPanel Orientation="Vertical" H......>
@@ -85,8 +85,8 @@ Per aggiungere caselle con etichetta con testo che indica **on** o **off** , agg
 Poiché è stato creato un payload JSON, è necessario aggiungere un riferimento alla libreria [JSON.NET](https://www.newtonsoft.com/json) per gestire la deserializzazione.
 
 1. Right-client la soluzione.
-1. Scegliere **Gestisci pacchetti NuGet per la soluzione** , selezionare **Sfoglia** 
-1. Se è già stato installato **Newtonsoft.json** , assicurarsi che la versione sia almeno 12.0.3. In caso contrario, passare a **Gestisci pacchetti NuGet per la soluzione-aggiornamenti** , cercare **Newtonsoft.jssu** per aggiornarlo. Questa guida usa la versione 12.0.3.
+1. Scegliere **Gestisci pacchetti NuGet per la soluzione**, selezionare **Sfoglia** 
+1. Se è già stato installato **Newtonsoft.json**, assicurarsi che la versione sia almeno 12.0.3. In caso contrario, passare a **Gestisci pacchetti NuGet per la soluzione-aggiornamenti**, cercare **Newtonsoft.jssu** per aggiornarlo. Questa guida usa la versione 12.0.3.
 
     > [!div class="mx-imgBorder"]
     > ![Payload dell'attività Send](media/custom-commands/send-activity-to-client-json-nuget.png)
