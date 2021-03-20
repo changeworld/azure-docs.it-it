@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
 ms.date: 10/22/2020
-ms.openlocfilehash: 62ca32ab4e348e1488fbb87672e582436b91d05d
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: 3111b3a102abd923169cf655f1d71e79b19f7d5d
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98875010"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104598134"
 ---
 # <a name="register-and-scan-azure-synapse-analytics"></a>Registrare e analizzare analisi sinapsi di Azure
 
@@ -127,7 +127,7 @@ Per registrare un nuovo server Azure sinapsi Analytics nella Data Catalog, segui
 Nella schermata **Register Sources (Azure sinapsi Analytics)** eseguire le operazioni seguenti:
 
 1. Immettere un **Nome** con il quale l'origine dati sarà elencata nel catalogo.
-1. Scegliere come puntare all'account di archiviazione desiderato:
+1. Scegliere il modo in cui si desidera puntare al SQL Server logico desiderato:
    1. Selezionare una **sottoscrizione di Azure**, selezionare la sottoscrizione appropriata nella casella di riepilogo a discesa **sottoscrizione di Azure** e il server appropriato nella casella di riepilogo a discesa **nome server** .
    1. In alternativa, è possibile selezionare **Immetti manualmente** e immettere un **nome del server**.
 1. Selezionare **Fine** per completare la registrazione dell'origine dati.

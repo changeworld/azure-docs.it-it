@@ -20,10 +20,10 @@ translation.priority.mt:
 - zh-cn
 - zh-tw
 ms.openlocfilehash: 9ad6f89392846564631b70f0acfb5658a050be80
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "88922821"
 ---
 # <a name="odata-searchin-function-in-azure-cognitive-search"></a>`search.in`Funzione OData in Azure ricerca cognitiva
@@ -74,7 +74,7 @@ Sono disponibili due overload della `search.in` funzione:
 
 I parametri sono definiti nella tabella seguente:
 
-| Nome parametro | Type | Descrizione |
+| Nome parametro | Tipo | Descrizione |
 | --- | --- | --- |
 | `variable` | `Edm.String` | Riferimento a un campo stringa (o una variabile di intervallo su un campo di raccolta di stringhe nel caso in cui `search.in` venga utilizzato all'interno di un' `any` `all` espressione or). |
 | `valueList` | `Edm.String` | Stringa contenente un elenco delimitato di valori da confrontare con il `variable` parametro. Se il `delimiters` parametro non è specificato, i delimitatori predefiniti sono spazio e virgola. |
@@ -86,7 +86,7 @@ I parametri sono definiti nella tabella seguente:
 
 Se si usa `search.in`, è previsto un tempo di risposta inferiore al secondo quando il secondo parametro contiene un elenco di centinaia o migliaia di valori. Non esiste alcun limite esplicito per il numero di elementi che è possibile passare a `search.in` , sebbene sia ancora limitato dalla dimensione massima della richiesta. Tuttavia, la latenza aumenterà man mano che aumenta il numero di valori.
 
-## <a name="examples"></a>Esempi
+## <a name="examples"></a>Esempio
 
 Trovare tutti gli alberghi con nome uguale a' Sea View Motel ' o ' Budget Hotel '. Le frasi contengono spazi, ovvero un delimitatore predefinito. È possibile specificare un delimitatore alternativo tra virgolette singole come terzo parametro di stringa:  
 

@@ -8,12 +8,12 @@ ms.date: 12/04/2020
 ms.author: rogarana
 ms.subservice: files
 ms.custom: references_regions
-ms.openlocfilehash: 482e6c9f2e25b867574090a1f34e95f466916ba9
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 0ed41cc01fcf5aa35b3d2195518b8e2bb0f3b9c4
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101711842"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104588240"
 ---
 # <a name="azure-file-share-protocols"></a>Protocolli di condivisione file di Azure
 
@@ -26,7 +26,7 @@ File di Azure offre due protocolli per la connessione e il montaggio delle condi
 |Protocolli di accesso     |NFS 4,1         |SMB 2,1, SMB 3,0         |
 |Sistema operativo consigliato     |Kernel Linux versione 4.3 +         |Windows 2008 R2 +, versione kernel Linux 4.11 +         |
 |[Livelli disponibili](storage-files-planning.md#storage-tiers)     |Archiviazione Premium         |Archiviazione Premium, ottimizzato per le transazioni, accesso frequente, ad accesso sporadico         |
-|Modello di fatturazione         |[Pagamento per la capacità sottoposta a provisioning](https://docs.microsoft.com/azure/storage/files/understanding-billing#provisioned-model)         |[Pagamento per la capacità con provisioning per il livello Premium](https://docs.microsoft.com/azure/storage/files/understanding-billing#provisioned-model), con [pagamento in base al consumo per il livello standard](https://docs.microsoft.com/azure/storage/files/understanding-billing#pay-as-you-go-model)         |
+|Modello di fatturazione         |[Pagamento per la capacità sottoposta a provisioning](./understanding-billing.md#provisioned-model)         |[Pagamento per la capacità con provisioning per il livello Premium](./understanding-billing.md#provisioned-model), con [pagamento in base al consumo per il livello standard](./understanding-billing.md#pay-as-you-go-model)         |
 |[Ridondanza](storage-files-planning.md#redundancy)     |LRS, ZRS         |LRS, ZRS, GRS         |
 |Authentication     |Solo autenticazione basata su host        |Autenticazione basata sull'identità, autenticazione basata sull'utente         |
 |Autorizzazioni     |Autorizzazioni di tipo UNIX         |Autorizzazioni di tipo NTFS         |

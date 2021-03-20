@@ -15,15 +15,15 @@ ms.topic: article
 ms.date: 11/04/2019
 ms.author: sasolank
 ms.openlocfilehash: 3db1c8bfc3a11151342589af0873d88e3d90c6a1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91825625"
 ---
 # <a name="integrate-api-management-in-an-internal-vnet-with-application-gateway"></a>Integrare Gestione API in una rete virtuale interna con un gateway applicazione
 
-## <a name="overview"></a><a name="overview"> </a> Panoramica di
+## <a name="overview"></a><a name="overview"></a> Panoramica di
 
 Il servizio Gestione API può essere configurato in una rete virtuale in modalità interna, per renderlo accessibile solo internamente alla rete virtuale. Il gateway applicazione di Azure è un servizio PAAS con bilanciamento del carico di livello 7. Funge da servizio proxy inverso e offre anche un Web application firewall (WAF).
 
@@ -47,7 +47,7 @@ Per eseguire i passaggi descritti in questo articolo, è necessario quanto segue
 
 * Certificati: PFX e CER per il nome host dell'API e PFX per il nome host del portale per sviluppatori.
 
-## <a name="scenario"></a><a name="scenario"> </a> Scenario
+## <a name="scenario"></a><a name="scenario"></a> Scenario
 
 Questo articolo illustra come usare un singolo servizio gestione API per i consumer interni ed esterni e come fungere da singolo front-end per le API locali e cloud. Verrà anche descritto come esporre solo un sottoinsieme delle API (evidenziato in verde nell'esempio) per l'utilizzo esterno con la funzionalità di routing disponibile nel gateway applicazione.
 
@@ -55,7 +55,7 @@ Nel primo esempio di configurazione, tutte le API sono gestite solo dall'interno
 
 ![route dell'URL](./media/api-management-howto-integrate-internal-vnet-appgateway/api-management-howto-integrate-internal-vnet-appgateway.png)
 
-## <a name="before-you-begin"></a><a name="before-you-begin"> </a> Prima di iniziare
+## <a name="before-you-begin"></a><a name="before-you-begin"></a> Prima di iniziare
 
 * Assicurarsi di usare la versione più recente di Azure PowerShell. Vedere le istruzioni di installazione in [Install Azure PowerShell](/powershell/azure/install-az-ps). 
 
@@ -368,10 +368,10 @@ Il nome DNS del gateway applicazione dovrà essere usato per creare un record CN
 Get-AzPublicIpAddress -ResourceGroupName $resGroupName -Name "publicIP01"
 ```
 
-## <a name="summary"></a><a name="summary"> </a> Riepilogo di
+## <a name="summary"></a><a name="summary"></a> Riepilogo di
 Gestione API di Azure configurata in un VNET offre un'unica interfaccia del gateway per tutte le API configurate, indipendentemente dal fatto che siano ospitate in locale o nel cloud. L'integrazione del gateway applicazione con Gestione API offre la possibilità di rendere accessibili su Internet determinate API in modo selettivo, nonché di fornire un Web application firewall come front-end all'istanza di Gestione API.
 
-## <a name="next-steps"></a><a name="next-steps"> </a> Passaggi successivi
+## <a name="next-steps"></a><a name="next-steps"></a> Passaggi successivi
 * Altre informazioni sul gateway applicazione di Azure
   * [Panoramica del gateway applicazione](../application-gateway/overview.md)
   * [Web application firewall del gateway applicazione](../web-application-firewall/ag/ag-overview.md)

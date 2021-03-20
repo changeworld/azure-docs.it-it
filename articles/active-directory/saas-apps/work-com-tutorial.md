@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 04/03/2019
 ms.author: jeedes
 ms.openlocfilehash: a77b6472ea91a6ba4b6e31d1b7739aae236a1783
-ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
-ms.translationtype: HT
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/27/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92636154"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-workcom"></a>Esercitazione: Integrazione di Azure Active Directory con Work.com
@@ -109,7 +109,7 @@ Per configurare l'accesso Single Sign-On di Azure AD con Work.com, seguire quest
     > [!NOTE]
     > Poiché non è reale, è necessario aggiornare questo valore con l'URL di accesso effettivo. Per ottenere il valore, contattare il [team di supporto clienti di Work.com](https://help.salesforce.com/articleView?id=000159855&type=3). È anche possibile fare riferimento ai modelli mostrati nella sezione **Configurazione SAML di base** del portale di Azure.
 
-5. Nella pagina **Configura l'accesso Single Sign-On con SAML** , nella sezione **Certificato di firma SAML** , fare clic su **Scarica** per scaricare il **Certificato (Base64)** definito dalle opzioni specificate in base ai propri requisiti e salvarlo in questo computer.
+5. Nella pagina **Configura l'accesso Single Sign-On con SAML**, nella sezione **Certificato di firma SAML**, fare clic su **Scarica** per scaricare il **Certificato (Base64)** definito dalle opzioni specificate in base ai propri requisiti e salvarlo in questo computer.
 
     ![Collegamento di download del certificato](common/certificatebase64.png)
 
@@ -135,7 +135,7 @@ Per configurare l'accesso Single Sign-On di Azure AD con Work.com, seguire quest
    
     ![Screenshot che mostra l'opzione My Domain selezionata nella sezione Domain Management del riquadro Administer.](./media/work-com-tutorial/ic767825.png "My Domain")
 
-4. Per verificare che il dominio sia stato configurato correttamente, verificare che sia presente in " **Step 4 Deployed to Users** " (Passaggio 4 Distribuzione agli utenti) e quindi verificare le selezioni in " **My Domain Settings** " (Impostazioni dominio personale).
+4. Per verificare che il dominio sia stato configurato correttamente, verificare che sia presente in "**Step 4 Deployed to Users**" (Passaggio 4 Distribuzione agli utenti) e quindi verificare le selezioni in "**My Domain Settings**" (Impostazioni dominio personale).
    
     ![Dominio distribuito all'utente](./media/work-com-tutorial/ic784377.png "Dominio distribuito all'utente")
 
@@ -198,9 +198,9 @@ Per configurare l'accesso Single Sign-On di Azure AD con Work.com, seguire quest
 
 ### <a name="create-an-azure-ad-test-user"></a>Creare un utente di test di Azure AD 
 
-Questa sezione descrive come creare un utente di test di nome Britta Simon nel portale di Azure.
+Questa sezione descrive come creare un utente test denominato Britta Simon nel portale di Azure.
 
-1. Nel riquadro sinistro del portale di Azure, selezionare **Azure Active Directory** , **Utenti** e quindi **Tutti gli utenti**.
+1. Nel riquadro sinistro del portale di Azure, selezionare **Azure Active Directory**, **Utenti** e quindi **Tutti gli utenti**.
 
     ![Collegamenti "Utenti e gruppi" e "Tutti gli utenti"](common/users.png)
 
@@ -224,7 +224,7 @@ Questa sezione descrive come creare un utente di test di nome Britta Simon nel p
 
 In questa sezione si abilita Britta Simon all'uso dell'accesso Single Sign-On di Azure concedendole l'accesso a Work.com.
 
-1. Nel portale di Azure selezionare **Applicazioni aziendali** , quindi **Tutte le applicazioni** e infine **Work.com**.
+1. Nel portale di Azure selezionare **Applicazioni aziendali**, quindi **Tutte le applicazioni** e infine **Work.com**.
 
     ![Pannello delle applicazioni aziendali](common/enterprise-applications.png)
 
@@ -276,13 +276,13 @@ Per consentire l'accesso agli utenti di Azure Active Directory, è necessario ch
     
     c. Nella casella di testo **Alias** digitare il **nome** dell'utente **BrittaS**.
     
-    d. Nella casella di testo **Email** (Indirizzo di posta elettronica) digitare l' **indirizzo di posta elettronica** dell'utente Brittasimon@contoso.com.
+    d. Nella casella di testo **Email** (Indirizzo di posta elettronica) digitare l'**indirizzo di posta elettronica** dell'utente Brittasimon@contoso.com.
     
     e. Nella casella di testo **User Name** (Nome utente) digitare il nome utente dell'utente, ad esempio Brittasimon@contoso.com.
     
     f. Nella casella di testo **Nick Name** (Nome alternativo) digitare un **nome alternativo** dell'utente **Simon**.
     
-    g. Selezionare **Role** (Ruolo), **User License** (Licenza utente) e **Profile** (Profilo).
+    g. Selezionare **Role** (Ruolo), **User License**(Licenza utente) e **Profile** (Profilo).
     
     h. Fare clic su **Salva**.  
       

@@ -11,19 +11,19 @@ ms.date: 03/15/2021
 ms.author: mimart
 ms.subservice: B2C
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 608017c15d039be940d1d67b8f9e1bf7618134b7
-ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
+ms.openlocfilehash: 87415fc98bbcc9331ae4ff6282a65c85b570042d
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/16/2021
-ms.locfileid: "103491499"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104579774"
 ---
 # <a name="web-sign-in-with-openid-connect-in-azure-active-directory-b2c"></a>Accesso Web con OpenID Connect in Azure Active Directory B2C
 
 OpenID Connect è un protocollo di autenticazione basato su OAuth 2.0 che può essere usato per consentire agli utenti di accedere in modo sicuro alle applicazioni Web. Tramite l'implementazione in Azure Active Directory B2C (Azure AD B2C) di OpenID Connect è possibile assegnare esperienze di gestione delle iscrizioni, degli accessi e altre esperienze di gestione delle identità nelle applicazioni Web ad Azure AD. Questa guida illustra come eseguire questa operazione in modo indipendente dal linguaggio. La guida descrive come inviare e ricevere messaggi HTTP senza usare una delle librerie Microsoft open source.
 
 > [!NOTE]
-> La maggior parte delle librerie di autenticazione open source acquisisce e convalidano i token JWT per l'applicazione. È consigliabile esplorare tali opzioni, anziché implementare codice personalizzato. Per ulteriori informazioni, vedere [Panoramica di Microsoft Authentication Library (MSAL)](https://docs.microsoft.com/azure/active-directory/develop/msal-overview)e [Microsoft Identity Web Authentication Library](https://docs.microsoft.com/azure/active-directory/develop/microsoft-identity-web).
+> La maggior parte delle librerie di autenticazione open source acquisisce e convalidano i token JWT per l'applicazione. È consigliabile esplorare tali opzioni, anziché implementare codice personalizzato. Per ulteriori informazioni, vedere [Panoramica di Microsoft Authentication Library (MSAL)](../active-directory/develop/msal-overview.md)e [Microsoft Identity Web Authentication Library](../active-directory/develop/microsoft-identity-web.md).
 
 [OpenID Connect](https://openid.net/specs/openid-connect-core-1_0.html) estende il protocollo di *autorizzazione* OAuth 2.0 per consentirne l'uso come protocollo di *autenticazione*. Questo protocollo di autenticazione consente di eseguire Single Sign-On. Viene introdotto il concetto di *token ID*, che consente al client di verificare l'identità dell'utente e ottenere informazioni di base sul profilo dell'utente.
 
@@ -103,7 +103,7 @@ error=access_denied
 La ricezione di un token ID non è sufficiente per autenticare l'utente. Convalidare la firma del token ID e verificare le attestazioni nel token in base ai requisiti dell'applicazione. Azure AD B2C usa i [token Web JSON](https://self-issued.info/docs/draft-ietf-oauth-json-web-token.html) e la crittografia a chiave pubblica per firmare i token e verificarne la validità. 
 
 > [!NOTE]
-> La maggior parte delle librerie di autenticazione Open Source convalidano i token JWT per l'applicazione. È consigliabile esplorare tali opzioni anziché implementare una logica di convalida personalizzata. Per ulteriori informazioni, vedere [Panoramica di Microsoft Authentication Library (MSAL)](https://docs.microsoft.com/azure/active-directory/develop/msal-overview)e [Microsoft Identity Web Authentication Library](https://docs.microsoft.com/azure/active-directory/develop/microsoft-identity-web).
+> La maggior parte delle librerie di autenticazione Open Source convalidano i token JWT per l'applicazione. È consigliabile esplorare tali opzioni anziché implementare una logica di convalida personalizzata. Per ulteriori informazioni, vedere [Panoramica di Microsoft Authentication Library (MSAL)](../active-directory/develop/msal-overview.md)e [Microsoft Identity Web Authentication Library](../active-directory/develop/microsoft-identity-web.md).
 
 Azure AD B2C dispone di un endpoint di metadati OpenID Connect, che consente a un'applicazione di ottenere informazioni sui Azure AD B2C in fase di esecuzione. Queste informazioni includono endpoint, contenuti del token e chiavi per la firma dei token. Il tenant B2C include un documento di metadati JSON per ogni flusso utente. Ad esempio, il documento di metadati del flusso utente `b2c_1_sign_in` in `fabrikamb2c.onmicrosoft.com` si trova in:
 

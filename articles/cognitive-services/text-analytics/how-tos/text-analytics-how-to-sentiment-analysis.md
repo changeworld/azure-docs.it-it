@@ -8,18 +8,18 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: sample
-ms.date: 12/04/2020
+ms.date: 03/09/2021
 ms.author: aahi
-ms.openlocfilehash: 6ea7b992a682537471ce0e78385b37674199d687
-ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
-ms.translationtype: HT
+ms.openlocfilehash: e9d8e7b514dca7d4930ad33bf08d4ceb07fb860d
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/18/2020
-ms.locfileid: "97673054"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104599129"
 ---
 # <a name="how-to-sentiment-analysis-and-opinion-mining"></a>Procedura: Analisi del sentiment e opinion mining
 
-La funzionalità Analisi del sentiment dell'API Analisi del testo consente di rilevare il sentiment positivo e negativo in due modi. Se si invia una richiesta di Analisi del sentiment, l'API restituisce le etichette del sentiment (ad esempio "negativo", "neutrale" e "positivo") e i punteggi di attendibilità a livello di frase e di documento. È anche possibile inviare richieste di opinion mining usando l'endpoint di Analisi del sentiment, che fornisce informazioni granulari sulle opinioni relative ad aspetti del testo come gli attributi di prodotti o servizi. 
+La funzionalità Analisi del sentiment dell'API Analisi del testo consente di rilevare il sentiment positivo e negativo in due modi. Se si invia una richiesta di Analisi del sentiment, l'API restituisce le etichette del sentiment (ad esempio "negativo", "neutrale" e "positivo") e i punteggi di attendibilità a livello di frase e di documento. È anche possibile inviare richieste di Opinion Mining usando l'endpoint Analisi del sentiment, che fornisce informazioni granulari sulle opinioni correlate alle parole, ad esempio gli attributi di prodotti o servizi, nel testo. 
 
 I modelli di intelligenza artificiale usati dall'API vengono forniti dal servizio, quindi è sufficiente inviare contenuto per l'analisi.
 
@@ -49,9 +49,9 @@ I punteggi di attendibilità sono compresi tra 1 e 0. I punteggi più prossimi a
 
 ## <a name="opinion-mining"></a>Opinion mining
 
-Opinion mining è una funzionalità di Analisi del sentiment, a partire dalla versione 3.1. Nota anche come analisi del sentiment basata su aspetto nell'elaborazione del linguaggio naturale (NLP), questa funzionalità fornisce informazioni più granulari sulle opinioni relative ad aspetti del testo come gli attributi di prodotti o servizi.
+Opinion mining è una funzionalità di Analisi del sentiment, a partire dalla versione 3.1. Nota anche come Analisi del sentiment basata su aspetto nell'elaborazione del linguaggio naturale (PNL), questa funzionalità fornisce informazioni più granulari sulle opinioni correlate agli attributi di prodotti o servizi nel testo. L'API espone le opinioni come destinazione (sostantivo o verbo) e una valutazione (aggettivo).
 
-Se ad esempio un cliente lascia il feedback su un hotel, come "la stanza è fantastica, ma il personale è scortese", la funzionalità di opinion mining individuerà gli aspetti nel testo oltre alle opinioni e ai sentiment associati. Analisi del sentiment potrebbe segnalare solo un sentiment negativo.
+Se, ad esempio, un cliente lascia commenti e suggerimenti su un hotel, ad esempio "la stanza è stata fantastica, ma il personale era scortese.", Opinion Mining individuerà le destinazioni (aspetti) nel testo e le valutazioni associate (opinioni) e i sentimenti. Analisi del sentiment potrebbe segnalare solo un sentiment negativo.
 
 :::image type="content" source="../media/how-tos/opinion-mining.png" alt-text="Diagramma dell'esempio di opinion mining" lightbox="../media/how-tos/opinion-mining.png":::
 
@@ -72,7 +72,7 @@ Le dimensioni dei documenti devono essere inferiori a 5.120 caratteri per docume
 
 Creare una richiesta POST. È possibile [usare Postman](text-analytics-how-to-call-api.md) o la **console di test dell'API** nei collegamenti di riferimento seguenti per strutturarne e inviarne rapidamente una. 
 
-#### <a name="version-31-preview3"></a>[Versione 3.1-preview.3](#tab/version-3-1)
+#### <a name="version-31-preview"></a>[Versione 3.1-preview](#tab/version-3-1)
 
 [Informazioni di riferimento su Analisi del sentiment v3.1](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-1-preview-3/operations/Sentiment)
 
@@ -89,17 +89,17 @@ Impostare l'endpoint HTTP per l'analisi del sentiment usando una risorsa di Anal
 > [!NOTE]
 > È possibile trovare la chiave e l'endpoint per la risorsa Analisi del testo nel portale di Azure. Si trovano in **Gestione risorse** nella pagina **Avvio rapido** della risorsa. 
 
-#### <a name="version-31-preview3"></a>[Versione 3.1-preview.3](#tab/version-3-1)
+#### <a name="version-31-preview"></a>[Versione 3.1-preview](#tab/version-3-1)
 
 **Analisi del sentiment**
 
-`https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.1-preview.3/sentiment`
+`https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.1-preview.4/sentiment`
 
 **Opinion mining**
 
 Per ottenere i risultati di opinion mining, è necessario includere il parametro `opinionMining=true`. Ad esempio:
 
-`https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.1-preview.3/sentiment?opinionMining=true`
+`https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.1-preview.4/sentiment?opinionMining=true`
 
 Questo parametro è impostato su `false` per impostazione predefinita. 
 
@@ -142,7 +142,7 @@ L'API Analisi del testo è senza stato. Non vengono archiviati dati nell'account
 
 L'output viene restituito immediatamente. È possibile trasmettere i risultati a un'applicazione che accetta JSON o salvare l'output in un file nel sistema locale. Importare quindi l'output in un'applicazione che consente di ordinare, cercare e modificare i dati. A causa del supporto multilingue e emoji, la risposta può contenere offset di testo. Per altre informazioni, vedere [come elaborare gli offset](../concepts/text-offsets.md).
 
-#### <a name="version-31-preview3"></a>[Versione 3.1-preview.3](#tab/version-3-1)
+#### <a name="version-31-preview"></a>[Versione 3.1-preview](#tab/version-3-1)
 
 ### <a name="sentiment-analysis-and-opinion-mining-example-response"></a>Esempio di risposta di Analisi del sentiment e opinion mining
 
@@ -151,97 +151,99 @@ L'output viene restituito immediatamente. È possibile trasmettere i risultati a
 
 Analisi del sentiment v3.1 può restituire oggetti della risposta sia per Analisi del sentiment che per opinion mining.
   
-L'analisi del sentiment restituisce un'etichetta del sentiment e un punteggio di attendibilità per l'intero documento e per ogni frase al suo interno. I punteggi più prossimi a 1 indicano una maggiore attendibilità nella classificazione dell'etichetta, mentre i punteggi inferiori indicano un'attendibilità inferiore. Un documento può includere più frasi e la somma dei punteggi di attendibilità all'interno di ogni documento o frase è pari a 1.
+L'analisi del sentiment restituisce un'etichetta del sentiment e un punteggio di attendibilità per l'intero documento e per ogni frase al suo interno. I punteggi più prossimi a 1 indicano una maggiore attendibilità nella classificazione dell'etichetta, mentre i punteggi inferiori indicano un'attendibilità inferiore. Un documento può includere più frasi e la somma dei punteggi di attendibilità all'interno di ogni documento o frase è pari a 1. assessments 
 
-La funzionalità di opinion mining individuerà gli aspetti del testo oltre alle opinioni e ai sentiment associati. Nella risposta seguente la frase *The restaurant had great food and our waiter was friendly* include due aspetti, ovvero *food* e *waiter*. La proprietà `relations` di ogni aspetto contiene un valore `ref` con il riferimento URI agli oggetti `documents`, `sentences` e `opinions` associati.
+Opinion Mining individuerà le destinazioni (sostantivi o verbi) nel testo e la valutazione associata (aggettivo). Nella risposta riportata di seguito, la frase *del ristorante era un ottimo cibo e il cameriere era descrittivo* con due obiettivi: *cibo* e *cameriere*. Ogni proprietà della destinazione `relations` contiene un `ref` valore con il riferimento URI agli `documents` oggetti, e associati `sentences` `assessments` .
+
+L'API restituisce le opinioni come destinazione (sostantivo o verbo) e una valutazione (aggettivo).
 
 ```json
 {
-    "documents": [
+  "documents": [
+    {
+      "id": "1",
+      "sentiment": "positive",
+      "confidenceScores": {
+        "positive": 1,
+        "neutral": 0,
+        "negative": 0
+      },
+      "sentences": [
         {
-            "id": "1",
-            "sentiment": "positive",
-            "confidenceScores": {
-                "positive": 1.0,
-                "neutral": 0.0,
-                "negative": 0.0
-            },
-            "sentences": [
+          "sentiment": "positive",
+          "confidenceScores": {
+            "positive": 1,
+            "neutral": 0,
+            "negative": 0
+          },
+          "offset": 0,
+          "length": 58,
+          "text": "The restaurant had great food and our waiter was friendly.",
+          "targets": [
+            {
+              "sentiment": "positive",
+              "confidenceScores": {
+                "positive": 1,
+                "negative": 0
+              },
+              "offset": 25,
+              "length": 4,
+              "text": "food",
+              "relations": [
                 {
-                    "sentiment": "positive",
-                    "confidenceScores": {
-                        "positive": 1.0,
-                        "neutral": 0.0,
-                        "negative": 0.0
-                    },
-                    "offset": 0,
-                    "length": 58,
-                    "text": "The restaurant had great food and our waiter was friendly.",
-                    "aspects": [
-                        {
-                            "sentiment": "positive",
-                            "confidenceScores": {
-                                "positive": 1.0,
-                                "negative": 0.0
-                            },
-                            "offset": 25,
-                            "length": 4,
-                            "text": "food",
-                            "relations": [
-                                {
-                                    "relationType": "opinion",
-                                    "ref": "#/documents/0/sentences/0/opinions/0"
-                                }
-                            ]
-                        },
-                        {
-                            "sentiment": "positive",
-                            "confidenceScores": {
-                                "positive": 1.0,
-                                "negative": 0.0
-                            },
-                            "offset": 38,
-                            "length": 6,
-                            "text": "waiter",
-                            "relations": [
-                                {
-                                    "relationType": "opinion",
-                                    "ref": "#/documents/0/sentences/0/opinions/1"
-                                }
-                            ]
-                        }
-                    ],
-                    "opinions": [
-                        {
-                            "sentiment": "positive",
-                            "confidenceScores": {
-                                "positive": 1.0,
-                                "negative": 0.0
-                            },
-                            "offset": 19,
-                            "length": 5,
-                            "text": "great",
-                            "isNegated": false
-                        },
-                        {
-                            "sentiment": "positive",
-                            "confidenceScores": {
-                                "positive": 1.0,
-                                "negative": 0.0
-                            },
-                            "offset": 49,
-                            "length": 8,
-                            "text": "friendly",
-                            "isNegated": false
-                        }
-                    ]
+                  "relationType": "assessment",
+                  "ref": "#/documents/0/sentences/0/assessments/0"
                 }
-            ],
-            "warnings": []
+              ]
+            },
+            {
+              "sentiment": "positive",
+              "confidenceScores": {
+                "positive": 1,
+                "negative": 0
+              },
+              "offset": 38,
+              "length": 6,
+              "text": "waiter",
+              "relations": [
+                {
+                  "relationType": "assessment",
+                  "ref": "#/documents/0/sentences/0/assessments/1"
+                }
+              ]
+            }
+          ],
+          "assessments": [
+            {
+              "sentiment": "positive",
+              "confidenceScores": {
+                "positive": 1,
+                "negative": 0
+              },
+              "offset": 19,
+              "length": 5,
+              "text": "great",
+              "isNegated": false
+            },
+            {
+              "sentiment": "positive",
+              "confidenceScores": {
+                "positive": 1,
+                "negative": 0
+              },
+              "offset": 49,
+              "length": 8,
+              "text": "friendly",
+              "isNegated": false
+            }
+          ]
         }
-    ],
-    "errors": [],
-    "modelVersion": "2020-04-01"
+      ],
+      "warnings": []
+    }
+  ],
+  "errors": [],
+  "modelVersion": "2020-04-01"
 }
 ```
 

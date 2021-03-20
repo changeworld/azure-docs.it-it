@@ -8,10 +8,10 @@ ms.date: 4/9/2019
 ms.topic: conceptual
 ms.author: ramamill
 ms.openlocfilehash: 4b86d0c189bcf0687a703f2338188df2090feaf0
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/22/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92368027"
 ---
 # <a name="plan-capacity-and-scaling-for-vmware-disaster-recovery-to-azure"></a>Pianificare la capacità e la scalabilità per il ripristino di emergenza di VMware in Azure
@@ -92,7 +92,7 @@ Dopo aver usato [Site Recovery Deployment Planner](site-recovery-deployment-plan
 
     ![Screenshot della finestra di dialogo Proprietà di Azure Backup](./media/site-recovery-vmware-to-azure/throttle2.png)
 
-È anche possibile usare il cmdlet [Set-OBMachineSetting](/previous-versions/windows/powershell-scripting/hh770409(v=wps.640)) per impostare la limitazione. Di seguito è riportato un esempio:
+È anche possibile usare il cmdlet [Set-OBMachineSetting](/previous-versions/windows/powershell-scripting/hh770409(v=wps.640)) per impostare la limitazione. Ecco un esempio:
 
 ```azurepowershell-interactive
 $mon = [System.DayOfWeek]::Monday
@@ -146,7 +146,7 @@ Per informazioni su come aggiungere un server di destinazione master per una mac
 
 Per aggiungere un nuovo server di destinazione master per una macchina virtuale basata su Windows:
 
-1. Passare a insieme di credenziali di **servizi di ripristino**  >  **Site Recovery**  >  **server di configurazione**dell'infrastruttura.
+1. Passare a insieme di credenziali di **servizi di ripristino**  >  **Site Recovery**  >  **server di configurazione** dell'infrastruttura.
 2. Selezionare il server di configurazione necessario e quindi selezionare **Server di destinazione master**.
 
     ![Screenshot che mostra il pulsante Aggiungi Server di destinazione master](media/site-recovery-plan-capacity-vmware/add-master-target-server.png)
@@ -165,7 +165,7 @@ Per aggiungere un nuovo server di destinazione master per una macchina virtuale 
     ![Screenshot che mostra dove immettere l'indirizzo IP e la passphrase per il server di configurazione](media/site-recovery-plan-capacity-vmware/cs-ip-passphrase.PNG)
 8. Selezionare **Registra**. Al termine della registrazione, selezionare **Fine**.
 
-Al termine della registrazione, il server viene elencato nella portale di Azure nell'insieme di credenziali di **servizi di ripristino**  >  **Site Recovery**  >  **server di configurazione**dell'infrastruttura nei server di destinazione master del server di configurazione.
+Al termine della registrazione, il server viene elencato nella portale di Azure nell'insieme di credenziali di **servizi di ripristino**  >  **Site Recovery**  >  **server di configurazione** dell'infrastruttura nei server di destinazione master del server di configurazione.
 
  > [!NOTE]
  > Scaricare la versione più recente del [file di configurazione unificata del server di destinazione master per Windows](https://aka.ms/latestmobsvc).

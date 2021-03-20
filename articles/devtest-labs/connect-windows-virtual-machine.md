@@ -4,10 +4,10 @@ description: Informazioni su come connettersi alla macchina virtuale Windows in 
 ms.topic: how-to
 ms.date: 07/17/2020
 ms.openlocfilehash: e1e786daa396548030976159d1b150caa4b24396
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "86540722"
 ---
 # <a name="connect-to-a-windows-vm-in-your-lab-azure-devtest-labs"></a>Connettersi a una macchina virtuale Windows nel Lab (Azure DevTest Labs)
@@ -20,16 +20,16 @@ Questo articolo illustra come connettersi a una macchina virtuale Windows nel La
     :::image type="content" source="./media/connect-windows-virtual-machine/search-select.png" alt-text="Cercare e selezionare DevTest Labs":::    
 1. Dall'elenco dei Lab selezionare il **Lab**.
 
-    :::image type="content" source="./media/connect-windows-virtual-machine/select-lab.png" alt-text="Cercare e selezionare DevTest Labs":::            
+    :::image type="content" source="./media/connect-windows-virtual-machine/select-lab.png" alt-text="Selezionare il lab":::            
 1. Nella home page per il Lab selezionare la VM Windows dall'elenco **macchine virtuali personali** . 
 
-    :::image type="content" source="./media/connect-windows-virtual-machine/select-windows-vm.png" alt-text="Cercare e selezionare DevTest Labs":::                
+    :::image type="content" source="./media/connect-windows-virtual-machine/select-windows-vm.png" alt-text="Selezionare la VM Windows":::                
 1. Nella pagina **macchina virtuale** per la VM selezionare **Connetti** sulla barra degli strumenti. Se la macchina virtuale è arrestata, selezionare **Avvia** prima per avviare la macchina virtuale.
 
-    :::image type="content" source="./media/connect-windows-virtual-machine/select-connect.png" alt-text="Cercare e selezionare DevTest Labs":::                    
+    :::image type="content" source="./media/connect-windows-virtual-machine/select-connect.png" alt-text="Selezionare Connetti sulla barra degli strumenti":::                    
 1. Se si usa il browser Microsoft Edge, viene visualizzato il collegamento al **file RDP scaricato** nella parte inferiore del browser. 
 
-    :::image type="content" source="./media/connect-windows-virtual-machine/rdp-download.png" alt-text="Cercare e selezionare DevTest Labs":::                        
+    :::image type="content" source="./media/connect-windows-virtual-machine/rdp-download.png" alt-text="RDP scaricato":::                        
 1. Aprire il file RDP e immettere le credenziali della VM digitate durante la creazione della macchina virtuale. È necessario essere connessi alla macchina virtuale Windows. 
 
 ## <a name="next-steps"></a>Passaggi successivi

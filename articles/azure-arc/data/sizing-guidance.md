@@ -10,10 +10,10 @@ ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: how-to
 ms.openlocfilehash: 6e7f2e445c3e4e8df7420c0587e156968f3a2c92
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/12/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94542678"
 ---
 # <a name="sizing-guidance"></a>Linee guida per il ridimensionamento
@@ -124,9 +124,9 @@ Di seguito è riportato un esempio di calcolo di ridimensionamento.
 
 Requisiti:
 
-- **"SQL1"** : 1 istanza gestita di SQL con 16 GB di RAM, 4 core
-- **"SQL2"** : 1 istanza gestita di SQL con 256 GB di RAM, 16 core
-- **"Postgres1"** : 1 gruppo di server su scala PostgreSQL con 4 dipendenti a 12 GB di RAM, 4 core
+- **"SQL1"**: 1 istanza gestita di SQL con 16 GB di RAM, 4 core
+- **"SQL2"**: 1 istanza gestita di SQL con 256 GB di RAM, 16 core
+- **"Postgres1"**: 1 gruppo di server su scala PostgreSQL con 4 dipendenti a 12 GB di RAM, 4 core
 
 Ridimensionamento di calcoli:
 

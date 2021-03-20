@@ -7,12 +7,12 @@ ms.service: managed-instance-apache-cassandra
 ms.topic: quickstart
 ms.date: 03/02/2021
 ms.custom: references_regions
-ms.openlocfilehash: db3f188cc796642285d9b082b46371879491c632
-ms.sourcegitcommit: 94c3c1be6bc17403adbb2bab6bbaf4a717a66009
+ms.openlocfilehash: cb555eefb19b5db7ed7eb0792a813c295a4bf38b
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/12/2021
-ms.locfileid: "103225235"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104588614"
 ---
 # <a name="quickstart-create-an-azure-managed-instance-for-apache-cassandra-cluster-from-the-azure-portal-preview"></a>Guida introduttiva: creare un cluster Azure Istanza gestita per Apache Cassandra dall'portale di Azure (anteprima)
  
@@ -89,7 +89,6 @@ Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://a
    :::image type="content" source="./media/create-cluster-portal/resources.png" alt-text="Visualizzare le risorse del cluster." lightbox="./media/create-cluster-portal/resources.png" border="true":::
 
 
-
 ## <a name="connecting-to-your-cluster"></a>Connessione al cluster
 
 Azure Istanza gestita per Apache Cassandra non crea nodi con indirizzi IP pubblici. Pertanto, per connettersi al cluster Cassandra appena creato, sarà necessario creare un'altra risorsa all'interno della VNet. Potrebbe trattarsi di un'applicazione o di una macchina virtuale con lo strumento di query open source di Apache [CQLSH](https://cassandra.apache.org/doc/latest/tools/cqlsh.html) installato. È possibile usare un [modello](https://azure.microsoft.com/resources/templates/101-vm-simple-linux/) per distribuire una macchina virtuale Ubuntu. Quando viene distribuito, usare SSH per connettersi al computer e installare CQLSH usando i comandi seguenti:
@@ -113,6 +112,15 @@ export SSL_VALIDATE=false
 host=("<IP>" "<IP>" "<IP>")
 cqlsh $host 9042 -u cassandra -p cassandra --ssl
 ```
+
+## <a name="troubleshooting"></a>Risoluzione dei problemi
+
+Se si verifica un errore durante l'applicazione delle autorizzazioni alla rete virtuale, ad esempio *non è possibile trovare l'utente o l'entità servizio nel database Graph per ' e5007d2c-4B13-4a74-9B6A-605d99f03501'*, è possibile applicare la stessa autorizzazione manualmente dalla portale di Azure. Per applicare le autorizzazioni dal portale, passare al riquadro **controllo di accesso (IAM)** della rete virtuale esistente e aggiungere un'assegnazione di ruolo per "Azure Cosmos DB" al ruolo "amministratore di rete". Se vengono visualizzate due voci quando si cerca "Azure Cosmos DB", aggiungere entrambe le voci come illustrato nell'immagine seguente: 
+
+   :::image type="content" source="./media/create-cluster-cli/apply-permissions.png" alt-text="Applicare le autorizzazioni" lightbox="./media/create-cluster-cli/apply-permissions.png" border="true":::
+
+> [!NOTE] 
+> L'assegnazione di ruolo Azure Cosmos DB viene utilizzata solo a scopo di distribuzione. Istanza gestita di Azure per Apache Cassandra non ha dipendenze back-end in Azure Cosmos DB.   
 
 ## <a name="clean-up-resources"></a>Pulire le risorse
 

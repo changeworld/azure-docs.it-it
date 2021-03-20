@@ -8,13 +8,13 @@ ms.topic: quickstart
 ms.service: stream-analytics
 ms.custom: mvc, devx-track-azurepowershell, devx-track-azurecli
 ms.openlocfilehash: 377abef31dbc4364f37161194923bbf74d272d80
-ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
-ms.translationtype: HT
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/08/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98012292"
 ---
-# <a name="quickstart-create-a-stream-analytics-job-using-azure-powershell"></a>Guida introduttiva: Creare un processo di Analisi di flusso usando Azure PowerShell
+# <a name="quickstart-create-a-stream-analytics-job-using-azure-powershell"></a>Guida introduttiva: creare un processo di analisi di flusso usando Azure PowerShell
 
 Il modulo Azure PowerShell viene usato per creare e gestire le risorse di Azure usando cmdlet o script di PowerShell. Questa guida introduttiva illustra in dettaglio l'uso del modulo Azure PowerShell per distribuire ed eseguire un processo di Analisi di flusso di Azure.
 
@@ -28,7 +28,7 @@ Il processo di esempio legge i dati in streaming da un dispositivo hub IoT. I da
 
 * Per questa guida di avvio rapido è richiesto il modulo Azure PowerShell. Eseguire `Get-Module -ListAvailable Az` per trovare la versione installata nel computer locale. Se è necessario eseguire l'installazione o l'aggiornamento, vedere come [installare il modulo Azure PowerShell](/powershell/azure/install-Az-ps).
 
-* Alcune azioni dell'hub IoT non sono supportate da Azure PowerShell e devono essere completate usando l'interfaccia della riga di comando di Azure versione 2.0.70 o successiva e la relativa estensione IoT. [Installare l'interfaccia della riga di comando di Azure](/cli/azure/install-azure-cli) e usare `az extension add --name azure-iot` per installare l'estensione IoT.
+* Alcune azioni dell'hub Internet non sono supportate da Azure PowerShell e devono essere completate usando l'interfaccia della riga di comando di Azure versione 2.0.70 o successiva e l'estensione per l'interfaccia della riga di comando di Azure [Installare l'interfaccia della riga di comando di Azure](/cli/azure/install-azure-cli) e usare `az extension add --name azure-iot` per installare l'estensione IoT.
 
 
 ## <a name="sign-in-to-azure"></a>Accedere ad Azure
@@ -112,7 +112,7 @@ Il blocco di codice dell'interfaccia della riga di comando di Azure riportato di
 
 Il seguente blocco di codice di Azure PowerShell usa comandi per creare l'archiviazione BLOB che viene usata per l'output del processo. Esaminare le sezioni per comprendere il codice.
 
-1. Creare un account di archiviazione standard per uso generico usando il cmdlet [New-AzStorageAccount](/powershell/module/az.storage/New-azStorageAccount).  Questo esempio crea un account di archiviazione denominato **myasaquickstartstorage** con archiviazione con ridondanza locale e con crittografia BLOB abilitata per impostazione predefinita.
+1. Creare un account di archiviazione standard per uso generico usando il cmdlet [New-AzStorageAccount](/powershell/module/az.storage/New-azStorageAccount).  Questo esempio crea un account di archiviazione denominato **myasaquickstartstorage** con archiviazione con ridondanza locale (con ridondanza locale) e la crittografia BLOB (abilitata per impostazione predefinita).
 
 2. Recuperare il contesto `$storageAccount.Context` che definisce l'account di archiviazione da usare. Quando si usano gli account di archiviazione, si può fare riferimento al contesto anziché fornire ripetutamente le credenziali.
 

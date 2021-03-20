@@ -5,16 +5,16 @@ author: enkrumah
 ms.author: ebnkruma
 ms.service: stream-analytics
 ms.topic: how-to
-ms.date: 04/08/2019
+ms.date: 03/16/2021
 ms.custom: seodec18
-ms.openlocfilehash: d7e9b1ecef9cfda804b89f0ba1beeb54d7d48b98
-ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
+ms.openlocfilehash: d5b406d260b1c6518d9227c51d84ab7eb3754329
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98020350"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104598151"
 ---
-# <a name="authenticate-stream-analytics-to-azure-data-lake-storage-gen1-using-managed-identities-preview"></a>Autenticare analisi di flusso per Azure Data Lake Storage Gen1 usando identità gestite (anteprima)
+# <a name="authenticate-stream-analytics-to-azure-data-lake-storage-gen1-using-managed-identities"></a>Autenticare analisi di flusso per Azure Data Lake Storage Gen1 usando identità gestite
 
 Analisi di flusso di Azure supporta l'autenticazione con identità gestita con l'output di Azure Data Lake Storage (ADLS) Gen1. L'identità è un'applicazione gestita registrata in Azure Active Directory che rappresenta un determinato processo di Analisi di flusso e può essere usata per l'autenticazione in una risorsa di destinazione. Le identità gestite eliminano le limitazioni associate ai metodi di autenticazione basata sull'utente, ad esempio la necessità di ripetere l'autenticazione a causa di modifiche della password o le scadenze dei token utente ogni 90 giorni. Inoltre, le identità gestite semplificano l'automazione delle distribuzioni dei processi di Analisi di flusso che inviano l'output ad Azure Data Lake Storage Gen1.
 
@@ -36,7 +36,7 @@ Questo articolo illustra tre metodi per abilitare l'identità gestita per un pro
  
    L'entità servizio ha lo stesso nome del processo di Analisi di flusso. Ad esempio, se il nome del processo è **MyASAJob**, anche il nome dell'entità servizio creata è **MyASAJob**.
 
-3. Nella finestra Proprietà output del sink di output ADLS Gen1 fare clic sull'elenco a discesa modalità di autenticazione e selezionare * * identità gestita * *.
+3. Nella finestra Proprietà output del sink di output ADLS Gen1 fare clic sull'elenco a discesa modalità di autenticazione e selezionare **identità gestita**.
 
 4. Compilare le proprietà rimanenti. Per altre informazioni sulla creazione di un output di ADLS, vedere [Create a Data lake Store output with stream analytics](../data-lake-store/data-lake-store-stream-analytics.md) (Creare un output di Data Lake Store con Analisi di flusso). Al termine, fare clic su **Salva**.
 
@@ -70,7 +70,7 @@ Questo articolo illustra tre metodi per abilitare l'identità gestita per un pro
 
    ![Configurazione del processo di Analisi di flusso per le identità gestite](./media/stream-analytics-managed-identities-adls/adls-mi-jobconfig-vs.png)
 
-2. Nella finestra Proprietà output del sink di output ADLS Gen1 fare clic sull'elenco a discesa modalità di autenticazione e selezionare * * identità gestita * *.
+2. Nella finestra Proprietà output del sink di output ADLS Gen1 fare clic sull'elenco a discesa modalità di autenticazione e selezionare **identità gestita**.
 
    ![Output di ADLS per le identità gestite](./media/stream-analytics-managed-identities-adls/adls-mi-output-vs.png)
 

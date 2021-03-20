@@ -7,12 +7,12 @@ ms.service: spring-cloud
 ms.topic: how-to
 ms.date: 04/20/2020
 ms.custom: devx-track-java
-ms.openlocfilehash: cd0b9d1369fb1c0e662de83b7056da0ff7c83bd1
-ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
+ms.openlocfilehash: 50b09fd82461221ae6cd008f6918ac2f3a26fd94
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92090829"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104588385"
 ---
 # <a name="integrate-azure-spring-cloud-with-azure-load-balance-solutions"></a>Integrare Azure Spring Cloud con le soluzioni di bilanciamento del carico di Azure
 
@@ -76,6 +76,17 @@ Per l'integrazione con il servizio cloud Spring di Azure, completare le configur
 1.  **USA Probe personalizzato**: selezionare *Sì* e scegliere il probe personalizzato creato in precedenza.
 
     ![Gateway app 3](media/spring-cloud-load-balancers/app-gateway-3.png)
+
+### <a name="configure-rewrite-set"></a>Configura set di riscrittura
+1.  Selezionare **riscritture** e quindi **riscrivere set** per aggiungere un set di riscrittura.
+1.  Selezionare le regole di routing che indirizzano le richieste agli endpoint pubblici di Azure Spring cloud.
+1.  Nella scheda **configurazione regola di riscrittura** selezionare **Aggiungi regola di riscrittura**.
+1.  **Tipo di riscrittura**: selezionare l' **intestazione della richiesta**
+1.  **Tipo di azione**: selezionare **Elimina**
+1.  **Nome intestazione**: selezionare l' **intestazione comune**
+1.  **Intestazione comune**: selezionare **X-Inoltred-proto**
+
+    ![Gateway app 4](media/spring-cloud-load-balancers/app-gateway-4.png)
 
 ## <a name="integrate-azure-spring-cloud-with-azure-front-door"></a>Integrare Azure Spring cloud con lo sportello anteriore di Azure
 

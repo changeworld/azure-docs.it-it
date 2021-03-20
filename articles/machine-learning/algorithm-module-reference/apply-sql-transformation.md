@@ -10,10 +10,10 @@ author: likebupt
 ms.author: keli19
 ms.date: 11/12/2020
 ms.openlocfilehash: c66fbe59fd5b2660d02bfca285f78666d64569fe
-ms.sourcegitcommit: dc342bef86e822358efe2d363958f6075bcfc22a
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/12/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94555601"
 ---
 # <a name="apply-sql-transformation"></a>Applicare la trasformazione SQL
@@ -36,7 +36,7 @@ Con il modulo Apply SQL Transformation è possibile:
 
 Il modulo può accettare come input fino a tre set di dati. Quando si fa riferimento ai set di dati connessi a ogni porta di input, è necessario utilizzare i nomi `t1` , `t2` e `t3` . Il numero di tabella indica l'indice della porta di input.  
 
-Di seguito è riportato il codice di esempio per illustrare come unire in join due tabelle. T1 e T2 sono due set di dati connessi alle porte di input Left e Middle della **trasformazione Apply SQL** :
+Di seguito è riportato il codice di esempio per illustrare come unire in join due tabelle. T1 e T2 sono due set di dati connessi alle porte di input Left e Middle della **trasformazione Apply SQL**:
 
 ```sql
 SELECT t1.*

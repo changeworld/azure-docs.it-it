@@ -10,10 +10,10 @@ ms.devlang: dotnet
 ms.topic: conceptual
 ms.date: 07/08/2020
 ms.openlocfilehash: 8648347eb48081389cf360fa949b31bbd0b8c71e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "88936708"
 ---
 # <a name="upgrading-versions-of-the-azure-search-net-management-sdk"></a>Aggiornamento delle versioni di Azure search .NET Management SDK
@@ -28,7 +28,7 @@ Gli SDK di gestione sono destinati a una versione specifica dell'API REST di ges
 |-------------|--------------------------------|-------------------------------------|
 | [3,0](https://www.nuget.org/packages/Microsoft.Azure.Management.Search/3.0.0) | API-Version = 2020-30-20 | Aggiunge la sicurezza degli endpoint (firewall IP e integrazione con [collegamento privato di Azure](../private-link/private-endpoint-overview.md)) |
 | [2.0](https://www.nuget.org/packages/Microsoft.Azure.Management.Search/2.0.0) | API-Version = 2019-10-01 | Miglioramenti dell’usabilità. Modifica di rilievo per le [chiavi di query di elenco](/rest/api/searchmanagement/querykeys/listbysearchservice) (Get non è più disponibile). |
-| [1,0](https://www.nuget.org/packages/Microsoft.Azure.Management.Search/1.0.1) | API-Version = 2015-08-19  | Prima versione |
+| [1.0](https://www.nuget.org/packages/Microsoft.Azure.Management.Search/1.0.1) | API-Version = 2015-08-19  | Prima versione |
 
 ## <a name="how-to-upgrade"></a>Come eseguire l'aggiornamento
 
@@ -54,7 +54,7 @@ La versione 3,0 aggiunge la protezione degli endpoint privati limitando l'access
 | [Risorse di collegamento privato](/rest/api/searchmanagement/privatelinkresources/) | Collegamento privato | Per un servizio di ricerca che dispone di una connessione a un endpoint privato, ottenere un elenco di tutti i servizi usati nella stessa rete virtuale. Se la soluzione di ricerca include indicizzatori che effettuano il pull da origini dati di Azure (archiviazione di Azure, Cosmos DB, SQL di Azure) o usano servizi cognitivi o Key Vault, tutte queste risorse dovrebbero avere endpoint nella rete virtuale e questa API dovrebbe restituire un elenco. |
 | [PublicNetworkAccess](/rest/api/searchmanagement/services/createorupdate#publicnetworkaccess)| Collegamento privato | Si tratta di una proprietà per la creazione o l'aggiornamento delle richieste di servizio. Se disabilitato, il collegamento privato è l'unica modalità di accesso. |
 
-### <a name="breaking-changes"></a>Modifiche di rilievo
+### <a name="breaking-changes"></a>Modifiche che causano un'interruzione
 
 Non è più possibile usare GET in un [elenco](/rest/api/searchmanagement/querykeys/listbysearchservice) di richieste di chiavi di query. Nelle versioni precedenti è possibile utilizzare GET o POST, in questa versione e in tutte le versioni in avanti, solo POST è supportato. 
 

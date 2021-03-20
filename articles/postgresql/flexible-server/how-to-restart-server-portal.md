@@ -7,10 +7,10 @@ ms.service: postgresql
 ms.topic: how-to
 ms.date: 09/22/2020
 ms.openlocfilehash: 952bd6dddf9f276ed1a4a18f03799147f1902198
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "90936931"
 ---
 # <a name="restart-azure-database-for-postgresql---flexible-server"></a>Riavviare il database di Azure per PostgreSQL-server flessibile
@@ -33,7 +33,7 @@ Per completare questa guida, è necessario:
 
 Per riavviare il server flessibile, attenersi alla seguente procedura.
 
-1.  Nella [portale di Azure](https://portal.azure.com/)scegliere il server flessibile che si desidera riavviare.
+1.  Nella [portale di Azure](https://portal.azure.com/)scegliere il server flessibile che si desidera riavviare.
 
 2.  Fare clic su **Panoramica** nel pannello a sinistra e fare clic su **Riavvia**.
    
@@ -43,11 +43,11 @@ Per riavviare il server flessibile, attenersi alla seguente procedura.
 
 4.  Se si desidera continuare, fare clic su **Sì** .
    
-     :::image type="content" source="./media/how-to-restart-server-portal/restart-pop-up.png" alt-text="Riavvia selezione":::
+     :::image type="content" source="./media/how-to-restart-server-portal/restart-pop-up.png" alt-text="Conferma riavvio":::
  
 6.  Verrà visualizzata una notifica che l'operazione di riavvio è stata avviata.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
 -   Scopri di più sulla [continuità aziendale](./concepts-business-continuity.md)
--   Informazioni sulla [disponibilità elevata con ridondanza della zona](./concepts-high-availability.md)
+-   Informazioni sulla [disponibilità elevata con ridondanza della zona](./concepts-high-availability.md)

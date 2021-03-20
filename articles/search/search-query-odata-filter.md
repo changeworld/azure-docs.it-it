@@ -20,10 +20,10 @@ translation.priority.mt:
 - zh-cn
 - zh-tw
 ms.openlocfilehash: 0f33b5a28d7c83be7e546c3f61bc517047c51312
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "88934855"
 ---
 # <a name="odata-filter-syntax-in-azure-cognitive-search"></a>Sintassi di $filter OData in Azure ricerca cognitiva
@@ -75,7 +75,7 @@ I tipi di espressioni booleane includono:
 
 Se si scrive un'espressione di filtro senza parentesi intorno alle relative espressioni secondarie, Azure ricerca cognitiva valuterà tale espressione in base a un set di regole di precedenza degli operatori. Queste regole sono basate sugli operatori utilizzati per combinare sottoespressioni. La tabella seguente elenca i gruppi di operatori in ordine dalla precedenza più alta alla più bassa:
 
-| Gruppo | Operatore/i |
+| Group | Operatore/i |
 | --- | --- |
 | Operatori logici | `not` |
 | Operatori di confronto | `eq`, `ne`, `gt`, `lt`, `ge`, `le` |
@@ -116,7 +116,7 @@ Sono previsti limiti per le dimensioni e la complessità delle espressioni di fi
 > [!TIP]
 > L'utilizzo della [ `search.in` funzione](search-query-odata-search-in-function.md) anziché di disgiunzioni lunghe di confronti di uguaglianza consente di evitare il limite della clausola di filtro, perché una chiamata di funzione viene conteggiata come una singola clausola.
 
-## <a name="examples"></a>Esempi
+## <a name="examples"></a>Esempio
 
 Trovare tutti gli alberghi con almeno una stanza con una tariffa di base inferiore a $200 che sono classificate a o superiori a 4:
 

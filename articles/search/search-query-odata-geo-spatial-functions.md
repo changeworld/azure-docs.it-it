@@ -20,17 +20,17 @@ translation.priority.mt:
 - zh-cn
 - zh-tw
 ms.openlocfilehash: 376cece922ca424ec78011224852b1fa5499da16
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "88934838"
 ---
 # <a name="odata-geo-spatial-functions-in-azure-cognitive-search---geodistance-and-geointersects"></a>Funzioni geospaziali OData in Azure ricerca cognitiva `geo.distance` e `geo.intersects`
 
 Azure ricerca cognitiva supporta le query geospaziali nelle [espressioni di filtro OData](query-odata-filter-orderby-syntax.md) tramite le `geo.distance` `geo.intersects` funzioni e. La `geo.distance` funzione restituisce la distanza in chilometri tra due punti, uno costituito da un campo o una variabile di intervallo e l'altro è una costante passata come parte del filtro. La `geo.intersects` funzione restituisce `true` se un punto specificato si trova all'interno di un poligono specificato, dove il punto è un campo o una variabile di intervallo e il poligono viene specificato come una costante passata come parte del filtro.
 
-La `geo.distance` funzione può essere usata anche nel parametro [ **$OrderBy** ](search-query-odata-orderby.md) per ordinare i risultati della ricerca in base alla distanza da un determinato punto. La sintassi per `geo.distance` in **$orderby** è la stessa che in **$filter**. Quando si utilizza `geo.distance` in **$OrderBy**, il campo a cui si applica deve essere di tipo `Edm.GeographyPoint` e deve anche essere **ordinabile**.
+La `geo.distance` funzione può essere usata anche nel parametro [ **$OrderBy**](search-query-odata-orderby.md) per ordinare i risultati della ricerca in base alla distanza da un determinato punto. La sintassi per `geo.distance` in **$orderby** è la stessa che in **$filter**. Quando si utilizza `geo.distance` in **$OrderBy**, il campo a cui si applica deve essere di tipo `Edm.GeographyPoint` e deve anche essere **ordinabile**.
 
 > [!NOTE]
 > Quando `geo.distance` si usa nel parametro **$OrderBy** , il campo passato alla funzione deve contenere solo un singolo punto geografico. In altre parole, deve essere di tipo `Edm.GeographyPoint` e non `Collection(Edm.GeographyPoint)` . Non è possibile ordinare i campi di raccolta in ricerca cognitiva di Azure.
@@ -99,7 +99,7 @@ Come tutti gli altri campi non di raccolta in ricerca cognitiva di Azure, i camp
 - Nei filtri, `geo.distance` di un `null` campo viene restituito `null` . Ciò significa che il documento non corrisponderà perché `null` rispetto a qualsiasi valore non null viene restituito `false` .
 - Quando si ordinano i risultati usando **$OrderBy**, `geo.distance` un `null` campo determina la distanza massima possibile. I documenti con tale campo vengono ordinati in modo più basso rispetto a tutti gli altri quando viene usata la direzione di ordinamento `asc` (impostazione predefinita) e superiore a tutti gli altri quando la direzione è `desc` .
 
-## <a name="examples"></a>Esempi
+## <a name="examples"></a>Esempio
 
 ### <a name="filter-examples"></a>Esempi di filtro
 

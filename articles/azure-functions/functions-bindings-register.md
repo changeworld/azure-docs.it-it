@@ -6,10 +6,10 @@ ms.topic: reference
 ms.date: 08/16/2020
 ms.author: cshoe
 ms.openlocfilehash: 942ca3229808b57894598c3477e9dc97e40e8c80
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "88689560"
 ---
 # <a name="register-azure-functions-binding-extensions"></a>Registrare le estensioni di binding di funzioni di Azure
@@ -35,7 +35,7 @@ Per le app per le funzioni Java, JavaScript, PowerShell, Python e Custom handler
 
 ### <a name="extension-bundles"></a><a name="extension-bundles"></a>Bundle di estensione
 
-Bundle di estensione è un modo per aggiungere un set compatibile di estensioni di associazione all'app per le funzioni. I bundle di estensione sono abilitati nell'host.jsdell'app * su* file.
+Bundle di estensione è un modo per aggiungere un set compatibile di estensioni di associazione all'app per le funzioni. I bundle di estensione sono abilitati nell'host.jsdell'app *su* file.
 
 È possibile usare i bundle di estensione con la versione 2. x e le versioni successive del runtime di funzioni.
 
@@ -65,7 +65,7 @@ Per un progetto di funzioni basate su libreria di classi C#, è necessario insta
 
 ### <a name="c-class-library-with-visual-studio"></a><a name="vs"></a>\#Libreria di classi C con Visual Studio
 
-In **Visual Studio**è possibile installare i pacchetti dalla console di gestione pacchetti usando il comando [Install-Package](/nuget/tools/ps-ref-install-package) , come illustrato nell'esempio seguente:
+In **Visual Studio** è possibile installare i pacchetti dalla console di gestione pacchetti usando il comando [Install-Package](/nuget/tools/ps-ref-install-package) , come illustrato nell'esempio seguente:
 
 ```powershell
 Install-Package Microsoft.Azure.WebJobs.Extensions.ServiceBus -Version <TARGET_VERSION>

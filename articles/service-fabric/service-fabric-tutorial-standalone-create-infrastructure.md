@@ -5,10 +5,10 @@ ms.topic: tutorial
 ms.date: 05/11/2018
 ms.custom: mvc
 ms.openlocfilehash: c7a18b0dcdc04bdf66ac4b36ce7376ee018eb238
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
-ms.translationtype: HT
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91842904"
 ---
 # <a name="tutorial-create-aws-infrastructure-to-host-a-service-fabric-cluster"></a>Esercitazione: Creare l'infrastruttura di AWS per ospitare un cluster di Service Fabric
@@ -25,7 +25,7 @@ Nella prima parte della serie si apprenderà come:
 > * Accedere a una delle istanze
 > * Preparare l'istanza per Service Fabric
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerequisiti
 
 Per completare l'esercitazione, è necessario un account AWS.  Se non si dispone ancora di un account, accedere alla [Console AWS](https://aws.amazon.com/) per crearne uno.
 
@@ -69,7 +69,7 @@ Infine, selezionare **Launch Instances** (Avvia istanze) e quindi **View Instanc
 
 Service Fabric richiede un determinato numero di porte aperte tra gli host nel cluster. Per aprire queste porte nell'infrastruttura AWS, selezionare una delle istanze create. Quindi selezionare il nome del gruppo di sicurezza, ad esempio **launch-wizard-1**. A questo punto, selezionare la scheda **Inbound** (In ingresso).
 
-Per evitare di aprire queste porte a chiunque, è necessario aprirle solo agli host nello stesso gruppo di sicurezza. Prendere nota dell'ID del gruppo di sicurezza, nell'esempio **sg c4fb1eba**.  A questo punto selezionare **Edit** (Modifica).
+Per evitare di aprire queste porte a chiunque, è necessario aprirle solo agli host nello stesso gruppo di sicurezza. Prendere nota dell'ID del gruppo di sicurezza, nell'esempio **sg c4fb1eba**.  Selezionare quindi **Modifica**.
 
 Successivamente, aggiungere quattro regole al gruppo di sicurezza per le dipendenze dei servizi e quindi altre tre per Service Fabric stesso. La prima regola serve a consentire il traffico ICMP per i controlli della connettività di base. Le altre regole aprono le porte necessarie per abilitare SMB e Registro di sistema remoto.
 

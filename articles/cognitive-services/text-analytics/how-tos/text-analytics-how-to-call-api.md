@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: conceptual
-ms.date: 12/17/2020
+ms.date: 03/01/2021
 ms.author: aahi
 ms.custom: references_regions
-ms.openlocfilehash: 9302bde13a303dda2107900dc0c10cc180669a18
-ms.sourcegitcommit: 227b9a1c120cd01f7a39479f20f883e75d86f062
+ms.openlocfilehash: 3c6fb1ca23bcc9c57e73bcaf960e0387611fcff3
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/18/2021
-ms.locfileid: "100650729"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104599213"
 ---
 # <a name="how-to-call-the-text-analytics-rest-api"></a>Come chiamare l'API REST Analisi del testo
 
@@ -66,6 +66,7 @@ Vedere la tabella seguente per vedere quali funzionalità possono essere usate i
 | Opinion mining | ✔ |  |
 | Estrazione di frasi chiave | ✔ | ✔* |
 | Riconoscimento di entità denominate (incluse le informazioni personali e PHI) | ✔ | ✔* |
+| Collegamento di entità | ✔ | ✔* |
 | Analisi del testo per l'integrità (contenitore) | ✔ |  |
 | Analisi del testo per l'integrità (API) |  | ✔  |
 
@@ -118,8 +119,9 @@ Di seguito è riportato un esempio di una richiesta API per gli endpoint sincron
 
 L' `/analyze` endpoint consente di scegliere quale delle funzionalità di analisi del testo supportate si vuole usare in una singola chiamata API. Questo endpoint attualmente supporta:
 
-* estrazione di frasi chiave 
+* Estrazione frasi chiave 
 * Riconoscimento di entità denominate (incluse le informazioni personali e PHI)
+* Collegamento delle entità
 
 | Elemento | Valori validi | Necessaria? | Utilizzo |
 |---------|--------------|-----------|-------|
@@ -128,7 +130,7 @@ L' `/analyze` endpoint consente di scegliere quale delle funzionalità di analis
 |`documents` | Include i `id` `text` campi e seguenti | Necessario | Contiene informazioni per ogni documento inviato e il testo non elaborato del documento. |
 |`id` | string | Necessario | Gli ID forniti vengono usati per strutturare l'output. |
 |`text` | Testo non elaborato non strutturato, composto da un massimo di 125.000 caratteri. | Necessario | Deve essere nella lingua inglese, che è l'unica lingua attualmente supportata. |
-|`tasks` | Include le funzionalità di Analisi del testo seguenti `entityRecognitionTasks` : `keyPhraseExtractionTasks` o `entityRecognitionPiiTasks` . | Necessario | Una o più delle funzionalità di Analisi del testo che si desidera utilizzare. Si noti che `entityRecognitionPiiTasks` dispone `domain` di un parametro facoltativo che può essere impostato su `pii` o `phi` . Se non è specificato, l'impostazione predefinita del sistema è `pii` . |
+|`tasks` | Include le funzionalità di analisi del testo seguenti `entityRecognitionTasks` : `entityLinkingTasks` , `keyPhraseExtractionTasks` o `entityRecognitionPiiTasks` . | Necessario | Una o più delle funzionalità di Analisi del testo che si desidera utilizzare. Si noti che `entityRecognitionPiiTasks` dispone di un `domain` parametro facoltativo che può essere impostato su `pii` o `phi` e `pii-categories` per il rilevamento dei tipi di entità selezionati. Se il `domain` parametro non è specificato, l'impostazione predefinita del sistema è `pii` . |
 |`parameters` | Include i `model-version` `stringIndexType` campi e seguenti | Necessario | Questo campo è incluso nelle attività della funzionalità indicate in precedenza. Contengono informazioni sulla versione del modello che si desidera utilizzare e il tipo di indice. |
 |`model-version` | string | Necessario | Consente di specificare la versione del modello chiamata che si desidera utilizzare.  |
 |`stringIndexType` | string | Necessario | Specificare il decodificatore di testo corrispondente all'ambiente di programmazione.  I tipi supportati sono `textElement_v8` (impostazione predefinita), `unicodeCodePoint` , `utf16CodeUnit` . Per ulteriori informazioni, vedere l' [articolo offset del testo](../concepts/text-offsets.md#offsets-in-api-version-31-preview) .  |
@@ -158,6 +160,14 @@ L' `/analyze` endpoint consente di scegliere quale delle funzionalità di analis
                 }
             }
         ],
+        "entityLinkingTasks": [
+            {
+                "parameters": {
+                    "model-version": "latest",
+                    "stringIndexType": "TextElements_v8"
+                }
+            }
+        ],
         "keyPhraseExtractionTasks": [{
             "parameters": {
                 "model-version": "latest"
@@ -165,7 +175,10 @@ L' `/analyze` endpoint consente di scegliere quale delle funzionalità di analis
         }],
         "entityRecognitionPiiTasks": [{
             "parameters": {
-                "model-version": "latest"
+                "model-version": "latest",
+                "stringIndexType": "TextElements_v8",
+                "domain": "phi",
+                "pii-categories":"default"
             }
         }]
     }
@@ -231,16 +244,16 @@ In postazione (o un altro strumento di test dell'API Web) aggiungere l'endpoint 
 
 | Funzionalità | Tipo di richiesta | Endpoint delle risorse |
 |--|--|--|
-| Invia processo di analisi | POST | `https://<your-text-analytics-resource>/text/analytics/v3.1-preview.3/analyze` |
-| Ottenere lo stato e i risultati dell'analisi | GET | `https://<your-text-analytics-resource>/text/analytics/v3.1-preview.3/analyze/jobs/<Operation-Location>` |
+| Invia processo di analisi | POST | `https://<your-text-analytics-resource>/text/analytics/v3.1-preview.4/analyze` |
+| Ottenere lo stato e i risultati dell'analisi | GET | `https://<your-text-analytics-resource>/text/analytics/v3.1-preview.4/analyze/jobs/<Operation-Location>` |
 
 ### <a name="endpoints-for-sending-asynchronous-requests-to-the-health-endpoint"></a>Endpoint per l'invio di richieste asincrone all' `/health` endpoint
 
 | Funzionalità | Tipo di richiesta | Endpoint delle risorse |
 |--|--|--|
-| Inviare Analisi del testo per il processo di integrità  | POST | `https://<your-text-analytics-resource>/text/analytics/v3.1-preview.3/entities/health/jobs` |
-| Ottenere lo stato e i risultati del processo | GET | `https://<your-text-analytics-resource>/text/analytics/v3.1-preview.3/entities/health/jobs/<Operation-Location>` |
-| Annulla processo | DELETE | `https://<your-text-analytics-resource>/text/analytics/v3.1-preview.3/entities/health/jobs/<Operation-Location>` |
+| Inviare Analisi del testo per il processo di integrità  | POST | `https://<your-text-analytics-resource>/text/analytics/v3.1-preview.4/entities/health/jobs` |
+| Ottenere lo stato e i risultati del processo | GET | `https://<your-text-analytics-resource>/text/analytics/v3.1-preview.4/entities/health/jobs/<Operation-Location>` |
+| Annulla processo | DELETE | `https://<your-text-analytics-resource>/text/analytics/v3.1-preview.4/entities/health/jobs/<Operation-Location>` |
 
 --- 
 
@@ -278,7 +291,7 @@ Se è stata effettuata la chiamata agli `/analyze` endpoint asincroni o `/health
 1. Nella risposta dell'API trovare l'oggetto `Operation-Location` dall'intestazione, che identifica il processo inviato all'API. 
 2. Creare una richiesta GET per l'endpoint usato. vedere la [tabella precedente](#set-up-a-request) per il formato dell'endpoint ed esaminare la [documentazione di riferimento dell'API](https://westus2.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-1-preview-3/operations/AnalyzeStatus). Ad esempio:
 
-    `https://my-resource.cognitiveservices.azure.com/text/analytics/v3.1-preview.3/analyze/jobs/<Operation-Location>`
+    `https://my-resource.cognitiveservices.azure.com/text/analytics/v3.1-preview.4/analyze/jobs/<Operation-Location>`
 
 3. Aggiungere la `Operation-Location` alla richiesta.
 

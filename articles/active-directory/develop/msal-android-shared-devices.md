@@ -1,7 +1,7 @@
 ---
 title: Modalità dispositivo condiviso per dispositivi Android
 titleSuffix: Microsoft identity platform | Azure
-description: Informazioni su come abilitare la modalità dispositivo condiviso per consentire ai prima riga Worker di condividere un dispositivo Android
+description: Informazioni su come abilitare la modalità dispositivo condiviso per consentire ai thread di lavoro di condividere un dispositivo Android
 services: active-directory
 author: mmacy
 manager: CelesteDG
@@ -13,16 +13,16 @@ ms.date: 03/31/2020
 ms.author: marsma
 ms.reviewer: hahamil
 ms.custom: aaddev, identitypla | Azuretformtop40
-ms.openlocfilehash: a67e0d851ab544f737097eff9a884752cff9f5fc
-ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
+ms.openlocfilehash: bafd6dade626376f216a271c7b3cadc9b429989a
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/16/2021
-ms.locfileid: "103491551"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104578822"
 ---
 # <a name="shared-device-mode-for-android-devices"></a>Modalità dispositivo condiviso per dispositivi Android
 
-I ruoli di lavoro di prima riga, ad esempio i Retail Associates, i membri del team di volo e i lavoratori dei servizi Field spesso usano un dispositivo mobile condiviso per svolgere il proprio lavoro Questo diventa problematico quando iniziano a condividere le password o i numeri PIN per accedere ai dati aziendali e ai clienti sul dispositivo condiviso.
+I ruoli di lavoro, ad esempio i collaboratori al dettaglio, i membri della squadra di volo e i lavoratori dei servizi Field spesso usano un dispositivo mobile condiviso per svolgere il proprio lavoro. Questo diventa problematico quando iniziano a condividere le password o i numeri PIN per accedere ai dati aziendali e ai clienti sul dispositivo condiviso.
 
 La modalità dispositivo condiviso consente di configurare un dispositivo Android in modo che possa essere condiviso facilmente da più dipendenti. I dipendenti possono accedere rapidamente alle informazioni dei clienti. Al termine del turno o dell'attività, è possibile disconnettersi dal dispositivo e sarà immediatamente pronto per l'uso da parte del dipendente successivo.
 
@@ -85,7 +85,7 @@ Le differenze seguenti si applicano a seconda che l'app sia in esecuzione su un 
 
 ## <a name="why-you-may-want-to-only-support-single-account-mode"></a>Perché è consigliabile supportare solo la modalità account singolo
 
-Se si sta scrivendo un'app che verrà usata solo per i prima riga Worker usando un dispositivo condiviso, è consigliabile scrivere l'applicazione in modo da supportare solo la modalità account singolo. Questo vale per la maggior parte delle applicazioni incentrate su attività, come le app medicali, le app di fatturazione e quasi tutte le app line-of-business. Supportare solo la modalità account singolo semplifica lo sviluppo perché non è necessario implementare le funzionalità aggiuntive che fanno parte di app con più account.
+Se si sta scrivendo un'app che verrà usata solo per i thread di lavoro in linea usando un dispositivo condiviso, è consigliabile scrivere l'applicazione in modo da supportare solo la modalità account singolo. Questo vale per la maggior parte delle applicazioni incentrate su attività, come le app medicali, le app di fatturazione e quasi tutte le app line-of-business. Supportare solo la modalità account singolo semplifica lo sviluppo perché non è necessario implementare le funzionalità aggiuntive che fanno parte di app con più account.
 
 ## <a name="what-happens-when-the-device-mode-changes"></a>Cosa accade quando cambia la modalità del dispositivo
 
@@ -103,4 +103,4 @@ Il diagramma seguente mostra il ciclo di vita dell'app e gli eventi comuni che p
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Provare l'esercitazione [usare la modalità dispositivo condiviso nell'applicazione Android](tutorial-v2-shared-device-mode.md) che Mostra come eseguire un'app prima riga worker in un dispositivo Android in modalità condivisa.
+Provare l'esercitazione [usare la modalità dispositivo condiviso nell'applicazione Android](tutorial-v2-shared-device-mode.md) che Mostra come eseguire un'app di lavoro in linea in un dispositivo Android in modalità condivisa.
