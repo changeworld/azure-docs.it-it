@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.date: 09/02/2020
 ms.author: cherylmc
 ms.openlocfilehash: 8b6ab5dcbd38925afbd98381e427426d27110a53
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "89393514"
 ---
 # <a name="create-a-route-based-vpn-gateway-using-powershell"></a>Creare un gateway VPN basato su route usando PowerShell
@@ -34,7 +34,7 @@ Creare un gruppo di risorse di Azure con [New-AzResourceGroup](/powershell/modul
 New-AzResourceGroup -Name TestRG1 -Location EastUS
 ```
 
-## <a name="create-a-virtual-network"></a><a name="vnet"></a>Crea rete virtuale
+## <a name="create-a-virtual-network"></a><a name="vnet"></a>Creare una rete virtuale
 
 Creare una rete virtuale con [New-AzVirtualNetwork](/powershell/module/az.network/new-azvirtualnetwork). L'esempio seguente crea una rete virtuale denominata **VNet1** nella posizione **EastUS**:
 

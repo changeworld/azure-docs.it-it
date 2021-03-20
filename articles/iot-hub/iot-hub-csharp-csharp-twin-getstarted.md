@@ -11,10 +11,10 @@ ms.date: 08/26/2019
 ms.author: robinsh
 ms.custom: mqtt, devx-track-csharp
 ms.openlocfilehash: 267a69486dc91ef95c0de704346eeb1d1780ef48
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "89013759"
 ---
 # <a name="get-started-with-device-twins-net"></a>Introduzione ai dispositivi gemelli (.NET)
@@ -234,7 +234,7 @@ In questa sezione si crea un'app console .NET che si connette all'hub come **myD
 
 1. In **Proprietà comuni** > **Progetto di avvio**, selezionare **Progetti di avvio multipli**. Per **ReportConnectivity**, selezionare **Avvia** come **Azione**. Selezionare **OK** per salvare le modifiche.  
 
-1. Eseguire l'app facendo clic con il pulsante destro del mouse sul progetto **ReportConnectivity** e selezionando **Debug**, seguito da **Avvia nuova istanza**. Si dovrebbe notare l'app che recupera le informazioni sui dispositivi gemelli e quindi l’invio della connettività come ***proprietà segnalata***.
+1. Eseguire l'app facendo clic con il pulsante destro del mouse sul progetto **ReportConnectivity** e selezionando **Debug**, seguito da **Avvia nuova istanza**. Si noterà che l'app recupera le informazioni sui dispositivi gemelli e quindi Invia la connettività come **_Proprietà segnalata_**.
 
     ![Eseguire l'app per dispositivi per segnalare la connettività](./media/iot-hub-csharp-csharp-twin-getstarted/rundeviceapp.png)
 

@@ -7,10 +7,10 @@ ms.reviewer: klam, logicappspm
 ms.topic: article
 ms.date: 06/20/2019
 ms.openlocfilehash: 1758cca902eb77ffc66824cb56b8add9446fabf9
-ms.sourcegitcommit: 003ac3b45abcdb05dc4406661aca067ece84389f
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/07/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96749148"
 ---
 # <a name="build-your-first-serverless-app-by-using-azure-logic-apps-and-azure-functions-in-visual-studio"></a>Creare la prima app senza server usando app per la logica di Azure e funzioni di Azure in Visual Studio
@@ -64,7 +64,7 @@ Per iniziare, creare un [progetto Gruppo di risorse di Azure](../azure-resource-
 
    ![Creare un nuovo progetto in Visual Studio](./media/logic-apps-serverless-get-started-vs/create-new-project-visual-studio.png)
 
-1. In **Installato** selezionare **Visual C#** o **Visual Basic**. Quindi selezionare **Cloud**  >  **gruppo di risorse di Azure** cloud.
+1. In **Installato** selezionare **Visual C#** o **Visual Basic**. Quindi selezionare   >  **gruppo di risorse di Azure** cloud.
 
    > [!NOTE]
    > Se la categoria **cloud** o il progetto **gruppo di risorse di Azure** non esiste, verificare di aver installato Azure SDK per Visual Studio.
@@ -100,7 +100,7 @@ Per iniziare, creare un [progetto Gruppo di risorse di Azure](../azure-resource-
 
 Prima di poter aprire l'app per la logica in progettazione app per la logica in Visual Studio, è necessario avere un gruppo di risorse di Azure già distribuito in Azure. Il progettista può quindi creare le connessioni ai servizi e alle risorse disponibili nell'app per la logica. Per questa attività, seguire questa procedura per distribuire la soluzione da Visual Studio nel portale di Azure:
 
-1. In Esplora soluzioni scegliere **Distribuisci** nuovo dal menu di scelta rapida del progetto di risorsa  >  **New**.
+1. In Esplora soluzioni scegliere **Distribuisci** nuovo dal menu di scelta rapida del progetto di risorsa  >  .
 
    ![Creare una nuova distribuzione per il gruppo di risorse](./media/logic-apps-serverless-get-started-vs/deploy.png)
 

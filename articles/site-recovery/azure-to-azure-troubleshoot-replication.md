@@ -6,10 +6,10 @@ manager: rochakm
 ms.topic: troubleshooting
 ms.date: 04/03/2020
 ms.openlocfilehash: dc14334668b76ee8cbb81e48abfe1eecf17fa138
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/25/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96007359"
 ---
 # <a name="troubleshoot-replication-in-azure-vm-disaster-recovery"></a>Risolvere i problemi di replica in Azure VM Recovery
@@ -28,7 +28,7 @@ Le sezioni seguenti descrivono cause e soluzioni.
 
 ## <a name="high-data-change-rate-on-the-source-virtual-machine"></a>Elevata frequenza di modifica dei dati nella macchina virtuale di origine
 
-Azure Site Recovery crea un evento se la frequenza di modifica dei dati nella macchina virtuale di origine è superiore ai limiti supportati. Per verificare se il problema è dovuto a una varianza elevata, passare a **elementi replicati**  >  **VM**  >  **eventi VM-ultime 72 ore**.
+Azure Site Recovery crea un evento se la frequenza di modifica dei dati nella macchina virtuale di origine è superiore ai limiti supportati. Per verificare se il problema è dovuto a una varianza elevata, passare a **elementi replicati**  >    >  **eventi VM-ultime 72 ore**.
 Si noterà che la **frequenza di modifica dei dati dell'evento supera i limiti supportati**:
 
 :::image type="content" source="./media/site-recovery-azure-to-azure-troubleshoot/data_change_event.png" alt-text="Azure Site Recovery pagina che mostra una frequenza di modifica dei dati elevata troppo elevata.":::
@@ -65,7 +65,7 @@ Azure Site Recovery presenta limiti per la frequenza di modifica dei dati, a sec
 Un picco della frequenza di modifica dei dati potrebbe provenire da un improvviso aumento dei dati. Se la frequenza di modifica dei dati è maggiore di 10 MB/s (per Premium) o 2 MB/s (per il livello standard) e si arresta, la replica si aggiornerà. Se la varianza è in modo coerente oltre il limite supportato, prendere in considerazione una delle opzioni seguenti:
 
 - Escludere il disco che causa un elevato tasso di modifica dei dati: prima di tutto disabilitare la replica. È quindi possibile escludere il disco usando [PowerShell](azure-to-azure-exclude-disks.md).
-- Modificare il livello del disco di archiviazione per il ripristino di emergenza: questa opzione è possibile solo se la varianza dei dati del disco è inferiore a 20 MB/s. Ad esempio, una macchina virtuale con un disco P10 ha una varianza di dati superiore a 8 MB/s ma minore di 10 MB/s. Se il cliente può usare il disco P30 per l'archiviazione di destinazione durante la protezione, il problema può essere risolto. Questa soluzione è possibile solo per i computer che usano dischi Premium-Managed. Seguire questa procedura:
+- Modificare il livello del disco di archiviazione per il ripristino di emergenza: questa opzione è possibile solo se la varianza dei dati del disco è inferiore a 20 MB/s. Ad esempio, una macchina virtuale con un disco P10 ha una varianza di dati superiore a 8 MB/s ma minore di 10 MB/s. Se il cliente può usare il disco P30 per l'archiviazione di destinazione durante la protezione, il problema può essere risolto. Questa soluzione è possibile solo per i computer che usano dischi Premium-Managed. A tale scopo, seguire questa procedura:
 
   1. Passare a **dischi** del computer replicato interessato e copiare il nome del disco di replica.
   1. Passare a questa replica del disco gestito.

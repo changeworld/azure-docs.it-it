@@ -4,10 +4,10 @@ description: Usare il server di Backup di Azure per eseguire il backup e riprist
 ms.topic: conceptual
 ms.date: 04/26/2020
 ms.openlocfilehash: 837aabf739431eebaa6406770620329fe6345eb7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "89375398"
 ---
 # <a name="back-up-a-sharepoint-farm-to-azure-with-mabs"></a>Eseguire il backup di una farm di SharePoint in Azure con il server di Backup di Microsoft Azure
@@ -60,9 +60,9 @@ Per eseguire il backup della farm di SharePoint, configurare la protezione per S
 
         * **EnableSharePointProtection** abilita la protezione della farm di SharePoint, abilita VSS writer e registra l'identità dell'applicazione DCOM WssCmdletsWrapper per l'esecuzione come utente le cui credenziali vengono immesse con questa opzione. Questo account deve essere un amministratore della farm e anche un amministratore locale sul server Web front\-end.
 
-        * **EnableSPSearchProtection** abilita la protezione della ricerca WSS 3.0 SP usando la chiave del Registro di sistema SharePointSearchEnumerationEnabled in HKLM\\Software\\Microsoft\\ Microsoft Data Protection Manager\\Agent\\2.0\\ sul server Web front\-end e registra l'identità dell'applicazione DCOM WssCmdletsWrapper per l'esecuzione come utente le cui credenziali vengono immesse con questa opzione. Questo account deve essere un amministratore della farm e anche un amministratore locale sul server Web front\-end.
+        * **EnableSPSearchProtection** abilita la protezione della ricerca di WSS 3.0 SP tramite la chiave del Registro di sistema SharePointSearchEnumerationEnabled in HKLM\\Software\\Microsoft\\ Microsoft Data Protection Manager\\Agent\\2.0\\ nel server Web front\-end, e registra l’identificazione dell’applicazione DCOM WssCmdletsWrapper in modo che venga eseguita come utente le cui credenziali vengono immesse attraverso questa opzione. Questo account deve essere un amministratore della farm e anche un amministratore locale sul server Web front\-end.
 
-        * **ResolveAllSQLAliases** mostra tutti gli alias riportati da SharePoint VSS writer e li risolve nell'istanza di SQL Server corrispondente. Inoltre, vengono visualizzati i relativi nomi di istanza risolti. Se viene eseguito il mirroring dei server, viene visualizzato anche il server oggetto di tale operazione. Segnala tutti gli alias che non sono in corso di risoluzione in un'istanza di SQL Server.
+        * **ResolveAllSQLAliases** consente di visualizzare tutti gli alias riportati dal VSS writer di SharePoint e di risolverli nel SQL Server corrispondente. Inoltre, vengono visualizzati i relativi nomi di istanza risolti. Se viene eseguito il mirroring dei server, viene visualizzato anche il server oggetto di tale operazione. Segnala tutti gli alias che non sono in corso di risoluzione in un'istanza di SQL Server.
 
         * **SetTempPath** imposta le variabili di ambiente TEMP e TMP in corrispondenza del percorso specificato. Il ripristino a livello di elemento ha esito negativo se riguarda una raccolta siti, un sito, un elenco o un elemento e se non è presente spazio sufficiente nella cartella temporanea dell'amministratore della farm. L'opzione consente di modificare il percorso della cartella dei file temporanei al fine di indicare un volume dotato di spazio sufficiente per archiviare la raccolta siti o il sito oggetto del ripristino.
 
@@ -74,7 +74,7 @@ Per eseguire il backup della farm di SharePoint, configurare la protezione per S
 
         Dopo aver eseguito ConfigureSharePoint.exe, è necessario ripetere l'operazione se si verifica un cambiamento nelle credenziali di amministratore di farm SharePoint.
 
-1. Per creare un gruppo protezione dati, **Protection**selezionare  >  **azioni**  >  di protezione**Crea gruppo protezione** dati per aprire la procedura guidata **Crea nuovo gruppo protezione** dati nella console di MAB.
+1. Per creare un gruppo protezione dati, selezionare  >  **azioni**  >  di protezione **Crea gruppo protezione** dati per aprire la procedura guidata **Crea nuovo gruppo protezione** dati nella console di MAB.
 
 1. In **Selezione tipo di gruppo protezione dati** selezionare **Server**.
 
@@ -88,11 +88,11 @@ Per eseguire il backup della farm di SharePoint, configurare la protezione per S
 
 1. Nella pagina Verifica allocazione dischi esaminare lo spazio su disco del pool di archiviazione allocato per il gruppo protezione dati.
 
-    Le **dimensioni dati totali** sono le dimensioni dei dati di cui si esegue il backup e lo **spazio su disco per il provisioning nel server di Backup di Microsoft Azure** è lo spazio consigliato dal server per il gruppo protezione dati. Il server di Backup di Microsoft Azure sceglie il volume di backup in base alle impostazioni. Tuttavia è possibile modificare le opzioni del volume di backup nei **dettagli di allocazione del disco**. Per i carichi di lavoro, selezionare la risorsa di archiviazione preferita nel menu a discesa. Le modifiche modificano i valori per **Totale spazio di archiviazione** e **Spazio libero di archiviazione** nel riquadro **Spazio di archiviazione su disco disponibile**. Per spazio con provisioning insufficiente si intende la quantità di spazio di archiviazione che il server di Backup di Microsoft Azure suggerisce di aggiungere al volume per continuare a eseguire backup uniformi in futuro.
+    Le **dimensioni dati totali** sono le dimensioni dei dati di cui si esegue il backup e lo **spazio su disco per il provisioning nel server di Backup di Microsoft Azure** è lo spazio consigliato dal server per il gruppo protezione dati. Il server di Backup di Microsoft Azure sceglie il volume di backup in base alle impostazioni. Tuttavia è possibile modificare le opzioni del volume di backup nei **dettagli di allocazione del disco**. Per i carichi di lavoro, selezionare l'archiviazione preferita nel menu a discesa. Le modifiche modificano i valori per **Totale spazio di archiviazione** e **Spazio libero di archiviazione** nel riquadro **Spazio di archiviazione su disco disponibile**. Per spazio con provisioning insufficiente si intende la quantità di spazio di archiviazione che il server di Backup di Microsoft Azure suggerisce di aggiungere al volume per continuare a eseguire backup uniformi in futuro.
 
 1. In **Scelta del metodo per la creazione della replica** selezionare come gestire la replica dei dati completa iniziale.  Se si seleziona l'opzione per eseguire la replica sulla rete, si consiglia di scegliere un'ora non di punta. Per grandi quantità di dati o condizioni della rete non ottimali, tenere in considerazione la replica dei dati offline con i supporti rimovibili.
 
-1. Nella pagina **Scelta opzioni di verifica coerenza** selezionare il modo in cui automatizzare le verifiche della coerenza. È possibile fare in modo che una verifica venga eseguita solo quando i dati della replica diventano incoerenti o in base a una pianificazione. Se non si vuole configurare la verifica coerenza automatica, è possibile eseguire in qualsiasi momento una verifica manuale facendo clic con il pulsante destro del mouse sul gruppo protezione dati nell'area **Protezione** della console del server di Backup di Microsoft Azure e scegliendo **Esegui verifica coerenza**.
+1. Nella pagina **Scelta opzioni di verifica coerenza** scegliere in che modo automatizzare le verifiche coerenza. È possibile fare in modo che una verifica venga eseguita solo quando i dati della replica diventano incoerenti o in base a una pianificazione. Se non si vuole configurare la verifica coerenza automatica, è possibile eseguire in qualsiasi momento una verifica manuale facendo clic con il pulsante destro del mouse sul gruppo protezione dati nell'area **Protezione** della console del server di Backup di Microsoft Azure e scegliendo **Esegui verifica coerenza**.
 
 1. Se si è scelto di eseguire il backup nel cloud con Backup di Azure, nella pagina **Specifica i dati da proteggere online** verificare che siano selezionati i carichi di lavoro di cui eseguire il backup in Azure.
 
@@ -114,7 +114,7 @@ Dopo aver creato il gruppo protezione dati, viene eseguita la replica iniziale e
 
 ### <a name="set-up-monitoring-notifications"></a>Impostare le notifiche di monitoraggio
 
-1. Nel Console di amministrazione di MAB selezionare opzioni di **monitoraggio**delle  >  **azioni**  >  **Options**.
+1. Nel Console di amministrazione di MAB selezionare opzioni di **monitoraggio** delle  >  **azioni**  >  .
 
 2. Selezionare **server SMTP**, digitare il nome del server, la porta e l'indirizzo di posta elettronica da cui verranno inviate le notifiche. L'indirizzo deve essere valido.
 
@@ -124,7 +124,7 @@ Dopo aver creato il gruppo protezione dati, viene eseguita la replica iniziale e
 
 ### <a name="publish-operations-manager-alerts"></a>Pubblicare avvisi di Operations Manager
 
-1. Nel Console di amministrazione di MAB selezionare opzioni di **monitoraggio**  >  **Action**  >  **Opzioni**azione  >  **pubblicazione**avvisi  >  **pubblica avvisi attivi**
+1. Nel Console di amministrazione di MAB selezionare opzioni di **monitoraggio**  >    >  **Opzioni** azione  >  **pubblicazione** avvisi  >  **pubblica avvisi attivi**
 
 2. Dopo aver abilitato **Pubblicazione avvisi**, tutti gli avvisi del server di Backup di Microsoft Azure esistenti che potrebbero richiedere l'intervento dell'utente vengono pubblicati nel registro eventi **MABS Alerts** (Avvisi server di Backup di Microsoft Azure). L'agente di Operations Manager installato nel server MAB pubblica quindi questi avvisi nel Operations Manager e continua ad aggiornare la console Man via che vengono generati nuovi avvisi.
 
@@ -170,7 +170,7 @@ Nell'esempio seguente, l' *elemento di SharePoint da ripristinare* è stato acci
     MAB connette il database del contenuto che ospita l'elemento di SharePoint all'istanza di SQL Server temporanea. MABS ripristina l'elemento dal database del contenuto e lo aggiunge al percorso di file di gestione temporanea di MABS. L'elemento recuperato che si trova nel percorso di gestione temporanea deve ora essere esportato nel percorso di gestione temporaneo della farm di SharePoint.
 
     ![Gestione temporanea Location2](./media/backup-azure-backup-sharepoint/staging-location2.png)
-10. Selezionare **Specifica opzioni di ripristino**e applicare le impostazioni di sicurezza per la farm di SharePoint o applicare le impostazioni di sicurezza del punto di ripristino. Selezionare **Avanti**.
+10. Selezionare **Specifica opzioni di ripristino** e applicare le impostazioni di sicurezza per la farm di SharePoint o applicare le impostazioni di sicurezza del punto di ripristino. Selezionare **Avanti**.
 
     ![Opzioni di ripristino](./media/backup-azure-backup-sharepoint/recovery-options.png)
 
@@ -247,7 +247,7 @@ Nella procedura seguente viene utilizzato l'esempio di una server farm con due s
 
 1. In *Server2*, al prompt dei comandi, impostare la directory su `_MABS installation location_\bin\` ed eseguire **ConfigureSharepoint**. Per ulteriori informazioni su ConfigureSharePoint, vedere [Configurare il backup](#configure-backup).
 
-1. Selezionare il gruppo protezione dati a cui appartiene la server farm, quindi selezionare **modifica gruppo protezione**dati.
+1. Selezionare il gruppo protezione dati a cui appartiene la server farm, quindi selezionare **modifica gruppo protezione** dati.
 
 1. Nella procedura guidata Modifica gruppo, nella pagina **Selezione membri del gruppo**, espandere *Server2* e selezionare la server farm, quindi completare la procedura guidata.
 

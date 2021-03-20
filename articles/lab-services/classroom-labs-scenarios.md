@@ -4,10 +4,10 @@ description: Questo articolo descrive come usare Azure DevTest Labs per la creaz
 ms.topic: article
 ms.date: 06/26/2020
 ms.openlocfilehash: f9eb3d44d470a978e676f6268cd693b283dd2703
-ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/01/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96433560"
 ---
 # <a name="use-labs-for-trainings"></a>Usare i Lab per i training
@@ -29,7 +29,7 @@ Questo articolo illustra le diverse funzionalità di Azure Lab Services che poss
 ## <a name="create-the-lab-account-as-a-lab-account-administrator"></a>Creare l'account lab come amministratore dell'account lab
 Il primo passaggio nell'uso di Azure Lab Services consiste nel creare un account lab nel portale di Azure. Dopo la creazione dell'account lab da parte di un amministratore, quest'ultimo assegna il ruolo **Autore di lab** agli utenti che desiderano creare lab. I docenti creano lab tramite macchine virtuali, consentendo agli studenti di eseguire esercitazioni per il corso che gestiscono. Per informazioni dettagliate, vedere [Creare e gestire account lab](how-to-manage-lab-accounts.md).
 
-## <a name="create-and-manage-labs"></a>Creazione e gestione di Lab
+## <a name="create-and-manage-labs"></a>Creare e gestire lab
 Un docente con ruolo di autore di lab in un account lab può creare uno o più lab. Si crea e si configura una macchina virtuale modello con tutto il software necessario per eseguire le esercitazioni del corso. È possibile scegliere un'immagine già pronta tra le immagini disponibili per la creazione di un lab per la classe, quindi personalizzarla installando il software necessario per il lab. Per informazioni dettagliate, vedere [creare e gestire lab](how-to-manage-classroom-labs.md).
 
 ## <a name="configure-usage-settings-and-policies"></a>Configurare le impostazioni e i criteri di utilizzo

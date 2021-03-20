@@ -8,10 +8,10 @@ ms.topic: article
 ms.custom: mvc
 ms.date: 04/29/2020
 ms.openlocfilehash: cde8db5310e3ede2721ba327b28c789ccd0b7dd0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "87280767"
 ---
 # <a name="manage-logic-apps-with-visual-studio"></a>Gestire le app per la logica con Visual Studio
@@ -139,7 +139,7 @@ Per creare app per la logica per scenari di integrazione aziendale B2B (business
    ![Finestra Proprietà-Proprietà "account di integrazione"](./media/manage-logic-apps-with-visual-studio/open-logic-app-properties-integration-account.png)
 
    > [!TIP]
-   > Se la Finestra Proprietà non è già aperta, scegliere **finestra Proprietà**dal menu **Visualizza** . (Tastiera: premere F4)
+   > Se la Finestra Proprietà non è già aperta, scegliere **finestra Proprietà** dal menu **Visualizza** . (Tastiera: premere F4)
 
 1. Aprire l'elenco delle proprietà dell' **account di integrazione** e selezionare l'account di integrazione da collegare all'app per la logica, ad esempio:
 
@@ -174,7 +174,7 @@ Per modificare il tipo o il percorso dell'app per la logica, è necessario aprir
    ![Finestra Proprietà-"Scegli tipo di percorso" & proprietà "percorso"](./media/manage-logic-apps-with-visual-studio/open-logic-app-properties-location.png)
 
    > [!TIP]
-   > Se la Finestra Proprietà non è già aperta, scegliere **finestra Proprietà**dal menu **Visualizza** . (Tastiera: premere F4)
+   > Se la Finestra Proprietà non è già aperta, scegliere **finestra Proprietà** dal menu **Visualizza** . (Tastiera: premere F4)
 
 1. Per modificare il tipo di percorso, aprire l'elenco **Scegli proprietà tipo di percorso** e selezionare il tipo di percorso desiderato.
 

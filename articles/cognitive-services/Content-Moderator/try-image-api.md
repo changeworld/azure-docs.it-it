@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 01/10/2019
 ms.author: pafarley
 ms.openlocfilehash: 542fadd5e5ab91be7b7113064bf8c998dae08d12
-ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/29/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92912940"
 ---
 # <a name="moderate-images-from-the-api-console"></a>Moderare le immagini dalla console dell'API
@@ -48,9 +48,9 @@ Prima di poter eseguire il test drive dell'API nella console online è necessari
 
    ![Immagine di esempio nella console Try Image - Evaluate (Prova immagine - Valutazione)](images/sample-image.jpg) 
 
-5. Selezionare **Send** (Invia).
+5. Selezionare **Invia**.
 
-6. L'API restituisce un punteggio di probabilità per ogni classificazione. Determina anche se l'immagine soddisfa le condizioni ( **true** o **false** ). 
+6. L'API restituisce un punteggio di probabilità per ogni classificazione. Determina anche se l'immagine soddisfa le condizioni (**true** o **false**). 
 
    ![Punteggio di probabilità e determinazione delle condizioni nella console Try Image - Evaluate (Prova immagine - Valutazione)](images/try-image-api-3.PNG)
 
@@ -74,7 +74,7 @@ Prima di poter eseguire il test drive dell'API nella console online è necessari
 
    ![Richiesta di esempio in Try Image - Find Faces (Prova immagine - Ricerca visi)](images/try-image-api-face-request.png)
 
-4. Selezionare **Send** (Invia). In questo esempio l'API trova due visi e ne restituisce le coordinate nell'immagine.
+4. Selezionare **Invia**. In questo esempio l'API trova due visi e ne restituisce le coordinate nell'immagine.
 
    ![Casella Response content (Contenuto della risposta) di esempio in Try Image - Find Faces (Prova immagine - Ricerca visi)](images/try-image-api-face-response.png)
 
@@ -82,7 +82,7 @@ Prima di poter eseguire il test drive dell'API nella console online è necessari
 
 È possibile usare la funzionalità OCR di Content Moderator per rilevare il testo nelle immagini.
 
-1. Nelle [informazioni di riferimento sull'API di moderazione immagini](https://westus.dev.cognitive.microsoft.com/docs/services/57cf753a3f9b070c105bd2c1/operations/57cf753a3f9b070868a1f66c), nel menu a sinistra, in **Image** (Immagine) selezionare **OCR** . 
+1. Nelle [informazioni di riferimento sull'API di moderazione immagini](https://westus.dev.cognitive.microsoft.com/docs/services/57cf753a3f9b070c105bd2c1/operations/57cf753a3f9b070868a1f66c), nel menu a sinistra, in **Image** (Immagine) selezionare **OCR**. 
 
    Verrà aperta la pagina **Image - OCR** (Immagine - OCR).
 
@@ -96,7 +96,7 @@ Prima di poter eseguire il test drive dell'API nella console online è necessari
 
 4. Nella casella **Request body** (Corpo della richiesta) usare l'immagine di esempio predefinita. È la stessa immagine usata nella sezione precedente.
 
-5. Selezionare **Send** (Invia). Il testo estratto viene visualizzato in JSON:
+5. Selezionare **Invia**. Il testo estratto viene visualizzato in JSON:
 
    ![Casella Response content (Contenuto della risposta) di esempio in Image - OCR (Immagine - OCR)](images/try-image-api-ocr.PNG)
 

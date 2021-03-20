@@ -15,10 +15,10 @@ ms.topic: conceptual
 ms.date: 12/14/2020
 ms.author: phjensen
 ms.openlocfilehash: b168167ce4f44d87c396746cca3f271f95f83163
-ms.sourcegitcommit: 8c3a656f82aa6f9c2792a27b02bbaa634786f42d
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/17/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97632823"
 ---
 # <a name="what-is-azure-application-consistent-snapshot-tool-preview"></a>Che cos'è applicazione Azure strumento di snapshot coerente (anteprima)
@@ -27,7 +27,7 @@ Applicazione Azure strumento di snapshot coerente (AzAcSnap) è uno strumento da
 
 ## <a name="benefits-of-using-azacsnap"></a>Vantaggi dell'uso di AzAcSnap
 
-AzAcSnap sfrutta le funzionalità di snapshot e replica del volume in Azure NetApp Files e in istanze large di Azure.  e in grado di offrire i vantaggi indicati di seguito.
+AzAcSnap sfrutta le funzionalità di snapshot e replica del volume disponibili in Azure NetApp Files e in istanze Large di Azure.  e in grado di offrire i vantaggi indicati di seguito.
 
 - **Protezione dei dati coerente** con l'applicazione AzAcSnap è una soluzione centralizzata per il backup dei file di database critici. Garantisce la coerenza del database prima di eseguire uno snapshot del volume di archiviazione. Di conseguenza, assicura che lo snapshot del volume di archiviazione possa essere usato per il ripristino del database.
 - **Gestione del catalogo di database** Quando si usa AzAcSnap con un database che include un catalogo di backup incorporato, i record all'interno del catalogo vengono mantenuti aggiornati con gli snapshot di archiviazione.  Questa funzionalità consente a un amministratore del database di visualizzare l'attività di backup.

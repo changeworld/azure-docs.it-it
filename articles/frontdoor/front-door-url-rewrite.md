@@ -12,10 +12,10 @@ ms.workload: infrastructure-services
 ms.date: 09/28/2020
 ms.author: duau
 ms.openlocfilehash: eb5b4ab8a23a374aec54d65dd5390ab3fec3e905
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91445491"
 ---
 # <a name="url-rewrite-custom-forwarding-path"></a>Riscrittura di URL (percorso di trasferimento personalizzato)
@@ -36,7 +36,7 @@ Si consideri una regola di routing con la seguente combinazione di host e percor
 |            | /foo/\*     |
 |            | /foo/bar/\* |
 
-La prima colonna della tabella sottostante mostra esempi di richieste in arrivo e la seconda colonna mostra quale sarebbe il percorso "più specifico" che corrisponde alla route "Percorso".  La terza e la colonna risultante della tabella sono esempi di percorsi di **inoltri personalizzati**configurati.
+La prima colonna della tabella sottostante mostra esempi di richieste in arrivo e la seconda colonna mostra quale sarebbe il percorso "più specifico" che corrisponde alla route "Percorso".  La terza e la colonna risultante della tabella sono esempi di percorsi di **inoltri personalizzati** configurati.
 
 Per esempio, nella seconda riga, si legge che per le richieste in arrivo `www.contoso.com/sub`, se il percorso di inoltro personalizzato fosse `/`, allora il percorso di trasferimento sarebbe `/sub`. Se il percorso di trasferimento personalizzato fosse `/fwd/`, il percorso inoltrato sarebbe `/fwd/sub`. E così via, per le colonne rimanenti. Le parti **evidenziate** dei percorsi seguenti rappresentano le parti incluse nella corrispondenza dei caratteri jolly.
 
@@ -44,7 +44,7 @@ Per esempio, nella seconda riga, si legge che per le richieste in arrivo `www.co
 |------------------------|--------------------------|------------|----------------|----------------|--------------------|
 | \.contoso.com/www            | /\*                      | /          | /fwd/          | /foo/          | /foo/bar/          |
 | \.**Sub** contoso.com/www     | /\*                      | /**Sub**   | /fwd/**sub**   | /foo/**sub**   | /foo/bar/**sub**   |
-| \.contoso.com/www**a/b/c**   | /\*                      | /**a/b/c** | /fwd/**a/b/c** | /foo/**a/b/c** | /foo/bar/**a/b/c** |
+| \.contoso.com/www **a/b/c**   | /\*                      | /**a/b/c** | /fwd/**a/b/c** | /foo/**a/b/c** | /foo/bar/**a/b/c** |
 | \.contoso.com/foo www         | /foo                     | /          | /fwd/          | /foo/          | /foo/bar/          |
 | \.contoso.com/foo/www        | /foo/\*                  | /          | /fwd/          | /foo/          | /foo/bar/          |
 | \.**barra** contoso.com/foo/www | /foo/\*                  | /**bar**   | /fwd/**bar**   | **barra** /foo/   | /foo/bar/**bar**   |

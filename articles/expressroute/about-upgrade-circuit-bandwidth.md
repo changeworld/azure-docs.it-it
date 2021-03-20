@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 07/07/2020
 ms.author: duau
 ms.openlocfilehash: 7831e7944321e074c312853e1534c47970ebdfdb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "89397951"
 ---
 # <a name="about-upgrading-expressroute-circuit-bandwidth"></a>Informazioni sull'aggiornamento della larghezza di banda del circuito ExpressRoute
@@ -24,7 +24,7 @@ Per aggiornare la larghezza di banda del circuito, il partner ExpressRoute Direc
 
 Se la capacità è disponibile, è possibile aggiornare il circuito usando i metodi seguenti:
 
-* [Portale di Azure](expressroute-howto-circuit-portal-resource-manager.md#modify)
+* [Azure portal](expressroute-howto-circuit-portal-resource-manager.md#modify)
 * [PowerShell](expressroute-howto-circuit-arm.md#modify)
 * [Interfaccia della riga di comando di Azure](howto-circuit-cli.md#modify)
 

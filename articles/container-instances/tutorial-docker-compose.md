@@ -5,10 +5,10 @@ ms.topic: tutorial
 ms.date: 10/28/2020
 ms.custom: ''
 ms.openlocfilehash: a71ff438feaef555a85c33d818c287c64621d40d
-ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
-ms.translationtype: HT
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/29/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92913841"
 ---
 # <a name="tutorial-deploy-a-multi-container-group-using-docker-compose"></a>Esercitazione: Distribuire un gruppo multi-contenitore usando Docker Compose 
@@ -35,9 +35,9 @@ In questo articolo si apprenderà come:
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-* **Interfaccia della riga di comando di Azure** : è necessario che nel computer locale sia installata l'interfaccia della riga di comando di Azure. È consigliabile usare la versione 2.10.1 o successiva. Eseguire `az --version` per trovare la versione. Se è necessario eseguire l'installazione o l'aggiornamento, vedere [Installare l'interfaccia della riga di comando di Azure](/cli/azure/install-azure-cli).
+* **Interfaccia della riga di comando di Azure**: è necessario che nel computer locale sia installata l'interfaccia della riga di comando di Azure. È consigliabile usare la versione 2.10.1 o successiva. Eseguire `az --version` per trovare la versione. Se è necessario eseguire l'installazione o l'aggiornamento, vedere [Installare l'interfaccia della riga di comando di Azure](/cli/azure/install-azure-cli).
 
-* **Docker Desktop** : è necessario usare Docker Desktop versione 2.3.0.5 o successiva, disponibile per [Windows](https://desktop.docker.com/win/edge/Docker%20Desktop%20Installer.exe) o [macOS](https://desktop.docker.com/mac/edge/Docker.dmg) oppure installare l'[interfaccia della riga di comando di integrazione fra Docker e Istanze di Azure Container per Linux](https://docs.docker.com/engine/context/aci-integration/#install-the-docker-aci-integration-cli-on-linux).
+* **Docker Desktop**: è necessario usare Docker Desktop versione 2.3.0.5 o successiva, disponibile per [Windows](https://desktop.docker.com/win/edge/Docker%20Desktop%20Installer.exe) o [macOS](https://desktop.docker.com/mac/edge/Docker.dmg) oppure installare l'[interfaccia della riga di comando di integrazione fra Docker e Istanze di Azure Container per Linux](https://docs.docker.com/engine/context/aci-integration/#install-the-docker-aci-integration-cli-on-linux).
 
 [!INCLUDE [container-instances-create-registry](../../includes/container-instances-create-registry.md)]
 
@@ -86,7 +86,7 @@ services:
 
 Nella configurazione di `azure-vote-front`, apportare le due modifiche seguenti:
 
-1. Aggiornare la proprietà `image` nel servizio `azure-vote-front`. Aggiungere al nome dell'immagine un prefisso costituito dal nome del server di accesso del registro contenitori di Azure, \<acrName\>.azurecr.io. Se ad esempio il registro è denominato *myregistry* , il nome del server di accesso è *myregistry.azurecr.io* (tutto minuscolo) e la proprietà image è quindi `myregistry.azurecr.io/azure-vote-front`.
+1. Aggiornare la proprietà `image` nel servizio `azure-vote-front`. Aggiungere al nome dell'immagine un prefisso costituito dal nome del server di accesso del registro contenitori di Azure, \<acrName\>.azurecr.io. Se ad esempio il registro è denominato *myregistry*, il nome del server di accesso è *myregistry.azurecr.io* (tutto minuscolo) e la proprietà image è quindi `myregistry.azurecr.io/azure-vote-front`.
 1. Impostare il mapping di `ports` su `80:80`. Salvare il file.
 
 Il file aggiornato dovrebbe essere simile al seguente:
@@ -216,7 +216,7 @@ azurevotingappredis_azure-vote-front   myregistry.azurecr.io/azure-vote-front   
 
 Per vedere l'applicazione in esecuzione nel cloud, immettere l'indirizzo IP visualizzato in un Web browser locale. In questo esempio immettere `52.179.23.131`. L'applicazione di esempio viene caricata, come illustrato nell'esempio seguente:
 
-:::image type="content" source="media/tutorial-docker-compose/azure-vote-aci.png" alt-text="Immagine dell'app di voto":::
+:::image type="content" source="media/tutorial-docker-compose/azure-vote-aci.png" alt-text="Immagine dell'app di voto in Istanze di Azure Container":::
 
 Per visualizzare i log del contenitore front-end, eseguire il comando [docker logs](https://docs.docker.com/engine/reference/commandline/logs). Esempio:
 

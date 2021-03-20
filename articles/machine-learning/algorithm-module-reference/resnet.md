@@ -10,10 +10,10 @@ author: likebupt
 ms.author: keli19
 ms.date: 09/26/2020
 ms.openlocfilehash: 88a820d0f1fa9515b4f2992a8305a2d1065e0987
-ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/06/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93421210"
 ---
 # <a name="resnet"></a>ResNet
@@ -52,13 +52,13 @@ Al termine dell'esecuzione della pipeline, per usare il modello per il punteggio
 
 | Nome       | Range | Type    | Predefinito           | Descrizione                              |
 | ---------- | ----- | ------- | ----------------- | ---------------------------------------- |
-| Nome modello | Qualsiasi   | Mode    | \_32x8d resnext101 | Nome di una determinata struttura ResNet       |
+| Nome modello | Qualsiasi   | Modalità    | \_32x8d resnext101 | Nome di una determinata struttura ResNet       |
 | Training preliminare | Qualsiasi   | Boolean | True              | Indica se utilizzare un modello pre-sottoposto a training in imagent |
 |            |       |         |                   |                                          |
 
 ###  <a name="output"></a>Output  
 
-| Nome            | Type                    | Description                              |
+| Nome            | Tipo                    | Descrizione                              |
 | --------------- | ----------------------- | ---------------------------------------- |
 | Untrained model | UntrainedModelDirectory | Modello ResNet non sottoposto a training che può essere connesso al training del modello Pytorch. |
 

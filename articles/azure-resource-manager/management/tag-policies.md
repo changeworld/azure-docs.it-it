@@ -4,10 +4,10 @@ description: Descrive i criteri di Azure che è possibile assegnare per garantir
 ms.topic: conceptual
 ms.date: 03/20/2020
 ms.openlocfilehash: c6867bc01306ac3c08a9797ece0567a45e060af2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "89293737"
 ---
 # <a name="assign-policies-for-tag-compliance"></a>Assegnare criteri per la conformità dei tag

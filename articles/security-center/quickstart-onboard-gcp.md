@@ -8,10 +8,10 @@ ms.topic: quickstart
 ms.service: security-center
 manager: rkarlin
 ms.openlocfilehash: 94c7a800fc551faf6650b8e30fe7c2188f7d2dbb
-ms.sourcegitcommit: 49ea056bbb5957b5443f035d28c1d8f84f5a407b
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/09/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100008384"
 ---
 #  <a name="connect-your-gcp-accounts-to-azure-security-center"></a>Connettere gli account GCP al Centro sicurezza di Azure
@@ -37,8 +37,8 @@ Lo screenshot seguente mostra i progetti GCP visualizzati nel dashboard di panor
 |Aspetto|Dettagli|
 |----|:----|
 |Stato della versione:|Disponibilità generale (GA)|
-|Prezzi:|È necessario [Azure Defender per server](defender-for-servers-introduction.md)|
-|Autorizzazioni e ruoli obbligatori:|**Proprietario** o **Collaboratore** nella sottoscrizione di Azure pertinente|
+|Prezzi:|Richiede [Azure Defender per server](defender-for-servers-introduction.md)|
+|Autorizzazioni e ruoli obbligatori:|**Proprietario** o **Collaboratore** nella sottoscrizione di Azure rilevante|
 |Cloud:|![Sì](./media/icons/yes-icon.png) Cloud commerciali<br>![No](./media/icons/no-icon.png) Cloud nazionali/sovrani (US Gov, governo cinese, altri governi)|
 |||
 

@@ -4,10 +4,10 @@ description: Configurare le impostazioni di diagnostica Log Analytics per tutti 
 ms.topic: conceptual
 ms.date: 02/14/2020
 ms.openlocfilehash: 55461937381f7551c42714c835d4755ab65f175b
-ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/19/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92171543"
 ---
 # <a name="configure-vault-diagnostics-settings-at-scale"></a>Configurare le impostazioni di diagnostica dell'insieme di credenziali su larga scala
@@ -22,7 +22,7 @@ Per semplificare la creazione di impostazioni di diagnostica su larga scala (con
 
 * I criteri possono essere applicati contemporaneamente a tutti gli insiemi di credenziali di servizi di ripristino in una sottoscrizione specifica o a un gruppo di risorse all'interno della sottoscrizione. L'utente che assegna i criteri deve disporre dell'accesso **proprietario** alla sottoscrizione a cui è assegnato il criterio.
 
-* L'area di lavoro LA come specificato dall'utente (a cui verranno inviati i dati di diagnostica) può trovarsi in una sottoscrizione diversa dagli insiemi di credenziali a cui è assegnato il criterio. L'utente deve disporre dell'accesso a **Reader**, **collaboratore**o **proprietario** per la sottoscrizione in cui è presente l'area di lavoro la specificata.
+* L'area di lavoro LA come specificato dall'utente (a cui verranno inviati i dati di diagnostica) può trovarsi in una sottoscrizione diversa dagli insiemi di credenziali a cui è assegnato il criterio. L'utente deve disporre dell'accesso a **Reader**, **collaboratore** o **proprietario** per la sottoscrizione in cui è presente l'area di lavoro la specificata.
 
 * Ambito del gruppo di gestione attualmente non supportato.
 
@@ -46,11 +46,11 @@ Per assegnare i criteri per gli insiemi di credenziali nell'ambito necessario, a
 
 5. Selezionare il pulsante **assegna** nella parte superiore del riquadro. Viene quindi reindirizzati al riquadro **assegna criterio** .
 
-6. In **nozioni di base**selezionare i tre puntini di sospensione accanto al campo **ambito** . Verrà aperto un riquadro di contesto a destra in cui è possibile selezionare la sottoscrizione per il criterio da applicare. Facoltativamente, è anche possibile selezionare un gruppo di risorse, in modo che i criteri vengano applicati solo per gli insiemi di credenziali in un determinato gruppo di risorse.
+6. In **nozioni di base** selezionare i tre puntini di sospensione accanto al campo **ambito** . Verrà aperto un riquadro di contesto a destra in cui è possibile selezionare la sottoscrizione per il criterio da applicare. Facoltativamente, è anche possibile selezionare un gruppo di risorse, in modo che i criteri vengano applicati solo per gli insiemi di credenziali in un determinato gruppo di risorse.
 
     ![Nozioni fondamentali sull'assegnazione di criteri](./media/backup-azure-policy-configure-diagnostics/policy-assignment-basics.png)
 
-7. In **parametri**immettere le informazioni seguenti:
+7. In **parametri** immettere le informazioni seguenti:
 
     * **Nome profilo** : il nome che verrà assegnato alle impostazioni di diagnostica create dal criterio.
     * **Log Analytics area di lavoro** : l'area di lavoro log Analytics a cui deve essere associata l'impostazione di diagnostica. I dati di diagnostica di tutti gli insiemi di credenziali nell'ambito dell'assegnazione di criteri verranno inseriti nell'area di lavoro di LA specificata.

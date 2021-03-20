@@ -9,16 +9,16 @@ ms.topic: include
 ms.date: 11/27/2019
 ms.author: prmitiki
 ms.openlocfilehash: fda22346a44388248e37473bc7891b8a130569c4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "81681045"
 ---
 1. Nella scheda **configurazione** della pagina **Crea un peering** compilare le caselle come illustrato qui.
 
-    * Per **tipo di peering**selezionare **diretta**.
-    * Per **Microsoft Network**selezionare **AS8075**. Non creare il peering con ASN 8069. È riservata per applicazioni speciali e viene usata solo dal [peering Microsoft](mailto:peering@microsoft.com).
+    * Per **tipo di peering** selezionare **diretta**.
+    * Per **Microsoft Network** selezionare **AS8075**. Non creare il peering con ASN 8069. È riservata per applicazioni speciali e viene usata solo dal [peering Microsoft](mailto:peering@microsoft.com).
     * Selezionare **SKU** come **Basic Free**. Non selezionare Premium Free perché è riservato per applicazioni speciali.
     * Selezionare la **località** in cui si vuole configurare il peering.
 
@@ -26,7 +26,7 @@ ms.locfileid: "81681045"
         > Se si hanno già connessioni peering con Microsoft nella località **metro** selezionata e si sta usando il portale di Azure per la prima volta per configurare il peering in tale percorso, le connessioni di peering esistenti verranno elencate nella sezione **connessioni peering** , come illustrato. Microsoft convertirà automaticamente queste connessioni di peering in una risorsa di Azure in modo che sia possibile gestirle tutte, insieme alle nuove connessioni, in un'unica posizione. Per altre informazioni, vedere [convertire un peering diretto legacy in una risorsa di Azure tramite il portale](../howto-legacy-direct-portal.md).
         >
 
-1. In **connessioni peering**selezionare **Crea nuovo** per aggiungere una riga per ogni nuova connessione che si desidera configurare.
+1. In **connessioni peering** selezionare **Crea nuovo** per aggiungere una riga per ogni nuova connessione che si desidera configurare.
 
     * Per configurare o modificare le impostazioni di connessione, selezionare il pulsante modifica per una riga.
 

@@ -7,10 +7,10 @@ ms.service: load-balancer
 ms.topic: how-to
 ms.date: 03/25/2020
 ms.openlocfilehash: cb7bfb9ac4b10b807ac186d087b0037953abd559
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91439523"
 ---
 # <a name="configure-a-virtual-machine-scale-set-with-an-existing-azure-load-balancer-using-the-azure-portal"></a>Configurare un set di scalabilità di macchine virtuali con un Azure Load Balancer esistente usando il portale di Azure
@@ -40,7 +40,7 @@ In questa sezione verrà creato un set di scalabilità di macchine virtuali nel 
 
 2. Selezionare **Crea**.
 
-3. In **creare un set di scalabilità di macchine virtuali**immettere o selezionare queste informazioni nella scheda **nozioni di base** :
+3. In **creare un set di scalabilità di macchine virtuali** immettere o selezionare queste informazioni nella scheda **nozioni di base** :
 
     | Impostazione                        | valore                                                                                                 |
     |--------------------------------|-------------------------------------------------------------------------------------------------------|
@@ -49,7 +49,7 @@ In questa sezione verrà creato un set di scalabilità di macchine virtuali nel 
     | Gruppo di risorse                 | Selezionare Crea nuovo, immettere **myResourceGroup**, quindi selezionare OK oppure selezionare un gruppo di risorse esistente. |
     | **Dettagli del set di scalabilità**          |                                                                                                       |
     | Nome del set di scalabilità di macchine virtuali | Immettere **myVMSS**                                                                                      |
-    | Region                         | Seleziona **Stati Uniti orientali 2**                                                                                    |
+    | Region                         | Selezionare **Stati Uniti orientali 2**                                                                                    |
     | Zona di disponibilità              | Selezionare **Nessuno**                                                                                       |
     | **Dettagli istanza**           |                                                                                                       |
     | Immagine                          | Selezionare **Ubuntu Server 18,04 LTS**                                                                    |
@@ -79,7 +79,7 @@ In questa sezione verrà creato un set di scalabilità di macchine virtuali nel 
     | Selezionare un servizio di bilanciamento del carico            | Selezionare **myLoadBalancer** o il servizio di bilanciamento del carico esistente |
     | Selezionare un pool back-end             | Selezionare **myBackendPool** o il pool back-end esistente.  |
 
-    :::image type="content" source="./media/vm-scale-sets/create-vm-scale-set-02.png" alt-text="Screenshot mostra la scheda creare i concetti di base del set di scalabilità di macchine virtuali." border="true":::
+    :::image type="content" source="./media/vm-scale-sets/create-vm-scale-set-02.png" alt-text="Screenshot mostra la scheda Crea rete del set di scalabilità di macchine virtuali." border="true":::
 
 6. Selezionare la scheda **gestione** .
 

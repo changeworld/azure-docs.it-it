@@ -6,10 +6,10 @@ ms.topic: tutorial
 ms.date: 12/16/2019
 ms.custom: MVC
 ms.openlocfilehash: bf47f08ac555cf60f59ba2b1a84750b6a9e2e0a1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
-ms.translationtype: HT
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "86132004"
 ---
 # <a name="fail-over--vmware-vms"></a>Effettuare il failover di macchine virtuali VMware
@@ -44,7 +44,7 @@ Prima di eseguire un failover, controllare le proprietà della VM per assicurars
 
 Verificare le proprietà come segue:
 
-1. In **Elementi protetti**, selezionare **Elementi replicati**e quindi selezionare la VM che si desidera verificare.
+1. In **Elementi protetti**, selezionare **Elementi replicati** e quindi selezionare la VM che si desidera verificare.
 
 2. Nel riquadro **Elemento replicato** è possibile vedere un riepilogo relativo a informazioni sulla macchina virtuale, stato integrità e ultimi punti di ripristino disponibili. Selezionare **Proprietà** per visualizzare altri dettagli.
 
@@ -101,5 +101,5 @@ In alcuni scenari il failover richiede un'altra elaborazione il cui completament
 Dopo il failover, proteggere di nuovo le macchine virtuali di Azure verso l'ambiente locale. Quando le VM sono di nuovo protette e viene eseguita la replica nel sito locale, eseguire il failback da Azure quando si è pronti.
 
 > [!div class="nextstepaction"]
-> [Riproteggere le macchine virtuali di Azure](vmware-azure-reprotect.md)
-> [Failback da Azure](vmware-azure-failback.md)
+> [Riproteggere le macchine virtuali](vmware-azure-reprotect.md) 
+>  di Azure [Eseguire il failback da Azure](vmware-azure-failback.md)

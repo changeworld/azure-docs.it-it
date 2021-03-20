@@ -10,10 +10,10 @@ author: likebupt
 ms.author: keli19
 ms.date: 02/22/2020
 ms.openlocfilehash: cd48b32afee320aa3d252540d566317c374c73a8
-ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/06/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93420785"
 ---
 # <a name="feature-hashing-module-reference"></a>Riferimento al modulo feature hashing
@@ -90,7 +90,7 @@ Gli output numerici consentono anche di usare metodi di apprendimento automatico
     
     La dimensione di bit predefinita è 10. Per molti problemi, questo valore è adeguato. Potrebbe essere necessario più spazio per evitare conflitti, a seconda delle dimensioni del vocabolario di n-grammi nel testo di training.
     
-1. Per **n-grammi** , immettere un numero che definisce la lunghezza massima dei n-grammi da aggiungere al dizionario di training. Un n-Gram è una sequenza di *n* parole, trattate come un'unità univoca.
+1. Per **n-grammi**, immettere un numero che definisce la lunghezza massima dei n-grammi da aggiungere al dizionario di training. Un n-Gram è una sequenza di *n* parole, trattate come un'unità univoca.
 
     Ad esempio, se si immette 3, unigrammi, bigrammi e trigrammi verranno creati.
 

@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 09/03/2020
 ms.author: cherylmc
 ms.openlocfilehash: 61732f66aef58f5a9edcb9e095782e19e8aaffdd
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91397216"
 ---
 # <a name="vpn-gateway-design"></a>Progettazione del gateway VPN
@@ -77,7 +77,7 @@ Azure offre attualmente di due modelli di distribuzione: classica e Resource Man
 
 ## <a name="expressroute-private-connection"></a><a name="ExpressRoute"></a>ExpressRoute (connessione privata)
 
-ExpressRoute consente di estendere le reti locali nel cloud Microsoft tramite una connessione privata fornita da un provider di connettività. Con ExpressRoute è possibile stabilire connessioni ai servizi cloud Microsoft, ad esempio Microsoft Azure, Microsoft 365 e CRM online. La connettività può provenire da una rete any-to-any (VPN IP), una rete Ethernet da punto a punto o una cross-Connection virtuale tramite un provider di connettività in una struttura di condivisione percorso.
+ExpressRoute consente di estendere le reti locali nel cloud Microsoft tramite una connessione privata offerta da un provider di connettività. Con ExpressRoute è possibile stabilire connessioni ai servizi cloud Microsoft, ad esempio Microsoft Azure, Microsoft 365 e CRM online. La connettività può essere stabilita da una rete Any-to-Any (IPVPN), da una rete Ethernet punto a punto o da una Cross Connection virtuale tramite un provider di connettività presso una struttura di coubicazione.
 
 Le connessioni ExpressRoute non sfruttano la rete Internet pubblica. In questo modo possono offrire un livello di sicurezza superiore, maggiore affidabilità, velocità più elevate e minori latenze rispetto alle connessioni Internet tradizionali.
 

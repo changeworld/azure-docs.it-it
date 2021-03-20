@@ -9,10 +9,10 @@ ms.service: industrial-iot
 services: iot-industrialiot
 manager: philmea
 ms.openlocfilehash: a1b7564988c8a4d63a37b53d18ed3a7359e65d72
-ms.sourcegitcommit: dd45ae4fc54f8267cda2ddf4a92ccd123464d411
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/29/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92926411"
 ---
 # <a name="use-the-opc-vault-certificate-management-service"></a>Usare il servizio di gestione certificati dell'insieme di credenziali OPC
@@ -40,7 +40,7 @@ Se non è ancora stato fatto, creare il certificato CA dell'autorità emittente.
 > Il ruolo writer è necessario per registrare un'applicazione.
 
 1. Aprire il servizio certificati all'indirizzo `https://myResourceGroup-app.azurewebsites.net` ed accedere.
-2. Passare a **Registra nuovo** . Per la registrazione di un'applicazione, un utente deve avere almeno il ruolo di writer assegnato.
+2. Passare a **Registra nuovo**. Per la registrazione di un'applicazione, un utente deve avere almeno il ruolo di writer assegnato.
 2. Il modulo di immissione segue le convenzioni di denominazione in OPC UA. Nello screenshot seguente, ad esempio, vengono visualizzate le impostazioni per l'esempio [OPC UA Reference Server](https://github.com/OPCFoundation/UA-.NETStandard/tree/master/Applications/ReferenceServer) nello stack opc UA .NET standard:
 
    ![Screenshot della registrazione del server di riferimento UA](media/howto-opc-vault-secure/reference-server-registration.png "Registrazione server di riferimento UA")
@@ -53,7 +53,7 @@ Proteggere l'applicazione OPC UA emettendo un certificato firmato in base a una 
 
 #### <a name="request-a-new-certificate-with-a-new-keypair"></a>Richiedere un nuovo certificato con una nuova coppia di coppie
 
-1. Passare ad **applicazioni** .
+1. Passare ad **applicazioni**.
 3. Selezionare **nuova richiesta** per un'applicazione elencata.
 
    ![Screenshot del nuovo certificato di richiesta](media/howto-opc-vault-secure/request-new-certificate.png "Richiedi nuovo certificato")
@@ -71,14 +71,14 @@ Proteggere l'applicazione OPC UA emettendo un certificato firmato in base a una 
    ![Screenshot della visualizzazione dei dettagli della richiesta di certificato, con messaggio di approvazione in basso](media/howto-opc-vault-secure/view-key-pair.png "Visualizzazione della coppia di chiavi")
 
 7. La chiave privata risultante (PFX o PEM) e il certificato (DER) possono essere scaricati da qui nel formato selezionato come download di file binario. È disponibile anche una versione con codifica Base64, ad esempio, per copiare e incollare il certificato in una riga di comando o in una voce di testo. 
-8. Dopo aver scaricato e archiviato la chiave privata in modo sicuro, è possibile selezionare **Elimina chiave privata** . Il certificato con la chiave pubblica rimane disponibile per un uso futuro.
+8. Dopo aver scaricato e archiviato la chiave privata in modo sicuro, è possibile selezionare **Elimina chiave privata**. Il certificato con la chiave pubblica rimane disponibile per un uso futuro.
 9. A causa dell'utilizzo di un certificato firmato da un'autorità di certificazione, è necessario scaricare anche il certificato CA e l'elenco di revoche di certificati (CRL).
 
 A questo punto, dipende dal dispositivo OPC UA come applicare la nuova coppia di chiavi. In genere, il certificato CA e il CRL vengono copiati in una `trusted` cartella, mentre le chiavi pubbliche e private del certificato dell'applicazione vengono applicate a una `own` cartella nell'archivio certificati. Alcuni dispositivi potrebbero già supportare il push del server per gli aggiornamenti del certificato. Vedere la documentazione del dispositivo OPC UA.
 
 #### <a name="request-a-new-certificate-with-a-csr"></a>Richiedere un nuovo certificato con CSR 
 
-1. Passare ad **applicazioni** .
+1. Passare ad **applicazioni**.
 3. Selezionare **nuova richiesta** per un'applicazione elencata.
 
    ![Screenshot del nuovo certificato di richiesta](media/howto-opc-vault-secure/request-new-certificate.png "Richiedi nuovo certificato")
@@ -87,7 +87,7 @@ A questo punto, dipende dal dispositivo OPC UA come applicare la nuova coppia di
 
    ![Screenshot della generazione di un nuovo certificato](media/howto-opc-vault-secure/generate-new-certificate.png "Genera nuovo certificato")
 
-4. Caricare CSR selezionando un file locale o incollando un CSR con codifica Base64 nel formato. Selezionare **genera nuovo certificato** .
+4. Caricare CSR selezionando un file locale o incollando un CSR con codifica Base64 nel formato. Selezionare **genera nuovo certificato**.
 
    ![Screenshot della visualizzazione dei dettagli della richiesta di certificato](media/howto-opc-vault-secure/approve-reject-csr.png "Approva CSR")
 
@@ -96,7 +96,7 @@ A questo punto, dipende dal dispositivo OPC UA come applicare la nuova coppia di
    ![Screenshot che mostra i dettagli della richiesta di certificato di visualizzazione e include un messaggio di approvazione in basso.](media/howto-opc-vault-secure/view-cert-csr.png "View Certificate")
 
 6. Il certificato risultante (DER) può essere scaricato da qui come file binario. È disponibile anche una versione con codifica Base64, ad esempio, per copiare e incollare il certificato in una riga di comando o in una voce di testo. 
-10. Dopo che il certificato è stato scaricato e archiviato in modo sicuro, è possibile selezionare **Elimina certificato** .
+10. Dopo che il certificato è stato scaricato e archiviato in modo sicuro, è possibile selezionare **Elimina certificato**.
 11. A causa dell'utilizzo di un certificato firmato da un'autorità di certificazione, è necessario scaricare anche il certificato CA e il CRL.
 
 A questo punto, dipende dal dispositivo OPC UA come applicare il nuovo certificato. In genere, il certificato CA e il CRL vengono copiati in una `trusted` cartella, mentre il certificato dell'applicazione viene applicato a una `own` cartella nell'archivio certificati. Alcuni dispositivi potrebbero già supportare il push del server per gli aggiornamenti del certificato. Vedere la documentazione del dispositivo OPC UA.

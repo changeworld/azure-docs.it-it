@@ -9,10 +9,10 @@ ms.author: normesta
 ms.subservice: common
 ms.reviewer: zezha-msft
 ms.openlocfilehash: c1028d0a4a458746c08fd6fa4f16aa952d9962a2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "87282008"
 ---
 # <a name="azcopy-benchmark"></a>Benchmark azcopy
@@ -39,7 +39,7 @@ La modalità benchmark verrà automaticamente sintonizzata sul numero di conness
 
 Sono supportati tutti i tipi di autenticazione usuali. Tuttavia, l'approccio più pratico per il benchmarking del caricamento è in genere quello di creare un contenitore vuoto con un token di firma di accesso condiviso e di usare l'autenticazione SAS. Per la modalità di download è necessario che nel contenitore di destinazione sia presente un set di dati di test.
 
-## <a name="examples"></a>Esempi
+## <a name="examples"></a>Esempio
 
 ```azcopy
 azcopy benchmark [destination] [flags]
@@ -106,6 +106,6 @@ azcopy bench "https://[account].blob.core.windows.net/[container]?<SAS>" --file-
 **--trusted-Microsoft-suffissi** stringa specifica i suffissi di dominio aggiuntivi in cui è possibile inviare i token di accesso Azure Active Directory.  Il valore predefinito è'*. Core.Windows.NET;*. core.chinacloudapi.cn; *. Core.cloudapi.de;*. core.usgovcloudapi.net ". Tutti gli elencati qui vengono aggiunti al valore predefinito. Per la sicurezza, è consigliabile inserire qui solo Microsoft Azure domini. Separare più voci con un punto e virgola.
 
 
-## <a name="see-also"></a>Vedere anche
+## <a name="see-also"></a>Vedi anche
 
 - [azcopy](storage-ref-azcopy.md)

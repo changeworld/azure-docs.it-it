@@ -11,10 +11,10 @@ ms.custom:
 - amqp
 - mqtt
 ms.openlocfilehash: 7b3dcfc51df7f0fe4291e9c5babccc1444ad32e9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "81730746"
 ---
 # <a name="communicate-with-your-iot-hub-by-using-the-amqp-protocol"></a>Comunicare con l'hub Internet delle cose usando il protocollo AMQP
@@ -131,7 +131,7 @@ for msg in batch:
 
 Come illustrato nel codice precedente, un messaggio di feedback da cloud a dispositivo ha un tipo di contenuto *Application/vnd.microsoft.iothub.feedback.json*. È possibile usare le proprietà nel corpo JSON del messaggio per dedurre lo stato di recapito del messaggio originale:
 
-* La chiave `statusCode` nel corpo del feedback ha uno dei valori seguenti: *Success*, *expired*, *DeliveryCountExceeded*, *rejected*o *decancellata*.
+* La chiave `statusCode` nel corpo del feedback ha uno dei valori seguenti: *Success*, *expired*, *DeliveryCountExceeded*, *rejected* o *decancellata*.
 
 * La chiave `deviceId` nel corpo del feedback ha l'ID del dispositivo di destinazione.
 

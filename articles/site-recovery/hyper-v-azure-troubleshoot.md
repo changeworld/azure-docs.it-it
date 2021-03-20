@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 04/14/2019
 ms.author: sharrai
 ms.openlocfilehash: c804e13029dcec42a43885cbf0d9b227b3d0338f
-ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/07/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96750803"
 ---
 # <a name="troubleshoot-hyper-v-to-azure-replication-and-failover"></a>Risolvere i problemi della replica e del failover da Hyper-V ad Azure
@@ -128,9 +128,9 @@ Uno snapshot coerente con l'app è uno snapshot temporizzato dei dati dell'appli
         - Categoria: “Dispositivo di archiviazione virtuale Hyper-V”
         - Contatore: “Byte scritti/sec”</br>
         - Questa varianza dei dati aumenterà o rimarrà a un livello elevato, a seconda del carico di lavoro della macchina virtuale o delle relative app.
-        - La varianza media dei dati del disco di origine è 2 MB/s per l'archiviazione standard per Site Recovery. [Altre informazioni](hyper-v-deployment-planner-analyze-report.md#azure-site-recovery-limits)
+        - La varianza media dei dati del disco di origine è 2 MB/s per l'archiviazione standard per Site Recovery. [Scopri di più](hyper-v-deployment-planner-analyze-report.md#azure-site-recovery-limits)
     - È anche possibile [verificare gli obiettivi di scalabilità delle risorse di archiviazione](../storage/common/scalability-targets-standard-account.md).
-8. Assicurarsi che se si usa un server basato su Linux, è stata abilitata la coerenza delle app. [Altre informazioni](./site-recovery-faq.md#replication)
+8. Assicurarsi che se si usa un server basato su Linux, è stata abilitata la coerenza delle app. [Scopri di più](./site-recovery-faq.md#replication)
 9. Eseguire [Deployment Planner](hyper-v-deployment-planner-run.md).
 10. Esaminare le raccomandazioni per la [rete](hyper-v-deployment-planner-analyze-report.md#recommendations-with-available-bandwidth-as-input) e l'[archiviazione](hyper-v-deployment-planner-analyze-report.md#recommendations-with-available-bandwidth-as-input).
 
@@ -149,7 +149,7 @@ Uno snapshot coerente con l'app è uno snapshot temporizzato dei dati dell'appli
 
 ### <a name="common-errors"></a>Errori comuni
 
-**Codice di errore** | **Message** | **Dettagli**
+**Codice di errore** | **Messaggio** | **Dettagli**
 --- | --- | ---
 **0x800700EA** | "Non è stato possibile generare il set di snapshot VSS per la macchina virtuale. Sono disponibili più dati (0x800700EA). Potrebbe non essere possibile generare il set di snapshot VSS se l'operazione di backup è in corso.<br/><br/> Operazione di replica per la macchina virtuale non riuscita. Sono disponibili più dati". | Verificare se la macchina virtuale dispone di un disco dinamico abilitato. Questa funzionalità non è supportata.
 **0x80070032** | "Il richiedente del servizio Copia Shadow del volume di Hyper-V non è riuscito a connettersi alla macchina virtuale <./NomeVM> perché la versione non corrisponde alla versione prevista da Hyper-V". | Verificare se sono installati gli ultimi aggiornamenti di Windows.<br/><br/> [Eseguire l'aggiornamento](/windows-server/virtualization/hyper-v/manage/manage-hyper-v-integration-services#keep-integration-services-up-to-date) alla versione più recente di Integration Services.

@@ -10,10 +10,10 @@ ms.date: 10/13/2020
 ms.author: anfeldma
 ms.custom: devx-track-java, contperf-fy21q2
 ms.openlocfilehash: 8aad9df4720c833a74659b5cd36b7f5aafdf9b60
-ms.sourcegitcommit: 8c3a656f82aa6f9c2792a27b02bbaa634786f42d
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/17/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97631840"
 ---
 # <a name="performance-tips-for-azure-cosmos-db-java-sdk-v4"></a>Suggerimenti sulle prestazioni per Azure Cosmos DB Java SDK v4
@@ -150,15 +150,15 @@ Per impostazione predefinita, quando si usa Azure Cosmos DB Java SDK v4, le rich
 
 In Azure Cosmos DB Java SDK v4 la modalità diretta è la scelta ottimale per migliorare le prestazioni del database con la maggior parte dei carichi di lavoro. 
 
-* ***Panoramica della modalità diretta** _
+* ***Panoramica della modalità diretta***
 
 :::image type="content" source="./media/performance-tips-async-java/rntbdtransportclient.png" alt-text="Illustrazione dell'architettura in modalità diretta" border="false":::
 
-L'architettura sul lato client usata in modalità diretta consente l'utilizzo di rete prevedibile e l'accesso in multiplex alle repliche di Azure Cosmos DB. Il diagramma precedente mostra in che modo la modalità diretta instrada le richieste dei client alle repliche nel back-end di Cosmos DB. L'architettura della modalità diretta alloca fino a 10 _ *canali** sul lato client per replica di database. Un canale è una connessione TCP preceduta da un buffer di richieste, con una profondità di 30 richieste. I canali appartenenti a una replica vengono allocati dinamicamente in base alle esigenze dall'**endpoint di servizio** della replica. Quando l'utente invia una richiesta in modalità diretta, il **TransportClient** instrada la richiesta all'endpoint di servizio appropriato in base alla chiave di partizione. La **coda delle richieste** memorizza le richieste nel buffer prima dell'endpoint di servizio.
+L'architettura sul lato client usata in modalità diretta consente l'utilizzo di rete prevedibile e l'accesso in multiplex alle repliche di Azure Cosmos DB. Il diagramma precedente mostra in che modo la modalità diretta instrada le richieste dei client alle repliche nel back-end di Cosmos DB. L'architettura in modalità diretta alloca un massimo di **10 canali** sul lato client per ogni replica di database. Un canale è una connessione TCP preceduta da un buffer di richieste, con una profondità di 30 richieste. I canali appartenenti a una replica vengono allocati dinamicamente in base alle esigenze dall'**endpoint di servizio** della replica. Quando l'utente invia una richiesta in modalità diretta, il **TransportClient** instrada la richiesta all'endpoint di servizio appropriato in base alla chiave di partizione. La **coda delle richieste** memorizza le richieste nel buffer prima dell'endpoint di servizio.
 
-* ***Opzioni di configurazione per la modalità diretta** _
+* ***Opzioni di configurazione per la modalità diretta***
 
-Se si desidera un comportamento della modalità diretta non predefinito, creare un'istanza di _DirectConnectionConfig * e personalizzarne le proprietà, quindi passare l'istanza della proprietà personalizzata al metodo *directMode ()* nel generatore client Azure Cosmos DB.
+Se si desidera un comportamento della modalità diretta non predefinito, creare un'istanza di *DirectConnectionConfig* e personalizzarne le proprietà, quindi passare l'istanza della proprietà personalizzata al metodo *directMode ()* nel generatore di Azure Cosmos DB client.
 
 Queste impostazioni di configurazione controllano il comportamento dell'architettura della modalità diretta sottostante descritta sopra.
 
@@ -176,19 +176,19 @@ Come primo passaggio, usare le seguenti impostazioni di configurazione consiglia
 
 Azure Cosmos DB Java SDK v4 supporta le query parallele, che consentono l'esecuzione di query su una raccolta partizionata in parallelo. Per altre informazioni, vedere [esempi di codice](https://github.com/Azure-Samples/azure-cosmos-java-sql-api-samples) relativi all'uso di Azure Cosmos DB Java SDK v4. Le query parallele sono state concepite per migliorare la velocità e la latenza delle query sulle loro controparti seriali.
 
-* ***Ottimizzazione di \: setMaxDegreeOfParallelism** _
+* ***Ottimizzazione di setMaxDegreeOfParallelism\:***
     
 Le query parallele funzionano eseguendo query su più partizioni in parallelo. I dati di una singola raccolta partizionata vengono recuperati in modo seriale per quanto riguarda la query. Usare pertanto setMaxDegreeOfParallelism per impostare il numero di partizioni con la massima probabilità di ottenere la query più efficiente, se tutte le altre condizioni del sistema rimangono invariate. Se non si conosce il numero di partizioni, è possibile impostare il valore di setMaxDegreeOfParallelism su un numero elevato. Il sistema sceglie il numero minimo (numero di partizioni, input specificato dall'utente) come livello di parallelismo massimo.
 
 È importante notare che le query parallele producono i vantaggi migliori se i dati sono distribuiti uniformemente tra tutte le partizioni per quanto riguarda la query. Se la raccolta è partizionata in modo tale che tutti o la maggior parte dei dati restituiti da una query siano concentrati in alcune partizioni (una sola partizione nel peggiore dei casi), le prestazioni della query potrebbero essere limitate da tali partizioni.
 
-_ ***Ottimizzazione setmaxbuffereditemcount sul \:** _
+* ***Ottimizzazione di MaxBufferedItemCount\:***
     
 La query parallela è progettata per la prelettura dei risultati mentre il client elabora il batch di risultati corrente. La prelettura consente il miglioramento complessivo della latenza di una query. setMaxBufferedItemCount consente di limitare il numero di risultati di prelettura. L'impostazione di setMaxBufferedItemCount sul numero previsto di risultati restituiti (o un numero più alto) consente alla query di ottenere il massimo vantaggio dalla prelettura.
 
 La prelettura funziona allo stesso modo indipendentemente dall'impostazione di MaxDegreeOfParallelism e dalla presenza di un solo buffer per i dati di tutte le partizioni.
 
-_ **Scalabilità orizzontale del carico di lavoro del client**
+* **Aumentare il carico di lavoro client**
 
 Se si sta eseguendo il test a livelli di velocità effettiva elevati, l'applicazione client può diventare un collo di bottiglia a causa della limitazione di uso della CPU o della rete. In questo caso, è possibile continuare a effettuare il push dell'account Azure Cosmos DB aumentando il numero di istanze delle applicazioni client in più server.
 
@@ -233,11 +233,11 @@ Per altre informazioni su Azure Cosmos DB Java SDK v4, vedere la [directory Cosm
 
 Per diversi motivi, può essere utile o necessario aggiungere la registrazione in un thread che genera una velocità effettiva elevata della richiesta. Se l'obiettivo è quello di saturare completamente, con le richieste generate da questo thread, la velocità effettiva di un contenitore di cui viene effettuato il provisioning, le ottimizzazioni della registrazione possono migliorare significativamente le prestazioni.
 
-* ***Configurare un logger asincrono** _
+* ***Configurare un logger asincrono***
 
 La latenza di un logger sincrono implica necessariamente il calcolo della latenza complessiva del thread che genera richieste. È consigliabile un logger asincrono, ad esempio [log4j2](https://nam06.safelinks.protection.outlook.com/?url=https%3A%2F%2Flogging.apache.org%2Flog4j%2Flog4j-2.3%2Fmanual%2Fasync.html&data=02%7C01%7CCosmosDBPerformanceInternal%40service.microsoft.com%7C36fd15dea8384bfe9b6b08d7c0cf2113%7C72f988bf86f141af91ab2d7cd011db47%7C1%7C0%7C637189868158267433&sdata=%2B9xfJ%2BWE%2F0CyKRPu9AmXkUrT3d3uNA9GdmwvalV3EOg%3D&reserved=0), per separare l'overhead di registrazione dai thread dell'applicazione a prestazioni elevate.
 
-_ ***Disabilitare la registrazione di Netty** _
+* ***Disabilitare la registrazione di Netty***
 
 La registrazione della libreria Netty è molto dettagliata e deve essere disattivata (la soppressione dell'accesso alla configurazione potrebbe non essere sufficiente) per evitare costi aggiuntivi di CPU. Se non si è in modalità di debug, disabilitare del tutto la registrazione di Netty. Pertanto, se si usa log4j per evitare i costi della CPU aggiuntivi causati da ``org.apache.log4j.Category.callAppenders()`` da Netty aggiungere la riga seguente alla codebase:
 
@@ -245,7 +245,7 @@ La registrazione della libreria Netty è molto dettagliata e deve essere disatti
 org.apache.log4j.Logger.getLogger("io.netty").setLevel(org.apache.log4j.Level.OFF);
 ```
 
- _ **Limite risorse file aperti del sistema operativo**
+ * **Limite di risorse per i file aperti del sistema operativo**
  
 Alcuni sistemi Linux (ad esempio Red Hat) prevedono un limite massimo per il numero di file aperti e quindi per il numero totale di connessioni. Eseguire il comando seguente per visualizzare i limiti correnti:
 

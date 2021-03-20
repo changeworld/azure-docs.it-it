@@ -10,10 +10,10 @@ ms.date: 10/07/2020
 ms.author: maraheja
 ms.reviewer: jrasnick
 ms.openlocfilehash: ee9d137973bfa4eeb28bc6526437e76e781f3199
-ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
-ms.translationtype: HT
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/19/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92172279"
 ---
 # <a name="connect-to-azure-data-explorer-using-apache-spark-for-azure-synapse-analytics"></a>Connettersi a Esplora dati di Azure con Apache Spark per Azure Synapse Analytics
@@ -30,7 +30,7 @@ Questo articolo descrive come accedere a un database di Esplora dati di Azure da
 
 ## <a name="go-to-synapse-studio"></a>Passare a Synapse Studio
 
-In un'area di lavoro di Azure Synapse selezionare **Avvia Synapse Studio** . Nella home page di Synapse Studio selezionare **Data** (Dati) per aprire **Data Object Explorer** (Esplora oggetti dati).
+In un'area di lavoro di Azure Synapse selezionare **Avvia Synapse Studio**. Nella home page di Synapse Studio selezionare **Data** (Dati) per aprire **Data Object Explorer** (Esplora oggetti dati).
 
 ## <a name="connect-an-azure-data-explorer-database-to-an-azure-synapse-workspace"></a>Connettere un database di Esplora dati di Azure a un'area di lavoro di Azure Synapse
 
@@ -41,10 +41,10 @@ In Data Object Explorer (Esplora oggetti dati) seguire questa procedura per conn
 1. Selezionare l'icona **+** accanto a **Data** (Dati).
 1. Selezionare **Connect** (Connetti) per connettersi a dati esterni.
 1. Selezionare **Esplora dati di Azure (Kusto)** .
-1. Selezionare **Continua** .
+1. Selezionare **Continua**.
 1. Assegnare un nome descrittivo al servizio collegato. Il nome verrà visualizzato in Data Object Explorer (Esplora oggetti dati) e verrà usato dai runtime di Azure Synapse per connettersi al database.
 1. Selezionare il cluster di Esplora dati di Azure dalla sottoscrizione o immettere l'URI.
-1. Immettere l' **ID** e la **chiave dell'entità servizio** . Assicurarsi che questa entità servizio abbia accesso in visualizzazione al database per le operazioni di lettura e accesso in inserimento per l'inserimento dei dati.
+1. Immettere l'**ID** e la **chiave dell'entità servizio**. Assicurarsi che questa entità servizio abbia accesso in visualizzazione al database per le operazioni di lettura e accesso in inserimento per l'inserimento dei dati.
 1. Immettere il nome del database di Esplora dati di Azure.
 1. Selezionare **Test connessione** per assicurarsi che le autorizzazioni siano corrette.
 1. Selezionare **Create** (Crea).
@@ -54,7 +54,7 @@ In Data Object Explorer (Esplora oggetti dati) seguire questa procedura per conn
     > [!NOTE]
     > (Facoltativo) **Test connessione** non convalida l'accesso in scrittura. Assicurarsi che l'ID entità servizio abbia accesso in scrittura al database di Esplora dati di Azure.
 
-1. I cluster e i database di Esplora dati di Azure sono visibili nella scheda **Collegati** nella sezione **Esplora dati di Azure** .
+1. I cluster e i database di Esplora dati di Azure sono visibili nella scheda **Collegati** nella sezione **Esplora dati di Azure**.
 
     ![Screenshot che mostra la ricerca di cluster.](./media/quickstart-connect-azure-data-explorer/004-browse-clusters.png)
 

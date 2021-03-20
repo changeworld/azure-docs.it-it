@@ -9,10 +9,10 @@ ms.topic: include
 ms.date: 11/27/2019
 ms.author: prmitiki
 ms.openlocfilehash: 268703081a2a40e8bcc665889eaeaf8edd673bfd
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "81680914"
 ---
 1. Nella scheda **configurazione** della pagina **Crea un peering** compilare le caselle come illustrato.
@@ -20,7 +20,7 @@ ms.locfileid: "81680914"
     > [!div class="mx-imgBorder"]
     > ![Creare un tipo di peering di scambio di pagine peering](../media/setup-exchange-conf-tab.png)
 
-    * Per **tipo di peering**selezionare **Exchange**.
+    * Per **tipo di peering** selezionare **Exchange**.
     * Selezionare **SKU** come **Basic Free**.
     * Selezionare la **località** in cui si vuole configurare il peering.
 
@@ -28,7 +28,7 @@ ms.locfileid: "81680914"
         > Se si hanno già connessioni peering con Microsoft nella località **metro** selezionata e si sta usando il portale per la prima volta per configurare il peering in tale percorso, le connessioni di peering esistenti verranno elencate nella sezione **connessioni peering** , come illustrato. Microsoft convertirà automaticamente queste connessioni di peering in una risorsa di Azure in modo che sia possibile gestirle tutte insieme alle nuove connessioni in un'unica posizione. Per altre informazioni, vedere [convertire un peering di Exchange legacy in una risorsa di Azure tramite il portale](../howto-legacy-exchange-portal.md).
         >
 
-1. In **connessioni peering**selezionare **Crea nuovo** per aggiungere una riga per ogni nuova connessione che si desidera configurare.
+1. In **connessioni peering** selezionare **Crea nuovo** per aggiungere una riga per ogni nuova connessione che si desidera configurare.
 
     * Per configurare o modificare le impostazioni di connessione, selezionare il pulsante modifica per una riga.
 

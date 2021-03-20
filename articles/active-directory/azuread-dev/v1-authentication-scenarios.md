@@ -15,10 +15,10 @@ ms.reviewer: saeeda, sureshja, hirsin
 ms.custom: aaddev
 ROBOTS: NOINDEX
 ms.openlocfilehash: 36b39f3706db615e40ebfadebf36be4d8b29c33e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "80154730"
 ---
 # <a name="what-is-authentication"></a>Informazioni sull'autenticazione
@@ -75,7 +75,7 @@ I token emessi tramite la modalità implicita hanno una limitazione di lunghezza
 
 Ora che è disponibile una panoramica dei concetti di base, continuare a leggere per comprendere il modello dell'app e l'API di identità, le modalità di funzionamento del provisioning in Azure AD e i collegamenti a informazioni dettagliate sugli scenari comuni supportati da Azure AD.
 
-## <a name="application-model"></a>Modello di applicazione
+## <a name="application-model"></a>Modello applicativo
 
 Azure AD rappresenta le applicazioni basate su un modello specifico progettato per soddisfare due funzioni principali indicate di seguito.
 
@@ -135,8 +135,8 @@ La tabella seguente fornisce una breve descrizione dei tipi di attestazione gene
 | Nome | Fornisce un valore leggibile che identifica l'oggetto del token. |
 | ID dell'oggetto. | Contiene un identificatore univoco e non modificabile dell'oggetto in Azure AD. |
 | Ruoli | Contiene i nomi descrittivi dei ruoli applicazione di Azure AD concessi all'utente. |
-| Scope | Indica le autorizzazioni concesse all'applicazione client. |
-| Subject | Indica l'entità su cui il token rilascia informazioni. |
+| Ambito | Indica le autorizzazioni concesse all'applicazione client. |
+| Oggetto | Indica l'entità su cui il token rilascia informazioni. |
 | ID tenant | Contiene un identificatore univoco e non modificabile del tenant di directory che ha emesso il token. |
 | Durata del token | Definisce l'intervallo di tempo entro il quale un token è valido. |
 | Nome entità utente | Contiene il nome dell'entità utente dell'oggetto. |

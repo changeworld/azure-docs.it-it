@@ -4,10 +4,10 @@ description: Eseguire i contenitori init in istanze di contenitore di Azure per 
 ms.topic: article
 ms.date: 06/01/2020
 ms.openlocfilehash: 5a729263ee632eb9227694ec8684eb6889c6324b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "85954282"
 ---
 # <a name="run-an-init-container-for-setup-tasks-in-a-container-group"></a>Eseguire un contenitore init per le attività di installazione in un gruppo di contenitori
@@ -27,7 +27,7 @@ Questo articolo illustra come usare un modello di Azure Resource Manager per con
 
     |Criteri nel gruppo  |Criteri in init  |
     |---------|---------|
-    |Sempre     |OnFailure         |
+    |Always     |OnFailure         |
     |OnFailure     |OnFailure         |
     |Mai     |Mai         |
 * **Addebiti** : il gruppo di contenitori viene addebitato in base alla prima distribuzione di un contenitore init.
@@ -39,7 +39,7 @@ Per iniziare, copiare il codice JSON seguente in un nuovo file denominato `azure
 * Il contenitore *init1* esegue l'immagine [busybox](https://hub.docker.com/_/busybox) dall'hub docker. Dorme per 60 secondi e quindi scrive una stringa della riga di comando in un file in un [volume emptyDir](container-instances-volume-emptydir.md).
 * Entrambi i contenitori di applicazioni eseguono l' `aci-wordcount` immagine del contenitore Microsoft:
     * Il contenitore *Hamlet* esegue l'app WordCount con la relativa configurazione predefinita, contando le frequenze delle parole in Shakespeare ' s Play *Hamlet*.
-    * Il contenitore dell'app *Juliet* legge la stringa della riga di comando dal volume emptDir per eseguire l'app WordCount in *Romeo e Giulietta*di Shakespeare.
+    * Il contenitore dell'app *Juliet* legge la stringa della riga di comando dal volume emptDir per eseguire l'app WordCount in *Romeo e Giulietta* di Shakespeare.
 
 Per altre informazioni ed esempi sull'uso dell' `aci-wordcount` immagine, vedere [impostare le variabili di ambiente nelle istanze di contenitore](container-instances-environment-variables.md).
 
@@ -213,7 +213,7 @@ Output:
 
 I contenitori init consentono di eseguire attività di installazione e inizializzazione per i contenitori di applicazioni. Per altre informazioni sull'esecuzione di contenitori basati su attività, vedere [eseguire attività in contenitori con i criteri di riavvio](container-instances-restart-policy.md).
 
-Istanze di contenitore di Azure offre altre opzioni per modificare il comportamento dei contenitori di applicazioni. Tra gli esempi sono inclusi:
+Istanze di contenitore di Azure offre altre opzioni per modificare il comportamento dei contenitori di applicazioni. Alcuni esempi:
 
 * [Impostare le variabili di ambiente nelle istanze di contenitore](container-instances-environment-variables.md)
 * [Impostare la riga di comando in un'istanza di contenitore per sostituire l'operazione della riga di comando predefinita](container-instances-start-command.md)

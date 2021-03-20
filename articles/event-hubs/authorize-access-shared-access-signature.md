@@ -4,10 +4,10 @@ description: Questo articolo fornisce informazioni su come autorizzare l'accesso
 ms.topic: conceptual
 ms.date: 06/23/2020
 ms.openlocfilehash: 6a2d7385f82864e8d378055333377fb9c3f73c19
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "85323119"
 ---
 # <a name="authorizing-access-to-event-hubs-resources-using-shared-access-signatures"></a>Autorizzazione dell'accesso alle risorse di hub eventi tramite firme di accesso condiviso
@@ -53,12 +53,12 @@ Quando si utilizzano le firme di accesso condiviso nell'applicazione, è necessa
 Per mitigare questi rischi, è consigliabile attenersi ai consigli seguenti relativi all'utilizzo di firme di accesso condiviso:
 
 - Chiedere **ai client di rinnovare automaticamente la firma di accesso condiviso se necessario**: i client devono rinnovare la firma di accesso condiviso prima della scadenza. Se la firma di accesso condiviso è concepita per essere usata per un numero ridotto di operazioni immediate e di breve durata che dovrebbero essere completate entro il periodo di scadenza, potrebbe non essere necessario perché la firma di accesso condiviso non è prevista per il rinnovo. Se tuttavia si dispone di client che effettuano normalmente richieste tramite la firma di accesso condiviso, è necessario considerare la possibilità che la firma scada. La considerazione chiave consiste nel bilanciare la necessità che la firma di accesso condiviso sia di breve durata (come indicato in precedenza) con la necessità di garantire che il client stia richiedendo un rinnovo tempestivo (per evitare l'intralcio dovuto alla scadenza della firma di accesso condiviso prima di un rinnovo positivo).
-- **Prestare attenzione all'ora di inizio della**firma di accesso condiviso: se si imposta l'ora di inizio per la firma di accesso condiviso su **adesso**, a causa dello sfasamento di clock (differenze nell'ora corrente in base a computer diversi), è possibile che gli errori vengano osservati in modo intermittente per i primi minuti. In generale, impostare l'ora di inizio ad almeno 15 minuti prima. In alternativa, non impostare alcun valore, in modo da renderlo immediatamente valido in tutti i casi. Lo stesso vale in genere anche per l'ora di scadenza. Tenere presente che è possibile osservare fino a 15 minuti di sfasamento dell'orologio in una delle due direzioni di qualsiasi richiesta. 
+- **Prestare attenzione all'ora di inizio della** firma di accesso condiviso: se si imposta l'ora di inizio per la firma di accesso condiviso su **adesso**, a causa dello sfasamento di clock (differenze nell'ora corrente in base a computer diversi), è possibile che gli errori vengano osservati in modo intermittente per i primi minuti. In generale, impostare l'ora di inizio ad almeno 15 minuti prima. In alternativa, non impostare alcun valore, in modo da renderlo immediatamente valido in tutti i casi. Lo stesso vale in genere anche per l'ora di scadenza. Tenere presente che è possibile osservare fino a 15 minuti di sfasamento dell'orologio in una delle due direzioni di qualsiasi richiesta. 
 - **Essere specifici della risorsa a cui accedere**: una procedura di sicurezza consigliata consiste nel fornire all'utente i privilegi minimi necessari. Se un utente necessita solo dell'accesso in lettura a una singola entità, concedere solo tale tipo di accesso per tale entità e non l'accesso in lettura/scrittura/eliminazione per tutte le entità. Consente inoltre di ridurre il danno se una firma di accesso condiviso viene compromessa perché la firma di accesso condiviso ha meno energia nelle mani di un utente malintenzionato.
-- **Non usare sempre**la firma di accesso condiviso: talvolta i rischi associati a una particolare operazione sull'hub eventi superano i vantaggi della firma di accesso condiviso. Per queste operazioni, creare un servizio di livello intermedio che scrive nell'hub eventi dopo la convalida, l'autenticazione e il controllo delle regole business.
+- **Non usare sempre** la firma di accesso condiviso: talvolta i rischi associati a una particolare operazione sull'hub eventi superano i vantaggi della firma di accesso condiviso. Per queste operazioni, creare un servizio di livello intermedio che scrive nell'hub eventi dopo la convalida, l'autenticazione e il controllo delle regole business.
 - **Usare sempre https**: usare sempre HTTPS per creare o distribuire una firma di accesso condiviso. Se una firma di accesso condiviso viene passata tramite HTTP e intercettata, un utente malintenzionato che esegue un attacco man-in-the-Middle può leggere la firma di accesso condiviso e quindi usarla come l'utente previsto, potenzialmente compromettendo i dati sensibili o consentendo il danneggiamento dei dati da parte di utenti malintenzionati.
 
-## <a name="conclusion"></a>Conclusioni
+## <a name="conclusion"></a>Conclusione
 Le firme di accesso condiviso sono utili per fornire autorizzazioni limitate alle risorse di hub eventi ai client. Sono parte essenziale del modello di sicurezza per qualsiasi applicazione che usa hub eventi di Azure. Se si seguono le procedure consigliate elencate in questo articolo, è possibile usare la firma di accesso condiviso per offrire una maggiore flessibilità di accesso alle risorse, senza compromettere la sicurezza dell'applicazione.
 
 ## <a name="next-steps"></a>Passaggi successivi

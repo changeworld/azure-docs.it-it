@@ -7,10 +7,10 @@ ms.manager: abhemraj
 ms.topic: how-to
 ms.date: 11/23/2020
 ms.openlocfilehash: 9a4ed5542945b8d281ec750d9bbd3a8f444e44d2
-ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/07/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96752261"
 ---
 # <a name="add-assessment-tools"></a>Aggiungere strumenti di valutazione
@@ -57,7 +57,7 @@ Questo articolo descrive come aggiungere strumenti di valutazione in [Azure migr
 
     - Se è stato creato un progetto Azure Migrate usando l'opzione **valuta e migra database** nel portale, lo strumento di valutazione del database viene aggiunto automaticamente al progetto. Per aggiungere ulteriori strumenti di valutazione, in **database**, accanto a **strumenti di valutazione**, selezionare **Aggiungi altri strumenti**.
 
-    - Se è stato creato un progetto con un'opzione diversa e non sono ancora disponibili strumenti di **valutazione del database**, in strumenti di valutazione dei database  >  **Assessment tools** selezionare **fare clic qui**.
+    - Se è stato creato un progetto con un'opzione diversa e non sono ancora disponibili strumenti di **valutazione del database**, in strumenti di valutazione dei database  >  selezionare **fare clic qui**.
 
 2. In **Azure migrate**  >  **Aggiungi strumenti** selezionare gli strumenti che si desidera aggiungere. Quindi selezionare **Aggiungi strumento**.
 
@@ -69,7 +69,7 @@ Questo articolo descrive come aggiungere strumenti di valutazione in [Azure migr
 Se è stato creato un progetto Azure migrate usando l'opzione **Esplora più**  >  **app** Web nel portale, lo strumento di valutazione dell'app Web viene aggiunto automaticamente al progetto. 
 
 
-1. Se lo strumento di valutazione dell'app Web non è incluso nel progetto, in strumenti di valutazione di app **Web**  >  **Assessment tools** selezionare **fare clic qui**.
+1. Se lo strumento di valutazione dell'app Web non è incluso nel progetto, in strumenti di valutazione di app **Web**  >  selezionare **fare clic qui**.
     
     ![Aggiungere strumenti di valutazione app Web](./media/how-to-assess/no-web-app-assessment-tool.png)
 

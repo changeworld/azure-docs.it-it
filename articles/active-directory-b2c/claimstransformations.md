@@ -11,17 +11,17 @@ ms.date: 09/10/2018
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: 37d9bd78a80ac52d2a790537bf47e33807720349
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "85202960"
 ---
 # <a name="claimstransformations"></a>ClaimsTransformations
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-L'elemento **ClaimsTransformations** contiene un elenco di funzioni di trasformazione delle attestazioni che può essere usato nei percorsi utente come parte di [criteri personalizzati](custom-policy-overview.md). Una trasformazione di attestazioni converte una determinata attestazione in un'altra. Nella trasformazione delle attestazioni viene specificare il metodo di trasformazione, ad esempio l'aggiunta di un elemento a una raccolta di stringhe o la modifica delle maiuscole/minuscole di una stringa.
+L'elemento **ClaimsTransformations** contiene un elenco di funzioni di trasformazione delle attestazioni che possono essere usate nei percorsi utente come parte di un [criterio personalizzato](custom-policy-overview.md). Una trasformazione di attestazioni converte una determinata attestazione in un'altra. Nella trasformazione delle attestazioni viene specificare il metodo di trasformazione, ad esempio l'aggiunta di un elemento a una raccolta di stringhe o la modifica delle maiuscole/minuscole di una stringa.
 
 Per includere l'elenco di funzioni di trasformazione delle attestazioni che possono essere usate nei percorsi di utente, un elemento XML ClaimsTransformations deve essere dichiarato nella sezione BuildingBlocks dei criteri.
 
@@ -37,7 +37,7 @@ L'elemento **ClaimsTransformation** contiene gli attributi seguenti:
 
 | Attributo |Obbligatoria | Descrizione |
 | --------- |-------- | ----------- |
-| ID |Sì | Identificatore usato per identificare in modo univoco la trasformazione delle attestazioni. Viene fatto riferimento all'identificatore da altri elementi XML nei criteri. |
+| Id |Sì | Identificatore usato per identificare in modo univoco la trasformazione delle attestazioni. Viene fatto riferimento all'identificatore da altri elementi XML nei criteri. |
 | TransformationMethod | Sì | Il metodo di trasformazione da usare nella trasformazione delle attestazioni. Ogni trasformazione delle attestazioni ha i propri valori. Vedere i [riferimenti delle trasformazioni di attestazioni](#claims-transformations-reference) per un elenco completo dei valori disponibili. |
 
 ## <a name="claimstransformation"></a>ClaimsTransformation
@@ -94,7 +94,7 @@ L'elemento **InputParameters** contiene l'elemento seguente:
 
 | Attributo | Obbligatoria |Descrizione |
 | --------- | ----------- |----------- |
-| ID | Sì | Un identificatore che rappresenta un riferimento a un parametro del metodo di trasformazione delle attestazioni. Ogni metodo di trasformazione delle attestazioni ha i propri valori. Vedere la tabella delle trasformazioni delle attestazioni per un elenco completo dei valori disponibili. |
+| Id | Sì | Un identificatore che rappresenta un riferimento a un parametro del metodo di trasformazione delle attestazioni. Ogni metodo di trasformazione delle attestazioni ha i propri valori. Vedere la tabella delle trasformazioni delle attestazioni per un elenco completo dei valori disponibili. |
 | DataType | Sì | Il tipo di dati del parametro, ad esempio String, Boolean, Int o DateTime in base all'enumerazione DataType nello schema XML dei criteri personalizzati. Questo tipo viene usato per eseguire operazioni aritmetiche in modo corretto. Ogni trasformazione delle attestazioni ha i propri valori. Vedere i [riferimenti delle trasformazioni di attestazioni](#claims-transformations-reference) per un elenco completo dei valori disponibili. |
 | Valore | Sì | Un valore che viene passato letteralmente alla trasformazione. Alcuni valori sono arbitrari, altri vengono selezionati dal metodo di trasformazione delle attestazioni. |
 

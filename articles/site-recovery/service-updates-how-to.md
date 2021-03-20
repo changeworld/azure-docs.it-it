@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 07/31/2019
 ms.author: ramamill
 ms.openlocfilehash: a1ea8b6fb9800d796670161288be0d86ce6ffc42
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "89424940"
 ---
 # <a name="service-updates-in-site-recovery"></a>Aggiornamenti del servizio in Site Recovery
@@ -92,7 +92,7 @@ In questo scenario si consiglia vivamente di [abilitare gli aggiornamenti automa
 
 Se si desidera gestire manualmente gli aggiornamenti, è possibile scegliere una delle opzioni seguenti:
 
-1. Quando è disponibile un nuovo aggiornamento dell'agente, Site Recovery fornisce una notifica nell'insieme di credenziali verso la parte superiore della pagina. Nell'insieme di credenziali > **elementi replicati**fare clic su questa notifica nella parte superiore della schermata: 
+1. Quando è disponibile un nuovo aggiornamento dell'agente, Site Recovery fornisce una notifica nell'insieme di credenziali verso la parte superiore della pagina. Nell'insieme di credenziali > **elementi replicati** fare clic su questa notifica nella parte superiore della schermata: 
     
     **È disponibile un nuovo Site Recovery aggiornamento dell'agente di replica. Fare clic per installare->** <br/><br/>Selezionare le macchine virtuali per cui si desidera applicare l'aggiornamento, quindi fare clic su **OK**.
 
