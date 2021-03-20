@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.date: 09/18/2020
 ms.author: yushwang
 ms.openlocfilehash: db19b1ae017fa7981747b0e7b4c82e97efc61ed3
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/27/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98878885"
 ---
 # <a name="how-to-configure-bgp-on-azure-vpn-gateways"></a>Come configurare BGP nei gateway VPN di Azure
@@ -25,7 +25,7 @@ BGP è il protocollo di routing standard comunemente usato in Internet per lo sc
 
 Per altre informazioni sui vantaggi di BGP e per comprendere i requisiti tecnici e le considerazioni sull'uso di BGP, vedere [Panoramica di BGP con i gateway VPN di Azure](vpn-gateway-bgp-overview.md).
 
-## <a name="getting-started"></a>Guida introduttiva
+## <a name="getting-started"></a>Introduzione
 
 Ogni parte di questo articolo consente di creare un blocco predefinito di base per abilitare BGP nella connettività di rete. Se si completano tutte e tre le parti, la topologia viene compilata come illustrato nel diagramma 1.
 

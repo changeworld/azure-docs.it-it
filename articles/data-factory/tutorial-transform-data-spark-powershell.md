@@ -7,10 +7,10 @@ ms.date: 01/22/2018
 author: nabhishek
 ms.author: abnarain
 ms.openlocfilehash: cf425ecb1a8aebf594828bfba50e9aba8ca9dd7e
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/14/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100377619"
 ---
 # <a name="transform-data-in-the-cloud-by-using-spark-activity-in-azure-data-factory"></a>Trasformare dati nel cloud usando l'attività Spark in Azure Data Factory
@@ -37,7 +37,7 @@ Se non si ha una sottoscrizione di Azure, creare un account [gratuito](https://a
 
 
 ### <a name="upload-python-script-to-your-blob-storage-account"></a>Caricare lo script Python nell'account di archiviazione BLOB
-1. Creare un file Python denominato **WordCount_Spark.py** con il contenuto seguente: 
+1. Creare un file Python denominato **WordCount_Spark. py** con il contenuto seguente: 
 
     ```python
     import sys
@@ -62,7 +62,7 @@ Se non si ha una sottoscrizione di Azure, creare un account [gratuito](https://a
     if __name__ == "__main__":
         main()
     ```
-2. Sostituire **&lt;storageAccountName&gt;** con il nome del proprio account di archiviazione di Azure. Salvare quindi il file. 
+2. Sostituire **&lt; storageAccountName &gt;** con il nome dell'account di archiviazione di Azure. Salvare quindi il file. 
 3. Nell'Archivio BLOB di Azure creare un contenitore denominato **adftutorial**, se non esiste. 
 4. Creare una cartella denominata **spark**.
 5. Creare una sottocartella denominata **script** nella cartella **spark**. 
@@ -132,7 +132,7 @@ Aggiornare i valori per le proprietà seguenti nella definizione del servizio co
 
 - **hostSubscriptionId**. Sostituire &lt;subscriptionID&gt; con l'ID della sottoscrizione di Azure. Il cluster HDInsight su richiesta verrà creato in questa sottoscrizione. 
 - **tenant**. Sostituire &lt;tenantID&gt; con l'ID del tenant di Azure. 
-- **servicePrincipalId**, **servicePrincipalKey**. Sostituire &lt;servicePrincipalID&gt; e &lt;servicePrincipalKey&gt; con l'ID e la chiave dell'entità servizio in Azure Active Directory. Questa entità servizio deve essere un membro del ruolo Collaboratore della sottoscrizione o del gruppo di risorse in cui viene creato il cluster. Vedere come [creare un'applicazione e un'entità servizio di Azure Active Directory](../active-directory/develop/howto-create-service-principal-portal.md) per dettagli. L'**ID entità servizio** equivale all'*ID applicazione* e una **chiave entità servizio** equivale al valore di un *segreto client*.
+- **servicePrincipalId**, **servicePrincipalKey**. Sostituire &lt;servicePrincipalID&gt; e &lt;servicePrincipalKey&gt; con l'ID e la chiave dell'entità servizio in Azure Active Directory. Questa entità servizio deve essere un membro del ruolo Collaboratore della sottoscrizione o del gruppo di risorse in cui viene creato il cluster. Vedere come [creare un'applicazione e un'entità servizio di Azure Active Directory](../active-directory/develop/howto-create-service-principal-portal.md) per dettagli. L' **ID dell'entità servizio** equivale all' *ID applicazione* e una **chiave dell'entità servizio** equivale al valore per un *segreto client*.
 - **clusterResourceGroup**. Sostituire &lt;resourceGroupOfHDICluster&gt; con il nome del gruppo di risorse in cui deve essere creato il cluster HDInsight. 
 
 > [!NOTE]
@@ -182,17 +182,17 @@ Sono state create definizioni di servizio collegato e pipeline nei file JSON. A 
 
 1. Impostare le variabili una alla volta.
 
-    **Nome gruppo di risorse**
+    **Nome del gruppo di risorse**
     ```powershell
     $resourceGroupName = "ADFTutorialResourceGroup" 
     ```
 
-    **Nome data factory. Deve essere univoco a livello globale** 
+    **Nome Data Factory. Deve essere globalmente univoco** 
     ```powershell
     $dataFactoryName = "MyDataFactory09102017"
     ```
     
-    **Nome pipeline**
+    **Nome della pipeline**
     ```powershell
     $pipelineName = "MySparkOnDemandPipeline" # Name of the pipeline
     ```
@@ -213,7 +213,7 @@ Sono state create definizioni di servizio collegato e pipeline nei file JSON. A 
     ```powershell
     Select-AzSubscription -SubscriptionId "<SubscriptionId>"    
     ```  
-3. Creare il gruppo di risorse: ADFTutorialResourceGroup. 
+3. Creare il gruppo di risorse ADFTutorialResourceGroup. 
 
     ```powershell
     New-AzResourceGroup -Name $resourceGroupName -Location "East Us" 

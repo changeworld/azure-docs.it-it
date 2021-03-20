@@ -10,10 +10,10 @@ ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: how-to
 ms.openlocfilehash: 7dcc0f916a15598060e034dcf62536ee13e2672e
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/21/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92320243"
 ---
 # <a name="use-azure-data-studio-to-manage-your-azure-arc-enabled-postgresql-hyperscale-server-group"></a>Usare Azure Data Studio per gestire il gruppo di server con iperscalabilità PostgreSQL abilitata per Azure Arc
@@ -68,7 +68,7 @@ Che include diversi dashboard elencati sul lato sinistro del riquadro:
 
 ## <a name="work-with-your-data-and-schema"></a>Usare i dati e lo schema
 
-Sul lato sinistro della finestra di Azure Data Studio espandere i **Server**del nodo:
+Sul lato sinistro della finestra di Azure Data Studio espandere i **Server** del nodo:
 
 E selezionare [Aggiungi connessione] e immettere i dettagli della connessione per l'istanza di PostgreSQL:
 - **Tipo di connessione:** PostgreSQL

@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 08/08/2017
 ms.author: robinsh
 ms.openlocfilehash: e2b106e64aed08b0586575d4d77602329454a673
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/26/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92536012"
 ---
 # <a name="configure-iot-hub-file-uploads-using-powershell"></a>Configurare i caricamenti dei file nell'hub IoT con PowerShell
@@ -23,7 +23,7 @@ Per usare la [funzionalità di caricamento di file nell'hub IoT](iot-hub-devguid
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-Per completare l'esercitazione è necessario quanto segue:
+Per completare l'esercitazione, sono necessari gli elementi seguenti:
 
 * Un account Azure attivo. Se non si ha un account, è possibile creare un [account gratuito](https://azure.microsoft.com/pricing/free-trial/) in pochi minuti.
 
@@ -58,7 +58,7 @@ Accedere al proprio account Azure e selezionare la sottoscrizione.
 
 ## <a name="retrieve-your-storage-account-details"></a>Recuperare i dettagli dell'account di archiviazione
 
-I passaggi seguenti presuppongono che l'account di archiviazione sia stato creato tramite il modello di distribuzione di **Resource Manager** e non tramite quello **Classico** .
+I passaggi seguenti presuppongono che l'account di archiviazione sia stato creato tramite il modello di distribuzione di **Resource Manager** e non tramite quello **Classico**.
 
 Per configurare i caricamenti dei file dai propri dispositivi, è necessario disporre della stringa di connessione di un account di Archiviazione di Azure. L'account di archiviazione deve trovarsi nella stessa sottoscrizione dell'hub IoT. È inoltre necessario il nome del contenitore BLOB nell'account di archiviazione. Usare il comando seguente per recuperare le chiavi dell'account di archiviazione:
 
@@ -68,7 +68,7 @@ Get-AzStorageAccountKey `
   -ResourceGroupName {your storage account resource group}
 ```
 
-Prendere nota del valore della chiave dell'account di archiviazione **key1** . sarà necessario nei passaggi successivi.
+Prendere nota del valore della chiave dell'account di archiviazione **key1**. sarà necessario nei passaggi successivi.
 
 Per i caricamenti dei file, è possibile usare un contenitore BLOB esistente oppure crearne uno nuovo:
 
@@ -99,15 +99,15 @@ Per i caricamenti dei file, è possibile usare un contenitore BLOB esistente opp
 
 La configurazione richiede i valori seguenti:
 
-* **Contenitore di archiviazione** : un contenitore BLOB in un account di archiviazione di Azure nella sottoscrizione corrente da associare all'hub IoT. Le informazioni necessarie sull'account di archiviazione sono state recuperate nella sezione precedente. L'hub IoT genera automaticamente URI di firma di accesso condiviso con autorizzazioni di scrittura per questo contenitore BLOB che possono essere usati dai dispositivi durante il caricamento di file.
+* **Contenitore di archiviazione**: un contenitore BLOB in un account di archiviazione di Azure nella sottoscrizione corrente da associare all'hub IoT. Le informazioni necessarie sull'account di archiviazione sono state recuperate nella sezione precedente. L'hub IoT genera automaticamente URI di firma di accesso condiviso con autorizzazioni di scrittura per questo contenitore BLOB che possono essere usati dai dispositivi durante il caricamento di file.
 
 * **Receive notifications for uploaded files** (Ricezione di notifiche per i file caricati): abilitare o disabilitare le notifiche di caricamento del file.
 
-* **SAS TTL** (TTL di firma di accesso condiviso): questa impostazione indica la durata degli URI di firma di accesso condiviso restituiti dal dispositivo tramite l’hub IoT. Il valore è un'ora per impostazione predefinita.
+* **SAS TTL**(TTL di firma di accesso condiviso): questa impostazione indica la durata degli URI di firma di accesso condiviso restituiti dal dispositivo tramite l’hub IoT. Il valore è un'ora per impostazione predefinita.
 
-* **File notification settings default TTL** (TTL predefinito per le impostazioni di notifica dei file): durata di una notifica di caricamento del file. Il valore è un giorno per impostazione predefinita.
+* **File notification settings default TTL**(TTL predefinito per le impostazioni di notifica dei file): durata di una notifica di caricamento del file. Il valore è un giorno per impostazione predefinita.
 
-* **File notification maximum delivery count** (Numero massimo di recapiti per le notifiche dei file): numero di tentativi che verranno eseguiti dall'hub IoT per distribuire una notifica di caricamento del file. Il valore è 10 per impostazione predefinita.
+* **File notification maximum delivery count**(Numero massimo di recapiti per le notifiche dei file): numero di tentativi che verranno eseguiti dall'hub IoT per distribuire una notifica di caricamento del file. Il valore è 10 per impostazione predefinita.
 
 Usare il cmdlet PowerShell seguente per configurare le impostazioni di caricamento dei file nell'hub IoT:
 

@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 10/15/2020
 ms.author: apimpm
 ms.openlocfilehash: f5105c685de4b3ccdffe69eec8ee8eeb32976c1f
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/21/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92326023"
 ---
 # <a name="migrate-to-the-new-developer-portal"></a>Eseguire la migrazione al nuovo portale per sviluppatori
@@ -25,7 +25,7 @@ ms.locfileid: "92326023"
 Questo articolo descrive i passaggi necessari per eseguire la migrazione dal portale legacy deprecato al nuovo portale per sviluppatori in gestione API.
 
 > [!IMPORTANT]
-> Il portale per sviluppatori Legacy è ora deprecato e riceverà solo gli aggiornamenti della sicurezza. È possibile continuare a usarlo, come al solito, fino al ritiro entro il 2023 ottobre, quando verrà rimosso da tutti i servizi di gestione API.
+> Il portale per sviluppatori Legacy è ora deprecato e riceverà solo gli aggiornamenti della sicurezza. È possibile continuare a usarlo come al solito fino al ritiro nell'ottobre 2023, quando verrà rimosso da tutti i servizi di Gestione API.
 
 ![Portale per sviluppatori di Gestione API](media/api-management-howto-developer-portal/cover.png)
 
@@ -57,7 +57,7 @@ Quando si esegue la migrazione dal portale deprecato, tenere presenti le seguent
 - Se sono stati modificati i modelli di notifica tramite posta elettronica predefiniti per includere un URL del portale deprecato definito in modo esplicito, modificarli in modo da usare il parametro URL del portale o puntare all'URL del nuovo portale. Se i modelli usano invece il parametro URL del portale predefinito, non sono necessarie modifiche.
 - *Problemi* e *applicazioni* non sono supportati nel nuovo portale per sviluppatori.
 - L'integrazione diretta con Facebook, Microsoft, Twitter e Google come provider di identità non è supportata nel nuovo portale per sviluppatori. È possibile eseguire l'integrazione con tali provider tramite Azure AD B2C.
-- Se si usa la delega, modificare l'URL restituito nelle applicazioni e usare l' [endpoint dell'API per *ottenere il token di accesso condiviso* ](/rest/api/apimanagement/2019-12-01/user/getsharedaccesstoken) anziché l'endpoint *genera URL SSO* .
+- Se si usa la delega, modificare l'URL restituito nelle applicazioni e usare l' [endpoint dell'API per *ottenere il token di accesso condiviso*](/rest/api/apimanagement/2019-12-01/user/getsharedaccesstoken) anziché l'endpoint *genera URL SSO* .
 - Se si usa Azure AD come provider di identità:
 
     - Modificare l'URL restituito nell'applicazione in modo che punti al nuovo dominio del portale per sviluppatori.
@@ -67,7 +67,7 @@ Quando si esegue la migrazione dal portale deprecato, tenere presenti le seguent
 
     - Modificare l'URL restituito nell'applicazione in modo che punti al nuovo dominio del portale per sviluppatori.
     - Modificare il suffisso dell'URL restituito nell'applicazione da `/signin-aad` a `/signin` .
-    - Includere il *nome*, il *Cognome*e l' *ID oggetto dell'utente* nelle attestazioni dell'applicazione.
+    - Includere il *nome*, il *Cognome* e l' *ID oggetto dell'utente* nelle attestazioni dell'applicazione.
 
 - Se si usa OAuth 2,0 nella console di test interattiva, modificare l'URL restituito nell'applicazione in modo che punti al nuovo dominio del portale per sviluppatori e modificare il suffisso:
 

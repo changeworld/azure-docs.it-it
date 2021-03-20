@@ -4,17 +4,17 @@ description: Informazioni su come convertire Criteri di gruppo dalla linea di ba
 ms.date: 08/17/2020
 ms.topic: how-to
 ms.openlocfilehash: 7f7e2af70efa6771d94d7ceaa14d1408175b1d12
-ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93348645"
 ---
 # <a name="how-to-create-guest-configuration-policy-definitions-from-group-policy-baseline-for-windows"></a>Come creare definizioni dei criteri di configurazione Guest da Criteri di gruppo baseline per Windows
 
 Prima di creare definizioni dei criteri personalizzati, è consigliabile leggere le informazioni generali concettuali in [configurazione Guest di criteri di Azure](../concepts/guest-configuration.md). Per informazioni sulla creazione di definizioni dei criteri di configurazione Guest personalizzati per Linux, vedere [How to create Guest Configuration Policies for Linux](./guest-configuration-create-linux.md). Per informazioni sulla creazione di definizioni dei criteri di configurazione Guest personalizzati per Windows, vedere [How to create Guest Configuration Policies for Windows](./guest-configuration-create.md).
 
-Quando si esegue il controllo di Windows, Configurazione guest usa un modulo risorse [DSC (Desired State Configuration)](/powershell/scripting/dsc/overview/overview) per creare il file di configurazione. La configurazione DSC definisce la condizione in cui deve trovarsi il computer. Se la valutazione della configurazione è **non conforme** , viene attivato l'effetto del criterio *auditIfNotExists* .
+Quando si esegue il controllo di Windows, Configurazione guest usa un modulo risorse [DSC (Desired State Configuration)](/powershell/scripting/dsc/overview/overview) per creare il file di configurazione. La configurazione DSC definisce la condizione in cui deve trovarsi il computer. Se la valutazione della configurazione è **non conforme**, viene attivato l'effetto del criterio *auditIfNotExists* .
 La [configurazione Guest di criteri di Azure](../concepts/guest-configuration.md) controlla solo le impostazioni all'interno dei computer.
 
 > [!IMPORTANT]
@@ -29,7 +29,7 @@ Questa guida illustra il processo di creazione di un pacchetto di configurazione
 
 ## <a name="download-windows-server-2019-security-baseline-and-install-related-powershell-modules"></a>Scaricare la linea di base di sicurezza di Windows Server 2019 e installare i moduli di PowerShell correlati
 
-Per installare **DSC** , **GuestConfiguration** , la **gestione di base** e i moduli di Azure correlati in PowerShell:
+Per installare **DSC**, **GuestConfiguration**, la **gestione di base** e i moduli di Azure correlati in PowerShell:
 
 1. Al prompt di PowerShell, eseguire il comando seguente:
 
@@ -117,9 +117,9 @@ Si convertirà quindi la baseline del server scaricato 2019 in un pacchetto di c
 Una volta creati i criteri in Azure, l'ultimo passaggio consiste nell'assegnazione dell'iniziativa. Vedere come assegnare l'iniziativa con il [portale](../assign-policy-portal.md), l'[interfaccia della riga di comando di Azure](../assign-policy-azurecli.md) e [Azure PowerShell](../assign-policy-powershell.md).
 
 > [!IMPORTANT]
-> Le definizioni dei criteri di configurazione Guest devono **sempre** essere assegnate usando l'iniziativa che combina i criteri _AuditIfNotExists_ e _DeployIfNotExists_ . Se vengono assegnati solo i criteri _AuditIfNotExists_ , i prerequisiti non vengono distribuiti e i criteri indicano sempre che "0" server sono conformi.
+> Le definizioni dei criteri di configurazione Guest devono **sempre** essere assegnate usando l'iniziativa che combina i criteri _AuditIfNotExists_ e _DeployIfNotExists_ . Se vengono assegnati solo i criteri _AuditIfNotExists_, i prerequisiti non vengono distribuiti e i criteri indicano sempre che "0" server sono conformi.
 
-Per assegnare una definizione dei criteri con l'effetto _DeployIfNotExists_ , è necessario un livello di accesso aggiuntivo. Per concedere privilegi minimi, è possibile creare una definizione del ruolo personalizzata che estende il ruolo **Collaboratore ai criteri delle risorse**. Nell'esempio seguente viene creato un ruolo denominato **Resource Policy Contributor DINE** con l'autorizzazione aggiuntiva _Microsoft.Authorization/roleAssignments/write_.
+Per assegnare una definizione dei criteri con l'effetto _DeployIfNotExists_, è necessario un livello di accesso aggiuntivo. Per concedere privilegi minimi, è possibile creare una definizione del ruolo personalizzata che estende il ruolo **Collaboratore ai criteri delle risorse**. Nell'esempio seguente viene creato un ruolo denominato **Resource Policy Contributor DINE** con l'autorizzazione aggiuntiva _Microsoft.Authorization/roleAssignments/write_.
 
    ```azurepowershell-interactive
    $subscriptionid = '00000000-0000-0000-0000-000000000000'

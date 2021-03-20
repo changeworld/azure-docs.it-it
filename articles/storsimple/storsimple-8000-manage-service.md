@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 05/09/2018
 ms.author: alkohli
 ms.openlocfilehash: 66244bd8e24ff62be41df72f7a39c0ce0ed13135
-ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/05/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93360700"
 ---
 # <a name="deploy-the-storsimple-device-manager-service-for-storsimple-8000-series-devices"></a>Distribuire il servizio Gestione dispositivi StorSimple per i dispositivi StorSimple serie 8000
@@ -57,8 +57,8 @@ Per creare un servizio, attenersi alla procedura seguente.
 
 Per ogni servizio Gestione dispositivi StorSimple, sono disponibili gli attributi seguenti:
 
-* **Nome** : nome assegnato al servizio Gestione dispositivi StorSimple al momento della creazione. **Il nome del servizio non può essere modificato dopo la creazione del servizio. Questo vale anche per altre entità, ad esempio dispositivi, volumi, contenitori di volumi e criteri di backup che non possono essere rinominate nella portale di Azure.**
-* **Stato** - Stato del servizio, che può essere **Attivo** , **In fase di creazione** oppure **Online**.
+* **Nome**: nome assegnato al servizio Gestione dispositivi StorSimple al momento della creazione. **Il nome del servizio non può essere modificato dopo la creazione del servizio. Questo vale anche per altre entità, ad esempio dispositivi, volumi, contenitori di volumi e criteri di backup che non possono essere rinominate nella portale di Azure.**
+* **Stato** - Stato del servizio, che può essere **Attivo**, **In fase di creazione** oppure **Online**.
 * **Posizione** : posizione geografica in cui verrà distribuito il dispositivo StorSimple.
 * **Sottoscrizione** - Sottoscrizione di fatturazione associata al servizio.
 

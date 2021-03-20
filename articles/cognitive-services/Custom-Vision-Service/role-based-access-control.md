@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 09/11/2020
 ms.author: pafarley
 ms.openlocfilehash: d265b6698a87c1c651dff1413cf48dd4984cd606
-ms.sourcegitcommit: 9706bee6962f673f14c2dc9366fde59012549649
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/13/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94616893"
 ---
 # <a name="azure-role-based-access-control"></a>Controllo degli accessi in base al ruolo di Azure
@@ -30,7 +30,7 @@ Il controllo degli accessi in base al ruolo può essere assegnato a una risorsa 
    > È anche possibile configurare il controllo degli accessi in base al ruolo di Azure per tutti i gruppi di risorse, le sottoscrizioni A tale scopo, selezionare il livello di ambito desiderato, quindi passare all'elemento desiderato, ad esempio selezionando **gruppi di risorse** e quindi facendo clic sul gruppo di risorse desiderato.
 1. Selezionare **controllo di accesso (IAM)** nel riquadro di spostamento a sinistra.
 1. Selezionare la scheda **assegnazioni di ruolo** per visualizzare le assegnazioni di ruolo per questo ambito.
-1. Selezionare **Aggiungi**  ->  **assegnazione ruolo**.
+1. Selezionare **Aggiungi** -> **Aggiungi assegnazione di ruolo**.
 1. Nell'elenco a discesa **ruolo** selezionare un ruolo che si desidera aggiungere.
 1. Nell'elenco **Seleziona** selezionare un utente, gruppo, entità servizio o identità gestita. Se l'entità di sicurezza non viene visualizzata nell'elenco, è possibile digitare la casella Seleziona per cercare i nomi visualizzati, gli indirizzi di posta elettronica e gli identificatori di oggetto.
 1. Selezionare **Salva** per assegnare il ruolo.

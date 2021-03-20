@@ -4,10 +4,10 @@ description: Configurare un endpoint privato in un registro contenitori e abilit
 ms.topic: article
 ms.date: 10/01/2020
 ms.openlocfilehash: 3193c65a2021d29f03bd9ae6cbc00fd6c349d9bf
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93342301"
 ---
 # <a name="connect-privately-to-an-azure-container-registry-using-azure-private-link"></a>Connettersi privatamente a un registro contenitori di Azure usando il collegamento privato di Azure
@@ -50,7 +50,7 @@ VM_NAME=<virtual-machine-name>
 
 Se non sono ancora noti, è necessario ottenere i nomi della rete virtuale e della subnet per cui configurare il collegamento privato. In questo esempio si usa la stessa subnet per la macchina virtuale e l'endpoint privato del registro. In molti scenari, tuttavia, è necessario configurare l'endpoint in una subnet separata. 
 
-Quando si crea una macchina virtuale, per impostazione predefinita Azure crea una rete virtuale nello stesso gruppo di risorse. Il nome della rete virtuale si basa sul nome della macchina virtuale. Se, ad esempio, si rinomina la macchina virtuale in *myDockerVM* , il nome della rete virtuale predefinito sarà *myDockerVMVNET* , con una subnet denominata *myDockerVMSubnet*. Per impostare questi valori nelle variabili di ambiente, eseguire il comando [az network vnet list][az-network-vnet-list]:
+Quando si crea una macchina virtuale, per impostazione predefinita Azure crea una rete virtuale nello stesso gruppo di risorse. Il nome della rete virtuale si basa sul nome della macchina virtuale. Se, ad esempio, si rinomina la macchina virtuale in *myDockerVM*, il nome della rete virtuale predefinito sarà *myDockerVMVNET*, con una subnet denominata *myDockerVMSubnet*. Per impostare questi valori nelle variabili di ambiente, eseguire il comando [az network vnet list][az-network-vnet-list]:
 
 ```azurecli
 NETWORK_NAME=$(az network vnet list \
@@ -159,7 +159,7 @@ DATA_ENDPOINT_PRIVATE_IP=$(az resource show \
 
 ### <a name="create-dns-records-in-the-private-zone"></a>Creare record DNS nella zona privata
 
-I comandi seguenti creano record DNS nella zona privata per l'endpoint del registro e l'endpoint dati di questo. Se, ad esempio, è presente un registro denominato *myregistry* si nell'area *westeurope* , i nomi degli endpoint sono `myregistry.azurecr.io` e `myregistry.westeurope.data.azurecr.io`. 
+I comandi seguenti creano record DNS nella zona privata per l'endpoint del registro e l'endpoint dati di questo. Se, ad esempio, è presente un registro denominato *myregistry* si nell'area *westeurope*, i nomi degli endpoint sono `myregistry.azurecr.io` e `myregistry.westeurope.data.azurecr.io`. 
 
 > [!NOTE]
 > Se il registro è [con replica geografica](container-registry-geo-replication.md), creare record DNS aggiuntivi per l'indirizzo IP dell'endpoint dati di ogni replica.
@@ -204,7 +204,7 @@ Configurare un collegamento privato durante la creazione di un registro o aggiun
 
 ### <a name="create-a-private-endpoint---new-registry"></a>Creare un endpoint privato - Nuovo registro
 
-1. Quando si crea un registro nel portale, nella scheda **Informazioni di base** , in **SKU** , selezionare **Premium**.
+1. Quando si crea un registro nel portale, nella scheda **Informazioni di base**, in **SKU**, selezionare **Premium**.
 1. Selezionare la scheda **Rete**.
 1. In **Connettività di rete** selezionare **Endpoint privato** >  **+ Aggiungi**.
 1. Immettere o selezionare le informazioni seguenti:
@@ -267,7 +267,7 @@ Configurare un collegamento privato durante la creazione di un registro o aggiun
     |||
 
 1. Selezionare **Rivedi e crea**. Si viene reindirizzati alla pagina **Rivedi e crea** dove Azure convalida la configurazione. 
-2. Quando viene visualizzato il messaggio **Convalida superata** , selezionare **Crea**.
+2. Quando viene visualizzato il messaggio **Convalida superata**, selezionare **Crea**.
 
 Dopo la creazione dell'endpoint privato, le impostazioni DNS nella zona privata vengono visualizzate nella pagina **Endpoint privati** del portale:
 
@@ -381,7 +381,7 @@ Quando si configura una connessione a un endpoint privato eseguendo la procedura
 
 Come illustrato in questo articolo, quando si aggiunge una connessione a un endpoint privato a un registro di sistema, si creano record DNS nella `privatelink.azurecr.io` zona per il registro di sistema e i relativi endpoint dati nelle aree in cui viene [replicato](container-registry-geo-replication.md)il registro di sistema. 
 
-Se in seguito si aggiunge una nuova replica, è necessario aggiungere manualmente un nuovo record della zona per l'endpoint dati in tale area. Se, ad esempio, si crea una replica di *myregistry* nella posizione *northeurope* , aggiungere un record della zona per `myregistry.northeurope.data.azurecr.io`. Per la procedura, vedere [Creare record DNS nella zona privata](#create-dns-records-in-the-private-zone) in questo articolo.
+Se in seguito si aggiunge una nuova replica, è necessario aggiungere manualmente un nuovo record della zona per l'endpoint dati in tale area. Se, ad esempio, si crea una replica di *myregistry* nella posizione *northeurope*, aggiungere un record della zona per `myregistry.northeurope.data.azurecr.io`. Per la procedura, vedere [Creare record DNS nella zona privata](#create-dns-records-in-the-private-zone) in questo articolo.
 
 ## <a name="dns-configuration-options"></a>Opzioni di configurazione DNS
 

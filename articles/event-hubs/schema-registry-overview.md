@@ -5,10 +5,10 @@ ms.topic: overview
 ms.date: 09/22/2020
 ms.custom: references_regions
 ms.openlocfilehash: a876651b76aa259754623854b8fc4a7c6c8a939e
-ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
-ms.translationtype: HT
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/21/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92330496"
 ---
 # <a name="azure-schema-registry-in-event-hubs-preview"></a>Registro schemi di Azure in Hub eventi (anteprima)
@@ -18,7 +18,7 @@ Il **Registro schemi di Azure** è una funzionalità di Hub eventi, che fornisce
 
 > [!NOTE]
 > - La funzionalità **Registro schemi** è attualmente disponibile in **anteprima** e non è consigliata per i carichi di lavoro di produzione.
-> - La funzionalità è disponibile solo nei livelli **Standard** e **Dedicato** , non nel livello **Basic** .
+> - La funzionalità è disponibile solo nei livelli **Standard** e **Dedicato**, non nel livello **Basic**.
 
 Con i framework di serializzazione basati su schemi come Apache Avro, l'esternalizzazione dei metadati di serializzazione in schemi condivisi può anche aiutare a ridurre in modo significativo il sovraccarico per messaggio delle informazioni sul tipo e dei nomi dei campi inclusi in ogni set di dati, come avviene con i formati con tag come JSON. Avere schemi archiviati insieme agli eventi e all'interno dell'infrastruttura di gestione degli eventi garantisce che i metadati necessari per la serializzazione/deserializzazione siano sempre raggiungibili e che gli schemi non possano essere posizionati in modo errato. 
 
@@ -65,7 +65,7 @@ Per istruzioni sulla creazione di una registrazione di un'applicazione con il po
 ## <a name="next-steps"></a>Passaggi successivi
 
 - Per informazioni su come creare un registro schemi usando il portale di Azure, vedere [Creare un registro schemi di Hub eventi usando il portale di Azure](create-schema-registry.md).
-- Vedere gli esempi seguenti della **libreria client Avro del Registro schemi** .
+- Vedere gli esempi seguenti della **libreria client Avro del Registro schemi**.
     - [.NET](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/schemaregistry/Microsoft.Azure.Data.SchemaRegistry.ApacheAvro/tests/Samples)
     - [Java](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/schemaregistry/azure-data-schemaregistry-avro/src/samples)
     - [JavaScript](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/schemaregistry/schema-registry-avro/samples )

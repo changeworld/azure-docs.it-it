@@ -18,13 +18,13 @@ ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 03/22/2019
 ms.openlocfilehash: 2c77eba69fd914e8ecc7d08a1b16f61ceefe101b
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
-ms.translationtype: HT
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/21/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92320581"
 ---
-# <a name="tutorial-send-notifications-to-specific-devices-running-universal-windows-platform-applications"></a>Esercitazione: Inviare notifiche push a specifici dispositivi che eseguono applicazioni della piattaforma UWP (Universal Windows Platform)
+# <a name="tutorial-send-notifications-to-specific-devices-running-universal-windows-platform-applications"></a>Esercitazione: inviare notifiche a dispositivi specifici che eseguono applicazioni piattaforma UWP (Universal Windows Platform)
 
 [!INCLUDE [notification-hubs-selector-breaking-news](../../includes/notification-hubs-selector-breaking-news.md)]
 
@@ -49,13 +49,13 @@ In questa esercitazione si eseguiranno le attività seguenti:
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-Completare l'[Esercitazione: Inviare notifiche alle app della piattaforma UWP (Universal Windows Platform) con Hub di notifica di Azure][get-started] prima di iniziare questa esercitazione.  
+Completare l'[Esercitazione: inviare notifiche alle app della piattaforma UWP (Universal Windows Platform) con Hub di notifica di Azure][get-started] prima di iniziare questa esercitazione.  
 
 ## <a name="add-category-selection-to-the-app"></a>Aggiungere la selezione delle categorie all'app
 
 Il primo passaggio consiste nell'aggiunta degli elementi dell'interfaccia utente alla pagina principale esistente per permettere agli utenti di selezionare le categorie per le quali registrarsi. Le categorie selezionate vengono archiviate nel dispositivo. All'avvio dell'app, viene creata una registrazione del dispositivo nell'hub di notifica, con le categorie selezionate come tag.
 
-1. Aprire il file di progetto *MainPage.xaml* e quindi copiare il codice seguente nell'elemento `Grid`:
+1. Aprire il file di progetto *MainPage. XAML* , quindi copiare il codice seguente nell' `Grid` elemento:
 
     ```xml
     <Grid>
@@ -197,7 +197,7 @@ In questa sezione si effettuerà la registrazione con l'hub di notifica all'avvi
 1. Per usare la classe `notifications` per una sottoscrizione basata su categorie, aprire il file *App.xaml.cs* e quindi aggiornare il metodo `InitNotificationsAsync`.
 
     ```csharp
-    // *** Remove or comment out these lines **_
+    // *** Remove or comment out these lines ***
     //var channel = await PushNotificationChannelManager.CreatePushNotificationChannelForApplicationAsync();
     //var hub = new NotificationHub("your hub name", "your listen connection string");
     //var result = await hub.RegisterNativeAsync(channel.Uri);

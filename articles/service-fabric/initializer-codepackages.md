@@ -6,10 +6,10 @@ ms.topic: conceptual
 ms.date: 03/10/2020
 ms.author: shsha
 ms.openlocfilehash: 3be079b97c2660437344f88203fdda06cc6d6740
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "86258979"
 ---
 # <a name="initializer-codepackages"></a>CodePackage dell'inizializzatore
@@ -23,7 +23,7 @@ Prima di procedere con questo articolo, è consigliabile acquisire familiarità 
  
 ## <a name="semantics"></a>Semantica
 
-È prevista l'esecuzione di un CodePackage dell'inizializzatore per **completare correttamente (codice di uscita 0)**. Un CodePackage inizializzatore non riuscito viene riavviato fino a quando non viene completato correttamente. Sono consentiti più CodePackage dell'inizializzatore e **successful completion**vengono eseguiti in modo sequenziale, in modo **sequenziale**, **in un ordine specificato** prima dell'inizio dell'esecuzione di altri CodePackage in ServicePackage.
+È prevista l'esecuzione di un CodePackage dell'inizializzatore per **completare correttamente (codice di uscita 0)**. Un CodePackage inizializzatore non riuscito viene riavviato fino a quando non viene completato correttamente. Sono consentiti più CodePackage dell'inizializzatore e vengono eseguiti in modo sequenziale, in modo **sequenziale**, **in un ordine specificato** prima dell'inizio dell'esecuzione di altri CodePackage in ServicePackage.
 
 ## <a name="specifying-initializer-codepackages"></a>Specifica di codepackages dell'inizializzatore
 È possibile contrassegnare un CodePackage come inizializzatore impostando l'attributo dell' **inizializzatore** su **true** in ServiceManifest. Quando sono presenti più pacchetti di inizializzazione, l'ordine di esecuzione può essere specificato tramite l'attributo **ExecOrder** . **ExecOrder** deve essere un numero intero non negativo ed è valido solo per i CodePackage degli inizializzatori. I CodePackage inizializzatori con valori inferiori di **ExecOrder** vengono eseguiti per primi. Se **ExecOrder** non è specificato per un CodePackage inizializzatore, viene utilizzato il valore predefinito 0. Non è stato specificato l'ordine di esecuzione relativo dei CodePackage dell'inizializzatore con lo stesso valore di **ExecOrder** .

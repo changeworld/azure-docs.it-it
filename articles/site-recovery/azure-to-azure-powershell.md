@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 3/29/2019
 ms.author: sutalasi
 ms.openlocfilehash: 1570bd9dfa62caa749d5a3983b93c2555be058ec
-ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93348730"
 ---
 # <a name="set-up-disaster-recovery-for-azure-virtual-machines-using-azure-powershell"></a>Configurare il ripristino di emergenza per le macchine virtuali di Azure usando Azure PowerShell
@@ -333,7 +333,7 @@ Un account di archiviazione della cache è un account di archiviazione standard 
 $EastUSCacheStorageAccount = New-AzStorageAccount -Name "a2acachestorage" -ResourceGroupName "A2AdemoRG" -Location 'East US' -SkuName Standard_LRS -Kind Storage
 ```
 
-Per le macchine virtuali che **non usano Managed disks** , l'account di archiviazione di destinazione è l'account di archiviazione nell'area di ripristino in cui vengono replicati i dischi della macchina virtuale. L'account di archiviazione di destinazione può essere un account di archiviazione standard o un account di archiviazione Premium. Selezionare il tipo di account di archiviazione necessario in base alla frequenza di modifica dei dati (velocità di scrittura i/o) per i dischi e i limiti di varianza supportati Azure Site Recovery per il tipo di archiviazione.
+Per le macchine virtuali che **non usano Managed disks**, l'account di archiviazione di destinazione è l'account di archiviazione nell'area di ripristino in cui vengono replicati i dischi della macchina virtuale. L'account di archiviazione di destinazione può essere un account di archiviazione standard o un account di archiviazione Premium. Selezionare il tipo di account di archiviazione necessario in base alla frequenza di modifica dei dati (velocità di scrittura i/o) per i dischi e i limiti di varianza supportati Azure Site Recovery per il tipo di archiviazione.
 
 ```azurepowershell
 #Create Target storage account in the recovery region. In this case a Standard Storage account

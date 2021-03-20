@@ -4,10 +4,10 @@ description: 'Esercitazione: Questo articolo illustra come elaborare gli eventi 
 ms.topic: tutorial
 ms.date: 06/23/2020
 ms.openlocfilehash: 328537eebd05391fc4c8138395a9c10f0a5d072f
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
-ms.translationtype: HT
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/21/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92319385"
 ---
 # <a name="tutorial-process-apache-kafka-for-event-hubs-events-using-stream-analytics"></a>Esercitazione: Elaborare gli eventi di Apache Kafka per Hub eventi mediante Analisi di flusso 
@@ -120,7 +120,7 @@ La query nel processo di Analisi di flusso di Azure attraversa i dati senza eseg
 2. Selezionare **+ Aggiungi** nella barra degli strumenti e selezionare **Archiviazione BLOB**.
 3. Nella pagina delle impostazioni dell'output dell'archivio BLOB eseguire queste azioni: 
     1. Specificare un **alias** per l'output. 
-    2. Selezionare la **sottoscrizione**di Azure. 
+    2. Selezionare la **sottoscrizione** di Azure. 
     3. Selezionare il proprio **account di archiviazione di Azure**. 
     4. Immettere un **nome per il contenitore** che archivia i dati di output dalla query di Analisi di flusso.
     5. Selezionare **Salva**.

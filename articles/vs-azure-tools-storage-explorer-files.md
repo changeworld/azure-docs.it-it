@@ -15,10 +15,10 @@ ms.topic: conceptual
 ms.date: 03/09/2017
 ms.author: cawa
 ms.openlocfilehash: 84f6473c25a5be11eeda7cd2b311d93a7226a78c
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/02/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96488392"
 ---
 # <a name="using-storage-explorer-with-azure-file-storage"></a>Uso di Storage Explorer con Archiviazione file di Azure
@@ -89,7 +89,7 @@ La procedura seguente illustra come eliminare una condivisione file all'interno 
 
 1. Fare clic con il pulsante destro del mouse sulla condivisione file da eliminare e scegliere **Elimina** dal menu di scelta rapida. È anche possibile premere **CANC** per eliminare la condivisione file attualmente selezionata.
 
-    ![Delete](media/vs-azure-tools-storage-explorer-files/image6.png)
+    ![Elimina](media/vs-azure-tools-storage-explorer-files/image6.png)
 
 1. Fare clic su **Sì** nella finestra di dialogo di conferma.
     

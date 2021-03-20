@@ -7,17 +7,17 @@ ms.service: cache
 ms.topic: conceptual
 ms.date: 08/06/2020
 ms.openlocfilehash: 398b567e173691068e6dd932e075d6598dcfe601
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/26/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92537406"
 ---
 # <a name="azure-cache-for-redis-planning-faqs"></a>Domande frequenti sulla pianificazione di cache di Azure per Redis
 
 Questo articolo fornisce le risposte alle domande comuni su come pianificare la cache di Azure per Redis.
 
-## <a name="common-questions-and-answers"></a>Domande frequenti e risposte
+## <a name="common-questions-and-answers"></a>Domande e risposte comuni
 In questa sezione vengono illustrate le domande frequenti seguenti:
 
 * [Prestazioni di Cache Redis di Azure](#azure-cache-for-redis-performance)

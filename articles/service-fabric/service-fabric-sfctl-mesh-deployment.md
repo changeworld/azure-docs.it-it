@@ -6,10 +6,10 @@ ms.topic: reference
 ms.date: 1/16/2020
 ms.author: jejarry
 ms.openlocfilehash: fb2adafab88eb1d3855cdec8268601fb4e15dcbb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "86257270"
 ---
 # <a name="sfctl-mesh-deployment"></a>sfctl mesh deployment
@@ -41,7 +41,7 @@ Crea una distribuzione delle risorse di mesh Service Fabric.
 | --query | Stringa di query JMESPath. Per altre informazioni ed esempi, vedere http\://jmespath.org/. |
 | --verbose | Aumenta il livello di dettaglio della registrazione. Usare --debug per log di debug completi. |
 
-### <a name="examples"></a>Esempi
+### <a name="examples"></a>Esempio
 
 Consente di consolidare e di distribuire tutte le risorse nel cluster sostituendo i parametri indicati nel file yaml
 ``` 

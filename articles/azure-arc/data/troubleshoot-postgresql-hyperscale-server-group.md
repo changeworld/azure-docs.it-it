@@ -10,10 +10,10 @@ ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: how-to
 ms.openlocfilehash: caaab07200a8631935a2b5d5368a0c16ea9a60c5
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/21/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92320222"
 ---
 # <a name="troubleshooting-postgresql-hyperscale-server-groups"></a>Risoluzione dei problemi relativi ai gruppi di server di iperscala PostgreSQL
@@ -26,7 +26,7 @@ Questo articolo descrive alcune tecniche che è possibile usare per risolvere i 
 azdata arc postgres server create -n postgres01 -w 2 --debug
 ```
 
-o
+oppure
 ```console
 azdata arc postgres server edit -n postgres01 --extension SomeExtensionName --debug
 ```
@@ -97,7 +97,7 @@ Implementare i passaggi descritti in  [033-Manage-Postgres-with-AzureDataStudio.
 
 :::image type="content" source="media/postgres-hyperscale/ads-controller-postgres-troubleshooting-notebook.jpg" alt-text="Azure Data Studio-aprire il notebook per la risoluzione dei problemi PostgreSQL":::
 
-**TSG100: il notebook di Azure Arc abilitato per la risoluzione dei problemi di iperscalabilità di PostgreSQL** viene aperto: :::image type="content" source="media/postgres-hyperscale/ads-controller-postgres-troubleshooting-notebook2.jpg" alt-text="Azure Data Studio-aprire il notebook per la risoluzione dei problemi PostgreSQL":::
+**TSG100: il notebook di Azure Arc abilitato per la risoluzione dei problemi di iperscalabilità di PostgreSQL** viene aperto: :::image type="content" source="media/postgres-hyperscale/ads-controller-postgres-troubleshooting-notebook2.jpg" alt-text="Azure Data Studio-usare il notebook per la risoluzione dei problemi PostgreSQL":::
 
 #### <a name="run-the-scripts"></a>Esecuzione degli script
 Selezionare il pulsante "Esegui tutto" nella parte superiore per eseguire il notebook in una sola volta oppure è possibile eseguire tutte le celle del codice una alla volta.

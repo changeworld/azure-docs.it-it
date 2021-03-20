@@ -9,10 +9,10 @@ ms.date: 10/06/2020
 ms.author: cherylmc
 ms.custom: include file
 ms.openlocfilehash: 134f1dc7cb6e53c181b2f518055e5cb758fccf31
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
-ms.translationtype: HT
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91812718"
 ---
 1. Nella rete WAN virtuale selezionare Hub e quindi **+ Nuovo hub**.
@@ -25,7 +25,7 @@ ms.locfileid: "91812718"
    * **Nome**: immettere il nome con cui denominare l'hub virtuale.
    * **Spazio di indirizzi privato dell'hub**: intervallo di indirizzi dell'hub nella notazione CIDR.
 
-   :::image type="content" source="media/virtual-wan-p2s-hub/create-hub.jpg" alt-text="Nuovo hub":::
+   :::image type="content" source="media/virtual-wan-p2s-hub/create-hub.jpg" alt-text="Creare un hub virtuale":::
 
 1. Nella scheda Da punto a sito completare i campi seguenti:
 
@@ -34,7 +34,7 @@ ms.locfileid: "91812718"
    * **Pool indirizzi client**, per gli utenti remoti.
    * **IP server DNS personalizzato**.
 
-   :::image type="content" source="media/virtual-wan-p2s-hub/hub-with-p2s.png" alt-text="Nuovo hub":::
+   :::image type="content" source="media/virtual-wan-p2s-hub/hub-with-p2s.png" alt-text="Hub con configurazione da punto a sito":::
 
 1. Selezionare **Rivedi e crea**.
 1. Nella pagina **Convalida superata** selezionare **Crea**.

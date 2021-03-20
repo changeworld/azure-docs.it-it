@@ -10,10 +10,10 @@ ms.date: 03/26/2019
 ms.author: chrande
 ms.custom: seo-java-july2019, seo-java-august2019, seo-java-september2019, devx-track-java
 ms.openlocfilehash: 5a793eb69b344e361679759e46db47c78885831e
-ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
-ms.translationtype: HT
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/05/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93360956"
 ---
 # <a name="quickstart-build-a-graph-database-with-the-java-sdk-and-the-azure-cosmos-db-gremlin-api"></a>Avvio rapido: Creare un database a grafo con Java SDK e l'API Gremlin di Azure Cosmos DB
@@ -168,7 +168,7 @@ Tornare ora al portale di Azure per recuperare la stringa di connessione e copia
 
 È ora possibile tornare a Esplora dati e visualizzare i vertici aggiunti al grafo, quindi aggiungere altri punti dati.
 
-1. Nell'account Azure Cosmos DB nel portale di Azure, selezionare **Esplora dati** , espandere **sample-graph** , selezionare **Grafo** e quindi **Applica filtro**. 
+1. Nell'account Azure Cosmos DB nel portale di Azure, selezionare **Esplora dati**, espandere **sample-graph**, selezionare **Grafo** e quindi **Applica filtro**. 
 
    :::image type="content" source="./media/create-graph-java/azure-cosmosdb-data-explorer-expanded.png" alt-text="Screenshot che mostra la sezione API con la voce Grafo selezionata con l'opzione Applica filtro.":::
 

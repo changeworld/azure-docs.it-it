@@ -9,10 +9,10 @@ ms.reviewer: estfan, logicappspm
 ms.topic: article
 ms.date: 08/17/2018
 ms.openlocfilehash: 03fc17c0d071cef4c8de92c6b50d60d961d18aef
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91565260"
 ---
 # <a name="improve-security-for-b2b-messages-by-using-certificates"></a>Migliorare la sicurezza per i messaggi B2B usando i certificati
@@ -86,11 +86,11 @@ Dopo aver definito le proprietà nei [contratti](logic-apps-enterprise-integrati
    | Proprietà | Valore | Descrizione | 
    |----------|-------|-------------|
    | **Nome** | <*Nome certificato*> | Nome del certificato, ovvero "privateCert" in questo esempio | 
-   | **Tipo di certificato** | Private | Tipo del certificato |
+   | **Tipo di certificato** | Privato | Tipo del certificato |
    | **Certificate** | <*nome del file di certificato*> | Per trovare e selezionare il file di certificato da caricare, scegliere l'icona della cartella accanto alla casella **Certificato**. Quando si usa un insieme di credenziali delle chiavi per la chiave privata, il file caricato sarà il certificato pubblico. | 
    | **Gruppo di risorse** | <*Integration-account-Resource-Group*> | Gruppo di risorse dell'account di integrazione, ovvero "MyResourceGroup" in questo esempio | 
    | **Insieme di credenziali di chiave** | <*Key-Vault-Name*> | Nome dell'insieme di credenziali delle chiavi di Azure |
-   | **Nome della chiave** | <*nome chiave*> | Nome della chiave |
+   | **Nome chiave** | <*nome chiave*> | Nome della chiave |
    ||||
 
    ![Scegliere "Aggiungi" e specificare i dettagli del certificato](media/logic-apps-enterprise-integration-certificates/private-certificate-details.png)

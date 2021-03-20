@@ -10,10 +10,10 @@ ms.author: rogarana
 ms.subservice: files
 ms.custom: devx-track-csharp
 ms.openlocfilehash: e112060db4a44884d3094a939b03ff106ba72e65
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/02/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96492200"
 ---
 # <a name="develop-for-azure-files-with-net"></a>Eseguire lo sviluppo per File di Azure con .NET
@@ -54,7 +54,7 @@ In Visual Studio creare una nuova applicazione console di Windows. La procedura 
 1. In **Crea un nuovo progetto** scegliere **App Console (.NET Framework)** per C# e quindi fare clic su **Avanti**.
 1. In **Configura il nuovo progetto**, immettere un nome per l'app e selezionare **Crea**.
 
-Aggiungere tutti gli esempi di codice di questo articolo alla `Program` classe nel file *Program.cs* .
+Aggiungere tutti gli esempi di codice di questo articolo alla `Program` classe nel file *Program. cs* .
 
 ## <a name="use-nuget-to-install-the-required-packages"></a>Usare NuGet per installare i pacchetti necessari
 
@@ -67,7 +67,7 @@ Fare riferimento a questi pacchetti nel progetto:
 - [Libreria client dei file di archiviazione di Azure per .NET](https://www.nuget.org/packages/Azure.Storage.Files.Shares/): questo pacchetto fornisce l'accesso a livello di codice alle risorse file nell'account di archiviazione.
 - [System Configuration Manager Library for .NET](https://www.nuget.org/packages/System.Configuration.ConfigurationManager/): questo pacchetto fornisce una classe che archivia e recupera i valori in un file di configurazione.
 
-È possibile usare NuGet per ottenere i pacchetti. Seguire questa procedura:
+È possibile usare NuGet per ottenere i pacchetti. A tale scopo, seguire questa procedura:
 
 1. In **Esplora soluzioni** fare clic con il pulsante destro del mouse sul progetto e scegliere **Gestisci pacchetti NuGet**.
 1. In **Gestione pacchetti NuGet**, selezionare **Sfoglia**. Quindi cercare e scegliere **Azure. Core**, quindi selezionare Install ( **Installa**).
@@ -87,7 +87,7 @@ Fare riferimento a questi pacchetti nel progetto:
 - [Archiviazione di Microsoft Azure library file per .NET](https://www.nuget.org/packages/Microsoft.Azure.Storage.File/): questo pacchetto fornisce l'accesso a livello di codice alle risorse file nell'account di archiviazione.
 - [Microsoft Azure libreria Configuration Manager per .NET](https://www.nuget.org/packages/Microsoft.Azure.ConfigurationManager/): questo pacchetto fornisce una classe per l'analisi di una stringa di connessione in un file di configurazione, ovunque sia in esecuzione l'applicazione.
 
-È possibile usare NuGet per ottenere i pacchetti. Seguire questa procedura:
+È possibile usare NuGet per ottenere i pacchetti. A tale scopo, seguire questa procedura:
 
 1. In **Esplora soluzioni** fare clic con il pulsante destro del mouse sul progetto e scegliere **Gestisci pacchetti NuGet**.
 1. In **Gestione pacchetti NuGet**, selezionare **Sfoglia**. Cercare e scegliere **Microsoft. Azure. storage. blob**, quindi selezionare **Install (installa**).
@@ -135,7 +135,7 @@ Sostituire `myaccount` con il nome dell'account di archiviazione e `StorageAccou
 
 ## <a name="add-using-directives"></a>Aggiungere le direttive using
 
-In **Esplora soluzioni** aprire il file *Program.cs* e aggiungere le direttive using seguenti all'inizio del file.
+In **Esplora soluzioni** aprire il file *Program. cs* e aggiungere le direttive using seguenti all'inizio del file.
 
 # <a name="net-v12"></a>[\.NET v12](#tab/dotnet)
 
@@ -156,7 +156,7 @@ using Microsoft.Azure.Storage.File; // Namespace for Azure Files
 
 ## <a name="access-the-file-share-programmatically"></a>Accedere alla condivisione file a livello di programmazione
 
-Nel file *Program.cs* aggiungere il codice seguente per accedere alla condivisione file a livello di programmazione.
+Nel file *Program. cs* aggiungere il codice seguente per accedere alla condivisione file a livello di programmazione.
 
 # <a name="net-v12"></a>[\.NET v12](#tab/dotnet)
 
@@ -559,7 +559,7 @@ L'esempio di codice seguente illustra come usare la libreria client .NET per abi
 
 # <a name="net-v11"></a>[\.NET v11](#tab/dotnetv11)
 
-Aggiungere prima le `using` direttive seguenti al file *Program.cs* , insieme a quelle aggiunte in precedenza:
+Aggiungere prima di tutto le `using` direttive seguenti al file *Program. cs* , insieme a quelle aggiunte sopra:
 
 ```csharp
 using Microsoft.Azure.Storage.File.Protocol;

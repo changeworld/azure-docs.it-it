@@ -7,16 +7,16 @@ ms.service: cache
 ms.topic: conceptual
 ms.date: 08/06/2020
 ms.openlocfilehash: 8e96c73578a9341f67d90cd4482ed75179c6886d
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/26/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92537525"
 ---
 # <a name="azure-cache-for-redis-monitoring-and-troubleshooting-faqs"></a>Domande frequenti sulla risoluzione dei problemi e sul monitoraggio di cache di Azure per Redis
 Questo articolo fornisce le risposte alle domande comuni su come monitorare e risolvere i problemi relativi a cache di Azure per Redis.
 
-## <a name="common-questions-and-answers"></a>Domande frequenti e risposte
+## <a name="common-questions-and-answers"></a>Domande e risposte comuni
 In questa sezione vengono illustrate le domande frequenti seguenti:
 
 * [In che modo si esegue il monitoraggio dell'integrità e delle impostazioni della cache?](#how-do-i-monitor-the-health-and-performance-of-my-cache)

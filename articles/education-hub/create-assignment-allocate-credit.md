@@ -8,10 +8,10 @@ ms.date: 06/30/2020
 ms.service: azure-education
 ms.subservice: education-hub
 ms.openlocfilehash: 7904efb92aa8362605f1f68ee0b39f4241339031
-ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
-ms.translationtype: HT
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/21/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92332468"
 ---
 # <a name="create-an-assignment-and-allocate-credit"></a>Creare un'assegnazione e allocare credito
@@ -26,7 +26,7 @@ Dopo aver configurato un corso e creato una classe nell'hub di Education di Micr
 
 ### <a name="accounts"></a>Account
 
-L'hub di Education di Azure accetta qualsiasi indirizzo di posta elettronica nel formato _____@ ___.___ . Attualmente *non* verifica la presenza di un account valido nell'organizzazione o se l'account Microsoft è aggiornato o valido. Prima di continuare, controllare attentamente ogni indirizzo di posta elettronica.
+L'hub di Education di Azure accetta qualsiasi indirizzo di posta elettronica nel formato _____@___.___ . Attualmente *non* verifica la presenza di un account valido nell'organizzazione o se l'account Microsoft è aggiornato o valido. Prima di continuare, controllare attentamente ogni indirizzo di posta elettronica.
 
 > [!IMPORTANT]
 > Gli account aziendali e degli istituti di istruzione sono soggetti a criteri specifici, tra cui se è consentito o meno l'uso di un indirizzo di posta elettronica di un dominio diverso dall'organizzazione (ad esempio, l'aggiunta di student2@outlook.com al dominio @school.edu). Assicurarsi di controllare questi criteri prima di aggiungere nuovi utenti.
@@ -39,9 +39,9 @@ Quando un account aziendale o dell'istituto di istruzione (ad esempio student1@s
 
 1. Scegliere la quantità di fondi da accreditare alla sottoscrizione dello studente. Se gli studenti non riceveranno tutti la stessa quantità, è possibile selezionare **Cambia** e applicare una quantità personalizzata per ogni studente o gruppo di progetto.
 
-1. Selezionare **Crea assegnazione** .
+1. Selezionare **Crea assegnazione**.
 1. (Facoltativo) È anche possibile rimuovere gli studenti esistenti facendo clic su **Rimuovi** accanto ai relativi nomi.
-1. Al termine, selezionare il pulsante **Chiudi** . Le autorizzazioni aggiuntive vengono visualizzate nella pagina Sponsor Credit Management.
+1. Al termine, selezionare il pulsante **Chiudi**. Le autorizzazioni aggiuntive vengono visualizzate nella pagina Sponsor Credit Management.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
