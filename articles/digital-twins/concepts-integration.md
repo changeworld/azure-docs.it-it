@@ -8,10 +8,10 @@ ms.date: 3/16/2020
 ms.topic: conceptual
 ms.service: digital-twins
 ms.openlocfilehash: 118b02ab694d27dbe4e13cbfa1a617a56b052772
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/14/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92043069"
 ---
 # <a name="integrate-azure-digital-twins-with-other-services"></a>Integrare i dispositivi gemelli digitali di Azure con altri servizi
@@ -34,14 +34,14 @@ Per informazioni su come connettere i dispositivi gemelli digitali di Azure a un
 
 ## <a name="data-egress-services"></a>Servizi di uscita dati
 
-I dispositivi gemelli digitali di Azure possono inviare dati agli **endpoint**connessi. Gli endpoint supportati possono essere:
+I dispositivi gemelli digitali di Azure possono inviare dati agli **endpoint** connessi. Gli endpoint supportati possono essere:
 * [Hub eventi](../event-hubs/event-hubs-about.md)
 * [Griglia di eventi](../event-grid/overview.md)
 * [Bus di servizio](../service-bus-messaging/service-bus-messaging-overview.md)
 
-Gli endpoint sono collegati ai dispositivi gemelli digitali di Azure usando le API di gestione o il portale di Azure. Per altre informazioni su come aggiungere un endpoint ai dispositivi gemelli digitali di Azure [*, vedere Procedura: gestire endpoint e route*](how-to-manage-routes-apis-cli.md).
+Gli endpoint vengono associati a Gemelli digitali di Azure usando le API di gestione o il portale di Azure. Per altre informazioni su come aggiungere un endpoint ai dispositivi gemelli digitali di Azure [*, vedere Procedura: gestire endpoint e route*](how-to-manage-routes-apis-cli.md).
 
-Sono disponibili molti altri servizi in cui è possibile indirizzare i dati, ad esempio archiviazione di [Azure](../storage/common/storage-introduction.md), [mappe di Azure](../azure-maps/about-azure-maps.md)o [Time Series Insights](../time-series-insights/overview-what-is-tsi.md). Per inviare i dati a servizi come questi, alleghi il servizio di destinazione a un endpoint.
+Sono disponibili molti altri servizi a cui è possibile indirizzare i dati, ad esempio [Archiviazione di Azure](../storage/common/storage-introduction.md), [Mappe di Azure](../azure-maps/about-azure-maps.md) o [Time Series Insights](../time-series-insights/overview-what-is-tsi.md). Per inviare i dati a servizi come questi, alleghi il servizio di destinazione a un endpoint.
 
 Se ad esempio si usano anche mappe di Azure e si vuole correlare la località con il [grafo](concepts-twins-graph.md)gemello di Azure Digital gemelli, è possibile usare funzioni di Azure con griglia di eventi per stabilire la comunicazione tra tutti i servizi nella distribuzione. Per altre informazioni, vedere [ *procedura: usare i dispositivi gemelli digitali di Azure per aggiornare una mappa interna di mappe di Azure*](how-to-integrate-maps.md)
 

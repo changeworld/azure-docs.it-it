@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 11/14/2019
 ms.author: raynew
 ms.openlocfilehash: 6b68b4c943ec96620427978c2309f27e1fb1f217
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "74082569"
 ---
 # <a name="prepare-network-mapping-for-hyper-v-vm-disaster-recovery-to-azure"></a>Preparare il mapping di rete per il ripristino di emergenza della macchina virtuale Hyper-V in Azure
@@ -39,7 +39,7 @@ Il mapping di rete funziona nel modo seguente:
 Quando si esegue la replica in un sito secondario, il mapping di rete esegue il mapping tra reti VM in un server VMM di origine e reti VM in un server VMM di destinazione. Il mapping esegue queste operazioni:
 
 - **Connessione di rete**: esegue la connessione delle VM alle reti appropriate dopo il failover. La macchina virtuale di replica verrà connessa alla rete di destinazione di cui viene eseguito il mapping alla rete di origine.
-- **Posizionamento ottimale delle macchine virtuali **: posiziona in modo ottimale le VM di replica nei server host Hyper-V. Le macchine virtuali di replica vengono posizionate negli host che possono accedere alle reti di macchine virtuali mappate.
+- **Posizionamento ottimale delle macchine virtuali**: posiziona in modo ottimale le VM di replica nei server host Hyper-V. Le macchine virtuali di replica vengono posizionate negli host che possono accedere alle reti di macchine virtuali mappate.
 - **Nessun mapping di rete**: se non si configura il mapping di rete, le macchine virtuali replicate non risulteranno connesse ad alcuna rete di macchina virtuale in seguito al failover.
 
 Il mapping di rete funziona nel modo seguente:
@@ -60,7 +60,7 @@ New York | VMM-NewYork| VMNetwork1-NewYork | Mappata a VMNetwork1-Chicago
 Chicago | VMM-Chicago| VMNetwork1-Chicago | Mappata a VMNetwork1-NewYork
  | | VMNetwork2-Chicago | Non mappata
 
-Esempio:
+In questo esempio:
 
 - Quando viene creata una macchina virtuale di replica per una macchina virtuale connessa a VMNetwork1-NewYork, essa verrà connessa a VMNetwork1-Chicago.
 - Quando una macchina virtuale di replica viene creata per VMNetwork2-NewYork o VMNetwork2-Chicago, non verrà connessa ad alcuna rete.

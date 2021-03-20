@@ -7,10 +7,10 @@ ms.date: 10/09/2020
 ms.author: helohr
 manager: lizross
 ms.openlocfilehash: b65560a3b10d04887040c4da1e137912810b3095
-ms.sourcegitcommit: 50802bffd56155f3b01bfb4ed009b70045131750
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91929592"
 ---
 # <a name="expand-an-existing-host-pool-with-new-session-hosts"></a>Espandi un pool di host esistente con nuovi host sessione
@@ -26,7 +26,7 @@ In questo articolo viene illustrato come espandere un pool di host esistente con
 
 Prima di iniziare, assicurarsi di aver creato un pool host e le macchine virtuali (VM) host sessione usando uno dei metodi seguenti:
 
-- [Portale di Azure](./create-host-pools-azure-marketplace.md)
+- [Azure portal](./create-host-pools-azure-marketplace.md)
 - [Creare un pool di host con PowerShell](./create-host-pools-powershell.md)
 
 Al momento della creazione delle VM host della sessione e del pool host sono necessarie anche le informazioni seguenti:

@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-ms.date: 09/16/2020
+ms.date: 03/10/2021
 ms.author: b-juche
-ms.openlocfilehash: eab55f881c250c2e07717604d4ba00587a8b6031
-ms.sourcegitcommit: 30906a33111621bc7b9b245a9a2ab2e33310f33f
+ms.openlocfilehash: 5b1c1a5216b7a1ad5b23167e776f2b0bbb0a578f
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/22/2020
-ms.locfileid: "95243206"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104590994"
 ---
 # <a name="manage-disaster-recovery-using-cross-region-replication"></a>Gestire il ripristino di emergenza con la replica tra aree 
 
@@ -38,10 +38,10 @@ Quando è necessario attivare il volume di destinazione, ad esempio quando si de
 1. Per interrompere il peering della replica, selezionare il volume di destinazione. Fare clic su **replica** in servizio di archiviazione.  
 
 2.  Prima di continuare, controllare i campi seguenti:  
-    * Verificare che lo stato del mirror indichi ***Mirrored** _.   
-        Non tentare di interrompere il peering della replica se lo stato del mirror indica _Uninitialized *.
-    * Verificare che lo stato della relazione sia visualizzato ***inattivo** _.   
-        Non tentare di interrompere il peering di replica se lo stato della relazione Mostra _Transferring *.   
+    * Verificare che lo stato del mirror indichi il ***mirroring***.   
+        Non tentare di interrompere il peering della replica se lo stato del mirror viene visualizzato come non *inizializzato*.
+    * Verificare che lo stato della relazione mostri ***inattivo***.   
+        Non tentare di interrompere il peering di replica se lo stato della relazione indica il *trasferimento*.   
 
     Vedere [visualizzare lo stato di integrità della relazione di replica](cross-region-replication-display-health-status.md). 
 
@@ -80,10 +80,10 @@ Al termine dell'operazione di risincronizzazione dalla destinazione all'origine,
 1. Interrompere il peering di replica:  
     a. Selezionare il volume di *destinazione* . Fare clic su **replica** in servizio di archiviazione.  
     b. Prima di continuare, controllare i campi seguenti:   
-    * Verificare che lo stato del mirror indichi ***Mirrored** _.   
-    Non tentare di interrompere il peering della replica se lo stato del mirror indica _uninitialized *.  
-    * Verificare che lo stato della relazione sia visualizzato ***inattivo** _.   
-    Non tentare di interrompere il peering di replica se lo stato della relazione Mostra _transferring *.    
+    * Verificare che lo stato del mirror indichi il ***mirroring***.   
+    Non tentare di interrompere il peering della replica se lo stato del mirror viene visualizzato come non *inizializzato*.  
+    * Verificare che lo stato della relazione mostri ***inattivo***.   
+    Non tentare di interrompere il peering di replica se lo stato della relazione indica il *trasferimento*.    
 
         Vedere [visualizzare lo stato di integrità della relazione di replica](cross-region-replication-display-health-status.md). 
 
@@ -102,7 +102,8 @@ Al termine dell'operazione di risincronizzazione dalla destinazione all'origine,
 * [Replica tra più aree](cross-region-replication-introduction.md)
 * [Requisiti e considerazioni per l'uso della replica tra aree](cross-region-replication-requirements-considerations.md)
 * [Visualizzare lo stato integrità della relazione di replica](cross-region-replication-display-health-status.md)
+* [Ridimensionare un volume di destinazione della replica tra aree](azure-netapp-files-resize-capacity-pools-or-volumes.md#resize-a-cross-region-replication-destination-volume)
 * [Metriche di replica del volume](azure-netapp-files-metrics.md#replication)
-* [Elimina volumi o repliche di volumi](cross-region-replication-delete.md)
+* [Eliminare repliche di volumi o volumi](cross-region-replication-delete.md)
 * [Risolvere i problemi relativi alla replica tra più aree](troubleshoot-cross-region-replication.md)
 

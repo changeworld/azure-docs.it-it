@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 11/04/2019
 ms.custom: devx-track-csharp
 ms.openlocfilehash: 5755e14e53d359fd8b322939bf1325d21536d593
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "89020185"
 ---
 # <a name="example-create-a-custom-skill-using-the-bing-entity-search-api"></a>Esempio: creare una competenza personalizzata usando il API Ricerca entità Bing
@@ -34,7 +34,7 @@ Anche se in questo esempio viene usata una funzione di Azure per ospitare un'API
 
 ### <a name="create-a-function-app"></a>Creare un'app per le funzioni
 
-1. In Visual Studio selezionare **nuovo**  >  **progetto** dal menu file.
+1. In Visual Studio selezionare **Nuovo** > **Progetto** dal menu File.
 
 1. Nella finestra di dialogo Nuovo progetto selezionare **Installato**, espandere **Visual C#** > **Cloud**, selezionare **Funzioni di Azure**, digitare un nome per il progetto e selezionare **OK**. Il nome dell'app per le funzioni deve essere valido come spazio dei nomi C#, quindi non usare caratteri di sottolineatura, trattini o altri caratteri non alfanumerici.
 
@@ -378,7 +378,7 @@ Quando si è soddisfatti del comportamento della funzione, è possibile pubblica
 
 1. In **Esplora soluzioni** fare clic con il pulsante destro del mouse sul progetto e scegliere **Pubblica**. Scegliere **Crea nuova**  >  **pubblicazione**.
 
-1. Se non si è ancora connesso Visual Studio al proprio account di Azure, selezionare **Aggiungi un account**.
+1. Se Visual Studio non è ancora stato connesso al proprio account Azure, selezionare **Aggiungi un account.** ...
 
 1. Seguire le istruzioni visualizzate sullo schermo. Viene richiesto di specificare un nome univoco per il servizio app, la sottoscrizione di Azure, il gruppo di risorse, il piano di hosting e l'account di archiviazione che si vuole usare. Se non sono già disponibili, è possibile creare un nuovo gruppo di risorse, un nuovo piano di hosting e un account di archiviazione. Al termine, selezionare **Crea**
 

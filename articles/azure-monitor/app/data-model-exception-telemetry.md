@@ -5,10 +5,10 @@ ms.topic: conceptual
 ms.date: 04/25/2017
 ms.reviewer: sergkanz
 ms.openlocfilehash: 6732fb3dde79abd5c69e2b0a91710bdd2356d6aa
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "87320596"
 ---
 # <a name="exception-telemetry-application-insights-data-model"></a>Telemetria delle eccezioni: modello di dati di Application Insights
@@ -25,7 +25,7 @@ Lunghezza massima: 1024 caratteri
 
 Livello di gravità della traccia. Il valore può essere `Verbose`, `Information`, `Warning`, `Error`, `Critical`.
 
-## <a name="exception-details"></a>Dettagli eccezione
+## <a name="exception-details"></a>Dettagli dell'eccezione
 
 (Da aggiungere)
 

@@ -14,10 +14,10 @@ ms.workload: infrastructure-services
 ms.date: 09/16/2020
 ms.author: duau
 ms.openlocfilehash: 4846438f8479fe622570aa515a4d8b40cccc57b8
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
-ms.translationtype: HT
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91252307"
 ---
 # <a name="quickstart-create-a-front-door-for-a-highly-available-global-web-application"></a>Guida introduttiva: Creare una frontdoor per un'applicazione Web globale a disponibilità elevata
@@ -58,7 +58,7 @@ Se non è già disponibile un'app Web, seguire questa procedura per configurarne
 
 1. Selezionare **Rivedi e crea**, esaminare la scheda **Riepilogo** e quindi selezionare **Crea**. Il completamento della distribuzione potrebbe richiedere diversi minuti.
 
-    :::image type="content" source="media/quickstart-create-front-door/create-web-app.png" alt-text="Creare un'app Web nel portale di Azure":::
+    :::image type="content" source="media/quickstart-create-front-door/create-web-app.png" alt-text="Esaminare il riepilogo per l'app Web":::
 
 Al termine della distribuzione, creare una seconda app Web. Seguire la stessa procedura con gli stessi valori, ad eccezione dei valori seguenti:
 
@@ -87,7 +87,7 @@ Configurare Frontdoor di Azure per indirizzare il traffico degli utenti in base 
 
 1. Per **Nome host**, immettere un nome host univoco globale. Questo esempio usa *contoso-frontend*. Selezionare **Aggiungi**.
 
-    :::image type="content" source="media/quickstart-create-front-door/add-frontend-host-azure-front-door.png" alt-text="Creare un'app Web nel portale di Azure":::
+    :::image type="content" source="media/quickstart-create-front-door/add-frontend-host-azure-front-door.png" alt-text="Aggiungere un host front-end per Frontdoor di Azure":::
 
 Successivamente, creare un pool back-end che contenga le due app Web.
 
@@ -95,7 +95,7 @@ Successivamente, creare un pool back-end che contenga le due app Web.
 
 1. In **Nome** immettere *myBackendPool*, quindi selezionare **Aggiungi un back-end**.
 
-    :::image type="content" source="media/quickstart-create-front-door/front-door-add-backend-pool.png" alt-text="Creare un'app Web nel portale di Azure":::
+    :::image type="content" source="media/quickstart-create-front-door/front-door-add-backend-pool.png" alt-text="Aggiungere un pool back-end":::
 
 1. Nel pannello **Aggiungi un back-end** selezionare le informazioni seguenti e quindi selezionare **Aggiungi**.
 
@@ -107,7 +107,7 @@ Successivamente, creare un pool back-end che contenga le due app Web.
 
     **Lasciare i valori predefiniti per tutti gli altri campi.*
 
-    :::image type="content" source="media/quickstart-create-front-door/front-door-add-a-backend.png" alt-text="Creare un'app Web nel portale di Azure":::
+    :::image type="content" source="media/quickstart-create-front-door/front-door-add-a-backend.png" alt-text="Aggiungere un host back-end alla frontdoor":::
 
 1. Selezionare di nuovo **Aggiungi un back-end**. Selezionare le informazioni seguenti e quindi selezionare **Aggiungi**.
 
@@ -121,7 +121,7 @@ Successivamente, creare un pool back-end che contenga le due app Web.
 
 1. Selezionare **Aggiungi** nel pannello **Aggiungi un pool back-end** per completare la configurazione del pool back-end.
 
-    :::image type="content" source="media/quickstart-create-front-door/front-door-add-backend-pool-complete.png" alt-text="Creare un'app Web nel portale di Azure":::
+    :::image type="content" source="media/quickstart-create-front-door/front-door-add-backend-pool-complete.png" alt-text="Aggiungere un pool back-end per il servizio Frontdoor di Azure":::
 
 Infine, aggiungere una regola di routing. Una regola di routing esegue il mapping dell'host front-end al pool back-end. La regola inoltra una richiesta di `contoso-frontend.azurefd.net` a **myBackendPool**.
 
@@ -129,14 +129,14 @@ Infine, aggiungere una regola di routing. Una regola di routing esegue il mappin
 
 1. In **Aggiungi una regola**, per **Nome**, immettere *LocationRule*. Accettare tutti i valori predefiniti, quindi selezionare **Aggiungi** per aggiungere la regola di routing.
 
-    :::image type="content" source="media/quickstart-create-front-door/front-door-add-a-rule.png" alt-text="Creare un'app Web nel portale di Azure":::
+    :::image type="content" source="media/quickstart-create-front-door/front-door-add-a-rule.png" alt-text="Aggiungere una regola alla frontdoor":::
 
    >[!WARNING]
    > È **necessario** assicurarsi che ognuno degli host front-end nella frontdoor abbia una regola di routing con un percorso predefinito (`\*`) associato. Questo vuol dire che tra tutte le regole di gestione deve esisterne almeno una per ognuno degli host front-end definita nel percorso predefinito (`\*`). In caso contrario, è possibile che il traffico degli utenti finali non venga instradato correttamente.
 
 1. Selezionare **Rivedi e crea** e quindi **Crea**.
 
-    :::image type="content" source="media/quickstart-create-front-door/configuration-azure-front-door.png" alt-text="Creare un'app Web nel portale di Azure":::
+    :::image type="content" source="media/quickstart-create-front-door/configuration-azure-front-door.png" alt-text="Servizio Frontdoor di Azure configurato":::
 
 ## <a name="view-azure-front-door-in-action"></a>Visualizzare Frontdoor di Azure in azione
 
@@ -150,7 +150,7 @@ Per testare il failover globale istantaneo, provare a eseguire i passaggi seguen
 
 1. Nel portale di Azure cercare e selezionare *Servizi app*. Scorrere verso il basso per trovare una delle app Web, in questo esempio **WebAppContoso-1**.
 
-1. Selezionare l'app Web, quindi selezionare **Arresta**e **Sì** per verifica.
+1. Selezionare l'app Web, quindi selezionare **Arresta** e **Sì** per verifica.
 
 1. Aggiornare il browser. Si dovrebbe visualizzare la stessa pagina di informazioni.
 
@@ -161,7 +161,7 @@ Per testare il failover globale istantaneo, provare a eseguire i passaggi seguen
 
 1. Aggiornare il browser. Questa volta dovrebbe essere visualizzato un messaggio di errore.
 
-   :::image type="content" source="media/quickstart-create-front-door/web-app-stopped-message.png" alt-text="Creare un'app Web nel portale di Azure":::
+   :::image type="content" source="media/quickstart-create-front-door/web-app-stopped-message.png" alt-text="Entrambe le istanze dell'app Web sono state arrestate":::
 
 ## <a name="clean-up-resources"></a>Pulire le risorse
 

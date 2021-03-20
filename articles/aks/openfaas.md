@@ -7,10 +7,10 @@ ms.date: 03/05/2018
 ms.author: juda
 ms.custom: mvc, devx-track-azurecli
 ms.openlocfilehash: 319107127b79383fc3b49f0eeb856a0e6c5b09f8
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/27/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92747765"
 ---
 # <a name="using-openfaas-on-aks"></a>Uso di OpenFaaS in servizio Azure Kubernetes
@@ -132,7 +132,7 @@ echo -n $PASSWORD | ./faas-cli login -g $OPENFAAS_URL -u admin --password-stdin
 
 Ora che OpenFaaS è operativo, creare una funzione usando il portale di OpenFaaS.
 
-Fare clic su **Deploy New Function** (Distribuisci nuova funzione) e cercare **Figlet** . Selezionare la funzione Figlet e fare clic su **Deploy** (Distribuisci).
+Fare clic su **Deploy New Function** (Distribuisci nuova funzione) e cercare **Figlet**. Selezionare la funzione Figlet e fare clic su **Deploy** (Distribuisci).
 
 ![Screenshot mostra la finestra di dialogo Distribuisci una nuova funzione con il testo FIGlet nella riga di ricerca.](media/container-service-serverless/figlet.png)
 

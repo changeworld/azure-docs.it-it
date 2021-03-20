@@ -7,12 +7,12 @@ ms.reviewer: maghan
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 07/05/2018
-ms.openlocfilehash: bd36b589424a0d890fc5e1bbab3f234e9b3264c6
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 2dba9e4f727b56e5093171c2ea59382075563f31
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100374780"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104592061"
 ---
 # <a name="pipeline-execution-and-triggers-in-azure-data-factory"></a>Esecuzione e trigger di pipeline in Azure Data Factory
 
@@ -323,13 +323,8 @@ I trigger di finestra a cascata vengono attivati in base a un intervallo di temp
 
 Per ulteriori informazioni sui trigger di finestra a cascata e, per esempi, vedere [creare un trigger di finestra a cascata](how-to-create-tumbling-window-trigger.md).
 
-## <a name="event-based-trigger"></a>Trigger basato su eventi
-
-Un trigger basato su eventi esegue le pipeline in risposta a un evento, ad esempio l'arrivo di un file o l'eliminazione di un file in Archiviazione BLOB di Azure.
-
-Per altre informazioni sui trigger basati su eventi, vedere [Create a trigger that runs a pipeline in response to an event](how-to-create-event-trigger.md) (Creare un trigger che esegue una pipeline in risposta a un evento).
-
 ## <a name="examples-of-trigger-recurrence-schedules"></a>Esempi di pianificazioni di ricorrenza del trigger
+
 Questa sezione fornisce esempi di pianificazioni di ricorrenza. È incentrata sull'oggetto **schedule** e sui rispettivi elementi.
 
 Negli esempi si presuppone che il valore dell' **intervallo** sia 1 e che il valore **Frequency** sia corretto in base alla definizione della pianificazione. Ad esempio, non è possibile avere un valore **Frequency** pari a "Day" e anche una modifica **monthDays** nell'oggetto **Schedule** . Questi tipi di restrizioni vengono descritti nella tabella disponibile nella sezione precedente.
@@ -364,6 +359,7 @@ Negli esempi si presuppone che il valore dell' **intervallo** sia 1 e che il val
 | `{"minutes":[15,45], "hours":[5,17], "monthlyOccurrences":[{"day":"wednesday", "occurrence":3}]}` | Viene eseguito alle 05:15, 05:45, 17:15 e 17:45 il terzo mercoledì di ogni mese. |
 
 ## <a name="trigger-type-comparison"></a>Confronto dei tipi di trigger
+
 Il trigger di finestra a cascata e il trigger di pianificazione funzionano entrambi in base agli heartbeat temporali, ma presentano alcune differenze.
 
 > [!NOTE]
@@ -380,7 +376,17 @@ La tabella seguente contiene un confronto del trigger di finestra a cascata e de
 | **Variabili di sistema** | Insieme a @trigger (). ScheduledTime e @trigger (). StartTime, supporta anche l'utilizzo delle variabili di sistema **WindowStart** e **WindowEnd** . Gli utenti possono accedere a `trigger().outputs.windowStartTime` e a `trigger().outputs.windowEndTime` come variabile di sistema del trigger nella definizione del trigger. I valori vengono usati rispettivamente come ora di inizio della finestra e ora di fine della finestra. Ad esempio, per un trigger di finestra a cascata che viene eseguito ogni ora, per la finestra compresa tra la 01:00 e le 02:00, la definizione è `trigger().outputs.windowStartTime = 2017-09-01T01:00:00Z` e `trigger().outputs.windowEndTime = 2017-09-01T02:00:00Z`. | Supporta solo @trigger le variabili default (). ScheduledTime e @trigger (). StartTime. |
 | **Relazione tra pipeline e trigger** | Supporta una relazione uno a uno. Può essere attivata una sola pipeline. | Supporta relazioni molti a molti. Più trigger possono attivare una singola pipeline. Un singolo trigger può attivare più pipeline. |
 
+## <a name="event-based-trigger"></a>Trigger basato su eventi
+
+Un trigger basato su eventi esegue le pipeline in risposta a un evento. Esistono due tipi di trigger basati su eventi.
+
+* Il _trigger dell'evento di archiviazione_ esegue una pipeline per gli eventi che si verificano in un account di archiviazione, ad esempio l'arrivo di un file o l'eliminazione di un file nell'account di archiviazione BLOB di Azure.
+* _Trigger di evento personalizzato_ elabora e gestisce gli [argomenti personalizzati](../event-grid/custom-topics.md) in griglia di eventi
+
+Per altre informazioni sui trigger basati su eventi, vedere [trigger dell'evento di archiviazione](how-to-create-event-trigger.md) e [trigger di evento personalizzato](how-to-create-custom-event-trigger.md).
+
 ## <a name="next-steps"></a>Passaggi successivi
+
 Vedere le esercitazioni seguenti:
 
 - [Guida introduttiva: Creare una data factory con .NET SDK](quickstart-create-data-factory-dot-net.md)

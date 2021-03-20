@@ -11,13 +11,13 @@ ms.topic: how-to
 author: WilliamDAssafMSFT
 ms.author: wiassaf
 ms.reviewer: sstein
-ms.date: 1/14/2021
-ms.openlocfilehash: b87d0a2446eb2b65c20ae0bef408320686cb5165
-ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
+ms.date: 03/15/2021
+ms.openlocfilehash: 5c0de2c1589bfa495ab6ad287b998c403041674c
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98219131"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104592150"
 ---
 # <a name="monitoring-microsoft-azure-sql-database-and-azure-sql-managed-instance-performance-using-dynamic-management-views"></a>Monitoraggio di database SQL di Microsoft Azure e delle prestazioni di Istanza gestita di SQL di Azure tramite le viste a gestione dinamica
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -31,6 +31,10 @@ Database SQL di Microsoft Azure e Azure SQL Istanza gestita supportano parzialme
 - Visualizzazioni a gestione dinamica relative alle transazioni.
 
 Per informazioni dettagliate sulle viste a gestione dinamica, vedere [funzioni e viste a gestione dinamica (Transact-SQL)](/sql/relational-databases/system-dynamic-management-views/system-dynamic-management-views).
+
+## <a name="monitor-with-sql-insights"></a>Monitorare con SQL Insights
+
+[SQL Insights di monitoraggio di Azure](../../azure-monitor/insights/sql-insights-overview.md) è uno strumento per il monitoraggio di istanze gestite di SQL di Azure, database SQL di Azure e istanze di SQL Server nelle macchine virtuali SQL di Azure. Questo servizio usa un agente remoto per acquisire i dati dalle viste a gestione dinamica (DMV) e instrada i dati ad Azure Log Analytics, dove possono essere monitorati e analizzati. È possibile visualizzare i dati da [monitoraggio di Azure](../../azure-monitor/overview.md) in viste fornite o accedere direttamente ai dati di log per eseguire query e analizzare le tendenze. Per iniziare a usare il monitoraggio di Azure SQL Insights, vedere [abilitare SQL Insights](../../azure-monitor/insights/sql-insights-enable.md).
 
 ## <a name="permissions"></a>Autorizzazioni
 
@@ -769,6 +773,6 @@ CROSS APPLY sys.dm_exec_sql_text(plan_handle) AS q
 ORDER BY highest_cpu_queries.total_worker_time DESC;
 ```
 
-## <a name="see-also"></a>Vedere anche
+## <a name="see-also"></a>Vedi anche
 
 [Introduzione al database SQL di Azure e Istanza gestita SQL di Azure](sql-database-paas-overview.md)

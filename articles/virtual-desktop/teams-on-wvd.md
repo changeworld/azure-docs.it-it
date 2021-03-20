@@ -7,10 +7,10 @@ ms.date: 11/10/2020
 ms.author: helohr
 manager: lizross
 ms.openlocfilehash: 052d11fe0125de7970fb7d02931edfc7f3c2e4d9
-ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/23/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98743118"
 ---
 # <a name="use-microsoft-teams-on-windows-virtual-desktop"></a>Usare Microsoft teams sul desktop virtuale di Windows
@@ -45,7 +45,7 @@ Per abilitare l'ottimizzazione dei supporti per i team, impostare la seguente ch
 
 2. Creare il valore seguente per la chiave teams:
 
-| Nome             | Type   | Dati/valore  |
+| Nome             | Tipo   | Dati/valore  |
 |------------------|--------|-------------|
 | IsWVDEnvironment | DWORD  | 1           |
 

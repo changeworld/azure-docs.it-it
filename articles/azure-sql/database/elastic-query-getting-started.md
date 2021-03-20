@@ -12,10 +12,10 @@ ms.author: mlandzic
 ms.reviewer: sstein
 ms.date: 10/10/2019
 ms.openlocfilehash: 586dad7439cc57ed2c863ee5f6692e12f7a78c50
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/28/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92781227"
 ---
 # <a name="report-across-scaled-out-cloud-databases-preview"></a>Creare report in database cloud con numero maggiore di istanze (anteprima)
@@ -37,7 +37,7 @@ Di seguito si creerà un gestore mappe partizione con diverse partizioni, seguit
 1. Compilare ed eseguire l'applicazione di esempio **Introduzione a strumenti di database elastici** attenendosi alla procedura descritta nella sezione [scaricare ed eseguire l'app di esempio](elastic-scale-get-started.md#download-and-run-the-sample-app-1). Al termine di tutti i passaggi, verrà visualizzato il prompt dei comandi seguente:
 
     ![prompt dei comandi][1]
-2. Nella finestra di comando, digitare "1" e premere **Invio** . Viene creato il gestore delle mappe partizioni e aggiunge due partizioni al server. Digitare "3" e premere **Invio** ; ripetere l'azione quattro volte. Consente di inserire righe di dati di esempio nelle partizioni.
+2. Nella finestra di comando, digitare "1" e premere **Invio**. Viene creato il gestore delle mappe partizioni e aggiunge due partizioni al server. Digitare "3" e premere **Invio**; ripetere l'azione quattro volte. Consente di inserire righe di dati di esempio nelle partizioni.
 3. Il [portale di Azure](https://portal.azure.com) dovrebbe mostrare tre nuovi database nel server:
 
    ![Conferma di Visual Studio][2]
@@ -121,19 +121,19 @@ Si noterà che la query di aggregare i risultati di tutte le partizioni e produc
 
 1. Avviare Excel 2013.
 2. Individuare il **dati** della barra multifunzione.
-3. Fare clic su **Da altre origini** e quindi su **Da SQL Server** .
+3. Fare clic su **Da altre origini** e quindi su **Da SQL Server**.
 
    ![Importazione di Excel da altre origini][5]
-4. In **Connessione guidata dati** digitare le credenziali di accesso e il nome del server. Quindi fare clic su **Next** .
-5. Nella finestra di dialogo **Selezionare il database contenente i dati desiderati** selezionare il database **ElasticDBQuery** .
-6. Selezionare la tabella **Customers** nella visualizzazione elenco e fare clic su **Avanti** . Fare clic su **Fine** .
-7. Nel modulo **Importa dati** in **Specificare come visualizzare i dati nella cartella di lavoro** selezionare **Tabella** e fare clic su **OK** .
+4. In **Connessione guidata dati** digitare le credenziali di accesso e il nome del server. Quindi fare clic su **Next**.
+5. Nella finestra di dialogo **Selezionare il database contenente i dati desiderati** selezionare il database **ElasticDBQuery**.
+6. Selezionare la tabella **Customers** nella visualizzazione elenco e fare clic su **Avanti**. Fare clic su **Fine**.
+7. Nel modulo **Importa dati** in **Specificare come visualizzare i dati nella cartella di lavoro** selezionare **Tabella** e fare clic su **OK**.
 
 Tutte le righe dalla tabella **Clienti** , archiviate in diverse partizioni sono riportate nel foglio Excel.
 
 È ora possibile utilizzare funzioni di visualizzazione avanzata dei dati di Excel. È possibile utilizzare la stringa di connessione con il nome del server, nome del database e credenziali per gli strumenti di integrazione di Business Intelligence e i dati di connettersi al database query elastica. Assicurarsi che SQL Server sia supportato come origine dati per lo strumento. È possibile fare riferimento al database elastica query e tabelle esterne come qualsiasi altro database di SQL Server e tabelle di SQL Server è necessario connettersi allo strumento.
 
-### <a name="cost"></a>Costi
+### <a name="cost"></a>Costo
 Non esiste senza alcun costo aggiuntivo per utilizzare la funzione elastica Query del Database.
 
 Per informazioni sui prezzi, vedere [Dettagli prezzi del database SQL](https://azure.microsoft.com/pricing/details/sql-database/).

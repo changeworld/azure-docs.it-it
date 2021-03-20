@@ -10,10 +10,10 @@ ms.date: 10/08/2020
 ms.author: allensu
 ms.custom: ''
 ms.openlocfilehash: d2d3bd43a0f17167e855d7e678a96cd79fe42237
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/28/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92777742"
 ---
 # <a name="failover-across-multiple-endpoints-with-azure-traffic-manager"></a>Failover tra più endpoint con gestione traffico di Azure
@@ -62,20 +62,20 @@ Creare un profilo di gestione traffico di Azure e configurare il bilanciamento d
 
 1. Creare un profilo di Gestione traffico di Azure seguendo i passaggi descritti in [Creare un profilo di Gestione traffico](../traffic-manager/quickstart-create-traffic-manager-profile.md). 
 
-    * **Metodo di routing** selezionare **priorità** .
+    * **Metodo di routing** selezionare **priorità**.
 
 2. Aggiungere gli endpoint della rete CDN nel profilo di Gestione traffico seguendo la procedura descritta in [Aggiungere endpoint di Gestione traffico](../traffic-manager/quickstart-create-traffic-manager-profile.md#add-traffic-manager-endpoints)
 
-    * **Digitare** , selezionare **endpoint esterni** .
-    * **Priority** , immettere un numero.
+    * **Digitare**, selezionare **endpoint esterni**.
+    * **Priority**, immettere un numero.
 
-    Ad esempio, creare **cdndemo101akamai.azureedge.net** con la priorità **1** e **cdndemo101verizon.azureedge.net** con la priorità **2** .
+    Ad esempio, creare **cdndemo101akamai.azureedge.net** con la priorità **1** e **cdndemo101verizon.azureedge.net** con la priorità **2**.
 
    ![Endpoint di Gestione traffico della rete CDN](./media/cdn-traffic-manager/cdn-traffic-manager-endpoints.png)
 
 
 ## <a name="configure-custom-domain-on-azure-cdn-and-azure-traffic-manager"></a>Configurare un dominio personalizzato nella rete CDN di Azure e in gestione traffico di Azure
-Dopo aver configurato i profili della rete CDN e di gestione traffico, attenersi alla procedura seguente per aggiungere il mapping DNS e registrare il dominio personalizzato negli endpoint della rete CDN. Per questo esempio il nome di dominio personalizzato è **cdndemo101.dustydogpetcare.online** .
+Dopo aver configurato i profili della rete CDN e di gestione traffico, attenersi alla procedura seguente per aggiungere il mapping DNS e registrare il dominio personalizzato negli endpoint della rete CDN. Per questo esempio il nome di dominio personalizzato è **cdndemo101.dustydogpetcare.online**.
 
 1. Passare al sito Web per il provider di dominio del dominio personalizzato, ad esempio GoDaddy, e creare due voci DNS CNAME. 
 
@@ -96,7 +96,7 @@ Dopo aver configurato i profili della rete CDN e di gestione traffico, attenersi
     >
 
 
-2.  Dal profilo della rete CDN di Azure selezionare il primo endpoint della rete CDN (Akamai). Selezionare **Aggiungi dominio personalizzato** e input **cdndemo101. dustydogpetcare. online** . Verificare che il segno di spunta per convalidare il dominio personalizzato sia verde. 
+2.  Dal profilo della rete CDN di Azure selezionare il primo endpoint della rete CDN (Akamai). Selezionare **Aggiungi dominio personalizzato** e input **cdndemo101.dustydogpetcare.online**. Verificare che il segno di spunta per convalidare il dominio personalizzato sia verde. 
 
     La rete CDN di Azure usa il sottodominio **cdnverify** per convalidare il mapping DNS per completare questo processo di registrazione. Per altre informazioni, vedere [Creare un record DNS CNAME](cdn-map-content-to-custom-domain.md#create-a-cname-dns-record). Questo passaggio consente alla rete CDN di Azure di riconoscere il dominio personalizzato in modo da rispondere alle sue richieste.
     
@@ -110,7 +110,7 @@ Dopo aver configurato i profili della rete CDN e di gestione traffico, attenersi
 
     `cdnverify.cdndemo101.dustydogpetcare.online  CNAME  cdnverify.cdndemo101verizon.azureedge.net`  
 
-4. Dal profilo della rete CDN di Azure selezionare il secondo endpoint della rete CDN, Verizon, e ripetere il passaggio 2. Selezionare **Aggiungi dominio personalizzato** e immettere **cdndemo101. dustydogpetcare. online** .
+4. Dal profilo della rete CDN di Azure selezionare il secondo endpoint della rete CDN, Verizon, e ripetere il passaggio 2. Selezionare **Aggiungi dominio personalizzato** e immettere **cdndemo101.dustydogpetcare.online**.
  
 Dopo aver completato questi passaggi, il servizio di rete CDN con funzionalità di failover viene configurato con gestione traffico di Azure. 
 

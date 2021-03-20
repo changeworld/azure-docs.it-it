@@ -12,10 +12,10 @@ ms.author: sstein
 ms.reviewer: ''
 ms.date: 09/19/2018
 ms.openlocfilehash: e4328be0aade0658dedb034dbbb6980b810f771a
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
-ms.translationtype: HT
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/28/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92793195"
 ---
 # <a name="manage-schema-in-a-saas-application-using-the-database-per-tenant-pattern-with-azure-sql-database"></a>Gestire lo schema in un'applicazione SaaS usando il modello con un database per ogni tenant con il database SQL di Azure
@@ -62,7 +62,7 @@ Gli script di gestione e il codice sorgente sono disponibili nel repository [Win
 
 Questa esercitazione richiede l'uso di PowerShell per creare un agente processo e il relativo database di backup. Il database dell'agente processo contiene le definizioni e lo stato del processo e la cronologia. Dopo la creazione dell'agente processo e del relativo database, è possibile creare e monitorare i processi immediatamente.
 
-1. In **PowerShell ISE** aprire \\…\\Learning Modules (Moduli di apprendimento)\\Schema Management (Gestione schema) *Demo-SchemaManagement.ps1* .
+1. In **PowerShell ISE** aprire \\…\\Learning Modules (Moduli di apprendimento)\\Schema Management (Gestione schema)*Demo-SchemaManagement.ps1*.
 1. Premere **F5** per eseguire lo script.
 
 Lo script *Demo-SchemaManagement.ps1* chiama lo script *Deploy-SchemaManagement.ps1* per creare un database denominato *osagent* nel server di catalogo. Lo script crea quindi l'agente processo usando il database come parametro.
@@ -74,7 +74,7 @@ Nell'app Wingtip Tickets ogni database tenant include un set di tipi di sedi sup
 Esaminare prima i tipi di sede inclusi in ogni database tenant. Connettersi a uno dei database tenant in SQL Server Management Studio (SSMS) ed esaminare la tabella VenueTypes.  È anche possibile eseguire query su questa tabella nell'editor di query nel portale di Azure, accessibile dalla pagina di database. 
 
 1. Aprire SSMS e connettersi al server del tenant *tenants1-dpt-&lt;user&gt;.database.windows.net*
-1. Per verificare che *Motorcycle Racing* e *Swimming Club* **non siano** attualmente inclusi, passare al database _contosoconcerthall_ nel server *tenants1-dpt-&lt;utente&gt;* ed eseguire una query sulla tabella *VenueTypes* .
+1. Per verificare che *Motorcycle Racing* e *Swimming Club* **non siano** attualmente inclusi, passare al database _contosoconcerthall_ nel server *tenants1-dpt-&lt;utente&gt;* ed eseguire una query sulla tabella *VenueTypes*.
 
 L'esercizio prevede ora la creazione di un processo per aggiornare la tabella *VenueTypes* in tutti i database tenant per aggiungere i nuovi tipi di sede.
 
@@ -85,14 +85,14 @@ Per creare un nuovo processo, usare un set di stored procedure di sistema per i 
 1. Modificare l'istruzione: SET @wtpUser = &lt;utente&gt; e sostituire il valore Utente usato per la distribuzione dell'app del database per tenant SaaS Wingtip Tickets
 1. Verificare di essere connessi al database _jobagent_ e premere **F5** per eseguire lo script
 
-Esaminare gli elementi seguenti nello script *DeployReferenceData.sql* :
+Esaminare gli elementi seguenti nello script *DeployReferenceData.sql*:
 * **sp\_add\_target\_group** crea il nome del gruppo di destinazione DemoServerGroup.
-* **sp\_add\_target\_group\_member** viene usato per definire il set di database di destinazione.  Inizialmente viene aggiunto il server _tenants1-dpt-&lt;user&gt;_ .  Se si aggiunge il server come destinazione, al momento dell'esecuzione del processo i database in tale server vengono inclusi nel processo stesso. A questo punto i database _basetenantdb_ e *adhocreporting* (usato in un'esercitazione successiva) vengono aggiunti come destinazione.
-* **sp\_add\_job** crea un processo denominato _Reference Data Deployment_ .
+* **sp\_add\_target\_group\_member** viene usato per definire il set di database di destinazione.  Inizialmente viene aggiunto il server _tenants1-dpt-&lt;user&gt;_.  Se si aggiunge il server come destinazione, al momento dell'esecuzione del processo i database in tale server vengono inclusi nel processo stesso. A questo punto i database _basetenantdb_ e *adhocreporting* (usato in un'esercitazione successiva) vengono aggiunti come destinazione.
+* **sp\_add\_job** crea un processo denominato _Reference Data Deployment_.
 * **sp\_add\_jobstep** crea il passaggio del processo contenente il testo del comando T-SQL per aggiornare la tabella di riferimento VenueTypes.
 * Le restanti viste nello script consentono di confermare l'esistenza degli oggetti e gestire il monitoraggio dell'esecuzione del processo. Usare queste query per esaminare il valore di stato nella colonna **lifecycle** per determinare il momento in cui l'esecuzione del processo termina in tutti i database di destinazione.
 
-Dopo il completamento dello script, è possibile verificare se i dati di riferimento sono stati aggiornati.  In SSMS passare al database *contosoconcerthall* nel server *tenants1-dpt-&lt;user&gt;* ed eseguire una query sulla tabella *VenueTypes* .  Verificare che *Motorcycle Racing* e *Swimming Club* **siano** attualmente presenti.
+Dopo il completamento dello script, è possibile verificare se i dati di riferimento sono stati aggiornati.  In SSMS passare al database *contosoconcerthall* nel server *tenants1-dpt-&lt;user&gt;* ed eseguire una query sulla tabella *VenueTypes*.  Verificare che *Motorcycle Racing* e *Swimming Club* **siano** attualmente presenti.
 
 
 ## <a name="create-a-job-to-manage-the-reference-table-index"></a>Creare un processo per gestire l'indice della tabella di riferimento
@@ -103,10 +103,10 @@ Creare un processo usando le stesse stored procedure di sistema per i processi.
 
 1. Aprire SSMS e connettersi al server _catalog-dpt-&lt;user&gt;.database.windows.net_
 1. Aprire il file _…\\Learning Modules\\Schema Management\\OnlineReindex.sql_
-1. Fare clic con il pulsante destro del mouse, scegliere Connessione e quindi connettersi al server _catalog-dpt-&lt;user&gt;.database.windows.net_ , se non si è già connessi
+1. Fare clic con il pulsante destro del mouse, scegliere Connessione e quindi connettersi al server _catalog-dpt-&lt;user&gt;.database.windows.net_, se non si è già connessi
 1. Verificare di essere connessi al database _jobagent_ e premere **F5** per eseguire lo script
 
-Esaminare gli elementi seguenti nello script _OnlineReindex.sql_ :
+Esaminare gli elementi seguenti nello script _OnlineReindex.sql_:
 * **sp\_add\_job** crea un nuovo processo denominato "Online Reindex PK\_\_VenueTyp\_\_265E44FD7FD4C885".
 * **sp\_add\_jobstep** crea il passaggio del processo contenente il testo del comando T-SQL per aggiornare l'indice.
 * Le viste rimaste nello script monitorano l'esecuzione del processo. Usare queste query per esaminare il valore di stato nella colonna **lifecycle** per determinare quando il processo viene completato su tutti i membri del gruppo di destinazione.

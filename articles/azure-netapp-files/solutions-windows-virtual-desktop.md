@@ -15,10 +15,10 @@ ms.topic: conceptual
 ms.date: 08/13/2020
 ms.author: b-juche
 ms.openlocfilehash: 0cd1f6210fbdb74e3fd511150157dccca3e92dda
-ms.sourcegitcommit: 50802bffd56155f3b01bfb4ed009b70045131750
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91932465"
 ---
 # <a name="benefits-of-using-azure-netapp-files-with-windows-virtual-desktop"></a>Vantaggi dell'uso di Azure NetApp Files con Desktop virtuale Windows 
@@ -35,7 +35,7 @@ Nei progetti di esempio seguenti viene illustrata l'integrazione di desktop virt
 
 Per lo scenario in pool, il team di desktop virtuali Windows [consiglia](/windows-server/remote/remote-desktop-services/virtual-machine-recs#multi-session-recommendations) le seguenti indicazioni per numero di utenti a vCPU. Si noti che in questa raccomandazione non è specificata alcuna dimensione di macchina virtuale.
 
-|     Tipo di carico di lavoro     |     Chiaro    |     Media    |     Pesante    |
+|     Tipo di carico di lavoro     |     Chiaro    |     Medio    |     Pesante    |
 |-----------------------|--------------|---------------|--------------|
 |     Utenti per vCPU    |     6        |     4         |     2        |
 

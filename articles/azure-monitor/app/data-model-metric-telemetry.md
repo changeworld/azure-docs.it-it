@@ -5,10 +5,10 @@ ms.topic: conceptual
 ms.date: 04/25/2017
 ms.reviewer: sergkanz
 ms.openlocfilehash: f8e787b8a94987e7d68e12a0e4e69f4c63e21e19
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "87320579"
 ---
 # <a name="metric-telemetry-application-insights-data-model"></a>Metrica dei dati di telemetria: modello di dati di Application Insights
@@ -37,7 +37,7 @@ Metrica che rappresenta i contatori di sistema e di processo:
 
 Nome della metrica che si vuole visualizzare nel portale di Application Insights e nell'interfaccia utente. 
 
-## <a name="value"></a>valore
+## <a name="value"></a>Valore
 
 Singolo valore per la misura. Somma delle singole misure per l'aggregazione.
 

@@ -12,10 +12,10 @@ ms.author: mlandzic
 ms.reviewer: sstein
 ms.date: 01/03/2019
 ms.openlocfilehash: 148c4828309738a18dbda5fd35ea634e8384bfde
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/28/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92792107"
 ---
 # <a name="reporting-across-scaled-out-cloud-databases-preview"></a>Creazione di report tra database cloud con scalabilità orizzontale (anteprima)
@@ -159,11 +159,11 @@ Le clausole SCHEMA\_NAME e OBJECT\_NAME eseguono il mapping della definizione de
 
 La clausola DISTRIBUTION specifica la distribuzione dei dati usata per questa tabella. Query Processor utilizza le informazioni fornite nella clausola DISTRIBUTION per generare i piani di query più efficienti.
 
-1. **Partizionato significa che** i dati vengono partizionati orizzontalmente tra i database. La chiave di partizionamento per la distribuzione dei dati è il parametro **<sharding_column_name>** .
+1. **Partizionato significa che** i dati vengono partizionati orizzontalmente tra i database. La chiave di partizionamento per la distribuzione dei dati è il parametro **<sharding_column_name>**.
 2. **Replicated** significa che in ogni database sono presenti copie identiche della tabella. Sarà quindi necessario assicurarsi che le repliche siano identiche in tutti i database.
 3. **Arrotonda \_ ROBIN** indica che la tabella è partizionata orizzontalmente usando un metodo di distribuzione dipendente dall'applicazione.
 
-**Riferimento al livello dati** : il DDL della tabella esterna fa riferimento a un'origine dati esterna. L'origine dati esterna specifica una mappa partizioni che fornisce alla tabella esterna le informazioni necessarie per individuare tutti i database nel livello dati.
+**Riferimento al livello dati**: il DDL della tabella esterna fa riferimento a un'origine dati esterna. L'origine dati esterna specifica una mappa partizioni che fornisce alla tabella esterna le informazioni necessarie per individuare tutti i database nel livello dati.
 
 ### <a name="security-considerations"></a>Considerazioni relative alla sicurezza
 

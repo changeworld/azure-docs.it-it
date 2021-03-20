@@ -11,10 +11,10 @@ ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
 ms.openlocfilehash: d7ca1707c89f03683960822591065143d3f8aa4f
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/28/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92783879"
 ---
 # <a name="configure-azure-storage-connection-strings"></a>Configurare le stringhe di connessione di Archiviazione di Azure
@@ -34,7 +34,7 @@ Per informazioni su come visualizzare le chiavi di accesso dell'account e copiar
 L'applicazione deve accedere alla stringa di connessione in fase di runtime per autenticare le richieste inviate al servizio Archiviazione di Azure. Sono disponibili diverse opzioni per l'archiviazione della stringa di connessione:
 
 * È possibile archiviare la stringa di connessione in una variabile di ambiente.
-* Un'applicazione in esecuzione sul desktop o in un dispositivo può archiviare la stringa di connessione in un file **app.config** o in un file **web.config** . Aggiungere la stringa di connessione alla sezione **AppSettings** in tali file.
+* Un'applicazione in esecuzione sul desktop o in un dispositivo può archiviare la stringa di connessione in un file **app.config** o in un file **web.config**. Aggiungere la stringa di connessione alla sezione **AppSettings** in tali file.
 * Un'applicazione in esecuzione in un servizio cloud di Azure può archiviare la stringa di connessione nel [file dello schema di configurazione dei servizi di Azure (.cscfg)](/previous-versions/azure/reference/ee758710(v=azure.100)). Aggiungere la stringa di connessione alla sezione **ConfigurationSettings** del file di configurazione del servizio.
 
 Archiviando la stringa di connessione in un file di configurazione è possibile aggiornare facilmente la stringa di connessione per passare dall' [emulatore di archiviazione di azzurrite](../common/storage-use-azurite.md) a un account di archiviazione di Azure nel cloud. È sufficiente modificare la stringa di connessione in modo che faccia riferimento all'ambiente di destinazione.
@@ -57,7 +57,7 @@ Ad esempio, la stringa di connessione può essere simile alla seguente:
 
 `DefaultEndpointsProtocol=https;AccountName=storagesample;AccountKey=<account-key>`
 
-Anche se Archiviazione di Azure supporta sia HTTP che HTTPS in una stringa di connessione, *è consigliabile usare HTTPS* .
+Anche se Archiviazione di Azure supporta sia HTTP che HTTPS in una stringa di connessione, *è consigliabile usare HTTPS*.
 
 > [!TIP]
 > Le stringhe di connessione dell'account di archiviazione sono disponibili nel [portale di Azure](https://portal.azure.com). Passare a **Impostazioni**  >  **chiavi di accesso** nel pannello del menu dell'account di archiviazione per visualizzare le stringhe di connessione per le chiavi di accesso primarie e secondarie.

@@ -1,5 +1,5 @@
 ---
-title: Come rispondere ad Azure Defender per Key Vault avvisi
+title: Come rispondere agli avvisi di Azure Defender per Key Vault
 description: Informazioni sui passaggi necessari per rispondere agli avvisi da Azure Defender per Key Vault.
 author: memildin
 ms.author: memildin
@@ -8,14 +8,14 @@ ms.topic: how-to
 ms.service: security-center
 manager: rkarlin
 ms.openlocfilehash: 67c556e44f07240b1ad1bcde61f40042da46def8
-ms.sourcegitcommit: b8a175b6391cddd5a2c92575c311cc3e8c820018
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/25/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96122212"
 ---
 # <a name="respond-to-azure-defender-for-key-vault-alerts"></a>Rispondere agli avvisi di Azure Defender per Key Vault
-Quando si riceve un avviso da Azure Defender per Key Vault, è consigliabile esaminare e rispondere all'avviso come descritto di seguito. Azure Defender per Key Vault protegge le applicazioni e le credenziali, quindi anche se si ha familiarità con l'applicazione o l'utente che ha attivato l'avviso, è importante verificare la situazione che circonda ogni avviso.  
+Quando si riceve un avviso da Azure Defender per Key Vault, è consigliabile esaminare e rispondere all'avviso come descritto di seguito. Azure Defender per Key Vault protegge le applicazioni e le credenziali, pertanto, anche se si conosce l'applicazione o l'utente che ha attivato l'avviso, è importante verificare il contesto di ogni avviso.  
 
 Ogni avviso di Azure Defender per Key Vault include gli elementi seguenti:
 
@@ -23,7 +23,7 @@ Ogni avviso di Azure Defender per Key Vault include gli elementi seguenti:
 - Nome dell'entità utente o indirizzo IP della risorsa sospetta
 
 > [!TIP]
-> In base al *tipo* di accesso che si è verificato, è possibile che alcuni campi non siano disponibili. Ad esempio, se l'accesso all'insieme di credenziali delle chiavi è stato eseguito da un'applicazione, non verrà visualizzato un nome dell'entità utente associato. Se il traffico proviene dall'esterno di Azure, non viene visualizzato un ID oggetto.
+> In base al *tipo* di accesso che si è verificato, è possibile che alcuni campi non siano disponibili. Ad esempio, se l'accesso a Key Vault è stato eseguito mediante un'applicazione, non verrà visualizzato il nome dell'entità utente associato. Se il traffico proviene dall'esterno di Azure, non viene visualizzato l'ID oggetto.
 
 ## <a name="step-1-contact"></a>Passaggio 1. Contatto
 

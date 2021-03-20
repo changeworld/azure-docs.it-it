@@ -7,10 +7,10 @@ ms.date: 06/30/2017
 ms.custom: devx-track-java
 ms.author: pakunapa
 ms.openlocfilehash: b22c78a0259e4430ac6bfae1c0a9379c4a832cd4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "87324608"
 ---
 # <a name="reliable-services-lifecycle"></a>Ciclo di vita di Reliable Services
@@ -66,7 +66,7 @@ Quando si arresta un servizio senza stato, si segue lo stesso modello, ma in sen
 I servizi con stato hanno un modello simile ai servizi senza stato, con poche modifiche.  L'ordine degli eventi per l'avvio di un servizio con stato è il seguente:
 
 1. Il servizio viene costruito.
-2. Viene chiamato `StatefulServiceBase.onOpenAsync()`. L'override della chiamata nel servizio non è comune.
+2. Chiamata del metodo `StatefulServiceBase.onOpenAsync()`. L'override della chiamata nel servizio non è comune.
 3. Questi eventi si verificano in parallelo:
     - Viene richiamato `StatefulServiceBase.createServiceReplicaListeners()`. 
       - Se il servizio è di tipo primario, tutti i listener restituiti vengono aperti. Viene richiamato `CommunicationListener.openAsync()` su ogni listener.

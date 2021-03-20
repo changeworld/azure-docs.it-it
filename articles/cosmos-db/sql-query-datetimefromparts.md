@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 07/09/2020
 ms.author: tisande
 ms.custom: query-reference
-ms.openlocfilehash: da992715b5cf624592db72cacefd35c9513ac43f
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.openlocfilehash: b0e7996b71e68db371201da1f0f5c93486ae4e29
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93335773"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104592095"
 ---
 # <a name="datetimefromparts-azure-cosmos-db"></a>DateTimeFromParts (Azure Cosmos DB)
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -48,17 +48,17 @@ DateTimeFromParts(<numberYear>, <numberMonth>, <numberDay> [, numberHour]  [, nu
 
 Restituisce un valore stringa ISO 8601 di data e ora UTC nel formato in `YYYY-MM-DDThh:mm:ss.fffffffZ` cui:
   
-  |Formato|Descrizione|
-  |-|-|
-  |AAAA|anno a quattro cifre|
-  |MM|mese a due cifre (01 = gennaio e così via)|
-  |GG|giorno del mese a due cifre (da 01 a 31)|
-  |T|significato per l'inizio degli elementi Time|
-  |hh|ora a due cifre (da 00 a 23)|
-  |mm|minuti a due cifre (da 00 a 59)|
-  |ss|secondi a due cifre (da 00 a 59)|
-  |. fffffff|secondi frazionari a sette cifre|
-  |Z|Indicatore UTC (Coordinated Universal Time)||
+|Formato|Descrizione|
+|-|-|
+|AAAA|anno a quattro cifre|
+|MM|mese a due cifre (01 = gennaio e così via)|
+|GG|giorno del mese a due cifre (da 01 a 31)|
+|T|significato per l'inizio degli elementi Time|
+|hh|ora a due cifre (da 00 a 23)|
+|MM|minuti a due cifre (da 00 a 59)|
+|ss|secondi a due cifre (da 00 a 59)|
+|. fffffff|secondi frazionari a sette cifre|
+|Z|Indicatore UTC (Coordinated Universal Time)|
   
  Per ulteriori informazioni sul formato ISO 8601, vedere [ISO_8601](https://en.wikipedia.org/wiki/ISO_8601)
 
@@ -68,7 +68,7 @@ Se gli Integer specificati creeranno un valore DateTime non valido, DateTimeFrom
 
 Se non si specifica un argomento facoltativo, il valore sarà 0.
 
-## <a name="examples"></a>Esempi
+## <a name="examples"></a>Esempio
 
 Di seguito è riportato un esempio che include solo gli argomenti obbligatori per costruire un valore DateTime:
 

@@ -7,10 +7,10 @@ ms.topic: troubleshooting
 ms.date: 08/18/2020
 ms.author: yunjchoi
 ms.openlocfilehash: a409ac944c51d893fc344f82ae83d97559e055ef
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/15/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92070657"
 ---
 # <a name="check-for-resource-health-events-impacting-your-aks-cluster-preview"></a>Verificare la presenza di eventi di Integrità risorse che incidono sul cluster AKS (anteprima)
@@ -39,7 +39,7 @@ Quando si eseguono i carichi di lavoro del contenitore su AKS, è necessario ass
 
 Integrità risorse di Azure consente di diagnosticare e ottenere supporto per i problemi del servizio che interessano le risorse di Azure. Integrità risorse report sull'integrità corrente e passata delle risorse e consente di determinare se il problema è causato da un'azione avviata dall'utente o da un evento Platform.
 
-Integrità risorse riceve i segnali per il cluster gestito per determinare lo stato di integrità del cluster. Esamina lo stato di integrità del cluster AKS e segnala le azioni necessarie per ogni segnale di integrità. Questi segnali variano da problemi di risoluzione automatica, aggiornamenti pianificati, eventi di integrità non pianificati e indisponibilità causati da azioni avviate dall'utente. Questi segnali sono classificati con lo stato di integrità del Integrità risorse di Azure: *disponibile*, non *disponibile*, *sconosciuto*e *danneggiato*.
+Integrità risorse riceve i segnali per il cluster gestito per determinare lo stato di integrità del cluster. Esamina lo stato di integrità del cluster AKS e segnala le azioni necessarie per ogni segnale di integrità. Questi segnali variano da problemi di risoluzione automatica, aggiornamenti pianificati, eventi di integrità non pianificati e indisponibilità causati da azioni avviate dall'utente. Questi segnali sono classificati con lo stato di integrità del Integrità risorse di Azure: *disponibile*, non *disponibile*, *sconosciuto* e *danneggiato*.
 
 - **Disponibile**: quando non sono presenti problemi noti che interessano l'integrità del cluster, integrità risorse segnala il cluster come *disponibile*.
 

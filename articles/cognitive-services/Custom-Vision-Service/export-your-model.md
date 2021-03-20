@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 03/21/2019
 ms.author: pafarley
 ms.openlocfilehash: be28a10f8a96d21d64d08cfacee4543c065168ae
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "85391758"
 ---
 # <a name="export-your-model-for-use-with-mobile-devices"></a>Esportare il modello per l'uso con i dispositivi mobili
@@ -58,7 +58,7 @@ Per convertire il dominio di un modello esistente, seguire questa procedura:
 
     ![Immagine della selezione dei domini](./media/export-your-model/domains.png)
 
-1. Nella parte superiore della pagina fare clic sul __pulsante__relativo al training per ripetere il training usando il nuovo dominio.
+1. Nella parte superiore della pagina fare clic sul __pulsante__ relativo al training per ripetere il training usando il nuovo dominio.
 
 ## <a name="export-your-model"></a>Esportare il modello
 
@@ -69,7 +69,7 @@ Per esportare il modello dopo la ripetizione del training, seguire questa proced
     ![Immagine dell'icona di esportazione](./media/export-your-model/export.png)
 
     > [!TIP]
-    > Se la voce __Esporta__ non è disponibile, l'iterazione selezionata non usa un dominio compatto. Usare la sezione relativa alle__iterazioni__ di questa pagina per selezionare un'iterazione che usa un dominio compatto e quindi selezionare __Esporta__.
+    > Se la voce __Esporta__ non è disponibile, l'iterazione selezionata non usa un dominio compatto. Usare la sezione relativa alle __iterazioni__ di questa pagina per selezionare un'iterazione che usa un dominio compatto e quindi selezionare __Esporta__.
 
 1. Selezionare il formato di esportazione desiderato, quindi selezionare __Esporta__ per scaricare il modello.
 

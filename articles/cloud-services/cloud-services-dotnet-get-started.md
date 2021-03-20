@@ -9,10 +9,10 @@ author: tanmaygore
 ms.reviewer: mimckitt
 ms.custom: ''
 ms.openlocfilehash: ae7fd5a7c9bc858cb18473374e7bd5589717eac6
-ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/23/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98742081"
 ---
 # <a name="get-started-with-azure-cloud-services-classic-and-aspnet"></a>Introduzione ai servizi cloud di Azure (versione classica) e ASP.NET
@@ -407,10 +407,10 @@ Per aggiungere file a un progetto o a una cartella, fare clic con il pulsante de
 1. Nel progetto ContosoAdsCommon eliminare il file *Class1.cs* e sostituirlo con i file *Ad.cs* e *ContosoAdscontext.cs* dal progetto scaricato.
 2. Nel progetto ContosoAdsWeb aggiungere i file seguenti dal progetto scaricato.
 
-   * *Global.asax.cs*.  
+   * *Global. asax. cs*.  
    * Nella cartella *Views\Shared*: *\_Layout.cshtml*.
    * Nella cartella *Views\Home* : *index. cshtml*.
-   * Nella cartella *Controllers* : *AdController.cs*.
+   * Nella cartella *Controllers* : *AdController. cs*.
    * Nella cartella *Views\Ad* (creare prima di tutto la cartella): cinque file *.cshtml*.
 3. Nel progetto ContosoAdsWorker aggiungere il file *WorkerRole.cs* dal progetto scaricato.
 
@@ -534,7 +534,7 @@ Il file *Views\Home\Index.cshtml* visualizza i collegamenti di categoria nella h
 ### <a name="contosoadsweb---adcontrollercs"></a>ContosoAdsWeb - AdController.cs
 Nel file *AdController.cs* il costruttore chiama il metodo `InitializeStorage` per creare oggetti della libreria del client di Archiviazione di Azure che forniscono un'API per l'uso di BLOB e code.
 
-Il codice ottiene quindi un riferimento al contenitore BLOB *images* , come illustrato in precedenza in *Global.asax.cs*. Durante questa operazione, imposta un [criterio per l'esecuzione di nuovi tentativi](https://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/transient-fault-handling) predefinito appropriato per un'app Web. I criteri di ripetizione dei tentativi di backoff esponenziali predefiniti possono causare l'interruzione della risposta dell'app Web per più di un minuto in tentativi ripetuti per un errore temporaneo. Il criterio di ripetizione dei tentativi specificato qui attende tre secondi dopo ogni tentativo, fino a un massimo di tre tentativi.
+Il codice ottiene quindi un riferimento al contenitore BLOB *images* , come illustrato in precedenza in *Global. asax. cs*. Durante questa operazione, imposta un [criterio per l'esecuzione di nuovi tentativi](https://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/transient-fault-handling) predefinito appropriato per un'app Web. I criteri di ripetizione dei tentativi di backoff esponenziali predefiniti possono causare l'interruzione della risposta dell'app Web per più di un minuto in tentativi ripetuti per un errore temporaneo. Il criterio di ripetizione dei tentativi specificato qui attende tre secondi dopo ogni tentativo, fino a un massimo di tre tentativi.
 
 ```csharp
 var blobClient = storageAccount.CreateCloudBlobClient();

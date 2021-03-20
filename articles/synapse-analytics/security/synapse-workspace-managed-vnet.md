@@ -5,15 +5,15 @@ author: RonyMSFT
 ms.service: synapse-analytics
 ms.topic: overview
 ms.subservice: security
-ms.date: 04/15/2020
+ms.date: 01/18/2021
 ms.author: ronytho
 ms.reviewer: jrasnick
-ms.openlocfilehash: 949b7e55569cc6fceacc37677ed06a28bb85d7c2
-ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
-ms.translationtype: HT
+ms.openlocfilehash: f55251932c8aa8f632bd3b498943ac722f006dee
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98116365"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "98569912"
 ---
 # <a name="azure-synapse-analytics-managed-virtual-network"></a>Rete virtuale gestita di Azure Synapse Analytics
 
@@ -52,8 +52,21 @@ Se si lascia deselezionata la casella di controllo, all'area di lavoro non verr�
 
 ![Rete virtuale dell'area di lavoro gestita abilitata](./media/synapse-workspace-managed-vnet/enable-managed-vnet-1.png)
 
+Dopo aver scelto di associare una rete virtuale dell'area di lavoro gestita all'area di lavoro, è possibile proteggersi da dati exfiltration consentendo la connettività in uscita dalla rete virtuale dell'area di lavoro gestita solo alle destinazioni approvate usando [endpoint privati gestiti](./synapse-workspace-managed-private-endpoints.md). Selezionare **Sì** per limitare il traffico in uscita dalla rete virtuale dell'area di lavoro gestita alle destinazioni tramite endpoint privati gestiti. 
 
-È possibile verificare se l'area di lavoro di Azure Synapse è associata a una rete virtuale dell'area di lavoro gestita selezionando **Panoramica** nel portale di Azure.
+
+>[!IMPORTANT]
+>Metastore è disabilitato nelle aree di lavoro sinapsi con rete virtuale gestita con la protezione Exfiltration dati abilitata. Non sarà possibile usare Spark SQL in queste aree di lavoro.
+
+![Traffico in uscita con endpoint privati gestiti](./media/synapse-workspace-managed-vnet/select-outbound-connectivity.png)
+
+Selezionare **No** per consentire il traffico in uscita dall'area di lavoro a qualsiasi destinazione.
+
+È anche possibile controllare le destinazioni in cui vengono creati gli endpoint privati gestiti dall'area di lavoro sinapsi di Azure. Per impostazione predefinita, sono consentiti endpoint privati gestiti per le risorse nello stesso tenant di AAD a cui appartiene la sottoscrizione. Se si vuole creare un endpoint privato gestito a una risorsa in un tenant AAD diverso da quello a cui appartiene la sottoscrizione, è possibile aggiungere il tenant di AAD selezionando **+ Aggiungi**. È possibile selezionare il tenant AAD dall'elenco a discesa o immettere manualmente l'ID tenant di AAD.
+
+![Aggiungere altri tenant di AAD](./media/synapse-workspace-managed-vnet/add-additional-azure-active-directory-tenants.png)
+
+Dopo aver creato l'area di lavoro, è possibile verificare se l'area di lavoro di Azure sinapsi è associata a una rete virtuale dell'area di lavoro gestita selezionando **Panoramica** da portale di Azure.
 
 ![Panoramica dell'area di lavoro nel portale di Azure](./media/synapse-workspace-managed-vnet/enable-managed-vnet-2.png)
 

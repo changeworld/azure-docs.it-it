@@ -6,10 +6,10 @@ ms.topic: conceptual
 ms.date: 12/17/2019
 ms.author: azfuncdf
 ms.openlocfilehash: 4e4081ecca4714c713d105d363a83a4f96a0d3fc
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "84697844"
 ---
 # <a name="http-api-reference"></a>Informazioni di riferimento sulle API HTTP
@@ -58,14 +58,14 @@ I parametri della richiesta per questa API includono il set predefinito indicato
 |--------------------|-----------------|-------------|
 | **`functionName`** | URL             | Nome della funzione dell'agente di orchestrazione da avviare. |
 | **`instanceId`**   | URL             | Parametro facoltativo. ID dell'istanza di orchestrazione. Se non specificato, la funzione dell'agente di orchestrazione inizierà con un ID istanza casuale. |
-| **`{content}`**    | Contenuto della richiesta | Facoltativa. Input della funzione dell'agente di orchestrazione in formato JSON. |
+| **`{content}`**    | Contenuto della richiesta | facoltativo. Input della funzione dell'agente di orchestrazione in formato JSON. |
 
 ### <a name="response"></a>Risposta
 
 Possono essere restituiti diversi valori di codice di stato.
 
 * **HTTP 202 (accettato)**: la funzione dell'agente di orchestrazione specificata è stata pianificata per l'avvio dell'esecuzione. L' `Location` intestazione della risposta contiene un URL per il polling dello stato dell'orchestrazione.
-* **HTTP 400 (richiesta**non valida): la funzione dell'agente di orchestrazione specificata non esiste, l'ID istanza specificato non è valido oppure il contenuto della richiesta non è un JSON valido.
+* **HTTP 400 (richiesta** non valida): la funzione dell'agente di orchestrazione specificata non esiste, l'ID istanza specificato non è valido oppure il contenuto della richiesta non è un JSON valido.
 
 Di seguito è riportata una richiesta di esempio che avvia una funzione dell'agente `RestartVMs` di orchestrazione e include il payload dell'oggetto JSON:
 
@@ -541,7 +541,7 @@ I parametri della richiesta per questa API includono il set predefinito indicato
 | Campo             | Tipo di parametro  | Descrizione |
 |-------------------|-----------------|-------------|
 | **`instanceId`**  | URL             | ID dell'istanza di orchestrazione. |
-| **`reason`**      | Stringa di query    | Facoltativa. Motivo dell'interruzione dell'istanza di orchestrazione. |
+| **`reason`**      | Stringa di query    | facoltativo. Motivo dell'interruzione dell'istanza di orchestrazione. |
 
 ### <a name="response"></a>Risposta
 
@@ -590,7 +590,7 @@ I parametri della richiesta per questa API includono il set predefinito indicato
 | Campo             | Tipo di parametro  | Descrizione |
 |-------------------|-----------------|-------------|
 | **`instanceId`**  | URL             | ID dell'istanza di orchestrazione. |
-| **`reason`**      | Stringa di query    | Facoltativa. Motivo del ripristino dell'istanza di orchestrazione. |
+| **`reason`**      | Stringa di query    | facoltativo. Motivo del ripristino dell'istanza di orchestrazione. |
 
 ### <a name="response"></a>Risposta
 
@@ -633,7 +633,7 @@ I parametri della richiesta per questa API includono il set predefinito indicato
 |-------------------|-----------------|-------------|
 | **`entityName`**  | URL             | Nome (tipo) dell'entità. |
 | **`entityKey`**   | URL             | Chiave (ID univoco) dell'entità. |
-| **`op`**          | Stringa di query    | Facoltativa. Nome dell'operazione definita dall'utente da richiamare. |
+| **`op`**          | Stringa di query    | facoltativo. Nome dell'operazione definita dall'utente da richiamare. |
 | **`{content}`**   | Contenuto della richiesta | Payload dell'evento in formato JSON. |
 
 Di seguito è riportato un esempio di richiesta che invia un messaggio "Add" definito dall'utente a un' `Counter` entità denominata `steps` . Il contenuto del messaggio è il valore `5` . Se l'entità non esiste già, verrà creata da questa richiesta:
@@ -653,7 +653,7 @@ Content-Type: application/json
 Questa operazione presenta diverse risposte possibili:
 
 * **HTTP 202 (accettato)**: l'operazione di segnalazione è stata accettata per l'elaborazione asincrona.
-* **HTTP 400 (richiesta**non valida): il contenuto della richiesta non è di tipo `application/json` , non è un JSON valido o ha un valore non valido `entityKey` .
+* **HTTP 400 (richiesta** non valida): il contenuto della richiesta non è di tipo `application/json` , non è un JSON valido o ha un valore non valido `entityKey` .
 * **HTTP 404 (non trovato)**: l'oggetto specificato `entityName` non è stato trovato.
 
 Una richiesta HTTP con esito positivo non contiene contenuto nella risposta. Una richiesta HTTP non riuscita può contenere informazioni sull'errore in formato JSON nel contenuto della risposta.
@@ -720,7 +720,7 @@ I parametri della richiesta per questa API includono il set predefinito indicato
 
 | Campo                       | Tipo di parametro  | Descrizione |
 |-----------------------------|-----------------|-------------|
-| **`entityName`**            | URL             | Facoltativa. Quando specificato, filtra l'elenco di entità restituite in base al nome dell'entità (senza distinzione tra maiuscole e minuscole). |
+| **`entityName`**            | URL             | facoltativo. Quando specificato, filtra l'elenco di entità restituite in base al nome dell'entità (senza distinzione tra maiuscole e minuscole). |
 | **`fetchState`**            | Stringa di query    | Parametro facoltativo. Se impostato su `true` , lo stato dell'entità verrà incluso nel payload della risposta. |
 | **`lastOperationTimeFrom`** | Stringa di query    | Parametro facoltativo. Quando specificato, filtra l'elenco di entità restituite che ha elaborato le operazioni dopo il timestamp ISO8601 specificato. |
 | **`lastOperationTimeTo`**   | Stringa di query    | Parametro facoltativo. Quando specificato, filtra l'elenco di entità restituite che ha elaborato le operazioni prima del timestamp di ISO8601 specificato. |

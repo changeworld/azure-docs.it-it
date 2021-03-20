@@ -11,10 +11,10 @@ ms.date: 10/12/2020
 ms.reviewer: sngun
 ms.custom: devx-track-csharp
 ms.openlocfilehash: 409b51682700a8b13b2840f171642bdcbee6f6d2
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93340227"
 ---
 # <a name="change-feed-processor-in-azure-cosmos-db"></a>Processore dei feed di modifiche in Azure Cosmos DB
@@ -32,9 +32,9 @@ Ci sono quattro componenti principali per l'implementazione del processore del f
 
 1. **Contenitore di lease:** Il contenitore di lease agisce come una risorsa di archiviazione di stato e coordina l'elaborazione dei feed di modifiche tra più ruoli di lavoro. Il contenitore di lease può essere archiviato nello stesso account del contenitore monitorato o in un account diverso.
 
-1. **Host** : Un host è un'istanza dell'applicazione che usa il processore del feed di modifiche per restare in ascolto delle modifiche. È possibile eseguire in parallelo più istanze con la stessa configurazione di lease, ma ogni istanza deve avere un nome di istanza **diverso**.
+1. **Host**: Un host è un'istanza dell'applicazione che usa il processore del feed di modifiche per restare in ascolto delle modifiche. È possibile eseguire in parallelo più istanze con la stessa configurazione di lease, ma ogni istanza deve avere un nome di istanza **diverso**.
 
-1. **Delegato** : Il delegato è il codice che definisce le operazioni che lo sviluppatore desidera eseguire con ogni batch di modifiche letto dal processore del feed di modifiche. 
+1. **Delegato**: Il delegato è il codice che definisce le operazioni che lo sviluppatore desidera eseguire con ogni batch di modifiche letto dal processore del feed di modifiche. 
 
 Per una migliore comprensione dell'interazione tra i quattro elementi del processore dei feed di modifiche, è consigliabile esaminare un esempio nel diagramma seguente. Il contenitore monitorato archivia i documenti e usa "City" come chiave di partizione. Si noterà che i valori della chiave di partizione sono distribuiti in intervalli che contengono elementi. Sono disponibili due istanze dell'host e il processore dei feed di modifiche assegna diversi intervalli di valori di chiave di partizione a ogni istanza per ottimizzare la distribuzione di calcolo. Ogni intervallo viene letto in parallelo e lo stato di avanzamento viene mantenuto separatamente dagli altri intervalli nel contenitore di lease.
 
@@ -106,7 +106,7 @@ Per impostazione predefinita, quando un processore di feed di modifiche viene av
 
 ### <a name="reading-from-a-previous-date-and-time"></a>Lettura da una data e un'ora precedenti
 
-È possibile inizializzare il processore dei feed di modifiche in modo da leggere le modifiche a partire da una **data e ora specifiche** , passando un'istanza di `DateTime` all'estensione del generatore `WithStartTime`:
+È possibile inizializzare il processore dei feed di modifiche in modo da leggere le modifiche a partire da una **data e ora specifiche**, passando un'istanza di `DateTime` all'estensione del generatore `WithStartTime`:
 
 [!code-csharp[Main](~/samples-cosmosdb-dotnet-v3/Microsoft.Azure.Cosmos.Samples/Usage/ChangeFeed/Program.cs?name=TimeInitialization)]
 
@@ -114,7 +114,7 @@ Il processore dei feed di modifiche verrà inizializzato per la data e l'ora spe
 
 ### <a name="reading-from-the-beginning"></a>Lettura dall'inizio
 
-In altri scenari, ad esempio la migrazione dei dati o l'analisi dell'intera cronologia di un contenitore, è necessario leggere il feed di modifiche dall' **inizio della durata del contenitore**. A tale scopo, è possibile usare `WithStartTime` sull'estensione del generatore, ma passando `DateTime.MinValue.ToUniversalTime()`, che genererebbe la rappresentazione UTC del valore minimo `DateTime`, come segue:
+In altri scenari, ad esempio la migrazione dei dati o l'analisi dell'intera cronologia di un contenitore, è necessario leggere il feed di modifiche dall'**inizio della durata del contenitore**. A tale scopo, è possibile usare `WithStartTime` sull'estensione del generatore, ma passando `DateTime.MinValue.ToUniversalTime()`, che genererebbe la rappresentazione UTC del valore minimo `DateTime`, come segue:
 
 [!code-csharp[Main](~/samples-cosmosdb-dotnet-v3/Microsoft.Azure.Cosmos.Samples/Usage/ChangeFeed/Program.cs?name=StartFromBeginningInitialization)]
 

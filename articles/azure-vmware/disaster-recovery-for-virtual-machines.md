@@ -4,10 +4,10 @@ description: Questo articolo illustra come completare il ripristino di emergenza
 ms.topic: how-to
 ms.date: 09/22/2020
 ms.openlocfilehash: 688d91bc181e1479f5090a10af4b3b262d7ddb7f
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/28/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92779612"
 ---
 # <a name="complete-disaster-recovery-of-virtual-machines-using-azure-vmware-solution"></a>Completare il ripristino di emergenza di macchine virtuali con la soluzione VMware di Azure
@@ -38,17 +38,17 @@ In questa guida vengono illustrati gli scenari di replica seguenti:
 
 ## <a name="protect-vms"></a>Proteggere le macchine virtuali
 
-1. Accedere a **vSphere client** nel sito di origine e accedere al plug-in **HCX** .
+1. Accedere a **vSphere client** nel sito di origine e accedere al plug-in **HCX**.
 
    :::image type="content" source="./media/disaster-recovery-virtual-machines/hcx-vsphere.png" alt-text="Opzione HCX in vSphere" border="true":::
 
-1. Immettere l'area **ripristino di emergenza** e selezionare **Proteggi VM** .
+1. Immettere l'area **ripristino di emergenza** e selezionare **Proteggi VM**.
 
-   :::image type="content" source="./media/disaster-recovery-virtual-machines/protect-virtual-machine.png" alt-text="Opzione HCX in vSphere" border="true" lightbox="./media/disaster-recovery-virtual-machines/protect-virtual-machine.png":::
+   :::image type="content" source="./media/disaster-recovery-virtual-machines/protect-virtual-machine.png" alt-text="Selezionare Proteggi VM" border="true" lightbox="./media/disaster-recovery-virtual-machines/protect-virtual-machine.png":::
 
 1. Selezionare l'origine e i siti remoti. In questo caso il sito remoto dovrebbe essere il cloud privato della soluzione VMware di Azure.
 
-   :::image type="content" source="./media/disaster-recovery-virtual-machines/protect-virtual-machines.png" alt-text="Opzione HCX in vSphere" border="true":::
+   :::image type="content" source="./media/disaster-recovery-virtual-machines/protect-virtual-machines.png" alt-text="finestra Proteggi VM" border="true":::
 
 1. Se necessario, selezionare le opzioni di **replica predefinite** :
 
@@ -68,21 +68,21 @@ In questa guida vengono illustrati gli scenari di replica seguenti:
 
    - **Numero di snapshot:** Numero totale di snapshot compresi nell'intervallo di snapshot configurato.
 
-   :::image type="content" source="./media/disaster-recovery-virtual-machines/protect-virtual-machine-options.png" alt-text="Opzione HCX in vSphere" border="true" lightbox="./media/disaster-recovery-virtual-machines/protect-virtual-machine-options.png":::
+   :::image type="content" source="./media/disaster-recovery-virtual-machines/protect-virtual-machine-options.png" alt-text="opzioni di Proteggi VM" border="true" lightbox="./media/disaster-recovery-virtual-machines/protect-virtual-machine-options.png":::
 
 1. Selezionare una o più VM dall'elenco e configurare le opzioni di replica in base alle esigenze.
 
    Per impostazione predefinita, le macchine virtuali ereditano i criteri delle impostazioni globali configurati nelle opzioni di replica predefinite. Per ogni interfaccia di rete nella macchina virtuale selezionata, configurare il **gruppo di porte di rete** remota e selezionare **fine** per avviare il processo di protezione.
 
-   :::image type="content" source="./media/disaster-recovery-virtual-machines/network-interface-options.png" alt-text="Opzione HCX in vSphere" border="true" lightbox="./media/disaster-recovery-virtual-machines/network-interface-options.png":::
+   :::image type="content" source="./media/disaster-recovery-virtual-machines/network-interface-options.png" alt-text="opzioni dell'interfaccia di rete" border="true" lightbox="./media/disaster-recovery-virtual-machines/network-interface-options.png":::
 
 1. Monitorare il processo per ognuna delle macchine virtuali selezionate nella stessa area di ripristino di emergenza.
 
-   :::image type="content" source="./media/disaster-recovery-virtual-machines/protect-monitor-progress.png" alt-text="Opzione HCX in vSphere" border="true" lightbox="./media/disaster-recovery-virtual-machines/protect-monitor-progress.png":::
+   :::image type="content" source="./media/disaster-recovery-virtual-machines/protect-monitor-progress.png" alt-text="monitorare lo stato di protezione" border="true" lightbox="./media/disaster-recovery-virtual-machines/protect-monitor-progress.png":::
 
 1. Dopo che la macchina virtuale è stata protetta, è possibile visualizzare i diversi snapshot nella scheda **snapshot** .
 
-   :::image type="content" source="./media/disaster-recovery-virtual-machines/list-of-snapshots.png" alt-text="Opzione HCX in vSphere" border="true" lightbox="./media/disaster-recovery-virtual-machines/list-of-snapshots.png":::
+   :::image type="content" source="./media/disaster-recovery-virtual-machines/list-of-snapshots.png" alt-text="elenco di snapshot" border="true" lightbox="./media/disaster-recovery-virtual-machines/list-of-snapshots.png":::
 
    Il triangolo giallo indica che gli snapshot e le macchine virtuali non sono stati testati in un'operazione di ripristino di test.
 
@@ -91,55 +91,55 @@ In questa guida vengono illustrati gli scenari di replica seguenti:
 ## <a name="complete-a-test-recover-of-vms"></a>Completare un ripristino di test delle macchine virtuali
 
 1. Accedere a **vSphere client** nel sito remoto, che è il cloud privato della soluzione VMware di Azure. 
-1. Nel plug-in **HCX** , nell'area ripristino di emergenza selezionare i puntini di sospensione verticali in una macchina virtuale per visualizzare il menu operazioni e quindi selezionare **Verifica ripristino macchina virtuale** .
+1. Nel plug-in **HCX**, nell'area ripristino di emergenza selezionare i puntini di sospensione verticali in una macchina virtuale per visualizzare il menu operazioni e quindi selezionare **Verifica ripristino macchina virtuale**.
 
-   :::image type="content" source="./media/disaster-recovery-virtual-machines/test-recover-virtual-machine.png" alt-text="Opzione HCX in vSphere" border="true":::
+   :::image type="content" source="./media/disaster-recovery-virtual-machines/test-recover-virtual-machine.png" alt-text="Selezionare il ripristino del test della macchina virtuale" border="true":::
 
 1. Selezionare le opzioni per il test e lo snapshot che si vuole usare per testare diversi Stati della macchina virtuale.
 
-   :::image type="content" source="./media/disaster-recovery-virtual-machines/choose-snapshot.png" alt-text="Opzione HCX in vSphere" border="true":::
+   :::image type="content" source="./media/disaster-recovery-virtual-machines/choose-snapshot.png" alt-text="scegliere uno snapshot e selezionare test" border="true":::
 
-1. Dopo aver selezionato **test** , viene avviata l'operazione di ripristino.
+1. Dopo aver selezionato **test**, viene avviata l'operazione di ripristino.
 
 1. Al termine, è possibile controllare la nuova macchina virtuale nel cloud privato della soluzione VMware di Azure.
 
-   :::image type="content" source="./media/disaster-recovery-virtual-machines/verify-test-recovery.png" alt-text="Opzione HCX in vSphere" border="true" lightbox="./media/disaster-recovery-virtual-machines/verify-test-recovery.png":::
+   :::image type="content" source="./media/disaster-recovery-virtual-machines/verify-test-recovery.png" alt-text="Controlla operazione di ripristino" border="true" lightbox="./media/disaster-recovery-virtual-machines/verify-test-recovery.png":::
 
 1. Una volta eseguito il test sulla macchina virtuale o su qualsiasi applicazione in esecuzione, eseguire una pulizia per eliminare l'istanza di test.
 
-   :::image type="content" source="./media/disaster-recovery-virtual-machines/cleanup-test-instance.png" alt-text="Opzione HCX in vSphere" border="true" lightbox="./media/disaster-recovery-virtual-machines/cleanup-test-instance.png":::
+   :::image type="content" source="./media/disaster-recovery-virtual-machines/cleanup-test-instance.png" alt-text="Pulisci istanza di test" border="true" lightbox="./media/disaster-recovery-virtual-machines/cleanup-test-instance.png":::
 
 ## <a name="recover-vms"></a>Ripristinare le macchine virtuali
 
-1. Accedere a **vSphere client** nel sito remoto, che è il cloud privato della soluzione VMware di Azure, e accedere al plug-in **HCX** .
+1. Accedere a **vSphere client** nel sito remoto, che è il cloud privato della soluzione VMware di Azure, e accedere al plug-in **HCX**.
 
    Per lo scenario di ripristino, un gruppo di macchine virtuali usate per questo esempio.
 
-1. Selezionare la macchina virtuale da ripristinare nell'elenco, aprire il menu **azioni** e selezionare **Ripristina macchine virtuali** .
+1. Selezionare la macchina virtuale da ripristinare nell'elenco, aprire il menu **azioni** e selezionare **Ripristina macchine virtuali**.
 
-   :::image type="content" source="./media/disaster-recovery-virtual-machines/recover-virtual-machines.png" alt-text="Opzione HCX in vSphere" border="true":::
+   :::image type="content" source="./media/disaster-recovery-virtual-machines/recover-virtual-machines.png" alt-text="ripristinare le macchine virtuali" border="true":::
 
 1. Configurare le opzioni di ripristino per ogni istanza e selezionare **Ripristina** per avviare l'operazione di ripristino.
 
-   :::image type="content" source="./media/disaster-recovery-virtual-machines/recover-virtual-machines-confirm.png" alt-text="Opzione HCX in vSphere" border="true":::
+   :::image type="content" source="./media/disaster-recovery-virtual-machines/recover-virtual-machines-confirm.png" alt-text="Conferma ripristino VM" border="true":::
 
 1. Al termine dell'operazione di ripristino, le nuove macchine virtuali vengono visualizzate nell'inventario server vCenter remoto.
 
 ## <a name="complete-a-reverse-replication-on-vms"></a>Completare una replica inversa nelle VM
 
-1. Accedere a **vSphere client** nel cloud privato della soluzione VMware di Azure e accedere al plug-in **HCX** .
+1. Accedere a **vSphere client** nel cloud privato della soluzione VMware di Azure e accedere al plug-in **HCX**.
    
    >[!NOTE]
    > Verificare che le macchine virtuali originali nel sito di origine siano spente prima di avviare la replica inversa. L'operazione ha esito negativo se le macchine virtuali non sono spente.
 
-1. Nell'elenco selezionare le VM da replicare nel sito di origine, aprire il menu **azioni** e selezionare **inverso** . 
+1. Nell'elenco selezionare le VM da replicare nel sito di origine, aprire il menu **azioni** e selezionare **inverso**. 
 1. Selezionare **Inverti** per avviare la replica.
 
-   :::image type="content" source="./media/disaster-recovery-virtual-machines/reverse-operation-virtual-machines.png" alt-text="Opzione HCX in vSphere" border="true":::
+   :::image type="content" source="./media/disaster-recovery-virtual-machines/reverse-operation-virtual-machines.png" alt-text="Selezionare azione inversa in Proteggi operazioni" border="true":::
 
 1. Monitorare la sezione dei dettagli di ogni macchina virtuale.
 
-   :::image type="content" source="./media/disaster-recovery-virtual-machines/review-reverse-operation.png" alt-text="Opzione HCX in vSphere" border="true" lightbox="./media/disaster-recovery-virtual-machines/review-reverse-operation.png":::
+   :::image type="content" source="./media/disaster-recovery-virtual-machines/review-reverse-operation.png" alt-text="esaminare i risultati dell'azione inversa" border="true" lightbox="./media/disaster-recovery-virtual-machines/review-reverse-operation.png":::
 
 ## <a name="disaster-recovery-plan-automation"></a>Automazione del piano di ripristino di emergenza
 
@@ -147,9 +147,9 @@ VMware HCX attualmente non dispone di un meccanismo incorporato per creare e aut
 
 Queste API coprono le operazioni seguenti nel ripristino di emergenza.
 
-- Proteggere
+- Protezione
 
-- Recupera
+- Ripristino
 
 - Ripristino del test
 

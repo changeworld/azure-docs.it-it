@@ -12,10 +12,10 @@ ms.date: 09/26/2019
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: e5184698cab1874f327173fb30cf527feee48cad
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "85384975"
 ---
 # <a name="manage-threats-to-resources-and-data-in-azure-active-directory-b2c"></a>Gestire le minacce alle risorse e ai dati in Azure Active Directory B2C
@@ -41,15 +41,15 @@ Per gestire le impostazioni di protezione delle password, inclusa la soglia di b
 1. Accedere al [portale di Azure](https://portal.azure.com)
 1. Usare il filtro **directory + sottoscrizione** nel menu in alto per selezionare la directory che contiene il tenant del Azure ad B2C.
 1. Nel menu a sinistra selezionare **Azure AD B2C**. In alternativa, selezionare **Tutti i servizi** e quindi cercare e selezionare **Azure AD B2C**.
-1. In **sicurezza**selezionare **metodi di autenticazione (anteprima)**, quindi selezionare **protezione con password**.
+1. In **sicurezza** selezionare **metodi di autenticazione (anteprima)**, quindi selezionare **protezione con password**.
 1. Immettere le impostazioni di protezione password desiderate e quindi selezionare **Salva**.
 
     ![Pagina portale di Azure la protezione delle password in impostazioni Azure AD](./media/threat-management/portal-02-password-protection.png)
-    <br />*Impostazione della soglia di blocco su 5 nelle impostazioni di **protezione delle password** *.
+    <br />*Impostazione della soglia di blocco su 5 nelle impostazioni di **protezione delle password***.
 
 ## <a name="view-locked-out-accounts"></a>Visualizzare gli account bloccati
 
-Per ottenere informazioni sugli account bloccati, è possibile controllare il [report sull'attività di accesso](../active-directory/reports-monitoring/reference-sign-ins-error-codes.md)Active Directory. In **stato**selezionare **errore**. Tentativi di accesso non riusciti con un **codice di errore di accesso** `50053` indicante un account bloccato:
+Per ottenere informazioni sugli account bloccati, è possibile controllare il [report sull'attività di accesso](../active-directory/reports-monitoring/reference-sign-ins-error-codes.md)Active Directory. In **stato** selezionare **errore**. Tentativi di accesso non riusciti con un **codice di errore di accesso** `50053` indicante un account bloccato:
 
 ![Sezione di Azure AD report di accesso che mostra l'account bloccato](./media/threat-management/portal-01-locked-account.png)
 

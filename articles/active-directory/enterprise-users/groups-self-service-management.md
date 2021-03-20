@@ -16,10 +16,10 @@ ms.reviewer: krbain
 ms.custom: it-pro;seo-update-azuread-jan
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: c6b2b8e3374c362f937aa5cfe106e8da9f9aa39f
-ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/03/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96548002"
 ---
 # <a name="set-up-self-service-group-management-in-azure-active-directory"></a>Configurare la gestione dei gruppi self-service in Azure Active Directory 
@@ -33,7 +33,7 @@ Quando i gruppi di sicurezza vengono creati nella portale di Azure o tramite Azu
 Gruppi creati in | Comportamento predefinito del gruppo di sicurezza | Comportamento predefinito del gruppo Microsoft 365
 ------------------ | ------------------------------- | ---------------------------------
 [Azure AD PowerShell](../enterprise-users/groups-settings-cmdlets.md) | Solo i proprietari possono aggiungere membri<br>Visibile ma non disponibile per partecipare al pannello di accesso | Apri per partecipare a tutti gli utenti
-[Portale di Azure](https://portal.azure.com) | Solo i proprietari possono aggiungere membri<br>Visibile ma non disponibile per partecipare al pannello di accesso<br>Il proprietario non è assegnato automaticamente alla creazione del gruppo | Apri per partecipare a tutti gli utenti
+[Azure portal](https://portal.azure.com) | Solo i proprietari possono aggiungere membri<br>Visibile ma non disponibile per partecipare al pannello di accesso<br>Il proprietario non è assegnato automaticamente alla creazione del gruppo | Apri per partecipare a tutti gli utenti
 [Pannello di accesso](https://account.activedirectory.windowsazure.com/r#/joinGroups) | Apri per partecipare a tutti gli utenti<br>È possibile modificare le opzioni di appartenenza quando viene creato il gruppo | Apri per partecipare a tutti gli utenti<br>È possibile modificare le opzioni di appartenenza quando viene creato il gruppo
 
 ## <a name="self-service-group-management-scenarios"></a>Scenari di gestione dei gruppi self-service

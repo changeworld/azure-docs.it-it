@@ -13,10 +13,10 @@ ms.author: sasapopo
 ms.reviewer: sstein, bonova
 ms.date: 10/08/2020
 ms.openlocfilehash: f9d5528746a85668677ab122d98e954bd39cd163
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/28/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92790730"
 ---
 # <a name="use-server-trust-groups-to-set-up-and-manage-trust-between-sql-managed-instances"></a>Usare i gruppi di attendibilità del server per configurare e gestire l'attendibilità tra le istanze gestite di SQL
@@ -42,13 +42,13 @@ Nella sezione seguente viene descritta l'installazione del gruppo di attendibili
 
 4. Nella pagina Configurazione gruppo di attendibilità server selezionare l'icona **nuovo gruppo** .
 
-   :::image type="content" source="./media/server-trust-group-overview/server-trust-group-create-new-group.png" alt-text="Gruppi di trust server":::
+   :::image type="content" source="./media/server-trust-group-overview/server-trust-group-create-new-group.png" alt-text="Nuovo gruppo":::
 
-5. Nel pannello Crea del **gruppo di attendibilità SQL** impostare il **nome del gruppo** . Deve essere univoco in tutte le aree in cui risiedono i membri del gruppo. **Ambito di trust** definisce il tipo di scenario tra istanze che è abilitato con il gruppo di attendibilità del server. Nell'anteprima l'unico ambito di attendibilità applicabile è costituito dalle **transazioni distribuite** , quindi è preselezionato e non può essere modificato. Tutti **i membri del gruppo** devono appartenere alla stessa **sottoscrizione** , ma possono trovarsi in gruppi di risorse diversi. Selezionare il **gruppo di risorse** e **SQL Server/istanza** per scegliere il istanza gestita SQL di Azure che sarà membro del gruppo.
+5. Nel pannello Crea del **gruppo di attendibilità SQL** impostare il **nome del gruppo**. Deve essere univoco in tutte le aree in cui risiedono i membri del gruppo. **Ambito di trust** definisce il tipo di scenario tra istanze che è abilitato con il gruppo di attendibilità del server. Nell'anteprima l'unico ambito di attendibilità applicabile è costituito dalle **transazioni distribuite**, quindi è preselezionato e non può essere modificato. Tutti **i membri del gruppo** devono appartenere alla stessa **sottoscrizione** , ma possono trovarsi in gruppi di risorse diversi. Selezionare il **gruppo di risorse** e **SQL Server/istanza** per scegliere il istanza gestita SQL di Azure che sarà membro del gruppo.
 
-   :::image type="content" source="./media/server-trust-group-overview/server-trust-group-create-blade.png" alt-text="Gruppi di trust server":::
+   :::image type="content" source="./media/server-trust-group-overview/server-trust-group-create-blade.png" alt-text="Pannello Crea gruppo di attendibilità server":::
 
-6. Una volta popolati tutti i campi obbligatori, fare clic su **Salva** .
+6. Una volta popolati tutti i campi obbligatori, fare clic su **Salva**.
 
 ## <a name="server-trust-group-maintenance-and-deletion"></a>Manutenzione ed eliminazione del gruppo di attendibilità del server
 
@@ -59,11 +59,11 @@ Nella sezione seguente viene descritto il processo di eliminazione del gruppo di
 2. Passare a un Istanza gestita appartenente al gruppo di trust.
 3. In impostazioni **protezione** selezionare la scheda **gruppi di attendibilità SQL** .
 4. Selezionare il gruppo di trust che si desidera eliminare.
-   :::image type="content" source="./media/server-trust-group-overview/server-trust-group-manage-select.png" alt-text="Gruppi di trust server":::
-5. Fare clic su **Elimina gruppo** .
-   :::image type="content" source="./media/server-trust-group-overview/server-trust-group-manage-delete.png" alt-text="Gruppi di trust server":::
-6. Digitare il nome del gruppo di attendibilità server per confermare l'eliminazione, quindi fare clic su **Elimina** .
-   :::image type="content" source="./media/server-trust-group-overview/server-trust-group-manage-delete-confirm.png" alt-text="Gruppi di trust server":::
+   :::image type="content" source="./media/server-trust-group-overview/server-trust-group-manage-select.png" alt-text="Seleziona gruppo di attendibilità server":::
+5. Fare clic su **Elimina gruppo**.
+   :::image type="content" source="./media/server-trust-group-overview/server-trust-group-manage-delete.png" alt-text="Elimina gruppo di attendibilità server":::
+6. Digitare il nome del gruppo di attendibilità server per confermare l'eliminazione, quindi fare clic su **Elimina**.
+   :::image type="content" source="./media/server-trust-group-overview/server-trust-group-manage-delete-confirm.png" alt-text="Conferma eliminazione gruppo di attendibilità server":::
 
 > [!NOTE]
 > L'eliminazione del gruppo di attendibilità del server potrebbe non rimuovere immediatamente il trust tra le due istanze gestite. La rimozione dei trust può essere applicata richiamando un [failover](/powershell/module/az.sql/Invoke-AzSqlInstanceFailover) di istanze gestite. Controllare i [problemi noti](../database/doc-changes-updates-release-notes.md?tabs=managed-instance#known-issues) per gli aggiornamenti più recenti.

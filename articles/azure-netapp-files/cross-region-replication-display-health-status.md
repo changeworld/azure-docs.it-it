@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-ms.date: 09/16/2020
+ms.date: 03/11/2021
 ms.author: b-juche
-ms.openlocfilehash: a14656bc1abc42fdc3e948fdae1ca07469681d21
-ms.sourcegitcommit: 30906a33111621bc7b9b245a9a2ab2e33310f33f
+ms.openlocfilehash: 2819ee3bc76c0b9ff0f35d442e52149096ddc9f7
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/22/2020
-ms.locfileid: "95249853"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104590977"
 ---
 # <a name="display-health-status-of-replication-relationship"></a>Visualizzare lo stato integrità della relazione di replica 
 
@@ -57,7 +57,8 @@ ms.locfileid: "95249853"
 
 * [Replica tra più aree](cross-region-replication-introduction.md)
 * [Gestire il ripristino di emergenza](cross-region-replication-manage-disaster-recovery.md)
+* [Ridimensionare un volume di destinazione della replica tra aree](azure-netapp-files-resize-capacity-pools-or-volumes.md#resize-a-cross-region-replication-destination-volume)
 * [Metriche di replica del volume](azure-netapp-files-metrics.md#replication)
-* [Elimina volumi o repliche di volumi](cross-region-replication-delete.md)
+* [Eliminare repliche di volumi o volumi](cross-region-replication-delete.md)
 * [Risolvere i problemi relativi alla replica tra più aree](troubleshoot-cross-region-replication.md)
 

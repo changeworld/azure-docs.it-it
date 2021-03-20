@@ -9,10 +9,10 @@ ms.date: 1/17/2021
 ms.topic: article
 ms.service: azure
 ms.openlocfilehash: 313db90d4c9be30ef588b00caf1d6e4ce32b113b
-ms.sourcegitcommit: 6628bce68a5a99f451417a115be4b21d49878bb2
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/18/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98557971"
 ---
 # <a name="defender-for-iot-and-fortinet-iiot-and-ics-threat-detection--prevention"></a>Defender for Fortinet IIoT e ICS Threat detection & Prevention
@@ -129,7 +129,7 @@ Per creare una regola di inoltri
 
     :::image type="content" source="media/integration-fortinet/details.png" alt-text="Aggiungere i dettagli di FortiSIEm alla regola di invio":::
 
-    | Parametro | Description |
+    | Parametro | Descrizione |
     | --------- | ----------- |
     | **Host** | Indirizzo del server FortiSIEM. |
     | **Porta** | Porta del server FortiSIEM. |
@@ -177,7 +177,7 @@ Per impostare una regola del firewall FortiGate che blocca questa origine dannos
 
     :::image type="content" source="media/integration-fortinet/cellphone.png" alt-text="Descrizione del telefono cellulare generata automaticamente":::
 
-    | Parametro | Description |
+    | Parametro | Descrizione |
     | --------- | ----------- |
     | **Nome utente** | Nome della regola di inoltri. |
     | **Commenti** | Evento imprevisto minimo del livello di sicurezza da trasmettere. Se, ad esempio, è selezionata l'opzione minore, verranno trasmessi gli avvisi secondari e gli eventuali avvisi al di sopra di tale livello di gravità. |
@@ -218,7 +218,7 @@ Per impostare una regola del firewall FortiGate che blocca questa origine dannos
 
 1. Nel riquadro **azioni** impostare i parametri seguenti:
 
-    | Parametro | Description |
+    | Parametro | Descrizione |
     |--|--|
     | Host | Tipo di indirizzo IP del server FortiGate. |
     | Porta | Tipo di porta del server FortiGate. |
