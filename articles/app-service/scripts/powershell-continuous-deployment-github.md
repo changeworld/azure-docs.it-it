@@ -1,5 +1,5 @@
 ---
-title: 'PowerShell: Eseguire la distribuzione continua da GitHub'
+title: 'PowerShell: eseguire la distribuzione continua da GitHub'
 description: Informazioni su come usare Azure PowerShell per automatizzare la distribuzione e la gestione di Servizio app. Questo esempio illustra come creare un'app con CI/CD da GitHub.
 tags: azure-service-management
 ms.assetid: 42f901f8-02f7-4869-b22d-d99ef59f874c
@@ -7,15 +7,15 @@ ms.topic: sample
 ms.date: 03/20/2017
 ms.custom: mvc, devx-track-azurepowershell
 ms.openlocfilehash: 0ccb108b55844f822a42a3f1bccbb182a5658289
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
-ms.translationtype: HT
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "89073863"
 ---
 # <a name="create-a-web-app-with-continuous-deployment-from-github"></a>Creare un'App Web con distribuzione continua da GitHub
 
-Questo script di esempio crea un'app Web in Servizio app con le relative risorse correlate e quindi configura la [distribuzione continua](../deploy-continuous-deployment.md) da un repository GitHub. Per la distribuzione GitHub senza distribuzione continua, vedere [Creare un'App Web e distribuire il codice da GitHub](powershell-deploy-github.md).
+Questo script di esempio crea un'app Web nel servizio app con le relative risorse correlate e quindi configura la [distribuzione continua](../deploy-continuous-deployment.md) da un repository GitHub. Per la distribuzione GitHub senza distribuzione continua, vedere [Creare un'App Web e distribuire il codice da GitHub](powershell-deploy-github.md).
 
 Se necessario, installare Azure PowerShell usando l'istruzione presente nella [Guida di Azure PowerShell](/powershell/azure/) e quindi eseguire `Connect-AzAccount` per creare una connessione con Azure. Verificare inoltre se:
 

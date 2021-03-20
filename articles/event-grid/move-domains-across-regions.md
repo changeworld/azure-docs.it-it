@@ -5,10 +5,10 @@ ms.topic: how-to
 ms.custom: subject-moving-resources
 ms.date: 08/20/2020
 ms.openlocfilehash: fff8638a819511f84f15c52ad0695cdd5759f971
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "89086215"
 ---
 # <a name="move-azure-event-grid-domains-to-another-region"></a>Spostare i domini di griglia di eventi di Azure in un'altra area
@@ -32,15 +32,15 @@ Di seguito sono riportati i passaggi di alto livello trattati in questo articolo
 Per iniziare, esportare un modello di Gestione risorse per il dominio. 
 
 1. Accedere al [portale di Azure](https://portal.azure.com).
-2. Nella barra di ricerca digitare **domini griglia di eventi**e selezionare **domini griglia di eventi** dall'elenco risultati. 
+2. Nella barra di ricerca digitare **domini griglia di eventi** e selezionare **domini griglia di eventi** dall'elenco risultati. 
 
     :::image type="content" source="./media/move-domains-across-regions/search-domains.png" alt-text="Cercare e selezionare i domini di griglia di eventi":::
 3. Selezionare il **dominio** che si vuole esportare in un modello di gestione risorse. 
 
-    :::image type="content" source="./media/move-domains-across-regions/select-domain.png" alt-text="Cercare e selezionare i domini di griglia di eventi":::   
+    :::image type="content" source="./media/move-domains-across-regions/select-domain.png" alt-text="Selezionare il dominio":::   
 4. Nella pagina **dominio griglia di eventi** selezionare **Esporta modello** in **Impostazioni** nel menu a sinistra e quindi fare clic su **Scarica** sulla barra degli strumenti. 
 
-    :::image type="content" source="./media/move-domains-across-regions/export-template-download.png" alt-text="Cercare e selezionare i domini di griglia di eventi" lightbox="./media/move-domains-across-regions/export-template-download.png":::   
+    :::image type="content" source="./media/move-domains-across-regions/export-template-download.png" alt-text="Esporta modello-download >" lightbox="./media/move-domains-across-regions/export-template-download.png":::   
 
     > [!IMPORTANT]
     > Vengono esportati gli argomenti dominio e dominio. Le sottoscrizioni per argomenti di dominio non vengono esportate È quindi necessario creare sottoscrizioni per gli argomenti di dominio dopo aver spostato gli argomenti del dominio. 
@@ -60,20 +60,20 @@ Per iniziare, esportare un modello di Gestione risorse per il dominio.
 Distribuire il modello per creare gli argomenti dominio e dominio nell'area di destinazione. 
 
 1. Nella portale di Azure selezionare **Crea una risorsa**.
-2. In **Cerca nel Marketplace**Digitare **distribuzione modello**, quindi premere **invio**.
+2. In **Cerca nel Marketplace** Digitare **distribuzione modello**, quindi premere **invio**.
 3. Selezionare **distribuzione modelli**.
 4. Selezionare **Crea**.
 5. Selezionare **Creare un modello personalizzato nell'editor**.
-6. Selezionare **Carica file**e quindi seguire le istruzioni per caricare il **template.js** nel file scaricato nell'ultima sezione.
+6. Selezionare **Carica file** e quindi seguire le istruzioni per caricare il **template.js** nel file scaricato nell'ultima sezione.
 7. Selezionare **Save (Salva** ) per salvare il modello. 
 8. Nella pagina **distribuzione personalizzata** , attenersi alla seguente procedura:
-    1. Selezionare una **sottoscrizione**di Azure. 
+    1. Selezionare una **sottoscrizione** di Azure. 
     1. Selezionare un **gruppo di risorse** esistente nell'area di destinazione o crearne uno. 
     1. Per **Region (area**) selezionare l'area di destinazione. Se è stato selezionato un gruppo di risorse esistente, questa impostazione è di sola lettura. 
-    1. Per **nome dominio**immettere un nuovo nome per il dominio. 
+    1. Per **nome dominio** immettere un nuovo nome per il dominio. 
     1. Selezionare **Rivedi e crea**. 
     
-        :::image type="content" source="./media/move-domains-across-regions/deploy-template.png" alt-text="Cercare e selezionare i domini di griglia di eventi":::        
+        :::image type="content" source="./media/move-domains-across-regions/deploy-template.png" alt-text="Distribuire il modello":::        
     1. Dopo aver completato la convalida del modello, selezionare **Crea** nella parte inferiore della pagina per distribuire la risorsa. 
     1. Una volta completata la distribuzione, selezionare **Vai al gruppo di risorse** per passare alla pagina del gruppo di risorse. Verificare che sia presente un dominio nel gruppo di risorse. Selezionare il dominio. Verificare che siano presenti argomenti di dominio nel dominio. 
 
@@ -84,13 +84,13 @@ Se si desidera ricominciare, eliminare il dominio nell'area di destinazione e ri
 
 Per eliminare un dominio utilizzando la portale di Azure:
 
-1. Nella finestra di ricerca nella parte superiore di portale di Azure digitare **domini di griglia di eventi**e selezionare **domini di griglia di eventi** nei risultati della ricerca. 
+1. Nella finestra di ricerca nella parte superiore di portale di Azure digitare **domini di griglia di eventi** e selezionare **domini di griglia di eventi** nei risultati della ricerca. 
 2. Selezionare il dominio da eliminare e selezionare **Elimina** dalla barra degli strumenti. 
 3. Nella pagina Conferma immettere il nome del gruppo di risorse e selezionare **Elimina**.  
 
 Per eliminare il gruppo di risorse che contiene il dominio usando il portale di Azure:
 
-1. Nella finestra di ricerca nella parte superiore di portale di Azure digitare **gruppi di risorse**e selezionare **gruppi di risorse** dai risultati della ricerca. 
+1. Nella finestra di ricerca nella parte superiore di portale di Azure digitare **gruppi di risorse** e selezionare **gruppi di risorse** dai risultati della ricerca. 
 2. Selezionare il gruppo di risorse da eliminare e selezionare **Elimina** dalla barra degli strumenti. 
 3. Nella pagina Conferma immettere il nome del gruppo di risorse e selezionare **Elimina**.  
 

@@ -15,10 +15,10 @@ ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: a632c0e31de1c2d7e5417656d537e5f9f82ecfbe
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/26/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96180490"
 ---
 # <a name="configure-security-alerts-for-azure-ad-roles-in-privileged-identity-management"></a>Configurare gli avvisi di sicurezza per i ruoli di Azure AD in Privileged Identity Management
@@ -82,7 +82,7 @@ In questa sezione vengono elencati tutti gli avvisi di sicurezza per i ruoli di 
 
 | | |
 | --- | --- |
-| **Gravità** | Media |
+| **Gravità** | Medio |
 | **Perché viene visualizzato questo avviso?** | Gli account in un ruolo con privilegi non hanno modificato la password negli ultimi 90 giorni. Questi account potrebbero essere account di servizio o condivisi che non vengono mantenuti aggiornati e sono vulnerabili agli attacchi. |
 | **Come risolvere il problema?** | Esaminare gli account nell'elenco. Se l'accesso non è più necessario, rimuovere gli account dai ruoli con privilegi. |
 | **Prevenzione** | Assicurarsi che per gli account condivisi venga eseguita la rotazione di password complesse quando cambiano gli utenti che conoscono la password. </br>Esaminare periodicamente gli account con ruoli con privilegi usando le verifiche di [accesso](pim-how-to-start-security-review.md) e rimuovere le assegnazioni di ruolo che non sono più necessarie. |
@@ -181,7 +181,7 @@ In questa sezione vengono elencati tutti gli avvisi di sicurezza per i ruoli di 
 
 | | |
 | --- | --- |
-| **Gravità** | Media |
+| **Gravità** | Medio |
 | **Perché viene visualizzato questo avviso?** | Gli account in un ruolo con privilegi non hanno modificato la password negli ultimi 90 giorni. Questi account potrebbero essere account di servizio o condivisi che non vengono mantenuti aggiornati e sono vulnerabili agli attacchi. |
 | **Come risolvere il problema?** | Esaminare gli account nell'elenco. Se l'accesso non è più necessario, rimuovere gli account dai ruoli con privilegi. |
 | **Prevenzione** | Assicurarsi che per gli account condivisi venga eseguita la rotazione di password complesse quando cambiano gli utenti che conoscono la password. </br>Esaminare periodicamente gli account con ruoli con privilegi usando le verifiche di [accesso](pim-how-to-start-security-review.md) e rimuovere le assegnazioni di ruolo che non sono più necessarie. |

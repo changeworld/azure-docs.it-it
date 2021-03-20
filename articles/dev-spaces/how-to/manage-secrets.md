@@ -7,10 +7,10 @@ description: Informazioni su come usare i segreti Kubernetes in fase di esecuzio
 keywords: Docker, Kubernetes, Azure, servizio Azure Kubernetes, servizio Azure Container, contenitori
 ms.custom: devx-track-js
 ms.openlocfilehash: 8791480f420dfd76d5291ce82e8ebf7412a41326
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/13/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91972969"
 ---
 # <a name="how-to-manage-secrets-when-working-with-an-azure-dev-space"></a>Come gestire i segreti quando si lavora in uno spazio Azure Dev Spaces
@@ -143,7 +143,7 @@ configurations:
 Nell'esempio precedente, *mynugetsecret* è un segreto esistente e *pattoken* è una chiave esistente.
 
 >[!NOTE]
-> I nomi e le chiavi dei segreti possono contenere il `.` carattere. Usare `\` per eseguire l'escape `.` quando si passano i segreti come argomenti di compilazione. Ad esempio, per passare un segreto denominato *foo. bar* con la chiave del *token*: `MYTOKEN: ${secret.foo\.bar.token}` . Inoltre, i segreti possono essere valutati con il testo prefisso e suffisso. Ad esempio: `MYURL: eus-${secret.foo\.bar.token}-version1`. Inoltre, i segreti disponibili negli spazi padre e nonni possono essere passati come argomenti di compilazione.
+> I nomi e le chiavi dei segreti possono contenere il `.` carattere. Usare `\` per eseguire l'escape `.` quando si passano i segreti come argomenti di compilazione. Ad esempio, per passare un segreto denominato *foo.bar* con la chiave del *token*: `MYTOKEN: ${secret.foo\.bar.token}` . Inoltre, i segreti possono essere valutati con il testo prefisso e suffisso. Ad esempio: `MYURL: eus-${secret.foo\.bar.token}-version1`. Inoltre, i segreti disponibili negli spazi padre e nonni possono essere passati come argomenti di compilazione.
 
 In Dockerfile usare la direttiva *arg* per usare il segreto, quindi usare la stessa variabile in un secondo momento in Dockerfile. Ad esempio:
 

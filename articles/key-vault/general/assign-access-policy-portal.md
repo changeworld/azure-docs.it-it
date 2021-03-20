@@ -11,13 +11,13 @@ ms.topic: how-to
 ms.date: 08/27/2020
 ms.author: mbaldwin
 ms.openlocfilehash: 910b8dae10036cc2e396be13495fd28363dc971d
-ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/06/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97934561"
 ---
-# <a name="assign-a-key-vault-access-policy-using-the-azure-portal"></a>Assegnare un criterio di accesso Key Vault usando il portale di Azure
+# <a name="assign-a-key-vault-access-policy-using-the-azure-portal"></a>Assegnare criteri di accesso dell'insieme di credenziali delle chiavi tramite il portale di Azure
 
 Un criterio di accesso Key Vault determina se una determinata entità servizio, ovvero un'applicazione o un gruppo di utenti, può eseguire diverse operazioni su Key Vault [segreti](../secrets/index.yml), [chiavi](../keys/index.yml)e [certificati](../certificates/index.yml). È possibile assegnare i criteri di accesso usando il portale di Azure (questo articolo), l'interfaccia della riga di comando di [Azure](assign-access-policy-cli.md)o [Azure PowerShell](assign-access-policy-powershell.md).
 

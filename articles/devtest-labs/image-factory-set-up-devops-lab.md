@@ -4,10 +4,10 @@ description: Questo articolo illustra tutti i preparativi necessari per eseguire
 ms.topic: article
 ms.date: 06/26/2020
 ms.openlocfilehash: fa7050bae1ff8681e04b6ab38220be9eaf38a64a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "85476139"
 ---
 # <a name="run-an-image-factory-from-azure-devops"></a>Eseguire una factory di immagini da Azure DevOps
@@ -82,7 +82,7 @@ Per semplificare i parametri della riga di comando, incapsulare i valori di chia
 
 ![Variabili di compilazione](./media/set-up-devops-lab/configure-build-variables.png)
 
-## <a name="connect-to-azure"></a>Connettiti ad Azure
+## <a name="connect-to-azure"></a>Connettersi ad Azure
 Il passaggio successivo consiste nel configurare un'entità servizio. Si tratta di un'identità in Azure Active Directory che consente all'agente di compilazione DevOps di funzionare in Azure per conto dell'utente. Per configurarlo, iniziare con l'aggiunta del primo Azure PowerShell passaggio di compilazione.
 
 1. Selezionare **Aggiungi attività**.
@@ -94,7 +94,7 @@ Il passaggio successivo consiste nel configurare un'entità servizio. Si tratta 
 Il modo più rapido per configurare un'entità servizio consiste nel consentire a Azure DevOps di eseguire questa operazione per noi.
 
 1. Selezionare l' **attività** appena aggiunta.
-2. Per **tipo di connessione di Azure**scegliere **Azure Resource Manager**.
+2. Per **tipo di connessione di Azure** scegliere **Azure Resource Manager**.
 3. Selezionare il collegamento **Gestisci** per configurare l'entità servizio.
 
 Per ulteriori informazioni, vedere questo [post di blog](https://devblogs.microsoft.com/devops/automating-azure-resource-group-deployment-using-a-service-principal-in-visual-studio-online-buildrelease-management/). Quando si seleziona il collegamento **Gestisci** , viene visualizzata la posizione corretta in DevOps (seconda schermata del post di Blog) per configurare la connessione ad Azure. Assicurarsi di scegliere **Azure Resource Manager endpoint servizio** durante la configurazione.
@@ -105,7 +105,7 @@ Se si seleziona l'attività di compilazione, verranno visualizzati tutti i detta
 1. In primo luogo, denominare l'attività di compilazione: **Create Virtual Machines**.
 2. Scegliere l' **entità servizio** creata scegliendo **Azure Resource Manager**
 3. Scegliere l' **endpoint del servizio**.
-4. Per **percorso script**selezionare **... (puntini** di sospensione) a destra.
+4. Per **percorso script** selezionare **... (puntini** di sospensione) a destra.
 5. Passare a **MakeGoldenImageVMs.ps1** script.
 6. I parametri dello script dovrebbero avere un aspetto simile al seguente: `-ConfigurationLocation $(System.DefaultWorkingDirectory)$(ConfigurationLocation) -DevTestLabName $(DevTestLabName) -vmSize $(VMSize) -machineUserName $(MachineUserName) -machinePassword (ConvertTo-SecureString -string '$(MachinePassword)' -AsPlainText -Force) -StandardTimeoutMinutes $(StandardTimeoutMinutes)`
 

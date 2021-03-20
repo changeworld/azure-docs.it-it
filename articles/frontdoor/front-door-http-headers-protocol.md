@@ -12,10 +12,10 @@ ms.workload: infrastructure-services
 ms.date: 12/04/2020
 ms.author: duau
 ms.openlocfilehash: 7f40b48473c04238d504288307039948fcacf90a
-ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/15/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97511145"
 ---
 # <a name="protocol-support-for-http-headers-in-azure-front-door"></a>Supporto del protocollo per le intestazioni HTTP nella porta anteriore di Azure
@@ -33,7 +33,7 @@ La porta anteriore accetta la maggior parte delle intestazioni per la richiesta 
 
 La porta anteriore include le intestazioni per una richiesta in ingresso, a meno che non vengano rimosse a causa di restrizioni. La porta anteriore aggiunge anche le intestazioni seguenti:
 
-| Header  | Esempio e descrizione |
+| Intestazione  | Esempio e descrizione |
 | ------------- | ------------- |
 | Via |  *Via: 1,1 Azure* </br> La porta anteriore aggiunge la versione HTTP del client seguita da *Azure* come valore per l'intestazione via. Questa intestazione indica la versione HTTP del client e la porta anteriore è un destinatario intermedio per la richiesta tra il client e il back-end.  |
 | X-Azure-ClientIP | *X-Azure-ClientIP: 127.0.0.1* </br> Rappresenta l'indirizzo IP del client associato alla richiesta in fase di elaborazione. Ad esempio, una richiesta proveniente da un proxy potrebbe aggiungere l'intestazione X-inoltro-for per indicare l'indirizzo IP del chiamante originale. |
@@ -51,14 +51,14 @@ La porta anteriore include le intestazioni per una richiesta in ingresso, a meno
 
 Tutte le intestazioni inviate alla porta anteriore dal back-end vengono passate anche al client. Di seguito sono riportate le intestazioni inviate dalla porta anteriore ai client.
 
-| Header  | Esempio e descrizione |
+| Intestazione  | Esempio e descrizione |
 | ------------- | ------------- |
 | X-Azure-Ref |  *X-Azure-Ref: 0zxV + XAAAAABKMMOjBv2NT4TY6SQVjC0zV1NURURHRTA2MTkANDM3YzgyY2QtMzYwYS00YTU0LTk0YzMtNWZmNzA3NjQ3Nzgz* </br> Si tratta di una stringa di riferimento univoca che identifica una richiesta servita da sportello anteriore, che è fondamentale per la risoluzione dei problemi, perché viene usata per la ricerca nei log di accesso.|
 | X-cache | *X-cache: TCP_HIT* </br> Questa intestazione descrive lo stato della cache della richiesta, che consente di identificare se il contenuto della risposta viene servito dalla cache della porta anteriore. |
 
 È necessario inviare l'intestazione della richiesta "X-Azure-DebugInfo: 1" per abilitare le intestazioni di risposta facoltative seguenti.
 
-| Header  | Esempio e descrizione |
+| Intestazione  | Esempio e descrizione |
 | ------------- | ------------- |
 | X-Azure-OriginStatusCode |  *X-Azure-OriginStatusCode: 503* </br> Questa intestazione contiene il codice di stato HTTP restituito dal back-end. Con questa intestazione è possibile identificare il codice di stato HTTP restituito dall'applicazione in esecuzione nel back-end senza passare attraverso i log back-end. Questo codice di stato può essere diverso dal codice di stato HTTP nella risposta inviata al client da sportello anteriore. Questa intestazione consente di determinare se il back-end si comporta in modo errato o se il problema si verifica con il servizio front-end. |
 | X-Azure-InternalError | Questa intestazione conterrà il codice di errore che la porta anteriore passa durante l'elaborazione della richiesta. Questo errore indica che il problema è interno all'infrastruttura o al servizio front-end. Segnala il problema da supportare.  |

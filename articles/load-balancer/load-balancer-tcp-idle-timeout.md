@@ -14,10 +14,10 @@ ms.workload: infrastructure-services
 ms.date: 10/26/2020
 ms.author: allensu
 ms.openlocfilehash: 8a6be588544883b77c3ff115c9dba5e6ecd5fbd7
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/27/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92747192"
 ---
 # <a name="configure-tcp-reset-and-idle-timeout-for-azure-load-balancer"></a>Configurare il timeout di inattività e la reimpostazione TCP per Azure Load Balancer
@@ -39,25 +39,25 @@ Per impostare il timeout di inattività e la reimpostazione TCP per un servizio 
 
 1. Accedere al [portale di Azure](https://portal.azure.com).
 
-2. Nel menu a sinistra selezionare **gruppi di risorse** .
+2. Nel menu a sinistra selezionare **gruppi di risorse**.
 
-3. Selezionare il gruppo di risorse per il servizio di bilanciamento del carico. In questo esempio il gruppo di risorse è denominato **myResourceGroup** .
+3. Selezionare il gruppo di risorse per il servizio di bilanciamento del carico. In questo esempio il gruppo di risorse è denominato **myResourceGroup**.
 
-4. Selezionare il servizio di bilanciamento del carico in uso. In questo esempio, il servizio di bilanciamento del carico è denominato **myLoadBalancer** .
+4. Selezionare il servizio di bilanciamento del carico in uso. In questo esempio, il servizio di bilanciamento del carico è denominato **myLoadBalancer**.
 
-5. In **Impostazioni** selezionare **regole di bilanciamento del carico** .
+5. In **Impostazioni** selezionare **regole di bilanciamento del carico**.
 
      :::image type="content" source="./media/load-balancer-tcp-idle-timeout/portal-lb-rules.png" alt-text="Modificare le regole del servizio di bilanciamento del carico." border="true":::
 
-6. Selezionare la regola di bilanciamento del carico. In questo esempio, la regola di bilanciamento del carico è denominata **myLBrule** .
+6. Selezionare la regola di bilanciamento del carico. In questo esempio, la regola di bilanciamento del carico è denominata **myLBrule**.
 
 7. Nella regola di bilanciamento del carico spostare il dispositivo di scorrimento in **timeout di inattività (minuti)** sul valore di timeout.  
 
-8. In **TCP Reset** selezionare **Enabled** .
+8. In **TCP Reset** selezionare **Enabled**.
 
-   :::image type="content" source="./media/load-balancer-tcp-idle-timeout/portal-lb-rules-tcp-reset.png" alt-text="Modificare le regole del servizio di bilanciamento del carico." border="true":::
+   :::image type="content" source="./media/load-balancer-tcp-idle-timeout/portal-lb-rules-tcp-reset.png" alt-text="Impostare il timeout di inattività e la reimpostazione TCP." border="true":::
 
-9. Selezionare **Salva** .
+9. Selezionare **Salva**.
 
 # <a name="powershell"></a>[**PowerShell**](#tab/tcp-reset-idle-powershell)
 

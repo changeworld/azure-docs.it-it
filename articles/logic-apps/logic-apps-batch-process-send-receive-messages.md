@@ -9,10 +9,10 @@ ms.reviewer: estfan, jonfan, logicappspm
 ms.topic: article
 ms.date: 07/31/2020
 ms.openlocfilehash: 0985afe3ddfd0d9de3c36ad6b030b6f259708c88
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "87458254"
 ---
 # <a name="send-receive-and-batch-process-messages-in-azure-logic-apps"></a>Inviare, ricevere ed elaborare in batch i messaggi nelle app per la logica di Azure
@@ -153,7 +153,7 @@ A questo punto creare una o più app per la logica mittenti del batch che invian
       > [!IMPORTANT]
       > Se si usa Visual Studio e non vengono visualizzati ricevitori di batch da selezionare, verificare che in precedenza sia stato creato e distribuito il ricevitore batch in Azure. In caso contrario, informazioni [su come distribuire l'app per la logica del ricevitore batch in Azure](../logic-apps/quickstart-create-logic-apps-with-visual-studio.md#deploy-logic-app-to-azure).
 
-   1. Dall'elenco delle azioni selezionare questa azione: **Batch_messages-<*Your-Logic-app-name* > **
+   1. Dall'elenco delle azioni selezionare questa azione: **Batch_messages-<*Your-Logic-app-name* >**
 
       ![Selezionare questa azione: "Batch_messages - <your-logic-app>"](./media/logic-apps-batch-process-send-receive-messages/batch-sender-select-batch.png)
 

@@ -12,10 +12,10 @@ ms.custom: seo-lt-2019
 ms.topic: how-to
 ms.date: 02/20/2020
 ms.openlocfilehash: dc9123735ef65bec89e99a14d25cba881be306fe
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91297471"
 ---
 # <a name="monitor-migration-activity-using-the-azure-database-migration-service"></a>Monitorare l'attività di migrazione con il servizio migrazione del database di Azure
@@ -41,12 +41,12 @@ Nella tabella seguente sono elencati i campi del pannello a livello di database 
   </thead>
   <tbody>
     <tr>
-      <td rowspan="3" class="ActivityStatus"><strong>Stato attività</strong></td>
+      <td rowspan="3" class="ActivityStatus"><strong>Stato dell'attività</strong></td>
       <td>In esecuzione</td>
       <td>Attività di migrazione in esecuzione.</td>
     </tr>
     <tr>
-      <td>Operazione riuscita</td>
+      <td>Completato</td>
       <td>Attività di migrazione completata senza problemi.</td>
     </tr>
     <tr>
@@ -67,7 +67,7 @@ Nella tabella seguente sono elencati i campi del pannello a livello di database 
       <td>Migrazione completata.</td>
     </tr>
     <tr>
-      <td>Operazione non riuscita</td>
+      <td>Non riuscito</td>
       <td>Migrazione non riuscita. Fare clic sui dettagli della migrazione per visualizzare gli errori di migrazione.</td>
     </tr>
     <tr>

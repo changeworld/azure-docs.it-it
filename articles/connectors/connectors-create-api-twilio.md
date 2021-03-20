@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 08/25/2018
 tags: connectors
 ms.openlocfilehash: d144960972f5a1b45e88cc3a0ea015925cae3b91
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "87288151"
 ---
 # <a name="manage-messages-in-twilio-with-azure-logic-apps"></a>Gestire i messaggi in Twilio con App per la logica di Azure
@@ -69,7 +69,7 @@ Per informazioni tecniche su trigger, azioni e limiti, illustrati dalla descrizi
 
 ## <a name="get-support"></a>Supporto
 
-* Per domande, visitare la [pagina Microsoft delle domande e risposte per le App per la logica di Azure](/answers/topics/azure-logic-apps.html).
+* Per domande, visitare la [pagina Microsoft delle domande e risposte per App per la logica di Azure](/answers/topics/azure-logic-apps.html).
 * Per votare o inviare idee relative alle funzionalità, visitare il [sito dei commenti e suggerimenti degli utenti di App per la logica](https://aka.ms/logicapps-wish).
 
 ## <a name="next-steps"></a>Passaggi successivi

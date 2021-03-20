@@ -14,10 +14,10 @@ ms.reviewer: saeeda, hirsin, jmprieur, sureshja, jesakowi, lenalepa, kkrishna, n
 ms.custom: aaddev
 ROBOTS: NOINDEX
 ms.openlocfilehash: 8f6170de65ae5e1ca8ecb5f7cc8a78f4f194ac41
-ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/14/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92055291"
 ---
 # <a name="why-update-to-microsoft-identity-platform-v20"></a>Perché eseguire l'aggiornamento a Microsoft Identity Platform (v2.0)?
@@ -97,7 +97,7 @@ Per ulteriori informazioni su OAuth 2,0, `refresh_tokens` e `access_tokens` , co
 
 ### <a name="openid-profile-and-email"></a>OpenID, profilo e indirizzo di posta elettronica
 
-Storicamente, il flusso di accesso OpenID Connect più semplice con la piattaforma di identità Microsoft fornirebbe numerose informazioni sull'utente nell' *id_token*risultante. Le attestazioni nel token ID includono, ad esempio, il nome dell'utente, il nome utente preferito, l'indirizzo di posta elettronica, l'ID oggetto e altro ancora.
+Storicamente, il flusso di accesso OpenID Connect più semplice con la piattaforma di identità Microsoft fornirebbe numerose informazioni sull'utente nell' *id_token* risultante. Le attestazioni nel token ID includono, ad esempio, il nome dell'utente, il nome utente preferito, l'indirizzo di posta elettronica, l'ID oggetto e altro ancora.
 
 Le informazioni a cui l'app ha accesso tramite l'ambito `openid` sono ora limitate. L'ambito `openid` consente all'app di far accedere l'utente e di ricevere un identificatore specifico dell'app per l'utente. Per ottenere dati personali sull'utente nell'app, questa deve richiedere autorizzazioni aggiuntive all'utente. Due nuovi ambiti, `email` e `profile`, consentiranno di richiedere autorizzazioni aggiuntive.
 
@@ -128,7 +128,7 @@ L'endpoint della piattaforma Microsoft Identity verrà sviluppato per eliminare 
 
 ### <a name="restrictions-on-app-registrations"></a>Restrizioni relative alle registrazioni di app
 
-Per ogni app che si vuole integrare con l'endpoint della piattaforma di identità Microsoft, è possibile creare una registrazione dell'app nella nuova [esperienza **Registrazioni app** ](https://aka.ms/appregistrations) nel portale di Azure. Le app account Microsoft esistenti non sono compatibili con il portale, ma tutte le app Azure AD sono, indipendentemente da dove o quando sono state registrate.
+Per ogni app che si vuole integrare con l'endpoint della piattaforma di identità Microsoft, è possibile creare una registrazione dell'app nella nuova [esperienza **Registrazioni app**](https://aka.ms/appregistrations) nel portale di Azure. Le app account Microsoft esistenti non sono compatibili con il portale, ma tutte le app Azure AD sono, indipendentemente da dove o quando sono state registrate.
 
 Le Registrazioni app che supportano gli account aziendali e dell'istituto di istruzione e gli account personali sono soggette alle condizioni seguenti:
 
@@ -168,4 +168,4 @@ Se è stato usato Active Directory Authentication Library (ADAL) nelle applicazi
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Per altre informazioni, vedere la [documentazione della piattaforma Microsoft Identity](../develop/index.yml).
+Leggere altre informazioni nella [documentazione di Microsoft Identity Platform](../develop/index.yml).

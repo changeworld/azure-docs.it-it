@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 09/14/2020
 ms.author: mbullwin
 ms.openlocfilehash: fe3b87c733f54d8bd52c4d973977e3c8cbfefe19
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/14/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92043206"
 ---
 # <a name="how-to-onboard-your-metric-data-to-metrics-advisor"></a>Procedura: caricare i dati delle metriche in metriche Advisor
@@ -99,7 +99,7 @@ Se *Country* è una dimensione e la *lingua* viene impostata come *ignorata*, la
 
 Metrica Advisor può eseguire automaticamente un'aggregazione, ad esempio SUM, MAX, MIN, in ogni dimensione durante l'inserimento, quindi compila una gerarchia che verrà usata nell'analisi dei case radice e in altre funzionalità di diagnostica. 
 
-Esaminare gli scenari seguenti:
+Prendere in considerazione gli scenari seguenti:
 
 * *Non è necessario includere l'analisi rollup per i dati personali.*
 
@@ -188,7 +188,7 @@ Per controllare i dettagli dell'errore di inserimento:
 2. Fare clic su **stato** , **quindi scegliere** **errore o errore**.
 3. Passare il puntatore del mouse su un inserimento non riuscito e visualizzare il messaggio dettagliato visualizzato.
 
-:::image type="content" source="../media/datafeeds/check-failed-ingestion.png" alt-text="Barra di stato inserimento":::
+:::image type="content" source="../media/datafeeds/check-failed-ingestion.png" alt-text="Verifica inserimento non riuscito":::
 
 Uno stato di *errore* indica che l'inserimento per questa origine dati verrà ritentato in seguito.
 Uno stato di *errore* indica che le metriche di Advisor non verranno ritentate per l'origine dati. Per ricaricare i dati, è necessario attivare manualmente un recupero o un ricaricamento.

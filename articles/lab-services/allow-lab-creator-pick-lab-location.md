@@ -4,10 +4,10 @@ description: Questo articolo descrive come un amministratore dell'account Lab pu
 ms.topic: article
 ms.date: 06/26/2020
 ms.openlocfilehash: 3b6c2d83414b1abc763755fbf15402b122c2186b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "85444200"
 ---
 # <a name="allow-lab-creator-to-pick-location-for-the-lab-in-azure-lab-services"></a>Consenti a Lab Creator di selezionare la posizione per il Lab in Azure Lab Services
@@ -16,7 +16,7 @@ In Azure Lab Services, un proprietario dell'account Lab può consentire ai creat
 Il proprietario di un account Lab può selezionare l'opzione **Consenti all'autore del Lab di scegliere la posizione del Lab** quando si crea un account Lab e dopo aver creato l'account Lab o un account lab esistente. 
 
 ## <a name="at-the-time-of-lab-account-creation"></a>Al momento della creazione dell'account Lab
-Quando si crea un account Lab, questa opzione viene visualizzata nella prima schermata (scheda informazioni di**base** ). 
+Quando si crea un account Lab, questa opzione viene visualizzata nella prima schermata (scheda informazioni di **base** ). 
 
 ![Abilitare l'opzione al momento della creazione del Lab](./media/allow-lab-creator-pick-lab-location/create-lab-account.png)
 
@@ -47,7 +47,7 @@ Quindi, gli autori del Lab (docenti) non vedono un'opzione per scegliere una loc
 In questo scenario, l'opzione **Allow Lab Creators to pick Lab location** è disabilitata perché è stata selezionata una rete virtuale peer per l'account Lab. Quindi, gli autori del Lab visualizzeranno la stessa schermata dell'opzione precedente. Poiché tutte le VM devono trovarsi nella stessa area di Azure della rete virtuale, il Lab verrà creato nella stessa area di Azure in cui si trova la rete virtuale. Se questa determinata area è vincolata per le dimensioni, le dimensioni verranno visualizzate come non disponibili. 
 
 ## <a name="location-selection-is-enabled"></a>Selezione località abilitata
-Quando si seleziona **Consenti a Lab Creator di**selezionare la posizione del Lab, i creatori di Lab (docenti) vedono un'opzione per selezionare una località durante la creazione di un Lab. 
+Quando si seleziona **Consenti a Lab Creator di** selezionare la posizione del Lab, i creatori di Lab (docenti) vedono un'opzione per selezionare una località durante la creazione di un Lab. 
 
 ![Seleziona un percorso Lab](./media/allow-lab-creator-pick-lab-location/location-selection.png)
 
@@ -57,7 +57,7 @@ Se un percorso è vincolato, non viene visualizzato nell'elenco per impostazione
 
 ![Mostra percorsi non disponibili](./media/allow-lab-creator-pick-lab-location/show-unavailable-locations.png)
 
-## <a name="cost"></a>Cost
+## <a name="cost"></a>Costo
 In precedenza, i prezzi erano basati sulle dimensioni della macchina virtuale scelte per il Lab. Il prezzo è basato sulla combinazione del sistema operativo, le dimensioni e la posizione. 
 
 ## <a name="next-steps"></a>Passaggi successivi

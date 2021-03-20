@@ -4,10 +4,10 @@ description: Informazioni sulle nuove funzionalità del server di Backup di Azur
 ms.topic: conceptual
 ms.date: 11/13/2018
 ms.openlocfilehash: b077296e58e1193e454a686a392d802e905500a5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91292898"
 ---
 # <a name="add-storage-to-azure-backup-server"></a>Aggiungere risorse di archiviazione al server di Backup di Azure
@@ -36,7 +36,7 @@ Il server di Backup V2 o versione successiva accetta volumi di archiviazione. Qu
 
 L'uso del server di Backup V2 o versione successiva con volumi come archiviazione su disco consente di mantenere il controllo sull'archiviazione. Un volume può essere un singolo disco. Tuttavia, se si desidera estendere l'archiviazione in futuro, creare un volume da un disco creato utilizzando spazi di archiviazione. Ciò può essere utile se si desidera espandere il volume per l'archiviazione di backup. In questa sezione sono presentate le procedure consigliate per la creazione di un volume con questa configurazione.
 
-1. In Server Manager selezionare volumi **Servizi file e archiviazione**  >  **Volumes**  >  **pool di archiviazione**. In **DISCHI FISICI**, selezionare **Nuovo pool di archiviazione**.
+1. In Server Manager selezionare volumi **Servizi file e archiviazione**  >    >  **pool di archiviazione**. In **DISCHI FISICI**, selezionare **Nuovo pool di archiviazione**.
 
     ![Creare un nuovo pool di archiviazione](./media/backup-mabs-add-storage/mabs-add-storage-1.png)
 

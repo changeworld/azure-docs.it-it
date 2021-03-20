@@ -9,10 +9,10 @@ ms.reviewer: jonfan, estfan, logicappspm
 ms.topic: article
 ms.date: 01/01/2020
 ms.openlocfilehash: c82f9cbfaf2e23ddaa5e4b05f4aac4795d3e16a9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "76903061"
 ---
 # <a name="create-custom-tracking-schemas-that-monitor-end-to-end-workflows-in-azure-logic-a"></a>Creare schemi di rilevamento personalizzati che monitorano i flussi di lavoro end-to-end nella logica di Azure A
@@ -51,7 +51,7 @@ App per la logica di Azure include il rilevamento incorporato che è possibile a
 }
 ```
 
-| Proprietà | Obbligatoria | Type | Descrizione |
+| Proprietà | Obbligatoria | Tipo | Descrizione |
 |----------|----------|------|-------------|
 | sourceType | Sì | string | Tipo di origine dell'esecuzione con questi valori consentiti: `Microsoft.Logic/workflows` , `custom` |
 | source | Sì | String o JToken | Se il tipo di origine è `Microsoft.Logic/workflows` , le informazioni sull'origine devono seguire questo schema. Se il tipo di origine è `custom` , lo schema è JToken. |

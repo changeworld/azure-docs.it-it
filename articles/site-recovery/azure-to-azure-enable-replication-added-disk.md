@@ -6,10 +6,10 @@ manager: rochakm
 ms.topic: how-to
 ms.date: 04/29/2019
 ms.openlocfilehash: 6cbbe63d7968816de78256f5a8408517bb8da278
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "75973802"
 ---
 # <a name="enable-replication-for-a-disk-added-to-an-azure-vm"></a>Abilitare la replica per un disco aggiunto a una macchina virtuale di Azure
@@ -37,9 +37,9 @@ Questo articolo presuppone che sia già stato configurato il ripristino di emerg
 
 Per abilitare la replica per un disco aggiunto, procedere come segue:
 
-1. Nell'insieme di credenziali > **elementi replicati**fare clic sulla macchina virtuale a cui è stato aggiunto il disco.
-2. Fare clic su **dischi**e quindi selezionare il disco dati per il quale si desidera abilitare la replica (questi dischi hanno uno stato **non protetto** ).
-3.  In **Dettagli disco**fare clic su **Abilita replica**.
+1. Nell'insieme di credenziali > **elementi replicati** fare clic sulla macchina virtuale a cui è stato aggiunto il disco.
+2. Fare clic su **dischi** e quindi selezionare il disco dati per il quale si desidera abilitare la replica (questi dischi hanno uno stato **non protetto** ).
+3.  In **Dettagli disco** fare clic su **Abilita replica**.
 
     ![Abilitare la replica per il disco aggiunto](./media/azure-to-azure-enable-replication-added-disk/enabled-added.png)
 

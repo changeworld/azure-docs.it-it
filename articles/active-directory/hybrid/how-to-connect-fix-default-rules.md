@@ -14,10 +14,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: a0fc1bc3158e04c9b1f677af7ef2375ac3ed2ce7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91320048"
 ---
 # <a name="fix-modified-default-rules-in-azure-ad-connect"></a>Correzione delle regole predefinite modificate in Azure AD Connect
@@ -28,7 +28,7 @@ Azure Active Directory (Azure AD) Connect usa le regole predefinite per la sincr
 > La modifica delle regole predefinite esistenti per ottenere una personalizzazione necessaria non è supportata. In tal caso, impedisce l'aggiornamento di queste regole alla versione più recente nelle versioni future. Non è possibile ottenere le correzioni di bug necessarie o nuove funzionalità. In questo documento viene illustrato come ottenere lo stesso risultato senza modificare le regole predefinite esistenti. 
 
 ## <a name="how-to-identify-modified-default-rules"></a>Come identificare le regole predefinite modificate
-A partire dalla versione 1.3.7.0 di Azure AD Connect, è facile identificare la regola predefinita modificata. Passare ad **app sul desktop**e selezionare **Editor regole di sincronizzazione**.
+A partire dalla versione 1.3.7.0 di Azure AD Connect, è facile identificare la regola predefinita modificata. Passare ad **app sul desktop** e selezionare **Editor regole di sincronizzazione**.
 
 ![Azure AD Connect, con l'editor delle regole di sincronizzazione evidenziato](media/how-to-connect-fix-default-rules/default1.png)
 
@@ -81,9 +81,9 @@ Seguire una convenzione di denominazione personalizzata per assegnare un nome al
 
 Fornire una descrizione personalizzata della regola, in modo da semplificare la manutenzione futura della regola. La descrizione, ad esempio, può essere basata sull'obiettivo della regola e sul motivo per cui è necessaria.
 
-Effettuare le selezioni per il **sistema connesso**, il **tipo di oggetto di sistema connesso**e i campi del **tipo di oggetto metaverse** .
+Effettuare le selezioni per il **sistema connesso**, il **tipo di oggetto di sistema connesso** e i campi del **tipo di oggetto metaverse** .
 
-Specificare il valore di precedenza compreso tra 0 e 99 (più basso è il numero, più alta è la precedenza). Per il **tag**, **abilitare la sincronizzazione password**e i campi **disabilitati** , usare le selezioni predefinite.
+Specificare il valore di precedenza compreso tra 0 e 99 (più basso è il numero, più alta è la precedenza). Per il **tag**, **abilitare la sincronizzazione password** e i campi **disabilitati** , usare le selezioni predefinite.
 
 Mantieni **filtro ambito** vuoto. Ciò significa che la regola si applica a tutti gli oggetti Uniti tra il sistema Active Directory connesso e il metaverse.
 
@@ -92,7 +92,7 @@ Mantiene vuote **le regole di join** . Questo significa che questa regola utiliz
 Aggiungere le trasformazioni appropriate per l'attributo. È possibile assegnare una costante per far passare un valore costante all'attributo di destinazione. È possibile utilizzare il mapping diretto tra l'attributo di origine o di destinazione. In alternativa, è possibile usare un'espressione per l'attributo. Di seguito sono riportate varie [funzioni di espressione](./reference-connect-sync-functions-reference.md) che è possibile usare.
 
 #### <a name="add-an-outbound-sync-rule"></a>Aggiungere una regola di sincronizzazione in uscita
-Per collegare l'attributo alla directory di destinazione, è necessario creare una regola in uscita. Ciò significa che l'origine è il metaverse e la destinazione è il sistema connesso. Per creare una regola in uscita, avviare l' **Editor delle regole di sincronizzazione**, modificare la **direzione** in **uscita**e selezionare **Aggiungi nuova regola**. 
+Per collegare l'attributo alla directory di destinazione, è necessario creare una regola in uscita. Ciò significa che l'origine è il metaverse e la destinazione è il sistema connesso. Per creare una regola in uscita, avviare l' **Editor delle regole di sincronizzazione**, modificare la **direzione** in **uscita** e selezionare **Aggiungi nuova regola**. 
 
 ![Editor regole di sincronizzazione](media/how-to-connect-fix-default-rules/default3c.png)
 
@@ -162,11 +162,11 @@ Utilizzare le condizioni di join predefinite configurate da Azure AD Connect. La
 
 ![Azure AD Connect, con il servizio di sincronizzazione evidenziato](media/how-to-connect-fix-default-rules/default10.png)
 
-Selezionare **ricerca metaverse**. Selezionare l'oggetto ambito come **Person**, selezionare **Aggiungi clausola**e specificare i criteri di ricerca. Selezionare quindi **Cerca**e fare doppio clic sull'oggetto nei risultati della ricerca. Assicurarsi che i dati in Azure AD Connect siano aggiornati per l'oggetto, eseguendo l'importazione e la sincronizzazione nella foresta prima di eseguire questo passaggio.
+Selezionare **ricerca metaverse**. Selezionare l'oggetto ambito come **Person**, selezionare **Aggiungi clausola** e specificare i criteri di ricerca. Selezionare quindi **Cerca** e fare doppio clic sull'oggetto nei risultati della ricerca. Assicurarsi che i dati in Azure AD Connect siano aggiornati per l'oggetto, eseguendo l'importazione e la sincronizzazione nella foresta prima di eseguire questo passaggio.
 
 ![Synchronization Service Manager.](media/how-to-connect-fix-default-rules/default11.png)
 
-In **Proprietà oggetto metaverse**selezionare **connettori**, selezionare l'oggetto nel connettore corrispondente (foresta), quindi selezionare **Proprietà.**
+In **Proprietà oggetto metaverse** selezionare **connettori**, selezionare l'oggetto nel connettore corrispondente (foresta), quindi selezionare **Proprietà.**
 
 ![Metaverse Object Properties](media/how-to-connect-fix-default-rules/default12.png)
 

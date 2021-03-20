@@ -4,14 +4,14 @@ description: Informazioni su come copiare dati da un'origine HDFS locale o cloud
 author: linda33wj
 ms.service: data-factory
 ms.topic: conceptual
-ms.date: 12/18/2020
+ms.date: 03/17/2021
 ms.author: jingwang
-ms.openlocfilehash: 3ee1b1f48d91ba1245c0173d2e00a20778932d35
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 9c274bdfb5854529dbb82bd2d8b7cefdf07390b1
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100367085"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104588903"
 ---
 # <a name="copy-data-from-the-hdfs-server-by-using-azure-data-factory"></a>Copiare i dati dal server HDFS usando Azure Data Factory
 
@@ -172,7 +172,7 @@ Le proprietà seguenti sono supportate per HDFS `storeSettings` in impostazioni 
 | modifiedDatetimeEnd      | Come sopra.  
 | enablePartitionDiscovery | Per i file partizionati, specificare se analizzare le partizioni dal percorso del file e aggiungerle come colonne di origine aggiuntive.<br/>I valori consentiti sono **false** (impostazione predefinita) e **true**. | No                                            |
 | partitionRootPath | Quando è abilitata l'individuazione delle partizioni, specificare il percorso radice assoluto per leggere le cartelle partizionate come colonne di dati.<br/><br/>Se non viene specificato, per impostazione predefinita<br/>-Quando si usa il percorso del file in un set di dati o un elenco di file nell'origine, il percorso radice della partizione è il percorso configurato nel set di dati.<br/>-Quando si usa il filtro di cartelle con caratteri jolly, il percorso radice della partizione è il percorso secondario prima del primo carattere jolly.<br/><br/>Si supponga, ad esempio, di configurare il percorso nel set di dati come "root/folder/Year = 2020/month = 08/Day = 27":<br/>-Se si specifica il percorso radice della partizione come "root/folder/Year = 2020", l'attività di copia genererà altre due colonne `month` e `day` con il valore "08" e "27", oltre alle colonne all'interno dei file.<br/>-Se il percorso radice della partizione non è specificato, non verrà generata alcuna colonna aggiuntiva. | No                                            |
-| maxConcurrentConnections | Il numero di connessioni che possono connettersi all'archivio di archiviazione simultaneamente. Specificare un valore solo quando si desidera limitare la connessione simultanea all'archivio dati. | No                                            |
+| maxConcurrentConnections | Limite massimo di connessioni simultanee stabilite all'archivio dati durante l'esecuzione dell'attività. Specificare un valore solo quando si desidera limitare le connessioni simultanee.| No                                            |
 | ***Impostazioni DistCp*** |  | |
 | distcpSettings | Gruppo di proprietà da usare quando si usa HDFS DistCp. | No |
 | resourceManagerEndpoint | Endpoint YARN (anche un altro negoziatore di risorse) | Sì, se si usa DistCp |
@@ -533,7 +533,7 @@ Per informazioni sulle proprietà dell'attività Delete, vedere [attività Delet
 | resourceManagerEndpoint | Endpoint Gestione risorse YARN | Sì, se si usa DistCp |
 | tempScriptPath | Percorso della cartella usato per archiviare lo script del comando Temp DistCp. Il file di script viene generato da Data Factory e verrà rimosso al termine del processo di copia. | Sì, se si usa DistCp |
 | distcpOptions | Per il comando DistCp sono disponibili opzioni aggiuntive. | No |
-| maxConcurrentConnections | Il numero di connessioni che possono connettersi all'archivio di archiviazione simultaneamente. Specificare un valore solo quando si desidera limitare la connessione simultanea all'archivio dati. | No |
+| maxConcurrentConnections | Limite massimo di connessioni simultanee stabilite all'archivio dati durante l'esecuzione dell'attività. Specificare un valore solo quando si desidera limitare le connessioni simultanee.| No |
 
 **Esempio: origine HDFS nell'attività di copia mediante DistCp**
 

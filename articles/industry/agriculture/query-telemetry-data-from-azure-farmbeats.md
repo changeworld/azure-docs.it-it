@@ -6,10 +6,10 @@ ms.topic: article
 ms.date: 03/11/2020
 ms.author: sunasing
 ms.openlocfilehash: b9067e2f78c8098d4a21263ac89caf03da631274
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/27/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92677493"
 ---
 # <a name="query-ingested-telemetry-data"></a>Eseguire query sui dati di telemetria inseriti
@@ -24,7 +24,7 @@ Prima di procedere con questo articolo, assicurarsi di aver installato i dati di
 
 Per inserire i dati di telemetria del sensore, vedere Inserire [dati di telemetria cronologici](ingest-historical-telemetry-data-in-azure-farmbeats.md)
 
-Prima di procedere, è anche necessario assicurarsi di avere familiarità con le API REST di FarmBeats, poiché si eseguirà una query sui dati di telemetria inseriti usando le API. Per altre informazioni sulle API FarmBeats, vedere [API REST di FarmBeats](rest-api-in-azure-farmbeats.md). **Assicurarsi di essere in grado di effettuare richieste API all'endpoint datahub di FarmBeats** .
+Prima di procedere, è anche necessario assicurarsi di avere familiarità con le API REST di FarmBeats, poiché si eseguirà una query sui dati di telemetria inseriti usando le API. Per altre informazioni sulle API FarmBeats, vedere [API REST di FarmBeats](rest-api-in-azure-farmbeats.md). **Assicurarsi di essere in grado di effettuare richieste API all'endpoint datahub di FarmBeats**.
 
 ## <a name="query-ingested-sensor-telemetry-data"></a>Eseguire query sui dati di telemetria del sensore inseriti
 
@@ -115,8 +115,8 @@ I dati di telemetria vengono ricevuti in un EventHub e quindi elaborati e inseri
 
 Seguire i passaggi per visualizzare i dati in TSI:
 
-1. Passare al **portale di Azure**  >  **FarmBeats gruppo di risorse datahub** > selezionare **Time Series Insights** ambiente (TSI-xxxx) > **criteri di accesso ai dati** . Aggiungere un utente con accesso in lettura o collaboratore.
-2. Passare alla pagina **Panoramica** di **Time Series Insights** Environment (TSI-xxxx) e selezionare l' **URL di Time Series Insights Explorer** . A questo punto sarà possibile visualizzare i dati di telemetria inseriti.
+1. Passare al **portale di Azure**  >  **FarmBeats gruppo di risorse datahub** > selezionare **Time Series Insights** ambiente (TSI-xxxx) > **criteri di accesso ai dati**. Aggiungere un utente con accesso in lettura o collaboratore.
+2. Passare alla pagina **Panoramica** di **Time Series Insights** Environment (TSI-xxxx) e selezionare l' **URL di Time Series Insights Explorer**. A questo punto sarà possibile visualizzare i dati di telemetria inseriti.
 
 Oltre all'archiviazione, all'esecuzione di query e alla visualizzazione dei dati di telemetria, TSI consente anche l'integrazione in un dashboard Power BI. Per ulteriori informazioni, vedere [qui]( https://docs.microsoft.com/azure/time-series-insights/how-to-connect-power-bi)
 

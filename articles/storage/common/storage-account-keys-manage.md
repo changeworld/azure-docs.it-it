@@ -10,10 +10,10 @@ ms.date: 04/24/2020
 ms.author: tamram
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
 ms.openlocfilehash: e5ea94fea00771b64634d6c28a7879fabb195f09
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "89069660"
 ---
 # <a name="manage-storage-account-access-keys"></a>Gestisci chiavi di accesso all'account di archiviazione
@@ -34,7 +34,7 @@ Per visualizzare e copiare le chiavi di accesso o la stringa di connessione dell
 
 1. Passare all'account di archiviazione nell' [portale di Azure](https://portal.azure.com).
 1. In **Impostazioni** selezionare **Chiavi di accesso**. Verranno visualizzate le chiavi di accesso dell'account, con la stringa di connessione completa per ogni chiave.
-1. Individuare il valore della **chiave** in **Key1**e fare clic sul pulsante **Copy (copia** ) per copiare la chiave dell'account.
+1. Individuare il valore della **chiave** in **Key1** e fare clic sul pulsante **Copy (copia** ) per copiare la chiave dell'account.
 1. In alternativa, è possibile copiare l'intera stringa di connessione. Trovare il valore **Stringa di connessione** in **key1** e fare clic sul pulsante **Copia** per copiare la stringa di connessione.
 
     :::image type="content" source="media/storage-account-keys-manage/portal-connection-string.png" alt-text="Screenshot che illustra come visualizzare le chiavi di accesso nel portale di Azure":::
@@ -66,7 +66,7 @@ az storage account keys list \
 
 È possibile usare una delle due chiavi per accedere ad archiviazione di Azure, ma in generale è consigliabile usare la prima chiave e riservare l'uso della seconda chiave per la rotazione delle chiavi.
 
-Per visualizzare o leggere le chiavi di accesso di un account, l'utente deve essere un amministratore del servizio oppure deve essere assegnato un ruolo di Azure che include **Microsoft. storage/storageAccounts/listkeys/Action**. Alcuni ruoli predefiniti di Azure che includono questa azione sono i ruoli del **ruolo del servizio operatore** **proprietario**, **collaboratore**e chiave account di archiviazione. Per altre informazioni sul ruolo di amministratore del servizio, vedere [ruoli di amministratore della sottoscrizione classica, ruoli di Azure e ruoli di Azure ad](../../role-based-access-control/rbac-and-directory-admin-roles.md). Per informazioni dettagliate sui ruoli predefiniti per archiviazione di Azure, vedere la sezione **archiviazione** in [ruoli predefiniti](../../role-based-access-control/built-in-roles.md#storage)di Azure per il controllo degli accessi in base al ruolo di Azure.
+Per visualizzare o leggere le chiavi di accesso di un account, l'utente deve essere un amministratore del servizio oppure deve essere assegnato un ruolo di Azure che include **Microsoft. storage/storageAccounts/listkeys/Action**. Alcuni ruoli predefiniti di Azure che includono questa azione sono i ruoli del **ruolo del servizio operatore** **proprietario**, **collaboratore** e chiave account di archiviazione. Per altre informazioni sul ruolo di amministratore del servizio, vedere [ruoli di amministratore della sottoscrizione classica, ruoli di Azure e ruoli di Azure ad](../../role-based-access-control/rbac-and-directory-admin-roles.md). Per informazioni dettagliate sui ruoli predefiniti per archiviazione di Azure, vedere la sezione **archiviazione** in [ruoli predefiniti](../../role-based-access-control/built-in-roles.md#storage)di Azure per il controllo degli accessi in base al ruolo di Azure.
 
 ## <a name="use-azure-key-vault-to-manage-your-access-keys"></a>Usare Azure Key Vault per gestire le chiavi di accesso
 
@@ -133,7 +133,7 @@ Per ruotare le chiavi di accesso dell'account di archiviazione con la CLI di Azu
 > [!NOTE]
 > Microsoft consiglia di usare solo una delle chiavi in tutte le applicazioni contemporaneamente. Se si usa la Chiave 1 in alcune posizioni e la Chiave 2 in altre, non si potranno ruotare le chiavi senza quale applicazione perda l'accesso.
 
-Per ruotare le chiavi di accesso di un account, l'utente deve essere un amministratore del servizio oppure deve essere assegnato un ruolo di Azure che include **Microsoft. storage/storageAccounts/RegenerateKey/Action**. Alcuni ruoli predefiniti di Azure che includono questa azione sono i ruoli del **ruolo del servizio operatore** **proprietario**, **collaboratore**e chiave account di archiviazione. Per altre informazioni sul ruolo di amministratore del servizio, vedere [ruoli di amministratore della sottoscrizione classica, ruoli di Azure e ruoli di Azure ad](../../role-based-access-control/rbac-and-directory-admin-roles.md). Per informazioni dettagliate sui ruoli predefiniti di Azure per archiviazione di Azure, vedere la sezione **archiviazione** nei [ruoli predefiniti di Azure per](../../role-based-access-control/built-in-roles.md#storage)il controllo degli accessi in base al ruolo di Azure.
+Per ruotare le chiavi di accesso di un account, l'utente deve essere un amministratore del servizio oppure deve essere assegnato un ruolo di Azure che include **Microsoft. storage/storageAccounts/RegenerateKey/Action**. Alcuni ruoli predefiniti di Azure che includono questa azione sono i ruoli del **ruolo del servizio operatore** **proprietario**, **collaboratore** e chiave account di archiviazione. Per altre informazioni sul ruolo di amministratore del servizio, vedere [ruoli di amministratore della sottoscrizione classica, ruoli di Azure e ruoli di Azure ad](../../role-based-access-control/rbac-and-directory-admin-roles.md). Per informazioni dettagliate sui ruoli predefiniti di Azure per archiviazione di Azure, vedere la sezione **archiviazione** nei [ruoli predefiniti di Azure per](../../role-based-access-control/built-in-roles.md#storage)il controllo degli accessi in base al ruolo di Azure.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

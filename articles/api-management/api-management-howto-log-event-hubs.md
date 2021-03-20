@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 01/29/2018
 ms.author: apimpm
 ms.openlocfilehash: 5066169951409fa86aa75a64e8fc6d4189947f27
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/15/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92072408"
 ---
 # <a name="how-to-log-events-to-azure-event-hubs-in-azure-api-management"></a>Come registrare eventi nell'Hub eventi di Azure in Gestione API di Azure
@@ -75,7 +75,7 @@ Fare clic su **Salva** per salvare la configurazione aggiornata dei criteri. Il 
 È possibile visualizzare in anteprima il log in hub eventi usando le [query di analisi di flusso di Azure](../event-hubs/process-data-azure-stream-analytics.md). 
 
 1. Nella portale di Azure passare all'hub eventi a cui il logger invia gli eventi. 
-2. In **funzionalità**selezionare la scheda **elabora dati** .
+2. In **funzionalità** selezionare la scheda **elabora dati** .
 3. Nella scheda **Abilita informazioni dettagliate in tempo reale da eventi** selezionare **Esplora**.
 4. Dovrebbe essere possibile visualizzare l'anteprima del log nella scheda **Anteprima input** . Se i dati visualizzati non sono aggiornati, selezionare **Aggiorna** per visualizzare gli eventi più recenti.
 

@@ -6,10 +6,10 @@ ms.topic: how-to
 ms.custom: hdinsightactive, hdiseo17may2017, devx-track-csharp
 ms.date: 01/14/2020
 ms.openlocfilehash: a06326f5b4cf34a06475c10e368c6dcbb49ca9e4
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/28/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98928348"
 ---
 # <a name="run-apache-sqoop-jobs-by-using-net-sdk-for-apache-hadoop-in-hdinsight"></a>Eseguire processi Apache Sqoop con .NET SDK per Apache Hadoop in HDInsight
@@ -44,7 +44,7 @@ HDInsight .NET SDK fornisce librerie client .NET che semplificano l'uso dei clus
 
 Da Hive a SQL Server.  Questo esempio mostra come esportare i dati dalla tabella Hive `hivesampletable` alla tabella del database SQL `mobiledata`.
 
-1. Usare il codice seguente nel file Program.cs. Modificare il codice per impostare i valori per `ExistingClusterName` , e `ExistingClusterPassword` .
+1. Usare il codice seguente nel file Program. cs. Modificare il codice per impostare i valori per `ExistingClusterName` , e `ExistingClusterPassword` .
 
     ```csharp
     using Microsoft.Azure.Management.HDInsight.Job;

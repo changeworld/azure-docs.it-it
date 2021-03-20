@@ -9,10 +9,10 @@ ms.date: 07/31/2019
 ms.author: sharrai
 ms.custom: MVC
 ms.openlocfilehash: a8cb5ec782b5932c13e321b2ba2d6513597fef52
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
-ms.translationtype: HT
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "87422641"
 ---
 # <a name="move-a-recovery-services-vault-and-azure-site-recovery-configuration-to-another-azure-region"></a>Spostare un insieme di credenziali di Servizi di ripristino e la configurazione di Azure Site Recovery in un'altra area di Azure
@@ -33,7 +33,7 @@ In questo documento si apprenderà come:
 > [!IMPORTANT]
 > Attualmente, non esiste un metodo di prima classe per spostare un insieme di credenziali di Servizi di ripristino e la configurazione di ripristino di emergenza in un'area diversa. Questo articolo illustra il processo di disabilitazione della replica e di configurazione nella nuova area.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerequisiti
 
 - Prima di provare a spostare le VM di Azure in un'altra area, assicurarsi di rimuovere ed eliminare la configurazione di ripristino di emergenza. 
 
@@ -45,7 +45,7 @@ In questo documento si apprenderà come:
 ## <a name="identify-the-resources-that-were-used-by-azure-site-recovery"></a>Identificare le risorse usate in precedenza da Azure Site Recovery
 Si consiglia di eseguire questo passaggio prima di procedere con quello successivo. È più semplice identificare le risorse rilevanti durante la replica delle macchine virtuali.
 
-Per ognuna delle VM di Azure replicate, passare a **Elementi protetti** > **Elementi replicati** > **Proprietà** e identificare le risorse seguenti:
+Per ogni macchina virtuale di Azure da replicare, passare a **elementi protetti**  >  **Proprietà elementi replicati**  >   e identificare le risorse seguenti:
 
 - Gruppo di risorse di destinazione
 - Account di archiviazione della cache
@@ -56,7 +56,7 @@ Per ognuna delle VM di Azure replicate, passare a **Elementi protetti** > **Elem
 ## <a name="disable-the-existing-disaster-recovery-configuration"></a>Disabilitare la configurazione di ripristino di emergenza esistente
 
 1. Passare a Insieme di credenziali di Servizi di ripristino.
-2. In **Elementi protetti** > **Elementi replicati** fare clic con il pulsante destro del mouse sul computer e selezionare **Disabilita replica**.
+2. In **elementi protetti**  >  **elementi replicati** fare clic con il pulsante destro del mouse sul computer e scegliere **Disabilita replica**.
 3. Ripetere questo passaggio per tutte le VM da spostare.
 
 > [!NOTE]

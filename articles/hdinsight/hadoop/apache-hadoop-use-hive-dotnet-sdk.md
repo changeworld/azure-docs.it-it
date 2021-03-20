@@ -6,10 +6,10 @@ ms.topic: how-to
 ms.custom: hdinsightactive, devx-track-csharp
 ms.date: 12/24/2019
 ms.openlocfilehash: 17264fc2a7d0a51de545e329ccf12ad45ad49d46
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/28/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98927234"
 ---
 # <a name="run-apache-hive-queries-using-hdinsight-net-sdk"></a>Eseguire query Apache Hive con HDInsight .NET SDK
@@ -44,7 +44,7 @@ HDInsight .NET SDK fornisce librerie client .NET che semplificano l'uso dei clus
     Install-Package Microsoft.Azure.Management.HDInsight.Job
     ```
 
-1. Modificare il codice seguente per inizializzare i valori per le variabili: `ExistingClusterName, ExistingClusterUsername, ExistingClusterPassword,DefaultStorageAccountName,DefaultStorageAccountKey,DefaultStorageContainerName` . Usare quindi il codice modificato come intero contenuto di **Program.cs** in Visual Studio.
+1. Modificare il codice seguente per inizializzare i valori per le variabili: `ExistingClusterName, ExistingClusterUsername, ExistingClusterPassword,DefaultStorageAccountName,DefaultStorageAccountKey,DefaultStorageContainerName` . Usare quindi il codice modificato come intero contenuto di **Program. cs** in Visual Studio.
 
     ```csharp
     using System.Collections.Generic;

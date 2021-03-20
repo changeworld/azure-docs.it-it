@@ -8,12 +8,12 @@ ms.workload: infrastructure-services
 ms.topic: how-to
 ms.date: 12/06/2019
 ms.author: cynthn
-ms.openlocfilehash: 163d200573dc93f7c9e1d5e404febd4f939a6164
-ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
+ms.openlocfilehash: c77375782ba23114be1953d9f8ad7de31ab06f1f
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/10/2021
-ms.locfileid: "102565258"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104582188"
 ---
 # <a name="quick-steps-create-and-use-an-ssh-public-private-key-pair-for-linux-vms-in-azure"></a>Azioni rapide: Creare e usare una coppia di chiavi SSH pubblica e privata per le macchine virtuali Linux in Azure
 
@@ -97,4 +97,4 @@ Se la macchina virtuale usa i criteri di accesso JIT, è necessario richiedere l
 
 * Per altre informazioni sull'uso di coppie di chiavi SSH, vedere [Procedura dettagliata per creare e gestire coppie di chiavi SSH](create-ssh-keys-detailed.md).
 
-* In caso di difficoltà con le connessioni SSH alle macchine virtuali di Azure, vedere [Risolvere i problemi di connessione SSH a una macchina virtuale Linux di Azure](../troubleshooting/troubleshoot-ssh-connection.md).
+* In caso di difficoltà con le connessioni SSH alle macchine virtuali di Azure, vedere [Risolvere i problemi di connessione SSH a una macchina virtuale Linux di Azure](/troubleshoot/azure/virtual-machines/troubleshoot-ssh-connection).

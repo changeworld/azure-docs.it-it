@@ -8,10 +8,10 @@ ms.date: 06/26/2019
 ms.topic: conceptual
 keywords: Kinect, firmware, aggiornamento
 ms.openlocfilehash: f8b89751d27fb5a4b18d635f45f63f4f36bd05f6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "85276718"
 ---
 # <a name="azure-kinect-dk-firmware-tool"></a>Strumento firmware di Azure Kinect DK
@@ -61,7 +61,7 @@ Se è collegato più di un dispositivo, è possibile specificare il dispositivo 
 
 `AzureKinectFirmwareTool.exe -u firmware\AzureKinectDK_Fw_1.5.926614.bin 000036590812`
 
-## <a name="reset-device"></a>Reimpostare il dispositivo
+## <a name="reset-device"></a>Reimposta dispositivo
 
 È possibile reimpostare un oggetto DK Kinect di Azure collegato usando l'opzione-r, se è necessario ottenere il dispositivo in uno stato noto.
 

@@ -9,10 +9,10 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 10/05/2020
 ms.openlocfilehash: f666cc2f9d11b1e05d11ba266897e6fca3cd287e
-ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/14/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92057621"
 ---
 # <a name="debug-sessions-in-azure-cognitive-search"></a>Sessioni di debug in Azure ricerca cognitiva
@@ -51,7 +51,7 @@ La visualizzazione **Grafo delle competenze** fornisce una rappresentazione visi
 
 Se si seleziona una competenza nel grafo, vengono evidenziate le competenze connesse, i nodi che creano i relativi input e i nodi che ne accettano gli output. Ogni nodo di una competenza visualizza il tipo, gli errori o gli avvisi e i conteggi di esecuzione. Il **grafo delle competenze** è il punto in cui viene selezionata la competenza di cui eseguire il debug o il miglioramento. Quando si seleziona una competenza, i relativi dettagli verranno visualizzati nel riquadro dei dettagli della competenza a destra del grafo.
 
-> :::image type="content" source="media/cognitive-search-debug/skills-graph.png" alt-text="Creazione di una sessione di debug":::
+> :::image type="content" source="media/cognitive-search-debug/skills-graph.png" alt-text="Grafo delle competenze":::
 
 ## <a name="skill-details"></a>Dettagli sulla competenza
 
@@ -73,7 +73,7 @@ Quando si crea una competenza personalizzata o si esegue il debug di un errore c
 
 Il riquadro **Struttura dei dati arricchiti** mostra gli arricchimenti del documento attraverso il set di competenze, specificando il contesto per ogni arricchimento e la competenza di origine. È anche possibile usare l'**analizzatore di espressioni** per visualizzare il contenuto di ogni arricchimento.
 
-> :::image type="content" source="media/cognitive-search-debug/enriched-data-structure-display.png" alt-text="Creazione di una sessione di debug":::
+> :::image type="content" source="media/cognitive-search-debug/enriched-data-structure-display.png" alt-text="Struttura dei dati arricchiti":::
 
 ## <a name="expression-evaluator"></a>Analizzatore di espressioni
 

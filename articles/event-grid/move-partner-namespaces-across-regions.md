@@ -5,10 +5,10 @@ ms.topic: how-to
 ms.custom: subject-moving-resources
 ms.date: 08/20/2020
 ms.openlocfilehash: 6783db6b9bb1c7d48b308234a179925d6f30e281
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "89086212"
 ---
 # <a name="move-azure-event-grid-partner-namespaces-to-another-region"></a>Spostare gli spazi dei nomi del partner griglia di eventi di Azure in un'altra area
@@ -31,7 +31,7 @@ Di seguito sono riportati i passaggi di alto livello trattati in questo articolo
 Per iniziare, esportare un modello di Gestione risorse per lo spazio dei nomi partner. 
 
 1. Accedere al [portale di Azure](https://portal.azure.com).
-2. Nella barra di ricerca nella parte superiore digitare gli **spazi dei nomi di griglia di eventi**e selezionare gli **spazi dei nomi del partner di griglia di eventi** dall'elenco dei risultati. 
+2. Nella barra di ricerca nella parte superiore digitare gli **spazi dei nomi di griglia di eventi** e selezionare gli **spazi dei nomi del partner di griglia di eventi** dall'elenco dei risultati. 
 3. Selezionare lo **spazio dei nomi del partner** che si desidera esportare in un modello di gestione risorse. 
 4. Nella pagina **spazio dei nomi del partner di griglia di eventi** selezionare **Esporta modello** in **Impostazioni** nel menu a sinistra e quindi fare clic su **Scarica** sulla barra degli strumenti. 
 
@@ -57,17 +57,17 @@ Per iniziare, esportare un modello di Gestione risorse per lo spazio dei nomi pa
 Distribuire il modello per creare uno spazio dei nomi partner nell'area di destinazione. 
 
 1. Nella portale di Azure selezionare **Crea una risorsa**.
-2. In **Cerca nel Marketplace**Digitare **distribuzione modello**, quindi premere **invio**.
+2. In **Cerca nel Marketplace** Digitare **distribuzione modello**, quindi premere **invio**.
 3. Selezionare **distribuzione modelli**.
 4. Selezionare **Crea**.
 5. Selezionare **Creare un modello personalizzato nell'editor**.
-6. Selezionare **Carica file**e quindi seguire le istruzioni per caricare il **template.js** nel file scaricato nell'ultima sezione.
+6. Selezionare **Carica file** e quindi seguire le istruzioni per caricare il **template.js** nel file scaricato nell'ultima sezione.
 7. Selezionare **Save (Salva** ) per salvare il modello. 
 8. Nella pagina **distribuzione personalizzata** , attenersi alla seguente procedura: 
-    1. Selezionare una **sottoscrizione**di Azure. 
+    1. Selezionare una **sottoscrizione** di Azure. 
     1. Selezionare un **gruppo di risorse** esistente nell'area di destinazione o crearne uno. 
-    1. Per **località**selezionare l'area di destinazione. Se è stato selezionato un gruppo di risorse esistente, questa impostazione è di sola lettura. 
-    1. Per **nome spazio dei nomi partner**immettere un nome per il nuovo spazio dei nomi partner. 
+    1. Per **località** selezionare l'area di destinazione. Se è stato selezionato un gruppo di risorse esistente, questa impostazione è di sola lettura. 
+    1. Per **nome spazio dei nomi partner** immettere un nome per il nuovo spazio dei nomi partner. 
     1. Per l'ID esterno della registrazione partner, immettere l'ID risorsa della registrazione partner nel formato seguente: `/subscriptions/<Azure subscription ID>/resourceGroups/<resource group name>/providers/Microsoft.EventGrid/partnerRegistrations/<Partner registration name>` .
     1. Selezionare la casella di controllo **Accetto le condizioni riportate sopra**.     
     1. Selezionare **Verifica + crea** per avviare il processo di distribuzione. 
@@ -80,7 +80,7 @@ Se si vuole ricominciare, eliminare lo spazio dei nomi partner nell'area di dest
 
 Per eliminare uno spazio dei nomi partner usando il portale di Azure:
 
-1. Nella finestra di ricerca nella parte superiore di portale di Azure digitare gli **spazi dei nomi del partner di griglia di eventi**e selezionare gli **spazi dei nomi del partner di griglia di eventi** nei risultati della ricerca. 
+1. Nella finestra di ricerca nella parte superiore di portale di Azure digitare gli **spazi dei nomi del partner di griglia di eventi** e selezionare gli **spazi dei nomi del partner di griglia di eventi** nei risultati della ricerca. 
 2. Selezionare lo spazio dei nomi partner da eliminare e selezionare **Elimina** dalla barra degli strumenti. 
 3. **Confermare** l'eliminazione per eliminare lo spazio dei nomi del partner. 
 

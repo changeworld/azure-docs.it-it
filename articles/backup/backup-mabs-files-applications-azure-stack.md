@@ -4,10 +4,10 @@ description: Usare Backup di Azure per eseguire il backup e ripristinare file e 
 ms.topic: conceptual
 ms.date: 06/05/2018
 ms.openlocfilehash: cae95c10c510969cc0553a54a506789d6be427d7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "89180984"
 ---
 # <a name="back-up-files-and-applications-on-azure-stack"></a>Eseguire il backup di file e applicazioni in Azure Stack
@@ -77,7 +77,7 @@ Per configurare il serve di Backup di Azure per proteggere i file nelle macchine
 
 10. Nella pagina **Specificare la pianificazione dei backup online** indicare quando devono essere eseguiti i backup incrementali in Azure.
 
-    È possibile pianificare l’esecuzione di backup giornalieri/settimanali/mensili/annuali e la data e l'ora in cui devono essere eseguiti. I backup possono essere eseguiti fino a due volte al giorno. Ogni volta che viene eseguito un processo di backup, viene creato in Azure un punto di recupero dei dati dalla copia dei dati di backup archiviati nel disco del server di Backup di Azure.
+    È possibile pianificare l'esecuzione di backup giornalieri, settimanali, mensili e annuali nonché la data e l'ora in cui eseguirli. I backup possono essere eseguiti fino a due volte al giorno. Ogni volta che viene eseguito un processo di backup, viene creato in Azure un punto di recupero dei dati dalla copia dei dati di backup archiviati nel disco del server di Backup di Azure.
 
 11. In **Specificare i criteri di conservazione online** indicare la modalità di conservazione in Azure dei punti di recupero creati dai backup giornalieri, settimanali, mensili e annuali.
 
@@ -107,7 +107,7 @@ Usare la console del server di Backup di Azure per recuperare i dati nella macch
     * Come **comportamento del recupero della versione esistente** selezionare **Creare copia**, **Ignora** oppure **Sovrascrivi**. La sovrascrittura è disponibile solo quando si recuperano i dati nel percorso originale.
     * Come **protezione del ripristino** scegliere di **applicare le impostazioni del computer di destinazione** oppure **applicare le impostazioni di sicurezza della versione del punto di recupero**.
     * Per la **limitazione all'utilizzo della larghezza di banda di rete**, selezionare **modifica** per abilitare la limitazione all'utilizzo della larghezza di banda.
-    * **Notifica** di Selezionare **Invia messaggio di posta elettronica al termine del ripristino**e specificare i destinatari che riceveranno la notifica. Se vi sono più indirizzi di posta elettronica, separarli con virgole.
+    * **Notifica** di Selezionare **Invia messaggio di posta elettronica al termine del ripristino** e specificare i destinatari che riceveranno la notifica. Se vi sono più indirizzi di posta elettronica, separarli con virgole.
     * Dopo aver effettuato le selezioni, fare clic su **Avanti** .
 
 7. Verificare le impostazioni di ripristino e selezionare **Ripristina**.

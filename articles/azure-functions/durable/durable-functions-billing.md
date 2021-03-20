@@ -6,10 +6,10 @@ ms.topic: overview
 ms.date: 08/31/2019
 ms.author: azfuncdf
 ms.openlocfilehash: 2ec1b080c195a47caafd0120240b5fb61ede062b
-ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
-ms.translationtype: HT
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/06/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97932283"
 ---
 # <a name="durable-functions-billing"></a>Fatturazione di Durable Functions
@@ -33,13 +33,13 @@ Quando una funzione dell'agente di orchestrazione attende il completamento di un
 
 ## <a name="durable-http-polling"></a>Polling HTTP durevole
 
-Le funzioni dell'agente di orchestrazione possono effettuare chiamate HTTP con esecuzione prolungata a endpoint esterni, come descritto nell'[articolo sulle funzionalità HTTP](durable-functions-http-features.md). Il metodo **CallHttpAsync** in C# e il metodo **callHttp** in JavaScript possono eseguire internamente il polling di un endpoint HTTP quando sono conformi al [modello 202 asincrono](durable-functions-http-features.md#http-202-handling).
+Le funzioni dell'agente di orchestrazione possono eseguire chiamate HTTP con esecuzione prolungata a endpoint esterni, come descritto nell' [articolo sulle funzionalità http](durable-functions-http-features.md). Il metodo **CallHttpAsync** in C# e il metodo **callHttp** in JavaScript possono eseguire internamente il polling di un endpoint HTTP quando sono conformi al [modello 202 asincrono](durable-functions-http-features.md#http-202-handling).
 
 Non è attualmente prevista alcuna fatturazione diretta per le operazioni di polling HTTP interno. Il polling interno potrebbe però causare la riproduzione periodica della funzione dell'agente di orchestrazione. Verranno fatturati gli addebiti standard per queste riesecuzioni di funzioni interne.
 
 ## <a name="azure-storage-transactions"></a>Transazioni di archiviazione di Azure
 
-Durable Functions usa Archiviazione di Azure per impostazione predefinita per la persistenza dello stato, l'elaborazione dei messaggi e la gestione di partizione tramite lease di BLOB. Questo account di archiviazione è di proprietà dell'utente, di conseguenza nella sottoscrizione di Azure vengono fatturati solo gli eventuali costi delle transazioni. Per altre informazioni sugli artefatti di Archiviazione di Azure usati da Durable Functions, vedere l'[articolo sugli hub attività](durable-functions-task-hubs.md).
+Durable Functions usa Archiviazione di Azure per impostazione predefinita per la persistenza dello stato, l'elaborazione dei messaggi e la gestione di partizione tramite lease di BLOB. Questo account di archiviazione è di proprietà dell'utente, di conseguenza nella sottoscrizione di Azure vengono fatturati solo gli eventuali costi delle transazioni. Per altre informazioni sugli artefatti di archiviazione di Azure usati da Durable Functions, vedere l'articolo relativo a [Hub attività](durable-functions-task-hubs.md).
 
 Diversi fattori contribuiscono ai costi effettivi di Archiviazione di Azure generati dall'app di Durable Functions:
 

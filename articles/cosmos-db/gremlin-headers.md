@@ -8,10 +8,10 @@ ms.date: 09/03/2019
 author: christopheranderson
 ms.author: chrande
 ms.openlocfilehash: 0442d21aebe1cf577c50d14a5aeff40bd1f6cd9c
-ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/20/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98600521"
 ---
 # <a name="azure-cosmos-db-gremlin-server-response-headers"></a>Intestazioni di risposta del server Azure Cosmos DB Gremlin
@@ -23,7 +23,7 @@ Tenere presente che la dipendenza da queste intestazioni consente di limitare la
 
 ## <a name="headers"></a>Intestazioni
 
-| Intestazione | Type | Valore di esempio | Quando incluso | Spiegazione |
+| Intestazione | Tipo | Valore di esempio | Quando incluso | Spiegazione |
 | --- | --- | --- | --- | --- |
 | **x-ms-request-charge** | double | 11,3243 | Success and Failure | Quantità di velocità effettiva raccolta o database utilizzata in [unità richiesta (UR/s o UR)](request-units.md) per un messaggio di risposta parziale. Questa intestazione è presente in ogni continuazione per le richieste con più blocchi. Riflette il costo di un determinato blocco di risposta. Solo per le richieste che sono costituite da un singolo blocco di risposta questa intestazione corrisponde al costo totale di attraversamento. Tuttavia, per la maggior parte degli attraversamenti complessi, questo valore rappresenta un costo parziale. |
 | **x-ms-Total-request-charge** | double | 423,987 | Success and Failure | Quantità di velocità effettiva raccolta o database utilizzata nelle [unità richiesta (UR/s o UR)](request-units.md) per l'intera richiesta. Questa intestazione è presente in ogni continuazione per le richieste con più blocchi. Indica un addebito cumulativo dall'inizio della richiesta. Il valore di questa intestazione nell'ultimo blocco indica un addebito completo della richiesta. |
