@@ -4,10 +4,10 @@ description: Informazioni su come risolvere i problemi che si verificano quando 
 ms.topic: article
 ms.date: 06/26/2020
 ms.openlocfilehash: a89b675a1b3bf134b98e09c7278f0eccb594c325
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "85483194"
 ---
 # <a name="troubleshoot-issues-when-applying-artifacts-in-an-azure-devtest-labs-virtual-machine"></a>Risolvere i problemi relativi all'applicazione di elementi in una macchina virtuale Azure DevTest Labs
@@ -22,7 +22,7 @@ Se in qualsiasi punto dell'articolo sono necessarie altre informazioni, è possi
 Verificare che la macchina virtuale sia in esecuzione. DevTest Labs richiede che la VM sia in esecuzione e che l' [agente di macchine virtuali Microsoft Azure (agente VM)](../virtual-machines/extensions/agent-windows.md) sia installato e pronto.
 
 > [!TIP]
-> Nella **portale di Azure**passare alla pagina **Gestisci elementi** della macchina virtuale per verificare se la macchina virtuale è pronta per l'applicazione di artefatti. Viene visualizzato un messaggio nella parte superiore della pagina. 
+> Nella **portale di Azure** passare alla pagina **Gestisci elementi** della macchina virtuale per verificare se la macchina virtuale è pronta per l'applicazione di artefatti. Viene visualizzato un messaggio nella parte superiore della pagina. 
 > 
 > Utilizzando **Azure PowerShell**, controllare il flag **canApplyArtifacts**, che viene restituito solo quando si espande un'operazione get. Vedere il comando di esempio seguente:
 
@@ -113,7 +113,7 @@ L'errore precedente verrà visualizzato nella sezione **messaggio di distribuzio
 - Controllare se sono stati **aggiunti gruppi di sicurezza di rete (NSG)**. È possibile che sia stato aggiunto un criterio di sottoscrizione in cui gruppi vengono configurati automaticamente in tutte le reti virtuali. Influisce anche sulla rete virtuale predefinita del Lab, se usata, o su altre reti virtuali configurate nel Lab, usate per la creazione di macchine virtuali.
 - **Controllare l'account di archiviazione del lab predefinito** , ovvero il primo account di archiviazione creato al momento della creazione del Lab, il cui nome inizia in genere con la lettera "a" e termina con un numero a più cifre, ovvero un \<labname\> #.
     1. Passare al gruppo di risorse del Lab.
-    2. Individuare la risorsa di tipo **account di archiviazione**il cui nome corrisponde alla convenzione.
+    2. Individuare la risorsa di tipo **account di archiviazione** il cui nome corrisponde alla convenzione.
     3. Passare alla pagina dell'account di archiviazione denominata **firewall e reti virtuali**.
     4. Verificare che sia impostato su **tutte le reti**. Se è selezionata l'opzione **reti selezionate** , assicurarsi che le reti virtuali del Lab usate per creare le VM vengano aggiunte all'elenco.
 

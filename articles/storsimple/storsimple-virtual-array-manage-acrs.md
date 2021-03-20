@@ -16,10 +16,10 @@ ms.date: 02/27/2017
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: bad0d7adfd77dff53b1582e63a91f2cd87a9233d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "85507620"
 ---
 # <a name="use-storsimple-device-manager-to-manage-access-control-records-for-storsimple-virtual-array"></a>Usare Gestione dispositivi StorSimple per gestire i record di controllo di accesso per l'array virtuale StorSimple
@@ -67,9 +67,9 @@ Attenersi alla seguente procedura per aggiungere un record di controllo di acces
 2. Nel pannello **Record di controllo di accesso** fare clic su **Aggiungi**.
 3. Nel pannello **Aggiungi record di controllo di accesso** eseguire le operazioni seguenti:
    
-    1. Specificare un nome per il record di controllo di accesso.****
+    1. Specificare un nome per il record di controllo di accesso.
     
-    2. In **Nome iniziatore iSCSI**fornire il nome qualificato iSCSI dell'host di Windows. Per ottenere l'IQN dell'host di Windows Server, eseguire le operazioni seguenti:
+    2. In **Nome iniziatore iSCSI** fornire il nome qualificato iSCSI dell'host di Windows. Per ottenere l'IQN dell'host di Windows Server, eseguire le operazioni seguenti:
    
     3. Avviare l'iniziatore iSCSI di Microsoft sull’host di Windows. Nella scheda **Configurazione** della finestra delle proprietà dell'iniziatore iSCSI selezionare e copiare la stringa dal campo **Nome iniziatore**.
     Incollare questa stringa nel campo **IQN** nel pannello **Aggiungi record di controllo di accesso**.

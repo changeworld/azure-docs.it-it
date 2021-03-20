@@ -9,10 +9,10 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 06/12/2020
 ms.openlocfilehash: 6cefe543ea8ba992b028448070bf041a77bfec64
-ms.sourcegitcommit: 8c3a656f82aa6f9c2792a27b02bbaa634786f42d
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/17/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97630276"
 ---
 # <a name="aml-skill-in-an-azure-cognitive-search-enrichment-pipeline"></a>Abilità AML in una pipeline di arricchimento ricerca cognitiva di Azure
@@ -168,7 +168,7 @@ Oltre alla mancata disponibilità o all'invio di codici di stato non riusciti, i
 
 Nei casi in cui il servizio AML non è disponibile o restituisce un errore HTTP, alla cronologia di esecuzione dell'indicizzatore verrà aggiunto un errore descrittivo con i dettagli disponibili sull'errore HTTP.
 
-## <a name="see-also"></a>Vedere anche
+## <a name="see-also"></a>Vedi anche
 
 + [Come definire un set di competenze](cognitive-search-defining-skillset.md)
 + [Risoluzione dei problemi del servizio AML](../machine-learning/how-to-troubleshoot-deployment.md)

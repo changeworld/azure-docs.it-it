@@ -5,10 +5,10 @@ ms.date: 06/18/2020
 ms.topic: how-to
 ms.custom: seodec18
 ms.openlocfilehash: 90f741b9ec5e17da4fd0cc95ef921e116b0c27dc
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "85960589"
 ---
 # <a name="monitor-batch-solutions-by-counting-tasks-and-nodes-by-state"></a>Monitorare le soluzioni Batch conteggiando attività e nodi in base allo stato
@@ -116,5 +116,5 @@ Per ottenere i conteggi dei nodi per i pool, è possibile usare un criterio simi
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Informazioni sul [Flusso di lavoro del servizio Batch e risorse primarie](batch-service-workflow-features.md), ad esempio pool, nodi, processi e attività.
+- Informazioni sul [Flusso di lavoro del servizio Batch e risorse primarie](batch-service-workflow-features.md) come pool, nodi, processi e attività.
 - Per informazioni sull'applicazione di filtri alle query che elencano le risorse batch, vedere [creare query per elencare in modo efficiente le risorse batch](batch-efficient-list-queries.md).

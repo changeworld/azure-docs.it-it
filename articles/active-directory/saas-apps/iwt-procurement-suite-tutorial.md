@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 04/23/2020
 ms.author: jeedes
 ms.openlocfilehash: c39326074763a3ebcaec7682c10e6e1d39aa5f78
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
-ms.translationtype: HT
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/23/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92459595"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-iwt-procurement-suite"></a>Esercitazione: Integrazione dell'accesso Single Sign-On (SSO) di Azure Active Directory con IWT Procurement Suite
@@ -86,20 +86,20 @@ Per abilitare l'accesso Single Sign-On di Azure AD nel portale di Azure, seguire
     > [!NOTE]
     > Poiché questi non sono i valori reali, è necessario aggiornarli con l'identificatore e l'URL di risposta effettivi. Per ottenere questi valori, contattare il [team di supporto clienti di IWT Procurement Suite](mailto:support@ionwave.net). È anche possibile fare riferimento ai modelli mostrati nella sezione **Configurazione SAML di base** del portale di Azure.
 
-1. L'applicazione IWT Procurement Suite prevede un formato specifico per le asserzioni SAML. È quindi necessario aggiungere mapping di attributi personalizzati alla configurazione degli attributi del token SAML. Lo screenshot seguente illustra l'elenco degli attributi predefiniti in cui **Emailaddress** è associato a **user.mail**. Dal momento che l'applicazione IWT Procurement Suite prevede che **Emailaddress** sia associato a **user.userprincipalname** , è necessario modificare il mapping dell'attributo facendo clic sull'icona **Modifica**.
+1. L'applicazione IWT Procurement Suite prevede un formato specifico per le asserzioni SAML. È quindi necessario aggiungere mapping di attributi personalizzati alla configurazione degli attributi del token SAML. Lo screenshot seguente illustra l'elenco degli attributi predefiniti in cui **Emailaddress** è associato a **user.mail**. Dal momento che l'applicazione IWT Procurement Suite prevede che **Emailaddress** sia associato a **user.userprincipalname**, è necessario modificare il mapping dell'attributo facendo clic sull'icona **Modifica**.
 
     ![image](common/default-attributes.png)
 
 
 
-1. Nella sezione **Certificato di firma SAML** della pagina **Configura l'accesso Single Sign-On con SAML** fare clic sul pulsante Copia per copiare l' **URL dei metadati di federazione dell'app** e salvarlo nel computer.
+1. Nella sezione **Certificato di firma SAML** della pagina **Configura l'accesso Single Sign-On con SAML** fare clic sul pulsante Copia per copiare l'**URL dei metadati di federazione dell'app** e salvarlo nel computer.
 
     ![Collegamento di download del certificato](common/copy-metadataurl.png)
 ### <a name="create-an-azure-ad-test-user"></a>Creare un utente di test di Azure AD
 
 In questa sezione verrà creato un utente di test di nome B.Simon nel portale di Azure.
 
-1. Nel riquadro sinistro del portale di Azure selezionare **Azure Active Directory** , **Utenti** e quindi **Tutti gli utenti**.
+1. Nel riquadro sinistro del portale di Azure selezionare **Azure Active Directory**, **Utenti** e quindi **Tutti gli utenti**.
 1. Selezionare **Nuovo utente** in alto nella schermata.
 1. In **Proprietà utente** seguire questa procedura:
    1. Nel campo **Nome** immettere `B.Simon`.  
@@ -127,7 +127,7 @@ In questa sezione si abiliterà B.Simon all'uso dell'accesso Single Sign-On di A
 
 ## <a name="configure-iwt-procurement-suite-sso"></a>Configurare l'accesso Single Sign-On di IWT Procurement Suite
 
-Per configurare l'accesso Single Sign-On in **IWT Procurement Suite** , è necessario inviare l' **URL dei metadati di federazione dell'app** al [team di supporto di IWT Procurement Suite](mailto:support@ionwave.net). La configurazione viene eseguita in modo che la connessione SSO SAML sia impostata correttamente su entrambi i lati.
+Per configurare l'accesso Single Sign-On in **IWT Procurement Suite**, è necessario inviare l'**URL dei metadati di federazione dell'app** al [team di supporto di IWT Procurement Suite](mailto:support@ionwave.net). La configurazione viene eseguita in modo che la connessione SSO SAML sia impostata correttamente su entrambi i lati.
 
 ### <a name="create-iwt-procurement-suite-test-user"></a>Creare l'utente di test di IWT Procurement Suite
 

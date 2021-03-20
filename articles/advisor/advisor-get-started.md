@@ -4,10 +4,10 @@ description: Introduzione ad Azure Advisor.
 ms.topic: article
 ms.date: 02/01/2019
 ms.openlocfilehash: e91049077502a6c0eedf0a4f979c073690c214da
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "85117863"
 ---
 # <a name="get-started-with-azure-advisor"></a>Introduzione ad Azure Advisor
@@ -27,7 +27,7 @@ Informazioni su come accedere ad Advisor tramite il portale di Azure, ricevere e
 
 1. Nel dashboard di Advisor viene visualizzato un riepilogo dei consigli per tutte le sottoscrizioni selezionate.  È possibile scegliere le sottoscrizioni per le quali si vuole ottenere i consigli usando come filtro il menu a discesa delle sottoscrizioni.
 
-1. Per ottenere le raccomandazioni per una categoria specifica, fare clic su una delle schede: **affidabilità**, **sicurezza**, **prestazioni**o **costo**. 
+1. Per ottenere le raccomandazioni per una categoria specifica, fare clic su una delle schede: **affidabilità**, **sicurezza**, **prestazioni** o **costo**. 
 
    ![Dashboard di Azure Advisor](./media/advisor-overview/advisor-dashboard.png)
 

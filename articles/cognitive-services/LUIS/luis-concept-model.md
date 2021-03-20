@@ -6,10 +6,10 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 04/30/2020
 ms.openlocfilehash: 576ba945018d13db9cd24888f3c41a2215857694
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91316512"
 ---
 # <a name="design-with-intent-and-entity-models"></a>Modelli di progettazione con finalità ed entità
@@ -65,7 +65,7 @@ LUIS supporta la _scomposizione dei modelli_ con le API di creazione, suddividen
 
 La scomposizione dei modelli include le parti seguenti:
 
-* [Intent](#intents-classify-utterances)
+* [intents](#intents-classify-utterances)
     * [funzionalità](#features)
 * [entità di Machine Learning](reference-entity-machine-learned-entity.md)
     * sottoentità (anche entità di machine learning)

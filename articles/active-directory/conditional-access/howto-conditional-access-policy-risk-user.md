@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: calebb, rogoya
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: d5423a61c8febee72f32935f3dee4e9f9e868630
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "89049078"
 ---
 # <a name="conditional-access-user-risk-based-conditional-access"></a>Accesso condizionale: accesso condizionale basato sul rischio utente
@@ -34,9 +34,9 @@ Questo criterio può essere assegnato a due posizioni. Le organizzazioni devono 
    1. In **Includi** selezionare **Tutti gli utenti**.
    1. In **Escludi** selezionare **Utenti e gruppi** e scegliere gli account di accesso di emergenza o gli account critici dell'organizzazione. 
    1. Selezionare **Operazione completata**.
-1. In **app Cloud o azioni**  >  **Includi**selezionare **tutte le app Cloud**.
-1. In **Conditions**  >  **User Risk**impostare **Configure** su **Yes**. In **configurare i livelli di rischio utente necessari per l'applicazione dei criteri** selezionare **alta**, quindi fare clic su **fine**.
-1. In **controllo di accesso**  >  **concedere**selezionare **Concedi accesso**, **Richiedi modifica della password**e selezionare **Seleziona**.
+1. In **app Cloud o azioni**  >  **Includi** selezionare **tutte le app Cloud**.
+1. In **Conditions**  >  **User Risk** impostare **Configure** su **Yes**. In **configurare i livelli di rischio utente necessari per l'applicazione dei criteri** selezionare **alta**, quindi fare clic su **fine**.
+1. In **controllo di accesso**  >  **concedere** selezionare **Concedi accesso**, **Richiedi modifica della password** e selezionare **Seleziona**.
 1. Confermare le impostazioni e impostare **Abilita criterio** **su on**.
 1. Selezionare **Crea** per creare e abilitare il criterio.
 
@@ -45,13 +45,13 @@ Questo criterio può essere assegnato a due posizioni. Le organizzazioni devono 
 1. Accedere al **portale di Azure**.
 1. Selezionare **tutti i servizi**, quindi passare a **Azure ad Identity Protection**.
 1. Selezionare **criteri di rischio utente**.
-1. In **assegnazioni**selezionare **utenti**.
+1. In **assegnazioni** selezionare **utenti**.
    1. In **Includi** selezionare **Tutti gli utenti**.
-   1. In **Escludi**selezionare **Seleziona utenti esclusi**, scegliere l'accesso di emergenza dell'organizzazione o gli account break-Glass e selezionare **Seleziona**.
-   1. Selezionare **Operazione completata**.
-1. In **condizioni**selezionare **rischio utente**, quindi fare clic **su alto**.
+   1. In **Escludi** selezionare **Seleziona utenti esclusi**, scegliere l'accesso di emergenza dell'organizzazione o gli account break-Glass e selezionare **Seleziona**.
+   1. Selezionare **Fine**.
+1. In **condizioni** selezionare **rischio utente**, quindi fare clic **su alto**.
    1. Selezionare **Seleziona**, quindi **fine**.
-1. In **Controlla**  >  **accesso**scegliere **Consenti accesso**, quindi selezionare **Richiedi modifica della password**.
+1. In **Controlla**  >  **accesso** scegliere **Consenti accesso**, quindi selezionare **Richiedi modifica della password**.
    1. Scegliere **Seleziona**.
 1. Impostare **Applica criterio** **su on**.
 1. Selezionare **Salva**.

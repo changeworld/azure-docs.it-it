@@ -9,10 +9,10 @@ ms.author: normesta
 ms.subservice: common
 ms.reviewer: dineshm
 ms.openlocfilehash: 524e3f70f9588cfae2c739722fc1a44e683f9a7f
-ms.sourcegitcommit: 86acfdc2020e44d121d498f0b1013c4c3903d3f3
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/17/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97617290"
 ---
 # <a name="copy-blobs-between-azure-storage-accounts-by-using-azcopy-v10"></a>Copiare i BLOB tra gli account di archiviazione di Azure usando AzCopy V10
@@ -25,7 +25,7 @@ AzCopy usa le [API](/rest/api/storageservices/put-page-from-url) [da server a se
 
 Per scaricare AzCopy e ottenere informazioni sulle modalità in cui è possibile fornire le credenziali di autorizzazione al servizio di archiviazione, vedere [Introduzione a AzCopy](storage-use-azcopy-v10.md). 
 
-## <a name="guidelines"></a>Linee guida
+## <a name="guidelines"></a>Indicazioni
 
 Applicare le linee guida seguenti ai comandi di AzCopy. 
 

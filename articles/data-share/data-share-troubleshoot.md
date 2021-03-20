@@ -8,10 +8,10 @@ ms.service: data-share
 ms.topic: troubleshooting
 ms.date: 12/16/2020
 ms.openlocfilehash: 3aa1c0b8579bd37d2bb51cbde70997131c696813
-ms.sourcegitcommit: f6f928180504444470af713c32e7df667c17ac20
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/07/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97964508"
 ---
 # <a name="troubleshoot-common-problems-in-azure-data-share"></a>Risolvere i problemi comuni nella condivisione di dati di Azure 
@@ -50,7 +50,7 @@ Quando si crea una nuova condivisione, si aggiungono set di impostazioni o si ma
 * Non si dispone delle autorizzazioni appropriate per x.
 * Non è stato possibile aggiungere le autorizzazioni di scrittura per l'account di condivisione dati di Azure a una o più delle risorse selezionate.
 
-Se non si dispone di autorizzazioni sufficienti per l'archivio dati di Azure, potrebbe essere visualizzato uno di questi errori. Per ulteriori informazioni, vedere [ruoli e requisiti](concepts-roles-permissions.md). 
+Se non si dispone di autorizzazioni sufficienti per l'archivio dati di Azure, potrebbe essere visualizzato uno di questi errori. Per altre informazioni, vedere [Ruoli e requisiti](concepts-roles-permissions.md). 
 
 Per condividere o ricevere dati da un archivio dati di Azure, è necessaria l'autorizzazione di scrittura. Questa autorizzazione è in genere parte del ruolo Collaboratore. 
 
@@ -65,7 +65,7 @@ Uno snapshot può non riuscire per vari motivi. Aprire un messaggio di errore de
 
 Gli snapshot in genere hanno esito negativo per questi motivi:
 
-* La condivisione dati non dispone delle autorizzazioni necessarie per leggere dall'archivio dati di origine o per scrivere nell'archivio dati di destinazione. Per ulteriori informazioni, vedere [ruoli e requisiti](concepts-roles-permissions.md). Se si sta eseguendo uno snapshot per la prima volta, la risorsa di condivisione dati potrebbe richiedere alcuni minuti per ottenere l'accesso all'archivio dati di Azure. Dopo alcuni minuti, riprovare.
+* La condivisione dati non dispone delle autorizzazioni necessarie per leggere dall'archivio dati di origine o per scrivere nell'archivio dati di destinazione. Per altre informazioni, vedere [Ruoli e requisiti](concepts-roles-permissions.md). Se si sta eseguendo uno snapshot per la prima volta, la risorsa di condivisione dati potrebbe richiedere alcuni minuti per ottenere l'accesso all'archivio dati di Azure. Dopo alcuni minuti, riprovare.
 * La connessione di condivisione dati all'archivio dati di origine o all'archivio dati di destinazione è bloccata da un firewall.
 * Un set di dati condiviso, un archivio dati di origine o un archivio dati di destinazione è stato eliminato.
 

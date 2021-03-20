@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 11/09/2018
 ms.author: jroth
 ms.openlocfilehash: bbe928084a758335e5fa3b0531726c77a6d599b8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
-ms.translationtype: HT
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "85838868"
 ---
 La tabella seguente elenca i limiti applicabili alle risorse del servizio Device Provisioning in hub IoT di Azure.
@@ -33,6 +33,6 @@ Il servizio Device Provisioning limita le richieste quando vengono superate le q
 
 | Limitazione | Valore per unità |
 | --- | --- |
-| Operazioni | 200/min/servizio |
+| Gestione operativa | 200/min/servizio |
 | Registrazioni del dispositivo | 200/min/servizio |
 | Operazione di polling di dispositivo | 5/10 sec/dispositivo |

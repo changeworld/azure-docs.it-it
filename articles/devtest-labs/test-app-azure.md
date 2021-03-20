@@ -4,10 +4,10 @@ description: Informazioni su come creare una condivisione file in un lab e monta
 ms.topic: article
 ms.date: 06/26/2020
 ms.openlocfilehash: b2dbbf349da4e352fe20a22db03cc9063d801990
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "87282246"
 ---
 # <a name="test-your-app-in-azure"></a>Testare l'app in Azure 
@@ -15,7 +15,7 @@ Questo articolo illustra i passaggi necessari a testare l'applicazione in Azure 
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## <a name="prerequisites"></a>Prerequisiti  
+## <a name="prerequisites"></a>Prerequisiti 
 1. [Creare una sottoscrizione di Azure](https://azure.microsoft.com/free/) se non se ne possiede già una e accedere al [portale di Azure](https://portal.azure.com).
 2. Seguire le istruzioni contenute in [questo articolo](devtest-lab-create-lab.md) per creare un lab tramite Azure DevTest Labs. Aggiungere il lab alla dashboard in modo da poterla ritrovare facilmente al prossimo accesso. Azure DevTest Labs consente di creare rapidamente risorse in Azure riducendo al minimo gli sprechi e controllando i costi. Per altre informazioni su DevTest Labs, vedere la [panoramica](devtest-lab-overview.md). 
 3. Creare un account di Archiviazione di Azure nel gruppo di risorse del lab seguendo le istruzioni dell'articolo: [Creare un account di archiviazione](../storage/common/storage-account-create.md). All'interno della pagina **Creare un account di archiviazione**, selezionare **Usa esistente** per **Gruppo di risorse** e selezionare il **gruppo di risorse del lab**. 
@@ -78,7 +78,7 @@ In questa sezione, verrà mostrato come pubblicare l'app da Visual Studio a una 
 3. Selezionare **Connetti**.
 
     ![Informazioni sulla pagina macchina virtuale](media/test-app-in-azure/virtual-machine-page.png)
-4. All'interno della macchina virtuale, avviare **Esplora file**e selezionare **Computer** per trovare la condivisione file.
+4. All'interno della macchina virtuale, avviare **Esplora file** e selezionare **Computer** per trovare la condivisione file.
 
     ![Trovare la condivisione nella macchina virtuale](media/test-app-in-azure/find-share-on-vm.png)
 

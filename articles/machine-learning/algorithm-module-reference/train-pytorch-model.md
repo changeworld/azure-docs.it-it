@@ -10,10 +10,10 @@ author: likebupt
 ms.author: keli19
 ms.date: 09/26/2020
 ms.openlocfilehash: 2d88069f33995bdbe9dd479afe9a4e72ab9939b6
-ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/06/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93420666"
 ---
 # <a name="train-pytorch-model"></a>Train Pytorch Model
@@ -24,7 +24,7 @@ Questo articolo descrive come usare il modulo **Train Pytorch Model** in Azure M
 
 1. Aggiungere il modulo [DenseNet](densenet.md) o [Resnet](resnet.md) alla bozza della pipeline nella finestra di progettazione.
 
-2. Aggiungere il modulo **Train Pytorch Model** alla pipeline. È possibile trovare questo modulo nella categoria **training del modello** . Espandere **Train** , quindi trascinare il modulo **Train Pytorch Model** nella pipeline.
+2. Aggiungere il modulo **Train Pytorch Model** alla pipeline. È possibile trovare questo modulo nella categoria **training del modello** . Espandere **Train**, quindi trascinare il modulo **Train Pytorch Model** nella pipeline.
 
    > [!NOTE]
    > Il modulo **Train Pytorch Model** è migliore per l'esecuzione in una **GPU** di tipo calcolo per set di dati di grandi dimensioni. in caso contrario, la pipeline non riesce È possibile selezionare calcolo per un modulo specifico nel riquadro destro del modulo impostando **usa altra destinazione di calcolo**.
@@ -37,17 +37,17 @@ Questo articolo descrive come usare il modulo **Train Pytorch Model** in Azure M
 
     Il set di dati di training e il set di dati di convalida hanno le stesse categorie di etichette; in caso contrario, verrà generato un InvalidDatasetError
 
-4.  Per **epoche** , specificare il numero di epoche di cui si vuole eseguire il training. L'intero set di dati verrà iterato in ogni Epoch, per impostazione predefinita 5.
+4.  Per **epoche**, specificare il numero di epoche di cui si vuole eseguire il training. L'intero set di dati verrà iterato in ogni Epoch, per impostazione predefinita 5.
 
-5.  Per le **dimensioni del batch** , specificare il numero di istanze di cui eseguire il training in un batch, per impostazione predefinita è 16.
+5.  Per le **dimensioni del batch**, specificare il numero di istanze di cui eseguire il training in un batch, per impostazione predefinita è 16.
 
 6.  Per la **velocità di apprendimento** specificare un valore per la velocità di *apprendimento*. I valori della velocità di apprendimento controllano le dimensioni del passaggio usato in Optimizer come SGD ogni volta che il modello viene testato e corretto.
 
     Rendendo la percentuale più piccola, si testa il modello più spesso, con il rischio che si possa rimanere bloccati in un plateau locale. Estendendo le dimensioni del passaggio, è possibile rendere più veloce la convergenza con il rischio di oltrepassare il valore minimo true. per impostazione predefinita 0,001.
 
-7.  Per il valore di **inizializzazione casuale** , digitare facoltativamente un valore intero da utilizzare come valore di inizializzazione. L'uso di un valore di inizializzazione è consigliato se si vuole garantire la riproducibilità dell'esperimento tra le esecuzioni.
+7.  Per il valore di **inizializzazione casuale**, digitare facoltativamente un valore intero da utilizzare come valore di inizializzazione. L'uso di un valore di inizializzazione è consigliato se si vuole garantire la riproducibilità dell'esperimento tra le esecuzioni.
 
-8.  Per **pazienza** , specificare il numero di epoche da arrestare prima di eseguire il training se la perdita di convalida non diminuisce consecutivamente. per impostazione predefinita 3.
+8.  Per **pazienza**, specificare il numero di epoche da arrestare prima di eseguire il training se la perdita di convalida non diminuisce consecutivamente. per impostazione predefinita 3.
 
 9.  Inviare la pipeline. Se il set di dati ha dimensioni maggiori, è consigliabile un po' di tempo e le risorse di calcolo GPU sono consigliate.
 
@@ -58,7 +58,7 @@ Al termine dell'esecuzione della pipeline, per usare il modello per il punteggio
 ## <a name="technical-notes"></a>Note tecniche
 ###  <a name="expected-inputs"></a>Input previsti  
 
-| Nome               | Type                    | Description                              |
+| Nome               | Tipo                    | Descrizione                              |
 | ------------------ | ----------------------- | ---------------------------------------- |
 | Untrained model    | UntrainedModelDirectory | Modello non sottoposto a training, richiede pytorch         |
 | Dataset di training   | ImageDirectory          | Dataset di training                         |
@@ -76,7 +76,7 @@ Al termine dell'esecuzione della pipeline, per usare il modello per il punteggio
 
 ###  <a name="outputs"></a>Output  
 
-| Nome          | Type           | Description   |
+| Nome          | Tipo           | Descrizione   |
 | ------------- | -------------- | ------------- |
 | Trained model | ModelDirectory | Trained model |
 

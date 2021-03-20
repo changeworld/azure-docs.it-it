@@ -15,10 +15,10 @@ ms.workload: TBD
 ms.date: 06/05/2017
 ms.author: alkohli
 ms.openlocfilehash: 9d8b75c48da2bb13d843258ead378d3e849da951
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "85514086"
 ---
 # <a name="replace-a-controller-module-on-your-storsimple-device"></a>Sostituire un modulo controller nel dispositivo StorSimple
@@ -195,7 +195,7 @@ Utilizzare la procedura seguente per installare un modulo controller factory for
    > [!NOTE]
    > La riattivazione del controller e del LED potrebbe richiedere fino a 5 minuti.
   
-5. Per verificare che la sostituzione abbia esito positivo, nella portale di Azure andare al dispositivo, quindi passare a **monitora**  >  **integrità hardware**e assicurarsi che sia il controller 0 che il controller 1 siano integri (lo stato è verde).
+5. Per verificare che la sostituzione abbia esito positivo, nella portale di Azure andare al dispositivo, quindi passare a **monitora**  >  **integrità hardware** e assicurarsi che sia il controller 0 che il controller 1 siano integri (lo stato è verde).
 
 ## <a name="identify-the-active-controller-on-your-device"></a>Identificare il controller attivo sul dispositivo
 Esistono molte situazioni, ad esempio la prima registrazione del dispositivo o sostituzione del controller, che richiedono di  individuare il controller attivo in un dispositivo StorSimple. Il controller attivo elabora tutti le operazioni del firmware del disco e di rete. Per identificare il controller attivo, è possibile utilizzare uno dei metodi seguenti:
@@ -207,7 +207,7 @@ Esistono molte situazioni, ad esempio la prima registrazione del dispositivo o s
 Ognuna di queste procedure è descritta di seguito.
 
 ### <a name="use-the-azure-portal-to-identify-the-active-controller"></a>Usare il portale di Azure per identificare il controller attivo
-Nella portale di Azure passare al dispositivo e quindi a **monitoraggio**  >  **integrità hardware**e scorrere fino alla sezione **controller** . Qui è possibile verificare quale controller è attivo.
+Nella portale di Azure passare al dispositivo e quindi a **monitoraggio**  >  **integrità hardware** e scorrere fino alla sezione **controller** . Qui è possibile verificare quale controller è attivo.
 
 ![Identificare il controller attivo nel portale di Azure](./media/storsimple-controller-replacement/IC752072.png)
 

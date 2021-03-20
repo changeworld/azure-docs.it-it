@@ -10,10 +10,10 @@ author: likebupt
 ms.author: keli19
 ms.date: 07/13/2020
 ms.openlocfilehash: 2dfd8b3d919f9eeb3e183135ef543f417c878977
-ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/06/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93420700"
 ---
 # <a name="poisson-regression"></a>Regressione di Poisson
@@ -57,13 +57,13 @@ Poiché la variabile di risposta presenta una distribuzione di Poisson, il model
 
 3. Nel riquadro destro del modulo di **regressione di Poisson** specificare come si desidera eseguire il training del modello, impostando l'opzione **crea modalità trainer** .  
   
-    - **Singolo parametro** : se si sa come si desidera configurare il modello, fornire un set di valori specifico come argomenti.
+    - **Singolo parametro**: se si sa come si desidera configurare il modello, fornire un set di valori specifico come argomenti.
   
     - **Intervallo** di parametri: se non si è certi dei parametri migliori, eseguire uno sweep di parametri usando il modulo [Tune Model iperparametri](tune-model-hyperparameters.md) . Il trainer esegue l'iterazione su più valori specificati per trovare la configurazione ottimale.
   
-4. **Tolleranza di ottimizzazione** : digitare un valore che definisce l'intervallo di tolleranza durante l'ottimizzazione. Minore il valore, più lento e più preciso sarà l'adattamento.
+4. **Tolleranza di ottimizzazione**: digitare un valore che definisce l'intervallo di tolleranza durante l'ottimizzazione. Minore il valore, più lento e più preciso sarà l'adattamento.
 
-5. Peso **regolarizzazione L1** e **peso regolarizzazione L2** : valori di tipo da usare per la regolarizzazione L1 e L2. *Regularization* aggiunge vincoli all'algoritmo relativi ad aspetti del modello indipendenti dai dati di training e viene usata anche per evitare l'overfitting. 
+5. Peso **regolarizzazione L1** e **peso regolarizzazione L2**: valori di tipo da usare per la regolarizzazione L1 e L2. *Regularization* aggiunge vincoli all'algoritmo relativi ad aspetti del modello indipendenti dai dati di training e viene usata anche per evitare l'overfitting. 
 
     - La regolarizzazione di tipo L1 è utile se l'obiettivo consiste nell'ottenere un modello il più possibile sparse.
 
@@ -75,7 +75,7 @@ Poiché la variabile di risposta presenta una distribuzione di Poisson, il model
 
     Per una descrizione corretta della regolarizzazione L1 e L2, vedere [regolarizzazione L1 e L2 per Machine Learning](/archive/msdn-magazine/2015/february/test-run-l1-and-l2-regularization-for-machine-learning).
 
-6. **Dimensioni memoria per L-BFGS** : specificare la quantità di memoria da riservare per l'adattamento e l'ottimizzazione del modello.
+6. **Dimensioni memoria per L-BFGS**: specificare la quantità di memoria da riservare per l'adattamento e l'ottimizzazione del modello.
 
      L-BFGS è un metodo specifico per l'ottimizzazione, basato sull'algoritmo Broyden – Fletcher – Goldfarb – Shanno (BFGS). Il metodo usa una quantità limitata di memoria (L) per calcolare la direzione del passaggio successivo.
 
@@ -83,9 +83,9 @@ Poiché la variabile di risposta presenta una distribuzione di Poisson, il model
 
 7. Connettere il set di dati di training e il modello non sottoposto a training a uno dei moduli di training: 
 
-    - Se si imposta la **modalità di creazione dell'allenatore** su un **singolo parametro** , usare il modulo [Train Model](train-model.md) .
+    - Se si imposta la **modalità di creazione dell'allenatore** su un **singolo parametro**, usare il modulo [Train Model](train-model.md) .
 
-    - Se si imposta la **modalità crea Trainer** su **intervallo parametri** , usare il modulo [Tune Model iperparametri](tune-model-hyperparameters.md) .
+    - Se si imposta la **modalità crea Trainer** su **intervallo parametri**, usare il modulo [Tune Model iperparametri](tune-model-hyperparameters.md) .
 
     > [!WARNING]
     > 
