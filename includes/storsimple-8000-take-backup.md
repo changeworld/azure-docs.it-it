@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: alkohli
 ms.openlocfilehash: 5e923fdf560692c645c8a69e7e26d13f69d6920c
-ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/05/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93376236"
 ---
 ### <a name="to-take-a-backup"></a>Per eseguire un backup
@@ -27,7 +27,7 @@ ms.locfileid: "93376236"
 
     ![Add-backup-policy 3](./media/storsimple-8000-take-backup/step8takebu4.png)
 
-5. Nel pannello **Aggiungere la prima pianificazione** :
+5. Nel pannello **Aggiungere la prima pianificazione**:
 
     1. Selezionare il tipo di backup. Per ripristini più rapidi selezionare **Snapshot locale**. Per la resilienza dei dati, selezionare **Snapshot cloud**.
     2. Specificare la frequenza di backup in minuti, ore, giorni o settimane.

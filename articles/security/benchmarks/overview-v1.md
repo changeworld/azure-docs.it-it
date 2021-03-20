@@ -9,10 +9,10 @@ ms.date: 09/11/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
 ms.openlocfilehash: 39b6a5452c4bc0cba1e1153c266b83e87f6209ea
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "90059313"
 ---
 # <a name="overview-of-the-azure-security-benchmark-v1"></a>Panoramica del benchmark di sicurezza di Azure (V1)
@@ -30,11 +30,11 @@ Nel benchmark di sicurezza di Azure vengono usati i controlli seguenti:
 - [Registrazione e monitoraggio](security-control-logging-monitoring.md)
 - [Identità e controllo di accesso](security-control-identity-access-control.md)
 - [Protezione dei dati](security-control-data-protection.md)
-- [Gestione vulnerabilità](security-control-vulnerability-management.md)
-- [Gestione di asset e inventario](security-control-inventory-asset-management.md)
+- [Gestione delle vulnerabilità](security-control-vulnerability-management.md)
+- [Inventario e gestione delle risorse](security-control-inventory-asset-management.md)
 - [Configurazione sicura](security-control-secure-configuration.md)
-- [Difesa da malware](security-control-malware-defense.md)
-- [Recupero dati](security-control-data-recovery.md)
+- [Malware Defense](security-control-malware-defense.md)
+- [Ripristino dei dati](security-control-data-recovery.md)
 - [Risposta agli eventi imprevisti](security-control-incident-response.md)
 - [Test di penetrazione ed esercizi Red Team](security-control-penetration-tests-red-team-exercises.md)
 

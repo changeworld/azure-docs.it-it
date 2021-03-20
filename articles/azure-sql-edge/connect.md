@@ -10,10 +10,10 @@ ms.author: sourabha
 ms.reviewer: sstein
 ms.date: 07/25/2020
 ms.openlocfilehash: b56b65261950e9cf534a3755d214229ef7d5bb1e
-ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/05/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93395207"
 ---
 # <a name="connect-and-query-azure-sql-edge"></a>Connettersi ed eseguire query in Azure SQL Edge
@@ -36,8 +36,8 @@ In Azure SQL Edge, dopo la distribuzione di un contenitore, è possibile connett
 
 Per connettersi a un motore di database di Azure SQL Edge da un computer di rete, è necessario quanto segue:
 
-- **Indirizzo IP o nome di rete del computer host** : si tratta del computer host in cui è in esecuzione il contenitore Edge di Azure SQL.
-- **Mapping della porta host del contenitore Edge di Azure SQL** : questo è il mapping della porta del contenitore Docker a una porta nell'host. All'interno del contenitore, Azure SQL Edge viene sempre mappato alla porta 1433. Se lo si desidera, è possibile modificarlo. Per modificare il numero di porta, aggiornare le **Opzioni di creazione del contenitore** per il modulo Azure SQL Edge in Azure IOT Edge. Nell'esempio seguente, la porta 1433 nel contenitore viene mappata alla porta 1600 nell'host.
+- **Indirizzo IP o nome di rete del computer host**: si tratta del computer host in cui è in esecuzione il contenitore Edge di Azure SQL.
+- **Mapping della porta host del contenitore Edge di Azure SQL**: questo è il mapping della porta del contenitore Docker a una porta nell'host. All'interno del contenitore, Azure SQL Edge viene sempre mappato alla porta 1433. Se lo si desidera, è possibile modificarlo. Per modificare il numero di porta, aggiornare le **Opzioni di creazione del contenitore** per il modulo Azure SQL Edge in Azure IOT Edge. Nell'esempio seguente, la porta 1433 nel contenitore viene mappata alla porta 1600 nell'host.
 
     ```JSON
     {
@@ -51,7 +51,7 @@ Per connettersi a un motore di database di Azure SQL Edge da un computer di rete
     }
     ```
 
-- **Password sa per l'istanza di Azure SQL Edge** : questo è il valore specificato per la `SA_PASSWORD` variabile di ambiente durante la distribuzione di Azure SQL Edge.
+- **Password sa per l'istanza di Azure SQL Edge**: questo è il valore specificato per la `SA_PASSWORD` variabile di ambiente durante la distribuzione di Azure SQL Edge.
 
 ## <a name="connect-to-the-database-engine-from-within-the-container"></a>Connettersi al motore di database dall'interno del contenitore
 
@@ -94,7 +94,7 @@ conn = pyodbc.connect(db_connection_string, autocommit=True)
 
 ## <a name="connect-to-azure-sql-edge-from-another-network-machine"></a>Connettersi ad Azure SQL Edge da un altro computer di rete
 
-Potrebbe essere necessario connettersi all'istanza di Azure SQL Edge da un altro computer in rete. A tale scopo, usare l'indirizzo IP dell'host Docker e la porta host a cui è stato eseguito il mapping del contenitore Edge di Azure SQL. Ad esempio, se l'indirizzo IP dell'host Docker è *xxx.xxx.xxx.xxx* e il contenitore Edge di Azure SQL viene mappato alla porta host *1600* , l'indirizzo del server per l'istanza di Azure SQL Edge sarà *xxx. xxx. xxx. xxx, 1600*. Lo script Python aggiornato è:
+Potrebbe essere necessario connettersi all'istanza di Azure SQL Edge da un altro computer in rete. A tale scopo, usare l'indirizzo IP dell'host Docker e la porta host a cui è stato eseguito il mapping del contenitore Edge di Azure SQL. Ad esempio, se l'indirizzo IP dell'host Docker è *xxx.xxx.xxx.xxx* e il contenitore Edge di Azure SQL viene mappato alla porta host *1600*, l'indirizzo del server per l'istanza di Azure SQL Edge sarà *xxx. xxx. xxx. xxx, 1600*. Lo script Python aggiornato è:
 
 ```python
 

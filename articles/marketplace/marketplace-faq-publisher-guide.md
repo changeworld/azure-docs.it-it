@@ -8,10 +8,10 @@ author: trkeya
 ms.author: trkeya
 ms.date: 09/11/2020
 ms.openlocfilehash: 584e1e943f215aa4a69368fb71cb3053b1444a01
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/17/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94660220"
 ---
 # <a name="common-questions-about-the-microsoft-commercial-marketplace"></a>Domande comuni sul Marketplace commerciale Microsoft
@@ -276,7 +276,7 @@ In genere, i clienti ricevono un addebito su base mensile per gli acquisti effet
 
 I pagamenti vengono erogati mensilmente. Per informazioni dettagliate sulle pianificazioni dei pagamenti, la ricerca dei pagamenti imminenti nel centro per i partner e il modo in cui si gestiscono i pagamenti dei clienti, vedere [Dettagli sui criteri](/partner-center/payout-policy-details?context=/azure/marketplace/context/context)di pagamento.
 
-- Per le transazioni in cui il cliente ha usato una Enterprise Agreement, i pagamenti vengono rilasciati nel ciclo di pagamento successivo di 30 giorni dopo la fattura del cliente. 
+- Per le transazioni in cui il cliente ha usato una Contratto Enterprise, i pagamenti vengono rilasciati nel ciclo di pagamento successivo di 30 giorni dopo la fattura del cliente. 
 - Per le transazioni in cui il cliente ha usato una carta di credito, è previsto un periodo di deposito aggiuntivo di 30 giorni dopo la ricezione del pagamento per garantire la cancellazione dei fondi e non ci sono chargeback o sospetti illeciti.
 
 I pagamenti vengono emessi solo quando le vendite hanno raggiunto un valore minimo combinato pari a $50,00.

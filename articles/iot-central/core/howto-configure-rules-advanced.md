@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.service: iot-central
 services: iot-central
 ms.openlocfilehash: 257855b4f7b1fae56ed8d6a063acfb0588da9b6a
-ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/16/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92123321"
 ---
 # <a name="use-workflows-to-integrate-your-azure-iot-central-application-with-other-cloud-services"></a>Usare i flussi di lavoro per integrare l'applicazione Azure IoT Central con altri servizi cloud
@@ -41,7 +41,7 @@ Prima di poter attivare un flusso di lavoro in Power Automate o App per la logic
 Per aggiungere il connettore **Azure IOT Central V3-Preview** come trigger in Power automatizzate:
 
 1. In Power Automate selezionare **+ Crea**, quindi la scheda **Personalizzato**.
-1. Cercare *IOT Central*e selezionare il connettore **Azure IOT Central V3-Preview** .
+1. Cercare *IOT Central* e selezionare il connettore **Azure IOT Central V3-Preview** .
 1. Nell'elenco dei trigger selezionare **When a rule is fired (preview)** .
 1. Nel passaggio **When a rule is fired** selezionare l'applicazione IoT Central e la regola che si sta usando.
 
@@ -49,7 +49,7 @@ Per aggiungere il connettore **Azure IOT Central V3-Preview** come trigger in ap
 
 1. In **Progettazione app per la logica** selezionare il modello **App per la logica vuota**.
 1. Nella finestra di progettazione selezionare la scheda **Personalizzato**.
-1. Cercare *IOT Central*e selezionare il connettore **Azure IOT Central V3-Preview** .
+1. Cercare *IOT Central* e selezionare il connettore **Azure IOT Central V3-Preview** .
 1. Nell'elenco dei trigger selezionare **When a rule is fired (preview)** .
 1. Nel passaggio **When a rule is fired** selezionare l'applicazione IoT Central e la regola che si sta usando.
 
@@ -71,11 +71,11 @@ Per aggiungere il connettore **Azure IOT Central V3-Preview** come azione in Pow
 Per aggiungere il connettore **Azure IOT Central V3-Preview** come azione in app per la logica di Azure:
 
 1. In **Progettazione app per la logica**, nel pannello **Scegliere un'azione**, selezionare la scheda **Personalizzato**.
-1. Cercare *IOT Central*e selezionare il connettore **Azure IOT Central V3-Preview** .
+1. Cercare *IOT Central* e selezionare il connettore **Azure IOT Central V3-Preview** .
 1. Nell'elenco delle azioni selezionare l'azione IoT Central che si intende usare.
 1. Nel passaggio relativo all'azione completare la configurazione per l'azione selezionata. Selezionare quindi **Salva**.
 
-:::image type="content" source="./media/howto-configure-rules-advanced/actions.png" alt-text="Trovare il connettore Azure IoT Central - Preview e scegliere il trigger":::
+:::image type="content" source="./media/howto-configure-rules-advanced/actions.png" alt-text="Trovare il connettore Azure IoT Central V3 e scegliere un'azione":::
 
 ## <a name="list-of-actions"></a>Elenco di azioni
 

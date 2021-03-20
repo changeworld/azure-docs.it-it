@@ -1,18 +1,18 @@
 ---
-title: 'Esercitazione: Usare i runbook di Automazione di Azure per creare cluster - Azure HDInsight'
+title: 'Esercitazione: usare manuali operativi di automazione di Azure per creare cluster-Azure HDInsight'
 description: Informazioni su come creare ed eliminare i cluster Azure HDInsight con script in esecuzione nel cloud usando i runbook di Automazione di Azure.
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: tutorial
 ms.date: 12/27/2019
 ms.openlocfilehash: 255542d820d135d1a88e193a8ef13ae590ce4016
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/28/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98944034"
 ---
-# <a name="tutorial-create-azure-hdinsight-clusters-with-azure-automation"></a>Esercitazione: Creare cluster Azure HDInsight con Automazione di Azure
+# <a name="tutorial-create-azure-hdinsight-clusters-with-azure-automation"></a>Esercitazione: creare cluster HDInsight di Azure con automazione di Azure
 
 Automazione di Azure consente di creare script da eseguire nel cloud e di gestire le risorse di Azure su richiesta o in base a una pianificazione. Questo articolo descrive come creare runbook di PowerShell per creare ed eliminare i cluster Azure HDInsight.
 
@@ -34,7 +34,7 @@ Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://a
 
 1. Accedere al [portale di Azure](https://portal.azure.com).
 1. Selezionare gli account di Automazione di Azure.
-1. Selezionare **Raccolta moduli** in **Risorse condivise**.
+1. Selezionare **raccolta moduli** in **risorse condivise**.
 1. Digitare **AzureRM.Profile** nella casella e premere INVIO per eseguire la ricerca. Selezionare il risultato della ricerca restituito.
 1. Nella schermata **AzureRM.profile** selezionare **Importa**. Selezionare la casella per aggiornare i moduli di Azure e quindi selezionare **OK**.
 
@@ -55,15 +55,15 @@ Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://a
 1. Selezionare **Aggiungi credenziali**.
 1. Immettere le informazioni necessarie nel pannello **Nuove credenziali**. Queste credenziali consentono di archiviare la password del cluster, per consentire l'accesso ad Ambari.
 
-    | Proprietà | valore |
+    | Proprietà | Valore |
     | --- | --- |
     | Nome | `cluster-password` |
     | Nome utente | `admin` |
     | Password | `SECURE_PASSWORD` |
     | Conferma password | `SECURE_PASSWORD` |
 
-1. Selezionare **Create** (Crea).
-1. Ripetere lo stesso processo per una nuova credenziale `ssh-password` con il nome utente `sshuser` e una password di propria scelta. Selezionare **Create** (Crea). Questa credenziale consente di archiviare la password SSH per il cluster.
+1. Selezionare **Crea**.
+1. Ripetere lo stesso processo per una nuova credenziale `ssh-password` con il nome utente `sshuser` e una password di propria scelta. Selezionare **Crea**. Questa credenziale consente di archiviare la password SSH per il cluster.
 
     ![creare le credenziali](./media/manage-clusters-runbooks/create-credentials.png)
 
@@ -72,7 +72,7 @@ Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://a
 1. In **Automazione processi** selezionare **Runbook**.
 1. Selezionare **Crea un runbook**.
 1. Nel pannello **Crea un runbook** specificare un nome per il runbook, ad esempio `hdinsight-cluster-create`. Selezionare **Powershell** dall'elenco a discesa **Tipo di runbook**.
-1. Selezionare **Create** (Crea).
+1. Selezionare **Crea**.
 
     ![creare il runbook](./media/manage-clusters-runbooks/create-runbook.png)
 
@@ -128,7 +128,7 @@ Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://a
 1. In **Automazione processi** selezionare **Runbook**.
 1. Selezionare **Crea un runbook**.
 1. Nel pannello **Crea un runbook** specificare un nome per il runbook, ad esempio `hdinsight-cluster-delete`. Selezionare **Powershell** dall'elenco a discesa **Tipo di runbook**.
-1. Selezionare **Create** (Crea).
+1. Selezionare **Crea**.
 1. Immettere il codice seguente nella schermata **Modifica runbook di PowerShell** e selezionare **Pubblica**:
 
     ```powershell

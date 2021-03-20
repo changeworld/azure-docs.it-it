@@ -14,10 +14,10 @@ ms.workload: infrastructure-services
 ms.date: 08/07/2020
 ms.author: allensu
 ms.openlocfilehash: ee264a22de5ce094e8a4c1335ace77cbbba49270
-ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/17/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94694994"
 ---
 # <a name="outbound-only-load-balancer-configuration"></a>Configurazione del servizio di bilanciamento del carico solo in uscita
@@ -74,7 +74,7 @@ Creare una macchina virtuale nella nuova rete virtuale.
     | Gruppo di risorse   | Selezionare **Crea nuovo**. </br> Immettere **myResourceGroupLB**. </br> Selezionare **OK**. |
     | **Dettagli istanza** |                                                                 |
     | Nome             | Immettere **myVNet**                                    |
-    | Region           | Seleziona **Stati Uniti orientali 2** |
+    | Region           | Selezionare **Stati Uniti orientali 2** |
 
 3. Selezionare la scheda **Indirizzi IP** oppure il pulsante **Avanti: Indirizzi IP** nella parte inferiore della pagina.
 
@@ -123,7 +123,7 @@ Creare una macchina virtuale nella nuova rete virtuale.
     | Gruppo di risorse | Selezionare **myResourceGroupLB** |
     | **Dettagli istanza** |  |
     | Nome macchina virtuale | Immettere **myVM** |
-    | Area | Seleziona **Stati Uniti orientali 2** |
+    | Region | Selezionare **Stati Uniti orientali 2** |
     | Opzioni di disponibilità | Selezionare **La ridondanza dell'infrastruttura non è richiesta** |
     | Immagine | Selezionare **Windows Server 2019 Datacenter** |
     | Istanza Spot di Azure | Selezionare **No** |

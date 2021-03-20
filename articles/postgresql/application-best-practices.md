@@ -7,10 +7,10 @@ ms.service: postgresql
 ms.topic: conceptual
 ms.date: 12/10/2020
 ms.openlocfilehash: 6463f30bc79d937bd5a51a5c8c78fbdd72954b1e
-ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/12/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97364602"
 ---
 # <a name="best-practices-for-building-an-application-with-azure-database-for-postgresql"></a>Procedure consigliate per la compilazione di un'applicazione con database di Azure per PostgreSQL
@@ -49,7 +49,7 @@ Con il pool di connessioni, un set fisso di connessioni viene stabilito al momen
 È possibile utilizzare [replica dei dati in ingresso](./concepts-read-replicas.md) per gli scenari di failover. Quando si usano le repliche di lettura, non viene eseguito alcun failover automatico tra i server di origine e di replica. Si noterà un ritardo tra l'origine e la replica perché la replica è asincrona. Il ritardo di rete può essere influenzato da molti fattori, ad esempio le dimensioni del carico di lavoro in esecuzione nel server di origine e la latenza tra i Data Center. Nella maggior parte dei casi, il ritardo di replica varia da alcuni secondi a un paio di minuti.
 
 
-## <a name="database-deployment"></a>Distribuzione del database
+## <a name="database-deployment"></a>Distribuzione di database
 
 ### <a name="configure-cicd-deployment-pipeline"></a>Configurare la pipeline di distribuzione CI/CD
 In alcuni casi, è necessario distribuire le modifiche nel database. In questi casi, è possibile usare l'integrazione continua (CI) tramite [azioni di GitHub](https://github.com/Azure/postgresql/blob/master/README.md) per il server PostgreSQL per aggiornare il database eseguendo uno script personalizzato su di esso.

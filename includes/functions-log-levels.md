@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 05/04/2020
 ms.author: glenga
 ms.openlocfilehash: 72588ccfd9ad00305cbdeaf8132999731d86b9b1
-ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/18/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92164915"
 ---
 A ogni log viene assegnato un *livello di registrazione* . Il valore è un numero intero che indica l'importanza relativa:
@@ -23,4 +23,4 @@ A ogni log viene assegnato un *livello di registrazione* . Il valore è un numer
 |Critico    | 5 | Log che descrivono un arresto anomalo irreversibile di un'applicazione o del sistema o un errore irreversibile che richiede attenzione immediata. |
 |nessuno        | 6 | Disabilita la registrazione per la categoria specificata. |
 
-Il [ *host.js* ](../articles/azure-functions/functions-host-json.md) di configurazione dei file determina la quantità di registrazione inviata da un'app per le funzioni al Application Insights.  
+Il [ *host.js*](../articles/azure-functions/functions-host-json.md) di configurazione dei file determina la quantità di registrazione inviata da un'app per le funzioni al Application Insights.  

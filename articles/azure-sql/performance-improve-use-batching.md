@@ -12,10 +12,10 @@ ms.author: sstein
 ms.reviewer: genemi
 ms.date: 01/25/2019
 ms.openlocfilehash: 07334d62cee94be8b5b8dd6188c1d6354c4d584b
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/28/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92792600"
 ---
 # <a name="how-to-use-batching-to-improve-azure-sql-database-and-azure-sql-managed-instance-application-performance"></a>Come usare l'invio in batch per migliorare le prestazioni delle applicazioni del database SQL di Azure e di Azure SQL Istanza gestita
@@ -42,7 +42,7 @@ La prima parte di questo articolo esamina le varie tecniche di invio in batch pe
 ### <a name="note-about-timing-results-in-this-article"></a>Nota sui risultati della tempistica in questo articolo
 
 > [!NOTE]
-> I risultati non sono benchmark ma servono per indicare le **prestazioni relative** . Le tempistiche si basano su una media di almeno 10 esecuzioni del test. Le operazioni sono inserimenti in una tabella vuota. Questi test sono stati misurati con un database antecedente a V12 e non corrispondono necessariamente alla velocità effettiva che si potrebbe ottenere in un database V12 usando i nuovi [livelli di servizio DTU](database/service-tiers-dtu.md) o [livelli di servizio vCore](database/service-tiers-vcore.md). Il vantaggio relativo della tecnica di invio in batch dovrebbe essere simile.
+> I risultati non sono benchmark ma servono per indicare le **prestazioni relative**. Le tempistiche si basano su una media di almeno 10 esecuzioni del test. Le operazioni sono inserimenti in una tabella vuota. Questi test sono stati misurati con un database antecedente a V12 e non corrispondono necessariamente alla velocità effettiva che si potrebbe ottenere in un database V12 usando i nuovi [livelli di servizio DTU](database/service-tiers-dtu.md) o [livelli di servizio vCore](database/service-tiers-vcore.md). Il vantaggio relativo della tecnica di invio in batch dovrebbe essere simile.
 
 ### <a name="transactions"></a>Transazioni
 
@@ -97,18 +97,18 @@ Le transazioni vengono in effetti usate in entrambi questi esempi. Nel primo ogn
 
 Nella tabella seguente vengono illustrati alcuni risultati di test ad hoc. I test eseguono le medesime operazioni sequenziali di inserimento con e senza transazioni. Per maggiore chiarezza, il primo set di test è stato eseguito in remoto da un portatile al database in Microsoft Azure. Il secondo set di test è stato eseguito da un servizio cloud e un database entrambi residenti nello stesso data center di Microsoft Azure (Stati Uniti occidentali). La tabella seguente mostra la durata in millisecondi delle operazioni di inserimento sequenziali con e senza transazioni.
 
-**Da locale ad Azure** :
+**Da locale ad Azure**:
 
-| Operazioni | Nessuna transazione (MS) | Con transazione (ms) |
+| Gestione operativa | Nessuna transazione (MS) | Con transazione (ms) |
 | --- | --- | --- |
 | 1 |130 |402 |
 | 10 |1208 |1226 |
 | 100 |12662 |10395 |
 | 1000 |128852 |102917 |
 
-**Da Azure ad Azure (stesso data center)** :
+**Da Azure ad Azure (stesso data center)**:
 
-| Operazioni | Nessuna transazione (MS) | Con transazione (ms) |
+| Gestione operativa | Nessuna transazione (MS) | Con transazione (ms) |
 | --- | --- | --- |
 | 1 |21 |26 |
 | 10 |220 |56 |
@@ -128,7 +128,7 @@ Per altre informazioni sulle transazioni in ADO.NET, vedere [Transazioni locali 
 
 ### <a name="table-valued-parameters"></a>Parametri con valori di tabella
 
-I parametri con valori di tabella supportano tipi di tabella definiti dall'utente come parametri nelle funzioni, nelle stored procedure e nelle istruzioni Transact-SQL. Questa tecnica di invio in batch sul lato client consente di inviare più righe di dati nel parametro con valori di tabella. Per usare parametri con valori di tabella, definire prima di tutto un tipo di tabella. L'istruzione Transact-SQL seguente crea un tipo di tabella denominato **MyTableType** .
+I parametri con valori di tabella supportano tipi di tabella definiti dall'utente come parametri nelle funzioni, nelle stored procedure e nelle istruzioni Transact-SQL. Questa tecnica di invio in batch sul lato client consente di inviare più righe di dati nel parametro con valori di tabella. Per usare parametri con valori di tabella, definire prima di tutto un tipo di tabella. L'istruzione Transact-SQL seguente crea un tipo di tabella denominato **MyTableType**.
 
 ```sql
     CREATE TYPE MyTableType AS TABLE
@@ -169,7 +169,7 @@ using (SqlConnection connection = new SqlConnection(CloudConfigurationManager.Ge
 }
 ```
 
-Nell'esempio precedente, l'oggetto **SqlCommand** inserisce righe da un parametro con valori di tabella, **\@ TestTvp** . L'oggetto **DataTable** creato in precedenza viene assegnato a questo parametro con il metodo **SqlCommand.Parameters.Add** . L'invio in batch delle operazioni di inserimento in una singola chiamata migliora sensibilmente le prestazioni rispetto alle operazioni di inserimento sequenziali.
+Nell'esempio precedente, l'oggetto **SqlCommand** inserisce righe da un parametro con valori di tabella, **\@ TestTvp**. L'oggetto **DataTable** creato in precedenza viene assegnato a questo parametro con il metodo **SqlCommand.Parameters.Add**. L'invio in batch delle operazioni di inserimento in una singola chiamata migliora sensibilmente le prestazioni rispetto alle operazioni di inserimento sequenziali.
 
 Per migliorare ulteriormente l'esempio precedente, usare una stored procedure anziché un comando basato su testo. Il comando Transact-SQL seguente crea una stored procedure che accetta il parametro con valori di tabella **SimpleTestTableType** .
 
@@ -195,7 +195,7 @@ Nella maggior parte dei casi i parametri con valori di tabella hanno prestazioni
 
 Nella tabella seguente vengono illustrati i risultati dei test ad hoc per l'utilizzo di parametri con valori di tabella in millisecondi.
 
-| Operazioni | Da locale ad Azure (MS) | Azure stesso data center (ms) |
+| Gestione operativa | Da locale ad Azure (MS) | Azure stesso data center (ms) |
 | --- | --- | --- |
 | 1 |124 |32 |
 | 10 |131 |25 |
@@ -212,7 +212,7 @@ Per altre informazioni sui parametri con valori di tabella, vedere [Usare parame
 
 ### <a name="sql-bulk-copy"></a>Copia bulk di SQL
 
-La copia bulk di SQL è un altro modo per inserire una grande quantità di dati in un database di destinazione. Le applicazioni .NET possono usare la classe **SqlBulkCopy** per eseguire le operazioni di inserimento bulk. In termini di funzionamento, la classe **SqlBulkCopy** è analoga allo strumento da riga di comando **Bcp.exe** o all'istruzione Transact-SQL **BULK INSERT** . Nell'esempio di codice riportato di seguito viene illustrato come eseguire una copia bulk delle righe nella tabella di origine **DataTable** , nella tabella di destinazione, MyTable.
+La copia bulk di SQL è un altro modo per inserire una grande quantità di dati in un database di destinazione. Le applicazioni .NET possono usare la classe **SqlBulkCopy** per eseguire le operazioni di inserimento bulk. In termini di funzionamento, la classe **SqlBulkCopy** è analoga allo strumento da riga di comando **Bcp.exe** o all'istruzione Transact-SQL **BULK INSERT**. Nell'esempio di codice riportato di seguito viene illustrato come eseguire una copia bulk delle righe nella tabella di origine **DataTable**, nella tabella di destinazione, MyTable.
 
 ```csharp
 using (SqlConnection connection = new SqlConnection(CloudConfigurationManager.GetSetting("Sql.ConnectionString")))
@@ -233,7 +233,7 @@ In alcuni casi la copia bulk è preferibile rispetto ai parametri con valori di 
 
 I risultati dei test ad hoc seguenti mostrano le prestazioni dell'invio in batch con **SqlBulkCopy** in millisecondi.
 
-| Operazioni | Da locale ad Azure (MS) | Azure stesso data center (ms) |
+| Gestione operativa | Da locale ad Azure (MS) | Azure stesso data center (ms) |
 | --- | --- | --- |
 | 1 |433 |57 |
 | 10 |441 |32 |
@@ -276,7 +276,7 @@ Questo esempio è ideato per illustrare il concetto di base. Uno scenario più r
 
 I risultati dei test ad hoc seguenti mostrano le prestazioni di questo tipo di istruzione INSERT in millisecondi.
 
-| Operazioni | Parametri con valori di tabella (ms) | Singola istruzione INSERT (ms) |
+| Gestione operativa | Parametri con valori di tabella (ms) | Singola istruzione INSERT (ms) |
 | --- | --- | --- |
 | 1 |32 |20 |
 | 10 |30 |25 |

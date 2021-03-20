@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 09/09/2020
 ms.author: surmb
 ms.openlocfilehash: 15f68e8cbca65e7b970944f7ca5ef1952140cc6b
-ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/05/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93397641"
 ---
 # <a name="application-gateway-listener-configuration"></a>Configurazione del listener del gateway applicazione
@@ -20,7 +20,7 @@ ms.locfileid: "93397641"
 
 Un listener è un'entità logica che controlla le richieste di connessione in ingresso tramite la porta, il protocollo, l'host e l'indirizzo IP. Quando si configura il listener, è necessario immettere i valori per questi che corrispondono ai valori corrispondenti nella richiesta in ingresso sul gateway.
 
-Quando si crea un gateway applicazione usando il portale di Azure, si crea anche un listener predefinito scegliendo il protocollo e la porta per il listener. È possibile scegliere se abilitare il supporto di HTTP2 nel listener. Dopo aver creato il gateway applicazione, è possibile modificare le impostazioni del listener predefinito ( *appGatewayHttpListener* ) o creare nuovi listener.
+Quando si crea un gateway applicazione usando il portale di Azure, si crea anche un listener predefinito scegliendo il protocollo e la porta per il listener. È possibile scegliere se abilitare il supporto di HTTP2 nel listener. Dopo aver creato il gateway applicazione, è possibile modificare le impostazioni del listener predefinito (*appGatewayHttpListener*) o creare nuovi listener.
 
 ## <a name="listener-type"></a>Tipo di listener
 
@@ -87,7 +87,7 @@ Per configurare una pagina di errore globale personalizzata, vedere [configurazi
 
 ## <a name="tls-policy"></a>Criteri TLS
 
-È possibile centralizzare la gestione dei certificati TLS/SSL e ridurre l'overhead di decrittografia della crittografia per un server farm back-end. La gestione centralizzata di TLS consente inoltre di specificare un criterio TLS centrale adatto ai propri requisiti di sicurezza. È possibile scegliere i criteri *predefined* TLS *predefiniti, predefiniti* o *personalizzati* .
+È possibile centralizzare la gestione dei certificati TLS/SSL e ridurre l'overhead di decrittografia della crittografia per un server farm back-end. La gestione centralizzata di TLS consente inoltre di specificare un criterio TLS centrale adatto ai propri requisiti di sicurezza. È possibile scegliere i criteri TLS *predefiniti, predefiniti* o *personalizzati* .
 
 Il criterio TLS viene configurato per controllare le versioni del protocollo TLS. È possibile configurare un gateway applicazione per usare una versione minima del protocollo per gli handshake TLS da TLS 1.0, TLS 1.1 e TLS 1.2. Per impostazione predefinita, SSL 2,0 e 3,0 sono disabilitati e non sono configurabili. Per altre informazioni, vedere [Panoramica dei criteri TLS del gateway applicazione](./application-gateway-ssl-policy-overview.md).
 

@@ -13,10 +13,10 @@ ms.topic: article
 ms.date: 11/04/2019
 ms.author: apimpm
 ms.openlocfilehash: b826c986a0af26bb79fb0823e4e8626f0165d460
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "86250023"
 ---
 # <a name="azure-api-management-page-controls"></a>Controlli pagina in Gestione API di Azure
@@ -168,7 +168,7 @@ Per altre informazioni sull'uso dei modelli, vedere [Come personalizzare il port
 ### <a name="developer-portal-templates"></a>Modelli del portale per sviluppatori  
  È possibile usare il controllo `sign-up` nei seguenti modelli del portale per sviluppatori:  
   
--   [Registrati](api-management-page-templates.md#SignUp)  
+-   [Iscrizione](api-management-page-templates.md#SignUp)  
   
 ##  <a name="subscribe-button"></a><a name="subscribe-button"></a> subscribe-button  
  Il controllo `subscribe-button` consente di sottoscrivere un utente a un prodotto.  

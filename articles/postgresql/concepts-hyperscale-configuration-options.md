@@ -8,10 +8,10 @@ ms.subservice: hyperscale-citus
 ms.topic: conceptual
 ms.date: 1/12/2021
 ms.openlocfilehash: 48537483501165d4a978afdbd05560613170d187
-ms.sourcegitcommit: 16887168729120399e6ffb6f53a92fde17889451
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/13/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98165612"
 ---
 # <a name="azure-database-for-postgresql--hyperscale-citus-configuration-options"></a>Opzioni di configurazione di database di Azure per PostgreSQL – iperscalabilità (CITUS)
@@ -79,7 +79,7 @@ I gruppi di server iperscalare (CITUS) sono disponibili nelle aree di Azure segu
     * Stati Uniti orientali
     * Stati Uniti orientali 2
     * Stati Uniti centro-settentrionali
-    * West US 2
+    * Stati Uniti occidentali 2
 * Asia Pacifico:
     * Australia orientale
     * Giappone orientale

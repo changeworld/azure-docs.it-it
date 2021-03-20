@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 06/08/2020
 ms.author: jeedes
 ms.openlocfilehash: 91a50ed85b5802657a27c5a545de0013937e9da0
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
-ms.translationtype: HT
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/23/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92460564"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-ibm-digital-business-automation-on-cloud"></a>Esercitazione: Integrazione dell'accesso Single Sign-On (SSO) di Azure Active Directory con IBM Digital Business Automation on Cloud
@@ -61,8 +61,8 @@ Configurare e testare l'accesso SSO di Azure AD con IBM Digital Business Automat
 Per configurare e testare l'accesso SSO di Azure AD con IBM Digital Business Automation on Cloud, completare le procedure di base seguenti:
 
 1. **[Configurare l'accesso Single Sign-On di Azure AD](#configure-azure-ad-sso)** : per consentire agli utenti di usare questa funzionalità.
-    1. **[Creare un utente di test di Azure AD](#create-an-azure-ad-test-user)** : per testare l'accesso Single Sign-On di Azure AD con l'utente B. Simon.
-    1. **[Assegnare l'utente di test di Azure AD](#assign-the-azure-ad-test-user)** : per abilitare B. Simon all'uso dell'accesso Single Sign-On di Azure AD.
+    1. **[Creare un utente di test di Azure AD](#create-an-azure-ad-test-user)** : per testare l'accesso Single Sign-On di Azure AD con l'utente B.Simon.
+    1. **[Assegnare l'utente di test di Azure AD](#assign-the-azure-ad-test-user)** : per abilitare B.Simon all'uso dell'accesso Single Sign-On di Azure AD.
 1. **[Configurare l'accesso Single Sign-On di IBM Digital Business Automation on Cloud](#configure-ibm-digital-business-automation-on-cloud-sso)** : per configurare le impostazioni di Single Sign-On sul lato applicazione.
     1. **[Creare l'utente di test di IBM Digital Business Automation on Cloud](#create-ibm-digital-business-automation-on-cloud-test-user)** : per avere una controparte di B.Simon in IBM Digital Business Automation on Cloud collegata alla rappresentazione dell'utente in Azure AD.
 1. **[Testare l'accesso Single Sign-On](#test-sso)** : per verificare se la configurazione funziona.
@@ -77,7 +77,7 @@ Per abilitare l'accesso Single Sign-On di Azure AD nel portale di Azure, seguire
 
    ![Modificare la configurazione SAML di base](common/edit-urls.png)
 
-1. Nella sezione **Configurazione SAML di base** , se si dispone di un **file di metadati di un provider di servizi** , seguire questa procedura:
+1. Nella sezione **Configurazione SAML di base**, se si dispone di un **file di metadati di un provider di servizi**, seguire questa procedura:
     
     a. Fare clic su **Carica il file di metadati**.
 
@@ -91,13 +91,13 @@ Per abilitare l'accesso Single Sign-On di Azure AD nel portale di Azure, seguire
     > [!Note]
     > I clienti possono richiedere il file dei metadati per la sottoscrizione cloud al [team di supporto clienti di IBM Digital Business Automation on Cloud](mailto:supportbpmoncloud@us.ibm.com).
 
-1. Se non si dispone di un **file di metadati del provider di servizi** nella sezione **Configurazione SAML di base** immettere i valori per i campi seguenti se si vuole configurare l'applicazione in modalità avviata da **IDP** :
+1. Se non si dispone di un **file di metadati del provider di servizi** nella sezione **Configurazione SAML di base** immettere i valori per i campi seguenti se si vuole configurare l'applicazione in modalità avviata da **IDP**:
 
     a. Nella casella di testo **Identificatore** digitare un URL nel formato seguente: `https://www.automationcloud.ibm.com/isam/sps/<TENANT>/saml20`
 
     b. Nella casella di testo **URL di risposta** digitare un URL nel formato seguente: `https://www.automationcloud.ibm.com/isam/sps/<TENANT>/saml20/login`
 
-1. Fare clic su **Impostare URL aggiuntivi** e seguire questa procedura se si vuole configurare l'applicazione in modalità avviata da **SP** :
+1. Fare clic su **Impostare URL aggiuntivi** e seguire questa procedura se si vuole configurare l'applicazione in modalità avviata da **SP**:
 
     Nella casella di testo **URL accesso** digitare un URL nel formato seguente: `https://www.automationcloud.ibm.com/isam/sps/<TENANT>/login`
 
@@ -115,7 +115,7 @@ Per abilitare l'accesso Single Sign-On di Azure AD nel portale di Azure, seguire
 
 In questa sezione verrà creato un utente di test di nome B.Simon nel portale di Azure.
 
-1. Nel riquadro sinistro del portale di Azure selezionare **Azure Active Directory** , **Utenti** e quindi **Tutti gli utenti**.
+1. Nel riquadro sinistro del portale di Azure selezionare **Azure Active Directory**, **Utenti** e quindi **Tutti gli utenti**.
 1. Selezionare **Nuovo utente** in alto nella schermata.
 1. In **Proprietà utente** seguire questa procedura:
    1. Nel campo **Nome** immettere `B.Simon`.  
@@ -143,7 +143,7 @@ In questa sezione si abiliterà B.Simon all'uso dell'accesso Single Sign-On di A
 
 ## <a name="configure-ibm-digital-business-automation-on-cloud-sso"></a>Configurare l'accesso Single Sign-On di IBM Digital Business Automation on Cloud
 
-Per configurare l'accesso Single Sign-On sul lato **IBM Digital Business Automation on Cloud** , è necessario inviare il file **XML dei metadati di federazione** scaricato e gli URL appropriati, copiati dal portale di Azure, al [team di supporto di IBM Digital Business Automation on Cloud](mailto:supportbpmoncloud@us.ibm.com). La configurazione viene eseguita in modo che la connessione SSO SAML sia impostata correttamente su entrambi i lati.
+Per configurare l'accesso Single Sign-On sul lato **IBM Digital Business Automation on Cloud**, è necessario inviare il file **XML dei metadati di federazione** scaricato e gli URL appropriati, copiati dal portale di Azure, al [team di supporto di IBM Digital Business Automation on Cloud](mailto:supportbpmoncloud@us.ibm.com). La configurazione viene eseguita in modo che la connessione SSO SAML sia impostata correttamente su entrambi i lati.
 
 ### <a name="create-ibm-digital-business-automation-on-cloud-test-user"></a>Creare l'utente di test di IBM Digital Business Automation on Cloud
 

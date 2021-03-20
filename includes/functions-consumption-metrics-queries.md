@@ -1,14 +1,14 @@
 ---
 ms.openlocfilehash: 0bae8946b7d81fbf45698cefe7c8b00bbc94d00c
-ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/18/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92168112"
 ---
 #### <a name="determine-memory-usage"></a>Determinare l'utilizzo della memoria 
 
-In **monitoraggio**selezionare **log (Analytics)**, quindi copiare la query di telemetria seguente e incollarla nella finestra di query e selezionare **Esegui**. Questa query restituisce l'utilizzo totale della memoria per ogni tempo campione.
+In **monitoraggio** selezionare **log (Analytics)**, quindi copiare la query di telemetria seguente e incollarla nella finestra di query e selezionare **Esegui**. Questa query restituisce l'utilizzo totale della memoria per ogni tempo campione.
 
 ```
 performanceCounters

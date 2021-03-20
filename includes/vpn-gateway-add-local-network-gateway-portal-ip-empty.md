@@ -1,6 +1,6 @@
 ---
 title: includere file
-description: includere file
+description: Includere file
 services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
@@ -9,16 +9,16 @@ ms.date: 10/22/2020
 ms.author: cherylmc
 ms.custom: include file
 ms.openlocfilehash: c538c510eeafacd1596fdeb1b4593919e6236cf0
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/23/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92487090"
 ---
-1. Dal [portale di Azure](https://portal.azure.com), in **Cerca risorse, servizi e documenti (G +/)** digitare gateway di **rete locale**. Individuare il **gateway di rete locale** in **Marketplace** nei risultati della ricerca e selezionarlo. Verrà visualizzata la pagina **Crea gateway di rete locale** .
+1. Nel [portale di Azure](https://portal.azure.com), in **Cerca risorse, servizi e documentazione (G+/)** digitare **gateway di rete locale**. Individuare e selezionare **gateway di rete locale** nei risultati della ricerca di **Marketplace**. Verrà visualizzata la pagina **Crea gateway di rete locale**.
 1. Nella pagina **Crea un gateway di rete locale** specificare i valori per il gateway di rete locale.
 
-   :::image type="content" source="./media/vpn-gateway-add-local-network-gateway-portal-ip-empty/create-ip.png" alt-text="Creare un gateway di rete locale con l'indirizzo IP":::
+   :::image type="content" source="./media/vpn-gateway-add-local-network-gateway-portal-ip-empty/create-ip.png" alt-text="Creare un gateway di rete locale con indirizzo IP":::
 
    * **Nome:** specificare un nome per l'oggetto gateway di rete locale.
    * **Endpoint:** selezionare il tipo di endpoint per il dispositivo VPN locale, ovvero un **indirizzo IP** o un **nome di dominio completo**.

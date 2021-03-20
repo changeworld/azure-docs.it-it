@@ -8,15 +8,15 @@ ms.topic: conceptual
 ms.date: 09/09/2020
 ms.author: surmb
 ms.openlocfilehash: 047ce9b33836e2c23a37b1383942323d7c382485
-ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/05/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93397536"
 ---
 # <a name="application-gateway-request-routing-rules"></a>Regole di routing delle richieste del gateway applicazione
 
-Quando si crea un gateway applicazione usando il portale di Azure, si crea una regola predefinita ( *Rule1* ). Questa regola associa il listener predefinito ( *appGatewayHttpListener* ) con il pool back-end predefinito ( *appGatewayBackendPool* ) e le impostazioni http back-end predefinite ( *appGatewayBackendHttpSettings* ). Dopo aver creato il gateway, è possibile modificare le impostazioni della regola predefinita o creare nuove regole.
+Quando si crea un gateway applicazione usando il portale di Azure, si crea una regola predefinita (*Rule1*). Questa regola associa il listener predefinito (*appGatewayHttpListener*) con il pool back-end predefinito (*appGatewayBackendPool*) e le impostazioni http back-end predefinite (*appGatewayBackendHttpSettings*). Dopo aver creato il gateway, è possibile modificare le impostazioni della regola predefinita o creare nuove regole.
 
 ## <a name="rule-type"></a>Tipo regola
 
@@ -57,7 +57,7 @@ Per altre informazioni sui reindirizzamenti, vedere [Panoramica del reindirizzam
 
 ### <a name="redirection-type"></a>Tipo di Reindirizzamento
 
-Scegliere il tipo di reindirizzamento necessario: *permanente (301* ), *temporaneo (307)* , *trovato (302)* o *vedere altro (303)*.
+Scegliere il tipo di reindirizzamento necessario: *permanente (301*), *temporaneo (307)*, *trovato (302)* o *vedere altro (303)*.
 
 ### <a name="redirection-target"></a>Destinazione di Reindirizzamento
 

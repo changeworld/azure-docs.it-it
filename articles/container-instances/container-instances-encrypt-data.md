@@ -6,10 +6,10 @@ ms.date: 01/17/2020
 author: macolso
 ms.author: macolso
 ms.openlocfilehash: 1b73ce5c994231a1c7b2f26ad702f2ad5880ba44
-ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/17/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94686277"
 ---
 # <a name="encrypt-deployment-data"></a>Crittografare i dati della distribuzione
@@ -27,8 +27,8 @@ I dati in ACI vengono crittografati e decrittografati usando la crittografia AES
 |    |    chiavi gestite da Microsoft     |     Chiavi gestite dal cliente     |
 |----|----|----|
 |    **Operazioni di crittografia/decrittografia**    |    Azure    |    Azure    |
-|    **Archiviazione chiavi**    |    Archivio chiavi Microsoft    |    Azure Key Vault    |
-|    **Responsabilità della rotazione delle chiavi**    |    Microsoft    |    Cliente    |
+|    **Archiviazione chiavi**    |    Archivio chiavi Microsoft    |    Insieme di credenziali chiave di Azure    |
+|    **Responsabilità della rotazione delle chiavi**    |    Microsoft    |    Customer    |
 |    **Accesso alle chiavi**    |    Solo Microsoft    |    Microsoft, cliente    |
 
 Il resto del documento illustra i passaggi necessari per crittografare i dati di distribuzione ACI con la chiave (chiave gestita dal cliente). 
@@ -59,7 +59,7 @@ Nel caso in cui non sia possibile creare correttamente l'entità servizio:
 
 ### <a name="create-a-key-vault-resource"></a>Creare una risorsa Key Vault
 
-Creare una Azure Key Vault usando [portale di Azure](../key-vault/general/quick-create-portal.md), l'interfaccia della riga di comando di [Azure](../key-vault/general/quick-create-cli.md)o [Azure PowerShell](../key-vault/general/quick-create-powershell.md).
+Creare un'istanza di Azure Key Vault con il [portale di Azure](../key-vault/general/quick-create-portal.md), l'[interfaccia della riga di comando di Azure](../key-vault/general/quick-create-cli.md) o [Azure PowerShell](../key-vault/general/quick-create-powershell.md).
 
 Per le proprietà dell'insieme di credenziali delle chiavi, usare le linee guida seguenti: 
 * Name: è necessario un nome univoco. 

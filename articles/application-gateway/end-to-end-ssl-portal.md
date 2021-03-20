@@ -10,13 +10,13 @@ ms.date: 11/14/2019
 ms.author: absha
 ms.custom: mvc
 ms.openlocfilehash: 6e2d1828acefacb03cc2f42193b8cd8897578b6f
-ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/05/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93397502"
 ---
-# <a name="configure-end-to-end-tls-by-using-application-gateway-with-the-portal"></a>Configurare TLS end-to-end usando il gateway applicazione con il portale
+# <a name="configure-end-to-end-tls-by-using-application-gateway-with-the-portal"></a>Configurare TLS end-to-end usando un gateway applicazione con il portale
 
 Questo articolo descrive come usare la portale di Azure per configurare la crittografia end-to-end Transport Layer Security (TLS), precedentemente nota come crittografia Secure Sockets Layer (SSL), tramite lo SKU applicazione Azure gateway V1.
 
@@ -45,7 +45,7 @@ Per altre informazioni, vedere [abilitare la terminazione TLS durante la creazio
 
 1. Fare clic su **Tutte le risorse** e quindi selezionare **myAppGateway**.
 
-2. Selezionare **impostazioni http** dal menu a sinistra. Azure ha creato automaticamente un'impostazione HTTP predefinita, **appGatewayBackendHttpSettings** , quando è stato creato il gateway applicazione. 
+2. Selezionare **impostazioni http** dal menu a sinistra. Azure ha creato automaticamente un'impostazione HTTP predefinita, **appGatewayBackendHttpSettings**, quando è stato creato il gateway applicazione. 
 
 3. Selezionare **appGatewayBackendHttpSettings**.
 
@@ -91,7 +91,7 @@ Se si sceglie la seconda opzione, applicare i passaggi descritti nella procedura
    > [!NOTE]
    > A scopo di test, è possibile usare un certificato autofirmato. Tuttavia, questa operazione non è consigliata per i carichi di lavoro di produzione, perché sono più difficili da gestire e non sono completamente protetti. Per altre informazioni, vedere [creare un certificato autofirmato](./create-ssl-portal.md#create-a-self-signed-certificate).
 
-6. Aggiungere altre impostazioni necessarie per il **listener** , a seconda dei requisiti.
+6. Aggiungere altre impostazioni necessarie per il **listener**, a seconda dei requisiti.
 
 7. Selezionare **OK** per salvare.
 
@@ -99,7 +99,7 @@ Se si sceglie la seconda opzione, applicare i passaggi descritti nella procedura
 
 1. Fare clic su **Tutte le risorse** e quindi selezionare **myAppGateway**.
 
-2. Selezionare **impostazioni http** dal menu a sinistra. È possibile inserire i certificati in un'impostazione HTTP back-end esistente nell'elenco dei destinatari sicuri oppure creare una nuova impostazione HTTP. Nel passaggio successivo, il certificato per l'impostazione HTTP predefinita, **appGatewayBackendHttpSettings** , viene aggiunto all'elenco dei destinatari sicuri.
+2. Selezionare **impostazioni http** dal menu a sinistra. È possibile inserire i certificati in un'impostazione HTTP back-end esistente nell'elenco dei destinatari sicuri oppure creare una nuova impostazione HTTP. Nel passaggio successivo, il certificato per l'impostazione HTTP predefinita, **appGatewayBackendHttpSettings**, viene aggiunto all'elenco dei destinatari sicuri.
 
 3. Selezionare **appGatewayBackendHttpSettings**.
 

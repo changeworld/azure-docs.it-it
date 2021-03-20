@@ -6,10 +6,10 @@ ms.topic: conceptual
 ms.date: 07/14/2020
 ms.author: tomfitz
 ms.openlocfilehash: b9b27a432776635290c7e8e796e84d8c1e0e8675
-ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/18/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92168342"
 ---
 # <a name="microsoftcommondropdown-ui-element"></a>Elemento Microsoft.Common.DropDown dell'interfaccia utente
@@ -26,19 +26,19 @@ Quando per la selezione è consentito un solo elemento, il controllo viene visua
 
 Quando vengono incluse le descrizioni, il controllo viene visualizzato come:
 
-:::image type="content" source="./media/managed-application-elements/microsoft-common-dropdown-2.png" alt-text="Selezione singola Microsoft. Common. DropDown":::
+:::image type="content" source="./media/managed-application-elements/microsoft-common-dropdown-2.png" alt-text="Selezione singola di Microsoft. Common. DropDown con le descrizioni":::
 
 Quando è abilitata la funzionalità di selezione più, il controllo aggiunge un'opzione **Seleziona tutto** e le caselle di controllo per selezionare più elementi:
 
-:::image type="content" source="./media/managed-application-elements/microsoft-common-dropdown-3.png" alt-text="Selezione singola Microsoft. Common. DropDown":::
+:::image type="content" source="./media/managed-application-elements/microsoft-common-dropdown-3.png" alt-text="Selezione multifunzione Microsoft. Common. DropDown":::
 
 Le descrizioni possono essere incluse con la selezione MultiSelect abilitata.
 
-:::image type="content" source="./media/managed-application-elements/microsoft-common-dropdown-4.png" alt-text="Selezione singola Microsoft. Common. DropDown":::
+:::image type="content" source="./media/managed-application-elements/microsoft-common-dropdown-4.png" alt-text="Screenshot che Mostra come è possibile includere le descrizioni con la selezione più abilitata":::
 
 Quando il filtro è abilitato, il controllo include una casella di testo per l'aggiunta del valore di filtro.
 
-:::image type="content" source="./media/managed-application-elements/microsoft-common-dropdown-5.png" alt-text="Selezione singola Microsoft. Common. DropDown":::
+:::image type="content" source="./media/managed-application-elements/microsoft-common-dropdown-5.png" alt-text="Microsoft. Common. DropDown MultiSelect con le descrizioni":::
 
 ## <a name="schema"></a>SCHEMA
 
