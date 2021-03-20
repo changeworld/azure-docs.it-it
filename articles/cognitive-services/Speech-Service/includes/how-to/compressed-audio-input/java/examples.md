@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 03/09/2020
 ms.author: trbye
 ms.openlocfilehash: e9b980dcbe42694137c7b29ee3bddaa7802db3da
-ms.sourcegitcommit: 9514d24118135b6f753d8fc312f4b702a2957780
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/07/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97978859"
 ---
 Per configurare l'SDK vocale per accettare l'input audio compresso, creare un `PullAudioInputStream` o `PushAudioInputStream` . Quindi, creare un oggetto `AudioConfig` da un'istanza della classe Stream, specificando il formato di compressione del flusso.

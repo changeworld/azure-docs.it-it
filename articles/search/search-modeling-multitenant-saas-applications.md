@@ -9,10 +9,10 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 09/25/2020
 ms.openlocfilehash: cd21197d6d1559b681ae622b974f6eb7ba95ad3d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91397369"
 ---
 # <a name="design-patterns-for-multitenant-saas-applications-and-azure-cognitive-search"></a>Modelli di progettazione per applicazioni SaaS multi-tenant e Azure ricerca cognitiva
@@ -28,7 +28,7 @@ Prima di illustrare i modelli di progettazione, è importante comprendere alcuni
 
 Quando si usa ricerca cognitiva di Azure, si sottoscrive un *servizio di ricerca*. Quando i dati vengono caricati in ricerca cognitiva di Azure, vengono archiviati in un *Indice* all'interno del servizio di ricerca. In un solo servizio possono essere presenti molti indici. Facendo riferimento ai familiari concetti relativi ai database, il servizio di ricerca può essere paragonato a un database, mentre gli indici all'interno di un servizio possono essere paragonati alle tabelle di un database.
 
-Ogni indice all'interno di un servizio di ricerca ha un proprio schema, definito da un certo numero di *campi*personalizzabili. I dati vengono aggiunti a un indice di ricerca cognitiva di Azure sotto forma di singoli *documenti*. Ogni documento deve essere caricato in un indice specifico e deve adattarsi allo schema di tale indice. Quando si eseguono ricerche nei dati utilizzando Azure ricerca cognitiva, le query di ricerca full-text vengono eseguite su un particolare indice.  Facendo riferimento ai database, i campi possono essere paragonati alle colonne e i documenti alle righe di una tabella del database.
+Ogni indice all'interno di un servizio di ricerca ha un proprio schema, definito da un certo numero di *campi* personalizzabili. I dati vengono aggiunti a un indice di ricerca cognitiva di Azure sotto forma di singoli *documenti*. Ogni documento deve essere caricato in un indice specifico e deve adattarsi allo schema di tale indice. Quando si eseguono ricerche nei dati utilizzando Azure ricerca cognitiva, le query di ricerca full-text vengono eseguite su un particolare indice.  Facendo riferimento ai database, i campi possono essere paragonati alle colonne e i documenti alle righe di una tabella del database.
 
 ### <a name="scalability"></a>Scalabilità
 Qualsiasi servizio ricerca cognitiva di Azure nel piano [tariffario](https://azure.microsoft.com/pricing/details/search/) standard può essere ridimensionato in due dimensioni: archiviazione e disponibilità.
@@ -95,7 +95,7 @@ Se il numero totale di indici diventa troppo grande per un singolo servizio, è 
 
 ## <a name="2-service-per-tenant"></a>2. servizio per tenant
 
-:::image type="content" source="media/search-modeling-multitenant-saas-applications/azure-search-service-per-tenant.png" alt-text="Un'immagine del modello &quot;indice per tenant&quot;" border="false":::
+:::image type="content" source="media/search-modeling-multitenant-saas-applications/azure-search-service-per-tenant.png" alt-text="Un'immagine del modello &quot;servizio per tenant&quot;" border="false":::
 
 In un'architettura "servizio per tenant" ogni tenant dispone di un proprio servizio di ricerca.
 

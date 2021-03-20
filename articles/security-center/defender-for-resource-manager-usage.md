@@ -8,13 +8,13 @@ ms.topic: how-to
 ms.service: security-center
 manager: rkarlin
 ms.openlocfilehash: 54790795aab8aac247e17198159130d7139dd38c
-ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/07/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96754651"
 ---
-# <a name="respond-to-azure-defender-for-resource-manager-alerts"></a>Rispondere ad Azure Defender per Gestione risorse avvisi
+# <a name="respond-to-azure-defender-for-resource-manager-alerts"></a>Rispondere agli avvisi di Azure Defender per Resource Manager
 
 Quando si riceve un avviso da Azure Defender per Gestione risorse, è consigliabile esaminare e rispondere all'avviso come descritto di seguito. Azure Defender per Gestione risorse protegge tutte le risorse connesse, quindi anche se si ha familiarità con l'applicazione o l'utente che ha attivato l'avviso, è importante verificare la situazione che circonda ogni avviso.  
 
@@ -25,7 +25,7 @@ Quando si riceve un avviso da Azure Defender per Gestione risorse, è consigliab
 1. Se è prevista l'attività, chiudere l'avviso.
 1. Se l'attività è imprevista, trattare gli account utente, le sottoscrizioni e le macchine virtuali correlati come compromessi e attenuarli come descritto nel passaggio seguente.
 
-## <a name="step-2-immediate-mitigation"></a>Passaggio 2. Mitigazione immediata 
+## <a name="step-2-immediate-mitigation"></a>Passaggio 2: Mitigazione immediata 
 
 1. Correggere gli account utente compromessi:
     - Se non si ha familiarità, eliminarli così come potrebbero essere stati creati da un attore minaccia
@@ -49,6 +49,6 @@ Quando si riceve un avviso da Azure Defender per Gestione risorse, è consigliab
 
 Questa pagina ha illustrato il processo di risposta a un avviso di Azure Defender per Gestione risorse. Per informazioni correlate, vedere le pagine seguenti:
 
-- [Introduzione ad Azure Defender per Gestione risorse](defender-for-resource-manager-introduction.md)
+- [Introduzione ad Azure Defender per Resource Manager](defender-for-resource-manager-introduction.md)
 - [Eliminare gli avvisi di Azure Defender](alerts-suppression-rules.md)
 - [Esportazione continua dei dati del Centro sicurezza](continuous-export.md)

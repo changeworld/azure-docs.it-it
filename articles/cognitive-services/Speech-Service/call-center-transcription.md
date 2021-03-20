@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 07/05/2019
 ms.author: erhopf
 ms.openlocfilehash: 19d4cc388494e149b7f258a8e9f154041a3dd070
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/21/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "95021967"
 ---
 # <a name="speech-service-for-telephony-data"></a>Servizio di riconoscimento vocale per i dati di telefonia
@@ -121,7 +121,7 @@ Un altro scenario è l'integrazione diretta con SIP (Session Initiation Protocol
 
  Il servizio riconoscimento vocale funziona bene con i modelli predefiniti. Tuttavia, potrebbe essere necessario personalizzare ulteriormente e ottimizzare l'esperienza per il prodotto o l'ambiente. Le opzioni di personalizzazione spaziano dall'ottimizzazione del modello acustico ai caratteri voce univoci per il proprio marchio. Dopo aver compilato un modello personalizzato, è possibile usarlo con le funzionalità del servizio riconoscimento vocale in modalità batch o in tempo reale.
 
-| Servizio Voce | Modellare | Descrizione |
+| Servizio Voce | Modello | Descrizione |
 | -------------- | ----- | ----------- |
 | Riconoscimento vocale | [Modello acustico](./how-to-custom-speech-train-model.md) | Creazione di un modello acustico personalizzato per applicazioni, strumenti o dispositivi usati in ambienti particolari, ad esempio in un'automobile o in fabbrica, ognuno con condizioni di registrazione specifiche. Sono esempi di queste situazioni un eloquio con un forte accento, particolari rumori di sottofondo o l'uso di uno speciale microfono per la registrazione. |
 |                | [Modello linguistico](./how-to-custom-speech-train-model.md) | Creazione di un modello linguistico personalizzato per migliorare la trascrizione di grammatica e terminologia specifica di settore, ad esempio terminologia medica o IT. |

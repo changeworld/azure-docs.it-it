@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 04/15/2020
 ms.author: cephalin
 ms.openlocfilehash: 0fccb1ed092190f88d197c9bf2cd17678a4d1731
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "83649043"
 ---
 Ai componenti della piattaforma di Servizio app di Azure, incluse le macchine virtuali di Azure, l'archiviazione, le connessioni di rete, i framework Web e le funzionalità di gestione e integrazione, viene applicata attivamente una protezione avanzata. Servizio app di Azure viene sottoposto continuamente a rigorosi controlli della conformità per assicurarsi che:

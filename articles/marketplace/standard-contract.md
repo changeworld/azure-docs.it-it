@@ -8,10 +8,10 @@ author: trkeya
 ms.author: trkeya
 ms.date: 05/20/2020
 ms.openlocfilehash: 20a257bde6022249fd7b2ab875b94f356234b490
-ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/11/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94488877"
 ---
 # <a name="standard-contract-for-microsoft-commercial-marketplace"></a>Contratto standard per il marketplace commerciale Microsoft
@@ -31,10 +31,10 @@ Per gli editori del marketplace commerciale sono disponibili due tipi di modific
 
 * Modifiche universali: queste modifiche vengono applicate in modo universale al contratto standard per tutti i clienti. Le modifiche universali vengono visualizzate a ogni cliente dell'offerta nel flusso di acquisto. I clienti devono accettare le condizioni del contratto standard e la relativa modifica prima di poter usare l'offerta.
 
-* Modifiche personalizzate: si tratta di modifiche speciali apportate al contratto standard destinate a specifici clienti solo tramite ID tenant di Azure. Gli editori possono scegliere il tenant di destinazione. Solo ai clienti del tenant verranno presentate le condizioni di modifica personalizzate nel flusso di acquisto dell'offerta.  Prima di poter usare l'offerta, i clienti devono accettare le condizioni del contratto standard e le modifiche.
+* Modifiche personalizzate: si tratta di modifiche speciali apportate al contratto standard destinate a specifici clienti solo tramite ID tenant di Azure. Gli editori possono scegliere il tenant di destinazione. Le condizioni di modifica personalizzate verranno presentate solo ai clienti del tenant nel flusso di acquisto dell'offerta.  Prima di poter usare l'offerta, i clienti devono accettare le condizioni del contratto standard e le modifiche.
 
 >[!Note]
->Questi due tipi di modifiche si integrano tra loro. I clienti destinatari delle modifiche personalizzate riceveranno anche la modifica universale al contratto standard durante l'acquisto. Gli emendamenti sono limitati a 4000 caratteri, inclusi gli spazi.
+>Questi due tipi di modifiche si integrano tra loro. I clienti cui sono destinate le modifiche personalizzate riceveranno anche la modifica universale al contratto standard durante l'acquisto. Gli emendamenti sono limitati a 4000 caratteri, inclusi gli spazi.
 
 È possibile usare il contratto standard per il marketplace commerciale Microsoft per i tipi di offerta seguenti:  Applicazioni Azure (modelli di soluzioni e applicazioni gestite), macchine virtuali e SaaS.
 

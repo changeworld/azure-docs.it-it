@@ -18,10 +18,10 @@ ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 56f9976faf2a803e747bce8b851a3555e6d746b0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "89231147"
 ---
 # <a name="azure-ad-audit-activity-reference"></a>Informazioni di riferimento sulle attività di controllo di Azure AD
@@ -32,11 +32,11 @@ L'architettura di reporting in Azure AD include i componenti seguenti:
 
 - **Report attività** 
     - [Accessi](concept-sign-ins.md): fornisce informazioni sull'uso delle applicazioni gestite e sulle attività di accesso degli utenti
-    - [Log di controllo](concept-audit-logs.md): i log consentono la tracciabilità di tutte le modifiche apportate da varie funzionalità all'interno di Azure AD. 
+    - [Log di controllo](concept-audit-logs.md) : consente la tracciabilità tramite i log per tutte le modifiche apportate dalle diverse funzionalità all'interno Azure ad. 
     
 - **Report sulla sicurezza** 
-    - [Accessi a rischio](../identity-protection/overview-identity-protection.md). Un accesso rischioso è indicativo di un tentativo di accesso che potrebbe essere stato eseguito da qualcuno che non è il legittimo proprietario di un account utente. 
-    - [Utenti contrassegnati per il rischio](../identity-protection/overview-identity-protection.md). Un utente rischioso è indicativo di un account utente che potrebbe essere stato compromesso. 
+    - [Accessi a rischio](../identity-protection/overview-identity-protection.md) : un accesso rischioso è un indicatore di un tentativo di accesso che potrebbe essere stato eseguito da un utente che non è il legittimo proprietario di un account utente. 
+    - [Utenti contrassegnati per il rischio](../identity-protection/overview-identity-protection.md) : un utente rischioso è un indicatore per un account utente che potrebbe essere stato compromesso. 
 
 Questo articolo elenca le attività di controllo che possono essere registrate nei log di controllo.
 

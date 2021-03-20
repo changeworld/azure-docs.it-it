@@ -12,10 +12,10 @@ ms.date: 02/12/2020
 ms.author: rbeckers
 ms.custom: devx-track-csharp
 ms.openlocfilehash: 9c8016b566db8be1b7f5c5ddb8d92123d6673db5
-ms.sourcegitcommit: 9d9221ba4bfdf8d8294cf56e12344ed05be82843
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/19/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98569845"
 ---
 # <a name="migrate-code-from-v20-to-v30-of-the-rest-api"></a>Eseguire la migrazione del codice dalla versione 2.0 alla versione 3.0 dell'API REST
@@ -68,7 +68,7 @@ Modifiche generali:
 
     * [Leggere il percorso dal percorso dell'intestazione di risposta anziché Operation-location](#response-headers)
 
-## <a name="breaking-changes"></a>Modifiche di rilievo
+## <a name="breaking-changes"></a>Modifiche che causano un'interruzione
 
 ### <a name="host-name-changes"></a>Modifiche al nome host
 

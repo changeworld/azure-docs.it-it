@@ -1,5 +1,5 @@
 ---
-title: 'Guida introduttiva: Aggiungere un utente guest con PowerShell - Azure AD'
+title: 'Guida introduttiva: aggiungere un utente guest con PowerShell-Azure AD'
 description: In questa guida introduttiva si apprenderà come usare PowerShell per inviare un invito a un utente esterno di Collaborazione B2B di Azure AD.
 services: active-directory
 ms.service: active-directory
@@ -13,10 +13,10 @@ ms.reviewer: mal
 ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: b0faaf0394bddc2e443afc194bbd0ecef72625f9
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
-ms.translationtype: HT
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/05/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "87910600"
 ---
 # <a name="quickstart-add-a-guest-user-with-powershell"></a>Guida introduttiva: Aggiungere un utente guest con PowerShell

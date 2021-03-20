@@ -5,13 +5,13 @@ ms.topic: tutorial
 ms.date: 03/21/2018
 ms.custom: seodec18, mvc, devx-track-azurecli
 ms.openlocfilehash: 2ea3d285f00d38df84587d9a7c15242fff38453b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
-ms.translationtype: HT
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "87500573"
 ---
-# <a name="tutorial-deploy-a-container-application-to-azure-container-instances"></a>Esercitazione: Distribuire un'applicazione contenitore in Istanze di Azure Container
+# <a name="tutorial-deploy-a-container-application-to-azure-container-instances"></a>Esercitazione: distribuire un'applicazione contenitore in istanze di contenitore di Azure
 
 Questa è l'ultima esercitazione di una serie in tre parti. Nelle parti precedenti della serie, [è stata creata un'immagine del contenitore](container-instances-tutorial-prepare-app.md) e ne è stato eseguito il [push in Registro Azure Container](container-instances-tutorial-prepare-acr.md). Questo articolo completa la serie con la distribuzione del contenitore in Istanze di Azure Container.
 

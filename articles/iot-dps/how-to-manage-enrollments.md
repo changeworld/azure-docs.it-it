@@ -9,10 +9,10 @@ ms.service: iot-dps
 services: iot-dps
 manager: eliotgra
 ms.openlocfilehash: 6ec146a05df1b896f8ca594d29cf13341b70765a
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/25/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96010963"
 ---
 # <a name="how-to-manage-device-enrollments-with-azure-portal"></a>Come gestire le registrazioni dei dispositivi con portale di Azure
@@ -68,7 +68,7 @@ Esistono due modi per registrare i dispositivi con il servizio di provisioning:
         | :--- | :--- |
         | **Meccanismo** | Selezionare **X. 509**, **TPM** o **chiave simmetrica** per il meccanismo di attestazione da utilizzare a seconda del metodo di attestazione che i dispositivi utilizzeranno. |
         | Impostazioni di attestazione | Per istruzioni dettagliate sulla creazione e l'uso di registrazioni singole con chiavi simmetriche o certificati X. 509, vedere una delle guide introduttive per il provisioning di un [dispositivo simmetrico](quick-create-simulated-device-symmetric-key-java.md#create-a-device-enrollment) o il [provisioning di un dispositivo di certificato x. 509](quick-create-simulated-device-x509-java.md#create-a-self-signed-x509-device-certificate-and-individual-enrollment-entry) .<br><br>Per istruzioni dettagliate sulla creazione e l'uso di registrazioni singole con l'attestazione TPM, vedere uno degli esempi per il [provisioning di un dispositivo TPM simulato](quick-create-simulated-device-tpm-java.md#create-a-device-enrollment-entry) .|
-        | **ID dispositivo hub Internet** |  Questo ID rappresenterà il dispositivo. Deve seguire le regole per un ID dispositivo. Per altre informazioni, vedere [proprietà delle identità dei dispositivi](../iot-hub/iot-hub-devguide-identity-registry.md#device-identity-properties).<br><br>Quando si usano certificati X. 509, questo testo deve essere il nome del soggetto nel certificato del dispositivo caricato per la registrazione. Il nome del soggetto deve essere conforme alle regole per un ID dispositivo.|
+        | **ID dispositivo hub Internet** |  Questo ID rappresenterà il dispositivo. Deve seguire le regole per gli ID dispositivo. Per altre informazioni, vedere [Proprietà delle identità dei dispositivi](../iot-hub/iot-hub-devguide-identity-registry.md#device-identity-properties).<br><br>Quando si usano certificati X. 509, questo testo deve essere il nome del soggetto nel certificato del dispositivo caricato per la registrazione. Il nome del soggetto deve essere conforme alle regole per un ID dispositivo.|
             
 
 

@@ -7,10 +7,10 @@ ms.date: 08/18/2017
 ms.author: masnider
 ms.custom: devx-track-csharp
 ms.openlocfilehash: 2a7dedea2937c9cafb4216da3628aa1360ad6993
-ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/19/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92173008"
 ---
 # <a name="managing-resource-consumption-and-load-in-service-fabric-with-metrics"></a>Gestione dell'utilizzo delle risorse e del carico in Service Fabric con le metriche
@@ -19,7 +19,7 @@ Con *metriche* si intendono le risorse rilevanti per i servizi, che sono fornite
 Sono metriche, ad esempio, l'utilizzo della CPU, della memoria e dei dischi. In questo caso si tratta di metriche fisiche, ovvero risorse che corrispondono alle risorse fisiche nel nodo e che devono essere gestite. Le metriche possono anche essere logiche e in genere sono di questo tipo. Sono metriche logiche, ad esempio, "MyWorkQueueDepth", "MessagesToProcess" e "TotalRecords". Le metriche logiche sono definite dall'applicazione e corrispondono indirettamente al consumo di alcune risorse fisiche. Sono comuni in quanto può essere difficile misurare e creare report sul consumo delle risorse fisiche per ogni servizio. La complessità della misurazione e della creazione di report delle metriche è anche il motivo per cui in Service Fabric vengono fornite alcune metriche predefinite.
 
 ## <a name="default-metrics"></a>Metriche predefinite
-Si supponga che si desideri iniziare a scrivere e a distribuire il servizio. Ancora non si conoscono le risorse fisiche o logiche che il servizio consuma. Questo approccio non presenta problemi. Cluster Resource Manager di Service Fabric usa alcune metriche predefinite quando non vengono specificate altre metriche. ovvero:
+Si supponga che si desideri iniziare a scrivere e a distribuire il servizio. Ancora non si conoscono le risorse fisiche o logiche che il servizio consuma. Questo approccio non presenta problemi. Cluster Resource Manager di Service Fabric usa alcune metriche predefinite quando non vengono specificate altre metriche. Ad esempio:
 
   - PrimaryCount - Numero di repliche primarie nel nodo 
   - ReplicaCount - Numero di repliche con stato totali nel nodo
@@ -27,8 +27,8 @@ Si supponga che si desideri iniziare a scrivere e a distribuire il servizio. Anc
 
 | Metrica | Carico di istanza senza stato | Carico secondario con stato | Carico primario con stato | Peso |
 | --- | --- | --- | --- | --- |
-| PrimaryCount |0 |0 |1 |Alta |
-| ReplicaCount |0 |1 |1 |Media |
+| PrimaryCount |0 |0 |1 |Alto |
+| ReplicaCount |0 |1 |1 |Medio |
 | Conteggio |1 |1 |1 |Basso |
 
 
@@ -236,7 +236,7 @@ OperationResult<UpdatePartitionLoadResultList> updatePartitionLoadResults =
         cancellationToken);
 ```
 
-Con questo esempio, verrà eseguito un aggiornamento dell'ultimo carico segnalato per una partizione _53df3d7f-5471-403b-B736-bde6ad584f42_. Il carico della replica primaria per una metrica _CustomMetricName0_ verrà aggiornato con il valore 100. Allo stesso tempo, il carico per la stessa metrica per una replica secondaria specifica situata nel nodo _NodeName0_verrà aggiornato con il valore 200.
+Con questo esempio, verrà eseguito un aggiornamento dell'ultimo carico segnalato per una partizione _53df3d7f-5471-403b-B736-bde6ad584f42_. Il carico della replica primaria per una metrica _CustomMetricName0_ verrà aggiornato con il valore 100. Allo stesso tempo, il carico per la stessa metrica per una replica secondaria specifica situata nel nodo _NodeName0_ verrà aggiornato con il valore 200.
 
 ### <a name="updating-a-services-metric-configuration"></a>Aggiornamento della configurazione delle metriche di un servizio
 È possibile aggiornare in modo dinamico e in tempo reale l'elenco delle metriche associate al servizio e le proprietà di tali metriche. Questo approccio consente di sperimentare con flessibilità. Di seguito alcuni esempi che mostrano l'utilità di questo tipo di aggiornamento:

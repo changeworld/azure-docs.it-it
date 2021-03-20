@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 10/13/2019
 ms.author: harshacs
 ms.openlocfilehash: 123a68885346062b9e8a53b8d5066204b6b20f5e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "89568779"
 ---
 # <a name="connect-to-azure-vms-after-failover-from-on-premises"></a>Connettersi alle macchine virtuali di Azure dopo il failover da locale 
@@ -37,7 +37,7 @@ Per garantire la connettività alle VM di Azure, preparare i computer locali pri
 
 Nei computer Windows locali eseguire questa procedura:
 
-1. Configurare le impostazioni di Windows. Sono incluse la rimozione di route persistenti statiche o proxy WinHTTP e l'impostazione dei criteri SAN **OnlineAll**del disco su onlineal. [Seguire](../virtual-machines/windows/prepare-for-upload-vhd-image.md#set-windows-configurations-for-azure) queste istruzioni.
+1. Configurare le impostazioni di Windows. Sono incluse la rimozione di route persistenti statiche o proxy WinHTTP e l'impostazione dei criteri SAN del disco su onlineal. [Seguire](../virtual-machines/windows/prepare-for-upload-vhd-image.md#set-windows-configurations-for-azure) queste istruzioni.
 
 2. Assicurarsi che [questi servizi](../virtual-machines/windows/prepare-for-upload-vhd-image.md#check-the-windows-services) siano in esecuzione.
 
@@ -137,11 +137,11 @@ Per mantenere gli indirizzi, ecco cosa accade.
 
 Prima del failover, specificare le impostazioni di rete e l'indirizzo IP per la macchina virtuale di Azure di destinazione.
 
-1.  Nell'insieme di credenziali di servizi di ripristino-> **gli elementi replicati**selezionare il computer locale.
-2. Nella pagina **calcolo e rete** per il computer, fare clic su **modifica**per configurare le impostazioni di rete e scheda per la macchina virtuale di Azure di destinazione.
-3. In **proprietà di rete**selezionare la rete di destinazione in cui si trova la macchina virtuale di Azure quando viene creata dopo il failover.
-4. In **interfacce di rete**configurare le schede di rete nella rete di destinazione. Per impostazione predefinita Site Recovery Mostra tutte le schede di rete rilevate nel computer locale.
-    - In **tipo di interfaccia di rete di destinazione** è possibile impostare ogni NIC come **primaria**, **secondaria**o non **creare** se non è necessaria una scheda di interfaccia di rete specifica nella rete di destinazione. Una scheda di rete deve essere impostata come primaria per il failover. Si noti che la modifica della rete di destinazione interessa tutte le schede di rete per la macchina virtuale di Azure.
+1.  Nell'insieme di credenziali di servizi di ripristino-> **gli elementi replicati** selezionare il computer locale.
+2. Nella pagina **calcolo e rete** per il computer, fare clic su **modifica** per configurare le impostazioni di rete e scheda per la macchina virtuale di Azure di destinazione.
+3. In **proprietà di rete** selezionare la rete di destinazione in cui si trova la macchina virtuale di Azure quando viene creata dopo il failover.
+4. In **interfacce di rete** configurare le schede di rete nella rete di destinazione. Per impostazione predefinita Site Recovery Mostra tutte le schede di rete rilevate nel computer locale.
+    - In **tipo di interfaccia di rete di destinazione** è possibile impostare ogni NIC come **primaria**, **secondaria** o non **creare** se non è necessaria una scheda di interfaccia di rete specifica nella rete di destinazione. Una scheda di rete deve essere impostata come primaria per il failover. Si noti che la modifica della rete di destinazione interessa tutte le schede di rete per la macchina virtuale di Azure.
     - Fare clic sul nome della scheda di interfaccia di rete per specificare la subnet in cui verrà distribuita la VM di Azure.
     - Sovrascrivere **Dynamic** con l'indirizzo IP privato che si vuole assegnare alla macchina virtuale di Azure di destinazione. Se non viene specificato un indirizzo IP Site Recovery assegnerà il successivo indirizzo IP disponibile nella subnet alla scheda di interfaccia di rete in fase di failover.
     - [Altre](site-recovery-manage-network-interfaces-on-premises-to-azure.md) informazioni sulla gestione delle schede di rete per il failover locale in Azure.

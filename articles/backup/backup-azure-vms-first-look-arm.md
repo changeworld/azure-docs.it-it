@@ -4,10 +4,10 @@ description: Questo articolo illustra come eseguire il backup di una singola mac
 ms.topic: conceptual
 ms.date: 06/13/2019
 ms.openlocfilehash: 55b71d2a2901cdde984df3ebfd68a2a643b78b74
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "89667520"
 ---
 # <a name="back-up-an-azure-vm-from-the-vm-settings"></a>Eseguire il backup di una macchina virtuale di Azure dalle impostazioni della macchina virtuale
@@ -34,14 +34,14 @@ Per eseguire il backup di macchine virtuali di Azure, backup di Azure installa u
 1. Accedere al [portale di Azure](https://portal.azure.com/).
 2. Selezionare **tutti i servizi** e nel filtro digitare **macchine virtuali**, quindi selezionare **macchine virtuali**.
 3. Dall'elenco di macchine virtuali selezionare la macchina virtuale di cui si vuole eseguire il backup.
-4. Scegliere **backup**dal menu VM.
+4. Scegliere **backup** dal menu VM.
 5. Nell'**insieme di credenziali di Servizi di ripristino**, eseguire le operazioni seguenti:
-   - Se si dispone già di un insieme di credenziali, selezionare **Seleziona esistente**e selezionare un insieme di credenziali.
+   - Se si dispone già di un insieme di credenziali, selezionare **Seleziona esistente** e selezionare un insieme di credenziali.
    - Se non si dispone di un insieme di credenziali, selezionare **Crea nuovo**. Specificare un nome per l'insieme di credenziali. Viene creato nella stessa area e nello stesso gruppo di risorse della macchina virtuale. Non è possibile modificare queste impostazioni quando si abilita il backup direttamente dalle impostazioni della macchina virtuale.
 
         ![Procedura guidata Abilita backup](./media/backup-azure-vms-first-look-arm/vm-menu-enable-backup-small.png)
 
-6. In **scegliere i criteri di backup**eseguire una delle operazioni seguenti:
+6. In **scegliere i criteri di backup** eseguire una delle operazioni seguenti:
 
    - Lasciare il valore predefinito. Questa impostazione esegue il backup della macchina virtuale una volta al giorno all'ora specificata e conserva i backup nell'insieme di credenziali per 30 giorni.
    - Selezionare un criterio di backup esistente, se presente.
@@ -64,11 +64,11 @@ Per eseguire il backup di macchine virtuali di Azure, backup di Azure installa u
 
 ## <a name="run-a-backup-immediately"></a>Eseguire immediatamente un backup
 
-1. Per eseguire immediatamente un backup **, scegliere backup backup**  >  **ora**dal menu VM.
+1. Per eseguire immediatamente un backup **, scegliere backup backup**  >  **ora** dal menu VM.
 
     ![Esegui backup](./media/backup-azure-vms-first-look-arm/backup-now-update.png)
 
-2. In **backup ora**usare il controllo Calendar per selezionare fino a quando il punto di ripristino non verrà mantenuto > e **OK**.
+2. In **backup ora** usare il controllo Calendar per selezionare fino a quando il punto di ripristino non verrà mantenuto > e **OK**.
 
     ![Giorno di conservazione backup](./media/backup-azure-vms-first-look-arm/backup-now-blade-calendar.png)
 

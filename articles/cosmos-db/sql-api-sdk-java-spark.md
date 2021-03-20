@@ -10,10 +10,10 @@ ms.date: 08/12/2020
 ms.author: anfeldma
 ms.custom: devx-track-java
 ms.openlocfilehash: 7ff75bf9d45803dd96927bcf7c70e7c7912db979
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93097159"
 ---
 # <a name="azure-cosmos-db-apache-spark-connector-for-core-sql-api-release-notes-and-resources"></a>Azure Cosmos DB Apache Spark Connector per l'API di base (SQL): Note sulla versione e risorse
@@ -44,7 +44,7 @@ ms.locfileid: "93097159"
 
 | Componente | Versione |
 |---------|-------|
-| Apache Spark | 2,4. *x* , 2,3. *x* , 2,2. *x* e 2,1. *x* |
+| Apache Spark | 2,4.*x*, 2,3. *x*, 2,2. *x* e 2,1. *x* |
 | Scala | 2,11 |
 | Azure Databricks (versione Runtime) | Successiva alla 3,4 |
 
@@ -70,11 +70,11 @@ ms.locfileid: "93097159"
 - Aggiunge una nuova opzione di configurazione, `changefeedstartfromdatetime` , che può essere usata per specificare l'ora di inizio per l'elaborazione del offre. Per ulteriori informazioni, vedere [Opzioni di configurazione](https://github.com/Azure/azure-cosmosdb-spark/wiki/Configuration-references).
 
 ### <a name="320"></a>3.2.0
-#### <a name="key-bug-fixes"></a>Correzioni di bug chiave
+#### <a name="key-bug-fixes"></a>Principali correzioni di bug
 - Corregge una regressione che ha causato un utilizzo eccessivo della memoria negli esecutori per set di risultati di grandi dimensioni (ad esempio, con milioni di righe), causando infine l'errore `java.lang.OutOfMemoryError: GC overhead limit exceeded` .
 
 ### <a name="311"></a>3.1.1
-#### <a name="key-bug-fixes"></a>Correzioni di bug chiave
+#### <a name="key-bug-fixes"></a>Principali correzioni di bug
 * Corregge un caso di Edge del checkpoint di streaming in cui `ID` contiene il carattere barra verticale (|) con la `ChangeFeedMaxPagesPerBatch` configurazione applicata.
 
 ### <a name="310"></a>3.1.0
@@ -84,7 +84,7 @@ ms.locfileid: "93097159"
 * Aggiunge il supporto per i tipi timestamp quando usa Long (Unix Epoch) come valore.
 
 ### <a name="308"></a>3.0.8
-#### <a name="key-bug-fixes"></a>Correzioni di bug chiave
+#### <a name="key-bug-fixes"></a>Principali correzioni di bug
 * Corregge l'eccezione typecast che si verifica quando `WriteThroughputBudget` viene utilizzata la configurazione.
 
 ### <a name="307"></a>3.0.7
@@ -92,27 +92,27 @@ ms.locfileid: "93097159"
 * Aggiunge informazioni sull'errore per gli errori bulk per l'eccezione e il log.
 
 ### <a name="306"></a>3.0.6
-#### <a name="key-bug-fixes"></a>Correzioni di bug chiave
+#### <a name="key-bug-fixes"></a>Principali correzioni di bug
 * Corregge i problemi di checkpoint di streaming.
 
 ### <a name="305"></a>3.0.5
-#### <a name="key-bug-fixes"></a>Correzioni di bug chiave
+#### <a name="key-bug-fixes"></a>Principali correzioni di bug
 * Per ridurre il rumore, corregge il livello di registrazione di un messaggio lasciato involontariamente con un errore di livello.
 
 ### <a name="304"></a>3.0.4
-#### <a name="key-bug-fixes"></a>Correzioni di bug chiave
+#### <a name="key-bug-fixes"></a>Principali correzioni di bug
 * Corregge un bug nel flusso strutturato durante le divisioni di partizione. Il bug potrebbe causare la mancata presenza di record del feed di modifiche o eccezioni null per le Scritture del checkpoint.
 
 ### <a name="303"></a>3.0.3
-#### <a name="key-bug-fixes"></a>Correzioni di bug chiave
+#### <a name="key-bug-fixes"></a>Principali correzioni di bug
 * Corregge un bug che determina l'Ignorazione di uno schema personalizzato fornito per readStream.
 
 ### <a name="302"></a>3.0.2
-#### <a name="key-bug-fixes"></a>Correzioni di bug chiave
+#### <a name="key-bug-fixes"></a>Principali correzioni di bug
 * Corregge una regressione (il file JAR non ombreggiato include tutte le dipendenze ombreggiate) che aumenta il tempo di compilazione del 50%.
 
 ### <a name="301"></a>3.0.1
-#### <a name="key-bug-fixes"></a>Correzioni di bug chiave
+#### <a name="key-bug-fixes"></a>Principali correzioni di bug
 * Corregge un problema di dipendenza che causa l'esito negativo del trasporto diretto su TCP con RequestTimeoutException.
 
 ### <a name="300"></a>3.0.0

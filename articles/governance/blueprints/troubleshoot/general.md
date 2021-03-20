@@ -4,10 +4,10 @@ description: Informazioni su come risolvere i problemi relativi alla creazione, 
 ms.date: 01/27/2021
 ms.topic: troubleshooting
 ms.openlocfilehash: 65cf8ef9a5dcba0165aad8522f91ff1eb2c963a8
-ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/27/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98918845"
 ---
 # <a name="troubleshoot-errors-using-azure-blueprints"></a>Risoluzione errori con Azure Blueprint
@@ -73,7 +73,7 @@ L'eliminazione di un'assegnazione di progetto non è stata completata.
 
 Un'assegnazione di progetto può rimanere bloccata in uno stato non terminale quando viene eliminata. Questo stato viene generato quando le risorse create dall'assegnazione del progetto sono ancora in attesa di eliminazione o non restituiscono un codice di stato ai progetti di Azure.
 
-#### <a name="resolution"></a>Risoluzione
+#### <a name="resolution"></a>Soluzione
 
 Le assegnazioni di progetto in uno stato non terminale vengono contrassegnate automaticamente come **non riuscite** dopo un timeout di _sei ore_ . Una volta che il timeout ha regolato lo stato dell'assegnazione del progetto, è possibile ritentare l'eliminazione.
 

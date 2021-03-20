@@ -9,10 +9,10 @@ ms.service: iot-dps
 services: iot-dps
 ms.custom: mvc
 ms.openlocfilehash: 6cca34774038156cfb01e872e751338c1c96efaa
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
-ms.translationtype: HT
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91316001"
 ---
 # <a name="tutorial-provision-devices-across-load-balanced-iot-hubs"></a>Esercitazione: Eseguire il provisioning dei dispositivi in più hub IoT con bilanciamento del carico
@@ -45,11 +45,11 @@ L'elenco di registrazione indica al servizio Device Provisioning il metodo di at
 
 ## <a name="set-the-device-provisioning-service-allocation-policy"></a>Impostare i criteri di allocazione del servizio Device Provisioning
 
-I criteri di allocazione rappresentano un'impostazione del servizio Device Provisioning che determina la modalità di assegnazione dei dispositivi a un hub IoT. Sono supportati tre criteri di allocazione: 
+I criteri di allocazione rappresentano un'impostazione del servizio Device Provisioning che determina la modalità di assegnazione dei dispositivi a un hub IoT. Sono supportati tre criteri di allocazione: 
 
-1. **Latenza più bassa**: il provisioning dei dispositivi viene eseguito in un hub IoT in base all'hub con la latenza più bassa per il dispositivo.
-2. **Distribuzione ponderata in modo uniforme** (impostazione predefinita): gli hub IoT collegati hanno le stesse probabilità di essere scelti per il provisioning dei dispositivi. Si tratta dell'impostazione predefinita. Se si esegue il provisioning dei dispositivi in un solo hub IoT, è possibile mantenere questa impostazione. 
-3. **Configurazione statica tramite elenco di registrazione**: la specifica dell'hub IoT desiderato nell'elenco di registrazione ha priorità rispetto ai criteri di allocazione a livello del servizio Device Provisioning.
+1. **Lowest latency** (Latenza minima): il provisioning dei dispositivi viene eseguito in un hub IoT in base all'hub con latenza minima per il dispositivo.
+2. **Evenly weighted distribution** (Distribuzione ponderata uniforme): gli hub IoT collegati hanno le stesse probabilità di avere dispositivi sottoposti a provisioning. Si tratta dell'impostazione predefinita. Se si esegue il provisioning dei dispositivi in un solo hub IoT, è possibile mantenere questa impostazione. 
+3. **Static configuration via the enrollment list** (Configurazione statica tramite l'elenco di registrazione): la specifica dell'hub IoT desiderato nell'elenco di registrazione ha priorità rispetto ai criteri di allocazione a livello del servizio Device Provisioning.
 
 Seguire questa procedura per impostare i criteri di allocazione:
 
@@ -63,7 +63,7 @@ Collegare il servizio Device Provisioning e l'hub IoT per consentire al servizio
 
 1. Nella pagina **Tutte le risorse** fare clic sul servizio Device Provisioning creato in precedenza.
 2. Nella pagina Device Provisioning Service (Servizio Device Provisioning) fare clic su **Linked IoT hubs** (Hub IoT collegati).
-3. Scegliere **Aggiungi**.
+3. Fare clic su **Aggiungi**.
 4. Nella pagina **Add link to IoT hub** (Aggiungi collegamento all'hub IoT) usare i pulsanti di opzione per specificare se l'hub IoT collegato si trova nella sottoscrizione attuale o in una sottoscrizione diversa. Scegliere quindi il nome dell'hub IoT dalla casella **IoT Hub** (Hub IoT).
 5. Fare clic su **Salva**.
 
