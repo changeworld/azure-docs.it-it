@@ -8,13 +8,13 @@ author: mksuni
 ms.author: sumuth
 ms.date: 09/21/2020
 ms.openlocfilehash: 413f5fc1f6579102b62042c1470816470c2e1449
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/26/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92546552"
 ---
-# <a name="connect-and-query-overview-for-azure-database-for-postgresql--single-server"></a>Panoramica di connessione ed esecuzione di query per database di Azure per PostgreSQL-server singolo
+# <a name="connect-and-query-overview-for-azure-database-for-postgresql--single-server"></a>Panoramica di connessione ed esecuzione di query per Database di Azure per PostgreSQL - server singolo
 
 Il documento seguente include collegamenti ad esempi che illustrano come connettersi ed eseguire query con il server singolo database di Azure per PostgreSQL. Questa guida include anche le raccomandazioni e l'estensione TLS che è possibile usare per connettersi al server nelle lingue supportate di seguito.
 

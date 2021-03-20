@@ -10,10 +10,10 @@ author: likebupt
 ms.author: keli19
 ms.date: 10/22/2019
 ms.openlocfilehash: a1f0a0dff4eb8a1aad0cd5e142959a636827a541
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "90898479"
 ---
 # <a name="partition-and-sample-module"></a>Modulo Partition and Sample
@@ -154,7 +154,7 @@ Usare questa opzione quando si divide un set di dati in più partizioni e ora si
 
 1. Se si usano più partizioni, è necessario aggiungere altre istanze della **partizione e** del modulo di esempio per gestire ogni partizione.
 
-   Ad esempio, il modulo **Partition and Sample** nella seconda riga è impostato su **assign to Folds**e il modulo nella terza riga è impostato su **pick fold**.   
+   Ad esempio, il modulo **Partition and Sample** nella seconda riga è impostato su **assign to Folds** e il modulo nella terza riga è impostato su **pick fold**.   
 
    ![Partition and sample (Partizione ed esempio)](./media/module/partition-and-sample.png)
 

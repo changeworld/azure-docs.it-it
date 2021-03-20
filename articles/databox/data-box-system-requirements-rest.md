@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 10/05/2020
 ms.author: alkohli
 ms.openlocfilehash: ac5f2de383066d6ee399dac3b0ad8c365b2e72bc
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91744101"
 ---
 # <a name="azure-data-box-blob-storage-requirements"></a>Requisiti di archiviazione BLOB di Azure Data Box
@@ -72,7 +72,7 @@ Per l'installazione tramite Composer: (prendere BLOB come esempio).
 
 In Data Box BLOB Storage SDK, il suffisso dell'endpoint, che `<device serial number>.microsoftdatabox.com` identifica il dominio di data box. Per altre informazioni sull'endpoint del servizio BLOB, vedere [connettersi tramite Data Box archiviazione BLOB](data-box-deploy-copy-data-via-rest.md).
  
-## <a name="examples"></a>Esempi
+## <a name="examples"></a>Esempio
 
 ### <a name="net"></a>.NET
 

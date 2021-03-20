@@ -10,10 +10,10 @@ author: likebupt
 ms.author: keli19
 ms.date: 08/12/2020
 ms.openlocfilehash: 9a1a3892e6a47aabd9b5129ca551900494616bc8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "90905159"
 ---
 # <a name="score-wide-and-deep-recommender"></a>Score Wide and Deep Recommender
@@ -50,7 +50,7 @@ Quando si stimano le classificazioni, il modello calcola il modo in cui un deter
 
 2. **Tipo di stima del raccomandazione**: selezionare la **stima della classificazione**. Non sono richiesti altri parametri.
 
-3. Aggiungere i dati per i quali si desidera eseguire stime e connetterli al **set di dati per**assegnare un punteggio.
+3. Aggiungere i dati per i quali si desidera eseguire stime e connetterli al **set di dati per** assegnare un punteggio.
 
     Per stimare le classificazioni, il set di dati di input deve contenere coppie utente-elemento.
 
@@ -60,7 +60,7 @@ Quando si stimano le classificazioni, il modello calcola il modo in cui un deter
 
     Il set di dati delle funzionalità utente deve contenere l'identificatore utente nella prima colonna. Le colonne rimanenti devono contenere valori che caratterizzano gli utenti, ad esempio il sesso, le preferenze, la posizione e così via.
   
-    Le funzionalità degli utenti che hanno valutato gli elementi nel set di dati di training vengono ignorate dall'assegnazione dei **punteggi e dal Consiglio**avanzato, perché sono già state apprese durante il training. Pertanto, filtrare il set di dati in anticipo per includere solo *gli utenti con avvio a freddo*o gli utenti che non hanno valutato alcun elemento.
+    Le funzionalità degli utenti che hanno valutato gli elementi nel set di dati di training vengono ignorate dall'assegnazione dei **punteggi e dal Consiglio** avanzato, perché sono già state apprese durante il training. Pertanto, filtrare il set di dati in anticipo per includere solo *gli utenti con avvio a freddo* o gli utenti che non hanno valutato alcun elemento.
 
     > [!WARNING]
     > Se è stato eseguito il training del modello senza usare le funzionalità utente, non è possibile introdurre le funzionalità utente durante il punteggio.
@@ -69,7 +69,7 @@ Quando si stimano le classificazioni, il modello calcola il modo in cui un deter
 
     Il set di dati features dell'elemento deve contenere un identificatore di elemento nella prima colonna. Le colonne rimanenti devono contenere valori che caratterizzano gli elementi.
 
-    Le funzionalità degli elementi classificati nel set di dati di training vengono ignorate dall'assegnazione dei **punteggi e dal Consiglio** avanzato, perché sono già state apprese durante il training. Limitare quindi il set di dati di assegnazione dei punteggi a *elementi di avvio a freddo*o elementi che non sono stati classificati da alcun utente.
+    Le funzionalità degli elementi classificati nel set di dati di training vengono ignorate dall'assegnazione dei **punteggi e dal Consiglio** avanzato, perché sono già state apprese durante il training. Limitare quindi il set di dati di assegnazione dei punteggi a *elementi di avvio a freddo* o elementi che non sono stati classificati da alcun utente.
 
     > [!WARNING]
     > Se è stato eseguito il training del modello senza usare le funzionalità degli elementi, non è possibile introdurre le funzionalità degli elementi durante il punteggio.
@@ -95,10 +95,10 @@ Per consigliare gli elementi per gli utenti, è necessario fornire un elenco di 
 
 3. **Selezione elemento consigliata**: indicare se si sta usando il modulo di assegnazione dei punteggi in produzione o per la valutazione del modello, scegliendo uno dei valori seguenti:
 
-    - **Da elementi classificati (per la valutazione del modello)**: selezionare questa opzione se si sta sviluppando o testando un modello. Questa opzione Abilita la **modalità di valutazione**e il modulo apporta consigli solo da tali elementi nel set di dati di input che sono stati classificati.
-    - **Da tutti gli elementi**: selezionare questa opzione se si sta configurando un esperimento da usare in un servizio Web o in un ambiente di produzione.  Questa opzione Abilita la **modalità di produzione**e il modulo apporta consigli da tutti gli elementi visualizzati durante il training.
+    - **Da elementi classificati (per la valutazione del modello)**: selezionare questa opzione se si sta sviluppando o testando un modello. Questa opzione Abilita la **modalità di valutazione** e il modulo apporta consigli solo da tali elementi nel set di dati di input che sono stati classificati.
+    - **Da tutti gli elementi**: selezionare questa opzione se si sta configurando un esperimento da usare in un servizio Web o in un ambiente di produzione.  Questa opzione Abilita la **modalità di produzione** e il modulo apporta consigli da tutti gli elementi visualizzati durante il training.
     - **Da elementi non classificati (per suggerire nuovi elementi agli utenti)**: selezionare questa opzione se si desidera che il modulo faccia raccomandazioni solo da tali elementi del set di dati di training che non sono stati classificati. 
-4. Aggiungere il set di dati per il quale si desidera eseguire stime e connetterlo al **set di dati per**assegnare un punteggio.
+4. Aggiungere il set di dati per il quale si desidera eseguire stime e connetterlo al **set di dati per** assegnare un punteggio.
 
     - Se si sceglie l'opzione, **da tutti gli elementi**, il set di dati di input deve essere costituito da una sola colonna, contenente gli identificatori degli utenti per i quali si desidera eseguire le raccomandazioni.
 
@@ -116,7 +116,7 @@ Per consigliare gli elementi per gli utenti, è necessario fornire un elenco di 
 
     La prima colonna nel set di dati delle funzionalità utente deve contenere l'identificatore utente. Le colonne rimanenti devono contenere valori che caratterizzano l'utente, ad esempio il sesso, le preferenze, la posizione e così via.
 
-    Le funzionalità degli utenti che hanno valutato gli elementi vengono ignorate dall'assegnazione dei **punteggi e dal Consiglio**avanzato, perché queste funzionalità sono già state apprese durante il training. È pertanto possibile filtrare il set di dati in anticipo per includere solo *gli utenti con avvio a freddo*o gli utenti che non hanno valutato alcun elemento.
+    Le funzionalità degli utenti che hanno valutato gli elementi vengono ignorate dall'assegnazione dei **punteggi e dal Consiglio** avanzato, perché queste funzionalità sono già state apprese durante il training. È pertanto possibile filtrare il set di dati in anticipo per includere solo *gli utenti con avvio a freddo* o gli utenti che non hanno valutato alcun elemento.
 
     > [!WARNING]
     >  Se è stato eseguito il training del modello senza utilizzare le funzionalità utente, non è possibile utilizzare applica funzionalità durante l'assegnazione dei punteggi.
@@ -125,7 +125,7 @@ Per consigliare gli elementi per gli utenti, è necessario fornire un elenco di 
 
     La prima colonna nel set di dati features dell'elemento deve contenere l'identificatore dell'elemento. Le colonne rimanenti devono contenere valori che caratterizzano gli elementi.
 
-    Le funzionalità degli elementi classificati vengono ignorate dall'assegnazione dei **punteggi e dal Consiglio**avanzato, perché queste funzionalità sono già state apprese durante il training. Pertanto, è possibile limitare il set di dati di assegnazione dei punteggi a *elementi di avvio a freddo*o elementi che non sono stati classificati da alcun utente.
+    Le funzionalità degli elementi classificati vengono ignorate dall'assegnazione dei **punteggi e dal Consiglio** avanzato, perché queste funzionalità sono già state apprese durante il training. Pertanto, è possibile limitare il set di dati di assegnazione dei punteggi a *elementi di avvio a freddo* o elementi che non sono stati classificati da alcun utente.
 
     > [!WARNING]
     >  Se è stato eseguito il training del modello senza usare le funzionalità degli elementi, non usare le funzionalità degli elementi per l'assegnazione dei punteggi.  

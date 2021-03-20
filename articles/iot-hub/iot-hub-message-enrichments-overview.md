@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 05/10/2019
 ms.author: robinsh
 ms.openlocfilehash: 3975a57c095a8593e392e932bd125308853d3756
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/26/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92541520"
 ---
 # <a name="message-enrichments-for-device-to-cloud-iot-hub-messages"></a>Arricchimento dei messaggi per i messaggi dell'hub da dispositivo a cloud
@@ -35,9 +35,9 @@ Il **valore** può essere uno degli esempi seguenti:
 
 * Qualsiasi stringa statica. Non sono consentiti valori dinamici quali le condizioni, la logica, le operazioni e le funzioni. Se, ad esempio, si sviluppa un'applicazione SaaS utilizzata da più clienti, è possibile assegnare un identificatore a ogni cliente e rendere tale identificatore disponibile nell'applicazione. Quando l'applicazione è in esecuzione, l'hub di tutti i messaggi di telemetria del dispositivo viene timbrato con l'identificatore del cliente, rendendo possibile l'elaborazione dei messaggi in modo diverso per ogni cliente.
 
-* Nome dell'hub Internet delle cose che invia il messaggio. Questo valore è *$iothubname* .
+* Nome dell'hub Internet delle cose che invia il messaggio. Questo valore è *$iothubname*.
 
-* Informazioni del dispositivo gemello, ad esempio il percorso. Gli esempi sono *$Twin. Tags. Field* e *$Twin. Tags. Latitudine* .
+* Informazioni del dispositivo gemello, ad esempio il percorso. Gli esempi sono *$Twin. Tags. Field* e *$Twin. Tags. Latitudine*.
 
    > [!NOTE]
    > Al momento, solo $iothubname, $twin. Tags, $twin. Properties. desired e $twin. Properties. Reports sono variabili supportate per l'arricchimento dei messaggi.
@@ -62,7 +62,7 @@ Gli arricchimenti vengono applicati per ogni endpoint. Se si specificano cinque 
 
 | **Metodo** | **Comando** |
 | ----- | -----| 
-| Portale | [Portale di Azure](https://portal.azure.com) | Vedere l' [esercitazione relativa all'arricchimento dei messaggi](tutorial-message-enrichments.md) | 
+| Portale | [Azure portal](https://portal.azure.com) | Vedere l' [esercitazione relativa all'arricchimento dei messaggi](tutorial-message-enrichments.md) | 
 | Interfaccia della riga di comando di Azure   | [AZ all hub Message-arricchimento](/cli/azure/iot/hub/message-enrichment) |
 | Azure PowerShell | [Add-AzIotHubMessageEnrichment](/powershell/module/az.iothub/add-aziothubmessageenrichment) |
 
@@ -84,7 +84,7 @@ Per provare ad arricchire i messaggi, vedere l' [esercitazione sull'arricchiment
 
 * Gli aggiornamenti a un dispositivo gemello possono richiedere fino a cinque minuti per essere riflessi nel valore di arricchimento corrispondente.
 
-* Le dimensioni totali dei messaggi, incluse le arricchimenti, non possono superare 256 KB. Se le dimensioni di un messaggio superano 256 KB, l'hub delle cose eliminerà il messaggio. È possibile usare le [metriche dell'hub](monitor-iot-hub-reference.md#metrics) Internet per identificare ed eseguire il debug degli errori quando i messaggi vengono eliminati. Ad esempio, è possibile monitorare la metrica dei *messaggi di telemetria incompatibile* ( *D2C. telemetria. uscita. non valida* ) nelle [metriche di routing](monitor-iot-hub-reference.md#routing-metrics). Per altre informazioni, vedere [monitorare l'hub](monitor-iot-hub.md).
+* Le dimensioni totali dei messaggi, incluse le arricchimenti, non possono superare 256 KB. Se le dimensioni di un messaggio superano 256 KB, l'hub delle cose eliminerà il messaggio. È possibile usare le [metriche dell'hub](monitor-iot-hub-reference.md#metrics) Internet per identificare ed eseguire il debug degli errori quando i messaggi vengono eliminati. Ad esempio, è possibile monitorare la metrica dei *messaggi di telemetria incompatibile* (*D2C. telemetria. uscita. non valida*) nelle [metriche di routing](monitor-iot-hub-reference.md#routing-metrics). Per altre informazioni, vedere [Monitoraggio dell'hub IoT di Azure](monitor-iot-hub.md).
 
 * Gli arricchimenti del messaggio non si applicano agli eventi di modifica del dispositivo gemello digitale.
 

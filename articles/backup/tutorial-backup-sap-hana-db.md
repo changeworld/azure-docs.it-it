@@ -3,12 +3,12 @@ title: 'Esercitazione: Eseguire il backup di database SAP HANA nelle VM di Azure
 description: Questa esercitazione illustra come eseguire il backup di database SAP HANA in esecuzione nelle VM di Azure in un insieme di credenziali di Servizi di ripristino di Backup di Azure.
 ms.topic: tutorial
 ms.date: 02/24/2020
-ms.openlocfilehash: 5548717b25ea3ec027ba5f588e5e28faafbb5d6f
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 00109de349c1fdfdbaff9de30d18f64d8b986a59
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101703682"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104587645"
 ---
 # <a name="tutorial-back-up-sap-hana-databases-in-an-azure-vm"></a>Esercitazione: Eseguire il backup di database SAP HANA in una VM di Azure
 
@@ -167,6 +167,18 @@ L'output del comando dovrebbe visualizzare la chiave {SID}{DBNAME}, con l'utente
 
 >[!NOTE]
 > Assicurarsi di avere un set univoco di file SSFS in `/usr/sap/{SID}/home/.hdb/`. Questo percorso dovrebbe contenere un'unica cartella.
+
+Di seguito è riportato un riepilogo dei passaggi necessari per completare l'esecuzione dello script di pre-registrazione.
+
+|Chi  |Da  |Versione da eseguire  |Commenti  |
+|---------|---------|---------|---------|
+|```<sid>```ADM (sistema operativo)     |  SISTEMA OPERATIVO HANA       |   Leggere l'esercitazione e scaricare lo script di pre-registrazione      |   Leggere i [prerequisiti precedenti](#prerequisites)    scaricare lo script di pre-registrazione da [qui](https://aka.ms/scriptforpermsonhana)  |
+|```<sid>```ADM (sistema operativo) e utente di sistema (HANA)    |      SISTEMA OPERATIVO HANA   |   Esegui comando hdbuserstore set      |   ad esempio, hdbuserstore impostare il nome host di sistema>:3 ```<Instance#>``` 13 ```<password>``` **Nota**  di sistema: assicurarsi di usare il nome host anziché l'indirizzo IP o il nome di dominio completo      |
+|```<sid>```ADM (sistema operativo)    |   SISTEMA OPERATIVO HANA      |  Comando Esegui elenco hdbuserstore       |   Controllare se il risultato include l'archivio predefinito, come indicato di seguito: ```KEY SYSTEM  ENV : <hostname>:3<Instance#>13  USER: SYSTEM```      |
+|Radice (sistema operativo)     |   SISTEMA OPERATIVO HANA        |    Eseguire lo script di pre-registrazione di backup di Azure HANA      |    ```./msawb-plugin-config-com-sap-hana.sh -a --sid <SID> -n <Instance#> --system-key SYSTEM```     |
+|```<sid>```ADM (sistema operativo)    |  SISTEMA OPERATIVO HANA       |   Comando Esegui elenco hdbuserstore      |    Controllare se il risultato include nuove righe come indicato di seguito:  ```KEY AZUREWLBACKUPHANAUSER  ENV : localhost: 3<Instance#>13   USER: AZUREWLBACKUPHANAUSER```     |
+
+Al termine dell'esecuzione dello script di pre-registrazione e della verifica, è possibile procedere alla verifica [dei requisiti di connettività](#set-up-network-connectivity) e quindi [configurare il backup](#discover-the-databases) dall'insieme di credenziali dei servizi di ripristino
 
 ## <a name="create-a-recovery-services-vault"></a>Creare un insieme di credenziali di Servizi di ripristino
 

@@ -13,16 +13,16 @@ ms.author: baselden
 ms.reviewer: ajburnle
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6f92625131a35dc91c860923ec6523c189830f65
-ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
+ms.openlocfilehash: bab8e8c6dfb944e496c636d53217e63175be9fbc
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/10/2021
-ms.locfileid: "102552151"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104587849"
 ---
 # <a name="securing-service-principals"></a>Protezione delle entità servizio
 
-Un' [entità servizio](https://docs.microsoft.com/azure/active-directory/develop/app-objects-and-service-principals) Azure Active Directory (Azure ad) è la rappresentazione locale di un oggetto applicazione in un singolo tenant o directory.  Funge da identità dell'istanza dell'applicazione. Le entità servizio definiscono gli utenti che possono accedere all'applicazione e le risorse a cui l'applicazione può accedere. Viene creata un'entità servizio in ogni tenant in cui viene usata l'applicazione e fa riferimento all'oggetto applicazione univoco globale. Il tenant protegge l'accesso dell'entità servizio e l'accesso alle risorse.  
+Un' [entità servizio](../develop/app-objects-and-service-principals.md) Azure Active Directory (Azure ad) è la rappresentazione locale di un oggetto applicazione in un singolo tenant o directory.  Funge da identità dell'istanza dell'applicazione. Le entità servizio definiscono gli utenti che possono accedere all'applicazione e le risorse a cui l'applicazione può accedere. Viene creata un'entità servizio in ogni tenant in cui viene usata l'applicazione e fa riferimento all'oggetto applicazione univoco globale. Il tenant protegge l'accesso dell'entità servizio e l'accesso alle risorse.  
 
 ### <a name="tenant-service-principal-relationships"></a>Tenant-relazioni entità servizio
 Un'applicazione a tenant singolo ha una sola entità servizio nel tenant principale. Un'applicazione o un'API Web multi-tenant richiede un'entità servizio in ogni tenant. Un'entità servizio viene creata quando un utente del tenant ha acconsentito all'uso dell'applicazione o dell'API. Questo consenso crea una relazione uno-a-molti tra l'applicazione multi-tenant e le entità servizio associate.
@@ -39,7 +39,7 @@ Una determinata istanza dell'applicazione dispone di due proprietà distinte: Ap
 
 Il ApplicationID rappresenta l'applicazione globale ed è lo stesso per tutte le istanze dell'applicazione tra i tenant. ObjectID è un valore univoco per un oggetto applicazione e rappresenta l'entità servizio. Come per utenti, gruppi e altre risorse, ObjectID consente di identificare in modo univoco un'istanza dell'applicazione in Azure AD.
 
-Per informazioni più dettagliate su questo argomento, vedere [relazione tra l'applicazione e l'entità servizio](https://docs.microsoft.com/azure/active-directory/develop/app-objects-and-service-principals).
+Per informazioni più dettagliate su questo argomento, vedere [relazione tra l'applicazione e l'entità servizio](../develop/app-objects-and-service-principals.md).
 
 È anche possibile creare un'applicazione e il relativo oggetto entità servizio (ObjectID) in un tenant usando Azure PowerShell, l'interfaccia della riga di comando di Azure, Microsoft Graph, il portale di Azure e altri strumenti. 
 
@@ -63,7 +63,7 @@ I certificati sono più sicuri: usare i certificati client, se possibile. A diff
 
 * password 
 
-Per altre informazioni su Azure Key Vault e su come usarlo per la gestione dei certificati e dei segreti, vedere [informazioni su Azure Key Vault](https://docs.microsoft.com/azure/key-vault/general/overview) e [assegnare un criterio di accesso Key Vault usando il portale di Azure](https://docs.microsoft.com/azure/key-vault/general/assign-access-policy-portal). 
+Per altre informazioni su Azure Key Vault e su come usarlo per la gestione dei certificati e dei segreti, vedere [informazioni su Azure Key Vault](../../key-vault/general/overview.md) e [assegnare un criterio di accesso Key Vault usando il portale di Azure](../../key-vault/general/assign-access-policy-portal.md). 
 
  ### <a name="challenges-and-mitigations"></a>Problemi e mitigazioni
 Nella tabella seguente vengono illustrate le mitigazioni per le eventuali problemi che possono verificarsi quando si utilizzano le entità servizio.
@@ -89,7 +89,7 @@ Utilizzo di PowerShell
 `Get-AzureADServicePrincipal -All:$true` 
 
 
-Per ulteriori informazioni [, vedere Get-AzureADServicePrincipal](https://docs.microsoft.com/powershell/module/azuread/get-azureadserviceprincipal)
+Per ulteriori informazioni [, vedere Get-AzureADServicePrincipal](/powershell/module/azuread/get-azureadserviceprincipal)
 
 ## <a name="assess-service-principal-security"></a>Valutazione della sicurezza dell'entità servizio
 
@@ -105,7 +105,7 @@ Non è possibile gestire l'accesso alle entità servizio con accesso condizional
 | Il ruolo predefinito RBAC di Azure è collaboratore. |Valutare le esigenze e applicare il ruolo con le autorizzazioni minime per soddisfare tale necessità.|
 
 ## <a name="move-from-a-user-account-to-a-service-principal"></a>Passare da un account utente a un'entità servizio  
-Se si usa un account utente di Azure come entità servizio, valutare se è possibile passare a un' [identità gestita](https://docs.microsoft.com/azure/app-service/overview-managed-identity?tabs=dotnet) o a un'entità servizio. Se non è possibile usare un'identità gestita, effettuare il provisioning di un'entità servizio con autorizzazioni e ambito sufficienti per eseguire le attività necessarie. È possibile creare un'entità servizio [registrando un'applicazione](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal)o con [PowerShell](https://docs.microsoft.com/azure/active-directory/develop/howto-authenticate-service-principal-powershell).
+Se si usa un account utente di Azure come entità servizio, valutare se è possibile passare a un' [identità gestita](../../app-service/overview-managed-identity.md?tabs=dotnet) o a un'entità servizio. Se non è possibile usare un'identità gestita, effettuare il provisioning di un'entità servizio con autorizzazioni e ambito sufficienti per eseguire le attività necessarie. È possibile creare un'entità servizio [registrando un'applicazione](../develop/howto-create-service-principal-portal.md)o con [PowerShell](../develop/howto-authenticate-service-principal-powershell.md).
 
 Quando si usa Microsoft Graph, controllare la documentazione dell'API specifica, [come in questo esempio](/powershell/azure/create-azure-service-principal-azureps), e verificare che il tipo di autorizzazione per l'applicazione venga visualizzato come supportato.
 
@@ -115,7 +115,7 @@ Quando si usa Microsoft Graph, controllare la documentazione dell'API specifica,
 
 [Creare un'entità servizio](../develop/howto-create-service-principal-portal.md)
 
- [Monitorare gli accessi dell'entità servizio](https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-sign-ins#sign-ins-report)
+ [Monitorare gli accessi dell'entità servizio](../reports-monitoring/concept-sign-ins.md#sign-ins-report)
 
 **Per ulteriori informazioni sulla protezione degli account del servizio:**
 

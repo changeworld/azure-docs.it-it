@@ -10,10 +10,10 @@ author: likebupt
 ms.author: keli19
 ms.date: 06/18/2020
 ms.openlocfilehash: 03f80ebeb7b30d8c0fe14060335541d77b7523b0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "90898620"
 ---
 # <a name="create-python-model-module"></a>Creare il modulo del modello Python
@@ -42,7 +42,7 @@ Questo articolo illustra come usare la **creazione di un modello Python** con un
 
 ![Diagramma della creazione di un modello Python](./media/module/create-python-model.png)
 
-1. Selezionare **Crea modello Python**e modificare lo script per implementare la modellazione o il processo di gestione dei dati. È possibile basare il modello su qualsiasi discente incluso in un pacchetto python nell'ambiente Azure Machine Learning.
+1. Selezionare **Crea modello Python** e modificare lo script per implementare la modellazione o il processo di gestione dei dati. È possibile basare il modello su qualsiasi discente incluso in un pacchetto python nell'ambiente Azure Machine Learning.
 
 > [!NOTE]
 > Prestare particolare attenzione ai commenti nel codice di esempio dello script e assicurarsi che lo script segua rigorosamente il requisito, inclusi il nome della classe, i metodi e la firma del metodo. La violazione determinerà eccezioni. 

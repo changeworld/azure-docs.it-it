@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.workload: media
 ms.date: 1/14/2020
 ms.author: inhenkel
-ms.openlocfilehash: fb3e09cefa7f87fe2eb1e5013854c7965ea9330e
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: b6d51e05598f60de0e9c8fb85472b7c14bba990e
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101698842"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104598389"
 ---
 # <a name="step-1---understand-the-benefits-of-migrating-to-media-services-api-v3"></a>Passaggio 1: informazioni sui vantaggi della migrazione all'API di servizi multimediali V3
 
@@ -58,8 +58,8 @@ Sono stati apportati miglioramenti significativi a servizi multimediali con v3.
 |**Protezione del contenuto** ||
 | [Protezione](content-key-policy-concept.md)   del contenuto supporta funzionalità multichiave. | I clienti possono ora usare più chiavi di crittografia del contenuto nei localizzatori di streaming. |
 | **Monitoring** | |
-| Supporto per le notifiche di [Azure EventGrid](reacting-to-media-services-events.md) | Le notifiche EventGrid sono più ricche di funzionalità. Sono disponibili più tipi di notifiche, il supporto più ampio di SDK per la ricezione delle notifiche nella propria applicazione e più servizi di Azure esistenti che possono fungere da gestori di eventi. |
-| [Supporto e integrazione di monitoraggio di Azure nella portale di Azure](monitor-events-portal-how-to.md) | Ciò consente ai clienti di visualizzare l'utilizzo delle quote di account di servizi multimediali, le statistiche in tempo reale degli endpoint di streaming e le statistiche di inserimento e archiviazione per gli eventi live. I clienti possono ora impostare gli avvisi ed eseguire le azioni necessarie in base ai dati delle metriche in tempo reale. |
+| Supporto per le notifiche di [Azure EventGrid](monitoring/reacting-to-media-services-events.md) | Le notifiche EventGrid sono più ricche di funzionalità. Sono disponibili più tipi di notifiche, il supporto più ampio di SDK per la ricezione delle notifiche nella propria applicazione e più servizi di Azure esistenti che possono fungere da gestori di eventi. |
+| [Supporto e integrazione di monitoraggio di Azure nella portale di Azure](monitoring/monitor-events-portal-how-to.md) | Ciò consente ai clienti di visualizzare l'utilizzo delle quote di account di servizi multimediali, le statistiche in tempo reale degli endpoint di streaming e le statistiche di inserimento e archiviazione per gli eventi live. I clienti possono ora impostare gli avvisi ed eseguire le azioni necessarie in base ai dati delle metriche in tempo reale. |
 
 ## <a name="next-steps"></a>Passaggi successivi
 

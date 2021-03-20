@@ -10,17 +10,17 @@ author: likebupt
 ms.author: keli19
 ms.date: 10/22/2019
 ms.openlocfilehash: 7926d5dd33df5538713f8de152dbbace2bc29864
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "90890295"
 ---
 # <a name="select-columns-in-dataset-module"></a>Selezionare le colonne nel modulo DataSet
 
 Questo articolo descrive un modulo in Azure Machine Learning Designer.
 
-Usare questo modulo per scegliere un subset di colonne da usare nelle operazioni downstream. Il modulo non rimuove fisicamente le colonne dal set di dati di origine. viene invece creato un subset di colonne, in modo analogo a una *vista* o *proiezione*del database.
+Usare questo modulo per scegliere un subset di colonne da usare nelle operazioni downstream. Il modulo non rimuove fisicamente le colonne dal set di dati di origine. viene invece creato un subset di colonne, in modo analogo a una *vista* o *proiezione* del database.
 
 Questo modulo è utile quando è necessario limitare le colonne disponibili per un'operazione downstream o se si desidera ridurre le dimensioni del set di dati rimuovendo le colonne non necessarie.
 
@@ -62,7 +62,7 @@ Sono disponibili più opzioni nel modulo per la scelta delle colonne in base al 
     Se il set di dati è ampio, potrebbe essere più semplice usare gli indici o gli elenchi di nomi generati, anziché selezionare le colonne singolarmente. Supponendo che l'elenco sia stato preparato in anticipo:
 
     1. Fare clic sull'opzione **with Rules** . 
-    2. Selezionare **Nessuna colonna**, selezionare  **Includi**e quindi fare clic all'interno della casella di testo con il punto esclamativo rosso. 
+    2. Selezionare **Nessuna colonna**, selezionare  **Includi** e quindi fare clic all'interno della casella di testo con il punto esclamativo rosso. 
     3. Incollare o digitare un elenco delimitato da virgole di nomi di colonna convalidati in precedenza. Non è possibile salvare il modulo se una colonna ha un nome non valido. Assicurarsi prima di tutto di controllare i nomi.
     
     È inoltre possibile utilizzare questo metodo per specificare un elenco di colonne utilizzando i relativi valori di indice. 

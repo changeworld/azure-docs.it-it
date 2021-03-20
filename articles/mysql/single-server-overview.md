@@ -8,10 +8,10 @@ ms.custom: mvc
 ms.topic: overview
 ms.date: 8/20/2020
 ms.openlocfilehash: b0f8c5806ba22708db6dc537d391c1f1b1a183ec
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
-ms.translationtype: HT
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/26/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92543815"
 ---
 # <a name="azure-database-for-mysql-single-server"></a>Server singolo di Database di Azure per MySQL
@@ -79,9 +79,9 @@ Il servizio server singolo è dotato di funzionalità predefinite di monitoraggi
 
 Il servizio esegue la versione community di MySQL. Questo consente la compatibilità completa delle applicazioni e richiede un costo di refactoring minimo per eseguire la migrazione di un'applicazione esistente sviluppata sul motore MySQL a un servizio server singolo. Per eseguire la migrazione al server singolo, è possibile usare una delle opzioni seguenti:
 
-- **Dump e ripristino** : per le migrazioni offline, in cui gli utenti possono permettersi un certo tempo di inattività, l'esecuzione del dump e del ripristino usando strumenti della community come mysqldump/mydumpere può fornire una soluzione più rapida per la migrazione. Per i dettagli, vedere [Eseguire la migrazione con dump e ripristino](concepts-migrate-dump-restore.md). 
-- **Servizio Migrazione del database di Azure** : per migrazioni semplici e facilitate al server singolo con tempi di inattività minimi, è possibile sfruttare [Servizio Migrazione del database di Azure](../dms/tutorial-mysql-azure-mysql-online.md). 
-- **Replica dei dati in ingresso** : per migrazioni con tempi di inattività minimi, è anche possibile sfruttare la replica dei dati in ingresso, che si basa su binlog. La replica dei dati in ingresso è la scelta consigliata per migrazioni con tempi di inattività minimi eseguite da esperti che vogliono esercitare un maggior controllo. Per informazioni dettagliate, vedere [Replica dei dati in ingresso](concepts-data-in-replication.md).
+- **Dump e ripristino**: per le migrazioni offline, in cui gli utenti possono permettersi un certo tempo di inattività, l'esecuzione del dump e del ripristino usando strumenti della community come mysqldump/mydumpere può fornire una soluzione più rapida per la migrazione. Per i dettagli, vedere [Eseguire la migrazione con dump e ripristino](concepts-migrate-dump-restore.md). 
+- **Servizio Migrazione del database di Azure**: per migrazioni semplici e facilitate al server singolo con tempi di inattività minimi, è possibile sfruttare [Servizio Migrazione del database di Azure](../dms/tutorial-mysql-azure-mysql-online.md). 
+- **Replica dei dati in ingresso**: per migrazioni con tempi di inattività minimi, è anche possibile sfruttare la replica dei dati in ingresso, che si basa su binlog. La replica dei dati in ingresso è la scelta consigliata per migrazioni con tempi di inattività minimi eseguite da esperti che vogliono esercitare un maggior controllo. Per informazioni dettagliate, vedere [Replica dei dati in ingresso](concepts-data-in-replication.md).
 
 ## <a name="contacts"></a>Contatti
 Per eventuali domande o suggerimenti sull'uso di Database di Azure per MySQL, inviare un messaggio di posta elettronica al team di Database di Azure per MySQL ([@Ask Azure DB per MySQL](mailto:AskAzureDBforMySQL@service.microsoft.com)). Questo indirizzo di posta elettronica non è un alias del supporto tecnico.

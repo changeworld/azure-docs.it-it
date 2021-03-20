@@ -4,10 +4,10 @@ description: Le notifiche sull'integrità del servizio consentono di visualizzar
 ms.topic: conceptual
 ms.date: 4/12/2018
 ms.openlocfilehash: 4f2b4a0779d775ed5be5bfa28831cccc68c33caf
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "86529013"
 ---
 # <a name="use-the-azure-portal-to-view-service-health-notifications"></a>Usare il portale di Azure per visualizzare le notifiche sull'integrità del servizio
@@ -43,12 +43,12 @@ category | Questa proprietà è sempre **ServiceHealth**.
 resourceId | ID risorsa della risorsa interessata.
 Properties.title | Titolo della comunicazione localizzato. L'inglese è la lingua predefinita.
 Properties.communication | Dettagli localizzati della comunicazione con markup HTML. L'inglese è la lingua predefinita.
-Properties.incidentType | Uno dei valori seguenti: **ActionRequired**, **Informational**, **Incident**, **Maintenance**o **Security**.
+Properties.incidentType | Uno dei valori seguenti: **ActionRequired**, **Informational**, **Incident**, **Maintenance** o **Security**.
 Properties.trackingId | L'evento imprevisto a cui è associato l'evento. Usare questa proprietà per correlare gli eventi relativi a un evento imprevisto.
 Properties.impactedServices | BLOB JSON preceduto da un carattere di escape che descrive i servizi e le aree su cui ha effetto l'evento imprevisto. La proprietà include un elenco di servizi, ognuno dei quali ha un **ServiceName** e un elenco delle aree interessate, ognuna con un nome di area **RegionName**.
 Properties.defaultLanguageTitle | La comunicazione in inglese.
 Properties.defaultLanguageContent | La comunicazione in inglese con markup HTML o come testo normale.
-Properties.stage | I valori possibili di **Incident** e **Security** sono **Active,** **Resolved** o **RCA**. Per **ActionRequired** o **Informational** l'unico valore è **Active.** Per **la manutenzione** sono: **attivo**, **pianificato**, in **corso**, **annullato**, **ripianificato**, **risolto**o **completo**.
+Properties.stage | I valori possibili di **Incident** e **Security** sono **Active,** **Resolved** o **RCA**. Per **ActionRequired** o **Informational** l'unico valore è **Active.** Per **la manutenzione** sono: **attivo**, **pianificato**, in **corso**, **annullato**, **ripianificato**, **risolto** o **completo**.
 Properties.communicationId | La comunicazione a cui è associato l'evento.
 
 ### <a name="details-on-service-health-level-information"></a>Informazioni sui livelli di integrità dei servizi

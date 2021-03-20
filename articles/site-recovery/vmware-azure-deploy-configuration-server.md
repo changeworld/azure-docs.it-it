@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 10/15/2019
 ms.author: ramamill
 ms.openlocfilehash: a8ceb3df68ebe42f83c70ed62327bf59c0dfc225
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/22/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92359816"
 ---
 # <a name="deploy-a-configuration-server"></a>Distribuire un server di configurazione
@@ -44,7 +44,7 @@ Nelle sezioni seguenti sono riepilogati i requisiti hardware minimi per un serve
 2. Se non è possibile assegnare il ruolo sviluppatore di applicazioni, verificare che il flag **utenti possa registrare le applicazioni** sia impostato su **true** per consentire all'utente di creare un'identità. Per abilitare le autorizzazioni seguenti:
     - Accedere al portale di Azure.
     - Passare a **Azure Active Directory**  >  **impostazioni utente**.
-    - In **registrazioni app** **gli utenti possono registrare le applicazioni**e selezionare **Sì**.
+    - In **registrazioni app** **gli utenti possono registrare le applicazioni** e selezionare **Sì**.
 
       ![AD_application_permission di Azure](media/vmware-azure-deploy-configuration-server/AAD_application_permission.png)
 
@@ -78,7 +78,7 @@ Nelle sezioni seguenti sono riepilogati i requisiti hardware minimi per un serve
 7. Nelle restanti pagine della procedura guidata accettare le impostazioni predefinite.
 8. In **Ready to complete** (Completamento):
 
-    * Per configurare la macchina virtuale con le impostazioni predefinite, selezionare **accensione**al termine della distribuzione  >  **Finish**.
+    * Per configurare la macchina virtuale con le impostazioni predefinite, selezionare **accensione** al termine della distribuzione  >  .
     * Per aggiungere un'altra interfaccia di rete, deselezionare **Power on after deployment** (Accendi al termine della distribuzione) e quindi selezionare **Finish** (Fine). Per impostazione predefinita, il modello del server di configurazione viene distribuito con una singola scheda di interfaccia di rete. È possibile aggiungere altre schede di interfacce di rete dopo la distribuzione.
 
 > [!IMPORTANT]
@@ -94,7 +94,7 @@ Se si vuole aggiungere un'altra scheda di interfaccia di rete al server di confi
 1. Nell'inventario del client vSphere fare clic con il pulsante destro del mouse sulla macchina virtuale e scegliere **Edit Settings** (Modifica impostazioni).
 2. In **Hardware** selezionare **Add** (Aggiungi) > **Ethernet Adapter** (Scheda Ethernet). Fare quindi clic su **Avanti**.
 3. Selezionare un tipo di scheda e una rete.
-4. Per connettere la scheda di interfaccia di rete virtuale all'accensione della macchina virtuale, selezionare **Connect at power on** (Connetti all'accensione). Quindi fare clic su fine **Avanti**  >  **Finish**  >  **OK**.
+4. Per connettere la scheda di interfaccia di rete virtuale all'accensione della macchina virtuale, selezionare **Connect at power on** (Connetti all'accensione). Quindi fare clic su fine **Avanti**  >    >  **OK**.
 
 ## <a name="register-the-configuration-server-with-azure-site-recovery-services"></a>Registrare il server di configurazione con i servizi Azure Site Recovery
 
@@ -112,7 +112,7 @@ Se si vuole aggiungere un'altra scheda di interfaccia di rete al server di confi
 ### <a name="configure-settings"></a>Configurare le impostazioni
 
 1. Nella procedura guidata per la gestione del server di configurazione selezionare **Configura la connettività**. Nelle caselle a discesa selezionare innanzitutto la scheda di interfaccia di rete usata dal server di elaborazione incorporato per l'individuazione e l'installazione push del servizio Mobility nei computer di origine. Selezionare quindi la scheda di interfaccia di rete utilizzata dal server di configurazione per la connettività con Azure. Selezionare **Salva**. Questa impostazione non può essere modificata dopo che è stata configurata. Non modificare l'indirizzo IP di un server di configurazione. Verificare che l'indirizzo IP assegnato al server di configurazione sia un indirizzo IP statico e non un indirizzo IP DHCP.
-2. In **Seleziona**insieme di credenziali di servizi di ripristino accedere a Microsoft Azure con le credenziali usate nel passaggio 6 di [registrare il server di configurazione con Azure Site Recovery Services](#register-the-configuration-server-with-azure-site-recovery-services).
+2. In **Seleziona** insieme di credenziali di servizi di ripristino accedere a Microsoft Azure con le credenziali usate nel passaggio 6 di [registrare il server di configurazione con Azure Site Recovery Services](#register-the-configuration-server-with-azure-site-recovery-services).
 3. Dopo l'accesso, selezionare la sottoscrizione di Azure e il gruppo di risorse e l'insieme di credenziali pertinenti.
 
     > [!NOTE]
@@ -124,13 +124,13 @@ Se si vuole aggiungere un'altra scheda di interfaccia di rete al server di confi
     |Scenario   |Procedura da seguire  |
     |---------|---------|
     |È possibile scaricare e installare MySQL manualmente?     |  Sì. Scaricare l'applicazione MySQL, posizionarla nella cartella **C:\Temp\ASRSetup**, quindi installarla manualmente. Dopo aver accettato le condizioni e selezionato **Scarica e installa**, il portale indica che è *già installato*. È possibile procedere con il passaggio successivo.       |
-    |È possibile evitare di scaricare MySQL online?     |   Sì. Inserire l'applicazione di installazione di MySQL nella cartella **C:\Temp\ASRSetup**. Accettare i termini, selezionare **Scarica e installa**e il portale usa il programma di installazione aggiunto per installare l'applicazione. Al termine dell'installazione, procedere con il passaggio successivo.    |
+    |È possibile evitare di scaricare MySQL online?     |   Sì. Inserire l'applicazione di installazione di MySQL nella cartella **C:\Temp\ASRSetup**. Accettare i termini, selezionare **Scarica e installa** e il portale usa il programma di installazione aggiunto per installare l'applicazione. Al termine dell'installazione, procedere con il passaggio successivo.    |
     |Desidero scaricare e installare MySQL tramite Azure Site Recovery.    |  Accettare il contratto di licenza e selezionare **Scarica e installa**. Al termine dell'installazione, procedere con il passaggio successivo.       |
 
 5. Quando si **convalida la configurazione dell'appliance**, i prerequisiti vengono verificati prima di continuare.
-6. In **configura server vCenter/vSphere ESXi Server**immettere il nome di dominio completo o l'indirizzo IP del server vCenter o dell'host vSphere in cui si trovano le macchine virtuali da replicare. Immettere la porta su cui è in ascolto il server. Immettere un nome descrittivo da usare per il server VMware nell'insieme di credenziali.
+6. In **configura server vCenter/vSphere ESXi Server** immettere il nome di dominio completo o l'indirizzo IP del server vCenter o dell'host vSphere in cui si trovano le macchine virtuali da replicare. Immettere la porta su cui è in ascolto il server. Immettere un nome descrittivo da usare per il server VMware nell'insieme di credenziali.
 7. Immettere le credenziali che verranno usate dal server di configurazione per connettersi al server VMware. Site Recovery usa queste credenziali per individuare automaticamente le macchine virtuali VMware disponibili per la replica. Selezionare **Aggiungi** > **Continua**. Le credenziali immesse qui vengono salvate in locale.
-8. In **Configura credenziali macchina virtuale**immettere il nome utente e la password delle macchine virtuali per installare automaticamente il servizio Mobility durante la replica. Per i computer **Windows** , l'account deve disporre dei privilegi di amministratore locale nei computer che si desidera replicare. Per **Linux**, fornire i dettagli per l'account radice.
+8. In **Configura credenziali macchina virtuale** immettere il nome utente e la password delle macchine virtuali per installare automaticamente il servizio Mobility durante la replica. Per i computer **Windows** , l'account deve disporre dei privilegi di amministratore locale nei computer che si desidera replicare. Per **Linux**, fornire i dettagli per l'account radice.
 9. Selezionare **Finalizza configurazione** per completare la registrazione.
 10. Al termine della registrazione, aprire il portale di Azure e verificare che il server di configurazione e il server VMware siano elencati in **Insiemi di credenziali di Servizi di ripristino** > **Gestisci** > **Infrastruttura di Site Recovery** > **Server di configurazione**.
 
@@ -175,7 +175,7 @@ Per risolvere i problemi di connettività &, vedere l' [articolo sulla risoluzio
     No. Non modificare la passphrase del server di configurazione. Una modifica nella passphrase interrompe la replica dei computer protetti e comporta uno stato di integrità critico.
 * Dove è possibile scaricare le chiavi di registrazione dell'insieme di credenziali?
 
-    Nell'insieme di credenziali di **servizi di ripristino**selezionare **Gestisci**  >  **Site Recovery**  >  **server di configurazione**dell'infrastruttura. In **Server** selezionare **Scarica chiave di registrazione** per scaricare il file di credenziali dell'insieme di credenziali.
+    Nell'insieme di credenziali di **servizi di ripristino** selezionare **Gestisci**  >  **Site Recovery**  >  **server di configurazione** dell'infrastruttura. In **Server** selezionare **Scarica chiave di registrazione** per scaricare il file di credenziali dell'insieme di credenziali.
 * È possibile clonare un server di configurazione esistente e utilizzarlo per l'orchestrazione di replica?
 
     No. L'uso di un componente del server di configurazione clonato non è supportato. Anche la clonazione di un server di elaborazione con scalabilità orizzontale è uno scenario non supportato. La clonazione di Site Recovery componenti influiscono sulle repliche in corso.

@@ -1,6 +1,6 @@
 ---
 title: File di inclusione (flussi dispositivo)
-description: File di inclusione
+description: includere file
 services: iot-hub
 author: robinsh
 ms.service: iot-hub
@@ -9,10 +9,10 @@ ms.date: 01/15/2019
 ms.author: robinsh
 ms.custom: include file
 ms.openlocfilehash: 46ab75f161692dd048c19698af7027d0e0622b37
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
-ms.translationtype: HT
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/05/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "82506398"
 ---
 Se si prevede di continuare con il prossimo articolo consigliato, è possibile conservare le risorse già create e riutilizzarle.
@@ -29,7 +29,7 @@ Per eliminare un gruppo di risorse per nome:
 
 1. Nella casella di testo **Filtra per nome** immettere il nome del gruppo di risorse che contiene l'hub IoT.
 
-1. Nell'elenco dei risultati, a destra del gruppo di risorse, selezionare i puntini di sospensione ( **...** ) e quindi **Elimina gruppo di risorse**.
+1. Nell'elenco dei risultati, a destra del gruppo di risorse, selezionare i puntini di sospensione (**...**) e quindi **Elimina gruppo di risorse**.
 
     ![Pulsante "Elimina gruppo di risorse"](./media/iot-hub-quickstarts-clean-up-resources-device-streams/iot-hub-delete-resource-group.png)
 

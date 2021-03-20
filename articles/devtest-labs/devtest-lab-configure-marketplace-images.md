@@ -4,10 +4,10 @@ description: Specificare le immagini di Azure Marketplace che possono essere usa
 ms.topic: article
 ms.date: 06/26/2020
 ms.openlocfilehash: a5158ed33bf253db1dbe0eb3232bc43d27ce15e7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "86512436"
 ---
 # <a name="configure-azure-marketplace-image-settings-in-azure-devtest-labs"></a>Configurare le impostazioni dell'immagine di Azure Marketplace in Azure DevTest Labs
@@ -20,7 +20,7 @@ Seguire questa procedura per specificare quali immagini di Azure Marketplace son
 2. Selezionare **Tutti i servizi** e quindi **DevTest Labs** nell'elenco.
 3. Nell'elenco di lab selezionare il proprio lab. 
 4. Nella pagina home page per il Lab selezionare **configurazione e criteri**.
-5. Nella pagina **configurazione e criteri** del Lab in **basi macchine virtuali**selezionare **Immagini del Marketplace**.
+5. Nella pagina **configurazione e criteri** del Lab in **basi macchine virtuali** selezionare **Immagini del Marketplace**.
 6. Specificare se si desidera che tutte le immagini di Azure Marketplace qualificate siano disponibili per essere usate come base di una nuova macchina virtuale. Se si seleziona **Sì**, tutte le immagini di Azure Marketplace che soddisfano tutti i criteri seguenti saranno disponibili nel lab:
    
    * L'immagine crea una singola macchina virtuale **e**

@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.date: 07/17/2019
 ms.author: sngun
 ms.openlocfilehash: 73a34cc27eaba33d04f4d31585c7f494f58e7274
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93334073"
 ---
 # <a name="serverless-database-computing-using-azure-cosmos-db-and-azure-functions"></a>Elaborazione di database serverless con Azure Cosmos DB e Funzioni di Azure
@@ -88,7 +88,7 @@ Nei giochi, quando viene creato un nuovo utente è possibile cercare altri utent
 **Implementazione:** Usare un trigger di funzioni di Azure e un'associazione di output per Cosmos DB
 
 1. Usando un database di Azure Cosmos DB [Graph](graph-introduction.md) per archiviare tutti gli utenti, è possibile creare una nuova funzione con un trigger di funzioni di Azure per Cosmos DB. 
-2. Ogni volta che viene inserito un nuovo utente, viene richiamata la funzione e quindi il risultato viene archiviato con un' **associazione di output**.
+2. Ogni volta che viene inserito un nuovo utente, viene richiamata la funzione e quindi il risultato viene archiviato con un'**associazione di output**.
 3. La funzione interroga il database dei grafici per cercare tutti gli utenti direttamente correlati al nuovo utente e restituisce i set di dati alla funzione.
 4. Questi dati vengono quindi archiviati in un'istanza di Azure Cosmos DB per poter essere facilmente recuperati da qualsiasi applicazione front-end che mostri al nuovo utente gli amici connessi.
 
@@ -124,7 +124,7 @@ Funzioni di Azure offre la possibilità di creare unità di lavoro scalabili o p
 
 Azure Cosmos DB è il database consigliato per l'architettura di elaborazione senza server per i motivi seguenti:
 
-* **Accesso immediato a tutti i dati** : l'utente ha accesso granulare a ogni valore archiviato poiché Azure Cosmos DB [indicizza automaticamente](index-policy.md) tutti i dati per impostazione predefinita e rende gli indici immediatamente disponibili. Ciò significa che è sempre possibile eseguire query, aggiornare e aggiungere nuovi elementi al database e avere accesso immediato tramite Funzioni di Azure.
+* **Accesso immediato a tutti i dati**: l'utente ha accesso granulare a ogni valore archiviato poiché Azure Cosmos DB [indicizza automaticamente](index-policy.md) tutti i dati per impostazione predefinita e rende gli indici immediatamente disponibili. Ciò significa che è sempre possibile eseguire query, aggiornare e aggiungere nuovi elementi al database e avere accesso immediato tramite Funzioni di Azure.
 
 * **Senza schema**. Azure Cosmos DB è senza schema, quindi è in grado di gestire in modo univoco qualsiasi output di dati di una funzione di Azure. Questo approccio di "gestione di tutti gli elementi" rende più semplice creare una vasta gamma di funzioni inviate tutte ad Azure Cosmos DB.
 

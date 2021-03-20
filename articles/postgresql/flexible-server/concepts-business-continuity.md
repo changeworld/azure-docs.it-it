@@ -7,10 +7,10 @@ ms.service: postgresql
 ms.topic: conceptual
 ms.date: 09/22/2020
 ms.openlocfilehash: 341d3c6f0a2d84c2b7b725959db9f7e5dd80d3ff
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/26/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92542965"
 ---
 # <a name="overview-of-business-continuity-with-azure-database-for-postgresql---flexible-server"></a>Panoramica della continuità aziendale con database di Azure per PostgreSQL-server flessibile
@@ -50,7 +50,7 @@ Di seguito sono riportati alcuni scenari di manutenzione pianificata. Questi eve
 | <b>Nuova distribuzione software (avviata da Azure) | Le nuove funzionalità di implementazione o correzioni di bug vengono eseguite automaticamente nell'ambito della manutenzione pianificata del servizio ed è possibile pianificare il momento in cui si verificano tali attività. Per altre informazioni, vedere il [portale](https://aka.ms/servicehealthpm). | 
 | <b>Aggiornamenti della versione secondaria (avviati da Azure) | Database di Azure per PostgreSQL applica automaticamente patch ai server di database alla versione secondaria determinata da Azure. Questa operazione viene eseguita come parte della manutenzione pianificata del servizio. Il server di database viene riavviato automaticamente con la nuova versione secondaria. Per altre informazioni, vedere la [documentazione](../concepts-monitoring.md#planned-maintenance-notification). È anche possibile controllare il [portale](https://aka.ms/servicehealthpm).| 
 
- Quando il server flessibile è configurato con la **disponibilità elevata con ridondanza della zona** , il server flessibile esegue prima di tutto il ridimensionamento e le operazioni di manutenzione sul server di standby. Per altre informazioni, vedere [concetti-disponibilità elevata](./concepts-high-availability.md).
+ Quando il server flessibile è configurato con la **disponibilità elevata con ridondanza della zona**, il server flessibile esegue prima di tutto il ridimensionamento e le operazioni di manutenzione sul server di standby. Per altre informazioni, vedere [concetti-disponibilità elevata](./concepts-high-availability.md).
 
 ##  <a name="unplanned-downtime-mitigation"></a>Mitigazione del tempo di inattività non pianificato
 

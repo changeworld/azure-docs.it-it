@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.date: 06/19/2020
 ms.author: mjbrown
 ms.openlocfilehash: 55d58a6c4724bd01325db029ed75d77ccc96d0f8
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93333580"
 ---
 # <a name="deploy-azure-cosmos-db-and-azure-app-service-with-a-web-app-from-github-using-an-azure-resource-manager-template"></a>Distribuire Azure Cosmos DB e app Azure servizio con un'app Web da GitHub usando un modello di Azure Resource Manager
@@ -78,7 +78,7 @@ Aprire quindi l'account Azure Cosmos nel portale. La schermata seguente mostra l
 
 Passare quindi al servizio app Azure nel gruppo di risorse. Fare clic sulla scheda configurazione per visualizzare le impostazioni dell'applicazione per il servizio app. Le impostazioni dell'applicazione contengono l'account Cosmos DB e i valori di chiave primaria necessari per connettersi ai Cosmos DB, nonché i nomi di database e di contenitori passati dalla distribuzione del modello.
 
-:::image type="content" source="./media/create-website/application-settings.png" alt-text="Impostazioni dell'applicazione":::
+:::image type="content" source="./media/create-website/application-settings.png" alt-text="Impostazioni applicazione":::
 
 ### <a name="view-web-app-in-deployment-center"></a>Visualizza app Web nel centro distribuzione
 

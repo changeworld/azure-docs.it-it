@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 12/05/2018
 ms.author: alkohli
 ms.openlocfilehash: f59d1e297ba4d7607d7abd07a78da4784f55d20f
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/25/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96023228"
 ---
 # <a name="data-transfer-for-small-datasets-with-low-to-moderate-network-bandwidth"></a>Trasferimento dei dati per set di dati di piccole dimensioni con larghezza di banda di rete da bassa a moderata
@@ -49,14 +49,14 @@ Le opzioni consigliate in questo scenario sono:
 
 La tabella seguente contiene un riepilogo delle differenze principali in termini di funzionalità.
 
-| Funzionalità | Esplora archivi Azure | Portale di Azure | AzCopy<br>Azure PowerShell<br>Interfaccia della riga di comando di Azure | API REST o SDK di Archiviazione di Azure |
+| Funzionalità | Azure Storage Explorer | Portale di Azure | AzCopy<br>Azure PowerShell<br>Interfaccia della riga di comando di Azure | API REST o SDK di Archiviazione di Azure |
 |---------|------------------------|--------------|-----------------------------------------|---------------------------------|
 | Disponibilità | Scaricare e installare <br>Strumento autonomo | Strumenti di esplorazione basati sul Web nel portale di Azure | Strumento da riga di comando |Interfacce programmabili in .NET, Java, Python, JavaScript, C++, Go, Ruby e PHP |
 | Interfaccia grafica | Sì | Sì | No | No |
 | Piattaforme supportate | Windows, Mac, Linux | Basate sul Web |Windows, Mac, Linux |Tutte le piattaforme |
-| Operazioni di archiviazione BLOB consentite<br>per BLOB e cartelle | Caricamento<br>Scarica<br>Gestione | Caricamento<br>Scarica<br>Gestione |Caricamento<br>Scarica<br>Gestione | Sì, personalizzabili |
-| Operazioni di archiviazione di Data Lake Gen1<br>consentite per file e cartelle | Caricamento<br>Scarica<br>Gestione | No |Caricamento<br>Scarica<br>Gestione                   | No |
-| Operazioni di archiviazione file consentite<br>per file e directory | Caricamento<br>Scarica<br>Gestione | Caricamento<br>Scarica<br>Gestione   |Caricamento<br>Scarica<br>Gestione | Sì, personalizzabili |
+| Operazioni di archiviazione BLOB consentite<br>per BLOB e cartelle | Carica<br>Scarica<br>Gestione | Carica<br>Scarica<br>Gestione |Carica<br>Scarica<br>Gestione | Sì, personalizzabili |
+| Operazioni di archiviazione di Data Lake Gen1<br>consentite per file e cartelle | Carica<br>Scarica<br>Gestione | No |Carica<br>Scarica<br>Gestione                   | No |
+| Operazioni di archiviazione file consentite<br>per file e directory | Carica<br>Scarica<br>Gestione | Carica<br>Scarica<br>Gestione   |Carica<br>Scarica<br>Gestione | Sì, personalizzabili |
 | Operazioni di archiviazione tabelle consentite<br>per le tabelle |Gestione | No |Supporto delle tabelle in AzCopy v7 |Sì, personalizzabili|
 | Archiviazione code consentita | Gestione | No  |No | Sì, personalizzabile|
 

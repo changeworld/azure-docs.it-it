@@ -13,12 +13,12 @@ ms.author: baselden
 ms.reviewer: ajburnle
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 88a7600239d6e960fa2e635c9e7d9049a7c02db3
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.openlocfilehash: 4584b0a605bd63c1f71082014d3c0622ca7d2c37
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102032357"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104587832"
 ---
 # <a name="securing-managed-identities"></a>Protezione delle identità gestite
 
@@ -50,11 +50,11 @@ Azure dispone di un piano di controllo e di un piano dati. Nel piano di controll
 
 Quando il sistema di destinazione accetta il token per l'autenticazione, può supportare meccanismi diversi per l'autorizzazione per il piano di controllo e il piano dati.
 
-Tutte le operazioni del piano di controllo di Azure sono gestite da [Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/management/overview) e usano il [controllo degli accessi in base al ruolo di Azure](https://docs.microsoft.com/azure/role-based-access-control/overview). Nel piano dati, ogni sistema di destinazione ha un proprio meccanismo di autorizzazione. Archiviazione di Azure supporta RBAC di Azure nel piano dati. Ad esempio, le applicazioni che usano i servizi app Azure possono leggere i dati da archiviazione di Azure e le applicazioni che usano il servizio Azure Kubernetes possono leggere i segreti archiviati in Azure Key Vault.
+Tutte le operazioni del piano di controllo di Azure sono gestite da [Azure Resource Manager](../../azure-resource-manager/management/overview.md) e usano il [controllo degli accessi in base al ruolo di Azure](../../role-based-access-control/overview.md). Nel piano dati, ogni sistema di destinazione ha un proprio meccanismo di autorizzazione. Archiviazione di Azure supporta RBAC di Azure nel piano dati. Ad esempio, le applicazioni che usano i servizi app Azure possono leggere i dati da archiviazione di Azure e le applicazioni che usano il servizio Azure Kubernetes possono leggere i segreti archiviati in Azure Key Vault.
 
-Per altre informazioni sul controllo e sui piani dati, vedere [operazioni del piano di controllo e del piano dati-Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/management/control-plane-and-data-plane).
+Per altre informazioni sul controllo e sui piani dati, vedere [operazioni del piano di controllo e del piano dati-Azure Resource Manager](../../azure-resource-manager/management/control-plane-and-data-plane.md).
 
-Tutti i servizi di Azure supporteranno infine le identità gestite. Per altre informazioni, vedere [servizi che supportano identità gestite per le risorse di Azure](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/services-support-managed-identities).
+Tutti i servizi di Azure supporteranno infine le identità gestite. Per altre informazioni, vedere [servizi che supportano identità gestite per le risorse di Azure](../managed-identities-azure-resources/services-support-managed-identities.md).
 
 ##  
 
@@ -116,7 +116,7 @@ A tale scopo, è possibile enumerare i membri dei gruppi con privilegi elevati c
 
    `Get-AzureADGroupMember -ObjectId <String> [-All <Boolean>] [-Top <Int32>] [<CommonParameters>]`
 
-* [Assicurarsi di conoscere le risorse a cui l'identità gestita accede](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-list-powershell).
+* [Assicurarsi di conoscere le risorse a cui l'identità gestita accede](../../role-based-access-control/role-assignments-list-powershell.md).
 
 ## <a name="move-to-managed-identities"></a>Passa a identità gestite
 
@@ -126,11 +126,11 @@ Se si usa un'entità servizio o un account utente Azure AD, valutare se è possi
 
 **Per informazioni sulla creazione di identità gestite, vedere:** 
 
-[Creare un'identità gestita assegnata dall'utente](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal). 
+[Creare un'identità gestita assegnata dall'utente](../managed-identities-azure-resources/how-to-manage-ua-identity-portal.md). 
 
-[Abilitare un'identità gestita assegnata dal sistema durante la creazione della risorsa](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm)
+[Abilitare un'identità gestita assegnata dal sistema durante la creazione della risorsa](../managed-identities-azure-resources/qs-configure-portal-windows-vm.md)
 
-[Abilitare l'identità gestita assegnata dal sistema su una risorsa esistente](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm)
+[Abilitare l'identità gestita assegnata dal sistema su una risorsa esistente](../managed-identities-azure-resources/qs-configure-portal-windows-vm.md)
 
 **Per ulteriori informazioni sugli account del servizio, vedere:**
 
@@ -146,4 +146,3 @@ Se si usa un'entità servizio o un account utente Azure AD, valutare se è possi
 
  
 
- 

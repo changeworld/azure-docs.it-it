@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.date: 05/17/2019
 ms.author: alkohli
 ms.openlocfilehash: 19c92deb58ac51aa882e7123b9a90aa3eae627d0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "90894119"
 ---
 # <a name="enable-compute-network-on-your-azure-stack-edge-pro"></a>Abilitare la rete di calcolo sulla Azure Stack Edge Pro
@@ -58,12 +58,12 @@ Per configurare le impostazioni di calcolo, seguire questa procedura nell'interf
 Per aggiungere un modulo app webserver nel dispositivo Azure Stack Edge Pro, seguire questa procedura.
 
 1. Passare alla risorsa hub Internet delle cose associata al dispositivo Azure Stack Edge Pro e quindi selezionare **IOT Edge dispositivo**.
-2. Selezionare il dispositivo IoT Edge associato al dispositivo Azure Stack Edge Pro. In **Dettagli dispositivo**selezionare **imposta moduli**. In **Aggiungi moduli**selezionare **+ Aggiungi** e quindi selezionare **IOT Edge modulo**.
+2. Selezionare il dispositivo IoT Edge associato al dispositivo Azure Stack Edge Pro. In **Dettagli dispositivo** selezionare **imposta moduli**. In **Aggiungi moduli** selezionare **+ Aggiungi** e quindi selezionare **IOT Edge modulo**.
 3. Nel pannello **IOT Edge moduli personalizzati** :
 
     1. Specificare un **nome** per il modulo app webserver che si desidera distribuire.
     2. Fornire un **URI dell'immagine** per l'immagine del modulo. Viene recuperato un modulo che corrisponde al nome e ai tag forniti. In questo caso, `nginx:stable` effettuerà il pull di un'immagine di nginx stabile (contrassegnata come stabile) dal [repository Docker](https://hub.docker.com/_/nginx/)pubblico.
-    3. In **contenitore crea opzioni**incollare il codice di esempio seguente:  
+    3. In **contenitore crea opzioni** incollare il codice di esempio seguente:  
 
         ```
         {

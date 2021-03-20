@@ -10,10 +10,10 @@ author: likebupt
 ms.author: keli19
 ms.date: 05/26/2020
 ms.openlocfilehash: a64d5cebfd8e70e2f54a66193a7041c47887c54a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "90898904"
 ---
 # <a name="apply-image-transformation"></a>Apply Image Transformation 
@@ -34,11 +34,11 @@ Questo articolo descrive come usare il modulo Apply Image Transformation in Azur
 
 3. Connettere la directory dell'immagine che si desidera trasformare.
 
-4. Per **mode**specificare per quale scopo usare la trasformazione input:' for Training ' o ' for inferenza '. 
+4. Per **mode** specificare per quale scopo usare la trasformazione input:' for Training ' o ' for inferenza '. 
 
    Se si seleziona **per il training**, verrà applicata tutta la trasformazione specificata nella trasformazione immagine init.
 
-   Se si seleziona **per l'inferenza, la**trasformazione come la creazione di nuovi campioni viene esclusa in modo casuale prima di essere applicata. Ciò è dovuto al fatto che le operazioni di trasformazione per creare nuovi esempi in modo casuale come ' capovolgimento orizzontale casuale ' vengono usate per l'aumento dei dati nel training, che dovrebbe essere rimosso in inferenza perché gli esempi di inferenza devono essere corretti per una stima e una valutazione accurate.
+   Se si seleziona **per l'inferenza, la** trasformazione come la creazione di nuovi campioni viene esclusa in modo casuale prima di essere applicata. Ciò è dovuto al fatto che le operazioni di trasformazione per creare nuovi esempi in modo casuale come ' capovolgimento orizzontale casuale ' vengono usate per l'aumento dei dati nel training, che dovrebbe essere rimosso in inferenza perché gli esempi di inferenza devono essere corretti per una stima e una valutazione accurate.
 
    > [!NOTE]
    > Le trasformazioni che verranno escluse in modalità **per l'inferenza** sono: ritaglio casuale ridimensionato, ritaglio casuale, Flip orizzontale casuale, flip verticale casuale, rotazione casuale, affinità casuale, scala di grigi casuale, prospettiva casuale, cancellazione casuale.
@@ -47,20 +47,20 @@ Questo articolo descrive come usare il modulo Apply Image Transformation in Azur
 
 ### <a name="module-parameters"></a>Parametri del modulo
 
-| Nome | Intervallo | Type | Predefinito                   | Descrizione                              |
+| Nome | Range | Type | Predefinito                   | Descrizione                              |
 | ---- | ----- | ---- | ------------------------- | ---------------------------------------- |
 | Mode | Qualsiasi   | Modalità | (Richiedere all'utente di specificare) | Per quale scopo si usa la trasformazione input. È necessario escludere le operazioni di trasformazione ' Random ' nell'inferenza ma mantenerle nel training |
 
 ### <a name="expected-inputs"></a>Input previsti  
 
-| Nome                       | Type                    | Descrizione                       |
+| Nome                       | Tipo                    | Descrizione                       |
 | -------------------------- | ----------------------- | --------------------------------- |
 | Trasformazione immagine di input | TransformationDirectory | Trasformazione immagine di input        |
 | Directory dell'immagine di input      | ImageDirectory          | Directory dell'immagine da trasformare |
 
 ### <a name="outputs"></a>Output  
 
-| Nome                   | Type           | Descrizione            |
+| Nome                   | Tipo           | Descrizione            |
 | ---------------------- | -------------- | ---------------------- |
 | Directory dell'immagine di output | ImageDirectory | Directory dell'immagine di output |
 

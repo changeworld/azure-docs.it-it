@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: calebb,
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 84e0801daa5bf83889be87987d440e377287b5ea
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/22/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92366191"
 ---
 # <a name="conditional-access-block-access"></a>Accesso condizionale: bloccare l'accesso
@@ -50,17 +50,17 @@ Il primo criterio blocca l'accesso a tutte le app, ad eccezione delle applicazio
    1. In **Includi** selezionare **Tutti gli utenti**.
    1. In **Escludi** selezionare **Utenti e gruppi** e scegliere gli account di accesso di emergenza o gli account critici dell'organizzazione. 
    1. Selezionare **Operazione completata**.
-1. In **app Cloud o azioni**selezionare le opzioni seguenti:
-   1. In **Includi**selezionare **tutte le app Cloud**.
-   1. In **Escludi**selezionare **Office 365**, selezionare **Seleziona**e quindi fare clic su **fine**.
+1. In **app Cloud o azioni** selezionare le opzioni seguenti:
+   1. In **Includi** selezionare **tutte le app Cloud**.
+   1. In **Escludi** selezionare **Office 365**, selezionare **Seleziona** e quindi fare clic su **fine**.
 1. In **Condizioni**:
    1. In **Condizioni** > **Posizione**
       1. impostare **Configura** su **Sì**
-      1. In **Includi**selezionare **qualsiasi percorso**.
-      1. In **Escludi**selezionare **tutti i percorsi attendibili**.
-      1. Selezionare **Operazione completata**.
+      1. In **Includi** selezionare **qualsiasi percorso**.
+      1. In **Escludi** selezionare **tutti i percorsi attendibili**.
+      1. Selezionare **Fine**.
    1. In **app client (anteprima)** impostare **Configura** su **Sì**, quindi fare clic su **fine**, quindi su **fine**.
-1. In **controllo di accesso**  >  **concedere**selezionare **Blocca accesso**, quindi selezionare **Seleziona**.
+1. In **controllo di accesso**  >  **concedere** selezionare **Blocca accesso**, quindi selezionare **Seleziona**.
 1. Confermare le impostazioni e impostare **Attiva criterio** su **Solo report**.
 1. Selezionare **Crea** per creare e abilitare il criterio.
 
@@ -72,8 +72,8 @@ Di seguito viene creato un secondo criterio per richiedere l'autenticazione a pi
    1. In **Includi** selezionare **Tutti gli utenti**.
    1. In **Escludi** selezionare **Utenti e gruppi** e scegliere gli account di accesso di emergenza o gli account critici dell'organizzazione. 
    1. Selezionare **Operazione completata**.
-1. In **app Cloud o azioni**  >  **includere**selezionare **Seleziona app**, scegliere **Office 365**, quindi selezionare **selezionare**, quindi **fine**.
-1. In **controllo di accesso**  >  **concedere**selezionare **Concedi accesso**.
+1. In **app Cloud o azioni**  >  **includere** selezionare **Seleziona app**, scegliere **Office 365**, quindi selezionare **selezionare**, quindi **fine**.
+1. In **controllo di accesso**  >  **concedere** selezionare **Concedi accesso**.
    1. Selezionare **Richiedi autenticazione** a più fattori e **Richiedi che il dispositivo sia contrassegnato come conforme** Selezionare **Seleziona**.
    1. Assicurarsi che sia selezionata **l'opzione Richiedi tutti i controlli selezionati** .
    1. Scegliere **Seleziona**.

@@ -9,10 +9,10 @@ ms.subservice: common
 ms.topic: sample
 ms.custom: devx-track-js
 ms.openlocfilehash: d21c92d6595d2db3f9fb01ee5ddc3669a0564bab
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
-ms.translationtype: HT
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/22/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92359748"
 ---
 # <a name="azure-storage-samples-using-v12-javascript-client-libraries"></a>Esempi di Archiviazione di Azure basati sulle librerie client Java v12
@@ -426,7 +426,7 @@ Per istruzioni su come installare e iniziare a utilizzare le librerie client di 
 Per informazioni su esempi con altri linguaggi:
 
 * .NET: [Esempi di Archiviazione di Azure che usano .NET](storage-samples-dotnet.md)
-* Java: [Esempi di Archiviazione di Azure che usano Java](storage-samples-java.md)
+* Java: [Esempi di Archiviazione di Azure con Java](storage-samples-java.md)
 * Python: [Esempi di Archiviazione di Azure che usano Python](storage-samples-python.md)
 * C++: [Esempi di Archiviazione di Azure che usano C++](storage-samples-c-plus-plus.md)
 * Tutti gli altri linguaggi: [Esempi di Archiviazione di Azure](storage-samples.md)

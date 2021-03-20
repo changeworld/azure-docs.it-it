@@ -7,10 +7,10 @@ ms.service: postgresql
 ms.date: 07/14/2020
 ms.topic: conceptual
 ms.openlocfilehash: 9b7da2fcc1310f03f894e048089658f25be3a149
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91708850"
 ---
 # <a name="connecting-azure-kubernetes-service-and-azure-database-for-postgresql---single-server"></a>Connessione del servizio Azure Kubernetes e del database di Azure per PostgreSQL-server singolo
@@ -29,7 +29,7 @@ Da novembre 2018 il servizio Azure Kubernetes supporta la funzionalità di rete 
 3. Copiare il nome del **gruppo di risorse dell'infrastruttura**.
 4. Usare la barra di ricerca nel portale per individuare e aprire il gruppo di risorse dell'infrastruttura.
 5. Selezionare una macchina virtuale in questo gruppo di risorse.
-6. Passare alla scheda**Rete** della macchina virtuale.
+6. Passare alla scheda **Rete** della macchina virtuale.
 7. Verificare che la **rete accelerata** sia abilitata.
 
 In alternativa, eseguire i due comandi seguenti tramite l'interfaccia della riga di comando di Azure:

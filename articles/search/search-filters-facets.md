@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 10/05/2020
 ms.custom: devx-track-csharp
 ms.openlocfilehash: 9360fc000e01e1c52561cbaa3e2f2968e67e2fa2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91740871"
 ---
 # <a name="how-to-build-a-facet-filter-in-azure-cognitive-search"></a>Come compilare un filtro facet in Azure ricerca cognitiva 
@@ -29,8 +29,8 @@ L'esplorazione in base a facet viene usata per i filtri autoindirizzati nei risu
 
 I facet sono dinamici e vengono restituiti in seguito a una query. Le risposte alla ricerca includono le categorie di facet usate per esplorare i risultati. Se non si ha familiarità con i facet, l'esempio seguente illustra una struttura di esplorazione in base a facet.
 
-:::image type="complex" source="media/search-filters-facets/facet-nav.png" alt-text="Risultati della ricerca filtrati&quot;:::
-&quot;Immagine che mostra una finestra di dialogo di ricerca con i risultati di ricerca filtrati raggruppati per titolo aziendale. Una freccia indica che i risultati sono facet visualizzati in una struttura di navigazione facet " :::image-end:::
+:::image type="complex" source="media/search-filters-facets/facet-nav.png" alt-text="Risultati della ricerca filtrati":::
+"Immagine che mostra una finestra di dialogo di ricerca con i risultati di ricerca filtrati raggruppati per titolo aziendale. Una freccia indica che i risultati sono facet visualizzati in una struttura di navigazione facet " :::image-end:::
 
 Per altre informazioni sull'esplorazione in base a facet: Vedere [come implementare l'esplorazione in base a facet in Azure ricerca cognitiva](search-faceted-navigation.md).
 
@@ -123,7 +123,7 @@ Uno dei problemi relativi all'esplorazione di facet in Azure ricerca cognitiva �
 
 Sebbene sia un caso d'uso comune, non è un servizio che la struttura di esplorazione in base a facet fornisce in modo predefinito. Gli sviluppatori che intendono usare i facet statici aggirandone i limiti eseguono due query filtrate: una limitata ai risultati, l'altra usata per creare un elenco statico di facet per l'esplorazione.
 
-## <a name="see-also"></a>Vedere anche
+## <a name="see-also"></a>Vedi anche
 
 + [Filtri in ricerca cognitiva di Azure](search-filters.md)
 + [Creare un indice: API REST](/rest/api/searchservice/create-index)

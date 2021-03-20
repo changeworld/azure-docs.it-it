@@ -7,14 +7,14 @@ manager: femila
 ms.service: media-services
 ms.topic: conceptual
 ms.workload: media
-ms.date: 1/14/2020
+ms.date: 03/17/2021
 ms.author: inhenkel
-ms.openlocfilehash: e093e22e2f1db3b432fdf328a077e56a8e56d92b
-ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
+ms.openlocfilehash: 915fdcb059d9e7bf9e1853040b90b82a0457652e
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/10/2021
-ms.locfileid: "102612499"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104598406"
 ---
 # <a name="encoding-scenario-based-migration-guidance"></a>Guida alla migrazione basata su scenari di codifica
 
@@ -76,7 +76,7 @@ Fare clic sull'immagine seguente per visualizzare una versione più grande.
         - Asset di output
         - Un gruppo di risorse
         - Nome dell'account AMS  
-1. Usare [griglia di eventi](monitor-events-portal-how-to.md) per il monitoraggio del processo.
+1. Usare [griglia di eventi](monitoring/monitor-events-portal-how-to.md) per il monitoraggio del processo.
 1. Inviare il processo.
 
 ## <a name="custom-presets-from-v2-to-v3-encoding"></a>Set di impostazioni personalizzati dalla codifica V2 alla versione V3

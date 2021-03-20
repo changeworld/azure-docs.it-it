@@ -1,5 +1,5 @@
 ---
-title: File di inclusione
+title: includere file
 description: File di inclusione
 services: service-bus-messaging
 author: spelluru
@@ -9,10 +9,10 @@ ms.date: 02/20/2019
 ms.author: spelluru
 ms.custom: include file
 ms.openlocfilehash: d2c309340155bc626d4da94d74aee9be51bde510
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
-ms.translationtype: HT
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "90606386"
 ---
 ## <a name="create-a-namespace-in-the-azure-portal"></a>Creare uno spazio dei nomi nel portale di Azure
@@ -32,7 +32,7 @@ Per creare uno spazio dei nomi:
         2. Specificare se impostare lo spazio dei nomi **con ridondanza della zona**. La ridondanza della zona fornisce maggiore disponibilità tramite la distribuzione delle repliche tra più zone di disponibilità all'interno di un'area senza costi aggiuntivi. Per altre informazioni, vedere [Zone di disponibilità di Azure](../articles/availability-zones/az-overview.md).
     4. Per **Sottoscrizione** scegliere una sottoscrizione di Azure in cui creare lo spazio dei nomi.
     5. Per **Gruppo di risorse** scegliere un gruppo di risorse esistente in cui risiederà lo spazio dei nomi oppure crearne uno nuovo.      
-    6. Per **Località**scegliere l'area in cui deve essere ospitato lo spazio dei nomi.
+    6. Per **Località** scegliere l'area in cui deve essere ospitato lo spazio dei nomi.
     7. Selezionare **Create** (Crea). A questo punto, lo spazio dei nomi verrà creato e abilitato nel sistema. Potrebbero essere necessari alcuni minuti per consentire al sistema di effettuare il provisioning delle risorse per lo spazio dei nomi creato.
    
         ![Crea spazio dei nomi](./media/service-bus-create-namespace-portal/create-namespace.png)

@@ -11,10 +11,10 @@ ms.custom:
 - 'Role: Cloud Development'
 - 'Role: Data Analytics'
 ms.openlocfilehash: 83c290adea02915db1dc52bd359b4d3165611522
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/26/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92547708"
 ---
 # <a name="iot-hub-message-routing-query-syntax"></a>Sintassi query per il routing dei messaggi di hub IoT
@@ -62,7 +62,7 @@ Le proprietà di sistema identificano contenuto e origine dei messaggi.
 | DT-DataSchema | string |  Questo valore viene impostato dall'hub tutto per i messaggi da dispositivo a cloud. Contiene l'ID del modello di dispositivo impostato nella connessione del dispositivo. Per la query, usare `$dt-dataschema`. |
 | DT-Subject | string | Nome del componente che invia i messaggi da dispositivo a cloud. Per la query, usare `$dt-subject`. |
 
-Come descritto in [messaggi dell'hub IoT](iot-hub-devguide-messages-construct.md), sono disponibili le proprietà di sistema aggiuntive in un messaggio. Oltre alle proprietà sopra elencate nella tabella precedente, è anche possibile eseguire una query su **connectionDeviceId** , **connectionModuleId** .
+Come descritto in [messaggi dell'hub IoT](iot-hub-devguide-messages-construct.md), sono disponibili le proprietà di sistema aggiuntive in un messaggio. Oltre alle proprietà sopra elencate nella tabella precedente, è anche possibile eseguire una query su **connectionDeviceId**, **connectionModuleId**.
 
 ### <a name="application-properties"></a>Proprietà dell'applicazione
 
@@ -146,7 +146,7 @@ deviceClient.sendEvent(message, (err, res) => {
 ```
 
 > [!NOTE] 
-> Viene illustrato come gestire la codifica del corpo in JavaScript. Se si vuole visualizzare un esempio in C#, scaricare gli [esempi c# di Azure](https://github.com/Azure-Samples/azure-iot-samples-csharp/archive/master.zip). Estrarre il file master.zip. Il file Program.cs della soluzione Visual Studio *SimulatedDevice* illustra come codificare e inviare messaggi a un hub Internet. Si tratta dello stesso esempio usato per testare il routing dei messaggi, come illustrato nell' [esercitazione sul routing dei messaggi](tutorial-routing.md). Nella parte inferiore di Program.cs, dispone anche di un metodo per leggere uno dei file codificati, decodificarlo e scriverlo di nuovo come ASCII, in modo che sia possibile leggerlo. 
+> Viene illustrato come gestire la codifica del corpo in JavaScript. Se si vuole visualizzare un esempio in C#, scaricare gli [esempi c# di Azure](https://github.com/Azure-Samples/azure-iot-samples-csharp/archive/master.zip). Estrarre il file master.zip. Il file Program. CS della soluzione Visual Studio *SimulatedDevice* illustra come codificare e inviare messaggi a un hub Internet. Si tratta dello stesso esempio usato per testare il routing dei messaggi, come illustrato nell' [esercitazione sul routing dei messaggi](tutorial-routing.md). Nella parte inferiore del programma. cs, dispone anche di un metodo per leggere uno dei file codificati, decodificarlo e scriverlo di nuovo come ASCII per poterlo leggere. 
 
 
 ### <a name="query-expressions"></a>Espressioni di query
