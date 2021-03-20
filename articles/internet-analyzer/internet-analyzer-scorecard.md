@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.date: 10/16/2019
 ms.author: mebeatty
 ms.openlocfilehash: f43d094193fb266d1ecec7089b44d8b3fd5e9b43
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91330214"
 ---
 # <a name="interpreting-your-scorecard"></a>Interpretazione della scorecard
@@ -35,7 +35,7 @@ Il numero di misurazioni influisca sulla confidenza dell'analisi. Maggiore è il
 
 La latenza, misurata in millisecondi, è una metrica diffusa per misurare la velocità tra un'origine e una destinazione in Internet. I dati di latenza non vengono in genere distribuiti (ovvero non seguono una "curva a campana") perché esiste una "lunga coda" di valori di latenza elevata che alterano i risultati quando si utilizzano statistiche quali la media aritmetica. In alternativa, i percentile forniscono un metodo "senza distribuzione" per analizzare i dati. Ad esempio, il mediano, o il cinquantesimo percentile, riepiloga la metà della distribuzione: la metà dei valori è superiore e la metà è inferiore. Un valore del 75 ° percentile significa che è maggiore del 75% di tutti i valori nella distribuzione. Internet Analyzer fa riferimento ai percentile in forma abbreviata come P50, P75 e P95.
 
-Internet Analyzer percentile sono _metriche di esempio_. Questo si differenzia dalla _metrica di popolamento_reale. Ad esempio, la latenza media di popolazione reale giornaliera tra gli studenti presso la University of Southern California e Microsoft è il valore mediano di latenza di tutte le richieste durante tale giorno. In pratica, la misurazione del valore di tutte le richieste è poco pratica, quindi si presuppone che un campione ragionevolmente grande rappresenti la vera popolazione.
+Internet Analyzer percentile sono _metriche di esempio_. Questo si differenzia dalla _metrica di popolamento_ reale. Ad esempio, la latenza media di popolazione reale giornaliera tra gli studenti presso la University of Southern California e Microsoft è il valore mediano di latenza di tutte le richieste durante tale giorno. In pratica, la misurazione del valore di tutte le richieste è poco pratica, quindi si presuppone che un campione ragionevolmente grande rappresenti la vera popolazione.
 
 Per finalità di analisi, P50 (mediana) è utile come valore previsto per una distribuzione di latenza. I percentile più elevati, ad esempio P95, sono utili per identificare la latenza elevata nei casi peggiori. Se si è interessati a comprendere la latenza dei clienti in generale, P50 è la metrica corretta a cui concentrarsi. Se si è interessati a comprendere le prestazioni per i clienti con prestazioni peggiori, P95 dovrebbe essere lo stato attivo. P75 è un equilibrio tra questi due.
 

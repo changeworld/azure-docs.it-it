@@ -4,10 +4,10 @@ description: Questo articolo illustra tutti i log di attività e diagnostica dis
 ms.topic: how-to
 ms.date: 06/23/2020
 ms.openlocfilehash: 9b459750ad1445da89a8e89a10a35b878bfb64e1
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/17/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100590877"
 ---
 # <a name="enable-diagnostics-logs-for-azure-relay-hybrid-connections"></a>Abilitare i log di diagnostica per le connessioni ibride di Inoltro di Azure

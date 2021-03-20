@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 08/08/2019
 ms.author: sutalasi
 ms.openlocfilehash: fa4d61599e102f9a2580e704ee7a02486067daa2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "86135797"
 ---
 # <a name="replicate-azure-disk-encryption-enabled-virtual-machines-to-another-azure-region"></a>Eseguire la replica di macchine virtuali abilitate per Crittografia dischi di Azure in un'altra area di Azure
@@ -88,7 +88,7 @@ Per questo esempio, l'area di Azure primaria è Asia orientale e l'area secondar
 
 3. In **macchine virtuali**  >  **selezionare macchine virtuali**, selezionare tutte le VM che si desidera replicare. È possibile selezionare solo i computer per cui è possibile abilitare la replica. Quindi selezionare **OK**.
 
-4. In **Impostazioni**è possibile configurare le seguenti impostazioni del sito di destinazione.
+4. In **Impostazioni** è possibile configurare le seguenti impostazioni del sito di destinazione.
 
     - **Percorso di destinazione**: il percorso in cui verranno replicati i dati delle macchine virtuali di origine. Site Recovery fornisce un elenco di aree di destinazione appropriate in base alla posizione del computer selezionato. Si consiglia di usare la stessa località del percorso dell'insieme di credenziali di servizi di ripristino.
     - **Sottoscrizione di destinazione**: sottoscrizione di destinazione usata per il ripristino di emergenza. Per impostazione predefinita, la sottoscrizione di destinazione è uguale a quella di origine.
@@ -109,14 +109,14 @@ Per modificare le impostazioni di destinazione predefinite Site Recovery, attene
 1. Selezionare **Personalizza** accanto a "sottoscrizione di destinazione" per modificare la sottoscrizione di destinazione predefinita. Selezionare la sottoscrizione dall'elenco di sottoscrizioni disponibili nel tenant del Azure AD.
 
 2. Selezionare **Personalizza** accanto a "gruppo di risorse, rete, archiviazione e set di disponibilità" per modificare le impostazioni predefinite seguenti:
-    - Per **gruppo di risorse di destinazione**selezionare il gruppo di risorse dall'elenco dei gruppi di risorse nel percorso di destinazione della sottoscrizione.
-    - In **rete virtuale di destinazione**selezionare la rete da un elenco di reti virtuali nel percorso di destinazione.
+    - Per **gruppo di risorse di destinazione** selezionare il gruppo di risorse dall'elenco dei gruppi di risorse nel percorso di destinazione della sottoscrizione.
+    - In **rete virtuale di destinazione** selezionare la rete da un elenco di reti virtuali nel percorso di destinazione.
     - Per il **set di disponibilità**, è possibile aggiungere le impostazioni del set di disponibilità alla VM, se sono parte di un set di disponibilità nell'area di origine.
-    - Per **account di archiviazione di destinazione**selezionare l'account da usare.
+    - Per **account di archiviazione di destinazione** selezionare l'account da usare.
 
 2. Selezionare **Personalizza** accanto a "impostazioni di crittografia" per modificare le impostazioni predefinite seguenti:
-   - Per l'insieme di credenziali delle **chiavi di crittografia del disco**di destinazione, selezionare l'insieme di credenziali delle chiavi di crittografia del disco nell'elenco degli insiemi di credenziali delle chiavi nel percorso di destinazione della sottoscrizione.
-   - Per l'insieme di credenziali delle chiavi di **crittografia**chiave di destinazione, selezionare l'insieme di credenziali chiave di crittografia della chiave dall'elenco degli insiemi di credenziali delle chiavi nel percorso di destinazione della sottoscrizione.
+   - Per l'insieme di credenziali delle **chiavi di crittografia del disco** di destinazione, selezionare l'insieme di credenziali delle chiavi di crittografia del disco nell'elenco degli insiemi di credenziali delle chiavi nel percorso di destinazione della sottoscrizione.
+   - Per l'insieme di credenziali delle chiavi di **crittografia** chiave di destinazione, selezionare l'insieme di credenziali chiave di crittografia della chiave dall'elenco degli insiemi di credenziali delle chiavi nel percorso di destinazione della sottoscrizione.
 
 3. Selezionare **Crea risorsa di destinazione**  >  **Abilita replica**.
 4. Quando le macchine virtuali sono abilitate per la replica, è possibile controllare lo stato di integrità delle macchine virtuali in **elementi replicati**.
@@ -129,7 +129,7 @@ Negli scenari seguenti verrà richiesto di aggiornare le impostazioni di crittog
   - È stata abilitata la replica Site Recovery nella macchina virtuale. Successivamente, è stata abilitata la crittografia del disco nella macchina virtuale di origine.
   - È stata abilitata la replica Site Recovery nella macchina virtuale. Successivamente, è stata modificata la chiave di crittografia del disco o la chiave di crittografia della chiave nella macchina virtuale di origine.
 
-È possibile usare [uno script](#copy-disk-encryption-keys-to-the-dr-region-by-using-the-powershell-script) per copiare le chiavi di crittografia nell'area di destinazione e quindi aggiornare le impostazioni di crittografia di destinazione nell'insieme di credenziali di **servizi di ripristino**risorse di  >  *replicated item*  >  **Properties**  >  **calcolo e rete**delle proprietà degli elementi replicati.
+È possibile usare [uno script](#copy-disk-encryption-keys-to-the-dr-region-by-using-the-powershell-script) per copiare le chiavi di crittografia nell'area di destinazione e quindi aggiornare le impostazioni di crittografia di destinazione nell'insieme di credenziali di **servizi di ripristino** risorse di  >    >    >  **calcolo e rete** delle proprietà degli elementi replicati.
 
 ![Finestra di dialogo Aggiorna impostazioni ADE](./media/azure-to-azure-how-to-enable-replication-ade-vms/update-ade-settings.png)
 

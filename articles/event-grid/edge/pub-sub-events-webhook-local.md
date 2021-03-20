@@ -8,10 +8,10 @@ ms.reviewer: spelluru
 ms.date: 07/08/2020
 ms.topic: article
 ms.openlocfilehash: 2a7cc864366bd9a35c96dd453c0dc68f77d8abd9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "86171449"
 ---
 # <a name="tutorial-publish-subscribe-to-events-locally"></a>Esercitazione: pubblicare, sottoscrivere gli eventi in locale
@@ -108,7 +108,7 @@ Mantenere le route predefinite e fare clic su **Avanti** per passare alla sezion
 
 1. La sezione Review (revisione) Mostra il manifesto di distribuzione JSON che è stato creato in base alle selezioni effettuate nella sezione precedente. Verificare che siano visualizzati i moduli: **eventgridmodule** e **Subscriber** elencati nel file JSON. 
 1. Controllare le informazioni sulla distribuzione e quindi selezionare **Submit** (Invia). Dopo aver inviato la distribuzione, tornare alla pagina del **dispositivo** .
-1. Nella **sezione moduli**verificare che siano elencati i moduli **eventgrid** e **Subscriber** . Verificare che le colonne **specificato in distribuzione** e **segnalato da dispositivo** siano impostate su **Sì**.
+1. Nella **sezione moduli** verificare che siano elencati i moduli **eventgrid** e **Subscriber** . Verificare che le colonne **specificato in distribuzione** e **segnalato da dispositivo** siano impostate su **Sì**.
 
     Per l'avvio del modulo e per il rilevamento da parte dell'hub IoT può essere richiesto un po' di tempo. Aggiornare la pagina per visualizzare lo stato aggiornato.
 

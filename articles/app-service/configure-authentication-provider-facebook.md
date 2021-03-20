@@ -8,10 +8,10 @@ ms.custom:
 - seodec18
 - fasttrack-edit
 ms.openlocfilehash: b6aad323c0d6fa8f59c9fad203640c477b162503
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "80519967"
 ---
 # <a name="configure-your-app-service-or-azure-functions-app-to-use-facebook-login"></a>Configurare il servizio app o l'app funzioni di Azure per usare l'account di accesso di Facebook
@@ -36,10 +36,10 @@ Per completare la procedura descritta in questo articolo, è necessario un accou
 
    Verrà visualizzato il dashboard per sviluppatori per la nuova app Facebook.
 1. Selezionare **Dashboard**  >  **Facebook login**  >  **set up**  >  **Web**.
-1. Nel percorso di spostamento a sinistra in **account di accesso di Facebook**selezionare **Impostazioni**.
+1. Nel percorso di spostamento a sinistra in **account di accesso di Facebook** selezionare **Impostazioni**.
 1. Nel campo **validi URI di reindirizzamento OAuth** immettere `https://<app-name>.azurewebsites.net/.auth/login/facebook/callback` . Ricordarsi di sostituire `<app-name>` con il nome dell'app di servizio app Azure.
 1. Selezionare **Save changes** (Salva modifiche).
-1. Nel riquadro sinistro selezionare impostazioni di **Settings**  >  **base**. 
+1. Nel riquadro sinistro selezionare impostazioni di   >  **base**. 
 1. Nel campo **Secret app** selezionare **show**. Copiare i valori di **ID app** e **segreto app**. Vengono usati in un secondo momento per configurare l'app del servizio app in Azure.
 
    > [!IMPORTANT]
@@ -54,7 +54,7 @@ Per completare la procedura descritta in questo articolo, è necessario un accou
 
 1. Accedere al [portale di Azure] e passare all'app del servizio app.
 1. Selezionare **Impostazioni** > **Autenticazione/Autorizzazione** e assicurarsi che l'opzione **Autenticazione servizio app** sia impostata su **Sì**.
-1. Selezionare **Facebook**e quindi incollare i valori di ID app e segreto app ottenuti in precedenza. Abilitare gli ambiti necessari per l'applicazione.
+1. Selezionare **Facebook** e quindi incollare i valori di ID app e segreto app ottenuti in precedenza. Abilitare gli ambiti necessari per l'applicazione.
 1. Selezionare **OK**.
 
    ![Screenshot delle impostazioni di Facebook per app per dispositivi mobili][0]

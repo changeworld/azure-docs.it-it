@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 12/09/2019
 ms.author: robinsh
 ms.openlocfilehash: 370ea2f16632ae18142f0770742e5a52d3cabae0
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/17/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92151663"
 ---
 # <a name="how-to-clone-an-azure-iot-hub-to-another-region"></a>Come clonare un hub Azure Internet in un'altra area
@@ -300,7 +300,7 @@ Quando si esporta il modello di Gestione risorse per un hub con routing configur
 
 1. Recuperare le chiavi necessarie per le risorse di routing e inserirle nel modello. È possibile recuperare la chiave o le chiavi dalla risorsa nel [portale di Azure](https://portal.azure.com). 
 
-   Ad esempio, se si esegue il routing dei messaggi a un contenitore di archiviazione, trovare l'account di archiviazione nel portale. Nella sezione Impostazioni selezionare chiavi di **accesso**e quindi copiare una delle chiavi. Ecco come appare la chiave quando si esporta il modello per la prima volta:
+   Ad esempio, se si esegue il routing dei messaggi a un contenitore di archiviazione, trovare l'account di archiviazione nel portale. Nella sezione Impostazioni selezionare chiavi di **accesso** e quindi copiare una delle chiavi. Ecco come appare la chiave quando si esporta il modello per la prima volta:
 
    ```json
    "connectionString": "DefaultEndpointsProtocol=https;
@@ -375,7 +375,7 @@ Creare il nuovo hub nella nuova posizione usando il modello. Se si dispone di ri
 
    **Percorso**: se è stato selezionato un gruppo di risorse esistente, questo viene compilato in modo che corrisponda al percorso del gruppo di risorse. Se è stato creato un nuovo gruppo di risorse, questo sarà il percorso.
 
-   Accetto la **casella**di controllo: questo significa che si accetta di pagare per le risorse che si stanno creando.
+   Accetto la **casella** di controllo: questo significa che si accetta di pagare per le risorse che si stanno creando.
 
 1. Selezionare il pulsante **Acquista**.
 
@@ -526,7 +526,7 @@ A questo punto si dispone delle variabili di ambiente in un file con i comandi S
     
 1. Fare clic con il pulsante destro del mouse sul progetto *ImportExportDevicesSample* e selezionare **Imposta come progetto di avvio**.    
     
-1. Impostare le variabili nella parte superiore di Program.cs nella cartella ImportExportDevicesSample per le cinque opzioni.
+1. Impostare le variabili nella parte superiore di Program. cs nella cartella ImportExportDevicesSample per le cinque opzioni.
 
    ``` csharp
    // Add randomly created devices to the source hub.

@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 11/04/2019
 ms.author: apimpm
 ms.openlocfilehash: 2d3f382635e9a8b8a562f7a7f60f256d68b90b8f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91363206"
 ---
 # <a name="authorize-developer-accounts-by-using-azure-active-directory-in-azure-api-management"></a>Autorizzare gli account per sviluppatori usando Azure Active Directory in Gestione API di Azure
@@ -27,7 +27,7 @@ Questo articolo illustra come abilitare l'accesso al portale per sviluppatori pe
 ## <a name="prerequisites"></a>Prerequisiti
 
 - Completare l'avvio rapido seguente: [Creare un'istanza di Gestione API di Azure](get-started-create-service-instance.md).
-- Importare e pubblicare un'istanza di Gestione API di Azure. Per altre informazioni, vedere [Importare e pubblicare un'API](import-and-publish.md).
+- Importare e pubblicare un'istanza di Gestione API di Azure. Per altre informazioni, vedere [importare e pubblicare](import-and-publish.md).
 
 [!INCLUDE [premium-dev-standard.md](../../includes/api-management-availability-premium-dev-standard.md)]
 
@@ -38,7 +38,7 @@ Questo articolo illustra come abilitare l'accesso al portale per sviluppatori pe
 3. Digitare **API** nella casella di ricerca.
 4. Selezionare **Servizi gestione API**.
 5. Selezionare l'istanza del servizio Gestione API in esecuzione.
-6. In **Developer Portal**selezionare identitys ( **identità**).
+6. In **Developer Portal** selezionare identitys ( **identità**).
 7. Selezionare **+Aggiungi** nella parte superiore.
 
     Sulla destra verrà visualizzato il riquadro **Aggiungi provider di identità**.
@@ -61,7 +61,7 @@ Questo articolo illustra come abilitare l'accesso al portale per sviluppatori pe
 14.  Dopo aver registrato l'applicazione, copiare l' **ID applicazione (client)** dalla pagina **Panoramica** . 
 15. Tornare all'istanza di gestione API. Nella finestra **Aggiungi provider di identità** incollare il valore di **ID applicazione (client)** nella casella **ID client** .
 16. Tornare alla configurazione di Azure AD, selezionare **certificati & segreti** in **Gestisci**. Selezionare il pulsante **New client secret** (Nuovo segreto client). Immettere un valore in **Descrizione**, selezionare un'opzione per **Scadenza** e scegliere **Aggiungi**. Copiare il valore del segreto client prima di uscire dalla pagina. Saranno necessari nel passaggio successivo. 
-17. In **Gestisci**selezionare **autenticazione** , quindi selezionare **token ID** in **concessione implicita**
+17. In **Gestisci** selezionare **autenticazione** , quindi selezionare **token ID** in **concessione implicita**
 18. Tornare all'istanza di gestione API e incollare il segreto nella casella **Secret client** .
 
     > [!IMPORTANT]

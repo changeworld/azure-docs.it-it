@@ -9,10 +9,10 @@ ms.date: 12/16/2019
 ms.author: raynew
 ms.custom: MVC
 ms.openlocfilehash: b46a2ea12a697afde8223cc3595365c1286512c7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
-ms.translationtype: HT
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "86132465"
 ---
 # <a name="fail-over-hyper-v-vms-to-azure"></a>Effettuare il failover delle macchine virtuali Hyper-V in Azure
@@ -50,7 +50,7 @@ In **Elementi protetti** fare clic su **Elementi replicati** > macchina virtuale
 
 1. Nel riquadro **Elemento replicato** è possibile vedere un riepilogo relativo a informazioni sulla macchina virtuale, stato integrità e ultimi punti di ripristino disponibili. Fare clic su **Proprietà** per visualizzare altri dettagli.
 
-1. In **Calcolo e rete** è possibile modificare il nome Azure, il gruppo di risorse, le dimensioni di destinazione, il [set di disponibilità](../virtual-machines/windows/tutorial-availability-sets.md) e le impostazioni del disco gestito.
+1. In **calcolo e rete** è possibile modificare il nome di Azure, il gruppo di risorse, le dimensioni di destinazione, il [set di disponibilità](../virtual-machines/windows/tutorial-availability-sets.md)e le impostazioni del disco gestito.
 
 1. È possibile visualizzare e modificare le impostazioni di rete, tra cui la rete/subnet in cui si troverà la macchina virtuale di Azure dopo il failover e l'indirizzo IP che le verrà assegnato.
 
@@ -58,7 +58,7 @@ In **Elementi protetti** fare clic su **Elementi replicati** > macchina virtuale
 
 ## <a name="fail-over-to-azure"></a>Failover in Azure
 
-1. In **Impostazioni** > **Elementi replicati**, fare clic sulla macchina virtuale > **Failover**.
+1. In **Impostazioni**  >  **elementi replicati** fare clic sulla macchina virtuale > **failover**.
 2. In **Failover** selezionare il punto di ripristino **più recente**. 
 3. Selezionare **Arrestare la macchina prima di iniziare il failover**. Site Recovery proverà ad arrestare la macchina virtuale di origine prima di attivare il failover. Il failover continua anche se l'arresto ha esito negativo. Nella pagina **Processi** è possibile seguire lo stato del failover.
 4. Dopo la verifica del failover, fare clic su **Esegui commit**. Vengono eliminati tutti i punti di ripristino disponibili.

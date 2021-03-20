@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 04/01/2020
 ms.author: mayg
 ms.openlocfilehash: 528a24bb64aa8d323b5d63a27af0a52ccdf1abb6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "86132324"
 ---
 # <a name="set-up-disaster-recovery-for-active-directory-and-dns"></a>Configurare il ripristino di emergenza per Active Directory e DNS
@@ -79,7 +79,7 @@ Molte applicazioni richiedono la presenza di un controller di dominio e di un se
 1. Creare una rete isolata. Qualsiasi rete virtuale creata in Azure è isolata dalle altre reti per impostazione predefinita. Si consiglia di usare per questa rete lo stesso intervallo di indirizzi IP della rete di produzione. Non abilitare la connettività da sito a sito in questa rete.
 1. Fornire un indirizzo IP DNS nella rete isolata. Usare l'indirizzo IP che si prevede sarà ottenuto dalla macchina virtuale DNS. Se si esegue la replica in Azure, fornire l'indirizzo IP per la macchina virtuale che viene usata in caso di failover. Per immettere l'indirizzo IP, nella macchina virtuale replicata, nelle impostazioni **Calcolo e rete**, selezionare le impostazioni **IP di destinazione**.
 
-   :::image type="content" source="./media/site-recovery-active-directory/azure-test-network.png" alt-text="Rete di Azure":::
+   :::image type="content" source="./media/site-recovery-active-directory/azure-test-network.png" alt-text="Rete di test di Azure":::
 
    > [!TIP]
    > Site Recovery tenta di creare le macchine virtuali di test in una subnet con lo stesso nome e con lo stesso indirizzo IP specificato nelle impostazioni **Calcolo e rete** della macchina virtuale. Se nella rete virtuale di Azure specificata per il failover di test non è disponibile una subnet con lo stesso nome, la macchina virtuale di test verrà creata nella prima subnet in ordine alfabetico.
@@ -118,21 +118,21 @@ Se le misure di sicurezza della virtualizzazione vengono attivate dopo un failov
 
 - Il valore **generazione** cambia:
 
-  :::image type="content" source="./media/site-recovery-active-directory/Event2170.png" alt-text="Rete di Azure":::
+  :::image type="content" source="./media/site-recovery-active-directory/Event2170.png" alt-text="Modifica dell'ID di generazione":::
 
 - Il valore **invocationID** cambia:
 
-  :::image type="content" source="./media/site-recovery-active-directory/Event1109.png" alt-text="Rete di Azure":::
+  :::image type="content" source="./media/site-recovery-active-directory/Event1109.png" alt-text="Modifica ID chiamata":::
 
 - `SYSVOL` la cartella e le `NETLOGON` condivisioni non sono disponibili.
 
-  :::image type="content" source="./media/site-recovery-active-directory/sysvolshare.png" alt-text="Rete di Azure":::
+  :::image type="content" source="./media/site-recovery-active-directory/sysvolshare.png" alt-text="Condivisione cartella SYSVOL":::
 
-  :::image type="content" source="./media/site-recovery-active-directory/Event13565.png" alt-text="Rete di Azure":::
+  :::image type="content" source="./media/site-recovery-active-directory/Event13565.png" alt-text="NtFrs cartella SYSVOL":::
 
 - I database DFSR vengono eliminati.
 
-  :::image type="content" source="./media/site-recovery-active-directory/Event2208.png" alt-text="Rete di Azure":::
+  :::image type="content" source="./media/site-recovery-active-directory/Event2208.png" alt-text="I database DFSR vengono eliminati":::
 
 ### <a name="troubleshoot-domain-controller-issues-during-test-failover"></a>Risolvere i problemi del controller di dominio durante il failover di test
 

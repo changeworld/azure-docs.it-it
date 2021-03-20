@@ -8,10 +8,10 @@ ms.date: 11/12/2019
 ms.author: raynew
 ms.custom: MVC
 ms.openlocfilehash: 6f24a259d2d71aa6599f6dd417d5e9fc99734e99
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
-ms.translationtype: HT
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "86135652"
 ---
 # <a name="prepare-on-premises-hyper-v-servers-for-disaster-recovery-to-azure"></a>Predisporre i server Hyper-V locali per il ripristino di emergenza in Azure
@@ -56,7 +56,7 @@ Se gli host Hyper-V sono gestiti da VMM, è necessario preparare il server VMM l
 
 ### <a name="prepare-vmm-for-network-mapping"></a>Preparare VMM per il mapping di rete
 
-Se si usa VMM, il [mapping di rete](./hyper-v-vmm-network-mapping.md) esegue il mapping tra reti di VM VMM locali e reti virtuali di Azure. Il mapping garantisce che le macchine virtuali di Azure siano connesse alla rete giusta quando vengono create dopo il failover.
+Se si usa VMM, il [mapping di rete](./hyper-v-vmm-network-mapping.md) viene mappato tra le reti VM VMM locali e le reti virtuali di Azure. Il mapping garantisce che le macchine virtuali di Azure siano connesse alla rete giusta quando vengono create dopo il failover.
 
 Preparare VMM per il mapping di rete come segue:
 
@@ -84,9 +84,9 @@ In uno scenario di failover può essere necessario connettersi alla rete locale 
 
 Per connettersi alle macchine virtuali Windows tramite RDP dopo il failover, consentire l'accesso come segue:
 
-1. Per accedere tramite Internet, abilitare RDP nella macchina virtuale locale prima del failover. Assicurarsi che le regole TCP e UDP siano aggiunte per il profilo **Pubblico** e che RDP sia consentito in **Windows Firewall** > **App consentite** per tutti i profili.
+1. Per accedere tramite Internet, abilitare RDP nella macchina virtuale locale prima del failover. Assicurarsi che vengano aggiunte regole TCP e UDP per il profilo **pubblico** e che il protocollo RDP sia consentito in **Windows Firewall**  >  **app consentite** per tutti i profili.
 2. Per accedere tramite VPN da sito a sito, abilitare RDP nel computer locale. RDP deve essere consentito in **Windows Firewall** -> **App e funzionalità consentite** per le reti di **dominio e private**.
-   Verificare che il criterio SAN del sistema operativo sia impostato su **OnlineAll**. [Altre informazioni](https://support.microsoft.com/kb/3031135). Quando si attiva un failover, nella macchina virtuale non devono essere presenti aggiornamenti di Windows in sospeso. Se sono presenti aggiornamenti in sospeso, non sarà possibile accedere alla macchina virtuale fino al completamento dell'aggiornamento.
+   Verificare che il criterio SAN del sistema operativo sia impostato su **OnlineAll**. [Altre informazioni](https://support.microsoft.com/kb/3031135) Quando si attiva un failover, nella macchina virtuale non devono essere presenti aggiornamenti di Windows in sospeso. Se sono presenti aggiornamenti in sospeso, non sarà possibile accedere alla macchina virtuale fino al completamento dell'aggiornamento.
 3. Dopo il failover nella macchina virtuale Windows di Azure selezionare **Diagnostica di avvio** per visualizzare uno screenshot della macchina virtuale. Se non è possibile connettersi, controllare che la macchina virtuale sia in esecuzione e rivedere i [suggerimenti per la risoluzione dei problemi](https://social.technet.microsoft.com/wiki/contents/articles/31666.troubleshooting-remote-desktop-connection-after-failover-using-asr.aspx).
 
 Dopo il failover, è possibile accedere alle macchine virtuali di Azure usando lo stesso indirizzo IP della macchina virtuale replicata in locale o un indirizzo IP diverso. [Altre informazioni](concepts-on-premises-to-azure-networking.md) sulla configurazione degli indirizzi IP per il failover.
@@ -94,5 +94,5 @@ Dopo il failover, è possibile accedere alle macchine virtuali di Azure usando l
 ## <a name="next-steps"></a>Passaggi successivi
 
 > [!div class="nextstepaction"]
-> [Set up disaster recovery to Azure for Hyper-V VMs (Configurare il ripristino di emergenza in Azure per le VM Hyper-V)](./hyper-v-azure-tutorial.md)
-> [Set up disaster recovery to Azure for Hyper-V VMs in VMM clouds (Configurare il ripristino di emergenza in Azure per le VM Hyper-V nei cloud VMM)](./hyper-v-vmm-azure-tutorial.md)
+> [Configurare il ripristino di emergenza in Azure per le VM](./hyper-v-azure-tutorial.md) 
+>  Hyper-V [Configurare il ripristino di emergenza in Azure per le VM Hyper-V nei cloud VMM](./hyper-v-vmm-azure-tutorial.md)

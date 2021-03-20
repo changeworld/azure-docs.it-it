@@ -4,10 +4,10 @@ description: Usare i log attività per esaminare le azioni degli utenti e gli er
 ms.topic: conceptual
 ms.date: 05/13/2019
 ms.openlocfilehash: 14015e9b2792515e6818af551b8bd9f54c686bee
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91371593"
 ---
 # <a name="view-activity-logs-to-monitor-actions-on-resources"></a>Visualizzare i log attività per monitorare le azioni sulle risorse
@@ -30,7 +30,7 @@ I log attività vengono conservati per 90 giorni. È possibile eseguire query pe
 
 Per visualizzare i log attività tramite il portale, seguire questa procedura:
 
-1. Scegliere **monitoraggio**dal menu portale di Azure oppure cercare e selezionare **monitoraggio** da qualsiasi pagina.
+1. Scegliere **monitoraggio** dal menu portale di Azure oppure cercare e selezionare **monitoraggio** da qualsiasi pagina.
 
     ![Selezionare monitoraggio](./media/view-activity-logs/select-monitor-from-menu.png)
 

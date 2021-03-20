@@ -11,10 +11,10 @@ ms.topic: overview
 ms.date: 10/12/2020
 ms.author: sebansal
 ms.openlocfilehash: 1308debb34d724f93526b776f19e0cbf1914d945
-ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
-ms.translationtype: HT
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/16/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92128575"
 ---
 # <a name="certificate-access-control"></a>Controllo di accesso per i certificati
@@ -24,24 +24,24 @@ ms.locfileid: "92128575"
  Le autorizzazioni seguenti sono utilizzabili, su base principale, nella voce di controllo di accesso dei segreti in un insieme di credenziali delle chiavi e riflettono fedelmente le operazioni consentite su un oggetto segreto:  
 
 - Autorizzazioni per le operazioni di gestione dei certificati
-  - **get** : consente di ottenere la versione corrente del certificato o qualsiasi versione di un certificato
-  - **list** : consente di elencare i certificati correnti o le versioni di un certificato  
-  - **update** : consente di aggiornare un certificato
-  - **create** : consente di creare un certificato di Key Vault
-  - **import** : consente di importare il materiale apposito in un certificato di Key Vault
-  - **delete** : consente di eliminare un certificato, nonché i relativi criteri e versioni  
-  - **recover** : consente di recuperare un certificato eliminato
-  - **backup** : consente di eseguire il backup di un certificato nell'insieme di credenziali delle chiavi
-  - **restore** : consente di ripristinare un certificato sottoposto a backup in un insieme di credenziali delle chiavi
-  - **managecontacts** : consente di gestire i contatti del certificato in un Key Vault  
-  - **manageissuers** : consente di gestire autorità di certificazione di Key Vault
-  - **getissuers** : consente di ottenere le autorità emittenti del certificato
-  - **listissuers** : consente di elencare le autorità emittenti del certificato  
-  - **setissuers** : consente di creare o aggiornare le autorità di certificazione di un certificato di Key Vault  
-  - **deleteissuers** : consente di eliminare le autorità di certificazione del certificato di Key Vault  
+  - **get**: consente di ottenere la versione corrente del certificato o qualsiasi versione di un certificato
+  - **list**: consente di elencare i certificati correnti o le versioni di un certificato  
+  - **update**: consente di aggiornare un certificato
+  - **create**: consente di creare un certificato di Key Vault
+  - **import**: consente di importare il materiale apposito in un certificato di Key Vault
+  - **delete**: consente di eliminare un certificato, nonché i relativi criteri e versioni  
+  - **recover**: consente di recuperare un certificato eliminato
+  - **backup**: consente di eseguire il backup di un certificato nell'insieme di credenziali delle chiavi
+  - **restore**: consente di ripristinare un certificato sottoposto a backup in un insieme di credenziali delle chiavi
+  - **managecontacts**: consente di gestire i contatti del certificato in un Key Vault  
+  - **manageissuers**: consente di gestire autorità di certificazione di Key Vault
+  - **getissuers**: consente di ottenere le autorità emittenti del certificato
+  - **listissuers**: consente di elencare le autorità emittenti del certificato  
+  - **setissuers**: consente di creare o aggiornare le autorità di certificazione di un certificato di Key Vault  
+  - **deleteissuers**: consente di eliminare le autorità di certificazione del certificato di Key Vault  
  
 - Autorizzazioni per le operazioni privilegiate
-  - **purge** : consente di eliminare definitivamente un certificato
+  - **purge**: consente di eliminare definitivamente un certificato
 
 Per altre informazioni, vedere le [operazioni relative ai certificati nell'articolo di riferimento all'API REST di Key Vault](/rest/api/keyvault). Per informazioni sulla definizione della autorizzazioni, vedere [Insiemi di credenziali: aggiornare i criteri di accesso](/rest/api/keyvault/vaults/updateaccesspolicy).
 

@@ -1,18 +1,18 @@
 ---
 title: Schema di eventi di Griglia di eventi di Azure
-description: Descrive le proprietà e lo schema presenti per tutti gli eventi.Gli eventi sono costituiti da un set di cinque proprietà di tipo stringa obbligatorie e un oggetto data obbligatorio.
+description: Descrive le proprietà e lo schema presenti per tutti gli eventi. Gli eventi sono costituiti da un set di cinque proprietà di tipo stringa obbligatorie e un oggetto data obbligatorio.
 ms.topic: reference
 ms.date: 07/07/2020
 ms.openlocfilehash: 7ddc7c78c5a9e5ba2a57b21c45fb9fab65056ee9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "86105881"
 ---
 # <a name="azure-event-grid-event-schema"></a>Schema di eventi di Griglia di eventi di Azure
 
-Questo articolo descrive le proprietà e lo schema presenti per tutti gli eventi.Gli eventi sono costituiti da un set di cinque proprietà di tipo stringa obbligatorie e un oggetto data obbligatorio. Le proprietà sono comuni a tutti gli eventi di tutti gli autori. L'oggetto di dati contiene le proprietà specifiche per ogni editore. Per gli argomenti di sistema, le proprietà sono specifiche del provider di risorse, ad esempio Archiviazione di Azure o Hub eventi di Azure.
+Questo articolo descrive le proprietà e lo schema presenti per tutti gli eventi. Gli eventi sono costituiti da un set di cinque proprietà di tipo stringa obbligatorie e un oggetto data obbligatorio. Le proprietà sono comuni a tutti gli eventi di tutti gli autori. L'oggetto di dati contiene le proprietà specifiche per ogni editore. Per gli argomenti di sistema, le proprietà sono specifiche del provider di risorse, ad esempio Archiviazione di Azure o Hub eventi di Azure.
 
 Le origini degli eventi inviano gli eventi a Griglia di eventi di Azure in una matrice, che può contenere più oggetti evento. Durante la pubblicazione degli eventi in un argomento della griglia di eventi, le dimensioni totali della matrice possono raggiungere 1 MB. Ogni evento nella matrice è limitato a 1 MB. Se un evento o una matrice supera i limiti delle dimensioni, si riceve la risposta **413 Payload Too Large** (413 Playload troppo grande). Tuttavia, le operazioni vengono addebitate in incrementi di 64 kB. Pertanto, gli eventi oltre 64 kB comporteranno addebiti di operazione come se fossero più eventi. Ad esempio, un evento da 130 kB comporterebbe addebiti di operazione come se si trattasse di 3 eventi distinti.
 

@@ -8,10 +8,10 @@ ms.date: 11/14/2019
 ms.author: ant
 ms.topic: conceptual
 ms.openlocfilehash: 483d261a8cc107d01cfb7a405eac43667d7efcc6
-ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/16/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92131837"
 ---
 # <a name="troubleshoot-web-application-firewall-waf-for-azure-application-gateway"></a>Risolvere i problemi di Web Application Firewall (WAF) per il gateway applicazione Azure
@@ -297,7 +297,7 @@ Il secondo (regola 942130) è quello interessante. È possibile vedere nei detta
 
 ## <a name="finding-request-header-names"></a>Ricerca dei nomi delle intestazioni di richiesta
 
-Fiddler è uno strumento utile ancora una volta per trovare i nomi delle intestazioni di richiesta. Nello screenshot seguente è possibile visualizzare le intestazioni per questa richiesta GET, che includono *Content-Type*, *User-Agent*e così via.
+Fiddler è uno strumento utile ancora una volta per trovare i nomi delle intestazioni di richiesta. Nello screenshot seguente è possibile visualizzare le intestazioni per questa richiesta GET, che includono *Content-Type*, *User-Agent* e così via.
 
 :::image type="content" source="../media/web-application-firewall-troubleshoot/fiddler-2.png" alt-text="Screenshot del debugger Web di stato Telerik Fiddler. La scheda Raw elenca i dettagli dell'intestazione della richiesta, ad esempio la connessione, il tipo di contenuto e l'agente utente." border="false":::
 

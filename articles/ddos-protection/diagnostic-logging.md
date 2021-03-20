@@ -12,10 +12,10 @@ ms.workload: infrastructure-services
 ms.date: 12/28/2020
 ms.author: yitoh
 ms.openlocfilehash: cc5b3b85d6d13fda532da0993fa7f733126b8eae
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/17/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100591869"
 ---
 # <a name="view-and-configure-ddos-diagnostic-logging"></a>Visualizzare e configurare la registrazione diagnostica DDoS
@@ -48,10 +48,10 @@ Se si vuole abilitare automaticamente la registrazione diagnostica su tutti gli 
 
 1. Selezionare **Tutti i servizi** nella parte superiore sinistra del portale.
 2. Immettere *Monitoraggio* nella casella **Filtro**. Selezionare **Monitoraggio** quando viene visualizzato nei risultati.
-3. In **Impostazioni** selezionare **impostazioni di diagnostica**.
+3. Selezionare **Impostazioni di diagnostica** in **Impostazioni**.
 4. Selezionare la **sottoscrizione** e il **gruppo di risorse** contenenti l'indirizzo IP pubblico che si vuole registrare.
 5. Selezionare **indirizzo IP pubblico** per **tipo di risorsa**, quindi selezionare l'indirizzo IP pubblico specifico per il quale si vuole abilitare i log.
-6. Selezionare **Aggiungi impostazione di diagnostica**. In **Dettagli categoria** selezionare il numero di opzioni seguenti, quindi selezionare **Salva**.
+6. Selezionare **Aggiungi impostazione di diagnostica**. In **Dettagli categoria** selezionare le opzioni seguenti necessarie, quindi selezionare **Salva**.
 
     ![Impostazioni di diagnostica DDoS](./media/ddos-attack-telemetry/ddos-diagnostic-settings.png)
 

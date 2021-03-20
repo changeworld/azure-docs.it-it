@@ -7,10 +7,10 @@ ms.date: 05/23/2019
 ms.author: helohr
 manager: lizross
 ms.openlocfilehash: dc5c6499fa47a1e32a517032d5cc2a97b3f2677f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "88007167"
 ---
 # <a name="diagnose-graphics-performance-issues-in-remote-desktop"></a>Diagnosticare problemi di prestazioni grafica in Desktop remoto
@@ -34,7 +34,7 @@ Per diagnosticare problemi di qualità dell'esperienza con le sessioni remote, i
 Dopo aver determinato il nome della sessione remota, seguire queste istruzioni per raccogliere i contatori delle prestazioni della grafica RemoteFX per la sessione remota.
 
 1. Selezionare **Avvia**  >  **strumenti di amministrazione**  >  **monitoraggio prestazioni**.
-2. Nella finestra di dialogo **Performance Monitor** espandere **strumenti di monitoraggio**, selezionare **Performance Monitor**e quindi selezionare **Aggiungi**.
+2. Nella finestra di dialogo **Performance Monitor** espandere **strumenti di monitoraggio**, selezionare **Performance Monitor** e quindi selezionare **Aggiungi**.
 3. Nella finestra di dialogo **Aggiungi contatori** , nell'elenco **contatori disponibili** , espandere la sezione per RemoteFX graphics.
 4. Selezionare i contatori da monitorare.
 5. Nell'elenco **istanze dell'oggetto selezionato** selezionare le istanze specifiche da monitorare per i contatori selezionati e quindi selezionare **Aggiungi**. Per selezionare tutte le istanze del contatore disponibili, selezionare **tutte le istanze**.

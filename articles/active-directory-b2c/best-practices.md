@@ -11,24 +11,24 @@ ms.topic: conceptual
 ms.date: 06/06/2020
 ms.author: vigunase
 ms.subservice: B2C
-ms.openlocfilehash: 1c3c3d38ac0d8334f70f681d8ef86c0d6f86ecfa
-ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
+ms.openlocfilehash: d8c0a5ce6f3befd41c0e1399363fd73726693837
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/07/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96750221"
 ---
 # <a name="recommendations-and-best-practices-for-azure-active-directory-b2c"></a>Suggerimenti e procedure consigliate per Azure Active Directory B2C
 
 Le procedure consigliate e le raccomandazioni seguenti illustrano alcuni aspetti principali dell'integrazione di Azure Active Directory (Azure AD) B2C in ambienti applicativi nuovi o esistenti.
 
-## <a name="fundamentals"></a>Concetti fondamentali
+## <a name="fundamentals"></a>Fundamentals
 
 | Procedura consigliata | Descrizione |
 |--|--|
 | Scegliere i flussi utente per la maggior parte degli scenari | Il Framework dell'esperienza di identità di Azure AD B2C rappresenta il livello di attendibilità principale del servizio. I criteri descrivono in modo completo le esperienze per le identità, ad esempio iscrizione, accesso o modifica del profilo. Per poter configurare le attività di gestione delle identità più comuni, il portale di Azure AD B2C include criteri predefiniti configurabili chiamati flussi utente. Con i flussi utente è possibile creare esperienze utente eccezionali in pochi minuti, con pochi clic. [Informazioni sul momento in cui usare i flussi utente rispetto ai criteri personalizzati](custom-policy-overview.md#comparing-user-flows-and-custom-policies).|
 | Registrazioni per l'app | Ogni applicazione (Web, nativa) e API da proteggere deve essere registrata in Azure AD B2C. Se un'app include sia una versione Web che una versione nativa di iOS e Android, è possibile registrarle come un'unica applicazione in Azure AD B2C con lo stesso ID client. Informazioni su come [registrare OIDC, SAML, Web e app native](./tutorial-register-applications.md?tabs=applications). Altre informazioni sui [tipi di applicazioni che è possibile usare in Azure ad B2C](./application-types.md). |
-| Passa a fatturazione utenti attivi mensili | Azure AD B2C è stato spostato da autenticazioni attive mensili a una fatturazione mensile di utenti attivi (MAU). La maggior parte dei clienti troverà questo modello economicamente conveniente. [Altre informazioni sulla fatturazione mensile degli utenti attivi](https://azure.microsoft.com/updates/mau-billing/). [Salva il collegamento](b2clogin.md) |
+| Passa a fatturazione utenti attivi mensili | Azure AD B2C è stato spostato da autenticazioni attive mensili a una fatturazione mensile di utenti attivi (MAU). La maggior parte dei clienti troverà questo modello economicamente conveniente. [Altre informazioni sulla fatturazione mensile degli utenti attivi](https://azure.microsoft.com/updates/mau-billing/). |
 
 ## <a name="planning-and-design"></a>pianificazione e progettazione
 
@@ -84,11 +84,11 @@ Gestire l'ambiente di Azure AD B2C.
 | Configurare gli avvisi attivi e il monitoraggio | [Tenere traccia del comportamento degli utenti](./analytics-with-application-insights.md) in Azure AD B2C usando Application Insights. |
 
 ## <a name="support-and-status-updates"></a>Supporto e aggiornamenti di stato
-## <a name="todays-support-and-status-updates"></a>Supporto di giorni e aggiornamenti di stato
+
 È possibile rimanere sempre aggiornati sullo stato del servizio e trovare le opzioni di supporto.
 
 | Procedura consigliata | Descrizione |
 |--|--|
 | [Aggiornamenti del servizio](https://azure.microsoft.com/updates/?product=active-directory-b2c) |  È possibile rimanere sempre aggiornati sugli annunci e gli aggiornamenti del prodotto Azure AD B2C. |
-| [Supporto tecnico Microsoft](support-options.md) | Archiviare una richiesta di supporto per Azure AD B2C problemi tecnici. Il supporto per fatturazione e gestione delle sottoscrizioni viene fornito gratuitamente. |
+| [supporto tecnico Microsoft](support-options.md) | Archiviare una richiesta di supporto per Azure AD B2C problemi tecnici. Il supporto per fatturazione e gestione delle sottoscrizioni viene fornito gratuitamente. |
 | [Stato di Azure](https://status.azure.com/status) | Visualizza lo stato di integrità corrente di tutti i servizi di Azure. |

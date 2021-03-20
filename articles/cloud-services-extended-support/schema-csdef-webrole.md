@@ -9,10 +9,10 @@ ms.author: gachandw
 ms.reviewer: mimckitt
 ms.custom: ''
 ms.openlocfilehash: fef3e3cc63fb9e1ca6aa64cf799a620f187db76f
-ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/23/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98744501"
 ---
 # <a name="azure-cloud-services-extended-support-definition-webrole-schema"></a>Schema WebRole di definizione di servizi cloud di Azure (supporto esteso)
@@ -470,7 +470,7 @@ La tabella seguente descrive gli attributi dell'elemento `SourceDirectory`.
 | --------- | ---- | ----------- |  
 |path|string|Obbligatorio. Percorso relativo o assoluto di una directory locale i cui contenuti verranno copiati nella macchina virtuale di Azure. L'espansione delle variabili di ambiente nel percorso della directory è supportata.|  
   
-## <a name="see-also"></a>Vedere anche
+## <a name="see-also"></a>Vedi anche
 [Schema di definizione del servizio cloud (supporto esteso)](schema-csdef-file.md).
 
 

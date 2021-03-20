@@ -6,21 +6,21 @@ services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: quickstart
-ms.date: 08/27/2020
+ms.date: 01/19/2021
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: 3f64086ed97594416b5964cf648c857c2f271480
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
-ms.translationtype: HT
+ms.openlocfilehash: 8073d1e18b08a6deb0175f8eaf18de382e93e299
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91331098"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "98601852"
 ---
 # <a name="quickstart-direct-web-traffic-with-azure-application-gateway-using-azure-powershell"></a>Guida introduttiva: Indirizzare il traffico Web con un gateway applicazione Azure mediante Azure PowerShell
 
 In questa guida di avvio rapido si userà Azure PowerShell per creare un gateway applicazione. Successivamente, verrà testato il gateway per verificare che funzioni correttamente. 
 
-Il gateway applicazione indirizza il traffico Web dell'applicazione a risorse specifiche in un pool back-end. Verranno assegnati i listener alle porte, verranno create le regole e verranno aggiunte le risorse a un pool back-end. Per semplicità, questo articolo usa una configurazione semplice con un indirizzo IP front-end pubblico, un listener di base per ospitare un singolo sito nel gateway applicazione, una regola di routing delle richieste di base e due macchine virtuali nel pool back-end.
+Il gateway applicazione indirizza il traffico Web dell'applicazione a risorse specifiche in un pool back-end. Verranno assegnati i listener alle porte, verranno create le regole e verranno aggiunte le risorse a un pool back-end. Per semplicità, in questo articolo viene usata una semplice installazione con un indirizzo IP front-end pubblico, un listener di base per ospitare un singolo sito sul gateway applicazione, una regola di routing delle richieste di base e due macchine virtuali nel pool back-end.
 
 È anche possibile completare questa guida di avvio rapido usando l'[interfaccia della riga di comando di Azure](quick-create-cli.md) oppure il [portale di Azure](quick-create-portal.md).
 
@@ -48,7 +48,7 @@ New-AzResourceGroup -Name myResourceGroupAG -Location eastus
 ```
 ## <a name="create-network-resources"></a>Creare risorse di rete
 
-Per le comunicazioni tra le risorse create in Azure è necessaria una rete virtuale.  La subnet del gateway applicazione può contenere solo i gateway applicazione. Non sono consentite altre risorse.  È possibile creare una nuova subnet per il gateway applicazione o usarne una esistente. In questo esempio vengono create due subnet: una per il gateway applicazione e l'altra per i server back-end. L'IP front-end del gateway applicazione può essere configurato come pubblico o privato a seconda del caso d'uso. In questo esempio si sceglierà un indirizzo IP front-end pubblico.
+Per le comunicazioni tra le risorse create in Azure è necessaria una rete virtuale.  La subnet del gateway applicazione può contenere solo i gateway applicazione. Non sono consentite altre risorse.  È possibile creare una nuova subnet per il gateway applicazione o usarne una esistente. In questo esempio vengono create due subnet: una per il gateway applicazione e l'altra per i server back-end. È possibile configurare l'indirizzo IP front-end del gateway applicazione in modo che sia pubblico o privato in base al caso d'uso. In questo esempio si sceglierà un indirizzo IP front-end pubblico.
 
 1. Creare le configurazioni delle subnet usando `New-AzVirtualNetworkSubnetConfig`.
 2. Crea la rete virtuale con le configurazioni delle subnet usando `New-AzVirtualNetwork`. 
@@ -81,7 +81,7 @@ New-AzPublicIpAddress `
 ### <a name="create-the-ip-configurations-and-frontend-port"></a>Creare le configurazioni IP e la porta front-end
 
 1. Usare `New-AzApplicationGatewayIPConfiguration` per creare la configurazione che associa la subnet creata al gateway applicazione. 
-2. Usare `New-AzApplicationGatewayFrontendIPConfig` per creare la configurazione che assegna l'indirizzo IP pubblico creato in precedenza al gateway applicazione. 
+2. Usare `New-AzApplicationGatewayFrontendIPConfig` per creare la configurazione che assegna l'indirizzo IP pubblico creato in precedenza per il gateway applicazione. 
 3. Usare `New-AzApplicationGatewayFrontendPort` per assegnare la porta 80 per accedere al gateway applicazione.
 
 ```azurepowershell-interactive
@@ -101,7 +101,7 @@ $frontendport = New-AzApplicationGatewayFrontendPort `
 
 ### <a name="create-the-backend-pool"></a>Creare il pool back-end
 
-1. Usare `New-AzApplicationGatewayBackendAddressPool` per creare il pool back-end per il gateway applicazione. Il pool back-end sarà vuoto per il momento. Quando verranno create le schede di interfaccia di rete del server back-end nella sezione successiva le si aggiungerà al pool back-end.
+1. Usare `New-AzApplicationGatewayBackendAddressPool` per creare il pool back-end per il gateway applicazione. Il pool back-end è vuoto per il momento. Quando si creano le schede di rete del server back-end nella sezione successiva, si aggiungeranno al pool back-end.
 2. Configurare le impostazioni per il pool back-end con `New-AzApplicationGatewayBackendHttpSetting`.
 
 ```azurepowershell-interactive
@@ -164,7 +164,9 @@ New-AzApplicationGateway `
 
 ### <a name="backend-servers"></a>Server back-end
 
-Dopo aver creato il gateway applicazione, creare le macchine virtuali back-end che ospiteranno i siti Web. Il back-end può essere costituito da schede di interfaccia di rete, set di scalabilità di macchine virtuali, IP pubblici, IP interni, nomi di dominio completi (FQDN) e back-end multi-tenant come Servizio app di Azure. In questo esempio vengono create due macchine virtuali per Azure da usare come server back-end per il gateway applicazione. È anche possibile installare IIS nelle macchine virtuali per verificare l'avvenuta creazione del gateway applicazione in Azure.
+Dopo aver creato il gateway applicazione, creare le macchine virtuali back-end che ospiteranno i siti Web. Un back-end può essere composto da schede di rete, set di scalabilità di macchine virtuali, indirizzi IP pubblici, indirizzi IP interni, nomi di dominio completi (FQDN) e back-end multi-tenant come app Azure Service. 
+
+In questo esempio vengono create due macchine virtuali da usare come server back-end per il gateway applicazione. È anche possibile installare IIS nelle macchine virtuali per verificare l'avvenuta creazione del gateway applicazione in Azure.
 
 #### <a name="create-two-virtual-machines"></a>Creare due macchine virtuali
 
@@ -173,7 +175,7 @@ Dopo aver creato il gateway applicazione, creare le macchine virtuali back-end c
 3. Creare una configurazione di macchina virtuale con `New-AzVMConfig`.
 4. Creare la macchina virtuale con `New-AzVM`.
 
-Quando si esegue l'esempio di codice seguente per creare le macchine virtuali, Azure richiede le credenziali. Immettere *azureuser* per il nome utente e la password:
+Quando si esegue l'esempio di codice seguente per creare le macchine virtuali, Azure richiede le credenziali. Immettere un nome utente e una password:
     
 ```azurepowershell-interactive
 $appgw = Get-AzApplicationGateway -ResourceGroupName myResourceGroupAG -Name myAppGateway
@@ -224,7 +226,9 @@ for ($i=1; $i -le 2; $i++)
 
 ## <a name="test-the-application-gateway"></a>Testare il gateway applicazione
 
-Nonostante l'installazione di IIS non sia necessaria per creare il gateway applicazione, è stata eseguita in questa guida introduttiva per verificare se il gateway applicazione è stato creato correttamente in Azure. Usare IIS per testare il gateway applicazione:
+Nonostante l'installazione di IIS non sia necessaria per creare il gateway applicazione, è stata eseguita in questa guida di avvio rapido per verificare se il gateway applicazione è stato creato correttamente in Azure.
+
+Usare IIS per testare il gateway applicazione:
 
 1. Eseguire `Get-AzPublicIPAddress` per ottenere l'indirizzo IP pubblico del gateway applicazione. 
 2. Copiare e incollare l'indirizzo IP pubblico nella barra degli indirizzi del browser. Quando si aggiorna il browser, dovrebbe apparire il nome della macchina virtuale. Una risposta valida verifica che il gateway applicazione sia stato creato correttamente e possa connettersi al back-end.

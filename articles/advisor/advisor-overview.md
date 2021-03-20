@@ -4,10 +4,10 @@ description: Usare Azure Advisor per ottimizzare le distribuzioni di Azure.
 ms.topic: article
 ms.date: 09/27/2020
 ms.openlocfilehash: 12e56bf44a29a32b2149bca14f7c99f319c9c4ea
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91405208"
 ---
 # <a name="introduction-to-azure-advisor"></a>Presentazione di Azure Advisor
@@ -51,7 +51,7 @@ Se non si intende agire immediatamente, è possibile posporre il consiglio per u
 
 ### <a name="what-permissions-do-i-need-to-access-advisor"></a>Quali autorizzazioni sono necessarie per accedere ad Advisor?
  
-È possibile accedere ai consigli di Advisor come *proprietario*, *collaboratore*o *lettore* di una sottoscrizione, di un gruppo di risorse o di una risorsa.
+È possibile accedere ai consigli di Advisor come *proprietario*, *collaboratore* o *lettore* di una sottoscrizione, di un gruppo di risorse o di una risorsa.
 
 ### <a name="what-resources-does-advisor-provide-recommendations-for"></a>Per quali risorse fornisce consigli Advisor?
 
