@@ -12,10 +12,10 @@ ms.author: sstein
 ms.reviewer: ''
 ms.date: 03/12/2019
 ms.openlocfilehash: 5a646ffe1d306d7ea13da002715d5bd9b907107b
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/28/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92793467"
 ---
 # <a name="moving-data-between-scaled-out-cloud-databases"></a>Spostamento di dati tra database cloud con scalabilità orizzontale
@@ -49,7 +49,7 @@ Lo strumento di suddivisione-unione viene eseguito come servizio Web di Azure. U
 
 - **Dividere per crescere**
 
-  Per aumentare la capacità complessiva in modo da gestire una crescita straordinaria, creare capacità aggiuntiva tramite il partizionamento orizzontale e la distribuzione dei dati in un numero sempre crescente di database, fino a soddisfare le esigenze di capacità. Questo è un ottimo esempio della funzionalità di **suddivisione** .
+  Per aumentare la capacità complessiva in modo da gestire una crescita straordinaria, creare capacità aggiuntiva tramite il partizionamento orizzontale e la distribuzione dei dati in un numero sempre crescente di database, fino a soddisfare le esigenze di capacità. Questo è un ottimo esempio della funzionalità di **suddivisione**.
 
 - **Unire per ridurre**
 
@@ -207,11 +207,11 @@ Il servizio di suddivisione-unione fornisce la tabella **RequestStatus** nel dat
 
   Stima della percentuale di completamento dell'operazione. Un valore pari a 50 indica che la percentuale di completamento dell'operazione è pari a circa il 50%.
 
-- **Informazioni dettagliate**
+- **Dettagli**
 
   Valore XML che fornisce un report di stato più dettagliato. Il report di stato viene aggiornato periodicamente durante la copia di set di righe dall'origine alla destinazione. In caso di errori o eccezioni, questa colonna include anche informazioni più dettagliate sull'errore.
 
-### <a name="azure-diagnostics"></a>Diagnostica Azure
+### <a name="azure-diagnostics"></a>Diagnostica di Azure
 
 Il servizio di suddivisione-unione utilizza la diagnostica Azure basata su Azure SDK 2.5 per il monitoraggio e la diagnostica. È possibile controllare la configurazione della diagnostica come indicato di seguito: [Abilitazione della diagnostica nei servizi cloud e nelle macchine virtuali di Azure](../../cloud-services/cloud-services-dotnet-diagnostics.md). Il pacchetto di download include due configurazioni della diagnostica: una per il ruolo Web e una per il ruolo di lavoro. Essi includono le definizioni per la registrazione di contatori delle prestazioni, log IIS, registri eventi di Windows e registri eventi dell'applicazione di suddivisione-unione.
 

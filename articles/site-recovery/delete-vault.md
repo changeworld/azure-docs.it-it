@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 11/05/2019
 ms.author: sideeksh
 ms.openlocfilehash: a33e04a24013d5450c98b91048fa418958d16886
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "89426385"
 ---
 # <a name="delete-a-site-recovery-services-vault"></a>Eliminare un insieme di credenziali di Servizi di ripristino per Site Recovery
@@ -43,14 +43,14 @@ Prima di poter eliminare un insieme di credenziali, è necessario rimuovere i se
 ## <a name="delete-a-vault-hyper-v-vm-with-vmm-to-azure"></a>Eliminare un insieme di credenziali-macchina virtuale Hyper-V (con VMM) in Azure
 
 1. Seguire [questa procedura](site-recovery-manage-registration-and-protection.md#disable-protection-for-a-hyper-v-virtual-machine-replicating-to-azure-using-the-system-center-vmm-to-azure-scenario) per eliminare le VM Hyper-V gestite da System Center VMM.
-2. Annullare l'associazione ed eliminare tutti i criteri di replica. Eseguire questa operazione nell'insieme di credenziali > **infrastruttura Site Recovery**  >  **per i criteri di replica di System Center VMM**  >  **Replication Policies**.
+2. Annullare l'associazione ed eliminare tutti i criteri di replica. Eseguire questa operazione nell'insieme di credenziali > **infrastruttura Site Recovery**  >  **per i criteri di replica di System Center VMM**  >  .
 3. Per annullare la registrazione di un server VMM connesso, attenersi alla [seguente procedura](site-recovery-manage-registration-and-protection.md#unregister-a-vmm-server) .
 4. Quindi, eliminare l'insieme di credenziali.
 
 ## <a name="delete-a-vault-hyper-v-vm-to-azure"></a>Eliminare un insieme di credenziali-macchina virtuale Hyper-V in Azure
 
 1. Per eliminare tutte le macchine virtuali protette, seguire [questa procedura](site-recovery-manage-registration-and-protection.md#disable-protection-for-a-hyper-v-virtual-machine-hyper-v-to-azure) .
-2. Annullare l'associazione ed eliminare tutti i criteri di replica. Eseguire questa operazione nell'insieme di credenziali > **infrastruttura Site Recovery**  >  **per i criteri di replica dei siti Hyper-V**  >  **Replication Policies**.
+2. Annullare l'associazione ed eliminare tutti i criteri di replica. Eseguire questa operazione nell'insieme di credenziali > **infrastruttura Site Recovery**  >  **per i criteri di replica dei siti Hyper-V**  >  .
 3. Seguire [queste istruzioni](site-recovery-manage-registration-and-protection.md#unregister-a-hyper-v-host-in-a-hyper-v-site) per annullare la registrazione di un host Hyper-V.
 4. Eliminare il sito Hyper-V.
 5. Quindi, eliminare l'insieme di credenziali.

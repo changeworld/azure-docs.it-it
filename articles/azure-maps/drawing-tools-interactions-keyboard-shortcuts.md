@@ -9,10 +9,10 @@ ms.service: azure-maps
 services: azure-maps
 manager: cpendle
 ms.openlocfilehash: b609a21348222150faf5fb828f2cc38ca6658f5d
-ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/28/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92895818"
 ---
 # <a name="interaction-types-and-keyboard-shortcuts-in-the-drawing-tools-module"></a>Tipi di interazione e tasti di scelta rapida nel modulo strumenti di disegno
@@ -131,7 +131,7 @@ Quando la gestione del disegno è in `draw-circle` modalità, è possibile esegu
 **Annulla disegno**
  - Premere il `Escape` tasto.
 
-## <a name="keyboard-shortcuts"></a>Tasti di scelta rapida
+## <a name="keyboard-shortcuts"></a>Scelte rapide da tastiera
 
 Gli strumenti di disegno supportano le scelte rapide da tastiera. Questi tasti di scelta rapida sono funzionali quando la mappa è attiva.
 

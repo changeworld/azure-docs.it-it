@@ -1,9 +1,9 @@
 ---
 ms.openlocfilehash: 6ea9be8e7e67a8e52412e7011cfb1d33c9929191
-ms.sourcegitcommit: cc13f3fc9b8d309986409276b48ffb77953f4458
-ms.translationtype: HT
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/14/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97486701"
 ---
 Come parte dei prerequisiti per questo argomenti di avvio rapido, il codice di esempio è stato scaricato in una cartella. Seguire questa procedura per esaminare e modificare il codice di esempio.
@@ -12,10 +12,10 @@ Come parte dei prerequisiti per questo argomenti di avvio rapido, il codice di e
 
     Il modello di distribuzione fa riferimento al manifesto della distribuzione per il dispositivo perimetrale, in cui per alcune proprietà vengono usate delle variabili. Il file *.env* include i valori per queste variabili.
 1. Passare alla cartella *src/cloud-to-device-console-app*. Sono inclusi il file *appsettings.json* e alcuni altri file:
-    * ***operations.json** _ - elenco di operazioni che il programma dovrà eseguire.
-    _ ***main.py** _ - codice del programma di esempio. Questo codice:
+    * ***operations.json***: l'elenco di operazioni che il programma dovrà eseguire.
+    * ***main.py***: il codice del programma di esempio. Questo codice:
 
-        _ Carica le impostazioni dell'app.
+        * Carica le impostazioni dell'app.
         * Richiama i metodi diretti esposti dal modulo Analisi video live in IoT Edge. È possibile usare il modulo per analizzare i flussi video live richiamando i [metodi diretti](../../../direct-methods.md). 
         * Sospende l'esecuzione per consentire di esaminare l'output del programma nella finestra **TERMINALE** e gli eventi generati dal modulo nella finestra **OUTPUT**.
         * Richiama i metodi diretti per pulire le risorse.

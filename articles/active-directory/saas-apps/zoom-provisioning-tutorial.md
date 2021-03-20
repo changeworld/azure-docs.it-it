@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 06/3/2019
 ms.author: Zhchia
 ms.openlocfilehash: c87c3692d7e1106e0952b85791da663e03c6001d
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
-ms.translationtype: HT
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/26/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96182479"
 ---
 # <a name="tutorial-configure-zoom-for-automatic-user-provisioning"></a>Esercitazione: Configurare Zoom per il provisioning utenti automatico
@@ -40,7 +40,7 @@ Per lo scenario descritto in questa esercitazione si presuppone che l'utente dis
 * Un account utente in Zoom con autorizzazioni di amministratore.
 
 ## <a name="step-1-plan-your-provisioning-deployment"></a>Passaggio 1. Pianificare la distribuzione del provisioning
-1. Vedere le informazioni su [come funziona il servizio di provisioning](../app-provisioning/user-provisioning.md).
+1. Acquisire informazioni su [come funziona il servizio di provisioning](../app-provisioning/user-provisioning.md).
 2. Determinare gli utenti che verranno inclusi nell'[ambito per il provisioning](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
 3. Determinare i dati di cui [eseguire il mapping tra Azure AD e Zoom](../app-provisioning/customize-application-attributes.md). 
 

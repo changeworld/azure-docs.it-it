@@ -8,10 +8,10 @@ author: navits09
 ms.author: navits
 ms.date: 12/02/2020
 ms.openlocfilehash: 0c220daab0d1d9ae7d50d37d9303d6677bd52cc1
-ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/12/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97360306"
 ---
 # <a name="create-a-dynamics-365-for-customer-engagement--powerapps-offer"></a>Creare un'offerta Dynamics 365 for Customer Engagement e PowerApps
@@ -131,7 +131,7 @@ Di seguito è riportato un esempio di come vengono visualizzate le informazioni 
 1. Indirizzo di supporto (collegamento)
 1. Condizioni per l'utilizzo
 1. Nome offerta
-1. Description
+1. Descrizione
 1. Screenshot/video
 
 ### <a name="marketplace-details"></a>Dettagli del marketplace

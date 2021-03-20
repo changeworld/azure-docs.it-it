@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 03/02/2018
 tags: connectors
 ms.openlocfilehash: b67d2e860e8c69f6f2f43441144ef2f60ed3a104
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/25/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "95999545"
 ---
 # <a name="monitor-and-manage-your-github-repo-by-using-azure-logic-apps"></a>Monitorare e gestire il repository GitHub usando app per la logica di Azure
@@ -26,7 +26,7 @@ Per usare il connettore GitHub in un'app per la logica è necessario creare inna
 
 | Proprietà | Obbligatoria | Descrizione | 
 | -------- | -------- | ----------- | 
-| token | Sì | Fornisce le credenziali di GitHub. |
+| Token | Sì | Fornisce le credenziali di GitHub. |
 
 Dopo aver creato la connessione, è possibile eseguire le azioni e restare in ascolto dei trigger descritti in questo articolo.
 

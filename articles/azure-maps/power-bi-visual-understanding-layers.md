@@ -10,10 +10,10 @@ services: azure-maps
 manager: cpendle
 ms.custom: ''
 ms.openlocfilehash: a5c7296a0e7b7f6ea33c1f4a669675efd90f9e9a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "86261845"
 ---
 # <a name="understanding-layers-in-the-azure-maps-power-bi-visual"></a>Informazioni sui livelli nell'oggetto visivo Power BI mappe di Azure
@@ -41,7 +41,7 @@ Il secondo tipo di livello connette le origini di dati esterne di addizione alla
 
 :::row:::
     :::column span="":::
-        **Livello di riferimento**
+        **Reference layer**
 
         Sovrapporre un file GeoJSON caricato nella parte superiore della mappa.
 

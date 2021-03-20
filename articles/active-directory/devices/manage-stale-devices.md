@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: spunukol
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: d12679e64d690614aaf788837a02af007448f83d
-ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/05/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93393677"
 ---
 # <a name="how-to-manage-stale-devices-in-azure-ad"></a>Procedura: gestire dispositivi non aggiornati in Azure AD
@@ -97,7 +97,7 @@ I dispositivi aggiunti ad Azure AD ibrido devono seguire i criteri per la gestio
 
 Per eseguire la pulizia di Azure AD:
 
-- **Dispositivi Windows 10** : disabilitare o eliminare i dispositivi Windows 10 nell'istanza di AD locale e consentire ad Azure AD Connect di sincronizzare lo stato del dispositivo modificato in Azure AD.
+- **Dispositivi Windows 10**: disabilitare o eliminare i dispositivi Windows 10 nell'istanza di AD locale e consentire ad Azure AD Connect di sincronizzare lo stato del dispositivo modificato in Azure AD.
 - **Windows 7/8** : disabilitare o eliminare prima i dispositivi Windows 7/8 in Active Directory locale. Non è possibile usare Azure AD Connect per disabilitare o eliminare i dispositivi Windows 7/8 in Azure AD. Al contrario, quando si apportano le modifiche in locale, è necessario disabilitare/eliminare in Azure AD.
 
 > [!NOTE]
@@ -150,7 +150,7 @@ $dt = [datetime]’2017/01/01’
 Get-AzureADDevice -All:$true | Where {$_.ApproximateLastLogonTimeStamp -le $dt} | select-object -Property Enabled, DeviceId, DisplayName, DeviceTrustType, ApproximateLastLogonTimestamp | export-csv devicelist-olderthan-Jan-1-2017-summary.csv
 ```
 
-## <a name="what-you-should-know"></a>Informazioni importanti
+## <a name="what-you-should-know"></a>Informazioni utili
 
 ### <a name="why-is-the-timestamp-not-updated-more-frequently"></a>Perché il timestamp non viene aggiornato più frequentemente?
 
@@ -176,7 +176,7 @@ Per saperne di più sui diversi tipi, vedere la [panoramica sulla gestione dei d
 Viene negata qualsiasi autenticazione in cui viene usato un dispositivo per eseguire l'autenticazione in Azure AD. Esempi comuni:
 
 - **Azure ad ibrido dispositivo aggiunto** : gli utenti potrebbero essere in grado di usare il dispositivo per accedere al dominio locale. Tuttavia, non possono accedere alle risorse Azure AD come Microsoft 365.
-- **Dispositivo aggiunto ad Azure AD** : gli utenti non possono usare il dispositivo per eseguire l'accesso. 
+- **Dispositivo aggiunto ad Azure AD**: gli utenti non possono usare il dispositivo per eseguire l'accesso. 
 - **Dispositivi mobili** : l'utente non può accedere a risorse Azure AD come Microsoft 365. 
 
 ## <a name="next-steps"></a>Passaggi successivi

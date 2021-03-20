@@ -9,10 +9,10 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 10/14/2020
 ms.openlocfilehash: bcb6e91bba367363385214806077146b1a24fe7b
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/24/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92503488"
 ---
 # <a name="indexer-access-to-content-protected-by-azure-network-security-features-azure-cognitive-search"></a>Accesso dell'indicizzatore al contenuto protetto dalle funzionalità di sicurezza di rete di Azure (Azure ricerca cognitiva)
@@ -24,7 +24,7 @@ Gli indicizzatori di Azure ricerca cognitiva possono eseguire chiamate in uscita
 | Archiviazione di Azure (BLOB, tabelle, ADLS gen 2) | Origine dati |
 | Archiviazione di Azure (BLOB, tabelle) | Skillsets (memorizzazione nella cache di documenti arricchiti e archiviazione delle proiezioni dell'archivio informazioni) |
 | Azure Cosmos DB (varie API) | Origine dati |
-| database SQL di Azure | Origine dati |
+| Database SQL di Azure | Origine dati |
 | SQL Server in Macchine virtuali di Azure | Origine dati |
 | Istanza gestita di SQL | Origine dati |
 | Funzioni di Azure | Host per le competenze personalizzate dell'API Web |
@@ -40,7 +40,7 @@ I clienti possono proteggere queste risorse tramite diversi meccanismi di isolam
 | Archiviazione di Azure (BLOB, tabelle, ADLS gen 2) | Supportato solo se l'account di archiviazione e il servizio di ricerca si trovano in aree diverse | Supportato |
 | API Azure Cosmos DB-SQL | Supportato | Supportato |
 | Azure Cosmos DB-Cassandra, Mongo e Gremlin API | Supportato | Non supportato |
-| database SQL di Azure | Supportato | Supportato |
+| Database SQL di Azure | Supportato | Supportato |
 | SQL Server in Macchine virtuali di Azure | Supportato | N/D |
 | Istanza gestita di SQL | Supportato | N/D |
 | Funzioni di Azure | Supportato | Supportato, solo per determinati livelli di funzioni di Azure |

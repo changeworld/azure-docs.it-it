@@ -9,10 +9,10 @@ ms.date: 10/31/2019
 ms.author: duau
 ms.custom: seodec18
 ms.openlocfilehash: af4ef156cccded6afe2db09628446a6ffe1ad53a
-ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/14/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92204640"
 ---
 # <a name="verifying-expressroute-connectivity"></a>Verifica della connettività di ExpressRoute
@@ -165,7 +165,7 @@ Nella portale di Azure è possibile controllare lo stato di un peering del circu
 Nell'esempio precedente viene eseguito il provisioning del peering privato di Azure, mentre il provisioning dei peering pubblico e Microsoft di Azure non viene eseguito. Un contesto di peering di cui è stato effettuato il provisioning ha anche le subnet Point-to-Point primarie e secondarie elencate. Le subnet/30 vengono usate per l'indirizzo IP dell'interfaccia di MSEE e CEs/PE-MSEE. Per i peering di cui è stato effettuato il provisioning, l'elenco indica anche chi ha eseguito l'ultima modifica della configurazione. 
 
 > [!NOTE]
-> Se l'abilitazione di un peering ha esito negativo, verificare se le subnet primarie e secondarie assegnate corrispondono alla configurazione in CE/PE-MSEE collegato. Controllare anche se i valori di *VlanId* , *AzureASN* e *Peerasn sugli* corretti vengono usati in MSEE e se questi valori vengono mappati a quelli usati nell'EC/PE-MSEE collegato. Se si sceglie l'hash MD5, la chiave condivisa deve essere identica nella coppia MSEE e PE-MSEE/CE. La chiave condivisa configurata in precedenza non viene visualizzata per motivi di sicurezza. Se è necessario modificare una di queste configurazioni in un router MSEE, vedere [creare e modificare il routing per un circuito ExpressRoute][CreatePeering].  
+> Se l'abilitazione di un peering ha esito negativo, verificare se le subnet primarie e secondarie assegnate corrispondono alla configurazione in CE/PE-MSEE collegato. Controllare anche se i valori di *VlanId*, *AzureASN* e *Peerasn sugli* corretti vengono usati in MSEE e se questi valori vengono mappati a quelli usati nell'EC/PE-MSEE collegato. Se si sceglie l'hash MD5, la chiave condivisa deve essere identica nella coppia MSEE e PE-MSEE/CE. La chiave condivisa configurata in precedenza non viene visualizzata per motivi di sicurezza. Se è necessario modificare una di queste configurazioni in un router MSEE, vedere [creare e modificare il routing per un circuito ExpressRoute][CreatePeering].  
 >
 
 > [!NOTE]
@@ -228,7 +228,7 @@ At line:1 char:1
 ```
 
 > [!NOTE]
-> Se l'abilitazione di un peering ha esito negativo, verificare se le subnet primarie e secondarie assegnate corrispondono alla configurazione in CE/PE-MSEE collegato. Controllare anche se i valori di *VlanId* , *AzureASN* e *Peerasn sugli* corretti vengono usati in MSEE e se questi valori vengono mappati a quelli usati nell'EC/PE-MSEE collegato. Se si sceglie l'hash MD5, la chiave condivisa deve essere identica nella coppia MSEE e PE-MSEE/CE. La chiave condivisa configurata in precedenza non viene visualizzata per motivi di sicurezza. Se è necessario modificare una di queste configurazioni in un router MSEE, vedere [creare e modificare il routing per un circuito ExpressRoute][CreatePeering].  
+> Se l'abilitazione di un peering ha esito negativo, verificare se le subnet primarie e secondarie assegnate corrispondono alla configurazione in CE/PE-MSEE collegato. Controllare anche se i valori di *VlanId*, *AzureASN* e *Peerasn sugli* corretti vengono usati in MSEE e se questi valori vengono mappati a quelli usati nell'EC/PE-MSEE collegato. Se si sceglie l'hash MD5, la chiave condivisa deve essere identica nella coppia MSEE e PE-MSEE/CE. La chiave condivisa configurata in precedenza non viene visualizzata per motivi di sicurezza. Se è necessario modificare una di queste configurazioni in un router MSEE, vedere [creare e modificare il routing per un circuito ExpressRoute][CreatePeering].  
 >
 >
 
@@ -278,7 +278,7 @@ Path    : 123##
 ```
 
 > [!NOTE]
-> Se lo stato di un peering eBGP tra un MSEE e una CE/PE-MSEE è attivo o inattivo, verificare se le subnet peer primarie e secondarie assegnate corrispondono alla configurazione sull'EC/PE-MSEE collegato. Controllare anche se *VlanId* , *AzureAsn* e *Peerasn sugli* corretti vengono usati in MSEE e se questi valori sono mappati a quelli usati nel PE-MSEE/CE collegato. Se si sceglie l'hash MD5, la chiave condivisa deve essere identica nella coppia MSEE e CE/PE-MSEE. Se è necessario modificare una di queste configurazioni in un router MSEE, vedere [creare e modificare il routing per un circuito ExpressRoute][CreatePeering].
+> Se lo stato di un peering eBGP tra un MSEE e una CE/PE-MSEE è attivo o inattivo, verificare se le subnet peer primarie e secondarie assegnate corrispondono alla configurazione sull'EC/PE-MSEE collegato. Controllare anche se *VlanId*, *AzureAsn* e *Peerasn sugli* corretti vengono usati in MSEE e se questi valori sono mappati a quelli usati nel PE-MSEE/CE collegato. Se si sceglie l'hash MD5, la chiave condivisa deve essere identica nella coppia MSEE e CE/PE-MSEE. Se è necessario modificare una di queste configurazioni in un router MSEE, vedere [creare e modificare il routing per un circuito ExpressRoute][CreatePeering].
 >
 
 

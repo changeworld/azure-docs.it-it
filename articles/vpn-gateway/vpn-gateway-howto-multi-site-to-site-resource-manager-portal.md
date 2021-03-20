@@ -9,16 +9,16 @@ ms.topic: how-to
 ms.date: 10/27/2020
 ms.author: cherylmc
 ms.openlocfilehash: 92d39b0d39511571701fd092f641cb8ca3ae42c7
-ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/14/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92890149"
 ---
 # <a name="add-additional-s2s-connections-to-a-vnet-azure-portal"></a>Aggiungere altre connessioni S2S a una VNet: portale di Azure
 
 > [!div class="op_single_selector"]
-> * [Portale di Azure](vpn-gateway-howto-multi-site-to-site-resource-manager-portal.md)
+> * [Azure portal](vpn-gateway-howto-multi-site-to-site-resource-manager-portal.md)
 > * [PowerShell (classic)](vpn-gateway-multi-site.md) (PowerShell (classico))
 >
 
@@ -50,7 +50,7 @@ Verificare quanto segue:
    :::image type="content" source="./media/vpn-gateway-howto-multi-site-to-site-resource-manager-portal/add-connection.png" alt-text="Pagina Aggiungi connessione":::
 1. Nella pagina **Aggiungi connessione** compilare i campi seguenti:
 
-   * **Nome** : nome del sito a cui si sta creando la connessione.
+   * **Nome**: nome del sito a cui si sta creando la connessione.
    * **Tipo di connessione:** Selezionare **da sito a sito (IPSec)**.
 
 ## <a name="add-a-local-network-gateway"></a><a name="local"></a>Aggiungere un gateway di rete locale
@@ -61,15 +61,15 @@ Verificare quanto segue:
    :::image type="content" source="./media/vpn-gateway-howto-multi-site-to-site-resource-manager-portal/create-local-network-gateway.png" alt-text="Pagina Crea gateway di rete locale":::
 1. Nella pagina **Crea un gateway di rete locale** compilare i campi seguenti:
 
-   * **Nome** : nome da assegnare alla risorsa gateway di rete locale.
+   * **Nome**: nome da assegnare alla risorsa gateway di rete locale.
    * **Endpoint:** Indirizzo IP pubblico del dispositivo VPN nel sito a cui si desidera connettersi oppure il nome di dominio completo dell'endpoint.
-   * **Spazio indirizzi** : spazio indirizzi che si vuole venga indirizzato al nuovo sito di rete locale.
+   * **Spazio indirizzi**: spazio indirizzi che si vuole venga indirizzato al nuovo sito di rete locale.
 1. Fare clic su **OK** nella pagina **Crea gateway di rete locale** per salvare le modifiche.
 
 ## <a name="add-the-shared-key"></a><a name="part3"></a>Aggiungere la chiave condivisa
 
 1. Dopo aver creato il gateway di rete locale, tornare alla pagina **Aggiungi connessione** .
-1. Completare i campi rimanenti. Per la **chiave condivisa (PSK)** , è possibile ottenere la chiave condivisa dal dispositivo VPN o crearne una qui e quindi configurare il dispositivo VPN per l'uso della stessa chiave condivisa. È fondamentale che le chiavi siano assolutamente identiche.
+1. Completare i campi rimanenti. Per la **chiave condivisa (PSK)**, è possibile ottenere la chiave condivisa dal dispositivo VPN o crearne una qui e quindi configurare il dispositivo VPN per l'uso della stessa chiave condivisa. È fondamentale che le chiavi siano assolutamente identiche.
 
 ## <a name="create-the-connection"></a><a name="create"></a>Creare la connessione
 

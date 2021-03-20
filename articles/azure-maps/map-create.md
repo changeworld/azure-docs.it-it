@@ -10,10 +10,10 @@ services: azure-maps
 manager: ''
 ms.custom: codepen, devx-track-js
 ms.openlocfilehash: 833b6413cc5dfde1129075a286e5fe93a06e159f
-ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/28/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92890922"
 ---
 # <a name="create-a-map"></a>Creare una mappa
@@ -130,7 +130,7 @@ Nel codice seguente il primo blocco di codice crea una mappa e imposta gli stili
 
 ## <a name="request-transforms"></a>Trasformazioni delle richieste
 
-A volte è utile essere in grado di modificare le richieste HTTP effettuate dal controllo mappa. Esempio:
+A volte è utile essere in grado di modificare le richieste HTTP effettuate dal controllo mappa. Ad esempio:
 
 - Aggiungere intestazioni aggiuntive alle richieste di riquadri. Questa operazione viene spesso eseguita per i servizi protetti da password.
 - Modificare gli URL per eseguire le richieste tramite un servizio proxy.
@@ -171,7 +171,7 @@ var map = new atlas.Map('myMap', {
 
 ## <a name="try-out-the-code"></a>Provare il codice
 
-Esaminare gli esempi di codice. È possibile modificare il codice JavaScript all'interno della **scheda JS** e visualizzare le modifiche alla visualizzazione mappa nella **scheda risultato** . È anche possibile fare clic **su modifica in CodePen** , nell'angolo in alto a destra e modificare il codice in CodePen.
+Esaminare gli esempi di codice. È possibile modificare il codice JavaScript all'interno della **scheda JS** e visualizzare le modifiche alla visualizzazione mappa nella **scheda risultato**. È anche possibile fare clic **su modifica in CodePen**, nell'angolo in alto a destra e modificare il codice in CodePen.
 
 <a id="relatedReference"></a>
 

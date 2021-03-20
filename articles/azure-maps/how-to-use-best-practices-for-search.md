@@ -9,10 +9,10 @@ ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.openlocfilehash: 11c1938c3c1ccba533f52336fad81ebeaae53b24
-ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/28/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92895478"
 ---
 # <a name="best-practices-for-azure-maps-search-service"></a>Procedure consigliate per il servizio di ricerca di Mappe di Azure
@@ -35,7 +35,7 @@ Questo articolo usa l' [app post](https://www.postman.com/downloads/) per compil
 
 ## <a name="best-practices-to-geocode-addresses"></a>Procedure consigliate per la codifica geografica degli indirizzi
 
-Quando si cerca un indirizzo completo o parziale usando il servizio di ricerca di Mappe di Azure, l'API legge le parole chiave dalla query di ricerca. Restituisce quindi le coordinate di longitudine e latitudine dell'indirizzo. Questo processo è noto come *geocodifica* .
+Quando si cerca un indirizzo completo o parziale usando il servizio di ricerca di Mappe di Azure, l'API legge le parole chiave dalla query di ricerca. Restituisce quindi le coordinate di longitudine e latitudine dell'indirizzo. Questo processo è noto come *geocodifica*.
 
 La capacità di implementare la geocodifica in un paese o un'area dipende dalla disponibilità di dati stradali e dalla precisione del servizio di geocodifica. Per altre informazioni sulle funzionalità di geocodifica di Mappe di Azure per paese o area, vedere [Copertura della geocodifica](./geocoding-coverage.md).
 
@@ -59,20 +59,20 @@ Per limitare geograficamente i risultati in base all'area pertinente per l'utent
 
 #### <a name="fuzzy-search-parameters"></a>Parametri di ricerca fuzzy
 
-È consigliabile usare l'[API di ricerca fuzzy](/rest/api/maps/search/getsearchfuzzy) di Mappe di Azure quando non si conoscono gli input utente per una query di ricerca. Ad esempio, l'input dell'utente può essere un indirizzo o il tipo di punto di interesse (PDI), ad esempio *Shopping Mall* . L'API combina la ricerca di punti di interesse e la geocodifica in una normale *ricerca a riga singola* : 
+È consigliabile usare l'[API di ricerca fuzzy](/rest/api/maps/search/getsearchfuzzy) di Mappe di Azure quando non si conoscono gli input utente per una query di ricerca. Ad esempio, l'input dell'utente può essere un indirizzo o il tipo di punto di interesse (PDI), ad esempio *Shopping Mall*. L'API combina la ricerca di punti di interesse e la geocodifica in una normale *ricerca a riga singola*: 
 
 * I parametri `minFuzzyLevel` e `maxFuzzyLevel` consentono di restituire corrispondenze pertinenti anche quando i parametri di query non corrispondono esattamente alle informazioni cercate dall'utente. Per ottimizzare le prestazioni e ridurre i risultati insoliti, impostare le query di ricerca sui valori predefiniti `minFuzzyLevel=1` e `maxFuzzyLevel=2`. 
 
-    Ad esempio, quando il parametro `maxFuzzyLevel` è impostato su 2, il termine di ricerca *ristrant* viene associato al termine *ristorante* . È possibile sostituire i livelli fuzzy predefiniti, se necessario. 
+    Ad esempio, quando il parametro `maxFuzzyLevel` è impostato su 2, il termine di ricerca *ristrant* viene associato al termine *ristorante*. È possibile sostituire i livelli fuzzy predefiniti, se necessario. 
 
 * Usare il parametro `idxSet` per classificare in ordine di priorità il set esatto di tipi di risultati. Per classificare in ordine di priorità un set esatto di risultati, è possibile inviare un elenco di indici delimitati da virgole. Nell'elenco l'ordine degli elementi non è rilevante. Mappe di Azure supporta gli indici seguenti:
 
-* `Addr` - **Intervalli di indirizzi** : punti di indirizzo interpolati dall'inizio e dalla fine della strada. Questi punti sono rappresentati come intervalli di indirizzi.
-* `Geo` - **Aree geografiche** : divisioni amministrative del territorio. Un'area geografica può essere, ad esempio, un paese, uno stato o una città.
-* `PAD` - **Indirizzi di punti** : indirizzi che includono un nome e un numero di via. Gli indirizzi di punti si trovano in un indice. Un esempio è *Via Roma 18* . Un indirizzo di punti fornisce il livello maggiore di accuratezza disponibile per gli indirizzi.  
-* `POI` - **Punti di interesse** : punti su una mappa considerati meritevoli di attenzione o che possono essere interessanti. L'[API di ricerca di indirizzi](/rest/api/maps/search/getsearchaddress) non restituisce punti di interesse.  
-* `Str` - **Vie** : strade sulla mappa.
-* `XStr` - **Incroci stradali o intersezioni** : punti di congiunzione o luoghi in cui si intersecano due o più strade.
+* `Addr` - **Intervalli di indirizzi**: punti di indirizzo interpolati dall'inizio e dalla fine della strada. Questi punti sono rappresentati come intervalli di indirizzi.
+* `Geo` - **Aree geografiche**: divisioni amministrative del territorio. Un'area geografica può essere, ad esempio, un paese, uno stato o una città.
+* `PAD` - **Indirizzi di punti**: indirizzi che includono un nome e un numero di via. Gli indirizzi di punti si trovano in un indice. Un esempio è *Via Roma 18*. Un indirizzo di punti fornisce il livello maggiore di accuratezza disponibile per gli indirizzi.  
+* `POI` - **Punti di interesse**: punti su una mappa considerati meritevoli di attenzione o che possono essere interessanti. L'[API di ricerca di indirizzi](/rest/api/maps/search/getsearchaddress) non restituisce punti di interesse.  
+* `Str` - **Vie**: strade sulla mappa.
+* `XStr` - **Incroci stradali o intersezioni**: punti di congiunzione o luoghi in cui si intersecano due o più strade.
 
 
 #### <a name="usage-examples"></a>Esempi di utilizzo
@@ -85,7 +85,7 @@ Per limitare geograficamente i risultati in base all'area pertinente per l'utent
 
 Quando si esegue una ricerca di geocodifica inversa nell'[API di ricerca inversa di indirizzi](/rest/api/maps/search/getsearchaddressreverse), il servizio può restituire poligoni per le aree amministrative. Ad esempio, potrebbe essere necessario recuperare il poligono area per una città.  Per limitare la ricerca a specifici tipi di entità geografia, includere il parametro `entityType` nelle richieste. 
 
-La risposta risultante contiene l'ID area geografica e il tipo di entità di cui è stata trovata una corrispondenza. Se si specifica più di un'entità, l'endpoint restituisce l' *entità più piccola disponibile* . È possibile usare l'ID geometria restituito per ottenere la geometria dell'area geografica tramite il [servizio di ricerca di poligoni](/rest/api/maps/search/getsearchpolygon).
+La risposta risultante contiene l'ID area geografica e il tipo di entità di cui è stata trovata una corrispondenza. Se si specifica più di un'entità, l'endpoint restituisce l'*entità più piccola disponibile*. È possibile usare l'ID geometria restituito per ottenere la geometria dell'area geografica tramite il [servizio di ricerca di poligoni](/rest/api/maps/search/getsearchpolygon).
 
 #### <a name="sample-request"></a>Richiesta di esempio
 
@@ -137,7 +137,7 @@ Per altre informazioni, vedere [Lingue supportate da Mappe di Azure](./supported
 
 Per trovare più corrispondenze per le query parziali, impostare il parametro `typeahead` su `true`. Questa query viene interpretata come input parziale e la ricerca entra in modalità predittiva. Se non si imposta il parametro `typeahead` su `true`, il servizio presuppone che siano state passate tutte le informazioni pertinenti.
 
-Nella query di esempio seguente viene eseguita una query sul servizio di ricerca di indirizzi per *Microso* . Qui il parametro `typeahead` è impostato su `true`. La risposta mostra che il servizio di ricerca ha interpretato la query come parziale. La risposta contiene i risultati per una query suggerita automaticamente.
+Nella query di esempio seguente viene eseguita una query sul servizio di ricerca di indirizzi per *Microso*. Qui il parametro `typeahead` è impostato su `true`. La risposta mostra che il servizio di ricerca ha interpretato la query come parziale. La risposta contiene i risultati per una query suggerita automaticamente.
 
 #### <a name="sample-query"></a>Query di esempio
 
@@ -405,7 +405,7 @@ https://atlas.microsoft.com/search/address/json?subscription-key={subscription-k
 
 ### <a name="encode-a-uri-to-handle-special-characters"></a>Codificare un URI per gestire i caratteri speciali 
 
-Per trovare indirizzi di incroci, è necessario codificare l'URI in modo da gestire i caratteri speciali nell'indirizzo. Osservare questo esempio di indirizzo: *1st Avenue & Union Street, Seattle* . In questo caso, codificare il carattere di e commerciale (`&`) prima di inviare la richiesta. 
+Per trovare indirizzi di incroci, è necessario codificare l'URI in modo da gestire i caratteri speciali nell'indirizzo. Osservare questo esempio di indirizzo: *1st Avenue & Union Street, Seattle*. In questo caso, codificare il carattere di e commerciale (`&`) prima di inviare la richiesta. 
 
 È consigliabile codificare i dati di tipo carattere in un URI. In un URI è necessario codificare tutti i caratteri usando un simbolo di percentuale (`%`) e un valore esadecimale a due caratteri corrispondente al codice UTF-8 dei caratteri.
 
@@ -763,17 +763,17 @@ https://atlas.microsoft.com/search/address/json?subscription-key={subscription-k
 
 ### <a name="supported-types-of-results"></a>Tipi di risultati supportati
 
-* **Punto di interesse** : punti su una mappa che hanno un indirizzo specifico con un nome e un numero di strada. Un indirizzo di punti fornisce il livello maggiore di accuratezza per gli indirizzi. 
+* **Punto di interesse**: punti su una mappa che hanno un indirizzo specifico con un nome e un numero di strada. Un indirizzo di punti fornisce il livello maggiore di accuratezza per gli indirizzi. 
 
-* **Intervallo di indirizzi** : intervallo di punti di indirizzo interpolati dall'inizio e dalla fine della strada.  
+* **Intervallo di indirizzi**: intervallo di punti di indirizzo interpolati dall'inizio e dalla fine della strada.  
 
-* **Geography** : aree su una mappa che rappresentano le divisioni amministrative di un territorio, ad esempio paese/area geografica, stato o città. 
+* **Geography**: aree su una mappa che rappresentano le divisioni amministrative di un territorio, ad esempio paese/area geografica, stato o città. 
 
-* **Punto di interesse** : punti su una mappa considerati meritevoli di attenzione o che possono essere interessanti.
+* **Punto di interesse**: punti su una mappa considerati meritevoli di attenzione o che possono essere interessanti.
 
-* **Via** : strade sulla mappa. Gli indirizzi vengono risolti in base alle coordinate di latitudine e longitudine della strada che contiene l'indirizzo. Il numero civico può non essere elaborato. 
+* **Via**: strade sulla mappa. Gli indirizzi vengono risolti in base alle coordinate di latitudine e longitudine della strada che contiene l'indirizzo. Il numero civico può non essere elaborato. 
 
-* **Incrocio** : intersezioni. Gli incroci rappresentano i punti di congiunzione in cui si intersecano due strade.
+* **Incrocio**: intersezioni. Gli incroci rappresentano i punti di congiunzione in cui si intersecano due strade.
 
 ### <a name="response"></a>Risposta
 

@@ -10,12 +10,12 @@ ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 11/20/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 448f2b3e42e98d78652a005f5d1c11f55acdebb3
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
-ms.translationtype: HT
+ms.openlocfilehash: f0d912d5b14932c43d109f8f955d5f16381cf773
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95021185"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "98180099"
 ---
 # <a name="quickstart-create-a-search-index-using-the-azuresearchdocuments-client-library"></a>Avvio rapido: Creare un indice di ricerca con la libreria client Azure.Search.Documents
 
@@ -396,9 +396,9 @@ La classe [SearchResults](/dotnet/api/azure.search.documents.models.searchresult
 
         response = srchclient.Search<Hotel>("*", options);
         WriteDocuments(response);
-        ```
+    ```
 
-1. In the second query, search on a term, add a filter that selects documents where Rating is greater than 4, and then sort by Rating in descending order. Filter is a boolean expression that is evaluated over [IsFilterable](/dotnet/api/azure.search.documents.indexes.models.searchfield.isfilterable) fields in an index. Filter queries either include or exclude values. As such, there is no relevance score associated with a filter query. 
+1. Nella seconda query, cercare un termine, aggiungere un filtro che seleziona i documenti in cui rating è maggiore di 4 e quindi Ordina in base alla classificazione in ordine decrescente. Un filtro è un'espressione booleana che viene valutata sui campi [IsFilterable](/dotnet/api/azure.search.documents.indexes.models.searchfield.isfilterable) di un indice. Le query di filtro includono o escludono valori. Di conseguenza, a una query di filtro non è associato alcun punteggio di pertinenza. 
 
     ```csharp
     Console.WriteLine("Query #2: Search on 'hotels', filter on 'Rating gt 4', sort by Rating in descending order...\n");
@@ -499,7 +499,7 @@ L'output include i messaggi restituiti da [Console.WriteLine](/dotnet/api/system
 
 ## <a name="clean-up-resources"></a>Pulire le risorse
 
-Quando si lavora nella propria sottoscrizione, alla fine di un progetto è opportuno verificare se le risorse create sono ancora necessarie. Le risorse che rimangono in esecuzione hanno un costo. È possibile eliminare le singole risorse oppure il gruppo di risorse per eliminare l'intero set di risorse.
+Quando si lavora nella propria sottoscrizione, alla fine di un progetto è opportuno verificare se le risorse create sono ancora necessarie. L'esecuzione continua delle risorse può avere un costo. È possibile eliminare le singole risorse oppure il gruppo di risorse per eliminare l'intero set di risorse.
 
 Per trovare e gestire le risorse nel portale, usare il collegamento **Tutte le risorse** o **Gruppi di risorse** nel riquadro di spostamento a sinistra.
 

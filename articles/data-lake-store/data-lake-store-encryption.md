@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 03/26/2018
 ms.author: yagupta
 ms.openlocfilehash: f924cb7462f7f8c9939ec261b7ef200ceb8ea70b
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/16/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92109154"
 ---
 # <a name="encryption-of-data-in-azure-data-lake-storage-gen1"></a>Crittografia dei dati in Azure Data Lake Storage Gen1
@@ -78,7 +78,7 @@ Nella progettazione della crittografia dei dati vengono usati tre tipi di chiavi
 |-----------------------|--------------|-----------------|----------------------------------------------|------------|---------------------------------------------------------------------------------------------------------|
 | Chiave di crittografia master | MEK          | Un account Data Lake Storage Gen1 | Key Vault                              | Asimmetrica | Può essere gestita da Data Lake Storage Gen1 o dall'utente.                                                              |
 | Chiave di crittografia dei dati   | DEK          | Un account Data Lake Storage Gen1 | Risorsa di archiviazione persistente, gestita dal servizio Data Lake Storage Gen1 | Simmetrica  | La chiave di crittografia dei dati viene crittografata dalla chiave di crittografia master. È la chiave di crittografia dei dati crittografata a essere archiviata nei supporti persistenti. |
-| Chiave di crittografia a blocchi  | BEK          | Un blocco di dati | Nessuno                                         | Simmetrica  | La chiave di crittografia a blocchi deriva dalla chiave di crittografia dei dati e dal blocco di dati.                                                      |
+| Chiave di crittografia a blocchi  | BEK          | Un blocco di dati | nessuno                                         | Simmetrica  | La chiave di crittografia a blocchi deriva dalla chiave di crittografia dei dati e dal blocco di dati.                                                      |
 
 Il diagramma seguente illustra questi concetti:
 

@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 05/03/2019
 ms.author: jeedes
 ms.openlocfilehash: f729828627fdb0be18f220d34227aac756ed4e13
-ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
-ms.translationtype: HT
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/28/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92894883"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-xaitporter"></a>Esercitazione: Integrazione di Azure Active Directory con XaitPorter
@@ -61,7 +61,7 @@ Per configurare l'integrazione di XaitPorter in Azure AD, è necessario aggiunge
 
     ![Pulsante Nuova applicazione](common/add-new-app.png)
 
-4. Nella casella di ricerca digitare **XaitPorter** , selezionare **XaitPorter** nel pannello dei risultati e quindi fare clic sul pulsante **Aggiungi** per aggiungere l'applicazione.
+4. Nella casella di ricerca digitare **XaitPorter**, selezionare **XaitPorter** nel pannello dei risultati e quindi fare clic sul pulsante **Aggiungi** per aggiungere l'applicazione.
 
      ![XaitPorter nell'elenco risultati](common/search-new-app.png)
 
@@ -108,15 +108,15 @@ Per configurare Single Sign-On di Azure AD con XaitPorter, completare i passaggi
     > [!NOTE]
     > Poiché questi non sono i valori reali, è necessario aggiornarli con l'ID e l'URL di accesso effettivi. Per ottenere questi valori, contattare il [team di supporto clienti di XaitPorter](https://www.xait.com/support/). È anche possibile fare riferimento ai modelli mostrati nella sezione **Configurazione SAML di base** del portale di Azure.
 
-5. Nella pagina **Configura l'accesso Single Sign-On con SAML** , nella sezione **Certificato di firma SAML** , fare clic sul pulsante Copia per copiare l' **URL dei metadati di federazione dell'app** e salvarlo nel computer.
+5. Nella pagina **Configura l'accesso Single Sign-On con SAML**, nella sezione **Certificato di firma SAML**, fare clic sul pulsante Copia per copiare l'**URL dei metadati di federazione dell'app** e salvarlo nel computer.
 
     ![Collegamento di download del certificato](common/copy-metadataurl.png)
 
-6. Fornire l' **Indirizzo IP** o l' **URL dei metadati di federazione dell'app** al [team di supporto di SmartRecruiters](https://www.smartrecruiters.com/about-us/contact-us/), in modo che XaitPorter possa garantire che l'indirizzo IP sia raggiungibile dall'istanza di XaitPorter configurando l'elenco elementi approvati. 
+6. Fornire l'**Indirizzo IP** o l'**URL dei metadati di federazione dell'app** al [team di supporto di SmartRecruiters](https://www.smartrecruiters.com/about-us/contact-us/), in modo che XaitPorter possa garantire che l'indirizzo IP sia raggiungibile dall'istanza di XaitPorter configurando l'elenco elementi approvati. 
 
 ### <a name="configure-xaitporter-single-sign-on"></a>Configurare l'accesso Single Sign-On di XaitPorter
 
-1. Per automatizzare la configurazione all'interno di XaitPorter, è necessario installare l' **estensione del browser MyApps per l'accesso sicuro** facendo clic su **Installa l'estensione**.
+1. Per automatizzare la configurazione all'interno di XaitPorter, è necessario installare l'**estensione del browser MyApps per l'accesso sicuro** facendo clic su **Installa l'estensione**.
 
     ![Estensione MyApps](common/install-myappssecure-extension.png)
 
@@ -140,7 +140,7 @@ Per configurare Single Sign-On di Azure AD con XaitPorter, completare i passaggi
 
     a. Selezionare **Enable Single Sign-On Authentication**.
 
-    b. Nella casella di testo **Identity Provider Settings** (Impostazioni provider di identità) incollare l' **URL dei metadati di federazione dell'app** copiato dal portale di Azure e fare clic su **Fetch** (Recupera).
+    b. Nella casella di testo **Identity Provider Settings** (Impostazioni provider di identità) incollare l'**URL dei metadati di federazione dell'app** copiato dal portale di Azure e fare clic su **Fetch** (Recupera).
 
     c. Selezionare **Enable Autocreation of Users**.
 
@@ -150,7 +150,7 @@ Per configurare Single Sign-On di Azure AD con XaitPorter, completare i passaggi
 
 Questa sezione descrive come creare un utente test denominato Britta Simon nel portale di Azure.
 
-1. Nel riquadro sinistro del portale di Azure, selezionare **Azure Active Directory** , **Utenti** e quindi **Tutti gli utenti**.
+1. Nel riquadro sinistro del portale di Azure, selezionare **Azure Active Directory**, **Utenti** e quindi **Tutti gli utenti**.
 
     ![Collegamenti "Utenti e gruppi" e "Tutti gli utenti"](common/users.png)
 
@@ -174,7 +174,7 @@ Questa sezione descrive come creare un utente test denominato Britta Simon nel p
 
 In questa sezione Britta Simon viene abilitata per l'uso dell'accesso Single Sign-On di Azure concedendole l'accesso a XaitPorter.
 
-1. Nel portale di Azure selezionare **Applicazioni aziendali** , quindi **Tutte le applicazioni** e infine **XaitPorter**.
+1. Nel portale di Azure selezionare **Applicazioni aziendali**, quindi **Tutte le applicazioni** e infine **XaitPorter**.
 
     ![Pannello delle applicazioni aziendali](common/enterprise-applications.png)
 

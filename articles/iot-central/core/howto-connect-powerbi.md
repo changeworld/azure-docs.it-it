@@ -8,10 +8,10 @@ ms.author: viviali
 ms.date: 10/4/2019
 ms.topic: conceptual
 ms.openlocfilehash: 191b57b08ba04844824dd5cf26875c21e494c5ef
-ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/16/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92123338"
 ---
 # <a name="visualize-and-analyze-your-azure-iot-central-data-in-a-power-bi-dashboard"></a>Visualizzare e analizzare i dati di Azure IoT Central in un dashboard di Power BI
@@ -47,7 +47,7 @@ Per configurare la soluzione sono necessarie le risorse seguenti:
 
 ## <a name="install"></a>Installazione
 
-Per configurare la pipeline, passare alla pagina [Power BI soluzione per Azure IOT Central V3](https://appsource.microsoft.com/product/web-apps/iot-central.power-bi-solution-iot-central) nel sito **Microsoft AppSource** . Selezionare **Get it now**e seguire le istruzioni.
+Per configurare la pipeline, passare alla pagina [Power BI soluzione per Azure IOT Central V3](https://appsource.microsoft.com/product/web-apps/iot-central.power-bi-solution-iot-central) nel sito **Microsoft AppSource** . Selezionare **Get it now** e seguire le istruzioni.
 
 Quando si apre il file PBIX, assicurarsi di leggere e seguire le istruzioni nella pagina di copertina. Queste istruzioni descrivono come connettere il report al database SQL.
 
@@ -55,13 +55,13 @@ Quando si apre il file PBIX, assicurarsi di leggere e seguire le istruzioni nell
 
 Il file PBIX contiene i **dispositivi e il report di telemetria** Mostra una visualizzazione cronologica dei dati di telemetria inviati dai dispositivi. Fornisce una suddivisione dei diversi tipi di dati di telemetria e Mostra anche i dati di telemetria più recenti inviati dai dispositivi.
 
-:::image type="content" source="media/howto-connect-powerbi/report.png" alt-text="Pipeline della soluzione Power BI":::
+:::image type="content" source="media/howto-connect-powerbi/report.png" alt-text="Report dispositivi Power BI e telemetria":::
 
 ## <a name="pipeline-resources"></a>Risorse pipeline
 
 È possibile accedere a tutte le risorse di Azure che costituiscono la pipeline nell'portale di Azure. Tutte le risorse si trovano nel gruppo di risorse creato quando si configura la pipeline.
 
-:::image type="content" source="media/howto-connect-powerbi/azure-deployment.png" alt-text="Pipeline della soluzione Power BI":::
+:::image type="content" source="media/howto-connect-powerbi/azure-deployment.png" alt-text="Visualizzazione portale di Azure del gruppo di risorse":::
 
 Nell'elenco seguente viene descritto il ruolo di ogni risorsa nella pipeline:
 
@@ -75,7 +75,7 @@ Azure Data Factory si connette al database SQL come servizio collegato. Esegue s
 
 Azure Data Factory viene eseguito ogni 15 minuti per trasformare il batch più recente di dati da caricare nelle tabelle SQL, ovvero il numero minimo corrente per il **trigger di finestra a cascata**.
 
-### <a name="azure-sql-database"></a>database SQL di Azure
+### <a name="azure-sql-database"></a>Database SQL di Azure
 
 Azure Data Factory genera un set di tabelle di analisi per Power BI. È possibile esplorare questi schemi in Power BI e usarli per creare visualizzazioni personalizzate.
 

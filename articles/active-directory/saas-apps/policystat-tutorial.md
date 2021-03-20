@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 03/28/2019
 ms.author: jeedes
 ms.openlocfilehash: 4d6274f3e1356a8ff8a997e830f0ebee43f50cff
-ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
-ms.translationtype: HT
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/28/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92893069"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-policystat"></a>Esercitazione: Integrazione di Azure Active Directory con PolicyStat
@@ -66,7 +66,7 @@ Per configurare l'integrazione di PolicyStat in Azure AD, è necessario aggiunge
 
     ![Pulsante Nuova applicazione](common/add-new-app.png)
 
-4. Nella casella di ricerca digitare **PolicyStat** , selezionare **PolicyStat** nel pannello dei risultati e quindi fare clic sul pulsante **Aggiungi** per aggiungere l'applicazione.
+4. Nella casella di ricerca digitare **PolicyStat**, selezionare **PolicyStat** nel pannello dei risultati e quindi fare clic sul pulsante **Aggiungi** per aggiungere l'applicazione.
 
      ![PolicyStat nell'elenco risultati](common/search-new-app.png)
 
@@ -112,7 +112,7 @@ Per configurare l'accesso Single Sign-On di Azure AD con PolicyStat, seguire que
     > [!NOTE]
     > Poiché questi non sono i valori reali, è necessario aggiornarli con l'ID e l'URL di accesso effettivi. Per ottenere tali valori, contattare il [team di supporto clienti di PolicyStat](http://www.policystat.com/support/). È anche possibile fare riferimento ai modelli mostrati nella sezione **Configurazione SAML di base** del portale di Azure.
 
-4. Nella pagina **Configura l'accesso Single Sign-On con SAML** , nella sezione **Certificato di firma SAML** , fare clic su **Scarica** per scaricare il file **XML metadati federazione** definito dalle opzioni specificate in base ai propri requisiti e salvarlo in questo computer.
+4. Nella pagina **Configura l'accesso Single Sign-On con SAML**, nella sezione **Certificato di firma SAML**, fare clic su **Scarica** per scaricare il file **XML metadati federazione** definito dalle opzioni specificate in base ai propri requisiti e salvarlo in questo computer.
 
     ![Collegamento di download del certificato](common/metadataxml.png)
 
@@ -150,7 +150,7 @@ Per configurare l'accesso Single Sign-On di Azure AD con PolicyStat, seguire que
 
     a. URL di accesso
 
-    b. Identificatore Azure AD
+    b. Identificatore di Azure AD
 
     c. URL di chiusura sessione
 
@@ -158,11 +158,11 @@ Per configurare l'accesso Single Sign-On di Azure AD con PolicyStat, seguire que
 
 1. In un'altra finestra del Web browser accedere al sito aziendale di PolicyStat come amministratore.
 
-2. Scegliere la scheda **Admin** , quindi fare clic su **Configurazione di Single Sign-On** nel riquadro di spostamento a sinistra.
+2. Scegliere la scheda **Admin**, quindi fare clic su **Configurazione di Single Sign-On** nel riquadro di spostamento a sinistra.
    
     ![Administrator Menu](./media/policystat-tutorial/ic808633.png "Menu Amministratore")
 
-3. Fare clic su **Metadati del provider di identità** quindi, nella sezione **Metadati del provider di identità** , eseguire la procedura seguente:
+3. Fare clic su **Metadati del provider di identità** quindi, nella sezione **Metadati del provider di identità**, eseguire la procedura seguente:
    
     ![Screenshot che mostra l'azione "Your IDP Metadata" selezionata.](./media/policystat-tutorial/ic808636.png "Configurazione di Single Sign-On")
    
@@ -191,7 +191,7 @@ Per configurare l'accesso Single Sign-On di Azure AD con PolicyStat, seguire que
 
 In questa sezione si abilita il proprio account per l'uso dell'accesso Single Sign-On di Azure concedendogli l'accesso a PolicyStat.
 
-1. Nel portale di Azure selezionare **Applicazioni aziendali** , quindi **Tutte le applicazioni** e infine **PolicyStat**.
+1. Nel portale di Azure selezionare **Applicazioni aziendali**, quindi **Tutte le applicazioni** e infine **PolicyStat**.
 
     ![Pannello delle applicazioni aziendali](common/enterprise-applications.png)
 

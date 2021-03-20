@@ -10,10 +10,10 @@ services: azure-maps
 manager: cpendleton
 ms.custom: codepen, devx-track-js
 ms.openlocfilehash: 5f455a1132a0f63e1ba3eb5d2a57a1f9bfa9a867
-ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/28/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92895682"
 ---
 # <a name="how-to-use-image-templates"></a>Come usare i modelli di immagine
@@ -106,7 +106,7 @@ Vedere il <a href='https://codepen.io/azuremaps/pen/EqQvzq/'>marcatore HTML penn
 
 
 > [!TIP]
-> È anche possibile usare i modelli di immagine all'esterno della mappa. Il funciton getImageTemplate restituisce una stringa SVG con segnaposto; `{color}`, `{secondaryColor}`, `{scale}`, `{text}`. Sostituire i valori segnaposto per creare una stringa SVG valida. È quindi possibile aggiungere la stringa SVG direttamente al DOM HTML oppure convertirla in un URI di dati e inserirla in un tag di immagine. Esempio:
+> È anche possibile usare i modelli di immagine all'esterno della mappa. Il funciton getImageTemplate restituisce una stringa SVG con segnaposto; `{color}`, `{secondaryColor}`, `{scale}`, `{text}`. Sostituire i valori segnaposto per creare una stringa SVG valida. È quindi possibile aggiungere la stringa SVG direttamente al DOM HTML oppure convertirla in un URI di dati e inserirla in un tag di immagine. Ad esempio:
 > ```JavaScript
 > //Retrieve an SVG template and replace the placeholder values.
 > var svg = atlas.getImageTemplate('marker').replace(/{color}/, 'red').replace(/{secondaryColor}/, 'white').replace(/{text}/, '').replace(/{scale}/, 1);
@@ -119,7 +119,7 @@ Vedere il <a href='https://codepen.io/azuremaps/pen/EqQvzq/'>marcatore HTML penn
 
 Se l'applicazione usa la stessa icona con icone diverse o se si sta creando un modulo che aggiunge modelli di immagine aggiuntivi, è possibile aggiungere e recuperare facilmente queste icone da Azure Maps Web SDK. Usare le funzioni statiche seguenti nello `atlas` spazio dei nomi.
 
-| Nome | Tipo restituito | Description | 
+| Nome | Tipo restituito | Descrizione | 
 |-|-|-|
 | `addImageTemplate(templateName: string, template: string, override: boolean)` | | Aggiunge un modello di immagine SVG personalizzato allo spazio dei nomi dell'Atlante. |
 |  `getImageTemplate(templateName: string, scale?: number)`| string | Recupera un modello SVG in base al nome. |

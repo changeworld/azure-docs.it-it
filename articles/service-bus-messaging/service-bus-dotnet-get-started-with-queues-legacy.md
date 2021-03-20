@@ -6,10 +6,10 @@ ms.tgt_pltfrm: dotnet
 ms.date: 09/01/2020
 ms.custom: devx-track-csharp
 ms.openlocfilehash: e8e70884838d56003694e2da09668527ce5b6c7b
-ms.sourcegitcommit: 227b9a1c120cd01f7a39479f20f883e75d86f062
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/18/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100652990"
 ---
 # <a name="get-started-with-service-bus-queues"></a>Introduzione alle code del bus di servizio
@@ -114,7 +114,7 @@ Avviare Visual Studio e creare un nuovo progetto **App console (.NET Core)** per
     }
     ```
 
-Il file *Program.cs* dovrebbe essere simile al seguente.
+Il file *Program. cs* dovrebbe essere simile al seguente.
 
 ```csharp
 namespace CoreSenderApp
@@ -295,7 +295,7 @@ Per ricevere i messaggi inviati, creare un'altra applicazione **Console (.NET Co
     }
     ```
 
-Il file *Program.cs* dovrebbe essere simile al seguente:
+Ecco il file *Program. cs* che dovrebbe essere simile al seguente:
 
 ```csharp
 namespace CoreReceiverApp

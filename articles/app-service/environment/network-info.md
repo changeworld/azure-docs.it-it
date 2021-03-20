@@ -8,10 +8,10 @@ ms.date: 07/27/2020
 ms.author: ccompy
 ms.custom: seodec18
 ms.openlocfilehash: 91b6134e7c809a8af75aa1cf23523e352e0a1a0e
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/25/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "95997342"
 ---
 # <a name="networking-considerations-for-an-app-service-environment"></a>Considerazioni sulla rete per un ambiente del servizio app #
@@ -122,7 +122,7 @@ Se l'ambiente del servizio app ILB è il nome di dominio *contoso.appserviceenvi
 
 ## <a name="ase-ip-addresses"></a>Indirizzi IP dell'ambiente del servizio app ##
 
-Un ambiente del servizio app ha alcuni indirizzi IP di cui tenere conto. ovvero:
+Un ambiente del servizio app ha alcuni indirizzi IP di cui tenere conto. Ad esempio:
 
 - **Indirizzo IP in ingresso pubblico**: usato per il traffico di app in un ambiente del servizio app esterno e per il traffico di gestione sia per un ambiente del servizio app esterno che con bilanciamento del carico interno.
 - **IP pubblico in uscita**: usato come indirizzo IP di origine per le connessioni in uscita dall'ambiente del servizio app che lasciano la rete virtuale e non vengono indirizzate su una VPN.
@@ -180,9 +180,9 @@ Tenendo conto dei requisiti in ingresso e in uscita, i gruppi di sicurezza di re
 
 ![Regole di sicurezza in ingresso][4]
 
-Una regola predefinita consente agli indirizzi IP di comunicare con la subnet dell'ambiente del servizio app nella rete virtuale. Un'altra regola predefinita consente al bilanciamento del carico, noto anche come VIP pubblico, di comunicare con l'ambiente del servizio app. Per visualizzare le regole predefinite selezionare **Regole predefinite** accanto all'icona **Aggiungi**. Se si inserisce una regola nega tutto il resto prima delle regole predefinite, si impedisce il traffico tra l'indirizzo VIP e l'ambiente del servizio app. Per impedire il traffico proveniente da all'interno della rete virtuale, aggiungere una regola personalizzata per consentire connessioni in entrata. Usare un'origine uguale a AzureLoadBalancer con una destinazione **any** e un intervallo di porte di * *\** _. Dato che la regola del gruppo di sicurezza di rete viene applicata solo alla subnet dell'ambiente del servizio app, non è necessario impostare una destinazione specifica.
+Una regola predefinita consente agli indirizzi IP di comunicare con la subnet dell'ambiente del servizio app nella rete virtuale. Un'altra regola predefinita consente al bilanciamento del carico, noto anche come VIP pubblico, di comunicare con l'ambiente del servizio app. Per visualizzare le regole predefinite selezionare **Regole predefinite** accanto all'icona **Aggiungi**. Se si inserisce una regola nega tutto il resto prima delle regole predefinite, si impedisce il traffico tra l'indirizzo VIP e l'ambiente del servizio app. Per impedire il traffico proveniente da all'interno della rete virtuale, aggiungere una regola personalizzata per consentire connessioni in entrata. Usare un'origine uguale ad AzureLoadBalancer con una destinazione **qualsiasi** e un intervallo di porte di **\*\**. Dato che la regola del gruppo di sicurezza di rete viene applicata solo alla subnet dell'ambiente del servizio app, non è necessario impostare una destinazione specifica.
 
-Se è stato assegnato un indirizzo IP all'app, accertarsi di mantenere le porte aperte. Per visualizzare le porte, selezionare _ *ambiente del servizio app** > **indirizzi IP**.  
+Se è stato assegnato un indirizzo IP all'app, accertarsi di mantenere le porte aperte. Per visualizzare le porte, selezionare **ambiente del servizio app**  >  **indirizzi IP**.  
 
 Tutti gli elementi visualizzati nelle regole in uscita seguenti sono necessari, tranne per l'ultimo elemento. Queste voci consentono l'accesso alla rete alle dipendenze dell'ambiente del servizio app presentate più indietro in questo articolo. Se si bloccano una o più di queste voci, l'ambiente del servizio app smette di funzionare. L'ultima voce nell'elenco consente all'ambiente del servizio app di comunicare con altre risorse nella rete virtuale.
 
@@ -197,7 +197,7 @@ Si definisce tunneling forzato l'impostazione delle route nella rete virtuale in
 Quando si crea un ambiente del servizio app nel portale, viene creato anche un set di tabelle di route nella subnet creata con l'ambiente del servizio app.  Tali route indicano semplicemente di inviare il traffico in uscita direttamente a Internet.  
 Per creare le stesse route manualmente, seguire questa procedura:
 
-1. Accedere al portale di Azure. Selezionare le tabelle di route di **rete**  >  **Route Tables**.
+1. Accedere al portale di Azure. Selezionare le tabelle di route di **rete**  >  .
 
 2. Creare una nuova tabella route nella stessa area della rete virtuale.
 

@@ -8,10 +8,10 @@ ms.topic: include
 ms.date: 10/28/2020
 ms.author: cherylmc
 ms.openlocfilehash: 34986ac80a309bcfd495e5782496ba560f84c5f7
-ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
-ms.translationtype: HT
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93041548"
 ---
 Ogni computer client che viene connesso a una rete virtuale con la connessione Da punto a sito deve avere un certificato client installato. Il certificato viene generato dal certificato radice e viene installato in ogni computer client. Se non si installa un certificato client valido, l'autenticazione avrà esito negativo quando il client prova a connettersi alla rete virtuale.
@@ -22,9 +22,9 @@ Ogni computer client che viene connesso a una rete virtuale con la connessione D
 
 * **Certificato aziendale:**
 
-  * Se si usa una soluzione aziendale per la creazione di certificati, generare un certificato client con il valore di nome comune nel formato *nome\@dominio.com* . Usare questo formato anziché il formato *nome dominio\nome utente* .
+  * Se si usa una soluzione aziendale per la creazione di certificati, generare un certificato client con il valore di nome comune nel formato *nome\@dominio.com*. Usare questo formato anziché il formato *nome dominio\nome utente*.
 
-  * Verificare che il certificato client sia basato sul modello di certificato utente con *Autenticazione client* riportato come primo elemento nell'elenco d'uso. Controllare il certificato facendo doppio clic sul certificato client e aprendo **Utilizzo chiavi avanzato** nella scheda **Dettagli** .
+  * Verificare che il certificato client sia basato sul modello di certificato utente con *Autenticazione client* riportato come primo elemento nell'elenco d'uso. Controllare il certificato facendo doppio clic sul certificato client e aprendo **Utilizzo chiavi avanzato** nella scheda **Dettagli**.
 
 * **Certificato radice autofirmato:** Seguire la procedura descritta in uno dei seguenti articoli sui certificati di connessione da punto a sito, in modo che i certificati client creati siano compatibili con le connessioni da punto a sito.
 
