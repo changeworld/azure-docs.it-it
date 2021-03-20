@@ -10,10 +10,10 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.openlocfilehash: 57e847116febcea66e1e3ac4ba131617463b6c94
-ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/28/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92895767"
 ---
 # <a name="manage-authentication-in-azure-maps"></a>Gestire l'autenticazione in Mappe di Azure
@@ -27,7 +27,7 @@ Dopo aver creato un account Azure Maps, vengono generate le chiavi primarie e se
 È possibile visualizzare i dettagli di autenticazione nel portale di Azure. Nell'account scegliere **autenticazione** dal menu **Impostazioni** .
 
 > [!div class="mx-imgBorder"]
-> ![Dettagli autenticazione](./media/how-to-manage-authentication/how-to-view-auth.png)
+> ![Dettagli di autenticazione](./media/how-to-manage-authentication/how-to-view-auth.png)
 
 ## <a name="discover-category-and-scenario"></a>Individua categoria e scenario
 
@@ -45,8 +45,8 @@ La tabella seguente descrive gli scenari di autenticazione e autorizzazione comu
 
 | Scenario                                                                                    | Authentication | Autorizzazione | Lavoro di sviluppo | Lavoro operativo |
 | ------------------------------------------------------------------------------------------- | -------------- | ------------- | ------------------ | ------------------ |
-| [Daemon attendibile/applicazione client non interattiva](./how-to-secure-daemon-app.md)        | Chiave condivisa     | N/D           | Media             | Alto               |
-| [Daemon attendibile/applicazione client non interattiva](./how-to-secure-daemon-app.md)        | Azure AD       | Alto          | Basso                | Media             |
+| [Daemon attendibile/applicazione client non interattiva](./how-to-secure-daemon-app.md)        | Chiave condivisa     | N/D           | Medio             | Alto               |
+| [Daemon attendibile/applicazione client non interattiva](./how-to-secure-daemon-app.md)        | Azure AD       | Alto          | Basso                | Medio             |
 | [Applicazione Web a pagina singola con accesso Single Sign-on interattivo](./how-to-secure-spa-users.md) | Azure AD       | Alto          | Medio             | Livello medio             |
 | [Applicazione Web a pagina singola con accesso non interattivo](./how-to-secure-spa-app.md)      | Azure AD       | Alto          | Medio             | Livello medio             |
 | [Applicazione Web con accesso Single Sign-on interattivo](./how-to-secure-webapp-users.md)          | Azure AD       | Alto          | Alto               | Medio             |
@@ -56,14 +56,14 @@ I collegamenti nella tabella consentono di ottenere informazioni dettagliate sul
 
 ## <a name="view-role-definitions"></a>Visualizzare le definizioni dei ruoli
 
-Per visualizzare i ruoli di Azure disponibili per le mappe di Azure, passare a **controllo di accesso (IAM)** . Selezionare **Roles (ruoli** ) e quindi cercare i ruoli che iniziano con *Maps di Azure* . Questi ruoli di Azure Maps sono i ruoli a cui è possibile concedere l'accesso.
+Per visualizzare i ruoli di Azure disponibili per le mappe di Azure, passare a **controllo di accesso (IAM)**. Selezionare **Roles (ruoli**) e quindi cercare i ruoli che iniziano con *Maps di Azure*. Questi ruoli di Azure Maps sono i ruoli a cui è possibile concedere l'accesso.
 
 > [!div class="mx-imgBorder"]
 > ![Visualizzare i ruoli disponibili](./media/how-to-manage-authentication/how-to-view-avail-roles.png)
 
 ## <a name="view-role-assignments"></a>Visualizzare le assegnazioni di ruolo
 
-Per visualizzare gli utenti e le app a cui è stato concesso l'accesso per le mappe di Azure, passare a **controllo di accesso (IAM)** . Selezionare **assegnazioni di ruolo** , quindi filtrare in base a **Maps di Azure** .
+Per visualizzare gli utenti e le app a cui è stato concesso l'accesso per le mappe di Azure, passare a **controllo di accesso (IAM)**. Selezionare **assegnazioni di ruolo**, quindi filtrare in base a **Maps di Azure**.
 
 > [!div class="mx-imgBorder"]
 > ![Visualizzare gli utenti e le app a cui è stato concesso l'accesso](./media/how-to-manage-authentication/how-to-view-amrbac.png)

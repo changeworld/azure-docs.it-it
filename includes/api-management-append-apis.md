@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 11/09/2018
 ms.author: vlvinogr
 ms.openlocfilehash: 2bfa356deeede1c16bd5a464ea7081132a67faf6
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
-ms.translationtype: HT
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/26/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96183844"
 ---
 ## <a name="append-other-apis"></a>Aggiungere altre API
@@ -22,5 +22,5 @@ Per aggiungere un'API diversa all'API esistente, seguire questa procedura. Quand
 1. Passare all'istanza di Gestione API di Azure nel portale di Azure.
 2. Selezionare **API** nel menu a sinistra.
 3. Fare clic su **...** accanto all'API a cui si vuole aggiungere un'altra API.
-4. Nel menu a discesa selezionare **Importa**.
+4. Selezionare **Importa** dal menu a discesa.
 5. Selezionare un servizio da cui importare un'API.

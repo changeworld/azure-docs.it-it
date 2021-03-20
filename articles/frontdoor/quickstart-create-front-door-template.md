@@ -15,10 +15,10 @@ ms.date: 09/14/2020
 ms.author: duau
 ms.custom: subject-armqs
 ms.openlocfilehash: 223006193219afe4179f3161d5e60e6439207b22
-ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
-ms.translationtype: HT
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/28/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92896056"
 ---
 # <a name="quickstart-create-a-front-door-using-an-arm-template"></a>Avvio rapido: Creare una risorsa Frontdoor usando un modello ARM
@@ -31,7 +31,7 @@ Se l'ambiente soddisfa i prerequisiti e si ha familiarità con l'uso dei modelli
 
 [![Distribuzione in Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-front-door-create-basic%2Fazuredeploy.json)
 
-## <a name="prerequisites"></a>Prerequisiti 
+## <a name="prerequisites"></a>Prerequisiti
 
 * Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) prima di iniziare.
 * IP o FQDN di un sito Web o di un'applicazione Web.
@@ -94,7 +94,7 @@ Per distribuire il modello viene usato Azure PowerShell. Oltre ad Azure PowerShe
 
 1. Selezionare il gruppo di risorse creato nella sezione precedente. Il nome del gruppo di risorse predefinito è il nome del progetto seguito da **rg**.
 
-1. Selezionare la risorsa Frontdoor creata in precedenza e fare clic sul collegamento dell' **host front-end**. Il collegamento aprirà un Web browser per reindirizzare l'utente al nome di dominio completo (FQDN) back-end definito durante la creazione.
+1. Selezionare la risorsa Frontdoor creata in precedenza e fare clic sul collegamento dell'**host front-end**. Il collegamento aprirà un Web browser per reindirizzare l'utente al nome di dominio completo (FQDN) back-end definito durante la creazione.
 
     :::image type="content" source="./media/quickstart-create-front-door-template/front-door-overview.png" alt-text="Panoramica del portale Frontdoor":::
 

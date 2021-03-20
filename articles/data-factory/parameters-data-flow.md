@@ -8,10 +8,10 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.date: 05/01/2020
 ms.openlocfilehash: 564c7cf6e9627db08d543b964ce476e71bfb473d
-ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93040751"
 ---
 # <a name="parameterizing-mapping-data-flows"></a>Impostazione dei parametri per i flussi di dati di mapping
@@ -28,7 +28,7 @@ Usare questa funzionalità per rendere i flussi di dati generici, flessibili e r
 
 ## <a name="create-parameters-in-a-mapping-data-flow"></a>Creazione di parametri in un flusso di dati di mapping
 
-Per aggiungere parametri al flusso di dati, fare clic sulla parte vuota dell'area di disegno del flusso di dati per visualizzare le proprietà generali. Nel riquadro impostazioni viene visualizzata una scheda denominata **Parameter** . Selezionare **nuovo** per generare un nuovo parametro. Per ogni parametro, è necessario assegnare un nome, selezionare un tipo e, facoltativamente, impostare un valore predefinito.
+Per aggiungere parametri al flusso di dati, fare clic sulla parte vuota dell'area di disegno del flusso di dati per visualizzare le proprietà generali. Nel riquadro impostazioni viene visualizzata una scheda denominata **Parameter**. Selezionare **nuovo** per generare un nuovo parametro. Per ogni parametro, è necessario assegnare un nome, selezionare un tipo e, facoltativamente, impostare un valore predefinito.
 
 ![Creare parametri del flusso di dati](media/data-flow/create-params.png "Creare parametri del flusso di dati")
 
@@ -52,7 +52,7 @@ Quando si assegnano valori di parametro, è possibile usare il [linguaggio delle
 
 ### <a name="pipeline-expression-parameters"></a>Parametri dell'espressione pipeline
 
-I parametri delle espressioni della pipeline consentono di fare riferimento a variabili di sistema, funzioni, parametri della pipeline e variabili simili ad altre attività della pipeline. Quando si fa clic su **espressione pipeline** , si aprirà un NAV laterale che consente di immettere un'espressione usando il generatore di espressioni.
+I parametri delle espressioni della pipeline consentono di fare riferimento a variabili di sistema, funzioni, parametri della pipeline e variabili simili ad altre attività della pipeline. Quando si fa clic su **espressione pipeline**, si aprirà un NAV laterale che consente di immettere un'espressione usando il generatore di espressioni.
 
 ![Screenshot che mostra il riquadro Generatore di espressioni.](media/data-flow/parameter-pipeline.png "Impostazione di un parametro del flusso di dati")
 

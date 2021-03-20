@@ -10,10 +10,10 @@ services: azure-maps
 manager: philmea
 ms.custom: devx-track-js
 ms.openlocfilehash: 133674e6764e12742f5b238946e943d9b5011cd2
-ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/28/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92891330"
 ---
 # <a name="read-and-write-spatial-data"></a>Leggere e scrivere dati spaziali
@@ -41,7 +41,7 @@ Quando si legge un file compresso, come zip o KMZ, questo verrà decompresso e a
 
 Il risultato della funzione Read è un `SpatialDataSet` oggetto. Questo oggetto estende la classe Featurecollection di GeoJSON. È possibile passare facilmente in un oggetto `DataSource` così come sono per eseguire il rendering delle relative funzionalità su una mappa. `SpatialDataSet`Non solo contiene informazioni sulle funzionalità, ma può includere anche sovrapposizioni di base KML, metriche di elaborazione e altri dettagli, come illustrato nella tabella seguente.
 
-| Nome proprietà | Type | Description | 
+| Nome proprietà | Type | Descrizione | 
 |---------------|------|-------------|
 | `bbox` | `BoundingBox` | Rettangolo di delimitazione di tutti i dati nel set di dati. |
 | `features` | `Feature[]` | Funzionalità GeoJSON all'interno del set di dati. |

@@ -11,10 +11,10 @@ ms.topic: end-user-help
 ms.date: 08/12/2019
 ms.author: curtand
 ms.openlocfilehash: 40af9ac692a226b12f984db447db9635cba655e4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91530256"
 ---
 # <a name="set-up-a-mobile-device-as-your-two-factor-verification-method"></a>Configurare un dispositivo mobile come metodo di verifica a due fattori
@@ -26,17 +26,17 @@ ms.locfileid: "91530256"
 
 ## <a name="set-up-your-mobile-device-to-use-a-text-message-as-your-verification-method"></a>Configurare il dispositivo mobile per usare un SMS come metodo di verifica
 
-1. Nella pagina **Verifica di sicurezza aggiuntiva** selezionare **Telefono per l'autenticazione** nell'area **Passaggio 1: indicare il modo in cui si preferisce essere contattati**, selezionare il paese o l'area geografica nell'elenco a discesa e quindi digitare il numero di telefono del dispositivo mobile.
+1. Nella pagina **verifica aggiuntiva di sicurezza** selezionare **telefono per l'autenticazione** dall'area **passaggio 1: modalità di contatto dell'utente** , selezionare il paese o la regione dall'elenco a discesa, quindi digitare il numero di telefono del dispositivo mobile.
 
 2. Selezionare **Invia un codice tramite messaggio di testo** nell'area **Metodo** e quindi **Avanti**.
 
     ![Screenshot che mostra la pagina "verifica aggiuntiva di sicurezza", con l'opzione "telefono per l'autenticazione" e "Invia un codice per SMS" selezionato.](media/multi-factor-authentication-verification-methods/multi-factor-authentication-text-message.png)
 
-3. Digitare il codice di verifica contenuto nell'SMS inviato da Microsoft nell'area **Passaggio 2: l'utente riceverà un SMS al telefono** e quindi selezionare **Verifica**.
+3. Digitare il codice di verifica del messaggio di testo inviato da Microsoft nel **passaggio 2: è stato inviato un messaggio di testo all'** area del telefono e quindi selezionare **Verifica**.
 
     ![Pagina Verifica di sicurezza aggiuntiva, con Telefono per l'autenticazione e SMS](media/multi-factor-authentication-verification-methods/multi-factor-authentication-text-message-test.png)
 
-4. Dall'area **Passaggio 3: continuare a usare le applicazioni esistenti** copiare la password per le app visualizzata e incollarla in una posizione sicura.
+4. Dall'area **passaggio 3: continua a usare le applicazioni esistenti** , copiare la password dell'app specificata e incollarla in un luogo sicuro.
 
     ![Area delle password per le app nella pagina Verifica di sicurezza aggiuntiva](media/multi-factor-authentication-verification-methods/multi-factor-authentication-app-passwords.png)
 
@@ -47,7 +47,7 @@ ms.locfileid: "91530256"
 
 ## <a name="set-up-your-mobile-device-to-receive-a-phone-call"></a>Configurare il dispositivo mobile per ricevere una telefonata
 
-1. Nella pagina **Verifica di sicurezza aggiuntiva** selezionare **Telefono per l'autenticazione** nell'area **Passaggio 1: indicare il modo in cui si preferisce essere contattati**, selezionare il paese o l'area geografica nell'elenco a discesa e quindi digitare il numero di telefono del dispositivo mobile.
+1. Nella pagina **verifica aggiuntiva di sicurezza** selezionare **telefono per l'autenticazione** dall'area **passaggio 1: modalità di contatto dell'utente** , selezionare il paese o la regione dall'elenco a discesa, quindi digitare il numero di telefono del dispositivo mobile.
 
 2. Selezionare **Chiama** nell'area **Metodo** e quindi **Avanti**.
 
@@ -57,7 +57,7 @@ ms.locfileid: "91530256"
 
     ![Test del numero di telefono specificato](media/multi-factor-authentication-verification-methods/multi-factor-authentication-phone-call-test.png)
 
-4. Dall'area **Passaggio 3: continuare a usare le applicazioni esistenti** copiare la password per le app visualizzata e incollarla in una posizione sicura.
+4. Dall'area **passaggio 3: continua a usare le applicazioni esistenti** , copiare la password dell'app specificata e incollarla in un luogo sicuro.
 
     ![Area delle password per le app nella pagina Verifica di sicurezza aggiuntiva](media/multi-factor-authentication-verification-methods/multi-factor-authentication-app-passwords.png)
 

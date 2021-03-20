@@ -12,10 +12,10 @@ ms.author: sstein
 ms.reviewer: ''
 ms.date: 12/04/2018
 ms.openlocfilehash: d660e62ea293bd3cc377b95612cfaf41a9f1cd6a
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/28/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92793365"
 ---
 # <a name="using-the-elastic-database-client-library-with-dapper"></a>Uso della libreria client dei database elastici con elegante
@@ -23,7 +23,7 @@ ms.locfileid: "92793365"
 
 Questo documento è rivolto agli sviluppatori che si basano su Dapper per creare applicazioni, ma desiderano avvalersi degli [strumenti dei database elastici](elastic-scale-introduction.md) per creare applicazioni che implementano il partizionamento per la scalabilità orizzontale del livello dati.  Questo documento illustra le modifiche da apportare nelle applicazioni basate su Dapper per l'integrazione con gli strumenti dei database elastici. L'obiettivo è comporre la gestione delle partizioni dei database elastici e il routing dipendente dai dati con Dapper. 
 
-**Codice di esempio** : [Strumenti dei database elastici per il database SQL di Azure - Integrazione con Dapper](https://code.msdn.microsoft.com/Elastic-Scale-with-Azure-e19fc77f).
+**Codice di esempio**: [Strumenti dei database elastici per il database SQL di Azure - Integrazione con Dapper](https://code.msdn.microsoft.com/Elastic-Scale-with-Azure-e19fc77f).
 
 L'integrazione di **Dapper** e **DapperExtensions** con la libreria client dei database elastici per il database SQL di Azure è semplice. Le applicazioni possono usare il routing dipendente dai dati modificando la creazione e l'apertura di nuovi oggetti [SqlConnection](/dotnet/api/system.data.sqlclient.sqlconnection) per usare la chiamata a [OpenConnectionForKey](/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.rangeshardmap-1) dalla [libreria client](/previous-versions/azure/dn765902(v=azure.100)). Questo limita le modifiche nell'applicazione solo ai punti in cui vengono create e aperte nuove connessioni. 
 
@@ -39,7 +39,7 @@ Un altro vantaggio offerto da Dapper e anche da DapperExtensions è il controllo
 Per ottenere gli assembly Dapper, vedere la pagina relativa a [Dapper dot net](https://www.nuget.org/packages/Dapper/). Per le estensioni Dapper, vedere la pagina relativa a [DapperExtensions](https://www.nuget.org/packages/DapperExtensions).
 
 ## <a name="a-quick-look-at-the-elastic-database-client-library"></a>Una rapida panoramica della libreria client dei database elastici
-Con libreria client dei database elastici è possibile definire partizioni di dati di applicazione denominate *shardlet* , eseguirne il mapping con i database e identificarli in base a *chiavi di partizionamento orizzontale* . È possibile disporre di tutti i database desiderati e distribuire gli shardlet su tali database. Il mapping dei valori delle chiavi di partizionamento orizzontale ai database è archiviato in una mappa partizioni fornita dalle API della libreria. Questa funzionalità è denominata **gestione mappe partizioni** . La mappa partizioni funge anche da gestore delle connessioni di database per le richieste che contengono una chiave di partizionamento orizzontale. Questa funzionalità è indicata come **routing dipendente dai dati** .
+Con libreria client dei database elastici è possibile definire partizioni di dati di applicazione denominate *shardlet*, eseguirne il mapping con i database e identificarli in base a *chiavi di partizionamento orizzontale*. È possibile disporre di tutti i database desiderati e distribuire gli shardlet su tali database. Il mapping dei valori delle chiavi di partizionamento orizzontale ai database è archiviato in una mappa partizioni fornita dalle API della libreria. Questa funzionalità è denominata **gestione mappe partizioni**. La mappa partizioni funge anche da gestore delle connessioni di database per le richieste che contengono una chiave di partizionamento orizzontale. Questa funzionalità è indicata come **routing dipendente dai dati**.
 
 ![Mappe di partizione e routing dipendente dai dati][1]
 
@@ -50,11 +50,11 @@ Anziché usare il sistema tradizionale per creare connessioni per Dapper, è nec
 ### <a name="requirements-for-dapper-integration"></a>Requisiti per l'integrazione con Dapper
 Quando si usano sia la libreria client dei database elastici che le API di Dapper, si desidera mantenere le seguenti proprietà:
 
-* **Scalabilità orizzontale** : si desidera aggiungere o rimuovere database dal livello dati dell'applicazione partizionata a seconda delle necessità per soddisfare le esigenze di capacità dell'applicazione. 
-* **Coerenza** : poiché nell'applicazione viene implementata la scalabilità orizzontale con il partizionamento orizzontale, è necessario eseguire il routing dipendente dai dati. A tale scopo, è possibile usare le funzionalità di routing dipendente dai dati della libreria. In particolare, si desidera mantenere le garanzie di convalida e coerenza fornite dalle connessioni negoziate tramite il gestore mappe partizioni per evitare problemi di danneggiamento o di risultati di query non corretti. Ciò garantisce che le connessioni a un determinato shardlet vengano rifiutate o arrestate se ad esempio lo shardlet è attualmente spostato in una partizione diversa tramite API di suddivisione/unione.
-* **Mapping degli oggetti** : si desidera mantenere i vantaggi dei mapping forniti da Dapper per la conversione tra le classi nell'applicazione e le strutture di database sottostanti. 
+* **Scalabilità orizzontale**: si desidera aggiungere o rimuovere database dal livello dati dell'applicazione partizionata a seconda delle necessità per soddisfare le esigenze di capacità dell'applicazione. 
+* **Coerenza**: poiché nell'applicazione viene implementata la scalabilità orizzontale con il partizionamento orizzontale, è necessario eseguire il routing dipendente dai dati. A tale scopo, è possibile usare le funzionalità di routing dipendente dai dati della libreria. In particolare, si desidera mantenere le garanzie di convalida e coerenza fornite dalle connessioni negoziate tramite il gestore mappe partizioni per evitare problemi di danneggiamento o di risultati di query non corretti. Ciò garantisce che le connessioni a un determinato shardlet vengano rifiutate o arrestate se ad esempio lo shardlet è attualmente spostato in una partizione diversa tramite API di suddivisione/unione.
+* **Mapping degli oggetti**: si desidera mantenere i vantaggi dei mapping forniti da Dapper per la conversione tra le classi nell'applicazione e le strutture di database sottostanti. 
 
-La seguente sezione fornisce indicazioni per tali requisiti per le applicazioni basate su **Dapper** e **DapperExtensions** .
+La seguente sezione fornisce indicazioni per tali requisiti per le applicazioni basate su **Dapper** e **DapperExtensions**.
 
 ## <a name="technical-guidance"></a>Indicazioni tecniche
 ### <a name="data-dependent-routing-with-dapper"></a>Routing dipendente dai dati con Dapper

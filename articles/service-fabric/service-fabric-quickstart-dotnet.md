@@ -5,10 +5,10 @@ ms.topic: quickstart
 ms.date: 06/26/2019
 ms.custom: mvc, devcenter, vs-azure
 ms.openlocfilehash: 15e2180e44acaa5ebefb403b2da3755396a45ba4
-ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
-ms.translationtype: HT
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/03/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96575891"
 ---
 # <a name="quickstart-deploy-a-net-reliable-services-application-to-service-fabric"></a>Guida introduttiva: distribuire un'applicazione Reliable Services .NET su Service Fabric
@@ -28,7 +28,7 @@ Usando questa applicazione, si apprenderà come:
 * Scalare orizzontalmente l'applicazione in più nodi
 * Eseguire un aggiornamento in sequenza delle applicazioni
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerequisiti
 
 Per completare questa guida introduttiva:
 
@@ -127,20 +127,20 @@ Per osservare che cosa avviene nel codice, completare la procedura seguente:
 
      ![Aggiungere il servizio front-end di voto](./media/service-fabric-quickstart-dotnet/addvote-frontend.png)
 
-   * Prima di tutto, costruire l'URL di ReverseProxy per il servizio back-end **(1)** .
-   * Inviare quindi la richiesta PUT HTTP a ReverseProxy **(2)** .
-   * Infine, restituire la risposta dal servizio back-end al client **(3)** .
+   * Prima di tutto, costruire l'URL di ReverseProxy per il servizio back-end **(1)**.
+   * Inviare quindi la richiesta HTTP PUT a ReverseProxy **(2)**.
+   * Infine, restituire la risposta dal servizio back-end al client **(3)**.
 
-4. Premere **F5** per continuare.
+4. Premere **F5** per continuare
    - Se richiesto dal browser, assegnare al gruppo ServiceFabricAllowedUsers le autorizzazioni di lettura ed esecuzione per Modalità di debug.
    - Ora ci troviamo in corrispondenza del punto di interruzione nel servizio back-end.
 
      ![Aggiungere il servizio back-end di voto](./media/service-fabric-quickstart-dotnet/addvote-backend.png)
 
-   - Nella prima riga del metodo **(1)** `StateManager` viene usato per ottenere o aggiungere un dizionario Reliable denominato `counts`.
+   - Nella prima riga del metodo **(1)**`StateManager` viene usato per ottenere o aggiungere un dizionario Reliable denominato `counts`.
    - Tutte le interazioni con i valori in un oggetto Reliable Dictionary richiedono una transazione, che viene creata dall'istruzione using **(2)** .
-   - Nella transazione aggiornare il valore della chiave pertinente per l'opzione di voto ed eseguire il commit dell'operazione **(3)** . Dopo la restituzione del metodo Commit, i dati vengono aggiornati nel dizionario e replicati negli altri nodi del cluster. A questo punto, i dati sono archiviati in modo sicuro nel cluster e il servizio back-end può eseguire il failover in altri nodi, rendendo comunque disponibili i dati.
-5. Premere **F5** per continuare.
+   - Nella transazione aggiornare il valore della chiave pertinente per l'opzione di voto ed eseguire il commit dell'operazione **(3)**. Dopo la restituzione del metodo Commit, i dati vengono aggiornati nel dizionario e replicati negli altri nodi del cluster. A questo punto, i dati sono archiviati in modo sicuro nel cluster e il servizio back-end può eseguire il failover in altri nodi, rendendo comunque disponibili i dati.
+5. Premere **F5** per continuare
 
 Per interrompere la sessione di debug, premere **MAIUSC+F5**.
 
@@ -176,7 +176,7 @@ Per aggiornare l'applicazione, eseguire le operazioni seguenti:
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-In questa guida introduttiva si è appreso come:
+In questo argomento di avvio rapido si è appreso come:
 
 * Creare un'applicazione mediante .NET e Service Fabric
 * Usare ASP.NET Core come front-end Web

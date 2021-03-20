@@ -4,10 +4,10 @@ description: In questo articolo viene illustrata un'introduzione all'uso di Gest
 ms.topic: conceptual
 ms.date: 06/22/2017
 ms.openlocfilehash: 32f47d62cc9dda7cc88421dbf616bf69ffe152fc
-ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/03/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96575687"
 ---
 # <a name="service-fabric-with-azure-api-management-overview"></a>Panoramica di Service Fabric con Gestione API di Azure
@@ -21,7 +21,7 @@ In questo articolo viene illustrata un'introduzione all'uso di Gestione API di A
 > [!IMPORTANT]
 > Questa funzionalità è disponibile nei livelli **Premium** e **Developer** di Gestione API, dato il supporto di rete virtuale richiesto.
 
-## <a name="architecture"></a>Architecture
+## <a name="architecture"></a>Architettura
 
 Un'architettura Service Fabric comune usa un'applicazione Web di una pagina che esegue chiamate HTTP ai servizi back-end che espongono API HTTP. L'[applicazione introduttive a Service Fabric di esempio](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started) mostra un esempio di questa architettura.
 

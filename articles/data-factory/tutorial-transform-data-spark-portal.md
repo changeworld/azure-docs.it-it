@@ -7,10 +7,10 @@ author: nabhishek
 ms.author: abnarain
 ms.date: 01/10/2018
 ms.openlocfilehash: 2e2a50a96402f01fe914c79d5257fc5bb4dc57a0
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/14/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100377789"
 ---
 # <a name="transform-data-in-the-cloud-by-using-a-spark-activity-in-azure-data-factory"></a>Trasformare dati nel cloud usando un'attività Spark in Azure Data Factory
@@ -67,7 +67,7 @@ Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://a
     if __name__ == "__main__":
         main()
     ```
-1. Sostituire *&lt;storageAccountName&gt;* con il nome del proprio account di archiviazione di Azure. Salvare quindi il file. 
+1. Sostituire *&lt; storageAccountName &gt;* con il nome dell'account di archiviazione di Azure. Salvare quindi il file. 
 1. Nell'Archivio BLOB di Azure creare un contenitore denominato **adftutorial**, se non esiste. 
 1. Creare una cartella denominata **spark**.
 1. Creare una sottocartella denominata **script** nella cartella **spark**. 
@@ -89,7 +89,7 @@ Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://a
       
    ![Riquadro "Nuova data factory"](./media/tutorial-transform-data-spark-portal/new-azure-data-factory.png)
  
-   Il nome della data factory di Azure deve essere *univoco a livello globale*. Se viene visualizzato l'errore seguente, cambiare il nome della data factory. Usare, ad esempio **&lt;nomeutente&gt;ADFTutorialDataFactory**. Per le regole di denominazione per gli elementi di Data Factory, vedere l'articolo [Data Factory - Regole di denominazione](naming-rules.md).
+   Il nome della data factory di Azure deve essere *univoco a livello globale*. Se viene visualizzato l'errore seguente, cambiare il nome della data factory. Usare, ad esempio, **&lt; &gt; ADFTutorialDataFactory**. Per le regole di denominazione per gli elementi di Data Factory, vedere l'articolo [Data Factory - Regole di denominazione](naming-rules.md).
   
    ![Errore quando un nome non è disponibile](./media/tutorial-transform-data-spark-portal/name-not-available-error.png)
 1. Per **Sottoscrizione** selezionare la sottoscrizione di Azure in cui creare la data factory. 
@@ -220,7 +220,7 @@ Selezionare **Aggiungi trigger** nella barra degli strumenti, quindi selezionare
 
    ![Stato dell'esecuzione della pipeline](./media/tutorial-transform-data-spark-portal/pipeline-run-succeeded.png) 
 
-   È possibile tornare alla visualizzazione delle sessioni della pipeline selezionando il collegamento **Tutte le sessioni della pipeline**  nella parte superiore.
+   È possibile tornare alla visualizzazione delle sessioni della pipeline selezionando il collegamento **Tutte le sessioni della pipeline** nella parte superiore.
 
    ![Visualizzazione "Esecuzioni attività"](./media/tutorial-transform-data-spark-portal/activity-runs.png)
 
@@ -251,7 +251,7 @@ La pipeline in questo esempio trasforma i dati usando un'attività Spark e un se
 Per informazioni su come trasformare i dati tramite l'esecuzione di uno script Hive in un cluster Azure HDInsight che si trova in una rete virtuale, passare all'esercitazione successiva: 
 
 > [!div class="nextstepaction"]
-> [Esercitazione: Trasformare dati usando Hive nella rete virtuale di Azure](tutorial-transform-data-hive-virtual-network-portal.md).
+> [Esercitazione: trasformare i dati usando hive nella rete virtuale di Azure](tutorial-transform-data-hive-virtual-network-portal.md).
 
 
 

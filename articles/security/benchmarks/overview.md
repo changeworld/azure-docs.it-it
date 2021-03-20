@@ -9,10 +9,10 @@ ms.date: 09/11/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
 ms.openlocfilehash: 3bc97a932e622838315f717cc7b036a559787805
-ms.sourcegitcommit: 1bdcaca5978c3a4929cccbc8dc42fc0c93ca7b30
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/13/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97369158"
 ---
 # <a name="overview-of-the-azure-security-benchmark-v2"></a>Panoramica del benchmark di sicurezza di Azure (v2)
@@ -28,7 +28,7 @@ Questo benchmark è parte di una serie di indicazioni di sicurezza olistiche che
  Il benchmark di sicurezza di Azure è incentrato sulle aree di controllo incentrate sul cloud. Questi controlli sono coerenti con i benchmark di sicurezza noti, ad esempio quelli descritti da Center for Internet Security (CIS) Controls versione 7,1 e National Institute of Standards and Technology (NIST) SP 800-53.
 I controlli seguenti sono inclusi nel benchmark di sicurezza di Azure:
 
-| Domini di controllo ASB | Description 
+| Domini di controllo ASB | Descrizione 
 |--|--|
 | [Sicurezza di rete &nbsp; &nbsp; (NS)](security-controls-v2-network-security.md) | La sicurezza di rete copre i controlli per proteggere e proteggere le reti di Azure, tra cui la protezione delle reti virtuali, la creazione di connessioni private, la prevenzione e la mitigazione degli attacchi esterni e la protezione del DNS. |
 | [&nbsp;Gestione delle identità &nbsp; (im)](security-controls-v2-identity-management.md) | Gestione delle identità copre i controlli per stabilire un'identità e controlli di accesso sicuri usando Azure Active Directory, tra cui l'uso di Single Sign-On, le autenticazioni complesse, le identità gestite (e i principi di servizio) per le applicazioni, l'accesso condizionale e il monitoraggio delle anomalie dell'account. |

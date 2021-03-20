@@ -15,10 +15,10 @@ ms.topic: troubleshooting
 ms.date: 01/23/2017
 ms.author: mazha
 ms.openlocfilehash: d6ad0b8b37bd4f04c22ed52d4ac6717202f22889
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "88192482"
 ---
 # <a name="troubleshooting-azure-cdn-endpoints-that-return-a-404-status-code"></a>Risoluzione dei problemi degli endpoint della rete CDN di Azure che restituiscono un codice stato 404
@@ -51,7 +51,7 @@ Le cause possono essere diverse, ad esempio:
 ### <a name="check-the-origin-file"></a>Controllare il file di origine
 In primo luogo, verificare che il file da memorizzare nella cache sia disponibile nel server di origine e accessibile pubblicamente In Internet. Il modo più rapido per eseguire questa operazione consiste nell'aprire un browser in una sessione privata o anonima e passare direttamente al file. Digitare o incollare l'URL nella casella dell'indirizzo e verificare che restituisca il file desiderato. Si supponga ad esempio che si disponga di un file in account di Archiviazione di Azure, accessibile all'indirizzo https:\//cdndocdemo.blob.core.windows.net/publicblob/lorem.txt. Se è stato possibile caricare il contenuto del file, il test è stato superato.
 
-![L'operazione è stata completata.](./media/cdn-troubleshoot-endpoint/cdn-origin-file.png)
+![Operazione riuscita.](./media/cdn-troubleshoot-endpoint/cdn-origin-file.png)
 
 > [!WARNING]
 > Anche se questo è il modo più rapido e semplice per verificare che il file sia disponibile pubblicamente, per alcune configurazioni di rete dell'organizzazione potrebbe sembrare che il file sia disponibile pubblicamente mentre in realtà è visibile solo agli utenti della rete (anche se è ospitato in Azure). Per garantire che la situazione è diversa, eseguire il test sul file con un browser esterno, ad esempio in un dispositivo mobile non connesso alla rete dell'organizzazione, oppure in una macchina virtuale in Azure.
@@ -90,7 +90,7 @@ Viene visualizzata la pagina **Configura** dell'endpoint di rete CDN.
 ![Pagina Configura](./media/cdn-troubleshoot-endpoint/cdn-configure.png)
 
 #### <a name="protocols"></a>Protocolli
-In **Protocolli**verificare che sia selezionato il protocollo usato dai client. Lo stesso protocollo usato dal client è quello usato per accedere all'origine, quindi è importante che le porte di origine siano configurate correttamente nella sezione precedente. L'endpoint di rete CDN è in ascolto solo sulle porte HTTP e HTTPS (80 e 443) predefinite, indipendentemente dalle porte di origine.
+In **Protocolli** verificare che sia selezionato il protocollo usato dai client. Lo stesso protocollo usato dal client è quello usato per accedere all'origine, quindi è importante che le porte di origine siano configurate correttamente nella sezione precedente. L'endpoint di rete CDN è in ascolto solo sulle porte HTTP e HTTPS (80 e 443) predefinite, indipendentemente dalle porte di origine.
 
 Torniamo all'esempio con http:\//www.contoso.com:8080/file.txt.  Come indicato in precedenza, Contoso ha specificato *8080* come porta HTTP, ma si supponga che sia stata specificata la porta *44300* come porta HTTPS.  Se è stato creato un endpoint denominato *contoso*, il nome host dell'endpoint di rete CDN sarebbe *contoso.azureedge.net*.  Una richiesta per http:\//contoso.azureedge.net/file.txt è una richiesta HTTP, pertanto l'endpoint userebbe HTTP sulla porta 8080 per eseguire il recupero dall'origine.  Una richiesta protetta su HTTPS, ovvero https:\//contoso.azureedge.net/file.txt, indicherebbe all'endpoint di usare HTTPS sulla porta 44300 quando recupera il file dall'origine.
 

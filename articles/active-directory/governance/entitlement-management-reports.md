@@ -17,10 +17,10 @@ ms.author: barclayn
 ms.reviewer: jocastel
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 6eb44c1efd683b6febe9a355ef72c80cc6f2e40d
-ms.sourcegitcommit: 6e2d37afd50ec5ee148f98f2325943bafb2f4993
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/23/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97746627"
 ---
 # <a name="view-reports-and-logs-in-azure-ad-entitlement-management"></a>Visualizzare report e log in Azure AD gestione dei diritti
@@ -85,7 +85,7 @@ Per ottenere ulteriori dettagli su come un utente ha richiesto e ricevuto l'acce
 
 1. Nella parte superiore, modificare la **categoria** in `EntitlementManagement` o `UserManagement` , a seconda del record di controllo che si sta cercando.  
 
-1. Fare clic su **Apply**.
+1. Fare clic su **Applica**.
 
 1. Per scaricare i log, fare clic su **download**.
 

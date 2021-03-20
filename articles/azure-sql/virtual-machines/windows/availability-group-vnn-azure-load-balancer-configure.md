@@ -1,5 +1,5 @@
 ---
-title: Configurare il servizio di bilanciamento del carico per il listener VNN del gruppo di disponibilità
+title: Configurare il servizio di bilanciamento del carico per il listener VNN AG
 description: Informazioni su come configurare un Azure Load Balancer per instradare il traffico al listener del nome di rete virtuale (VNN) per il gruppo di disponibilità con SQL Server in macchine virtuali di Azure per la disponibilità elevata e il ripristino di emergenza (HADR).
 services: virtual-machines-windows
 documentationcenter: na
@@ -16,13 +16,13 @@ ms.date: 06/02/2020
 ms.author: mathoma
 ms.reviewer: jroth
 ms.openlocfilehash: 2d89759438cb625a0e220af10ab6b287096f6390
-ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/12/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97359881"
 ---
-# <a name="configure-load-balancer-for-ag-vnn-listener"></a>Configurare il servizio di bilanciamento del carico per il listener VNN del gruppo di disponibilità
+# <a name="configure-load-balancer-for-ag-vnn-listener"></a>Configurare il servizio di bilanciamento del carico per il listener VNN AG
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
 
 Nelle macchine virtuali di Azure, i cluster usano un servizio di bilanciamento del carico per contenere un indirizzo IP che deve trovarsi in un nodo del cluster alla volta. In questa soluzione, il servizio di bilanciamento del carico include l'indirizzo IP per il listener del nome di rete virtuale (VNN) per il gruppo di disponibilità Always On. 

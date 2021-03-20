@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.date: 10/14/2020
 ms.author: alkohli
 ms.openlocfilehash: 55676128f482c8fb4dbdeab0523e4556f3957af7
-ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/03/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96582024"
 ---
 # <a name="use-the-azure-portal-to-manage-bandwidth-schedules-on-your-azure-data-box-gateway"></a>Usare il portale di Azure per gestire le pianificazioni della larghezza di banda in Azure Data Box Gateway  
@@ -44,7 +44,7 @@ Seguire questa procedura nel portale di Azure per aggiungere un utente.
    2. Se questa pianificazione verrà eseguita tutto il giorno, sarà possibile selezionare l'opzione **Tutto il giorno**. 
    3. La **velocità della larghezza di banda** è la larghezza di banda in megabit al secondo (Mbps) usata dal dispositivo in operazioni che coinvolgono il cloud (sia uploads che download). Specificare un numero compreso tra 1 e 1000 per questo campo. 
    4. Selezionare una larghezza di banda **Senza limiti** se non si vuole limitare la data di caricamento e download. 
-   5. Scegliere **Aggiungi**.
+   5. Fare clic su **Aggiungi**.
 
       ![Fare clic su Aggiungi utente 2](media/data-box-gateway-manage-bandwidth-schedules/add-schedule-2.png)
 

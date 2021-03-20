@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 04/03/2019
 ms.author: jeedes
 ms.openlocfilehash: 803f5c25429b33e6d1af130196d38e125b410eb4
-ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
-ms.translationtype: HT
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/28/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92891007"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-zscaler-private-access-administrator"></a>Esercitazione: Integrazione di Azure Active Directory con Zscaler Private Access Administrator
@@ -64,7 +64,7 @@ Per configurare l'integrazione di Zscaler Private Access Administrator in Azure 
 
     ![Pulsante Nuova applicazione](common/add-new-app.png)
 
-4. Nella casella di ricerca, digitare **Zscaler Private Access Administrator** , selezionare **Zscaler Private Access Administrator** dal pannello dei risultati, quindi fare clic sul pulsante **Aggiungi** per aggiungere l'applicazione.
+4. Nella casella di ricerca, digitare **Zscaler Private Access Administrator**, selezionare **Zscaler Private Access Administrator** dal pannello dei risultati, quindi fare clic sul pulsante **Aggiungi** per aggiungere l'applicazione.
 
     ![Zscaler Private Access Administrator nell'elenco dei risultati](common/search-new-app.png)
 
@@ -100,7 +100,7 @@ Per configurare l'accesso Single Sign-On di Azure AD con Zscaler Private Access 
 
     ![Modificare la configurazione SAML di base](common/edit-urls.png)
 
-4. Nella sezione **Configurazione SAML di base** seguire questa procedura se si vuole configurare l'applicazione in modalità avviata da **IDP** :
+4. Nella sezione **Configurazione SAML di base** seguire questa procedura se si vuole configurare l'applicazione in modalità avviata da **IDP**:
 
     ![Screenshot che mostra la sezione Configurazione SAML di base in cui è possibile immettere i valori indicati.](common/idp-relay.png)
 
@@ -112,7 +112,7 @@ Per configurare l'accesso Single Sign-On di Azure AD con Zscaler Private Access 
 
     d. Nella casella di testo **Stato dell'inoltro** digitare un URL: `idpadminsso`
 
-5.  Per configurare l'applicazione in modalità avviata da **SP** , seguire questa procedura:
+5.  Per configurare l'applicazione in modalità avviata da **SP**, seguire questa procedura:
 
     ![Screenshot che mostra l'opzione Impostare URL aggiuntivi che consente di immettere un URL di accesso.](common/both-signonurl.png)
 
@@ -121,7 +121,7 @@ Per configurare l'accesso Single Sign-On di Azure AD con Zscaler Private Access 
     > [!NOTE]
     > Poiché questi non sono i valori reali, aggiornarli con l'identificatore, l'URL di risposta e l'URL di accesso effettivi. Per ottenere questi valori, contattare il [team di supporto clienti di Zscaler Private Access Administrator](https://help.zscaler.com/zpa-submit-ticket). È anche possibile fare riferimento ai modelli mostrati nella sezione **Configurazione SAML di base** del portale di Azure.
 
-6. Nella pagina **Configura l'accesso Single Sign-On con SAML** , nella sezione **Certificato di firma SAML** , fare clic su **Scarica** per scaricare il file **XML metadati federazione** definito dalle opzioni specificate in base ai propri requisiti e salvarlo in questo computer.
+6. Nella pagina **Configura l'accesso Single Sign-On con SAML**, nella sezione **Certificato di firma SAML**, fare clic su **Scarica** per scaricare il file **XML metadati federazione** definito dalle opzioni specificate in base ai propri requisiti e salvarlo in questo computer.
 
     ![Collegamento di download del certificato](common/metadataxml.png)
 
@@ -131,7 +131,7 @@ Per configurare l'accesso Single Sign-On di Azure AD con Zscaler Private Access 
 
     a. URL di accesso
 
-    b. Identificatore Azure AD
+    b. Identificatore di Azure AD
 
     c. URL di disconnessione
 
@@ -139,7 +139,7 @@ Per configurare l'accesso Single Sign-On di Azure AD con Zscaler Private Access 
 
 1. In un'altra finestra del Web browser accedere all'istanza di Zscaler Private Access Administrator come amministratore.
 
-2. Nella parte superiore, fare clic su **Amministrazione** , passare alla sezione **AUTENTICAZIONE** , quindi fare clic su **Configurazione IdP**.
+2. Nella parte superiore, fare clic su **Amministrazione**, passare alla sezione **AUTENTICAZIONE**, quindi fare clic su **Configurazione IdP**.
 
     ![Zscaler Private Access Administrator admin](./media/zscalerprivateaccessadministrator-tutorial/tutorial_zscalerprivateaccessadministrator_admin.png)
 
@@ -147,7 +147,7 @@ Per configurare l'accesso Single Sign-On di Azure AD con Zscaler Private Access 
 
     ![Zscaler Private Access Administrator addidp](./media/zscalerprivateaccessadministrator-tutorial/tutorial_zscalerprivateaccessadministrator_addpidp.png)
 
-4. Nella pagina **Aggiungi configurazione IdP** , eseguire la procedura seguente:
+4. Nella pagina **Aggiungi configurazione IdP**, eseguire la procedura seguente:
  
     ![Zscaler Private Access Administrator idpselect](./media/zscalerprivateaccessadministrator-tutorial/tutorial_zscalerprivateaccessadministrator_idpselect.png)
 
@@ -165,9 +165,9 @@ Per configurare l'accesso Single Sign-On di Azure AD con Zscaler Private Access 
 
 ### <a name="create-an-azure-ad-test-user"></a>Creare un utente di test di Azure AD 
 
-Questa sezione descrive come creare un utente di test di nome Britta Simon nel portale di Azure.
+Questa sezione descrive come creare un utente test denominato Britta Simon nel portale di Azure.
 
-1. Nel riquadro sinistro del portale di Azure, selezionare **Azure Active Directory** , **Utenti** e quindi **Tutti gli utenti**.
+1. Nel riquadro sinistro del portale di Azure, selezionare **Azure Active Directory**, **Utenti** e quindi **Tutti gli utenti**.
 
     ![Collegamenti "Utenti e gruppi" e "Tutti gli utenti"](common/users.png)
 
@@ -191,7 +191,7 @@ Questa sezione descrive come creare un utente di test di nome Britta Simon nel p
 
 In questa sezione Britta Simon viene abilitata per l'uso dell'accesso Single Sign-On di Azure, concedendole l'accesso a Zscaler Private Access Administrator.
 
-1. Nel portale di Azure selezionare **Applicazioni aziendali** , quindi **Tutte le applicazioni** e infine **Zscaler Private Access Administrator**.
+1. Nel portale di Azure selezionare **Applicazioni aziendali**, quindi **Tutte le applicazioni** e infine **Zscaler Private Access Administrator**.
 
     ![Pannello delle applicazioni aziendali](common/enterprise-applications.png)
 
@@ -221,7 +221,7 @@ Per consentire agli utenti di Azure AD di accedere a Zscaler Private Access Admi
 
 1. Accedere al sito della società di Zscaler Private Access Administrator come amministratore.
 
-2. Nella parte superiore, fare clic su **Amministrazione** , passare alla sezione **AUTENTICAZIONE** , quindi fare clic su **Configurazione IdP**.
+2. Nella parte superiore, fare clic su **Amministrazione**, passare alla sezione **AUTENTICAZIONE**, quindi fare clic su **Configurazione IdP**.
 
     ![Zscaler Private Access Administrator admin](./media/zscalerprivateaccessadministrator-tutorial/tutorial_zscalerprivateaccessadministrator_admin.png)
 
@@ -229,7 +229,7 @@ Per consentire agli utenti di Azure AD di accedere a Zscaler Private Access Admi
 
     ![Amministratore di Zscaler Private Access Administrator](./media/zscalerprivateaccessadministrator-tutorial/tutorial_zscalerprivateaccessadministrator_adminstrator.png)
 
-4. Nell'angolo superiore destro, fare clic su **Aggiungi amministratore** :
+4. Nell'angolo superiore destro, fare clic su **Aggiungi amministratore**:
 
     ![Aggiunta di un amministratore in Zscaler Private Access Administrator](./media/zscalerprivateaccessadministrator-tutorial/tutorial_zscalerprivateaccessadministrator_addadmin.png)
 
@@ -239,17 +239,17 @@ Per consentire agli utenti di Azure AD di accedere a Zscaler Private Access Admi
 
     a. Nella casella di testo **Username** (Nome utente) immettere l'indirizzo di posta elettronica dell'utente, ad esempio BrittaSimon@contoso.com.
 
-    b. Nella casella di testo **Password** , digitare la password.
+    b. Nella casella di testo **Password**, digitare la password.
 
-    c. Nella casella di testo **Conferma password** , digitare di nuovo la password.
+    c. Nella casella di testo **Conferma password**, digitare di nuovo la password.
 
-    d. Per **Ruolo** , selezionare **Zscaler Private Access Administrator**.
+    d. Per **Ruolo**, selezionare **Zscaler Private Access Administrator**.
 
     e. Nella casella di testo **Email** (Posta elettronica) immettere l'indirizzo di posta elettronica dell'utente, ad esempio BrittaSimon@contoso.com.
 
-    f. Nella casella di testo **Telefono** , digitare il numero di telefono.
+    f. Nella casella di testo **Telefono**, digitare il numero di telefono.
 
-    g. Nella casella di testo **Fuso orario** , selezionare il fuso orario.
+    g. Nella casella di testo **Fuso orario**, selezionare il fuso orario.
 
     h. Fare clic su **Salva**.
 
