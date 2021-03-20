@@ -18,10 +18,10 @@ ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 0498ee1c57cfa661884fe3209d4e089b54996fae
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "89231062"
 ---
 # <a name="azure-active-directory-reporting-latencies"></a>Latenze dei report di Azure Active Directory
@@ -54,8 +54,8 @@ Se si dispone già di dati di attività con la licenza gratuita, è possibile vi
 
 Esistono due tipi di report sulla sicurezza:
 
-- [Accessi a rischio](../identity-protection/overview-identity-protection.md). Un accesso rischioso è indicativo di un tentativo di accesso che potrebbe essere stato eseguito da qualcuno che non è il legittimo proprietario di un account utente. 
-- [Utenti contrassegnati per il rischio](../identity-protection/overview-identity-protection.md). Un utente rischioso è indicativo di un account utente che potrebbe essere stato compromesso. 
+- [Accessi a rischio](../identity-protection/overview-identity-protection.md) : un accesso rischioso è un indicatore di un tentativo di accesso che potrebbe essere stato eseguito da un utente che non è il legittimo proprietario di un account utente. 
+- [Utenti contrassegnati per il rischio](../identity-protection/overview-identity-protection.md) : un utente rischioso è un indicatore per un account utente che potrebbe essere stato compromesso. 
 
 Nella tabella seguente sono elencate le informazioni sulla latenza per i report di sicurezza.
 

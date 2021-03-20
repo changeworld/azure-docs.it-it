@@ -4,10 +4,10 @@ description: Questo articolo descrive come ripristinare SQL Server database in e
 ms.topic: conceptual
 ms.date: 05/22/2019
 ms.openlocfilehash: 7dd8d8d54fa7d33bb4a0935357597d19dd2368c5
-ms.sourcegitcommit: f7084d3d80c4bc8e69b9eb05dfd30e8e195994d8
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/22/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97734403"
 ---
 # <a name="restore-sql-server-databases-on-azure-vms"></a>Ripristinare il backup di database SQL Server in macchine virtuali di Azure
@@ -150,7 +150,7 @@ Se si è scelto **log (punto temporizzato)** come tipo di ripristino, eseguire l
     ![Apri il calendario](./media/backup-azure-sql-database/recovery-point-logs-calendar.png)
 
 1. Dopo aver selezionato una data, il grafico della sequenza temporale indica i punti di recupero disponibili in un intervallo continuo.
-1. Specificare un'ora per il ripristino nel grafico della sequenza temporale oppure selezionare un'ora. Quindi scegliere **OK**.
+1. Specificare un'ora per il ripristino nel grafico della sequenza temporale oppure selezionare un'ora. Selezionare **OK**.
 
 ### <a name="restore-to-a-specific-restore-point"></a>Ripristinare uno specifico punto di ripristino
 

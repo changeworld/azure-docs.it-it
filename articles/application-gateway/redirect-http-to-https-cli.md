@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.date: 09/24/2020
 ms.author: victorh
 ms.openlocfilehash: 0d56a1c46f251307755416ef44991ac6f809f330
-ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/12/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94566742"
 ---
 # <a name="create-an-application-gateway-with-http-to-https-redirection-using-the-azure-cli"></a>Creare un gateway applicazione con reindirizzamento da HTTP a HTTPS tramite l'interfaccia della riga di comando di Azure
@@ -31,7 +31,7 @@ In questo articolo vengono illustrate le operazioni seguenti:
 
 [!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
 
- - Questa esercitazione richiede la versione 2.0.4 o successiva dell'interfaccia della riga di comando di Azure. Se si usa Azure Cloud Shell, la versione più recente è già installata.
+ - Per questa esercitazione è necessaria la versione 2.0.4 o successiva dell'interfaccia della riga di comando di Azure. Se si usa Azure Cloud Shell, la versione più recente è già installata.
 
 ## <a name="create-a-self-signed-certificate"></a>Creare un certificato autofirmato
 
@@ -108,11 +108,11 @@ az network application-gateway create \
 
  Il processo di creazione del gateway applicazione può richiedere alcuni minuti. Dopo aver creato il gateway applicazione, saranno disponibili le nuove funzionalità seguenti:
 
-- *appGatewayBackendPool* : un gateway applicazione deve avere almeno un pool di indirizzi back-end.
-- *appGatewayBackendHttpSettings* : specifica che per le comunicazioni vengono usati la porta 80 e il protocollo HTTP.
-- *appGatewayHttpListener* : il listener predefinito associato ad *appGatewayBackendPool*.
-- *appGatewayFrontendIP* : assegna *myAGPublicIPAddress* ad *appGatewayHttpListener*.
-- *rule1* : regola di routing predefinita associata ad *appGatewayHttpListener*.
+- *appGatewayBackendPool*: un gateway applicazione deve avere almeno un pool di indirizzi back-end.
+- *appGatewayBackendHttpSettings*: specifica che per le comunicazioni vengono usati la porta 80 e il protocollo HTTP.
+- *appGatewayHttpListener*: il listener predefinito associato ad *appGatewayBackendPool*.
+- *appGatewayFrontendIP*: assegna *myAGPublicIPAddress* ad *appGatewayHttpListener*.
+- *rule1*: regola di routing predefinita associata ad *appGatewayHttpListener*.
 
 ## <a name="add-a-listener-and-redirection-rule"></a>Aggiungere un listener e una regola di reindirizzamento
 

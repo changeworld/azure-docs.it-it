@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.date: 3/18/2019
 ms.author: mjbrown
 ms.openlocfilehash: 0f08ca84597b08b9a236b7bfb0fc9c849423a752
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93335892"
 ---
 # <a name="query-an-azure-cosmos-container"></a>Eseguire una query su un contenitore in Azure Cosmos
@@ -59,9 +59,9 @@ Le versioni degli SDK di Azure Cosmos DB 1.9.0 e successive supportano le opzion
 
 È possibile gestire l'esecuzione di query in parallelo, ottimizzando i parametri seguenti:
 
-- **MaxConcurrency** : imposta il numero massimo di connessioni di rete simultanee alle partizioni del contenitore. Se si imposta questa proprietà su `-1` , l'SDK gestisce il grado di parallelismo. Se  `MaxConcurrency` impostato su `0` , esiste una singola connessione di rete alle partizioni del contenitore.
+- **MaxConcurrency**: imposta il numero massimo di connessioni di rete simultanee alle partizioni del contenitore. Se si imposta questa proprietà su `-1` , l'SDK gestisce il grado di parallelismo. Se  `MaxConcurrency` impostato su `0` , esiste una singola connessione di rete alle partizioni del contenitore.
 
-- **MaxBufferedItemCount** : bilancia la latenza delle query rispetto all'utilizzo della memoria sul lato client. Se questa opzione viene omessa o è impostata su -1, il numero di elementi memorizzati nel buffer durante l'esecuzione di query in parallelo viene gestito dall'SDK.
+- **MaxBufferedItemCount**: bilancia la latenza delle query rispetto all'utilizzo della memoria sul lato client. Se questa opzione viene omessa o è impostata su -1, il numero di elementi memorizzati nel buffer durante l'esecuzione di query in parallelo viene gestito dall'SDK.
 
 Grazie alla capacità Azure Cosmos DB di parallelizzare le query tra partizioni, la latenza delle query viene in genere ridimensionata in modo da consentire al sistema di aggiungere [partizioni fisiche](partitioning-overview.md#physical-partitions). Tuttavia, l'addebito delle UR aumenterà in modo significativo man mano che aumenta il numero totale di partizioni fisiche.
 

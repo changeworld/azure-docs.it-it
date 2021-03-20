@@ -9,10 +9,10 @@ ms.service: iot-central
 services: iot-central
 manager: abjork
 ms.openlocfilehash: 8f329b6377915a3df6e3f3e212cbd8d41f9ed80d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "90017661"
 ---
 # <a name="how-to-use-analytics-to-analyze-device-data"></a>Come usare Analytics per analizzare i dati del dispositivo
@@ -35,7 +35,7 @@ L'interfaccia utente di Analytics è costituita da tre componenti principali:
 
 ## <a name="querying-your-data"></a>Query dei dati
 
-È necessario iniziare scegliendo un **gruppo di dispositivi**e i dati di telemetria che si desidera analizzare. Al termine, selezionare **analizza** per iniziare a visualizzare i dati.
+È necessario iniziare scegliendo un **gruppo di dispositivi** e i dati di telemetria che si desidera analizzare. Al termine, selezionare **analizza** per iniziare a visualizzare i dati.
 
 - **Gruppo di dispositivi:** Un [gruppo](tutorial-use-device-groups.md) di dispositivi è un gruppo di dispositivi definito dall'utente. Ad esempio, tutti i frigoriferi in Oakland o tutte le turbine eoliche della versione 2,0.
 

@@ -10,10 +10,10 @@ author: likebupt
 ms.author: keli19
 ms.date: 05/19/2020
 ms.openlocfilehash: 5fad3e4862b0c40c9edd00a5b9d47b245e529396
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91536733"
 ---
 # <a name="convert-word-to-vector-module"></a>Converti Word in modulo Vector
@@ -51,11 +51,11 @@ Questo modulo richiede un set di dati contenente una colonna di testo. Il testo 
 
 2. Come input per il modulo, fornire un set di dati che contenga una o più colonne di testo.
 
-3. Per **colonna di destinazione**scegliere solo una colonna contenente il testo da elaborare.
+3. Per **colonna di destinazione** scegliere solo una colonna contenente il testo da elaborare.
 
     Poiché questo modulo crea un vocabolario da testo, il contenuto delle colonne è diverso, il che comporta un contenuto del vocabolario diverso. Per questo motivo il modulo accetta solo una colonna di destinazione.
 
-4. Per la  **strategia Word2Vec**, scegliere da **GloVe pretrained English Model**, **Gensim Word2Vec**e **Gensim FastText**.
+4. Per la  **strategia Word2Vec**, scegliere da **GloVe pretrained English Model**, **Gensim Word2Vec** e **Gensim FastText**.
 
 5. Se la **strategia Word2Vec** è **Gensim Word2Vec** o **Gensim FastText**:
 
@@ -67,7 +67,7 @@ Questo modulo richiede un set di dati contenente una colonna di testo. Il testo 
 
         Le dimensioni predefinite di incorporamento sono pari a 100.
 
-    + In **dimensioni finestra di contesto**specificare la distanza massima tra la parola da stimare e la parola corrente. Questa impostazione corrisponde al `window` parametro in Gensim.
+    + In **dimensioni finestra di contesto** specificare la distanza massima tra la parola da stimare e la parola corrente. Questa impostazione corrisponde al `window` parametro in Gensim.
 
         Le dimensioni predefinite della finestra sono pari a 5.
 
@@ -126,7 +126,7 @@ campus|-0.281835|0.29312|0.106966|-0.031385|0.100777|-0.061452|...|0.05978
 infinite|-0.263074|0.245753|0.07058|-0.164666|0.162857|-0.027345|...|-0.0525
 loop|-0.391421|0.52366|0.141503|-0.105423|0.084503|-0.018424|...|-0.0521
 
-In questo esempio è stato usato il valore predefinito **Gensim Word2Vec** per la **strategia Word2Vec**e l' **algoritmo di training** è **Skip-Gram**. La **lunghezza dell'incorporamento di Word** è 100, quindi sono disponibili 100 colonne di incorporamento.
+In questo esempio è stato usato il valore predefinito **Gensim Word2Vec** per la **strategia Word2Vec** e l' **algoritmo di training** è **Skip-Gram**. La **lunghezza dell'incorporamento di Word** è 100, quindi sono disponibili 100 colonne di incorporamento.
 
 ## <a name="technical-notes"></a>Note tecniche
 

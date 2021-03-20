@@ -7,10 +7,10 @@ ms.service: cache
 ms.topic: conceptual
 ms.date: 10/14/2020
 ms.openlocfilehash: 22bdf93e7236ae5220a6bb7c6ead898628bb51a1
-ms.sourcegitcommit: 273c04022b0145aeab68eb6695b99944ac923465
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/10/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97007586"
 ---
 # <a name="azure-cache-for-redis-with-azure-private-link-public-preview"></a>Cache di Azure per Redis con collegamento privato di Azure (anteprima pubblica)
@@ -31,7 +31,7 @@ L'endpoint privato di Azure è un'interfaccia di rete che si connette privatamen
 
 In questa sezione verrà creata una nuova cache di Azure per l'istanza di redis con un endpoint privato.
 
-### <a name="create-a-virtual-network"></a>Creare una rete virtuale 
+### <a name="create-a-virtual-network"></a>Crea rete virtuale 
 
 1. Accedere al [portale di Azure](https://portal.azure.com) e selezionare **Crea una risorsa**.
 
@@ -131,7 +131,7 @@ La creazione della cache richiede un po' di tempo. È possibile monitorare lo st
 
 In questa sezione si aggiungerà un endpoint privato a una cache di Azure esistente per l'istanza di Redis. 
 
-### <a name="create-a-virtual-network"></a>Creare una rete virtuale 
+### <a name="create-a-virtual-network"></a>Crea rete virtuale 
 Per creare una rete virtuale, attenersi alla seguente procedura.
 
 1. Accedere al [portale di Azure](https://portal.azure.com) e selezionare **Crea una risorsa**.

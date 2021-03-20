@@ -9,10 +9,10 @@ ms.reviewer: jonfan, estfan, logicappspm
 ms.topic: article
 ms.date: 06/22/2019
 ms.openlocfilehash: 8e3805fae5bf6cc5ad8cf759d3ba75220c6ddbd8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91565072"
 ---
 # <a name="add-trading-partners-to-integration-accounts-for-azure-logic-apps"></a>Aggiungere partner commerciali agli account di integrazione per App per la logica di Azure
@@ -49,7 +49,7 @@ In un accordo è possibile specificare i dettagli per la gestione dei messaggi i
 
    ![Screenshot che mostra il riquadro partner.](./media/logic-apps-enterprise-integration-partners/choose-partners.png)
 
-1. In **Partner** scegliere **Aggiungi**. In **Aggiungi partner**specificare i dettagli del partner come descritto nella tabella seguente.
+1. In **Partner** scegliere **Aggiungi**. In **Aggiungi partner** specificare i dettagli del partner come descritto nella tabella seguente.
 
    ![Scegliere "Aggiungi" e specificare i dettagli del partner](./media/logic-apps-enterprise-integration-partners/add-partners.png)
 
@@ -78,18 +78,18 @@ Scegliere il riquadro **Partner**.
 
    ![Scegliere il riquadro "Partner"](./media/logic-apps-enterprise-integration-partners/edit.png)
 
-1. In **partner**selezionare il partner che si desidera modificare e scegliere **modifica**. In **modifica**apportare le modifiche.
+1. In **partner** selezionare il partner che si desidera modificare e scegliere **modifica**. In **modifica** apportare le modifiche.
 
    ![Apportare modifiche e salvarle](./media/logic-apps-enterprise-integration-partners/edit-partner.png)
 
-   Per RosettaNet, in **Proprietà partner RosettaNet**è possibile specificare queste informazioni aggiuntive:
+   Per RosettaNet, in **Proprietà partner RosettaNet** è possibile specificare queste informazioni aggiuntive:
 
    | Proprietà | Obbligatoria | Descrizione |
    |----------|----------|-------------|
    | **Partner Classification** | No | Tipo di organizzazione del partner |
    | **Codice Supply Chain** | No | Il codice della catena di fornitura del partner, ad esempio, "Information Technology" o "Electronic Components" |
    | **Nome contatto** | No | Nome del contatto del partner |
-   | **Indirizzo di posta elettronica** | No | Indirizzo di posta elettronica del partner |
+   | **Posta elettronica** | No | Indirizzo di posta elettronica del partner |
    | **Fax** | No | Numero di fax del partner |
    | **Telephone** | No | Il numero di telefono del partner |
    ||||

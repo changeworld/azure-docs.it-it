@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 08/04/2020
 ms.author: jeedes
 ms.openlocfilehash: 04fe19960f01709562a47404373801715385e9c3
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
-ms.translationtype: HT
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/21/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92318686"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-altamira-hrm"></a>Esercitazione: Integrazione dell'accesso Single Sign-On (SSO) di Azure Active Directory con Altamira HRM
@@ -62,7 +62,7 @@ Configurare e testare l'accesso SSO di Azure AD con Altamira HRM usando un utent
 Per configurare e testare l'accesso SSO di Azure AD con Altamira HRM, completare le procedure di base seguenti:
 
 1. **[Configurare l'accesso Single Sign-On di Azure AD](#configure-azure-ad-sso)** : per consentire agli utenti di usare questa funzionalità.
-    1. **[Creare un utente di test di Azure AD](#create-an-azure-ad-test-user)** : per testare l'accesso Single Sign-On di Azure AD con l'utente B. Simon.
+    1. **[Creare un utente di test di Azure AD](#create-an-azure-ad-test-user)** : per testare l'accesso Single Sign-On di Azure AD con l'utente B.Simon.
     1. **[Assegnare l'utente di test di Azure AD](#assign-the-azure-ad-test-user)** : per abilitare B.Simon all'uso dell'accesso Single Sign-On di Azure AD.
 1. **[Configurare l'accesso Single Sign-On di Altamira HRM](#configure-altamira-hrm-sso)** : per configurare le impostazioni di Single Sign-On sul lato applicazione.
     1. **[Creare l'utente di test di Altamira HRM](#create-altamira-hrm-test-user)** : per avere una controparte di B.Simon in Altamira HRM collegata alla rappresentazione dell'utente in Azure AD.

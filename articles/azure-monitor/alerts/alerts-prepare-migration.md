@@ -6,10 +6,10 @@ ms.author: yalavi
 ms.topic: conceptual
 ms.date: 02/14/2021
 ms.openlocfilehash: ce61c3539a4ea29cbeb48c379ed143363500701e
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/04/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102038017"
 ---
 # <a name="prepare-your-logic-apps-and-runbooks-for-migration-of-classic-alert-rules"></a>Preparare le app per la logica e manuali operativi per la migrazione delle regole di avviso classiche
@@ -69,7 +69,7 @@ I payload sono simili, come si può vedere. La sezione seguente offre:
 
 ## <a name="modify-a-logic-app-to-receive-a-metric-alert-notification"></a>Modificare un'app per la logica per ricevere una notifica di avviso per la metrica
 
-Se si usano app per la logica con avvisi classici, è necessario modificare il codice dell'app per la logica per analizzare il nuovo payload degli avvisi delle metriche. Seguire questa procedura:
+Se si usano app per la logica con avvisi classici, è necessario modificare il codice dell'app per la logica per analizzare il nuovo payload degli avvisi delle metriche. A tale scopo, seguire questa procedura:
 
 1. Creare una nuova app per la logica.
 

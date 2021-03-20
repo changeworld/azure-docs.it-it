@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 01/17/2019
 ms.author: jeedes
 ms.openlocfilehash: f6030e209b06dc7ae9acd8a13e6dcdf22b58f8c5
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
-ms.translationtype: HT
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/21/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92318868"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-allbound-sso"></a>Esercitazione: Integrazione di Azure Active Directory con Allbound SSO
@@ -189,7 +189,7 @@ In questa sezione Britta Simon viene abilitata per l'uso dell'accesso Single Sig
 In questa sezione viene creato un utente di nome Britta Simon in Allbound SSO. Allbound SSO supporta il provisioning JIT, che è abilitato per impostazione predefinita. Non è necessario alcun intervento dell'utente in questa sezione. Se non esiste già un utente in Allbound SSO, ne viene creato uno nuovo dopo l'autenticazione.
 
 > [!Note]
-> Se è necessario creare un utente manualmente, contattare il  [team di supporto di Allbound SSO](mailto:engineering@allbound.com).
+> Se è necessario creare un utente manualmente, contattare il [team di supporto di ALLBOUND SSO](mailto:engineering@allbound.com).
 
 ### <a name="test-single-sign-on"></a>Testare l'accesso Single Sign-On
 

@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.date: 5/19/2020
 ms.author: derekol
 ms.openlocfilehash: 7e10cd91eadd338217845b1504e8e9160bccfc98
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91537192"
 ---
 # <a name="create-or-modify-an-exchange-peering-with-route-server-in-azure-portal"></a>Creare o modificare un peering di Exchange con il server di route in portale di Azure
@@ -69,9 +69,9 @@ I provider di Internet Exchange possono creare una richiesta di peering di Excha
     * Selezionare SKU come **Basic Free**. Non selezionare Premium gratuito perché è riservato per le applicazioni speciali.
     * Selezionare la **località** in cui si desidera configurare il peering.
 
-1. In **connessioni peering**selezionare **Crea nuovo**
+1. In **connessioni peering** selezionare **Crea nuovo**
 
-1.  In **connessione peering diretto**compilare i dettagli della sessione BGP seguenti:
+1.  In **connessione peering diretto** compilare i dettagli della sessione BGP seguenti:
 
     > [!div class="mx-imgBorder"]
     > ![Screenshot mostra il riquadro connessione diretta peering con i dettagli aggiunti.](./media/setup-exchange-conf-tab-direct-route.png)

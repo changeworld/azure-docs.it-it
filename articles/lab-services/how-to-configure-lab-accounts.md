@@ -4,16 +4,16 @@ description: Questo articolo descrive come configurare l'arresto automatico dell
 ms.topic: article
 ms.date: 08/17/2020
 ms.openlocfilehash: c0a147a81aaed88313a1b9aa4b0754d9a3badcb5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91650035"
 ---
 # <a name="configure-automatic-shutdown-of-vms-for-a-lab-account"></a>Configurare l'arresto automatico delle macchine virtuali per un account Lab
 
 È possibile abilitare diverse funzionalità di controllo dei costi di arresto automatico per prevenire in modo proattivo i costi aggiuntivi quando le macchine virtuali non vengono usate attivamente. La combinazione delle tre funzionalità di arresto e disconnessione automatiche rileva la maggior parte dei casi in cui gli utenti lasciano accidentalmente le macchine virtuali in esecuzione:
- 
+ 
 - Disconnettere automaticamente gli utenti dalle macchine virtuali ritenute inattive dal sistema operativo.
 - Arresta automaticamente le macchine virtuali quando gli utenti si disconnettono.
 - Arrestare automaticamente le macchine virtuali avviate, ma gli utenti non si connettono.

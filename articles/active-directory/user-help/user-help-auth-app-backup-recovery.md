@@ -12,10 +12,10 @@ ms.date: 06/03/2020
 ms.author: curtand
 ms.reviewer: olhaun
 ms.openlocfilehash: e7608196c962a6918a90b91457f856f3e11b04f0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91530902"
 ---
 # <a name="back-up-and-recover-account-credentials-using-the-microsoft-authenticator-app"></a>Eseguire il backup e il ripristino delle credenziali dell'account usando l'app Microsoft Authenticator
@@ -87,17 +87,17 @@ Per gli account Microsoft personali, è possibile provare la propria identità i
 
 1. Toccare il riquadro per l'account che si sta ripristinando e quindi toccare l'opzione per eseguire l'accesso per il ripristino. Immettere la password e quindi confermare l'indirizzo di posta elettronica o il numero di telefono come verifica aggiuntiva.
 
-    :::image type="content" source="media/user-help-auth-app-backup-recovery/backup-and-recovery-codes.png" alt-text="Screenshot che mostra l'app Microsoft Authenticator con i riquadri degli account disponibili." border="true":::
+    :::image type="content" source="media/user-help-auth-app-backup-recovery/backup-and-recovery-codes.png" alt-text="Screenshot che mostra il codice Microsoft Authenticator password monouso." border="true":::
 
 ### <a name="to-provide-more-verification-for-work-or-school-accounts"></a>Per fornire una maggiore verifica per gli account aziendali o dell'Istituto di istruzione
 
 1. Nella schermata **account** dell'app Microsoft Authenticator toccare l'account che si vuole ripristinare per aprire la visualizzazione a schermo intero dell'account.
 
-    :::image type="content" source="media/user-help-auth-app-backup-recovery/work-or-school-recovery-arrow.png" alt-text="Screenshot che mostra l'app Microsoft Authenticator con i riquadri degli account disponibili." border="true":::
+    :::image type="content" source="media/user-help-auth-app-backup-recovery/work-or-school-recovery-arrow.png" alt-text="App Microsoft Authenticator, che mostra i riquadri degli account disponibili" border="true":::
 
 1. Nella visualizzazione a schermo intero toccare l'opzione per eseguire la scansione di un codice a matrice per il ripristino completo.
 
-    :::image type="content" source="media/user-help-auth-app-backup-recovery/work-or-school-recovery-qr-code.png" alt-text="Screenshot che mostra l'app Microsoft Authenticator con i riquadri degli account disponibili." border="true":::
+    :::image type="content" source="media/user-help-auth-app-backup-recovery/work-or-school-recovery-qr-code.png" alt-text="L'autenticatore presenta una password monouso come codice di verifica" border="true":::
 
 >[!NOTE]
 >Per altre informazioni sui codici a matrice e su come ottenerne uno, vedere [Introduzione all'app Microsoft Authenticator](./user-help-auth-app-download-install.md) o [Configurare le informazioni di sicurezza per l'uso di un'app di autenticazione](./security-info-setup-auth-app.md), a seconda che l'amministratore abbia attivato o meno le informazioni di sicurezza.

@@ -1,5 +1,5 @@
 ---
-title: 'Interfaccia della riga di comando: Creare un backup pianificato'
+title: 'INTERFACCIA della riga di comando: creare un backup pianificato'
 description: Informazioni su come usare l'interfaccia della riga di comando di Azure per automatizzare la distribuzione e la gestione dell'app Servizio app. Questo esempio illustra come creare un backup pianificato per un'app.
 author: msangapu-msft
 tags: azure-service-management
@@ -10,10 +10,10 @@ ms.author: msangapu
 ms.reviewer: cephalin
 ms.custom: mvc, seodec18, devx-track-azurecli
 ms.openlocfilehash: 500ac99cd35cfdf601be75a19a1d43f84795cbe8
-ms.sourcegitcommit: 273c04022b0145aeab68eb6695b99944ac923465
-ms.translationtype: HT
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/10/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97006426"
 ---
 # <a name="create-a-scheduled-backup-for-an-app-service-app-using-cli"></a>Creare un backup pianificato per un'app del servizio app usando l'interfaccia della riga di comando

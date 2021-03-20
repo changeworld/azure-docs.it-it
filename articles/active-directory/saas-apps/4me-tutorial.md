@@ -1,5 +1,5 @@
 ---
-title: "Esercitazione: Integrazione dell'accesso Single Sign-On (SSO) di Azure Active Directory con 4me | Microsoft Docs"
+title: 'Esercitazione: integrazione di Azure Active Directory Single Sign-On (SSO) con 4me | Microsoft Docs'
 description: Informazioni su come configurare l'accesso Single Sign-On tra Azure Active Directory e 4me.
 services: active-directory
 author: jeevansd
@@ -12,13 +12,13 @@ ms.topic: tutorial
 ms.date: 08/27/2019
 ms.author: jeedes
 ms.openlocfilehash: 241450b9a6e97953205aca5de2a7cfd30a08d254
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
-ms.translationtype: HT
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/21/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92319110"
 ---
-# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-4me"></a>Esercitazione: Integrazione dell'accesso Single Sign-On (SSO) di Azure Active Directory con 4me
+# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-4me"></a>Esercitazione: integrazione di Azure Active Directory Single Sign-On (SSO) con 4me
 
 Questa esercitazione descrive come integrare 4me con Azure Active Directory (Azure AD). Integrando 4me con Azure AD, è possibile:
 
@@ -60,10 +60,10 @@ Configurare e testare l'accesso SSO di Azure AD con 4me usando un utente di test
 Per configurare e testare l'accesso SSO di Azure AD con 4me, completare le procedure di base seguenti:
 
 1. **[Configurare l'accesso Single Sign-On di Azure AD](#configure-azure-ad-sso)** : per consentire agli utenti di usare questa funzionalità.
-    * **[Creare un utente di test di Azure AD](#create-an-azure-ad-test-user)** : per testare l'accesso Single Sign-On di Azure AD con l'utente B. Simon.
-    * **[Assegnare l'utente di test di Azure AD](#assign-the-azure-ad-test-user)** : per abilitare B. Simon all'uso dell'accesso Single Sign-On di Azure AD.
-1. **[Configurare l'accesso Single Sign-On di 4me](#configure-4me-sso)** : per configurare le impostazioni di Single Sign-On sul lato applicazione.
-    * **[Creare l'utente di test di 4me](#create-4me-test-user)** : per avere una controparte di B.Simon in 4me collegata alla rappresentazione dell'utente in Azure AD.
+    * **[Creare un utente di test di Azure AD](#create-an-azure-ad-test-user)** : per testare l'accesso Single Sign-On di Azure AD con l'utente B.Simon.
+    * **[Assegnare l'utente di test di Azure AD](#assign-the-azure-ad-test-user)** : per abilitare B.Simon all'uso dell'accesso Single Sign-On di Azure AD.
+1. **[Configurare l'accesso Single Sign-On di 4me](#configure-4me-sso)**: per configurare le impostazioni di Single Sign-On sul lato applicazione.
+    * **[Creare l'utente di test di 4me](#create-4me-test-user)**: per avere una controparte di B.Simon in 4me collegata alla rappresentazione dell'utente in Azure AD.
 1. **[Testare l'accesso Single Sign-On](#test-sso)** : per verificare se la configurazione funziona.
 
 ## <a name="configure-azure-ad-sso"></a>Configurare l'accesso SSO di Azure AD
@@ -162,9 +162,9 @@ In questa sezione si abiliterà B.Simon all'uso dell'accesso Single Sign-On di A
 
     ![Accesso Single Sign-On di 4me](./media/4me-tutorial/tutorial_4me_singlesignon.png)
 
-    a. Selezionare l'opzione **Enabled** (Abilitato).
+    a. Selezionare l'opzione **Abilitato**.
 
-    b. Nella casella di testo **Remote logout URL** (URL di disconnessione remota) incollare il valore di **URL di disconnessione** copiato dal portale di Azure.
+    b. Nella casella di testo **Remote Logout URL (URL disconnessione remota** ) incollare il valore dell' **URL di disconnessione** copiato dal portale di Azure.
 
     c. Nella casella di testo Under **SAML SSO URL** (URL SSO SAML) della sezione **SAML** incollare il valore di **URL di accesso** copiato dal portale di Azure.
 

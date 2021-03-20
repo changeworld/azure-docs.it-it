@@ -10,10 +10,10 @@ ms.service: genomics
 ms.topic: troubleshooting
 ms.date: 12/07/2017
 ms.openlocfilehash: e8806bc4f761214e6740a22093b7e18030fdf881
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/25/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96018325"
 ---
 # <a name="microsoft-genomics-common-questions"></a>Genomica di Microsoft: Domande comuni
@@ -63,7 +63,7 @@ La chiave dell'account di archiviazione viene utilizzata per creare token di acc
 
 Sono supportati questi riferimenti:
 
- |Riferimento              | Valore di `-pa/--process-args` |
+ |Informazioni di riferimento              | Valore di `-pa/--process-args` |
  |:-------------         |:-------------                 |
  |b37                    | `R=b37m1`                     |
  |hg38                   | `R=hg38m1`                    |      

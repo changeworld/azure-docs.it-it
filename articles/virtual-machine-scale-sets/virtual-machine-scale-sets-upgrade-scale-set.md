@@ -10,10 +10,10 @@ ms.date: 03/10/2020
 ms.reviewer: mimckitt
 ms.custom: mimckitt, devx-track-azurecli
 ms.openlocfilehash: bd16f0ef330d1d4a33dd796af0ec3e94dda5acfc
-ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/22/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98684594"
 ---
 # <a name="modify-a-virtual-machine-scale-set"></a>Modificare un set di scalabilità di macchine virtuali
@@ -376,7 +376,7 @@ Se si usano immagini della piattaforma di Azure, è possibile aggiornare l'immag
 
 Se si usano immagini personalizzate, è possibile aggiornare l'immagine aggiornando l'ID della proprietà *imageReference*. Per altre informazioni, vedere la [documentazione relativa all'API REST](/rest/api/compute/virtualmachinescalesets/createorupdate).
 
-## <a name="examples"></a>Esempi
+## <a name="examples"></a>Esempio
 
 ### <a name="update-the-os-image-for-your-scale-set"></a>Aggiornare l'immagine del sistema operativo per il set di scalabilità
 Si può avere un set di scalabilità che esegue una versione precedente di Ubuntu LTS 16.04. Si vuole eseguire l'aggiornamento a una versione più recente di Ubuntu LTS 16.04, ad esempio la versione *16.04.201801090*. La proprietà della versione del riferimento all'immagine non fa parte di un elenco, quindi è possibile modificare direttamente queste proprietà con uno dei comandi seguenti:

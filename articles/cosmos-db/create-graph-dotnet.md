@@ -10,10 +10,10 @@ ms.date: 02/21/2020
 ms.author: chrande
 ms.custom: devx-track-dotnet
 ms.openlocfilehash: 1953f4a21df6f550320592fbe009834a7b573887
-ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
-ms.translationtype: HT
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/05/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93360531"
 ---
 # <a name="quickstart-build-a-net-framework-or-core-application-using-the-azure-cosmos-db-gremlin-api-account"></a>Avvio rapido: Creare un'applicazione .NET Framework o Core usando l'account dell'API Gremlin di Azure Cosmos DB
@@ -107,9 +107,9 @@ Tornare ora al portale di Azure per recuperare le informazioni sulla stringa di 
 
 1. Dal [portale di Azure](https://portal.azure.com/) passare all'account di database del grafo. Nella scheda **Panoramica** sono visualizzati due endpoint: 
  
-   **URI .NET SDK** : questo valore viene usato quando ci si connette all'account del grafo tramite la libreria Microsoft.Azure.Graphs. 
+   **URI .NET SDK**: questo valore viene usato quando ci si connette all'account del grafo tramite la libreria Microsoft.Azure.Graphs. 
 
-   **Endpoint Gremlin** : questo valore viene usato quando ci si connette all'account del grafo tramite la libreria Gremlin.Net.
+   **Endpoint Gremlin**: questo valore viene usato quando ci si connette all'account del grafo tramite la libreria Gremlin.Net.
 
     :::image type="content" source="./media/create-graph-dotnet/endpoint.png" alt-text="Copiare l'endpoint":::
 

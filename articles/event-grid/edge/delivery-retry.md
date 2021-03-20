@@ -8,15 +8,15 @@ ms.reviewer: spelluru
 ms.date: 07/08/2020
 ms.topic: article
 ms.openlocfilehash: aa0b3a05fb26f6be951b697145d7b22e03b7792d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "86171619"
 ---
 # <a name="delivery-and-retry"></a>Recapito e nuovo tentativo
 
-Griglia di eventi fornisce il recapito durevole. Tenta di recapitare ogni messaggio almeno una volta per ogni sottoscrizione corrispondente. Se l'endpoint di un Sottoscrittore non riconosce la ricezione di un evento o se si verifica un errore, la griglia di eventi esegue un nuovo tentativo di recapito in base a una **pianificazione** e un **criterio di ripetizione**corretti.  Per impostazione predefinita, il modulo di griglia di eventi recapita un solo evento alla volta nel Sottoscrittore. Il payload è tuttavia una matrice con un singolo evento. È possibile fare in modo che il modulo recapiti più di un evento alla volta abilitando la funzionalità di invio in batch di output. Per informazioni dettagliate su questa funzionalità, vedere Invio in [batch di output](delivery-output-batching.md).  
+Griglia di eventi fornisce il recapito durevole. Tenta di recapitare ogni messaggio almeno una volta per ogni sottoscrizione corrispondente. Se l'endpoint di un Sottoscrittore non riconosce la ricezione di un evento o se si verifica un errore, la griglia di eventi esegue un nuovo tentativo di recapito in base a una **pianificazione** e un **criterio di ripetizione** corretti.  Per impostazione predefinita, il modulo di griglia di eventi recapita un solo evento alla volta nel Sottoscrittore. Il payload è tuttavia una matrice con un singolo evento. È possibile fare in modo che il modulo recapiti più di un evento alla volta abilitando la funzionalità di invio in batch di output. Per informazioni dettagliate su questa funzionalità, vedere Invio in [batch di output](delivery-output-batching.md).  
 
 > [!IMPORTANT]
 >Non è disponibile alcun supporto di persistenza per i dati dell'evento. Ciò significa che la ridistribuzione o il riavvio del modulo di griglia di eventi provocherà la perdita di eventuali eventi non ancora recapitati.
@@ -25,7 +25,7 @@ Griglia di eventi fornisce il recapito durevole. Tenta di recapitare ogni messag
 
 Griglia di eventi attende fino a 60 secondi per una risposta dopo il recapito di un messaggio. Se l'endpoint del Sottoscrittore non ACK la risposta, il messaggio verrà accodato in una delle code di back-off per i tentativi successivi.
 
-Sono presenti due code di backup preconfigurate che determinano la pianificazione in base alla quale verrà effettuato un nuovo tentativo. ovvero:
+Sono presenti due code di backup preconfigurate che determinano la pianificazione in base alla quale verrà effettuato un nuovo tentativo. Ad esempio:
 
 | Pianifica | Descrizione |
 | ---------| ------------ |
@@ -41,7 +41,7 @@ Sono presenti due code di backup preconfigurate che determinano la pianificazion
 
 ## <a name="retry-policy-limits"></a>Limiti dei criteri di ripetizione
 
-Sono disponibili due configurazioni che determinano i criteri di ripetizione dei tentativi. ovvero:
+Sono disponibili due configurazioni che determinano i criteri di ripetizione dei tentativi. Ad esempio:
 
 * Numero massimo di tentativi
 * Time-to-Live (TTL) evento
@@ -62,7 +62,7 @@ Sono disponibili due proprietà: `brokers__defaultMaxDeliveryAttempts` e `broker
 È anche possibile specificare i limiti dei criteri di ripetizione dei tentativi in base alla sottoscrizione.
 Per informazioni su come configurare le impostazioni predefinite per ogni Sottoscrittore, vedere la [documentazione dell'API](api.md) . Le impostazioni predefinite a livello di sottoscrizione sostituiscono le configurazioni a livello di modulo.
 
-## <a name="examples"></a>Esempi
+## <a name="examples"></a>Esempio
 
 Nell'esempio seguente vengono impostati i criteri di ripetizione dei tentativi nel modulo di griglia di eventi con maxNumberOfAttempts = 3 e l'evento TTL di 30 minuti
 

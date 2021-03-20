@@ -1,5 +1,5 @@
 ---
-title: "Interfaccia della riga di comando: Connettere un'app a un account di archiviazione"
+title: "INTERFACCIA della riga di comando: connettere un'app a un account di archiviazione"
 description: Informazioni su come usare l'interfaccia della riga di comando di Azure per automatizzare la distribuzione e la gestione dell'app Servizio app. Questo esempio illustra come connettere un'app a un account di archiviazione.
 author: msangapu-msft
 tags: azure-service-management
@@ -10,10 +10,10 @@ ms.date: 12/11/2017
 ms.author: msangapu
 ms.custom: mvc, seodec18
 ms.openlocfilehash: 508fef1a7467af6874271b5ef37c30a9a16dec95
-ms.sourcegitcommit: 273c04022b0145aeab68eb6695b99944ac923465
-ms.translationtype: HT
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/10/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97006315"
 ---
 # <a name="connect-an-app-service-app-to-a-storage-account-using-cli"></a>Connettere un'app del servizio app a un account di archiviazione usando l'interfaccia della riga di comando

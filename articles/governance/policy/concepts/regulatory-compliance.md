@@ -4,10 +4,10 @@ description: Viene descritto come utilizzare una definizione di iniziativa per r
 ms.date: 08/17/2020
 ms.topic: conceptual
 ms.openlocfilehash: 15b03b5a40cba1290859b02883df70e3df54c5cf
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "89645523"
 ---
 # <a name="regulatory-compliance-in-azure-policy"></a>Conformità alle normative in criteri di Azure
@@ -35,16 +35,16 @@ Una nuova scheda, i **controlli** vengono aggiunti alla pagina. Il filtro è dis
 
 :::image type="content" source="../media/regulatory-compliance/regulatory-compliance-overview.png" alt-text="Screenshot della panoramica della conformità alle normative per la definizione predefinita del NIST SP 800-53 R4 che mostra i controlli conformi e non conformi.":::
 
-Se si seleziona un **controllo** , viene visualizzata una pagina di dettagli sul controllo. La **Panoramica** contiene le informazioni relative a `description` e `requirements` . Nella scheda **criteri** sono presenti tutte le definizioni di criteri individuali nell'iniziativa che contribuiscono a questo **controllo**. La scheda **conformità risorse** fornisce una visualizzazione granulare di ogni risorsa valutata da un criterio membro del **controllo**attualmente visualizzato.
+Se si seleziona un **controllo** , viene visualizzata una pagina di dettagli sul controllo. La **Panoramica** contiene le informazioni relative a `description` e `requirements` . Nella scheda **criteri** sono presenti tutte le definizioni di criteri individuali nell'iniziativa che contribuiscono a questo **controllo**. La scheda **conformità risorse** fornisce una visualizzazione granulare di ogni risorsa valutata da un criterio membro del **controllo** attualmente visualizzato.
 
 > [!NOTE]
 > Un tipo di valutazione di **Microsoft Managed** è per una definizione di criteri [statica](./definition-structure.md#type) `type` .
 
-:::image type="content" source="../media/regulatory-compliance/regulatory-compliance-policies.png" alt-text="Screenshot della panoramica della conformità alle normative per la definizione predefinita del NIST SP 800-53 R4 che mostra i controlli conformi e non conformi.":::
+:::image type="content" source="../media/regulatory-compliance/regulatory-compliance-policies.png" alt-text="Screenshot dei dettagli di conformità alle normative per il controllo di protezione dei limiti della definizione predefinita del NIST SP 800-53 R4.":::
 
 Dalla stessa pagina di **controllo** , la modifica alla scheda **conformità risorse** Mostra tutte le risorse incluse nelle definizioni dei criteri di questo **controllo**. Sono disponibili filtri per il nome o l'ID, lo stato di conformità, il tipo di risorsa e la posizione.
 
-:::image type="content" source="../media/regulatory-compliance/regulatory-compliance-resources.png" alt-text="Screenshot della panoramica della conformità alle normative per la definizione predefinita del NIST SP 800-53 R4 che mostra i controlli conformi e non conformi.":::
+:::image type="content" source="../media/regulatory-compliance/regulatory-compliance-resources.png" alt-text="Screenshot della conformità delle risorse al controllo di protezione dei limiti della definizione predefinita del NIST SP 800-53 R4.":::
 
 ## <a name="regulatory-compliance-in-sdk"></a>Conformità alle normative nell'SDK
 

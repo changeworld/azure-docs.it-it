@@ -17,10 +17,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 0b8f613cb7c75d9dd6af1fcf62f9d484398072c6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "89279466"
 ---
 # <a name="user-sign-in-with-azure-active-directory-pass-through-authentication"></a>Accesso utente con l'autenticazione pass-through di Azure Active Directory
@@ -47,7 +47,7 @@ Questa funzionalità è un'alternativa rispetto alla [sincronizzazione dell'hash
   - Non sono necessarie distribuzioni locali o configurazioni di rete complesse.
   - È necessario solo installare un agente leggero in locale.
   - Nessun sovraccarico di gestione. L'agente riceve automaticamente miglioramenti e correzioni di bug.
-- *Proteggere*
+- *Sicuro*
   - Le password locali non vengono mai archiviate nel cloud in alcuna forma.
   - Consente di proteggere gli account utente operando senza problemi con i [criteri di accesso condizionale di Azure AD](../conditional-access/overview.md), tra cui l'autenticazione a più fattori (MFA)[ e l'autenticazione legacy di blocco](../conditional-access/concept-conditional-access-conditions.md), e [impedendo attacchi di forza bruta alle password](../authentication/howto-password-smart-lockout.md).
   - L'agente esegue solo le connessioni in uscita dalla rete. Pertanto, non è necessario installarlo in una rete perimetrale.

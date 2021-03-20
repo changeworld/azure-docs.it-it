@@ -7,10 +7,10 @@ ms.service: postgresql
 ms.topic: conceptual
 ms.date: 09/22/2020
 ms.openlocfilehash: d0e79e42c7c004638336ada23de663bbe74b7e48
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/26/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92532646"
 ---
 # <a name="backup-and-restore-in-azure-database-for-postgresql---flexible-server"></a>Backup e ripristino nel database di Azure per PostgreSQL-server flessibile
@@ -71,9 +71,9 @@ Il ripristino temporizzato è utile in più scenari, ad esempio quando un utente
 
 È possibile scegliere tra un punto di ripristino meno recente e un punto di ripristino personalizzato.
 
--   **Punto di ripristino meno recente** : a seconda del periodo di memorizzazione, sarà il momento più recente che è possibile ripristinare. Il tempo di backup meno recente verrà selezionato automaticamente e verrà visualizzato nel portale. Questa opzione è utile se si desidera analizzare o eseguire alcuni test a partire da tale punto nel tempo.
+-   **Punto di ripristino meno recente**: a seconda del periodo di memorizzazione, sarà il momento più recente che è possibile ripristinare. Il tempo di backup meno recente verrà selezionato automaticamente e verrà visualizzato nel portale. Questa opzione è utile se si desidera analizzare o eseguire alcuni test a partire da tale punto nel tempo.
 
--   **Punto di ripristino personalizzato** : questa opzione consente di scegliere qualsiasi punto nel tempo entro il periodo di memorizzazione definito per questo server flessibile. Per impostazione predefinita, l'ora più recente in UTC viene selezionata automaticamente e utile se si desidera eseguire il ripristino fino all'ultima transazione di cui è stato eseguito il commit a scopo di test. Facoltativamente, è possibile scegliere altri giorni e ora. 
+-   **Punto di ripristino personalizzato**: questa opzione consente di scegliere qualsiasi punto nel tempo entro il periodo di memorizzazione definito per questo server flessibile. Per impostazione predefinita, l'ora più recente in UTC viene selezionata automaticamente e utile se si desidera eseguire il ripristino fino all'ultima transazione di cui è stato eseguito il commit a scopo di test. Facoltativamente, è possibile scegliere altri giorni e ora. 
 
 Il tempo stimato per il ripristino dipende da diversi fattori, tra cui le dimensioni del database, il volume dei log delle transazioni da elaborare, la larghezza di banda di rete e il numero totale di database ripristinati contemporaneamente nella stessa area. Il tempo di recupero complessivo richiede in genere da alcuni minuti fino a poche ore.
 
