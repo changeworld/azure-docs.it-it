@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 09/15/2020
 ms.author: ambapat
 ms.openlocfilehash: 58616b647affd33e96357e556ab61f85d1c62129
-ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/07/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96752278"
 ---
 # <a name="authentication-requests-and-responses"></a>Autenticazione, richieste e risposte
@@ -28,7 +28,7 @@ Azure Key Vault fornisce due tipi di contenitori per archiviare e gestire i segr
 
 Ecco i suffissi URL usati per accedere a ogni tipo di oggetto
 
-|Tipo oggetto|Suffisso URL|
+|Tipo di oggetto|Suffisso URL|
 |--|--|
 |Chiavi protette tramite software| /keys |
 |Chiavi protette dal modulo di protezione hardware| /keys |

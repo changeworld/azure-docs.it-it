@@ -7,10 +7,10 @@ ms.manager: bsiva
 ms.topic: how-to
 ms.date: 11/23/2020
 ms.openlocfilehash: 97051e97ec9868f6941b579241e16e62fdd2162b
-ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/07/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96751785"
 ---
 # <a name="add-migration-tools"></a>Aggiungere strumenti di migrazione
@@ -41,7 +41,7 @@ Questo articolo descrive come aggiungere strumenti di migrazione in [Azure migra
     
          ![Pulsante per aggiungere altri strumenti di migrazione](./media/how-to-migrate/add-migration-tools.png)
 
-    - Se è stato creato un progetto con un'opzione diversa e non sono ancora disponibili strumenti di migrazione, **Servers** in  >  **strumenti di migrazione** server selezionare **fare clic qui**.
+    - Se è stato creato un progetto con un'opzione diversa e non sono ancora disponibili strumenti di migrazione, in  >  **strumenti di migrazione** server selezionare **fare clic qui**.
 
     ![Pulsante per aggiungere primi strumenti di migrazione](./media/how-to-migrate/no-migration-tool.png)
 
@@ -69,7 +69,7 @@ Se è stato creato un progetto Azure Migrate usando l'opzione **valuta e migra d
 
 Se è stato creato un progetto Azure migrate usando l'opzione **Esplora altre**  >  **app** Web nel portale, lo strumento di migrazione delle app Web viene aggiunto automaticamente al progetto. 
 
-1. Se lo strumento di migrazione di app Web non è incluso nel progetto, in strumenti di valutazione di app **Web**  >  **Assessment tools** selezionare **fare clic qui**.
+1. Se lo strumento di migrazione di app Web non è incluso nel progetto, in strumenti di valutazione di app **Web**  >  selezionare **fare clic qui**.
 
     ![Aggiungere strumenti di migrazione delle app Web](./media/how-to-migrate/no-web-app-migration-tool.png)
  

@@ -14,10 +14,10 @@ ms.reviewer: saeeda, jmprieur
 ms.custom: aaddev
 ROBOTS: NOINDEX
 ms.openlocfilehash: 179034533d90dbbb6ca362fc6f72996f32873729
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "80154764"
 ---
 # <a name="service-to-service-apps"></a>App da servizio a servizio
@@ -59,9 +59,9 @@ Il flusso descritto di seguito presuppone che un utente abbia eseguito l'autenti
 
 Vedere gli esempi di codice per l'applicazione daemon o server in scenari di API Web: [applicazione server o daemon ad API Web](sample-v1-code.md#daemon-applications-accessing-web-apis-with-the-applications-identity)
 
-## <a name="app-registration"></a>Registrazione delle app
+## <a name="app-registration"></a>Registrazione dell'app
 
-* Tenant singolo: in entrambi i casi (identità di applicazione e identità utente delegato), l'applicazione daemon o server deve essere registrata nella stessa directory in Azure AD. L'API Web può essere configurata in modo da esporre un set di autorizzazioni, che vengono usate per limitare l'accesso del daemon o del server alle relative risorse. Se viene utilizzato un tipo di identità utente delegato, l'applicazione server deve selezionare le autorizzazioni desiderate. Nella pagina **autorizzazione API** per la registrazione dell'applicazione, dopo aver selezionato **Aggiungi un'autorizzazione** e scelto la famiglia di API, scegliere **autorizzazioni delegate**e quindi selezionare le autorizzazioni. Questo passaggio non è necessario se viene usato il tipo di identità applicazione.
+* Tenant singolo: in entrambi i casi (identità di applicazione e identità utente delegato), l'applicazione daemon o server deve essere registrata nella stessa directory in Azure AD. L'API Web può essere configurata in modo da esporre un set di autorizzazioni, che vengono usate per limitare l'accesso del daemon o del server alle relative risorse. Se viene utilizzato un tipo di identità utente delegato, l'applicazione server deve selezionare le autorizzazioni desiderate. Nella pagina **autorizzazione API** per la registrazione dell'applicazione, dopo aver selezionato **Aggiungi un'autorizzazione** e scelto la famiglia di API, scegliere **autorizzazioni delegate** e quindi selezionare le autorizzazioni. Questo passaggio non è necessario se viene usato il tipo di identità applicazione.
 * Multi-tenant: per prima cosa, l'applicazione daemon o server viene configurata per indicare le autorizzazioni necessarie per il funzionamento. Questo elenco di autorizzazioni richieste viene visualizzato in una finestra di dialogo quando un utente o amministratore nella directory di destinazione concede il consenso all'applicazione, rendendola disponibile per la propria organizzazione. Alcune applicazioni richiedono solo autorizzazioni a livello utente, che possono essere concesse da qualsiasi utente dell'organizzazione. Altre applicazioni richiedono autorizzazioni a livello amministratore, che non possono essere concesse dagli utenti dell'organizzazione. Solo un amministratore di directory può concedere il consenso alle applicazioni che richiedono questo livello di autorizzazione. Quando l'utente o l'amministratore acconsente, entrambe le API Web vengono registrate nella directory.
 
 ## <a name="token-expiration"></a>Scadenza del token

@@ -4,10 +4,10 @@ description: Informazioni su come usare la portale di Azure per ripristinare un'
 ms.topic: conceptual
 ms.date: 01/12/2020
 ms.openlocfilehash: 35ca0936ae6efba716adb51f43326cdd5bfa2d98
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "89376775"
 ---
 # <a name="restore-azure-file-shares"></a>Ripristinare le condivisioni file di Azure
@@ -68,7 +68,7 @@ Per eseguire un'operazione di ripristino, attenersi alla seguente procedura.
 
 #### <a name="restore-to-the-original-location-full-share-recovery"></a>Ripristino nel percorso originale (recupero con condivisione completa)
 
-1. Selezionare **percorso originale** come **destinazione di ripristino**e selezionare se ignorare o sovrascrivere in caso di conflitti, scegliendo l'opzione appropriata nell'elenco **a discesa in caso di conflitti** .
+1. Selezionare **percorso originale** come **destinazione di ripristino** e selezionare se ignorare o sovrascrivere in caso di conflitti, scegliendo l'opzione appropriata nell'elenco **a discesa in caso di conflitti** .
 
 1. Selezionare **Ripristina** per avviare l'operazione di ripristino.
 
@@ -108,7 +108,7 @@ Per eseguire un'operazione di ripristino, attenersi alla seguente procedura.
 
 #### <a name="restore-to-the-original-location-item-level-recovery"></a>Ripristinare il percorso originale (ripristino a livello di elemento)
 
-1. Selezionare **percorso originale** come **destinazione di ripristino**e selezionare se ignorare o sovrascrivere se sono presenti conflitti scegliendo l'opzione appropriata nell'elenco **a discesa in caso di conflitti** .
+1. Selezionare **percorso originale** come **destinazione di ripristino** e selezionare se ignorare o sovrascrivere se sono presenti conflitti scegliendo l'opzione appropriata nell'elenco **a discesa in caso di conflitti** .
 
     ![Percorso originale per il ripristino a livello di elemento](./media/restore-afs/original-location-item-level.png)
 

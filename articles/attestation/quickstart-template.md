@@ -9,10 +9,10 @@ ms.custom: subject-armqs
 ms.author: mbaldwin
 ms.date: 10/16/2020
 ms.openlocfilehash: 8c56a37ebcc799b0170785666212eb4e3b00a5f0
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
-ms.translationtype: HT
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/17/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92144980"
 ---
 # <a name="quickstart-create-an-azure-attestation-provider-with-an-arm-template"></a>Avvio rapido: Creare un provider di Attestazione di Azure con un modello di Resource Manager
@@ -21,7 +21,7 @@ ms.locfileid: "92144980"
 
 [!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
 
-Se l'ambiente soddisfa i prerequisiti e si ha familiarità con l'uso dei modelli di Resource Manager, selezionare il pulsante **Distribuisci in Azure** . Il modello verrà aperto nel portale di Azure.
+Se l'ambiente soddisfa i prerequisiti e si ha familiarità con l'uso dei modelli di Resource Manager, selezionare il pulsante **Distribuisci in Azure**. Il modello verrà aperto nel portale di Azure.
 
 [![Distribuzione in Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-attestation-provider-create%2Fazuredeploy.json)
 
@@ -49,11 +49,11 @@ Risorse di Azure definite nel modello:
 
     Se non diversamente specificato, usare il valore predefinito per creare il provider di attestazioni.
 
-    - **Nome del provider di attestazioni** : selezionare un nome per il provider di Attestazione di Azure.
-    - **Località** : Selezionare una località. Ad esempio **Stati Uniti centrali** .
-    - **Tag** : Selezionare una località. Ad esempio **Stati Uniti centrali** .
+    - **Nome del provider di attestazioni**: selezionare un nome per il provider di Attestazione di Azure.
+    - **Località**: Selezionare una località. Ad esempio **Stati Uniti centrali**.
+    - **Tag**: Selezionare una località. Ad esempio **Stati Uniti centrali**.
 
-1. Selezionare **Acquisto** . Al termine della distribuzione della risorsa di attestazione, si riceve una notifica.
+1. Selezionare **Acquisto**. Al termine della distribuzione della risorsa di attestazione, si riceve una notifica.
 
 Per distribuire il modello, si usa il portale di Azure. Oltre al portale di Azure, è anche possibile usare Azure PowerShell, l'interfaccia della riga di comando di Azure e l'API REST. Per informazioni sugli altri metodi di distribuzione, vedere [Distribuire modelli](../azure-resource-manager/templates/deploy-powershell.md).
 

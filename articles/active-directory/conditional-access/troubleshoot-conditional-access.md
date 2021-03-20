@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: calebb, martinco
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 12f722977329bd5d79d4d0e410a29c730faf00c5
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/17/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92145095"
 ---
 # <a name="troubleshooting-sign-in-problems-with-conditional-access"></a>Risoluzione dei problemi di accesso con l'accesso condizionale
@@ -71,7 +71,7 @@ Per individuare i criteri di accesso condizionale o i criteri applicati e perch�
 1. Quando l'evento di accesso corrispondente all'errore di accesso dell'utente è stato trovato, selezionare la scheda **accesso condizionale** . Nella scheda accesso condizionale vengono visualizzati i criteri specifici o i criteri che hanno causato l'interruzione dell'accesso.
    1. Le informazioni nella scheda **risoluzione dei problemi e supporto tecnico** possono indicare un motivo chiaro per cui un accesso non è riuscito, ad esempio un dispositivo che non soddisfa i requisiti di conformità.
    1. Per esaminare ulteriormente, eseguire il drill-down nella configurazione dei criteri facendo clic sul **nome del criterio**. Facendo clic sul **nome del criterio** , viene visualizzata l'interfaccia utente di configurazione dei criteri per il criterio selezionato per la revisione e la modifica.
-   1. I **dettagli relativi** all' **utente** e al dispositivo client usati per la valutazione dei criteri di accesso condizionale sono disponibili anche nelle schede **informazioni di base**, **località**, **informazioni sul dispositivo**, **Dettagli autenticazione**e **dettagli aggiuntivi** dell'evento di accesso.
+   1. I **dettagli relativi** all' **utente** e al dispositivo client usati per la valutazione dei criteri di accesso condizionale sono disponibili anche nelle schede **informazioni di base**, **località**, **informazioni sul dispositivo**, **Dettagli autenticazione** e **dettagli aggiuntivi** dell'evento di accesso.
 
 ### <a name="policy-details"></a>Dettagli criteri
 

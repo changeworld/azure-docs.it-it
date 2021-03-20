@@ -4,10 +4,10 @@ description: Informazioni su come eseguire il backup del server di Backup di Mic
 ms.topic: conceptual
 ms.date: 09/24/2020
 ms.openlocfilehash: 81a6ee005e15b1d7ab7b11a938b8ab14143818f4
-ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/19/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92172123"
 ---
 # <a name="back-up-the-mabs-server"></a>Eseguire il backup del server di Backup di Microsoft Azure
@@ -72,7 +72,7 @@ Come parte della strategia di backup di MAB, sarà necessario eseguire il backup
 
 2. Fornire le credenziali dell'insieme di credenziali (scaricare dall'insieme di credenziali di backup di Azure). Si noti che le credenziali sono valide solo per due giorni.
 
-3. In **Seleziona MAB esterno per il ripristino**selezionare il server MAB per il quale si desidera ripristinare il database, digitare la passphrase di crittografia e fare clic su **OK.**
+3. In **Seleziona MAB esterno per il ripristino** selezionare il server MAB per il quale si desidera ripristinare il database, digitare la passphrase di crittografia e fare clic su **OK.**
 
 4. Selezionare il punto di ripristino che si vuole usare nell'elenco dei punti disponibili. Selezionare **Clear External MAB** per tornare alla visualizzazione MAB locale.
 
@@ -81,7 +81,7 @@ Come parte della strategia di backup di MAB, sarà necessario eseguire il backup
 > [!NOTE]  
 > Questa opzione è applicabile a MAB con Modern Backup Storage.
 
-1. Nella console di MAB selezionare **protezione**  >  **Crea gruppo protezione**dati.
+1. Nella console di MAB selezionare **protezione**  >  **Crea gruppo protezione** dati.
 2. Nella pagina **Selezione tipo di gruppo protezione dati** seleziona **Server**.
 3. Nella pagina **Seleziona membri del gruppo** selezionare **database DPM**. Espandere il server MAB e selezionare DPMDB.
 4. Nella pagina **Seleziona metodo protezione dati** selezionare **Protezione dati a breve termine tramite: disco**. Specificare le opzioni per i criteri di protezione a breve termine.
@@ -154,7 +154,7 @@ where ds.datasourcename like '%dpmdb%'
 and servername like '%dpmsqlservername%' --netbios name of server hosting DPMDB
 ```
 
-1. Nella console di MAB selezionare **protezione**  >  **Crea gruppo protezione**dati.
+1. Nella console di MAB selezionare **protezione**  >  **Crea gruppo protezione** dati.
 
 2. Nella pagina **Selezione tipo di gruppo protezione dati** selezionare **Server**.
 
@@ -288,8 +288,8 @@ Questa opzione di backup usa SQL nativo per eseguire il backup del database MAB 
 |----------------|-----------------------------|
 | **-RestoreDb**                       | Ripristina un database MAB da un percorso specificato.|
 | **-Sync**                            | Sincronizza i database ripristinati. Dopo aver ripristinato i database, è necessario eseguire **DPMSync-Sync** . Dopo l'esecuzione di **DPMSync-Sync**, è possibile che alcune repliche siano ancora contrassegnate come mancanti. |
-| **-** *Percorso* DbLoc                | Identifica la posizione del backup del database di MAB.|
-| **-Nomeistanza** <br/>*server\istanza*     | Istanza in cui il database DPM deve essere ripristinato.|
+| **-DbLoc** *location*                | Identifica la posizione del backup del database di MAB.|
+| **-InstanceName** <br/>*server\istanza*     | Istanza in cui il database DPM deve essere ripristinato.|
 | **-ReallocateReplica**         | Rialloca tutti i volumi di replica mancanti senza sincronizzazione. |
 | **-DataCopied**                      | Indica che il caricamento dei dati nei volumi di replica appena allocati è stato completato. Si applica solo ai computer client. |
 

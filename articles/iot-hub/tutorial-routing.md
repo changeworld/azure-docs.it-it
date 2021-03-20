@@ -14,13 +14,13 @@ ms.custom:
 - 'Role: Data Analytics'
 - devx-track-azurecli
 ms.openlocfilehash: d7a10aac82286616273f7283bc3fba74f2c58f35
-ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/21/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98625216"
 ---
-# <a name="tutorial-use-the-azure-cli-and-azure-portal-to-configure-iot-hub-message-routing"></a>Esercitazione: Usare l'interfaccia della riga di comando di Azure e il portale di Azure per configurare il routing dei messaggi per l'hub IoT
+# <a name="tutorial-use-the-azure-cli-and-azure-portal-to-configure-iot-hub-message-routing"></a>Esercitazione: usare l'interfaccia della riga di comando di Azure e portale di Azure per configurare il routing dei messaggi dell'hub
 
 [!INCLUDE [iot-hub-include-routing-intro](../../includes/iot-hub-include-routing-intro.md)]
 
@@ -140,7 +140,7 @@ Ora configurare il routing per l'account di archiviazione. Passare al riquadro R
 
 2. Selezionare l'hub IoT nell'elenco di risorse. Questa esercitazione usa **ContosoTestHub**.
 
-3. Selezionare **Routing messaggi**. Nel riquadro **Routing messaggi** selezionare **+Aggiungi**. Nel riquadro **Aggiungi una route** selezionare +**Aggiungi endpoint** accanto al campo endpoint per visualizzare gli endpoint supportati, come mostrato nell'immagine seguente:
+3. Selezionare **routing messaggi**. Nel riquadro **Routing messaggi** selezionare **+Aggiungi**. Nel riquadro **Aggiungi una route** selezionare +**Aggiungi endpoint** accanto al campo endpoint per visualizzare gli endpoint supportati, come mostrato nell'immagine seguente:
 
    ![Iniziare ad aggiungere un endpoint per una route](./media/tutorial-routing/message-routing-add-a-route-with-storage-endpoint-ver2.png)
 
@@ -166,15 +166,15 @@ Ora configurare il routing per l'account di archiviazione. Passare al riquadro R
 
 9. Completare ora il resto delle informazioni per la query di routing. Questa query specifica i criteri per l'invio di messaggi al contenitore di archiviazione appena aggiunto come endpoint. Compilare i campi sullo schermo.
 
-   **Name**: immettere un nome per la query di routing. Questa esercitazione usa **ContosoStorageRoute**.
+   **Nome**: immettere un nome per la query di routing. Questa esercitazione usa **ContosoStorageRoute**.
 
    **Endpoint**: viene visualizzato l'endpoint appena configurato.
 
-   **Origine dati**: selezionare **Messaggi di telemetria del dispositivo** nell'elenco a discesa.
+   **Origine dati**: selezionare **Device Telemetry Messages** (Messaggi telemetria dispositivo) nell'elenco a discesa.
 
-   **Abilita route**: assicurarsi che questo campo sia impostato su `enabled`.
+   **Abilita Route**: assicurarsi che questo campo sia impostato su `enabled` .
    
-   **Query di routing**: immettere `level="storage"` come stringa di query.
+   **Routing query** (Query di routing): immettere `level="storage"` come stringa di query.
 
    ![Creazione di una query di routing per l'account di archiviazione](./media/tutorial-routing/message-routing-finish-route-storage-ep.png)  
 
@@ -194,23 +194,23 @@ Ora configurare il routing per la coda del bus di servizio. Passare al riquadro 
 
 4. Compilare i campi:
 
-   **Nome endpoint**: Immettere un nome per l'endpoint. Questa esercitazione usa **ContosoSBQueueEndpoint**.
+   **Nome endpoint**: immettere un nome per l'endpoint. Questa esercitazione usa **ContosoSBQueueEndpoint**.
    
-   **Spazio dei nomi del bus di servizio**: nell'elenco a discesa selezionare lo spazio dei nomi del bus di servizio configurato nei passaggi di preparazione. Questa esercitazione usa **ContosoSBNamespace**.
+   **Spazio dei nomi del bus di servizio**: usare l'elenco a discesa per selezionare lo spazio dei nomi del bus di servizio configurato nei passaggi di preparazione. Questa esercitazione usa **ContosoSBNamespace**.
 
-   **Coda del bus di servizio**: nell'elenco a discesa selezionare la coda del bus di servizio. Questa esercitazione usa **contososbqueue**.
+   **Coda del bus di servizio**: usare l'elenco a discesa per selezionare la coda del bus di servizio. Questa esercitazione usa **contososbqueue**.
 
 5. Selezionare **Crea** per aggiungere l'endpoint della coda del bus di servizio. Si tornerà al riquadro **Aggiungi route**.
 
 6. Completare ora il resto delle informazioni per la query di routing. Questa query specifica i criteri per l'invio di messaggi alla coda del bus di servizio appena aggiunta come endpoint. Compilare i campi sullo schermo. 
 
-   **Name**: immettere un nome per la query di routing. Questa esercitazione usa **ContosoSBQueueRoute**. 
+   **Nome**: immettere un nome per la query di routing. Questa esercitazione usa **ContosoSBQueueRoute**. 
 
    **Endpoint**: viene visualizzato l'endpoint appena configurato.
 
-   **Origine dati**: selezionare **Messaggi di telemetria del dispositivo** nell'elenco a discesa.
+   **Origine dati**: selezionare **Device Telemetry Messages** (Messaggi telemetria dispositivo) nell'elenco a discesa.
 
-   **Query di routing**: immettere `level="critical"` come stringa di query. 
+   **Routing query** (Query di routing): immettere `level="critical"` come stringa di query. 
 
    ![Creare una query di routing per la coda del bus di servizio](./media/tutorial-routing/message-routing-finish-route-sbq-ep.png)
 

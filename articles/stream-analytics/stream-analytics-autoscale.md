@@ -7,10 +7,10 @@ ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 06/03/2020
 ms.openlocfilehash: a8e089e302e9d40c69cf7ff2a3480c17894e1463
-ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/08/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98016287"
 ---
 # <a name="autoscale-stream-analytics-jobs-using-azure-automation"></a>Ridimensionare i processi di analisi di flusso con automazione di Azure
@@ -30,9 +30,9 @@ Aggiungere le variabili seguenti all'interno dell'account di automazione di Azur
 
 | Nome | Type | valore |
 | --- | --- | --- |
-| **jobName** | Stringa | Nome del processo di analisi di flusso che si vuole ridimensionare automaticamente. |
-| **resourceGroupName** | Stringa | Nome del gruppo di risorse in cui è presente il processo. |
-| **subId** | Stringa | ID sottoscrizione in cui è presente il processo. |
+| **jobName** | string | Nome del processo di analisi di flusso che si vuole ridimensionare automaticamente. |
+| **resourceGroupName** | string | Nome del gruppo di risorse in cui è presente il processo. |
+| **subId** | string | ID sottoscrizione in cui è presente il processo. |
 | **increasedSU** | Integer | Il valore di SU superiore a cui si vuole ridimensionare il processo in una pianificazione. Questo valore deve corrispondere a una delle opzioni di SU valide visualizzate nelle impostazioni di **scalabilità** del processo mentre è in esecuzione. |
 | **decreasedSU** | Integer | Valore di SU inferiore a cui si vuole applicare la scalabilità del processo in una pianificazione. Questo valore deve corrispondere a una delle opzioni di SU valide visualizzate nelle impostazioni di **scalabilità** del processo mentre è in esecuzione. |
 | **maxSU** | Integer | Il valore massimo SU cui si vuole ridimensionare il processo nei passaggi durante la scalabilità automatica in base al carico. Questo valore deve corrispondere a una delle opzioni di SU valide visualizzate nelle impostazioni di **scalabilità** del processo mentre è in esecuzione. |

@@ -1,32 +1,32 @@
 ---
-title: Distribuire un modello PyTorch come applicazione Funzioni di Azure
-description: Usare una rete neurale profonda ResNet 18 con training preliminare di PyTorch con Funzioni di Azure per assegnare una delle 1000 etichette di ImageNet a un'immagine.
+title: Distribuire un modello PyTorch come applicazione di funzioni di Azure
+description: Usare una rete neurale ResNet 18 con training preliminare da PyTorch con funzioni di Azure per assegnare a un'immagine 1 di 1000 etichette di imagent.
 author: gvashishtha
 ms.topic: tutorial
 ms.date: 02/28/2020
 ms.author: gopalv
 ms.custom: devx-track-python, devx-track-azurepowershell
 ms.openlocfilehash: 8891c29e5d8d06df6292d06ec06e5e57fb9880e7
-ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
-ms.translationtype: HT
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/06/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93422842"
 ---
-# <a name="tutorial-deploy-a-pre-trained-image-classification-model-to-azure-functions-with-pytorch"></a>Esercitazione: Distribuire un modello di classificazione delle immagini con training preliminare in Funzioni di Azure con PyTorch
+# <a name="tutorial-deploy-a-pre-trained-image-classification-model-to-azure-functions-with-pytorch"></a>Esercitazione: distribuire un modello di classificazione delle immagini con training preliminare in funzioni di Azure con PyTorch
 
-Questo articolo illustra come usare Python, PyTorch e Funzioni di Azure per caricare un modello con training preliminare per la classificazione di un'immagine in base al contenuto. Dal momento che si lavora in locale e non vengono create risorse di Azure nel cloud, non è previsto alcun costo per completare questa esercitazione.
+Questo articolo illustra come usare Python, PyTorch e funzioni di Azure per caricare un modello con training preliminare per la classificazione di un'immagine in base al relativo contenuto. Dal momento che si lavora in locale e non vengono create risorse di Azure nel cloud, non è previsto alcun costo per completare questa esercitazione.
 
 > [!div class="checklist"]
 > * Inizializzare un ambiente locale per lo sviluppo di Funzioni di Azure in Python.
 > * Importare un modello di Machine Learning PyTorch con training preliminare in un'app per le funzioni.
-> * Creare un'API HTTP serverless per classificare un'immagine come una delle 1000 classi [ImageNet](https://gist.github.com/yrevar/942d3a0ac09ec9e5eb3a).
+> * Creare un'API HTTP senza server per la classificazione di un'immagine come una delle [classi](https://gist.github.com/yrevar/942d3a0ac09ec9e5eb3a)di 1000 imagent.
 > * Utilizzare l'API da un'app Web.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
 - Un account Azure con una sottoscrizione attiva. [Creare un account gratuitamente](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
-- [Python 3.7.4 o versione successiva](https://www.python.org/downloads/release/python-374/). Con Funzioni di Azure sono stati verificati anche Python 3.8.x e Python 3.6.x.
+- [3.7.4 Python o versione successiva](https://www.python.org/downloads/release/python-374/). (Python 3.8. x e Python 3.6. x vengono verificati anche con funzioni di Azure).
 - [Azure Functions Core Tools](functions-run-local.md#install-the-azure-functions-core-tools)
 - Un editor di codice, ad esempio [Visual Studio Code](https://code.visualstudio.com/)
 
@@ -115,12 +115,12 @@ In Funzioni di Azure un progetto di funzione è un contenitore per una o più fu
     func new --name classify --template "HTTP trigger"
     ```
 
-    Questo comando crea una cartella che corrisponde al nome della funzione, ovvero *classify*. In tale cartella sono presenti due file, ovvero *\_\_init\_\_.py* , che contiene il codice della funzione, e *function.json* , che descrive il trigger della funzione e le associazioni di input e output. Per informazioni dettagliate sul contenuto di questi file, vedere [Esaminare il contenuto del file](./create-first-function-cli-python.md#optional-examine-the-file-contents) nella guida di avvio rapido per Python.
+    Questo comando crea una cartella che corrisponde al nome della funzione, ovvero *classify*. In tale cartella sono presenti due file, ovvero *\_\_init\_\_.py*, che contiene il codice della funzione, e *function.json*, che descrive il trigger della funzione e le associazioni di input e output. Per informazioni dettagliate sul contenuto di questi file, vedere [Esaminare il contenuto del file](./create-first-function-cli-python.md#optional-examine-the-file-contents) nella guida di avvio rapido per Python.
 
 
 ## <a name="run-the-function-locally"></a>Eseguire la funzione in locale
 
-1. Avviare la funzione avviando l'host di runtime locale di Funzioni di Azure nella cartella *start* :
+1. Avviare la funzione avviando l'host di runtime locale di Funzioni di Azure nella cartella *start*:
 
     ```
     func start
@@ -131,11 +131,11 @@ In Funzioni di Azure un progetto di funzione è un contenitore per una o più fu
 1. Premere **CTRL**-**C** per arrestare l'host.
 
 
-## <a name="import-the-pytorch-model-and-add-helper-code"></a>Importare il modello PyTorch e aggiungere il codice helper
+## <a name="import-the-pytorch-model-and-add-helper-code"></a>Importare il modello PyTorch e aggiungere il codice di supporto
 
-Per modificare la funzione `classify` per classificare un'immagine in base al contenuto, si usa un modello [ResNet](https://arxiv.org/abs/1512.03385) con training preliminare. Tale modello, proveniente da [PyTorch](https://pytorch.org/hub/pytorch_vision_resnet/), classifica un'immagine come una delle 1000 [classi ImageNet](https://gist.github.com/yrevar/942d3a0ac09ec9e5eb3a). Aggiungere quindi il codice helper e le dipendenze al progetto.
+Per modificare la `classify` funzione in modo da classificare un'immagine in base al contenuto, usare un modello [Resnet](https://arxiv.org/abs/1512.03385) con training preliminare. Il modello con training preliminare, che deriva da [PyTorch](https://pytorch.org/hub/pytorch_vision_resnet/), classifica un'immagine in 1 di 1000 [classi imagent](https://gist.github.com/yrevar/942d3a0ac09ec9e5eb3a). Aggiungere quindi il codice helper e le dipendenze al progetto.
 
-1. Nella cartella *start* eseguire questo comando per copiare il codice di previsione e le etichette nella cartella *classify*.
+1. Nella cartella di *avvio* eseguire il comando seguente per copiare il codice di stima e le etichette nella cartella *classifica* .
 
     # <a name="bash"></a>[Bash](#tab/bash)
 
@@ -160,9 +160,9 @@ Per modificare la funzione `classify` per classificare un'immagine in base al co
 
     ---
 
-1. Verificare che la cartella *classify* contenga i file denominati *predict.py* e *labels.txt*. In caso contrario, verificare che il comando sia stato eseguito nella cartella *start*.
+1. Verificare che la cartella *classifica* includa i file denominati *Predict.py* e *labels.txt*. In caso contrario, verificare che il comando sia stato eseguito nella cartella *start*.
 
-1. Aprire *start/requirements.txt* in un editor di testo e aggiungere le dipendenze richieste dal codice helper, che si presenteranno come segue:
+1. Aprire *Start/requirements.txt* in un editor di testo e aggiungere le dipendenze richieste dal codice helper, che dovrebbe essere simile al seguente:
 
     ```txt
     azure-functions
@@ -172,7 +172,7 @@ Per modificare la funzione `classify` per classificare un'immagine in base al co
     torchvision==0.6.0+cpu
     ```
 
-1. Salvare *requirements.txt* e quindi eseguire questo comando dalla cartella *start* per installare le dipendenze.
+1. Salvare *requirements.txt*, quindi eseguire il comando seguente dalla cartella *Start* per installare le dipendenze.
 
 
     ```
@@ -185,7 +185,7 @@ L'installazione può richiedere alcuni minuti, durante i quali è possibile proc
 
 ## <a name="update-the-function-to-run-predictions"></a>Aggiornare la funzione per generare previsioni
 
-1. Aprire *classify/\_\_init\_\_.py* in un editor di testo e aggiungere le righe seguenti dopo le istruzioni `import` esistenti per importare la libreria JSON standard e gli helper di *predict* :
+1. Aprire *classify/\_\_init\_\_.py* in un editor di testo e aggiungere le righe seguenti dopo le istruzioni `import` esistenti per importare la libreria JSON standard e gli helper di *predict*:
 
     :::code language="python" source="~/functions-pytorch/end/classify/__init__.py" range="1-6" highlight="5-6":::
 
@@ -206,7 +206,7 @@ L'installazione può richiedere alcuni minuti, durante i quali è possibile proc
     func start
     ```
 
-1. In un browser aprire l'URL seguente per richiamare la funzione con l'URL dell'immagine di un cane di razza Bovaro del bernese e verificare che l'oggetto JSON restituito classifichi l'immagine come cane di tale razza.
+1. In un browser aprire l'URL seguente per richiamare la funzione con l'URL di un'immagine di Mountain Dog Bernese e verificare che il JSON restituito classifichi l'immagine come un Mountain Dog Bernese.
 
     ```
     http://localhost:7071/api/classify?img=https://raw.githubusercontent.com/Azure-Samples/functions-python-pytorch-tutorial/master/resources/assets/Bernese-Mountain-Dog-Temperament-long.jpg
@@ -260,7 +260,7 @@ Dal momento che l'intera esercitazione viene eseguita in locale sul computer in 
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-In questa esercitazione è stato illustrato come creare e personalizzare un endpoint API HTTP con Funzioni di Azure per classificare le immagini usando un modello PyTorch. È stato anche illustrato come chiamare l'API da un'app Web. È possibile usare le tecniche illustrate in questa esercitazione per creare API di qualsiasi complessità, eseguendo sempre il modello di calcolo serverless offerto da Funzioni di Azure.
+In questa esercitazione si è appreso come creare e personalizzare un endpoint API HTTP con funzioni di Azure per classificare le immagini usando un modello PyTorch. È stato anche illustrato come chiamare l'API da un'app Web. È possibile usare le tecniche illustrate in questa esercitazione per creare API di qualsiasi complessità, eseguendo sempre il modello di calcolo serverless offerto da Funzioni di Azure.
 
 Vedere anche la pagina relativa alla
 

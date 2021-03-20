@@ -7,10 +7,10 @@ ms.date: 07/28/2020
 ms.author: masnider
 ms.custom: devx-track-csharp
 ms.openlocfilehash: 5d27a09f0ff38ec7422636ef0933552aa310c387
-ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/29/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92911767"
 ---
 # <a name="describe-a-service-fabric-cluster-by-using-cluster-resource-manager"></a>Descrivere un cluster di Service Fabric usando cluster Gestione risorse
@@ -64,7 +64,7 @@ Come appaiono i domini sbilanciati? Nel diagramma seguente vengono illustrati du
 
 In Azure la scelta del dominio di errore contenente un nodo viene gestita per l'utente. Tuttavia, a seconda del numero di nodi di cui si esegue il provisioning, è comunque possibile finire con domini di errore che contengono più nodi rispetto ad altri.
 
-Si immagini ad esempio di avere cinque domini di errore nel cluster, ma di effettuare il provisioning di sette nodi per un tipo di nodo ( **NodeType** ). In questo caso, i primi due domini di errore finiscono con più nodi. Se si continua a distribuire più istanze di **NodeType** con solo un paio di istanze, il problema si aggrava. Per questo motivo, è consigliabile che il numero di nodi in ogni tipo di nodo sia un multiplo del numero di domini di errore.
+Si immagini ad esempio di avere cinque domini di errore nel cluster, ma di effettuare il provisioning di sette nodi per un tipo di nodo (**NodeType**). In questo caso, i primi due domini di errore finiscono con più nodi. Se si continua a distribuire più istanze di **NodeType** con solo un paio di istanze, il problema si aggrava. Per questo motivo, è consigliabile che il numero di nodi in ogni tipo di nodo sia un multiplo del numero di domini di errore.
 
 ## <a name="upgrade-domains"></a>Domini di aggiornamento
 
@@ -119,7 +119,7 @@ Ad esempio, supponiamo di avere un cluster con sei nodi, configurato con cinque 
 | **UD3** | | | |N4 | |
 | **UD4** | | | | |N5 |
 
-A questo punto è possibile creare un servizio con un valore di **TargetReplicaSetSize** (o, per un servizio senza stato, **InstanceCount** ) pari a cinque. Le repliche avvengono in N1 N5. N6 non verrà mai usato indipendentemente dal numero di servizi simili creati. Ma perché? Esaminiamo la differenza tra il layout corrente e ciò che accadrebbe se si scegliesse N6.
+A questo punto è possibile creare un servizio con un valore di **TargetReplicaSetSize** (o, per un servizio senza stato, **InstanceCount**) pari a cinque. Le repliche avvengono in N1 N5. N6 non verrà mai usato indipendentemente dal numero di servizi simili creati. Ma perché? Esaminiamo la differenza tra il layout corrente e ciò che accadrebbe se si scegliesse N6.
 
 Ecco il layout ottenuto e il numero totale di repliche per ogni dominio di errore e di aggiornamento:
 
@@ -179,7 +179,7 @@ Gestione risorse cluster supporta un'altra versione del vincolo per i domini di 
 > [!NOTE]
 > In un servizio con stato si parla di *perdita del quorum* in una situazione in cui la maggioranza delle repliche di partizione è contemporaneamente inattiva. Se, ad esempio, **TargetReplicaSetSize** è cinque, un set di tre repliche rappresenta il quorum. Analogamente, se **TargetReplicaSetSize** è sei, sono necessarie quattro repliche per il quorum. In entrambi i casi, non più di due repliche possono essere inattive contemporaneamente se la partizione vuole continuare a funzionare normalmente.
 >
-> Per un servizio senza stato, non c'è nulla di simile alla *perdita del quorum* . I servizi senza stato continuano a funzionare normalmente anche se la maggior parte delle istanze si arresta nello stesso momento. Quindi, ci concentreremo sui servizi con stato nella parte restante di questo articolo.
+> Per un servizio senza stato, non c'è nulla di simile alla *perdita del quorum*. I servizi senza stato continuano a funzionare normalmente anche se la maggior parte delle istanze si arresta nello stesso momento. Quindi, ci concentreremo sui servizi con stato nella parte restante di questo articolo.
 >
 
 Tornare all'esempio precedente. Con la versione "quorum safe" del vincolo, tutti e tre i layout sarebbero validi. Anche se FD0 non è riuscito nel secondo layout o UD1 ha avuto esito negativo nel terzo layout, la partizione avrebbe ancora quorum. La maggior parte delle repliche sarebbe ancora attiva. Con questa versione del vincolo, N6 può quasi sempre essere utilizzato.
@@ -343,19 +343,19 @@ In alcuni casi (in realtà, la maggior parte del tempo) è opportuno assicurarsi
 
 Un ottimo esempio di destinazione dell'hardware per determinati carichi di lavoro è quasi ogni architettura a più livelli. Alcuni computer fungono da front-end o lato API dell'applicazione e vengono esposti ai client o a Internet. Altri computer, spesso con risorse hardware diverse, gestiscono il lavoro dei livelli di calcolo o archiviazione. In genere _non_ sono esposti direttamente a Internet o ai client.
 
-Service Fabric prevede che in alcuni casi, potrebbe essere necessario eseguire determinati carichi di lavoro in particolari configurazioni hardware. Esempio:
+Service Fabric prevede che in alcuni casi, potrebbe essere necessario eseguire determinati carichi di lavoro in particolari configurazioni hardware. Ad esempio:
 
 * Un'applicazione a più livelli esistente è stata "sollevata e spostata" in un ambiente Service Fabric.
 * Un carico di lavoro deve essere eseguito su hardware specifico per motivi di prestazioni, scalabilità o isolamento della sicurezza.
 * Un carico di lavoro deve essere isolato da altri carichi di lavoro per motivi di utilizzo di criteri o risorse.
 
-Per supportare questi tipi di configurazioni, Service Fabric include tag che è possibile applicare ai nodi. Questi tag vengono chiamati *proprietà del nodo* . I *vincoli di posizionamento* sono le istruzioni collegate ai singoli servizi selezionati per una o più proprietà del nodo. Definiscono la posizione in cui i servizi devono essere eseguiti. Il set di vincoli è estensibile. Qualsiasi coppia chiave/valore può funzionare.
+Per supportare questi tipi di configurazioni, Service Fabric include tag che è possibile applicare ai nodi. Questi tag vengono chiamati *proprietà del nodo*. I *vincoli di posizionamento* sono le istruzioni collegate ai singoli servizi selezionati per una o più proprietà del nodo. Definiscono la posizione in cui i servizi devono essere eseguiti. Il set di vincoli è estensibile. Qualsiasi coppia chiave/valore può funzionare.
 
 ![Carichi di lavoro diversi per un layout cluster][Image5]
 
 ### <a name="built-in-node-properties"></a>Proprietà predefinite del nodo
 
-Service Fabric definisce alcune proprietà predefinite del nodo che possono essere usate automaticamente, pertanto non è necessario definirle. Le proprietà predefinite definite in ogni nodo sono **NodeType** e **NodeName** .
+Service Fabric definisce alcune proprietà predefinite del nodo che possono essere usate automaticamente, pertanto non è necessario definirle. Le proprietà predefinite definite in ogni nodo sono **NodeType** e **NodeName**.
 
 Ad esempio, è possibile scrivere un vincolo di posizionamento come `"(NodeType == NodeType03)"` . **NodeType** è una proprietà di uso comune. È utile perché corrisponde a 1:1 con un tipo di computer. Ogni tipo di computer corrisponde a un tipo di carico di lavoro in un'applicazione tradizionale a più livelli.
 
@@ -465,7 +465,7 @@ Innanzitutto, è necessario verificare che i computer non siano sovraccarichi, o
 
 In secondo luogo, si verificano bilanciamento e ottimizzazione, essenziali per l'esecuzione efficiente dei servizi. Le offerte di servizi convenienti o sensibili alle prestazioni non possono consentire l'accesso ad alcuni nodi mentre altri sono a freddo. I nodi sensibili causano conflitti di risorse e prestazioni insoddisfacenti. I nodi a freddo rappresentano risorse sprecate e costi più elevati.
 
-Service Fabric rappresenta le risorse come *metriche* . Per metrica si intende qualsiasi risorsa logica o fisica che deve essere descritta per Service Fabric, Esempi di metriche sono "WorkQueueDepth" o "MemoryInMb". Per informazioni sulle risorse fisiche che Service Fabric possono governare sui nodi, vedere [governance delle risorse](service-fabric-resource-governance.md). Per informazioni sulle metriche predefinite usate dal Gestione risorse del cluster e su come configurare le metriche personalizzate, vedere [questo articolo](service-fabric-cluster-resource-manager-metrics.md).
+Service Fabric rappresenta le risorse come *metriche*. Per metrica si intende qualsiasi risorsa logica o fisica che deve essere descritta per Service Fabric, Esempi di metriche sono "WorkQueueDepth" o "MemoryInMb". Per informazioni sulle risorse fisiche che Service Fabric possono governare sui nodi, vedere [governance delle risorse](service-fabric-resource-governance.md). Per informazioni sulle metriche predefinite usate dal Gestione risorse del cluster e su come configurare le metriche personalizzate, vedere [questo articolo](service-fabric-cluster-resource-manager-metrics.md).
 
 Le metriche sono diverse dai vincoli di posizionamento e dalle proprietà dei nodi. Le proprietà dei nodi sono descrittori statici dei nodi stessi. Le metriche descrivono le risorse che i nodi hanno e i servizi utilizzano quando vengono eseguiti in un nodo. Una proprietà del nodo potrebbe essere **HasSSD** e potrebbe essere impostata su true o false. La quantità di spazio disponibile su tale unità SSD e la quantità di spazio utilizzata dai servizi sarebbero una metrica come "DriveSpaceInMb".
 
@@ -566,7 +566,7 @@ La capacità di sovrarubrica può essere specificata anche come infinita. In que
 
 Per una metrica non è possibile specificare contemporaneamente il buffer del nodo e la capacità di sovrarubrica.
 
-Di seguito è riportato un esempio di come specificare il buffer del nodo o le capacità di sovrarubrica in *ClusterManifest.xml* :
+Di seguito è riportato un esempio di come specificare il buffer del nodo o le capacità di sovrarubrica in *ClusterManifest.xml*:
 
 ```xml
 <Section Name="NodeBufferPercentage">

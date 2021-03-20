@@ -9,10 +9,10 @@ ms.topic: include
 ms.date: 11/27/2019
 ms.author: prmitiki
 ms.openlocfilehash: b8869e93a7156b24d61ac555c95b9ca7f850ae34
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "81678524"
 ---
 1. Nella scheda **configurazione** della pagina **Crea un peering** compilare le caselle come illustrato qui.
@@ -20,7 +20,7 @@ ms.locfileid: "81678524"
     > [!div class="mx-imgBorder"]
     > ![Creare un tipo di peering di scambio di pagine peering](../media/setup-exchange-conf-tab.png)
 
-    * Per **tipo di peering**selezionare **Exchange**.
+    * Per **tipo di peering** selezionare **Exchange**.
     * Selezionare **SKU** come **Basic Free**.
     * Selezionare la **località** in cui si vuole convertire il peering in una risorsa di Azure. Se si dispone di connessioni peering con Microsoft nella località **metro** selezionata che non vengono convertite in una risorsa di Azure, queste connessioni verranno elencate nella sezione **connessioni peering** , come illustrato. È ora possibile convertire le connessioni peering in una risorsa di Azure.
 

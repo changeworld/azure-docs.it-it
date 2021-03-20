@@ -4,10 +4,10 @@ description: Questo articolo fornisce informazioni sull'autenticazione di un'app
 ms.topic: conceptual
 ms.date: 10/21/2020
 ms.openlocfilehash: 25ec5f11ca7b5e801e18155f1a3da6474c8e66e2
-ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/29/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92913314"
 ---
 # <a name="authenticate-an-application-with-azure-active-directory-to-access-event-hubs-resources"></a>Autenticare un'applicazione con Azure Active Directory per accedere alle risorse di hub eventi
@@ -48,7 +48,7 @@ Nelle immagini seguenti vengono illustrati i passaggi per la registrazione di un
 > [!Note]
 > Se si registra l'applicazione come applicazione nativa, è possibile specificare qualsiasi URI valido per l'URI di reindirizzamento. Per le applicazioni native, questo valore non deve essere un URL reale. Per le applicazioni Web, l'URI di reindirizzamento deve essere un URI valido perché specifica l'URL a cui vengono forniti i token.
 
-Dopo aver registrato l'applicazione, l' **ID applicazione (client)** verrà visualizzato in **Impostazioni** :
+Dopo aver registrato l'applicazione, l' **ID applicazione (client)** verrà visualizzato in **Impostazioni**:
 
 ![ID applicazione dell'applicazione registrata](./media/authenticate-application/application-id.png)
 
@@ -75,7 +75,7 @@ Dopo aver registrato l'applicazione, assegnare l'entità servizio dell'applicazi
 
     ![Selezionare l'hub eventi](./media/authenticate-application/select-event-hub.png)
 1. Selezionare **controllo di accesso (IAM)** per visualizzare le impostazioni di controllo di accesso per l'hub eventi. 
-1. Selezionare la scheda **Assegnazioni di ruolo** per visualizzare l'elenco di assegnazioni di ruolo. Selezionare il pulsante **Aggiungi** sulla barra degli strumenti e quindi selezionare **Aggiungi assegnazione ruolo** . 
+1. Selezionare la scheda **Assegnazioni di ruolo** per visualizzare l'elenco di assegnazioni di ruolo. Selezionare il pulsante **Aggiungi** sulla barra degli strumenti e quindi selezionare **Aggiungi assegnazione ruolo**. 
 
     ![Pulsante Aggiungi sulla barra degli strumenti](./media/authenticate-application/role-assignments-add-button.png)
 1. Nella pagina **Aggiungi assegnazione ruolo** eseguire le operazioni seguenti:

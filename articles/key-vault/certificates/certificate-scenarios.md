@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 06/13/2020
 ms.author: mbaldwin
 ms.openlocfilehash: 85f17897c0e3089a2d2bc5b172e98fa24e8085ff
-ms.sourcegitcommit: 03c0a713f602e671b278f5a6101c54c75d87658d
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/19/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94920441"
 ---
 # <a name="get-started-with-key-vault-certificates"></a>Introduzione ai certificati di Key Vault
@@ -46,7 +46,7 @@ I certificati sono costituiti da tre risorse correlate che collegate tra loro fo
 **Passaggio 3**. A seconda dell'autorità di certificazione, un amministratore di Contoso e un dipendente di Contoso (utente di Key Vault) proprietario di certificati possono ottenere un certificato dall'amministratore o direttamente dall'account con la CA.  
 
 - Avviare un'operazione di aggiunta di credenziali in un insieme di credenziali delle chiavi [ impostando una risorsa autorità di certificazione](/rest/api/keyvault/setcertificateissuer/setcertificateissuer). Un'autorità di certificazione è un'entità rappresentata in Azure Key Vault come risorsa CertificateIssuer. Viene usata per rendere disponibili informazioni sull'origine di un certificato di un insieme di credenziali delle chiavi: nome dell'autorità di certificazione, provider, credenziali e altri dettagli amministrativi.
-  - Ad esempio, MyDigiCertIssuer  
+  - Ex. MyDigiCertIssuer  
     -   Provider  
     -   Credenziali: credenziali dell'account CA. Ogni autorità di certificazione ha dati specifici.  
 
@@ -96,7 +96,7 @@ Il servizio Key Vault invia richieste all'autorità di certificazione (traffico 
 
 -   Se non vengono eseguite altre operazioni, Key Vault per prima cosa invierà un avviso di scadenza. 
 
--   L'utente, inoltre, può modificare i criteri, che sono funzionali al momento dell'importazione ma contengono impostazioni predefinite nel caso in cui non vengano specificate informazioni durante l'importazione, Ad esempio, se non sono presenti informazioni sull'autorità di certificazione.  
+-   L'utente, inoltre, può modificare i criteri, che sono funzionali al momento dell'importazione ma contengono impostazioni predefinite nel caso in cui non vengano specificate informazioni durante l'importazione, Ex. se non sono presenti informazioni sull'autorità di certificazione.  
 
 ### <a name="formats-of-import-we-support"></a>Formati di importazione supportati
 Azure Key Vault supporta i file di certificato con estensione PEM e PFX per l'importazione di certificati in Key Vault.

@@ -7,10 +7,10 @@ ms.service: data-share
 ms.topic: how-to
 ms.date: 07/30/2020
 ms.openlocfilehash: cc400922115f348090677661cd1b30434be19b72
-ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/29/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92910475"
 ---
 # <a name="monitor-azure-data-share"></a>Monitorare Condivisione dati di Azure  
@@ -36,7 +36,7 @@ Per visualizzare lo stato degli inviti alla condivisione dati, passare a condivi
 
 ## <a name="monitor-share-subscriptions"></a>Monitorare le sottoscrizioni di condivisione
 
-Per visualizzare lo stato delle sottoscrizioni di condivisione, passare a condivisioni inviate > sottoscrizioni di condivisione. In questo modo sarà possibile ottenere informazioni dettagliate sulle sottoscrizioni attive create dai consumer di dati dopo aver accettato l'invito. È possibile arrestare gli aggiornamenti futuri al consumer di dati selezionando la sottoscrizione di condivisione e selezionando *revoca* . 
+Per visualizzare lo stato delle sottoscrizioni di condivisione, passare a condivisioni inviate > sottoscrizioni di condivisione. In questo modo sarà possibile ottenere informazioni dettagliate sulle sottoscrizioni attive create dai consumer di dati dopo aver accettato l'invito. È possibile arrestare gli aggiornamenti futuri al consumer di dati selezionando la sottoscrizione di condivisione e selezionando *revoca*. 
 
 ## <a name="snapshot-history"></a>Cronologia snapshot 
 
@@ -50,7 +50,7 @@ Viene visualizzato un massimo di 30 giorni di cronologia degli snapshot. Se è n
 
 ## <a name="diagnostic-setting"></a>Impostazione di diagnostica
 
-È possibile configurare l'impostazione di diagnostica per salvare i dati o gli eventi del log. Passare a monitoraggio-> impostazioni di diagnostica e selezionare Aggiungi impostazioni di **diagnostica** . Selezionare i dati o gli eventi di log a cui si è interessati e dove si desidera archiviarli o inviarli. 
+È possibile configurare l'impostazione di diagnostica per salvare i dati o gli eventi del log. Passare a monitoraggio-> impostazioni di diagnostica e selezionare Aggiungi impostazioni di **diagnostica**. Selezionare i dati o gli eventi di log a cui si è interessati e dove si desidera archiviarli o inviarli. 
 
 ![Screenshot mostra la pagina delle impostazioni di diagnostica nell'portale di Azure.](./media/diagnostic-settings.png "Impostazioni di diagnostica") 
 

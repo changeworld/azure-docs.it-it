@@ -4,10 +4,10 @@ description: È possibile utilizzare Azure Data Box per inizializzare i dati di 
 ms.topic: conceptual
 ms.date: 08/12/2020
 ms.openlocfilehash: 1cfd9131099ad6a8ccd3d43e93f3d97641514f03
-ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/07/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96752550"
 ---
 # <a name="offline-seeding-using-azure-data-box-for-dpm-and-mabs-preview"></a>Seeding offline con Azure Data Box per DPM e MAB (anteprima)
@@ -84,7 +84,7 @@ Se è stato ordinato uno o più dischi Azure Data Box (fino a 8 TB ognuno), segu
 
 ## <a name="setup-azure-data-box"></a>Configurare Azure Data Box
 
-Se è stato ordinato un Azure Data Box (fino a 100 TB), seguire i passaggi indicati [qui](../databox/data-box-deploy-set-up.md) per configurare la data box.
+Se è stata ordinata un'istanza di Azure Data Box fino a 100 TB, seguire la procedura indicata [qui](../databox/data-box-deploy-set-up.md) per configurare Data Box.
 
 ### <a name="mount-your-azure-data-box-as-local-system"></a>Montare Azure Data Box come sistema locale
 

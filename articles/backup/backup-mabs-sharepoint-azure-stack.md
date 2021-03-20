@@ -4,10 +4,10 @@ description: Usare il server di Backup di Azure per eseguire il backup e riprist
 ms.topic: conceptual
 ms.date: 06/07/2020
 ms.openlocfilehash: 1e237e63b92468fafff4f8f8f525d1388840d162
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "89378322"
 ---
 # <a name="back-up-a-sharepoint-farm-on-azure-stack"></a>Eseguire il backup di una farm di SharePoint con Azure Stack
@@ -76,7 +76,7 @@ Per eseguire il backup della farm di SharePoint, configurare la protezione per S
 
         Dopo aver eseguito ConfigureSharePoint.exe, è necessario ripetere l'operazione se si verifica un cambiamento nelle credenziali di amministratore di farm SharePoint.
 
-1. Per creare un gruppo protezione dati, **Protection**selezionare  >  **azioni**  >  di protezione**Crea gruppo protezione** dati per aprire la procedura guidata **Crea nuovo gruppo protezione** dati nella console di MAB.
+1. Per creare un gruppo protezione dati, selezionare  >  **azioni**  >  di protezione **Crea gruppo protezione** dati per aprire la procedura guidata **Crea nuovo gruppo protezione** dati nella console di MAB.
 
 1. In **Selezione tipo di gruppo protezione dati** selezionare **Server**.
 
@@ -102,7 +102,7 @@ Per eseguire il backup della farm di SharePoint, configurare la protezione per S
 
 1. In **Specificare i criteri di conservazione online** è possibile specificare la modalità di conservazione in Azure dei punti di recupero creati dai backup giornalieri, settimanali, mensili e annuali.
 
-1. In **Scegliere la replica online** specificare la modalità di esecuzione della replica completa iniziale dei dati. È possibile eseguire la replica in rete o eseguire un backup offline (seeding offline). Il backup offline usa la funzionalità di importazione di Azure. [Altre informazioni](./backup-azure-backup-import-export.md).
+1. In **Scegliere la replica online** specificare la modalità di esecuzione della replica completa iniziale dei dati. È possibile eseguire la replica in rete o eseguire un backup offline (seeding offline). Il backup offline utilizza la funzionalità di importazione di Azure. [Altre informazioni](./backup-azure-backup-import-export.md).
 
 1. Nella pagina **Riepilogo** esaminare le impostazioni. Dopo aver selezionato **Crea gruppo**, viene eseguita la replica iniziale dei dati. Al termine, lo stato del gruppo protezione dati viene visualizzato come **OK** nella pagina **Stato**. Viene quindi eseguito il backup in base alle impostazioni del gruppo protezione dati.
 
@@ -116,7 +116,7 @@ Dopo aver creato il gruppo protezione dati, viene eseguita la replica iniziale e
 
 ### <a name="set-up-monitoring-notifications"></a>Impostare le notifiche di monitoraggio
 
-1. Nel Console di amministrazione di MAB selezionare opzioni di **monitoraggio**delle  >  **azioni**  >  **Options**.
+1. Nel Console di amministrazione di MAB selezionare opzioni di **monitoraggio** delle  >  **azioni**  >  .
 
 2. Selezionare **server SMTP**, digitare il nome del server, la porta e l'indirizzo di posta elettronica da cui verranno inviate le notifiche. L'indirizzo deve essere valido.
 
@@ -126,7 +126,7 @@ Dopo aver creato il gruppo protezione dati, viene eseguita la replica iniziale e
 
 ### <a name="publish-operations-manager-alerts"></a>Pubblicare avvisi di Operations Manager
 
-1. Nel Console di amministrazione di MAB selezionare opzioni di **monitoraggio**  >  **Action**  >  **Opzioni**azione  >  **pubblicazione**avvisi  >  **pubblica avvisi attivi**
+1. Nel Console di amministrazione di MAB selezionare opzioni di **monitoraggio**  >    >  **Opzioni** azione  >  **pubblicazione** avvisi  >  **pubblica avvisi attivi**
 
 2. Dopo aver abilitato **Pubblicazione avvisi**, tutti gli avvisi del server di Backup di Microsoft Azure esistenti che potrebbero richiedere l'intervento dell'utente vengono pubblicati nel registro eventi **MABS Alerts** (Avvisi server di Backup di Microsoft Azure). L'agente di Operations Manager installato nel server MAB pubblica quindi questi avvisi nel Operations Manager e continua ad aggiornare la console Man via che vengono generati nuovi avvisi.
 
@@ -172,7 +172,7 @@ Nell'esempio seguente, l' *elemento di SharePoint da ripristinare* è stato acci
     MAB connette il database del contenuto che ospita l'elemento di SharePoint all'istanza di SQL Server temporanea. MABS ripristina l'elemento dal database del contenuto e lo aggiunge al percorso di file di gestione temporanea di MABS. L'elemento recuperato che si trova nel percorso di gestione temporanea deve ora essere esportato nel percorso di gestione temporaneo della farm di SharePoint.
 
     ![Gestione temporanea Location2](./media/backup-azure-backup-sharepoint/staging-location2.png)
-10. Selezionare **Specifica opzioni di ripristino**e applicare le impostazioni di sicurezza per la farm di SharePoint o applicare le impostazioni di sicurezza del punto di ripristino. Selezionare **Avanti**.
+10. Selezionare **Specifica opzioni di ripristino** e applicare le impostazioni di sicurezza per la farm di SharePoint o applicare le impostazioni di sicurezza del punto di ripristino. Selezionare **Avanti**.
 
     ![Opzioni di ripristino](./media/backup-azure-backup-sharepoint/recovery-options.png)
 
@@ -249,7 +249,7 @@ Nella procedura seguente viene utilizzato l'esempio di una server farm con due s
 
 1. In *Server2*, al prompt dei comandi, impostare la directory su `_MABS installation location_\bin\` ed eseguire **ConfigureSharepoint**. Per ulteriori informazioni su ConfigureSharePoint, vedere [Configurare il backup](#configure-backup).
 
-1. Selezionare il gruppo protezione dati a cui appartiene la server farm, quindi selezionare **modifica gruppo protezione**dati.
+1. Selezionare il gruppo protezione dati a cui appartiene la server farm, quindi selezionare **modifica gruppo protezione** dati.
 
 1. Nella procedura guidata Modifica gruppo, nella pagina **Selezione membri del gruppo**, espandere *Server2* e selezionare la server farm, quindi completare la procedura guidata.
 

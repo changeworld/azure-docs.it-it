@@ -1,5 +1,5 @@
 ---
-title: 'Esercitazione: Diagnosticare un problema di routing di rete delle macchine virtuali - Portale di Azure'
+title: 'Esercitazione: diagnosticare un problema di routing di rete VM-portale di Azure'
 titleSuffix: Azure Network Watcher
 description: In questa esercitazione si apprenderà come diagnosticare un problema di routing di rete di una macchina virtuale usando la funzionalità Hop successivo di Azure Network Watcher.
 services: network-watcher
@@ -18,10 +18,10 @@ ms.date: 01/07/2021
 ms.author: damendo
 ms.custom: mvc
 ms.openlocfilehash: bfcf9568f37a26f234a417a86eebf1b0bde67ab0
-ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
-ms.translationtype: HT
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/08/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98014502"
 ---
 # <a name="tutorial-diagnose-a-virtual-machine-network-routing-problem-using-the-azure-portal"></a>Esercitazione: Diagnosticare un problema di routing di rete di una macchina virtuale tramite il portale di Azure
@@ -48,7 +48,7 @@ Accedere al portale di Azure all'indirizzo https://portal.azure.com.
 2. Selezionare **Calcolo** e quindi **Windows Server 2016 Datacenter** o **Ubuntu Server 17.10 VM**.
 3. Immettere o selezionare le informazioni seguenti, accettare le impostazioni predefinite rimanenti e quindi scegliere **OK**:
 
-    |Impostazione|valore|
+    |Impostazione|Valore|
     |---|---|
     |Nome|myVm|
     |Nome utente| Immettere un nome utente a scelta.|
@@ -83,7 +83,7 @@ Azure crea automaticamente le route per le destinazioni predefinite. È possibil
 1. Nel portale di Azure, selezionare **Hop successivo** in **Network Watcher**.
 2. Selezionare la sottoscrizione, immettere o selezionare i valori seguenti e quindi selezionare **Hop successivo**, come illustrato nell'immagine seguente:
 
-    |Impostazione                  |valore                                                   |
+    |Impostazione                  |Valore                                                   |
     |---------                |---------                                               |
     | Resource group          | Selezionare myResourceGroup                                 |
     | Macchina virtuale         | Selezionare myVm                                            |

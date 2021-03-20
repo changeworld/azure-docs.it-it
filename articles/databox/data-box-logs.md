@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 07/10/2020
 ms.author: alkohli
 ms.openlocfilehash: a9304936f746b82b59550d62e8b60a9e0035d188
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/17/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92147932"
 ---
 # <a name="tracking-and-event-logging-for-your-azure-data-box-and-azure-data-box-heavy-import-order"></a>Rilevamento e registrazione degli eventi per il Azure Data Box e l'ordine di importazione Azure Data Box Heavy
@@ -26,7 +26,7 @@ Nella tabella seguente viene illustrato un riepilogo dei passaggi dell'ordine di
 | Creare un ordine               | [Configurare il controllo di accesso nell'ordine tramite RBAC di Azure](#set-up-access-control-on-the-order)                                                    |
 | Ordine elaborato            | [Tenere traccia dell'ordine](#track-the-order) <ul><li> Portale di Azure </li><li> Sito Web del vettore di spedizione </li><li>Notifiche di posta elettronica</ul> |
 | Configurare il dispositivo              | Credenziali del dispositivo accesso ai [log attività](#query-activity-logs-during-setup) registrate                                              |
-| Copia dei dati nel dispositivo        | [Visualizzare i file di *error.xml* ](#view-error-log-during-data-copy) per la copia dei dati                                                             |
+| Copia dei dati nel dispositivo        | [Visualizzare i file di *error.xml*](#view-error-log-during-data-copy) per la copia dei dati                                                             |
 | Preparare per la spedizione            | [Esaminare i file DBA](#inspect-bom-during-prepare-to-ship) o i file manifesto nel dispositivo                                      |
 | Caricamento dei dati in Azure       | [Esaminare i log di copia](#review-copy-log-during-upload-to-azure) per individuare eventuali errori durante il caricamento dei dati nel Data Center di Azure                         |
 | Cancellazione dei dati dal dispositivo   | [Visualizza la catena dei log di custodia](#get-chain-of-custody-logs-after-data-erasure) , inclusi i log di controllo e la cronologia degli ordini                |
@@ -360,7 +360,7 @@ Scorrendo la cronologia degli ordini, viene visualizzato quanto segue:
 
 - Informazioni di rilevamento del vettore per il dispositivo.
 - Eventi con attività *SecureErase* . Questi eventi corrispondono alla cancellazione dei dati sul disco.
-- Collegamenti di log Data Box. Vengono presentati i percorsi per i *log di controllo*, i *log di copia*e i file *DBA* .
+- Collegamenti di log Data Box. Vengono presentati i percorsi per i *log di controllo*, i *log di copia* e i file *DBA* .
 
 Di seguito è riportato un esempio di log della cronologia degli ordini da portale di Azure:
 

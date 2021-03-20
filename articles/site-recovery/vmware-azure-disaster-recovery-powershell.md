@@ -8,10 +8,10 @@ ms.date: 01/10/2020
 ms.topic: conceptual
 ms.author: sutalasi
 ms.openlocfilehash: de25a3f9df04b09a7337dc889a688a171d98db28
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "86129910"
 ---
 # <a name="set-up-disaster-recovery-of-vmware-vms-to-azure-with-powershell"></a>Configurare il ripristino di emergenza di VM VMware in Azure con PowerShell
@@ -105,7 +105,7 @@ Select-AzSubscription -SubscriptionName "ASR Test Subscription"
 Impostare il contesto dell'insieme di credenziali usando il cmdlet Set-ASRVaultContext. In questo modo, le successive operazioni di Azure Site Recovery nella sessione di PowerShell verranno eseguite nel contesto dell'insieme di credenziali selezionato.
 
 > [!TIP]
-> Il modulo Azure Site Recovery PowerShell (AZ. RecoveryServices Module) è dotato di alias facili da usare per la maggior parte dei cmdlet. I cmdlet nel modulo hanno il formato * \<Operation> - **AzRecoveryServicesAsr** \<Object> * e hanno alias equivalenti che hanno il formato * \<Operation> - **ASR** \<Object> *. È possibile sostituire gli alias dei cmdlet per facilitarne l'uso.
+> Il modulo Azure Site Recovery PowerShell (AZ. RecoveryServices Module) è dotato di alias facili da usare per la maggior parte dei cmdlet. I cmdlet nel modulo hanno il formato *\<Operation> - **AzRecoveryServicesAsr** \<Object>* e hanno alias equivalenti che hanno il formato *\<Operation> - **ASR** \<Object>*. È possibile sostituire gli alias dei cmdlet per facilitarne l'uso.
 
 Nell'esempio seguente, vengono usati i dettagli dell'insieme di credenziali ottenuti dalla variabile $vault per specificare il contesto dell'insieme di credenziali per la sessione di PowerShell.
 
@@ -172,7 +172,7 @@ Per questo esempio, è disponibile quanto segue:
    1     ConfigurationServer
    ```
 
-   In base all'output precedente, ***$ProcessServers[0]*** corrisponde a *ScaleOut-ProcessServer* e ***$ProcessServers[1]*** corrisponde al ruolo del server di elaborazione in *ConfigurationServer*
+   Dall'output precedente ***$ProcessServers [0]** _ corrisponde a _scale out-ProcessServer * e ***$ProcessServers [1]**_ corrisponde al ruolo del server di elaborazione in _ConfigurationServer *
 
 3. Identificare gli account configurati nel server di configurazione.
 
@@ -189,7 +189,7 @@ Per questo esempio, è disponibile quanto segue:
    3         LinuxAccount
    ```
 
-   In base all'output precedente, ***$AccountHandles[0]*** corrisponde all'account *vCenter_account*, ***$AccountHandles[1]*** all'account *WindowsAccount* e ***$AccountHandles[2]*** all'account *LinuxAccount*
+   Dall'output precedente ***$AccountHandles [0]** _ corrisponde all'account _vCenter_account *, ***$AccountHandles [1]**_ all'account _WindowsAccount * e ***$AccountHandles [2]**_ per tenere conto _LinuxAccount *
 
 ## <a name="create-a-replication-policy"></a>Creare un criterio di replica
 
@@ -342,7 +342,7 @@ Per proteggere una macchina virtuale individuata sono necessari i dettagli segue
 * L'elemento da proteggere che deve essere replicato.
 * L'account di archiviazione in cui replicare la macchina virtuale (solo se si sta eseguendo la replica nell'account di archiviazione). 
 * Per proteggere le macchine virtuali in un account di archiviazione Premium o in un disco gestito, è necessario disporre di un archivio log.
-* Il server di elaborazione usato per la replica. L'elenco dei server di elaborazione disponibili è stato recuperato e salvato nelle variabili ***$ProcessServers[0]***  *(ScaleOut-ProcessServer)* e ***$ProcessServers[1]*** *(ConfigurationServer)*.
+* Il server di elaborazione usato per la replica. L'elenco dei server di elaborazione disponibili è stato recuperato e salvato nelle variabili ***$ProcessServers [0]** _ _(scale out-ProcessServer) * e ***$ProcessServers [1]**_ _ (ConfigurationServer) *.
 * L'account da usare per eseguire nei computer l'installazione push del software del servizio Mobility. L'elenco degli account disponibili è stato recuperato e archiviato nella variabile ***$AccountHandles***.
 * Il mapping del contenitore di protezione per i criteri di replica da usare per la replica.
 * Il gruppo di risorse in cui devono essere create le macchine virtuali in caso di failover.
@@ -351,7 +351,7 @@ Per proteggere una macchina virtuale individuata sono necessari i dettagli segue
 Replicare ora le macchine virtuali seguenti usando le impostazioni specificate in questa tabella
 
 
-|Macchina virtuale  |Server di elaborazione        |Account di archiviazione              |Account di archiviazione log  |Policy           |Account per l'installazione del servizio Mobility|Gruppo di risorse di destinazione  | Rete virtuale di destinazione  |Subnet di destinazione  |
+|Macchina virtuale  |Server di elaborazione        |Account di archiviazione              |Account di archiviazione log  |Criteri           |Account per l'installazione del servizio Mobility|Gruppo di risorse di destinazione  | Rete virtuale di destinazione  |Subnet di destinazione  |
 |-----------------|----------------------|-----------------------------|---------------------|-----------------|-----------------------------------------|-----------------------|-------------------------|---------------|
 |CentOSVM1       |ConfigurationServer   |N/D| logstorageaccount1                 |ReplicationPolicy|LinuxAccount                             |VMwareDRToAzurePs      |ASR-vnet                 |Subnet-1       |
 |Win2K12VM1       |ScaleOut-ProcessServer|premiumstorageaccount1       |logstorageaccount1   |ReplicationPolicy|WindowsAccount                           |VMwareDRToAzurePs      |ASR-vnet                 |Subnet-1       |   

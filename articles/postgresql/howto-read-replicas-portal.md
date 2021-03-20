@@ -7,10 +7,10 @@ ms.service: postgresql
 ms.topic: how-to
 ms.date: 11/05/2020
 ms.openlocfilehash: 9fdef187e9bdf77b29c548f767a4b4edfeb62f44
-ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/06/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93422179"
 ---
 # <a name="create-and-manage-read-replicas-in-azure-database-for-postgresql---single-server-from-the-azure-portal"></a>Creare e gestire le repliche di lettura nel database di Azure per PostgreSQL: server singolo dal portale di Azure
@@ -39,9 +39,9 @@ Per configurare il livello di registrazione corretto, usare il parametro di supp
 
 1. Nella portale di Azure selezionare un database di Azure per il server PostgreSQL esistente da usare come master.
 
-2. Scegliere **replica** dal menu del server. Se il supporto della replica di Azure è impostato su almeno **replica** , è possibile creare repliche di lettura. 
+2. Scegliere **replica** dal menu del server. Se il supporto della replica di Azure è impostato su almeno **replica**, è possibile creare repliche di lettura. 
 
-3. Se il supporto per la replica di Azure non è impostato su almeno **replica** , impostarlo. Selezionare **Salva**.
+3. Se il supporto per la replica di Azure non è impostato su almeno **replica**, impostarlo. Selezionare **Salva**.
 
    :::image type="content" source="./media/howto-read-replicas-portal/set-replica-save.png" alt-text="Database di Azure per PostgreSQL-replica-set di replica e salvataggio":::
 
@@ -61,7 +61,7 @@ Per creare una replica in lettura, seguire questi passaggi:
 
 1. Selezionare un database di Azure per il server PostgreSQL da usare come server primario. 
 
-2. Nella barra laterale del server, in **Impostazioni** , selezionare **replica**.
+2. Nella barra laterale del server, in **Impostazioni**, selezionare **replica**.
 
 3. Selezionare **Aggiungi replica**.
 
@@ -80,7 +80,7 @@ Per creare una replica in lettura, seguire questi passaggi:
 
 6. Fare clic su **OK** per confermare la creazione della replica.
 
-Dopo la creazione, la replica in lettura può essere visualizzata nella finestra **Replica** :
+Dopo la creazione, la replica in lettura può essere visualizzata nella finestra **Replica**:
 
 :::image type="content" source="./media/howto-read-replicas-portal/list-replica.png" alt-text="Visualizzare la nuova replica nella finestra Replica":::
  
@@ -180,7 +180,7 @@ La metrica **Replica Lag** (Ritardo metrica) indica il tempo trascorso dall'ulti
 
 1. Nel portale di Azure selezionare la replica in lettura per il Database di Azure per PostgreSQL.
 
-2. Selezionare **Metriche**. Nella finestra **Metriche** selezionare **Replica Lag** (Ritardo replica).
+2. Selezionare **Metriche**. Nella finestra **Metriche** selezionare **Replica Lag**(Ritardo replica).
 
    :::image type="content" source="./media/howto-read-replicas-portal/select-replica-lag.png" alt-text="Monitorare la Replica Lag (Ritardo replica)":::
  

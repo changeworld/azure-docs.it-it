@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 11/05/2020
 ms.author: mbullwin
 ms.openlocfilehash: 0c4c296cb1454ed89eef102732533589b1c8ca0d
-ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/06/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93420960"
 ---
 # <a name="metrics-advisor-frequently-asked-questions"></a>Domande frequenti su Metrics Advisor
@@ -109,14 +109,14 @@ Per informazioni dettagliate, vedere [configurazioni di rilevamento anomalie](ho
 
 1.  Un utente con privilegi di amministratore della sottoscrizione o del gruppo di risorse deve passare alla risorsa Advisor di metrica creata nella portale di Azure e selezionare la scheda **controllo di accesso (IAM)** . 
 2.  Selezionare **Aggiungi assegnazioni di ruolo**
-3.  Selezionare un ruolo di **amministratore di Advisor metrica di servizi cognitivi** , selezionare l'account come nell'immagine seguente.
+3.  Selezionare un ruolo di **amministratore di Advisor metrica di servizi cognitivi**, selezionare l'account come nell'immagine seguente.
 4.  Fare clic sul pulsante **Save (Salva** ). l'operazione è stata aggiunta come amministratore della risorsa Advisor di metrica. Si noti che tutte le azioni precedenti devono essere eseguite dall'amministratore della sottoscrizione o dall'amministratore del gruppo di risorse. 
 
 :::image type="content" source="media/access-control.png" alt-text="Pagina di controllo di accesso (IAM) con aggiungere un'assegnazione di ruolo selezionata, seguita da una casella assegnando l'accesso all'utente selezionato visualizzato con un ruolo di accesso dell'amministratore di metrica di servizi cognitivi, seguito dal pulsante Salva dell'interfaccia utente selezionata per illustrare i passaggi per la ricerca di un utente e l'aggiunta di un particolare livello di autorizzazioni di accesso." lightbox="media/access-control.png":::
 
 
 5.  La propagazione delle autorizzazioni potrebbe richiedere fino a un minuto. Selezionare quindi l'area di lavoro di Advisor di metrica e selezionare l'opzione **impostazione posta elettronica** nel riquadro di spostamento a sinistra. Inserire gli elementi necessari, in particolare le informazioni relative a SMTP. 
-6.  Selezionare **Save (Salva** ) per impostare la configurazione della posta elettronica. È possibile creare nuovi hook e sottoscrivere le anomalie delle metriche per gli avvisi quasi in tempo reale. 
+6.  Selezionare **Save (Salva**) per impostare la configurazione della posta elettronica. È possibile creare nuovi hook e sottoscrivere le anomalie delle metriche per gli avvisi quasi in tempo reale. 
 
 ## <a name="advanced-concepts"></a>Concetti avanzati
 

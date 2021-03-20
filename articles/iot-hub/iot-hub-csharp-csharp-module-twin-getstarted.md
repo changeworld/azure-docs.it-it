@@ -10,10 +10,10 @@ ms.date: 08/07/2019
 ms.author: menchi
 ms.custom: amqp, devx-track-csharp
 ms.openlocfilehash: daba400b9daadf464c4c125ad266745237e71367
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/17/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92142516"
 ---
 # <a name="get-started-with-iot-hub-module-identity-and-module-twin-net"></a>Introduzione all'identità del modulo dell'hub Internet e al modulo gemello (.NET)
@@ -54,13 +54,13 @@ Al termine di questa esercitazione si ottengono due app console .NET:
 
 In questa sezione, nel dispositivo simulato viene creata un'app console .NET che aggiorna le proprietà segnalate del modulo gemello.
 
-Prima di iniziare, ottenere la stringa di connessione del modulo. Accedere al [portale di Azure](https://portal.azure.com/). Passare all'hub e selezionare **dispositivi**. Trovare **myFirstDevice**. Selezionare **myFirstDevice** per aprirlo e quindi selezionare **myFirstModule** per aprirlo. In **Dettagli identità del modulo**copiare la **stringa di connessione (chiave primaria)** quando necessario nella procedura seguente.
+Prima di iniziare, ottenere la stringa di connessione del modulo. Accedere al [portale di Azure](https://portal.azure.com/). Passare all'hub e selezionare **dispositivi**. Trovare **myFirstDevice**. Selezionare **myFirstDevice** per aprirlo e quindi selezionare **myFirstModule** per aprirlo. In **Dettagli identità del modulo** copiare la **stringa di connessione (chiave primaria)** quando necessario nella procedura seguente.
 
    ![Dettagli del modulo nel portale di Azure](./media/iot-hub-csharp-csharp-module-twin-getstarted/module-identity-detail.png)
 
 1. In Visual Studio aggiungere un nuovo progetto alla soluzione selezionando **file**  >  **nuovo**  >  **progetto**. In crea un nuovo progetto selezionare **app console (.NET Framework)** e fare clic su **Avanti**.
 
-1. Assegnare al progetto il nome *UpdateModuleTwinReportedProperties*. Per **soluzione**selezionare **Aggiungi a soluzione**. Verificare che la versione di .NET Framework sia 4.6.1 o successiva.
+1. Assegnare al progetto il nome *UpdateModuleTwinReportedProperties*. Per **soluzione** selezionare **Aggiungi a soluzione**. Verificare che la versione di .NET Framework sia 4.6.1 o successiva.
 
     ![Creare un progetto di Visual Studio](./media/iot-hub-csharp-csharp-module-twin-getstarted/configure-update-twins-csharp1.png)
 
@@ -167,9 +167,9 @@ Prima di iniziare, ottenere la stringa di connessione del modulo. Accedere al [p
 
 È ora possibile eseguire le app.
 
-1. In **Esplora soluzioni**in Visual Studio fare clic con il pulsante destro del mouse sulla soluzione e scegliere **Imposta progetti di avvio**.
+1. In **Esplora soluzioni** in Visual Studio fare clic con il pulsante destro del mouse sulla soluzione e scegliere **Imposta progetti di avvio**.
 
-1. In **Proprietà comuni**selezionare **progetto di avvio.**
+1. In **Proprietà comuni** selezionare **progetto di avvio.**
 
 1. Selezionare **progetti di avvio multipli**, quindi selezionare **Avvia** come azione per le app e **OK** per accettare le modifiche.
 

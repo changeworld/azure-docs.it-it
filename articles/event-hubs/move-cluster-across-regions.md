@@ -4,10 +4,10 @@ description: Questo articolo illustra come spostare un cluster dedicato di hub e
 ms.topic: how-to
 ms.date: 09/01/2020
 ms.openlocfilehash: 94be44ee8f9442a3a65e899d7a58524b2570f194
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "89380833"
 ---
 # <a name="move-an-azure-event-hubs-dedicated-cluster-to-another-region"></a>Spostare un cluster dedicato di hub eventi di Azure in un'altra area
@@ -32,38 +32,38 @@ Per iniziare, esportare un modello di Gestione risorse. Questo modello contiene 
    Questo file zip contiene i file con estensione JSON che includono il modello e gli script per distribuire il modello.
 
 
-## <a name="move"></a>Spostamento
+## <a name="move"></a>Sposta
 
 Distribuire il modello per creare un cluster dedicato di hub eventi nell'area di destinazione. 
 
 
 1. Nella portale di Azure selezionare **Crea una risorsa**.
-2. In **Cerca nel Marketplace**Digitare **distribuzione modello**e selezionare **distribuzione modelli (Distribuisci usando modelli personalizzati)**.
+2. In **Cerca nel Marketplace** Digitare **distribuzione modello** e selezionare **distribuzione modelli (Distribuisci usando modelli personalizzati)**.
 5. Selezionare **Creare un modello personalizzato nell'editor**.
-6. Selezionare **Carica file**e quindi seguire le istruzioni per caricare il **template.js** nel file scaricato nell'ultima sezione.
+6. Selezionare **Carica file** e quindi seguire le istruzioni per caricare il **template.js** nel file scaricato nell'ultima sezione.
 1. Aggiornare il valore della `location` Proprietà in modo che punti alla nuova area. Per ottenere i codici di località, vedere [località di Azure](https://azure.microsoft.com/global-infrastructure/locations/). Il codice per un'area è il nome dell'area senza spazi, ad esempio, `West US` è uguale a `westus` .
 1. Selezionare **Save (Salva** ) per salvare il modello. 
 1. Nella pagina **distribuzione personalizzata** , attenersi alla seguente procedura: 
-    1. Selezionare una **sottoscrizione**di Azure. 
+    1. Selezionare una **sottoscrizione** di Azure. 
     2. Selezionare un **gruppo di risorse** esistente o crearne uno. 
     3. Selezionare la **località** o l'area di destinazione. Se è stato selezionato un gruppo di risorse esistente, questa impostazione è di sola lettura. 
     4. Nella sezione **Impostazioni** seguire questa procedura:    
         1. Immettere il nome del nuovo **cluster**. 
 
-            :::image type="content" source="./media/move-cluster-across-regions/deploy-template.png" alt-text="Scarica Gestione risorse modello":::
+            :::image type="content" source="./media/move-cluster-across-regions/deploy-template.png" alt-text="Distribuisci modello di Gestione risorse":::
     5. Selezionare **Rivedi e crea** nella parte inferiore della pagina. 
     1. Nella pagina **Verifica e crea** verificare le impostazioni e quindi selezionare **Crea**.  
 
 ## <a name="discard-or-clean-up"></a>Eliminare o pulire
-Dopo la distribuzione, se si vuole ricominciare, è possibile eliminare il **cluster dedicato di hub eventi di destinazione**e ripetere i passaggi descritti nelle sezioni [preparare](#prepare) e [spostare](#move) di questo articolo.
+Dopo la distribuzione, se si vuole ricominciare, è possibile eliminare il **cluster dedicato di hub eventi di destinazione** e ripetere i passaggi descritti nelle sezioni [preparare](#prepare) e [spostare](#move) di questo articolo.
 
 Per eseguire il commit delle modifiche e completare lo spostamento di un cluster di hub eventi, eliminare il **cluster di hub eventi** nell'area originale. 
 
 Per eliminare un cluster di hub eventi (origine o destinazione) usando il portale di Azure:
 
-1. Nella finestra di ricerca nella parte superiore di portale di Azure digitare **cluster di hub eventi**e selezionare cluster di **Hub eventi** dai risultati della ricerca. Il cluster di hub eventi viene visualizzato in un elenco.
+1. Nella finestra di ricerca nella parte superiore di portale di Azure digitare **cluster di hub eventi** e selezionare cluster di **Hub eventi** dai risultati della ricerca. Il cluster di hub eventi viene visualizzato in un elenco.
 2. Selezionare il cluster da eliminare e selezionare **Elimina** dalla barra degli strumenti. 
-3. Nella pagina **Elimina cluster** , confermare l'eliminazione digitando il **nome del cluster**e quindi selezionare **Elimina**. 
+3. Nella pagina **Elimina cluster** , confermare l'eliminazione digitando il **nome del cluster** e quindi selezionare **Elimina**. 
 
 ## <a name="next-steps"></a>Passaggi successivi
 In questa esercitazione si è appreso come spostare un cluster dedicato di hub eventi da un'area a un'altra. 

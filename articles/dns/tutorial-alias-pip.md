@@ -8,10 +8,10 @@ ms.topic: tutorial
 ms.date: 9/25/2018
 ms.author: rohink
 ms.openlocfilehash: d3017d09e94040d16950598dad360fe32930c16b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
-ms.translationtype: HT
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "80985440"
 ---
 # <a name="tutorial-configure-an-alias-record-to-refer-to-an-azure-public-ip-address"></a>Esercitazione: Configurare un record alias per fare riferimento a un indirizzo IP pubblico di Azure 
@@ -75,7 +75,7 @@ Creare un record alias che punta all’indirizzo IP pubblico.
 
 ## <a name="test-the-alias-record"></a>Testare il record alias
 
-1. Nel gruppo di risorse**RG-DNS-Alias-pip** selezionare la macchina virtuale **Web-01**. Si noti l'indirizzo IP pubblico.
+1. Nel gruppo di risorse **RG-DNS-Alias-pip** selezionare la macchina virtuale **Web-01**. Si noti l'indirizzo IP pubblico.
 1. In un Web browser passare al nome di dominio completo della macchina virtuale Web01-01. Un esempio è **web01.contoso.com**. Viene visualizzata la pagina Web predefinita di IIS.
 2. Chiudere il Web browser.
 3. Arrestare la macchina virtuale **Web-01** e quindi ravviarla.

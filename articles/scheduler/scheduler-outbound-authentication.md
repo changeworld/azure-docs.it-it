@@ -9,10 +9,10 @@ ms.reviewer: klam, estfan
 ms.topic: article
 ms.date: 08/15/2016
 ms.openlocfilehash: 0a8d79af9f45731971cb1be1f39fc193f9d0f0d9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "80878970"
 ---
 # <a name="outbound-authentication-for-azure-scheduler"></a>Autenticazione in uscita per l'Utilità di pianificazione di Azure
@@ -48,7 +48,7 @@ Quando si aggiunge un'autenticazione usando il modello `ClientCertificate`, spec
 | Elemento | Obbligatoria | Descrizione |
 |---------|----------|-------------|
 | **authentication** (elemento padre) | Oggetto di autenticazione per l'utilizzo di un certificato client SSL/TLS |
-| **type** | Sì | Il tipo di autenticazione. Per i certificati client SSL/TLS, il valore è `ClientCertificate` . |
+| **type** | Sì | Tipo di autenticazione. Per i certificati client SSL/TLS, il valore è `ClientCertificate` . |
 | **PFX** | Sì | Contenuto del file PFX in codifica base64. |
 | **password** | Sì | Password per accedere al file PFX. |
 ||| 
@@ -60,7 +60,7 @@ Quando viene inviata una richiesta con le informazioni di autenticazione, la ris
 | Elemento | Descrizione | 
 |---------|-------------| 
 | **authentication** (elemento padre) | Oggetto di autenticazione per l'utilizzo di un certificato client SSL/TLS |
-| **type** | Il tipo di autenticazione. Per i certificati client SSL/TLS, il valore è `ClientCertificate` . |
+| **type** | Tipo di autenticazione. Per i certificati client SSL/TLS, il valore è `ClientCertificate` . |
 | **certificateThumbprint** |Identificazione personale del certificato. |
 | **certificateSubjectName** |Nome distintivo del soggetto del certificato. |
 | **certificateExpiration** | Data di scadenza del certificato. |
@@ -168,7 +168,7 @@ Quando si aggiunge un'autenticazione usando il modello `Basic`, specificare i se
 | Elemento | Obbligatoria | Descrizione |
 |---------|----------|-------------|
 | **authentication** (elemento padre) | Oggetto autenticazione per l'uso dell'autenticazione di base. | 
-| **type** | Sì | Il tipo di autenticazione. Per l'autenticazione di Base, il valore è `Basic`. | 
+| **type** | Sì | Tipo di autenticazione. Per l'autenticazione di Base, il valore è `Basic`. | 
 | **username** | Sì | Nome utente per eseguire l'autenticazione. | 
 | **password** | Sì | Password per eseguire l'autenticazione. |
 |||| 
@@ -180,7 +180,7 @@ Quando viene inviata una richiesta con le informazioni di autenticazione, la ris
 | Elemento | Descrizione | 
 |---------|-------------|
 | **authentication** (elemento padre) | Oggetto autenticazione per l'uso dell'autenticazione di base. |
-| **type** | Il tipo di autenticazione. Per l'autenticazione di base il valore è `Basic`. |
+| **type** | Tipo di autenticazione. Per l'autenticazione di base il valore è `Basic`. |
 | **username** | Nome utente autenticato. |
 ||| 
 
@@ -286,11 +286,11 @@ Quando si aggiunge un'autenticazione usando il modello `ActiveDirectoryOAuth`, s
 | Elemento | Obbligatoria | Descrizione |
 |---------|----------|-------------|
 | **authentication** (elemento padre) | Sì | Oggetto autenticazione per l'autenticazione OAuth Active Directory. |
-| **type** | Sì | Il tipo di autenticazione. Per l'autenticazione ActiveDirectoryOAuth, il valore è `ActiveDirectoryOAuth`. |
+| **type** | Sì | Tipo di autenticazione. Per l'autenticazione ActiveDirectoryOAuth, il valore è `ActiveDirectoryOAuth`. |
 | **tenant** | Sì | L'identificatore del tenant di Azure AD. Per trovare l'identificatore del tenant di Azure AD, eseguire `Get-AzureAccount` in Azure PowerShell. |
 | **pubblico** | Sì | Questo valore è impostato su `https://management.core.windows.net/`. | 
 | **clientId** | Sì | Identificatore client per l'applicazione Azure AD | 
-| **segreto** | Sì | Segreto del client che richiede il token | 
+| **secret** | Sì | Segreto del client che richiede il token | 
 |||| 
 
 ### <a name="response-body---active-directory-oauth"></a>Corpo della risposta - Autenticazione OAuth Active Directory
@@ -300,7 +300,7 @@ Quando viene inviata una richiesta con le informazioni di autenticazione, la ris
 | Elemento | Descrizione |
 |---------|-------------|
 | **authentication** (elemento padre) | Oggetto autenticazione per l'autenticazione OAuth Active Directory. |
-| **type** | Il tipo di autenticazione. Per l'autenticazione ActiveDirectoryOAuth, il valore è `ActiveDirectoryOAuth`. | 
+| **type** | Tipo di autenticazione. Per l'autenticazione ActiveDirectoryOAuth, il valore è `ActiveDirectoryOAuth`. | 
 | **tenant** | L'identificatore del tenant di Azure AD |
 | **pubblico** | Questo valore è impostato su `https://management.core.windows.net/`. |
 | **clientId** | Identificatore client per l'applicazione Azure AD |

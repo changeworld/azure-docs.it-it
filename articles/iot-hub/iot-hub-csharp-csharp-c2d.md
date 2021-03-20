@@ -16,10 +16,10 @@ ms.custom:
 - 'Role: IoT Device'
 - devx-track-csharp
 ms.openlocfilehash: d8df9884c0104792240d85d9ebd4235ef2a18741
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/17/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92142353"
 ---
 # <a name="send-messages-from-the-cloud-to-your-device-with-iot-hub-net"></a>Inviare messaggi dal cloud al dispositivo con Hub IoT (.NET)
@@ -167,7 +167,7 @@ In questa sezione si crea un'app console .NET che invia messaggi da cloud a disp
 
 1. In Esplora soluzioni fare clic con il pulsante destro del mouse sulla soluzione e selezionare **Imposta progetti di avvio**.
 
-1. In progetto di avvio **Proprietà comuni**  >  **Startup Project**selezionare **progetti di avvio multipli**, quindi selezionare l'azione di **avvio** per **SimulatedDevice** e **SendCloudToDevice**. Selezionare **OK** per salvare le modifiche.
+1. In progetto di avvio **Proprietà comuni**  >  selezionare **progetti di avvio multipli**, quindi selezionare l'azione di **avvio** per **SimulatedDevice** e **SendCloudToDevice**. Selezionare **OK** per salvare le modifiche.
 
 1. Premere **F5**. Si avviano entrambe le applicazioni. Selezionare la finestra **SendCloudToDevice** e premere **invio**. Verrà visualizzato il messaggio ricevuto dall'app per dispositivi.
 
@@ -216,7 +216,7 @@ In questa sezione si modifica l'app **SendCloudToDevice** per richiedere feedbac
    commandMessage.Ack = DeliveryAcknowledgement.Full;
    ```
 
-1. Premere **F5**per eseguire le app. Dovrebbero essere visualizzate entrambe le applicazioni. Selezionare la finestra **SendCloudToDevice** e premere **invio**. Verrà visualizzata la ricezione del messaggio da parte dell'app per dispositivi e, dopo alcuni secondi, la ricezione del messaggio di feedback da parte dell'applicazione **SendCloudToDevice**.
+1. Premere **F5** per eseguire le app. Dovrebbero essere visualizzate entrambe le applicazioni. Selezionare la finestra **SendCloudToDevice** e premere **invio**. Verrà visualizzata la ricezione del messaggio da parte dell'app per dispositivi e, dopo alcuni secondi, la ricezione del messaggio di feedback da parte dell'applicazione **SendCloudToDevice**.
 
    ![App per dispositivi che riceve messaggi e app di servizio che ricevono commenti](./media/iot-hub-csharp-csharp-c2d/sendc2d2.png)
 

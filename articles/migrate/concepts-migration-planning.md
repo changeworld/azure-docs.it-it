@@ -7,10 +7,10 @@ ms.manager: abhemraj
 ms.topic: conceptual
 ms.date: 11/11/2020
 ms.openlocfilehash: ef916e0e8b32c96382a731d4a307e2b2a98ba1ea
-ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/07/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96753859"
 ---
 # <a name="build-migration-plan-with-azure-migrate"></a>Creare un piano di migrazione con Azure Migrate
@@ -91,7 +91,7 @@ L'opzione di dimensionamento in base alle prestazioni in Azure Migrate Assessmen
 
 - **Istanze riservate**: con [istanze riservate](https://azure.microsoft.com/pricing/reserved-vm-instances/), è possibile ridurre significativamente i costi rispetto ai [prezzi con pagamento in base](https://azure.microsoft.com/pricing/purchase-options/pay-as-you-go/)al consumo.
 - **Vantaggio Azure Hybrid**: con [vantaggio Azure Hybrid](https://azure.microsoft.com/pricing/purchase-options/pay-as-you-go/)è possibile usare le licenze di Windows Server locali con le sottoscrizioni di Software Assurance attive o Linux in Azure e combinarle con le opzioni di istanze riservate.
-- **Enterprise Agreement**: Azure [Enterprise Agreement (EA)](../cost-management-billing/manage/ea-portal-agreements.md) può offrire risparmi per le sottoscrizioni e i servizi di Azure.
+- **Contratto Enterprise**: Azure [Enterprise Agreement (EA)](../cost-management-billing/manage/ea-portal-agreements.md) può offrire risparmi per le sottoscrizioni e i servizi di Azure.
 - **Offerte**: sono disponibili più [offerte di Azure](https://azure.microsoft.com/support/legal/offer-details/). Ad esempio, [sviluppo/test con pagamento in base al consumo](https://azure.microsoft.com/pricing/dev-test/)o [sviluppo/test Enterprise offerta](https://azure.microsoft.com/offers/ms-azr-0148p/), per offrire tariffe inferiori per le macchine virtuali di sviluppo e test
 - Tempo di esecuzione della **macchina virtuale**: è possibile esaminare i giorni al mese e le ore al giorno in cui vengono eseguite le macchine virtuali di Azure. L'arresto dei computer quando non sono in uso può ridurre i costi (non applicabile per RIs).
 - **Area di destinazione**: è possibile creare valutazioni in aree diverse, per stabilire se la migrazione a un'area specifica potrebbe essere più conveniente. 
@@ -145,7 +145,7 @@ Un piano di test di post-migrazione deve includere i test funzionali, di integra
 
 È possibile creare una roadmap per la migrazione e dichiarare una finestra di manutenzione per eseguire la migrazione delle app e dei database con tempi di inattività minimi o pari a zero e limitare il potenziale impatto operativo e aziendale durante la migrazione.  
 
-## <a name="migrate"></a>Migrazione
+## <a name="migrate"></a>Migrate
 
 È consigliabile eseguire una migrazione di test in Azure Migrate, prima di avviare una migrazione su larga scala. Una migrazione di test consente di stimare il tempo necessario e ottimizzare il piano di migrazione. Offre l'opportunità di individuare eventuali problemi potenziali e risolverli prima della migrazione completa.
 

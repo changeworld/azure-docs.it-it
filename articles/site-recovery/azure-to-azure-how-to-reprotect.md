@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 11/27/2018
 ms.author: ramamill
 ms.openlocfilehash: 3b9edab6e908b4506a92c78aa8f3f53277b9c17b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91360872"
 ---
 # <a name="reprotect-failed-over-azure-vms-to-the-primary-region"></a>Riproteggere macchine virtuali di Azure sottoposte a failover nell'area primaria
@@ -29,7 +29,7 @@ Quando si esegue il failover di macchine virtuali di Azure da un'area a un'altra
 
 ## <a name="reprotect-a-vm"></a>Riproteggere una macchina virtuale
 
-1. In **insieme**di credenziali  >  **elementi replicati**fare clic con il pulsante destro del mouse sulla macchina virtuale sottoposta a failover e selezionare **riproteggi**. La direzione della riprotezione deve essere da area secondaria ad area primaria.
+1. In **insieme** di credenziali  >  **elementi replicati** fare clic con il pulsante destro del mouse sulla macchina virtuale sottoposta a failover e selezionare **riproteggi**. La direzione della riprotezione deve essere da area secondaria ad area primaria.
 
    ![Screenshot mostra una macchina virtuale con un menu contestuale con la riprotezione selezionata.](./media/site-recovery-how-to-reprotect-azure-to-azure/reprotect.png)
 

@@ -8,10 +8,10 @@ ms.date: 03/01/2019
 ms.author: zhshang
 ms.custom: devx-track-js
 ms.openlocfilehash: 6df47d3fd62083a5d0940a1d6da50ac5d7d955f4
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
-ms.translationtype: HT
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/17/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92150909"
 ---
 # <a name="tutorial-azure-signalr-service-authentication-with-azure-functions"></a>Esercitazione: Autenticazione del servizio Azure SignalR con Funzioni di Azure
@@ -91,7 +91,7 @@ L'app Funzioni di Azure verrà compilata e testata in locale. L'app accederà a 
 
 Questa esercitazione usa le associazioni di Funzioni di Azure per interagire con il servizio Azure SignalR. Come la maggior parte delle altre associazioni, quelle del servizio SignalR sono disponibili come estensione da installare tramite l'interfaccia della riga di comando di Strumenti di base di Funzioni di Azure prima di poter essere usate.
 
-1. Aprire un terminale in Visual Studio Code selezionando ** Visualizza > Terminale** dal menu (Ctrl-\`).
+1. Aprire un terminale in Visual Studio Code selezionando **Visualizza > Terminale** dal menu (Ctrl-\`).
 
 1. Verificare che la cartella di progetto principale sia la directory corrente.
 
@@ -327,7 +327,7 @@ Un account di archiviazione di Azure è richiesto da un'app per le funzioni in e
 
 1. Immettere le seguenti informazioni.
 
-    | Nome | valore |
+    | Nome | Valore |
     |---|---|
     | Subscription | Selezionare la sottoscrizione contenente l'istanza del servizio SignalR |
     | Resource group | Selezionare lo stesso gruppo di risorse |
@@ -461,9 +461,9 @@ L'applicazione Web verrà ospitata usando la funzionalità dei siti Web statici 
 
 1. Immettere i valori seguenti:
 
-    | Nome | valore |
+    | Nome | Valore |
     |---|---|
-    | Sottoscrizione | Selezionare la propria sottoscrizione |
+    | Subscription | Selezionare la propria sottoscrizione |
     | Account di archiviazione | Selezionare l'account di archiviazione creato in precedenza |
     | Cartella per la distribuzione | Selezionare **Sfoglia** e quindi la cartella *content* |
 

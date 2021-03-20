@@ -1,5 +1,5 @@
 ---
-title: Usare Azure Data Box Heavy per spostare il contenuto di una condivisione file in SharePoint Online
+title: Usare Azure Data Box Heavy per spostare il contenuto della condivisione file in SharePoint Online
 description: Usare questa esercitazione per apprendere come eseguire la migrazione del contenuto di una condivisione file in Share Point Online usando Azure Data Box Heavy
 services: databox
 author: alkohli
@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.date: 07/18/2019
 ms.author: alkohli
 ms.openlocfilehash: b00a944b69b8492d4aa00258154bf00f1c66ad33
-ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/16/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92127115"
 ---
 # <a name="use-the-azure-data-box-heavy-to-migrate-your-file-share-content-to-sharepoint-online"></a>Usare Azure Data Box Heavy per eseguire la migrazione del contenuto di una condivisione file in SharePoint Online
@@ -83,7 +83,7 @@ Per livelli ottimali di prestazioni e connettività, è consigliabile creare una
 2. [Montare la condivisione file di Azure nella macchina virtuale](../storage/files/storage-how-to-use-files-windows.md#mount-the-azure-file-share-with-file-explorer).
 3. [Scaricare lo Strumento di migrazione di SharePoint](https://spmtreleasescus.blob.core.windows.net/install/default.htm) e installarlo nella macchina virtuale di Azure.
 4. Avviare lo Strumento di migrazione di SharePoint. Fare clic su **Accedi** e immettere il nome utente e la password per l'account aziendale o dell'Istituto di istruzione.
-5. In **Dove sono i dati?**  selezionare **Condivisione file**. Immettere il percorso della condivisione file di Azure in cui si trovano i dati.
+5. In **Dove sono i dati?** selezionare **Condivisione file**. Immettere il percorso della condivisione file di Azure in cui si trovano i dati.
 6. Seguire i prompt rimanenti come di consueto, immettendo anche la posizione di destinazione. Per altre informazioni, vedere [Uso dello Strumento di migrazione di SharePoint](/sharepointmigration/how-to-use-the-sharepoint-migration-tool).
 
 > [!IMPORTANT]
@@ -92,4 +92,4 @@ Per livelli ottimali di prestazioni e connettività, è consigliabile creare una
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-[Ordinare Data Box Heavy](./data-box-heavy-deploy-ordered.md)
+[Ordina il Data Box Heavy](./data-box-heavy-deploy-ordered.md)

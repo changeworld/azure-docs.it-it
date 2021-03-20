@@ -13,15 +13,15 @@ ms.custom:
 - mqtt
 - 'Role: Cloud Development'
 ms.openlocfilehash: 0e0ca8a787145fb40087a2d99be85607404eebfa
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/17/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92152130"
 ---
 # <a name="react-to-iot-hub-events-by-using-event-grid-to-trigger-actions"></a>Rispondere agli eventi dell'hub IoT usando Griglia di eventi per attivare le azioni
 
-L'hub IoT di Azure si integra con Griglia di eventi di Azure per consentire l'invio di notifiche degli eventi ad altri servizi e attivare processi downstream. Configurare le applicazioni aziendali per l'ascolto degli eventi dell'hub IoT in modo da poter reagire a eventi critici in modo affidabile, scalabile e sicuro.Creare ad esempio un'applicazione che aggiorna un database, crea un ticket di lavoro e recapita una notifica di posta elettronica ogni volta che viene registrato un nuovo dispositivo IoT nell'hub IoT.
+L'hub IoT di Azure si integra con Griglia di eventi di Azure per consentire l'invio di notifiche degli eventi ad altri servizi e attivare processi downstream. Configurare le applicazioni aziendali per l'ascolto degli eventi dell'hub IoT in modo da poter reagire a eventi critici in modo affidabile, scalabile e sicuro. Creare ad esempio un'applicazione che aggiorna un database, crea un ticket di lavoro e recapita una notifica di posta elettronica ogni volta che viene registrato un nuovo dispositivo IoT nell'hub IoT.
 
 [Griglia di eventi di Azure](../event-grid/overview.md) è un servizio di routing di eventi completamente gestito che usa un modello di pubblicazione-sottoscrizione. Griglia di eventi include il supporto predefinito per i servizi di Azure, ad esempio [Funzioni di Azure](../azure-functions/functions-overview.md) e [App per la logica di Azure](../logic-apps/logic-apps-overview.md), e può recapitare gli avvisi relativi agli eventi ai servizi non di Azure usando i webhook. Per un elenco completo dei gestori di eventi supportati da Griglia di eventi, vedere [Introduzione a Griglia di eventi di Azure](../event-grid/overview.md).
 

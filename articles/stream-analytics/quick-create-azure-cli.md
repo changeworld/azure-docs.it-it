@@ -11,15 +11,15 @@ ms.topic: quickstart
 ms.custom: mvc, devx-track-azurecli
 ms.date: 07/01/2020
 ms.openlocfilehash: a3cc4c3d6936a51ca2010209ce23e4d82c9333eb
-ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
-ms.translationtype: HT
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/08/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98016341"
 ---
 # <a name="quickstart-create-an-azure-stream-analytics-job-using-the-azure-cli"></a>Avvio rapido: Creare un processo di Analisi di flusso di Azure con l'interfaccia della riga di comando di Azure
 
-Questo argomento di avvio rapido illustra come usare l'interfaccia della riga di comando di Azure per definire un processo di Analisi di flusso che filtra in tempo reale i messaggi del sensore contenenti letture della temperatura maggiori di 27. Il processo di Analisi di flusso leggerà i dati dall'hub IoT, li trasformerà e quindi li scriverà in un contenitore nell'archiviazione BLOB. I dati di input usati in questo argomento di avvio rapido sono generati da un simulatore online Raspberry Pi.
+Questo argomento di avvio rapido illustra come usare l'interfaccia della riga di comando di Azure per definire un processo di Analisi di flusso che filtra in tempo reale i messaggi del sensore contenenti letture della temperatura maggiori di 27. Il processo di Analisi di flusso leggerà i dati dall'hub IoT, li trasformerà e quindi li scriverà in un contenitore nell'archiviazione BLOB. I dati di input usati in questa guida introduttiva sono generati da un simulatore online Raspberry Pi.
 
 ## <a name="before-you-begin"></a>Prima di iniziare
 
