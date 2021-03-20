@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 04/14/2020
 ms.author: owend
 ms.openlocfilehash: 4e069effae0cb7f834b2c3dac696d05304d841a7
-ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/14/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92014835"
 ---
 # <a name="best-practices-for-long-running-operations"></a>Procedure consigliate per le operazioni a esecuzione prolungata
@@ -22,7 +22,7 @@ In Azure Analysis Services, un *nodo* rappresenta una macchina virtuale host in 
 
 Esistono molti motivi per cui le operazioni a esecuzione prolungata possono essere interrotte. Ad esempio, gli aggiornamenti in Azure, ad esempio: 
 - Patch del sistema operativo 
-- Aggiornamenti per la sicurezza
+- Aggiornamenti della sicurezza
 - Aggiornamenti del servizio Azure Analysis Services
 - Aggiornamenti Service Fabric. Service Fabric è un componente della piattaforma utilizzato da numerosi servizi cloud Microsoft, tra cui Azure Analysis Services.
 

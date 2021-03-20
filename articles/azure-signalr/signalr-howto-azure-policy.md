@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 06/17/2020
 ms.author: jixin
 ms.openlocfilehash: 018033d3a6123948191a7261f5a1ee2ae526e25a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "89295021"
 ---
 # <a name="audit-compliance-of-azure-signalr-service-resources-using-azure-policy"></a>Controllare la conformità delle risorse del servizio Azure SignalR usando criteri di Azure
@@ -44,7 +44,7 @@ Quando una risorsa non è conforme, i motivi possibili sono molti. Per determina
 
 ### <a name="policy-compliance-in-the-portal"></a>Conformità dei criteri nel portale:
 
-1. Selezionare **tutti i servizi**e cercare i **criteri**.
+1. Selezionare **tutti i servizi** e cercare i **criteri**.
 1. Selezionare **conformità**.
 1. Usare i filtri per limitare gli Stati di conformità o per cercare criteri
    

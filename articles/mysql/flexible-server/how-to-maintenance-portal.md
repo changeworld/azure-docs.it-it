@@ -7,13 +7,13 @@ ms.service: mysql
 ms.topic: how-to
 ms.date: 9/21/2020
 ms.openlocfilehash: c8251eb2a89a7481ebc981f2b89668c363651b39
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91315015"
 ---
-# <a name="manage-scheduled-maintenance-settings-for-azure-database-for-mysql--flexible-server"></a>Gestire le impostazioni di manutenzione pianificata per database di Azure per MySQL-server flessibile
+# <a name="manage-scheduled-maintenance-settings-for-azure-database-for-mysql--flexible-server"></a>Gestire le impostazioni per la manutenzione pianificata nel Database di Azure per MySQL per il server flessibile
  
 È possibile specificare le opzioni di manutenzione per ogni server flessibile nella sottoscrizione di Azure. Le opzioni includono la pianificazione di manutenzione e le impostazioni di notifica per gli eventi di manutenzione imminenti e completati.
 

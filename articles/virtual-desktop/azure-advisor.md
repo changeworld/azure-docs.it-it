@@ -7,10 +7,10 @@ ms.date: 08/28/2020
 ms.author: helohr
 manager: lizross
 ms.openlocfilehash: 76b7f97b6020a3a0d5571a3a105d15f7d7893485
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "89147535"
 ---
 # <a name="use-azure-advisor-with-windows-virtual-desktop"></a>Usare Azure Advisor con desktop virtuale di Windows
@@ -19,7 +19,7 @@ Azure Advisor possono aiutare gli utenti a risolvere i problemi più comuni senz
 
 Questo articolo illustra come configurare Azure Advisor nella distribuzione di desktop virtuali Windows per aiutare gli utenti.
 
-## <a name="what-is-azure-advisor"></a>Cos'è Azure Advisor?
+## <a name="what-is-azure-advisor"></a>Che cos'è Azure Advisor?
 
 Azure Advisor analizza le configurazioni e i dati di telemetria per offrire consigli personalizzati per risolvere i problemi comuni. Con questi consigli puoi ottimizzare le tue risorse di Azure per affidabilità, sicurezza, eccellenza operativa, prestazioni e costi. Ulteriori informazioni sono disponibili nel [sito web Azure Advisor](https://azure.microsoft.com/services/advisor/).
 
@@ -32,7 +32,7 @@ Per iniziare, è sufficiente un account Azure nella portale di Azure. Prima di t
 
 Quando si apre Azure Advisor, verranno visualizzate cinque categorie:
 
-- Cost
+- Costo
 - Security
 - Affidabilità
 - Eccellenza operativa

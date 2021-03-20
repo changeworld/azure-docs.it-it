@@ -16,27 +16,27 @@ ms.date: 06/21/2018
 ms.author: allensu
 ms.custom: ''
 ms.openlocfilehash: e58c1177fb3c4d241a3efe1759b3900abbd04ca1
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/28/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92778394"
 ---
 # <a name="migrate-an-azure-cdn-profile-from-standard-verizon-to-premium-verizon"></a>Migrare un profilo di rete CDN di Azure da Standard Verizon a Premium Verizon
 
 Quando si crea un profilo di rete CDN (Content Delivery Network) di Azure per gestire gli endpoint, le rete CDN di Azure offre quattro diversi prodotti tra cui è possibile scegliere. Per informazioni sui diversi prodotti e sulle funzionalità disponibili, vedere [Confronto tra funzionalità dei prodotti della rete CDN di Azure](cdn-features.md).
 
-Se è stato creato un profilo di **rete CDN di Azure Standard da Verizon** e lo si sta usando per gestire gli endpoint di rete CDN, è possibile aggiornarlo a un profilo di **rete CDN di Azure Premium da Verizon** . Durante l'aggiornamento gli endpoint di rete CDN e i dati saranno mantenuti. 
+Se è stato creato un profilo di **rete CDN di Azure Standard da Verizon** e lo si sta usando per gestire gli endpoint di rete CDN, è possibile aggiornarlo a un profilo di **rete CDN di Azure Premium da Verizon**. Durante l'aggiornamento gli endpoint di rete CDN e i dati saranno mantenuti. 
 
 > [!IMPORTANT]
-> Dopo che è stato eseguito l'aggiornamento a un profilo di **rete CDN di Azure Premium da Verizon** , è possibile in un secondo momento riconvertirlo in un profilo di **rete CDN di Azure Standard da Verizon** .
+> Dopo che è stato eseguito l'aggiornamento a un profilo di **rete CDN di Azure Premium da Verizon**, è possibile in un secondo momento riconvertirlo in un profilo di **rete CDN di Azure Standard da Verizon**.
 > 
 
-Per aggiornare un profilo di **rete CDN di Azure Standard da Verizon** , contattare il [supporto tecnico Microsoft](https://azure.microsoft.com/support/options/).
+Per aggiornare un profilo di **rete CDN di Azure Standard da Verizon**, contattare il [supporto tecnico Microsoft](https://azure.microsoft.com/support/options/).
 
 ## <a name="profile-comparison"></a>Confronto dei profili
-I profili di **rete CDN di Azure Premium da Verizon** presentano le differenze chiave seguenti rispetto ai profili di **rete CDN Standard da Verizon** :
-- Per determinate funzionalità della Rete CDN di Azure, quali la [compressione](cdn-improve-performance.md), le [regole di caching](cdn-caching-rules.md) e il [filtro della replica geografica](cdn-restrict-access-by-country.md) non è possibile usare l'interfaccia di rete CDN di Azure; è necessario usare il portale di Verizon attraverso il pulsante **Gestisci** .
+I profili di **rete CDN di Azure Premium da Verizon** presentano le differenze chiave seguenti rispetto ai profili di **rete CDN Standard da Verizon**:
+- Per determinate funzionalità della Rete CDN di Azure, quali la [compressione](cdn-improve-performance.md), le [regole di caching](cdn-caching-rules.md) e il [filtro della replica geografica](cdn-restrict-access-by-country.md) non è possibile usare l'interfaccia di rete CDN di Azure; è necessario usare il portale di Verizon attraverso il pulsante **Gestisci**.
 - API: diversamente da Standard Verizon, non è possibile usare l'API per controllare le funzionalità a cui si accede dal portale di Premium Verizon. Tuttavia è possibile usare l'API per controllare funzionalità comuni quali la creazione/eliminazione di un endpoint, la pulizia/caricamento di asset memorizzati nella cache e l'abilitazione/disabilitazione di un dominio personalizzato.
 - Prezzi: Premium Verizon ha una diversa struttura di prezzi per il trasferimento di dati rispetto a Standard Verizon. Per altre informazioni, vedere [Prezzi della rete per la distribuzione di contenuti](https://azure.microsoft.com/pricing/details/cdn/).
 

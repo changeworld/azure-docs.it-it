@@ -6,10 +6,10 @@ ms.topic: conceptual
 ms.date: 10/27/2020
 ms.author: tomfitz
 ms.openlocfilehash: 1085b70df67a3f16a7f7f8c5ae85c9ab271b62ac
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/27/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92754533"
 ---
 # <a name="microsoftstoragestorageblobselector-ui-element"></a>Elemento Microsoft. storage. StorageBlobSelector dell'interfaccia utente
@@ -22,21 +22,21 @@ All'utente viene visualizzata l'opzione per cercare i BLOB di archiviazione disp
 
 :::image type="content" source="./media/managed-application-elements/microsoft-storage-storageblobselector-browse.png" alt-text="Microsoft. storage. StorageBlobSelector-Sfoglia":::
 
-Dopo aver selezionato **Sfoglia** , l'utente può selezionare un account di archiviazione.
+Dopo aver selezionato **Sfoglia**, l'utente può selezionare un account di archiviazione.
 
-:::image type="content" source="./media/managed-application-elements/microsoft-storage-storageblobselector-select.png" alt-text="Microsoft. storage. StorageBlobSelector-Sfoglia":::
+:::image type="content" source="./media/managed-application-elements/microsoft-storage-storageblobselector-select.png" alt-text="Microsoft. storage. StorageBlobSelector-selezionare archiviazione":::
 
 L'utente Visualizza i contenitori nell'account di archiviazione e può selezionarne uno.
 
-:::image type="content" source="./media/managed-application-elements/microsoft-storage-storageblobselector-containers.png" alt-text="Microsoft. storage. StorageBlobSelector-Sfoglia":::
+:::image type="content" source="./media/managed-application-elements/microsoft-storage-storageblobselector-containers.png" alt-text="Microsoft. storage. StorageBlobSelector-selezionare il contenitore":::
 
 Dal contenitore, l'utente può selezionare un file.
 
-:::image type="content" source="./media/managed-application-elements/microsoft-storage-storageblobselector-file.png" alt-text="Microsoft. storage. StorageBlobSelector-Sfoglia":::
+:::image type="content" source="./media/managed-application-elements/microsoft-storage-storageblobselector-file.png" alt-text="Microsoft. storage. StorageBlobSelector-file":::
 
 Il controllo viene aggiornato per visualizzare il nome file selezionato.
 
-:::image type="content" source="./media/managed-application-elements/microsoft-storage-storageblobselector-result.png" alt-text="Microsoft. storage. StorageBlobSelector-Sfoglia":::
+:::image type="content" source="./media/managed-application-elements/microsoft-storage-storageblobselector-result.png" alt-text="Microsoft. storage. StorageBlobSelector-Mostra file Select":::
 
 ## <a name="schema"></a>SCHEMA
 

@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 01/10/2019
 ms.author: pafarley
 ms.openlocfilehash: f1dfe88741a304da92901d3997c746654336ef54
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "85800041"
 ---
 # <a name="moderate-with-custom-term-lists-in-the-api-console"></a>Moderare il testo con elenchi personalizzati nella console dell'API
@@ -91,7 +91,7 @@ Dopo avere modificato un elenco di termini, è necessario aggiornarne l'indice i
 
    Aggiungere i metadati dell'elenco come coppie chiave-valore e non i termini effettivi.
  
-6. Selezionare **Send** (Invia). L'elenco è stato creato. Si noti il valore di **ID** associato al nuovo elenco. Questo ID è necessario per altre funzioni di gestione degli elenchi di termini.
+6. Selezionare **Invia**. L'elenco è stato creato. Si noti il valore di **ID** associato al nuovo elenco. Questo ID è necessario per altre funzioni di gestione degli elenchi di termini.
 
    ![ID dell'elenco visualizzato nella casella del contenuto della risposta nella console Term Lists - Create (Elenchi di termini - Crea)](images/try-terms-list-create-2.png)
  
@@ -113,7 +113,7 @@ Dopo avere modificato un elenco di termini, è necessario aggiornarne l'indice i
 
     Viene visualizzata la console dell'API **Term - Get All Terms** (Termine - Ottieni tutti i termini).
 
-11. Nella casella **listId** immettere l'ID dell'elenco e quindi la chiave di sottoscrizione. Selezionare **Send** (Invia).
+11. Nella casella **listId** immettere l'ID dell'elenco e quindi la chiave di sottoscrizione. Selezionare **Invia**.
 
 12. Nella casella **Response content** (Contenuto della risposta) verificare i termini specificati.
 

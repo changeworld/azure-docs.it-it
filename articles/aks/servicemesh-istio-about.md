@@ -6,10 +6,10 @@ ms.topic: article
 ms.date: 10/09/2019
 ms.author: pabouwer
 ms.openlocfilehash: 8518e30a54c2486abf84cd9ac026cc4dccb3fa84
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "77593901"
 ---
 # <a name="istio"></a>Istio
@@ -18,7 +18,7 @@ ms.locfileid: "77593901"
 
 [Istio][istio] è una mesh di servizi con funzionalità complete, personalizzabile ed estendibile.
 
-## <a name="architecture"></a>Architecture
+## <a name="architecture"></a>Architettura
 
 Istio fornisce un piano dati composto da sidecar basati su [invio][envoy-proxy]. Questi proxy intelligenti controllano tutto il traffico di rete in ingresso e in uscita da carichi di lavoro e app con mesh.
 
@@ -60,7 +60,7 @@ Gli obiettivi di progettazione seguenti [guidano][design-goals] il progetto Isti
 - **Uniformità dei criteri** : coerenza nella definizione dei criteri in diverse risorse.
 
 
-### <a name="capabilities"></a>Capabilities
+### <a name="capabilities"></a>Funzionalità
 
 In Istio è disponibile il set di funzionalità seguente:
 

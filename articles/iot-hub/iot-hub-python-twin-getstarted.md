@@ -10,10 +10,10 @@ ms.date: 03/11/2020
 ms.author: robinsh
 ms.custom: mqtt, devx-track-python
 ms.openlocfilehash: 12b1d083ae1481f7c8b5fe60cac9156a56aeaa0a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "87875473"
 ---
 # <a name="get-started-with-device-twins-python"></a>Introduzione ai dispositivi gemelli (Python)
@@ -114,7 +114,7 @@ In questa sezione si crea un'app console Python che aggiunge i metadati della po
             print("IoT Hub Device Twin service sample stopped")
     ```
 
-    L'oggetto **IoTHubRegistryManager** espone tutti i metodi necessari per interagire con i dispositivi gemelli dal servizio. Il codice inizializza prima di tutto l'oggetto **IoTHubRegistryManager** , quindi aggiorna il dispositivo gemello per **DEVICE_ID**e infine esegue due query. Il primo seleziona solo i dispositivi gemelli dei dispositivi situati nello stabilimento **Redmond43** e la seconda affina la query per selezionare solo i dispositivi che sono anche connessi tramite una rete cellulare.
+    L'oggetto **IoTHubRegistryManager** espone tutti i metodi necessari per interagire con i dispositivi gemelli dal servizio. Il codice inizializza prima di tutto l'oggetto **IoTHubRegistryManager** , quindi aggiorna il dispositivo gemello per **DEVICE_ID** e infine esegue due query. Il primo seleziona solo i dispositivi gemelli dei dispositivi situati nello stabilimento **Redmond43** e la seconda affina la query per selezionare solo i dispositivi che sono anche connessi tramite una rete cellulare.
 
 6. Aggiungere il codice seguente alla fine di **AddTagsAndQuery.py** per implementare la funzione **iothub_service_sample_run**:
 

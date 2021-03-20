@@ -16,10 +16,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 08a73c2b1be4b17136ba19e7efb71c2b21359fdf
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "89280146"
 ---
 # <a name="azure-active-directory-pass-through-authentication-security-deep-dive"></a>Approfondimento di sicurezza sull'autenticazione pass-through di Azure Active Directory
@@ -72,7 +72,7 @@ Le sezioni seguenti illustrano queste fasi in modo dettagliato.
 
 ### <a name="authentication-agent-installation"></a>Installazione dell'agente di autenticazione
 
-Solo gli amministratori globali possono installare un agente di autenticazione, usando Azure AD Connect o in modo autonomo, in un server locale. L'installazione aggiunge due nuove voci all' **Control Panel**  >  elenco**programmi**  >  **e funzionalità** del pannello di controllo:
+Solo gli amministratori globali possono installare un agente di autenticazione, usando Azure AD Connect o in modo autonomo, in un server locale. L'installazione aggiunge due nuove voci all'   >  elenco **programmi**  >  **e funzionalità** del pannello di controllo:
 - L'applicazione dell'agente di autenticazione, Questa applicazione viene eseguita con privilegi [NetworkService](/windows/win32/services/networkservice-account).
 - L'applicazione di aggiornamento utilizzata per aggiornare automaticamente l'agente di autenticazione. Questa applicazione viene eseguita con privilegi [LocalSystem](/windows/win32/services/localsystem-account).
 

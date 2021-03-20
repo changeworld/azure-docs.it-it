@@ -4,10 +4,10 @@ description: Questo argomento di avvio rapido illustra come configurare la critt
 ms.topic: quickstart
 ms.date: 08/31/2020
 ms.openlocfilehash: e42b2d4487f2f51c082f22068160a02b3dcbb0a5
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
-ms.translationtype: HT
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/05/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "89263638"
 ---
 # <a name="quickstart-use-portal-to-encrypt-content"></a>Avvio rapido: Usare il portale per crittografare contenuto

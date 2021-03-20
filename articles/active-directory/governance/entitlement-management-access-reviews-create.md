@@ -17,10 +17,10 @@ ms.author: ajburnle
 ms.reviewer: ''
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 012eefe9140703a62d7bb1074ab763191a0976cb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "87798512"
 ---
 # <a name="create-an-access-review-of-an-access-package-in-azure-ad-entitlement-management"></a>Creare una verifica di accesso di un pacchetto di accesso in Azure AD gestione dei diritti
@@ -46,14 +46,14 @@ Per altre informazioni, vedere [Requisiti relativi alle licenze](entitlement-man
 
     ![Aggiungere la verifica di accesso](./media/entitlement-management-access-reviews/access-reviews-pane.png)
 
-1. Specificare la data in cui le verifiche inizieranno accanto a a **partire**da.
+1. Specificare la data in cui le verifiche inizieranno accanto a a **partire** da.
 
 1. Successivamente, impostare la **frequenza di revisione** su **annualmente**, **bi-annuale**, **trimestrale** o **mensile**.
 Questa impostazione determina la frequenza con cui si verificheranno le verifiche di accesso.
 
 1. Impostare la **durata** per definire il numero di giorni per cui ogni revisione della serie ricorrente verrà aperta per l'input dai revisori. Ad esempio, è possibile pianificare una revisione annuale che inizia il 1 ° gennaio ed è aperta per la revisione per 30 giorni, in modo che i revisori abbiano fino alla fine del mese per rispondere.
 
-1. Accanto a **revisori**selezionare **autoverifica** se si vuole che gli utenti eseguano la propria verifica di accesso o selezionare **revisori specifici** se si vuole designare un revisore.
+1. Accanto a **revisori** selezionare **autoverifica** se si vuole che gli utenti eseguano la propria verifica di accesso o selezionare **revisori specifici** se si vuole designare un revisore.
 
     ![Selezionare Aggiungi revisori](./media/entitlement-management-access-reviews/access-reviews-add-reviewer.png)
 
@@ -70,7 +70,7 @@ Questa impostazione determina la frequenza con cui si verificheranno le verifich
 
 Dopo la data di inizio, una verifica di accesso viene elencata nella sezione verifiche di **accesso** . Per visualizzare lo stato di una verifica di accesso, seguire questa procedura:
 
-1. In **governance delle identità**fare clic su **pacchetti** di accesso e quindi selezionare il pacchetto di accesso con lo stato di verifica dell'accesso da controllare.   
+1. In **governance delle identità** fare clic su **pacchetti** di accesso e quindi selezionare il pacchetto di accesso con lo stato di verifica dell'accesso da controllare.   
 
 1. Quando si è pronti alla panoramica di Access Package, fare clic su verifiche di **accesso** nel menu a sinistra.
     

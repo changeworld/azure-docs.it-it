@@ -9,10 +9,10 @@ ms.date: 12/02/2020
 ms.author: tisande
 ms.custom: query-reference
 ms.openlocfilehash: 2cfbca798a7b404e4ee12b93396b2a5b08d7d5bb
-ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/03/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96555424"
 ---
 # <a name="avg-azure-cosmos-db"></a>MEDIA (Azure Cosmos DB)
@@ -35,7 +35,7 @@ AVG(<numeric_expr>)
   
 Restituisce un'espressione numerica.  
   
-## <a name="examples"></a>Esempi
+## <a name="examples"></a>Esempio
   
 Nell'esempio seguente viene restituito il valore medio di `propertyA` :
   

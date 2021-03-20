@@ -5,10 +5,10 @@ ms.topic: how-to
 ms.custom: subject-moving-resources
 ms.date: 08/28/2020
 ms.openlocfilehash: eb6029b206e7d47789371ee81e75c4e05c69ee65
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "89086185"
 ---
 # <a name="move-azure-event-grid-system-topics-to-another-region"></a>Spostare gli argomenti del sistema di griglia di eventi di Azure in un'altra area
@@ -33,9 +33,24 @@ Per iniziare, esportare un modello di Gestione risorse per il gruppo di risorse 
 1. Scegliere **gruppi di risorse** dal menu a sinistra. Selezionare quindi il gruppo di risorse contenente l'origine evento per cui è stato creato l'argomento di sistema. Nell'esempio seguente si tratta dell'account di **archiviazione di Azure** . Il gruppo di risorse contiene l'account di archiviazione e il relativo argomento di sistema associato. 
 
     :::image type="content" source="./media/move-system-topics-across-regions/resource-group-page.png" alt-text="Pagina gruppo di risorse":::        
-3. Nel menu a sinistra selezionare **Esporta modello** in **Impostazioni**e quindi fare clic su **Scarica** sulla barra degli strumenti. 
+3. Nel menu a sinistra selezionare **Esporta modello** in **Impostazioni** e quindi fare clic su **Scarica** sulla barra degli strumenti. 
 
-    :::image type="content" source="./media/move-system-topics-across-regions/export-template-menu.png" alt-text="Pagina gruppo di risorse"
+    :::image type="content" source="./media/move-system-topics-across-regions/export-template-menu.png" alt-text="Account limite archiviazione-pagina Esporta modello":::        
+5. Individuare il file **zip** scaricato dal portale e decomprimere il file in una cartella di propria scelta. Questo file zip contiene i file JSON del modello e dei parametri. 
+1. Aprire il **template.js** in un editor di propria scelta. 
+1. L'URL per il webhook non viene esportato nel modello. Quindi, attenersi alla procedura seguente:
+    1. Nel file modello cercare **webhook**. 
+    1. Nella sezione **Proprietà** aggiungere un carattere virgola ( `,` ) alla fine dell'ultima riga. In questo esempio è `"preferredBatchSizeInKilobytes": 64`. 
+    1. Aggiungere la `endpointUrl` proprietà con il valore impostato sull'URL del webhook, come illustrato nell'esempio seguente. 
+
+        ```json
+        "destination": {
+            "properties": {
+                "maxEventsPerBatch": 1,
+                "preferredBatchSizeInKilobytes": 64,
+                "endpointUrl": "https://mysite.azurewebsites.net/api/updates"
+            },
+            "endpointType": "WebHook"
         }
         ```
 
@@ -63,20 +78,20 @@ Per iniziare, esportare un modello di Gestione risorse per il gruppo di risorse 
 Distribuire il modello per creare un account di archiviazione e un argomento di sistema per l'account di archiviazione nell'area di destinazione. 
 
 1. Nella portale di Azure selezionare **Crea una risorsa**.
-2. In **Cerca nel Marketplace**Digitare **distribuzione modello**, quindi premere **invio**.
+2. In **Cerca nel Marketplace** Digitare **distribuzione modello**, quindi premere **invio**.
 3. Selezionare **distribuzione modelli**.
 4. Selezionare **Crea**.
 5. Selezionare **Creare un modello personalizzato nell'editor**.
-6. Selezionare **Carica file**e quindi seguire le istruzioni per caricare il **template.js** nel file scaricato nell'ultima sezione.
+6. Selezionare **Carica file** e quindi seguire le istruzioni per caricare il **template.js** nel file scaricato nell'ultima sezione.
 7. Selezionare **Save (Salva** ) per salvare il modello. 
 8. Nella pagina **distribuzione personalizzata** attenersi alla seguente procedura. 
-    1. Selezionare una **sottoscrizione**di Azure. 
+    1. Selezionare una **sottoscrizione** di Azure. 
     1. Selezionare un **gruppo di risorse** esistente nell'area di destinazione o crearne uno. 
     1. Per **Region (area**) selezionare l'area di destinazione. Se è stato selezionato un gruppo di risorse esistente, questa impostazione è di sola lettura.
     1. Per il **nome dell'argomento di sistema**, immettere un nome per l'argomento di sistema che verrà associato all'account di archiviazione.  
-    1. Per **nome account di archiviazione**immettere un nome per l'account di archiviazione da creare nell'area di destinazione. 
+    1. Per **nome account di archiviazione** immettere un nome per l'account di archiviazione da creare nell'area di destinazione. 
 
-        :::image type="content" source="./media/move-system-topics-across-regions/deploy-template.png" alt-text="Pagina gruppo di risorse":::
+        :::image type="content" source="./media/move-system-topics-across-regions/deploy-template.png" alt-text="Distribuisci modello di Gestione risorse":::
     5. Selezionare **Rivedi e crea** nella parte inferiore della pagina. 
     1. Nella pagina **Verifica e crea** verificare le impostazioni e selezionare **Crea**. 
 
@@ -92,7 +107,7 @@ Se si vuole ricominciare, eliminare il gruppo di risorse nell'area di destinazio
 
 Per eliminare un gruppo di risorse (origine o destinazione) usando il portale di Azure:
 
-1. Nella finestra di ricerca nella parte superiore di portale di Azure digitare **gruppi di risorse**e selezionare **gruppi di risorse** dai risultati della ricerca. 
+1. Nella finestra di ricerca nella parte superiore di portale di Azure digitare **gruppi di risorse** e selezionare **gruppi di risorse** dai risultati della ricerca. 
 2. Selezionare il gruppo di risorse da eliminare e selezionare **Elimina** dalla barra degli strumenti. 
 
     Eliminare un gruppo di risorse

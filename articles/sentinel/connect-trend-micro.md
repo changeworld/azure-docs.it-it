@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 12/30/2019
 ms.author: yelevin
 ms.openlocfilehash: a25d76b4b8a6f516de70604146bd1b236ba3ca1e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "77588026"
 ---
 # <a name="connect-trend-micro-deep-security"></a>Connetti tendenza Micro Deep Security
@@ -32,7 +32,7 @@ Trend Micro Deep Security Connector consente di connettere facilmente i log di s
 
 ## <a name="connect-azure-sentinel-to-trend-micro-deep-security"></a>Connettere Sentinel di Azure a Trend Micro Deep Security
 
-1. Nel portale di Azure passare a connettori dati **sentinella di Azure**  >  **Data connectors** e quindi selezionare il connettore per la **sicurezza di tendenza Micro Deep** .
+1. Nel portale di Azure passare a connettori dati **sentinella di Azure**  >   e quindi selezionare il connettore per la **sicurezza di tendenza Micro Deep** .
 
 2. Selezionare **Apri connettore pagina**.
 

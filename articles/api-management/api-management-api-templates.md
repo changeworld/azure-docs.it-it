@@ -15,10 +15,10 @@ ms.date: 11/04/2019
 ms.author: apimpm
 ms.custom: devx-track-python
 ms.openlocfilehash: b63f38609b4b61130e515dd118e8ced9f201defd
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "87851715"
 ---
 # <a name="api-templates-in-azure-api-management"></a>Modelli di API in Gestione API di Azure
@@ -30,7 +30,7 @@ I modelli in questa sezione consentono di personalizzare il contenuto delle pagi
 -   [Elenco delle API](#APIList)  
 -   [Operazione](#Product)  
 -   [Esempi di codice](#CodeSamples)  
-    -   [CURL](#Curl)  
+    -   [Curl](#Curl)  
     -   [C#](#CSharp)  
     -   [Java](#Stub)  
     -   [JavaScript](#JavaScript)  
@@ -649,7 +649,7 @@ I modelli in questa sezione consentono di personalizzare il contenuto delle pagi
   
  ![Esempi di codice per i modelli del portale per sviluppatori](./media/api-management-api-templates/APIM-Developer-Portal-Templates-Code-samples.png "Esempi di codice per i modelli del portale per sviluppatori gestione API")  
   
--   [CURL](#Curl)  
+-   [Curl](#Curl)  
   
 -   [C#](#CSharp)  
   

@@ -9,10 +9,10 @@ ms.date: 03/03/2020
 ms.author: girobins
 ms.custom: query-reference
 ms.openlocfilehash: 7c0f1673c620ceadeb5ccca2a15cc9b7ce8d7685
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93341604"
 ---
 # <a name="replicate-azure-cosmos-db"></a>REPLICA (Azure Cosmos DB)
@@ -40,9 +40,9 @@ REPLICATE(<str_expr>, <num_expr>)
   
 ## <a name="remarks"></a>Commenti
 
-  La lunghezza massima del risultato è di 10.000 caratteri, ad esempio (length ( *str_expr* ) *  *num_expr* ) <= 10.000. Questa funzione di sistema non utilizzerà l'indice.
+  La lunghezza massima del risultato è di 10.000 caratteri, ad esempio (length (*str_expr*) *  *num_expr*) <= 10.000. Questa funzione di sistema non utilizzerà l'indice.
 
-## <a name="examples"></a>Esempi
+## <a name="examples"></a>Esempio
   
   Nell'esempio seguente viene illustrato come utilizzare `REPLICATE` in una query.
   

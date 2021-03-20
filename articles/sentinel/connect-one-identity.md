@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 12/30/2019
 ms.author: yelevin
 ms.openlocfilehash: 849087cbbe91be799c51929353b9f020859c85b8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "77588145"
 ---
 # <a name="connect-one-identity-safeguard"></a>Connettere una sicurezza di identità
@@ -31,7 +31,7 @@ Il One Identity SafeGuard Data Connector migliora il connettore CEF (Common Even
 
 ## <a name="connect-azure-sentinel-to-one-identity-safeguard"></a>Connettere Sentinel di Azure a un'identità di sicurezza
 
-1. Nel portale di Azure passare a connettori dati **sentinella di Azure**  >  **Data connectors** e quindi selezionare il connettore di **sicurezza di identità** .
+1. Nel portale di Azure passare a connettori dati **sentinella di Azure**  >   e quindi selezionare il connettore di **sicurezza di identità** .
 
 2. Selezionare **Apri connettore pagina**.
 

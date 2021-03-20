@@ -4,10 +4,10 @@ description: Illustra i carichi di lavoro che possono essere protetti usando il 
 ms.topic: conceptual
 ms.date: 03/18/2020
 ms.openlocfilehash: 2b901425a0020c0ccc7b834ee36d965910028018
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "80062830"
 ---
 # <a name="about-disaster-recovery-for-on-premises-apps"></a>Informazioni sul ripristino di emergenza per le app locali
@@ -106,7 +106,7 @@ Con Azure Site Recovery è possibile replicare i servizi seguenti:
 
 Nella tabella seguente vengono illustrate le opzioni di replica:
 
-| **RDS** |**Replicare le VM di Azure in Azure** | **Replicare le VM Hyper-V in un sito secondario** | **Replicare VM Hyper-V in Azure** | **Replicare VM VMware in un sito secondario** | **Replicare VM VMware in Azure** | **Replicare di server fisici in un sito secondario** | **Replicare i server fisici in Azure** |
+| **Servizi desktop remoto** |**Replicare le VM di Azure in Azure** | **Replicare le VM Hyper-V in un sito secondario** | **Replicare VM Hyper-V in Azure** | **Replicare VM VMware in un sito secondario** | **Replicare VM VMware in Azure** | **Replicare di server fisici in un sito secondario** | **Replicare i server fisici in Azure** |
 |---| --- | --- | --- | --- | --- | --- | --- |
 | **Desktop virtuale in pool (non gestito)** |No|Sì |No |Sì |No |Sì |No |
 | **Desktop virtuale in pool (gestito e senza UPD)** |No|Sì |No |Sì |No |Sì |No |

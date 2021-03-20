@@ -8,10 +8,10 @@ ms.subservice: purview-data-catalog
 ms.topic: how-to
 ms.date: 10/01/2020
 ms.openlocfilehash: a0bd7a4cd8afafc16f05b4a37cd5723304ad931e
-ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/03/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96554885"
 ---
 # <a name="register-and-scan-azure-files"></a>Registra e analizza File di Azure
@@ -35,17 +35,17 @@ Per registrare un nuovo account di File di Azure nel Catalogo dati, eseguire le 
 1. Selezionare **+ Nuovo**.
 1. In **registra origini** selezionare **file di Azure**. Selezionare **Continua**.
 
-:::image type="content" source="media/register-scan-azure-files/register-new-data-source.png" alt-text="Registra nuova origine dati" border="true":::
+:::image type="content" source="media/register-scan-azure-files/register-new-data-source.png" alt-text="Registrare una nuova origine dati" border="true":::
 
 Nella schermata **Register Sources (file di Azure)** eseguire le operazioni seguenti:
 
-1. Immettere un **nome** con cui l'origine dati verrà elencata nel catalogo.
-1. Scegliere il modo in cui si desidera puntare all'account di archiviazione desiderato:
+1. Immettere un **Nome** con il quale l'origine dati sarà elencata nel catalogo.
+1. Scegliere come puntare all'account di archiviazione desiderato:
    1. Selezionare una **sottoscrizione di Azure**, selezionare la sottoscrizione appropriata nella casella di riepilogo a discesa **sottoscrizione di Azure** e l'account di archiviazione appropriato nella casella di riepilogo a discesa **nome account di archiviazione** .
    1. In alternativa, è possibile selezionare **invio manualmente** e immettere un endpoint servizio (URL).
-1. **Completare** la registrazione dell'origine dati.
+1. Selezionare **Fine** per completare la registrazione dell'origine dati.
 
-:::image type="content" source="media/register-scan-azure-files/register-sources.png" alt-text="opzioni registra origini" border="true":::
+:::image type="content" source="media/register-scan-azure-files/register-sources.png" alt-text="Opzioni di registrazione delle origini" border="true":::
 
 ## <a name="set-up-authentication-for-a-scan"></a>Configurare l'autenticazione per un'analisi
 
@@ -61,5 +61,5 @@ Per configurare l'autenticazione per l'archiviazione File di Azure usando una ch
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- [Esplorare il Catalogo dati di Azure per le competenze](how-to-browse-catalog.md)
-- [Cerca nel Data Catalog di competenza di Azure](how-to-search-catalog.md)
+- [Esplorare Azure Purview Data Catalog](how-to-browse-catalog.md)
+- [Eseguire ricerche in Azure Purview Data Catalog](how-to-search-catalog.md)

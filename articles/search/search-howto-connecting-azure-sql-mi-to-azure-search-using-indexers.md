@@ -9,10 +9,10 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.openlocfilehash: 9e8625724f67caac99ae799674f9db9399e11ad8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "89294255"
 ---
 # <a name="configure-a-connection-from-an-azure-cognitive-search-indexer-to-sql-managed-instance"></a>Configurare una connessione da un indicizzatore di Azure ricerca cognitiva a SQL Istanza gestita
@@ -25,7 +25,7 @@ Creare un Istanza gestita SQL con l'opzione **Abilita endpoint pubblico** selezi
    ![Abilita endpoint pubblico](media/search-howto-connecting-azure-sql-mi-to-azure-search-using-indexers/enable-public-endpoint.png "Abilita endpoint pubblico")
 
 ## <a name="enable-azure-sql-managed-instance-public-endpoint"></a>Abilitare l'endpoint pubblico di Istanza gestita SQL di Azure
-È anche possibile abilitare l'endpoint pubblico in un istanza gestita SQL esistente **Security**in  >  **rete virtuale**di sicurezza abilitare l'  >  **endpoint pubblico**  >  **Enable**.
+È anche possibile abilitare l'endpoint pubblico in un istanza gestita SQL esistente in  >  **rete virtuale** di sicurezza abilitare l'  >  **endpoint pubblico**  >  .
 
    ![Abilitare l'endpoint pubblico usando l'istanza gestita VNET](media/search-howto-connecting-azure-sql-mi-to-azure-search-using-indexers/mi-vnet.png "Abilita endpoint pubblico")
 

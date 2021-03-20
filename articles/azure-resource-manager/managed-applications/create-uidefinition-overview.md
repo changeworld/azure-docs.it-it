@@ -6,10 +6,10 @@ ms.topic: conceptual
 ms.date: 07/14/2020
 ms.author: tomfitz
 ms.openlocfilehash: 327fa1d7eb73d8e65bb4f81c1dff0fe2bec2913b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "89319569"
 ---
 # <a name="createuidefinitionjson-for-azure-managed-applications-create-experience"></a>CreateUiDefinition.json per l'esperienza di creazione di un'applicazione gestita di Azure
@@ -105,7 +105,7 @@ La proprietà `config` è facoltativa. Utilizzarlo per eseguire l'override del c
 
 ### <a name="wizard"></a>Procedura guidata
 
-La `isWizard` proprietà consente di richiedere la convalida corretta di ogni passaggio prima di procedere al passaggio successivo. Quando la `isWizard` proprietà non è specificata, il valore predefinito è **false**e la convalida dettagliata non è obbligatoria.
+La `isWizard` proprietà consente di richiedere la convalida corretta di ogni passaggio prima di procedere al passaggio successivo. Quando la `isWizard` proprietà non è specificata, il valore predefinito è **false** e la convalida dettagliata non è obbligatoria.
 
 Quando `isWizard` è abilitato, impostare su **true**, la scheda **nozioni di base** è disponibile e tutte le altre schede sono disabilitate. Quando si seleziona il pulsante **Avanti** , l'icona della scheda indica se la convalida di una scheda è stata superata o non riuscita. Dopo che i campi obbligatori della scheda sono stati completati e convalidati, il pulsante **Avanti** consente la navigazione alla scheda successiva. Quando tutte le schede passano la convalida, è possibile passare alla pagina **Verifica e crea** e selezionare il pulsante **Crea** per avviare la distribuzione.
 
@@ -129,7 +129,7 @@ Per `location` , specificare le proprietà per il controllo del percorso di cui 
 
 Il passaggio di **base** è il primo passaggio generato quando il portale di Azure analizza il file. Per impostazione predefinita, il passaggio di base consente agli utenti di scegliere la sottoscrizione, il gruppo di risorse e la località per la distribuzione.
 
-:::image type="content" source="./media/create-uidefinition-overview/basics.png" alt-text="Creazione guidata scheda":::
+:::image type="content" source="./media/create-uidefinition-overview/basics.png" alt-text="Principi predefiniti":::
 
 È possibile aggiungere altri elementi in questa sezione. Quando possibile, aggiungere elementi che eseguono query sui parametri a livello di distribuzione, ad esempio il nome di un cluster o le credenziali di amministratore.
 

@@ -12,10 +12,10 @@ ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ms.openlocfilehash: bb38a76de41885b6f39a1c6dce7c44bcb52a4d60
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "86027444"
 ---
 # <a name="operationalize-spark-built-machine-learning-models"></a>Rendere operativi i modelli di apprendimento automatico compilati con Spark
@@ -545,7 +545,7 @@ BoostedTreeRegressionFileLoc: GradientBoostingTreeRegression_2016-05-0317_23_56.
 Spark offre un meccanismo che permette di inviare in modalità remota processi batch o query interattive tramite un'interfaccia REST con un componente denominato Livy. Livy è abilitato per impostazione predefinita nel cluster HDInsight Spark. Per altre informazioni su Livio, vedere: [inviare processi Spark in modalità remota con Livio](../../hdinsight/spark/apache-spark-livy-rest-interface.md). 
 
 Livy può essere usato per inviare in modalità remota un processo che assegna punteggi in batch a un file archiviato in un BLOB di Azure e quindi scrive i risultati in un altro BLOB. A tale scopo, caricare lo script Python da   
-[GitHub](https://raw.githubusercontent.com/Azure/Azure-MachineLearning-DataScience/master/Misc/Spark/Python/ConsumeGBNYCReg.py) nel BLOB del cluster Spark. Per copiare lo script nel BLOB del cluster, è possibile usare uno strumento come **Microsoft Azure Storage Explorer** o **AzCopy**. In questo caso lo script è stato caricato in ***Wasb:///example/Python/ConsumeGBNYCReg.py***.   
+[GitHub](https://raw.githubusercontent.com/Azure/Azure-MachineLearning-DataScience/master/Misc/Spark/Python/ConsumeGBNYCReg.py) nel BLOB del cluster Spark. Per copiare lo script nel BLOB del cluster, è possibile usare uno strumento come **Microsoft Azure Storage Explorer** o **AzCopy**. In questo caso lo script è stato caricato in **_Wasb:///example/Python/ConsumeGBNYCReg.py_**.   
 
 > [!NOTE]
 > Le chiavi di accesso necessarie sono reperibili nel portale dell'account di archiviazione associato al cluster Spark. 
@@ -601,7 +601,7 @@ conn.close()
 
 Se si preferisce non ricorrere al codice, usare [App per la logica di Azure](https://azure.microsoft.com/documentation/services/app-service/logic/) per richiamare l'assegnazione di punteggi batch di Spark definendo un'azione HTTP in **Progettazione app per la logica** e impostando i parametri. 
 
-* Da portale di Azure creare una nuova app per la logica selezionando **+ nuovo**  ->  **Web e dispositivi mobili**  ->  **app**per la logica. 
+* Da portale di Azure creare una nuova app per la logica selezionando **+ nuovo**  ->  **Web e dispositivi mobili**  ->  **app** per la logica. 
 * Per visualizzare **Progettazione app per la logica**, immettere il nome dell'app per la logica e il piano di servizio app.
 * Selezionare un'azione HTTP e immettere i parametri mostrati nella figura seguente:
 

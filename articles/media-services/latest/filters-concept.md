@@ -14,10 +14,10 @@ ms.topic: conceptual
 ms.date: 08/31/2020
 ms.author: inhenkel
 ms.openlocfilehash: bb5561ced93c3f5a899c6e48fdab0f14e52914bb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "89291552"
 ---
 # <a name="filters"></a>Filtri
@@ -152,7 +152,7 @@ Vedere gli esempi seguenti:
  
 I **localizzatori di streaming** non sono aggiornabili mentre i filtri possono essere aggiornati. 
 
-Non è consigliabile aggiornare la definizione dei filtri associati a un **localizzatore di streaming**pubblicato attivamente, soprattutto quando è abilitata la rete CDN. I server di flusso e CDNs possono avere cache interne che possono causare la restituzione di dati non aggiornati memorizzati nella cache. 
+Non è consigliabile aggiornare la definizione dei filtri associati a un **localizzatore di streaming** pubblicato attivamente, soprattutto quando è abilitata la rete CDN. I server di flusso e CDNs possono avere cache interne che possono causare la restituzione di dati non aggiornati memorizzati nella cache. 
 
 Se è necessario modificare la definizione del filtro, è consigliabile creare un nuovo filtro e aggiungerlo all'URL del **localizzatore di streaming** o pubblicare un nuovo **localizzatore di streaming** che faccia riferimento direttamente al filtro.
 
