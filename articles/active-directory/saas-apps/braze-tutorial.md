@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 10/10/2019
 ms.author: jeedes
 ms.openlocfilehash: 428f2958aba4baedb0ae5371eb29528f7bdca7b1
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
-ms.translationtype: HT
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/23/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92456741"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-braze"></a>Esercitazione: Integrazione dell'accesso Single Sign-On (SSO) di Azure Active Directory con Braze
@@ -59,7 +59,7 @@ Configurare e testare l'accesso SSO di Azure AD con Braze usando un utente di te
 Per configurare e testare l'accesso SSO di Azure AD con Braze, completare le procedure di base seguenti:
 
 1. **[Configurare l'accesso Single Sign-On di Azure AD](#configure-azure-ad-sso)** : per consentire agli utenti di usare questa funzionalità.
-    * **[Creare un utente di test di Azure AD](#create-an-azure-ad-test-user)** : per testare l'accesso Single Sign-On di Azure AD con l'utente B. Simon.
+    * **[Creare un utente di test di Azure AD](#create-an-azure-ad-test-user)** : per testare l'accesso Single Sign-On di Azure AD con l'utente B.Simon.
     * **[Assegnare l'utente di test di Azure AD](#assign-the-azure-ad-test-user)** : per abilitare B. Simon all'uso dell'accesso Single Sign-On di Azure AD.
 1. **[Configurare l'accesso Single Sign-On di Braze](#configure-braze-sso)** : per configurare le impostazioni di Single Sign-On sul lato applicazione.
     * **[Creare l'utente di test di Braze](#create-braze-test-user)** : per avere una controparte di B.Simon in Braze collegata alla rappresentazione dell'utente in Azure AD.
@@ -75,11 +75,11 @@ Per abilitare l'accesso Single Sign-On di Azure AD nel portale di Azure, seguire
 
    ![Modificare la configurazione SAML di base](common/edit-urls.png)
 
-1. Nella sezione **Configurazione SAML di base** immettere i valori per i campi seguenti se si vuole configurare l'applicazione in modalità avviata da **IDP** :
+1. Nella sezione **Configurazione SAML di base** immettere i valori per i campi seguenti se si vuole configurare l'applicazione in modalità avviata da **IDP**:
 
     Nella casella di testo **URL di risposta** digitare un URL nel formato seguente: `https://<SUBDOMAIN>.braze.com/auth/saml/callback `
 
-1. Fare clic su **Impostare URL aggiuntivi** e seguire questa procedura se si vuole configurare l'applicazione in modalità avviata da **SP** :
+1. Fare clic su **Impostare URL aggiuntivi** e seguire questa procedura se si vuole configurare l'applicazione in modalità avviata da **SP**:
 
     Nella casella di testo **URL accesso** digitare un URL nel formato seguente: `https://<SUBDOMAIN>.braze.com/sign_in`
 
@@ -110,7 +110,7 @@ Per abilitare l'accesso Single Sign-On di Azure AD nel portale di Azure, seguire
 
 In questa sezione verrà creato un utente di test di nome B.Simon nel portale di Azure.
 
-1. Nel riquadro sinistro del portale di Azure selezionare **Azure Active Directory** , **Utenti** e quindi **Tutti gli utenti**.
+1. Nel riquadro sinistro del portale di Azure selezionare **Azure Active Directory**, **Utenti** e quindi **Tutti gli utenti**.
 1. Selezionare **Nuovo utente** in alto nella schermata.
 1. In **Proprietà utente** seguire questa procedura:
    1. Nel campo **Nome** immettere `B.Simon`.  
@@ -138,7 +138,7 @@ In questa sezione si abiliterà B.Simon all'uso dell'accesso Single Sign-On di A
 
 ## <a name="configure-braze-sso"></a>Configurare l'accesso Single Sign-On di Braze
 
-Per configurare l'accesso Single Sign-on sul lato **Braze** , è necessario assicurarsi che un account manager di Braze abbia abilitato l'accesso SSO SAML per l'account. Dopo l'abilitazione è possibile passare a Company Settings (Impostazioni società) > Security Settings (Impostazioni di sicurezza) e attivare la sezione dell'accesso SSO SAML. In questa sezione è necessario copiare e incollare il **Certificato (Base 64)** scaricato, oltre ad aggiungere un nome SAML.
+Per configurare l'accesso Single Sign-on sul lato **Braze**, è necessario assicurarsi che un account manager di Braze abbia abilitato l'accesso SSO SAML per l'account. Dopo l'abilitazione è possibile passare a Company Settings (Impostazioni società) > Security Settings (Impostazioni di sicurezza) e attivare la sezione dell'accesso SSO SAML. In questa sezione è necessario copiare e incollare il **Certificato (Base 64)** scaricato, oltre ad aggiungere un nome SAML.
 
 ### <a name="create-braze-test-user"></a>Creare l'utente di test di Braze
 

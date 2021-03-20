@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 11/09/2018
 ms.author: juliako
 ms.openlocfilehash: 065cb4daa9501ee658d364dad43b9e03798e4083
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "67180561"
 ---
 Il processo genera un file di output JSON che contiene i metadati sui volti rilevati e monitorati. I metadati includono coordinate che indicano la posizione dei volti e un numero di ID volto che indica il monitoraggio della persona specifica. I codici ID del volto sono soggetti a ripristino quando le riprese non sono frontali o sono sovrapposte nel fotogramma, causando l'assegnazione di diversi ID alla stessa persona.
@@ -30,9 +30,9 @@ L'output JSON include gli elementi seguenti:
 
 |Elemento|Descrizione|
 |---|---|
-| Avvio |Ora di inizio del primo evento in "tick". |
+| start |Ora di inizio del primo evento in "tick". |
 | duration |Lunghezza del frammento in "tick". |
-| index | Solo per Azure Media Redactor. Definisce l'indice dei fotogrammi dell'evento corrente. |
+| indice | Solo per Azure Media Redactor. Definisce l'indice dei fotogrammi dell'evento corrente. |
 | interval |Intervallo di ogni voce di evento all'interno del frammento in "tick". |
 | eventi |Ogni evento contiene i volti rilevati e monitorati nel periodo specificato. È una matrice di eventi. La matrice esterna rappresenta un intervallo di tempo. La matrice interna è costituita da 0 o più eventi che si sono verificati in un determinato momento. Le parentesi quadre vuote [] indicano che non sono stati rilevati volti. |
 | id |L'ID del volto monitorato. Questo numero potrebbe cambiare inavvertitamente se un volto non viene rilevato. Una determinata persona dovrebbe avere lo stesso ID in tutto il video, ma questo non può essere sempre garantito a causa delle limitazioni nell'algoritmo di rilevamento (occlusione e così via). |

@@ -10,10 +10,10 @@ ms.author: sourabha
 ms.reviewer: sstein
 ms.date: 09/04/2020
 ms.openlocfilehash: f547f0b3219889b54364c4805c2dd5b183a9861a
-ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/05/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93392368"
 ---
 # <a name="manage-historical-data-with-retention-policy"></a>Gestire i dati cronologici con i criteri di conservazione
@@ -70,7 +70,7 @@ Le operazioni di pulizia dei criteri di conservazione dei dati possono essere mo
 
 I sei eventi estesi seguenti consentono di tenere traccia dello stato delle operazioni di pulizia. 
 
-| Nome | Description |
+| Nome | Descrizione |
 |------| ------------|
 | data_retention_task_started  | Si verifica quando viene avviata l'attività in background per la pulizia delle tabelle con i criteri di conservazione. |
 | data_retention_task_completed  | Si verifica quando termina l'attività in background per la pulizia delle tabelle con criteri di conservazione. |

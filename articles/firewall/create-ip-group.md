@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.date: 06/23/2020
 ms.author: victorh
 ms.openlocfilehash: c53b35351108717c7b597e052a66e9902be5ec6c
-ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/05/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93394527"
 ---
 # <a name="create-ip-groups"></a>Creare gruppi IP
@@ -23,7 +23,7 @@ I gruppi IP consentono di raggruppare e gestire gli indirizzi IP per le regole d
 Per creare un gruppo IP usando il portale di Azure:
 
 1. Nella home page portale di Azure selezionare **Crea una risorsa**.
-1. Nella casella di ricerca immettere **gruppi IP** , quindi selezionare gruppi di **indirizzi IP**.
+1. Nella casella di ricerca immettere **gruppi IP**, quindi selezionare gruppi di **indirizzi IP**.
 1. Selezionare **Crea**.
 1. Selezionare la propria sottoscrizione.
 1. selezionare un gruppo di risorse o crearne uno nuovo.

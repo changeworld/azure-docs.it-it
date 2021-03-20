@@ -4,10 +4,10 @@ description: Informazioni su come creare ambienti con più macchine virtuali e r
 ms.topic: article
 ms.date: 08/12/2020
 ms.openlocfilehash: 97659d4ab95fdbe75460161d0ceed71a1cb5cf82
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "88182409"
 ---
 # <a name="create-multi-vm-environments-and-paas-resources-with-azure-resource-manager-templates"></a>Creare ambienti con più macchine virtuali e risorse PaaS con i modelli di Azure Resource Manager
@@ -82,7 +82,7 @@ Dopo aver creato e configurato il repository, è possibile aggiungerlo al Lab us
    - **Branch** (facoltativo): immettere il nome del ramo per accedere alle definizioni del modello di Azure Resource Manager.
    - **Token di accesso personale**: immettere il token di accesso personale usato per accedere in modo sicuro al repository.
      - Per ottenere il token da Azure Repos, nel profilo selezionare **impostazioni utente**  >  **sicurezza**  >  **token di accesso personale**.
-     - Per ottenere il token da GitHub, nel profilo selezionare **Impostazioni**  >  **sviluppatore impostazioni**per i  >  **token di accesso personali**.
+     - Per ottenere il token da GitHub, nel profilo selezionare **Impostazioni**  >  **sviluppatore impostazioni** per i  >  **token di accesso personali**.
    - **Percorsi cartella**: immettere il percorso della cartella relativo all'URI del clone git per le definizioni di artefatto o per le definizioni di modello di Azure Resource Manager.
 
 1. Selezionare **Salva**.
@@ -97,9 +97,9 @@ Per impostazione predefinita, gli utenti del Lab hanno il ruolo **lettore** , qu
 
 Per assegnare il ruolo **collaboratore** agli utenti del Lab in modo che possano modificare le risorse nei rispettivi ambienti, attenersi alla procedura seguente:
 
-1. Nella finestra di [portale di Azure](https://portal.azure.com), nel riquadro **Panoramica** del Lab selezionare **configurazione e criteri**e quindi selezionare **impostazioni Lab**.
+1. Nella finestra di [portale di Azure](https://portal.azure.com), nel riquadro **Panoramica** del Lab selezionare **configurazione e criteri** e quindi selezionare **impostazioni Lab**.
 
-1. Nel riquadro **impostazioni Lab** selezionare **collaboratore**e quindi fare clic su **Salva** per concedere autorizzazioni di scrittura agli utenti del Lab.
+1. Nel riquadro **impostazioni Lab** selezionare **collaboratore** e quindi fare clic su **Salva** per concedere autorizzazioni di scrittura agli utenti del Lab.
 
    ![Configurare i diritti di accesso per l'utente del lab](./media/devtest-lab-create-environment-from-arm/config-access-rights.png)
 

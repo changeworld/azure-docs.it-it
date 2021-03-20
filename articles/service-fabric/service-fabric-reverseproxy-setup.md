@@ -5,10 +5,10 @@ ms.topic: conceptual
 ms.date: 11/13/2018
 ms.author: pepogors
 ms.openlocfilehash: f8a9025a50b2815f0e6030e7baf317b261c8c462
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "86256342"
 ---
 # <a name="set-up-and-configure-reverse-proxy-in-azure-service-fabric"></a>Configurare il proxy inverso in Azure Service Fabric
@@ -52,7 +52,7 @@ Quando è disponibile un modello di Resource Manager, è possibile abilitare il 
         }
     },
     ```
-2. Specificare la porta per ogni oggetto nodetype in [**Microsoft.ServiceFabric/clusters** nella sezione ](/azure/templates/microsoft.servicefabric/clusters) [Tipo di risorsa](../azure-resource-manager/templates/template-syntax.md).
+2. Specificare la porta per ogni oggetto nodetype in [**Microsoft.ServiceFabric/clusters** nella sezione](/azure/templates/microsoft.servicefabric/clusters) [Tipo di risorsa](../azure-resource-manager/templates/template-syntax.md).
 
     La porta è identificata dal nome del parametro reverseProxyEndpointPort.
 
@@ -74,7 +74,7 @@ Quando è disponibile un modello di Resource Manager, è possibile abilitare il 
         ...
     }
     ```
-3. Per configurare i certificati TLS/SSL sulla porta per il proxy inverso, aggiungere il certificato alla proprietà ***reverseProxyCertificate*** nella [sezione relativa al tipo di risorsa](../azure-resource-manager/templates/template-syntax.md) **Microsoft. ServiceFabric/Clusters** .
+3. Per configurare i certificati TLS/SSL sulla porta per il proxy inverso, aggiungere il certificato alla proprietà ***reverseProxyCertificate** _ nella sezione _ *Microsoft. ServiceFabric/Clusters* *  [Resource Type](../azure-resource-manager/templates/template-syntax.md).
 
     ```json
     {
@@ -98,7 +98,7 @@ Quando è disponibile un modello di Resource Manager, è possibile abilitare il 
     ```
 
 ### <a name="supporting-a-reverse-proxy-certificate-thats-different-from-the-cluster-certificate"></a>Supporto di un certificato di proxy inverso diverso dal certificato di cluster
- Se il certificato di proxy inverso è diverso dal certificato che protegge il cluster, il certificato specificato in precedenza deve essere installato nella macchina virtuale e aggiunto all'elenco di controllo di accesso, in modo che Service Fabric possa accedervi. Questa operazione può essere eseguita in [**Microsoft.Compute/virtualMachineScaleSets** nella sezione ](/azure/templates/microsoft.compute/virtualmachinescalesets) [Tipo di risorsa](../azure-resource-manager/templates/template-syntax.md). Per l'installazione, aggiungere il certificato a osProfile. La sezione del modello relativa all'estensione può aggiornare il certificato nell'elenco di controllo di accesso.
+ Se il certificato di proxy inverso è diverso dal certificato che protegge il cluster, il certificato specificato in precedenza deve essere installato nella macchina virtuale e aggiunto all'elenco di controllo di accesso, in modo che Service Fabric possa accedervi. Questa operazione può essere eseguita in [**Microsoft.Compute/virtualMachineScaleSets** nella sezione](/azure/templates/microsoft.compute/virtualmachinescalesets) [Tipo di risorsa](../azure-resource-manager/templates/template-syntax.md). Per l'installazione, aggiungere il certificato a osProfile. La sezione del modello relativa all'estensione può aggiornare il certificato nell'elenco di controllo di accesso.
 
   ```json
   {
@@ -252,7 +252,7 @@ Se si vuole esporre il proxy inverso pubblicamente per un cluster autonomo, la m
 
 ### <a name="expose-the-reverse-proxy-via-resource-manager-templates"></a>Esporre il proxy inverso tramite i modelli di Resource Manager
 
-Il codice JSON seguente fa riferimento allo stesso modello usato in [Abilitare il proxy inverso tramite modelli di Azure Resource Manager](#enable-reverse-proxy-via-azure-resource-manager-templates). Vedere tale sezione del documento per informazioni sulla creazione di un modello di Resource Manager o sull'esportazione di un modello per un cluster esistente.  Le modifiche vengono apportate a [**Microsoft.Network/loadBalancers** nella sezione ](/azure/templates/microsoft.network/loadbalancers) [Tipo di risorsa](../azure-resource-manager/templates/template-syntax.md).
+Il codice JSON seguente fa riferimento allo stesso modello usato in [Abilitare il proxy inverso tramite modelli di Azure Resource Manager](#enable-reverse-proxy-via-azure-resource-manager-templates). Vedere tale sezione del documento per informazioni sulla creazione di un modello di Resource Manager o sull'esportazione di un modello per un cluster esistente.  Le modifiche vengono apportate a [**Microsoft.Network/loadBalancers** nella sezione](/azure/templates/microsoft.network/loadbalancers) [Tipo di risorsa](../azure-resource-manager/templates/template-syntax.md).
 
 ```json
 {

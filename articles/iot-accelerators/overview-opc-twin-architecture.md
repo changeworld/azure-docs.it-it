@@ -9,10 +9,10 @@ ms.service: industrial-iot
 services: iot-industrialiot
 manager: philmea
 ms.openlocfilehash: 602d2f77564709294d28b797ff3f03f12b3b32d8
-ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
-ms.translationtype: HT
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91533384"
 ---
 # <a name="opc-twin-architecture"></a>Architettura di OPC Twin

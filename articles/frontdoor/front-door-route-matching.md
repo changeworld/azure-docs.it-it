@@ -12,10 +12,10 @@ ms.workload: infrastructure-services
 ms.date: 09/28/2020
 ms.author: duau
 ms.openlocfilehash: 67940db973f494cd4a12c2f16db528e0b113d656
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91449213"
 ---
 # <a name="how-requests-are-matched-to-a-routing-rule"></a>Modalità di corrispondenza delle richieste con una regola di routing
@@ -50,7 +50,7 @@ Per spiegare ulteriormente questo processo, esaminiamo una configurazione di ese
 
 | Regola di routing | Host front-end | Percorso |
 |-------|--------------------|-------|
-| Una | foo.contoso.com | /\* |
+| A | foo.contoso.com | /\* |
 | B | foo.contoso.com | /users/\* |
 | C | www \. Fabrikam.com, foo.Adventure-Works.com  | /\*, /images/\* |
 
@@ -80,7 +80,7 @@ Per chiarire ulteriormente il processo, esaminiamo un altro set di esempi:
 
 | Regola di routing | Host front-end    | Percorso     |
 |-------|---------|----------|
-| Una     | www\.contoso.com | /        |
+| A     | www\.contoso.com | /        |
 | B     | www\.contoso.com | /\*      |
 | C     | www\.contoso.com | /ab      |
 | D     | www\.contoso.com | /abc     |
@@ -93,7 +93,7 @@ Tale configurazione produrrà la tabella corrispondente di esempio seguente :
 
 | Richiesta in ingresso    | Route corrispondente |
 |---------------------|---------------|
-| \.contoso.com/www            | Una             |
+| \.contoso.com/www            | A             |
 | \.contoso.com/a www           | B             |
 | \.contoso.com/AB www          | C             |
 | \.contoso.com/ABC www         | D             |
@@ -114,13 +114,13 @@ Tale configurazione produrrà la tabella corrispondente di esempio seguente :
 >
 > | Route | Host             | Percorso    |
 > |-------|------------------|---------|
-> | Una     | profile.contoso.com | /api/\* |
+> | A     | profile.contoso.com | /api/\* |
 >
 > Tabella corrispondente:
 >
 > | Richiesta in ingresso       | Route corrispondente |
 > |------------------------|---------------|
-> | profile.domain.com/other | No. Errore 400 - Richiesta non valida |
+> | profile.domain.com/other | Nessuna. Errore 400 - Richiesta non valida |
 
 ### <a name="routing-decision"></a>Decisione di routing
 Dopo aver individuato la corrispondenza con una singola regola di routing di Frontdoor, è necessario scegliere la modalità di elaborazione della richiesta. Se per la regola di routing corrispondente Frontdoor dispone di una risposta memorizzata nella cache, questa viene restituita al client. In caso contrario, l'elemento successivo che viene valutato è se è stata configurata o meno la [riscrittura URL (percorso di inoltro personalizzato)](front-door-url-rewrite.md) per la regola di routing corrispondente. Se non è definito un percorso di inoltro personalizzato, la richiesta viene inoltrata così com'è al back-end appropriato nel pool back-end configurato. In caso contrario, il percorso della richiesta viene aggiornato in base al [percorso di inoltro personalizzato](front-door-url-rewrite.md) definito e quindi inoltrata al back-end.

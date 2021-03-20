@@ -10,10 +10,10 @@ ms.author: sourabha
 ms.reviewer: sstein
 ms.date: 09/22/2020
 ms.openlocfilehash: 5d7d232ada814d5d3c30e7b012c6289f847d641f
-ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/05/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93395088"
 ---
 # <a name="deploy-azure-sql-edge"></a>Distribuire SQL Edge di Azure 
@@ -52,7 +52,7 @@ Azure Marketplace è un marketplace online di servizi e applicazioni dove è pos
 
 4. Nella pagina **imposta moduli nel dispositivo:** fare clic sul modulo Azure SQL Edge in **moduli IOT Edge**. Il nome del modulo predefinito è impostato su *AzureSQLEdge*. 
 
-5. Nella sezione *Impostazioni modulo* del pannello **Aggiorna IOT Edge modulo** specificare i valori desiderati per il nome del *modulo di IOT Edge* , il *criterio di riavvio* e *lo stato desiderato*. 
+5. Nella sezione *Impostazioni modulo* del pannello **Aggiorna IOT Edge modulo** specificare i valori desiderati per il nome del *modulo di IOT Edge*, il *criterio di riavvio* e *lo stato desiderato*. 
 
    > [!IMPORTANT]    
    > Non modificare o aggiornare le impostazioni dell' **URI dell'immagine** nel modulo.
@@ -112,7 +112,7 @@ Azure Marketplace è un marketplace online di servizi e applicazioni dove è pos
 
 ## <a name="connect-to-azure-sql-edge"></a>Connettersi a SQL Edge di Azure
 
-La procedura seguente usa lo strumento da riga di comando di SQL Edge di Azure, **sqlcmd** , all'interno del contenitore per stabilire la connessione a SQL Edge di Azure.
+La procedura seguente usa lo strumento da riga di comando di SQL Edge di Azure, **sqlcmd**, all'interno del contenitore per stabilire la connessione a SQL Edge di Azure.
 
 > [!NOTE]      
 > Gli strumenti da riga di comando di SQL (sqlcmd) non sono disponibili all'interno della versione ARM64 dei contenitori Edge di Azure SQL.
@@ -202,7 +202,7 @@ A questo punto, eseguire una query per restituire i dati dalla tabella `Inventor
 
 ### <a name="exit-the-sqlcmd-command-prompt"></a>Uscire dal prompt dei comandi sqlcmd
 
-1. Per terminare la sessione **sqlcmd** , digitare `QUIT`:
+1. Per terminare la sessione **sqlcmd**, digitare `QUIT`:
 
    ```sql
    QUIT

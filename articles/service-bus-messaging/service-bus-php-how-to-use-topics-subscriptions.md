@@ -5,13 +5,13 @@ ms.devlang: PHP
 ms.topic: quickstart
 ms.date: 06/23/2020
 ms.openlocfilehash: 706f523fdfb3c710bb16b048cfc68ce98875adb1
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
-ms.translationtype: HT
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/05/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "88066203"
 ---
-# <a name="quickstart-how-to-use-service-bus-topics-and-subscriptions-with-php"></a>Guida introduttiva: Come usare gli argomenti e le sottoscrizioni del bus di servizio con PHP
+# <a name="quickstart-how-to-use-service-bus-topics-and-subscriptions-with-php"></a>Guida introduttiva: come usare gli argomenti e le sottoscrizioni del bus di servizio con PHP
 
 [!INCLUDE [service-bus-selector-topics](../../includes/service-bus-selector-topics.md)]
 
@@ -43,7 +43,7 @@ Questo articolo illustra come usare le funzionalità del servizio che possono es
 ## <a name="get-the-azure-client-libraries"></a>Acquisire le librerie client di Azure
 
 ### <a name="install-via-composer"></a>Installazione tramite Composer
-1. Creare un file denominato **composer.json** nella radice del progetto, quindi aggiungere nel file il codice seguente:
+1. Creare un file denominato **composer.json** nella radice del progetto e aggiungervi il codice seguente:
    
     ```json
     {
@@ -91,7 +91,7 @@ Dove `Endpoint` è in genere nel formato `https://[yourNamespace].servicebus.win
 Per creare un client del servizio Azure, è necessario usare la classe `ServicesBuilder`. È possibile:
 
 * Passare la stringa di connessione direttamente.
-* utilizzare **CloudConfigurationManager (CCM)** per cercare la stringa di connessione in più origini esterne:
+* Usare **CloudConfigurationManager (CCM)** per controllare più origini esterne per la stringa di connessione:
   * Per impostazione predefinita viene fornito con il supporto per un'origine esterna, ovvero le variabili ambientali.
   * È possibile aggiungere nuove origini estendendo la classe `ConnectionStringSource`.
 
@@ -181,7 +181,7 @@ catch(ServiceException $e){
 > 
 > 
 
-L'esempio seguente crea una sottoscrizione denominata `HighMessages` con un filtro **SqlFilter** che seleziona solo i messaggi in cui il valore della proprietà `MessageNumber` personalizzata è maggiore di 3. Per informazioni su come aggiungere proprietà personalizzate ai messaggi, vedere [Inviare messaggi a un argomento](#send-messages-to-a-topic).
+Nell'esempio seguente viene creata una sottoscrizione denominata `HighMessages` con un **filtro SqlFilter** che seleziona solo i messaggi che hanno una `MessageNumber` proprietà personalizzata maggiore di 3. Per informazioni su come aggiungere proprietà personalizzate ai messaggi, vedere [Inviare messaggi a un argomento](#send-messages-to-a-topic).
 
 ```php
 $subscriptionInfo = new SubscriptionInfo("HighMessages");
@@ -242,7 +242,7 @@ catch(ServiceException $e){
 }
 ```
 
-I messaggi inviati ad argomenti del bus di servizio sono istanze della classe [BrokeredMessage][BrokeredMessage]. Gli oggetti [BrokeredMessage][BrokeredMessage] includono un set di proprietà e metodi standard, nonché proprietà usate per contenere proprietà personalizzate specifiche dell'applicazione. L'esempio seguente illustra come inviare cinque messaggi di prova all'argomento `mytopic` creato in precedenza. Il metodo `setProperty` viene usato per aggiungere una proprietà personalizzata (`MessageNumber`) a ogni messaggio. Il valore della proprietà `MessageNumber` varia per ogni messaggio, consentendo di determinare quali sottoscrizioni lo riceveranno, come descritto nella sezione [Creare una sottoscrizione](#create-a-subscription):
+I messaggi inviati ad argomenti del bus di servizio sono istanze della classe [BrokeredMessage][BrokeredMessage] . Gli oggetti [BrokeredMessage][BrokeredMessage] includono un set di proprietà e metodi standard, nonché proprietà usate per contenere proprietà personalizzate specifiche dell'applicazione. L'esempio seguente illustra come inviare cinque messaggi di prova all'argomento `mytopic` creato in precedenza. Il metodo `setProperty` viene usato per aggiungere una proprietà personalizzata (`MessageNumber`) a ogni messaggio. Il valore della proprietà `MessageNumber` varia per ogni messaggio, consentendo di determinare quali sottoscrizioni lo riceveranno, come descritto nella sezione [Creare una sottoscrizione](#create-a-subscription):
 
 ```php
 for($i = 0; $i < 5; $i++){
@@ -261,7 +261,7 @@ for($i = 0; $i < 5; $i++){
 Gli argomenti del bus di servizio supportano messaggi di dimensioni massime fino a 256 KB nel [livello Standard](service-bus-premium-messaging.md) e fino a 1 MB nel [livello Premium](service-bus-premium-messaging.md). Le dimensioni massime dell'intestazione, che include le proprietà standard e personalizzate dell'applicazione, non possono superare 64 KB. Non esiste alcun limite al numero di messaggi mantenuti in un argomento, mentre è prevista una limitazione alla dimensione totale dei messaggi di un argomento. Il limite massimo delle dimensioni di un argomento è 5 GB. Per altre informazioni sulle quote, vedere [Quote del bus di servizio][Service Bus quotas].
 
 ## <a name="receive-messages-from-a-subscription"></a>Ricevere messaggi da una sottoscrizione
-Il modo ideale per ricevere i messaggi da una sottoscrizione prevede l'uso di un metodo `ServiceBusRestProxy->receiveSubscriptionMessage`. È possibile ricevere i messaggi in due modalità diverse: [*ReceiveAndDelete* e *PeekLock*](/dotnet/api/microsoft.servicebus.messaging.receivemode). **PeekLock** è la modalità predefinita.
+Il modo ideale per ricevere i messaggi da una sottoscrizione prevede l'uso di un metodo `ServiceBusRestProxy->receiveSubscriptionMessage`. Le modalità di ricezione dei messaggi sono due: [*ReceiveAndDelete* e *PeekLock*](/dotnet/api/microsoft.servicebus.messaging.receivemode). **PeekLock** è la modalità predefinita.
 
 Quando si usa la modalità [ReceiveAndDelete](/dotnet/api/microsoft.servicebus.messaging.receivemode), l'operazione di ricezione viene eseguita in un'unica fase. Quando infatti il bus di servizio riceve una richiesta di lettura relativa a un messaggio in una sottoscrizione, lo contrassegna come usato e lo restituisce all'applicazione. La modalità [ReceiveAndDelete](/dotnet/api/microsoft.servicebus.messaging.receivemode) rappresenta il modello più semplice ed è adatta per scenari in cui un'applicazione può tollerare la mancata elaborazione di un messaggio in caso di errore. Per comprendere meglio questo meccanismo, si consideri uno scenario in cui il consumer invia la richiesta di ricezione e viene arrestato in modo anomalo prima dell'elaborazione. Poiché il bus di servizio ha contrassegnato il messaggio come utilizzato, quando l'applicazione viene riavviata e inizia a usare nuovamente i messaggi, il messaggio usato prima dell'arresto anomalo del sistema risulta perso.
 

@@ -10,10 +10,10 @@ ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
 ms.openlocfilehash: ff9aec1904be754990958869666e9d67038e4fb3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "88142503"
 ---
 # <a name="private-cloud-vmware-components"></a>Componenti VMware del cloud privato
@@ -33,7 +33,7 @@ Un cloud privato VMware stack viene distribuito con la versione del software seg
 |-----------|---------|------------------|
 | ESXi | 6.7 U2 | Enterprise Plus |
 | vCenter | 6.7 U2 | Standard vCenter |
-| Rete VSAN | 6.7 | Enterprise |
+| vSAN | 6.7 | Enterprise |
 | Data Center NSX | 2.4.1 | Avanzato |
 
 ## <a name="esxi"></a>ESXi
@@ -48,7 +48,7 @@ vCenter Server Appliance (VCSA) fornisce le funzioni di autenticazione, gestione
 
 ### <a name="vcenter-single-sign-on"></a>Single Sign-On vCenter
 
-Il controller Embedded Platform Services in VCSA è associato a un **singolo dominio Sign-On vCenter**.  Il nome di dominio è **cloudsimple. local**.  **CloudOwner@cloudsimple.com**Per accedere a vCenter viene creato un utente predefinito.  È possibile aggiungere le origini di identità locali/Azure Active Directory [per vCenter](set-vcenter-identity.md).
+Il controller Embedded Platform Services in VCSA è associato a un **singolo dominio Sign-On vCenter**.  Il nome di dominio è **cloudsimple. local**.  **CloudOwner@cloudsimple.com** Per accedere a vCenter viene creato un utente predefinito.  È possibile aggiungere le origini di identità locali/Azure Active Directory [per vCenter](set-vcenter-identity.md).
 
 ## <a name="vsan-storage"></a>archiviazione rete VSAN
 

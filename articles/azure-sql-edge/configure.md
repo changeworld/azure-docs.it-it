@@ -10,10 +10,10 @@ ms.author: sourabha
 ms.reviewer: sstein
 ms.date: 09/22/2020
 ms.openlocfilehash: 0c49f5ab9f10456c32f7f8516cba0e851fa80e74
-ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/05/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93392334"
 ---
 # <a name="configure-azure-sql-edge"></a>Configurare SQL Edge di Azure
@@ -83,7 +83,7 @@ Azure SQL Edge non include l' [utilità di configurazione MSSQL-conf](/sql/linux
 
 Sono state aggiunte le nuove opzioni MSSQL. conf seguenti per Azure SQL Edge. 
 
-|Opzione|Description|
+|Opzione|Descrizione|
 |:---|:---|
 |**CustomerFeedback** | Scegliere se SQL Server invia commenti e suggerimenti a Microsoft. Per ulteriori informazioni, vedere la pagina relativa alla [disabilitazione della raccolta dati di utilizzo e diagnostica](usage-and-diagnostics-data-configuration.md#disable-usage-and-diagnostic-data-collection)|      
 |**userrequestedlocalauditdirectory** | Imposta la directory di destinazione per i file di controllo della raccolta dati di utilizzo e di diagnostica. Per ulteriori informazioni, vedere [controllo locale della raccolta dei dati di utilizzo e di diagnostica](usage-and-diagnostics-data-configuration.md#local-audit-of-usage-and-diagnostic-data-collection) . |        

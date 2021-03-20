@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 04/23/2018
 ms.subservice: tables
 ms.openlocfilehash: f84707e454a8b1f5d5947478fe65108a142a9757
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "88236319"
 ---
 # <a name="guidelines-for-table-design"></a>Linee guida per la progettazione di tabelle
@@ -22,10 +22,10 @@ La progettazione di tabelle per l'uso con il servizio tabelle di archiviazione d
 ## <a name="design-your-table-service-solution-to-be-read-efficient"></a>Progettare una soluzione di servizio tabelle efficiente per le operazioni di lettura
 
 * ***Progettazione per le query nelle applicazioni con intensa attività di lettura.***  Quando si progettano le tabelle, considerare le query (soprattutto quelle sensibili alla latenza) che si eseguiranno prima di pensare a come si aggiorneranno le entità. Ciò comporta in genere una soluzione efficiente e ad alte prestazioni.  
-* ***Specificare PartitionKey e RowKey nelle query.*** *Scegliere query* come queste sono le query più efficienti del servizio tabella.  
+* ***Specificare sia PartitionKey che RowKey nelle query.** _ _Point query * come queste sono le query del servizio tabelle più efficienti.  
 * ***Prendere in considerazione l'archiviazione di copie duplicate delle entità.***  Poiché l'archiviazione tabelle è economica, considerare la possibilità di archiviare la stessa entità più volte (con chiavi diverse) per consentire query più efficienti.  
 * ***Considerare la denormalizzazione dei dati.***  L’archiviazione delle tabelle è economica, dunque è opportuno considerare la denormalizzazione dei dati. Ad esempio, archiviare le entità di riepilogo in modo che le query per aggregare i dati debbano accedere a una singola entità.  
-* ***Usare valori chiave composti.*** Le sole chiavi a disposizione sono **PartitionKey** e **RowKey**. Ad esempio, per abilitare percorsi alternativi per l'accesso con chiave alle entità, ad esempio, utilizzare valori chiave composti.  
+* ***Usare i valori della chiave composta.** _ Le uniche chiavi disponibili sono _ *PartitionKey** e **RowKey**. Ad esempio, per abilitare percorsi alternativi per l'accesso con chiave alle entità, ad esempio, utilizzare valori chiave composti.  
 * ***Usare la proiezione di query.*** È possibile ridurre la quantità di dati trasferiti tramite la rete usando query che selezionano solo i campi necessari.  
 
 ## <a name="design-your-table-service-solution-to-be-write-efficient"></a>Progettare una soluzione di servizio tabelle efficiente per le operazioni di scrittura  

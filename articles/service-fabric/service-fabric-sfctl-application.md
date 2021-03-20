@@ -6,10 +6,10 @@ ms.topic: reference
 ms.date: 1/16/2020
 ms.author: jejarry
 ms.openlocfilehash: 880770345eb7d65850db322bd97d64c60b6681ee
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "86260869"
 ---
 # <a name="sfctl-application"></a>sfctl application
@@ -20,7 +20,7 @@ Consente di creare, eliminare e gestire le applicazioni e i tipi di applicazioni
 |Comando|Descrizione|
 | --- | --- |
 | create | Crea un'applicazione di Service Fabric usando la descrizione specificata. |
-| Elimina | Elimina un'applicazione di Service Fabric esistente. |
+| eliminare | Elimina un'applicazione di Service Fabric esistente. |
 | deployed | Recupera le informazioni relative a un'applicazione distribuita in un nodo di Service Fabric. |
 | deployed-health | Recupera le informazioni sull'integrità di un'applicazione distribuita in un nodo Service Fabric. |
 | deployed-list | Mostra l'elenco delle applicazioni distribuite in un nodo di Service Fabric. |
@@ -31,7 +31,7 @@ Consente di creare, eliminare e gestire le applicazioni e i tipi di applicazioni
 | manifest | Mostra il manifesto che descrive un tipo di applicazione. |
 | provision | Esegue il provisioning o registra un tipo di applicazione Service Fabric con il cluster usando il pacchetto ". sfpkg" nell'archivio esterno o usando il pacchetto dell'applicazione nell'archivio immagini. |
 | report-health | Invia un report di integrità sull'applicazione di Service Fabric. |
-| type | Mostra l'elenco dei tipi di applicazioni nel cluster di Service Fabric che corrispondono esattamente al nome specificato. |
+| tipo | Mostra l'elenco dei tipi di applicazioni nel cluster di Service Fabric che corrispondono esattamente al nome specificato. |
 | type-list | Mostra l'elenco dei tipi di applicazioni nel cluster di Service Fabric. |
 | unprovision | Rimuove o annulla la registrazione di un tipo di applicazione di Service Fabric dal cluster. |
 | aggiornamento | Avvia l'aggiornamento di un'applicazione nel cluster di Service Fabric. |

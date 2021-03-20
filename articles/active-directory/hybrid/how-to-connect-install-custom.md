@@ -15,10 +15,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 3afeadff71bd373354b891bd6690d94d28fc0805
-ms.sourcegitcommit: 93329b2fcdb9b4091dbd632ee031801f74beb05b
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/15/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92096352"
 ---
 # <a name="custom-installation-of-azure-active-directory-connect"></a>Installazione personalizzata di Azure Active Directory Connect
@@ -38,7 +38,7 @@ Nella pagina **Impostazioni rapide** selezionare **Personalizza** per avviare un
 
 - [Componenti necessari](#install-required-components)
 - [Accesso utente](#user-sign-in)
-- [Connessione ad Azure AD](#connect-to-azure-ad)
+- [Connetti a Azure AD](#connect-to-azure-ad)
 - [Sincronizzazione](#sync-pages)
 
 ### <a name="install-required-components"></a>Installare i componenti necessari
@@ -46,7 +46,7 @@ Quando si installano i servizi di sincronizzazione, è possibile lasciare desele
 
 ![Screenshot che mostra le selezioni facoltative per i componenti di installazione necessari in Azure AD Connect.](./media/how-to-connect-install-custom/requiredcomponents2.png)
 
-| Configurazione facoltativa | Description |
+| Configurazione facoltativa | Descrizione |
 | --- | --- |
 |Specificare un percorso di installazione personalizzato| Consente di modificare il percorso di installazione predefinito per Azure AD Connect.|
 | Usare un server SQL esistente |Consente di specificare il nome del SQL Server e il nome dell'istanza. Scegliere questa opzione se si dispone già di un server di database che si desidera utilizzare. Per **nome istanza**, immettere il nome dell'istanza, una virgola e il numero di porta se nell'istanza di SQL Server non è abilitata l'esplorazione.  Specificare quindi il nome del database Azure AD Connect.  I privilegi SQL determinano se è possibile creare un nuovo database o se l'amministratore SQL deve creare il database in anticipo.  Se si dispone di autorizzazioni SQL Server amministratore (SA), vedere [installare Azure ad Connect utilizzando un database esistente](how-to-connect-install-existing-database.md).  Se si dispone di autorizzazioni delegate (DBO), vedere [Install Azure ad Connect by using SQL Delegated Administrator permissions](how-to-connect-install-sql-delegation.md). |
@@ -59,7 +59,7 @@ Dopo aver installato i componenti necessari, selezionare il metodo di Single Sig
 
 ![Screenshot che mostra la pagina "accesso utente". È selezionata l'opzione "sincronizzazione dell'hash delle password".](./media/how-to-connect-install-custom/usersignin4.png)
 
-| Opzione Single Sign-on | Description |
+| Opzione Single Sign-on | Descrizione |
 | --- | --- |
 | Sincronizzazione dell'hash delle password |Gli utenti possono accedere ai servizi cloud Microsoft, ad esempio Microsoft 365, usando la stessa password usata nella rete locale. Le password utente vengono sincronizzate con Azure AD come hash della password. L'autenticazione viene eseguita nel cloud. Per altre informazioni, vedere [sincronizzazione dell'hash delle password](how-to-connect-password-hash-synchronization.md). |
 |Autenticazione pass-through|Gli utenti possono accedere ai servizi cloud Microsoft, ad esempio Microsoft 365, usando la stessa password usata nella rete locale.  Le password utente vengono convalidate tramite il passaggio all'Active Directory controller di dominio locale.
@@ -205,7 +205,7 @@ Nella pagina successiva è possibile selezionare le funzionalità facoltative pe
 
 
 
-| Funzionalità facoltative | Description |
+| Funzionalità facoltative | Descrizione |
 | --- | --- |
 | Distribuzione ibrida di Exchange |La funzionalità di distribuzione ibrida di Exchange consente la coesistenza delle cassette postali di Exchange sia in locale che in Microsoft 365. Azure AD Connect sincronizza un set specifico di [attributi](reference-connect-sync-attributes-synchronized.md#exchange-hybrid-writeback) da Azure ad di nuovo nella directory locale. |
 | Cartelle pubbliche della posta di Exchange | La funzionalità cartelle pubbliche della posta di Exchange consente di sincronizzare gli oggetti cartella pubblica abilitata alla posta elettronica dall'istanza locale di Active Directory Azure AD. |
@@ -260,7 +260,7 @@ In un computer dotato di Criteri di gruppo strumenti di gestione:
 
 1.  Aprire gli strumenti di gestione di Criteri di gruppo.
 2.  Modificare i criteri di gruppo che verranno applicati a tutti gli utenti. Ad esempio, il criterio dominio predefinito.
-3.  Passare a **Configurazione utente**  >  **modelli amministrativi**  >  **componenti di Windows**  >  **Internet Explorer**  >  pagina sicurezza del**Pannello di controllo Internet**  >  **Security Page**. Selezionare quindi **Elenco di assegnazione siti ad aree**.
+3.  Passare a **Configurazione utente**  >  **modelli amministrativi**  >  **componenti di Windows**  >  **Internet Explorer**  >  pagina sicurezza del **Pannello di controllo Internet**  >  . Selezionare quindi **Elenco di assegnazione siti ad aree**.
 4.  Abilitare i criteri. Quindi, nella finestra di dialogo, immettere il nome del valore `https://autologon.microsoftazuread-sso.com` e il valore di `1` . La configurazione dovrebbe avere un aspetto simile all'immagine seguente.
   
     ![Screenshot che mostra le zone Intranet.](./media/how-to-connect-install-custom/sitezone.png)
@@ -448,7 +448,7 @@ Per risolvere il problema:
 3. Eliminare il database:
     1. Utilizzare **Microsoft SQL Server Management Studio** per connettersi all'istanza di SQL. 
     1. Trovare il database **AdSync** e fare clic con il pulsante destro del mouse su di esso.
-    1. Scegliere **Elimina**dal menu di scelta rapida.
+    1. Scegliere **Elimina** dal menu di scelta rapida.
     1. Selezionare **OK** per eliminare il database.
 
 ![Screenshot che Mostra Microsoft SQL Server Management Studio. È stata selezionata una sincronizzazione D.](./media/how-to-connect-install-custom/error2.png)

@@ -5,13 +5,13 @@ ms.topic: tutorial
 ms.date: 02/26/2018
 ms.custom: mvc, devx-track-java
 ms.openlocfilehash: 801702d43bae6d925fa4f7fbc37cf44bf585fa6d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
-ms.translationtype: HT
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91531991"
 ---
-# <a name="tutorial-debug-a-java-application-deployed-on-a-local-service-fabric-cluster"></a>Esercitazione: Eseguire il debug di un'applicazione Java distribuita in un cluster di Service Fabric locale
+# <a name="tutorial-debug-a-java-application-deployed-on-a-local-service-fabric-cluster"></a>Esercitazione: Eseguire il debug di un'applicazione Java distribuita in un cluster di Azure Service Fabric locale
 
 Questa è la seconda di una serie di esercitazioni. Si apprenderà come collegare un debugger remoto usando Eclipse per l'applicazione Service Fabric. Si apprenderà anche come reindirizzare i log dalle applicazioni in esecuzione a un percorso pratico per lo sviluppatore.
 
@@ -48,13 +48,13 @@ git clone https://github.com/Azure-Samples/service-fabric-java-quickstart
 
 ## <a name="debug-java-application-using-eclipse"></a>Eseguire il debug di un'applicazione Java con Eclipse
 
-1. Aprire l'IDE di Eclipse nel computer e fare clic su **File -> Import**  (Importa)
+1. Aprire l'IDE di Eclipse nel computer e fare clic su **File -> Import** (Importa)
 
 2. Nella finestra popup selezionare l'opzione **General -> Existing Projects into Workspace (Generale -> Progetti esistenti nell'area di lavoro)** e fare clic su Next (Avanti).
 
 3. Nella finestra Import Projects (Importa progetti) scegliere l'opzione **Select root directory** (Seleziona directory radice) e selezionare la directory **Voting**. Se è stata eseguita la prima serie di esercitazioni, la directory **Voting** si trova nella directory **Eclipse-workspace**.
 
-4. Aggiornare l'elemento entryPoint.sh del servizio di cui eseguire il debug in modo che avvii il processo Java con i parametri di debug remoto. Per questa esercitazione viene usato il front-end senza stato: *Voting/VotingApplication/VotingWebPkg/Code/entryPoint.sh*. In questo esempio la porta 8001 è impostata per il debug.
+4. Aggiornare l'elemento entryPoint.sh del servizio di cui eseguire il debug in modo che avvii il processo Java con i parametri di debug remoto. Per questa esercitazione viene usato il front-end senza stato: *Voto/VotingApplication/VotingWebPkg/code/EntryPoint. sh*. In questo esempio viene impostata la porta 8001 per il debug.
 
     ```bash
     java -Xdebug -Xrunjdwp:transport=dt_socket,address=8001,server=y,suspend=n -Djava.library.path=$LD_LIBRARY_PATH -jar VotingWeb.jar
@@ -62,7 +62,7 @@ git clone https://github.com/Azure-Samples/service-fabric-java-quickstart
 
 5. Aggiornare il manifesto dell'applicazione impostando il numero di istanze o di repliche per il servizio di cui eseguire il debug su uno. Questa impostazione evita che si verifichino conflitti per la porta usata per il debug. Per i servizi senza stato, ad esempio, impostare ``InstanceCount="1"``, mentre per i servizi con stato impostare la destinazione e le dimensioni minime del set di repliche su 1 nel modo seguente: ``TargetReplicaSetSize="1" MinReplicaSetSize="1"``.
 
-6. Nell'IDE di Eclipse selezionare **Run (Esegui) -> Debug Configurations (Configurazioni di debug) -> Remote Java Application (Applicazione Java remota)** , fare clic sul pulsante **New** (Nuovo), impostare le proprietà come segue e fare clic su **Appy** (Applica).
+6. Nell'IDE di Eclipse selezionare **Run (Esegui) -> Debug Configurations (Configurazioni di debug) -> Remote Java Application (Applicazione Java remota)**, fare clic sul pulsante **New** (Nuovo), impostare le proprietà come segue e fare clic su **Appy** (Applica).
 
     ```
     Name: Voting
@@ -78,7 +78,7 @@ git clone https://github.com/Azure-Samples/service-fabric-java-quickstart
 
 9. Nella finestra **Publish Application** (Pubblica applicazione) selezionare **Local.json** dall'elenco a discesa e fare clic su **Publish** (Pubblica).
 
-10. Nell'IDE di Eclipse selezionare **Run (Esegui) -> Debug Configurations (Configurazioni di debug) -> Remote Java Application (Applicazione Java remota)** , fare clic sulla configurazione **Voting** creata e quindi su **Debug**.
+10. Nell'IDE di Eclipse selezionare **Run (Esegui) -> Debug Configurations (Configurazioni di debug) -> Remote Java Application (Applicazione Java remota)**, fare clic sulla configurazione **Voting** creata e quindi su **Debug**.
 
 11. Passare al Web browser e accedere a **localhost:8080**. In questo modo, verrà automaticamente raggiunto il punto di interruzione ed Eclipse potrà accedere alla **prospettiva di debug**.
 
