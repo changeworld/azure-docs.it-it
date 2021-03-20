@@ -9,10 +9,10 @@ ms.date: 10/09/2020
 ms.author: helohr
 manager: lizross
 ms.openlocfilehash: 968f82a143872fd282222539ab71a70db488a20d
-ms.sourcegitcommit: 50802bffd56155f3b01bfb4ed009b70045131750
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91935705"
 ---
 # <a name="set-up-a-business-continuity-and-disaster-recovery-plan"></a>Configurare una continuità aziendale e un piano di ripristino di emergenza
@@ -104,7 +104,7 @@ Se si configurano le voci del registro di sistema per FSLogix, l'agente FSLogix 
 
 Per configurare le voci del registro di sistema:
 
-1. Aprire l' **Editor del registro di sistema**.
+1. Aprire l'**Editor del Registro di sistema**.
 2. Passare a **computer**  >  **HKEY_LOCAL_MACHINE**  >  **software**  >  **FSLogix**  >  **profiles**.
    
      > [!div class="mx-imgBorder"]

@@ -15,10 +15,10 @@ ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 4de9f5a21f38f741dcf65d285446d9482716d4f2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "85608127"
 ---
 # <a name="how-to-troubleshoot-sign-in-errors-using-azure-active-directory-reports"></a>Procedura: Risolvere gli errori di accesso usando i report di Azure Active Directory
@@ -37,7 +37,7 @@ Il report degli accessi può anche essere utile per risolvere gli errori di acce
 È necessario:
 
 * Un tenant di Azure AD con una licenza Premium (P1/P2). vedere [Procedura: Effettuare l'iscrizione alle edizioni Azure Active Directory Premium](../fundamentals/active-directory-get-started-premium.md) per aggiornare l'edizione di Azure Active Directory in uso.
-* Un utente che si trova nel ruolo **amministratore globale**, **amministratore della sicurezza**, **lettore sicurezza**o **lettore report** per il tenant. Qualsiasi utente, inoltre, può visualizzare i propri accessi. 
+* Un utente che si trova nel ruolo **amministratore globale**, **amministratore della sicurezza**, **lettore sicurezza** o **lettore report** per il tenant. Qualsiasi utente, inoltre, può visualizzare i propri accessi. 
 
 ## <a name="troubleshoot-sign-in-errors-using-the-sign-ins-report"></a>Risolvere gli errori di accesso usando il report degli accessi
 

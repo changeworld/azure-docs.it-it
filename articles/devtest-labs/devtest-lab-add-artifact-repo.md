@@ -4,10 +4,10 @@ description: Informazioni su come aggiungere un repository GitHub o Git di Azure
 ms.topic: article
 ms.date: 06/26/2020
 ms.openlocfilehash: 225aae5e0a017b711f29a47829b06f8bb7a6a8ee
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "85483143"
 ---
 # <a name="add-a-git-repository-to-store-custom-artifacts-and-resource-manager-templates"></a>Aggiungere un repository Git per archiviare elementi personalizzati e modelli di Resource Manager
@@ -32,7 +32,7 @@ Per aggiungere un repository al lab, è necessario prima ottenere alcune informa
 
 1. Andare alla home page del repository GitHub contenente le definizioni degli elementi o dei modelli di Resource Manager.
 2. Selezionare **Clona o scarica**.
-3. Per copiare l'URL negli Appunti, fare clic sul pulsante**HTTPS clone url** (URL clone HTTPS). Salvare l'URL per usarlo in seguito.
+3. Per copiare l'URL negli Appunti, fare clic sul pulsante **HTTPS clone url** (URL clone HTTPS). Salvare l'URL per usarlo in seguito.
 4. Nell'angolo superiore destro di GitHub selezionare l'immagine del profilo e quindi **Settings** (Impostazioni).
 5. Nel menu **Impostazioni personali** a sinistra selezionare **Token di accesso personali**.
 6. Selezionare **Genera nuovo token**.
@@ -56,14 +56,14 @@ Per aggiungere un repository al lab, è necessario prima ottenere alcune informa
    3. Nell'elenco **Account** selezionare **Tutti gli account accessibili**.
    4. Selezionare l'opzione di sola **lettura** .
    5. Selezionare **Crea token**.
-9. Il nuovo token verrà visualizzato nell'elenco **Token di accesso personali**. Selezionare **Copia token**e quindi salvare il valore del token da usare in un momento successivo.
+9. Il nuovo token verrà visualizzato nell'elenco **Token di accesso personali**. Selezionare **Copia token** e quindi salvare il valore del token da usare in un momento successivo.
 10. Passare alla sezione [Connettere il lab al repository](#connect-your-lab-to-the-repository) .
 
 ## <a name="connect-your-lab-to-the-repository"></a>Connettere il lab al repository
 1. Accedere al [portale di Azure](https://go.microsoft.com/fwlink/p/?LinkID=525040).
 2. Selezionare **Altri servizi** e quindi **DevTest Labs** nell'elenco di servizi.
 3. Nell'elenco di lab selezionare il proprio lab. 
-4. Selezionare **repository e criteri di configurazione e**  >  **Repositories**  >  **Aggiungi**.
+4. Selezionare **repository e criteri di configurazione e**  >    >  **Aggiungi**.
 
     ![Pulsante di aggiunta repository](./media/devtest-lab-add-repo/devtestlab-add-repo.png)
 5. Nel secondo pannello **Repository** specificare le seguenti informazioni:

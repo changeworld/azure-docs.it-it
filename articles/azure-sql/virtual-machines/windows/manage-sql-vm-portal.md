@@ -14,10 +14,10 @@ ms.date: 05/13/2019
 ms.author: mathoma
 ms.reviewer: jroth
 ms.openlocfilehash: 68c7805136a7361a64a6ff6dfbb9e7d910b2ea9b
-ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/12/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97357943"
 ---
 # <a name="manage-sql-server-vms-in-azure-by-using-the-azure-portal"></a>Gestire le macchine virtuali di SQL Server in Azure tramite il portale di Azure
@@ -80,8 +80,8 @@ Per accedere alla scheda obsoleta **Configurazione di SQL Server**, passare alla
 Per altre informazioni, vedere gli articoli seguenti: 
 
 * [Panoramica di SQL Server in una macchina virtuale Windows](sql-server-on-azure-vm-iaas-what-is-overview.md)
-* [Domande frequenti su SQL Server in una macchia virtuale Windows](frequently-asked-questions-faq.md)
-* [Informazioni sui prezzi di SQL Server in una macchina virtuale Windows](pricing-guidance.md)
-* [Note sulla versione di SQL Server in una macchina virtuale Windows](doc-changes-updates-release-notes.md)
+* [Domande frequenti su SQL Server in una VM di Windows](frequently-asked-questions-faq.md)
+* [Informazioni sui prezzi di SQL Server in una VM di Windows](pricing-guidance.md)
+* [Note sulla versione di SQL Server in una VM di Windows](doc-changes-updates-release-notes.md)
 
 

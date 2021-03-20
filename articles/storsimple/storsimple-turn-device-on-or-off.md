@@ -9,10 +9,10 @@ ms.date: 01/09/2018
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: c8f4269235c494ff9dd8d1bf8e0ef940562f8927
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "85515276"
 ---
 # <a name="turn-on-or-turn-off-your-storsimple-8000-series-device"></a>Attivare o disattivare il dispositivo StorSimple serie 8000
@@ -146,7 +146,7 @@ Per arrestare il dispositivo in modo ordinato e controllato, è possibile usare 
 > [!IMPORTANT]
 > Non arrestare un dispositivo in esecuzione utilizzando il pulsante di alimentazione sul retro del dispositivo.
 > 
-> Prima di spegnere il dispositivo, assicurarsi che tutti i componenti del dispositivo siano integri. Nella portale di Azure passare a **dispositivi**  >  **monitoraggio**  >  **integrità hardware**e verificare che lo stato di tutti i componenti sia verde. Questo vale solo per un sistema integro. Se il sistema deve essere arrestato per consentire la sostituzione di un componente non funzionante, nella finestra **Stato hardware** l'indicatore di stato di tale componente sarà di colore rosso (componente guasto) o giallo (componente con funzionalità ridotte).
+> Prima di spegnere il dispositivo, assicurarsi che tutti i componenti del dispositivo siano integri. Nella portale di Azure passare a **dispositivi**  >  **monitoraggio**  >  **integrità hardware** e verificare che lo stato di tutti i componenti sia verde. Questo vale solo per un sistema integro. Se il sistema deve essere arrestato per consentire la sostituzione di un componente non funzionante, nella finestra **Stato hardware** l'indicatore di stato di tale componente sarà di colore rosso (componente guasto) o giallo (componente con funzionalità ridotte).
 > 
 > 
 
@@ -154,7 +154,7 @@ Dopo aver eseguito l'accesso a Windows PowerShell per StorSimple o al portale di
 
 ### <a name="device-with-ebod-enclosure"></a>Dispositivo con enclosure EBOD <a name="8600a"></a>
 > [!IMPORTANT]
-> Prima di arrestare l'enclosure principale ed EBOD, verificare che tutti i componenti del dispositivo siano integri. Nella portale di Azure passare a **dispositivi**  >  **monitoraggio**  >  **integrità hardware**e verificare che tutti i componenti siano integri.
+> Prima di arrestare l'enclosure principale ed EBOD, verificare che tutti i componenti del dispositivo siano integri. Nella portale di Azure passare a **dispositivi**  >  **monitoraggio**  >  **integrità hardware** e verificare che tutti i componenti siano integri.
 
 
 #### <a name="to-shut-down-a-running-device-with-ebod-enclosure"></a>Per arrestare un dispositivo in esecuzione con enclosure EBOD

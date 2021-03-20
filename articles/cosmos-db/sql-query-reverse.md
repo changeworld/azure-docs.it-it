@@ -9,10 +9,10 @@ ms.date: 03/03/2020
 ms.author: girobins
 ms.custom: query-reference
 ms.openlocfilehash: 7d70d65609211ea18f566dbae42aca5231ed2eb7
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93341579"
 ---
 # <a name="reverse-azure-cosmos-db"></a>Inverti (Azure Cosmos DB)
@@ -35,7 +35,7 @@ REVERSE(<str_expr>)
   
   Restituisce un'espressione di stringa.  
   
-## <a name="examples"></a>Esempi
+## <a name="examples"></a>Esempio
   
   Nell'esempio seguente viene illustrato come utilizzare `REVERSE` in una query.  
   

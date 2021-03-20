@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 09/12/2019
 ms.author: ramamill
 ms.openlocfilehash: a31a28728dd0521262bd0518cc49a385f4314302
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "87416231"
 ---
 # <a name="run-a-failback-for-hyper-v-vms"></a>Eseguire il failback per le macchine virtuali Hyper-V
@@ -25,7 +25,7 @@ Questo articolo descrive come eseguire il failback di macchine virtuali di Azure
 
 ## <a name="before-you-start"></a>Prima di iniziare
 
-1. [Esaminare i tipi di failback](failover-failback-overview.md#hyper-v-reprotectionfailback) che è possibile usare, ovvero il ripristino del percorso originale e il ripristino in un percorso alternativo.
+1. [Esaminare i tipi di failback](failover-failback-overview.md#hyper-v-reprotectionfailback) che è possibile usare: il ripristino nel percorso originale e il ripristino in un percorso alternativo.
 2. Verificare che le macchine virtuali di Azure utilizzino un account di archiviazione e non i dischi gestiti. Il failback delle VM Hyper-V replicate con Managed Disks non è supportato.
 3. Verificare che l'host Hyper-V locale (o il server System Center VMM se si usa con Site Recovery) sia in esecuzione e connesso ad Azure. 
 4. Verificare che il failover e il commit siano completi per le macchine virtuali. Non è necessario configurare componenti di Site Recovery specifici per il failback di macchine virtuali Hyper-V da Azure.
@@ -36,17 +36,17 @@ Questo articolo descrive come eseguire il failback di macchine virtuali di Azure
 
 Per eseguire il failback di macchine virtuali Hyper-V in Azure nella macchina virtuale locale originale, eseguire un failover pianificato da Azure al sito locale come indicato di seguito:
 
-1. Nell'insieme di credenziali > **gli elementi replicati**selezionare la macchina virtuale. Fare clic con il pulsante destro del mouse sulla macchina virtuale > **failover pianificato**. Se si esegue il failback di un piano di ripristino, selezionare il nome del piano **e fare clic su failover**  >  **pianificato**failover.
-2. In **conferma failover pianificato**scegliere i percorsi di origine e di destinazione. Prendere nota della direzione del failover. Se il failover dal database primario funzionava come previsto e tutte le macchine virtuali si trovano nella posizione secondaria, questo è solo a fini informativi.
-3. In **sincronizzazione dati**selezionare un'opzione:
-    - **Sincronizza i dati prima del failover (Sincronizza solo modifiche**differenziali): questa opzione riduce al minimo i tempi di inattività per le macchine virtuali durante la sincronizzazione senza arrestarli.
+1. Nell'insieme di credenziali > **Elementi replicati** selezionare la macchina virtuale. Fare clic con il pulsante destro del mouse sulla macchina virtuale > **failover pianificato**. Se si esegue il failback di un piano di ripristino, selezionare il nome del piano **e fare clic su failover**  >  **pianificato** failover.
+2. In **conferma failover pianificato** scegliere i percorsi di origine e di destinazione. Prendere nota della direzione del failover. Se il failover dal database primario funzionava come previsto e tutte le macchine virtuali si trovano nella posizione secondaria, questo è solo a fini informativi.
+3. In **sincronizzazione dati** selezionare un'opzione:
+    - **Sincronizza i dati prima del failover (Sincronizza solo modifiche** differenziali): questa opzione riduce al minimo i tempi di inattività per le macchine virtuali durante la sincronizzazione senza arrestarli.
         - **Fase 1**: acquisisce uno snapshot della macchina virtuale di Azure e lo copia nell'host Hyper-V locale. La macchina continua l'esecuzione in Azure.
         - **Fase 2**: arresta la macchina virtuale di Azure in modo che non vengano apportate nuove modifiche. Il set finale di modifiche delta viene trasferito al server locale e viene avviata la macchina virtuale locale.
     - **Sincronizza i dati durante il failover (download completo)**: questa opzione è più veloce perché si presume che la maggior parte del disco sia cambiata e non si vuole dedicare tempo al calcolo dei checksum. Questa opzione non esegue alcun calcolo del checksum.
         - Esegue il download del disco. 
         - Si consiglia di usare questa opzione se Azure è in esecuzione per un periodo di tempo (un mese o più) o se la macchina virtuale locale è stata eliminata.
 
-4. Solo per VMM, se la crittografia dei dati è abilitata per il cloud, in **chiave di crittografia**selezionare il certificato emesso quando è stata abilitata la crittografia dei dati durante l'installazione del provider nel server VMM.
+4. Solo per VMM, se la crittografia dei dati è abilitata per il cloud, in **chiave di crittografia** selezionare il certificato emesso quando è stata abilitata la crittografia dei dati durante l'installazione del provider nel server VMM.
 5. Avviare il failover. Nella scheda **Processi** è possibile monitorare l’avanzamento del failover.
 6. Se è stata selezionata l'opzione per sincronizzare i dati prima del failover, al termine della sincronizzazione dei dati iniziale e si è pronti per arrestare le macchine virtuali in Azure, fare clic su **processi** > nome processo > **completa failover**. Vengono eseguite le operazioni seguenti:
     - Arresta il computer Azure.
@@ -64,10 +64,10 @@ Eseguire il failback in un percorso alternativo, come indicato di seguito:
 
 1. Se si sta configurando un nuovo hardware, installare una [versione supportata di Windows](hyper-v-azure-support-matrix.md#replicated-vms)e il ruolo Hyper-V nel computer.
 2. Creare un commutatore di rete virtuale con lo stesso nome presente nel server originale.
-3. In **Protected Items**  >  **gruppo protezione**elementi protetti  >  \<ProtectionGroupName>  ->  \<VirtualMachineName> selezionare la macchina virtuale di cui si vuole eseguire il failback e quindi selezionare **failover pianificato**.
+3. In   >  **gruppo protezione** elementi protetti  >  \<ProtectionGroupName>  ->  \<VirtualMachineName> selezionare la macchina virtuale di cui si vuole eseguire il failback e quindi selezionare **failover pianificato**.
 4. In **conferma failover pianificato**, scegliere **Crea macchina virtuale locale se non esiste**.
-5. In **nome host**selezionare il nuovo server host Hyper-V in cui si desidera inserire la macchina virtuale.
-6. In **sincronizzazione dati**è consigliabile selezionare l'opzione per sincronizzare i dati prima del failover. Questo riduce al minimo i tempi di inattività delle macchine virtuali durante la sincronizzazione senza chiuderli. Esegue le operazioni seguenti:
+5. In **nome host** selezionare il nuovo server host Hyper-V in cui si desidera inserire la macchina virtuale.
+6. In **sincronizzazione dati** è consigliabile selezionare l'opzione per sincronizzare i dati prima del failover. Questo riduce al minimo i tempi di inattività delle macchine virtuali durante la sincronizzazione senza chiuderli. Esegue le operazioni seguenti:
     - **Fase 1**: acquisisce snapshot della macchina virtuale di Azure e lo copia nell'host Hyper-V locale. La macchina continua l'esecuzione in Azure.
     - **Fase 2**: arresta la macchina virtuale di Azure in modo che non vengano apportate nuove modifiche. Il set finale di modifiche viene trasferito al server locale e viene avviata la macchina virtuale locale.
     

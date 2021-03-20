@@ -12,10 +12,10 @@ ms.date: 07/30/2020
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: ba7875caa6a1db7638bfeafcfea1efa7b2462152
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "87489516"
 ---
 # <a name="configure-itsme-openid-connect-oidc-with-azure-active-directory-b2c"></a>Configurare itsme OpenID Connect (OIDC) con Azure Active Directory B2C
@@ -74,7 +74,7 @@ Please clarify step 1 in the description below - we don't have steps in this tut
 
 1. Assicurarsi di usare la directory che contiene il tenant di Azure AD B2C. Selezionare il filtro **Directory e sottoscrizione** nel menu in alto e scegliere la directory contenente il tenant di Azure AD B2C.
 
-2. In **servizi di Azure**selezionare **Azure ad B2C** (oppure selezionare **altri servizi** e usare la casella di ricerca **tutti i servizi** per cercare *Azure ad B2C*).
+2. In **servizi di Azure** selezionare **Azure ad B2C** (oppure selezionare **altri servizi** e usare la casella di ricerca **tutti i servizi** per cercare *Azure ad B2C*).
 
 3. Selezionare **Provider di identità** e quindi selezionare **Nuovo provider di OpenID Connect**.
 
@@ -86,7 +86,7 @@ Please clarify step 1 in the description below - we don't have steps in this tut
    | URL dei metadati | `https://oidc.<environment>.itsme.services/clientsecret-oidc/csapi/v0.1/.well-known/openid-configuration` <br>dove `<environment>` è `e2e` (ambiente di test) o `prd` (produzione)  |
    | ClientID     | **ID client**, noto anche come **codice partner**  |
    | Client Secret | Il **client_secret** |
-   | Scope  | servizio OpenID: indirizzo di posta elettronica del profilo YOURSERVICECODE [Phone] [indirizzo]  |
+   | Ambito  | servizio OpenID: indirizzo di posta elettronica del profilo YOURSERVICECODE [Phone] [indirizzo]  |
    |Tipo di risposta | codice |
    |Modalità di risposta | query |
    |Hint di dominio | *È possibile lasciare vuoto questo* |
@@ -121,7 +121,7 @@ Please clarify step 1 in the description below - we don't have steps in this tut
 
 ### <a name="register-an-application"></a>Registrare un'applicazione
 
-1. Nel tenant B2C in **Gestisci**selezionare **registrazioni app**  >  **nuova registrazione**.
+1. Nel tenant B2C in **Gestisci** selezionare **registrazioni app**  >  **nuova registrazione**.
 
 2. Specificare un **nome** per l'applicazione e immettere l' **URI di reindirizzamento**. A scopo di test, immettere `https://jwt.ms` .
 
@@ -129,7 +129,7 @@ Please clarify step 1 in the description below - we don't have steps in this tut
 
 4. Selezionare **Registra**.
 
-   a. A scopo di test, selezionare **autenticazione**e in **concessione implicita**Selezionare le caselle di controllo **token di accesso** e **token ID** .  
+   a. A scopo di test, selezionare **autenticazione** e in **concessione implicita** Selezionare le caselle di controllo **token di accesso** e **token ID** .  
 
    b. Selezionare **Salva**.
 

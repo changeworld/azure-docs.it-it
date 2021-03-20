@@ -11,10 +11,10 @@ ms.date: 07/22/2020
 ms.author: gasinh
 ms.subservice: B2C
 ms.openlocfilehash: 5f408699cae9580188a3780fc8f8654eaa97c26b
-ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/11/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97108434"
 ---
 # <a name="tutorial-for-configuring-lexisnexis-with-azure-active-directory-b2c"></a>Esercitazione per la configurazione di LexisNexis con Azure Active Directory B2C
@@ -23,7 +23,7 @@ In questa esercitazione di esempio vengono fornite informazioni aggiuntive su co
 
 Questa integrazione esegue la profilatura in base a alcune informazioni utente, fornite dall'utente durante il flusso di iscrizione. ThreatMetrix determina se l'utente deve essere autorizzato a continuare ad accedere o meno. Gli attributi seguenti vengono presi in considerazione nell'analisi dei rischi di ThreatMetrix:
 
-- Email
+- E-mail
 - Numero di telefono
 - Informazioni di profilatura raccolte dal computer dell'utente
 

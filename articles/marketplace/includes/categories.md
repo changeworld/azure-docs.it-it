@@ -10,10 +10,10 @@ ms.custom: include file
 author: anbene
 ms.author: mingshen
 ms.openlocfilehash: 763ee108e1e2899bb2268ae5e6236f74a73e4b44
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "87498048"
 ---
 | [**Azure Marketplace**](https://azuremarketplace.microsoft.com/marketplace/apps)  | [**AppSource**](https://appsource.microsoft.com/marketplace/apps) |
@@ -79,7 +79,7 @@ ms.locfileid: "87498048"
 | **Migrazione**  | &nbsp;&nbsp;Gestione della produzione di asset & |
 | &nbsp;&nbsp;Migrazione dei dati | &nbsp;&nbsp;Previsione della domanda |
 | **Realtà mista**  | &nbsp;&nbsp;Connettività & Information Management |
-| **Rete**  | &nbsp;&nbsp;Pianificazione, acquisto & Reporting |
+| **Funzionalità di rete**  | &nbsp;&nbsp;Pianificazione, acquisto & Reporting |
 | &nbsp;&nbsp;Gestione Appliance | &nbsp;&nbsp;Gestione dei servizi di & qualità |
 | &nbsp;&nbsp;Connettività | &nbsp;&nbsp;Gestione ordini di vendita & |
 | &nbsp;&nbsp;Firewall | &nbsp;&nbsp;Gestione del trasporto & warehouse |
@@ -88,7 +88,7 @@ ms.locfileid: "87498048"
 | &nbsp;&nbsp;Gestione delle identità e degli accessi | &nbsp;&nbsp;Gestione dei documenti |
 | &nbsp;&nbsp;Protezione dalle minacce | &nbsp;&nbsp;Gestione della posta elettronica |
 | &nbsp;&nbsp;Information Protection | &nbsp;&nbsp;Traduzione & lingua |
-| **Storage**  | &nbsp;&nbsp;Cerca & di riferimento |
+| **Archiviazione**  | &nbsp;&nbsp;Cerca & di riferimento |
 | &nbsp;&nbsp;Backup & ripristino | &nbsp;&nbsp;Gamification |
 | &nbsp;&nbsp;Archiviazione ibrida aziendale | **Sales** |
 | &nbsp;&nbsp;Condivisione di file | &nbsp;&nbsp;TELESALES |

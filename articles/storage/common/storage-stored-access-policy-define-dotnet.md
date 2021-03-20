@@ -12,10 +12,10 @@ ms.reviewer: ozgun
 ms.subservice: common
 ms.custom: devx-track-csharp
 ms.openlocfilehash: 6cd6147fbe38710bcefd580e71be1d6f5d446a21
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "89010750"
 ---
 # <a name="create-a-stored-access-policy-with-net"></a>Creare criteri di accesso archiviati con .NET
@@ -42,7 +42,7 @@ L'operazione REST sottostante per creare criteri di accesso archiviati è [impos
 
 Negli esempi di codice seguenti vengono creati criteri di accesso archiviati in un contenitore. È possibile usare i criteri di accesso per specificare i vincoli per una firma di accesso condiviso del servizio sul contenitore o i relativi BLOB.
 
-# <a name="net-v12"></a>[.NET V12](#tab/dotnet)
+# <a name="net-v12"></a>[.NET v12](#tab/dotnet)
 
 Per creare un criterio di accesso archiviato in un contenitore con la versione 12 della libreria client .NET per archiviazione di Azure, chiamare uno dei metodi seguenti:
 
@@ -93,7 +93,7 @@ async static Task CreateStoredAccessPolicyAsync(string containerName)
 }
 ```
 
-# <a name="net-v11"></a>[V11 .NET](#tab/dotnet11)
+# <a name="net-v11"></a>[.NET v11](#tab/dotnet11)
 
 Per creare un criterio di accesso archiviato in un contenitore con la versione 12 della libreria client .NET per archiviazione di Azure, chiamare uno dei metodi seguenti:
 
@@ -126,7 +126,7 @@ private static async Task CreateStoredAccessPolicyAsync(CloudBlobContainer conta
 
 ---
 
-## <a name="see-also"></a>Vedere anche
+## <a name="see-also"></a>Vedi anche
 
 - [Concedere accesso limitato alle risorse di archiviazione di Azure tramite firme di accesso condiviso (SAS)](storage-sas-overview.md)
 - [Definire criteri di accesso archiviati](/rest/api/storageservices/define-stored-access-policy)

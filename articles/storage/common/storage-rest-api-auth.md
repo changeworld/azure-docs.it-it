@@ -12,10 +12,10 @@ ms.reviewer: ozge
 ms.subservice: common
 ms.custom: devx-track-csharp
 ms.openlocfilehash: f569fdac19c4f765828d24f4d6615fdd7bafef8a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "89010903"
 ---
 # <a name="call-rest-api-operations-with-shared-key-authorization"></a>Chiamare le operazioni dell'API REST con l'autorizzazione della chiave condivisa
@@ -66,7 +66,7 @@ Esaminare il riferimento per l'operazione [ListContainers](/rest/api/storageserv
 
 **Metodo di richiesta**: Get. Questo verbo è il metodo HTTP che si specifica come proprietà dell'oggetto della richiesta. Come altri valori per il verbo è possibile usare HEAD, PUT e DELETE, a seconda dell'API che si intende chiamare.
 
-**URI della richiesta**: `https://myaccount.blob.core.windows.net/?comp=list` .L'URI della richiesta viene creato dall'endpoint dell'account di archiviazione BLOB `https://myaccount.blob.core.windows.net` e dalla stringa di risorsa `/?comp=list` .
+**URI della richiesta**: `https://myaccount.blob.core.windows.net/?comp=list` .  L'URI della richiesta viene creato dall'endpoint dell'account di archiviazione BLOB `https://myaccount.blob.core.windows.net` e dalla stringa di risorsa `/?comp=list` .
 
 [Parametri dell'URI](/rest/api/storageservices/List-Containers2#uri-parameters): quando si chiama ListContainers è possibile usare parametri di query aggiuntivi, ad esempio *timeout* per definire il timeout della chiamata (in secondi) e *prefix* per applicare un filtro.
 
@@ -286,19 +286,19 @@ Questo frammento di codice illustra il formato della stringa della firma con chi
 
 ```csharp  
 StringToSign = VERB + "\n" +  
-               Content-Encoding + "\n" +  
-               Content-Language + "\n" +  
-               Content-Length + "\n" +  
-               Content-MD5 + "\n" +  
-               Content-Type + "\n" +  
-               Date + "\n" +  
-               If-Modified-Since + "\n" +  
-               If-Match + "\n" +  
-               If-None-Match + "\n" +  
-               If-Unmodified-Since + "\n" +  
-               Range + "\n" +  
-               CanonicalizedHeaders +  
-               CanonicalizedResource;  
+               Content-Encoding + "\n" +  
+               Content-Language + "\n" +  
+               Content-Length + "\n" +  
+               Content-MD5 + "\n" +  
+               Content-Type + "\n" +  
+               Date + "\n" +  
+               If-Modified-Since + "\n" +  
+               If-Match + "\n" +  
+               If-None-Match + "\n" +  
+               If-Unmodified-Since + "\n" +  
+               Range + "\n" +  
+               CanonicalizedHeaders +  
+               CanonicalizedResource;  
 ```
 
 La maggior parte di questi campi viene usata raramente. Per l'archiviazione BLOB, si specificano VERB, md5, Content-Length, CanonicalizedHeaders e CanonicalizedResource. Gli altri campi possono essere lasciati vuoti, ma è necessario specificare `\n` per indicare che sono effettivamente vuoti.

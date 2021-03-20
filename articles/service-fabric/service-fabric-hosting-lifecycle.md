@@ -6,10 +6,10 @@ ms.topic: conceptual
 ms.date: 05/01/2020
 ms.author: tugup
 ms.openlocfilehash: d8585d0b39e4a4ef9cf77f40ea878ddb47bcb0de
-ms.sourcegitcommit: beacda0b2b4b3a415b16ac2f58ddfb03dd1a04cf
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/31/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97831823"
 ---
 # <a name="azure-service-fabric-hosting-life-cycle"></a>Ciclo di vita dell'hosting di Azure Service Fabric
@@ -169,7 +169,7 @@ Questa sezione elenca le configurazioni con impostazioni predefinite che influis
 - **ActivationMaxRetryInterval**: valore predefinito: 3.600 secondi. Intervallo massimo di tentativi backoff per l'attivazione dopo gli errori.
 - **CodePackageContinuousExitFailureResetInterval**: valore predefinito: 300 secondi. Intervallo di timeout per la reimpostazione del numero di errori di uscita continui per il CodePackage.
 
-### <a name="download"></a>Download
+### <a name="download"></a>Scarica
 - **DeploymentRetryBackoffInterval**: valore predefinito: 10. Intervallo di backoff per l'errore di distribuzione.
 - **DeploymentMaxRetryInterval**: valore predefinito: 3.600 secondi. Intervallo massimo di backoff per la distribuzione dopo gli errori.
 - **DeploymentMaxFailureCount**: valore predefinito: 20. Verrà eseguito un nuovo tentativo di distribuzione dell'applicazione in caso di `DeploymentMaxFailureCount` errore della distribuzione dell'applicazione nel nodo.

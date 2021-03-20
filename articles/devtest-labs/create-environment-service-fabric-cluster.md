@@ -6,10 +6,10 @@ ms.topic: article
 ms.date: 06/26/2020
 ms.author: enewman
 ms.openlocfilehash: 530cf3b20820e34913612419d0ffa731a70f6a58
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "85484010"
 ---
 # <a name="create-an-environment-with-self-contained-service-fabric-cluster-in-azure-devtest-labs"></a>Creare un ambiente con un cluster Service Fabric autonomo in Azure DevTest Labs
@@ -33,7 +33,7 @@ I cluster Service Fabric vengono creati usando gli ambienti in DevTest Labs. Ogn
 
     ![Selezionare Service Fabric cluster Lab nell'elenco](./media/create-environment-service-fabric-cluster/select-service-fabric-cluster.png)
 4. Nella pagina **Configura impostazioni** seguire questa procedura: 
-    1. Specificare un **nome** per l' **ambiente**cluster. Si tratta del nome del gruppo di risorse in Azure in cui verrà creato il cluster Service Fabric. 
+    1. Specificare un **nome** per l' **ambiente** cluster. Si tratta del nome del gruppo di risorse in Azure in cui verrà creato il cluster Service Fabric. 
     2. Selezionare il **sistema operativo** per le macchine virtuali del cluster. Il valore predefinito è: **Windows**.
     3. Specificare un nome per l' **amministratore** del cluster. 
     4. Specificare una **password** per l'amministratore. 

@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 03/04/2019
 ms.author: jeedes
 ms.openlocfilehash: 4c9eaf68036531530f844e919bacfae922441b79
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
-ms.translationtype: HT
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/23/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92453835"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-excelityglobal"></a>Esercitazione: Integrazione di Azure Active Directory con ExcelityGlobal
@@ -61,7 +61,7 @@ Per configurare l'integrazione di ExcelityGlobal in Azure AD, è necessario aggi
 
     ![Pulsante Nuova applicazione](common/add-new-app.png)
 
-4. Nella casella di ricerca digitare **ExcelityGlobal** , selezionare **ExcelityGlobal** nel pannello dei risultati e quindi fare clic sul pulsante **Aggiungi** per aggiungere l'applicazione.
+4. Nella casella di ricerca digitare **ExcelityGlobal**, selezionare **ExcelityGlobal** nel pannello dei risultati e quindi fare clic sul pulsante **Aggiungi** per aggiungere l'applicazione.
 
      ![ExcelityGlobal nell'elenco risultati](common/search-new-app.png)
 
@@ -113,7 +113,7 @@ Per configurare l'accesso Single Sign-On di Azure AD con ADP ExcelityGlobal, seg
 
     **Per l'ambiente sandbox** : `https://s6.excelityglobal.com/ACS`
 
-5. L'applicazione ExcelityGlobal prevede un formato specifico per le asserzioni SAML. È quindi necessario aggiungere mapping di attributi personalizzati alla configurazione degli attributi del token SAML. La schermata seguente illustra l'elenco degli attributi predefiniti in cui **nameidentifier** è associato a **user.userprincipalname**. L'applicazione ExcelityGlobal prevede che **nameidentifier** sia mappato a **user.mail** , di conseguenza è necessario modificare il mapping dell'attributo. A questo scopo, fare clic sull'icona **Modifica** e cambiare il mapping.
+5. L'applicazione ExcelityGlobal prevede un formato specifico per le asserzioni SAML. È quindi necessario aggiungere mapping di attributi personalizzati alla configurazione degli attributi del token SAML. La schermata seguente illustra l'elenco degli attributi predefiniti in cui **nameidentifier** è associato a **user.userprincipalname**. L'applicazione ExcelityGlobal prevede che **nameidentifier** sia mappato a **user.mail**, di conseguenza è necessario modificare il mapping dell'attributo. A questo scopo, fare clic sull'icona **Modifica** e cambiare il mapping.
  
     ![image](common/edit-attribute.png)
 
@@ -137,13 +137,13 @@ Per configurare l'accesso Single Sign-On di Azure AD con ADP ExcelityGlobal, seg
 
 ### <a name="configure-excelityglobal-single-sign-on"></a>Configurare il Single Sign-On di ExcelityGlobal
 
-Per configurare l'accesso Single Sign-On sul lato **ExcelityGlobal** , è necessario inviare il **valore di identificazione personale** e gli URL appropriati copiati dal portale di Azure al [team di supporto di ExcelityGlobal](https://www.excelityglobal.com/contact-us). La configurazione viene eseguita in modo che la connessione SSO SAML sia impostata correttamente su entrambi i lati.
+Per configurare l'accesso Single Sign-On sul lato **ExcelityGlobal**, è necessario inviare il **valore di identificazione personale** e gli URL appropriati copiati dal portale di Azure al [team di supporto di ExcelityGlobal](https://www.excelityglobal.com/contact-us). La configurazione viene eseguita in modo che la connessione SSO SAML sia impostata correttamente su entrambi i lati.
 
 ### <a name="create-an-azure-ad-test-user"></a>Creare un utente di test di Azure AD
 
 Questa sezione descrive come creare un utente test denominato Britta Simon nel portale di Azure.
 
-1. Nel riquadro sinistro del portale di Azure, selezionare **Azure Active Directory** , **Utenti** e quindi **Tutti gli utenti**.
+1. Nel riquadro sinistro del portale di Azure, selezionare **Azure Active Directory**, **Utenti** e quindi **Tutti gli utenti**.
 
     ![Collegamenti "Utenti e gruppi" e "Tutti gli utenti"](common/users.png)
 
@@ -168,7 +168,7 @@ Questa sezione descrive come creare un utente test denominato Britta Simon nel p
 
 In questa sezione si abilita Britta Simon all'uso dell'accesso Single Sign-On di Azure concedendole l'accesso a ExcelityGlobal.
 
-1. Nel portale di Azure selezionare **Applicazioni aziendali** , quindi **Tutte le applicazioni** e infine **ExcelityGlobal**.
+1. Nel portale di Azure selezionare **Applicazioni aziendali**, quindi **Tutte le applicazioni** e infine **ExcelityGlobal**.
 
     ![Pannello delle applicazioni aziendali](common/enterprise-applications.png)
 

@@ -8,10 +8,10 @@ author: mingshen-ms
 ms.author: mingshen
 ms.date: 07/14/2020
 ms.openlocfilehash: 336f23f83c33bcee1887d0e41710e686b794a663
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "87272012"
 ---
 # <a name="retrieve-offer-status"></a>Recupero dello stato dell'offerta
@@ -152,9 +152,9 @@ Recupera lo stato corrente dell'offerta.
 |  NotStarted                  | L'offerta è nuova e non è stata attivata.                            |
 |  WaitingForPublisherReview   | L'offerta è in attesa di approvazione da parte dell'editore.                 |
 |  In esecuzione                     | Invio dell'offerta in corso.                     |
-|  Operazione riuscita                   | Invio dell'offerta completato.               |
+|  Completato                   | Invio dell'offerta completato.               |
 |  Cancellati                    | Invio dell'offerta annullato.                           |
-|  Operazione non riuscita                      | Invio dell'offerta non riuscito.                                 |
+|  Non riuscito                      | Invio dell'offerta non riuscito.                                 |
 |  |  |
 
 ### <a name="step-status"></a>Stato del passaggio

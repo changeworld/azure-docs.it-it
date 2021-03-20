@@ -9,10 +9,10 @@ ms.date: 03/03/2020
 ms.author: girobins
 ms.custom: query-reference
 ms.openlocfilehash: be950fed563d8e80339dc80181e7fe5a78092734
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93341578"
 ---
 # <a name="right-azure-cosmos-db"></a>A destra (Azure Cosmos DB)
@@ -38,7 +38,7 @@ RIGHT(<str_expr>, <num_expr>)
   
   Restituisce un'espressione di stringa.  
   
-## <a name="examples"></a>Esempi
+## <a name="examples"></a>Esempio
   
   L'esempio seguente restituisce la parte destra di "abc" per diversi valori di lunghezza.  
   
