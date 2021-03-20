@@ -10,10 +10,10 @@ author: likebupt
 ms.author: keli19
 ms.date: 02/24/2020
 ms.openlocfilehash: 8ae1e79922cc0f34e8b2d1f253fce5078df286d2
-ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/06/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93421244"
 ---
 # <a name="permutation-feature-importance"></a>Permutation Feature Importance
@@ -36,11 +36,11 @@ Per generare un set di punteggi di funzionalità, è necessario disporre di un m
 
 3.  Nell'input di destra, connettere un set di dati. Preferibilmente, scegliere una diversa dal set di dati usato per il training del modello. Questo set di dati viene usato per l'assegnazione dei punteggi in base al modello con training. Viene usato anche per la valutazione del modello dopo la modifica dei valori delle funzionalità.  
 
-4.  Per il valore di **inizializzazione casuale** , immettere un valore da usare come valore di inizializzazione per la sequenza casuale. Se si specifica 0 (impostazione predefinita), viene generato un numero in base al clock di sistema.
+4.  Per il valore di **inizializzazione casuale**, immettere un valore da usare come valore di inizializzazione per la sequenza casuale. Se si specifica 0 (impostazione predefinita), viene generato un numero in base al clock di sistema.
 
      Un valore di inizializzazione è facoltativo, ma è necessario fornire un valore se si desidera la riproducibilità tra le esecuzioni della stessa pipeline.  
 
-5.  Per la **metrica per la misurazione delle prestazioni** , selezionare una singola metrica da usare quando si calcola la qualità del modello dopo la permutazione.  
+5.  Per la **metrica per la misurazione delle prestazioni**, selezionare una singola metrica da usare quando si calcola la qualità del modello dopo la permutazione.  
 
      Azure Machine Learning Designer supporta le metriche seguenti, a seconda che si stia valutando un modello di classificazione o di regressione:  
 

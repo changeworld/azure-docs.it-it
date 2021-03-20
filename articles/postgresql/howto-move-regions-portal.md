@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.custom: subject-moving-resources
 ms.date: 06/29/2020
 ms.openlocfilehash: d237d5709f8d2bb47de3e89b0b7103b195376e11
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/23/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92489745"
 ---
 # <a name="move-an-azure-database-for-azure-database-for-postgresql---single-server-to-another-region-by-using-the-azure-portal"></a>Spostare un database di Azure per database di Azure per PostgreSQL-server singolo in un'altra area usando il portale di Azure
@@ -35,7 +35,7 @@ Per preparare il server di origine per la replica utilizzando la portale di Azur
 
 1. Accedere al [portale di Azure](https://portal.azure.com/).
 1. Selezionare il database di Azure per il server PostgreSQL che si vuole usare come server di origine. Questa azione apre la pagina **Panoramica**.
-1. Scegliere **replica**dal menu del server. Se il supporto della replica di Azure è impostato su almeno **replica**, è possibile creare repliche di lettura. 
+1. Scegliere **replica** dal menu del server. Se il supporto della replica di Azure è impostato su almeno **replica**, è possibile creare repliche di lettura. 
 1. Se il supporto per la replica di Azure non è impostato su almeno **replica**, impostarlo. Selezionare **Salva**.
 1. Riavviare il server per applicare la modifica selezionando **Sì**.
 1. Al termine dell'operazione, si riceveranno due notifiche portale di Azure. È disponibile una notifica per l'aggiornamento del parametro Server. È presente un'altra notifica per il riavvio del server che segue immediatamente.

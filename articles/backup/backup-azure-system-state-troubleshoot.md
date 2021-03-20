@@ -5,10 +5,10 @@ ms.reviewer: srinathv
 ms.topic: troubleshooting
 ms.date: 07/22/2019
 ms.openlocfilehash: 7c8e68da1c5da7b25d1385a82bf7dcc2f876306d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "89376282"
 ---
 # <a name="troubleshoot-system-state-backup"></a>Risolvere i problemi di backup dello stato del sistema
@@ -66,7 +66,7 @@ Per installare Windows Server Backup usando PowerShell, eseguire il comando segu
 
 Per installare Windows Server Backup usando Server Manager, seguire questa procedura:
 
-1. In **Server Manager**selezionare **Aggiungi ruoli e funzionalità**. Verrà visualizzata la **procedura guidata Aggiungi ruoli e funzionalità** .
+1. In **Server Manager** selezionare **Aggiungi ruoli e funzionalità**. Verrà visualizzata la **procedura guidata Aggiungi ruoli e funzionalità** .
 
     ![Dashboard](./media/backup-azure-system-state-troubleshoot/server_management.jpg)
 

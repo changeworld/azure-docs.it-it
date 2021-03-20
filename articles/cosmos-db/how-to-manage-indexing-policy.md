@@ -9,10 +9,10 @@ ms.date: 11/02/2020
 ms.author: tisande
 ms.custom: devx-track-python, devx-track-js, devx-track-azurecli, devx-track-csharp
 ms.openlocfilehash: 8d52f8c59e83a4aae8724100770965f756a439fb
-ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/08/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98015692"
 ---
 # <a name="manage-indexing-policies-in-azure-cosmos-db"></a>Gestire i criteri di indicizzazione in Azure Cosmos DB
@@ -369,7 +369,7 @@ I contenitori di Azure Cosmos archiviano i criteri di indicizzazione come un doc
 
 :::image type="content" source="./media/how-to-manage-indexing-policy/indexing-policy-portal.png" alt-text="Gestire l'indicizzazione con portale di Azure":::
 
-## <a name="use-the-azure-cli"></a>Usare l'interfaccia della riga di comando di Azure
+## <a name="use-the-azure-cli"></a>Utilizzare l’interfaccia della riga di comando di Azure
 
 Per creare un contenitore con criteri di indicizzazione personalizzati, vedere [creare un contenitore con criteri di indice personalizzati usando l'interfaccia](manage-with-cli.md#create-a-container-with-a-custom-index-policy) della riga di comando
 

@@ -8,10 +8,10 @@ ms.topic: reference
 ms.date: 10/04/2019
 ms.author: sngun
 ms.openlocfilehash: 4e638fdff67ad2d0bc6f191cdfd46867ab847923
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93080109"
 ---
 # <a name="azure-cosmos-db-gremlin-limits"></a>Limiti di Gremlin in Azure Cosmos DB
@@ -27,7 +27,7 @@ Quando viene raggiunto il limite Gremlin, l'attraversamento viene annullato con 
 
 **Risorsa**    | **Limite predefinito** | **Spiegazione**
 --- | --- | ---
-*Lunghezza script* | **64 KB** | Lunghezza massima di uno script di attraversamento Gremlin per ogni richiesta.
+*Lunghezza script* | **64 kB** | Lunghezza massima di uno script di attraversamento Gremlin per ogni richiesta.
 *Profondità operatore* | **400** |  Numero totale di passaggi univoci in un attraversamento. Ad esempio, ```g.V().out()``` ha un numero di operatori pari a 2: v () e out (), ```g.V('label').repeat(out()).times(100)``` con la profondità dell'operatore 3: v (), Repeat () e out () perché ```.times(100)``` è un parametro per l' ```.repeat()``` operatore.
 *Grado di parallelismo* | **32** | Numero massimo di partizioni di archiviazione di cui viene eseguita una query in un'unica richiesta nel livello di archiviazione. I grafici con centinaia di partizioni saranno interessati da questo limite.
 *Limite di ripetizioni* | **32** | Numero massimo di iterazioni eseguibili da un operatore ```.repeat()```. Ogni iterazione del ```.repeat()``` passaggio nella maggior parte dei casi esegue l'attraversamento della larghezza-primo, il che significa che tutti gli attraversamenti sono limitati a un massimo di 32 hop tra i vertici.

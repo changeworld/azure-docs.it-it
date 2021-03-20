@@ -1,5 +1,5 @@
 ---
-title: 'Esercitazione: Copiare i dati in Azure Data Box Heavy tramite il servizio di copia dei dati'
+title: 'Esercitazione: copiare dati in Azure Data Box Heavy tramite il servizio copia dati'
 description: In questa esercitazione si apprenderà come copiare i dati nel dispositivo Azure Data Box Heavy tramite il servizio di copia dei dati
 services: databox
 author: alkohli
@@ -9,13 +9,13 @@ ms.topic: tutorial
 ms.date: 07/03/2019
 ms.author: alkohli
 ms.openlocfilehash: 601e5cf15c47b16c53ff9ca81a56cb613bcfc3f5
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
-ms.translationtype: HT
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/25/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96006560"
 ---
-# <a name="tutorial-use-the-data-copy-service-to-copy-data-into-azure-data-box-heavy-preview"></a>Esercitazione: Usare il servizio di copia dei dati per copiare i dati in Azure Data Box Heavy (anteprima)
+# <a name="tutorial-use-the-data-copy-service-to-copy-data-into-azure-data-box-heavy-preview"></a>Esercitazione: usare il servizio di copia dei dati per copiare i dati in Azure Data Box Heavy (anteprima)
 
 Questa esercitazione illustra come inserire i dati con il servizio di copia dei dati senza un host intermedio. Il servizio di copia dei dati viene eseguito in locale in Azure Data Box Heavy, si connette al dispositivo NAS tramite SMB e copia i dati in Data Box Heavy.
 
@@ -33,7 +33,7 @@ In questa esercitazione verranno illustrate le procedure per:
 
 Prima di iniziare, verificare che:
 
-1. Aver completato questa esercitazione: [Configurare Azure Data Box Heavy](data-box-heavy-deploy-set-up.md).
+1. Questa esercitazione è stata completata: [configurare Azure Data Box Heavy](data-box-heavy-deploy-set-up.md).
 2. Aver ricevuto Data Box Heavy e che lo stato dell'ordine nel portale sia **Recapitato**.
 3. Avere le credenziali del dispositivo NAS di origine a cui ci si connetterà per la copia dei dati.
 4. Essere connessi a una rete ad alta velocità. Per una velocità di copia più veloce, è possibile utilizzare in parallelo due connessioni da 40 GbE (una per nodo). Se non si dispone di una connessione da 40 GbE, si consiglia di avere almeno due connessioni da 10 GbE (una per nodo). 
@@ -48,7 +48,7 @@ Dopo aver stabilito la connessione al dispositivo NAS, il passaggio successivo c
 
 Per copiare i dati usando il servizio di copia dei dati è necessario creare un processo:
 
-1. Nell'interfaccia utente Web locale del dispositivo Data Box Heavy passare a **Gestisci** > **Copia dati**.
+1. Nell'interfaccia utente Web locale del dispositivo data box Heavy passare a **Gestisci**  >  **copia dati**.
 2. Nella pagina **Copia dati** selezionare **Crea**.
 
     ![Selezionare Crea nella pagina "Copia dati"](media/data-box-deploy-copy-data-via-copy-service/click-create.png)

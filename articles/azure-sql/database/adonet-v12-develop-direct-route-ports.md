@@ -12,10 +12,10 @@ ms.author: sstein
 ms.reviewer: genemi
 ms.date: 06/11/2020
 ms.openlocfilehash: 0d009522ea0d0986233983f8725549b618ffb537
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91444867"
 ---
 # <a name="ports-beyond-1433-for-adonet-45"></a>Porte successive alla 1433 per ADO.NET 4.5
@@ -52,7 +52,7 @@ Assicurarsi che gli intervalli di porte di 11000-11999 nel computer client di Az
 * In particolare, le porte nell'intervallo devono essere libere da eventuali altri blocchi in uscita.
 * Nella macchina virtuale di Azure, il **Windows Firewall con sicurezza avanzata** controlla le impostazioni della porta.
   
-  * È possibile usare l'[interfaccia utente del firewall](/sql/sql-server/install/configure-the-windows-firewall-to-allow-sql-server-access) per aggiungere una regola per cui si specifica il protocollo**TCP** con un intervallo di porte con la sintassi **11000-11999**.
+  * È possibile usare l'[interfaccia utente del firewall](/sql/sql-server/install/configure-the-windows-firewall-to-allow-sql-server-access) per aggiungere una regola per cui si specifica il protocollo **TCP** con un intervallo di porte con la sintassi **11000-11999**.
 
 ## <a name="version-clarifications"></a>Chiarimenti sulla versione
 

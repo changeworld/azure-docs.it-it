@@ -9,10 +9,10 @@ ms.date: 07/31/2019
 ms.topic: conceptual
 ms.author: raynew
 ms.openlocfilehash: 66ce267581d4748ea51a3dcbd7caa61907115cc1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "82131151"
 ---
 # <a name="common-questions-about-site-recovery-monitoring"></a>Domande comuni sul monitoraggio Site Recovery
@@ -62,7 +62,7 @@ Solo i computer per i quali è stata completata la replica iniziale sono inclusi
 
 ### <a name="how-long-is-data-kept-in-azure-monitor-logs"></a>Per quanto tempo vengono conservati i dati nei log di monitoraggio di Azure? 
 
-Per impostazione predefinita, la conservazione è di 31 giorni. È possibile aumentare il periodo nella sezione **utilizzo e costo stimato** dell'area di lavoro log Analytics. Fare clic su **conservazione dei dati**e scegliere l'intervallo.
+Per impostazione predefinita, la conservazione è di 31 giorni. È possibile aumentare il periodo nella sezione **utilizzo e costo stimato** dell'area di lavoro log Analytics. Fare clic su **conservazione dei dati** e scegliere l'intervallo.
 
 ### <a name="whats-the-size-of-the-resource-logs"></a>Quali sono le dimensioni dei log delle risorse? 
 

@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 10/04/2019
 ms.author: jeedes
 ms.openlocfilehash: cee037b7f92dd55bb8fba264e164087a1cf8983b
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
-ms.translationtype: HT
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/23/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92460275"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-in-case-of-crisis---mobile"></a>Esercitazione: Integrazione dell'accesso Single Sign-On (SSO) di Azure Active Directory con In Case of Crisis - Mobile
@@ -62,7 +62,7 @@ Configurare e testare l'accesso SSO di Azure AD con In Case of Crisis - Mobile u
 Per configurare e testare l'accesso SSO di Azure AD con In Case of Crisis - Mobile, completare le procedure di base seguenti:
 
 1. **[Configurare l'accesso Single Sign-On di Azure AD](#configure-azure-ad-sso)** : per consentire agli utenti di usare questa funzionalità.
-    1. **[Creare un utente di test di Azure AD](#create-an-azure-ad-test-user)** : per testare l'accesso Single Sign-On di Azure AD con l'utente B. Simon.
+    1. **[Creare un utente di test di Azure AD](#create-an-azure-ad-test-user)** : per testare l'accesso Single Sign-On di Azure AD con l'utente B.Simon.
     1. **[Assegnare l'utente di test di Azure AD](#assign-the-azure-ad-test-user)** : per abilitare B. Simon all'uso dell'accesso Single Sign-On di Azure AD.
 1. **[Configurare l'accesso Single Sign-On di In Case of Crisis - Mobile](#configure-in-case-of-crisis---mobile-sso)** : per configurare le impostazioni di Single Sign-On sul lato applicazione.
     1. **[Creare l'utente di test di In Case of Crisis - Mobile](#create-in-case-of-crisis---mobile-test-user)** : per avere una controparte di B.Simon in In Case of Crisis - Mobile collegata alla rappresentazione dell'utente in Azure AD.
@@ -84,7 +84,7 @@ Per abilitare l'accesso Single Sign-On di Azure AD nel portale di Azure, seguire
 
     ![Collegamento di download del certificato](common/certificateraw.png)
 
-1. Passare alla sezione **Gestisci** sul lato sinistro della pagina, fare clic sulla scheda **Proprietà** , quindi copiare il valore di **URL accesso utente** e salvarlo nel computer.
+1. Passare alla sezione **Gestisci** sul lato sinistro della pagina, fare clic sulla scheda **Proprietà**, quindi copiare il valore di **URL accesso utente** e salvarlo nel computer.
 
     ![Proprietà del servizio Single Sign-On](./media/in-case-of-crisis-mobile-tutorial/properties.png)
 
@@ -92,7 +92,7 @@ Per abilitare l'accesso Single Sign-On di Azure AD nel portale di Azure, seguire
 
 In questa sezione verrà creato un utente di test di nome B.Simon nel portale di Azure.
 
-1. Nel riquadro sinistro del portale di Azure selezionare **Azure Active Directory** , **Utenti** e quindi **Tutti gli utenti**.
+1. Nel riquadro sinistro del portale di Azure selezionare **Azure Active Directory**, **Utenti** e quindi **Tutti gli utenti**.
 1. Selezionare **Nuovo utente** in alto nella schermata.
 1. In **Proprietà utente** seguire questa procedura:
    1. Nel campo **Nome** immettere `B.Simon`.  
@@ -120,7 +120,7 @@ In questa sezione si abiliterà B.Simon all'uso dell'accesso Single Sign-On di A
 
 ## <a name="configure-in-case-of-crisis---mobile-sso"></a>Configurare l'accesso Single Sign-On di In Case of Crisis - Mobile
 
-Per configurare l'accesso Single Sign-On sul lato **In Case of Crisis - Mobile** , è necessario inviare il file di **Certificato (base)** scaricato e il valore di **URL accesso utente** copiato dal portale di Azure al [team di supporto di In Case of Crisis - Mobile](https://www.rockdovesolutions.com/features/enterprise-ready). La configurazione viene eseguita in modo che la connessione SSO SAML sia impostata correttamente su entrambi i lati.
+Per configurare l'accesso Single Sign-On sul lato **In Case of Crisis - Mobile**, è necessario inviare il file di **Certificato (base)** scaricato e il valore di **URL accesso utente** copiato dal portale di Azure al [team di supporto di In Case of Crisis - Mobile](https://www.rockdovesolutions.com/features/enterprise-ready). La configurazione viene eseguita in modo che la connessione SSO SAML sia impostata correttamente su entrambi i lati.
 
 ### <a name="create-in-case-of-crisis---mobile-test-user"></a>Creare l'utente di test di In Case of Crisis - Mobile
 

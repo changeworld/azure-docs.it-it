@@ -13,10 +13,10 @@ ms.reviewer: mal
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 1b3d7c47ff0a2c533bf12a67958a913b22915f75
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "87909562"
 ---
 # <a name="example-direct-federation-with-active-directory-federation-services-ad-fs-preview"></a>Esempio: Federazione diretta con Active Directory Federation Services (AD FS) (anteprima)
@@ -58,8 +58,8 @@ Prima di iniziare questa procedura, è necessario che un server AD FS sia già c
 ### <a name="add-the-claim-description"></a>Aggiungere la descrizione dell'attestazione
 
 1. Nel server di ad FS selezionare **strumenti**  >  **gestione ad FS**.
-2. Nel riquadro di spostamento selezionare **Service**  >  **descrizioni attestazioni**servizio.
-3. In **azioni**selezionare **Aggiungi descrizione attestazione**.
+2. Nel riquadro di spostamento selezionare   >  **descrizioni attestazioni** servizio.
+3. In **azioni** selezionare **Aggiungi descrizione attestazione**.
 4. Nella finestra **Aggiungi una descrizione dell'attestazione** specificare i valori seguenti:
 
    - **Nome visualizzato**: identificatore persistente
@@ -72,12 +72,12 @@ Prima di iniziare questa procedura, è necessario che un server AD FS sia già c
 ### <a name="add-the-relying-party-trust-and-claim-rules"></a>Aggiungere le regole di attestazione e attendibilità relying party
 
 1. Nel server ad FS passare a **strumenti**  >  **gestione ad FS**.
-2. Nel riquadro di spostamento selezionare **relazioni di trust**  >  **attendibilità**componente.
-3. In **azioni**selezionare **Aggiungi attendibilità componente**. 
+2. Nel riquadro di spostamento selezionare **relazioni di trust**  >  **attendibilità** componente.
+3. In **azioni** selezionare **Aggiungi attendibilità componente**. 
 4. Nella procedura guidata Aggiungi attendibilità relying party per **selezionare un'origine dati**, usare l'opzione **Importa i dati relativi al relying party pubblicati online o in una rete locale**. Specificare l'URL dei metadati di federazione https://nexus.microsoftonline-p.com/federationmetadata/saml20/federationmetadata.xml . Lasciare le altre selezioni predefinite. Selezionare **Chiudi**.
 5. Verrà visualizzata la procedura guidata **modifica regole attestazione** .
-6. Nella procedura guidata **modifica regole attestazione** selezionare **Aggiungi regola**. In **Scegli tipo di regola**selezionare **Inviare attributi LDAP come attestazioni**. Selezionare **Avanti**.
-7. In **Configura regola attestazione**specificare i valori seguenti: 
+6. Nella procedura guidata **modifica regole attestazione** selezionare **Aggiungi regola**. In **Scegli tipo di regola** selezionare **Inviare attributi LDAP come attestazioni**. Selezionare **Avanti**.
+7. In **Configura regola attestazione** specificare i valori seguenti: 
 
    - **Nome regola attestazione**: regola attestazione posta elettronica 
    - **Archivio attributi**: Active Directory 
@@ -89,8 +89,8 @@ Prima di iniziare questa procedura, è necessario che un server AD FS sia già c
 10. Fare clic su **OK**.  
 
 ### <a name="create-an-email-transform-rule"></a>Creare una regola di trasformazione della posta elettronica
-1. Passare a **modifica regole attestazione** e fare clic su **Aggiungi regola**. In **Scegli tipo di regola**selezionare **trasforma un'attestazione in ingresso** e fare clic su **Avanti**. 
-2. In **Configura regola attestazione**specificare i valori seguenti: 
+1. Passare a **modifica regole attestazione** e fare clic su **Aggiungi regola**. In **Scegli tipo di regola** selezionare **trasforma un'attestazione in ingresso** e fare clic su **Avanti**. 
+2. In **Configura regola attestazione** specificare i valori seguenti: 
 
    - **Nome regola attestazione**: regola di trasformazione posta elettronica 
    - **Tipo di attestazione in ingresso**: indirizzo di posta elettronica 
@@ -128,20 +128,20 @@ Prima di iniziare questa procedura, è necessario che un server AD FS sia già c
 
 ### <a name="add-the-relying-party-trust-and-claim-rules"></a>Aggiungere le regole di attestazione e attendibilità relying party 
 1. Nel server ad FS passare a **strumenti**  >  **gestione ad FS**. 
-1. Nel riquadro di spostamento selezionare **relazioni di trust**  >  **attendibilità**componente. 
-1. In **azioni**selezionare **Aggiungi attendibilità componente**.  
-1. Per **selezionare l'origine dati**nella procedura guidata Aggiungi relying party trust, utilizzare l'opzione **Importa i dati relativi al relying party pubblicati online o in una rete locale**. Specificare l'URL dei metadati di Federazione: `https://nexus.microsoftonline-p.com/federationmetadata/2007-06/federationmetadata.xml` .  Lasciare le altre selezioni predefinite. Selezionare **Chiudi**.
+1. Nel riquadro di spostamento selezionare **relazioni di trust**  >  **attendibilità** componente. 
+1. In **azioni** selezionare **Aggiungi attendibilità componente**.  
+1. Per **selezionare l'origine dati** nella procedura guidata Aggiungi relying party trust, utilizzare l'opzione **Importa i dati relativi al relying party pubblicati online o in una rete locale**. Specificare l'URL dei metadati di Federazione: `https://nexus.microsoftonline-p.com/federationmetadata/2007-06/federationmetadata.xml` .  Lasciare le altre selezioni predefinite. Selezionare **Chiudi**.
 1. Verrà visualizzata la procedura guidata **modifica regole attestazione** . 
-1. Nella procedura guidata **modifica regole attestazione** selezionare **Aggiungi regola**. In **Scegli tipo di regola**selezionare **Invia attestazioni usando una regola personalizzata**. Selezionare *Avanti*. 
-1. In **Configura regola attestazione**specificare i valori seguenti:
+1. Nella procedura guidata **modifica regole attestazione** selezionare **Aggiungi regola**. In **Scegli tipo di regola** selezionare **Invia attestazioni usando una regola personalizzata**. Selezionare *Avanti*. 
+1. In **Configura regola attestazione** specificare i valori seguenti:
 
    - **Nome regola attestazione**: rilascia ID non modificabile  
    - **Regola personalizzata**: `c:[Type == "http://schemas.microsoft.com/ws/2008/06/identity/claims/windowsaccountname"] => issue(store = "Active Directory", types = ("http://schemas.microsoft.com/LiveID/Federation/2008/05/ImmutableID"), query = "samAccountName={0};objectGUID;{1}", param = regexreplace(c.Value, "(?<domain>[^\\]+)\\(?<user>.+)", "${user}"), param = c.Value);`
 
 1. Selezionare **Fine**. 
 1. Nella finestra **modifica regole attestazione** viene visualizzata la nuova regola. Fare clic su **Applica**.  
-1. Nella stessa procedura guidata **modifica regole attestazione** selezionare **Aggiungi regola**. In **tipo di regola cohose**selezionare **Invia attributi LDAP come attestazioni**. Selezionare **Avanti**.
-1. In **Configura regola attestazione**specificare i valori seguenti: 
+1. Nella stessa procedura guidata **modifica regole attestazione** selezionare **Aggiungi regola**. In **tipo di regola cohose** selezionare **Invia attributi LDAP come attestazioni**. Selezionare **Avanti**.
+1. In **Configura regola attestazione** specificare i valori seguenti: 
 
    - **Nome regola attestazione**: regola attestazione posta elettronica  
    - **Archivio attributi**: Active Directory  

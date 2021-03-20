@@ -7,10 +7,10 @@ ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 08/06/2020
 ms.openlocfilehash: f7ec6f32b48a93a29210311c7ba6747eb2e2d066
-ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/08/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98014296"
 ---
 # <a name="configuring-event-ordering-policies-for-azure-stream-analytics"></a>Configurazione dei criteri di ordinamento degli eventi per analisi di flusso di Azure
@@ -39,7 +39,7 @@ Ecco un esempio di questi criteri in azione.
 <br> **Criteri di arrivo in ritardo:** 15 secondi
 <br> **Criteri non ordinati:** 8 secondi
 
-| N. evento. | Ora dell'evento | Ora di arrivo | System.Timestamp | Spiegazione |
+| N. evento. | Ora evento | Ora di arrivo | System.Timestamp | Spiegazione |
 | --- | --- | --- | --- | --- |
 | **1** | 00:10:00  | 00:10:40  | 00:10:25  | L'evento è arrivato in ritardo e all'esterno del livello di tolleranza. Il tempo dell'evento viene quindi regolato in modo da ottenere la tolleranza massima per arrivo.  |
 | **2** | 00:10:30 | 00:10:41  | 00:10:30  | L'evento è arrivato in ritardo ma entro il livello di tolleranza. L'ora dell'evento non viene modificata.  |

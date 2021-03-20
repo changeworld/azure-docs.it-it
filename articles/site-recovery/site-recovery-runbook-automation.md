@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 09/18/2019
 ms.author: ramamill
 ms.openlocfilehash: a141280338632fdad7053cbbe76c8bdf2797443d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "89424872"
 ---
 # <a name="add-azure-automation-runbooks-to-recovery-plans"></a>Aggiungere runbook di Automazione di Azure ai piani di ripristino
@@ -121,7 +121,7 @@ Il Blog di Aman Sharma sulla [raccolta di cloud](http://harvestingclouds.com) è
     ![Fare clic sul pulsante Personalizza](media/site-recovery-runbook-automation-new/custom-rp.png)
 
 2. Fare clic sui puntini di sospensione (...) accanto al **gruppo 1: avviare**  >  **Aggiungi post azione**.
-3. In **Inserisci azione**verificare che sia selezionato **script** e specificare un nome per lo script (**Hello World**).
+3. In **Inserisci azione** verificare che sia selezionato **script** e specificare un nome per lo script (**Hello World**).
 4. Specificare un account di automazione e selezionare un Runbook. Fare clic su **OK** per salvare lo script. Lo script viene aggiunto a **Gruppo 1: passaggi successivi**.
 
 
@@ -254,7 +254,7 @@ Questa operazione viene eseguita specificando più valori, usando Azure PowerShe
 
 Per distribuire gli script di esempio nell'account di Automazione, fare clic sul pulsante **Distribuisci in Azure**.
 
-[![Distribuisci in Azure](https://azurecomcdn.azureedge.net/mediahandler/acomblog/media/Default/blog/c4803408-340e-49e3-9a1f-0ed3f689813d.png)](https://aka.ms/asr-automationrunbooks-deploy)
+[![Distribuzione in Azure](https://azurecomcdn.azureedge.net/mediahandler/acomblog/media/Default/blog/c4803408-340e-49e3-9a1f-0ed3f689813d.png)](https://aka.ms/asr-automationrunbooks-deploy)
 
 Questo video fornisce un altro esempio. che mostra come ripristinare un'applicazione di WordPress a due livelli in Azure:
 

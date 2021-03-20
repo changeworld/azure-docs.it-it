@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 09/25/2020
 ms.author: victorh
 ms.openlocfilehash: ba9f42bc932a37e1052f17db2ae00413e0769d59
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91355738"
 ---
 # <a name="azure-application-gateway-features"></a>Funzionalità del gateway applicazione Azure
@@ -149,13 +149,13 @@ Per altre informazioni, vedere [riscrivere le intestazioni HTTP e l'URL](rewrite
 
 Il Standard_v2 del gateway applicazione può essere configurato per la scalabilità automatica o per le distribuzioni a dimensione fissa. Lo SKU V2 non offre dimensioni diverse per le istanze. Per altre informazioni sulle prestazioni e sui prezzi di V2, vedere [scalabilità automatica V2](application-gateway-autoscaling-zone-redundant.md) e [informazioni sui prezzi](understanding-pricing.md).
 
-Il gateway applicazione standard (V1) viene offerto in tre dimensioni: **small**, **medium**e **large**. Le dimensioni delle istanze piccole sono destinate a scenari di sviluppo e test.
+Il gateway applicazione standard (V1) viene offerto in tre dimensioni: **small**, **medium** e **large**. Le dimensioni delle istanze piccole sono destinate a scenari di sviluppo e test.
 
 Per un elenco completo dei limiti del gateway applicazione, vedere i [limiti del servizio Gateway applicazione](../azure-resource-manager/management/azure-subscription-service-limits.md?toc=%2fazure%2fapplication-gateway%2ftoc.json#application-gateway-limits).
 
 La tabella seguente illustra una velocità effettiva media delle prestazioni per ogni istanza del gateway applicazione v1 con offload SSL abilitato:
 
-| Dimensioni medie risposta della pagina di back-end | Piccola | Media | Grande |
+| Dimensioni medie risposta della pagina di back-end | Piccola | Medio | Grande |
 | --- | --- | --- | --- |
 | 6 KB |7,5 Mbps |13 Mbps |50 Mbps |
 | 100 kB |35 Mbps |100 Mbps |200 Mbps |

@@ -11,10 +11,10 @@ ms.date: 09/08/2020
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: 30348d7ca12ded2d1f4b0522a7cabeadf0553a07
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/20/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94953356"
 ---
 # <a name="overview-of-policy-keys-in-azure-active-directory-b2c"></a>Panoramica delle chiavi dei criteri in Azure Active Directory B2C
@@ -36,7 +36,7 @@ Azure Active Directory B2C (Azure AD B2C) archivia i segreti e i certificati sot
 
 La risorsa di primo livello per le chiavi dei criteri in Azure AD B2C è il contenitore **Keyset** . Ogni keyset contiene almeno una **chiave**. Una chiave ha gli attributi seguenti:
 
-| Attributo |  Obbligatoria | Osservazioni |
+| Attributo |  Obbligatoria | Commenti |
 | --- | --- |--- |
 | `use` | Sì | Usage: identifica l'uso previsto della chiave pubblica. Crittografia dei dati `enc` o verifica della firma sui dati `sig` .|
 | `nbf`| No | Data e ora di attivazione. |

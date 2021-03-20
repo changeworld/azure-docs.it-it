@@ -13,10 +13,10 @@ ms.author: curtand
 ms.reviewer: kasimpso
 ms.custom: user-help, seo-update-azuread-jan
 ms.openlocfilehash: 1af7f2918af7071320244dd35882a8de9717654f
-ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/29/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92913246"
 ---
 # <a name="switching-organizations-in-a-portal"></a>Cambio di organizzazioni in un portale
@@ -30,7 +30,7 @@ Lo switcher dell'organizzazione è disponibile nei portali seguenti:
 - [**Accesso personale**](https://myaccess.microsoft.com)
 - [**Personale**](https://mystaff.microsoft.com)
 
-Il cambio di organizzazioni non è disponibile per gli **accessi, le** **info di sicurezza** o **i gruppi personali** .
+Il cambio di organizzazioni non è disponibile per gli **accessi, le** **info di sicurezza** o **i gruppi personali**.
 
 ## <a name="switch-organizations"></a>Cambiare organizzazione
 
@@ -39,7 +39,7 @@ Di seguito viene illustrato come passare a un'altra organizzazione. In questo es
 1. Accedere all'account aziendale o dell'Istituto di istruzione e quindi aprire la pagina [My account (account personale](https://myaccount.microsoft.com) ).
 1. Selezionare l' :::image type="content" source="media/cross-tenant-switcher/switcher-icon.png" alt-text="icona per lo switcher dell'organizzazione"::: nella parte superiore della pagina, accanto alla foto dell'account.
 
-    :::image type="content" source="media/cross-tenant-switcher/switcher-location.png" alt-text="icona per lo switcher dell'organizzazione":::
+    :::image type="content" source="media/cross-tenant-switcher/switcher-location.png" alt-text="Menu di organizzazioni a cui è possibile passare":::
 
 1. Selezionare l'organizzazione a cui si desidera passare. Si passerà automaticamente all'organizzazione selezionata.
 

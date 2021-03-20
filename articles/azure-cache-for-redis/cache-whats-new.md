@@ -7,10 +7,10 @@ ms.topic: reference
 ms.date: 09/28/2020
 ms.author: yegu
 ms.openlocfilehash: b30e83b89b25e6400b8c7e0419406631fa1edcd0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91492451"
 ---
 # <a name="whats-new-in-azure-cache-for-redis"></a>Novità di cache di Azure per Redis
@@ -32,8 +32,8 @@ Nella tabella seguente vengono fornite informazioni sui certificati sottoposti a
 
 | Tipo di CA | Corrente | Post-Rolling (12 ottobre 2020) | Azione |
 | ----- | ----- | ----- | ----- |
-| Radice | Identificazione personale: d4de20d05e66fc53fe1a50882c78db2852cae474<br><br> Scadenza: lunedì, 12 maggio, 2025, 4:59:00 PM<br><br> Nome soggetto:<br> CN = Baltimore CyberTrust Root<br> OU = CyberTrust<br> O = Baltimore<br> C = IE | Senza modifiche | Nessuno |
-| Intermedi | Identificazioni personali<br> CN = Microsoft IT TLS CA 1<br> Identificazione personale: 417e225037fbfaa4f95761d5ae729e1aea7e3a42<br><br> CN = Microsoft IT TLS CA 2<br> Identificazione personale: 54d9d20239080c32316ed9ff980a48988f4adf2d<br><br> CN = Microsoft IT TLS CA 4<br> Identificazione personale: 8a38755d0996823fe8fa3116a277ce446eac4e99<br><br> CN = Microsoft IT TLS CA 5<br> Identificazione personale: Ad898ac73df333eb60ac1f5fc6c4b2219ddb79b7<br><br> Scadenza: venerdì, 20 maggio, 2024 5:52:38 AM<br><br> Nome soggetto:<br> OU = Microsoft IT<br> O = Microsoft Corporation<br> L = Redmond<br> S = Washington<br> C = US<br> | Identificazioni personali<br> CN = Microsoft RSA TLS CA 01<br> Identificazione personale: 703d7a8f0ebf55aaa59f98eaf4a206004eb2516a<br><br> CN = Microsoft RSA TLS CA 02<br> Identificazione personale: b0c2d2d13cdd56cdaa6ab6e2c04440be4a429c75<br><br> Scadenza: martedì 8 ottobre 2024 12:00:00 AM;<br><br> Nome soggetto:<br> O = Microsoft Corporation<br> C = US<br> | Obbligatoria |
+| Radice | Identificazione personale: d4de20d05e66fc53fe1a50882c78db2852cae474<br><br> Scadenza: lunedì, 12 maggio, 2025, 4:59:00 PM<br><br> Nome soggetto:<br> CN = Baltimore CyberTrust Root<br> OU = CyberTrust<br> O = Baltimore<br> C = IE | Senza modifiche | nessuno |
+| Intermedi | Identificazioni personali<br> CN = Microsoft IT TLS CA 1<br> Identificazione personale: 417e225037fbfaa4f95761d5ae729e1aea7e3a42<br><br> CN = Microsoft IT TLS CA 2<br> Identificazione personale: 54d9d20239080c32316ed9ff980a48988f4adf2d<br><br> CN = Microsoft IT TLS CA 4<br> Identificazione personale: 8a38755d0996823fe8fa3116a277ce446eac4e99<br><br> CN = Microsoft IT TLS CA 5<br> Identificazione personale: Ad898ac73df333eb60ac1f5fc6c4b2219ddb79b7<br><br> Scadenza: venerdì, 20 maggio, 2024 5:52:38 AM<br><br> Nome soggetto:<br> OU = Microsoft IT<br> O = Microsoft Corporation<br> L = Redmond<br> S = Washington<br> C = US<br> | Identificazioni personali<br> CN = Microsoft RSA TLS CA 01<br> Identificazione personale: 703d7a8f0ebf55aaa59f98eaf4a206004eb2516a<br><br> CN = Microsoft RSA TLS CA 02<br> Identificazione personale: b0c2d2d13cdd56cdaa6ab6e2c04440be4a429c75<br><br> Scadenza: martedì 8 ottobre 2024 12:00:00 AM;<br><br> Nome soggetto:<br> O = Microsoft Corporation<br> C = US<br> | Necessario |
 
 ### <a name="what-actions-should-i-take"></a>Quali azioni è necessario eseguire?
 

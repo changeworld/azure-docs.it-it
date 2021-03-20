@@ -7,10 +7,10 @@ ms.manager: abhemraj
 ms.topic: how-to
 ms.date: 03/23/2020
 ms.openlocfilehash: 206df399736dbd3b5d1d52531a249bbd37646514
-ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/07/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96753672"
 ---
 # <a name="assess-large-numbers-of-vmware-vms-for-migration-to-azure"></a>Valutare un numero elevato di macchine virtuali VMware per la migrazione ad Azure
@@ -91,7 +91,7 @@ In conformità ai requisiti di pianificazione, eseguire le operazioni seguenti:
 1. Creare un progetto Azure Migrate.
 2. Aggiungere lo strumento Azure Migrate server assessment ai progetti.
 
-[Altre informazioni](./create-manage-projects.md)
+[Scopri di più](./create-manage-projects.md)
 
 ## <a name="create-and-review-an-assessment"></a>Creare ed esaminare una valutazione
 

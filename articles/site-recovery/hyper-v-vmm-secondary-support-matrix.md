@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 11/06/2019
 ms.author: raynew
 ms.openlocfilehash: af7baf413c9054ef3e5bf527851ac06c113cdce7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "86131171"
 ---
 # <a name="support-matrix-for-disaster-recovery-of-hyper-v-vms-to-a-secondary-site"></a>Matrice di supporto per il ripristino di emergenza delle macchine virtuali Hyper-V in un sito secondario
@@ -26,7 +26,7 @@ Questo articolo riepiloga gli elementi supportati quando si usa il servizio [Azu
 
 **Sistema operativo** | **Dettagli**
 --- | ---
-R2 per Windows Server 2012 | I server devono eseguire gli aggiornamenti più recenti.
+Windows Server 2012 R2 | I server devono eseguire gli aggiornamenti più recenti.
 Windows Server 2016 |  I cloud VMM 2016 con una combinazione di host Windows Server 2016 e 2012 R2 non sono attualmente supportati.<br/><br/> Le distribuzioni con aggiornamenti da System Center 2012 R2 VMM 2012 R2 a System Center 2016 non sono attualmente supportate.
 
 
@@ -37,7 +37,7 @@ Nella tabella seguente viene descritto il supporto del sistema operativo per i c
 **Versione di Windows** | **Hyper-V (con VMM)**
 --- | ---
 Windows Server 2016 | Qualsiasi sistema operativo guest [supportato da Hyper-V](/windows-server/virtualization/hyper-v/Supported-Windows-guest-operating-systems-for-Hyper-V-on-Windows) in Windows Server 2016 
-R2 per Windows Server 2012 | Qualsiasi sistema operativo guest [supportato da Hyper-V](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/dn792027%28v%3dws.11%29) in Windows Server 2012 R2
+Windows Server 2012 R2 | Qualsiasi sistema operativo guest [supportato da Hyper-V](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/dn792027%28v%3dws.11%29) in Windows Server 2012 R2
 
 ## <a name="linux-machine-storage"></a>Archiviazione di computer Linux
 
@@ -51,7 +51,7 @@ R2 per Windows Server 2012 | Qualsiasi sistema operativo guest [supportato da Hy
 
 ## <a name="network-configuration---hostguest-vm"></a>Configurazione di rete - Macchine virtuali host/guest
 
-**Configuration** | **Supporto**  
+**Configuration** | **Supportato**  
 --- | --- 
 Host - Gruppo NIC | Sì 
 Host - VLAN | Sì 
@@ -68,7 +68,7 @@ VM guest - Più NIC | Sì
 
 ### <a name="host-storage"></a>Archiviazione su host
 
-**Archiviazione (host)** | **Supporto**
+**Archiviazione (host)** | **Supportato**
 --- | --- 
 NFS | N/D
 SMB 3.0 |  Sì
@@ -77,7 +77,7 @@ Percorsi multipli (MPIO) | Sì
 
 ### <a name="guest-or-physical-server-storage"></a>Archiviazione su server fisico o guest
 
-**Configuration** | **Supporto**
+**Configuration** | **Supportato**
 --- | --- | 
 VMDK |  N/D
 VHD/VHDX | Sì (fino a 16 dischi)
@@ -97,7 +97,7 @@ Percorsi multipli (MPIO) | Sì
 
 ## <a name="vaults"></a>Insiemi di credenziali
 
-**Azione** | **Supporto**
+**Azione** | **Supportato**
 --- | --- 
 Spostare gli insiemi di credenziali tra i gruppi di risorse: all'interno o tra le sottoscrizioni |  No
 Spostare le risorse di archiviazione, la rete e le VM di Azure tra i gruppi di risorse: all'interno o tra le sottoscrizioni | No

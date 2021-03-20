@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 02/10/2020
 ms.author: jeedes
 ms.openlocfilehash: dc9be41cd7975610f2779da09b94066c70a91652
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
-ms.translationtype: HT
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/23/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92460530"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-iamip-patent-platform"></a>Esercitazione: Integrazione dell'accesso Single Sign-On (SSO) di Azure Active Directory con IamIP Patent Platform
@@ -82,15 +82,15 @@ Per abilitare l'accesso Single Sign-On di Azure AD nel portale di Azure, seguire
 
 1. Nella sezione **Configurazione SAML di base** seguire questa procedura se si dispone del file di metadati del provider di servizi e si vuole configurare l'applicazione in modalità avviata da IDP:
 
-    a. Selezionare **Carica il file di metadati** :
+    a. Selezionare **Carica il file di metadati**:
 
     ![Caricare file di metadati](common/upload-metadata.png)
 
-    b. Selezionare l'icona della cartella e quindi il file di metadati, infine fare clic su **Carica** :
+    b. Selezionare l'icona della cartella e quindi il file di metadati, infine fare clic su **Carica**:
 
     ![Pulsanti Cartella e Carica](common/browse-upload-metadata.png)
 
-    c. Dopo il caricamento del file di metadati, i valori per **Identificatore** e **URL di risposta** vengono inseriti automaticamente nella sezione **Configurazione SAML di base** :
+    c. Dopo il caricamento del file di metadati, i valori per **Identificatore** e **URL di risposta** vengono inseriti automaticamente nella sezione **Configurazione SAML di base**:
 
     ![Valori di Identificatore e URL di risposta](common/idp-intiated.png)
 
@@ -119,7 +119,7 @@ In questa sezione verrà creato un utente di test di nome B.Simon nel portale di
    1. Nella casella **Nome** immettere **B.Simon**.  
    1. Nella casella **Nome utente** immettere \<username>@\<companydomain>.\<extension>. Ad esempio: `B.Simon@contoso.com`.
    1. Selezionare **Mostra password** e quindi prendere nota del valore visualizzato nella casella **Password**.
-   1. Selezionare **Create** (Crea).
+   1. Selezionare **Crea**.
 
 ### <a name="grant-access-to-the-test-user"></a>Concedere l'accesso all'utente di test
 
@@ -127,11 +127,11 @@ In questa sezione si abiliterà B.Simon all'uso dell'accesso Single Sign-On di A
 
 1. Nel portale di Azure selezionare **Applicazioni aziendali** e quindi **Tutte le applicazioni**.
 1. Nell'elenco delle applicazioni selezionare **IamIP Patent Platform**.
-1. Nella sezione **Gestione** della pagina di panoramica dell'app selezionare **Utenti e gruppi** :
+1. Nella sezione **Gestione** della pagina di panoramica dell'app selezionare **Utenti e gruppi**:
 
    ![Selezionare Utenti e gruppi](common/users-groups-blade.png)
 
-1. Selezionare **Aggiungi utente** e quindi **Utenti e gruppi** nella finestra di dialogo **Aggiungi assegnazione** :
+1. Selezionare **Aggiungi utente** e quindi **Utenti e gruppi** nella finestra di dialogo **Aggiungi assegnazione**:
 
     ![Selezionare Aggiungi utente](common/add-assign-user.png)
 

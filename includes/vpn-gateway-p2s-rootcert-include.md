@@ -9,10 +9,10 @@ ms.date: 10/28/2020
 ms.author: cherylmc
 ms.custom: include file
 ms.openlocfilehash: 59d18c89a8f66f781f01d1dace9d8968df17a626
-ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
-ms.translationtype: HT
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93041547"
 ---
 Ottenere il file con estensione cer per il certificato radice. È possibile usare un certificato radice generato tramite una soluzione aziendale (scelta consigliata) oppure generare un certificato autofirmato. Dopo avere creato il certificato radice, esportare i dati del certificato pubblico, non la chiave privata, come file CER X.509 con codifica in base 64. Il file viene caricato in un secondo momento in Azure.

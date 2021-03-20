@@ -9,10 +9,10 @@ ms.subservice: language-understanding
 ms.topic: reference
 ms.date: 04/14/2020
 ms.openlocfilehash: 3d936555a4d9a9c80718a24ba892c762f5a8354a
-ms.sourcegitcommit: e15c0bc8c63ab3b696e9e32999ef0abc694c7c41
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/16/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97608393"
 ---
 # <a name="composite-entity"></a>Entità composita
@@ -172,7 +172,7 @@ Si tratta del codice JSON se `verbose=true` è impostato nella stringa di query:
 
 * * *
 
-|Oggetto dati|Nome dell'entità|valore|
+|Oggetto dati|Nome dell'entità|Valore|
 |--|--|--|
 |Entità predefinita - numero|"builtin.number"|"2"|
 |Entità predefinita-GeographyV2|"Location::ToLocation"|Cairo|

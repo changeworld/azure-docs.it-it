@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 08/20/2019
 ms.custom: amqp, devx-track-csharp
 ms.openlocfilehash: 0d16d7a6dbf903ae790015c12e3d34e4a2a553d3
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/17/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92139342"
 ---
 # <a name="get-started-with-iot-hub-module-identity-and-module-twin-using-the-portal-and-net-device"></a>Creare l'identità del modulo e i moduli gemelli dell'hub IoT con il portale e l'SDK per dispositivi .NET
@@ -99,7 +99,7 @@ Le funzionalità di identità del modulo e di modulo gemello sono disponibili in
 
 1. Passare all'hub Internet e selezionare **dispositivi**. Aprire **myFirstDevice** . si noterà che **myFirstModule** è stato creato correttamente.
 
-1. Selezionare **myFirstModule** in **identità modulo**. In **Dettagli identità modulo**copiare la **stringa di connessione (chiave primaria)**.
+1. Selezionare **myFirstModule** in **identità modulo**. In **Dettagli identità modulo** copiare la **stringa di connessione (chiave primaria)**.
 
     ![Dettagli del modulo nel portale di Azure](./media/iot-hub-portal-csharp-module-twin-getstarted/module-identity-details.png)
 

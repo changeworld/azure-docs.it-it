@@ -7,15 +7,15 @@ ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 12/22/2020
 ms.openlocfilehash: 1813fb222bca74f355fec52252ce3d77fef06e5d
-ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/08/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98013924"
 ---
 # <a name="create-custom-net-deserializers-for-azure-stream-analytics-in-visual-studio-code"></a>Creare deserializzatori .NET personalizzati per analisi di flusso di Azure in Visual Studio Code
 
-Analisi di flusso di Azure include il [supporto predefinito per tre formati di dati](stream-analytics-parsing-json.md): JSON, CSV e avro. Con i deserializzatori .NET personalizzati, è possibile leggere dati da altri formati, ad esempio [buffer del protocollo](https://developers.google.com/protocol-buffers/), [Bond](https://github.com/Microsoft/bond) e altri formati definiti dall'utente per i processi cloud.
+Analisi di flusso di Azure offre [supporto incorporato per tre formati di dati](stream-analytics-parsing-json.md): JSON, CSV e Avro. Con i deserializzatori .NET personalizzati, è possibile leggere dati da altri formati, ad esempio [buffer del protocollo](https://developers.google.com/protocol-buffers/), [Bond](https://github.com/Microsoft/bond) e altri formati definiti dall'utente per i processi cloud.
 
 ## <a name="custom-net-deserializers-in-visual-studio-code"></a>Deserializzatori .NET personalizzati in Visual Studio Code
 
@@ -70,7 +70,7 @@ Analisi di flusso di Azure include il [supporto predefinito per tre formati di d
    |Impostazione|Valore consigliato|
    |-------|---------------|
    |Nome|Input|
-   |Subscription|< sottoscrizione >|
+   |Sottoscrizione|< sottoscrizione >|
    |Account di archiviazione|< account di archiviazione >|
    |Contenitore|< contenitore di archiviazione >|
    |Tipo di serializzazione|Scegliere **personalizzata**|

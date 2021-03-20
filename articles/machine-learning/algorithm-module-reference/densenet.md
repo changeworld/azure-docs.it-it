@@ -10,10 +10,10 @@ author: likebupt
 ms.author: keli19
 ms.date: 09/26/2020
 ms.openlocfilehash: d21c7443f6b30d0b7d6e8295c0c9b060a80d9a62
-ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/06/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93421329"
 ---
 # <a name="densenet"></a>DenseNet
@@ -39,7 +39,7 @@ Per altre informazioni su DenseNet, vedere il documento di ricerca relativo alle
 
 3.  Per il **Training** preliminare, specificare se si desidera utilizzare un modello con training preliminare in imagent. Se questa opzione è selezionata, è possibile ottimizzare il modello in base al modello pre-sottoposto a training selezionato; Se deselezionata, è possibile eseguire il training da zero.
 
-4.  Per l' **efficienza della memoria** , specificare se utilizzare il checkpoint, che è molto più efficiente, ma più lento. Per ulteriori informazioni, vedere il documento di ricerca relativo all' [implementazione efficiente della memoria di DenseNets](https://arxiv.org/pdf/1707.06990.pdf).
+4.  Per l' **efficienza della memoria**, specificare se utilizzare il checkpoint, che è molto più efficiente, ma più lento. Per ulteriori informazioni, vedere il documento di ricerca relativo all' [implementazione efficiente della memoria di DenseNets](https://arxiv.org/pdf/1707.06990.pdf).
 
 5.  Connettere l'output del modulo del set di dati del modulo **DenseNet** , del training e dell'immagine di convalida al [modello Train Pytorch](train-pytorch-model.md). 
 
@@ -56,13 +56,13 @@ Al termine dell'esecuzione della pipeline, per usare il modello per il punteggio
 
 | Nome             | Range | Type    | Predefinito     | Descrizione                              |
 | ---------------- | ----- | ------- | ----------- | ---------------------------------------- |
-| Nome modello       | Qualsiasi   | Mode    | densenet201 | Nome di una determinata struttura DenseNet     |
+| Nome modello       | Qualsiasi   | Modalità    | densenet201 | Nome di una determinata struttura DenseNet     |
 | Training preliminare       | Qualsiasi   | Boolean | True        | Indica se utilizzare un modello pre-sottoposto a training in imagent |
 | Efficienza della memoria | Qualsiasi   | Boolean | Falso       | Indica se utilizzare il checkpoint, che è molto più efficiente della memoria ma più lento |
 
 ###  <a name="output"></a>Output  
 
-| Nome            | Type                    | Description                              |
+| Nome            | Tipo                    | Descrizione                              |
 | --------------- | ----------------------- | ---------------------------------------- |
 | Untrained model | UntrainedModelDirectory | Modello DenseNet non sottoposto a training che può essere connesso al training del modello Pytorch. |
 

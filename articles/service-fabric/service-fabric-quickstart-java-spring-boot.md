@@ -1,17 +1,17 @@
 ---
-title: "Guida introduttiva: Creare un'app Spring Boot in Azure Service Fabric | Microsoft Docs"
+title: "Guida introduttiva: creare un'app Spring boot in Azure Service Fabric"
 description: In questa guida introduttiva viene distribuita un'applicazione Spring Boot per Azure Service Fabric usando un'applicazione Spring Boot di esempio.
 ms.topic: quickstart
 ms.date: 01/29/2019
 ms.custom: mvc, devcenter, seo-java-august2019, seo-java-september2019, devx-track-java
 ms.openlocfilehash: 84ce5920af95113801f468e3149421f3b9bd8901
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
-ms.translationtype: HT
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/05/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91530001"
 ---
-# <a name="quickstart-deploy-a-java-spring-boot-app-on-azure-service-fabric"></a>Guida introduttiva: Distribuire un'app Spring Boot Java in Azure Service Fabric
+# <a name="quickstart-deploy-a-java-spring-boot-app-on-azure-service-fabric"></a>Guida introduttiva: distribuire un'app Spring boot Java in Azure Service Fabric
 
 In questo argomento di avvio rapido si distribuisce un'applicazione Spring Boot Java in Azure Service Fabric usando strumenti della riga di comando familiari in Linux o MacOS. Azure Service Fabric è una piattaforma di sistemi distribuiti per la distribuzione e la gestione di microservizi e contenitori. 
 
@@ -53,7 +53,7 @@ All'interno della directory *gs-spring-boot/complete* eseguire il comando seguen
 
     ![Voci di Yeoman in Spring Boot](./media/service-fabric-quickstart-java-spring-boot/yeoman-entries-spring-boot.png)
 
-1. Nella cartella *SpringServiceFabric/SpringServiceFabric/SpringGettingStartedPkg/code* creare un file denominato *entryPoint.sh*. Aggiungere il codice seguente alla fine del file *entryPoint.sh*. 
+1. Nella cartella *SpringServiceFabric/SpringServiceFabric/SpringGettingStartedPkg/code* creare un file denominato *EntryPoint.sh*. Aggiungere il codice seguente al file *EntryPoint.sh* . 
 
     ```bash
     #!/bin/bash
@@ -150,7 +150,7 @@ Service Fabric Explorer è in esecuzione in tutti i cluster di Service Fabric ed
 Per ridimensionare il servizio front-end Web, seguire questa procedura:
 
 1. Aprire Service Fabric Explorer nel cluster, ad esempio `http://localhost:19080`.
-1. Selezionare i puntini di sospensione ( **...** ) accanto al nodo **fabric:/SpringServiceFabric/SpringGettingStarted** nella visualizzazione ad albero e selezionare **Scale Service** (Ridimensiona servizio).
+1. Selezionare i puntini di sospensione (**...**) accanto al nodo **fabric:/SpringServiceFabric/SpringGettingStarted** nella visualizzazione ad albero e selezionare **Scale Service** (Ridimensiona servizio).
 
     ![Esempio di ridimensionamento dei servizi in Service Fabric Explorer](./media/service-fabric-quickstart-java-spring-boot/service-fabric-explorer-scale-sample.png)
 
@@ -181,7 +181,7 @@ Con questa semplice attività di gestione, sono state raddoppiate le risorse dis
 Per dimostrare il failover del servizio, viene simulato il riavvio di un nodo tramite Service Fabric Explorer. Verificare che sia in esecuzione una sola istanza del servizio.
 
 1. Aprire Service Fabric Explorer nel cluster, ad esempio `http://localhost:19080`.
-1. Selezionare i puntini di sospensione ( **...** ) accanto al nodo che esegue l'istanza del servizio e riavviare il nodo.
+1. Selezionare i puntini di sospensione (**...**) accanto al nodo che esegue l'istanza del servizio e riavviare il nodo.
 
     ![Riavvio del nodo con Service Fabric Explorer](./media/service-fabric-quickstart-java-spring-boot/service=fabric-explorer-restart=node.png)
 1. L'istanza del servizio verrà spostata in un altro nodo e nell'applicazione non si verificheranno tempi di inattività.
@@ -190,7 +190,7 @@ Per dimostrare il failover del servizio, viene simulato il riavvio di un nodo tr
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-In questa guida introduttiva si è appreso come:
+In questo argomento di avvio rapido si è appreso come:
 
 * Distribuire un'applicazione Spring Boot in Service Fabric
 * Distribuire l'applicazione nel cluster locale

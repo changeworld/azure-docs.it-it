@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 09/09/2020
 ms.author: surmb
 ms.openlocfilehash: c0c939a6a8323dfdfafddb46ccdb7d7ef3dd2f2c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "89652882"
 ---
 # <a name="application-gateway-http-settings-configuration"></a>Configurazione delle impostazioni HTTP del gateway applicazione
@@ -76,7 +76,7 @@ Questa impostazione consente di configurare un percorso di invio personalizzato 
 
 ## <a name="use-for-app-service"></a>Usare per il servizio app
 
-Si tratta di un collegamento solo interfaccia utente che seleziona le due impostazioni necessarie per il back-end del servizio app Azure. Consente **di selezionare il nome host dall'indirizzo back-end**e crea un nuovo probe personalizzato se non ne è già presente uno. Per ulteriori informazioni, vedere la sezione [pick host name from back-end Address](#pick-host-name-from-back-end-address)setting di questo articolo. Viene creato un nuovo probe e l'intestazione del probe viene prelevata dall'indirizzo del membro back-end.
+Si tratta di un collegamento solo interfaccia utente che seleziona le due impostazioni necessarie per il back-end del servizio app Azure. Consente **di selezionare il nome host dall'indirizzo back-end** e crea un nuovo probe personalizzato se non ne è già presente uno. Per ulteriori informazioni, vedere la sezione [pick host name from back-end Address](#pick-host-name-from-back-end-address)setting di questo articolo. Viene creato un nuovo probe e l'intestazione del probe viene prelevata dall'indirizzo del membro back-end.
 
 ## <a name="use-custom-probe"></a>USA Probe personalizzato
 

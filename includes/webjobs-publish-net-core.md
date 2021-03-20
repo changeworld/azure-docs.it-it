@@ -9,17 +9,17 @@ ms.date: 06/26/2020
 ms.author: glenga
 ms.custom: include file
 ms.openlocfilehash: e208b52c67f173bd0d289715b63562df656b1ec9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "88009774"
 ---
 1. In **Esplora soluzioni** fare clic con il pulsante destro del mouse sul progetto e scegliere **Pubblica**.
 
-1. Nella finestra di dialogo **pubblica** selezionare **Azure** per **destinazione**e quindi fare clic su **Avanti**. 
+1. Nella finestra di dialogo **pubblica** selezionare **Azure** per **destinazione** e quindi fare clic su **Avanti**. 
 
-1. Selezionare **processi** Web di Azure per **destinazione specifica**e quindi fare clic su **Avanti**.
+1. Selezionare **processi** Web di Azure per **destinazione specifica** e quindi fare clic su **Avanti**.
 
 1. Selezionare **Crea una nuova processo Web di Azure**.
 

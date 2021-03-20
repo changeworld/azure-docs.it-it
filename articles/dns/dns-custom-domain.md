@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.date: 7/13/2019
 ms.author: rohink
 ms.openlocfilehash: 4d8af5815e544698ab833001e5ce6d0f4a30a264
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/23/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92487399"
 ---
 # <a name="use-azure-dns-to-provide-custom-domain-settings-for-an-azure-service"></a>Usare il servizio DNS di Azure per specificare impostazioni di dominio personalizzate per un servizio di Azure
@@ -38,7 +38,7 @@ Si noti l'URL corrente nel pannello **Domini personalizzati**, questo indirizzo 
 
 Passare alla zona DNS e fare clic su **+ Set di record**. Inserire le informazioni seguenti nel pannello **Aggiungi set di record** e fare clic su **OK** per crearlo.
 
-|Proprietà  |valore  |Descrizione  |
+|Proprietà  |Valore  |Descrizione  |
 |---------|---------|---------|
 |Nome     | myfunctionapp        | Insieme all'etichetta del nome di dominio, questo valore costituisce il dome di dominio completo (FQDN) per il nome di dominio personalizzato.        |
 |Tipo     | CNAME        | L'uso di un record CNAME equivale a usare un alias.        |
@@ -63,7 +63,7 @@ Passare a **rete**  >  **indirizzo IP pubblico**, selezionare la risorsa IP pubb
 Passare alla zona DNS e fare clic su **+ Set di record**. Inserire le informazioni seguenti nel pannello **Aggiungi set di record** e fare clic su **OK** per crearlo.
 
 
-|Proprietà  |valore  |Descrizione  |
+|Proprietà  |Valore  |Descrizione  |
 |---------|---------|---------|
 |Nome     | mywebserver        | Insieme all'etichetta del nome di dominio, questo valore costituisce il dome di dominio completo (FQDN) per il nome di dominio personalizzato.        |
 |Tipo     | A        | Usare un record A perché la risorsa è un indirizzo IP.        |
@@ -90,7 +90,7 @@ Si noti l'URL corrente nel pannello **Domini personalizzati**, questo indirizzo 
 Passare alla zona DNS e fare clic su **+ Set di record**. Inserire le informazioni seguenti nel pannello **Aggiungi set di record** e fare clic su **OK** per crearlo.
 
 
-|Proprietà  |valore  |Descrizione  |
+|Proprietà  |Valore  |Descrizione  |
 |---------|---------|---------|
 |Nome     | mywebserver        | Insieme all'etichetta del nome di dominio, questo valore costituisce il dome di dominio completo (FQDN) per il nome di dominio personalizzato.        |
 |Tipo     | CNAME        | L'uso di un record CNAME equivale a usare un alias. Se la risorsa ha usato indirizzo IP, viene usato un record A.        |
@@ -119,14 +119,14 @@ Se è necessario acquistare un dominio personalizzato, vedere [Acquistare un nom
 
 La procedura seguente consente di configurare un record CNAME per un account di archiviazione BLOB con il metodo asverify. Questo metodo permette di azzerate il tempo di inattività.
 
-Passare a **archiviazione**  >  **account**di archiviazione, selezionare l'account di archiviazione e fare clic su **dominio personalizzato**. Prendere nota del nome di dominio completo nel passaggio 2, questo valore viene usato per creare il primo record CNAME
+Passare a **archiviazione**  >  **account** di archiviazione, selezionare l'account di archiviazione e fare clic su **dominio personalizzato**. Prendere nota del nome di dominio completo nel passaggio 2, questo valore viene usato per creare il primo record CNAME
 
 ![dominio personalizzato dell'archivio BLOB](./media/dns-custom-domain/blobcustomdomain.png)
 
 Passare alla zona DNS e fare clic su **+ Set di record**. Inserire le informazioni seguenti nel pannello **Aggiungi set di record** e fare clic su **OK** per crearlo.
 
 
-|Proprietà  |valore  |Descrizione  |
+|Proprietà  |Valore  |Descrizione  |
 |---------|---------|---------|
 |Nome     | asverify.mystorageaccount        | Insieme all'etichetta del nome di dominio, questo valore costituisce il dome di dominio completo (FQDN) per il nome di dominio personalizzato.        |
 |Tipo     | CNAME        | L'uso di un record CNAME equivale a usare un alias.        |
@@ -134,7 +134,7 @@ Passare alla zona DNS e fare clic su **+ Set di record**. Inserire le informazio
 |Unità TTL     | Ore        | Le ore vengono usate per misurare il tempo         |
 |Alias     | asverify.adatumfunctiona9ed.blob.core.windows.net        | Nome DNS per cui si crea l'alias, in questo esempio è il nome DNS asverify.adatumfunctiona9ed.blob.core.windows.net specificato per impostazione predefinita per l'account di archiviazione.        |
 
-Tornare all'account di archiviazione facendo clic su **archiviazione**  >  **account**di archiviazione, selezionare l'account di archiviazione e fare clic su **dominio personalizzato**. Digitare l'alias creato senza il prefisso asverify nella casella di testo, selezionare **USA convalida CNAME indiretta**e fare clic su **Salva**. Al termine di questo passaggio, tornare alla zona DNS e creare un record CNAME senza il prefisso asverify.  A questo punto sarà possibile eliminare il record CNAME con il prefisso cdnverify.
+Tornare all'account di archiviazione facendo clic su **archiviazione**  >  **account** di archiviazione, selezionare l'account di archiviazione e fare clic su **dominio personalizzato**. Digitare l'alias creato senza il prefisso asverify nella casella di testo, selezionare **USA convalida CNAME indiretta** e fare clic su **Salva**. Al termine di questo passaggio, tornare alla zona DNS e creare un record CNAME senza il prefisso asverify.  A questo punto sarà possibile eliminare il record CNAME con il prefisso cdnverify.
 
 ![Screenshot che mostra la pagina del dominio personalizzato.](./media/dns-custom-domain/indirectvalidate.png)
 
@@ -154,7 +154,7 @@ Selezionare l'endpoint che si sta usando e fare clic su **+ Dominio personalizza
 
 Passare alla zona DNS e fare clic su **+ Set di record**. Inserire le informazioni seguenti nel pannello **Aggiungi set di record** e fare clic su **OK** per crearlo.
 
-|Proprietà  |valore  |Descrizione  |
+|Proprietà  |Valore  |Descrizione  |
 |---------|---------|---------|
 |Nome     | cdnverify.mycdnendpoint        | Insieme all'etichetta del nome di dominio, questo valore costituisce il dome di dominio completo (FQDN) per il nome di dominio personalizzato.        |
 |Tipo     | CNAME        | L'uso di un record CNAME equivale a usare un alias.        |
@@ -162,7 +162,7 @@ Passare alla zona DNS e fare clic su **+ Set di record**. Inserire le informazio
 |Unità TTL     | Ore        | Le ore vengono usate per misurare il tempo         |
 |Alias     | cdnverify.adatumcdnendpoint.azureedge.net        | Nome DNS per cui si crea l'alias, in questo esempio è il nome DNS cdnverify.adatumcdnendpoint.azureedge.net specificato per impostazione predefinita per l'account di archiviazione.        |
 
-Tornare all'endpoint della rete CDN facendo clic su **reti rete**  >  **CDN profili**e selezionare il profilo di rete CDN. Fare clic su **+ Dominio personalizzato**, immettere l'alias del record CNAME senza il prefisso cdnverify e fare clic su **Aggiungi**.
+Tornare all'endpoint della rete CDN facendo clic su **reti rete**  >  **CDN profili** e selezionare il profilo di rete CDN. Fare clic su **+ Dominio personalizzato**, immettere l'alias del record CNAME senza il prefisso cdnverify e fare clic su **Aggiungi**.
 
 Al termine di questo passaggio, tornare alla zona DNS e creare un record CNAME senza il prefisso cdnverify.  A questo punto sarà possibile eliminare il record CNAME con il prefisso cdnverify. Per altre informazioni sulla rete CDN e su come configurare un dominio personalizzato senza il passaggio di registrazione intermedio, vedere [Eseguire il mapping del contenuto della rete CDN a un dominio personalizzato](../cdn/cdn-map-content-to-custom-domain.md?toc=%dns%2ftoc.json).
 

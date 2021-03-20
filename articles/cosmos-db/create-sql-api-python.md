@@ -14,10 +14,10 @@ ms.custom:
 - seo-python-october2019
 - devx-track-python
 ms.openlocfilehash: c74da5e612609ce6a0525b24e5868059f06da179
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
-ms.translationtype: HT
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93078782"
 ---
 # <a name="quickstart-build-a-python-application-using-an-azure-cosmos-db-sql-api-account"></a>Avvio rapido: Creare un'applicazione Python usando un account API SQL di Azure Cosmos DB
@@ -116,7 +116,7 @@ Clonare ora un'app per le API SQL da GitHub, impostare la stringa di connessione
 
 Tornare ora al portale di Azure per recuperare le informazioni sulla stringa di connessione e copiarle nell'app.
 
-1. Nell'account Azure Cosmos DB nel [portale di Azure](https://portal.azure.com/) selezionare **Chiavi** nel riquadro di spostamento a sinistra. Usare i pulsanti di copia sul lato destro dello schermo per copiare l' **URI** e la **chiave primaria** nel file *cosmos_get_started.py* nel passaggio seguente.
+1. Nell'account Azure Cosmos DB nel [portale di Azure](https://portal.azure.com/) selezionare **Chiavi** nel riquadro di spostamento a sinistra. Usare i pulsanti di copia sul lato destro dello schermo per copiare l'**URI** e la **chiave primaria** nel file *cosmos_get_started.py* nel passaggio seguente.
 
     :::image type="content" source="./media/create-sql-api-dotnet/access-key-and-uri-in-keys-settings-in-the-azure-portal.png" alt-text="Ottenere una chiave di accesso e un URI nelle impostazioni delle chiavi nel portale di Azure":::
 

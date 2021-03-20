@@ -7,10 +7,10 @@ author: kanshiG
 ms.author: govindk
 ms.date: 04/07/2020
 ms.openlocfilehash: ec6a9db63504958640137fcd0fcfc904eb01afa5
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93074730"
 ---
 # <a name="how-to-monitor-the-server-side-latency-for-operations-in-an-azure-cosmos-db-container-or-account"></a>Come monitorare la latenza lato server per le operazioni in un contenitore Azure Cosmos DB o in un account
@@ -30,27 +30,27 @@ Monitoraggio di Azure per Azure Cosmos DB fornisce una visualizzazione delle met
 
 1. Accedere al [portale di Azure](https://portal.azure.com/).
 
-1. Selezionare **monitoraggio** nella barra di spostamento a sinistra e selezionare **metrica** .
+1. Selezionare **monitoraggio** nella barra di spostamento a sinistra e selezionare **metrica**.
 
    :::image type="content" source="./media/monitor-server-side-latency/monitor-metrics-blade.png" alt-text="Riquadro Metriche in Monitoraggio di Azure":::
 
-1. Nel riquadro **Metriche** > **Selezionare una risorsa** > scegliere la **sottoscrizione** e il **gruppo di risorse** richiesti. Per **Tipo di risorsa** selezionare **Account Azure Cosmos DB** , scegliere uno degli account Azure Cosmos esistenti e selezionare **Applica** .
+1. Nel riquadro **Metriche** > **Selezionare una risorsa** > scegliere la **sottoscrizione** e il **gruppo di risorse** richiesti. Per **Tipo di risorsa** selezionare **Account Azure Cosmos DB**, scegliere uno degli account Azure Cosmos esistenti e selezionare **Applica**.
    
-   :::image type="content" source="./media/monitor-server-side-latency/select-cosmos-db-account.png" alt-text="Riquadro Metriche in Monitoraggio di Azure":::
+   :::image type="content" source="./media/monitor-server-side-latency/select-cosmos-db-account.png" alt-text="Scegliere l'account Azure Cosmos DB per visualizzare le metriche":::
 
-1. Selezionare quindi la metrica **latenza lato server**  nell'elenco delle metriche disponibili. Per informazioni dettagliate su tutte le metriche disponibili in questo elenco, vedere l'articolo [Metriche per categoria](monitor-cosmos-db-reference.md). In questo esempio, selezionare **latenza lato server** e **AVG** come valore di aggregazione. Oltre a questi dettagli, è anche possibile selezionare l' **Intervallo di tempo** e la **Granularità temporale** delle metriche. Al massimo, è possibile visualizzare le metriche degli ultimi 30 giorni.  Dopo aver applicato il filtro, viene visualizzato un grafico in base al filtro. È possibile visualizzare la latenza lato server al minuto per il periodo selezionato.  
+1. Selezionare quindi la metrica **latenza lato server**  nell'elenco delle metriche disponibili. Per informazioni dettagliate su tutte le metriche disponibili in questo elenco, vedere l'articolo [Metriche per categoria](monitor-cosmos-db-reference.md). In questo esempio, selezionare **latenza lato server** e **AVG** come valore di aggregazione. Oltre a questi dettagli, è anche possibile selezionare l'**Intervallo di tempo** e la **Granularità temporale** delle metriche. Al massimo, è possibile visualizzare le metriche degli ultimi 30 giorni.  Dopo aver applicato il filtro, viene visualizzato un grafico in base al filtro. È possibile visualizzare la latenza lato server al minuto per il periodo selezionato.  
 
-   :::image type="content" source="./media/monitor-server-side-latency/server-side-latency-metric.png" alt-text="Riquadro Metriche in Monitoraggio di Azure":::
+   :::image type="content" source="./media/monitor-server-side-latency/server-side-latency-metric.png" alt-text="Scegliere la metrica di latenza Server-Side dal portale di Azure":::
 
 ## <a name="filters-for-server-side-latency"></a>Filtri per la latenza lato server
 
-È anche possibile filtrare le metriche e ottenere i grafici visualizzati da uno specifico **CollectionName** , **ConnectionMode** , **DatabaseName** , **OperationType** , **Region** e **PublicAPIType** . 
+È anche possibile filtrare le metriche e ottenere i grafici visualizzati da uno specifico **CollectionName**, **ConnectionMode**, **DatabaseName**, **OperationType**, **Region** e **PublicAPIType**. 
 
-Per filtrare le metriche, selezionare **Aggiungi filtro** e scegliere la proprietà obbligatoria, ad esempio **PublicAPIType** , e selezionare il valore **SQL** . Aggiungere un altro filtro per **OperationType** . Il grafico Visualizza quindi la latenza lato server per diverse operazioni durante il periodo selezionato. Le operazioni eseguite tramite stored procedure non vengono registrate e quindi non sono disponibili nella metrica OperationType.
+Per filtrare le metriche, selezionare **Aggiungi filtro** e scegliere la proprietà obbligatoria, ad esempio **PublicAPIType** , e selezionare il valore **SQL**. Aggiungere un altro filtro per **OperationType**. Il grafico Visualizza quindi la latenza lato server per diverse operazioni durante il periodo selezionato. Le operazioni eseguite tramite stored procedure non vengono registrate e quindi non sono disponibili nella metrica OperationType.
 
 Le metriche relative alla **latenza lato server** per ogni operazione vengono visualizzate come illustrato nell'immagine seguente:
 
-:::image type="content" source="./media/monitor-server-side-latency/server-side-latency-filters.png" alt-text="Riquadro Metriche in Monitoraggio di Azure":::
+:::image type="content" source="./media/monitor-server-side-latency/server-side-latency-filters.png" alt-text="Filtri per le metriche di latenza lato server":::
 
 È anche possibile raggruppare le metriche usando l'opzione **applica suddivisione** .  
 

@@ -7,10 +7,10 @@ ms.service: postgresql
 ms.topic: how-to
 ms.date: 5/29/2019
 ms.openlocfilehash: d49047e9b3a65da90f4a5ac9e4b3cb1e32bd59a7
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/23/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92489983"
 ---
 # <a name="auto-grow-storage-using-the-azure-portal-in-azure-database-for-postgresql---single-server"></a>Aumento automatico delle dimensioni di archiviazione usando il portale di Azure nel database di Azure per PostgreSQL-server singolo
@@ -20,7 +20,7 @@ Quando un server raggiunge il limite di archiviazione allocato, il server è con
 
 ## <a name="prerequisites"></a>Prerequisiti
 Per completare questa guida, è necessario:
-- [Database di Azure per il server PostgreSQL](quickstart-create-server-database-portal.md)
+- Un [database di Azure per il server PostgreSQL](quickstart-create-server-database-portal.md)
 
 ## <a name="enable-storage-auto-grow"></a>Abilita espansione automatica dell'archiviazione 
 
@@ -28,7 +28,7 @@ Per impostare l'aumento automatico delle dimensioni dell'archiviazione del serve
 
 1. Nella [portale di Azure](https://portal.azure.com/)selezionare il database di Azure per il server PostgreSQL esistente.
 
-2. Nella pagina Server PostgreSQL fare clic su piano **tariffario** in **Impostazioni**per aprire la pagina piano tariffario.
+2. Nella pagina Server PostgreSQL fare clic su piano **tariffario** in **Impostazioni** per aprire la pagina piano tariffario.
 
 3. Nella sezione **aumento automatico** selezionare **Sì** per abilitare l'aumento automatico delle dimensioni di archiviazione.
 
@@ -38,7 +38,7 @@ Per impostare l'aumento automatico delle dimensioni dell'archiviazione del serve
 
 5. Una notifica conferma che l'espansione automatica è stata abilitata correttamente.
 
-    :::image type="content" source="./media/howto-auto-grow-storage-portal/5-auto-grow-successful.png" alt-text="Database di Azure per PostgreSQL-Settings_Pricing_tier-aumento automatico":::
+    :::image type="content" source="./media/howto-auto-grow-storage-portal/5-auto-grow-successful.png" alt-text="Database di Azure per PostgreSQL-crescita automatica riuscita":::
 
 ## <a name="next-steps"></a>Passaggi successivi
 

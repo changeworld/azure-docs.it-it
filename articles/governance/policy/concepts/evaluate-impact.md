@@ -4,10 +4,10 @@ description: Comprendere il processo da seguire quando si introduce una nuova de
 ms.date: 10/05/2020
 ms.topic: conceptual
 ms.openlocfilehash: cf52d25aa846388bc387430913a733d5206df82e
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/17/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100590806"
 ---
 # <a name="evaluate-the-impact-of-a-new-azure-policy-definition"></a>Valutare l'impatto di una nuova definizione di Criteri di Azure
@@ -70,6 +70,6 @@ L'implementazione e l'assegnazione della definizione dei criteri non è il passa
 - Informazioni sulla [struttura delle definizioni dei criteri](./definition-structure.md).
 - Informazioni sulla [struttura di assegnazione dei criteri](./assignment-structure.md).
 - Informazioni su come [creare criteri a livello di codice](../how-to/programmatically-create.md).
-- Informazioni su come [ottenere dati sulla conformità](../how-to/get-compliance-data.md).
+- Leggere le informazioni su come [ottenere dati sulla conformità](../how-to/get-compliance-data.md).
 - Informazioni su come [correggere le risorse non conformi](../how-to/remediate-resources.md).
 - Rivedere le caratteristiche di un gruppo di gestione illustrate in [Organizzare le risorse con i gruppi di gestione di Azure](../../management-groups/overview.md).

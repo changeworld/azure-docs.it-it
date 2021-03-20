@@ -4,10 +4,10 @@ description: Informazioni su come usare Azure Data Box per inizializzare i dati 
 ms.topic: conceptual
 ms.date: 1/27/2020
 ms.openlocfilehash: e789b6c9f4ff2e8cd168e6b5c138d423911d4743
-ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/07/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96752584"
 ---
 # <a name="azure-backup-offline-backup-by-using-azure-data-box"></a>Backup offline di Backup di Azure tramite Azure Data Box
@@ -281,7 +281,7 @@ Accedere a PowerShell che viene visualizzato nell'interfaccia utente di MAB usan
 
 #### <a name="step-2-of-workaround"></a>Passaggio 2 della soluzione alternativa
 
-Se nessun altro server dispone di un seeding offline configurato e nessun altro server dipende dall' `AzureOfflineBackup_<Azure User Id>` applicazione, eliminare questa applicazione. Selezionare **portale di Azure**  >  **Azure Active Directory**  >  **registrazioni app** Azure Active Directory.
+Se nessun altro server dispone di un seeding offline configurato e nessun altro server dipende dall' `AzureOfflineBackup_<Azure User Id>` applicazione, eliminare questa applicazione. Selezionare **portale di Azure**  >    >  **registrazioni app** Azure Active Directory.
 
 >[!NOTE]
 > Verificare se nell' `AzureOfflineBackup_<Azure User Id>` applicazione non sono configurati altri seeding offline e anche se nessun altro server dipende da questa applicazione. Passare a **Impostazioni**  >  **chiavi** nella sezione **chiavi pubbliche** . Non devono essere aggiunte altre chiavi pubbliche. Per informazioni di riferimento, vedere la schermata seguente.

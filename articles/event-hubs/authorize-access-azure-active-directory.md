@@ -4,10 +4,10 @@ description: Questo articolo fornisce informazioni su come autorizzare l'accesso
 ms.topic: conceptual
 ms.date: 06/23/2020
 ms.openlocfilehash: d794b03fdbb5429983788c74cbb05a7c13bf2d76
-ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/29/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92910798"
 ---
 # <a name="authorize-access-to-event-hubs-resources-using-azure-active-directory"></a>Autorizzare l'accesso alle risorse di hub eventi usando Azure Active Directory
@@ -46,11 +46,11 @@ Prima di assegnare un ruolo Controllo degli accessi in base al ruolo a un'entit�
 
 L'elenco seguente descrive i livelli in cui è possibile definire l'ambito di accesso alle risorse di hub eventi, a partire dall'ambito più restrittivo:
 
-- **Gruppo di consumer** : in questo ambito, l'assegnazione di ruolo si applica solo a questa entità. Attualmente, il portale di Azure non supporta l'assegnazione di un ruolo di Azure a un'entità di sicurezza a questo livello. 
-- **Hub eventi** : l'assegnazione di ruolo si applica all'entità Hub eventi e al gruppo di consumer al suo interno.
-- **Spazio dei nomi** : l'assegnazione di ruolo si estende all'intera topologia degli hub eventi nello spazio dei nomi e al gruppo di consumer associato.
-- **Gruppo di risorse** : l'assegnazione di ruolo si applica a tutte le risorse di hub eventi nel gruppo di risorse.
-- **Sottoscrizione** : l'assegnazione di ruolo si applica a tutte le risorse di hub eventi in tutti i gruppi di risorse nella sottoscrizione.
+- **Gruppo di consumer**: in questo ambito, l'assegnazione di ruolo si applica solo a questa entità. Attualmente, il portale di Azure non supporta l'assegnazione di un ruolo di Azure a un'entità di sicurezza a questo livello. 
+- **Hub eventi**: l'assegnazione di ruolo si applica all'entità Hub eventi e al gruppo di consumer al suo interno.
+- **Spazio dei nomi**: l'assegnazione di ruolo si estende all'intera topologia degli hub eventi nello spazio dei nomi e al gruppo di consumer associato.
+- **Gruppo di risorse**: l'assegnazione di ruolo si applica a tutte le risorse di hub eventi nel gruppo di risorse.
+- **Sottoscrizione**: l'assegnazione di ruolo si applica a tutte le risorse di hub eventi in tutti i gruppi di risorse nella sottoscrizione.
 
 > [!NOTE]
 > - Tenere presente che le assegnazioni di ruolo di Azure possono richiedere fino a cinque minuti per la propagazione. 

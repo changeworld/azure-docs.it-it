@@ -9,10 +9,10 @@ ms.topic: include
 ms.date: 05/28/2020
 ms.author: egeaney
 ms.openlocfilehash: c79846b0a5b675c34e4e7919e9ecd9d591bfefe5
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/30/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96356359"
 ---
 ## <a name="customer-managed-keys-with-azure-key-vault"></a>Chiavi gestite dal cliente con Azure Key Vault
@@ -87,7 +87,7 @@ Per specificare una chiave da un insieme di credenziali delle chiavi, assicurars
 
 ## <a name="update-the-key-version"></a>Aggiornare la versione della chiave
 
-Quando si crea una nuova versione di una chiave, aggiornare la risorsa Servizi cognitivi per usare la nuova versione. Seguire questa procedura:
+Quando si crea una nuova versione di una chiave, aggiornare la risorsa Servizi cognitivi per usare la nuova versione. A tale scopo, seguire questa procedura:
 
 1. Passare alla risorsa Servizi cognitivi e visualizzare le impostazioni di **crittografia** .
 1. Immettere l'URI per la nuova versione della chiave. In alternativa, è possibile selezionare di nuovo l'insieme di credenziali delle chiavi e la chiave per aggiornare la versione.
