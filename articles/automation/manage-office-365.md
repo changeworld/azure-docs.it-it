@@ -5,10 +5,10 @@ services: automation
 ms.date: 11/05/2020
 ms.topic: conceptual
 ms.openlocfilehash: 70c8892969a3b13175c60a4e20e0cf9086112abe
-ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/05/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93398046"
 ---
 # <a name="manage-office-365-services"></a>Gestire i servizi di Office 365
@@ -98,9 +98,9 @@ Send-MailMessage -Credential $credObject -From $emailFromAddress -To $emailToAdd
 2. Dall'account di Automazione selezionare **Runbook** in **Automazione processi**.
 3. Selezionare il nuovo runbook e fare clic su **Modifica**.
 4. Copiare lo script e incollarlo nell'editor di testo per il runbook.
-5. Selezionare **ASSET** , quindi espandere **Credenziali** e verificare che le credenziali di Office 365 siano presenti.
+5. Selezionare **ASSET**, quindi espandere **Credenziali** e verificare che le credenziali di Office 365 siano presenti.
 6. Fare clic su **Salva**.
-7. Selezionare **Riquadro di test** , quindi fare clic su **Avvio** per iniziare il test del runbook. Vedere [Gestire runbook in Automazione di Azure](./manage-runbooks.md).
+7. Selezionare **Riquadro di test**, quindi fare clic su **Avvio** per iniziare il test del runbook. Vedere [Gestire runbook in Automazione di Azure](./manage-runbooks.md).
 8. Una volta completato il test, uscire dal riquadro di test.
 
 ## <a name="publish-and-schedule-the-runbook"></a>Pubblicare e pianificare il runbook

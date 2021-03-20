@@ -7,10 +7,10 @@ ms.topic: how-to
 ms.date: 09/18/2019
 ms.author: allensu
 ms.openlocfilehash: 68a2cb6926cb41956711a9e3c15d21c250d27f0b
-ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/17/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94698490"
 ---
 # <a name="move-azure-internal-load-balancer-to-another-region-using-the-azure-portal"></a>Spostare Load Balancer interni di Azure in un'altra area usando il portale di Azure
@@ -43,7 +43,7 @@ I passaggi seguenti illustrano come preparare il servizio di bilanciamento del c
 
 ### <a name="export-the-virtual-network-template-and-deploy-from-the-azure-portal"></a>Esportare il modello di rete virtuale e distribuirlo dalla portale di Azure
 
-1. Accedere ai [Azure portal](https://portal.azure.com)  >  **gruppi di risorse** portale di Azure.
+1. Accedere ai [](https://portal.azure.com)  >  **gruppi di risorse** portale di Azure.
 2. Individuare il gruppo di risorse che contiene la rete virtuale di origine e fare clic su di esso.
 3. Selezionare > **Impostazioni**  >  **Esporta modello**.
 4. Scegliere **Distribuisci** nel pannello **Esporta modello** .
@@ -87,7 +87,7 @@ I passaggi seguenti illustrano come preparare il servizio di bilanciamento del c
 
     ```
 
-11. Per ottenere i codici di posizione dell'area, vedere [località di Azure](https://azure.microsoft.com/global-infrastructure/locations/).  Il codice per un'area è il nome dell'area senza spazi, Central **Stati Uniti** centrali  =  **centralus**.
+11. Per ottenere i codici di posizione dell'area, vedere [località di Azure](https://azure.microsoft.com/global-infrastructure/locations/).  Il codice per un'area è il nome dell'area senza spazi, Central **Stati Uniti** centrali  =  .
 
 12. Se lo si desidera, è anche possibile modificare altri parametri nel **template.js** file e sono facoltativi in base ai requisiti:
 
@@ -180,11 +180,11 @@ I passaggi seguenti illustrano come preparare il servizio di bilanciamento del c
 
 13. Fare clic su **Salva** nell'editor online.
 
-14. Fare **BASICS** clic su  >  **sottoscrizione** di base per scegliere la sottoscrizione in cui verrà distribuita la VNET di destinazione.
+14. Fare clic su  >  **sottoscrizione** di base per scegliere la sottoscrizione in cui verrà distribuita la VNET di destinazione.
 
-15. Fare **BASICS** clic su  >  **gruppo di risorse** nozioni di base per scegliere il gruppo di risorse in cui verrà distribuito il VNET di destinazione.  È possibile fare clic su **Crea nuovo** per creare un nuovo gruppo di risorse per il VNET di destinazione.  Verificare che il nome non sia uguale al gruppo di risorse di origine del VNET esistente.
+15. Fare clic su  >  **gruppo di risorse** nozioni di base per scegliere il gruppo di risorse in cui verrà distribuito il VNET di destinazione.  È possibile fare clic su **Crea nuovo** per creare un nuovo gruppo di risorse per il VNET di destinazione.  Verificare che il nome non sia uguale al gruppo di risorse di origine del VNET esistente.
 
-16. Il percorso di **base** della verifica  >  **Location** è impostato sul percorso di destinazione in cui si desidera distribuire il vnet.
+16. Il percorso di **base** della verifica  >   è impostato sul percorso di destinazione in cui si desidera distribuire il vnet.
 
 17. Verificare in **Impostazioni** che il nome corrisponda al nome immesso nell'editor di parametri precedente.
 
@@ -194,7 +194,7 @@ I passaggi seguenti illustrano come preparare il servizio di bilanciamento del c
 
 ### <a name="export-the-internal-load-balancer-template-and-deploy-from-azure-powershell"></a>Esportare il modello del servizio di bilanciamento del carico interno e distribuirlo da Azure PowerShell
 
-1. Accedere ai [Azure portal](https://portal.azure.com)  >  **gruppi di risorse** portale di Azure.
+1. Accedere ai [](https://portal.azure.com)  >  **gruppi di risorse** portale di Azure.
 2. Individuare il gruppo di risorse che contiene il servizio di bilanciamento del carico interno di origine e fare clic su di esso.
 3. Selezionare > **Impostazioni**  >  **Esporta modello**.
 4. Scegliere **Distribuisci** nel pannello **Esporta modello** .
@@ -218,9 +218,9 @@ I passaggi seguenti illustrano come preparare il servizio di bilanciamento del c
 
 6. Per modificare il valore della rete virtuale di destinazione spostata sopra, è innanzitutto necessario ottenere l'ID risorsa e quindi copiarlo e incollarlo nel file **parameters.js** . Per ottenere l'ID:
 
-    1. Accedere ai [Azure portal](https://portal.azure.com)  >  **gruppi di risorse** portale di Azure in un'altra scheda o finestra del browser.
+    1. Accedere ai [](https://portal.azure.com)  >  **gruppi di risorse** portale di Azure in un'altra scheda o finestra del browser.
     2. Individuare il gruppo di risorse di destinazione che contiene la rete virtuale spostata nei passaggi precedenti e fare clic su di essa.
-    3. Selezionare > **Settings**  >  **proprietà** impostazioni.
+    3. Selezionare >   >  **proprietà** impostazioni.
     4. Nel pannello a destra evidenziare l' **ID risorsa** e copiarlo negli Appunti.  In alternativa, è possibile fare clic sul pulsante **copia negli Appunti** a destra del percorso dell' **ID risorsa** .
     5. Incollare l'ID risorsa nella proprietà **DefaultValue** nell'editor **modifica parametri** aperto nell'altra finestra o scheda del browser:
 
@@ -255,11 +255,11 @@ I passaggi seguenti illustrano come preparare il servizio di bilanciamento del c
                 },
     ```
 
-9.  Per ottenere i codici di posizione dell'area, vedere [località di Azure](https://azure.microsoft.com/global-infrastructure/locations/).  Il codice per un'area è il nome dell'area senza spazi, Central **Stati Uniti** centrali  =  **centralus**.
+9.  Per ottenere i codici di posizione dell'area, vedere [località di Azure](https://azure.microsoft.com/global-infrastructure/locations/).  Il codice per un'area è il nome dell'area senza spazi, Central **Stati Uniti** centrali  =  .
 
 10. Se lo si desidera, è anche possibile modificare altri parametri nel modello, che sono facoltativi in base ai requisiti:
 
-    * **SKU** : è possibile modificare lo SKU del servizio di bilanciamento del carico interno nella configurazione da standard a Basic o Basic a standard modificando la proprietà **sku**  >  **nome** SKU nel **template.jssu** file:
+    * **SKU** : è possibile modificare lo SKU del servizio di bilanciamento del carico interno nella configurazione da standard a Basic o Basic a standard modificando la proprietà   >  **nome** SKU nel **template.jssu** file:
 
         ```json
         "resources": [
@@ -377,11 +377,11 @@ I passaggi seguenti illustrano come preparare il servizio di bilanciamento del c
 
 12. Fare clic su **Salva** nell'editor online.
 
-13. Fare **BASICS** clic su  >  **sottoscrizione** di base per scegliere la sottoscrizione in cui verrà distribuito il servizio di bilanciamento del carico interno di destinazione.
+13. Fare clic su  >  **sottoscrizione** di base per scegliere la sottoscrizione in cui verrà distribuito il servizio di bilanciamento del carico interno di destinazione.
 
-15. Fare **BASICS** clic su  >  **gruppo di risorse** di base per scegliere il gruppo di risorse in cui verrà distribuito il servizio di bilanciamento del carico di destinazione.  È possibile fare clic su **Crea nuovo** per creare un nuovo gruppo di risorse per il servizio di bilanciamento del carico interno di destinazione oppure scegliere il gruppo di risorse esistente creato in precedenza per la rete virtuale.  Verificare che il nome non sia uguale al gruppo di risorse di origine del servizio di bilanciamento del carico interno di origine esistente.
+15. Fare clic su  >  **gruppo di risorse** di base per scegliere il gruppo di risorse in cui verrà distribuito il servizio di bilanciamento del carico di destinazione.  È possibile fare clic su **Crea nuovo** per creare un nuovo gruppo di risorse per il servizio di bilanciamento del carico interno di destinazione oppure scegliere il gruppo di risorse esistente creato in precedenza per la rete virtuale.  Verificare che il nome non sia uguale al gruppo di risorse di origine del servizio di bilanciamento del carico interno di origine esistente.
 
-16. Il **BASICS**  >  **percorso** di base della verifica è impostato sul percorso di destinazione in cui si desidera distribuire il servizio di bilanciamento del carico interno.
+16. Il   >  **percorso** di base della verifica è impostato sul percorso di destinazione in cui si desidera distribuire il servizio di bilanciamento del carico interno.
 
 17. Verificare in **Impostazioni** che il nome corrisponda al nome immesso nell'editor di parametri precedente.  Verificare che gli ID risorsa siano popolati per tutte le reti virtuali nella configurazione.
 

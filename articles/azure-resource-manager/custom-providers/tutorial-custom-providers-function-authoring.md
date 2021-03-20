@@ -6,10 +6,10 @@ ms.topic: tutorial
 ms.date: 01/13/2021
 ms.author: jobreen
 ms.openlocfilehash: 54d0df287865d5d92403bf68227a2d4c5faa8bb4
-ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/14/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98200210"
 ---
 # <a name="author-a-restful-endpoint-for-custom-providers"></a>Creare un endpoint RESTful per i provider personalizzati
@@ -23,11 +23,11 @@ Un provider personalizzato è un contratto tra Azure e un endpoint. Con i provid
 
 In questa esercitazione l'app per le funzioni verrà aggiornata per fungere da endpoint RESTful per il provider personalizzato. In Azure le risorse e le azioni sono modellate in base alla specifica RESTful di base seguente:
 
-- **PUT**: Creare una nuova risorsa
-- **GET (istanza)** : recupera un'istanza esistente
-- **DELETE**: rimuove un'istanza esistente
-- **POST**: attiva un'azione
-- **GET (raccolta)** : elenca tutte le risorse esistenti
+- **Put**: creare una nuova risorsa
+- **Get (instance)**: recuperare una risorsa esistente
+- **Delete**: rimuove una risorsa esistente
+- **Post**: attiva un'azione
+- **Get (Collection)**: elenco di tutte le risorse esistenti
 
  Per questa esercitazione si userà archiviazione tabelle di Azure. Ma è anche possibile usare qualsiasi database o servizio di archiviazione.
 
@@ -370,4 +370,4 @@ Se ci si è persi in un punto qualsiasi di questa esercitazione, l'esempio di co
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-In questo articolo è stato creato un endpoint RESTful da usare con l'endpoint dei provider personalizzati di Azure. Per informazioni su come creare un provider personalizzato, vedere l'articolo [Esercitazione: Creazione di un provider personalizzato](./tutorial-custom-providers-create.md).
+In questo articolo è stato creato un endpoint RESTful da usare con l'endpoint dei provider personalizzati di Azure. Per informazioni su come creare un provider personalizzato, vedere l'articolo [esercitazione: creazione di un provider personalizzato](./tutorial-custom-providers-create.md).

@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.date: 11/19/2019
 ms.author: absha
 ms.openlocfilehash: 4a1a122eb7b5b0abcc47cd321c74267a1a4aecda
-ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/05/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93396856"
 ---
 # <a name="create-an-application-gateway-and-rewrite-http-headers"></a>Creare un gateway applicazione e riscrivere intestazioni HTTP
@@ -107,11 +107,11 @@ $setting = New-AzApplicationGatewayBackendHttpSettings -Name "BackendHttpSetting
 
 Configurare i nuovi oggetti necessari per riscrivere le intestazioni HTTP:
 
-- **RequestHeaderConfiguration** : questo oggetto viene usato per specificare i campi di intestazione della richiesta che si intende riscrivere e il nuovo valore da sostituire alle intestazioni originali.
-- **ResponseHeaderConfiguration** : questo oggetto viene usato per specificare i campi di intestazione della risposta che si intende riscrivere e il nuovo valore da sostituire alle intestazioni originali.
-- **ActionSet** : questo oggetto contiene le configurazioni delle intestazioni di richiesta e risposta specificate in precedenza. 
-- **RewriteRule** : questo oggetto contiene tutti gli *ActionSet* specificati in precedenza. 
-- **RewriteRuleSet** : questo oggetto contiene tutte le *RewriteRule* e deve essere collegato a una regola di routing delle richieste, di base o basata sul percorso.
+- **RequestHeaderConfiguration**: questo oggetto viene usato per specificare i campi di intestazione della richiesta che si intende riscrivere e il nuovo valore da sostituire alle intestazioni originali.
+- **ResponseHeaderConfiguration**: questo oggetto viene usato per specificare i campi di intestazione della risposta che si intende riscrivere e il nuovo valore da sostituire alle intestazioni originali.
+- **ActionSet**: questo oggetto contiene le configurazioni delle intestazioni di richiesta e risposta specificate in precedenza. 
+- **RewriteRule**: questo oggetto contiene tutti gli *ActionSet* specificati in precedenza. 
+- **RewriteRuleSet**: questo oggetto contiene tutte le *RewriteRule* e deve essere collegato a una regola di routing delle richieste, di base o basata sul percorso.
 
    ```azurepowershell
    $requestHeaderConfiguration = New-AzApplicationGatewayRewriteRuleHeaderConfiguration -HeaderName "X-isThroughProxy" -HeaderValue "True"

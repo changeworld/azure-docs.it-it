@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 09/29/2020
 ms.author: yelevin
 ms.openlocfilehash: 011ddb883c028a954a8b0683c220bf6341eddb66
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91578148"
 ---
 # <a name="manage-multiple-tenants-in-azure-sentinel-as-an-mssp"></a>Gestire più tenant in Sentinel di Azure come MSSP
@@ -35,15 +35,15 @@ Se si è un provider di servizi di sicurezza gestito (MSSP) e si usa [Azure Ligh
 
     1. Nel menu di navigazione della schermata sottoscrizione, in **Impostazioni**, selezionare **provider di risorse**.
 
-    1. Dal ** *nome della sottoscrizione* | Schermata provider di risorse** , cercare e selezionare *Microsoft. OperationalInsights* e *Microsoft. SecurityInsights*e controllare la colonna **stato** . Se lo stato del provider è *NotRegistered*, selezionare **registra**.
+    1. Dal ***nome della sottoscrizione* | Schermata provider di risorse** , cercare e selezionare *Microsoft. OperationalInsights* e *Microsoft. SecurityInsights* e controllare la colonna **stato** . Se lo stato del provider è *NotRegistered*, selezionare **registra**.
     
         :::image type="content" source="media/multiple-tenants-service-providers/check-resource-provider.png" alt-text="Controllare i provider di risorse":::
 
 ## <a name="how-to-access-azure-sentinel-in-managed-tenants"></a>Come accedere a Sentinel di Azure in tenant gestiti
 
-1. In **directory + sottoscrizione**selezionare le directory delegate (directory = tenant) e le sottoscrizioni in cui si trovano le aree di lavoro di Azure Sentinel del cliente.
+1. In **directory + sottoscrizione** selezionare le directory delegate (directory = tenant) e le sottoscrizioni in cui si trovano le aree di lavoro di Azure Sentinel del cliente.
 
-    :::image type="content" source="media/multiple-tenants-service-providers/directory-subscription.png" alt-text="Controllare i provider di risorse":::
+    :::image type="content" source="media/multiple-tenants-service-providers/directory-subscription.png" alt-text="Scegliere tenant e sottoscrizioni":::
 
 1. Aprire Sentinel di Azure. Verranno visualizzate tutte le aree di lavoro nelle sottoscrizioni selezionate e sarà possibile usarle senza problemi, come qualsiasi area di lavoro nel tenant.
 

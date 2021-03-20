@@ -11,10 +11,10 @@ ms.author: jopapa
 ms.custom: seodec18
 ms.reviewer: sngun
 ms.openlocfilehash: e3af713d6e120e66a0cde5116f4556bb8caedf55
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
-ms.translationtype: HT
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93097852"
 ---
 # <a name="create-an-angular-app-with-azure-cosmos-dbs-api-for-mongodb---create-a-nodejs-express-app"></a>Creare un'app Angular con l'API di Azure Cosmos DB per MongoDB - Creare un'app Node.js Express
@@ -82,9 +82,9 @@ Per completare questa esercitazione, sono necessari anche:
 
 ## <a name="build-the-app-using-the-express-framework"></a>Compilare l'app usando il framework Express
 
-1. Nel riquadro **Esplora**  di Visual Studio Code fare clic con il pulsante destro del mouse sulla cartella **src** , scegliere **Nuova cartella** e assegnare alla nuova cartella il nome *server*.
+1. Nel riquadro **Esplora**  di Visual Studio Code fare clic con il pulsante destro del mouse sulla cartella **src**, scegliere **Nuova cartella** e assegnare alla nuova cartella il nome *server*.
 
-2. Nel riquadro **Esplora** fare clic con il pulsante destro del mouse sulla cartella **server** , scegliere **Nuovo file** e specificare *index.js* come nome per il nuovo file.
+2. Nel riquadro **Esplora** fare clic con il pulsante destro del mouse sulla cartella **server**, scegliere **Nuovo file** e specificare *index.js* come nome per il nuovo file.
 
 3. Al prompt dei comandi, usare il comando seguente per installare il parser del corpo, che consente all'app di analizzare i dati JSON passati tramite le API.
 

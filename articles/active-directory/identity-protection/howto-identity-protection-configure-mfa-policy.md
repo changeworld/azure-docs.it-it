@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 072db1d47abd95844075aeedfeddc4f8cf6bf936
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/18/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94835867"
 ---
 # <a name="how-to-configure-the-azure-ad-multi-factor-authentication-registration-policy"></a>Procedura: configurare i criteri di registrazione Multi-Factor Authentication Azure AD
@@ -36,7 +36,7 @@ Per ulteriori informazioni su Azure AD Multi-Factor Authentication, vedere [che 
 ## <a name="policy-configuration"></a>Configurazione dei criteri
 
 1. Passare al [portale di Azure](https://portal.azure.com).
-1. Individuare i criteri di registrazione dell'autenticazione a più fattori **Azure Active Directory**  >  **Security**  >  **Identity Protection**  >  **MFA registration policy**.
+1. Individuare i criteri di registrazione dell'autenticazione a più fattori **Azure Active Directory**  >  **Security**  >  **Identity Protection**  >  .
    1. In **assegnazioni**
       1. **Utenti** : scegliere **tutti gli utenti** o **selezionare singoli utenti e gruppi** in caso di limitazione dell'implementazione.
          1. Facoltativamente, è possibile scegliere di escludere gli utenti dai criteri.
@@ -59,4 +59,4 @@ Per una panoramica dell'esperienza utente correlata, vedere:
 
 - [Abilitare la reimpostazione della password self-service di Azure AD](../authentication/howto-sspr-deployment.md)
 
-- [Abilita Azure AD Multi-Factor Authentication](../authentication/howto-mfa-getstarted.md)
+- [Abilitare Azure AD Multi-Factor Authentication](../authentication/howto-mfa-getstarted.md)

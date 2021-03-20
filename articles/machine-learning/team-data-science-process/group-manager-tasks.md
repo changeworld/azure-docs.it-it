@@ -11,10 +11,10 @@ ms.date: 11/17/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ms.openlocfilehash: 7ab6d6511d1e2cec82b321003c9d663249ddcf49
-ms.sourcegitcommit: c2dd51aeaec24cd18f2e4e77d268de5bcc89e4a7
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/18/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94740227"
 ---
 # <a name="team-data-science-process-group-manager-tasks"></a>Attività del responsabile del gruppo in un processo di data science per i team
@@ -213,7 +213,7 @@ git push
 ```
 
 > [!NOTE]
-> Se è la prima volta che si esegue il commit in un repository git, potrebbe essere necessario configurare i parametri globali *User.Name* e *User. email* prima di eseguire il `git commit` comando. Eseguire questi due comandi:
+> Se è la prima volta che si esegue il commit in un repository git, potrebbe essere necessario configurare i parametri globali *User.Name* e *User.email* prima di eseguire il `git commit` comando. Eseguire questi due comandi:
 > 
 > `git config --global user.name <your name>`
 > 

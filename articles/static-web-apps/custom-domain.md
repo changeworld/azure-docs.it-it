@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 05/08/2020
 ms.author: buhollan
 ms.openlocfilehash: 578860883a108bba4b4bcd8cd04e8c08f484d474
-ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/19/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92173692"
 ---
 # <a name="setup-a-custom-domain-in-azure-static-web-apps-preview"></a>Configurare un dominio personalizzato in App Web statiche di Azure (anteprima)
@@ -65,11 +65,11 @@ Un record CNAME esegue il mapping di un dominio a un altro. È possibile usare u
 
 4. Creare un nuovo **record CNAME** con i valori seguenti...
 
-    | Impostazione             | valore                     |
+    | Impostazione             | Valore                     |
     | ------------------- | ------------------------- |
-    | Type                | CNAME                     |
+    | Tipo                | CNAME                     |
     | Host                | www                       |
-    | valore               | Incollare dagli Appunti |
+    | Valore               | Incollare dagli Appunti |
     | TTL (se applicabile) | Lasciare il valore predefinito    |
 
 5. Salvare le modifiche apportate al provider DNS.
@@ -110,11 +110,11 @@ A volte si preferisce che tutto il traffico inviato a un sottodominio venga rein
 
 4. Creare un nuovo record **CNAME** con i valori seguenti, sostituendo `www.example.com` con il nome di dominio personalizzato.
 
-    | Impostazione | valore                  |
+    | Impostazione | Valore                  |
     | ------- | ---------------------- |
-    | Type    | CNAME                  |
+    | Tipo    | CNAME                  |
     | Host    | \*                     |
-    | valore   | www.example.com        |
+    | Valore   | www.example.com        |
     | TTL     | Lasciare il valore predefinito |
 
 5. Salvare le modifiche apportate al provider DNS.

@@ -10,10 +10,10 @@ ms.date: 09/22/2020
 ms.author: anfeldma
 ms.custom: devx-track-js
 ms.openlocfilehash: b4ed27e1515e898a71fb503bb0f260c608ef9f6f
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
-ms.translationtype: HT
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93090206"
 ---
 # <a name="quickstart-use-nodejs-to-connect-and-query-data-from-azure-cosmos-db-sql-api-account"></a>Avvio rapido: Usare Node.js per connettersi ai dati ed eseguire query da un account API SQL di Azure Cosmos DB
@@ -99,7 +99,7 @@ Clonare ora un'app Node.js da GitHub, impostare la stringa di connessione ed ese
 
 Questo passaggio è facoltativo. Per scoprire in che modo le risorse del database Azure Cosmos vengono create nel codice, è possibile esaminare i frammenti di codice seguenti. In alternativa, è possibile passare ad [Aggiornare la stringa di connessione](#update-your-connection-string).
 
-Se si ha familiarità con la versione precedente di SQL JavaScript SDK, ci si potrebbe aspettare di vedere termini come _raccolta_ e _documento_. Dal momento che Azure Cosmos DB supporta [più modelli di API](introduction.md), nella [versione 2.0+ di JavaScript SDK](https://www.npmjs.com/package/@azure/cosmos) vengono usati i termini generici _contenitore_ , che può essere una raccolta, un grafo o una tabella, ed _elemento_ per descrivere il contenuto del contenitore.
+Se si ha familiarità con la versione precedente di SQL JavaScript SDK, ci si potrebbe aspettare di vedere termini come _raccolta_ e _documento_. Dal momento che Azure Cosmos DB supporta [più modelli di API](introduction.md), nella [versione 2.0+ di JavaScript SDK](https://www.npmjs.com/package/@azure/cosmos) vengono usati i termini generici _contenitore_, che può essere una raccolta, un grafo o una tabella, ed _elemento_ per descrivere il contenuto del contenitore.
 
 Cosmos DB JavaScript SDK è denominato "@azure/cosmos" e può essere installato da npm.
 

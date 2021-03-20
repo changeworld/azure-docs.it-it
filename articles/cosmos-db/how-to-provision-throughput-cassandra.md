@@ -9,10 +9,10 @@ ms.date: 10/15/2020
 ms.author: mjbrown
 ms.custom: devx-track-js, devx-track-azurecli, devx-track-csharp
 ms.openlocfilehash: 63b633ed67c03a006a154bc69a1aafb4cb4aa6d0
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93086279"
 ---
 # <a name="provision-database-container-or-autoscale-throughput-on-azure-cosmos-db-cassandra-api-resources"></a>Provisioning di velocità effettiva di database, contenitori o scalabilità automatica in Azure Cosmos DB risorse API Cassandra
@@ -28,13 +28,13 @@ Se si usa un'API diversa, vedere gli articoli API [SQL](how-to-provision-contain
 
 1. [Creare un nuovo account Azure Cosmos](create-mongodb-dotnet.md#create-a-database-account) o selezionarne uno esistente.
 
-1. Aprire il riquadro **Esplora dati** e selezionare **nuova tabella** . Specificare quindi i dettagli seguenti:
+1. Aprire il riquadro **Esplora dati** e selezionare **nuova tabella**. Specificare quindi i dettagli seguenti:
 
    * Indica se si sta creando un nuovo spazio per le nuove o se ne usa uno esistente. Selezionare l'opzione **provisioning database throughput** se si vuole eseguire il provisioning della velocità effettiva a livello di spazio.
    * Immettere l'ID tabella nel comando CQL.
    * Immettere un valore di chiave primaria (ad esempio, `/userrID` ).
    * Immettere una velocità effettiva di cui si desidera eseguire il provisioning (ad esempio, 1000 UR).
-   * Selezionare **OK** .
+   * Selezionare **OK**.
 
     :::image type="content" source="./media/how-to-provision-throughput-cassandra/provision-table-throughput-portal-cassandra-api.png" alt-text="Screenshot della Esplora dati quando si crea una nuova raccolta con velocità effettiva a livello di database":::
 

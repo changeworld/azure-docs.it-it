@@ -12,10 +12,10 @@ ms.topic: how-to
 ms.date: 05/29/2018
 ms.author: twooley
 ms.openlocfilehash: 51e0fb2ffa7b573ecfeda163d9ad99597ff735a2
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/16/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92109205"
 ---
 # <a name="filesystem-operations-on-azure-data-lake-storage-gen1-using-rest-api"></a>Operazioni del file system in Azure Data Lake Storage Gen1 usando l'API REST
@@ -146,7 +146,7 @@ HTTP/1.1 200 OK
 Hello, Data Lake Store user!
 ```
 
-## <a name="rename-a-file"></a>Rinominare un file
+## <a name="rename-a-file"></a>Rinomina un file
 Questa operazione si basa sulla chiamata API REST WebHDFS definita [qui](https://hadoop.apache.org/docs/stable/hadoop-project-dist/hadoop-hdfs/WebHDFS.html#Rename_a_FileDirectory).
 
 Per rinominare un file, usare il comando cURL seguente: Sostituire **\<yourstorename>** con il nome dell'account data Lake storage Gen1.

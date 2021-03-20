@@ -10,10 +10,10 @@ ms.date: 05/28/2020
 ms.author: sngun
 ms.custom: devx-track-csharp
 ms.openlocfilehash: 513af71384fd1fa5d38ee3ec367a42892a662444
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
-ms.translationtype: HT
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93096938"
 ---
 # <a name="quickstart-build-a-table-api-app-with-net-sdk-and-azure-cosmos-db"></a>Avvio rapido: Creare un'app dell'API Tabella con .NET SDK e Azure Cosmos DB 
@@ -73,7 +73,7 @@ A questo punto è possibile clonare un'app Table da GitHub, impostare la stringa
 
 ## <a name="open-the-sample-application-in-visual-studio"></a>Aprire l'applicazione di esempio in Visual Studio
 
-1. In Visual Studio scegliere **Apri** dal menu **File** , quindi scegliere **Progetto/Soluzione**. 
+1. In Visual Studio scegliere **Apri** dal menu **File**, quindi scegliere **Progetto/Soluzione**. 
 
    :::image type="content" source="media/create-table-dotnet/azure-cosmosdb-open-solution.png" alt-text="Aprire la soluzione"::: 
 
@@ -133,7 +133,7 @@ L'app è stata aggiornata con tutte le informazioni necessarie per comunicare co
 
 3. Fare clic su **Installa** per installare la libreria **Microsoft.Azure.Cosmos.Table**. Vengono installati il pacchetto dell'API Tabelle di Azure Cosmos DB e tutte le dipendenze.
 
-4. Quando si esegue l'intera app, i dati di esempio vengono inseriti nell'entità tabella ed eliminati al termine, in modo da non visualizzare i dati inseriti se si esegue l'intero esempio. È tuttavia possibile inserire alcuni punti di interruzione per visualizzare i dati. Aprire il file BasicSamples.cs e fare clic con il pulsante destro del mouse sulla riga 52, scegliere **Punto di interruzione** , quindi selezionare **Inserisci punto di interruzione**. Inserire un altro punto di interruzione alla riga 55.
+4. Quando si esegue l'intera app, i dati di esempio vengono inseriti nell'entità tabella ed eliminati al termine, in modo da non visualizzare i dati inseriti se si esegue l'intero esempio. È tuttavia possibile inserire alcuni punti di interruzione per visualizzare i dati. Aprire il file BasicSamples.cs e fare clic con il pulsante destro del mouse sulla riga 52, scegliere **Punto di interruzione**, quindi selezionare **Inserisci punto di interruzione**. Inserire un altro punto di interruzione alla riga 55.
 
    :::image type="content" source="media/create-table-dotnet/azure-cosmosdb-breakpoint.png" alt-text="Aggiungere un punto di interruzione"::: 
 
@@ -141,7 +141,7 @@ L'app è stata aggiornata con tutte le informazioni necessarie per comunicare co
     
    :::image type="content" source="media/create-table-dotnet/azure-cosmosdb-console.png" alt-text="Output della console":::
 
-   Quando si raggiunge il primo punto di interruzione, tornare a Esplora dati nel portale di Azure. Fare clic sul pulsante **Aggiorna** , espandere la tabella demo* e fare clic su **Entità**. La scheda **Entità** a destra illustra la nuova entità che è stata aggiunta per Walter Harp. Si noti che il numero di telefono per la nuova entità è 425-555-0101.
+   Quando si raggiunge il primo punto di interruzione, tornare a Esplora dati nel portale di Azure. Fare clic sul pulsante **Aggiorna**, espandere la tabella demo* e fare clic su **Entità**. La scheda **Entità** a destra illustra la nuova entità che è stata aggiunta per Walter Harp. Si noti che il numero di telefono per la nuova entità è 425-555-0101.
 
    :::image type="content" source="media/create-table-dotnet/azure-cosmosdb-entity.png" alt-text="Nuova entità":::
     

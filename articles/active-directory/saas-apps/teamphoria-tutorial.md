@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 10/09/2019
 ms.author: jeedes
 ms.openlocfilehash: a8cf58f49cba1bcc77c96a0da2061a037bb62bf2
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
-ms.translationtype: HT
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/24/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92504746"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-teamphoria"></a>Esercitazione: Integrazione dell'accesso Single Sign-On (SSO) di Azure Active Directory con Teamphoria
@@ -59,7 +59,7 @@ Configurare e testare l'accesso SSO di Azure AD con Teamphoria usando un utente 
 Per configurare e testare l'accesso SSO di Azure AD con Teamphoria, completare le procedure di base seguenti:
 
 1. **[Configurare l'accesso Single Sign-On di Azure AD](#configure-azure-ad-sso)** : per consentire agli utenti di usare questa funzionalità.
-    1. **[Creare un utente di test di Azure AD](#create-an-azure-ad-test-user)** : per testare l'accesso Single Sign-On di Azure AD con l'utente B. Simon.
+    1. **[Creare un utente di test di Azure AD](#create-an-azure-ad-test-user)** : per testare l'accesso Single Sign-On di Azure AD con l'utente B.Simon.
     1. **[Assegnare l'utente di test di Azure AD](#assign-the-azure-ad-test-user)** : per abilitare B. Simon all'uso dell'accesso Single Sign-On di Azure AD.
 1. **[Configurare l'accesso Single Sign-On di Teamphoria](#configure-teamphoria-sso)** : per configurare le impostazioni di Single Sign-On sul lato applicazione.
     1. **[Creare l'utente di test di Teamphoria](#create-teamphoria-test-user)** : per avere una controparte di B.Simon in Teamphoria collegata alla rappresentazione dell'utente in Azure AD.
@@ -94,7 +94,7 @@ Per abilitare l'accesso Single Sign-On di Azure AD nel portale di Azure, seguire
 
 In questa sezione verrà creato un utente di test di nome B.Simon nel portale di Azure.
 
-1. Nel riquadro sinistro del portale di Azure selezionare **Azure Active Directory** , **Utenti** e quindi **Tutti gli utenti**.
+1. Nel riquadro sinistro del portale di Azure selezionare **Azure Active Directory**, **Utenti** e quindi **Tutti gli utenti**.
 1. Selezionare **Nuovo utente** in alto nella schermata.
 1. In **Proprietà utente** seguire questa procedura:
    1. Nel campo **Nome** immettere `B.Simon`.  
@@ -122,7 +122,7 @@ In questa sezione si abiliterà B.Simon all'uso dell'accesso Single Sign-On di A
 
 ## <a name="configure-teamphoria-sso"></a>Configurare l'accesso Single Sign-On di Teamphoria
 
-1. Per automatizzare la configurazione all'interno di Teamphoria, è necessario installare l' **estensione del browser per l'accesso sicuro ad App personali** facendo clic su **Installa l'estensione**.
+1. Per automatizzare la configurazione all'interno di Teamphoria, è necessario installare l'**estensione del browser per l'accesso sicuro ad App personali** facendo clic su **Installa l'estensione**.
 
     ![Estensione MyApps](common/install-myappssecure-extension.png)
 
@@ -144,13 +144,13 @@ In questa sezione si abiliterà B.Simon all'uso dell'accesso Single Sign-On di A
 
     ![Screenshot che mostra la pagina in cui è possibile immettere i valori descritti.](./media/teamphoria-tutorial/Teamphoria_sso_save.png)
 
-    a. **NOME VISUALIZZATO** : immettere il nome del plug-in visualizzato nella pagina di amministrazione.
+    a. **NOME VISUALIZZATO**: immettere il nome del plug-in visualizzato nella pagina di amministrazione.
 
-    b. **NOME PULSANTE** : il nome della scheda che verrà visualizzata nella pagina di accesso per l'accesso Single Sign-On.
+    b. **NOME PULSANTE**: il nome della scheda che verrà visualizzata nella pagina di accesso per l'accesso Single Sign-On.
 
-    c. **CERTIFICATO** : aprire il certificato scaricato in precedenza dal portale di Azure nel Blocco note, copiare il contenuto dello stesso e incollarlo qui nella casella.
+    c. **CERTIFICATO**: aprire il certificato scaricato in precedenza dal portale di Azure nel Blocco note, copiare il contenuto dello stesso e incollarlo qui nella casella.
 
-    d. **PUNTO DI INGRESSO** : incollare l' **URL di accesso** copiato in precedenza dal portale di Azure.
+    d. **PUNTO DI INGRESSO**: incollare l'**URL di accesso** copiato in precedenza dal portale di Azure.
 
     e. Posizionare il selettore dell'opzione su **ON** e fare clic su **SAVE** (Salva).
 
@@ -174,7 +174,7 @@ Per consentire agli utenti di Azure AD di accedere a Teamphoria, è necessario e
 
     ![Screenshot mostra la pagina MANUAL USER INVITE in cui è possibile immettere un nome e un indirizzo di posta elettronica.](./media/teamphoria-tutorial/manual_user_invite.png)
 
-    a. Nella casella di testo **EMAIL ADDRESS** (INDIRIZZO DI POSTA ELETTRONICA) immettere l' **indirizzo di posta elettronica** dell'utente, ad esempio B.Simon.
+    a. Nella casella di testo **EMAIL ADDRESS** (INDIRIZZO DI POSTA ELETTRONICA) immettere l'**indirizzo di posta elettronica** dell'utente, ad esempio B.Simon.
 
     b. Nella casella di testo **FIRST NAME** (NOME) immettere il nome dell'utente, ad esempio **B**.
 

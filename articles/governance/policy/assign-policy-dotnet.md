@@ -5,10 +5,10 @@ ms.date: 09/30/2020
 ms.topic: quickstart
 ms.custom: devx-track-csharp
 ms.openlocfilehash: c4c8f8e9df544b6fc00b5b7701435f5a606f9764
-ms.sourcegitcommit: ffa7a269177ea3c9dcefd1dea18ccb6a87c03b70
-ms.translationtype: HT
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/30/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91604577"
 ---
 # <a name="quickstart-create-a-policy-assignment-to-identify-non-compliant-resources-with-net-core"></a>Avvio rapido: Creare un'assegnazione di criteri per identificare le risorse non conformi con .NET Core
@@ -235,7 +235,7 @@ I risultati in `response` corrispondono agli elementi visualizzati nella scheda 
 
 ## <a name="clean-up-resources"></a>Pulire le risorse
 
-- Eliminare l'assegnazione di criteri _controllare le macchine virtuali senza assegnazione di dischi gestiti_ tramite il portale. La definizione di criteri è integrata, quindi non esiste alcuna definizione da rimuovere.
+- Eliminare l'assegnazione di criteri _Controlla le macchine virtuali senza assegnazione di dischi gestiti_ tramite il portale. La definizione di criteri è integrata, quindi non esiste alcuna definizione da rimuovere.
 
 - Per rimuovere le applicazioni console .NET Core e i pacchetti installati, eliminare le cartelle di progetto `policyAssignment` e `policyCompliance`.
 

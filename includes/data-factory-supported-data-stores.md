@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 11/19/2018
 ms.author: jingwang
 ms.openlocfilehash: e600af10d2393bcd59317b4b918b7458cc63df31
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
-ms.translationtype: HT
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91571946"
 ---
 | Category | Archivio dati | Supportato come origine | Supportato come sink |
@@ -33,7 +33,7 @@ ms.locfileid: "91571946"
 | **NoSQL** |[Cassandra](../articles/data-factory/v1/data-factory-onprem-cassandra-connector.md)* |✓ | |
 | &nbsp; |[MongoDB](../articles/data-factory/v1/data-factory-on-premises-mongodb-connector.md)* |✓ | |
 | **File** |[Amazon S3](../articles/data-factory/v1/data-factory-amazon-simple-storage-service-connector.md) |✓ | |
-| &nbsp; |[File system](../articles/data-factory/v1/data-factory-onprem-file-system-connector.md)* |✓ |✓ |
+| &nbsp; |[File System](../articles/data-factory/v1/data-factory-onprem-file-system-connector.md)* |✓ |✓ |
 | &nbsp; |[FTP](../articles/data-factory/v1/data-factory-ftp-connector.md) |✓ | |
 | &nbsp; |[HDFS](../articles/data-factory/v1/data-factory-hdfs-connector.md)* |✓ | |
 | &nbsp; |[SFTP](../articles/data-factory/v1/data-factory-sftp-connector.md) |✓ | |

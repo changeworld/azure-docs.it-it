@@ -9,10 +9,10 @@ ms.date: 6/9/2020
 ms.author: aschhab
 ms.custom: include file
 ms.openlocfilehash: 574507fcc6a3c05919c441bd6d0ec9c573d4b6ae
-ms.sourcegitcommit: 227b9a1c120cd01f7a39479f20f883e75d86f062
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/18/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100652607"
 ---
 La tabella seguente elenca le funzionalità di Java Message Service (JMS) attualmente supportate dal bus di servizio di Azure. Mostra anche le funzionalità non supportate.

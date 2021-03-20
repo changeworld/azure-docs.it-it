@@ -9,10 +9,10 @@ ms.reviewer: jonfan, estfan, logicappspm
 ms.topic: article
 ms.date: 02/06/2019
 ms.openlocfilehash: 62c3d4533dd04dbb5a2ce0c73afa52b81d433913
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91570790"
 ---
 # <a name="transform-xml-with-maps-in-azure-logic-apps-with-enterprise-integration-pack"></a>Trasformare i dati XML con le mappe in App per la logica di Azure con Enterprise Integration Pack
@@ -111,11 +111,11 @@ Per aggiungere assembly più grandi, è possibile caricare l'assembly in un cont
 
 1. Scegliere **Set Public Access Level** (Imposta livello di accesso pubblico) dal menu di scelta rapida del contenitore BLOB.
 
-   * Se il contenitore BLOB dispone almeno dell'accesso pubblico, scegliere **Annulla**e seguire la procedura riportata più avanti in questa pagina: [caricare nei contenitori con accesso pubblico](#public-access-assemblies)
+   * Se il contenitore BLOB dispone almeno dell'accesso pubblico, scegliere **Annulla** e seguire la procedura riportata più avanti in questa pagina: [caricare nei contenitori con accesso pubblico](#public-access-assemblies)
 
      ![Accesso pubblico](media/logic-apps-enterprise-integration-schemas/azure-blob-container-public-access.png)
 
-   * Se il contenitore BLOB non ha accesso pubblico, scegliere **Annulla**e seguire la procedura riportata più avanti in questa pagina: [caricare nei contenitori senza accesso pubblico](#no-public-access-assemblies)
+   * Se il contenitore BLOB non ha accesso pubblico, scegliere **Annulla** e seguire la procedura riportata più avanti in questa pagina: [caricare nei contenitori senza accesso pubblico](#no-public-access-assemblies)
 
      ![Nessun accesso pubblico](media/logic-apps-enterprise-integration-schemas/azure-blob-container-no-public-access.png)
 
@@ -198,7 +198,7 @@ Dopo aver caricato gli assembly a cui la mappa fa riferimento, è possibile cari
 
 1. In **Aggiungi mappa** immettere un nome per la mappa. 
 
-1. In **tipo di mappa**selezionare il tipo, ad esempio **Liquid**, **XSLT**, **XSLT 2,0**o **XSLT 3,0**.
+1. In **tipo di mappa** selezionare il tipo, ad esempio **Liquid**, **XSLT**, **XSLT 2,0** o **XSLT 3,0**.
 
 1. Mantenere selezionato **File piccolo**. Accanto alla casella **Mappa** scegliere l'icona della cartella. Trovare e selezionare la mappa da caricare, ad esempio:
 

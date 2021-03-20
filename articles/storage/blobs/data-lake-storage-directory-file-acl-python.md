@@ -10,10 +10,10 @@ ms.subservice: data-lake-storage-gen2
 ms.reviewer: prishet
 ms.custom: devx-track-python
 ms.openlocfilehash: a143c0aa19241b532cabff95fe6bf85679e4007c
-ms.sourcegitcommit: 227b9a1c120cd01f7a39479f20f883e75d86f062
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/18/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100652293"
 ---
 # <a name="use-python-to-manage-directories-and-files-in-azure-data-lake-storage-gen2"></a>Usare Python per gestire directory e file in Azure Data Lake Storage Gen2
@@ -144,4 +144,4 @@ In questo esempio viene stampato il percorso di ogni sottodirectory e file che s
 - [Esempi](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/storage/azure-storage-file-datalake/samples)
 - [Mapping da Gen1 a Gen2](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/storage/azure-storage-file-datalake/GEN1_GEN2_MAPPING.md)
 - [Problemi noti](data-lake-storage-known-issues.md#api-scope-data-lake-client-library)
-- [Invia commenti e suggerimenti](https://github.com/Azure/azure-sdk-for-python/issues)
+- [Invia feedback](https://github.com/Azure/azure-sdk-for-python/issues)

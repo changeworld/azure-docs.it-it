@@ -13,10 +13,10 @@ ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: d2eaf1dce432821dcfc693dc69dcf975a3d8be8d
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
-ms.translationtype: HT
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/24/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92503862"
 ---
 # <a name="tutorial-register-a-single-page-application-spa-in-azure-active-directory-b2c"></a>Esercitazione: Registrare un'applicazione a pagina singola in Azure Active Directory B2C
@@ -32,14 +32,14 @@ Azure AD B2C offre **due** opzioni che consentono alle applicazioni a pagina sin
 ### <a name="authorization-code-flow-with-pkce"></a>Flusso di codice di autorizzazione (con PKCE)
 - [Flusso di codice di autorizzazione OAuth 2.0 (con PKCE)](./authorization-code-flow.md). Il flusso di codice di autorizzazione consente all'applicazione di scambiare un codice di autorizzazione con i token **ID** per rappresentare l'utente autenticato e i token di **accesso** necessari per chiamare le API protette. Restituisce inoltre **token di aggiornamento** che consentono l'accesso a lungo termine alle risorse per conto degli utenti senza richiedere l'interazione con tali utenti. 
 
-Questo è l'approccio **consigliato** . La presenza di token di aggiornamento a durata limitata consente all'applicazione di adattarsi alle [limitazioni della privacy dei cookie dei browser moderni](../active-directory/develop/reference-third-party-cookies-spas.md), ad esempio Safari ITP.
+Questo è l'approccio **consigliato**. La presenza di token di aggiornamento a durata limitata consente all'applicazione di adattarsi alle [limitazioni della privacy dei cookie dei browser moderni](../active-directory/develop/reference-third-party-cookies-spas.md), ad esempio Safari ITP.
 
 Per sfruttare i vantaggi di questo flusso, l'applicazione può usare una libreria di autenticazione che lo supporta, come ad esempio [MSAL.js 2.x](https://github.com/Azure-Samples/ms-identity-b2c-javascript-spa). 
 
 ![Single-page applications-auth](./media/tutorial-single-page-app/spa-app-auth.svg)
 
 ### <a name="implicit-grant-flow"></a>Flusso di concessione implicita
-- [Flusso implicito OAuth 2.0](implicit-flow-single-page-application.md). Alcuni framework, come [MSAL.js 1.x](https://github.com/Azure-Samples/active-directory-b2c-javascript-msal-singlepageapp), supportano solo il flusso di concessione implicita. Questo tipo di flusso consente all'applicazione di ottenere i token **ID** e **di accesso** . A differenza del flusso di codice di autorizzazione, il flusso di concessione implicita non restituisce un **token di aggiornamento** . 
+- [Flusso implicito OAuth 2.0](implicit-flow-single-page-application.md). Alcuni framework, come [MSAL.js 1.x](https://github.com/Azure-Samples/active-directory-b2c-javascript-msal-singlepageapp), supportano solo il flusso di concessione implicita. Questo tipo di flusso consente all'applicazione di ottenere i token **ID** e **di accesso**. A differenza del flusso di codice di autorizzazione, il flusso di concessione implicita non restituisce un **token di aggiornamento**. 
 
 ![Single-page applications-implicit](./media/tutorial-single-page-app/spa-app.svg)
 
@@ -55,11 +55,11 @@ Se non è ancora stato creato un [tenant Azure AD B2C](tutorial-create-tenant.md
 
 1. Accedere al [portale di Azure](https://portal.azure.com).
 1. Selezionare l'icona **Directory e sottoscrizione** nella barra degli strumenti del portale e quindi la directory contenente il tenant di Azure AD B2C.
-1. Nel portale di Azure cercare e selezionare **Azure AD B2C** .
-1. Selezionare **Registrazioni app** e quindi **Nuova registrazione** .
-1. Immettere un **nome** per l'applicazione. Ad esempio, *spaapp1* .
+1. Nel portale di Azure cercare e selezionare **Azure AD B2C**.
+1. Selezionare **Registrazioni app** e quindi **Nuova registrazione**.
+1. Immettere un **nome** per l'applicazione. Ad esempio, *spaapp1*.
 1. In **Tipi di account supportati** selezionare **Account in qualsiasi provider di identità o directory dell'organizzazione (per l'autenticazione di utenti con flussi utente)** .
-1. In **URI di reindirizzamento** selezionare **Applicazione a pagina singola** , quindi immettere `https://jwt.ms` nella casella di testo URL.
+1. In **URI di reindirizzamento** selezionare **Applicazione a pagina singola**, quindi immettere `https://jwt.ms` nella casella di testo URL.
 
     L'URI di reindirizzamento è l'endpoint a cui l'utente viene inviato dal server di autorizzazione (in questo caso Azure AD B2C) dopo aver completato l'interazione con l'utente e a cui viene inviato un token di accesso o un codice di autorizzazione dopo l'autorizzazione. In un'applicazione di produzione, si tratta in genere di un endpoint accessibile pubblicamente in cui l'app è in esecuzione, ad esempio `https://contoso.com/auth-response`. A scopo di test come questa esercitazione, è possibile impostarlo su `https://jwt.ms`, un'applicazione Web di proprietà di Microsoft che visualizza il contenuto decodificato di un token (il contenuto del token non lascia mai il browser). Durante lo sviluppo di app, è possibile aggiungere l'endpoint in cui l'applicazione è in ascolto localmente, ad esempio `http://localhost:5000`. È possibile aggiungere e modificare gli URI di reindirizzamento nelle applicazioni registrate in qualsiasi momento.
 
@@ -68,16 +68,16 @@ Se non è ancora stato creato un [tenant Azure AD B2C](tutorial-create-tenant.md
     * L'URL di risposta deve iniziare con lo schema `https`, a meno che non si usi `localhost`.
     * L'URL di risposta rileva la distinzione tra maiuscole e minuscole. Le maiuscole e le minuscole devono corrispondere a quelle nel percorso URL dell'applicazione in esecuzione. Se, ad esempio, l'applicazione include come parte del percorso `.../abc/response-oidc`, non specificare `.../ABC/response-oidc` nell'URL di risposta. Poiché il Web browser rileva la distinzione tra maiuscole e minuscole nei percorsi, è possibile che i cookie associati a `.../abc/response-oidc` vengano esclusi se reindirizzati all'URL `.../ABC/response-oidc` senza la corrispondenza tra maiuscole e minuscole.
 
-1. In **Autorizzazioni** , selezionare la casella di controllo *Concedere il consenso amministratore alle autorizzazioni OpenID e offline_access* .
-1. Selezionare **Registra** .
+1. In **Autorizzazioni**, selezionare la casella di controllo *Concedere il consenso amministratore alle autorizzazioni OpenID e offline_access*.
+1. Selezionare **Registra**.
 
 
 ## <a name="enable-the-implicit-flow"></a>Abilitare il flusso implicito
 Se si usa il flusso implicito, occorre abilitare il flusso di concessione implicita nella registrazione dell'app.
 
-1. Nel menu a sinistra, in **Gestisci** , selezionare **Autenticazione** .
-1. In **Concessione implicita** selezionare entrambe le caselle di controllo **Token di accesso** e **ID token** .
-1. Selezionare **Salva** .
+1. Nel menu a sinistra, in **Gestisci**, selezionare **Autenticazione**.
+1. In **Concessione implicita** selezionare entrambe le caselle di controllo **Token di accesso** e **ID token**.
+1. Selezionare **Salva**.
 
 ## <a name="migrate-from-the-implicit-flow"></a>Eseguire la migrazione dal flusso implicito
 
@@ -85,9 +85,9 @@ Se si ha un'applicazione che usa il flusso implicito, è consigliabile eseguirne
 
 Quando tutte le applicazioni a pagina singola di produzione rappresentate da una registrazione dell'app usano il flusso di codice di autorizzazione, disabilitare le impostazioni del flusso di concessione implicita. 
 
-1. Nel menu a sinistra, in **Gestisci** , selezionare **Autenticazione** .
-1. In **Concessione implicita** deselezionare entrambe le caselle di controllo **Token di accesso** e **ID token** .
-1. Selezionare **Salva** .
+1. Nel menu a sinistra, in **Gestisci**, selezionare **Autenticazione**.
+1. In **Concessione implicita** deselezionare entrambe le caselle di controllo **Token di accesso** e **ID token**.
+1. Selezionare **Salva**.
 
 Le applicazioni che usano il flusso implicito possono continuare a funzionare se si lascia il flusso implicito abilitato (selezionato).
 

@@ -15,15 +15,15 @@ ms.date: 01/04/2021
 ms.author: damendo
 ms.custom: mvc
 ms.openlocfilehash: 9b19beae43f1d4a5b0788d9d7662828355c3dd2c
-ms.sourcegitcommit: d7d5f0da1dda786bda0260cf43bd4716e5bda08b
-ms.translationtype: HT
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/05/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97895887"
 ---
 # <a name="what-is-azure-network-watcher"></a>Informazioni su Azure Network Watcher
 
-Azure Network Watcher fornisce gli strumenti per il monitoraggio, la diagnostica, la visualizzazione delle metriche e l'abilitazione o la disabilitazione dei log per le risorse in una rete virtuale di Azure. Network Watcher è progettato per monitorare e risolvere i problemi di integrità della rete dei prodotti dell'infrastruttura distribuita come servizio (IaaS, Infrastructure-as-a-Service), che includono macchine virtuali, reti virtuali, gateway applicazione, sistemi di bilanciamento del carico e così via. Nota: non è destinato al monitoraggio di piattaforme distribuite come servizio (PaaS, Platform-as-a-service) o all'analisi del Web e non funzionerà in questi contesti. 
+Azure Network Watcher fornisce gli strumenti per il monitoraggio, la diagnostica, la visualizzazione delle metriche e l'abilitazione o la disabilitazione dei log per le risorse in una rete virtuale di Azure. Network Watcher è progettato per monitorare e ripristinare lo stato di integrità della rete dei prodotti IaaS (Infrastructure-as-a-Service) che includono macchine virtuali, reti virtuali, gateway applicazione, servizi di bilanciamento del carico e così via. Nota: non è destinato a e non funzionerà per il monitoraggio di PaaS o l'analisi Web. 
 
 ## <a name="monitoring"></a>Monitoraggio
 
@@ -55,7 +55,7 @@ Quando si distribuisce una macchina virtuale, Azure applica diverse regole di si
 
 Quando si crea una rete virtuale, Azure crea diverse route predefinite in uscita per il traffico di rete. Il traffico in uscita da tutte le risorse, ad esempio le macchine virtuali, distribuite in una rete virtuale, viene instradato in base alle route predefinite di Azure. È possibile eseguire l'override delle route predefinite di Azure o creare route aggiuntive. È possibile che una macchina virtuale non riesca più a comunicare con altre risorse a causa di una route specifica. La funzionalità di *hop successivo* consente di specificare un indirizzo IPv4 di origine e di destinazione. L'hop successivo testa quindi la comunicazione e indica all'utente il tipo di hop successivo usato per instradare il traffico. È quindi possibile rimuovere, modificare o aggiungere una route, per risolvere un problema di routing. Leggere altre informazioni sulla funzionalità di [hop successivo](diagnose-vm-network-routing-problem.md).
 
-### <a name="diagnose-outbound-connections-from-a-vm"></a><a name="connection-troubleshoot"></a>Diagnosticare i problemi delle connessioni in uscita da una macchina virtuale
+### <a name="diagnose-outbound-connections-from-a-vm"></a><a name="connection-troubleshoot"></a>Diagnosticare le connessioni in uscita da una macchina virtuale
 
 La funzionalità di *risoluzione dei problemi di connessione* consente di testare una connessione tra una macchina virtuale e un'altra macchina virtuale, un FQDN, un URI o un indirizzo IPv4. Il test restituisce informazioni simili a quelle restituite quando si usa la funzionalità di [monitoraggio connessione](#connection-monitor), ma viene verificata la connessione in un determinato momento, invece di monitorarla nel tempo, come avviene con il monitoraggio connessione. Leggere altre informazioni sulla risoluzione dei problemi di connessione tramite la funzionalità di [risoluzione dei problemi di connessione](network-watcher-connectivity-overview.md).
 

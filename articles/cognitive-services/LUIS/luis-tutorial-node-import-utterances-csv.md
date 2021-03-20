@@ -10,10 +10,10 @@ ms.subservice: language-understanding
 ms.topic: how-to
 ms.date: 09/05/2019
 ms.openlocfilehash: 58eb92f4d0bc3de4671ca2ece14a178a876e4a6b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91541043"
 ---
 # <a name="build-a-luis-app-programmatically-using-nodejs"></a>Compilare un'app LUIS a livello di codice con Node.js
@@ -35,7 +35,7 @@ Tutto il codice in questo articolo è disponibile in [Azure-samples Language Und
 ## <a name="map-preexisting-data-to-intents-and-entities"></a>Eseguire il mapping dei dati preesistenti a finalità ed entità
 Anche se si dispone di un sistema che non è stato creato considerando LUIS, se contiene dati testuali mappati a cose diverse che gli utenti intendono realizzare, è possibile che si riesca a eseguire il mapping delle categorie di input utente esistenti alle finalità in LUIS. Se è possibile identificare parole o frasi importanti in ciò che gli utenti hanno detto, è possibile eseguire il mapping di queste parole a delle entità.
 
-Aprire il [`IoT.csv`](https://github.com/Azure-Samples/cognitive-services-language-understanding/blob/master/examples/build-app-programmatically-csv/IoT.csv) file. Questo file contiene un log di richieste degli utenti poste a un ipotetico servizio di domotica e include una suddivisione in categorie, ciò che l'utente ha detto e alcune colonne con informazioni utili estratte da quanto richiesto.
+Aprire il file [`IoT.csv`](https://github.com/Azure-Samples/cognitive-services-language-understanding/blob/master/examples/build-app-programmatically-csv/IoT.csv). Questo file contiene un log di richieste degli utenti poste a un ipotetico servizio di domotica e include una suddivisione in categorie, ciò che l'utente ha detto e alcune colonne con informazioni utili estratte da quanto richiesto.
 
 ![File CSV dei dati preesistenti](./media/luis-tutorial-node-import-utterances-csv/csv.png)
 
@@ -179,7 +179,7 @@ upload done
 
 
 ## <a name="open-the-luis-app"></a>Aprire l'app LUIS
-Al termine dello script, è possibile accedere a [LUIS](luis-reference-regions.md) e visualizzare l'app LUIS appena creata in **App personali**. Le espressioni aggiunte dovrebbero apparire sotto le finalità**TurnOn**, **TurnOff** e **None**.
+Al termine dello script, è possibile accedere a [LUIS](luis-reference-regions.md) e visualizzare l'app LUIS appena creata in **App personali**. Le espressioni aggiunte dovrebbero apparire sotto le finalità **TurnOn**, **TurnOff** e **None**.
 
 ![Finalità TurnOn](./media/luis-tutorial-node-import-utterances-csv/imported-utterances-661.png)
 

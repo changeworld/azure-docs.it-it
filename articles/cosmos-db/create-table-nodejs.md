@@ -10,10 +10,10 @@ ms.date: 05/28/2020
 ms.author: sngun
 ms.custom: devx-track-js
 ms.openlocfilehash: a9f5a307bfefedf74f884e39b482bd90454fc5c8
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
-ms.translationtype: HT
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93096870"
 ---
 # <a name="quickstart-build-a-table-api-app-with-nodejs-and-azure-cosmos-db"></a>Avvio rapido: Creare un'app di API Tabella con Node.js e Azure Cosmos DB
@@ -162,7 +162,7 @@ L'app è stata aggiornata con tutte le informazioni necessarie per comunicare co
     cd "C:\git-samples\storage-table-node-getting-started"
     ```
 
-2. Eseguire questo comando per installare i moduli [azure], [node-uuid], [nconf] e [async] in locale e per salvare una voce per tali moduli nel file *package.json* :
+2. Eseguire questo comando per installare i moduli [azure], [node-uuid], [nconf] e [async] in locale e per salvare una voce per tali moduli nel file *package.json*:
 
    ```
    npm install azure-storage node-uuid async nconf --save

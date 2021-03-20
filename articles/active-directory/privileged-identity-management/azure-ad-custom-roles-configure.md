@@ -17,10 +17,10 @@ ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: fb23e60539c704dac457ab6e8706ec0cfe350ed9
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/18/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94835323"
 ---
 # <a name="configure-azure-ad-custom-roles-in-privileged-identity-management"></a>Configurare ruoli personalizzati di Azure AD in Privileged Identity Management
@@ -64,7 +64,7 @@ Ed è anche possibile scegliere una delle opzioni di durata dell'assegnazione *a
 - **Consenti assegnazione attiva permanente**: gli amministratori possono assegnare l'appartenenza permanente attiva.
 - **Scadenza assegnazione attiva dopo**: gli amministratori possono richiedere che tutte le assegnazioni attive abbiano una data di inizio e di fine specificata.
 
-### <a name="require-azure-ad-multi-factor-authentication"></a>Richiedi Azure AD Multi-Factor Authentication
+### <a name="require-azure-ad-multi-factor-authentication"></a>Richiedere Azure AD Multi-Factor Authentication
 
 Privileged Identity Management fornisce l'applicazione facoltativa del Multi-Factor Authentication Azure AD per due scenari distinti.
 

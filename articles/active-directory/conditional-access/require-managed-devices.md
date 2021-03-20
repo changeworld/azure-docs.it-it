@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: jairoc
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: c11b58954eefda67f981d618b04ab2bd69fa6b43
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93077762"
 ---
 # <a name="how-to-require-managed-devices-for-cloud-app-access-with-conditional-access"></a>Procedura: richiedere i dispositivi gestiti per l'accesso alle app cloud con accesso condizionale
@@ -29,7 +29,7 @@ Questo articolo illustra come configurare i criteri di accesso condizionale che 
 La richiesta di dispositivi gestiti per i vincoli di accesso alle app Cloud **Azure ad l'accesso condizionale** e la **gestione dei dispositivi Azure ad** insieme. Se non si ha ancora familiarità con una di queste aree, è consigliabile leggere innanzitutto gli argomenti seguenti:
 
 - **[Accesso condizionale in Azure Active Directory: in](./overview.md)** questo articolo viene fornita una panoramica concettuale dell'accesso condizionale e della terminologia correlata.
-- **[Introduzione alla gestione dei dispositivi in Azure Active Directory](../devices/overview.md)** : questo articolo offre una panoramica delle diverse opzioni che un'organizzazione ha a disposizione per tenere sotto controllo i dispositivi. 
+- **[Introduzione alla gestione dei dispositivi in Azure Active Directory](../devices/overview.md)**: questo articolo offre una panoramica delle diverse opzioni che un'organizzazione ha a disposizione per tenere sotto controllo i dispositivi. 
 - Per il supporto di Chrome in **Windows 10 Creators Update (versione 1703)** o versioni successive, installare l' [estensione account Windows 10](https://chrome.google.com/webstore/detail/windows-10-accounts/ppnbnpeolgkicgegkbkbjmhlideopiji). Questa estensione è obbligatoria quando i criteri di accesso condizionale richiedono dettagli specifici del dispositivo.
 
 >[!NOTE] 
@@ -54,25 +54,25 @@ In poche parole, i dispositivi gestiti sono dispositivi che ricadono sotto *qual
 
 Per registrare un dispositivo con Azure AD, sono disponibili tre opzioni: 
 
-- **Dispositivi registrati in Azure AD** : per registrare un dispositivo personale con Azure AD
-- **Dispositivi aggiunti ad Azure AD** : per registrare con Azure AD un dispositivo Windows 10 aziendale non aggiunto a un'istanza di AD locale. 
-- **Dispositivi aggiunti ad Azure AD ibrido** : per registrare con Azure AD un dispositivo Windows 10 o un dispositivo di livello inferiore supportato aggiunto a un'istanza di AD locale.
+- **Dispositivi registrati in Azure AD**: per registrare un dispositivo personale con Azure AD
+- **Dispositivi aggiunti ad Azure AD**: per registrare con Azure AD un dispositivo Windows 10 aziendale non aggiunto a un'istanza di AD locale. 
+- **Dispositivi aggiunti ad Azure AD ibrido**: per registrare con Azure AD un dispositivo Windows 10 o un dispositivo di livello inferiore supportato aggiunto a un'istanza di AD locale.
 
 Queste tre opzioni sono illustrate nell'articolo [che cos'è un'identità del dispositivo?](../devices/overview.md)
 
-Per risultare gestito, un dispositivo registrato deve essere un **dispositivo aggiunto ad Azure AD ibrido** o un **dispositivo contrassegnato come conforme** .  
+Per risultare gestito, un dispositivo registrato deve essere un **dispositivo aggiunto ad Azure AD ibrido** o un **dispositivo contrassegnato come conforme**.  
 
-:::image type="content" source="./media/require-managed-devices/47.png" alt-text="Screenshot del riquadro del dispositivo in Azure A D. gli elementi abilitati e disabilitati sono evidenziati." border="false":::
+:::image type="content" source="./media/require-managed-devices/47.png" alt-text="Screenshot del riquadro di concessione di Azure A. Grant Access è selezionato, così come sono le caselle di controllo per i dispositivi conformi e Hybrid Azure A D join." border="false":::
  
 ## <a name="require-hybrid-azure-ad-joined-devices"></a>Richiedere i dispositivi aggiunti ad Azure AD ibrido
 
 Nel criterio di accesso condizionale è possibile selezionare **richiedi Azure ad ibrido dispositivo aggiunto** per indicare che è possibile accedere alle app Cloud selezionate solo usando un dispositivo gestito. 
 
-:::image type="content" source="./media/require-managed-devices/10.png" alt-text="Screenshot del riquadro del dispositivo in Azure A D. gli elementi abilitati e disabilitati sono evidenziati." border="false":::
+:::image type="content" source="./media/require-managed-devices/10.png" alt-text="Screenshot del riquadro di concessione di Azure A. La concessione dell'accesso è selezionata. È stata selezionata anche una casella di controllo che richiede che i dispositivi siano ibridi di Azure A cui è stato aggiunto un join D." border="false":::
 
 Questa impostazione si applica solo ai dispositivi Windows 10 o ai dispositivi di livello inferiore, come Windows 7 o Windows 8, aggiunti a un'istanza di Azure AD locale. È possibile registrare questi dispositivi con Azure AD solo usando un join di Azure AD ibrido, un [processo automatizzato](../devices/hybrid-azuread-join-plan.md) per registrare un dispositivo Windows 10. 
 
-:::image type="content" source="./media/require-managed-devices/45.png" alt-text="Screenshot del riquadro del dispositivo in Azure A D. gli elementi abilitati e disabilitati sono evidenziati." border="false":::
+:::image type="content" source="./media/require-managed-devices/45.png" alt-text="Tabella in cui sono elencati il nome, lo stato abilitato, O S, la versione, il tipo di join, il proprietario, M D M e lo stato conforme di un dispositivo. Lo stato conforme è no." border="false":::
 
 In che modo un dispositivo aggiunto ad Azure AD ibrido diventa un dispositivo gestito?  Per i dispositivi aggiunti a un'istanza locale di Active Directory, si presuppone che il controllo su questi dispositivi venga applicato usando soluzioni di gestione quali **Configuration Manager** o **criteri di gruppo (GP)** per gestirli. Poiché non esiste alcun metodo che consenta ad Azure AD di determinare se uno di questi metodi è stato applicato a un dispositivo, il requisito che prevede un dispositivo aggiunto ad Azure AD ibrido è un meccanismo relativamente debole per richiedere un dispositivo gestito. È responsabilità dell'amministratore valutare se i metodi applicati ai dispositivi aggiunti al dominio locale siano abbastanza affidabili per costituire un dispositivo gestito se tale dispositivo è anche un dispositivo aggiunto ad Azure AD ibrido.
 
@@ -80,14 +80,14 @@ In che modo un dispositivo aggiunto ad Azure AD ibrido diventa un dispositivo ge
 
 L'opzione per *richiedere che un dispositivo sia contrassegnato come conforme* è il modo più sicuro per richiedere un dispositivo gestito.
 
-:::image type="content" source="./media/require-managed-devices/11.png" alt-text="Screenshot del riquadro del dispositivo in Azure A D. gli elementi abilitati e disabilitati sono evidenziati." border="false":::
+:::image type="content" source="./media/require-managed-devices/11.png" alt-text="Screenshot del riquadro di concessione di Azure A. La concessione dell'accesso è selezionata. Viene selezionata anche una casella di controllo che richiede che un dispositivo sia contrassegnato come conforme." border="false":::
 
 Questa opzione richiede che un dispositivo venga registrato con Azure AD e anche che venga contrassegnato come conforme da:
          
 - Intune
 - Un sistema di gestione dei dispositivi mobili (MDM) di terze parti che gestisce dispositivi Windows 10 tramite l'integrazione di Azure AD. I sistemi MDM di terze parti per sistemi operativi per dispositivo diversi da Windows 10 non sono supportati.
  
-:::image type="content" source="./media/require-managed-devices/46.png" alt-text="Screenshot del riquadro del dispositivo in Azure A D. gli elementi abilitati e disabilitati sono evidenziati." border="false":::
+:::image type="content" source="./media/require-managed-devices/46.png" alt-text="Tabella in cui sono elencati il nome, lo stato abilitato, O S, la versione, il tipo di join, il proprietario, M D M e lo stato conforme di un dispositivo. Lo stato conforme è evidenziato." border="false":::
 
 Per un dispositivo contrassegnato come conforme, è possibile presupporre che: 
 
@@ -103,19 +103,19 @@ In questo scenario, Contoso ha deciso che tutti gli accessi per dispositivi mobi
 Per richiedere l'uso di un dispositivo mobile registrato, le organizzazioni devono completare i passaggi seguenti.
 
 1. Accedere al **portale di Azure** come amministratore globale, amministratore della sicurezza o amministratore dell'accesso condizionale.
-1. Passare ad **Azure Active Directory** > **Sicurezza** > **Accesso condizionale** .
-1. Selezionare **Nuovi criteri** .
+1. Passare ad **Azure Active Directory** > **Sicurezza** > **Accesso condizionale**.
+1. Selezionare **Nuovi criteri**.
 1. Assegnare un nome ai criteri. È consigliabile che le organizzazioni creino uno standard descrittivo per i nomi dei criteri.
-1. In **Assegnazioni** selezionare **Utenti e gruppi** .
+1. In **Assegnazioni** selezionare **Utenti e gruppi**.
    1. In **Includi** selezionare **Tutti gli utenti** o gli **Utenti e gruppi** ai quale si vuole applicare questi criteri. 
-   1. Selezionare **Operazione completata** .
-1. In **app Cloud o azioni**  >  **includere** selezionare **Office 365** .
-1. In **Condizioni** selezionare **Piattaforme del dispositivo** .
-   1. Impostare **Configura** su **Sì** .
-   1. Includere **Android** e **iOS** .
+   1. Selezionare **Operazione completata**.
+1. In **app Cloud o azioni**  >  **includere** selezionare **Office 365**.
+1. In **Condizioni** selezionare **Piattaforme del dispositivo**.
+   1. Impostare **Configura** su **Sì**.
+   1. Includere **Android** e **iOS**.
 1. In **Controlli di accesso** > **Concedi** selezionare le opzioni seguenti:
    - **Richiedere che i dispositivi siano contrassegnati come conformi**
-1. Confermare le impostazioni e impostare **Abilita criterio** su **Attivato** .
+1. Confermare le impostazioni e impostare **Abilita criterio** su **Attivato**.
 1. Selezionare **Crea** per creare e abilitare i criteri.
 
 ### <a name="known-behavior"></a>Comportamento noto

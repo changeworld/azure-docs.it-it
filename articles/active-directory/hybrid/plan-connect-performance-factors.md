@@ -14,17 +14,17 @@ ms.reviewer: martincoetzer
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 15bcb0f7ca30c343072da396abeac8d08dee03a9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "90087010"
 ---
 # <a name="factors-influencing-the-performance-of-azure-ad-connect"></a>Fattori che influenzano le prestazioni di Azure AD Connect
 
 Azure AD Connect esegue la sincronizzazione di Active Directory e Azure AD. Questo server è un componente fondamentale dello spostamento delle identità utente nel cloud. I fattori principali che influiscono sulle prestazioni di Azure AD Connect sono:
 
-| **Fattore di progettazione**| **Definizione** |
+| **Fattore di progettazione**| **Definition** |
 |:-|-|
 | Topologia| Distribuzione dei componenti e degli endpoint che devono essere gestiti da Azure AD Connect in rete. |
 | Scalabilità| Numero di oggetti, ad esempio utenti, gruppi e unità organizzative, che devono essere gestiti da Azure AD Connect. |

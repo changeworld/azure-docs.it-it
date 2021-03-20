@@ -6,10 +6,10 @@ ms.subservice: language-understanding
 ms.topic: reference
 ms.date: 04/14/2020
 ms.openlocfilehash: 3caccd6766226ce68b371856b081b052c1033f71
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91542190"
 ---
 # <a name="pattern-syntax"></a>Sintassi dei criteri
@@ -26,7 +26,7 @@ La sintassi del modello supporta la sintassi seguente:
 |Funzione|Sintassi|Livello di nidificazione|Esempio|
 |--|--|--|--|
 |Entità| {} -parentesi graffe|2|Dove è il formato {nome-entità}?|
-|facoltativo|[]-parentesi quadre<BR><BR>È previsto un limite di 3 per i livelli di nidificazione di qualsiasi combinazione di facoltativo e raggruppamento |2|Il punto interrogativo è facoltativo [?]|
+|facoltative|[]-parentesi quadre<BR><BR>È previsto un limite di 3 per i livelli di nidificazione di qualsiasi combinazione di facoltativo e raggruppamento |2|Il punto interrogativo è facoltativo [?]|
 |raggruppamento|()-parentesi|2|is (a \| b)|
 |oppure| \| -barra verticale (pipe)<br><br>È previsto un limite di 2 sulle barre verticali (o) in un gruppo |-|Dove è form ({form-name-Short} &#x7c; {form-name-Long} &#x7c; {form-Number})|
 |inizio e/o fine dell'espressione|^-punto di inserimento|-|^ iniziare il enunciato<br>l'espressione è stata eseguita ^<br>^ corrispondenza letterale Strict dell'intero enunciato con {Number} entità ^|
