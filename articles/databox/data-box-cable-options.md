@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.date: 10/24/2018
 ms.author: alkohli
 ms.openlocfilehash: a2c4cce492c48ebe6e09ad142f97bc6377a8a5e1
-ms.sourcegitcommit: 2a8a53e5438596f99537f7279619258e9ecb357a
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/06/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94334617"
 ---
 # <a name="cabling-options-for-your-azure-data-box"></a>Opzioni di cablaggio per Azure Data Box
@@ -36,7 +36,7 @@ Per cablare il dispositivo, eseguire la procedura seguente.
 
 2. Nel server impostare:
 
-    - L' **indirizzo IP** su 192.168.100.5
+    - L'**indirizzo IP** su 192.168.100.5
     - La **subnet** su 255.255.255.0
 
 3. Accedere all'interfaccia utente Web locale del dispositivo all'indirizzo 192.168.100.10. Accedere e sbloccare Data Box usando la password di sblocco dal portale di Azure.
@@ -62,7 +62,7 @@ Per cablare il dispositivo, eseguire la procedura seguente.
 2. Usare l'interfaccia RJ45 per i cavi DATA 3 o SFP+ per connettere le porte DATA 1 o DATA 2 al server che funge da origine dati. Per assicurare prestazioni ottimali, è consigliabile usare le porte 10-GbE DATA 1 o DATA 2.
 3. Nel server impostare:
 
-   - L' **indirizzo IP** su 192.168.100.5
+   - L'**indirizzo IP** su 192.168.100.5
    - La **subnet** su 255.255.255.0
 
      ![Installazione a due porte](media/data-box-cable-options/cabling-2-port-setup.png)

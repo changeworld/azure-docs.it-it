@@ -18,10 +18,10 @@ ms.author: billmath
 ms.custom: seohack1
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 7f52e46ff9cab7d3d150af9fd7b4f1c432bec74b
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/18/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94836190"
 ---
 # <a name="define-a-hybrid-identity-adoption-strategy"></a>Definire una strategia di adozione della soluzione ibrida di gestione delle identità
@@ -185,17 +185,17 @@ Opzioni di progettazione per l'autenticazione a più fattori:
 | App Microsoft |sì |sì |
 | App SaaS nella Raccolta di app |sì |sì |
 | Le applicazioni IIS pubblicate tramite proxy app per Azure AD |sì |sì |
-| Applicazioni IIS non pubblicate tramite il proxy applicazione Azure AD |No |sì |
-| Accesso remoto, ad esempio VPN, Gateway Desktop remoto |No |sì |
+| Applicazioni IIS non pubblicate tramite il proxy applicazione Azure AD |no |sì |
+| Accesso remoto, ad esempio VPN, Gateway Desktop remoto |no |sì |
 
 Anche se è già stata scelta una soluzione per la strategia, è comunque necessario riesaminare la valutazione riportata in precedenza a seconda di dove risiedono gli utenti  ed eventualmente cambiare il tipo di soluzione.  A questo scopo, usare la tabella seguente:
 
 | Posizione degli utenti | Opzione di progettazione preferita |
 | --- | --- |
 | Azure Active Directory |Multi-Factor Authentication nel cloud |
-| Azure AD e AD locale usando la federazione con AD FS |Entrambe |
-| Azure AD e Active Directory locale con Azure AD Connect, senza sincronizzazione delle password |Entrambe |
-| Azure AD e Active Directory locale con Azure AD Connect, con sincronizzazione delle password |Entrambe |
+| Azure AD e AD locale usando la federazione con AD FS |Entrambi |
+| Azure AD e Active Directory locale con Azure AD Connect, senza sincronizzazione delle password |Entrambi |
+| Azure AD e Active Directory locale con Azure AD Connect, con sincronizzazione delle password |Entrambi |
 | Active Directory locale |Server Multi-Factor Authentication |
 
 > [!NOTE]

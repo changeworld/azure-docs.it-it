@@ -8,10 +8,10 @@ author: msjogarrig
 ms.author: jogarrig
 ms.date: 04/22/2020
 ms.openlocfilehash: c7074981c8491460d6f2a8e7d40d086f261dfeb3
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/27/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98879344"
 ---
 # <a name="publishing-guide-for-azure-applications-solution-template-offers"></a>Guida alla pubblicazione per le offerte del modello di soluzione per applicazioni Azure
@@ -27,7 +27,7 @@ L'opzione di elenco visualizzata da un cliente per questo tipo di offerta è *Ge
 
 ## <a name="requirements-for-solution-template-offers"></a>Requisiti per le offerte del modello di soluzione
 
-| **Requirements** | **Dettagli**  |
+| **Requisiti** | **Dettagli**  |
 | ---------------  | -----------  |
 |Fatturazione e misurazione    |  Le offerte del modello di soluzione non sono offerte di transazione, ma possono essere usate per distribuire offerte di macchine virtuali a pagamento fatturate tramite il Marketplace commerciale Microsoft. Le risorse distribuite dal modello ARM della soluzione vengono configurate nella sottoscrizione di Azure del cliente. Le macchine virtuali con pagamento in base al consumo vengono sottoposte a transazione con il cliente tramite Microsoft e fatturate tramite la sottoscrizione di Azure del cliente.<br/> Per la fatturazione BYOL (Bring your own License), sebbene Microsoft fattura i costi di infrastruttura sostenuti per la sottoscrizione del cliente, è necessario effettuare direttamente le spese di licenza software con il cliente.   |
 |Disco rigido virtuale (VHD) compatibile con Azure  |   Le macchine virtuali devono essere compilate in Windows o Linux. Per altre informazioni, vedere: <ul> <li>[Creare un'offerta di applicazione Azure](./create-new-azure-apps-offer.md) per i dischi rigidi virtuali di Windows.</li><li>[Distribuzioni Linux approvate in Azure](../virtual-machines/linux/endorsed-distros.md) (per dischi rigidi virtuali Linux).</li></ul> |

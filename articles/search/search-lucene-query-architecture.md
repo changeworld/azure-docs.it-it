@@ -9,10 +9,10 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.openlocfilehash: 50a1656fcb92d9777d4a9476ef2a4c1fd2f2efc6
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/25/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96002749"
 ---
 # <a name="full-text-search-in-azure-cognitive-search"></a>Ricerca full-text in Azure ricerca cognitiva
@@ -286,7 +286,7 @@ Per il campo **descrizione**, l'indice è il seguente:
 | costa | 2
 | spazioso | 1
 | il | 1, 2
-| to | 1
+| in | 1
 | vista | 1, 2, 3
 | passeggiata | 1
 | con | 3
@@ -373,7 +373,7 @@ Ciò significa che un punteggio di pertinenza *potrebbe* essere diverso per docu
 
 In genere, il punteggio del documento non è l'attributo migliore per l'ordinamento dei documenti se la stabilità dell'ordine è importante. Ad esempio, dati due documenti con un punteggio identico, non vi sono garanzie circa quale sarà visualizzato per primo in esecuzioni successive della stessa query. Il punteggio del documento deve solo dare un'idea generale della pertinenza del documento relativo ad altri documenti nel set di risultati.
 
-## <a name="conclusion"></a>Conclusioni
+## <a name="conclusion"></a>Conclusione
 
 Il successo dei motori di ricerca Internet ha generato aspettative per la ricerca full-text su dati privati. Per quasi tutti i tipi di esperienza di ricerca, è ora previsto che il motore comprenda il nostro obiettivo, anche quando i termini sono errati o incompleti. Si possono anche prevedere delle corrispondenze basate su termini quasi equivalenti o sinonimi che non abbiamo mai specificato.
 
@@ -399,7 +399,7 @@ Questo articolo ha esplorato la ricerca full-text nel contesto di Azure ricerca 
 
 [Sintassi di query semplice](/rest/api/searchservice/simple-query-syntax-in-azure-search) 
 
-[Sintassi di query Lucene completa](/rest/api/searchservice/lucene-query-syntax-in-azure-search) 
+[Full Lucene query syntax](/rest/api/searchservice/lucene-query-syntax-in-azure-search) (Sintassi di query completa Lucene) 
 
 [Gestire i risultati della ricerca](./search-pagination-page-layout.md)
 

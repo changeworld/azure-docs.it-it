@@ -9,10 +9,10 @@ ms.subservice: language-understanding
 ms.topic: how-to
 ms.date: 05/17/2020
 ms.openlocfilehash: c5c6836c2d68036bf2b9c5abe191943537349b8d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91540966"
 ---
 # <a name="add-entities-to-extract-data"></a>Aggiungere entità per estrarre i dati
@@ -75,7 +75,7 @@ Questo processo funziona per entità, elenco ed entità di espressioni regolari 
     > [!div class="mx-imgBorder"]
     > ![Screenshot della creazione di un'entità Machine Learned.](media/add-entities/machine-learned-entity-with-structure.png)
 
-1. In **Aggiungi sottoentità**aggiungere una sottoentità selezionando nella **+** riga entità padre.
+1. In **Aggiungi sottoentità** aggiungere una sottoentità selezionando nella **+** riga entità padre.
 
     > [!div class="mx-imgBorder"]
     > ![Screenshot dell'aggiunta di sottoentità.](media/add-entities/machine-learned-entity-with-subentities.png)
@@ -116,7 +116,7 @@ Nell'elenco seguente vengono illustrati il nome canonico e i sinonimi.
 
 |Nome elemento elenco colori|Colori-sinonimi|
 |--|--|
-|Rosso|Crimson, Blood, Apple, Fire-Engine|
+|Red|Crimson, Blood, Apple, Fire-Engine|
 |Blu|Sky, cobalto|
 |Green|Kelly, limone|
 
@@ -125,7 +125,7 @@ Utilizzare la procedura per creare un'entità elenco. Una volta creata l'entità
 1. Per aprire l'app, selezionarne il nome nella pagina **app personali** .
 1. Nella sezione **Build** selezionare **entità** nel pannello a sinistra e quindi selezionare **+ Crea**.
 
-1. Nella finestra di dialogo **Crea un tipo di entità** immettere il nome dell'entità, ad esempio `Colors` e l' **elenco**di selezione.
+1. Nella finestra di dialogo **Crea un tipo di entità** immettere il nome dell'entità, ad esempio `Colors` e l' **elenco** di selezione.
 1. Nella finestra di dialogo **Crea entità elenco** , in **Aggiungi nuovo sottoelenco**, immettere il nome dell'elemento di elenco, ad esempio `Green` , quindi aggiungere sinonimi.
 
     > [!div class="mx-imgBorder"]
@@ -153,7 +153,7 @@ In questa procedura aggiungere i `origin` `destination` ruoli e a un'entità geo
 1. Per aprire l'app, selezionarne il nome nella pagina **app personali** .
 1. Nella sezione **Build** (Compila) selezionare **Entities** (Entità) nel pannello a sinistra.
 
-1. Selezionare **+ Aggiungi entità precompilata**. Selezionare **geographyV2** e quindi **fare**clic su fine. Viene aggiunta un'entità predefinita all'app.
+1. Selezionare **+ Aggiungi entità precompilata**. Selezionare **geographyV2** e quindi **fare** clic su fine. Viene aggiunta un'entità predefinita all'app.
 
     Se si rileva che il criterio, quando include Pattern.any, estrae le entità in modo errato, usare un [elenco esplicito](reference-pattern-syntax.md#explicit-lists) per risolvere il problema.
 

@@ -10,10 +10,10 @@ ms.author: sourabha
 ms.reviewer: sstein
 ms.date: 05/19/2020
 ms.openlocfilehash: 3b424ece9207328d87068160f78ebc78a3bd1a8d
-ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/05/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93395224"
 ---
 # <a name="configure-replication-to-azure-sql-edge"></a>Configurare la replica in Azure SQL Edge 
@@ -32,7 +32,7 @@ ms.locfileid: "93395224"
 > [!NOTE]
 > Se si tenta di configurare la replica utilizzando una versione non supportata, è possibile che vengano visualizzati i due errori seguenti: MSSQL_REPL20084 ("Impossibile connettersi al Sottoscrittore") e MSSQL_REPL40532 ("Impossibile aprire il server \<name> richiesto dall'account di accesso. Accesso non riuscito. ").  
 
-## <a name="remarks"></a>Osservazioni
+## <a name="remarks"></a>Commenti
 
 Quando si configura la replica, è importante comprendere i requisiti e le procedure consigliate seguenti:
 
@@ -83,7 +83,7 @@ Le opzioni seguenti non sono supportate per le sottoscrizioni di Azure SQL Edge:
 Creare una pubblicazione e una sottoscrizione push. Per altre informazioni, vedere:
   
 - [Creazione di una pubblicazione](/sql/relational-databases/replication/publish/create-a-publication)
-- [Creare una sottoscrizione push](/sql/relational-databases/replication/create-a-push-subscription/) usando il nome e l'indirizzo IP del server perimetrale di Azure SQL come Sottoscrittore (ad esempio, **myEdgeinstance, 1433** ) e un nome di database nell'istanza di Azure SQL Edge come database di destinazione (ad esempio, **AdventureWorks** ).  
+- [Creare una sottoscrizione push](/sql/relational-databases/replication/create-a-push-subscription/) usando il nome e l'indirizzo IP del server perimetrale di Azure SQL come Sottoscrittore (ad esempio, **myEdgeinstance, 1433**) e un nome di database nell'istanza di Azure SQL Edge come database di destinazione (ad esempio, **AdventureWorks**).  
 
 ## <a name="next-steps"></a>Passaggi successivi  
 

@@ -7,10 +7,10 @@ ms.topic: how-to
 ms.date: 11/22/2017
 ms.custom: devx-track-python
 ms.openlocfilehash: d6066bd6ec2a4c986ae17ad0cce3e7f6f73b21e7
-ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/20/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92219973"
 ---
 # <a name="develop-u-sql-with-python-r-and-c-for-azure-data-lake-analytics-in-visual-studio-code"></a>Eseguire lo sviluppo U-SQL con Python, R e C# per Azure Data Lake Analytics in Visual Studio Code
@@ -22,7 +22,7 @@ Prima di scrivere codice personalizzato code-behind, è necessario aprire una ca
 ## <a name="prerequisites-for-python-and-r"></a>Prerequisiti per Python e R
 Registrare gli assembly di estensioni di Python e R per l'account ADL. 
 1. Aprire l'account nel portale.
-   - Selezionare **Panoramica**. 
+   - Selezionare la scheda di **informazioni generali**. 
    - Fare clic su **Script di esempio**.
 2. Fare clic su **Altro**.
 3. Selezionare **Installa estensioni U-SQL**. 

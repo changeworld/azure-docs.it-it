@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.date: 11/14/2019
 ms.author: victorh
 ms.openlocfilehash: cb0f9ef64cb8032c02f2ccd4b42028103b6d3ec6
-ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/05/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93397927"
 ---
 # <a name="configure-tls-policy-versions-and-cipher-suites-on-application-gateway"></a>Configurare le versioni dei criteri TLS e i pacchetti di crittografia nel gateway applicazione
@@ -191,7 +191,7 @@ $appgw = New-AzApplicationGateway -Name appgwtest -ResourceGroupName $rg.Resourc
 
 ## <a name="update-an-existing-application-gateway-with-a-pre-defined-tls-policy"></a>Aggiornare un gateway applicazione esistente con criteri TLS predefiniti
 
-Per impostare un criterio TLS personalizzato, passare i parametri seguenti: **PolicyType** , **MinProtocolVersion** , **ciphersuite** e **ApplicationGateway**. Per impostare un criterio TLS predefinito, passare i parametri seguenti: **PolicyType** , **PolicyName** e **ApplicationGateway**. Se si prova a passare altri parametri, viene visualizzato un errore quando si crea o si aggiorna il gateway applicazione.
+Per impostare un criterio TLS personalizzato, passare i parametri seguenti: **PolicyType**, **MinProtocolVersion**, **ciphersuite** e **ApplicationGateway**. Per impostare un criterio TLS predefinito, passare i parametri seguenti: **PolicyType**, **PolicyName** e **ApplicationGateway**. Se si prova a passare altri parametri, viene visualizzato un errore quando si crea o si aggiorna il gateway applicazione.
 
 Nell'esempio seguente sono disponibili esempi di codice sia per il criterio personalizzato che per il criterio predefinito. Rimuovere il commento dal criterio che si vuole usare.
 

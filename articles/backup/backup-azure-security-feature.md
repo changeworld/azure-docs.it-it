@@ -5,10 +5,10 @@ ms.reviewer: utraghuv
 ms.topic: conceptual
 ms.date: 06/08/2017
 ms.openlocfilehash: 8c671b1b54b937f518f7179bb6940f31a28a78d4
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/18/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94841019"
 ---
 # <a name="security-features-to-help-protect-hybrid-backups-that-use-azure-backup"></a>Funzionalità di sicurezza per la protezione dei backup ibridi che usano Backup di Azure
@@ -89,7 +89,7 @@ Nell'ambito dell'aggiunta di un ulteriore livello di autenticazione per le opera
 Per ricevere questo PIN:
 
 1. Accedere al portale di Azure.
-2. Individuare **Recovery Services vault**  >  **le proprietà delle impostazioni** dell'insieme di credenziali dei servizi di ripristino  >  **Properties**.
+2. Individuare   >  **le proprietà delle impostazioni** dell'insieme di credenziali dei servizi di ripristino  >  .
 3. In **pin di sicurezza** selezionare **genera**. Verrà aperto un riquadro che contiene il PIN da immettere nell'interfaccia utente dell'agente di servizi di ripristino di Azure.
     Questo PIN è valido solo per cinque minuti e viene generato automaticamente dopo questo periodo.
 
@@ -110,7 +110,7 @@ Le funzionalità di sicurezza descritte in questo articolo offrono meccanismi di
 
 ## <a name="troubleshooting-errors"></a>Risoluzione dei problemi
 
-| Operazione | Dettagli errore | Risoluzione |
+| Operazione | Dettagli errore | Soluzione |
 | --- | --- | --- |
 | Modifica dei criteri |Non è possibile modificare i criteri di backup. Errore: Impossibile eseguire l'operazione corrente a causa di un errore di servizio interno [0x29834]. Ripetere l'operazione in un secondo momento. Se il problema persiste, contattare il supporto tecnico Microsoft. |**Causa:**<br/>Questo errore viene visualizzato quando sono abilitate le impostazioni di sicurezza, si tenta di ridurre il periodo di mantenimento dati al di sotto dei valori minimi specificati in precedenza e si usa una versione non supportata. le versioni supportate sono specificate nella prima nota di questo articolo. <br/>**Azione consigliata:**<br/> In questo caso, per procedere con gli aggiornamenti relativi ai criteri è consigliabile impostare un periodo di memorizzazione maggiore del valore minimo specificato (sette giorni per il backup giornaliero, quattro settimane per il backup settimanale, tre settimane per il backup mensile e un anno per il backup annuale). Facoltativamente, un approccio consigliato consiste nell'aggiornare l'agente di backup, server di Backup di Azure e/o DPM UR per sfruttare tutti gli aggiornamenti della sicurezza. |
 | Modificare la passphrase |Il PIN di sicurezza immesso non è corretto. (ID: 100130) Specificare il PIN di sicurezza corretto per completare questa operazione. |**Causa:**<br/> Questo errore si verifica quando si immette un PIN di sicurezza non valido o scaduto durante l'esecuzione di operazioni critiche, ad esempio la modifica della passphrase. <br/>**Azione consigliata:**<br/> Per completare l'operazione, è necessario immettere un PIN di sicurezza valido. Per ottenere il PIN, accedere a portale di Azure e passare a insieme di credenziali di servizi di ripristino > impostazioni > proprietà > genera PIN di sicurezza. Usare questo PIN per modificare la passphrase. |

@@ -9,10 +9,10 @@ ms.author: brendm
 ms.custom: devx-track-java
 zone_pivot_groups: programming-languages-spring-cloud
 ms.openlocfilehash: a78aec8c18f3b89629bbf696de3a097397ac59bc
-ms.sourcegitcommit: 2a8a53e5438596f99537f7279619258e9ecb357a
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/06/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94337917"
 ---
 # <a name="use-distributed-tracing-with-azure-spring-cloud"></a>Usare la traccia distribuita con Azure Spring Cloud
@@ -37,7 +37,7 @@ Per Steeltoe 3.0.0, aggiungere il pacchetto NuGet seguente:
 
 * [Steeltoe. Management. TracingCore](https://www.nuget.org/packages/Steeltoe.Management.TracingCore/)
 
-## <a name="update-startupcs"></a>Aggiornare Startup.cs
+## <a name="update-startupcs"></a>Aggiorna Startup. cs
 
 1. Per Steeltoe 2.4.4, chiamare `AddDistributedTracing` e `AddZipkinExporter` nel `ConfigureServices` metodo.
 
@@ -79,7 +79,7 @@ Aggiungere le impostazioni seguenti all'origine configurazione che verrà usata 
 
 1. Impostare `management.tracing.alwaysSample` su true.
 
-2. Se si desidera visualizzare gli intervalli di traccia inviati tra il server Eureka, il server di configurazione e le app utente: impostare `management.tracing.egressIgnorePattern` su "/API/v2/spans |/V2/Apps/. */Permissions |/Eureka/.* | /oauth/.*".
+2. Se si desidera visualizzare gli intervalli di traccia inviati tra il server Eureka, il server di configurazione e le app utente: impostare `management.tracing.egressIgnorePattern` su "/API/v2/spans |/V2/Apps/.*/Permissions |/Eureka/.*| /oauth/.*".
 
 Ad esempio, *appsettings.jsin* include le proprietà seguenti:
  

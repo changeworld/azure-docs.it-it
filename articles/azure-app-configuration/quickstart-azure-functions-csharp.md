@@ -9,10 +9,10 @@ ms.topic: quickstart
 ms.date: 09/28/2020
 ms.author: alkemper
 ms.openlocfilehash: 9d378b21132e6646329c459401255ef9a3ed9426
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/23/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98724240"
 ---
 # <a name="quickstart-create-an-azure-functions-app-with-azure-app-configuration"></a>Avvio rapido: Creare un'app Funzioni di Azure con Configurazione app di Azure
@@ -31,7 +31,7 @@ In questa guida di avvio rapido si incorpora il servizio Configurazione app di A
 
 7. Selezionare **Esplora configurazioni** >  **+ Crea** > **Coppia chiave-valore** per aggiungere le chiavi chiave-valore seguenti:
 
-    | Chiave | valore |
+    | Chiave | Valore |
     |---|---|
     | TestApp:Settings:Message | Dati di Configurazione app di Azure |
 

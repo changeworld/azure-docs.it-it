@@ -13,15 +13,15 @@ ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: 06253b571fd71623501c27fd5b0d9d4013727fc2
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/18/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94840192"
 ---
 # <a name="user-flows-in-azure-active-directory-b2c"></a>Flussi utente in Azure Active Directory B2C
 
-Per semplificare la configurazione delle attività di identità più comuni per le applicazioni, il portale di Azure AD B2C include criteri predefiniti e configurabili detti **flussi utente**. Un flusso utente consente di determinare il modo in cui gli utenti interagiscono con l'applicazione quando eseguono operazioni come l'accesso, l'iscrizione, la modifica di un profilo o la reimpostazione della password. Con i flussi utente è possibile controllare le funzionalità seguenti:
+Per consentire di configurare le più comuni attività di gestione delle identità per le applicazioni, il portale di Azure AD B2C include criteri predefiniti e configurabili chiamati **flussi utente**. Un flusso utente consente di determinare il modo in cui gli utenti interagiscono con l'applicazione quando eseguono operazioni come l'accesso, l'iscrizione, la modifica di un profilo o la reimpostazione della password. Con i flussi utente è possibile controllare le funzionalità seguenti:
 
 - I tipi di account usati per l'accesso, ad esempio account di social networking, come Facebook o account locali
 - Gli attributi da raccogliere dall'utente, ad esempio nome, codice postale e misura del piede

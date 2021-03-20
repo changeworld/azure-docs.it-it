@@ -8,10 +8,10 @@ ms.date: 04/10/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
 ms.openlocfilehash: ad47ac7d51de6ab497d7061961c14b5324fab931
-ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/14/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98202454"
 ---
 # <a name="azure-security-baseline-for-key-vault"></a>Baseline di sicurezza di Azure per Key Vault
@@ -26,7 +26,7 @@ Per altre informazioni, vedere [Panoramica delle baseline di sicurezza di Azure]
 
 *Per altre informazioni, vedere [Controllo di sicurezza: sicurezza di rete](../../security/benchmarks/security-control-network-security.md).*
 
-### <a name="11-protect-resources-using-network-security-groups-or-azure-firewall-on-your-virtual-network"></a>1.1: proteggere le risorse usando i gruppi di sicurezza di rete o il firewall di Azure nella rete virtuale
+### <a name="11-protect-resources-using-network-security-groups-or-azure-firewall-on-your-virtual-network"></a>1.1: proteggere le risorse usando i gruppi di sicurezza di rete o Firewall di Azure nella rete virtuale
 
 **Linee guida**: integrare Azure Key Vault con il collegamento privato di Azure. 
 

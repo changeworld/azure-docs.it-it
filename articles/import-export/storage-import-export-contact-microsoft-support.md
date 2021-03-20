@@ -9,10 +9,10 @@ ms.date: 01/14/2021
 ms.author: alkohli
 ms.subservice: common
 ms.openlocfilehash: 03d953bd534595e47702642403626a05b7f67aba
-ms.sourcegitcommit: 75041f1bce98b1d20cd93945a7b3bd875e6999d0
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/22/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98706624"
 ---
 # <a name="open-a-support-ticket-for-an-importexport-job"></a>Aprire un ticket di supporto per un processo di Importazione/Esportazione
@@ -28,7 +28,7 @@ Per creare una richiesta di supporto, attenersi alla procedura seguente.
 
 1. Andare al processo di importazione/esportazione. Passare alla sezione **supporto e risoluzione dei problemi** e quindi selezionare **nuova richiesta di supporto**.
      
-    ![Operazioni di base](./media/storage-import-export-contact-microsoft-support/import-export-support1.png)
+    ![Nozioni di base](./media/storage-import-export-contact-microsoft-support/import-export-support1.png)
    
 2. In **Nuova richiesta di supporto** selezionare **Informazioni di base**. In **Informazioni di base** seguire questa procedura:
     

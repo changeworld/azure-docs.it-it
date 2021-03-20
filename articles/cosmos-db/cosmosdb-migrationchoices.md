@@ -7,10 +7,10 @@ ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 09/01/2020
 ms.openlocfilehash: 8721c0eb728f568521e86baecb658dc9c869a7f6
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93097584"
 ---
 # <a name="options-to-migrate-your-on-premises-or-cloud-data-to-azure-cosmos-db"></a>Opzioni per la migrazione dei dati locali o cloud a Azure Cosmos DB
@@ -27,17 +27,17 @@ Per supportare i percorsi di migrazione dalle diverse origini alle diverse API d
 
 ## <a name="factors-affecting-the-choice-of-migration-tool"></a>Fattori che influiscono sulla scelta dello strumento di migrazione
 
-Di seguito sono riportati i fattori che determinano la scelta dello strumento di migrazione:
+I fattori seguenti determinano la scelta dello strumento di migrazione:
 
-* **Migrazione in linea** e non in linea: molti strumenti di migrazione forniscono un percorso per eseguire solo una migrazione unica. Ciò significa che le applicazioni che accedono al database potrebbero riscontrare un periodo di inattività. Alcune soluzioni di migrazione forniscono un modo per eseguire una migrazione in tempo reale in cui è configurata una pipeline di replica tra l'origine e la destinazione.
+* **Differenza tra migrazione online e offline**: Molti strumenti di migrazione offrono un percorso per eseguire una sola migrazione. Questo significa che le applicazioni che accedono al database potrebbero riscontrare un tempo di inattività. Alcune soluzioni di migrazione offrono un modo per eseguire una migrazione in tempo reale in cui è configurata una pipeline di replica tra l'origine e la destinazione.
 
-* **Origine dati** : i dati esistenti possono trovarsi in varie origini dati, ad esempio Oracle DB2, Datastax Cassanda, database SQL di Azure, PostgreSQL e così via. I dati possono anche trovarsi in un account di Azure Cosmos DB esistente e lo scopo della migrazione può essere modificare il modello di dati o ripartizionare i dati in un contenitore con una chiave di partizione diversa.
+* **Origine dati**: i dati esistenti possono trovarsi in varie origini dati, ad esempio Oracle DB2, Datastax Cassanda, database SQL di Azure, PostgreSQL e così via. I dati possono anche trovarsi in un account di Azure Cosmos DB esistente e lo scopo della migrazione può essere modificare il modello di dati o ripartizionare i dati in un contenitore con una chiave di partizione diversa.
 
-* **Azure Cosmos DB API** : per l'API SQL in Azure Cosmos DB, sono disponibili numerosi strumenti sviluppati dal team Azure Cosmos DB che facilitano i diversi scenari di migrazione. Tutte le altre API hanno un proprio set specializzato di strumenti sviluppati e gestiti dalla community. Poiché Azure Cosmos DB supporta queste API a livello di protocollo wire, questi strumenti dovrebbero funzionare così come sono durante la migrazione dei dati anche Azure Cosmos DB. Tuttavia, potrebbero richiedere una gestione personalizzata per le limitazioni, perché questo concetto è specifico per Azure Cosmos DB.
+* **API di Azure Cosmos DB**: Per l'API SQL in Azure Cosmos DB, è disponibile un'ampia gamma di strumenti sviluppati dal team Azure Cosmos DB che risulta utile nei diversi scenari di migrazione. Tutte le altre API hanno un proprio set specializzato di strumenti sviluppati e gestiti dalla community. Poiché Azure Cosmos DB supporta queste API a livello di protocollo di collegamento, gli strumenti devono funzionare così come sono anche durante la migrazione dei dati in Azure Cosmos DB. Tuttavia, potrebbero richiedere una gestione personalizzata per le limitazioni perché questo concetto è specifico di Azure Cosmos DB.
 
-* **Dimensioni dei dati** : la maggior parte degli strumenti di migrazione funziona molto bene per i set di dati più piccoli. Quando il set di dati supera alcune centinaia di Gigabyte, le scelte degli strumenti di migrazione sono limitate. 
+* **Dimensione dei dati**: La maggior parte degli strumenti di migrazione funziona molto bene per i set di dati di dimensioni inferiori. Se la dimensione dei set di dati supera alcune centinaia di gigabyte, la scelta degli strumenti di migrazione è limitata. 
 
-* **Durata della migrazione prevista** : le migrazioni possono essere configurate in modo da avere un ritmo lento e incrementale che consuma meno velocità effettiva o può utilizzare l'intera velocità effettiva di cui è stato effettuato il provisioning sul contenitore Azure Cosmos DB di destinazione e completare la migrazione in meno tempo.
+* **Durata prevista della migrazione**: Le migrazioni possono essere configurate in modo da avere un ritmo lento e incrementale con una velocità effettiva minore oppure in modo da poter usare l'intera velocità effettiva concessa al contenitore di destinazione di Azure Cosmos DB completando la migrazione in meno tempo.
 
 ## <a name="azure-cosmos-db-sql-api"></a>API SQL Azure Cosmos DB
 
@@ -73,7 +73,7 @@ Di seguito sono riportati i fattori che determinano la scelta dello strumento di
 
 Per le API diverse dall'API SQL, dall'API Mongo e dal API Cassandra, sono disponibili diversi strumenti supportati da ogni ecosistema esistente dell'API. 
 
-**API Tabella** 
+**API di tabella** 
 
 * [Utilità di migrazione dati](table-import.md#data-migration-tool)
 * [AzCopy](table-import.md#migrate-data-by-using-azcopy)

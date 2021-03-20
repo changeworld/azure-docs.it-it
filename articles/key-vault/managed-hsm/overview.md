@@ -11,10 +11,10 @@ ms.date: 09/15/2020
 ms.author: mbaldwin
 author: msmbaldwin
 ms.openlocfilehash: 95feeebf009cae22cf3952df80596c12e75cbe4b
-ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
-ms.translationtype: HT
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/07/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94357573"
 ---
 # <a name="what-is-azure-key-vault-managed-hsm-preview"></a>Che cos'è il modulo di protezione hardware gestito di Azure Key Vault (anteprima)?
@@ -25,17 +25,17 @@ Il modulo di protezione hardware gestito di Azure Key Vault è un servizio cloud
 
 ### <a name="fully-managed-highly-available-single-tenant-hsm-as-a-service"></a>Modulo di protezione hardware come servizio completamente gestito, a disponibilità elevata e a tenant singolo
 
-- **Completamente gestito** : le attività di provisioning, configurazione, applicazione di patch e manutenzione del modulo di protezione hardware sono gestite dal servizio. 
+- **Completamente gestito**: le attività di provisioning, configurazione, applicazione di patch e manutenzione del modulo di protezione hardware sono gestite dal servizio. 
 - **A disponibilità elevata e con resilienza della zona** (dove sono supportate le zone di disponibilità): ogni cluster di moduli di protezione hardware è costituito da più partizioni HSM che si estendono su almeno due zone di disponibilità. In caso di guasto dell'hardware, verrà eseguita automaticamente la migrazione delle partizioni membro del cluster di moduli di protezione hardware in nodi integri.
-- **A tenant singolo** : ogni istanza di modulo di protezione hardware gestito è dedicata a un singolo cliente ed è costituita da un cluster di più partizioni HSM. Ogni cluster di moduli di protezione hardware usa un dominio di sicurezza specifico del cliente, che isola tramite crittografia il cluster di moduli di protezione hardware di ciascun cliente.
+- **A tenant singolo**: ogni istanza di modulo di protezione hardware gestito è dedicata a un singolo cliente ed è costituita da un cluster di più partizioni HSM. Ogni cluster di moduli di protezione hardware usa un dominio di sicurezza specifico del cliente, che isola tramite crittografia il cluster di moduli di protezione hardware di ciascun cliente.
 
 
 ### <a name="access-control-enhanced-data-protection--compliance"></a>Controllo di accesso, protezione avanzata dei dati e conformità
 
-- **Gestione centralizzata delle chiavi** : le chiavi con valore elevato di importanza critica nell'intera organizzazione vengono gestite in un'unica posizione. Con le autorizzazioni granulari per chiave è possibile controllare l'accesso a ogni chiave in base al principio dei privilegi di accesso minimi.
-- **Controllo di accesso isolato** : il modello di controllo degli accessi in base al ruolo locale del modulo di protezione hardware gestito consente agli amministratori designati del cluster di moduli di protezione hardware di avere il controllo completo su tali moduli e nemmeno gli amministratori del gruppo di gestione, della sottoscrizione o del gruppo di risorse possono aggirare questo controllo.
-- **Moduli di protezione hardware convalidati in base agli standard FIPS 140-2 livello 3** : è possibile proteggere i dati e soddisfare i requisiti di conformità con i moduli di protezione hardware convalidati in base agli standard FIPS (Federal Information Protection Standard) 140-2 livello 3. I moduli di protezione hardware gestiti usano schede HSM Marvell LiquidSecurity.
-- **Monitoraggio e controllo** : integrazione completa con Monitoraggio di Azure. È possibile ottenere i log completi di tutte le attività tramite Monitoraggio di Azure e usare Azure Log Analytics per l'analisi e gli avvisi.
+- **Gestione centralizzata delle chiavi**: le chiavi con valore elevato di importanza critica nell'intera organizzazione vengono gestite in un'unica posizione. Con le autorizzazioni granulari per chiave è possibile controllare l'accesso a ogni chiave in base al principio dei privilegi di accesso minimi.
+- **Controllo di accesso isolato**: il modello di controllo degli accessi in base al ruolo locale del modulo di protezione hardware gestito consente agli amministratori designati del cluster di moduli di protezione hardware di avere il controllo completo su tali moduli e nemmeno gli amministratori del gruppo di gestione, della sottoscrizione o del gruppo di risorse possono aggirare questo controllo.
+- **Moduli di protezione hardware convalidati in base agli standard FIPS 140-2 livello 3**: è possibile proteggere i dati e soddisfare i requisiti di conformità con i moduli di protezione hardware convalidati in base agli standard FIPS (Federal Information Protection Standard) 140-2 livello 3. I moduli di protezione hardware gestiti usano schede HSM Marvell LiquidSecurity.
+- **Monitoraggio e controllo**: integrazione completa con Monitoraggio di Azure. È possibile ottenere i log completi di tutte le attività tramite Monitoraggio di Azure e usare Azure Log Analytics per l'analisi e gli avvisi.
 
 ### <a name="integrated-with-azure-and-microsoft-paassaas-services"></a>Integrazione con i servizi PaaS/SaaS di Azure e Microsoft 
 

@@ -10,10 +10,10 @@ ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
 ms.openlocfilehash: 7be4a4c601d3f33972c1e52596ef623116dcadd4
-ms.sourcegitcommit: d7d5f0da1dda786bda0260cf43bd4716e5bda08b
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/05/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97897077"
 ---
 # <a name="create-resource-pools-for-your-private-cloud-with-azure-subscription-mapping"></a>Creare pool di risorse per il cloud privato con mapping della sottoscrizione di Azure
@@ -28,6 +28,6 @@ Il mapping delle sottoscrizioni di Azure consente di creare pool di risorse per 
 4. Per mappare i pool di risorse disponibili, selezionarli a sinistra e fare clic sulla freccia rivolta verso destra. 
 5. Per rimuovere i mapping, selezionarli a destra e fare clic sulla freccia rivolta verso sinistra. 
 
-    ![Sottoscrizioni di Azure](media/resources-azure-mapping.png)
+    ![Sottoscrizioni Azure](media/resources-azure-mapping.png)
 
 6. Fare clic su **OK**.

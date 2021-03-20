@@ -8,10 +8,10 @@ ms.service: postgresql
 ms.topic: overview
 ms.date: 09/21/2020
 ms.openlocfilehash: 18d944cd2b3bfde1a0ee5fc53e83e4016b11b01f
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/14/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100379217"
 ---
 # <a name="azure-database-for-postgresql-single-server"></a>Server singolo di Database di Azure per PostgreSQL
@@ -26,7 +26,7 @@ In questo articolo verranno fornite una panoramica e un'introduzione ai concetti
 
 ## <a name="overview"></a>Panoramica
 
-Server singolo è un servizio di database completamente gestito con requisiti minimi per le personalizzazioni del database. La piattaforma server singolo è progettata per gestire la maggior parte delle funzioni di gestione di database, ad esempio l'applicazione di patch, i backup, la disponibilità elevata e la sicurezza con configurazione e controllo minimi dell'utente. L'architettura è ottimizzata per offrire una disponibilità del 99,99% in una singola zona di disponibilità. Supporta attualmente la versione community di PostgreSQL 9.5, 9.6, 10 e 11. Il servizio è attualmente disponibile a livello generale in un'ampia gamma di [aree di Azure](https://azure.microsoft.com/global-infrastructure/services/).
+Il server singolo è un servizio di database completamente gestito con requisiti minimi per le personalizzazioni del database. La piattaforma server singolo è progettata per gestire la maggior parte delle funzioni di gestione di database, ad esempio l'applicazione di patch, i backup, la disponibilità elevata e la sicurezza con configurazione e controllo minimi dell'utente. L'architettura è ottimizzata per offrire una disponibilità del 99,99% in una singola zona di disponibilità. Supporta attualmente la versione community di PostgreSQL 9.5, 9.6, 10 e 11. Il servizio è attualmente disponibile a livello generale in un'ampia gamma di [aree di Azure](https://azure.microsoft.com/global-infrastructure/services/).
 
 I server singoli sono ideali per applicazioni native per il cloud progettate per gestire l'applicazione automatizzata di patch senza la necessità di un controllo granulare sulla pianificazione dell'applicazione di patch e sulle impostazioni di configurazione di PostgreSQL personalizzate.
 
@@ -75,7 +75,7 @@ Per altre informazioni sulle funzionalità di sicurezza di Database di Azure per
 
 ## <a name="monitoring-and-alerting"></a>Monitoraggio e avviso
 
-Il servizio server singolo è dotato di funzionalità predefinite di monitoraggio delle prestazioni e di avviso. Tutte le metriche di Azure hanno una frequenza di un minuto e offrono una cronologia di 30 giorni. È possibile configurare avvisi in base alle metriche. Il servizio consente la configurazione di log di query lente ed è dotato di una funzionalità [Archivio query](./concepts-query-store.md) differenziata. Query Store semplifica la risoluzione dei problemi di prestazioni consentendo di trovare rapidamente le query con il tempo di esecuzione più lungo e il più elevato utilizzo di risorse. Grazie a questi strumenti, è possibile ottimizzare rapidamente i carichi di lavoro e configurare il server per ottenere prestazioni ottimali. Per informazioni dettagliate, vedere [Monitoraggio](./concepts-monitoring.md).
+Il servizio server singolo è dotato di funzionalità predefinite di monitoraggio delle prestazioni e invio di avvisi. Tutte le metriche di Azure hanno una frequenza di un minuto e offrono una cronologia di 30 giorni. È possibile configurare avvisi in base alle metriche. Il servizio consente la configurazione di log di query lente ed è dotato di una funzionalità [Archivio query](./concepts-query-store.md) differenziata. Query Store semplifica la risoluzione dei problemi di prestazioni consentendo di trovare rapidamente le query con il tempo di esecuzione più lungo e il più elevato utilizzo di risorse. Grazie a questi strumenti, è possibile ottimizzare rapidamente i carichi di lavoro e configurare il server per ottenere prestazioni ottimali. Per informazioni dettagliate, vedere [Monitoraggio](./concepts-monitoring.md).
 
 ## <a name="migration"></a>Migrazione
 

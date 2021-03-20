@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 07/28/2020
 ms.author: jeedes
 ms.openlocfilehash: 649a26e474c7c4d6b4f51a035b3f8f9da35b9dd1
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
-ms.translationtype: HT
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/24/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92511155"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-raketa"></a>Esercitazione: Integrazione dell'accesso Single Sign-On (SSO) di Azure Active Directory con Raketa
@@ -39,7 +39,7 @@ Per iniziare, sono necessari gli elementi seguenti:
 
 In questa esercitazione vengono eseguiti la configurazione e il test dell'accesso Single Sign-On di Azure AD in un ambiente di test.
 
-* Raketa supporta l'accesso SSO avviato dal **provider di servizi** .
+* Raketa supporta l'accesso SSO avviato dal **provider di servizi**.
 * Dopo aver configurato Raketa, è possibile applicare il controllo sessione che consente di proteggere in tempo reale l'esfiltrazione e l'infiltrazione dei dati sensibili dell'organizzazione. Il controllo sessione costituisce un'estensione dell'accesso condizionale. [Informazioni su come applicare il controllo sessione con Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).
 
 ## <a name="adding-raketa-from-the-gallery"></a>Aggiunta di Raketa dalla raccolta
@@ -66,12 +66,12 @@ Per configurare l'integrazione di Raketa in Azure AD, è necessario aggiungere R
 
 ## <a name="configure-and-test-azure-ad-single-sign-on-for-raketa"></a>Configurare e testare l'accesso Single Sign-On di Azure AD per Raketa
 
-Configurare e testare l'accesso SSO di Azure AD con Raketa usando un utente di test di nome **B.Simon** . Per consentire il funzionamento dell'accesso Single Sign-On, è necessario stabilire una relazione di collegamento tra un utente di Azure AD e l'utente correlato in Raketa.
+Configurare e testare l'accesso SSO di Azure AD con Raketa usando un utente di test di nome **B.Simon**. Per consentire il funzionamento dell'accesso Single Sign-On, è necessario stabilire una relazione di collegamento tra un utente di Azure AD e l'utente correlato in Raketa.
 
 Per configurare e testare l'accesso SSO di Azure AD con Raketa, completare le procedure di base seguenti:
 
 1. **[Configurare l'accesso Single Sign-On di Azure AD](#configure-azure-ad-sso)** : per consentire agli utenti di usare questa funzionalità.
-    1. **[Creare un utente di test di Azure AD](#create-an-azure-ad-test-user)** : per testare l'accesso Single Sign-On di Azure AD con l'utente B. Simon.
+    1. **[Creare un utente di test di Azure AD](#create-an-azure-ad-test-user)** : per testare l'accesso Single Sign-On di Azure AD con l'utente B.Simon.
     1. **[Assegnare l'utente di test di Azure AD](#assign-the-azure-ad-test-user)** : per abilitare B.Simon all'uso dell'accesso Single Sign-On di Azure AD.
 1. **[Configurare l'accesso Single Sign-On di Raketa](#configure-raketa-sso)** : per configurare le impostazioni di Single Sign-On sul lato applicazione.
     1. **[Creare l'utente di test di Raketa](#create-raketa-test-user)** : per avere una controparte di B.Simon in Raketa collegata alla rappresentazione dell'utente in Azure AD.
@@ -152,7 +152,7 @@ In questa sezione si abiliterà B.Simon all'uso dell'accesso Single Sign-On di A
 
     ![rkt_11](./media/raketa-tutorial/users-groups.png)
 
-1. Selezionare **Aggiungi utente** [29] e quindi **Utenti e gruppi** [30] nella finestra di dialogo **Aggiungi assegnazione** .
+1. Selezionare **Aggiungi utente** [29] e quindi **Utenti e gruppi** [30] nella finestra di dialogo **Aggiungi assegnazione**.
 
     ![rkt_12](./media/raketa-tutorial/add-user-raketa.png)
 
@@ -166,7 +166,7 @@ In questa sezione si abiliterà B.Simon all'uso dell'accesso Single Sign-On di A
 
 ## <a name="configure-raketa-sso"></a>Configura l'accesso Single Sign-On di Raketa
 
-Per configurare l'accesso Single Sign-On sul lato **Raketa** , è necessario inviare il **certificato (Base64)** scaricato e gli URL appropriati, copiati dal portale di Azure, al [team di supporto di Raketa](mailto:help@raketa.travel). La configurazione viene eseguita in modo che la connessione SSO SAML sia impostata correttamente su entrambi i lati.
+Per configurare l'accesso Single Sign-On sul lato **Raketa**, è necessario inviare il **certificato (Base64)** scaricato e gli URL appropriati, copiati dal portale di Azure, al [team di supporto di Raketa](mailto:help@raketa.travel). La configurazione viene eseguita in modo che la connessione SSO SAML sia impostata correttamente su entrambi i lati.
 
 ### <a name="create-raketa-test-user"></a>Creare l'utente di test di Raketa
 

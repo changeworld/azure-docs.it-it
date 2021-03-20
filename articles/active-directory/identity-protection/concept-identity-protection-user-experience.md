@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 4d4897b9187caab50be4db75bbc0af03e3d35aa4
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/18/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94835986"
 ---
 # <a name="user-experiences-with-azure-ad-identity-protection"></a>Esperienze utente con Azure AD Identity Protection
@@ -80,7 +80,7 @@ Gli amministratori possono scegliere di bloccare gli utenti al momento dell'acce
 
 Il personale IT può seguire le istruzioni nella sezione [sblocco degli utenti](howto-identity-protection-remediate-unblock.md#unblocking-based-on-user-risk) per consentire agli utenti di accedere di nuovo.
 
-## <a name="see-also"></a>Vedere anche
+## <a name="see-also"></a>Vedi anche
 
 - [Correggere i rischi e sbloccare gli utenti](howto-identity-protection-remediate-unblock.md)
 
