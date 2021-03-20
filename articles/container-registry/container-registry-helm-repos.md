@@ -4,10 +4,10 @@ description: Informazioni su come archiviare i grafici Helm per le applicazioni 
 ms.topic: article
 ms.date: 06/12/2020
 ms.openlocfilehash: 69b16f35589586787e1c31a0e9755b9030af755d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "86537868"
 ---
 # <a name="push-and-pull-helm-charts-to-an-azure-container-registry"></a>Eseguire il push e il pull di grafici Helm in un registro contenitori di Azure
@@ -93,7 +93,7 @@ Per altre informazioni sulla creazione e sull'esecuzione di questo esempio, vede
 
 Modificare la directory nella `hello-world` sottodirectory. Eseguire quindi `helm chart save` per salvare una copia del grafico localmente e creare anche un alias con il nome completo del registro di sistema (tutti minuscoli) e il repository e il tag di destinazione. 
 
-Nell'esempio seguente il nome del registro di sistema è *mycontainerregistry*, il repository di destinazione è *Hello-World*e il tag del grafico di destinazione è *V1*, ma sostituisce i valori per l'ambiente:
+Nell'esempio seguente il nome del registro di sistema è *mycontainerregistry*, il repository di destinazione è *Hello-World* e il tag del grafico di destinazione è *V1*, ma sostituisce i valori per l'ambiente:
 
 ```console
 cd ..

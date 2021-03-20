@@ -13,10 +13,10 @@ ms.custom: seodec18
 ms.date: 03/27/2019
 ms.author: mbaldwin
 ms.openlocfilehash: d83d688707baf6098d63dfde9b4181eb04fb9729
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "70881014"
 ---
 # <a name="azure-dedicated-hsm-supportability"></a>Supporto di HSM dedicato di Azure
@@ -24,7 +24,7 @@ ms.locfileid: "70881014"
 Il servizio HSM dedicato di Azure offre un dispositivo fisico ad uso esclusivo del cliente, con controllo amministrativo completo e piena responsabilità di gestione. Il dispositivo reso disponibile è un [Gemalto SafeNet Luna Network HSM 7 modello A790](https://safenet.gemalto.com/data-encryption/hardware-security-modules-hsms/safenet-network-hsm/). Dopo il provisioning al cliente, Microsoft non avrà alcun accesso amministrativo, oltre a una connessione alla porta seriale come ruolo di monitoraggio.  In mancanza di accesso, Microsoft non può avere alcuna responsabilità a livello di manutenzione del software o amministrazione di sistema. Di conseguenza, i clienti sono responsabili delle attività operative più comuni.
 I clienti sono interamente responsabili per le applicazioni che usano i moduli di protezione hardware e dovrebbero collaborare con Gemalto per ottenere supporto o assistenza basata su consulenza. Vista la portata della proprietà del cliente in termini di igiene operativa, Microsoft non può offrire alcun tipo di garanzia di disponibilità elevata per questo servizio. È responsabilità del cliente assicurarsi che le proprie applicazioni siano configurate correttamente per ottenere la disponibilità elevata. Microsoft monitorerà e gestirà l'integrità del dispositivo e la connettività di rete.
 
-## <a name="getting-support"></a>Ottenere assistenza
+## <a name="getting-support"></a>Richiesta di assistenza
 
 Il supporto tecnico per il modulo di protezione hardware dedicato è un impegno comune tra Microsoft e Gemalto. Eventuali problemi hardware o problemi del percorso di rete verranno risolti da Microsoft e qualsiasi operazione da eseguire con il modulo di protezione hardware effettivo, ad esempio configurazione, software, firmware e sviluppo di applicazioni, verrà risolta da Gemalto. Questo modello di supporto garantisce il routing più rapido al supporto più efficace. In caso di dubbi su un particolare problema, generare una richiesta di supporto con Microsoft per assicurarsi che l'utente venga indirizzato in modo appropriato. Microsoft rimane impegnato in tutti gli scenari di supporto e si impegna a garantire la migliore esperienza di supporto per i clienti.
 

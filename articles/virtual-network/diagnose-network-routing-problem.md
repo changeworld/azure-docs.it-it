@@ -16,10 +16,10 @@ ms.workload: infrastructure-services
 ms.date: 05/30/2018
 ms.author: kumud
 ms.openlocfilehash: 1c23244707179e05c63ed44b5915e58eefd3f4a3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "84705050"
 ---
 # <a name="diagnose-a-virtual-machine-routing-problem"></a>Diagnosticare un problema di routing di una macchina virtuale
@@ -36,7 +36,7 @@ I passaggi che seguono presuppongono la disponibilità di una macchina virtuale 
 
 1. Accedere al [portale di Azure](https://portal.azure.com) con un account di Azure che abbia le [autorizzazioni necessarie](virtual-network-network-interface.md#permissions).
 2. Nella parte superiore del portale di Azure immettere nella casella di ricerca il nome di una macchina virtuale in stato di esecuzione. Quando il nome della VM viene visualizzato nei risultati della ricerca, selezionarlo.
-3. In **Impostazioni** a sinistra selezionare **rete**e passare alla risorsa interfaccia di rete selezionando il nome.
+3. In **Impostazioni** a sinistra selezionare **rete** e passare alla risorsa interfaccia di rete selezionando il nome.
      ![Visualizzare le interfacce di rete](./media/diagnose-network-routing-problem/view-nics.png)
 4. A sinistra selezionare **Route effettive**. Le route valide per un'interfaccia di rete denominata **myVMNic1** sono visualizzate nell'immagine seguente: ![ Visualizza route valide](./media/diagnose-network-routing-problem/view-effective-routes.png)
 

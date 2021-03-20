@@ -6,13 +6,13 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
 author: trkeya
 ms.author: trkeya
-ms.date: 11/09/2020
-ms.openlocfilehash: 60eeceac916a7f8c64214b7a74a8cf60fd1ec8ac
-ms.sourcegitcommit: 04297f0706b200af15d6d97bc6fc47788785950f
+ms.date: 03/16/2020
+ms.openlocfilehash: a7f12891bf394e54ee46c60598536faed1731202
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98986125"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104600884"
 ---
 # <a name="set-up-an-azure-marketplace-subscription-for-hosted-test-drives"></a>Configurare una sottoscrizione di Azure Marketplace per le unità di test ospitate
 
@@ -43,26 +43,18 @@ Questo articolo illustra come configurare una sottoscrizione di Azure Marketplac
     5. In tipi di account supportati selezionare **account in qualsiasi directory dell'organizzazione e account Microsoft personali**.
     6. Selezionare **Crea** e attendere che venga creata l'app.
     7. Una volta creata l'app, annotare l' **ID applicazione** visualizzato nella schermata panoramica. Questo valore sarà necessario in un secondo momento durante la configurazione del test drive.
-    8. Per aggiungere un URI di reindirizzamento nativeClient, selezionare il pannello **autenticazione** . In **configurazione piattaforma** selezionare **Aggiungi piattaforma**  >  applicazione desktop per **dispositivi mobili**  >   . Scegliere l'URI di Reindirizzamento **nativeClient** e selezionare **Configura**.
-
-        :::image type="content" source="./media/test-drive/configure-desktop-devices.png" alt-text="Aggiunta di un URI di reindirizzamento nativeClient.":::
-
-    9. In **Gestisci applicazione** selezionare **autorizzazioni** per le API.
-    10. Selezionare **Aggiungi un'autorizzazione** e quindi **Microsoft Graph API**.
-    11. Selezionare la categoria autorizzazione **applicazione** , quindi le autorizzazioni **Directory. Read. All** e **Directory. ReadWrite. All** .
+    8. In **Gestisci applicazione** selezionare **autorizzazioni** per le API.
+    9. Selezionare **Aggiungi un'autorizzazione** e quindi **Microsoft Graph API**.
+    10. Selezionare la categoria autorizzazione **applicazione** , quindi le autorizzazioni **User. ReadWrite. All**, **Directory. Read. All** e **Directory. ReadWrite. All** .
 
         :::image type="content" source="./media/test-drive/microsoft-graph.png" alt-text="Impostazione delle autorizzazioni dell'applicazione.":::
 
-    12. Per aggiungere **Dynamics CRM-** accesso per la rappresentazione utente per consenti elenco Azure ad app, selezionare di nuovo **Aggiungi autorizzazione** .
-
-        :::image type="content" source="./media/test-drive/request-api-permissions.png" alt-text="Richiesta delle autorizzazioni dell'applicazione.":::
-
-    13. Una volta aggiunta l'autorizzazione, selezionare **concedi il consenso dell'amministratore per Microsoft**.
-    14. Nell'avviso del messaggio selezionare **Sì**.
+    11. Una volta aggiunta l'autorizzazione, selezionare **concedi il consenso dell'amministratore per Microsoft**.
+    12. Nell'avviso del messaggio selezionare **Sì**.
 
         [![Mostra le autorizzazioni dell'applicazione concesse correttamente.](media/test-drive/api-permissions-confirmation-customer.png)](media/test-drive/api-permissions-confirmation-customer.png#lightbox)
 
-    15. Per generare un segreto per il App Azure AD:
+    13. Per generare un segreto per il App Azure AD:
         1. In **Gestisci applicazione** selezionare **certificato e segreti**.
         2. In segreti client selezionare **nuovo segreto client**.
         3. Immettere una descrizione, ad esempio *test drive*, e selezionare una durata appropriata. Il test drive si interrompe dopo la scadenza della chiave. a questo punto sarà necessario generare e fornire a AppSource una nuova chiave.
@@ -70,8 +62,7 @@ Questo articolo illustra come configurare una sottoscrizione di Azure Marketplac
 
             :::image type="content" source="./media/test-drive/add-client-secret.png" alt-text="Aggiunta di un segreto client.":::
 
-5. In alcuni casi è necessario più tempo del previsto per sincronizzare un utente da Azure AD a un'istanza di CRM. Per facilitare questa operazione, è stato aggiunto un processo per forzare l'utente della sincronizzazione, ma è necessario che l'applicazione Azure AD sia allowlisted dal centro per i partner. Per eseguire questa operazione, vedere [sincronizzazione utente per l'istanza di engagement del cliente](https://github.com/microsoft/AppSource/blob/master/Microsoft%20Hosted%20Test%20Drive/CDS_Utility_to_ForceUserSync_in_CRM_Instance.md).
-6. Aggiungere il ruolo entità servizio all'applicazione per consentire all'app Azure AD di rimuovere gli utenti dal tenant di Azure.
+5. Aggiungere il ruolo entità servizio all'applicazione per consentire all'app Azure AD di rimuovere gli utenti dal tenant di Azure.
     1. Aprire un prompt dei comandi di PowerShell di livello amministrativo.
     2. Install-Module MSOnline (eseguire questo comando se MSOnline non è installato).
     3. Connect-MsolService (verrà visualizzata una finestra popup; accedere con il tenant dell'organizzazione appena creato).
@@ -81,7 +72,7 @@ Questo articolo illustra come configurare una sottoscrizione di Azure Marketplac
 
         :::image type="content" source="./media/test-drive/sign-in-to-account.png" alt-text="Accesso al proprio account.":::
 
-7. Aggiungere l'app di Azure creata in precedenza come utente dell'applicazione all'istanza di test drive CRM.
+6. Aggiungere l'app di Azure creata in precedenza come utente dell'applicazione all'istanza di test drive CRM.
     1. Aggiungere un nuovo utente in **Azure Active Directory**. Per creare l'utente sono necessari solo i valori **Name** e **username** (appartenenti allo stesso tenant), lasciando gli altri campi come predefiniti. Copiare il valore del nome utente.
     2. Accedere all' **istanza di CRM** e selezionare **impostazione**  >    >  **utenti** sicurezza.
     3. Modificare la visualizzazione in **utenti applicazione**.
@@ -97,7 +88,8 @@ Questo articolo illustra come configurare una sottoscrizione di Azure Marketplac
 
         :::image type="content" source="./media/test-drive/security-roles-selection.png" alt-text="Selezione dei privilegi del ruolo.":::
 
-    10. Assegnare all'utente dell'applicazione il ruolo di sicurezza personalizzato creato per il test drive.
+    10. Inoltre, abilitare l' **azione per conto di un altro privilegio utente** .
+    11. Assegnare all'utente dell'applicazione il ruolo di sicurezza personalizzato creato per il test drive.
 
 ## <a name="set-up-for-dynamics-365-for-operations"></a>Configurazione per Dynamics 365 per le operazioni
 
@@ -130,7 +122,7 @@ Questo articolo illustra come configurare una sottoscrizione di Azure Marketplac
     12. Una volta aggiunta l'autorizzazione, selezionare **concedi il consenso dell'amministratore per Microsoft**.
     13. Nell'avviso del messaggio selezionare **Sì**.
 
-        [![Mostra le autorizzazioni dell'applicazione concesse correttamente.](media/test-drive/api-permissions-confirmation-operations.png)](media/test-drive/api-permissions-confirmation-operations.png#lightbox)
+        [![Indica che le autorizzazioni dell'applicazione sono state concesse correttamente.](media/test-drive/api-permissions-confirmation-operations.png)](media/test-drive/api-permissions-confirmation-operations.png#lightbox)
 
     14. Per generare un segreto per il App Azure AD:
         1. In **Gestisci applicazione** selezionare **certificato e segreti**.

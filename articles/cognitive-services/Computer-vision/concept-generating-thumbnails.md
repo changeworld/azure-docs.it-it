@@ -12,10 +12,10 @@ ms.date: 03/11/2018
 ms.author: pafarley
 ms.custom: seodec18
 ms.openlocfilehash: 4874910f37b49990a659b48af0cf27921c3fcd5e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "68945223"
 ---
 # <a name="generating-smart-cropped-thumbnails-with-computer-vision"></a>Generazione di anteprime con ritaglio intelligente con Visione artificiale
@@ -34,7 +34,7 @@ Quando si carica un'immagine, l'API Visione artificiale la analizza per determin
 
 È anche possibile ottenere le coordinate del rettangolo delimitatore non elaborate di questa stessa *area di interesse* chiamando l'API **areaOfInterest**. Quindi si può usare queste informazioni per modificare l'immagine originale come si vuole.
 
-## <a name="examples"></a>Esempi
+## <a name="examples"></a>Esempio
 
 L'anteprima generata può variare notevolmente a seconda dei valori specificati per l'altezza, la larghezza e il ritaglio intelligente, come illustrato nell'immagine seguente.
 

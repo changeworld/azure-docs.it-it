@@ -7,10 +7,10 @@ ms.service: postgresql
 ms.topic: how-to
 ms.date: 09/22/2020
 ms.openlocfilehash: e69bcb3d9e4dca4c45bf9a6fe8ed4d54e7f4a8cd
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "90938865"
 ---
 # <a name="point-in-time-restore-of-a-flexible-server"></a>Ripristino temporizzato di un server flessibile
@@ -30,7 +30,7 @@ Per completare questa guida, è necessario:
 
 Attenersi alla procedura seguente per ripristinare il server flessibile utilizzando un backup esistente più recente.
 
-1.  Nella [portale di Azure](https://portal.azure.com/)scegliere il server flessibile da cui si desidera ripristinare il backup.
+1.  Nella [portale di Azure](https://portal.azure.com/)scegliere il server flessibile da cui si desidera ripristinare il backup.
 
 2.  Fare clic su **Panoramica** nel pannello a sinistra e fare clic su **Ripristina** .
    
@@ -40,7 +40,7 @@ Attenersi alla procedura seguente per ripristinare il server flessibile utilizza
 
 4.  Selezionare il **punto di ripristino meno recente** e specificare un nuovo nome del server nel campo Ripristina nel **nuovo server** . Viene visualizzato il timestamp meno recente in cui è possibile eseguire il ripristino. 
    
-   :::image type="content" source="./media/how-to-restore-server-portal/restore-earliest.png" alt-text="Panoramica sul ripristino":::
+   :::image type="content" source="./media/how-to-restore-server-portal/restore-earliest.png" alt-text="Tempo di ripristino più recente":::
 
 5.  Fare clic su **OK**.
 
@@ -50,7 +50,7 @@ Attenersi alla procedura seguente per ripristinare il server flessibile utilizza
 
 Attenersi alla procedura seguente per ripristinare il server flessibile utilizzando un backup esistente più recente.
 
-1.  Nella [portale di Azure](https://portal.azure.com/)scegliere il server flessibile da cui si desidera ripristinare il backup.
+1.  Nella [portale di Azure](https://portal.azure.com/)scegliere il server flessibile da cui si desidera ripristinare il backup.
 
 2.  Nella pagina Panoramica fare clic su **Ripristina**.
  :::image type="content" source="./media/how-to-restore-server-portal/restore-overview.png" alt-text="Panoramica sul ripristino":::
@@ -61,7 +61,7 @@ Attenersi alla procedura seguente per ripristinare il server flessibile utilizza
 
 5.  Selezionare data e ora e specificare un nuovo nome del server nel campo **Ripristina nel nuovo server** . 
    
-:::image type="content" source="./media/how-to-restore-server-portal/restore-custom.png" alt-text="Panoramica sul ripristino":::
+:::image type="content" source="./media/how-to-restore-server-portal/restore-custom.png" alt-text="Ora ripristino personalizzato":::
  
 6.  Fare clic su **OK**.
 
@@ -70,5 +70,5 @@ Attenersi alla procedura seguente per ripristinare il server flessibile utilizza
 ## <a name="next-steps"></a>Passaggi successivi
 
 -   Scopri di più sulla [continuità aziendale](./concepts-business-continuity.md)
--   Informazioni sulla [disponibilità elevata con ridondanza della zona](./concepts-high-availability.md)
+-   Informazioni sulla [disponibilità elevata con ridondanza della zona](./concepts-high-availability.md)
 -   Informazioni su [backup e ripristino](./concepts-backup-restore.md)

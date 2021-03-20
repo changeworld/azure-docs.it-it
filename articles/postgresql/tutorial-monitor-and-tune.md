@@ -1,5 +1,5 @@
 ---
-title: 'Esercitazione: Monitorare e ottimizzare - Database di Azure per PostgreSQL - Server singolo'
+title: 'Esercitazione: monitorare e ottimizzare-database di Azure per PostgreSQL-server singolo'
 description: Questa esercitazione illustra il monitoraggio e l'ottimizzazione in Database di Azure per PostgreSQL, con server singolo.
 author: sunilagarwal
 ms.author: sunila
@@ -7,13 +7,13 @@ ms.service: postgresql
 ms.topic: tutorial
 ms.date: 5/6/2019
 ms.openlocfilehash: a12068259d82e833826bcac5e6c58059fb51c56c
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
-ms.translationtype: HT
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93336980"
 ---
-# <a name="tutorial-monitor-and-tune-azure-database-for-postgresql---single-server"></a>Esercitazione: Monitorare e ottimizzare Database di Azure per PostgreSQL - Server singolo
+# <a name="tutorial-monitor-and-tune-azure-database-for-postgresql---single-server"></a>Esercitazione: monitorare e ottimizzare il database di Azure per PostgreSQL-server singolo
 
 Il Database di Azure per PostgreSQL offre funzionalità che consentono di riconoscere e migliorare le prestazioni del server. In questa esercitazione si apprenderà come:
 > [!div class="checklist"]
@@ -27,10 +27,10 @@ Il Database di Azure per PostgreSQL offre funzionalità che consentono di ricono
 È necessario un Database di Azure per il server PostgreSQL con la versione 9.6 o 10 di PostgreSQL. È possibile eseguire i passaggi in [Crea esercitazione](tutorial-design-database-using-azure-portal.md) per creare un server.
 
 > [!IMPORTANT]
-> **Query Store** , **Informazioni dettagliate prestazioni query** , e **Raccomandazione per le prestazioni** sono in anteprima pubblica.
+> **Query Store**, **Informazioni dettagliate prestazioni query**, e **Raccomandazione per le prestazioni** sono in anteprima pubblica.
 
 ## <a name="enabling-data-collection"></a>Abilitazione della raccolta dati
-Il [Query Store](concepts-query-store.md) acquisisce una cronologia delle query e delle statistiche di attesa nel server e la archivia nel database **azure_sys** nel server. È una funzionalità che prevede il consenso esplicito. Per abilitarla:
+Il [Query Store](concepts-query-store.md) acquisisce una cronologia delle query e delle statistiche di attesa nel server e la archivia nel database **azure_sys** nel server. È una funzionalità che prevede il consenso esplicito. Per abilitarlo:
 
 1. Aprire il portale di Azure.
 
@@ -38,11 +38,11 @@ Il [Query Store](concepts-query-store.md) acquisisce una cronologia delle query 
 
 3. Selezionare **Parametri del server** nella sezione **Impostazioni** del menu a sinistra.
 
-4. Impostare **pg_qs.query_capture_mode** su **TOP** per iniziare a raccogliere i dati sulle prestazioni delle query. Impostare **pgms_wait_sampling.query_capture_mode** su **ALL** (Tutte) per iniziare a raccogliere le statistiche di attesa. Salvare.
+4. Impostare **pg_qs.query_capture_mode** su **TOP** per iniziare a raccogliere i dati sulle prestazioni delle query. Impostare **pgms_wait_sampling.query_capture_mode** su **ALL**(Tutte) per iniziare a raccogliere le statistiche di attesa. Salvare.
    
    :::image type="content" source="./media/tutorial-performance-intelligence/query-store-parameters.png" alt-text="Parametri del server Query Store":::
 
-5. Per il salvataggio permanente del primo batch di dati nel database **azure_sys** possono essere necessari fino a 20 minuti.
+5. Consentire fino a 20 minuti per la permanenza del primo batch di dati nel database **azure_sys** .
 
 
 ## <a name="performance-insights"></a>Informazioni dettagliate sulle prestazioni
@@ -54,7 +54,7 @@ La visualizzazione [Informazioni dettagliate prestazioni query](concepts-query-p
    
    :::image type="content" source="./media/tutorial-performance-intelligence/query-performance-insight-landing-page.png" alt-text="Pagina di destinazione Informazioni dettagliate prestazioni query":::
 
-   È possibile visualizzare altre query selezionando **Numero di query** dall'elenco a discesa. I colori del grafico possono cambiare per un ID di query specifico quando si esegue questa operazione.
+   È possibile visualizzare altre query selezionando l'elenco a discesa **numero di query** . I colori del grafico possono cambiare per un ID di query specifico quando si esegue questa operazione.
 
 3. È possibile fare clic e trascinare nel grafico per limitare l'elenco a un intervallo di tempo specifico.
 
@@ -83,7 +83,7 @@ La funzionalità [Raccomandazioni per le prestazioni](concepts-performance-recom
 
 4. La finestra **Elementi consigliati per le prestazioni** illustrerà un elenco di raccomandazioni se sono state trovate. 
 
-5. Un elemento consigliato illustrerà informazioni su **Database** , **Tabella** , **Colonna** , e **Dimensioni indice** pertinenti.
+5. Un elemento consigliato illustrerà informazioni su **Database**, **Tabella**, **Colonna**, e **Dimensioni indice** pertinenti.
 
    :::image type="content" source="./media/tutorial-performance-intelligence/performance-recommendations-result.png" alt-text="Risultati Elementi consigliati per le prestazioni":::
 

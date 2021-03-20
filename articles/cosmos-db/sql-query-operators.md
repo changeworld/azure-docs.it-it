@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 07/29/2020
 ms.author: tisande
 ms.openlocfilehash: c1409bd7f098c24efbb4196d78c6dffb6048119b
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93335441"
 ---
 # <a name="operators-in-azure-cosmos-db"></a>Operatori in Azure Cosmos DB
@@ -56,8 +56,8 @@ Restituisce `true` quando una delle condizioni è `true` .
 |  | **True** | **False** | **Non definito** |
 | --- | --- | --- | --- |
 | **True** |True |True |True |
-| **False** |True |False |Non definito |
-| **Non definito** |True |Non definito |Non definito |
+| **False** |Vero |Falso |Non definito |
+| **Non definito** |Vero |Non definito |Non definito |
 
 **Operatore AND**
 
@@ -65,9 +65,9 @@ Restituisce `true` quando entrambe le espressioni sono `true` .
 
 |  | **True** | **False** | **Non definito** |
 | --- | --- | --- | --- |
-| **True** |True |False |Non definito |
+| **True** |Vero |Falso |Non definito |
 | **False** |False |False |False |
-| **Non definito** |Non definito |False |Non definito |
+| **Non definito** |Non definito |Falso |Non definito |
 
 **Operatore NOT**
 
@@ -75,8 +75,8 @@ Inverte il valore di qualsiasi espressione booleana.
 
 |  | **NOT** |
 | --- | --- |
-| **True** |False |
-| **False** |True |
+| **True** |Falso |
+| **False** |Vero |
 | **Non definito** |Non definito |
 
 **Ordine di precedenza degli operatori**

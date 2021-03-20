@@ -6,10 +6,10 @@ ms.subservice: personalizer
 ms.topic: conceptual
 ms.date: 04/23/2020
 ms.openlocfilehash: cd0d85be5447aad0f2a3c37041e7d5d5d047a468
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91777293"
 ---
 # <a name="personalizer-terminology"></a>Terminologia del personalizzatore
@@ -80,11 +80,11 @@ Il Personalizzatore viene configurato dal [portale di Azure](https://portal.azur
 
 * **Valutazione**: una valutazione offline determina i criteri di apprendimento migliori per il ciclo in base ai dati dell'applicazione.
 
-* **Criteri di apprendimento**: il modo in cui la personalizzazione del training di un modello su ogni evento verrà determinato da alcuni parametri che influiscono sul funzionamento dell'algoritmo di machine learning. Un nuovo ciclo di apprendimento inizia con un **criterio di apprendimento**predefinito, che può produrre prestazioni moderate. Quando si eseguono [valutazioni](concepts-offline-evaluation.md), il Personalizzatore crea nuovi criteri di apprendimento specificamente ottimizzati per i casi d'uso del ciclo. Il Personalizzatore offre prestazioni significativamente migliori con i criteri ottimizzati per ogni ciclo specifico, generato durante la valutazione. Il criterio di apprendimento è denominato _impostazioni di apprendimento_ sul **modello e le impostazioni di apprendimento** per la risorsa di personalizzazione nella portale di Azure.
+* **Criteri di apprendimento**: il modo in cui la personalizzazione del training di un modello su ogni evento verrà determinato da alcuni parametri che influiscono sul funzionamento dell'algoritmo di machine learning. Un nuovo ciclo di apprendimento inizia con un **criterio di apprendimento** predefinito, che può produrre prestazioni moderate. Quando si eseguono [valutazioni](concepts-offline-evaluation.md), il Personalizzatore crea nuovi criteri di apprendimento specificamente ottimizzati per i casi d'uso del ciclo. Il Personalizzatore offre prestazioni significativamente migliori con i criteri ottimizzati per ogni ciclo specifico, generato durante la valutazione. Il criterio di apprendimento è denominato _impostazioni di apprendimento_ sul **modello e le impostazioni di apprendimento** per la risorsa di personalizzazione nella portale di Azure.
 
 ### <a name="apprentice-mode-evaluations"></a>Valutazioni della modalità Apprentice
 
-La modalità apprendista fornisce le **metriche di valutazione**seguenti:
+La modalità apprendista fornisce le **metriche di valutazione** seguenti:
 * **Baseline-ricompensa media**: vantaggi medi dell'impostazione predefinita dell'applicazione (baseline).
 * **Personalizzatore-ricompensa media**: è stata potenzialmente raggiunta la media del personalizzatore dei premi totali.
 * **Ricompensa in sequenza media**: rapporto tra la linea di base e la ricompensa del personalizzatore, normalizzato negli eventi 1000 più recenti.

@@ -7,10 +7,10 @@ ms.service: postgresql
 ms.topic: how-to
 ms.date: 09/22/2020
 ms.openlocfilehash: 4f945c2c7fffb143bdb8324a330775fb072b25c1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "90938825"
 ---
 # <a name="configure-server-parameters-in-azure-database-for-postgresql---flexible-server-via-the-azure-portal"></a>Configurare i parametri del server nel database di Azure per PostgreSQL-server flessibile tramite il portale di Azure 
@@ -48,7 +48,7 @@ Per proseguire con questa guida, è richiesto:
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Vengono fornite informazioni su:
+Informazioni su:
 
 - [Panoramica dei parametri del server nel database di Azure per PostgreSQL](concepts-servers.md)
 - [Configurazione dei parametri usando l'interfaccia della riga di comando di Azure](howto-configure-server-parameters-using-cli.md)

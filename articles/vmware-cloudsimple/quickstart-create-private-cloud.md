@@ -10,10 +10,10 @@ ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
 ms.openlocfilehash: 487308aca3231650aee3fac5ae127006649e19b9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "87073916"
 ---
 # <a name="quickstart---configure-a-private-cloud-environment"></a>Guida introduttiva-configurare un ambiente cloud privato
@@ -37,7 +37,7 @@ I cloud privati vengono gestiti tramite il portale CloudSimple. Hanno il proprio
 1. Selezionare **Tutti i servizi**.
 2. Cercare i **Servizi CloudSimple**.
 3. Selezionare il servizio CloudSimple in cui si vuole creare il cloud privato.
-4. Da **Panoramica**fare clic su **Crea cloud privato** per aprire una nuova scheda del browser per il portale di CloudSimple.  Se richiesto, accedere con le credenziali di accesso di Azure.  
+4. Da **Panoramica** fare clic su **Crea cloud privato** per aprire una nuova scheda del browser per il portale di CloudSimple.  Se richiesto, accedere con le credenziali di accesso di Azure.  
 
     ![Creare un cloud privato da Azure](media/create-private-cloud-from-azure.png)
 
@@ -92,7 +92,7 @@ Una connessione VPN da punto a sito è il modo più semplice per connettersi al 
     * Selezionare la località di Azure in cui viene distribuito il servizio CloudSimple.
     * Specificare la subnet client per il gateway da punto a sito.  Gli indirizzi DHCP verranno assegnati da questa subnet quando ci si connette.
 
-5. Per **connessione/utente**specificare le impostazioni seguenti e fare clic su **Avanti**.
+5. Per **connessione/utente** specificare le impostazioni seguenti e fare clic su **Avanti**.
 
     * Per consentire automaticamente a tutti gli utenti correnti e futuri di accedere al cloud privato tramite questo gateway da punto a sito, selezionare **Aggiungi automaticamente tutti gli utenti**. Quando si seleziona questa opzione, tutti gli utenti nell'elenco utenti vengono selezionati automaticamente. È possibile sostituire l'opzione automatica deselezionando i singoli utenti nell'elenco.
     * Per selezionare solo singoli utenti, fare clic sulle caselle di controllo nell'elenco degli utenti.

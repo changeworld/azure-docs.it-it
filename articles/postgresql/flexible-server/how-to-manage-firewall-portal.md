@@ -7,10 +7,10 @@ ms.service: postgresql
 ms.topic: how-to
 ms.date: 09/22/2020
 ms.openlocfilehash: 8c107b88f964d8e657d6833fc3a2e8425d9053ce
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "90936919"
 ---
 # <a name="create-and-manage-firewall-rules-for-azure-database-for-postgresql---flexible-server-using-the-azure-portal"></a>Creare e gestire le regole del firewall per database di Azure per PostgreSQL-server flessibile usando il portale di Azure
@@ -32,7 +32,7 @@ In questo articolo verrà illustrata la creazione di un server PostgreSQL con **
 3. Selezionare **Flexible server** (Server flessibile) come opzione di distribuzione.
 4. Compilare il modulo **nozioni di base** .
 5. Passare alla scheda **rete** per configurare il modo in cui si desidera connettersi al server.
-6. Nel **metodo di connettività**selezionare *accesso pubblico (indirizzi IP consentiti)*. Per creare le **regole del firewall**, specificare il nome della regola del firewall e un singolo indirizzo IP o un intervallo di indirizzi. Se si vuole limitare la regola a un singolo indirizzo IP, digitare lo stesso indirizzo nel campo per indirizzo IP iniziale e indirizzo IP finale. L'apertura del firewall consente agli amministratori, agli utenti e alle applicazioni di accedere a qualsiasi database nel server PostgreSQL per cui hanno credenziali valide.
+6. Nel **metodo di connettività** selezionare *accesso pubblico (indirizzi IP consentiti)*. Per creare le **regole del firewall**, specificare il nome della regola del firewall e un singolo indirizzo IP o un intervallo di indirizzi. Se si vuole limitare la regola a un singolo indirizzo IP, digitare lo stesso indirizzo nel campo per indirizzo IP iniziale e indirizzo IP finale. L'apertura del firewall consente agli amministratori, agli utenti e alle applicazioni di accedere a qualsiasi database nel server PostgreSQL per cui hanno credenziali valide.
    > [!Note]
    > Database di Azure per PostgreSQL: il server flessibile crea un firewall a livello di server. che impedisce alle applicazioni e agli strumenti esterni di connettersi al server e ai database nel server, a meno che non si crei una regola per aprire il firewall per indirizzi IP specifici.
 7. Selezionare **Rivedi e crea** per rivedere la configurazione del server flessibile.

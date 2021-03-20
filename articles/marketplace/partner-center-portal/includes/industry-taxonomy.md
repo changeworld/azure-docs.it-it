@@ -10,10 +10,10 @@ ms.custom: include file
 author: mingshen-ms
 ms.author: mingshen
 ms.openlocfilehash: 3b18bba04d313091cb579498febb3f383f018bff
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "88604637"
 ---
 È possibile selezionare fino a due settori e due segmenti verticali all'interno di ogni settore. Queste categorie vengono usate per visualizzare l'offerta quando il settore e le verticali vengono usati nei filtri di ricerca e applicati nello Store online. Se l'offerta è destinata a un settore specifico e/o verticale, spiegare in che modo l'offerta supporta i settori selezionati o verticali nella descrizione dell'offerta. In caso contrario, se l'offerta non è specifica del settore, non effettuare una selezione e lasciare vuota questa sezione.

@@ -9,10 +9,10 @@ ms.custom: subject-armqs
 ms.author: danlep
 ms.date: 10/06/2020
 ms.openlocfilehash: 97b556e0329644b973def8333ddb5e70e370b0bc
-ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
-ms.translationtype: HT
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/07/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91826975"
 ---
 # <a name="quickstart-create-a-geo-replicated-container-registry-by-using-an-arm-template"></a>Avvio rapido: Creare un registro contenitori con replica geografica usando un modello di Resource Manager
@@ -65,7 +65,7 @@ Altri esempi di modelli di Registro Azure Container sono disponibili nella [racc
 
 1. Dopo la creazione del registro, si riceverà una notifica:
 
-     :::image type="content" source="media/container-registry-get-started-geo-replication-template/deployment-notification.png" alt-text="Proprietà modello":::
+     :::image type="content" source="media/container-registry-get-started-geo-replication-template/deployment-notification.png" alt-text="Notifica del portale":::
 
  Per distribuire il modello, si usa il portale di Azure. Oltre al portale di Azure, è possibile usare Azure PowerShell, l'interfaccia della riga di comando di Azure e l'API REST. Per informazioni sugli altri metodi di distribuzione, vedere [Distribuire modelli](../azure-resource-manager/templates/deploy-cli.md).
 
@@ -77,11 +77,11 @@ Usare il portale di Azure o uno strumento quale l'interfaccia della riga di coma
 
 1. Nella pagina **Panoramica** annotare il **Server di accesso** del registro. Usare questo URI quando si usa Docker per assegnare tag ed eseguire il push di immagini nel registro. Per informazioni, vedere [Effettuare il push della prima immagine tramite l'interfaccia della riga di comando di Docker](container-registry-get-started-docker-cli.md).
 
-    :::image type="content" source="media/container-registry-get-started-geo-replication-template/registry-overview.png" alt-text="Proprietà modello":::
+    :::image type="content" source="media/container-registry-get-started-geo-replication-template/registry-overview.png" alt-text="Panoramica del registro":::
 
 1. Nella pagina **Repliche** confermare le posizioni della replica principale e della replica aggiunta tramite il modello. Se si vuole, aggiungere altre repliche in questa pagina.
 
-    :::image type="content" source="media/container-registry-get-started-geo-replication-template/registry-replications.png" alt-text="Proprietà modello":::
+    :::image type="content" source="media/container-registry-get-started-geo-replication-template/registry-replications.png" alt-text="Repliche del registro":::
 
 ## <a name="clean-up-resources"></a>Pulire le risorse
 
@@ -99,4 +99,4 @@ In questo argomento di avvio rapido è stata creata un'istanza di Registro Azure
 Per un'esercitazione dettagliata che illustra il processo di creazione di un modello, vedere:
 
 > [!div class="nextstepaction"]
-> Creare e distribuire il primo modello di Resource Manager[
+> [Esercitazione: Creare e distribuire il primo modello di Resource Manager](../azure-resource-manager/templates/template-tutorial-create-first-template.md)

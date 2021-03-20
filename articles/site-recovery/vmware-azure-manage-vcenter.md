@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 12/24/2019
 ms.author: ramamill
 ms.openlocfilehash: 01aef3aca4f6967b1681bff9598c7dd7a24739cd
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "84692520"
 ---
 # <a name="manage-vmware-vcenter-server"></a>Gestisci server VMware vCenter
@@ -48,9 +48,9 @@ Quando si configura il ripristino di emergenza per le macchine virtuali VMware l
 
 Quando si configura il ripristino di emergenza per le macchine virtuali VMware locali, è necessario aggiungere l'host server vCenter/vSphere in cui vengono individuate le VM nell'insieme di credenziali di Site Recovery, come indicato di seguito:
 
-1. In Vault > **Site Recovery**  >  **configurazione**dell'infrastruttura, aprire il server di configurazione.
+1. In Vault > **Site Recovery**  >  **configurazione** dell'infrastruttura, aprire il server di configurazione.
 1. Nella pagina **Dettagli** fare clic su **vCenter**.
-1. In **Aggiungi vCenter**specificare un nome descrittivo per l'host vSphere o il server vCenter.
+1. In **Aggiungi vCenter** specificare un nome descrittivo per l'host vSphere o il server vCenter.
 1. Specificare l'indirizzo IP o il nome di dominio completo del server.
 1. Lasciare la porta 443, a meno che i server VMware siano configurati per l'ascolto delle richieste su una porta diversa.
 1. Selezionare l'account usato per la connessione al server VMware vCenter o vSphere ESXi. Fare quindi clic su **OK**.
@@ -66,16 +66,16 @@ Se necessario, è possibile modificare le credenziali usate per connettersi all'
    ![add-account](./media/vmware-azure-manage-vcenter/addaccount.png)
 
 1. Specificare i nuovi dettagli dell'account e fare clic su **OK**. L'account deve disporre delle autorizzazioni elencate nella tabella [delle autorizzazioni dell'account](#account-permissions) .
-1. Nell'insieme di credenziali > **Site Recovery**  >  **configurazione**dell'infrastruttura, aprire il server di configurazione.
-1. In **Dettagli**fare clic su **Aggiorna server**.
+1. Nell'insieme di credenziali > **Site Recovery**  >  **configurazione** dell'infrastruttura, aprire il server di configurazione.
+1. In **Dettagli** fare clic su **Aggiorna server**.
 1. Al termine del processo di aggiornamento del server, selezionare il server vCenter.
-1. In **Riepilogo**selezionare l'account appena aggiunto nel **server vCenter/account host vSphere**e fare clic su **Salva**.
+1. In **Riepilogo** selezionare l'account appena aggiunto nel **server vCenter/account host vSphere** e fare clic su **Salva**.
 
    ![modify-account](./media/vmware-azure-manage-vcenter/modify-vcente-creds.png)
 
 ## <a name="delete-a-vcenter-server"></a>Eliminare un server vCenter
 
-1. Nell'insieme di credenziali > **Site Recovery**  >  **configurazione**dell'infrastruttura, aprire il server di configurazione.
+1. Nell'insieme di credenziali > **Site Recovery**  >  **configurazione** dell'infrastruttura, aprire il server di configurazione.
 1. Nella pagina **Dettagli** selezionare il server vCenter.
 1. Fare clic sul pulsante **Elimina** .
 
@@ -85,9 +85,9 @@ Se necessario, è possibile modificare le credenziali usate per connettersi all'
 
 È possibile modificare l'indirizzo IP del server vCenter o le porte utilizzate per la comunicazione tra il server e Site Recovery. Per impostazione predefinita, Site Recovery accede alle informazioni sull'host server vCenter/vSphere tramite la porta 443.
 
-1. Nell'insieme di credenziali > **Site Recovery**  >  **server di configurazione**dell'infrastruttura, fare clic sul server di configurazione a cui viene aggiunta la server vCenter.
+1. Nell'insieme di credenziali > **Site Recovery**  >  **server di configurazione** dell'infrastruttura, fare clic sul server di configurazione a cui viene aggiunta la server vCenter.
 1. In **vCenter Server**, fare clic sul server vCenter che si desidera modificare.
-1. In **Riepilogo**aggiornare l'indirizzo IP e la porta e salvare le modifiche.
+1. In **Riepilogo** aggiornare l'indirizzo IP e la porta e salvare le modifiche.
 
    ![add_ip_new_vcenter](media/vmware-azure-manage-vcenter/add-ip.png)
 
@@ -97,9 +97,9 @@ Se necessario, è possibile modificare le credenziali usate per connettersi all'
 
 Se si vuole eseguire la migrazione di tutte le macchine virtuali per usare una nuova server vCenter, è sufficiente aggiornare l'indirizzo IP assegnato alla server vCenter. Non aggiungere un altro account VMware, perché ciò potrebbe causare l'esecuzione di voci duplicate. Aggiornare l'indirizzo come indicato di seguito:
 
-1. Nell'insieme di credenziali > **Site Recovery**  >  **server di configurazione**dell'infrastruttura, fare clic sul server di configurazione a cui viene aggiunta la server vCenter.
+1. Nell'insieme di credenziali > **Site Recovery**  >  **server di configurazione** dell'infrastruttura, fare clic sul server di configurazione a cui viene aggiunta la server vCenter.
 1. Nella sezione **server vCenter** fare clic sull'server vCenter da cui si desidera eseguire la migrazione.
-1. In **Riepilogo**aggiornare l'indirizzo IP a quello del nuovo server vCenter e salvare le modifiche.
+1. In **Riepilogo** aggiornare l'indirizzo IP a quello del nuovo server vCenter e salvare le modifiche.
 1. Non appena viene aggiornato l'indirizzo IP, Site Recovery inizia a ricevere le informazioni di individuazione della macchina virtuale dalla nuova server vCenter. Questa operazione non influisca sulle attività di replica in corso.
 
 ## <a name="migrate-a-few-vms-to-a-new-server"></a>Eseguire la migrazione di alcune macchine virtuali a un nuovo server

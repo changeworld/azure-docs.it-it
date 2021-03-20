@@ -4,10 +4,10 @@ description: Informazioni di riferimento sul payload JSON per le richieste webho
 ms.topic: article
 ms.date: 03/05/2019
 ms.openlocfilehash: 8354ef9db24d5825238155ac567d5d829f9b0d7f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "74455966"
 ---
 # <a name="azure-container-registry-webhook-reference"></a>Informazioni di riferimento sui webhook per Registro Azure Container
@@ -36,7 +36,7 @@ Webhook attivato quando viene eseguito il push di un'immagine del contenitore in
 
 ### <a name="push-event-payload"></a>Payload dell'evento push
 
-|Elemento|Type|Descrizione|
+|Elemento|Tipo|Descrizione|
 |-------------|----------|-----------|
 |`id`|string|ID dell'evento del webhook.|
 |`timestamp`|Datetime|Ora in cui è stato attivato l'evento del webhook.|
@@ -46,7 +46,7 @@ Webhook attivato quando viene eseguito il push di un'immagine del contenitore in
 
 ### <a name="target"></a><a name="target"></a>destinazione
 
-|Elemento|Type|Descrizione|
+|Elemento|Tipo|Descrizione|
 |------------------|----------|-----------|
 |`mediaType`|string|Tipo MIME dell'oggetto di riferimento.|
 |`size`|Int32|Numero di byte del contenuto. Uguale al campo Length.|
@@ -57,7 +57,7 @@ Webhook attivato quando viene eseguito il push di un'immagine del contenitore in
 
 ### <a name="request"></a><a name="request"></a>richiesta
 
-|Elemento|Type|Descrizione|
+|Elemento|Tipo|Descrizione|
 |------------------|----------|-----------|
 |`id`|string|ID della richiesta che ha avviato l'evento.|
 |`host`|string|Nome host accessibile esternamente dell'istanza del registro, specificato dall'intestazione host HTTP nelle richieste in ingresso.|
@@ -100,7 +100,7 @@ Webhook attivato quando viene eseguito il push di un grafico Helm in un reposito
 
 ### <a name="chart-push-event-payload"></a>Payload evento push grafico
 
-|Elemento|Type|Descrizione|
+|Elemento|Tipo|Descrizione|
 |-------------|----------|-----------|
 |`id`|string|ID dell'evento del webhook.|
 |`timestamp`|Datetime|Ora in cui è stato attivato l'evento del webhook.|
@@ -109,7 +109,7 @@ Webhook attivato quando viene eseguito il push di un grafico Helm in un reposito
 
 ### <a name="target"></a><a name="helm_target"></a>destinazione
 
-|Elemento|Type|Descrizione|
+|Elemento|Tipo|Descrizione|
 |------------------|----------|-----------|
 |`mediaType`|string|Tipo MIME dell'oggetto di riferimento.|
 |`size`|Int32|Numero di byte del contenuto.|
@@ -150,7 +150,7 @@ Webhook attivato quando viene eliminato un repository o un manifesto di immagini
 
 ### <a name="delete-event-payload"></a>Payload dell'evento delete
 
-|Elemento|Type|Descrizione|
+|Elemento|Tipo|Descrizione|
 |-------------|----------|-----------|
 |`id`|string|ID dell'evento del webhook.|
 |`timestamp`|Datetime|Ora in cui è stato attivato l'evento del webhook.|
@@ -160,7 +160,7 @@ Webhook attivato quando viene eliminato un repository o un manifesto di immagini
 
 ### <a name="target"></a><a name="delete_target"></a> destinazione
 
-|Elemento|Type|Descrizione|
+|Elemento|Tipo|Descrizione|
 |------------------|----------|-----------|
 |`mediaType`|string|Tipo MIME dell'oggetto di riferimento.|
 |`digest`|string|Digest del contenuto, definito dalla specifica API HTTP del registro contenitori V2.|
@@ -168,7 +168,7 @@ Webhook attivato quando viene eliminato un repository o un manifesto di immagini
 
 ### <a name="request"></a><a name="delete_request"></a> richiesta
 
-|Elemento|Type|Descrizione|
+|Elemento|Tipo|Descrizione|
 |------------------|----------|-----------|
 |`id`|string|ID della richiesta che ha avviato l'evento.|
 |`host`|string|Nome host accessibile esternamente dell'istanza del registro, specificato dall'intestazione host HTTP nelle richieste in ingresso.|
@@ -212,7 +212,7 @@ Webhook attivato quando viene eliminato un grafico Helm o un repository.
 
 ### <a name="chart-delete-event-payload"></a>Payload dell'evento Delete del grafico
 
-|Elemento|Type|Descrizione|
+|Elemento|Tipo|Descrizione|
 |-------------|----------|-----------|
 |`id`|string|ID dell'evento del webhook.|
 |`timestamp`|Datetime|Ora in cui è stato attivato l'evento del webhook.|
@@ -221,7 +221,7 @@ Webhook attivato quando viene eliminato un grafico Helm o un repository.
 
 ### <a name="target"></a><a name="chart_delete_target"></a> destinazione
 
-|Elemento|Type|Descrizione|
+|Elemento|Tipo|Descrizione|
 |------------------|----------|-----------|
 |`mediaType`|string|Tipo MIME dell'oggetto di riferimento.|
 |`size`|Int32|Numero di byte del contenuto.|

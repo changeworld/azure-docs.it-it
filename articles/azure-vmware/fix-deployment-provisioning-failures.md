@@ -4,10 +4,10 @@ description: Ottenere informazioni dal cloud privato della soluzione VMware di A
 ms.topic: how-to
 ms.date: 10/28/2020
 ms.openlocfilehash: 27b645f4ca225fdd74bca6499b6581b3803e41a4
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/12/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94542406"
 ---
 # <a name="open-a-support-request-for-an-azure-vmware-solution-deployment-or-provisioning-failure"></a>Aprire una richiesta di supporto per la distribuzione di una soluzione VMware di Azure o un errore di provisioning
@@ -39,7 +39,7 @@ Per accedere ai risultati della distribuzione in un riquadro di **Panoramica** d
 
 1. Nella portale di Azure selezionare il cloud privato.
 
-1. Nel menu a sinistra selezionare **Overview (panoramica** ).
+1. Nel menu a sinistra selezionare **Overview (panoramica**).
 
 Dopo l'avvio di una distribuzione, i risultati della distribuzione vengono visualizzati nel riquadro di **Panoramica** del cloud privato.
 
@@ -55,7 +55,7 @@ Per accedere al log di distribuzione:
 
    :::image type="content" source="media/fix-deployment-provisioning-failures/open-notifications.png" alt-text="Screenshot che mostra l'icona delle notifiche nella portale di Azure.":::
 
-1. Nel riquadro **notifiche** selezionare **altri eventi nel log attività** :
+1. Nel riquadro **notifiche** selezionare **altri eventi nel log attività**:
 
     :::image type="content" source="media/fix-deployment-provisioning-failures/more-events-in-activity-log.png" alt-text="Screenshot che Mostra più eventi nel collegamento log attività selezionato nel riquadro notifiche.":::
 
@@ -84,7 +84,7 @@ Forse si sta provando a ridimensionare o eseguire il peering di un cloud privato
 Per copiare l'ID ExpressRoute:
 
 1. Nella portale di Azure selezionare il cloud privato.
-1. Nel menu a sinistra, in **Gestisci** , selezionare **connettività**. 
+1. Nel menu a sinistra, in **Gestisci**, selezionare **connettività**. 
 1. Nel riquadro di destra selezionare la scheda **ExpressRoute** .
 1. Selezionare l'icona di copia per **EXPRESSROUTE ID** e salvare il valore da usare nella richiesta di supporto.
  
@@ -112,11 +112,11 @@ Per creare una richiesta di supporto per una distribuzione della soluzione VMwar
 
 1. Immettere o selezionare le informazioni necessarie:
 
-   1. Passare alla scheda **Nozioni di base** :
+   1. Passare alla scheda **Nozioni di base**:
 
-      1. Per **tipo di problema** , selezionare **problemi di configurazione e configurazione**.
+      1. Per **tipo di problema**, selezionare **problemi di configurazione e configurazione**.
 
-      1. Per **sottotipo di problema** , selezionare **provisioning di un cloud privato**.
+      1. Per **sottotipo di problema**, selezionare **provisioning di un cloud privato**.
 
    1. Nella scheda **Dettagli** :
 

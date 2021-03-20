@@ -14,17 +14,17 @@ ms.workload: infrastructure-services
 ms.date: 01/31/2020
 ms.author: rdhillon
 ms.openlocfilehash: 45a7a146dd929408b50a0045fe2598726ee05505
-ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/24/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "95544310"
 ---
 # <a name="troubleshoot-azure-private-link-connectivity-problems"></a>Risolvere i problemi di connettività del collegamento privato di Azure
 
 Questo articolo fornisce istruzioni dettagliate per convalidare e diagnosticare la connettività per la configurazione del collegamento privato di Azure.
 
-Con il collegamento privato di Azure è possibile accedere ai servizi della piattaforma distribuita come servizio (PaaS) di Azure, ad esempio archiviazione di Azure, Azure Cosmos DB e il database SQL di Azure e ai servizi di clienti o partner ospitati in Azure tramite un endpoint privato nella rete virtuale. Il traffico tra la rete virtuale e il servizio attraversa la rete backbone Microsoft, che elimina l'esposizione dalla rete Internet pubblica. È anche possibile creare un servizio di collegamento privato nella rete virtuale e distribuirlo privatamente ai clienti.
+Con il collegamento privato di Azure è possibile accedere ai servizi della piattaforma distribuita come servizio (PaaS) di Azure, ad esempio archiviazione di Azure, Azure Cosmos DB e il database SQL di Azure e ai servizi di clienti o partner ospitati in Azure tramite un endpoint privato nella rete virtuale. Il traffico tra la rete virtuale e il servizio attraversa la rete backbone Microsoft, che elimina l'esposizione dalla rete Internet pubblica. È anche possibile creare un servizio collegamento privato personale nella rete virtuale e distribuirlo privatamente ai clienti.
 
 È possibile abilitare il servizio in esecuzione dietro il livello standard di Azure Load Balancer per l'accesso ai collegamenti privati. I consumer del servizio possono creare un endpoint privato all'interno della rete virtuale e associarlo a questo servizio per accedervi privatamente.
 

@@ -9,10 +9,10 @@ ms.date: 07/17/2019
 ms.author: maquaran
 ms.custom: devx-track-csharp
 ms.openlocfilehash: 78fff48a97965f0b80456cd3e56ed1507bc784fc
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93336691"
 ---
 # <a name="create-multiple-azure-functions-triggers-for-cosmos-db"></a>Creare più trigger di Funzioni di Azure per Cosmos DB
@@ -34,7 +34,7 @@ Considerando i *requisiti* del trigger di Funzioni di Azure per Cosmos DB, è ne
 
 Sono disponibili due opzioni:
 
-* Creare **un contenitore di lease per ogni funzione** : questo approccio può tradursi in costi aggiuntivi, a meno che non si stia usando un [database di velocità effettiva condivisa](./set-throughput.md#set-throughput-on-a-database). Tenere presente che la velocità effettiva minima a livello di contenitore è di 400 [Unità richiesta](./request-units.md) e, nel caso del contenitore per i lease, si usa solo per eseguire il checkpoint dello stato di avanzamento e mantenere lo stato.
+* Creare **un contenitore di lease per ogni funzione**: questo approccio può tradursi in costi aggiuntivi, a meno che non si stia usando un [database di velocità effettiva condivisa](./set-throughput.md#set-throughput-on-a-database). Tenere presente che la velocità effettiva minima a livello di contenitore è di 400 [Unità richiesta](./request-units.md) e, nel caso del contenitore per i lease, si usa solo per eseguire il checkpoint dello stato di avanzamento e mantenere lo stato.
 * Avere **un contenitore di lease e condividerlo** per tutte le funzioni: questa seconda opzione consente di usare meglio le unità richiesta di cui è stato effettuato il provisioning nel contenitore, perché consente a più funzioni di Azure di condividere e usare la stessa velocità effettiva con provisioning.
 
 L'obiettivo di questo articolo è fornire istruzioni utili per usare la seconda opzione.

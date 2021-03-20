@@ -9,10 +9,10 @@ ms.date: 11/12/2019
 ms.author: raynew
 ms.custom: MVC
 ms.openlocfilehash: 5bd9f5316f8b8799633de8c0c84c61424c0e4f4a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
-ms.translationtype: HT
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "84699618"
 ---
 # <a name="run-a-disaster-recovery-drill-to-azure"></a>Eseguire un'esercitazione sul ripristino di emergenza in Azure
@@ -87,6 +87,6 @@ Per connettersi alle macchine virtuali di Azure usando RDP/SSH dopo il failover,
 ## <a name="next-steps"></a>Passaggi successivi
 
 > [!div class="nextstepaction"]
-> [Eseguire un failover e un failback per le VM VMware](vmware-azure-tutorial-failover-failback.md)
-> [Eseguire un failover e un failback per le VM Hyper-V](hyper-v-azure-failover-failback-tutorial.md)
-> [Eseguire un failover e un failback per i computer fisici](physical-to-azure-failover-failback.md)
+> [Eseguire un failover e un failback per le macchine virtuali VMware](vmware-azure-tutorial-failover-failback.md) 
+>  [Eseguire un failover e un failback per le macchine virtuali](hyper-v-azure-failover-failback-tutorial.md) 
+>  Hyper-V [Eseguire un failover e un failback per i computer fisici](physical-to-azure-failover-failback.md)

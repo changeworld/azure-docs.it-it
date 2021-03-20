@@ -16,10 +16,10 @@ ms.date: 07/22/2020
 ms.author: markvi
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: f3c9ec3b1e96e47dbf46c6acb2c81147b614d069
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "87117430"
 ---
 # <a name="troubleshoot-audit-data-on-verified-domain-change"></a>Risoluzione dei problemi: controllare i dati sulla modifica del dominio verificato 
@@ -33,7 +33,7 @@ Si controllano i log di controllo Azure AD e si verificano più aggiornamenti ut
 
 ### <a name="cause"></a>Causa
 
- Un motivo comune alla base delle modifiche apportate agli oggetti di massa è un'operazione back-end non sincrona denominata **ProxyCalc**.  **ProxyCalc** è la logica che determina gli indirizzi **userPrincipalName** e **Proxy**appropriati, aggiornati in Azure ad utenti, gruppi o contatti. La progettazione alla base di **ProxyCalc** è garantire che tutti **gli indirizzi** **userPrincipalName** e proxy siano coerenti in Azure ad in qualsiasi momento. **ProxyCalc** deve essere attivato da una modifica esplicita come una modifica del dominio verificato e non viene eseguita continuamente in background come attività. 
+ Un motivo comune alla base delle modifiche apportate agli oggetti di massa è un'operazione back-end non sincrona denominata **ProxyCalc**.  **ProxyCalc** è la logica che determina gli indirizzi **userPrincipalName** e **Proxy** appropriati, aggiornati in Azure ad utenti, gruppi o contatti. La progettazione alla base di **ProxyCalc** è garantire che tutti **gli indirizzi** **userPrincipalName** e proxy siano coerenti in Azure ad in qualsiasi momento. **ProxyCalc** deve essere attivato da una modifica esplicita come una modifica del dominio verificato e non viene eseguita continuamente in background come attività. 
 
   
 

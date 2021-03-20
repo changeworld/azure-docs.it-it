@@ -15,10 +15,10 @@ ms.reviewer: jesakowi
 ms.custom: aaddev
 ROBOTS: NOINDEX
 ms.openlocfilehash: 2b85115d905cb6a7eb7c6aed64a4834425d2f1d7
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/22/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92366395"
 ---
 # <a name="permissions-and-consent-in-the-azure-active-directory-v10-endpoint"></a>Autorizzazioni e consenso nell'endpoint v1.0 di Azure Active Directory
@@ -60,8 +60,8 @@ Le autorizzazioni in Azure AD hanno diverse proprietà che aiutano utenti, ammin
 | Nome proprietà | Descrizione | Esempio |
 | --- | --- | --- |
 | `ID` | Valore GUID che identifica in modo univoco l'autorizzazione. | 570282fd-fa5c-430d-a7fd-fc8dc98a9dca |
-| `IsEnabled` | Indica se l'autorizzazione è disponibile per l'uso. | True |
-| `Type` | Indica se l'autorizzazione richiede il consenso dell'utente o dell'amministratore. | Utente |
+| `IsEnabled` | Indica se l'autorizzazione è disponibile per l'uso. | true |
+| `Type` | Indica se l'autorizzazione richiede il consenso dell'utente o dell'amministratore. | User |
 | `AdminConsentDescription` | Descrizione che viene visualizzata per gli amministratori durante l'esperienza di consenso dell'amministratore. | Consente all'app di leggere i messaggi di posta elettronica nelle cassette postali degli utenti. |
 | `AdminConsentDisplayName` | Nome descrittivo visualizzato per gli amministratori durante l'esperienza di consenso dell'amministratore. | Leggi i messaggi di un altro utente |
 | `UserConsentDescription` | Descrizione che viene visualizzata per gli utenti durante l'esperienza di consenso dell'utente. |  Consente all'app di leggere i messaggi di posta elettronica nella cassetta postale personale. |
@@ -102,7 +102,7 @@ Le applicazioni in Azure AD si basano sul consenso per ottenere l'accesso alle A
   - `Permission` corrisponde all'azione che un utente può eseguire su tali dati
   - `Modifier` viene usato facoltativamente per descrivere le specializzazioni di un'altra autorizzazione
     
-    Esempio:
+    Ad esempio:
   - Mail.Read: consente agli utenti di leggere i messaggi di posta.
   - Mail.ReadWrite: consente agli utenti di leggere o scrivere messaggi di posta.
   - Mail.ReadWrite.All: consente a un amministratore o a un utente di accedere a tutti i messaggi di posta nell'organizzazione.

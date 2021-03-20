@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 04/09/2019
 ms.author: mayg
 ms.openlocfilehash: ba1979c940d4a92b3d1a7a52a4f356b2896ece55
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "74082615"
 ---
 # <a name="run-the-azure-site-recovery-deployment-planner-for-hyper-v-disaster-recovery-to-azure"></a>Eseguire Azure Site Recovery Deployment Planner per il ripristino di emergenza da Hyper-V ad Azure
@@ -53,7 +53,7 @@ ASRDeploymentPlanner.exe -Operation GetVMList /?
 
 Aprire il file di output nel Blocco note e quindi copiare i nomi di tutte le VM da profilare in un altro file, ad esempio, ProfileVMList.txt. Usare un nome di VM per riga. Questo file viene usato come input per il parametro -VMListFile dello strumento per tutte le altre operazioni, ovvero per la profilatura, la generazione di report e la misurazione della velocità effettiva.
 
-### <a name="examples"></a>Esempi
+### <a name="examples"></a>Esempio
 
 #### <a name="store-the-list-of-vms-in-a-file"></a>Archiviare l'elenco di VM in un file
 ```
@@ -97,7 +97,7 @@ ASRDeploymentPlanner.exe -Operation StartProfiling /?
 |-Directory|(Facoltativo) UNC o percorso di directory locale per l'archiviazione dei dati generati durante la profilatura. Se non viene specificato un nome, come directory predefinita verrà usata la directory denominata ProfiledData nel percorso corrente.|
 |-Password|(Facoltativo) Password per la connessione all'host Hyper-V. Se non viene specificata come parametro, verrà richiesta quando si esegue il comando.|
 |-StorageAccountName|(Facoltativo) Nome dell'account di archiviazione usato per determinare la velocità effettiva ottenibile per la replica dei dati dall'ambiente locale ad Azure. Lo strumento carica i dati di test in questo account di archiviazione per calcolare la velocità effettiva. L'account di archiviazione deve essere di tipo Utilizzo generico v1 (GPv1).|
-|-StorageAccountKey|(Facoltativo) Chiave usata per accedere all'account di archiviazione. Passare alla portale di Azure > **account di archiviazione account**di archiviazione  >  *-Impostazioni nome account*  >  **Settings**  >  di**accesso**  >  **Key1** (o la chiave di accesso primaria per un account di archiviazione classico).|
+|-StorageAccountKey|(Facoltativo) Chiave usata per accedere all'account di archiviazione. Passare alla portale di Azure > **account di archiviazione account** di archiviazione  >  *-Impostazioni nome account*  >    >  di **accesso**  >  **Key1** (o la chiave di accesso primaria per un account di archiviazione classico).|
 |-Environment|(Facoltativo) Ambiente di destinazione per l'account di archiviazione di Azure. Può trattarsi di uno di tre valori: AzureCloud, AzureUSGovernment o AzureChinaCloud. Il valore predefinito è AzureCloud. Usare il parametro quando l'area di destinazione è Azure US Government o Azure Cina 21Vianet.|
 
 È consigliabile profilare le VM per oltre 7 giorni. Se il modello di varianza varia in un mese, è consigliabile eseguire la profilatura durante la settimana in cui si rileva la varianza massima. La soluzione ottimale consiste nell'eseguire la profilatura per 31 giorni, per ottenere un'indicazione migliore. 
@@ -126,7 +126,7 @@ Le configurazioni delle VM vengono acquisite una volta all'inizio dell'operazion
 
 Il comando di profilatura genera diversi file nella directory della profilatura. Non eliminare nessuno dei file, altrimenti la generazione del report verrà compromessa.
 
-### <a name="examples"></a>Esempi
+### <a name="examples"></a>Esempio
 
 #### <a name="profile-vms-for-30-days-and-find-the-throughput-from-on-premises-to-azure"></a>Profilare le VM per 30 giorni e determinare la velocità effettiva dall'ambiente locale ad Azure
 ```
@@ -157,7 +157,7 @@ Quando vengono passati il nome e la chiave di un account di archiviazione, lo st
 Azure Site Recovery non supporta VM con dischi iSCSI e pass-through. Lo strumento, tuttavia, non può rilevare e profilare dischi iSCSI e pass-through collegati alle VM.
 
 ## <a name="generate-a-report"></a>Generare un report
-Lo strumento genera un file di Microsoft Excel con attivazione macro (file XLSM) come output del report, con il riepilogo di tutte le indicazioni di distribuzione. Il report è denominato DeploymentPlannerReport_*identificatore numerico univoco*.xlsm e viene inserito nella directory specificata.
+Lo strumento genera un file di Microsoft Excel con attivazione macro (file XLSM) come output del report, con il riepilogo di tutte le indicazioni di distribuzione. Il report è denominato DeploymentPlannerReport_ *identificatore numerico univoco*.xlsm e viene inserito nella directory specificata.
 
 Al termine della profilatura, è possibile eseguire lo strumento in modalità di generazione di report. 
 
@@ -192,7 +192,7 @@ Per impostazione predefinita, lo strumento è configurato per eseguire la profil
 <add key="MaxVmsSupported" value="1000"/>
 ```
 
-### <a name="examples"></a>Esempi
+### <a name="examples"></a>Esempio
 #### <a name="generate-a-report-with-default-values-when-the-profiled-data-is-on-the-local-drive"></a>Generare un report con i valori predefiniti quando i dati profilati si trovano nell'unità locale
 ```
 ASRDeploymentPlanner.exe -Operation GenerateReport -virtualization Hyper-V -Directory "E:\Hyper-V_ProfiledData" -VMListFile "E:\Hyper-V_ProfiledData\ProfileVMList1.txt"
@@ -281,7 +281,7 @@ ASRDeploymentPlanner.exe -Operation GetThroughput /?
 |-Virtualization|Tipo di virtualizzazione (VMware o Hyper-V).|
 |-Directory|(Facoltativo) UNC o percorso della directory locale in cui vengono archiviati i dati profilati, ovvero i file generati durante la profilatura. Questi dati sono necessari per la generazione di report. Se non viene specificato un nome, come directory predefinita verrà usata la directory denominata ProfiledData nel percorso corrente.|
 | -StorageAccountName | Nome dell'account di archiviazione usato per determinare la larghezza di banda utilizzata per la replica dei dati dall'ambiente locale ad Azure. Lo strumento carica i dati di test in questo account di archiviazione per determinare la larghezza di banda utilizzata. L'account di archiviazione deve essere di tipo Utilizzo generico v1 (GPv1).|
-| -StorageAccountKey | Chiave dell'account di archiviazione usata per accedere all'account di archiviazione. Passare alla portale di Azure > **account di archiviazione account**  >  *di archiviazione-impostazioni nome account*di  >  **Settings**  >  **accesso**  >  **Key1**.|
+| -StorageAccountKey | Chiave dell'account di archiviazione usata per accedere all'account di archiviazione. Passare alla portale di Azure > **account di archiviazione account**  >  *di archiviazione-impostazioni nome account* di  >    >  **accesso**  >  **Key1**.|
 | -VMListFile | File contenente l'elenco di VM da profilare per calcolare la larghezza di banda utilizzata. Il percorso del file può essere assoluto o relativo. Per Hyper-V, si tratta del file di output dell'operazione GetVMList. In caso di preparazione manuale, il file deve contenere un nome server o un indirizzo IP, seguito dal nome della VM separato con un carattere \ per riga. Il nome della VM specificato nel file deve essere uguale al nome della VM nell'host Hyper-V.<br><br>**Esempio**: VMList.txt contiene le VM seguenti:<ul><li>Host_1\VM_A</li><li>10.8.59.27\VM_B</li><li>Host_2\VM_C</li><ul>|
 |-Environment|(Facoltativo) Ambiente di destinazione per l'account di archiviazione di Azure. Può trattarsi di uno di tre valori: AzureCloud, AzureUSGovernment o AzureChinaCloud. Il valore predefinito è AzureCloud. Usare il parametro quando l'area di Azure di destinazione è Azure US Government o Azure Cina 21Vianet.|
 
@@ -292,7 +292,7 @@ ASRDeploymentPlanner.exe -Operation GetThroughput -Virtualization Hyper-V -Direc
 
 ### <a name="throughput-considerations"></a>Considerazioni sulla velocità effettiva
 
-Lo strumento crea diversi file asrvhdfile*numero*.vhd (dove *numero* è il numero di file) da 64 MB nella directory specificata. Lo strumento carica i file nell'account di archiviazione per determinare la velocità effettiva. Dopo aver misurato la velocità effettiva, lo strumento elimina tutti i file dall'account di archiviazione e dal server locale. Se per qualsiasi motivo lo strumento viene terminato mentre sta calcolando la velocità effettiva, non elimina i file dall'account di archiviazione o dal server locale. È necessario eliminarli manualmente.
+Lo strumento crea diversi file asrvhdfile *numero*.vhd (dove *numero* è il numero di file) da 64 MB nella directory specificata. Lo strumento carica i file nell'account di archiviazione per determinare la velocità effettiva. Dopo aver misurato la velocità effettiva, lo strumento elimina tutti i file dall'account di archiviazione e dal server locale. Se per qualsiasi motivo lo strumento viene terminato mentre sta calcolando la velocità effettiva, non elimina i file dall'account di archiviazione o dal server locale. È necessario eliminarli manualmente.
 
 La velocità effettiva viene misurata in un momento specificato ed è la velocità effettiva massima che Azure Site Recovery può raggiungere durante la replica, se tutti gli altri fattori rimangono invariati. Se, ad esempio, un'applicazione inizia a utilizzare più larghezza di banda nella stessa rete, la velocità effettiva varierà durante la replica. Il risultato della velocità effettiva misurata è diverso se l'operazione GetThroughput viene eseguita quando le VM protette hanno una varianza dei dati elevata. 
 

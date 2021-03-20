@@ -1,21 +1,21 @@
 ---
-title: Analisi del sentiment su Twitter in tempo reale con Analisi di flusso di Azure
-description: Questo articolo descrive come usare Analisi di flusso per l'analisi del sentiment su Twitter in tempo reale. Istruzioni dettagliate, dalla generazione degli eventi fino ai dati in un dashboard in tempo reale.
+title: Analisi dei social media con analisi di flusso di Azure
+description: Questo articolo descrive come usare analisi di flusso per l'analisi di social media tramite l'API client di Twitter. Istruzioni dettagliate, dalla generazione degli eventi fino ai dati in un dashboard in tempo reale.
 services: stream-analytics
 author: enkrumah
 ms.author: ebnkruma
 ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: how-to
-ms.date: 02/10/2020
-ms.openlocfilehash: 6a461ad906f7611c8a13e2ee495f4d2f62fedd53
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.date: 03/16/2021
+ms.openlocfilehash: e2369e8f4349a3b4a83c1729c6414d319dd8419e
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98734840"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104589668"
 ---
-# <a name="real-time-twitter-sentiment-analysis-in-azure-stream-analytics"></a>Analisi del sentiment su Twitter in tempo reale in Analisi di flusso di Azure
+# <a name="social-media-analysis-with-azure-stream-analytics"></a>Analisi dei social media con analisi di flusso di Azure
 
 Questo articolo illustra come creare una soluzione di analisi del sentiment sui social media portando gli eventi di Twitter in tempo reale negli Hub eventi di Azure. Si scrive una query di Analisi di flusso di Azure per analizzare i dati e archiviare i risultati per analisi successive o creare una dashboard [Power BI](https://powerbi.com/) per rendere disponibili informazioni rilevanti in tempo reale.
 
