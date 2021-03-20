@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 11/04/2019
 ms.author: apimpm
 ms.openlocfilehash: 9bbb7ef46fbde881c8968128870d24a03b046c23
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "73176799"
 ---
 # <a name="developer-portal-templates"></a>Modelli del portale per sviluppatori
@@ -36,7 +36,7 @@ Per altre informazioni sull'uso dei modelli, vedere [Come personalizzare il port
     -   [Elenco delle API](api-management-api-templates.md#APIList)  
     -   [Operazione](api-management-api-templates.md#Product)  
     -   [Esempi di codice](api-management-api-templates.md#CodeSamples)  
-        -   [CURL](api-management-api-templates.md#Curl)  
+        -   [Curl](api-management-api-templates.md#Curl)  
         -   [C#](api-management-api-templates.md#CSharp)  
         -   [Java](api-management-api-templates.md#Stub)  
         -   [JavaScript](api-management-api-templates.md#JavaScript)  
@@ -59,12 +59,12 @@ Per altre informazioni sull'uso dei modelli, vedere [Come personalizzare il port
     -   [Aggiornare le informazioni sull'account](api-management-user-profile-templates.md#UpdateAccountInfo)  
 -   [Pagine](api-management-page-templates.md)  
     -   [Accedi](api-management-page-templates.md#SignIn)  
-    -   [Registrati](api-management-page-templates.md#SignUp)  
+    -   [Iscrizione](api-management-page-templates.md#SignUp)  
     -   [Pagina non trovata](api-management-page-templates.md#PageNotFound)
 
 ## <a name="next-steps"></a>Passaggi successivi  
 
 + [Informazioni di riferimento sul modello](api-management-developer-portal-templates-reference.md)  
 + [Informazioni di riferimento sul modello di dati](api-management-template-data-model-reference.md)  
-+ [Controlli pagina](api-management-page-controls.md)  
++ [Controlli di pagina](api-management-page-controls.md)  
 + [Risorse del modello](api-management-template-resources.md)

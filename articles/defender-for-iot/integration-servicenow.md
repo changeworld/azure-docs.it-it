@@ -9,10 +9,10 @@ ms.date: 1/17/2021
 ms.topic: article
 ms.service: azure
 ms.openlocfilehash: f2a4c3e79a762de19c6e8c029256cd70dedfe3dc
-ms.sourcegitcommit: 6628bce68a5a99f451417a115be4b21d49878bb2
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/18/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98558115"
 ---
 # <a name="the-defender-for-iot-ics-management-application-for-servicenow"></a>Il Defender per l'applicazione di gestione ICS per ServiceNow
@@ -74,7 +74,7 @@ L'articolo illustra:
 > [!Note]
 > Se si sta già lavorando con un Defender per l'integrazione di ServiceNow e di Internet e si esegue l'aggiornamento usando la console di gestione locale, i dati precedente ricevuti da Defender per i sensori per le cose devono essere cancellati da ServiceNow.
 
-## <a name="architecture"></a>Architecture
+## <a name="architecture"></a>Architettura
 
 ### <a name="on-premises-management-console-architecture"></a>Architettura della console di gestione locale
 
@@ -140,7 +140,7 @@ Per definire la regola:
 
 1. Nel riquadro **azioni** impostare i parametri seguenti:
 
-  | Parametro | Description |
+  | Parametro | Descrizione |
   |--|--|
   | Dominio | Immettere l'indirizzo IP del server ServiceNow. |
   | Username | Immettere il nome utente del server ServiceNow. |
@@ -153,7 +153,7 @@ Per definire la regola:
 
 ### <a name="send-defender-for-iot-device-attributes"></a>Inviare il Defender per gli attributi dei dispositivi
 
-Questo articolo descrive come configurare Defender for Internet per il push di una vasta gamma di attributi del dispositivo alle tabelle ServiceNow. Vedere **_informazioni di inventario_* _ per informazioni dettagliate sul tipo di informazioni di cui è stato eseguito il push in ServiceNow.
+Questo articolo descrive come configurare Defender for Internet per il push di una vasta gamma di attributi del dispositivo alle tabelle ServiceNow. Per informazioni dettagliate sul tipo di informazioni di cui è stato eseguito il push in ServiceNow, vedere ***informazioni di inventario*** .
 
 Per inviare attributi a ServiceNow, è necessario eseguire il mapping della console di gestione locale a un'istanza di ServiceNow. Ciò garantisce che il Defender per la piattaforma Internet sia in grado di comunicare ed eseguire l'autenticazione con l'istanza.
 
@@ -161,7 +161,7 @@ Per aggiungere un'istanza di ServiceNow:
 
 1. Accedere al Defender per la console di gestione locale.
 
-1. Selezionare _ *impostazioni di sistema** e quindi **ServiceNow** dalla sezione integrazione della console di gestione locale.
+1. Selezionare **impostazioni di sistema** e quindi **ServiceNow** nella sezione integrazione della console di gestione locale.
 
       :::image type="content" source="media/integration-servicenow/servicenow.png" alt-text="Selezionare il pulsante ServiceNow.":::
 
@@ -169,7 +169,7 @@ Per aggiungere un'istanza di ServiceNow:
 
     :::image type="content" source="media/integration-servicenow/sync.png" alt-text="La finestra di dialogo ServiceNow Sync.":::
 
-     Parametro | Description |
+     Parametro | Descrizione |
     |--|--|
     | Abilita sincronizzazione | Abilitare e disabilitare la sincronizzazione dopo la definizione dei parametri. |
     | Frequenza di sincronizzazione (minuti) | Per impostazione predefinita, viene eseguito il push delle informazioni a ServiceNow ogni 60 minuti. Il valore minimo è 5 minuti. |
@@ -270,13 +270,13 @@ Questo articolo descrive gli attributi del dispositivo di cui è stato eseguito 
 | ID | ID dispositivo assegnato da Defender per l'it. |
 | Nome | Nome del dispositivo. |
 | Indirizzo IP | Indirizzo o indirizzi IP del dispositivo. |
-| Type | Tipo di dispositivo, ad esempio switch, PLC, storico o controller di dominio. |
+| Tipo | Tipo di dispositivo, ad esempio switch, PLC, storico o controller di dominio. |
 | Indirizzo MAC | Indirizzo o indirizzi MAC del dispositivo. |
 | Sistema operativo | Sistema operativo del dispositivo. |
 | Vendor | Fornitore del dispositivo. |
 | Protocolli | Protocolli rilevati nel traffico generato dal dispositivo. |
 | Proprietario | Immettere il nome del proprietario del dispositivo. |
-| Posizione | Immettere la posizione fisica del dispositivo. |
+| Location | Immettere la posizione fisica del dispositivo. |
 
 Visualizza i dispositivi connessi a un dispositivo in questa visualizzazione.
 
@@ -329,7 +329,7 @@ Questo articolo descrive le informazioni sugli avvisi del dispositivo inviate a 
 | Data di creazione | Data e ora di generazione dell'avviso. |
 | Motore | Motore che ha rilevato l'evento. |
 | Titolo | Titolo dell'avviso. |
-| Description | Descrizione dell'avviso. |
+| Descrizione | Descrizione dell'avviso. |
 | Protocollo | Protocollo rilevato nel traffico. |
 | Gravità | Gravità dell'avviso definita da Defender per l'it. |
 | Appliance | Nome del sensore che ha rilevato il traffico. |
@@ -349,7 +349,7 @@ Selezionare la voce nella colonna creato per visualizzare le informazioni sugli 
 
 Questo articolo descrive il tipo di avvisi attivati da ogni motore.
 
-| Tipo di avviso | Description |
+| Tipo di avviso | Descrizione |
 |--|--|
 | Avvisi di violazione dei criteri | Attivato quando il motore di violazione dei criteri rileva una deviazione dal traffico appreso in precedenza. Ad esempio: <br /><br />-Viene rilevato un nuovo dispositivo. <br /><br />-Viene rilevata una nuova configurazione in un dispositivo. <br /><br />-Un dispositivo non definito come dispositivo di programmazione comporta una modifica della programmazione. <br /><br />-È stata modificata una versione del firmware. |
 | Avvisi di violazione del protocollo | Attivato quando il motore di violazione del protocollo rileva le strutture di pacchetti o i valori dei campi che non sono conformi alla specifica del protocollo. |

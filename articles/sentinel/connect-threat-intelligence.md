@@ -14,13 +14,13 @@ ms.workload: na
 ms.date: 11/22/2019
 ms.author: yelevin
 ms.openlocfilehash: 205cc6eea5d1ac3be2d0e266621067dc8e20d2f9
-ms.sourcegitcommit: b8a175b6391cddd5a2c92575c311cc3e8c820018
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/25/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96121738"
 ---
-# <a name="connect-data-from-threat-intelligence-providers"></a>Connettere i dati dai provider di intelligence per le minacce
+# <a name="connect-data-from-threat-intelligence-providers"></a>Connettere dati dai provider di intelligence sulle minacce
 
 > [!IMPORTANT]
 > I connettori dati di intelligence per le minacce in Sentinel di Azure sono attualmente disponibili in anteprima pubblica.
@@ -86,7 +86,7 @@ Azure Sentinel consente di importare gli indicatori di minaccia utilizzati dall'
     
     c. Per l'azione, specificare Alert.
 
-5. Nella portale di Azure passare a connettori dati **sentinella di Azure**  >  **Data connectors** e quindi selezionare il connettore delle piattaforme di intelligence per le **minacce (anteprima)** .
+5. Nella portale di Azure passare a connettori dati **sentinella di Azure**  >   e quindi selezionare il connettore delle piattaforme di intelligence per le **minacce (anteprima)** .
 
 6. Selezionare **Apri connettore pagina**, quindi **Connetti**.
 
@@ -102,7 +102,7 @@ Azure Sentinel consente di importare gli indicatori di minaccia utilizzati dall'
 
 ### <a name="instructions"></a>Istruzioni
 
-1. Nella portale di Azure passare a connettori dati **sentinella di Azure**  >  **Data connectors** e quindi selezionare il connettore Intelligence per le **minacce-Taxii (anteprima)** .
+1. Nella portale di Azure passare a connettori dati **sentinella di Azure**  >   e quindi selezionare il connettore Intelligence per le **minacce-Taxii (anteprima)** .
 
 2. Selezionare **Apri connettore pagina**.
 

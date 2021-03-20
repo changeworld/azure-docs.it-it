@@ -9,10 +9,10 @@ ms.date: 1/17/2021
 ms.topic: article
 ms.service: azure
 ms.openlocfilehash: faa53c770d0d6caac471e770c80b4dfd5c5ff603
-ms.sourcegitcommit: 6628bce68a5a99f451417a115be4b21d49878bb2
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/18/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98558027"
 ---
 # <a name="about-the-forescout-integration"></a>Informazioni sull'integrazione di ForeScout
@@ -32,7 +32,7 @@ L'integrazione fornisce analisti SOC con visibilità a più livelli nei protocol
 
 > [!Note]
 > I riferimenti a CyberX fanno riferimento ad Azure Defender per l'it.
-## <a name="devices"></a>-
+## <a name="devices"></a>Dispositivi
 
 ### <a name="device-visibility-and-management"></a>Visibilità e gestione dei dispositivi
 
@@ -146,7 +146,7 @@ Per visualizzare gli attributi di un dispositivo:
    | Firmware | Dettagli del firmware del dispositivo. Ad esempio, Model e Version details. |
    | Name | Nome del dispositivo. |
    | Sistema operativo | Sistema operativo del dispositivo. |
-   | Type | Tipo di dispositivo. Ad esempio, un PLC, uno storico o una stazione di progettazione. |
+   | Tipo | Tipo di dispositivo. Ad esempio, un PLC, uno storico o una stazione di progettazione. |
    | Vendor | Fornitore del dispositivo. Ad esempio, Rockwell Automation. |
    | Livello di rischio | Livello di rischio calcolato da Defender per l'it. |
    | Protocolli | Protocolli rilevati nel traffico generato dal dispositivo. |

@@ -12,10 +12,10 @@ ms.date: 10/01/2019
 ms.author: pafarley
 ms.custom: seodec18
 ms.openlocfilehash: 5d5961ecae2fbc154ae6f1acd74df2bb74024fa1
-ms.sourcegitcommit: 5b93010b69895f146b5afd637a42f17d780c165b
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/02/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96532619"
 ---
 # <a name="detect-adult-content"></a>Rileva contenuto per adulti
@@ -37,4 +37,4 @@ La classificazione "Adult" contiene diverse categorie:
 
 È possibile rilevare il contenuto per adulti con l'API [analizza immagine](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-ga/operations/56f91f2e778daf14a499f21b) . Quando si aggiunge il valore di `Adult` al parametro di query **visualFeatures** , l'API restituisce tre proprietà booleane &mdash; `isAdultContent` , `isRacyContent` e `isGoryContent` &mdash; nella relativa risposta JSON. Il metodo restituisce anche le proprietà corrispondenti &mdash; `adultScore` , `racyScore` e `goreScore` &mdash; che rappresentano i punteggi di confidenza tra zero e uno per ogni rispettiva categoria.
 
-- [Guida introduttiva: Visione artificiale API REST o librerie client](./quickstarts-sdk/client-library.md?pivots=programming-language-csharp)
+- [Avvio rapido: API REST o librerie client di Visione artificiale](./quickstarts-sdk/client-library.md?pivots=programming-language-csharp)

@@ -4,13 +4,13 @@ description: Riferimento per l'evento di errore di pianificazione dell'attività
 ms.topic: reference
 ms.date: 09/20/2020
 ms.openlocfilehash: 549281d2b2c371e8f09c584e771cf44f7abc8a00
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91852139"
 ---
-# <a name="task-schedule-fail-event"></a>Evento di errore pianificazione attività
+# <a name="task-schedule-fail-event"></a>Evento di pianificazione attività non riuscita
 
  Questo evento viene generato quando non è possibile pianificare un'attività e verrà eseguito un nuovo tentativo in un secondo momento. Si tratta di un errore temporaneo durante la pianificazione delle attività a causa di una limitazione delle risorse, ad esempio slot insufficienti nei nodi per eseguire un'attività con `requiredSlots` specificato.
 

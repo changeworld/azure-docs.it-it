@@ -8,6 +8,8 @@
       href: core/overview-iot-central-tour.md
     - name: Aggiornamenti recenti
       items:
+        - name: Febbraio 2021 funzionalità nuove e aggiornate
+          href: 'https://azure.microsoft.com/updates/azure-iot-central-new-and-updated-features-february-2021/'
         - name: Gennaio 2021 funzionalità nuove e aggiornate
           href: 'https://azure.microsoft.com/updates/azure-iot-central-feature-updates-january-2021/'
         - name: Funzionalità nuove e aggiornate di novembre 2020
@@ -129,6 +131,8 @@
       href: core/concepts-architecture.md
     - name: Guida per sviluppatori di dispositivi
       href: core/overview-iot-central-developer.md
+    - name: Guida dell'operatore
+      href: core/overview-iot-central-operator.md
     - name: Guida al generatore di soluzioni
       href: core/overview-iot-central-solution-builder.md
     - name: Che cosa i modelli di applicazione?

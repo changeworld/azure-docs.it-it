@@ -9,10 +9,10 @@ ms.date: 1/4/2021
 ms.topic: article
 ms.service: azure
 ms.openlocfilehash: 91d877d644b4b5ca7231f5f81f9163a0fd3cbe25
-ms.sourcegitcommit: 6628bce68a5a99f451417a115be4b21d49878bb2
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/18/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98557987"
 ---
 # <a name="defender-for-iot-and-ics-threat-monitoring-application-for-splunk"></a>Defender per l'applicazione di monitoraggio delle minacce e ICS per Splunk
@@ -166,7 +166,7 @@ Per creare una regola di invio:
 
     :::image type="content" source="media/integration-splunk/parameters.png" alt-text="Parametri Splunk da immettere in questa schermata.":::
 
-    | Parametro | Description |
+    | Parametro | Descrizione |
     |--|--|
     | **Host** | Indirizzo del server Splunk |
     | **Porta** | 8089 |

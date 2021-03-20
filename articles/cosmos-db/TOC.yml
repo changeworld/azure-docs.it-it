@@ -880,9 +880,9 @@
             - name: Hub eventi di Azure e Archiviazione di Azure
               href: 'https://github.com/hdinsight/hdinsight-storm-examples/blob/master/IotExample/README.md'
             - name: Usare Spring Boot Starter
-              href: /azure/developer/java/spring-framework/configure-spring-boot-starter-java-app-with-cosmos-db?context=%2fazure%2fcosmos-db%2fcontext%2fcontext
+              href: /azure/developer/java/spring-framework/configure-spring-boot-starter-java-app-with-cosmos-db?toc=/azure/cosmos-db/toc.json&bc=/azure/cosmos-db/breadcrumb/toc.json
             - name: Guida per sviluppatori Spring Data
-              href: /azure/developer/java/spring-framework/how-to-guides-spring-data-cosmosdb?context=%2fazure%2fcosmos-db%2fcontext%2fcontext
+              href: /azure/developer/java/spring-framework/how-to-guides-spring-data-cosmosdb?toc=/azure/cosmos-db/toc.json&bc=/azure/cosmos-db/breadcrumb/toc.json
             - name: Driver ODBC
               href: odbc-driver.md
     - name: Informazioni di riferimento
@@ -1003,7 +1003,7 @@
           displayName: 'request units, RUs, RU, charge, consumption'
           href: find-request-unit-charge-cassandra.md
         - name: Archiviare e gestire Spring Data
-          href: /azure/developer/java/spring-framework/configure-spring-data-apache-cassandra-with-cosmos-db?context=%2fazure%2fcosmos-db%2fcontext%2fcontext
+          href: /azure/developer/java/spring-framework/configure-spring-data-apache-cassandra-with-cosmos-db?toc=/azure/cosmos-db/toc.json&bc=/azure/cosmos-db/breadcrumb/toc.json
         - name: Risolvere i problemi comuni
           href: cassandra-troubleshoot.md
         - name: Cassandra e Spark
@@ -1157,7 +1157,7 @@
         - name: Evitare gli errori di limitazione della velocità
           href: prevent-rate-limiting-errors.md
         - name: Archiviare e gestire Spring Data
-          href: /azure/developer/java/spring-framework/configure-spring-data-mongodb-with-cosmos-db?context=%2fazure%2fcosmos-db%2fcontext%2fcontext
+          href: /azure/developer/java/spring-framework/configure-spring-data-mongodb-with-cosmos-db?toc=/azure/cosmos-db/toc.json&bc=/azure/cosmos-db/breadcrumb/toc.json
         - name: Comandi dell'estensione MongoDB
           href: mongodb-custom-commands.md
           displayName: custom commands
@@ -1238,7 +1238,7 @@
         - name: Visualizzare i dati del grafico
           href: graph-visualization.md
         - name: Archiviare e gestire Spring Data
-          href: /azure/developer/java/spring-framework/configure-spring-data-gremlin-java-app-with-cosmos-db?context=%2fazure%2fcosmos-db%2fcontext%2fcontext
+          href: /azure/developer/java/spring-framework/configure-spring-data-gremlin-java-app-with-cosmos-db?toc=/azure/cosmos-db/toc.json&bc=/azure/cosmos-db/breadcrumb/toc.json
         - name: Gestire con i modelli di Resource Manager
           href: templates-samples-gremlin.md
           displayName: ARM
@@ -1394,7 +1394,7 @@
               href: continuous-backup-restore-template.md
         - name: Gestire il backup periodico
           href: configure-periodic-backup-restore.md
-    - name: Security
+    - name: Sicurezza
       items:
         - name: Configurare il firewall IP
           href: how-to-configure-firewall.md

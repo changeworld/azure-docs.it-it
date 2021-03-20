@@ -6,10 +6,10 @@ ms.author: jobreen
 author: jjbfour
 ms.date: 06/20/2019
 ms.openlocfilehash: 46b38686b39836f3d4bfb80686d514f932a79bf3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "75650461"
 ---
 # <a name="custom-resource-proxy-reference"></a>Riferimento al proxy di risorsa personalizzato
@@ -68,7 +68,7 @@ Riferimento ai parametri:
 Proprietà | Esempio | Descrizione
 ---|---|---
 name | '{myCustomResourceName}' | Il nome della risorsa personalizzata.
-type | 'Microsoft.CustomProviders/resourceProviders/{resourceTypeName}' | Lo spazio dei nomi del tipo di risorsa.
+tipo | 'Microsoft.CustomProviders/resourceProviders/{resourceTypeName}' | Lo spazio dei nomi del tipo di risorsa.
 id | '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/<br>providers/Microsoft.CustomProviders/resourceProviders/{resourceProviderName}/<br>myCustomResources/{myCustomResourceName}' | L'ID della risorsa.
 
 ### <a name="create-a-custom-resource"></a>Creare una risorsa personalizzata

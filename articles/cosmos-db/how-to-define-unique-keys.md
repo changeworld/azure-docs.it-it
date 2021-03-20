@@ -9,10 +9,10 @@ ms.date: 12/02/2019
 ms.author: thweiss
 ms.custom: devx-track-python, devx-track-js, devx-track-csharp
 ms.openlocfilehash: 55fc5222c1c245c56ba0a26caa816c5c845147c1
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93336623"
 ---
 # <a name="define-unique-keys-for-an-azure-cosmos-container"></a>Definire chiavi univoche per un contenitore di Azure Cosmos
@@ -30,7 +30,7 @@ Questo articolo presenta i diversi modi per definire [chiavi univoche](unique-ke
 
 1. Fare clic su **Nuovo contenitore**.
 
-1. Nella finestra di dialogo **Aggiungi contenitore** , fare clic su **+ Aggiungi chiave univoca** per aggiungere una voce di chiave univoca.
+1. Nella finestra di dialogo **Aggiungi contenitore**, fare clic su **+ Aggiungi chiave univoca** per aggiungere una voce di chiave univoca.
 
 1. Immettere il percorso o i percorsi del vincolo della chiave univoca
 

@@ -12,10 +12,10 @@ ms.author: sstein
 ms.reviewer: ''
 ms.date: 12/12/2018
 ms.openlocfilehash: e891c5797c9ce93e6cab7a07d2f68de1a9157249
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/27/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92674761"
 ---
 # <a name="connect-to-sql-database-using-c-and-c"></a>Connettersi al database SQL tramite C e C++
@@ -55,7 +55,7 @@ In [portale di Azure](https://portal.azure.com/)passare alla stringa di connessi
 
 ![ODBCConnectionStringProps](./media/develop-cplusplus-simple/dbconnection.png)
 
-Copiare il contenuto della stringa **ODBC (include Node.js) [SQL authentication]** . Questa stringa verrà usata successivamente per connettersi dall'interprete della riga di comando ODBC di C++ . La stringa include informazioni dettagliate quali il driver, il server e altri parametri di connessione al database.
+Copiare il contenuto della stringa **ODBC (include Node.js) [SQL authentication]**. Questa stringa verrà usata successivamente per connettersi dall'interprete della riga di comando ODBC di C++ . La stringa include informazioni dettagliate quali il driver, il server e altri parametri di connessione al database.
 
 ## <a name="step-3--add-your-ip-to-the-firewall"></a><a id="Firewall"></a>Passaggio 3: Aggiungere l'indirizzo IP al firewall
 
@@ -123,7 +123,7 @@ L'ultima operazione da eseguire prima della compilazione consiste nell'aggiunger
 
 ![Aggiunta di ODBC come libreria di input](./media/develop-cplusplus-simple/lib.png)
 
-Per avviare l'applicazione, visualizzare la console Linux nel menu **Debug** :
+Per avviare l'applicazione, visualizzare la console Linux nel menu **Debug**:
 
 ![Console Linux](./media/develop-cplusplus-simple/linuxconsole.png)
 

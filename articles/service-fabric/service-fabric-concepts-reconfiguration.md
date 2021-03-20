@@ -6,10 +6,10 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: aprameyr
 ms.openlocfilehash: bd46a7776495624affef77a44fcf68334750ba17
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "75609996"
 ---
 # <a name="reconfiguration-in-azure-service-fabric"></a>Riconfigurazione con Azure Service Fabric
@@ -42,7 +42,7 @@ Esistono altre fasi che sono solo per uso interno.
 ## <a name="stuck-reconfigurations"></a>Riconfigurazioni bloccate
 Le riconfigurazioni possono *bloccarsi* per svariati motivi. Alcuni dei motivi più comuni includono:
 
-- **Repliche**inattive: alcune fasi di riconfigurazione richiedono che la maggior parte delle repliche nella configurazione sia attiva.
+- **Repliche** inattive: alcune fasi di riconfigurazione richiedono che la maggior parte delle repliche nella configurazione sia attiva.
 - **Problemi di rete o di comunicazione**: le riconfigurazioni richiedono la connettività di rete tra nodi diversi.
 - **Errori API**: il protocollo di riconfigurazione richiede che le implementazioni del servizio terminino determinate API. Ad esempio, se non viene rispettato il token di annullamento in un servizio Reliable Services, le riconfigurazioni SwapPrimary si bloccano.
 

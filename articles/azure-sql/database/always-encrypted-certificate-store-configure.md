@@ -13,10 +13,10 @@ ms.author: vanto
 ms.reviwer: ''
 ms.date: 04/23/2020
 ms.openlocfilehash: 60dea826a12ea475806adb6db88faa88e26463a1
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/27/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92674829"
 ---
 # <a name="configure-always-encrypted-by-using-the-windows-certificate-store"></a>Configurare Always Encrypted usando l'archivio certificati di Windows
@@ -51,7 +51,7 @@ Per questa esercitazione occorrono:
 
 È necessario abilitare l'applicazione client per accedere al database SQL o a SQL Istanza gestita impostando un'applicazione Azure Active Directory (AAD) e copiando l'ID e la *chiave* *dell'applicazione* necessarie per autenticare l'applicazione.
 
-Per ottenere l' *ID applicazione* e la *chiave* , eseguire la procedura descritta in [Usare il portale per creare un'applicazione Azure Active Directory e un'entità servizio che possano accedere alle risorse](../../active-directory/develop/howto-create-service-principal-portal.md).
+Per ottenere l'*ID applicazione* e la *chiave*, eseguire la procedura descritta in [Usare il portale per creare un'applicazione Azure Active Directory e un'entità servizio che possano accedere alle risorse](../../active-directory/develop/howto-create-service-principal-portal.md).
 
 
 
@@ -70,8 +70,8 @@ Se viene visualizzata la finestra **Nuova regola firewall** , accedere ad Azure 
 
 Questa sezione contiene istruzioni per creare una tabella con i dati dei pazienti. Sarà una normale tabella inizialmente; la crittografia verrà configurata nella sezione successiva.
 
-1. Espandere **Database** .
-2. Fare clic con il pulsante destro del mouse sul database **Clinic** e fare clic su **Nuova query** .
+1. Espandere **Database**.
+2. Fare clic con il pulsante destro del mouse sul database **Clinic** e fare clic su **Nuova query**.
 3. Incollare il comando Transact-SQL (T-SQL) seguente nella finestra della nuova query ed **eseguirlo** .
     
     ```tsql
@@ -94,20 +94,20 @@ Questa sezione contiene istruzioni per creare una tabella con i dati dei pazient
 
 SSMS offre una procedura guidata per configurare facilmente la crittografia sempre attiva impostando la chiave master di colonna (CMK), la chiave di crittografia di colonna (CEK) e le colonne crittografate automaticamente.
 
-1. Espandere **database**  >  **Clinic**  >  **tabelle** .
+1. Espandere **database**  >  **Clinic**  >  **tabelle**.
 2. Fare clic con il pulsante destro del mouse sulla tabella **Patients** e selezionare **Crittografa colonne** per aprire la procedura guidata Always Encrypted:
 
     ![Screenshot che mostra la crittografia colonne... opzione di menu nella tabella patients.](./media/always-encrypted-certificate-store-configure/encrypt-columns.png)
 
-La procedura guidata Always Encrypted include le sezioni seguenti: **Selezione colonne** , **Configurazione della chiave master** (CMK), **Convalida** e **Riepilogo** .
+La procedura guidata Always Encrypted include le sezioni seguenti: **Selezione colonne**, **Configurazione della chiave master** (CMK), **Convalida** e **Riepilogo**.
 
 ### <a name="column-selection"></a>Selezione colonne
 
-Fare clic su **Avanti** nella pagina **Introduzione** per aprire la pagina **Selezione colonne** . In questa pagina verranno selezionate le colonne da crittografare, [il tipo di crittografia e la chiave di crittografia di colonna (CEK)](/sql/relational-databases/security/encryption/always-encrypted-wizard#Anchor_2) da usare.
+Fare clic su **Avanti** nella pagina **Introduzione** per aprire la pagina **Selezione colonne**. In questa pagina verranno selezionate le colonne da crittografare, [il tipo di crittografia e la chiave di crittografia di colonna (CEK)](/sql/relational-databases/security/encryption/always-encrypted-wizard#Anchor_2) da usare.
 
 Crittografare il **CF** e la **data di nascita** per ogni paziente. La colonna relativa al **CF** usa la crittografia deterministica, che supporta ricerche di uguaglianza, join e raggruppamenti. La colonna relativa alla **data di nascita** usa la crittografia casuale, che non supporta le operazioni.
 
-Impostare il **Tipo di crittografia** per la colonna **CF** su **Deterministica** e la colonna **Data di nascita** su **Casuale** . Fare clic su **Avanti** .
+Impostare il **Tipo di crittografia** per la colonna **CF** su **Deterministica** e la colonna **Data di nascita** su **Casuale**. Fare clic su **Avanti**.
 
 ![Crittografa colonne](./media/always-encrypted-certificate-store-configure/column-selection.png)
 
@@ -115,13 +115,13 @@ Impostare il **Tipo di crittografia** per la colonna **CF** su **Deterministica*
 
 La pagina **Configurazione della chiave master** consente di impostare la CMK e selezionare il provider dell'archivio chiavi in cui verrà archiviata la CMK. Attualmente è possibile archiviare una chiave master di colonna nell'archivio certificati di Windows, nell'insieme di credenziali delle chiavi di Azure o in un modulo di protezione hardware. Questa esercitazione illustra come archiviare le chiavi nell'archivio certificati di Windows.
 
-Verificare che l' **archivio certificati di Windows** sia selezionato e fare clic su **Avanti** .
+Verificare che l'**archivio certificati di Windows** sia selezionato e fare clic su **Avanti**.
 
 ![Configurazione della chiave master](./media/always-encrypted-certificate-store-configure/master-key-configuration.png)
 
 ### <a name="validation"></a>Convalida
 
-È attualmente possibile crittografare le colonne o salvare uno script di PowerShell da eseguire in un secondo momento. Per questa esercitazione selezionare **Procedi per completare ora** e fare clic su **Avanti** .
+È attualmente possibile crittografare le colonne o salvare uno script di PowerShell da eseguire in un secondo momento. Per questa esercitazione selezionare **Procedi per completare ora** e fare clic su **Avanti**.
 
 ### <a name="summary"></a>Riepilogo
 
@@ -137,7 +137,7 @@ Al termine della procedura guidata, il database è configurato per la crittograf
 * Creare una chiave di crittografia di colonna (CEK).
 * Configurazione delle colonne selezionate per la crittografia. La tabella **Patients** attualmente è vuota, ma eventuali dati esistenti nelle colonne selezionate sono ora crittografati.
 
-È possibile verificare la creazione di chiavi in SSMS passando a **Clinic**  >  **Security**  >  **Always Encrypted Keys** . Sono ora visibili le nuove chiavi generate dalla procedura guidata.
+È possibile verificare la creazione di chiavi in SSMS passando a **Clinic**  >  **Security**  >  **Always Encrypted Keys**. Sono ora visibili le nuove chiavi generate dalla procedura guidata.
 
 ## <a name="create-a-client-application-that-works-with-the-encrypted-data"></a>Creare un'applicazione client che funziona con i dati crittografati
 
@@ -147,7 +147,7 @@ Ora che la crittografia Always Encrypted è configurata, è possibile creare un'
 > L'applicazione deve usare oggetti [SqlParameter](/dotnet/api/system.data.sqlclient.sqlparameter) per trasferire dati di testo non crittografato al server con colonne con la crittografia sempre attiva. Il trasferimento di valori letterali senza usare oggetti SqlParameter genererà un'eccezione.
 
 1. Aprire Visual Studio e creare un'applicazione console C#. Verificare che il progetto sia impostato su **.NET Framework 4.6** o versione successiva.
-2. Denominare il progetto **AlwaysEncryptedConsoleApp** e fare clic su **OK** .
+2. Denominare il progetto **AlwaysEncryptedConsoleApp** e fare clic su **OK**.
 
 ![Screenshot che mostra il nuovo progetto AlwaysEncryptedConsoleApp denominato.](./media/always-encrypted-certificate-store-configure/console-app.png)
 
@@ -155,9 +155,9 @@ Ora che la crittografia Always Encrypted è configurata, è possibile creare un'
 
 Questa sezione descrive come abilitare la crittografia sempre attiva nella stringa di connessione del database. Si modificherà l'app console appena creata nella sezione successiva "Applicazione console di esempio della crittografia sempre attiva".
 
-Per abilitare Always Encrypted è necessario aggiungere la parola chiave di **Column Encryption Setting** alla stringa di connessione e impostarla su **Abilitata** .
+Per abilitare Always Encrypted è necessario aggiungere la parola chiave di **Column Encryption Setting** alla stringa di connessione e impostarla su **Abilitata**.
 
-È possibile impostarla direttamente nella stringa di connessione o tramite [SqlConnectionStringBuilder](/dotnet/api/system.data.sqlclient.sqlconnectionstringbuilder). L'applicazione di esempio nella sezione successiva mostra come usare **SqlConnectionStringBuilder** .
+È possibile impostarla direttamente nella stringa di connessione o tramite [SqlConnectionStringBuilder](/dotnet/api/system.data.sqlclient.sqlconnectionstringbuilder). L'applicazione di esempio nella sezione successiva mostra come usare **SqlConnectionStringBuilder**.
 
 > [!NOTE]
 > Questa è l'unica modifica specifica della crittografia sempre attiva da apportare a un'applicazione client. Se è presente un'applicazione esistente che archivia la stringa di connessione esternamente, ad esempio in un file di configurazione, è possibile abilitare la crittografia sempre attiva senza modificare il codice.
@@ -514,9 +514,9 @@ SELECT FirstName, LastName, SSN, BirthDate FROM Patients;
 
 Per usare SSMS per accedere ai dati di testo non crittografato, aggiungere il parametro **Column Encryption Setting=Enabled** alla connessione.
 
-1. In SSMS fare clic con il pulsante destro del mouse sul server in **Esplora oggetti** e quindi fare clic su **Disconnetti** .
-2. Fare clic su **Connetti**  >  **motore di database** per aprire la finestra **Connetti al server** e quindi fare clic su **Opzioni** .
-3. Fare clic su **Parametri aggiuntivi per la connessione** e digitare **Column Encryption Setting=Enabled** .
+1. In SSMS fare clic con il pulsante destro del mouse sul server in **Esplora oggetti** e quindi fare clic su **Disconnetti**.
+2. Fare clic su **Connetti**  >  **motore di database** per aprire la finestra **Connetti al server** e quindi fare clic su **Opzioni**.
+3. Fare clic su **Parametri aggiuntivi per la connessione** e digitare **Column Encryption Setting=Enabled**.
 
     ![Screenshot che mostra la scheda parametri aggiuntivi per la connessione con Column Encryption setting = enabled digitato nella casella.](./media/always-encrypted-certificate-store-configure/ssms-connection-parameter.png)
 4. Eseguire la query seguente nel database **Clinic** .

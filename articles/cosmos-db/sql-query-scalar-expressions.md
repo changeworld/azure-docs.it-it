@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 05/17/2019
 ms.author: mjbrown
 ms.openlocfilehash: 34df2d2f4a2209cca93c3f7ac12dcd203bf4a089
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93339632"
 ---
 # <a name="scalar-expressions-in-azure-cosmos-db-sql-queries"></a>Espressioni scalari in Azure Cosmos DB query SQL
@@ -57,7 +57,7 @@ La [clausola SELECT](sql-query-select.md) supporta le espressioni scalari. Un'es
 - `input_alias`  
   
    Rappresenta un valore definito dall'elemento `input_alias` introdotto nella clausola `FROM`.  
-  Questo valore è sicuramente diverso da un valore **non definito** : i valori **non definiti** presenti nell'input verranno ignorati.  
+  Questo valore è sicuramente diverso da un valore **non definito**: i valori **non definiti** presenti nell'input verranno ignorati.  
   
 - `<scalar_expression>.property_name`  
   
@@ -107,7 +107,7 @@ La [clausola SELECT](sql-query-select.md) supporta le espressioni scalari. Un'es
   
   Quando si crea una matrice, qualsiasi valore di elemento a cui viene assegnato un valore **non definito** verrà ignorato e non incluso nell'oggetto creato. Ciò causa la sostituzione dell'elemento da parte dell'elemento definito successivo in modo tale che la matrice creata non abbia indici ignorati.  
 
-## <a name="examples"></a>Esempi
+## <a name="examples"></a>Esempio
 
 ```sql
     SELECT ((2 + 11 % 7)-2)/3

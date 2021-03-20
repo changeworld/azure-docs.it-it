@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 03/27/2019
 ms.author: tamram
 ms.openlocfilehash: 9a60c624b181a1efd2f6deebd349daa82214a8a4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "67179822"
 ---
 <!--created by Robin Shahan to go in the articles for table storage w/powershell.
@@ -18,7 +18,7 @@ ms.locfileid: "67179822"
 
 Dopo aver creato una tabella, verranno ora descritte le varie modalità di gestione delle entità o delle righe nella tabella. 
 
-Le entità possono avere fino a 255 proprietà, incluse tre proprietà di sistema: **PartitionKey**, **RowKey**e **timestamp**. L'utente è responsabile dell'inserimento e dell'aggiornamento dei valori di **PartitionKey** e **RowKey**. Il server gestisce il valore **timestamp**, che non può essere modificato. Insieme **PartitionKey** e **RowKey** identificano in modo univoco tutte le entità di una tabella.
+Le entità possono avere fino a 255 proprietà, incluse tre proprietà di sistema: **PartitionKey**, **RowKey** e **timestamp**. L'utente è responsabile dell'inserimento e dell'aggiornamento dei valori di **PartitionKey** e **RowKey**. Il server gestisce il valore **timestamp**, che non può essere modificato. Insieme **PartitionKey** e **RowKey** identificano in modo univoco tutte le entità di una tabella.
 
 * **PartitionKey**: determina la partizione in cui è archiviata l'entità.
 * **RowKey**: identifica in modo univoco l'entità all'interno della partizione.
@@ -60,7 +60,7 @@ Add-AzTableRow `
 È possibile eseguire una query sulle entità in una tabella usando il comando **Get-AzTableRow** .
 
 > [!NOTE]
-> I cmdlet **Get-AzureStorageTableRowAll**, **Get-AzureStorageTableRowByPartitionKey**, **Get-AzureStorageTableRowByColumnName**e **Get-AzureStorageTableRowByCustomFilter** sono deprecati e verranno rimossi in un aggiornamento futuro della versione.
+> I cmdlet **Get-AzureStorageTableRowAll**, **Get-AzureStorageTableRowByPartitionKey**, **Get-AzureStorageTableRowByColumnName** e **Get-AzureStorageTableRowByCustomFilter** sono deprecati e verranno rimossi in un aggiornamento futuro della versione.
 
 #### <a name="retrieve-all-entities"></a>Recuperare tutte le entità
 
@@ -101,7 +101,7 @@ Get-AzTableRow -table $cloudTable `
 
 Questa query recupera un record.
 
-|campo|value|
+|campo|Valore|
 |----|----|
 | userid | 1 |
 | username | Chris |
@@ -118,7 +118,7 @@ Get-AzTableRow `
 
 Questa query recupera un record.
 
-|campo|value|
+|campo|Valore|
 |----|----|
 | userid | 1 |
 | username | Chris |
@@ -153,7 +153,7 @@ Get-AzTableRow -table $cloudTable `
 
 I risultati mostrano il record Jessie2.
 
-|campo|value|
+|campo|Valore|
 |----|----|
 | userid | 2 |
 | username | Jessie2 |

@@ -4,10 +4,10 @@ description: In questa esercitazione si apprenderà come eseguire un'attività d
 ms.topic: article
 ms.date: 11/24/2020
 ms.openlocfilehash: 13a4ccac4ea97538583c1c063a6dc61e4d25686a
-ms.sourcegitcommit: 2e9643d74eb9e1357bc7c6b2bca14dbdd9faa436
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/25/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96030612"
 ---
 # <a name="tutorial-run-an-acr-task-on-a-defined-schedule"></a>Esercitazione: eseguire un'attività ACR in base a una pianificazione definita
@@ -210,7 +210,7 @@ Ogni campo può avere uno dei tipi di valori seguenti:
 |`"30 9 * * 1-5"`|alle 9:30 UTC di ogni giorno feriale|
 |`"30 9 * Jan Mon"`|alle 9:30 UTC ogni lunedì di gennaio|
 
-## <a name="clean-up-resources"></a>Pulizia delle risorse
+## <a name="clean-up-resources"></a>Pulire le risorse
 
 Per rimuovere tutte le risorse create in questa serie di esercitazioni, tra cui il registro contenitori o i registri, l'istanza del contenitore, l'insieme di credenziali delle chiavi e l'entità servizio, eseguire i comandi seguenti:
 
