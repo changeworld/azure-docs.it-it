@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: ravenn
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: da22a4e5e9ab13ec18347e58bea6cfc5f45333de
-ms.sourcegitcommit: 484f510bbb093e9cfca694b56622b5860ca317f7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/21/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98630701"
 ---
 # <a name="how-sso-to-on-premises-resources-works-on-azure-ad-joined-devices"></a>Funzionamento dell'accesso SSO alle risorse locali nei dispositivi aggiunti ad Azure AD
@@ -28,7 +28,7 @@ Questo articolo illustra il funzionamento di questa caratteristica.
 
 SSO locale richiede la comunicazione line-of-visione con i controller di dominio di servizi di dominio Active Directory locali. Se Azure AD dispositivi aggiunti sono collegati alla rete dell'organizzazione, è necessaria una VPN o un'altra infrastruttura di rete. 
 
-## <a name="how-it-works"></a>Come funziona 
+## <a name="how-it-works"></a>Funzionamento 
 
 Con un dispositivo aggiunto ad Azure AD, gli utenti possono già usufruire dell'esperienza SSO alle app cloud nell'ambiente. Se l'ambiente ha un Azure AD e un'istanza locale di AD, è possibile espandere l'ambito dell'esperienza SSO con le app line-of-business (LOB) locali, le condivisioni file e le stampanti.
 

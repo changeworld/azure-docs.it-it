@@ -1,5 +1,5 @@
 ---
-title: 'PowerShell: Creare un backup pianificato'
+title: 'PowerShell: creare un backup pianificato'
 description: Informazioni su come usare Azure PowerShell per automatizzare la distribuzione e la gestione di Servizio app. Questo esempio illustra come creare un backup pianificato per un'app.
 author: msangapu-msft
 tags: azure-service-management
@@ -9,10 +9,10 @@ ms.date: 10/30/2017
 ms.author: msangapu
 ms.custom: mvc, seodec18, devx-track-azurepowershell
 ms.openlocfilehash: c53872973dad3d438d0d948c4eaebaf0cb7ba4de
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
-ms.translationtype: HT
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "89075891"
 ---
 # <a name="create-a-scheduled-backup-for-a-web-app-using-powershell"></a>Creare un backup programmato per un'app Web con PowerShell

@@ -3,16 +3,16 @@ title: Accedere ai log di query lente-interfaccia della riga di comando di Azure
 description: Questo articolo descrive come accedere ai log lenti nel database di Azure per MariaDB usando l'utilità della riga di comando dell'interfaccia della riga di comando di Azure.
 author: savjani
 ms.author: pariks
-ms.service: jroth
+ms.service: mariadb
 ms.devlang: azurecli
 ms.topic: how-to
 ms.date: 4/13/2020
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 9c8f69f00ed4314fbe8b3fd1958b52c82ce55d99
-ms.sourcegitcommit: 52e3d220565c4059176742fcacc17e857c9cdd02
+ms.openlocfilehash: cea1571a48afe00350dde247c3c10e222a446247
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/21/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98662390"
 ---
 # <a name="configure-and-access-azure-database-for-maria-db-slow-query-logs-by-using-azure-cli"></a>Configurare e accedere ai log di query lente del database di Azure per Maria usando l'interfaccia della riga di comando di Azure

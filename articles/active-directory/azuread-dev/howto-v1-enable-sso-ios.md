@@ -16,10 +16,10 @@ ms.reviewer: brandwe
 ms.custom: aaddev
 ROBOTS: NOINDEX
 ms.openlocfilehash: 08b018082c753b9524cb12a72d637fe5458d9114
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "85383700"
 ---
 # <a name="how-to-enable-cross-app-sso-on-ios-using-adal"></a>Procedura: Abilitare l'accesso Single Sign-On tra app in iOS usando ADAL
@@ -239,7 +239,7 @@ defaultKeychainSharingGroup=@"com.myapp.mycache";
 > [!WARNING]
 > Quando si condivide un portachiavi tra le applicazioni, qualsiasi applicazione può eliminare utenti o peggio ancora eliminare tutti i token dell'applicazione. Questo può essere un problema grave se sono presenti applicazioni che usano i token per svolgere operazioni in background. La condivisione di un portachiavi implica che è necessario prestare grande attenzione durante tutte le operazioni di eliminazione con gli SDK delle identità.
 
-L'operazione è terminata. L'SDK condividerà le credenziali tra tutte le applicazioni. Anche l'elenco degli utenti verrà condiviso tra le istanze dell'applicazione.
+Questo è tutto. L'SDK condividerà le credenziali tra tutte le applicazioni. Anche l'elenco degli utenti verrà condiviso tra le istanze dell'applicazione.
 
 ### <a name="turning-on-sso-for-broker-assisted-sso"></a>Attivazione di SSO per SSO assistito da broker
 

@@ -4,10 +4,10 @@ description: Questo articolo illustra come elaborare i dati dall'hub eventi di A
 ms.date: 06/23/2020
 ms.topic: article
 ms.openlocfilehash: 2db4fba59a1a06a24ee2939c51ecdf65aa06cef3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "85312899"
 ---
 # <a name="process-data-from-your-event-hub-using-azure-stream-analytics"></a>Elaborare i dati dall'hub eventi usando analisi di flusso di Azure 
@@ -22,7 +22,7 @@ Ecco i vantaggi principali di hub eventi di Azure e l'integrazione di analisi di
 ## <a name="end-to-end-flow"></a>Flusso end-to-end
 
 1. Accedere al [portale di Azure](https://portal.azure.com). 
-1. Passare allo **spazio dei nomi di hub eventi** , quindi passare all' **Hub eventi**con i dati in arrivo. 
+1. Passare allo **spazio dei nomi di hub eventi** , quindi passare all' **Hub eventi** con i dati in arrivo. 
 1. Selezionare **elabora dati** nella pagina Hub eventi.  
 
     ![Riquadro dati processo](./media/process-data-azure-stream-analytics/process-data-tile.png)

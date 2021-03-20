@@ -1,6 +1,6 @@
 ---
-title: "Esercitazione: Integrazione dell'accesso Single Sign-On (SSO) di Azure Active Directory con ADP Globalview | Microsoft Docs"
-description: Informazioni su come configurare l'accesso Single Sign-On tra Azure Active Directory e ADP Globalview.
+title: 'Esercitazione: integrazione di Azure Active Directory Single Sign-On (SSO) con ADP GlobalView (deprecata) | Microsoft Docs'
+description: Informazioni su come configurare Single Sign-On tra Azure Active Directory e ADP GlobalView (deprecato).
 services: active-directory
 author: jeevansd
 manager: CelesteDG
@@ -9,69 +9,67 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 09/10/2019
+ms.date: 03/17/2021
 ms.author: jeedes
-ms.openlocfilehash: c11dd5ae3bc312cfea1a047c2db4396ba2cb50da
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
-ms.translationtype: HT
+ms.openlocfilehash: 08b1294436ead372234104008a48ca23e56de389
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92309028"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104589311"
 ---
-# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-adp-globalview"></a>Esercitazione: Integrazione dell'accesso Single Sign-On (SSO) di Azure Active Directory con ADP Globalview
+# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-adp-globalview-deprecated"></a>Esercitazione: integrazione di Azure Active Directory Single Sign-On (SSO) con ADP GlobalView (deprecata)
 
-Questa esercitazione descrive come integrare ADP Globalview con Azure Active Directory (Azure AD). Integrando ADP Globalview con Azure AD, è possibile:
+In questa esercitazione si apprenderà come integrare ADP GlobalView (deprecato) con Azure Active Directory (Azure AD). Quando si integra ADP GlobalView (deprecato) con Azure AD, è possibile:
 
-* Controllare in Azure AD chi può accedere a ADP Globalview.
-* Abilitare gli utenti per l'accesso automatico a ADP Globalview con gli account Azure AD personali.
+* Controllare in Azure AD chi può accedere ad ADP GlobalView (deprecato).
+* Abilitare gli utenti per l'accesso automatico ad ADP GlobalView (deprecato) con i relativi account Azure AD.
 * Gestire gli account in un'unica posizione centrale: il portale di Azure.
-
-Per altre informazioni sull'integrazione di app SaaS con Azure AD, vedere [Accesso Single Sign-On alle applicazioni in Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>Prerequisiti
 
 Per iniziare, sono necessari gli elementi seguenti:
 
 * Una sottoscrizione di Azure AD. Se non si ha una sottoscrizione, è possibile ottenere un [account gratuito](https://azure.microsoft.com/free/).
-* Sottoscrizione di ADP Globalview abilitata per l'accesso Single Sign-On (SSO).
+* Sottoscrizione di ADP GlobalView (deprecata) abilitata per la Single Sign-On (SSO).
 
 ## <a name="scenario-description"></a>Descrizione dello scenario
 
 In questa esercitazione vengono eseguiti la configurazione e il test dell'accesso Single Sign-On di Azure AD in un ambiente di test.
 
-* ADP Globalview supporta l'accesso SSO avviato da **IDP**
+* ADP GlobalView (deprecato) supporta l'accesso SSO avviato da **IDP** .
 
-## <a name="adding-adp-globalview-from-the-gallery"></a>Aggiunta di ADP Globalview dalla raccolta
+## <a name="adding-adp-globalview-deprecated-from-the-gallery"></a>Aggiunta di ADP GlobalView (deprecato) dalla raccolta
 
-Per configurare l'integrazione di ADP Globalview in Azure AD è necessario aggiungere ADP Globalview dalla raccolta al proprio elenco di app SaaS gestite.
+Per configurare l'integrazione di ADP GlobalView (deprecato) in Azure AD, è necessario aggiungere ADP GlobalView (deprecato) dalla raccolta al proprio elenco di app SaaS gestite.
 
-1. Accedere al [portale di Azure](https://portal.azure.com) con un account aziendale o dell'istituto di istruzione oppure con un account Microsoft personale.
+1. Accedere al portale di Azure con un account aziendale o dell'istituto di istruzione oppure con un account Microsoft personale.
 1. Nel riquadro di spostamento a sinistra selezionare il servizio **Azure Active Directory**.
 1. Passare ad **Applicazioni aziendali** e quindi selezionare **Tutte le applicazioni**.
 1. Per aggiungere una nuova applicazione, selezionare **Nuova applicazione**.
-1. Nella sezione **Aggiungi dalla raccolta** digitare **ADP Globalview** nella casella di ricerca.
-1. Selezionare **ADP Globalview** nel pannello dei risultati e quindi aggiungere l'app. Attendere alcuni secondi che l'app venga aggiunta al tenant.
+1. Nella sezione **Aggiungi dalla raccolta** digitare **ADP GlobalView (deprecato)** nella casella di ricerca.
+1. Selezionare **ADP GlobalView (deprecato)** nel pannello dei risultati e quindi aggiungere l'app. Attendere alcuni secondi che l'app venga aggiunta al tenant.
 
-## <a name="configure-and-test-azure-ad-single-sign-on-for-adp-globalview"></a>Configurare e testare l'accesso Single Sign-On di Azure AD per ADP Globalview
+## <a name="configure-and-test-azure-ad-sso-for-adp-globalview-deprecated"></a>Configurare e testare Azure AD SSO per ADP GlobalView (deprecato)
 
-Configurare e testare l'accesso SSO di Azure AD con ADP Globalview usando un utente di test di nome **B.Simon**. Per consentire il funzionamento dell'accesso Single Sign-On, è necessario stabilire una relazione di collegamento tra un utente di Azure AD e l'utente correlato in ADP Globalview.
+Configurare e testare Azure AD SSO con ADP GlobalView (deprecato) usando un utente di test di nome **B. Simon**. Per il funzionamento dell'accesso SSO, è necessario stabilire una relazione di collegamento tra un utente Azure AD e l'utente correlato in ADP GlobalView (deprecato).
 
-Per configurare e testare l'accesso SSO di Azure AD con ADP Globalview, completare le procedure di base seguenti:
+Per configurare e testare Azure AD SSO con ADP GlobalView (deprecato), seguire questa procedura:
 
 1. **[Configurare l'accesso Single Sign-On di Azure AD](#configure-azure-ad-sso)** : per consentire agli utenti di usare questa funzionalità.
-    1. **[Creare un utente di test di Azure AD](#create-an-azure-ad-test-user)** : per testare l'accesso Single Sign-On di Azure AD con l'utente B. Simon.
-    1. **[Assegnare l'utente di test di Azure AD](#assign-the-azure-ad-test-user)** : per abilitare B. Simon all'uso dell'accesso Single Sign-On di Azure AD.
-1. **[Configurare l'accesso Single Sign-On di ADP Globalview](#configure-adp-globalview-sso)** : per configurare le impostazioni di Single Sign-On sul lato applicazione.
-    1. **[Creare l'utente di test di ADP Globalview](#create-adp-globalview-test-user)** : per avere una controparte di B.Simon in ADP Globalview collegata alla rappresentazione dell'utente in Azure AD.
+    1. **[Creare un utente di test di Azure AD](#create-an-azure-ad-test-user)** : per testare l'accesso Single Sign-On di Azure AD con l'utente B.Simon.
+    1. **[Assegnare l'utente di test di Azure AD](#assign-the-azure-ad-test-user)** : per abilitare B.Simon all'uso dell'accesso Single Sign-On di Azure AD.
+1. **[Configurare ADP GlobalView (deprecato) SSO](#configure-adp-globalview-deprecated-sso)** per configurare le impostazioni di Single Sign-on sul lato applicazione.
+    1. **[Creare un utente di test di ADP GlobalView (deprecated)](#create-adp-globalview-deprecated-test-user)** : per avere una controparte di B. Simon in ADP GlobalView (deprecata) collegata alla rappresentazione Azure ad dell'utente.
 1. **[Testare l'accesso Single Sign-On](#test-sso)** : per verificare se la configurazione funziona.
 
 ## <a name="configure-azure-ad-sso"></a>Configurare l'accesso SSO di Azure AD
 
 Per abilitare l'accesso Single Sign-On di Azure AD nel portale di Azure, seguire questa procedura.
 
-1. Nella pagina di integrazione dell'applicazione **ADP Globalview** del [portale di Azure](https://portal.azure.com/) individuare la sezione **Gestione** e selezionare **Single Sign-On**.
+1. Nella pagina di integrazione dell'applicazione **ADP GlobalView (deprecated)** del portale di Azure individuare la sezione **Gestisci** e selezionare **Single Sign-on**.
 1. Nella pagina **Selezionare un metodo di accesso Single Sign-On** selezionare **SAML**.
-1. Nella pagina **Configura l'accesso Single Sign-On con SAML** fare clic sull'icona Modifica (la penna) relativa a **Configurazione SAML di base** per modificare le impostazioni.
+1. Nella pagina **Configura l'accesso Single Sign-On con SAML** fare clic sull'icona della matita per modificare le impostazioni di **Configurazione SAML di base**.
 
    ![Modificare la configurazione SAML di base](common/edit-urls.png)
 
@@ -80,20 +78,20 @@ Per abilitare l'accesso Single Sign-On di Azure AD nel portale di Azure, seguire
     
     Nella casella di testo **Identificatore** digitare un URL nel formato seguente:
 
-    ```https
-    https://<subdomain>.globalview.adp.com/federate
-    https://<subdomain>.globalview.adp.com/federate2
-    ```
-
+    | Identificatore |
+    | ----------- |
+    | `https://<subdomain>.globalview.adp.com/federate` |
+    | `https://<subdomain>.globalview.adp.com/federate2` |
+    |
 
     > [!NOTE]
-    > Poiché non è reale, È necessario aggiornare questo valore con l'ID effettivo. Per ottenere tale valore, contattare il [team di supporto clienti di ADP Globalview](https://www.adp.com/contact-us/overview.aspx). È anche possibile fare riferimento ai modelli mostrati nella sezione **Configurazione SAML di base** del portale di Azure.
+    > Poiché non è reale, È necessario aggiornare questo valore con l'ID effettivo. Per ottenere il valore, contattare il [team di supporto clienti di ADP GlobalView (deprecato)](https://www.adp.com/contact-us/overview.aspx) . È anche possibile fare riferimento ai modelli mostrati nella sezione **Configurazione SAML di base** del portale di Azure.
 
 1. Nella sezione **Certificato di firma SAML** della pagina **Configura l'accesso Single Sign-On con SAML** individuare **Certificato (Base64)** e selezionare **Scarica** per scaricare il certificato e salvarlo nel computer.
 
     ![Collegamento di download del certificato](common/certificatebase64.png)
 
-1. Nella sezione **Configura ADP Globalview** copiare gli URL appropriati in base alle esigenze.
+1. Nella sezione **configurare ADP GlobalView (deprecato)** copiare gli URL appropriati in base ai requisiti.
 
     ![Copiare gli URL di configurazione](common/copy-configuration-urls.png)
 
@@ -111,42 +109,33 @@ In questa sezione verrà creato un utente di test di nome B.Simon nel portale di
 
 ### <a name="assign-the-azure-ad-test-user"></a>Assegnare l'utente di test di Azure AD
 
-In questa sezione si abiliterà B.Simon all'uso dell'accesso Single Sign-On di Azure concedendole l'accesso ad ADP Globalview.
+In questa sezione si consentirà a B. Simon di usare Azure Single Sign-On concedendo l'accesso ad ADP GlobalView (deprecato).
 
 1. Nel portale di Azure selezionare **Applicazioni aziendali** e quindi **Tutte le applicazioni**.
-1. Nell'elenco delle applicazioni selezionare **ADP Globalview**.
+1. Nell'elenco delle applicazioni selezionare **ADP GlobalView (deprecato)**.
 1. Nella pagina di panoramica dell'app trovare la sezione **Gestione** e selezionare **Utenti e gruppi**.
-
-   ![Collegamento "Utenti e gruppi"](common/users-groups-blade.png)
-
 1. Selezionare **Aggiungi utente** e quindi **Utenti e gruppi** nella finestra di dialogo **Aggiungi assegnazione**.
-
-    ![Collegamento Aggiungi utente](common/add-assign-user.png)
-
 1. Nella finestra di dialogo **Utenti e gruppi** selezionare **B.Simon** dall'elenco degli utenti e quindi fare clic sul pulsante **Seleziona** nella parte inferiore della schermata.
-1. Se si prevede un valore di ruolo nell'asserzione SAML, nella finestra di dialogo **Selezionare un ruolo** selezionare il ruolo appropriato per l'utente dall'elenco e quindi fare clic sul pulsante **Seleziona** nella parte inferiore della schermata.
+1. Se si prevede che agli utenti venga assegnato un ruolo, è possibile selezionarlo nell'elenco a discesa **Selezionare un ruolo**. Se per questa app non è stato configurato alcun ruolo, il ruolo selezionato è "Accesso predefinito".
 1. Nella finestra di dialogo **Aggiungi assegnazione** fare clic sul pulsante **Assegna**.
 
-## <a name="configure-adp-globalview-sso"></a>Configurare l'accesso Single Sign-On di ADP Globalview
+## <a name="configure-adp-globalview-deprecated-sso"></a>Configurare ADP GlobalView (deprecato) SSO
 
-Per configurare l'accesso Single Sign-On sul lato **ADP Globalview** è necessario inviare il file **Certificato (Base64)** scaricato e gli URL appropriati copiati dal portale di Azure al [team di supporto di ADP Globalview](https://www.adp.com/contact-us/overview.aspx). La configurazione viene eseguita in modo che la connessione SSO SAML sia impostata correttamente su entrambi i lati.
+Per configurare Single Sign-On sul lato **ADP GlobalView (deprecato)** , è necessario inviare il **certificato (base64)** scaricato e gli URL copiati appropriati da portale di Azure al [team di supporto di ADP GlobalView (deprecato)](https://www.adp.com/contact-us/overview.aspx). La configurazione viene eseguita in modo che la connessione SSO SAML sia impostata correttamente su entrambi i lati.
 
-### <a name="create-adp-globalview-test-user"></a>Creare l'utente di test di ADP Globalview
+### <a name="create-adp-globalview-deprecated-test-user"></a>Creare un utente di test di ADP GlobalView (deprecato)
 
-In questa sezione viene creato un utente di nome B.Simon in ADP Globalview. Collaborare con il  [team di supporto di ADP Globalview](https://www.adp.com/contact-us/overview.aspx) per aggiungere gli utenti alla piattaforma ADP Globalview. Gli utenti devono essere creati e attivati prima di usare l'accesso Single Sign-On.
+In questa sezione viene creato un utente denominato B. Simon in ADP GlobalView (deprecato). Collaborare con il [team di supporto di ADP GlobalView (deprecato)](https://www.adp.com/contact-us/overview.aspx) per aggiungere gli utenti nella piattaforma ADP GlobalView (deprecated). Gli utenti devono essere creati e attivati prima di usare l'accesso Single Sign-On.
 
-## <a name="test-sso"></a>Testare l'accesso SSO 
+## <a name="test-sso"></a>Testare l'accesso SSO
 
-In questa sezione viene testata la configurazione dell'accesso Single Sign-On di Azure AD usando il pannello di accesso.
+In questa sezione viene testata la configurazione dell'accesso Single Sign-On di Azure AD con le opzioni seguenti.
 
-Quando si fa clic sul riquadro di ADP Globalview nel pannello di accesso, si dovrebbe accedere automaticamente all'applicazione ADP Globalview per cui si è configurato l'accesso SSO. Per altre informazioni sul pannello di accesso, vedere [Introduzione al Pannello di accesso](../user-help/my-apps-portal-end-user-access.md).
+* Fare clic su test questa applicazione in portale di Azure e si dovrebbe accedere automaticamente ad ADP GlobalView (deprecato) per il quale si configura l'accesso SSO
 
-## <a name="additional-resources"></a>Risorse aggiuntive
+* È possibile usare App personali Microsoft. Quando si fa clic sul riquadro ADP GlobalView (deprecated) in app personali, si dovrebbe accedere automaticamente al GlobalView ADP (deprecato) per il quale si configura l'accesso SSO. Per altre informazioni su App personali, vedere l'[introduzione ad App personali](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
-- [Elenco di esercitazioni sulla procedura di integrazione delle app SaaS con Azure Active Directory](./tutorial-list.md)
 
-- [Informazioni sull'accesso alle applicazioni e Single Sign-On con Azure Active Directory](../manage-apps/what-is-single-sign-on.md)
+## <a name="next-steps"></a>Passaggi successivi
 
-- [Che cos'è l'accesso condizionale in Azure Active Directory?](../conditional-access/overview.md)
-
-- [Provare ADP Globalview con Azure AD](https://aad.portal.azure.com/)
+Dopo aver configurato ADP GlobalView (deprecato) è possibile applicare il controllo della sessione, che protegge exfiltration e l'infiltrazione dei dati sensibili dell'organizzazione in tempo reale. Il controllo sessione costituisce un'estensione dell'accesso condizionale. [Informazioni su come applicare il controllo sessione con Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).

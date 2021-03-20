@@ -4,10 +4,10 @@ description: Informazioni su come creare una VM modello con più macchine virtua
 ms.topic: article
 ms.date: 06/26/2020
 ms.openlocfilehash: 5ae50bd11ab9a8adb769920f6d473a2ff2ce9342
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91251496"
 ---
 # <a name="enable-nested-virtualization-on-a-template-virtual-machine-in-azure-lab-services-using-a-script"></a>Abilitare la virtualizzazione annidata in una macchina virtuale modello in Azure Lab Services usando uno script

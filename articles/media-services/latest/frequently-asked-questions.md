@@ -11,12 +11,12 @@ ms.workload: ''
 ms.topic: article
 ms.date: 08/31/2020
 ms.author: inhenkel
-ms.openlocfilehash: 3ebff5a40528e9e3ea0e75c4b51529638de34b5d
-ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
+ms.openlocfilehash: a9394a5e117a577c903eccdf91cf22d0c359df2b
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/09/2021
-ms.locfileid: "102505767"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104581117"
 ---
 # <a name="media-services-v3-frequently-asked-questions"></a>Domande frequenti su servizi multimediali V3
 
@@ -86,12 +86,12 @@ L'applicazione Web deve richiedere all'utente se desidera terminare la trasmissi
 
 #### <a name="server-side"></a>Sul lato server
 
-È possibile monitorare gli eventi live sottoscrivendo gli eventi di griglia di eventi di Azure. Per ulteriori informazioni, vedere lo [schema dell'evento EventGrid](media-services-event-schemas.md#live-event-types).
+È possibile monitorare gli eventi live sottoscrivendo gli eventi di griglia di eventi di Azure. Per ulteriori informazioni, vedere lo [schema dell'evento EventGrid](monitoring/media-services-event-schemas.md#live-event-types).
 
 È possibile:
 
-* [Sottoscrivere](reacting-to-media-services-events.md) gli eventi [Microsoft. Media. LiveEventEncoderDisconnected](media-services-event-schemas.md#liveeventencoderdisconnected) a livello di flusso e monitorare che non sono disponibili riconnessioni per un periodo di tempo per arrestare ed eliminare l'evento Live.
-* [Sottoscrivere](reacting-to-media-services-events.md) gli eventi di [heartbeat](media-services-event-schemas.md#liveeventingestheartbeat) a livello di traccia. Se tutte le tracce hanno una velocità in bit in ingresso che diminuisce a 0 o l'ultimo timestamp non è più in aumento, è possibile arrestare tranquillamente l'evento Live. Gli eventi di heartbeat arrivano ogni 20 secondi per ogni traccia, quindi potrebbe essere un po' dettagliato.
+* [Sottoscrivere](monitoring/reacting-to-media-services-events.md) gli eventi [Microsoft. Media. LiveEventEncoderDisconnected](monitoring/media-services-event-schemas.md#liveeventencoderdisconnected) a livello di flusso e monitorare che non sono disponibili riconnessioni per un periodo di tempo per arrestare ed eliminare l'evento Live.
+* [Sottoscrivere](monitoring/reacting-to-media-services-events.md) gli eventi di [heartbeat](monitoring/media-services-event-schemas.md#liveeventingestheartbeat) a livello di traccia. Se tutte le tracce hanno una velocità in bit in ingresso che diminuisce a 0 o l'ultimo timestamp non è più in aumento, è possibile arrestare tranquillamente l'evento Live. Gli eventi di heartbeat arrivano ogni 20 secondi per ogni traccia, quindi potrebbe essere un po' dettagliato.
 
 ###  <a name="how-do-i-insert-breaksvideos-and-image-slates-during-a-live-stream"></a>Ricerca per categorie inserire interruzioni/video e Slate di immagini durante un flusso Live?
 
@@ -117,7 +117,7 @@ Per altre informazioni, vedere [proteggere il contenuto usando la crittografia d
 
 ### <a name="how-and-where-did-i-get-a-jwt-token-before-using-it-to-request-a-license-or-key"></a>Come e dove è stato ottenuto un token JWT prima di usarlo per richiedere una licenza o una chiave?
 
-Per la produzione, è necessario disporre di un servizio token di sicurezza, ovvero un servizio Web, che rilascia un token JWT su una richiesta HTTPS. Per il test, è possibile usare il codice illustrato nel `GetTokenAsync` metodo definito in [Program.cs](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/blob/master/AMSV3Tutorials/EncryptWithDRM/Program.cs).
+Per la produzione, è necessario disporre di un servizio token di sicurezza, ovvero un servizio Web, che rilascia un token JWT su una richiesta HTTPS. Per il test, è possibile usare il codice illustrato nel `GetTokenAsync` metodo definito in [Program. cs](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/blob/master/AMSV3Tutorials/EncryptWithDRM/Program.cs).
 
 Il lettore esegue una richiesta, dopo che un utente è stato autenticato, a STS per un token di questo tipo e lo assegna come valore del token. È possibile usare l'[API di Azure Media Player](https://amp.azure.net/libs/amp/latest/docs/).
 

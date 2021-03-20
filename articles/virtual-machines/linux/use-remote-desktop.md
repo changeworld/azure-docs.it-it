@@ -9,12 +9,12 @@ ms.workload: infrastructure-services
 ms.topic: how-to
 ms.date: 03/03/2021
 ms.author: cynthn
-ms.openlocfilehash: 1f7eb3b38b4ae04e81839fce2b14c1a84f3f0204
-ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
+ms.openlocfilehash: 84960e6247edc708bedb899c96ebf7522397269a
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/10/2021
-ms.locfileid: "102564595"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104580369"
 ---
 # <a name="install-and-configure-xrdp-to-use-remote-desktop-with-ubuntu"></a>Installare e configurare xrdp per l'uso di Desktop remoto con Ubuntu
 
@@ -138,7 +138,7 @@ tail -f /var/log/syslog
 
 Altre distribuzioni Linux, ad esempio Red Hat Enterprise Linux e SUSE, possono presentare modi diversi per riavviare i servizi e posizioni dei file di log alternative da controllare.
 
-Se non si riceve alcuna risposta nel client di Desktop remoto e non viene visualizzato nessun evento nel log di sistema, questo comportamento indica che il traffico di Desktop remoto non riesce a raggiungere la macchina virtuale. Controllare le regole del gruppo di sicurezza di rete per assicurarsi che esista una regola che consenta TCP sulla porta 3389. Per altre informazioni, vedere [Risolvere i problemi di connettività delle applicazioni in una macchina virtuale di Azure per Linux](../troubleshooting/troubleshoot-app-connection.md).
+Se non si riceve alcuna risposta nel client di Desktop remoto e non viene visualizzato nessun evento nel log di sistema, questo comportamento indica che il traffico di Desktop remoto non riesce a raggiungere la macchina virtuale. Controllare le regole del gruppo di sicurezza di rete per assicurarsi che esista una regola che consenta TCP sulla porta 3389. Per altre informazioni, vedere [Risolvere i problemi di connettività delle applicazioni in una macchina virtuale di Azure per Linux](/troubleshoot/azure/virtual-machines/troubleshoot-app-connection).
 
 
 ## <a name="next-steps"></a>Passaggi successivi

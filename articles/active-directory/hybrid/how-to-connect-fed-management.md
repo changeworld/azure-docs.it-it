@@ -19,10 +19,10 @@ ms.author: billmath
 ms.custom: seohack1
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: cc0c8c40e370579100c562e0289c97e3f5ce4236
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91274113"
 ---
 # <a name="manage-and-customize-active-directory-federation-services-by-using-azure-ad-connect"></a>Gestire e personalizzare Active Directory Federation Services con Azure AD Connect
@@ -200,7 +200,7 @@ Set-AdfsWebTheme -TargetName default -Logo @{path="c:\Contoso\logo.PNG"}
 > Il parametro *TargetName* è obbligatorio. Il tema predefinito incluso in AD FS è denominato Predefinito.
 
 ## <a name="add-a-sign-in-description"></a><a name="addsignindescription"></a>Aggiungere una descrizione di accesso 
-Per aggiungere una descrizione alla **Pagina di accesso**stessa, usare la sintassi e il cmdlet di Windows PowerShell seguenti.
+Per aggiungere una descrizione alla **Pagina di accesso** stessa, usare la sintassi e il cmdlet di Windows PowerShell seguenti.
 
 ```azurepowershell-interactive
 Set-AdfsGlobalWebContent -SignInPageDescriptionText "<p>Sign-in to Contoso requires device registration. Click <A href='http://fs1.contoso.com/deviceregistration/'>here</A> for more information.</p>"

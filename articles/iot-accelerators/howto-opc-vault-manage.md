@@ -9,10 +9,10 @@ ms.service: industrial-iot
 services: iot-industrialiot
 manager: philmea
 ms.openlocfilehash: 0829d4b3fca068ddb0db2df53dd635ab7ad80bed
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91281916"
 ---
 # <a name="manage-the-opc-vault-certificate-service"></a>Gestire il servizio certificati dell'insieme di credenziali OPC
@@ -31,14 +31,14 @@ Dopo aver distribuito l'insieme di credenziali OPC, è necessario creare il cert
 1. Aprire il servizio certificati all'indirizzo `https://myResourceGroup-app.azurewebsites.net` ed accedere.
 2. Passare a **gruppi di certificati**.
 3. È presente un gruppo di certificati predefinito. Selezionare **Modifica**.
-4. In **Modifica dettagli gruppo di certificati**è possibile modificare il nome del soggetto e la durata dei certificati dell'autorità di certificazione e dell'applicazione. L'oggetto e le durate devono essere impostati solo una volta prima dell'emissione del primo certificato CA. Le modifiche di durata durante le operazioni potrebbero causare una durata incoerente dei certificati emessi e dei CRL.
+4. In **Modifica dettagli gruppo di certificati** è possibile modificare il nome del soggetto e la durata dei certificati dell'autorità di certificazione e dell'applicazione. L'oggetto e le durate devono essere impostati solo una volta prima dell'emissione del primo certificato CA. Le modifiche di durata durante le operazioni potrebbero causare una durata incoerente dei certificati emessi e dei CRL.
 5. Immettere un oggetto valido, ad esempio `CN=My CA Root, O=MyCompany, OU=MyDepartment` .<br>
    > [!IMPORTANT]
    > Se si modifica l'oggetto, è necessario rinnovare il certificato dell'autorità emittente oppure il servizio non riuscirà a firmare i certificati dell'applicazione. L'oggetto della configurazione viene controllato rispetto al soggetto del certificato dell'autorità emittente attiva. Se gli oggetti non corrispondono, la firma del certificato viene rifiutata.
 6. Selezionare **Salva**.
 7. Se a questo punto si verifica un errore "accesso negato", le credenziali utente non hanno l'autorizzazione di amministratore per modificare o creare un nuovo certificato radice. Per impostazione predefinita, l'utente che ha distribuito il servizio dispone di ruoli di amministratore e firma con il servizio. Gli altri utenti devono essere aggiunti ai ruoli responsabile approvazione, writer o amministratore, a seconda delle esigenze nella registrazione dell'applicazione Azure Active Directory (Azure AD).
 8. Selezionare **Dettagli**. Verranno visualizzate le informazioni aggiornate.
-9. Selezionare **Rinnova certificato CA** per emettere il certificato CA del primo emittente o per rinnovare il certificato dell'autorità emittente. Quindi scegliere **OK**.
+9. Selezionare **Rinnova certificato CA** per emettere il certificato CA del primo emittente o per rinnovare il certificato dell'autorità emittente. Selezionare **OK**.
 10. Dopo alcuni secondi, verranno visualizzati **i dettagli del certificato**. Per scaricare la versione più recente del certificato CA e CRL per la distribuzione nelle applicazioni OPC UA, selezionare **autorità** di certificazione o **CRL**.
 
 Il servizio di gestione dei certificati OPC UA è ora pronto per emettere certificati per le applicazioni OPC UA.
@@ -66,13 +66,13 @@ Nel flusso di lavoro seguente tutte le richieste di certificati negli stati elim
 
 Per impostazione predefinita, un utente autenticato nel tenant può accedere al servizio come lettore. I ruoli con privilegi più elevati richiedono la gestione manuale nel portale di Azure o tramite PowerShell.
 
-### <a name="add-user"></a>Add User
+### <a name="add-user"></a>Aggiungi utente
 
-1. Aprire il Portale di Azure.
+1. Aprire il portale di Azure.
 2. Passare a **Azure Active Directory**  >  **applicazioni aziendali**.
 3. Scegliere la registrazione del microservizio dell'insieme di credenziali OPC (per impostazione predefinita, il `resourceGroupName-service` ).
 4. Passare a **utenti e gruppi**.
-5. Selezionare **Aggiungi utente**.
+5. Selezionare **Add User** (Aggiungi utente).
 6. Consente di selezionare o invitare l'utente per l'assegnazione a un ruolo specifico.
 7. Selezionare il ruolo per gli utenti.
 8. Selezionare **Assegna**.
@@ -80,7 +80,7 @@ Per impostazione predefinita, un utente autenticato nel tenant può accedere al 
 
 ### <a name="remove-user"></a>Rimuovi utente
 
-1. Aprire il Portale di Azure.
+1. Aprire il portale di Azure.
 2. Passare a **Azure Active Directory**  >  **applicazioni aziendali**.
 3. Scegliere la registrazione del microservizio dell'insieme di credenziali OPC (per impostazione predefinita, il `resourceGroupName-service` ).
 4. Passare a **utenti e gruppi**.
@@ -95,35 +95,35 @@ Per impostazione predefinita, l'identità del servizio dispone solo di autorizza
 
 #### <a name="for-an-approver-role-the-following-permissions-must-be-added-to-key-vault"></a>Per un ruolo responsabile approvazione, è necessario aggiungere le autorizzazioni seguenti a Key Vault
 
-1. Aprire il Portale di Azure.
+1. Aprire il portale di Azure.
 2. Passare all'insieme di credenziali OPC `resourceGroupName` , usato durante la distribuzione.
 3. Passare alla Key Vault `resourceGroupName-xxxxx` .
 4. Passare a **criteri di accesso**.
 5. Selezionare **Aggiungi nuova**.
 6. Ignorare il modello. Non esiste un modello che soddisfi i requisiti.
-7. Scegliere **Seleziona entità**e selezionare l'utente da aggiungere o invitare un nuovo utente al tenant.
-8. Selezionare le **autorizzazioni chiave**seguenti: **Get**, **List**e **Sign**.
-9. Selezionare le **autorizzazioni segrete**seguenti **: Get**, **List**, **set**ed **Delete**.
-10. Selezionare le autorizzazioni per i **certificati**seguenti: **Get** ed **List**.
-11. Fare clic su **OK**e selezionare **Salva**.
+7. Scegliere **Seleziona entità** e selezionare l'utente da aggiungere o invitare un nuovo utente al tenant.
+8. Selezionare le **autorizzazioni chiave** seguenti: **Get**, **List** e **Sign**.
+9. Selezionare le **autorizzazioni segrete** seguenti **: Get**, **List**, **set** ed **Delete**.
+10. Selezionare le autorizzazioni per i **certificati** seguenti: **Get** ed **List**.
+11. Fare clic su **OK** e selezionare **Salva**.
 
 #### <a name="for-an-administrator-role-the-following-permissions-must-be-added-to-key-vault"></a>Per un ruolo di amministratore, è necessario aggiungere le autorizzazioni seguenti a Key Vault
 
-1. Aprire il Portale di Azure.
+1. Aprire il portale di Azure.
 2. Passare all'insieme di credenziali OPC `resourceGroupName` , usato durante la distribuzione.
 3. Passare alla Key Vault `resourceGroupName-xxxxx` .
 4. Passare a **criteri di accesso**.
 5. Selezionare **Aggiungi nuova**.
 6. Ignorare il modello. Non esiste un modello che soddisfi i requisiti.
-7. Scegliere **Seleziona entità**e selezionare l'utente da aggiungere o invitare un nuovo utente al tenant.
-8. Selezionare le **autorizzazioni chiave**seguenti: **Get**, **List**e **Sign**.
-9. Selezionare le **autorizzazioni segrete**seguenti **: Get**, **List**, **set**ed **Delete**.
-10. Selezionare le autorizzazioni per i **certificati**seguenti: **Get**, **List**, **Update**, **create**e **Import**.
-11. Fare clic su **OK**e selezionare **Salva**.
+7. Scegliere **Seleziona entità** e selezionare l'utente da aggiungere o invitare un nuovo utente al tenant.
+8. Selezionare le **autorizzazioni chiave** seguenti: **Get**, **List** e **Sign**.
+9. Selezionare le **autorizzazioni segrete** seguenti **: Get**, **List**, **set** ed **Delete**.
+10. Selezionare le autorizzazioni per i **certificati** seguenti: **Get**, **List**, **Update**, **create** e **Import**.
+11. Fare clic su **OK** e selezionare **Salva**.
 
 ### <a name="remove-user-access-policy-from-azure-key-vault"></a>Rimuovere i criteri di accesso utente dal Azure Key Vault
 
-1. Aprire il Portale di Azure.
+1. Aprire il portale di Azure.
 2. Passare all'insieme di credenziali OPC `resourceGroupName` , usato durante la distribuzione.
 3. Passare alla Key Vault `resourceGroupName-xxxxx` .
 4. Passare a **criteri di accesso**.

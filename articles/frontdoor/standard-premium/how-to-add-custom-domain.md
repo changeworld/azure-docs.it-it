@@ -9,12 +9,12 @@ ms.topic: how-to
 ms.workload: infrastructure-services
 ms.date: 02/18/2021
 ms.author: amsriva
-ms.openlocfilehash: 164e06024844fb5262586450b737db9c807e373a
-ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
+ms.openlocfilehash: 36cb5720e409c86fcb4bc1a97863e5d3523cd3bc
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/18/2021
-ms.locfileid: "101099889"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104588750"
 ---
 # <a name="create-a-custom-domain-on-azure-front-door-standardpremium-sku-preview-using-the-azure-portal"></a>Creare un dominio personalizzato nello SKU Standard/Premium dello sportello anteriore di Azure (anteprima) usando il portale di Azure
 
@@ -38,6 +38,9 @@ Dopo aver creato un profilo standard/Premium di Azure front door, l'host front-e
 * Se si usa Azure per ospitare i [domini DNS](../../dns/dns-overview.md), è necessario delegare il DNS (Domain Name System) del provider di dominio a un DNS di Azure. Per altre informazioni, vedere [Delegare un dominio a DNS di Azure](../../dns/dns-delegate-domain-azure-dns.md). In caso contrario, se si usa un provider di dominio per gestire il dominio DNS, è necessario convalidare manualmente il dominio immettendo i record TXT DNS richiesti.
 
 ## <a name="add-a-new-custom-domain"></a>Aggiungere un nuovo dominio personalizzato
+
+> [!NOTE]
+> Durante l'anteprima pubblica, l'uso di DNS di Azure per creare domini Apex non è supportato in Azure front door standard/Premium. Sono disponibili altri provider DNS che supportano la conversione in formato CNAME o la ricerca DNS che consentiranno l'uso di domini APEX per lo standard/Premium di Azure front door.
 
 Un dominio personalizzato è gestito dalla sezione Domains nel portale. Un dominio personalizzato può essere creato e convalidato prima dell'associazione a un endpoint. Un dominio personalizzato e i relativi sottodomini possono essere associati solo a un singolo endpoint alla volta. Tuttavia, è possibile usare diversi sottodomini dello stesso dominio personalizzato per porte frontali diverse. È anche possibile eseguire il mapping di domini personalizzati con sottodomini diversi allo stesso endpoint della porta anteriore.
 

@@ -10,10 +10,10 @@ ms.topic: quickstart
 ms.date: 06/01/2020
 ms.custom: subject-armqs
 ms.openlocfilehash: b97702bb84eb38d185fe97ffcc596e374f28fbe2
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
-ms.translationtype: HT
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93339666"
 ---
 # <a name="quickstart-create-an-azure-cosmos-db-and-a-container-by-using-an-arm-template"></a>Avvio rapido: Creare un database Azure Cosmos DB e un contenitore con un modello di Resource Manager
@@ -63,20 +63,20 @@ Altri esempi di modelli di Azure Cosmos DB sono disponibili nella [raccolta di m
 
     Se non specificati, usare i valori predefiniti per creare le risorse di Azure Cosmos DB.
 
-    * **Sottoscrizione** : selezionare una sottoscrizione di Azure.
-    * **Gruppo di risorse** : selezionare **Crea nuovo** , immettere un nome univoco per il gruppo di risorse e quindi fare clic su **OK**.
-    * **Località** : selezionare una località.  Ad esempio **Stati Uniti centrali**.
-    * **Nome account** : immettere un nome per l'account Azure Cosmos DB. Deve essere univoco a livello globale.
-    * **Località** : immettere una località in cui creare l'account Azure Cosmos DB. Può essere la stessa località in cui si trova il gruppo di risorse.
-    * **Area primaria** : area di replica primaria per l'account Azure Cosmos DB.
-    * **Area secondaria** : area di replica secondaria per l'account Azure Cosmos DB.
-    * **Livello di coerenza predefinito** : livello di coerenza predefinito dell'account Azure Cosmos.
-    * **Prefisso di decadimento massimo** : numero massimo di richieste non aggiornate. Obbligatorio per BoundedStaleness.
-    * **Intervallo massimo in secondi** : Tempo di ritardo massimo. Obbligatorio per BoundedStaleness.
-    * **Nome database** : nome del database Azure Cosmos DB.
-    * **Nome contenitore** : nome del contenitore Azure Cosmos DB.
-    * **Velocità effettiva** :  velocità effettiva del contenitore. Il valore minimo è 400 UR/sec.
-    * **Accetto le condizioni riportate sopra** : selezionare questa casella.
+    * **Sottoscrizione**: selezionare una sottoscrizione di Azure.
+    * **Gruppo di risorse**: selezionare **Crea nuovo**, immettere un nome univoco per il gruppo di risorse e quindi fare clic su **OK**.
+    * **Località**: selezionare una località.  Ad esempio **Stati Uniti centrali**.
+    * **Nome account**: immettere un nome per l'account Azure Cosmos DB. Deve essere univoco a livello globale.
+    * **Località**: immettere una località in cui creare l'account Azure Cosmos DB. Può essere la stessa località in cui si trova il gruppo di risorse.
+    * **Area primaria**: area di replica primaria per l'account Azure Cosmos DB.
+    * **Area secondaria**: area di replica secondaria per l'account Azure Cosmos DB.
+    * **Livello di coerenza predefinito**: livello di coerenza predefinito dell'account Azure Cosmos.
+    * **Prefisso di decadimento massimo**: numero massimo di richieste non aggiornate. Obbligatorio per BoundedStaleness.
+    * **Intervallo massimo in secondi**: Tempo di ritardo massimo. Obbligatorio per BoundedStaleness.
+    * **Nome database**: nome del database Azure Cosmos DB.
+    * **Nome contenitore**: nome del contenitore Azure Cosmos DB.
+    * **Velocità effettiva**:  velocità effettiva del contenitore. Il valore minimo è 400 UR/sec.
+    * **Accetto le condizioni riportate sopra**: selezionare questa casella.
 
 3. Selezionare **Acquisto**. Al termine della distribuzione dell'account Azure Cosmos DB, si riceverà una notifica:
 

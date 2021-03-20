@@ -20,15 +20,15 @@ translation.priority.mt:
 - zh-cn
 - zh-tw
 ms.openlocfilehash: 83ab2c6b97435ace0d2bc508cbf522600391b60b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "88926831"
 ---
 # <a name="odata-orderby-syntax-in-azure-cognitive-search"></a>Sintassi di $orderby OData in Azure ricerca cognitiva
 
- È possibile usare il [parametro OData **$OrderBy** ](query-odata-filter-orderby-syntax.md) per applicare un ordinamento personalizzato per i risultati della ricerca in ricerca cognitiva di Azure. Questo articolo descrive in dettaglio la sintassi dei **$OrderBy** . Per informazioni generali su come usare **$OrderBy** quando si presentano i risultati della ricerca, vedere [come usare i risultati della ricerca in Azure ricerca cognitiva](search-pagination-page-layout.md).
+ È possibile usare il [parametro OData **$OrderBy**](query-odata-filter-orderby-syntax.md) per applicare un ordinamento personalizzato per i risultati della ricerca in ricerca cognitiva di Azure. Questo articolo descrive in dettaglio la sintassi dei **$OrderBy** . Per informazioni generali su come usare **$OrderBy** quando si presentano i risultati della ricerca, vedere [come usare i risultati della ricerca in Azure ricerca cognitiva](search-pagination-page-layout.md).
 
 ## <a name="syntax"></a>Sintassi
 
@@ -62,7 +62,7 @@ La sintassi per `geo.distance` in **$orderby** è la stessa che in **$filter**. 
 
 La sintassi per `search.score` in **$orderby** è `search.score()`. La funzione `search.score` non accetta parametri.
 
-## <a name="examples"></a>Esempi
+## <a name="examples"></a>Esempio
 
 Ordinare gli alberghi per tariffa di base crescente:
 

@@ -20,15 +20,15 @@ translation.priority.mt:
 - zh-cn
 - zh-tw
 ms.openlocfilehash: d04311fce81d147a0830918aee1d4a2a9c0808d4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "88923399"
 ---
 # <a name="odata-language-overview-for-filter-orderby-and-select-in-azure-cognitive-search"></a>Panoramica del linguaggio OData per `$filter` , `$orderby` e `$select` in Azure ricerca cognitiva
 
-Azure ricerca cognitiva supporta un subset della sintassi delle espressioni OData per le espressioni **$Filter**, **$OrderBy**e **$Select** . Le espressioni filtro vengono valutate durante l'analisi della query, vincolando la ricerca a campi specifici o aggiungendo criteri di corrispondenza durante le analisi dell'indice. Le espressioni order-by vengono applicate come passaggio di post-elaborazione su un set di risultati per ordinare i documenti restituiti. Le espressioni Select determinano i campi del documento inclusi nel set di risultati. La sintassi di queste espressioni è diversa dalla sintassi di query [semplice](query-simple-syntax.md) o [completa](query-lucene-syntax.md) utilizzata nel parametro di **ricerca** , anche se c'è una sovrapposizione nella sintassi per i campi di riferimento.
+Azure ricerca cognitiva supporta un subset della sintassi delle espressioni OData per le espressioni **$Filter**, **$OrderBy** e **$Select** . Le espressioni filtro vengono valutate durante l'analisi della query, vincolando la ricerca a campi specifici o aggiungendo criteri di corrispondenza durante le analisi dell'indice. Le espressioni order-by vengono applicate come passaggio di post-elaborazione su un set di risultati per ordinare i documenti restituiti. Le espressioni Select determinano i campi del documento inclusi nel set di risultati. La sintassi di queste espressioni è diversa dalla sintassi di query [semplice](query-simple-syntax.md) o [completa](query-lucene-syntax.md) utilizzata nel parametro di **ricerca** , anche se c'è una sovrapposizione nella sintassi per i campi di riferimento.
 
 In questo articolo viene fornita una panoramica del linguaggio delle espressioni OData utilizzato nei filtri, in order-by e nelle espressioni Select. Il linguaggio viene presentato "dal basso verso l'alto", iniziando dagli elementi più semplici e creandoli. La sintassi di primo livello per ogni parametro è descritta in un articolo separato:
 
@@ -79,7 +79,7 @@ Nella tabella seguente sono riportati alcuni esempi di percorsi dei campi:
 | `room/Type` | Fa riferimento al `Type` sottocampo della variabile di `room` intervallo, ad esempio nell'espressione di filtro `Rooms/any(room: room/Type eq 'deluxe')` |
 | `store/Address/Country` | Si riferisce al `Country` campo secondario del `Address` sottocampo della variabile di `store` intervallo, ad esempio nell'espressione di filtro. `Stores/any(store: store/Address/Country eq 'Canada')` |
 
-Il significato di un percorso di campo varia a seconda del contesto. Nei filtri, il percorso di un campo fa riferimento al valore di una *singola istanza* di un campo nel documento corrente. In altri contesti, ad esempio **$OrderBy**, **$SELECT**o nella [ricerca sul campo nella sintassi Lucene completa](query-lucene-syntax.md#bkmk_fields), un percorso di campo fa riferimento al campo stesso. Questa differenza ha alcune conseguenze sull'uso dei percorsi dei campi nei filtri.
+Il significato di un percorso di campo varia a seconda del contesto. Nei filtri, il percorso di un campo fa riferimento al valore di una *singola istanza* di un campo nel documento corrente. In altri contesti, ad esempio **$OrderBy**, **$SELECT** o nella [ricerca sul campo nella sintassi Lucene completa](query-lucene-syntax.md#bkmk_fields), un percorso di campo fa riferimento al campo stesso. Questa differenza ha alcune conseguenze sull'uso dei percorsi dei campi nei filtri.
 
 Si consideri il percorso del campo `Address/City` . In un filtro si fa riferimento a una singola città per il documento corrente, ad esempio "San Francisco". Al contrario, `Rooms/Type` si riferisce al `Type` campo secondario per molte stanze, ad esempio "standard" per la prima stanza, "Deluxe" per la seconda stanza e così via. Poiché `Rooms/Type` non fa riferimento a una *singola istanza* del sottocampo `Type` , non può essere utilizzato direttamente in un filtro. Per filtrare il tipo di stanza, usare invece un' [espressione lambda](search-query-odata-collection-operators.md) con una variabile di intervallo, come indicato di seguito:
 
@@ -95,7 +95,7 @@ I percorsi dei campi vengono usati in molti parametri delle [API REST di Azure r
 
 | API | Nome parametro | Restrizioni |
 | --- | --- | --- |
-| [Crea](/rest/api/searchservice/create-index) o [Aggiorna](/rest/api/searchservice/update-index) indice | `suggesters/sourceFields` | Nessuno |
+| [Crea](/rest/api/searchservice/create-index) o [Aggiorna](/rest/api/searchservice/update-index) indice | `suggesters/sourceFields` | nessuno |
 | [Crea](/rest/api/searchservice/create-index) o [Aggiorna](/rest/api/searchservice/update-index) indice | `scoringProfiles/text/weights` | Può fare riferimento solo a campi **ricercabili** |
 | [Crea](/rest/api/searchservice/create-index) o [Aggiorna](/rest/api/searchservice/update-index) indice | `scoringProfiles/functions/fieldName` | Può fare riferimento solo a campi **filtrabili** |
 | [Ricerca](/rest/api/searchservice/search-documents) | `search` Quando `queryType` è `full` | Può fare riferimento solo a campi **ricercabili** |
@@ -211,7 +211,7 @@ Le costanti e i percorsi dei campi rappresentano la parte fondamentale di un'esp
 
 Tuttavia, nella maggior parte dei casi sono necessarie espressioni più complesse che fanno riferimento a più di un campo e una costante. Queste espressioni sono compilate in modi diversi a seconda del parametro.
 
-Il seguente EBNF ([extended Backus-Naur form](https://en.wikipedia.org/wiki/Extended_Backus–Naur_form)) definisce la grammatica per i parametri **$Filter**, **$OrderBy**e **$Select** . Queste sono costituite da espressioni più semplici che fanno riferimento a percorsi e costanti dei campi:
+Il seguente EBNF ([extended Backus-Naur form](https://en.wikipedia.org/wiki/Extended_Backus–Naur_form)) definisce la grammatica per i parametri **$Filter**, **$OrderBy** e **$Select** . Queste sono costituite da espressioni più semplici che fanno riferimento a percorsi e costanti dei campi:
 
 <!-- Upload this EBNF using https://bottlecaps.de/rr/ui to create a downloadable railroad diagram. -->
 
@@ -233,13 +233,13 @@ select_expression ::= '*' | field_path(',' field_path)*
 
 I parametri **$OrderBy** e **$SELECT** sono elenchi delimitati da virgole di espressioni più semplici. Il parametro **$Filter** è un'espressione booleana composta da sottoespressioni più semplici. Queste sottoespressioni vengono combinate utilizzando operatori logici, ad esempio, [ `and` `or` e `not` ](search-query-odata-logical-operators.md), operatori di confronto come [ `eq` ,, `lt` `gt` e così via](search-query-odata-comparison-operators.md), e operatori di raccolta quali [ `any` e `all` ](search-query-odata-collection-operators.md).
 
-I parametri **$Filter**, **$OrderBy**e **$Select** vengono esaminati in modo più dettagliato negli articoli seguenti:
+I parametri **$Filter**, **$OrderBy** e **$Select** vengono esaminati in modo più dettagliato negli articoli seguenti:
 
 - [Sintassi di $filter OData in Azure ricerca cognitiva](search-query-odata-filter.md)
 - [Sintassi di $orderby OData in Azure ricerca cognitiva](search-query-odata-orderby.md)
 - [Sintassi di $select OData in Azure ricerca cognitiva](search-query-odata-select.md)
 
-## <a name="see-also"></a>Vedere anche  
+## <a name="see-also"></a>Vedi anche  
 
 - [Esplorazione in base a facet in Azure ricerca cognitiva](search-faceted-navigation.md)
 - [Filtri in ricerca cognitiva di Azure](search-filters.md)

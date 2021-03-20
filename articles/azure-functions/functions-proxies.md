@@ -4,10 +4,10 @@ description: Informazioni generali sull'uso dei proxy in Funzioni di Azure
 ms.topic: conceptual
 ms.date: 01/22/2018
 ms.openlocfilehash: fb263239f99bcb4ec4c893b700d5c1cce078659f
-ms.sourcegitcommit: c4246c2b986c6f53b20b94d4e75ccc49ec768a9a
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/04/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96601374"
 ---
 # <a name="work-with-azure-functions-proxies"></a>Usare i proxy di Funzioni di Azure
@@ -28,7 +28,7 @@ In questa sezione viene descritto come creare un proxy nel portale Funzioni.
 3. Dare un nome al proxy.
 4. Configurare l'endpoint esposto in questa app per le funzioni, specificando il **Modello di route** e i **Metodi HTTP**. Questi parametri si comportano in base alle regole dei [trigger HTTP].
 5. Impostare l'**URL di back-end** su un altro endpoint. Questo endpoint potrebbe essere una funzione in un'altra app per le funzioni oppure di qualsiasi altra API. Il valore non deve essere statico e può fare riferimento alle [impostazioni dell'applicazione] e ai [parametri della richiesta del client originale].
-6. Scegliere **Crea**.
+6. Fare clic su **Crea**.
 
 Il proxy è ora presente come un nuovo endpoint sull'app per le funzioni. Dalla prospettiva del client, è equivalente a un HttpTrigger nelle Funzioni di Azure. È possibile provare il nuovo proxy copiando l'URL del proxy ed eseguendo un test con il proprio client HTTP preferito.
 
@@ -241,7 +241,7 @@ Un esempio di configurazione apparirà come segue:
 > [!NOTE] 
 > In questo esempio il corpo della risposta viene impostato direttamente, quindi non sono necessarie proprietà `backendUri`. L'esempio illustra come usare i proxy di Funzioni di Azure per le API di simulazione.
 
-[Portale di Azure]: https://portal.azure.com
+[Azure portal]: https://portal.azure.com
 [Trigger HTTP]: ./functions-bindings-http-webhook.md
 [Modify the back-end request]: #modify-backend-request
 [Modify the response]: #modify-response

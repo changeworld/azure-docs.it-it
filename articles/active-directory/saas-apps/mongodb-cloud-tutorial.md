@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 04/03/2020
 ms.author: jeedes
 ms.openlocfilehash: af1c0702929e7cd700c8d19ab24e40f9c6f43a21
-ms.sourcegitcommit: c4246c2b986c6f53b20b94d4e75ccc49ec768a9a
-ms.translationtype: HT
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/04/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96602173"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-mongodb-cloud"></a>Esercitazione: Integrazione dell'accesso Single Sign-On (SSO) di Azure Active Directory con MongoDB Cloud
@@ -80,7 +80,7 @@ Per abilitare l'accesso Single Sign-On di Azure AD nel portale di Azure, seguire
 
 1. Nella sezione **Configurazione SAML di base** immettere i valori per i campi seguenti se si vuole configurare l'applicazione in modalità avviata da **IDP**:
 
-    a. Nella casella di testo **Identificatore** digitare un URL nel formato seguente:`https://www.okta.com/saml2/service-provider/<Customer_Unique>`
+    a. Nella casella di testo **Identificatore** digitare l'URL che usa il modello seguente:`https://www.okta.com/saml2/service-provider/<Customer_Unique>`
 
     b. Nella casella di testo **URL di risposta** digitare un URL nel formato seguente: `https://auth.mongodb.com/sso/saml2/<Customer_Unique>`
 

@@ -7,13 +7,13 @@ ms.topic: sample
 ms.date: 03/20/2017
 ms.custom: mvc, devx-track-azurepowershell
 ms.openlocfilehash: 8a3af13060d932b1a39a85bbc631732f8f859dfb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
-ms.translationtype: HT
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "89070276"
 ---
-# <a name="monitor-a-web-appwith-web-server-logs"></a>Monitorare un'app Web con i log del server Web
+# <a name="monitor-a-web-app-with-web-server-logs"></a>Monitorare un'App Web con i log del server Web
 
 In questo scenario verrà creato un gruppo di risorse, un piano di servizio app e un'App Web e verrà configurata l'App Web per abilitare i log del server Web. Quindi si scaricheranno i file di log per visionarli.
 
@@ -23,7 +23,7 @@ Se necessario, installare Azure PowerShell usando l'istruzione presente nella [G
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-[!code-azurepowershell-interactive[main](../../../powershell_scripts/app-service/monitor-with-logs/monitor-with-logs.ps1 "Monitor a web app with web server logs")]
+[!code-azurepowershell-interactive[main](../../../powershell_scripts/app-service/monitor-with-logs/monitor-with-logs.ps1 "Monitor a web app with web server logs")]
 
 ## <a name="clean-up-deployment"></a>Pulire la distribuzione 
 

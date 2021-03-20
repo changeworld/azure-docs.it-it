@@ -6,10 +6,10 @@ ms.topic: include
 ms.date: 02/12/2020
 ms.author: mimart
 ms.openlocfilehash: f8c972bdb9195008c2983d3993e8d9369749b284
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "85200176"
 ---
 #### <a name="app-registrations"></a>[Registrazioni per l'app](#tab/app-reg-ga/) 
@@ -30,9 +30,9 @@ ms.locfileid: "85200176"
 #### <a name="applications-legacy"></a>[Applicazioni (legacy)](#tab/applications-legacy/)
 
 1. Nella pagina Panoramica dell' **app registrata** selezionare **Impostazioni**.
-1. In **accesso all'API**selezionare **autorizzazioni necessarie**.
+1. In **accesso all'API** selezionare **autorizzazioni necessarie**.
 1. Selezionare **Microsoft Graph**.
-1. In **Autorizzazioni applicazione**selezionare la casella di controllo relativa all'autorizzazione da concedere all'applicazione di gestione. Ad esempio:
+1. In **Autorizzazioni applicazione** selezionare la casella di controllo relativa all'autorizzazione da concedere all'applicazione di gestione. Ad esempio:
     * **Leggi tutti i dati del registro di controllo**: selezionare questa autorizzazione per la lettura dei log di controllo della directory.
     * **Lettura e scrittura dei dati della directory**: selezionare questa autorizzazione per la migrazione degli utenti o gli scenari di gestione degli utenti.
     * **Leggere e scrivere i criteri del Framework di attendibilità dell'organizzazione**: selezionare questa autorizzazione per gli scenari di integrazione continua/recapito continuo (ci/CD). Ad esempio, la distribuzione di criteri personalizzati con Azure Pipelines.

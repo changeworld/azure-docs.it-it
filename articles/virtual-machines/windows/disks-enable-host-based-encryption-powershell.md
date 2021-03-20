@@ -8,12 +8,12 @@ ms.date: 08/24/2020
 ms.author: rogarana
 ms.subservice: disks
 ms.custom: references_regions
-ms.openlocfilehash: e56473ae935ec58a6cf6f0ea30fe5f7ccfec3f80
-ms.sourcegitcommit: 225e4b45844e845bc41d5c043587a61e6b6ce5ae
+ms.openlocfilehash: f82169c084fc65fd483119bb84f29198ed288019
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/11/2021
-ms.locfileid: "103017206"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104580318"
 ---
 # <a name="use-the-azure-powershell-module-to-enable-end-to-end-encryption-using-encryption-at-host"></a>Usare il modulo Azure PowerShell per abilitare la crittografia end-to-end usando la crittografia nell'host
 
@@ -32,7 +32,20 @@ Quando si Abilita la crittografia in host, i dati archiviati nell'host della mac
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-Per poter usare la crittografia nell'host per le VM o i set di scalabilità di macchine virtuali, è necessario abilitare la funzionalità nella sottoscrizione. Inviare un messaggio di posta elettronica a encryptionAtHost@microsoft.com con gli ID sottoscrizione per ottenere la funzionalità abilitata per le sottoscrizioni.
+Prima di usare la proprietà EncryptionAtHost per la VM/VMSS, è necessario abilitare la funzionalità per la sottoscrizione. Per abilitare la funzionalità per la sottoscrizione, seguire questa procedura:
+
+1.  Eseguire il comando seguente per registrare la funzionalità per la sottoscrizione
+
+    ```powershell
+     Register-AzProviderFeature -FeatureName "EncryptionAtHost" -ProviderNamespace "Microsoft.Compute" 
+    ```
+
+2.  Verificare che lo stato di registrazione sia registrato (richiede qualche minuto) usando il comando seguente prima di provare la funzionalità.
+
+    ```powershell
+     Get-AzProviderFeature -FeatureName "EncryptionAtHost" -ProviderNamespace "Microsoft.Compute"  
+    ```
+
 
 ### <a name="create-an-azure-key-vault-and-diskencryptionset"></a>Creare una Azure Key Vault e DiskEncryptionSet
 

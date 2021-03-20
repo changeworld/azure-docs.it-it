@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: calebb, rogoya
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 982c33c5c55e32ce48131a4b2f0911e4f23dd408
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/27/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98877289"
 ---
 # <a name="conditional-access-block-legacy-authentication"></a>Accesso condizionale: Bloccare l'autenticazione legacy
@@ -29,8 +29,8 @@ I passaggi seguenti consentono di creare un criterio di accesso condizionale per
 1. Accedere al **portale di Azure** come amministratore globale, amministratore della sicurezza o amministratore accesso condizionale.
 1. Passare ad **Azure Active Directory** > **Sicurezza** > **Accesso condizionale**.
 1. Selezionare **Nuovi criteri**.
-1. Assegnare un nome al criterio. Per le organizzazioni è consigliabile creare uno standard significativo per i nomi dei propri criteri.
-1. In **Assegnazioni** selezionare **Utenti e gruppi**
+1. Assegnare un nome ai criteri. È consigliabile che le organizzazioni creino uno standard descrittivo per i nomi dei criteri.
+1. In **Assegnazioni** selezionare **Utenti e gruppi**.
    1. In **Includi** selezionare **Tutti gli utenti**.
    1. In **Escludi** selezionare **Utenti e gruppi** e scegliere tutti gli account che devono continuare a poter usare l'autenticazione legacy. Escludere almeno un account evitare di venire bloccati. Se non si esclude alcun account, non sarà possibile creare questo criterio.
    1. Selezionare **Operazione completata**.

@@ -8,10 +8,10 @@ ms.date: 06/26/2019
 ms.topic: conceptual
 keywords: Kinect, Azure, Sensor, SDK, depth fotocamera, TOF, principi, prestazioni, invalidamento
 ms.openlocfilehash: 22f04b983ed7c6a2ab19a5c1c709621655ee31c0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "85276700"
 ---
 # <a name="azure-kinect-dk-depth-camera"></a>Videocamera depth di Azure Kinect DK
@@ -44,7 +44,7 @@ Le caratteristiche tecniche della fotocamera Depth includono:
 
 La fotocamera di profondità trasmette immagini IR modulate non elaborate al PC host. Sul PC, il software del motore di profondità accelerata GPU converte il segnale non elaborato in mappe di profondità.La videocamera Depth supporta diverse modalità. Le modalità **di visualizzazione dei campi (FOV) ristrette** sono ideali per le scene con extent più piccoli nelle dimensioni X e Y, ma con extent più grandi nella dimensione Z. Se la scena ha extent X e Y di grandi dimensioni, ma intervalli Z più piccoli, le **modalità FOV** sono più adatte.
 
-La videocamera Depth supporta le modalità di suddivisione in **contenitori 2x2** per estendere l'intervallo Z rispetto alle modalità non in **contenitori**corrispondenti. La creazione di contenitori viene eseguita a scapito della riduzione della risoluzione delle immagini. Tutte le modalità possono essere eseguite fino a 30 frame al secondo (fps), ad eccezione della modalità 1 megapixel (MP) che viene eseguita con una frequenza massima dei fotogrammi di 15 fps. La videocamera Depth fornisce anche una **modalità IR passiva**. In questa modalità gli illuminatori della fotocamera non sono attivi e viene osservata solo l'illuminazione ambientale.
+La videocamera Depth supporta le modalità di suddivisione in **contenitori 2x2** per estendere l'intervallo Z rispetto alle modalità non in **contenitori** corrispondenti. La creazione di contenitori viene eseguita a scapito della riduzione della risoluzione delle immagini. Tutte le modalità possono essere eseguite fino a 30 frame al secondo (fps), ad eccezione della modalità 1 megapixel (MP) che viene eseguita con una frequenza massima dei fotogrammi di 15 fps. La videocamera Depth fornisce anche una **modalità IR passiva**. In questa modalità gli illuminatori della fotocamera non sono attivi e viene osservata solo l'illuminazione ambientale.
 
 ## <a name="camera-performance"></a>Prestazioni della fotocamera
 
@@ -56,7 +56,7 @@ L'errore sistematico viene definito come la differenza tra la profondità misura
 
 ![Errore sistematico di profondità](./media/concepts/depth-camera-systematic-error.png)
 
-Dove *d<sub>t</sub> * denota la profondità della misura al momento *t*, *N* è il numero di fotogrammi usati nella procedura di media e *d<sub>gt</sub> * è la profondità della verità di base.
+Dove *d <sub>t</sub>* denota la profondità della misura al momento *t*, *N* è il numero di fotogrammi usati nella procedura di media e *d <sub>gt</sub>* è la profondità della verità di base.
 
 La specifica di errore sistematico della fotocamera è esclusa l'interferenza a percorsi multipli (MPI). MPI si verifica quando un pixel del sensore integra la luce riflessa da più di un oggetto. MPI è parzialmente mitigato nella nostra fotocamera di profondità usando frequenze di modulazione più elevate, oltre all'invalidamento della profondità, che verrà introdotto in un secondo momento.
 
@@ -66,7 +66,7 @@ Si supponga di prendere le immagini 100 dello stesso oggetto senza dover passare
 
 ![Errore casuale di profondità](./media/concepts/depth-camera-random-error.png)
 
-Dove *N* indica il numero di misurazioni di profondità, *d<sub>t</sub> * rappresenta la misurazione della profondità all'ora *t* e *d* denota il valore medio calcolato su tutte le misurazioni di profondità *d<sub>t</sub>*.
+Dove *N* indica il numero di misurazioni di profondità, *d <sub>t</sub>* rappresenta la misurazione della profondità all'ora *t* e *d* denota il valore medio calcolato su tutte le misurazioni di profondità *d <sub>t</sub>*.
 
 ## <a name="invalidation"></a>Invalidamento
 

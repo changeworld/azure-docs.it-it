@@ -4,15 +4,15 @@ description: Scopri come distribuire un modello di verifica in modo che Azure De
 ms.topic: article
 ms.date: 06/2/2020
 ms.openlocfilehash: 9c28cf9eebd8a39a2edce48e4fb8b96dc7608d80
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "87288020"
 ---
 # <a name="deliver-a-proof-of-concept"></a>Fornire un modello di prova 
 
-Uno degli scenari principali per Azure DevTest Labs è l'abilitazione di ambienti di sviluppo e test nel cloud. Tra gli esempi sono inclusi:
+Uno degli scenari principali per Azure DevTest Labs è l'abilitazione di ambienti di sviluppo e test nel cloud. Alcuni esempi:
 
 * Creazione di desktop per sviluppatori nel cloud.
 * Configurazione degli ambienti per il test.
@@ -23,7 +23,7 @@ DevTest Labs fornisce inoltre i criteri di Guardrails e dei costi per consentire
 
 Ogni azienda ha requisiti diversi per il modo in cui Azure DevTest Labs possono essere incorporati correttamente nell'ambiente. Questo articolo descrive i passaggi più comuni che le aziende devono completare per garantire un modello di verifica efficace. Un modello di prova è il primo passo verso una distribuzione end-to-end corretta. 
 
-## <a name="getting-started"></a>Introduzione 
+## <a name="getting-started"></a>Guida introduttiva 
 
 Per iniziare a consegnare un modello di prova. È importante dedicare del tempo a conoscere Azure e DevTest Labs.  Di seguito sono riportate alcune risorse iniziali: 
 
@@ -37,7 +37,7 @@ Per iniziare a consegnare un modello di prova. È importante dedicare del tempo 
 
 Per completare correttamente un progetto pilota o un modello di prova con DevTest Labs, esistono alcuni prerequisiti: 
 
-* **Sottoscrizione di Azure**: le aziende hanno spesso un [Enterprise Agreement](https://azure.microsoft.com/pricing/purchase-options/enterprise-agreement/) esistente che consente l'accesso ad Azure e possono usare una sottoscrizione esistente o nuova per DevTest Labs. In alternativa, le aziende possono usare una [sottoscrizione di Visual Studio](https://azure.microsoft.com/pricing/member-offers/visual-studio-subscriptions/) durante il progetto pilota, sfruttando i vantaggi offerti dai crediti Azure gratuiti. Se nessuna di queste opzioni è disponibile, un'azienda può creare e usare un [account Azure gratuito](https://azure.microsoft.com/free/search/?&OCID=AID719825_SEM_g4lyBqgB&lnkd=Bing_Azure_Brand&msclkid=ecc4275a31b61375749e7a5322c20de8&dclid=CMGW5-m78-ICFaLt4QodmUwGtQ). Se è disponibile un Enterprise Agreement, l'uso di una [sottoscrizione sviluppo/test Enterprise](https://azure.microsoft.com/offers/ms-azr-0148p/) è un'ottima opzione per ottenere l'accesso ai sistemi operativi client Windows 10/Windows 8.1 e a tariffe scontate per i carichi di lavoro di sviluppo e test. 
+* **Sottoscrizione di Azure**: le aziende hanno spesso un [contratto Enterprise](https://azure.microsoft.com/pricing/purchase-options/enterprise-agreement/) esistente che consente l'accesso ad Azure e possono usare una sottoscrizione esistente o nuova per DevTest Labs. In alternativa, le aziende possono usare una [sottoscrizione di Visual Studio](https://azure.microsoft.com/pricing/member-offers/visual-studio-subscriptions/) durante il progetto pilota, sfruttando i vantaggi offerti dai crediti Azure gratuiti. Se nessuna di queste opzioni è disponibile, un'azienda può creare e usare un [account Azure gratuito](https://azure.microsoft.com/free/search/?&OCID=AID719825_SEM_g4lyBqgB&lnkd=Bing_Azure_Brand&msclkid=ecc4275a31b61375749e7a5322c20de8&dclid=CMGW5-m78-ICFaLt4QodmUwGtQ). Se è disponibile un Contratto Enterprise, l'uso di una [sottoscrizione sviluppo/test Enterprise](https://azure.microsoft.com/offers/ms-azr-0148p/) è un'ottima opzione per ottenere l'accesso ai sistemi operativi client Windows 10/Windows 8.1 e a tariffe scontate per i carichi di lavoro di sviluppo e test. 
 * **Tenant Azure Active Directory**: per consentire la gestione degli utenti (ad esempio, l'aggiunta di utenti o l'aggiunta di proprietari del Lab), tali utenti devono far parte del [tenant di Azure Active Directory](https://azure.microsoft.com/services/active-directory/) usato nella sottoscrizione di Azure per il progetto pilota. Spesso le aziende impostano l' [identità ibrida](../active-directory/hybrid/whatis-hybrid-identity.md) per consentire agli utenti di usare l'identità locale nel cloud, ma questa operazione non è necessaria per il progetto pilota di DevTest Labs. 
 
 ## <a name="scoping-of-the-pilot"></a>Ambito del progetto pilota 

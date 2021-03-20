@@ -9,14 +9,15 @@ ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
 ms.date: 03/16/2021
+ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 9e248c10c15ba0318c6b23fcbf88be04dd9896a2
-ms.sourcegitcommit: 87a6587e1a0e242c2cfbbc51103e19ec47b49910
+ms.openlocfilehash: 1255c4962de1fce19efa9c0b0e1d28fc348463ef
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/16/2021
-ms.locfileid: "103573065"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104580148"
 ---
 # <a name="embedded-sign-in-experience"></a>Esperienza di accesso incorporata
 
@@ -35,7 +36,7 @@ Quando si usa iframe, tenere presente quanto segue:
 - L'accesso incorporato supporta solo gli account locali. La maggior parte dei provider di identità di social networking (ad esempio Google e Facebook) blocca il rendering delle pagine di accesso in frame inline.
 - Poiché Azure AD B2C cookie di sessione all'interno di un IFRAME sono considerati cookie di terze parti, alcuni browser (ad esempio Safari o Chrome in modalità Incognito) bloccano o cancellano questi cookie, causando un'esperienza utente indesiderata. Per evitare questo problema, assicurarsi che il nome di dominio dell'applicazione e il dominio di Azure AD B2C abbiano la *stessa origine*. Per usare la stessa origine, [abilitare i domini personalizzati](custom-domain.md) per Azure ad B2C tenant, quindi configurare l'app Web con la stessa origine. Ad esempio, un'applicazione ospitata in https://app.contoso.com ha la stessa origine del Azure ad B2C in esecuzione in https://login.contoso.com .
 
-## <a name="perquisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 
 * Completare le procedure illustrate in [Introduzione ai criteri personalizzati in Azure Active Directory B2C](custom-policy-get-started.md).
 * [Abilitare domini personalizzati](custom-domain.md) per i criteri.
@@ -87,7 +88,7 @@ div.api_container{
 
 In alcuni casi, potrebbe essere necessario notificare all'applicazione la quale è attualmente visualizzata la pagina Azure AD B2C. Ad esempio, quando un utente seleziona l'opzione di iscrizione, potrebbe essere necessario che l'applicazione risponda nascondendo i collegamenti per l'accesso con un account di social networking o la modifica delle dimensioni di iframe.
 
-Per inviare una notifica all'applicazione della pagina Azure AD B2C corrente, [abilitare i criteri per JavaScript](javascript-samples.md)e quindi usare i messaggi di post HTML5. Il codice JavaScript seguente invia un messaggio post all'app con `signUp` :
+Per inviare una notifica all'applicazione della pagina Azure AD B2C corrente, [abilitare i criteri per JavaScript](./javascript-and-page-layout.md)e quindi usare i messaggi di post HTML5. Il codice JavaScript seguente invia un messaggio post all'app con `signUp` :
 
 ```javascript
 window.parent.postMessage("signUp", '*');
@@ -155,5 +156,5 @@ Vedere gli articoli correlati seguenti:
 
 - [Personalizzazione dell'interfaccia utente](customize-ui.md)
 - Riferimento all'elemento [RelyingParty](relyingparty.md)
-- [Abilitare i criteri per JavaScript](javascript-samples.md)
+- [Abilitare i criteri per JavaScript](./javascript-and-page-layout.md)
 - [Esempi di codice](code-samples.md)

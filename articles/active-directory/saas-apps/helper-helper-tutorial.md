@@ -1,5 +1,5 @@
 ---
-title: 'Esercitazione: Integrazione di Azure Active Directory con Helper Helper | Microsoft Docs'
+title: 'Esercitazione: integrazione di Azure Active Directory con helper Helper | Microsoft Docs'
 description: Informazioni su come configurare l'accesso Single Sign-On tra Azure Active Directory e Helper Helper.
 services: active-directory
 author: jeevansd
@@ -12,13 +12,13 @@ ms.topic: tutorial
 ms.date: 05/31/2019
 ms.author: jeedes
 ms.openlocfilehash: 0f85f3c747c634e0118ac516fc83284350fc2584
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
-ms.translationtype: HT
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/23/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92445021"
 ---
-# <a name="tutorial-integrate-helper-helper-with-azure-active-directory"></a>Esercitazione: Integrare Helper Helper con Azure Active Directory
+# <a name="tutorial-integrate-helper-helper-with-azure-active-directory"></a>Esercitazione: integrare helper Helper con Azure Active Directory
 
 Questa esercitazione descrive come integrare Helper Helper con Azure Active Directory (Azure AD). Integrando Helper Helper con Azure AD, è possibile:
 
@@ -37,22 +37,22 @@ Per iniziare, sono necessari gli elementi seguenti:
 
 ## <a name="scenario-description"></a>Descrizione dello scenario
 
-In questa esercitazione vengono eseguiti la configurazione e il test dell'accesso Single Sign-On di Azure AD in un ambiente di test. Helper Helper supporta l'accesso SSO avviato da **SP e IDP** e il provisioning utenti **JIT** .
+In questa esercitazione vengono eseguiti la configurazione e il test dell'accesso Single Sign-On di Azure AD in un ambiente di test. Helper Helper supporta l'accesso SSO avviato da **SP e IDP** e il provisioning utenti **JIT**.
 
 ## <a name="adding-helper-helper-from-the-gallery"></a>Aggiunta di Helper Helper dalla raccolta
 
 Per configurare l'integrazione di Helper Helper in Azure AD, è necessario aggiungere Helper Helper dalla raccolta all'elenco di app SaaS gestite.
 
 1. Accedere al [portale di Azure](https://portal.azure.com) con un account aziendale o dell'istituto di istruzione oppure con un account Microsoft personale.
-1. Nel riquadro di spostamento a sinistra selezionare il servizio **Azure Active Directory** .
-1. Passare ad **Applicazioni aziendali** e quindi selezionare **Tutte le applicazioni** .
-1. Per aggiungere una nuova applicazione, selezionare **Nuova applicazione** .
+1. Nel riquadro di spostamento a sinistra selezionare il servizio **Azure Active Directory**.
+1. Passare ad **Applicazioni aziendali** e quindi selezionare **Tutte le applicazioni**.
+1. Per aggiungere una nuova applicazione, selezionare **Nuova applicazione**.
 1. Nella sezione **Aggiungi dalla raccolta** digitare **Helper Helper** nella casella di ricerca.
 1. Selezionare **Helper Helper** nel pannello dei risultati e quindi aggiungere l'app. Attendere alcuni secondi che l'app venga aggiunta al tenant.
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurare e testare l'accesso Single Sign-On di Azure AD
 
-Configurare e testare l'accesso Single Sign-On di Azure AD con Helper Helper usando un utente di test di nome **B. Simon** . Per il corretto funzionamento dell'accesso Single Sign-On, è necessario stabilire una relazione di collegamento tra un utente di Azure AD e l'utente correlato in Helper Helper.
+Configurare e testare l'accesso Single Sign-On di Azure AD con Helper Helper usando un utente di test di nome **B. Simon**. Per il corretto funzionamento dell'accesso Single Sign-On, è necessario stabilire una relazione di collegamento tra un utente di Azure AD e l'utente correlato in Helper Helper.
 
 Per configurare e testare l'accesso SSO di Azure AD con Helper Helper, completare le procedure di base seguenti:
 
@@ -60,41 +60,41 @@ Per configurare e testare l'accesso SSO di Azure AD con Helper Helper, completar
 2. **[Configurare Helper Helper](#configure-helper-helper)** per configurare le impostazioni di Single Sign-On sul lato applicazione.
 3. **[Creare un utente test di Azure AD](#create-an-azure-ad-test-user)** per testare l'accesso Single Sign-On di Azure AD con l'utente B. Simon.
 4. **[Assegnare l'utente di test di Azure AD](#assign-the-azure-ad-test-user)** per abilitare B. Simon all'uso dell'accesso Single Sign-On di Azure AD.
-5. **[Creare l'utente di test di Helper Helper](#create-helper-helper-test-user)** : per avere una controparte di B. Simon in Helper Helper collegata alla relativa rappresentazione in Azure AD.
+5. **[Creare l'utente di test di Helper Helper](#create-helper-helper-test-user)**: per avere una controparte di B. Simon in Helper Helper collegata alla relativa rappresentazione in Azure AD.
 6. **[Testare l'accesso Single Sign-On](#test-sso)** per verificare se la configurazione funziona.
 
 ### <a name="configure-azure-ad-sso"></a>Configurare l'accesso SSO di Azure AD
 
 Per abilitare l'accesso Single Sign-On di Azure AD nel portale di Azure, seguire questa procedura.
 
-1. Nella pagina di integrazione dell'applicazione **Helper Helper** del [portale di Azure](https://portal.azure.com/) trovare la sezione **Gestione** e selezionare **Single Sign-On** .
-1. Nella pagina **Selezionare un metodo di accesso Single Sign-On** selezionare **SAML** .
+1. Nella pagina di integrazione dell'applicazione **Helper Helper** del [portale di Azure](https://portal.azure.com/) trovare la sezione **Gestione** e selezionare **Single Sign-On**.
+1. Nella pagina **Selezionare un metodo di accesso Single Sign-On** selezionare **SAML**.
 1. Nella pagina **Configura l'accesso Single Sign-On con SAML** fare clic sull'icona Modifica (la penna) relativa a **Configurazione SAML di base** per modificare le impostazioni.
 
    ![Modificare la configurazione SAML di base](common/edit-urls.png)
 
-1. Nella sezione **Configurazione SAML di base** seguire questa procedura se si dispone del **file di metadati del provider di servizi** e si vuole configurare l'applicazione in modalità avviata da **IDP** :
+1. Nella sezione **Configurazione SAML di base** seguire questa procedura se si dispone del **file di metadati del provider di servizi** e si vuole configurare l'applicazione in modalità avviata da **IDP**:
 
     >[!NOTE]
     >Passare all'URL `https://sso.helperhelper.com/saml/<customer_id>` per ottenere il file di metadati del provider di servizi. Contattare il [team di supporto clienti di Helper Helper](mailto:info@helperhelper.com) per richiedere il valore di `<customer_id>`.
 
-    a. Fare clic su **Carica il file di metadati** .
+    a. Fare clic su **Carica il file di metadati**.
 
-    b. Fare clic su **logo cartella** per selezionare il file di metadati e fare quindi clic su **Upload** .
+    b. Fare clic su **logo cartella** per selezionare il file di metadati e fare quindi clic su **Upload**.
 
     c. Dopo il caricamento del file di metadati, il valore di **Identificatore** e **URL di risposta** viene inserito automaticamente nella sezione Configurazione SAML di base.
 
     > [!Note]
     > Se i valori di **Identificatore** e **URL di risposta** non vengono popolati automaticamente, inserirli manualmente in base alle proprie esigenze.
 
-1. Fare clic su **Impostare URL aggiuntivi** e seguire questa procedura se si vuole configurare l'applicazione in modalità avviata da **SP** :
+1. Fare clic su **Impostare URL aggiuntivi** e seguire questa procedura se si vuole configurare l'applicazione in modalità avviata da **SP**:
 
     Nella casella di testo **URL accesso** digitare un URL nel formato seguente: `https://sso.helperhelper.com/saml/<customer_id>/login`
 
     > [!NOTE]
     > Poiché il valore di URL accesso non è reale, è necessario aggiornare questo valore con l'URL di accesso effettivo. Contattare il [team di supporto clienti di Helper Helper](mailto:info@helperhelper.com) per richiedere questo valore. È anche possibile fare riferimento ai modelli mostrati nella sezione **Configurazione SAML di base** del portale di Azure.
 
-1. Nella sezione **Certificato di firma SAML** della pagina **Configura l'accesso Single Sign-On con SAML** fare clic sul pulsante Copia per copiare l' **URL dei metadati di federazione dell'app** e salvarlo nel Blocco note.
+1. Nella sezione **Certificato di firma SAML** della pagina **Configura l'accesso Single Sign-On con SAML** fare clic sul pulsante Copia per copiare l'**URL dei metadati di federazione dell'app** e salvarlo nel Blocco note.
 
    ![Collegamento di download del certificato](common/copy-metadataurl.png)
 
@@ -104,37 +104,37 @@ Per abilitare l'accesso Single Sign-On di Azure AD nel portale di Azure, seguire
 
 ### <a name="configure-helper-helper"></a>Configurare Helper Helper
 
-Per configurare l'accesso Single Sign-On sul lato **Helper Helper** , è necessario inviare l' **URL dei metadati di federazione dell'app** al [team di supporto di Helper Helper](mailto:info@helperhelper.com). La configurazione viene eseguita in modo che la connessione SSO SAML sia impostata correttamente su entrambi i lati.
+Per configurare l'accesso Single Sign-On sul lato **Helper Helper**, è necessario inviare l'**URL dei metadati di federazione dell'app** al [team di supporto di Helper Helper](mailto:info@helperhelper.com). La configurazione viene eseguita in modo che la connessione SSO SAML sia impostata correttamente su entrambi i lati.
 
 ### <a name="create-an-azure-ad-test-user"></a>Creare un utente di test di Azure AD
 
 In questa sezione verrà creato un utente di test di nome B. Simon nel portale di Azure.
 
-1. Nel riquadro sinistro del portale di Azure selezionare **Azure Active Directory** , **Utenti** e quindi **Tutti gli utenti** .
+1. Nel riquadro sinistro del portale di Azure selezionare **Azure Active Directory**, **Utenti** e quindi **Tutti gli utenti**.
 1. Selezionare **Nuovo utente** in alto nella schermata.
 1. In **Proprietà utente** seguire questa procedura:
    1. Nel campo **Nome** immettere `B. Simon`.  
    1. Nel campo **Nome utente** immettere username@companydomain.extension. Ad esempio: `BrittaSimon@contoso.com`.
-   1. Selezionare la casella di controllo **Mostra password** e quindi prendere nota del valore visualizzato nella casella **Password** .
-   1. Fare clic su **Crea** .
+   1. Selezionare la casella di controllo **Mostra password** e quindi prendere nota del valore visualizzato nella casella **Password**.
+   1. Fare clic su **Crea**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Assegnare l'utente di test di Azure AD
 
 In questa sezione si abiliterà B. Simon all'uso dell'accesso Single Sign-On di Azure concedendole l'accesso a Helper Helper.
 
-1. Nel portale di Azure selezionare **Applicazioni aziendali** e quindi **Tutte le applicazioni** .
-1. Nell'elenco di applicazioni selezionare **Helper Helper** .
-1. Nella pagina di panoramica dell'app trovare la sezione **Gestione** e selezionare **Utenti e gruppi** .
+1. Nel portale di Azure selezionare **Applicazioni aziendali** e quindi **Tutte le applicazioni**.
+1. Nell'elenco di applicazioni selezionare **Helper Helper**.
+1. Nella pagina di panoramica dell'app trovare la sezione **Gestione** e selezionare **Utenti e gruppi**.
 
    ![Collegamento "Utenti e gruppi"](common/users-groups-blade.png)
 
-1. Selezionare **Aggiungi utente** e quindi **Utenti e gruppi** nella finestra di dialogo **Aggiungi assegnazione** .
+1. Selezionare **Aggiungi utente** e quindi **Utenti e gruppi** nella finestra di dialogo **Aggiungi assegnazione**.
 
     ![Collegamento Aggiungi utente](common/add-assign-user.png)
 
 1. Nella finestra di dialogo **Utenti e gruppi** selezionare **B. Simon** nell'elenco Utenti e quindi fare clic sul pulsante **Seleziona** in basso nella schermata.
 1. Se si prevede un valore di ruolo nell'asserzione SAML, nella finestra di dialogo **Selezionare un ruolo** selezionare il ruolo appropriato per l'utente dall'elenco e quindi fare clic sul pulsante **Seleziona** nella parte inferiore della schermata.
-1. Nella finestra di dialogo **Aggiungi assegnazione** fare clic sul pulsante **Assegna** .
+1. Nella finestra di dialogo **Aggiungi assegnazione** fare clic sul pulsante **Assegna**.
 
 ### <a name="create-helper-helper-test-user"></a>Creare l'utente di test di Helper Helper
 

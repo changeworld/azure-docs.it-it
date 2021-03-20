@@ -1,5 +1,5 @@
 ---
-title: 'PowerShell: Distribuire il codice da GitHub'
+title: 'PowerShell: distribuire il codice da GitHub'
 description: Informazioni su come usare Azure PowerShell per automatizzare la distribuzione e la gestione di Servizio app. Questo esempio illustra come distribuire il codice da GitHub.
 tags: azure-service-management
 ms.assetid: 0f9c8bc5-3789-4eb3-8deb-ae6e2200795a
@@ -7,10 +7,10 @@ ms.topic: sample
 ms.date: 03/20/2017
 ms.custom: mvc, devx-track-azurepowershell
 ms.openlocfilehash: 303cb562d4489412cf16a3c064cdb7770c19bdd0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
-ms.translationtype: HT
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "89073778"
 ---
 # <a name="create-a-web-app-and-deploy-code-from-github"></a>Creare un'App Web e distribuire il codice da GitHub

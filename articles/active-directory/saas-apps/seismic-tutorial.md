@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 08/27/2020
 ms.author: jeedes
 ms.openlocfilehash: 71de0573f252cab7f2b479212551562de2b1d1c2
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
-ms.translationtype: HT
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/27/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92674362"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-seismic"></a>Esercitazione: Integrazione di Azure Active Directory con Seismic
@@ -93,9 +93,9 @@ Per abilitare l'accesso Single Sign-On di Azure AD nel portale di Azure, seguire
     c. Nella casella di testo **URL di risposta** digitare un URL nel formato seguente: `https://<SUBDOMAIN>.seismic.com/SSO/<ROUTEURL>`
 
     > [!NOTE]
-    > Poiché questi non sono i valori reali, aggiornarli con l'URL di accesso, l'identificatore e l'URL di risposta effettivi. Per ottenere questi valori, contattare il [team di supporto clienti di Seismic](mailto:support@seismic.com). È anche possibile caricare i **metadati del provider di servizi** per popolare automaticamente il valore dell'identificatore. Per altre informazioni sui **metadati del provider di servizi** , contattare il [team di supporto clienti di Seismic](mailto:support@seismic.com).
+    > Poiché questi non sono i valori reali, aggiornarli con l'URL di accesso, l'identificatore e l'URL di risposta effettivi. Per ottenere questi valori, contattare il [team di supporto clienti di Seismic](mailto:support@seismic.com). È anche possibile caricare i **metadati del provider di servizi** per popolare automaticamente il valore dell'identificatore. Per altre informazioni sui **metadati del provider di servizi**, contattare il [team di supporto clienti di Seismic](mailto:support@seismic.com).
 
-5. Nella pagina **Configura l'accesso Single Sign-On con SAML** , nella sezione **Certificato di firma SAML** , fare clic su **Scarica** per scaricare il **Certificato (Base64)** definito dalle opzioni specificate in base ai propri requisiti e salvarlo in questo computer.
+5. Nella pagina **Configura l'accesso Single Sign-On con SAML**, nella sezione **Certificato di firma SAML**, fare clic su **Scarica** per scaricare il **Certificato (Base64)** definito dalle opzioni specificate in base ai propri requisiti e salvarlo in questo computer.
 
     ![Collegamento di download del certificato](common/certificatebase64.png)
 
@@ -107,7 +107,7 @@ Per abilitare l'accesso Single Sign-On di Azure AD nel portale di Azure, seguire
 
 In questa sezione verrà creato un utente di test di nome B.Simon nel portale di Azure.
 
-1. Nel riquadro sinistro del portale di Azure selezionare **Azure Active Directory** , **Utenti** e quindi **Tutti gli utenti**.
+1. Nel riquadro sinistro del portale di Azure selezionare **Azure Active Directory**, **Utenti** e quindi **Tutti gli utenti**.
 1. Selezionare **Nuovo utente** in alto nella schermata.
 1. In **Proprietà utente** seguire questa procedura:
    1. Nel campo **Nome** immettere `B.Simon`.  

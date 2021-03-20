@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 08/25/2020
 ms.author: cynthn
 ms.openlocfilehash: abc9a2ae130d987c90ce87ffaecbf2bb44b06010
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "88929440"
 ---
 # <a name="generate-and-store-ssh-keys-in-the-azure-portal"></a>Generare e archiviare le chiavi SSH nel portale di Azure
@@ -28,7 +28,7 @@ Per informazioni più dettagliate sulla creazione e l'uso di chiavi SSH con macc
 
 1. Aprire il [portale di Azure](https://portal.azure.com).
 
-1. Nella parte superiore della pagina digitare *SSH* per eseguire la ricerca. In **Marketplace**selezionare **chiavi SSH**.
+1. Nella parte superiore della pagina digitare *SSH* per eseguire la ricerca. In **Marketplace** selezionare **chiavi SSH**.
 
 1. Nella pagina **chiave SSH** selezionare **Crea**.
 
@@ -40,7 +40,7 @@ Per informazioni più dettagliate sulla creazione e l'uso di chiavi SSH con macc
 
 1. Digitare un nome per la chiave nel **nome della coppia di chiavi**.
 
-1. In **origine chiave pubblica SSH**selezionare **genera origine chiave pubblica**. 
+1. In **origine chiave pubblica SSH** selezionare **genera origine chiave pubblica**. 
 
 1. Al termine, selezionare **Rivedi e crea**.
 
@@ -48,7 +48,7 @@ Per informazioni più dettagliate sulla creazione e l'uso di chiavi SSH con macc
 
 1. Si otterrà quindi una finestra popup, selezionare **Scarica chiave privata e Crea risorsa**. La chiave SSH verrà scaricata come file con estensione PEM.
 
-   :::image type="content" source="./media/ssh-keys/download-key.png" alt-text="Creare un nuovo gruppo di risorse e generare una coppia di chiavi SSH":::
+   :::image type="content" source="./media/ssh-keys/download-key.png" alt-text="Scaricare la chiave privata come file con estensione PEM":::
 
 1. Una volta scaricato il file con estensione PEM, potrebbe essere necessario spostarlo in un punto qualsiasi del computer in cui è facile puntare dal client SSH.
 
@@ -70,11 +70,11 @@ Digitare ad esempio: `ssh -i /Downloads/mySSHKey.pem azureuser@123.45.67.890`
 
 1. Aprire il [portale di Azure](https://portal.azure.com).
 
-1. Nella parte superiore della pagina digitare *SSH* per eseguire la ricerca. In **Marketplace*selezionare **chiavi SSH**.
+1. Nella parte superiore della pagina digitare *SSH* per eseguire la ricerca. In **Marketplace* selezionare **chiavi SSH**.
 
 1. Nella pagina **chiave SSH** selezionare **Crea**.
 
-   :::image type="content" source="./media/ssh-keys/upload.png" alt-text="Creare un nuovo gruppo di risorse e generare una coppia di chiavi SSH":::
+   :::image type="content" source="./media/ssh-keys/upload.png" alt-text="Caricare una chiave pubblica SSH da archiviare in Azure":::
 
 1. In **gruppo di risorse** selezionare **Crea nuovo** per creare un nuovo gruppo di risorse in cui archiviare le chiavi. Digitare un nome per il gruppo di risorse e fare clic su **OK**.
 
@@ -82,7 +82,7 @@ Digitare ad esempio: `ssh -i /Downloads/mySSHKey.pem azureuser@123.45.67.890`
 
 1. Digitare un nome per la chiave nel **nome della coppia di chiavi**.
 
-1. In **origine chiave pubblica SSH**selezionare **carica chiave pubblica esistente**. 
+1. In **origine chiave pubblica SSH** selezionare **carica chiave pubblica esistente**. 
 
 1. Incollare il contenuto completo della chiave pubblica nella **chiave di caricamento** , quindi selezionare **Verifica + crea**.
 
@@ -98,7 +98,7 @@ Le chiavi SSH create nel portale vengono archiviate come risorse, quindi è poss
 1. Nei filtri selezionare **tipo**, deselezionare l'opzione **Seleziona tutto** per cancellare l'elenco.
 1. Digitare **SSH** nel filtro e selezionare **chiave SSH**.
 
-   :::image type="content" source="./media/ssh-keys/filter.png" alt-text="Creare un nuovo gruppo di risorse e generare una coppia di chiavi SSH":::
+   :::image type="content" source="./media/ssh-keys/filter.png" alt-text="Screenshot di come filtrare l'elenco per visualizzare tutte le chiavi SSH.":::
 
 ## <a name="get-the-public-key"></a>Ottenere la chiave pubblica
 

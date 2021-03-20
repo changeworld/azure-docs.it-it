@@ -13,16 +13,16 @@ ms.devlang: na
 ms.topic: how-to
 ms.date: 02/12/2021
 ms.author: hirsin
-ms.openlocfilehash: 67cb1003e139a085d45d01617cd44647bad420f5
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 53dfdfaf37695059d6d52428c2ba109970d9f7f7
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101693124"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104589379"
 ---
 # <a name="disable-auto-acceleration-to-a-federated-idp-during-user-sign-in-with-home-realm-discovery-policy"></a>Disabilitare l'accelerazione automatica a un IDP federato durante l'accesso utente con i criteri di individuazione dell'area di autenticazione principale
 
-[Criteri di individuazione dell'area di autenticazione principale](https://docs.microsoft.com/graph/api/resources/homeRealmDiscoveryPolicy) (HRD) offre agli amministratori diversi modi per controllare come e quando gli utenti eseguono l'autenticazione. La `domainHintPolicy` sezione del criterio HRD viene usata per aiutare a migrare gli utenti federati a credenziali gestite dal cloud, ad esempio [fido](../authentication/howto-authentication-passwordless-security-key.md), assicurandosi che visitino sempre la pagina di accesso Azure ad e non vengano accelerate automaticamente in un IDP federato a causa di hint di dominio.
+[Criteri di individuazione dell'area di autenticazione principale](/graph/api/resources/homeRealmDiscoveryPolicy) (HRD) offre agli amministratori diversi modi per controllare come e quando gli utenti eseguono l'autenticazione. La `domainHintPolicy` sezione del criterio HRD viene usata per aiutare a migrare gli utenti federati a credenziali gestite dal cloud, ad esempio [fido](../authentication/howto-authentication-passwordless-security-key.md), assicurandosi che visitino sempre la pagina di accesso Azure ad e non vengano accelerate automaticamente in un IDP federato a causa di hint di dominio.
 
 Questo criterio è necessario nelle situazioni in cui un amministratore non è in grado di controllare o aggiornare gli hint di aggiunta del dominio durante l'accesso.  Ad esempio, `outlook.com/contoso.com` Invia l'utente a una pagina di accesso con il `&domain_hint=contoso.com` parametro aggiunto, per accelerare automaticamente l'utente all'IDP federato per il `contoso.com` dominio. Gli utenti con credenziali gestite inviate a un IDP federato non possono accedere usando le credenziali gestite, riducendo la sicurezza e frustrando gli utenti con esperienze di accesso casuale. Gli amministratori che implementano le credenziali gestite [devono anche configurare questi criteri](#suggested-use-within-a-tenant) per assicurarsi che gli utenti possano usare sempre le credenziali gestite.
 
@@ -101,7 +101,7 @@ Al termine del passaggio 4, tutti gli utenti, ad eccezione di quelli in `guestHa
 
 ## <a name="configuring-policy-through-graph-explorer"></a>Configurazione dei criteri tramite Graph Explorer
 
-Impostare i [criteri HRD](https://docs.microsoft.com/graph/api/resources/homeRealmDiscoveryPolicy) come di consueto, usando Microsoft Graph.  
+Impostare i [criteri HRD](/graph/api/resources/homeRealmDiscoveryPolicy) come di consueto, usando Microsoft Graph.  
 
 1. Concedere l'autorizzazione Policy. ReadWrite. ApplicationConfiguration in [Graph Explorer](https://developer.microsoft.com/graph/graph-explorer).  
 1. Usare l'URL `https://graph.microsoft.com/v1.0/policies/homeRealmDiscoveryPolicies`

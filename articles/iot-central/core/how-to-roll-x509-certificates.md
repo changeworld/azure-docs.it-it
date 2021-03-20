@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.service: iot-central
 services: iot-central
 ms.openlocfilehash: a9e35c7d4d64279c65971dd512bcd2107dad6594
-ms.sourcegitcommit: 090ea6e8811663941827d1104b4593e29774fa19
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/13/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92000058"
 ---
 # <a name="how-to-roll-x509-device-certificates-in-iot-central-application"></a>Come eseguire il Rolling dei certificati del dispositivo X. 509 nell'applicazione IoT Central
@@ -31,7 +31,7 @@ Per aggiornare una registrazione di gruppo in risposta a una violazione della si
 
 1. Passare ad **Amministrazione**  nel riquadro sinistro e selezionare **connessione del dispositivo**.
 
-2. Selezionare **gruppi di registrazioni**e selezionare il nome del gruppo nell'elenco.
+2. Selezionare **gruppi di registrazioni** e selezionare il nome del gruppo nell'elenco.
 
 3. Per l'aggiornamento del certificato selezionare **Gestisci database primario** o **Gestisci secondario**.
 
@@ -45,7 +45,7 @@ Se si esegue il rollup dei certificati per gestire le scadenze dei certificati, 
 
 1. Passare ad **Amministrazione**  nel riquadro sinistro e selezionare **connessione del dispositivo**.
 
-2. Selezionare **gruppi di registrazioni**e selezionare il nome del gruppo nell'elenco.
+2. Selezionare **gruppi di registrazioni** e selezionare il nome del gruppo nell'elenco.
 
 3. Per l'aggiornamento del certificato, selezionare **Gestisci primario**.
 
@@ -57,9 +57,9 @@ Se si esegue il rollup dei certificati per gestire le scadenze dei certificati, 
 
 Se si sta eseguendo il rollup dei certificati in risposta a una violazione della sicurezza, usare l'approccio seguente per aggiornare immediatamente il certificato corrente:
 
-1. Selezionare **dispositivi**e selezionare il dispositivo.
+1. Selezionare **dispositivi** e selezionare il dispositivo.
 
-2. Selezionare **Connetti**e selezionare metodo di connessione come **registrazione singola**
+2. Selezionare **Connetti** e selezionare metodo di connessione come **registrazione singola**
 
 3. Selezionare **certificati (X. 509)** come meccanismo.
 
@@ -75,9 +75,9 @@ Se si rinnovano i certificati per gestirne la scadenza, è consigliabile usare l
 
 Quando il certificato secondario si avvicina alla scadenza ed è necessario eseguirne il rollback, è possibile ruotare con la configurazione principale. La rotazione tra il certificato primario e quello secondario consente così di ridurre il tempo di inattività per i dispositivi che tentano il provisioning.
 
-1. Selezionare **dispositivi**e selezionare il dispositivo.
+1. Selezionare **dispositivi** e selezionare il dispositivo.
 
-2. Selezionare **Connetti**e selezionare metodo di connessione come **registrazione singola**
+2. Selezionare **Connetti** e selezionare metodo di connessione come **registrazione singola**
 
 3. Selezionare **certificati (X. 509)** come meccanismo.
 

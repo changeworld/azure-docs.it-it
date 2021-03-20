@@ -13,12 +13,12 @@ ms.topic: article
 ms.date: 02/19/2015
 ms.author: gwallace
 ms.custom: devx-track-python
-ms.openlocfilehash: ba93591ade730c4e9c9bdb6a42232e71e10d6469
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: b4b9cd0db2a3a99aca80f42b6d69485a542bbadb
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96000437"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104580952"
 ---
 # <a name="how-to-use-twilio-for-voice-and-sms-capabilities-in-python"></a>Come usare Twilio per le funzionalità voce ed SMS in Python
 In questa guida viene illustrato come eseguire attività di programmazione comuni con il servizio API Twilio in Azure. Gli scenari presentati includono la composizione di una chiamata telefonica e l'invio di un messaggio SMS (Short Message Service). Per ulteriori informazioni su Twilio e sull'utilizzo di Voice and SMS nelle applicazioni, vedere la sezione [passaggi successivi](#NextSteps) .
@@ -86,7 +86,7 @@ In primo luogo, [configurare una nuova macchina virtuale Linux in Azure][azure_v
 ### <a name="add-an-incoming-rule"></a>Aggiungere una regola in ingresso
   1. Passare alla pagina [Gruppo di sicurezza di rete][azure_nsg].
   2. Selezionare il gruppo di sicurezza di rete corrispondente alla macchina virtuale.
-  3. Aggiungere una **Regola in uscita** per la **porta 80**. Verificare di consentire l'ingresso da qualsiasi indirizzo.
+  3. Aggiungere una **regola in uscita** per la **porta 80**. Verificare di consentire l'ingresso da qualsiasi indirizzo.
 
 ### <a name="set-the-dns-name-label"></a>Impostare l'etichetta del nome DNS
   1. Passare alla pagina [Indirizzi IP pubblici][azure_ips].
@@ -151,6 +151,9 @@ call = client.calls.create(to=to_number,
                            url=url + urlencode({'Message': message}))
 print(call.sid)
 ```
+
+> [!IMPORTANT]
+> I numeri di telefono devono essere formattati con una "+" e un codice paese. Ad esempio, + 16175551212 (formato E. 164). Twilio accetterà anche numeri US non formattati. Ad esempio, (415) 555-1212 o 415-555-1212.
 
 Come indicato in precedenza, questo codice utilizza un sito fornito da Twilio per restituire la risposta TwiML. Per fornire la risposta TwiML è inoltre possibile usare il proprio sito. Per altre informazioni, vedere [Come fornire risposte TwiML dal proprio sito Web](#howto_provide_twiml_responses).
 

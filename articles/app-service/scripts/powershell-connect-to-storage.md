@@ -1,5 +1,5 @@
 ---
-title: 'PowerShell: Eseguire la connessione a un account di archiviazione'
+title: 'PowerShell: connettersi a un account di archiviazione'
 description: Informazioni su come usare Azure PowerShell per automatizzare la distribuzione e la gestione di Servizio app. Questo esempio illustra come connettere un'app a un account di archiviazione.
 tags: azure-service-management
 ms.assetid: e4831bdc-2068-4883-9474-0b34c2e3e255
@@ -7,10 +7,10 @@ ms.topic: sample
 ms.date: 03/20/2017
 ms.custom: mvc, devx-track-azurepowershell
 ms.openlocfilehash: 9c182c797515288038ae6a23d6d939d5ec855011
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
-ms.translationtype: HT
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "89073914"
 ---
 # <a name="connect-an-app-service-app-to-a-storage-account"></a>Connettere un'app del servizio app a un account di archiviazione

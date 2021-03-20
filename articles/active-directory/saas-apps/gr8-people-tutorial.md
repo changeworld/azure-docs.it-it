@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 04/09/2020
 ms.author: jeedes
 ms.openlocfilehash: 7193cb39d21c28f8746ca93e7983ee7fde4ba7da
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
-ms.translationtype: HT
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/23/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92447858"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-gr8-people"></a>Esercitazione: Integrazione dell'accesso Single Sign-On (SSO) di Azure Active Directory con gr8 People
@@ -76,13 +76,13 @@ Per abilitare l'accesso Single Sign-On di Azure AD nel portale di Azure, seguire
 
    ![Modificare la configurazione SAML di base](common/edit-urls.png)
 
-1. Nella sezione **Configurazione SAML di base** immettere i valori per i campi seguenti se si vuole configurare l'applicazione in modalità avviata da **IDP** :
+1. Nella sezione **Configurazione SAML di base** immettere i valori per i campi seguenti se si vuole configurare l'applicazione in modalità avviata da **IDP**:
 
     a. Nella casella di testo **Identificatore** digitare un URL nel formato seguente: `https://apps.gr8people.com/sso/metadata/<CUSTOMID>`
 
     b. Nella casella di testo **URL di risposta** digitare un URL nel formato seguente: `https://<SUBDOMAIN>.gr8people.com/sso/<CUSTOMID>`
 
-1. Fare clic su **Impostare URL aggiuntivi** e seguire questa procedura se si vuole configurare l'applicazione in modalità avviata da **SP** :
+1. Fare clic su **Impostare URL aggiuntivi** e seguire questa procedura se si vuole configurare l'applicazione in modalità avviata da **SP**:
 
     Nella casella di testo **URL accesso** digitare un URL nel formato seguente: `https://<SUBDOMAIN>.gr8people.com/sso/<CUSTOMID>`
 
@@ -101,7 +101,7 @@ Per abilitare l'accesso Single Sign-On di Azure AD nel portale di Azure, seguire
 
 In questa sezione verrà creato un utente di test di nome B.Simon nel portale di Azure.
 
-1. Nel riquadro sinistro del portale di Azure selezionare **Azure Active Directory** , **Utenti** e quindi **Tutti gli utenti**.
+1. Nel riquadro sinistro del portale di Azure selezionare **Azure Active Directory**, **Utenti** e quindi **Tutti gli utenti**.
 1. Selezionare **Nuovo utente** in alto nella schermata.
 1. In **Proprietà utente** seguire questa procedura:
    1. Nel campo **Nome** immettere `B.Simon`.  

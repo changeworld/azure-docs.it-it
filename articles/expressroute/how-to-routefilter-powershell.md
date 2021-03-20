@@ -9,10 +9,10 @@ ms.date: 10/08/2020
 ms.author: duau
 ms.custom: seodec18
 ms.openlocfilehash: 90d4def5a1c08e305b9315f299e83e2187b6be2c
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
-ms.translationtype: HT
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/13/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91969899"
 ---
 # <a name="tutorial-configure-route-filters-for-microsoft-peering-using-powershell"></a>Esercitazione: Configurare i filtri di route per il peering Microsoft con PowerShell
@@ -29,15 +29,15 @@ I servizi di Microsoft 365, come Exchange Online, SharePoint Online e Skype for 
 
 Quando il peering Microsoft viene configurato in un circuito ExpressRoute, tutti i prefissi relativi a questi servizi vengono annunciati tramite le sessioni BGP stabilite. A ogni prefisso viene associato un valore di community BGP per identificare il servizio offerto tramite il prefisso. Per un elenco dei valori di community BGP e i servizi a cui sono associati, vedere [community BGP](expressroute-routing.md#bgp).
 
-Con la connettività a tutti i servizi di Azure e Microsoft 365 viene annunciato un numero elevato di prefissi tramite BGP. Questo numero elevato aumenta notevolmente le dimensioni delle tabelle di route gestite dai router all'interno della rete. Se si prevede di usare solo un subset dei servizi offerti tramite il peering Microsoft, è possibile ridurre le dimensioni delle tabelle di route in due modi. è possibile:
+Con la connettività a tutti i servizi di Azure e Microsoft 365 viene annunciato un numero elevato di prefissi tramite BGP. Questo numero elevato aumenta notevolmente le dimensioni delle tabelle di route gestite dai router all'interno della rete. Se si prevede di usare solo un subset dei servizi offerti tramite il peering Microsoft, è possibile ridurre le dimensioni delle tabelle di route in due modi. È possibile:
 
-* Escludere i prefissi indesiderati applicando filtri di route alle community BGP. Il filtro delle route è una procedura di rete standard usata comunemente in molte reti.
+* Escludere i prefissi indesiderati applicando filtri di route alle community BGP. Il filtro di route è una procedura di rete standard usata comunemente in molte reti.
 
 * Definire i filtri di route e applicarli al circuito ExpressRoute. Un filtro di route è una nuova risorsa che consente di selezionare l'elenco dei servizi che si prevede di usare tramite il peering Microsoft. I router ExpressRoute inviano solo l'elenco dei prefissi che appartengono ai servizi identificati nel filtro di route.
 
 In questa esercitazione verranno illustrate le procedure per:
 > [!div class="checklist"]
-> - Ottenere i valori della community BGP.
+> - Ottenere i valori di community BGP.
 > - Creare un filtro di route e una regola di filtro.
 > - Associare il filtro di route a un circuito ExpressRoute.
 

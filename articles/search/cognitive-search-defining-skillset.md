@@ -9,10 +9,10 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.openlocfilehash: 39a7c92ca6c83684658cf767722698806ed994ec
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "88935450"
 ---
 # <a name="how-to-create-a-skillset-in-an-ai-enrichment-pipeline-in-azure-cognitive-search"></a>Come creare un oggetto di competenze in una pipeline di arricchimento di intelligenza artificiale in Azure ricerca cognitiva 
@@ -40,7 +40,7 @@ Il primo passaggio consigliato consiste nel decidere quali dati estrarre dai dat
 
 Si supponga di essere interessati all'elaborazione di un set di commenti di analisti finanziari. Per ogni file si desidera estrarre i nomi delle società e la valutazione generale dei commenti. Si desidera inoltre scrivere un arricchitore personalizzato che usi il servizio Ricerca entità di Bing per ottenere informazioni aggiuntive sulla società, ad esempio il tipo di business svolto della società. Si desidera, in pratica, estrarre informazioni simili alle seguenti, indicizzate per ogni documento:
 
-| Testo del record | Società | sentiment | Descrizione della società |
+| Testo del record | Società | Valutazione | Descrizione della società |
 |--------|-----|-----|-----|
 |record di esempio| ["Microsoft", "LinkedIn"] | 0.99 | ["Microsoft Corporation è una società di tecnologia multinazionale american...", "LinkedIn è un social network orientato al business e all'occupazione..."]
 
