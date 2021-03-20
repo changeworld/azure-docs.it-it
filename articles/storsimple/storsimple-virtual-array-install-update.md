@@ -16,10 +16,10 @@ ms.date: 02/27/2017
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 3bd6f298ad2bb01503492b52c2d50dec82ec0ca5
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/12/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94534045"
 ---
 # <a name="install-updates-on-your-storsimple-virtual-array---azure-portal"></a>Installare aggiornamenti nell'array virtuale StorSimple - Portale di Azure
@@ -59,7 +59,7 @@ Eseguire i passaggi seguenti per scaricare l'aggiornamento del software da Micro
    
     ![Cercare nel catalogo](./media/storsimple-virtual-array-install-update/download1.png)
 
-4. Scegliere **Aggiungi**. L'aggiornamento viene aggiunto al carrello.
+4. Fare clic su **Aggiungi**. L'aggiornamento viene aggiunto al carrello.
 
 5. Fare clic su **Visualizza carrello**.
 
@@ -79,7 +79,7 @@ Usare questo metodo per installare gli aggiornamenti in un dispositivo che esegu
    
     ![Screenshot mostra l'aggiornamento software selezionato dal menu manutenzione.](./media/storsimple-virtual-array-install-update/update1m.png)
 
-2. In **Percorso del file di aggiornamento** , immettere il nome del file dell'aggiornamento o dell'hotfix. È possibile anche cercare il file di installazione dell'aggiornamento o dell'hotfix, se posizionato in una condivisione di rete. Fare clic su **Applica**.
+2. In **Percorso del file di aggiornamento**, immettere il nome del file dell'aggiornamento o dell'hotfix. È possibile anche cercare il file di installazione dell'aggiornamento o dell'hotfix, se posizionato in una condivisione di rete. Fare clic su **Applica**.
    
     ![Screenshot mostra la casella di testo percorso file di aggiornamento nella pagina di aggiornamento software.](./media/storsimple-virtual-array-install-update/update2m.png)
 
@@ -94,7 +94,7 @@ Usare questo metodo per installare gli aggiornamenti in un dispositivo che esegu
 5. Al termine del riavvio si viene indirizzati alla pagina **di accesso** . Per verificare che il software del dispositivo sia stato aggiornato, nell'interfaccia utente Web locale passare a **manutenzione**  >  **aggiornamento software**. Dovrebbe essere visualizzata la versione del software **10.0.0.0.0.10288.0** per l'aggiornamento 0.3.
    
    > [!NOTE]
-   > Le versioni del software vengono riportate in modo leggermente diverso nell'interfaccia utente Web locale e nel portale di Azure. Ad esempio, l'interfaccia utente Web locale riporta **10.0.0.0.0.10288** , mentre il portale di Azure riporta **10.0.10288.0** per la stessa versione.
+   > Le versioni del software vengono riportate in modo leggermente diverso nell'interfaccia utente Web locale e nel portale di Azure. Ad esempio, l'interfaccia utente Web locale riporta **10.0.0.0.0.10288**, mentre il portale di Azure riporta **10.0.10288.0** per la stessa versione.
    
     ![Screenshot mostra la pagina di aggiornamento software con la versione del software corrente.](./media/storsimple-virtual-array-install-update/update6m.png)
 

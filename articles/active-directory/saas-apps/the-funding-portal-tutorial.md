@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 08/27/2019
 ms.author: jeedes
 ms.openlocfilehash: 72cb0f434d68adb507116253828e74db7777f93d
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
-ms.translationtype: HT
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/24/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92518152"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-the-funding-portal"></a>Esercitazione: Integrazione dell'accesso Single Sign-On (SSO) di Azure Active Directory con The Funding Portal
@@ -59,7 +59,7 @@ Configurare e testare l'accesso SSO di Azure AD con The Funding Portal usando un
 Per configurare e testare l'accesso SSO di Azure AD con The Funding Portal, completare le procedure di base seguenti:
 
 1. **[Configurare l'accesso Single Sign-On di Azure AD](#configure-azure-ad-sso)** : per consentire agli utenti di usare questa funzionalità.
-    1. **[Creare un utente di test di Azure AD](#create-an-azure-ad-test-user)** : per testare l'accesso Single Sign-On di Azure AD con l'utente B. Simon.
+    1. **[Creare un utente di test di Azure AD](#create-an-azure-ad-test-user)** : per testare l'accesso Single Sign-On di Azure AD con l'utente B.Simon.
     1. **[Assegnare l'utente di test di Azure AD](#assign-the-azure-ad-test-user)** : per abilitare B. Simon all'uso dell'accesso Single Sign-On di Azure AD.
 1. **[Configurare l'accesso Single Sign-On di The Funding Portal](#configure-the-funding-portal-sso)** : per configurare le impostazioni di Single Sign-On sul lato applicazione.
     1. **[Creare l'utente di test di The Funding Portal](#create-the-funding-portal-test-user)** : per avere una controparte di B.Simon in The Funding Portal collegata alla rappresentazione dell'utente in Azure AD.
@@ -96,7 +96,7 @@ Per abilitare l'accesso Single Sign-On di Azure AD nel portale di Azure, seguire
 
 In questa sezione verrà creato un utente di test di nome B.Simon nel portale di Azure.
 
-1. Nel riquadro sinistro del portale di Azure selezionare **Azure Active Directory** , **Utenti** e quindi **Tutti gli utenti**.
+1. Nel riquadro sinistro del portale di Azure selezionare **Azure Active Directory**, **Utenti** e quindi **Tutti gli utenti**.
 1. Selezionare **Nuovo utente** in alto nella schermata.
 1. In **Proprietà utente** seguire questa procedura:
    1. Nel campo **Nome** immettere `B.Simon`.  
@@ -124,7 +124,7 @@ In questa sezione si abiliterà B.Simon all'uso dell'accesso Single Sign-On di A
 
 ## <a name="configure-the-funding-portal-sso"></a>Configurare l'accesso Single Sign-On di The Funding Portal
 
-Per configurare l'accesso Single Sign-On sul lato **The Funding Portal** , è necessario inviare il file **XML dei metadati della federazione** scaricato e gli URL appropriati, copiati dal portale di Azure, al [team di supporto di The Funding Portal](mailto:info@regenteducation.com). La configurazione viene eseguita in modo che la connessione SSO SAML sia impostata correttamente su entrambi i lati.
+Per configurare l'accesso Single Sign-On sul lato **The Funding Portal**, è necessario inviare il file **XML dei metadati della federazione** scaricato e gli URL appropriati, copiati dal portale di Azure, al [team di supporto di The Funding Portal](mailto:info@regenteducation.com). La configurazione viene eseguita in modo che la connessione SSO SAML sia impostata correttamente su entrambi i lati.
 
 ### <a name="create-the-funding-portal-test-user"></a>Creare l'utente di test di The Funding Portal
 

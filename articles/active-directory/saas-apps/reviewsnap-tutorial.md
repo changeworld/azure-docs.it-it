@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 03/26/2019
 ms.author: jeedes
 ms.openlocfilehash: 00b9b12e3f60db631fdb30d3d449234149aec4b0
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
-ms.translationtype: HT
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/24/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92516546"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-reviewsnap"></a>Esercitazione: Integrazione di Azure Active Directory con Reviewsnap
@@ -30,7 +30,7 @@ L'integrazione di Reviewsnap con Azure AD offre i vantaggi seguenti:
 Per altre informazioni sull'integrazione di app SaaS con Azure AD, vedere [Informazioni sull'accesso alle applicazioni e Single Sign-On con Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
 Se non si ha una sottoscrizione di Azure, [creare un account gratuito](https://azure.microsoft.com/free/) prima di iniziare.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerequisiti
 
 Per configurare l'integrazione di Azure AD con Reviewsnap, sono necessari gli elementi seguenti:
 
@@ -53,7 +53,7 @@ Per configurare l'integrazione di Reviewsnap in Azure AD, è necessario aggiunge
 
     ![Pulsante Azure Active Directory](common/select-azuread.png)
 
-2. Passare ad **Applicazioni aziendali** e quindi selezionare l'opzione **Tutte le applicazioni** .
+2. Passare ad **Applicazioni aziendali** e quindi selezionare l'opzione **Tutte le applicazioni**.
 
     ![Pannello Applicazioni aziendali](common/enterprise-applications.png)
 
@@ -61,22 +61,22 @@ Per configurare l'integrazione di Reviewsnap in Azure AD, è necessario aggiunge
 
     ![Pulsante Nuova applicazione](common/add-new-app.png)
 
-4. Nella casella di ricerca digitare **Reviewsnap** , selezionare **Reviewsnap** nel pannello dei risultati e quindi fare clic sul pulsante **Aggiungi** per aggiungere l'applicazione.
+4. Nella casella di ricerca digitare **Reviewsnap**, selezionare **Reviewsnap** nel pannello dei risultati e quindi fare clic sul pulsante **Aggiungi** per aggiungere l'applicazione.
 
      ![Reviewsnap nell'elenco risultati](common/search-new-app.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurare e testare l'accesso Single Sign-On di Azure AD
 
-In questa sezione viene configurato e testato l'accesso Single Sign-On di Azure AD con Reviewsnap usando un utente di test di nome **Britta Simon** .
+In questa sezione viene configurato e testato Azure AD Single Sign-On con Reviewsnap in base a un utente test di nome **Britta Simon**.
 Per il corretto funzionamento dell'accesso Single Sign-On, deve essere stabilita una relazione di collegamento tra un utente di Azure AD e l'utente correlato in Reviewsnap.
 
 Per configurare e testare l'accesso Single Sign-On di Azure AD con Reviewsnap, è necessario completare i blocchi predefiniti seguenti:
 
 1. **[Configurare l'accesso Single Sign-On di Azure AD](#configure-azure-ad-single-sign-on)** : per consentire agli utenti di usare questa funzionalità.
-2. **[Configurare l'accesso Single Sign-On di Reviewsnap](#configure-reviewsnap-single-sign-on)** : per configurare le impostazioni di Single Sign-On sul lato applicazione.
+2. **[Configurare l'accesso Single Sign-On di Reviewsnap](#configure-reviewsnap-single-sign-on)**: per configurare le impostazioni di Single Sign-On sul lato applicazione.
 3. **[Creare un utente di test di Azure AD](#create-an-azure-ad-test-user)** : per testare l'accesso Single Sign-On di Azure AD con l'utente Britta Simon.
 4. **[Assegnare l'utente di test di Azure AD](#assign-the-azure-ad-test-user)** : per abilitare Britta Simon all'uso dell'accesso Single Sign-On di Azure AD.
-5. **[Creare un utente di test di Reviewsnap](#create-reviewsnap-test-user)** : per avere una controparte di Britta Simon in Reviewsnap collegata alla rappresentazione dell'utente in Azure AD.
+5. **[Creare un utente di test di Reviewsnap](#create-reviewsnap-test-user)**: per avere una controparte di Britta Simon in Reviewsnap collegata alla rappresentazione dell'utente in Azure AD.
 6. **[Testare l'accesso Single Sign-On](#test-single-sign-on)** per verificare se la configurazione funziona.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Configurare l'accesso Single Sign-On di Azure AD
@@ -85,7 +85,7 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
 
 Per configurare Single Sign-On di Azure AD con Reviewsnap, seguire questa procedura:
 
-1. Nel [portale di Azure](https://portal.azure.com/), nella pagina di integrazione dell'applicazione **Reviewsnap** , selezionare **Single Sign-On** .
+1. Nel [portale di Azure](https://portal.azure.com/), nella pagina di integrazione dell'applicazione **Reviewsnap**, selezionare **Single Sign-On**.
 
     ![Collegamento Configura accesso Single Sign-On](common/select-sso.png)
 
@@ -93,11 +93,11 @@ Per configurare Single Sign-On di Azure AD con Reviewsnap, seguire questa proced
 
     ![Selezione della modalità Single Sign-On](common/select-saml-option.png)
 
-3. Nella pagina **Configura l'accesso Single Sign-On con SAML** fare clic sull'icona **Modifica** per aprire la finestra di dialogo **Configurazione SAML di base** .
+3. Nella pagina **Configura l'accesso Single Sign-On con SAML** fare clic sull'icona **Modifica** per aprire la finestra di dialogo **Configurazione SAML di base**.
 
     ![Modificare la configurazione SAML di base](common/edit-urls.png)
 
-4. Nella sezione **Configurazione SAML di base** seguire questa procedura se si vuole configurare l'applicazione in modalità avviata da **IDP** :
+4. Nella sezione **Configurazione SAML di base** seguire questa procedura se si vuole configurare l'applicazione in modalità avviata da **IDP**:
 
     ![Screenshot che mostra la sezione Configurazione SAML di base in cui è possibile immettere l'identificatore e l'URL di risposta prima di selezionare Salva.](common/idp-intiated.png)
 
@@ -105,7 +105,7 @@ Per configurare Single Sign-On di Azure AD con Reviewsnap, seguire questa proced
 
     b. Nella casella di testo **URL di risposta** digitare un URL nel formato seguente: `https://app.reviewsnap.com/auth/saml/callback?namespace=<CUSTOMER_NAMESPACE>`
 
-5. Fare clic su **Impostare URL aggiuntivi** e seguire questa procedura se si vuole configurare l'applicazione in modalità avviata da **SP** :
+5. Fare clic su **Impostare URL aggiuntivi** e seguire questa procedura se si vuole configurare l'applicazione in modalità avviata da **SP**:
 
     ![Screenshot che mostra l'opzione Impostare URL aggiuntivi che consente di immettere un URL di accesso.](common/metadata-upload-additional-signon.png)
 
@@ -114,7 +114,7 @@ Per configurare Single Sign-On di Azure AD con Reviewsnap, seguire questa proced
     > [!NOTE]
     > Il valore di URL di risposta non è reale. è necessario aggiornare questo valore con l'URL di risposta effettivo. Per ottenere il valore contattare il [Team di supporto clienti di Reviewsnap](mailto:support@reviewsnap.com). È anche possibile fare riferimento ai modelli mostrati nella sezione **Configurazione SAML di base** del portale di Azure.
 
-6. Nella pagina **Configura l'accesso Single Sign-On con SAML** , nella sezione **Certificato di firma SAML** , fare clic su **Scarica** per scaricare il **Certificato (Base64)** definito dalle opzioni specificate in base ai propri requisiti e salvarlo in questo computer.
+6. Nella pagina **Configura l'accesso Single Sign-On con SAML**, nella sezione **Certificato di firma SAML**, fare clic su **Scarica** per scaricare il **Certificato (Base64)** definito dalle opzioni specificate in base ai propri requisiti e salvarlo in questo computer.
 
     ![Collegamento di download del certificato](common/certificatebase64.png)
 
@@ -136,7 +136,7 @@ Per configurare l'accesso Single Sign-On sul lato **Reviewsnap** è necessario i
 
 Questa sezione descrive come creare un utente test denominato Britta Simon nel portale di Azure.
 
-1. Nel riquadro sinistro del portale di Azure, selezionare **Azure Active Directory** , **Utenti** e quindi **Tutti gli utenti** .
+1. Nel riquadro sinistro del portale di Azure, selezionare **Azure Active Directory**, **Utenti** e quindi **Tutti gli utenti**.
 
     ![Collegamenti "Utenti e gruppi" e "Tutti gli utenti"](common/users.png)
 
@@ -148,24 +148,24 @@ Questa sezione descrive come creare un utente test denominato Britta Simon nel p
 
     ![Finestra di dialogo Utente](common/user-properties.png)
 
-    a. Nel campo **Nome** immettere **BrittaSimon** .
+    a. Nel campo **Nome** immettere **BrittaSimon**.
   
     b. Nel campo **Nome utente** digitare `brittasimon@yourcompanydomain.extension`.  
     Ad esempio, usare BrittaSimon@contoso.com
 
     c. Selezionare la casella di controllo **Mostra password** e quindi prendere nota del valore visualizzato nella casella Password.
 
-    d. Fare clic su **Crea** .
+    d. Fare clic su **Crea**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Assegnare l'utente di test di Azure AD
 
 In questa sezione Britta Simon viene abilitata per l'uso dell'accesso Single Sign-On di Azure con accesso a Reviewsnap.
 
-1. Nel portale di Azure selezionare **Applicazioni aziendali** , quindi **Tutte le applicazioni** e infine **Reviewsnap** .
+1. Nel portale di Azure selezionare **Applicazioni aziendali**, quindi **Tutte le applicazioni** e infine **Reviewsnap**.
 
     ![Pannello delle applicazioni aziendali](common/enterprise-applications.png)
 
-2. Nell'elenco applicazioni, selezionare **Reviewsnap** .
+2. Nell'elenco applicazioni, selezionare **Reviewsnap**.
 
     ![Collegamento di Reviewsnap nell'elenco delle applicazioni](common/all-applications.png)
 
@@ -173,7 +173,7 @@ In questa sezione Britta Simon viene abilitata per l'uso dell'accesso Single Sig
 
     ![Collegamento "Utenti e gruppi"](common/users-groups-blade.png)
 
-4. Fare clic sul pulsante **Aggiungi utente** e quindi selezionare **Utenti e gruppi** nella finestra di dialogo **Aggiungi assegnazione** .
+4. Fare clic sul pulsante **Aggiungi utente** e quindi selezionare **Utenti e gruppi** nella finestra di dialogo **Aggiungi assegnazione**.
 
     ![Riquadro Aggiungi assegnazione](common/add-assign-user.png)
 
@@ -181,7 +181,7 @@ In questa sezione Britta Simon viene abilitata per l'uso dell'accesso Single Sig
 
 6. Se si prevede un valore di ruolo nell'asserzione SAML, nella finestra di dialogo **Selezionare un ruolo** selezionare il ruolo appropriato per l'utente dall'elenco, quindi fare clic sul pulsante **Seleziona** nella parte inferiore della schermata.
 
-7. Nella finestra di dialogo **Aggiungi assegnazione** fare clic sul pulsante **Assegna** .
+7. Nella finestra di dialogo **Aggiungi assegnazione** fare clic sul pulsante **Assegna**.
 
 ### <a name="create-reviewsnap-test-user"></a>Creare un utente di test di Reviewsnap
 

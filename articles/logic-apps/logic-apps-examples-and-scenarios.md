@@ -7,10 +7,10 @@ ms.reviewer: klam, logicappspm
 ms.topic: conceptual
 ms.date: 02/28/2020
 ms.openlocfilehash: 5f7afe044ab4f782f2028598c2c56e75edf95860
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/21/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92317383"
 ---
 # <a name="common-scenarios-examples-tutorials-and-walkthroughs-for-azure-logic-apps"></a>Scenari comuni, esempi, esercitazioni e procedure dettagliate per le app per la logica di Azure
@@ -31,7 +31,7 @@ Ecco alcuni esempi che descrivono i trigger usati di frequente:
 
 * Trigger di *polling* :
 
-  * Il trigger di [ **ricorrenza** ](../connectors/connectors-native-recurrence.md) consente di impostare la data e l'ora di inizio più la ricorrenza per l'attivazione dell'app per la logica. Ad esempio, è possibile selezionare i giorni della settimana e le ore del giorno per l'attivazione dell'app per la logica. Per altre informazioni, vedere gli argomenti seguenti:<p>
+  * Il trigger di [ **ricorrenza**](../connectors/connectors-native-recurrence.md) consente di impostare la data e l'ora di inizio più la ricorrenza per l'attivazione dell'app per la logica. Ad esempio, è possibile selezionare i giorni della settimana e le ore del giorno per l'attivazione dell'app per la logica. Per altre informazioni, vedere gli argomenti seguenti:<p>
 
     * [Pianificare ed eseguire attività, processi e flussi di lavoro automatizzati ricorrenti con le app per la logica di Azure](../logic-apps/concepts-schedule-automated-recurring-tasks-workflows.md)
     * [Esercitazione: creare flussi di lavoro ricorrenti automatizzati e basati sulla pianificazione usando app per la logica di Azure](../logic-apps/tutorial-build-schedule-recurring-logic-app-workflow.md)
@@ -46,13 +46,13 @@ Ecco alcuni esempi che descrivono i trigger usati di frequente:
     * [Esercitazione: Creare flussi di lavoro automatizzati basati su approvazione tramite App per la logica di Azure](../logic-apps/tutorial-process-mailing-list-subscriptions-workflow.md)
     * [Esercitazione: Automatizzare le attività per elaborare i messaggi di posta elettronica con App per la logica di Azure, Funzioni di Azure e Archiviazione di Azure](../logic-apps/tutorial-process-email-attachments-workflow.md)
 
-  * Il [trigger **http** ](../connectors/connectors-native-http.md) può chiamare un endpoint di servizio su http o HTTPS. Per altre informazioni, vedere [chiamare, attivare o annidare flussi di lavoro usando endpoint HTTP](../logic-apps/logic-apps-http-endpoint.md).
+  * Il [trigger **http**](../connectors/connectors-native-http.md) può chiamare un endpoint di servizio su http o HTTPS. Per altre informazioni, vedere [chiamare, attivare o annidare flussi di lavoro usando endpoint HTTP](../logic-apps/logic-apps-http-endpoint.md).
 
 * Trigger *push* :
 
-  * Il [trigger di **richiesta** ](../connectors/connectors-native-reqres.md) può ricevere le richieste HTTPS in ingresso.
+  * Il [trigger di **richiesta**](../connectors/connectors-native-reqres.md) può ricevere le richieste HTTPS in ingresso.
 
-  * Il [**trigger **HTTP Webhook](../connectors/connectors-native-webhook.md) è sottoscritto a un endpoint del servizio registrando un *URL di callback* con tale servizio. In questo modo, il servizio può solo notificare il trigger quando si verifica l'evento specificato, in modo che il trigger non ha bisogno di eseguire il polling del servizio.
+  * Il [**trigger** HTTP Webhook](../connectors/connectors-native-webhook.md) è sottoscritto a un endpoint del servizio registrando un *URL di callback* con tale servizio. In questo modo, il servizio può solo notificare il trigger quando si verifica l'evento specificato, in modo che il trigger non ha bisogno di eseguire il polling del servizio.
 
 Quando si verifica l'evento specificato, il trigger viene attivato, che crea una nuova istanza del flusso di lavoro dell'app per la logica ed esegue le azioni nel flusso di lavoro. È possibile accedere a tutti i dati dal trigger in tutto il flusso di lavoro. Ad esempio, il trigger Twitter **in un nuovo Tweet** passa il contenuto del tweet nell'esecuzione dell'app per la logica. Per iniziare a usare le app per la logica di Azure, provare questi argomenti introduttivi:
 
@@ -99,7 +99,7 @@ A volte, le app per la logica e gli account di integrazione devono accedere alle
 
 È possibile sviluppare e distribuire interamente app per la logica con Visual Studio, Azure DevOps o qualsiasi altro strumento di controllo del codice sorgente e compilazione automatica. Per supportare la distribuzione per i flussi di lavoro e le connessioni dipendenti in un modello di risorse, le app per la logica usano i modelli di distribuzione delle risorse di Azure. Gli strumenti di Visual Studio generano automaticamente questi modelli, che è possibile archiviare per il controllo del codice sorgente finalizzato al controllo delle versioni. Per i log di notifica e di diagnostica per lo stato di esecuzione dei flussi di lavoro, le app per la logica di Azure forniscono inoltre monitoraggio e avvisi.
 
-### <a name="deploy"></a>Distribuire
+### <a name="deploy"></a>Distribuisci
 
 * [Guida introduttiva: creare attività, processi e flussi di lavoro automatizzati usando app per la logica di Azure-Visual Studio](../logic-apps/quickstart-create-logic-apps-with-visual-studio.md)
 * [Panoramica: automatizzare la distribuzione delle app per la logica](../logic-apps/logic-apps-azure-resource-manager-templates-overview.md)
@@ -117,7 +117,7 @@ A volte, le app per la logica e gli account di integrazione devono accedere alle
 * [Creare e gestire gli account di integrazione per B2B Enterprise Integrations](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md)
 * [Gestire Integration Services Environment (ISE) in app per la logica di Azure](../logic-apps/ise-manage-integration-service-environment.md)
 
-### <a name="monitor"></a>Monitorare
+### <a name="monitor"></a>Monitoraggio
 
 * [Monitorare lo stato di esecuzione, rivedere la cronologia dei trigger e configurare gli avvisi per App per la logica di Azure](../logic-apps/monitor-logic-apps.md)
 * [Configurare i log di monitoraggio di Azure e raccogliere i dati di diagnostica per le app per la logica di Azure](../logic-apps/monitor-logic-apps-log-analytics.md)

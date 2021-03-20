@@ -7,10 +7,10 @@ ms.service: mysql
 ms.topic: conceptual
 ms.date: 09/21/2020
 ms.openlocfilehash: 2d69427f9f11a47cedeccb4b1da38b770952f029
-ms.sourcegitcommit: 80034a1819072f45c1772940953fef06d92fefc8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/03/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93240767"
 ---
 # <a name="backup-and-restore-in-azure-database-for-mysql-flexible-server-preview"></a>Backup e ripristino nel database di Azure per il server flessibile MySQL (anteprima)
@@ -68,8 +68,8 @@ Il ripristino temporizzato è utile in più scenari, Alcuni dei casi d'uso comun
 
 È possibile scegliere tra un punto di ripristino più recente e un punto di ripristino personalizzato tramite [portale di Azure](how-to-restore-server-portal.md).
 
--   **Punto di ripristino più recente** : il punto di ripristino più recente consente di ripristinare il server per l'ultimo backup eseguito nel server di origine. Il timestamp per il ripristino verrà visualizzato anche nel portale. Questa opzione è utile per ripristinare rapidamente il server allo stato più aggiornato.
--   **Punto di ripristino personalizzato** : consente di scegliere qualsiasi punto nel tempo entro il periodo di memorizzazione definito per questo server flessibile. Questa opzione è utile per ripristinare il server nel momento esatto in cui eseguire il recupero da un errore dell'utente.
+-   **Punto di ripristino più recente**: il punto di ripristino più recente consente di ripristinare il server per l'ultimo backup eseguito nel server di origine. Il timestamp per il ripristino verrà visualizzato anche nel portale. Questa opzione è utile per ripristinare rapidamente il server allo stato più aggiornato.
+-   **Punto di ripristino personalizzato**: consente di scegliere qualsiasi punto nel tempo entro il periodo di memorizzazione definito per questo server flessibile. Questa opzione è utile per ripristinare il server nel momento esatto in cui eseguire il recupero da un errore dell'utente.
 
 Il tempo stimato per il ripristino dipende da diversi fattori, tra cui le dimensioni del database, le dimensioni del backup del log delle transazioni, le dimensioni di calcolo dello SKU e anche l'ora del ripristino. Il recupero del log delle transazioni è la maggior parte del tempo di utilizzo del processo di ripristino. Se il tempo di ripristino viene scelto più vicino alla pianificazione del backup completo o differenziale dello snapshot, i ripristini sono più veloci perché l'applicazione del log delle transazioni è minima. Per stimare il tempo di ripristino esatto per il server, è consigliabile eseguirne il test nel proprio ambiente perché contiene troppe variabili specifiche dell'ambiente.
 

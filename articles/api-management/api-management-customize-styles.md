@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 11/04/2019
 ms.author: apimpm
 ms.openlocfilehash: 0cdad245981ad02d3cdaefba447d131c775e242f
-ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
-ms.translationtype: HT
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/01/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93145770"
 ---
 # <a name="customize-the-style-of-the-developer-portal-pages"></a>Personalizzare lo stile delle pagine del portale per sviluppatori
@@ -40,12 +40,12 @@ Questo articolo illustra come personalizzare lo stile degli elementi nelle pagin
 ## <a name="prerequisites"></a>Prerequisites
 
 + Acquisire familiarità con la [terminologia di Gestione API di Azure](api-management-terminology.md).
-+ Completare la guida introduttiva seguente: [Creare un'istanza di Gestione API di Azure](get-started-create-service-instance.md).
++ Completare l'avvio rapido seguente: [Creare un'istanza di Gestione API di Azure](get-started-create-service-instance.md).
 + Completare anche l'esercitazione seguente: [Importare e pubblicare la prima API](import-and-publish.md).
 
 ## <a name="customize-the-developer-portal"></a>Personalizzare il portale per sviluppatori
 
-1. Selezionare **Panoramica** .
+1. Selezionare **Panoramica**.
 2. Nella parte superiore della finestra **Panoramica** fare clic sul pulsante **Portale per sviluppatori (legacy)** .
 3. In alto a sinistra della schermata è disponibile un'icona costituita da due pennelli. Passare il cursore del mouse sull'icona per aprire il menu di personalizzazione del portale.
 
@@ -55,11 +55,11 @@ Questo articolo illustra come personalizzare lo stile degli elementi nelle pagin
     Nella pagina vengono visualizzati tutti gli elementi che è possibile personalizzare con gli **stili**
 5. Immettere "headings-color" nel campo **Change variable values to customize developer portal appearance:** (Modificare i valori delle variabili per personalizzare l'aspetto del portale per sviluppatori).
 
-    Nella pagina viene visualizzato l'elemento **\@headings-color** . Questa variabile controlla il colore del testo.
+    Nella pagina viene visualizzato l'elemento **\@headings-color**. Questa variabile controlla il colore del testo.
 
     ![personalizzare lo stile](./media/modify-developer-portal-style/modify-developer-portal-style02.png)
     
-6. Fare clic sul campo per la variabile **\@headings-color** . 
+6. Fare clic sul campo per la variabile **\@headings-color**. 
     
     Viene aperto il menu a discesa Selezione colori.
 7. Nel menu a discesa Selezione colori selezionare un colore nuovo.

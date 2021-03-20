@@ -9,10 +9,10 @@ ms.topic: quickstart
 ms.date: 10/20/2020
 ms.author: rohink
 ms.openlocfilehash: be76a7902c2747c7a8dc1bfc21d58ae88f3ff343
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
-ms.translationtype: HT
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/20/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92282152"
 ---
 # <a name="quickstart-create-an-azure-dns-zone-and-record-using-the-azure-portal"></a>Guida introduttiva: Creare una zona e un record DNS di Azure con il portale di Azure
@@ -46,7 +46,7 @@ Una zona DNS contiene le voci DNS per un dominio. Per iniziare a ospitare il dom
 
 **Per creare la zona DNS:**
 
-1. In alto a sinistra selezionare **Crea una risorsa**, quindi **Rete**e quindi **Zona DNS**.
+1. In alto a sinistra selezionare **Crea una risorsa**, quindi **Rete** e quindi **Zona DNS**.
 
 1. Nella pagina **Crea zona DNS** digitare o selezionare i valori seguenti:
 

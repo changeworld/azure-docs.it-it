@@ -9,10 +9,10 @@ ms.service: iot-dps
 services: iot-dps
 ms.custom: mvc
 ms.openlocfilehash: b2648382fb19fafcfc342379aa9da974f6f8d1ff
-ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
-ms.translationtype: HT
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/15/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "90528420"
 ---
 # <a name="quickstart-create-and-provision-a-simulated-tpm-device-using-c-device-sdk-for-iot-hub-device-provisioning-service"></a>Avvio rapido: creare un dispositivo TPM simulato ed effettuarne il provisioning usando l'SDK per dispositivi Java per il servizio Device Provisioning in hub IoT.
@@ -27,8 +27,8 @@ Se non si ha familiarità con il processo di provisioning automatico, vedere la 
 
 Il servizio Device Provisioning in Azure IoT supporta due tipi di registrazione:
 
-- [Gruppi di registrazioni](concepts-service.md#enrollment-group): usato per registrare più dispositivi correlati.
-- [Registrazioni singole](concepts-service.md#individual-enrollment): usato per registrare un singolo dispositivo.
+- [Gruppi di registrazioni](concepts-service.md#enrollment-group): Usato per registrare più dispositivi correlati.
+- [Registrazioni singole](concepts-service.md#individual-enrollment): Usato per registrare un singolo dispositivo.
 
 Questo articolo descrive le registrazioni singole.
 

@@ -7,10 +7,10 @@ ms.topic: how-to
 ms.date: 06/27/2018
 ms.author: twooley
 ms.openlocfilehash: 428ed96c3223e644b0c78712723231a5fabbdc77
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91578581"
 ---
 # <a name="get-started-with-azure-data-lake-storage-gen1-using-the-azure-portal"></a>Iniziare a usare Azure Data Lake Storage Gen1 tramite il portale di Azure
@@ -84,7 +84,7 @@ Se sono state usate le chiavi di un'istanza di Azure Key Vault per configurare l
 
 È possibile creare cartelle nell'account Data Lake Storage Gen1 per gestire e archiviare i dati.
 
-1. Aprire l'account Data Lake Storage Gen1 creato. Nel riquadro sinistro fare clic su **tutte le risorse**e quindi nel pannello **tutte le risorse** fare clic sul nome dell'account in cui si desidera creare le cartelle. Se è stato aggiunto l'account alla schermata iniziale, fare clic sul riquadro dell’account.
+1. Aprire l'account Data Lake Storage Gen1 creato. Nel riquadro sinistro fare clic su **tutte le risorse** e quindi nel pannello **tutte le risorse** fare clic sul nome dell'account in cui si desidera creare le cartelle. Se è stato aggiunto l'account alla schermata iniziale, fare clic sul riquadro dell’account.
 2. Nel pannello dell'account Data Lake Storage Gen1 fare clic su **Esplora dati**.
 
     ![Screenshot del pannello dell'account Data Lake Storage generazione 1 con l'opzione Esplora dati denominata.](./media/data-lake-store-get-started-portal/ADL.Create.Folder.png "Creare cartelle in un account Data Lake Storage Gen1")

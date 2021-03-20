@@ -13,10 +13,10 @@ ms.author: srbozovi
 ms.reviewer: sstein, bonova
 ms.date: 02/22/2019
 ms.openlocfilehash: 156a4c74eea24b20c28df88be85cb32c0ebe2981
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/25/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96012452"
 ---
 # <a name="determine-required-subnet-size--range-for-azure-sql-managed-instance"></a>Determinare le dimensioni della subnet richieste & intervallo per Azure SQL Istanza gestita
@@ -52,14 +52,14 @@ Ridimensionare la subnet in base alle esigenze future di distribuzione e scalabi
 
 GP = utilizzo generico; BC = Business Critical; VC = cluster virtuale
 
-| **Generazione hardware** | **Piano tariffario** | **Utilizzo di Azure** | **Utilizzo VC** | **Utilizzo istanza** | **Totale** _ |
+| **Generazione hardware** | **Piano tariffario** | **Utilizzo di Azure** | **Utilizzo VC** | **Utilizzo istanza** | **Totale*** |
 | --- | --- | --- | --- | --- | --- |
 | Quarta generazione | GP | 5 | 1 | 5 | 11 |
 | Quarta generazione | BC | 5 | 1 | 5 | 11 |
 | Quinta generazione | GP | 5 | 6 | 3 | 14 |
 | Quinta generazione | BC | 5 | 6 | 5 | 16 |
 
-  \_ Totale colonne Visualizza il numero di indirizzi che verrebbero effettuati quando un'istanza viene distribuita nella subnet. Ogni istanza aggiuntiva nella subnet aggiunge il numero di indirizzi rappresentati con la colonna Usage dell'istanza. Gli indirizzi rappresentati con la colonna utilizzo di Azure vengono condivisi tra più cluster virtuali, mentre gli indirizzi rappresentati con la colonna utilizzo VC vengono condivisi tra le istanze inserite nel cluster virtuale.
+  \* Totale colonne Visualizza il numero di indirizzi che verrebbero effettuati quando un'istanza viene distribuita nella subnet. Ogni istanza aggiuntiva nella subnet aggiunge il numero di indirizzi rappresentati con la colonna Usage dell'istanza. Gli indirizzi rappresentati con la colonna utilizzo di Azure vengono condivisi tra più cluster virtuali, mentre gli indirizzi rappresentati con la colonna utilizzo VC vengono condivisi tra le istanze inserite nel cluster virtuale.
 
 L'operazione di aggiornamento richiede in genere il ridimensionamento del cluster virtuale. In alcuni casi, l'operazione di aggiornamento richiederà la creazione di un cluster virtuale. per altre informazioni, vedere l'articolo relativo alle [operazioni di gestione](sql-managed-instance-paas-overview.md#management-operations). In caso di creazione di un cluster virtuale, il numero di indirizzi aggiuntivi richiesti è uguale al numero di indirizzi rappresentati dalla colonna utilizzo VC sommata con gli indirizzi richiesti per le istanze posizionate nel cluster virtuale (colonna Utilizzo istanza).
 
@@ -74,12 +74,12 @@ Come indicato in precedenza, in alcuni casi, l'operazione di aggiornamento richi
 
 Durante la scalabilità, le istanze dell'operazione richiedono temporaneamente una capacità IP aggiuntiva che dipende dal piano tariffario e dalla generazione dell'hardware
 
-| **Generazione hardware** | **Piano tariffario** | **Scenario** | **Indirizzi aggiuntivi** _ |
+| **Generazione hardware** | **Piano tariffario** | **Scenario** | **Indirizzi aggiuntivi*** |
 | --- | --- | --- | --- |
 | Quarta generazione | GP o BC | Ridimensionamento di vcore | 5 |
 | Quarta generazione | GP o BC | Ridimensionamento dell'archiviazione | 5 |
 | Quarta generazione | GP o BC | Passare da GP a BC o BC a GP | 5 |
-| Quarta generazione | GP | Passare a Gen5_ | 9 |
+| Quarta generazione | GP | Passare a Quinta generazione * | 9 |
 | Quarta generazione | BC | Passare a Quinta generazione * | 11 |
 | Quinta generazione | GP | Ridimensionamento di vcore | 3 |
 | Quinta generazione | GP | Ridimensionamento dell'archiviazione | 0 |

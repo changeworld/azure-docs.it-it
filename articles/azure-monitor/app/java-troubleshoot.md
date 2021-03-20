@@ -7,10 +7,10 @@ author: MS-jgol
 ms.custom: devx-track-java
 ms.author: jgol
 ms.openlocfilehash: df1f58418452ecafacddd013ab815ebca5cb8a35
-ms.sourcegitcommit: 24f30b1e8bb797e1609b1c8300871d2391a59ac2
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/10/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100097552"
 ---
 # <a name="troubleshooting-and-q-and-a-for-application-insights-for-java-sdk"></a>Risoluzione dei problemi e domande e risposte per Application Insights SDK per Java
@@ -192,7 +192,7 @@ Application Insights usa `org.apache.http`. Questo è stato spostato all'interno
 * [Scrivere codice per tenere traccia dell'utilizzo dell'app][track]
 * [Acquisire i log di diagnostica][javalogs]
 
-## <a name="get-help"></a>Ottenere aiuto
+## <a name="get-help"></a>Ottieni supporto
 * [Stack Overflow](https://stackoverflow.com/questions/tagged/ms-application-insights)
 * [Registrare un problema su GitHub](https://github.com/microsoft/ApplicationInsights-Java/issues)
 

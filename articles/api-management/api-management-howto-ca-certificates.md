@@ -13,10 +13,10 @@ ms.topic: article
 ms.date: 08/20/2018
 ms.author: apimpm
 ms.openlocfilehash: 124bc053aa2c6e59e205bb6f33a9a96190799499
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93102038"
 ---
 # <a name="how-to-add-a-custom-ca-certificate-in-azure-api-management"></a>Come aggiungere un certificato della CA personalizzato in Gestione API di Azure
@@ -39,7 +39,7 @@ Seguire questa procedura per caricare un nuovo certificato della CA. Se non è a
 
 2. Scegliere **Certificati CA** dal menu.
 
-3. Fare clic sul pulsante **+ Aggiungi** .  
+3. Fare clic sul pulsante **+ Aggiungi**.  
 
     ![Screenshot che mostra il pulsante + Aggiungi per l'aggiunta di un certificato della CA.](media/api-management-howto-ca-certificates/01.png)  
 
@@ -47,7 +47,7 @@ Seguire questa procedura per caricare un nuovo certificato della CA. Se non è a
 
     ![Screenshot che illustra come cercare il certificato.](media/api-management-howto-ca-certificates/02.png)  
 
-5. Fare clic su **Salva** . Questa operazione può richiedere qualche minuto.
+5. Fare clic su **Salva**. Questa operazione può richiedere qualche minuto.
 
     ![Screenshot che illustra come salvare il certificato.](media/api-management-howto-ca-certificates/03.png)  
 

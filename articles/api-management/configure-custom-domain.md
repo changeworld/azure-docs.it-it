@@ -13,10 +13,10 @@ ms.topic: article
 ms.date: 01/13/2020
 ms.author: apimpm
 ms.openlocfilehash: a7032c64efa486c65830e013373239647a368540
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/21/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92311146"
 ---
 # <a name="configure-a-custom-domain-name-for-your-azure-api-management-instance"></a>Configurare un nome di dominio personalizzato per l'istanza di gestione API di Azure
@@ -65,7 +65,7 @@ Per eseguire i passaggi descritti in questo articolo, è necessario disporre di:
 1. Nella finestra di destra fare clic su **Personalizzato**.
 
     - In **Nome di dominio personalizzato** specificare il nome che si vuole usare. Ad esempio: `api.contoso.com`.
-    - Nel **certificato**selezionare un certificato da Key Vault. È anche possibile caricare un valido. File PFX e fornire la relativa **password**, se il certificato è protetto con una password.
+    - Nel **certificato** selezionare un certificato da Key Vault. È anche possibile caricare un valido. File PFX e fornire la relativa **password**, se il certificato è protetto con una password.
 
     > [!NOTE]
     > I nomi di dominio con caratteri jolly, ad esempio, `*.contoso.com` sono supportati in tutti i livelli eccetto il livello di consumo.

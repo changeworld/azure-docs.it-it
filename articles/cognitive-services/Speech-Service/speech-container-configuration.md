@@ -11,15 +11,15 @@ ms.topic: conceptual
 ms.date: 08/31/2020
 ms.author: aahi
 ms.openlocfilehash: e65bb7c7d8fc04baec6b50a53519e689e748fbe1
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/25/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96012170"
 ---
 # <a name="configure-speech-service-containers"></a>Configurare i contenitori di servizi vocali
 
-I contenitori di sintesi vocale consentono ai clienti di creare un'architettura di applicazione vocale ottimizzata per sfruttare le funzionalità cloud affidabili e la località perimetrale. I cinque contenitori di sintesi vocale supportati sono ora **, sintesi** vocale, riconoscimento **vocale personalizzato**, sintesi vocale, da sintesi vocale **text-to-speech**, **da** sintesi vocale e da testo a discorso **e da sintesi** vocale.
+I contenitori di sintesi vocale consentono ai clienti di creare un'architettura di applicazione vocale ottimizzata per sfruttare le funzionalità cloud affidabili e la località perimetrale. I cinque contenitori di sintesi vocale supportati sono ora **, sintesi** vocale, riconoscimento **vocale personalizzato**, sintesi vocale, da sintesi vocale , **da** sintesi vocale e da testo a discorso **e da sintesi** vocale.
 
 L'ambiente di runtime del contenitore **vocale** viene configurato usando gli `docker run` argomenti del comando. Questo contenitore ha diverse impostazioni obbligatorie e alcune impostazioni facoltative. Sono disponibili numerosi [esempi](#example-docker-run-commands) del comando. Le impostazioni specifiche del contenitore sono le impostazioni di fatturazione.
 
@@ -153,7 +153,7 @@ ApiKey={API_KEY} \
 Logging:Console:LogLevel:Default=Information
 ```
 
-## <a name="custom-speech-to-text"></a>[Da Riconoscimento vocale personalizzato a testo](#tab/cstt)
+## <a name="custom-speech-to-text"></a>[Riconoscimento vocale personalizzato](#tab/cstt)
 
 ### <a name="basic-example-for-custom-speech-to-text"></a>Esempio di base per Riconoscimento vocale personalizzato-to-text
 

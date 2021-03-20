@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 38754b9e349e27afcff58dac27a616e3e4fb5319
-ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/08/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96860933"
 ---
 # <a name="controlled-validation-of-hybrid-azure-ad-join"></a>Convalida controllata dell'aggiunta ad Azure AD ibrido
@@ -55,7 +55,7 @@ Usare l'esempio seguente per creare un oggetto Criteri di gruppo (GPO) per distr
 
 1. Aprire una console di gestione di Criteri di gruppo e creare un nuovo oggetto Criteri di gruppo nel dominio.
    1. Specificare un nome per l'oggetto Criteri di gruppo appena creato, ad esempio ClientSideSCP.
-1. Modificare l'oggetto Criteri di gruppo e individuare il percorso seguente: preferenze **Configurazione computer**  >  **Preferences**  >  **Windows Settings**  >  **Registro di sistema** impostazioni di Windows
+1. Modificare l'oggetto Criteri di gruppo e individuare il percorso seguente: preferenze **Configurazione computer**  >    >    >  **Registro di sistema** impostazioni di Windows
 1. Fare clic con il pulsante destro del mouse sul Registro di sistema e selezionare **nuovo**  >  **elemento del registro**
    1. Nella scheda **generale** configurare quanto segue:
       1. Azione: **aggiornamento**
@@ -63,7 +63,7 @@ Usare l'esempio seguente per creare un oggetto Criteri di gruppo (GPO) per distr
       1. Percorso della chiave: **SOFTWARE\Microsoft\Windows\CurrentVersion\CDJ\AAD**
       1. Nome valore: **TenantId**
       1. Tipo di valore: **REG_SZ**
-      1. Dati valore: GUID o **ID directory** dell'istanza di Azure ad (questo valore è disponibile nell' **Azure portal**  >  **Azure Active Directory**  >  **Properties**  >  **ID directory** delle proprietà portale di Azure Azure Active Directory)
+      1. Dati valore: GUID o **ID directory** dell'istanza di Azure ad (questo valore è disponibile nell'   >    >    >  **ID directory** delle proprietà portale di Azure Azure Active Directory)
    1. Fare clic su **OK**.
 1. Fare clic con il pulsante destro del mouse sul Registro di sistema e selezionare **nuovo**  >  **elemento del registro**
    1. Nella scheda **generale** configurare quanto segue:

@@ -4,10 +4,10 @@ description: Risolvere i problemi di trasferimento delle risorse in un nuovo gru
 ms.topic: conceptual
 ms.date: 08/27/2019
 ms.openlocfilehash: 41b1e2435caf9874f3582a3394664c7b7f5a8d29
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "90054163"
 ---
 # <a name="troubleshoot-moving-azure-resources-to-new-resource-group-or-subscription"></a>Risoluzione degli errori di spostamento delle risorse di Azure in un nuovo gruppo di risorse o in una nuova sottoscrizione
@@ -30,7 +30,7 @@ Alcuni servizi richiedono considerazioni aggiuntive quando si trasferiscono le r
 * [Servizi app](./move-limitations/app-service-move-limitations.md)
 * [Azure DevOps Services](/azure/devops/organizations/billing/change-azure-subscription?toc=/azure/azure-resource-manager/toc.json)
 * [Modello di distribuzione classica](./move-limitations/classic-model-move-limitations.md)
-* [Rete](./move-limitations/networking-move-limitations.md)
+* [Funzionalità di rete](./move-limitations/networking-move-limitations.md)
 * [Servizi di ripristino](../../backup/backup-azure-move-recovery-services-vault.md?toc=/azure/azure-resource-manager/toc.json)
 * [Macchine virtuali](./move-limitations/virtual-machines-move-limitations.md)
 

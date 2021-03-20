@@ -11,10 +11,10 @@ ms.topic: how-to
 ms.date: 08/12/2019
 ms.author: ambapat
 ms.openlocfilehash: ca5842fb268c20f8ae58eb5f683229c4ae3919f4
-ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
-ms.translationtype: HT
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/03/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93289171"
 ---
 # <a name="access-azure-key-vault-behind-a-firewall"></a>Accedere a Insieme di credenziali delle chiavi di Azure protetto da firewall
@@ -56,7 +56,7 @@ Per la gestione dell'insieme di credenziali delle chiavi (CRUD e impostazione de
 
 ## <a name="key-vault-operations"></a>Operazioni dell'insieme di credenziali delle chiavi
 
-Per tutte le operazioni di gestione e crittografia degli oggetti (chiavi e segreti) dell'insieme di credenziali delle chiavi, il client dell'insieme di credenziali delle chiavi deve accedere all'endpoint dell'insieme stesso. Il suffisso DNS dell'endpoint varia a seconda della posizione dell'insieme di credenziali delle chiavi. Il formato dell'endpoint dell'insieme di credenziali delle chiavi è *nome-insiemecredenziali*. *suffisso-dns-area-geografica* , come descritto nella tabella seguente.  
+Per tutte le operazioni di gestione e crittografia degli oggetti (chiavi e segreti) dell'insieme di credenziali delle chiavi, il client dell'insieme di credenziali delle chiavi deve accedere all'endpoint dell'insieme stesso. Il suffisso DNS dell'endpoint varia a seconda della posizione dell'insieme di credenziali delle chiavi. Il formato dell'endpoint dell'insieme di credenziali delle chiavi è *nome-insiemecredenziali*.*suffisso-dns-area-geografica*, come descritto nella tabella seguente.  
 
 | Tipo di operazione | Endpoint:porta |
 | --- | --- |

@@ -12,10 +12,10 @@ ms.date: 10/24/2019
 ms.author: pafarley
 ms.custom: devx-track-csharp
 ms.openlocfilehash: 326fc2cc162a2ab54b40888250fbeef55ad8800a
-ms.sourcegitcommit: 48cb2b7d4022a85175309cf3573e72c4e67288f5
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/08/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96853459"
 ---
 # <a name="create-video-transcript-reviews-using-net"></a>Creare revisioni di trascrizioni di video usando .NET
@@ -367,7 +367,7 @@ Press any key to close the application.
 
 ## <a name="navigate-to-your-video-transcript-review"></a>Passare alla revisione della trascrizione del video
 
-Passare alla revisione della trascrizione video nello strumento di revisione del content moderator nella schermata **rivedere** la > **Video** > **trascrizione** video.
+Passare alla revisione della trascrizione video nello strumento di revisione del content moderator nella schermata **rivedere** la >  > **trascrizione** video.
 
 Vengono visualizzate le caratteristiche seguenti:
 - Le due righe di trascrizione aggiunte

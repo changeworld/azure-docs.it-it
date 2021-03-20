@@ -1,5 +1,5 @@
 ---
-title: 'Esercitazione: Installare un dispositivo fisico di Azure FXT Edge Filer'
+title: 'Esercitazione: installare un dispositivo fisico del filer di Azure FXT Edge'
 description: Come disimballare, montare su rack e cablare il componente dispositivo fisico della cache di archiviazione ibrida Microsoft Azure FXT Edge Filer
 author: ekpgh
 ms.author: rohogue
@@ -7,13 +7,13 @@ ms.service: fxt-edge-filer
 ms.topic: tutorial
 ms.date: 07/01/2019
 ms.openlocfilehash: 48ee6de28bcd76d4c484b77c981062bad1a3754d
-ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
-ms.translationtype: HT
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/20/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92219752"
 ---
-# <a name="tutorial-install-azure-fxt-edge-filer"></a>Esercitazione: Installare Azure FXT Edge Filer
+# <a name="tutorial-install-azure-fxt-edge-filer"></a>Esercitazione: installare il filer di Azure FXT Edge
 
 Questa esercitazione descrive come installare un nodo hardware per la cache di archiviazione ibrida Azure FXT Edge Filer. È necessario installare almeno tre nodi hardware per creare un cluster Azure FXT Edge Filer.
 

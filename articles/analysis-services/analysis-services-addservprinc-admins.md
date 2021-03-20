@@ -9,10 +9,10 @@ ms.author: owend
 ms.reviewer: minewiskan
 ms.custom: fasttrack-edit
 ms.openlocfilehash: b1d5f8ec628245756c53e4dfeeecdeb3a4bebc2e
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93100729"
 ---
 # <a name="add-a-service-principal-to-the-server-administrator-role"></a>Aggiungere un'entità servizio al ruolo di amministratore del server 
@@ -33,12 +33,12 @@ Prima di completare questa attività, è necessario aver creato un'entità servi
 È possibile configurare gli amministratori del server con SQL Server Management Studio (SSMS). Per completare questa attività, è necessario avere autorizzazioni di [amministratore del server](analysis-services-server-admins.md) nel server Azure Analysis Services. 
 
 1. In SSMS connettersi al server Azure Analysis Services.
-2. In **Proprietà server** > **Sicurezza** fare clic su **Aggiungi** .
-3. In **Selezionare un utente o un gruppo** cercare l'app registrata per nome, selezionarla e quindi fare clic su **Aggiungi** .
+2. In **Proprietà server** > **Sicurezza** fare clic su **Aggiungi**.
+3. In **Selezionare un utente o un gruppo** cercare l'app registrata per nome, selezionarla e quindi fare clic su **Aggiungi**.
 
     ![Cercare l'account dell'entità servizio](./media/analysis-services-addservprinc-admins/aas-add-sp-ssms-picker.png)
 
-4. Verificare l'ID account dell'entità servizio e quindi fare clic su **OK** .
+4. Verificare l'ID account dell'entità servizio e quindi fare clic su **OK**.
     
     ![Screenshot che mostra l'ID dell'account dell'entità servizio ed evidenzia il pulsante OK.](./media/analysis-services-addservprinc-admins/aas-add-sp-ssms-add.png)
 

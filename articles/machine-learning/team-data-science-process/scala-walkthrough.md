@@ -12,10 +12,10 @@ ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ms.openlocfilehash: 9ae4549fe343422bbf60275a97768ca407f2dc7c
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93321378"
 ---
 # <a name="data-science-using-scala-and-spark-on-azure"></a>Analisi scientifica dei dati tramite Scala e Spark in Azure
@@ -62,7 +62,7 @@ Per una descrizione dei dati relativi alle corse dei taxi della città di New Yo
 
 Selezionare **Scala** per visualizzare una directory che contiene alcuni esempi di notebook preassemblati che usano l'API PySpark. Le funzioni di modellazione dell'esplorazione e assegnazione del punteggio tramite il notebook Scala.ipynb che contiene gli esempi di codice per il gruppo di argomenti Spark è disponibile in [GitHub](https://github.com/Azure/Azure-MachineLearning-DataScience/tree/master/Misc/Spark/Scala).
 
-È possibile caricare il notebook direttamente da GitHub nel server Jupyter Notebook del cluster Spark. Nella home page di Jupyter, fare clic sul pulsante **Upload** (Carica). In Esplora file incollare l'URL di GitHub (contenuto non elaborato) del notebook di Scala e fare clic su **Open** (Apri). Il notebook di Scala è disponibile all'URL seguente:
+È possibile caricare il notebook direttamente da GitHub nel server Jupyter Notebook del cluster Spark. Nella home page di Jupyter, fare clic sul pulsante **Upload** (Carica). In Esplora file incollare l'URL di GitHub (contenuto non elaborato) del notebook di Scala e fare clic su **Open**(Apri). Il notebook di Scala è disponibile all'URL seguente:
 
 [Exploration-Modeling-and-Scoring-using-Scala.ipynb](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/Spark/Scala/Exploration-Modeling-and-Scoring-using-Scala.ipynb)
 
@@ -301,7 +301,7 @@ sqlResults
  Il kernel Spark visualizza automaticamente l'output delle query SQL (HiveQL) dopo aver eseguito il codice. È possibile scegliere tra diversi tipi di visualizzazioni:
 
 * Tabella
-* Pie
+* Torta
 * A linee
 * Ad aree
 * Istogramma

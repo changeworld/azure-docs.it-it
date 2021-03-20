@@ -7,10 +7,10 @@ ms.service: postgresql
 ms.topic: how-to
 ms.date: 04/28/2020
 ms.openlocfilehash: 7ec27cc4f28151214ca97ffb5113607d6b60ee36
-ms.sourcegitcommit: 80034a1819072f45c1772940953fef06d92fefc8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/03/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93240580"
 ---
 # <a name="validating-data-encryption-for-azure-database-for-postgresql"></a>Convalida della crittografia dei dati per database di Azure per PostgreSQL
@@ -27,7 +27,7 @@ Questo articolo illustra come verificare che la crittografia dei dati tramite la
     * Selezionare la chiave usata per la crittografia del server.
     * Impostare lo stato **della chiave su** **No**.
   
-       Dopo un certo periodo di tempo ( **~ 15 min** ), lo **stato** del server del database di Azure per PostgreSQL non dovrebbe essere **accessibile**. Tutte le operazioni di I/O eseguite sul server avranno esito negativo e la convalida del server è effettivamente crittografata con la chiave Customers e la chiave non è attualmente valida.
+       Dopo un certo periodo di tempo (**~ 15 min**), lo **stato** del server del database di Azure per PostgreSQL non dovrebbe essere **accessibile**. Tutte le operazioni di I/O eseguite sul server avranno esito negativo e la convalida del server è effettivamente crittografata con la chiave Customers e la chiave non è attualmente valida.
     
         Per rendere **disponibile** il server per, è possibile rivalidare la chiave. 
     

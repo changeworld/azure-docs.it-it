@@ -6,10 +6,10 @@ ms.subservice: change-inventory-management
 ms.topic: conceptual
 ms.date: 10/14/2020
 ms.openlocfilehash: 0b79fa22d3203504e63161aba03b32830d74d016
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93131276"
 ---
 # <a name="remove-vms-from-change-tracking-and-inventory"></a>Rimuovere macchine virtuali da Rilevamento modifiche e inventario
@@ -30,7 +30,7 @@ Accedere al [portale di Azure](https://portal.azure.com).
     az vm show -g MyResourceGroup -n MyVm -d
     ```
 
-3. Nella portale di Azure passare a **log Analytics aree di lavoro** . Selezionare l'area di lavoro dall'elenco.
+3. Nella portale di Azure passare a **log Analytics aree di lavoro**. Selezionare l'area di lavoro dall'elenco.
 
 4. Nell'area di lavoro Log Analytics selezionare **log** , quindi scegliere **Esplora query** dal menu azioni principali.
 

@@ -18,13 +18,13 @@ ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 03/22/2019
 ms.openlocfilehash: d91320d8f78942ca916084cbf29a88818d95f531
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
-ms.translationtype: HT
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/21/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92314629"
 ---
-# <a name="tutorial-send-localized-push-notifications-to-windows-apps-using-azure-notification-hubs"></a>Esercitazione: Inviare notifiche push localizzate alle app Windows con Hub di notifica di Azure
+# <a name="tutorial-send-localized-push-notifications-to-windows-apps-using-azure-notification-hubs"></a>Esercitazione: inviare notifiche push localizzate a app di Windows usando hub di notifica di Azure
 
 > [!div class="op_single_selector"]
 > * [Windows Store C#](notification-hubs-windows-store-dotnet-xplat-localized-wns-push-notification.md)
@@ -32,7 +32,7 @@ ms.locfileid: "92314629"
 
 ## <a name="overview"></a>Panoramica
 
-Questa esercitazione illustra come inviare notifiche push localizzate ai dispositivi mobili registrati con il servizio Hub di notifica. In questa esercitazione verranno aggiornate le applicazione create nell'[Esercitazione: Inviare notifiche a dispositivi specifici (piattaforma UWP (Universal Windows Platform))](notification-hubs-windows-phone-push-xplat-segmented-mpns-notification.md) per supportare gli scenari seguenti:
+Questa esercitazione illustra come inviare notifiche push localizzate ai dispositivi mobili registrati con il servizio Hub di notifica. Nell'esercitazione si esegue l'aggiornamento delle applicazioni create nell'[Esercitazione: inviare notifiche a dispositivi specifici (piattaforma UWP (Universal Windows Platform))](notification-hubs-windows-phone-push-xplat-segmented-mpns-notification.md) per supportare gli scenari seguenti:
 
 - L'app Windows Store consente ai dispositivi client di specificare una lingua e di sottoscrivere categorie diverse di ultime notizie.
 - L'app back-end trasmette le notifiche usando le funzionalità relative ai **tag** e ai **modelli** di Hub di notifica di Azure.
@@ -48,9 +48,9 @@ In questa esercitazione verranno illustrate le procedure per:
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-Completare l'[Esercitazione: Inviare notifiche a dispositivi specifici (piattaforma UWP (Universal Windows Platform))](notification-hubs-windows-phone-push-xplat-segmented-mpns-notification.md).
+Completare l'[Esercitazione: inviare notifiche a dispositivi specifici (piattaforma UWP (Universal Windows Platform))](notification-hubs-windows-phone-push-xplat-segmented-mpns-notification.md).
 
-Nell'[Esercitazione: Inviare notifiche a dispositivi specifici (piattaforma UWP (Universal Windows Platform))](notification-hubs-windows-phone-push-xplat-segmented-mpns-notification.md) viene generata un'app che usa i **tag** per sottoscrivere le notifiche a diverse **categorie**  di notizie. In questa esercitazione viene usata la funzionalità relativa ai **modelli** di Hub di notifica per inviare facilmente notifiche relative alle ultime notizie **localizzate**.
+Nell'[Esercitazione: inviare notifiche a dispositivi specifici (piattaforma UWP (Universal Windows Platform))](notification-hubs-windows-phone-push-xplat-segmented-mpns-notification.md) viene generata un'app che ha usato i **tag** per sottoscrivere le notifiche a diverse **categorie** di notizie. In questa esercitazione viene usata la funzionalità relativa ai **modelli** di Hub di notifica per inviare facilmente notifiche relative alle ultime notizie **localizzate**.
 
 In generale, i modelli rappresentano un modo per specificare il formato in cui un dispositivo specifico deve ricevere una notifica. Il modello definisce lo specifico formato di payload da utilizzare, facendo riferimento alle proprietà del messaggio inviato dal back-end dell'app. In questa esercitazione, l'applicazione back-end invia un messaggio indipendente dalle impostazioni locali che contiene tutte le lingue supportate:
 
@@ -78,7 +78,7 @@ Per altre informazioni sui modelli, vedere l'articolo [Modelli](notification-hub
 
 ## <a name="update-windows-app-to-support-locale-information"></a>Aggiornare l'app di Windows per supportare informazioni sulle impostazioni locali
 
-1. Aprire la soluzione di Visual Studio creata per l'[Esercitazione: Inviare notifiche a dispositivi specifici (piattaforma UWP (Universal Windows Platform))](notification-hubs-windows-phone-push-xplat-segmented-mpns-notification.md).
+1. Aprire la soluzione Visual Studio creata per l'[Esercitazione: inviare notifiche a dispositivi specifici (piattaforma UWP (Universal Windows Platform))](notification-hubs-windows-phone-push-xplat-segmented-mpns-notification.md).
 2. Aggiornare il file `MainPage.xaml` della soluzione per includere una casella combinata di impostazioni locali:
 
     ```xml

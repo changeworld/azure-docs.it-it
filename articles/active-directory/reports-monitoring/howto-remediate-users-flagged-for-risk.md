@@ -16,10 +16,10 @@ ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 23bd7a26bc6215f50a2860ab4aac84f1b46301f5
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/21/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92308951"
 ---
 # <a name="remediate-users-flagged-for-risk-in-the-azure-active-directory-portal"></a>Correggere gli utenti contrassegnati per il rischio nel portale di Azure Active Directory
@@ -55,7 +55,7 @@ Per accedere ai report sugli **utenti contrassegnati per il rischio** nell'inter
 4.  Nel menu di spostamento sinistro selezionare **Azure Active Directory**. 
 5.  Nel riquadro di spostamento selezionare **Utenti contrassegnati per il rischio** nella sezione **Sicurezza**.
 
-## <a name="remediation-actions"></a>Azioni correttive
+## <a name="remediation-actions"></a>Azioni di correzione
 
 Eseguire queste operazioni per correggere gli account interessati e proteggere l'ambiente:
 

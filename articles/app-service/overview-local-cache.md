@@ -7,10 +7,10 @@ ms.topic: article
 ms.date: 03/04/2016
 ms.custom: seodec18
 ms.openlocfilehash: 81782f63199a9fe8f43f56aeefcd1c68951d57a4
-ms.sourcegitcommit: 48cb2b7d4022a85175309cf3573e72c4e67288f5
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/08/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96852253"
 ---
 # <a name="azure-app-service-local-cache-overview"></a>Panoramica della cache locale del servizio app di Azure
@@ -52,7 +52,7 @@ La funzionalità cache locale del servizio app di Azure offre una visualizzazion
 
 La cache locale viene configurata mediante una combinazione di impostazioni delle app riservate. Queste impostazioni delle app possono essere configurate usando i metodi seguenti:
 
-* [Portale di Azure](#Configure-Local-Cache-Portal)
+* [Azure portal](#Configure-Local-Cache-Portal)
 * [Azure Resource Manager](#Configure-Local-Cache-ARM)
 
 ### <a name="configure-local-cache-by-using-the-azure-portal"></a>Configurare la cache locale tramite il portale di Azure

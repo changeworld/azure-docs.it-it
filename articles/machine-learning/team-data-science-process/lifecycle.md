@@ -12,10 +12,10 @@ ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ms.openlocfilehash: ed54fda744978ac43bbffc6a70d6b331e85dc5e7
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93305602"
 ---
 # <a name="the-team-data-science-process-lifecycle"></a>Ciclo di vita del processo di data science per i team
@@ -43,9 +43,9 @@ Il ciclo di vita del TDSP viene modellato come sequenza di passaggi iterati che 
 
 Per ogni fase, specificare le informazioni seguenti:
 
-   * **Obiettivi** : gli obiettivi specifici.
-   * **Procedura** : una struttura delle attività specifiche e una guida su come completarle.
-   * **Elementi** : i risultati finali e il supporto durante la produzione degli stessi.
+   * **Obiettivi**: gli obiettivi specifici.
+   * **Procedura**: una struttura delle attività specifiche e una guida su come completarle.
+   * **Elementi**: i risultati finali e il supporto durante la produzione degli stessi.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 08/04/2020
 ms.author: allensu
 ms.openlocfilehash: 1a0f4456f38939632026645500dd48acbf7dbc88
-ms.sourcegitcommit: 80034a1819072f45c1772940953fef06d92fefc8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/03/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93242209"
 ---
 # <a name="standard-rules-engine-reference-for-azure-cdn"></a>Informazioni di riferimento sul motore regole standard per la rete CDN di Azure
@@ -20,7 +20,7 @@ Nel [motore delle regole standard](cdn-standard-rules-engine.md) per la rete per
 
 Il motore regole è progettato per essere l'autorità finale sul modo in cui i tipi di richieste specifici vengono elaborati dalla rete CDN standard di Azure.
 
-**Usi comuni per le regole** :
+**Usi comuni per le regole**:
 
 - Eseguire l'override o definire un criterio della cache personalizzato.
 - Reindirizzare le richieste.

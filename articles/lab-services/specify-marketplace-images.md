@@ -4,17 +4,17 @@ description: Questo articolo illustra come specificare le immagini del Marketpla
 ms.topic: article
 ms.date: 06/26/2020
 ms.openlocfilehash: 5c81c8d7a15d67055729a29e98f5b7e30f3d0764
-ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/01/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96434737"
 ---
 # <a name="specify-marketplace-images-available-to-lab-creators"></a>Specificare le immagini del Marketplace disponibili per gli autori di lab
 In quanto proprietario di un account del lab, è possibile specificare le immagini del Marketplace che gli autori di lab possono usare per creare lab nell'account del lab. 
 
 ## <a name="select-images-available-for-labs"></a>Selezionare le immagini disponibili per i Lab
-Selezionare **Immagini del Marketplace** nel menu a sinistra. Per impostazione predefinita, verrà visualizzato l'elenco completo delle immagini (abilitate e disabilitate). È possibile filtrare l'elenco in modo da visualizzare solo le immagini abilitate o **Enabled only** disabilitate selezionando l'opzione solo / **disabilitato solo disabilitato** nell'elenco a discesa nella parte superiore. 
+Selezionare **Immagini del Marketplace** nel menu a sinistra. Per impostazione predefinita, verrà visualizzato l'elenco completo delle immagini (abilitate e disabilitate). È possibile filtrare l'elenco in modo da visualizzare solo le immagini abilitate o disabilitate selezionando l'opzione solo / **disabilitato solo disabilitato** nell'elenco a discesa nella parte superiore. 
     
 ![Pagina Immagini del Marketplace](./media/tutorial-setup-lab-account/marketplace-images-page.png)
 

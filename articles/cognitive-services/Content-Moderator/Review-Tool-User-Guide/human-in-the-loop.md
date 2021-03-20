@@ -11,10 +11,10 @@ ms.subservice: content-moderator
 ms.topic: conceptual
 ms.author: pafarley
 ms.openlocfilehash: ddf4d17cd2631f5bc299e392c46bd9065bb13744
-ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/01/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93146622"
 ---
 # <a name="content-moderator-review-tool"></a>Strumento di revisione Content Moderator
@@ -47,7 +47,7 @@ Facendo clic sul testo nell'angolo superiore destro del dashboard vengono visual
 
 ## <a name="review-tool-credentials"></a>Verifica credenziali strumento
 
-Quando si esegue l'iscrizione con lo [strumento di revisione](https://contentmoderator.cognitive.microsoft.com), verrà richiesto di selezionare un'area di Azure per l'account. Questo perché lo [strumento di revisione](https://contentmoderator.cognitive.microsoft.com) genera una chiave di valutazione gratuita per i servizi content moderator di Azure. Questa chiave sarà necessaria per accedere ai servizi da una chiamata REST o da un SDK client. È possibile visualizzare la chiave e l'URL dell'endpoint API selezionando le credenziali di **amministratore**  >  **Credentials** .
+Quando si esegue l'iscrizione con lo [strumento di revisione](https://contentmoderator.cognitive.microsoft.com), verrà richiesto di selezionare un'area di Azure per l'account. Questo perché lo [strumento di revisione](https://contentmoderator.cognitive.microsoft.com) genera una chiave di valutazione gratuita per i servizi content moderator di Azure. Questa chiave sarà necessaria per accedere ai servizi da una chiamata REST o da un SDK client. È possibile visualizzare la chiave e l'URL dell'endpoint API selezionando le credenziali di **amministratore**  >  .
 
 > [!div class="mx-imgBorder"]
 > ![Credenziali di Content Moderator](images/settings-6-credentials.png)

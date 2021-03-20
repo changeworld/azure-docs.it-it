@@ -10,10 +10,10 @@ ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: how-to
 ms.openlocfilehash: a040200c5746defcaee84a951521d5919c0c4d28
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91660677"
 ---
 # <a name="delete-azure-arc-data-controller"></a>Elimina il controller dati di Azure Arc
@@ -102,4 +102,4 @@ kubectl delete ns <nameSpecifiedDuringCreation>
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-[Che cosa sono i servizi dati abilitati per Azure Arc?](overview.md)
+[Che cosa sono i servizi dati con abilitazione di Azure Arc?](overview.md)

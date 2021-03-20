@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.date: 09/21/2020
 ms.custom: references_regions
 ms.openlocfilehash: d65b074385311e74444929ef74901e402e29ec03
-ms.sourcegitcommit: 80034a1819072f45c1772940953fef06d92fefc8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/03/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93241736"
 ---
 # <a name="manage-zone-redundant-high-availability-in-azure-database-for-mysql-flexible-server-preview"></a>Gestire la disponibilità elevata con ridondanza della zona nel server flessibile database di Azure per MySQL (anteprima)
@@ -32,7 +32,7 @@ In questa pagina vengono fornite le linee guida su come abilitare o disabilitare
 
 In questa sezione vengono fornite informazioni dettagliate specifiche per i campi correlati a disponibilità elevata. È possibile seguire questa procedura per distribuire la disponibilità elevata durante la creazione del server flessibile.
 
-1.  Nella [portale di Azure](https://portal.azure.com/)scegliere flessibile server e fare clic su **Crea**.  Per informazioni dettagliate su come compilare i dettagli, ad esempio **sottoscrizione** , **gruppo di risorse** , **nome del server** , **area** e altri campi, vedere la documentazione relativa alle procedure per la creazione del server.
+1.  Nella [portale di Azure](https://portal.azure.com/)scegliere flessibile server e fare clic su **Crea**.  Per informazioni dettagliate su come compilare i dettagli, ad esempio **sottoscrizione**, **gruppo di risorse**, **nome del server**, **area** e altri campi, vedere la documentazione relativa alle procedure per la creazione del server.
 
 2.  Fare clic sulla casella di controllo per la **disponibilità elevata con ridondanza della zona** nell'opzione disponibilità.
 
@@ -41,9 +41,9 @@ In questa sezione vengono fornite informazioni dettagliate specifiche per i camp
 4.  Se è selezionata l'opzione disponibilità elevata, il livello di espansione non sarà disponibile per la scelta. È possibile scegliere i livelli di calcolo per **utilizzo generico** o con ottimizzazione per la **memoria** .
 
     > [!IMPORTANT]
-    > È supportata solo la disponibilità elevata con ridondanza della zona per il piano tariffario * *_utilizzo generico_* e con ottimizzazione per la _*_memoria_*_ .
+    > È supportata solo la disponibilità elevata con ridondanza della zona per il piano tariffario * con ottimizzazione per la *_memoria_** e per **utilizzo generico**.
 
-5.  Selezionare la *dimensione di calcolo* * desiderata dall'elenco a discesa.
+5.  Selezionare le **dimensioni di calcolo** preferite nell'elenco a discesa.
 
 6.  Selezionare **dimensioni di archiviazione** in Gib usando la barra di scorrimento e selezionare il **periodo di conservazione dei backup** tra 7 giorni e 35 giorni.   
 
