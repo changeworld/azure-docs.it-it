@@ -6,10 +6,10 @@ ms.topic: conceptual
 ms.date: 06/19/2019
 ms.author: jobreen
 ms.openlocfilehash: 68b8bd187d58cd71778b8a922684cc3817a0715d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "80398467"
 ---
 # <a name="azure-custom-resource-providers-overview"></a>Panoramica di provider di risorse personalizzati di Azure
@@ -37,11 +37,11 @@ Di seguito sono riportati alcuni esempi di ciò che è possibile ottenere con i 
 
 ## <a name="what-is-a-custom-resource-provider"></a>Che cos'è un provider di risorse personalizzato
 
-I provider di risorse personalizzati di Azure vengono creati creando un contratto tra Azure e un endpoint. Questo contratto definisce un elenco di nuove risorse e azioni tramite una nuova risorsa, **Microsoft. CustomProviders/resourceProviders**. Il provider di risorse personalizzato esporrà quindi queste nuove API in Azure. I provider di risorse personalizzati di Azure sono costituiti da tre parti: provider di risorse personalizzato, **endpoint**e risorse personalizzate.
+I provider di risorse personalizzati di Azure vengono creati creando un contratto tra Azure e un endpoint. Questo contratto definisce un elenco di nuove risorse e azioni tramite una nuova risorsa, **Microsoft. CustomProviders/resourceProviders**. Il provider di risorse personalizzato esporrà quindi queste nuove API in Azure. I provider di risorse personalizzati di Azure sono costituiti da tre parti: provider di risorse personalizzato, **endpoint** e risorse personalizzate.
 
 ## <a name="how-to-build-custom-resource-providers"></a>Come compilare provider di risorse personalizzati
 
-I provider di risorse personalizzati sono un elenco di contratti tra Azure ed endpoint. Questo contratto descrive il modo in cui Azure deve interagire con un endpoint. Il provider di risorse funge da proxy e trasmette le richieste e le risposte da e verso l' **endpoint**specificato. Un provider di risorse può specificare due tipi di contratti: [**resourceTypes**](./custom-providers-resources-endpoint-how-to.md) e [**Actions**](./custom-providers-action-endpoint-how-to.md). Queste sono abilitate tramite le definizioni degli endpoint. Una definizione di endpoint è costituita da tre campi: **Name**, **routingType**e **endpoint**.
+I provider di risorse personalizzati sono un elenco di contratti tra Azure ed endpoint. Questo contratto descrive il modo in cui Azure deve interagire con un endpoint. Il provider di risorse funge da proxy e trasmette le richieste e le risposte da e verso l' **endpoint** specificato. Un provider di risorse può specificare due tipi di contratti: [**resourceTypes**](./custom-providers-resources-endpoint-how-to.md) e [**Actions**](./custom-providers-action-endpoint-how-to.md). Queste sono abilitate tramite le definizioni degli endpoint. Una definizione di endpoint è costituita da tre campi: **Name**, **routingType** e **endpoint**.
 
 Endpoint di esempio:
 

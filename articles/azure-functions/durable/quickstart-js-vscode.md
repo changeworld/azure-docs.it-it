@@ -7,10 +7,10 @@ ms.date: 05/07/2020
 ms.reviewer: azfuncdf, antchu
 ms.custom: devx-track-js
 ms.openlocfilehash: f8ffa90ba0f1ac32d4691165fabf3d8eb9fb7605
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
-ms.translationtype: HT
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91335450"
 ---
 # <a name="create-your-first-durable-function-in-javascript"></a>Creare la prima funzione durevole in JavaScript
@@ -49,7 +49,7 @@ In questa sezione si userà Visual Studio Code per creare un progetto di Funzion
 
 1. Seguire le istruzioni e specificare le informazioni seguenti:
 
-    | Prompt | valore | Descrizione |
+    | Prompt | Valore | Descrizione |
     | ------ | ----- | ----------- |
     | Selezionare un linguaggio per il progetto di app per le funzioni | JavaScript | Creare un progetto Funzioni Node.js locale. |
     | Selezionare una versione | Azure Functions v3 (Funzioni di Azure v3) | Questa opzione viene visualizzata solo quando gli strumenti Core Tools non sono già installati. In questo caso, gli strumenti Core Tools vengono installati la prima volta che si esegue l'app. |
@@ -84,7 +84,7 @@ Per creare il codice della funzione durevole nel progetto si usa un modello.
 
 1. Seguire le istruzioni e specificare le informazioni seguenti:
 
-    | Prompt | valore | Descrizione |
+    | Prompt | Valore | Descrizione |
     | ------ | ----- | ----------- |
     | Select a template for your function (Selezionare un modello per la funzione) | Durable Functions Orchestrator | Creare un'orchestrazione Durable Functions |
     | Specificare un nome di funzione | HelloOrchestrator | Nome della funzione durevole |
@@ -99,7 +99,7 @@ Si aggiungerà ora la funzione dell'attività `Hello` cui viene fatto riferiment
 
 1. Seguire le istruzioni e specificare le informazioni seguenti:
 
-    | Prompt | valore | Descrizione |
+    | Prompt | Valore | Descrizione |
     | ------ | ----- | ----------- |
     | Select a template for your function (Selezionare un modello per la funzione) | Durable Functions Activity | Creare una funzione dell'attività |
     | Specificare un nome di funzione | Ciao | Nome della funzione dell'attività |
@@ -114,7 +114,7 @@ Si aggiungerà infine una funzione attivata tramite HTTP che avvia l'orchestrazi
 
 1. Seguire le istruzioni e specificare le informazioni seguenti:
 
-    | Prompt | valore | Descrizione |
+    | Prompt | Valore | Descrizione |
     | ------ | ----- | ----------- |
     | Select a template for your function (Selezionare un modello per la funzione) | Durable Functions Http Starter | Creare una funzione Http Starter |
     | Specificare un nome di funzione | DurableFunctionsHttpStart | Nome della funzione dell'attività |
@@ -139,7 +139,7 @@ Azure Functions Core Tools consente di eseguire un progetto Funzioni di Azure ne
 
 1. Seguire le istruzioni e specificare le informazioni seguenti per creare un nuovo account di archiviazione in Azure.
 
-    | Prompt | valore | Descrizione |
+    | Prompt | Valore | Descrizione |
     | ------ | ----- | ----------- |
     | Seleziona sottoscrizione | *nome della sottoscrizione* | Selezionare la sottoscrizione ad Azure |
     | Select a storage account (Selezionare un account di archiviazione) | Creare un nuovo account di archiviazione. |  |

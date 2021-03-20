@@ -8,10 +8,10 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.date: 03/09/2020
 ms.openlocfilehash: a0e75957a0ab49394dab56f2b7fb847dee4b43cb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "81413687"
 ---
 # <a name="flatten-transformation-in-mapping-data-flow"></a>Trasformazione flat nel flusso di dati del mapping
@@ -40,7 +40,7 @@ Analogamente alla trasformazione Select, scegliere la proiezione della nuova str
 
 Vedere la scheda controlla e l'anteprima dati per verificare l'output del mapping.
 
-## <a name="examples"></a>Esempi
+## <a name="examples"></a>Esempio
 
 Vedere l'oggetto JSON seguente per gli esempi seguenti della trasformazione Flat
 

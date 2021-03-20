@@ -7,10 +7,10 @@ ms.date: 03/30/2020
 ms.author: helohr
 manager: lizross
 ms.openlocfilehash: 61cf28b0f1ebee6a0312ec3f23f22b01c6c4919e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "88009172"
 ---
 # <a name="expand-an-existing-host-pool-with-new-session-hosts-in-windows-virtual-desktop-classic"></a>Espandere un pool di host esistente con nuovi host sessione in desktop virtuale di Windows (versione classica)
@@ -79,10 +79,10 @@ Di seguito viene illustrato come ridistribuire il modello di Azure Resource Mana
 Tutti i valori in questa sezione devono corrispondere a quanto specificato al momento della creazione del pool host e delle VM host della sessione, ad eccezione degli *utenti desktop predefiniti*:
 
 1.    Per *Subscription (sottoscrizione*) selezionare la sottoscrizione in cui è stato creato per la prima volta il pool host.
-2.    Per *gruppo di risorse*selezionare lo stesso gruppo di risorse in cui si trovano le VM host della sessione del pool host esistente.
-3.    Per *area*selezionare la stessa area in cui si trovano le VM host della sessione del pool host esistente.
-4.    Per *nome Hostpool*immettere il nome del pool host esistente.
-5.    Per *tipo di desktop*selezionare il tipo di desktop che corrisponde al pool host esistente.
+2.    Per *gruppo di risorse* selezionare lo stesso gruppo di risorse in cui si trovano le VM host della sessione del pool host esistente.
+3.    Per *area* selezionare la stessa area in cui si trovano le VM host della sessione del pool host esistente.
+4.    Per *nome Hostpool* immettere il nome del pool host esistente.
+5.    Per *tipo di desktop* selezionare il tipo di desktop che corrisponde al pool host esistente.
 6.    Per *gli utenti desktop predefiniti*, immettere un elenco delimitato da virgole di eventuali utenti aggiuntivi che si desidera accedere ai client desktop virtuali Windows e accedere a un desktop al termine dell'offerta di Azure Marketplace. Ad esempio, se si desidera assegnare user3@contoso.com e user4@contoso.com accedere, immettere user3@contoso.com , user4@contoso.com .
 7.    Selezionare **Avanti: Configura macchina virtuale**.
 
@@ -98,7 +98,7 @@ Tutti i valori dei parametri in questa sezione devono corrispondere a quanto spe
     >[!NOTE]
     >Se le dimensioni specifiche della VM che si cercano non vengono visualizzate nel selettore di dimensioni, significa che non ne è stato ancora eseguito l'onboarding nello strumento di Azure Marketplace. Per richiedere le dimensioni della VM, creare una richiesta oppure aggiornarne una esistente nel [forum UserVoice di Desktop virtuale Windows](https://windowsvirtualdesktop.uservoice.com/forums/921118-general).
 
-2. Personalizzare i parametri *profilo di utilizzo*, *Totale utenti*e *numero di macchine virtuali* per selezionare il numero totale di host di sessione che si desidera includere nel pool host. Se, ad esempio, si espande il pool host da cinque host di sessione a otto, configurare queste opzioni per ottenere 8 macchine virtuali.
+2. Personalizzare i parametri *profilo di utilizzo*, *Totale utenti* e *numero di macchine virtuali* per selezionare il numero totale di host di sessione che si desidera includere nel pool host. Se, ad esempio, si espande il pool host da cinque host di sessione a otto, configurare queste opzioni per ottenere 8 macchine virtuali.
 3. Immettere un prefisso per i nomi delle macchine virtuali. Ad esempio, se si immette il nome "prefisso", le macchine virtuali saranno denominate "prefisso-0", "prefisso-1" e così via.
 4. Selezionare **Avanti: impostazioni macchina virtuale**.
 

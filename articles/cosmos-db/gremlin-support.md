@@ -8,10 +8,10 @@ ms.topic: overview
 ms.date: 11/11/2020
 ms.author: sngun
 ms.openlocfilehash: 036338e90a3e7b466924d419400c0dcc692dec5f
-ms.sourcegitcommit: 8c3a656f82aa6f9c2792a27b02bbaa634786f42d
-ms.translationtype: HT
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/17/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97630752"
 ---
 # <a name="azure-cosmos-db-gremlin-graph-support-and-compatibility-with-tinkerpop-features"></a>Supporto dei grafi Gremlin in Azure Cosmos DB e compatibilità con le funzionalità di TinkerPop
@@ -169,31 +169,31 @@ Il motore ottimizzato per la scrittura fornito da Azure Cosmos DB supporta l'ind
 
 ## <a name="behavior-differences"></a>Differenze di comportamento
 
-* Il motore Azure Cosmos DB Graph esegue l'attraversamento ***in ampiezza**, mentre quello di TinkerPop Gremlin è in profondità. Questo comportamento consente di ottenere prestazioni migliori in un sistema scalabile orizzontalmente, come Cosmos DB.
+* Il motore Azure Cosmos DB Graph esegue l'attraversamento ***in ampiezza***, mentre quello di TinkerPop Gremlin è in profondità. Questo comportamento consente di ottenere prestazioni migliori in un sistema scalabile orizzontalmente, come Cosmos DB.
 
 ## <a name="unsupported-features"></a>Funzionalità non supportate
 
-_ * **[Gremlin Bytecode](https://tinkerpop.apache.org/docs/current/tutorials/gremlin-language-variants/)** _ è una specifica non dipendente da un linguaggio di programmazione per gli attraversamenti dei grafi. Cosmos DB Graph non la supporta ancora. Usare `GremlinClient.SubmitAsync()` e passare l'attraversamento come stringa di testo.
+* ***[Gremlin Bytecode](https://tinkerpop.apache.org/docs/current/tutorials/gremlin-language-variants/)*** è una specifica non dipendente da un linguaggio di programmazione per gli attraversamenti grafici. Cosmos DB Graph non la supporta ancora. Usare `GremlinClient.SubmitAsync()` e passare l'attraversamento come stringa di testo.
 
-_ La cardinalità set * **`property(set, 'xyz', 1)`** _ non è attualmente supportata. In alternativa, utilizzare `property(list, 'xyz', 1)`. Per altre informazioni, vedere le [proprietà dei vertici con TinkerPop](http://tinkerpop.apache.org/docs/current/reference/#vertex-properties).
+* ***La cardinalità set `property(set, 'xyz', 1)`*** non è attualmente supportata. In alternativa, utilizzare `property(list, 'xyz', 1)`. Per altre informazioni, vedere le [proprietà dei vertici con TinkerPop](http://tinkerpop.apache.org/docs/current/reference/#vertex-properties).
 
-_ Il passaggio * **`match()`** _ non è attualmente disponibile. Questo passaggio fornisce funzionalità di query dichiarative.
+* Il ***passaggio `match()`*** non è attualmente disponibile. Questo passaggio fornisce funzionalità di query dichiarative.
 
-_ Gli ***oggetti come proprietà** _ su vertici o archi non sono supportati. Le proprietà possono essere solo tipi primitivi o matrici.
+* Gli ***oggetti come proprietà*** su vertici o archi non sono supportati. Le proprietà possono essere solo tipi primitivi o matrici.
 
-_ L'***ordinamento per proprietà di matrici** _ `order().by(<array property>)` non è supportato. L'ordinamento è supportato solo per tipi primitivi.
+* L'***ordinamento per proprietà di matrici*** `order().by(<array property>)` non è supportato. L'ordinamento è supportato solo per tipi primitivi.
 
-_ I ***tipi JSON non primitivi** _ non sono supportati. Usare i tipi `string`, `number` o `true`/`false`. I valori `null` non sono supportati. 
+* I ***tipi JSON non primitivi*** non sono supportati. Usare i tipi `string`, `number` o `true`/`false`. I valori `null` non sono supportati. 
 
-_ Il serializzatore ***GraphSONv3** _ non è attualmente supportato. Usare le classi Serializer, Reader e Writer di `GraphSONv2` nella configurazione della connessione. I risultati restituiti dall'API Gremlin di Azure Cosmos DB non hanno lo stesso formato di GraphSON. 
+* Il serializzatore ***GraphSONv3*** non è attualmente supportato. Usare le classi Serializer, Reader e Writer di `GraphSONv2` nella configurazione della connessione. I risultati restituiti dall'API Gremlin di Azure Cosmos DB non hanno lo stesso formato di GraphSON. 
 
-_ Le ***espressioni e le funzioni lambda** non sono attualmente supportate. Sono incluse le funzioni `.map{<expression>}`, `.by{<expression>}` e `.filter{<expression>}`. Per altre informazioni, anche su come riscriverle usando i passaggi di Gremlin, vedere le [note sulle espressioni lambda](http://tinkerpop.apache.org/docs/current/reference/#a-note-on-lambdas).
+* Le **espressioni e le funzioni lambda** non sono attualmente supportate. Sono incluse le funzioni `.map{<expression>}`, `.by{<expression>}` e `.filter{<expression>}`. Per altre informazioni, anche su come riscriverle usando i passaggi di Gremlin, vedere le [note sulle espressioni lambda](http://tinkerpop.apache.org/docs/current/reference/#a-note-on-lambdas).
 
-* Le ***transazioni** _ non sono supportate a causa della natura distribuita del sistema.  Configurare il modello di coerenza appropriato nell'account Gremlin per ottenere garanzie "read your own writes" e usare la concorrenza ottimistica per risolvere le scritture in conflitto.
+* Le ***transazioni*** non sono supportate a causa della natura distribuita del sistema.  Configurare il modello di coerenza appropriato nell'account Gremlin per ottenere garanzie "read your own writes" e usare la concorrenza ottimistica per risolvere le scritture in conflitto.
 
 ## <a name="known-limitations"></a>Limitazioni note
 
-_ **Utilizzo degli indici per le query Gremlin con passaggi di attraversamento intermedio `.V()`** : Attualmente, solo la prima chiamata `.V()` di un attraversamento userà l'indice per risolvere eventuali filtri o predicati collegati. Le chiamate successive non consulteranno l'indice, il che potrebbe aumentare la latenza e il costo della query.
+* **Utilizzo degli indici per le query Gremlin con passaggi di attraversamento intermedio `.V()`** : Attualmente, solo la prima chiamata `.V()` di un attraversamento userà l'indice per risolvere eventuali filtri o predicati collegati. Le chiamate successive non consulteranno l'indice, il che potrebbe aumentare la latenza e il costo della query.
     
 Presupponendo l'indicizzazione predefinita, una tipica query di lettura di Gremlin che inizia con il passaggio `.V()` userà i parametri nei passaggi di filtro collegati, come `.has()` o `.where()`, per ottimizzare il costo e le prestazioni della query. Ad esempio:
 

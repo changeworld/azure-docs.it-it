@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 03/20/2019
 ms.author: jeedes
 ms.openlocfilehash: b8f12b6d55cb11c0cfeda5331072127ea4a696bc
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
-ms.translationtype: HT
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/23/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92460105"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-insideview"></a>Esercitazione: Integrazione di Azure Active Directory con InsideView
@@ -52,7 +52,7 @@ Per configurare l'integrazione di InsideView in Azure AD, è necessario aggiunge
 
     ![Selezionare Azure Active Directory](common/select-azuread.png)
 
-2. Passare a **Applicazioni aziendali** > **Tutte le applicazioni** :
+2. Passare a **Applicazioni aziendali** > **Tutte le applicazioni**:
 
     ![Pannello delle applicazioni aziendali](common/enterprise-applications.png)
 
@@ -60,7 +60,7 @@ Per configurare l'integrazione di InsideView in Azure AD, è necessario aggiunge
 
     ![Selezionare Nuova applicazione](common/add-new-app.png)
 
-4. Nella casella di ricerca immettere **InsideView** . Selezionare **InsideView** nei risultati della ricerca e quindi selezionare **Aggiungi** .
+4. Nella casella di ricerca immettere **InsideView**. Selezionare **InsideView** nei risultati della ricerca e quindi selezionare **Aggiungi**.
 
     ![Search Results](common/search-new-app.png)
 
@@ -75,7 +75,7 @@ Per configurare e testare l'accesso Single Sign-On di Azure AD con InsideView, �
 2. **[Configurare l'accesso Single Sign-On di InsideView](#configure-insideview-single-sign-on)** sul lato dell'applicazione.
 3. **[Creare un utente di test di Azure AD](#create-an-azure-ad-test-user)** per testare l'accesso Single Sign-On di Azure AD.
 4. **[Assegnare l'utente di test di Azure AD](#assign-the-azure-ad-test-user)** per abilitare l'accesso Single Sign-On di Azure AD per tale utente.
-5. **[Creare l'utente di test di InsideView](#create-an-insideview-test-user)** collegato alla rappresentazione di Azure AD dell'utente.
+5. **[Creare un utente di test di InsideView](#create-an-insideview-test-user)** collegato alla rappresentazione di Azure AD dell'utente.
 6. **[Testare l'accesso Single Sign-On](#test-single-sign-on)** per verificare se la configurazione funziona.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Configurare l'accesso Single Sign-On di Azure AD
@@ -84,7 +84,7 @@ In questa sezione verrà abilitato l'accesso Single Sign-On di Azure AD nel port
 
 Per configurare l'accesso Single Sign-On di Azure AD con InsideView, seguire questa procedura:
 
-1. Nella pagina di integrazione dell'applicazione InsideView del [portale di Azure](https://portal.azure.com/) selezionare **Single Sign-On** :
+1. Nella pagina di integrazione dell'applicazione InsideView del [portale di Azure](https://portal.azure.com/)selezionare **Single Sign-on**:
 
     ![Selezionare Single Sign-On](common/select-sso.png)
 
@@ -92,7 +92,7 @@ Per configurare l'accesso Single Sign-On di Azure AD con InsideView, seguire que
 
     ![Selezionare un metodo di accesso Single Sign-On](common/select-saml-option.png)
 
-3. Nella pagina **Configura l'accesso Single Sign-On con SAML** selezionare l'icona **Modifica** per aprire la finestra di dialogo **Configurazione SAML di base** :
+3. Nella pagina **Configura l'accesso Single Sign-On con SAML** selezionare l'icona **Modifica** per aprire la finestra di dialogo **Configurazione SAML di base**:
 
     ![Icona Modifica](common/edit-urls.png)
 
@@ -107,7 +107,7 @@ Per configurare l'accesso Single Sign-On di Azure AD con InsideView, seguire que
     > [!NOTE]
     > Questo valore è un segnaposto. È necessario usare l'URL di risposta effettivo. Per ottenere il valore, contattare il [team di supporto di InsideView](mailto:support@insideview.com). È anche possibile fare riferimento ai modelli disponibili nella finestra di dialogo **Configurazione SAML di base** del portale di Azure.
 
-5. Nella sezione **Certificato di firma SAML** della pagina **Configura l'accesso Single Sign-On con SAML** selezionare il collegamento **Scarica** accanto a **Certificato (base)** , in base alle esigenze, quindi salvare il certificato nel computer:
+5. Nella sezione **Certificato di firma SAML** della pagina **Configura l'accesso Single Sign-On con SAML** selezionare il collegamento **Scarica** accanto a **Certificato (base)**, in base alle esigenze, quindi salvare il certificato nel computer:
 
     ![Collegamento di download del certificato](common/certificateraw.png)
 
@@ -115,11 +115,11 @@ Per configurare l'accesso Single Sign-On di Azure AD con InsideView, seguire que
 
     ![Copiare gli URL di configurazione](common/copy-configuration-urls.png)
 
-    1. **URL di accesso** .
+    1. **URL di accesso**.
 
-    1. **Identificatore Azure AD** .
+    1. **Identificatore Azure AD**.
 
-    1. **URL di disconnessione** .
+    1. **URL di disconnessione**.
 
 ### <a name="configure-insideview-single-sign-on"></a>Configurare l'accesso Single Sign-On di InsideView
 
@@ -131,7 +131,7 @@ Per configurare l'accesso Single Sign-On di Azure AD con InsideView, seguire que
 
 1. Nella sezione **Add a New SAML** (Aggiungi nuovo SAML) seguire questa procedura.
 
-    ![Sezione Add a New SAML](./media/insideview-tutorial/ic794136.png "Sezione Add a New SAML")
+    ![Aggiungere una nuova sezione SAML](./media/insideview-tutorial/ic794136.png "Aggiungere una nuova sezione SAML")
 
     1. Nella casella di testo **STS Name** (Nome servizio token di sicurezza) digitare un nome per la configurazione.
 
@@ -139,21 +139,21 @@ Per configurare l'accesso Single Sign-On di Azure AD con InsideView, seguire que
 
     1. Aprire il certificato base scaricato dal portale di Azure. Copiare il contenuto del certificato negli Appunti e quindi incollarlo nella casella **STS Certificate** (Certificato servizio token di sicurezza).
 
-    1. Nella casella **Crm User Id Mapping** (Mapping ID utente crm) immettere **`http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress`** .
+    1. Nella casella **Crm User Id Mapping** (Mapping ID utente crm) immettere **`http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress`**.
 
-    1. Nella casella **Crm Email Mapping** (Mapping indirizzo posta elettronica crm) immettere **`http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress`** .
+    1. Nella casella **Crm Email Mapping** (Mapping indirizzo posta elettronica crm) immettere **`http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress`**.
 
-    1. Nella casella **Crm First Name Mapping** (Mapping nome crm) immettere **`http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname`** .
+    1. Nella casella **Crm First Name Mapping** (Mapping nome crm) immettere **`http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname`**.
 
-    1. Nella casella **Crm LastName Mapping** (Mapping cognome crm) immettere **`http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname`** .  
+    1. Nella casella **Crm LastName Mapping** (Mapping cognome crm) immettere **`http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname`**.  
 
-    1. Selezionare **Salva** .
+    1. Selezionare **Salva**.
 
 ### <a name="create-an-azure-ad-test-user"></a>Creare un utente di test di Azure AD
 
 In questa sezione verrà creato un utente di test di nome Britta Simon nel portale di Azure.
 
-1. Nel riquadro sinistro del portale di Azure selezionare **Azure Active Directory** , **Utenti** e quindi **Tutti gli utenti** :
+1. Nel riquadro sinistro del portale di Azure selezionare **Azure Active Directory**, **Utenti** e quindi **Tutti gli utenti**:
 
     ![Selezionare Tutti gli utenti](common/users.png)
 
@@ -165,31 +165,31 @@ In questa sezione verrà creato un utente di test di nome Britta Simon nel porta
 
     ![Finestra di dialogo Utente](common/user-properties.png)
 
-    1. Nella casella **Nome** immettere **BrittaSimon** .
+    1. Nella casella **Nome** immettere **BrittaSimon**.
   
     1. Nella casella **Nome utente** immettere **BrittaSimon@\<yourcompanydomain>.\<extension>** . ad esempio BrittaSimon@contoso.com.
 
-    1. Selezionare **Mostra password** e quindi prendere nota del valore visualizzato nella casella **Password** .
+    1. Selezionare **Mostra password** e quindi prendere nota del valore visualizzato nella casella **Password**.
 
-    1. Selezionare **Create** (Crea).
+    1. Selezionare **Crea**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Assegnare l'utente di test di Azure AD
 
 In questa sezione Britta Simon verrà abilitata per l'uso dell'accesso Single Sign-On di Azure concedendole l'accesso a InsideView.
 
-1. Nel portale di Azure selezionare **Applicazioni aziendali** , quindi **Tutte le applicazioni** e infine **InsideView** .
+1. Nel portale di Azure selezionare **Applicazioni aziendali**, quindi **Tutte le applicazioni** e infine **InsideView**.
 
     ![Pannello delle applicazioni aziendali](common/enterprise-applications.png)
 
-2. Nell'elenco delle applicazioni selezionare **InsideView** .
+2. Nell'elenco delle applicazioni selezionare **InsideView**.
 
     ![Elenco delle applicazioni](common/all-applications.png)
 
-3. Nel riquadro sinistro selezionare **Utenti e gruppi** :
+3. Nel riquadro sinistro selezionare **Utenti e gruppi**:
 
     ![Selezionare Utenti e gruppi](common/users-groups-blade.png)
 
-4. Selezionare **Aggiungi utente** e quindi **Utenti e gruppi** nella finestra di dialogo **Aggiungi assegnazione** .
+4. Selezionare **Aggiungi utente** e quindi **Utenti e gruppi** nella finestra di dialogo **Aggiungi assegnazione**.
 
     ![Selezionare Aggiungi utente](common/add-assign-user.png)
 
@@ -197,7 +197,7 @@ In questa sezione Britta Simon verrà abilitata per l'uso dell'accesso Single Si
 
 6. Se si prevede un valore di ruolo nell'asserzione SAML, nella finestra di dialogo **Selezionare un ruolo** selezionare il ruolo appropriato per l'utente dall'elenco. Fare clic sul pulsante **Seleziona** in basso nella finestra.
 
-7. Nella finestra di dialogo **Aggiungi assegnazione** selezionare **Assegna** .
+7. Nella finestra di dialogo **Aggiungi assegnazione** selezionare **Assegna**.
 
 ### <a name="create-an-insideview-test-user"></a>Creare l'utente di test di InsideView
 

@@ -8,12 +8,12 @@ ms.subservice: security
 ms.date: 01/12/2020
 ms.author: ronytho
 ms.reviewer: jrasnick
-ms.openlocfilehash: 2d2b65261e09d056ec76b25d6fcb6627bc54770b
-ms.sourcegitcommit: 16887168729120399e6ffb6f53a92fde17889451
-ms.translationtype: HT
+ms.openlocfilehash: 65794c695fa4b36586b23a308845b1f12a20b7cb
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/13/2021
-ms.locfileid: "98165723"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "98569947"
 ---
 # <a name="synapse-managed-private-endpoints"></a>Endpoint privati gestiti di Synapse
 
@@ -23,7 +23,7 @@ Questo articolo illustra gli endpoint privati gestiti in Azure Synapse Analytics
 
 Gli endpoint privati gestiti sono endpoint privati creati in una rete virtuale gestita associata all'area di lavoro di Azure Synapse. Gli endpoint privati gestiti stabiliscono un collegamento privato con le risorse di Azure. Azure Synapse gestisce questi endpoint privati per conto dell'utente. È possibile creare endpoint privati gestiti nell'area di lavoro di Azure Synapse per accedere ai servizi di Azure, come Archiviazione di Azure o Azure Cosmos DB, e ai servizi di clienti/partner ospitati in Azure.
 
-Con gli endpoint privati gestiti, il traffico tra l'area di lavoro di Azure Synapse e altre risorse di Azure viaggia interamente sulla rete backbone di Azure. Gli endpoint privati gestiti proteggono dall'esfiltrazione di dati. Un endpoint privato gestito usa l'indirizzo IP privato della rete virtuale gestita per introdurre effettivamente il servizio di Azure comunicato dall'area di lavoro di Azure Synapse nella rete virtuale. Gli endpoint privati gestiti sono associati a una risorsa specifica in Azure e non all'intero servizio. I clienti possono limitare la connettività a una risorsa specifica approvata dall'organizzazione. 
+Quando si usano endpoint privati gestiti, il traffico tra l'area di lavoro di Azure sinapsi e altre risorse di Azure attraversa interamente la rete dorsale Microsoft. Gli endpoint privati gestiti proteggono dall'esfiltrazione di dati. Un endpoint privato gestito usa l'indirizzo IP privato della rete virtuale gestita per introdurre effettivamente il servizio di Azure comunicato dall'area di lavoro di Azure Synapse nella rete virtuale. Gli endpoint privati gestiti sono associati a una risorsa specifica in Azure e non all'intero servizio. I clienti possono limitare la connettività a una risorsa specifica approvata dall'organizzazione. 
 
 Altre informazioni su [collegamenti ed endpoint privati](../../private-link/index.yml).
 

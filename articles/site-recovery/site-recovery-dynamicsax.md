@@ -6,10 +6,10 @@ manager: rochakm
 ms.topic: how-to
 ms.date: 11/27/2018
 ms.openlocfilehash: dfa3c108d00aeba9c7d42e96e7a40736a087a508
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "86133825"
 ---
 # <a name="set-up-disaster-recovery-for-a-multitier-dynamics-ax-application"></a>Configurare il ripristino di emergenza per un'applicazione Dynamics AX multilivello   
@@ -178,7 +178,7 @@ Per altre informazioni relative a SQL Server durante il failback, vedere come [e
 
 Per altre informazioni sull'esecuzione di un failback, vedere [Eseguire il failback di una macchina virtuale VMware da Azure al sito locale](./vmware-azure-failback.md).
 
-## <a name="summary"></a>Summary
+## <a name="summary"></a>Riepilogo
 Con Azure Site Recovery è possibile creare un piano di ripristino di emergenza completamente automatico per l'applicazione Dynamics AX. In caso di interruzione del servizio è possibile avviare il failover in pochi secondi da qualsiasi luogo per ripristinare l'operatività dell'applicazione in pochi minuti.
 
 ## <a name="next-steps"></a>Passaggi successivi

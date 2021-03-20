@@ -13,16 +13,16 @@ ms.workload: infrastructure-services
 ms.date: 01/07/2021
 ms.author: damendo
 ms.openlocfilehash: 8da1130809c1802f4db963f4b4b000a848e9abaa
-ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/08/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98011102"
 ---
 # <a name="quickstart-deploy-and-manage-nsg-flow-logs-using-azure-policy"></a>Guida introduttiva: distribuire e gestire i log di flusso NSG usando criteri di Azure 
 
 ## <a name="overview"></a>Panoramica
-Criteri di Azure è un servizio che consente di applicare gli standard aziendali e di valutare la conformità su larga scala. I casi d'uso comuni per Criteri di Azure includono l'implementazione della governance per la coerenza delle risorse, la conformità alle normative, la sicurezza, i costi e la gestione. In questo articolo verranno usati due criteri predefiniti disponibili per i log di flusso NSG per gestire l'installazione dei log dei flussi. Il primo criterio contrassegna i gruppi senza i log di flusso abilitati. Il secondo criterio distribuisce automaticamente i log di flusso per gruppi senza i log di flusso abilitati. 
+Criteri di Azure consente di imporre standard aziendali e di valutare la conformità su larga scala. I casi d'uso comuni per Criteri di Azure includono l'implementazione della governance per la coerenza delle risorse, la conformità alle normative, la sicurezza, i costi e la gestione. In questo articolo verranno usati due criteri predefiniti disponibili per i log di flusso NSG per gestire l'installazione dei log dei flussi. Il primo criterio contrassegna i gruppi senza i log di flusso abilitati. Il secondo criterio distribuisce automaticamente i log di flusso per gruppi senza i log di flusso abilitati. 
 
 Se si sta creando un criterio di Azure per la prima volta, è possibile leggere: 
 - [Panoramica di Criteri di Azure](../governance/policy/overview.md) 

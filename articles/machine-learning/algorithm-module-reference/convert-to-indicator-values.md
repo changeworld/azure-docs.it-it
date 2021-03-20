@@ -10,10 +10,10 @@ author: likebupt
 ms.author: keli19
 ms.date: 02/11/2020
 ms.openlocfilehash: 81b3c113f46428327842c1555fdd1934e9ae8762
-ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/06/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93420853"
 ---
 # <a name="convert-to-indicator-values"></a>Eseguire la conversione in valori di indicatori
@@ -48,10 +48,10 @@ Si supponga di disporre di una colonna con punteggi che indichino se un server h
 | ID del server | Punteggio errore |
 | --------- | ------------- |
 | 10301     | Basso           |
-| 10302     | Media        |
-| 10303     | Alta          |
+| 10302     | Medio        |
+| 10303     | Alto          |
 
-Quando si applica **Convert a valori indicatore** , la finestra di progettazione converte una singola colonna di etichette in più colonne contenenti valori booleani:  
+Quando si applica **Convert a valori indicatore**, la finestra di progettazione converte una singola colonna di etichette in più colonne contenenti valori booleani:  
 
 | ID del server | Punteggio errore-basso | Punteggio di errore-medio | Punteggio errore-alto |
 | --------- | ------------------- | ---------------------- | -------------------- |
@@ -71,8 +71,8 @@ Ecco come funziona la conversione:
 
 Il modulo restituisce due output:
 
-- **Set di dati results** : set di dati con colonne con valori di indicatore convertiti. Anche le colonne non selezionate per la pulizia sono "passate".
-- **Transformation values Transformation** : trasformazione dei dati usata per la conversione in valori indicatore, che possono essere salvati nell'area di lavoro e applicati ai nuovi dati in un secondo momento.
+- **Set di dati results**: set di dati con colonne con valori di indicatore convertiti. Anche le colonne non selezionate per la pulizia sono "passate".
+- **Transformation values Transformation**: trasformazione dei dati usata per la conversione in valori indicatore, che possono essere salvati nell'area di lavoro e applicati ai nuovi dati in un secondo momento.
 
 ## <a name="apply-a-saved-indicator-values-operation-to-new-data"></a>Applicare un'operazione di valore indicatore salvato ai nuovi dati
 

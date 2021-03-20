@@ -5,10 +5,10 @@ ms.date: 03/26/2020
 ms.topic: conceptual
 ms.reviewer: janders
 ms.openlocfilehash: 4a98e5ea025894303bc5c77bba0c6154a08315f2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "80348371"
 ---
 # <a name="azure-blockchain-service-development-overview"></a>Panoramica sullo sviluppo di servizi blockchain di Azure
@@ -29,7 +29,7 @@ Per altre informazioni, vedere [Guida introduttiva: usare Visual Studio Code per
 
 ### <a name="metamask"></a>Metamask
 
-Metamask è un portafoglio basato su browser (client remoto), un client RPC e un'esplorazione di base di contratti. Diversamente da altri portafogli del browser, metamask inserisce un'istanza di Web3 nel contesto JavaScript del browser, che funge da client RPC che si connette a un'ampia gamma di Ethereum blockchain (*mainnet*, Ropsten *Testnet*, *Kovan*Testnet, nodo RPC locale e così via). È possibile configurare facilmente RPC personalizzate per connettersi al servizio Azure blockchain e avviare lo sviluppo di blockchain con Remix.
+Metamask è un portafoglio basato su browser (client remoto), un client RPC e un'esplorazione di base di contratti. Diversamente da altri portafogli del browser, metamask inserisce un'istanza di Web3 nel contesto JavaScript del browser, che funge da client RPC che si connette a un'ampia gamma di Ethereum blockchain (*mainnet*, Ropsten *Testnet*, *Kovan* Testnet, nodo RPC locale e così via). È possibile configurare facilmente RPC personalizzate per connettersi al servizio Azure blockchain e avviare lo sviluppo di blockchain con Remix.
 
 Per altre informazioni, vedere [Guida introduttiva: usare metamask per connettere e distribuire un contratto intelligente](connect-metamask.md)
 
@@ -44,7 +44,7 @@ Per altre informazioni, vedere [Guida introduttiva: usare Geth per connettersi a
 Il quorum è un protocollo di Ledger distribuito basato su Ethereum con transazioni con la privacy dei contratti e nuovi meccanismi di consenso. I miglioramenti apportati alla chiave Go-Ethereum includono:
 
 * **Privacy** : il quorum supporta le transazioni private e i contratti privati attraverso la separazione dello stato pubblico e privato e USA scambi di messaggi crittografati peer-to-peer per il trasferimento diretto dei dati privati ai partecipanti di rete.
-* **Meccanismi di consenso alternativi** : i consensi di prova di lavoro o di prova di scommessa non sono necessari per una rete con autorizzazioni. Il quorum offre diversi meccanismi di consenso, progettati per catene di Consorzio, ad esempio ZATTERa e IBFT.Il servizio Azure blockchain usa il meccanismo di consenso IBFT.
+* **Meccanismi di consenso alternativi** : i consensi di prova di lavoro o di prova di scommessa non sono necessari per una rete con autorizzazioni. Il quorum offre diversi meccanismi di consenso, progettati per catene di Consorzio, ad esempio ZATTERa e IBFT.  Il servizio Azure blockchain usa il meccanismo di consenso IBFT.
 * **Autorizzazione peer** : il nodo e l'autorizzazione peer con contratti intelligenti garantiscono che solo le parti note possano essere aggiunte alla rete.
 * **Prestazioni più elevate** : il quorum offre prestazioni superiori rispetto a Geth pubblici.
 

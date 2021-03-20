@@ -4,10 +4,10 @@ description: Informazioni su come usare Azure DevTest Labs in Azure Pipelines le
 ms.topic: article
 ms.date: 06/26/2020
 ms.openlocfilehash: d04ed5dd7bebac0c8f24deb9145c3d2e4b77122e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "88080335"
 ---
 # <a name="use-devtest-labs-in-azure-pipelines-build-and-release-pipelines"></a>Usare DevTest Labs nelle pipeline di compilazione e versione di Azure Pipelines
@@ -81,7 +81,7 @@ Si crea una pipeline di rilascio con due attività: **distribuzione di Azure: cr
 
 Per la prima attività, specificare il nome e il percorso del gruppo di risorse. Il percorso del modello è un artefatto collegato. Se il modello di Gestione risorse include modelli collegati, è necessario implementare una distribuzione del gruppo di risorse personalizzata. Il modello si trova nell'artefatto di rilascio pubblicato. Eseguire l'override dei parametri di modello per il modello di Gestione risorse. È possibile lasciare le impostazioni rimanenti con i valori predefiniti. 
 
-Per la seconda attività **distribuire il servizio app Azure**, specificare la sottoscrizione di Azure, selezionare **app Web** per il **tipo di app**e **$ (sito Web)** per il **nome del servizio app**. È possibile lasciare le impostazioni rimanenti con i valori predefiniti. 
+Per la seconda attività **distribuire il servizio app Azure**, specificare la sottoscrizione di Azure, selezionare **app Web** per il **tipo di app** e **$ (sito Web)** per il **nome del servizio app**. È possibile lasciare le impostazioni rimanenti con i valori predefiniti. 
 
 ## <a name="test-run"></a>Esecuzione dei test
 Ora che entrambe le pipeline sono configurate, accodare manualmente una compilazione e visualizzarne il funzionamento. Il passaggio successivo consiste nell'impostare il trigger appropriato per la compilazione e connettere la compilazione alla pipeline di rilascio.

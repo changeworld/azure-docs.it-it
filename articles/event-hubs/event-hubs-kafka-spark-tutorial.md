@@ -4,10 +4,10 @@ description: Questo articolo fornisce informazioni su come usare Apache Spark co
 ms.topic: how-to
 ms.date: 06/23/2020
 ms.openlocfilehash: 84184ed3dffee97863b93c592d1cd577df313605
-ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/29/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92913739"
 ---
 # <a name="connect-your-apache-spark-application-with-azure-event-hubs"></a>Connettere l'applicazione Apache Spark con hub eventi di Azure
@@ -24,7 +24,7 @@ In questa esercitazione verranno illustrate le procedure per:
 > * Leggere dati da Hub eventi per Kafka
 > * Scrivere dati in Hub eventi per Kafka
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerequisiti
 
 Prima di iniziare questa esercitazione, assicurarsi di avere:
 -   Sottoscrizione di Azure. Se non se ne ha una, [creare un account gratuito](https://azure.microsoft.com/free/).

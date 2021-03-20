@@ -12,10 +12,10 @@ ms.date: 08/27/2020
 ms.author: gasinh
 ms.subservice: B2C
 ms.openlocfilehash: b80b1a4b3f9bcde6cf01b0e0e59425c6783bd5d9
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/20/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94953764"
 ---
 # <a name="tutorial-for-configuring-hypr-with-azure-active-directory-b2c"></a>Esercitazione per la configurazione di HYPR con Azure Active Directory B2C
@@ -32,7 +32,7 @@ Per iniziare, è necessario:
 
 - Un tenant cloud HYPR, ottenere un [account di valutazione](https://get.hypr.com/free-trial)gratuito.
 
-- Un dispositivo mobile dell'utente registrato usando le API REST di HYPR o HYPR Device Manager nel tenant di HYPR. Ad esempio, è possibile usare [HYPR Java SDK](https://docs.hypr.com/integratinghypr/docs/hypr-java-web-sdk) per completare questa attività.
+- Un dispositivo mobile dell'utente registrato usando le API REST di HYPR o HYPR Gestione dispositivi nel tenant di HYPR. Ad esempio, è possibile usare [HYPR Java SDK](https://docs.hypr.com/integratinghypr/docs/hypr-java-web-sdk) per completare questa attività.
 
 ## <a name="scenario-description"></a>Descrizione dello scenario
 

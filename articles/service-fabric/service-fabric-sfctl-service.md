@@ -6,10 +6,10 @@ ms.topic: reference
 ms.date: 1/16/2020
 ms.author: jejarry
 ms.openlocfilehash: 426220f38e6ddfaaf8b24bf4f7d34473d881ae56
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "86245603"
 ---
 # <a name="sfctl-service"></a>sfctl service
@@ -22,7 +22,7 @@ Creare, eliminare e gestire servizi, tipi di servizio e pacchetti di servizi.
 | app-name | Mostra il nome dell'applicazione Service Fabric per un servizio. |
 | code-package-list | Mostra l'elenco di pacchetti di codice distribuiti in un nodo di Service Fabric. |
 | create | Crea il servizio di Service Fabric specificato. |
-| Elimina | Elimina un servizio Service Fabric esistente. |
+| eliminare | Elimina un servizio Service Fabric esistente. |
 | deployed-type | Ottiene le informazioni inerenti a un tipo di servizio specifico dell'applicazione distribuito in un nodo di un cluster di Service Fabric. |
 | deployed-type-list | Ottiene l'elenco contenente le informazioni sui tipi di servizio delle applicazioni distribuiti in un nodo di un cluster di Service Fabric. |
 | description | Mostra la descrizione di un servizio di Service Fabric esistente. |
@@ -511,7 +511,7 @@ Consente di risolvere una partizione del servizio di Service Fabric per ottenere
 |Argomento|Descrizione|
 | --- | --- |
 | --service-id [obbligatorio] | L'identità del servizio. L'ID corrisponde in genere al nome completo del servizio senza lo schema URI "fabric\:". A partire dalla versione 6.0, i nomi gerarchici sono delimitati dal carattere "\~". Ad esempio, se il nome del servizio è "fabric\:/myapp/app1/svc1", l'identità del servizio sarà "myapp\~app1\~svc1" nella versione 6.0 e successive e "myapp/app1/svc1" nelle versioni precedenti. |
-| --partition-key-type | Tipo di chiave per la partizione. Questo parametro è obbligatorio se lo schema di partizione per il servizio è Int64Range o Named. I valori possibili sono i seguenti. -None (1): indica che il parametro PartitionKeyValue non è specificato. È valido per le partizioni con schema di partizionamento Singleton. Rappresenta il valore predefinito. Il valore è uguale a 1. -Int64Range (2): indica che il parametro PartitionKeyValue è una chiave di partizione int64. È valido per le partizioni con schema di partizionamento Int64Range. Il valore è 2. - Named (3): indica che il parametro PartitionKeyValue è un nome della partizione. È valido per le partizioni con schema di partizionamento Named. Il valore è 3. |
+| --partition-key-type | Tipo di chiave per la partizione. Questo parametro è obbligatorio se lo schema di partizione per il servizio è Int64Range o Named. I valori possibili sono i seguenti. -None (1): indica che il parametro PartitionKeyValue non è specificato. È valido per le partizioni con schema di partizionamento Singleton. Si tratta del valore predefinito. Il valore è uguale a 1. -Int64Range (2): indica che il parametro PartitionKeyValue è una chiave di partizione int64. È valido per le partizioni con schema di partizionamento Int64Range. Il valore è 2. - Named (3): indica che il parametro PartitionKeyValue è un nome della partizione. È valido per le partizioni con schema di partizionamento Named. Il valore è 3. |
 | --partition-key-value | Chiave di partizione. Questo parametro è obbligatorio se lo schema di partizione per il servizio è Int64Range o Named. Non si tratta dell'ID di partizione, ma piuttosto del valore chiave intero o del nome dell'ID di partizione. Se, ad esempio, il servizio usa partizioni a intervalli da 0 a 10, il valore di PartitionKeyValue sarà un numero intero compreso in tale intervallo. Eseguire una query sulla descrizione del servizio per visualizzare l'intervallo o il nome. |
 | --previous-rsp-version | Valore nel campo Version della risposta ricevuta in precedenza. È obbligatorio se l'utente riconosce che il risultato ottenuto in precedenza non è aggiornato. |
 | --timeout -t | Timeout del server per l'esecuzione dell'operazione in secondi. Questo timeout specifica la durata del periodo di attesa del client per il completamento dell'operazione richiesta. Il valore predefinito per questo parametro è 60 secondi.  Impostazione predefinita\: 60. |

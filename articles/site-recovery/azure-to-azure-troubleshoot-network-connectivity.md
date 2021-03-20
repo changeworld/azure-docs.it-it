@@ -6,10 +6,10 @@ manager: rochakm
 ms.topic: how-to
 ms.date: 04/06/2020
 ms.openlocfilehash: 24ffce1528aa5c82fec9666fa0cb7b8717107f54
-ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/17/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97652263"
 ---
 # <a name="troubleshoot-azure-to-azure-vm-network-connectivity-issues"></a>Risolvere i problemi di connettività di rete delle macchine virtuali da Azure ad Azure
@@ -108,7 +108,7 @@ Non è possibile stabilire una connessione per Azure Site Recovery endpoint di s
 
 #### <a name="resolution"></a>Soluzione
 
-Se si usa un proxy del firewall/regola del gruppo di sicurezza di rete (NSG) di Azure per controllare la connettività di rete in uscita nel computer, è necessario consentire diversi tag di servizio. [Altre informazioni](azure-to-azure-about-networking.md#outbound-connectivity-using-service-tags).
+Se si usa un proxy del firewall/regola del gruppo di sicurezza di rete (NSG) di Azure per controllare la connettività di rete in uscita nel computer, è necessario consentire diversi tag di servizio. [Altre informazioni](azure-to-azure-about-networking.md#outbound-connectivity-using-service-tags)
 
 ### <a name="issue-4-azure-to-azure-replication-failed-when-the-network-traffic-goes-through-on-premises-proxy-server-151072"></a>Problema 4: la replica da Azure ad Azure non è riuscita quando il traffico di rete passa attraverso il server proxy locale (151072)
 
