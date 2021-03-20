@@ -10,10 +10,10 @@ author: likebupt
 ms.author: keli19
 ms.date: 10/13/2020
 ms.openlocfilehash: 392cb9b4c2ded1b98b79ce8dcd780ac59e96b78a
-ms.sourcegitcommit: 090ea6e8811663941827d1104b4593e29774fa19
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/13/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91998489"
 ---
 # <a name="group-data-into-bins-module"></a>Raggruppare i dati nel modulo bin
@@ -70,9 +70,9 @@ Poiché esistono moltissimi modi per raggruppare i dati, e tutti sono personaliz
     > [!Note]
     > La modalità *MDL entropia* è definita in studio (classico) e non esiste alcun pacchetto open source corrispondente che può essere utilizzato per supportare ancora nella finestra di progettazione.        
 
-4. Se si usano le modalità di suddivisione in contenitori **quantili** e **Equal Width** , usare l'opzione **Number of bins** per specificare il numero di bin o *quantili*che si vuole creare.
+4. Se si usano le modalità di suddivisione in contenitori **quantili** e **Equal Width** , usare l'opzione **Number of bins** per specificare il numero di bin o *quantili* che si vuole creare.
 
-5. Per le **colonne da**inserire, utilizzare il selettore di colonna per scegliere le colonne che contengono i valori che si desidera inserire. Il tipo di dati delle colonne deve essere numerico.
+5. Per le **colonne da** inserire, utilizzare il selettore di colonna per scegliere le colonne che contengono i valori che si desidera inserire. Il tipo di dati delle colonne deve essere numerico.
 
     La stessa regola di binning viene applicata a tutte le colonne scelte applicabili. Se è necessario suddividere alcune colonne usando un metodo diverso, usare un'istanza separata dei dati di gruppo nel modulo bin per ogni set di colonne.
 

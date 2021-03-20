@@ -9,10 +9,10 @@ ms.date: 07/25/2019
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: c1a3d0b05f04ad8c182d428843479160666b96ee
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "87070314"
 ---
 # <a name="deploy-storsimple-virtual-array---prepare-the-azure-portal"></a>Distribuire l'array virtuale StorSimple: preparare il portale di Azure
@@ -30,7 +30,7 @@ Per completare il processo di installazione e configurazione sono necessari priv
 
 Le informazioni pubblicate in questo articolo si applicano alla distribuzione di array virtuali StorSimple nel portale di Azure e nel cloud di Microsoft Azure per enti pubblici.
 
-### <a name="get-started"></a>Operazioni preliminari
+### <a name="get-started"></a>Introduzione
 Il flusso di lavoro di distribuzione consiste nella preparazione del portale, nel provisioning di un array virtuale nell'ambiente virtualizzato e nel completamento dell'installazione. Per iniziare la distribuzione dell'array virtuale StorSimple come file server o server iSCSI, è necessario fare riferimento alle seguenti risorse catalogate.
 
 #### <a name="deployment-articles"></a>Articoli sulla distribuzione
@@ -149,16 +149,16 @@ Eseguire i passaggi seguenti nel [portale di Azure](https://ms.portal.azure.com/
 
 1. Passare al servizio Gestione dispositivi, selezionare e fare doppio clic. Si apre il pannello **Panoramica**.
 2. Selezionare **Credenziali dell'account di archiviazione** nella sezione **Configurazione**.
-3. Scegliere **Aggiungi**.
+3. Fare clic su **Aggiungi**.
 4. Nel pannello **Aggiungi un account di archiviazione** eseguire le operazioni seguenti:
    
    1. Per **Sottoscrizione** selezionare **Corrente**.
    
    2. Specificare il nome dell'account di archiviazione di Azure.
    
-   3. Selezionare**Abilita** per creare un canale sicuro per la comunicazione di rete tra il dispositivo StorSimple e il cloud. Selezionare **Disabilita** solo se si opera all'interno di un cloud privato.
+   3. Selezionare **Abilita** per creare un canale sicuro per la comunicazione di rete tra il dispositivo StorSimple e il cloud. Selezionare **Disabilita** solo se si opera all'interno di un cloud privato.
    
-   4. Scegliere **Aggiungi**. Quando la creazione dell'account di archiviazione viene completata, si riceve una notifica.<br></br>
+   4. Fare clic su **Aggiungi**. Quando la creazione dell'account di archiviazione viene completata, si riceve una notifica.<br></br>
    
       ![Aggiungere le credenziali di un account di archiviazione esistente](./media/storsimple-virtual-array-manage-storage-accounts/ova-add-storageacct.png)
 

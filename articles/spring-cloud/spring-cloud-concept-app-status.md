@@ -8,10 +8,10 @@ ms.date: 04/10/2020
 ms.author: brendm
 ms.custom: devx-track-java
 ms.openlocfilehash: ec87c5523d6f608363ca615037f20365705609df
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "90892857"
 ---
 # <a name="understanding-app-status-in-azure-spring-cloud"></a>Informazioni sullo stato delle app in Azure Spring Cloud
@@ -43,8 +43,8 @@ Per visualizzare lo stato generale di un tipo di applicazione, selezionare **app
 |:--:|:----------------:|
 | Creating | La risorsa sta creando. |
 | Aggiornamento | Aggiornamento della risorsa in corso. |
-| Operazione riuscita | Le risorse sono state fornite e la distribuzione del file binario è stata completata. |
-| Operazione non riuscita | Non è stato possibile raggiungere l'obiettivo *riuscito* . |
+| Completato | Le risorse sono state fornite e la distribuzione del file binario è stata completata. |
+| Non riuscito | Non è stato possibile raggiungere l'obiettivo *riuscito* . |
 | Deleting | È in corso l'eliminazione della risorsa. Questa operazione impedisce l'operazione e la risorsa non è disponibile in questo stato. |
 
 ## <a name="app-instances-status"></a>Stato delle istanze dell'app
@@ -61,7 +61,7 @@ Per visualizzare lo stato di un'istanza specifica di un'app distribuita, fare cl
 |:--:|:----------------:|
 | Avvio in corso | Il file binario è stato distribuito correttamente nell'istanza specificata. L'avvio dell'istanza del file jar potrebbe non riuscire perché non è possibile eseguire correttamente il file jar. |
 | In esecuzione | L'istanza funziona. |
-| Operazione non riuscita | L'istanza dell'app non è riuscita a avviare il file binario dell'utente dopo diversi tentativi. |
+| Non riuscito | L'istanza dell'app non è riuscita a avviare il file binario dell'utente dopo diversi tentativi. |
 | Terminazione | L'istanza dell'app verrà arrestata. |
 
 **Lo stato di individuazione dell'istanza viene segnalato come uno dei valori seguenti:**
@@ -73,5 +73,5 @@ Per visualizzare lo stato di un'istanza specifica di un'app distribuita, fare cl
 | DOWN | L'istanza dell'app non è registrata in Eureka o è registrata ma non può ricevere traffico. |
 
 
-## <a name="see-also"></a>Vedere anche
+## <a name="see-also"></a>Vedi anche
 * [Preparare un'applicazione Spring o Steeltoe per la distribuzione nel cloud Spring di Azure](spring-cloud-tutorial-prepare-app-deployment.md)

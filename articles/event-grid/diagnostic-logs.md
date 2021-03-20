@@ -4,10 +4,10 @@ description: Questo articolo fornisce informazioni concettuali sui log di diagno
 ms.topic: conceptual
 ms.date: 12/03/2020
 ms.openlocfilehash: 36ade14932b5d25c7a1fe05632da671de68ba3bb
-ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/03/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96574987"
 ---
 #  <a name="diagnostic-logs-for-azure-event-grid-topicsdomains"></a>Log di diagnostica per argomenti/domini di griglia di eventi di Azure
@@ -22,7 +22,7 @@ Le impostazioni di diagnostica consentono agli utenti di griglia di eventi di ac
 | EventSubscriptionName | string | Nome della sottoscrizione di eventi <p>**Valore di esempio:** "EVENTSUB1"</p> <p>Questa proprietà esiste solo per i log degli errori di recapito.</p>  |
 | Category | string | Nome della categoria di log. <p>**Valori di esempio:** "DeliveryFailures" o "PublishFailures" | 
 | OperationName | string | Il nome dell'operazione ha causato l'errore.<p>**Valori di esempio:** "Recapita" per gli errori di recapito. |
-| Messaggio | string | Messaggio di log per l'utente che descrive il motivo dell'errore e altri dettagli aggiuntivi. |
+| Message | string | Messaggio di log per l'utente che descrive il motivo dell'errore e altri dettagli aggiuntivi. |
 | ResourceId | string | ID risorsa per la risorsa argomento/dominio<p>**Valori di esempio:**`/SUBSCRIPTIONS/SAMPLE-SUBSCRIPTION-ID/RESOURCEGROUPS/SAMPLE-RESOURCEGROUP/PROVIDERS/MICROSOFT.EVENTGRID/TOPICS/TOPIC1` |
 
 ## <a name="example"></a>Esempio

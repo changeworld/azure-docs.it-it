@@ -14,10 +14,10 @@ ms.reviewer: saeeda, jmprieur, andret
 ms.custom: aaddev
 ROBOTS: NOINDEX
 ms.openlocfilehash: 5ff2858dd8b91ba036c517cbff07be96a729ef8c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "88116445"
 ---
 # <a name="application-types-in-v10"></a>Tipi di applicazioni nella versione 1.0
@@ -47,7 +47,7 @@ Fare clic sui collegamenti per ottenere altre informazioni su ogni tipo di app e
 
 Inoltre, se l'applicazione necessita di una parte o di un segmento specifico di uno scenario end-to-end, nella maggior parte dei casi è possibile aggiungere tale funzionalità in modo indipendente. Ad esempio, se si ha un'applicazione nativa che chiama un'API Web, è possibile aggiungere facilmente un'applicazione Web che chiama la stessa API Web.
 
-## <a name="app-registration"></a>Registrazione delle app
+## <a name="app-registration"></a>Registrazione dell'app
 
 ### <a name="registering-an-app-that-uses-the-azure-ad-v10-endpoint"></a>Registrazione di un'app che usa l'endpoint v1.0 di Azure AD
 

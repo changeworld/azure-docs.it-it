@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.date: 01/09/2020
 ms.custom: devx-track-azurecli
 ms.openlocfilehash: da6a2b97d2656d56fa2aa0e7259fba433bd7b81e
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/25/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "95998584"
 ---
 # <a name="create-and-manage-private-link-for-azure-database-for-mysql-using-cli"></a>Creare e gestire un collegamento privato per database di Azure per MySQL tramite l'interfaccia della riga di comando
@@ -23,7 +23,7 @@ Un endpoint privato è il blocco predefinito fondamentale per il collegamento pr
 
 [!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
 
-- Questo articolo richiede la versione 2.0.28 o successiva dell'interfaccia della riga di comando di Azure. Se si usa Azure Cloud Shell, la versione più recente è già installata.
+- Questo articolo richiede l'interfaccia della riga di comando di Azure versione 2.0.28 o successiva. Se si usa Azure Cloud Shell, la versione più recente è già installata.
 
 ## <a name="create-a-resource-group"></a>Creare un gruppo di risorse
 
@@ -171,7 +171,7 @@ Connettersi alla macchina virtuale *myVm* da Internet come indicato di seguito:
     | ------- | ----- |
     | Connection Name (Nome connessione)| Selezionare il nome della connessione scelta.|
     | Nome host | Seleziona *mydemoserver.privatelink.MySQL.database.Azure.com* |
-    | Nome utente | Immettere username (nome utente) come *username@servername* specificato durante la creazione del server MySQL. |
+    | Username | Immettere username (nome utente) come *username@servername* specificato durante la creazione del server MySQL. |
     | Password | Immettere una password specificata durante la creazione del server MySQL. |
     ||
 

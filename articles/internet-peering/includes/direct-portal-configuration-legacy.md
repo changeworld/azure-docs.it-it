@@ -9,10 +9,10 @@ ms.topic: include
 ms.date: 11/27/2019
 ms.author: prmitiki
 ms.openlocfilehash: 632490498b8dd13414657edb9518cd543ac07af6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "81678847"
 ---
 1. Nella scheda **configurazione** della pagina **Crea un peering** compilare le caselle come illustrato qui.
@@ -20,8 +20,8 @@ ms.locfileid: "81678847"
     > [!div class="mx-imgBorder"]
     > ![Creare una scheda di configurazione della pagina di peering](../media/setup-direct-conf-tab.png)
 
-    * Per **tipo di peering**selezionare **diretta**.
-    * Per **Microsoft Network**selezionare **AS8075**. Non selezionare ASN 8069. È riservata per applicazioni speciali e viene usata solo dal [peering Microsoft](mailto:peering@microsoft.com).
+    * Per **tipo di peering** selezionare **diretta**.
+    * Per **Microsoft Network** selezionare **AS8075**. Non selezionare ASN 8069. È riservata per applicazioni speciali e viene usata solo dal [peering Microsoft](mailto:peering@microsoft.com).
     * Selezionare **SKU** come **Basic Free**. Non selezionare Premium Free perché è riservato per applicazioni speciali.
     * Selezionare la **località** in cui si vuole convertire il peering in una risorsa di Azure. Se si dispone di connessioni peering con Microsoft nella località **metro** selezionata che non vengono convertite in una risorsa di Azure, queste connessioni verranno elencate nella sezione **connessioni peering** , come illustrato. È ora possibile convertire le connessioni peering in una risorsa di Azure.
 

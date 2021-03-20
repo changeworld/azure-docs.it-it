@@ -9,16 +9,16 @@ ms.topic: include
 ms.date: 3/18/2020
 ms.author: derekol
 ms.openlocfilehash: e5804aa1b005e670d8b430b1c0a3bd62efd0bb06
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "81687065"
 ---
 1. Selezionare una connessione di peering che si vuole abilitare per il servizio peering di Azure. Quindi selezionare **...**  >  **Modifica connessione**.
     > [!div class="mx-imgBorder"]
     > ![Connessione di modifica connessione peering](../media/setup-direct-modify-editconnection.png)
-1. In **USA per il servizio di peering**selezionare **abilitato** e quindi fare clic su **Salva**.
+1. In **USA per il servizio di peering** selezionare **abilitato** e quindi fare clic su **Salva**.
     > [!div class="mx-imgBorder"]
     > ![Connessione peering Abilita servizio di peering](../media/setup-direct-modify-editconnectionsettings-peering-service.png)
 1. Nella schermata **Panoramica** vengono visualizzati i dettagli della distribuzione. Al termine della distribuzione, selezionare **Vai alla risorsa**.

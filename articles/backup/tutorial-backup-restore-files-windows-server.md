@@ -5,10 +5,10 @@ ms.topic: tutorial
 ms.date: 02/14/2018
 ms.custom: mvc
 ms.openlocfilehash: 746c901747cf1c0b87612a31fbabcb657d5c4a0c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
-ms.translationtype: HT
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "88263113"
 ---
 # <a name="recover-files-from-azure-to-a-windows-server"></a>Recuperare i file da Azure in un'istanza di Windows Server
@@ -27,7 +27,7 @@ Questa esercitazione presuppone che sia già stata eseguita la procedura per [es
 
 Insieme all'agente di Servizi di ripristino di Microsoft Azure (MARS) viene installata un'utile procedura guidata dell'interfaccia utente denominata Backup di Microsoft Azure. La procedura guidata di Backup di Microsoft Azure, insieme all'agente di Servizi di ripristino di Microsoft Azure (MARS), recupera i dati di backup dai punti di ripristino archiviati in Azure. Usare la procedura guidata di Backup di Microsoft Azure per identificare i file o le cartelle da ripristinare in Windows Server.
 
-1. Aprire lo snap-in di **Backup di Microsoft Azure** . È possibile trovarlo se si cerca **Backup di Microsoft Azure**nel computer.
+1. Aprire lo snap-in di **Backup di Microsoft Azure** . È possibile trovarlo se si cerca **Backup di Microsoft Azure** nel computer.
 
     ![Snap-in Backup di Microsoft Azure](./media/tutorial-backup-restore-files-windows-server/mars.png)
 

@@ -4,10 +4,10 @@ description: Informazioni su come configurare un'identità Lab in Azure DevTest.
 ms.topic: article
 ms.date: 08/20/2020
 ms.openlocfilehash: a652eb5751f9b723911a1c1baaaaf9860febc5b6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "88719687"
 ---
 # <a name="configure-a-lab-identity"></a>Configurare un'identità Lab
@@ -50,7 +50,7 @@ Questa sezione illustra come configurare i criteri di identità del Lab.
 
 Un'identità gestita assegnata dall'utente viene creata come risorsa di Azure autonoma. Tramite un processo di creazione, Azure crea un'identità nel tenant di Azure AD considerato attendibile dalla sottoscrizione in uso. Dopo la creazione, l'identità può essere assegnata a una o più istanze del servizio di Azure. Il ciclo di vita di un'identità assegnata dall'utente viene gestito separatamente dal ciclo di vita delle istanze del servizio di Azure a cui l'identità è assegnata. 
 
-DevTest Labs supporta le identità assegnate dall'utente per le macchine virtuali e gli ambienti basati su Azure Resource Manager.  Per altre informazioni, vedere gli argomenti seguenti:
+DevTest Labs supporta le identità assegnate dall'utente per le macchine virtuali e gli ambienti basati su Azure Resource Manager.  Per altre informazioni, vedere i seguenti argomenti:
 
 - [Aggiungere un'identità assegnata dall'utente per distribuire ambienti Lab Azure Resource Manager](use-managed-identities-environments.md)
 - [Aggiungere identità assegnate dall'utente per distribuire macchine virtuali Lab](enable-managed-identities-lab-vms.md)

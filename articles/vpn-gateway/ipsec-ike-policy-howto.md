@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.date: 09/18/2020
 ms.author: yushwang
 ms.openlocfilehash: 2b298185866d16da02fe8d3b3fdb41f0b0b1f726
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/27/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98878545"
 ---
 # <a name="configure-ipsecike-policy-for-s2s-vpn-or-vnet-to-vnet-connections-azure-portal"></a>Configurare i criteri IPsec/IKE per le connessioni VPN S2S o da VNet a VNet: portale di Azure
@@ -28,8 +28,10 @@ Questo articolo fornisce istruzioni per creare e configurare un criterio IPsec/I
 ### <a name="considerations"></a>Considerazioni
 
 * Il criterio IPsec/IKE funziona solo sugli SKU del gateway seguenti:
-  * ***VpnGw1 ~ 5 e VpnGw1AZ ~ 5AZ** _ _ ***standard** _ e _*_HighPerformance_*_ _ è possibile specificare solo una combinazione di criteri ***One** _ per una determinata connessione.
-  _ È necessario specificare tutti gli algoritmi e i parametri sia per IKE (modalità principale) che per IPsec (modalità rapida). Non è consentito specificare criteri parziali.
+  * ***VpnGw1 ~ 5 e VpnGw1AZ ~ 5AZ***
+  * ***Standard** _ e _ *_HighPerformance_**
+* Per una determinata connessione è possibile specificare ***una*** sola combinazione di criteri.
+* È necessario specificare tutti gli algoritmi e i parametri sia per IKE (modalità principale) che per IPsec (modalità rapida). Non è consentito specificare criteri parziali.
 * Consultare le specifiche del fornitore del dispositivo VPN per verificare che i criteri siano supportati dai dispositivi VPN locali. Non è possibile stabilire connessioni da sito a sito o da rete virtuale a rete virtuale se i criteri non sono compatibili.
 
 ## <a name="workflow"></a><a name ="workflow"></a>Flusso di lavoro

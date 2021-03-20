@@ -15,10 +15,10 @@ ms.author: curtand
 ms.reviewer: shaunliu
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 94dd5c2579eb7ce96dea70c6354df8ec84125bd9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "88141670"
 ---
 # <a name="audit-activity-history-for-privileged-access-group-assignments-preview-in-privileged-identity-management"></a>Cronologia delle attività di controllo per le assegnazioni di gruppi di accesso con privilegi (anteprima) in Privileged Identity Management
@@ -40,7 +40,7 @@ Il **controllo delle risorse** offre una visualizzazione di tutte le attività a
 
 1. Selezionare il gruppo di accesso con privilegi per cui si vuole visualizzare la cronologia di controllo.
 
-1. In **attività**selezionare **controllo risorse**.
+1. In **attività** selezionare **controllo risorse**.
 
 1. Filtrare la cronologia usando una data predefinita o un intervallo personalizzato.
 
@@ -56,7 +56,7 @@ Il **controllo delle risorse** offre una visualizzazione di tutte le attività a
 
 1. Selezionare il gruppo di accesso con privilegi per cui si vuole visualizzare la cronologia di controllo.
 
-1. In **Activity**selezionare **My audit**.
+1. In **Activity** selezionare **My audit**.
 
 1. Filtrare la cronologia usando una data predefinita o un intervallo personalizzato.
 

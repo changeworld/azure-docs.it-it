@@ -11,10 +11,10 @@ ms.topic: article
 ms.date: 02/27/2019
 ms.author: aahi
 ms.openlocfilehash: 197d28b2ac3d94b6639a6611b2919bdeb2b182e2
-ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/05/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93359902"
 ---
 # <a name="extract-information-in-excel-using-text-analytics-and-power-automate"></a>Estrarre informazioni in Excel usando Analisi del testo e Power Automate 
@@ -76,19 +76,19 @@ Creare variabili che rappresentano le informazioni che verranno aggiunte al file
 
 Aggiungere le informazioni seguenti alle variabili create. Rappresentano le colonne del file di Excel. Se sono presenti variabili compresse, è possibile fare clic su di esse per espanderle.
 
-| Action |Nome   | Type | valore |
+| Azione |Nome   | Type | valore |
 |---------|---------|---|---|
-| Inizializzare una variabile | var_person | Stringa | Persona |
-| Inizializza variabile 2 | var_phone | Stringa | Phone_Number |
-| Inizializza variabile 3 | var_plumbing | Stringa | tubature |
-| Inizializza variabile 4 | var_other | Stringa | altro | 
+| Inizializzare una variabile | var_person | string | Persona |
+| Inizializza variabile 2 | var_phone | string | Phone_Number |
+| Inizializza variabile 3 | var_plumbing | string | tubature |
+| Inizializza variabile 4 | var_other | string | altro | 
 
 > [!div class="mx-imgBorder"] 
 > :::image type="content" source="../media/tutorials/excel/flow-variables.png" alt-text="informazioni contenute nelle variabili di flusso":::
 
 ## <a name="read-the-excel-file"></a>Leggere il file di Excel
 
-Fare clic su **nuovo passaggio** e digitare **Excel** , quindi selezionare **Elenca righe presenti in una tabella** dall'elenco di azioni.
+Fare clic su **nuovo passaggio** e digitare **Excel**, quindi selezionare **Elenca righe presenti in una tabella** dall'elenco di azioni.
 
 > [!div class="mx-imgBorder"] 
 > :::image type="content" source="../media/tutorials/excel/list-excel-rows.png" alt-text="aggiungere righe di Excel.":::
@@ -123,7 +123,7 @@ Nel flusso immettere le informazioni seguenti per creare una nuova connessione A
 
 | Campo           | Valore                                                                                                             |
 |-----------------|-------------------------------------------------------------------------------------------------------------------|
-| Connection Name (Nome connessione) | Nome della connessione alla risorsa Analisi del testo. Ad esempio, `TAforPowerAutomate` |
+| Connection Name (Nome connessione) | Nome della connessione alla risorsa Analisi del testo. Ad esempio: `TAforPowerAutomate`. |
 | Chiave account     | Chiave per la risorsa Analisi del testo.                                                                                   |
 | Site URL        | Endpoint per la risorsa Analisi del testo.                                                       |
 
@@ -145,7 +145,7 @@ Fare clic nel campo di **testo** e selezionare **Descrizione** nelle finestre di
 
 ## <a name="extract-the-person-name"></a>Estrai nome persona
 
-Successivamente, il tipo di entità Person verrà trovato nell'output del Analisi del testo. All'interno **di applica a ogni** , fare clic su **Aggiungi un'azione** e crearne un'altra **applica a ogni** azione. Fare clic all'interno della casella di testo e selezionare **entità** nella finestra contenuto dinamico visualizzata.
+Successivamente, il tipo di entità Person verrà trovato nell'output del Analisi del testo. All'interno **di applica a ogni**, fare clic su **Aggiungi un'azione** e crearne un'altra **applica a ogni** azione. Fare clic all'interno della casella di testo e selezionare **entità** nella finestra contenuto dinamico visualizzata.
 
 > [!div class="mx-imgBorder"] 
 > :::image type="content" source="../media/tutorials/excel/add-apply-action-2.png" alt-text="Aggiungere Analisi del testo credenziali al flusso. 2":::
@@ -170,7 +170,7 @@ Nella condizione **if sì** digitare Excel e quindi selezionare **Aggiorna una r
 > [!div class="mx-imgBorder"] 
 > :::image type="content" source="../media/tutorials/excel/yes-column-action.png" alt-text="Aggiungere Analisi del testo credenziali al flusso. 6":::
 
-Immettere le informazioni di Excel e aggiornare i campi **colonna chiave** , **valore chiave** e **personaname** . Il nome rilevato dall'API verrà aggiunto al foglio di Excel. 
+Immettere le informazioni di Excel e aggiornare i campi **colonna chiave**, **valore chiave** e **personaname** . Il nome rilevato dall'API verrà aggiunto al foglio di Excel. 
 
 > [!div class="mx-imgBorder"] 
 > :::image type="content" source="../media/tutorials/excel/yes-column-action-options.png" alt-text="Aggiungere Analisi del testo credenziali al flusso. 7":::
@@ -218,7 +218,7 @@ Nella condizione **se no** fare clic su **Aggiungi un'azione** e selezionare **A
 
 ## <a name="test-the-workflow"></a>Testare il flusso di lavoro
 
-Nell'angolo in alto a destra della schermata fare clic su **Salva** , quindi su **test**. Selezionare  **eseguirò l'azione trigger**. Fare clic su **salva & test** , **Esegui flusso** , quindi **completato**.
+Nell'angolo in alto a destra della schermata fare clic su **Salva**, quindi su **test**. Selezionare  **eseguirò l'azione trigger**. Fare clic su **salva & test**, **Esegui flusso**, quindi **completato**.
 
 Il file di Excel verrà aggiornato nell'account OneDrive. L'aspetto sarà simile al seguente.
 

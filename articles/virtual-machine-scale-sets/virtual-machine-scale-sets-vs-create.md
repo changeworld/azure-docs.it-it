@@ -10,10 +10,10 @@ ms.date: 09/09/2019
 ms.reviewer: mimckitt
 ms.custom: mimckitt
 ms.openlocfilehash: 2db281f1b3278e37deca8486971a7f7a83f85ccf
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "86503082"
 ---
 # <a name="how-to-create-a-virtual-machine-scale-set-with-visual-studio"></a>Come creare un set di scalabilità di macchine virtuali con Visual Studio
@@ -38,9 +38,9 @@ Per iniziare a distribuire set di scalabilità di macchine virtuali in Visual St
 
 1. Aprire Visual Studio e selezionare **Crea un nuovo progetto**.
 
-1. In **Crea un nuovo progetto**scegliere **gruppo di risorse di Azure** per C# e quindi fare clic su **Avanti**.
+1. In **Crea un nuovo progetto** scegliere **gruppo di risorse di Azure** per C# e quindi fare clic su **Avanti**.
 
-1. In **Configura il nuovo progetto**immettere un nome e selezionare **Crea**.
+1. In **Configura il nuovo progetto** immettere un nome e selezionare **Crea**.
 
     ![Nome e creazione del progetto](media/virtual-machine-scale-sets-vs-create/configure-azure-resource-group.png)
 
@@ -64,11 +64,11 @@ Il servizio di bilanciamento del carico consente di connettersi alle istanze di 
 
 Distribuire il modello di Azure Resource Manager per creare la risorsa del set di scalabilità di macchine virtuali:
 
-1. In **Esplora soluzioni**fare clic con il pulsante destro del mouse sul progetto e scegliere **Distribuisci**  >  **nuovo**.
+1. In **Esplora soluzioni** fare clic con il pulsante destro del mouse sul progetto e scegliere **Distribuisci**  >  **nuovo**.
 
     ![Distribuire il progetto](media/virtual-machine-scale-sets-vs-create/deploy-new-project.png)
 
-1. In **Distribuisci in gruppo di risorse**scegliere la sottoscrizione da usare e selezionare un gruppo di risorse. Se necessario, è possibile creare un gruppo di risorse.
+1. In **Distribuisci in gruppo di risorse** scegliere la sottoscrizione da usare e selezionare un gruppo di risorse. Se necessario, è possibile creare un gruppo di risorse.
 
 1. Selezionare quindi **modifica parametri** per immettere i parametri passati al modello.
 
@@ -78,7 +78,7 @@ Distribuire il modello di Azure Resource Manager per creare la risorsa del set d
 
     ![Modifica parametri di distribuzione](media/virtual-machine-scale-sets-vs-create/edit-deployment-parameters.png)
 
-1. In **Distribuisci in gruppo di risorse**selezionare **Distribuisci**. L'azione esegue lo script **Deploy-AzureResourceGroup.ps1** . La finestra **Output** visualizza lo stato della distribuzione.
+1. In **Distribuisci in gruppo di risorse** selezionare **Distribuisci**. L'azione esegue lo script **Deploy-AzureResourceGroup.ps1** . La finestra **Output** visualizza lo stato della distribuzione.
 
    ![Output Mostra i risultati](media/virtual-machine-scale-sets-vs-create/deployment-output.png)
 
