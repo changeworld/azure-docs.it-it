@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 05/20/2020
 tags: connectors
 ms.openlocfilehash: 91873a2d6a498712773bfe721653e64c3364666f
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/27/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92674814"
 ---
 # <a name="get-started-with-the-oracle-database-connector"></a>Introduzione al connettore Oracle Database
@@ -52,24 +52,24 @@ Questo articolo illustra come usare il connettore Oracle Database in un'app per 
 ## <a name="add-the-connector"></a>Aggiungere il connettore
 
 > [!IMPORTANT]
-> Questo connettore non include trigger. Ha solo azioni. Quando si crea l'app per la logica, aggiungere quindi un altro trigger per avviare l'app per la logica, ad esempio **Pianificazione - Ricorrenza** o **Richiesta/Risposta - Risposta** . 
+> Questo connettore non include trigger. Ha solo azioni. Quando si crea l'app per la logica, aggiungere quindi un altro trigger per avviare l'app per la logica, ad esempio **Pianificazione - Ricorrenza** o **Richiesta/Risposta - Risposta**. 
 
 1. Nel [portale di Azure](https://portal.azure.com) creare un'app per la logica vuota.
 
-2. All'avvio dell'app per la logica, selezionare il trigger **Richiesta/Risposta - Risposta** : 
+2. All'avvio dell'app per la logica, selezionare il trigger **Richiesta/Risposta - Risposta**: 
 
     ![Una finestra di dialogo contiene una casella per la ricerca di tutti i trigger. Viene anche visualizzato un singolo trigger, "request/response-request", con un pulsante di selezione.](./media/connectors-create-api-oracledatabase/request-trigger.png)
 
-3. Selezionare **Salva** . Quando si salva, viene generato automaticamente un URL di richiesta. 
+3. Selezionare **Salva**. Quando si salva, viene generato automaticamente un URL di richiesta. 
 
-4. Selezionare **Nuovo passaggio** e quindi **Aggiungi un'azione** . Digitare `oracle` per visualizzare le azioni disponibili: 
+4. Selezionare **Nuovo passaggio** e quindi **Aggiungi un'azione**. Digitare `oracle` per visualizzare le azioni disponibili: 
 
     ![Una casella di ricerca contiene "Oracle". La ricerca genera un hit con etichetta "Oracle Database". È presente una pagina a schede, una scheda che mostra "trigger (0)", un'altra che mostra "azioni (6)". Sono elencate sei azioni. Il primo è "Get Row Preview".](./media/connectors-create-api-oracledatabase/oracledb-actions.png)
 
     > [!TIP]
     > Questo è anche il modo più rapido per visualizzare i trigger e le azioni disponibili per i connettori. Digitare parte del nome del connettore, ad esempio `oracle`. La finestra di progettazione elenca i trigger e le azioni. 
 
-5. Selezionare una delle azioni, ad esempio **Oracle Database - Ottieni riga** . Selezionare **Connect via on-premises data gateway** (Connetti tramite gateway dati locale). Immettere il nome del server Oracle, il metodo di autenticazione, il nome utente e la password e selezionare il gateway:
+5. Selezionare una delle azioni, ad esempio **Oracle Database - Ottieni riga**. Selezionare **Connect via on-premises data gateway** (Connetti tramite gateway dati locale). Immettere il nome del server Oracle, il metodo di autenticazione, il nome utente e la password e selezionare il gateway:
 
     ![Il titolo della finestra di dialogo è "Oracle Database-Ottieni riga". È presente una casella, selezionata, denominata "Connetti tramite il gateway dati locale". Di seguito sono riportate le altre cinque caselle di testo.](./media/connectors-create-api-oracledatabase/create-oracle-connection.png)
 
@@ -83,12 +83,12 @@ Questo articolo illustra come usare il connettore Oracle Database in un'app per 
 
     ![Sono disponibili due finestre di dialogo. Nella casella "Invia un messaggio di posta elettronica" sono presenti caselle per specificare gli indirizzi "Body", "Subject" e "to" del messaggio di posta elettronica. La finestra di dialogo "Aggiungi contenuto dinamico" fornisce una ricerca di contenuto dinamico dalle app e dai servizi del flusso.](./media/connectors-create-api-oracledatabase/oracle-send-email.png)
 
-8. **Salvare** l'app per la logica e quindi selezionare **Esegui** . Chiudere la finestra di progettazione ed esaminare lo stato nella cronologia delle esecuzioni. In caso di esito negativo, selezionare la riga relativa al messaggio non inviato. La finestra di progettazione viene aperta e mostra il passaggio non riuscito, con le informazioni sull'errore. In caso di esito positivo, si dovrebbe ricevere un messaggio di posta elettronica con le informazioni aggiunte.
+8. **Salvare** l'app per la logica e quindi selezionare **Esegui**. Chiudere la finestra di progettazione ed esaminare lo stato nella cronologia delle esecuzioni. In caso di esito negativo, selezionare la riga relativa al messaggio non inviato. La finestra di progettazione viene aperta e mostra il passaggio non riuscito, con le informazioni sull'errore. In caso di esito positivo, si dovrebbe ricevere un messaggio di posta elettronica con le informazioni aggiunte.
 
 
 ### <a name="workflow-ideas"></a>Idee per i flussi di lavoro
 
-* Si vuole monitorare l'hashtag #oracle e inserire i Tweet in un database in modo che sia possibile eseguire query su di essi e usarli in altre applicazioni. In un'app per la logica aggiungere il trigger `Twitter - When a new tweet is posted` e immettere l'hashtag **#oracle** . Aggiungere quindi l'azione `Oracle Database - Insert row` e selezionare la tabella:
+* Si vuole monitorare l'hashtag #oracle e inserire i Tweet in un database in modo che sia possibile eseguire query su di essi e usarli in altre applicazioni. In un'app per la logica aggiungere il trigger `Twitter - When a new tweet is posted` e immettere l'hashtag **#oracle**. Aggiungere quindi l'azione `Oracle Database - Insert row` e selezionare la tabella:
 
     ![La finestra di dialogo "quando viene pubblicato un nuovo Tweet" Mostra "hashtag Oracle" come testo di ricerca e consente di specificare la frequenza di controllo. In questa finestra di dialogo viene visualizzata la finestra di dialogo "Oracle Database" in cui è possibile selezionare l'azione.](./media/connectors-create-api-oracledatabase/twitter-oracledb.png)
 
@@ -98,23 +98,23 @@ Questo articolo illustra come usare il connettore Oracle Database in un'app per 
 
 ## <a name="common-errors"></a>Errori comuni
 
-#### <a name="error-cannot-reach-the-gateway"></a>**Errore** : Non è possibile raggiungere il gateway
+#### <a name="error-cannot-reach-the-gateway"></a>**Errore**: Non è possibile raggiungere il gateway
 
-**Causa** : il gateway dati locale non è in grado di connettersi al cloud. 
+**Causa**: il gateway dati locale non è in grado di connettersi al cloud. 
 
-**Mitigazione** : assicurarsi che il gateway sia in esecuzione nel computer locale in cui è stato installato e che sia in grado di connettersi a Internet.    È consigliabile non installare il gateway in un computer che potrebbe venire spento o andare in sospensione.  È anche possibile riavviare il servizio gateway dati locale (PBIEgwService).
+**Mitigazione**: assicurarsi che il gateway sia in esecuzione nel computer locale in cui è stato installato e che sia in grado di connettersi a Internet.    È consigliabile non installare il gateway in un computer che potrebbe venire spento o andare in sospensione.  È anche possibile riavviare il servizio gateway dati locale (PBIEgwService).
 
-#### <a name="error-the-provider-being-used-is-deprecated-systemdataoracleclient-requires-oracle-client-software-version-817-or-greater-see-httpsgomicrosoftcomfwlinkplinkid272376-to-install-the-official-provider"></a>**Errore** : Il provider usato è deprecato: 'System.Data.OracleClient richiede il software client Oracle versione 8.1.7 o versione successiva'. Per installare il provider ufficiale, vedere [https://go.microsoft.com/fwlink/p/?LinkID=272376](/power-bi/connect-data/desktop-connect-oracle-database).
+#### <a name="error-the-provider-being-used-is-deprecated-systemdataoracleclient-requires-oracle-client-software-version-817-or-greater-see-httpsgomicrosoftcomfwlinkplinkid272376-to-install-the-official-provider"></a>**Errore**: Il provider usato è deprecato: 'System.Data.OracleClient richiede il software client Oracle versione 8.1.7 o versione successiva'. Per installare il provider ufficiale, vedere [https://go.microsoft.com/fwlink/p/?LinkID=272376](/power-bi/connect-data/desktop-connect-oracle-database).
 
-**Causa** : Oracle client SDK non è installato nel computer su cui è in esecuzione il gateway dati locale.  
+**Causa**: Oracle client SDK non è installato nel computer su cui è in esecuzione il gateway dati locale.  
 
-**Soluzione** : scaricare e installare Oracle client SDK nello stesso computer del gateway dati locale.
+**Soluzione**: scaricare e installare Oracle client SDK nello stesso computer del gateway dati locale.
 
-#### <a name="error-table-tablename-does-not-define-any-key-columns"></a>**Errore** : La tabella '[NomeTabella]' non definisce alcuna colonna chiave
+#### <a name="error-table-tablename-does-not-define-any-key-columns"></a>**Errore**: La tabella '[NomeTabella]' non definisce alcuna colonna chiave
 
-**Causa** : la tabella non ha alcuna chiave primaria.  
+**Causa**: la tabella non ha alcuna chiave primaria.  
 
-**Soluzione** : il connettore Oracle Database richiede l'uso di una tabella con una colonna chiave primaria.
+**Soluzione**: il connettore Oracle Database richiede l'uso di una tabella con una colonna chiave primaria.
  
 ## <a name="connector-specific-details"></a>Dettagli specifici del connettore
 

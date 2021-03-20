@@ -1,6 +1,6 @@
 ---
-title: File di inclusione
-description: File di inclusione
+title: includere file
+description: includere file
 author: robinsh
 ms.service: iot-hub
 services: iot-hub
@@ -9,10 +9,10 @@ ms.date: 03/05/2019
 ms.author: robinsh
 ms.custom: include file
 ms.openlocfilehash: 178236f774b0e1a6fe20c73afe0e7fd6965e67a5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
-ms.translationtype: HT
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "67235351"
 ---
 Dopo aver configurato gli endpoint e le route dei messaggi è possibile visualizzarne la configurazione nel portale. Accedere al [portale di Azure](https://portal.azure.com) e passare a **Gruppi di risorse**. In seguito, selezionare il gruppo di risorse e quindi selezionare l'hub (il cui nome inizia per `ContosoTestHub` in questa esercitazione). Viene visualizzato il riquadro dell'hub IoT.

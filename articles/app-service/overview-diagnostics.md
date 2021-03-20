@@ -8,10 +8,10 @@ ms.date: 10/18/2019
 ms.author: jennile
 ms.custom: seodec18
 ms.openlocfilehash: d58341979b0bbe0699a5ca293b20394c43cde1d1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "88962809"
 ---
 # <a name="azure-app-service-diagnostics-overview"></a>Panoramica della diagnostica del servizio app di Azure
@@ -26,7 +26,7 @@ La diagnostica del servizio app funziona non solo per le app in Windows, ma anch
 
 Per accedere alla diagnostica del servizio app, passare all'app Web del servizio app o ambiente del servizio app nel [portale di Azure](https://portal.azure.com). Nel riquadro di spostamento a sinistra fare clic su **Diagnostica e risoluzione dei problemi**.
 
-Per funzioni di Azure, passare all'app per le funzioni e, nella parte superiore, fare clic su **funzionalità della piattaforma**e selezionare **diagnostica e Risolvi i problemi** dalla sezione **Gestione risorse** .
+Per funzioni di Azure, passare all'app per le funzioni e, nella parte superiore, fare clic su **funzionalità della piattaforma** e selezionare **diagnostica e Risolvi i problemi** dalla sezione **Gestione risorse** .
 
 Nella Home page di diagnostica del servizio app è possibile scegliere la categoria che meglio descrive il problema con l'app usando le parole chiave in ogni riquadro della Home page. Inoltre, in questa pagina è possibile trovare **strumenti di diagnostica** per le app di Windows. Vedere [strumenti di diagnostica (solo per app di Windows)](#diagnostic-tools-only-for-windows-app).
 

@@ -1,5 +1,5 @@
 ---
-title: Inviare notifiche push a dispositivi Windows Phone specifici con Hub di notifica di Azure | Microsoft Docs
+title: Inviare notifiche push a telefoni Windows specifici usando hub di notifica di Azure | Microsoft Docs
 description: Questa esercitazione descrive come usare Hub di notifica di Azure per inviare notifiche push a dispositivi Windows Phone 8 o Windows Phone 8.1 specifici (non tutti) registrati con il back-end dell'applicazione.
 services: notification-hubs
 documentationcenter: windows
@@ -18,19 +18,19 @@ ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 01/04/2019
 ms.openlocfilehash: 67700ec643a27f8ae5c581fe9de8e3295a1925e5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
-ms.translationtype: HT
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "88998238"
 ---
-# <a name="tutorial-send-push-notifications-to-specific-windows-phones-using-azure-notification-hubs"></a>Esercitazione: Inviare notifiche push a dispositivi Windows Phone specifici con Hub di notifica di Azure
+# <a name="tutorial-send-push-notifications-to-specific-windows-phones-using-azure-notification-hubs"></a>Esercitazione: inviare notifiche push a telefoni Windows specifici usando hub di notifica di Azure
 
 [!INCLUDE [notification-hubs-selector-breaking-news](../../includes/notification-hubs-selector-breaking-news.md)]
 
 Questa esercitazione descrive come usare Hub di notifica di Azure per inviare notifiche push a dispositivi Windows Phone 8 o Windows Phone 8.1 specifici. Se si usa Windows Phone 8.1 (non Silverlight), fare riferimento alla versione [Windows Universal](notification-hubs-windows-store-dotnet-get-started-wns-push-notification.md) di questa esercitazione.
 
-È possibile abilitare questo scenario includendo uno o più *tag* durante la creazione di una registrazione nell'hub di notifica. Quando le notifiche vengono inviate a un tag, tutti i dispositivi che hanno effettuato la registrazione per il tag ricevono la notifica. Per altre informazioni sui tag, vedere [Tag nelle registrazioni](notification-hubs-tags-segment-push-message.md).
+È possibile abilitare questo scenario includendo uno o più *tag* durante la creazione di una registrazione nell'hub di notifica. Quando le notifiche vengono inviate a un tag, tutti i dispositivi che hanno effettuato la registrazione per il tag ricevono la notifica. Per ulteriori informazioni sui tag, vedere [tag nelle registrazioni](notification-hubs-tags-segment-push-message.md).
 
 > [!NOTE]
 > L’SDK Hub di notifica per Windows Phone [AZURE.NOTE] non supporta l'uso di Windows Push Notification Service (WNS) con app per Windows Phone 8.1 Silverlight. Per usare WNS (invece di MPNS) con le app di Windows Phone 8.1 Silverlight, completare l'[Esercitazione su Hub di notifica - Windows Phone Silverlight] seguente che usa le API REST.
@@ -45,7 +45,7 @@ In questa esercitazione verranno illustrate le procedure per:
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-Completare l'[Esercitazione: Effettuare il push di notifiche alle app Windows Phone con Hub di notifica di Azure](notification-hubs-windows-mobile-push-notifications-mpns.md). In questa esercitazione viene aggiornata l'applicazione per dispositivi mobili in modo da effettuare la registrazione alle categorie di ultime notizie desiderate e ricevere le notifiche push solo per tali categorie.
+Completare l'[Esercitazione: eseguire il push di notifiche alle app Windows Phone con Hub di notifica di Azure](notification-hubs-windows-mobile-push-notifications-mpns.md). In questa esercitazione viene aggiornata l'applicazione per dispositivi mobili in modo da effettuare la registrazione alle categorie di ultime notizie desiderate e ricevere le notifiche push solo per tali categorie.
 
 ## <a name="add-category-selection-to-the-mobile-app"></a>Aggiungere la selezione delle categorie all'app per dispositivi mobili
 
@@ -328,7 +328,7 @@ In questa esercitazione è stato descritto come inviare notifiche push a disposi
 [3]: ./media/notification-hubs-windows-phone-send-breaking-news/notification-hub-toast.png
 
 <!-- URLs.-->
-[Introduzione ad Hub di notifica]: notification-hubs-windows-mobile-push-notifications-mpns.md
+[Introduzione ad hub di notifica]: notification-hubs-windows-mobile-push-notifications-mpns.md
 [Use Notification Hubs to broadcast localized breaking news]: notification-hubs-windows-store-dotnet-xplat-localized-wns-push-notification.md
 [Notify users with Notification Hubs]: notification-hubs-aspnet-backend-windows-dotnet-wns-notification.md
 [Mobile Service]: /develop/mobile/tutorials/get-started

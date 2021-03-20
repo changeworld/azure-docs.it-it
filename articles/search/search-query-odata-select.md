@@ -20,15 +20,15 @@ translation.priority.mt:
 - zh-cn
 - zh-tw
 ms.openlocfilehash: 54b6ae227fc4b3b951717799660543c02874dda0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "88919659"
 ---
 # <a name="odata-select-syntax-in-azure-cognitive-search"></a>Sintassi di $select OData in Azure ricerca cognitiva
 
- È possibile usare il [parametro OData **$Select** ](query-odata-filter-orderby-syntax.md) per scegliere i campi da includere nei risultati della ricerca da Azure ricerca cognitiva. Questo articolo descrive in dettaglio la sintassi dei **$Select** . Per informazioni generali su come usare **$Select** quando si presentano i risultati della ricerca, vedere [come usare i risultati della ricerca in Azure ricerca cognitiva](search-pagination-page-layout.md).
+ È possibile usare il [parametro OData **$Select**](query-odata-filter-orderby-syntax.md) per scegliere i campi da includere nei risultati della ricerca da Azure ricerca cognitiva. Questo articolo descrive in dettaglio la sintassi dei **$Select** . Per informazioni generali su come usare **$Select** quando si presentano i risultati della ricerca, vedere [come usare i risultati della ricerca in Azure ricerca cognitiva](search-pagination-page-layout.md).
 
 ## <a name="syntax"></a>Sintassi
 
@@ -59,7 +59,7 @@ Quando si usa il secondo form, è possibile specificare solo i campi recuperabil
 
 Se si elenca un campo complesso senza specificare i campi secondari in modo esplicito, tutti i campi secondari recuperabili verranno inclusi nel set di risultati della query. Si supponga, ad esempio, che l'indice includa un `Address` campo con `Street` `City` `Country` i campi, e che possono essere recuperati. Se si specifica `Address` in **$SELECT**, i risultati della query includeranno tutti e tre i campi secondari.
 
-## <a name="examples"></a>Esempi
+## <a name="examples"></a>Esempio
 
 Includere i `HotelId` `HotelName` `Rating` campi di primo livello, e nei risultati, nonché il `City` campo secondario di `Address` :
 

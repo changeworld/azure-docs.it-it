@@ -8,10 +8,10 @@ ms.devlang: dotnet
 ms.topic: how-to
 ms.date: 07/16/2020
 ms.openlocfilehash: e29db7e31438bc7f6ac609384d0d9b92c275e813
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93339547"
 ---
 # <a name="create-alerts-for-azure-cosmos-db-using-azure-monitor"></a>Creare avvisi per Azure Cosmos DB usando monitoraggio di Azure
@@ -65,7 +65,7 @@ Questa sezione illustra come creare un avviso quando si riceve un codice di stat
 
    * Nella **logica di avviso** impostare la **soglia** su **static**. La soglia statica usa un valore soglia definito dall'utente per valutare la regola, mentre le soglie dinamiche usano gli algoritmi di apprendimento automatico incorporati per apprendere continuamente il modello di comportamento della metrica e calcolare automaticamente le soglie.
 
-   * Impostare l' **operatore** su un valore **maggiore di** , il **tipo di aggregazione** su **Total** e il **valore soglia** su **100**. Con questa logica, se il client rileva più di 100 richieste con un codice di stato 429, viene attivato l'avviso. È anche possibile configurare il tipo di aggregazione, la granularità delle aggregazioni e la frequenza di valutazione in base ai requisiti.
+   * Impostare l' **operatore** su un valore **maggiore di**, il **tipo di aggregazione** su **Total** e il **valore soglia** su **100**. Con questa logica, se il client rileva più di 100 richieste con un codice di stato 429, viene attivato l'avviso. È anche possibile configurare il tipo di aggregazione, la granularità delle aggregazioni e la frequenza di valutazione in base ai requisiti.
 
    * Dopo aver compilato il modulo, selezionare **fine**. La schermata seguente mostra i dettagli della logica di avviso:
 

@@ -9,10 +9,10 @@ ms.date: 09/25/2019
 ms.author: mjbrown
 ms.custom: devx-track-csharp
 ms.openlocfilehash: edb6114406922d55c439ae7426a2be933bba4aee
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93334090"
 ---
 # <a name="migrate-non-partitioned-containers-to-partitioned-containers"></a>Eseguire la migrazione di contenitori non partizionati a contenitori partizionati
@@ -20,7 +20,7 @@ ms.locfileid: "93334090"
 
 Azure Cosmos DB supporta la creazione di contenitori senza una chiave di partizione. Attualmente è possibile creare contenitori non partizionati usando l'interfaccia della riga di comando di Azure e Azure Cosmos DB SDK (.NET, Java, NodeJs) con una versione inferiore o uguale a 2. x. Non è possibile creare contenitori non partizionati utilizzando il portale di Azure. Tuttavia, tali contenitori non partizionati non sono elastici e hanno una capacità di archiviazione fissa di 20 GB e un limite di velocità effettiva di 10.000 UR/s.
 
-I contenitori non partizionati sono legacy ed è necessario eseguire la migrazione dei contenitori non partizionati esistenti ai contenitori partizionati per ridimensionare l'archiviazione e la velocità effettiva. Azure Cosmos DB fornisce un meccanismo definito dal sistema per la migrazione dei contenitori non partizionati ai contenitori partizionati. Questo documento illustra come viene eseguita la migrazione automatica di tutti i contenitori non partizionati esistenti in contenitori partizionati. È possibile sfruttare la funzionalità di migrazione automatica solo se si usa la versione V3 degli SDK in tutte le lingue.
+i contenitori non partizionati sono legacy ed è necessario eseguire la migrazione dei contenitori non partizionati esistenti ai contenitori partizionati per dimensionare l'archiviazione e la velocità effettiva. Azure Cosmos DB offre un meccanismo definito dal sistema per la migrazione dei contenitori non partizionati ai contenitori partizionati. Questo documento illustra come viene eseguita la migrazione automatica di tutti i contenitori non partizionati esistenti in contenitori partizionati. È possibile sfruttare la funzionalità di migrazione automatica solo se si usa la versione 3 degli SDK in tutte le lingue.
 
 > [!NOTE]
 > Attualmente, non è possibile eseguire la migrazione di Azure Cosmos DB account API MongoDB e Gremlin usando i passaggi descritti in questo documento.

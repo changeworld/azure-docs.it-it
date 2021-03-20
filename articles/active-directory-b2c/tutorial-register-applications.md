@@ -8,16 +8,16 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 01/27/2021
+ms.date: 03/18/2021
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: a39230cc65db6ef12b6fa4364454aeb434efddf6
-ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
+ms.openlocfilehash: 2ec67669edeb52af1044c97c984eb6ba36fd1a0b
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98918213"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104579638"
 ---
 # <a name="tutorial-register-a-web-application-in-azure-active-directory-b2c"></a>Esercitazione: Registrare un'applicazione Web in Azure Active Directory B2C
 
@@ -80,7 +80,7 @@ Per registrare un'applicazione Web nel tenant di Azure AD B2C, è possibile usar
 
 ## <a name="create-a-client-secret"></a>Creare un segreto client
 
-Per un'applicazione Web è necessario creare un segreto dell'applicazione, che verrà usato dall'applicazione per scambiare un codice di autorizzazione con un token di accesso.
+Per un'applicazione Web è necessario creare un segreto dell'applicazione, Il segreto client è anche noto come *password dell'applicazione*. Il segreto verrà usato dall'applicazione per scambiare un codice di autorizzazione per un token di accesso.
 
 #### <a name="app-registrations"></a>[Registrazioni per l'app](#tab/app-reg-ga/)
 
@@ -89,7 +89,7 @@ Per un'applicazione Web è necessario creare un segreto dell'applicazione, che v
 1. Selezionare **Nuovo segreto client**.
 1. Immettere una descrizione per il segreto client nella casella **Descrizione**. Ad esempio, *clientsecret1*.
 1. In **Scadenza** selezionare una durata per la quale il segreto è valido, quindi selezionare **Aggiungi**.
-1. Registrare il **Valore** del segreto. Questo valore viene usato come segreto dell'applicazione nel codice dell'applicazione.
+1. Registrare il **valore** del segreto da usare nel codice dell'applicazione client. Il valore del segreto non viene mai visualizzato di nuovo dopo aver lasciato questa pagina. Questo valore viene usato come segreto dell'applicazione nel codice dell'applicazione.
 
 #### <a name="applications-legacy"></a>[Applicazioni (legacy)](#tab/applications-legacy/)
 
@@ -98,6 +98,9 @@ Per un'applicazione Web è necessario creare un segreto dell'applicazione, che v
 1. Selezionare **Salva** per visualizzare la chiave. Annotare il valore di **Chiave dell'app**. Questo valore viene usato come segreto dell'applicazione nel codice dell'applicazione.
 
 * * *
+
+> [!NOTE]
+> Per motivi di sicurezza, è possibile eseguire periodicamente il rollup del segreto dell'applicazione o immediatamente in caso di emergenza. Qualsiasi applicazione che si integra con Azure AD B2C deve essere preparata a gestire un evento di rollover segreto, indipendentemente dalla frequenza con cui può verificarsi. È possibile impostare due segreti dell'applicazione, consentendo all'applicazione di usare il segreto precedente durante un evento di rotazione del segreto dell'applicazione. Per aggiungere un altro segreto client, ripetere i passaggi in questa sezione. 
 
 ## <a name="enable-id-token-implicit-grant"></a>Abilita concessione implicita token ID
 

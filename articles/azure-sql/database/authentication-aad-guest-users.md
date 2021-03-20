@@ -10,10 +10,10 @@ ms.author: shohamd
 ms.reviewer: vanto
 ms.date: 07/27/2020
 ms.openlocfilehash: 7a4d9fb9f803a497e84fa189d9a89c2d9097bb70
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/27/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92675062"
 ---
 # <a name="create-azure-ad-guest-users-and-set-as-an-azure-ad-admin"></a>Creare utenti guest di Azure AD e impostarli come amministratore di Azure AD
@@ -21,13 +21,13 @@ ms.locfileid: "92675062"
 [!INCLUDE[appliesto-sqldb-sqlmi-asa](../includes/appliesto-sqldb-sqlmi-asa.md)]
 
 > [!NOTE]
-> Questo articolo è disponibile in **anteprima pubblica** .
+> Questo articolo è disponibile in **anteprima pubblica**.
 
-Gli utenti guest in Azure Active Directory (Azure AD) sono utenti che sono stati importati nella Azure AD corrente da altre directory di Azure Active Directory o all'esterno di esso. Ad esempio, gli utenti guest possono includere utenti di altre directory di Azure Active Directory o da account come *\@ Outlook.com* , *\@ hotmail.com* , *\@ Live.com* o *\@ gmail.com* . In questo articolo viene illustrato come creare un Azure AD utente Guest e impostare tale utente come amministratore Azure AD per il server logico SQL di Azure, senza che sia necessario che l'utente Guest faccia parte di un gruppo all'interno Azure AD.
+Gli utenti guest in Azure Active Directory (Azure AD) sono utenti che sono stati importati nella Azure AD corrente da altre directory di Azure Active Directory o all'esterno di esso. Ad esempio, gli utenti guest possono includere utenti di altre directory di Azure Active Directory o da account come *\@ Outlook.com*, *\@ hotmail.com*, *\@ Live.com* o *\@ gmail.com*. In questo articolo viene illustrato come creare un Azure AD utente Guest e impostare tale utente come amministratore Azure AD per il server logico SQL di Azure, senza che sia necessario che l'utente Guest faccia parte di un gruppo all'interno Azure AD.
 
 ## <a name="feature-description"></a>Descrizione delle caratteristiche
 
-Questa funzionalità eleva la limitazione corrente che consente solo agli utenti guest di connettersi a database SQL di Azure, SQL Istanza gestita o Azure sinapsi Analytics quando sono membri di un gruppo creato in Azure AD. Il gruppo deve essere mappato a un utente manualmente usando l'istruzione [Create User (Transact-SQL)](/sql/t-sql/statements/create-user-transact-sql) in un database specifico. Una volta creato un utente del database per il gruppo di Azure AD contenente l'utente Guest, l'utente Guest può accedere al database usando Azure Active Directory con autenticazione a più fattori. Come parte di questa versione di **anteprima pubblica** , gli utenti guest possono essere creati e connettersi direttamente al database SQL, a SQL istanza gestita o a una sinapsi di Azure senza che sia necessario aggiungerli a un gruppo di Azure ad e quindi creare un utente del database per tale gruppo di Azure ad.
+Questa funzionalità eleva la limitazione corrente che consente solo agli utenti guest di connettersi a database SQL di Azure, SQL Istanza gestita o Azure sinapsi Analytics quando sono membri di un gruppo creato in Azure AD. Il gruppo deve essere mappato a un utente manualmente usando l'istruzione [Create User (Transact-SQL)](/sql/t-sql/statements/create-user-transact-sql) in un database specifico. Una volta creato un utente del database per il gruppo di Azure AD contenente l'utente Guest, l'utente Guest può accedere al database usando Azure Active Directory con autenticazione a più fattori. Come parte di questa versione di **anteprima pubblica**, gli utenti guest possono essere creati e connettersi direttamente al database SQL, a SQL istanza gestita o a una sinapsi di Azure senza che sia necessario aggiungerli a un gruppo di Azure ad e quindi creare un utente del database per tale gruppo di Azure ad.
 
 Come parte di questa funzionalità, è anche possibile impostare l'utente guest di Azure AD direttamente come amministratore di Active Directory per il server logico SQL di Azure. La funzionalità esistente in cui l'utente Guest può far parte di un gruppo di Azure AD e tale gruppo può quindi essere impostato come amministratore Azure AD per il server logico SQL di Azure non ha alcun effetto. Questa modifica non ha alcun effetto anche sugli utenti guest nel database che fanno parte di un gruppo di Azure AD.
 
@@ -133,7 +133,7 @@ Per impostare un utente Guest Azure AD come amministratore Azure AD per il serve
 
 ## <a name="limitations"></a>Limitazioni
 
-Esiste una limitazione per la portale di Azure che impedisce la selezione di un utente Guest Azure AD come amministratore Azure AD per Istanza gestita SQL. Per gli account Guest esterni all'Azure ad come *\@ Outlook.com* , *\@ hotmail.com* , *\@ Live.com* o *\@ gmail.com* , il selettore di amministrazione di Active Directory Mostra questi account, ma sono disabilitati e non possono essere selezionati. Usare i comandi di [PowerShell o dell'interfaccia](#setting-a-guest-user-as-an-azure-ad-admin) della riga di comando elencati sopra per impostare l'amministratore Azure ad. In alternativa, è possibile impostare un gruppo di Azure AD contenente l'utente guest come amministratore Azure AD per il Istanza gestita SQL.
+Esiste una limitazione per la portale di Azure che impedisce la selezione di un utente Guest Azure AD come amministratore Azure AD per Istanza gestita SQL. Per gli account Guest esterni all'Azure ad come *\@ Outlook.com*, *\@ hotmail.com*, *\@ Live.com* o *\@ gmail.com*, il selettore di amministrazione di Active Directory Mostra questi account, ma sono disabilitati e non possono essere selezionati. Usare i comandi di [PowerShell o dell'interfaccia](#setting-a-guest-user-as-an-azure-ad-admin) della riga di comando elencati sopra per impostare l'amministratore Azure ad. In alternativa, è possibile impostare un gruppo di Azure AD contenente l'utente guest come amministratore Azure AD per il Istanza gestita SQL.
 
 Questa funzionalità verrà abilitata per SQL Istanza gestita prima della disponibilità generale di questa funzionalità.
 

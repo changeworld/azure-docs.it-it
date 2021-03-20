@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 07/13/2020
 ms.author: victorh
 ms.openlocfilehash: 23a7682d8a64de57db4ff9ae785ada90d4a06944
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "87084671"
 ---
 # <a name="azure-firewall-central-management"></a>Gestione centrale del firewall di Azure
@@ -29,7 +29,7 @@ Azure Firewall Manager è un servizio di gestione della sicurezza di rete che fo
 
 Un criterio del firewall è una risorsa di Azure che contiene le raccolte di regole NAT, di rete e di applicazione e le impostazioni di intelligence per le minacce. Si tratta di una risorsa globale che può essere usata in più istanze del firewall di Azure in *Hub virtuali protetti* e *reti virtuali Hub*. I nuovi criteri possono essere creati da zero o essere ereditati da criteri esistenti. L'ereditarietà consente di creare in DevOps criteri firewall locali in aggiunta ai criteri di base imposti dall'organizzazione. I criteri funzionano in diverse aree e sottoscrizioni.
  
-È possibile creare criteri e associazioni del firewall con gestione firewall di Azure. Tuttavia, è anche possibile creare e gestire un criterio usando l'API REST, i modelli, Azure PowerShell e l'interfaccia della riga di comando. Dopo aver creato un criterio, è possibile associarlo a un firewall in un hub WAN virtuale che lo rende un *hub virtuale protetto* e/o un firewall in una rete virtuale che rende la *rete virtuale Hub*it.
+È possibile creare criteri e associazioni del firewall con gestione firewall di Azure. Tuttavia, è anche possibile creare e gestire un criterio usando l'API REST, i modelli, Azure PowerShell e l'interfaccia della riga di comando. Dopo aver creato un criterio, è possibile associarlo a un firewall in un hub WAN virtuale che lo rende un *hub virtuale protetto* e/o un firewall in una rete virtuale che rende la *rete virtuale Hub* it.
 
 ### <a name="pricing"></a>Prezzi
 

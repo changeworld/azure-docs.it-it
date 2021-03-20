@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 72c40b7962090492f8b4b85e555a947130c3628d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91256439"
 ---
 # <a name="azure-ad-registered-devices"></a>Dispositivi registrati in Azure AD
@@ -24,7 +24,7 @@ L'obiettivo di Azure AD dispositivi registrati è fornire agli utenti il support
 
 | Azure AD registrato | Descrizione |
 | --- | --- |
-| **Definizione** | Registrato per Azure AD senza richiedere all'account aziendale di accedere al dispositivo |
+| **Definition** | Registrato per Azure AD senza richiedere all'account aziendale di accedere al dispositivo |
 | **Destinatari principali** | Applicabile a tutti gli utenti con i criteri seguenti: |
 |   | Bring Your Own Device (BYOD) |
 |   | Dispositivi mobili |

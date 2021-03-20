@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: spunukol, rosssmi
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 122cc6a2be17cb35e77b638a60fc5fa4f035c0d4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91266140"
 ---
 # <a name="how-to-require-approved-client-apps-for-cloud-app-access-with-conditional-access"></a>Procedura: richiedere app client approvate per l'accesso alle app cloud con accesso condizionale
@@ -47,14 +47,14 @@ Le organizzazioni devono completare i tre passaggi seguenti per richiedere l'uso
 1. In **Assegnazioni** selezionare **Utenti e gruppi**.
    1. In **Includi** selezionare **Tutti gli utenti** o gli **Utenti e gruppi** ai quale si vuole applicare questi criteri. 
    1. Selezionare **Operazione completata**.
-1. In **app Cloud o azioni**  >  **includere**selezionare **Office 365**.
+1. In **app Cloud o azioni**  >  **includere** selezionare **Office 365**.
 1. In **Condizioni** selezionare **Piattaforme del dispositivo**.
    1. Impostare **Configura** su **Sì**.
    1. Includere **Android** e **iOS**.
 1. In **Condizioni** selezionare **App client (anteprima)** .
    1. Impostare **Configura** su **Sì**.
    1. Selezionare **App per dispositivi mobili e client desktop** e **Client con autenticazione moderna**.
-1. In **controllo di accesso**  >  **concedere**selezionare **Concedi accesso**, **Richiedi app client approvata**e selezionare **Seleziona**.
+1. In **controllo di accesso**  >  **concedere** selezionare **Concedi accesso**, **Richiedi app client approvata** e selezionare **Seleziona**.
 1. Confermare le impostazioni e impostare **Abilita criterio** su **Attivato**.
 1. Selezionare **Crea** per creare e abilitare i criteri.
 
@@ -71,7 +71,7 @@ Le organizzazioni devono completare i tre passaggi seguenti per richiedere l'uso
    1. **App client (anteprima)** :
       1. Impostare **Configura** su **Sì**.
       1. Selezionare **App per dispositivi mobili e client desktop** e **Client Exchange ActiveSync**.
-1. In **controllo di accesso**  >  **concedere**selezionare **Concedi accesso**, **Richiedi app client approvata**e selezionare **Seleziona**.
+1. In **controllo di accesso**  >  **concedere** selezionare **Concedi accesso**, **Richiedi app client approvata** e selezionare **Seleziona**.
 1. Confermare le impostazioni e impostare **Abilita criterio** su **Attivato**.
 1. Selezionare **Crea** per creare e abilitare i criteri.
 
@@ -101,7 +101,7 @@ Per richiedere l'uso di un'app client approvata nei dispositivi mobili e nei cli
 1. In **Condizioni** selezionare **App client (anteprima)** .
    1. Impostare **Configura** su **Sì**.
    1. Selezionare **App per dispositivi mobili e client desktop** e **Client con autenticazione moderna**.
-1. In **controllo di accesso**  >  **concedere**selezionare **Concedi accesso**, **Richiedi app client approvata**e selezionare **Seleziona**.
+1. In **controllo di accesso**  >  **concedere** selezionare **Concedi accesso**, **Richiedi app client approvata** e selezionare **Seleziona**.
 1. Confermare le impostazioni e impostare **Abilita criterio** su **Attivato**.
 1. Selezionare **Crea** per creare e abilitare i criteri.
 
@@ -118,7 +118,7 @@ Per richiedere l'uso di un'app client approvata nei dispositivi mobili e nei cli
    1. **App client (anteprima)** :
       1. Impostare **Configura** su **Sì**.
       1. Selezionare **App per dispositivi mobili e client desktop** e **Client Exchange ActiveSync**.
-1. In **controllo di accesso**  >  **concedere**selezionare **Concedi accesso**, **Richiedi app client approvata**e selezionare **Seleziona**.
+1. In **controllo di accesso**  >  **concedere** selezionare **Concedi accesso**, **Richiedi app client approvata** e selezionare **Seleziona**.
 1. Confermare le impostazioni e impostare **Abilita criterio** su **Attivato**.
 1. Selezionare **Crea** per creare e abilitare i criteri.
 

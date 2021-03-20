@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 05/31/2019
 ms.author: tisande
 ms.openlocfilehash: b0973dca980b65b85ac66cc1b3c9ed45f0f9c779
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93339204"
 ---
 # <a name="azure-cosmos-db-sql-query-constants"></a>Azure Cosmos DB costanti di query SQL  
@@ -25,7 +25,7 @@ ms.locfileid: "93339204"
 |-|-|  
 |**Non definito**|Singolo valore: **non definito**|  
 |**Null**|Singolo valore: **null**|  
-|**Boolean**|Valori: **false** , **true**.|  
+|**Boolean**|Valori: **false**, **true**.|  
 |**Number**|Un numero a virgola mobile e precisione doppia, standard IEEE 754.|  
 |**Stringa**|Una sequenza di zero o più caratteri Unicode. Le stringhe devono essere racchiuse tra virgolette singole o doppie.|  
 |**Di matrice**|Una sequenza di zero o più elementi. Ogni elemento può essere un valore di qualsiasi tipo di dati scalari, ad eccezione di **undefined**.|  

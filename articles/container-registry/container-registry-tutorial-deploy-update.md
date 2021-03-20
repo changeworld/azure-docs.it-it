@@ -5,13 +5,13 @@ ms.topic: tutorial
 ms.date: 04/30/2018
 ms.custom: seodec18, mvc
 ms.openlocfilehash: 9222ac31e067cba6a0ffa71143c90f906ba6ff7f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
-ms.translationtype: HT
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "74454699"
 ---
-# <a name="tutorial-push-an-updated-container-image-to-a-geo-replicated-container-registry-for-regional-web-app-deployments"></a>Esercitazione: Eseguire il push di un'immagine del contenitore aggiornata in un registro contenitori con replica geografica per distribuzioni di app Web regionali
+# <a name="tutorial-push-an-updated-container-image-to-a-geo-replicated-container-registry-for-regional-web-app-deployments"></a>Esercitazione: eseguire il push di un'immagine del contenitore aggiornata in un registro contenitori con replica geografica per le distribuzioni di app web regionali
 
 Questa è la terza parte di un'esercitazione in tre parti. Nell'[esercitazione precedente](container-registry-tutorial-deploy-app.md) è stata configurata la replica geografica per due diverse distribuzioni regionali di app Web. In questa esercitazione, verrà prima di tutto modificata l'applicazione, poi si compilerà una nuova immagine del contenitore e si eseguirà il push di tale immagine nel registro con replica geografica. Infine, si visualizzerà la modifica, distribuita automaticamente dai webhook di Registro Azure Container, in entrambe le istanze delle app Web.
 
@@ -133,7 +133,7 @@ In questa esercitazione si è visto come aggiornare il contenitore dell'applicaz
 
 Oltre alla replica geografica, ACR Build è un'altra caratteristica di Registro Azure Container che può aiutare a ottimizzare la pipeline di distribuzione di contenitore. Per avere un'idea delle funzionalità, è consigliabile iniziare con una panoramica di ACR Build:
 
-[Automate OS and framework patching with ACR Build](container-registry-tasks-overview.md) (Automatizzare l'applicazione di patch al sistema operativo e al framework con ACR Build)
+[Automatizzare l'applicazione di patch al sistema operativo e al framework con ACR Build](container-registry-tasks-overview.md)
 
 <!-- IMAGES -->
 [deployed-app-eastus-modified]: ./media/container-registry-tutorial-deploy-update/deployed-app-eastus-modified.png

@@ -5,10 +5,10 @@ ms.topic: conceptual
 ms.date: 07/07/2020
 ms.custom: devx-track-csharp
 ms.openlocfilehash: baae7b097a0b696d405c0e7ea3d3bdeb326f23b1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "89011685"
 ---
 # <a name="track-event-grid-asynchronous-azure-operations"></a>Rileva operazioni di Azure asincrone di griglia di eventi
@@ -72,8 +72,8 @@ Solo `status` viene restituito per tutte le risposte. L'oggetto errore viene res
 
 Le operazioni di creazione, aggiornamento o eliminazione (INSERISCI, PATCH, ELIMINA) di una risorsa restituiscono in genere un valore `provisioningState`. Quando un'operazione viene completata, viene restituito uno dei tre valori seguenti: 
 
-* Operazione riuscita
-* Operazione non riuscita
+* Completato
+* Non riuscito
 * Cancellati
 
 Tutti gli altri valori indicano che l'operazione è ancora in esecuzione. Il provider di risorse può restituire un valore personalizzato che indica lo stato. Ad esempio, potrebbe essere visualizzato **Accettato** quando la richiesta è stata ricevuta ed è in esecuzione.

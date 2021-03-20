@@ -1,23 +1,22 @@
 ---
-title: Gestione del provisioning degli utenti per le app aziendali in Azure AD
-description: Informazioni su come gestire il provisioning degli account utente per le app aziendali usando Azure Active Directory
+title: Gestione del provisioning degli utenti per le app aziendali in Azure Active Directory
+description: Informazioni su come gestire il provisioning degli account utente per le app aziendali usando il Azure Active Directory.
 services: active-directory
-documentationcenter: ''
 author: kenwith
 manager: daveba
 ms.service: active-directory
 ms.subservice: app-provisioning
 ms.topic: how-to
 ms.workload: identity
-ms.date: 02/04/2020
+ms.date: 03/18/2021
 ms.author: kenwith
 ms.reviewer: arvinh
-ms.openlocfilehash: 02d415bd957b0490857081b996c592f90365f031
-ms.sourcegitcommit: f82e290076298b25a85e979a101753f9f16b720c
+ms.openlocfilehash: 5dceeb11ed9a4d6af88650a6146f58db412748d9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/04/2021
-ms.locfileid: "99555629"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104579417"
 ---
 # <a name="managing-user-account-provisioning-for-enterprise-apps-in-the-azure-portal"></a>Gestione del provisioning degli account utente per le app aziendali nel portale di Azure
 
@@ -63,9 +62,7 @@ Selezionare **Test connessione** per testare le credenziali mediante un tentativ
 
 Espandere **Mapping** per visualizzare e modificare gli attributi utente trasmessi tra Azure AD e l'applicazione di destinazione durante il provisioning o l'aggiornamento degli account utente.
 
-Esiste un set preconfigurato di mapping tra gli oggetti utente di Azure AD e gli oggetti utente di ogni app SaaS. Alcune app gestiscono anche oggetti gruppo. Selezionare un mapping nella tabella per aprire l'editor di mapping a destra, dove è possibile visualizzarlo e personalizzarlo.
-
-![Mostra la schermata Mapping attributi](./media/configure-automatic-user-provisioning-portal/enterprise-apps-provisioning-mapping.png)
+Esiste un set preconfigurato di mapping tra gli oggetti utente di Azure AD e gli oggetti utente di ogni app SaaS. Alcune app gestiscono anche oggetti gruppo. Selezionare un mapping nella tabella per aprire l'editor di mapping, in cui è possibile visualizzarlo e personalizzarlo.
 
 Le personalizzazioni supportate includono:
 
@@ -79,10 +76,10 @@ Le personalizzazioni supportate includono:
 
 ### <a name="settings"></a>Impostazioni
 
-Nell'area **Impostazioni** della schermata **Provisioning** è possibile avviare e arrestare il servizio di provisioning di Azure AD per l'applicazione selezionata. È anche possibile scegliere di cancellare la cache di provisioning e riavviare il servizio.
+Espandere **Impostazioni** per impostare un indirizzo di posta elettronica in modo da ricevere le notifiche e se ricevere avvisi in presenza di errori. È anche possibile selezionare l'ambito degli utenti da sincronizzare. È possibile scegliere di sincronizzare tutti gli utenti e i gruppi o solo quelli assegnati.
+
+### <a name="provisioning-status"></a>Stato del provisioning 
 
 Se il provisioning viene abilitato per la prima volta per un'applicazione, attivare il servizio impostando **Stato del provisioning** su **Sì**. Questa modifica determina l'esecuzione di un ciclo iniziale da parte del servizio di provisioning di Azure AD. Il servizio legge gli utenti assegnati nella sezione **Utenti e gruppi**, esegue query nell'applicazione di destinazione per ricercare tali utenti e quindi esegue le azioni di provisioning definite nella sezione **Mapping** di Azure AD. Durante questo processo il servizio di provisioning archivia i dati memorizzati nella cache relativi agli account utente gestiti, in modo che gli account non gestiti all'interno delle applicazioni di destinazione non inclusi nell'ambito dell'assegnazione non siano interessati dalle operazioni di deprovisioning. Dopo il ciclo iniziale, il servizio di provisioning sincronizza automaticamente gli oggetti utente e gruppo a intervalli di quaranta minuti.
 
 Impostare **Stato del provisioning** su **No** per sospendere il servizio di provisioning. In questo stato Azure non crea, aggiorna né rimuove oggetti utente o gruppo nell'app. Impostare lo stato di nuovo su **Sì** e il servizio ripartirà dal punto in cui si era interrotto.
-
-**Cancella lo stato corrente e riavvia la sincronizzazione** attiva un ciclo iniziale. Il servizio valuterà quindi tutti gli utenti nel sistema di origine e determinerà se sono inclusi nell'ambito per il provisioning. Questa operazione può essere utile quando l'applicazione è attualmente in quarantena o è necessario apportare una modifica ai mapping degli attributi. Si noti che il completamento del ciclo iniziale richiede più tempo rispetto al ciclo incrementale tipico a causa del numero di oggetti che devono essere valutati. Altre informazioni sulle prestazioni dei cicli iniziali e incrementali sono disponibili [qui](application-provisioning-when-will-provisioning-finish-specific-user.md).

@@ -7,10 +7,10 @@ ms.service: postgresql
 ms.topic: conceptual
 ms.date: 09/23/2020
 ms.openlocfilehash: b6689220873aaeb65337ba480e346e5d2c8020ce
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91707864"
 ---
 # <a name="logical-replication-and-logical-decoding-in-azure-database-for-postgresql---flexible-server"></a>Replica logica e decodifica logica nel database di Azure per PostgreSQL-server flessibile
@@ -53,8 +53,8 @@ Decodifica logica
 
 ### <a name="logical-replication"></a>Replica logica
 La replica logica usa i termini ' Publisher ' è Subscriber '. 
-* Il server di pubblicazione è il database PostgreSQL **dal**quale si inviano i dati. 
-* Il Sottoscrittore è il database PostgreSQL **a**cui si stanno inviando i dati.
+* Il server di pubblicazione è il database PostgreSQL **dal** quale si inviano i dati. 
+* Il Sottoscrittore è il database PostgreSQL **a** cui si stanno inviando i dati.
 
 Ecco un codice di esempio che è possibile usare per provare la replica logica.
 

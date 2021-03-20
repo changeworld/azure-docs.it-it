@@ -8,10 +8,10 @@ ms.subservice: education-hub
 ms.topic: overview
 ms.date: 06/30/2020
 ms.openlocfilehash: cb283380487310165c646c8615d10a545d1a923b
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
-ms.translationtype: HT
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/27/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92675693"
 ---
 # <a name="frequently-asked-questions-about-the-education-hub"></a>Domande frequenti sull'hub di Education
@@ -149,7 +149,7 @@ I crediti dei corsi di Azure coprono l'utilizzo solo dal momento in cui si attiv
 
 ### <a name="how-do-i-know-if-my-subscription-is-on-the-azure-course-credit-offer"></a>Come si può sapere se l'offerta relativa ai crediti dei corsi di Azure è attivata per la sottoscrizione?
 
-Se si esamina una sottoscrizione specifica nel pannello Sottoscrizioni del portale di Azure, si vedrà **Nome offerta** come una delle proprietà. Il nome dell'offerta sarà **Azure Sponsorship** , se è connessa ai crediti dei corsi. Se l'offerta **Azure Sponsorship** non viene visualizzata, contattare il supporto tecnico per convertirla.
+Se si esamina una sottoscrizione specifica nel pannello Sottoscrizioni del portale di Azure, si vedrà **Nome offerta** come una delle proprietà. Il nome dell'offerta sarà **Azure Sponsorship**, se è connessa ai crediti dei corsi. Se l'offerta **Azure Sponsorship** non viene visualizzata, contattare il supporto tecnico per convertirla.
 
 ## <a name="azure-dev-tools-for-teaching"></a>Azure Dev Tools for Teaching
 
@@ -252,10 +252,10 @@ Se non si è ancora in grado di accedere, contattare l'amministratore della sott
 
 ### <a name="how-do-i-find-my-subscriber-id"></a>Dove si trova l'ID sottoscrittore?
 
-- **Se ci si registra per la prima volta nel programma** : il numero di ID sottoscrittore si trova nel messaggio di posta elettronica di benvenuto che si riceve.
-- **Se la sottoscrizione è stata rinnovata** : l'ID sottoscrittore si trova nel messaggio di posta elettronica di rinnovo ricevuto dall'amministratore della sottoscrizione.
+- **Se ci si registra per la prima volta nel programma**: il numero di ID sottoscrittore si trova nel messaggio di posta elettronica di benvenuto che si riceve.
+- **Se la sottoscrizione è stata rinnovata**: l'ID sottoscrittore si trova nel messaggio di posta elettronica di rinnovo ricevuto dall'amministratore della sottoscrizione.
 
-L'ID sottoscrittore è anche disponibile nel portale Sottoscrizione di Visual Studio. Dopo aver eseguito l'accesso, controllare in **Sottoscrizioni personali** nella pagina **Account personale** .
+L'ID sottoscrittore è anche disponibile nel portale Sottoscrizione di Visual Studio. Dopo aver eseguito l'accesso, controllare in **Sottoscrizioni personali** nella pagina **Account personale**.
 
 Se è necessaria assistenza per individuare l'ID sottoscrittore, [contattare Microsoft](https://azureforeducation.microsoft.com/institutions/Contact).
 
@@ -282,7 +282,7 @@ Se non si ricevono questi messaggi di promemoria e si ritiene che la sottoscrizi
 
 In alternativa, passare alla pagina di [rinnovo di Azure Dev Tools for Teaching](https://portal.azureforeducation.microsoft.com/) e completare la procedura.
 
-Per verificare la data di scadenza della sottoscrizione, accedere al [portale di gestione di Azure Dev Tools for Teaching](https://azureforeducation.microsoft.com/account/Subscriptions) e controllare in **Sottoscrizioni** .
+Per verificare la data di scadenza della sottoscrizione, accedere al [portale di gestione di Azure Dev Tools for Teaching](https://azureforeducation.microsoft.com/account/Subscriptions) e controllare in **Sottoscrizioni**.
 
 ### <a name="what-if-i-need-more-help"></a>A chi è possibile rivolgersi per ulteriore assistenza?
 

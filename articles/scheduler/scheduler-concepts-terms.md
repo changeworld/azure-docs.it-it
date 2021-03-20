@@ -10,10 +10,10 @@ ms.reviewer: klam, estfan
 ms.topic: conceptual
 ms.date: 08/18/2016
 ms.openlocfilehash: 899c64e818896cde18e955d6abd82594734c4b57
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/22/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92368163"
 ---
 # <a name="concepts-terminology-and-entities-in-azure-scheduler"></a>Concetti, terminologia ed entità di Utilità di pianificazione di Azure
@@ -148,7 +148,7 @@ Nell’oggetto **startTime**, è possibile specificare l'ora di inizio e una dif
 
 <a name="action"></a>
 
-## <a name="action"></a>action
+## <a name="action"></a>azione
 
 Il processo di Utilità di pianificazione di Microsoft Azure esegue un'**azione** primaria in base alla pianificazione specificata. Utilità di pianificazione di Microsoft Azure supporta azioni della coda del bus di servizio, dell'argomento del bus di servizio, della coda di archiviazione e HTTP. Se l'**azione** primaria ha esito negativo, Utilità di pianificazione di Microsoft Azure può eseguire una [**errorAction**](#erroraction) secondaria che gestisce l'errore. L’oggetto dell’**azione** descrive questi elementi:
 
@@ -248,7 +248,7 @@ Un processo è ricorrente se la definizione JSON del processo include l’oggett
 
 | Proprietà | Obbligatoria | valore | Descrizione | 
 |----------|----------|-------|-------------| 
-| **frequenza** | Sì, quando viene utilizzata la **ricorrenza** | "Minute", "Hour", "Day", "Week", "Month", "Year" | L'unità di tempo tra le occorrenze | 
+| **frequency** | Sì, quando viene utilizzata la **ricorrenza** | "Minute", "Hour", "Day", "Week", "Month", "Year" | L'unità di tempo tra le occorrenze | 
 | **intervallo** | No | da 1 a 1000 (inclusi) | Un numero intero positivo che determina il numero di unità di tempo tra ogni occorrenza sulla base della **frequenza** | 
 | **pianificazione** | No | Varia | I dettagli per le pianificazioni più complesse e avanzate. Vedere **hours**, **minutes**, **weekDays**, **months**, e **monthDays** | 
 | **ore** | No | Da 1 a 24 | Una matrice con l'ora segna quando eseguire il processo | 

@@ -12,10 +12,10 @@ ms.date: 10/26/2020
 ms.author: gasinh
 ms.subservice: B2C
 ms.openlocfilehash: 337275cef0f2159cb5fac40ac0435408baf3bbef
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/26/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96170923"
 ---
 # <a name="tutorial-for-configuring-theaccesshub-admin-tool-with-azure-active-directory-b2c"></a>Esercitazione per la configurazione dello strumento di amministrazione di TheAccessHub con Azure Active Directory B2C
@@ -194,7 +194,7 @@ Le autorizzazioni per gestire gli utenti Customer e CSR/helpdesk nello strumento
 
 1. Accedere a TheAccessHub Admin Tool usando le credenziali fornite da N8 Identity
 
-2. Passa alla **Manager Tools**  >  **visualizzazione albero** degli strumenti di gestione
+2. Passa alla   >  **visualizzazione albero** degli strumenti di gestione
 
 3. In questa rappresentazione è possibile visualizzare i colleghi e i gruppi che possono gestire le organizzazioni.
 
@@ -210,7 +210,7 @@ Per personalizzare la notifica:
 
 1. Accedere a TheAccessHub usando le credenziali fornite da N8 Identity
 
-2. Passa a **Notifiche amministratore sistema**  >  **Notifications**
+2. Passa a **Notifiche amministratore sistema**  >  
 
 3. Selezionare il **modello crea collega**
 
@@ -228,7 +228,7 @@ Usando lo strumento di amministrazione di TheAccessHub, è possibile importare d
 
 1. Accedere a TheAccessHub Admin Tool usando le credenziali fornite da N8 Identity
 
-2. Passa a **System Admin**  >  **origini dati** dell'amministratore di sistema
+2. Passa a   >  **origini dati** dell'amministratore di sistema
 
 3. Selezionare **Aggiungi origine dati**
 
@@ -290,7 +290,7 @@ Usando lo strumento di amministrazione di TheAccessHub, è possibile importare d
 
 1. Accedere a TheAccessHub Admin Tool usando le credenziali fornite da N8 Identity
 
-2. Passa alla **System Admin**  >  **sincronizzazione dei dati** dell'amministratore di sistema
+2. Passa alla   >  **sincronizzazione dei dati** dell'amministratore di sistema
 
 3. Seleziona **nuovo carico**
 
@@ -332,7 +332,7 @@ Per sincronizzare i dati da Azure AD B2C nello strumento di amministrazione di T
 
 1. Accedere a TheAccessHub Admin Tool usando le credenziali fornite da N8 Identity
 
-2. Passa alla **System Admin**  >  **sincronizzazione dei dati** dell'amministratore di sistema
+2. Passa alla   >  **sincronizzazione dei dati** dell'amministratore di sistema
 
 3. Seleziona **nuovo carico**
 
@@ -364,7 +364,7 @@ Occasionalmente la sincronizzazione dello strumento di amministrazione di TheAcc
 
 1. Accedere a TheAccessHub Admin Tool usando le credenziali fornite da N8 Identity
 
-2. Passare a strumenti di amministrazione amministratore di **sistema**  >  **Admin Tools**  >  **sicurezza API**
+2. Passare a strumenti di amministrazione amministratore di **sistema**  >    >  **sicurezza API**
 
 3. Selezionare **genera**
 
@@ -378,7 +378,7 @@ Occasionalmente la sincronizzazione dello strumento di amministrazione di TheAcc
 
 1. Accedere a TheAccessHub Admin Tool usando le credenziali fornite da N8 Identity
 
-2. Passare a strumenti di amministrazione amministratore di **sistema**  >  **Admin Tools**  >  **criteri di Azure B2C**
+2. Passare a strumenti di amministrazione amministratore di **sistema**  >    >  **criteri di Azure B2C**
 
 3. Fornire il dominio del tenant Azure AD B2C e i due ID Framework dell'esperienza di identità dalla configurazione del Framework dell'esperienza di identità
 

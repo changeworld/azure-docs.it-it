@@ -10,12 +10,12 @@ ms.subservice: text-analytics
 ms.topic: tutorial
 ms.date: 02/09/2021
 ms.author: aahi
-ms.openlocfilehash: 8444ae08aa2c25c20723b2f8c571422af3b24bc8
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 47feddb88fd7ddae1f8be54709019b4c339d177d
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101736679"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104599171"
 ---
 # <a name="tutorial-integrate-power-bi-with-the-text-analytics-cognitive-service"></a>Esercitazione: Integrare Power BI con il servizio cognitivo Analisi del testo
 
@@ -190,7 +190,7 @@ Questa colonna verrà ora usata per generare una nuvola di parole. Per iniziare,
 > [!NOTE]
 > Perché usare le frasi chiave estratte per generare una nuvola di parole anziché usare il testo completo di ogni commento? Le frasi chiave forniscono le parole *importanti* dei commenti del cliente, non solo le *parole più comuni*. Inoltre, le dimensioni delle parole nella nuvola risultante non sono distorte dall'uso frequente di una parola in un numero relativamente piccolo di commenti.
 
-Se l'oggetto visivo personalizzato Word Cloud non è già installato, installarlo. Nel pannello Visualizzazioni nella parte destra dell'area di lavoro, fare clic sui puntini di sospensione ( **...** ) e scegliere **Importa dall'archivio**. Cercare "cloud" e fare clic sul pulsante **Aggiungi** accanto all'oggetto visivo Word Cloud. Power BI installa l'oggetto visivo Word Cloud e notifica l'avvenuta installazione.
+Se l'oggetto visivo personalizzato Word Cloud non è già installato, installarlo. Nel pannello visualizzazioni a destra dell'area di lavoro fare clic sui tre puntini di sospensione (**...**) e scegliere **Importa da Market**. Se la parola "cloud" non è tra gli strumenti di visualizzazione visualizzati nell'elenco, è possibile cercare "cloud" e fare clic sul pulsante **Aggiungi** accanto all'oggetto visivo cloud di Word. Power BI installa l'oggetto visivo Word Cloud e notifica l'avvenuta installazione.
 
 ![[aggiunta di un oggetto visivo personalizzato]](../media/tutorials/power-bi/add-custom-visuals.png)<br><br>
 
@@ -200,7 +200,7 @@ Fare clic sull'icona Word Cloud nel pannello Visualizzazioni.
 
 Verrà visualizzato un nuovo report nell'area di lavoro. Trascinare il campo `keyphrases` dal pannello Campi nel campo Categoria nel pannello Visualizzazioni. La nuvola di parole verrà visualizzata all'interno del report.
 
-Passare quindi alla pagina Formato del pannello Visualizzazioni. Nella categoria Parole non significative, attivare **Parole non significative predefinite** per eliminare le parole brevi e comuni, ad esempio articoli e preposizioni, dalla nuvola. 
+Passare quindi alla pagina Formato del pannello Visualizzazioni. Nella categoria Parole non significative, attivare **Parole non significative predefinite** per eliminare le parole brevi e comuni, ad esempio articoli e preposizioni, dalla nuvola. Tuttavia, poiché vengono visualizzate frasi chiave, potrebbero non contenere parole non significative.
 
 ![[attivazione delle parole non significative predefinite]](../media/tutorials/power-bi/default-stop-words.png)
 
@@ -232,8 +232,7 @@ La funzione Analisi del sentiment seguente restituisce un punteggio che indica i
     headers     = [#"Ocp-Apim-Subscription-Key" = apikey],
     bytesresp   = Web.Contents(endpoint, [Headers=headers, Content=bytesbody]),
     jsonresp    = Json.Document(bytesresp),
-    sentiment   = jsonresp[documents]{0}[confidenceScores]
-in  sentiment
+    sentiment   = jsonresp[documents]{0}[detectedLanguage][confidenceScore] in  sentiment
 ```
 
 Di seguito sono presentate due versioni di una funzione di Rilevamento lingua. La prima restituisce il codice lingua ISO, ad esempio `en` per la lingua inglese, mentre la seconda restituisce il nome "descrittivo", ad esempio `English`. È possibile notare che nelle due versioni varia solo l'ultima riga del corpo.
@@ -249,8 +248,7 @@ Di seguito sono presentate due versioni di una funzione di Rilevamento lingua. L
     headers     = [#"Ocp-Apim-Subscription-Key" = apikey],
     bytesresp   = Web.Contents(endpoint, [Headers=headers, Content=bytesbody]),
     jsonresp    = Json.Document(bytesresp),
-    language    = jsonresp[documents]{0}[detectedLanguages]{0}[iso6391Name]
-in  language
+    language    = jsonresp [documents]{0}[detectedLanguage] [iso6391Name] in language 
 ```
 ```fsharp
 // Returns the name (for example, 'English') of the language in which the text is written
@@ -263,8 +261,7 @@ in  language
     headers     = [#"Ocp-Apim-Subscription-Key" = apikey],
     bytesresp   = Web.Contents(endpoint, [Headers=headers, Content=bytesbody]),
     jsonresp    = Json.Document(bytesresp),
-    language    = jsonresp[documents]{0}[detectedLanguages]{0}[name]
-in  language
+    language    jsonresp [documents]{0}[detectedLanguage] [iso6391Name] in language 
 ```
 
 Infine, ecco una variante della funzione Frasi chiave già presentata che restituisce le frasi come un oggetto elenco, anziché come una singola stringa di frasi delimitate da virgole. 

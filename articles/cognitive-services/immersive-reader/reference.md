@@ -11,10 +11,10 @@ ms.topic: reference
 ms.date: 06/20/2019
 ms.author: metang
 ms.openlocfilehash: f2f5c8193454a3b7fa6be1cea7a1236b613d6c8f
-ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/27/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92636528"
 ---
 # <a name="immersive-reader-javascript-sdk-reference-v11"></a>Guida di riferimento all'SDK per JavaScript immersive (v 1.1)
@@ -43,7 +43,7 @@ launchAsync(token: string, subdomain: string, content: Content, options?: Option
 
 #### <a name="launchasync-parameters"></a>Parametri launchAsync
 
-| Nome | Type | Descrizione |
+| Nome | Tipo | Descrizione |
 | ---- | ---- |------------ |
 | `token` | string | Token di autenticazione Azure AD. Per altri dettagli, vedere [How-to create a immersive Reader Resource](./how-to-create-immersive-reader.md) . |
 | `subdomain` | string | Sottodominio personalizzato della risorsa Reader immersiva in Azure. Per altri dettagli, vedere [How-to create a immersive Reader Resource](./how-to-create-immersive-reader.md) . |
@@ -115,7 +115,7 @@ renderButtons(options?: RenderButtonsOptions): void;
 
 #### <a name="renderbuttons-parameters"></a>Parametri renderButtons
 
-| Nome | Type | Descrizione |
+| Nome | Tipo | Descrizione |
 | ---- | ---- |------------ |
 | `options` | [opzioni di renderButtons](#renderbuttons-options) | Opzioni per la configurazione di determinati comportamenti della funzione renderButtons. facoltativo. |
 
@@ -131,7 +131,7 @@ Opzioni per il rendering dei pulsanti Reader immersivi.
 
 #### <a name="renderbuttons-options-parameters"></a>Parametri delle opzioni di renderButtons
 
-| Impostazione | Type | Descrizione |
+| Impostazione | Tipo | Descrizione |
 | ------- | ---- | ----------- |
 | Elementi figlio | HTMLDivElement [] | Elementi per il rendering dei pulsanti del lettore immersivi in. |
 
@@ -156,7 +156,7 @@ Contiene la risposta dalla chiamata a `ImmersiveReader.launchAsync` . Si noti ch
 
 #### <a name="launchresponse-parameters"></a>Parametri LaunchResponse
 
-| Impostazione | Type | Description |
+| Impostazione | Tipo | Descrizione |
 | ------- | ---- | ----------- |
 | contenitore | HTMLDivElement | Elemento HTML che contiene l'iframe del lettore immersivo. |
 | sessionID | string | Identificatore univoco globale per questa sessione, usato per il debug. |
@@ -174,7 +174,7 @@ Contiene informazioni su un errore.
 
 #### <a name="error-parameters"></a>Parametri di errore
 
-| Impostazione | Type | Descrizione |
+| Impostazione | Tipo | Descrizione |
 | ------- | ---- | ----------- |
 | codice | string | Uno di un set di codici di errore. Vedere i [codici di errore](#error-codes). |
 | message | string | Rappresentazione leggibile dell'errore. |
@@ -205,7 +205,7 @@ Contiene il contenuto da visualizzare nel lettore immersivo.
 
 #### <a name="content-parameters"></a>Parametri di contenuto
 
-| Nome | Type | Descrizione |
+| Nome | Tipo | Descrizione |
 | ---- | ---- |------------ |
 | title | string | Testo del titolo visualizzato nella parte superiore del lettore immersivo (facoltativo) |
 | blocchi | [Blocco []](#chunk) | Matrice di blocchi |
@@ -240,7 +240,7 @@ Singolo blocco di dati, che verrà passato al contenuto del lettore immersivo.
 
 #### <a name="chunk-parameters"></a>Parametri del blocco
 
-| Nome | Type | Descrizione |
+| Nome | Tipo | Descrizione |
 | ---- | ---- |------------ |
 | contenuto | string | Stringa che contiene il contenuto inviato al lettore immersivo. |
 | lang | string | Lingua del testo, il valore è nel formato di tag del linguaggio IETF BCP 47, ad esempio en, es-ES. La lingua verrà rilevata automaticamente se non è specificata. Vedere le [lingue supportate](#supported-languages). |
@@ -272,7 +272,7 @@ Default value: "text/plain"
 | Tipo MIME | Descrizione |
 | --------- | ----------- |
 | text/plain | Testo normale. |
-| text/html | Contenuto HTML. [Altre informazioni](#html-support)|
+| text/html | Contenuto HTML. [Scopri di più](#html-support)|
 | Application/MathML + XML | Linguaggio di markup matematico (MathML). [Altre informazioni](./how-to/display-math.md)
 | applicazione/vnd.openxmlformats-officedocument.wordprocessingml.document | Documento di formato Microsoft Word. docx.
 
@@ -305,16 +305,16 @@ Contiene proprietà che configurano comportamenti specifici del lettore immersiv
 
 #### <a name="options-parameters"></a>Parametri delle opzioni
 
-| Nome | Type | Descrizione |
+| Nome | Tipo | Descrizione |
 | ---- | ---- |------------ |
 | uiLang | string | Lingua dell'interfaccia utente, il valore è nel formato di tag del linguaggio IETF BCP 47, ad esempio en, es-ES. Se non è specificato, il valore predefinito è lingua del browser. |
-| timeout | Numero | Durata (in millisecondi) prima che [launchAsync](#launchasync) abbia esito negativo con un errore di timeout (il valore predefinito è 15000 MS). Questo timeout si applica solo all'avvio iniziale della pagina Reader, in cui l'operazione viene eseguita quando si apre la pagina Reader e viene avviata la casella di selezione. Non è necessario rettificare il timeout. |
-| uiZIndex | Numero | Indice Z dell'iframe che verrà creato (il valore predefinito è 1000). |
+| timeout | Number | Durata (in millisecondi) prima che [launchAsync](#launchasync) abbia esito negativo con un errore di timeout (il valore predefinito è 15000 MS). Questo timeout si applica solo all'avvio iniziale della pagina Reader, in cui l'operazione viene eseguita quando si apre la pagina Reader e viene avviata la casella di selezione. Non è necessario rettificare il timeout. |
+| uiZIndex | Number | Indice Z dell'iframe che verrà creato (il valore predefinito è 1000). |
 | useWebview | Boolean| Usare un tag WebView anziché un iframe per la compatibilità con le app Chrome (il valore predefinito è false). |
 | onExit | Funzione | Viene eseguito quando il lettore immersivo viene chiuso. |
 | allowFullscreen | Boolean | Possibilità di impostare il controllo a schermo intero (il valore predefinito è true). |
 | hideExitButton | Boolean | Indica se nascondere o meno la freccia del pulsante di uscita del lettore immersivo (il valore predefinito è false). Questo dovrebbe essere vero solo se è disponibile un meccanismo alternativo per uscire dal reader immersivo, ad esempio una freccia indietro della barra degli strumenti per dispositivi mobili. |
-| cookiePolicy | [CookiePolicy](#cookiepolicy-options) | Impostazione per l'utilizzo dei cookie del lettore immersivo (il valore predefinito è *CookiePolicy. Disable* ). È responsabilità dell'applicazione host ottenere il consenso dell'utente necessario in base ai criteri di conformità dei cookie dell'Unione europea. Vedere [Opzioni dei criteri dei cookie](#cookiepolicy-options). |
+| cookiePolicy | [CookiePolicy](#cookiepolicy-options) | Impostazione per l'utilizzo dei cookie del lettore immersivo (il valore predefinito è *CookiePolicy. Disable*). È responsabilità dell'applicazione host ottenere il consenso dell'utente necessario in base ai criteri di conformità dei cookie dell'Unione europea. Vedere [Opzioni dei criteri dei cookie](#cookiepolicy-options). |
 | disableFirstRun | Boolean | Disabilitare la prima esperienza di esecuzione. |
 | readAloudOptions | [ReadAloudOptions](#readaloudoptions) | Opzioni per configurare la lettura a voce alta. |
 | translationOptions | [TranslationOptions](#translationoptions) | Opzioni per la configurazione della traduzione. |
@@ -390,10 +390,10 @@ type ReadAloudOptions = {
 
 #### <a name="readaloudoptions-parameters"></a>Parametri ReadAloudOptions
 
-| Nome | Type | Descrizione |
+| Nome | Tipo | Descrizione |
 | ---- | ---- |------------ |
 | voice | string | Voice, "Female" o "male". Si noti che non tutti i linguaggi supportano entrambi i sessi. |
-| velocità | Numero | La velocità di riproduzione deve essere compresa tra 0,5 e 2,5 inclusi. |
+| velocità | Number | La velocità di riproduzione deve essere compresa tra 0,5 e 2,5 inclusi. |
 | autoPlay | Boolean | Avvia automaticamente la lettura a voce alta quando viene caricato il lettore immersivo. |
 
 ##### `voice`
@@ -429,7 +429,7 @@ type TranslationOptions = {
 
 #### <a name="translationoptions-parameters"></a>Parametri TranslationOptions
 
-| Nome | Type | Descrizione |
+| Nome | Tipo | Descrizione |
 | ---- | ---- |------------ |
 | Linguaggio | string | Imposta il linguaggio di traduzione, il valore è nel formato di tag del linguaggio IETF BCP 47, ad esempio fr-FR, es-MX, zh-Hans-CN. Necessario per abilitare automaticamente la traduzione di Word o documenti. |
 | autoEnableDocumentTranslation | Boolean | Tradurre automaticamente l'intero documento. |
@@ -457,9 +457,9 @@ type DisplayOptions = {
 
 #### <a name="displayoptions-parameters"></a>Parametri DisplayOptions
 
-| Nome | Type | Descrizione |
+| Nome | Tipo | Descrizione |
 | ---- | ---- |------------ |
-| textSize | Numero | Imposta la dimensione del testo scelta. |
+| textSize | Number | Imposta la dimensione del testo scelta. |
 | increaseSpacing | Boolean | Imposta un valore che indica se la spaziatura del testo viene attivata o disattivata. |
 | fontFamily | string | Imposta il tipo di carattere scelto ("calibri", "ComicSans" o "Sitka"). |
 
@@ -487,15 +487,15 @@ Values available: "Calibri", "Sitka", "ComicSans"
 enum CookiePolicy { Disable, Enable }
 ```
 
-**Le impostazioni elencate di seguito sono esclusivamente a scopo informativo** . Il lettore immersivo archivia le impostazioni o le preferenze dell'utente nei cookie. Questa *cookiePolicy* opzione cookiePolicy **Disabilita** l'uso dei cookie per impostazione predefinita per conformarsi alle leggi di conformità dei cookie UE. Se si desidera riabilitare i cookie e ripristinare la funzionalità predefinita per le preferenze utente del lettore immersivo, è necessario assicurarsi che il sito Web o l'applicazione ottenga il consenso appropriato dall'utente per abilitare i cookie. Quindi, per riabilitare i cookie nel lettore immersivo, è necessario impostare in modo esplicito l'opzione *cookiePolicy* su *cookiePolicy. Enable* quando si avvia il lettore immersivo. La tabella seguente descrive le impostazioni archiviate dal lettore immersivo nel cookie quando è abilitata l'opzione *cookiePolicy* .
+**Le impostazioni elencate di seguito sono esclusivamente a scopo informativo**. Il lettore immersivo archivia le impostazioni o le preferenze dell'utente nei cookie. Questa  opzione cookiePolicy **Disabilita** l'uso dei cookie per impostazione predefinita per conformarsi alle leggi di conformità dei cookie UE. Se si desidera riabilitare i cookie e ripristinare la funzionalità predefinita per le preferenze utente del lettore immersivo, è necessario assicurarsi che il sito Web o l'applicazione ottenga il consenso appropriato dall'utente per abilitare i cookie. Quindi, per riabilitare i cookie nel lettore immersivo, è necessario impostare in modo esplicito l'opzione *cookiePolicy* su *cookiePolicy. Enable* quando si avvia il lettore immersivo. La tabella seguente descrive le impostazioni archiviate dal lettore immersivo nel cookie quando è abilitata l'opzione *cookiePolicy* .
 
 #### <a name="settings-parameters"></a>Parametri delle impostazioni
 
-| Impostazione | Type | Descrizione |
+| Impostazione | Tipo | Descrizione |
 | ------- | ---- | ----------- |
-| textSize | Numero | Imposta la dimensione del testo scelta. |
+| textSize | Number | Imposta la dimensione del testo scelta. |
 | fontFamily | string | Imposta il tipo di carattere scelto ("calibri", "ComicSans" o "Sitka"). |
-| textSpacing | Numero | Imposta un valore che indica se la spaziatura del testo viene attivata o disattivata. |
+| textSpacing | Number | Imposta un valore che indica se la spaziatura del testo viene attivata o disattivata. |
 | formattingEnabled | Boolean | Imposta se la formattazione HTML è attivata o disattivata. |
 | tema | string | Imposta il tema scelto (ad esempio "Light", "Dark"...). |
 | syllabificationEnabled | Boolean | Imposta un valore che indica se syllabification è attivato o disattivato. |

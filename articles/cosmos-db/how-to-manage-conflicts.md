@@ -9,10 +9,10 @@ ms.date: 06/11/2020
 ms.author: anfeldma
 ms.custom: devx-track-js, devx-track-csharp
 ms.openlocfilehash: 8f98c2201159350f5774f4d2b05102384f31f3af
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93339343"
 ---
 # <a name="manage-conflict-resolution-policies-in-azure-cosmos-db"></a>Gestire i criteri di risoluzione dei conflitti in Azure Cosmos DB
@@ -114,7 +114,7 @@ const { container: lwwContainer } = await database.containers.createIfNotExists(
 );
 ```
 
-### <a name="python-sdk"></a><a id="create-custom-conflict-resolution-policy-lww-python"></a>Python SDK
+### <a name="python-sdk"></a><a id="create-custom-conflict-resolution-policy-lww-python"></a>SDK Python
 
 ```python
 udp_collection = {
@@ -136,10 +136,10 @@ Questi esempi illustrano come configurare un contenitore con un criterio di riso
 
 Le stored procedure per la risoluzione personalizzata di conflitti devono essere implementate usando la firma della funzione indicata di seguito. Anche se non è necessario, scegliendo per la funzione lo stesso nome usato per la registrazione della stored procedure con il contenitore si semplifica la denominazione. Ecco una descrizione dei parametri che è necessario implementare per questa stored procedure.
 
-- **incomingItem** : l'elemento da inserire o aggiornare nel commit che genera i conflitti. Per le operazioni di eliminazione è Null.
-- **existingItem** : elemento di cui è attualmente stato eseguito il commit. Questo valore è non Null in un aggiornamento e Null per un'operazione di inserimento o eliminazione.
-- **Tombstone** : valore booleano che indica se incomingItem è in conflitto con un elemento eliminato in precedenza. Se True, existingItem è Null.
-- **conflictingItems** : matrice della versione di cui è stato eseguito il commit di tutti gli elementi nel contenitore in conflitto con INCOMINGITEM su ID o qualsiasi altra proprietà di indice univoco.
+- **incomingItem**: l'elemento da inserire o aggiornare nel commit che genera i conflitti. Per le operazioni di eliminazione è Null.
+- **existingItem**: elemento di cui è attualmente stato eseguito il commit. Questo valore è non Null in un aggiornamento e Null per un'operazione di inserimento o eliminazione.
+- **Tombstone**: valore booleano che indica se incomingItem è in conflitto con un elemento eliminato in precedenza. Se True, existingItem è Null.
+- **conflictingItems**: matrice della versione di cui è stato eseguito il commit di tutti gli elementi nel contenitore in conflitto con INCOMINGITEM su ID o qualsiasi altra proprietà di indice univoco.
 
 > [!IMPORTANT]
 > Come per qualsiasi stored procedure, una procedura personalizzata di risoluzione dei conflitti può accedere ai dati con la stessa chiave di partizione e può eseguire qualsiasi operazione di inserimento, aggiornamento o eliminazione per risolvere i conflitti.
@@ -309,7 +309,7 @@ const { container: udpContainer } = await database.containers.createIfNotExists(
 
 Dopo aver creato il contenitore, è necessario creare la stored procedure `resolver`.
 
-### <a name="python-sdk"></a><a id="create-custom-conflict-resolution-policy-stored-proc-python"></a>Python SDK
+### <a name="python-sdk"></a><a id="create-custom-conflict-resolution-policy-stored-proc-python"></a>SDK Python
 
 ```python
 udp_collection = {
@@ -416,7 +416,7 @@ const {
 });
 ```
 
-### <a name="python-sdk"></a><a id="create-custom-conflict-resolution-policy-python"></a>Python SDK
+### <a name="python-sdk"></a><a id="create-custom-conflict-resolution-policy-python"></a>SDK Python
 
 ```python
 database = client.ReadDatabase("dbs/" + self.database_name)

@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 1/4/2021
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 9ca8df21e0221d364f75eaeb26f0b2961d7e0b08
-ms.sourcegitcommit: dda0d51d3d0e34d07faf231033d744ca4f2bbf4a
+ms.openlocfilehash: dcd58e966da7ca596a14ca1b2839cbeb6399a855
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102204378"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104576459"
 ---
 # <a name="cloud-tiering-overview"></a>Panoramica di suddivisione in livelli nel cloud
 La suddivisione in livelli nel cloud, una funzionalità facoltativa di Sincronizzazione file di Azure, riduce la quantità di spazio di archiviazione locale necessario mantenendo le prestazioni di un file server locale.
@@ -39,7 +39,7 @@ Con i **criteri di data**, i file sporadici vengono suddivisi in livelli nel clo
 Per altri esempi sull'interazione tra i criteri di data e lo spazio libero del volume, vedere [scegliere Sincronizzazione file di Azure criteri](storage-sync-choose-cloud-tiering-policies.md)di suddivisione in livelli nel cloud.
 
 ### <a name="windows-server-data-deduplication"></a>Deduplicazione dati di Windows Server
-La deduplicazione dei dati è supportata nei volumi per i quali è abilitata la suddivisione in livelli nel cloud a partire da Windows Server 2016. Per informazioni dettagliate, vedere [pianificazione di una distribuzione di sincronizzazione file di Azure](https://docs.microsoft.com/azure/storage/files/storage-sync-files-planning#data-deduplication).
+La deduplicazione dei dati è supportata nei volumi per i quali è abilitata la suddivisione in livelli nel cloud a partire da Windows Server 2016. Per informazioni dettagliate, vedere [pianificazione di una distribuzione di sincronizzazione file di Azure](./storage-sync-files-planning.md#data-deduplication).
 
 ### <a name="cloud-tiering-heatmap"></a>Suddivisione in livelli cloud mappa termica
 Sincronizzazione file di Azure monitora l'accesso ai file (operazioni di lettura e scrittura) nel tempo e, in base alla frequenza e all'accesso recenti, assegna un punteggio di calore a ogni file. Usa questi punteggi per creare un "mappa termica" dello spazio dei nomi in ogni endpoint server. Questo mappa termica è un elenco di tutti i file di sincronizzazione in un percorso con la suddivisione in livelli nel cloud abilitata, ordinata in base al Punteggio di calore. I file ad accesso frequente aperti di recente sono considerati attivi, mentre i file che sono stati appena modificati e non sono stati utilizzati per un certo periodo di tempo sono considerati interessanti. 
@@ -109,4 +109,3 @@ D'altra parte, per un file archiviato in un file server locale, le dimensioni su
 ## <a name="next-steps"></a>Passaggi successivi
 * [Scegliere Sincronizzazione file di Azure criteri di suddivisione in livelli cloud](storage-sync-choose-cloud-tiering-policies.md)
 * [Pianificazione per la distribuzione di Sincronizzazione file di Azure](storage-sync-files-planning.md)
-

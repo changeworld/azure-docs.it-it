@@ -15,10 +15,10 @@ ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 8481c562ecbab1f26e877e55a5a9454695ddf4c0
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/22/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92370832"
 ---
 # <a name="view-audit-history-for-azure-ad-roles-in-privileged-identity-management"></a>Visualizzare la cronologia di controllo per i ruoli di Azure AD in Privileged Identity Management
@@ -92,13 +92,13 @@ Per visualizzare la cronologia di controllo per i ruoli di Azure AD, attenersi a
     | --- | --- |
     | Tempo | Quando si è verificata l'azione. |
     | Richiedente | Utente che ha richiesto l'attivazione o la modifica del ruolo. Se il valore è **Azure System**, controllare la cronologia di controllo di Azure per altre informazioni. |
-    | Action | Azioni eseguite dal richiedente. Le azioni possono includere Assign, Unassign, Activate, disactivate o AddedOutsidePIM. |
-    | Member | Utente che sta attivando o assegnata a un ruolo. |
+    | Azione | Azioni eseguite dal richiedente. Le azioni possono includere Assign, Unassign, Activate, disactivate o AddedOutsidePIM. |
+    | Membro | Utente che sta attivando o assegnata a un ruolo. |
     | Ruolo | Ruolo assegnato o attivato dall'utente. |
     | Motivo | Testo immesso nel campo motivo durante l'attivazione. |
     | Scadenza | Quando un ruolo attivato scade. Si applica solo alle assegnazioni di ruolo idonee. |
 
-1. Per ordinare la cronologia di controllo, fare clic sui pulsanti **ora**, **azione**e **ruolo** .
+1. Per ordinare la cronologia di controllo, fare clic sui pulsanti **ora**, **azione** e **ruolo** .
 
 ## <a name="filter-audit-history"></a>Filtrare la cronologia dei controlli
 
@@ -106,9 +106,9 @@ Per visualizzare la cronologia di controllo per i ruoli di Azure AD, attenersi a
 
     Viene visualizzato il riquadro **Aggiorna parametri del grafico** .
 
-1. In **intervallo di tempo**selezionare un intervallo di tempo.
+1. In **intervallo di tempo** selezionare un intervallo di tempo.
 
-1. In **ruoli**selezionare le caselle di controllo per indicare i ruoli che si desidera visualizzare.
+1. In **ruoli** selezionare le caselle di controllo per indicare i ruoli che si desidera visualizzare.
 
     ![Riquadro Aggiorna parametri grafico](media/pim-how-to-use-audit-log/update-chart-parameters.png)
 

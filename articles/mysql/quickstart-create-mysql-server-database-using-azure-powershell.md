@@ -9,10 +9,10 @@ ms.topic: quickstart
 ms.date: 04/28/2020
 ms.custom: mvc, devx-track-azurepowershell
 ms.openlocfilehash: d12d447acb3b6bf2b6f84e9768e9f063a9a36b03
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
-ms.translationtype: HT
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/12/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94542304"
 ---
 # <a name="quickstart-create-an-azure-database-for-mysql-server-using-powershell"></a>Avvio rapido: Creare un database di Azure per il server MySQL tramite PowerShell
@@ -209,7 +209,7 @@ Per altri comandi, vedere il capitolo 4.5.1 di [MySQL 5.7 Reference Manual](http
     | Connection Method (Metodo di connessione) | Standard (TCP/IP)                       | Usare il protocollo TCP/IP per connettersi al Database di Azure per MySQL |
     | nomehost          | `mydemoserver.mysql.database.azure.com` | Nome del server annotato in precedenza                           |
     | Porta              | 3306                                    | Porta predefinita per MySQL                                 |
-    | Username          | myadmin@mydemoserver                    | Account di accesso di amministratore del server annotato in precedenza                |
+    | Username          | myadmin@mydemoserver                    | Accesso amministratore server annotato in precedenza                |
     | Password          | *************                           | Usare la password dell'account amministratore configurata in precedenza      |
 
 1. Fare clic su **Test connessione** per verificare che tutti i parametri siano configurati correttamente.

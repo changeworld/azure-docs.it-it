@@ -10,12 +10,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.custom: how-to, contperf-fy21q1, automl
 ms.date: 08/20/2020
-ms.openlocfilehash: 14837391f7bf907acbbe1d573f3171acef4db658
-ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
+ms.openlocfilehash: 66fa56b45e8d3cff7a8ace300a450b9c41df9bc0
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/09/2021
-ms.locfileid: "102503505"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104588716"
 ---
 # <a name="auto-train-a-time-series-forecast-model"></a>Eseguire il training automatico di un modello di previsione di una serie temporale
 
@@ -349,7 +349,7 @@ Nell'esempio seguente vengono innanzitutto sostituiti tutti i valori di `y_pred`
 ```python
 label_query = test_labels.copy().astype(np.float)
 label_query.fill(np.nan)
-label_fcst, data_trans = fitted_pipeline.forecast(
+label_fcst, data_trans = fitted_model.forecast(
     test_data, label_query, forecast_destination=pd.Timestamp(2019, 1, 8))
 ```
 
@@ -373,7 +373,7 @@ day_datetime,store,week_of_year
 01/01/2019,A,1
 ```
 
-Ripetere i passaggi necessari per caricare i dati futuri in un dataframe e quindi eseguire `best_run.predict(test_data)` per stimare i valori futuri.
+Ripetere i passaggi necessari per caricare i dati futuri in un dataframe e quindi eseguire `best_run.forecast(test_data)` per stimare i valori futuri.
 
 > [!NOTE]
 > Le stime in-Sample non sono supportate per la previsione con ML automatico quando `target_lags` e/o `target_rolling_window_size` sono abilitati.

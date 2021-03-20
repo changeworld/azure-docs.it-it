@@ -4,10 +4,10 @@ description: Informazioni su come creare un pool di batch che usa indirizzi IP p
 ms.topic: how-to
 ms.date: 10/08/2020
 ms.openlocfilehash: e822311718847e173763847d503335f71457308b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91849329"
 ---
 # <a name="create-an-azure-batch-pool-with-specified-public-ip-addresses"></a>Creare un pool di Azure Batch con gli indirizzi IP pubblici specificati
@@ -97,7 +97,7 @@ Request Body
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Informazioni sul [Flusso di lavoro del servizio Batch e risorse primarie](batch-service-workflow-features.md), ad esempio pool, nodi, processi e attività.
+- Informazioni sul [Flusso di lavoro del servizio Batch e risorse primarie](batch-service-workflow-features.md) come pool, nodi, processi e attività.
 - Informazioni sulla [creazione di un pool in una subnet di una rete virtuale di Azure](batch-virtual-network.md).
 - Informazioni sulla [creazione di un pool di Azure batch senza indirizzi IP pubblici](./batch-pool-no-public-ip-address.md).
 

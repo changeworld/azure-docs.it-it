@@ -10,10 +10,10 @@ ms.subservice: blobs
 ms.topic: how-to
 ms.custom: devx-track-csharp
 ms.openlocfilehash: 984fb00e163a090534da1fb41850dcfef6c5d516
-ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/24/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "95521530"
 ---
 # <a name="manage-blob-properties-and-metadata-with-net"></a>Gestire le proprietà e i metadati dei BLOB con .NET
@@ -35,13 +35,13 @@ Oltre ai dati che contengono, i BLOB supportano le proprietà di sistema e i met
 
 Nell'esempio di codice seguente vengono impostate le `ContentType` `ContentLanguage` proprietà di sistema e su un BLOB.
 
-# <a name="net-v12"></a>[.NET V12](#tab/dotnet)
+# <a name="net-v12"></a>[.NET v12](#tab/dotnet)
 
 Per impostare le proprietà in un BLOB, chiamare [SetHttpHeaders](/dotnet/api/azure.storage.blobs.specialized.blobbaseclient.sethttpheaders) o [SetHttpHeadersAsync](/dotnet/api/azure.storage.blobs.specialized.blobbaseclient.sethttpheadersasync). Tutte le proprietà non impostate in modo esplicito vengono cancellate. L'esempio di codice seguente ottiene prima di tutto le proprietà esistenti sul BLOB, quindi le usa per popolare le intestazioni che non vengono aggiornate.
 
 :::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/dotnet-v12/Metadata.cs" id="Snippet_SetBlobProperties":::
 
-# <a name="net-v11"></a>[V11 .NET](#tab/dotnet11)
+# <a name="net-v11"></a>[.NET v11](#tab/dotnet11)
 
 ```csharp
 public static async Task SetBlobPropertiesAsync(CloudBlob blob)
@@ -72,11 +72,11 @@ public static async Task SetBlobPropertiesAsync(CloudBlob blob)
 
 Nell'esempio di codice seguente vengono ottenute le proprietà di sistema di un BLOB e vengono visualizzati alcuni valori.
 
-# <a name="net-v12"></a>[.NET V12](#tab/dotnet)
+# <a name="net-v12"></a>[.NET v12](#tab/dotnet)
 
 :::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/dotnet-v12/Metadata.cs" id="Snippet_ReadBlobProperties":::
 
-# <a name="net-v11"></a>[V11 .NET](#tab/dotnet11)
+# <a name="net-v11"></a>[.NET v11](#tab/dotnet11)
 
 Il recupero dei metadati e dei valori delle proprietà per una risorsa di archiviazione BLOB è un processo in due passaggi. Prima di poter leggere questi valori, è necessario recuperarli in modo esplicito chiamando `FetchAttributes` il `FetchAttributesAsync` metodo o. L'eccezione a questa regola è che i `Exists` `ExistsAsync` metodi e chiamano il `FetchAttributes` metodo appropriato dietro le quinte. Quando si chiama uno di questi metodi, non è necessario chiamare anche `FetchAttributes` .
 
@@ -115,12 +115,12 @@ private static async Task GetBlobPropertiesAsync(CloudBlob blob)
 
 È possibile specificare i metadati come uno o più coppie nome-valore in una risorsa BLOB o contenitore. Per impostare i metadati, aggiungere coppie nome-valore alla `Metadata` raccolta nella risorsa. Quindi, chiamare uno dei metodi seguenti per scrivere i valori:
 
-# <a name="net-v12"></a>[.NET V12](#tab/dotnet)
+# <a name="net-v12"></a>[.NET v12](#tab/dotnet)
 
 - [SetMetadata](/dotnet/api/azure.storage.blobs.specialized.blobbaseclient.setmetadata)
 - [SetMetadataAsync](/dotnet/api/azure.storage.blobs.specialized.blobbaseclient.setmetadataasync)
 
-# <a name="net-v11"></a>[V11 .NET](#tab/dotnet11)
+# <a name="net-v11"></a>[.NET v11](#tab/dotnet11)
 
 - [SetMetadata](/dotnet/api/microsoft.azure.storage.blob.cloudblob.setmetadata)
 - [SetMetadataAsync](/dotnet/api/microsoft.azure.storage.blob.cloudblob.setmetadataasync)
@@ -132,11 +132,11 @@ Il nome dei metadati deve essere conforme alle convenzioni di denominazione degl
 
 Nell'esempio di codice seguente vengono impostati i metadati su un BLOB. Un valore viene impostato utilizzando il metodo della raccolta `Add` . L'altro valore è impostato utilizzando la sintassi implicita chiave/valore.
 
-# <a name="net-v12"></a>[.NET V12](#tab/dotnet)
+# <a name="net-v12"></a>[.NET v12](#tab/dotnet)
 
 :::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/dotnet-v12/Metadata.cs" id="Snippet_AddBlobMetadata":::
 
-# <a name="net-v11"></a>[V11 .NET](#tab/dotnet11)
+# <a name="net-v11"></a>[.NET v11](#tab/dotnet11)
 
 ```csharp
 public static async Task AddBlobMetadataAsync(CloudBlob blob)
@@ -166,13 +166,13 @@ public static async Task AddBlobMetadataAsync(CloudBlob blob)
 
 Nell'esempio di codice seguente vengono letti i metadati in un BLOB.
 
-# <a name="net-v12"></a>[.NET V12](#tab/dotnet)
+# <a name="net-v12"></a>[.NET v12](#tab/dotnet)
 
 Per recuperare i metadati, chiamare il metodo [GetProperties](/dotnet/api/azure.storage.blobs.specialized.blobbaseclient.getproperties) o [getPropertiesAsync](/dotnet/api/azure.storage.blobs.specialized.blobbaseclient.getpropertiesasync) sul BLOB o sul contenitore per popolare la raccolta di [metadati](/dotnet/api/azure.storage.blobs.models.blobproperties.metadata) , quindi leggere i valori, come illustrato nell'esempio riportato di seguito. I metodi **GetProperties** recuperano le proprietà e i metadati dei BLOB in un'unica chiamata. Questo è diverso dalle API REST che richiedono chiamate separate per [ottenere le proprietà del BLOB](/rest/api/storageservices/get-blob-properties) e ottenere i metadati del [BLOB](/rest/api/storageservices/get-blob-metadata).
 
 :::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/dotnet-v12/Metadata.cs" id="Snippet_ReadBlobMetadata":::
 
-# <a name="net-v11"></a>[V11 .NET](#tab/dotnet11)
+# <a name="net-v11"></a>[.NET v11](#tab/dotnet11)
 
 Per recuperare i metadati, chiamare `FetchAttributes` il `FetchAttributesAsync` metodo o sul BLOB o sul contenitore per popolare la `Metadata` raccolta, quindi leggere i valori, come illustrato nell'esempio riportato di seguito.
 
@@ -208,7 +208,7 @@ public static async Task ReadBlobMetadataAsync(CloudBlob blob)
 
 [!INCLUDE [storage-blob-dotnet-resources-include](../../../includes/storage-blob-dotnet-resources-include.md)]
 
-## <a name="see-also"></a>Vedere anche
+## <a name="see-also"></a>Vedi anche
 
 - [Operazione Set Blob Properties](/rest/api/storageservices/set-blob-properties)
 - [Operazione Get Blob Properties](/rest/api/storageservices/get-blob-properties)

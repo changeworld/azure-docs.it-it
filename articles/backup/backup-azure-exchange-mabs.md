@@ -5,10 +5,10 @@ ms.reviewer: kasinh
 ms.topic: conceptual
 ms.date: 03/24/2017
 ms.openlocfilehash: 86389ef89ced74905db0fc8bfeaabcea6140762a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91262995"
 ---
 # <a name="back-up-an-exchange-server-to-azure-with-azure-backup-server"></a>Eseguire il backup di un server Exchange in Azure con il server di Backup di Azure
@@ -28,7 +28,7 @@ Per installare l'agente protezione MABS nel server di Exchange, seguire questi p
 
 ## <a name="create-a-protection-group-for-the-exchange-server"></a>Creare un gruppo di protezione per il server di Exchange
 
-1. Nella Console di amministrazione MAB selezionare **protezione**e quindi selezionare **nuovo** nella barra multifunzione dello strumento per aprire la procedura guidata **Crea nuovo gruppo protezione** dati.
+1. Nella Console di amministrazione MAB selezionare **protezione** e quindi selezionare **nuovo** nella barra multifunzione dello strumento per aprire la procedura guidata **Crea nuovo gruppo protezione** dati.
 2. Nella schermata **iniziale** della procedura guidata selezionare **Avanti**.
 3. Nella schermata **Selezione tipo di gruppo protezione** dati selezionare **Server** e fare clic su **Avanti**.
 4. Selezionare il database di Exchange Server che si desidera proteggere e fare clic su **Avanti**.
@@ -71,7 +71,7 @@ Per installare l'agente protezione MABS nel server di Exchange, seguire questi p
 14. Scegliere il database di cui si vuole eseguire il backup in Azure e quindi fare clic su **Avanti**. Ad esempio:
 
     ![Specifica i dati da proteggere online](./media/backup-azure-backup-exchange-server/specify-online-protection-data.png)
-15. Definire la pianificazione per **backup di Azure**e quindi fare clic su **Avanti**. Ad esempio:
+15. Definire la pianificazione per **backup di Azure** e quindi fare clic su **Avanti**. Ad esempio:
 
     ![Specificare la pianificazione dei backup online](./media/backup-azure-backup-exchange-server/specify-online-backup-schedule.png)
 
@@ -79,7 +79,7 @@ Per installare l'agente protezione MABS nel server di Exchange, seguire questi p
     > Tenere presente che i punti di ripristino online sono basati sui punti di ripristino di backup completo rapido. Pertanto, è necessario pianificare il punto di ripristino online dopo il tempo specificato per il punto di ripristino completo rapido.
     >
     >
-16. Configurare i criteri di conservazione per **backup di Azure**e quindi fare clic su **Avanti**.
+16. Configurare i criteri di conservazione per **backup di Azure** e quindi fare clic su **Avanti**.
 17. Scegliere un'opzione di replica online e fare clic su **Avanti**.
 
     Un database di grandi dimensioni potrebbe richiedere molto tempo per creare il backup iniziale in rete. Per evitare questo problema, è possibile creare un backup offline.  
