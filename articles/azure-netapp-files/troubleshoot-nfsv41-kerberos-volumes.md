@@ -15,10 +15,10 @@ ms.topic: troubleshooting
 ms.date: 01/12/2021
 ms.author: b-juche
 ms.openlocfilehash: 638607da02b1db4842cdc04f86a4fed1860c243f
-ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/12/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98134314"
 ---
 # <a name="troubleshoot-nfsv41-kerberos-volume-issues"></a>Risolvere i problemi del volume Kerberos di NFSv 4.1 
@@ -40,4 +40,4 @@ Questo articolo descrive le soluzioni per le condizioni di errore che potrebbero
 
 ## <a name="next-steps"></a>Passaggi successivi  
 
-* [Configurare la crittografia Kerberos NFSv 4.1 per Azure NetApp Files](configure-kerberos-encryption.md)
+* [Configurare la crittografia Kerberos NFS v4.1 per Azure NetApp Files](configure-kerberos-encryption.md)

@@ -10,10 +10,10 @@ services: azure-maps
 manager: cpendle
 ms.custom: ''
 ms.openlocfilehash: 2f7372d522c02eb86f1cc6470cefa9cb299605a7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "86261852"
 ---
 # <a name="manage-the-azure-maps-visual-within-your-organization"></a>Gestire l'oggetto visivo Maps di Azure all'interno dell'organizzazione
@@ -22,13 +22,13 @@ Power BI consente ai progettisti e agli amministratori tenant di gestire l'uso d
 
 ### <a name="designer-options"></a>Opzioni per i progettisti
 
-In Power BI Desktop, le finestre di progettazione possono disabilitare l'oggetto visivo mappe di Azure nella scheda sicurezza. Selezionare **File** &gt; **le opzioni e le impostazioni** del file, quindi selezionare **Opzioni** &gt; **Anteprima funzionalità**. Se disabilitato, Azure Maps non viene caricato per impostazione predefinita.  
+In Power BI Desktop, le finestre di progettazione possono disabilitare l'oggetto visivo mappe di Azure nella scheda sicurezza. Selezionare  &gt; **le opzioni e le impostazioni** del file, quindi selezionare **Opzioni** &gt; **Anteprima funzionalità**. Se disabilitato, Azure Maps non viene caricato per impostazione predefinita.  
   
 ![Pannello opzioni di Power BI che mostra le opzioni delle funzionalità di anteprima per l'oggetto visivo mappe di Azure](media/power-bi-visual/preview-options-panel.png)
 
 ## <a name="tenant-admin-options"></a>Opzioni per gli amministratori tenant
 
-In PowerBI.com, gli amministratori tenant possono disattivare l'oggetto visivo Maps di Azure per tutti gli utenti. Selezionare **Impostazioni** impostazioni &gt; tenant del **portale** di **Amministrazione** &gt; **Tenant settings**. Se disabilitato, Power BI non visualizzerà più l'oggetto visivo mappe di Azure nel riquadro Visualizzazioni.
+In PowerBI.com, gli amministratori tenant possono disattivare l'oggetto visivo Maps di Azure per tutti gli utenti. Selezionare **Impostazioni** impostazioni &gt; tenant del **portale** di **Amministrazione** &gt; . Se disabilitato, Power BI non visualizzerà più l'oggetto visivo mappe di Azure nel riquadro Visualizzazioni.
 
 > [!div class="mx-imgBorder"]
 > ![Portale di amministrazione Power BI che mostra le impostazioni del tenant per l'oggetto visivo mappe di Azure](media/power-bi-visual/tenant-admin-settings.png)

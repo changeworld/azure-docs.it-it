@@ -10,10 +10,10 @@ author: likebupt
 ms.author: keli19
 ms.date: 10/22/2019
 ms.openlocfilehash: bf35d08128aa8a3e8f545ed7184866694219f2cb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "90905216"
 ---
 # <a name="remove-duplicate-rows-module"></a>Rimuovi modulo righe duplicate
@@ -55,7 +55,7 @@ Quando si esegue il modulo, viene creato un set di dati candidato e viene restit
 
 2. Connettere il set di dati che si desidera controllare per le righe duplicate.
 
-3. Nel riquadro **Proprietà** , in **espressione filtro selezione colonna chiave**, fare clic su **Avvia selettore colonna**per scegliere le colonne da utilizzare per l'identificazione dei duplicati.
+3. Nel riquadro **Proprietà** , in **espressione filtro selezione colonna chiave**, fare clic su **Avvia selettore colonna** per scegliere le colonne da utilizzare per l'identificazione dei duplicati.
 
     In questo contesto, **Key** non significa un identificatore univoco. Tutte le colonne selezionate utilizzando il selettore di colonna vengono designate come **colonne chiave**. Tutte le colonne non selezionate sono considerate colonne non chiave. La combinazione di colonne selezionate come chiavi determina l'univocità dei record. È possibile considerarlo come un'istruzione SQL che utilizza più join Equals.
 

@@ -5,10 +5,10 @@ ms.topic: how-to
 ms.date: 06/09/2020
 ms.custom: subject-moving-resources
 ms.openlocfilehash: 1388dc11254324f74efcbaa55c97cac2ccd0c026
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "87073737"
 ---
 # <a name="move-an-app-service-app-to-another-region"></a>Spostare un'app del servizio app in un'altra area
@@ -19,7 +19,7 @@ Le risorse del servizio app sono specifiche dell'area e non possono essere spost
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-- No. Il [ripristino dallo snapshot](app-service-web-restore-snapshots.md) richiede in genere il livello **Premium** , ma in modalità di ripristino di emergenza viene abilitato automaticamente per l'app interessata, indipendentemente dal livello in cui si trova l'app interessata.
+- Nessuno. Il [ripristino dallo snapshot](app-service-web-restore-snapshots.md) richiede in genere il livello **Premium** , ma in modalità di ripristino di emergenza viene abilitato automaticamente per l'app interessata, indipendentemente dal livello in cui si trova l'app interessata.
 
 ## <a name="prepare"></a>Preparazione
 

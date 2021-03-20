@@ -8,10 +8,10 @@ ms.date: 09/10/2020
 ms.author: owend
 ms.reviewer: minewiskan
 ms.openlocfilehash: 24ee31b941d836d296c30927cfb9636f3023fa89
-ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/14/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92019435"
 ---
 # <a name="azure-analysis-services-scale-out"></a>Ridimensionamento orizzontale di Azure Analysis Services
@@ -85,9 +85,9 @@ Un'altra metrica efficace da controllare è la media di QPU per ServerResourceTy
 **Per configurare QPU by ServerResourceType**
 
 1. In un grafico a linee metrica fare clic su **Aggiungi metrica**. 
-2. In **risorsa**selezionare il server, in **spazio dei nomi metrica**, selezionare **Analysis Services metrica standard**, quindi in **metrica**, selezionare **QPU**, quindi in **aggregazione**selezionare **AVG**. 
+2. In **risorsa** selezionare il server, in **spazio dei nomi metrica**, selezionare **Analysis Services metrica standard**, quindi in **metrica**, selezionare **QPU**, quindi in **aggregazione** selezionare **AVG**. 
 3. Fare clic su **applica suddivisione**. 
-4. In **valori**selezionare **ServerResourceType**.  
+4. In **valori** selezionare **ServerResourceType**.  
 
 ### <a name="detailed-diagnostic-logging"></a>Registrazione diagnostica dettagliata
 
@@ -139,7 +139,7 @@ Codici di stato restituiti:
 |0     | Replicating        |
 |1     |  Reidratanti       |
 |2     |   Completato       |
-|3     |   Operazione non riuscita      |
+|3     |   Non riuscito      |
 |4     |    Finalizzazione     |
 |||
 

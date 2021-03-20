@@ -6,10 +6,10 @@ ms.topic: reference
 ms.date: 1/16/2020
 ms.author: jejarry
 ms.openlocfilehash: 0a5ebd4822c5f0ff1735464bb4d5b42c436ee529
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "86260330"
 ---
 # <a name="sfctl-property"></a>sfctl property
@@ -19,7 +19,7 @@ Consente di archiviare proprietà ed eseguire query su di esse con i nomi di Ser
 
 |Comando|Descrizione|
 | --- | --- |
-| Elimina | Elimina la proprietà di Service Fabric specificata. |
+| eliminare | Elimina la proprietà di Service Fabric specificata. |
 | get | Ottiene la proprietà di Service Fabric specificata. |
 | list | Ottiene informazioni su tutte le proprietà di Service Fabric con un determinato nome. |
 | put | Crea o aggiorna una proprietà di Service Fabric. |

@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 05/15/2020
 ms.author: Zhchia
 ms.openlocfilehash: a6aa4ad009d037e6ea0d1ade3cc9735351bd634a
-ms.sourcegitcommit: 65a4f2a297639811426a4f27c918ac8b10750d81
-ms.translationtype: HT
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/03/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96558862"
 ---
 # <a name="tutorial-configure-8x8-for-automatic-user-provisioning"></a>Esercitazione: Configurare 8x8 per il provisioning utenti automatico
@@ -40,7 +40,7 @@ Per lo scenario descritto in questa esercitazione si presuppone che l'utente dis
 * [Single Sign-on con Azure AD](./8x8virtualoffice-tutorial.md) è già stato configurato.
 
 ## <a name="step-1-plan-your-provisioning-deployment"></a>Passaggio 1. Pianificare la distribuzione del provisioning
-1. Vedere le informazioni su [come funziona il servizio di provisioning](../app-provisioning/user-provisioning.md).
+1. Acquisire informazioni su [come funziona il servizio di provisioning](../app-provisioning/user-provisioning.md).
 2. Determinare gli utenti che verranno inclusi nell'[ambito per il provisioning](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
 3. Determinare quali dati [mappare tra Azure AD e 8x8](../app-provisioning/customize-application-attributes.md).
 

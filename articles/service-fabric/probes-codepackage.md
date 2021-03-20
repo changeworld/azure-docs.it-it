@@ -6,10 +6,10 @@ author: tugup
 ms.author: tugup
 ms.date: 3/12/2020
 ms.openlocfilehash: 07a1b836ca7ea79244e303f54654dfcaa6e5fcb9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "82137587"
 ---
 # <a name="liveness-probe"></a>Probe di liveity
@@ -40,7 +40,7 @@ Inoltre, Service Fabric genererà i report sull' [integrità][health-introductio
 
 * `OK`: Il probe ha esito positivo per il valore impostato in **successThreshold**.
 
-* `Error`: Il probe **failureCount**  ==   **failureThreshold**prima che il contenitore venga riavviato.
+* `Error`: Il probe **failureCount**  ==   **failureThreshold** prima che il contenitore venga riavviato.
 
 * `Warning`: 
     * Il probe ha esito negativo e **failureCount**  <  **failureThreshold**. Questo report sull'integrità rimane attivo fino a quando **failureCount** raggiunge il valore impostato in **failureThreshold** o **successThreshold**.

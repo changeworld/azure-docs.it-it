@@ -7,10 +7,10 @@ ms.service: cache
 ms.topic: conceptual
 ms.date: 10/18/2019
 ms.openlocfilehash: 12d78846f5892e71388de6e6e76b868f9b14d4de
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "88008917"
 ---
 # <a name="troubleshoot-azure-cache-for-redis-server-side-issues"></a>Risolvere i problemi del lato server di cache di Azure per Redis
@@ -73,7 +73,7 @@ Per attenuare le situazioni in cui l'utilizzo della larghezza di banda di rete �
 - [Creare avvisi](cache-how-to-monitor.md#alerts) sulle metriche, ad esempio la lettura della cache o la scrittura nella cache, per ricevere notifiche tempestive sui possibili effetti.
 - [Scalabilità](cache-how-to-scale.md) a dimensioni della cache maggiori con maggiore capacità della larghezza di banda di rete.
 
-## <a name="additional-information"></a>Altre informazioni
+## <a name="additional-information"></a>Informazioni aggiuntive
 
 - [Risolvere i problemi relativi al lato client di cache di Azure per Redis](cache-troubleshoot-client.md)
 - [Scelta del livello appropriato](cache-overview.md#choosing-the-right-tier)

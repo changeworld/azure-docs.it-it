@@ -17,10 +17,10 @@ ms.reviewer: hanki
 ms.custom: pim
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: fe57a44a5a6fa9a631604d92419fd8f5ebcce50a
-ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/05/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93394731"
 ---
 # <a name="email-notifications-in-pim"></a>Notifiche tramite posta elettronica in PIM
@@ -34,7 +34,7 @@ I messaggi di posta elettronica inviati da Privileged Identity Management per Az
 - Indirizzo di posta elettronica:  **Azure-noreply \@ Microsoft.com**
 - Nome visualizzato: Microsoft Azure
 
-Questi messaggi di posta elettronica includono un prefisso **PIM** nella riga dell'oggetto. Ad esempio:
+Questi messaggi di posta elettronica includono un prefisso **PIM** nella riga dell'oggetto. Ecco un esempio:
 
 - PIM: Alain Caronte è stato assegnato in modo permanente al ruolo di lettore di backup
 
@@ -48,7 +48,7 @@ Privileged Identity Management invia messaggi di posta elettronica quando si ver
 
 I destinatari di questi messaggi di posta elettronica per i ruoli di Azure AD variano a seconda del ruolo dell'utente, dell'evento e dell'impostazione di notifica:
 
-| Utente | Attivazione del ruolo in attesa di approvazione | Richiesta di attivazione del ruolo completata | PIM è abilitato |
+| User | Attivazione del ruolo in attesa di approvazione | Richiesta di attivazione del ruolo completata | PIM è abilitato |
 | --- | --- | --- | --- |
 | Amministratore dei ruoli con privilegi</br>(Attivato/Idoneo) | Sì</br>(solo se non è specificato nessun responsabile approvazione esplicito) | Sì* | Sì |
 | Amministratore della protezione</br>(Attivato/Idoneo) | No | Sì* | Sì |
@@ -68,7 +68,7 @@ Un messaggio di posta elettronica di riepilogo settimanale Privileged Identity M
 
 Il messaggio di posta elettronica include quattro sezioni:
 
-| Tile | Description |
+| Tile | Descrizione |
 | --- | --- |
 | **Users activated** (Utenti attivati) | Numero di volte in cui gli utenti hanno attivato il proprio ruolo idoneo all'interno dell'organizzazione. |
 | **Users made permanent** (Utenti resi permanenti) | Numero di volte per cui un utente con un'assegnazione idonea viene reso permanente. |

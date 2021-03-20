@@ -1,19 +1,19 @@
 ---
-title: 'Guida introduttiva: Come usare gli argomenti del bus di servizio (Ruby)'
-description: 'Guida introduttiva: Informazioni su come usare le sottoscrizioni e gli argomenti del bus di servizio in Azure. Gli esempi di codice sono scritti per applicazioni Ruby.'
+title: 'Guida introduttiva: come usare gli argomenti del bus di servizio (Ruby)'
+description: 'Guida introduttiva: informazioni su come usare gli argomenti e le sottoscrizioni del bus di servizio in Azure. Gli esempi di codice sono scritti per applicazioni Ruby.'
 services: service-bus-messaging
 documentationcenter: ruby
 ms.devlang: ruby
 ms.topic: quickstart
 ms.date: 06/23/2020
 ms.openlocfilehash: aba326a63558632bee3bf0c48d34e471bbe30886
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
-ms.translationtype: HT
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/05/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "88067563"
 ---
-# <a name="quickstart-how-to-use-service-bus-topics-and-subscriptions-with-ruby"></a>Guida introduttiva: Come usare gli argomenti e le sottoscrizioni del bus di servizio con Ruby
+# <a name="quickstart-how-to-use-service-bus-topics-and-subscriptions-with-ruby"></a>Guida introduttiva: come usare gli argomenti e le sottoscrizioni del bus di servizio con Ruby
  
 [!INCLUDE [service-bus-selector-topics](../../includes/service-bus-selector-topics.md)]
 
@@ -65,7 +65,7 @@ Per impostazione predefinita, le sottoscrizioni sono permanenti. Fintanto che es
 È possibile eliminare automaticamente le sottoscrizioni impostando la [proprietà AutoDeleteOnIdle](/dotnet/api/microsoft.servicebus.messaging.subscriptiondescription.autodeleteonidle).
 
 ### <a name="create-a-subscription-with-the-default-matchall-filter"></a>Creare una sottoscrizione con il filtro (MatchAll) predefinito
-Se non vengono specificati altri filtri durante la creazione di una nuova sottoscrizione, viene usato il filtro (predefinito) **MatchAll**. Quando si usa il filtro **MatchAll**, tutti i messaggi pubblicati nell'argomento vengono inseriti nella coda virtuale della sottoscrizione. Nell'esempio seguente viene creata una sottoscrizione denominata "all-messages" e viene usato il filtro predefinito **MatchAll**.
+Se non vengono specificati altri filtri durante la creazione di una nuova sottoscrizione, viene usato il filtro (predefinito) **MatchAll**. Quando si usa il filtro **MatchAll**, tutti i messaggi pubblicati nell'argomento vengono inseriti nella coda virtuale della sottoscrizione. Nell'esempio seguente viene creata una sottoscrizione denominata "all-messages" e viene usato il filtro **MatchAll** predefinito.
 
 ```ruby
 subscription = azure_service_bus_service.create_subscription("test-topic", "all-messages")
@@ -170,6 +170,6 @@ A questo punto, dopo aver appreso le nozioni di base degli argomenti del bus di 
 
 * Vedere [Code, argomenti e sottoscrizioni](service-bus-queues-topics-subscriptions.md).
 * Materiale di riferimento dell'API per [SqlFilter](/dotnet/api/microsoft.servicebus.messaging.sqlfilter).
-* Vedere il repository [Azure SDK for Ruby](https://github.com/Azure/azure-sdk-for-ruby) su GitHub.
+* Visitare il repository [Azure SDK per Ruby](https://github.com/Azure/azure-sdk-for-ruby) su GitHub.
 
 [Azure portal]: https://portal.azure.com

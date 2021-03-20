@@ -9,10 +9,10 @@ ms.author: normesta
 ms.subservice: common
 ms.reviewer: dineshm
 ms.openlocfilehash: ec88a3c740ceda7ccf352f8f32f94e2cd52d0988
-ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/12/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97358759"
 ---
 # <a name="upload-files-to-azure-blob-storage-by-using-azcopy-v10"></a>Caricare i file nell'archiviazione BLOB di Azure usando AzCopy V10
@@ -177,7 +177,7 @@ Negli esempi seguenti viene illustrato come utilizzare l' `--blob-tags` opzione.
 
 È possibile modificare l'operazione di caricamento usando i flag facoltativi. Ecco alcuni esempi.
 
-|Scenario|Flag|
+|Scenario|Contrassegno|
 |---|---|
 |Caricare i file come BLOB di accodamento o BLOB di pagine.|**--BLOB-type** = \[ BlockBlob \| PageBlob \| AppendBlob\]|
 |Effettuare il caricamento in un livello di accesso specifico, ad esempio il livello archivio.|**--Block-BLOB-Tier** = \[ Nessun \| \| Archivio Hot Cool \|\]|

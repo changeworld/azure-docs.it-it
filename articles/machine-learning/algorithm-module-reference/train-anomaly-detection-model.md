@@ -10,10 +10,10 @@ author: likebupt
 ms.author: keli19
 ms.date: 02/22/2020
 ms.openlocfilehash: edf35fada4233fbe43bc7f859c2414bfb8130714
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "90905723"
 ---
 # <a name="train-anomaly-detection-model-module"></a>Modulo Train Anomaly Detection Model
@@ -34,7 +34,7 @@ Per altre informazioni sugli algoritmi di rilevamento delle anomalie disponibili
 
 3.  Configurare il modulo di rilevamento delle anomalie scegliendo la colonna etichetta e impostando altri parametri specifici per l'algoritmo.  
 
-4.  Alleghi un set di dati di training all'input di destra del **modello di rilevamento delle anomalie**del training.  
+4.  Alleghi un set di dati di training all'input di destra del **modello di rilevamento delle anomalie** del training.  
 
 5.  Inviare la pipeline.  
 

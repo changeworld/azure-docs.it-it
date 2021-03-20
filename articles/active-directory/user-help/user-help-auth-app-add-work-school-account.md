@@ -12,10 +12,10 @@ ms.date: 11/15/2020
 ms.author: curtand
 ms.reviewer: olhaun
 ms.openlocfilehash: 04c9bc429d9663f7ac36b6ba8f40abf225eb71c6
-ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/12/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97359115"
 ---
 # <a name="add-your-work-or-school-account-to-the-microsoft-authenticator-app"></a>Aggiungere un account aziendale o dell'istituto di istruzione all'app Microsoft Authenticator
@@ -39,7 +39,7 @@ Se l'organizzazione usa la verifica a due fattori, è possibile impostare l'acco
 
 Per aggiungere un account effettuando l'accesso all'account aziendale o dell'Istituto di istruzione usando le credenziali:
 
-1. Aprire l'app Microsoft Authenticator e selezionare il **+** pulsante e toccare **Aggiungi account aziendale o dell'Istituto di istruzione**. Fare clic su **Accedi**.
+1. Aprire l'app Microsoft Authenticator e selezionare il **+** pulsante e toccare **Aggiungi account aziendale o dell'Istituto di istruzione**. Selezionare **Accedi**.
 
 1. Immettere le credenziali dell'account aziendale o dell'Istituto di istruzione. Se si dispone di una sessione di accesso temporanea (TAP), è possibile usarla per accedere. A questo punto, è possibile che si possa impedire il proseguimento di una delle condizioni seguenti:
 

@@ -11,10 +11,10 @@ ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ms.openlocfilehash: 113c11b749b42bbaf9e5e40cdf63623288997a92
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "89440287"
 ---
 # <a name="agile-development-of-data-science-projects"></a>Sviluppo Agile di progetti di data science
@@ -35,7 +35,7 @@ Nella figura seguente viene illustrato un flusso di lavoro tipico per la pianifi
 
 ##  <a name="work-item-types"></a><a name='Terminology-1'></a>Tipi di elemento di lavoro
 
-Nel Framework di pianificazione sprint TDSP sono disponibili quattro tipi di *elemento di lavoro* usati di frequente: *funzionalità*, *storie utente*, *attività*e *bug*. Il backlog per tutti gli elementi di lavoro è a livello di progetto, non a livello di repository git. 
+Nel Framework di pianificazione sprint TDSP sono disponibili quattro tipi di *elemento di lavoro* usati di frequente: *funzionalità*, *storie utente*, *attività* e *bug*. Il backlog per tutti gli elementi di lavoro è a livello di progetto, non a livello di repository git. 
 
 Di seguito sono riportate le definizioni per i tipi di elemento di lavoro:
 
@@ -72,7 +72,7 @@ Per altre informazioni sulla pianificazione dello sprint in Azure Boards, vedere
 
 Dopo aver creato il repository del codice del progetto e del progetto, è possibile aggiungere una funzionalità al backlog per rappresentare il lavoro per il progetto.
 
-1. Dalla pagina del progetto, selezionare **lavagne**  >  dei**backlog** nel pannello di navigazione sinistro. 
+1. Dalla pagina del progetto, selezionare **lavagne**  >  dei **backlog** nel pannello di navigazione sinistro. 
    
 1. Nella scheda **backlog** , se il tipo di elemento di lavoro nella barra superiore è **storie**, elenco a discesa e selezionare **funzionalità**. Quindi selezionare **nuovo elemento di lavoro.**
    
@@ -130,42 +130,42 @@ I data scientist possono essere più comodi usando un modello agile che sostitui
 
 1. Dalla pagina principale dell'organizzazione di Azure DevOps selezionare **Impostazioni organizzazione** dal dispositivo di spostamento a sinistra. 
    
-1. Nel **Pannello**di navigazione a sinistra **Impostazioni organizzazione** selezionare **elabora**. 
+1. Nel **Pannello** di navigazione a sinistra **Impostazioni organizzazione** selezionare **elabora**. 
    
 1. Nel riquadro **tutti i processi** selezionare il **...** accanto a **agile**, quindi selezionare **Crea processo ereditato**.
    
    ![Creazione di un processo ereditato da agile](./media/agile-development/10-settings.png) 
    
-1. Nella finestra di dialogo **Crea processo ereditato da agile** immettere il nome *AgileDataScienceProcess*e selezionare **Crea processo**.
+1. Nella finestra di dialogo **Crea processo ereditato da agile** immettere il nome *AgileDataScienceProcess* e selezionare **Crea processo**.
    
    ![Crea processo AgileDataScienceProcess](./media/agile-development/11-agileds.png)
    
-1. In **tutti i processi**selezionare il nuovo **AgileDataScienceProcess**. 
+1. In **tutti i processi** selezionare il nuovo **AgileDataScienceProcess**. 
    
-1. Nella scheda **tipi di elemento di lavoro** disabilitare **Epic**, **feature**, **storia utente**e **attività** selezionando il **...** accanto a ogni elemento e selezionando **Disabilita**. 
+1. Nella scheda **tipi di elemento di lavoro** disabilitare **Epic**, **feature**, **storia utente** e **attività** selezionando il **...** accanto a ogni elemento e selezionando **Disabilita**. 
    
    ![Disabilitare i tipi di elemento di lavoro](./media/agile-development/12-disable.png)
    
-1. In **tutti i processi**selezionare la scheda **livelli di backlog** . In **portfolio backlog**selezionare il **...** accanto a **Epic (disabilitato)** e quindi selezionare **modifica/Rinomina**. 
+1. In **tutti i processi** selezionare la scheda **livelli di backlog** . In **portfolio backlog** selezionare il **...** accanto a **Epic (disabilitato)** e quindi selezionare **modifica/Rinomina**. 
    
 1. Nella finestra di dialogo **modifica livello backlog** :
-   1. In **nome**sostituire **Epic** con i *progetti TDSP*. 
-   1. In **tipi di elemento di lavoro in questo livello di backlog**selezionare **nuovo tipo di elemento di lavoro**, immettere *progetto TDSP*e selezionare **Aggiungi**. 
+   1. In **nome** sostituire **Epic** con i *progetti TDSP*. 
+   1. In **tipi di elemento di lavoro in questo livello di backlog** selezionare **nuovo tipo di elemento di lavoro**, immettere *progetto TDSP* e selezionare **Aggiungi**. 
    1. In **tipo di elemento di lavoro predefinito**, elenco a discesa e selezionare **progetto TDSP**. 
    1. Selezionare **Salva**.
    
    ![Imposta livello di backlog portfolio](./media/agile-development/13-rename.png)  
    
-1. Seguire gli stessi passaggi per rinominare le **funzionalità** in *fasi TDSP*e aggiungere i nuovi tipi di elemento di lavoro seguenti:
+1. Seguire gli stessi passaggi per rinominare le **funzionalità** in *fasi TDSP* e aggiungere i nuovi tipi di elemento di lavoro seguenti:
    
    - *Informazioni commerciali*
    - *Acquisizione dei dati*
    - *Modellazione*
    - *Distribuzione*
    
-1. In **backlog requisito**rinominare le **storie** in sottofasi *TDSP*, aggiungere il nuovo tipo di elemento di lavoro *TDSP sottofase*e impostare il tipo di elemento di lavoro predefinito su **sottofase TDSP**.
+1. In **backlog requisito** rinominare le **storie** in sottofasi *TDSP*, aggiungere il nuovo tipo di elemento di lavoro *TDSP sottofase* e impostare il tipo di elemento di lavoro predefinito su **sottofase TDSP**.
    
-1. In **backlog iterazione**aggiungere un nuovo tipo di elemento di lavoro *attività TDSP*e impostarlo come tipo di elemento di lavoro predefinito. 
+1. In **backlog iterazione** aggiungere un nuovo tipo di elemento di lavoro *attività TDSP* e impostarlo come tipo di elemento di lavoro predefinito. 
    
 Dopo aver completato i passaggi, i livelli di backlog dovrebbero avere un aspetto simile al seguente:
    
@@ -183,7 +183,7 @@ Dopo aver completato i passaggi, i livelli di backlog dovrebbero avere un aspett
    
    ![Creare un progetto di TDSP](./media/agile-development/15-newproject.png)
    
-1. Nel progetto appena creato selezionare **lavagne**  >  di**backlog** nel pannello di spostamento a sinistra.
+1. Nel progetto appena creato selezionare **lavagne**  >  di **backlog** nel pannello di spostamento a sinistra.
    
 1. Per rendere visibili i progetti TDSP, selezionare l'icona **Configura impostazioni team** . Nella schermata **Impostazioni** selezionare la casella di controllo **progetti TDSP** , quindi selezionare **Salva e Chiudi**.
    

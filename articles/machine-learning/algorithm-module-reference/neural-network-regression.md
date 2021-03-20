@@ -10,10 +10,10 @@ author: likebupt
 ms.author: keli19
 ms.date: 04/22/2020
 ms.openlocfilehash: 403576454615effeb53651b51679681422b08e9e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "90890361"
 ---
 # <a name="neural-network-regression-module"></a>Modulo di regressione della rete neurale
@@ -60,7 +60,7 @@ Usare questo modulo per creare un modello di regressione usando un algoritmo di 
 
     -   **Intervallo parametri**: selezionare questa opzione se non si è certi dei parametri migliori e si vuole eseguire uno sweep di parametri. Selezionare un intervallo di valori di cui eseguire l'iterazione e l' [iperparametri del modello di ottimizzazione](tune-model-hyperparameters.md) esegue l'iterazione su tutte le combinazioni possibili delle impostazioni fornite per determinare gli iperparametri che producono i risultati ottimali.   
 
-3.  In **specifica livello nascosto**selezionare **case con connessione completa**. Questa opzione consente di creare un modello utilizzando l'architettura di rete neurale predefinita, per un modello di regressione della rete neurale, con questi attributi:  
+3.  In **specifica livello nascosto** selezionare **case con connessione completa**. Questa opzione consente di creare un modello utilizzando l'architettura di rete neurale predefinita, per un modello di regressione della rete neurale, con questi attributi:  
   
     + La rete ha esattamente un livello nascosto.
     + Il livello di output è completamente connesso al livello nascosto e il livello nascosto è completamente connesso al livello di input.
@@ -72,7 +72,7 @@ Usare questo modulo per creare un modello di regressione usando un algoritmo di 
   
 5.  Per la **velocità di apprendimento**, digitare un valore che definisce il passaggio effettuato a ogni iterazione, prima della correzione. Un valore superiore per la velocità di apprendimento può provocare una convergenza più rapida del modello, ma può eccedere i valori minimi locali.
 
-6.  Per **numero di iterazioni di apprendimento**specificare il numero massimo di volte in cui l'algoritmo elabora i case di training.
+6.  Per **numero di iterazioni di apprendimento** specificare il numero massimo di volte in cui l'algoritmo elabora i case di training.
 
 
 8.  Per **il momento**, digitare un valore da applicare durante l'apprendimento come peso nei nodi delle iterazioni precedenti.

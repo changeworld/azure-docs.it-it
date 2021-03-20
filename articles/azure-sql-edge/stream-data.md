@@ -10,10 +10,10 @@ ms.author: sourabha
 ms.reviewer: sstein
 ms.date: 05/19/2020
 ms.openlocfilehash: f63ab040e750c0c642c9656a5482529b926e9295
-ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/05/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93392113"
 ---
 # <a name="data-streaming-in-azure-sql-edge"></a>Streaming dei dati in Azure SQL Edge
@@ -35,15 +35,15 @@ Il flusso T-SQL funziona esattamente allo stesso modo di [analisi di flusso di A
 
 Un processo di analisi di flusso è costituito da:
 
-- **Input di flusso** : definisce le connessioni a un'origine dati da cui leggere il flusso di dati. SQL Edge di Azure supporta attualmente i tipi di input di flusso seguenti:
+- **Input di flusso**: definisce le connessioni a un'origine dati da cui leggere il flusso di dati. SQL Edge di Azure supporta attualmente i tipi di input di flusso seguenti:
     - Hub di Edge
     - Kafka (il supporto per gli input Kafka è attualmente disponibile solo nelle versioni Intel/AMD64 di Azure SQL Edge).
 
-- **Output flusso** : definisce le connessioni a un'origine dati in cui scrivere il flusso di dati. SQL Edge di Azure supporta attualmente i tipi di output di flusso seguenti
+- **Output flusso**: definisce le connessioni a un'origine dati in cui scrivere il flusso di dati. SQL Edge di Azure supporta attualmente i tipi di output di flusso seguenti
     - Hub di Edge
     - SQL (l'output SQL può essere un database locale all'interno dell'istanza di Azure SQL Edge o un SQL Server remoto o un database SQL di Azure). 
 
-- **Query di flusso** : definisce la trasformazione, le aggregazioni, il filtro, l'ordinamento e i join da applicare al flusso di input, prima che venga scritto nell'output del flusso. La query di flusso è basata sullo stesso linguaggio di query usato da analisi di flusso. Per altre informazioni, vedere [linguaggio di query di analisi di flusso](/stream-analytics-query/stream-analytics-query-language-reference).
+- **Query di flusso**: definisce la trasformazione, le aggregazioni, il filtro, l'ordinamento e i join da applicare al flusso di input, prima che venga scritto nell'output del flusso. La query di flusso è basata sullo stesso linguaggio di query usato da analisi di flusso. Per altre informazioni, vedere [linguaggio di query di analisi di flusso](/stream-analytics-query/stream-analytics-query-language-reference).
 
 > [!IMPORTANT]
 > Lo streaming T-SQL, a differenza di analisi di flusso, attualmente non supporta l' [uso di dati di riferimento per le ricerche](../stream-analytics/stream-analytics-use-reference-data.md) o l'uso di funzioni definite dall' [utente e Uda in un processo di flusso](../stream-analytics/streaming-technologies.md#you-want-to-write-udfs-udas-and-custom-deserializers-in-a-language-other-than-javascript-or-c).
