@@ -1,23 +1,23 @@
 ---
-title: "Azure HDInsight: Esempi dell'interfaccia della riga di comando di Azure"
+title: "Azure HDInsight: esempi dell'interfaccia della riga di comando di Azure"
 description: Esempi dell'interfaccia della riga di comando di Azure per attività comuni in Azure HDInsight.
 ms.service: hdinsight
 ms.topic: sample
 ms.date: 09/23/2019
 ms.custom: devx-track-azurecli
 ms.openlocfilehash: 9367c1b4d82e984b2b4200768a3f83f9245c7f0f
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/28/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98946882"
 ---
-# <a name="azure-hdinsight-azure-cli-samples"></a>Azure HDInsight: Esempi dell'interfaccia della riga di comando di Azure
+# <a name="azure-hdinsight-azure-cli-samples"></a>Azure HDInsight: esempi dell'interfaccia della riga di comando di Azure
 
 > [!div class="op_single_selector"]
-> [Esempi di .NET](hdinsight-sdk-dotnet-samples.md)
-> [Esempi di Python](hdinsight-sdk-python-samples.md)
-> [Esempi di Java](hdinsight-sdk-java-samples.md)
+> [Esempi .NET](hdinsight-sdk-dotnet-samples.md) 
+>  [Esempi](hdinsight-sdk-python-samples.md) 
+>  di Python [Esempi di Java](hdinsight-sdk-java-samples.md)
 
 Questo articolo include script di esempio per le attività comuni. Per ogni esempio aggiornare le variabili con i valori appropriati e quindi eseguire il comando.
 
@@ -25,11 +25,11 @@ Questo articolo include script di esempio per le attività comuni. Per ogni esem
 
 * Interfaccia della riga di comando di Azure. Per la procedura, vedere [Installare l'interfaccia della riga di comando di Azure](/cli/azure/install-azure-cli).
 
-* Facoltativo: Bash. Negli esempi di questo articolo si usa la shell Bash in Windows 10. Per la procedura di installazione, vedere [Guida all'installazione del sottosistema Windows per Linux per Windows 10](/windows/wsl/install-win10).  Con alcune piccole modifiche gli esempi funzioneranno anche da un prompt dei comandi di Windows.
+* Facoltativo: bash. Negli esempi di questo articolo si usa la shell Bash in Windows 10. Per la procedura di installazione, vedere [Guida all'installazione del sottosistema Windows per Linux per Windows 10](/windows/wsl/install-win10).  Con alcune piccole modifiche gli esempi funzioneranno anche da un prompt dei comandi di Windows.
 
 ## <a name="az-login"></a>az login
 
-[Consente di accedere ad Azure](/cli/azure/reference-index#az-login).
+[Accedere ad Azure](/cli/azure/reference-index#az-login).
 
 ```azurecli
 az login

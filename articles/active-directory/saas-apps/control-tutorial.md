@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 05/16/2019
 ms.author: jeedes
 ms.openlocfilehash: d6b752b2c562944748d21aa1a28a177163a95aee
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
-ms.translationtype: HT
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/23/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92455290"
 ---
 # <a name="tutorial-integrate-continuity-control-with-azure-active-directory"></a>Esercitazione: Integrare Continuity Control con Azure Active Directory
@@ -94,13 +94,13 @@ Per abilitare l'accesso Single Sign-On di Azure AD nel portale di Azure, seguire
 
 ### <a name="configure-control-sso"></a>Configurare l'accesso Single Sign-On di Control
 
-Per configurare il Single Sign-On su lato di **Control** , è necessario aggiornare le impostazioni di autenticazione SSO in [Control Authentication Strategies](https://control.continuity.net/settings/account_profile#tab/security) (Strategie di autenticazione di Control). Aggiornare l' **URL SSO SAML** con il valore dell' **URL di accesso** e **Certificate Fingerprint** (Impronta digitale certificato) con il **valore di identificazione personale** dal portale di Azure.
+Per configurare il Single Sign-On su lato di **Control**, è necessario aggiornare le impostazioni di autenticazione SSO in [Control Authentication Strategies](https://control.continuity.net/settings/account_profile#tab/security) (Strategie di autenticazione di Control). Aggiornare l'**URL SSO SAML** con il valore dell'**URL di accesso** e **Certificate Fingerprint** (Impronta digitale certificato) con il **valore di identificazione personale** dal portale di Azure.
 
 ### <a name="create-an-azure-ad-test-user"></a>Creare un utente di test di Azure AD
 
 In questa sezione verrà creato un utente di test di nome Britta Simon nel portale di Azure.
 
-1. Nel riquadro sinistro del portale di Azure selezionare **Azure Active Directory** , **Utenti** e quindi **Tutti gli utenti**.
+1. Nel riquadro sinistro del portale di Azure selezionare **Azure Active Directory**, **Utenti** e quindi **Tutti gli utenti**.
 1. Selezionare **Nuovo utente** in alto nella schermata.
 1. In **Proprietà utente** seguire questa procedura:
    1. Nel campo **Nome** immettere `Britta Simon`.  

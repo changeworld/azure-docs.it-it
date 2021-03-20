@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 04/08/2019
 ms.author: sutalasi
 ms.openlocfilehash: 45921bdf802a649b7b802f44d2842a543e44f02b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "84699601"
 ---
 # <a name="configure-and-manage-replication-policies-for-vmware-disaster-recovery"></a>Configurare e gestire i criteri per la replica del ripristino di emergenza di VMware
@@ -23,9 +23,9 @@ Questo articolo illustra come configurare criteri di replica quando si esegue la
 1. Selezionare **Gestisci**  >  **Site Recovery infrastruttura**.
 2. In **For VMware and Physical machines** (Per VMware e computer fisici) selezionare **Criteri di replica**.
 3. Fare clic su **+Criteri di replica** e specificare il nome del criterio.
-4. In **soglia RPO**specificare il limite di RPO. Quando la replica continua supera questo limite, vengono generati avvisi.
+4. In **soglia RPO** specificare il limite di RPO. Quando la replica continua supera questo limite, vengono generati avvisi.
 5. In **Conservazione del punto di ripristino** specificare la durata in ore dell'intervallo di conservazione per ogni punto di ripristino. I computer protetti possono essere ripristinati in qualsiasi punto all'interno di un intervallo di conservazione. Per le macchine replicate nell'archiviazione Premium è supportato un intervallo di conservazione fino a 24 ore. Per l'archiviazione standard sono supportate fino a 72 ore.
-6. In **frequenza snapshot coerenti**con l'app scegliere dall'elenco a discesa la frequenza, espressa in ore, in cui devono essere creati i punti di ripristino contenenti snapshot coerenti con l'applicazione. Se si desidera disattivare la generazione di punti di coerenza dell'applicazione, scegliere valore "disattivato" nell'elenco a discesa.
+6. In **frequenza snapshot coerenti** con l'app scegliere dall'elenco a discesa la frequenza, espressa in ore, in cui devono essere creati i punti di ripristino contenenti snapshot coerenti con l'applicazione. Se si desidera disattivare la generazione di punti di coerenza dell'applicazione, scegliere valore "disattivato" nell'elenco a discesa.
 7. Fare clic su **OK**. La creazione del criterio dovrebbe richiedere dai 30 secondi ai 60 secondi.
 
 Quando si crea un criterio di replica, viene creato automaticamente un criterio di replica di failback con il suffisso "failback". Dopo aver creato il criterio, è possibile modificarlo selezionandolo e scegliendo il comando **Modifica impostazioni**.
@@ -49,10 +49,10 @@ Associare il criterio di replica al server di configurazione locale.
 - Se si desidera associare computer replicati a criteri di replica diversi, è necessario disabilitare e riabilitare la protezione per i computer pertinenti.
 
 Modificare i criteri come indicato di seguito:
-1. Selezionare **Gestisci**  >  **Site Recovery**  >  **criteri di replica**infrastruttura.
+1. Selezionare **Gestisci**  >  **Site Recovery**  >  **criteri di replica** infrastruttura.
 2. Selezionare i criteri di replica che si desidera modificare.
-3. Fare clic su **Modifica impostazioni**e aggiornare i campi soglia RPO/ore di conservazione del punto di ripristino/frequenza snapshot coerenti con l'app secondo le esigenze.
-4. Se si desidera disattivare la generazione di punti di coerenza dell'applicazione, scegliere valore "disattivato" nell'elenco a discesa della **frequenza di snapshot coerenti**con l'app campo.
+3. Fare clic su **Modifica impostazioni** e aggiornare i campi soglia RPO/ore di conservazione del punto di ripristino/frequenza snapshot coerenti con l'app secondo le esigenze.
+4. Se si desidera disattivare la generazione di punti di coerenza dell'applicazione, scegliere valore "disattivato" nell'elenco a discesa della **frequenza di snapshot coerenti** con l'app campo.
 5. Fare clic su **Salva**. Il criterio deve essere aggiornato da 30 a 60 secondi.
 
 

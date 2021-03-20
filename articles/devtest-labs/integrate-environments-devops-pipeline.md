@@ -4,10 +4,10 @@ description: Informazioni su come integrare Azure DevTest Labs ambienti nelle pi
 ms.topic: article
 ms.date: 06/26/2020
 ms.openlocfilehash: be726b2a3f67fd3dada4fdc3cf794922a3c18d06
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "85483024"
 ---
 # <a name="integrate-environments-into-your-azure-devops-cicd-pipelines"></a>Integra gli ambienti nelle pipeline CI/CD di Azure DevOps
@@ -32,7 +32,7 @@ Questa sezione descrive come creare e configurare un Lab in cui verrà distribui
 ## <a name="create-a-release-definition"></a>Creare una definizione di versione
 Per creare una definizione di versione, eseguire le operazioni seguenti:
 
-1.  Nella scheda **versioni** dell' **Hub compila & Versione**Selezionare il pulsante con il **segno più (+)** .
+1.  Nella scheda **versioni** dell' **Hub compila & Versione** Selezionare il pulsante con il **segno più (+)** .
 2.  Nella finestra **Crea definizione di versione** selezionare il modello **Vuoto** e quindi fare clic su **Avanti**.
 3.  Selezionare **Scegli dopo** e quindi **Crea** per creare una nuova definizione di versione con un ambiente predefinito e nessun elemento collegato.
 4.  Per aprire il menu di scelta rapida, nella nuova definizione di versione selezionare i **puntini di sospensione (...)** accanto al nome dell'ambiente, quindi selezionare **Configura variabili**.
@@ -48,12 +48,12 @@ La fase successiva della distribuzione consiste nel creare l'ambiente da utilizz
 1. Nella definizione di versione selezionare **Aggiungi attività**.
 2. Nella scheda **attività** aggiungere un'attività Azure DevTest Labs crea ambiente. Configurare le attività in questo modo:
     1. Per **Sottoscrizione di Gestione risorse di Azure** selezionare una connessione nell'elenco **Connessioni ai servizi di Azure disponibili** oppure creare una connessione con autorizzazioni con maggiori restrizioni alla sottoscrizione di Azure. Per altre informazioni, vedere [Azure Resource Manager service endpoint](/azure/devops/pipelines/library/service-endpoints) (Endpoint di servizio di Azure Resource Manager).
-2. Per **nome Lab**selezionare il nome dell'istanza creata in precedenza *.
-3. Per **nome repository**selezionare il repository in cui è stato eseguito il push del modello di Gestione risorse (201) a *.
+2. Per **nome Lab** selezionare il nome dell'istanza creata in precedenza *.
+3. Per **nome repository** selezionare il repository in cui è stato eseguito il push del modello di Gestione risorse (201) a *.
 4. Per **nome modello**, selezionare il nome dell'ambiente salvato nel repository del codice sorgente *. 
-5. Il **nome del Lab**, il **nome del repository**e il **nome del modello** sono le rappresentazioni descrittivi degli ID delle risorse di Azure. Se si immette manualmente il nome descrittivo, verranno utilizzati gli elenchi a discesa per selezionare le informazioni.
+5. Il **nome del Lab**, il **nome del repository** e il **nome del modello** sono le rappresentazioni descrittivi degli ID delle risorse di Azure. Se si immette manualmente il nome descrittivo, verranno utilizzati gli elenchi a discesa per selezionare le informazioni.
 6. Per **nome ambiente**, immettere un nome per identificare in modo univoco l'istanza dell'ambiente nel Lab.  Deve essere univoco all'interno del Lab.
-7. Il **file** di parametri e i **parametri**consentono di passare parametri personalizzati all'ambiente. Per impostare i valori dei parametri, è possibile utilizzare uno o entrambi. Per questo esempio verrà usata la sezione Parameters. Usare i nomi delle variabili definite nell'ambiente, ad esempio: `-administratorLogin "$(administratorLogin)" -administratorLoginPassword "$(administratorLoginPassword)" -databaseName "$(databaseName)" -cacheSKUCapacity 1`
+7. Il **file** di parametri e i **parametri** consentono di passare parametri personalizzati all'ambiente. Per impostare i valori dei parametri, è possibile utilizzare uno o entrambi. Per questo esempio verrà usata la sezione Parameters. Usare i nomi delle variabili definite nell'ambiente, ad esempio: `-administratorLogin "$(administratorLogin)" -administratorLoginPassword "$(administratorLoginPassword)" -databaseName "$(databaseName)" -cacheSKUCapacity 1`
 8. Le informazioni all'interno del modello di ambiente possono essere passate nella sezione output del modello. Selezionare **crea variabili di output in base all'output del modello di ambiente in** modo che altre attività possano usare i dati. `$(Reference name.Output Name)` modello da seguire. Ad esempio, se il nome di riferimento era DTL e il nome di output nel modello era location, la variabile sarebbe `$(DTL.location)` .
 
 ## <a name="delete-the-environment"></a>Eliminare l'ambiente
@@ -63,8 +63,8 @@ Nella definizione di versione selezionare **Aggiungi attività**, quindi nella s
 
 1. Per eliminare la macchina virtuale, vedere [attività Azure DevTest Labs](https://marketplace.visualstudio.com/items?itemName=ms-azuredevtestlabs.tasks):
     1. Per **Sottoscrizione di Gestione risorse di Azure** selezionare una connessione nell'elenco **Connessioni ai servizi di Azure disponibili** oppure creare una connessione con autorizzazioni con maggiori restrizioni alla sottoscrizione di Azure. Per altre informazioni, vedere [Azure Resource Manager service endpoint](/azure/devops/pipelines/library/service-endpoints) (Endpoint di servizio di Azure Resource Manager).
-    2. Per **nome Lab**selezionare il Lab in cui è presente l'ambiente.
-    3. Per **nome ambiente**immettere il nome dell'ambiente da rimuovere.
+    2. Per **nome Lab** selezionare il Lab in cui è presente l'ambiente.
+    3. Per **nome ambiente** immettere il nome dell'ambiente da rimuovere.
 2. Immettere un nome per la definizione di versione e quindi salvarla.
 
 ## <a name="next-steps"></a>Passaggi successivi

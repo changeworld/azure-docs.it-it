@@ -8,10 +8,10 @@ services: web-application-firewall
 ms.date: 09/05/2019
 ms.author: victorh
 ms.openlocfilehash: 158bfe30bf48ee420be8efb9ff32fff0e555d9e7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "79475825"
 ---
 #  <a name="custom-rules-for-web-application-firewall-with-azure-front-door"></a>Regole personalizzate per il Web Application Firewall con sportello anteriore di Azure
@@ -67,8 +67,8 @@ Il Web Application Firewall (WAF) di Azure con sportello anteriore consente di c
   - **Negazione [facoltativo]:** È possibile impostare la condizione *negate* su true se il risultato di una condizione deve essere negato.
       
   - **Transform [facoltativo]:** Elenco di stringhe con i nomi delle trasformazioni da eseguire prima che venga tentata la corrispondenza. Queste possono essere le trasformazioni seguenti:
-     - Maiuscolo 
-     - Lettere minuscole
+     - Maiuscole 
+     - Minuscole
      - Taglio
      - RemoveNulls
      - UrlDecode
@@ -90,7 +90,7 @@ Il Web Application Firewall (WAF) di Azure con sportello anteriore consente di c
      - COPIA
      - MOVE
 
-## <a name="examples"></a>Esempi
+## <a name="examples"></a>Esempio
 
 ### <a name="waf-custom-rules-example-based-on-http-parameters"></a>Esempio di regole personalizzate di WAF basate su parametri http
 

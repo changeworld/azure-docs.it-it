@@ -7,10 +7,10 @@ ms.date: 02/11/2020
 ms.topic: how-to
 ms.custom: devx-track-azurepowershell
 ms.openlocfilehash: 9721685fc3ccd2c1c80b55e9118d6d347cc97a9c
-ms.sourcegitcommit: beacda0b2b4b3a415b16ac2f58ddfb03dd1a04cf
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/31/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97830701"
 ---
 # <a name="get-service-access-tokens"></a>Ottenere i token di accesso al servizio
@@ -19,7 +19,7 @@ L'accesso alle API REST ARR viene concesso solo agli utenti autorizzati. Per dim
 
 Questo articolo descrive come creare un token di accesso di questo tipo.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerequisiti
 
 [Creare un account arr](create-an-account.md), se non ne è già presente uno.
 
@@ -43,7 +43,7 @@ Sostituire *accountId* e *AccountKey* con i rispettivi dati.
 
 | Codice di stato | payload JSON | Commenti |
 |-----------|:-----------|:-----------|
-| 200 | AccessToken: stringa | Success |
+| 200 | AccessToken: stringa | Operazione riuscita |
 
 | Intestazione | Scopo |
 |--------|:------|

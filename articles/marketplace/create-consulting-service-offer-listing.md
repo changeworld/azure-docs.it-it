@@ -9,10 +9,10 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 ms.date: 10/27/2020
 ms.openlocfilehash: 2476d60cacc9690c24d7d3d2f7e21f04c6811500
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/27/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92754513"
 ---
 # <a name="how-to-configure-your-consulting-service-offer-listing-details"></a>Come configurare i dettagli dell'offerta del servizio di consulenza
@@ -29,11 +29,11 @@ Nella pagina di **inserzione dell'offerta** specificare le informazioni descritt
 1.  La casella **nome** viene precompilata con il nome immesso in precedenza nella finestra di dialogo **nuova offerta** , ma è possibile modificarlo in qualsiasi momento. Questo nome verrà visualizzato come titolo dell'inserzione dell'offerta nel negozio online.
 
     > [!IMPORTANT]
-    > Il nome dell'offerta deve essere nel formato *Nome: durata + tipo* . Per ulteriori informazioni, vedere l' [elenco dei dettagli dell'offerta](./plan-consulting-service-offer.md#offer-listing-details).
+    > Il nome dell'offerta deve essere nel formato *Nome: durata + tipo*. Per ulteriori informazioni, vedere l' [elenco dei dettagli dell'offerta](./plan-consulting-service-offer.md#offer-listing-details).
 
 2. Nella casella **Riepilogo risultati ricerca** descrivere lo scopo o l'obiettivo dell'offerta in 200 caratteri o meno.
 3. Nel campo **Descrizione** descrivere l'offerta del servizio di consulenza. È possibile usare i tag HTML per formattare la descrizione. È possibile immettere fino a 2.000 caratteri di testo in questa casella, inclusi i tag HTML e gli spazi. Per informazioni sulla formattazione HTML, vedere [tag HTML supportati nelle descrizioni delle offerte](./supported-html-tags.md).
-4. È possibile immettere fino a tre **parole chiave di ricerca** . Queste parole chiave consentiranno ai clienti di trovare l'offerta nel negozio online. Non è necessario includere il nome dell'offerta e la descrizione.
+4. È possibile immettere fino a tre **parole chiave di ricerca**. Queste parole chiave consentiranno ai clienti di trovare l'offerta nel negozio online. Non è necessario includere il nome dell'offerta e la descrizione.
 5. Immettere la durata prevista del servizio di consulenza negli elenchi a discesa **durata** . La durata selezionata deve corrispondere alla durata indicata nel nome dell'offerta.
 
 ## <a name="contact-information"></a>Informazioni contatto
@@ -76,7 +76,7 @@ Aggiungere almeno una e fino a cinque immagini che dimostrano l'offerta. Tutte l
 3.  Trascinare e rilasciare un oggetto. File PNG (1280 x 720 pixel) nella casella Anteprima grigia.
 4.  Per aggiungere un altro video, ripetere i passaggi da 1 a 3.
 
-Selezionare **Salva bozza** prima di continuare con la scheda successiva: **prezzi e disponibilità** .
+Selezionare **Salva bozza** prima di continuare con la scheda successiva: **prezzi e disponibilità**.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

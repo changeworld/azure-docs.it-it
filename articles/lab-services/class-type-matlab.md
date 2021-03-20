@@ -6,10 +6,10 @@ ms.topic: article
 ms.date: 06/26/2020
 ms.author: enewman
 ms.openlocfilehash: 137959f51b08dceee150962f77110ee2ac1dc193
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "85444999"
 ---
 # <a name="setup-a-lab-to-teach-matlab"></a>Configurare un Lab per insegnare a MATLAB
@@ -36,7 +36,7 @@ Per creare un nuovo Lab, seguire [la procedura per configurare un'esercitazione 
 
 | Dimensioni della macchina virtuale | Immagine |
 | -------------------- | ----- |
-| Media | Windows 10 |
+| Medio | Windows 10 |
 
 MATLAB è supportato in più sistemi operativi.  Per informazioni dettagliate, vedere [requisiti di sistema MATLAB](https://www.mathworks.com/support/requirements/matlab-system-requirements.html) .
 
@@ -65,7 +65,7 @@ L'installazione di MATLAB sarà un processo multiparte.  Nella prima parte vengo
 7. Nella pagina **accedi al tuo account MathWorks** Immetti l'account MathWorks.
 8. Nella pagina **contratto di licenza MathWorks** accettare il termine e fare clic sul pulsante **Avanti** .
 9. Fare clic sull'elenco a discesa **Opzioni avanzate** e scegliere **Scarica senza installare**.
-10. Nella **cartella selezionare la destinazione**fare clic su **Avanti**.
+10. Nella **cartella selezionare la destinazione** fare clic su **Avanti**.
 11. Selezionare **Windows** come piattaforma del computer in cui verrà installato MATLAB.
 12. Nella pagina **Seleziona prodotto** verificare che sia selezionato matlab insieme a qualsiasi altro prodotto MathWorks che si vuole installare.
 13. Nella pagina **Conferma selezioni e Scarica** fare clic su **inizia il download**.  

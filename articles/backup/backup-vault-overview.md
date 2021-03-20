@@ -4,10 +4,10 @@ description: Panoramica degli insiemi di credenziali di backup.
 ms.topic: conceptual
 ms.date: 08/17/2020
 ms.openlocfilehash: c189997ecc4814917182246b35003649d317ac77
-ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/15/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92091288"
 ---
 # <a name="backup-vaults-overview"></a>Panoramica degli insiemi di credenziali di backup
@@ -16,7 +16,7 @@ Questo articolo descrive le funzionalità di un insieme di credenziali per il ba
 
 - **Funzionalità ottimizzate per la protezione dei dati di backup**: con gli insiemi di credenziali di backup, backup di Azure offre funzionalità di sicurezza per proteggere i backup nel cloud. Queste funzionalità di sicurezza garantiscono la protezione dei backup e ripristinano i dati in modo sicuro anche se i server di produzione e di backup vengono compromessi. [Scopri di più](backup-azure-security-feature.md)
 
-- **Controllo degli accessi in base al ruolo di Azure (RBAC**di Azure): il controllo degli accessi in base al ruolo di Azure offre un controllo di gestione degli accessi [Azure offre diversi ruoli predefiniti](../role-based-access-control/built-in-roles.md) mentre Backup di Azure dispone di tre [ruoli predefiniti per la gestione dei punti di ripristino](backup-rbac-rs-vault.md). Gli insiemi di credenziali di backup sono compatibili con il controllo degli accessi in base al ruolo di Azure, che limita l'accesso di backup e ripristino al set definito di ruoli utente. [Scopri di più](backup-rbac-rs-vault.md)
+- **Controllo degli accessi in base al ruolo di Azure (RBAC** di Azure): il controllo degli accessi in base al ruolo di Azure offre un controllo di gestione degli accessi [Azure offre diversi ruoli predefiniti](../role-based-access-control/built-in-roles.md) mentre Backup di Azure dispone di tre [ruoli predefiniti per la gestione dei punti di ripristino](backup-rbac-rs-vault.md). Gli insiemi di credenziali di backup sono compatibili con il controllo degli accessi in base al ruolo di Azure, che limita l'accesso di backup e ripristino al set definito di ruoli utente. [Scopri di più](backup-rbac-rs-vault.md)
 
 ## <a name="storage-settings-in-the-backup-vault"></a>Impostazioni di archiviazione nell'insieme di credenziali per il backup
 
@@ -47,7 +47,7 @@ Accedere al portale di Azure all'indirizzo <https://portal.azure.com>.
 ### <a name="create-backup-vault"></a>Crea insieme di credenziali di backup
 
 1. Digitare insiemi di credenziali di **backup** nella casella di ricerca.
-1. In **Servizi**selezionare insiemi di credenziali per il **backup**.
+1. In **Servizi** selezionare insiemi di credenziali per il **backup**.
 1. Nella pagina insiemi di credenziali per il **backup** selezionare **Aggiungi**.
 1. Nella **scheda nozioni di base**, in **Dettagli progetto**, verificare che sia selezionata la sottoscrizione corretta, quindi scegliere **Crea nuovo** gruppo di risorse. Immettere *myResourceGroup* come nome.
 
@@ -96,7 +96,7 @@ Una volta completati questi passaggi, è possibile continuare a eliminare l'insi
 
 Quando nell'insieme di credenziali non sono presenti altri elementi, selezionare **Elimina** nel dashboard dell'insieme di credenziali. Verrà visualizzato un messaggio di conferma che chiede se si vuole eliminare l'insieme di credenziali.
 
-![Elimina insieme di credenziali](./media/backup-vault-overview/delete-vault.png)
+![Eliminare un insieme di credenziali](./media/backup-vault-overview/delete-vault.png)
 
 1. Selezionare **Sì** per verificare che si vuole eliminare l'insieme di credenziali. L'insieme di credenziali viene eliminato. Il portale torna al menu **nuovo** del servizio.
 

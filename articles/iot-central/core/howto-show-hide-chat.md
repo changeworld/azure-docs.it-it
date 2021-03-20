@@ -9,10 +9,10 @@ ms.service: iot-central
 services: iot-central
 manager: philmea
 ms.openlocfilehash: f290395f4bd7afccace5067a97e63dda553f183c
-ms.sourcegitcommit: 090ea6e8811663941827d1104b4593e29774fa19
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/13/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91999731"
 ---
 # <a name="toggle-live-chat"></a>Attivare e disattivare la live chat
@@ -24,7 +24,7 @@ Questo articolo illustra come abilitare o disabilitare la chat in tempo reale ne
 
 ## <a name="chat-with-us"></a>Chatta con noi
 
-Per ottenere supporto tecnico, aprire l'applicazione IoT Central e selezionare **chat con**Microsoft.
+Per ottenere supporto tecnico, aprire l'applicazione IoT Central e selezionare **chat con** Microsoft.
 
 ![Chatta con noi](media/howto-show-hide-chat/chat-with-us.png)
 

@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 07/03/2019
 ms.author: alkohli
 ms.openlocfilehash: 6097dba9193fce4c8158137b488080107881994a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "84707753"
 ---
 # <a name="azure-data-box-heavy-system-requirements"></a>Requisiti di sistema Azure Data Box Heavy
@@ -54,7 +54,7 @@ Il data center disponga di una rete ad alta velocità. Per la velocità di copia
 
 ### <a name="port-requirements"></a>Requisiti delle porte
 
-La tabella seguente elenca le porte che devono essere aperte nel firewall per consentire il traffico SMB o NFS. In questa tabella, *in* o *in ingresso* fa riferimento alla direzione da cui le richieste client in ingresso accedono al dispositivo. *Out* In uscita *o in uscita si* intende la direzione in cui il dispositivo data box Heavy invia i dati all'esterno, oltre la distribuzione: ad esempio, in uscita verso Internet.
+La tabella seguente elenca le porte che devono essere aperte nel firewall per consentire il traffico SMB o NFS. In questa tabella, *in* o *in ingresso* fa riferimento alla direzione da cui le richieste client in ingresso accedono al dispositivo.  In uscita *o in uscita si* intende la direzione in cui il dispositivo data box Heavy invia i dati all'esterno, oltre la distribuzione: ad esempio, in uscita verso Internet.
 
 [!INCLUDE [data-box-port-requirements](../../includes/data-box-port-requirements.md)]
 

@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: tamram
 ms.openlocfilehash: 91a52e7eac40c0ac2ab682f251a2ae0013259b25
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
-ms.translationtype: HT
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/05/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "77013883"
 ---
 ## <a name="what-is-table-storage"></a>Informazioni sull'Archiviazione tabelle
@@ -30,7 +30,7 @@ L'Archiviazione tabelle contiene i componenti seguenti:
 
   Gli account di API di tabella di Azure Cosmos DB usano questo formato: `http://<storage account>.table.cosmosdb.azure.com/<table>`  
 
-  È possibile fare riferimento direttamente alle tabelle di Azure utilizzando questo indirizzo con il protocollo OData. Per altre informazioni, vedere [OData.org][OData.org].
+  È possibile fare riferimento direttamente alle tabelle di Azure utilizzando questo indirizzo con il protocollo OData. Per ulteriori informazioni, vedere [OData.org][OData.org].
 * **Account:** l'accesso ad Archiviazione di Azure viene eseguito esclusivamente tramite un account di archiviazione. Per altre informazioni sugli account di archiviazione, vedere [Panoramica dell'account di archiviazione](../articles/storage/common/storage-account-overview.md).
 
     L'accesso ad Azure Cosmos DB avviene esclusivamente tramite un account di API di tabella. Per i dettagli sulla creazione di un account di API di tabella, vedere [Creare un account di API di tabella](../articles/cosmos-db/create-table-dotnet.md#create-a-database-account).

@@ -7,10 +7,10 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 12/09/2020
 ms.openlocfilehash: a480c8f2dfdda0ce7a1eb879554fb79c96adbe1e
-ms.sourcegitcommit: fa807e40d729bf066b9b81c76a0e8c5b1c03b536
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/11/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97347813"
 ---
 # <a name="consistency-levels-in-azure-cosmos-db"></a>Livelli di coerenza in Azure Cosmos DB
@@ -24,7 +24,7 @@ La maggior parte dei database NoSQL distribuiti disponibili in commercio attualm
 - *Obsolescenza associata*
 - *Sessione*
 - *Prefisso coerente*
-- *Eventuali*
+- *Finale*
 
 Ogni livello offre compromessi in merito a disponibilità e prestazioni. Nell'immagine seguente vengono illustrati i diversi livelli di coerenza come uno spettro.
 
@@ -146,10 +146,10 @@ La latenza RTT esatta è una funzione della velocità della luce e la topologia 
 |**Livello di coerenza**|**Letture quorum**|**Scritture quorum**|
 |--|--|--|
 |**Assoluta**|Minoranza locale|Maggioranza globale|
-|**Obsolescenza associata**|Minoranza locale|Maggioranza locale|
+|**Decadimento ristretto**|Minoranza locale|Maggioranza locale|
 |**Sessione**|Replica singola (usando il token di sessione)|Maggioranza locale|
 |**Prefisso coerente**|Replica singola|Maggioranza locale|
-|**Eventuali**|Replica singola|Maggioranza locale|
+|**Finale**|Replica singola|Maggioranza locale|
 
 > [!NOTE]
 > Il costo delle UR/s delle letture per le letture di minoranza locale è due volte inferiore a quello dei livelli di coerenza più vulnerabili, in quanto le letture vengono effettuate da due repliche per garantire la coerenza per l'obsolescenza forte e limitata.

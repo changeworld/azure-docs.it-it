@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 1a17f52e519a84c58c9ed5b75259cc0b96d0a175
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "88949175"
 ---
 # <a name="azure-active-directory-identity-protection-glossary"></a>Glossario di Azure Active Directory Identity Protection
@@ -53,7 +53,7 @@ Stato di rilevamento del rischio impostato manualmente da un utente di Identity 
 ### <a name="impossible-travel-from-atypical-locations"></a>Trasferimento impossibile con posizioni atipiche
 Rilevamento dei rischi attivato quando vengono rilevati due accessi per lo stesso utente, in cui almeno uno di essi si trova in una posizione di accesso atipica e dove il tempo tra gli accessi è inferiore al tempo minimo necessario per spostarsi fisicamente tra queste posizioni.  
 
-### <a name="investigation"></a>Ricerca della causa
+### <a name="investigation"></a>Analisi
 Il processo di revisione di attività, log e altre informazioni rilevanti relative a un rilevamento dei rischi per decidere se sono necessarie procedure di correzione o mitigazione, comprendere se e come l'identità è stata compromessa e comprendere come è stata usata l'identità compromessa.
 
 ### <a name="leaked-credentials"></a>Credenziali perse
@@ -158,6 +158,6 @@ Utenti con rilevamento dei rischi, attivi o corretti
 ### <a name="vulnerability"></a>Vulnerabilità
 Configurazione o condizione in Azure Active Directory che rende la directory vulnerabile ad attacchi o minacce.
 
-## <a name="see-also"></a>Vedere anche
+## <a name="see-also"></a>Vedi anche
 
 - [Azure Active Directory Identity Protection](./overview-identity-protection.md)

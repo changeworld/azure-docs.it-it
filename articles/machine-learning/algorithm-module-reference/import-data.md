@@ -10,10 +10,10 @@ author: likebupt
 ms.author: keli19
 ms.date: 11/13/2020
 ms.openlocfilehash: 69d27c102ca059974da87224e44f0ad7aa103fff
-ms.sourcegitcommit: 1cf157f9a57850739adef72219e79d76ed89e264
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/13/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94592635"
 ---
 # <a name="import-data-module"></a>Modulo Import Data
@@ -35,7 +35,7 @@ Il modulo **Import Data** supporta la lettura dei dati dalle origini seguenti:
     - Condivisione file di Azure
     - Azure Data Lake
     - Azure Data Lake Gen2
-    - database SQL di Azure
+    - Database SQL di Azure
     - PostgreSQL di Azure    
 
 Prima di usare l'archiviazione cloud, prima di tutto è necessario registrare un archivio dati nell'area di lavoro Azure Machine Learning. Per ulteriori informazioni, vedere [la pagina relativa alla modalità di accesso ai dati](../how-to-access-data.md). 
@@ -70,7 +70,7 @@ Se i dati di origine cambiano, è possibile aggiornare il set di dati e aggiunge
 
     ![importazione-dati-anteprima](media/module/import-data.png)
 
-1. La casella di controllo **Rigenera output** , decide se eseguire il modulo per rigenerare l'output in fase di esecuzione. 
+1. La casella di controllo **Rigenera output**, decide se eseguire il modulo per rigenerare l'output in fase di esecuzione. 
 
     Per impostazione predefinita, è deselezionata, ovvero se il modulo è stato eseguito con gli stessi parametri in precedenza, il sistema riutilizzerà l'output dell'ultima esecuzione per ridurre il tempo di esecuzione. 
 

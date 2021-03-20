@@ -9,10 +9,10 @@ ms.date: 04/09/2020
 ms.author: tisande
 ms.custom: devx-track-js
 ms.openlocfilehash: 98698264f0beb25a8b4f74861f1150ae889d7115
-ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/03/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96546336"
 ---
 # <a name="user-defined-functions-udfs-in-azure-cosmos-db"></a>Funzioni definite dall'utente (UDF) in Azure Cosmos DB
@@ -33,7 +33,7 @@ Tuttavia, è consigliabile evitare le UDF nei casi seguenti:
 
 Se è necessario utilizzare la stessa funzione UDF più volte in una query, è necessario fare riferimento alla funzione definita dall'utente in una [sottoquery](sql-query-subquery.md#evaluate-once-and-reference-many-times), consentendo di utilizzare un'espressione di join per valutare la funzione definita dall'utente una volta, ma fare riferimento più volte.
 
-## <a name="examples"></a>Esempi
+## <a name="examples"></a>Esempio
 
 Nell'esempio seguente viene registrata una funzione definita dall'utente in un contenitore di elementi nel database Cosmos. Nell'esempio viene creata una funzione definita dall'utente il cui nome è `REGEX_MATCH` . Accetta due valori stringa JSON, `input` e e `pattern` Controlla se il primo corrisponde al modello specificato nel secondo usando la funzione di JavaScript `string.match()` .
 

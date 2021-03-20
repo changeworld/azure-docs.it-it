@@ -13,17 +13,17 @@ ms.date: 01/13/2020
 ms.author: joscot
 ms.custom: fasttrack-new
 ms.openlocfilehash: 8249cc543c6334841c8e5152d5d1ceb84d4097dc
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/15/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92076114"
 ---
 # <a name="filter-on-request-ip-address-when-using-an-application-gateway"></a>Filtrare in base all'indirizzo IP della richiesta quando si usa un gateway applicazione
 
 Questo articolo illustra un esempio di criteri di gestione API di Azure che illustra come filtrare l'indirizzo IP della richiesta quando l'istanza di gestione API è accessibile tramite un gateway applicazione o un altro intermediario. Per impostare o modificare il codice dei criteri, seguire la procedura descritta nell'articolo su come [impostare o modificare criteri](../set-edit-policies.md). Per altri esempi, vedere l'articolo relativo agli [esempi di criteri](../policy-reference.md).
 
-## <a name="policy"></a>Policy
+## <a name="policy"></a>Criteri
 
 Incollare il codice nel blocco **inbound**.
 

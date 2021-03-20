@@ -16,10 +16,10 @@ ms.date: 02/26/2019
 ms.author: allensu
 ms.custom: seodec18
 ms.openlocfilehash: 63d1a08dc588f0303ccb1ae13bd4c28af2a393c7
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
-ms.translationtype: HT
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/14/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92043654"
 ---
 # <a name="tutorial-configure-port-forwarding-in-azure-load-balancer-using-the-portal"></a>Esercitazione: configurare il port forwarding in Azure Load Balancer tramite il portale
@@ -142,7 +142,7 @@ Creare una regola del gruppo di sicurezza di rete (NSG) per far sì che le macch
 >[!NOTE]
 >Per impostazione predefinita, l'NSG dispone già di una regola per aprire la porta 3389 del desktop remoto (RDP).
 
-1. Nel menu a sinistra selezionare **Tutte le risorse**. Nell'elenco delle risorse selezionare **MyNetworkSecurityGroup** nel gruppo di risorse**MyResourceGroupLB**.
+1. Nel menu a sinistra selezionare **Tutte le risorse**. Nell'elenco delle risorse selezionare **MyNetworkSecurityGroup** nel gruppo di risorse **MyResourceGroupLB**.
    
 1. In **Impostazioni** selezionare **Regole di sicurezza in ingresso**, quindi selezionare **Aggiungi**.
    

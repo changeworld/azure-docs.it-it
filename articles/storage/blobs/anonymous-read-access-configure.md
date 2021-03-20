@@ -11,10 +11,10 @@ ms.author: tamram
 ms.reviewer: fryu
 ms.subservice: blobs
 ms.openlocfilehash: feac7b890c973b1541c5362f860432687082953f
-ms.sourcegitcommit: 5b93010b69895f146b5afd637a42f17d780c165b
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/02/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96533877"
 ---
 # <a name="configure-anonymous-public-read-access-for-containers-and-blobs"></a>Configurare l'accesso in lettura pubblico anonimo per contenitori e BLOB
@@ -55,7 +55,7 @@ Per consentire o impedire l'accesso pubblico per un account di archiviazione, co
 
 Per impostazione predefinita, la proprietà **AllowBlobPublicAccess** non è impostata per un account di archiviazione e non restituisce alcun valore finché non viene impostata in modo esplicito. L'account di archiviazione consente l'accesso pubblico quando il valore della proprietà è **null** o **true**.
 
-# <a name="azure-portal"></a>[Portale di Azure](#tab/portal)
+# <a name="azure-portal"></a>[Azure portal](#tab/portal)
 
 Per consentire o impedire l'accesso pubblico per un account di archiviazione nel portale di Azure, attenersi alla procedura seguente:
 
@@ -190,7 +190,7 @@ Quando è consentito l'accesso pubblico per un account di archiviazione, è poss
 
 Non è possibile modificare il livello di accesso pubblico per un singolo BLOB. Il livello di accesso pubblico è impostato solo a livello di contenitore. È possibile impostare il livello di accesso pubblico del contenitore quando si crea il contenitore oppure è possibile aggiornare l'impostazione in un contenitore esistente.
 
-# <a name="azure-portal"></a>[Portale di Azure](#tab/portal)
+# <a name="azure-portal"></a>[Azure portal](#tab/portal)
 
 Per aggiornare il livello di accesso pubblico per uno o più contenitori esistenti nel portale di Azure, attenersi alla procedura seguente:
 

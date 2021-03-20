@@ -8,15 +8,15 @@ services: iot-dps
 ms.topic: conceptual
 ms.date: 03/12/2020
 ms.openlocfilehash: f6afd5c4cc5aa0215f943979ae91389b39d449f6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "79284928"
 ---
 # <a name="iot-hub-dps-ip-addresses"></a>Indirizzi IP DPS dell'hub Internet
 
-I prefissi degli indirizzi IP per gli endpoint pubblici di un servizio Device provisioning (DPS) dell'hub Internet vengono pubblicati periodicamente nel _AzureIoTHub_ [tag del servizio](../virtual-network/service-tags-overview.md)AzureIoTHub. È possibile usare questi prefissi degli indirizzi IP per controllare la connettività tra un'istanza di Internet delle cose e dispositivi o risorse di rete per implementare una serie di obiettivi di isolamento rete:
+I prefissi degli indirizzi IP per gli endpoint pubblici di un servizio Device provisioning (DPS) dell'hub Internet vengono pubblicati periodicamente nel  [tag del servizio](../virtual-network/service-tags-overview.md)AzureIoTHub. È possibile usare questi prefissi degli indirizzi IP per controllare la connettività tra un'istanza di Internet delle cose e dispositivi o risorse di rete per implementare una serie di obiettivi di isolamento rete:
 
 | Obiettivo | Approccio |
 |------|----------|

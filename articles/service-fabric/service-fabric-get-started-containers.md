@@ -5,10 +5,10 @@ ms.topic: conceptual
 ms.date: 01/25/2019
 ms.custom: devx-track-python
 ms.openlocfilehash: 197423670ffe05f15fdc5bfd351efdfba33b53cd
-ms.sourcegitcommit: 5b93010b69895f146b5afd637a42f17d780c165b
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/02/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96533775"
 ---
 # <a name="create-your-first-service-fabric-container-application-on-windows"></a>Creare la prima applicazione contenitore di Service Fabric in Windows
@@ -146,7 +146,7 @@ Dopo aver avviato il contenitore, trovare il relativo indirizzo IP per consentir
 docker inspect -f "{{ .NetworkSettings.Networks.nat.IPAddress }}" my-web-site
 ```
 
-Se il comando non restituisce alcun risultato, eseguire il comando seguente ed esaminare l' **NetworkSettings** -> elemento **reti** NetworkSettings per l'indirizzo IP:
+Se il comando non restituisce alcun risultato, eseguire il comando seguente ed esaminare l'  -> elemento **reti** NetworkSettings per l'indirizzo IP:
 ```
 docker inspect my-web-site
 ```

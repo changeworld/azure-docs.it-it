@@ -4,10 +4,10 @@ description: Questo articolo illustra come eliminare un Lab o eliminare una macc
 ms.topic: article
 ms.date: 01/24/2020
 ms.openlocfilehash: 495fb98f3da41a47d316dd64554ba616ede0af47
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "85481222"
 ---
 # <a name="delete-a-lab-or-vm-in-a-lab-in-azure-devtest-labs"></a>Eliminare un lab o una macchina virtuale in un lab in Azure DevTest Labs
@@ -25,7 +25,7 @@ Per eliminare un lab, eseguire le operazioni seguenti:
 2. Scegliere **Tutte le risorse** dal menu a sinistra, selezionare **DevTest Labs** come tipo di servizio e quindi selezionare il lab.
 
     ![Selezionare il lab](media/devtest-lab-delete-lab-vm/select-lab.png)
-3. Nella pagina **Istanza di DevTest Labs**fare clic su **Elimina** sulla barra degli strumenti. 
+3. Nella pagina **Istanza di DevTest Labs** fare clic su **Elimina** sulla barra degli strumenti. 
 
     ![Pulsante Elimina](media/devtest-lab-delete-lab-vm/delete-button.png)
 4. Nella pagina **Conferma** immettere il **nome** del lab e selezionare **Elimina**. 

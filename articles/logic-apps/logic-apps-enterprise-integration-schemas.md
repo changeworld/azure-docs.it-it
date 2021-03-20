@@ -9,10 +9,10 @@ ms.reviewer: jonfan, estfan, logicappspm
 ms.topic: article
 ms.date: 02/06/2019
 ms.openlocfilehash: ade29318fdd1510d03ddd208534258a30b256e98
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "75979370"
 ---
 # <a name="validate-xml-with-schemas-in-azure-logic-apps-with-enterprise-integration-pack"></a>Convalida XML con gli schemi in App per la logica di Azure con Enterprise Integration Pack
@@ -97,11 +97,11 @@ Per aggiungere schemi più grandi, è possibile caricare lo schema in un conteni
 
 1. Scegliere **Set Public Access Level** (Imposta livello di accesso pubblico) dal menu di scelta rapida del contenitore BLOB.
 
-   * Se il contenitore BLOB dispone almeno dell'accesso pubblico, scegliere **Annulla**e seguire la procedura riportata più avanti in questa pagina: [caricare nei contenitori con accesso pubblico](#public-access)
+   * Se il contenitore BLOB dispone almeno dell'accesso pubblico, scegliere **Annulla** e seguire la procedura riportata più avanti in questa pagina: [caricare nei contenitori con accesso pubblico](#public-access)
 
      ![Accesso pubblico](media/logic-apps-enterprise-integration-schemas/azure-blob-container-public-access.png)
 
-   * Se il contenitore BLOB non ha accesso pubblico, scegliere **Annulla**e seguire la procedura riportata più avanti in questa pagina: [caricare nei contenitori senza accesso pubblico](#public-access)
+   * Se il contenitore BLOB non ha accesso pubblico, scegliere **Annulla** e seguire la procedura riportata più avanti in questa pagina: [caricare nei contenitori senza accesso pubblico](#public-access)
 
      ![Nessun accesso pubblico](media/logic-apps-enterprise-integration-schemas/azure-blob-container-no-public-access.png)
 

@@ -8,10 +8,10 @@ author: mingshen-ms
 ms.author: mingshen
 ms.date: 07/29/2020
 ms.openlocfilehash: dba47073a6676b17c091af048f583ca3e7712999
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "87420227"
 ---
 # <a name="create-or-modify-an-offer"></a>Create o modificare un'offerta
@@ -287,15 +287,15 @@ Queste categorie e le rispettive chiavi sono applicabili per le app di Azure, le
 
 | Category | Chiavi SaaS | Chiavi di app Azure | Macchina virtuale, contenitori, app contenitore, modulo IoT Edge, chiavi della macchina virtuale core |
 | --- | --- | --- | --- |
-| ***Analisi*** | ***analisi*** | ***analisi-Azure-Apps*** | ***Analytics-amp*** |
+| ***Analisi** _ | _*_analisi_*_ | _*_analisi-Azure-Apps_*_ | _ *_Analytics-amp_** |
 | Informazioni dettagliate sui dati | informazioni dettagliate sui dati | informazioni dettagliate sui dati | informazioni dettagliate sui dati |
 | Analisi dei dati | analisi dei dati | analisi dei dati | analisi dei dati |
 | Big Data | Big Data | bigData | Big Data |
 | Analisi predittiva | analisi predittiva | analisi predittiva | analisi predittiva |
 | Analisi di flusso e in tempo reale | streaming in tempo reale-analisi | streaming in tempo reale-analisi | streaming in tempo reale-analisi |
 | Altro | altro | Other-Analytics | altro |
-| ***Intelligenza artificiale e Machine Learning*** | ***ArtificialIntelligence*** | ***intelligenza artificiale Plus-Machine Learning*** | ***intelligenza artificiale Plus-Machine Learning*** |
-| Servizi bot | bot-servizi | bot-servizi | bot-servizi |
+| ***Ai + Machine Learning** _ | _*_ArtificialIntelligence_*_ | _*_intelligenza artificiale Plus-Machine Learning_*_ | _ *_ai-Plus-Machine Learning_** |
+| Servizi Bot | bot-servizi | bot-servizi | bot-servizi |
 | Servizi cognitivi | Servizi cognitivi | Servizi cognitivi | Servizi cognitivi |
 | Servizio ML | ml-servizio | ml-servizio | ml-servizio |
 | Funzionalità automatiche di Machine Learning | automatizzato-ml | automatizzato-ml | automatizzato-ml |
@@ -305,83 +305,83 @@ Queste categorie e le rispettive chiavi sono applicabili per le app di Azure, le
 | Knowledge mining | informazioni sul data mining | informazioni sul data mining | informazioni sul data mining |
 | Operazioni ML | ml-operazioni | ml-operazioni | ml-operazioni |
 | Altro | Other-intelligenza artificiale-Plus-Machine-Learning | altro | altro |
-| ***Blockchain*** | ***blockchain*** | ***blockchain*** | ***blockchain*** |
+| ***Blockchain** _ | _*_blockchain_*_ | _*_blockchain_*_ | _ *_blockchain_** |
 | Acceleratori di app | App-Accelerator | App-Accelerator | App-Accelerator |
 | Ledger a nodo singolo | singolo nodo-Ledger | singolo nodo-Ledger | singolo nodo-Ledger |
 | Ledger a più nodi | più nodi-Ledger | più nodi-Ledger | più nodi-Ledger |
 | Strumenti | tools | tools | tools |
 | Altro | altro | altro | altro |
-| ***Calcolo*** | ***calcolo-Saas*** | ***calcolo-Azure-Apps*** | ***calcolare*** |
+| ***Calcolo** _ | _*_calcolo-Saas_*_ | _*_calcolo-Azure-Apps_*_ | _ *_calcolo_** |
 | Infrastruttura applicativa | appInfra | appInfrastructure | applicazione-infrastruttura |
 | Sistemi operativi | clientos | clientos | sistemi operativi |
 | Cache | cache | cache | cache |
 | Altro | altro-calcolo | altro-calcolo | altro |
-| ***Contenitori*** | ***contenitori*** | ***contenitori*** | ***contenitori*** |
+| ***Contenitori** _ | _*_contenitori_*_ | _*_contenitori_*_ | _ *_contenitori_** |
 | App contenitore | contenitore-app | contenitore-app | contenitore-app |
 | Immagini contenitore | contenitori-immagini | contenitori-immagini | contenitori-immagini |
 | Introduzione ai contenitori | Get-Started-with-containers | Get-Started-with-containers | Get-Started-with-containers |
 | Altro | altro | altro | altro |
-| ***Database*** | ***database-Saas*** | ***database*** | ***database*** |
+| ***Database** _ | _*_database-Saas_*_ | _*_database_*_ | _ *_database_** |
 | Database NoSQL | NoSQL-database | NoSQL-database | NoSQL-database |
 | Database relazionali | database relazionali | database relazionali | database relazionali |
 | Database Ledger/blockchain | Ledger-blockchain-database | Ledger-blockchain-database | Ledger-blockchain-database |
 | Data Lake | Data Lake | Data Lake | Data Lake |
 | data warehouse | data warehouse | data warehouse | data warehouse |
 | Altro | altri database | altri database | altro |
-| ***Strumenti di sviluppo*** | ***Developer-Tools-Saas*** | ***Developer-Tools-Azure-Apps*** | ***Developer-Tools*** |
+| ***Strumenti di sviluppo** _ | _*_Developer-Tools-Saas_*_ | _*_Developer-Tools-Azure-Apps_*_ | _ *_Developer-Tools_** |
 | Strumenti | strumenti-Developer-Tools | strumenti-Developer-Tools | strumenti-Developer-Tools |
 | Script | script | script | script |
 | Servizio per sviluppatori | devService | devService | Developer-Service |
 | Altro | altri strumenti per sviluppatori | altri strumenti per sviluppatori | altro |
-| ***DevOps*** | ***DevOps*** | ***DevOps*** | ***DevOps*** |
+| ***DevOps** _ | _*_DevOps_*_ | _*_DevOps_*_ | _ *_DevOps_** |
 | Altro | altro | altro | altro |
-| ***Identità*** | ***identity*** | ***identity*** | ***identity*** |
+| ***Identità** _ | _*_identità_*_ | _*_identità_*_ | _ *_identità_** |
 | Gestione degli accessi | gestione degli accessi | gestione degli accessi | gestione degli accessi |
 | Altro | altro | altro | altro |
-| ***Integrazione*** | ***integrazione*** | ***integrazione*** | ***integrazione*** |
+| ***Integrazione** _ | _*_integrazione_*_ | _*_integrazione_*_ | _ *_integrazione_** |
 | Messaggistica | messaggi | messaggi | messaggi |
 | Altro | altro | altro | altro |
-| ***Internet delle cose*** | ***IoT*** | ***Internet-of-Things-Azure-Apps*** | ***Internet delle cose*** |
+| ***Internet delle cose** _ | _*_IoT_*_ | _*_Internet-of-Things-Azure-Apps_*_ | _ *_Internet-of-Things_** |
 | Servizi di base di Internet delle cose | N/D | Servizi Internet di base | Servizi Internet di base |
 | Moduli IoT Edge | N/D | tutti i moduli Edge | tutti i moduli Edge |
 | Soluzioni Internet delle cose | Internet delle cose-soluzioni | Internet delle cose-soluzioni | Internet delle cose-soluzioni |
 | Visualizzazione & analisi dei dati | Data-Analytics-and-Visualization | Data-Analytics-and-Visualization | Data-Analytics-and-Visualization |
 | Connettività Internet | connettività | connettività | connettività |
 | Altro | Other-Internet-of-Things | Other-Internet-of-Things | altro |
-| ***Strumenti di gestione & IT*** | ***ITandAdministration*** | ***it-and-Management-Tools-Azure-Apps*** | ***strumenti di it e gestione*** |
+| ***Strumenti di gestione &** _ | _*_ITandAdministration_*_ | _*_it-and-Management-Tools-Azure-Apps_*_ | _ *_it-and-Management-Tools_** |
 | Soluzioni di gestione | Gestione-soluzioni | Gestione-soluzioni | Gestione-soluzioni |
 | Applicazioni aziendali | businessApplication | businessApplication | applicazioni aziendali |
 | Altro | Other-it-Management-Tools | Other-it-Management-Tools | altro |
-| ***Monitoraggio & diagnostica*** | ***monitoraggio e diagnostica*** | ***monitoraggio e diagnostica*** | ***monitoraggio e diagnostica*** |
+| ***Monitoraggio & diagnostica** _ | _*_monitoraggio e diagnostica_*_ | _*_monitoraggio e diagnostica_*_ | _ *_monitoraggio e diagnostica_** |
 | Altro | altro | altro | altro |
-| ***Supporti*** | ***media*** | ***media*** | ***media*** |
+| ***Media** _ | _*_media_*_ | _*_media_*_ | _ *_supporti_** |
 | Servizi multimediali | media-services | media-services | media-services |
 | Protezione del contenuto | content-protection | content-protection | content-protection |
 | Streaming Live & on demand | streaming live e on demand | streaming live e on demand | streaming live e on demand |
 | Altro | altro | altro | altro |
-| ***Migrazione*** | ***migrazione*** | ***migrazione*** | ***migrazione*** |
+| ***Migrazione** _ | _*_migrazione_*_ | _*_migrazione_*_ | _ *_migrazione_** |
 | Migrazione dei dati | migrazione dei dati | migrazione dei dati | migrazione dei dati |
 | Altro | altro | altro | altro |
-| ***Realtà mista*** | ***mixed-reality*** | ***mixed-reality*** | ***mixed-reality*** |
+| ***Realtà mista** _ | _*_mixed-reality_*_ | _*_mixed-reality_*_ | _ in *_realtà mista_** |
 | Altro | altro | altro | altro |
-| ***Rete*** | ***rete*** | ***rete*** | ***rete*** |
+| ***Rete** _ | _*_rete_*_ | _*_rete_*_ | _ *_rete_** |
 | Gestione Appliance | Appliance-Manager | Appliance-Manager | Appliance-Manager |
 | Connettività | connettività | connettività | connettività |
 | Firewall | firewall | firewall | firewall |
 | Servizi di bilanciamento del carico | bilanciamento del carico | bilanciamento del carico | bilanciamento del carico |
 | Altro | altro | altro | altro |
-| ***Sicurezza*** | ***sicurezza*** | ***sicurezza*** | ***sicurezza*** |
+| ***Sicurezza** _ | _*_sicurezza_*_ | _*_sicurezza_*_ | _ *_sicurezza_** |
 | Gestione dell'identità e dell'accesso | gestione delle identità e dell'accesso | gestione delle identità e dell'accesso | gestione delle identità e dell'accesso |
 | Threat Protection | protezione dalle minacce | protezione dalle minacce | protezione dalle minacce |
 | Information Protection | protezione delle informazioni | protezione delle informazioni | protezione delle informazioni |
 | Altro | altro | altro | altro |
-| ***Storage*** | ***archiviazione-Saas*** | ***archiviazione-Azure-Apps*** | ***storage*** |
+| ***Spazio di archiviazione** _ | _*_archiviazione-Saas_*_ | _*_archiviazione-Azure-Apps_*_ | _ *_archiviazione_** |
 | Backup & ripristino | backup | backup | backup e ripristino |
 | Archiviazione ibrida aziendale | Enterprise-Hybrid-Storage | Enterprise-Hybrid-Storage | Enterprise-Hybrid-Storage |
 | Condivisione file | condivisione di file | condivisione di file | condivisione di file |
 | Gestione del ciclo di vita dei dati | gestione del ciclo di vita dei dati | gestione del ciclo di vita dei dati | gestione del ciclo di vita dei dati |
 | Altro | altro-archiviazione | altro-archiviazione | altro |
-| ***Web*** | ***Web*** | ***Web*** | ***Web*** |
+| ***Web** _ | _*_Web_*_ | _*_Web_*_ | _ *_Web_** |
 | Blog & CMSs | Blog-e-CMSS | Blog-e-CMSS | Blog-e-CMSS |
 | App Web di avvio | Starter-Web-App | Starter-Web-App | Starter-Web-App |
 | Ecommerce | ecommerce | ecommerce | ecommerce |
@@ -396,48 +396,48 @@ Queste categorie e le rispettive chiavi sono applicabili per i tipi di offerta S
 
 | Category | Chiavi SaaS | Dynamics 365 business Central, Dynamics 365 per Customer Engagement, Dynamics 365 per chiavi operative | Chiavi dell'app Power bi |
 | --- | --- | --- | --- |
-| ***Analisi*** | ***analisi*** | ***Analisi*** | ***Analisi*** |
+| ***Analisi** _ | _*_analisi_*_ | _*_Analisi_*_ | _ *_Analytics_** |
 | Analisi avanzata | Advanced-Analytics | Advanced-Analytics | Advanced-Analytics |
 | Visualizzazione & Reporting | visualizzazione-Creazione di report | visualizzazione-Creazione di report | visualizzazione-Creazione di report |
 | Altro | altro | Other-Analytics | Other-Analytics |
-| ***Intelligenza artificiale e Machine Learning*** | ***ArtificialIntelligence*** | ***intelligenza artificiale-Plus-Machine-Learning-Dynamics*** | ***intelligenza artificiale-Plus-Machine-Learning-AppSource*** |
+| ***Ai + Machine Learning** _ | _*_ArtificialIntelligence_*_ | _*_intelligenza artificiale-Plus-Machine-Learning-Dynamics_*_ | _ *_intelligenza artificiale-Plus-Machine-Learning-AppSource_** |
 | Intelligenza artificiale per le aziende | intelligenza artificiale per le aziende | intelligenza artificiale per le aziende | intelligenza artificiale per le aziende |
 | App bot | bot-app | bot-app | bot-app |
 | Altro | Other-intelligenza artificiale-Plus-Machine-Learning | Other-intelligenza artificiale-Plus-Machine-Learning | Other-intelligenza artificiale-Plus-Machine-Learning |
-| ***Collaborazione*** | ***Collaborazione*** | ***Collaborazione*** | ***collaborazione*** |
+| ***Collaborazione** _ | _*_Collaborazione_*_ | _*_Collaborazione_*_ | _ *_collaborazione_** |
 | Contattare & persone | contatti-persone | contatti-persone | contatti e persone |
 | Gestione delle riunioni | gestione delle riunioni | gestione delle riunioni | gestione delle riunioni |
 | Progettazione di siti & gestione | gestione del sito-progettazione | gestione del sito-progettazione | site-design-and-Management |
 | Gestione dei progetti & attività | attività-Gestione progetti | attività-Gestione progetti | Gestione attività e progetto |
 | Videoconferenza di Voice & video | video di conferenze vocali | video di conferenze vocali | comunicazione vocale e video |
 | Altro | altra collaborazione | altra collaborazione | altro |
-| ***Conformità & legali*** | ***conformità*** | ***conformità*** | ***conformità e validità*** |
+| ***Conformità & note legali** | _*_conformità_*_ | _*_conformità_*_ | _ *_conformità e-Legal_** |
 | Controllo imposta & | controllo fiscale | controllo fiscale | Tax-and-audit |
 | Legale | Legale | Legale | legal |
 | Dati, governance & privacy | governance dei dati-privacy | governance dei dati-privacy | governance dei dati e privacy |
 | Sicurezza & integrità | integrità-sicurezza | integrità-sicurezza | integrità e sicurezza |
 | Altro | altro-conformità-legale | altro-conformità-legale | altro |
-| ***Customer Service*** | ***CustomerService*** | ***CustomerService*** | ***Customer-Service*** |
+| ***Servizio clienti** _ | _*_CustomerService_*_ | _*_CustomerService_*_ | _ *_cliente-servizio_** |
 | Centro contatti | Contact-Center | Contact-Center | Contact-Center |
 | Servizio facet | servizio viso-a-faccia | servizio viso-a-faccia | servizio viso-a-faccia |
 | Back Office & Employee Service | Back-Office-Employee-Service | Back-Office-Employee-Service | Back-Office-and-Employee-Service |
 | Gestione case & Knowledge base | Knowledge base-gestione | Knowledge base-gestione | Knowledge base e-Case-Management |
 | Social media & Engagement omnicanale | social-media-omnicanale-Engagement | social-media-omnicanale-Engagement | Social-Media-and-omnicanale-Engagement |
 | Altro | altro-Customer-Service | altro-Customer-Service | altro |
-| ***Finanza*** | ***Finanza*** | ***Finanza*** | ***Finance*** |
+| ***Finanza** _ | _*_Finance_*_ | _*_Finance_*_ | _ *_finanza_** |
 | Contabilità | accounting | accounting | accounting |
 | Asset Management (Gestione degli asset) | gestione delle risorse | gestione delle risorse | gestione delle risorse |
 | Analisi, consolidamento & Reporting | analisi-consolidamento-creazione di report | analisi-consolidamento-creazione di report | analisi: consolidamento e creazione di report |
 | Raccolte di & di credito | raccolte di crediti | raccolte di crediti | Credit-and-Collections |
 | Gestione dei rischi di conformità & | conformità-gestione dei rischi | conformità-gestione dei rischi | conformità e gestione dei rischi |
 | Altro | altro-finanza | altro-finanza | altro |
-| ***Human Resources*** | ***HumanResources*** | ***HumanResources*** | ***risorse umane*** |
+| ***Risorse umane** _ | _*_HumanResources_*_ | _*_HumanResources_*_ | _ *_risorse umane_** |
 | Acquisizione del talento | talento-acquisizione | talento-acquisizione | talento-acquisizione |
 | Gestione dei talent | gestione del talento | gestione del talento | gestione del talento |
 | Operazioni HR | HR-operazioni | HR-operazioni | HR-operazioni |
 | Pianificazione della forza lavoro & analisi | forza lavoro-Pianificazione-analisi | forza lavoro-Pianificazione-analisi | forza lavoro-pianificazione e analisi |
 | Altro | altre risorse umane | altre risorse umane | altro |
-| ***Internet delle cose*** | ***IoT*** | ***Internet-of-Things-Dynamics*** | ***Internet-of-Things-AppSource*** |
+| ***Internet delle cose** _ | _*_IoT_*_ | _*_Internet-of-Things-Dynamics_*_ | _ *_Internet-of-Things-AppSource_** |
 | Operazioni di & di gestione delle risorse | Asset-Management-operazioni | Asset-Management-operazioni | Asset-Management-and-Operations |
 | Prodotti connessi | connessi-prodotti | connessi-prodotti | connessi-prodotti |
 | Supply Chain intelligente | Supply Chain intelligente | Supply Chain intelligente | Supply Chain intelligente |
@@ -447,11 +447,11 @@ Queste categorie e le rispettive chiavi sono applicabili per i tipi di offerta S
 | Risorse & di infrastruttura intelligenti | risorse intelligenti-infrastruttura | risorse intelligenti-infrastruttura | infrastruttura e risorse intelligenti |
 | Veicoli & mobilità | veicoli-mobilità | veicoli-mobilità | veicoli e mobilità |
 | Altro | Other-Internet-of-Things | Other-Internet-of-Things | altro |
-| ***Strumenti di gestione & IT*** | ***ITandAdministration*** | ***ITandAdministration*** | ***strumenti di it e gestione*** |
+| ***Strumenti di gestione &** _ | _*_ITandAdministration_*_ | _*_ITandAdministration_*_ | _ *_it-and-Management-Tools_** |
 | Soluzioni di gestione | Gestione-soluzioni | Gestione-soluzioni | Gestione-soluzioni |
 | Applicazioni aziendali | businessApplication | businessApplication | applicazioni aziendali |
 | Altro | Other-it-Management-Tools | Other-it-Management-Tools | altro |
-| ***Marketing*** | ***Marketing*** | ***Marketing*** | ***marketing*** |
+| ***Marketing** _ | _*_Marketing_*_ | _*_Marketing_*_ | _ *_Marketing_** |
 | Annuncio pubblicitario | annuncio | annuncio | annuncio |
 | Analisi | analisi-marketing | analisi-marketing | analisi-marketing |
 | Gestione delle campagne & automazione | gestione della campagna-automazione | gestione della campagna-automazione | campagna-gestione e automazione |
@@ -460,7 +460,7 @@ Queste categorie e le rispettive chiavi sono applicabili per i tipi di offerta S
 | Analisi del & di ricerca | ricerca-analisi | ricerca-analisi | ricerca e analisi |
 | Social media | social media | social media | social media |
 | Altro | altro-marketing | altro-marketing | altro |
-| ***Operatore & Supply Chain*** | ***OperationsSupplyChain*** | ***OperationsSupplyChain*** | ***Operations-and-supply-chain*** |
+| ***Operazioni & Supply Chain** _ | _*_OperationsSupplyChain_*_ | _*_OperationsSupplyChain_*_ | _ *_operazioni-e-Supply-Chain_** |
 | Gestione della produzione di asset & | Asset-produzione-gestione | Asset-produzione-gestione | Gestione asset e produzione |
 | Previsione della domanda | previsione della domanda | previsione della domanda | previsione della domanda |
 | Connettività & Information Management | gestione delle informazioni-connettività | gestione delle informazioni-connettività | Information-Management-and-Connectivity |
@@ -469,7 +469,7 @@ Queste categorie e le rispettive chiavi sono applicabili per i tipi di offerta S
 | Gestione ordini di vendita & | gestione degli ordini di vendita | gestione degli ordini di vendita | gestione delle vendite e degli ordini |
 | Gestione del trasporto & warehouse | trasporto-gestione warehouse | trasporto-gestione warehouse | Gestione trasporto e warehouse |
 | Altro | Other-Operations-Supply-Chain | Other-Operations-Supply-Chain | altro |
-| ***Produttività*** | ***Produttività*** | ***Produttività*** | ***produttività*** |
+| ***Produttività** _ | _*_Produttività_*_ | _*_Produttività_*_ | _ *_produttività_** |
 | Gestione & di creazione di contenuti | gestione della creazione di contenuti | gestione della creazione di contenuti | Content-Creation-and-Management |
 | Traduzione & lingua | Traduzione lingua | Traduzione lingua | lingua e traduzione |
 | Gestione documentale | gestione dei documenti | gestione dei documenti | gestione dei documenti |
@@ -477,7 +477,7 @@ Queste categorie e le rispettive chiavi sono applicabili per i tipi di offerta S
 | Cerca & di riferimento | riferimento di ricerca | riferimento di ricerca | ricerca e riferimenti |
 | Altro | altro-produttività | altro-produttività | altro |
 | Gamification | Gamification | Gamification | Gamification |
-| ***Sales*** | ***Sales*** | ***Sales*** | ***Sales*** |
+| ***Vendite** _ | _*_Sales_*_ | _*_Sales_*_ | _ *_Vendite_** |
 | TELESALES | TELESALES | TELESALES | TELESALES |
 | Configure, price, quote (CPQ) | Configure-Price-quote | Configure-Price-quote | Configure-Price-quote |
 | Gestione dei contratti | gestione dei contratti | gestione dei contratti | gestione dei contratti |
@@ -486,7 +486,7 @@ Queste categorie e le rispettive chiavi sono applicabili per i tipi di offerta S
 | Arricchimento dei dati aziendali | arricchimento dei dati aziendali | arricchimento dei dati aziendali | arricchimento dei dati aziendali |
 | Abilitazione vendite | Abilitazione vendite | Abilitazione vendite | Abilitazione vendite |
 | Altro | altre-vendite | altre-vendite | altre-vendite |
-| ***Georilevazione*** | ***georilevazione*** | ***georilevazione*** | ***georilevazione*** |
+| ***Georilevazione** _ | _*_georilevazione_*_ | _*_georilevazione_*_ | _ *_georilevazione_** |
 | Mappe | maps | maps | maps |
 | Notizie & Meteo | Notizie e meteo | Notizie e meteo | Notizie e meteo |
 | Altro | altro-georilevazione | altro-georilevazione | altro-georilevazione |
@@ -498,50 +498,50 @@ Questi settori e le rispettive chiavi sono applicabili per i tipi di offerta Saa
 
 | Settore | SaaS, Dynamics 365 business Central, Dynamics 365 per Customer Engagement, Dynamics 365 per chiavi operative | Chiavi app Power bi |
 | --- | --- | --- |
-| ***Automobilistico*** | ***Automobilistico*** | ***settore automobilistico*** |
+| ***Automotive** _ | _*_Automobilistico_*_ | _ *_Automotive_** |
 | Automobilistico | AutomotiveL2 | AutomotiveL2 |
-| ***Agricoltura*** | ***Agricoltura*** | ***agricoltura*** |
+| ***Agricoltura** _ | _*_Agricoltura_*_ | _ *_agricoltura_** |
 | Altro-non segmentato | \_OtherUnsegmented agricoltura | altro-non segmentato |
-| ***Distribuzione*** | ***Distribuzione*** | ***distribuzione*** |
+| ***Distribuzione** _ | _*_Distribuzione_*_ | _ *_distribuzione_** |
 | Vendita all'ingrosso | Vendita all'ingrosso | Vendita all'ingrosso |
 | Spedizione pacchetti & pacco | ParcelAndPackageShipping | distribuzione di pacchetti |
-| ***Education*** | ***Education*** | ***istruzione*** |
+| ***Istruzione** _ | _*_Education_*_ | _ *_istruzione_** |
 | Istruzione superiore | HigherEducation | educazione superiore |
 | Primario & istruzione secondaria/K-12 | PrimaryAndSecondaryEducationK12 | educazione primaria e secondaria |
 | Librerie & musei | LibrariesAndMuseums | librerie e musei |
-| ***Servizi finanziari*** | ***FinancialServices*** | ***Servizi finanziari*** |
+| ***Servizi finanziari** _ | _*_FinancialServices_*_ | _ *_Financial-Services_** |
 | Settore bancario & mercati finanziari | BankingAndCapitalMarkets | Banking-and-Capital-Markets |
 | Assicurazioni | Assicurazioni | insurance |
-| ***Enti pubblici*** | ***Enti pubblici*** | ***governo*** |
+| ***Governo** _ | _*_Enti governativi_*_ | _ *_Government_** |
 | Difesa & Intelligence | DefenseAndIntelligence | difesa e intelligence |
 | Sicurezza pubblica & giustizia | PublicSafetyAndJustice | Public-Safety-and-Justice |
 | Governo civile | CivilianGovernment | civili pubblici |
-| ***Servizi sanitari*** | ***HealthCareandLifeSciences*** | ***settore sanitario*** |
+| ***Assistenza sanitaria** _ | _*_HealthCareandLifeSciences_*_ | _ *_Healthcare_** |
 | Pagante di integrità | HealthPayor | integrità-pagante |
 | Provider di integrità | Jimmy | Health-provider |
 | Prodotti farmaceutici | Prodotti farmaceutici | pharmaceuticals |
-| ***Produzione di risorse &*** | ***Produzione*** | ***produzione e risorse*** |
+| ***Produzione & risorse** _ | _*_Produzione_*_ | _ *_produzione e risorse_** |
 | & chimico agrochimica | ChemicalAndAgrochemical | Chemical-and-agrochimica |
 | Produzione discreta | DiscreteManufacturing | discreto-produzione |
 | Energia | Energia | energy |
-| ***Vendita al dettaglio & beni di consumo*** | ***RetailandConsumerGoods*** | ***vendita al dettaglio-e-consumer-merci*** |
+| ***Vendita al dettaglio & beni di consumo** _ | _*_RetailandConsumerGoods_*_ | _ *_Retail-and-Consumer-Goods_** |
 | Beni di consumo | ConsumerGoods | beni di consumo |
 | Rivenditori | Rivenditori | rivenditori |
-| ***Media & comunicazioni*** | ***MediaAndCommunications*** | ***media e comunicazione*** |
+| ***Media & Communications** _ | _*_MediaAndCommunications_*_ | _ *_media e comunicazione_** |
 | Media & Entertainment | MediaandEntertainment | Media-and-Entertainment |
 | Telecomunicazioni | Telecomunicazioni | telecomunicazioni |
-| ***Servizi professionali*** | ***ProfessionalServices*** | ***Professional-Services*** |
+| ***Servizi professionali** _ | _*_ProfessionalServices_*_ | _ *_Professional-Services_** |
 | Legale | Legale | legal |
 | Servizi professionali per i partner | PartnerProfessionalServices | partner-Professional-Services |
-| ***Architettura & costruzione*** | ***ArchitectureAndConstruction*** | ***architettura e costruzione*** |
+| ***Architettura & costruzione** _ | _*_ArchitectureAndConstruction_*_ | _ *_architettura e costruzione_** |
 | Altro-non segmentato | \_OtherUnsegmented ArchitectureAndConstruction | altro-non segmentato |
-| ***Ospitalità & viaggio*** | ***HospitalityandTravel*** | ***ospitalità e viaggi*** |
+| ***Hospitality & Travel** _ | _*_HospitalityandTravel_*_ | _ *_Hospitality-and-Travel_** |
 |    Alberghi & Leisure | HotelsAndLeisure | Alberghi-e-Leisure |
 | Travel & Transportation | TravelAndTransportation | Viaggi e trasporti |
 | Ristoranti & servizi alimentari | RestaurantsAndFoodServices | ristoranti e cibo-servizi |
-| ***Altri settori pubblici*** | ***OtherPublicSectorIndustries*** | ***altro-pubblico-settore-settori*** |
+| ***Altri settori pubblici** _ | _*_OtherPublicSectorIndustries_*_ | _ *_altro-pubblico-settore-settori_** |
 | Selvicoltura & pesca | ForestryAndFishing | silvicoltura e pesca |
 | Organizzazioni no profit | Organizzazioni no profit | organizzazioni no profit |
-| ***Immobile*** | ***RealEstate*** | ***immobiliare*** |
+| ***Proprietà immobiliari** _ | _*_RealEstate_*_ | _ *_Real-estate_** |
 | Altro-non segmentato | \_OtherUnsegmented immobiliare | altro-non segmentato |
 |||

@@ -11,10 +11,10 @@ ms.date: 12/06/2016
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: 5195241003b1ce4ea505002e2cc3c10410e6cde1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "78183721"
 ---
 # <a name="azure-active-directory-b2c-file-support-requests"></a>Azure Active Directory B2C: Inviare richieste di supporto
@@ -35,9 +35,9 @@ ms.locfileid: "78183721"
 1. Nel pannello **Informazioni di base** usare questi dettagli e fare clic su **Avanti**.
 
     * Il **Tipo di problema** è **Tecnico**.
-    * Scegliere la **Sottoscrizione**appropriata.
+    * Scegliere la **Sottoscrizione** appropriata.
     * Il **Servizio** è **Active Directory**.
-    * Scegliere il **Piano di supporto**appropriato. Se non si ha un piano di supporto, è possibile iscriversi per ottenerne uno [qui](https://azure.microsoft.com/support/plans/).
+    * Scegliere il **Piano di supporto** appropriato. Se non si ha un piano di supporto, è possibile iscriversi per ottenerne uno [qui](https://azure.microsoft.com/support/plans/).
 
      ![Pagina Nozioni di base con il pulsante Avanti evidenziato in portale di Azure](./media/support-options/support-basics.png)
 
@@ -45,10 +45,10 @@ ms.locfileid: "78183721"
 
     * Scegliere il livello di **Gravità** appropriato.
     * Il **Tipo di problema** è **B2C**.
-    * Scegliere la **Categoria**appropriata.
+    * Scegliere la **Categoria** appropriata.
     * Descrivere il problema nel campo **Dettagli** . Specificare dettagli quali il nome del tenant B2C, la descrizione del problema, i messaggi di errore, gli ID di correlazione (se disponibili) e così via.
     * Nel campo **Intervallo di tempo** specificare la data e l'ora, incluso il fuso orario, corrispondenti al momento in cui si è verificato il problema.
-    * In **Caricamento file**caricare tutte le schermate e tutti i file che potrebbero risultare utili per la risoluzione del problema.
+    * In **Caricamento file** caricare tutte le schermate e tutti i file che potrebbero risultare utili per la risoluzione del problema.
 
      ![Pagina problema con il pulsante Avanti evidenziato in portale di Azure](./media/support-options/support-problem.png)
 

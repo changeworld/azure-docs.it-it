@@ -6,18 +6,18 @@ ms.topic: article
 ms.date: 12/11/2020
 ms.custom: devx-track-csharp, seodec18
 ms.openlocfilehash: 6ceeb3d31652c04eb9a69c1c8bb4b114e6f38d52
-ms.sourcegitcommit: fa807e40d729bf066b9b81c76a0e8c5b1c03b536
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/11/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97347728"
 ---
-# <a name="configure-tls-mutual-authentication-for-azure-app-service"></a>Configurare l'autenticazione reciproca TLS per il servizio app Azure
+# <a name="configure-tls-mutual-authentication-for-azure-app-service"></a>Configurare l'autenticazione reciproca TLS per Servizio app di Azure
 
 È possibile limitare l'accesso all'app di Servizio app di Azure abilitandone diversi tipi di autenticazione. Un modo per eseguire questa operazione consiste nel richiedere un certificato client quando la richiesta client è su TLS/SSL e convalidare il certificato. Questo meccanismo è denominato autenticazione reciproca TLS o autenticazione del certificato client. Questo articolo illustra come configurare l'app per l'uso dell'autenticazione del certificato client.
 
 > [!NOTE]
-> se si accede al sito tramite HTTP e non HTTPS, non si riceveranno i certificati client. Quindi, se l'applicazione richiede certificati client, è consigliabile non consentire le richieste all'applicazione tramite HTTP.
+> se si accede al sito tramite HTTP e non HTTPS, non si riceveranno i certificati client. Pertanto, se l'applicazione richiede i certificati client, è consigliabile non consentire le richieste all'applicazione tramite HTTP.
 >
 
 [!INCLUDE [Prepare your web app](../../includes/app-service-ssl-prepare-app.md)]

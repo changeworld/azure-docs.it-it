@@ -17,10 +17,10 @@ ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 8091890d174ae68f012a6ec24685a0e705100f8b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "84743678"
 ---
 # <a name="review-access-to-azure-resource-roles-in-privileged-identity-management"></a>Verificare l'accesso ai ruoli delle risorse di Azure in Privileged Identity Management
@@ -44,7 +44,7 @@ Seguire questa procedura per trovare e completare la verifica dell'accesso:
    ![Screenshot dell'applicazione Privileged Identity Management, con il pannello Verifica accesso selezionato](media/pim-resource-roles-perform-access-review/rbac-access-review-complete.png)
 
 1. Selezionare la verifica da completare.
-1. Scegliere **approva** o **Nega**. Nella **casella fornire un motivo**immettere una motivazione aziendale per la decisione, se necessario.
+1. Scegliere **approva** o **Nega**. Nella **casella fornire un motivo** immettere una motivazione aziendale per la decisione, se necessario.
 
    ![Screenshot della pagina dei dettagli della verifica](media/pim-resource-roles-perform-access-review/rbac-access-review-choice.png)
 

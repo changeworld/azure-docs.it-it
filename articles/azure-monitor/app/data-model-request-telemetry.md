@@ -5,10 +5,10 @@ ms.topic: conceptual
 ms.date: 01/07/2019
 ms.reviewer: sergkanz
 ms.openlocfilehash: 7a352f4ce3528d395599a91b53031c74b0873152
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "87320562"
 ---
 # <a name="request-telemetry-application-insights-data-model"></a>Telemetria delle richieste: modello di dati di Application Insights
@@ -53,7 +53,7 @@ Risultato dell'esecuzione di una richiesta. Codice di stato HTTP per le richiest
 
 Lunghezza massima: 1024 caratteri
 
-## <a name="success"></a>Operazione completata
+## <a name="success"></a>Operazione riuscita
 
 Indicazione di chiamata con esito positivo o con esito negativo. Questo campo è obbligatorio. Se non è impostata in modo esplicito su `false`, una richiesta viene considerata con esito positivo. Impostare questo valore su `false` se l'operazione è stata interrotta da un'eccezione o un codice di errore restituito.
 
