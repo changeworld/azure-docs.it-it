@@ -4,10 +4,10 @@ description: Inviare eventi da partner SaaS e PaaS di Griglia di eventi di terze
 ms.topic: conceptual
 ms.date: 11/10/2020
 ms.openlocfilehash: 31a5fe611871eb4734b6a68e3818592028ebc75c
-ms.sourcegitcommit: 4bee52a3601b226cfc4e6eac71c1cb3b4b0eafe2
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/11/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94506147"
 ---
 # <a name="partner-events-in-azure-event-grid-preview"></a>Eventi del partner in griglia di eventi di Azure (anteprima)
@@ -58,7 +58,7 @@ Se si vuole che un servizio di terze parti esponga gli eventi tramite griglia di
 ## <a name="resources-managed-by-event-publishers"></a>Risorse gestite da autori di eventi
 I publisher di eventi creano e gestiscono le risorse seguenti:
 
-### <a name="partner-registration"></a>Registrazione partner
+### <a name="partner-registration"></a>Registrazione del partner
 Una registrazione include informazioni generali relative a un server di pubblicazione. Definisce un tipo di argomento partner che mostra nel portale di Azure come opzione quando gli utenti tentano di creare un argomento del partner. Un server di pubblicazione può esporre più di uno o più tipi di argomento partner per soddisfare le esigenze dei propri Sottoscrittori. Ovvero un server di pubblicazione può creare registrazioni separate (tipi di argomento partner) per gli eventi di diversi servizi. Ad esempio, per il servizio risorse umane (HR), il server di pubblicazione può definire un argomento partner per eventi quali il dipendente aggiunto, il dipendente promosso e il dipendente che ha lasciato l'azienda. 
 
 Tenere presente quanto segue:
@@ -82,12 +82,12 @@ Nell'immagine seguente viene illustrato il flusso delle operazioni del piano di 
 
 1. Publisher crea una **registrazione partner**. Le registrazioni partner sono globali. Ovvero non sono associate a una determinata area di Azure. Questo passaggio è facoltativo.
 1. Publisher crea uno **spazio dei nomi partner** in un'area specifica.
-1. Quando il Sottoscrittore 1 tenta di creare un argomento del partner, viene creato per primo un **canale di eventi** , il canale di eventi 1, nella sottoscrizione di Azure del server di pubblicazione.
-1. Viene quindi creato un **argomento partner** , argomento partner 1, nella sottoscrizione di Azure del Sottoscrittore. Il Sottoscrittore deve attivare l'argomento partner. 
+1. Quando il Sottoscrittore 1 tenta di creare un argomento del partner, viene creato per primo un **canale di eventi**, il canale di eventi 1, nella sottoscrizione di Azure del server di pubblicazione.
+1. Viene quindi creato un **argomento partner**, argomento partner 1, nella sottoscrizione di Azure del Sottoscrittore. Il Sottoscrittore deve attivare l'argomento partner. 
 1. Il Sottoscrittore 1 crea una sottoscrizione di app per la **logica di Azure** all'argomento del partner 1.
 1. Il Sottoscrittore 1 crea una **sottoscrizione di archiviazione BLOB di Azure** per l'argomento del partner 1. 
-1. Quando il Sottoscrittore 2 tenta di creare un argomento del partner, viene creato un altro **canale di eventi** , il canale di eventi 2, nella sottoscrizione di Azure del server di pubblicazione. 
-1. Quindi, l' **argomento del partner** , argomento del partner 2, viene creato nella sottoscrizione di Azure del secondo sottoscrittore. Il Sottoscrittore deve attivare l'argomento partner. 
+1. Quando il Sottoscrittore 2 tenta di creare un argomento del partner, viene creato un altro **canale di eventi**, il canale di eventi 2, nella sottoscrizione di Azure del server di pubblicazione. 
+1. Quindi, l' **argomento del partner**, argomento del partner 2, viene creato nella sottoscrizione di Azure del secondo sottoscrittore. Il Sottoscrittore deve attivare l'argomento partner. 
 1. Il Sottoscrittore 2 crea una **sottoscrizione di funzioni di Azure** per l'argomento 2 del partner. 
 
 ## <a name="pricing"></a>Prezzi

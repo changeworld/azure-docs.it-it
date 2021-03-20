@@ -1,5 +1,5 @@
 ---
-title: 'Esercitazione: Integrazione di Azure Active Directory con Airstack | Microsoft Docs'
+title: 'Esercitazione: integrazione di Azure Active Directory con lo stack | Microsoft Docs'
 description: Informazioni su come configurare l'accesso Single Sign-On tra Azure Active Directory e Airstack.
 services: active-directory
 author: jeevansd
@@ -12,13 +12,13 @@ ms.topic: tutorial
 ms.date: 07/29/2019
 ms.author: jeedes
 ms.openlocfilehash: 7e0b17c30985617791c1ce55a02f6a60253b43db
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
-ms.translationtype: HT
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/21/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92318941"
 ---
-# <a name="tutorial-integrate-airstack-with-azure-active-directory"></a>Esercitazione: Integrare Airstack con Azure Active Directory
+# <a name="tutorial-integrate-airstack-with-azure-active-directory"></a>Esercitazione: integrare l'interstack con Azure Active Directory
 
 Questa esercitazione descrive come integrare Airstack con Azure Active Directory (Azure AD). Integrando Airstack con Azure AD, è possibile:
 
@@ -59,10 +59,10 @@ Configurare e testare l'accesso SSO di Azure AD con Airstack usando un utente di
 Per configurare e testare l'accesso SSO di Azure AD con Airstack, completare le procedure di base seguenti:
 
 1. **[Configurare l'accesso Single Sign-On di Azure AD](#configure-azure-ad-sso)** : per consentire agli utenti di usare questa funzionalità.
-2. **[Configurare l'accesso Single Sign-On di Airstack](#configure-airstack-sso)** : per configurare le impostazioni di Single Sign-On sul lato applicazione.
-3. **[Creare un utente di test di Azure AD](#create-an-azure-ad-test-user)** : per testare l'accesso Single Sign-On di Azure AD con l'utente B. Simon.
-4. **[Assegnare l'utente di test di Azure AD](#assign-the-azure-ad-test-user)** : per abilitare B. Simon all'uso dell'accesso Single Sign-On di Azure AD.
-5. **[Creare l'utente di test di Airstack](#create-airstack-test-user)** : per avere una controparte di B. Simon in Airstack collegata alla rappresentazione dell'utente in Azure AD.
+2. **[Configurare l'accesso Single Sign-On di Airstack](#configure-airstack-sso)**: per configurare le impostazioni di Single Sign-On sul lato applicazione.
+3. **[Creare un utente di test di Azure AD](#create-an-azure-ad-test-user)** : per testare l'accesso Single Sign-On di Azure AD con l'utente B.Simon.
+4. **[Assegnare l'utente di test di Azure AD](#assign-the-azure-ad-test-user)** : per abilitare B.Simon all'uso dell'accesso Single Sign-On di Azure AD.
+5. **[Creare l'utente di test di Airstack](#create-airstack-test-user)**: per avere una controparte di B. Simon in Airstack collegata alla rappresentazione dell'utente in Azure AD.
 6. **[Testare l'accesso Single Sign-On](#test-sso)** : per verificare se la configurazione funziona.
 
 ### <a name="configure-azure-ad-sso"></a>Configurare l'accesso SSO di Azure AD
@@ -128,7 +128,7 @@ In questa sezione si abiliterà B.Simon all'uso dell'accesso Single Sign-On di A
 
 ### <a name="create-airstack-test-user"></a>Creare l'utente di test di Airstack
 
-In questa sezione viene creato un utente di nome B.Simon in Airstack. Collaborare con il  [team di supporto di Airstack](mailto:jsinger@lenovo.com) per aggiungere gli utenti alla piattaforma Airstack. Gli utenti devono essere creati e attivati prima di usare l'accesso Single Sign-On.
+In questa sezione viene creato un utente di nome B.Simon in Airstack. Collaborare con il [team di supporto](mailto:jsinger@lenovo.com) di lo stack per aggiungere gli utenti nella piattaforma di telestack. Gli utenti devono essere creati e attivati prima di usare l'accesso Single Sign-On.
 
 ### <a name="test-sso"></a>Testare l'accesso SSO
 

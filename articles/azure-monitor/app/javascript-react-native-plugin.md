@@ -7,10 +7,10 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 08/06/2020
 ms.openlocfilehash: 0c122a21fc7149e9943825cafbed77069b7919f3
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/17/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100593592"
 ---
 # <a name="native-react-plugin-for-application-insights-javascript-sdk"></a>Plug-in nativo React per Application Insights JavaScript SDK
@@ -25,7 +25,7 @@ Il plug-in nativo React per Application Insights JavaScript SDK raccoglie le inf
 
 È necessario utilizzare una versione >= 2.0.0 di `@microsoft/applicationinsights-web` . Questo plug-in funziona solo nelle app React-native. Non funzionerà con [le app che usano Expo Framework](https://docs.expo.io/), pertanto non funzionerà con la creazione di un'app React native.
 
-## <a name="getting-started"></a>Guida introduttiva
+## <a name="getting-started"></a>Introduzione
 
 Installare e collegare il pacchetto [React-Native-Device-Info](https://www.npmjs.com/package/react-native-device-info) . `react-native-device-info`Per raccogliere i nomi dei dispositivi più recenti usando l'app, è necessario aggiornare il pacchetto.
 

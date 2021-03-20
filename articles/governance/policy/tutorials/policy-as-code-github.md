@@ -4,10 +4,10 @@ description: Questa esercitazione illustra come implementare un flusso di lavoro
 ms.date: 10/20/2020
 ms.topic: tutorial
 ms.openlocfilehash: 76a46adc3fc8efab4f7a2d6e656e83c2537dd037
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
-ms.translationtype: HT
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/21/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92325872"
 ---
 # <a name="tutorial-implement-azure-policy-as-code-with-github"></a>Esercitazione: Implementare Criteri di Azure come codice con GitHub
@@ -30,35 +30,35 @@ Se si vuole assegnare un criterio per identificare lo stato di conformità corre
 
 Per esportare una definizione di criteri dal portale di Azure, seguire questa procedura:
 
-1. Avviare il servizio Criteri di Azure nel portale di Azure facendo clic su **Tutti i servizi** e quindi cercando e selezionando **Criteri** .
+1. Avviare il servizio Criteri di Azure nel portale di Azure facendo clic su **Tutti i servizi** e quindi cercando e selezionando **Criteri**.
 
 1. Selezionare **Definizioni** a sinistra nella pagina Criteri di Azure.
 
-1. Usare il pulsante **Esporta definizioni** oppure selezionare i puntini di sospensione nella riga di una definizione di criteri, quindi selezionare **Esporta definizione** .
+1. Usare il pulsante **Esporta definizioni** oppure selezionare i puntini di sospensione nella riga di una definizione di criteri, quindi selezionare **Esporta definizione**.
 
-1. Selezionare il pulsante **Accedi con GitHub** . Se non è ancora stata eseguita l'autenticazione con GitHub per autorizzare Criteri di Azure a esportare la risorsa, verificare di quale accesso ha bisogno l' [azione GitHub](https://github.com/features/actions) nella nuova finestra visualizzata e selezionare **Autorizza AzureGitHubActions** per continuare con il processo di esportazione. Al termine, la nuova finestra si chiude automaticamente.
+1. Selezionare il pulsante **Accedi con GitHub**. Se non è ancora stata eseguita l'autenticazione con GitHub per autorizzare Criteri di Azure a esportare la risorsa, verificare di quale accesso ha bisogno l'[azione GitHub](https://github.com/features/actions) nella nuova finestra visualizzata e selezionare **Autorizza AzureGitHubActions** per continuare con il processo di esportazione. Al termine, la nuova finestra si chiude automaticamente.
 
 1. Nella scheda **Informazioni di base** impostare le opzioni seguenti, quindi selezionare la scheda **Criteri** o il pulsante **Avanti: Criteri** nella parte inferiore della pagina.
 
-   - **Filtro per repository** : impostare su _Repository personali_ per visualizzare solo i repository di cui si è proprietari o su _Tutti i repository_ per visualizzare tutti i repository a cui è stato concesso l'accesso all'azione GitHub.
-   - **Repository** : impostare sul repository in cui si vogliono esportare le risorse di Criteri di Azure.
-   - **Ramo** : impostare il ramo nel repository. L'uso di un ramo diverso da quello predefinito è un modo efficace per convalidare gli aggiornamenti prima di eseguire ulteriori unioni nel codice sorgente.
-   - **Directory** : _cartella di livello radice_ in cui esportare le risorse di Criteri di Azure. Le sottocartelle di questa directory vengono create in base alle risorse esportate.
+   - **Filtro per repository**: impostare su _Repository personali_ per visualizzare solo i repository di cui si è proprietari o su _Tutti i repository_ per visualizzare tutti i repository a cui è stato concesso l'accesso all'azione GitHub.
+   - **Repository**: impostare sul repository in cui si vogliono esportare le risorse di Criteri di Azure.
+   - **Ramo**: impostare il ramo nel repository. L'uso di un ramo diverso da quello predefinito è un modo efficace per convalidare gli aggiornamenti prima di eseguire ulteriori unioni nel codice sorgente.
+   - **Directory**: _cartella di livello radice_ in cui esportare le risorse di Criteri di Azure. Le sottocartelle di questa directory vengono create in base alle risorse esportate.
 
 1. Nella scheda **Criteri** impostare l'ambito per la ricerca selezionando i puntini di sospensione e scegliendo una combinazione di gruppi di gestione, sottoscrizioni o gruppi di risorse.
    
 1. Usare il pulsante **Aggiungi definizione/i dei criteri** per cercare nell'ambito gli oggetti da esportare. Nella finestra che si aprirà a lato selezionare ogni oggetto da esportare. Filtrare la selezione in base alla casella di ricerca o al tipo. Dopo aver selezionato tutti gli oggetti da esportare, usare il pulsante **Aggiungi** in fondo alla pagina.
 
-1. Per ogni oggetto selezionato selezionare le opzioni di esportazione desiderate, ad esempio _Solo definizione_ o _Definizione e assegnazione/i_ , per una definizione di criteri. Selezionare quindi la scheda **Rivedi ed esporta** o il pulsante **Avanti: Rivedi ed esporta** nella parte inferiore della pagina.
+1. Per ogni oggetto selezionato selezionare le opzioni di esportazione desiderate, ad esempio _Solo definizione_ o _Definizione e assegnazione/i_, per una definizione di criteri. Selezionare quindi la scheda **Rivedi ed esporta** o il pulsante **Avanti: Rivedi ed esporta** nella parte inferiore della pagina.
 
    > [!NOTE]
-   > Se si sceglie l'opzione _Definizione e assegnazione/i_ , vengono esportate solo le assegnazioni dei criteri all'interno dell'ambito impostato dal filtro al momento dell'aggiunta della definizione di criteri.
+   > Se si sceglie l'opzione _Definizione e assegnazione/i_, vengono esportate solo le assegnazioni dei criteri all'interno dell'ambito impostato dal filtro al momento dell'aggiunta della definizione di criteri.
 
 1. Nella scheda **Rivedi ed esporta** controllare che i dettagli corrispondano e quindi usare il pulsante **Esporta** nella parte inferiore della pagina.
 
 1. Controllare il repository GitHub, il ramo e la _cartella di livello radice_ per verificare che le risorse selezionate siano state esportate nel controllo del codice sorgente.
 
-Le risorse di Criteri di Azure vengono esportate nella struttura seguente all'interno del repository GitHub selezionato e della _cartella di livello radice_ :
+Le risorse di Criteri di Azure vengono esportate nella struttura seguente all'interno del repository GitHub selezionato e della _cartella di livello radice_:
 
 ```text
 |
@@ -79,7 +79,7 @@ Le risorse di Criteri di Azure vengono esportate nella struttura seguente all'in
 
 1. Questo file di flusso di lavoro usa l'azione [Gestisci Criteri di Azure](https://github.com/marketplace/actions/manage-azure-policy) per eseguire di nuovo in Criteri di Azure il push delle modifiche apportate agli oggetti criteri esportati nel repository GitHub. Per impostazione predefinita, l'azione considera e sincronizza solo i file diversi da quelli esistenti in Azure. Si può anche usare il parametro `assignments` nell'azione per sincronizzare solo le modifiche apportate a file di assegnazione specifici. Questo parametro può essere usato per applicare le assegnazioni di criteri solo per un ambiente specifico. Per altre informazioni, vedere il [file Leggimi sull'azione di gestione di Criteri di Azure](https://github.com/Azure/manage-azure-policy).
 
-1. Per impostazione predefinita, il flusso di lavoro deve essere attivato manualmente. A questo scopo, usare **Actions** in GitHub, selezionare il flusso di lavoro `manage-azure-policy-<randomLetters>`, selezionare **Run workflow** (Esegui flusso di lavoro) e quindi di nuovo **Run workflow** .
+1. Per impostazione predefinita, il flusso di lavoro deve essere attivato manualmente. A questo scopo, usare **Actions** in GitHub, selezionare il flusso di lavoro `manage-azure-policy-<randomLetters>`, selezionare **Run workflow** (Esegui flusso di lavoro) e quindi di nuovo **Run workflow**.
 
    :::image type="content" source="../media/policy-as-code-github/manually-trigger-workflow.png" alt-text="Screenshot dell'interfaccia Web di GitHub con la scheda Actions, il flusso di lavoro e il pulsante Run workflow evidenziati.":::
 
@@ -88,11 +88,11 @@ Le risorse di Criteri di Azure vengono esportate nella struttura seguente all'in
 
 1. Il flusso di lavoro sincronizza le modifiche apportate agli oggetti criteri con Azure e restituisce lo stato nei log.
 
-   :::image type="content" source="../media/policy-as-code-github/workflow-logging.png" alt-text="Screenshot dell'interfaccia Web di GitHub con la scheda Actions, il flusso di lavoro e il pulsante Run workflow evidenziati.":::
+   :::image type="content" source="../media/policy-as-code-github/workflow-logging.png" alt-text="Screenshot del flusso di lavoro in Actions e dettagli registrati nei log.":::
 
 1. Il flusso di lavoro aggiunge anche dettagli in `properties.metadata` degli oggetti di Criteri di Azure per consentire di tenerne traccia.
 
-   :::image type="content" source="../media/policy-as-code-github/updated-definition-metadata.png" alt-text="Screenshot dell'interfaccia Web di GitHub con la scheda Actions, il flusso di lavoro e il pulsante Run workflow evidenziati.":::
+   :::image type="content" source="../media/policy-as-code-github/updated-definition-metadata.png" alt-text="Screenshot della definizione di Criteri di Azure nel portale di Azure aggiornata con i metadati specifici dell'azione GitHub.":::
 
 ### <a name="trigger-compliance-scans-using-github-action"></a>Attivare le analisi di conformità con l'azione GitHub
 

@@ -10,10 +10,10 @@ ms.date: 08/10/2020
 ms.author: acomet
 ms.reviewer: jrasnick
 ms.openlocfilehash: 13891f9614e658be39adbb69fed1503a0c66d5e4
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
-ms.translationtype: HT
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93309211"
 ---
 # <a name="copy-data-from-azure-cosmos-db-into-a-dedicated-sql-pool-using-apache-spark"></a>Copiare dati da Azure Cosmos DB in un pool SQL dedicato con Apache Spark
@@ -37,7 +37,7 @@ In questa esercitazione si eseguirà la connessione all'archivio analitico, in m
 [![Passaggi da Spark a SQL 1](../media/synapse-link-spark-to-sql/synapse-spark-to-sql.png)](../media/synapse-link-spark-to-sql/synapse-spark-to-sql.png#lightbox)
 
 ## <a name="data"></a>Dati
-Nell'esempio si usa un contenitore HTAP denominato **RetailSales** , che fa parte di un servizio collegato denominato **ConnectedData** e presenta lo schema seguente:
+Nell'esempio si usa un contenitore HTAP denominato **RetailSales**, che fa parte di un servizio collegato denominato **ConnectedData** e presenta lo schema seguente:
 * _rid: string (nullable = true)
 * _ts: long (nullable = true)
 * logQuantity: double (nullable = true)
@@ -50,7 +50,7 @@ Nell'esempio si usa un contenitore HTAP denominato **RetailSales** , che fa part
 * weekStarting: long (nullable = true)
 * _etag: string (nullable = true)
 
-Si aggregheranno le vendite ( *quantity* , *revenue* (price x quantity) per *productCode* e *weekStarting* a scopo di report. Infine si esporteranno i dati in una tabella del pool SQL dedicato denominata **dbo.productsales**.
+Si aggregheranno le vendite (*quantity*, *revenue* (price x quantity) per *productCode* e *weekStarting* a scopo di report. Infine si esporteranno i dati in una tabella del pool SQL dedicato denominata **dbo.productsales**.
 
 ## <a name="configure-a-spark-notebook"></a>Configurare un notebook Spark
 Creare un notebook Spark con Scala (Scala as Spark) come linguaggio principale. Per la sessione si usa l'impostazione predefinita del notebook.

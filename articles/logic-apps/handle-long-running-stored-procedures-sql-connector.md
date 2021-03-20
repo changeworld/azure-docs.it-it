@@ -7,10 +7,10 @@ ms.reviewer: camerost, logicappspm
 ms.topic: conceptual
 ms.date: 10/27/2020
 ms.openlocfilehash: f5b04c563dc81497f591788dc4890d379c0f898f
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93102966"
 ---
 # <a name="handle-stored-procedure-timeouts-in-the-sql-connector-for-azure-logic-apps"></a>Gestire i timeout dei stored procedure nel connettore SQL per app per la logica di Azure
@@ -37,10 +37,10 @@ BEGIN
 END
 ```
 
-Anziché chiamare direttamente il stored procedure, è possibile eseguire la procedura in modo asincrono in background utilizzando un *agente processo* . È possibile archiviare gli input e gli output in una tabella di stato con cui è possibile interagire tramite l'app per la logica. Se gli input e gli output non sono necessari o se si stanno già scrivendo i risultati in una tabella del stored procedure, è possibile semplificare questo approccio.
+Anziché chiamare direttamente il stored procedure, è possibile eseguire la procedura in modo asincrono in background utilizzando un *agente processo*. È possibile archiviare gli input e gli output in una tabella di stato con cui è possibile interagire tramite l'app per la logica. Se gli input e gli output non sono necessari o se si stanno già scrivendo i risultati in una tabella del stored procedure, è possibile semplificare questo approccio.
 
 > [!IMPORTANT]
-> Verificare che il stored procedure e tutti i processi siano *idempotente* , il che significa che possono essere eseguiti più volte senza influire sui risultati. Se l'elaborazione asincrona ha esito negativo o scade, l'agente processo può ripetere il passaggio e quindi il stored procedure più volte. Per evitare di duplicare l'output, prima di creare oggetti, esaminare le [procedure consigliate e gli approcci](../azure-sql/database/elastic-jobs-overview.md#idempotent-scripts).
+> Verificare che il stored procedure e tutti i processi siano *idempotente*, il che significa che possono essere eseguiti più volte senza influire sui risultati. Se l'elaborazione asincrona ha esito negativo o scade, l'agente processo può ripetere il passaggio e quindi il stored procedure più volte. Per evitare di duplicare l'output, prima di creare oggetti, esaminare le [procedure consigliate e gli approcci](../azure-sql/database/elastic-jobs-overview.md#idempotent-scripts).
 
 La sezione successiva descrive come è possibile usare l'agente processo elastico di Azure per il database SQL di Azure. Per SQL Server e Istanza gestita SQL di Azure, è possibile usare il SQL Server Agent. Alcuni dettagli di gestione sono diversi, ma i passaggi fondamentali rimangono invariati rispetto alla configurazione di un agente processo per il database SQL di Azure.
 
@@ -48,7 +48,7 @@ La sezione successiva descrive come è possibile usare l'agente processo elastic
 
 ## <a name="job-agent-for-azure-sql-database"></a>Agente processo per il database SQL di Azure
 
-Per creare un processo in grado di eseguire il stored procedure per il [database SQL di Azure](../azure-sql/database/sql-database-paas-overview.md), usare l' [agente processo elastico di Azure](../azure-sql/database/elastic-jobs-overview.md). Creare l'agente processo nell'portale di Azure. Questo approccio consente di aggiungere diverse stored procedure al database utilizzato dall'agente, noto anche come *database di Agent* . È quindi possibile creare un processo che esegue il stored procedure nel database di destinazione e acquisisce l'output al termine dell'operazione.
+Per creare un processo in grado di eseguire il stored procedure per il [database SQL di Azure](../azure-sql/database/sql-database-paas-overview.md), usare l' [agente processo elastico di Azure](../azure-sql/database/elastic-jobs-overview.md). Creare l'agente processo nell'portale di Azure. Questo approccio consente di aggiungere diverse stored procedure al database utilizzato dall'agente, noto anche come *database di Agent*. È quindi possibile creare un processo che esegue il stored procedure nel database di destinazione e acquisisce l'output al termine dell'operazione.
 
 Prima di poter creare il processo, è necessario configurare le autorizzazioni, i gruppi e le destinazioni come descritto nella [documentazione completa per l'agente processo elastico di Azure](../azure-sql/database/elastic-jobs-overview.md). È anche necessario creare una tabella di supporto nel database di destinazione come descritto nelle sezioni seguenti.
 

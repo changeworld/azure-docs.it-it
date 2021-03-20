@@ -1,5 +1,5 @@
 ---
-title: 'Esercitazione: Integrazione di Azure Active Directory con ANAQUA | Microsoft Docs'
+title: 'Esercitazione: integrazione di Azure Active Directory con Anaqua | Microsoft Docs'
 description: Informazioni su come configurare l'accesso Single Sign-On tra Azure Active Directory e ANAQUA.
 services: active-directory
 author: jeevansd
@@ -12,13 +12,13 @@ ms.topic: tutorial
 ms.date: 05/31/2019
 ms.author: jeedes
 ms.openlocfilehash: cf6f146265562e287df2cb3c4574742335d62efe
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
-ms.translationtype: HT
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/21/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92318653"
 ---
-# <a name="tutorial-integrate-anaqua-with-azure-active-directory"></a>Esercitazione: Integrare ANAQUA con Azure Active Directory
+# <a name="tutorial-integrate-anaqua-with-azure-active-directory"></a>Esercitazione: integrare Anaqua con Azure Active Directory
 
 Questa esercitazione descrive come integrare ANAQUA con Azure Active Directory (Azure AD). Integrando ANAQUA con Azure AD, è possibile:
 
@@ -57,10 +57,10 @@ Configurare e testare l'accesso Single Sign-On di Azure AD con ANAQUA usando un 
 Per configurare e testare l'accesso SSO di Azure AD con ANAQUA, completare le procedure di base seguenti:
 
 1. **[Configurare l'accesso Single Sign-On di Azure AD](#configure-azure-ad-sso)** per consentire agli utenti di usare questa funzionalità.
-2. **[Configurare ANAQUA](#configure-anaqua)** : per configurare le impostazioni di Single Sign-On sul lato applicazione.
+2. **[Configurare ANAQUA](#configure-anaqua)**: per configurare le impostazioni di Single Sign-On sul lato applicazione.
 3. **[Creare un utente test di Azure AD](#create-an-azure-ad-test-user)** per testare l'accesso Single Sign-On di Azure AD con l'utente B. Simon.
 4. **[Assegnare l'utente di test di Azure AD](#assign-the-azure-ad-test-user)** per abilitare B. Simon all'uso dell'accesso Single Sign-On di Azure AD.
-5. **[Creare l'utente di test di ANAQUA](#create-anaqua-test-user)** : per avere una controparte di B. Simon in ANAQUA collegata alla rappresentazione dell'utente in Azure AD.
+5. **[Creare l'utente di test di ANAQUA](#create-anaqua-test-user)**: per avere una controparte di B. Simon in ANAQUA collegata alla rappresentazione dell'utente in Azure AD.
 6. **[Testare l'accesso Single Sign-On](#test-sso)** per verificare se la configurazione funziona.
 
 ### <a name="configure-azure-ad-sso"></a>Configurare l'accesso SSO di Azure AD
@@ -86,7 +86,7 @@ Per abilitare l'accesso Single Sign-On di Azure AD nel portale di Azure, seguire
     > [!NOTE]
     > Poiché questi non sono i valori reali, aggiornarli con l'identificatore, l'URL di risposta e l'URL di accesso effettivi. Per ottenere questi valori, contattare il [team di supporto clienti di ANAQUA](https://go.anaqua.com/contact-us). È anche possibile fare riferimento ai modelli mostrati nella sezione **Configurazione SAML di base** del portale di Azure.
 
-1. Nella sezione **Certificato di firma SAML** della pagina **Configura l'accesso Single Sign-On con SAML** individuare **XML metadati federazione** e selezionare **Scarica** per scaricare il file dei metadati e salvarlo nel computer in uso.
+1. Nella sezione **certificato di firma SAML** della pagina **Configura singolo Sign-On con SAML** trovare il file **XML dei metadati federativi** e selezionare **Scarica** per scaricare il file di metadati e salvarlo nel computer.
 
    ![Collegamento di download del certificato](common/metadataxml.png)
 

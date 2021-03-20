@@ -8,10 +8,10 @@ author: trkeya
 ms.author: trkeya
 ms.date: 03/30/2020
 ms.openlocfilehash: cbd12481312d310add15bf3d41e21e9c416f1c39
-ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/11/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94491076"
 ---
 # <a name="use-marketo-to-manage-commercial-marketplace-leads"></a>Usare Marketo per gestire i lead del marketplace commerciale
@@ -71,7 +71,7 @@ Quando si è pronti per configurare le informazioni di gestione dei lead per l'o
 
 1. Selezionare l'offerta e passare alla scheda **Configurazione dell'offerta**.
 
-1. Nella sezione **Customer leads** (Lead clienti) selezionare **Connect** (Connetti).
+1. Nella sezione **Customer leads** (Lead clienti) selezionare **Connetti**.
 
     :::image type="content" source="./media/commercial-marketplace-lead-management-instructions-marketo/customer-leads.png" alt-text="Customer leads":::
 
@@ -79,7 +79,7 @@ Quando si è pronti per configurare le informazioni di gestione dei lead per l'o
 
     ![Scegliere la destinazione del lead](./media/commercial-marketplace-lead-management-instructions-marketo/choose-lead-destination.png)
 
-1. Specificare **ID server** , **ID account Munchkin** e **ID modulo**.
+1. Specificare **ID server**, **ID account Munchkin** e **ID modulo**.
 
     > [!NOTE]
     > È necessario completare la configurazione del resto dell'offerta e pubblicarla prima di poter ricevere i lead per l'offerta. 

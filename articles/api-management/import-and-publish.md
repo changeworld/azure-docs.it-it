@@ -8,10 +8,10 @@ ms.topic: tutorial
 ms.date: 09/30/2020
 ms.author: apimpm
 ms.openlocfilehash: 9ff64f57e61002101b4e2c560bdcd91863cc461e
-ms.sourcegitcommit: d479ad7ae4b6c2c416049cb0e0221ce15470acf6
-ms.translationtype: HT
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/01/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91626963"
 ---
 # <a name="tutorial-import-and-publish-your-first-api"></a>Esercitazione: Importare e pubblicare la prima API
@@ -48,10 +48,10 @@ Questa sezione illustra come importare e pubblicare un'API back-end Specifica Op
 
    È possibile impostare i valori dell'API durante la creazione o successivamente dalla scheda **Impostazioni**.
 
-   :::image type="content" source="media/import-and-publish/create-api.png" alt-text="Nuova API in Gestione API":::
+   :::image type="content" source="media/import-and-publish/create-api.png" alt-text="Creare un'API":::
 
 
-   |Impostazione|valore|Descrizione|
+   |Impostazione|Valore|Descrizione|
    |-------|-----|-----------|
    |**Specifica OpenAPI**|*https:\//conferenceapi.azurewebsites.net?format=json*|Servizio che implementa l'API Gestione API inoltra le richieste a questo indirizzo.|
    |**Nome visualizzato**|Dopo aver immesso l'URL del servizio precedente, Gestione API compila questo campo in base al codice JSON.|Nome visualizzato nel [portale per sviluppatori](api-management-howto-developer-portal.md).|
@@ -79,7 +79,7 @@ In caso di problemi durante l'importazione della definizione API, vedere l'[elen
 1. Selezionare la scheda **Test** e quindi selezionare **GetSpeakers**. Nella pagina vengono visualizzati i **Parametri di query** e le **Intestazioni**, se presenti. La chiave **Ocp-Apim-Subscription-Key** viene compilata automaticamente per la chiave di sottoscrizione associata a questa API.
 1. Selezionare **Send** (Invia).
 
-   :::image type="content" source="media/import-and-publish/01-import-first-api-01.png" alt-text="Nuova API in Gestione API":::
+   :::image type="content" source="media/import-and-publish/01-import-first-api-01.png" alt-text="Testare l'API nel portale di Azure":::
 
    Il back-end risponde con **200 OK** e alcuni dati.
 

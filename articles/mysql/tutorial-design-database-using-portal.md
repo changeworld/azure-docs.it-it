@@ -8,10 +8,10 @@ ms.topic: tutorial
 ms.date: 3/20/2020
 ms.custom: mvc
 ms.openlocfilehash: 7559bc2246ca26cf2b14071396e075b28d2af3a7
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
-ms.translationtype: HT
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/12/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94532682"
 ---
 # <a name="tutorial-design-an-azure-database-for-mysql-database-using-the-azure-portal"></a>Esercitazione: Progettare un database di Database di Azure per MySQL con il portale di Azure
@@ -43,7 +43,7 @@ Verrà creato un database di Azure per MySQL con un set definito di [risorse di 
 
 1. Selezionare il pulsante **Crea una risorsa** (+) nell'angolo superiore sinistro del portale.
 
-2. Selezionare **Database** > **Database di Azure per MySQL**. Se non si trova MySQL Server nella categoria **Database** , fare clic su **Visualizza tutto** per visualizzare tutti i servizi di database disponibili. È possibile anche digitare **Database di Azure per MySQL** nella casella di ricerca per trovare rapidamente il servizio.
+2. Selezionare **Database** > **Database di Azure per MySQL**. Se non si trova MySQL Server nella categoria **Database**, fare clic su **Visualizza tutto** per visualizzare tutti i servizi di database disponibili. È possibile anche digitare **Database di Azure per MySQL** nella casella di ricerca per trovare rapidamente il servizio.
    
    :::image type="content" source="./media/tutorial-design-database-using-portal/1-Navigate-to-MySQL.png" alt-text="Passare a MySQL":::
 
@@ -57,17 +57,17 @@ Verrà creato un database di Azure per MySQL con un set definito di [risorse di 
     Subscription | Sottoscrizione in uso | Selezionare la sottoscrizione di Azure da usare per il server. Se si hanno più sottoscrizioni, scegliere quella in cui viene fatturata la risorsa.
     Resource group | *myresourcegroup* | Specificare il nome di un gruppo di risorse nuovo o esistente.
     Selezionare l'origine | *Vuoto* | Selezionare *Vuoto* per creare un nuovo server da zero. Selezionare *Backup* se si sta creando un server da un backup geografico di un server Database di Azure per MySQL esistente.
-    Accesso amministratore server | myadmin | Account di accesso da usare per la connessione al server. Il nome di accesso dell'amministratore non può essere **azure_superuser** , **admin** , **administrator** , **root** , **guest** o **public**.
+    Accesso amministratore server | myadmin | Account di accesso da usare per la connessione al server. Il nome di accesso dell'amministratore non può essere **azure_superuser**, **admin**, **administrator**, **root**, **guest** o **public**.
     Password | *A scelta dell'utente* | Specificare una nuova password per l'account dell'amministratore del server. Deve avere una lunghezza compresa tra 8 e 128 caratteri. La password deve contenere caratteri di tre delle categorie seguenti: lettere maiuscole, lettere minuscole, numeri (0-9) e caratteri non alfanumerici (!, $, #, % e così via).
     Conferma password | *A scelta dell'utente*| Confermare la password dell'account amministratore.
     Location | *Area più vicina ai propri utenti*| Scegliere la località più vicina agli utenti o alle altre applicazioni Azure.
     Versione | *Ultima versione*| Ultima versione, a meno che non si abbiano requisiti specifici per cui deve esserne usata un'altra.
-    Piano tariffario | **Utilizzo generico** , **Generazione 5** , **2 vCore** , **5 GB** , **7 giorni** , **Con ridondanza geografica** | Configurazioni di calcolo, archiviazione e backup per il nuovo server. Selezionare **Piano tariffario**. Selezionare quindi la scheda **Utilizzo generico**. *Generazione 5* , *2 vCore* , *5 GB* e *7 giorni* sono i valori predefiniti per **Generazione di calcolo** , **vCore** , **Archiviazione** e **Periodo di conservazione backup**. È possibile lasciare questi dispositivi di scorrimento nella posizione in cui si trovano. Per abilitare l'archiviazione con ridondanza geografica dei backup del server, selezionare **Con ridondanza geografica** in **Opzioni di ridondanza per il backup**. Per salvare la selezione del piano tariffario, selezionare **OK**. Lo screenshot successivo mostra queste selezioni.
+    Piano tariffario | **Utilizzo generico**, **Generazione 5**, **2 vCore**, **5 GB**, **7 giorni**, **Con ridondanza geografica** | Configurazioni di calcolo, archiviazione e backup per il nuovo server. Selezionare **Piano tariffario**. Selezionare quindi la scheda **Utilizzo generico**. *Generazione 5*, *2 vCore*, *5 GB* e *7 giorni* sono i valori predefiniti per **Generazione di calcolo**, **vCore**, **Archiviazione** e **Periodo di conservazione backup**. È possibile lasciare questi dispositivi di scorrimento nella posizione in cui si trovano. Per abilitare l'archiviazione con ridondanza geografica dei backup del server, selezionare **Con ridondanza geografica** in **Opzioni di ridondanza per il backup**. Per salvare la selezione del piano tariffario, selezionare **OK**. Lo screenshot successivo mostra queste selezioni.
 
    :::image type="content" source="./media/tutorial-design-database-using-portal/3-pricing-tier.png" alt-text="Piano tariffario":::
 
    > [!TIP]
-   > Quando l'opzione per l' **aumento automatico** è abilitata, il server aumenta lo spazio di archiviazione disponibile quando si sta per raggiungere il limite allocato, senza alcun impatto sul carico di lavoro.
+   > Quando l'opzione per l'**aumento automatico** è abilitata, il server aumenta lo spazio di archiviazione disponibile quando si sta per raggiungere il limite allocato, senza alcun impatto sul carico di lavoro.
 
 4. Fare clic su **Rivedi e crea**. È possibile fare clic sul pulsante **Notifiche** sulla barra degli strumenti per monitorare il processo di distribuzione. La distribuzione può richiedere fino a 20 minuti.
 
@@ -176,10 +176,10 @@ Si supponga di avere eliminato un'importante tabella di database e di non poter 
 
    :::image type="content" source="./media/tutorial-design-database-using-portal/2-restore-form.png" alt-text="10-2 Modulo di ripristino":::
 
-   - **Punto di ripristino** : selezionare un punto nel tempo per il ripristino, all'interno dell'intervallo di tempo elencato. Assicurarsi di convertire il fuso orario locale in ora UTC.
-   - **Ripristina nel nuovo server** : specificare il nome del nuovo server in cui eseguire il ripristino
-   - **Località** : l'area corrisponde a quella del server di origine e non può essere modificata.
-   - **Piano tariffario** : il piano tariffario corrisponde a quello del server di origine e non può essere modificato.
+   - **Punto di ripristino**: selezionare un punto nel tempo per il ripristino, all'interno dell'intervallo di tempo elencato. Assicurarsi di convertire il fuso orario locale in ora UTC.
+   - **Ripristina nel nuovo server**: specificare il nome del nuovo server in cui eseguire il ripristino
+   - **Località**: l'area corrisponde a quella del server di origine e non può essere modificata.
+   - **Piano tariffario**: il piano tariffario corrisponde a quello del server di origine e non può essere modificato.
    
 3. Fare clic su **OK** per ripristinare il server da [ripristinare in un punto nel tempo](./howto-restore-server-portal.md) precedente all'eliminazione della tabella. Il ripristino di un server crea una nuova copia del server, a partire dal momento nel tempo specificato.
 

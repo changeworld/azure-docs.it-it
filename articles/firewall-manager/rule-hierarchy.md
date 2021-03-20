@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.date: 08/26/2020
 ms.author: victorh
 ms.openlocfilehash: 1ba683e3d616f52854f1055dab9b9fe2d389116a
-ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/21/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92331737"
 ---
 # <a name="use-azure-firewall-policy-to-define-a-rule-hierarchy"></a>Usare i criteri del firewall di Azure per definire una gerarchia di regole
@@ -48,7 +48,7 @@ Creare criteri per ogni team di applicazioni:
 - Criteri del firewall del database. Il criterio firewall del database eredita i criteri di base del firewall.
 - Criteri del firewall di progettazione. Il criterio del firewall di progettazione eredita anche il criterio del firewall di base.
 
-:::image type="content" source="media/rule-hierarchy/policy-hierarchy.png" alt-text="Team e requisiti" border="false":::
+:::image type="content" source="media/rule-hierarchy/policy-hierarchy.png" alt-text="Gerarchia dei criteri" border="false":::
 
 ### <a name="create-custom-roles-to-access-the-rule-collection-groups"></a>Creare ruoli personalizzati per accedere ai gruppi di raccolta regole 
 
@@ -91,13 +91,13 @@ Utilizzare la seguente procedura di alto livello per definire i ruoli personaliz
    `*/read", "Microsoft.Network/*/read", "Microsoft.Network/firewallPolicies/ruleCollectionGroups/write` 
 
    operazione alla proprietà **Actions**   . Assicurarsi di includere una virgola dopo l'operazione di lettura. Questa azione consente all'utente di creare e aggiornare i gruppi di raccolta regole.
-6. In **AssignableScopes**aggiungere l'ID sottoscrizione con il formato seguente: 
+6. In **AssignableScopes** aggiungere l'ID sottoscrizione con il formato seguente: 
 
    `/subscriptions/xxxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxxxx`
 
    È necessario aggiungere ID sottoscrizione espliciti. In caso contrario non sarà possibile importare il ruolo nella sottoscrizione.
-7. Eliminare la **Id**   riga della proprietà ID e impostare **IsCustom**la   Proprietà IsTrue su true.
-8. Modificare le proprietà **nome**   e **Descrizione**   in *autore gruppo di raccolta regole AZFM* e *gli utenti in questo ruolo possono modificare i gruppi di insiemi di regole dei criteri firewall*
+7. Eliminare la ****   riga della proprietà ID e impostare **** la   Proprietà IsTrue su true.
+8. Modificare le proprietà  **nome**   e  **Descrizione**   in *autore gruppo di raccolta regole AZFM* e *gli utenti in questo ruolo possono modificare i gruppi di insiemi di regole dei criteri firewall*
 
 Il file JSON dovrebbe essere simile all'esempio seguente:
 
@@ -134,9 +134,9 @@ Per elencare tutti i ruoli personalizzati, è possibile usare il comando Get-AzR
 
 È anche possibile visualizzare i ruoli personalizzati nel portale di Azure. Passare alla sottoscrizione, selezionare **controllo di accesso (IAM)**, **ruoli**.
 
-:::image type="content" source="media/rule-hierarchy/sales-app-policy.png" alt-text="Team e requisiti":::
+:::image type="content" source="media/rule-hierarchy/sales-app-policy.png" alt-text="SalesAppPolicy":::
 
-:::image type="content" source="media/rule-hierarchy/sales-app-policy-read.png" alt-text="Team e requisiti":::
+:::image type="content" source="media/rule-hierarchy/sales-app-policy-read.png" alt-text="Autorizzazione di lettura SalesAppPolicy":::
 
 Per altre informazioni, vedere [esercitazione: creare un ruolo personalizzato di Azure usando Azure PowerShell](../role-based-access-control/tutorial-custom-role-powershell.md).
 

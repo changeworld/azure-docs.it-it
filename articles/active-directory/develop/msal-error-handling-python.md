@@ -14,10 +14,10 @@ ms.author: marsma
 ms.reviewer: saeeda, rayluo
 ms.custom: aaddev
 ms.openlocfilehash: 3046787393d38ed60b54236f33acc065db90321d
-ms.sourcegitcommit: 3c3ec8cd21f2b0671bcd2230fc22e4b4adb11ce7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/25/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98761089"
 ---
 # <a name="handle-errors-and-exceptions-in-msal-for-python"></a>Gestire errori ed eccezioni in MSAL per Python

@@ -12,14 +12,14 @@ ms.topic: troubleshooting
 ms.date: 01/05/2021
 ms.reviewer: arvinh
 ms.openlocfilehash: 9eba671f6c824c8c88388f2b9d61512dfb1d122f
-ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/02/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "99256644"
 ---
 # <a name="known-issues-application-provisioning"></a>Problemi noti: provisioning delle applicazioni
-Problemi noti da tenere presente quando si utilizza il provisioning delle app. È possibile fornire commenti e suggerimenti sul servizio di provisioning dell'applicazione in UserVoice, vedere Azure AD provisioning [dell'applicazione UserVoice](https://aka.ms/appprovisioningfeaturerequest). Osserviamo attentamente UserVoice per poter migliorare il servizio. 
+Problemi noti da tener presente quando si utilizza il provisioning delle app. È possibile fornire commenti e suggerimenti sul servizio di provisioning dell'applicazione in UserVoice, vedere Azure AD provisioning [dell'applicazione UserVoice](https://aka.ms/appprovisioningfeaturerequest). Osserviamo attentamente UserVoice per poter migliorare il servizio. 
 
 > [!NOTE]
 > Questo non è un elenco completo di problemi noti. Se si è a conoscenza di un problema non elencato, fornire commenti e suggerimenti nella parte inferiore della pagina.

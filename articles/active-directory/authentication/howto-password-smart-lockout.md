@@ -12,15 +12,15 @@ manager: daveba
 ms.reviewer: rogoya
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: a5f501c19da3c2ddc06ad89fe5649789477af7ec
-ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/02/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "99255374"
 ---
-# <a name="protect-user-accounts-from-attacks-with-azure-active-directory-smart-lockout"></a>Proteggere gli account utente da attacchi con Azure Active Directory blocco intelligente
+# <a name="protect-user-accounts-from-attacks-with-azure-active-directory-smart-lockout"></a>Proteggere gli account utente da attacchi con la funzione di blocco intelligente di Azure Active Directory
 
-Il blocco intelligente consente di bloccare gli attori malintenzionati che tentano di indovinare le password degli utenti o di usare metodi di forza bruta per ottenere. Il blocco intelligente può riconoscere gli accessi provenienti da utenti validi e gestirli in modo diverso rispetto a quelli di utenti malintenzionati e altre fonti sconosciute. Gli utenti malintenzionati vengono bloccati, mentre gli utenti continuano ad accedere ai propri account e a essere produttivi.
+La funzione di blocco intelligente blocca gli attori malintenzionati che tentano di indovinare le password degli utenti o usano metodi di forza bruta per ottenere l'accesso. Questa funzione è in grado di riconoscere i tentativi di accesso eseguiti da utenti validi e di gestirli in modo diverso da quelli di utenti malintenzionati e di altre origini sconosciute. La funzione di blocco intelligente blocca gli utenti malintenzionati, consentendo al contempo a quelli validi di accedere ai propri account senza effetti negativi sulla produttività.
 
 ## <a name="how-smart-lockout-works"></a>Funzionamento del blocco intelligente
 

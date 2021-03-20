@@ -10,10 +10,10 @@ author: sakash279
 ms.author: akshanka
 ms.reviewer: sngun
 ms.openlocfilehash: 2d0c8433fff58854cb77a4e806058eae1937e71b
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
-ms.translationtype: HT
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93101120"
 ---
 # <a name="how-to-use-azure-table-storage-and-the-azure-cosmos-db-table-api-with-ruby"></a>Come usare l'archiviazione tabelle di Azure o l'API Tabelle di Azure Cosmos DB con Ruby
@@ -76,7 +76,7 @@ Per ottenere questi valori da un account di archiviazione classico o di Resource
 
 ### <a name="add-an-azure-cosmos-db-connection"></a>Aggiungere una connessione ad Azure Cosmos DB
 
-Per connettersi ad Azure Cosmos DB, copiare la stringa di connessione primaria dal portale di Azure e creare un oggetto **Client** usando la stringa di connessione copiata. È possibile passare l'oggetto **Client** quando si crea un oggetto **TableService** :
+Per connettersi ad Azure Cosmos DB, copiare la stringa di connessione primaria dal portale di Azure e creare un oggetto **Client** usando la stringa di connessione copiata. È possibile passare l'oggetto **Client** quando si crea un oggetto **TableService**:
 
 ```ruby
 common_client = Azure::Storage::Common::Client.create(storage_account_name:'myaccount', storage_access_key:'mykey', storage_table_host:'mycosmosdb_endpoint')
@@ -150,7 +150,7 @@ result = azure_table_service.get_entity("testtable", "test-partition-key",
 
 ## <a name="query-a-set-of-entities"></a>Eseguire query su un set di entità
 
-Per eseguire query su un set di entità in una tabella, creare un oggetto hash di query e usare il metodo **query_entities()** . Nell'esempio seguente viene dimostrato l'invio di tutte le entità con lo stesso oggetto **PartitionKey** :
+Per eseguire query su un set di entità in una tabella, creare un oggetto hash di query e usare il metodo **query_entities()** . Nell'esempio seguente viene dimostrato l'invio di tutte le entità con lo stesso oggetto **PartitionKey**:
 
 ```ruby
 query = { :filter => "PartitionKey eq 'test-partition-key'" }

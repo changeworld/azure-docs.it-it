@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 10/21/2020
 ms.author: duau
-ms.openlocfilehash: 17677ea89b04659de66b9bda35975b96ff33473a
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 6c6d33a36c4a0b71932e8c19c8f6dd105c33817c
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/03/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "101740784"
 ---
 # <a name="tutorial-configure-https-on-a-front-door-custom-domain"></a>Esercitazione: Configurare HTTPS per un dominio personalizzato di Frontdoor
@@ -133,7 +133,12 @@ Concedere al servizio Frontdoor di Azure l'autorizzazione ad accedere ai certifi
     Il servizio Frontdoor di Azure elenca le informazioni seguenti: 
     - Account Key Vault per l'ID sottoscrizione. 
     - Certificati (segreti) nell'insieme di credenziali delle chiavi selezionato. 
-    - Versioni del certificato disponibili.
+    - Versioni del certificato disponibili. 
+
+> [!NOTE]
+> Se non si specifica la versione del certificato, è possibile che:
+> - Venga selezionata la versione più recente del certificato.
+> - Venga eseguita la rotazione automatica dei certificati alla versione più recente, quando nell'insieme di credenziali delle chiavi è disponibile una versione più recente del certificato.
  
 5. Quando si usa un certificato proprio, la convalida del dominio non è necessaria. Passare ad [Attendere la propagazione](#wait-for-propagation).
 
@@ -275,7 +280,7 @@ In questa esercitazione sono state illustrate le procedure per:
 * Convalidare un dominio.
 * Abilitare HTTPS per il dominio personalizzato.
 
-Per informazioni su come configurare un criterio di filtro geografico per la porta anteriore, continuare con l'esercitazione successiva.
+Per informazioni su come configurare un criterio di filtro geografico per Frontdoor, continuare con l'esercitazione successiva.
 
 > [!div class="nextstepaction"]
 > [Configurare un criterio di filtro geografico](front-door-geo-filtering.md)

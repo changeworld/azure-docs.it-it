@@ -4,13 +4,13 @@ description: Questo articolo fornisce una panoramica della creazione di applicaz
 ms.topic: article
 ms.date: 12/12/2020
 ms.openlocfilehash: 4db151f54a2ad236ba937b005ba6a1fd3edd5967
-ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/17/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97657500"
 ---
-# <a name="message-replication-tasks-and-applications"></a>Applicazioni e attività di replica del messaggio
+# <a name="message-replication-tasks-and-applications"></a>Applicazioni e attività di replica di messaggi
 
 Come illustrato nell'articolo relativo alla [replica dei messaggi e alla Federazione tra aree](service-bus-federation-overview.md) , la replica delle sequenze di messaggi tra coppie di entità del bus di servizio e tra il bus di servizio e altre origini e destinazioni dei messaggi è in genere snella in funzioni di Azure.
 
