@@ -9,16 +9,16 @@ ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.openlocfilehash: 08379e66c97d34eea53410190475e90e156a58e2
-ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96903344"
 ---
 # <a name="stylesobject-schema-reference-guide-for-dynamic-maps"></a>Guida di riferimento allo schema StylesObject per mappe dinamiche
 
 > [!IMPORTANT]
-> I servizi Azure Maps Creator sono attualmente in anteprima pubblica.
+> I servizi Creator di Mappe di Azure sono attualmente disponibili in anteprima pubblica.
 > Questa versione di anteprima viene messa a disposizione senza contratto di servizio e non è consigliata per i carichi di lavoro di produzione. Alcune funzionalità potrebbero non essere supportate o potrebbero presentare funzionalità limitate. Per altre informazioni, vedere [Condizioni supplementari per l'utilizzo delle anteprime di Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
  `StylesObject`È una `StyleObject` matrice che rappresenta gli stili degli Stati. Usare il [servizio stato della funzionalità](/rest/api/maps/featurestate) di Azure Maps Creator (anteprima) per applicare gli stili di stato alle funzionalità dei dati della mappa indoor. Una volta creati gli stili dello stato e associati alle funzionalità della mappa interna, è possibile usarli per creare mappe interne dinamiche. Per altre informazioni sulla creazione di mappe interne dinamiche, vedere [implementare lo stile dinamico per le mappe interne dell'autore](indoor-map-dynamic-styling.md).
@@ -86,9 +86,9 @@ Il codice JSON seguente mostra un esempio di utilizzo di ognuno dei tre tipi di 
 
  Un oggetto `NumericTypeStyleRule` è un oggetto  [`StyleObject`](#styleobject) ed è costituito dalle proprietà seguenti:
 
-| Proprietà | Type | Description | Obbligatoria |
+| Proprietà | Type | Descrizione | Obbligatoria |
 |-----------|----------|-------------|-------------|
-| `keyName` | stringa | Nome della proprietà dinamica o *dello stato* . Un oggetto `keyName` deve essere univoco all'interno della `StyleObject` matrice.| Sì |
+| `keyName` | string | Nome della proprietà dinamica o *dello stato* . Un oggetto `keyName` deve essere univoco all'interno della `StyleObject` matrice.| Sì |
 | `type` | string | Il valore è "NUMERIC". | Sì |
 | `rules` | [`NumberRuleObject`](#numberruleobject)[]| Matrice di intervalli di stili numerici con i colori associati. Ogni intervallo definisce un colore da usare quando il valore *dello stato* soddisfa l'intervallo.| Sì |
 
@@ -123,7 +123,7 @@ Nell'esempio JSON seguente entrambi gli intervalli manterranno true quando il va
 ]
 ```
 
-| Proprietà | Type | Description | Obbligatoria |
+| Proprietà | Type | Descrizione | Obbligatoria |
 |-----------|----------|-------------|-------------|
 | `range` | [RangeObject](#rangeobject) | [RangeObject](#rangeobject) definisce un set di condizioni di intervallo logico, che, se `true` , modificano il colore di visualizzazione dello *stato* sul colore specificato nella `color` Proprietà. Se non `range` è specificato, verrà sempre usato il colore definito nella `color` Proprietà.   | No |
 | `color` | string | Colore da usare quando il valore dello stato rientra nell'intervallo. La `color` proprietà è una stringa JSON in uno dei formati seguenti: <ul><li> Valori esadecimali di tipo HTML </li><li> RGB ("#ff0", "#ffff00", "RGB (255, 255,0)")</li><li> RGBA ("RGBA (255, 255, 0, 1)")</li><li> HSL ("HSL (100, 50%, 50%)")</li><li> HSLA ("HSLA (100, 50%, 50%,1)")</li><li> Nomi di colori HTML predefiniti, ad esempio giallo e blu.</li></ul> | Sì |
@@ -132,7 +132,7 @@ Nell'esempio JSON seguente entrambi gli intervalli manterranno true quando il va
 
 `RangeObject`Definisce un valore numerico dell'intervallo di un oggetto [`NumberRuleObject`](#numberruleobject) . Affinché il valore *dello stato* entri nell'intervallo, tutte le condizioni definite devono essere true.
 
-| Proprietà | Type | Description | Obbligatoria |
+| Proprietà | Type | Descrizione | Obbligatoria |
 |-----------|----------|-------------|-------------|
 | `minimum` | double | Tutti i numeri x che x ≥ `minimum` .| No |
 | `maximum` | double | Tutto il numero x che x ≤ `maximum` . | No |
@@ -170,9 +170,9 @@ Il codice JSON seguente illustra uno `NumericTypeStyleRule` *stato* denominato `
 
 Un oggetto `StringTypeStyleRule` è un oggetto [`StyleObject`](#styleobject) ed è costituito dalle proprietà seguenti:
 
-| Proprietà | Type | Description | Obbligatoria |
+| Proprietà | Type | Descrizione | Obbligatoria |
 |-----------|----------|-------------|-------------|
-| `keyName` | stringa |  Nome della proprietà dinamica o *dello stato* .  Un oggetto `keyName` deve essere univoco all'interno della  `StyleObject` matrice.| Sì |
+| `keyName` | string |  Nome della proprietà dinamica o *dello stato* .  Un oggetto `keyName` deve essere univoco all'interno della  `StyleObject` matrice.| Sì |
 | `type` | string |Il valore è "String". | Sì |
 | `rules` | [`StringRuleObject`](#stringruleobject)[]| Matrice di N numero di valori di *stato* .| Sì |
 
@@ -182,9 +182,9 @@ Un `StringRuleObject` è costituito da un numero massimo di valori di stato che 
 
 Il valore stringa corrispondente fa distinzione tra maiuscole e minuscole.
 
-| Proprietà | Type | Description | Obbligatoria |
+| Proprietà | Type | Descrizione | Obbligatoria |
 |-----------|----------|-------------|-------------|
-| `stateValue1` | stringa | Il colore quando la stringa del valore è stateValue1. | No |
+| `stateValue1` | string | Il colore quando la stringa del valore è stateValue1. | No |
 | `stateValue2` | string | Il colore quando la stringa del valore è stateValue. | No |
 | `stateValueN` | string | Il colore quando la stringa del valore è stateValueN. | No |
 
@@ -212,9 +212,9 @@ Il codice JSON seguente illustra un oggetto `StringTypeStyleRule` che definisce 
 
 Un oggetto `BooleanTypeStyleRule` è un oggetto [`StyleObject`](#styleobject) ed è costituito dalle proprietà seguenti:
 
-| Proprietà | Type | Description | Obbligatoria |
+| Proprietà | Type | Descrizione | Obbligatoria |
 |-----------|----------|-------------|-------------|
-| `keyName` | stringa |  Nome della proprietà dinamica o *dello stato* .  Un oggetto `keyName` deve essere univoco all'interno della `StyleObject`  matrice.| Sì |
+| `keyName` | string |  Nome della proprietà dinamica o *dello stato* .  Un oggetto `keyName` deve essere univoco all'interno della `StyleObject`  matrice.| Sì |
 | `type` | string |Il valore è "booleano". | Sì |
 | `rules` | [`BooleanRuleObject`](#booleanruleobject)1| Coppia booleana con i colori `true` per `false` i valori di *stato* e.| Sì |
 
@@ -222,9 +222,9 @@ Un oggetto `BooleanTypeStyleRule` è un oggetto [`StyleObject`](#styleobject) ed
 
 Un oggetto `BooleanRuleObject` definisce i colori per `true` `false` i valori e.
 
-| Proprietà | Type | Description | Obbligatoria |
+| Proprietà | Type | Descrizione | Obbligatoria |
 |-----------|----------|-------------|-------------|
-| `true` | stringa | Il colore da utilizzare quando il valore di *stato* è `true` . La `color` proprietà è una stringa JSON in uno dei formati seguenti: <ul><li> Valori esadecimali di tipo HTML </li><li> RGB ("#ff0", "#ffff00", "RGB (255, 255,0)")</li><li> RGBA ("RGBA (255, 255, 0, 1)")</li><li> HSL ("HSL (100, 50%, 50%)")</li><li> HSLA ("HSLA (100, 50%, 50%,1)")</li><li> Nomi di colori HTML predefiniti, ad esempio giallo e blu.</li></ul>| Sì |
+| `true` | string | Il colore da utilizzare quando il valore di *stato* è `true` . La `color` proprietà è una stringa JSON in uno dei formati seguenti: <ul><li> Valori esadecimali di tipo HTML </li><li> RGB ("#ff0", "#ffff00", "RGB (255, 255,0)")</li><li> RGBA ("RGBA (255, 255, 0, 1)")</li><li> HSL ("HSL (100, 50%, 50%)")</li><li> HSLA ("HSLA (100, 50%, 50%,1)")</li><li> Nomi di colori HTML predefiniti, ad esempio giallo e blu.</li></ul>| Sì |
 | `false` | string | Il colore da utilizzare quando il valore di *stato* è `false` . | Sì |
 
 ### <a name="example-of-booleantypestylerule"></a>Esempio di BooleanTypeStyleRule

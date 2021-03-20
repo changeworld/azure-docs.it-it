@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 07/16/2019
 ms.author: jeedes
 ms.openlocfilehash: 1424669af9fe28257e66c8c5438f6e1d171954e0
-ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
-ms.translationtype: HT
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/18/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97672900"
 ---
 # <a name="tutorial-integrate-amazon-business-with-azure-active-directory"></a>Esercitazione: Integrare Amazon Business con Azure Active Directory
@@ -61,8 +61,8 @@ Per configurare e testare l'accesso SSO di Azure AD con Amazon Business, complet
 
 1. **[Configurare l'accesso Single Sign-On di Azure AD](#configure-azure-ad-sso)** : per consentire agli utenti di usare questa funzionalità.
 2. **[Configurare l'accesso Single Sign-On di Amazon Business](#configure-amazon-business-sso)** : per configurare le impostazioni di Single Sign-On sul lato applicazione.
-3. **[Creare un utente di test di Azure AD](#create-an-azure-ad-test-user)** : per testare l'accesso Single Sign-On di Azure AD con l'utente B. Simon.
-4. **[Assegnare l'utente di test di Azure AD](#assign-the-azure-ad-test-user)** : per abilitare B. Simon all'uso dell'accesso Single Sign-On di Azure AD.
+3. **[Creare un utente di test di Azure AD](#create-an-azure-ad-test-user)** : per testare l'accesso Single Sign-On di Azure AD con l'utente B.Simon.
+4. **[Assegnare l'utente di test di Azure AD](#assign-the-azure-ad-test-user)** : per abilitare B.Simon all'uso dell'accesso Single Sign-On di Azure AD.
 5. **[Creare l'utente di test di Amazon Business](#create-amazon-business-test-user)** : per avere una controparte di B.Simon in Amazon Business collegata alla rappresentazione dell'utente in Azure AD.
 6. **[Testare l'accesso Single Sign-On](#test-sso)** : per verificare se la configurazione funziona.
 

@@ -8,10 +8,10 @@ ms.date: 11/10/2020
 author: sayantanroy83
 ms.author: sroy
 ms.openlocfilehash: 1b98948100c06868cd14f636f2049ca515fec18d
-ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/12/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94564805"
 ---
 # <a name="commercial-marketplace-analytics-common-questions"></a>Domande comuni sull'analisi del Marketplace commerciale
@@ -30,7 +30,7 @@ Perché è possibile che venga visualizzato il messaggio seguente:
 
 - Non sono attualmente disponibili acquisizioni per le offerte pubblicate nel Marketplace commerciale. Questo può significare che le offerte sono disponibili nel Marketplace commerciale e i clienti visualizzano le pagine di presentazione del prodotto, ma i clienti non hanno ancora eseguito l'acquisto e la distribuzione.
 - L'offerta potrebbe essere in fase di pubblicazione, ma non è ancora attiva. Solo le offerte già attive possono essere acquistate dai clienti. Per verificare lo stato delle offerte, vedere la pagina **Riepilogo** nel dashboard di [analisi](https://partner.microsoft.com/dashboard/commercial-marketplace/analytics/summary). Per altre informazioni, vedere [dashboard di riepilogo in Commercial Marketplace Analytics](summary-dashboard.md).
-- Le offerte possono essere elencate come **contattatemi** , che sono offerte solo elenco e che non possono essere acquistate dai clienti nel Marketplace commerciale. Anche se queste offerte generano lead e vengono condivise, non vengono creati ordini per tali offerte, in quanto non possono essere acquistate. Per controllare il tipo di inserzione dell'offerta, passare alla pagina di installazione dell'offerta.
+- Le offerte possono essere elencate come **contattatemi**, che sono offerte solo elenco e che non possono essere acquistate dai clienti nel Marketplace commerciale. Anche se queste offerte generano lead e vengono condivise, non vengono creati ordini per tali offerte, in quanto non possono essere acquistate. Per controllare il tipo di inserzione dell'offerta, passare alla pagina di installazione dell'offerta.
 
 ### <a name="i-know-i-have-analytics-data-so-why-does-the-no-analytics-available-message-appear"></a>So che ho dei dati di analisi, perché non viene visualizzato alcun messaggio di analisi disponibile?
 

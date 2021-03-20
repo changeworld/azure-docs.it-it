@@ -4,10 +4,10 @@ description: Informazioni su come impostare i criteri di arresto automatico per 
 ms.topic: article
 ms.date: 06/26/2020
 ms.openlocfilehash: cd7974580ea30c9d0591c88380a4e626711bad1e
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93318980"
 ---
 # <a name="configure-autoshutdown-for-lab-and-compute-virtual-machines-in-azure-devtest-labs"></a>Configurare l'arresto automatico per le macchine virtuali Lab e di calcolo in Azure DevTest Labs
@@ -42,7 +42,7 @@ Per visualizzare o modificare i criteri per un Lab, attenersi alla procedura seg
 3. Selezionare **Attivo** per abilitare i criteri e **Non attivo** per disabilitarli.
      ![Dettagli arresto automatico](./media/devtest-lab-set-lab-policy/auto-shutdown.png)
 4. Se si abilita questo criterio, specificare l'ora e il fuso orario per l'arresto di tutte le macchine virtuali nel lab attuale.
-5. Specificare **Sì** o **No** per l'opzione per inviare una notifica 30 minuti prima del tempo di arresto automatico specificato. Se si sceglie **Sì** , immettere un endpoint dell'URL webhook o un indirizzo di posta elettronica che specifica dove inviare o registrare la notifica. L'utente riceve la notifica e ha la possibilità di ritardare l'arresto. Per ulteriori informazioni, vedere la sezione [notifiche](#notifications) .
+5. Specificare **Sì** o **No** per l'opzione per inviare una notifica 30 minuti prima del tempo di arresto automatico specificato. Se si sceglie **Sì**, immettere un endpoint dell'URL webhook o un indirizzo di posta elettronica che specifica dove inviare o registrare la notifica. L'utente riceve la notifica e ha la possibilità di ritardare l'arresto. Per ulteriori informazioni, vedere la sezione [notifiche](#notifications) .
 6. Selezionare **Salva**.
 
     Per impostazione predefinita, dopo l'abilitazione questi criteri verranno applicati a tutte le macchine virtuali nel lab corrente. Per rimuovere questa impostazione da una macchina virtuale specifica, aprire il riquadro di gestione della macchina virtuale e modificare l'impostazione **Arresto automatico**.
@@ -73,7 +73,7 @@ Se si imposta il lab su questo criterio, gli utenti del lab non possono eseguire
 1. Nella pagina **macchina virtuale** selezionare **arresto automatico** nel menu a sinistra nella sezione **operazioni** .
 2. Nella pagina **arresto automatico** **selezionare attivato** per abilitare questo criterio e **disattivarlo** per disabilitarlo.
 3. Se si Abilita questo criterio, specificare l' **ora** e il **fuso orario** in cui deve essere arrestata la macchina virtuale.
-4. Scegliere **Sì** o **No** per l'opzione Invia una notifica 30 minuti prima del tempo di arresto automatico specificato. Se si sceglie **Sì** , immettere un endpoint dell'URL webhook o un indirizzo di posta elettronica che specifica dove inviare o registrare la notifica. L'utente riceve la notifica e ha la possibilità di ritardare l'arresto. Per ulteriori informazioni, vedere la sezione [notifiche](#notifications) .
+4. Scegliere **Sì** o **No** per l'opzione Invia una notifica 30 minuti prima del tempo di arresto automatico specificato. Se si sceglie **Sì**, immettere un endpoint dell'URL webhook o un indirizzo di posta elettronica che specifica dove inviare o registrare la notifica. L'utente riceve la notifica e ha la possibilità di ritardare l'arresto. Per ulteriori informazioni, vedere la sezione [notifiche](#notifications) .
 5. Selezionare **Salva**.
 
     ![Configurare l'arresto automatico per una macchina virtuale di calcolo](./media/devtest-lab-auto-shutdown/comnpute-auto-shutdown.png)

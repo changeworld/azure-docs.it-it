@@ -4,10 +4,10 @@ description: Questo articolo fornisce informazioni sull'autenticazione di un'app
 ms.topic: conceptual
 ms.date: 06/23/2020
 ms.openlocfilehash: c4e19c0ab26d491ba0b95159e274383431aefaee
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/24/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92518229"
 ---
 # <a name="authenticate-and-authorize-an-application-with-azure-active-directory-to-access-azure-service-bus-entities"></a>Autenticare e autorizzare un'applicazione con Azure Active Directory per accedere alle entità del bus di servizio di Azure
@@ -43,7 +43,7 @@ Prima di assegnare un ruolo Controllo degli accessi in base al ruolo a un'entit�
 
 Nell'elenco seguente vengono descritti i livelli in cui è possibile definire l'ambito di accesso alle risorse del bus di servizio, a partire dall'ambito più restrittivo:
 
-- **Coda**, **argomento**o **sottoscrizione**: l'assegnazione di ruolo si applica all'entità del bus di servizio specifica. Attualmente, il portale di Azure non supporta l'assegnazione di utenti/gruppi/identità gestite ai ruoli di Azure del bus di servizio a livello di sottoscrizione. 
+- **Coda**, **argomento** o **sottoscrizione**: l'assegnazione di ruolo si applica all'entità del bus di servizio specifica. Attualmente, il portale di Azure non supporta l'assegnazione di utenti/gruppi/identità gestite ai ruoli di Azure del bus di servizio a livello di sottoscrizione. 
 - **Spazio dei nomi del bus di servizio**: l'assegnazione di ruolo si estende all'intera topologia del bus di servizio nello spazio dei nomi e al gruppo di consumer associato.
 - **Gruppo di risorse**: l'assegnazione di ruolo si applica a tutte le risorse del bus di servizio nel gruppo di risorse.
 - **Sottoscrizione**: l'assegnazione di ruolo si applica a tutte le risorse del bus di servizio in tutti i gruppi di risorse nella sottoscrizione.
@@ -112,7 +112,7 @@ L'applicazione richiede un segreto client per dimostrare la propria identità qu
 
 1. Passare alla registrazione dell'app nel portale di Azure se non è già presente nella pagina.
 1. Selezionare **certificati & segreti** nel menu a sinistra.
-1. In **segreti client**selezionare **nuovo segreto client** per creare un nuovo segreto.
+1. In **segreti client** selezionare **nuovo segreto client** per creare un nuovo segreto.
 
     ![Nuovo segreto client-pulsante](./media/authenticate-application/new-client-secret-button.png)
 1. Specificare una descrizione per il segreto, scegliere l'intervallo di scadenza desiderato e quindi selezionare **Aggiungi**.

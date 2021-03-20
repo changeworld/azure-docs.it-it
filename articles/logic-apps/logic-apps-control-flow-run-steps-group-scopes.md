@@ -7,17 +7,17 @@ ms.reviewer: klam, logicappspm
 ms.date: 10/03/2018
 ms.topic: article
 ms.openlocfilehash: 95b5cc191ac6857bf8e1b09e70b22d928473fe03
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/21/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92314849"
 ---
 # <a name="run-actions-based-on-group-status-by-using-scopes-in-azure-logic-apps"></a>Eseguire azioni in base allo stato del gruppo usando ambiti nelle App per la logica di Azure
 
 Per eseguire azioni solo dopo che un altro gruppo di azioni ha avuto esito positivo o negativo, raggruppare tali azioni in un *ambito*. Questa struttura è utile quando si vuole organizzare le azioni come gruppo logico, valutare lo stato del gruppo ed eseguire le azioni in base allo stato dell'ambito. Al termine dell'esecuzione di tutte le azioni in un ambito, l'ambito ottiene anche il proprio stato. È ad esempio possibile usare gli ambiti quando si vuole implementare la [gestione degli errori e delle eccezioni](../logic-apps/logic-apps-exception-handling.md#scopes). 
 
-Per controllare lo stato di un ambito, è possibile usare gli stessi criteri usati per determinare lo stato di esecuzione di un'app per la logica, ad esempio **riuscito**, **non riuscito**, **annullato**e così via. Per impostazione predefinita, quando tutte le azioni dell'ambito hanno esito positivo, lo stato dell'ambito è contrassegnato come **completato**. Tuttavia, quando un'azione nell'ambito ha esito negativo o viene annullata, lo stato dell'ambito è contrassegnato come **non riuscito**. Per i limiti degli ambiti, vedere [Limiti e configurazione](../logic-apps/logic-apps-limits-and-config.md). 
+Per controllare lo stato di un ambito, è possibile usare gli stessi criteri usati per determinare lo stato di esecuzione di un'app per la logica, ad esempio **riuscito**, **non riuscito**, **annullato** e così via. Per impostazione predefinita, quando tutte le azioni dell'ambito hanno esito positivo, lo stato dell'ambito è contrassegnato come **completato**. Tuttavia, quando un'azione nell'ambito ha esito negativo o viene annullata, lo stato dell'ambito è contrassegnato come **non riuscito**. Per i limiti degli ambiti, vedere [Limiti e configurazione](../logic-apps/logic-apps-limits-and-config.md). 
 
 La seguente, ad esempio è un'app per la logica generale che usa un ambito per eseguire azioni specifiche e una condizione per controllare lo stato dell'ambito. Se un'azione nell'ambito ha esito negativo o si arresta in modo imprevisto, l'ambito viene contrassegnato come **failed** o **interrotto** rispettivamente e l'app per la logica Invia un messaggio "scope failed". Se tutte le azioni nell'ambito hanno esito positivo, l'app per la logica invia un messaggio "Scope succeeded".
 
@@ -61,7 +61,7 @@ Creare prima di tutto questa app per la logica di esempio per poter aggiungere u
 
    1. Se non si ha già una connessione esistente a Bing Maps, viene chiesto di crearne una.
 
-      | Impostazione | valore | Descrizione |
+      | Impostazione | Valore | Descrizione |
       | ------- | ----- | ----------- |
       | **Connection Name** (Nome connessione) | BingMapsConnection | Specificare un nome per la connessione. | 
       | **Chiave API** | <*chiave-Bing-Maps*> | Immettere la chiave di Bing Maps ricevuta in precedenza. | 
@@ -73,7 +73,7 @@ Creare prima di tutto questa app per la logica di esempio per poter aggiungere u
 
       Per altre informazioni su questi parametri, vedere [Calculate a route](/bingmaps/rest-services/routes/calculate-a-route) (Calcolare un itinerario).
 
-      | Impostazione | valore | Descrizione |
+      | Impostazione | Valore | Descrizione |
       | ------- | ----- | ----------- |
       | **Punto di tragitto 1** | <*start*> | Immettere l'origine dell'itinerario. | 
       | **Punto di tragitto 2** | <*end*> | Immettere la destinazione dell'itinerario. | 

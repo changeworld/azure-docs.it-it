@@ -5,10 +5,10 @@ ms.service: iot-pnp
 ms.topic: include
 ms.date: 11/20/2020
 ms.openlocfilehash: 6b861baea93c2c57b8f66ebac928a7e4fd3adfa8
-ms.sourcegitcommit: b8eba4e733ace4eb6d33cc2c59456f550218b234
-ms.translationtype: HT
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/23/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "95487808"
 ---
 Plug and Play IoT semplifica l'Internet delle cose consentendo di interagire con il modello di un dispositivo senza conoscere l'implementazione del dispositivo sottostante. Questo argomento di avvio rapido mostra come usare Python per connettersi a un dispositivo Plug and Play IoT connesso alla soluzione e controllarlo.

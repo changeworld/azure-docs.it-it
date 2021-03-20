@@ -1,5 +1,5 @@
 ---
-title: "Esercitazione: Integrazione dell'accesso Single Sign-On (SSO) di Azure Active Directory con Airtable | Microsoft Docs"
+title: 'Esercitazione: integrazione di Azure Active Directory Single Sign-On (SSO) con Transtable | Microsoft Docs'
 description: Informazioni su come configurare l'accesso Single Sign-On tra Azure Active Directory e Airtable.
 services: active-directory
 author: jeevansd
@@ -12,13 +12,13 @@ ms.topic: tutorial
 ms.date: 12/16/2019
 ms.author: jeedes
 ms.openlocfilehash: f73e372318e690e1446eef1974c7a93c79d4e2d9
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
-ms.translationtype: HT
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/21/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92318984"
 ---
-# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-airtable"></a>Esercitazione: Integrazione dell'accesso Single Sign-On (SSO) di Azure Active Directory con Airtable
+# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-airtable"></a>Esercitazione: integrazione di Azure Active Directory Single Sign-On (SSO) con la tabella
 
 Questa esercitazione descrive come integrare Airtable con Azure Active Directory (Azure AD). Integrando Airtable con Azure AD, è possibile:
 
@@ -41,7 +41,7 @@ In questa esercitazione vengono eseguiti la configurazione e il test dell'access
 
 * Airtable supporta l'accesso SSO avviato da **SP e IDP**
 * Airtable supporta il provisioning utenti **JIT**
-* Dopo aver configurato Airtable, è possibile applicare il controllo sessione che consente di proteggere in tempo reale l'esfiltrazione e l'infiltrazione dei dati sensibili dell'organizzazione. Il controllo sessione costituisce un'estensione dell'accesso condizionale. [Informazioni su come applicare il controllo sessione con Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).
+* Una volta configurata la tabella, è possibile applicare il controllo della sessione, che protegge exfiltration e infiltrando i dati sensibili dell'organizzazione in tempo reale. Il controllo sessione costituisce un'estensione dell'accesso condizionale. [Informazioni su come applicare il controllo sessione con Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).
 
 > [!NOTE]
 > Dal momento che l'identificatore di questa applicazione è un valore stringa fisso, è possibile configurare una sola istanza in un solo tenant.
@@ -66,8 +66,8 @@ Per configurare e testare l'accesso SSO di Azure AD con Airtable, completare le 
 1. **[Configurare l'accesso Single Sign-On di Azure AD](#configure-azure-ad-sso)** : per consentire agli utenti di usare questa funzionalità.
     * **[Creare un utente di test di Azure AD](#create-an-azure-ad-test-user)** : per testare l'accesso Single Sign-On di Azure AD con l'utente B.Simon.
     * **[Assegnare l'utente di test di Azure AD](#assign-the-azure-ad-test-user)** : per abilitare B.Simon all'uso dell'accesso Single Sign-On di Azure AD.
-1. **[Configurare l'accesso Single Sign-On di Airtable](#configure-airtable-sso)** : per configurare le impostazioni di Single Sign-On sul lato applicazione.
-    * **[Creare l'utente di test di Airtable](#create-airtable-test-user)** : per avere una controparte di B.Simon in Airtable collegata alla rappresentazione dell'utente in Azure AD.
+1. **[Configurare l'accesso Single Sign-On di Airtable](#configure-airtable-sso)**: per configurare le impostazioni di Single Sign-On sul lato applicazione.
+    * **[Creare l'utente di test di Airtable](#create-airtable-test-user)**: per avere una controparte di B.Simon in Airtable collegata alla rappresentazione dell'utente in Azure AD.
 1. **[Testare l'accesso Single Sign-On](#test-sso)** : per verificare se la configurazione funziona.
 
 ## <a name="configure-azure-ad-sso"></a>Configurare l'accesso SSO di Azure AD
@@ -90,11 +90,11 @@ Per abilitare l'accesso Single Sign-On di Azure AD nel portale di Azure, seguire
 
 1. Fare clic su **Salva**.
 
-1. L'applicazione Airtable prevede un formato specifico per le asserzioni SAML. È quindi necessario aggiungere mapping di attributi personalizzati alla configurazione degli attributi del token SAML. Lo screenshot seguente mostra l'elenco degli attributi predefiniti.
+1. L'applicazione per la tabella si aspetta che le asserzioni SAML abbiano un formato specifico. è quindi necessario aggiungere mapping di attributi personalizzati alla configurazione degli attributi del token SAML. Lo screenshot seguente mostra l'elenco degli attributi predefiniti.
 
     ![image](common/default-attributes.png)
 
-1. Oltre quelli elencati in precedenza, l'applicazione Airtable prevede il passaggio di altri attributi nella risposta SAML. Tali attributi sono indicati di seguito. Anche questi attributi vengono prepopolati, ma è possibile esaminarli in base ai requisiti.
+1. Oltre a quanto sopra, l'applicazione della tabella è prevista la restituzione di altri attributi nella risposta SAML, illustrati di seguito. Anche questi attributi vengono prepopolati, ma è possibile esaminarli in base ai requisiti.
 
     | Nome | Attributo di origine|
     | ------------ | --------- |
@@ -123,7 +123,7 @@ In questa sezione verrà creato un utente di test di nome B.Simon nel portale di
 
 ### <a name="assign-the-azure-ad-test-user"></a>Assegnare l'utente di test di Azure AD
 
-In questa sezione si abiliterà B.Simon all'uso dell'accesso Single Sign-On di Azure concedendole l'accesso a Airtable.
+In questa sezione si abiliterà B. Simon all'uso dell'accesso Single Sign-On di Azure concedendole l'accesso a Airtable.
 
 1. Nel portale di Azure selezionare **Applicazioni aziendali** e quindi **Tutte le applicazioni**.
 1. Nell'elenco delle applicazioni selezionare **Airtable**.
@@ -141,11 +141,11 @@ In questa sezione si abiliterà B.Simon all'uso dell'accesso Single Sign-On di A
 
 ## <a name="configure-airtable-sso"></a>Configurare l'accesso Single Sign-On di Airtable
 
-Seguire le istruzioni fornite nel [collegamento](https://support.airtable.com/hc/articles/360037475234) per configurare l'accesso Single Sign-On sul lato **Airtable**.
+Seguire le istruzioni fornite nel [collegamento](https://support.airtable.com/hc/articles/360037475234) per configurare l'accesso Single Sign-On sul lato **AirTable**.
 
 ### <a name="create-airtable-test-user"></a>Creare l'utente di test di Airtable
 
-In questa sezione viene creato un utente di nome B.Simon in Airtable. Airtable supporta il provisioning utenti JIT, che è abilitato per impostazione predefinita. Non è necessario alcun intervento dell'utente in questa sezione. Se non esiste già un utente in Airtable, ne viene creato uno nuovo dopo l'autenticazione.
+In questa sezione viene creato un utente di nome B.Simon in Airtable. Airtable supporta il provisioning JIT, che è abilitato per impostazione predefinita. Non è necessario alcun intervento dell'utente in questa sezione. Se non esiste già un utente in Airtable, ne viene creato uno nuovo dopo l'autenticazione.
 
 ## <a name="test-sso"></a>Testare l'accesso SSO
 

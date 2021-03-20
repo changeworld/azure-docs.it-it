@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 02/04/2019
 ms.author: jeedes
 ms.openlocfilehash: 1fdcef7e3b4a4246c3e093874fbb775f4811e59f
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
-ms.translationtype: HT
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/24/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92522020"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-stormboard"></a>Esercitazione: Integrazione di Azure Active Directory con Stormboard
@@ -64,7 +64,7 @@ Per configurare l'integrazione di Stormboard in Azure AD, è necessario aggiunge
 
     ![Pulsante Nuova applicazione](common/add-new-app.png)
 
-4. Nella casella di ricerca digitare **Stormboard** , selezionare **Stormboard** nel pannello dei risultati e quindi fare clic sul pulsante **Aggiungi** per aggiungere l'applicazione.
+4. Nella casella di ricerca digitare **Stormboard**, selezionare **Stormboard** nel pannello dei risultati e quindi fare clic sul pulsante **Aggiungi** per aggiungere l'applicazione.
 
      ![Stormboard nell'elenco risultati](common/search-new-app.png)
 
@@ -100,13 +100,13 @@ Per configurare l'accesso Single Sign-On di Azure AD con Stormboard, seguire que
 
     ![Modificare la configurazione SAML di base](common/edit-urls.png)
 
-4. Nella sezione **Configurazione SAML di base** seguire questa procedura se si vuole configurare l'applicazione in modalità avviata da **IDP** :
+4. Nella sezione **Configurazione SAML di base** seguire questa procedura se si vuole configurare l'applicazione in modalità avviata da **IDP**:
 
     ![Screenshot che mostra la sezione Configurazione SAML di base in cui è possibile immettere l'URL di risposta prima di selezionare Salva.](common/both-replyurl.png)
 
     Nella casella di testo **URL di risposta** digitare un URL nel formato seguente: `https://<SUBDOMAIN>.stormboard.com/saml2/ad/acs/<TEAMID>`
 
-5. Fare clic su **Impostare URL aggiuntivi** e seguire questa procedura se si vuole configurare l'applicazione in modalità avviata da **SP** :
+5. Fare clic su **Impostare URL aggiuntivi** e seguire questa procedura se si vuole configurare l'applicazione in modalità avviata da **SP**:
 
     ![Screenshot che mostra l'opzione Impostare URL aggiuntivi che consente di immettere un URL di accesso.](common/both-signonurl.png)
 
@@ -115,7 +115,7 @@ Per configurare l'accesso Single Sign-On di Azure AD con Stormboard, seguire que
     > [!NOTE]
     > Poiché questi non sono i valori reali, è necessario aggiornarli con l'URL di risposta e l'URL di accesso effettivi. Per ottenere questi valori contattare il [team di supporto clienti di Stormboard](mailto:support@stormboard.com). È anche possibile fare riferimento ai modelli mostrati nella sezione **Configurazione SAML di base** del portale di Azure.
 
-6. Nella pagina **Configura l'accesso Single Sign-On con SAML** , nella sezione **Certificato di firma SAML** , fare clic su **Scarica** per scaricare il **Certificato (Base64)** definito dalle opzioni specificate in base ai propri requisiti e salvarlo in questo computer.
+6. Nella pagina **Configura l'accesso Single Sign-On con SAML**, nella sezione **Certificato di firma SAML**, fare clic su **Scarica** per scaricare il **Certificato (Base64)** definito dalle opzioni specificate in base ai propri requisiti e salvarlo in questo computer.
 
     ![Collegamento di download del certificato](common/certificatebase64.png)
 
@@ -137,7 +137,7 @@ Per configurare l'accesso Single Sign-On sul lato **Stormboard** è necessario i
 
 Questa sezione descrive come creare un utente test denominato Britta Simon nel portale di Azure.
 
-1. Nel riquadro sinistro del portale di Azure, selezionare **Azure Active Directory** , **Utenti** e quindi **Tutti gli utenti**.
+1. Nel riquadro sinistro del portale di Azure, selezionare **Azure Active Directory**, **Utenti** e quindi **Tutti gli utenti**.
 
     ![Collegamenti "Utenti e gruppi" e "Tutti gli utenti"](common/users.png)
 
@@ -162,7 +162,7 @@ Questa sezione descrive come creare un utente test denominato Britta Simon nel p
 
 In questa sezione si abilita Britta Simon all'uso dell'accesso Single Sign-On di Azure concedendole l'accesso a Stormboard.
 
-1. Nel portale di Azure selezionare **Applicazioni aziendali** , quindi **Tutte le applicazioni** e infine **Stormboard**.
+1. Nel portale di Azure selezionare **Applicazioni aziendali**, quindi **Tutte le applicazioni** e infine **Stormboard**.
 
     ![Pannello delle applicazioni aziendali](common/enterprise-applications.png)
 
@@ -186,7 +186,7 @@ In questa sezione si abilita Britta Simon all'uso dell'accesso Single Sign-On di
 
 ### <a name="create-stormboard-test-user"></a>Creare l'utente di test di Stormboard
 
-In questa sezione viene creato un utente di nome Britta Simon in Stormboard. Stormboard supporta il **provisioning JIT** , che è abilitato per impostazione predefinita. Non è necessario alcun intervento dell'utente in questa sezione. Se non esiste già un utente in Stormboard, ne viene creato uno nuovo dopo l'autenticazione.
+In questa sezione viene creato un utente di nome Britta Simon in Stormboard. Stormboard supporta il **provisioning JIT**, che è abilitato per impostazione predefinita. Non è necessario alcun intervento dell'utente in questa sezione. Se non esiste già un utente in Stormboard, ne viene creato uno nuovo dopo l'autenticazione.
 
 ### <a name="test-single-sign-on"></a>Testare l'accesso Single Sign-On 
 

@@ -1,6 +1,6 @@
 ---
-title: File di inclusione
-description: File di inclusione
+title: includere file
+description: includere file
 author: robinsh
 ms.service: iot-hub
 services: iot-hub
@@ -9,10 +9,10 @@ ms.date: 04/28/2019
 ms.author: robinsh
 ms.custom: include file
 ms.openlocfilehash: 24a07109fc8f4d6ebd283dee7ee00107f0eb49b7
-ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/24/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "95556093"
 ---
 È possibile usare l'API REST per [ottenere l'integrità dell'endpoint](/rest/api/iothub/iothubresource/getendpointhealth#iothubresource_getendpointhealth) per ottenere lo stato di integrità degli endpoint. Si consiglia di usare le [metriche di routing dell'hub](../articles/iot-hub/monitor-iot-hub-reference.md#routing-metrics) Internet in relazione alla latenza dei messaggi di routing per identificare ed eseguire il debug degli errori quando l'integrità dell'endpoint è inattiva o non integra, perché si prevede che la latenza sia superiore quando l'endpoint si trova in uno di questi Stati. Per altre informazioni sull'uso delle metriche dell'hub Internet, vedere [monitorare l'hub](../articles/iot-hub/monitor-iot-hub.md).

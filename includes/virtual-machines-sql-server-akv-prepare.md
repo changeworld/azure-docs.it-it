@@ -1,6 +1,6 @@
 ---
-title: File di inclusione
-description: File di inclusione
+title: includere file
+description: includere file
 services: virtual-machines-windows
 author: rothja
 manager: craigg
@@ -14,10 +14,10 @@ ms.date: 04/30/2018
 ms.author: jroth
 ms.custom: include file
 ms.openlocfilehash: 3509185baa3a9d7be90c1fa4bd8000da4a8a6fe5
-ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/24/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "95561915"
 ---
 ## <a name="prepare-for-akv-integration"></a>Preparare l'integrazione di AKV

@@ -13,10 +13,10 @@ ms.topic: how-to
 ms.date: 03/26/2018
 ms.author: twooley
 ms.openlocfilehash: ac7666f4c4e68d24499f9c097dc9bd021d270355
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/22/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92370696"
 ---
 # <a name="securing-data-stored-in-azure-data-lake-storage-gen1"></a>Protezione dei dati archiviati in Azure Data Lake Storage Gen1
@@ -130,7 +130,7 @@ L'accesso ai dati è invariato e continua a essere gestito tramite gli ACL di ac
 1. Nel pannello dell'account Data Lake Storage Gen1, fare clic su **Controllo di accesso (IAM)**. 
    
     ![Assegnare un gruppo di sicurezza a un account Data Lake Storage Gen1](./media/data-lake-store-secure-data/adl.select.user.icon.png "Assegnare un gruppo di sicurezza a un account Data Lake Storage Gen1")
-2. Nel pannello **Controllo di accesso (IAM)** fare clic su uno o più gruppi di sicurezza che si vuole rimuovere. Scegliere **Rimuovi**.
+2. Nel pannello **Controllo di accesso (IAM)** fare clic su uno o più gruppi di sicurezza che si vuole rimuovere. Fare clic su **Rimuovi**.
    
     ![Gruppo di sicurezza rimosso](./media/data-lake-store-secure-data/adl.remove.group.png "Gruppo di sicurezza rimosso")
 
@@ -147,7 +147,7 @@ Quando si rimuovono gli elenchi di controllo di accesso (ACL) del gruppo di sicu
    
     ![Screenshot del pannello di accesso con l'opzione di progettazione dei dati denominata e il pannello dei dettagli di accesso con l'opzione Rimuovi denominata.](./media/data-lake-store-secure-data/adl.remove.acl.png "Assegnare autorizzazioni a un gruppo")
 
-## <a name="see-also"></a>Vedere anche
+## <a name="see-also"></a>Vedi anche
 * [Panoramica di Azure Data Lake Storage Gen1](data-lake-store-overview.md)
 * [Copiare i dati dai BLOB di Archiviazione di Azure a Data Lake Storage Gen1](data-lake-store-copy-data-azure-storage-blob.md)
 * [Usare Azure Data Lake Analytics con Data Lake Storage Gen1](../data-lake-analytics/data-lake-analytics-get-started-portal.md)

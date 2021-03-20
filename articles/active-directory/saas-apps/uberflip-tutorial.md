@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 03/28/2019
 ms.author: jeedes
 ms.openlocfilehash: 6bf3eccec70619bf73397e315c6d851f753ec52f
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
-ms.translationtype: HT
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/24/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92521833"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-uberflip"></a>Esercitazione: Integrazione di Azure Active Directory con Uberflip
@@ -63,7 +63,7 @@ Per configurare l'integrazione di Uberflip in Azure AD, è necessario aggiungere
 
    ![Opzione Applicazione nuova](common/add-new-app.png)
 
-1. Nella casella di ricerca immettere **Uberflip**. Nei risultati della ricerca, selezionare **Uberflip** , quindi selezionare **Aggiungi** per aggiungere l'applicazione.
+1. Nella casella di ricerca immettere **Uberflip**. Nei risultati della ricerca, selezionare **Uberflip**, quindi selezionare **Aggiungi** per aggiungere l'applicazione.
 
    ![Uberflip nell'elenco risultati](common/search-new-app.png)
 
@@ -98,7 +98,7 @@ Per configurare l'accesso Single Sign-On di Azure AD con Uberflip, eseguire i se
 
    ![Screenshot che mostra la sezione Configurazione SAML di base in cui è possibile immettere un URL di risposta.](common/edit-urls.png)
 
-1. Nel riquadro **Configurazione SAML base** , eseguire uno dei passaggi seguenti, a seconda della modalità SSO che si desidera configurare:
+1. Nel riquadro **Configurazione SAML base**, eseguire uno dei passaggi seguenti, a seconda della modalità SSO che si desidera configurare:
 
    * Per configurare l'applicazione in modalità Single Sign-On avviata da IDP, nella casella **URL di risposta (URL del servizio consumer di asserzione)** immettere un URL usando il criterio seguente:
 
@@ -115,7 +115,7 @@ Per configurare l'accesso Single Sign-On di Azure AD con Uberflip, eseguire i se
 
      ![Screenshot che mostra l'opzione Impostare URL aggiuntivi che consente di immettere un URL di accesso.](common/both-signonurl.png)
 
-1. Nel riquadro **Configura l'accesso Single Sign-On con SAML** , nella sezione **Certificato di firma SAML** , selezionare **Scarica** per scaricare il file **XML metadati federazione** definito dalle opzioni specificate e salvarlo nel computer.
+1. Nel riquadro **Configura l'accesso Single Sign-On con SAML**, nella sezione **Certificato di firma SAML**, selezionare **Scarica** per scaricare il file **XML metadati federazione** definito dalle opzioni specificate e salvarlo nel computer.
 
    ![Opzione per il download del file XML dei metadati federazione](common/metadataxml.png)
 
@@ -153,7 +153,7 @@ In questa sezione viene creato un utente di test chiamato B. Simon nel portale d
 
     1. Selezionare la casella di controllo **Mostra password** e quindi prendere nota del valore visualizzato nella casella **Password**.
 
-    1. Selezionare **Create** (Crea).
+    1. Selezionare **Crea**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Assegnare l'utente di test di Azure AD
 

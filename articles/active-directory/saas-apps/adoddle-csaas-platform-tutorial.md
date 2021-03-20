@@ -1,5 +1,5 @@
 ---
-title: 'Esercitazione: Integrazione di Azure Active Directory con Adoddle cSaas Platform | Microsoft Docs'
+title: 'Esercitazione: integrazione di Azure Active Directory con Adoddle cSaas Platform | Microsoft Docs'
 description: Informazioni su come configurare l'accesso Single Sign-On tra Azure Active Directory e Adoddle cSaas Platform.
 services: active-directory
 author: jeevansd
@@ -12,13 +12,13 @@ ms.topic: tutorial
 ms.date: 01/17/2019
 ms.author: jeedes
 ms.openlocfilehash: 5554ec4521a126a2c2e823b707fe42d9983b5d8e
-ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
-ms.translationtype: HT
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/18/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97671655"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-adoddle-csaas-platform"></a>Esercitazione: Integrazione di Azure Active Directory con Adoddle cSaas Platform
+# <a name="tutorial-azure-active-directory-integration-with-adoddle-csaas-platform"></a>Esercitazione: integrazione di Azure Active Directory con Adoddle cSaas Platform
 
 Questa esercitazione descrive come integrare Adoddle cSaas Platform con Azure Active Directory (Azure AD).
 L'integrazione di Adoddle cSaas Platform con Azure AD offre i vantaggi seguenti:
@@ -75,10 +75,10 @@ Per il corretto funzionamento dell'accesso Single Sign-On, deve essere stabilita
 Per configurare e testare l'accesso Single Sign-On di Azure AD con Adoddle cSaas Platform, è necessario completare le procedure di base seguenti:
 
 1. **[Configurare l'accesso Single Sign-On di Azure AD](#configure-azure-ad-single-sign-on)** : per consentire agli utenti di usare questa funzionalità.
-2. **[Configurare l'accesso Single Sign-On per Adoddle cSaas Platform](#configure-adoddle-csaas-platform-single-sign-on)** : per configurare le impostazioni di Single Sign-On sul lato applicazione.
+2. **[Configurare l'accesso Single Sign-On per Adoddle cSaas Platform](#configure-adoddle-csaas-platform-single-sign-on)**: per configurare le impostazioni di Single Sign-On sul lato applicazione.
 3. **[Creare un utente di test di Azure AD](#create-an-azure-ad-test-user)** : per testare l'accesso Single Sign-On di Azure AD con l'utente Britta Simon.
 4. **[Assegnare l'utente di test di Azure AD](#assign-the-azure-ad-test-user)** : per abilitare Britta Simon all'uso dell'accesso Single Sign-On di Azure AD.
-5. **[Creare un utente di test di Adoddle cSaas Platform](#create-adoddle-csaas-platform-test-user)** : per avere una controparte di Britta Simon in Adoddle cSaas Platform collegata alla rappresentazione dell'utente in Azure AD.
+5. **[Creare un utente di test di Adoddle cSaas Platform](#create-adoddle-csaas-platform-test-user)**: per avere una controparte di Britta Simon in Adoddle cSaas Platform collegata alla rappresentazione dell'utente in Azure AD.
 6. **[Testare l'accesso Single Sign-On](#test-single-sign-on)** per verificare se la configurazione funziona.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Configurare l'accesso Single Sign-On di Azure AD

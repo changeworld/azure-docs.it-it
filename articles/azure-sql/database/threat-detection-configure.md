@@ -11,10 +11,10 @@ ms.author: ronmat
 ms.reviewer: vanto
 ms.date: 12/01/2020
 ms.openlocfilehash: 1425003c718ca52c0bea712e9d25cd3e4c035cf1
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/01/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96453958"
 ---
 # <a name="configure-advanced-threat-protection-for-azure-sql-database"></a>Configurare Advanced Threat Protection per il database SQL di Azure
@@ -45,7 +45,7 @@ Per un esempio di script, vedere [configurare il controllo e la protezione avanz
 
 - Altre informazioni su [Advanced Threat Protection](threat-detection-overview.md).
 - Altre informazioni sulla [protezione avanzata dalle minacce in SQL istanza gestita](../managed-instance/threat-detection-configure.md).  
-- Scopri di più su [Azure Defender per SQL](azure-defender-for-sql.md).
+- Vedere altre informazioni su [Azure Defender per SQL](azure-defender-for-sql.md).
 - Altre informazioni su [Controllo](../../azure-sql/database/auditing-overview.md)
 - Scopri di più sul [Centro sicurezza di Azure](../../security-center/security-center-introduction.md)
 - Per ulteriori informazioni sui prezzi, vedere la [pagina dei prezzi del database SQL](https://azure.microsoft.com/pricing/details/sql-database/)

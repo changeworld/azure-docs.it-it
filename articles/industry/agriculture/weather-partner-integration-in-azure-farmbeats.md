@@ -6,10 +6,10 @@ ms.topic: article
 ms.date: 07/09/2020
 ms.author: sunasing
 ms.openlocfilehash: f0fbd93e2a5f4e92089e10e75dc17e304ff80bf6
-ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/01/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93147080"
 ---
 # <a name="weather-partner-integration-with-farmbeats"></a>Integrazione di Weather partner con FarmBeats
@@ -75,7 +75,7 @@ Il servizio API Serializza questo dict e lo archivia in un insieme di credenzial
 
 [Azure Data Factory](../../data-factory/introduction.md) viene usato per orchestrare i processi meteorologici. Avvia le risorse per eseguire il codice docker. Data Factory fornisce anche un meccanismo per eseguire il push dei dati in modo sicuro alla macchina virtuale in cui viene eseguito il processo docker. Le credenziali API vengono quindi archiviate in modo sicuro nell'insieme di credenziali delle chiavi. 
 
-Le credenziali vengono lette come stringhe protette dall'insieme di credenziali delle chiavi. Vengono fornite come proprietà estese nella directory di lavoro del contenitore docker. Il percorso del file è *nella working_dir/activity.json* . 
+Le credenziali vengono lette come stringhe protette dall'insieme di credenziali delle chiavi. Vengono fornite come proprietà estese nella directory di lavoro del contenitore docker. Il percorso del file è *nella working_dir/activity.json*. 
 
 Il codice Docker può leggere le credenziali da *activity.jsin* fase di esecuzione per accedere alle API lato partner per il cliente. Nel file JSON le credenziali hanno un aspetto simile a questo esempio di codice:
 
@@ -117,8 +117,8 @@ Il programma Docker richiede due componenti: il bootstrap e il processo. Il prog
 
 Il componente bootstrap deve essere eseguito quando il cliente avvia la registrazione di Docker in FarmBeats. Gli argomenti ( `arg1` e `arg2` ) seguenti vengono passati al programma:
 
-- **Endpoint API FarmBeats** : endpoint API FarmBeats per le richieste API. Questo endpoint effettua chiamate API alla distribuzione di FarmBeats.
-- **URL di funzioni di Azure** : endpoint personalizzato. Questo URL fornisce il token di accesso per le API FarmBeats. È possibile chiamare `GET` su questo URL per recuperare il token di accesso.
+- **Endpoint API FarmBeats**: endpoint API FarmBeats per le richieste API. Questo endpoint effettua chiamate API alla distribuzione di FarmBeats.
+- **URL di funzioni di Azure**: endpoint personalizzato. Questo URL fornisce il token di accesso per le API FarmBeats. È possibile chiamare `GET` su questo URL per recuperare il token di accesso.
 
 Il bootstrap crea i metadati necessari agli utenti per eseguire i processi per ottenere i dati meteorologici. Per ulteriori informazioni, vedere l' [implementazione di riferimento](https://github.com/azurefarmbeats/noaa_docker). 
 
@@ -127,8 +127,8 @@ Se si Personalizza il *bootstrap_manifest.jsnel* file, il programma bootstrap di
  > [!NOTE]
  > Se si aggiorna il *bootstrap_manifest.jsnel* file come descritto nell' [implementazione di riferimento](https://github.com/azurefarmbeats/noaa_docker) , non è necessario creare i metadati seguenti. Il programma bootstrap utilizzerà il file manifesto per creare i metadati necessari.
 
-- /**WeatherDataModel** : i metadati WeatherDataModel rappresentano i dati meteorologici. Corrisponde ai set di dati forniti dall'origine. Ad esempio, un DailyForecastSimpleModel potrebbe fornire informazioni sulla temperatura, l'umidità e le precipitazioni medie una volta al giorno. Al contrario, un DailyForecastAdvancedModel può fornire molte più informazioni a livello di granularità oraria. È possibile creare un numero qualsiasi di modelli di dati meteorologici.
-- /**Tipoprocesso** : FarmBeats dispone di un sistema di gestione dei processi estensibile. Come provider di dati meteorologici, sono disponibili vari set di dati e API (ad esempio, GetDailyForecasts). È possibile abilitare questi set di impostazioni e API in FarmBeats usando Tipoprocesso. Dopo la creazione di un tipo di processo, un cliente può attivare processi di quel tipo per ottenere i dati meteorologici per la loro posizione o la loro farm di interesse. Per altre informazioni, vedere Tipoprocesso e le API di processo in [FarmBeats spavalderia](https://aka.ms/farmbeatsswagger).
+- /**WeatherDataModel**: i metadati WeatherDataModel rappresentano i dati meteorologici. Corrisponde ai set di dati forniti dall'origine. Ad esempio, un DailyForecastSimpleModel potrebbe fornire informazioni sulla temperatura, l'umidità e le precipitazioni medie una volta al giorno. Al contrario, un DailyForecastAdvancedModel può fornire molte più informazioni a livello di granularità oraria. È possibile creare un numero qualsiasi di modelli di dati meteorologici.
+- /**Tipoprocesso**: FarmBeats dispone di un sistema di gestione dei processi estensibile. Come provider di dati meteorologici, sono disponibili vari set di dati e API (ad esempio, GetDailyForecasts). È possibile abilitare questi set di impostazioni e API in FarmBeats usando Tipoprocesso. Dopo la creazione di un tipo di processo, un cliente può attivare processi di quel tipo per ottenere i dati meteorologici per la loro posizione o la loro farm di interesse. Per altre informazioni, vedere Tipoprocesso e le API di processo in [FarmBeats spavalderia](https://aka.ms/farmbeatsswagger).
 
 ### <a name="jobs"></a>Processi
 
@@ -147,7 +147,7 @@ Descrizione  | Descrizione significativa del modello. |
 Proprietà  | Proprietà aggiuntive definite dal provider di dati. |
 Nome > weatherMeasures  | Nome della misura Meteo. Ad esempio, humidity_max. |
 Tipo di dati > weatherMeasures  | Double o enum. Se enum, measureEnumDefinition è obbligatorio. |
-weatherMeasures > measureEnumDefinition  | Obbligatorio solo se DataType è enum. Ad esempio, usare `{ "NoRain": 0, "Snow": 1, "Drizzle": 2, "Rain": 3 }` |
+weatherMeasures > measureEnumDefinition  | Obbligatorio solo se DataType è enum. Ad esempio: `{ "NoRain": 0, "Snow": 1, "Drizzle": 2, "Rain": 3 }` |
 Tipo > weatherMeasures  | Tipo di dati di telemetria Meteo. Ad esempio, RelativeHumidity. I tipi definiti dal sistema sono Temperaturaambiente, nounit, CO2, depth, ElectricalConductivity, LeafWetness, length, LiquidLevel, nitrate, O2, PH, fosfato, PointInTime, potassio, Pressure, RainGauge, RelativeHumidity, salinità, SoilMoisture, SoilTemperature, SolarRadiation, state, TimeDuration, UVRadiation, UVIndex, volume, WindDirection, WindRun, WindSpeed, evapotraspirazione e PAR. Per aggiungere altri tipi, vedere la sezione [Add ExtendedType](#add-extendedtype) in questo articolo.
 Unità > weatherMeasures | Unità di dati di telemetria Meteo. Le unità definite dal sistema sono nounit, Celsius, Fahrenheit, Kelvin, Rankine, Pascal, mercurio, PSI, millimetro, centimetro, misuratore, pollice, piedi, miglio, chilometro, MilesPerHour, MilesPerSecond, KMPerHour, KMPerSecond, MetersPerHour, MetersPerSecond, Degree, WattsPerSquareMeter, KiloWattsPerSquareMeter, MilliWattsPerSquareCentiMeter, MilliJoulesPerSquareCentiMeter, VolumetricWaterContent, percentuale, PartsPerMillion, micromole, MicroMolesPerLiter, SiemensPerSquareMeterPerMole, MilliSiemensPerCentiMeter, centibar, DeciSiemensPerMeter, KiloPascal, VolumetricIonContent, litro, millilitro, secondi, UnixTimestamp, MicroMolePerMeterSquaredPerSecond e InchesPerHour Per aggiungere altre unità, vedere la sezione [Add ExtendedType](#add-extendedtype) in questo articolo.
 weatherMeasures > AggregationType  | Tipo di aggregazione. I valori possibili sono None, Average, Maximum, Minimum, StandardDeviation, Sum e Total.

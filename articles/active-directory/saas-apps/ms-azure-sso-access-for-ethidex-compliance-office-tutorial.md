@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 09/06/2019
 ms.author: jeedes
 ms.openlocfilehash: 7ef219ca147fe96fc65f14bbf3ba6a565adc95ec
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
-ms.translationtype: HT
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/24/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92520915"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-ms-azure-sso-access-for-ethidex-compliance-office"></a>Esercitazione: Integrazione dell'accesso Single Sign-On (SSO) di Azure Active Directory con MS Azure SSO Access for Ethidex Compliance Office™
@@ -59,7 +59,7 @@ Configurare e testare l'accesso SSO di Azure AD con MS Azure SSO Access for Ethi
 Per configurare e testare l'accesso SSO di Azure AD con MS Azure SSO Access for Ethidex Compliance Office™, completare le procedure di base seguenti:
 
 1. **[Configurare l'accesso Single Sign-On di Azure AD](#configure-azure-ad-sso)** : per consentire agli utenti di usare questa funzionalità.
-    1. **[Creare un utente di test di Azure AD](#create-an-azure-ad-test-user)** : per testare l'accesso Single Sign-On di Azure AD con l'utente B. Simon.
+    1. **[Creare un utente di test di Azure AD](#create-an-azure-ad-test-user)** : per testare l'accesso Single Sign-On di Azure AD con l'utente B.Simon.
     1. **[Assegnare l'utente di test di Azure AD](#assign-the-azure-ad-test-user)** : per abilitare B. Simon all'uso dell'accesso Single Sign-On di Azure AD.
 1. **[Configurare l'accesso Single Sign-On di MS Azure SSO Access for Ethidex Compliance Office](#configure-ms-azure-sso-access-for-ethidex-compliance-office-sso)** : per configurare le impostazioni di Single Sign-On sul lato applicazione.
     1. **[Creare l'utente di test di MS Azure SSO Access for Ethidex Compliance Office](#create-ms-azure-sso-access-for-ethidex-compliance-office-test-user)** : per avere una controparte di B.Simon in MS Azure SSO Access for Ethidex Compliance Office™ collegata alla rappresentazione dell'utente in Azure AD.
@@ -84,7 +84,7 @@ Per abilitare l'accesso Single Sign-On di Azure AD nel portale di Azure, seguire
     > [!NOTE]
     > Poiché questi non sono i valori reali, è necessario aggiornarli con l'identificatore e l'URL di risposta effettivi. Contattare il [team di supporto di MS Azure SSO Access for Ethidex Compliance Office™](mailto:support@ethidex.com) per ottenere questi valori. È anche possibile fare riferimento ai modelli mostrati nella sezione **Configurazione SAML di base** del portale di Azure.
 
-1. L'applicazione MS Azure SSO Access for Ethidex Compliance Office™ prevede un formato specifico per le asserzioni SAML. È quindi necessario aggiungere mapping di attributi personalizzati alla configurazione degli attributi del token SAML. La schermata seguente illustra l'elenco degli attributi predefiniti in cui **nameidentifier** è associato a **user.userprincipalname**. L'applicazione MS Azure SSO Access for Ethidex Compliance Office™ prevede che **nameidentifier** sia associato a **user.mail** , di conseguenza è necessario modificare il mapping dell'attributo. A questo scopo, fare clic sull'icona **Modifica** e modificare il mapping.
+1. L'applicazione MS Azure SSO Access for Ethidex Compliance Office™ prevede un formato specifico per le asserzioni SAML. È quindi necessario aggiungere mapping di attributi personalizzati alla configurazione degli attributi del token SAML. La schermata seguente illustra l'elenco degli attributi predefiniti in cui **nameidentifier** è associato a **user.userprincipalname**. L'applicazione MS Azure SSO Access for Ethidex Compliance Office™ prevede che **nameidentifier** sia associato a **user.mail**, di conseguenza è necessario modificare il mapping dell'attributo. A questo scopo, fare clic sull'icona **Modifica** e modificare il mapping.
 
     ![image](common/edit-attribute.png)
 
@@ -100,7 +100,7 @@ Per abilitare l'accesso Single Sign-On di Azure AD nel portale di Azure, seguire
 
 In questa sezione verrà creato un utente di test di nome B.Simon nel portale di Azure.
 
-1. Nel riquadro sinistro del portale di Azure selezionare **Azure Active Directory** , **Utenti** e quindi **Tutti gli utenti**.
+1. Nel riquadro sinistro del portale di Azure selezionare **Azure Active Directory**, **Utenti** e quindi **Tutti gli utenti**.
 1. Selezionare **Nuovo utente** in alto nella schermata.
 1. In **Proprietà utente** seguire questa procedura:
    1. Nel campo **Nome** immettere `B.Simon`.  
@@ -128,7 +128,7 @@ In questa sezione si abiliterà B.Simon all'uso dell'accesso Single Sign-On di A
 
 ## <a name="configure-ms-azure-sso-access-for-ethidex-compliance-office-sso"></a>Configurare l'accesso Single Sign-On di MS Azure SSO Access for Ethidex Compliance Office
 
-Per configurare l'accesso Single Sign-On sul lato **MS Azure SSO Access for Ethidex Compliance Office™** , è necessario inviare il **Certificato (base)** scaricato e gli URL appropriati, copiati dal portale di Azure, al [team di supporto di MS Azure SSO Access for Ethidex Compliance Office™](mailto:support@ethidex.com). La configurazione viene eseguita in modo che la connessione SSO SAML sia impostata correttamente su entrambi i lati.
+Per configurare l'accesso Single Sign-On sul lato **MS Azure SSO Access for Ethidex Compliance Office™**, è necessario inviare il **Certificato (base)** scaricato e gli URL appropriati, copiati dal portale di Azure, al [team di supporto di MS Azure SSO Access for Ethidex Compliance Office™](mailto:support@ethidex.com). La configurazione viene eseguita in modo che la connessione SSO SAML sia impostata correttamente su entrambi i lati.
 
 ### <a name="create-ms-azure-sso-access-for-ethidex-compliance-office-test-user"></a>Creare l'utente di test di MS Azure SSO Access for Ethidex Compliance Office
 

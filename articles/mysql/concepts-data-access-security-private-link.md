@@ -7,10 +7,10 @@ ms.service: mysql
 ms.topic: conceptual
 ms.date: 03/10/2020
 ms.openlocfilehash: 1ae35d1ac35dacfab2690980d57973dce050382b
-ms.sourcegitcommit: 80034a1819072f45c1772940953fef06d92fefc8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/03/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93242858"
 ---
 # <a name="private-link-for-azure-database-for-mysql"></a>Collegamento privato per database di Azure per MySQL
@@ -115,7 +115,7 @@ Quando si usa il collegamento privato in combinazione con le regole del firewall
 
 Per fare affidamento solo sugli endpoint privati per l'accesso al database di Azure per MySQL, è possibile disabilitare l'impostazione di tutti gli endpoint pubblici, ad esempio [le regole del firewall](concepts-firewall-rules.md) e gli [endpoint di servizio VNet](concepts-data-access-and-security-vnet.md), impostando la configurazione di **accesso negato alla rete pubblica** sul server di database. 
 
-Quando questa impostazione è impostata su *Sì* , al database di Azure per MySQL sono consentite solo le connessioni tramite endpoint privati. Quando questa impostazione è impostata su *No* , i client possono connettersi al database di Azure per MySQL in base alle impostazioni del firewall o dell'endpoint del servizio VNet. Inoltre, una volta impostato il valore di accesso alla rete privata, i clienti non possono aggiungere e/o aggiornare le regole ' firewall rules ' è VNet service endpoint rules ' esistenti.
+Quando questa impostazione è impostata su *Sì*, al database di Azure per MySQL sono consentite solo le connessioni tramite endpoint privati. Quando questa impostazione è impostata su *No*, i client possono connettersi al database di Azure per MySQL in base alle impostazioni del firewall o dell'endpoint del servizio VNet. Inoltre, una volta impostato il valore di accesso alla rete privata, i clienti non possono aggiungere e/o aggiornare le regole ' firewall rules ' è VNet service endpoint rules ' esistenti.
 
 > [!Note]
 > Questa funzionalità è disponibile in tutte le aree di Azure in cui database di Azure per PostgreSQL-server singolo supporta i piani tariffari per utilizzo generico e con ottimizzazione per la memoria.

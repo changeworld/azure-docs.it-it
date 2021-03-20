@@ -1,5 +1,5 @@
 ---
-title: 'Esercitazione: Integrazione di Azure Active Directory con Cloud Service PICCO | Microsoft Docs'
+title: 'Esercitazione: integrazione di Azure Active Directory con il servizio cloud PICCO | Microsoft Docs'
 description: Informazioni su come configurare l'accesso Single Sign-On tra Azure Active Directory e Cloud Service PICCO.
 services: active-directory
 author: jeevansd
@@ -12,13 +12,13 @@ ms.topic: tutorial
 ms.date: 12/21/2018
 ms.author: jeedes
 ms.openlocfilehash: 1df8c6fa0877c20518be072674447d28d7f1ca0c
-ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
-ms.translationtype: HT
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/18/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97670125"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-cloud-service-picco"></a>Esercitazione: Integrazione di Azure Active Directory con Cloud Service PICCO
+# <a name="tutorial-azure-active-directory-integration-with-cloud-service-picco"></a>Esercitazione: integrazione di Azure Active Directory con il servizio cloud PICCO
 
 Questa esercitazione descrive come integrare Cloud Service PICCO con Azure Active Directory (Azure AD).
 L'integrazione di Cloud Service PICCO con Azure AD offre i vantaggi seguenti:
@@ -74,9 +74,9 @@ Per il corretto funzionamento del Single Sign-On, deve essere stabilita una rela
 Per configurare e testare l'accesso Single Sign-On di Azure AD con Cloud Service PICCO, è necessario completare le procedure di base seguenti:
 
 1. **[Configurare l'accesso Single Sign-On di Azure AD](#configure-azure-ad-single-sign-on)** : per consentire agli utenti di usare questa funzionalità.
-2. **[Configurare l'accesso Single Sign-On di Cloud Service PICCO](#configure-cloud-service-picco-single-sign-on)** : per configurare le impostazioni di Single Sign-On sul lato applicazione.
+2. **[Configurare l'accesso Single Sign-On di Cloud Service PICCO](#configure-cloud-service-picco-single-sign-on)**: per configurare le impostazioni di Single Sign-On sul lato applicazione.
 3. **[Creare un utente di test di Azure AD](#create-an-azure-ad-test-user)** : per testare l'accesso Single Sign-On di Azure AD con l'utente Britta Simon.
-4. **[Creare un utente di test di Cloud Service PICCO](#create-cloud-service-picco-test-user)** : per avere una controparte di Britta Simon in Cloud Service PICCO collegata alla rappresentazione dell'utente in Azure AD.
+4. **[Creare un utente di test di Cloud Service PICCO](#create-cloud-service-picco-test-user)**: per avere una controparte di Britta Simon in Cloud Service PICCO collegata alla rappresentazione dell'utente in Azure AD.
 5. **[Assegnare l'utente di test di Azure AD](#assign-the-azure-ad-test-user)** : per abilitare Britta Simon all'uso dell'accesso Single Sign-On di Azure AD.
 6. **[Testare l'accesso Single Sign-On](#test-single-sign-on)** per verificare se la configurazione funziona.
 
