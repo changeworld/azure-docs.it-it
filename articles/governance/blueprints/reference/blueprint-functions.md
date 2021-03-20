@@ -4,10 +4,10 @@ description: Descrive le funzioni disponibili per l'uso con gli artefatti del pr
 ms.date: 01/27/2021
 ms.topic: reference
 ms.openlocfilehash: 92cb906e87179073b7a69aa0bd4eab22c77087f9
-ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/27/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98919275"
 ---
 # <a name="functions-for-use-with-azure-blueprints"></a>Funzioni da usare con Azure Blueprints
@@ -34,7 +34,7 @@ Restituisce un oggetto di proprietà popolato con gli output degli artefatti del
 
 ### <a name="parameters"></a>Parametri
 
-| Parametro | Obbligatoria | Type | Descrizione |
+| Parametro | Obbligatoria | Tipo | Descrizione |
 |:--- |:--- |:--- |:--- |
 | artifactName |Sì |string |Nome di un artefatto del progetto. |
 
@@ -123,7 +123,7 @@ Combina più valori stringa e restituisce la stringa concatenata.
 
 ### <a name="parameters"></a>Parametri
 
-| Parametro | Obbligatoria | Type | Descrizione |
+| Parametro | Obbligatoria | Tipo | Descrizione |
 |:--- |:--- |:--- |:--- |
 | string1 |Sì |string |Il primo valore per la concatenazione. |
 | argomenti aggiuntivi |No |string |Altri valori in ordine sequenziale per la concatenazione |
@@ -148,7 +148,7 @@ Restituisce un valore del parametro del progetto. Il nome del parametro specific
 
 ### <a name="parameters"></a>Parametri
 
-| Parametro | Obbligatoria | Type | Descrizione |
+| Parametro | Obbligatoria | Tipo | Descrizione |
 |:--- |:--- |:--- |:--- |
 | parameterName |Sì |string |Nome del parametro da restituire. |
 
@@ -269,7 +269,7 @@ Restituisce un oggetto che rappresenta l'artefatto del gruppo di risorse specifi
 
 ### <a name="parameters"></a>Parametri
 
-| Parametro | Obbligatoria | Type | Descrizione |
+| Parametro | Obbligatoria | Tipo | Descrizione |
 |:--- |:--- |:--- |:--- |
 | placeholderName |Sì |string |Nome del segnaposto dell'artefatto del gruppo di risorse da restituire. |
 

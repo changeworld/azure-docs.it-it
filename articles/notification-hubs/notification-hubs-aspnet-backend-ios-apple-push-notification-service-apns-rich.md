@@ -16,10 +16,10 @@ ms.reviewer: thsomasu
 ms.lastreviewed: 01/04/2019
 ms.custom: devx-track-csharp
 ms.openlocfilehash: 33626b7aee615d07ef88dd9fbca46e6512e2cafc
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "90090364"
 ---
 # <a name="azure-notification-hubs-rich-push"></a>Push avanzato degli hub di notifica di Azure
@@ -142,7 +142,7 @@ In generale:
 Ora che il back-end dell'app è stato modificato per inviare solo l' *ID* di una notifica, modificare l'app iOS in modo che gestisca tale ID e recuperare il messaggio RTF dal back-end:
 
 1. Aprire il progetto iOS e abilitare le notifiche remote andando alla destinazione dell'app principale nella sezione **Targets** .
-2. Selezionare **funzionalità**, Abilita **modalità in background**e selezionare la casella di controllo **notifiche remote** .
+2. Selezionare **funzionalità**, Abilita **modalità in background** e selezionare la casella di controllo **notifiche remote** .
 
     ![Screenshot del progetto iOS che mostra la schermata delle funzionalità. La modalità in background è attivata e la casella di controllo notifiche remote è selezionata.][IOS3]
 3. Aprire `Main.storyboard` e assicurarsi di disporre di un controller di visualizzazione (denominato Home View Controller in questa esercitazione) dall'esercitazione per la [notifica degli utenti](notification-hubs-aspnet-backend-ios-apple-apns-notification.md) .
@@ -153,7 +153,7 @@ Ora che il back-end dell'app è stato modificato per inviare solo l' *ID* di una
 6. Fare clic sul **controller di visualizzazione Home** nello storyboard e verificare che abbia **HomeViewController** come **classe personalizzata** e **ID storyboard** in Identity Inspector.
 7. Eseguire la stessa operazione per il controller di visualizzazione immagine, come **imageViewController**.
 8. Quindi, creare una nuova classe del controller di visualizzazione denominata **imageViewController** per gestire l'interfaccia utente appena creata.
-9. In **imageViewController. h**aggiungere il codice seguente alle dichiarazioni di interfaccia del controller. Trascinare tenendo premuto CTRL dalla visualizzazione immagine dello storyboard a queste proprietà per collegarle:
+9. In **imageViewController. h** aggiungere il codice seguente alle dichiarazioni di interfaccia del controller. Trascinare tenendo premuto CTRL dalla visualizzazione immagine dello storyboard a queste proprietà per collegarle:
 
     ```objc
     @property (weak, nonatomic) IBOutlet UIImageView *myImage;

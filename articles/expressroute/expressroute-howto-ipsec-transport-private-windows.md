@@ -9,10 +9,10 @@ ms.date: 01/07/2021
 ms.author: duau
 ms.custom: seodec18
 ms.openlocfilehash: cfcc515787cee2bc90a2100e84337a3c96219d8a
-ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/08/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98017273"
 ---
 # <a name="configure-ipsec-transport-mode-for-expressroute-private-peering"></a>Configurare la modalità trasporto IPSec per il peering privato ExpressRoute
@@ -132,7 +132,7 @@ Per applicare l'oggetto Criteri di gruppo all'unità organizzativa, non è suffi
 3. Nella **procedura guidata per l'azione filtro sicurezza IP** selezionare **Avanti**.
 
    [![17]][17]
-4. Assegnare all'operazione di filtro un nome intuitivo in modo che sia possibile trovarla in seguito. In questo esempio il nome dell'operazione di filtro è **myEncryption**. È anche possibile aggiungere una descrizione. Selezionare **Avanti**.
+4. Assegnare all'operazione di filtro un nome intuitivo in modo che sia possibile trovarla in seguito. In questo esempio il nome dell'operazione di filtro è **myEncryption**. È anche possibile aggiungere una descrizione. Quindi selezionare **Avanti**.
 
    [![18]][18]
 5. L'opzione **Negozia sicurezza** consente di definire il comportamento se non è possibile abilitare IPSec per la comunicazione con un altro computer. Selezionare **Negozia sicurezza**, quindi fare clic su **Avanti**.
@@ -161,7 +161,7 @@ Creare un elenco di filtri che specifica il traffico HTTP crittografato destinat
 2. Nel campo **Nome** digitare un nome per l'elenco di filtri IP. Ad esempio, **azure-onpremises-HTTP8080**. Quindi selezionare **Aggiungi**.
 
    [![25]][25]
-3. Nella pagina **Descrizione filtro IP e proprietà Speculare** selezionare **Speculare**. L'impostazione speculare consente di definire una corrispondenza con i pacchetti che viaggiano in entrambe le direzioni, permettendo la comunicazione bidirezionale. Fare quindi clic su **Avanti**.
+3. Nella pagina **Descrizione filtro IP e proprietà Speculare** selezionare **Speculare**. L'impostazione speculare consente di definire una corrispondenza con i pacchetti che viaggiano in entrambe le direzioni, permettendo la comunicazione bidirezionale. Selezionare quindi **Avanti**.
 
    [![26]][26]
 4. Nella pagina **Origine traffico IP**, nell'elenco a discesa **Indirizzo origine** scegliere **Subnet o indirizzo IP specifico**. 
@@ -170,13 +170,13 @@ Creare un elenco di filtri che specifica il traffico HTTP crittografato destinat
 5. Specificare l'indirizzo **IP o la subnet** dell'indirizzo di origine: del traffico IP, quindi fare clic su **Avanti**.
 
    [![28]][28]
-6. Specificare il valore di Subnet o indirizzo IP in **Indirizzo di destinazione**. Selezionare **Avanti**.
+6. Specificare il valore di Subnet o indirizzo IP in **Indirizzo di destinazione**. Quindi selezionare **Avanti**.
 
    [![29]][29]
-7. Nella pagina **Tipo protocollo IP** selezionare **TCP**. Selezionare **Avanti**.
+7. Nella pagina **Tipo protocollo IP** selezionare **TCP**. Quindi selezionare **Avanti**.
 
    [![30]][30]
-8. Nella pagina **Porta protocollo IP** selezionare **Da qualsiasi porta** e **A questa porta**. Digitare **8080** nella casella di testo. Queste impostazioni specificano che solo il traffico HTTP destinato alla porta 8080 verrà crittografato. Selezionare **Avanti**.
+8. Nella pagina **Porta protocollo IP** selezionare **Da qualsiasi porta** e **A questa porta**. Digitare **8080** nella casella di testo. Queste impostazioni specificano che solo il traffico HTTP destinato alla porta 8080 verrà crittografato. Quindi selezionare **Avanti**.
 
    [![31]][31]
 9. Visualizzare l'elenco di filtri IP.  La configurazione dell'elenco di filtri IP **azure-onpremises-HTTP8080** attiva la crittografia per tutto il traffico che soddisfa i criteri seguenti:
@@ -214,7 +214,7 @@ Creare un criterio IPSec con regole di sicurezza.
 1. Selezionare la voce **Criteri di sicurezza IP su Active Directory** associata all'unità organizzativa. Fare clic con il pulsante destro del mouse e scegliere **Crea criterio di sicurezza IP**.
 
    [![37]][37]
-2. Assegnare un nome al criterio di sicurezza. Ad esempio, **policy-azure-onpremises**. Selezionare **Avanti**.
+2. Assegnare un nome al criterio di sicurezza. Ad esempio, **policy-azure-onpremises**. Quindi selezionare **Avanti**.
 
    [![38]][38]
 3. Selezionare **Avanti** senza selezionare la casella di controllo.
@@ -255,7 +255,7 @@ Aggiungere i criteri IPSec all'**elenco di filtri IP** e all'**operazione di fil
 7. Windows supporta quattro tipi diversi di autenticazioni: Kerberos, certificati, NTLMv2 e chiave già condivisa. Poiché gli host aggiunti a un dominio sono in uso, selezionare **Active Directory predefinito (protocollo Kerberos V5)**, quindi selezionare **Avanti**.
 
    [![47]][47]
-8. Il nuovo criterio crea la regola di sicurezza: **azure-onpremises-HTTP8080**. Seleziona **OK**.
+8. Il nuovo criterio crea la regola di sicurezza: **azure-onpremises-HTTP8080**. Selezionare **OK**.
 
    [![48]][48]
 

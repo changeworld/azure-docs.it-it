@@ -7,10 +7,10 @@ ms.reviewer: jasonh
 ms.topic: how-to
 ms.date: 03/01/2017
 ms.openlocfilehash: 8fb60e62a63bfc4562f19d483dc84c99c37676b0
-ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/20/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92215536"
 ---
 # <a name="run-and-test-u-sql-with-azure-data-lake-u-sql-sdk"></a>Esecuzione e test di U-SQL con Azure Data Lake U-SQL SDK
@@ -142,15 +142,15 @@ Di seguito sono indicati gli argomenti facoltativi per **run**:
 
 |Argomento|Valore predefinito|Descrizione|
 |--------|-------------|-----------|
-|-CodeBehind|False|Lo script ha code-behind con estensione cs|
+|-CodeBehind|Falso|Lo script ha code-behind con estensione cs|
 |-CppSDK| |Directory CppSDK|
 |-DataRoot| Variabile di ambiente DataRoot|DataRoot per l'esecuzione locale, impostazione predefinita su variabile di ambiente 'LOCALRUN_DATAROOT'|
 |-MessageOut| |Messaggi dump sulla console a un file|
 |-Parallel|1|Esegue il piano con il parallelismo specificato|
 |-References| |Elenco di percorsi agli assembly di riferimento aggiuntivi o a file di dati code-behind, separati da ";"|
-|-UdoRedirect|False|Genera la configurazione di reindirizzamento di assembly Udo|
+|-UdoRedirect|Falso|Genera la configurazione di reindirizzamento di assembly Udo|
 |-UseDatabase|master|Database da usare per la registrazione di assembly temporanei code-behind|
-|-Verbose|False|Mostrare gli output dettagliati dal runtime|
+|-Verbose|Falso|Mostrare gli output dettagliati dal runtime|
 |-WorkDir|Directory corrente|Directory per l'uso del compilatore e gli output|
 |-RunScopeCEP|0|Modalità ScopeCEP da usare|
 |-ScopeCEPTempPath|temp|Percorso temporaneo da usare per lo streaming di dati|
@@ -172,7 +172,7 @@ LocalRunHelper compile -Script path_to_usql_script.usql [optional_arguments]
 
 Di seguito sono indicati gli argomenti facoltativi per il comando **compile**:
 
-|Argomento|Description|
+|Argomento|Descrizione|
 |--------|-----------|
 | -CodeBehind [valore predefinito 'False']|Lo script ha code-behind con estensione cs|
 | -CppSDK [valore predefinito '']|Directory CppSDK|
@@ -330,13 +330,13 @@ LocalRunHelper.exe fornisce le interfacce di programmazione per la compilazione 
 
 public LocalRunHelper([System.IO.TextWriter messageOutput = null])
 
-|Parametro|Type|Description|
+|Parametro|Tipo|Descrizione|
 |---------|----|-----------|
 |messageOutput|System.IO.TextWriter|per i messaggi di output, impostato su null per usare Console|
 
 ### <a name="properties"></a>Proprietà
 
-|Proprietà|Type|Description|
+|Proprietà|Type|Descrizione|
 |--------|----|-----------|
 |AlgebraPath|string|Il percorso al file algebra (il file algebra è uno dei risultati della compilazione)|
 |CodeBehindReferences|string|Se lo script contiene riferimenti code-behind aggiuntivi, specificare i percorsi separati da ';'|

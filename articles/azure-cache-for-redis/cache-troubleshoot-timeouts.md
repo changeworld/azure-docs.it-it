@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.custom: devx-track-csharp
 ms.date: 10/18/2019
 ms.openlocfilehash: bf8b20dadd2fcd78657aa6877e796b645332dd94
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "88213463"
 ---
 # <a name="troubleshoot-azure-cache-for-redis-timeouts"></a>Risolvere i problemi relativi ai timeout di cache di Azure per Redis
@@ -48,7 +48,7 @@ Questo messaggio di errore contiene metriche che consentono di trovare la causa 
 | qs |67 le operazioni in corso sono state inviate al server, ma una risposta non è ancora disponibile. La risposta può essere `Not yet sent by the server` o `sent by the server but not yet processed by the client.` |
 | qc |0 delle operazioni in corso hanno visto le risposte ma non sono ancora state contrassegnate come complete perché sono in attesa del ciclo di completamento |
 | wr |Esiste un writer attivo (ovvero le 6 richieste non inviate non vengono ignorate) byte/activewriters |
-| in |Non ci sono lettori attivi e sono disponibili zero byte da leggere nella scheda di interfaccia di rete. Vengono indicati i byte per lettore attivo. |
+| in ingresso |Non ci sono lettori attivi e sono disponibili zero byte da leggere nella scheda di interfaccia di rete. Vengono indicati i byte per lettore attivo. |
 
 È possibile utilizzare la procedura seguente per esaminare le possibili cause principali.
 
@@ -117,7 +117,7 @@ Questo messaggio di errore contiene metriche che consentono di trovare la causa 
 
    Per altre informazioni, vedere Utilizzo elevato [di memoria nel server Redis](cache-troubleshoot-server.md#memory-pressure-on-redis-server).
 
-## <a name="additional-information"></a>Altre informazioni
+## <a name="additional-information"></a>Informazioni aggiuntive
 
 - [Risolvere i problemi relativi al lato client di cache di Azure per Redis](cache-troubleshoot-client.md)
 - [Risolvere i problemi del lato server di cache di Azure per Redis](cache-troubleshoot-server.md)

@@ -14,10 +14,10 @@ ms.custom:
 - mqtt
 - devx-track-js
 ms.openlocfilehash: 58891bdb4601744129c97454f43202d3ba07b709
-ms.sourcegitcommit: 48cb2b7d4022a85175309cf3573e72c4e67288f5
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/08/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96852558"
 ---
 # <a name="create-an-advanced-device-model"></a>Creare un modello di dispositivo avanzato
@@ -30,11 +30,11 @@ Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://a
 
 Per seguire i passaggi di questa guida pratica, è necessaria un'istanza distribuita di Simulazione dispositivi nella sottoscrizione di Azure.
 
-Se la simulazione del dispositivo non è stata ancora distribuita, vedere la pagina relativa alla [distribuzione della simulazione del dispositivo](https://github.com/Azure/device-simulation-dotnet/blob/master/README.md) in
+Se Simulazione dispositivi non è stato ancora distribuito, vedere [Distribuzione di Simulazione dispositivi](https://github.com/Azure/device-simulation-dotnet/blob/master/README.md) su GitHub.
 
 ### <a name="open-device-simulation"></a>Aprire Simulazione dispositivi
 
-Se la simulazione del dispositivo non è stata ancora distribuita, vedere la pagina relativa alla [distribuzione della simulazione del dispositivo](https://github.com/Azure/device-simulation-dotnet/blob/master/README.md) in
+Se Simulazione dispositivi non è stato ancora distribuito, vedere [Distribuzione di Simulazione dispositivi](https://github.com/Azure/device-simulation-dotnet/blob/master/README.md) su GitHub.
 
 ## <a name="device-models"></a>Modelli di dispositivo
 

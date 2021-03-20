@@ -4,10 +4,10 @@ description: Viene descritto come bilanciare il carico delle partizioni tra più
 ms.topic: conceptual
 ms.date: 06/23/2020
 ms.openlocfilehash: af307058d0eda6b96c0811bccc245c09e2bdd27d
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/21/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "95025045"
 ---
 # <a name="balance-partition-load-across-multiple-instances-of-your-application"></a>Bilanciare il carico delle partizioni tra più istanze dell'applicazione

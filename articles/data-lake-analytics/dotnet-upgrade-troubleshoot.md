@@ -6,10 +6,10 @@ ms.service: data-lake-analytics
 ms.topic: troubleshooting
 ms.date: 10/11/2019
 ms.openlocfilehash: ab03ea8a88187289f5dce55f8a396a9d51346a3f
-ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/20/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92217678"
 ---
 # <a name="azure-data-lake-analytics-is-upgrading-to-the-net-framework-v472"></a>Azure Data Lake Analytics viene eseguito l'aggiornamento al .NET Framework v 4.7.2
@@ -61,7 +61,7 @@ Le incompatibilità con le versioni precedenti più comuni che il controllo è i
   - Azione consigliata: assicurarsi che TaskFactory. FromAsync restituisca true correttamente
 
 - DataObject.GetData ora recupera i dati come UTF-8
-  - Per le app destinate a .NET Framework 4 o che vengono eseguite in .NET Framework 4.5.1 o versioni precedenti, DataObject.GetData recupera dati in formato HTML sotto forma di stringa ASCII. Di conseguenza, i caratteri non ASCII (i caratteri i cui codici ASCII sono maggiori di 0x7F) sono rappresentati da due caratteri casuali. #N # #N # per le app destinate a .NET Framework 4,5 o versioni successive ed eseguite sul .NET Framework 4.5.2, `DataObject.GetData` Recupera i dati in formato HTML come UTF-8, che rappresenta i caratteri maggiori di 0x7F correttamente.
+  - Per le app destinate a .NET Framework 4 o che vengono eseguite in .NET Framework 4.5.1 o versioni precedenti, DataObject.GetData recupera dati in formato HTML sotto forma di stringa ASCII. Di conseguenza, i caratteri non ASCII (i caratteri i cui codici ASCII sono maggiori di 0x7F) sono rappresentati da due caratteri casuali. #N # #N#For app destinate a .NET Framework 4,5 o versioni successive ed eseguite sul .NET Framework 4.5.2, `DataObject.GetData` Recupera i dati in formato HTML come UTF-8, che rappresenta i caratteri maggiori di 0x7F correttamente.
   - Librerie interessate: Glo
   - Azione consigliata: assicurarsi che i dati recuperati siano il formato desiderato
 

@@ -9,10 +9,10 @@ ms.author: gachandw
 ms.reviewer: mimckitt
 ms.custom: ''
 ms.openlocfilehash: 10e42e502a1f435d06d52d22d5c1e1924a46e575
-ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/23/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98744555"
 ---
 # <a name="azure-cloud-services-extended-support-definition-loadbalancerprobe-schema"></a>Schema LoadBalancerProbe di definizione di servizi cloud di Azure (supporto esteso)
@@ -64,5 +64,5 @@ La tabella seguente descrive gli attributi dell'elemento `LoadBalancerProbe`:
 | `intervalInSeconds` | `integer` | facoltativo. Intervallo, in secondi, per la frequenza con cui controllare lo stato di integrità dell'endpoint. L'intervallo è in genere leggermente inferiore alla metà del periodo di timeout allocato (in secondi) il che consente due probe completi prima di escludere l'istanza dalla rotazione.<br /><br /> Il valore predefinito è 15, il valore minimo è 5.|
 | `timeoutInSeconds`  | `integer` | facoltativo. Periodo di timeout, in secondi, applicato al probe, entro il quale nessuna risposta interromperà l'invio di altro traffico all'endpoint. Questo valore consente agli endpoint di essere esclusi dalla rotazione in tempi più rapidi o più brevi di quelli abitualmente usati in Azure (valori predefiniti).<br /><br /> Il valore predefinito è 31, il valore minimo è 11.|
 
-## <a name="see-also"></a>Vedere anche
+## <a name="see-also"></a>Vedi anche
 [Schema di definizione del servizio cloud (supporto esteso)](schema-csdef-file.md).

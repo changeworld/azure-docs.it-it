@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 95c589289d77597be2550673944c8fa21902e0fb
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93098468"
 ---
 # <a name="azure-active-directory-identity-protection---security-overview"></a>Azure Active Directory Identity Protection - Panoramica della sicurezza
@@ -45,7 +45,7 @@ Questo grafico mostra il numero dei nuovi accessi a rischio rilevati nel periodo
 
 Il riquadro "Utenti ad alto rischio", mostra il numero più recente di utenti con elevata probabilità di identità compromessa. Questi ultimi dovrebbero rappresentare una priorità per l'analisi. Facendo clic sul riquadro "Utenti ad alto rischio" si viene reindirizzati a una vista filtrata del report "Utenti a rischio" che mostra solo gli utenti con un alto livello di rischio. Usando questo report, è possibile acquisire altre informazioni e salvaguardare questi utenti tramite la reimpostazione della password.
 
-:::image type="content" source="./media/concept-identity-protection-security-overview/02.png" alt-text="Screenshot della panoramica della sicurezza del portale di Azure. I grafici a barre mostrano il numero di rischi nel tempo. I riquadri riepilogano le informazioni sugli utenti e gli accessi." border="false":::
+:::image type="content" source="./media/concept-identity-protection-security-overview/02.png" alt-text="Screenshot della panoramica della sicurezza portale di Azure, con riquadri visibili per gli utenti ad alto rischio e medio rischio e altri fattori di rischio." border="false":::
 
 ### <a name="medium-risk-users"></a>Utenti a medio rischio
 Il riquadro "Utenti a medio rischio", mostra il numero più recente di utenti con media probabilità di identità compromessa. Facendo clic sul riquadro "Utenti a medio rischio" si viene reindirizzati a una vista filtrata del report "Utenti a rischio" che mostra solo gli utenti con un livello di rischio medio. Usando questo report, è possibile effettuare un'ulteriore analisi e salvaguardare questi utenti.

@@ -4,10 +4,10 @@ description: Informazioni su come configurare i Lab per insegnare a Project Lead
 ms.topic: article
 ms.date: 10/28/2020
 ms.openlocfilehash: ca4fdae2372895c17c4a98dd3959935108846744
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/21/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "95024620"
 ---
 # <a name="set-up-labs-for-project-lead-the-way-classes"></a>Configurare i Lab per il lead del progetto come le classi
@@ -76,7 +76,7 @@ Le dimensioni della macchina virtuale (VM) che si consiglia di usare per le clas
 | Impostazione Lab | Valore e descrizione | Raccomandazione della classe |
 | ------------ | ------------------ | --- |
 | Dimensioni della macchina virtuale | **GPU small (visualizzazione)**<br>Ideale per visualizzazione remota, streaming, giochi e codifica con Framework come OpenGL e DirectX. | È consigliabile usare questa dimensione per le classi PLTW seguenti: ingegneria civile e architettura, elettronica digitale, produzione integrata del computer e progettazione e sviluppo di ingegneria.
-| Dimensioni della macchina virtuale | **large**<br>Ideale per le applicazioni che richiedono CPU più veloci, prestazioni migliori del disco locale, database di grandi dimensioni e cache di memoria di grandi dimensioni. | È consigliabile usare questa dimensione per le classi PLTW seguenti: Introduzione alla progettazione ingegneristica, principi di progettazione, informatica Essentials, principi di informatica e informatica A. |
+| Dimensioni della macchina virtuale | **Grande**<br>Ideale per le applicazioni che richiedono CPU più veloci, prestazioni migliori del disco locale, database di grandi dimensioni e cache di memoria di grandi dimensioni. | È consigliabile usare questa dimensione per le classi PLTW seguenti: Introduzione alla progettazione ingegneristica, principi di progettazione, informatica Essentials, principi di informatica e informatica A. |
 
 <br>
 
@@ -130,7 +130,7 @@ Gli studenti possono connettersi alle macchine virtuali del Lab da computer Wind
 - [Connetti da Mac](./connect-virtual-machine-mac-remote-desktop.md)
 - [Connetti da Chromebook](./connect-virtual-machine-chromebook-remote-desktop.md)
 
-## <a name="cost"></a>Cost
+## <a name="cost"></a>Costo
 Viene ora trattata una stima dei costi di esempio per le classi PLTW.  Questa stima non include il costo per l'esecuzione di un server licenze o l'uso di una raccolta di immagini condivise. Si supponga di disporre di una classe di 25 studenti, ognuno dei quali ha 20 ore di tempo di classe pianificato.  Ogni studente ha anche 10 ore di quota aggiuntive per il lavoro o le assegnazioni al di fuori dell'ora di classe pianificata.  Ecco i costi stimati:
 
 - **VM di grandi dimensioni**

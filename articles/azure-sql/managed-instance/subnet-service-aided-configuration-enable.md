@@ -11,10 +11,10 @@ author: srdan-bozovic-msft
 ms.author: srbozovi
 ms.date: 03/12/2020
 ms.openlocfilehash: 67b398194d9094cd99fccaa85ed0df3be362ce2b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91618014"
 ---
 # <a name="enabling-service-aided-subnet-configuration-for-azure-sql-managed-instance"></a>Abilitazione della configurazione della subnet assistita da servizi per Istanza gestita SQL di Azure
@@ -22,7 +22,7 @@ ms.locfileid: "91618014"
 
 La configurazione della subnet assistita da servizi consente la gestione automatica della configurazione di rete per le subnet che ospitano istanze gestite. Con la configurazione della subnet assistita da servizi, l'utente mantiene il controllo completo dell'accesso ai dati (flussi del traffico TDS) mentre l'istanza gestita si assume la responsabilità di garantire un flusso ininterrotto del traffico di gestione per poter soddisfare il contratto di servizio.
 
-I gruppi di sicurezza di rete e le regole della tabella di route configurate automaticamente sono visibili al cliente e annotate con il prefisso _Microsoft. SQL-managedInstances_UseOnly__.
+I gruppi di sicurezza di rete e le regole della tabella di route configurate automaticamente sono visibili al cliente e annotate con il prefisso _Microsoft. SQL-managedInstances_UseOnly_ _.
 
 La configurazione assistita da servizi viene abilitata automaticamente dopo l'attivazione della [delega della subnet](../../virtual-network/subnet-delegation-overview.md) per il `Microsoft.Sql/managedInstances` provider di risorse.
 

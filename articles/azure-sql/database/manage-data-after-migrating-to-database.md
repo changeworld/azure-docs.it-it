@@ -13,10 +13,10 @@ ms.author: josack
 ms.reviewer: sstein
 ms.date: 02/13/2019
 ms.openlocfilehash: b34ac24cb26bf5db4a49a5ad5b531deb252f4695
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/01/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96446116"
 ---
 # <a name="new-dba-in-the-cloud--managing-azure-sql-database-after-migration"></a>Nuovo DBA nel cloud: gestione del database SQL di Azure dopo la migrazione
@@ -199,7 +199,7 @@ In TDE è presente una gerarchia a due chiavi. I dati in ogni database utente ve
 
 Per impostazione predefinita, la chiave master per Transparent Data Encryption viene gestita dal servizio di database SQL per praticità. Se l'organizzazione vuole controllare la chiave master, è disponibile un'opzione per usare Azure Key Vault] (always-Encrypted-Azure-Key-Vault-configure.md) come archivio chiavi. Con Azure Key Vault l'organizzazione assume il controllo sul provisioning delle chiavi, sulla rotazione e sulle autorizzazioni. [La rotazione o il cambio del tipo di una chiave master TDE](/sql/relational-databases/security/encryption/transparent-data-encryption-byok-azure-sql-key-rotation) è un processo rapido, poiché ripete solo la crittografia della chiave di crittografia del database. Per le organizzazioni con distinzione dei ruoli tra sicurezza e gestione dei dati, un amministratore della sicurezza può effettuare il provisioning del materiale per la chiave master di TDE in Azure Key Vault e fornire un identificatore di chiave di Azure Key Vault all'amministratore del database da usare per la crittografia dei dati inattivi in un server. Key Vault è progettato in modo che Microsoft non possa vedere o estrarre le chiavi di crittografia. Si consegue anche una gestione centralizzata delle chiavi per l'organizzazione.
 
-#### <a name="always-encrypted"></a>Always Encrypted
+#### <a name="always-encrypted"></a>Crittografia sempre attiva
 
 In Always Encrypted è presente anche una [gerarchia a due chiavi](/sql/relational-databases/security/encryption/overview-of-key-management-for-always-encrypted). Una colonna di dati sensibili viene crittografata con una chiave di crittografia di colonna AES 256, che a sua volta viene crittografata da una chiave master di colonna. I driver del client forniti per Always Encrypted non presentano limitazioni di lunghezza per le chiavi master di colonna. Il valore crittografato della chiave di crittografia di colonna viene archiviato nel database e quello della chiave master di colonna in un archivio di chiavi attendibile, ad esempio l'archivio certificati di Windows, Azure Key Vault e i moduli di protezione hardware locali.
 
@@ -303,7 +303,7 @@ Il database SQL offre vari livelli di servizio: Basic, Standard e Premium. Per o
 
 |**Livello di servizio**|**Scenari di casi di utilizzo comuni**|
 |---|---|
-|**Basic**|Applicazioni con alcuni utenti e un database senza requisiti elevati di concorrenza, scalabilità e prestazioni. |
+|**Base**|Applicazioni con alcuni utenti e un database senza requisiti elevati di concorrenza, scalabilità e prestazioni. |
 |**Standard**|Applicazioni con requisiti elevati di concorrenza, scalabilità e prestazioni abbinati a richieste I/O medie o ridotte. |
 |**Premium**|Applicazioni con numerosi utenti simultanei ed elevate richieste di CPU/memoria e I/O. Le app sensibili alla latenza con concorrenza e velocità effettiva elevate possono sfruttare il livello Premium. |
 |||

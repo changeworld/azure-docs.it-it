@@ -8,10 +8,10 @@ ms.topic: troubleshooting
 ms.date: 07/15/2020
 ms.author: chrande
 ms.openlocfilehash: de39aee73a6f4b422af4524d3302f8858f8b060b
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/03/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "101692233"
 ---
 # <a name="troubleshoot-common-issues-in-azure-cosmos-dbs-api-for-mongodb"></a>Risolvere i problemi comuni nell'API Azure Cosmos DB per MongoDB
@@ -27,14 +27,14 @@ L'articolo seguente descrive gli errori comuni e le soluzioni per le distribuzio
 | Codice       | Errore                | Descrizione  | Soluzione  |
 |------------|----------------------|--------------|-----------|
 | 2 | BadValue | Una causa comune è che il percorso dell'indice corrispondente all'elemento Ordina per specificato è escluso oppure la query Ordina per non dispone di un indice composto corrispondente da cui può essere servita. La query richiede un ordinamento in un campo non indicizzato. | Creare un indice corrispondente o un indice composto per la query di ordinamento tentata. |
-| 2 | Transazione non attiva | La transazione a più documenti superava il limite di 5 secondi fisso. | Ritentare la transazione con più documenti o limitare l'ambito delle operazioni all'interno della transazione a più documenti per completare il processo entro il limite di 5 secondi. |
+| 2 | Transazione non attiva | La transazione con documenti multipli superava il limite fissato di 5 secondi. | Ritentare la transazione con documenti multipli o limitare l'ambito delle operazioni all'interno della transazione stessa per completare il processo entro il limite di 5 secondi. |
 | 13 | Non autorizzata | La richiesta non dispone delle autorizzazioni necessarie per il completamento. | Assicurarsi di usare le chiavi corrette.  |
 | 26 | NamespaceNotFound | Non è possibile trovare il database o la raccolta a cui si fa riferimento nella query. | Verificare che il nome del database o della raccolta corrisponda esattamente al nome nella query.|
 | 50 | ExceededTimeLimit | L'esecuzione della richiesta ha superato il timeout di 60 secondi. |  Le cause dell'errore possono essere molteplici. Una delle cause è che la capacità attualmente allocata per le unità richiesta non è sufficiente per completare la richiesta. Questo problema può essere risolto aumentando le unità richiesta di tale raccolta o database. In altri casi, l'errore può essere risolto suddividendo una richiesta di grandi dimensioni in richieste più piccole. La ripetizione del tentativo di esecuzione di un'operazione di scrittura che ha ricevuto questo errore può causare un'operazione di scrittura duplicata. <br><br>Se si sta tentando di eliminare grandi quantità di dati senza conseguenze sulle UR: <br>- Considerare l'uso di TTL (in base al timestamp): [Impostare la scadenza dei dati con l'API di Azure Cosmos DB per MongoDB](mongodb-time-to-live.md) <br>- Usare il cursore/le dimensioni del batch per eseguire l'eliminazione. È possibile recuperare un singolo documento alla volta ed eliminarlo tramite un ciclo. Questo consente di eliminare lentamente i dati senza influire sull'applicazione di produzione.|
 | 61 | ShardKeyNotFound | Il documento nella richiesta non contiene la chiave di partizione della raccolta, ovvero la chiave di partizione di Azure Cosmos DB. | Verificare che la chiave di partizione della raccolta sia usata nella richiesta.|
 | 66 | ImmutableField | La richiesta sta provando a modificare un campo non modificabile | i campi "_id" non sono modificabili. Assicurarsi che la richiesta non tenti di aggiornare quel campo o il campo della chiave di partizione. |
 | 67 | CannotCreateIndex | Non è possibile completare la richiesta di creazione di un indice. | In un contenitore è possibile creare fino a 500 indici di campo singolo. In un indice composto è possibile includere fino a otto campi. Gli indici composti sono supportati nella versione 3.6 e nelle versioni successive. |
-| 112 | WriteConflict | Transazione a più documenti non riuscita a causa di una transazione multidocumento in conflitto | Ripetere la transazione a più documenti fino a quando non avrà esito positivo. |
+| 112 | WriteConflict | La transazione con documenti multipli non è riuscita a causa di una transazione con documenti multipli in conflitto | Ripetere la transazione con documenti multipli fino a quando non avrà esito positivo. |
 | 115 | CommandNotSupported | La richiesta tentata non è supportata. | Nell'errore è necessario specificare altri dettagli. Se questa funzionalità è importante per le distribuzioni, creare un ticket di supporto nella [portale di Azure](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) e il team di Azure Cosmos DB tornerà all'utente. |
 | 11000 | DuplicateKey | La chiave di partizione, ovvero la chiave di partizione di Azure Cosmos DB, del documento che si sta inserendo esiste già nella raccolta oppure è stato violato un vincolo di campo dell'indice univoco. | Utilizzare la funzione update() per aggiornare un documento esistente. Se il vincolo di campo dell'indice univoco è stato violato, inserire o aggiornare il documento con un valore di campo che non esiste ancora nella partizione. Un'altra opzione consiste nell'usare un campo contenente una combinazione dei campi dell'ID e della chiave di partizione. |
 | 16500 | TooManyRequests  | Il numero totale di unità richiesta utilizzate è maggiore del livello di unità richiesta di cui è stato effettuato il provisioning per la raccolta ed è stata applicata la limitazione. | Valutare la possibilità di dimensionare la velocità effettiva assegnata a un contenitore o a un set di contenitori dal portale di Azure oppure riprovare. Se si abilita il nuovo tentativo lato server, Azure Cosmos DB ritenta automaticamente le richieste non riuscite a causa di questo errore. |
