@@ -14,10 +14,10 @@ ms.reviewer: beengen
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 5ffa937f91af7078b28331a655f99397d3821def
-ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/03/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96545894"
 ---
 # <a name="integrate-linkedin-account-connections-in-azure-active-directory"></a>Integrare le connessioni dell'account LinkedIn in Azure Active Directory
@@ -72,7 +72,7 @@ ms.locfileid: "96545894"
 1. Accedere Microsoft 365 con l'account amministratore.
 1. Avviare PowerShell.
 1. Installare il modulo Azure AD eseguendo `Install-Module AzureAD`
-1. Eseguire lo script seguente:
+1. Eseguire lo script riportato di seguito:
 
   ``` PowerShell
   $groupId = "GUID of the target group"
@@ -96,7 +96,7 @@ Per usare il gruppo dal passaggio 2 come gruppo selezionato nell'impostazione de
   
    State | Effetto
    ------ | ------
-   **Abilitato** | L'impostazione **Visualizza funzionalità di LinkedIn nelle applicazioni di Office** è abilitata nelle Opzioni di Office 2016. Gli utenti dell'organizzazione possono usare le funzionalità di LinkedIn nelle applicazioni Office 2016.
+   **Enabled** | L'impostazione **Visualizza funzionalità di LinkedIn nelle applicazioni di Office** è abilitata nelle Opzioni di Office 2016. Gli utenti dell'organizzazione possono usare le funzionalità di LinkedIn nelle applicazioni Office 2016.
    **Disabilitato** | L'impostazione **Visualizza funzionalità di LinkedIn nelle applicazioni di Office** è disabilitata nelle Opzioni di Office 2016 e gli utenti finali non possono modificare questa impostazione. Gli utenti dell'organizzazione non possono usare le funzionalità di LinkedIn nelle applicazioni di Office 2016.
 
 Questi Criteri di gruppo influiscono solo sulle app di Office 2016 per il computer locale. Se gli utenti disabilitano LinkedIn nelle app di Office 2016, possono comunque visualizzare le funzionalità di LinkedIn in Microsoft 365.

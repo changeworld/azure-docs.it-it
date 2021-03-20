@@ -7,10 +7,10 @@ author: keferna
 ms.author: keferna
 ms.date: 10/09/2020
 ms.openlocfilehash: 2b1ba0779649c4955987c7dae9802cefaba89b79
-ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/11/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97109343"
 ---
 # <a name="find-tenant-id-object-id-and-partner-association-details"></a>Trovare l'ID tenant, l'ID oggetto e i dettagli dell'associazione partner
@@ -29,7 +29,7 @@ Se è necessario ottenere screenshot di questi elementi in Azure Cloud Shell da 
 
     :::image type="content" source="media/tenant-and-object-id/icon-azure-ad.png" alt-text="Icona Azure Active Directory in portale di Azure.":::
 
-3. Selezionare **Panoramica**. L'ID tenant dovrebbe essere visualizzato in **informazioni di base**.
+3. Selezionare la scheda di **informazioni generali**. L'ID tenant dovrebbe essere visualizzato in **informazioni di base**.
 
     :::image type="content" source="media/tenant-and-object-id/select-groups-1.png" alt-text="Selezionare i gruppi in portale di Azure.":::
 

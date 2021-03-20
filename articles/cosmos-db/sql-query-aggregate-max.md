@@ -9,10 +9,10 @@ ms.date: 12/02/2020
 ms.author: tisande
 ms.custom: query-reference
 ms.openlocfilehash: a3d8e3f2687a492461bdbbdd761e26cdb58f9e96
-ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/03/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96552380"
 ---
 # <a name="max-azure-cosmos-db"></a>MASSIMO (Azure Cosmos DB)
@@ -35,7 +35,7 @@ MAX(<scalar_expr>)
   
 Restituisce un'espressione scalare.  
   
-## <a name="examples"></a>Esempi
+## <a name="examples"></a>Esempio
   
 Nell'esempio seguente viene restituito il valore massimo di `propertyA` :
   

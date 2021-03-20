@@ -4,10 +4,10 @@ description: Informazioni su come usare l'interfaccia della riga di comando di A
 ms.topic: conceptual
 ms.date: 01/15/2020
 ms.openlocfilehash: 5a8a785016845b836a102663a959e4b2f28696b6
-ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/12/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94566453"
 ---
 # <a name="manage-azure-file-share-backups-with-the-azure-cli"></a>Gestire i backup di condivisione file di Azure con l'interfaccia della riga di comando di Azure
@@ -17,10 +17,10 @@ L'interfaccia della riga di comando di Azure offre un'esperienza da riga di coma
 ## <a name="prerequisites"></a>Prerequisiti
 
 Questo articolo presuppone che sia già presente una condivisione file di Azure di cui è stato eseguito il [backup in backup di Azure](./backup-overview.md). Se non è presente, vedere [eseguire il backup delle condivisioni file di Azure con l'interfaccia della](backup-afs-cli.md) riga di comando per configurare il backup per le condivisioni file. Per questo articolo, è possibile usare le risorse seguenti:
-   -  **Gruppo di risorse** : *risorsa*
-   -  **Recoveryservicesvault fino** : *azurefilesvault*
-   -  **Account di archiviazione** : *afsaccount*
-   -  **Condivisione file** : *risorsa*
+   -  **Gruppo di risorse**: *risorsa*
+   -  **Recoveryservicesvault fino**: *azurefilesvault*
+   -  **Account di archiviazione**: *afsaccount*
+   -  **Condivisione file**: *risorsa*
   
   [!INCLUDE [azure-cli-prepare-your-environment-no-header.md](../../includes/azure-cli-prepare-your-environment-no-header.md)]
    - Questa esercitazione richiede la versione 2.0.18 o successiva dell'interfaccia della riga di comando di Azure. Se si usa Azure Cloud Shell, la versione più recente è già installata.
@@ -96,9 +96,9 @@ az backup job list --resource-group azurefiles --vault-name azurefilesvault
 
 Per modificare i criteri, definire i parametri seguenti:
 
-* **--Container-Name** : nome dell'account di archiviazione che ospita la condivisione file. Per recuperare il **nome** o il **nome descrittivo** del contenitore, usare il comando [AZ backup container list](/cli/azure/backup/container#az-backup-container-list) .
-* **--Name** : nome della condivisione file per cui si desidera modificare il criterio. Per recuperare il **nome** o il **nome descrittivo** dell'elemento di cui è stato eseguito il backup, usare il comando [AZ backup Item List](/cli/azure/backup/item#az-backup-item-list) .
-* **--Policy-Name** : nome del criterio di backup che si vuole impostare per la condivisione file. È possibile usare il comando [AZ backup policy list](/cli/azure/backup/policy#az-backup-policy-list) per visualizzare tutti i criteri per l'insieme di credenziali.
+* **--Container-Name**: nome dell'account di archiviazione che ospita la condivisione file. Per recuperare il **nome** o il **nome descrittivo** del contenitore, usare il comando [AZ backup container list](/cli/azure/backup/container#az-backup-container-list) .
+* **--Name**: nome della condivisione file per cui si desidera modificare il criterio. Per recuperare il **nome** o il **nome descrittivo** dell'elemento di cui è stato eseguito il backup, usare il comando [AZ backup Item List](/cli/azure/backup/item#az-backup-item-list) .
+* **--Policy-Name**: nome del criterio di backup che si vuole impostare per la condivisione file. È possibile usare il comando [AZ backup policy list](/cli/azure/backup/policy#az-backup-policy-list) per visualizzare tutti i criteri per l'insieme di credenziali.
 
 Nell'esempio seguente vengono impostati i criteri di backup di *schedule2* per la condivisione file *risorsa* presente nell'account di archiviazione *afsaccount* .
 
@@ -108,8 +108,8 @@ az backup item set-policy --policy-name schedule2 --name azurefiles --vault-name
 
 È anche possibile eseguire il comando precedente usando i nomi descrittivi per il contenitore e l'elemento fornendo i due parametri aggiuntivi seguenti:
 
-* **--Backup-Management-Type** : *AzureStorage*
-* **--tipo di carico di lavoro** : *azurefileshare*
+* **--Backup-Management-Type**: *AzureStorage*
+* **--tipo di carico di lavoro**: *azurefileshare*
 
 ```azurecli-interactive
 az backup item set-policy --policy-name schedule2 --name azurefiles --vault-name azurefilesvault --resource-group azurefiles --container-name afsaccount --name azurefiles --backup-management-type azurestorage --out table
@@ -134,8 +134,8 @@ Per interrompere la protezione di condivisioni file di Azure è possibile proced
 
 Per arrestare la protezione per la condivisione file, definire i parametri seguenti:
 
-* **--Container-Name** : nome dell'account di archiviazione che ospita la condivisione file. Per recuperare il **nome** o il **nome descrittivo** del contenitore, usare il comando [AZ backup container list](/cli/azure/backup/container#az-backup-container-list) .
-* **--Item-Name** : nome della condivisione file per cui si vuole arrestare la protezione. Per recuperare il **nome** o il **nome descrittivo** dell'elemento di cui è stato eseguito il backup, usare il comando [AZ backup Item List](/cli/azure/backup/item#az-backup-item-list) .
+* **--Container-Name**: nome dell'account di archiviazione che ospita la condivisione file. Per recuperare il **nome** o il **nome descrittivo** del contenitore, usare il comando [AZ backup container list](/cli/azure/backup/container#az-backup-container-list) .
+* **--Item-Name**: nome della condivisione file per cui si vuole arrestare la protezione. Per recuperare il **nome** o il **nome descrittivo** dell'elemento di cui è stato eseguito il backup, usare il comando [AZ backup Item List](/cli/azure/backup/item#az-backup-item-list) .
 
 ### <a name="stop-protection-and-retain-recovery-points"></a>Arrestare la protezione e mantenere i punti di ripristino
 
@@ -149,8 +149,8 @@ az backup protection disable --vault-name azurefilesvault --resource-group azure
 
 È anche possibile eseguire il comando precedente usando il nome descrittivo per il contenitore e l'elemento fornendo i due parametri aggiuntivi seguenti:
 
-* **--Backup-Management-Type** : *AzureStorage*
-* **--tipo di carico di lavoro** : *azurefileshare*
+* **--Backup-Management-Type**: *AzureStorage*
+* **--tipo di carico di lavoro**: *azurefileshare*
 
 ```azurecli-interactive
 az backup protection disable --vault-name azurefilesvault --resource-group azurefiles --container-name afsaccount --item-name azurefiles --workload-type azurefileshare --backup-management-type Azurestorage --out table
@@ -176,8 +176,8 @@ az backup protection disable --vault-name azurefilesvault --resource-group azure
 
 È anche possibile eseguire il comando precedente usando il nome descrittivo per il contenitore e l'elemento fornendo i due parametri aggiuntivi seguenti:
 
-* **--Backup-Management-Type** : *AzureStorage*
-* **--tipo di carico di lavoro** : *azurefileshare*
+* **--Backup-Management-Type**: *AzureStorage*
+* **--tipo di carico di lavoro**: *azurefileshare*
 
 ```azurecli-interactive
 az backup protection disable --vault-name azurefilesvault --resource-group azurefiles --container-name afsaccount --item-name azurefiles --workload-type azurefileshare --backup-management-type Azurestorage --delete-backup-data true --out table
@@ -189,9 +189,9 @@ Se è stata arrestata la protezione per una condivisione file di Azure ma sono s
 
 Per riprendere la protezione per la condivisione file, definire i parametri seguenti:
 
-* **--Container-Name** : nome dell'account di archiviazione che ospita la condivisione file. Per recuperare il **nome** o il **nome descrittivo** del contenitore, usare il comando [AZ backup container list](/cli/azure/backup/container#az-backup-container-list) .
-* **--Item-Name** : nome della condivisione file per cui si desidera riprendere la protezione. Per recuperare il **nome** o il **nome descrittivo** dell'elemento di cui è stato eseguito il backup, usare il comando [AZ backup Item List](/cli/azure/backup/item#az-backup-item-list) .
-* **--Policy-Name** : nome del criterio di backup per il quale si vuole riprendere la protezione per la condivisione file.
+* **--Container-Name**: nome dell'account di archiviazione che ospita la condivisione file. Per recuperare il **nome** o il **nome descrittivo** del contenitore, usare il comando [AZ backup container list](/cli/azure/backup/container#az-backup-container-list) .
+* **--Item-Name**: nome della condivisione file per cui si desidera riprendere la protezione. Per recuperare il **nome** o il **nome descrittivo** dell'elemento di cui è stato eseguito il backup, usare il comando [AZ backup Item List](/cli/azure/backup/item#az-backup-item-list) .
+* **--Policy-Name**: nome del criterio di backup per il quale si vuole riprendere la protezione per la condivisione file.
 
 L'esempio seguente usa il cmdlet [AZ backup Protection Resume](/cli/azure/backup/protection#az-backup-protection-resume) per riprendere la protezione per la condivisione file *risorsa* usando i criteri di backup di *schedule1* .
 
@@ -201,8 +201,8 @@ az backup protection resume --vault-name azurefilesvault --resource-group azuref
 
 È anche possibile eseguire il comando precedente usando il nome descrittivo per il contenitore e l'elemento fornendo i due parametri aggiuntivi seguenti:
 
-* **--Backup-Management-Type** : *AzureStorage*
-* **--tipo di carico di lavoro** : *azurefileshare*
+* **--Backup-Management-Type**: *AzureStorage*
+* **--tipo di carico di lavoro**: *azurefileshare*
 
 ```azurecli-interactive
 az backup protection resume --vault-name azurefilesvault --resource-group azurefiles --container-name afsaccount --item-name azurefiles --workload-type azurefileshare --backup-management-type Azurestorage --policy-name schedule2 --out table
@@ -230,7 +230,7 @@ az backup container unregister --vault-name azurefilesvault --resource-group azu
 
 È anche possibile eseguire il cmdlet precedente usando il nome descrittivo per il contenitore, specificando il parametro aggiuntivo seguente:
 
-* **--Backup-Management-Type** : *AzureStorage*
+* **--Backup-Management-Type**: *AzureStorage*
 
 ```azurecli-interactive
 az backup container unregister --vault-name azurefilesvault --resource-group azurefiles --container-name afsaccount --backup-management-type azurestorage --out table

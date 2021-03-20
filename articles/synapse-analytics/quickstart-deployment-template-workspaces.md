@@ -9,10 +9,10 @@ ms.custom: subject-armqs
 ms.author: jrasnick
 ms.date: 08/07/2020
 ms.openlocfilehash: 2b05220081dde4db6f07f21fb9978d9e466235ca
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
-ms.translationtype: HT
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/27/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92740376"
 ---
 # <a name="quickstart-create-an-azure-synapse-workspace-using-an-arm-template"></a>Avvio rapido: Creare un'area di lavoro di Azure Synapse con un modello di Resource Manager
@@ -49,14 +49,14 @@ Il modello definisce due risorse:
 1. Immettere o aggiornare i valori seguenti:
 
    - **Sottoscrizione** Selezionare una sottoscrizione di Azure.
-   - **Gruppo di risorse** : selezionare **Crea nuovo** , immettere un nome univoco per il gruppo di risorse e selezionare **OK**. Un nuovo gruppo di risorse faciliterà la pulizia delle risorse.
-   - **Area** : Scegliere un'area,  Ad esempio **Stati Uniti centrali**.
-   - **Name** : immettere un nome per l'area di lavoro.
-   - **Account di accesso amministratore SQL** : immettere il nome utente dell'amministratore di SQL Server.
-   - **Password amministratore SQL** : immettere la password dell'amministratore per SQL Server.
-   - **Valori dei tag** : Accettare il valore predefinito.
-   - **Rivedi e crea** : selezionare questa casella.
-   - **Creazione** : selezionare questa casella.
+   - **Gruppo di risorse**: selezionare **Crea nuovo**, immettere un nome univoco per il gruppo di risorse e selezionare **OK**. Un nuovo gruppo di risorse faciliterà la pulizia delle risorse.
+   - **Area**: Scegliere un'area,  Ad esempio **Stati Uniti centrali**.
+   - **Name**: immettere un nome per l'area di lavoro.
+   - **Account di accesso amministratore SQL**: immettere il nome utente dell'amministratore di SQL Server.
+   - **Password amministratore SQL**: immettere la password dell'amministratore per SQL Server.
+   - **Valori dei tag**: Accettare il valore predefinito.
+   - **Rivedi e crea**: selezionare questa casella.
+   - **Creazione**: selezionare questa casella.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

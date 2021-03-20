@@ -7,10 +7,10 @@ ms.reviewer: logicappspm
 ms.topic: conceptual
 ms.date: 04/06/2020
 ms.openlocfilehash: aca2c51ff14b99ba41b159cf32e59dc861de7a53
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "87826212"
 ---
 # <a name="move-logic-app-resources-to-other-azure-resource-groups-regions-or-subscriptions"></a>Spostare le risorse dell'app per la logica in altri gruppi di risorse, aree o sottoscrizioni di Azure
@@ -102,9 +102,9 @@ Il modello ottenuto da Visual Studio include solo le definizioni delle risorse p
 
 1. Nella [portale di Azure](https://portal.azure.com)individuare e aprire l'account di integrazione.
 
-1. Nel menu dell'account di integrazione in **Impostazioni**selezionare **Esporta modello**.
+1. Nel menu dell'account di integrazione in **Impostazioni** selezionare **Esporta modello**.
 
-1. Sulla barra degli strumenti selezionare **Scarica**e salvare il modello.
+1. Sulla barra degli strumenti selezionare **Scarica** e salvare il modello.
 
 1. Aprire e modificare il modello per parametrizzare i valori necessari per la distribuzione.
 

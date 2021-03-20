@@ -16,10 +16,10 @@ ms.reviewer: sumitp
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 72a28aebe71809f3e47f9cc6936366cd027a32bb
-ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/03/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96546676"
 ---
 # <a name="scenarios-limitations-and-known-issues-using-groups-to-manage-licensing-in-azure-active-directory"></a>Scenari, limitazioni e problemi noti relativi all'uso dei gruppi per gestire le licenze in Azure Active Directory
@@ -28,7 +28,7 @@ Usare le informazioni e gli esempi seguenti per comprendere le licenze basate su
 
 ## <a name="usage-location"></a>Località di utilizzo
 
-Alcuni servizi Microsoft non sono disponibili in tutte le posizioni. Per poter assegnare una licenza a un utente, l'amministratore deve prima specificare la proprietà **Località di utilizzo** per l'utente. Nella [portale di Azure](https://portal.azure.com)è possibile specificare la posizione di utilizzo nelle **User** &gt; **Profile** &gt; **Impostazioni** del profilo utente.
+Alcuni servizi Microsoft non sono disponibili in tutte le posizioni. Per poter assegnare una licenza a un utente, l'amministratore deve prima specificare la proprietà **Località di utilizzo** per l'utente. Nella [portale di Azure](https://portal.azure.com)è possibile specificare la posizione di utilizzo nelle  &gt;  &gt; **Impostazioni** del profilo utente.
 
 Per l'assegnazione di licenze ai gruppi, eventuali utenti per cui non è specificata una località d'uso ereditano la località della directory. Se gli utenti sono in più posizioni, assicurarsi di rifletterlo correttamente nelle risorse utente prima di aggiungere utenti ai gruppi con licenze.
 

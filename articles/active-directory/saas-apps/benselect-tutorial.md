@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 10/21/2019
 ms.author: jeedes
 ms.openlocfilehash: 714e293220317e46113c4ffdda2e207da62be6c1
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
-ms.translationtype: HT
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/23/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92457249"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-benselect"></a>Esercitazione: Integrazione dell'accesso Single Sign-On (SSO) di Azure Active Directory con BenSelect
@@ -64,7 +64,7 @@ Configurare e testare l'accesso SSO di Azure AD con BenSelect usando un utente d
 Per configurare e testare l'accesso SSO di Azure AD con BenSelect, completare le procedure di base seguenti:
 
 1. **[Configurare l'accesso Single Sign-On di Azure AD](#configure-azure-ad-sso)** : per consentire agli utenti di usare questa funzionalità.
-    1. **[Creare un utente di test di Azure AD](#create-an-azure-ad-test-user)** : per testare l'accesso Single Sign-On di Azure AD con l'utente B. Simon.
+    1. **[Creare un utente di test di Azure AD](#create-an-azure-ad-test-user)** : per testare l'accesso Single Sign-On di Azure AD con l'utente B.Simon.
     1. **[Assegnare l'utente di test di Azure AD](#assign-the-azure-ad-test-user)** : per abilitare B. Simon all'uso dell'accesso Single Sign-On di Azure AD.
 1. **[Configurare l'accesso Single Sign-On di BenSelect](#configure-benselect-sso)** : per configurare le impostazioni di Single Sign-On sul lato applicazione.
     1. **[Creare un utente di test di BenSelect](#create-benselect-test-user)** : per avere una controparte di B.Simon in BenSelect collegata alla rappresentazione dell'utente in Azure AD.
@@ -101,7 +101,7 @@ Per abilitare l'accesso Single Sign-On di Azure AD nel portale di Azure, seguire
 
     a. Selezionare **Trasformazione** come **Origine**.
 
-    b. Nell'elenco a discesa **Trasformazione** , selezionare **ExtractMailPrefix()** .
+    b. Nell'elenco a discesa **Trasformazione**, selezionare **ExtractMailPrefix()** .
 
     c. Nell'elenco a discesa **Parametro 1** selezionare **user.userprincipalname**.
 
@@ -119,7 +119,7 @@ Per abilitare l'accesso Single Sign-On di Azure AD nel portale di Azure, seguire
 
 In questa sezione verrà creato un utente di test di nome B.Simon nel portale di Azure.
 
-1. Nel riquadro sinistro del portale di Azure selezionare **Azure Active Directory** , **Utenti** e quindi **Tutti gli utenti**.
+1. Nel riquadro sinistro del portale di Azure selezionare **Azure Active Directory**, **Utenti** e quindi **Tutti gli utenti**.
 1. Selezionare **Nuovo utente** in alto nella schermata.
 1. In **Proprietà utente** seguire questa procedura:
    1. Nel campo **Nome** immettere `B.Simon`.  
@@ -147,7 +147,7 @@ In questa sezione si abiliterà B.Simon all'uso dell'accesso Single Sign-On di A
 
 ## <a name="configure-benselect-sso"></a>Configurare l'accesso SSO di BenSelect
 
-Per configurare l'accesso Single Sign-On sul lato **BenSelect** , è necessario inviare il file **Certificato (base)** scaricato e gli URL appropriati, copiati dal portale di Azure, al [team di supporto di BenSelect](mailto:support@selerix.com). La configurazione viene eseguita in modo che la connessione SSO SAML sia impostata correttamente su entrambi i lati.
+Per configurare l'accesso Single Sign-On sul lato **BenSelect**, è necessario inviare il file **Certificato (base)** scaricato e gli URL appropriati, copiati dal portale di Azure, al [team di supporto di BenSelect](mailto:support@selerix.com). La configurazione viene eseguita in modo che la connessione SSO SAML sia impostata correttamente su entrambi i lati.
 
 > [!NOTE]
 > È necessario specificare che questa integrazione richiede l'algoritmo SHA256 perché sia possibile impostare SSO sul server corretto, ad esempio app2101 e così via. L'algoritmo SHA1 non è supportato.

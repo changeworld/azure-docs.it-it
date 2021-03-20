@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 03/27/2017
 ms.author: alkohli
 ms.openlocfilehash: 7b4b697b3d27b57212fc59396e1f8111e297d6cf
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "85514943"
 ---
 # <a name="use-the-service-summary-blade-for-storsimple-8000-series-device"></a>Usare il pannello di riepilogo del servizio per dispositivi StorSimple serie 8000
@@ -39,11 +39,11 @@ Nel pannello di riepilogo del servizio StorSimple vengono visualizzate le opzion
 Usare queste opzioni per eseguire diverse operazioni, ad esempio aggiungere volumi o condivisioni, oppure monitorare i vari processi in esecuzione nei dispositivi StorSimple.
 
 
-## <a name="essentials"></a>Informazioni di base
+## <a name="essentials"></a>Essentials
 
 L'area relativa alle informazioni di base riporta alcune proprietà importanti, ad esempio il gruppo di risorse, il percorso e la sottoscrizione in cui è stato creato il servizio Gestione dispositivi StorSimple.
 
-![Informazioni di base](./media/storsimple-8000-service-dashboard/service-summary3.png)
+![Essentials](./media/storsimple-8000-service-dashboard/service-summary3.png)
 
 ## <a name="storsimple-device-manager-service-summary"></a>Riepilogo servizio di Gestione dispositivi StorSimple
 

@@ -15,10 +15,10 @@ ms.author: mathoma
 ms.reviewer: jroth
 ms.custom: seo-lt-2019
 ms.openlocfilehash: b6ea6f947b2cd8d7d9c38a0e5e440ce5fd273bb7
-ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/12/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97358827"
 ---
 # <a name="in-place-change-of-sql-server-edition-on-azure-vm"></a>Modifica sul posto dell'edizione di SQL Server in una macchina virtuale di Azure
@@ -100,6 +100,6 @@ Dopo aver modificato l'edizione di SQL Server usando il supporto di installazion
 Per altre informazioni, vedere gli articoli seguenti: 
 
 * [Panoramica di SQL Server in una macchina virtuale Windows](sql-server-on-azure-vm-iaas-what-is-overview.md)
-* [Domande frequenti su SQL Server in una macchina virtuale Windows](frequently-asked-questions-faq.md)
-* [Informazioni sui prezzi di SQL Server in una macchina virtuale Windows](pricing-guidance.md)
-* [Note sulla versione di SQL Server in una macchina virtuale Windows](doc-changes-updates-release-notes.md)
+* [Domande frequenti su SQL Server in una VM di Windows](frequently-asked-questions-faq.md)
+* [Informazioni sui prezzi di SQL Server in una VM di Windows](pricing-guidance.md)
+* [Note sulla versione di SQL Server in una VM di Windows](doc-changes-updates-release-notes.md)

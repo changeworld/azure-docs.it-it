@@ -6,10 +6,10 @@ ms.topic: how-to
 ms.reviewer: ravastra
 ms.custom: references_regions
 ms.openlocfilehash: b46a35b45a51d0cc76942c4ca142c4c7792a28b4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "87077021"
 ---
 # <a name="deploy-azure-blockchain-workbench-preview"></a>Distribuire l'anteprima di Azure blockchain Workbench
@@ -132,7 +132,7 @@ Al termine della distribuzione di Blockchain Workbench, un nuovo gruppo di risor
 
     ![Elenco di servizi app](media/deploy/resource-group-list.png)
 
-1. Nella **Panoramica**del servizio app, copiare il valore dell' **URL** , che rappresenta l'URL Web per il Workbench blockchain distribuito.
+1. Nella **Panoramica** del servizio app, copiare il valore dell' **URL** , che rappresenta l'URL Web per il Workbench blockchain distribuito.
 
     ![Sezione Essentials del servizio app](media/deploy/app-service.png)
 
@@ -182,7 +182,7 @@ Per la distribuzione di Blockchain Workbench, è necessaria la registrazione di 
 1. Selezionare l'account nell'angolo superiore destro e passare al tenant di Azure AD desiderato. Il tenant deve essere il tenant dell'amministratore della sottoscrizione in cui è distribuito Azure blockchain Workbench e si dispone delle autorizzazioni sufficienti per registrare le applicazioni.
 1. Nel riquadro di spostamento a sinistra selezionare il servizio **Azure Active Directory**. Selezionare **registrazioni app**  >  **nuova registrazione**.
 
-    ![Registrazione delle app](media/deploy/app-registration.png)
+    ![Registrazione dell'app](media/deploy/app-registration.png)
 
 1. Specificare un **nome** visualizzato e scegliere **account solo in questa directory aziendale**.
 
@@ -231,7 +231,7 @@ Successivamente, è necessario modificare il manifesto per l'uso di ruoli applic
 L'applicazione API deve richiedere l'autorizzazione dell'utente per accedere alla directory. Impostare l'autorizzazione seguente per l'applicazione API:
 
 1. Nella registrazione dell'app per le *API blockchain* selezionare autorizzazioni per le **API**. Per impostazione predefinita, viene aggiunta l'autorizzazione API Graph **User. Read** .
-1. L'applicazione Workbench richiede l'accesso in lettura alle informazioni di base sul profilo dell'utente. In *autorizzazioni configurate*selezionare **Aggiungi un'autorizzazione**. In **Microsoft API**selezionare **Microsoft Graph**.
+1. L'applicazione Workbench richiede l'accesso in lettura alle informazioni di base sul profilo dell'utente. In *autorizzazioni configurate* selezionare **Aggiungi un'autorizzazione**. In **Microsoft API** selezionare **Microsoft Graph**.
 1. Poiché l'applicazione Workbench usa le credenziali dell'utente autenticato, selezionare **autorizzazioni delegate**.
 1. Nella categoria *User* (utente) scegliere **User. ReadBasic. All** autorizzazione.
 
@@ -239,7 +239,7 @@ L'applicazione API deve richiedere l'autorizzazione dell'utente per accedere all
 
     Selezionare **Aggiungi autorizzazioni**.
 
-1. In *autorizzazioni configurate*selezionare **concedi il consenso dell'amministratore** per il dominio e quindi selezionare **Sì** per la richiesta di verifica.
+1. In *autorizzazioni configurate* selezionare **concedi il consenso dell'amministratore** per il dominio e quindi selezionare **Sì** per la richiesta di verifica.
 
    ![Concedere le autorizzazioni](media/deploy/client-app-grant-permissions.png)
 

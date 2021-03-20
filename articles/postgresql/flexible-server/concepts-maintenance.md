@@ -7,10 +7,10 @@ ms.service: postgresql
 ms.topic: conceptual
 ms.date: 09/22/2020
 ms.openlocfilehash: ffee15776a48b6495f78b6becf81c620e1dc4d69
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91336310"
 ---
 # <a name="scheduled-maintenance-in-azure-database-for-postgresql--flexible-server"></a>Manutenzione pianificata in Database di Azure per PostgreSQL - Server flessibile
@@ -29,8 +29,8 @@ Le notifiche relative alla manutenzione pianificata imminente possono essere:
 * Inviato tramite posta elettronica a un indirizzo specifico
 * Inviato tramite posta elettronica a un ruolo Azure Resource Manager
 * Inviato in un messaggio di testo (SMS) ai dispositivi mobili
-* Push come notifica a un'app di Azure
-* Recapitato come messaggio vocale
+* un push di notifica a un'app di Azure
+* un messaggio vocale
  
 Quando si specificano le preferenze per il programma di manutenzione, è possibile scegliere un giorno della settimana e un intervallo di tempo. Se non lo si fa, il sistema sceglierà un'ora tra le 23:00 e le 07:00 nell'ora dell'area del server. È possibile definire pianificazioni diverse per ogni server flessibile nella sottoscrizione di Azure. 
  

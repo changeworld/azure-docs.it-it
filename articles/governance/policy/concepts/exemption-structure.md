@@ -4,10 +4,10 @@ description: Descrive la definizione di esenzione dei criteri usata da criteri d
 ms.date: 09/22/2020
 ms.topic: conceptual
 ms.openlocfilehash: e6ced56c1dc65ca68998c5c58d3e985b63873e0b
-ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/12/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91950177"
 ---
 # <a name="azure-policy-exemption-structure"></a>Struttura di esenzione dei criteri di Azure
@@ -88,7 +88,7 @@ Usare **DisplayName** e **Description** per identificare l'esenzione dei criteri
 
 ## <a name="metadata"></a>Metadati
 
-La proprietà **Metadata** consente di creare qualsiasi proprietà figlio necessaria per archiviare le informazioni rilevanti. Nell'esempio precedente, le proprietà **RequestedBy**, **approvedBy**, **approvedOn**e **ticketRef** contengono i valori dei clienti per fornire informazioni su chi ha richiesto l'esenzione, chi l'ha approvata e quando e un ticket di rilevamento interno per la richiesta. Queste proprietà **dei metadati** sono esempi, ma non sono necessarie e i **metadati** non sono limitati a queste proprietà figlio.
+La proprietà **Metadata** consente di creare qualsiasi proprietà figlio necessaria per archiviare le informazioni rilevanti. Nell'esempio precedente, le proprietà **RequestedBy**, **approvedBy**, **approvedOn** e **ticketRef** contengono i valori dei clienti per fornire informazioni su chi ha richiesto l'esenzione, chi l'ha approvata e quando e un ticket di rilevamento interno per la richiesta. Queste proprietà **dei metadati** sono esempi, ma non sono necessarie e i **metadati** non sono limitati a queste proprietà figlio.
 
 ## <a name="policy-assignment-id"></a>ID assegnazione criteri
 

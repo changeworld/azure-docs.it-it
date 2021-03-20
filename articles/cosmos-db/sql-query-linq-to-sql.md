@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 11/11/2020
 ms.author: tisande
 ms.openlocfilehash: 122c95fe9ac017ad7a6957dcdb8323837be34f21
-ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/03/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96545384"
 ---
 # <a name="linq-to-sql-translation"></a>Traduzione LINQ in SQL
@@ -95,7 +95,7 @@ Il provider LINQ incluso in SQL .NET SDK supporta gli operatori seguenti:
 - **Funzione di estensione della funzione definita dall'utente**: supporta la conversione dal metodo stub `UserDefinedFunctionProvider.Invoke` alla [funzione corrispondente definita dall'utente](sql-query-udfs.md).
 - **Varie**: supporta la conversione di `Coalesce` [operatori](sql-query-operators.md)condizionali e. Può tradurre in `Contains` stringa contiene, ARRAY_CONTAINS o in, a seconda del contesto.
 
-## <a name="examples"></a>Esempi
+## <a name="examples"></a>Esempio
 
 Negli esempi seguenti viene illustrato il modo in cui alcuni degli operatori di query LINQ standard vengono convertiti in query in Azure Cosmos DB.
 

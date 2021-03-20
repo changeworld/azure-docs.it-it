@@ -4,10 +4,10 @@ description: Informazioni su come eseguire il backup dello stato del sistema dei
 ms.topic: conceptual
 ms.date: 05/23/2018
 ms.openlocfilehash: 1b3573d757d2f7b1ffec9ae718aa791488960f3b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91332891"
 ---
 # <a name="back-up-windows-system-state-to-azure"></a>Eseguire il backup dello stato del sistema Windows in Azure
@@ -58,11 +58,11 @@ Dopo aver creato un insieme di credenziali, configurarlo per il backup dello sta
 
     Si sceglie **locale** perché il computer Windows Server o Windows è un computer fisico che non si trova in Azure.
 
-3. Scegliere lo **stato del sistema**dal menu **di cui si desidera eseguire il backup?** e selezionare **OK**.
+3. Scegliere lo **stato del sistema** dal menu **di cui si desidera eseguire il backup?** e selezionare **OK**.
 
     ![Configurazione di file e cartelle](./media/backup-azure-system-state/backup-goal-system-state.png)
 
-    Dopo aver selezionato **OK**, viene visualizzato un segno di spunta accanto a **obiettivo di backup**e viene aperto il riquadro **prepara infrastruttura** .
+    Dopo aver selezionato **OK**, viene visualizzato un segno di spunta accanto a **obiettivo di backup** e viene aperto il riquadro **prepara infrastruttura** .
 
     ![Preparare l'infrastruttura dopo aver configurato l'obiettivo del backup](./media/backup-try-azure-backup-in-10-mins/backup-goal-configed.png)
 
@@ -138,7 +138,7 @@ Per completare il backup iniziale, usare l'agente di Servizi di ripristino di Mi
 
 ### <a name="to-schedule-the-backup-job"></a>Per pianificare il processo di backup
 
-1. Aprire l'agente di Servizi di ripristino di Microsoft Azure. È possibile trovarlo se si cerca **Backup di Microsoft Azure**nel computer.
+1. Aprire l'agente di Servizi di ripristino di Microsoft Azure. È possibile trovarlo se si cerca **Backup di Microsoft Azure** nel computer.
 
     ![Avviare l'agente di Servizi di ripristino di Azure](./media/backup-try-azure-backup-in-10-mins/snap-in-search.png)
 

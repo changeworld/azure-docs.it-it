@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 12/02/2019
 ms.author: tisande
 ms.openlocfilehash: f5f209229d17a2587258d21ee90e7560e629d082
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93340856"
 ---
 # <a name="sql-subquery-examples-for-azure-cosmos-db"></a>Esempi di sottoquery SQL per Azure Cosmos DB
@@ -25,16 +25,16 @@ Questo articolo descrive le sottoquery SQL e i casi d'uso comuni in Azure Cosmos
 
 Esistono due tipi principali di sottoquery:
 
-* **Correlato** : una sottoquery che fa riferimento a valori della query esterna. La sottoquery viene valutata una volta per ogni riga elaborata dalla query esterna.
-* **Non correlato** : una sottoquery indipendente dalla query esterna. Può essere eseguito autonomamente senza basarsi sulla query esterna.
+* **Correlato**: una sottoquery che fa riferimento a valori della query esterna. La sottoquery viene valutata una volta per ogni riga elaborata dalla query esterna.
+* **Non correlato**: una sottoquery indipendente dalla query esterna. Può essere eseguito autonomamente senza basarsi sulla query esterna.
 
 > [!NOTE]
 > Azure Cosmos DB supporta solo sottoquery correlate.
 
 Le sottoquery possono essere ulteriormente classificate in base al numero di righe e colonne restituite. Sono disponibili tre tipi:
-* **Table** : restituisce più righe e più colonne.
-* **Multi-value** : restituisce più righe e una singola colonna.
-* **Scalar** : restituisce una singola riga e una singola colonna.
+* **Table**: restituisce più righe e più colonne.
+* **Multi-value**: restituisce più righe e una singola colonna.
+* **Scalar**: restituisce una singola riga e una singola colonna.
 
 Le query SQL in Azure Cosmos DB restituiscono sempre una singola colonna (un semplice valore o un documento complesso). In Azure Cosmos DB sono pertanto applicabili solo sottoquery multivalore e scalare. È possibile utilizzare una sottoquery multivalore solo nella clausola FROM come espressione relazionale. È possibile utilizzare una sottoquery scalare come espressione scalare nella clausola SELECT o WHERE oppure come espressione relazionale nella clausola FROM.
 

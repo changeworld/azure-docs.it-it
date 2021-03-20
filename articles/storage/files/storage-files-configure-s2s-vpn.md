@@ -8,10 +8,10 @@ ms.date: 10/19/2019
 ms.author: rogarana
 ms.subservice: files
 ms.openlocfilehash: 0fa3fb8040fd79d68f9260ab520d3b6823ab363d
-ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/14/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94629292"
 ---
 # <a name="configure-a-site-to-site-vpn-for-use-with-azure-files"></a>Configurare una VPN da sito a sito per l'uso con File di Azure
@@ -24,9 +24,9 @@ Per una descrizione completa delle opzioni di rete disponibili per File di Azure
 Questo articolo illustra i passaggi della configurazione di una VPN da sito a sito per montare le condivisioni file di Azure direttamente in locale. Se si vuole instradare il traffico di sincronizzazione per Sincronizzazione file di Azure tramite una VPN da sito a sito, vedere come [configurare le impostazioni di proxy e firewall di Sincronizzazione file di Azure](storage-sync-files-firewall-and-proxy.md).
 
 ## <a name="prerequisites"></a>Prerequisiti
-- Una condivisione file di Azure che si vuole montare in locale. Le condivisioni file di Azure vengono distribuite all'interno degli account di archiviazione, ovvero costrutti di gestione che rappresentano un pool di archiviazione condiviso in cui è possibile distribuire più condivisione file, oltra ad altre risorse come contenitori BLOB o code. Per altre informazioni su come distribuire condivisioni file di Azure e account di archiviazione, vedere [Creare una condivisione file di Azure](storage-how-to-create-file-share.md).
+- Una condivisione file di Azure che si vuole montare in locale. Le condivisioni file di Azure vengono distribuite all'interno degli account di archiviazione, ovvero costrutti di gestione che rappresentano un pool condiviso di risorse di archiviazione in cui è possibile distribuire più condivisioni file, oltre ad altre risorse di archiviazione, ad esempio contenitori BLOB o code. Per altre informazioni su come distribuire condivisioni file di Azure e account di archiviazione, vedere [creare una condivisione file di Azure](storage-how-to-create-file-share.md).
 
-- Un endpoint privato per l'account di archiviazione contenente l'archiviazione file di Azure da montare in locale. Per altre informazioni su come creare un endpoint privato, vedere [Configurazione degli endpoint di rete di File di Azure](storage-files-networking-endpoints.md?tabs=azure-portal). 
+- Un endpoint privato per l'account di archiviazione che contiene la condivisione file di Azure che si vuole montare in locale. Per altre informazioni su come creare un endpoint privato, vedere [Configuring file di Azure Network Endpoints](storage-files-networking-endpoints.md?tabs=azure-portal). 
 
 - Un'appliance o un server di rete nel data center locale compatibile con il gateway VPN di Azure. File di Azure è indipendente dall'appliance di rete locale scelta, ma il gateway VPN di Azure mantiene un [elenco di dispositivi testati](../../vpn-gateway/vpn-gateway-about-vpn-devices.md). Per la selezione di un'appliance di rete, è opportuno tenere presente che dispositivi diversi offrono funzionalità, caratteristiche di prestazioni e funzionalità di gestione diverse.
 
@@ -48,15 +48,15 @@ Nel sommario del portale di Azure selezionare **Crea una nuova risorsa** e cerca
 
 Per la distribuzione di un gateway VPN di Azure, è necessario compilare i campi seguenti:
 
-- **Name** : il nome della risorsa di Azure per il gateway VPN. Può essere qualsiasi nome che si ritiene utile per la gestione.
-- **Area** : l'area in cui verrà distribuito il gateway VPN.
-- **Tipo di gateway** : per la distribuzione di una VPN da sito a sito, è necessario selezionare **VPN**.
-- **Tipo VPN** : è possibile scegliere *Basato su route* o **Basato su criteri** a seconda del dispositivo VPN in uso. Le VPN basate su route supportano IKEv2, mentre quelle basate su criteri supportano IKEv1. Per altre informazioni sui due tipi di gateway VPN, vedere [Informazioni sui gateway VPN basati su criteri e basati su route](../../vpn-gateway/vpn-gateway-connect-multiple-policybased-rm-ps.md#about)
-- **SKU** : lo SKU controlla il numero di tunnel consentiti da sito a sito e le prestazioni desiderate per la VPN. Per selezionare lo SKU appropriato per uno specifico caso d'uso, vedere l'elenco di [SKU di gateway](../../vpn-gateway/vpn-gateway-about-vpngateways.md#gwsku). Lo SKU del gateway VPN potrà essere cambiato in seguito, se necessario.
-- **Rete virtuale** : la rete virtuale creata nel passaggio precedente.
-- **Indirizzo IP pubblico** : l'indirizzo IP del gateway VPN che verrà esposto su Internet. Probabilmente sarà necessario creare un nuovo indirizzo IP, ma se ne può anche usare uno esistente non utilizzato, se appropriato. Se si seleziona **Crea nuovo** , verrà creata una nuova risorsa di Azure di tipo indirizzo IP nello stesso gruppo di risorse del gateway VPN e il relativo nome sarà indicato in **Nome indirizzo IP pubblico**. Se si seleziona **Usa esistente** , è necessario selezionare un indirizzo IP esistente inutilizzato.
-- **Abilita modalità attiva-attiva** : selezionare **Abilitata** solo se si sta creando una configurazione gateway attiva-attiva, altrimenti lasciare selezionata l'opzione **Disabilitata**. Per altre informazioni sulla modalità attiva-attiva, vedere [Connettività cross-premise e da rete virtuale a rete virtuale a disponibilità elevata](../../vpn-gateway/vpn-gateway-highlyavailable.md).
-- **Configura ASN BGP** : selezionare **Abilitata** solo se la configurazione richiede specificamente questa impostazione. Per altre informazioni su questa impostazione, vedere [Informazioni su BGP con i gateway VPN di Azure](../../vpn-gateway/vpn-gateway-bgp-overview.md).
+- **Nome**: il nome della risorsa di Azure per il gateway VPN. Può essere qualsiasi nome che si ritiene utile per la gestione.
+- **Region (area**): area in cui verrà distribuito il gateway VPN.
+- **Tipo di gateway**: ai fini della distribuzione di una VPN da sito a sito, è necessario selezionare **VPN**.
+- **Tipo di VPN**: è possibile scegliere basato su *Route** o **basato su criteri** a seconda del dispositivo VPN. Le VPN basate su route supportano IKEv2, mentre quelle basate su criteri supportano IKEv1. Per altre informazioni sui due tipi di gateway VPN, vedere [Informazioni sui gateway VPN basati su criteri e basati su route](../../vpn-gateway/vpn-gateway-connect-multiple-policybased-rm-ps.md#about)
+- **SKU**: lo SKU controlla il numero di tunnel da sito a sito consentiti e le prestazioni desiderate per la VPN. Per selezionare lo SKU appropriato per uno specifico caso d'uso, vedere l'elenco di [SKU di gateway](../../vpn-gateway/vpn-gateway-about-vpngateways.md#gwsku). Lo SKU del gateway VPN potrà essere cambiato in seguito, se necessario.
+- **Rete virtuale**: la rete virtuale creata nel passaggio precedente.
+- **Indirizzo IP pubblico**: l'indirizzo IP del gateway VPN che verrà esposto a Internet. Probabilmente sarà necessario creare un nuovo indirizzo IP, ma se ne può anche usare uno esistente non utilizzato, se appropriato. Se si seleziona **Crea nuovo**, verrà creata una nuova risorsa di Azure di tipo indirizzo IP nello stesso gruppo di risorse del gateway VPN e il relativo nome sarà indicato in **Nome indirizzo IP pubblico**. Se si seleziona **Usa esistente**, è necessario selezionare un indirizzo IP esistente inutilizzato.
+- **Abilita modalità attivo-attivo**: selezionare **abilitato** solo se si sta creando una configurazione del gateway attivo-attivo. in caso contrario, lasciare **disabilitato** selezionato. Per altre informazioni sulla modalità attiva-attiva, vedere [Connettività cross-premise e da rete virtuale a rete virtuale a disponibilità elevata](../../vpn-gateway/vpn-gateway-highlyavailable.md).
+- **Configura ASN BGP**: selezionare **abilitato** solo se la configurazione richiede questa impostazione in modo specifico. Per altre informazioni su questa impostazione, vedere [Informazioni su BGP con i gateway VPN di Azure](../../vpn-gateway/vpn-gateway-bgp-overview.md).
 
 Selezionare **Rivedi e crea** per creare il gateway VPN. La creazione completa e la distribuzione di un gateway VPN possono richiedere fino a 45 minuti.
 
@@ -65,13 +65,13 @@ Un gateway di rete locale è una risorsa di Azure che rappresenta l'appliance di
 
 Per la distribuzione della risorsa gateway di rete locale, è necessario compilare i campi seguenti:
 
-- **Name** : il nome della risorsa di Azure per il gateway di rete locale. Può essere qualsiasi nome che si ritiene utile per la gestione.
-- **Indirizzo IP** : l'indirizzo IP pubblico del gateway locale in locale.
-- **Spazio degli indirizzi** : gli intervalli di indirizzi per la rete rappresentata da questo gateway di rete locale. È possibile aggiungere più intervalli dello spazio di indirizzi, ma assicurarsi che gli intervalli specificati non si sovrappongano a quelli di altre reti a cui ci si vuole connettere. 
-- **Configura le impostazioni BGP:** configurare le impostazioni BGP solo se la configurazione richiede questa impostazione. Per altre informazioni su questa impostazione, vedere [Informazioni su BGP con i gateway VPN di Azure](../../vpn-gateway/vpn-gateway-bgp-overview.md).
-- **Sottoscrizione** la sottoscrizione da usare. Non deve necessariamente corrispondere alla sottoscrizione usata per il gateway VPN o per l'account di archiviazione.
-- **Gruppo di risorse** : il gruppo di risorse da usare. Non deve necessariamente corrispondere al gruppo di risorse usato per il gateway VPN o per l'account di archiviazione.
-- **Località** : l'area di Azure in cui dovrà essere creata la risorsa gateway di rete locale. Deve corrispondere all'area selezionata per il gateway VPN e per l'account di archiviazione.
+- **Nome**: il nome della risorsa di Azure per il gateway di rete locale. Può essere qualsiasi nome che si ritiene utile per la gestione.
+- **Indirizzo IP**: indirizzo IP pubblico del gateway locale.
+- **Spazio degli indirizzi**: intervalli di indirizzi per la rete rappresentata da questo gateway di rete locale. È possibile aggiungere più intervalli dello spazio di indirizzi, ma assicurarsi che gli intervalli specificati non si sovrappongano a quelli di altre reti a cui ci si vuole connettere. 
+- **Configurare le impostazioni BGP**: configurare solo le impostazioni BGP se la configurazione richiede questa impostazione. Per altre informazioni su questa impostazione, vedere [Informazioni su BGP con i gateway VPN di Azure](../../vpn-gateway/vpn-gateway-bgp-overview.md).
+- **Subscription (sottoscrizione**): sottoscrizione desiderata. Non deve necessariamente corrispondere alla sottoscrizione usata per il gateway VPN o per l'account di archiviazione.
+- **Gruppo di risorse**: il gruppo di risorse desiderato. Non deve necessariamente corrispondere al gruppo di risorse usato per il gateway VPN o per l'account di archiviazione.
+- **Località**: area di Azure in cui deve essere creata la risorsa gateway di rete locale. Deve corrispondere all'area selezionata per il gateway VPN e per l'account di archiviazione.
 
 Selezionare **Crea** per creare la risorsa gateway di rete locale.  
 
@@ -81,11 +81,11 @@ I passaggi specifici per configurare l'appliance di rete locale variano in base 
 ## <a name="create-the-site-to-site-connection"></a>Creare la connessione da sito a sito
 Per completare la distribuzione di una VPN da sito a sito, è necessario creare una connessione tra l'appliance di rete locale (rappresentata dalla risorsa gateway di rete locale) e il gateway VPN. A questo scopo, passare al gateway VPN creato in precedenza. Nel sommario del gateway VPN selezionare **Connessioni** e fare clic su **Aggiungi**. Nel riquadro **Aggiungi connessione** è necessario completare i campi seguenti:
 
-- **Name** : il nome della connessione. Un gateway VPN può ospitare più connessioni, quindi selezionare un nome utile per la gestione che distinguerà questa particolare connessione dalle altre.
-- **Tipo di connessione** : poiché si tratta di una connessione da sito a sito, selezionare **Da sito a sito (IPSec)** nell'elenco a discesa.
-- **Gateway di rete virtuale** : questo campo è impostato automaticamente sul gateway VPN con cui si sta creando la connessione e non può essere cambiato.
-- **Gateway di rete locale** : questo è il gateway di rete locale da connettere al gateway VPN. Il riquadro di selezione risultante dovrebbe avere il nome del gateway di rete locale creato in precedenza.
-- **Chiave condivisa (PSK)** : una combinazione di lettere e numeri usata per stabilire la crittografia per la connessione. È necessario usare la stessa chiave condivisa sia nella rete virtuale che nei gateway di rete locali. Se il gateway non ne prevede una, è possibile crearla qui e fornirla al dispositivo.
+- **Nome**: il nome della connessione. Un gateway VPN può ospitare più connessioni, quindi selezionare un nome utile per la gestione che distinguerà questa particolare connessione dalle altre.
+- **Tipo di connessione**: poiché si tratta di una connessione S2S, selezionare da **sito a sito (IPSec)** nell'elenco a discesa.
+- **Gateway di rete virtuale**: questo campo è selezionato automaticamente nel gateway VPN a cui si sta effettuando la connessione e non può essere modificato.
+- **Gateway di rete locale**: è il gateway di rete locale che si vuole connettere al gateway VPN. Il riquadro di selezione risultante dovrebbe avere il nome del gateway di rete locale creato in precedenza.
+- **Chiave condivisa (PSK)**: combinazione di lettere e numeri, usata per stabilire la crittografia per la connessione. È necessario usare la stessa chiave condivisa sia nella rete virtuale che nei gateway di rete locali. Se il gateway non ne prevede una, è possibile crearla qui e fornirla al dispositivo.
 
 Selezionare **OK** per creare la connessione. È possibile verificare se la connessione è stata creata correttamente tramite la pagina **Connessioni**.
 
@@ -96,7 +96,7 @@ Il passaggio finale per la configurazione di una VPN da sito a sito consiste nel
 - [macOS](storage-how-to-use-files-mac.md)
 - [Linux](storage-how-to-use-files-linux.md)
 
-## <a name="see-also"></a>Vedere anche
+## <a name="see-also"></a>Vedi anche
 - [Panoramica della rete per File di Azure](storage-files-networking-overview.md)
 - [Configurare una VPN da punto a sito in Windows per l'uso con File di Azure](storage-files-configure-p2s-vpn-windows.md)
 - [Configurare una VPN da punto a sito in Linux per l'uso con File di Azure](storage-files-configure-p2s-vpn-linux.md)

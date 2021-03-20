@@ -8,10 +8,10 @@ author: mingshen-ms
 ms.author: mingshen
 ms.date: 10/19/2020
 ms.openlocfilehash: 854d0fa9b34d495f03a0c3c6203ceb227e4712d2
-ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/14/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94629513"
 ---
 # <a name="how-to-add-a-preview-audience-for-a-virtual-machine-offer"></a>Come aggiungere un gruppo di destinatari di anteprima per un'offerta di macchina virtuale
@@ -19,7 +19,7 @@ ms.locfileid: "94629513"
 Nella pagina di **Anteprima** (selezionare dal menu di spostamento a sinistra nel centro per i partner) selezionare un gruppo di **destinatari di anteprima** limitato per la convalida dell'offerta prima della pubblicazione in tempo reale per i destinatari più ampi del Marketplace commerciale.
 
 > [!IMPORTANT]
-> Dopo aver controllato l'offerta nel riquadro **Anteprima** , selezionare **Go Live** per pubblicare l'offerta per il pubblico del marketplace commerciale.
+> Dopo aver controllato l'offerta nel riquadro **Anteprima**, selezionare **Go Live** per pubblicare l'offerta per il pubblico del marketplace commerciale.
 
 I destinatari dell'anteprima sono identificati dai GUID di **ID sottoscrizione di Azure** , insieme a una **Descrizione** facoltativa per ogni utente. Nessuno di questi campi viene visualizzato dai clienti. È possibile trovare l'ID sottoscrizione di Azure nella pagina **Sottoscrizioni** del portale di Azure.
 

@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 259a1324c412dad40d32a8b8e026d84e6f5aa066
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "85554925"
 ---
 # <a name="hybrid-azure-ad-joined-devices"></a>Dispositivi aggiunti all'identità ibrida di Azure AD
@@ -31,7 +31,7 @@ Se l'ambiente ha un footprint AD locale e si vogliono anche sfruttare le funzion
 
 | Join ibrido ad Azure AD | Descrizione |
 | --- | --- |
-| **Definizione** | Aggiunto ad Active Directory locale e Azure AD che richiede l'account aziendale per accedere al dispositivo |
+| **Definition** | Aggiunto ad Active Directory locale e Azure AD che richiede l'account aziendale per accedere al dispositivo |
 | **Destinatari principali** | Adatto per organizzazioni ibride con infrastruttura di Active Directory locale esistente |
 |   | Applicabile a tutti gli utenti di un'organizzazione |
 | **Proprietà del dispositivo** | Organization |

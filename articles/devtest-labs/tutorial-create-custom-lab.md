@@ -4,10 +4,10 @@ description: Questa esercitazione descrive come creare un lab in Azure DevTest L
 ms.topic: tutorial
 ms.date: 06/26/2020
 ms.openlocfilehash: 4b59edd4ab1204d6683cf95a02070d10b1abe061
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
-ms.translationtype: HT
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91324281"
 ---
 # <a name="tutorial-set-up-a-lab-by-using-azure-devtest-labs"></a>Esercitazione: Configurare un lab usando Azure DevTest Labs

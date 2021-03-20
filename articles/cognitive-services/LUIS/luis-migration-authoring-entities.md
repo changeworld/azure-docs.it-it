@@ -6,10 +6,10 @@ ms.subservice: language-understanding
 ms.topic: how-to
 ms.date: 05/08/2020
 ms.openlocfilehash: 667226770d25ef1687420b1c13bc71863f987e33
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91324689"
 ---
 # <a name="migrate-to-v3-authoring-entity"></a>Eseguire la migrazione all'entità di creazione V3
@@ -71,8 +71,8 @@ Nella tabella seguente sono riportate le entità di cui è necessario eseguire l
 
 |V2 tipo di entità di creazione|Tipo di entità authoring V3|Esempio|
 |--|--|--|
-|Entità composita|Entità appresa dal computer|[Ulteriori informazioni](#migrate-v2-composite-entity)|
-|Entità gerarchica|ruolo dell'entità Machine Learning|[Ulteriori informazioni](#migrate-v2-hierarchical-entity)|
+|Entità composita|Entità appresa dal computer|[Altre informazioni](#migrate-v2-composite-entity)|
+|Entità gerarchica|ruolo dell'entità Machine Learning|[Altre informazioni](#migrate-v2-hierarchical-entity)|
 
 ## <a name="migrate-v2-composite-entity"></a>Esegui migrazione dell'entità composita V2
 
@@ -149,7 +149,7 @@ Questa modifica è stata apportata nel maggio 2020 della conferenza Build e si a
 
 #### <a name="automatic-migration"></a>Migrazione automatica
 
-A partire dal **19 2020 giugno**non sarà consentito creare vincoli a livello di codice usando l'API di creazione precedente che ha esposto questa funzionalità.
+A partire dal **19 2020 giugno** non sarà consentito creare vincoli a livello di codice usando l'API di creazione precedente che ha esposto questa funzionalità.
 
 Tutte le funzionalità di vincolo esistenti verranno automaticamente migrate al flag di funzionalità obbligatorio. Non sono necessarie modifiche a livello di codice per l'API di stima e nessuna modifica risultante sulla qualità dell'accuratezza della stima.
 

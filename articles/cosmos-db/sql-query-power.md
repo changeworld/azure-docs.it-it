@@ -9,10 +9,10 @@ ms.date: 09/13/2019
 ms.author: girobins
 ms.custom: query-reference
 ms.openlocfilehash: 39db52223feea63a4e3afbd4775f884acbbca548
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93341689"
 ---
 # <a name="power-azure-cosmos-db"></a>POTENZA (Azure Cosmos DB)
@@ -38,7 +38,7 @@ POWER (<numeric_expr1>, <numeric_expr2>)
   
   Restituisce un'espressione numerica.  
   
-## <a name="examples"></a>Esempi
+## <a name="examples"></a>Esempio
   
   Nell'esempio seguente viene illustrata la generazione di un numero con potenza 3 (il cubo del numero).  
   

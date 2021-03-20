@@ -6,10 +6,10 @@ ms.topic: article
 ms.date: 10/09/2019
 ms.author: pabouwer
 ms.openlocfilehash: 3181be62a14ec1b3450bd181172b5323ca176427
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "77593768"
 ---
 # <a name="linkerd"></a>Linkerd
@@ -18,7 +18,7 @@ ms.locfileid: "77593768"
 
 [Linkerd][linkerd] è una rete di servizi facile da usare e leggero.
 
-## <a name="architecture"></a>Architecture
+## <a name="architecture"></a>Architettura
 
 Linkerd fornisce un piano dati costituito da sidecar di [Linkerd][linkerd-proxy] per proxy specialistici ultraleggeri. Questi proxy intelligenti controllano tutto il traffico di rete in ingresso e in uscita da carichi di lavoro e app con mesh. I proxy espongono anche le metriche tramite gli endpoint di metrica [Prometeo][prometheus] .
 
@@ -59,7 +59,7 @@ I principi di progettazione seguenti [guidano][design-principles] il progetto Li
 - **Basta lavorare** : non interrompere le applicazioni esistenti e non è necessaria una configurazione complessa.
 
 
-### <a name="capabilities"></a>Capabilities
+### <a name="capabilities"></a>Funzionalità
 
 In Linkerd è disponibile il set di funzionalità seguente:
 

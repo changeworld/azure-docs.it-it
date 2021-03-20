@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: calebb, rogoya
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 6e6185c4bde71285fc163cae2af46f64ba052195
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/25/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "95994758"
 ---
 # <a name="conditional-access-require-mfa-for-all-users"></a>Accesso condizionale: richiedere l'autenticazione a più fattori per tutti gli utenti
@@ -64,7 +64,7 @@ Le organizzazioni possono scegliere di incorporare i percorsi di rete noti, dett
 
 Nei criteri di esempio precedenti, un'organizzazione può scegliere di non richiedere l'autenticazione a più fattori per l'accesso a un'app Cloud dalla propria rete aziendale. In questo caso, è possibile aggiungere la configurazione seguente ai criteri:
 
-1. In **assegnazioni** selezionare i **Conditions**  >  **percorsi** delle condizioni.
+1. In **assegnazioni** selezionare i   >  **percorsi** delle condizioni.
    1. Configurare **Sì**.
    1. Includere **Tutte le località**.
    1. Escludere **Tutte le posizioni attendibili**.

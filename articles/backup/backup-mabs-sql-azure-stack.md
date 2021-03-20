@@ -4,10 +4,10 @@ description: Questo articolo illustra come configurare Backup di Microsoft Azure
 ms.topic: conceptual
 ms.date: 06/08/2018
 ms.openlocfilehash: 80de7913b010fca69c3703e423109f2ede653590
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91332815"
 ---
 # <a name="back-up-sql-server-on-azure-stack"></a>Eseguire il backup di SQL Server in Azure Stack
@@ -124,7 +124,7 @@ La gestione delle operazioni di backup del database SQL server in Azure e di rip
 
     ![Criteri di conservazione](./media/backup-azure-backup-sql/pg-retentionschedule.png)
 
-    Esempio:
+    In questo esempio:
 
     * I backup vengono eseguiti una volta al giorno alle 12.00 PM e alle 8.00 PM (parte in basso della schermata) e vengono conservati per 180 giorni.
     * Il backup di sabato alle ore 12:00 P.M. viene conservato per 104 settimane

@@ -8,10 +8,10 @@ ms.date: 07/11/2017
 ms.author: ccompy
 ms.custom: seodec18
 ms.openlocfilehash: 598e43d07c213cfeb25f0ecbc7bd02b6ec54b7ed
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "88962588"
 ---
 # <a name="configuring-an-app-service-environment-v1"></a>Configurazione di un ambiente del servizio app v1
@@ -154,7 +154,7 @@ Per eseguire l'operazione di ridimensionamento nel pannello dell'ambiente del se
 
 ![Interfaccia utente Piano][6]
 
-Per usare le funzionalità di scalabilità automatica o manuale in un pool di risorse specifico, passare a **Impostazioni**pool di lavoro pool  >  **front-end**in base alle  /  **Worker Pools** esigenze. Aprire quindi il pool che si vuole modificare. Passare a **Impostazioni**  >  **scale out** o **Impostazioni**  >  **scalabilità verticale**. Il pannello **Aumenta istanze** consente di controllare la quantità di istanze. **Aumenta prestazioni** consente di controllare le dimensioni delle risorse.  
+Per usare le funzionalità di scalabilità automatica o manuale in un pool di risorse specifico, passare a **Impostazioni** pool di lavoro pool  >  **front-end** in base alle  /   esigenze. Aprire quindi il pool che si vuole modificare. Passare a **Impostazioni**  >  **scale out** o **Impostazioni**  >  **scalabilità verticale**. Il pannello **Aumenta istanze** consente di controllare la quantità di istanze. **Aumenta prestazioni** consente di controllare le dimensioni delle risorse.  
 
 ![Interfaccia utente Impostazione Piano][7]
 
@@ -184,7 +184,7 @@ Per eliminare un ambiente del servizio app, è sufficiente usare l'azione **Elim
 
 ![Interfaccia utente per l'eliminazione di un ambiente del servizio app][9]  
 
-## <a name="getting-started"></a>Introduzione
+## <a name="getting-started"></a>Guida introduttiva
 Per iniziare a usare gli ambienti del servizio app, vedere [Come creare un ambiente del servizio app](app-service-web-how-to-create-an-app-service-environment.md).
 
 [!INCLUDE [app-service-web-try-app-service](../../../includes/app-service-web-try-app-service.md)]

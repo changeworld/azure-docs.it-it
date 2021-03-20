@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 05/28/2020
 ms.author: jeedes
 ms.openlocfilehash: b813f1f77b7bda2627f5275e772a3ee7c9d12834
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
-ms.translationtype: HT
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/23/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92454355"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-easysso-for-jira"></a>Esercitazione: Integrazione dell'accesso Single Sign-On (SSO) di Azure Active Directory con EasySSO for Jira
@@ -48,16 +48,16 @@ In questa esercitazione vengono eseguiti la configurazione e il test dell'access
 Per configurare l'integrazione di EasySSO for Jira in Azure AD, è necessario aggiungere EasySSO for Jira dalla raccolta all'elenco di app SaaS gestite.
 
 1. Accedere al [portale di Azure](https://portal.azure.com) con un account aziendale o dell'istituto di istruzione oppure con un account Microsoft personale.
-1. Nel riquadro di spostamento a sinistra selezionare il servizio **Azure Active Directory** .
-1. Passare ad **Applicazioni aziendali** e quindi selezionare **Tutte le applicazioni** .
-1. Per aggiungere una nuova applicazione, selezionare **Nuova applicazione** .
+1. Nel riquadro di spostamento a sinistra selezionare il servizio **Azure Active Directory**.
+1. Passare ad **Applicazioni aziendali** e quindi selezionare **Tutte le applicazioni**.
+1. Per aggiungere una nuova applicazione, selezionare **Nuova applicazione**.
 1. Nella sezione **Aggiungi dalla raccolta** digitare **EasySSO for Jira** nella casella di ricerca.
 1. Selezionare **EasySSO for Jira** nel pannello dei risultati e quindi aggiungere l'app. Attendere alcuni secondi che l'app venga aggiunta al tenant.
 
 
 ## <a name="configure-and-test-azure-ad-single-sign-on-for-easysso-for-jira"></a>Configurare e testare l'accesso Single Sign-On di Azure AD per EasySSO for Jira
 
-Configurare e testare l'accesso SSO di Azure AD con EasySSO for Jira usando un utente di test di nome **B.Simon** . Per consentire il funzionamento dell'accesso Single Sign-On, è necessario stabilire una relazione di collegamento tra un utente di Azure AD e l'utente correlato in EasySSO for Jira.
+Configurare e testare l'accesso SSO di Azure AD con EasySSO for Jira usando un utente di test di nome **B.Simon**. Per consentire il funzionamento dell'accesso Single Sign-On, è necessario stabilire una relazione di collegamento tra un utente di Azure AD e l'utente correlato in EasySSO for Jira.
 
 Per configurare e testare l'accesso SSO di Azure AD con EasySSO for Jira, completare le procedure di base seguenti:
 
@@ -72,19 +72,19 @@ Per configurare e testare l'accesso SSO di Azure AD con EasySSO for Jira, comple
 
 Per abilitare l'accesso Single Sign-On di Azure AD nel portale di Azure, seguire questa procedura.
 
-1. Nella pagina di integrazione dell'applicazione **EasySSO for Jira** del [portale di Azure](https://portal.azure.com/) individuare la sezione **Gestione** e selezionare **Single Sign-On** .
-1. Nella pagina **Selezionare un metodo di accesso Single Sign-On** selezionare **SAML** .
+1. Nella pagina di integrazione dell'applicazione **EasySSO for Jira** del [portale di Azure](https://portal.azure.com/) individuare la sezione **Gestione** e selezionare **Single Sign-On**.
+1. Nella pagina **Selezionare un metodo di accesso Single Sign-On** selezionare **SAML**.
 1. Nella pagina **Configura l'accesso Single Sign-On con SAML** fare clic sull'icona Modifica (la penna) relativa a **Configurazione SAML di base** per modificare le impostazioni.
 
    ![Modificare la configurazione SAML di base](common/edit-urls.png)
 
-1. Nella sezione **Configurazione SAML di base** immettere i valori per i campi seguenti se si vuole configurare l'applicazione in modalità avviata da **IDP** :
+1. Nella sezione **Configurazione SAML di base** immettere i valori per i campi seguenti se si vuole configurare l'applicazione in modalità avviata da **IDP**:
 
     a. Nella casella di testo **Identificatore** digitare un URL nel formato seguente: `https://<server-base-url>/plugins/servlet/easysso/saml`
 
     b. Nella casella di testo **URL di risposta** digitare un URL nel formato seguente: `https://<server-base-url>/plugins/servlet/easysso/saml`
 
-1. Fare clic su **Impostare URL aggiuntivi** e seguire questa procedura se si vuole configurare l'applicazione in modalità avviata da **SP** :
+1. Fare clic su **Impostare URL aggiuntivi** e seguire questa procedura se si vuole configurare l'applicazione in modalità avviata da **SP**:
 
     Nella casella di testo **URL accesso** digitare un URL nel formato seguente: `https://<server-base-url>/login.jsp`
 
@@ -105,7 +105,7 @@ Per abilitare l'accesso Single Sign-On di Azure AD nel portale di Azure, seguire
     | urn:oid:2.5.4.4 | user.surname |
     | urn:oid:2.5.4.42 | user.givenname |
     
-    Se **sAMAccountName** è configurato per gli utenti di Azure AD, è necessario eseguire il mapping di **urn:oid:0.9.2342.19200300.100.1.1** all'attributo **sAMAccountName** .
+    Se **sAMAccountName** è configurato per gli utenti di Azure AD, è necessario eseguire il mapping di **urn:oid:0.9.2342.19200300.100.1.1** all'attributo **sAMAccountName**.
     
 1. Nella sezione **Certificato di firma SAML** della pagina **Configura l'accesso Single Sign-On con SAML** fare clic sui collegamenti di **download** relativi alle opzioni **Certificato (Base64)** o **XML metadati federazione** e salvare una o entrambi nel computer. Tali dati saranno necessari in seguito per configurare EasySSO per Jira.
 
@@ -117,31 +117,31 @@ Per abilitare l'accesso Single Sign-On di Azure AD nel portale di Azure, seguire
     
 In questa sezione verrà creato un utente di test di nome B.Simon nel portale di Azure.
 
-1. Nel riquadro sinistro del portale di Azure selezionare **Azure Active Directory** , **Utenti** e quindi **Tutti gli utenti** .
+1. Nel riquadro sinistro del portale di Azure selezionare **Azure Active Directory**, **Utenti** e quindi **Tutti gli utenti**.
 1. Selezionare **Nuovo utente** in alto nella schermata.
 1. In **Proprietà utente** seguire questa procedura:
    1. Nel campo **Nome** immettere `B.Simon`.  
    1. Nel campo **Nome utente** immettere username@companydomain.extension. Ad esempio: `B.Simon@contoso.com`.
-   1. Selezionare la casella di controllo **Mostra password** e quindi prendere nota del valore visualizzato nella casella **Password** .
-   1. Fare clic su **Crea** .
+   1. Selezionare la casella di controllo **Mostra password** e quindi prendere nota del valore visualizzato nella casella **Password**.
+   1. Fare clic su **Crea**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Assegnare l'utente di test di Azure AD
 
 In questa sezione si abiliterà B.Simon all'uso dell'accesso Single Sign-On di Azure concedendole l'accesso a EasySSO for Jira.
 
-1. Nel portale di Azure selezionare **Applicazioni aziendali** e quindi **Tutte le applicazioni** .
-1. Nell'elenco delle applicazioni selezionare **EasySSO for Jira** .
-1. Nella pagina di panoramica dell'app trovare la sezione **Gestione** e selezionare **Utenti e gruppi** .
+1. Nel portale di Azure selezionare **Applicazioni aziendali** e quindi **Tutte le applicazioni**.
+1. Nell'elenco delle applicazioni selezionare **EasySSO for Jira**.
+1. Nella pagina di panoramica dell'app trovare la sezione **Gestione** e selezionare **Utenti e gruppi**.
 
    ![Collegamento "Utenti e gruppi"](common/users-groups-blade.png)
 
-1. Selezionare **Aggiungi utente** e quindi **Utenti e gruppi** nella finestra di dialogo **Aggiungi assegnazione** .
+1. Selezionare **Aggiungi utente** e quindi **Utenti e gruppi** nella finestra di dialogo **Aggiungi assegnazione**.
 
     ![Collegamento Aggiungi utente](common/add-assign-user.png)
 
 1. Nella finestra di dialogo **Utenti e gruppi** selezionare **B.Simon** dall'elenco degli utenti e quindi fare clic sul pulsante **Seleziona** nella parte inferiore della schermata.
 1. Se si prevede un valore di ruolo nell'asserzione SAML, nella finestra di dialogo **Selezionare un ruolo** selezionare il ruolo appropriato per l'utente dall'elenco e quindi fare clic sul pulsante **Seleziona** nella parte inferiore della schermata.
-1. Nella finestra di dialogo **Aggiungi assegnazione** fare clic sul pulsante **Assegna** .
+1. Nella finestra di dialogo **Aggiungi assegnazione** fare clic sul pulsante **Assegna**.
 
 ## <a name="configure-easysso-for-jira-sso"></a>Configurare l'accesso Single Sign-On di EasySSO for Jira
 
@@ -153,7 +153,7 @@ In questa sezione si abiliterà B.Simon all'uso dell'accesso Single Sign-On di A
 
     ![Easy SSO](media/easysso-for-jira-tutorial/jira-admin-2.png)
 
-3. Selezionare l'opzione **SAML** . Verrà visualizzata la sezione di configurazione SAML.
+3. Selezionare l'opzione **SAML**. Verrà visualizzata la sezione di configurazione SAML.
 
     ![SAML](media/easysso-for-jira-tutorial/jira-admin-3.png)
 
@@ -161,7 +161,7 @@ In questa sezione si abiliterà B.Simon all'uso dell'accesso Single Sign-On di A
 
     ![URL dei metadati](media/easysso-for-jira-tutorial/jira-admin-4.png)
 
-5. A questo punto, individuare il **certificato (Base64)** o il **file di metadati** salvato nei passaggi precedenti della configurazione dell' **accesso Single Sign-On di Azure AD** . Per procedere, è possibile scegliere tra diverse opzioni:
+5. A questo punto, individuare il **certificato (Base64)** o il **file di metadati** salvato nei passaggi precedenti della configurazione dell'**accesso Single Sign-On di Azure AD**. Per procedere, è possibile scegliere tra diverse opzioni:
 
     a. Usare il **file dei metadati** di federazione dell'app scaricato come file locale nel computer. Selezionare il pulsante di opzione **Upload** (Carica) e seguire la finestra di dialogo di caricamento file specifica del sistema operativo.
 
@@ -210,7 +210,7 @@ Dopo il reindirizzamento da Azure AD, potrebbe essere visualizzata la schermata 
 
 ![Schermata di errore di EasySSO](media/easysso-for-jira-tutorial/jira-admin-8.png)
 
-In questo caso seguire le [istruzioni disponibili in questa pagina]( https://techtime.co.nz/display/TECHTIME/EasySSO+How+to+get+the+logs#EasySSOHowtogetthelogs-RETRIEVINGTHELOGS) per accedere al file **atlassian-jira.log** . I dettagli dell'errore saranno disponibili in base all'ID di riferimento indicato nella pagina di errore EasySSO.
+In questo caso seguire le [istruzioni disponibili in questa pagina]( https://techtime.co.nz/display/TECHTIME/EasySSO+How+to+get+the+logs#EasySSOHowtogetthelogs-RETRIEVINGTHELOGS) per accedere al file **atlassian-jira.log**. I dettagli dell'errore saranno disponibili in base all'ID di riferimento indicato nella pagina di errore EasySSO.
 
 In caso di problemi relativi al digest dei messaggi di log, contattare il [team di supporto di EasySSO](mailto:support@techtime.co.nz).
 

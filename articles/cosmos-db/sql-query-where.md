@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 03/06/2020
 ms.author: tisande
 ms.openlocfilehash: 5620a9fb95fb52a487095afd75d5f30c82a8bce1
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93341468"
 ---
 # <a name="where-clause-in-azure-cosmos-db"></a>Clausola WHERE in Azure Cosmos DB
@@ -43,7 +43,7 @@ WHERE <filter_condition>
 
   Se si include la chiave di partizione nella `WHERE` clausola come parte di un filtro di uguaglianza, la query verrà automaticamente filtrata solo per le partizioni pertinenti.
 
-## <a name="examples"></a>Esempi
+## <a name="examples"></a>Esempio
 
 La query seguente richiede elementi che contengono una `id` proprietà il cui valore è `AndersenFamily` . Esclude tutti gli elementi che non dispongono di una `id` proprietà o il cui valore non corrisponde `AndersenFamily` .
 
