@@ -5,10 +5,10 @@ ms.date: 02/05/2021
 ms.topic: quickstart
 ms.custom: devx-track-js
 ms.openlocfilehash: 99a2ed406d4837f6fc346e68b3b400003feed38c
-ms.sourcegitcommit: 24f30b1e8bb797e1609b1c8300871d2391a59ac2
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/10/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100099150"
 ---
 # <a name="quickstart-create-a-management-group-with-javascript"></a>Avvio rapido: Creare un gruppo di gestione con JavaScript
@@ -115,4 +115,4 @@ In questo argomento di avvio rapido è stato creato un gruppo di gestione per or
 Per altre informazioni sui gruppi di gestione e su come gestire la gerarchia delle risorse, continuare con:
 
 > [!div class="nextstepaction"]
-> [Gestire le risorse con i gruppi di gestione](./manage.md)
+> Gestire le risorse con i gruppi di gestione

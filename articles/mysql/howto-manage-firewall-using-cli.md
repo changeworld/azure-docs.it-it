@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.date: 3/18/2020
 ms.custom: devx-track-azurecli
 ms.openlocfilehash: eaddd8b2979b30251301ad041ea4b872c23d680b
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/12/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94541335"
 ---
 # <a name="create-and-manage-azure-database-for-mysql-firewall-rules-by-using-the-azure-cli"></a>Creare e gestire regole del firewall di Database di Azure per MySQL usando l'interfaccia della riga di comando di Azure
@@ -28,11 +28,11 @@ Le regole della rete virtuale (VNet) possono essere usate anche per proteggere l
 Il comando **az mysql server firewall-rule** viene usato dall'interfaccia della riga di comando di Azure per creare, eliminare, elencare, visualizzare e aggiornare le regole del firewall.
 
 Comandi:
-- **create** : creare una regola del firewall del server MySQL di Azure.
-- **delete** : eliminare una regola del firewall del server MySQL di Azure.
-- **elenco** : elencare le regole del firewall del server MySQL di Azure.
-- **Mostra** : Mostra i dettagli di una regola del firewall del server MySQL di Azure.
-- **update** : aggiornare una regola del firewall del server MySQL di Azure.
+- **create**: creare una regola del firewall del server MySQL di Azure.
+- **delete**: eliminare una regola del firewall del server MySQL di Azure.
+- **elenco**: elencare le regole del firewall del server MySQL di Azure.
+- **Mostra**: Mostra i dettagli di una regola del firewall del server MySQL di Azure.
+- **update**: aggiornare una regola del firewall del server MySQL di Azure.
 
 ## <a name="sign-in-to-azure-and-list-your-azure-database-for-mysql-servers"></a>Accedere ad Azure ed elencare il database di Azure per i server MySQL
 Connettere in modo sicuro l'interfaccia della riga di comando di Azure all'account Azure usando il comando **az login**.
@@ -69,7 +69,7 @@ Usando il nome del server e il nome del gruppo di risorse, elencare le regole de
 ```azurecli-interactive
 az mysql server firewall-rule list --resource-group myresourcegroup --server-name mydemoserver
 ```
-L'output elenca le eventuali regole presenti in formato JSON (per impostazione predefinita). Usando l'opzione **--output table** , i risultati vengono restituiti in un formato di tabella più leggibile.
+L'output elenca le eventuali regole presenti in formato JSON (per impostazione predefinita). Usando l'opzione **--output table**, i risultati vengono restituiti in un formato di tabella più leggibile.
 ```azurecli-interactive
 az mysql server firewall-rule list --resource-group myresourcegroup --server-name mydemoserver --output table
 ```

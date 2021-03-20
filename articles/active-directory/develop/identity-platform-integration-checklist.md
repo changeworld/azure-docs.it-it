@@ -13,10 +13,10 @@ ms.author: ryanwi
 ms.reviewer: lenalepa, sureshja, jesakowi
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started
 ms.openlocfilehash: a6a7bf24571660d8e728c1acba29af2504539a18
-ms.sourcegitcommit: 54e1d4cdff28c2fd88eca949c2190da1b09dca91
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/31/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "99219961"
 ---
 # <a name="microsoft-identity-platform-best-practices-and-recommendations"></a>Procedure consigliate e raccomandazioni per Microsoft Identity Platform
@@ -30,7 +30,7 @@ Usare il seguente elenco di controllo per assicurarsi che l'applicazione sia int
 > [!TIP]
 > *Integration Assistant* nella portale di Azure può essere utile per applicare molti di questi consigli e procedure consigliate. Selezionare una delle registrazioni per l' [app](https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/ApplicationsListBlade) nel portale di Azure, quindi selezionare la voce di menu **Integration Assistant** per iniziare a usare l'assistente.
 
-## <a name="basics"></a>Operazioni di base
+## <a name="basics"></a>Nozioni di base
 
 ![casella ](./media/active-directory-integration-checklist/checkbox-two.svg) di controllo leggere e comprendere i [criteri della piattaforma Microsoft](/legal/microsoft-identity-platform/terms-of-use). Assicurarsi che l'applicazione soddisfi le condizioni descritte in quanto sono progettate per proteggere gli utenti e la piattaforma.
 

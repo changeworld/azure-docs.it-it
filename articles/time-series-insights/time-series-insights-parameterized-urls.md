@@ -11,10 +11,10 @@ ms.workload: big-data
 ms.date: 10/02/2020
 ms.custom: seodec18
 ms.openlocfilehash: 9bf857a66643b1e95ea2559601761a7217babad4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91665328"
 ---
 # <a name="share-a-custom-view-using-a-parameterized-url"></a>Condividere una visualizzazione personalizzata usando un URL con parametri
@@ -34,7 +34,7 @@ Il parametro `environmentId=<guid>` specifica l'ID dell'ambiente di destinazione
 
 Un parametro ID di ambiente di esempio è `?environmentId=10000000-0000-0000-0000-100000000108`.
 
-## <a name="time"></a>Ora
+## <a name="time"></a>Tempo
 
 È possibile specificare valori assoluti o relativi con un URL con parametri.
 
@@ -86,7 +86,7 @@ Il `timeSeriesDefinitions=<collection of term objects>` parametro specifica i te
 * `timeBucketUnit=<Unit>&timeBucketSize=<integer>`Consente di regolare il dispositivo di scorrimento intervallo per fornire una visualizzazione più granulare o più uniforme del grafico.  
 * Il `timezoneOffset=<integer>` parametro consente di impostare il fuso orario affinché il grafico venga visualizzato in come offset per l'ora UTC.
 
-| Coppie | Description |
+| Coppie | Descrizione |
 | --- | --- |
 | `multiChartStack=false` | `true` è abilitata per impostazione predefinita, quindi passa `false` allo stack. |
 | `multiChartStack=false&multiChartSameScale=true` | È necessario abilitare l'impilamento per usare la stessa scala dell'asse Y in tutti i termini.  `false`Per impostazione predefinita, `true` il passaggio Abilita questa funzionalità. |
@@ -97,7 +97,7 @@ Il `timeSeriesDefinitions=<collection of term objects>` parametro specifica i te
 > i valori **timeBucketUnit** possono essere smussati fino a 7 giorni.
 > i valori di **timezoneOffset** non sono UTC né l'ora locale.
 
-### <a name="examples"></a>Esempi
+### <a name="examples"></a>Esempio
 
 Per aggiungere definizioni di serie temporali a un ambiente Azure Time Series Insights come parametro URL, aggiungere:
 
@@ -110,7 +110,7 @@ Usare le definizioni di esempio della serie temporale per:
 
 * ID ambiente
 * Ultimi 60 minuti di dati
-* Termini (**F1PressureID**, **F2TempStation**e **F3VibrationPL**) che comprendono i parametri facoltativi
+* Termini (**F1PressureID**, **F2TempStation** e **F3VibrationPL**) che comprendono i parametri facoltativi
 
 Per una vista è possibile costruire l'URL con parametri seguente:
 

@@ -9,10 +9,10 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 ms.date: 09/02/2020
 ms.openlocfilehash: f689993ce56a1125a1d1de8f65ce05d01f776ea9
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93130069"
 ---
 # <a name="how-to-create-a-saas-offer-in-the-commercial-marketplace"></a>Come creare un'offerta SaaS nel Marketplace commerciale
@@ -26,32 +26,32 @@ Se non è già stato fatto, leggere [pianificare un'offerta SaaS per il Marketpl
 ## <a name="create-a-new-saas-offer"></a>Creare una nuova offerta SaaS
 
 1. Accedere al [Centro per i partner](https://partner.microsoft.com/dashboard/home).
-1. Nel menu di spostamento a sinistra, selezionare **Commercial Marketplace**  >  **Overview** .
-1. Nella scheda **Panoramica** selezionare **+ nuovo offerta**  >  **software come servizio** .
+1. Nel menu di spostamento a sinistra, selezionare **Commercial Marketplace**  >  **Overview**.
+1. Nella scheda **Panoramica** selezionare **+ nuovo offerta**  >  **software come servizio**.
 
    :::image type="content" source="media/new-offer-saas.png" alt-text="Vengono illustrati il menu di spostamento a sinistra e il nuovo elenco di offerte.":::
 
-1. Nella finestra di dialogo **nuova offerta** immettere un **ID offerta** . Questo ID è visibile nell'URL dell'elenco di Marketplace commerciale e nei modelli di Azure Resource Manager, se applicabile. Se ad esempio si immette **test-offer-1** in questa casella, l'indirizzo Web dell'offerta sarà `https://azuremarketplace.microsoft.com/marketplace/../test-offer-1` .
+1. Nella finestra di dialogo **nuova offerta** immettere un **ID offerta**. Questo ID è visibile nell'URL dell'elenco di Marketplace commerciale e nei modelli di Azure Resource Manager, se applicabile. Se ad esempio si immette **test-offer-1** in questa casella, l'indirizzo Web dell'offerta sarà `https://azuremarketplace.microsoft.com/marketplace/../test-offer-1` .
    + Ogni offerta nell'account deve avere un ID offerta univoco.
    + Usare solo lettere minuscole e numeri. È possibile includere trattini e caratteri di sottolineatura, ma non spazi, per un massimo di 50 caratteri.
-   + Non è possibile modificare l'ID offerta dopo aver selezionato **Crea** .
+   + Non è possibile modificare l'ID offerta dopo aver selezionato **Crea**.
 
-1. Immettere un alias in **Alias offerta** . Si tratta del nome usato per l'offerta nel Centro per i partner.
+1. Immettere un alias in **Alias offerta**. Si tratta del nome usato per l'offerta nel Centro per i partner.
 
    + Questo nome non è visibile nel Marketplace commerciale ed è diverso dal nome dell'offerta e da altri valori visualizzati ai clienti.
-   + Non è possibile modificare l'alias dell'offerta dopo aver selezionato **Crea** .
-1. Per generare l'offerta e continuare, selezionare **Crea** .
+   + Non è possibile modificare l'alias dell'offerta dopo aver selezionato **Crea**.
+1. Per generare l'offerta e continuare, selezionare **Crea**.
 
 ## <a name="configure-your-saas-offer-setup-details"></a>Configurare i dettagli dell'installazione dell'offerta SaaS
 
-Nella scheda **installazione offerta** , in **Dettagli installazione** , scegliere se vendere l'offerta tramite Microsoft o gestire le transazioni in modo indipendente. Le offerte vendute tramite Microsoft sono indicate come _offerte transazionali_ , il che significa che Microsoft semplifica lo scambio di denaro per una licenza software per conto dell'editore. Per ulteriori informazioni su queste opzioni, vedere l' [elenco delle opzioni](plan-saas-offer.md#listing-options) e [determinare l'opzione di pubblicazione](determine-your-listing-type.md).
+Nella scheda **installazione offerta** , in **Dettagli installazione**, scegliere se vendere l'offerta tramite Microsoft o gestire le transazioni in modo indipendente. Le offerte vendute tramite Microsoft sono indicate come _offerte transazionali_, il che significa che Microsoft semplifica lo scambio di denaro per una licenza software per conto dell'editore. Per ulteriori informazioni su queste opzioni, vedere l' [elenco delle opzioni](plan-saas-offer.md#listing-options) e [determinare l'opzione di pubblicazione](determine-your-listing-type.md).
 
-1. Per eseguire la vendita tramite Microsoft e semplificare le transazioni, selezionare **Sì** . Continuare a [abilitare un test drive](#enable-a-test-drive-optional).
+1. Per eseguire la vendita tramite Microsoft e semplificare le transazioni, selezionare **Sì**. Continuare a [abilitare un test drive](#enable-a-test-drive-optional).
 
-1. Per elencare l'offerta tramite il Marketplace commerciale ed elaborare le transazioni in modo indipendente, selezionare **No** , quindi eseguire una delle operazioni seguenti:
-   + Per fornire una sottoscrizione gratuita per l'offerta, selezionare **Get it Now (gratuito)** . Nella casella **URL offerta** , quindi, immettere l'URL (a partire da *http* o *https* ), in cui i clienti possono ottenere una versione di valutazione tramite [l'autenticazione con un clic usando Azure Active Directory (Azure ad)](azure-ad-saas.md). Ad esempio `https://contoso.com/saas-app`.
-   + Per fornire una versione di valutazione gratuita di 30 giorni, selezionare versione di valutazione **gratuita** , quindi nella casella **URL di valutazione** visualizzata immettere l'URL (a partire da *http* o *https* ), in cui i clienti possono accedere alla versione di valutazione gratuita tramite [l'autenticazione con un clic usando Azure Active Directory (Azure ad)](azure-ad-saas.md). Ad esempio `https://contoso.com/trial/saas-app`.
-   + Per consentire ai clienti potenziali di contattare l'utente per acquistare l'offerta, selezionare **contattami** .
+1. Per elencare l'offerta tramite il Marketplace commerciale ed elaborare le transazioni in modo indipendente, selezionare **No**, quindi eseguire una delle operazioni seguenti:
+   + Per fornire una sottoscrizione gratuita per l'offerta, selezionare **Get it Now (gratuito)**. Nella casella **URL offerta** , quindi, immettere l'URL (a partire da *http* o *https*), in cui i clienti possono ottenere una versione di valutazione tramite [l'autenticazione con un clic usando Azure Active Directory (Azure ad)](azure-ad-saas.md). Ad esempio: `https://contoso.com/saas-app`.
+   + Per fornire una versione di valutazione gratuita di 30 giorni, selezionare versione di valutazione **gratuita**, quindi nella casella **URL di valutazione** visualizzata immettere l'URL (a partire da *http* o *https*), in cui i clienti possono accedere alla versione di valutazione gratuita tramite [l'autenticazione con un clic usando Azure Active Directory (Azure ad)](azure-ad-saas.md). Ad esempio: `https://contoso.com/trial/saas-app`.
+   + Per consentire ai clienti potenziali di contattare l'utente per acquistare l'offerta, selezionare **contattami**.
 
 ### <a name="enable-a-test-drive-optional"></a>Abilitare una test drive (facoltativo)
 
@@ -84,7 +84,7 @@ Connetti il tuo sistema CRM (Customer Relationship Management) all'offerta del M
    - [Configurare l'offerta per inviare lead a Salesforce](./partner-center-portal/commercial-marketplace-lead-management-instructions-salesforce.md#configure-your-offer-to-send-leads-to-salesforce)
 
 1. Per convalidare la configurazione specificata, selezionare il collegamento **convalida** .
-1. Per chiudere la finestra di dialogo, fare clic su **OK** .
+1. Per chiudere la finestra di dialogo, fare clic su **OK**.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

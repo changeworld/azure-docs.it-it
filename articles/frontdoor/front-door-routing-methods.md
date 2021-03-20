@@ -12,10 +12,10 @@ ms.workload: infrastructure-services
 ms.date: 09/28/2020
 ms.author: duau
 ms.openlocfilehash: 2bc056620ff964747dfd83e7525cb5bfd2eb8e52
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91449145"
 ---
 # <a name="front-door-routing-methods"></a>Metodi di routing di Frontdoor
@@ -25,9 +25,9 @@ Il front-end di Azure supporta diversi tipi di metodi di routing del traffico pe
 Sono disponibili quattro metodi di routing del traffico nella porta anteriore:
 
 * **[Latenza](#latency):** il routing basato sulla latenza assicura che le richieste vengano inviate al back-end con la latenza più bassa accettabile all'interno di un intervallo di sensibilità. In pratica, le richieste degli utenti vengono inviate al set "più vicino" di backend rispetto alla latenza di rete.
-* ** [Priorità](#priority):** È possibile assegnare le priorità ai back-end quando si vuole configurare un back-end primario per il servizio di tutto il traffico. Il back-end secondario può essere un backup nel caso in cui il back-end primario diventi non disponibile.
-* ** [Ponderato](#weighted):** È possibile assegnare pesi ai backend quando si vuole distribuire il traffico in un set di backend. Se si desidera distribuire uniformemente o in base ai coefficienti di peso.
-* ** [Affinità di sessione](#affinity):** È possibile configurare l'affinità di sessione per gli host o i domini front-end per assicurarsi che le richieste provenienti dallo stesso utente siano inviate allo stesso back-end.
+* **[Priorità](#priority):** È possibile assegnare le priorità ai back-end quando si vuole configurare un back-end primario per il servizio di tutto il traffico. Il back-end secondario può essere un backup nel caso in cui il back-end primario diventi non disponibile.
+* **[Ponderato](#weighted):** È possibile assegnare pesi ai backend quando si vuole distribuire il traffico in un set di backend. Se si desidera distribuire uniformemente o in base ai coefficienti di peso.
+* **[Affinità di sessione](#affinity):** È possibile configurare l'affinità di sessione per gli host o i domini front-end per assicurarsi che le richieste provenienti dallo stesso utente siano inviate allo stesso back-end.
 
 Tutte le configurazioni di Frontdoor includono il monitoraggio dell'integrità back-end e il failover globale immediato automatizzato. Per altre informazioni, vedere [Front Door Backend Monitoring](front-door-health-probes.md) (Monitoraggio del back-end Frontdoor). La porta anteriore può funzionare in base a un singolo metodo di routing. Tuttavia, a seconda delle esigenze dell'applicazione, è anche possibile combinare più metodi di routing per creare una topologia di routing ottimale.
 

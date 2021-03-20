@@ -10,10 +10,10 @@ ms.author: sourabha
 ms.reviewer: sstein
 ms.date: 07/27/2020
 ms.openlocfilehash: 97189fd7a232c2467981b23dc20da51ebef08252
-ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/17/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97656343"
 ---
 # <a name="create-a-data-streaming-job-in-azure-sql-edge"></a>Creare un processo di streaming dei dati in Azure SQL Edge 
@@ -38,7 +38,7 @@ SQL Edge di Azure attualmente supporta solo le origini dati seguenti come output
 
 | Tipo di origine dati | Input | Output | Descrizione |
 |------------------|-------|--------|------------------|
-| Hub Azure IoT Edge | Y | Y | Origine dati per la lettura e la scrittura dei dati di streaming in un hub Azure IoT Edge. Per altre informazioni, vedere [Hub IOT Edge](../iot-edge/iot-edge-runtime.md#iot-edge-hub).|
+| Hub Azure IoT Edge | S | S | Origine dati per la lettura e la scrittura dei dati di streaming in un hub Azure IoT Edge. Per altre informazioni, vedere [Hub IOT Edge](../iot-edge/iot-edge-runtime.md#iot-edge-hub).|
 | Database SQL | N | S | Connessione all'origine dati per scrivere i dati di streaming nel database SQL. Il database può essere un database locale in Azure SQL Edge o un database remoto in SQL Server o nel database SQL di Azure.|
 | Kafka | S | N | Origine dati per la lettura dei dati in streaming da un argomento Kafka. Questa scheda è attualmente disponibile solo per le versioni Intel o AMD di Azure SQL Edge. Non è disponibile per la versione ARM64 di Azure SQL Edge.|
 

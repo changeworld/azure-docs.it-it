@@ -13,10 +13,10 @@ ms.topic: article
 ms.date: 11/08/2017
 ms.author: apimpm
 ms.openlocfilehash: 1c4e64251390936e8a63ee904ec69f173cac6114
-ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
-ms.translationtype: HT
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/01/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93146706"
 ---
 # <a name="edit-an-api"></a>Modificare un'API
@@ -37,18 +37,18 @@ I passaggi di questa esercitazione illustrano come usare Gestione API per modifi
 
 ![Screenshot che evidenzia il processo di modifica di un'API in Gestione API.](./media/edit-api/edit-api001.png)
 
-1. Fare clic sulla scheda **API** .
+1. Fare clic sulla scheda **API**.
 2. Selezionare una delle API importate in precedenza.
-3. Selezionare la scheda **Progettazione** .
+3. Selezionare la scheda **Progettazione**.
 4. Selezionare un'operazione che si vuole modificare.
-5. Per rinominare l'operazione, selezionare la **matita** nella finestra **Front-end** .
+5. Per rinominare l'operazione, selezionare la **matita** nella finestra **Front-end**.
 
 ## <a name="update-the-swagger"></a>Aggiornare lo swagger
 
 È possibile aggiornare l'API back-end dal portale di Azure seguendo questa procedura:
 
-1. Selezionare **Tutte le operazioni** .
-2. Fare clic sulla matita nella finestra **Front-end** .
+1. Selezionare **Tutte le operazioni**.
+2. Fare clic sulla matita nella finestra **Front-end**.
 
     ![Screenshot che evidenzia l'icona della matita nella finestra Front-end.](./media/edit-api/edit-api002.png)
 
@@ -57,7 +57,7 @@ I passaggi di questa esercitazione illustrano come usare Gestione API per modifi
     ![Modificare un'API](./media/edit-api/edit-api003.png)
 
 3. Aggiornare lo swagger.
-4. Premere **Salva** .
+4. Premere **Salva**.
 
 [!INCLUDE [api-management-define-api-topics.md](../../includes/api-management-define-api-topics.md)]
 

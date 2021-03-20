@@ -8,10 +8,10 @@ ms.subservice: hyperscale-citus
 ms.topic: reference
 ms.date: 08/10/2020
 ms.openlocfilehash: f324ef44d002f50bf27c08072e904c1d92b5512f
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/21/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "95026234"
 ---
 # <a name="functions-in-the-hyperscale-citus-sql-api"></a>Funzioni nell'API SQL con iperscalabilità (CITUS)
@@ -421,7 +421,7 @@ Dopo un'operazione di spostamento riuscita, le partizioni nel nodo di origine ve
 
 **\_ modalità di trasferimento partizioni \_ :** (facoltativo) specificare il metodo di replica, se usare la replica logica PostgreSQL o un comando di copia tra i thread di lavoro. I valori possibili sono:
 
-> -   `auto`: Richiedere l'identità della replica se è possibile la replica logica. in caso contrario, usare il comportamento legacy, ad esempio per il ripristino della partizione, PostgreSQL 9,6. Rappresenta il valore predefinito.
+> -   `auto`: Richiedere l'identità della replica se è possibile la replica logica. in caso contrario, usare il comportamento legacy, ad esempio per il ripristino della partizione, PostgreSQL 9,6. Si tratta del valore predefinito.
 > -   `force_logical`: Usare la replica logica anche se la tabella non ha un'identità di replica. Eventuali istruzioni Update/Delete simultanee della tabella avranno esito negativo durante la replica.
 > -   `block_writes`: Usare copia (scritture di blocco) per le tabelle prive di chiave primaria o identità di replica.
 
@@ -466,7 +466,7 @@ In particolare, il ribilanciamento delle partizioni tenterà di convergere l'uti
 
 **\_ modalità di trasferimento partizioni \_ :** (facoltativo) specificare il metodo di replica, se usare la replica logica PostgreSQL o un comando di copia tra i thread di lavoro. I valori possibili sono:
 
-> -   `auto`: Richiedere l'identità della replica se è possibile la replica logica. in caso contrario, usare il comportamento legacy, ad esempio per il ripristino della partizione, PostgreSQL 9,6. Rappresenta il valore predefinito.
+> -   `auto`: Richiedere l'identità della replica se è possibile la replica logica. in caso contrario, usare il comportamento legacy, ad esempio per il ripristino della partizione, PostgreSQL 9,6. Si tratta del valore predefinito.
 > -   `force_logical`: Usare la replica logica anche se la tabella non ha un'identità di replica. Eventuali istruzioni Update/Delete simultanee della tabella avranno esito negativo durante la replica.
 > -   `block_writes`: Usare copia (scritture di blocco) per le tabelle prive di chiave primaria o identità di replica.
 
@@ -628,7 +628,7 @@ Deport **:** Numero di porta del nodo da svuotare.
 
 **\_ modalità di trasferimento partizioni \_ :** (facoltativo) specificare il metodo di replica, se usare la replica logica PostgreSQL o un comando di copia tra i thread di lavoro. I valori possibili sono:
 
-> -   `auto`: Richiedere l'identità della replica se è possibile la replica logica. in caso contrario, usare il comportamento legacy, ad esempio per il ripristino della partizione, PostgreSQL 9,6. Rappresenta il valore predefinito.
+> -   `auto`: Richiedere l'identità della replica se è possibile la replica logica. in caso contrario, usare il comportamento legacy, ad esempio per il ripristino della partizione, PostgreSQL 9,6. Si tratta del valore predefinito.
 > -   `force_logical`: Usare la replica logica anche se la tabella non ha un'identità di replica. Eventuali istruzioni Update/Delete simultanee della tabella avranno esito negativo durante la replica.
 > -   `block_writes`: Usare copia (scritture di blocco) per le tabelle prive di chiave primaria o identità di replica.
 

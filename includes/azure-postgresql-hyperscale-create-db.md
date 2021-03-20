@@ -1,6 +1,6 @@
 ---
-title: File di inclusione
-description: File di inclusione
+title: includere file
+description: includere file
 author: jonels-msft
 ms.service: postgresql
 ms.subservice: hyperscale-citus
@@ -9,10 +9,10 @@ ms.date: 12/16/2020
 ms.author: jonels
 ms.custom: include file
 ms.openlocfilehash: 26289f6bdfa086708548d17125a6dfdf50b02a8f
-ms.sourcegitcommit: 8c3a656f82aa6f9c2792a27b02bbaa634786f42d
-ms.translationtype: HT
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/17/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97665065"
 ---
 ## <a name="create-a-hyperscale-citus-server-group"></a>Creare un gruppo di server Hyperscale (Citus)
@@ -27,7 +27,7 @@ Accedere al [portale di Azure](https://portal.azure.com).
 Seguire questa procedura per creare un database di Azure per il server PostgreSQL:
 1. Fare clic su **Crea una risorsa** nell'angolo superiore sinistro del portale di Azure.
 2. Selezionare **Database** nella pagina **Nuovo** e selezionare **Database di Azure per PostgreSQL** nella pagina **Database**.
-3. Per l'opzione di distribuzione, fare clic sul pulsante **Crea** in **Gruppo di server Hyperscale (Citus)** .
+3. Per l'opzione di distribuzione, fare clic sul pulsante **Crea** in **Gruppo di server Hyperscale (Citus)**.
 4. Compilare il modulo dei dettagli del nuovo server con le informazioni seguenti:
    - Gruppo di risorse: fare clic sul collegamento **Crea nuovo** sotto la casella di testo di questo campo. Immettere un nome, ad esempio **myresourcegroup**.
    - Nome gruppo server: immettere un nome univoco per il nuovo gruppo di server, che verrà usato anche per un sottodominio di server.
@@ -39,7 +39,7 @@ Seguire questa procedura per creare un database di Azure per il server PostgreSQ
    > La password dell'amministratore del server qui specificata è necessaria per accedere al server e ai relativi database. Prendere nota di queste informazioni per usarle in seguito.
 
 5. Fare clic su **Configura gruppo di server**. Lasciare invariate le impostazioni di tale sezione e fare clic su **Salva**.
-6. Fare clic su **Avanti: Rete >** nella parte inferiore della schermata.
+6. Fare clic su **Avanti: rete >** nella parte inferiore della schermata.
 
 7. Nella scheda **Rete** fare clic sul pulsante di opzione **Endpoint pubblico**.
    ![Endpoint pubblico selezionato](./media/azure-postgresql-hyperscale-create-db/network-public-endpoint.png)
@@ -58,7 +58,7 @@ Seguire questa procedura per creare un database di Azure per il server PostgreSQ
 
 Quando si crea il server di Database di Azure per PostgreSQL, viene creato un database predefinito denominato **citus**. Per connettersi al server di database, è necessaria una stringa di connessione e la password amministratore.
 
-1. Ottenere la stringa di connessione. Nella pagina del gruppo di server fare clic sulla voce di menu **Stringhe di connessione**. Si trova in **Impostazioni**. Trovare la stringa contrassegnata con **psql**. Sarà nel formato:
+1. Ottenere la stringa di connessione. Nella pagina del gruppo di server fare clic sulla voce di menu **Stringhe di connessione**. Si trova in **Impostazioni**. Trovare la stringa contrassegnata come **PSQL**. Sarà nel formato:
 
    ```
    psql "host=hostname.postgres.database.azure.com port=5432 dbname=citus user=citus password={your_password} sslmode=require"

@@ -1,5 +1,5 @@
 ---
-title: 'Esercitazione: Aggiungere una risorsa di archiviazione a un cluster di Azure FXT Edge Filer'
+title: 'Esercitazione: aggiungere spazio di archiviazione a un cluster di filer di Azure FXT Edge'
 description: Informazioni su come configurare l'archiviazione back-end e lo pseudo spazio dei nomi lato client per Azure FXT Edge Filer
 author: ekpgh
 ms.author: rohogue
@@ -7,13 +7,13 @@ ms.service: fxt-edge-filer
 ms.topic: tutorial
 ms.date: 06/20/2019
 ms.openlocfilehash: 7d10c6c1ce440b2ffe964dc78379ef3ab108e78e
-ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
-ms.translationtype: HT
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/20/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92217525"
 ---
-# <a name="tutorial-add-back-end-storage-and-configure-the-virtual-namespace"></a>Esercitazione: Aggiungere l'archiviazione back-end e configurare lo spazio dei nomi virtuale
+# <a name="tutorial-add-back-end-storage-and-configure-the-virtual-namespace"></a>Esercitazione: aggiungere archiviazione back-end e configurare lo spazio dei nomi virtuale
 
 Questa esercitazione illustra come aggiungere l'archiviazione back-end per la cache e configurare il file system virtuale lato client.
 
@@ -80,7 +80,7 @@ Le attività secondarie da eseguire includono:
 
   ![Informazioni sul core filer cloud nella procedura guidata per l'aggiunta di un nuovo core filer](media/fxt-cluster-config/new-core-filer-cloud3.png)
   
-  Se le credenziali dell'accesso cloud sono già state aggiunte per questo cluster, verranno visualizzate nell'elenco. Aggiornare e aggiungere le credenziali nella pagina delle impostazioni **Cluster** > **Cloud Credentials** (Cluster > Credenziali cloud).
+  Se le credenziali dell'accesso cloud sono già state aggiunte per questo cluster, verranno visualizzate nell'elenco. Aggiornare e aggiungere le credenziali nella   >  pagina impostazioni **credenziali cloud** del cluster.
 
 Dopo aver inserito tutte le impostazioni obbligatorie nella procedura guidata, fare clic sul pulsante **Add Filer** (Aggiungi filer) per inviare la modifica.
 
@@ -130,7 +130,7 @@ Per creare un nuovo vserver, sono necessarie le informazioni seguenti:
 
 * Se la rete include VLAN, è necessario indicare la VLAN da usare per questo vserver
 
-Per creare un nuovo vserver, usare la pagina delle impostazioni **VServer** > **Manage VServers** (Vserver > Gestisci vserver). Per informazioni dettagliate, leggere la sezione sulla [creazione di un vserver](https://azure.github.io/Avere/legacy/ops_guide/4_7/html/gui_vserver_manage.html#creating-a-vserver) nella guida alla configurazione del cluster.
+Usare la   >  pagina di vserver **Gestisci impostazioni VServers** per creare un nuovo Vserver. Per informazioni dettagliate, leggere la sezione sulla [creazione di un vserver](https://azure.github.io/Avere/legacy/ops_guide/4_7/html/gui_vserver_manage.html#creating-a-vserver) nella guida alla configurazione del cluster.
 
 ![Finestra popup per la creazione di un nuovo vserver](media/fxt-cluster-config/new-vserver.png)
 
@@ -150,9 +150,9 @@ Per tutti i dettagli sulla creazione di una giunzione dello spazio dei nomi, ved
 
 Dopo aver definito un vserver e un core filer, è necessario personalizzare le regole e i criteri di esportazione che controllano le modalità in cui i client possono accedere ai file nelle esportazioni dei core filer.
 
-Usare innanzitutto la pagina **VServer** > **Export Rules** (Vserver > Regole di esportazione) per aggiungere nuove regole, modificare i criteri predefiniti o creare criteri di esportazione personalizzati.
+Per prima cosa, usare la pagina **vserver**  >  **Export Rules** per aggiungere nuove regole, modificare i criteri predefiniti o creare criteri di esportazione personalizzati.
 
-Usare quindi la pagina **VServer** > **Export Policies** (Vserver > Criteri di esportazione) per applicare i criteri personalizzati alle esportazioni del core filer quando l'accesso viene effettuato tramite tale vserver.
+In secondo luogo, usare la pagina **vserver**  >  **Export Policies** per applicare i criteri personalizzati alle esportazioni di core filer quando si accede tramite tale Vserver.
 
 Per informazioni dettagliate, leggere l'articolo relativo a come [controllare l'accesso alle esportazioni del core filer](https://azure.github.io/Avere/legacy/ops_guide/4_7/html/export_rules_overview.html) nella guida alla configurazione del cluster.
 

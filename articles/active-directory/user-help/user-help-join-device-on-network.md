@@ -13,10 +13,10 @@ ms.date: 08/03/2018
 ms.author: curtand
 ms.reviewer: jairoc
 ms.openlocfilehash: efb3ee24add847baf8264eccdf71278be5ee9496
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91536971"
 ---
 # <a name="join-your-work-device-to-your-organizations-network"></a>Aggiungere il dispositivo aziendale alla rete dell'organizzazione
@@ -61,7 +61,7 @@ Se il dispositivo è nuovo e non è ancora stato configurato, è possibile usare
 
     ![Account nella schermata Impostazioni](./media/user-help-join-device-on-network/join-device-settings-accounts.png)
 
-2. Selezionare **Accedi all'ufficio o all'Istituto di istruzione**e verificare che venga visualizzato un testo simile **a, connesso a *\<your_organization>* Azure ad**.
+2. Selezionare **Accedi all'ufficio o all'Istituto di istruzione** e verificare che venga visualizzato un testo simile **a, connesso a *\<your_organization>* Azure ad**.
 
     ![Screenshot che mostra la finestra "accedi all'azienda o all'Istituto di istruzione" con l'account "connesso a (organizzazione) Azure AD" selezionato.](./media/user-help-join-device-on-network/join-device-oobe-verify.png)
 
@@ -106,7 +106,7 @@ Se si possiede il dispositivo da tempo ed è già stato configurato, è possibil
 
     ![Account nella schermata Impostazioni](./media/user-help-join-device-on-network/join-device-settings-accounts.png)
 
-2. Selezionare **Accedi all'ufficio o all'Istituto di istruzione**e verificare che venga visualizzato un testo simile **a, connesso a *\<your_organization>* Azure ad**.
+2. Selezionare **Accedi all'ufficio o all'Istituto di istruzione** e verificare che venga visualizzato un testo simile **a, connesso a *\<your_organization>* Azure ad**.
 
     ![Schermata Accedi all'azienda o all'istituto di istruzione con l'account contoso connesso](./media/user-help-join-device-on-network/join-device-setup-verify.png)
 

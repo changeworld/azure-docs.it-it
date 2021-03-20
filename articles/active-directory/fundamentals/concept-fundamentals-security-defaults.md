@@ -12,12 +12,12 @@ manager: daveba
 ms.reviewer: rogoya
 ms.collection: M365-identity-device-management
 ms.custom: contperf-fy20q4
-ms.openlocfilehash: 9c912b7122a40ae39bcbb703e1387af25fff2bc8
-ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
+ms.openlocfilehash: efaf6060c0b09e071546038d9e30f2c8065059e7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97029907"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "98600139"
 ---
 # <a name="what-are-security-defaults"></a>Cosa sono le impostazioni predefinite per la sicurezza?
 
@@ -76,7 +76,7 @@ Si tende a pensare che gli account amministratore siano gli unici account che ri
 
 Una volta che gli utenti malintenzionati ottengono l'accesso, possono richiedere l'accesso alle informazioni con privilegi per conto del titolare dell'account originale. Possono anche scaricare l'intera directory per eseguire un attacco di phishing all'intera organizzazione. 
 
-Un metodo comune per migliorare la protezione per tutti gli utenti è quello di richiedere una forma più avanzata di verifica dell'account, come Multi-Factor Authentication, per tutti. Al termine della registrazione a Multi-Factor Authentication, gli utenti riceveranno la richiesta di autenticazione aggiuntiva ogni volta che è necessario. Questa funzionalità protegge tutte le applicazioni registrate con Azure AD incluse le applicazioni SaaS.
+Un metodo comune per migliorare la protezione per tutti gli utenti è quello di richiedere una forma più avanzata di verifica dell'account, come Multi-Factor Authentication, per tutti. Al termine della registrazione a Multi-Factor Authentication, gli utenti riceveranno la richiesta di autenticazione aggiuntiva ogni volta che è necessario. Gli utenti verranno richiesti principalmente quando eseguono l'autenticazione con un nuovo dispositivo o un'applicazione o quando eseguono attività e ruoli critici. Questa funzionalità protegge tutte le applicazioni registrate con Azure AD incluse le applicazioni SaaS.
 
 ### <a name="blocking-legacy-authentication"></a>Bloccare l'autenticazione legacy
 
@@ -128,14 +128,14 @@ Queste impostazioni predefinite di sicurezza gratuite consentono la registrazion
 | Codice di verifica dall'app per dispositivi mobili o dal token hardware | X** | X |
 | SMS al telefono |   | X |
 | Chiamata al telefono |   | X |
-| Password dell'app |   | X * * _ |
+| Password dell'app |   | X*** |
 
-- _ * Gli utenti possono usare i codici di verifica dell'app Microsoft Authenticator ma possono registrarsi solo con l'opzione di notifica.
-- * * _ Le password dell'app sono disponibili solo nell'autenticazione a più fattori per utente con scenari di autenticazione legacy solo se abilitati dagli amministratori.
+- ** Gli utenti possono usare i codici di verifica dell'app Microsoft Authenticator ma possono registrarsi solo con l'opzione di notifica.
+- *** Le password dell'app sono disponibili solo nell'autenticazione a più fattori per utente con scenari di autenticazione legacy solo se abilitati dagli amministratori.
 
 ### <a name="disabled-mfa-status"></a>Stato MFA disabilitato
 
-Se l'organizzazione è un utente precedente di Azure AD Multi-Factor Authentication basato su utente, non è necessario che gli utenti in uno stato _ *abilitato** o **applicato** siano visualizzati nella pagina stato di autenticazione a più fattori. **Disabled** è lo stato appropriato per gli utenti che usano le impostazioni predefinite di sicurezza o l'accesso condizionale basato Azure ad multi-factor authentication.
+Se l'organizzazione è un utente precedente di Azure AD Multi-Factor Authentication basato su utente, non è necessario che gli utenti abbiano lo stato **abilitato** o **applicato** se si esamina la pagina stato di autenticazione a più fattori. **Disabled** è lo stato appropriato per gli utenti che usano le impostazioni predefinite di sicurezza o l'accesso condizionale basato Azure ad multi-factor authentication.
 
 ### <a name="conditional-access"></a>Accesso condizionale
 

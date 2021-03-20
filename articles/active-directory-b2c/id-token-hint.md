@@ -12,10 +12,10 @@ ms.date: 10/16/2020
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: d77e145cabcef2931d5fe6e76599da7931e576e8
-ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/18/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97669160"
 ---
 # <a name="define-an-id-token-hint-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Definire un profilo tecnico per l'hint ID token in un Azure Active Directory B2C criteri personalizzati
@@ -82,14 +82,14 @@ L'elemento **OutputClaims** contiene un elenco di attestazioni da estrarre dal t
 
 Quando si utilizza una chiave simmetrica, i metadati seguenti sono rilevanti. 
 
-| Attributo | Obbligatorio | Descrizione |
+| Attributo | Obbligatoria | Descrizione |
 | --------- | -------- | ----------- |
 | autorità di certificazione | Sì | Identifica il servizio token di sicurezza (emittente del token). Questo valore deve essere identico all' `iss` attestazione nell'attestazione del token JWT. | 
 | IdTokenAudience | Sì | Identifica il destinatario del token. Deve essere identica all' `aud` attestazione nell'attestazione del token JWT. | 
 
 Quando si utilizza una chiave asimmetrica, i metadati seguenti sono rilevanti. 
 
-| Attributo | Obbligatorio | Descrizione |
+| Attributo | Obbligatoria | Descrizione |
 | --------- | -------- | ----------- |
 | METADATI| Sì | URL che punta a un documento di configurazione dell'emittente del token, noto anche come endpoint di configurazione OpenID noto.   |
 | autorità di certificazione | No | Identifica il servizio token di sicurezza (emittente del token). Questo valore può essere usato per sovrascrivere il valore configurato nei metadati e deve essere identico all' `iss` attestazione nell'attestazione del token JWT. |  
@@ -99,7 +99,7 @@ Quando si utilizza una chiave asimmetrica, i metadati seguenti sono rilevanti.
 
 Quando si usa una chiave simmetrica, l'elemento **CryptographicKeys** contiene l'attributo seguente:
 
-| Attributo | Obbligatorio | Descrizione |
+| Attributo | Obbligatoria | Descrizione |
 | --------- | -------- | ----------- |
 | client_secret | Sì | Chiave crittografica utilizzata per convalidare la firma del token JWT.|
 
@@ -137,7 +137,7 @@ La stessa chiave usata dall'emittente del token deve essere creata nelle chiavi 
    È possibile che il prefisso `B2C_1A_` venga aggiunto automaticamente.
 1. Nella casella **Secret (segreto** ) immettere la chiave di accesso generata in precedenza.
 1. Per **Uso chiave** usare **Crittografia**.
-1. Selezionare **Create** (Crea).
+1. Selezionare **Crea**.
 1. Confermare di avere creato la chiave `B2C_1A_IdTokenHintKey`.
 
 
@@ -185,7 +185,7 @@ L'emittente del token deve fornire gli endpoint seguenti:
 * `/.well-known/openid-configuration` -Un endpoint di configurazione noto con informazioni rilevanti sul token, ad esempio il nome dell'autorità emittente del token e il collegamento all'endpoint JWK. 
 * `/.well-known/keys` : il punto finale della chiave Web JSON (JWK) con la chiave pubblica usata per firmare la chiave (con la parte della chiave privata del certificato).
 
-Vedere l'esempio [TokenMetadataController.cs](https://github.com/azure-ad-b2c/id-token-builder/blob/master/source-code/B2CIdTokenBuilder/Controllers/TokenMetadataController.cs) .NET MVC controller.
+Vedere l'esempio di controller MVC .NET [TokenMetadataController. cs](https://github.com/azure-ad-b2c/id-token-builder/blob/master/source-code/B2CIdTokenBuilder/Controllers/TokenMetadataController.cs) .
 
 #### <a name="step-1-prepare-a-self-signed-certificate"></a>Passaggio 1. Preparare un certificato autofirmato
 

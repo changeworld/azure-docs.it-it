@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 11/14/2019
 ms.author: raynew
 ms.openlocfilehash: c5025b83619b505728bfdf5c4e1ccc81d3bb225e
-ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/17/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97654762"
 ---
 # <a name="hyper-v-to-azure-disaster-recovery-architecture"></a>Architettura del ripristino di emergenza da Hyper-V ad Azure
@@ -49,7 +49,7 @@ La tabella e il grafico seguenti offrono una visualizzazione generale dei compon
 **Server VMM** | Il server VMM ha uno o più cloud contenenti host Hyper-V. | È necessario installare il provider di Site Recovery nel server VMM per orchestrare la replica con Site Recovery e registrare il server nell'insieme di credenziali di Servizi di ripristino.
 **Host Hyper-V** | Uno o più host/cluster Hyper-V gestiti da VMM. |  L'agente di Servizi di ripristino viene installato in ogni host o nodo del cluster Hyper-V.
 **VM Hyper-V** | Una o più macchine virtuali in esecuzione in un server host Hyper-V. | Non è necessario installare esplicitamente alcun componente nelle macchine virtuali.
-**Rete** | Reti VM e logiche configurate nel server VMM. La rete delle macchine virtuali deve essere collegata a una rete logica associata al cloud. | Viene eseguito il mapping delle reti delle macchine virtuali alle reti virtuali di Azure. Quando le macchine virtuali di Azure vengono create dopo il failover, vengono aggiunte alla rete di Azure di cui è stato eseguito il mapping alla rete delle macchine virtuali.
+**Funzionalità di rete** | Reti VM e logiche configurate nel server VMM. La rete delle macchine virtuali deve essere collegata a una rete logica associata al cloud. | Viene eseguito il mapping delle reti delle macchine virtuali alle reti virtuali di Azure. Quando le macchine virtuali di Azure vengono create dopo il failover, vengono aggiunte alla rete di Azure di cui è stato eseguito il mapping alla rete delle macchine virtuali.
 
 **Architettura della replica da Hyper-V ad Azure (con VMM)**
 

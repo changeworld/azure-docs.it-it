@@ -12,10 +12,10 @@ ms.date: 11/06/2020
 ms.topic: conceptual
 ms.custom: how-to
 ms.openlocfilehash: 5bd938fce347d439c2acb4e3fcace04d5b27d770
-ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94447651"
 ---
 # <a name="configure-authentication-for-models-deployed-as-web-services"></a>Configurare l'autenticazione per i modelli distribuiti come servizi Web
@@ -24,8 +24,8 @@ Azure Machine Learning consente di distribuire i modelli di apprendimento automa
 
 Le distribuzioni di modelli create da Azure Machine Learning possono essere configurate per usare uno dei due metodi di autenticazione seguenti:
 
-* **basato su chiavi** : una chiave statica viene usata per l'autenticazione nel servizio Web.
-* **basato su token** : è necessario ottenere un token temporaneo dall'area di lavoro Azure Machine Learning (usando Azure Active Directory) e usarlo per l'autenticazione al servizio Web. Questo token scade dopo un periodo di tempo e deve essere aggiornato per continuare a usare il servizio Web.
+* **basato su chiavi**: una chiave statica viene usata per l'autenticazione nel servizio Web.
+* **basato su token**: è necessario ottenere un token temporaneo dall'area di lavoro Azure Machine Learning (usando Azure Active Directory) e usarlo per l'autenticazione al servizio Web. Questo token scade dopo un periodo di tempo e deve essere aggiornato per continuare a usare il servizio Web.
 
     > [!NOTE]
     > L'autenticazione basata su token è disponibile solo quando si esegue la distribuzione nel servizio Azure Kubernetes.

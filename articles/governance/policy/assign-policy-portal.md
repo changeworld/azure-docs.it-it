@@ -4,10 +4,10 @@ description: In questo argomento di avvio rapido viene usato il portale di Azure
 ms.date: 01/29/2021
 ms.topic: quickstart
 ms.openlocfilehash: e5cbf31e897b5be404327efa254eb90ead990f5f
-ms.sourcegitcommit: 54e1d4cdff28c2fd88eca949c2190da1b09dca91
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/31/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "99220888"
 ---
 # <a name="quickstart-create-a-policy-assignment-to-identify-non-compliant-resources"></a>Creare un'assegnazione di criteri per identificare le risorse non conformi.
@@ -17,7 +17,7 @@ Questa guida introduttiva illustra il processo di creazione di un'assegnazione d
 
 Alla fine di questo processo, verranno identificate le macchine virtuali che non usano dischi gestiti e che sono quindi _non conformi_ all'assegnazione di criteri.
 
-## <a name="prerequisites"></a>Prerequisiti 
+## <a name="prerequisites"></a>Prerequisiti
 
 Se non si ha una sottoscrizione di Azure, creare un account [gratuito](https://azure.microsoft.com/free/) prima di iniziare.
 

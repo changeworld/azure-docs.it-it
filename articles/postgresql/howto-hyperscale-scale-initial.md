@@ -8,10 +8,10 @@ ms.subservice: hyperscale-citus
 ms.topic: how-to
 ms.date: 11/17/2020
 ms.openlocfilehash: 7e68e9f8caad7d7e4bc44bc4e1e55150a78b4a98
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/21/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "95026404"
 ---
 # <a name="pick-initial-size-for-hyperscale-citus-server-group"></a>Selezionare le dimensioni iniziali per il gruppo di server CITUS (iperscale)
@@ -29,7 +29,7 @@ Il nodo coordinatore non richiede la stessa quantità di RAM dei thread di lavor
 
 Totale VCore: quando i dati di lavoro si adattano alla RAM, è possibile prevedere un miglioramento delle prestazioni lineare su iperscala (CITUS) proporzionale al numero di core del ruolo di lavoro. Per determinare il numero corretto di Vcore per le proprie esigenze, prendere in considerazione la latenza corrente per le query nel database a nodo singolo e la latenza necessaria in iperscala (CITUS). Dividere la latenza corrente per la latenza desiderata e arrotondare il risultato.
 
-RAM del ruolo di lavoro: il caso migliore è rendere disponibile memoria sufficiente per fare in modo che la maggior parte del working set venga salvato nella memoria. Il tipo di query che l'applicazione utilizza influisce sui requisiti di memoria. È possibile eseguire EXPLAIN ANALYZe su una query per determinare la quantità di memoria richiesta. Tenere presente che Vcore e RAM vengono ridimensionati insieme come descritto nell'articolo [Opzioni di configurazione dell'iperscalabilità (CITUS)](concepts-hyperscale-configuration-options.md) .
+RAM del ruolo di lavoro: il caso migliore è rendere disponibile memoria sufficiente per fare in modo che la maggior parte del working set venga salvato nella memoria. Il tipo di query usate dall'applicazione influisce sui requisiti di memoria. È possibile eseguire EXPLAIN ANALYZe su una query per determinare la quantità di memoria richiesta. Tenere presente che Vcore e RAM vengono ridimensionati insieme come descritto nell'articolo [Opzioni di configurazione dell'iperscalabilità (CITUS)](concepts-hyperscale-configuration-options.md) .
 
 ## <a name="next-steps"></a>Passaggi successivi
 

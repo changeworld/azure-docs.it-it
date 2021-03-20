@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.date: 4/28/2020
 ms.custom: devx-track-azurepowershell
 ms.openlocfilehash: 43ce39a1fc05c8ffedd1ae8404cc20c1a498a73f
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/12/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94539023"
 ---
 # <a name="how-to-back-up-and-restore-an-azure-database-for-mysql-server-using-powershell"></a>Come eseguire il backup e il ripristino di un server di Database di Azure per MySQL con PowerShell
@@ -41,7 +41,7 @@ Al momento della creazione del server, è possibile scegliere tra la configurazi
 > [!NOTE]
 > Dopo aver creato un server, il tipo di ridondanza, con ridondanza geografica e con ridondanza locale, non può essere modificato.
 
-Durante la creazione di un server tramite il `New-AzMySqlServer` comando, il parametro **GeoRedundantBackup** decide l'opzione di ridondanza del backup. Se **abilitata** , vengono eseguiti backup con ridondanza geografica. In alternativa, se **disabilitato** , vengono eseguiti backup con ridondanza locale.
+Durante la creazione di un server tramite il `New-AzMySqlServer` comando, il parametro **GeoRedundantBackup** decide l'opzione di ridondanza del backup. Se **abilitata**, vengono eseguiti backup con ridondanza geografica. In alternativa, se **disabilitato**, vengono eseguiti backup con ridondanza locale.
 
 Il periodo di conservazione dei backup è impostato dal parametro **BackupRetentionDay** .
 
@@ -106,7 +106,7 @@ Get-AzMySqlServer -Name mydemoserver -ResourceGroupName myresourcegroup |
   Restore-AzMySqlServer -Name mydemoserver-georestored -ResourceGroupName myresourcegroup -Location eastus -Sku GP_Gen5_8 -UseGeoRestore
 ```
 
-Questo esempio crea un nuovo server denominato **mydemoserver-georipristinato** nell'area Stati Uniti orientali che appartiene a **myresourcegroup**. Si tratta di un server per utilizzo generico di quinta generazione con otto vCore. Il server viene creato dal backup con ridondanza geografica di **mydemoserver** , anche nel gruppo di risorse **myresourcegroup**.
+Questo esempio crea un nuovo server denominato **mydemoserver-georipristinato** nell'area Stati Uniti orientali che appartiene a **myresourcegroup**. Si tratta di un server per utilizzo generico di quinta generazione con otto vCore. Il server viene creato dal backup con ridondanza geografica di **mydemoserver**, anche nel gruppo di risorse **myresourcegroup**.
 
 Per creare il nuovo server in un gruppo di risorse diverso dal server esistente, specificare il nome del nuovo gruppo di risorse usando il parametro **ResourceGroupName** , come illustrato nell'esempio seguente:
 

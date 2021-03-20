@@ -15,10 +15,10 @@ ms.reviewer: addimitu
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 2edc6fb98359c5360836bc369e5ae1928464df92
-ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/08/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96861031"
 ---
 # <a name="delete-a-tenant-in-azure-active-directory"></a>Eliminare un tenant in Azure Active Directory
@@ -54,7 +54,7 @@ Non è possibile eliminare un'organizzazione di Azure AD fino a quando non super
 
 Quando è stata configurata la Azure AD organizzazione, è possibile che siano state attivate anche le sottoscrizioni basate su licenza per l'organizzazione, ad esempio Azure AD Premium P2, Microsoft 365 Business standard o Enterprise Mobility + Security E5. Per evitare la perdita accidentale di dati, non è possibile eliminare un'organizzazione fino a quando le sottoscrizioni non sono state completamente eliminate. Per consentire l'eliminazione dell'organizzazione, lo stato delle sottoscrizioni deve essere **Deprovisioning eseguito**. Una sottoscrizione **Scaduta** o **Annullata** passa allo stato **Disabilitato** e la fase finale è lo stato **Deprovisioning eseguito**.
 
-Per sapere cosa accade quando una sottoscrizione di Microsoft 365 di valutazione scade (escluso partner a pagamento/CSP, Enterprise Agreement o contratti multilicenza), vedere la tabella seguente. Per ulteriori informazioni sul ciclo di vita delle sottoscrizioni e sulla conservazione dei dati Microsoft 365, vedere [cosa accade ai dati e all'accesso quando termina la sottoscrizione di Microsoft 365 for business?](https://support.office.com/article/what-happens-to-my-data-and-access-when-my-office-365-for-business-subscription-ends-4436582f-211a-45ec-b72e-33647f97d8a3). 
+Per sapere cosa accade quando una sottoscrizione di Microsoft 365 di valutazione scade (escluso partner a pagamento/CSP, Contratto Enterprise o contratti multilicenza), vedere la tabella seguente. Per ulteriori informazioni sul ciclo di vita delle sottoscrizioni e sulla conservazione dei dati Microsoft 365, vedere [cosa accade ai dati e all'accesso quando termina la sottoscrizione di Microsoft 365 for business?](https://support.office.com/article/what-happens-to-my-data-and-access-when-my-office-365-for-business-subscription-ends-4436582f-211a-45ec-b72e-33647f97d8a3). 
 
 Stato sottoscrizione | Data | Accesso ai dati
 ----- | ----- | -----
@@ -108,7 +108,7 @@ Quando si avvia l'eliminazione del prodotto con iscrizione self-service, l'azion
 
 Per ulteriori informazioni sui prodotti e i servizi con iscrizione self-service attualmente disponibili, vedere [Programmi self-service disponibili](/office365/admin/misc/self-service-sign-up#available-self-service-programs).
 
-Per sapere cosa accade quando una sottoscrizione di Microsoft 365 di valutazione scade (escluso partner a pagamento/CSP, Enterprise Agreement o contratti multilicenza), vedere la tabella seguente. Per ulteriori informazioni sul ciclo di vita delle sottoscrizioni e sulla conservazione dei dati Microsoft 365, vedere [cosa accade ai dati e all'accesso quando termina la sottoscrizione di Microsoft 365 for business?](/office365/admin/subscriptions-and-billing/what-if-my-subscription-expires).
+Per sapere cosa accade quando una sottoscrizione di Microsoft 365 di valutazione scade (escluso partner a pagamento/CSP, Contratto Enterprise o contratti multilicenza), vedere la tabella seguente. Per ulteriori informazioni sul ciclo di vita delle sottoscrizioni e sulla conservazione dei dati Microsoft 365, vedere [cosa accade ai dati e all'accesso quando termina la sottoscrizione di Microsoft 365 for business?](/office365/admin/subscriptions-and-billing/what-if-my-subscription-expires).
 
 Stato del prodotto | Data | Accesso ai dati
 ------------- | ---- | --------------

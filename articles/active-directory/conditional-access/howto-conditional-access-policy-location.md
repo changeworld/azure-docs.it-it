@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: calebb, rogoya
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: e257ab39257b23c52aaadbe32f0325e8d71a8409
-ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/20/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98597968"
 ---
 # <a name="conditional-access-block-access-by-location"></a>Accesso condizionale: Bloccare l'accesso in base alla località
@@ -40,8 +40,8 @@ Altre informazioni sulla condizione relativa alla posizione nell'accesso condizi
 1. Accedere al **portale di Azure** come amministratore globale, amministratore della sicurezza o amministratore accesso condizionale.
 1. Passare ad **Azure Active Directory** > **Sicurezza** > **Accesso condizionale**.
 1. Selezionare **Nuovi criteri**.
-1. Assegnare un nome al criterio. Per le organizzazioni è consigliabile creare uno standard significativo per i nomi dei propri criteri.
-1. In **Assegnazioni** selezionare **Utenti e gruppi**
+1. Assegnare un nome ai criteri. È consigliabile che le organizzazioni creino uno standard descrittivo per i nomi dei criteri.
+1. In **Assegnazioni** selezionare **Utenti e gruppi**.
    1. In **Includi** selezionare **Tutti gli utenti**.
    1. In **Escludi** selezionare **Utenti e gruppi** e scegliere gli account di accesso di emergenza o gli account critici dell'organizzazione. 
    1. Selezionare **Operazione completata**.
@@ -52,7 +52,7 @@ Altre informazioni sulla condizione relativa alla posizione nell'accesso condizi
    1. Selezionare la posizione bloccata creata per l'organizzazione.
    1. Fare clic su **Seleziona**.
 1. In **controlli di accesso** > selezionare **Blocca accesso** e selezionare **Seleziona**.
-1. Confermare le impostazioni e impostare **Attiva criterio** su **Attivato**.
+1. Confermare le impostazioni e impostare **Abilita criterio** su **Attivato**.
 1. Selezionare **Crea** per creare i criteri di accesso condizionale.
 
 ## <a name="next-steps"></a>Passaggi successivi

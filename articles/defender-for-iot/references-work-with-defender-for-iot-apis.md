@@ -7,11 +7,11 @@ ms.author: shhazam
 ms.date: 12/14/2020
 ms.topic: reference
 ms.service: azure
-ms.openlocfilehash: ae7965dd319f2ff885f4329262ae4772452afd62
-ms.sourcegitcommit: 27d616319a4f57eb8188d1b9d9d793a14baadbc3
+ms.openlocfilehash: 73c5d1f31d9e0651ee710593aa4e1b68fe972560
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/15/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100523244"
 ---
 # <a name="defender-for-iot-sensor-and-management-console-apis"></a>Defender per le API del sensore e della console di gestione
@@ -20,7 +20,7 @@ Usare un'API REST esterna per accedere ai dati individuati da sensori e console 
 
 Le connessioni sono protette tramite SSL.
 
-## <a name="getting-started"></a>Guida introduttiva
+## <a name="getting-started"></a>Introduzione
 
 In generale, quando si usa un'API esterna nel sensore di Azure Defender per l'it o nella console di gestione locale, è necessario generare un token di accesso. I token non sono necessari per le API di autenticazione usate nel sensore e nella console di gestione locale.
 
@@ -2654,6 +2654,6 @@ response:
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-[Esaminare i rilevamenti dei sensori in un inventario dei dispositivi](how-to-investigate-sensor-detections-in-a-device-inventory.md)
+- [Esaminare i rilevamenti dei sensori in un inventario dei dispositivi](how-to-investigate-sensor-detections-in-a-device-inventory.md)
 
-[Esaminare tutti i rilevamenti dei sensori aziendali un inventario di dispositivi](how-to-investigate-all-enterprise-sensor-detections-in-a-device-inventory.md)
+- [Esaminare tutti i rilevamenti dei sensori aziendali un inventario di dispositivi](how-to-investigate-all-enterprise-sensor-detections-in-a-device-inventory.md)

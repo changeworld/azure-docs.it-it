@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 01/20/2021
 ms.author: jeedes
 ms.openlocfilehash: d99a19efcef0cae518d8d21d3371adaf37d32ff7
-ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/21/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98625482"
 ---
 # <a name="tutorial-integrate-azure-ad-single-sign-on-sso-with-netsuite"></a>Esercitazione: Integrare l'accesso Single Sign-On (SSO) di Azure Active Directory con NetSuite
@@ -131,7 +131,7 @@ In questa sezione viene creato un utente di test di nome B.Simon nel portale di 
    a. Nella casella **Nome** immettere **B.Simon**.  
    b. Nella casella **Nome utente** immettere un valore per username@companydomain.extension, ad esempio B.Simon@contoso.com.  
    c. Selezionare la casella di controllo **Mostra password** e quindi prendere nota del valore visualizzato nella casella **Password**.  
-   d. Selezionare **Create** (Crea).
+   d. Selezionare **Crea**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Assegnare l'utente di test di Azure AD
 

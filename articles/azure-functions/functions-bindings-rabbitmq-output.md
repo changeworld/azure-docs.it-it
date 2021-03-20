@@ -8,10 +8,10 @@ ms.date: 12/17/2020
 ms.author: cachai
 ms.custom: ''
 ms.openlocfilehash: 1664656f82492e664b7574339893cd688f0a061d
-ms.sourcegitcommit: 24f30b1e8bb797e1609b1c8300871d2391a59ac2
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/10/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100097314"
 ---
 # <a name="rabbitmq-output-binding-for-azure-functions-overview"></a>Panoramica dell'associazione di output RabbitMQ per funzioni di Azure
@@ -273,8 +273,8 @@ Nella tabella seguente sono illustrate le proprietà di configurazione dell'asso
 |**nome** | n/d | Nome della variabile che rappresenta la coda nel codice della funzione. |
 |**queueName**|**QueueName**| Nome della coda a cui inviare i messaggi. |
 |**Nome host**|**HostName**|(ignorato se si usa ConnectStringSetting) <br>Nome host della coda (ad esempio: 10.26.45.210)|
-|**userName**|**UserName**|(ignorato se si usa ConnectionStringSetting) <br>Nome dell'impostazione dell'app che contiene il nome utente per accedere alla coda. Esempio: UserNameSetting: "< UserNameFromSettings >"|
-|**password**|**Password**|(ignorato se si usa ConnectionStringSetting) <br>Nome dell'impostazione dell'app che contiene la password per accedere alla coda. Esempio: UserNameSetting: "< UserNameFromSettings >"|
+|**userName**|**UserName**|(ignorato se si usa ConnectionStringSetting) <br>Nome dell'impostazione dell'app che contiene il nome utente per accedere alla coda. Ex. UserNameSetting: "< UserNameFromSettings >"|
+|**password**|**Password**|(ignorato se si usa ConnectionStringSetting) <br>Nome dell'impostazione dell'app che contiene la password per accedere alla coda. Ex. UserNameSetting: "< UserNameFromSettings >"|
 |**connectionStringSetting**|**ConnectionStringSetting**|Nome dell'impostazione dell'app che contiene la stringa di connessione della coda di messaggi RabbitMQ. Si noti che se si specifica la stringa di connessione direttamente e non tramite un'impostazione dell'app in local.settings.json, il trigger non funzionerà. (Ad esempio, in *function.json*: connectionStringSetting: "rabbitMQConnection" <br> In *local.settings.json*: "rabbitMQConnection": "< ActualConnectionstring >")|
 |**port**|**Porta**|(ignorato se si usa ConnectionStringSetting) Ottiene o imposta la porta utilizzata. Il valore predefinito è 0 che punta all'impostazione della porta predefinita del client RabbitMQ: 5672.|
 

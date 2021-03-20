@@ -12,10 +12,10 @@ ms.workload: infrastructure-services
 ms.date: 10/19/2020
 ms.author: duau
 ms.openlocfilehash: abcfce43b90c7371d5b38aa5b7a6d478e9d6a0dd
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
-ms.translationtype: HT
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/19/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92207840"
 ---
 # <a name="tutorial-configure-the-weighted-traffic-routing-method-in-traffic-manager"></a>Esercitazione: Configurare il metodo di routing del traffico Ponderato in Gestione traffico
@@ -43,11 +43,11 @@ In questa esercitazione verranno illustrate le procedure per:
 
     :::image type="content" source="./media/traffic-manager-weighted-routing-method/search-traffic-manager-weighted-profile.png" alt-text="Cercare il profilo di Gestione traffico":::
 
-1. Selezionare **Configurazione** , quindi selezionare o immettere le impostazioni seguenti:
+1. Selezionare **Configurazione**, quindi selezionare o immettere le impostazioni seguenti:
 
     | Impostazione         | Valore                                              |
     | ---             | ---                                                |
-    | Metodo di routing            | Selezionare **Ponderato** . |    
+    | Metodo di routing            | Selezionare **Ponderato**. |    
     | Durata (TTL) DNS | Questo valore controlla la frequenza con cui il server dei nomi della cache locale del client esegue query sul sistema di Gestione traffico per ottenere voci DNS aggiornate. In questo periodo di tempo eventuali modifiche apportate in Gestione traffico, ad esempio al metodo di routing del traffico o alla disponibilità degli endpoint aggiunti, verranno aggiornate nell'intero sistema globale dei server DNS. |
     | Protocollo    | Selezionare un protocollo per il monitoraggio degli endpoint. *Opzioni: HTTP, HTTPS e TCP* |
     | Porta | Specificare il numero della porta. |
@@ -60,23 +60,23 @@ In questa esercitazione verranno illustrate le procedure per:
 
 1. Selezionare **Salva** per completare la configurazione.
 
-    :::image type="content" source="./media/traffic-manager-weighted-routing-method/traffic-manager-weighted-configuration.png" alt-text="Cercare il profilo di Gestione traffico"::: 
+    :::image type="content" source="./media/traffic-manager-weighted-routing-method/traffic-manager-weighted-configuration.png" alt-text="Configurazione ponderata di Gestione traffico"::: 
 
 1. Selezionare **Endpoint** e configurare il peso di ogni endpoint. Il peso può essere compreso tra 1 e 1000. Maggiore è il peso, maggiore è la priorità.  
 
-    :::image type="content" source="./media/traffic-manager-weighted-routing-method/traffic-manager-configure-endpoints-weighted.png" alt-text="Cercare il profilo di Gestione traffico"::: 
+    :::image type="content" source="./media/traffic-manager-weighted-routing-method/traffic-manager-configure-endpoints-weighted.png" alt-text="Configurazione degli endpoint ponderati di Gestione traffico"::: 
 
 ## <a name="use-the-traffic-manager-profile"></a>Usare il profilo di Gestione traffico
 
 Il **Profilo di Gestione traffico** visualizza il nome DNS del profilo di Gestione traffico appena creato. Il nome può essere usato da qualsiasi client (ad esempio raggiungendolo tramite un Web browser) per essere instradato all'endpoint corretto in base al tipo di routing. In questo caso tutte le richieste vengono instradate a ogni endpoint secondo il metodo round-robin.
 
-:::image type="content" source="./media/traffic-manager-weighted-routing-method/traffic-manager-weighted-overview.png" alt-text="Cercare il profilo di Gestione traffico"::: 
+:::image type="content" source="./media/traffic-manager-weighted-routing-method/traffic-manager-weighted-overview.png" alt-text="Panoramica di Gestione traffico ponderato"::: 
 
 ## <a name="clean-up-resources"></a>Pulire le risorse
 
-Se il profilo di Gestione traffico non è più necessario, individuarlo e selezionare **Elimina profilo** .
+Se il profilo di Gestione traffico non è più necessario, individuarlo e selezionare **Elimina profilo**.
 
-:::image type="content" source="./media/traffic-manager-weighted-routing-method/delete-traffic-manager-weighted-profile.png" alt-text="Cercare il profilo di Gestione traffico":::
+:::image type="content" source="./media/traffic-manager-weighted-routing-method/delete-traffic-manager-weighted-profile.png" alt-text="Eliminare il profilo ponderato di Gestione traffico":::
 
 ## <a name="next-steps"></a>Passaggi successivi
 

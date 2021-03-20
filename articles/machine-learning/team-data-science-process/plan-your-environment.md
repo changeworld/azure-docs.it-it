@@ -12,10 +12,10 @@ ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ms.openlocfilehash: ffe1a4b9b32223cc57c6a6399fdc074a9d51d714
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93322396"
 ---
 # <a name="how-to-identify-scenarios-and-plan-for-advanced-analytics-data-processing"></a>Come identificare scenari e pianificare l'elaborazione dei dati di analisi avanzata
@@ -56,7 +56,7 @@ Dove devono trovarsi i dati per l'elaborazione o la modellazione?
 
 * Archiviazione BLOB di Azure
 * Database SQL Azure
-* SQL Server in una macchina virtuale Azure
+* SQL Server in macchine virtuali di Azure
 * Tabelle Hive o HDInsight (Hadoop in Azure)
 * Azure Machine Learning
 * Dischi rigidi virtuali di Azure montabili

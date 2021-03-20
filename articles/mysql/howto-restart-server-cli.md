@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.date: 3/18/2020
 ms.custom: devx-track-azurecli
 ms.openlocfilehash: 77f20bba76ee3a37e6a72481e0b3d13c9904b106
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/12/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94541828"
 ---
 # <a name="restart-azure-database-for-mysql-server-using-the-azure-cli"></a>Riavviare database di Azure per il server MySQL usando l'interfaccia della riga di comando di Azure
@@ -29,9 +29,9 @@ Per completare questa guida pratica:
  
 [!INCLUDE [azure-cli-prepare-your-environment-no-header.md](../../includes/azure-cli-prepare-your-environment-no-header.md)]
 
-- Questo articolo richiede la versione 2,0 o successiva dell'interfaccia della riga di comando di Azure. Se si usa Azure Cloud Shell, la versione più recente è già installata.
+- Questo articolo richiede la versione 2.0 dell'interfaccia della riga di comando di Azure. Se si usa Azure Cloud Shell, la versione più recente è già installata.
 
-## <a name="restart-the-server"></a>Riavviare il server.
+## <a name="restart-the-server"></a>Riavviare il server
 
 Riavviare il server con il comando seguente:
 

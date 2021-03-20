@@ -7,10 +7,10 @@ ms.service: mysql
 ms.topic: how-to
 ms.date: 3/18/2020
 ms.openlocfilehash: 6355afe6ce5decbed029db4536b1b1b19f5a876c
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/12/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94541505"
 ---
 # <a name="connect-an-existing-azure-app-service-to-azure-database-for-mysql-server"></a>Connessione di un servizio app di Azure esistente al Database di Azure per MySQL
@@ -28,13 +28,13 @@ Il database di Azure per MySQL offre accesso alla sicurezza tramite un firewall 
 
    :::image type="content" source="./media/howto-connect-webapp/1-connection-security.png" alt-text="Portale di Azure: fare clic su Sicurezza connessione":::
 
-2. Selezionare **ON** in **Consenti l'accesso a Servizi di Azure** , quindi **Salva**.
+2. Selezionare **ON** in **Consenti l'accesso a Servizi di Azure**, quindi **Salva**.
    :::image type="content" source="./media/howto-connect-webapp/allow-azure.png" alt-text="Portale di Azure: Consenti accesso ad Azure":::
 
 ## <a name="solution-2---create-a-firewall-rule-to-explicitly-allow-outbound-ips"></a>Soluzione 2: creare una regola del firewall per consentire in modo esplicito gli indirizzi IP in uscita
 È possibile aggiungere in modo esplicito tutti gli IP in uscita del servizio app di Azure.
 
-1. Nel pannello Proprietà del servizio app, visualizzare l' **INDIRIZZO IP IN USCITA**.
+1. Nel pannello Proprietà del servizio app, visualizzare l'**INDIRIZZO IP IN USCITA**.
 
    :::image type="content" source="./media/howto-connect-webapp/2_1-outbound-ip-address.png" alt-text="Portale di Azure - Visualizzare gli indirizzi IP in uscita":::
 

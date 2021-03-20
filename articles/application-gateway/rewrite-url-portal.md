@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.date: 7/16/2020
 ms.author: surmb
 ms.openlocfilehash: ec58c6f97efdbcb91071bcea98bbbc614833246d
-ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/20/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92215774"
 ---
 # <a name="rewrite-url-with-azure-application-gateway---azure-portal-preview"></a>Riscrivere l'URL con applicazione Azure gateway-portale di Azure (anteprima)
@@ -37,7 +37,7 @@ Nell'esempio seguente, ogni volta che l'URL della richiesta contiene */article*,
 
 `contoso.com/article/123/fabrikam` -> `contoso.com/article.aspx?id=123&title=fabrikam`
 
-1. Selezionare **tutte le risorse**e quindi selezionare il gateway applicazione.
+1. Selezionare **tutte le risorse** e quindi selezionare il gateway applicazione.
 
 2. Selezionare **riscritture** nel riquadro sinistro.
 
@@ -53,13 +53,13 @@ Nell'esempio seguente, ogni volta che l'URL della richiesta contiene */article*,
     
     c. Selezionare **Avanti**.
     
-    :::image type="content" source="./media/rewrite-url-portal/rewrite-url-portal-2.png" alt-text="Aggiungi riscrittura set":::
+    :::image type="content" source="./media/rewrite-url-portal/rewrite-url-portal-2.png" alt-text="Associa a una regola":::
 
 5. Creare una regola di riscrittura:
 
     a. Selezionare **Aggiungi regola di riscrittura**.
     
-    :::image type="content" source="./media/rewrite-url-portal/rewrite-url-portal-3.png" alt-text="Aggiungi riscrittura set":::
+    :::image type="content" source="./media/rewrite-url-portal/rewrite-url-portal-3.png" alt-text="Screenshot che evidenzia l'aggiunta della regola di riscrittura.":::
     
     b. Immettere un nome per la regola di riscrittura nella casella **Riscrivi nome regola** . Immettere un numero nella casella **sequenza regole** .
 
@@ -67,11 +67,11 @@ Nell'esempio seguente, ogni volta che l'URL della richiesta contiene */article*,
 
     a. Selezionare **Aggiungi condizione** , quindi selezionare la casella contenente le istruzioni **if** per espanderla.
     
-    b. Poiché in questo esempio si vuole controllare il pattern */article* nel percorso URL, selezionare **variabile server**nell'elenco **tipo di variabile da verificare** .
+    b. Poiché in questo esempio si vuole controllare il pattern */article* nel percorso URL, selezionare **variabile server** nell'elenco **tipo di variabile da verificare** .
     
     c. Nell'elenco **variabile server** selezionare uri_path
     
-    d. In **distinzione tra maiuscole**e minuscole selezionare **No**.
+    d. In **distinzione tra maiuscole** e minuscole selezionare **No**.
     
     e. Nell'elenco **operatore** selezionare uguale a **(=)**.
     
@@ -81,7 +81,7 @@ Nell'esempio seguente, ogni volta che l'URL della richiesta contiene */article*,
 
     g. Selezionare **OK**.
 
-    :::image type="content" source="./media/rewrite-url-portal/rewrite-url-portal-4.png" alt-text="Aggiungi riscrittura set":::
+    :::image type="content" source="./media/rewrite-url-portal/rewrite-url-portal-4.png" alt-text="Condition":::
 
  
 
@@ -91,23 +91,23 @@ Nell'esempio seguente, ogni volta che l'URL della richiesta contiene */article*,
 
    b. Nell'elenco **tipo di azione** selezionare **imposta**.
 
-   c. In **componenti**selezionare il **percorso URL e la stringa di query URL**
+   c. In **componenti** selezionare il **percorso URL e la stringa di query URL**
 
-   d. Nel **valore percorso URL**immettere il nuovo valore del percorso. In questo esempio si userà **/article.aspx** 
+   d. Nel **valore percorso URL** immettere il nuovo valore del percorso. In questo esempio si userà **/article.aspx** 
 
-   e. Nel **valore stringa di query URL**immettere il nuovo valore della stringa di query dell'URL. In questo esempio si userà **ID = {var_uri_path_1} &title = {var_uri_path_2}**
+   e. Nel **valore stringa di query URL** immettere il nuovo valore della stringa di query dell'URL. In questo esempio si userà **ID = {var_uri_path_1} &title = {var_uri_path_2}**
     
     `{var_uri_path_1}` e `{var_uri_path_1}` vengono utilizzati per recuperare le sottostringhe acquisite durante la valutazione della condizione in questa espressione `.*article/(.*)/(.*)`
     
    f. Selezionare **OK**.
 
-    :::image type="content" source="./media/rewrite-url-portal/rewrite-url-portal-5.png" alt-text="Aggiungi riscrittura set":::
+    :::image type="content" source="./media/rewrite-url-portal/rewrite-url-portal-5.png" alt-text="Azione":::
 
 8. Fare clic su **Crea** per creare il set di riscrittura.
 
 9. Verificare che il nuovo set di riscrittura venga visualizzato nell'elenco dei set di riscrittura
 
-    :::image type="content" source="./media/rewrite-url-portal/rewrite-url-portal-6.png" alt-text="Aggiungi riscrittura set":::
+    :::image type="content" source="./media/rewrite-url-portal/rewrite-url-portal-6.png" alt-text="Aggiungi regola di riscrittura":::
 
 ## <a name="verify-url-rewrite-through-access-logs"></a>Verificare la riscrittura URL tramite log di accesso
 

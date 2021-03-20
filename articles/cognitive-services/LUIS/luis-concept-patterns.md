@@ -10,10 +10,10 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 11/11/2019
 ms.openlocfilehash: cda71c6e825ff27ba9b03e1306ccb287663e8613
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/21/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "95025960"
 ---
 # <a name="patterns-improve-prediction-accuracy"></a>Migliorare l'accuratezza della stima con i criteri
@@ -64,7 +64,7 @@ Per cercare una corrispondenza tra criteri, prima vengono rilevate le entità al
 [!INCLUDE [Pattern.any entity - concepts](./includes/pattern-any-entity.md)]
 
 ## <a name="best-practices"></a>Procedure consigliate
-Apprendere le [procedure consigliate](luis-concept-best-practices.md).
+Informazioni [sulle procedure](luis-concept-best-practices.md)consigliate.
 
 ## <a name="pattern-syntax"></a>Sintassi dei criteri
 

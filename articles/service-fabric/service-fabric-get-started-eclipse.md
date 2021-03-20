@@ -7,10 +7,10 @@ ms.date: 04/06/2018
 ms.author: rapatchi
 ms.custom: devx-track-java
 ms.openlocfilehash: b85206f9b1e92607bba7b6f141b700922c129b65
-ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/17/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97656921"
 ---
 # <a name="service-fabric-plug-in-for-eclipse-java-application-development"></a>Plug-in Service Fabric per lo sviluppo di applicazioni Java in Eclipse
@@ -37,7 +37,7 @@ Installare Eclipse Neon o versione successiva dal [sito di Eclipse](https://www.
 
 Installare il plug-in Service Fabric, in Eclipse, passare a **Help**  >  **Install New software**.
 1. Nella casella **work with** (USA) immettere https: \/ /dl.Microsoft.com/Eclipse.
-2. Scegliere **Aggiungi**.
+2. Fare clic su **Aggiungi**.
 
    ![Plug-in Service Fabric per Eclipse][sf-eclipse-plugin-install]
 3. Selezionare il plug-in Service Fabric e fare clic su **Next** (Avanti).

@@ -13,10 +13,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 2044653673da10de59d5ff125da44ac1f89e22f9
-ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/08/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96861851"
 ---
 # <a name="azure-ad-connect-sync-make-a-change-to-the-default-configuration"></a>Servizio di sincronizzazione Azure AD Connect: apportare modifiche alla configurazione predefinita
@@ -262,7 +262,7 @@ La regola di sincronizzazione in ingresso consente la trasmissione del valore de
 3. Fare clic sul pulsante **Aggiungi nuova regola** per creare una nuova regola in ingresso.
 4. Nella scheda **Descrizione** inserire la configurazione seguente:
 
-    | Attributo | valore | Dettagli |
+    | Attributo | Valore | Dettagli |
     | --- | --- | --- |
     | Nome | *Specificare un nome* | Ad esempio, *In from AD - User UserType* |
     | Descrizione | *Inserire una descrizione* |  |
@@ -304,7 +304,7 @@ La regola di sincronizzazione in uscita consente la trasmissione del valore dell
 3. Fare clic sul pulsante **Aggiungi nuova regola**.
 4. Nella scheda **Descrizione** inserire la configurazione seguente:
 
-    | Attributo | valore | Dettagli |
+    | Attributo | Valore | Dettagli |
     | ----- | ------ | --- |
     | Nome | *Specificare un nome* | Ad esempio, *Out to AAD – User UserType* |
     | Descrizione | *Inserire una descrizione* ||

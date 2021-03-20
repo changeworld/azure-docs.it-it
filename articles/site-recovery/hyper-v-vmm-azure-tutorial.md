@@ -5,10 +5,10 @@ ms.topic: tutorial
 ms.date: 03/19/2020
 ms.custom: MVC
 ms.openlocfilehash: c806f968bc6530879f64ddbf6fd4c7d45aa7a8d3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
-ms.translationtype: HT
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "89442821"
 ---
 # <a name="set-up-disaster-recovery-of-on-premises-hyper-v-vms-in-vmm-clouds-to-azure"></a>Configurare il ripristino di emergenza in Azure di macchine virtuali Hyper-V locali di cloud VMM
@@ -113,7 +113,7 @@ Site Recovery verifica la disponibilità di uno o più account di archiviazione 
 ## <a name="set-up-a-replication-policy"></a>Configurare criteri di replica
 
 1. Selezionare **Preparare l'infrastruttura** > **Impostazioni della replica** >  **+Crea e associa**.
-1. In **Criteri di creazione e associazione**specificare il nome dei criteri. Il nome usato al momento è **ContosoReplicationPolicy**.
+1. In **Criteri di creazione e associazione** specificare il nome dei criteri. Il nome usato al momento è **ContosoReplicationPolicy**.
 1. Accettare le impostazioni predefinite e fare clic su **OK**:
    - **Frequenza di copia**: indica che dopo la replica iniziale i dati differenziali verranno replicati ogni 5 minuti.
    - **Conservazione del punto di ripristino**: indica che ogni punto di ripristino verrà conservato per due ore.

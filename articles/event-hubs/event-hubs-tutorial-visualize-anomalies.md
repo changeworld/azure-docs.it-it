@@ -4,10 +4,10 @@ description: 'Esercitazione: Visualizzare le anomalie dei dati in eventi in temp
 ms.topic: tutorial
 ms.date: 06/23/2020
 ms.openlocfilehash: bd08d611761e125fdd03173ce6027c60e82baed6
-ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/21/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98623460"
 ---
 # <a name="tutorial-visualize-data-anomalies-in-real-time-events-sent-to-azure-event-hubs"></a>Esercitazione: Visualizzare le anomalie dei dati in eventi in tempo reale inviati a Hub eventi di Azure

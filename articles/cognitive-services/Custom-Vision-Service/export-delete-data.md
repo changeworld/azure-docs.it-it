@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 03/21/2019
 ms.author: pafarley
 ms.openlocfilehash: fe17fa4349085be47201974b418493fe8d912ece
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "90527395"
 ---
 # <a name="view-or-delete-user-data-in-custom-vision"></a>Visualizzare o eliminare dati utente in Visione personalizzata
@@ -25,7 +25,7 @@ Visione personalizzata raccoglie i dati utente per il funzionamento del servizio
 
 Per informazioni su come visualizzare ed eliminare i dati degli utenti in Visione personalizzata, vedere la tabella seguente.
 
-| Dati | Visualizza operazione | Operazioni di eliminazione |
+| Data | Visualizza operazione | Operazioni di eliminazione |
 | ---- | ---------------- | ---------------- |
 | Informazioni account (chiavi di sottoscrizione) | [GetAccountInfo](https://go.microsoft.com/fwlink/?linkid=865446) | Eliminare tramite il portale di Azure (sottoscrizioni di Azure). In alternativa, usare il pulsante "Elimina account" nella pagina delle impostazioni di CustomVision.ai (sottoscrizioni dell'account Microsoft) | 
 | Dettagli sull'iterazione | [GetIteration](https://go.microsoft.com/fwlink/?linkid=865446) | [DeleteIteration](https://go.microsoft.com/fwlink/?linkid=865446) |
