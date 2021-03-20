@@ -14,17 +14,17 @@ ms.topic: article
 ms.date: 10/13/2017
 ms.author: apimpm
 ms.openlocfilehash: b5b0c2feb31eab5e39bbebd7108b3ec8504769d4
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/15/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92076284"
 ---
 # <a name="authorize-access-based-on-jwt-claims"></a>Autorizzare l'accesso in base ad attestazioni JWT
 
 Questo articolo offre un esempio di criteri di Gestione API di Azure che illustra come autorizzare l'accesso a specifici metodi HTTP in un'API in base ad attestazioni JWT. Per impostare o modificare il codice dei criteri, seguire la procedura descritta nell'articolo su come [impostare o modificare criteri](../set-edit-policies.md). Per altri esempi, vedere l'articolo relativo agli [esempi di criteri](../policy-reference.md).
 
-## <a name="policy"></a>Policy
+## <a name="policy"></a>Criteri
 
 Incollare il codice nel blocco **inbound**.
 

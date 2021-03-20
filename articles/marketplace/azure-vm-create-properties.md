@@ -8,10 +8,10 @@ author: emuench
 ms.author: mingshen
 ms.date: 10/19/2020
 ms.openlocfilehash: 281553782774c31ec8cfaf614542fd739c4d3dd9
-ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/14/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94629530"
 ---
 # <a name="how-to-configure-virtual-machine-offer-properties"></a>Come configurare le proprietà di un'offerta di macchina virtuale
@@ -61,7 +61,7 @@ Nei **termini dell'emendamento universale per il contratto standard per il Marke
 
 ##### <a name="add-one-or-more-custom-amendments"></a>Aggiungere una o più modifiche personalizzate
 
-1. In conformità **alle modifiche personalizzate apportate al contratto standard per il Marketplace commerciale di Microsoft** , selezionare il collegamento **Aggiungi termini di modifica personalizzata (max 10)** .
+1. In conformità **alle modifiche personalizzate apportate al contratto standard per il Marketplace commerciale di Microsoft**, selezionare il collegamento **Aggiungi termini di modifica personalizzata (max 10)** .
 2. Immettere le **condizioni di modifica personalizzate** nella casella.
 3. Immettere l' **ID tenant** nella casella. Solo i clienti associati agli ID tenant specificati per questi termini personalizzati li visualizzeranno nel flusso di acquisto dell'offerta nel portale di Azure.
 
@@ -77,7 +77,7 @@ Nei **termini dell'emendamento universale per il contratto standard per il Marke
 
 È possibile scegliere di specificare i termini e le condizioni, anziché il contratto standard. I clienti devono accettare questi termini prima di poter provare l'offerta.
 
-1. In **Legal** , deselezionare la casella **di controllo Use the Standard Contract for Microsoft Commercial Marketplace** .
+1. In **Legal**, deselezionare la casella **di controllo Use the Standard Contract for Microsoft Commercial Marketplace** .
 1. Nella casella **termini e condizioni** immettere fino a 10.000 caratteri di testo.
 
    > [!NOTE]

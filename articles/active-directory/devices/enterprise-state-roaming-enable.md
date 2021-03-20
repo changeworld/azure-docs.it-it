@@ -13,10 +13,10 @@ ms.reviewer: na
 ms.custom: references_regions
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 34b554fbef63f23b3540fe49e5c45976122add25
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "89268605"
 ---
 # <a name="enable-enterprise-state-roaming-in-azure-active-directory"></a>Abilitare Enterprise State Roaming in Azure Active Directory
@@ -31,7 +31,7 @@ Quando si abilita il servizio Enterprise State Roaming, all'organizzazione viene
 ## <a name="to-enable-enterprise-state-roaming"></a>Per abilitare Enterprise State Roaming
 
 1. Accedere all'[interfaccia di amministrazione di Azure AD](https://aad.portal.azure.com/).
-1. Selezionare **Azure Active Directory**  >  **dispositivi**Azure Active Directory  >  **Enterprise state roaming**.
+1. Selezionare   >  **dispositivi** Azure Active Directory  >  **Enterprise state roaming**.
 1. Selezionare **Gli utenti possono sincronizzare le impostazioni e i dati delle app su tutti i dispositivi**. Per altre informazioni, vedere [Configurare le impostazioni dei dispositivi](./device-management-azure-portal.md).
   
    ![Immagine dell'impostazione del dispositivo Gli utenti possono sincronizzare le impostazioni e i dati delle app su tutti i dispositivi](./media/enterprise-state-roaming-enable/device-settings.png)

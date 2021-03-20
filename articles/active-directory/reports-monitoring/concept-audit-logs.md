@@ -18,10 +18,10 @@ ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 5aa8f675e3fd36fbebfecf42db0f02b0f0f00115
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/25/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "95995982"
 ---
 # <a name="audit-activity-reports-in-the-azure-active-directory-portal"></a>Report delle attività di controllo nel portale di Azure Active Directory 
@@ -33,9 +33,9 @@ I report di Azure Active Directory (Azure AD) offrono tutte le informazioni nece
 L'architettura di report è costituita dai componenti seguenti:
 
 - **Attività** 
-    - **Accessi**: il [report degli accessi](concept-sign-ins.md) fornisce informazioni sull'uso delle applicazioni gestite e sulle attività di accesso degli utenti.
-    - **Log di controllo**: i log consentono la tracciabilità di tutte le modifiche apportate da varie funzionalità all'interno di Azure AD. I log di controllo registrano, ad esempio, le modifiche apportate a qualsiasi risorsa di Azure AD, ad esempio l'aggiunta o la rimozione di utenti, app, gruppi, ruoli e criteri.
-    - Log di provisioning **Provisioning logs**  -  I [log di provisioning](./concept-provisioning-logs.md) consentono ai clienti di monitorare l'attività da parte del servizio di provisioning, ad esempio la creazione di un gruppo in ServiceNow o di un utente importato da giorni lavorativi. 
+    - **Accessi** : il [report accessi](concept-sign-ins.md) fornisce informazioni sull'utilizzo delle applicazioni gestite e delle attività di accesso degli utenti.
+    - **Log di controllo** : consente la tracciabilità tramite i log per tutte le modifiche apportate dalle diverse funzionalità all'interno Azure ad. I log di controllo registrano, ad esempio, le modifiche apportate a qualsiasi risorsa di Azure AD, ad esempio l'aggiunta o la rimozione di utenti, app, gruppi, ruoli e criteri.
+    - Log di provisioning   -  I [log di provisioning](./concept-provisioning-logs.md) consentono ai clienti di monitorare l'attività da parte del servizio di provisioning, ad esempio la creazione di un gruppo in ServiceNow o di un utente importato da giorni lavorativi. 
 - **Sicurezza** 
     - **Accessi a rischio** : un [accesso rischioso](../identity-protection/overview-identity-protection.md) è un indicatore di un tentativo di accesso che potrebbe essere stato eseguito da un utente che non è il legittimo proprietario di un account utente. 
     - **Utenti contrassegnati per il rischio** : un [utente rischioso](../identity-protection/overview-identity-protection.md) è un indicatore per un account utente che potrebbe essere stato compromesso.
@@ -127,7 +127,7 @@ Il filtro **Category** consente di selezionare uno dei filtri seguenti:
 - GroupManagement
 - KerberosDomain
 - KeyManagement
-- Label
+- Etichetta
 - Altro
 - PermissionGrantPolicy
 - Criteri
@@ -191,7 +191,7 @@ Con i report di controllo basati su utenti e gruppi, è possibile ottenere rispo
 
 Per rivedere solo i dati di controllo relativi agli utenti, è possibile trovare una visualizzazione filtrata in **log di controllo** nella sezione **monitoraggio** della scheda **utenti** . Questo punto di ingresso ha **UserManagement** come categoria preselezionata.
 
-![Utente](./media/concept-audit-logs/users.png "Utente")
+![Utente](./media/concept-audit-logs/users.png "User")
 
 Per rivedere solo i dati di controllo relativi ai gruppi, è possibile trovare una visualizzazione filtrata in **log di controllo** nella sezione **monitoraggio** della scheda **gruppi** . Questo punto di ingresso ha **GroupManagement** come categoria preselezionata.
 

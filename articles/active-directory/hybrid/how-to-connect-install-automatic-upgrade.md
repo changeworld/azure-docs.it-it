@@ -17,10 +17,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 9c8dcc8766b21551f3cd62289805fe735ef0f333
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91317617"
 ---
 # <a name="azure-ad-connect-automatic-upgrade"></a>Azure AD Connect: aggiornamento automatico
@@ -43,7 +43,7 @@ Lo stato corrente dell'aggiornamento automatico può essere visualizzato con il 
 | Suspended |Impostato solo dal sistema. Il sistema **non è attualmente idoneo** per la ricezione di aggiornamenti automatici. |
 | Disabled |L'aggiornamento automatico è disabilitato. |
 
-Per passare da **Enabled** a **Disabled**, è possibile usare `Set-ADSyncAutoUpgrade`. Lo stato **Suspended**deve essere impostato solo dal sistema.  Prima della build 1.1.750.0, il cmdlet Set-ADSyncAutoUpgrade bloccava l'aggiornamento automatico se il relativo stato era impostato su Suspended. Questa funzionalità è stata cambiata in modo che l'aggiornamento automatico non venga bloccato.
+Per passare da **Enabled** a **Disabled**, è possibile usare `Set-ADSyncAutoUpgrade`. Lo stato **Suspended** deve essere impostato solo dal sistema.  Prima della build 1.1.750.0, il cmdlet Set-ADSyncAutoUpgrade bloccava l'aggiornamento automatico se il relativo stato era impostato su Suspended. Questa funzionalità è stata cambiata in modo che l'aggiornamento automatico non venga bloccato.
 
 L'aggiornamento automatico usa Azure AD Connect Health per l'infrastruttura di aggiornamento. Per il corretto funzionamento dell'aggiornamento automatico, assicurarsi di avere aperto gli URL nel server proxy per **Azure AD Connect Health** , come documentato in [URL e intervalli di indirizzi IP per Office 365](https://support.office.com/article/Office-365-URLs-and-IP-address-ranges-8548a211-3fe7-47cb-abb1-355ea5aa88a2).
 

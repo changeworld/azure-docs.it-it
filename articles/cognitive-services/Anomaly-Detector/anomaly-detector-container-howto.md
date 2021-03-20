@@ -13,10 +13,10 @@ ms.author: mbullwin
 ms.custom: cog-serv-seo-aug-2020
 keywords: on-premises, Docker, container, streaming, algoritmi
 ms.openlocfilehash: 70e5950f6577ce2cca2f28be070f3ba372d46a7e
-ms.sourcegitcommit: aeba98c7b85ad435b631d40cbe1f9419727d5884
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/04/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97862309"
 ---
 # <a name="install-and-run-docker-containers-for-the-anomaly-detector-api"></a>Installare ed eseguire contenitori Docker per l'API del rilevatore di anomalie 
@@ -41,7 +41,7 @@ Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://a
 
 Prima di usare i contenitori dei rilevatori di anomalie, è necessario soddisfare i prerequisiti seguenti:
 
-|Obbligatorio|Scopo|
+|Necessario|Scopo|
 |--|--|
 |Motore Docker| È necessario il motore Docker installato in un [computer host](#the-host-computer). Docker offre pacchetti per la configurazione dell'ambiente Docker in [macOS](https://docs.docker.com/docker-for-mac/), [Windows](https://docs.docker.com/docker-for-windows/) e [Linux](https://docs.docker.com/engine/installation/#supported-platforms). Per una panoramica dei concetti fondamentali relativi a Docker e ai contenitori, vedere [Docker overview](https://docs.docker.com/engine/docker-overview/) (Panoramica di Docker).<br><br> Docker deve essere configurato per consentire ai contenitori di connettersi ai dati di fatturazione e inviarli ad Azure. <br><br> **In Windows** Docker deve essere configurato anche per supportare i contenitori Linux.<br><br>|
 |Familiarità con Docker | È opportuno avere una conoscenza di base dei concetti relativi a Docker, tra cui registri, repository, contenitori e immagini dei contenitori, nonché dei comandi `docker` di base.|
@@ -72,7 +72,7 @@ Core e memoria corrispondono alle impostazioni `--cpus` e `--memory` che vengono
 
 Usare il [`docker pull`](https://docs.docker.com/engine/reference/commandline/pull/) comando per scaricare un'immagine del contenitore.
 
-| Contenitore | Repository |
+| Contenitore | Archivio |
 |-----------|------------|
 | cognitive-Services-anomalie-Detector | `mcr.microsoft.com/azure-cognitive-services/decision/anomaly-detector:latest` |
 

@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 12/02/2020
 ms.author: tisande
 ms.openlocfilehash: c0d953c8d99582f63744d51b505852b5c44bc409
-ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/03/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96555413"
 ---
 # <a name="aggregate-functions-in-azure-cosmos-db"></a>Funzioni di aggregazione in Azure Cosmos DB
@@ -64,7 +64,7 @@ I risultati sono:
     [ 1 ]
 ```
 
-## <a name="remarks"></a>Osservazioni
+## <a name="remarks"></a>Commenti
 
 Queste funzioni di sistema di aggregazione trarranno vantaggio da un [indice di intervallo](index-policy.md#includeexclude-strategy). Se si prevede di eseguire una `AVG` ,,, `COUNT` `MAX` `MIN` o `SUM` su una proprietà, è necessario [includere il percorso pertinente nei criteri di indicizzazione](index-policy.md#includeexclude-strategy).
 

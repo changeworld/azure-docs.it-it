@@ -6,10 +6,10 @@ documentationcenter: .net
 ms.topic: conceptual
 ms.date: 02/01/2019
 ms.openlocfilehash: bbfdc0a30aa673e8602ec9233fde4236c99ef5aa
-ms.sourcegitcommit: 6d6030de2d776f3d5fb89f68aaead148c05837e2
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/05/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97882212"
 ---
 # <a name="overview-of-service-fabric-clusters-on-azure"></a>Panoramica dei cluster di Service Fabric in Azure
@@ -101,9 +101,9 @@ Per altre informazioni, vedere [Aggiornamento di un cluster di Azure Service Fab
 | Windows Server 20H2 | 7.2.445.9590 | N/D |
 | Windows Server 1809 | 6.4.654.9590 | 7.2.445.9590 |
 | Windows Server 1803 | 6.4 | 7.2.445.9590 |
-| Windows Server 1709 | 6,0 | 7.2.445.9590 |
+| Windows Server 1709 | 6.0 | 7.2.445.9590 |
 | Windows Server 2012 | Tutte le versioni | N/D | 
-| Linux Ubuntu 16.04 | 6,0 | N/D |
+| Linux Ubuntu 16.04 | 6.0 | N/D |
 | Linux Ubuntu 18,04 | 7.1 | N/D |
 
 Per altre informazioni, vedere [versioni supportate del cluster in Azure](./service-fabric-versions.md#supported-operating-systems)

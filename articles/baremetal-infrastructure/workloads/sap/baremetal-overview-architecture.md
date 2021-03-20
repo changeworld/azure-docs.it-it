@@ -5,10 +5,10 @@ ms.custom: references_regions
 ms.topic: conceptual
 ms.date: 1/4/2021
 ms.openlocfilehash: eb4dc129719dc410f7101598e3d72e68f17809c1
-ms.sourcegitcommit: aeba98c7b85ad435b631d40cbe1f9419727d5884
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/04/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97860975"
 ---
 #  <a name="what-is-baremetal-infrastructure-preview-on-azure"></a>Che cos'è l'anteprima dell'infrastruttura BareMetal in Azure?

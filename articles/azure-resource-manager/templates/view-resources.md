@@ -4,10 +4,10 @@ description: Viene descritto come cercare le proprietà delle risorse.
 ms.topic: conceptual
 ms.date: 06/10/2020
 ms.openlocfilehash: c8bbe0dcb1bc9dc9751a1dc0d0b98a6368473546
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91327749"
 ---
 # <a name="discover-resource-properties"></a>Individuare le proprietà delle risorse
@@ -41,7 +41,7 @@ L'estensione fornisce anche un elenco di opzioni per le proprietà di configuraz
 Il riferimento al modello di Azure Resource Manager è la risorsa più completa per lo schema del modello. È possibile trovare le versioni dell'API, il formato del modello e le informazioni sulle proprietà.
 
 1. Passare a [Azure Resource Manager riferimento al modello](/azure/templates/).
-1. Nel percorso di spostamento a sinistra selezionare **archiviazione**e quindi selezionare **tutte le risorse**. Nella pagina tutte le risorse vengono riepilogati i tipi di risorse e le versioni.
+1. Nel percorso di spostamento a sinistra selezionare **archiviazione** e quindi selezionare **tutte le risorse**. Nella pagina tutte le risorse vengono riepilogati i tipi di risorse e le versioni.
 
     ![versioni delle risorse di riferimento del modello](./media/view-resources/resource-manager-template-reference-resource-versions.png)
 
@@ -69,10 +69,10 @@ Il riferimento del modello è collegato da ognuno dei siti di documentazione del
 
 Esplora inventario risorse è incorporato nel portale di Azure. Prima di usare questo metodo, è necessario un account di archiviazione. Se non è presente, selezionare il pulsante seguente per crearne uno:
 
-[![Distribuisci in Azure](https://aka.ms/deploytoazurebutton)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3a%2f%2fraw.githubusercontent.com%2fAzure%2fazure-quickstart-templates%2fmaster%2f101-storage-account-create%2fazuredeploy.json)
+[![Distribuzione in Azure](https://aka.ms/deploytoazurebutton)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3a%2f%2fraw.githubusercontent.com%2fAzure%2fazure-quickstart-templates%2fmaster%2f101-storage-account-create%2fazuredeploy.json)
 
 1. Accedere al [portale di Azure](https://portal.azure.com).
-1. Nella casella di ricerca immettere **Esplora inventario risorse**e quindi selezionare **Esplora inventario risorse**.
+1. Nella casella di ricerca immettere **Esplora inventario risorse** e quindi selezionare **Esplora inventario risorse**.
 
     ![Screenshot che mostra la ricerca del Esplora inventario risorse nel portale di Azure.](./media/view-resources/azure-portal-resource-explorer.png)
 
@@ -81,7 +81,7 @@ Esplora inventario risorse è incorporato nel portale di Azure. Prima di usare q
     ![portale di Azure Esplora inventario risorse](./media/view-resources/azure-portal-resource-explorer-home.png)
 
     - **Provider**: espandere **provider**  ->  **Microsoft. storage**  ->  **storageAccounts**, quindi selezionare l'account di archiviazione.
-    - **ResourceGroups**: selezionare il gruppo di risorse che contiene l'account di archiviazione, selezionare **risorse**e quindi selezionare l'account di archiviazione.
+    - **ResourceGroups**: selezionare il gruppo di risorse che contiene l'account di archiviazione, selezionare **risorse** e quindi selezionare l'account di archiviazione.
 
     Sulla destra viene visualizzata la configurazione dello SKU per l'account di archiviazione esistente, simile a:
 
@@ -97,7 +97,7 @@ Resources.azure.com è un sito Web pubblico a cui è possibile accedere da quals
 
 Per illustrare come recuperare le informazioni sullo schema usando questo strumento, è necessario un account di archiviazione. Se non è presente, selezionare il pulsante seguente per crearne uno:
 
-[![Distribuisci in Azure](https://aka.ms/deploytoazurebutton)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3a%2f%2fraw.githubusercontent.com%2fAzure%2fazure-quickstart-templates%2fmaster%2f101-storage-account-create%2fazuredeploy.json)
+[![Distribuzione in Azure](https://aka.ms/deploytoazurebutton)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3a%2f%2fraw.githubusercontent.com%2fAzure%2fazure-quickstart-templates%2fmaster%2f101-storage-account-create%2fazuredeploy.json)
 
 1. Passare a [Resources.Azure.com](https://resources.azure.com/). Sono necessari alcuni istanti per lo strumento per popolare il riquadro sinistro.
 1. Selezionare **sottoscrizioni**.

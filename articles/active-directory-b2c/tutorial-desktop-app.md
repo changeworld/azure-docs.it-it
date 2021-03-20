@@ -1,5 +1,5 @@
 ---
-title: "Esercitazione: Autenticare gli utenti in un'applicazione client nativa"
+title: "Esercitazione: autenticare gli utenti in un'applicazione client nativa"
 titleSuffix: Azure AD B2C
 description: Esercitazione su come usare Azure Active Directory B2C per consentire l'accesso degli utenti a un'applicazione desktop .NET.
 services: active-directory-b2c
@@ -12,13 +12,13 @@ ms.topic: tutorial
 ms.service: active-directory
 ms.subservice: B2C
 ms.openlocfilehash: 06d27c3a3daa4702653a2063d0ac70fd094e2d74
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
-ms.translationtype: HT
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "78186200"
 ---
-# <a name="tutorial-authenticate-users-in-a-native-desktop-client-using-azure-active-directory-b2c"></a>Esercitazione: Autenticare gli utenti in un client desktop nativo con Azure Active Directory B2C
+# <a name="tutorial-authenticate-users-in-a-native-desktop-client-using-azure-active-directory-b2c"></a>Esercitazione: autenticare gli utenti in un client desktop nativo usando Azure Active Directory B2C
 
 Questa esercitazione illustra come usare Azure Active Directory B2C (Azure AD B2C) per l'iscrizione e l'accesso degli utenti a un'applicazione desktop Windows Presentation Foundation (WPF). Azure AD B2C consente alle applicazioni di eseguire l'autenticazione per account di social network, aziendali e di Azure Active Directory usando protocolli standard aperti.
 
@@ -105,4 +105,4 @@ In questa esercitazione sono state illustrate le procedure per:
 A questo punto, per abilitare la funzionalità del pulsante **Chiamata di API**, concedere all'applicazione desktop WPF l'accesso a un'API Web registrata nel tenant di Azure AD B2C:
 
 > [!div class="nextstepaction"]
-> [Esercitazione: Concedere l'accesso a un'API Web Node.js da un'app desktop](tutorial-desktop-app-webapi.md)
+> [Esercitazione: concedere l'accesso a un'API Web Node.js da un'app desktop >](tutorial-desktop-app-webapi.md)

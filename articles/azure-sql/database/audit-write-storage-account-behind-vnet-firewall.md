@@ -11,10 +11,10 @@ ms.reviewer: vanto
 ms.date: 06/17/2020
 ms.custom: azure-synapse
 ms.openlocfilehash: 908c9f1d05c83eaa58f77b79a32d956898c35076
-ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93348254"
 ---
 # <a name="write-audit-to-a-storage-account-behind-vnet-and-firewall"></a>Controllo per la scrittura in un account di archiviazione dietro rete virtuale e firewall
@@ -123,7 +123,7 @@ Per configurare il controllo SQL per la scrittura di eventi in un account di arc
    > [!NOTE]
    > Solo i membri con il privilegio di proprietario possono eseguire questo passaggio. Per i vari ruoli predefiniti di Azure, vedere [ruoli predefiniti di Azure](../../role-based-access-control/built-in-roles.md).
 
-3. Configurare i [criteri di controllo BLOB del server](/rest/api/sql/server%20auditing%20settings/createorupdate)senza specificare un *storageAccountAccessKey* :
+3. Configurare i [criteri di controllo BLOB del server](/rest/api/sql/server%20auditing%20settings/createorupdate)senza specificare un *storageAccountAccessKey*:
 
    Richiesta di esempio
 

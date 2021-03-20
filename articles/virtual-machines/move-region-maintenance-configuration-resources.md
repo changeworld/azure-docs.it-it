@@ -7,10 +7,10 @@ ms.topic: how-to
 ms.date: 03/04/2020
 ms.author: shants
 ms.openlocfilehash: 88082c441dafdc7571f2b9775bfc07ebe3ca5aa4
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/23/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98730507"
 ---
 # <a name="move-resources-in-a-maintenance-control-configuration-to-another-region"></a>Spostare le risorse in una configurazione di controllo di manutenzione in un'altra area
@@ -76,7 +76,7 @@ Prima di iniziare a trasferire le risorse associate a una configurazione del con
         ```
 
 
-## <a name="move"></a>Spostamento 
+## <a name="move"></a>Sposta 
 
 1. [Seguire queste istruzioni](../site-recovery/azure-to-azure-tutorial-migrate.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json) per spostare le macchine virtuali di Azure nella nuova area.
 2. Dopo lo spostamento delle risorse, riapplicare le configurazioni di manutenzione alle risorse nella nuova area in base alle esigenze, a seconda che siano state spostate le configurazioni di manutenzione. È possibile applicare una configurazione di manutenzione a una risorsa usando [PowerShell](../virtual-machines/maintenance-control-powershell.md) o l' [interfaccia](../virtual-machines/maintenance-control-cli.md)della riga di comando.

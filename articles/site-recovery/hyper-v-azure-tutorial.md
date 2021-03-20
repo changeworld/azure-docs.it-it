@@ -9,10 +9,10 @@ ms.date: 11/12/2019
 ms.author: raynew
 ms.custom: MVC
 ms.openlocfilehash: 5ce98c785700301bba92926d7d5a243b614eca7f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
-ms.translationtype: HT
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "87504229"
 ---
 # <a name="set-up-disaster-recovery-of-on-premises-hyper-v-vms-to-azure"></a>Configurare il ripristino di emergenza di macchine virtuali Hyper-V locali in Azure
@@ -124,7 +124,7 @@ Site Recovery verifica la disponibilità di uno o più account di archiviazione 
 ## <a name="set-up-a-replication-policy"></a>Configurare criteri di replica
 
 1. Selezionare **Preparare l'infrastruttura** > **Impostazioni della replica** >  **+Crea e associa**.
-2. In **Criteri di creazione e associazione**specificare il nome dei criteri. Il nome usato al momento è **ContosoReplicationPolicy**.
+2. In **Criteri di creazione e associazione** specificare il nome dei criteri. Il nome usato al momento è **ContosoReplicationPolicy**.
 3. Per questa esercitazione verranno usate le impostazioni predefinite:
     - **Frequenza di copia**: indica la frequenza di replica dei dati delta (dopo la replica iniziale). La frequenza predefinita è ogni 5 minuti.
     - **Conservazione del punto di ripristino** indica che i punti di ripristino verranno conservati per due ore. Il valore massimo consentito per la conservazione quando si proteggono le macchine virtuali ospitate in host Hyper-V è di 24 ore.

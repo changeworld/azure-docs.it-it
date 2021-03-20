@@ -5,15 +5,15 @@ ms.topic: include
 ms.date: 07/05/2019
 ms.author: glenga
 ms.openlocfilehash: 5e1a2622df0038141dd5cb05237f93d5e33e0bfb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
-ms.translationtype: HT
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "78190917"
 ---
-In un progetto di libreria di classi C# i binding vengono definiti come attributi di binding nel metodo della funzione. Il file *function.json* richiesto da Funzioni viene quindi generato automaticamente in base a questi attributi.
+In un progetto di libreria di classi C# i binding vengono definiti come attributi di binding nel metodo della funzione. Il *function.jssu* file richiesto dalle funzioni viene quindi generato automaticamente in base a questi attributi.
 
-Aprire il file di progetto *HttpExample.cs* e aggiungere il parametro seguente alla definizione del metodo `Run`:
+Aprire il file di progetto *HttpExample. cs* e aggiungere il parametro seguente alla `Run` definizione del metodo:
 
 :::code language="csharp" source="~/functions-docs-csharp/functions-add-output-binding-storage-queue-cli/HttpExample.cs" range="17":::
 

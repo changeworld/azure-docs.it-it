@@ -13,10 +13,10 @@ ms.author: srbozovi
 ms.reviewer: sstein, bonova, jovanpop
 ms.date: 03/13/2019
 ms.openlocfilehash: 3baf2d7ed7c326895ae40948fc2d0a4cc03021f9
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
-ms.translationtype: HT
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/28/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92788367"
 ---
 # <a name="quickstart-configure-a-point-to-site-connection-to-azure-sql-managed-instance-from-on-premises"></a>Avvio rapido: Configurare una connessione da punto a sito a Istanza gestita di SQL di Azure da un computer locale
@@ -67,12 +67,12 @@ La guida introduttiva:
 
 1. Accedere al [portale di Azure](https://portal.azure.com/).
 2. Aprire il gruppo di risorse in cui è stato creato il gateway di rete virtuale e quindi aprire la risorsa del gateway di rete virtuale.
-3. Selezionare **Configurazione da punto a sito** e quindi selezionare **Scarica client VPN** .
+3. Selezionare **Configurazione da punto a sito** e quindi selezionare **Scarica client VPN**.
 
     ![Scaricare il client VPN](./media/point-to-site-p2s-configure/download-vpn-client.png)  
 4. Nel computer client locale, estrarre i file dal file ZIP e quindi aprire la cartella con i file estratti.
-5. Aprire la cartella **WindowsAmd64** e aprire il file **VpnClientSetupAmd64.exe** .
-6. Se viene visualizzato un messaggio per segnalare che **il PC è stato protetto da Windows** , fare clic su **Altre informazioni** e quindi su **Esegui comunque** .
+5. Aprire la cartella **WindowsAmd64** e aprire il file **VpnClientSetupAmd64.exe**.
+6. Se viene visualizzato un messaggio per segnalare che **il PC è stato protetto da Windows**, fare clic su **Altre informazioni** e quindi su **Esegui comunque**.
 
     ![Installare il client VPN](./media/point-to-site-p2s-configure/vpn-client-defender.png)
 7. Nella finestra di dialogo Controllo account utente fare clic su **Sì** per continuare.
@@ -80,14 +80,14 @@ La guida introduttiva:
 
 ## <a name="connect-to-the-vpn-connection"></a>Connettersi alla VPN
 
-1. Passare a **VPN** in **Rete e Internet** nel computer client locale e selezionare la rete virtuale di Istanza gestita di SQL per stabilire una connessione a questa rete virtuale. Nell'immagine seguente, la rete virtuale è denominata **MyNewVNet** .
+1. Passare a **VPN** in **Rete e Internet** nel computer client locale e selezionare la rete virtuale di Istanza gestita di SQL per stabilire una connessione a questa rete virtuale. Nell'immagine seguente, la rete virtuale è denominata **MyNewVNet**.
 
     ![Connessione VPN](./media/point-to-site-p2s-configure/vpn-connection.png)  
-2. Selezionare **Connetti** .
-3. Nella finestra di dialogo, selezionare **Connessione** .
+2. Selezionare **Connetti**.
+3. Nella finestra di dialogo, selezionare **Connessione**.
 
     ![Screenshot con il pulsante Connetti evidenziato.](./media/point-to-site-p2s-configure/vpn-connection2.png)  
-4. Quando viene segnalato che Gestione connessioni richiede privilegi elevati per aggiornare la tabella di route, scegliere **Continua** .
+4. Quando viene segnalato che Gestione connessioni richiede privilegi elevati per aggiornare la tabella di route, scegliere **Continua**.
 5. Selezionare **Sì** nella finestra di dialogo Controllo dell'account utente per continuare.
 
    È stata stabilita una connessione VPN alla rete virtuale di Istanza gestita di SQL.
@@ -97,8 +97,8 @@ La guida introduttiva:
 ## <a name="connect-with-ssms"></a>Connettersi a SSMS
 
 1. Nel computer client locale aprire SQL Server Management Studio.
-2. Nella finestra di dialogo **Connetti al server** immettere il **nome host** completo per l'istanza gestita nella casella **Nome server** .
-3. Selezionare **Autenticazione di SQL Server** , specificare il nome utente e la password e quindi selezionare **Connetti** .
+2. Nella finestra di dialogo **Connetti al server** immettere il **nome host** completo per l'istanza gestita nella casella **Nome server**.
+3. Selezionare **Autenticazione di SQL Server**, specificare il nome utente e la password e quindi selezionare **Connetti**.
 
     ![Connessione a SSMS](./media/point-to-site-p2s-configure/ssms-connect.png)  
 

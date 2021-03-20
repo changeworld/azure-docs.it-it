@@ -8,17 +8,17 @@ ms.topic: conceptual
 ms.date: 07/23/2020
 ms.custom: devx-track-java
 ms.openlocfilehash: c053a7830e02eb7c460bd030ca3c6a10c00ea78a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91323638"
 ---
 # <a name="understand-app-and-deployment-in-azure-spring-cloud"></a>Informazioni sull'app e la distribuzione nel cloud Spring di Azure
 
 **Questo articolo si applica a:** ✔️ Java ✔️ C#
 
-**App** e **distribuzione** sono i due concetti chiave del modello di risorse di Azure Spring cloud. Nel cloud Spring di Azure un' *app* è un'astrazione di un'app aziendale o di un microservizio.  Una versione di codice o binario distribuita quando l' *app* viene eseguita in una *distribuzione*.  Le app vengono eseguite in un' *istanza del servizio cloud di Azure Spring*o semplicemente in un' *istanza del servizio*, come illustrato di seguito.
+**App** e **distribuzione** sono i due concetti chiave del modello di risorse di Azure Spring cloud. Nel cloud Spring di Azure un' *app* è un'astrazione di un'app aziendale o di un microservizio.  Una versione di codice o binario distribuita quando l' *app* viene eseguita in una *distribuzione*.  Le app vengono eseguite in un' *istanza del servizio cloud di Azure Spring* o semplicemente in un' *istanza del servizio*, come illustrato di seguito.
 
  ![App e distribuzioni](./media/spring-cloud-app-and-deployment/app-deployment-rev.png)
 
@@ -34,7 +34,7 @@ Le seguenti funzionalità/proprietà sono definite a livello di app.
 | Pubblico</br>Endpoint | URL per accedere all'app |
 | Personalizzato</br>Dominio | Record CNAME che protegge il dominio personalizzato |
 | Servizio</br>Binding | Connessione predefinita con altri servizi di Azure |
-| Gestiti</br>Identità | L'identità gestita da Azure Active Directory consente all'app di accedere facilmente ad altre risorse protette da Azure AD, ad esempio Azure Key Vault |
+| Gestita</br>Identità | L'identità gestita da Azure Active Directory consente all'app di accedere facilmente ad altre risorse protette da Azure AD, ad esempio Azure Key Vault |
 | Persistente</br>Archiviazione | Impostazione che consente la permanenza dei dati oltre il riavvio dell'app |
 
 ## <a name="deployment"></a>Distribuzione
@@ -57,5 +57,5 @@ Le seguenti funzionalità/proprietà sono definite a livello di distribuzione e 
 * **Un'app può avere al massimo due distribuzioni**: la creazione di più di due distribuzioni è bloccata dall'API. Distribuire il nuovo file binario in una distribuzione di produzione o di gestione temporanea esistente.
 * **Gestione della distribuzione non è disponibile nel livello Basic**: usare il livello standard per la funzionalità di distribuzione Blue-Green.
 
-## <a name="see-also"></a>Vedere anche
+## <a name="see-also"></a>Vedi anche
 * [Configurare un ambiente di staging nel cloud Spring di Azure](spring-cloud-howto-staging-environment.md)

@@ -4,10 +4,10 @@ description: Questo articolo fornisce indicazioni su come sviluppare e distribui
 ms.topic: how-to
 ms.date: 12/02/2020
 ms.openlocfilehash: 6184a369e73c26d3a8a716f9daf1c0420a5239fe
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/27/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98881653"
 ---
 # <a name="how-to-guide--develop-and-deploy-a-grpc-inference-server"></a>Guida alla procedura: sviluppare e distribuire un server di inferenza gRPC
@@ -148,7 +148,7 @@ Per comprendere i dettagli del modo in cui viene sviluppato il server gRPC, esam
 1. Avviare VSCode e passare alla cartella/src/edge/modules/grpcExtension.
 1. Di seguito viene illustrata una rapida procedura dettagliata dei file:
 
-    1. **Program.cs**: si tratta del punto di ingresso dell'applicazione. È responsabile dell'inizializzazione e della gestione del server gRPC, che fungerà da host. In questo esempio, la porta per restare in attesa dei messaggi gRPC in ingresso da un client di gRPC (ad esempio, analisi video in tempo reale) viene specificata dall'elemento di configurazione grpcBindings nel AppConfig.json.
+    1. **Program. cs**: è il punto di ingresso dell'applicazione. È responsabile dell'inizializzazione e della gestione del server gRPC, che fungerà da host. In questo esempio, la porta per restare in attesa dei messaggi gRPC in ingresso da un client di gRPC (ad esempio, analisi video in tempo reale) viene specificata dall'elemento di configurazione grpcBindings nel AppConfig.json.
     
         ```json    
         {
@@ -191,7 +191,7 @@ Ora che sono state configurate e inizializzate le connessioni alla porta del ser
               }
             }
             ```
-        * A seconda del valore di batchSize nella Appconfig.jssu, il server continuerà a ricevere i messaggi e archivierà i frame video in un elenco. Una volta raggiunto il limite di batchSize, la funzione chiamerà la funzione o il file che elaborerà l'immagine. In questo caso, il metodo chiama un file denominato BatchImageProcessor.cs
+        * A seconda del valore di batchSize nella Appconfig.jssu, il server continuerà a ricevere i messaggi e archivierà i frame video in un elenco. Una volta raggiunto il limite di batchSize, la funzione chiamerà la funzione o il file che elaborerà l'immagine. In questo caso, il metodo chiama un file denominato BatchImageProcessor. cs
     1. **Processors\BatchImageProcessor.cs**: questa classe è responsabile dell'elaborazione delle immagini. In questo esempio è stato usato un modello di classificazione delle immagini. Per ogni immagine che verrà elaborata, l'algoritmo utilizzato è il seguente:
 
         1. Converte l'immagine in una matrice di byte per l'elaborazione. Vedere il metodo: `GetBytes(Bitmap image)`
@@ -207,7 +207,7 @@ Ora che sono state configurate e inizializzate le connessioni alla porta del ser
     IEnumerable<Inference> ProcessImage(List<Image> images) 
     ```
 
-    Una volta aggiunta la nuova classe, è necessario aggiornare il MediaGraphExtensionService.cs in modo da creare un'istanza della classe e richiamare il metodo ProcessImage su di essa per eseguire la logica di elaborazione. 
+    Una volta aggiunta la nuova classe, è necessario aggiornare MediaGraphExtensionService. cs in modo da creare un'istanza della classe e richiamare il metodo ProcessImage su di essa per eseguire la logica di elaborazione. 
 
 ## <a name="connect-with-live-video-analytics-module"></a>Connetti con modulo di analisi video live
 

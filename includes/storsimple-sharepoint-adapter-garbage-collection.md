@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: alkohli
 ms.openlocfilehash: 9c734ff03b1cf277c7e0967d8b76b1941434f414
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "86050430"
 ---
 In questa procedura, si apprenderà come:
@@ -38,7 +38,7 @@ In questa procedura, si apprenderà come:
 
     `exec mssqlrbs.rbs_sp_set_config_value ‘delete_scan_period’ , ’time 00:00:00’`
 
-2. Sul server Web front-end, in **Amministrazione centrale** modificare **Impostazioni generali applicazione Web** per il database del contenuto per disabilitare temporaneamente il Cestino. Questa azione svuoterà inoltre il Cestino per le relative raccolte siti. A tale scopo, fare clic su **Amministrazione centrale**  ->  **gestione**applicazioni  ->  **applicazioni Web (Gestisci applicazioni Web)**  ->  **SharePoint-80**  ->  **Impostazioni generali applicazione**. Impostare **Stato Cestino** su **NO**.
+2. Sul server Web front-end, in **Amministrazione centrale** modificare **Impostazioni generali applicazione Web** per il database del contenuto per disabilitare temporaneamente il Cestino. Questa azione svuoterà inoltre il Cestino per le relative raccolte siti. A tale scopo, fare clic su **Amministrazione centrale**  ->  **gestione** applicazioni  ->  **applicazioni Web (Gestisci applicazioni Web)**  ->  **SharePoint-80**  ->  **Impostazioni generali applicazione**. Impostare **Stato Cestino** su **NO**.
    
     ![Impostazioni generali applicazione Web](./media/storsimple-sharepoint-adapter-garbage-collection/HCS_WebApplicationGeneralSettings-include.png)
 
@@ -62,5 +62,5 @@ In questa procedura, si apprenderà come:
       `exec mssqlrbs.rbs_sp_set_config_value ‘delete_scan_period’ , ’days 30’`
    
       `exec mssqlrbs.rbs_sp_set_config_value ‘orphan_scan_period’ , ’days 30’`
-2. Sul server Web front-end, in **Amministrazione centrale** modificare **Impostazioni generali applicazione Web** per il database del contenuto per riabilitare il Cestino. A tale scopo, fare clic su **Amministrazione centrale**  ->  **gestione**applicazioni  ->  **applicazioni Web (Gestisci applicazioni Web)**  ->  **SharePoint-80**  ->  **Impostazioni generali applicazione**. Impostare lo stato del Cestino su **ON**.
+2. Sul server Web front-end, in **Amministrazione centrale** modificare **Impostazioni generali applicazione Web** per il database del contenuto per riabilitare il Cestino. A tale scopo, fare clic su **Amministrazione centrale**  ->  **gestione** applicazioni  ->  **applicazioni Web (Gestisci applicazioni Web)**  ->  **SharePoint-80**  ->  **Impostazioni generali applicazione**. Impostare lo stato del Cestino su **ON**.
 

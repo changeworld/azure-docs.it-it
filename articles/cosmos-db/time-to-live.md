@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 11/04/2020
 ms.reviewer: sngun
 ms.openlocfilehash: cf9d0aea9ab9e79a5f184a42e1bb785b6fb870a7
-ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/05/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93360089"
 ---
 # <a name="time-to-live-ttl-in-azure-cosmos-db"></a>Durata (TTL) in Azure Cosmos DB
@@ -50,7 +50,7 @@ Il valore di durata (TTL) viene impostato in secondi e viene interpretato come u
 
 - Se la durata per un contenitore è impostata su -1, un elemento all'interno del contenitore la cui durata è impostata su n scadrà dopo n secondi, mentre gli elementi rimanenti non scadono.
 
-## <a name="examples"></a>Esempi
+## <a name="examples"></a>Esempio
 
 Questa sezione illustra alcuni esempi con valori di durata (TTL) diversi assegnati a contenitori ed elementi:
 

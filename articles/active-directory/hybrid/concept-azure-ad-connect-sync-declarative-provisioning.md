@@ -17,10 +17,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 59dc94e37dfa1ef8b0b079bf5d78d0504e0cb8c7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91313621"
 ---
 # <a name="azure-ad-connect-sync-understanding-declarative-provisioning"></a>Servizio di sincronizzazione Azure AD Connect: Informazioni sul provisioning dichiarativo
@@ -42,13 +42,13 @@ La pipeline include diversi moduli. Ognuno di essi è responsabile di un concett
 * [Precedenza](#precedence), risolve i conflitti tra attributi
 * Destinazione, l'oggetto di destinazione
 
-## <a name="scope"></a>Scope
+## <a name="scope"></a>Ambito
 Il modulo scope valuta un oggetto e determina le regole che si trovano nell'ambito e devono essere incluse nell'elaborazione. A seconda dei valori degli attributi sull'oggetto, viene valutata la presenza di diverse regole di sincronizzazione nell'ambito. Ad esempio, un utente disabilitato senza alcuna cassetta postale di Exchange ha regole diverse rispetto a un utente abilitato che ha una cassetta postale.  
 ![Diagramma che mostra il modulo ambito per un oggetto.](./media/concept-azure-ad-connect-sync-declarative-provisioning/scope1.png)  
 
 L'ambito è definito sotto forma di gruppi e clausole. Le clausole si trovano all'interno di un gruppo. Tra tutte le clausole in un gruppo viene usato un operatore logico AND. Ad esempio, (department =IT AND country = Denmark). Viene usato un operatore logico OR tra gruppi.
 
-![Scope](./media/concept-azure-ad-connect-sync-declarative-provisioning/scope2.png)  
+![Ambito](./media/concept-azure-ad-connect-sync-declarative-provisioning/scope2.png)  
  L'ambito in questa immagine deve essere letto come (department = IT AND country = Denmark) OR (country=Sweden). Se il gruppo 1 o il gruppo 2 viene valutato su true, la regola si trova nell'ambito.
 
 Il modulo dell'ambito supporta le operazioni seguenti.
@@ -120,7 +120,7 @@ Il valore letterale **AuthoritativeNull** è simile a **NULL**, con la differenz
 
 Un flusso dell'attributo può anche usare **IgnoreThisFlow**. È simile a NULL in quanto indica che non è disponibile alcun valore da fornire, con la differenza che non rimuove un valore già esistente nella destinazione. È come se il flusso dell'attributi non sia mai stato presente.
 
-Esempio:
+Ecco un esempio:
 
 In *Out to AD - User Exchange hybrid* (In uscita ad AD - Utente Exchange ibrido) è possibile trovare il flusso seguente:  
 `IIF([cloudSOAExchMailbox] = True,[cloudMSExchSafeSendersHash],IgnoreThisFlow)`  

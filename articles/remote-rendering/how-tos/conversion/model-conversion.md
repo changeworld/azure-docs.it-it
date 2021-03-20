@@ -6,15 +6,15 @@ ms.author: jakras
 ms.date: 02/04/2020
 ms.topic: how-to
 ms.openlocfilehash: e899b249261ea3238695a2e2be6001cb6a9bc763
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91318059"
 ---
 # <a name="convert-models"></a>Convertire i modelli
 
-Il rendering remoto di Azure consente di eseguire il rendering di modelli molto complessi. Per ottenere le massime prestazioni, i dati devono essere pre-elaborati in modo da essere in un formato ottimale. A seconda della quantità di dati, questo passaggio potrebbe richiedere alcuni minuti. Se questo tempo è trascorso durante il caricamento del modello, non sarebbe praticabile. Inoltre, sarebbe inutile ripetere questo processo per più sessioni. Per questi motivi, il servizio ARR fornisce un *servizio di conversione*dedicato, che può essere eseguito in anticipo.
+Il rendering remoto di Azure consente di eseguire il rendering di modelli molto complessi. Per ottenere le massime prestazioni, i dati devono essere pre-elaborati in modo da essere in un formato ottimale. A seconda della quantità di dati, questo passaggio potrebbe richiedere alcuni minuti. Se questo tempo è trascorso durante il caricamento del modello, non sarebbe praticabile. Inoltre, sarebbe inutile ripetere questo processo per più sessioni. Per questi motivi, il servizio ARR fornisce un *servizio di conversione* dedicato, che può essere eseguito in anticipo.
 Una volta convertito, un modello può essere caricato da un account di archiviazione di Azure.
 
 ## <a name="supported-source-formats"></a>Formati di origine supportati
@@ -47,7 +47,7 @@ Per informazioni sui prezzi per la conversione, vedere la pagina relativa ai pre
 
 Per le varie opzioni di conversione, vedere [questo capitolo](configure-model-conversion.md).
 
-## <a name="examples"></a>Esempi
+## <a name="examples"></a>Esempio
 
 - [Guida introduttiva: convertire un modello per il rendering](../../quickstarts/convert-model.md) è un'introduzione dettagliata su come convertire un modello.
 - Gli [script di PowerShell di esempio](../../samples/powershell-example-scripts.md)che illustrano l'uso del servizio di conversione sono disponibili nel [repository di esempi arr](https://github.com/Azure/azure-remote-rendering) nella cartella *Scripts* .

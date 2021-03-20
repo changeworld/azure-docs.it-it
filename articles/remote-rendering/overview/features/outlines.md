@@ -7,10 +7,10 @@ ms.date: 02/11/2020
 ms.topic: article
 ms.custom: devx-track-csharp
 ms.openlocfilehash: c04f2312926d3b6d668dff712eedb57d816c8bf3
-ms.sourcegitcommit: f377ba5ebd431e8c3579445ff588da664b00b36b
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/05/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "99592008"
 ---
 # <a name="outline-rendering"></a>Rendering del contorno
@@ -23,7 +23,7 @@ Le proprietà del contorno sono un'impostazione globale. Tutti gli oggetti che u
 
 La classe `OutlineSettings` include le impostazioni correlate alle proprietà del contorno globali ed espone i membri seguenti:
 
-| Parametro      | Type    | Descrizione                                             |
+| Parametro      | Tipo    | Descrizione                                             |
 |----------------|---------|---------------------------------------------------------|
 | `Color`          | Color4Ub | Colore usato per disegnare il contorno. La parte alfa viene ignorata.         |
 | `PulseRateHz`    | float   | Velocità di oscillazione del contorno al secondo|

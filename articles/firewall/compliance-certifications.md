@@ -8,15 +8,15 @@ ms.topic: article
 ms.date: 06/30/2020
 ms.author: victorh
 ms.openlocfilehash: fa61046ee87c1cac3c8a8bb93ed97b577019e016
-ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/14/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94628442"
 ---
 # <a name="azure-firewall-certifications"></a>Certificazioni del firewall di Azure
 
-Il firewall di Azure è PCI (Payment Card Industry), SOC (Service Organization Controls), International Organization for Standardization (ISO), ICSA Labs e HITRUST conformi.
+Il firewall di Azure è PCI (Payment Card Industry), SOC (Service Organization Controls), organizzazione internazionale per la standardizzazione (ISO), ICSA Labs e HITRUST conformi.
 
 Le certificazioni seguenti sono destinate ad Azure globale e ad Azure per enti pubblici.
 

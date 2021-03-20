@@ -9,10 +9,10 @@ ms.date: 12/02/2020
 ms.author: tisande
 ms.custom: query-reference
 ms.openlocfilehash: d5a86cd5af504072480e0cd749caa6c0532d0bc1
-ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/03/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96552391"
 ---
 # <a name="sum-azure-cosmos-db"></a>SOMMA (Azure Cosmos DB)
@@ -35,7 +35,7 @@ SUM(<numeric_expr>)
   
 Restituisce un'espressione numerica.  
   
-## <a name="examples"></a>Esempi
+## <a name="examples"></a>Esempio
   
 Nell'esempio seguente viene restituita la somma di `propertyA` :
   

@@ -9,10 +9,10 @@ ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
 ms.openlocfilehash: 9b6c6a320e6299808a91214476c8c0460f9f53d9
-ms.sourcegitcommit: d7d5f0da1dda786bda0260cf43bd4716e5bda08b
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/05/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97895054"
 ---
 # <a name="set-up-vcenter-on-your-private-cloud-for-vmware-vrealize-automation"></a>Configurare vCenter nel cloud privato per l'automazione vRealize VMware
@@ -32,13 +32,13 @@ Completare queste attività prima di configurare il server vCenter:
 | Archivio dati |  Alloca spazio <br> Sfoglia archivio dati |
 | Cluster di archivio dati | Configurare un cluster di archivio dati |
 | Cartella | Creazione cartella <br>Elimina cartella |
-| Globale |  Gestire attributi personalizzati<br>Imposta attributo personalizzato |
+| Globale |  Gestire attributi personalizzati<br>Impostare un attributo personalizzato |
 | Rete | Assegna rete |
 | Autorizzazioni | Modify Permissions |
 | Risorsa | Assegnare una macchina virtuale al pool di risorse<br>Esegui la migrazione della macchina virtuale spenta<br>Esegui la migrazione della macchina virtuale accesa |
-| Inventario macchina virtuale |  Crea da esistente<br>Creazione di un nuovo sito<br>Spostamento<br>Rimuovi | 
+| Inventario macchina virtuale |  Crea da esistente<br>Creazione di un nuovo sito<br>Sposta<br>Rimuovi | 
 | Interazione tra macchine virtuali |  Configurare supporti CD<br>Interazione tra console<br>Connessione del dispositivo<br>Spegnimento<br>Accensione<br>Reset<br>Sospendi<br>Installazione degli strumenti | 
-| Configurazione macchina virtuale |  Aggiungi disco esistente<br>Aggiungi nuovo disco<br>Aggiungi o Rimuovi<br>Rimuovi disco<br>Avanzato<br>Cambia Conteggio CPU<br>Cambia risorsa<br>Estendi disco virtuale<br>Rilevamento modifiche disco<br>Memoria<br>Modificare le impostazioni del dispositivo<br>Rinomina<br>Set Annotation (versione 5,0 e successive)<br>Impostazioni<br>Selezione host file |
+| Configurazione macchina virtuale |  Aggiungi disco esistente<br>Aggiungi nuovo disco<br>Aggiungi o Rimuovi<br>Rimuovi disco<br>Avanzato<br>Cambia Conteggio CPU<br>Cambia risorsa<br>Estendi disco virtuale<br>Rilevamento modifiche disco<br>Memoria<br>Modificare le impostazioni del dispositivo<br>Rinominare<br>Set Annotation (versione 5,0 e successive)<br>Impostazioni<br>Selezione host file |
 | Provisioning |  Personalizza<br>Clona modello<br>Clona macchina virtuale<br>Modello di distribuzione<br>Leggi le specifiche di personalizzazione |
 | Stato macchina virtuale | Crea snapshot<br>Rimuovi snapshot<br>Ripristina snapshot |
 

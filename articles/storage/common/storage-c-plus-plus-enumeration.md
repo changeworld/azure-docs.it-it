@@ -9,10 +9,10 @@ ms.subservice: common
 ms.topic: how-to
 ms.reviewer: dineshm
 ms.openlocfilehash: 8c8e2d2ddf6899e62bc95bc1e52c84eccdc3a91e
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/28/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92784099"
 ---
 # <a name="list-azure-storage-resources-in-c"></a>Elenco delle risorse di archiviazione di Azure in C++
@@ -95,7 +95,7 @@ list_blob_item_segment list_blobs_segmented(const utility::string_t& prefix, boo
     const blob_request_options& options, operation_context context)
 ```
 
-Se non si specifica il parametro *max_results* , il valore massimo predefinito di 5000 risultati viene restituito in un'unica pagina.
+Se non si specifica il parametro *max_results*, il valore massimo predefinito di 5000 risultati viene restituito in un'unica pagina.
 
 Si noti anche che una query sull'archiviazione di tabelle di Azure può non restituire alcun record o record di numero inferiore al valore del parametro *max_results* specificato, anche se il token di continuazione non è vuoto. Una delle cause potrebbe essere il fatto che la query non può essere completata in cinque secondi. Fino a quando il token di continuazione non è vuoto, la query dovrebbe continuare e il codice non dovrebbe presupporre le dimensioni dei risultati del segmento.
 
