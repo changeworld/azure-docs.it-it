@@ -10,10 +10,10 @@ ms.date: 02/26/2020
 ms.reviewer: jushiman
 ms.custom: avverma, devx-track-azurecli
 ms.openlocfilehash: c4d6de1b3406e6d82bdac5ff9b5c72a2286da988
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/27/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92747752"
 ---
 # <a name="terminate-notification-for-azure-virtual-machine-scale-set-instances"></a>Notifica di interruzione per le istanze del set di scalabilità di macchine virtuali di Azure
@@ -28,12 +28,12 @@ Esistono diversi modi per abilitare le notifiche di terminazione sulle istanze d
 
 La procedura seguente abilita la notifica di terminazione durante la creazione di un nuovo set di scalabilità. 
 
-1. Passare a **set di scalabilità di macchine virtuali** .
+1. Passare a **set di scalabilità di macchine virtuali**.
 1. Selezionare **+ Aggiungi** per creare un nuovo set di scalabilità.
 1. Passare alla scheda **gestione** . 
 1. Individuare la sezione relativa alla **chiusura dell'istanza** .
-1. Per la **notifica di chiusura dell'istanza** , selezionare **on** .
-1. Per il **ritardo di terminazione (minuti)** , impostare il timeout predefinito desiderato.
+1. Per la **notifica di chiusura dell'istanza**, selezionare **on**.
+1. Per il **ritardo di terminazione (minuti)**, impostare il timeout predefinito desiderato.
 1. Al termine della creazione del nuovo set di scalabilità, selezionare il pulsante **Verifica + crea** . 
 
 > [!NOTE]
@@ -63,9 +63,9 @@ PUT on `/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/provi
 
 ```
 
-Il blocco precedente specifica un ritardo di timeout di 5 minuti (come indicato da *PT5M* ) per qualsiasi operazione di interruzione su tutte le istanze nel set di scalabilità. Il campo *notBeforeTimeout* può assumere qualsiasi valore compreso tra 5 e 15 minuti nel formato ISO 8601. È possibile modificare il timeout predefinito per l'operazione di terminazione modificando la proprietà *notBeforeTimeout* in *terminateNotificationProfile* descritta in precedenza.
+Il blocco precedente specifica un ritardo di timeout di 5 minuti (come indicato da *PT5M*) per qualsiasi operazione di interruzione su tutte le istanze nel set di scalabilità. Il campo *notBeforeTimeout* può assumere qualsiasi valore compreso tra 5 e 15 minuti nel formato ISO 8601. È possibile modificare il timeout predefinito per l'operazione di terminazione modificando la proprietà *notBeforeTimeout* in *terminateNotificationProfile* descritta in precedenza.
 
-Dopo aver abilitato *scheduledEventsProfile* sul modello del set di scalabilità e aver impostato il *notBeforeTimeout* , aggiornare le singole istanze al [modello più recente](virtual-machine-scale-sets-upgrade-scale-set.md#how-to-bring-vms-up-to-date-with-the-latest-scale-set-model) in modo da riflettere le modifiche.
+Dopo aver abilitato *scheduledEventsProfile* sul modello del set di scalabilità e aver impostato il *notBeforeTimeout*, aggiornare le singole istanze al [modello più recente](virtual-machine-scale-sets-upgrade-scale-set.md#how-to-bring-vms-up-to-date-with-the-latest-scale-set-model) in modo da riflettere le modifiche.
 
 > [!NOTE]
 >Le notifiche di terminazione sulle istanze del set di scalabilità possono essere abilitate solo con l'API versione 2019-03-01 e successive
@@ -197,7 +197,7 @@ Se non si ricevono eventi **terminati** tramite eventi pianificati, controllare 
 >'http://169.254.169.254/metadata/scheduledevents?api-version=2019-01-01'
 
 ### <a name="getting-terminate-event-with-incorrect-notbefore-time"></a>Recupero dell'evento di terminazione con tempo NotBefore errato  
-Dopo aver abilitato *scheduledEventsProfile* sul modello del set di scalabilità e aver impostato il *notBeforeTimeout* , aggiornare le singole istanze al [modello più recente](virtual-machine-scale-sets-upgrade-scale-set.md#how-to-bring-vms-up-to-date-with-the-latest-scale-set-model) in modo da riflettere le modifiche.
+Dopo aver abilitato *scheduledEventsProfile* sul modello del set di scalabilità e aver impostato il *notBeforeTimeout*, aggiornare le singole istanze al [modello più recente](virtual-machine-scale-sets-upgrade-scale-set.md#how-to-bring-vms-up-to-date-with-the-latest-scale-set-model) in modo da riflettere le modifiche.
 
 ## <a name="next-steps"></a>Passaggi successivi
 Informazioni su come [distribuire l'applicazione](virtual-machine-scale-sets-deploy-app.md) nei set di scalabilità di macchine virtuali.

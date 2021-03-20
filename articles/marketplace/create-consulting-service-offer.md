@@ -9,10 +9,10 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 ms.date: 10/27/2020
 ms.openlocfilehash: e9a0b2fe883fa46010fda74c58908128d05919e6
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/27/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92754453"
 ---
 # <a name="how-to-create-a-consulting-service-offer-in-the-commercial-marketplace"></a>Come creare un'offerta di servizio di consulenza nel Marketplace commerciale
@@ -26,19 +26,19 @@ Per pubblicare un'offerta di servizio di consulenza, è necessario soddisfare de
 ## <a name="create-a-new-consulting-service-offer"></a>Creare una nuova offerta di servizi di consulenza
 
 1. Accedere al [Centro per i partner](https://partner.microsoft.com/dashboard/home).
-2.  Nel menu di spostamento a sinistra, selezionare **Commercial Marketplace**  >  **Overview** .
-3.  Nella scheda Panoramica selezionare **+ nuovo offerta**  >  **servizio di consulenza** .
+2.  Nel menu di spostamento a sinistra, selezionare **Commercial Marketplace**  >  **Overview**.
+3.  Nella scheda Panoramica selezionare **+ nuovo offerta**  >  **servizio di consulenza**.
 
     ![Immagine del menu di spostamento di sinistra.](./media/new-offer-consulting-service.png)
 
-4. Nella finestra di dialogo **nuova offerta** immettere un **ID offerta** . Questo ID è visibile nell'URL dell'inserzione sul Marketplace commerciale. Se ad esempio si immette test-offer-1 in questa casella, l'indirizzo Web dell'offerta sarà `https://azuremarketplace.microsoft.com/marketplace/../test-offer-1` .
+4. Nella finestra di dialogo **nuova offerta** immettere un **ID offerta**. Questo ID è visibile nell'URL dell'inserzione sul Marketplace commerciale. Se ad esempio si immette test-offer-1 in questa casella, l'indirizzo Web dell'offerta sarà `https://azuremarketplace.microsoft.com/marketplace/../test-offer-1` .
 
     * Ogni offerta nell'account deve avere un ID offerta univoco.
     * Usare solo lettere minuscole e numeri. L'ID offerta può includere trattini e caratteri di sottolineatura, ma senza spazi e con un limite di 50 caratteri.
-    * Non è possibile modificare l'ID offerta dopo aver selezionato **Crea** .
+    * Non è possibile modificare l'ID offerta dopo aver selezionato **Crea**.
 
-5. Immettere un alias in **Alias offerta** . Si tratta del nome usato per l'offerta nel Centro per i partner. Non è visibile negli archivi online ed è diverso dal nome dell'offerta indicato ai clienti.
-6. Per generare l'offerta e continuare, selezionare **Crea** .
+5. Immettere un alias in **Alias offerta**. Si tratta del nome usato per l'offerta nel Centro per i partner. Non è visibile negli archivi online ed è diverso dal nome dell'offerta indicato ai clienti.
+6. Per generare l'offerta e continuare, selezionare **Crea**.
 
 ## <a name="configure-lead-management"></a>Configurare la gestione dei lead
 
@@ -57,9 +57,9 @@ Per configurare la gestione dei lead nel centro per i partner:
     * [Configurare l'offerta per inviare lead a Marketo](./partner-center-portal/commercial-marketplace-lead-management-instructions-marketo.md#configure-your-offer-to-send-leads-to-marketo)
     * [Configurare l'offerta per inviare lead a Salesforce](./partner-center-portal/commercial-marketplace-lead-management-instructions-salesforce.md#configure-your-offer-to-send-leads-to-salesforce)
 
-5.  Per convalidare la configurazione specificata, selezionare il **collegamento convalida** .
-6.  Una volta configurati i dettagli della connessione, selezionare **Connetti** .
-7.  Selezionare **Salva bozza** .
+5.  Per convalidare la configurazione specificata, selezionare il **collegamento convalida**.
+6.  Una volta configurati i dettagli della connessione, selezionare **Connetti**.
+7.  Selezionare **Salva bozza**.
 
 Dopo aver inviato l'offerta per la pubblicazione nel centro per i partner, la connessione verrà convalidata e verrà inviato un responsabile del test. Quando si visualizza l'anteprima dell'offerta prima che venga avviata, testare la connessione del lead provando ad acquistare l'offerta nell'ambiente di anteprima.
 

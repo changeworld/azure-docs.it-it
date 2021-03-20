@@ -4,10 +4,10 @@ description: In questo articolo viene illustrato come creare una formula da una 
 ms.topic: article
 ms.date: 06/26/2020
 ms.openlocfilehash: f012a8c59a8e938334c3e1abc4c7b3ccd0e48d3e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91308895"
 ---
 # <a name="manage-azure-devtest-labs-formulas"></a>Gestire le formule di Azure DevTest Labs
@@ -39,7 +39,7 @@ Nella procedura seguente sono descritti i passaggi per creare una formula da un'
     ![Aggiungere una formula](./media/devtest-lab-create-formulas/add-formula.png)
 6. Nella pagina **scegliere una base** selezionare la base (immagine personalizzata, immagine del Marketplace o immagine della raccolta immagini condivisa) da cui si vuole creare la formula.
 
-    :::image type="content" source="./media/devtest-lab-create-formulas/select-base.png" alt-text="Selezionare l'immagine di base&quot;:::
+    :::image type="content" source="./media/devtest-lab-create-formulas/select-base.png" alt-text="Selezionare l'immagine di base":::
 1. Nella scheda **Impostazioni di base** della pagina **Crea formula** specificare i valori seguenti:
    
     * **Nome formula** : immettere un nome per la formula. Questo valore verrà visualizzato nell'elenco delle immagini di base quando si crea una macchina virtuale. Il nome viene convalidato durante la digitazione e, se non è valido, un messaggio indicherà i requisiti per un nome valido.
@@ -58,7 +58,7 @@ Nella procedura seguente sono descritti i passaggi per creare una formula da un'
     - **Subnet**: per cambiare la subnet, selezionare **Cambia subnet**. 
     - **Configurazione indirizzi IP** - Specificare se si desidera l'indirizzo IP pubblico, privato o condiviso. Per altre informazioni sugli indirizzi IP condivisi, vedere [Understand shared IP addresses in Azure DevTest Labs](./devtest-lab-shared-ip.md) (Informazioni sugli indirizzi IP condivisi in Azure Devtest Labs).
     - **Data e ora di scadenza** : non è possibile modificare questo campo. 
-    - **Make this machine claimable** (Rendi attestabile questa macchina) - Rendere &quot;attestabile" una macchina significa che non le sarà assegnata la proprietà al momento della creazione. Gli utenti del lab saranno invece in grado di assumere la proprietà ("attestazione") della macchina nella pagina del lab.  
+    - **Make this machine claimable** (Rendi attestabile questa macchina) - Rendere "attestabile" una macchina significa che non le sarà assegnata la proprietà al momento della creazione. Gli utenti del lab saranno invece in grado di assumere la proprietà ("attestazione") della macchina nella pagina del lab.  
 
         ![Screenshot che mostra le impostazioni avanzate per la pagina "Crea formula (base riutilizzabile)".](./media/devtest-lab-create-formulas/advanced-settings.png)
     - Se è stata selezionata un'immagine della raccolta di immagini condivise come base, viene visualizzato anche il campo **versione immagine** che consente di selezionare la versione dell'immagine dalla raccolta che si vuole usare come base. 
@@ -114,7 +114,7 @@ Per eliminare una formula, seguire questa procedura:
 5. Nella pagina **Formule lab** selezionare i puntini di sospensione a destra della formula da eliminare.
    
     ![Screenshot che mostra la pagina "Lab formule" con i puntini di sospensione per le opzioni formula evidenziate.](./media/devtest-lab-manage-formulas/lab-formulas-blade.png)
-6. Selezionare **Elimina**dal menu di scelta rapida della formula.
+6. Selezionare **Elimina** dal menu di scelta rapida della formula.
    
     ![Menu di scelta rapida Formula](./media/devtest-lab-manage-formulas/formula-delete-context-menu.png)
 7. Selezionare **Sì** nella finestra di dialogo di conferma dell'eliminazione.

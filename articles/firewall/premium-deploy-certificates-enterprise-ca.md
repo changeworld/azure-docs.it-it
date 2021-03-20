@@ -5,14 +5,14 @@ author: vhorne
 ms.service: firewall
 services: firewall
 ms.topic: how-to
-ms.date: 03/09/2021
+ms.date: 03/18/2021
 ms.author: victorh
-ms.openlocfilehash: fba95214a6bbb0482166eab8f77f30911986fbb7
-ms.sourcegitcommit: 956dec4650e551bdede45d96507c95ecd7a01ec9
+ms.openlocfilehash: 38d83186c06eac0fc3a49834172c2a4b8542caff
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/09/2021
-ms.locfileid: "102525484"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104590467"
 ---
 # <a name="deploy-and-configure-enterprise-ca-certificates-for-azure-firewall-preview"></a>Distribuire e configurare i certificati della CA globale (Enterprise) per Azure firewall Preview
 
@@ -42,7 +42,7 @@ Per usare una CA globale (Enterprise) per generare un certificato da usare con l
 1. Accedere al sito di registrazione Web nella CA radice, in genere `https://<servername>/certsrv` e selezionare **Richiedi un certificato**.
 1. Selezionare **richiesta avanzata di certificati**.
 1. Selezionare **Crea e inviare una richiesta a questa CA**.
-1. Compilare il modulo usando il modello dell'autorità di certificazione subordinata come illustrato di seguito:
+1. Compilare il modulo usando il modello dell'autorità di certificazione subordinata.
 1. Inviare la richiesta e installare il certificato.
 1. Supponendo che questa richiesta venga effettuata da un server Windows utilizzando Internet Explorer, aprire **Opzioni Internet**.
 1. Passare alla scheda **contenuto** e selezionare **certificati**.

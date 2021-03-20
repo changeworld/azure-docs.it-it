@@ -1,20 +1,20 @@
 ---
 title: Tipi di entità-LUIS
-description: Un'entità estrae i dati da un enunciato utente al runtime di stima. Uno scopo secondario _facoltativo_è quello di aumentare la stima della finalità o di altre entità utilizzando l'entità come una funzionalità.
+description: Un'entità estrae i dati da un enunciato utente al runtime di stima. Uno scopo secondario _facoltativo_ è quello di aumentare la stima della finalità o di altre entità utilizzando l'entità come una funzionalità.
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 08/06/2020
 ms.openlocfilehash: 398d18642052726af4d4920443bad515ec0b5bef
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91316563"
 ---
 # <a name="extract-data-with-entities"></a>Estrarre dati con entità
 
-Un'entità estrae i dati da un enunciato utente al runtime di stima. Uno scopo secondario _facoltativo_è quello di aumentare la stima della finalità o di altre entità utilizzando l'entità come una funzionalità.
+Un'entità estrae i dati da un enunciato utente al runtime di stima. Uno scopo secondario _facoltativo_ è quello di aumentare la stima della finalità o di altre entità utilizzando l'entità come una funzionalità.
 
 Esistono diversi tipi di entità:
 
@@ -32,7 +32,7 @@ Le entità devono essere etichettate in modo coerente in tutte le espressioni di
 
  È possibile definire entità personalizzate o usare entità predefinite per risparmiare tempo per i concetti comuni, ad esempio [datetimeV2](luis-reference-prebuilt-datetimev2.md), [ordinale](luis-reference-prebuilt-ordinal.md), [e-mail](luis-reference-prebuilt-email.md)e [numero di telefono](luis-reference-prebuilt-phonenumber.md).
 
-|Espressione|Entità|Dati|
+|Espressione|Entità|Data|
 |--|--|--|
 |Buy 3 tickets to New York|Number predefinito<br>Destination|3<br>New York|
 
@@ -53,7 +53,7 @@ Si considerino le quattro espressioni seguenti:
 
 |Espressione|Finalità stimata|Entità estratte|Spiegazione|
 |--|--|--|--|
-|Guida|help|-|Nessun elemento da estrarre.|
+|Help|help|-|Nessun elemento da estrarre.|
 |Invia qualcosa|sendSomething|-|Nessun elemento da estrarre. Il modello non dispone di una funzionalità obbligatoria da estrarre `something` in questo contesto e non è stato dichiarato alcun destinatario.|
 |Invia Bob a presente|sendSomething|`Bob`, `present`|Il modello estrae `Bob` aggiungendo una funzionalità obbligatoria dell'entità predefinita `personName` . Per estrarre è stata usata un'entità Machine Learning `present` .|
 |Invia Bob a box di cioccolato|sendSomething|`Bob`, `box of chocolates`|I due elementi importanti dei dati, `Bob` e `box of chocolates` , sono stati estratti dalle entità di machine learning.|

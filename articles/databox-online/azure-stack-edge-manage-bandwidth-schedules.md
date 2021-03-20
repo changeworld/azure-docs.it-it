@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.date: 03/22/2019
 ms.author: alkohli
 ms.openlocfilehash: e73a02c93807072e30c8ce2a1a7feb30e9d3c8c6
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/13/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91978969"
 ---
 # <a name="use-the-azure-portal-to-manage-bandwidth-schedules-on-your-azure-stack-edge-pro"></a>Usare il portale di Azure per gestire le pianificazioni della larghezza di banda nel Azure Stack Edge Pro  
@@ -40,7 +40,7 @@ Seguire questa procedura nel portale di Azure per aggiungere una pianificazione.
 
 3. In **Aggiungi pianificazione**: 
 
-   1. Fornire il **giorno di inizio**, il **giorno di fine**, l'ora di **inizio**e l' **ora di fine** della pianificazione.
+   1. Fornire il **giorno di inizio**, il **giorno di fine**, l'ora di **inizio** e l' **ora di fine** della pianificazione.
    2. Selezionare l'opzione **tutto il giorno** se la pianificazione deve essere eseguita tutto il giorno.
    3. La **velocità della larghezza di banda** è la larghezza di banda in megabit al secondo (Mbps) usata dal dispositivo in operazioni che coinvolgono il cloud (sia uploads che download). Specificare un numero compreso tra 20 e 1.000.000.007 per questo campo.
    4. Selezionare una larghezza di banda **Senza limiti** se non si vuole limitare la data di caricamento e download.

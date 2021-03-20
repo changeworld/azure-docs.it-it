@@ -6,10 +6,10 @@ ms.topic: conceptual
 ms.date: 08/18/2017
 ms.author: masnider
 ms.openlocfilehash: d4dcd319000edb204ba188ed14b4c797dba5cd38
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "75610098"
 ---
 # <a name="configuring-cluster-resource-manager-settings-for-service-fabric-services"></a>Configurazione delle impostazioni di Cluster Resource Manager per i servizi Service Fabric
@@ -26,7 +26,7 @@ I vincoli di posizionamento vengono usati per controllare su quali nodi del clus
 Le metriche sono il set di risorse necessarie per uno specifico servizio denominato. La configurazione delle metriche di un servizio include informazioni relative alla quantità della risorsa che ogni replica con stato o istanza senza stato usa per impostazione predefinita. Le metriche includono anche un peso che ne indica l'importanza del bilanciamento per il servizio, nel caso di compromessi necessari.
 
 ## <a name="advanced-placement-rules"></a>Regole di posizionamento avanzate
-Sono disponibili altri tipi di regole di posizionamento che sono utili negli scenari meno comuni. Ad esempio:
+Sono disponibili altri tipi di regole di posizionamento che sono utili negli scenari meno comuni. Di seguito sono riportati alcuni esempi:
 - Vincoli che sono di ausilio con i cluster geograficamente distribuiti
 - Determinate architetture di applicazioni
 

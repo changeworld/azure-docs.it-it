@@ -6,10 +6,10 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 04/14/2020
 ms.openlocfilehash: d836273e61752ff208133466016ce7c6ff9c28fa
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91316461"
 ---
 # <a name="prediction-scores-indicate-prediction-accuracy-for-intent-and-entities"></a>I punteggi di stima indicano l'accuratezza delle stime per la finalità e le entità
@@ -22,7 +22,7 @@ Un punteggio di stima è compreso tra zero (0) e uno (1). Un esempio di punteggi
 |--|--|
 |1|corrispondenza definita|
 |0.99|attendibilità elevata|
-|0,01|attendibilità bassa|
+|0.01|attendibilità bassa|
 |0|nessuna corrispondenza|
 
 ## <a name="top-scoring-intent"></a>Finalità con punteggio elevato

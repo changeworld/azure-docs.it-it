@@ -4,10 +4,10 @@ description: Caricare un file VHD nell'account di archiviazione del lab usando E
 ms.topic: article
 ms.date: 06/26/2020
 ms.openlocfilehash: d4e421932ebba5d4f389000c12bcf44ac2f37599
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91282528"
 ---
 # <a name="upload-vhd-file-to-labs-storage-account-using-microsoft-azure-storage-explorer"></a>Caricare un file VHD nell'account di archiviazione del lab usando Esplora archivi di Microsoft Azure
@@ -60,7 +60,7 @@ La procedura seguente illustra come caricare un file VHD in DevTest Labs usando 
     
         ![Azure Account settings][1]
     
-    1. Nel riquadro sinistro vengono visualizzati gli account Microsoft a cui si è connessi. Per connettersi a un altro account, selezionare **Aggiungi un account**e seguire le istruzioni nelle finestre di dialogo per accedere con un account Microsoft associato ad almeno una sottoscrizione di Azure attiva.
+    1. Nel riquadro sinistro vengono visualizzati gli account Microsoft a cui si è connessi. Per connettersi a un altro account, selezionare **Aggiungi un account** e seguire le istruzioni nelle finestre di dialogo per accedere con un account Microsoft associato ad almeno una sottoscrizione di Azure attiva.
     
         ![Aggiungi un account][2]
     

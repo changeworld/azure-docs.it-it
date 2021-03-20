@@ -7,10 +7,10 @@ ms.date: 10/12/2020
 ms.author: helohr
 manager: lizross
 ms.openlocfilehash: 2c57ac10fbd318dd4bbb2dc86457e186dd824834
-ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/12/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91951656"
 ---
 # <a name="configure-the-windows-virtual-desktop-load-balancing-method"></a>Configurare il metodo di bilanciamento del carico di Desktop virtuale Windows
@@ -83,8 +83,8 @@ Per configurare il bilanciamento del carico:
 
 1. Accedere al portale di Azure all'indirizzo https://portal.azure.com.
 2. Cercare e selezionare **desktop virtuale Windows** in servizi.
-3. Nella pagina desktop virtuale di Windows selezionare **pool host**.
-4. Selezionare il nome del pool host che si desidera modificare.
+3. Nella pagina di Desktop virtuale Windows selezionare **Pool di host**.
+4. Selezionare il nome del pool di host da modificare.
 5. Selezionare **Proprietà**.
 6. Immettere il **limite massimo di sessioni** nel campo e selezionare l' **algoritmo di bilanciamento del carico** desiderato per il pool host nel menu a discesa.
 7. Selezionare **Salva**. Questa operazione applica le nuove impostazioni di bilanciamento del carico.

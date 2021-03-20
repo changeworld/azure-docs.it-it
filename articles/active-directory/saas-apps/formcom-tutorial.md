@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 02/15/2019
 ms.author: jeedes
 ms.openlocfilehash: d1a203824eabaf9e3be73a68350f58c0e20a1449
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
-ms.translationtype: HT
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/23/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92451927"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-formcom"></a>Esercitazione: Integrazione di Azure Active Directory con Form.com
@@ -61,7 +61,7 @@ Per configurare l'integrazione di Fuse in Azure AD, è necessario aggiungere For
 
     ![Pulsante Nuova applicazione](common/add-new-app.png)
 
-4. Nella casella di ricerca digitare **Form.com** , selezionare **Form.com** nel pannello dei risultati e quindi fare clic sul pulsante **Aggiungi** per aggiungere l'applicazione.
+4. Nella casella di ricerca digitare **Form.com**, selezionare **Form.com** nel pannello dei risultati e quindi fare clic sul pulsante **Aggiungi** per aggiungere l'applicazione.
 
      ![Form.com nell'elenco risultati](common/search-new-app.png)
 
@@ -115,7 +115,7 @@ Per configurare l'accesso Single Sign-On di Azure AD con Form.com, seguire quest
     > [!NOTE]
     > Poiché questi non sono i valori reali, è necessario aggiornarli con l'identificatore e l'URL di accesso effettivi. Per ottenere questi valori, contattare il [team di supporto clienti di Form.com](https://form.com/about/company/contact-us/). È anche possibile fare riferimento ai modelli mostrati nella sezione **Configurazione SAML di base** del portale di Azure.
 
-5. Nella sezione **Certificato di firma SAML** della pagina **Configura l'accesso Single Sign-On con SAML** fare clic su **Scarica** per scaricare il **Certificato (Base64)** e fare clic sull' **icona** di copia per copiare l' **URL dei metadati federazione** dalle opzioni specificate in base ai propri requisiti e salvarlo nel computer in uso.
+5. Nella sezione **Certificato di firma SAML** della pagina **Configura l'accesso Single Sign-On con SAML** fare clic su **Scarica** per scaricare il **Certificato (Base64)** e fare clic sull'**icona** di copia per copiare l'**URL dei metadati federazione** dalle opzioni specificate in base ai propri requisiti e salvarlo nel computer in uso.
 
     ![Collegamento di download del certificato](./media/formcom-tutorial/certificatebase64-url.png)
 
@@ -131,13 +131,13 @@ Per configurare l'accesso Single Sign-On di Azure AD con Form.com, seguire quest
 
 ### <a name="configure-formcom-single-sign-on"></a>Configurare l'accesso Single Sign-On per Form.com
 
-Per configurare l'accesso Single Sign-On sul lato **Form.com** è necessario inviare il file **Certificato (Base64)** scaricato, l' **URL dei metadati della federazione dell'app** e gli URL appropriati copiati dal portale di Azure al [team di supporto di Form.com](https://form.com/about/company/contact-us/). La configurazione viene eseguita in modo che la connessione SSO SAML sia impostata correttamente su entrambi i lati.
+Per configurare l'accesso Single Sign-On sul lato **Form.com** è necessario inviare il file **Certificato (Base64)** scaricato, l'**URL dei metadati della federazione dell'app** e gli URL appropriati copiati dal portale di Azure al [team di supporto di Form.com](https://form.com/about/company/contact-us/). La configurazione viene eseguita in modo che la connessione SSO SAML sia impostata correttamente su entrambi i lati.
 
 ### <a name="create-an-azure-ad-test-user"></a>Creare un utente di test di Azure AD 
 
 Questa sezione descrive come creare un utente test denominato Britta Simon nel portale di Azure.
 
-1. Nel riquadro sinistro del portale di Azure, selezionare **Azure Active Directory** , **Utenti** e quindi **Tutti gli utenti**.
+1. Nel riquadro sinistro del portale di Azure, selezionare **Azure Active Directory**, **Utenti** e quindi **Tutti gli utenti**.
 
     ![Collegamenti "Utenti e gruppi" e "Tutti gli utenti"](common/users.png)
 
@@ -162,7 +162,7 @@ Questa sezione descrive come creare un utente test denominato Britta Simon nel p
 
 In questa sezione Britta Simon viene abilitata per l'uso dell'accesso Single Sign-On di Azure concedendole l'accesso a Form.com.
 
-1. Nel portale di Azure selezionare **Applicazioni aziendali** , quindi **Tutte le applicazioni** e infine **Form.com**.
+1. Nel portale di Azure selezionare **Applicazioni aziendali**, quindi **Tutte le applicazioni** e infine **Form.com**.
 
     ![Pannello delle applicazioni aziendali](common/enterprise-applications.png)
 

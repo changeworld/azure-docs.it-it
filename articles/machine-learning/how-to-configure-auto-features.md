@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.custom: how-to,automl,contperf-fy21q2
 ms.date: 12/18/2020
 ms.openlocfilehash: c90ef9fe49a87c18c7f4f55175bafaebfd31d722
-ms.sourcegitcommit: 8a74ab1beba4522367aef8cb39c92c1147d5ec13
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/20/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98610302"
 ---
 # <a name="data-featurization-in-automated-machine-learning"></a>Conteggi di dati in Machine Learning automatizzato
@@ -65,11 +65,11 @@ Nella tabella seguente sono riepilogate le tecniche applicate automaticamente ai
 
 |&nbsp;Procedura conteggi| Descrizione |
 | ------------- | ------------- |
-|**Elimina la cardinalità elevata o nessuna funzionalità di varianza** _ |Eliminare queste funzionalità dai set di training e di convalida. Si applica alle funzionalità con tutti i valori mancanti, con lo stesso valore in tutte le righe o con cardinalità elevata (ad esempio, hash, ID o GUID).|
-|_*Imputare i valori mancanti**_ |Per le funzionalità numeriche, imputare alla media dei valori nella colonna.<br/><br/>Per le funzionalità categoriche, imputare il valore più frequente.|
-|_*Genera altre funzionalità**_ |Per le caratteristiche di tipo DateTime: anno, mese, giorno, giorno della settimana, giorno dell'anno, trimestre, settimana dell'anno, ora, minuti, secondi.<br><br> _For le attività di previsione, * queste funzionalità di data/ora aggiuntive vengono create: ISO year, Half-Semester, calendar month As String, week, Day of Week come String, Day of Quarter, Day of Year, AM/PM (0 se hour è before noon (12.00), 1 in caso contrario), AM/PM come stringa, ora del giorno<br/><br/>Per le funzionalità di testo: frequenza dei termini basata su unigrammi, bigrammi e trigrammi. Altre informazioni su [come eseguire questa operazione con Bert.](#bert-integration)|
-|**Trasformazione e codifica** _|Trasforma le funzionalità numeriche con pochi valori univoci nelle funzionalità categoriche.<br/><br/>La codifica One-Hot viene utilizzata per le funzionalità categoriche con cardinalità bassa. Per le funzionalità categoriche con cardinalità elevata, viene usata la codifica One-Hot-hash.|
-|*Incorporamenti di Word**|Un featurizer di testo converte i vettori di token di testo in vettori di frase usando un modello con training preliminare. Il vettore di incorporamento di ogni parola in un documento viene aggregato con il resto per produrre un vettore di funzionalità del documento.|
+|**Elimina la cardinalità elevata o nessuna funzionalità di varianza*** |Eliminare queste funzionalità dai set di training e di convalida. Si applica alle funzionalità con tutti i valori mancanti, con lo stesso valore in tutte le righe o con cardinalità elevata (ad esempio, hash, ID o GUID).|
+|**Imputare i valori mancanti*** |Per le funzionalità numeriche, imputare alla media dei valori nella colonna.<br/><br/>Per le funzionalità categoriche, imputare il valore più frequente.|
+|**Genera altre funzionalità** _ |Per le caratteristiche di tipo DateTime: anno, mese, giorno, giorno della settimana, giorno dell'anno, trimestre, settimana dell'anno, ora, minuti, secondi.<br><br> _For le attività di previsione, * queste funzionalità di data/ora aggiuntive vengono create: ISO year, Half-Semester, calendar month As String, week, Day of Week come String, Day of Quarter, Day of Year, AM/PM (0 se hour è before noon (12.00), 1 in caso contrario), AM/PM come stringa, ora del giorno<br/><br/>Per le funzionalità di testo: frequenza dei termini basata su unigrammi, bigrammi e trigrammi. Altre informazioni su [come eseguire questa operazione con Bert.](#bert-integration)|
+|**Trasformare e codificare***|Trasforma le funzionalità numeriche con pochi valori univoci nelle funzionalità categoriche.<br/><br/>La codifica One-Hot viene utilizzata per le funzionalità categoriche con cardinalità bassa. Per le funzionalità categoriche con cardinalità elevata, viene usata la codifica One-Hot-hash.|
+|**Incorporamenti di parole**|Un featurizer di testo converte i vettori di token di testo in vettori di frase usando un modello con training preliminare. Il vettore di incorporamento di ogni parola in un documento viene aggregato con il resto per produrre un vettore di funzionalità del documento.|
 |**Distanza cluster**|Addestra un modello di clustering k-means su tutte le colonne numeriche. Produce *k* nuove funzionalità (una nuova funzionalità numerica per ogni cluster) che contengono la distanza di ogni campione al centro di ogni cluster.|
 
 ## <a name="data-guardrails"></a>Protezione dati

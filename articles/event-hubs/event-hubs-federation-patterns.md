@@ -4,10 +4,10 @@ description: Questo articolo fornisce indicazioni dettagliate per l'implementazi
 ms.topic: article
 ms.date: 12/12/2020
 ms.openlocfilehash: 438964c228f060dede93abf582c9504b698db8b0
-ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/06/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97934612"
 ---
 # <a name="event-replication-tasks-patterns"></a>Modelli di attività di replica degli eventi
@@ -158,7 +158,7 @@ I modelli di trasformazione, invio in batch e arricchimento vengono in genere im
 
 Tutti questi modelli possono essere implementati tramite funzioni di Azure, usando il [trigger di hub eventi](../azure-functions/functions-bindings-event-hubs-trigger.md) per l'acquisizione di eventi e l' [associazione di output di hub eventi](../azure-functions/functions-bindings-event-hubs-output.md) per la distribuzione.
 
-## <a name="routing"></a>Routing.
+## <a name="routing"></a>Routing
 
 Il modello di routing si basa sul modello di [replica](#replication) , ma anziché avere un'origine e una destinazione, l'attività di replica ha più destinazioni, illustrate in C#:
 

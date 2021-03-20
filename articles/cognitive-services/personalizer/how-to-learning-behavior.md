@@ -6,10 +6,10 @@ ms.subservice: personalizer
 ms.topic: how-to
 ms.date: 05/01/2020
 ms.openlocfilehash: 57a03b107678f83200b11f408784f6455cbceffd
-ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/13/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94579292"
 ---
 # <a name="configure-the-personalizer-learning-behavior"></a>Configurare il comportamento di apprendimento della personalizzazione
@@ -53,9 +53,9 @@ Nella portale di Azure, nella pagina **valutazioni** per la risorsa di personali
 > ![Screenshot della revisione della valutazione del comportamento di apprendimento in modalità apprendista in portale di Azure](media/settings/evaluate-apprentice-mode.png)
 
 La modalità apprendista fornisce le **metriche di valutazione** seguenti:
-* **Baseline-ricompensa media** : vantaggi medi dell'impostazione predefinita dell'applicazione (baseline).
-* **Personalizzatore-ricompensa media** : è stata potenzialmente raggiunta la media del personalizzatore dei premi totali.
-* **Percentuale di successo del premio per gli eventi 1000 più recenti** : rapporto tra la linea di base e la ricompensa della personalizzazione, normalizzato rispetto agli eventi 1000 più recenti.
+* **Baseline-ricompensa media**: vantaggi medi dell'impostazione predefinita dell'applicazione (baseline).
+* **Personalizzatore-ricompensa media**: è stata potenzialmente raggiunta la media del personalizzatore dei premi totali.
+* **Percentuale di successo del premio per gli eventi 1000 più recenti**: rapporto tra la linea di base e la ricompensa della personalizzazione, normalizzato rispetto agli eventi 1000 più recenti.
 
 ## <a name="switch-behavior-to-online-mode"></a>Cambiare il comportamento in modalità online
 

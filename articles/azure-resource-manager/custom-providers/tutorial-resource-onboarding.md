@@ -6,13 +6,13 @@ ms.author: jobreen
 author: jjbfour
 ms.date: 09/17/2019
 ms.openlocfilehash: 22d1dcd997a4ddb94aba184c5dace4c00509054d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
-ms.translationtype: HT
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "75648608"
 ---
-# <a name="tutorial-resource-onboarding-with-azure-custom-providers"></a>Esercitazione: Onboarding delle risorse con provider personalizzati di Azure
+# <a name="tutorial-resource-onboarding-with-azure-custom-providers"></a>Esercitazione: onboarding delle risorse con i provider personalizzati di Azure
 
 In questa esercitazione verrà distribuito in Azure un provider di risorse personalizzato che estende l'API Azure Resource Manager con il tipo di risorsa Microsoft. CustomProviders/associations. L'esercitazione illustra come estendere le risorse esistenti che si trovano all'esterno del gruppo di risorse in cui si trova l'istanza del provider personalizzato. In questa esercitazione il provider di risorse personalizzato è fornito da un'app per la logica di Azure, ma è possibile usare qualsiasi endpoint API pubblico.
 
@@ -235,7 +235,7 @@ Distribuire l'infrastruttura del provider personalizzato. Copiare, salvare e dis
 
 8. Immettere le impostazioni per i campi obbligatori e quindi selezionare la sottoscrizione e il gruppo di risorse. È possibile lasciare vuota la casella **Custom Resource Provider Id** (ID provider di risorse personalizzato).
 
-   | Nome impostazione | Obbligatorio? | Descrizione |
+   | Nome impostazione | Necessaria? | Descrizione |
    | ------------ | -------- | ----------- |
    | Location | Sì | Posizione delle risorse nel modello. |
    | Nome dell'app per la logica | No | Nome dell'app per la logica. |

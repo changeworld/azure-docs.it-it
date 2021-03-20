@@ -1,17 +1,17 @@
 ---
-title: Gestire le connessioni in funzioni di Azure
+title: Gestire le connessioni in Funzioni di Azure
 description: Informazioni su come evitare i problemi di prestazioni in Funzioni di Azure tramite i client con connessione statica.
 ms.topic: conceptual
 ms.custom: devx-track-csharp
 ms.date: 02/25/2018
 ms.openlocfilehash: ec16ce3e7f9793be2a012a029bcca31c9a7ea4cf
-ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/06/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97936703"
 ---
-# <a name="manage-connections-in-azure-functions"></a>Gestire le connessioni in funzioni di Azure
+# <a name="manage-connections-in-azure-functions"></a>Gestire le connessioni in Funzioni di Azure
 
 Le funzioni in un'app per le funzioni condividono le risorse. Tra queste risorse condivise si trovano le connessioni, ovvero le connessioni HTTP, le connessioni di database e le connessioni ai servizi, ad esempio archiviazione di Azure. Quando si eseguono molte funzioni contemporaneamente, è possibile esaurire le connessioni disponibili. Questo articolo illustra come codificare le funzioni per evitare di usare più connessioni del necessario.
 

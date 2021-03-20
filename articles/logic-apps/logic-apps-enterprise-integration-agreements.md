@@ -9,16 +9,16 @@ ms.reviewer: jonfan, estfan, logicappspm
 ms.topic: article
 ms.date: 06/22/2019
 ms.openlocfilehash: c8cbfb619c9eed325161503f705bf5c4c0746265
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/25/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "95992941"
 ---
 # <a name="create-and-manage-trading-partner-agreements-in-azure-logic-apps"></a>Creare e gestire i contratti tra partner commerciali in App per la logica di Azure
 
 Un accordo tra [partner commerciali](../logic-apps/logic-apps-enterprise-integration-partners.md)  
- *agreement* consente a organizzazioni e aziende di comunicare senza difficoltà tra loro definendo il protocollo standard del settore specifico da usare per lo scambio di messaggi business-to-business (B2B). I contratti forniscono i vantaggi più comuni, ad esempio:
+  consente a organizzazioni e aziende di comunicare senza difficoltà tra loro definendo il protocollo standard del settore specifico da usare per lo scambio di messaggi business-to-business (B2B). I contratti forniscono i vantaggi più comuni, ad esempio:
 
 * Consentire alle organizzazioni di scambiare informazioni usando un formato noto.
 * Migliorare l'efficienza quando si eseguono transazioni B2B.

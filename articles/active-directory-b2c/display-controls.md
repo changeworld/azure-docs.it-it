@@ -12,10 +12,10 @@ ms.date: 12/11/2020
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: 441a77823c77305e567e9e1436715bc51ca48c11
-ms.sourcegitcommit: ea17e3a6219f0f01330cf7610e54f033a394b459
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/14/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97387055"
 ---
 # <a name="display-controls"></a>Controlli per la visualizzazione
@@ -44,7 +44,7 @@ Nell'immagine seguente viene illustrata una pagina di iscrizione autocertificata
 
 L'elemento **DisplayControl** contiene gli attributi seguenti:
 
-| Attributo | Obbligatorio | Descrizione |
+| Attributo | Obbligatoria | Descrizione |
 | --------- | -------- | ----------- |
 | Id | Sì | Identificatore usato per il controllo di visualizzazione. È possibile [farvi riferimento](#referencing-display-controls). |
 | UserInterfaceControlType | Sì | Tipo del controllo di visualizzazione. Attualmente supportato è [VerificationControl](display-control-verification.md) |
@@ -108,7 +108,7 @@ L'elemento **Actions** contiene l'elemento seguente:
 
 L'elemento **Action** contiene l'attributo seguente:
 
-| Attributo | Obbligatorio | Descrizione |
+| Attributo | Obbligatoria | Descrizione |
 | --------- | -------- | ----------- |
 | Id | Sì | Tipo di operazione. I valori possibili sono: `SendCode` o `VerifyCode`. Il `SendCode` valore Invia un codice all'utente. Questa azione può contenere due profili tecnici di convalida: uno per generare un codice e uno per inviarlo. Il `VerifyCode` valore verifica il codice digitato dall'utente nella casella di testo di input. |
 
@@ -128,7 +128,7 @@ L'elemento **ValidationClaimsExchange** contiene l'elemento seguente:
 
 L'elemento **tecnico** contiene gli attributi seguenti:
 
-| Attributo | Obbligatorio | Descrizione |
+| Attributo | Obbligatoria | Descrizione |
 | --------- | -------- | ----------- |
 | ReferenceId | Sì | Identificatore di un profilo tecnico già definito nei criteri o nei criteri padre. |
 |ContinueOnError|No| Indica se la convalida di tutti i profili tecnici di convalida successivi deve continuare se il profilo tecnico di convalida genera un errore. Possibili valori: `true` o `false` (impostazione predefinita, l'elaborazione di ulteriori profili di convalida verrà arrestata e verrà restituito un errore). |
@@ -142,7 +142,7 @@ L'elemento **ValidationTechnicalProfile** contiene l'elemento seguente:
 
 L'elemento **precondition** contiene gli attributi seguenti:
 
-| Attributo | Obbligatorio | Descrizione |
+| Attributo | Obbligatoria | Descrizione |
 | --------- | -------- | ----------- |
 | `Type` | Sì | Tipo di controllo o query da eseguire per la precondizione. I valori possibili sono: `ClaimsExist` o `ClaimEquals`. `ClaimsExist` Specifica che le azioni devono essere eseguite se le attestazioni specificate sono presenti nel set di attestazioni corrente dell'utente. `ClaimEquals` Specifica che le azioni devono essere eseguite se l'attestazione specificata esiste e se il relativo valore è uguale al valore specificato. |
 | `ExecuteActionsIf` | Sì | Indica se le azioni incluse nella precondizione devono essere eseguite nel caso in cui il test sia true o false. |

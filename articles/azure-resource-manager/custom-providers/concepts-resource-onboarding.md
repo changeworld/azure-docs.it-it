@@ -6,10 +6,10 @@ ms.topic: conceptual
 ms.date: 09/06/2019
 ms.author: jobreen
 ms.openlocfilehash: 1846b036f12fe7e691021ec0248782cad946d9b7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "75650409"
 ---
 # <a name="azure-custom-providers-resource-onboarding-overview"></a>Panoramica sull'onboarding delle risorse del provider personalizzato di Azure
@@ -154,7 +154,7 @@ In caso di domande sullo sviluppo di provider di risorse personalizzati di Azure
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-In questo articolo sono state fornite informazioni sui provider personalizzati. Per ulteriori informazioni, vedere questi articoli:
+In questo articolo sono state fornite informazioni sui provider personalizzati. Per altre informazioni, vedere questi articoli:
 
 - [Esercitazione: onboarding delle risorse con provider personalizzati](./tutorial-resource-onboarding.md)
 - [Esercitazione: creare azioni e risorse personalizzate in Azure](./tutorial-get-started-with-custom-providers.md)

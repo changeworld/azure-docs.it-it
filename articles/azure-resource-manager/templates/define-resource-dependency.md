@@ -4,13 +4,13 @@ description: Viene descritto come impostare una risorsa di Azure come dipendente
 ms.topic: conceptual
 ms.date: 12/21/2020
 ms.openlocfilehash: f6b63b066da06a17c3a2e51ab0f3ab9bf521a144
-ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/06/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97934748"
 ---
-# <a name="define-the-order-for-deploying-resources-in-arm-templates"></a>Definire l'ordine per la distribuzione delle risorse nei modelli ARM
+# <a name="define-the-order-for-deploying-resources-in-arm-templates"></a>Definire l'ordine di distribuzione delle risorse nei modelli di ARM
 
 Quando si distribuiscono le risorse, potrebbe essere necessario assicurarsi che esistano alcune risorse prima di altre risorse. Ad esempio, è necessario un server SQL logico prima di distribuire un database. Questa relazione viene stabilita contrassegnando una risorsa come dipendente dall'altra risorsa. Utilizzare l' `dependsOn` elemento per definire una dipendenza esplicita. Usare le funzioni **Reference** o **List** per definire una dipendenza implicita.
 
@@ -214,7 +214,7 @@ Per informazioni sulla valutazione dell'ordine di distribuzione e la risoluzione
 ## <a name="next-steps"></a>Passaggi successivi
 
 * Per eseguire un'esercitazione, vedere [esercitazione: creare modelli ARM con risorse dipendenti](template-tutorial-create-templates-with-dependent-resources.md).
-* Per un modulo Microsoft Learn che copre le dipendenze delle risorse, vedere [gestire le distribuzioni cloud complesse usando le funzionalità avanzate del modello ARM](/learn/modules/manage-deployments-advanced-arm-template-features/).
+* Per un modulo Microsoft Learn che illustra le dipendenze delle risorse, vedere [Gestire distribuzioni cloud complesse usando le funzionalità avanzate dei modelli di ARM](/learn/modules/manage-deployments-advanced-arm-template-features/).
 * Per indicazioni sull'impostazione delle dipendenze, vedere procedure consigliate per i [modelli ARM](template-best-practices.md).
 * Per informazioni sulla risoluzione dei problemi relativi alle dipendenze durante la distribuzione, vedere [Risolvere errori comuni durante la distribuzione di risorse in Azure con Azure Resource Manager](common-deployment-errors.md).
 * Per informazioni sulla creazione di modelli di Azure Resource Manager, vedere [comprendere la struttura e la sintassi dei modelli ARM](template-syntax.md).
