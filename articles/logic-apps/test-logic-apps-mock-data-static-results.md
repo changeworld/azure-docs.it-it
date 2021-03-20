@@ -9,10 +9,10 @@ ms.reviewer: estfan, logicappspm
 ms.topic: article
 ms.date: 05/13/2019
 ms.openlocfilehash: 711d753203aeaeba50cea692053a37fcab2e9c7b
-ms.sourcegitcommit: daab0491bbc05c43035a3693a96a451845ff193b
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/29/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93027704"
 ---
 # <a name="test-logic-apps-with-mock-data-by-setting-up-static-results"></a>Testare app per la logica con dati fittizi impostando risultati statici
@@ -37,11 +37,11 @@ Ad esempio, se si configurano i risultati statici per l'azione Invia messaggi di
 
 1. Nell'azione in cui si desidera configurare i risultati statici, attenersi alla seguente procedura: 
 
-   1. Nell'angolo superiore destro dell'azione scegliere il pulsante con i puntini di sospensione ( *...* ) e selezionare **risultato statico** , ad esempio:
+   1. Nell'angolo superiore destro dell'azione scegliere il pulsante con i puntini di sospensione (*...*) e selezionare **risultato statico**, ad esempio:
 
       ![Selezionare "risultato statico" > "Abilita risultato statico"](./media/test-logic-apps-mock-data-static-results/select-static-result.png)
 
-   1. Scegliere **Abilita risultato statico** . Per le proprietà obbligatorie (*) specificare i valori di output fittizi che si desidera restituire per la risposta dell'azione.
+   1. Scegliere **Abilita risultato statico**. Per le proprietà obbligatorie (*) specificare i valori di output fittizi che si desidera restituire per la risposta dell'azione.
 
       Ad esempio, di seguito sono riportate le proprietà obbligatorie per l'azione HTTP:
 
@@ -60,7 +60,7 @@ Ad esempio, se si configurano i risultati statici per l'azione Invia messaggi di
 
       ![Selezionare le proprietà facoltative](./media/test-logic-apps-mock-data-static-results/optional-properties.png)
 
-1. Quando si è pronti per il salvataggio, scegliere **fine** .
+1. Quando si è pronti per il salvataggio, scegliere **fine**.
 
    Nell'angolo superiore destro dell'azione, la barra del titolo Mostra ora un'icona del becher di test ( ![ icona per i risultati statici ](./media/test-logic-apps-mock-data-static-results/static-results-test-beaker-icon.png) ), che indica che sono stati abilitati i risultati statici.
 
@@ -102,7 +102,7 @@ Se l'app per la logica ha un'esecuzione precedente con output che è possibile r
 
    ![Modalità JSON](./media/test-logic-apps-mock-data-static-results/json-editing-mode.png)
 
-1. Al termine, scegliere **Fine** . In alternativa, per tornare alla finestra di progettazione, scegliere **Cambia modalità editor** ( ![ scegliere "cambia modalità editor" ](./media/test-logic-apps-mock-data-static-results/switch-editor-mode-button.png) ).
+1. Al termine, scegliere **Fine**. In alternativa, per tornare alla finestra di progettazione, scegliere **Cambia modalità editor** ( ![ scegliere "cambia modalità editor" ](./media/test-logic-apps-mock-data-static-results/switch-editor-mode-button.png) ).
 
 <a name="find-runs-mock-data"></a>
 
@@ -112,13 +112,13 @@ La cronologia delle esecuzioni dell'app per la logica identifica le esecuzioni i
 
 1. Scegliere **Panoramica** dal menu principale dell'app per la logica. 
 
-1. Nel riquadro di destra, in **Cronologia esecuzioni** , trovare la colonna **risultati statici** . 
+1. Nel riquadro di destra, in **Cronologia esecuzioni**, trovare la colonna **risultati statici** . 
 
-   Qualsiasi esecuzione che includa azioni con risultati ha la colonna **risultati statici** impostata su **abilitato** , ad esempio:
+   Qualsiasi esecuzione che includa azioni con risultati ha la colonna **risultati statici** impostata su **abilitato**, ad esempio:
 
    ![Cronologia di esecuzione-colonna risultati statici](./media/test-logic-apps-mock-data-static-results/run-history.png)
 
-1. Per visualizzare le azioni che utilizzano risultati statici, selezionare l'esecuzione desiderata in cui la colonna **risultati statici** è impostata su **abilitata** .
+1. Per visualizzare le azioni che utilizzano risultati statici, selezionare l'esecuzione desiderata in cui la colonna **risultati statici** è impostata su **abilitata**.
 
    Le azioni che usano risultati statici mostrano l'icona del becher ![ di test (icona per i risultati statici ](./media/test-logic-apps-mock-data-static-results/static-results-test-beaker-icon.png) ), ad esempio:
 
@@ -132,11 +132,11 @@ La disattivazione dei risultati statici non elimina i valori dall'ultima install
 
    ![Screenshot mostra un'azione H T T P in cui è possibile selezionare l'icona del becher di test.](./media/test-logic-apps-mock-data-static-results/disable-static-results.png)
 
-1. Scegliere **Disattiva risultato statico**  >  **completato** .
+1. Scegliere **Disattiva risultato statico**  >  **completato**.
 
    ![Screenshot mostra l'opzione Disabilita risultato statico che è possibile selezionare.](./media/test-logic-apps-mock-data-static-results/disable-static-results-button.png)
 
-## <a name="reference"></a>Riferimento
+## <a name="reference"></a>Informazioni di riferimento
 
 Per altre informazioni su questa impostazione nelle definizioni del flusso di lavoro sottostanti, vedere [risultati statici-riferimento allo schema per il linguaggio di definizione del flusso di lavoro](../logic-apps/logic-apps-workflow-definition-language.md#static-results) e [impostazioni di configurazione di runtimeConfiguration. staticResult-Runtime](../logic-apps/logic-apps-workflow-actions-triggers.md#runtime-configuration-settings)
 

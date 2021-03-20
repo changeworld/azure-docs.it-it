@@ -6,10 +6,10 @@ ms.topic: conceptual
 ms.date: 11/18/2019
 ms.author: jehollan
 ms.openlocfilehash: 525635ef40437fe308c52e2d5aba2c97ed8f20e7
-ms.sourcegitcommit: dd45ae4fc54f8267cda2ddf4a92ccd123464d411
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/29/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92927533"
 ---
 # <a name="azure-functions-on-kubernetes-with-keda"></a>Funzioni di Azure in Kubernetes con KEDA
@@ -18,7 +18,7 @@ Il runtime di Funzioni di Azure offre la flessibilità necessaria per eseguire l
 
 ## <a name="how-kubernetes-based-functions-work"></a>Come operano le funzioni basate su Kubernetes
 
-Il servizio Funzioni di Azure è costituito da due componenti principali: un runtime e un controller di scalabilità.  Il runtime di Funzioni di Azure esegue il codice.  Il runtime include logica per attivare, registrare e gestire le esecuzioni di funzioni.  Il runtime di Funzioni di Azure può essere eseguito *ovunque* .  L'altro componente è un controller di scalabilità.  Il controller di scalabilità monitora la frequenza degli eventi destinati alla funzione e ridimensiona in modo proattivo il numero di istanze che eseguono l'app.  Per altre informazioni, vedere [Ridimensionamento e hosting di Funzioni di Azure](functions-scale.md).
+Il servizio Funzioni di Azure è costituito da due componenti principali: un runtime e un controller di scalabilità.  Il runtime di Funzioni di Azure esegue il codice.  Il runtime include logica per attivare, registrare e gestire le esecuzioni di funzioni.  Il runtime di Funzioni di Azure può essere eseguito *ovunque*.  L'altro componente è un controller di scalabilità.  Il controller di scalabilità monitora la frequenza degli eventi destinati alla funzione e ridimensiona in modo proattivo il numero di istanze che eseguono l'app.  Per altre informazioni, vedere [Ridimensionamento e hosting di Funzioni di Azure](functions-scale.md).
 
 Le funzioni basate su Kubernetes offrono il runtime di Funzioni in un [contenitore Docker](functions-create-function-linux-custom-image.md) con scalabilità guidata dagli eventi tramite KEDA.  KEDA può ridurre in scala fino a 0 istanze (quando non si verificano eventi) e aumentare fino a *n* istanze. Questa operazione viene eseguita esponendo metriche personalizzate per la scalabilità automatica Kubernetes (Horizontal Pod AutoScaler).  L'uso di contenitori di Funzioni con KEDA consente di replicare le capacità della funzione serverless in qualsiasi cluster Kubernetes.  Queste funzioni possono essere distribuite anche usando la funzionalità [nodi virtuali dei servizi Azure Kubernetes (AKS)](../aks/virtual-nodes-cli.md) per l'infrastruttura serverless.
 

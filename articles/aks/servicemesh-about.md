@@ -6,10 +6,10 @@ ms.topic: article
 ms.date: 10/09/2019
 ms.author: pabouwer
 ms.openlocfilehash: eca49a3fac1ea0398ebe1d05bde20fbca3c81232
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "77594312"
 ---
 # <a name="about-service-meshes"></a>Informazioni sulle mesh del servizio
@@ -28,7 +28,7 @@ Questi sono alcuni degli scenari che possono essere abilitati per i carichi di l
 
 - **Osservabilità** : ottenere informazioni sul modo in cui i servizi sono connessi al traffico tra di essi. Ottenere metriche, log e tracce per tutto il traffico in cluster e in ingresso/uscita. Aggiungere funzionalità di traccia distribuita alle applicazioni.
 
-## <a name="architecture"></a>Architecture
+## <a name="architecture"></a>Architettura
 
 Una mesh del servizio è in genere costituita da un piano di controllo e dal piano dati.
 
@@ -38,7 +38,7 @@ Il **piano dati** è in genere costituito da un proxy che viene inserito in modo
 
 ![Architettura tipica di mesh di servizi](media/servicemesh/typical-architecture.png)
 
-## <a name="capabilities"></a>Capabilities
+## <a name="capabilities"></a>Funzionalità
 
 Ognuna delle reti mesh dei servizi ha una scelta naturale e si concentra sul supporto di scenari specifici, ma in genere si noterà che la maggior parte implementa alcune delle funzionalità seguenti, se non tutte.
 

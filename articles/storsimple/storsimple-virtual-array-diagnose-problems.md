@@ -1,6 +1,6 @@
 ---
 title: Risoluzione dei problemi relativi all'array virtuale StorSimple | Documentazione Microsoft
-description: Informazioni sulla funzionalità self-service per la risoluzione dei problemi fornita all'interno del servizio StorSimple Device Manager.
+description: Informazioni sulla funzionalità self-service per la risoluzione dei problemi fornita all'interno del servizio StorSimple Gestione dispositivi.
 services: storsimple
 documentationcenter: ''
 author: manuaery
@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 11/21/2016
 ms.author: manuaery
 ms.openlocfilehash: 6cb78a7042ca3acbb27f510207783b97f733cfb0
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/25/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96005844"
 ---
 # <a name="use-the-storsimple-device-manager-service-to-troubleshoot-the-storsimple-virtual-array"></a>Usare il servizio Gestione dispositivi StorSimple per eseguire la risoluzione dei problemi relativi all'array virtuale StorSimple

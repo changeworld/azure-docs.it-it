@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 07/10/2020
 ms.author: alkohli
 ms.openlocfilehash: 50dbe9ab649a708fb36b1c9e4fe89bccadc7ea90
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "86209684"
 ---
 # <a name="audit-logs-for-your-azure-data-box-and-azure-data-box-heavy"></a>Log di controllo per il Azure Data Box e Azure Data Box Heavy
@@ -65,9 +65,9 @@ Gli ID degli eventi del registro di sicurezza seguenti vengono raccolti come log
 
 Gli ID evento del registro applicazioni seguenti vengono raccolti come parte dei log di controllo del pacchetto nel Data Box.     
 
-- **Microsoft-Azure-databox-OOBE-auditing** -contiene gli eventi che si verificano nell'interfaccia utente locale. 
+- **Microsoft-Azure-databox-OOBE-auditing** -contiene gli eventi che si verificano nell'interfaccia utente locale. 
 - **Microsoft-Azure-databox-reprovision-audit** -contiene eventi correlati al provisioning del dispositivo data box. Il nuovo provisioning del Data Box si verifica quando il dispositivo viene reimpostato tramite l'interfaccia utente locale. È possibile scegliere questa opzione quando si desidera cancellare i dati copiati rimuovendo le condivisioni esistenti e ricreando le condivisioni come parte del nuovo provisioning o della reimpostazione del dispositivo.
-- **Microsoft-Azure-databox-HcsMgmt-audit** -contiene gli eventi correlati solo al passaggio **prepara per la spedizione** prima che il dispositivo venga rispedito al Data Center di Azure. 
+- **Microsoft-Azure-databox-HcsMgmt-audit** -contiene gli eventi correlati solo al passaggio **prepara per la spedizione** prima che il dispositivo venga rispedito al Data Center di Azure. 
 - **Microsoft-Azure-databox-IfxAudit** -contiene i messaggi registrati da entità diverse del prodotto sui processi, log che indicano altre informazioni su ciò che accade in alcuni flussi.
 
 Ecco una tabella che riepiloga i vari provider di eventi e gli ID evento corrispondenti raccolti in ogni caso.

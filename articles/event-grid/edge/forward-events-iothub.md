@@ -8,10 +8,10 @@ ms.reviewer: spelluru
 ms.date: 07/08/2020
 ms.topic: article
 ms.openlocfilehash: 36dc7d098892fb2be7c2ba3d75de7c7adef1a4f1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "86171551"
 ---
 # <a name="tutorial-forward-events-to-iothub"></a>Esercitazione: inviare eventi a IoTHub
@@ -134,7 +134,7 @@ I sottoscrittori possono registrarsi per gli eventi pubblicati in un argomento. 
 Aggiornare la route dell'hub perimetrale per inoltrare gli eventi della sottoscrizione di eventi da inoltrare a IoTHub nel modo seguente:
 
 1. Accedere al [portale di Azure](https://ms.portal.azure.com)
-1. Passare all' **Hub**Internet delle cose.
+1. Passare all' **Hub** Internet delle cose.
 1. Selezionare **IOT Edge** dal menu
 1. Selezionare l'ID del dispositivo di destinazione dall'elenco di dispositivi.
 1. Selezionare **imposta moduli**.

@@ -5,10 +5,10 @@ ms.topic: conceptual
 ms.date: 04/17/2017
 ms.reviewer: sergkanz
 ms.openlocfilehash: 0f9fc96479569c3411024068ed614d422035ab17
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "87315972"
 ---
 # <a name="dependency-telemetry-application-insights-data-model"></a>Telemetria delle dipendenze: modello di dati di Application Insights
@@ -23,11 +23,11 @@ Nome del comando avviato con questa chiamata delle dipendenze. Valore di cardina
 
 Identificatore dell'istanza di una chiamata delle dipendenze. Usato per la correlazione con l'elemento di telemetria delle richieste corrispondente a questa chiamata delle dipendenze. Per altre informazioni vedere la pagina relativa alla [correlazione](./correlation.md).
 
-## <a name="data"></a>Dati
+## <a name="data"></a>Data
 
 Comando avviato con questa chiamata delle dipendenze. Esempi sono l'istruzione SQL e l'URL HTTP con tutti i parametri di query.
 
-## <a name="type"></a>Type
+## <a name="type"></a>Tipo
 
 Nome del tipo di dipendenza. Valore di cardinalità basso per un raggruppamento logico delle dipendenze e l'interpretazione di altri campi come commandName e resultCode. Esempi sono SQL, tabelle di Azure e HTTP.
 
@@ -43,7 +43,7 @@ Durata della richiesta in formato: `DD.HH:MM:SS.MMMMMM`. Deve essere inferiore a
 
 Codice risultato di una chiamata delle dipendenze. Esempi sono il codice di errore SQL e il codice di stato HTTP.
 
-## <a name="success"></a>Operazione completata
+## <a name="success"></a>Operazione riuscita
 
 Indicazione di chiamata con esito positivo o con esito negativo.
 

@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.date: 08/10/2019
 ms.author: rohink
 ms.openlocfilehash: 72adb2732eb0832589cbc25fb7e4288eb1899214
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/20/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94954512"
 ---
 # <a name="host-load-balanced-azure-web-apps-at-the-zone-apex"></a>Ospitare app Web di Azure con carico bilanciato nel dominio radice
@@ -55,10 +55,10 @@ Creare due app Web, una in ciascun piano di servizio app.
 1. Nell'angolo superiore sinistro della pagina portale di Azure selezionare **Crea una risorsa**.
 2. Digitare **App Web** nella barra di ricerca e premere INVIO.
 3. Selezionare **app Web**.
-4. Selezionare **Create** (Crea).
+4. Selezionare **Crea**.
 5. Accettare le impostazioni predefinite e usare la tabella seguente per configurare le due app Web:
 
-   |Nome<br>(deve essere univoco all'interno di .azurewebsites.net)|Gruppo di risorse |Stack di runtime|Area|Piano di servizio app/Località
+   |Nome<br>(deve essere univoco all'interno di .azurewebsites.net)|Gruppo di risorse |Stack di runtime|Region|Piano di servizio app/Località
    |---------|---------|-|-|-------|
    |App-01|Usa esistente<br>Selezionare un gruppo di risorse|.NET Core 2.2|Stati Uniti orientali|ASP-01 (D1)|
    |App-02|Usa esistente<br>Selezionare un gruppo di risorse|.NET Core 2.2|Stati Uniti centrali|ASP-02 (D1)|
@@ -132,7 +132,7 @@ Aggiungere ora un record alias per il vertice della zona.
 2. Selezionare **Set di record**.
 3. Aggiungere il set di record usando la tabella seguente:
 
-   |Nome  |Type  |Set di record alias  |Tipo di alias  |Risorsa di Azure|
+   |Nome  |Tipo  |Set di record alias  |Tipo di alias  |Risorsa di Azure|
    |---------|---------|---------|---------|-----|
    |@     |A|Sì|Risorsa di Azure|Gestione traffico - Profilo personale|
 

@@ -10,10 +10,10 @@ ms.date: 09/06/2016
 ms.author: robinsh
 ms.custom: amqp
 ms.openlocfilehash: f52d1d1c5f264550076688d5e25e110de230eff4
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/17/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92152239"
 ---
 # <a name="azure-iot-device-sdk-for-c--more-about-serializer"></a>Azure IoT SDK per dispositivi C: altre informazioni sul serializzatore
@@ -65,7 +65,7 @@ Gli elementi non illustrati in questo esempio sono tipi di dati aggiuntivi suppo
 
 I tipi di dati seguenti sono supportati nei modelli creati con la libreria **serializer** .
 
-| Type | Descrizione |
+| Tipo | Descrizione |
 | --- | --- |
 | double |Numero a virgola mobile a precisione doppia |
 | INT |Intero a 32 bit |
@@ -318,7 +318,7 @@ WITH_DATA(EDM_DATE_TIME_OFFSET, Time)
 
 In questo caso, sono state eliminate le macro **Declare \_ struct** e vengono semplicemente definiti gli elementi di dati del nostro scenario usando tipi semplici dal linguaggio di modellazione.
 
-Per il momento si ignorerà l'evento **Time**. A parte questo, ecco il codice per la **temperatura**in ingresso:
+Per il momento si ignorerà l'evento **Time**. A parte questo, ecco il codice per la **temperatura** in ingresso:
 
 ```C
 time_t now;

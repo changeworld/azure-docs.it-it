@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 11/04/2019
 ms.author: apimpm
 ms.openlocfilehash: 868ad3d1c6e7e7ef2cf32dcf675bc471a614f3ed
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "86243155"
 ---
 # <a name="azure-api-management-template-data-model-reference"></a>Informazioni di riferimento sui modelli di dati per i modelli di Gestione API di Azure
@@ -29,7 +29,7 @@ Questo argomento descrive le rappresentazioni di entità e tipi per elementi com
 
 [!INCLUDE [premium-dev-standard-basic.md](../../includes/api-management-availability-premium-dev-standard-basic.md)]
 
-## <a name="reference"></a>Informazioni di riferimento
+## <a name="reference"></a>Riferimento
 
 -   [API](#API)  
 -   [Riepilogo API](#APISummary)  

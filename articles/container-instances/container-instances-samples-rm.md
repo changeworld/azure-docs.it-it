@@ -4,10 +4,10 @@ description: Trovare Azure Resource Manager esempi di modelli per distribuire is
 ms.topic: article
 ms.date: 03/07/2019
 ms.openlocfilehash: 6c487087b39244178643fd81364150ceb3ac4a63
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "86169647"
 ---
 # <a name="azure-resource-manager-templates-for-azure-container-instances"></a>Modelli di Azure Resource Manager per Istanze di Azure Container
@@ -26,8 +26,8 @@ Per le opzioni di distribuzione, vedere la sezione [Distribuzione](#deployment).
 | **Volumi** ||
 | [emptyDir][vol-emptydir] | Distribuisce due contenitori Linux che condividono un volume emptyDir. |
 | [gitRepo][vol-gitrepo] | Distribuisce un contenitore Linux che clona un repository GitHub e lo monta come volume. |
-| [segreto][vol-secret] | Distribuisce un contenitore Linux con un certificato PFX montato come volume segreto. |
-| **Rete** ||
+| [secret][vol-secret] | Distribuisce un contenitore Linux con un certificato PFX montato come volume segreto. |
+| **Funzionalità di rete** ||
 | [Contenitore con esposizione UDP][net-udp] | Distribuisce un contenitore Windows o Linux che espone una porta UDP. |
 | [Contenitore Linux con IP pubblico][net-publicip] | Distribuisce un singolo contenitore Linux accessibile attraverso un indirizzo IP pubblico. |
 | [Distribuire un gruppo di contenitori con una rete virtuale][net-vnet] | Distribuisce una nuova rete virtuale, una subnet, un profilo di rete e un gruppo di contenitori. |

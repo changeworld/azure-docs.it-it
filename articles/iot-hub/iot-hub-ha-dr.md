@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 03/17/2020
 ms.author: philmea
 ms.openlocfilehash: c665e30ed9b284f7c93cf8588b710c9f22457a0a
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/17/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92151665"
 ---
 # <a name="iot-hub-high-availability-and-disaster-recovery"></a>Disponibilità elevata e ripristino di emergenza dell'hub IoT
@@ -135,8 +135,8 @@ Ecco un riepilogo delle opzioni di disponibilità elevata e ripristino di emerge
 | Opzione a disponibilità elevata e ripristino di emergenza | RTO | RPO | È necessario un intervento manuale? | Complessità dell'implementazione | Impatto dei costi aggiuntivi|
 | --- | --- | --- | --- | --- | --- |
 | Failover avviato da Microsoft |2-26 ore|Fare riferimento a tabella RPO precedente|No|nessuno|nessuno|
-| Failover manuale |10 min-2 ore|Fare riferimento a tabella RPO precedente|Sì|Molto bassa. È sufficiente attivare questa operazione dal portale.|Nessuno|
-| Disponibilità elevata fra aree |< 1 min|Dipende dalla frequenza di replica della soluzione disponibilità elevata personalizzata|No|Alta|> 1 x il costo di 1 Hub IoT|
+| Failover manuale |10 min-2 ore|Fare riferimento a tabella RPO precedente|Sì|Molto bassa. È sufficiente attivare questa operazione dal portale.|nessuno|
+| Disponibilità elevata fra aree |< 1 min|Dipende dalla frequenza di replica della soluzione disponibilità elevata personalizzata|No|Alto|> 1 x il costo di 1 Hub IoT|
 
 ## <a name="next-steps"></a>Passaggi successivi
 

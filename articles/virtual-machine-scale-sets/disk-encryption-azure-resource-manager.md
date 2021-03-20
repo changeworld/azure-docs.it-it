@@ -10,10 +10,10 @@ ms.date: 10/10/2019
 ms.reviewer: mimckitt
 ms.custom: mimckitt
 ms.openlocfilehash: 4284e94f8d8d0effd160c5048f54fcbede417e38
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "86129753"
 ---
 # <a name="encrypt-virtual-machine-scale-sets-with-azure-resource-manager"></a>Crittografare i set di scalabilità di macchine virtuali con Azure Resource Manager
@@ -36,7 +36,7 @@ Prima di tutto selezionare il modello più adatto per lo scenario.
 
 - [Disabilitare la crittografia dei dischi in un set di scalabilità di macchine virtuali Windows in esecuzione](https://github.com/Azure/azure-quickstart-templates/tree/master/201-decrypt-vmss-windows)
 
-Seguire quindi questa procedura:
+Seguire questa procedura:
 
 1. Fare clic su **Distribuzione in Azure**.
 2. Compilare i campi obbligatori quindi accettare i termini e le condizioni.

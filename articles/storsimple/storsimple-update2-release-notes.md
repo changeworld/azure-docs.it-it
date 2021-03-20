@@ -15,10 +15,10 @@ ms.workload: TBD
 ms.date: 11/03/2017
 ms.author: alkohli
 ms.openlocfilehash: b68e338c2675a3aeefda390d12ab2d82ea1c7a9f
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/20/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94956654"
 ---
 # <a name="storsimple-8000-series-update-2-release-notes"></a>Note sulla versione dell'aggiornamento 2 di StorSimple serie 8000

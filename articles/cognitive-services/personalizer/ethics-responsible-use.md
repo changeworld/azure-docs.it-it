@@ -9,10 +9,10 @@ ms.subservice: personalizer
 ms.topic: conceptual
 ms.date: 06/12/2019
 ms.openlocfilehash: 602da28f0c235fb0e797a493bc1160631c042a9d
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/25/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96005980"
 ---
 # <a name="guidelines-for-responsible-implementation-of-personalizer"></a>Linee guida per l'implementazione responsabile di Personalizza esperienze
@@ -119,7 +119,7 @@ Di seguito sono illustrate le aree della progettazione per implementazioni respo
 
 ![Valori per l'intelligenza artificiale da The Future Computed](media/ethics-and-responsible-use/ai-values-future-computed.png)
 
-### <a name="accountability"></a>Responsabilità
+### <a name="accountability"></a>Affidabilità
 *Le persone che progettano e distribuiscono sistemi di intelligenza artificiale devono rendere conto del funzionamento dei sistemi*.
 
 * Creare linee guida interne su come implementare Personalizza esperienze, quindi documentarle e comunicarle al team, ai dirigenti e ai fornitori.

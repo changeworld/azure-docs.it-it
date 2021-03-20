@@ -4,10 +4,10 @@ description: Informazioni su come collegare o scollegare un disco dati a/da una 
 ms.topic: article
 ms.date: 06/26/2020
 ms.openlocfilehash: 8eebfbda421233bcec780d441a4020acce740618
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91328514"
 ---
 # <a name="attach-or-detach-a-data-disk-to-a-virtual-machine-in-azure-devtest-labs"></a>Collegare o scollegare un disco dati a/da una macchina virtuale in Azure DevTest Labs
@@ -62,7 +62,7 @@ Se si vogliono riusare i dati presenti nel disco, è possibile ricollegare il di
 ### <a name="detach-from-the-vms-management-pane"></a>Scollegare un disco dati dal riquadro di gestione della macchina virtuale
 1. Dall'elenco di macchine virtuali selezionare una macchina virtuale a cui è collegato un disco dati.
 1. Scegliere **Dischi** dal menu a sinistra.
-1. Dall'elenco dei **dischi dati**selezionare il disco dati che si desidera scollegare.
+1. Dall'elenco dei **dischi dati** selezionare il disco dati che si desidera scollegare.
 
     ![Selezionare i dischi dati per una macchina virtuale](./media/devtest-lab-attach-detach-data-disk/devtest-lab-detach-button.png) 
 1. Selezionare **collega** nella parte superiore del riquadro dei dettagli del disco.

@@ -9,10 +9,10 @@ ms.date: 09/24/2019
 ms.author: cherylmc
 ms.custom: include file
 ms.openlocfilehash: 5a734963ced9daefda2b7b6f4a52fd9ef437eddc
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "71269271"
 ---
 Il gateway di rete virtuale usa una subnet specifica denominata subnet del gateway. La subnet del gateway è inclusa nell'intervallo di indirizzi IP della rete virtuale specificato durante la configurazione della rete virtuale. Contiene gli indirizzi IP usati dai servizi e dalle risorse del gateway di rete virtuale. Affinché Azure vi distribuisca le risorse gateway, la subnet deve essere denominata "GatewaySubnet". Non è possibile specificare una diversa subnet per la distribuzione delle risorse gateway. Se non è presente una subnet denominata "GatewaySubnet" quando si crea il gateway VPN, l'operazione avrà esito negativo.

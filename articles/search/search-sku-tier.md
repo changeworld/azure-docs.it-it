@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 01/15/2021
 ms.custom: contperf-fy21q2
 ms.openlocfilehash: df218c2a4c066343ef571c6f24554ecaa806b639
-ms.sourcegitcommit: 7e117cfec95a7e61f4720db3c36c4fa35021846b
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/09/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "99987879"
 ---
 # <a name="choose-a-pricing-tier-for-azure-cognitive-search"></a>Scegliere un piano tariffario per Azure ricerca cognitiva
@@ -56,7 +56,7 @@ La maggior parte delle funzionalità sono disponibili in tutti i livelli, inclus
 | Funzionalità | Limitazioni |
 |---------|-------------|
 | [indicizzatori](search-indexer-overview.md) | Gli indicizzatori non sono disponibili in S3 HD.  |
-| [Arricchimento con intelligenza artificiale](search-security-manage-encryption-keys.md) | Viene eseguito sul livello gratuito, ma non consigliato. |
+| [Arricchimento intelligenza artificiale](search-security-manage-encryption-keys.md) | Viene eseguito sul livello gratuito, ma non consigliato. |
 | [Identità gestite o attendibili per l'accesso in uscita (indicizzatore)](search-howto-managed-identities-data-sources.md) | Non disponibile per il livello gratuito.|
 | [Chiavi di crittografia gestite dal cliente](search-security-manage-encryption-keys.md) | Non disponibile per il livello gratuito. |
 | [Accesso al firewall IP](service-configure-firewall.md) | Non disponibile per il livello gratuito. |

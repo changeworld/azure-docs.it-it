@@ -4,10 +4,10 @@ description: Informazioni su come Lab Services può semplificare la creazione, l
 ms.topic: overview
 ms.date: 09/16/2020
 ms.openlocfilehash: ad17ebb3a803a15d1ac9ef8cb71cf8ca7976243b
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
-ms.translationtype: HT
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91333937"
 ---
 # <a name="an-introduction-to-azure-lab-services"></a>Introduzione ad Azure Lab Services
@@ -27,9 +27,9 @@ Le sezioni seguenti includono altre informazioni dettagliate su queste opzioni.
 ## <a name="managed-lab-types"></a>Tipi di lab gestiti
 Azure Lab Services consente di creare lab la cui infrastruttura viene gestita da Azure. In questo articolo questi lab vengono detti tipi di lab gestiti. I tipi di lab gestiti includono diversi tipi di lab per soddisfare esigenze specifiche. Attualmente l'unico tipo di lab gestito supportato è il **lab per le classi**. 
 
-I tipi di lab gestiti consentono di iniziare subito, con una configurazione minima. Il servizio controlla completamente la gestione dell'infrastruttura per il lab, dall'attivazione delle macchine virtuali alla gestione degli errori e alla scalabilità dell'infrastruttura. Per creare un tipo lab gestito, ad esempio un lab per le classi, è necessario prima di tutto creare un account del lab per l'organizzazione. L'account del lab funge da account centrale in cui vengono gestiti tutti i lab dell'organizzazione. 
+I tipi di lab gestiti consentono di iniziare subito, con una configurazione minima. Il servizio controlla completamente la gestione dell'infrastruttura per il lab, dall'attivazione delle macchine virtuali alla gestione degli errori e alla scalabilità dell'infrastruttura.  Per creare un tipo lab gestito, ad esempio un lab per le classi, è necessario prima di tutto creare un account del lab per l'organizzazione. L'account del lab funge da account centrale in cui vengono gestiti tutti i lab dell'organizzazione. 
 
-Quando si creano e si usano risorse di Azure in questi tipi di lab gestiti, il servizio crea e gestisce le risorse nelle sottoscrizioni interne di Microsoft. Le risorse non vengono create nella sottoscrizione di Azure. Il servizio tiene traccia dell'utilizzo di tali risorse nelle sottoscrizioni interne di Microsoft. Il costo di tale utilizzo viene addebitato alla sottoscrizione di Azure che contiene l'account del lab.   
+Quando si creano e si usano risorse di Azure in questi tipi di lab gestiti, il servizio crea e gestisce le risorse nelle sottoscrizioni interne di Microsoft. Le risorse non vengono create nella sottoscrizione di Azure. Il servizio tiene traccia dell'utilizzo di tali risorse nelle sottoscrizioni interne di Microsoft. Il costo di tale utilizzo viene addebitato alla sottoscrizione di Azure che contiene l'account del lab.   
 
 Ecco alcuni **casi d'uso per i tipi di lab gestiti**: 
 

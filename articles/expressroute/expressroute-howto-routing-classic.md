@@ -8,15 +8,15 @@ ms.topic: how-to
 ms.date: 12/06/2019
 ms.author: duau
 ms.openlocfilehash: a4a3bad1e868fa0e75611630ffb5db5ba13126b6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "89395554"
 ---
 # <a name="create-and-modify-peering-for-an-expressroute-circuit-classic"></a>Creare e modificare il peering per un circuito ExpressRoute (versione classica)
 > [!div class="op_single_selector"]
-> * [Portale di Azure](expressroute-howto-routing-portal-resource-manager.md)
+> * [Azure portal](expressroute-howto-routing-portal-resource-manager.md)
 > * [PowerShell](expressroute-howto-routing-arm.md)
 > * [Interfaccia della riga di comando di Azure](howto-routing-cli.md)
 > * [Video - Peering privato](https://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-set-up-azure-private-peering-for-your-expressroute-circuit)
@@ -302,7 +302,7 @@ Questa sezione fornisce le istruzioni per creare, ottenere, aggiornare ed elimin
    * Advertised prefixes: è necessario fornire un elenco di tutti i prefissi che si intende pubblicizzare nella sessione BGP. Sono accettati solo prefissi di indirizzi IP pubblici. Per inviare un set di prefissi, è possibile creare un elenco con valori delimitati da virgole. Questi prefissi devono essere intestati all'utente in un registro RIR o IRR.
    * Customer ASN: se si annunciano prefissi registrati al numero AS di peering, è possibile specificare il numero AS a cui sono registrati. **Facoltativo**.
    * Routing Registry Name: è possibile specificare il registro RIR/IRR in cui sono registrati il numero AS e i prefissi.
-   * Un hash MD5, se si sceglie di usarne uno. **Opzionale.**
+   * Un hash MD5, se si sceglie di usarne uno. **Facoltativo.**
      
    Per configurare il peering Microsoft per il circuito, eseguire il cmdlet seguente:
  

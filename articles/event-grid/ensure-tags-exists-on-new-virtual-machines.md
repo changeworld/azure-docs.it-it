@@ -10,13 +10,13 @@ ms.workload: infrastructure-services
 ms.date: 07/07/2020
 ms.author: eamono
 ms.openlocfilehash: 3b9b49a4d38566891f442a3d2d7eac9bf1d36465
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
-ms.translationtype: HT
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "87462004"
 ---
-# <a name="tutorial-integrate-azure-automation-with-event-grid-and-microsoft-teams"></a>Esercitazione: Integrazione di Automazione di Azure con Griglia di eventi e Microsoft Teams
+# <a name="tutorial-integrate-azure-automation-with-event-grid-and-microsoft-teams"></a>Esercitazione: integrare automazione di Azure con griglia di eventi e Microsoft Teams
 
 In questa esercitazione verranno illustrate le procedure per:
 
@@ -45,7 +45,7 @@ Per completare questa esercitazione, è necessario un [account di Automazione di
 
 2. Selezionare il pulsante **Sfoglia raccolta**.
 
-3. Cercare **Griglia di eventi**e selezionare **Integrating Azure Automation with Event grid** (Integrazione di Automazione di Azure con griglia di eventi).
+3. Cercare **Griglia di eventi** e selezionare **Integrating Azure Automation with Event grid** (Integrazione di Automazione di Azure con griglia di eventi).
 
     ![Importare il runbook della raccolta](media/ensure-tags-exists-on-new-virtual-machines/gallery-event-grid.png)
 
@@ -77,7 +77,7 @@ Per completare questa esercitazione, è necessario un [account di Automazione di
 
 1. Aprire il runbook Watch-VMWrite.
 
-2. Selezionare **Webhook**e selezionare il pulsante **Aggiungi webhook**.
+2. Selezionare **Webhook** e selezionare il pulsante **Aggiungi webhook**.
 
 3. Immettere **WatchVMEventGrid** come nome. Copiare l'URL negli Appunti e salvarlo.
 
@@ -101,7 +101,7 @@ Per completare questa esercitazione, è necessario un [account di Automazione di
     1. Per **Tipo di argomento** selezionare **Sottoscrizioni di Azure**.
     2. Deselezionare la casella di controllo **Esegui la sottoscrizione di tutti i tipi di eventi**.
     3. Immettere **AzureAutomation** come nome.
-    4. Nell'elenco a discesa **Tipi di evento definiti**deselezionare tutte le opzioni ad eccezione di **Resource Write Success** (Scrittura risorse corretta).
+    4. Nell'elenco a discesa **Tipi di evento definiti** deselezionare tutte le opzioni ad eccezione di **Resource Write Success** (Scrittura risorse corretta).
 
         > [!NOTE] 
         > Azure Resource Manager attualmente non distingue Crea da Aggiorna, per cui l'implementazione di questa esercitazione per tutti gli eventi Microsoft.Resources.ResourceWriteSuccess nella sottoscrizione di Azure può comportare un volume elevato di chiamate.

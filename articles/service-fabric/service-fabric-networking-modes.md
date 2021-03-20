@@ -6,10 +6,10 @@ ms.topic: conceptual
 ms.date: 2/23/2018
 ms.author: atsenthi
 ms.openlocfilehash: e6174f35bd54b3ca0b2c5240a663369350b30ce8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "86241897"
 ---
 # <a name="service-fabric-container-networking-modes"></a>Modalità di rete del contenitore di Service Fabric
@@ -198,7 +198,7 @@ Quando un servizio contenitore viene riavviato o spostato in un altro nodo del c
    |Source (Sorgente) |VirtualNetwork |
    |Destinazione | VirtualNetwork |
    |Servizio | DNS (UDP/53) |
-   |Azione | Consenti  |
+   |Azione | Allow  |
 
 4. Specificare la modalità di rete nel manifesto dell'applicazione per ogni servizio: `<NetworkConfig NetworkType="Open">`. La modalità di rete **Open** consente al servizio di ottenere un indirizzo IP dedicato. Se non è specificata alcuna modalità, viene impostata la modalità predefinita **nat**. Nell'esempio di manifesto seguente, i servizi `NodeContainerServicePackage1` e `NodeContainerServicePackage2` possono essere in ascolto sulla stessa porta (entrambi i servizi sono in ascolto su `Endpoint1`). Se è specificata la modalità di rete Open, non è possibile specificare configurazioni `PortBinding`.
 

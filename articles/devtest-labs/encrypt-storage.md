@@ -4,10 +4,10 @@ description: Informazioni su come configurare la crittografia di una risorsa di 
 ms.topic: how-to
 ms.date: 07/29/2020
 ms.openlocfilehash: dcede89fb23c532742e41121688bcb51a5a73833
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/17/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92149308"
 ---
 # <a name="encrypt-azure-storage-used-by-a-lab-in-azure-devtest-labs"></a>Crittografare l'archiviazione di Azure usata da un Lab in Azure DevTest Labs
@@ -28,10 +28,10 @@ Ogni Lab creato in Azure DevTest Labs viene creato con un account di archiviazio
     :::image type="content" source="./media/encrypt-storage/overview-resource-group-link.png" alt-text="Selezionare il gruppo di risorse nella pagina Panoramica":::
 1. Selezionare l'account di archiviazione di Azure del Lab. La convenzione di denominazione per l'account di archiviazione Lab è: `a<labNameWithoutInvalidCharacters><4-digit number>` . Ad esempio, se il nome del Lab è `contosolab` , il nome dell'account di archiviazione potrebbe essere `acontosolab7576` . 
 
-    :::image type="content" source="./media/encrypt-storage/select-storage-account.png" alt-text="Selezionare il gruppo di risorse nella pagina Panoramica":::
+    :::image type="content" source="./media/encrypt-storage/select-storage-account.png" alt-text="Selezionare account di archiviazione nel gruppo di risorse del Lab":::
 3. Nella pagina **account di archiviazione** selezionare **Storage Explorer (anteprima)** nel menu a sinistra e quindi selezionare **contenitori BLOB** per trovare il contenuto correlato al Lab pertinente. 
 
-   :::image type="content" source="./media/encrypt-storage/storage-explorer.png" alt-text="Selezionare il gruppo di risorse nella pagina Panoramica" lightbox="./media/encrypt-storage/storage-explorer.png":::
+   :::image type="content" source="./media/encrypt-storage/storage-explorer.png" alt-text="Storage Explorer (anteprima)" lightbox="./media/encrypt-storage/storage-explorer.png":::
 
 ## <a name="encrypt-the-lab-storage-account"></a>Crittografare l'account di archiviazione Lab
 Archiviazione di Azure crittografa automaticamente i dati quando vengono salvati in modo permanente nel cloud. La crittografia di archiviazione di Azure protegge i tuoi dati e ti aiuta a soddisfare gli impegni di sicurezza e conformità dell'organizzazione. Per altre informazioni, vedere [Crittografia di Archiviazione di Azure per dati inattivi](../storage/common/storage-service-encryption.md).

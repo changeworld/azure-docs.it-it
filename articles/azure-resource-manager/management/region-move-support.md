@@ -7,10 +7,10 @@ ms.topic: reference
 ms.date: 08/25/2020
 ms.author: raynew
 ms.openlocfilehash: 18d4d84462d528b718d784ff6a16ecf990ed0d20
-ms.sourcegitcommit: 24f30b1e8bb797e1609b1c8300871d2391a59ac2
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/10/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100094016"
 ---
 # <a name="support-for-moving-azure-resources-across-regions"></a>Supporto per lo trasferimento di risorse di Azure tra aree

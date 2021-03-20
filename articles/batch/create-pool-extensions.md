@@ -4,10 +4,10 @@ description: Le estensioni sono piccole applicazioni che facilitano la configura
 ms.topic: how-to
 ms.date: 02/10/2021
 ms.openlocfilehash: 1bf9847af57347c143ee3d790d89988ba7cd48e4
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/14/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100417448"
 ---
 # <a name="use-extensions-with-batch-pools"></a>Usare le estensioni con i pool di batch

@@ -7,10 +7,10 @@ ms.manager: abhemraj
 ms.topic: conceptual
 ms.date: 05/27/2020
 ms.openlocfilehash: 9bdf907ede2c09f7e314df619cd81059956f17dc
-ms.sourcegitcommit: ca215fa220b924f19f56513fc810c8c728dff420
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/19/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98567742"
 ---
 # <a name="server-assessment-overview-migrate-to-azure-vms"></a>Panoramica della valutazione del server (migrazione alle macchine virtuali di Azure)
@@ -131,7 +131,7 @@ Ecco cosa è incluso in una valutazione di VM di Azure in server assessment:
 **Sconto (%)** | Tutti gli sconti specifici della sottoscrizione ricevuti dall'offerta di Azure. L'impostazione predefinita è 0%.
 **Tempo di attività macchina virtuale** | Durata in giorni al mese e ore al giorno per le macchine virtuali di Azure che non vengono eseguite in modo continuo. Le stime dei costi sono basate su tale durata.<br/><br/> I valori predefiniti sono 31 giorni al mese e 24 ore al giorno.
 **Vantaggio Azure Hybrid** | Specifica se il Software Assurance è idoneo per [vantaggio Azure Hybrid](https://azure.microsoft.com/pricing/hybrid-use-benefit/). Se per l'impostazione è impostato il valore predefinito "Sì", per le macchine virtuali Windows vengono considerati i prezzi di Azure per sistemi operativi diversi da Windows.
-**Sottoscrizione EA** | Specifica che una sottoscrizione di Enterprise Agreement (EA) viene utilizzata per la stima dei costi. Prende in considerazione lo sconto applicabile alla sottoscrizione. <br/><br/> Lascia le impostazioni per le istanze riservate, sconto (%) e le proprietà del tempo di esecuzione della macchina virtuale con le impostazioni predefinite.
+**Sottoscrizione EA** | Specifica che una sottoscrizione di Contratto Enterprise (EA) viene utilizzata per la stima dei costi. Prende in considerazione lo sconto applicabile alla sottoscrizione. <br/><br/> Lascia le impostazioni per le istanze riservate, sconto (%) e le proprietà del tempo di esecuzione della macchina virtuale con le impostazioni predefinite.
 
 
 [Esaminare le procedure consigliate per la](best-practices-assessment.md) creazione di una valutazione con server assessment.
@@ -157,7 +157,7 @@ Proprietà | Dettagli | Stato di idoneità per Azure
 **Core** | Ogni computer non deve avere più di 128 core, ovvero il numero massimo supportato da una macchina virtuale di Azure.<br/><br/> Se è disponibile la cronologia delle prestazioni, Azure Migrate prende in considerazione per il confronto i core utilizzati. Se le impostazioni di valutazione specificano un fattore di comfort, il numero di core utilizzati viene moltiplicato per il fattore di comfort.<br/><br/> Se non è presente alcuna cronologia delle prestazioni, Azure Migrate usa i core allocati per applicare il fattore di comfort. | Pronto se il numero di core rientra nel limite
 **RAM** | Ogni computer non deve avere più di 3.892 GB di RAM, ovvero la dimensione massima supportata da una VM di Azure M Standard_M128m &nbsp; <sup>2</sup> . [Altre informazioni](../virtual-machines/sizes.md)<br/><br/> Se è disponibile la cronologia delle prestazioni, Azure Migrate considera la RAM utilizzata per il confronto. Se viene specificato un fattore di comfort, la RAM utilizzata viene moltiplicata per il fattore di comfort.<br/><br/> Se non è presente alcuna cronologia, viene usata la RAM allocata per applicare un fattore di comfort.<br/><br/> | Pronto se la quantità di RAM è entro il limite
 **Disco di archiviazione** | Le dimensioni allocate di un disco non devono superare 32 TB. Sebbene Azure supporti i dischi da 64 TB con i dischi Ultra SSD di Azure, Azure Migrate: la valutazione del server attualmente verifica la presenza di 32 TB come limite delle dimensioni del disco, perché non supporta ancora Ultra SSD. <br/><br/> Il numero di dischi collegati al computer, incluso il disco del sistema operativo, deve essere 65 o un numero inferiore. | Pronto se il numero e le dimensioni del disco sono entro i limiti
-**Rete** | Un computer non deve avere più di 32 interfacce di rete (NIC) connesse. | Pronto se il numero di schede di rete rientra nel limite
+**Funzionalità di rete** | Un computer non deve avere più di 32 interfacce di rete (NIC) connesse. | Pronto se il numero di schede di rete rientra nel limite
 
 ### <a name="guest-operating-system"></a>Sistema operativo guest
 
@@ -291,7 +291,7 @@ Una volta completate le indicazioni sul dimensionamento, una valutazione delle V
     - Software Assurance
     - Istanze riservate
     - Tempo di attività macchina virtuale
-    - Posizione
+    - Location
     - Impostazioni di valuta
 
     Server Assessment aggrega il costo in tutti i computer per calcolare il costo totale di calcolo mensile.

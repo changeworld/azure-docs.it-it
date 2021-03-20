@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 01/09/2018
 ms.author: alkohli
 ms.openlocfilehash: bf0570cd62a2c329407cfb6dd087020f53cdc991
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/20/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94954070"
 ---
 # <a name="use-the-storsimple-diagnostics-tool-to-troubleshoot-8000-series-device-issues"></a>Usare lo strumento di diagnostica StorSimple per risolvere i problemi dei dispositivi della serie 8000
@@ -414,11 +414,11 @@ Controller0>
 
 La tabella riportata di seguito illustra il mapping dei vari parametri di Windows PowerShell alle informazioni sul sistema. 
 
-| Parametro di PowerShell    | Description  |
+| Parametro di PowerShell    | Descrizione  |
 |-------------------------|------------------|
 | ID istanza             | Ogni controller è associato a un identificatore univoco o un GUID.|
 | Nome                    | Nome descrittivo del dispositivo configurato tramite il portale di Azure durante la distribuzione del dispositivo. Il nome descrittivo predefinito è il numero di serie del dispositivo. |
-| Modellare                   | Modello del dispositivo StorSimple serie 8000. Il modello può essere 8100 o 8600.|
+| Modello                   | Modello del dispositivo StorSimple serie 8000. Il modello può essere 8100 o 8600.|
 | SerialNumber            | Numero di serie di 15 caratteri assegnato in fase di produzione. Ad esempio, 8600-SHX0991003G44HT indica quanto segue:<br> 8600: modello del dispositivo.<br>SHX: sito di produzione.<br> 0991003: prodotto specifico. <br> G44HT: ultime cinque cifre incrementate per creare numeri di serie univoci. Questo potrebbe non essere un insieme sequenziale.|
 | TimeZone                | Fuso orario del dispositivo configurato nel portale di Azure durante la distribuzione del dispositivo.|
 | CurrentController       | Controller a cui si è connessi tramite l'interfaccia di Windows PowerShell del dispositivo StorSimple.|
