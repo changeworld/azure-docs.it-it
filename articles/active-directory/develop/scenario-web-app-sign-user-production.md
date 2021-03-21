@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 09/17/2019
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: e4a47112d2f66edc8af9b7f100d48bc205f2e85e
-ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
+ms.openlocfilehash: f670af1fca4b4638988e53075f092ca1bbac55b2
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/05/2021
-ms.locfileid: "99584298"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104578261"
 ---
 # <a name="web-app-that-signs-in-users-move-to-production"></a>App Web che esegue l'accesso agli utenti: passa alla produzione
 
@@ -48,6 +48,12 @@ Questa esercitazione progressiva include codice pronto per la produzione per un'
 - Account aziendali o dell'Istituto di istruzione o account Microsoft personali
 - [Azure AD B2C](../../active-directory-b2c/overview.md)
 - Cloud nazionali
+
+## <a name="tutorial-nodejs-web-app"></a>Esercitazione: Node.js app Web
+
+Scopri di più sul Web Node.js in questa esercitazione:
+
+[Esercitazione: utenti di accesso in un'app Web Node.js & Express](https://docs.microsoft.com/azure/active-directory/develop/tutorial-v2-nodejs-webapp-msal)
 
 ## <a name="sample-code-java-web-app"></a>Codice di esempio: app Web Java
 

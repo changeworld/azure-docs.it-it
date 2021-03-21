@@ -5,10 +5,10 @@ ms.reviewer: srinathv
 ms.topic: troubleshooting
 ms.date: 08/30/2019
 ms.openlocfilehash: 2cda13ea089ac08dff7c1ba5ca93ba56ab3c23cf
-ms.sourcegitcommit: beacda0b2b4b3a415b16ac2f58ddfb03dd1a04cf
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/31/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97831551"
 ---
 # <a name="troubleshooting-backup-failures-on-azure-virtual-machines"></a>Risoluzione degli errori di backup nelle macchine virtuali di Azure
@@ -134,8 +134,8 @@ REG ADD "HKLM\SOFTWARE\Microsoft\BcdrAgentPersistentKeys" /v SnapshotWithoutThre
 
 Passaggio 3: se i passaggi 1 e 2 non hanno risolto il problema, l'errore potrebbe essere dovuto a un timeout dei writer VSS a causa di IOPS limitati.<br>
 
-Per verificare, passare a ***System e Visualizzatore eventi log applicazioni** _ e verificare la presenza del seguente messaggio di errore:<br>
-Si è verificato un timeout del provider della copia shadow _The durante l'esecuzione delle scritture nel volume da replicare. Questa operazione è probabilmente dovuta a un'attività eccessiva del volume da parte di un'applicazione o di un servizio di sistema. Riprovare più tardi quando l'attività sul volume è ridotta. *<br>
+Per verificare, passare a ***sistema e Visualizzatore eventi registri applicazioni*** e verificare la presenza del seguente messaggio di errore:<br>
+*Si è verificato un timeout del provider della copia shadow durante la scrittura del volume da replicare. Questa operazione è probabilmente dovuta a un'attività eccessiva del volume da parte di un'applicazione o di un servizio di sistema. Riprovare più tardi quando l'attività sul volume è ridotta.*<br>
 
 Soluzione:
 
@@ -265,7 +265,7 @@ La macchina virtuale di Azure non è stata trovata.
 
 Questo errore si verifica quando la macchina virtuale primaria viene eliminata, ma i criteri di backup continuano a cercare una macchina virtuale di cui eseguire il backup. Per risolvere l'errore, procedere come segue:
 
-* Ricreare la macchina virtuale con lo stesso nome e lo stesso nome del gruppo di risorse, **nome del servizio cloud**,<br>o
+* Ricreare la macchina virtuale con lo stesso nome e lo stesso nome del gruppo di risorse, **nome del servizio cloud**,<br>oppure
 * Interrompere la protezione della macchina virtuale cancellando o senza eliminare i dati del backup. Per altre informazioni, vedere [Arrestare la protezione delle macchine virtuali](backup-azure-manage-vms.md#stop-protecting-a-vm).</li></ol>
 
 ### <a name="usererrorbcmpremiumstoragequotaerror---could-not-copy-the-snapshot-of-the-virtual-machine-due-to-insufficient-free-space-in-the-storage-account"></a>UserErrorBCMPremiumStorageQuotaError-non è stato possibile copiare lo snapshot della macchina virtuale a causa dello spazio disponibile insufficiente nell'account di archiviazione
@@ -331,7 +331,7 @@ Se si dispone di un'istanza di Criteri di Azure che [governa i tag all'interno d
 
 Se dopo il ripristino si nota che i dischi sono offline:
 
-* Verificare che il computer in cui viene eseguito lo script soddisfi i requisiti del sistema operativo. [Altre informazioni](./backup-azure-restore-files-from-vm.md#step-3-os-requirements-to-successfully-run-the-script).  
+* Verificare che il computer in cui viene eseguito lo script soddisfi i requisiti del sistema operativo. [Altre informazioni](./backup-azure-restore-files-from-vm.md#step-3-os-requirements-to-successfully-run-the-script)  
 * Assicurarsi di non eseguire il ripristino nella stessa origine, [altre informazioni](./backup-azure-restore-files-from-vm.md#step-2-ensure-the-machine-meets-the-requirements-before-executing-the-script).
 
 ### <a name="usererrorinstantrpnotfound---restore-failed-because-the-snapshot-of-the-vm-was-not-found"></a>UserErrorInstantRpNotFound-il ripristino non è riuscito perché non è stato possibile trovare lo snapshot della macchina virtuale

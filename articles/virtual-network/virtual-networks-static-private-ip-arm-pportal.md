@@ -16,10 +16,10 @@ ms.workload: infrastructure-services
 ms.date: 02/07/2020
 ms.author: kumud
 ms.openlocfilehash: c8fdba59a8d31c064745c7a1904204359b386a7f
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/25/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96015929"
 ---
 # <a name="configure-a-private-ip-address-for-a-vm-using-the-azure-portal"></a>Configurare un indirizzo IP privato per una macchina virtuale usando il portale di Azure
@@ -58,7 +58,7 @@ Per creare una VM denominata *DNS01* nella subnet *frontend* di una rete virtual
     | **Nome macchina virtuale** | *DNS01* |
     | **Area** | **(Stati Uniti) Stati Uniti orientali** |
     | **Immagine** | **Windows Server 2019 Datacenter** |
-    | **Size** | **Dimensioni della macchina virtuale** di **B1ls**, **offerta** **standard** |
+    | **Dimensioni** | **Dimensioni della macchina virtuale** di **B1ls**, **offerta** **standard** |
     | **Nome utente** | Nome utente dell'account amministratore |
     | **Password** | Password per il nome utente dell'account amministratore |
     | **Conferma password** | Nuovamente la password |

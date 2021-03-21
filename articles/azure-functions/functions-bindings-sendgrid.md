@@ -7,10 +7,10 @@ ms.custom: devx-track-csharp
 ms.date: 11/29/2017
 ms.author: cshoe
 ms.openlocfilehash: b3d09ec4c4ab578a87f0d983c0f243bee2a84597
-ms.sourcegitcommit: 9889a3983b88222c30275fd0cfe60807976fd65b
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/20/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94991231"
 ---
 # <a name="azure-functions-sendgrid-bindings"></a>Associazioni di SendGrid di Funzioni di Azure
@@ -365,7 +365,7 @@ Nella tabella seguente sono elencate le proprietà di configurazione dell'associ
 | apiKey | ApiKey | Il nome di un'impostazione dell'app che contiene la chiave API. Se non è impostato, il nome predefinito dell'impostazione dell'app è *AzureWebJobsSendGridApiKey*.| No |
 | to| A | Indirizzo e-mail del destinatario. | Sì |
 | da| Da | Indirizzo di posta elettronica del mittente. |  Sì |
-| subject| Subject | Oggetto del messaggio di posta elettronica. | Sì |
+| subject| Oggetto | Oggetto del messaggio di posta elettronica. | Sì |
 | text| Testo | Contenuto del messaggio di posta elettronica. | Sì |
 
 Le proprietà facoltative possono avere valori predefiniti definiti nell'associazione e aggiunti o sottoposti a override a livello di codice.

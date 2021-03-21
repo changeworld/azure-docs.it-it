@@ -5,10 +5,10 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 05/08/2020
 ms.openlocfilehash: a7baa9340a1f0a99b94bfcbe535c73d0b502e2a0
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/28/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98933064"
 ---
 # <a name="interactive-query-cluster-sizing-guide-in-azure-hdinsight"></a>Guida al dimensionamento di cluster Interactive Query in Azure HDInsight
@@ -27,7 +27,7 @@ Questo documento descrive il dimensionamento del cluster Interactive Query in HD
 
 I valori di configurazione consigliati sono basati sul nodo di lavoro di tipo D14 V2.
 
-| Chiave | valore | Descrizione |
+| Chiave | Valore | Descrizione |
 |---|---|---|
 | yarn.nodemanager.resource.memory-mb | 102400 (MB) | Memoria totale assegnata, in MB, per tutti i contenitori YARN in un nodo. |
 | yarn.scheduler.maximum-allocation-mb | 102400 (MB) | L'allocazione massima per ogni richiesta di contenitori in Resource Manager, in MB. Le richieste di memoria superiori a questo valore non avranno effetto. |

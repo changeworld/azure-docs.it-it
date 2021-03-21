@@ -4,10 +4,10 @@ description: Informazioni su come configurare il ripristino di emergenza in Azur
 ms.topic: conceptual
 ms.date: 08/05/2019
 ms.openlocfilehash: 36e11bfe5354644f9ef6603ffe20cb2e86074323
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/25/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96016906"
 ---
 # <a name="replicate-azure-stack-vms-to-azure"></a>Replicare le macchine virtuali di Azure Stack in Azure
@@ -316,7 +316,7 @@ Eseguire quindi un failover come indicato di seguito:
 
 Quando il sito primario è operativo, è possibile eseguire il failback da Azure ad Azure Stack. A tale scopo, seguire i passaggi elencati [qui](/azure-stack/operator/site-recovery-failback?view=azs-2005).
 
-## <a name="conclusion"></a>Conclusioni
+## <a name="conclusion"></a>Conclusione
 
 In questo articolo le macchine virtuali di Azure Stack sono state replicate in Azure. Dopo che la replica è stata completata, è stato eseguito un ripristino di emergenza per verificare che il failover in Azure funzioni come previsto. L'articolo contiene anche i passaggi per eseguire un failover completo in Azure e per eseguire il failback in Azure Stack.
 

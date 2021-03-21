@@ -11,19 +11,19 @@ ms.topic: conceptual
 ms.custom: mvc
 ms.date: 10/24/2019
 ms.openlocfilehash: 5e3b6802bab2c5fae97be8e55c8d5c11ff570f78
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/17/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94651313"
 ---
 # <a name="keep-track-of-data-during-hunting-with-azure-sentinel"></a>Tenere traccia dei dati durante la ricerca con Azure Sentinel
 
 Per la ricerca di minacce è in genere necessario esaminare le montagne dei dati di log per verificare la presenza di comportamenti dannosi. Durante questo processo, gli investigatori trovano gli eventi che vogliono ricordare, rivedere e analizzare come parte della convalida di potenziali ipotesi e la comprensione della storia completa di un compromesso.
 
-I segnalibri di Hunting in Azure Sentinel consentono di eseguire questa operazione, conservando le query eseguite in **Azure Sentinel-logs**, insieme ai risultati della query ritenuti rilevanti. È anche possibile registrare le osservazioni contestuali e fare riferimento ai risultati aggiungendo note e tag. I dati con segnalibro sono visibili all'utente e ai colleghi per una facile collaborazione.
+I segnalibri di Hunting in Azure Sentinel consentono di eseguire questa operazione, conservando le query eseguite in **Azure Sentinel-logs**, insieme ai risultati della query ritenuti rilevanti. È anche possibile registrare le osservazioni contestuali e informazioni di riferimento sui risultati aggiungendo note e tag. I dati con segnalibro sono visibili per l'utente che li aggiunge e i colleghi per facilitare la collaborazione.
 
-È possibile rivedere i dati con segnalibro in qualsiasi momento nella scheda **segnalibri** del riquadro di **ricerca** . È possibile utilizzare le opzioni di filtro e di ricerca per trovare rapidamente dati specifici per l'analisi corrente. In alternativa, è possibile visualizzare i dati con segnalibro direttamente nella tabella **HuntingBookmark** dell'area di lavoro log Analytics. Ad esempio:
+È possibile rivedere i dati con segnalibro in qualsiasi momento nella scheda **segnalibri** del riquadro di **ricerca** . Sono disponibili opzioni di filtro e di ricerca per trovare rapidamente dati specifici per l'indagine in corso. In alternativa, è possibile visualizzare i dati con segnalibro direttamente nella tabella **HuntingBookmark** dell'area di lavoro log Analytics. Ad esempio:
 
 > [!div class="mx-imgBorder"]
 > ![Visualizza tabella HuntingBookmark](./media/bookmarks/bookmark-table.png)
@@ -67,7 +67,7 @@ Inoltre, in anteprima, è possibile visualizzare i dati con segnalibro, facendo 
 
  
 > [!NOTE]
-> I risultati della query di log supportano i segnalibri ogni volta che questo riquadro viene aperto da Azure Sentinel. Ad esempio, si selezionano i **General**  >  **log** generali dalla barra di spostamento, si selezionano i collegamenti degli eventi nel grafico indagini oppure si seleziona un ID avviso tra i dettagli completi di un evento imprevisto (attualmente in anteprima). Non è possibile creare segnalibri quando il riquadro **log** è aperto da altri percorsi, ad esempio direttamente da monitoraggio di Azure.
+> I risultati della query di log supportano i segnalibri ogni volta che questo riquadro viene aperto da Azure Sentinel. Ad esempio, si selezionano i   >  **log** generali dalla barra di spostamento, si selezionano i collegamenti degli eventi nel grafico indagini oppure si seleziona un ID avviso tra i dettagli completi di un evento imprevisto (attualmente in anteprima). Non è possibile creare segnalibri quando il riquadro **log** è aperto da altri percorsi, ad esempio direttamente da monitoraggio di Azure.
 
 ## <a name="view-and-update-bookmarks"></a>Visualizzare e aggiornare i segnalibri 
 
@@ -122,13 +122,13 @@ Per visualizzare il segnalibro nell'evento imprevisto: passare a **Sentinel**  >
 
 ## <a name="view-bookmarked-data-in-logs"></a>Visualizzare i dati con segnalibro nei log
 
-Per visualizzare le query con segnalibro, i risultati o la cronologia, selezionare il segnalibro dalla **Hunting**  >  scheda **segnalibri** caccia e usare i collegamenti disponibili nel riquadro dei dettagli: 
+Per visualizzare le query con segnalibro, i risultati o la cronologia, selezionare il segnalibro dalla   >  scheda **segnalibri** caccia e usare i collegamenti disponibili nel riquadro dei dettagli: 
 
 - Consente di **visualizzare** la query di origine per visualizzare la query di origine nel riquadro **log** .
 
 - **Visualizzare i log dei segnalibri** per visualizzare tutti i metadati dei segnalibri, che includono chi ha eseguito l'aggiornamento, i valori aggiornati e l'ora in cui si è verificato l'aggiornamento.
 
-È anche possibile visualizzare i dati dei segnalibri non elaborati per tutti i segnalibri selezionando i **log dei segnalibri** nella barra dei comandi nella **Hunting**  >  scheda **segnalibri** di caccia:
+È anche possibile visualizzare i dati dei segnalibri non elaborati per tutti i segnalibri selezionando i **log dei segnalibri** nella barra dei comandi nella   >  scheda **segnalibri** di caccia:
 
 > [!div class="mx-imgBorder"]
 > ![Segnalibri-log](./media/bookmarks/bookmark-logs.png)

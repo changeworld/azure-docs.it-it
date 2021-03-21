@@ -8,10 +8,10 @@ ms.date: 12/17/2020
 ms.author: cachai
 ms.custom: ''
 ms.openlocfilehash: 2a480f25821f5022295b18ca24abfd2c0fb8a50c
-ms.sourcegitcommit: 6e2d37afd50ec5ee148f98f2325943bafb2f4993
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/23/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97746525"
 ---
 # <a name="rabbitmq-bindings-for-azure-functions-overview"></a>Cenni preliminari sulle associazioni RabbitMQ per funzioni di Azure
@@ -21,7 +21,7 @@ ms.locfileid: "97746525"
 
 Funzioni di Azure si integra con [RabbitMQ](https://www.rabbitmq.com/) tramite [trigger e associazioni](./functions-triggers-bindings.md). L'estensione RabbitMQ di funzioni di Azure consente di inviare e ricevere messaggi usando l'API RabbitMQ con le funzioni.
 
-| Azione | Type |
+| Azione | Tipo |
 |---------|---------|
 | Esegui una funzione quando un messaggio RabbitMQ passa attraverso la coda | [Trigger](./functions-bindings-rabbitmq-trigger.md) |
 | Invia messaggi RabbitMQ |[Binding di output](./functions-bindings-rabbitmq-output.md) |
@@ -34,7 +34,7 @@ Per iniziare a sviluppare con questa estensione, assicurarsi di [configurare pri
 
 Per utilizzare il trigger e le associazioni è necessario fare riferimento al pacchetto appropriato. Il pacchetto NuGet viene usato per le librerie di classi .NET mentre il bundle di estensione viene usato per tutti gli altri tipi di applicazioni.
 
-| Linguaggio                                        | Aggiungi da...                                   | Osservazioni
+| Linguaggio                                        | Aggiungi da...                                   | Commenti
 |-------------------------------------------------|---------------------------------------------|-------------|
 | C#                                              | Installazione del [pacchetto NuGet]versione 4. x | |
 | Script C#, Java, JavaScript, Python, PowerShell | Registrazione del [bundle di estensione]          | L' [estensione degli strumenti di Azure] è consigliata per l'uso con Visual Studio Code. |

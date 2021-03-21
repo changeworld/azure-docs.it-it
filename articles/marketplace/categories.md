@@ -8,10 +8,10 @@ author: trkeya
 ms.author: trkeya
 ms.date: 11/16/2020
 ms.openlocfilehash: 5042c6801678f94c749454dac28eec56fdcb7559
-ms.sourcegitcommit: c2dd51aeaec24cd18f2e4e77d268de5bcc89e4a7
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/18/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94811042"
 ---
 # <a name="categories-and-subcategories-in-the-commercial-marketplace"></a>Categorie e sottocategorie nel Marketplace commerciale
@@ -31,8 +31,8 @@ Questa tabella mostra le categorie e le sottocategorie primarie mappate ad Azure
 
 | Categoria primaria | Subcategory |
 | ------------ | ------------- |
-| Intelligenza artificiale e Machine Learning | Funzionalità automatiche di Machine Learning<br>Servizi bot<br>Automazione di processi aziendali/robotici<br>Servizi cognitivi<br>Assegnazione di etichette ai dati<br>Preparazione dei dati<br>Knowledge mining<br>Operazioni ML<br>Servizio ML |
-| Analytics | Big Data<br>Analisi dei dati<br>Informazioni dettagliate sui dati<br>Analisi predittiva<br>Analisi di flusso e in tempo reale |
+| Intelligenza artificiale e Machine Learning | Funzionalità automatiche di Machine Learning<br>Servizi Bot<br>Automazione di processi aziendali/robotici<br>Servizi cognitivi<br>Assegnazione di etichette ai dati<br>Preparazione dei dati<br>Knowledge mining<br>Operazioni ML<br>Servizio ML |
+| Analisi | Big Data<br>Analisi dei dati<br>Informazioni dettagliate sui dati<br>Analisi predittiva<br>Analisi di flusso e in tempo reale |
 | Blockchain | Acceleratori di app<br>Ledger a più nodi<br>Ledger a nodo singolo<br>Strumenti |
 | Calcolo | Infrastruttura applicativa<br>Cache<br>Sistemi operativi |
 | Contenitori | App contenitore<br>Immagini contenitore<br>Introduzione ai contenitori |
@@ -60,7 +60,7 @@ Questa tabella mostra le categorie e le sottocategorie primarie mappate a Micros
 | Categoria primaria | Subcategory |
 | ------------ | ------------- |
 | Intelligenza artificiale e Machine Learning | Intelligenza artificiale per le aziende<br>App bot |
-| Analytics | Analisi avanzata<br>Visualizzazione & Reporting |
+| Analisi | Analisi avanzata<br>Visualizzazione & Reporting |
 | Collaborazione | Contattare & persone<br>Gestione delle riunioni<br>Progettazione di siti & gestione<br>Gestione dei progetti & attività<br>Videoconferenza di Voice & video |
 | Conformità & legali | Dati, governance & privacy<br>Sicurezza & integrità<br>Legale<br>Controllo imposta & |
 | Customer Service | Back Office & Employee Service<br>Centro contatti<br>Servizio facet<br>Gestione case & Knowledge base<br>Social media & Engagement omnicanale |
@@ -69,7 +69,7 @@ Questa tabella mostra le categorie e le sottocategorie primarie mappate a Micros
 | Human Resources | Operazioni HR<br>Acquisizione del talento<br>Gestione dei talent<br>Pianificazione della forza lavoro & analisi |
 | Internet delle cose | Operazioni di & di gestione delle risorse<br>Prodotti connessi<br>Supply Chain intelligente<br>Manutenzione predittiva<br>Monitoraggio remoto<br>Sicurezza & sicurezza<br>Risorse & di infrastruttura intelligenti<br>Veicoli & mobilità |
 | Strumenti di gestione & IT | Applicazioni aziendali<br>Soluzioni di gestione |
-| Marketing | Annuncio pubblicitario<br>Analytics<br>Gestione delle campagne & automazione<br>Marketing tramite posta elettronica<br>Eventi & gestione delle risorse<br>Research & Analytics<br>Social media |
+| Marketing | Annuncio pubblicitario<br>Analisi<br>Gestione delle campagne & automazione<br>Marketing tramite posta elettronica<br>Eventi & gestione delle risorse<br>Research & Analytics<br>Social media |
 | Operatore & Supply Chain | Gestione della produzione di asset &<br>Previsione della domanda<br>Connettività & Information Management<br>Pianificazione, acquisto & Reporting<br>Gestione dei servizi di & qualità<br>Gestione ordini di vendita &<br>Gestione del trasporto & warehouse |
 | Produttività | Gestione & di creazione di contenuti<br>Gestione documentale<br>Gestione della posta elettronica<br>Gamification<br>Traduzione & lingua<br>Cerca & di riferimento |
 | Sales | Arricchimento dei dati aziendali<br>Configure, price, quote (CPQ)<br>Gestione dei contratti<br>CRM<br>E-Commerce<br>Abilitazione vendite<br>TELESALES |

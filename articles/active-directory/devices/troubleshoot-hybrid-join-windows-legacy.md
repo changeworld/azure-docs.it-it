@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jairoc
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 18104f06e779046786a2c7794736d01c35139490
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 2611a29ffcfdeb805934eacc54181515ec44f38c
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100365804"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104578040"
 ---
 # <a name="troubleshooting-hybrid-azure-active-directory-joined-down-level-devices"></a>Risoluzione dei problemi relativi a dispositivi di livello inferiore aggiunti all'identità ibrida di Azure Active Directory 
 
@@ -39,7 +39,7 @@ Questo articolo fornisce indicazioni sulla risoluzione di potenziali problemi.
 **Cosa è necessario sapere:** 
 
 - L'aggiunta ad Azure AD ibrido per i dispositivi Windows di livello inferiore funziona in modo leggermente diverso rispetto a Windows 10. Molti clienti non si rendono conto di dover configurare AD FS (per i domini federati) o Seamless SSO (per i domini gestiti).
-- L'accesso SSO facile non funziona in modalità di esplorazione privata nei browser Firefox e Microsoft Edge. Non funziona nemmeno in Internet Explorer se il browser è in esecuzione in modalità protetta avanzata.
+- L'accesso SSO facile non funziona in modalità di esplorazione privata nei browser Firefox e Microsoft Edge. Inoltre, non funziona in Internet Explorer se il browser è in esecuzione in modalità protetta avanzata o se è abilitata la configurazione della sicurezza avanzata.
 - Per i clienti con domini federati, se il punto di connessione del servizio (SCP) è stato configurato in modo da puntare al nome del dominio gestito (ad esempio, contoso.onmicrosoft.com invece di contoso.com), l'aggiunta ad Azure AD ibrido per i dispositivi Windows di livello inferiore non funzionerà.
 - Lo stesso dispositivo fisico viene visualizzato più volte in Azure AD quando più utenti di dominio accedono ai dispositivi di livello inferiore aggiunti ad Azure AD ibrido.  Ad esempio: se *jdoe* e *jharnett* accedono a questo dispositivo, viene creata una registrazione separata (DeviceID) per ciascuno di questi utenti nella scheda di informazioni **UTENTE**. 
 - È anche possibile ottenere più voci per un dispositivo nella scheda delle informazioni sull'utente in seguito a una reinstallazione del sistema operativo o a una nuova registrazione manuale.

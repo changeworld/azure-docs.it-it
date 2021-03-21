@@ -6,10 +6,10 @@ ms.topic: how-to
 ms.reviewer: ravastra
 ms.custom: contperf-fy21q3
 ms.openlocfilehash: 42d16adbc5e6396c8d5d38176ac7681c712f4555
-ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/04/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102101104"
 ---
 # <a name="deploy-hyperledger-fabric-consortium-on-azure-kubernetes-service"></a>Distribuire il Consorzio di infrastruttura iperledger nel servizio Azure Kubernetes
@@ -317,7 +317,7 @@ Eseguire il comando seguente per installare chaincode nell'organizzazione peer.
 ```
 Il comando installerà chaincode su tutti i nodi peer del set di organizzazioni peer nella `ORGNAME` variabile di ambiente. Se due o più organizzazioni peer si trovano nel canale e si vuole installare chaincode su tutti, eseguire questo comando separatamente per ogni organizzazione peer.  
 
-Seguire questa procedura:  
+A tale scopo, seguire questa procedura:  
 
 1.  Impostare `ORGNAME` e `USER_IDENTITY` in base a `peerOrg1` ed eseguire il `./azhlf chaincode install` comando.  
 2.  Impostare `ORGNAME` e `USER_IDENTITY` in base a `peerOrg2` ed eseguire il `./azhlf chaincode install` comando.  

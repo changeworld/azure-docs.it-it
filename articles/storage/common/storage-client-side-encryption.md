@@ -10,12 +10,12 @@ ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 9d00b6aa09ef19b1e6892e0e90536e45dd3bce79
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 02607c219cf39a20a40854632e961b3ce199d0d3
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101718523"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104588257"
 ---
 # <a name="client-side-encryption-and-azure-key-vault-for-microsoft-azure-storage"></a>Crittografia lato client e Insieme di credenziali chiave Azure per Archiviazione di Microsoft Azure
 
@@ -132,7 +132,7 @@ Per l'integrazione Key Vault sono necessari due pacchetti:
 * Azure. core contiene le `IKeyEncryptionKey` `IKeyEncryptionKeyResolver` interfacce e. La libreria client di archiviazione per .NET lo definisce già come dipendenza.
 * Azure. Security. Key Vault. Keys (v4. x) contiene il client REST di Key Vault, nonché i client crittografici usati con la crittografia lato client.
 
-L’insieme di credenziali chiave è progettato per chiavi master di valore elevato e la soglia di limitazione per ogni insieme di credenziali chiave è progettata considerando questo fattore. A partire da Azure. Security. Key Vault. Keys 4.1.0, non esiste un' `IKeyEncryptionKeyResolver` implementazione che supporta la memorizzazione nella cache delle chiavi. Se la memorizzazione nella cache è necessaria a causa della limitazione, [questo esempio](https://docs.microsoft.com/samples/azure/azure-sdk-for-net/azure-key-vault-proxy/) può essere seguito per inserire un livello di memorizzazione nella cache in un' `Azure.Security.KeyVault.Keys.Cryptography.KeyResolver` istanza di.
+L’insieme di credenziali chiave è progettato per chiavi master di valore elevato e la soglia di limitazione per ogni insieme di credenziali chiave è progettata considerando questo fattore. A partire da Azure. Security. Key Vault. Keys 4.1.0, non esiste un' `IKeyEncryptionKeyResolver` implementazione che supporta la memorizzazione nella cache delle chiavi. Se la memorizzazione nella cache è necessaria a causa della limitazione, [questo esempio](/samples/azure/azure-sdk-for-net/azure-key-vault-proxy/) può essere seguito per inserire un livello di memorizzazione nella cache in un' `Azure.Security.KeyVault.Keys.Cryptography.KeyResolver` istanza di.
 
 # <a name="net-v11"></a>[.NET v11](#tab/dotnet11)
 

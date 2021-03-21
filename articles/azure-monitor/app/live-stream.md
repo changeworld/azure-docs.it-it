@@ -5,10 +5,10 @@ ms.topic: conceptual
 ms.date: 04/22/2019
 ms.reviewer: sdash
 ms.openlocfilehash: 865de94f1d9b4012a908643bbf87f38aeb8594a0
-ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/22/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98679467"
 ---
 # <a name="live-metrics-stream-monitor--diagnose-with-1-second-latency"></a>Live Metrics Stream: monitorare e diagnosticare con una latenza di 1 secondo
@@ -115,7 +115,7 @@ Mentre l'esempio precedente è per un'app console, lo stesso codice può essere 
 |**Latency**|Dati visualizzati in un secondo|Aggregati in minuti|
 |**Nessuna conservazione**|I dati vengono mantenuti finché si trovano nel grafico, poi vengono eliminati|[Dati mantenuti per 90 giorni](./data-retention-privacy.md#how-long-is-the-data-kept)|
 |**Su richiesta**|I dati vengono trasmessi solo quando il riquadro metriche attive è aperto |I dati vengono inviati ogni volta che l'SDK viene installato e attivato|
-|**Gratuito**|Non sono previste spese per i dati di Live Stream|Soggetto al [piano tariffario](./pricing.md)
+|**Free**|Non sono previste spese per i dati di Live Stream|Soggetto al [piano tariffario](./pricing.md)
 |**Campionamento**|Tutte le metriche selezionate e i contatori vengono trasmessi. Gli errori e le analisi dello stack vengono usati come esempi. |Eventi potrebbero essere usati come [esempi](./api-filtering-sampling.md)|
 |**Canale di controllo**|I segnali di controllo del filtro vengono inviati all'SDK. È consigliabile proteggere questo canale.|La comunicazione è unidirezionale, al portale|
 
@@ -185,7 +185,7 @@ Nel file applicationinsights.config aggiungere AuthenticationApiKey a QuickPulse
 
 Per [ASP.NET Core](./asp-net-core.md) applicazioni, seguire le istruzioni riportate di seguito.
 
-Modificare `ConfigureServices` il file startup.cs nel modo seguente:
+Modificare `ConfigureServices` il file startup. cs come indicato di seguito:
 
 Aggiungere lo spazio dei nomi seguente.
 

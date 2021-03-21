@@ -8,10 +8,10 @@ ms.date: 11/19/2020
 ms.author: ramakoni
 ms.custom: security-recommendations,fasttrack-edit
 ms.openlocfilehash: 989f47c0ff60865a8e8be15e089cdcf96ab2550c
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/20/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94968299"
 ---
 # <a name="troubleshooting-intermittent-outbound-connection-errors-in-azure-app-service"></a>Risoluzione degli errori di connessione in uscita intermittenti nel servizio app Azure
@@ -125,7 +125,7 @@ Sebbene PHP non supporti il pool di connessioni, è possibile provare a usare co
 
 Evitare i limiti TCP in uscita è più semplice da risolvere, poiché i limiti vengono impostati dalle dimensioni del ruolo di lavoro. È possibile visualizzare i limiti nei [limiti numerici di sandbox tra macchine virtuali-connessioni TCP](https://github.com/projectkudu/kudu/wiki/Azure-Web-App-sandbox#cross-vm-numerical-limits)
 
-|Nome limite|Description|Piccolo (a1)|Media (a2)|Grande (a3)|Livello isolato (ASE)|
+|Nome limite|Descrizione|Piccolo (a1)|Media (a2)|Grande (a3)|Livello isolato (ASE)|
 |---|---|---|---|---|---|
 |Connessioni|Numero di connessioni nell'intera VM|1920|3968|8064|16.000|
 
@@ -157,7 +157,7 @@ Le connessioni TCP e le porte SNAT non sono direttamente correlate. Un rilevator
 * Il limite di connessioni TCP si verifica a livello di istanza di lavoro. Il bilanciamento del carico in uscita rete di Azure non usa la metrica connessioni TCP per la limitazione delle porte SNAT.
 * I limiti delle connessioni TCP sono descritti in [limiti numerici di sandbox tra macchine virtuali-connessioni TCP](https://github.com/projectkudu/kudu/wiki/Azure-Web-App-sandbox#cross-vm-numerical-limits)
 
-|Nome limite|Description|Piccolo (a1)|Media (a2)|Grande (a3)|Livello isolato (ASE)|
+|Nome limite|Descrizione|Piccolo (a1)|Media (a2)|Grande (a3)|Livello isolato (ASE)|
 |---|---|---|---|---|---|
 |Connessioni|Numero di connessioni nell'intera VM|1920|3968|8064|16.000|
 

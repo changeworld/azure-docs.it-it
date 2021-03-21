@@ -4,10 +4,10 @@ description: Viene descritta la procedura per arrestare automaticamente una macc
 ms.topic: article
 ms.date: 09/29/2020
 ms.openlocfilehash: 248bbeabaf704ba636e2f82c7a93d0ee90a09f22
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/17/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94647699"
 ---
 # <a name="guide-to-controlling-windows-shutdown-behavior"></a>Guida al controllo del comportamento di arresto di Windows

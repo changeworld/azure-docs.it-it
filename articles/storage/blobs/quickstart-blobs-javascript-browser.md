@@ -9,10 +9,10 @@ ms.subservice: blobs
 ms.topic: quickstart
 ms.custom: devx-track-js
 ms.openlocfilehash: 998d49e91d38a1f2fdc2503165ee99635e153027
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
-ms.translationtype: HT
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/25/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96001899"
 ---
 <!-- Customer intent: As a web application developer I want to interface with Azure Blob storage entirely on the client so that I can build a SPA application that is able to upload and delete files on blob storage. -->
@@ -74,7 +74,7 @@ Selezionare l'account di archiviazione nel portale di Azure. Per definire una nu
 
 La tabella seguente descrive ogni impostazione CORS e spiega i valori usati per definire la regola.
 
-|Impostazione  |valore  | Descrizione |
+|Impostazione  |Valore  | Descrizione |
 |---------|---------|---------|
 | **ORIGINI CONSENTITE** | **\** _ | Accetta un elenco delimitato da virgole dei domini impostati come origini accettabili. Impostando il valore su `_`, tutti i domini potranno accedere all'account di archiviazione. |
 | **METODI CONSENTITI** | **DELETE**, **GET**, **HEAD**, **MERGE**, **POST**, **OPTIONS** e **PUT** | Elenca i verbi HTTP che possono essere eseguiti sull'account di archiviazione. Ai fini di questa guida introduttiva, selezionare tutte le opzioni disponibili. |
