@@ -6,10 +6,10 @@ ms.topic: conceptual
 ms.date: 10/27/2020
 ms.author: tomfitz
 ms.openlocfilehash: 1ac6fd5a3f1e581fc9a676fe7f8f27b9742e1581
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93101222"
 ---
 # <a name="microsoftkeyvaultkeyvaultcertificateselector-ui-element"></a>Elemento Microsoft. KeyVaultCertificateSelector dell'interfaccia utente
@@ -22,13 +22,13 @@ All'utente viene visualizzata l'opzione per selezionare un certificato disponibi
 
 :::image type="content" source="./media/managed-application-elements/microsoft-keyvault-keyvaultcertificateselector-select.png" alt-text="Microsoft. Vault. KeyVaultCertificateSelector":::
 
-Dopo aver selezionato **Seleziona un certificato** , l'utente può specificare un insieme di credenziali delle chiavi e un certificato dall'insieme di credenziali delle chiavi.
+Dopo aver selezionato **Seleziona un certificato**, l'utente può specificare un insieme di credenziali delle chiavi e un certificato dall'insieme di credenziali delle chiavi.
 
-:::image type="content" source="./media/managed-application-elements/microsoft-keyvault-keyvaultcertificateselector-certificate.png" alt-text="Microsoft. Vault. KeyVaultCertificateSelector":::
+:::image type="content" source="./media/managed-application-elements/microsoft-keyvault-keyvaultcertificateselector-certificate.png" alt-text="Microsoft. Vault. KeyVaultCertificateSelector selezionare il certificato":::
 
 Il controllo viene aggiornato per visualizzare l'insieme di credenziali delle chiavi selezionato e il nome del certificato.
 
-:::image type="content" source="./media/managed-application-elements/microsoft-keyvault-keyvaultcertificateselector-result.png" alt-text="Microsoft. Vault. KeyVaultCertificateSelector":::
+:::image type="content" source="./media/managed-application-elements/microsoft-keyvault-keyvaultcertificateselector-result.png" alt-text="Microsoft. Vault. KeyVaultCertificateSelector Mostra il certificato selezionato":::
 
 ## <a name="schema"></a>SCHEMA
 

@@ -12,10 +12,10 @@ ms.author: lazzeri
 ms.reviewer: cgronlun
 ms.date: 05/07/2020
 ms.openlocfilehash: 27b18fdc2dda40f8361483e6ecce28d0ccbd0310
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93308225"
 ---
 # <a name="how-to-select-algorithms-for-azure-machine-learning"></a>Come selezionare gli algoritmi per Azure Machine Learning
@@ -30,7 +30,7 @@ Una domanda comune è "quale algoritmo di Machine Learning è necessario usare?"
 
 ## <a name="business-scenarios-and-the-machine-learning-algorithm-cheat-sheet"></a>Scenari aziendali e il foglio informativo sugli algoritmi di Machine Learning
 
-Il [foglio](./algorithm-cheat-sheet.md?WT.mc_id=docs-article-lazzeri) informativo sugli algoritmi di Azure Machine Learning consente di considerare la prima considerazione: **cosa si vuole fare con i dati** ? Nel foglio informativo sull'algoritmo Machine Learning cercare l'attività da eseguire e quindi trovare un algoritmo di [Azure machine learning designer](./concept-designer.md?WT.mc_id=docs-article-lazzeri) per la soluzione di analisi predittiva. 
+Il [foglio](./algorithm-cheat-sheet.md?WT.mc_id=docs-article-lazzeri) informativo sugli algoritmi di Azure Machine Learning consente di considerare la prima considerazione: **cosa si vuole fare con i dati**? Nel foglio informativo sull'algoritmo Machine Learning cercare l'attività da eseguire e quindi trovare un algoritmo di [Azure machine learning designer](./concept-designer.md?WT.mc_id=docs-article-lazzeri) per la soluzione di analisi predittiva. 
 
 Machine Learning Designer fornisce un portfolio completo di algoritmi, ad esempio una [foresta delle decisioni multiclasse](./algorithm-module-reference/multiclass-decision-forest.md?WT.mc_id=docs-article-lazzeri), [sistemi di raccomandazione](./algorithm-module-reference/evaluate-recommender.md?WT.mc_id=docs-article-lazzeri), [regressione della rete neurale](./algorithm-module-reference/neural-network-regression.md?WT.mc_id=docs-article-lazzeri), [rete neurale multiclasse](./algorithm-module-reference/multiclass-neural-network.md?WT.mc_id=docs-article-lazzeri)e [clustering K-means](./algorithm-module-reference/k-means-clustering.md?WT.mc_id=docs-article-lazzeri). Ogni algoritmo è progettato per risolvere un tipo diverso di problema di machine learning. Per un elenco completo e per informazioni sul funzionamento di ciascun algoritmo e su come ottimizzare i parametri per ottimizzare l'algoritmo, vedere la documentazione di riferimento per l' [algoritmo e il modulo di machine learning designer](./algorithm-module-reference/module-reference.md?WT.mc_id=docs-article-lazzeri) .
 
@@ -62,7 +62,7 @@ Nella tabella seguente sono riepilogate alcune delle principali caratteristiche 
 | [Rete neurale multiclasse](./algorithm-module-reference/multiclass-neural-network.md?WT.mc_id=docs-article-lazzeri) |Buono |Moderato |No |8 | |
 | [Una multiclasse One-vs-All](./algorithm-module-reference/one-vs-all-multiclass.md?WT.mc_id=docs-article-lazzeri) | - | - | - | - |Visualizzare le proprietà del metodo a due classi selezionato |
 | **Famiglia di regressione** | | | | | |
-| [Regressione lineare](./algorithm-module-reference/linear-regression.md?WT.mc_id=docs-article-lazzeri) |Buono |Veloce |Sì |4 | |
+| [Linear Regression](./algorithm-module-reference/linear-regression.md?WT.mc_id=docs-article-lazzeri) |Buono |Veloce |Sì |4 | |
 | [Regressione della foresta delle decisioni](./algorithm-module-reference/decision-forest-regression.md?WT.mc_id=docs-article-lazzeri)|Eccellente |Moderato |No |5 | |
 | [Regressione dell'albero delle decisioni con boosting](./algorithm-module-reference/boosted-decision-tree-regression.md?WT.mc_id=docs-article-lazzeri) |Eccellente |Moderato |No |6 |Footprint della memoria di grandi dimensioni |
 | [Regressione di rete neurale](./algorithm-module-reference/neural-network-regression.md?WT.mc_id=docs-article-lazzeri) |Buono |Moderato |No |8 | |
@@ -123,7 +123,7 @@ Gli algoritmi di regressione lineare ipotizzano che le tendenze dei dati seguano
 
 ![Limite di classe non lineare](./media/how-to-select-algorithms/nonlinear-class-boundary.png)
 
-*Il *_limite di classe non lineare_* _: _Relying in un algoritmo di classificazione lineare provocherebbe una bassa precisione. *
+*Il **limite di classe non lineare** _: _Relying in un algoritmo di classificazione lineare provocherebbe una bassa precisione. *
 
 ![Dati con una tendenza non lineare](./media/how-to-select-algorithms/nonlinear-trend.png)
 

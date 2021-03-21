@@ -10,10 +10,10 @@ author: likebupt
 ms.author: keli19
 ms.date: 04/22/2020
 ms.openlocfilehash: 809b1be4f9f12e1963ff5caeaacd109c84db154f
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93323664"
 ---
 # <a name="linear-regression-module"></a>Modulo di regressione lineare
@@ -41,7 +41,7 @@ Azure Machine Learning supporta un'ampia gamma di modelli di regressione, oltre 
 
 Per gli statistici degli anni sono stati sviluppati metodi sempre più avanzati per la regressione. Questo vale anche per la regressione lineare. Questo modulo supporta due metodi per misurare l'errore e adattarlo alla retta di regressione, ovvero al metodo dei minimi quadrati normali e alla discesa della sfumatura.
 
-- La **discesa sfumatura** è un metodo che riduce al minimo la quantità di errori in ogni passaggio del processo di training del modello. Esistono molte varianti del metodo dei valori descent con sfumatura e l'ottimizzazione di tale metodo per diversi problemi di apprendimento è stata oggetto di approfonditi studi. Se si sceglie questa opzione per il **metodo della soluzione** , è possibile impostare diversi parametri per controllare le dimensioni del passaggio, la velocità di apprendimento e così via. Questa opzione supporta anche l'uso di uno sweep di parametri integrato.
+- La **discesa sfumatura** è un metodo che riduce al minimo la quantità di errori in ogni passaggio del processo di training del modello. Esistono molte varianti del metodo dei valori descent con sfumatura e l'ottimizzazione di tale metodo per diversi problemi di apprendimento è stata oggetto di approfonditi studi. Se si sceglie questa opzione per il **metodo della soluzione**, è possibile impostare diversi parametri per controllare le dimensioni del passaggio, la velocità di apprendimento e così via. Questa opzione supporta anche l'uso di uno sweep di parametri integrato.
 
 - Il numero **minimo di quadrati** è una delle tecniche più diffuse nella regressione lineare. Ad esempio, i quadrati minimi sono il metodo usato nell'analisi strumenti per Microsoft Excel.
 
@@ -63,7 +63,7 @@ Questo modulo supporta due metodi per adattare un modello di regressione, con di
 
 1. Aggiungere il modulo **modello di regressione lineare** alla pipeline nella finestra di progettazione.
 
-    È possibile trovare questo modulo nella categoria **Machine Learning** . Espandere **Initialize Model** , espandere **regressione** , quindi trascinare il modulo **Linear regressione Model** nella pipeline.
+    È possibile trovare questo modulo nella categoria **Machine Learning** . Espandere **Initialize Model**, espandere **regressione**, quindi trascinare il modulo **Linear regressione Model** nella pipeline.
 
 2. Nell'elenco a discesa **Metodo soluzione** nel riquadro **Proprietà** selezionare i **quadrati minimi**. Questa opzione specifica il metodo di calcolo utilizzato per trovare la linea di regressione.
 
@@ -75,7 +75,7 @@ Questo modulo supporta due metodi per adattare un modello di regressione, con di
 
     Deselezionare questa opzione se non è necessario esaminare la formula di regressione.
 
-5. Per il valore di **inizializzazione del numero casuale** , è possibile digitare facoltativamente un valore per inizializzare il generatore di numeri casuali usato dal modello.
+5. Per il valore di **inizializzazione del numero casuale**, è possibile digitare facoltativamente un valore per inizializzare il generatore di numeri casuali usato dal modello.
 
     L'uso di un valore di inizializzazione è utile se si desidera mantenere gli stessi risultati in esecuzioni diverse della stessa pipeline. In caso contrario, l'impostazione predefinita prevede l'utilizzo di un valore dal clock di sistema.
 
@@ -96,22 +96,22 @@ Al termine del training:
 
 1. Aggiungere il modulo **modello di regressione lineare** alla pipeline nella finestra di progettazione.
 
-    È possibile trovare questo modulo nella categoria **Machine Learning** . Espandere **Inizializza modello** , espandere **regressione** e trascinare il modulo **modello di regressione lineare** nella pipeline
+    È possibile trovare questo modulo nella categoria **Machine Learning** . Espandere **Inizializza modello**, espandere **regressione** e trascinare il modulo **modello di regressione lineare** nella pipeline
 
 2. Nell'elenco a discesa **Metodo soluzione** nel riquadro **Proprietà** scegliere **discesa sfumatura online** come metodo di calcolo utilizzato per trovare la linea di regressione.
 
 3. Per la **modalità di creazione** di un trainer, indicare se si desidera eseguire il training del modello con un set di parametri predefinito oppure se si desidera ottimizzare il modello utilizzando uno sweep di parametri.
 
-    + **Singolo parametro** : se si sa come si vuole configurare la rete di regressione lineare, è possibile fornire un set di valori specifico come argomenti.
+    + **Singolo parametro**: se si sa come si vuole configurare la rete di regressione lineare, è possibile fornire un set di valori specifico come argomenti.
     
-    + **Intervallo parametri** : selezionare questa opzione se non si è certi dei parametri migliori e si vuole eseguire uno sweep di parametri. Selezionare un intervallo di valori di cui eseguire l'iterazione e l' [iperparametri del modello di ottimizzazione](tune-model-hyperparameters.md) esegue l'iterazione su tutte le combinazioni possibili delle impostazioni fornite per determinare gli iperparametri che producono i risultati ottimali.  
+    + **Intervallo parametri**: selezionare questa opzione se non si è certi dei parametri migliori e si vuole eseguire uno sweep di parametri. Selezionare un intervallo di valori di cui eseguire l'iterazione e l' [iperparametri del modello di ottimizzazione](tune-model-hyperparameters.md) esegue l'iterazione su tutte le combinazioni possibili delle impostazioni fornite per determinare gli iperparametri che producono i risultati ottimali.  
 
    
 4. Per la **velocità di apprendimento** specificare la velocità di apprendimento iniziale per l'utilità di ottimizzazione per la discesa con gradienti stocastici.
 
-5. Per **numero di epoche di training** , digitare un valore che indichi il numero di volte in cui l'algoritmo deve scorrere gli esempi. Per i set di dati con un numero limitato di esempi, questo numero deve essere elevato per raggiungere la convergenza.
+5. Per **numero di epoche di training**, digitare un valore che indichi il numero di volte in cui l'algoritmo deve scorrere gli esempi. Per i set di dati con un numero limitato di esempi, questo numero deve essere elevato per raggiungere la convergenza.
 
-6. **Normalizzare le funzionalità** : se i dati numerici utilizzati per il training del modello sono già stati normalizzati, è possibile deselezionare questa opzione. Per impostazione predefinita, il modulo normalizza tutti gli input numerici in un intervallo compreso tra 0 e 1.
+6. **Normalizzare le funzionalità**: se i dati numerici utilizzati per il training del modello sono già stati normalizzati, è possibile deselezionare questa opzione. Per impostazione predefinita, il modulo normalizza tutti gli input numerici in un intervallo compreso tra 0 e 1.
 
     > [!NOTE]
     > 
@@ -124,14 +124,14 @@ Al termine del training:
 
 9. Selezionare l'opzione **Diminuisci velocità di apprendimento** se si desidera che la velocità di apprendimento diminuisca con l'avanzamento delle iterazioni.  
 
-10. Per il valore di **inizializzazione del numero casuale** , è possibile digitare facoltativamente un valore per inizializzare il generatore di numeri casuali usato dal modello. L'uso di un valore di inizializzazione è utile se si desidera mantenere gli stessi risultati in esecuzioni diverse della stessa pipeline.
+10. Per il valore di **inizializzazione del numero casuale**, è possibile digitare facoltativamente un valore per inizializzare il generatore di numeri casuali usato dal modello. L'uso di un valore di inizializzazione è utile se si desidera mantenere gli stessi risultati in esecuzioni diverse della stessa pipeline.
 
 
 12. Eseguire il training del modello:
 
-    + Se si imposta la **modalità di creazione dell'allenatore** su un **singolo parametro** , connettere un set di dati con tag e il modulo [Train Model](train-model.md) .  
+    + Se si imposta la **modalità di creazione dell'allenatore** su un **singolo parametro**, connettere un set di dati con tag e il modulo [Train Model](train-model.md) .  
   
-    + Se si imposta la **modalità di creazione dell'allenatore** sull'intervallo di **parametri** , connettere un set di dati con tag ed eseguire il training del modello usando gli [iperparametri del modello di ottimizzazione](tune-model-hyperparameters.md).  
+    + Se si imposta la **modalità di creazione dell'allenatore** sull'intervallo di **parametri**, connettere un set di dati con tag ed eseguire il training del modello usando gli [iperparametri del modello di ottimizzazione](tune-model-hyperparameters.md).  
   
     > [!NOTE]
     > 

@@ -8,10 +8,10 @@ ms.subservice: cosmosdb-graph
 ms.topic: how-to
 ms.date: 07/02/2019
 ms.openlocfilehash: 569c87a7753fdb0d7b880d6856d7819ff8000ccb
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93129610"
 ---
 # <a name="visualize-graph-data-stored-in-azure-cosmos-db-gremlin-api-with-data-visualization-solutions"></a>Visualizzare i dati del grafo archiviati in Azure Cosmos DB API Gremlin con soluzioni di visualizzazione dei dati
@@ -27,11 +27,11 @@ ms.locfileid: "93129610"
 
 L'interfaccia interattiva di Linkurious Enterprise offre un modo semplice per esaminare i dati complessi. È possibile cercare entità specifiche, espandere le connessioni per individuare le relazioni nascoste e applicare i layout scelti per districare le reti complesse. Linkurious Enterprise è ora compatibile con Azure Cosmos DB API Gremlin. È adatto per scenari di visualizzazione dei grafici end-to-end e supporta le funzionalità di lettura e scrittura dall'interfaccia utente. È possibile richiedere una [demo di Linkurious con Azure Cosmos DB](https://linkurio.us/contact/)
 
-:::image type="content" source="./media/graph-visualization/linkurious-demo.gif" alt-text="Logo di Linkurious" border="false":::
+:::image type="content" source="./media/graph-visualization/linkurious-demo.gif" alt-text="Demo di Linkurious" border="false":::
 
 ## <a name="cambridge-intelligence"></a>Intelligence di Cambridge
 
-:::image type="content" source="./media/graph-visualization/ci-logo.png" alt-text="Logo di Linkurious" border="false":::
+:::image type="content" source="./media/graph-visualization/ci-logo.png" alt-text="Logo di Cambridge Intelligence" border="false":::
 
 I toolkit di visualizzazione Graph [di Cambridge Intelligence](https://cambridge-intelligence.com/products/) supportano ora Azure Cosmos DB. I due Toolkit di visualizzazione seguenti sono supportati da Azure Cosmos DB:
 
@@ -39,11 +39,11 @@ I toolkit di visualizzazione Graph [di Cambridge Intelligence](https://cambridge
 
 - [Ri-Graph per sviluppatori React](https://cambridge-intelligence.com/regraph/)
 
-:::image type="content" source="./media/graph-visualization/ci-demo-2.gif" alt-text="Logo di Linkurious" border="false":::
+:::image type="content" source="./media/graph-visualization/ci-demo-2.gif" alt-text="L'animazione mostra un esempio di visualizzazione di linee della riga a diversi livelli di dettaglio." border="false":::
 
 Questi toolkit consentono di progettare applicazioni di visualizzazione e analisi dei grafici ad alte prestazioni per il caso d'uso. Sfruttano potenti funzionalità di rendering Web Graphics Library (WebGL) e codice appositamente creato per offrire agli utenti un'esperienza di visualizzazione rapida e intuitiva. Questi strumenti sono compatibili con qualsiasi browser, dispositivo, server o database e sono disponibili esercitazioni dettagliate, API completamente documentate e demo interattive.
 
-:::image type="content" source="./media/graph-visualization/ci-demo-1.gif" alt-text="Logo di Linkurious" border="false":::
+:::image type="content" source="./media/graph-visualization/ci-demo-1.gif" alt-text="L'animazione mostra un esempio di visualizzazione Re-Graph a diversi livelli di dettaglio." border="false":::
 
 
 ## <a name="next-steps"></a>Passaggi successivi

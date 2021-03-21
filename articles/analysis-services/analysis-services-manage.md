@@ -8,10 +8,10 @@ ms.date: 10/28/2019
 ms.author: owend
 ms.reviewer: minewiskan
 ms.openlocfilehash: 91ffcac98b2b919a8fc131d235e699aad4fa215d
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93078901"
 ---
 # <a name="manage-analysis-services"></a>Gestire Analysis Services
@@ -39,10 +39,10 @@ Per ottenere tutte le funzionalità più recenti e un'esperienza ottimale quando
 1. Prima di connettersi, è necessario ottenere il nome del server. In **portale di Azure** > server > **Panoramica** > **Nome server** copiare il nome del server.
    
     ![Ottenere il nome del server in Azure](./media/analysis-services-deploy/aas-deploy-get-server-name.png)
-2. In SSMS > **Esplora oggetti** fare clic su **Connetti** > **Analysis Services** .
+2. In SSMS > **Esplora oggetti** fare clic su **Connetti** > **Analysis Services**.
 3. Nella finestra di dialogo **Connetti al server** incollare il nome del server e quindi in **Autenticazione** scegliere uno dei tipi di autenticazione seguenti:   
     > [!NOTE]
-    > È consigliato il tipo di autenticazione **Active Directory - Universale con supporto MFA** .
+    > È consigliato il tipo di autenticazione **Active Directory - Universale con supporto MFA**.
 
     > [!NOTE]
     > Se si accede con un account Microsoft, con un Live ID o con Yahoo, Gmail e così via, lasciare vuoto il campo della password. Dopo aver fatto clic su Connetti, è necessario specificare la password.

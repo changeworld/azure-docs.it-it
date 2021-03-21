@@ -10,10 +10,10 @@ ms.subservice: language-understanding
 ms.topic: reference
 ms.date: 04/13/2020
 ms.openlocfilehash: 83522de9c00056a3808b002b3103f45c72553399
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/25/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96013072"
 ---
 # <a name="datetimev2-prebuilt-entity-for-a-luis-app"></a>Entità predefinita DatetimeV2 per un'app LUIS
@@ -146,7 +146,7 @@ Ogni elemento della matrice `values` può contenere i campi seguenti:
 |timex|Ora, data o intervallo di date espressi nel formato TIMEX che segue lo [standard ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) e gli attributi TIMEX3 per l'annotazione con il linguaggio TimeML.|
 |mod|termine usato per descrivere come usare il valore, ad esempio `before` , `after` .|
 |tipo|Sottotipo, che può essere uno degli elementi seguenti: `datetime` , `date` , `time` , `daterange` , `timerange` , `datetimerange` , `duration` , `set` .|
-|Valore|**Opzionale.** Un oggetto DateTime nel formato AAAA-MM-GG (date), HH: mm: SS (Time) aaaa-MM-GG HH: mm: SS (DateTime). Se `type` è `duration`, il valore è il numero di secondi (durata) <br/> Usato solo se `type` è `datetime` oppure `date`, `time` o `duration.|
+|Valore|**Facoltativo.** Un oggetto DateTime nel formato AAAA-MM-GG (date), HH: mm: SS (Time) aaaa-MM-GG HH: mm: SS (DateTime). Se `type` è `duration`, il valore è il numero di secondi (durata) <br/> Usato solo se `type` è `datetime` oppure `date`, `time` o `duration.|
 
 ## <a name="valid-date-values"></a>Valori di daae validi
 

@@ -12,10 +12,10 @@ ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ms.openlocfilehash: c80a90b07e25942e751d52cafa47f6e3e94852ab
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93320341"
 ---
 # <a name="move-data-to-sql-server-on-an-azure-virtual-machine"></a>Spostamento dei dati in SQL Server in una macchina virtuale di Azure
@@ -29,7 +29,7 @@ Nella tabella seguente vengono riepilogate le opzioni per lo spostamento dei dat
 | <b>ORIGINE</b> | <b>DESTINAZIONE: SQL Server in VM di Azure</b> |
 | --- | --- |
 | <b>File flat</b> |1. <a href="#insert-tables-bcp">utilità per la copia bulk da riga di comando (BCP) </a><br> 2. <a href="#insert-tables-bulkquery">Inserimento di massa query SQL </a><br> 3. <a href="#sql-builtin-utilities">utilità predefinite grafiche in SQL Server</a> |
-| <b>Server SQL locale</b> |1. <a href="#deploy-a-sql-server-database-to-a-microsoft-azure-vm-wizard">distribuzione di un database di SQL Server in una procedura guidata Microsoft Azure macchina virtuale</a><br> 2. <a href="#export-flat-file">esportare in un file flat </a><br> 3. <a href="#sql-migration">Migrazione guidata database SQL </a> <br> 4. <a href="#sql-backup">Backup e ripristino database </a><br> |
+| <b>SQL Server locale</b> |1. <a href="#deploy-a-sql-server-database-to-a-microsoft-azure-vm-wizard">distribuzione di un database di SQL Server in una procedura guidata Microsoft Azure macchina virtuale</a><br> 2. <a href="#export-flat-file">esportare in un file flat </a><br> 3. <a href="#sql-migration">Migrazione guidata database SQL </a> <br> 4. <a href="#sql-backup">Backup e ripristino database </a><br> |
 
 In questo documento si presuppone che i comandi SQL vengano eseguiti da SQL Server Management Studio o Esplora database di Visual Studio.
 

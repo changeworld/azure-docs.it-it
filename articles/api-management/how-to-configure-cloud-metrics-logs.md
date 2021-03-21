@@ -13,10 +13,10 @@ ms.topic: article
 ms.date: 04/30/2020
 ms.author: apimpm
 ms.openlocfilehash: c420c62e6f8f09a2b29398590cdb4ad410e5d296
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/17/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100574062"
 ---
 # <a name="configure-cloud-metrics-and-logs-for-azure-api-management-self-hosted-gateway"></a>Configurare le metriche e i log cloud per il gateway self-hosted di gestione API di Azure
@@ -32,7 +32,7 @@ La funzionalità può essere abilitata o disabilitata usando la `telemetry.metri
 
 | Campo  | Predefinito | Descrizione |
 | ------------- | ------------- | ------------- |
-| telemetria. Metrics. cloud  | `true` | Abilita la registrazione tramite monitoraggio di Azure. Il valore può `true` essere `false` . |
+| telemetry.metrics.cloud  | `true` | Abilita la registrazione tramite monitoraggio di Azure. Il valore può `true` essere `false` . |
 
 
 Ecco una configurazione di esempio:

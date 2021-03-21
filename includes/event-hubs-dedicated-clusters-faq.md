@@ -1,6 +1,6 @@
 ---
-title: Includere file
-description: Includere file
+title: includere file
+description: includere file
 services: event-hubs
 author: spelluru
 ms.service: event-hubs
@@ -9,10 +9,10 @@ ms.date: 10/23/2020
 ms.author: spelluru
 ms.custom: include file
 ms.openlocfilehash: 0335481566ae3f28ac0f1e6bddce7050a65e7dc2
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/24/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92516996"
 ---
 ### <a name="what-can-i-achieve-with-a-cluster"></a>Cosa si può ottenere con un cluster?
@@ -35,7 +35,7 @@ Nei test sono stati usati i criteri seguenti:
 
 ### <a name="can-i-scale-updown-my-cluster"></a>È possibile aumentare/ridurre il cluster?
 
-Al termine della creazione, i cluster vengono fatturati per almeno 4 ore di utilizzo. Nella versione di anteprima dell'esperienza self-service è possibile inviare una richiesta di [supporto](https://ms.portal.azure.com/#create/Microsoft.Support) al team di hub eventi con la **Technical**  >  **Quota**  >  **richiesta di quota tecnica per aumentare** o ridurre il cluster dedicato per aumentare o ridurre il cluster. Potrebbero essere richiesti fino a 7 giorni per completare la richiesta di ridimensionamento del cluster. 
+Al termine della creazione, i cluster vengono fatturati per almeno 4 ore di utilizzo. Nella versione di anteprima dell'esperienza self-service è possibile inviare una richiesta di [supporto](https://ms.portal.azure.com/#create/Microsoft.Support) al team di hub eventi con la   >    >  **richiesta di quota tecnica per aumentare** o ridurre il cluster dedicato per aumentare o ridurre il cluster. Potrebbero essere richiesti fino a 7 giorni per completare la richiesta di ridimensionamento del cluster. 
 
 ### <a name="how-does-geo-dr-work-with-my-cluster"></a>Come funziona il ripristino di emergenza geografico con il cluster?
 

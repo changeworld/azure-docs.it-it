@@ -7,10 +7,10 @@ ms.reviewer: deli, logicappspm
 ms.topic: conceptual
 ms.date: 07/23/2020
 ms.openlocfilehash: 02d9852f6615c3926a02294e0e7eca50f2fbe9a5
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/21/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92310043"
 ---
 # <a name="block-connections-created-by-connectors-in-azure-logic-apps"></a>Blocca le connessioni create dai connettori nelle app per la logica di Azure
@@ -115,11 +115,11 @@ Per bloccare la creazione di una connessione in un'app per la logica, seguire qu
 
    ![In portale di Azure individuare e selezionare "criteri"](./media/block-connections-connectors/find-select-azure-policy.png)
 
-1. In **creazione e modifica**nel menu **criteri** selezionare **definizioni**  >  **+ definizione criteri**.
+1. In **creazione e modifica** nel menu **criteri** selezionare **definizioni**  >  **+ definizione criteri**.
 
    ![Selezionare "definizioni" > "+ definizione dei criteri"](./media/block-connections-connectors/add-new-policy-definition.png)
 
-1. In **definizione criteri**specificare le informazioni per la definizione dei criteri, in base alle proprietà descritte nell'esempio:
+1. In **definizione criteri** specificare le informazioni per la definizione dei criteri, in base alle proprietà descritte nell'esempio:
 
    ![Screenshot che mostra le proprietà "definizione dei criteri".](./media/block-connections-connectors/policy-definition-create-connections-1.png)
 
@@ -236,11 +236,11 @@ Quando si crea una connessione all'interno di un'app per la logica, tale conness
 
    ![In portale di Azure individuare e selezionare "criteri"](./media/block-connections-connectors/find-select-azure-policy.png)
 
-1. In **creazione e modifica**nel menu **criteri** selezionare **definizioni**  >  **+ definizione criteri**.
+1. In **creazione e modifica** nel menu **criteri** selezionare **definizioni**  >  **+ definizione criteri**.
 
    ![Selezionare "definizioni" > "+ definizione dei criteri"](./media/block-connections-connectors/add-new-policy-definition.png)
 
-1. In **definizione criteri**specificare le informazioni per la definizione dei criteri, in base alle proprietà descritte nell'esempio e continuare usando Instagram come esempio:
+1. In **definizione criteri** specificare le informazioni per la definizione dei criteri, in base alle proprietà descritte nell'esempio e continuare usando Instagram come esempio:
 
    ![Proprietà definizione criteri](./media/block-connections-connectors/policy-definition-using-connections-1.png)
 
@@ -323,11 +323,11 @@ Successivamente, è necessario assegnare la definizione dei criteri in cui si vu
 
    ![In portale di Azure individuare e selezionare "criteri"](./media/block-connections-connectors/find-select-azure-policy.png)
 
-1. In **creazione e modifica**nel menu **criteri** selezionare **assegnazioni**  >  **assegna criterio**.
+1. In **creazione e modifica** nel menu **criteri** selezionare **assegnazioni**  >  **assegna criterio**.
 
    ![Selezionare "assegnazioni" > "assegna"](./media/block-connections-connectors/add-new-policy-assignment.png)
 
-1. In **nozioni di base**fornire queste informazioni per l'assegnazione dei criteri:
+1. In **nozioni di base** fornire queste informazioni per l'assegnazione dei criteri:
 
    | Proprietà | Obbligatoria | Descrizione |
    |----------|----------|-------------|
@@ -366,7 +366,7 @@ Il messaggio include le informazioni seguenti:
 | Descrizione | Contenuto |
 |-------------|---------|
 | Motivo dell'errore | `"Resource 'instagram' was disallowed by policy."` |
-| Nome assegnazione | `"Block Instagram connections"` |
+| Nome dell'assegnazione | `"Block Instagram connections"` |
 | ID assegnazione | `"/subscriptions/xxxxxXXXXXxxxxxXXXXXxxxxxXXXXX/resourceGroups/MyLogicApp-RG/providers/Microsoft.Authorization/policyAssignments/4231890fc3bd4352acb0b673"` |
 | ID definizione dei criteri | `"/subscriptions/xxxxxXXXXXxxxxxXXXXXxxxxxXXXXX/providers/Microsoft.Authorization/policyDefinitions/b5ddcfec-1b24-4cac-a353-360846a59f24"` |
 |||

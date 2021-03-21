@@ -12,10 +12,10 @@ ms.date: 11/23/2020
 ms.author: gasinh
 ms.subservice: B2C
 ms.openlocfilehash: 282ec6a25dc381dc51f28534d272bae57d2e792e
-ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/22/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98674994"
 ---
 # <a name="tutorial-to-configure-nevis-with-azure-active-directory-b2c-for-passwordless-authentication"></a>Esercitazione per configurare Nevis con Azure Active Directory B2C per l'autenticazione senza password
@@ -232,7 +232,7 @@ Si riceveranno due messaggi di posta elettronica:
 
 10. Compilare il modulo con la nuova password e il nome visualizzato.
 
-11. Selezionare **Create** (Crea).
+11. Selezionare **Crea**.
 
 12. Si passerà alla pagina di analisi del codice a matrice.
 

@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: d1811d5b9ae4d3e34b48e1cdc156438f2bad98d1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "90601657"
 ---
 # <a name="conditional-access-classic-policy-migration"></a>Migrazione dei criteri classici dell'accesso condizionale
@@ -33,7 +33,7 @@ Questo articolo spiega cosa è necessario sapere per eseguire la migrazione dei 
 
 ## <a name="classic-policies"></a>Criteri classici
 
-Nella [portale di Azure](https://portal.azure.com)i criteri di accesso condizionale sono reperibili in **Azure Active Directory**  >  **Security**  >  **accesso condizionale**di sicurezza. È anche possibile che l'organizzazione disponga di criteri di accesso condizionale meno recenti non creati usando questa pagina. Questi criteri sono noti come *criteri classici*. I criteri classici sono criteri di accesso condizionale creati in:
+Nella [portale di Azure](https://portal.azure.com)i criteri di accesso condizionale sono reperibili in **Azure Active Directory**  >    >  **accesso condizionale** di sicurezza. È anche possibile che l'organizzazione disponga di criteri di accesso condizionale meno recenti non creati usando questa pagina. Questi criteri sono noti come *criteri classici*. I criteri classici sono criteri di accesso condizionale creati in:
 
 - Portale di Azure classico
 - Portale di Intune classico

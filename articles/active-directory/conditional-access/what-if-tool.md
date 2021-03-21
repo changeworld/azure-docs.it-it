@@ -12,15 +12,15 @@ manager: daveba
 ms.reviewer: nigu
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: a3ac799203cade3a907acbe28dee3a8023891db2
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93077643"
 ---
 # <a name="troubleshoot-using-the-what-if-tool-in-conditional-access"></a>Risoluzione dei problemi di Accesso condizionale tramite lo strumento What If
 
-[L'accesso condizionale](./overview.md) è una funzionalità di Azure Active Directory (Azure ad) che consente di controllare il modo in cui gli utenti autorizzati accedono alle app cloud. Come è possibile sapere cosa aspettarsi dai criteri di accesso condizionale nell'ambiente in uso? Per rispondere a questa domanda, è possibile usare lo **strumento di What If dell'accesso condizionale** .
+[L'accesso condizionale](./overview.md) è una funzionalità di Azure Active Directory (Azure ad) che consente di controllare il modo in cui gli utenti autorizzati accedono alle app cloud. Come è possibile sapere cosa aspettarsi dai criteri di accesso condizionale nell'ambiente in uso? Per rispondere a questa domanda, è possibile usare lo **strumento di What If dell'accesso condizionale**.
 
 Questo articolo illustra come usare questo strumento per testare i criteri di accesso condizionale.
 
@@ -32,7 +32,7 @@ Lo strumento **What If** fornisce un modo per determinare rapidamente i criteri 
 
 ## <a name="how-it-works"></a>Funzionamento
 
-Nello **strumento di What If dell'accesso condizionale** , è prima di tutto necessario configurare le impostazioni dello scenario di accesso che si vuole simulare. Le impostazioni includono:
+Nello **strumento di What If dell'accesso condizionale**, è prima di tutto necessario configurare le impostazioni dello scenario di accesso che si vuole simulare. Le impostazioni includono:
 
 - L'utente da testare 
 - Le app cloud a cui l'utente proverà ad accedere
@@ -46,7 +46,7 @@ Al termine della valutazione, lo strumento genera un report dei criteri interess
 
 È possibile trovare lo strumento **What If** nella pagina **[accesso condizionale-criteri](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ConditionalAccessBlade/Policies)** della portale di Azure.
 
-Per avviare lo strumento, sulla barra degli strumenti nella parte superiore dell'elenco di criteri fare clic su **What If** .
+Per avviare lo strumento, sulla barra degli strumenti nella parte superiore dell'elenco di criteri fare clic su **What If**.
 
 :::image type="content" source="./media/what-if-tool/01.png" alt-text="Screenshot della pagina relativa ai criteri di accesso condizionale nella portale di Azure. Sulla barra degli strumenti, l'elemento What If è evidenziato." border="false":::
 
@@ -56,15 +56,15 @@ Prima di eseguire una valutazione, è necessario configurare le impostazioni.
 
 Questa sezione fornisce informazioni sulle impostazioni della simulazione.
 
-:::image type="content" source="./media/what-if-tool/02.png" alt-text="Screenshot della pagina relativa ai criteri di accesso condizionale nella portale di Azure. Sulla barra degli strumenti, l'elemento What If è evidenziato." border="false":::
+:::image type="content" source="./media/what-if-tool/02.png" alt-text="Screenshot della pagina portale di Azure What If, con campi per un utente, app Cloud, un indirizzo I P, una piattaforma del dispositivo, un'app client e un rischio di accesso." border="false":::
 
-### <a name="user"></a>Utente
+### <a name="user"></a>User
 
 È possibile selezionare un solo utente. Questo è l'unico campo obbligatorio.
 
 ### <a name="cloud-apps"></a>App cloud
 
-Il valore predefinito di questa impostazione è **Tutte le app cloud** . Con l'impostazione predefinita viene eseguita una valutazione di tutti i criteri disponibili nell'ambiente in uso. È possibile restringere l'ambito di valutazione ai criteri che interessano app cloud specifiche.
+Il valore predefinito di questa impostazione è **Tutte le app cloud**. Con l'impostazione predefinita viene eseguita una valutazione di tutti i criteri disponibili nell'ambiente in uso. È possibile restringere l'ambito di valutazione ai criteri che interessano app cloud specifiche.
 
 ### <a name="ip-address"></a>Indirizzo IP
 
@@ -72,15 +72,15 @@ L'indirizzo IP è un singolo indirizzo IPv4 necessario per simulare la [condizio
 
 ### <a name="device-platforms"></a>Piattaforme per dispositivi
 
-Questa impostazione simula la [condizione di piattaforme del dispositivo](concept-conditional-access-conditions.md#device-platforms) ed equivale all'opzione **Tutte le piattaforme (incluse quelle non supportate)** . 
+Questa impostazione simula la [condizione di piattaforme del dispositivo](concept-conditional-access-conditions.md#device-platforms) ed equivale all'opzione **Tutte le piattaforme (incluse quelle non supportate)**. 
 
 ### <a name="client-apps"></a>App client
 
 Questa impostazione simula la [condizione di app client](concept-conditional-access-conditions.md#client-apps).
-Per impostazione predefinita, esegue la valutazione di tutti i criteri per i quali è selezionato **Browser** o **App per dispositivi mobili e client desktop** o sono selezionate entrambe le opzioni. Rileva anche i criteri che applicano **Exchange ActiveSync (EAS)** . Per restringere l'ambito di questa impostazione, selezionare:
+Per impostazione predefinita, esegue la valutazione di tutti i criteri per i quali è selezionato **Browser** o **App per dispositivi mobili e client desktop** o sono selezionate entrambe le opzioni. Rileva anche i criteri che applicano **Exchange ActiveSync (EAS)**. Per restringere l'ambito di questa impostazione, selezionare:
 
-- **Browser** per valutare tutti i criteri per i quali è selezionata almeno l'opzione **Browser** . 
-- **App per dispositivi mobili e client desktop** per valutare tutti i criteri per i quali è selezionata almeno l'opzione **App per dispositivi mobili e client desktop** . 
+- **Browser** per valutare tutti i criteri per i quali è selezionata almeno l'opzione **Browser**. 
+- **App per dispositivi mobili e client desktop** per valutare tutti i criteri per i quali è selezionata almeno l'opzione **App per dispositivi mobili e client desktop**. 
 
 ### <a name="sign-in-risk"></a>Rischio di accesso
 
@@ -88,9 +88,9 @@ Questa impostazione simula la [condizione di rischio di accesso](concept-conditi
 
 ## <a name="evaluation"></a>Valutazione 
 
-Per avviare una valutazione, fare clic su **What If** . Al termine della valutazione, viene generato un report contenente gli elementi seguenti: 
+Per avviare una valutazione, fare clic su **What If**. Al termine della valutazione, viene generato un report contenente gli elementi seguenti: 
 
-:::image type="content" source="./media/what-if-tool/03.png" alt-text="Screenshot della pagina relativa ai criteri di accesso condizionale nella portale di Azure. Sulla barra degli strumenti, l'elemento What If è evidenziato." border="false":::
+:::image type="content" source="./media/what-if-tool/03.png" alt-text="Screenshot di un report di valutazione. Testo indica che è configurato almeno un criterio classico. Sono disponibili schede per la visualizzazione dei criteri." border="false":::
 
 - Un indicatore che segnala l'eventuale presenza di criteri classici nell'ambiente in uso
 - I criteri che si applicano all'utente

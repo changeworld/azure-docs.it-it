@@ -12,10 +12,10 @@ ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ms.openlocfilehash: c3bf8e5f81ae7bf35ff34039fa1e81c9fd4a406b
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93324549"
 ---
 # <a name="deployment-stage-of-the-team-data-science-process-lifecycle"></a>Fase di distribuzione del ciclo di vita del processo di data science per i team
@@ -39,7 +39,7 @@ Distribuire modelli con una pipeline di dati in un ambiente di produzione o di s
 ## <a name="how-to-do-it"></a>Come eseguirla
 Attività principali descritte in questa fase:
 
-**Rendere operativo il modello** : distribuire il modello e la pipeline in un ambiente di produzione o di simil-produzione per l'uso da parte dell'applicazione.
+**Rendere operativo il modello**: distribuire il modello e la pipeline in un ambiente di produzione o di simil-produzione per l'uso da parte dell'applicazione.
 
 ### <a name="operationalize-a-model"></a>Rendere operativo un modello
 Quando si ottiene un set di modelli con prestazioni ottimali, è possibile renderli operativi per l'uso da parte di altre applicazioni. In base ai requisiti aziendali, le previsioni vengono eseguite in tempo reale o in batch. Per distribuire i modelli, è possibile esporli con un'interfaccia API aperta. L'interfaccia consente al modello di essere usato facilmente da diverse applicazioni, ad esempio:

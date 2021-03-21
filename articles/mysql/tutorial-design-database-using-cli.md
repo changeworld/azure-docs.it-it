@@ -1,5 +1,5 @@
 ---
-title: 'Esercitazione: Progettare un server - Interfaccia della riga di comando di Azure - Database di Azure per MySQL'
+title: 'Esercitazione: progettare un server-interfaccia della riga di comando di Azure-database di Azure per MySQL'
 description: In questa esercitazione viene illustrato come creare e gestire il database di Azure per il server e il Database di Azure per MySQL tramite l'interfaccia della riga di comando di Azure dalla riga di comando.
 author: savjani
 ms.author: pariks
@@ -9,10 +9,10 @@ ms.topic: tutorial
 ms.date: 12/02/2019
 ms.custom: mvc, devx-track-azurecli
 ms.openlocfilehash: 8546ba5c80a4c8909876ff755bc094f1aec96482
-ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
-ms.translationtype: HT
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/01/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96437083"
 ---
 # <a name="tutorial-design-an-azure-database-for-mysql-using-azure-cli"></a>Esercitazione: Progettare un'istanza di Database di Azure per MySQL con l'interfaccia della riga di comando di Azure

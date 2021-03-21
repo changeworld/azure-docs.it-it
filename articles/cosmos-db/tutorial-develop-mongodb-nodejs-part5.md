@@ -11,10 +11,10 @@ ms.author: jopapa
 ms.custom: seodec18, devx-track-js
 ms.reviewer: sngun
 ms.openlocfilehash: a3097fa539f460ef5e8ffe73598fa5d55516717e
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
-ms.translationtype: HT
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93097805"
 ---
 # <a name="create-an-angular-app-with-azure-cosmos-dbs-api-for-mongodb---use-mongoose-to-connect-to-cosmos-db"></a>Creare un'app Angular con l'API di Azure Cosmos DB per MongoDB - Usare Mongoose per connettersi a Cosmos DB
@@ -85,9 +85,9 @@ Mongoose è una libreria di Object Data Modeling (ODM) per MongoDB e Node.js. Si
      };
      ```
     
-1. Nel riquadro Esplora, sotto **server** , creare una cartella denominata **environment**. Nella cartella **environment** creare un file denominato **environment.js**.
+1. Nel riquadro Esplora, sotto **server**, creare una cartella denominata **environment**. Nella cartella **environment** creare un file denominato **environment.js**.
 
-1. Dal file mongo.js, è necessario includere i valori per parametri `dbName`, `key`e `cosmosPort`. Copiare il codice seguente nel file **environment.js** :
+1. Dal file mongo.js, è necessario includere i valori per parametri `dbName`, `key`e `cosmosPort`. Copiare il codice seguente nel file **environment.js**:
 
     ```javascript
     // TODO: replace if yours are different
@@ -137,7 +137,7 @@ Successivamente, è necessario definire lo schema dei dati da archiviare in Azur
    * Crea un nuovo schema con un ID, un nome e una massima.
    * Crea un modello usando lo schema.
    * Esporta il modello. 
-   * Assegna alla raccolta il nome **Heroes** invece di **Heros** , che sarebbe il nome predefinito della raccolta in base alle regole di denominazione plurale di Mongoose.
+   * Assegna alla raccolta il nome **Heroes** invece di **Heros**, che sarebbe il nome predefinito della raccolta in base alle regole di denominazione plurale di Mongoose.
 
    ```javascript
    const mongoose = require('mongoose');

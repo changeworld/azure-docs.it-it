@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.date: 12/18/2020
 ms.author: alkohli
 ms.openlocfilehash: 42476e2689cc503edc19e8e299a01ce922f1bf42
-ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/26/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98789196"
 ---
 # <a name="tutorial-create-export-order-for-azure-data-box"></a>Esercitazione: creare un ordine di esportazione per Azure Data Box
@@ -80,7 +80,7 @@ Seguire questa procedura nel portale di Azure per ordinare un dispositivo.
 
 6. Specificare i **Dettagli dell'ordine di** **base** . Immettere o selezionare le informazioni seguenti.
 
-    |Impostazione  |valore  |
+    |Impostazione  |Valore  |
     |---------|---------|
     |Sottoscrizione     | La sottoscrizione viene popolata automaticamente in base alla selezione precedente.|
     |Resource group | Il gruppo di risorse selezionato in precedenza. |
