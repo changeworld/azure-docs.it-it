@@ -1,19 +1,19 @@
 ---
 title: Connettersi a un sinapsi studio usando collegamenti privati
 description: Questo articolo illustra come connettersi ad Azure sinapsi studio usando i collegamenti privati
-author: NanditaV
+author: nanditavalsan
 ms.service: synapse-analytics
 ms.topic: conceptual
 ms.subservice: security
 ms.date: 12/01/2020
 ms.author: NanditaV
 ms.reviewer: jrasnick
-ms.openlocfilehash: d49868199d8f9f2da97f08dd06f29afd8f553bd9
-ms.sourcegitcommit: 17e9cb8d05edaac9addcd6e0f2c230f71573422c
+ms.openlocfilehash: d39beca60264023c8eb7c1bc78cd1ac15c3b45dc
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/21/2020
-ms.locfileid: "97586976"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104586625"
 ---
 # <a name="connect-to-azure-synapse-studio-using-azure-private-link-hubs"></a>Connettersi ad Azure sinapsi Studio tramite hub di collegamento privato di Azure 
 
@@ -37,7 +37,9 @@ Ci sono due passaggi per connettersi a sinapsi studio usando i collegamenti priv
 
 :::image type="content" source="./media/synapse-private-link-hubs/synapse-private-links-private-endpoint.png" alt-text="Screenshot che mostra la pagina connessioni endpoint privato.":::
 
-Assicurarsi di scegliere il tipo di risorsa "Microsoft. sinapsi/privateLinkHubs" nella scheda "risorsa". :::image type="content" source="./media/synapse-private-link-hubs/synapse-private-links-resource-type.png" alt-text="screenshot che mostra la pagina ' Crea endpoint privato ' con ' tipo di risorsa ' evidenziato.":::
+Assicurarsi di scegliere il tipo di risorsa "Microsoft. sinapsi/privateLinkHubs" nella scheda "risorsa".
+
+:::image type="content" source="./media/synapse-private-link-hubs/synapse-private-links-resource-type.png" alt-text="Screenshot che mostra la pagina ' Crea endpoint privato ' con ' tipo di risorsa ' evidenziato.":::
 
 Nella scheda "configurazione" selezionare "privatelink.azuresynapse.net" per le zone DNS privato durante l'integrazione con la rete virtuale e la zona DNS privata.
 

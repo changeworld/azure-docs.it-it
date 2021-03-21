@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.custom: references_regions
 ms.date: 12/10/2020
 ms.openlocfilehash: 1529d2d546227880fee71d1823482e040d2e57c1
-ms.sourcegitcommit: 18a91f7fe1432ee09efafd5bd29a181e038cee05
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/16/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "103564321"
 ---
 # <a name="mapping-data-flows-in-azure-data-factory"></a>Mapping di flussi di dati in Azure Data Factory
@@ -25,7 +25,7 @@ I flussi di dati di mapping sono le trasformazioni di dati progettate visivament
 
 I flussi di dati di mapping forniscono un'esperienza visiva completamente senza necessità di scrivere codice. I flussi di dati vengono eseguiti in cluster di esecuzione gestiti da ADF per l'elaborazione dei dati con scalabilità orizzontale. Azure Data Factory gestisce tutta la conversione del codice, l'ottimizzazione del percorso e l'esecuzione dei processi del flusso di dati.
 
-## <a name="getting-started"></a>Guida introduttiva
+## <a name="getting-started"></a>Introduzione
 
 I flussi di dati vengono creati dal riquadro risorse Factory, ad esempio pipeline e set di dati. Per creare un flusso di dati, selezionare il segno più accanto a **risorse Factory**, quindi selezionare **flusso di dati**. 
 

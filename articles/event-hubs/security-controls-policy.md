@@ -1,18 +1,18 @@
 ---
 title: Controlli di conformità alle normative di Criteri di Azure per Hub eventi di Azure
 description: Elenca i controlli di conformità alle normative di Criteri di Azure per Hub eventi di Azure. Queste definizioni di criteri predefiniti rappresentano approcci comuni per gestire la conformità delle risorse di Azure.
-ms.date: 03/10/2021
+ms.date: 03/17/2021
 ms.topic: sample
 author: spelluru
 ms.author: spelluru
 ms.service: event-hubs
 ms.custom: subject-policy-compliancecontrols
-ms.openlocfilehash: 63181eda87df30a8794adee41210671081192bff
-ms.sourcegitcommit: b572ce40f979ebfb75e1039b95cea7fce1a83452
+ms.openlocfilehash: 19edf41b81efefaad0279d95694ce7d08d52e6f7
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/11/2021
-ms.locfileid: "102633301"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104607969"
 ---
 # <a name="azure-policy-regulatory-compliance-controls-for-azure-event-hubs"></a>Controlli di conformità alle normative di Criteri di Azure per Hub eventi di Azure
 

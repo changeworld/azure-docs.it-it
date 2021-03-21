@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 05/15/2020
 ms.author: v-demjoh
-ms.openlocfilehash: c939c1d061f4e01a00bc2b886056e42f0b059ad5
-ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
+ms.openlocfilehash: a995a110c4f777603e5b0273b6025cd68fe55b67
+ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/09/2021
-ms.locfileid: "102511046"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "102532632"
 ---
 ## <a name="download-and-install"></a>Download e installazione
 
@@ -118,7 +118,7 @@ Per usare il comando `spx` installato in un contenitore, immettere sempre il com
 Ad esempio, in Windows questo comando configura la chiave:
 
 ```console
-docker run -it -v c:\spx-data:/data --rm msftspeech/spx config --set @key SUBSCRIPTION-KEY
+docker run -it -v c:\spx-data:/data --rm msftspeech/spx config @key --set SUBSCRIPTION-KEY
 ```
 
 Per un'interazione più estesa con lo strumento da riga di comando, è possibile avviare un contenitore con una shell bash interattiva aggiungendo un parametro entrypoint.
@@ -171,8 +171,8 @@ Per iniziare a usare l'interfaccia della riga di comando di Voce, è necessario 
 Dopo aver ottenuto l’identificatore dell’area e della chiave di sottoscrizione (ad esempio, `eastus`, `westus`), eseguire i comandi seguenti.
 
 ```console
-spx config --set @key SUBSCRIPTION-KEY
-spx config --set @region REGION
+spx config @key --set SUBSCRIPTION-KEY
+spx config @region --set REGION
 ```
 
 L'autenticazione della sottoscrizione è ora archiviata per richieste SPX future. Se è necessario rimuovere uno di questi valori archiviati, eseguire `spx config @region --clear` o `spx config @key --clear`.

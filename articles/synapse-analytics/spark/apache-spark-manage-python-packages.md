@@ -9,12 +9,12 @@ ms.date: 02/26/2020
 ms.author: midesa
 ms.reviewer: jrasnick
 ms.subservice: spark
-ms.openlocfilehash: 4bb323e0e8f72456b6a522ede9a98d193e1c3c7e
-ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
+ms.openlocfilehash: 2d6ac02402414f096a46fec0340c3074d8e1784a
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102098775"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104586642"
 ---
 # <a name="manage-python-libraries-for-apache-spark-in-azure-synapse-analytics"></a>Gestire le librerie Python per Apache Spark in Azure sinapsi Analytics
 
@@ -68,13 +68,13 @@ Questo esempio specifica i canali e le dipendenze conda/PyPI.
 ```
 name: stats2
 channels:
-  - defaults
+- defaults
 dependencies:
-  - bokeh=0.9.2
-  - numpy=1.9.*
-  - flask
-  - pip:
-    - matplotlib
+- bokeh
+- numpy
+- pip:
+  - matplotlib
+  - koalas==1.7.0
 ```
 Per informazioni dettagliate sulla creazione di un ambiente da questo file Environment. yml, vedere [creazione di un ambiente da un file Environment. yml](https://docs.conda.io/projects/conda/latest/user-guide/tasks/manage-environments.html#creating-an-environment-file-manually).
 
@@ -140,6 +140,11 @@ Per aggiungere i pacchetti dell'area di lavoro:
 
 ![Screenshot che evidenzia i pacchetti dell'area di lavoro.](./media/apache-spark-azure-portal-add-libraries/studio-add-workspace-package.png "Visualizzare i pacchetti dell'area di lavoro")
 
+>[!WARNING]
+>- All'interno di una sinapsi di Azure, un pool di Apache Spark può sfruttare le librerie personalizzate caricate come pacchetti dell'area di lavoro o caricate in un percorso di Azure Data Lake Storage noto. Tuttavia, entrambe le opzioni non possono essere usate contemporaneamente nello stesso pool di Apache Spark. Se i pacchetti vengono forniti utilizzando entrambi i metodi, verranno installati solo i file della rotellina specificati nell'elenco dei pacchetti dell'area di lavoro. 
+>
+>- Una volta che i pacchetti dell'area di lavoro (anteprima) vengono usati per installare i pacchetti in un pool di Apache Spark specificato, esiste una limitazione che non è più possibile specificare i pacchetti usando il percorso dell'account di archiviazione nello stesso pool.  
+
 ### <a name="storage-account"></a>Account di archiviazione
 I pacchetti Wheel personalizzati possono essere installati nel pool di Apache Spark caricando tutti i file della rotellina nell'account Azure Data Lake Storage (Gen2) collegato con l'area di lavoro sinapsi. 
 
@@ -149,13 +154,12 @@ I file devono essere caricati nel percorso seguente nel contenitore predefinito 
 abfss://<file_system>@<account_name>.dfs.core.windows.net/synapse/workspaces/<workspace_name>/sparkpools/<pool_name>/libraries/python/
 ```
 
-Potrebbe essere necessario aggiungere la ```python``` cartella all'interno della ```libraries``` cartella, se non esiste già.
+>[!WARNING]
+> In alcuni casi, potrebbe essere necessario creare il percorso del file in base alla struttura precedente, se non esiste già. Ad esempio, potrebbe essere necessario aggiungere la ```python``` cartella all'interno della ```libraries``` cartella, se non esiste già.
 
 > [!IMPORTANT]
 > Per installare librerie personalizzate usando il metodo di archiviazione di Azure datalake, è necessario disporre delle autorizzazioni di **collaboratore dati BLOB di archiviazione** o di **proprietario dei dati BLOB di archiviazione** per l'account di archiviazione Gen2 primario collegato all'area di lavoro di Azure sinapsi Analytics.
 
->[!WARNING]
-> Quando si forniscono file di ruote personalizzati, gli utenti non possono fornire i file della rotellina sia nell'account di archiviazione che nell'interfaccia della libreria dell'area di lavoro. Se vengono specificati entrambi, verranno installati solo i file della rotellina specificati nell'elenco dei pacchetti dell'area di lavoro. 
 
 ## <a name="session-scoped-packages-preview"></a>Pacchetti con ambito sessione (anteprima)
 Oltre ai pacchetti a livello di pool, è anche possibile specificare librerie con ambito sessione all'inizio di una sessione del notebook.  Le librerie con ambito sessione consentono di specificare e usare ambienti Python personalizzati all'interno di una sessione del notebook. 

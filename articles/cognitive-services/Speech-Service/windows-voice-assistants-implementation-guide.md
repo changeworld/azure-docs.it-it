@@ -12,10 +12,10 @@ ms.date: 04/15/2020
 ms.author: travisw
 ms.custom: devx-track-csharp
 ms.openlocfilehash: 92ab043d4fccbe0764e361eac6f71ef69a5963cb
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/28/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98939864"
 ---
 # <a name="implementing-voice-assistants-on-windows"></a>Implementazione di Assistente vocale in Windows
@@ -78,7 +78,7 @@ Per usare l'attivazione vocale, un utente deve abilitare l'attivazione vocale pe
 
 ### <a name="listen-to-the-two-activation-signals-the-onbackgroundactivated-and-onsignaldetected"></a>Ascolto dei due segnali di attivazione: OnBackgroundActivated e OnSignalDetected
 
-Windows segnalerà l'app quando rileverà una parola chiave in uno dei due modi. Se l'app non è attiva (ovvero, non si dispone di un riferimento a un'istanza non eliminata di `ConversationalAgentSession` ), l'app verrà avviata e verrà chiamato il metodo OnBackgroundActivated nel file app.XAML.cs dell'applicazione. Se il campo degli argomenti dell'evento `BackgroundActivatedEventArgs.TaskInstance.Task.Name` corrisponde alla stringa "AgentBackgroundTrigger", l'avvio dell'applicazione è stato attivato dall'attivazione vocale. L'applicazione deve eseguire l'override di questo metodo e recuperare un'istanza di ConversationalAgentSession per segnalare a Windows che è ora attiva. Quando l'applicazione è attiva, Windows segnalerà l'occorrenza di un'attivazione vocale usando l' `ConversationalAgentSession.OnSignalDetected` evento. Aggiungere un gestore eventi all'evento non appena viene recuperato `ConversationalAgentSession` .
+Windows segnalerà l'app quando rileverà una parola chiave in uno dei due modi. Se l'app non è attiva (ovvero, non si dispone di un riferimento a un'istanza non eliminata di `ConversationalAgentSession` ), l'app verrà avviata e verrà chiamato il metodo OnBackgroundActivated nel file app. XAML. cs dell'applicazione. Se il campo degli argomenti dell'evento `BackgroundActivatedEventArgs.TaskInstance.Task.Name` corrisponde alla stringa "AgentBackgroundTrigger", l'avvio dell'applicazione è stato attivato dall'attivazione vocale. L'applicazione deve eseguire l'override di questo metodo e recuperare un'istanza di ConversationalAgentSession per segnalare a Windows che è ora attiva. Quando l'applicazione è attiva, Windows segnalerà l'occorrenza di un'attivazione vocale usando l' `ConversationalAgentSession.OnSignalDetected` evento. Aggiungere un gestore eventi all'evento non appena viene recuperato `ConversationalAgentSession` .
 
 ## <a name="keyword-verification"></a>Verifica parole chiave
 
@@ -122,9 +122,9 @@ Quando un'app Visualizza un blocco di visualizzazione, viene considerato in moda
 
 ### <a name="transitioning-above-lock"></a>Transizione sopra il blocco
 
-Un blocco di attivazione precedente è simile a un blocco di attivazione. Se non sono presenti istanze attive dell'applicazione, verrà avviata una nuova istanza in background e `OnBackgroundActivated` verrà chiamato app.XAML.cs. Se è presente un'istanza dell'applicazione, l'istanza riceverà una notifica tramite l' `ConversationalAgentSession.SignalDetected` evento.
+Un blocco di attivazione precedente è simile a un blocco di attivazione. Se non sono presenti istanze attive dell'applicazione, una nuova istanza verrà avviata in background e `OnBackgroundActivated` in app. XAML. cs verrà chiamato. Se è presente un'istanza dell'applicazione, l'istanza riceverà una notifica tramite l' `ConversationalAgentSession.SignalDetected` evento.
 
-Se l'applicazione non ha già visualizzato il blocco precedente, deve chiamare `ConversationalAgentSession.RequestForegroundActivationAsync` . Viene attivato il `OnLaunched` metodo in app.XAML.cs che dovrebbe passare alla visualizzazione che verrà visualizzata sopra il blocco.
+Se l'applicazione non ha già visualizzato il blocco precedente, deve chiamare `ConversationalAgentSession.RequestForegroundActivationAsync` . Viene attivato il `OnLaunched` metodo in app. XAML. cs, che dovrebbe passare alla visualizzazione che verrà visualizzata sopra il blocco.
 
 ### <a name="detecting-lock-screen-transitions"></a>Rilevamento delle transizioni della schermata di blocco
 

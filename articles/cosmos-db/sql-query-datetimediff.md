@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 07/09/2020
 ms.author: tisande
 ms.custom: query-reference
-ms.openlocfilehash: 09b801c48bf2998a2d8926009cae76287c1ac9b6
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.openlocfilehash: aeea2905b6bae094c92bd8b5d46523225c745494
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93342267"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104595640"
 ---
 # <a name="datetimediff-azure-cosmos-db"></a>DateTimeDiff (Azure Cosmos DB)
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -45,17 +45,17 @@ DateTimeDiff (<DateTimePart> , <StartDate> , <EndDate>)
 *StartDate*  
     Valore stringa ISO 8601 di data e ora UTC nel formato in `YYYY-MM-DDThh:mm:ss.fffffffZ` cui:
   
-  |Formato|Descrizione|
-  |-|-|
-  |AAAA|anno a quattro cifre|
-  |MM|mese a due cifre (01 = gennaio e così via)|
-  |GG|giorno del mese a due cifre (da 01 a 31)|
-  |T|significato per l'inizio degli elementi Time|
-  |hh|ora a due cifre (da 00 a 23)|
-  |mm|minuti a due cifre (da 00 a 59)|
-  |ss|secondi a due cifre (da 00 a 59)|
-  |. fffffff|secondi frazionari a sette cifre|
-  |Z|Indicatore UTC (Coordinated Universal Time)||
+|Formato|Descrizione|
+|-|-|
+|AAAA|anno a quattro cifre|
+|MM|mese a due cifre (01 = gennaio e così via)|
+|GG|giorno del mese a due cifre (da 01 a 31)|
+|T|significato per l'inizio degli elementi Time|
+|hh|ora a due cifre (da 00 a 23)|
+|MM|minuti a due cifre (da 00 a 59)|
+|ss|secondi a due cifre (da 00 a 59)|
+|. fffffff|secondi frazionari a sette cifre|
+|Z|Indicatore UTC (Coordinated Universal Time)|
   
   Per ulteriori informazioni sul formato ISO 8601, vedere [ISO_8601](https://en.wikipedia.org/wiki/ISO_8601)
 
@@ -75,7 +75,7 @@ DateTimeDiff restituirà `undefined` per i motivi seguenti:
 
 DateTimeDiff restituirà sempre un valore intero con segno ed è una misurazione del numero di limiti DateTimePart superati, non di misura dell'intervallo di tempo.
 
-## <a name="examples"></a>Esempi
+## <a name="examples"></a>Esempio
   
 Nell'esempio seguente viene calcolato il numero di limiti di giorno incrociato tra `2020-01-01T01:02:03.1234527Z` e `2020-01-03T01:02:03.1234567Z` .
 
