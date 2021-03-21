@@ -6,10 +6,10 @@ ms.topic: include
 ms.date: 10/29/2020
 ms.author: baanders
 ms.openlocfilehash: 2be13256ff0fcc93aa40db3bcb2f38aa0cf58cbc
-ms.sourcegitcommit: afb9e9d0b0c7e37166b9d1de6b71cd0e2fb9abf5
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/14/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "103463758"
 ---
 Per usare Gemelli digitali di Azure come descritto in questo articolo, è necessario prima **configurare un'istanza di Gemelli digitali di Azure** e le autorizzazioni necessarie. Se in precedenza è stata già configurata un'istanza di Gemelli digitali di Azure, è possibile usare tale istanza.

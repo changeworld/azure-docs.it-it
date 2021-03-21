@@ -11,10 +11,10 @@ ms.author: tamram
 ms.subservice: common
 ms.custom: devx-track-csharp
 ms.openlocfilehash: baad1a0b173ae89fec9d160572224c6cb0aa615d
-ms.sourcegitcommit: 87a6587e1a0e242c2cfbbc51103e19ec47b49910
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/16/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "103574629"
 ---
 # <a name="acquire-a-token-from-azure-ad-for-authorizing-requests-from-a-client-application"></a>Acquisire un token da Azure AD per autorizzare le richieste da un'applicazione client
@@ -151,7 +151,7 @@ Install-Package Azure.Storage.Blobs
 Install-Package Microsoft.Identity.Web -Version 0.4.0-preview
 ```
 
-Aggiungere quindi le istruzioni using seguenti al file HomeController.cs:
+Aggiungere quindi le istruzioni using seguenti al file HomeController. cs:
 
 ```csharp
 using Microsoft.Identity.Web; //MSAL library for getting the access token
@@ -165,7 +165,7 @@ Install-Package Microsoft.Azure.Storage.Blob
 Install-Package Microsoft.Identity.Web -Version 0.4.0-preview //or a later version
 ```
 
-Aggiungere quindi le istruzioni using seguenti al file HomeController.cs:
+Aggiungere quindi le istruzioni using seguenti al file HomeController. cs:
 
 ```csharp
 using Microsoft.Identity.Client; //MSAL library for getting the access token
@@ -284,7 +284,7 @@ Aggiornare il *appsettings.jsnel* file con i propri valori, come indicato di seg
 
 ### <a name="update-the-storage-account-and-container-name"></a>Aggiornare l'account di archiviazione e il nome del contenitore
 
-Nel file *HomeController.cs* aggiornare l'URI che fa riferimento al BLOB in blocchi per usare il nome dell'account di archiviazione e del contenitore, sostituendo i valori tra parentesi angolari con valori personalizzati:
+Nel file *HomeController. cs* aggiornare l'URI che fa riferimento al BLOB in blocchi per usare il nome dell'account di archiviazione e del contenitore, sostituendo i valori tra parentesi angolari con valori personalizzati:
 
 ```html
 https://<storage-account>.blob.core.windows.net/<container>/Blob1.txt

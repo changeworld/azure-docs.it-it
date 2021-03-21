@@ -7,12 +7,12 @@ ms.service: azure-percept
 ms.topic: how-to
 ms.date: 02/18/2021
 ms.custom: template-how-to
-ms.openlocfilehash: 93812cf2b0db7fc3557e31c8d9e8053831c7b90f
-ms.sourcegitcommit: 225e4b45844e845bc41d5c043587a61e6b6ce5ae
+ms.openlocfilehash: 826759907bfe5ec3359bf5c9125909466372c68f
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/11/2021
-ms.locfileid: "103011001"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104608147"
 ---
 # <a name="azure-percept-dk-dev-kit-troubleshooting"></a>Risoluzione dei problemi di Azure Percept DK (Dev Kit)
 
@@ -29,6 +29,12 @@ Per reindirizzare l'output a un file con estensione txt per un'ulteriore analisi
 
 ```console
 sudo [command] > [file name].txt
+```
+
+Modificare le autorizzazioni del file. txt in modo che sia possibile copiarlo:
+
+```console
+sudo chmod 666 [file name].txt
 ```
 
 Dopo il reindirizzamento dell'output a un file con estensione txt, copiare il file nel PC host tramite SCP:
@@ -60,9 +66,9 @@ Per ulteriori informazioni sui comandi di Azure IoT Edge, vedere la [documentazi
 |Azure IoT Edge          |```sudo journalctl -u iotedge -f``` |visualizzare i log di Azure IoT Edge Security Manager |
 |Azure IoT Edge          |```sudo systemctl restart iotedge``` |riavviare il daemon di sicurezza di Azure IoT Edge |
 |Azure IoT Edge          |```sudo iotedge list```           |elencare i moduli di Azure IoT Edge distribuiti |
-|Altri             |```df [option] [file]```          |Visualizza informazioni sullo spazio disponibile/totale nei file system specificati |
-|Altri             |`ip route get 1.1.1.1`        |visualizzare le informazioni sull'interfaccia e sull'IP del dispositivo |
-|Altri             |<code>ip route get 1.1.1.1 &#124; awk '{print $7}'</code> <br> `ifconfig [interface]` |Visualizza solo l'indirizzo IP del dispositivo |
+|Altro             |```df [option] [file]```          |Visualizza informazioni sullo spazio disponibile/totale nei file system specificati |
+|Altro             |`ip route get 1.1.1.1`        |visualizzare le informazioni sull'interfaccia e sull'IP del dispositivo |
+|Altro             |<code>ip route get 1.1.1.1 &#124; awk '{print $7}'</code> <br> `ifconfig [interface]` |Visualizza solo l'indirizzo IP del dispositivo |
 
 
 I ```journalctl``` comandi di Wi-Fi possono essere combinati nel comando singolo seguente:

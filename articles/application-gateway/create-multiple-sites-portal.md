@@ -6,14 +6,14 @@ services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: tutorial
-ms.date: 02/23/2021
+ms.date: 03/19/2021
 ms.author: victorh
-ms.openlocfilehash: 208bd0fe7f3869cbe15dd27e0b883c467e41c765
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: cfbd5301bc2b24c4d5614e5f88c6ae18d4affc66
+ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 03/20/2021
-ms.locfileid: "101735072"
+ms.locfileid: "104721631"
 ---
 # <a name="tutorial-create-and-configure-an-application-gateway-to-host-multiple-web-sites-using-the-azure-portal"></a>Esercitazione: Creare e configurare un gateway applicazione per ospitare più siti Web usando il portale di Azure
 
@@ -27,7 +27,7 @@ In questa esercitazione verranno illustrate le procedure per:
 > * Creare pool back-end con i server back-end
 > * Creare i listener back-end
 > * Creare le regole di routing
-> * Creare un record CNAME nel dominio
+> * Modificare il file degli host per la risoluzione dei nomi
 
 :::image type="content" source="./media/create-multiple-sites-portal/scenario.png" alt-text="Gateway applicazione multisito":::
 
@@ -212,9 +212,9 @@ In questo esempio viene installato IIS nelle macchine virtuali solo per verifica
 
 Attendere il completamento della distribuzione prima di procedere al passaggio successivo.
 
-## <a name="edit-your-hosts-file"></a>Modificare il file degli host
+## <a name="edit-your-hosts-file-for-name-resolution"></a>Modificare il file degli host per la risoluzione dei nomi
 
-Dopo aver creato il gateway applicazione con il relativo indirizzo IP pubblico, è possibile ottenere l'indirizzo IP e usarlo per modificare il file degli host per risolvere `www.contoso.com` e `www.fabrikam.com` 
+Dopo aver creato il gateway applicazione con il relativo indirizzo IP pubblico, è possibile ottenere l'indirizzo IP e usarlo per modificare il file degli host per risolvere `www.contoso.com` e `www.fabrikam.com` . In un ambiente di produzione, è possibile creare un `CNAME` in DNS per la risoluzione dei nomi.
 
 1. Fare clic su **Tutte le risorse** e quindi su **myAGPublicIPAddress**.
 

@@ -4,10 +4,10 @@ description: Viene descritto come recapitare gli eventi agli endpoint HTTPS prot
 ms.topic: how-to
 ms.date: 02/03/2021
 ms.openlocfilehash: be38edfb4edfee5b3a3b42d7b1c5a44c9d72ceef
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/04/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102035446"
 ---
 # <a name="publish-events-to-azure-active-directory-protected-endpoints"></a>Pubblicare eventi per endpoint protetti di Azure Active Directory

@@ -13,7 +13,7 @@
     - name: Creare un profilo e un endpoint
       href: cdn-create-new-endpoint.md
     - name: Crea un profilo e un endpoint - Modello di Resource Manager
-      displayName: Resource Manager
+      displayName: 'Resource Manager, az group, az deployment group, New-AzResourceGroup, New-AzResourceGroupDeployment, Remove-AzResourceGroup'
       href: create-profile-endpoint-template.md
 - name: Esercitazioni
   items:
@@ -31,9 +31,14 @@
   items:
     - name: Esempi di codice
       href: 'https://azure.microsoft.com/resources/samples/?service=cdn'
+    - name: Interfaccia della riga di comando di Azure
+      items:
+        - name: Creare un profilo e un endpoint
+          displayName: 'az cdn profile, az cdn endpoint, az cdn origin, az cdn custom-domain, cdn origin-group'
+          href: ./scripts/cli/cdn-azure-cli-create-endpoint.md
 - name: Concetti
   items:
-    - name: Security
+    - name: Sicurezza
       items:
         - name: Baseline di sicurezza
           href: security-baseline.md

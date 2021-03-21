@@ -3,18 +3,21 @@ title: Scenari di utilizzo di una rete virtuale
 description: Scenari, risorse e limitazioni per la distribuzione di gruppi di contenitori in una rete virtuale di Azure.
 ms.topic: article
 ms.date: 08/11/2020
-ms.openlocfilehash: 65d7fa46ebbb9b072b50731bff68b9b88809075d
-ms.sourcegitcommit: c4c554db636f829d7abe70e2c433d27281b35183
+ms.openlocfilehash: 20c2b4fe2f19402d6647f398a9696b7e16550d8e
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98033830"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104606889"
 ---
 # <a name="virtual-network-scenarios-and-resources"></a>Scenari e risorse della rete virtuale
 
 In [Rete virtuale di Azure](../virtual-network/virtual-networks-overview.md) sono disponibili funzionalità per implementare una rete sicura e privata per le risorse locali e di Azure. Grazie alla distribuzione di gruppi di contenitori in una rete virtuale di Azure, i contenitori possono comunicare in modo sicuro con altre risorse nella rete virtuale. 
 
 Questo articolo fornisce informazioni di base su scenari, limitazioni e risorse della rete virtuale. Per esempi di distribuzione che usano l'interfaccia della riga di comando di Azure, vedere [distribuire istanze di contenitore in una rete virtuale di Azure](container-instances-vnet.md).
+
+> [!IMPORTANT]
+> La distribuzione del gruppo di contenitori in una rete virtuale è disponibile a livello generale per i contenitori Linux, nella maggior parte delle aree in cui sono disponibili istanze di contenitore di Azure. Per informazioni dettagliate, vedere [aree e disponibilità delle risorse](container-instances-region-availability.md). 
 
 ## <a name="scenarios"></a>Scenari
 
@@ -45,12 +48,6 @@ Gruppi di contenitori distribuiti in una rete virtuale di Azure abilitano scenar
 * Se si connette il gruppo di contenitori a un account di archiviazione di Azure, è necessario aggiungere un [endpoint di servizio](../virtual-network/virtual-network-service-endpoints-overview.md) a tale risorsa.
 
 [!INCLUDE [container-instances-restart-ip](../../includes/container-instances-restart-ip.md)]
-
-## <a name="where-to-deploy"></a>Dove eseguire la distribuzione
-
-Le aree e le risorse massime seguenti sono disponibili per distribuire un gruppo di contenitori in una rete virtuale di Azure.
-
-[!INCLUDE [container-instances-vnet-limits](../../includes/container-instances-vnet-limits.md)]
 
 ## <a name="required-network-resources"></a>Risorse di rete necessarie
 

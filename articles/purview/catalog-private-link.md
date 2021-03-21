@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
 ms.date: 03/02/2021
-ms.openlocfilehash: d9088e5c6302c41c64f2a2e9034e7c3d659e37eb
-ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
+ms.openlocfilehash: 09fa10e7f7751321601c5c4871b2cf36ccf6f01f
+ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/10/2021
-ms.locfileid: "102615636"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "104720888"
 ---
 # <a name="use-private-endpoints-for-your-purview-account"></a>Usare endpoint privati per l'account di competenza
 
@@ -24,13 +24,16 @@ ms.locfileid: "102615636"
 
 1. Inserire le informazioni di base e impostare metodo di connettività sull'endpoint privato nella scheda **rete** . Configurare gli endpoint privati per l'inserimento fornendo i dettagli della **sottoscrizione, della VNET e della subnet** che si vuole associare all'endpoint privato.
 
+    > [!NOTE]
+    > Creare un endpoint privato di inserimento solo se si intende abilitare l'isolamento di rete per gli scenari di analisi end-to-end, sia per le origini di Azure che per quelle locali. Attualmente non è supportata l'inserimento di endpoint privati che lavorano con le origini di AWS.
+
     :::image type="content" source="media/catalog-private-link/create-pe-azure-portal.png" alt-text="Creare un endpoint privato nel portale di Azure":::
 
 1. Facoltativamente, è anche possibile scegliere di configurare una **zona DNS privato** per ogni endpoint privato di inserimento.
 
 1. Fare clic su Aggiungi per aggiungere un endpoint privato per l'account di competenza.
 
-1. Nella pagina Crea endpoint privato, impostare la sottorisorsa ambito di competenza su **account**, scegliere la rete virtuale e la subnet e selezionare l'area DNS privato in cui verrà registrato il DNS. è anche possibile usare i server DNS ottenuti o creare record DNS usando i file host nelle macchine virtuali.
+1. Nella pagina Crea endpoint privato, impostare la sottorisorsa ambito di competenza su **account**, scegliere la rete virtuale e la subnet e selezionare l'area DNS privato in cui verrà registrato il DNS. è anche possibile usare i propri server DNS o creare record DNS usando i file host nelle macchine virtuali.
 
     :::image type="content" source="media/catalog-private-link/create-pe-account.png" alt-text="Selezioni per la creazione di endpoint privati":::
 
@@ -89,6 +92,20 @@ Le istruzioni riportate di seguito sono destinate ad accedere in modo sicuro da 
 6. Dopo aver creato la nuova regola, tornare alla macchina virtuale e provare a eseguire di nuovo l'accesso con le credenziali di AAD. Se l'accesso ha esito positivo, il portale di competenza è pronto per l'uso. In alcuni casi, tuttavia, AAD reindirizza ad altri domini per l'accesso in base al tipo di conto del cliente. Ad esempio, per un account live.com, AAD reindirizza a live.com per l'accesso, quindi tali richieste verranno nuovamente bloccate. Per gli account dei dipendenti Microsoft, AAD accederà a msft.sts.microsoft.com per informazioni di accesso. Controllare le richieste di rete nella scheda rete del browser per vedere quali richieste del dominio sono bloccate, ripetere il passaggio precedente per ottenere l'indirizzo IP e aggiungere le regole della porta in uscita nel gruppo di sicurezza di rete per consentire le richieste per tale indirizzo IP (se possibile, aggiungere l'URL e l'IP al file host della macchina virtuale per correggere la risoluzione DNS). Se si conoscono gli intervalli IP del dominio di accesso esatto, è anche possibile aggiungerli direttamente alle regole di rete.
 
 7. A questo punto, l'accesso ad AAD dovrebbe avere esito positivo. Il portale di competenza verrà caricato correttamente, ma l'elenco di tutti gli account di competenza non funzionerà perché può accedere solo a un account di competenza specifico. Immettere *Web. competenza. Azure. com/Resource/{PurviewAccountName}* per visitare direttamente l'account di competenza per cui è stato configurato correttamente un endpoint privato.
+ 
+## <a name="ingestion-private-endpoints-and-scanning-sources-in-private-networks-vnets-and-behind-private-endpoints"></a>Inserimento di endpoint privati e analisi delle origini in reti private, reti virtuali e dietro endpoint privati
+
+Se si vuole garantire l'isolamento di rete per i metadati che si propagano dall'origine sottoposta ad analisi al DataMap di competenza, è necessario attenersi alla procedura seguente:
+1. Abilitare un **endpoint privato** di inserimento seguendo la procedura descritta in [questa](#creating-an-ingestion-private-endpoint) sezione
+1. Eseguire l'analisi dell'origine usando un runtime di integrazione **self-hosted**.
+ 
+    1. Tutti i tipi di origine locali come SQL Server, Oracle, SAP e altri sono attualmente supportati solo tramite analisi basate su runtime di integrazione self-hosted. Il runtime di integrazione self-hosted deve essere eseguito all'interno della rete privata ed è quindi possibile eseguire il peering con il VNET in Azure. La VNET di Azure deve quindi essere abilitata nell'endpoint privato di inserimento attenendosi [alla procedura seguente](#creating-an-ingestion-private-endpoint) 
+    1. Per tutti i tipi di origine di **Azure** , ad esempio archiviazione BLOB di Azure, database SQL di Azure e altri, è necessario scegliere esplicitamente di eseguire l'analisi usando il runtime di integrazione self-hosted per garantire l'isolamento della rete. Seguire i passaggi [qui](manage-integration-runtimes.md) per configurare un runtime di integrazione self-hosted. Configurare quindi l'analisi nell'origine di Azure scegliendo il runtime di integrazione self-hosted nell'elenco a discesa **Connect by Integration Runtime** per garantire l'isolamento della rete. 
+    
+    :::image type="content" source="media/catalog-private-link/shir-for-azure.png" alt-text="Esecuzione di analisi di Azure con il runtime di integrazione self-hosted":::
+
+> [!NOTE]
+> Attualmente non è supportato il metodo di credenziale MSI quando si analizzano le origini di Azure usando un runtime di integrazione self-hosted. È necessario usare uno degli altri metodi Credential supportati per tale origine di Azure.
 
 ## <a name="enable-private-endpoint-on-existing-purview-accounts"></a>Abilitare l'endpoint privato negli account di competenza esistenti
 
@@ -101,7 +118,7 @@ Sono disponibili 2 modi per aggiungere endpoint privati di competenza dopo aver 
 
 1. Passare all'account di competenza dalla portale di Azure, selezionare le connessioni all'endpoint privato nella sezione **rete** di **Impostazioni**.
 
-:::image type="content" source="media/catalog-private-link/pe-portal.png" alt-text="Crea endpoint privato del portale":::
+    :::image type="content" source="media/catalog-private-link/pe-portal.png" alt-text="Crea endpoint privato dell'account":::
 
 1. Fare clic su + endpoint privato per creare un nuovo endpoint privato.
 
@@ -115,6 +132,20 @@ Sono disponibili 2 modi per aggiungere endpoint privati di competenza dopo aver 
 
 > [!NOTE]
 > È necessario seguire la stessa procedura descritta in precedenza per la sottorisorsa di destinazione selezionata anche come **portale** .
+
+#### <a name="creating-an-ingestion-private-endpoint"></a>Creazione di un endpoint privato di inserimento
+
+1. Passare all'account di competenza dalla portale di Azure, selezionare le connessioni all'endpoint privato nella sezione **rete** di **Impostazioni**.
+1. Passare alla scheda inserimento di **connessioni all'endpoint privato** e fare clic su **+ nuovo** per creare un nuovo endpoint privato di inserimento.
+
+1. Immettere le informazioni di base e i dettagli vnet.
+ 
+    :::image type="content" source="media/catalog-private-link/ingestion-pe-fill-details.png" alt-text="Dettagli dell'endpoint privato di riempimento":::
+
+1. Fare clic su **Crea** per completare la configurazione.
+
+> [!NOTE]
+> Gli endpoint privati per l'inserimento possono essere creati solo tramite l'esperienza di competenza portale di Azure descritta in precedenza. Non può essere creato dal centro collegamenti privati.
 
 ### <a name="using-the-private-link-center"></a>Uso del centro collegamenti privati
 
@@ -132,6 +163,15 @@ Sono disponibili 2 modi per aggiungere endpoint privati di competenza dopo aver 
 
 > [!NOTE]
 > È necessario seguire la stessa procedura descritta in precedenza per la sottorisorsa di destinazione selezionata anche come **portale** .
+
+## <a name="firewalls-to-restrict-public-access"></a>Firewall per limitare l'accesso pubblico
+
+Per limitare l'accesso all'account di competenza completamente da Internet pubblico, seguire questa procedura. Questa impostazione verrà applicata sia all'endpoint privato che alle connessioni all'endpoint privato di inserimento.
+
+1. Passare all'account di competenza dalla portale di Azure, selezionare le connessioni all'endpoint privato nella sezione **rete** di **Impostazioni**.
+1. Passare alla scheda firewall e verificare che l'interruttore sia impostato su **Nega**.
+
+    :::image type="content" source="media/catalog-private-link/private-endpoint-firewall.png" alt-text="Impostazioni del firewall dell'endpoint privato":::
 
 ## <a name="next-steps"></a>Passaggi successivi
 

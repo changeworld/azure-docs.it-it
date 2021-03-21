@@ -7,12 +7,12 @@ author: mimckitt
 ms.author: mimckitt
 ms.topic: conceptual
 ms.date: 11/06/2020
-ms.openlocfilehash: dc9f7dfdf33411f11d51734b48105be200874d02
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: 030f19d61e19349de7e2d3416a3aee1385fd03c8
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98738119"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104607523"
 ---
 # <a name="azure-boot-diagnostics"></a>Diagnostica di avvio di Azure
 
@@ -106,9 +106,9 @@ Tutti gli elementi dopo la versione API 2020-06-01 supportano la diagnostica di 
 - La diagnostica di avvio gestito non supporta le macchine virtuali che usano dischi del sistema operativo non gestiti.
 - La diagnostica di avvio non supporta gli account di archiviazione Premium, se viene usato un account di archiviazione Premium per la diagnostica di avvio, gli utenti riceveranno un `StorageAccountTypeNotSupported` errore all'avvio della macchina virtuale. 
 - Gli account di archiviazione gestiti sono supportati nella versione API Gestione risorse "2020-06-01" e versioni successive.
-- La console seriale di Azure non è attualmente compatibile con un account di archiviazione gestito per la diagnostica di avvio. Scopri di più sulla [console seriale di Azure](./troubleshooting/serial-console-overview.md).
+- La console seriale di Azure non è attualmente compatibile con un account di archiviazione gestito per la diagnostica di avvio. Scopri di più sulla [console seriale di Azure](/troubleshoot/azure/virtual-machines/serial-console-overview).
 - Il portale supporta solo l'uso della diagnostica di avvio con un account di archiviazione gestito per le macchine virtuali a istanza singola.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Altre informazioni sulla [console seriale di Azure](./troubleshooting/serial-console-overview.md) e su come usare la diagnostica di avvio per [risolvere i problemi relativi alle macchine virtuali in Azure](./troubleshooting/boot-diagnostics.md).
+Altre informazioni sulla [console seriale di Azure](/troubleshoot/azure/virtual-machines/serial-console-overview) e su come usare la diagnostica di avvio per [risolvere i problemi relativi alle macchine virtuali in Azure](/troubleshoot/azure/virtual-machines/boot-diagnostics).

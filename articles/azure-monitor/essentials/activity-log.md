@@ -6,12 +6,12 @@ services: azure-monitor
 ms.topic: conceptual
 ms.date: 06/12/2020
 ms.author: bwren
-ms.openlocfilehash: 557fc6e358f371b47c1df314508e3565d843a28c
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.openlocfilehash: 7583b4037d350b9190d6eae30c28b907b1d41d86
+ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102049186"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "104722855"
 ---
 # <a name="azure-activity-log"></a>Log attività di Azure
 Il log attività è un [log della piattaforma](./platform-logs-overview.md) presente in Azure che fornisce informazioni sugli eventi a livello di sottoscrizione. Tali dati includono le informazioni relative, ad esempio, alla modifica di una risorsa o all'avvio di una macchina virtuale. È possibile visualizzare il log attività nel portale di Azure o recuperarne le voci con PowerShell e l'interfaccia della riga di comando. Per altre funzionalità, è necessario creare un'impostazione di diagnostica per inviare il log attività ai [log di monitoraggio di Azure](../logs/data-platform-logs.md), a hub eventi di Azure in modo che inoltri al di fuori di Azure o ad archiviazione di Azure per l'archiviazione. Questo articolo fornisce informazioni dettagliate sulla visualizzazione del log attività e sull'invio a destinazioni diverse.
@@ -27,6 +27,11 @@ Per informazioni dettagliate sulla creazione di un'impostazione di diagnostica, 
 ![Visualizzare il log attività](./media/activity-log/view-activity-log.png)
 
 Per una descrizione delle categorie del log attività, vedere [schema degli eventi del log attività di Azure](activity-log-schema.md#categories).
+
+## <a name="download-the-activity-log"></a>Scaricare il log attività
+Selezionare **Scarica come CSV** per scaricare gli eventi nella visualizzazione corrente.
+
+![Scarica log attività](media/activity-log/download-activity-log.png)
 
 ### <a name="view-change-history"></a>Visualizzare la cronologia modifiche
 

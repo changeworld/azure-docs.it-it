@@ -10,18 +10,26 @@ ms.subservice: sql
 ms.date: 05/01/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick
-ms.openlocfilehash: 75e187369eccefb255ae2bbd88de79afbc4fd4dc
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: a47982012dcaa2eabda93c93508b23f30525812d
+ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104669475"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "104720390"
 ---
 # <a name="best-practices-for-serverless-sql-pool-in-azure-synapse-analytics"></a>Procedure consigliate per il pool SQL senza server in Azure sinapsi Analytics
 
 In questo articolo è presente una raccolta di procedure consigliate per l'uso di un pool SQL senza server. Il pool SQL senza server è una risorsa in Azure sinapsi Analytics.
 
 Il pool SQL senza server consente di eseguire query sui file negli account di archiviazione di Azure. Non include funzionalità di archiviazione o inserimento in locale. Tutti i file di destinazione della query sono quindi esterni al pool SQL senza server. Tutte le operazioni correlate alla lettura di file dall'archiviazione possono avere un impatto sulle prestazioni delle query.
+
+## <a name="client-applications-and-network-connections"></a>Applicazioni client e connessioni di rete
+
+Assicurarsi che l'applicazione client sia connessa all'area di lavoro sinapsi più vicina possibile con la connessione ottimale.
+- Colocare un'applicazione client con l'area di lavoro sinapsi. Se si usano applicazioni come Power BI o Azure Analysis Services, assicurarsi che si trovino nella stessa area in cui è stata posizionata l'area di lavoro sinapsi. Se necessario, creare le aree di lavoro separate abbinate alle applicazioni client. L'inserimento di un'applicazione client e dell'area di lavoro sinapsi in un'area diversa può causare una latenza più elevata e un flusso più lento dei risultati.
+- Se si leggono dati dall'applicazione locale, assicurarsi che l'area di lavoro sinapsi si trovi nell'area vicina alla propria posizione.
+- Verificare che non siano presenti problemi di larghezza di banda di rete durante la lettura di una grande quantità di dati.
+- Non usare sinapsi Studio per restituire una grande quantità di dati. Sinapsi studio è uno strumento Web che usa il protocollo HTTPS per trasferire i dati. Usare Azure Data Studio o SQL Server Management Studio per leggere una grande quantità di dati.
 
 ## <a name="storage-and-content-layout"></a>Archiviazione e layout del contenuto
 
@@ -55,6 +63,10 @@ Se possibile, preparare i file per migliorare le prestazioni:
 - Provare a ridurre le dimensioni del file CSV tra 100 MB e 10 GB.
 - È preferibile avere file di dimensioni uguali per un singolo percorso OPENROWSET o per la proprietà LOCATION di una tabella esterna.
 - Partizionare i dati archiviando le partizioni in cartelle o nomi di file diversi. Vedere [Usare le funzioni filename e filepath per indicare come destinazione partizioni specifiche](#use-filename-and-filepath-functions-to-target-specific-partitions).
+
+### <a name="colocate-your-cosmosdb-analytical-storage-and-serverless-sql-pool"></a>Percorso di archiviazione analitica CosmosDB e del pool SQL senza server
+
+Assicurarsi che l'archiviazione analitica di CosmosDB sia posizionata nella stessa area dell'area di lavoro sinapsi. Le query tra aree possono provocare latenze enormi.
 
 ## <a name="csv-optimizations"></a>Ottimizzazioni CSV
 

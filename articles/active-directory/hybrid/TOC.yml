@@ -308,6 +308,8 @@
           href: whatis-aadc-admin-agent.md
         - name: Informazioni sul modulo ADConnectivityTools di PowerShell
           href: how-to-connect-adconnectivitytools.md
+        - name: Azure AD Connect sincronizzazione oggetto singolo
+          href: how-to-connect-single-object-sync.md
         - name: Connettività
           href: tshoot-connect-connectivity.md
         - name: Errori durante la sincronizzazione
@@ -336,6 +338,8 @@
           href: tshoot-connect-install-issues.md
         - name: Modifiche dei nomi UPN
           href: howto-troubleshoot-upn-changes.md
+        - name: Risoluzione dei problemi end-to-end di oggetti e attributi
+          href: 'https://docs.microsoft.com/troubleshoot/azure/active-directory/troubleshoot-aad-connect-objects-attributes'
 - name: Informazioni di riferimento
   items:
     - name: Porte e protocolli necessari per la soluzione ibrida di gestione delle identità

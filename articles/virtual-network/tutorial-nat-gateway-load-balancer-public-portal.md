@@ -9,12 +9,12 @@ ms.subservice: nat
 ms.topic: tutorial
 ms.date: 03/19/2021
 ms.custom: template-tutorial
-ms.openlocfilehash: 345ccb68ebb31460f4a75b31a7d3a946160da6e6
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 8382dd10536a8c0475444d0cdff30340ad124e9c
+ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104657973"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "104722804"
 ---
 # <a name="tutorial-integrate-a-nat-gateway-with-a-public-load-balancer-using-the-azure-portal"></a>Esercitazione: integrare un gateway NAT con un servizio di bilanciamento del carico pubblico usando il portale di Azure
 
@@ -46,17 +46,20 @@ In questa sezione verrà creato un Azure Load Balancer standard.
 4. Nella pagina **bilanciamento del carico** selezionare **Crea**.
 5. Nella pagina **Crea** servizio di bilanciamento del carico immettere o selezionare le informazioni seguenti: 
 
-    | Impostazione                 | Valore                                              |
+    | Impostazione                 | valore                                              |
     | ---                     | ---                                                |
+    | **Dettagli del progetto** |   |
     | Subscription               | Selezionare la propria sottoscrizione.    |    
-    | Resource group         | Selezionare **Crea nuovo** e immettere **TutorPubLBNAT-RG** nella casella di testo.|
+    | Resource group         | Selezionare **Crea nuovo** e immettere **TutorPubLBNAT-RG** nella casella di testo. </br> Selezionare **OK**.|
+    | **Dettagli istanza** |   |
     | Nome                   | Immettere **myLoadBalancer**                                   |
     | Region         | Select **(Stati Uniti) Stati Uniti orientali**.                                        |
     | Type          | Selezionare **Pubblica**.                                        |
     | SKU           | Lasciare lo **standard** predefinito. |
     | Livello          | Lasciare l'impostazione predefinita **Regional**. |
-    | Indirizzo IP pubblico | Selezionare **Crea nuovo**. Se si vuole usare un indirizzo IP pubblico esistente, selezionare **Usa esistente**. |
-    | Nome dell'indirizzo IP pubblico | Digitare **myPublicIP-lb** nella casella di testo.|
+    | **Indirizzo IP pubblico** |   |
+    | Indirizzo IP pubblico | Selezionare **Crea nuovo**. </br> Se si vuole usare un indirizzo IP pubblico esistente, selezionare **Usa esistente**. |
+    | Nome dell'indirizzo IP pubblico | Immettere **myPublicIP-lb** nella casella di testo.|
     | Zona di disponibilità | Selezionare **Con ridondanza della zona** per creare un servizio di bilanciamento del carico resiliente. Per creare un servizio di bilanciamento del carico di zona, selezionare una zona specifica tra 1, 2 o 3 |
     | Aggiungi un indirizzo IPv6 pubblico | Selezionare **No**. </br> Per altre informazioni sugli indirizzi IPv6 e il servizio di bilanciamento del carico, vedere [Che cos'è IPv6 per la rete virtuale di Azure?](../virtual-network/ipv6-overview.md)  |
     | Preferenza di routing | Lasciare l'impostazione predefinita **rete Microsoft**. </br> Per ulteriori informazioni sulle preferenze di routing, vedere informazioni sulle preferenze di [routing (anteprima)](../virtual-network/routing-preference-overview.md). |
@@ -135,7 +138,7 @@ In questa sezione verrà creata una regola di bilanciamento del carico:
     | Porta back-end | Immettere **80**. |
     | Pool back-end | Selezionare **myBackendPool**.|
     | Probe di integrità | Selezionare **myHealthProbe**. |
-    | Timeout di inattività (minuti) | Spostare il dispositivo di scorrimento su **15** minuti. |
+    | Timeout di inattività (minuti) | Immettere **15** minuti. |
     | Reimpostazione TCP | Selezionare **Enabled**. |
     | SNAT (Network Address Translation) di origine in uscita | Selezionare **(Scelta consigliata) Usa regole in uscita per fornire l'accesso a Internet ai membri del pool back-end**. |
 
@@ -237,7 +240,7 @@ Queste macchine virtuali vengono aggiunte al pool back-end del servizio di bilan
     | Gruppo di sicurezza di rete della scheda di interfaccia di rete | Selezionare **Avanzato**|
     | Configura gruppo di sicurezza di rete | Selezionare **Crea nuovo**. </br> Nella pagina **Crea gruppo di sicurezza di rete** immettere **myNSG** in **Nome**. </br> In **Regole in ingresso** selezionare **+ Aggiungi una regola in ingresso**. </br> In **Intervalli di porte di destinazione** immettere **80**. </br> In **Priorità** immettere **100**. </br> In **Nome** immettere **myHTTPRule** </br> Selezionare **Aggiungi** </br> Selezionare **OK**. |
     | **Bilanciamento del carico**  |
-    | Posizionare questa macchina virtuale dietro una soluzione di bilanciamento del carico esistente? | Selezionare **Sì** |
+    | Posizionare questa macchina virtuale dietro una soluzione di bilanciamento del carico esistente? | Selezionare la casella di controllo.|
     | **Impostazioni di bilanciamento del carico** |
     | Opzioni di bilanciamento del carico | Selezionare il servizio di **bilanciamento del carico di Azure** |
     | Selezionare un servizio di bilanciamento del carico | Selezionare **myLoadBalancer**  |
@@ -302,7 +305,7 @@ In questa sezione verrà testato il gateway NAT. Si scoprirà prima l'indirizzo 
 
 2. Prendere nota dell'indirizzo IP pubblico:
 
-    :::image type="content" source="./media/tutorial-nat-gateway-load-balancer-public-portal/find-public-ip.png" alt-text="Individuare l'indirizzo IP pubblico del gateway NAT" border="true":::
+    :::image type="content" source="./media/tutorial-nat-gateway-load-balancer-public-portal/find-public-ip.png" alt-text="Screenshot individuare l'indirizzo IP pubblico del gateway NAT." border="true":::
 
 3. Selezionare **tutti i servizi** nel menu a sinistra, selezionare **tutte le risorse** e quindi nell'elenco delle risorse selezionare **myVM1** che si trova nel gruppo di risorse **TutorPubLBNAT-RG** .
 
@@ -318,7 +321,7 @@ In questa sezione verrà testato il gateway NAT. Si scoprirà prima l'indirizzo 
 
 9. Verificare che l'indirizzo IP visualizzato corrisponda all'indirizzo del gateway NAT annotato nel passaggio precedente:
 
-    :::image type="content" source="./media/tutorial-nat-gateway-load-balancer-public-portal/my-ip.png" alt-text="Internet Explorer che mostra l'indirizzo IP in uscita esterno" border="true":::
+    :::image type="content" source="./media/tutorial-nat-gateway-load-balancer-public-portal/my-ip.png" alt-text="Schermata Internet Explorer che mostra l'indirizzo IP in uscita esterno." border="true":::
 
 ## <a name="clean-up-resources"></a>Pulire le risorse
 

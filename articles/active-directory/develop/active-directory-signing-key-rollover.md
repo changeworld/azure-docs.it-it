@@ -13,10 +13,10 @@ ms.author: ryanwi
 ms.reviewer: paulgarn, hirsin
 ms.custom: aaddev
 ms.openlocfilehash: ce4917f968ef1664a1d41f4eaff162df116bda4f
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/04/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102035085"
 ---
 # <a name="signing-key-rollover-in-the-microsoft-identity-platform"></a>Rollover della chiave di firma nella piattaforma di identità Microsoft
@@ -68,7 +68,7 @@ La funzionalità di autenticazione / autorizzazione (EasyAuth) dei servizi app d
 ### <a name="web-applications--apis-protecting-resources-using-net-owin-openid-connect-ws-fed-or-windowsazureactivedirectorybearerauthentication-middleware"></a><a name="owin"></a>API / applicazioni Web che proteggono le risorse usando middleware .NET OWIN OpenID Connect, WS-Fed o WindowsAzureActiveDirectoryBearerAuthentication
 Se l'applicazione usa middleware .NET OWIN OpenID Connect, WS-Fed o WindowsAzureActiveDirectoryBearerAuthentication, ha già la logica necessaria per gestire automaticamente il rollover della chiave.
 
-È possibile verificare che l'applicazione usi uno di questi elementi cercando i frammenti di codice seguenti nei file Startup.cs o Startup.Auth.cs dell'applicazione.
+È possibile verificare che l'applicazione usi uno di questi elementi cercando uno dei seguenti frammenti di codice nei file startup. cs o Startup. auth. cs dell'applicazione.
 
 ```csharp
 app.UseOpenIdConnectAuthentication(

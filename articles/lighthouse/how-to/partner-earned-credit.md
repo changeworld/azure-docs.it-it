@@ -4,15 +4,15 @@ description: Informazioni su come associare l'ID partner per ricevere il credito
 ms.date: 02/12/2021
 ms.topic: how-to
 ms.openlocfilehash: 4c18aae38570ab3fd84df7d45fb18e35404158be
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/14/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100372094"
 ---
 # <a name="link-your-partner-id-to-track-your-impact-on-delegated-resources"></a>Collegare l'ID partner per tenere traccia dell'effetto sulle risorse delegate 
 
-Se si è membri del [Microsoft Partner Network](https://partner.microsoft.com/), è possibile collegare l'ID partner con le credenziali usate per gestire le risorse delegate dei clienti, consentendo a Microsoft di identificare e riconoscere i partner che fanno successo ai clienti di Azure. Questo collegamento consente anche ai partner [CSP (Cloud Solution Provider)](/partner-center/csp-overview) di ricevere un [credito guadagnato dal partner per i servizi gestiti (PEC)](/partner-center/partner-earned-credit) per i clienti che hanno [firmato il contratto di servizio Microsoft (MCA)](/partner-center/confirm-customer-agreement) e si trovano nel [piano Azure](/partner-center/azure-plan-get-started).
+Se si è membri del [Microsoft Partner Network](https://partner.microsoft.com/), è possibile collegare l'ID partner con le credenziali usate per gestire le risorse delegate dei clienti, consentendo a Microsoft di identificare e riconoscere i partner che fanno successo ai clienti di Azure. Questo collegamento consente anche ai partner [CSP (Cloud Solution Provider)](/partner-center/csp-overview) di ricevere [il credito ottenuto dal partner per i servizi gestiti](/partner-center/partner-earned-credit) per i clienti che hanno [firmato il Contratto del cliente Microsoft](/partner-center/confirm-customer-agreement) e rientrano [nel piano di Azure](/partner-center/azure-plan-get-started).
 
 Per ottenere il riconoscimento per le attività del Faro di Azure, è necessario [collegare l'ID MPN](../../cost-management-billing/manage/link-partner-id.md) ad almeno un account utente nel tenant di gestione e assicurarsi che l'account collegato abbia accesso a ognuna delle sottoscrizioni caricate.
 

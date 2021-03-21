@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 09/09/2020
 ms.author: amverma
 ms.reviewer: cynthn
-ms.openlocfilehash: 1f2d24279d3e74774da05eba42c0e916370d4f1c
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: f37f0bb14cf29551e85c0e592c327b86048f18e1
+ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 03/20/2021
-ms.locfileid: "101672153"
+ms.locfileid: "104721264"
 ---
 # <a name="hb-series-virtual-machine-sizes"></a>Dimensioni delle macchine virtuali serie HB
 
@@ -59,5 +59,5 @@ numactl --physcpubind=[INSERT CORE #]  ib_send_lat -a
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Per informazioni sugli annunci più recenti e su alcuni esempi e risultati di High Performance Computing (HPC), vedere i [Blog della community tecnica di calcolo di Azure](https://techcommunity.microsoft.com/t5/azure-compute/bg-p/AzureCompute).
+- Per informazioni sugli annunci più recenti, sugli esempi di carico di lavoro HPC e sui risultati delle prestazioni, vedere i [Blog della community tecnica di Azure Compute](https://techcommunity.microsoft.com/t5/azure-compute/bg-p/AzureCompute).
 - Per una visualizzazione architettonica di livello superiore dell'esecuzione di carichi di lavoro HPC, vedere [High Performance Computing (HPC) in Azure](/azure/architecture/topics/high-performance-computing/).

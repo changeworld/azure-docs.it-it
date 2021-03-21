@@ -2,26 +2,26 @@
 title: Crittografia lato server dei dischi gestiti di Azure
 description: Archiviazione di Azure protegge i dati crittografandoli nello stato inattivo prima di renderli persistenti nei cluster di archiviazione. È possibile usare chiavi gestite dal cliente per gestire la crittografia con chiavi personalizzate oppure è possibile fare affidamento sulle chiavi gestite da Microsoft per la crittografia dei dischi gestiti.
 author: roygara
-ms.date: 03/02/2021
+ms.date: 03/11/2021
 ms.topic: conceptual
 ms.author: rogarana
 ms.service: virtual-machines
 ms.subservice: disks
 ms.custom: references_regions
-ms.openlocfilehash: ee4dd539119457086c9b109579b7e6ab195fea96
-ms.sourcegitcommit: 225e4b45844e845bc41d5c043587a61e6b6ce5ae
+ms.openlocfilehash: 786ecef5d62c7dd18e3992fa0b233b27a80d762b
+ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/11/2021
-ms.locfileid: "103014384"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "104721852"
 ---
 # <a name="server-side-encryption-of-azure-disk-storage"></a>Crittografia lato server di archiviazione su disco di Azure
 
-La crittografia lato server (SSE) protegge i dati e consente di soddisfare gli obblighi di sicurezza e conformità dell'organizzazione. Per impostazione predefinita, SSE crittografa automaticamente i dati archiviati in dischi gestiti di Azure (dischi del sistema operativo e dischi dati) per impostazione predefinita quando vengono salvati in modo permanente nel cloud. 
+La maggior parte dei dischi gestiti di Azure è crittografata con la crittografia di archiviazione di Azure, che usa la crittografia lato server (SSE) per proteggere i dati e per soddisfare gli impegni di sicurezza e conformità dell'organizzazione. La crittografia di archiviazione di Azure crittografa automaticamente i dati archiviati nei dischi di Azure Managed Disks (sistema operativo e dischi dati) per impostazione predefinita quando vengono salvati in modo permanente nel cloud. I dischi con crittografia nell'host abilitati, tuttavia, non vengono crittografati tramite archiviazione di Azure. Per i dischi con crittografia in host abilitata, il server che ospita la macchina virtuale fornisce la crittografia per i dati e i flussi di dati crittografati in archiviazione di Azure.
 
 I dati nei dischi gestiti di Azure sono crittografati in modo trasparente con la [crittografia AES](https://en.wikipedia.org/wiki/Advanced_Encryption_Standard) a 256 bit, una delle crittografie a blocchi più solide disponibili, conforme a FIPS 140-2. Per altre informazioni sui moduli crittografici sottostanti i dischi gestiti di Azure, vedere [API Cryptography Next Generation](/windows/desktop/seccng/cng-portal)
 
-La crittografia lato server non influisce sulle prestazioni dei dischi gestiti e non sono previsti costi aggiuntivi. 
+La crittografia di archiviazione di Azure non influisce sulle prestazioni dei dischi gestiti e non sono previsti costi aggiuntivi. Per altre informazioni sulla crittografia di archiviazione di Azure, vedere [crittografia di archiviazione di Azure](/azure/storage/common/storage-service-encryption).
 
 > [!NOTE]
 > I dischi temporanei non sono dischi gestiti e non sono crittografati da SSE, a meno che non si abiliti la crittografia nell'host.

@@ -8,12 +8,12 @@ ms.service: api-management
 ms.topic: article
 ms.date: 03/12/2021
 ms.author: apimpm
-ms.openlocfilehash: e92d509cdbeba142ec1c740277b45aa3eb5fd21e
-ms.sourcegitcommit: 18a91f7fe1432ee09efafd5bd29a181e038cee05
+ms.openlocfilehash: 3f91ca21512b8cddcac7fe71fa3eec07e1a8745a
+ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/16/2021
-ms.locfileid: "103565065"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "104720084"
 ---
 # <a name="api-management-policies-to-validate-requests-and-responses"></a>Criteri di gestione API per convalidare le richieste e le risposte
 
@@ -95,7 +95,7 @@ Nell'esempio seguente il payload JSON nelle richieste e nelle risposte viene con
 | Nome                       | Descrizione                                                                                                                                                            | Obbligatoria | Predefinito |
 | -------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------- | ------- |
 | non specificato-Content-Type-Action | [Azione](#actions) da eseguire per richieste o risposte con un tipo di contenuto non specificato nello schema dell'API. |  Sì     | N/D   |
-| dimensioni massime | Lunghezza massima del corpo della richiesta o della risposta, verificata rispetto all' `Content-Length` intestazione. Se il corpo della richiesta o il corpo della risposta è compresso, questo valore è la lunghezza decompressa. Valore massimo consentito: 102.400 byte (100 KB).  | Sì       | N/D   |
+| dimensioni massime | Lunghezza massima del corpo della richiesta o della risposta in byte, verificata rispetto all' `Content-Length` intestazione. Se il corpo della richiesta o il corpo della risposta è compresso, questo valore è la lunghezza decompressa. Valore massimo consentito: 102.400 byte (100 KB).  | Sì       | N/D   |
 | dimensioni-superato-azione | [Azione](#actions) da eseguire per le richieste o le risposte il cui corpo supera le dimensioni specificate in `max-size` . |  Sì     | N/D   |
 | errori-nome-variabile | Nome della variabile in `context.Variables` cui registrare gli errori di convalida.  |   Sì    | N/D   |
 | tipo | Tipo di contenuto per eseguire la convalida del corpo per, verificato rispetto all' `Content-Type` intestazione. Questo valore non fa distinzione tra maiuscole e minuscole. Se è vuoto, si applica a ogni tipo di contenuto specificato nello schema dell'API. |   No    |  N/D  |
