@@ -17,10 +17,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 6ec05c4160c6502904644bf7035bda0bed66cc33
-ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94413191"
 ---
 # <a name="azure-ad-connect-sync-attributes-synchronized-to-azure-active-directory"></a>Servizio di sincronizzazione Azure AD Connect: Attributi sincronizzati con Azure Active Directory
@@ -39,7 +39,7 @@ In questo caso, iniziare con l'elenco degli attributi in questo argomento e iden
 >
 
 ## <a name="microsoft-365-apps-for-enterprise"></a>Microsoft 365 Apps for enterprise
-| Nome attributo | Utente | Commento |
+| Nome attributo | User | Commento |
 | --- |:---:| --- |
 | accountEnabled |X |Definisce se un account è abilitato. |
 | cn |X | |
@@ -52,7 +52,7 @@ In questo caso, iniziare con l'elenco degli attributi in questo argomento e iden
 | userPrincipalName |X |Il nome dell'entità utente (UPN) costituisce l'ID di accesso per l'utente. In genere corrisponde al valore di [mail]. |
 
 ## <a name="exchange-online"></a>Exchange Online
-| Nome attributo | Utente | Contatto | Gruppo | Commento |
+| Nome attributo | User | Contatto | Group | Commento |
 | --- |:---:|:---:|:---:| --- |
 | accountEnabled |X | | |Definisce se un account è abilitato. |
 | assistant |X |X | | |
@@ -175,7 +175,7 @@ In questo caso, iniziare con l'elenco degli attributi in questo argomento e iden
 | wWWHomePage |X |X | | |
 
 ## <a name="sharepoint-online"></a>SharePoint Online
-| Nome attributo | Utente | Contatto | Gruppo | Commento |
+| Nome attributo | User | Contatto | Group | Commento |
 | --- |:---:|:---:|:---:| --- |
 | accountEnabled |X | | |Definisce se un account è abilitato. |
 | authOrig |X |X |X | |
@@ -257,7 +257,7 @@ In questo caso, iniziare con l'elenco degli attributi in questo argomento e iden
 | wWWHomePage |X |X | | |
 
 ## <a name="teams-and-skype-for-business-online"></a>Teams e Skype for business online
-| Nome attributo | Utente | Contatto | Gruppo | Commento |
+| Nome attributo | User | Contatto | Group | Commento |
 | --- |:---:|:---:|:---:| --- |
 | accountEnabled |X | | |Definisce se un account è abilitato. |
 | c |X |X | | |
@@ -305,7 +305,7 @@ In questo caso, iniziare con l'elenco degli attributi in questo argomento e iden
 | wWWHomePage |X |X | | |
 
 ## <a name="azure-rms"></a>Azure RMS
-| Nome attributo | Utente | Contatto | Gruppo | Commento |
+| Nome attributo | User | Contatto | Group | Commento |
 | --- |:---:|:---:|:---:| --- |
 | accountEnabled |X | | |Definisce se un account è abilitato. |
 | cn |X | |X |Nome comune o alias. In genere il prefisso del valore [mail]. |
@@ -320,7 +320,7 @@ In questo caso, iniziare con l'elenco degli attributi in questo argomento e iden
 | userPrincipalName |X | | |Questo nome dell'entità utente (UPN) costituisce l'ID di accesso per l'utente. In genere corrisponde al valore di [mail]. |
 
 ## <a name="intune"></a>Intune
-| Nome attributo | Utente | Contatto | Gruppo | Commento |
+| Nome attributo | User | Contatto | Group | Commento |
 | --- |:---:|:---:|:---:| --- |
 | accountEnabled |X | | |Definisce se un account è abilitato. |
 | c |X |X | | |
@@ -338,7 +338,7 @@ In questo caso, iniziare con l'elenco degli attributi in questo argomento e iden
 | userPrincipalName |X | | |Il nome dell'entità utente (UPN) costituisce l'ID di accesso per l'utente. In genere corrisponde al valore di [mail]. |
 
 ## <a name="dynamics-crm"></a>Dynamics CRM
-| Nome attributo | Utente | Contatto | Gruppo | Commento |
+| Nome attributo | User | Contatto | Group | Commento |
 | --- |:---:|:---:|:---:| --- |
 | accountEnabled |X | | |Definisce se un account è abilitato. |
 | c |X |X | | |
@@ -377,7 +377,7 @@ Questo gruppo è un set di attributi usati come gli attributi minimi necessari p
 
 Questo gruppo è un set di attributi che possono essere usati se la directory Azure AD non viene usata per supportare Microsoft 365, Dynamics o Intune. Contiene un piccolo set di attributi principali. Si noti che Single Sign-On o il provisioning per alcune applicazioni di terze parti richiede la configurazione della sincronizzazione degli attributi oltre agli attributi descritti qui. I requisiti dell'applicazione sono descritti nell' [esercitazione sull'app Saas](../saas-apps/tutorial-list.md) per ogni applicazione.
 
-| Nome attributo | Utente | Contatto | Gruppo | Commento |
+| Nome attributo | User | Contatto | Group | Commento |
 | --- |:---:|:---:|:---:| --- |
 | accountEnabled |X | | |Definisce se un account è abilitato. |
 | cn |X | |X | |
@@ -413,16 +413,16 @@ I computer o dispositivi appartenenti a un dominio Windows 10 sincronizzano alcu
 
 Questi attributi per l' **utente** si aggiungono alle altre app selezionate.  
 
-| Nome attributo | Utente | Commento |
+| Nome attributo | User | Commento |
 | --- |:---:| --- |
 | domainFQDN |X |Anche chiamato dnsDomainName. Ad esempio, contoso.com. |
 | domainNetBios |X |Anche chiamato netBiosName. Ad esempio, CONTOSO. |
 | msDS-KeyCredentialLink |X |Dopo che l'utente si è registrato a Windows Hello for Business. | 
 
 ## <a name="exchange-hybrid-writeback"></a>Writeback della distribuzione ibrida Exchange
-Se si sceglie di abilitare la distribuzione **ibrida di Exchange** , per questi attributi viene eseguito il writeback da Azure AD ad Active Directory locale. A seconda della versione di Exchange in uso, potrebbe essere sincronizzato un numero minore di attributi.
+Se si sceglie di abilitare la distribuzione **ibrida di Exchange**, per questi attributi viene eseguito il writeback da Azure AD ad Active Directory locale. A seconda della versione di Exchange in uso, potrebbe essere sincronizzato un numero minore di attributi.
 
-| Nome attributo (Active Directory locale) | Nome attributo (interfaccia utente di Azure AD Connect) | Utente | Contatto | Gruppo | Commento |
+| Nome attributo (Active Directory locale) | Nome attributo (interfaccia utente di Azure AD Connect) | User | Contatto | Group | Commento |
 | --- |:---:|:---:|:---:| --- |---|
 | msDS-ExternalDirectoryObjectID| ms-DS-External-Directory-Object-Id |X | | |Derivato da cloudAnchor in Azure AD. Si tratta di un nuovo attributo di Exchange 2016 e Windows Server 2016 AD. |
 | msExchArchiveStatus| ms-Exch-ArchiveStatus |X | | |Archivio online: consente ai clienti di archiviare la posta elettronica. |

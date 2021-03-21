@@ -5,10 +5,10 @@ ms.date: 02/05/2021
 ms.topic: quickstart
 ms.custom: devx-track-azurepowershell
 ms.openlocfilehash: 216cfeb6e1389793afcfd27d8785a5f912db2c97
-ms.sourcegitcommit: f377ba5ebd431e8c3579445ff588da664b00b36b
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/05/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "99592535"
 ---
 # <a name="quickstart-create-a-management-group-with-azure-powershell"></a>Avvio rapido: Creare un gruppo di gestione con Azure PowerShell
@@ -65,4 +65,4 @@ In questo argomento di avvio rapido è stato creato un gruppo di gestione per or
 Per altre informazioni sui gruppi di gestione e su come gestire la gerarchia delle risorse, continuare con:
 
 > [!div class="nextstepaction"]
-> [Gestire le risorse con i gruppi di gestione](./manage.md)
+> Gestire le risorse con i gruppi di gestione

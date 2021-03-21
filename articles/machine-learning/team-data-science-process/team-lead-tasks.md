@@ -11,10 +11,10 @@ ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ms.openlocfilehash: df7d2278487c1b098615a14562c498b9187c56eb
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/25/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96000029"
 ---
 # <a name="tasks-for-the-team-lead-on-a-team-data-science-process-team"></a>Attività per il responsabile del team per un team del processo di Data Science per i team
@@ -91,7 +91,7 @@ Per creare un progetto separato per il team:
    
 1. Nella finestra di dialogo **Crea progetto** immettere il nome del team, ad esempio *Team*, in **nome progetto**, quindi selezionare **Avanzate**. 
    
-1. In **controllo della versione** selezionare **git** e in **processo elemento di lavoro** selezionare **agile**. Selezionare quindi **Crea**. 
+1. In **controllo della versione** selezionare **git** e in **processo elemento di lavoro** selezionare **agile**. Quindi selezionare **Crea** 
    
    ![Crea progetto](./media/team-lead-tasks/team-leads-3-create-new-team-2.png)
    
@@ -226,7 +226,7 @@ git push
 ```
 
 > [!NOTE]
-> Se è la prima volta che si esegue il commit in un repository git, potrebbe essere necessario configurare i parametri globali *User.Name* e *User. email* prima di eseguire il `git commit` comando. Eseguire questi due comandi:
+> Se è la prima volta che si esegue il commit in un repository git, potrebbe essere necessario configurare i parametri globali *User.Name* e *User.email* prima di eseguire il `git commit` comando. Eseguire questi due comandi:
 > 
 > `git config --global user.name <your name>`
 > 

@@ -7,12 +7,12 @@ ms.subservice: files
 ms.topic: how-to
 ms.date: 06/22/2020
 ms.author: rogarana
-ms.openlocfilehash: 3aa7ab2fd3217377e9c56c8c71a1c1acc959bcd9
-ms.sourcegitcommit: 66ce33826d77416dc2e4ba5447eeb387705a6ae5
+ms.openlocfilehash: 1dd2768c7541312b68e2a44a35fc4260d67c5655
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/15/2021
-ms.locfileid: "103472272"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104586999"
 ---
 # <a name="part-four-mount-a-file-share-from-a-domain-joined-vm"></a>Parte 4: montare una condivisione file da una macchina virtuale aggiunta a un dominio
 
@@ -28,7 +28,7 @@ Accedere al client usando le credenziali a cui sono state concesse le autorizzaz
 
 Prima di poter montare la condivisione file, assicurarsi di aver superato i prerequisiti seguenti:
 
-- Se si sta montando la condivisione file da un client che ha montato in precedenza la condivisione file con la chiave dell'account di archiviazione, verificare di aver disconnesso la condivisione, rimosso le credenziali permanenti della chiave dell'account di archiviazione e che attualmente usi le credenziali di servizi di dominio Active Directory per l'autenticazione. Per istruzioni sulla cancellazione della condivisione montata con la chiave dell'account di archiviazione, vedere la [pagina delle domande frequenti](https://docs.microsoft.com/azure/storage/files/storage-files-faq#ad-ds--azure-ad-ds-authentication).
+- Se si sta montando la condivisione file da un client che ha montato in precedenza la condivisione file con la chiave dell'account di archiviazione, verificare di aver disconnesso la condivisione, rimosso le credenziali permanenti della chiave dell'account di archiviazione e che attualmente usi le credenziali di servizi di dominio Active Directory per l'autenticazione. Per istruzioni sulla cancellazione della condivisione montata con la chiave dell'account di archiviazione, vedere la [pagina delle domande frequenti](./storage-files-faq.md#ad-ds--azure-ad-ds-authentication).
 - Il client deve avere una linea di visibilità per i servizi di dominio Active Directory. Se il computer o la macchina virtuale è fuori rete gestita da servizi di dominio Active Directory, sarà necessario abilitare la VPN per raggiungere servizi di dominio Active Directory per l'autenticazione.
 
 Sostituire i valori segnaposto con i propri valori, quindi usare il comando seguente per montare la condivisione file di Azure. È sempre necessario eseguire il montaggio usando il percorso riportato di seguito. L'uso di CNAME per il montaggio di file non è supportato per l'autenticazione basata su identità (servizi di dominio Active Directory o Azure AD DS).
