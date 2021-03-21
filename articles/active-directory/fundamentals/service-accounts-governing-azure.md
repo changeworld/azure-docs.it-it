@@ -13,12 +13,12 @@ ms.author: baselden
 ms.reviewer: ajburnle
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ee6ac21d67f32fbc61db19b348fc29cdf3ee9fd7
-ms.sourcegitcommit: df1930c9fa3d8f6592f812c42ec611043e817b3b
+ms.openlocfilehash: 7f540ab40a14af09aa8667860286021f572eb6f1
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/13/2021
-ms.locfileid: "103418182"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104587900"
 ---
 # <a name="governing-azure-ad-service-accounts"></a>Gestione degli account del servizio Azure AD
 
@@ -32,7 +32,7 @@ Esistono tre tipi di account del servizio in Azure Active Directory (Azure AD): 
 
 Prima di creare un account del servizio o di registrare un'applicazione, documentare le informazioni sulla chiave dell'account del servizio. La presenza di informazioni documentate rende più semplice monitorare e governare efficacemente l'account. Si consiglia di raccogliere i dati seguenti e di tenerne traccia nel database di gestione della configurazione centralizzata (CMDB).
 
-| Dati| Descrizione| Dettagli |
+| Data| Descrizione| Dettagli |
 | - | - | - |
 | Proprietario| Utente o gruppo che è responsabile per la gestione e il monitoraggio dell'account del servizio.| Effettuare il provisioning del proprietario con le autorizzazioni necessarie per monitorare l'account e implementare una soluzione per attenuare i problemi. La mitigazione dei problemi può essere eseguita dal proprietario o tramite una richiesta. |
 | Scopo| Come verrà usato l'account.| Eseguire il mapping dell'account del servizio a un servizio, un'applicazione o uno script specifico. Evitare di creare account del servizio multiutilizzo. |
@@ -53,7 +53,7 @@ Concedere all'account del servizio solo le autorizzazioni necessarie per eseguir
 
 * Non assegnare ruoli predefiniti agli account del servizio. Usare invece il [modello di concessione delle autorizzazioni OAuth2 per Microsoft Graph](/graph/api/resources/oauth2permissiongrant)
 
-* Se all'entità servizio deve essere assegnato un ruolo con privilegi, è consigliabile assegnare un [ruolo personalizzato](https://docs.microsoft.com/azure/active-directory/roles/custom-create) con privilegi specifici, necessari, in base a un intervallo di tempo.
+* Se all'entità servizio deve essere assegnato un ruolo con privilegi, è consigliabile assegnare un [ruolo personalizzato](../roles/custom-create.md) con privilegi specifici, necessari, in base a un intervallo di tempo.
 
 * Non includere gli account del servizio come membri di qualsiasi gruppo con autorizzazioni elevate. 
 
@@ -63,10 +63,10 @@ Concedere all'account del servizio solo le autorizzazioni necessarie per eseguir
    oppure utilizzare  
 `Get-AzureADServicePrincipal | % { Get-AzureADServiceAppRoleAssignment -ObjectId $_ }`
 
-* [Usare gli ambiti OAuth 2,0](https://docs.microsoft.com/azure/active-directory/develop/v2-permissions-and-consent) per limitare la funzionalità a cui un account del servizio può accedere su una risorsa.
+* [Usare gli ambiti OAuth 2,0](../develop/v2-permissions-and-consent.md) per limitare la funzionalità a cui un account del servizio può accedere su una risorsa.
 * Le entità servizio e le identità gestite possono usare gli ambiti OAuth 2,0 in un contesto delegato che rappresenta un utente connesso o come account del servizio nel contesto dell'applicazione. Nel contesto dell'applicazione non è connesso.
 
-* Verificare che gli account di servizio degli ambiti richiedano risorse per assicurarsi che siano appropriati. Se, ad esempio, un account richiede file. ReadWrite. All, valutare se è effettivamente necessario solo file. Read. all. Per ulteriori informazioni sulle autorizzazioni, vedere per [Microsoft Graph riferimento alle autorizzazioni](https://docs.microsoft.com/graph/permissions-reference).
+* Verificare che gli account di servizio degli ambiti richiedano risorse per assicurarsi che siano appropriati. Se, ad esempio, un account richiede file. ReadWrite. All, valutare se è effettivamente necessario solo file. Read. all. Per ulteriori informazioni sulle autorizzazioni, vedere per [Microsoft Graph riferimento alle autorizzazioni](/graph/permissions-reference).
 
 * Assicurarsi di considerare attendibile lo sviluppatore dell'applicazione o dell'API con l'accesso richiesto alle risorse.
 
@@ -78,9 +78,9 @@ Concedere all'account del servizio solo le autorizzazioni necessarie per eseguir
 
 Quando si ha una chiara conoscenza dello scopo, dell'ambito e delle autorizzazioni necessarie, creare l'account del servizio. 
 
-[Creare e usare identità gestite](https://docs.microsoft.com/azure/app-service/overview-managed-identity?tabs=dotnet)
+[Creare e usare identità gestite](../../app-service/overview-managed-identity.md?tabs=dotnet)
 
-[Creazione e uso di entità servizio](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal)
+[Creazione e uso di entità servizio](../develop/howto-create-service-principal-portal.md)
 
 Usare un'identità gestita quando possibile. Se non è possibile usare un'identità gestita, usare un'entità servizio. Se non è possibile usare un'entità servizio, quindi usare solo un account utente Azure AD.
 
@@ -100,7 +100,7 @@ Monitorare in modo proattivo gli account di servizio per assicurarsi che i model
 
 * Usare i log di Sign-In Azure AD nel portale di Azure AD.
 
-* Esportazione dei log di Sign-In Azure AD in [archiviazione di Azure](https://docs.microsoft.com/azure/storage/), [Hub eventi di Azure](https://docs.microsoft.com/azure/event-hubs/)o monitoraggio di [Azure](https://docs.microsoft.com/azure/azure-monitor/logs/data-platform-logs).
+* Esportazione dei log di Sign-In Azure AD in [archiviazione di Azure](../../storage/index.yml), [Hub eventi di Azure](../../event-hubs/index.yml)o monitoraggio di [Azure](../../azure-monitor/logs/data-platform-logs.md).
 
 
 ![Screenshot che mostra la schermata di accesso dell'entità servizio.](./media/securing-service-accounts/service-accounts-govern-azure-1.png)
@@ -172,7 +172,7 @@ Stabilire un processo di revisione per assicurarsi che gli account del servizio 
 
 **I processi per il deprovisioning devono includere le seguenti attività.**
 
-1. Una volta effettuato il deprovisioning dell'applicazione o dello script associato, [monitorare](https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-sign-ins#sign-ins-report) gli accessi e le risorse dall'account del servizio.
+1. Una volta effettuato il deprovisioning dell'applicazione o dello script associato, [monitorare](../reports-monitoring/concept-sign-ins.md#sign-ins-report) gli accessi e le risorse dall'account del servizio.
 
    * Se l'account è ancora attivo, determinarne la modalità di utilizzo prima di eseguire i passaggi successivi.
  
@@ -196,4 +196,3 @@ Per ulteriori informazioni sulla protezione degli account dei servizi di Azure, 
 
  
 
- 

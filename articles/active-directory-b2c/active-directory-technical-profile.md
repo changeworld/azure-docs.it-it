@@ -12,10 +12,10 @@ ms.date: 12/11/2020
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: 3f92bfe98a45117264c957481a75493de652abc9
-ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/15/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97508102"
 ---
 # <a name="define-an-azure-active-directory-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Definire un profilo tecnico di Azure Active Directory in un criterio personalizzato di Azure Active Directory B2C
@@ -246,7 +246,7 @@ Il profilo tecnico seguente elimina un account utente social mediante **alternat
 ```
 ## <a name="metadata"></a>Metadati
 
-| Attributo | Obbligatorio | Descrizione |
+| Attributo | Obbligatoria | Descrizione |
 | --------- | -------- | ----------- |
 | Operazione | Sì | L'operazione da eseguire. I valori possibili sono: `Read`, `Write`, `DeleteClaims` o `DeleteClaimsPrincipal`. |
 | RaiseErrorIfClaimsPrincipalDoesNotExist | No | Genera un errore se l'oggetto utente non esiste nella directory. I valori possibili sono: `true` o `false`. |
@@ -259,7 +259,7 @@ Il profilo tecnico seguente elimina un account utente social mediante **alternat
  
 Per configurare il messaggio di errore visualizzato in caso di errore, è possibile utilizzare le impostazioni seguenti. I metadati devono essere configurati nel profilo tecnico [autocertificato](self-asserted-technical-profile.md) . I messaggi di errore possono essere [localizzati](localization.md).
 
-| Attributo | Obbligatorio | Descrizione |
+| Attributo | Obbligatoria | Descrizione |
 | --------- | -------- | ----------- |
 | UserMessageIfClaimsPrincipalAlreadyExists | No | Se deve essere generato un errore (vedere la descrizione dell'attributo RaiseErrorIfClaimsPrincipalAlreadyExists) specificare il messaggio da visualizzare all'utente se l'oggetto utente esiste già. |
 | UserMessageIfClaimsPrincipalDoesNotExist | No | Se deve essere generato un errore (vedere la descrizione dell'attributo RaiseErrorIfClaimsPrincipalDoesNotExist), specificare il messaggio da visualizzare all'utente se l'oggetto utente non esiste. |

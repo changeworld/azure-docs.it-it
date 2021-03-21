@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 12/03/2020
-ms.openlocfilehash: 79ba186351cc145e012658abc30572e99b123dbb
-ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
+ms.openlocfilehash: 2e2625fff802e71f797bf6970e763f2bf11c393e
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96573987"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104584177"
 ---
 # <a name="partial-term-search-and-patterns-with-special-characters-hyphens-wildcard-regex-patterns"></a>Ricerca e modelli a termini parziali con caratteri speciali (trattini, caratteri jolly, espressioni regolari, modelli)
 
@@ -85,7 +85,7 @@ Quando si sceglie un analizzatore che produce token a lungo termine, gli analizz
 | [analizzatori del linguaggio](index-add-language-analyzers.md) | Conserva i trattini in parole o stringhe composte, mutazioni vocali e forme verbo. Se i modelli di query includono trattini, potrebbe essere sufficiente utilizzare un analizzatore di linguaggio. |
 | [parola chiave](https://lucene.apache.org/core/6_6_1/analyzers-common/org/apache/lucene/analysis/core/KeywordAnalyzer.html) | Il contenuto dell'intero campo viene suddiviso in token come un singolo termine. |
 | [Whitespace](https://lucene.apache.org/core/6_6_1/analyzers-common/org/apache/lucene/analysis/core/WhitespaceAnalyzer.html) | Separa solo gli spazi vuoti. I termini che includono trattini o altri caratteri vengono considerati come un singolo token. |
-| [analizzatore personalizzato](index-add-custom-analyzers.md) | consigliabile La creazione di un analizzatore personalizzato consente di specificare il filtro Tokenizer e token. Gli analizzatori precedenti devono essere usati così come sono. Un analizzatore personalizzato consente di selezionare i filtri Tokenizer e token da usare. <br><br>Una combinazione consigliata è la [parola chiave Tokenizer](https://lucene.apache.org/core/6_6_1/analyzers-common/org/apache/lucene/analysis/core/KeywordTokenizer.html) con un [filtro token in minuscolo](https://lucene.apache.org/core/6_6_1/analyzers-common/org/apache/lucene/analysis/core/LowerCaseFilter.html). Di per sé, l' [analizzatore di parole chiave](https://lucene.apache.org/core/6_6_1/analyzers-common/org/apache/lucene/analysis/core/KeywordAnalyzer.html) predefinito non esegue la riduzione del testo maiuscolo e minuscolo, che può causare errori nelle query. Un analizzatore personalizzato fornisce un meccanismo per l'aggiunta del filtro del token in minuscolo. |
+| [analizzatore personalizzato](index-add-custom-analyzers.md) | consigliabile La creazione di un analizzatore personalizzato consente di specificare il filtro Tokenizer e token. Gli analizzatori precedenti devono essere usati così come sono. Un analizzatore personalizzato consente di selezionare i filtri Tokenizer e token da usare. <br><br>Una combinazione consigliata è la [parola chiave Tokenizer](https://lucene.apache.org/core/6_6_1/analyzers-common/org/apache/lucene/analysis/core/KeywordTokenizer.html) con un [filtro token in minuscolo](https://lucene.apache.org/core/6_6_1/analyzers-common/org/apache/lucene/analysis/core/LowerCaseFilter.html). Di per sé, l' [analizzatore di parole chiave](https://lucene.apache.org/core/6_6_1/analyzers-common/org/apache/lucene/analysis/core/KeywordAnalyzer.html) incorporato non esegue la riduzione del testo maiuscolo e minuscolo, che può causare errori nelle query. Un analizzatore personalizzato fornisce un meccanismo per l'aggiunta del filtro del token in minuscolo. |
 
 Se si usa uno strumento di test dell'API Web come postazione, è possibile aggiungere la [chiamata Rest dell'analizzatore test](/rest/api/searchservice/test-analyzer) per esaminare l'output in formato token.
 
@@ -160,9 +160,9 @@ Se si stanno valutando gli analizzatori o procedendo con una configurazione spec
 
 ### <a name="use-built-in-analyzers"></a>Usare gli analizzatori predefiniti
 
-Gli analizzatori predefiniti o predefiniti possono essere specificati in base al nome in una `analyzer` proprietà di una definizione di campo, senza che sia necessaria alcuna configurazione aggiuntiva nell'indice. Nell'esempio seguente viene illustrato come impostare l' `whitespace` analizzatore in un campo. 
+Gli analizzatori predefiniti possono essere specificati in base al nome in una `analyzer` proprietà di una definizione di campo, senza alcuna configurazione aggiuntiva necessaria nell'indice. Nell'esempio seguente viene illustrato come impostare l' `whitespace` analizzatore in un campo. 
 
-Per altri scenari e per altre informazioni su altri analizzatori incorporati, vedere l' [elenco degli analizzatori](./index-add-custom-analyzers.md#predefined-analyzers-reference)predefiniti. 
+Per altri scenari e per altre informazioni su altri analizzatori incorporati, vedere [analizzatori predefiniti](./index-add-custom-analyzers.md#built-in-analyzers). 
 
 ```json
     {

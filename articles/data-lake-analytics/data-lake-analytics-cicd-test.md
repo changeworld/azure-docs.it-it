@@ -8,10 +8,10 @@ ms.service: data-lake-analytics
 ms.topic: how-to
 ms.date: 08/30/2019
 ms.openlocfilehash: 7310c67ef20a4134d4f613ea969c96802958bf62
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/25/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96015231"
 ---
 # <a name="test-your-azure-data-lake-analytics-code"></a>Testare il codice Azure Data Lake Analytics
@@ -52,7 +52,7 @@ L'interfaccia `Run()` restituisce un risultato di esecuzione progetto. *0* indic
 
 ### <a name="run-test-cases-in-visual-studio"></a>Eseguire test case in Visual Studio
 
-Un progetto di test dello script U-SQL viene creato su un framework di unit test C#. Dopo aver compilato il progetto, selezionare **test**  >  **Windows**  >  **Esplora test** di Windows. È possibile eseguire test case da **Esplora test**. In alternativa, fare clic con il pulsante destro del mouse sul file con estensione cs nel unit test e scegliere **Esegui test**.
+Un progetto di test dello script U-SQL viene creato su un framework di unit test C#. Dopo aver compilato il progetto, selezionare **test**  >    >  **Esplora test** di Windows. È possibile eseguire test case da **Esplora test**. In alternativa, fare clic con il pulsante destro del mouse sul file con estensione cs nel unit test e scegliere **Esegui test**.
 
 ## <a name="test-c-udos"></a>UDO di test C#
 
@@ -105,7 +105,7 @@ Dopo aver chiamato le funzioni UDO, è possibile verificare i risultati attraver
 
 ### <a name="run-test-cases-in-visual-studio"></a>Eseguire test case in Visual Studio
 
-Dopo aver compilato il progetto, selezionare **test**  >  **Windows**  >  **Esplora test** di Windows. È possibile eseguire test case da **Esplora test**. In alternativa, fare clic con il pulsante destro del mouse sul file con estensione cs nel unit test e scegliere **Esegui test**.
+Dopo aver compilato il progetto, selezionare **test**  >    >  **Esplora test** di Windows. È possibile eseguire test case da **Esplora test**. In alternativa, fare clic con il pulsante destro del mouse sul file con estensione cs nel unit test e scegliere **Esegui test**.
 
 ## <a name="run-test-cases-in-azure-pipelines"></a>Esegui test case in Azure Pipelines<a name="run-test-cases-in-azure-devops"></a>
 

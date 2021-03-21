@@ -4,12 +4,12 @@ ms.service: iot-edge
 ms.topic: include
 ms.date: 08/26/2020
 ms.author: v-tcassi
-ms.openlocfilehash: 706b2306fbe9f2a744d2874a8b55f78fa2fc8e4d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9572f4c663c820c76a57cdbdcecff082b150b577
+ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89302952"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "104761187"
 ---
 ## <a name="create-a-release-pipeline-for-continuous-deployment"></a>Creare una pipeline di versione per la distribuzione continua
 
@@ -17,7 +17,7 @@ In questa sezione si crea una pipeline di versione configurata per essere esegui
 
 Creare una nuova pipeline e aggiungere una nuova fase:
 
-1. Nella scheda **versioni** in **pipeline**scegliere **+ nuova pipeline**. In alternativa, se sono già disponibili pipeline di versione, scegliere il pulsante **+ Nuova** e fare clic su **+ Nuova pipeline di versione**.  
+1. Nella scheda **versioni** in **pipeline** scegliere **+ nuova pipeline**. In alternativa, se sono già disponibili pipeline di versione, scegliere il pulsante **+ Nuova** e fare clic su **+ Nuova pipeline di versione**.  
 
     ![Aggiungere una pipeline di versione usando il pulsante + nuova pipeline](./media/iot-edge-create-release-pipeline-for-continuous-deployment/add-release-pipeline.png)
 
@@ -25,7 +25,7 @@ Creare una nuova pipeline e aggiungere una nuova fase:
 
     ![Iniziare con un processo vuoto per la pipeline di rilascio](./media/iot-edge-create-release-pipeline-for-continuous-deployment/start-with-empty-release-job.png)
 
-3. La nuova pipeline di versione viene inizializzata con un'unica fase, denominata **Fase 1**. Rinominare la fase 1 in **dev** e considerarla come una pipeline di distribuzione continua per l'ambiente di sviluppo. In genere, le pipeline di distribuzione continua hanno più fasi, tra cui **dev**, **staging**e **Prod**. È possibile usare nomi diversi e creare altri in base alle procedure di DevOps. Dopo aver modificato il nome, chiudere la finestra dei dettagli della fase.
+3. La nuova pipeline di versione viene inizializzata con un'unica fase, denominata **Fase 1**. Rinominare la fase 1 in **dev** e considerarla come una pipeline di distribuzione continua per l'ambiente di sviluppo. In genere, le pipeline di distribuzione continua hanno più fasi, tra cui **dev**, **staging** e **Prod**. È possibile usare nomi diversi e creare altri in base alle procedure di DevOps. Dopo aver modificato il nome, chiudere la finestra dei dettagli della fase.
 
    È anche possibile rinominare la pipeline di rilascio selezionando il testo "nuova pipeline di rilascio" nella parte superiore.
 
@@ -33,7 +33,7 @@ Creare una nuova pipeline e aggiungere una nuova fase:
 
    ![Fare clic su Aggiungi nell'area elementi dell'interfaccia](./media/iot-edge-create-release-pipeline-for-continuous-deployment/add-artifacts.png)
 
-5. Nella **pagina Aggiungi un artefatto**selezionare **Compila** come tipo di **origine**. Scegliere il progetto e la pipeline di compilazione creata. Se lo si desidera, è possibile modificare l' **alias di origine** in un elemento più descrittivo. Quindi selezionare **Aggiungi**.
+5. Nella **pagina Aggiungi un artefatto** selezionare **Compila** come tipo di **origine**. Scegliere il progetto e la pipeline di compilazione creata. Se lo si desidera, è possibile modificare l' **alias di origine** in un elemento più descrittivo. Quindi selezionare **Aggiungi**.
 
    ![Nella pagina Aggiungi un artefatto selezionare Aggiungi per creare l'artefatto.](./media/iot-edge-create-release-pipeline-for-continuous-deployment/add-artifact.png)
 
@@ -41,7 +41,7 @@ Creare una nuova pipeline e aggiungere una nuova fase:
 
    ![Aprire i trigger dell'artefatto e attivare o disabilitare per abilitare il trigger di distribuzione continua](./media/iot-edge-create-release-pipeline-for-continuous-deployment/add-trigger.png)
 
-7. La fase **dev** è preconfigurata con un processo e nessuna attività. Dal menu pipeline selezionare **attività** , quindi scegliere la fase **dev** . Selezionare il **processo dell'agente** e modificare il relativo **nome visualizzato** in **QA**. È possibile configurare i dettagli relativi al processo di Agent, ma l'attività di distribuzione è senza distinzione tra piattaforme, pertanto è possibile utilizzare qualsiasi **specifica dell'agente** nel **pool di agenti**scelto.
+7. La fase **dev** è preconfigurata con un processo e nessuna attività. Dal menu pipeline selezionare **attività** , quindi scegliere la fase **dev** . Selezionare il **processo dell'agente** e modificare il relativo **nome visualizzato** in **QA**. È possibile configurare i dettagli relativi al processo di Agent, ma l'attività di distribuzione è senza distinzione tra piattaforme, pertanto è possibile utilizzare qualsiasi **specifica dell'agente** nel **pool di agenti** scelto.
 
    ![Visualizzare le attività per la fase di sviluppo nella scheda attività](./media/iot-edge-create-release-pipeline-for-continuous-deployment/view-stage-tasks.png)
 
@@ -63,8 +63,18 @@ Creare una nuova pipeline e aggiungere una nuova fase:
     * **ACR_PASSWORD**: la password di Azure container Registry.
     * **ACR_USER**: il nome utente di Azure container Registry.
 
-    Se nel progetto sono presenti altre variabili, è possibile specificare il nome e il valore in questa scheda. Il **manifesto di generazione della distribuzione** è in grado di riconoscere solo le variabili `${VARIABLE}` . Assicurarsi di usare questa caratteristica nei `*.template.json` file.
-
+    Se nel progetto sono presenti altre variabili, è possibile specificare il nome e il valore in questa scheda. Il **manifesto di generazione della distribuzione** può riconoscere solo le variabili di `${VARIABLE}` sapore. Assicurarsi di usare questa caratteristica nei `*.template.json` file.
+    
+    ```json-interactive
+    "registryCredentials": {
+      "<ACR name>": { // Your Azure Container Registry **Registry name** value
+        "username": "${ACR_USER}",
+        "password": "${ACR_PASSWORD}",
+        "address": "${ACR_ADDRESS}"
+      }
+    }
+    ```
+    
     ![Configurare le variabili per la pipeline di versione nella scheda variabili](./media/iot-edge-create-release-pipeline-for-continuous-deployment/configure-variables.png)
 
 10. Selezionare la seconda attività **Azure IOT Edge** e configurarla con i valori seguenti:

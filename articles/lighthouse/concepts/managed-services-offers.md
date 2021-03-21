@@ -4,10 +4,10 @@ description: Le offerte di servizi gestiti ti permettono di vendere offerte di g
 ms.date: 02/17/2021
 ms.topic: conceptual
 ms.openlocfilehash: e66a87751e0375804031e777a40c5fc1d0e8a7e2
-ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/18/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "101092998"
 ---
 # <a name="managed-service-offers-in-azure-marketplace"></a>Offerte di servizi gestiti in Azure Marketplace

@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 01/26/2021
 ms.author: jingwang
 ms.openlocfilehash: d795f8355943032751b911423b8aaa93b2df3206
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/14/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100366909"
 ---
 # <a name="copy-data-from-xero-using-azure-data-factory"></a>Copiare dati da Xero usando Azure Data Factory
@@ -33,7 +33,7 @@ In particolare, il connettore Xero supporta:
 - Autenticazione OAuth 2,0 e OAuth 1,0. Per OAuth 1,0, il connettore supporta l' [applicazione privata](https://developer.xero.com/documentation/getting-started/getting-started-guide) Xero, ma non l'applicazione pubblica.
 - Tutte le tabelle di Xero (endpoint dell'API), ad eccezione di "Reports".
 
-## <a name="getting-started"></a>Guida introduttiva
+## <a name="getting-started"></a>Introduzione
 
 [!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 

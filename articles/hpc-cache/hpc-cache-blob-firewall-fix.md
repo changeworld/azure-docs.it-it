@@ -4,30 +4,33 @@ description: Un'impostazione del firewall di rete dell'account di archiviazione 
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: troubleshooting
-ms.date: 11/7/2019
+ms.date: 03/18/2021
 ms.author: v-erkel
-ms.openlocfilehash: 6916c79e9110a88beff65d487fac72441382c2f4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 10d68ce679fe42f5deeaae364bc46adb23436a27
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87092371"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104587152"
 ---
 # <a name="work-around-blob-storage-account-firewall-settings"></a>Aggirare le impostazioni del firewall per l'account di archiviazione BLOB
 
 Una particolare impostazione usata nei firewall dell'account di archiviazione può causare un errore di creazione della destinazione dell'archiviazione BLOB. Il team di cache HPC di Azure sta lavorando a una correzione software per questo problema, ma è possibile aggirarlo seguendo le istruzioni riportate in questo articolo.
 
-L'impostazione del firewall che consente l'accesso solo da "reti selezionate" può impedire la creazione di una destinazione di archiviazione BLOB da parte della cache. Questa configurazione si trova nella pagina dei firewall e delle impostazioni delle **reti virtuali** dell'account di archiviazione.
+L'impostazione del firewall che consente l'accesso solo da "reti selezionate" può impedire la creazione o la modifica di una destinazione di archiviazione BLOB da parte della cache. Questa configurazione si trova nella pagina dei firewall e delle impostazioni delle **reti virtuali** dell'account di archiviazione.
 
 Il problema è che il servizio cache usa una rete virtuale del servizio nascosta che è separata dagli ambienti del cliente. Non è possibile autorizzare in modo esplicito questa rete ad accedere all'account di archiviazione.
 
 Quando si crea una destinazione di archiviazione BLOB, il servizio cache usa questa rete per verificare se il contenitore è vuoto o meno. Se il firewall non consente l'accesso dalla rete nascosta, il controllo ha esito negativo e la creazione della destinazione di archiviazione ha esito negativo.
 
+Il firewall può anche bloccare le modifiche ai percorsi dello spazio dei nomi di destinazione dell'archiviazione BLOB.
+
 Per risolvere il problema, modificare temporaneamente le impostazioni del firewall durante la creazione della destinazione di archiviazione:
 
 1. Passare alla pagina **firewall e reti virtuali** dell'account di archiviazione e modificare l'impostazione "Consenti l'accesso da" a **tutte le reti**.
 1. Creare la destinazione di archiviazione BLOB nella cache HPC di Azure.
-1. Dopo che la destinazione di archiviazione è stata creata correttamente, modificare di nuovo l'impostazione del firewall dell'account nelle **reti selezionate**.
+1. Creare il percorso dello spazio dei nomi della destinazione di archiviazione.
+1. Dopo aver creato la destinazione e il percorso di archiviazione, modificare di nuovo l'impostazione del firewall dell'account nelle **reti selezionate**.
 
 La cache HPC di Azure non usa la rete virtuale del servizio per accedere alla destinazione di archiviazione completata.
 

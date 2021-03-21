@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 02/26/2021
-ms.openlocfilehash: 484e49219b94f5974661b1e76f533236666ebcfb
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.openlocfilehash: 87cb19daa23c9fcca601771a9fe168b98be02627
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102050733"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104586268"
 ---
 # <a name="collect-iis-logs-with-log-analytics-agent-in-azure-monitor"></a>Raccogliere i log di IIS con Log Analytics Agent in monitoraggio di Azure
 Internet Information Services (IIS) archivia l'attività dell'utente nei file di log che possono essere raccolti dall'agente Log Analytics e archiviati nei [log di monitoraggio di Azure](../data-platform.md).
@@ -60,6 +60,8 @@ I record dei log di IIS sono di tipo **W3CIISLog**; la tabella seguente descrive
 | sSiteName |Nome del sito IIS. |
 | TimeGenerated |Data e ora che in cui la voce è stata registrata. |
 | TimeTaken |Tempo impiegato per l'elaborazione della richiesta in millisecondi. |
+| csHost | Nome host. |
+| csBytes | Numero di byte ricevuti dal server. |
 
 ## <a name="log-queries-with-iis-logs"></a>Query di log con i log di IIS
 La tabella seguente mostra alcuni esempi di query nei log che recuperano i record dei log di IIS.

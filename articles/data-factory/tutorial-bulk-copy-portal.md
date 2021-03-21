@@ -8,12 +8,12 @@ ms.workload: data-services
 ms.topic: tutorial
 ms.custom: seo-lt-2019; seo-dt-2019
 ms.date: 01/29/2021
-ms.openlocfilehash: 4807d1d5e97f7f95521df054d1a71f8925ac4ebb
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: bca2158f448f74ba596114fce5d1631249124a92
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100367606"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104606736"
 ---
 # <a name="copy-multiple-tables-in-bulk-by-using-azure-data-factory-in-the-azure-portal"></a>Copiare più tabelle in blocco con Azure Data Factory nel portale di Azure
 
@@ -98,7 +98,7 @@ In questo passaggio viene creato un servizio per collegare il database in Databa
 
 1. Nella pagina Servizi collegati selezionare **+Nuovo** per creare un nuovo servizio collegato.
 
-   ![Nuovo servizio collegato](./media/doc-common-process/new-linked-service.png)
+   :::image type="content" source="./media/doc-common-process/new-linked-service.png" alt-text="Nuovo servizio collegato.":::
 1. Nella finestra **New Linked Service** (Nuovo servizio collegato) selezionare **Database SQL di Azure** e fare clic su **Continua**. 
 1. Nella finestra **New Linked Service (Azure SQL Database)** (Nuovo servizio collegato - Database SQL di Azure), procedere come segue: 
 

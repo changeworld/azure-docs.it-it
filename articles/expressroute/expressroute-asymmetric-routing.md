@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 12/14/2020
 ms.author: duau
 ms.openlocfilehash: 0713c52c7f07db93d9ae9084062ef2c3b25a9074
-ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/16/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97560509"
 ---
 # <a name="asymmetric-routing-with-multiple-network-paths"></a>Routing asimmetrico con più percorsi di rete
@@ -57,7 +57,7 @@ Se si sceglie di annunciare lo stesso pool di Network Address Translation (NAT) 
 ## <a name="asymmetric-routing-solutions"></a>Soluzioni per il routing asimmetrico
 Sono disponibili due opzioni disponibili per risolvere il problema del routing asimmetrico. Il primo consiste nel routing e il secondo consiste nell'usare un NAT basato su origine (SNAT).
 
-### <a name="routing"></a>Routing.
+### <a name="routing"></a>Routing
 Assicurarsi che gli indirizzi IP pubblici siano annunciati ai collegamenti Wide Area Network (WAN) appropriati. Ad esempio, se si vuole usare Internet per il traffico di autenticazione e ExpressRoute per il traffico di posta elettronica. Non pubblicizzare gli indirizzi IP pubblici Active Directory Federation Services (AD FS) tramite ExpressRoute. Assicurarsi anche di non esporre il server AD FS locale agli indirizzi IP ricevuti dal router tramite ExpressRoute. Le route ricevute tramite ExpressRoute sono più specifiche. Questo fa di ExpressRoute il percorso preferito per il traffico di autenticazione diretto a Microsoft, Se non si presta attenzione al modo in cui il routing viene eseguito nei problemi di routing di rete asimmetrica possono verificarsi dei problemi.
 
 Se si vuole usare ExpressRoute per l'autenticazione, assicurarsi di annunciare AD FS indirizzi IP pubblici tramite ExpressRoute senza NAT. Quando è configurato in questo modo, il traffico proveniente da Microsoft passa al server di AD FS locale passerà a ExpressRoute. Il traffico di ritorno dalla rete che passa a Microsoft userà ExpressRoute perché è la route preferita su Internet.

@@ -10,12 +10,12 @@ ms.date: 12/28/2020
 ms.author: tamram
 ms.reviewer: dineshm
 ms.subservice: common
-ms.openlocfilehash: 8812ab091037bcb3144a7fed53a449c3f5de353a
-ms.sourcegitcommit: 7e97ae405c1c6c8ac63850e1b88cf9c9c82372da
+ms.openlocfilehash: 51e73222233602491b0c8ed3835d032610c68e0d
+ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/29/2020
-ms.locfileid: "97802508"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "104722787"
 ---
 # <a name="grant-limited-access-to-azure-storage-resources-using-shared-access-signatures-sas"></a>Concedere accesso limitato alle risorse di archiviazione di Azure tramite firme di accesso condiviso (SAS)
 
@@ -181,6 +181,9 @@ Per mitigare questi rischi, è consigliabile attenersi ai consigli seguenti rela
 - **Verificare quando non usare una firma di accesso condiviso.** A volte i rischi associati a una determinata operazione sull'account di archiviazione superano i vantaggi derivanti dall'uso di una firma di accesso condiviso. Per tali operazioni creare un servizio di livello intermedio che effettui operazioni di scrittura nell'account di archiviazione dopo autenticazione, controllo e convalida di regole di business. Talvolta è inoltre più semplice gestire l'accesso in modi diversi. Se ad esempio si vogliono rendere pubblicamente leggibili tutti i BLOB di un contenitore, è possibile rendere pubblico il contenitore anziché fornire una firma di accesso condiviso a ogni client per l'accesso.
 
 - **Usare monitoraggio di Azure e i log di archiviazione di Azure per monitorare l'applicazione.** Gli errori di autorizzazione possono verificarsi a causa di un'interruzione nel servizio del provider SAS. Possono anche verificarsi da una rimozione accidentale di criteri di accesso archiviati. È possibile usare monitoraggio di Azure e la registrazione di analisi archiviazione per osservare eventuali picchi in questi tipi di errori di autorizzazione. Per altre informazioni, vedere [metriche di archiviazione di Azure in monitoraggio di Azure](../blobs/monitor-blob-storage.md?toc=%252fazure%252fstorage%252fblobs%252ftoc.json) e [analisi archiviazione di Azure registrazione](storage-analytics-logging.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).
+
+> [!NOTE]
+> L'archiviazione non tiene traccia del numero di firme di accesso condiviso generate per un account di archiviazione e nessuna API può fornire questo dettaglio. Se è necessario ottenere informazioni sul numero di firme di accesso condiviso generate per un account di archiviazione, è necessario tenere traccia del numero manualmente.
 
 ## <a name="get-started-with-sas"></a>Introduzione a SAS
 

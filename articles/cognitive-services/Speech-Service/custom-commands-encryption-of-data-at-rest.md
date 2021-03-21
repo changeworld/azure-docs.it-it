@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 07/05/2020
 ms.author: sausin
 ms.openlocfilehash: 89d7a6f8beb004f57a00dfe75e4cc387c8591b1e
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/03/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "101716585"
 ---
 # <a name="custom-commands-encryption-of-data-at-rest"></a>Crittografia dei dati inattivi per i comandi personalizzati
@@ -118,7 +118,7 @@ Per specificare una chiave da un insieme di credenziali delle chiavi, assicurars
 
 ## <a name="update-the-key-version"></a>Aggiornare la versione della chiave
 
-Quando si crea una nuova versione di una chiave, aggiornare la risorsa vocale per usare la nuova versione. Seguire questa procedura:
+Quando si crea una nuova versione di una chiave, aggiornare la risorsa vocale per usare la nuova versione. A tale scopo, seguire questa procedura:
 
 1. Passare alla risorsa vocale e visualizzare le impostazioni di **crittografia** .
 1. Immettere l'URI per la nuova versione della chiave. In alternativa, è possibile selezionare di nuovo l'insieme di credenziali delle chiavi e la chiave per aggiornare la versione.
