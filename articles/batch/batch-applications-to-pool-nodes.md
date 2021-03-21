@@ -4,10 +4,10 @@ description: Informazioni su come copiare applicazioni e dati nei nodi del pool.
 ms.topic: how-to
 ms.date: 02/18/2021
 ms.openlocfilehash: 0109171fd78dc11058daa30bf4604bebc1eeb857
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/03/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "101703648"
 ---
 # <a name="copy-applications-and-data-to-pool-nodes"></a>Copiare applicazioni e dati nei nodi del pool

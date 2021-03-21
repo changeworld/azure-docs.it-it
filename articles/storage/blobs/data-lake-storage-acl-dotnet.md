@@ -10,10 +10,10 @@ ms.subservice: data-lake-storage-gen2
 ms.reviewer: prishet
 ms.custom: devx-track-csharp
 ms.openlocfilehash: 626e89d8d758d5fe31ef6c913076a9154274bb61
-ms.sourcegitcommit: 227b9a1c120cd01f7a39479f20f883e75d86f062
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/18/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100654233"
 ---
 # <a name="use-net-to-manage-acls-in-azure-data-lake-storage-gen2"></a>Usare .NET per gestire gli ACL in Azure Data Lake Storage Gen2
@@ -234,6 +234,6 @@ Per un esempio che imposta gli ACL in modo ricorsivo nei batch specificando una 
 - [Esempi](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/storage/Azure.Storage.Files.DataLake)
 - [Mapping da Gen1 a Gen2](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/storage/Azure.Storage.Files.DataLake/GEN1_GEN2_MAPPING.md)
 - [Problemi noti](data-lake-storage-known-issues.md#api-scope-data-lake-client-library)
-- [Invia commenti e suggerimenti](https://github.com/Azure/azure-sdk-for-net/issues)
+- [Invia feedback](https://github.com/Azure/azure-sdk-for-net/issues)
 - [Modello di controllo di accesso in Azure Data Lake Storage Gen2](data-lake-storage-access-control.md)
 - [Elenchi di controllo di accesso (ACL) in Azure Data Lake Storage Gen2](data-lake-storage-access-control.md)

@@ -6,10 +6,10 @@ ms.topic: include
 ms.date: 7/17/2020
 ms.author: baanders
 ms.openlocfilehash: a905bb3b4effb0381facfbfaa37c8ea412b81287
-ms.sourcegitcommit: 5a999764e98bd71653ad12918c09def7ecd92cf6
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/16/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100552829"
 ---
 I dispositivi gemelli digitali di Azure usano [Azure Active Directory (Azure ad)](../articles/active-directory/fundamentals/active-directory-whatis.md) per il controllo degli accessi in base al ruolo (RBAC). Ciò significa che prima che un utente possa effettuare chiamate del piano dati all'istanza di Azure Digital Twins, a tale utente deve essere assegnato un ruolo con le autorizzazioni appropriate.

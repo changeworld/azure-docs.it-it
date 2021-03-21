@@ -3,12 +3,12 @@ title: Distribuire l'esempio di progetto Carico di lavoro dell'ambiente del serv
 description: Procedura per la distribuzione dell'esempio di progetto Carico di lavoro dell'ambiente del servizio app/database SQL ISO 27001, inclusi i dettagli dei parametri dell'artefatto del progetto.
 ms.date: 02/05/2021
 ms.topic: sample
-ms.openlocfilehash: 60867c117c9f1fda6f8ba33333c19a7bd764d219
-ms.sourcegitcommit: 59cfed657839f41c36ccdf7dc2bee4535c920dd4
+ms.openlocfilehash: 5c329a9d7175772e80ea6d9d8da3baf85ce0d170
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/06/2021
-ms.locfileid: "99627484"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104669645"
 ---
 # <a name="deploy-the-iso-27001-app-service-environmentsql-database-workload-blueprint-sample"></a>Distribuire l'esempio di progetto Carico di lavoro dell'ambiente del servizio app/database SQL ISO 27001
 
@@ -133,7 +133,7 @@ La tabella seguente contiene un elenco dei parametri degli artefatti del progett
 |Gruppo di risorse Database SQL di Azure|Resource group|Nome|**Bloccato**: concatena il **nome dell'organizzazione** con `-workload-azsql-rg` per rendere univoco il gruppo di risorse.|
 |Gruppo di risorse Database SQL di Azure|Resource group|Location|**Bloccato**: usa il parametro del progetto.|
 |Modello Database SQL di Azure|Modello di Resource Manager|Nome utente amministratore del server SQL di Azure|Il nome utente per il server SQL di Azure. Deve corrispondere allo stesso valore della proprietà nel **modello Key Vault**. Il valore predefinito è _sql-admin-user_.|
-|Modello Database SQL di Azure|Modello di Resource Manager|Password amministratore del server SQL di Azure (ID risorsa Key Vault)|L'ID risorsa di Key Vault. Usare "/subscription/{subscriptionId}/resourceGroups/{orgName}-workload-kv/providers/Microsoft.KeyVault/vaults/{orgName}-workload-kv" e sostituire `{subscriptionId}` con l'ID sottoscrizione e `{orgName}` con il parametro del progetto **Nome organizzazione**.|
+|Modello Database SQL di Azure|Modello di Resource Manager|Password amministratore del server SQL di Azure (ID risorsa Key Vault)|L'ID risorsa di Key Vault. Usare "/subscriptions/{subscriptionId}/resourceGroups/{orgName}-workload-kv-rg/providers/Microsoft.KeyVault/vaults/{orgName}-workload-kv" e sostituire `{subscriptionId}` con l'ID sottoscrizione e `{orgName}` con il parametro Blueprint **nome organizzazione** .|
 |Modello Database SQL di Azure|Modello di Resource Manager|Password amministratore del server SQL di Azure (nome segreto Key Vault)|Il nome utente dell'amministratore di SQL Server. Deve corrispondere al valore della proprietà **Nome utente amministratore del server SQL di Azure** del **modello Key Vault**.|
 |Modello Database SQL di Azure|Modello di Resource Manager|Conservazione log in giorni|Il periodo di conservazione dei dati in giorni. Il valore predefinito è _365_.|
 |Modello Database SQL di Azure|Modello di Resource Manager|ID oggetto amministratore AAD|L'ID oggetto AAD dell'utente che verrà assegnato come amministratore di Active Directory. Non prevede valori predefiniti e non può essere lasciato vuoto. Per individuare questo valore nel portale di Azure, cercare e selezionare "Utenti" in _Servizi_. Usare la casella _Nome_ per filtrare per il nome dell'account, quindi selezionarlo. Nella pagina _Profilo utente_ selezionare l'icona "Fare clic per copiare" accanto a _ID oggetto_.|

@@ -1,5 +1,5 @@
 ---
-title: File di inclusione
+title: includere file
 description: File di inclusione
 services: cdn
 author: SyntaxC4
@@ -9,10 +9,10 @@ ms.date: 04/30/2020
 ms.author: cfowler
 ms.custom: include file
 ms.openlocfilehash: 9a003b5c42a6ef4c699a3768d15ae08f86d56e52
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/14/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100367292"
 ---
 ## <a name="create-a-new-cdn-profile"></a>Creare un nuovo profilo di rete CDN
@@ -29,7 +29,7 @@ Un profilo di rete CDN è un contenitore per endpoint della rete CDN e specifica
 
 1. Immettere i valori seguenti:
    
-    | Impostazione  | valore |
+    | Impostazione  | Valore |
     | -------- | ----- |
     | **Nome** | Immettere *cdn-profile-123* come nome del profilo. |
     | **Sottoscrizione** | Selezionare una sottoscrizione di Azure dall'elenco a discesa. |

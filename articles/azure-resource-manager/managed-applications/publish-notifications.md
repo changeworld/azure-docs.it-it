@@ -6,17 +6,17 @@ ms.author: ilahat
 author: ilahat
 ms.date: 11/01/2019
 ms.openlocfilehash: 2a2e9d429d494c35c49a5b0a3e10b291fd8f24a6
-ms.sourcegitcommit: 58ff80474cd8b3b30b0e29be78b8bf559ab0caa1
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/17/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100633938"
 ---
 # <a name="azure-managed-applications-with-notifications"></a>Applicazioni gestite di Azure con notifiche
 
 Le notifiche delle applicazioni gestite di Azure consentono agli editori di automatizzare le azioni in base agli eventi del ciclo di vita delle istanze di applicazioni gestite. Gli editori possono specificare endpoint del webhook di notifica personalizzati per ricevere notifiche degli eventi sulle istanze di applicazioni gestite nuove ed esistenti. Gli editori possono impostare flussi di lavoro personalizzati al momento del provisioning, degli aggiornamenti e dell'eliminazione dell'applicazione.
 
-## <a name="getting-started"></a>Guida introduttiva
+## <a name="getting-started"></a>Introduzione
 Per iniziare a ricevere le applicazioni gestite, creare un endpoint HTTPS pubblico e specificarlo quando si pubblica la definizione dell'applicazione del catalogo di servizi o l'offerta di Azure Marketplace.
 
 Ecco i passaggi consigliati per iniziare rapidamente:

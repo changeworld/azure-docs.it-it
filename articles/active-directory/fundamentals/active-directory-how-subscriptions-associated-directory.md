@@ -1,6 +1,6 @@
 ---
 title: Aggiungere una sottoscrizione di Azure esistente al tenant-Azure AD
-description: Informazioni su come aggiungere una sottoscrizione di Azure esistente al tenant di Azure Active Directory.
+description: Istruzioni su come aggiungere una sottoscrizione di Azure esistente al tenant di Azure Active Directory (Azure AD).
 services: active-directory
 author: ajburnle
 manager: daveba
@@ -8,17 +8,17 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: fundamentals
 ms.topic: how-to
-ms.date: 09/01/2020
+ms.date: 03/05/2021
 ms.author: ajburnle
 ms.reviewer: jeffsta
 ms.custom: it-pro, seodec18, contperf-fy20q4
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 86395a91c1b2cbba6a93c7b1b7cad487129fff0a
-ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
+ms.openlocfilehash: b7ac9553660aace8242c81b41fa2cc9171d28219
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/18/2021
-ms.locfileid: "101094295"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104594632"
 ---
 # <a name="associate-or-add-an-azure-subscription-to-your-azure-active-directory-tenant"></a>Associare o aggiungere una sottoscrizione di Azure al tenant di Azure Active Directory
 
@@ -43,11 +43,11 @@ Prima di poter associare o aggiungere la sottoscrizione, eseguire le attività s
 
 - Esaminare l'elenco seguente di modifiche che verranno eseguite dopo aver associato o aggiunto la sottoscrizione e come potrebbe essere interessata:
 
-  - Gli utenti a cui sono stati assegnati i ruoli con il controllo degli accessi in base al ruolo di Azure
-  - L'amministratore del servizio e il Co-Administrators perderanno l'accesso
-  - Se si dispone di insiemi di credenziali delle chiavi, questi saranno inaccessibili e sarà necessario correggerli dopo l'associazione
-  - Se si hanno identità gestite per le risorse, ad esempio le macchine virtuali o le app per la logica, è necessario riabilitarle o ricrearle dopo l'associazione
-  - Se si dispone di un Azure Stack registrato, sarà necessario registrarlo di nuovo dopo l'associazione
+  - Gli utenti a cui sono stati assegnati i ruoli tramite il controllo degli accessi in base al ruolo
+  - L'amministratore del servizio e il Co-Administrators perderanno l'accesso.
+  - Se si dispone di insiemi di credenziali delle chiavi, questi saranno inaccessibili e sarà necessario correggerli dopo l'associazione.
+  - Se si hanno identità gestite per le risorse, ad esempio le macchine virtuali o le app per la logica, è necessario riabilitarle o ricrearle dopo l'associazione.
+  - Se si dispone di un Azure Stack registrato, sarà necessario registrarlo di nuovo dopo l'associazione.
   - Per altre informazioni, vedere [Trasferire una sottoscrizione di Azure in una directory di Azure AD diversa](../../role-based-access-control/transfer-subscription.md).
 
 - Accedere con un account che:
@@ -55,7 +55,7 @@ Prima di poter associare o aggiungere la sottoscrizione, eseguire le attività s
   - Dispone di un'assegnazione di ruolo [proprietario](../../role-based-access-control/built-in-roles.md#owner) per la sottoscrizione. Per informazioni su come assegnare il ruolo proprietario, vedere [assegnare i ruoli di Azure usando il portale di Azure](../../role-based-access-control/role-assignments-portal.md).
   - Esiste nella directory corrente e nella nuova directory. La directory corrente è associata alla sottoscrizione. Associare la nuova directory alla sottoscrizione. Per ulteriori informazioni su come ottenere l'accesso a un'altra directory, vedere [aggiungere Azure Active Directory utenti di collaborazione B2B nel portale di Azure](../external-identities/add-users-administrator.md).
 
-- Assicurarsi di non usare una sottoscrizione provider di servizi cloud di Azure (MS-AZR-0145P, MS-AZR-0146P, MS-AZR-159P), una sottoscrizione interna Microsoft (MS-AZR-0015P) o una sottoscrizione Microsoft Imagine (MS-AZR-0144P).
+- Assicurarsi che non si stia usando una sottoscrizione di provider di servizi cloud (CSP) di Azure (MS-AZR-0145P, MS-AZR-0146P, MS-AZR-159P), una sottoscrizione interna Microsoft (MS-AZR-0015P) o una sottoscrizione di Microsoft Azure for Students Starter (MS-AZR-0144P).
 
 ## <a name="associate-a-subscription-to-a-directory"></a>Associare una sottoscrizione a una directory<a name="to-associate-an-existing-subscription-to-your-azure-ad-directory"></a>
 
@@ -65,17 +65,17 @@ Per associare una sottoscrizione esistente alla directory di Azure AD, attenersi
 
 1. Selezionare **Cambia directory**.
 
-   ![Pagina delle sottoscrizioni con l'opzione Cambia directory evidenziata](media/active-directory-how-subscriptions-associated-directory/change-directory-in-azure-subscriptions.png)
+   :::image type="content" source="media/active-directory-how-subscriptions-associated-directory/change-directory-in-azure-subscriptions.png" alt-text="Screenshot che mostra la pagina sottoscrizioni con l'opzione Cambia directory evidenziata.":::
 
 1. Esaminare gli eventuali avvisi visualizzati, quindi selezionare **Cambia**.
 
-   ![Pagina di modifica della directory con la nuova directory visualizzata](media/active-directory-how-subscriptions-associated-directory/edit-directory-ui.png)
+   :::image type="content" source="media/active-directory-how-subscriptions-associated-directory/edit-directory-ui.png" alt-text="Screenshot che mostra la pagina Cambia directory con una directory di esempio e il pulsante Cambia evidenziato.":::
 
    Una volta modificata la directory per la sottoscrizione, verrà ricevuto un messaggio di operazione completata.
 
 1. Selezionare **Cambia directory** nella pagina sottoscrizione per passare alla nuova directory.
 
-   ![Pagina Switcher directory con informazioni di esempio](media/active-directory-how-subscriptions-associated-directory/directory-switcher.png)
+   :::image type="content" source="media/active-directory-how-subscriptions-associated-directory/directory-switcher.png" alt-text="Screenshot che mostra la pagina Switcher directory con informazioni di esempio.":::
 
    La visualizzazione corretta di tutti gli elementi può richiedere diverse ore. Se sembra richiedere troppo tempo, controllare il **filtro della sottoscrizione globale**. Assicurarsi che la sottoscrizione spostata non sia nascosta. Potrebbe essere necessario disconnettersi dal portale di Azure ed eseguire di nuovo l'accesso per visualizzare la nuova directory.
 
@@ -89,7 +89,7 @@ Dopo aver associato una sottoscrizione a una directory diversa, potrebbe essere 
 
 - Se sono state usate identità gestite assegnate dal sistema per le risorse, è necessario riabilitare tali identità. Se sono state usate identità gestite assegnate dall'utente, è necessario ricreare tali identità. Dopo aver riattivato o ricreato le identità gestite, è necessario ristabilire le autorizzazioni assegnate a tali identità. Per altre informazioni, vedere [Informazioni sulle identità gestite per le risorse di Azure](../managed-identities-azure-resources/overview.md).
 
-- Se è stata registrata una Azure Stack usando questa sottoscrizione, è necessario ripetere la registrazione. Per altre informazioni, vedere [registrare Azure stack con Azure](/azure-stack/operator/azure-stack-registration).
+- Se è stata registrata una Azure Stack usando questa sottoscrizione, è necessario ripetere la registrazione. Per altre informazioni, vedere [registrare Azure stack Hub con Azure](/azure-stack/operator/azure-stack-registration).
 
 - Per altre informazioni, vedere [Trasferire una sottoscrizione di Azure in una directory di Azure AD diversa](../../role-based-access-control/transfer-subscription.md).
 

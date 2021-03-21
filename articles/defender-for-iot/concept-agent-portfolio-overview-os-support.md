@@ -1,5 +1,5 @@
 ---
-title: Panoramica sul portfolio degli agenti e supporto del sistema operativo
+title: Panoramica sul portfolio degli agenti e supporto del sistema operativo (anteprima)
 description: Azure Defender per l'it fornisce un ampio portfolio di agenti basati sul tipo di dispositivo.
 author: shhazam-ms
 manager: rkarlin
@@ -7,14 +7,14 @@ ms.author: shhazam
 ms.date: 1/20/2021
 ms.topic: quickstart
 ms.service: azure
-ms.openlocfilehash: e2897018d1695bde665e1d1aca180e5268851a0b
-ms.sourcegitcommit: dac05f662ac353c1c7c5294399fca2a99b4f89c8
+ms.openlocfilehash: f731b034b5d4f795bae51107e9ff4e2e90788d7d
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/04/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102120148"
 ---
-# <a name="agent-portfolio-overview-and-os-support"></a>Panoramica sul portfolio degli agenti e supporto del sistema operativo 
+# <a name="agent-portfolio-overview-and-os-support-preview"></a>Panoramica sul portfolio degli agenti e supporto del sistema operativo (anteprima)
 
 Azure Defender per l'it fornisce un ampio portfolio di agenti basati sul tipo di dispositivo. 
 
@@ -38,4 +38,4 @@ Il componente Azure Defender per gli elementi micro è integrato nell'ambito del
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Altre informazioni sulla [Panoramica di micro Agent autonomo ](concept-standalone-micro-agent-overview.md).
+Altre informazioni sulla [Panoramica di micro Agent autonomo (anteprima)](concept-standalone-micro-agent-overview.md).

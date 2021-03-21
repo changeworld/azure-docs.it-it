@@ -6,16 +6,16 @@ author: kromerm
 ms.author: makromer
 ms.service: data-factory
 ms.date: 02/05/2021
-ms.openlocfilehash: c4d6ebc8d57857deeb2a5cc71867484bd3519ea6
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 26a4692603d8e8a80a52ea77bdd56617131cea5d
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101699692"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104593901"
 ---
 # <a name="save-costs-for-resources-with-reserved-capacity---azure-data-factory-data-flows"></a>Risparmiare sui costi per le risorse con capacità riservata: flussi di dati Azure Data Factory
 
-[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
+[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
 Risparmia denaro con Azure Data Factory costi del flusso di dati eseguendo il commit di una prenotazione per le risorse di calcolo rispetto ai prezzi con pagamento in base al consumo. Con la capacità riservata, si impegna per l'utilizzo del flusso di dati ADF per un periodo di uno o tre anni per ottenere uno sconto significativo sui costi di calcolo. Per acquistare la capacità riservata, è necessario specificare l'area di Azure, il tipo di calcolo, il numero di core e il termine.
 

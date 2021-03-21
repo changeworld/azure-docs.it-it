@@ -10,10 +10,10 @@ ms.topic: quickstart
 ms.custom: subject-armqs
 ms.date: 07/16/2020
 ms.openlocfilehash: f3e76bf16b702adb26183209d36189a53b695c40
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/14/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100373845"
 ---
 # <a name="quickstart-create-an-azure-data-factory-using-arm-template"></a>Avvio rapido: Creare un'istanza di Azure Data Factory con un modello di Azure Resource Manager

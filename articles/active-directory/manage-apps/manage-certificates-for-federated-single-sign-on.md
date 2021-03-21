@@ -15,12 +15,12 @@ ms.date: 04/04/2019
 ms.author: kenwith
 ms.reviewer: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d9b6e81fd090a625ec7ac86963cc9d5e66f5010e
-ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
+ms.openlocfilehash: 63054b18589cdcc2d950d70452b4f982c324a6c3
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/02/2021
-ms.locfileid: "99259220"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104603999"
 ---
 # <a name="manage-certificates-for-federated-single-sign-on-in-azure-active-directory"></a>Gestione di certificati per accesso Single Sign-On federato in Azure Active Directory
 
@@ -89,6 +89,8 @@ Azure AD invierà una notifica di posta elettronica 60, 30 e 7 giorni prima dell
 1. Ripetere il passaggio precedente per ogni indirizzo di posta elettronica che si desidera aggiungere.
 1. Per ogni indirizzo di posta elettronica che si vuole eliminare, selezionare l'icona di **eliminazione** (un Garbage Can) accanto all'indirizzo di posta elettronica.
 1. Selezionare **Salva**.
+
+È possibile aggiungere fino a cinque indirizzi di posta elettronica all'elenco di notifiche (incluso l'indirizzo di posta elettronica dell'amministratore che ha aggiunto l'applicazione). Se è necessario ricevere una notifica per più persone, usare i messaggi di posta elettronica della lista di distribuzione.
 
 Si riceverà la notifica tramite posta elettronica da aadnotification@microsoft.com. Per evitare che il messaggio di posta elettronica venga inviato al tuo indirizzo di posta indesiderata, Aggiungi questo messaggio ai tuoi contatti.
 
