@@ -4,12 +4,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 10/15/2020
 ms.author: trbye
-ms.openlocfilehash: df7c24fefcc6cda8f02a6575dea911e48d200a90
-ms.sourcegitcommit: 5a999764e98bd71653ad12918c09def7ecd92cf6
+ms.openlocfilehash: cb2aac1b068c92752a7924ada7b0a2eadbc91eef
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/16/2021
-ms.locfileid: "100552428"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104612371"
 ---
 Questa guida spiega come installare [Speech SDK](~/articles/cognitive-services/speech-service/speech-sdk.md) per Python. Se si vuole solo il nome del pacchetto per iniziare autonomamente, eseguire `pip install azure-cognitiveservices-speech`.
 
@@ -49,7 +49,7 @@ Questa guida spiega come installare [Speech SDK](~/articles/cognitive-services/s
 > - In RHEL/CentOS 8 seguire le istruzioni riportate in [Come configurare OpenSSL per Linux](~/articles/cognitive-services/speech-service/how-to-configure-openssl-linux.md).
 
 - In Windows è necessaria la versione di [Microsoft Visual C++ Redistributable per Visual Studio 2019](https://support.microsoft.com/help/2977003/the-latest-supported-visual-c-downloads) per la piattaforma in uso. La prima volta che si esegue questa installazione può essere necessario riavviare Windows prima di continuare con questa guida.
-- Infine, sarà necessario [Python da 3.5 a 3.8](https://www.python.org/downloads/). Per controllare l'installazione, aprire un prompt dei comandi e digitare il comando `python --version`, quindi controllare il risultato. Se l'installazione è stata eseguita correttamente, si otterrà una risposta analoga a "Python 3.5.1".
+- Infine, sarà necessario [Python 3,6 a 3,9](https://www.python.org/downloads/). Per controllare l'installazione, aprire un prompt dei comandi e digitare il comando `python --version`, quindi controllare il risultato. Se è installato correttamente, si otterrà una risposta "Python 3.6.1" o simile.
 
 ## <a name="install-the-speech-sdk-from-pypi"></a>Installare Speech SDK da PyPI
 
@@ -73,7 +73,7 @@ import azure.cognitiveservices.speech as speechsdk
 
 ## <a name="install-the-speech-sdk-using-visual-studio-code"></a>Installare Speech SDK usando Visual Studio Code
 
-1. Scaricare e installare l'ultima versione supportata di [Python](https://www.python.org/downloads/) la piattaforma, ossia dalla 3.5 alla 3.8.
+1. Scaricare e installare la versione supportata più recente di [Python](https://www.python.org/downloads/) per la piattaforma, da 3,6 a 3,9.
    - Gli utenti di Windows dovranno assicurarsi di selezionare l'opzione per aggiungere Python a PATH durante il processo di installazione.
 1. Scaricare e installare [Visual Studio Code](https://code.visualstudio.com/Download).
 1. Aprire Visual Studio Code e installare l'estensione Python. Selezionare **File** > **Preferenze** > **Estensioni** dal menu. Cercare **Python** e fare clic su **Installa**.

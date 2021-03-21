@@ -7,12 +7,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 09/01/2020
 ms.author: pafarley
-ms.openlocfilehash: cb066ecc1dc11985c0ccb0fa687a15d6b038b9fa
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
-ms.translationtype: HT
+ms.openlocfilehash: 8cc4bc6907f83ce062fed82dde17815fc4debd67
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "89321617"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104719858"
 ---
 Vedere l'elenco degli SKU e le informazioni sui prezzi di seguito. 
 
@@ -32,7 +32,6 @@ Vedere l'elenco degli SKU e le informazioni sui prezzi di seguito.
 | Visione personalizzata - Training   | `CustomVision.Training`   |
 | Viso                       | `Face`                    |
 | Riconoscimento modulo            | `FormRecognizer`          |
-| Riconoscimento input penna             | `InkRecognizer`           |
 
 #### <a name="search"></a>Ricerca
 
@@ -55,7 +54,6 @@ Vedere l'elenco degli SKU e le informazioni sui prezzi di seguito.
 
 | Servizio            | Tipo                |
 |--------------------|---------------------|
-| Comprensione modulo | `FormUnderstanding` |
 | LUIS               | `LUIS`              |
 | QnA Maker          | `QnAMaker`          |
 | Text Analytics     | `TextAnalytics`     |

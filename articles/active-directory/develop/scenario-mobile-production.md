@@ -13,12 +13,12 @@ ms.date: 05/07/2019
 ms.author: jmprieur
 ms.reviewer: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: d1a7407c947c1c5bae1eed00acb0f216722f3d09
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 08243fd06de289941d8e6a9197ccb349614af056
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88121035"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104675958"
 ---
 # <a name="prepare-mobile-apps-for-production"></a>Preparare le app per dispositivi mobili per la produzione
 
@@ -34,18 +34,9 @@ Per ogni tipo di Microsoft Authentication Library (MSAL), è possibile trovare i
 - [Wiki di MSAL iOS](https://github.com/AzureAD/microsoft-authentication-library-for-objc/wiki)
 - [Wiki MSAL.NET](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/wiki)
 
-## <a name="mitigate-and-investigate-issues"></a>Attenuare ed esaminare i problemi
-
-Per diagnosticare meglio i problemi nell'app, raccogliere i dati. Per informazioni sui tipi di dati che è possibile raccogliere, vedere [registrazione in applicazioni MSAL](./msal-logging.md).
-
-Ecco alcuni suggerimenti per la raccolta dei dati:
-
-- Gli utenti potrebbero chiedere assistenza in caso di problemi. Una procedura consigliata consiste nell'acquisire e archiviare temporaneamente i log. Specificare un percorso in cui gli utenti possono caricare i log. MSAL fornisce estensioni di registrazione per l'acquisizione di informazioni dettagliate sull'autenticazione.
-
-- Se la telemetria è disponibile, abilitarla tramite MSAL per raccogliere i dati sul modo in cui gli utenti possono accedere all'app.
-
-## <a name="next-steps"></a>Passaggi successivi
 
 [!INCLUDE [Common steps to move to production](../../../includes/active-directory-develop-scenarios-production.md)]
+
+## <a name="next-steps"></a>Passaggi successivi
 
 Per provare esempi aggiuntivi, vedere [app client pubbliche per desktop e dispositivi mobili](sample-v2-code.md#desktop-and-mobile-public-client-apps).

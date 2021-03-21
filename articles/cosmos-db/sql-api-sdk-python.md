@@ -7,14 +7,14 @@ ms.subservice: cosmosdb-sql
 ms.devlang: python
 ms.topic: reference
 ms.date: 08/12/2020
-ms.author: anfeldma
+ms.author: rosouz
 ms.custom: devx-track-python
-ms.openlocfilehash: 77cde4fb580ebea14c09856b9ad2e7f093e20db3
-ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
+ms.openlocfilehash: 8487743efd4f18806ae03ed7529927736314988b
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/09/2021
-ms.locfileid: "102505070"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104595688"
 ---
 # <a name="azure-cosmos-db-python-sdk-for-sql-api-release-notes-and-resources"></a>Python SDK di Azure Cosmos DB per l'API SQL: note sulla versione e risorse
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -38,17 +38,26 @@ ms.locfileid: "102505070"
 > * [Executor in blocco-.NET v2](sql-api-sdk-bulk-executor-dot-net.md)
 > * [Esecuzione bulk - Java](sql-api-sdk-bulk-executor-java.md)
 
-| |  |
+| Pagina| Collegamento |
 |---|---|
 |**Download dell'SDK**|[PyPI](https://pypi.org/project/azure-cosmos)|
-|**Documentazione sull'API**|[Documentazione di riferimento delle API di Python](/python/api/azure-cosmos/)|
+|**Documentazione sull'API**|[Documentazione di riferimento delle API di Python](https://docs.microsoft.com/python/api/azure-cosmos/azure.cosmos?view=azure-python&preserve-view=true)|
 |**Istruzioni per l'installazione dell'SDK**|[Istruzioni per l'installazione dell'SDK di Python](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/cosmos/azure-cosmos)|
 |**Operazioni preliminari**|[Introduzione all'SDK di Python](create-sql-api-python.md)|
 |**Piattaforma attualmente supportata**|[Python 2.7](https://www.python.org/downloads/) e [Python 3.5.3 e versioni successive](https://www.python.org/downloads/)|
 
 ## <a name="release-history"></a>Cronologia delle versioni
 
-### <a name="410-2020-08-10"></a>4.1.0 (2020-08-10)
+## <a name="420"></a>4.2.0
+
+**Correzioni di bug**
+- Correzione del bug per cui il token di continuazione non viene rispettato quando query_iterable viene usato per ottenere i risultati in base alla pagina.
+- Correzione del bug per cui i token delle risorse non vengono rispettati per le letture e le eliminazioni del documento. 
+
+**Nuove funzionalità**
+- Aggiunta del supporto per il passaggio `partitionKey` durante l'esecuzione di query sul feed di modifiche.
+
+## <a name="410"></a>4.1.0
 
 - Aggiunta dell'avviso di deprecazione per la modalità di indicizzazione "Lazy". Il back-end non consente più la creazione di contenitori con questa modalità e li imposterà su coerente.
 
@@ -56,13 +65,14 @@ ms.locfileid: "102505070"
 - È stata aggiunta la possibilità di impostare la durata (TTL) di archiviazione analitica quando si crea un nuovo contenitore.
 
 **Correzioni di bug**
-- Correzione del supporto per le dicti come input per le API get_client.
+- Correzione del supporto per `dicts` come input per le api get_Client.
 - Correzione della compatibilità con Python 2/3 negli iteratori di query.
-- Errore di hint di tipo fixed (problema #12570).
-- Correzione del bug per cui le intestazioni delle opzioni non sono state aggiunte alla funzione upsert_item. Problema #11791 @aalapatirvbd . grazie.
-- Correzione dell'errore generato quando un ID non stringa viene utilizzato in un elemento. Genera ora TypeError anziché AttributeError (Issue #11793).
+- Errore di hint di tipo fixed.
+- Correzione del bug per cui le intestazioni delle opzioni non sono state aggiunte alla funzione upsert_item. 
+- Correzione dell'errore generato quando un ID non di stringa viene utilizzato in un elemento. Genera ora TypeError anziché AttributeError.
 
-### <a name="400"></a>4.0.0
+
+## <a name="400"></a>4.0.0
 
 * Versione stabile.
 * Aggiunta di HttpLoggingPolicy alla pipeline per consentire il passaggio di un logger personalizzato per le intestazioni di richiesta e risposta.
@@ -80,8 +90,8 @@ ms.locfileid: "102505070"
 * Aggiunta del supporto per query Distinct, Offset e Limit.
 * Contesto di esecuzione di query del documento predefinito ora usato per
 
-  * Query ChangeFeed
-  * Query a partizione singola (partitionkey, partitionKeyRangeId è presente nelle opzioni)
+  * Query del feed delle modifiche
+  * query a partizione singola ( `partitionkey` , `partitionKeyRangeId` presente nelle opzioni)
   * Query non di tipo documento
 
 * Errori per le aggregazioni in più partizioni, con l'abilitazione della query tra partizioni impostata su true, ma nessuna parola chiave "value" presente
@@ -324,6 +334,8 @@ Microsoft invia una notifica almeno **12 mesi** prima del ritiro di un SDK per a
 
 | Versione | Data di rilascio | Data di ritiro |
 | --- | --- | --- |
+| [4.2.0](#420) |09 ottobre, 2020 |--- |
+| [4.1.0](#410) |10 agosto 2020 |--- |
 | [4.0.0](#400) |20 maggio 2020 |--- |
 | [3.0.2](#302) |15 novembre 2018 |--- |
 | [3.0.1](#301) |4 ottobre 2018 |--- |

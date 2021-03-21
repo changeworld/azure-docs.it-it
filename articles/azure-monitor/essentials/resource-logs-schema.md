@@ -4,10 +4,10 @@ description: Informazioni sui servizi e sullo schema di eventi supportati per i 
 ms.topic: reference
 ms.date: 09/01/2020
 ms.openlocfilehash: 661cba2d78dbb176bb04e6831cf8e045a285535e
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/04/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102033096"
 ---
 # <a name="common-and-service-specific-schema-for-azure-resource-logs"></a>Schema comune e specifico del servizio per i log delle risorse di Azure
@@ -79,7 +79,7 @@ Lo schema per i log delle risorse varia a seconda della risorsa e della categori
 | Protezione DDoS | [Registrazione per la protezione DDoS di Azure standard](../../ddos-protection/diagnostic-logging.md#log-schemas) |
 | Power BI dedicato | [Registrazione per Power BI Embedded in Azure](/power-bi/developer/azure-pbie-diag-logs) |
 | Servizi di ripristino | [Modello di dati per backup di Azure](../../backup/backup-azure-reports-data-model.md)|
-| Ricerca |[Abilitazione e uso di Analisi del traffico di ricerca](../../search/search-traffic-analytics.md) |
+| Cerca |[Abilitazione e uso di Analisi del traffico di ricerca](../../search/search-traffic-analytics.md) |
 | Bus di servizio |[Log del bus di servizio di Azure](../../service-bus-messaging/service-bus-diagnostic-logs.md) |
 | Database SQL | [Registrazione del database SQL di Azure](../../azure-sql/database/metrics-diagnostic-telemetry-logging-streaming-export-configure.md) |
 | Analisi di flusso |[Log di processo](../../stream-analytics/stream-analytics-job-diagnostic-logs.md) |

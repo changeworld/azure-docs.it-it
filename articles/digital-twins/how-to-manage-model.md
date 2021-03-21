@@ -8,10 +8,10 @@ ms.date: 3/12/2020
 ms.topic: how-to
 ms.service: digital-twins
 ms.openlocfilehash: 86efd7781c7353b4846c77eba01ed34fb63067ff
-ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/07/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102433251"
 ---
 # <a name="manage-azure-digital-twins-models"></a>Gestire i modelli di dispositivi gemelli digitali di Azure
@@ -142,7 +142,7 @@ Lo stato di rimozione delle autorizzazioni di un modello è incluso nei `ModelDa
 
 È possibile eliminare tutti i modelli nell'istanza in una sola volta oppure è possibile eseguire questa operazione su base individuale.
 
-Per un esempio di come eliminare tutti i modelli, scaricare l'app di esempio usata nell' [*esercitazione: esplorare le nozioni di base con un'app client di esempio*](tutorial-command-line-app.md). Il file *CommandLoop.cs* esegue questa operazione in una `CommandDeleteAllModels` funzione.
+Per un esempio di come eliminare tutti i modelli, scaricare l'app di esempio usata nell' [*esercitazione: esplorare le nozioni di base con un'app client di esempio*](tutorial-command-line-app.md). Il file *CommandLoop. cs* esegue questa operazione in una `CommandDeleteAllModels` funzione.
 
 Il resto di questa sezione suddivide l'eliminazione del modello in modo più dettagliato e Mostra come eseguire questa operazione per un singolo modello.
 

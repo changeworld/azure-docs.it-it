@@ -57,7 +57,7 @@ Il file con estensione gitignore è già configurato per evitare la pubblicazion
 
 ## <a name="examine-the-code-that-performs-live-streaming"></a>Esaminare il codice che esegue lo streaming live
 
-In questa sezione vengono esaminate le funzioni definite nel file [Program.cs](https://github.com/Azure-Samples/media-services-v3-dotnet/blob/main/Live/LiveEventWithDVR/Program.cs) del progetto *LiveEventWithDVR* .
+In questa sezione vengono esaminate le funzioni definite nel file [Program. cs](https://github.com/Azure-Samples/media-services-v3-dotnet/blob/main/Live/LiveEventWithDVR/Program.cs) del progetto *LiveEventWithDVR* .
 
 L'esempio crea un suffisso univoco per ogni risorsa in modo che non si verifichino conflitti di nomi se si esegue l'esempio più volte senza effettuare la pulizia.
 

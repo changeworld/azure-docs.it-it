@@ -9,12 +9,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 03/15/2018
 ms.custom: mqtt, devx-track-azurecli
-ms.openlocfilehash: 5515d1084b28091cf7d20958cfca8af3f2664563
-ms.sourcegitcommit: dda0d51d3d0e34d07faf231033d744ca4f2bbf4a
+ms.openlocfilehash: 154b496a6c14d307c09ddcd1b42bf4ba568cb315
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102199493"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104607892"
 ---
 # <a name="send-cloud-to-device-messages-from-an-iot-hub"></a>Inviare messaggi da cloud a dispositivo da un hub Internet delle cose
 
@@ -90,6 +90,8 @@ Come illustrato negli [endpoint](iot-hub-devguide-endpoints.md), l'hub Internet 
 | EnqueuedTime | Timestamp che indica quando il messaggio di feedback è stato ricevuto dall'hub |
 | UserId       | `{iot hub name}` |
 | ContentType  | `application/vnd.microsoft.iothub.feedback.json` |
+
+Il sistema invierà il feedback quando il batch raggiunge i messaggi 64 o in 15 secondi dall'ultimo invio, a seconda del valore che viene raggiunto per primo. 
 
 Il corpo è una matrice serializzata con JSON dei record, ognuno con le proprietà seguenti:
 

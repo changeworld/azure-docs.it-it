@@ -12,20 +12,20 @@ ms.workload: identity
 ms.date: 05/07/2019
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 370bedf04dc61e2a637f735580cd4df14061264a
-ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
+ms.openlocfilehash: 0ab5baef925b7c8589dd7852b6ff8058d67ba745
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98753331"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104675873"
 ---
 # <a name="a-web-api-that-calls-web-apis-move-to-production"></a>Un'API Web che chiama le API Web: passa all'ambiente di produzione
 
-Dopo aver acquisito un token per chiamare le API Web, è possibile spostare l'app nell'ambiente di produzione.
+Dopo aver acquisito un token per chiamare le API Web, di seguito sono riportati alcuni aspetti da considerare quando si trasferisce l'applicazione in produzione.
 
-[!INCLUDE [Move to production common steps](../../../includes/active-directory-develop-scenarios-production.md)]
+[!INCLUDE [Common steps to move to production](../../../includes/active-directory-develop-scenarios-production.md)]
 
-## <a name="learn-more"></a>Altre informazioni
+## <a name="next-steps"></a>Passaggi successivi
 
 Ora che si conoscono le nozioni di base su come chiamare le API Web dalla propria API Web, si potrebbe essere interessati all'esercitazione seguente, in cui viene descritto il codice usato per creare un'API Web protetta che chiama le API Web.
 

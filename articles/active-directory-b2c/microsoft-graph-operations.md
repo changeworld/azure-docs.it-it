@@ -13,10 +13,10 @@ ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: a8ff94acbd9ffd491bf628ae61ee87634a9c6dd6
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/04/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102033623"
 ---
 # <a name="manage-azure-ad-b2c-with-microsoft-graph"></a>Gestire Azure AD B2C con Microsoft Graph
@@ -181,7 +181,7 @@ Il codice di esempio usa il [Microsoft Graph SDK](/graph/sdks/sdks-overview), pr
 
 Qualsiasi richiesta all'API Microsoft Graph richiede un token di accesso per l'autenticazione. La soluzione USA il pacchetto NuGet [Microsoft. Graph. auth](https://www.nuget.org/packages/Microsoft.Graph.Auth/) che fornisce un wrapper basato sullo scenario di autenticazione di Microsoft Authentication Library (MSAL) per l'uso con il Microsoft Graph SDK.
 
-Il `RunAsync` metodo nel file _Program.cs_ :
+Il `RunAsync` metodo nel file _Program. cs_ :
 
 1. Legge le impostazioni dell'applicazione dal _appsettings.jssul_ file
 1. Inizializza il provider di autenticazione utilizzando il flusso di [concessione delle credenziali client OAuth 2,0](../active-directory/develop/v2-oauth2-client-creds-grant-flow.md) . Con il flusso di concessione delle credenziali client, l'app è in grado di ottenere un token di accesso per chiamare l'API Microsoft Graph.
@@ -203,7 +203,7 @@ Il `RunAsync` metodo nel file _Program.cs_ :
     GraphServiceClient graphClient = new GraphServiceClient(authProvider);
     ```
 
-Il *GraphServiceClient* inizializzato viene quindi usato in _UserService.cs_ per eseguire le operazioni di gestione degli utenti. Ad esempio, ottenere un elenco degli account utente nel tenant:
+Il *GraphServiceClient* inizializzato viene quindi usato in _UserService. cs_ per eseguire le operazioni di gestione degli utenti. Ad esempio, ottenere un elenco degli account utente nel tenant:
 
 ```csharp
 public static async Task ListUsers(GraphServiceClient graphClient)

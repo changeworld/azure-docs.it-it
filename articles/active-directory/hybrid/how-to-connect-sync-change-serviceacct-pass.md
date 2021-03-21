@@ -13,19 +13,22 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-ms.date: 05/02/2019
+ms.date: 03/17/2021
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e4dcc7ed6076c3bac723d709f50f1b3ab2ce8f58
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: e8778e50dcb881647696c6e901bf1058b9d6ac43
+ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "95996560"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "104720339"
 ---
 # <a name="changing-the-adsync-service-account-password"></a>Modifica della password dell'account del servizio ADSync
 Se si modifica la password dell'account del servizio ADSync, il servizio di sincronizzazione non sarà in grado di avviarsi correttamente finché non si abbandona la chiave di crittografia e non si reinizializza la password dell'account del servizio ADSync. 
+
+>[!IMPORTANT]
+> Se si usa Connect con una build di marzo 2017 o precedente, non reimpostare la password nell'account del servizio poiché Windows elimina le chiavi di crittografia per motivi di sicurezza. Non è possibile modificare l'account impostandone un altro senza reinstallare Azure AD Connect. Se si esegue l'aggiornamento a una build da 2017 aprile o versione successiva, è supportata la modifica della password nell'account del servizio, ma non è possibile modificare l'account usato. 
 
 Azure AD Connect, come parte dei servizi di sincronizzazione utilizza una chiave di crittografia per archiviare le password dell'account del connettore servizi di dominio Active Directory e dell'account del servizio ADSync.  Questi account vengono crittografati prima di essere archiviati nel database. 
 

@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.date: 03/09/2021
 ms.author: alkohli
 ms.openlocfilehash: 01ba8e1f22deb376fd461be24d3f66f0a7f5e1ae
-ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
+ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/10/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102610485"
 ---
 # <a name="use-kubectl-to-run-a-kubernetes-stateful-application-with-a-persistentvolume-on-your-azure-stack-edge-pro-device"></a>Usare kubectl per eseguire un'applicazione con stato Kubernetes con un PersistentVolume sul dispositivo Azure Stack Edge Pro
@@ -346,7 +346,7 @@ persistentvolumeclaim "mysql-pv-claim" deleted
 C:\Users\user>
 ```
 
-Il PV non è più associato al PVC perché il PVC è stato eliminato. Quando è stato effettuato il provisioning del PV al momento della creazione della condivisione, sarà necessario eliminare la condivisione. Seguire questa procedura:
+Il PV non è più associato al PVC perché il PVC è stato eliminato. Quando è stato effettuato il provisioning del PV al momento della creazione della condivisione, sarà necessario eliminare la condivisione. A tale scopo, seguire questa procedura:
 
 1. Smontare la condivisione. In portale di Azure passare alla risorsa di **Azure stack Edge > condivisioni** e selezionare e fare clic sulla condivisione che si vuole smontare. Selezionare **smontare** e confermare l'operazione. Attendere la disinstallazione della condivisione. Lo smontaggio rilascia la condivisione (e, di conseguenza, il PersistentVolume associato) dal cluster Kubernetes. 
 

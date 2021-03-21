@@ -4,13 +4,14 @@ description: Panoramica dell'agente di monitoraggio di Azure (AMA), che raccogli
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 08/10/2020
-ms.openlocfilehash: 0487e5bd8109c02605e785e74d45589dd5fde5b9
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.date: 03/16/2021
+ms.custom: references_regions
+ms.openlocfilehash: f1f1ea787406d900c8035c0462ef903b848d7e81
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102039598"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104608215"
 ---
 # <a name="azure-monitor-agent-overview-preview"></a>Panoramica dell'agente di monitoraggio di Azure (anteprima)
 L'agente di monitoraggio di Azure raccoglie i dati di monitoraggio dal sistema operativo guest delle macchine virtuali e li recapita a monitoraggio di Azure. Questo articolo fornisce una panoramica dell'agente di monitoraggio di Azure, tra cui come installarlo e come configurare la raccolta dei dati.
@@ -59,6 +60,35 @@ Durante l'anteprima pubblica dell'agente di monitoraggio di Azure si applicano l
   - *. ingest.monitor.azure.com
   - *. control.monitor.azure.com
 
+
+## <a name="supported-regions"></a>Aree supportate
+L'agente di monitoraggio di Azure supporta attualmente le risorse nelle aree seguenti:
+
+- Asia orientale
+- Asia sud-orientale
+- Australia centrale
+- Australia orientale
+- Australia sud-orientale
+- Canada centrale
+- Europa settentrionale
+- Europa occidentale
+- Francia centrale
+- Germania centro-occidentale
+- India centrale
+- Giappone orientale
+- Corea centrale
+- Sudafrica settentrionale
+- Svizzera settentrionale
+- Regno Unito meridionale
+- Regno Unito occidentale
+- Stati Uniti centrali
+- Stati Uniti orientali
+- Stati Uniti orientali 2
+- Stati Uniti centro-settentrionali
+- Stati Uniti centro-meridionali
+- Stati Uniti occidentali
+- Stati Uniti occidentali 2
+- Stati Uniti centro-occidentali
 
 ## <a name="coexistence-with-other-agents"></a>Coesistenza con altri agenti
 L'agente di monitoraggio di Azure può coesistere con gli agenti esistenti per poter continuare a usare la funzionalità esistente durante la valutazione o la migrazione. Questa operazione è particolarmente importante a causa delle limitazioni dell'anteprima pubblica per supportare le soluzioni esistenti. È necessario prestare attenzione quando si raccolgono dati duplicati poiché questo potrebbe inclinare i risultati della query e causare addebiti aggiuntivi per l'inserimento e la conservazione dei dati.

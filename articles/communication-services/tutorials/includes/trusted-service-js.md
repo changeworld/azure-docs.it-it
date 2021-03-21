@@ -8,12 +8,12 @@ ms.author: ddematheu2
 ms.date: 03/10/2021
 ms.topic: include
 ms.service: azure-communication-services
-ms.openlocfilehash: 41d959468e3183af00d2ab514e7c1bf0a134a1f8
-ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
+ms.openlocfilehash: bb70f799a308282a20a5b76ea841c3a1ae5e8b49
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/16/2021
-ms.locfileid: "103490476"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104612178"
 ---
 ## <a name="download-code"></a>Scarica codice
 
@@ -104,7 +104,7 @@ const connectionString = 'INSERT YOUR RESOURCE CONNECTION STRING'
 
 Successivamente, la funzione originale verrà modificata per generare `User Access Tokens`.
 
-`User Access Tokens` vengono generati creando un utente dal metodo `createUser`. Una volta creato l'utente, è possibile usare il metodo `issueToken` per generare un token per l'utente restituito dalla funzione di Azure.
+`User Access Tokens` vengono generati creando un utente dal metodo `createUser`. Una volta creato l'utente, è possibile usare il metodo `getToken` per generare un token per l'utente restituito dalla funzione di Azure.
 
 Per questo esempio, verrà configurato l'ambito del token per `voip`. Per l'applicazione possono essere necessari altri ambiti. Altre informazioni sugli [ambiti](../../quickstarts/access-tokens.md).
 
@@ -114,7 +114,7 @@ module.exports = async function (context, req) {
 
     const user = await tokenClient.createUser();
 
-    const userToken = await tokenClient.issueToken(user, ["voip"]);
+    const userToken = await tokenClient.getToken(user, ["voip"]);
 
     context.res = {
         body: userToken

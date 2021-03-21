@@ -2,14 +2,14 @@
 author: ggailey777
 ms.service: azure-functions
 ms.topic: include
-ms.date: 09/04/2018
+ms.date: 03/12/2021
 ms.author: glenga
-ms.openlocfilehash: e5213a20036385ff25373252e6670d8bd86a4b07
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
-ms.translationtype: HT
+ms.openlocfilehash: c94bf06fac0157a0e61102d57a7e970a2791d902
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "80056668"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104612171"
 ---
 Altre guide di avvio rapido di questa raccolta si basano sulla presente guida di avvio rapido. Se si prevede di continuare a usare le guide di avvio rapido o i servizi creati con questa guida di avvio rapido, non eseguire la pulizia delle risorse.
 
@@ -17,16 +17,4 @@ Il termine *risorse* in Azure si riferisce ad app per le funzioni, funzioni, acc
 
 Per completare queste guide introduttive sono state create risorse. Per tali risorse potrebbero venire addebitati costi, a seconda dello [stato dell'account](https://azure.microsoft.com/account/) e dei [prezzi dei servizi](https://azure.microsoft.com/pricing/). Se le risorse non sono più necessarie, ecco come eliminarle:
 
-1. Nel portale di Azure passare alla pagina **Gruppo di risorse**. 
-
-   Per visualizzare tale pagina dalla pagina dell'app per le funzioni, selezionare la scheda **Panoramica** e quindi selezionare il collegamento sotto **Gruppo di risorse**.
-
-   ![Selezionare il gruppo di risorse da eliminare dalla pagina dell'app per le funzioni.](./media/functions-quickstart-cleanup/functions-app-delete-resource-group.png)
-
-   Per visualizzare tale pagina dal dashboard, selezionare **Gruppi di risorse** e quindi selezionare il gruppo di risorse usato nella guida introduttiva.
-
-2. Nella pagina **Gruppo di risorse** esaminare l'elenco delle risorse incluse e verificare che siano quelle da eliminare.
- 
-3. Selezionare **Elimina gruppo di risorse** e seguire le istruzioni.
-
-   L'eliminazione potrebbe richiedere alcuni minuti. Al termine, viene visualizzata una notifica per pochi secondi. È anche possibile selezionare l'icona a forma di campana nella parte superiore della pagina per visualizzare la notifica.
+[!INCLUDE [functions-quickstart-cleanup-inner](functions-quickstart-cleanup-inner.md)]

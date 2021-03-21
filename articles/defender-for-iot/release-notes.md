@@ -14,10 +14,10 @@ ms.workload: na
 ms.date: 03/14/2021
 ms.author: shhazam
 ms.openlocfilehash: ef72be60b6294ad4e1fca2ce9c0e3c66b64ac687
-ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/16/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "103493959"
 ---
 # <a name="whats-new-in-azure-defender-for-iot"></a>Quali sono le novità di Azure Defender per l'it?
@@ -64,7 +64,7 @@ Questo set di funzionalità è disponibile con la versione corrente del cloud di
 - [Onboarding](#onboarding)
 - [Usabilità](#usability)
 - [Altri aggiornamenti](#other-updates)
-### <a name="security"></a>Security
+### <a name="security"></a>Sicurezza
 
 Sono stati apportati miglioramenti al ripristino di certificati e password per questa versione.
 

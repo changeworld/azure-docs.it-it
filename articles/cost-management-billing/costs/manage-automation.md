@@ -3,17 +3,17 @@ title: Gestire i costi di Azure con l'automazione
 description: Questo articolo illustra come gestire i costi di Azure con l'automazione.
 author: bandersmsft
 ms.author: banders
-ms.date: 03/08/2021
+ms.date: 03/19/2021
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.subservice: cost-management
 ms.reviewer: adwise
-ms.openlocfilehash: a54b8243b5a680168b2e5806dd58c0fa4109728f
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 2a39f77e3e7409d23ab7506b525f65e01082e99e
+ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104670274"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "104720118"
 ---
 # <a name="manage-costs-with-automation"></a>Gestire i costi con l'automazione
 
@@ -47,7 +47,7 @@ Se il set di dati sui costi è di piccole dimensioni, provare a usare l'[API Det
 
 L'[API Dettagli utilizzo ](/rest/api/consumption/usageDetails) offre un modo semplice per ottenere dati sui costi non elaborati e non aggregati corrispondenti alla fattura di Azure. L'API è utile quando l'organizzazione necessita di una soluzione di recupero dei dati a livello di codice. È consigliabile usare l'API per l'analisi di set di dati sui costi di dimensioni ridotte. Nel caso di set di dati più grandi, è invece consigliabile usare le altre soluzioni identificate in precedenza. I dati in Dettagli utilizzo vengono forniti per ogni contatore al giorno. Vengono usati per il calcolo della fattura mensile. La versione disponibile a livello generale di queste API è `2019-10-01`. Usare `2019-04-01-preview` per accedere alla versione di anteprima per la prenotazione e gli acquisti in Azure Marketplace con le API.
 
-Se si desidera ottenere grandi quantità di dati esportati a intervalli regolari, vedere Recupero di set di dati a [costo elevato ricorrenti con le esportazioni](ingest-azure-usage-at-scale.md).
+Se si desidera ottenere regolarmente grandi quantità di dati esportati, vedere Recupero di set di dati [a costo elevato ricorrenti con le esportazioni](ingest-azure-usage-at-scale.md).
 
 ### <a name="usage-details-api-suggestions"></a>Suggerimenti per l'API Dettagli utilizzo
 
@@ -74,6 +74,10 @@ Prezzi nei dettagli di utilizzo: i file sull'utilizzo mostrano informazioni dime
   - Quantità inclusa, ad esempio: le prime 100 unità sono gratuite e poi vengono addebitati $ 10 per unità.
   - Prenotazioni
   - Arrotondamento durante il calcolo: l'arrotondamento tiene conto della quantità consumata, dei prezzi della quantità inclusa/a livelli e del prezzo unitario dimensionato.
+
+### <a name="a-single-resource-might-have-multiple-records-for-a-single-day"></a>Una singola risorsa potrebbe avere più record per un singolo giorno
+
+I provider di risorse di Azure emettono l'utilizzo e gli addebiti per il sistema di fatturazione e popolano il `Additional Info` campo dei record di utilizzo. Occasionalmente, i provider di risorse possono emettere utilizzo per un determinato giorno e contrassegnare i record con diversi Data Center nel `Additional Info` campo dei record di utilizzo. Può causare la presenza di più record per un contatore o una risorsa nel file di utilizzo per un singolo giorno. In tal caso, non viene addebitato alcun addebito. I record multipli rappresentano il costo totale del contatore per la risorsa in quel giorno.
 
 ## <a name="example-usage-details-api-requests"></a>Esempi di richieste all'API Dettagli utilizzo
 

@@ -5,12 +5,12 @@ author: mscurrell
 ms.author: markscu
 ms.date: 03/15/2021
 ms.topic: how-to
-ms.openlocfilehash: 4a0d3e017f36f580024b77fbd23145d7447f336d
-ms.sourcegitcommit: 18a91f7fe1432ee09efafd5bd29a181e038cee05
+ms.openlocfilehash: 86ea4ce4d596875e455d7b86250882713a14337f
+ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/16/2021
-ms.locfileid: "103564406"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "104720152"
 ---
 # <a name="check-for-pool-and-node-errors"></a>Verificare la presenza di errori in pool e nodi
 
@@ -136,14 +136,16 @@ Alcuni di questi file vengono scritti una sola volta alla creazione dei nodi del
 
 Altri file vengono scritti per ogni attività eseguita in un nodo, ad esempio stdout e stderr. Se un numero elevato di attività viene eseguito sullo stesso nodo e/o se i file delle attività sono troppo grandi, è possibile che riempiano l'unità temporanea.
 
-Le dimensioni dell'unità temporanea dipendono dalle dimensioni della macchina virtuale. Quando si selezionano le dimensioni di una macchina virtuale è buona norma assicurarsi che lo spazio disponibile nell'unità temporanea sia sufficiente.
+Inoltre, dopo l'avvio del nodo, per creare gli utenti è necessaria una piccola quantità di spazio sul disco del sistema operativo.
+
+Le dimensioni dell'unità temporanea dipendono dalle dimensioni della macchina virtuale. Una considerazione quando si selezionano le dimensioni di una macchina virtuale consiste nel verificare che l'unità temporanea disponga di spazio sufficiente per il carico di lavoro pianificato.
 
 - Nel portale di Azure, durante l'aggiunta di un pool è possibile visualizzare l'elenco completo delle dimensioni delle macchine virtuali ed è presente una colonna "Dimensioni disco risorsa".
 - Gli articoli che descrivono tutte le dimensioni delle macchine virtuali contengono tabelle con una colonna "Archiviazione temporanea", ad esempio [Dimensioni delle macchine virtuali con ottimizzazione per il calcolo](../virtual-machines/sizes-compute.md)
 
 Per i file scritti dalle singole attività, è possibile specificare un periodo di conservazione per ogni attività, che determini per quanto tempo i file dell'attività debbano essere conservati prima di essere eliminati automaticamente. Il tempo di conservazione può essere ridotto per ridurre i requisiti di archiviazione.
 
-Se lo spazio sul disco temporaneo si esaurisce (o quasi), il nodo passerà allo stato [Inutilizzabile](/rest/api/batchservice/computenode/get#computenodestate) e verrà segnalato un errore del nodo per informare che il disco è pieno.
+Se il disco del sistema operativo o temporaneo esaurisce lo spazio (o è molto vicino allo spazio insufficiente), il nodo passerà allo stato [inutilizzabile](/rest/api/batchservice/computenode/get#computenodestate) e verrà segnalato un errore del nodo che informa che il disco è pieno.
 
 Se non si è certi di cosa sta occupando spazio nel nodo, provare a eseguire la comunicazione remota al nodo ed esaminare manualmente la posizione in cui lo spazio è andato. È anche possibile usare l'[API dei file di elenco processi batch](/rest/api/batchservice/file/listfromcomputenode) per esaminare i file nelle cartelle gestite da Batch (ad esempio, gli output delle attività). Si noti che questa API elenca solo i file nelle directory gestite da batch. Se le attività hanno creato file altrove, non verranno visualizzati.
 
