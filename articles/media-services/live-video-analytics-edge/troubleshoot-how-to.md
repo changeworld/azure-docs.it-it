@@ -6,10 +6,10 @@ ms.topic: how-to
 ms.author: inhenkel
 ms.date: 12/04/2020
 ms.openlocfilehash: d766843f58bc2cdd0dcdddfad337b23fefb28768
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/03/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "101698740"
 ---
 # <a name="troubleshoot-live-video-analytics-on-iot-edge"></a>Risolvere i problemi di analisi video in tempo reale su IoT Edge
@@ -267,7 +267,7 @@ Ad esempio, se si compila un server gRPC con .NET Core, il servizio gRPC aggiung
 } 
 ``` 
 
-È anche possibile configurarlo nel file Startup.cs con ConfigureLogging: 
+È anche possibile configurarlo nel file startup. cs con ConfigureLogging: 
 
 ```
 public static IHostBuilder CreateHostBuilder(string[] args) => 

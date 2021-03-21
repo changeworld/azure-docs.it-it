@@ -4,12 +4,12 @@ ms.service: app-service
 ms.topic: include
 ms.date: 09/18/2019
 ms.author: cephalin
-ms.openlocfilehash: 7458f6868d7fbee72b55ad002148691a113c269d
-ms.sourcegitcommit: 66479d7e55449b78ee587df14babb6321f7d1757
+ms.openlocfilehash: 922a34bd1a147d407041d2945b14df18a18d7287
+ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/15/2020
-ms.locfileid: "97532002"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "104761136"
 ---
 Quando si clona la configurazione da un altro slot di distribuzione, la configurazione clonata è modificabile. Alcuni elementi di configurazione seguono il contenuto in uno scambio (non specifico dello slot), mentre altri elementi di configurazione si mantengono nello stesso slot dopo uno scambio (specifico dello slot). Negli elenchi seguenti sono riportate le impostazioni che vengono modificate durante lo scambio degli slot.
 
@@ -39,6 +39,7 @@ Le funzionalità contrassegnate con un asterisco (*) sono pianificate per lo sca
 * Impostazioni di diagnostica
 * Condivisione di risorse tra le origini (CORS)
 * Integrazione della rete virtuale
+* Mapping dei percorsi
 
 > [!NOTE]
 > Per rendere queste impostazioni scambiabili, aggiungere l'impostazione dell'app `WEBSITE_OVERRIDE_PRESERVE_DEFAULT_STICKY_SLOT_SETTINGS` in ogni slot dell'app e impostarne il valore su `0` o `false` . Queste impostazioni sono tutte scambiabili o non sono affatto disponibili. Non è possibile rendere solo alcune impostazioni scambiabili e non le altre.

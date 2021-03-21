@@ -7,14 +7,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: forms-recognizer
 ms.topic: include
-ms.date: 02/12/2021
+ms.date: 03/19/2021
 ms.author: lajanuar
-ms.openlocfilehash: c3d81e0de1c20e77278cb718fdcbc21eb6df455d
-ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
+ms.openlocfilehash: 6407f6af4b142333d2a52f60eb0b05024e64d88e
+ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/07/2021
-ms.locfileid: "102444725"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "104761138"
 ---
 <!-- markdownlint-disable MD024 -->
 > [!IMPORTANT]
@@ -66,7 +66,7 @@ dotnet add package Azure.AI.FormRecognizer --version 3.1.0-beta.1
 ```
 
 > [!NOTE]
-> L'SDK 3.1.0 di Riconoscimento modulo corrisponde alla versione 2.1-preview dell'API
+> Il form Recognizer 3.1.0 SDK riflette l' _API versione 2,1 Preview. 2_. Usare l' [**API REST**](../../quickstarts/client-library.md) per l' _API versione 2,1 Preview. 3_.
 
 #### <a name="v20"></a>[v2.0](#tab/ga)
 

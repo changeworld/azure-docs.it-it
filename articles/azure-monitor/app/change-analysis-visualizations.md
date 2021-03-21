@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: cawams
 ms.author: cawa
 ms.date: 02/11/2021
-ms.openlocfilehash: 838a48aa11a1cb36c3a7d822ce88f58936aa976d
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 8319885de26bf79f5e402c4d06b29e9dd94894de
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101734622"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104655852"
 ---
 # <a name="visualizations-for-application-change-analysis-preview"></a>Visualizzazioni per l'analisi delle modifiche dell'applicazione (anteprima)
 
@@ -22,11 +22,11 @@ Cercare Change Analysis nella barra di ricerca portale di Azure per avviare l'es
 
 ![Screenshot della ricerca dell'analisi delle modifiche in portale di Azure](./media/change-analysis/search-change-analysis.png)
 
-Tutte le risorse in una sottoscrizione selezionata vengono visualizzate con le modifiche apportate nelle ultime 24 ore. Per ottimizzare le prestazioni di caricamento della pagina, il servizio Visualizza 10 risorse alla volta. Selezionare la pagina successiva per visualizzare altre risorse. Si sta lavorando per rimuovere questa limitazione.
+Tutte le risorse in una sottoscrizione selezionata vengono visualizzate con le modifiche apportate nelle ultime 24 ore. Tutte le modifiche vengono visualizzate con valore precedente e nuovo valore per fornire informazioni dettagliate a colpo d'occhio.
 
 ![Screenshot del pannello di analisi delle modifiche in portale di Azure](./media/change-analysis/change-analysis-standalone-blade.png)
 
-Fare clic su una risorsa per visualizzare tutte le modifiche apportate. Se necessario, eseguire il drill-down in una modifica per visualizzare i dettagli delle modifiche in formato JSON e le informazioni dettagliate.
+Fare clic su una modifica per visualizzare il frammento di Gestione risorse completo e altre proprietà.
 
 ![Schermata dei dettagli delle modifiche](./media/change-analysis/change-details.png)
 
@@ -40,11 +40,6 @@ L'interfaccia utente supporta la selezione di più sottoscrizioni per visualizza
 
 ![Screenshot del filtro di sottoscrizione che supporta la selezione di più sottoscrizioni](./media/change-analysis/multiple-subscriptions-support.png)
 
-### <a name="web-app-diagnose-and-solve-problems"></a>Diagnostica e risoluzione dei problemi delle app Web
-
-In monitoraggio di Azure, l'analisi delle modifiche è incorporata anche nell'esperienza di **diagnostica e risoluzione dei problemi** in modalità self-service. Accedere a questa esperienza dalla pagina **Panoramica** dell'applicazione del servizio app.
-
-![Screenshot del pulsante "panoramica" e del pulsante "diagnostica e risoluzione dei problemi"](./media/change-analysis/change-analysis.png)
 
 ## <a name="application-change-analysis-in-the-diagnose-and-solve-problems-tool"></a>Analisi delle modifiche dell'applicazione nello strumento diagnostica e risoluzione dei problemi
 
@@ -69,6 +64,13 @@ L'analisi delle modifiche dell'applicazione è un detector autonomo negli strume
 5. I dati delle modifiche sono disponibili anche in selezione **app Web** e rilevamenti **arresti anomali dell'applicazione** . Verrà visualizzato un grafico che riepiloga il tipo di modifiche nel tempo insieme ai dettagli relativi a tali modifiche. Per impostazione predefinita, le modifiche apportate nelle ultime 24 ore vengono visualizzate per facilitare i problemi immediatamente.
 
      ![Screenshot della visualizzazione delle differenze delle modifiche](./media/change-analysis/change-view.png)
+
+## <a name="diagnose-and-solve-problems-tool"></a>Strumento di diagnostica e risoluzione dei problemi
+L'analisi delle modifiche è disponibile come scheda Insight nello strumento diagnostica e risolvi problemi. Se si verificano problemi in una risorsa e sono state rilevate modifiche nelle ultime 72 ore, nella scheda Insights verrà visualizzato il numero di modifiche. Se si fa clic sul collegamento Visualizza dettagli modifica, viene visualizzata la visualizzazione filtrata dall'interfaccia utente autonoma Change Analysis.
+
+![Screenshot della visualizzazione delle informazioni sulle modifiche nello strumento diagnostica e risoluzione dei problemi.](./media/change-analysis/change-insight-diagnose-and-solve.png)
+
+
 
 ## <a name="virtual-machine-diagnose-and-solve-problems"></a>Diagnostica e risoluzione dei problemi della macchina virtuale
 

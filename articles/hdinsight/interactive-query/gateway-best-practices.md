@@ -5,10 +5,10 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 04/01/2020
 ms.openlocfilehash: 63484d882d8ccd387257c6f246c2048a09c77bc8
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/28/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98933115"
 ---
 # <a name="gateway-deep-dive-and-best-practices-for-apache-hive-in-azure-hdinsight"></a>Approfondimenti sul gateway e procedure consigliate per Apache Hive in Azure HDInsight
@@ -53,9 +53,9 @@ Sono disponibili più sedi per attenuare e comprendere i problemi di prestazioni
 
 * Utilizzare la clausola **limit** durante l'esecuzione di query **SELECT** di grandi dimensioni. La clausola **limit** ridurrà il totale delle righe restituite all'host client. La clausola **limit** influisca solo sulla generazione dei risultati e non modifica il piano di query. Per applicare la clausola **limit** al piano di query, usare la configurazione `hive.limit.optimize.enable` . Il **limite** può essere combinato con un offset usando il formato di argomento **limite x, y**.
 
-* Assegnare un nome alle colonne di interesse durante l'esecuzione di query **Select** anziché usare **Select \** _. Se si seleziona un numero inferiore di colonne, la quantità di dati letti sarà ridotta.
+* Assegnare un nome alle colonne di interesse durante l'esecuzione di query **Select** anziché l'uso di **Select \***. Se si seleziona un numero inferiore di colonne, la quantità di dati letti sarà ridotta.
 
-_ Provare a eseguire la query di interesse tramite Apache. Se il recupero dei risultati tramite Apache coeline richiede un periodo di tempo prolungato, prevedere ritardi durante il recupero degli stessi risultati tramite strumenti esterni.
+* Provare a eseguire la query di interesse tramite Apache. Se il recupero dei risultati tramite Apache coeline richiede un periodo di tempo prolungato, prevedere ritardi durante il recupero degli stessi risultati tramite strumenti esterni.
 
 * Testare una query hive di base per assicurarsi che sia possibile stabilire una connessione al gateway HDInsight. Provare a eseguire una query di base da due o più strumenti esterni per assicurarsi che non si verifichino problemi in nessun singolo strumento.
 

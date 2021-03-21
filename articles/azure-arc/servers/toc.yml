@@ -27,11 +27,11 @@
           href: security-overview.md
 - name: Guide pratiche
   items:
-    - name: Connessione ad Azure Arc
+    - name: Distribuire
       items:
         - name: Panoramica dell'agente Connected Machine
           href: agent-overview.md
-        - name: Pianificare la distribuzione su larga scala
+        - name: Pianificare la distribuzione
           href: plan-at-scale-deployment.md
         - name: Connettere i computer ad Azure Arc dal portale di Azure
           href: onboard-portal.md

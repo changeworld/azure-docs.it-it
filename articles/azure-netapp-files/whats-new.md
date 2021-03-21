@@ -12,18 +12,24 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
-ms.date: 12/04/2020
+ms.date: 03/11/2021
 ms.author: b-juche
-ms.openlocfilehash: b40bbd6c470302b78b78744307805021a3649376
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 84213832e59c50c85d9731ced39bbce6264df47e
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100571034"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104590909"
 ---
 # <a name="whats-new-in-azure-netapp-files"></a>Novità di Azure NetApp Files
 
 Il servizio Azure NetApp Files viene aggiornato regolarmente. Questo articolo fornisce un riepilogo delle nuove funzionalità e dei miglioramenti più recenti. 
+
+## <a name="march-2021"></a>Marzo 2021 
+
+* [Ridimensionamento automatico di un volume di destinazione della replica tra aree](azure-netapp-files-resize-capacity-pools-or-volumes.md#resize-a-cross-region-replication-destination-volume)
+
+    In una relazione di replica tra aree, un volume di destinazione viene ridimensionato automaticamente in base alle dimensioni del volume di origine. Di conseguenza, non è necessario ridimensionare il volume di destinazione separatamente. Questo comportamento di ridimensionamento automatico è applicabile quando i volumi si trovano in una relazione di replica attiva o quando il peering della replica è interruppe con l'operazione di risincronizzazione. Per il corretto funzionamento di questa funzionalità, è necessario garantire una capacità sufficiente nei pool di capacità per i volumi di origine e di destinazione.
 
 ## <a name="december-2020"></a>Dicembre 2020
 
