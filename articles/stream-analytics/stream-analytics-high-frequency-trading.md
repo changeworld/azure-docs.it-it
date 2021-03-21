@@ -5,14 +5,14 @@ author: enkrumah
 ms.author: ebnkruma
 ms.service: stream-analytics
 ms.topic: how-to
-ms.date: 12/07/2018
+ms.date: 03/16/2021
 ms.custom: seodec18, devx-track-csharp
-ms.openlocfilehash: 3f8f7744e07abb56d825ce44d5bb30190e7e87c4
-ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
+ms.openlocfilehash: f632c916c3de61b94532e96be23da511ad5863ea
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98020418"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104593034"
 ---
 # <a name="high-frequency-trading-simulation-with-stream-analytics"></a>Simulazione di trading ad alta frequenza con Analisi di flusso
 La combinazione di linguaggio SQL, funzioni definite dall'utente di JavaScript e aggregazioni definite dall'utente in Analisi di flusso di Azure consente agli utenti di eseguire analisi avanzate. Le analisi avanzate possono includere il training e l'assegnazione dei punteggi di Machine Learning online, oltre alla simulazione di processi con stato. Questo articolo illustra come eseguire la regressione lineare in un processo di Analisi di flusso di Azure che esegue il training e l'assegnazione di punteggi in modo continuo in uno scenario di trading ad alta frequenza.
@@ -349,7 +349,7 @@ L'aggregazione definita dall'utente di JavaScript inizializza tutti gli accumula
 - Vendita di titoli quando se ne possiedono e viene ricevuto un segnale di vendita.
 - Vendita allo scoperto se non si è in possesso di titoli. 
 
-In caso di posizione di scoperto, se viene ricevuto un segnale di acquisto viene eseguito l'acquisto a copertura. In questa simulazione non si possiedono o si vendono mai allo scoperto 10 azioni di un determinato titolo e il costo della transazione è fisso a 8 dollari.
+In caso di posizione di scoperto, se viene ricevuto un segnale di acquisto viene eseguito l'acquisto a copertura. In questa simulazione vengono mantenute o brevi 10 condivisioni di una borsa. e il costo della transazione è fisso a 8 dollari.
 
 ```javascript
 function main() {

@@ -6,14 +6,14 @@ ms.author: sumuth
 ms.service: mysql
 ms.devlang: azurecli
 ms.topic: tutorial
-ms.date: 9/21/2020
+ms.date: 03/18/2021
 ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: a7b673dc8dfeb2ebf86aec5b7449df91c2ffd635
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
-ms.translationtype: HT
+ms.openlocfilehash: 3e334eda46e5e67a0fc0755f5e02a0724d34a4b4
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92534057"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104657638"
 ---
 # <a name="tutorial-create-an-azure-database-for-mysql---flexible-server-preview-with-app-services-web-app-in-virtual-network"></a>Esercitazione: Creare un server flessibile di Database di Azure per MySQL (anteprima) con un'app Web del servizio app di Azure nella stessa rete virtuale
 
@@ -21,6 +21,14 @@ ms.locfileid: "92534057"
 > Il server flessibile di Database di Azure per MySQL è attualmente disponibile in anteprima pubblica.
 
 Questa esercitazione illustra come creare un'app Web del servizio app di Azure con il server flessibile MySQL (anteprima) all'interno di una [rete virtuale](../../virtual-network/virtual-networks-overview.md).
+
+In questa esercitazione si apprenderà come:
+>[!div class="checklist"]
+> * Creare un server MySQL flessibile in una rete virtuale
+> * Creare una subnet da delegare al servizio app
+> * Creare un'app Web
+> * Aggiungere l'app Web alla rete virtuale
+> * Connettersi a Postgres dall'app Web 
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -37,7 +45,7 @@ az login
 Se si possiedono più sottoscrizioni, scegliere quella appropriata in cui verrà fatturata la risorsa. Selezionare l'ID sottoscrizione specifico sotto l'account tramite il comando [az account set](/cli/azure/account). Sostituire il segnaposto "subscription ID" con la proprietà **subscription ID** dell'output di **az login** per la sottoscrizione.
 
 ```azurecli
-az account set --subscription <subscription id>
+az account set --subscription <subscription ID>
 ```
 
 ## <a name="create-an-azure-database-for-mysql-flexible-server"></a>Creare un server flessibile di Database di Azure per MySQL
@@ -46,7 +54,7 @@ Creare un server flessibile privato all'interno di una rete virtuale con il coma
 ```azurecli
 az mysql flexible-server create --resource-group myresourcegroup --location westus2
 ```
-Questo comando esegue le azioni seguenti, che possono richiedere alcuni minuti:
+Copiare la stringa di connessione e il nome della rete virtuale appena creata. Questo comando esegue le azioni seguenti, che possono richiedere alcuni minuti:
 
 - Creare il gruppo di risorse se non esiste già.
 - Genera un nome di server, se non specificato.
@@ -57,6 +65,14 @@ Questo comando esegue le azioni seguenti, che possono richiedere alcuni minuti:
 > [!NOTE]
 > Prendere nota della password che verrà generata se non è stata specificata. Se si dimentica la password, è necessario reimpostarla usando il comando ``` az mysql flexible-server update```
 
+## <a name="create-subnet-for-app-service-endpoint"></a>Creare una subnet per l'endpoint del servizio app
+È ora necessario avere una subnet delegata all'endpoint dell'app Web del servizio app. Eseguire il comando seguente per creare una nuova subnet nella stessa rete virtuale in cui è stato creato il server di database. 
+
+```azurecli
+az network vnet subnet create -g myresourcegroup --vnet-name VNETName --name webappsubnetName  --address-prefixes 10.0.1.0/24  --delegations Microsoft.Web/serverFarms --service-endpoints Microsoft.Web
+```
+Prendere nota del nome della rete virtuale e del nome della subnet dopo questo comando, perché sarebbe necessario aggiungere la regola di integrazione VNET per l'app Web dopo la creazione. 
+
 ## <a name="create-a-web-app"></a>Creare un'app Web
 
 In questa sezione si crea l'host nell'app del servizio app e si connette questa app al database MySQL. Nel terminale assicurarsi di trovarsi nella radice del repository del codice dell'applicazione.
@@ -64,12 +80,13 @@ In questa sezione si crea l'host nell'app del servizio app e si connette questa 
 Creare un'app del servizio app (processo host) con il comando az webapp up
 
 ```azurecli
-az webapp up --resource-group myresourcegroup --location westus2 --plan testappserviceplan --sku B1 --name mywebapp
+az webapp up --resource-group myresourcegroup --location westus2 --plan testappserviceplan --sku P2V2 --name mywebapp
 ```
 
 > [!NOTE]
 > - Per l'argomento --location, usare la stessa posizione specificata per il database nella sezione precedente.
 > - Sostituire _&lt;app-name>_ con un nome univoco in tutto Azure (l'endpoint server è https://\<app-name>.azurewebsites.net). I caratteri consentiti per <app-name> sono A-Z, 0-9 e -. Un criterio valido consiste nell'usare una combinazione del nome della società e di un identificatore dell'app.
+> - Il livello Basic del servizio app non supporta l'integrazione VNET. Usare standard o Premium. 
 
 Questo comando esegue le azioni seguenti, che possono richiedere alcuni minuti:
 
@@ -84,7 +101,7 @@ Questo comando esegue le azioni seguenti, che possono richiedere alcuni minuti:
 Usare il comando **az webapp vnet-integration** per aggiungere l'integrazione di una rete virtuale di area all'app Web. Sostituire _&lt;vnet-name>_ e _&lt;subnet-name_ con i nomi della rete virtuale e della subnet usati dal server flessibile.
 
 ```azurecli
-az webapp vnet-integration add -g myresourcegroup -n  mywebapp --vnet <vnet-name> --subnet <subnet-name>
+az webapp vnet-integration add -g myresourcegroup -n  mywebapp --vnet VNETName --subnet webappsubnetName
 ```
 
 ## <a name="configure-environment-variables-to-connect-the-database"></a>Configurare le variabili di ambiente per la connessione del database

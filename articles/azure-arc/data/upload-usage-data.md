@@ -10,16 +10,16 @@ ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: how-to
 zone_pivot_groups: client-operating-system-macos-and-linux-windows-powershell
-ms.openlocfilehash: 578f0d1ca742fe4445b8aeed6876d1a73fd3f79e
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 0c72eda59f375c70274b17796ca53614ef95505b
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92378127"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104669509"
 ---
 # <a name="upload-usage-data-to-azure-monitor"></a>Caricare i dati di utilizzo in monitoraggio di Azure
 
-Periodicamente, è possibile esportare le informazioni sull'utilizzo. Con l'esportazione e il caricamento di queste informazioni vengono create e aggiornate le risorse del gruppo di server per il controller di dati, l'istanza gestita di SQL e l'iperscalabilità PostgreSQL in Azure.
+Periodicamente, è possibile esportare le informazioni sull'utilizzo. L'esportazione e il caricamento di queste informazioni consente di creare e aggiornare le risorse del gruppo di server per il controller dati, l'istanza gestita di SQL e il gruppo di server di scalabilità PostgreSQL in Azure
 
 > [!NOTE] 
 > Durante il periodo di anteprima, non è previsto alcun costo per l'uso di Azure Arc Enabled Data Services.
@@ -64,7 +64,7 @@ Le informazioni sull'utilizzo, ad esempio l'inventario e l'utilizzo delle risors
 
 Se si vuole caricare le metriche e i log in base a una pianificazione, è possibile creare uno script ed eseguirlo su un timer ogni pochi minuti. Di seguito è riportato un esempio di automazione dei caricamenti usando uno script della shell Linux.
 
-Nell'editor di testo/codice preferito aggiungere lo script seguente al file e salvarlo come file eseguibile di script, ad esempio. sh (Linux/Mac) o. cmd,. bat,. ps1.
+Nell'editor di testo/codice preferito aggiungere lo script seguente al file e salvarlo come file eseguibile di script, ad esempio `.sh` (Linux/Mac) o `.cmd` , `.bat` o `.ps1` .
 
 ```console
 azdata arc dc export --type metrics --path metrics.json --force

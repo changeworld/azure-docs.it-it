@@ -9,12 +9,12 @@ ms.date: 02/23/2021
 ms.author: normesta
 ms.reviewer: yzheng
 ms.custom: references_regions
-ms.openlocfilehash: 3b596d14ea770bfcd7560903a234d2ab77b66201
-ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
+ms.openlocfilehash: 28fb5ffc0ce9c554294eaca9e460694856cb95a0
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/10/2021
-ms.locfileid: "102614327"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104589872"
 ---
 # <a name="network-file-system-nfs-30-performance-considerations-in-azure-blob-storage-preview"></a>Considerazioni sulle prestazioni di Network File System (NFS) 3,0 nell'archivio BLOB di Azure (anteprima)
 
@@ -46,7 +46,7 @@ Ogni barra nel grafico seguente mostra la differenza tra gli account di archivia
 > [!div class="mx-imgBorder"]
 > ![Prestazioni relative](./media/network-file-system-protocol-support-performance/relative-performance.png)
 
-## <a name="avoid-frequent-overwrites-on-date"></a>Evitare sovrascritture frequenti in data
+## <a name="avoid-frequent-overwrites-on-data"></a>Evitare sovrascritture frequenti sui dati
 
 Il completamento di un'operazione di sovrascrittura richiede più tempo rispetto a una nuova operazione di scrittura. Questo perché un'operazione di sovrascrittura NFS, in particolare una modifica parziale del file sul posto, è una combinazione di diverse operazioni BLOB sottostanti: un'operazione di lettura, modifica e scrittura. Pertanto, un'applicazione che richiede modifiche frequenti sul posto non è adatta per gli account di archiviazione BLOB abilitati per NFS. 
 

@@ -6,10 +6,10 @@ ms.topic: article
 ms.date: 11/04/2019
 ms.author: v-ummehabiba
 ms.openlocfilehash: 474b6f8356724546105d902a15427f483f656317
-ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/05/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102182775"
 ---
 # <a name="get-sensor-data-from-sensor-partners"></a>Ottenere i dati dei sensori dai partner dei sensori
@@ -124,7 +124,7 @@ Attualmente, FarmBeats supporta i dispositivi seguenti:
 - **Node**: dispositivo a cui sono collegati uno o più sensori.
 - **Gateway**: un dispositivo a cui sono collegati uno o più nodi.
 
-Seguire questa procedura:
+A tale scopo, seguire questa procedura:
 
 1. Nella home page selezionare **dispositivi** dal menu.
   Nella pagina **dispositivi** vengono visualizzati il tipo di dispositivo, il modello, lo stato, la farm in cui è inserito e la data dell'ultimo aggiornamento per i metadati. Per impostazione predefinita, la colonna della farm è impostata su *null*. È possibile scegliere di assegnare un dispositivo a una farm. Per altre informazioni, vedere [assegnare i dispositivi](#assign-devices).
@@ -134,7 +134,7 @@ Seguire questa procedura:
 
 ### <a name="view-sensors"></a>Visualizza sensori
 
-Seguire questa procedura:
+A tale scopo, seguire questa procedura:
 
 1. Nella home page selezionare **sensori** dal menu.
   La pagina **sensori** Visualizza i dettagli relativi al tipo di sensore, alla farm a cui è connessa, al dispositivo padre, al nome della porta, al tipo di porta e all'ultimo stato aggiornato.
@@ -163,7 +163,7 @@ Una volta che i dati del sensore sono stati propagati, è possibile assegnarli a
 
 ### <a name="visualize-sensor-data"></a>Visualizzare i dati dei sensori
 
-Seguire questa procedura:
+A tale scopo, seguire questa procedura:
 
 1. Nella home page selezionare **Farm** dal menu per visualizzare la pagina **Farm** .
 2. Selezionare la **Farm** per cui si desidera visualizzare i dati del sensore.
@@ -173,7 +173,7 @@ Seguire questa procedura:
 
 ## <a name="delete-a-sensor"></a>Eliminare un sensore
 
-Seguire questa procedura:
+A tale scopo, seguire questa procedura:
 
 1. Nella home page selezionare **sensori** dal menu per visualizzare la pagina **sensori** .
 2. Selezionare il dispositivo che si desidera eliminare e selezionare **Elimina** nella finestra di conferma.
@@ -184,7 +184,7 @@ Un messaggio di conferma indica che il sensore è stato eliminato correttamente.
 
 ## <a name="delete-devices"></a>Eliminare dispositivi
 
-Seguire questa procedura:
+A tale scopo, seguire questa procedura:
 
 1. Nella home page selezionare **dispositivi** dal menu per visualizzare la pagina **dispositivi** .
 2. Selezionare il dispositivo che si desidera eliminare e selezionare **Elimina** nella finestra di conferma.

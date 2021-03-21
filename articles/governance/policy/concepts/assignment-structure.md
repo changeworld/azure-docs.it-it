@@ -1,14 +1,14 @@
 ---
 title: Dettagli della struttura di assegnazione dei criteri
 description: Descrive la definizione di assegnazione dei criteri usata da criteri di Azure per mettere in relazione le definizioni dei criteri e i parametri alle risorse per la valutazione.
-ms.date: 01/29/2021
+ms.date: 03/17/2021
 ms.topic: conceptual
-ms.openlocfilehash: 625314a8b83a4d0cc76eae51eae8d357e39d2a6a
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 909c1c361e092c512a73854a40e22a67efe5f2f8
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100581952"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104604866"
 ---
 # <a name="azure-policy-assignment-structure"></a>Struttura di assegnazione di Criteri di Azure
 
@@ -89,6 +89,9 @@ Questo campo deve essere il nome completo del percorso di una definizione di cri
 ## <a name="non-compliance-messages"></a>Messaggi di non conformità
 
 Per impostare un messaggio personalizzato che descrive il motivo per cui una risorsa non è conforme alla definizione di criteri o di iniziativa, impostare `nonComplianceMessages` nella definizione di assegnazione. Questo nodo è una matrice di `message` voci. Questo messaggio personalizzato è in aggiunta al messaggio di errore predefinito per la mancata conformità ed è facoltativo.
+
+> [!IMPORTANT]
+> I messaggi personalizzati per la non conformità sono supportati solo nelle definizioni o nelle iniziative con le definizioni delle [modalità gestione risorse](./definition-structure.md#resource-manager-modes) .
 
 ```json
 "nonComplianceMessages": [

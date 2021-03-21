@@ -10,18 +10,18 @@ ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick
-ms.openlocfilehash: 83c5595dc64b46e1c30f3c36866e0efbbd8d3c7f
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: 27cc53c3eef1bb2a9962d2c21ae80db3c8b0383d
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101674130"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104585435"
 ---
 # <a name="design-tables-using-synapse-sql-in-azure-synapse-analytics"></a>Progettare tabelle con sinapsi SQL in Azure sinapsi Analytics
 
 Questo documento include i concetti chiave per la progettazione di tabelle con pool SQL dedicato e pool SQL senza server.  
 
-Il [pool SQL senza server](on-demand-workspace-overview.md) è un servizio di query sui dati in data Lake. Non dispone di archiviazione locale per l'inserimento dei dati. Il [pool SQL dedicato](best-practices-sql-pool.md) rappresenta una raccolta di risorse analitiche di cui è in corso il provisioning quando si usa sinapsi SQL. Le dimensioni di un pool SQL dedicato sono determinate dalle unità Data Warehouse (DWU).
+Il [pool SQL senza server](on-demand-workspace-overview.md) è un servizio di query sui dati in data Lake. Non dispone di archiviazione locale per l'inserimento dei dati. Il [pool SQL dedicato](best-practices-dedicated-sql-pool.md) rappresenta una raccolta di risorse analitiche di cui è in corso il provisioning quando si usa sinapsi SQL. Le dimensioni di un pool SQL dedicato sono determinate dalle unità Data Warehouse (DWU).
 
 La tabella seguente elenca gli argomenti rilevanti per il pool SQL dedicato rispetto al pool SQL senza server:
 

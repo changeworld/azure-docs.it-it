@@ -1,22 +1,22 @@
 ---
 title: Requisiti di sistema di Azure Kinect Sensor SDK
 description: Informazioni sui requisiti di sistema per Azure Kinect Sensor SDK in Windows e Linux.
-author: tesych
-ms.author: tesych
+author: qm13
+ms.author: quentinm
 ms.custom:
 - CI 115266
 - CSSTroubleshooting
 manager: dcscontentpm
 ms.prod: kinect-dk
-ms.date: 03/12/2020
+ms.date: 03/05/2021
 ms.topic: article
 keywords: Azure, Kinect, requisiti di sistema, CPU, GPU, USB, configurazione, installazione, requisiti minimi
-ms.openlocfilehash: 5cf313114b62532ee3f2b3d7a5142f79218954c9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 558c1b9ca264874fa808aeba5f1e8a809a8f722d
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85276785"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104656975"
 ---
 # <a name="azure-kinect-sensor-sdk-system-requirements"></a>Requisiti di sistema di Azure Kinect Sensor SDK
 
@@ -52,7 +52,7 @@ Il requisito per l'host del PC di rilevamento del corpo è più rigoroso rispett
 
 - Settimo processore Intel &reg; CoreTM i5 di generazione (Quad Core 2,4 GHz o superiore)
 - 4 GB di memoria
-- NVIDIA GEFORCE GTX 1070 o superiore
+- NVIDIA GEFORCE GTX 1050 o equivalente
 - Porta USB3 dedicata
 
 La configurazione minima consigliata presuppone K4A_DEPTH_MODE_NFOV_UNBINNED modalità Depth a 30 fps per il rilevamento di 5 persone. Le CPU di fascia inferiore o precedente e le GPU NVIDIA possono funzionare anche a seconda del caso d'uso.

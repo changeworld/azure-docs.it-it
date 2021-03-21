@@ -6,10 +6,10 @@ ms.topic: conceptual
 ms.date: 03/07/2021
 ms.custom: devx-track-js
 ms.openlocfilehash: 971fb2a3239614a708e14c109e567081f1ec9ff6
-ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
+ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/10/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102614905"
 ---
 # <a name="azure-functions-javascript-developer-guide"></a>Guida per gli sviluppatori JavaScript di Funzioni di Azure
@@ -18,7 +18,7 @@ Questa guida contiene informazioni dettagliate che consentono di sviluppare funz
 
 Per gli sviluppatori di Express.js, Node.js o JavaScript, se non si ha familiarità con funzioni di Azure, prendere in considerazione prima di tutto uno degli articoli seguenti:
 
-| Guida introduttiva | Concetti| Apprendimento guidato |
+| Introduzione | Concetti| Apprendimento guidato |
 | -- | -- | -- | 
 | <ul><li>[Node.js funzione utilizzando Visual Studio Code](./create-first-function-vs-code-node.md)</li><li>[ FunzioneNode.js con terminale/prompt dei comandi](./create-first-function-cli-node.md)</li><li>[Node.js funzione utilizzando l'portale di Azure](functions-create-function-app-portal.md)</li></ul> | <ul><li>[Guida per sviluppatori](functions-reference.md)</li><li>[Opzioni di hosting](functions-scale.md)</li><li>[Funzioni TypeScript](#typescript)</li><li>[Considerazioni sulle prestazioni &nbsp;](functions-best-practices.md)</li></ul> | <ul><li>[Creare applicazioni serverless](/learn/paths/create-serverless-applications/)</li><li>[Refactoring Node.js ed Express API per le API senza server](/learn/modules/shift-nodejs-express-apis-serverless/)</li></ul> |
 
