@@ -4,10 +4,10 @@ description: Vengono fornite istruzioni per configurare rapidamente il monitorag
 ms.topic: conceptual
 ms.date: 05/01/2020
 ms.openlocfilehash: fd7cd6a107ed45adb60167a57661b60be5dc8212
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "86517128"
 ---
 # <a name="add-continuous-monitoring-to-your-release-pipeline"></a>Aggiungere un monitoraggio continuo alla pipeline di versione
@@ -47,7 +47,7 @@ Con il monitoraggio continuo, le pipeline di versione possono incorporare i dati
 
 ## <a name="modify-alert-rules"></a>Modificare le regole di avviso
 
-In modalità predefinita, il modello **di distribuzione del servizio app Azure con monitoraggio continuo** prevede quattro regole di avviso: **disponibilità**, **richieste non riuscite**, **tempo di risposta del server**ed eccezioni del **Server**. È possibile aggiungere altre regole o modificare le impostazioni delle regole per soddisfare le esigenze del livello di servizio. 
+In modalità predefinita, il modello **di distribuzione del servizio app Azure con monitoraggio continuo** prevede quattro regole di avviso: **disponibilità**, **richieste non riuscite**, **tempo di risposta del server** ed eccezioni del **Server**. È possibile aggiungere altre regole o modificare le impostazioni delle regole per soddisfare le esigenze del livello di servizio. 
 
 Per modificare le impostazioni delle regole di avviso:
 
@@ -77,7 +77,7 @@ Per aggiungere le attività di controllo di distribuzione:
    
 1. Nel riquadro di configurazione **condizioni pre-distribuzione** impostare **Gates** su **abilitato**.
    
-1. Accanto a **Gate di distribuzione**selezionare **Aggiungi**.
+1. Accanto a **Gate di distribuzione** selezionare **Aggiungi**.
    
 1. Selezionare **query monitoraggio di Azure avvisi** dal menu a discesa. Questa opzione consente di accedere sia a monitoraggio di Azure che a Application Insights avvisi.
    
@@ -93,7 +93,7 @@ Per aggiungere le attività di controllo di distribuzione:
    
 1. Selezionare qualsiasi versione. 
    
-1. In **fasi**selezionare una fase per visualizzare un riepilogo della versione. 
+1. In **fasi** selezionare una fase per visualizzare un riepilogo della versione. 
    
 1. Per visualizzare i log, selezionare **Visualizza log** nel riepilogo della versione, selezionare il collegamento ipertestuale **riuscito** o **non riuscito** in qualsiasi fase o passare il mouse su una fase e selezionare **log**. 
    

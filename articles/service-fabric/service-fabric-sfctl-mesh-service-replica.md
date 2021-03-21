@@ -6,10 +6,10 @@ ms.topic: reference
 ms.date: 1/16/2020
 ms.author: jejarry
 ms.openlocfilehash: cbfdba30663e2aa531ab1db955b0e035a0588709
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "86245722"
 ---
 # <a name="sfctl-mesh-service-replica"></a>sfctl mesh service-replica
@@ -31,7 +31,7 @@ Ottiene le informazioni su tutte le repliche di un servizio. Le informazioni inc
 
 |Argomento|Descrizione|
 | --- | --- |
-| --app-name --application-name [obbligatorio] | Il nome dell'applicazione. |
+| --app-name --application-name [obbligatorio] | Nome dell'applicazione. |
 | --service-name                [obbligatorio] | Il nome del servizio. |
 
 ### <a name="global-arguments"></a>Argomenti globali
@@ -53,7 +53,7 @@ Ottiene le informazioni sulla replica del servizio con il nome specificato. Le i
 
 |Argomento|Descrizione|
 | --- | --- |
-| --app-name --application-name [obbligatorio] | Il nome dell'applicazione. |
+| --app-name --application-name [obbligatorio] | Nome dell'applicazione. |
 | --name -n                     [obbligatorio] | Nome della replica del servizio. |
 | --service-name                [obbligatorio] | Il nome del servizio. |
 

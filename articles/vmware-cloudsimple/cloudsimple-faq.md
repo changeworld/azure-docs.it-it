@@ -9,10 +9,10 @@ ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
 ms.openlocfilehash: 3551327f9aa07fe218d3b05f73057e36f92abcad
-ms.sourcegitcommit: d7d5f0da1dda786bda0260cf43bd4716e5bda08b
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/05/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97895564"
 ---
 # <a name="frequently-asked-questions-about-vmware-solution-by-cloudsimple"></a>Domande frequenti sulla soluzione VMware di CloudSimple
@@ -150,7 +150,7 @@ CloudSimple non esegue aggiornamenti o aggiornamenti delle applicazioni installa
 
 **Quali servizi di Azure sono supportati?**
 
-CloudSimple fornisce una connessione ExpressRoute di Azure alla sottoscrizione in Azure.  Tutti i servizi in esecuzione nella sottoscrizione possono connettersi al cloud privato.  Tra gli esempi sono inclusi:
+CloudSimple fornisce una connessione ExpressRoute di Azure alla sottoscrizione in Azure.  Tutti i servizi in esecuzione nella sottoscrizione possono connettersi al cloud privato.  Alcuni esempi:
 
 * **Azure Active Directory** come origine di identità per CloudSimple vCenter.
 * **Archiviazione di Azure** per l'archiviazione di backup, immagini e altri dati dal cloud privato.

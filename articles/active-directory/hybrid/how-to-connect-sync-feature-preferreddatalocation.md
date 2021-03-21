@@ -17,10 +17,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: e4c456e7788280b7ca5328342e1cd848ba3a583a
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/25/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "95972760"
 ---
 # <a name="azure-active-directory-connect-sync-configure-preferred-data-location-for-microsoft-365-resources"></a>Sincronizzazione Azure Active Directory Connect: configurare il percorso dati preferito per le risorse Microsoft 365
@@ -32,7 +32,7 @@ Per impostazione predefinita, le risorse Microsoft 365 per gli utenti si trovano
 Impostando l'attributo **preferredDataLocation** è possibile definire l'area geografica dell'utente. È possibile avere le risorse di Microsoft 365 dell'utente, ad esempio la cassetta postale e OneDrive, nella stessa area geografica dell'utente e avere ancora un tenant per l'intera organizzazione.
 
 > [!IMPORTANT]
-> La funzionalità multigeo è attualmente disponibile per i clienti con un Enterprise Agreement attivo e un minimo di 250 sottoscrizioni di servizi Microsoft 365. Per informazioni dettagliate, contattare il rappresentante Microsoft.
+> La funzionalità multigeo è attualmente disponibile per i clienti con un Contratto Enterprise attivo e un minimo di 250 sottoscrizioni di servizi Microsoft 365. Per informazioni dettagliate, contattare il rappresentante Microsoft.
 >
 >
 

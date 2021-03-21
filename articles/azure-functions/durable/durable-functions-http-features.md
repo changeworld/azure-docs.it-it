@@ -6,10 +6,10 @@ ms.topic: conceptual
 ms.date: 07/14/2020
 ms.author: azfuncdf
 ms.openlocfilehash: 64d40de50f21811a56318971de1836abc8fbf8c9
-ms.sourcegitcommit: daab0491bbc05c43035a3693a96a451845ff193b
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/29/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93027262"
 ---
 # <a name="http-features"></a>Funzionalità HTTP
@@ -57,7 +57,7 @@ L' [associazione del client di orchestrazione](durable-functions-bindings.md#orc
 
 # <a name="python"></a>[Python](#tab/python)
 
-**__init__ . py**
+**__init__. py**
 
 ```python
 import logging
@@ -140,7 +140,7 @@ Per una descrizione di tutte le API HTTP predefinite, vedere le informazioni di 
 
 ### <a name="async-operation-tracking"></a>Verifica di operazioni asincrone
 
-La risposta HTTP indicata in precedenza è stata concepita per semplificare l'implementazione di API asincrone a esecuzione prolungata con Durable Functions. Questo modello viene talvolta definito *modello di consumer di polling* . Il flusso client/server funziona come segue:
+La risposta HTTP indicata in precedenza è stata concepita per semplificare l'implementazione di API asincrone a esecuzione prolungata con Durable Functions. Questo modello viene talvolta definito *modello di consumer di polling*. Il flusso client/server funziona come segue:
 
 1. Il client invia una richiesta HTTP per avviare un processo a esecuzione prolungata come una funzione dell'agente di orchestrazione.
 1. Il trigger HTTP di destinazione restituisce una risposta HTTP 202 con un'intestazione Location con il valore "statusQueryGetUri".

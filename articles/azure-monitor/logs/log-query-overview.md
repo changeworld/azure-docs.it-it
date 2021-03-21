@@ -6,10 +6,10 @@ author: bwren
 ms.author: bwren
 ms.date: 10/09/2020
 ms.openlocfilehash: 529fc432bf8777ef7e2b527f08e9cb59e42bf156
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/04/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102041026"
 ---
 # <a name="log-queries-in-azure-monitor"></a>Query di log in Monitoraggio di Azure
@@ -25,7 +25,7 @@ Le aree di monitoraggio di Azure in cui si utilizzeranno le query sono le seguen
 - [PowerShell](/powershell/module/az.operationalinsights/get-azoperationalinsightssearchresult). Usare i risultati di una query di log in uno script di PowerShell da una riga di comando o da un Runbook di automazione di Azure che usa Get-AzOperationalInsightsSearchResults.
 - [API dei log di monitoraggio di Azure](https://dev.loganalytics.io). Recuperare i dati di log dall'area di lavoro da qualsiasi client dell'API REST.  La richiesta dell'API include una query eseguita su Monitoraggio di Azure per determinare i dati da recuperare.
 
-## <a name="getting-started"></a>Guida introduttiva
+## <a name="getting-started"></a>Introduzione
 Il modo migliore per iniziare a imparare a scrivere query di log con KQL è usare le esercitazioni e gli esempi disponibili.
 
 - [Log Analytics esercitazione](./log-analytics-tutorial.md) : esercitazione sull'uso delle funzionalità di log Analytics, che è lo strumento che verrà usato nella portale di Azure per modificare ed eseguire le query. Consente inoltre di scrivere semplici query senza utilizzare direttamente il linguaggio di query. Se non si è mai usato Log Analytics prima, iniziare da qui per comprendere lo strumento da usare con le altre esercitazioni ed esempi.
@@ -49,7 +49,7 @@ Mentre monitoraggio di Azure usa lo stesso KQL di Azure Esplora dati, esistono a
 
 ### <a name="functions-not-supported-in-azure-monitor"></a>Funzioni non supportate in Monitoraggio di Azure
 
-* [cluster()](/azure/kusto/query/clusterfunction)
+* [cluster ()](/azure/kusto/query/clusterfunction)
 * [cursor_after()](/azure/kusto/query/cursorafterfunction)
 * [cursor_before_or_at()](/azure/kusto/query/cursorbeforeoratfunction)
 * [cursor_current(), current_cursor()](/azure/kusto/query/cursorcurrent)

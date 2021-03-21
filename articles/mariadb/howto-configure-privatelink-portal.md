@@ -3,14 +3,14 @@ title: Collegamento privato-portale di Azure-database di Azure per MariaDB
 description: Informazioni su come configurare il collegamento privato per database di Azure per MariaDB dalla portale di Azure
 author: mksuni
 ms.author: sumuth
-ms.service: jroth
+ms.service: mariadb
 ms.topic: how-to
 ms.date: 01/09/2020
-ms.openlocfilehash: 127a1c83525c4a9c457f551c05045a63a3c4347a
-ms.sourcegitcommit: 52e3d220565c4059176742fcacc17e857c9cdd02
+ms.openlocfilehash: 79b3c3f8eca2fa4442a7845ca4aa3921d0302453
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/21/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98659625"
 ---
 # <a name="create-and-manage-private-link-for-azure-database-for-mariadb-using-portal"></a>Creare e gestire un collegamento privato per database di Azure per MariaDB usando il portale
@@ -113,7 +113,7 @@ In questa sezione verrà creato un database di Azure per il server MariaDB in Az
     | Nome utente amministratore| Immettere un nome amministratore a scelta. |
     | Password | Immettere una password a scelta. La password deve contenere almeno 8 caratteri e soddisfare i requisiti definiti. |
     | Location | Selezionare un'area di Azure in cui si vuole che il server MariaDB risieda. |
-    |Version  | Selezionare la versione del database del server MariaDB richiesta.|
+    |Versione  | Selezionare la versione del database del server MariaDB richiesta.|
     | Calcolo e archiviazione| Selezionare il piano tariffario necessario per il server in base al carico di lavoro. |
     |||
 
