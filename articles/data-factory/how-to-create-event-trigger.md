@@ -7,12 +7,12 @@ ms.author: chez
 ms.reviewer: maghan
 ms.topic: conceptual
 ms.date: 03/11/2021
-ms.openlocfilehash: 6474cb10cdb516bae0386b92e40ecd6f17250691
-ms.sourcegitcommit: 94c3c1be6bc17403adbb2bab6bbaf4a717a66009
+ms.openlocfilehash: b559ce31aff7040a61f6a2f788652ffd192420c4
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/12/2021
-ms.locfileid: "103225456"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104593799"
 ---
 # <a name="create-a-trigger-that-runs-a-pipeline-in-response-to-a-storage-event"></a>Creare un trigger per l'esecuzione di una pipeline in risposta a un evento di archiviazione
 
@@ -49,7 +49,7 @@ Questa sezione illustra come creare un trigger di evento di archiviazione all'in
    > Il trigger dell'evento di archiviazione supporta attualmente solo gli account di archiviazione Azure Data Lake Storage Gen2 e per utilizzo generico versione 2. A causa di una limitazione di griglia di eventi di Azure, Azure Data Factory supporta solo un massimo di 500 trigger di eventi di archiviazione per account di archiviazione.
 
    > [!NOTE]
-   > Per creare e modificare un nuovo trigger di evento di archiviazione, l'account Azure usato per accedere Data Factory e pubblicare il trigger dell'evento di archiviazione deve avere l'autorizzazione controllo degli accessi in base al ruolo (RBAC di Azure) appropriata per l'account di archiviazione. Non è necessaria alcuna autorizzazione aggiuntiva: l'entità servizio per la Azure Data Factory _non necessita di_ autorizzazioni speciali per l'account di archiviazione o griglia di eventi. Per altre informazioni sul controllo di accesso, vedere la sezione [controllo degli accessi in base al ruolo](#role-based-access-control) .
+   > Per creare un nuovo trigger di evento di archiviazione esistente o modificarlo, l'account Azure usato per accedere Data Factory e pubblicare il trigger dell'evento di archiviazione deve avere l'autorizzazione appropriata per il controllo degli accessi in base al ruolo (RBAC di Azure) per l'account di archiviazione. Non è necessaria alcuna autorizzazione aggiuntiva: l'entità servizio per la Azure Data Factory _non necessita di_ autorizzazioni speciali per l'account di archiviazione o griglia di eventi. Per altre informazioni sul controllo di accesso, vedere la sezione [controllo degli accessi in base al ruolo](#role-based-access-control) .
 
 1. Le proprietà **Percorso BLOB inizia con** e **Percorso BLOB termina con** consentono di specificare i contenitori, le cartelle e i nomi di BLOB per cui si vogliono ricevere eventi. Per il trigger dell'evento di archiviazione è necessario definire almeno una di queste proprietà. È possibile usare svariati modelli per le due proprietà **Percorso BLOB inizia con** e **Percorso BLOB termina con**, come mostrato negli esempi più avanti in questo articolo.
 
@@ -67,12 +67,12 @@ Questa sezione illustra come creare un trigger di evento di archiviazione all'in
 
     :::image type="content" source="media/how-to-create-event-trigger/event-based-trigger-image3.png" alt-text="Screenshot della pagina di anteprima del trigger dell'evento di archiviazione.":::
 
-1. Per associare una pipeline a questo trigger, passare al canvas della pipeline e fare clic su **Add trigger** (Aggiungi trigger) e selezionare **New/Edit** (Nuovo/Modifica). Quando viene visualizzato il riquadro di spostamento laterale, fare clic sull'elenco a discesa **Choose trigger** (Scegli trigger) e selezionare il trigger creato. Fare clic su **Avanti: Anteprima dati** per verificare che la configurazione sia corretta e quindi su **Avanti** per verificare che l'anteprima dei dati sia corretta.
+1. Per alleghi una pipeline a questo trigger, passare all'area di disegno della pipeline e fare clic su **trigger** e selezionare **New/Edit (nuovo/modifica**). Quando viene visualizzato il riquadro di spostamento laterale, fare clic sull'elenco a discesa **Choose trigger** (Scegli trigger) e selezionare il trigger creato. Fare clic su **Avanti: Anteprima dati** per verificare che la configurazione sia corretta e quindi su **Avanti** per verificare che l'anteprima dei dati sia corretta.
 
 1. Se alla pipeline sono associati parametri, è possibile specificarli nel riquadro di spostamento laterale dei parametri di esecuzione del trigger. Il trigger dell'evento di archiviazione acquisisce il percorso e il nome file del BLOB nelle proprietà `@triggerBody().folderPath` e `@triggerBody().fileName` . Per usare i valori di queste proprietà in una pipeline, è necessario mappare le proprietà per i parametri della pipeline. Dopo il mapping delle proprietà per i parametri, è possibile accedere ai valori acquisiti dal trigger attraverso l'espressione `@pipeline().parameters.parameterName` attraverso la pipeline. Per una spiegazione dettagliata, vedere [metadati del trigger di riferimento nelle pipeline](how-to-use-trigger-parameterization.md)
 
     :::image type="content" source="media/how-to-create-event-trigger/event-based-trigger-image4.png" alt-text="Screenshot delle proprietà di mapping del trigger dell'evento di archiviazione ai parametri della pipeline.":::
-    
+
     Nell'esempio precedente, il trigger viene configurato in modo da essere attivato quando viene creato un percorso BLOB che termina con. csv nella cartella Sample _-testing_ nel contenitore _Sample-Data_. Le proprietà **folderPath** e **fileName** acquisiscono il percorso del nuovo BLOB. Ad esempio, quando si aggiunge MoviesDB.csv viene aggiunto al percorso sample-data/event-testing, il valore di `@triggerBody().folderPath` è `sample-data/event-testing` e il valore di `@triggerBody().fileName` è `moviesDB.csv`. Questi valori vengono mappati nell'esempio ai parametri della pipeline `sourceFolder` e `sourceFile` , che possono essere usati in tutta la pipeline come `@pipeline().parameters.sourceFolder` e `@pipeline().parameters.sourceFile` rispettivamente.
 
 1. Al termine, fare clic su **Fine**.

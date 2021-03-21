@@ -4,15 +4,15 @@ description: Domande comuni rilevate durante la creazione di una macchina virtua
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: guide
-author: iqshahmicrosoft
-ms.author: iqshah
+author: kriti-ms
+ms.author: krsh
 ms.date: 03/10/2021
-ms.openlocfilehash: a74170af61c05d07a189b5ceb61dc0c9b7e14298
-ms.sourcegitcommit: 5f32f03eeb892bf0d023b23bd709e642d1812696
+ms.openlocfilehash: 2975d1f1558bc7f9e4a12c18882e43a163b97982
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/12/2021
-ms.locfileid: "103200431"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104593425"
 ---
 # <a name="common-questions-about-vm-in-azure-marketplace"></a>Domande comuni sulla macchina virtuale in Azure Marketplace
 
@@ -470,6 +470,17 @@ $objAzureKeyVaultSecret.Id -vhdUrl "$vhdUrl" -vmSize "Standard\_A2" -publicIPAdd
 # deploying VM with existing VHD
 New-AzResourceGroupDeployment -Name "dplisvvm$postfix" -ResourceGroupName "$rgName"
 ```
+
+## <a name="how-do-i-test-a-hidden-preview-image"></a>Ricerca per categorie testare un'immagine di anteprima nascosta?
+
+È possibile distribuire immagini di anteprima nascoste usando i modelli di avvio rapido.
+Per distribuire un'immagine di anteprima, 
+1. Vai al rispettivo modello di avvio rapido per [Linux](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-simple-linux) o [Windows](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-simple-windows), seleziona "Distribuisci in Azure". Questa operazione dovrebbe essere portale di Azure.
+2. In portale di Azure selezionare "modifica modello".
+3. Nel modello JSON cercare imageReference e aggiornare publisherID, IDOfferta, skuId e la versione dell'immagine. Per testare l'immagine di anteprima, aggiungere "-PREVIEW" a IDOfferta.
+ ![image](https://user-images.githubusercontent.com/79274470/110191995-71c7d500-7de0-11eb-9f3c-6a42f55d8f03.png)
+4. Fare clic su Salva.
+5. Compilare il resto dei dettagli. Esaminare e creare
 
 
 ## <a name="next-steps"></a>Passaggi successivi

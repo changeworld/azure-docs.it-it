@@ -14,10 +14,10 @@ ms.workload: infrastructure-services
 ms.date: 06/26/2020
 ms.author: kumud
 ms.openlocfilehash: 61076b49d396c83a67635e46eb4f1b928b3f9e1d
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/28/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98933982"
 ---
 # <a name="azure-virtual-network-frequently-asked-questions-faq"></a>Domande frequenti sulla rete virtuale di Azure
@@ -195,7 +195,7 @@ Sì. È possibile distribuire app Web all'interno di una VNet usando un ambiente
 
 * [Funzionalità di rete del servizio app](../app-service/networking-features.md)
 * [Creare app Web in un ambiente del servizio app](../app-service/environment/app-service-web-how-to-create-a-web-app-in-an-ase.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
-* [Integrare l'app con una rete virtuale di Azure](../app-service/web-sites-integrate-with-vnet.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
+* [Integrare un'app in una rete virtuale di Azure](../app-service/web-sites-integrate-with-vnet.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
 * [Restrizioni di accesso al servizio app](../app-service/app-service-ip-restrictions.md)
 
 ### <a name="can-i-deploy-cloud-services-with-web-and-worker-roles-paas-in-a-vnet"></a>È possibile distribuire i servizi cloud con ruolo di lavoro e Web (PaaS) in una rete virtuale?

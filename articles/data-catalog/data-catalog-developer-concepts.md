@@ -6,14 +6,17 @@ ms.author: jasonh
 ms.service: data-catalog
 ms.topic: conceptual
 ms.date: 08/01/2019
-ms.openlocfilehash: b65697c224f612a1bc9d5bfa193355832cafd73f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ddeab4838feb07d1101993cab4ebc86581b4d8b1
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88799248"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104674700"
 ---
 # <a name="azure-data-catalog-developer-concepts"></a>Concetti per sviluppatori del Catalogo dati di Azure
+
+[!INCLUDE [Azure Purview redirect](../../includes/data-catalog-use-purview.md)]
+
 **Catalogo dati di Microsoft Azure** è un servizio cloud completamente gestito che offre funzionalità di individuazione dell'origine dati e di crowdsourcing dei metadati dell'origine dati. Gli sviluppatori possono usare il servizio tramite le API REST. La comprensione dei concetti implementati nel servizio è importante per gli sviluppatori al fine di una perfetta integrazione con il **Catalogo dati di Azure**.
 
 ## <a name="key-concepts"></a>Concetti chiave 
@@ -74,13 +77,13 @@ L'esperienza utente può quindi scegliere come visualizzare la combinazione. Esi
 Come descritto nella sezione dei concetti chiave, il modello a oggetti del **Catalogo dati di Azure** include elementi che possono essere asset o annotazioni. Gli elementi dispongono di proprietà che possono essere obbligatorie o facoltative. Alcune proprietà si applicano a tutti gli elementi. Alcune proprietà si applicano a tutti gli asset. Alcune proprietà si applicano solo a tipi di asset specifici.
 
 ### <a name="system-properties"></a>Proprietà di sistema
-<table><tr><td><b>Nome proprietà</b></td><td><b>Tipo di dati</b></td><td><b>Commenti</b></td></tr><tr><td> timestamp</td><td>Datetime</td><td>Data e ora dell'ultima modifica apportata all'elemento. Questo campo viene generato dal server quando viene inserito un elemento e ogni volta che viene aggiornato un elemento. Il valore di questa proprietà viene ignorato durante l'input di operazioni di pubblicazione.</td></tr><tr><td>ID</td><td>Uri</td><td>URL assoluto dell'elemento (sola lettura). Si tratta dell'URI indirizzabile univoco per l'elemento.  Il valore di questa proprietà viene ignorato durante l'input di operazioni di pubblicazione.</td></tr><tr><td>type</td><td>string</td><td>Tipo di asset (sola lettura).</td></tr><tr><td>etag</td><td>string</td><td>Stringa che corrisponde alla versione dell'elemento che è possibile usare per il controllo della concorrenza ottimistica quando si eseguono operazioni che aggiornano gli elementi nel catalogo. È possibile usare "*" per cercare corrispondenze per qualsiasi valore.</td></tr></table>
+<table><tr><td><b>Nome della proprietà</b></td><td><b>Tipo di dati</b></td><td><b>Commenti</b></td></tr><tr><td> timestamp</td><td>Datetime</td><td>Data e ora dell'ultima modifica apportata all'elemento. Questo campo viene generato dal server quando viene inserito un elemento e ogni volta che viene aggiornato un elemento. Il valore di questa proprietà viene ignorato durante l'input di operazioni di pubblicazione.</td></tr><tr><td>ID</td><td>Uri</td><td>URL assoluto dell'elemento (sola lettura). Si tratta dell'URI indirizzabile univoco per l'elemento.  Il valore di questa proprietà viene ignorato durante l'input di operazioni di pubblicazione.</td></tr><tr><td>tipo</td><td>string</td><td>Tipo di asset (sola lettura).</td></tr><tr><td>etag</td><td>string</td><td>Stringa che corrisponde alla versione dell'elemento che è possibile usare per il controllo della concorrenza ottimistica quando si eseguono operazioni che aggiornano gli elementi nel catalogo. È possibile usare "*" per cercare corrispondenze per qualsiasi valore.</td></tr></table>
 
 ### <a name="common-properties"></a>Proprietà comuni
 Queste proprietà si applicano a tutti i tipi di asset radice e a tutti i tipi di annotazione.
 
 <table>
-<tr><td><b>Nome proprietà</b></td><td><b>Tipo di dati</b></td><td><b>Commenti</b></td></tr>
+<tr><td><b>Nome della proprietà</b></td><td><b>Tipo di dati</b></td><td><b>Commenti</b></td></tr>
 <tr><td>fromSourceSystem</td><td>Boolean</td><td>Indica se i dati dell'elemento sono derivati da un sistema di origine, ad esempio SQL Server database Oracle Database, o creati da un utente.</td></tr>
 </table>
 
@@ -88,14 +91,14 @@ Queste proprietà si applicano a tutti i tipi di asset radice e a tutti i tipi d
 <p>
 Queste proprietà si applicano a tutti i tipi di asset radice.
 
-<table><tr><td><b>Nome proprietà</b></td><td><b>Tipo di dati</b></td><td><b>Commenti</b></td></tr><tr><td>name</td><td>string</td><td>Nome derivato dalle informazioni del percorso di origine dati.</td></tr><tr><td>dsl</td><td>DataSourceLocation</td><td>Descrive in modo univoco l'origine dati ed è uno degli identificatori per l'asset. Vedere la sezione relativa all'identità doppia.  La struttura del percorso dell'origine dati varia in base al tipo di protocollo e di origine.</td></tr><tr><td>dataSource</td><td>DataSourceInfo</td><td>Ulteriori dettagli sul tipo di asset.</td></tr><tr><td>lastRegisteredBy</td><td>SecurityPrincipal</td><td>Descrive l'utente che ha registrato l'asset più di recente.  Contiene l'ID univoco per l'utente (UPN) e un nome visualizzato (lastName e firstName).</td></tr><tr><td>containerID</td><td>string</td><td>ID dell'asset del contenitore per l'origine dati. Questa proprietà non è supportata per il tipo di contenitore.</td></tr></table>
+<table><tr><td><b>Nome della proprietà</b></td><td><b>Tipo di dati</b></td><td><b>Commenti</b></td></tr><tr><td>name</td><td>string</td><td>Nome derivato dalle informazioni del percorso di origine dati.</td></tr><tr><td>dsl</td><td>DataSourceLocation</td><td>Descrive in modo univoco l'origine dati ed è uno degli identificatori per l'asset. Vedere la sezione relativa all'identità doppia.  La struttura del percorso dell'origine dati varia in base al tipo di protocollo e di origine.</td></tr><tr><td>dataSource</td><td>DataSourceInfo</td><td>Ulteriori dettagli sul tipo di asset.</td></tr><tr><td>lastRegisteredBy</td><td>SecurityPrincipal</td><td>Descrive l'utente che ha registrato l'asset più di recente.  Contiene l'ID univoco per l'utente (UPN) e un nome visualizzato (lastName e firstName).</td></tr><tr><td>containerID</td><td>string</td><td>ID dell'asset del contenitore per l'origine dati. Questa proprietà non è supportata per il tipo di contenitore.</td></tr></table>
 
 ### <a name="common-non-singleton-annotation-properties"></a>Proprietà comuni di annotazione non singleton
 Queste proprietà si applicano a tutti i tipi di annotazione non singleton, ad esempio le annotazioni di cui sono consentite più occorrenze per ogni asset.
 
 <table>
-<tr><td><b>Nome proprietà</b></td><td><b>Tipo di dati</b></td><td><b>Commenti</b></td></tr>
-<tr><td>Key</td><td>string</td><td>Chiave specificata dall'utente che identifica in modo univoco l'annotazione nella raccolta corrente. La lunghezza della chiave non può superare i 256 caratteri.</td></tr>
+<tr><td><b>Nome della proprietà</b></td><td><b>Tipo di dati</b></td><td><b>Commenti</b></td></tr>
+<tr><td>key</td><td>string</td><td>Chiave specificata dall'utente che identifica in modo univoco l'annotazione nella raccolta corrente. La lunghezza della chiave non può superare i 256 caratteri.</td></tr>
 </table>
 
 ### <a name="root-asset-types"></a>Tipi di asset radice
@@ -172,17 +175,17 @@ I tipi comuni possono essere usati come tipi per proprietà, ma non sono element
 <tr><td></td><td>protocol</td><td>string</td><td>Obbligatorio. Descrive un protocollo usato per comunicare con l'origine dati. Ad esempio: `tds` per SQL Server, `oracle` per Oracle e così via. Per l'elenco dei protocolli attualmente supportati, fare riferimento alla specifica di riferimento per l' [origine dati: struttura DSL](data-catalog-dsr.md) .</td></tr>
 <tr><td></td><td>address</td><td>Stringa del dizionario &lt; , oggetto&gt;</td><td>Obbligatorio. Si tratta di un set di dati specifico per il protocollo usato per identificare l'origine dati a cui si fa riferimento. Dati indirizzo specifici per un determinato protocollo, vale a dire privi di significato se il protocollo non è noto.</td></tr>
 <tr><td></td><td>autenticazione</td><td>string</td><td>Facoltativa. Schema di autenticazione usato per comunicare con l'origine dati. Ad esempio, Windows, OAuth e così via.</td></tr>
-<tr><td></td><td>connectionProperties</td><td>Stringa del dizionario &lt; , oggetto&gt;</td><td>Facoltativa. Altre informazioni su come connettersi a un'origine dati.</td></tr>
+<tr><td></td><td>connectionProperties</td><td>Stringa del dizionario &lt; , oggetto&gt;</td><td>facoltativo. Altre informazioni su come connettersi a un'origine dati.</td></tr>
 
 <tr><td>SecurityPrincipal</td><td></td><td></td><td>Il back-end non esegue alcuna convalida delle proprietà fornite rispetto a Azure Active Directory durante la pubblicazione.</td></tr>
 <tr><td></td><td>upn</td><td>string</td><td>Indirizzo e-mail univoco dell'utente. Deve essere specificato se objectId non viene fornito o se è nel contesto della proprietà "lastRegisteredBy". In caso contrario, è facoltativo.</td></tr>
-<tr><td></td><td>objectId</td><td>Guid</td><td>Identità Azure Active Directory utente o gruppo di sicurezza. Facoltativa. Deve essere specificato se upn non viene fornito. In caso contrario, è facoltativo.</td></tr>
-<tr><td></td><td>firstName</td><td>string</td><td>Nome dell'utente (per scopi di visualizzazione). Facoltativa. Valido solo nel contesto della proprietà "lastRegisteredBy". Non può essere specificato quando si fornisce l'entità di sicurezza per "ruoli", "autorizzazioni" ed "esperti".</td></tr>
-<tr><td></td><td>lastName</td><td>string</td><td>Cognome dell'utente (per scopi di visualizzazione). Facoltativa. Valido solo nel contesto della proprietà "lastRegisteredBy". Non può essere specificato quando si fornisce l'entità di sicurezza per "ruoli", "autorizzazioni" ed "esperti".</td></tr>
+<tr><td></td><td>objectId</td><td>Guid</td><td>Identità Azure Active Directory utente o gruppo di sicurezza. facoltativo. Deve essere specificato se upn non viene fornito. In caso contrario, è facoltativo.</td></tr>
+<tr><td></td><td>firstName</td><td>string</td><td>Nome dell'utente (per scopi di visualizzazione). facoltativo. Valido solo nel contesto della proprietà "lastRegisteredBy". Non può essere specificato quando si fornisce l'entità di sicurezza per "ruoli", "autorizzazioni" ed "esperti".</td></tr>
+<tr><td></td><td>lastName</td><td>string</td><td>Cognome dell'utente (per scopi di visualizzazione). facoltativo. Valido solo nel contesto della proprietà "lastRegisteredBy". Non può essere specificato quando si fornisce l'entità di sicurezza per "ruoli", "autorizzazioni" ed "esperti".</td></tr>
 
 <tr><td>Colonna</td><td></td><td></td><td></td></tr>
 <tr><td></td><td>name</td><td>string</td><td>Nome della colonna o dell'attributo.</td></tr>
-<tr><td></td><td>type</td><td>string</td><td>Tipo di dati della colonna o dell'attributo. I tipi consentiti dipendono dal sourceType dei dati dell'asset.  È supportato un solo subset di tipi.</td></tr>
+<tr><td></td><td>tipo</td><td>string</td><td>Tipo di dati della colonna o dell'attributo. I tipi consentiti dipendono dal sourceType dei dati dell'asset.  È supportato un solo subset di tipi.</td></tr>
 <tr><td></td><td>maxLength</td><td>INT</td><td>Lunghezza massima consentita per la colonna o l'attributo. Derivata dall'origine dati. Valida solo per alcuni tipi di origine.</td></tr>
 <tr><td></td><td>precisione</td><td>byte</td><td>Precisione della colonna o dell'attributo. Derivata dall'origine dati. Valida solo per alcuni tipi di origine.</td></tr>
 <tr><td></td><td>isNullable</td><td>Boolean</td><td>Verifica se la colonna può avere un valore null o meno. Derivata dall'origine dati. Valida solo per alcuni tipi di origine.</td></tr>
@@ -190,7 +193,7 @@ I tipi comuni possono essere usati come tipi per proprietà, ma non sono element
 
 <tr><td>ColumnDataProfile</td><td></td><td></td><td></td></tr>
 <tr><td></td><td>columnName </td><td>string</td><td>Nome della colonna</td></tr>
-<tr><td></td><td>type </td><td>string</td><td>Il tipo della colonna</td></tr>
+<tr><td></td><td>tipo </td><td>string</td><td>Il tipo della colonna</td></tr>
 <tr><td></td><td>min </td><td>string</td><td>Il valore minimo nel set di dati</td></tr>
 <tr><td></td><td>max </td><td>string</td><td>Il valore massimo nel set di dati</td></tr>
 <tr><td></td><td>avg </td><td>double</td><td>Il valore medio del set di dati</td></tr>
@@ -217,7 +220,7 @@ Il set di protocolli supportati può essere esteso a livello di codice. Vedere i
 
 <tr><td>DataSourceProtocolIdentityProperty</td><td></td><td></td><td></td></tr>
 <tr><td></td><td>name</td><td>string</td><td>Nome della proprietà. Il nome della proprietà deve avere una lunghezza compresa tra 1 e 100 caratteri, iniziare con una lettera e può contenere solo lettere e numeri.</td></tr>
-<tr><td></td><td>type</td><td>string</td><td>Tipo della proprietà. Valori supportati: "bool", boolean", "byte", "guid", "int", "integer", "long", "string", "url"</td></tr>
+<tr><td></td><td>tipo</td><td>string</td><td>Tipo della proprietà. Valori supportati: "bool", boolean", "byte", "guid", "int", "integer", "long", "string", "url"</td></tr>
 <tr><td></td><td>ignoreCase</td><td>bool</td><td>Indica se deve essere ignorato il caso quando si usa il valore della proprietà. Può essere specificato solo per le proprietà di tipo "string". Il valore predefinito è false.</td></tr>
 <tr><td></td><td>urlPathSegmentsIgnoreCase</td><td>bool[]</td><td>Indica se deve essere ignorato il caso per ogni segmento del percorso URL. Può essere specificato solo per le proprietà di tipo "url". Il valore predefinito è [false].</td></tr>
 
@@ -268,7 +271,7 @@ Le richieste dell'elemento di visualizzazione **PUT** e **POST** possono essere 
 > Per impostazione predefinita quando viene creato un elemento nel catalogo, il relativo **Collaboratore** è impostato sull'utente attualmente autenticato. Se l'elemento deve poter essere aggiornato da tutti, è necessario che **Collaboratore** sia impostato sull'entità di sicurezza speciale &lt;Tutti&gt; nella proprietà **ruoli** quando l'elemento viene pubblicato per la prima volta. Vedere l'esempio riportato di seguito. **Collaboratore** non può essere modificato e rimane invariato per la durata di un elemento. Neanche **Amministratore** o **Proprietario** hanno il diritto di modificare il ruolo **Collaboratore**. L'unico valore supportato per l'impostazione esplicita di **Collaboratore** è &lt;Tutti&gt;: ad esempio, **Collaboratore** può essere solo un utente che ha creato un elemento o &lt;Tutti&gt;.
 > 
 
-### <a name="examples"></a>Esempi
+### <a name="examples"></a>Esempio
 **Impostare collaboratore su &lt;Tutti&gt; durante la pubblicazione di un elemento.**
 L'entità di sicurezza speciale &lt;Tutti&gt; ha come objectId "00000000-0000-0000-0000-000000000201".
   **Post** https: \/ /API.azuredatacatalog.com/catalogs/default/views/Tables/?API-Version=2016-03-30

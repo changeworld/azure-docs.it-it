@@ -13,12 +13,12 @@ ms.date: 01/25/2021
 ms.author: marsma
 ms.reviewer: saeeda, jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 8488325613b05d54b352a19a06860e08f1779877
-ms.sourcegitcommit: 1a98b3f91663484920a747d75500f6d70a6cb2ba
+ms.openlocfilehash: 1d52b017f94785f5fb25a25f127ae52d96e97d8b
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/29/2021
-ms.locfileid: "99063115"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104578754"
 ---
 # <a name="logging-in-msal-for-python"></a>Registrazione in MSAL per Python
 
@@ -26,22 +26,51 @@ ms.locfileid: "99063115"
 
 ## <a name="msal-for-python-logging"></a>MSAL per la registrazione di Python
 
-La registrazione in MSAL Python usa il meccanismo di registrazione standard di Python. ad esempio, `logging.info("msg")` è possibile configurare la registrazione MSAL come indicato di seguito (e visualizzarla in azione nella [username_password_sample](https://github.com/AzureAD/microsoft-authentication-library-for-python/blob/1.0.0/sample/username_password_sample.py#L31L32)):
+La registrazione in MSAL per Python sfrutta il [modulo di registrazione nella libreria standard di Python](https://docs.python.org/3/library/logging.html). È possibile configurare la registrazione di MSAL come indicato di seguito (e visualizzarla in azione nella [username_password_sample](https://github.com/AzureAD/microsoft-authentication-library-for-python/blob/1.0.0/sample/username_password_sample.py#L31L32)):
 
 ### <a name="enable-debug-logging-for-all-modules"></a>Abilitare la registrazione di debug per tutti i moduli
 
-Per impostazione predefinita, la registrazione in qualsiasi script Python è disattivata. Se si vuole abilitare la registrazione del debug per tutti i moduli nell'intero script Python, usare:
+Per impostazione predefinita, la registrazione in qualsiasi script Python è disattivata. Se si vuole abilitare la registrazione dettagliata per **tutti i** moduli Python nello script, usare `logging.basicConfig` con un livello di `logging.DEBUG` :
 
 ```python
+import logging
+
 logging.basicConfig(level=logging.DEBUG)
 ```
 
-### <a name="silence-only-msal-logging"></a>Tacita solo registrazione MSAL
+Tutti i messaggi di log assegnati al modulo di registrazione vengono stampati nell'output standard.
 
-Per tacitare solo la registrazione della libreria MSAL, abilitando la registrazione del debug in tutti gli altri moduli nello script Python, disattivare il logger usato da MSAL Python:
+### <a name="configure-msal-logging-level"></a>Configurare il livello di registrazione MSAL
 
-```Python
+È possibile configurare il livello di registrazione del provider di log MSAL per Python usando il `logging.getLogger()` metodo con il nome del logger `"msal"` :
+
+```python
+import logging
+
 logging.getLogger("msal").setLevel(logging.WARN)
+```
+
+### <a name="configure-msal-logging-with-azure-app-insights"></a>Configurare la registrazione di MSAL con app Azure Insights
+
+I log Python vengono assegnati a un gestore di log, che per impostazione predefinita è `StreamHandler` . Per inviare i log MSAL a un Application Insights con una chiave di strumentazione, usare l'oggetto `AzureLogHandler` fornito dalla `opencensus-ext-azure` libreria.
+
+Per installare, `opencensus-ext-azure` aggiungere il `opencensus-ext-azure` pacchetto da PyPI alle dipendenze o all'installazione PIP:
+
+```console
+pip install opencensus-ext-azure
+```
+
+Modificare quindi il gestore predefinito del `"msal"` provider di log in un'istanza di `AzureLogHandler` con una chiave di strumentazione impostata nella `APP_INSIGHTS_KEY` variabile di ambiente:
+
+```python
+import logging
+import os
+
+from opencensus.ext.azure.log_exporter import AzureLogHandler
+
+APP_INSIGHTS_KEY = os.getenv('APP_INSIGHTS_KEY')
+
+logging.getLogger("msal").addHandler(AzureLogHandler(connection_string='InstrumentationKey={0}'.format(APP_INSIGHTS_KEY))
 ```
 
 ### <a name="personal-and-organizational-data-in-python"></a>Dati personali e aziendali in Python

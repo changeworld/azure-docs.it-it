@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 08/15/2017
 ms.author: luywang
 ms.subservice: disks
-ms.openlocfilehash: 8a03637352762646b0f209263769dbdb1ff14b21
-ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
+ms.openlocfilehash: 8688d278c40ba34b7c4344a73cb4717f3fd71368
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/10/2021
-ms.locfileid: "102562623"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104600072"
 ---
 # <a name="use-site-recovery-to-migrate-to-premium-storage"></a>Usare Site Recovery per eseguire la migrazione ad archiviazione Premium
 
@@ -197,7 +197,7 @@ Site Recovery creerà un'istanza di una macchina virtuale di tipo uguale o simil
    * Per una VM creata tramite il modello di distribuzione classica: aggiungere la VM al set di disponibilità nel portale di Azure. Per i passaggi dettagliati, vedere [Aggiungere una macchina virtuale esistente a un set di disponibilità](/previous-versions/azure/virtual-machines/linux/classic/configure-availability-classic).
    * Per una VM creata tramite il modello di distribuzione Resource Manager: salvare la configurazione della VM e quindi eliminare e ricreare le VM nel set di disponibilità. A questo scopo, usare lo script in [Set Azure Resource Manager VM Availability Set](https://gallery.technet.microsoft.com/Set-Azure-Resource-Manager-f7509ec4) (Impostare il set di disponibilità di VM di Azure Resource Manager). Prima di eseguire questo script, controllare le relative limitazioni e pianificare il tempo di inattività.
 
-2. **Eliminare le VM e i dischi precedenti**. Verificare che i dischi Premium siano coerenti con i dischi di origine e che le nuove macchine virtuali eseguano la stessa funzione delle macchine virtuali di origine. Eliminare la macchina virtuale e i dischi dagli account di archiviazione di origine nel portale di Azure. Se si verifica un problema per cui il disco non viene eliminato anche se è stata eliminata la macchina virtuale, vedere [Risolvere gli errori di eliminazione delle risorse di archiviazione](../troubleshooting/storage-resource-deletion-errors.md).
+2. **Eliminare le VM e i dischi precedenti**. Verificare che i dischi Premium siano coerenti con i dischi di origine e che le nuove macchine virtuali eseguano la stessa funzione delle macchine virtuali di origine. Eliminare la macchina virtuale e i dischi dagli account di archiviazione di origine nel portale di Azure. Se si verifica un problema per cui il disco non viene eliminato anche se è stata eliminata la macchina virtuale, vedere [Risolvere gli errori di eliminazione delle risorse di archiviazione](/troubleshoot/azure/virtual-machines/storage-resource-deletion-errors).
 
 3. **Pulire l'infrastruttura di Azure Site Recovery**. Se Site Recovery non è più necessario, è possibile rimuovere l'infrastruttura. Eliminare gli elementi replicati, il server di configurazione e i criteri di ripristino, quindi eliminare l'insieme di credenziali di Azure Site Recovery.
 

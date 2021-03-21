@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 06/19/2019
 ms.author: jeedes
 ms.openlocfilehash: ddc83da2836d414ee3fadd23288475a6829018aa
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
-ms.translationtype: HT
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/24/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92521784"
 ---
 # <a name="tutorial-integrate-ungerboeck-software-with-azure-active-directory"></a>Esercitazione: Integrare Ungerboeck Software con Azure Active Directory
@@ -79,13 +79,13 @@ Per abilitare l'accesso Single Sign-On di Azure AD nel portale di Azure, seguire
 
     1. Nella casella di testo **Identificatore (ID entità)** digitare un URL nel formato seguente:
     
-    *  **Per l'ambiente di produzione** :
+    *  **Per l'ambiente di produzione**:
 
        - `https://<SUBDOMAIN>.ungerboeck.com/prod`
        - `https://<SUBDOMAIN>.ungerboeck.net/prod`
        - `https://<SUBDOMAIN>.ungerboeck.io/prod`
 
-   * **Per l'ambiente di test** :
+   * **Per l'ambiente di test**:
 
      - `https://<SUBDOMAIN>.ungerboeck.com/test`
      - `https://<SUBDOMAIN>.ungerboeck.net/test`
@@ -114,13 +114,13 @@ Per abilitare l'accesso Single Sign-On di Azure AD nel portale di Azure, seguire
 
 ### <a name="configure-ungerboeck-software-sso"></a>Configurare l'accesso Single Sign-On per Ungerboeck Software
 
-Per configurare l'accesso Single Sign-On sul lato **Ungerboeck Software** , è necessario inviare il **valore di identificazione personale** e gli URL appropriati copiati dal portale di Azure al [team di supporto di Ungerboeck Software](mailto:Rhonda.Jannings@ungerboeck.com). La configurazione viene eseguita in modo che la connessione SSO SAML sia impostata correttamente su entrambi i lati.
+Per configurare l'accesso Single Sign-On sul lato **Ungerboeck Software**, è necessario inviare il **valore di identificazione personale** e gli URL appropriati copiati dal portale di Azure al [team di supporto di Ungerboeck Software](mailto:Rhonda.Jannings@ungerboeck.com). La configurazione viene eseguita in modo che la connessione SSO SAML sia impostata correttamente su entrambi i lati.
 
 ### <a name="create-an-azure-ad-test-user"></a>Creare un utente di test di Azure AD
 
 In questa sezione verrà creato un utente di test di nome B.Simon nel portale di Azure.
 
-1. Nel riquadro sinistro del portale di Azure selezionare **Azure Active Directory** , **Utenti** e quindi **Tutti gli utenti**.
+1. Nel riquadro sinistro del portale di Azure selezionare **Azure Active Directory**, **Utenti** e quindi **Tutti gli utenti**.
 1. Selezionare **Nuovo utente** in alto nella schermata.
 1. In **Proprietà utente** seguire questa procedura:
    1. Nel campo **Nome** immettere `B.Simon`.  

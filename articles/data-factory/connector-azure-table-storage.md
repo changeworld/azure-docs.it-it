@@ -6,13 +6,13 @@ author: linda33wj
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 10/20/2020
-ms.openlocfilehash: 1448bb3ebf541af047759bc886b2c174d89c1c50
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.date: 03/17/2021
+ms.openlocfilehash: 5674d656385d356f596f96cd7851d2cc05839761
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100383773"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104597406"
 ---
 # <a name="copy-data-to-and-from-azure-table-storage-by-using-azure-data-factory"></a>Copiare dati in e da Archiviazione tabelle di Azure usando Azure Data Factory
 
@@ -267,6 +267,7 @@ Per copiare dati in Tabella di Azure, impostare il tipo di sink nell'attività d
 | azureTableInsertType |Modalità di inserimento dei dati in una tabella di Azure. Questa proprietà verifica se per le righe esistenti nella tabella di output con chiavi di partizione e di riga corrispondenti i valori vengono sostituiti o uniti. <br/><br/>I valori consentiti sono: **merge** (predefinito) e **replace**. <br/><br> Questa impostazione si applica a livello di riga e non a livello di tabella. Nessuna delle due opzioni consente di eliminare righe nella tabella di output che non esistono nell'input. Per scoprire come funzionano le impostazioni merge e replace, vedere[Insert or Merge Entity](/rest/api/storageservices/Insert-Or-Merge-Entity) (Inserire o unire un'entità) e [Insert or Replace Entity](/rest/api/storageservices/Insert-Or-Replace-Entity) (Inserire o sostituire un'entità). |No |
 | writeBatchSize |Inserisce dati in Tabella di Azure quando viene raggiunto il valore di writeBatchSize o writeBatchTimeout.<br/>I valori consentiti sono integer (numero di righe). |No (il valore predefinito è 10.000) |
 | writeBatchTimeout |Inserisce dati in Tabella di Azure quando viene raggiunto il valore di writeBatchSize o writeBatchTimeout.<br/>I valori consentiti sono un intervallo di tempo. Ad esempio "00:20:00" (20 minuti). |No (il valore predefinito è 90 secondi, il timeout predefinito del client di archiviazione) |
+| maxConcurrentConnections |Limite massimo di connessioni simultanee stabilite all'archivio dati durante l'esecuzione dell'attività. Specificare un valore solo quando si desidera limitare le connessioni simultanee.| No |
 
 **Esempio:**
 

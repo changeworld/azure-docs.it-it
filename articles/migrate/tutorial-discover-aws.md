@@ -8,10 +8,10 @@ ms.topic: tutorial
 ms.date: 09/14/2020
 ms.custom: mvc
 ms.openlocfilehash: 8fb17dc880b74da3ca4e96df10946878fde31909
-ms.sourcegitcommit: 949c0a2b832d55491e03531f4ced15405a7e92e3
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/18/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98541411"
 ---
 # <a name="tutorial-discover-aws-instances-with-server-assessment"></a>Esercitazione: Individuare le istanze di AWS con Valutazione server
@@ -106,7 +106,7 @@ Configurare un nuovo progetto di Azure Migrate.
 
    ![Caselle per il nome del progetto e l'area](./media/tutorial-discover-aws/new-project.png)
 
-7. Selezionare **Create** (Crea).
+7. Selezionare **Crea**.
 8. Attendere alcuni minuti durante la distribuzione del progetto di Azure Migrate. Lo strumento **Azure Migrate: Valutazione server** viene aggiunto per impostazione predefinita al nuovo progetto.
 
 ![Pagina che mostra lo strumento Valutazione server aggiunto per impostazione predefinita](./media/tutorial-discover-aws/added-tool.png)

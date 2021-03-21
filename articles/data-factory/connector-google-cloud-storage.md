@@ -4,14 +4,14 @@ description: Informazioni su come copiare dati da Google Cloud Storage in archiv
 author: linda33wj
 ms.service: data-factory
 ms.topic: conceptual
-ms.date: 10/14/2020
+ms.date: 03/17/2021
 ms.author: jingwang
-ms.openlocfilehash: 4d8ddb89055d318aaea9ada7f38f908223ff5a57
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: b8e518ba23c877ee80197ad94a6bc01b23b044a3
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100388448"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104588989"
 ---
 # <a name="copy-data-from-google-cloud-storage-by-using-azure-data-factory"></a>Copiare dati da Google Cloud Storage usando Azure Data Factory
 
@@ -156,7 +156,7 @@ Le proprietà seguenti sono supportate per Google Cloud storage in `storeSetting
 | modifiedDatetimeEnd      | Come sopra.                                               | No                                                          |
 | enablePartitionDiscovery | Per i file partizionati, specificare se analizzare le partizioni dal percorso del file e aggiungerle come colonne di origine aggiuntive.<br/>I valori consentiti sono **false** (impostazione predefinita) e **true**. | No                                            |
 | partitionRootPath | Quando è abilitata l'individuazione delle partizioni, specificare il percorso radice assoluto per leggere le cartelle partizionate come colonne di dati.<br/><br/>Se non viene specificato, per impostazione predefinita<br/>-Quando si usa il percorso del file in un set di dati o un elenco di file nell'origine, il percorso radice della partizione è il percorso configurato nel set di dati.<br/>-Quando si usa il filtro di cartelle con caratteri jolly, il percorso radice della partizione è il percorso secondario prima del primo carattere jolly.<br/><br/>Si supponga, ad esempio, di configurare il percorso nel set di dati come "root/folder/Year = 2020/month = 08/Day = 27":<br/>-Se si specifica il percorso radice della partizione come "root/folder/Year = 2020", l'attività di copia genererà altre due colonne `month` e `day` con il valore "08" e "27", oltre alle colonne all'interno dei file.<br/>-Se il percorso radice della partizione non è specificato, non verrà generata alcuna colonna aggiuntiva. | No                                            |
-| maxConcurrentConnections | Numero di connessioni simultanee all'archiviazione. Specificare solo quando si desidera limitare le connessioni simultanee all'archivio dati. | No                                                          |
+| maxConcurrentConnections |Limite massimo di connessioni simultanee stabilite all'archivio dati durante l'esecuzione dell'attività. Specificare un valore solo quando si desidera limitare le connessioni simultanee.| No                                                          |
 
 **Esempio:**
 

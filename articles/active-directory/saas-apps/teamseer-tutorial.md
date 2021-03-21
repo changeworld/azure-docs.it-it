@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 03/07/2019
 ms.author: jeedes
 ms.openlocfilehash: 6085ba5091b2b9973354280175aeb01f93ad7e28
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
-ms.translationtype: HT
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/24/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92521170"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-teamseer"></a>Esercitazione: Integrazione di Azure Active Directory con TeamSeer
@@ -61,7 +61,7 @@ Per configurare l'integrazione di TeamSeer in Azure AD, è necessario aggiungere
 
     ![Pulsante Nuova applicazione](common/add-new-app.png)
 
-4. Nella casella di ricerca digitare **TeamSeer** , selezionare **TeamSeer** nel pannello dei risultati e quindi fare clic sul pulsante **Aggiungi** per aggiungere l'applicazione.
+4. Nella casella di ricerca digitare **TeamSeer**, selezionare **TeamSeer** nel pannello dei risultati e quindi fare clic sul pulsante **Aggiungi** per aggiungere l'applicazione.
 
      ![TeamSeer nell'elenco risultati](common/search-new-app.png)
 
@@ -106,7 +106,7 @@ Per configurare l'accesso Single Sign-On di Azure AD con TeamSeer, seguire quest
     > [!NOTE]
     > Poiché non è reale, è necessario aggiornare questo valore con l'URL di accesso effettivo. Per ottenere il valore, contattare il [team di supporto clienti di TeamSeer](https://pages.theaccessgroup.com/solutions_business-suite_absence-management_contact.html). È anche possibile fare riferimento ai modelli mostrati nella sezione **Configurazione SAML di base** del portale di Azure.
 
-5. Nella pagina **Configura l'accesso Single Sign-On con SAML** , nella sezione **Certificato di firma SAML** , fare clic su **Scarica** per scaricare il **Certificato (Base64)** definito dalle opzioni specificate in base ai propri requisiti e salvarlo in questo computer.
+5. Nella pagina **Configura l'accesso Single Sign-On con SAML**, nella sezione **Certificato di firma SAML**, fare clic su **Scarica** per scaricare il **Certificato (Base64)** definito dalle opzioni specificate in base ai propri requisiti e salvarlo in questo computer.
 
     ![Collegamento di download del certificato](common/certificatebase64.png)
 
@@ -156,9 +156,9 @@ Per configurare l'accesso Single Sign-On di Azure AD con TeamSeer, seguire quest
 
 ### <a name="create-an-azure-ad-test-user"></a>Creare un utente di test di Azure AD
 
-Questa sezione descrive come creare un utente di test di nome Britta Simon nel portale di Azure.
+Questa sezione descrive come creare un utente test denominato Britta Simon nel portale di Azure.
 
-1. Nel riquadro sinistro del portale di Azure, selezionare **Azure Active Directory** , **Utenti** e quindi **Tutti gli utenti**.
+1. Nel riquadro sinistro del portale di Azure, selezionare **Azure Active Directory**, **Utenti** e quindi **Tutti gli utenti**.
 
     ![Collegamenti "Utenti e gruppi" e "Tutti gli utenti"](common/users.png)
 
@@ -183,7 +183,7 @@ Questa sezione descrive come creare un utente di test di nome Britta Simon nel p
 
 In questa sezione si abilita Britta Simon all'uso dell'accesso Single Sign-On di Azure concedendole l'accesso a TeamSeer.
 
-1. Nel portale di Azure selezionare **Applicazioni aziendali** , quindi **Tutte le applicazioni** e infine **TeamSeer**.
+1. Nel portale di Azure selezionare **Applicazioni aziendali**, quindi **Tutte le applicazioni** e infine **TeamSeer**.
 
     ![Pannello delle applicazioni aziendali](common/enterprise-applications.png)
 
@@ -221,7 +221,7 @@ Per consentire agli utenti di Azure AD di accedere a TeamSeer, è necessario eff
 
     ![Dettagli utente](./media/teamseer-tutorial/ic789641.png "Dettagli utente")
 
-    a. Nelle caselle di testo correlate digitare **nome** , **cognome** , **nome utente (indirizzo di posta elettronica)** di un account Azure AD di cui effettuare il provisioning.
+    a. Nelle caselle di testo correlate digitare **nome**, **cognome**, **nome utente (indirizzo di posta elettronica)** di un account Azure AD di cui effettuare il provisioning.
   
     b. Fare clic su **Avanti**.
 

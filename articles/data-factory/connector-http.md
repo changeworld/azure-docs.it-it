@@ -4,14 +4,14 @@ description: Informazioni su come copiare dati da un'origine HTTP locale o cloud
 author: linda33wj
 ms.service: data-factory
 ms.topic: conceptual
-ms.date: 12/10/2019
+ms.date: 03/17/2021
 ms.author: jingwang
-ms.openlocfilehash: f3184602bad8aabf654c8fa94d33372d08c11a66
-ms.sourcegitcommit: 87a6587e1a0e242c2cfbbc51103e19ec47b49910
+ms.openlocfilehash: 247bec30e9933dfd75b7c31cbce15ff043959243
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/16/2021
-ms.locfileid: "103573201"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104588886"
 ---
 # <a name="copy-data-from-an-http-endpoint-by-using-azure-data-factory"></a>Copiare dati da un endpoint HTTP tramite Azure Data Factory
 
@@ -66,7 +66,8 @@ Per il servizio collegato HTTP sono supportate le proprietà seguenti:
 | type | La proprietà **Type** deve essere impostata su **HttpServer**. | Sì |
 | url | URL di base del server Web. | Sì |
 | enableServerCertificateValidation | Specificare se abilitare la convalida del certificato TLS/SSL del server quando ci si connette a un endpoint HTTP. Se il server HTTPS usa un certificato autofirmato, impostare questa proprietà su **false**. | No<br /> (il valore predefinito è **true**) |
-| authenticationType | Specifica il tipo di autenticazione. I valori consentiti sono **Anonymous**, **Basic**, **Digest**, **Windows** e **ClientCertificate**. <br><br> Vedere le sezioni seguenti per altre proprietà e altri esempi JSON per questi tipi di autenticazione. | Sì |
+| authenticationType | Specifica il tipo di autenticazione. I valori consentiti sono **Anonymous**, **Basic**, **Digest**, **Windows** e **ClientCertificate**. OAuth basato su utente non è supportato. È inoltre possibile configurare le intestazioni di autenticazione nella `authHeader` Proprietà. Vedere le sezioni seguenti per altre proprietà e altri esempi JSON per questi tipi di autenticazione. | Sì |
+| authHeaders | Intestazioni di richiesta HTTP aggiuntive per l'autenticazione.<br/> Ad esempio, per usare l'autenticazione con chiave API, è possibile selezionare "Anonymous" come tipo di autenticazione e specificare la chiave API nell'intestazione. | No |
 | connectVia | [Runtime di integrazione](concepts-integration-runtime.md) da usare per la connessione all'archivio dati. Per altre informazioni, vedere la sezione [Prerequisiti](#prerequisites). Se questa proprietà non è specificata, viene usato il tipo Azure Integration Runtime predefinito. |No |
 
 ### <a name="using-basic-digest-or-windows-authentication"></a>Usando l'autenticazione Basic, Digest o Windows
@@ -163,6 +164,35 @@ Se si usa **certThumbprint** per l'autenticazione e il certificato è installato
 }
 ```
 
+### <a name="using-authentication-headers"></a>Uso delle intestazioni di autenticazione
+
+Inoltre, è possibile configurare le intestazioni delle richieste per l'autenticazione insieme ai tipi di autenticazione predefiniti.
+
+**Esempio: uso dell'autenticazione con chiave API**
+
+```json
+{
+    "name": "HttpLinkedService",
+    "properties": {
+        "type": "HttpServer",
+        "typeProperties": {
+            "url": "<HTTP endpoint>",
+            "authenticationType": "Anonymous",
+            "authHeader": {
+                "x-api-key": {
+                    "type": "SecureString",
+                    "value": "<API key>"
+                }
+            }
+        },
+        "connectVia": {
+            "referenceName": "<name of Integration Runtime>",
+            "type": "IntegrationRuntimeReference"
+        }
+    }
+}
+```
+
 ## <a name="dataset-properties"></a>Proprietà del set di dati
 
 Per un elenco completo delle sezioni e delle proprietà disponibili per la definizione dei set di dati, vedere l'articolo [Set di dati](concepts-datasets-linked-services.md). 
@@ -224,7 +254,7 @@ Le proprietà seguenti sono supportate per HTTP in `storeSettings` impostazioni 
 | additionalHeaders         | Intestazioni richiesta HTTP aggiuntive.                             | No       |
 | requestBody              | Corpo della richiesta HTTP.                               | No       |
 | httpRequestTimeout           | Timeout (valore di **TimeSpan**) durante il quale la richiesta HTTP attende una risposta. Si tratta del timeout per ottenere una risposta, non per leggere i dati della risposta. Il valore predefinito è **00:01:40**. | No       |
-| maxConcurrentConnections | Numero di connessioni simultanee per connettersi alla risorsa di archiviazione. Valore da specificare solo quando si vuole limitare la connessione simultanea all'archivio dati. | No       |
+| maxConcurrentConnections |Limite massimo di connessioni simultanee stabilite all'archivio dati durante l'esecuzione dell'attività. Specificare un valore solo quando si desidera limitare le connessioni simultanee.| No       |
 
 **Esempio:**
 

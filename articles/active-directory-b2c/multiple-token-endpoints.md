@@ -12,10 +12,10 @@ ms.date: 03/15/2021
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: 860f167913211ee7c511e515937f29ba5bf954cf
-ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/16/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "103491570"
 ---
 # <a name="migrate-an-owin-based-web-api-to-b2clogincom-or-a-custom-domain"></a>Eseguire la migrazione di un'API Web basata su OWIN in b2clogin.com o in un dominio personalizzato
@@ -85,7 +85,7 @@ git clone https://github.com/Azure-Samples/active-directory-b2c-dotnet-webapp-an
 In questa sezione viene aggiornato il codice per specificare che entrambi gli endpoint dell'emittente del token sono validi.
 
 1. Aprire la soluzione **B2C-WebAPI-dotnet. sln** in Visual Studio
-1. Nel progetto **TaskService** aprire il file *TaskService \\ app_start \\ * * Startup.auth.cs** * nell'editor
+1. Nel progetto **TaskService** aprire il file *TaskService \\ app_start \\ * * Startup. auth. cs** * nell'editor
 1. Aggiungere la `using` direttiva seguente all'inizio del file:
 
     `using System.Collections.Generic;`
@@ -105,7 +105,7 @@ In questa sezione viene aggiornato il codice per specificare che entrambi gli en
     };
     ```
 
-`TokenValidationParameters` viene fornito da MSAL.NET e viene utilizzato dal middleware OWIN nella sezione successiva del codice in *Startup.auth.cs*. Se sono state specificate più autorità emittenti valide, la pipeline dell'applicazione OWIN viene resa presente che entrambi gli endpoint del token sono emittenti validi.
+`TokenValidationParameters` viene fornito da MSAL.NET e viene utilizzato dal middleware OWIN nella sezione successiva del codice in *Startup. auth. cs*. Se sono state specificate più autorità emittenti valide, la pipeline dell'applicazione OWIN viene resa presente che entrambi gli endpoint del token sono emittenti validi.
 
 ```csharp
 app.UseOAuthBearerAuthentication(new OAuthBearerAuthenticationOptions

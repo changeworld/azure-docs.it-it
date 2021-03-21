@@ -3,12 +3,12 @@ title: Risposte alle domande comuni
 description: 'Risposte alle domande frequenti su: funzionalità di Backup di Azure, inclusi insieme di credenziali di Servizi di ripristino, elementi di cui è possibile eseguire il backup, funzionamento, crittografia e limiti. '
 ms.topic: conceptual
 ms.date: 07/07/2019
-ms.openlocfilehash: ac58cee66aa2a89efb7194a051801b068628d3bc
-ms.sourcegitcommit: 3ea12ce4f6c142c5a1a2f04d6e329e3456d2bda5
+ms.openlocfilehash: 79ff404192de481965f3971f00328c49a591dd41
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/15/2021
-ms.locfileid: "103467630"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104583378"
 ---
 # <a name="azure-backup---frequently-asked-questions"></a>Domande frequenti su Backup di Azure
 
@@ -72,6 +72,13 @@ Sì. Per spostare una sottoscrizione (che contiene un insieme di credenziali) in
 
 >[!IMPORTANT]
 >Dopo aver spostato la sottoscrizione, assicurarsi di eseguire le azioni seguenti:<ul><li>Le autorizzazioni di controllo degli accessi in base al ruolo e i ruoli personalizzati non sono trasferibili. È necessario ricreare le autorizzazioni e i ruoli nella nuova Azure AD.</li><li>Per ricreare l'identità gestita (MI) dell'insieme di credenziali, è necessario disabilitarla e abilitarla di nuovo. Inoltre, è necessario valutare e ricreare le autorizzazioni MI.</li><li>Se l'insieme di credenziali USA funzionalità che usano MI, ad esempio [endpoint privati](private-endpoints.md#before-you-start) e [chiavi gestite dal cliente](encryption-at-rest-with-cmk.md#before-you-start), è necessario riconfigurare le funzionalità.</li></ul>
+
+### <a name="can-i-move-a-subscription-that-contains-a-recovery-services-vault-to-a-different-tenant"></a>È possibile spostare una sottoscrizione che contiene un insieme di credenziali di servizi di ripristino in un tenant diverso?
+
+Sì. Assicurarsi di eseguire le operazioni seguenti: 
+
+>[!IMPORTANT]
+>Dopo aver spostato la sottoscrizione, assicurarsi di eseguire le azioni seguenti:<ul><li>Se l'insieme di credenziali USA CMK (chiavi gestite dal cliente), è necessario aggiornare l'insieme di credenziali. Ciò consente all'insieme di credenziali di ricreare e riconfigurare l'insieme di credenziali gestito e CMK (che si troverà nel nuovo tenant), in caso contrario l'operazione di backup o ripristino non riuscirà.</li><li>È necessario riconfigurare le autorizzazioni RBAC nella sottoscrizione perché non è possibile spostare le autorizzazioni esistenti.</li></ul>
 
 ## <a name="azure-backup-agent"></a>Agente di Backup di Azure
 

@@ -6,12 +6,12 @@ author: msangapu-msft
 ms.topic: article
 ms.date: 12/03/2020
 ms.author: msangapu
-ms.openlocfilehash: 7d6f9564328f81b71c62a4243c5f4cc209a29d8f
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 0e08d016ab85587d451ad2a1e296e7f494ba283e
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101714477"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104596026"
 ---
 # <a name="monitor-app-service-instances-using-health-check"></a>Monitorare le istanze del servizio app usando il controllo integrità
 
@@ -62,6 +62,10 @@ I team di sviluppo aziendale di grandi dimensioni spesso devono rispettare i req
 ## <a name="monitoring"></a>Monitoraggio
 
 Dopo aver fornito il percorso di controllo integrità dell'applicazione, è possibile monitorare l'integrità del sito usando monitoraggio di Azure. Nel pannello **controllo integrità** nel portale fare clic sulle **metriche** nella barra degli strumenti superiore. Verrà aperto un nuovo pannello in cui è possibile visualizzare lo stato di integrità cronologico del sito e creare una nuova regola di avviso. Per ulteriori informazioni sul monitoraggio dei siti, [vedere la Guida di monitoraggio di Azure](web-sites-monitor.md).
+
+## <a name="limitations"></a>Limitazioni
+
+Il controllo integrità non deve essere abilitato nei siti di funzioni Premium. Grazie alla scalabilità rapida delle funzioni Premium, le richieste di controllo integrità possono causare fluttuazioni superflue nel traffico HTTP. Le funzioni Premium dispongono di probe di integrità interni che vengono usati per informare le decisioni di scalabilità.
 
 ## <a name="next-steps"></a>Passaggi successivi
 - [Creare un avviso di log attività per monitorare tutte le operazioni del motore di scalabilità automatica della sottoscrizione](https://github.com/Azure/azure-quickstart-templates/tree/master/monitor-autoscale-alert)

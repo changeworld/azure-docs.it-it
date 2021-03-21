@@ -6,32 +6,30 @@ author: saveenr
 ms.service: synapse-analytics
 ms.topic: overview
 ms.subservice: overview
-ms.date: 10/28/2020
+ms.date: 03/27/2021
 ms.author: saveenr
 ms.reviewer: jrasnick
-ms.openlocfilehash: 37768b994d4b61ee728e04352f027a6f5a478341
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.openlocfilehash: 316a78f4725aa3c33a78b00c6de3b8419aea717e
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102031617"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104600208"
 ---
 # <a name="what-is-azure-synapse-analytics"></a>Che cos'è Azure Synapse Analytics?
 
-L'analisi aziendale deve operare su larga scala con qualsiasi tipo di dati, che siano dati non elaborati, perfezionati o altamente curati. Per ottenere questo risultato, le aziende devono unire tecnologie di Big Data e di data warehousing in pipeline di dati complesse in grado di elaborare i dati di archivi relazionali e data lake. Questi tipi di soluzioni sono difficili da creare, gestire e proteggere. La loro complessità comporta un ritardo nella disponibilità delle informazioni dettagliate necessarie per le aziende.
+**Azure sinapsi** è un servizio di analisi aziendale che accelera il time-to-Insight nei data warehouse e nei sistemi Big Data. In pratica raggruppa il meglio delle tecnologie **SQL** usate nel data warehousing aziendale, le tecnologie **Spark** usate per Big Data e le **pipeline** per l'integrazione dei dati e le operazioni ETL/ELT, oltre a essere pienamente integrato con altri servizi di Azure, come **Power BI**, **CosmosDB** e **AzureML**.
 
-**Azure Synapse** è un servizio di analisi integrato che riduce il tempo necessario per estrarre informazioni dettagliate da data warehouse e sistemi di Big Data. In pratica raggruppa il meglio delle tecnologie **SQL** usate nel data warehousing aziendale, le tecnologie **Spark** usate per Big Data e le **pipeline** per l'integrazione dei dati e le operazioni ETL/ELT, oltre a essere pienamente integrato con altri servizi di Azure, come **Power BI**, **CosmosDB** e **AzureML**.
 
-## <a name="key-features--benefits"></a>Principali funzionalità e vantaggi
+## <a name="industry-leading-sql"></a>SQL leader di settore
 
-### <a name="industry-leading-sql"></a>SQL leader di settore
+**Sinapsi SQL** è un sistema di query distribuite per t-SQL che consente scenari di data warehousing e virtualizzazione dei dati ed estende t-SQL per risolvere scenari di streaming e machine learning.
 
-* **Sinapsi SQL** è un sistema di query distribuite per t-SQL che consente scenari di data warehousing e virtualizzazione dei dati ed estende t-SQL per risolvere scenari di streaming e machine learning.
-* Synapse SQL offre modelli di risorse **serverless** e **dedicati**, rendendo disponibili opzioni a consumo e su fatturazione in base a specifiche esigenze. Per prestazioni e costi prevedibili, creare pool SQL dedicati per riservare la potenza di elaborazione per i dati archiviati in tabelle SQL. Per i carichi di lavoro non pianificati o con picchi, usare l'endpoint SQL serverless sempre disponibile.
+* Sinapsi SQL offre modelli di risorse sia senza **Server** che **dedicati** . Per prestazioni e costi prevedibili, creare pool SQL dedicati per riservare la potenza di elaborazione per i dati archiviati in tabelle SQL. Per i carichi di lavoro non pianificati o con picchi, usare l'endpoint SQL serverless sempre disponibile.
 * Usare le funzionalità predefinite di **streaming** per trasferire dati da origini cloud in tabelle SQL
 * Integrare l'intelligenza artificiale con SQL usando modelli di **Machine Learning** per assegnare punteggi ai dati tramite la [funzione T-SQL PREDICT](/sql/t-sql/queries/predict-transact-sql?view=azure-sqldw-latest&preserve-view=true)
 
-### <a name="industry-standard-apache-spark"></a>Apache Spark standard di settore
+## <a name="industry-standard-apache-spark"></a>Apache Spark standard di settore
 
 **Apache Spark per Azure Synapse** si integra pienamente e facilmente con Apache Spark, il motore di Big Data open source più diffuso usato per la preparazione dei dati, l'ingegneria dei dati, i processi ETL e Machine Learning.
 
@@ -40,7 +38,7 @@ L'analisi aziendale deve operare su larga scala con qualsiasi tipo di dati, che 
 * Avvio rapido di Spark e completa scalabilità automatica.
 * Supporto predefinito per .NET per Spark, che consente di riutilizzare le competenze in C# e l'attuale codice .NET all'interno di un'applicazione Spark.
 
-### <a name="interop-of-sql-and-apache-spark-on-your-data-lake"></a>Interoperabilità tra SQL e Apache Spark nel data lake
+## <a name="working-with-your-data-lake"></a>Uso della Data Lake
 
 Azure Synapse rimuove le tradizionali barriere tecnologiche che ostacolano l'uso simultaneo di SQL e Spark. È possibile combinare facilmente le piattaforme in base alle esigenze e alle competenze.
 
@@ -48,15 +46,15 @@ Azure Synapse rimuove le tradizionali barriere tecnologiche che ostacolano l'uso
 * SQL e Spark possono esplorare e analizzare direttamente i file Parquet, CSV, TSV e JSON archiviati nel data lake.
 * Procedure veloci e scalabili di caricamento e scaricamento dei dati trasferiti tra database SQL e Spark
 
-### <a name="built-in-data-integration-via-pipelines"></a>Integrazione dei dati incorporata tramite pipeline
+## <a name="built-in-data-integration-via-pipelines"></a>Integrazione dei dati incorporata tramite pipeline
 
-Azure Synapse include per impostazione predefinita lo stesso motore di integrazione dei dati e le stesse esperienze di Azure Data Factory, consentendo di creare pipeline di estrazione, trasformazione e caricamento (ETL) su larga scala senza uscire da Azure Synapse Analytics.
+La sinapsi di Azure contiene lo stesso motore di integrazione dei dati e le stesse esperienze di Azure Data Factory, consentendo di creare pipeline ETL su larga scala senza uscire dall'analisi delle sinapsi di Azure.
 
 * Inserimento di dati da più di 90 origini dati
 * Processi ETL senza codice con attività del flusso di dati
 * Orchestrazione di notebook, processi Spark, stored procedure, script SQL e altro ancora
 
-### <a name="unified-management-monitoring-and-security"></a>Soluzione unificata di gestione, monitoraggio e sicurezza
+## <a name="unified-management-monitoring-and-security"></a>Soluzione unificata di gestione, monitoraggio e sicurezza
 
 Azure Synapse offre alle aziende una singola soluzione per gestire le risorse di analisi, monitorare l'utilizzo e l'attività e applicare la sicurezza.
 
@@ -64,7 +62,7 @@ Azure Synapse offre alle aziende una singola soluzione per gestire le risorse di
 * Controllo degli accessi con granularità fine per dati e codice
 * Un singolo dashboard per monitorare risorse, utilizzo e utenti tra SQL e Spark
 
-### <a name="unified-experience"></a>Esperienza unificata
+## <a name="unified-experience"></a>Esperienza unificata
 
 **Sinapsi Studio** è l'esperienza utente che unisce tutti gli elementi per gli ingegneri dei dati. Consente di eseguire tutte le attività necessarie per creare una soluzione analitica completa.
 
