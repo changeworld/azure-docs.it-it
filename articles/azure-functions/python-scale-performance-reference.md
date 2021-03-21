@@ -5,10 +5,10 @@ ms.topic: article
 ms.date: 10/13/2020
 ms.custom: devx-track-python
 ms.openlocfilehash: e3bbdb8819062d45d071633e0208fb58a003da54
-ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/26/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98786107"
 ---
 # <a name="improve-throughput-performance-of-python-apps-in-azure-functions"></a>Migliorare le prestazioni della velocità effettiva delle app Python in funzioni di Azure
@@ -22,7 +22,7 @@ Per impostazione predefinita, Funzioni di Azure monitora automaticamente il cari
 
 Le configurazioni predefinite sono adatte alla maggior parte delle applicazioni di funzioni di Azure. Tuttavia, è possibile migliorare le prestazioni della velocità effettiva delle applicazioni usando le configurazioni basate sul profilo del carico di lavoro. Il primo passaggio consiste nel comprendere il tipo di carico di lavoro in esecuzione.
 
-| Tipo di carico di lavoro | Caratteristiche delle app per le funzioni       | Esempi                                          |
+| Tipo di carico di lavoro | Caratteristiche delle app per le funzioni       | Esempio                                          |
 | ------------- | ---------------------------------- | ------------------------------------------------- |
 | **I/O-associato**     | • L'app deve gestire molte chiamate simultanee.<br>• L'app elabora un numero elevato di eventi di I/O, ad esempio chiamate di rete e lettura/scrittura su disco. | • API Web                                          |
 | **Associato alla CPU**     | • L'app esegue calcoli a esecuzione prolungata, ad esempio il ridimensionamento delle immagini.<br>• La trasformazione dei dati viene eseguita dall'app.                                                | • Elaborazione dati<br>• Inferenza di Machine Learning<br> |

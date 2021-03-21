@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.service: iot-central
 services: iot-central
 ms.openlocfilehash: 36329987e510372ff286a10584a115ea259afc60
-ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/12/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98119085"
 ---
 # <a name="use-properties-in-an-azure-iot-central-solution"></a>Usare le proprietà in una soluzione IoT Central di Azure
@@ -44,7 +44,7 @@ Nella tabella seguente vengono illustrate le impostazioni di configurazione per 
 | Valori di stato    | Disponibile solo per il tipo semantico stato. Definisce i valori di stato possibili, ognuno dei quali ha un nome visualizzato, un nome, un tipo di enumerazione e un valore.                                                                                   |
 | Unità            | Unità per il valore della proprietà, ad esempio **mph**, **%** o **&deg; C**.                                                                                                                                                              |
 | Unità di visualizzazione    | Unità di visualizzazione da usare nei dashboard e nei moduli.                                                                                                                                                                                    |
-| Comment         | Eventuali commenti sulla funzionalità della proprietà.                                                                                                                                                                                        |
+| Commento         | Eventuali commenti sulla funzionalità della proprietà.                                                                                                                                                                                        |
 | Descrizione     | Descrizione della funzionalità della proprietà.                                                                                                                                                                                          |
 
 Le proprietà possono essere definite anche in un'interfaccia in un modello di dispositivo, come illustrato di seguito:

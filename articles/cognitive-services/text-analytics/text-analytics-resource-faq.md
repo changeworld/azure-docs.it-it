@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 01/05/2021
 ms.author: aahi
 ms.openlocfilehash: 9a4e179767cc38169cd794f4cd629604bdcdaab0
-ms.sourcegitcommit: 19ffdad48bc4caca8f93c3b067d1cf29234fef47
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/06/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97955043"
 ---
 # <a name="frequently-asked-questions-faq-about-the-text-analytics-api"></a>Domande frequenti sull'API Analisi del testo
@@ -61,7 +61,7 @@ Non è necessaria alcuna configurazione del cliente per abilitare la resilienza 
 
 La domanda riguarda una funzione o una funzionalità mancante? È possibile richiederla o votarla nel [sito Web UserVoice](https://cognitive.uservoice.com/forums/555922-text-analytics).
 
-## <a name="see-also"></a>Vedere anche
+## <a name="see-also"></a>Vedi anche
 
  * [StackOverflow: Text Analytics API](https://stackoverflow.com/questions/tagged/text-analytics-api) (StackOverflow: API Analisi del testo)   
  * [StackOverflow: Servizi cognitivi](https://stackoverflow.com/questions/tagged/microsoft-cognitive)

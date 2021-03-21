@@ -10,10 +10,10 @@ ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
 ms.openlocfilehash: fb597cc71d228a1daaaa4e52d76b301764ff9292
-ms.sourcegitcommit: d7d5f0da1dda786bda0260cf43bd4716e5bda08b
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/05/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97899304"
 ---
 # <a name="monitor-vmware-solution-by-cloudsimple-activity"></a>Monitora l'attività CloudSimple della soluzione VMware
@@ -82,7 +82,7 @@ Per gli avvisi sono disponibili le seguenti colonne di informazioni. Fare clic s
 ------------ | ------------- |
 | ID attività | Identificatore univoco per l'attività. |
 | Operazione | Azione eseguita dall'attività. |
-| Utente | Utente assegnato per completare l'attività. |
+| User | Utente assegnato per completare l'attività. |
 | Nome risorsa | Nome assegnato alla risorsa. |
 | Tipo di risorsa | Categoria della risorsa: cloud privato, rack cloud. |
 | ID risorsa | Identificatore della risorsa. |
@@ -102,7 +102,7 @@ Per gli avvisi sono disponibili le seguenti colonne di informazioni. Fare clic s
 ------------ | ------------- |
 | Tempo | Ora della voce di controllo. |
 | Operazione | Azione eseguita dall'attività. |
-| Utente | Utente assegnato all'attività. |
+| User | Utente assegnato all'attività. |
 | Nome risorsa | Nome assegnato alla risorsa. |
 | Tipo di risorsa | Categoria della risorsa: cloud privato, rack cloud. |
 | ID risorsa | Identificatore della risorsa. |

@@ -11,10 +11,10 @@ ms.author: normesta
 ms.subservice: data-lake-storage-gen2
 ms.reviewer: ereilebr
 ms.openlocfilehash: 2eda67e377a3b61e696e732b916d788c00a18eae
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/25/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "95908779"
 ---
 # <a name="query-acceleration-sql-language-reference"></a>Informazioni di riferimento sul linguaggio SQL di accelerazione query
@@ -194,14 +194,14 @@ In questa tabella vengono descritte le stringhe che è possibile utilizzare per 
 |MMM              |Abbr. mese dell'anno-JAN            |
 |MMMM             |Mese intero-maggio                      |
 |d                |Giorno del mese (1-31)                  |
-|dd               |Giorno del mese con riempimento zero (01-31)     |
+|gg               |Giorno del mese con riempimento zero (01-31)     |
 |a                |AM o PM                             |
 |h                |Ora del giorno (1-12)                   |
 |hh               |Zero ore riempite o giorno (01-12)     |
 |H                |Ora del giorno (0-23)                   |
 |HH               |Ora del giorno con riempimento zero (00-23)      |
 |m                |Minuto dell'ora (0-59)                |
-|mm               |Minuto con riempimento zero (00-59)           |
+|MM               |Minuto con riempimento zero (00-59)           |
 |s                |Secondi di minuti (0-59)             |
 |ss               |Zero secondi riempiti (00-59)          |
 |S                |Frazione di secondi (0.1-0,9)        |

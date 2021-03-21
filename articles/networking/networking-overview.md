@@ -11,10 +11,10 @@ ms.workload: infrastructure-services
 ms.date: 10/28/2020
 ms.author: kumud
 ms.openlocfilehash: d02f85647d947c2f28527ba6f0397c2a98e73840
-ms.sourcegitcommit: c7153bb48ce003a158e83a1174e1ee7e4b1a5461
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/15/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98234189"
 ---
 # <a name="azure-networking-services-overview"></a>Panoramica dei servizi di rete di Azure
@@ -106,7 +106,7 @@ Per ulteriori informazioni sul firewall di Azure, vedere la [documentazione del 
 
 :::image type="content" source="./media/networking-overview/firewall-threat.png" alt-text="Panoramica del firewall":::
 
-### <a name="web-application-firewall"></a><a name="waf"></a>Web Application Firewall
+### <a name="web-application-firewall"></a><a name="waf"></a>Web application firewall
 Il [Web Application Firewall](../web-application-firewall/overview.md) (WAF) di Azure garantisce la protezione delle applicazioni Web da exploit e vulnerabilità Web comuni, come SQL injection e cross site scripting. Azure WAF offre la protezione predefinita da OWASP prime 10 vulnerabilità tramite regole gestite. Inoltre, i clienti possono configurare regole personalizzate, ovvero regole gestite dal cliente per fornire protezione aggiuntiva in base all'intervallo di indirizzi IP di origine e attributi di richiesta quali intestazioni, cookie, campi dati di form o parametri di stringa di query.
 
 I clienti possono scegliere di distribuire [Azure WAF con il gateway applicazione](../web-application-firewall/ag/ag-overview.md) , che fornisce la protezione a livello di area alle entità nello spazio degli indirizzi pubblico e privato. I clienti possono anche scegliere di distribuire [Azure WAF con la porta anteriore](../web-application-firewall/afds/afds-overview.md) , che fornisce la protezione sul perimetro della rete agli endpoint pubblici.
@@ -125,7 +125,7 @@ Gli endpoint del servizio Rete virtuale estendono lo spazio di indirizzi privato
 
 Questa sezione descrive i servizi di rete in Azure che consentono di fornire applicazioni: rete per la distribuzione di contenuti, servizio front door di Azure, gestione traffico, Load Balancer e gateway applicazione.
 
-### <a name="content-delivery-network"></a><a name="cdn"></a>Rete per la distribuzione di contenuti (CDN)
+### <a name="content-delivery-network"></a><a name="cdn"></a>Rete CDN
 La rete per la distribuzione di contenuti (rete CDN) offre agli sviluppatori una soluzione globale per distribuire rapidamente contenuto con esigenze di larghezza di banda elevata tramite la memorizzazione di tale contenuto nella cache in nodi fisici strategici ubicati in tutto il mondo. Per altre informazioni sulla rete CDN di Azure, vedere rete per la [distribuzione di contenuti di Azure](../cdn/cdn-overview.md).
 
 :::image type="content" source="./media/networking-overview/cdn-overview.png" alt-text="Rete CDN di Azure":::

@@ -5,13 +5,13 @@ ms.author: jingwang
 author: linda33wj
 ms.service: data-factory
 ms.topic: conceptual
-ms.date: 02/10/2021
-ms.openlocfilehash: 38306b2fb3c0a51aeedbf1ebd9079dd787783093
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.date: 03/17/2021
+ms.openlocfilehash: 9c843ededd1fa863cc5eb4dc0db3a6da3478466d
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100364291"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104597522"
 ---
 # <a name="copy-and-transform-data-in-azure-synapse-analytics-by-using-azure-data-factory"></a>Copiare e trasformare i dati in Azure sinapsi Analytics usando Azure Data Factory
 
@@ -390,6 +390,7 @@ Per copiare dati in Azure sinapsi Analytics, impostare il tipo di sink nell'atti
 | preCopyScript     | Specificare una query SQL per l'attività di copia da eseguire prima di scrivere i dati in Azure sinapsi Analytics a ogni esecuzione. Usare questa proprietà per pulire i dati precaricati. | No                                            |
 | tableOption | Specifica se [creare automaticamente la tabella di sink](copy-activity-overview.md#auto-create-sink-tables) se non esiste in base allo schema di origine. I valori consentiti sono: `none` (impostazione predefinita), `autoCreate`. |No |
 | disableMetricsCollection | Data Factory raccoglie metriche come Azure sinapsi Analytics DWU per l'ottimizzazione delle prestazioni di copia e consigli, che introducono un ulteriore accesso al database master. Se questo comportamento non è desiderato, specificare `true` per disattivarlo. | No (il valore predefinito è `false`) |
+| maxConcurrentConnections |Limite massimo di connessioni simultanee stabilite all'archivio dati durante l'esecuzione dell'attività. Specificare un valore solo quando si desidera limitare le connessioni simultanee.| No |
 
 #### <a name="azure-synapse-analytics-sink-example"></a>Esempio di sink di analisi delle sinapsi di Azure
 
@@ -520,7 +521,7 @@ Se i requisiti non vengono soddisfatti, Azure Data Factory controlla le impostaz
    4. `nullValue` è impostato sul valore predefinito o su una **stringa vuota** ("") e `treatEmptyAsNull` è impostato sul valore predefinito o su true.
    5. `encodingName` è impostato sul valore predefinito o su **utf-8**.
    6. `quoteChar`, `escapeChar` e `skipLineCount` non sono specificati. Il supporto di PolyBase ignora la riga di intestazione che può essere configurata come `firstRowAsHeader` in Azure Data Factory.
-   7. `compression` può essere **no compression**, **GZip** o **Deflate**.
+   7. `compression` non può essere **una compressione**, **``GZip``** o **deflate**.
 
 3. Se l'origine è una cartella, `recursive` nell'attività di copia deve essere impostato su true.
 
@@ -615,7 +616,7 @@ Per usare questa funzionalità, creare un [servizio collegato di archiviazione B
 
 ### <a name="best-practices-for-using-polybase"></a>Procedure consigliate per l'uso di PolyBase
 
-Le sezioni seguenti illustrano le procedure consigliate in aggiunta alle procedure consigliate [per l'analisi delle sinapsi di Azure](../synapse-analytics/sql/best-practices-sql-pool.md).
+Le sezioni seguenti illustrano le procedure consigliate in aggiunta alle procedure consigliate [per l'analisi delle sinapsi di Azure](../synapse-analytics/sql/best-practices-dedicated-sql-pool.md).
 
 #### <a name="required-database-permission"></a>Autorizzazione database obbligatoria
 
@@ -709,7 +710,7 @@ L'uso dell'istruzione COPY supporta la configurazione seguente:
 
 2. Le impostazioni del formato sono le seguenti:
 
-   1. Per **Parquet**: `compression` può essere **no compression**, **Snappy** o **GZip**.
+   1. Per **parquet**: `compression` non può essere di **compressione**, di **blocco** o di **``GZip``** .
    2. Per **ORC**: `compression` può essere **no compression**, **```zlib```** o **Snappy**.
    3. Per **Testo delimitato**:
       1. `rowDelimiter` è impostato in modo esplicito come **single character** o " **\r\n**", il valore predefinito non è supportato.
@@ -717,7 +718,7 @@ L'uso dell'istruzione COPY supporta la configurazione seguente:
       3. `encodingName` è impostato sul valore predefinito o su **utf-8 o utf-16**.
       4. `escapeChar` deve essere uguale a `quoteChar` e non è vuoto.
       5. `skipLineCount` è impostato sul valore predefinito o su 0.
-      6. `compression` può essere **no compression** o **GZip**.
+      6. `compression` non può essere **una compressione** o **``GZip``** .
 
 3. Se l'origine è una cartella, `recursive` nell'attività di copia deve essere impostato su true e `wildcardFilename` deve essere `*`. 
 
@@ -821,7 +822,7 @@ Le impostazioni specifiche di Azure Synapse Analytics sono disponibili nella sch
 - Recreate table (Ricrea tabella): la tabella verrà eliminata e ricreata. Questa opzione è obbligatoria se si crea una nuova tabella in modo dinamico.
 - Truncate table (Tronca tabella): verranno rimosse tutte le righe della tabella di destinazione.
 
-**Abilita staging:** Determina se usare o meno la [polibase](/sql/relational-databases/polybase/polybase-guide) durante la scrittura in Azure sinapsi Analytics. L'archiviazione di gestione temporanea è configurata nell' [attività Esegui flusso di dati](control-flow-execute-data-flow-activity.md). 
+**Abilita staging:** Questo consente il caricamento nei pool SQL di Azure sinapsi Analytics usando il comando copy ed è consigliato per la maggior parte dei sink Synpase. L'archiviazione di gestione temporanea è configurata nell' [attività Esegui flusso di dati](control-flow-execute-data-flow-activity.md). 
 
 - Quando si usa l'autenticazione dell'identità gestita per il servizio collegato di archiviazione, è possibile acquisire informazioni sulle configurazioni necessarie per i [BLOB di Azure](connector-azure-blob-storage.md#managed-identity) e [Azure Data Lake storage Gen2](connector-azure-data-lake-storage.md#managed-identity) rispettivamente.
 - Se l'archiviazione di Azure è configurata con l'endpoint di servizio di VNet, è necessario usare l'autenticazione di identità gestita con l'abilitazione del servizio Microsoft attendibile nell'account di archiviazione, per vedere l' [effetto dell'uso degli endpoint di servizio VNet con archiviazione di Azure](../azure-sql/database/vnet-service-endpoint-rule-overview.md#impact-of-using-virtual-network-service-endpoints-with-azure-storage).
