@@ -6,10 +6,10 @@ ms.topic: conceptual
 ms.date: 11/21/2018
 ms.author: srrengar
 ms.openlocfilehash: 638b650e485ad3e83bd6021639a7e55b540d9cdc
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "75451721"
 ---
 # <a name="service-fabric-events"></a>Eventi di Service Fabric 
@@ -17,7 +17,7 @@ ms.locfileid: "75451721"
 La piattaforma Service Fabric scrive diversi eventi strutturati per le attività operative chiave eseguite all'interno del cluster. Queste variano dagli aggiornamenti del cluster alle decisioni di posizionamento delle repliche. Ogni evento esposto da Service Fabric è mappato a una delle seguenti entità nel cluster:
 * Cluster
 * Applicazione
-* Service
+* Servizio
 * Partition
 * Replica 
 * Contenitore

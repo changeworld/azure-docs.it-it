@@ -7,10 +7,10 @@ ms.topic: how-to
 ms.date: 05/29/2018
 ms.author: twooley
 ms.openlocfilehash: 666b39e2a600fe6ca004798ed4f8371cdd1dfe5f
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/30/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96340255"
 ---
 # <a name="create-hdinsight-clusters-with-azure-data-lake-storage-gen1-by-using-the-azure-portal"></a>Creare cluster HDInsight con Azure Data Lake Storage Gen1 tramite il portale di Azure
@@ -155,7 +155,7 @@ Al termine della configurazione del cluster, nel pannello del cluster verificare
 
     ![Verifica entità servizio](./media/data-lake-store-hdinsight-hadoop-use-portal/hdi.adl.6.png)
 
-## <a name="examples"></a>Esempi
+## <a name="examples"></a>Esempio
 
 Dopo aver configurato il cluster con Data Lake Storage Gen1 come risorsa di archiviazione, vedere questi esempi di come usare il cluster HDInsight per analizzare i dati archiviati nel Data Lake Storage Gen1.
 

@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 03/28/2019
 ms.author: jeedes
 ms.openlocfilehash: 877f589c19663503b9bb0b1627f1dffe0eba1a23
-ms.sourcegitcommit: ab94795f9b8443eef47abae5bc6848bb9d8d8d01
-ms.translationtype: HT
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/27/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96302751"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-wikispaces"></a>Esercitazione: Integrazione di Azure Active Directory con Wikispaces
@@ -194,7 +194,7 @@ Per consentire agli utenti di Azure AD di accedere a Wikispaces, è necessario e
 
 4. Nella sezione **Invita Persone** seguire la procedura seguente:
    
-    ![Screenshot che mostra la sezione Invita persona in cui è possibile immettere i dati dell'utente.](./media/wikispaces-tutorial/ic787208.png "Invita persone")
+    ![Screenshot che mostra la sezione Invita persona in cui è possibile immettere i dati dell'utente.](./media/wikispaces-tutorial/ic787208.png "Invitare persone")
    
     a. Digitare il **nome utente o l'indirizzo di posta elettronica** di un account Azure AD valido di cui si vuole effettuare il provisioning nelle apposite caselle.
    

@@ -10,10 +10,10 @@ ms.author: sourabha
 ms.reviewer: sstein
 ms.date: 09/22/2020
 ms.openlocfilehash: fce098767fffd36376399bbd9396699e3d9fbfd3
-ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
-ms.translationtype: HT
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/05/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93392079"
 ---
 # <a name="deploy-azure-sql-edge-with-docker"></a>Distribuire SQL Edge di Azure con Docker
@@ -83,7 +83,7 @@ Il comando precedente esegue il pull delle ultime immagini del contenitore di SQ
     sudo docker ps -a
    ```
 
-4. Se nella colonna **STATUS** è impostato lo stato **Up** , SQL Edge di Azure è in esecuzione nel contenitore e in ascolto sulla porta specificata nella colonna **PORTS**. Se la colonna **STATUS** del contenitore di SQL Edge di Azure è impostata su **Exited** , vedere la sezione relativa alla risoluzione dei problemi della documentazione di SQL Edge di Azure.
+4. Se nella colonna **STATUS** è impostato lo stato **Up**, SQL Edge di Azure è in esecuzione nel contenitore e in ascolto sulla porta specificata nella colonna **PORTS**. Se la colonna **STATUS** del contenitore di SQL Edge di Azure è impostata su **Exited**, vedere la sezione relativa alla risoluzione dei problemi della documentazione di SQL Edge di Azure.
 
     Anche il parametro `-h` (nome host) è utile, ma non viene usato in questa esercitazione per semplicità. Cambia il nome interno del contenitore sostituendolo con un valore personalizzato. È il nome che viene restituito nella query Transact-SQL seguente:
 
@@ -114,7 +114,7 @@ L'account **SA** è un amministratore di sistema dell'istanza di SQL Edge di Azu
 
 ## <a name="connect-to-azure-sql-edge"></a>Connettersi a SQL Edge di Azure
 
-La procedura seguente usa lo strumento da riga di comando di SQL Edge di Azure, **sqlcmd** , all'interno del contenitore per stabilire la connessione a SQL Edge di Azure.
+La procedura seguente usa lo strumento da riga di comando di SQL Edge di Azure, **sqlcmd**, all'interno del contenitore per stabilire la connessione a SQL Edge di Azure.
 
 > [!NOTE]
 > Lo strumento sqlcmd non è disponibile nella versione ARM64 di contenitori di SQL Edge.
@@ -204,7 +204,7 @@ A questo punto, eseguire una query per restituire i dati dalla tabella `Inventor
 
 ### <a name="exit-the-sqlcmd-command-prompt"></a>Uscire dal prompt dei comandi sqlcmd
 
-1. Per terminare la sessione **sqlcmd** , digitare `QUIT`:
+1. Per terminare la sessione **sqlcmd**, digitare `QUIT`:
 
    ```sql
    QUIT

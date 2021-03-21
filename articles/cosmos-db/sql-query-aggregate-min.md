@@ -9,10 +9,10 @@ ms.date: 12/02/2020
 ms.author: tisande
 ms.custom: query-reference
 ms.openlocfilehash: 679814822cca5a72bd261d3c8944863715e31f70
-ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/03/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96555412"
 ---
 # <a name="min-azure-cosmos-db"></a>MIN (Azure Cosmos DB)
@@ -35,7 +35,7 @@ MIN(<scalar_expr>)
   
 Restituisce un'espressione scalare.  
   
-## <a name="examples"></a>Esempi
+## <a name="examples"></a>Esempio
   
 Nell'esempio seguente viene restituito il valore minimo di `propertyA` :
   
@@ -52,7 +52,7 @@ Quando si confrontano dati di tipi diversi, viene usato l'ordine di priorità se
 
 - Null
 - boolean
-- Numero
+- d'acquisto
 - string
 
 ## <a name="next-steps"></a>Passaggi successivi

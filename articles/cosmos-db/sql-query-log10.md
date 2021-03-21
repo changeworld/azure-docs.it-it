@@ -9,10 +9,10 @@ ms.date: 09/13/2019
 ms.author: girobins
 ms.custom: query-reference
 ms.openlocfilehash: 27f7d916c1a3f84f26674fea6b04597fd9e546bc
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93338432"
 ---
 # <a name="log10-azure-cosmos-db"></a>LOG10 (Azure Cosmos DB)
@@ -39,7 +39,7 @@ LOG10 (<numeric_expr>)
   
   Le funzioni LOG10 e POWER sono inversamente correlate. Ad esempio, 10 ^ LOG10(n) = n. Questa funzione di sistema non utilizzerà l'indice.
   
-## <a name="examples"></a>Esempi
+## <a name="examples"></a>Esempio
   
   Nell'esempio seguente viene dichiarata una variabile e restituito il valore LOG10 della variabile specificata (100).  
   

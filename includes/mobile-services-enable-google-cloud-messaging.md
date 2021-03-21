@@ -1,6 +1,6 @@
 ---
-title: File di inclusione
-description: File di inclusione
+title: includere file
+description: includere file
 services: notification-hubs
 author: spelluru
 ms.service: notification-hubs
@@ -9,10 +9,10 @@ ms.date: 04/06/2018
 ms.author: spelluru
 ms.custom: include file
 ms.openlocfilehash: b32ff0926aa2b797bdb8dfcbb01cf845080a0ce9
-ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
-ms.translationtype: HT
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/05/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93376147"
 ---
 1. Passare a [Google Cloud Console](https://console.developers.google.com/cloud-resource-manager)ed eseguire l'accesso con le credenziali dell'account Google. 
@@ -26,7 +26,7 @@ ms.locfileid: "93376147"
 5. Prendere nota del numero di progetto in **Project number** nel riquadro **Project info** (Informazioni sul progetto) del dashboard. 
 
     ![ID progetto](./media/mobile-services-enable-google-cloud-messaging/project-number.png)
-6. Nel dashboard, nel riquadro **APIs**  (API) selezionare **Go to APIs overview** (Vai a panoramica API). 
+6. Nel dashboard, nel riquadro **APIs** (API) selezionare **Go to APIs overview** (Vai a panoramica API). 
 
     ![Collegamento alla panoramica delle API](./media/mobile-services-enable-google-cloud-messaging/go-to-api-overview.png)
 7. Nella pagina **API** selezionare **Enable APIs and Services** (Abilita API e servizi). 

@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 08/12/2020
 ms.author: sngun
 ms.openlocfilehash: c5404c026385f9ebf06c4f0289a4db0bf944d172
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93341236"
 ---
 # <a name="frequently-asked-questions-about-the-table-api-in-azure-cosmos-db"></a>Domande frequenti sull'API Tabella in Azure Cosmos DB
@@ -197,7 +197,7 @@ Sì. L'API Tabelle di Azure Cosmos DB offre l'indicizzazione automatica di tutti
 
 Sì. È possibile modificare i criteri di indicizzazione specificando la definizione di indice. È necessario eseguire correttamente la codifica e l'escape delle impostazioni.
 
-Per gli SDK non .NET è possibile configurare i criteri di indicizzazione solo nel portale in **Esplora dati**. Passare alla tabella specifica da modificare, quindi selezionare **Scala e impostazioni** ->Criteri di indicizzazione, apportare le modifiche desiderate e quindi scegliere **Salva**.
+Per gli SDK non .NET è possibile configurare i criteri di indicizzazione solo nel portale in **Esplora dati**. Passare alla tabella specifica da modificare, quindi selezionare **Scala e impostazioni**->Criteri di indicizzazione, apportare le modifiche desiderate e quindi scegliere **Salva**.
 
 Da .NET SDK è possibile inviare i criteri nel file app.config:
 

@@ -9,10 +9,10 @@ ms.date: 03/03/2020
 ms.author: girobins
 ms.custom: query-reference
 ms.openlocfilehash: 02fceb8ac594a8caff8942b8a7cb0c6bcd2a47e3
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93339610"
 ---
 # <a name="sign-azure-cosmos-db"></a>FIRMA (Azure Cosmos DB)
@@ -35,7 +35,7 @@ SIGN(<numeric_expr>)
   
   Restituisce un'espressione numerica.  
   
-## <a name="examples"></a>Esempi
+## <a name="examples"></a>Esempio
   
   Nell'esempio seguente vengono restituiti i `SIGN` valori dei numeri da-2 a 2.  
   

@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 04/02/2020
 ms.author: sideeksh
 ms.openlocfilehash: 42d3c74229ab7eeec0ac716073a9e631775fd002
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/26/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96187341"
 ---
 # <a name="automatic-update-of-the-mobility-service-in-azure-to-azure-replication"></a>Aggiornamento automatico del servizio Mobility nella replica da Azure ad Azure
@@ -57,7 +57,7 @@ Quando si Abilita la replica per una macchina virtuale a partire [dalla visualiz
 ### <a name="toggle-the-extension-update-settings-inside-the-vault"></a>Attivare o disattivare le impostazioni di aggiornamento dell'estensione nell'insieme di credenziali
 
 1. Dall'insieme di credenziali dei servizi di ripristino passare a **Gestisci**  >  **Site Recovery infrastruttura**.
-1. In per le impostazioni di aggiornamento **dell'estensione per macchine virtuali di Azure**  >  **Extension Update Settings**  >  **consentire a Site Recovery di gestire**, selezionare **on**.
+1. In per le impostazioni di aggiornamento **dell'estensione per macchine virtuali di Azure**  >    >  **consentire a Site Recovery di gestire**, selezionare **on**.
 
    Per gestire l'estensione manualmente, selezionare **disattivato**.
 

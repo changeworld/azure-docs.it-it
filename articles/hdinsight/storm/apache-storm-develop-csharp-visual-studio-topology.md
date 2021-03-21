@@ -7,10 +7,10 @@ ms.topic: how-to
 ms.date: 12/31/2019
 ms.custom: devx-track-csharp
 ms.openlocfilehash: a81f2b21545a5362168482f3f0a65fbbbf381c10
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/28/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98929159"
 ---
 # <a name="develop-c-topologies-for-apache-storm-by-using-the-data-lake-tools-for-visual-studio"></a>Sviluppare topologie C# per Apache Storm tramite gli strumenti Data Lake per Visual Studio
@@ -132,7 +132,7 @@ Per creare un progetto di topologia C# in Visual Studio:
 
 Dopo aver creato il progetto, è necessario disporre dei seguenti file:
 
-* *Program.cs*: definizione della topologia per il progetto. Per impostazione predefinita viene creata una topologia predefinita costituita da uno spout e da un bolt.
+* *Program. cs*: la definizione della topologia per il progetto. Per impostazione predefinita viene creata una topologia predefinita costituita da uno spout e da un bolt.
 
 * *Spout.cs*: spout di esempio che genera numeri casuali.
 
@@ -218,11 +218,11 @@ A questo punto, creare due Bolt Storm in questo esempio:
 
 1. Eliminare dal progetto il file *Bolt.cs* esistente.
 
-2. In **Esplora soluzioni** fare clic con il pulsante destro del mouse sul progetto e scegliere **Aggiungi**  >  **nuovo elemento**. Selezionare **Storm Bolt** dall'elenco e immettere *Splitter.cs* come nome. Nel codice del nuovo file modificare il nome dello spazio dei nomi in `WordCount` . Ripetere quindi questo processo per creare un secondo Bolt denominato *Counter.cs*.
+2. In **Esplora soluzioni** fare clic con il pulsante destro del mouse sul progetto e scegliere **Aggiungi**  >  **nuovo elemento**. Selezionare **Storm Bolt** dall'elenco e immettere *Splitter.cs* come nome. Nel codice del nuovo file modificare il nome dello spazio dei nomi in `WordCount` . Ripetere quindi questo processo per creare un secondo Bolt denominato *Counter. cs*.
 
-   * *Splitter.cs*: implementa un Bolt che divide le frasi in singole parole e genera un nuovo flusso di parole.
+   * *Splitter. cs*: implementa un Bolt che divide le frasi in singole parole e genera un nuovo flusso di parole.
 
-   * *Counter.cs*: implementa un Bolt che conta ogni parola e genera un nuovo flusso di parole e il conteggio per ogni parola.
+   * *Counter. cs*: implementa un Bolt che conta ogni parola e genera un nuovo flusso di parole e il conteggio per ogni parola.
 
      > [!NOTE]  
      > I bolt sopra descritti eseguono operazioni di lettura e scrittura nei flussi. È tuttavia possibile usare un bolt per comunicare con origini quali un database o un servizio.
@@ -572,9 +572,9 @@ Sebbene sia facile distribuire una topologia in un cluster, in alcuni casi potre
    > [!NOTE]
    > Ricordarsi di reimpostare **Tipo di output** su **Libreria di classi** prima di distribuire la topologia a un cluster.
 
-1. In **Esplora soluzioni** fare clic con il pulsante destro del mouse sul progetto e quindi selezionare **Aggiungi** > **Nuovo elemento**. Selezionare **classe** e immettere *LocalTest.cs* come nome della classe. Infine, selezionare **Aggiungi**.
+1. In **Esplora soluzioni** fare clic con il pulsante destro del mouse sul progetto e quindi selezionare **Aggiungi** > **Nuovo elemento**. Selezionare **classe** e immettere *LocalTest. cs* come nome della classe. Infine, selezionare **Aggiungi**.
 
-1. Aprire *LocalTest.cs* e aggiungere l'istruzione seguente `using` nella parte superiore:
+1. Aprire *LocalTest. cs* e aggiungere l'istruzione seguente `using` nella parte superiore:
 
     ```csharp
     using Microsoft.SCP;
@@ -661,7 +661,7 @@ Sebbene sia facile distribuire una topologia in un cluster, in alcuni casi potre
 
     Leggere con attenzione i commenti del codice. Questo codice usa `LocalContext` per eseguire i componenti nell'ambiente di sviluppo. Il flusso di dati viene reso permanente tra i componenti in file di testo nell'unità locale.
 
-1. Aprire *Program.cs* e aggiungere il codice seguente al `Main` Metodo:
+1. Aprire *Program. cs* e aggiungere il codice seguente al `Main` Metodo:
 
     ```csharp
     Console.WriteLine("Starting tests");

@@ -9,10 +9,10 @@ ms.reviewer: estfan, logicappspm
 ms.topic: article
 ms.date: 10/15/2017
 ms.openlocfilehash: 42c592e6aede4537dc983fd2cff043a878f81f1c
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/17/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "100593109"
 ---
 # <a name="create-logic-app-workflows-from-prebuilt-templates"></a>Creare flussi di lavoro di app per la logica da modelli predefiniti
@@ -44,7 +44,7 @@ Se non si ha una sottoscrizione di Azure, [iscriversi per creare un account di A
 
    ![Specificare i dettagli dell'app per la logica](./media/logic-apps-create-logic-apps-from-templates/logic-app-settings.png)
 
-   | Impostazione | valore | Descrizione | 
+   | Impostazione | Valore | Descrizione | 
    | ------- | ----- | ----------- | 
    | **Nome** | *nome-app-per-la-logica* | Specificare un nome univoco per l'app per la logica. | 
    | **Sottoscrizione** | *nome-sottoscrizione-di-Azure* | Selezionare la sottoscrizione di Azure da usare. | 

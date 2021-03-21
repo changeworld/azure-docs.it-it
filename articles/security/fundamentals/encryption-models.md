@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 09/09/2020
 ms.author: mbaldwin
 ms.openlocfilehash: 9194f38ddea5570d94ba6c87ea6a537cb41fb98c
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/04/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102051379"
 ---
 # <a name="data-encryption-models"></a>Modelli di crittografia dei dati
@@ -230,7 +230,7 @@ I servizi di Azure che supportano ogni modello di crittografia:
 | Sincronizzazione file                        | Sì                | Sì                | -                  |
 | Archiviazione code                    | Sì                | Sì                | Sì                |
 | Avere vFXT                       | Sì                | -                  | -                  |
-| Cache Redis di Azure            | Sì                | N/D\*              | -                  |
+| Cache di Azure per Redis            | Sì                | N/D\*              | -                  |
 | Azure NetApp Files               | Sì                | Sì                | -                  |
 | Spazio di archiviazione                  | Sì                | Sì                | -                  |
 | StorSimple                       | Sì                | Sì                | Sì                |

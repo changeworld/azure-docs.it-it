@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 07/10/2020
 ms.author: alkohli
 ms.openlocfilehash: 3a915ac8de83a5e183660ec4a3d05044eafff4a9
-ms.sourcegitcommit: 2a8a53e5438596f99537f7279619258e9ecb357a
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/06/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94337509"
 ---
 # <a name="tracking-and-event-logging-for-your-azure-data-box-and-azure-data-box-heavy-export-orders"></a>Rilevamento e registrazione degli eventi per il Azure Data Box e Azure Data Box Heavy gli ordini di esportazione
@@ -252,7 +252,7 @@ Scorrendo la cronologia degli ordini, viene visualizzato quanto segue:
 
 - Informazioni di rilevamento del vettore per il dispositivo.
 - Eventi con attività *SecureErase* . Questi eventi corrispondono alla cancellazione dei dati sul disco.
-- Collegamenti di log Data Box. Vengono presentati i percorsi per i *log di controllo* , i *log di copia* e i file *DBA* .
+- Collegamenti di log Data Box. Vengono presentati i percorsi per i *log di controllo*, i *log di copia* e i file *DBA* .
 
 Di seguito è riportato un esempio di log della cronologia degli ordini da portale di Azure:
 

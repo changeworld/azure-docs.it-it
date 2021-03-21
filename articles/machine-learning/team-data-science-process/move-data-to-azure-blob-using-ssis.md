@@ -12,10 +12,10 @@ ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ms.openlocfilehash: 9572d612e7ee8e2fd72850ba14447e8449f0f371
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93322006"
 ---
 # <a name="move-data-to-or-from-azure-blob-storage-using-ssis-connectors"></a>Spostare dati da o verso un archivio BLOB di Azure con connettori SSIS
@@ -37,13 +37,13 @@ Per informazioni sugli scenari classici che usano SSIS per soddisfare esigenze a
 ## <a name="prerequisites"></a>Prerequisiti
 Per eseguire le attività descritte in questo articolo, è necessario avere una sottoscrizione di Azure e un account di archiviazione di Azure configurato. Per caricare o scaricare dati, sono necessari il nome e la chiave dell'account di archiviazione di Azure.
 
-* Per configurare una **sottoscrizione di Azure** , vedere [Versione di prova gratuita di un mese](https://azure.microsoft.com/pricing/free-trial/).
+* Per configurare una **sottoscrizione di Azure**, vedere [Versione di prova gratuita di un mese](https://azure.microsoft.com/pricing/free-trial/).
 * Per istruzioni sulla creazione di un **account di archiviazione** e per ottenere informazioni sull'account e sulla chiave, vedere [informazioni sugli account di archiviazione di Azure](../../storage/common/storage-account-create.md).
 
 Per usare i **connettori SSIS** è necessario scaricare:
 
-* **SQL Server 2014 o 2016 Standard (o versioni successive)** : l'installazione include SQL Server Integration Services.
-* **Microsoft SQL Server 2014 o 2016 Integration Services Feature Pack per Azure** : questi connettori possono essere scaricati rispettivamente dalle pagine [SQL Server 2014 Integration Services](https://www.microsoft.com/download/details.aspx?id=47366) e [SQL Server 2016 Integration Services](https://www.microsoft.com/download/details.aspx?id=49492) .
+* **SQL Server 2014 o 2016 Standard (o versioni successive)**: l'installazione include SQL Server Integration Services.
+* **Microsoft SQL Server 2014 o 2016 Integration Services Feature Pack per Azure**: questi connettori possono essere scaricati rispettivamente dalle pagine [SQL Server 2014 Integration Services](https://www.microsoft.com/download/details.aspx?id=47366) e [SQL Server 2016 Integration Services](https://www.microsoft.com/download/details.aspx?id=49492) .
 
 > [!NOTE]
 > SSIS viene installato con SQL Server, ma non è incluso nella versione Express. Per informazioni sulle applicazioni incluse nelle diverse edizioni di SQL Server, vedere [Edizioni di SQL Server](https://www.microsoft.com/en-us/server-cloud/products/sql-server-editions/)
