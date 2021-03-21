@@ -6,14 +6,17 @@ ms.author: jasonh
 ms.service: data-catalog
 ms.topic: how-to
 ms.date: 08/01/2019
-ms.openlocfilehash: 5c8c545f01eb0df53ce9677b7db6f931b4d21af9
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: da3302ac25aaac6202f42cee400b307fc701fe50
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96021929"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104674972"
 ---
 # <a name="how-to-connect-to-data-sources"></a>Come connettersi a origini dati
+
+[!INCLUDE [Azure Purview redirect](../../includes/data-catalog-use-purview.md)]
+
 ## <a name="introduction"></a>Introduzione
 **Microsoft Azure Data Catalog** è un servizio cloud completamente gestito che funge da sistema di registrazione e di individuazione per origini dati aziendali. In altre parole, **Azure Data Catalog** è tutto per aiutare gli utenti a individuare, comprendere e usare le origini dati e ad aiutare le organizzazioni a ottenere più valore dai dati esistenti. Un aspetto fondamentale di questo scenario è l’utilizzo dei dati: una volta che un utente individua un'origine dati e ne comprende lo scopo, il passaggio successivo consiste nella connessione all'origine dati per utilizzarne i dati.
 

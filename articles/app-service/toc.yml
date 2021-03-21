@@ -108,7 +108,7 @@
       href: operating-system-functionality.md
     - name: Procedura consigliate per la distribuzione
       href: deploy-best-practices.md
-    - name: Security
+    - name: Sicurezza
       items:
         - name: Consigli
           href: security-recommendations.md
@@ -318,6 +318,8 @@
       href: ../azure-resource-manager/management/azure-subscription-service-limits.md#app-service-limits
     - name: Aggiornamenti del servizio
       href: 'https://azure.microsoft.com/updates/?product=app-service'
+    - name: Servizio Kudu
+      href: resources-kudu.md
     - name: Guide di Migration Assistant
       href: 'https://github.com/Azure/App-Service-Migration-Assistant/tree/master/MigrationDocs'
     - name: Procedure consigliate

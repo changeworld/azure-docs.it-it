@@ -11,10 +11,10 @@ services: azure-arc
 ms.service: azure-arc
 ms.subservice: azure-arc-data
 ms.openlocfilehash: 92f5c900238fc5d40e22870e2f00f8adeb5d335f
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/04/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102032195"
 ---
 # <a name="azure-arc-enabled-managed-instance-high-availability"></a>Azure Arc abilitato Istanza gestita disponibilità elevata
@@ -81,7 +81,7 @@ Funzionalità abilitate dai gruppi di disponibilità:
 
 - Viene effettuato il provisioning automatico di un endpoint esterno per la connessione ai database all'interno del gruppo di disponibilità. Questo endpoint `<managed_instance_name>-svc-external` ha il ruolo di listener del gruppo di disponibilità.
 
-### <a name="deploy"></a>Distribuire
+### <a name="deploy"></a>Distribuisci
 
 Per distribuire un'istanza gestita con i gruppi di disponibilità, eseguire il comando seguente.
 

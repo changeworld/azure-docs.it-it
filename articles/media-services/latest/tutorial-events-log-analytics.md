@@ -11,18 +11,18 @@ ms.workload: ''
 ms.topic: tutorial
 ms.date: 08/24/2020
 ms.author: inhenkel
-ms.openlocfilehash: c481daf73f916ede2e7063c75448ba4d09e553cc
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 8e3b9636dfb900fa0e22bfea8bcd2d0c7edf0241
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100571856"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104596706"
 ---
 # <a name="tutorial-store-azure-media-services-events-in-azure-log-analytics"></a>Esercitazione: Archiviare eventi di Servizi multimediali di Azure in Azure Log Analytics
 
 ## <a name="azure-media-services-events"></a>Eventi di Servizi multimediali di Azure
 
-Servizi multimediali di Azure v3 emette eventi in [Griglia di eventi di Azure](media-services-event-schemas.md). È possibile sottoscrivere eventi in molti modi e archiviarli negli archivi dati. In questa esercitazione verranno sottoscritti eventi di Servizi multimediali mediante un [flusso di app per la logica](https://azure.microsoft.com/services/logic-apps/). L'app per la logica verrà attivata per ogni evento e archivierà il corpo dell'evento in Azure Log Analytics. Quando gli eventi si trovano in Azure Log Analytics, è possibile usare altri servizi di Azure per creare un dashboard, monitorare e inviare un avviso per tali eventi, anche se queste operazioni non verranno illustrate in questa esercitazione.
+Servizi multimediali di Azure v3 emette eventi in [Griglia di eventi di Azure](monitoring/media-services-event-schemas.md). È possibile sottoscrivere eventi in molti modi e archiviarli negli archivi dati. In questa esercitazione verranno sottoscritti eventi di Servizi multimediali mediante un [flusso di app per la logica](https://azure.microsoft.com/services/logic-apps/). L'app per la logica verrà attivata per ogni evento e archivierà il corpo dell'evento in Azure Log Analytics. Quando gli eventi si trovano in Azure Log Analytics, è possibile usare altri servizi di Azure per creare un dashboard, monitorare e inviare un avviso per tali eventi, anche se queste operazioni non verranno illustrate in questa esercitazione.
 
 > [!NOTE]
 > Una familiarità con FFmpeg come codificatore locale può risultare utile,  ma non è obbligatoria. La riga di comando e le istruzioni per lo streaming di un video sono incluse più avanti.

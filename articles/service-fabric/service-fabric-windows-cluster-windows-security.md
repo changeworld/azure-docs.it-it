@@ -4,10 +4,10 @@ description: Informazioni su come configurare la sicurezza da nodo a nodo e da c
 ms.topic: conceptual
 ms.date: 08/24/2017
 ms.openlocfilehash: a34c7084a9faaf0d676d4f6c68da53b2bc84f01b
-ms.sourcegitcommit: 87a6587e1a0e242c2cfbbc51103e19ec47b49910
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/16/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "103574612"
 ---
 # <a name="secure-a-standalone-cluster-on-windows-by-using-windows-security"></a>Proteggere un cluster autonomo in Windows usando la protezione di Windows

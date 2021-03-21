@@ -7,12 +7,12 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 01/07/2021
-ms.openlocfilehash: 07be5d29ccb55fe97f38123ff4a850d28cd39ead
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: ce7c97abfb879e9298edac5f38540bbc026274da
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100387683"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104584401"
 ---
 # <a name="troubleshoot-copy-activity-performance"></a>Risolvere i problemi delle prestazioni dell'attività di copia
 
@@ -168,7 +168,7 @@ Quando le prestazioni di copia non soddisfano le aspettative, per risolvere i pr
   - Si consideri di ottimizzare gradualmente le [copie parallele](copy-activity-performance-features.md). si noti che troppe copie parallele potrebbero anche danneggiare le prestazioni.
 
 
-## <a name="connector-and-ir-performance"></a>Prestazioni del connettore e IR
+## <a name="connector-and-ir-performance"></a>Prestazioni del connettore e IR 
 
 Questa sezione illustra alcune guide per la risoluzione dei problemi relativi alle prestazioni per un particolare tipo di connettore o runtime di integrazione.
 
@@ -176,9 +176,11 @@ Questa sezione illustra alcune guide per la risoluzione dei problemi relativi al
 
 Il tempo di esecuzione dell'attività varia quando il set di dati è basato su Integration Runtime diversi.
 
-- **Sintomi**: è sufficiente impostare l'elenco a discesa servizio collegato nel set di dati per eseguire le stesse attività della pipeline, ma con tempi di esecuzione notevolmente diversi. Quando il set di dati è basato sulla rete virtuale gestita Integration Runtime, in media sono necessari più di 2 minuti per completare l'esecuzione, ma sono necessari circa 20 secondi per essere completati quando si basano sulla Integration Runtime predefinita.
+- **Sintomi**: è sufficiente impostare l'elenco a discesa servizio collegato nel set di dati per eseguire le stesse attività della pipeline, ma con tempi di esecuzione notevolmente diversi. Quando il set di dati è basato sulla rete virtuale gestita Integration Runtime, la media richiede più tempo rispetto all'esecuzione in base alla Integration Runtime predefinita.  
 
-- **Motivo**: se si verificano i dettagli delle esecuzioni della pipeline, è possibile osservare che la pipeline lenta viene eseguita in un runtime di integrazione VNet (rete virtuale) gestito, mentre quello normale viene eseguito in Azure IR. Per impostazione predefinita, il runtime di integrazione VNet gestito impiega più tempo di coda rispetto a Azure IR perché non si riserva un nodo di calcolo per ogni data factory, quindi si verificano circa 2 minuti per l'avvio di ogni attività di copia e si verifica principalmente nel join VNet invece che Azure IR.
+- **Motivo**: se si verificano i dettagli delle esecuzioni della pipeline, è possibile osservare che la pipeline lenta viene eseguita in un runtime di integrazione VNet (rete virtuale) gestito, mentre quello normale viene eseguito in Azure IR. Per impostazione predefinita, il runtime di integrazione VNet gestito impiega più tempo di coda rispetto a Azure IR perché non si riserva un nodo di calcolo per ogni data factory, quindi si verifica un riscaldamento per ogni attività di copia da avviare e si verifica principalmente nel join VNet anziché Azure IR. 
+
+
 
     
 ### <a name="low-performance-when-loading-data-into-azure-sql-database"></a>Prestazioni ridotte durante il caricamento dei dati nel database SQL di Azure

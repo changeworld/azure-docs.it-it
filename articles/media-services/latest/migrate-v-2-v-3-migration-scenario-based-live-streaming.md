@@ -11,12 +11,12 @@ ms.tgt_pltfrm: multiple
 ms.workload: media
 ms.date: 1/14/2020
 ms.author: inhenkel
-ms.openlocfilehash: 327673d0765fa807f782494562c995278be4782f
-ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
+ms.openlocfilehash: 6a2c6495ca3685aec1bc132ec7f8a88809ad2d87
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98955293"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104598287"
 ---
 # <a name="live-streaming-scenario-based-migration-guidance"></a>Guida alla migrazione basata sullo scenario live streaming
 
@@ -42,7 +42,7 @@ Testare la nuova modalità di distribuzione di eventi live con servizi multimedi
 - Se è necessario avviare rapidamente eventi live, esplorare le nuove funzionalità della [modalità standby](live-events-outputs-concept.md#standby-mode) .
 - Se si vuole trascrivere l'evento Live mentre è in corso, esplorare la nuova funzionalità di [trascrizione in tempo reale](live-transcription.md) .
 - È possibile creare eventi live 24x7x365 in V3 se è necessaria una durata di streaming maggiore.
-- USA [griglia di eventi](monitor-events-portal-how-to.md) per monitorare gli eventi live.
+- USA [griglia di eventi](monitoring/monitor-events-portal-how-to.md) per monitorare gli eventi live.
 
 Per i passaggi specifici, vedere Concetti, esercitazioni e procedure dettagliate per gli eventi live.
 

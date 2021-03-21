@@ -101,7 +101,7 @@
       href: offline-capabilities.md
     - name: Dispositivo IoT Edge come gateway
       href: iot-edge-as-gateway.md
-    - name: Security
+    - name: Sicurezza
       items:
         - name: Sicurezza in Azure IoT Edge
           href: security.md
@@ -131,6 +131,8 @@
           href: how-to-update-iot-edge.md
         - name: Gestire i certificati dei dispositivi
           href: how-to-manage-device-certificates.md
+        - name: Configurare la virtualizzazione annidata per macchine virtuali Windows
+          href: nested-virtualization.md
     - name: Scenari di dispositivi alternativi
       items:
         - name: Eseguire IoT Edge con i contenitori di Windows

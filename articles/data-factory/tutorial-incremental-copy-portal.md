@@ -7,12 +7,12 @@ ms.service: data-factory
 ms.topic: tutorial
 ms.custom: seo-dt-2019
 ms.date: 02/18/2021
-ms.openlocfilehash: 6f586cacaa983ea1e53b34f602f882c530a9bf28
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 310182a3b46f0682efe420387bba0da311707e8a
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101716330"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104606600"
 ---
 # <a name="incrementally-load-data-from-azure-sql-database-to-azure-blob-storage-using-the-azure-portal"></a>Caricare i dati in modo incrementale da Database SQL di Azure ad Archiviazione BLOB di Azure con il portale di Azure
 
@@ -170,7 +170,7 @@ END
 8. Fare clic su **Crea**.      
 9. Al termine della creazione verrà visualizzata la pagina **Data factory**, come illustrato nell'immagine.
 
-   ![Home page di Data factory](./media/doc-common-process/data-factory-home-page.png)
+    :::image type="content" source="./media/doc-common-process/data-factory-home-page.png" alt-text="Home page per la Azure Data Factory, con il riquadro Author & monitor.":::
 10. Fare clic sul riquadro **Crea e monitora** per avviare l'interfaccia utente di Azure Data Factory in una scheda separata.
 
 ## <a name="create-a-pipeline"></a>Creare una pipeline

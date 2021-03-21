@@ -6,10 +6,10 @@ ms.date: 04/13/2020
 ms.author: trbye
 ms.custom: devx-track-csharp
 ms.openlocfilehash: 5efe6e9cf3227857300d649a8c2ecb4973627335
-ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/07/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102445646"
 ---
 Una delle funzionalità principali del servizio di riconoscimento vocale è la possibilità di riconoscere la voce umana e tradurla in altre lingue. Questa Guida introduttiva illustra come usare l'SDK di riconoscimento vocale nelle app e nei prodotti per eseguire la traduzione vocale di alta qualità. Questa Guida introduttiva illustra gli argomenti tra cui:
@@ -32,7 +32,7 @@ Prima di poter eseguire qualsiasi operazione, è necessario installare Speech SD
 
 ## <a name="import-dependencies"></a>Importare le dipendenze
 
-Per eseguire gli esempi in questo articolo, includere le istruzioni seguenti nella `using` parte superiore del file *Program.cs* .
+Per eseguire gli esempi in questo articolo, includere le istruzioni seguenti nella `using` parte superiore del file *Program. cs* .
 
 ```csharp
 using System;

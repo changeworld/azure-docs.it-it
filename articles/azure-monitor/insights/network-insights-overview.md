@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: KumudD
 ms.author: kumud
 ms.date: 11/25/2020
-ms.openlocfilehash: 20f61ad92307a16515156151b816494e9aa289f7
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: db94a376112b3d715da9095acb05c0b4fd4ea02f
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101717469"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104605801"
 ---
 # <a name="azure-monitor-for-networks"></a>Monitoraggio di Azure per le reti
 
@@ -108,10 +108,12 @@ Il Toolkit di diagnostica fornisce l'accesso a tutte le funzionalità di diagnos
 
 ![Screenshot che mostra la scheda del Toolkit di diagnostica.](media/network-insights-overview/azure-monitor-for-networks-diagnostic-toolkit.png)
 
+## <a name="onboarded-resources"></a>Risorse caricate 
+
+Le risorse caricate dispongono di cartelle di lavoro predefinite e viste delle dipendenze. Le risorse attualmente caricate sono WAN virtuale, gateway applicazione, Load Balancer e ExpressRoute.
+
 ## <a name="troubleshooting"></a>Risoluzione dei problemi 
-
 Per indicazioni generali sulla risoluzione dei problemi, vedere l'articolo dedicato alla [risoluzione dei](troubleshoot-workbooks.md)problemi di Insights basato sulla cartella di lavoro.
-
 Questa sezione consente di diagnosticare e risolvere alcuni problemi comuni che possono verificarsi quando si usa monitoraggio di Azure per le reti. 
 
 ### <a name="how-do-i-resolve-performance-problems-or-failures"></a>Ricerca per categorie risolvere problemi di prestazioni o errori?

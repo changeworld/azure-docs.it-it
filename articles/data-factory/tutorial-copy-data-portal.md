@@ -7,12 +7,12 @@ ms.topic: tutorial
 ms.custom: seo-lt-2019
 ms.date: 02/18/2021
 ms.author: jingwang
-ms.openlocfilehash: 17f3c31334517ad560cd40fd22b4def031279ca5
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 08ab3c9181f4fdcfc9b55bf80c53f88ff26f90ce
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101741056"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104584392"
 ---
 # <a name="copy-data-from-azure-blob-storage-to-a-database-in-azure-sql-database-by-using-azure-data-factory"></a>Copiare dati da Archiviazione BLOB di Azure a un database nel database SQL di Azure con Azure Data Factory
 
@@ -90,7 +90,7 @@ In questo passaggio si crea una data factory e si avvia l'interfaccia utente di 
 
    Il nome della data factory di Azure deve essere *univoco a livello globale*. Se viene visualizzato un messaggio di errore relativo al valore del nome, immettere un nome diverso per la data factory. Ad esempio, nomeutenteADFTutorialDataFactory. Per informazioni sulle regole di denominazione per gli elementi di Data factory, vedere [Azure Data factory - Regole di denominazione](naming-rules.md).
 
-     ![Nuova data factory](./media/doc-common-process/name-not-available-error.png)
+    :::image type="content" source="./media/doc-common-process/name-not-available-error.png" alt-text="Nuovo data factory messaggio di errore per il nome duplicato.":::
 
 7. In **Versione** selezionare **V2**.
 8. Selezionare la scheda **Configurazione GIT** nella parte superiore e quindi la casella di controllo **Configure Git later** (Configura GIT in un secondo momento).

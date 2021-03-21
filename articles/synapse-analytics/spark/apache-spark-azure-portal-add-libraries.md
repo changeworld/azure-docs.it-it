@@ -9,12 +9,12 @@ ms.date: 03/01/2020
 ms.author: midesa
 ms.reviewer: jrasnick
 ms.subservice: spark
-ms.openlocfilehash: c6d720c3feec29eb32b1cfa9c31ea45839c98ec7
-ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
+ms.openlocfilehash: e8ad6d072af6979eb8509068c1dcd239e7840950
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102176417"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104598015"
 ---
 # <a name="manage-libraries-for-apache-spark-in-azure-synapse-analytics"></a>Gestire le librerie per Apache Spark in Azure sinapsi Analytics
 Le librerie forniscono codice riutilizzabile che può essere utile includere nei programmi o nei progetti. 
@@ -60,10 +60,6 @@ Per ulteriori informazioni su queste funzionalità, vedere la documentazione rel
 Spesso, quando si esegue l'analisi interattiva dei dati o l'apprendimento automatico, è possibile che si desideri provare i pacchetti più recenti o che siano necessari pacchetti non ancora disponibili nel pool di Apache Spark. Anziché aggiornare la configurazione del pool, gli utenti possono ora usare pacchetti con ambito sessione per aggiungere, gestire e aggiornare le dipendenze della sessione.
 
 I pacchetti con ambito sessione consentono agli utenti di definire le dipendenze dei pacchetti all'inizio della sessione. Quando si installa un pacchetto con ambito sessione, solo la sessione corrente può accedere ai pacchetti specificati. Di conseguenza, questi pacchetti con ambito sessione non influiscano su altre sessioni o processi che usano lo stesso pool di Apache Spark. Inoltre, queste librerie vengono installate sopra i pacchetti di runtime di base e a livello di pool. 
-
-Questi pacchetti vengono aggiunti automaticamente all'ambiente Python. I pacchetti non devono essere indicati nel file di *requirements.txt* .
-
-Si noti che questo metodo attualmente supporta solo `*.whl` file. Non aggiungere `*.tar.gz` file al contenitore.
 
 Per altre informazioni su come gestire i pacchetti con ambito sessione, vedere le guide alle procedure seguenti:
 
