@@ -11,12 +11,12 @@ metadata:
   ms.author: dobett
   manager: philmea
   ms.date: 10/31/2019
-  ms.openlocfilehash: 75aa276fb41ebe717caa5c2f0dbdab5f9709237e
-  ms.sourcegitcommit: b8eba4e733ace4eb6d33cc2c59456f550218b234
-  ms.translationtype: HT
+  ms.openlocfilehash: 9bd52c35ac334ae3d47f3f5090ba3cbd7b9bb3d4
+  ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+  ms.translationtype: MT
   ms.contentlocale: it-IT
-  ms.lasthandoff: 11/23/2020
-  ms.locfileid: "95495237"
+  ms.lasthandoff: 03/19/2021
+  ms.locfileid: "104582596"
 landingContent:
 - title: Informazioni su Plug and Play IoT
   linkLists:
@@ -36,8 +36,8 @@ landingContent:
     links:
     - text: Guida per sviluppatori
       url: concepts-developer-guide-device.md
-    - text: Componenti
-      url: concepts-components.md
+    - text: Guida alla modellazione
+      url: concepts-modeling-guide.md
     - text: Convenzioni di Plug and Play IoT
       url: concepts-convention.md
     - text: Bridge Plug and Play IoT

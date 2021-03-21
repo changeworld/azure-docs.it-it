@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 02/05/2021
 ms.author: mjbrown
 ms.reviewer: sngun
-ms.openlocfilehash: f22d97f8a4ab5e5b6e275c405cce523e8a7b8e72
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: fd704d45aa7dc10835a205f12ce26fc01a7ea44f
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101656551"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104584500"
 ---
 # <a name="how-does-azure-cosmos-db-provide-high-availability"></a>In che modo Azure Cosmos DB fornisce disponibilità elevata
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
@@ -69,12 +69,14 @@ Per i rari casi di interruzione a livello di area, Azure Cosmos DB garantisce ch
 
 * Durante un'interruzione dell'area di scrittura, l'account Azure Cosmos promuoverà automaticamente un'area secondaria come nuova area di scrittura primaria quando l' **Abilitazione del failover automatico** è configurata nell'account Azure Cosmos. Se abilitata, il failover viene eseguito in un'altra area nell'ordine di priorità dell'area specificato.
 
+* Si noti che il failover manuale non dovrebbe essere attivato e non riuscirà in presenza di un'interruzione dell'area di origine o di destinazione. Ciò è dovuto a una verifica di coerenza richiesta dalla procedura di failover che richiede la connettività tra le aree.
+
 * Quando l'area interessata in precedenza è di nuovo online, i dati di scrittura non replicati in caso di errore nell'area vengono resi disponibili tramite il [feed dei conflitti](how-to-manage-conflicts.md#read-from-conflict-feed). Le applicazioni possono leggere il feed dei conflitti, risolvere i conflitti in base alla logica specifica dell'applicazione e scrivere di nuovo i dati aggiornati nel contenitore Azure Cosmos nel modo appropriato.
 
 * Una volta che viene ripristinata l'area di scrittura interessata in precedenza, diventa automaticamente disponibile come area di lettura. È possibile tornare all'area ripristinata come area di scrittura. È possibile cambiare le aree usando PowerShell, l'interfaccia della riga di comando di [Azure o portale di Azure](how-to-manage-database-account.md#manual-failover). Non sono presenti **dati o perdite di disponibilità** prima di, durante o dopo l'attivazione dell'area di scrittura e l'applicazione continua a essere a disponibilità elevata.
 
 > [!IMPORTANT]
-> Si consiglia vivamente di configurare gli account Azure Cosmos usati per i carichi di lavoro di produzione per **abilitare il failover automatico**. Il failover manuale richiede la connettività tra l'area di scrittura secondaria e quella primaria per completare una verifica della coerenza per assicurarsi che non si verifichino perdite di dati durante il failover. Se l'area primaria non è disponibile, la verifica di coerenza non è completa e il failover manuale non riesce, causando la perdita della disponibilità di scrittura per la durata dell'interruzione a livello di area.
+> Si consiglia vivamente di configurare gli account Azure Cosmos usati per i carichi di lavoro di produzione per **abilitare il failover automatico**. Questo consente Cosmos DB di eseguire automaticamente il failover dei database di account in aree disponibile critica. In assenza di questa configurazione, si verificherà una perdita di disponibilità di scrittura per tutta la durata dell'interruzione dell'area di scrittura, perché il failover manuale non riuscirà a causa della mancanza di connettività dell'area.
 
 ### <a name="multi-region-accounts-with-a-single-write-region-read-region-outage"></a>Account a più aree con un'area a scrittura singola (interruzione dell'area di lettura)
 
@@ -138,7 +140,22 @@ Zone di disponibilità possono essere abilitati tramite:
 
 * Anche se l'account Azure Cosmos è a disponibilità elevata, è possibile che l'applicazione non sia progettata correttamente per restare a disponibilità elevata. Per testare la disponibilità elevata end-to-end dell'applicazione, durante il test delle applicazioni o il ripristino di emergenza, disabilitare temporaneamente il failover automatico per l'account, richiamare il [failover manuale usando PowerShell, l'interfaccia della riga di comando di Azure o portale di Azure](how-to-manage-database-account.md#manual-failover), quindi monitorare il failover dell'applicazione. Al termine, è possibile eseguire il failback nell'area primaria e ripristinare il failover automatico per l'account.
 
+> [!IMPORTANT]
+> Non richiamare il failover manuale durante un'interruzione del Cosmos DB nelle aree di origine o di destinazione, poiché richiede la connettività delle aree per mantenere la coerenza dei dati e l'operazione non riuscirà.
+
 * All'interno di un ambiente di database distribuito a livello globale, esiste una relazione diretta tra il livello di coerenza e la durabilità dei dati in presenza di un'interruzione a livello di area. Quando si sviluppa il piano di continuità aziendale, è necessario conoscere il tempo massimo accettabile prima che l'applicazione venga ripristinata completamente dopo un evento di arresto improvviso. Il tempo necessario per il ripristino completo di un'applicazione è noto come obiettivo del tempo di ripristino (RTO). È anche necessario conoscere la perdita massima di aggiornamenti di dati recenti che l'applicazione è in grado di tollerare durante il ripristino dopo un evento di arresto improvviso. Il periodo di tempo degli aggiornamenti che è possibile perdere è noto come obiettivo del punto di ripristino (RPO). Per l'obiettivo del punto di ripristino (RPO) e l'obiettivo del tempo di ripristino (RTO) per Azure Cosmos DB, vedere [Livelli di coerenza e durabilità dei dati](./consistency-levels.md#rto)
+
+## <a name="what-to-expect-during-a-region-outage"></a>Cosa aspettarsi durante un'interruzione dell'area
+
+Per gli account a singola area, i client subiranno una perdita di disponibilità in lettura e scrittura.
+
+Per gli account in più aree si verificheranno comportamenti diversi a seconda della tabella seguente.
+
+| Aree di scrittura | Failover automatico | Risultati previsti | Operazioni da eseguire |
+| -- | -- | -- | -- |
+| Singola area di scrittura | Non abilitato | In caso di interruzione in un'area di lettura, tutti i client vengono reindirizzati ad altre aree. Nessuna perdita di disponibilità in lettura o scrittura. Nessuna perdita di dati. <p/> In caso di interruzione nell'area di scrittura, i client subiranno una perdita di disponibilità di scrittura. La perdita di dati dipenderà dal livello di constistency selezionato. <p/> Cosmos DB ripristinerà automaticamente la disponibilità di scrittura al termine dell'interruzione. | Durante il periodo di interruzione, assicurarsi che sia disponibile una capacità sufficiente per il supporto del traffico di lettura nelle aree rimanenti. <p/> Non *attivare un* failover manuale durante l'interruzione, in quanto l'operazione avrà esito negativo. <p/> Al termine dell'interruzione, modificare nuovamente la capacità di cui è stato effettuato il provisioning in base alle esigenze. |
+| Singola area di scrittura | Abilitato | In caso di interruzione in un'area di lettura, tutti i client vengono reindirizzati ad altre aree. Nessuna perdita di disponibilità in lettura o scrittura. Nessuna perdita di dati. <p/> In caso di interruzione nell'area di scrittura, i client verificheranno una perdita di disponibilità in scrittura fino a quando Cosmos DB sceglie automaticamente una nuova regione come nuova area di scrittura in base alle proprie preferenze. La perdita di dati dipenderà dal livello di constistency selezionato. | Durante il periodo di interruzione, assicurarsi che sia disponibile una capacità sufficiente per il supporto del traffico di lettura nelle aree rimanenti. <p/> Non *attivare un* failover manuale durante l'interruzione, in quanto l'operazione avrà esito negativo. <p/> Al termine dell'interruzione, è possibile ripristinare i dati non replicati nell'area in cui si è verificato l'errore dal [feed dei conflitti](how-to-manage-conflicts.md#read-from-conflict-feed), riportare l'area di scrittura nell'area originale e modificare di nuovo la capacità di cui è stato effettuato il provisioning in base alle esigenze. |
+| Più aree di scrittura | Non applicabile | Nessuna perdita di disponibilità in lettura o scrittura. <p/> Perdita di dati in base al livello di coerenza selezionato. | Durante il periodo di interruzione, assicurarsi che sia disponibile una capacità sufficiente per supportare il traffico aggiuntivo nelle aree rimanenti. <p/> Al termine dell'interruzione, è possibile ripristinare i dati non replicati nell'area di errore dal [feed dei conflitti](how-to-manage-conflicts.md#read-from-conflict-feed) e modificare di nuovo la capacità di cui è stato effettuato il provisioning nel modo appropriato. |
 
 ## <a name="next-steps"></a>Passaggi successivi
 

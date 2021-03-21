@@ -13,10 +13,10 @@ ms.date: 07/15/2020
 ms.author: jmprieur
 ms.custom: aaddev
 ms.openlocfilehash: 6d737f107e7a9b1476fdf86ac0320931ea137671
-ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94442906"
 ---
 # <a name="protected-web-api-verify-scopes-and-app-roles"></a>API Web protetta: verificare ambiti e ruoli app
@@ -47,8 +47,8 @@ Per proteggere un'API Web ASP.NET o ASP.NET Core, è necessario aggiungere l'att
 
 Questa protezione, tuttavia, non è sufficiente. Garantisce solo che ASP.NET e ASP.NET Core convalidino il token. L'API deve verificare che il token usato per chiamare l'API venga richiesto con le attestazioni previste. La verifica è necessaria, in particolare, per queste attestazioni:
 
-- *Ambiti* , se l'API viene chiamata per conto di un utente.
-- *Ruoli app* , se l'API può essere chiamata da un'app daemon.
+- *Ambiti*, se l'API viene chiamata per conto di un utente.
+- *Ruoli app*, se l'API può essere chiamata da un'app daemon.
 
 ## <a name="verify-scopes-in-apis-called-on-behalf-of-users"></a>Verificare gli ambiti nelle API chiamate per conto di utenti
 
@@ -113,7 +113,7 @@ public class TodoListController : ApiController
     }
 ```
 
-Il `ValidateAppRole` metodo è definito in Microsoft. Identity. Web in [RolesRequiredHttpContextExtensions.cs](https://github.com/AzureAD/microsoft-identity-web/blob/d2ad0f5f830391a34175d48621a2c56011a45082/src/Microsoft.Identity.Web/Resource/RolesRequiredHttpContextExtensions.cs#L28).
+Il `ValidateAppRole` metodo è definito in Microsoft. Identity. Web in [RolesRequiredHttpContextExtensions. cs](https://github.com/AzureAD/microsoft-identity-web/blob/d2ad0f5f830391a34175d48621a2c56011a45082/src/Microsoft.Identity.Web/Resource/RolesRequiredHttpContextExtensions.cs#L28).
 
 ### <a name="aspnet-mvc"></a>ASP.NET MVC
 

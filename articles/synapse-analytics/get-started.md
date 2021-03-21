@@ -9,13 +9,13 @@ ms.reviewer: jrasnick
 ms.service: synapse-analytics
 ms.subservice: workspace
 ms.topic: tutorial
-ms.date: 11/17/2020
-ms.openlocfilehash: b1339a0ab5be9004643cf2e9f86203eba9a2cc72
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
-ms.translationtype: HT
+ms.date: 03/18/2021
+ms.openlocfilehash: 0153797445e2a3f55baa53e49c06ee5c82e3bebe
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96445073"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104606226"
 ---
 # <a name="get-started-with-azure-synapse-analytics"></a>Introduzione ad Azure Synapse Analytics
 
@@ -24,9 +24,9 @@ Questa esercitazione è una guida dettagliata sulle principali aree di funzional
 Seguire i passaggi *in ordine*, come indicato di seguito, per avere una panoramica di molte delle funzionalità e apprendere l'utilizzo delle funzionalità principali.
 
 * [PASSAGGIO 1 - Creare e configurare un'area di lavoro Synapse](get-started-create-workspace.md)
-* [PASSAGGIO 2 - Eseguire analisi con un pool SQL dedicato](get-started-analyze-sql-pool.md)
+* [PASSAGGIO 2: analizzare usando un pool SQL senza server](get-started-analyze-sql-on-demand.md)
 * [PASSAGGIO 3 - Eseguire analisi con Apache Spark](get-started-analyze-spark.md)
-* [PASSAGGIO 4 - Eseguire analisi con un pool SQL serverless](get-started-analyze-sql-on-demand.md)
+* [PASSAGGIO 4: analizzare usando un pool SQL dedicato](get-started-analyze-sql-pool.md)
 * [PASSAGGIO 5 - Analizzare i dati in un account di archiviazione](get-started-analyze-storage.md)
 * [PASSAGGIO 6 - Orchestrare con le pipeline](get-started-pipelines.md)
 * [PASSAGGIO 7 - Visualizzare i dati con Power BI](get-started-visualize-power-bi.md)

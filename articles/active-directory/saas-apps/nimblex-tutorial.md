@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 03/18/2019
 ms.author: jeedes
 ms.openlocfilehash: 528411f7ef662e90bce98a52b67caa9123fad6ad
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
-ms.translationtype: HT
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/24/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92522460"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-nimblex"></a>Esercitazione: Integrazione di Azure Active Directory con Nimblex
@@ -55,7 +55,7 @@ Per configurare l'integrazione di Nimblex in Azure AD, è necessario aggiungere 
 
     ![Pulsante Azure Active Directory](common/select-azuread.png)
 
-2. Passare ad **Applicazioni aziendali** e quindi selezionare l'opzione **Tutte le applicazioni** .
+2. Passare ad **Applicazioni aziendali** e quindi selezionare l'opzione **Tutte le applicazioni**.
 
     ![Pannello Applicazioni aziendali](common/enterprise-applications.png)
 
@@ -63,13 +63,13 @@ Per configurare l'integrazione di Nimblex in Azure AD, è necessario aggiungere 
 
     ![Pulsante Nuova applicazione](common/add-new-app.png)
 
-4. Nella casella di ricerca digitare **Nimblex** , selezionare **Nimblex** dal pannello dei risultati e quindi fare clic sul pulsante **Aggiungi** per aggiungere l'applicazione.
+4. Nella casella di ricerca digitare **Nimblex**, selezionare **Nimblex** dal pannello dei risultati e quindi fare clic sul pulsante **Aggiungi** per aggiungere l'applicazione.
 
      ![Nimblex nell'elenco risultati](common/search-new-app.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurare e testare l'accesso Single Sign-On di Azure AD
 
-In questa sezione viene configurato e testato l'accesso Single Sign-On di Azure AD con Nimblex usando un utente di test di nome **Britta Simon** .
+In questa sezione viene configurato e testato l'accesso Single Sign-On di Azure AD con Nimblex usando un utente di test di nome **Britta Simon**.
 Per il corretto funzionamento dell'accesso Single Sign-On, deve essere stabilita una relazione di collegamento tra un utente di Azure AD e l'utente correlato in Nimblex.
 
 Per configurare e testare l'accesso Single Sign-On di Azure AD con Nimblex, è necessario completare i blocchi predefiniti seguenti:
@@ -87,7 +87,7 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
 
 Per configurare l'accesso Single Sign-On di Azure AD con Nimblex, seguire questa procedura:
 
-1. Nella pagina di integrazione dell'applicazione **Nimblex** del [portale di Azure](https://portal.azure.com/) selezionare **Single Sign-On** .
+1. Nella pagina di integrazione dell'applicazione **Nimblex** del [portale di Azure](https://portal.azure.com/) selezionare **Single Sign-On**.
 
     ![Collegamento Configura accesso Single Sign-On](common/select-sso.png)
 
@@ -95,7 +95,7 @@ Per configurare l'accesso Single Sign-On di Azure AD con Nimblex, seguire questa
 
     ![Selezione della modalità Single Sign-On](common/select-saml-option.png)
 
-3. Nella pagina **Configura l'accesso Single Sign-On con SAML** fare clic sull'icona **Modifica** per aprire la finestra di dialogo **Configurazione SAML di base** .
+3. Nella pagina **Configura l'accesso Single Sign-On con SAML** fare clic sull'icona **Modifica** per aprire la finestra di dialogo **Configurazione SAML di base**.
 
     ![Modificare la configurazione SAML di base](common/edit-urls.png)
 
@@ -112,7 +112,7 @@ Per configurare l'accesso Single Sign-On di Azure AD con Nimblex, seguire questa
     > [!NOTE]
     > Poiché questi non sono i valori reali, è necessario aggiornarli con l'identificatore e l'URL di accesso effettivi. Per ottenere questi valori, contattare il [team di supporto clienti di Nimblex](mailto:support@ebms.com.au). È anche possibile fare riferimento ai modelli mostrati nella sezione **Configurazione SAML di base** del portale di Azure.
 
-4. Nella pagina **Configura l'accesso Single Sign-On con SAML** , nella sezione **Certificato di firma SAML** , fare clic su **Scarica** per scaricare il **Certificato (Base64)** dalle opzioni specificate in base ai propri requisiti e salvarlo nel computer in uso.
+4. Nella pagina **Configura l'accesso Single Sign-On con SAML**, nella sezione **Certificato di firma SAML**, fare clic su **Scarica** per scaricare il **Certificato (Base64)** dalle opzioni specificate in base ai propri requisiti e salvarlo nel computer in uso.
 
     ![Collegamento di download del certificato](common/certificatebase64.png)
 
@@ -134,11 +134,11 @@ Per configurare l'accesso Single Sign-On di Azure AD con Nimblex, seguire questa
 
     ![Screenshot che mostra l'icona Settings.](./media/nimblex-tutorial/tutorial_nimblex_settings.png)
 
-3. Dalla pagina del **Pannello di controllo** , nella sezione **Sicurezza** , fare clic su **Single Sign-on** .
+3. Dalla pagina del **Pannello di controllo**, nella sezione **Sicurezza**, fare clic su **Single Sign-on**.
 
     ![Screenshot che mostra l'opzione Single Sign-on selezionata dal menu Security.](./media/nimblex-tutorial/tutorial_nimblex_single.png)
 
-4. Nella pagina **Gestisci Single Sign-On** , selezionare il nome dell'istanza e fare clic su **Modifica** .
+4. Nella pagina **Gestisci Single Sign-On**, selezionare il nome dell'istanza e fare clic su **Modifica**.
 
     ![Screenshot che mostra la pagina Manage Single Sign-On in cui è possibile selezionare l'opzione Edit.](./media/nimblex-tutorial/tutorial_nimblex_saml.png)
 
@@ -146,19 +146,19 @@ Per configurare l'accesso Single Sign-On di Azure AD con Nimblex, seguire questa
 
     ![Screenshot che mostra la sezione Edit SSO Provider in cui è possibile immettere i valori descritti.](./media/nimblex-tutorial/tutorial_nimblex_sso.png)
 
-    a. Nella casella di testo **Descrizione** , digitare il nome dell'istanza.
+    a. Nella casella di testo **Descrizione**, digitare il nome dell'istanza.
 
-    b. Nel Blocco note, aprire il certificato con codifica Base 64 scaricato dal portale di Azure, copiarne il contenuto e quindi incollarlo nella casella **Certificato** .
+    b. Nel Blocco note, aprire il certificato con codifica Base 64 scaricato dal portale di Azure, copiarne il contenuto e quindi incollarlo nella casella **Certificato**.
 
     c. Nella casella di testo **Identity Provider Sso Target Url** (URL di destinazione SSO del provider di identità) incollare il valore di **URL di accesso** copiato dal portale di Azure.
 
-    d. Fare clic su **Salva** .
+    d. Fare clic su **Salva**.
 
 ### <a name="create-an-azure-ad-test-user"></a>Creare un utente di test di Azure AD 
 
 Questa sezione descrive come creare un utente test denominato Britta Simon nel portale di Azure.
 
-1. Nel riquadro sinistro del portale di Azure, selezionare **Azure Active Directory** , **Utenti** e quindi **Tutti gli utenti** .
+1. Nel riquadro sinistro del portale di Azure, selezionare **Azure Active Directory**, **Utenti** e quindi **Tutti gli utenti**.
 
     ![Collegamenti "Utenti e gruppi" e "Tutti gli utenti"](common/users.png)
 
@@ -170,24 +170,24 @@ Questa sezione descrive come creare un utente test denominato Britta Simon nel p
 
     ![Finestra di dialogo Utente](common/user-properties.png)
 
-    a. Nel campo **Nome** immettere **BrittaSimon** .
+    a. Nel campo **Nome** immettere **BrittaSimon**.
   
     b. Nel campo **Nome utente** digitare **brittasimon@yourcompanydomain.extension**  
     Ad esempio, usare BrittaSimon@contoso.com
 
     c. Selezionare la casella di controllo **Mostra password** e quindi prendere nota del valore visualizzato nella casella Password.
 
-    d. Fare clic su **Crea** .
+    d. Fare clic su **Crea**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Assegnare l'utente di test di Azure AD
 
 In questa sezione Britta Simon viene autorizzata a usare l'accesso Single Sign-On di Azure tramite la concessione dell'accesso a Nimblex.
 
-1. Nel portale di Azure selezionare **Applicazioni aziendali** , quindi **Tutte le applicazioni** e infine **Nimblex** .
+1. Nel portale di Azure selezionare **Applicazioni aziendali**, quindi **Tutte le applicazioni** e infine **Nimblex**.
 
     ![Pannello delle applicazioni aziendali](common/enterprise-applications.png)
 
-2. Nell'elenco di applicazioni selezionare **Nimblex** .
+2. Nell'elenco di applicazioni selezionare **Nimblex**.
 
     ![Collegamento di Nimblex nell'elenco delle applicazioni](common/all-applications.png)
 
@@ -195,7 +195,7 @@ In questa sezione Britta Simon viene autorizzata a usare l'accesso Single Sign-O
 
     ![Collegamento "Utenti e gruppi"](common/users-groups-blade.png)
 
-4. Fare clic sul pulsante **Aggiungi utente** e quindi selezionare **Utenti e gruppi** nella finestra di dialogo **Aggiungi assegnazione** .
+4. Fare clic sul pulsante **Aggiungi utente** e quindi selezionare **Utenti e gruppi** nella finestra di dialogo **Aggiungi assegnazione**.
 
     ![Riquadro Aggiungi assegnazione](common/add-assign-user.png)
 
@@ -203,7 +203,7 @@ In questa sezione Britta Simon viene autorizzata a usare l'accesso Single Sign-O
 
 6. Se si prevede un valore di ruolo nell'asserzione SAML, nella finestra di dialogo **Selezionare un ruolo** selezionare il ruolo appropriato per l'utente dall'elenco e quindi fare clic sul pulsante **Seleziona** nella parte inferiore della schermata.
 
-7. Nella finestra di dialogo **Aggiungi assegnazione** fare clic sul pulsante **Assegna** .
+7. Nella finestra di dialogo **Aggiungi assegnazione** fare clic sul pulsante **Assegna**.
 
 ### <a name="create-nimblex-test-user"></a>Creare l'utente di test di Nimblex
 

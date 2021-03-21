@@ -139,7 +139,7 @@
     - name: Destinazione del calcolo
       displayName: 'resource, dsvm, AKS, kubernetes, amlcompute, Data Science Virtual Machine, local, cluster, ACI, container instance, ADB, Databricks, data lake, lake, HDI, HDInsight'
       href: concept-compute-target.md
-    - name: Dati
+    - name: Data
       items:
         - name: Accesso ai dati
           href: concept-data.md
@@ -268,6 +268,9 @@
         - name: Cluster di calcolo
           displayName: 'compute target, low priority, managed identity'
           href: how-to-create-attach-compute-cluster.md
+        - name: Aggiorna sistema operativo host
+          displayName: 'upgrade compute cluster, upgrade compute instance, upgrade ubuntu'
+          href: how-to-compute-cluster-instance-os-upgrade.md
         - name: Servizio Azure Kubernetes
           displayName: 'AKS, inference'
           href: how-to-create-attach-kubernetes.md

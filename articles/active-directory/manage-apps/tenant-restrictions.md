@@ -12,12 +12,12 @@ ms.date: 2/23/2021
 ms.author: kenwith
 ms.reviewer: hpsin
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a9a884cbe9ad30ce298318d217aa9ed1947c8f21
-ms.sourcegitcommit: dac05f662ac353c1c7c5294399fca2a99b4f89c8
+ms.openlocfilehash: fa025f7e21f76b4dde547ccabf675511e9156359
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102123021"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104589328"
 ---
 # <a name="use-tenant-restrictions-to-manage-access-to-saas-cloud-applications"></a>Uso delle restrizioni del tenant per gestire l'accesso alle applicazioni cloud SaaS
 
@@ -197,13 +197,13 @@ Per informazioni dettagliate, consultare la documentazione del proprio server pr
 
 ## <a name="blocking-consumer-applications-public-preview"></a>Blocco delle applicazioni consumer (anteprima pubblica)
 
-A volte, le applicazioni di Microsoft che supportano sia gli account utente che gli account aziendali, ad esempio [OneDrive](https://onedrive.live.com/) o [Microsoft Learn](https://docs.microsoft.com/learn/), possono essere ospitate nello stesso URL.  Questo significa che gli utenti che devono accedere a tale URL per finalità lavorative possono anche accedervi per uso personale, che potrebbe non essere consentito in base alle linee guida operative.
+A volte, le applicazioni di Microsoft che supportano sia gli account utente che gli account aziendali, ad esempio [OneDrive](https://onedrive.live.com/) o [Microsoft Learn](/learn/), possono essere ospitate nello stesso URL.  Questo significa che gli utenti che devono accedere a tale URL per finalità lavorative possono anche accedervi per uso personale, che potrebbe non essere consentito in base alle linee guida operative.
 
 Alcune organizzazioni tentano di risolvere il problema bloccando il `login.live.com` blocco per impedire l'autenticazione degli account personali.  Questa operazione presenta diversi svantaggi:
 
 1. Blocca `login.live.com` l'uso di account personali negli scenari Guest B2B, che possono intralciare i visitatori e la collaborazione.
-1. [Autopilot richiede l'uso di `login.live.com` ](https://docs.microsoft.com/mem/autopilot/networking-requirements) per la distribuzione di. Gli scenari di Intune e Autopilot possono avere esito negativo quando `login.live.com` è bloccato.
-1. I dati di telemetria dell'organizzazione e gli aggiornamenti di Windows che si basano sul servizio login.live.com per gli ID dispositivo [smetteranno di funzionare](https://docs.microsoft.com/windows/deployment/update/windows-update-troubleshooting#feature-updates-are-not-being-offered-while-other-updates-are).
+1. [Autopilot richiede l'uso di `login.live.com` ](/mem/autopilot/networking-requirements) per la distribuzione di. Gli scenari di Intune e Autopilot possono avere esito negativo quando `login.live.com` è bloccato.
+1. I dati di telemetria dell'organizzazione e gli aggiornamenti di Windows che si basano sul servizio login.live.com per gli ID dispositivo [smetteranno di funzionare](/windows/deployment/update/windows-update-troubleshooting#feature-updates-are-not-being-offered-while-other-updates-are).
 
 ### <a name="configuration-for-consumer-apps"></a>Configurazione per le app consumer
 
@@ -216,7 +216,7 @@ A questo punto, l'autenticazione per le applicazioni consumer non viene visualiz
 Il `restrict-msa` criterio blocca l'uso delle applicazioni consumer, ma consente di eseguire diversi altri tipi di traffico e autenticazione:
 
 1. Traffico senza utente per i dispositivi.  Questo include il traffico per la telemetria di Autopilot, Windows Update e dell'organizzazione.
-1. Autenticazione B2B degli account utente. Gli utenti con account Microsoft [invitati a collaborare con un tenant](https://docs.microsoft.com/azure/active-directory/external-identities/redemption-experience#invitation-redemption-flow) eseguono l'autenticazione a login.Live.com per poter accedere a un tenant di risorse.
+1. Autenticazione B2B degli account utente. Gli utenti con account Microsoft [invitati a collaborare con un tenant](../external-identities/redemption-experience.md#invitation-redemption-flow) eseguono l'autenticazione a login.Live.com per poter accedere a un tenant di risorse.
     1. Questo accesso viene controllato usando l' `Restrict-Access-To-Tenants` intestazione per consentire o negare l'accesso al tenant della risorsa.
 1. Autenticazione pass-through, usata da molte app di Azure e Office.com, in cui le app usano Azure AD per l'accesso degli utenti consumer in un contesto utente.
     1. Questo accesso viene controllato anche usando l' `Restrict-Access-To-Tenants` intestazione per consentire o negare l'accesso al tenant "passthrough" speciale ( `f8cdef31-a31e-4b4a-93e4-5f571e91255a` ).  Se il tenant non viene visualizzato nell' `Restrict-Access-To-Tenants` elenco dei domini consentiti, gli account utente verranno bloccati da Azure ad l'accesso a queste app.

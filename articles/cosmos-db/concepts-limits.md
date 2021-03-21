@@ -7,10 +7,10 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 01/19/2021
 ms.openlocfilehash: 007bf845bab6f493fae91debefde27a4929d9f95
-ms.sourcegitcommit: 8a74ab1beba4522367aef8cb39c92c1147d5ec13
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/20/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98611033"
 ---
 # <a name="azure-cosmos-db-service-quotas"></a>Quote del servizio Azure Cosmos DB
@@ -62,7 +62,7 @@ Esempio: si supponga di avere un contenitore di cui è stato effettuato il provi
 
 **Nota:** la velocità effettiva minima di 10 UR/sec per GB di spazio di archiviazione può essere abbassata se l'account è idoneo per il [programma "High storage/low throughput"](set-throughput.md#high-storage-low-throughput-program).
 
-#### <a name="minimum-throughput-on-shared-throughput-database"></a>Velocità effettiva minima nel database di velocità effettiva condivisa 
+#### <a name="minimum-throughput-on-shared-throughput-database"></a>Velocità effettiva massima per database con velocità effettiva condivisa 
 Per stimare la velocità effettiva minima richiesta da un database con velocità effettiva condivisa con velocità effettiva manuale, trovare il numero massimo di:
 
 * 400 UR/sec 
@@ -70,7 +70,7 @@ Per stimare la velocità effettiva minima richiesta da un database con velocità
 * Unità richiesta/sec massime con provisioning nel database/100
 * 400 + MAX (conteggio contenitori-25,0) * 100 ur/sec
 
-Esempio: si supponga di avere un database di cui è stato effettuato il provisioning con 400 ur/s, 15 GB di spazio di archiviazione e 10 contenitori. Il numero minimo di ur/sec è `MAX(400, 15 * 10 RU/s per GB, 400 / 100, 400 + 0 )` = 400 ur/sec. Se nel database sono presenti 30 contenitori, le UR/sec minime saranno `400 + MAX(30 - 25, 0) * 100 RU/s` = 900 ur/sec. 
+Esempio: Si supponga di disporre di un database sottoposto a provisioning con 400 UR/sec, 15 GB di spazio di archiviazione e 10 contenitori. Il numero minimo di ur/sec è `MAX(400, 15 * 10 RU/s per GB, 400 / 100, 400 + 0 )` = 400 ur/sec. Se nel database sono presenti 30 contenitori, le UR/sec minime saranno `400 + MAX(30 - 25, 0) * 100 RU/s` = 900 ur/sec. 
 
 **Nota:** la velocità effettiva minima di 10 UR/sec per GB di spazio di archiviazione può essere abbassata se l'account è idoneo per il [programma "High storage/low throughput"](set-throughput.md#high-storage-low-throughput-program).
 

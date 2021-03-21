@@ -14,10 +14,10 @@ ms.date: 01/22/2020
 ms.author: kumud
 ms.custom: ''
 ms.openlocfilehash: e95441aab6c8ce7de37ba5f6b08d5f7d54e13347
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
-ms.translationtype: HT
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/25/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96017917"
 ---
 # <a name="tutorial-connect-virtual-networks-with-virtual-network-peering-using-the-azure-portal"></a>Esercitazione: Connettere reti virtuali con il peering reti virtuali usando il portale di Azure
@@ -44,23 +44,23 @@ Accedere al portale di Azure all'indirizzo https://portal.azure.com.
 2. Selezionare **Rete** e quindi **Rete virtuale**.
 3. Nella scheda **Informazioni di base** immettere o selezionare le informazioni seguenti e accettare le impostazioni predefinite per le opzioni rimanenti:
 
-    |Impostazione|valore|
+    |Impostazione|Valore|
     |---|---|
     |Subscription| Selezionare la propria sottoscrizione.|
     |Resource group| Selezionare **Crea nuovo** e immettere *myResourceGroup*.|
     |Region| Selezionare **Stati Uniti orientali**.|
-    |Nome|myVirtualNetwork1|
+    |Name|myVirtualNetwork1|
 
 4. Nella scheda **Indirizzi IP** immettere 10.0.0.0/16 nel campo **Spazio indirizzi**. Fare clic sul pulsante **Aggiungi subnet** e immettere *Subnet1* per **Nome subnet** e 10.0.0.0/24 per **Intervallo di indirizzi subnet**.
 5. Selezionare **Rivedi e crea** e quindi **Crea**.
    
 5. Ripetere i passaggi da 1 a 5, con le modifiche seguenti:
 
-    |Impostazione|valore|
+    |Impostazione|Valore|
     |---|---|
     |Nome|myVirtualNetwork2|
     |Spazio degli indirizzi|10.1.0.0/16|
-    |Resource group| Selezionare **Usa esistente** e quindi **myResourceGroup**.|
+    |Resource group| Selezionare **Usa esistente** e quindi selezionare **myResourceGroup**.|
     |Nome della subnet | Subnet2|
     |Intervallo di indirizzi subnet|10.1.0.0/24|
 
@@ -71,13 +71,13 @@ Accedere al portale di Azure all'indirizzo https://portal.azure.com.
 
     ![Creare un peering](./media/tutorial-connect-virtual-networks-portal/create-peering.png)
 
-3. Immettere o selezionare le informazioni seguenti, accettare le impostazioni predefinite rimanenti e quindi scegliere **OK**.
+3. Immettere o selezionare le informazioni seguenti, accettare le impostazioni predefinite per le restanti impostazioni e quindi fare clic su **OK**.
 
-    |Impostazione|valore|
+    |Impostazione|Valore|
     |---|---|
     |Nome del peering da myVirtualNetwork1 alla rete virtuale remota|myVirtualNetwork1-myVirtualNetwork2 - Al caricamento della pagina, verrà visualizzata la frase "rete virtuale remota" qui. Dopo aver scelto la rete virtuale remota, la frase "rete virtuale remota" verrà sostituita dal nome effettivo della rete.|
     |Subscription| Selezionare la propria sottoscrizione.|
-    |Rete virtuale|myVirtualNetwork2 - per selezionare la rete virtuale *myVirtualNetwork2*, selezionare **Rete virtuale** e quindi **myVirtualNetwork2 (myResourceGroup)** . È possibile selezionare una rete virtuale nella stessa area o in un'area differente.|
+    |Rete virtuale|myVirtualNetwork2 - per selezionare la rete virtuale *myVirtualNetwork2*, selezionare **Rete virtuale** e quindi **myVirtualNetwork2 (myResourceGroup)**. È possibile selezionare una rete virtuale nella stessa area o in un'area differente.|
     |Nome del peering da myVirtualNetwork2 a myVirtualNetwork1|myVirtualNetwork2-myVirtualNetwork1|
 
     ![Impostazioni del peering](./media/tutorial-connect-virtual-networks-portal/peering-settings-bidirectional.png)
@@ -98,9 +98,9 @@ Creare una macchina virtuale in ogni rete virtuale per poter stabilire la comuni
 2. Selezionare **Calcolo** e quindi **Windows Server 2016 Datacenter**. È possibile selezionare un sistema operativo differente, ma i passaggi rimanenti presuppongono che sia stato selezionato **Windows Server 2016 Datacenter**. 
 3. Immettere o selezionare le informazioni seguenti in **Basics** (Generale), accettare le impostazioni predefinite rimanenti e quindi selezionare **Crea**:
 
-    |Impostazione|valore|
+    |Impostazione|Valore|
     |---|---|
-    |Resource group| Selezionare **Usa esistente** e quindi **myResourceGroup**.|
+    |Resource group| Selezionare **Usa esistente** e quindi selezionare **myResourceGroup**.|
     |Nome|myVm1|
     |Location| Selezionare **Stati Uniti orientali**.|
     |Nome utente| Immettere un nome utente a scelta.|
@@ -122,7 +122,7 @@ Creare una macchina virtuale in ogni rete virtuale per poter stabilire la comuni
 
 Ripetere i passaggi da 1 a 6, con le modifiche seguenti:
 
-|Impostazione|valore|
+|Impostazione|Valore|
 |---|---|
 |Nome | myVM2|
 |Rete virtuale | myVirtualNetwork2|

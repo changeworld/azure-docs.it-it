@@ -4,10 +4,10 @@ description: Questo articolo fornisce un elenco di codici di errore, messaggi di
 ms.topic: conceptual
 ms.date: 07/07/2020
 ms.openlocfilehash: 79533918ccc6995f459b39f058de9e01091c0958
-ms.sourcegitcommit: 1cf157f9a57850739adef72219e79d76ed89e264
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/13/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94592992"
 ---
 # <a name="troubleshoot-azure-event-grid-errors"></a>Risolvere gli errori di griglia di eventi di Azure
@@ -19,14 +19,14 @@ Questa guida alla risoluzione dei problemi fornisce le informazioni seguenti:
 - Azioni consigliate da eseguire quando si ricevono questi errori. 
 
 ## <a name="error-code-400"></a>Codice errore: 400
-| Codice errore | Messaggio di errore | Descrizione | Recommendation |
+| Codice di errore | Messaggio di errore | Descrizione | Recommendation |
 | ---------- | ------------- | ----------- | -------------- | 
 | HttpStatusCode. richiesta non valida<br/>400 | Il nome dell'argomento deve avere una lunghezza compresa tra 3 e 50 caratteri. | La lunghezza del nome dell'argomento personalizzato deve avere una lunghezza compresa tra 3 e 50 caratteri. Nel nome dell'argomento sono consentite solo lettere alfanumeriche, cifre e il carattere '-'. Inoltre, il nome non deve iniziare con le parole riservate seguenti: <ul><li>Microsoft</li><li>EventGrid</li><li>Sistema</li></ul> | Scegliere un nome di argomento diverso che rispetti i requisiti del nome dell'argomento. |
 | HttpStatusCode. richiesta non valida<br/>400 | Il nome di dominio deve avere una lunghezza compresa tra 3 e 50 caratteri. | La lunghezza del nome di dominio deve essere compresa tra 3 e 50 caratteri. Nel nome di dominio sono consentite solo lettere alfanumeriche, cifre e il carattere '-'. Inoltre, il nome non deve iniziare con le parole riservate seguenti:<ul><li>Microsoft</li><li>EventGrid</li><li>Sistema</li> | Scegliere un nome di dominio diverso che rispetti i requisiti del nome di dominio. |
 | HttpStatusCode. richiesta non valida<br/>400 | Data di scadenza non valida. | L'ora di scadenza per la sottoscrizione di eventi determina quando la sottoscrizione dell'evento viene ritirata. Questo valore deve essere un valore DateTime valido in futuro.| Assicurarsi che l'ora di scadenza della sottoscrizione di eventi in un formato DateTime valido e che sia impostata su in futuro. |
 
 ## <a name="error-code-409"></a>Codice di errore: 409
-| Codice errore | Messaggio di errore | Descrizione | Azione consigliata |
+| Codice di errore | Messaggio di errore | Descrizione | Azione consigliata |
 | ---------- | ------------- | ----------- | -------------- | 
 | HttpStatusCode. Conflict <br/>409 | Un argomento con il nome specificato esiste già. Scegliere un nome di argomento diverso.   | Il nome dell'argomento personalizzato deve essere univoco in una singola area di Azure per garantire una corretta operazione di pubblicazione. Lo stesso nome può essere usato in diverse aree di Azure. | Scegliere un nome diverso per l'argomento. |
 | HttpStatusCode. Conflict <br/> 409 | Il dominio con l'oggetto specificato esiste già. Scegliere un nome di dominio diverso. | Il nome di dominio deve essere univoco in una singola area di Azure per garantire un'operazione di pubblicazione corretta. Lo stesso nome può essere usato in diverse aree di Azure. | Scegliere un nome diverso per il dominio. |
@@ -34,7 +34,7 @@ Questa guida alla risoluzione dei problemi fornisce le informazioni seguenti:
 
 ## <a name="error-code-403"></a>Codice errore: 403
 
-| Codice errore | Messaggio di errore | Descrizione | Azione consigliata |
+| Codice di errore | Messaggio di errore | Descrizione | Azione consigliata |
 | ---------- | ------------- | ----------- | ------------------ |
 | HttpStatusCode. Forbidden <br/>403 | La pubblicazione in {topic/Domain} da client {IpAddress} è stata rifiutata a causa di regole di filtro IpAddress. | L'argomento o il dominio ha regole del firewall IP configurate e l'accesso è limitato solo agli indirizzi IP configurati. | Aggiungere l'indirizzo IP alle regole del firewall IP, vedere [configurare il firewall IP](configure-firewall.md) |
 | HttpStatusCode. Forbidden <br/> 403 | La pubblicazione in {topic/Domain} da parte del client viene rifiutata perché la richiesta proviene dall'endpoint privato e non è stata trovata alcuna connessione all'endpoint privato corrispondente per la risorsa. | L'argomento o il dominio ha endpoint privati e la richiesta di pubblicazione proviene da un endpoint privato non configurato o approvato. | Configurare un endpoint privato per l'argomento/dominio. [Configurare gli endpoint privati](configure-private-endpoints.md) |

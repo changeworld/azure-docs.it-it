@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-pnp
 services: iot-pnp
 zone_pivot_groups: programming-languages-set-twenty-six
-ms.openlocfilehash: 339ae9a0a799a0a03f1fcf37dadf2e1ffa724243
-ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
+ms.openlocfilehash: 0cca47269e632e1fcba1f8f9eb1c835f27e63059
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97028683"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104582795"
 ---
 # <a name="iot-plug-and-play-device-developer-guide"></a>Guida per gli sviluppatori di dispositivi Plug and Play
 
@@ -26,7 +26,7 @@ Questa guida descrive i passaggi di base necessari per la creazione di un modulo
 Per compilare un modulo Plug and Play di dispositivi, moduli o IoT Edge, seguire questa procedura:
 
 1. Verificare che il dispositivo usi il protocollo MQTT o MQTT over WebSocket per connettersi all'hub di Azure.
-1. Creare un modello [DTDL (Digital Gemini Definition Language)](https://github.com/Azure/opendigitaltwins-dtdl) per descrivere il dispositivo. Per altre informazioni, vedere informazioni [sui componenti nei modelli plug and Play](concepts-components.md).
+1. Creare un modello [DTDL (Digital Gemini Definition Language)](https://github.com/Azure/opendigitaltwins-dtdl) per descrivere il dispositivo. Per altre informazioni, vedere informazioni [sui componenti nei modelli plug and Play](concepts-modeling-guide.md).
 1. Aggiornare il dispositivo o il modulo per annunciare `model-id` come parte della connessione del dispositivo.
 1. Implementare la telemetria, le proprietà e i comandi usando le [convenzioni plug and Play](concepts-convention.md)
 
@@ -69,6 +69,6 @@ Ora che sono state apprese le informazioni sullo sviluppo di dispositivi Plug an
 - [DTDL (Digital Twins Definition Language)](https://github.com/Azure/opendigitaltwins-dtdl)
 - [SDK per dispositivi per C](/azure/iot-hub/iot-c-sdk-ref/)
 - [API REST](/rest/api/iothub/device)
-- [Componenti del modello](concepts-components.md)
+- [Informazioni sui componenti nei modelli Plug and Play](concepts-modeling-guide.md)
 - [Installare e usare gli strumenti di creazione di DTDL](howto-use-dtdl-authoring-tools.md)
 - [Guida per gli sviluppatori del servizio Plug and Play](concepts-developer-guide-service.md)

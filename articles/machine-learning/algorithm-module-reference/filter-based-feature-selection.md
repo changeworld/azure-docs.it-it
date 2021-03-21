@@ -10,10 +10,10 @@ author: likebupt
 ms.author: keli19
 ms.date: 10/10/2020
 ms.openlocfilehash: f4a7f5581703ae6932f3b40e62085fed76f5e6f2
-ms.sourcegitcommit: ba7fafe5b3f84b053ecbeeddfb0d3ff07e509e40
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/12/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91945703"
 ---
 # <a name="filter-based-feature-selection"></a>Filter Based Feature Selection
@@ -79,7 +79,7 @@ Si sceglie una metrica statistica standard. Il modulo calcola la correlazione tr
 
     Se si deseleziona questa opzione, il modulo creerà un punteggio per ogni colonna che altrimenti soddisfa i criteri, fino al numero di colonne specificato in **numero di funzionalità desiderate**.  
 
-5.  Per **colonna di destinazione**selezionare **Avvia selettore di colonna** per scegliere la colonna etichetta in base al nome o al relativo indice. Gli indici sono in base uno.  
+5.  Per **colonna di destinazione** selezionare **Avvia selettore di colonna** per scegliere la colonna etichetta in base al nome o al relativo indice. Gli indici sono in base uno.  
     Per tutti i metodi che coinvolgono la correlazione statistica è necessaria una colonna di etichetta. Il modulo restituisce un errore in fase di progettazione se si sceglie nessuna colonna etichetta o più colonne etichetta. 
 
 6.  Per il **numero di funzionalità desiderate**, immettere il numero di colonne di funzioni che si desidera vengano restituite come risultato:  

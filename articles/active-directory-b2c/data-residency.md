@@ -13,10 +13,10 @@ ms.author: mimart
 ms.subservice: B2C
 ms.custom: references_regions
 ms.openlocfilehash: 9cb7a97b3f57ee7ac10babc53ee2263d51838777
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/21/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92309673"
 ---
 # <a name="azure-active-directory-b2c-region-availability--data-residency"></a>Azure Active Directory B2C: aree di disponibilità e residenza dei dati
@@ -27,7 +27,7 @@ Azure AD B2C è **disponibile a livello generale in tutto il mondo** con l'opzio
 
 L'[area di disponibilità](#region-availability) si riferisce al paese in cui è possibile usare un servizio.
 
-La [residenza dei dati](#data-residency) si riferisce alla zona in cui i dati utente vengono memorizzati.
+La [residenza dei dati](#data-residency) fa riferimento alla posizione in cui vengono archiviati i dati utente.
 
 ## <a name="region-availability"></a>Aree di disponibilità
 

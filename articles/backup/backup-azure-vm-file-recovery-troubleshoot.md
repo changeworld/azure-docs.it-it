@@ -4,10 +4,10 @@ description: Risolvere i problemi relativi al ripristino di file e cartelle da u
 ms.topic: troubleshooting
 ms.date: 07/12/2020
 ms.openlocfilehash: 0ee856b10c6a5fbea6f6f76b2082949ab9c1e0db
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/03/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "101700304"
 ---
 # <a name="troubleshoot-issues-in-file-recovery-of-an-azure-vm-backup"></a>Risolvere i problemi relativi al ripristino dei file di un backup di una macchina virtuale di Azure
