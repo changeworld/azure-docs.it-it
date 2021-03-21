@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 03/27/2019
 ms.author: jeedes
 ms.openlocfilehash: 59c599167089d222324ed880c18e68d763f5e468
-ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
-ms.translationtype: HT
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/07/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94358457"
 ---
 # <a name="tutorial-configure-cornerstone-ondemand-for-automatic-user-provisioning"></a>Esercitazione: Configurare Cornerstone OnDemand per il provisioning utenti automatico
@@ -54,7 +54,7 @@ Per aggiungere Cornerstone OnDemand dal Marketplace seguire questa procedura:
 
     ![Pulsante Nuova applicazione](common/add-new-app.png)
 
-4. Nella casella di ricerca immettere **Cornerstone OnDemand** , quindi selezionare **Cornerstone OnDemand** nel pannello dei risultati. Per aggiungere l'applicazione, selezionare **Aggiungi**.
+4. Nella casella di ricerca immettere **Cornerstone OnDemand**, quindi selezionare **Cornerstone OnDemand** nel pannello dei risultati. Per aggiungere l'applicazione, selezionare **Aggiungi**.
 
     ![Cornerstone OnDemand nell'elenco risultati](common/search-new-app.png)
 
@@ -132,7 +132,7 @@ Per configurare il provisioning utenti automatico per Cornerstone OnDemand in Az
 
     ![Operazione Salva in Cornerstone OnDemand](./media/cornerstone-ondemand-provisioning-tutorial/Save.png)
 
-L'operazione avvia la sincronizzazione iniziale di tutti gli utenti o i gruppi definiti nell' **Ambito** della sezione **Impostazioni**. La sincronizzazione iniziale richiede più tempo rispetto alle sincronizzazioni successive. Le sincronizzazioni successive vengono eseguite circa ogni 40 minuti durante l'esecuzione del servizio di provisioning di Azure AD. 
+L'operazione avvia la sincronizzazione iniziale di tutti gli utenti o i gruppi definiti nell'**Ambito** della sezione **Impostazioni**. La sincronizzazione iniziale richiede più tempo rispetto alle sincronizzazioni successive. Le sincronizzazioni successive vengono eseguite circa ogni 40 minuti durante l'esecuzione del servizio di provisioning di Azure AD. 
 
 È possibile usare la sezione **Dettagli sincronizzazione** per monitorare lo stato di avanzamento e selezionare i collegamenti al report dell'attività di provisioning. Il report descrive tutte le azioni eseguite dal servizio di provisioning di Azure AD in Cornerstone OnDemand.
 
@@ -140,7 +140,7 @@ Per informazioni su come leggere i log di provisioning di Azure AD, vedere l'ese
 
 ## <a name="connector-limitations"></a>Limitazioni dei connettori
 
-L'attributo **Position** di Cornerstone OnDemand prevede un valore che corrisponde ai ruoli nel portale di Cornerstone OnDemand. Per un elenco dei valori validi per **Position** , passare a **Edit User Record > Organization Structure > Position** (Modifica record utente > Struttura organizzativa > Posizione) nel portale di Cornerstone OnDemand.
+L'attributo **Position** di Cornerstone OnDemand prevede un valore che corrisponde ai ruoli nel portale di Cornerstone OnDemand. Per un elenco dei valori validi per **Position**, passare a **Edit User Record > Organization Structure > Position** (Modifica record utente > Struttura organizzativa > Posizione) nel portale di Cornerstone OnDemand.
 
 ![Record utente per la modifica del provisioning di Cornerstone OnDemand](./media/cornerstone-ondemand-provisioning-tutorial/UserEdit.png)
 

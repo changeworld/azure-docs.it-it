@@ -7,10 +7,10 @@ ms.topic: tutorial
 ms.author: jgao
 ms.custom: ''
 ms.openlocfilehash: ba1797da5a78eeebd25f5df1b6e37eb92470f584
-ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
-ms.translationtype: HT
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/11/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97106921"
 ---
 # <a name="tutorial-use-exported-template-from-the-azure-portal"></a>Esercitazione: Usare il modello esportato dal portale di Azure
@@ -62,12 +62,12 @@ Questo modello è adatto per la distribuzione di account di archiviazione, ma è
 
    La funzionalità Esporta modello accetta lo stato corrente di una risorsa e genera un modello per distribuirlo. L'esportazione di un modello può essere utile per ottenere rapidamente il codice JSON necessario per distribuire una risorsa.
 
-1. Esaminare la definizione `Microsoft.Web/serverfarms` e la definizione del parametri nel modello esportato. Non è necessario copiare queste sezioni. È possibile usare questo modello esportato solo come esempio di come aggiungere questa risorsa al modello.
+1. Esaminare la `Microsoft.Web/serverfarms` definizione e la definizione del parametro nel modello esportato. Non è necessario copiare queste sezioni. È possibile usare questo modello esportato solo come esempio di come aggiungere questa risorsa al modello.
 
     ![Modello di Resource Manager - Esporta modello - Modello esportato](./media/template-tutorial-export-template/resource-manager-template-exported-template.png)
 
 > [!IMPORTANT]
-> In genere, il modello esportato è più dettagliato di quanto necessario quando si crea un modello. Ad esempio, l'oggetto SKU nel modello esportato include cinque proprietà. Questo modello funziona, ma magari si preferisce usare solo la proprietà `name`. È possibile iniziare con il modello esportato e quindi modificarlo in base alle esigenze.
+> In genere, il modello esportato è più dettagliato di quanto necessario quando si crea un modello. Ad esempio, l'oggetto SKU nel modello esportato include cinque proprietà. Questo modello funziona, ma è possibile usare semplicemente la `name` Proprietà. È possibile iniziare con il modello esportato e quindi modificarlo in base alle esigenze.
 
 ## <a name="revise-existing-template"></a>Modificare il modello esistente
 

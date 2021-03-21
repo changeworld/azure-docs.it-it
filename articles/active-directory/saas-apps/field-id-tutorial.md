@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 05/28/2020
 ms.author: jeedes
 ms.openlocfilehash: 55a66f3f287ffb50d932263e407772efffa839ba
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
-ms.translationtype: HT
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/23/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92453536"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-field-id"></a>Esercitazione: Integrazione dell'accesso Single Sign-On (SSO) di Azure Active Directory con Field iD
@@ -47,15 +47,15 @@ In questa esercitazione vengono eseguiti la configurazione e il test dell'access
 Per configurare l'integrazione di Field iD in Azure AD, è necessario aggiungere Field iD dalla raccolta all'elenco di app SaaS gestite.
 
 1. Accedere al [portale di Azure](https://portal.azure.com) con un account aziendale o dell'istituto di istruzione oppure con un account Microsoft personale.
-1. Nel riquadro di spostamento a sinistra selezionare **Azure Active Directory** .
-1. Passare ad **Applicazioni aziendali** e quindi selezionare **Tutte le applicazioni** .
-1. Per aggiungere una nuova applicazione, selezionare **Nuova applicazione** .
+1. Nel riquadro di spostamento a sinistra selezionare **Azure Active Directory**.
+1. Passare ad **Applicazioni aziendali** e quindi selezionare **Tutte le applicazioni**.
+1. Per aggiungere una nuova applicazione, selezionare **Nuova applicazione**.
 1. Nella sezione **Aggiungi dalla raccolta** digitare **Field iD** nella casella di ricerca.
 1. Selezionare **Field iD** nel pannello dei risultati e quindi aggiungere l'app. Attendere alcuni secondi che l'app venga aggiunta al tenant.
 
 ## <a name="configure-and-test-azure-ad-single-sign-on-for-field-id"></a>Configurare e testare l'accesso Single Sign-On di Azure AD per Field iD
 
-Configurare e testare l'accesso SSO di Azure AD con Field iD by usando un utente di test di nome **B.Simon** . Per consentire il funzionamento dell'accesso Single Sign-On, è necessario stabilire una relazione di collegamento tra un utente di Azure AD e l'utente correlato in Field iD.
+Configurare e testare l'accesso SSO di Azure AD con Field iD by usando un utente di test di nome **B.Simon**. Per consentire il funzionamento dell'accesso Single Sign-On, è necessario stabilire una relazione di collegamento tra un utente di Azure AD e l'utente correlato in Field iD.
 
 Per configurare e testare l'accesso SSO di Azure AD con Field iD, completare i passaggi seguenti:
 
@@ -70,8 +70,8 @@ Per configurare e testare l'accesso SSO di Azure AD con Field iD, completare i p
 
 Per abilitare l'accesso Single Sign-On di Azure AD nel portale di Azure, seguire questa procedura.
 
-1. Nella pagina di integrazione dell'applicazione **Field iD** del [portale di Azure](https://portal.azure.com/) individuare la sezione **Gestione** . Selezionare quindi **Single Sign-On** .
-1. Nella pagina **Selezionare un metodo di accesso Single Sign-On** selezionare **SAML** .
+1. Nella pagina di integrazione dell'applicazione **Field iD** del [portale di Azure](https://portal.azure.com/) individuare la sezione **Gestione**. Selezionare quindi **Single Sign-On**.
+1. Nella pagina **Selezionare un metodo di accesso Single Sign-On** selezionare **SAML**.
 1. Nella pagina **Configura l'accesso Single Sign-On con SAML** fare clic sull'icona della matita relativa a **Configurazione SAML di base** per modificare le impostazioni.
 
    ![Screenshot della pagina Configura l'accesso Single Sign-On con SAML, in cui è evidenziata l'icona della matita](common/edit-urls.png)
@@ -85,7 +85,7 @@ Per abilitare l'accesso Single Sign-On di Azure AD nel portale di Azure, seguire
     > [!NOTE]
     > Poiché questi non sono i valori reali, è necessario aggiornarli con l'identificatore e l'URL di risposta effettivi. Per ottenere questi valori, contattare il [team di supporto clienti di Field iD](mailto:support@ecompliance.com). È anche possibile fare riferimento ai modelli mostrati nella sezione **Configurazione SAML di base** del portale di Azure.
 
-1. Nella sezione **Certificato di firma SAML** della pagina **Configura l'accesso Single Sign-On con SAML** selezionare l'icona di copia per copiare l' **URL dei metadati di federazione dell'app** . Salvarlo nel computer.
+1. Nella sezione **Certificato di firma SAML** della pagina **Configura l'accesso Single Sign-On con SAML** selezionare l'icona di copia per copiare l'**URL dei metadati di federazione dell'app**. Salvarlo nel computer.
 
     ![Screenshot della sezione Certificato di firma SAML con l'icona di copia evidenziata](common/copy-metadataurl.png)
 
@@ -93,35 +93,35 @@ Per abilitare l'accesso Single Sign-On di Azure AD nel portale di Azure, seguire
 
 In questa sezione verrà creato un utente di test di nome B.Simon nel portale di Azure.
 
-1. Nel riquadro sinistro del portale di Azure selezionare **Azure Active Directory** > **Utenti** > **Tutti gli utenti** .
+1. Nel riquadro sinistro del portale di Azure selezionare **Azure Active Directory** > **Utenti** > **Tutti gli utenti**.
 1. Selezionare **Nuovo utente** in alto nella schermata.
 1. In **Proprietà utente** seguire questa procedura:
    1. Per **Nome** immettere `B.Simon`.  
    1. Per **Nome utente** immettere username@companydomain.extension, ad esempio `B.Simon@contoso.com`.
-   1. Selezionare la casella di controllo **Mostra password** e quindi prendere nota del valore visualizzato nella casella **Password** .
-   1. Selezionare **Crea** .
+   1. Selezionare la casella di controllo **Mostra password** e quindi prendere nota del valore visualizzato nella casella **Password**.
+   1. Selezionare **Crea**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Assegnare l'utente di test di Azure AD
 
 In questa sezione si abiliterà B.Simon all'uso dell'accesso Single Sign-On di Azure concedendole l'accesso a Field iD.
 
-1. Nel portale di Azure selezionare **Applicazioni aziendali** > **Tutte le applicazioni** .
-1. Nell'elenco delle applicazioni selezionare **Field iD** .
-1. Nella pagina di panoramica dell'app individuare la sezione **Gestione** e selezionare **Utenti e gruppi** .
+1. Nel portale di Azure selezionare **Applicazioni aziendali** > **Tutte le applicazioni**.
+1. Nell'elenco delle applicazioni selezionare **Field iD**.
+1. Nella pagina di panoramica dell'app individuare la sezione **Gestione** e selezionare **Utenti e gruppi**.
 
    ![Screenshot della sezione Gestione con Utenti e gruppi evidenziato](common/users-groups-blade.png)
 
-1. Selezionare **Aggiungi utente** e quindi **Utenti e gruppi** nella finestra di dialogo **Aggiungi assegnazione** .
+1. Selezionare **Aggiungi utente** e quindi **Utenti e gruppi** nella finestra di dialogo **Aggiungi assegnazione**.
 
     ![Screenshot di Aggiungi utente](common/add-assign-user.png)
 
 1. Nella finestra di dialogo **Utenti e gruppi** selezionare **B.Simon** nell'elenco **Utenti** e quindi scegliere **Seleziona** nella parte inferiore della schermata.
 1. Se si prevede un valore di ruolo nell'asserzione SAML, nella finestra di dialogo **Selezionare un ruolo** selezionare il ruolo appropriato per l'utente dall'elenco. Scegliere quindi **Seleziona** nella parte inferiore della schermata.
-1. Nella finestra di dialogo **Aggiungi assegnazione** selezionare **Assegna** .
+1. Nella finestra di dialogo **Aggiungi assegnazione** selezionare **Assegna**.
 
 ## <a name="configure-field-id-sso"></a>Configurare l'accesso Single Sign-On di Field iD
 
-Per configurare l'accesso Single Sign-On sul lato Field iD, inviare l' **URL dei metadati di federazione dell'app** al [team di supporto di Field iD](mailto:support@ecompliance.com). Questi dati garantiscono che la connessione Single Sign-On SAML sia impostata correttamente su entrambi i lati.
+Per configurare l'accesso Single Sign-On sul lato Field iD, inviare l'**URL dei metadati di federazione dell'app** al [team di supporto di Field iD](mailto:support@ecompliance.com). Questi dati garantiscono che la connessione Single Sign-On SAML sia impostata correttamente su entrambi i lati.
 
 ### <a name="create-a-field-id-test-user"></a>Creare l'utente di test di Field iD
 

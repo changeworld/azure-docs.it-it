@@ -8,10 +8,10 @@ ms.topic: quickstart
 ms.custom: mvc, devx-track-azurecli, contperf-fy21q2
 ms.date: 11/23/2020
 ms.openlocfilehash: bc172fd1702addf8f4e34094452a779b09320a4d
-ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
-ms.translationtype: HT
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/10/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97033375"
 ---
 # <a name="quickstart-create-and-manage-logic-apps-using-the-azure-cli"></a>Avvio rapido: Creare e gestire app per la logica usando l'interfaccia della riga di comando di Azure
@@ -88,7 +88,7 @@ az logic workflow create --definition
 
 Il comando deve includere i [parametri obbligatori](/cli/azure/ext/logic/logic/workflow#ext-logic-az-logic-workflow-create-required-parameters) seguenti:
 
-| Parametro | valore | Descrizione |
+| Parametro | Valore | Descrizione |
 | --------- | ----- | ----------- |
 | Definizione flusso di lavoro | `--definition` | File JSON con la [definizione flusso di lavoro](#workflow-definition) dell'app per la logica. |
 | Location | `--location -l` | Area di Azure in cui si trova l'app per la logica. |
@@ -148,7 +148,7 @@ Quando il flusso di lavoro viene aggiornato correttamente, l'interfaccia della r
 
 Il comando deve includere i [parametri obbligatori](/cli/azure/ext/logic/logic/workflow#ext-logic-az-logic-workflow-delete-required-parameters) seguenti:
 
-| Parametro | valore | Descrizione |
+| Parametro | Valore | Descrizione |
 | --------- | ----- | ----------- |
 | Nome | `--name -n` | Nome dell'app per la logica. |
 | Nome del gruppo di risorse | `-resource-group -g` | Gruppo di risorse in cui si trova l'app per la logica. |
@@ -198,7 +198,7 @@ az logic workflow show --name
 
 Il comando deve includere i [parametri obbligatori](/cli/azure/ext/logic/logic/workflow#ext-logic-az-logic-workflow-show-required-parameters) seguenti:
 
-| Parametro | valore | Descrizione |
+| Parametro | Valore | Descrizione |
 | --------- | ----- | ----------- |
 | Nome | `--name -n` | Nome dell'app per la logica. |
 | Nome del gruppo di risorse | `--resource-group -g` | Nome del gruppo di risorse in cui si trova l'app per la logica. |
@@ -219,7 +219,7 @@ az logic workflow show --resource-group "testResourceGroup" --name "testLogicApp
 
 È possibile filtrare i risultati in base ai [parametri facoltativi](/cli/azure/ext/logic/logic/workflow#ext-logic-az-logic-workflow-list-optional-parameters) seguenti:
 
-| Parametro | valore | Descrizione |
+| Parametro | Valore | Descrizione |
 | --------- | ----- | ----------- |
 | Nome del gruppo di risorse | `--resource-group -g` | Nome del gruppo di risorse in base al quale filtrare i risultati. |
 | Numero di elementi | `--top` | Numero di elementi inclusi nei risultati. |
@@ -265,7 +265,7 @@ Expecting value: line 1 column 1 (char 0)
 
 Con i comandi `az logic` è possibile usare i parametri facoltativi globali dell'interfaccia della riga di comando di Azure seguenti:
 
-| Parametro | valore | Descrizione |
+| Parametro | Valore | Descrizione |
 | --------- | ----- | ----------- |
 | Formato di output | `--output -o` | Cambia il [formato di output](/cli/azure/format-output-azure-cli) rispetto al formato JSON predefinito. |
 | Mostra solo errori | `--only-show-errors` | Non visualizza gli avvisi e mostra solo gli errori. |

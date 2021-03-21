@@ -9,10 +9,10 @@ ms.date: 12/20/2019
 ms.author: robinsh
 ms.custom: mqtt, devx-track-azurecli, devx-track-csharp
 ms.openlocfilehash: 7ae85fa2559b8313bd35a761945bff946563e935
-ms.sourcegitcommit: dda0d51d3d0e34d07faf231033d744ca4f2bbf4a
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/05/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102199782"
 ---
 # <a name="tutorial-use-azure-iot-hub-message-enrichments"></a>Esercitazione: usare gli arricchimenti di messaggi dell'hub Azure.
@@ -336,7 +336,7 @@ Ora che gli arricchimenti dei messaggi sono configurati per l'endpoint, eseguire
 
 L'applicazione del dispositivo simulato è una delle applicazioni nel download decompresso. L'applicazione invia messaggi per ognuno dei diversi metodi di routing del messaggio nell' [esercitazione di routing](tutorial-routing.md), che include archiviazione di Azure.
 
-Fare doppio clic sul file di soluzione **IoT_SimulatedDevice. sln** per aprire il codice in Visual Studio, quindi aprire **Program.cs**. Sostituire il nome dell'hub Internet per il marcatore `{your hub name}` . Il formato del nome host dell'hub Internet è **{nome dell'hub}. Azure-Devices.NET**. Per questa esercitazione, il nome host dell'hub è ContosoTestHubMsgEn.azure-devices.net. Sostituire quindi la chiave del dispositivo salvata in precedenza quando è stato eseguito lo script per creare le risorse per il marcatore `{your device key}` .
+Fare doppio clic sul file di soluzione **IoT_SimulatedDevice. sln** per aprire il codice in Visual Studio, quindi aprire **Program. cs**. Sostituire il nome dell'hub Internet per il marcatore `{your hub name}` . Il formato del nome host dell'hub Internet è **{nome dell'hub}. Azure-Devices.NET**. Per questa esercitazione, il nome host dell'hub è ContosoTestHubMsgEn.azure-devices.net. Sostituire quindi la chiave del dispositivo salvata in precedenza quando è stato eseguito lo script per creare le risorse per il marcatore `{your device key}` .
 
 Se non si ha la chiave del dispositivo, è possibile recuperarla dal portale. Dopo aver eseguito l'accesso, passare a **gruppi di risorse**, selezionare il gruppo di risorse e quindi selezionare l'hub. Esaminare i **dispositivi** per il dispositivo di test e selezionare il dispositivo. Selezionare l'icona di copia accanto a **chiave primaria** per copiarla negli Appunti.
 

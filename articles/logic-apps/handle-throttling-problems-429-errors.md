@@ -7,10 +7,10 @@ ms.reviewer: deli, logicappspm
 ms.topic: conceptual
 ms.date: 04/13/2020
 ms.openlocfilehash: ea153b1927a337be29c2eb69e2417cc250abf5e8
-ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/08/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94366052"
 ---
 # <a name="handle-throttling-problems-429---too-many-requests-errors-in-azure-logic-apps"></a>Gestire i problemi di limitazione (429-"numero eccessivo di richieste") nelle app per la logica di Azure
@@ -35,7 +35,7 @@ Per trovare gli eventi di limitazione a questo livello, controllare il riquadro 
 
 1. Nel [portale di Azure](https://portal.azure.com) aprire l'app per la logica in Progettazione app per la logica.
 
-1. Nel menu dell'app per la logica, in **monitoraggio** , selezionare **metriche**.
+1. Nel menu dell'app per la logica, in **monitoraggio**, selezionare **metriche**.
 
 1. In **titolo grafico** selezionare **Aggiungi metrica** per aggiungere un'altra metrica alla esistente.
 

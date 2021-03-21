@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 07/02/2020
 ms.author: jeedes
 ms.openlocfilehash: 181d58baf128c4848a538e776aea0e43213994dc
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
-ms.translationtype: HT
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/23/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92458609"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-the-lensesio-dataops-portal"></a>Esercitazione: Integrazione dell'accesso Single Sign-On (SSO) di Azure Active Directory il portale DataOps di Lenses.io
@@ -49,9 +49,9 @@ In questa esercitazione vengono eseguiti la configurazione e il test dell'access
 Per configurare l'integrazione di Lenses.io in Azure AD, aggiungere Lenses.io all'elenco di app SaaS gestite:
 
 1. Accedere al [portale di Azure](https://portal.azure.com) con un account aziendale o dell'istituto di istruzione oppure con un account Microsoft personale.
-1. Nel riquadro sinistro selezionare il servizio **Azure Active Directory** .
-1. Passare ad **Applicazioni aziendali** e quindi selezionare **Tutte le applicazioni** .
-1. Selezionare **Nuova applicazione** .
+1. Nel riquadro sinistro selezionare il servizio **Azure Active Directory**.
+1. Passare ad **Applicazioni aziendali** e quindi selezionare **Tutte le applicazioni**.
+1. Selezionare **Nuova applicazione**.
 1. Nella sezione **Aggiungi dalla raccolta** immettere **Lenses.io** nella casella di ricerca.
 1. Selezionare **Lenses.io** nel pannello dei risultati e quindi aggiungere l'app. Attendere alcuni secondi che l'app venga aggiunta al tenant.
 
@@ -72,15 +72,15 @@ Completare i passaggi seguenti:
 
 Per abilitare l'accesso Single Sign-On di Azure AD nel portale di Azure, seguire questa procedura:
 
-1. Nella pagina di integrazione dell'applicazione **Lenses.io** del [portale di Azure](https://portal.azure.com/) individuare la sezione **Gestione** e selezionare **Single Sign-On** .
-1. Nella pagina **Selezionare un metodo di accesso Single Sign-On** selezionare **SAML** .
+1. Nella pagina di integrazione dell'applicazione **Lenses.io** del [portale di Azure](https://portal.azure.com/) individuare la sezione **Gestione** e selezionare **Single Sign-On**.
+1. Nella pagina **Selezionare un metodo di accesso Single Sign-On** selezionare **SAML**.
 1. Nella pagina **Configura l'accesso Single Sign-On con SAML** fare clic sull'icona di modifica a forma di penna relativa a **Configurazione SAML di base** per modificare le impostazioni.
 
    ![Screenshot che mostra l'icona per la modifica della configurazione SAML di base.](common/edit-urls.png)
 
 1. Nella sezione **Configurazione SAML di base** immettere i valori nelle caselle seguenti per l'immissione di testo:
 
-    a. **URL di accesso** : immettere un URL nel formato seguente: `https://<CUSTOMER_LENSES_BASE_URL>`. Un esempio è `https://lenses.my.company.com`.
+    a. **URL di accesso**: immettere un URL nel formato seguente: `https://<CUSTOMER_LENSES_BASE_URL>`. Un esempio è `https://lenses.my.company.com`.
 
     b. **Identificatore (ID entità)** : immettere un URL nel formato seguente: `https://<CUSTOMER_LENSES_BASE_URL>`. Un esempio è `https://lenses.my.company.com`.
 
@@ -89,7 +89,7 @@ Per abilitare l'accesso Single Sign-On di Azure AD nel portale di Azure, seguire
     > [!NOTE]
     > Poiché questi non sono i valori reali, aggiornarli con l'URL di accesso, l'URL di risposta e l'identificatore effettivi dell'URL di base dell'istanza del portale di Lenses. Per altre informazioni, vedere la [documentazione di Lenses.io relativa all'accesso SSO](https://docs.lenses.io/install_setup/configuration/security.html#single-sign-on-sso-saml-2-0).
 
-1. Nella pagina **Configura l'accesso Single Sign-On con SAML** passare alla sezione **Certificato di firma SAML** . Individuare **XML metadati federazione** e quindi selezionare **Scarica** per scaricare e salvare il certificato nel computer.
+1. Nella pagina **Configura l'accesso Single Sign-On con SAML** passare alla sezione **Certificato di firma SAML**. Individuare **XML metadati federazione** e quindi selezionare **Scarica** per scaricare e salvare il certificato nel computer.
 
     ![Screenshot che mostra il collegamento di download del certificato.](common/metadataxml.png)
 
@@ -103,59 +103,59 @@ Per informazioni su come Lenses usa il mapping delle appartenenze ai gruppi per 
 
 **Per creare l'utente di test:**
 
-1. Nel riquadro sinistro del portale di Azure selezionare **Azure Active Directory** , **Utenti** e quindi **Tutti gli utenti** .
+1. Nel riquadro sinistro del portale di Azure selezionare **Azure Active Directory**, **Utenti** e quindi **Tutti gli utenti**.
 1. Selezionare **Nuovo utente** in alto nella schermata.
 1. In **Proprietà utente** seguire questa procedura:
-   1. Nella casella **Nome** immettere **B.Simon** .  
+   1. Nella casella **Nome** immettere **B.Simon**.  
    1. Nella casella **Nome utente** immettere username@companydomain.extension. Ad esempio: B.Simon@contoso.com.
-   1. Selezionare la casella di controllo **Mostra password** . Prendere nota della password visualizzata nella casella **Password** .
-   1. Selezionare **Crea** .
+   1. Selezionare la casella di controllo **Mostra password**. Prendere nota della password visualizzata nella casella **Password**.
+   1. Selezionare **Crea**.
 
 **Per creare il gruppo:**
 
-1. Passare ad **Azure Active Directory** e quindi selezionare **Gruppi** .
+1. Passare ad **Azure Active Directory** e quindi selezionare **Gruppi**.
 1. Selezionare **Nuovo gruppo** in alto nella schermata.
 1. In **Proprietà gruppo** seguire questa procedura:
-   1. Selezionare **Sicurezza** nella casella **Tipo di gruppo** .
-   1. Nella casella **Nome gruppo** immettere **LensesUsers** .
-   1. Selezionare **Crea** .
-1. Selezionare il gruppo **LensesUsers** e copiare il valore di **ID oggetto** , ad esempio f8b5c1ec-45de-4abd-af5c-e874091fb5f7. Questo ID verrà usato in Lenses per eseguire il mapping tra gli utenti di tale gruppo e le [autorizzazioni corrette](https://docs.lenses.io/install_setup/configuration/security.html#id3).  
+   1. Selezionare **Sicurezza** nella casella **Tipo di gruppo**.
+   1. Nella casella **Nome gruppo** immettere **LensesUsers**.
+   1. Selezionare **Crea**.
+1. Selezionare il gruppo **LensesUsers** e copiare il valore di **ID oggetto**, ad esempio f8b5c1ec-45de-4abd-af5c-e874091fb5f7. Questo ID verrà usato in Lenses per eseguire il mapping tra gli utenti di tale gruppo e le [autorizzazioni corrette](https://docs.lenses.io/install_setup/configuration/security.html#id3).  
 
 **Per assegnare il gruppo all'utente di test:**
 
-1. Passare ad **Azure Active Directory** e quindi selezionare **Utenti** .
-1. Selezionare l'utente di test **B.Simon** .
-1. Selezionare **Gruppi** .
+1. Passare ad **Azure Active Directory** e quindi selezionare **Utenti**.
+1. Selezionare l'utente di test **B.Simon**.
+1. Selezionare **Gruppi**.
 1. Selezionare **Aggiungi appartenenze** in alto nella schermata.
-1. Cercare e selezionare **LensesUsers** .
-1. Fare clic su **Seleziona** .
+1. Cercare e selezionare **LensesUsers**.
+1. Fare clic su **Seleziona**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Assegnare l'utente di test di Azure AD
 
 In questa sezione si abiliterà B.Simon all'uso dell'accesso Single Sign-On di Azure concedendole l'accesso a Lenses.io.
 
-1. Nel portale di Azure selezionare **Applicazioni aziendali** e quindi **Tutte le applicazioni** .
-1. Nell'elenco delle applicazioni selezionare **Lenses.io** .
-1. Nella sezione **Gestione** della pagina di panoramica dell'app selezionare **Utenti e gruppi** .
+1. Nel portale di Azure selezionare **Applicazioni aziendali** e quindi **Tutte le applicazioni**.
+1. Nell'elenco delle applicazioni selezionare **Lenses.io**.
+1. Nella sezione **Gestione** della pagina di panoramica dell'app selezionare **Utenti e gruppi**.
 
    ![Screenshot che mostra il collegamento "Utenti e gruppi".](common/users-groups-blade.png)
 
-1. Selezionare **Aggiungi utente** .
+1. Selezionare **Aggiungi utente**.
 
    ![Screenshot che mostra il collegamento Aggiungi utente.](common/add-assign-user.png)
 
-1. Nella finestra di dialogo **Aggiungi assegnazione** selezionare **Utenti e gruppi** .
+1. Nella finestra di dialogo **Aggiungi assegnazione** selezionare **Utenti e gruppi**.
 1. Nella finestra di dialogo **Utenti e gruppi** selezionare **B.Simon** nell'elenco Utenti. Fare quindi clic sul pulsante **Seleziona** nella parte inferiore della schermata.
 1. Se si prevede un valore di ruolo nell'asserzione SAML, nella finestra di dialogo **Selezionare un ruolo** scegliere il ruolo appropriato per l'utente dall'elenco. Fare quindi clic sul pulsante **Seleziona** nella parte inferiore della schermata.
-1. Nella finestra di dialogo **Aggiungi assegnazione** selezionare il pulsante **Assegna** .
+1. Nella finestra di dialogo **Aggiungi assegnazione** selezionare il pulsante **Assegna**.
 
 ## <a name="configure-lensesio-sso"></a>Configurare l'accesso Single Sign-On di Lenses.io
 
-Per configurare l'accesso Single Sign-On nel portale di **Lenses.io** , installare nell'istanza di Lenses il file **XML dei metadati di federazione** scaricato e [configurare Lenses per consentire l'accesso SSO](https://docs.lenses.io/install_setup/configuration/security.html#configure-lenses).
+Per configurare l'accesso Single Sign-On nel portale di **Lenses.io**, installare nell'istanza di Lenses il file **XML dei metadati di federazione** scaricato e [configurare Lenses per consentire l'accesso SSO](https://docs.lenses.io/install_setup/configuration/security.html#configure-lenses).
 
 ### <a name="create-lensesio-test-group-permissions"></a>Creare autorizzazioni del gruppo di test di Lenses.io
 
-1. Per creare un gruppo in Lenses, usare il valore di **ID oggetto** del gruppo **LensesUsers** . Si tratta dell'ID copiato nella [sezione di creazione](#create-an-azure-ad-test-user-and-group) dell'utente.
+1. Per creare un gruppo in Lenses, usare il valore di **ID oggetto** del gruppo **LensesUsers**. Si tratta dell'ID copiato nella [sezione di creazione](#create-an-azure-ad-test-user-and-group) dell'utente.
 1. Assegnare le autorizzazioni desiderate per B. Simon.
 
 Per altre informazioni, vedere la pagina relativa al [mapping dei gruppi Lenses per Azure](https://docs.lenses.io/install_setup/configuration/security.html#azure-groups).

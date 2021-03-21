@@ -9,10 +9,10 @@ ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
 ms.openlocfilehash: 5dd1f157984cdb300cc3b375d71654e5da54d1ae
-ms.sourcegitcommit: d7d5f0da1dda786bda0260cf43bd4716e5bda08b
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/05/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97898131"
 ---
 # <a name="set-up-cloudsimple-private-cloud-as-a-disaster-recovery-site-for-on-premises-vmware-workloads"></a>Configurare il cloud privato CloudSimple come sito di ripristino di emergenza per i carichi di lavoro VMware locali
@@ -93,6 +93,6 @@ Per abilitare la replica virtuale Zerto dall'ambiente locale al cloud privato, c
 6. Personalizzare le impostazioni di rete per le singole macchine virtuali, se necessario, e creare il VPG.
 7. Test del failover dopo il completamento della replica.
 
-## <a name="reference"></a>Riferimento
+## <a name="reference"></a>Informazioni di riferimento
 
 [Documentazione di Zerto](https://www.zerto.com/myzerto/technical-documentation/)

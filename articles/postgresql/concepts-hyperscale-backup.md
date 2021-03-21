@@ -8,10 +8,10 @@ ms.subservice: hyperscale-citus
 ms.topic: conceptual
 ms.date: 04/28/2020
 ms.openlocfilehash: 9656e6ab608665e325ac5f772e06df9ac296c521
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/23/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92485376"
 ---
 # <a name="backup-and-restore-in-azure-database-for-postgresql---hyperscale-citus"></a>Backup e ripristino nel database di Azure per PostgreSQL-iperscalabilità (CITUS)
@@ -44,7 +44,7 @@ Nel database di Azure per PostgreSQL il ripristino di un cluster con iperscalabi
 ### <a name="point-in-time-restore-pitr"></a>Ripristino temporizzato (ripristino temporizzato)
 
 È possibile ripristinare un cluster in qualsiasi punto nel tempo entro gli ultimi 35 giorni.
-Il ripristino temporizzato è utile in più scenari, Ad esempio, quando un utente elimina accidentalmente i dati, rilascia una tabella o un database importante o se un'applicazione sovrascrive accidentalmente dati appropriati con dati non validi.
+Il ripristino temporizzato è utile in più scenari, Può accadere, ad esempio, quando un utente elimina accidentalmente i dati o rimuove una tabella o un database importante oppure se un'applicazione sovrascrive accidentalmente dati validi con dati non validi.
 
 Il processo di ripristino crea un nuovo cluster nella stessa area di Azure, sottoscrizione e gruppo di risorse dell'originale. Il cluster ha la configurazione originale: lo stesso numero di nodi, il numero di Vcore, le dimensioni di archiviazione, i ruoli utente, la versione di PostgreSQL e la versione dell'estensione CITUS.
 

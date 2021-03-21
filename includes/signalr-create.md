@@ -1,5 +1,5 @@
 ---
-title: File di inclusione
+title: includere file
 description: File di inclusione
 services: signalr
 author: wesmc7777
@@ -9,10 +9,10 @@ ms.date: 04/17/2018
 ms.author: wesmc
 ms.custom: include file
 ms.openlocfilehash: e5cfc9beb5473917a76f822862ce3d61675d6493
-ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
-ms.translationtype: HT
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/05/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93406700"
 ---
 1. Per creare una risorsa del Servizio Azure SignalR, prima di tutto accedere al [portale di Azure](https://portal.azure.com). Nell'angolo in alto a sinistra della pagina selezionare **+ Crea una risorsa**. Nella casella di testo **Cerca nel marketplace** immettere **Servizio SignalR**.

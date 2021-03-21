@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.date: 01/09/2019
 ms.author: alkohli
 ms.openlocfilehash: 538a650c6063422f89c8ed3d1753981a293693b7
-ms.sourcegitcommit: 2a8a53e5438596f99537f7279619258e9ecb357a
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/06/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94338087"
 ---
 # <a name="use-azure-portal-to-administer-your-data-box-disk"></a>Usare il portale di Azure per amministrare Azure Data Box
@@ -63,7 +63,7 @@ Il clone viene creato in pochi minuti e il portale viene aggiornato per mostrare
 
 È possibile eliminare solo gli ordini completati o annullati. Eseguire la procedura seguente per eliminare un ordine.
 
-1. Passare a **tutte le risorse**. Cercare l'ordine.
+1. Passare a **Tutte le risorse**. Cercare l'ordine.
 
     ![Ordini di ricerca](media/data-box-portal-ui-admin/portal-ui-admin-search-data-box-disk-orders.png)
 

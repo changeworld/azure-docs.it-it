@@ -7,10 +7,10 @@ ms.topic: reference
 ms.date: 01/12/2021
 ms.custom: devx-track-js, devx-track-csharp
 ms.openlocfilehash: 08a1965aadf8f50625e54d7c5e3b3f6a44c0bbd4
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/28/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98946180"
 ---
 # <a name="sdk-rest-and-cli-developer-resources-for-language-understanding-luis"></a>Risorse per sviluppatori SDK, REST e CLI per Language Understanding (LUIS)
@@ -88,11 +88,11 @@ Lo [schema dell'app](app-schema-definition.md) viene importato ed esportato in u
 
 |Linguaggio |Documentazione di riferimento|Pacchetto|Avvi rapidi|
 |--|--|--|--|
-|C#|[Authoring](/dotnet/api/microsoft.azure.cognitiveservices.language.luis.authoring)</br>[Stima](/dotnet/api/microsoft.azure.cognitiveservices.language.luis.runtime)|[Creazione di NuGet](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Language.LUIS.Authoring/)<br>[Stima di NuGet](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Language.LUIS.Runtime/)|[Authoring](./client-libraries-rest-api.md?pivots=rest-api)<br>[Stima query](./client-libraries-rest-api.md?pivots=rest-api)|
+|C#|[Creazione](/dotnet/api/microsoft.azure.cognitiveservices.language.luis.authoring)</br>[Stima](/dotnet/api/microsoft.azure.cognitiveservices.language.luis.runtime)|[Creazione di NuGet](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Language.LUIS.Authoring/)<br>[Stima di NuGet](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Language.LUIS.Runtime/)|[Creazione](./client-libraries-rest-api.md?pivots=rest-api)<br>[Stima query](./client-libraries-rest-api.md?pivots=rest-api)|
 |Go|[Creazione e stima](https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v2.0/luis)|[SDK](https://github.com/Azure/azure-sdk-for-go/tree/master/services/cognitiveservices/v2.0/luis)||
 |Java|[Creazione e stima](/java/api/overview/azure/cognitiveservices/client/languageunderstanding)|[Creazione di Maven](https://search.maven.org/artifact/com.microsoft.azure.cognitiveservices/azure-cognitiveservices-luis-authoring)<br>[Stima Maven](https://search.maven.org/artifact/com.microsoft.azure.cognitiveservices/azure-cognitiveservices-luis-runtime)|
-|JavaScript|[Authoring](/javascript/api/@azure/cognitiveservices-luis-authoring/)<br>[Stima](/javascript/api/@azure/cognitiveservices-luis-runtime/)|[Creazione NPM](https://www.npmjs.com/package/@azure/cognitiveservices-luis-authoring)<br>[Stima NPM](https://www.npmjs.com/package/@azure/cognitiveservices-luis-runtime)|[Authoring](./client-libraries-rest-api.md?pivots=rest-api)<br>[Stima](./client-libraries-rest-api.md?pivots=rest-api)|
-|Python|[Creazione e stima](./client-libraries-rest-api.md?pivots=rest-api)|[Pip](https://pypi.org/project/azure-cognitiveservices-language-luis/)|[Authoring](./client-libraries-rest-api.md?pivots=rest-api)<br>[Stima](./client-libraries-rest-api.md?pivots=rest-api)|
+|JavaScript|[Creazione](/javascript/api/@azure/cognitiveservices-luis-authoring/)<br>[Stima](/javascript/api/@azure/cognitiveservices-luis-runtime/)|[Creazione NPM](https://www.npmjs.com/package/@azure/cognitiveservices-luis-authoring)<br>[Stima NPM](https://www.npmjs.com/package/@azure/cognitiveservices-luis-runtime)|[Creazione](./client-libraries-rest-api.md?pivots=rest-api)<br>[Stima](./client-libraries-rest-api.md?pivots=rest-api)|
+|Python|[Creazione e stima](./client-libraries-rest-api.md?pivots=rest-api)|[Pip](https://pypi.org/project/azure-cognitiveservices-language-luis/)|[Creazione](./client-libraries-rest-api.md?pivots=rest-api)<br>[Stima](./client-libraries-rest-api.md?pivots=rest-api)|
 
 
 ### <a name="containers"></a>Contenitori

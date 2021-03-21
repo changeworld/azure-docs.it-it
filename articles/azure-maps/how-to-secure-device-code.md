@@ -10,10 +10,10 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.openlocfilehash: 3833cbfd0802f334e482203d269984eb0e299797
-ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/28/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92895631"
 ---
 # <a name="secure-an-input-constrained-device-with-azure-ad-and-azure-maps-rest-apis"></a>Proteggere un dispositivo vincolato di input con Azure AD e le API REST di Azure Maps
@@ -30,27 +30,27 @@ Questa guida illustra come proteggere le applicazioni pubbliche o i dispositivi 
 
 Creare l'applicazione basata su dispositivo in Azure AD per abilitare Azure AD l'accesso. A questa applicazione verrà concesso l'accesso alle API REST di Azure maps.
 
-1. Nell'elenco dei servizi di Azure portale di Azure selezionare **Azure Active Directory**  >  **registrazioni app**  >  **nuova registrazione** .  
+1. Nell'elenco dei servizi di Azure portale di Azure selezionare **Azure Active Directory**  >  **registrazioni app**  >  **nuova registrazione**.  
 
     > [!div class="mx-imgBorder"]
     > ![Registrazione delle app](./media/how-to-manage-authentication/app-registration.png)
 
-2. Immettere un **nome** e scegliere **account in questa directory aziendale solo** come **tipo di account supportato** . In **URI di reindirizzamento** specificare **client pubblico/nativo (mobile & desktop)** e quindi aggiungere `https://login.microsoftonline.com/common/oauth2/nativeclient` al valore. Per altri dettagli, vedere Azure AD [app desktop che chiama le API Web: registrazione dell'app](../active-directory/develop/scenario-desktop-app-registration.md). Quindi **registrare** l'applicazione.
+2. Immettere un **nome** e scegliere **account in questa directory aziendale solo** come **tipo di account supportato**. In **URI di reindirizzamento** specificare **client pubblico/nativo (mobile & desktop)** e quindi aggiungere `https://login.microsoftonline.com/common/oauth2/nativeclient` al valore. Per altri dettagli, vedere Azure AD [app desktop che chiama le API Web: registrazione dell'app](../active-directory/develop/scenario-desktop-app-registration.md). Quindi **registrare** l'applicazione.
 
     > [!div class="mx-imgBorder"]
     > ![Aggiungere i dettagli di registrazione dell'app per il nome e l'URI di Reindirizzamento](./media/azure-maps-authentication/devicecode-app-registration.png)
 
-3. Passare a **autenticazione** e abilitare **considera applicazione come client pubblico** . In questo modo verrà abilitata l'autenticazione del codice dispositivo con Azure AD.
+3. Passare a **autenticazione** e abilitare **considera applicazione come client pubblico**. In questo modo verrà abilitata l'autenticazione del codice dispositivo con Azure AD.
     
     > [!div class="mx-imgBorder"]
     > ![Abilitare la registrazione dell'app come client pubblico](./media/azure-maps-authentication/devicecode-public-client.png)
 
-4.  Per assegnare le autorizzazioni per le API delegate a mappe di Azure, passare all'applicazione. Quindi selezionare **autorizzazioni API**  >  **Aggiungi un'autorizzazione** . In **API l'organizzazione USA** , cercare e selezionare **mappe di Azure** .
+4.  Per assegnare le autorizzazioni per le API delegate a mappe di Azure, passare all'applicazione. Quindi selezionare **autorizzazioni API**  >  **Aggiungi un'autorizzazione**. In **API l'organizzazione USA**, cercare e selezionare **mappe di Azure**.
 
     > [!div class="mx-imgBorder"]
     > ![Aggiungi autorizzazioni API app](./media/how-to-manage-authentication/app-permissions.png)
 
-5. Selezionare la casella di controllo accanto a **Accedi a mappe di Azure** e quindi selezionare **Aggiungi autorizzazioni** .
+5. Selezionare la casella di controllo accanto a **Accedi a mappe di Azure** e quindi selezionare **Aggiungi autorizzazioni**.
 
     > [!div class="mx-imgBorder"]
     > ![Selezionare le autorizzazioni dell'API per le app](./media/how-to-manage-authentication/select-app-permissions.png)

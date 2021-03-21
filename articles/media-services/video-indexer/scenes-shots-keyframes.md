@@ -11,10 +11,10 @@ ms.topic: article
 ms.date: 07/05/2019
 ms.author: juliako
 ms.openlocfilehash: 248799d70e0741efcaea1714c12f4d92a42cef25
-ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93041898"
 ---
 # <a name="scenes-shots-and-keyframes"></a>Scene, scatti e fotogrammi chiave
@@ -46,7 +46,7 @@ Per estrarre fotogrammi chiave ad alta risoluzione per il video, è necessario i
 
 #### <a name="with-the-video-indexer-website"></a>Con il sito Web Video Indexer
 
-Per estrarre fotogrammi chiave tramite il sito Web Video Indexer, caricare e indicizzare il video. Al termine del processo di indicizzazione, fare clic sul pulsante **download** e selezionare **elementi (zip)** . In questo modo verrà scaricata la cartella artefatti nel computer. 
+Per estrarre fotogrammi chiave tramite il sito Web Video Indexer, caricare e indicizzare il video. Al termine del processo di indicizzazione, fare clic sul pulsante **download** e selezionare **elementi (zip)**. In questo modo verrà scaricata la cartella artefatti nel computer. 
 
 ![Screenshot che mostra l'elenco a discesa "download" con "artefatti" selezionati.](./media/scenes-shots-keyframes/extracting-keyframes2.png)
  

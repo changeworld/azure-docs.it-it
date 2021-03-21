@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 03/14/2019
 ms.author: jeedes
 ms.openlocfilehash: c143a5af40097039c70c58adba4cb21f687d3fa6
-ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
-ms.translationtype: HT
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/28/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92893166"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-planmyleave"></a>Esercitazione: Integrazione di Azure Active Directory con PlanMyLeave
@@ -63,7 +63,7 @@ Per configurare l'integrazione di PlanMyLeave in Azure AD, è necessario aggiung
 
     ![Pulsante Nuova applicazione](common/add-new-app.png)
 
-4. Nella casella di ricerca digitare **PlanMyLeave** , selezionare **PlanMyLeave** nel pannello dei risultati e quindi fare clic sul pulsante **Aggiungi** per aggiungere l'applicazione.
+4. Nella casella di ricerca digitare **PlanMyLeave**, selezionare **PlanMyLeave** nel pannello dei risultati e quindi fare clic sul pulsante **Aggiungi** per aggiungere l'applicazione.
 
      ![PlanMyLeave nell'elenco risultati](common/search-new-app.png)
 
@@ -110,7 +110,7 @@ Per configurare l'accesso Single Sign-On di Azure AD con PlanMyLeave, seguire qu
     > [!NOTE]
     > Poiché questi non sono i valori reali, è necessario aggiornarli con l'ID e l'URL di accesso effettivi. Per ottenere questi valori, contattare il [team di supporto di PlanMyLeave](mailto:support@planmyleave.com). È anche possibile fare riferimento ai modelli mostrati nella sezione **Configurazione SAML di base** del portale di Azure.
 
-5. Nella pagina **Configura l'accesso Single Sign-On con SAML** , nella sezione **Certificato di firma SAML** , fare clic su **Scarica** per scaricare il file **XML metadati federazione** definito dalle opzioni specificate in base ai propri requisiti e salvarlo in questo computer.
+5. Nella pagina **Configura l'accesso Single Sign-On con SAML**, nella sezione **Certificato di firma SAML**, fare clic su **Scarica** per scaricare il file **XML metadati federazione** definito dalle opzioni specificate in base ai propri requisiti e salvarlo in questo computer.
 
     ![Collegamento di download del certificato](common/metadataxml.png)
 
@@ -140,11 +140,11 @@ Per configurare l'accesso Single Sign-On di Azure AD con PlanMyLeave, seguire qu
 
     ![Configurazione accesso Single Sign-On sul lato app](./media/planmyleave-tutorial/tutorial_planmyleave_004.png)
 
-    a.  Nella casella di testo **Login URL** (URL di accesso) incollare l' **URL di accesso** copiato dal portale di Azure.
+    a.  Nella casella di testo **Login URL** (URL di accesso) incollare l'**URL di accesso** copiato dal portale di Azure.
 
     b.  Aprire i metadati scaricati, copiare il valore **X509Certificate** e quindi incollarlo nella casella di testo **Certificato**.
 
-    c. Impostare " **Is Enable** " su " **Yes** ".
+    c. Impostare "**Is Enable**" su "**Yes**".
 
     d. Fare clic su **Salva**. 
 
@@ -152,7 +152,7 @@ Per configurare l'accesso Single Sign-On di Azure AD con PlanMyLeave, seguire qu
 
 Questa sezione descrive come creare un utente test denominato Britta Simon nel portale di Azure.
 
-1. Nel riquadro sinistro del portale di Azure, selezionare **Azure Active Directory** , **Utenti** e quindi **Tutti gli utenti**.
+1. Nel riquadro sinistro del portale di Azure, selezionare **Azure Active Directory**, **Utenti** e quindi **Tutti gli utenti**.
 
     ![Collegamenti "Utenti e gruppi" e "Tutti gli utenti"](common/users.png)
 
@@ -177,7 +177,7 @@ Questa sezione descrive come creare un utente test denominato Britta Simon nel p
 
 In questa sezione Britta Simon viene abilitata per l'uso dell'accesso Single Sign-On di Azure, concedendo l'accesso a PlanMyLeave.
 
-1. Nel portale di Azure selezionare **Applicazioni aziendali** , quindi **Tutte le applicazioni** e infine **PlanMyLeave**.
+1. Nel portale di Azure selezionare **Applicazioni aziendali**, quindi **Tutte le applicazioni** e infine **PlanMyLeave**.
 
     ![Pannello delle applicazioni aziendali](common/enterprise-applications.png)
 

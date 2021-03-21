@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 7eafeaf59757fcda978fa89b4bc2f9882b769e48
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/18/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94835901"
 ---
 # <a name="simulating-risk-detections-in-identity-protection"></a>Simulazione del rilevamento del rischio in Identity Protection
@@ -93,7 +93,7 @@ Questa sezione illustra i passaggi per testare l'utente e i criteri di rischio d
 Per testare i criteri di sicurezza per il rischio utente, seguire questa procedura:
 
 1. Passare al [portale di Azure](https://portal.azure.com).
-1. Passare a **Azure Active Directory**  >  **Security**  >  **Panoramica** della sicurezza.
+1. Passare a **Azure Active Directory**  >    >  **Panoramica** della sicurezza.
 1. Selezionare **Configura criteri di rischio utente**.
    1. In **assegnazioni**
       1. **Utenti** : scegliere **tutti gli utenti** o **selezionare singoli utenti e gruppi** in caso di limitazione dell'implementazione.
@@ -113,7 +113,7 @@ Per testare i criteri di sicurezza per il rischio utente, seguire questa procedu
 Per testare i criteri di rischio di accesso, seguire questa procedura:
 
 1. Passare al [portale di Azure](https://portal.azure.com).
-1. Passare a **Azure Active Directory**  >  **Security**  >  **Panoramica** della sicurezza.
+1. Passare a **Azure Active Directory**  >    >  **Panoramica** della sicurezza.
 1. Selezionare **Configura criteri di rischio di accesso**.
    1. In **assegnazioni**
       1. **Utenti** : scegliere **tutti gli utenti** o **selezionare singoli utenti e gruppi** in caso di limitazione dell'implementazione.

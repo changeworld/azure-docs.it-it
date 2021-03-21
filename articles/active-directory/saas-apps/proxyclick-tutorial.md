@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 03/27/2019
 ms.author: jeedes
 ms.openlocfilehash: 23ae1a2c1371cda9435ea76f02cebc79c141c904
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
-ms.translationtype: HT
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/24/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92522241"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-proxyclick"></a>Esercitazione: integrazione di Azure Active Directory con Proxyclick
@@ -31,7 +31,7 @@ Per altre informazioni sull'integrazione di app SaaS con Azure AD, vedere [Acces
 
 Se non si ha una sottoscrizione di Azure, [creare un account gratuito](https://azure.microsoft.com/free/) prima di iniziare.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerequisiti
 
 Per configurare l'integrazione di Azure AD con Proxyclick, sono necessari gli elementi seguenti:
 
@@ -52,7 +52,7 @@ Per configurare l'integrazione di Proxyclick in Azure AD, è necessario aggiunge
 
     ![Selezionare Azure Active Directory](common/select-azuread.png)
 
-2. Passare a **Applicazioni aziendali** > **Tutte le applicazioni** :
+2. Passare a **Applicazioni aziendali** > **Tutte le applicazioni**:
 
     ![Pannello delle applicazioni aziendali](common/enterprise-applications.png)
 
@@ -60,7 +60,7 @@ Per configurare l'integrazione di Proxyclick in Azure AD, è necessario aggiunge
 
     ![Selezionare Nuova applicazione](common/add-new-app.png)
 
-4. Nella casella di ricerca immettere **Proxyclick** . Selezionare **Proxyclick** nei risultati della ricerca e quindi selezionare **Aggiungi** .
+4. Nella casella di ricerca immettere **Proxyclick**. Selezionare **Proxyclick** nei risultati della ricerca e quindi selezionare **Aggiungi**.
 
      ![Search Results](common/search-new-app.png)
 
@@ -84,7 +84,7 @@ In questa sezione verrà abilitato l'accesso Single Sign-On di Azure AD nel port
 
 Per configurare l'accesso Single Sign-On di Azure AD con Proxyclick, seguire questa procedura:
 
-1. Nella pagina di integrazione dell'applicazione Proxyclick del [portale di Azure](https://portal.azure.com/) selezionare **Single Sign-On** :
+1. Nella pagina di integrazione dell'applicazione Proxyclick del [portale di Azure](https://portal.azure.com/) selezionare **Single Sign-On**:
 
     ![Selezionare Single Sign-On](common/select-sso.png)
 
@@ -92,7 +92,7 @@ Per configurare l'accesso Single Sign-On di Azure AD con Proxyclick, seguire que
 
     ![Selezionare un metodo di accesso Single Sign-On](common/select-saml-option.png)
 
-3. Nella pagina **Configura l'accesso Single Sign-On con SAML** selezionare l'icona **Modifica** per aprire la finestra di dialogo **Configurazione SAML di base** :
+3. Nella pagina **Configura l'accesso Single Sign-On con SAML** selezionare l'icona **Modifica** per aprire la finestra di dialogo **Configurazione SAML di base**:
 
     ![Icona Modifica](common/edit-urls.png)
 
@@ -108,7 +108,7 @@ Per configurare l'accesso Single Sign-On di Azure AD con Proxyclick, seguire que
 
        `https://saml.proxyclick.com/consume/<companyId>`
 
-5. Se si vuole configurare l'applicazione in modalità avviata da SP, selezionare **Impostare URL aggiuntivi** . Nella casella **URL di accesso** immettere un URL nel formato seguente:
+5. Se si vuole configurare l'applicazione in modalità avviata da SP, selezionare **Impostare URL aggiuntivi**. Nella casella **URL di accesso** immettere un URL nel formato seguente:
    
    `https://saml.proxyclick.com/init/<companyId>`
 
@@ -127,21 +127,21 @@ Per configurare l'accesso Single Sign-On di Azure AD con Proxyclick, seguire que
 
     ![Copiare gli URL di configurazione](common/copy-configuration-urls.png)
 
-    1. **URL di accesso** .
+    1. **URL di accesso**.
 
-    1. **Identificatore Azure AD** .
+    1. **Identificatore Azure AD**.
 
-    1. **URL di disconnessione** .
+    1. **URL di disconnessione**.
 
 ### <a name="configure-proxyclick-single-sign-on"></a>Configurare l'accesso Single Sign-On di Proxyclick
 
 1. In una nuova finestra del Web browser accedere al sito aziendale di Proxyclick come amministratore.
 
-2. Selezionare **Account & Settings** (Account e impostazioni):
+2. Selezionare **le impostazioni di & dell'account**:
 
     ![Selezionare Account & Settings (Account e impostazioni)](./media/proxyclick-tutorial/configure1.png)
 
-3. Scorrere verso il basso fino alla sezione **Integrations** (Integrazioni) e selezionare **SAML** :
+3. Scorrere verso il basso fino alla sezione **Integrations** (Integrazioni) e selezionare **SAML**:
 
     ![Selezionare SAML](./media/proxyclick-tutorial/configure2.png)
 
@@ -167,7 +167,7 @@ Per configurare l'accesso Single Sign-On di Azure AD con Proxyclick, seguire que
 
 In questa sezione verrà creato un utente di test di nome Britta Simon nel portale di Azure.
 
-1. Nel riquadro sinistro del portale di Azure selezionare **Azure Active Directory** , **Utenti** e quindi **Tutti gli utenti** :
+1. Nel riquadro sinistro del portale di Azure selezionare **Azure Active Directory**, **Utenti** e quindi **Tutti gli utenti**:
 
     ![Selezionare Tutti gli utenti](common/users.png)
 
@@ -179,31 +179,31 @@ In questa sezione verrà creato un utente di test di nome Britta Simon nel porta
 
     ![Finestra di dialogo Utente](common/user-properties.png)
 
-    1. Nella casella **Nome** immettere **BrittaSimon** .
+    1. Nella casella **Nome** immettere **BrittaSimon**.
   
     1. Nella casella **Nome utente** immettere **BrittaSimon@\<yourcompanydomain>.\<extension>** . ad esempio BrittaSimon@contoso.com.
 
-    1. Selezionare **Mostra password** e quindi prendere nota del valore visualizzato nella casella **Password** .
+    1. Selezionare **Mostra password** e quindi prendere nota del valore visualizzato nella casella **Password**.
 
-    1. Selezionare **Create** (Crea).
+    1. Selezionare **Crea**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Assegnare l'utente di test di Azure AD
 
 In questa sezione Britta Simon sarà abilitata per l'uso dell'accesso Single Sign-On di Azure, concedendole l'accesso a Proxyclick.
 
-1. Nel portale di Azure selezionare **Applicazioni aziendali** , quindi **Tutte le applicazioni** e infine **Proxyclick** .
+1. Nel portale di Azure selezionare **Applicazioni aziendali**, quindi **Tutte le applicazioni** e infine **Proxyclick**.
 
     ![Pannello delle applicazioni aziendali](common/enterprise-applications.png)
 
-2. Nell'elenco delle applicazioni selezionare **Proxyclick** .
+2. Nell'elenco delle applicazioni selezionare **Proxyclick**.
 
     ![Elenco delle applicazioni](common/all-applications.png)
 
-3. Nel riquadro sinistro selezionare **Utenti e gruppi** :
+3. Nel riquadro sinistro selezionare **Utenti e gruppi**:
 
     ![Selezionare Utenti e gruppi](common/users-groups-blade.png)
 
-4. Selezionare **Aggiungi utente** e quindi **Utenti e gruppi** nella finestra di dialogo **Aggiungi assegnazione** .
+4. Selezionare **Aggiungi utente** e quindi **Utenti e gruppi** nella finestra di dialogo **Aggiungi assegnazione**.
 
     ![Selezionare Aggiungi utente](common/add-assign-user.png)
 
@@ -211,13 +211,13 @@ In questa sezione Britta Simon sarà abilitata per l'uso dell'accesso Single Sig
 
 6. Se si prevede un valore di ruolo nell'asserzione SAML, nella finestra di dialogo **Selezionare un ruolo** selezionare il ruolo appropriato per l'utente dall'elenco. Fare clic sul pulsante **Seleziona** in basso nella finestra.
 
-7. Nella finestra di dialogo **Aggiungi assegnazione** selezionare **Assegna** .
+7. Nella finestra di dialogo **Aggiungi assegnazione** selezionare **Assegna**.
 
 ### <a name="create-a-proxyclick-test-user"></a>Creare un utente test Proxyclick
 
 Per consentire agli utenti di Azure AD di accedere a Proxyclick, aggiungerli a Proxyclick. È necessario aggiungerli manualmente.
 
-Per creare un account utente, seguire questi passaggi:
+Per creare un account utente, seguire questa procedura:
 
 1. Accedere al sito aziendale di Proxyclick come amministratore.
 
@@ -225,7 +225,7 @@ Per creare un account utente, seguire questi passaggi:
 
     ![Selezionare Colleagues (Colleghi)](./media/proxyclick-tutorial/user1.png)
 
-1. Selezionare **Add Colleague** (Aggiungi collega):
+1. Selezionare **Aggiungi collega**:
 
     ![Selezionare Add Colleague (Aggiungi collega)](./media/proxyclick-tutorial/user2.png)
 
@@ -233,11 +233,11 @@ Per creare un account utente, seguire questi passaggi:
 
     ![Sezione Add a colleague (Aggiungi un collega)](./media/proxyclick-tutorial/user3.png)
 
-    1. Nella casella **Email** immettere l'indirizzo di posta elettronica dell'utente. In questo caso, **brittasimon\@contoso.com** .
+    1. Nella casella **Email** immettere l'indirizzo di posta elettronica dell'utente. In questo caso, **brittasimon\@contoso.com**.
 
-    1. Nella casella **First Name** (Nome) immettere il nome dell'utente. In questo caso, **Britta** .
+    1. Nella casella **First Name** (Nome) immettere il nome dell'utente. In questo caso, **Britta**.
 
-    1. Nella casella **Last Name** (Cognome) immettere il cognome dell'utente. In questo caso, **Simon** .
+    1. Nella casella **Last Name** (Cognome) immettere il cognome dell'utente. In questo caso, **Simon**.
 
     1. Selezionare **Add User** (Aggiungi utente).
 

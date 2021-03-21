@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 07/08/2019
 ms.author: alkohli
 ms.openlocfilehash: d2c7f729f4accf7c9ca212c6e4b4b5d565c3114c
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/25/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96021538"
 ---
 # <a name="safely-install-and-operate-your-azure-data-box-heavy"></a>Installare e usare in modo sicuro il Azure Data Box Heavy
@@ -35,11 +35,11 @@ Ecco le icone che vengono visualizzate quando si esaminano le precauzioni di sic
 | ![Avviso icona di avviso ](./media/data-box-heavy-safety/notice-icon.png) **:** |Indica le informazioni considerate importanti, ma non correlate al rischio. |
 | ![Icona di scossa elettrica ](./media/data-box-heavy-safety/electrical-shock-hazard-icon.png) **pericolo di scosse elettriche** |Alta tensione. |
 | ![Icona del peso elevato ](./media/data-box-heavy-safety/heavy-weight-hazard-icon.png) **peso elevato** | |
-| ![Nessuna ](./media/data-box-heavy-safety/no-user-serviceable-parts-icon.png) **No user serviceable parts** icona parti utilizzabile dall'utente |Non accedere a meno che non si sia stati adeguatamente formati. |
+| ![Nessuna ](./media/data-box-heavy-safety/no-user-serviceable-parts-icon.png)  icona parti utilizzabile dall'utente |Non accedere a meno che non si sia stati adeguatamente formati. |
 | ![Icona di avviso di sicurezza lettura ](./media/data-box-heavy-safety/read-safety-and-health-information-icon.png) **leggere prima tutte le istruzioni** | |
-| ![](./media/data-box-heavy-safety/tip-hazard-icon.png) **Tip hazard** Suggerimento rischio icona suggerimento rischio | |
+| ![](./media/data-box-heavy-safety/tip-hazard-icon.png)  Suggerimento rischio icona suggerimento rischio | |
 | ![Icona del rischio di sovraccarico icona del ](./media/data-box-heavy-safety/overload-tip-hazard-icon.png) **Suggerimento di sovraccarico** | |
-| ![Icona di più fonti di alimentazione più fonti ](./media/data-box-heavy-safety/multiple-power-sources-icon.png) **Multiple power sources** di alimentazione | |
+| ![Icona di più fonti di alimentazione più fonti ](./media/data-box-heavy-safety/multiple-power-sources-icon.png)  di alimentazione | |
 
 ## <a name="handling-precautions"></a>Precauzioni relative alla gestione
 

@@ -9,10 +9,10 @@ ms.date: 11/05/2020
 ms.author: cherylmc
 ms.custom: include file
 ms.openlocfilehash: 57b0bb9ab8ceb34021a38db0d0abf2c9c919e808
-ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/07/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94356653"
 ---
 ### <a name="can-i-still-deploy-multiple-bastion-hosts-across-peered-virtual-networks"></a>È comunque possibile distribuire più host Bastion tra reti virtuali con peering?
@@ -36,11 +36,11 @@ Verificare che l'utente disponga dell'accesso in **lettura** alla macchina virtu
 
 |Autorizzazioni|Descrizione|Tipo di autorizzazione|
 |---|---| ---|
-|Microsoft.Network/bastionHosts/read |Recupera un Bastion Host|Action|
-|Microsoft.Network/virtualNetworks/BastionHosts/action |Ottiene riferimenti Bastion Host in una rete virtuale.|Action|
-|Microsoft. Network/virtualNetworks/bastionHosts/default/Action|Ottiene riferimenti Bastion Host in una rete virtuale.|Action|
-|Microsoft.Network/networkInterfaces/read|Ottiene una definizione dell’interfaccia di rete.|Action|
-|Microsoft.Network/networkInterfaces/ipconfigurations/read|Ottiene una definizione di configurazione IP dell'interfaccia di rete.|Action|
-|Microsoft.Network/virtualNetworks/read|Ottiene la definizione della rete virtuale|Action|
-|Microsoft.Network/virtualNetworks/subnets/virtualMachines/read|Ottiene i riferimenti a tutte le macchine virtuali nella subnet della rete virtuale|Action|
+|Microsoft.Network/bastionHosts/read |Recupera un Bastion Host|Azione|
+|Microsoft.Network/virtualNetworks/BastionHosts/action |Ottiene riferimenti Bastion Host in una rete virtuale.|Azione|
+|Microsoft. Network/virtualNetworks/bastionHosts/default/Action|Ottiene riferimenti Bastion Host in una rete virtuale.|Azione|
+|Microsoft.Network/networkInterfaces/read|Ottiene una definizione dell’interfaccia di rete.|Azione|
+|Microsoft.Network/networkInterfaces/ipconfigurations/read|Ottiene una definizione di configurazione IP dell'interfaccia di rete.|Azione|
+|Microsoft.Network/virtualNetworks/read|Ottiene la definizione della rete virtuale|Azione|
+|Microsoft.Network/virtualNetworks/subnets/virtualMachines/read|Ottiene i riferimenti a tutte le macchine virtuali nella subnet della rete virtuale|Azione|
 |Microsoft.Network/virtualNetworks/virtualMachines/read|Ottiene i riferimenti a tutte le macchine virtuali in una rete virtuale|Azione|

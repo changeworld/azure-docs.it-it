@@ -8,10 +8,10 @@ ms.service: azure-app-configuration
 ms.topic: conceptual
 ms.date: 07/15/2020
 ms.openlocfilehash: 6cadadfb3623d05dd3ae3851acd5eaca13860023
-ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96929844"
 ---
 # <a name="using-private-endpoints-for-azure-app-configuration"></a>Uso di endpoint privati per la configurazione di app Azure
@@ -67,7 +67,7 @@ Per altre informazioni sulla creazione di un endpoint privato per l'archivio di 
 
 - [Creare un endpoint privato usando il centro collegamenti privati nel portale di Azure](../private-link/create-private-endpoint-portal.md)
 - [Creare un endpoint privato con l'interfaccia della riga di comando di Azure](../private-link/create-private-endpoint-cli.md)
-- [Creare un endpoint privato usando Azure PowerShell](../private-link/create-private-endpoint-powershell.md)
+- [Creare un endpoint privato con Azure PowerShell](../private-link/create-private-endpoint-powershell.md)
 
 Informazioni su come configurare il server DNS con endpoint privati:
 

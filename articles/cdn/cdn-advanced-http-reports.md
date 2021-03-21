@@ -15,10 +15,10 @@ ms.topic: how-to
 ms.date: 01/23/2017
 ms.author: mazha
 ms.openlocfilehash: e2ef1367cbbb1fb71159c4520c3d1481904c1769
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/28/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92779323"
 ---
 # <a name="analyze-usage-statistics-with-azure-cdn-advanced-http-reports"></a>Analizzare le statistiche di utilizzo con i report HTTP avanzati della rete CDN di Azure
@@ -33,7 +33,7 @@ Questo documento illustra la creazione di report HTTP avanzati nella rete CDN di
     ![Pulsante Gestisci pannello del profilo di rete CDN](./media/cdn-advanced-http-reports/cdn-manage-btn.png)
    
     Si aprirà il portale di gestione della rete CDN.
-2. Passare il puntatore sulla scheda **Analisi** e quindi sul riquadro a comparsa **Report HTTP avanzati** .  Fare clic su **Piattaforma HTTP grande** .
+2. Passare il puntatore sulla scheda **Analisi** e quindi sul riquadro a comparsa **Report HTTP avanzati**.  Fare clic su **Piattaforma HTTP grande**.
    
     ![Portale di gestione della rete CDN, menu Report avanzati](./media/cdn-advanced-http-reports/cdn-advanced-reports.png)
    
@@ -199,7 +199,7 @@ Il lato sinistro del grafico (asse y) indica il nome file per ognuno dei primi 1
 
 Proprio sotto il grafico a barre verranno elencate le informazioni seguenti per i primi 250 asset richiesti: il percorso relativo (incluso il nome file), il numero di richieste che hanno restituito un codice di stato 404 Non trovato, il numero totale di volte in cui l'asset è stato richiesto e la percentuale di richieste che hanno restituito un codice di stato 404 Non trovato.
 
-## <a name="see-also"></a>Vedere anche
+## <a name="see-also"></a>Vedi anche
 * [Panoramica della rete CDN di Azure](cdn-overview.md)
 * [Statistiche in tempo reale nella rete CDN di Microsoft Azure](cdn-real-time-stats.md)
 * [Override del comportamento HTTP predefinito mediante il motore regole](./cdn-verizon-premium-rules-engine.md)

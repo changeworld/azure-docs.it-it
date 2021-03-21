@@ -6,10 +6,10 @@ ms.topic: conceptual
 ms.date: 11/02/2019
 ms.author: azfuncdf
 ms.openlocfilehash: 63db8375379144b2ede78d9e7010a350b3f69b12
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/03/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "101726411"
 ---
 # <a name="orchestrator-function-code-constraints"></a>Vincoli del codice della funzione di orchestrazione
@@ -65,7 +65,7 @@ Le attività vengono eseguite in modo sincrono utilizzando un thread singolo fin
 
 Questa sezione descrive il comportamento di runtime per comprendere il motivo per cui una funzione dell'agente di orchestrazione non può utilizzare `await` o `yield` in un'attività non durevole. Esistono due motivi: il thread del dispatcher non può attendere il completamento dell'attività e qualsiasi callback da tale attività potrebbe potenzialmente danneggiare lo stato di rilevamento della funzione dell'agente di orchestrazione. Alcuni controlli di runtime sono disponibili per consentire il rilevamento di tali violazioni.
 
-Per ulteriori informazioni sul modo in cui il Framework di attività permanenti esegue le funzioni dell'agente di orchestrazione, consultare il [codice sorgente delle attività durevoli su GitHub](https://github.com/Azure/durabletask). In particolare, vedere [TaskOrchestrationExecutor.cs](https://github.com/Azure/durabletask/blob/master/src/DurableTask.Core/TaskOrchestrationExecutor.cs) e [TaskOrchestrationContext.cs](https://github.com/Azure/durabletask/blob/master/src/DurableTask.Core/TaskOrchestrationContext.cs).
+Per ulteriori informazioni sul modo in cui il Framework di attività permanenti esegue le funzioni dell'agente di orchestrazione, consultare il [codice sorgente delle attività durevoli su GitHub](https://github.com/Azure/durabletask). In particolare, vedere [TaskOrchestrationExecutor. cs](https://github.com/Azure/durabletask/blob/master/src/DurableTask.Core/TaskOrchestrationExecutor.cs) e [TaskOrchestrationContext. cs](https://github.com/Azure/durabletask/blob/master/src/DurableTask.Core/TaskOrchestrationContext.cs).
 
 ## <a name="next-steps"></a>Passaggi successivi
 

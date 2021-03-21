@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 12/04/2020
 ms.author: erhopf
 ms.openlocfilehash: 4746aad2d7cd62cb309a1823f8c50487e6f7e87c
-ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/10/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97032967"
 ---
 # <a name="custom-subdomain-names-for-cognitive-services"></a>Nomi di sottodominio personalizzati per servizi cognitivi
@@ -96,7 +96,7 @@ Sì. Questo è un elenco di endpoint internazionali che è possibile usare con l
 | Cina | Cina orientale 2 | `https://chinaeast2.api.cognitive.azure.cn` |
 | | Cina settentrionale | `https://chinanorth.api.cognitive.azure.cn` |
 
-## <a name="see-also"></a>Vedere anche
+## <a name="see-also"></a>Vedi anche
 
 * [Che cosa sono i servizi cognitivi?](./what-are-cognitive-services.md)
 * [autenticazione](authentication.md)

@@ -8,10 +8,10 @@ ms.service: private-link
 ms.topic: tutorial
 ms.date: 10/19/2020
 ms.openlocfilehash: 502c48a92f5b41c4434d03139335a0ce05fa451f
-ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
-ms.translationtype: HT
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/28/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92896974"
 ---
 # <a name="tutorial-connect-to-a-web-app-using-an-azure-private-endpoint"></a>Esercitazione: Connettersi a un'app Web con un endpoint privato di Azure
@@ -48,7 +48,7 @@ L'host bastion verrà usato per connettersi in modo sicuro alla macchina virtual
 
 1. In alto a sinistra nella schermata selezionare **Crea una risorsa > Rete > Rete virtuale** o cercare **Rete virtuale** nella casella di ricerca.
 
-2. In **Crea rete virtuale** immettere o selezionare queste informazioni nella scheda **Generale** :
+2. In **Crea rete virtuale** immettere o selezionare queste informazioni nella scheda **Generale**:
 
     | **Impostazione**          | **Valore**                                                           |
     |------------------|-----------------------------------------------------------------|
@@ -100,7 +100,7 @@ In questa sezione si creerà una macchina virtuale che verrà usata per testare 
 
 1. Nell'angolo in alto a sinistra del portale selezionare **Crea una risorsa** > **Calcolo** > **Macchina virtuale** oppure cercare **Macchina virtuale** nella casella di ricerca.
    
-2. In **Crea macchina virtuale** digitare o selezionare i valori nella scheda **Nozioni di base** :
+2. In **Crea macchina virtuale** digitare o selezionare i valori nella scheda **Nozioni di base**:
 
     | Impostazione | Valore                                          |
     |-----------------------|----------------------------------|
@@ -119,7 +119,7 @@ In questa sezione si creerà una macchina virtuale che verrà usata per testare 
     | Password | Immettere una password |
     | Conferma password | Reimmettere la password |
 
-3. Selezionare la scheda **Rete** , oppure selezionare **Avanti: Dischi** , quindi **Avanti: Rete**.
+3. Selezionare la scheda **Rete**, oppure selezionare **Avanti: Dischi**, quindi **Avanti: Rete**.
   
 4. Nella scheda Rete selezionare o immettere:
 
@@ -154,7 +154,7 @@ In questa sezione si creerà un'app Web.
     | Pubblica | Selezionare **Codice**. |
     | Stack di runtime | Selezionare **.NET Core 3.1 (LTS)** . |
     | Sistema operativo | Selezionare **Windows**. |
-    | Area | Selezionare **Europa occidentale** |
+    | Region | Selezionare **Europa occidentale** |
     | **Piano di servizio app** |  |
     | Piano Windows (Europa occidentale) | Selezionare **Crea nuovo**. </br> Immettere **myServicePlan** in **Nome**. |
     | SKU e dimensioni | Selezionare **Modifica dimensioni**. </br> Selezionare **P2V2** nella schermata **Selezione specifiche**. </br> Selezionare **Applica**. |
