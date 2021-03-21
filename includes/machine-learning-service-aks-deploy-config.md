@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 03/16/2020
 ms.author: larryfr
 ms.openlocfilehash: e17f14d3acf8d74d1715d14fbd914ee536d29931
-ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/09/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102511065"
 ---
 Le voci del documento `deploymentconfig.json` vengono mappate ai parametri di [AksWebservice.deploy_configuration](/python/api/azureml-core/azureml.core.webservice.aks.aksservicedeploymentconfiguration). La tabella seguente descrive il mapping tra le entità nel documento JSON e i parametri per il metodo:

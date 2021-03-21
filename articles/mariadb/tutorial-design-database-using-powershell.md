@@ -3,16 +3,16 @@ title: 'Esercitazione: Progettare un server - Azure PowerShell - Database di Azu
 description: Questa esercitazione illustra come creare e gestire il database e il server di Database di Azure per MariaDB con PowerShell.
 author: savjani
 ms.author: pariks
-ms.service: jroth
+ms.service: mariadb
 ms.devlang: azurepowershell
 ms.topic: tutorial
 ms.date: 05/26/2020
 ms.custom: mvc, devx-track-azurepowershell
-ms.openlocfilehash: 56d901ad05aa589ecf7f2ae97251be2b853f6c55
-ms.sourcegitcommit: 52e3d220565c4059176742fcacc17e857c9cdd02
+ms.openlocfilehash: 9b4500df459e4d4ef67f97dc4fa923988f30401b
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/21/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98664502"
 ---
 # <a name="tutorial-design-an-azure-database-for-mariadb-using-powershell"></a>Esercitazione: Progettare un'istanza di Database di Azure per MariaDB con PowerShell

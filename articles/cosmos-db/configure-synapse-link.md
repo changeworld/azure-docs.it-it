@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 11/30/2020
 ms.author: rosouz
 ms.custom: references_regions
-ms.openlocfilehash: dde6af75b751037c10d7786fa5b0b03ae31d969e
-ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
+ms.openlocfilehash: 64b9b6690eafe8f28fdf9711cd0534f4d7d96908
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98222616"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104584585"
 ---
 # <a name="configure-and-use-azure-synapse-link-for-azure-cosmos-db"></a>Configurare e usare Collegamento ad Azure Synapse per Azure Cosmos DB
 [!INCLUDE[appliesto-sql-mongodb-api](includes/appliesto-sql-mongodb-api.md)]
@@ -23,6 +23,7 @@ Il collegamento sinapsi di Azure è disponibile per Azure Cosmos DB contenitori 
 
 * [Abilitare il collegamento sinapsi per gli account di Azure Cosmos DB](#enable-synapse-link)
 * [Creare un archivio analitico abilitato Azure Cosmos DB contenitore](#create-analytical-ttl)
+* [Facoltativo: aggiornare il valore TTL dell'archivio analitico per un contenitore di Azure Cosmos DB](#update-analytical-ttl)
 * [Connettere il database Azure Cosmos DB a un'area di lavoro sinapsi](#connect-to-cosmos-database)
 * [Eseguire query sull'archivio analitico con Synapse Spark](#query-analytical-store-spark)
 * [Eseguire query nell'archivio analitico usando un pool SQL senza server](#query-analytical-store-sql-on-demand)
@@ -50,6 +51,21 @@ Il collegamento sinapsi di Azure è disponibile per Azure Cosmos DB contenitori 
 
 > [!NOTE]
 > Quando si attiva il collegamento sinapsi, l'archivio analitico non viene attivato automaticamente. Dopo aver abilitato il collegamento sinapsi nell'account Cosmos DB, abilitare l'archivio analitico nei contenitori al momento della creazione, per avviare la replica dei dati dell'operazione nell'archivio analitico. 
+
+### <a name="azure-cli"></a>Interfaccia della riga di comando di Azure
+
+I collegamenti seguenti illustrano come abilitare il collegamento sinapsi usando l'interfaccia della riga di comando di Azure:
+
+* [Creare un nuovo account di Azure Cosmos DB con il collegamento sinapsi abilitato](https://docs.microsoft.com/cli/azure/cosmosdb?view=azure-cli-latest#az_cosmosdb_create-optional-parameters&preserve-view=true)
+* [Aggiornare un account di Azure Cosmos DB esistente per abilitare il collegamento sinapsi](https://docs.microsoft.com/cli/azure/cosmosdb?view=azure-cli-latest#az_cosmosdb_update-optional-parameters&preserve-view=true)
+
+### <a name="powershell"></a>PowerShell
+
+* [Creare un nuovo account di Azure Cosmos DB con il collegamento sinapsi abilitato](https://docs.microsoft.com/powershell/module/az.cosmosdb/new-azcosmosdbaccount?view=azps-5.5.0#description&preserve-view=true)
+* [Aggiornare un account di Azure Cosmos DB esistente per abilitare il collegamento sinapsi](https://docs.microsoft.com/powershell/module/az.cosmosdb/update-azcosmosdbaccount?view=azps-5.5.0&preserve-view=true)
+
+
+I collegamenti seguenti illustrano come abilitare il collegamento sinapsi usando PowerShell:
 
 ## <a name="create-an-azure-cosmos-container-with-analytical-store"></a><a id="create-analytical-ttl"></a> Creare un contenitore Azure Cosmos con l'archivio analitico
 
@@ -159,11 +175,27 @@ except exceptions.CosmosResourceExistsError:
     print('A container with already exists')
 ```
 
-### <a name="update-the-analytical-store-time-to-live"></a><a id="update-analytical-ttl"></a> Aggiornare la durata (TTL) dell'archivio analitico
+### <a name="azure-cli"></a>Interfaccia della riga di comando di Azure
 
-Dopo aver abilitato l'archivio analitico con un valore specifico di TTL, è possibile aggiornarlo con un altro valore valido in un secondo momento. È possibile aggiornare il valore usando il portale di Azure o gli SDK. Per informazioni sulle varie opzioni di configurazione del TTL dei dati analitici, vedere l'articolo [Valori di TTL supportati per i dati analitici](analytical-store-introduction.md#analytical-ttl).
+I collegamenti seguenti illustrano come creare contenitori di archiviazione analitici abilitati usando l'interfaccia della riga di comando di Azure:
 
-#### <a name="azure-portal"></a>Portale di Azure
+* [API Azure Cosmos DB per il database Mongo](https://docs.microsoft.com/cli/azure/cosmosdb/mongodb/collection?view=azure-cli-latest#az_cosmosdb_mongodb_collection_create-examples&preserve-view=true)
+* [API SQL Azure Cosmos DB](https://docs.microsoft.com/cli/azure/cosmosdb/sql/container?view=azure-cli-latest#az_cosmosdb_sql_container_create&preserve-view=true)
+
+### <a name="powershell"></a>PowerShell
+
+I collegamenti seguenti illustrano come creare contenitori di archiviazione analitici abilitati usando PowerShell:
+
+* [API Azure Cosmos DB per il database Mongo](https://docs.microsoft.com/powershell/module/az.cosmosdb/new-azcosmosdbmongodbcollection?view=azps-5.5.0#description&preserve-view=true)
+* [API SQL Azure Cosmos DB](https://docs.microsoft.com/cli/azure/cosmosdb/sql/container?view=azure-cli-latest#az_cosmosdb_sql_container_create&preserve-view=true)
+
+
+## <a name="optional---update-the-analytical-store-time-to-live"></a><a id="update-analytical-ttl"></a> Facoltativo: aggiornare la durata (TTL) dell'archivio analitico
+
+Dopo aver abilitato l'archivio analitico con un valore TTL particolare, è possibile che si desideri aggiornarlo in un altro valore valido in un secondo momento. È possibile aggiornare il valore usando il portale di Azure, l'interfaccia della riga di comando di Azure, PowerShell o Cosmos DB SDK. Per informazioni sulle varie opzioni di configurazione del TTL dei dati analitici, vedere l'articolo [Valori di TTL supportati per i dati analitici](analytical-store-introduction.md#analytical-ttl).
+
+
+### <a name="azure-portal"></a>Portale di Azure
 
 Se è stato creato un contenitore abilitato per l'archivio analitico tramite il portale di Azure, conterrà il valore predefinito -1 del TTL per i dati analitici. Per aggiornare questo valore, usare la procedura seguente:
 
@@ -178,7 +210,7 @@ Se è stato creato un contenitore abilitato per l'archivio analitico tramite il 
   * Selezionare **Sì (nessun valore predefinito)** oppure selezionare **Sì** e impostare un valore TTL
   * È consigliabile fare clic su **Salva** per salvare le modifiche.
 
-#### <a name="net-sdk"></a>.NET SDK
+### <a name="net-sdk"></a>.NET SDK
 
 Il codice seguente illustra come aggiornare il TTL per l'archivio analitico tramite .NET SDK:
 
@@ -190,7 +222,7 @@ containerResponse.Resource. AnalyticalStorageTimeToLiveInSeconds = 60 * 60 * 24 
 await client.GetContainer("database", "container").ReplaceContainerAsync(containerResponse.Resource);
 ```
 
-#### <a name="java-v4-sdk"></a>Java v4 SDK
+### <a name="java-v4-sdk"></a>Java v4 SDK
 
 Il codice seguente illustra come aggiornare il TTL per l'archivio analitico tramite Java v4 SDK:
 
@@ -203,6 +235,26 @@ containerProperties.setAnalyticalStoreTimeToLiveInSeconds (60 * 60 * 24 * 180 );
 // Update container settings
 container.replace(containerProperties).block();
 ```
+
+### <a name="python-v4-sdk"></a>SDK per Python V4
+
+Attualmente non supportato.
+
+
+### <a name="azure-cli"></a>Interfaccia della riga di comando di Azure
+
+I collegamenti seguenti illustrano come aggiornare il TTL analitico dei contenitori usando l'interfaccia della riga di comando di Azure:
+
+* [API Azure Cosmos DB per il database Mongo](https://docs.microsoft.com/cli/azure/cosmosdb/mongodb/collection?view=azure-cli-latest#az_cosmosdb_mongodb_collection_update&preserve-view=true)
+* [API SQL Azure Cosmos DB](https://docs.microsoft.com/cli/azure/cosmosdb/sql/container?view=azure-cli-latest#az_cosmosdb_sql_container_update&preserve-view=true)
+
+### <a name="powershell"></a>PowerShell
+
+I collegamenti seguenti illustrano come aggiornare il TTL analitico dei contenitori usando PowerShell:
+
+* [API Azure Cosmos DB per il database Mongo](https://docs.microsoft.com/powershell/module/az.cosmosdb/update-azcosmosdbmongodbcollection?view=azps-5.5.0&preserve-view=true)
+* [API SQL Azure Cosmos DB](https://docs.microsoft.com/powershell/module/az.cosmosdb/update-azcosmosdbsqlcontainer?view=azps-5.5.0&preserve-view=true)
+
 
 ## <a name="connect-to-a-synapse-workspace"></a><a id="connect-to-cosmos-database"></a> Connettersi a un'area di lavoro di Synapse
 

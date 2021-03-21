@@ -6,10 +6,10 @@ ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 05/07/2020
 ms.openlocfilehash: a539acc423feeab500830fb33262d1b824101072
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/28/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98935829"
 ---
 # <a name="requesting-quota-increases-for-azure-hdinsight"></a>Richieste di aumento della quota per Azure HDInsight
@@ -70,5 +70,5 @@ Sono previsti limiti di quota fissi. Ad esempio, una singola sottoscrizione di A
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* [Configurare i cluster di HDInsight con Apache Hadoop, Spark, Kafka e altro](hdinsight-hadoop-provision-linux-clusters.md): Informazioni su come configurare i cluster HDInsight.
+* [Configurare i cluster di HDInsight con Apache Hadoop, Spark, Kafka e altro](hdinsight-hadoop-provision-linux-clusters.md): Informazioni su come installare e configurare i cluster HDInsight.
 * [Monitorare le prestazioni del cluster](hdinsight-key-scenarios-to-monitor.md): informazioni sui principali scenari da monitorare per il cluster HDInsight che potrebbero influire sulla relativa capacità.

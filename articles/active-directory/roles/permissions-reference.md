@@ -14,12 +14,12 @@ ms.author: rolyon
 ms.reviewer: vincesm
 ms.custom: it-pro, fasttrack-edit
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a2c327154e2f4eae735e7078be3b057b1d8cf1c5
-ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
+ms.openlocfilehash: 99b74319581b4e74c63045afe73ee66b6efcf53c
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/16/2021
-ms.locfileid: "103490875"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104585316"
 ---
 # <a name="azure-ad-built-in-roles"></a>Ruoli predefiniti di Azure AD
 
@@ -1415,7 +1415,7 @@ Il ruolo di [amministratore dei criteri di autenticazione](#authentication-polic
 
 
 > [!IMPORTANT]
-> Questo ruolo non è attualmente in grado di gestire l'autenticazione a più fattori per utente nel portale di gestione dell'autenticazione a più fattori legacy. Le stesse funzioni possono essere eseguite usando il modulo di PowerShell [set-MsolUser](https://docs.microsoft.com/powershell/module/msonline/set-msoluser) cmdlet Azure ad.
+> Questo ruolo non è attualmente in grado di gestire l'autenticazione a più fattori per utente nel portale di gestione dell'autenticazione a più fattori legacy. Le stesse funzioni possono essere eseguite usando il modulo di PowerShell [set-MsolUser](/powershell/module/msonline/set-msoluser) cmdlet Azure ad.
 
 > [!div class="mx-tableFixed"]
 > | Azioni | Descrizione |

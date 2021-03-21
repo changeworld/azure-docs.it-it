@@ -5,13 +5,13 @@ author: lfittl-msft
 ms.author: lufittl
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 03/05/2021
-ms.openlocfilehash: d223d2c6a83b1389cd70344efdb48c357dda4ac4
-ms.sourcegitcommit: 6386854467e74d0745c281cc53621af3bb201920
+ms.date: 03/17/2021
+ms.openlocfilehash: 998154376895d8bcfc7cf36665a6a36f5c43e3b4
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/08/2021
-ms.locfileid: "102454587"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104594989"
 ---
 # <a name="postgresql-extensions-in-azure-database-for-postgresql---flexible-server"></a>Estensioni di PostgreSQL nel database di Azure per PostgreSQL-server flessibile
 
@@ -128,7 +128,7 @@ Le estensioni seguenti sono disponibili nel database di Azure per PostgreSQL-ser
 
 
 ## <a name="dblink-and-postgres_fdw"></a>dblink e postgres_fdw
-[dblink](https://www.postgresql.org/docs/current/contrib-dblink-function.html) e [postgres_fdw](https://www.postgresql.org/docs/current/postgres-fdw.html) consentono di connettersi da un server PostgreSQL a un altro o a un altro database nello stesso server. Il server di invio deve consentire le connessioni in uscita al server di destinazione. Il server di destinazione deve consentire le connessioni dal server di invio.
+[dblink](https://www.postgresql.org/docs/current/contrib-dblink-function.html) e [postgres_fdw](https://www.postgresql.org/docs/current/postgres-fdw.html) consentono di connettersi da un server PostgreSQL a un altro o a un altro database nello stesso server. Il server flessibile supporta le connessioni sia in ingresso che in uscita a qualsiasi server PostgreSQL. Il server di invio deve consentire le connessioni in uscita al server di destinazione. Analogamente, il server di destinazione deve consentire le connessioni dal server di invio. 
 
 Se si prevede di usare queste due estensioni, è consigliabile distribuire i server con l' [integrazione VNet](concepts-networking.md) . Per impostazione predefinita, l'integrazione VNet consente le connessioni tra i server di VNET. È anche possibile scegliere di usare i [gruppi di sicurezza di rete VNet](../../virtual-network/manage-network-security-group.md) per personalizzare l'accesso.
 

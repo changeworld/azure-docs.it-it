@@ -8,12 +8,12 @@ ms.date: 08/24/2020
 ms.author: rogarana
 ms.subservice: disks
 ms.custom: references_regions
-ms.openlocfilehash: ba7d6d8deb2034f8b2a853cf74635687561c41ea
-ms.sourcegitcommit: 1f1d29378424057338b246af1975643c2875e64d
+ms.openlocfilehash: cdb22805e2e68893d3883272b66c2cfac13c807e
+ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/05/2021
-ms.locfileid: "99573603"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "104721869"
 ---
 # <a name="use-the-azure-portal-to-enable-end-to-end-encryption-using-encryption-at-host"></a>Usare la portale di Azure per abilitare la crittografia end-to-end usando la crittografia nell'host
 
@@ -27,9 +27,6 @@ Quando si Abilita la crittografia in host, i dati archiviati nell'host della mac
 
 [!INCLUDE [virtual-machines-disks-encryption-at-host-restrictions](../../includes/virtual-machines-disks-encryption-at-host-restrictions.md)]
 
-### <a name="supported-regions"></a>Aree supportate
-
-[!INCLUDE [virtual-machines-disks-encryption-at-host-regions](../../includes/virtual-machines-disks-encryption-at-host-regions.md)]
 
 ### <a name="supported-vm-sizes"></a>Dimensioni delle macchine virtuali supportate
 
@@ -37,7 +34,24 @@ Quando si Abilita la crittografia in host, i dati archiviati nell'host della mac
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-Per poter usare la crittografia nell'host per le VM o i set di scalabilità di macchine virtuali, è necessario abilitare la funzionalità nella sottoscrizione. Inviare un messaggio di posta elettronica a encryptionAtHost@microsoft.com con gli ID sottoscrizione per ottenere la funzionalità abilitata per le sottoscrizioni.
+Prima di usare la proprietà EncryptionAtHost per la VM/VMSS, è necessario abilitare la funzionalità per la sottoscrizione. Per abilitare la funzionalità per la sottoscrizione, seguire questa procedura:
+
+1. **Portale di Azure**: selezionare l'icona Cloud Shell nel [portale di Azure](https://portal.azure.com):
+
+    ![Icona per avviare il Cloud Shell dalla portale di Azure](../Cloud-Shell/media/overview/portal-launch-icon.png)
+    
+2.  Eseguire il comando seguente per registrare la funzionalità per la sottoscrizione
+
+    ```powershell
+     Register-AzProviderFeature -FeatureName "EncryptionAtHost" -ProviderNamespace "Microsoft.Compute" 
+    ```
+
+3.  Verificare che lo stato di registrazione sia registrato (richiede qualche minuto) usando il comando seguente prima di provare la funzionalità.
+
+    ```powershell
+     Get-AzProviderFeature -FeatureName "EncryptionAtHost" -ProviderNamespace "Microsoft.Compute"  
+    ```
+
 
 Accedere al portale di Azure usando il [collegamento fornito](https://aka.ms/diskencryptionupdates).
 

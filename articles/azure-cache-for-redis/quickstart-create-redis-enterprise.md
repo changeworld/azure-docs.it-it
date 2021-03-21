@@ -7,16 +7,16 @@ ms.service: cache
 ms.custom: mvc
 ms.topic: quickstart
 ms.date: 02/08/2021
-ms.openlocfilehash: 63daa7cda2f10448e9a0f8e250412137dc2af892
-ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
+ms.openlocfilehash: 8b450ddff0952777652a957ba2ed554a4bc6497d
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/10/2021
-ms.locfileid: "102563898"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104584823"
 ---
 # <a name="quickstart-create-a-redis-enterprise-cache"></a>Guida introduttiva: creare una cache Redis Enterprise
 
-I livelli Enterprise della cache di Azure per Redis offrono una soluzione [Redis Enterprise](https://redislabs.com/redis-enterprise/) completamente integrata e gestita in Azure. Sono attualmente disponibili in anteprima. L'anteprima include due nuovi livelli:
+I livelli Enterprise della cache di Azure per Redis offrono una soluzione [Redis Enterprise](https://redislabs.com/redis-enterprise/) completamente integrata e gestita in Azure. Questi nuovi livelli sono:
 * Enterprise, che usa memoria volatile (DRAM) in una macchina virtuale per archiviare i dati
 * Enterprise Flash, che usa memoria volatile e non volatile (NVMe o SSD) per archiviare i dati.
 
@@ -25,7 +25,7 @@ I livelli Enterprise della cache di Azure per Redis offrono una soluzione [Redis
 Prima di iniziare, è necessaria una sottoscrizione di Azure. Se non se ne ha una, creare un [account](https://azure.microsoft.com/). Per ulteriori informazioni, vedere [considerazioni speciali per i livelli Enterprise](cache-overview.md#special-considerations-for-enterprise-tiers).
 
 ## <a name="create-a-cache"></a>Creare una cache
-1. Per creare una cache, accedere al portale di Azure seguendo il collegamento nell'invito all'anteprima e quindi selezionare **Crea una risorsa**.
+1. Per creare una cache, accedere al portale di Azure e selezionare **Crea una risorsa**.
 
 1. Nella pagina **Nuovo** selezionare **Database** e quindi **Cache di Azure per Redis**.
    
@@ -38,7 +38,7 @@ Prima di iniziare, è necessaria una sottoscrizione di Azure. Se non se ne ha un
    | **Sottoscrizione** | Nell'elenco a discesa selezionare la sottoscrizione. | Sottoscrizione in cui creare la nuova istanza della cache di Azure per Redis. | 
    | **Gruppo di risorse** | Nell'elenco a discesa selezionare un gruppo di risorse oppure scegliere **Crea nuovo** e immettere il nome di un nuovo gruppo di risorse. | Nome del gruppo di risorse in cui creare la cache e altre risorse. L'inserimento di tutte le risorse di un'app in un unico gruppo di risorse ne semplifica la gestione o l'eliminazione. | 
    | **Nome DNS** | Immettere un nome univoco globale. | Il nome della cache deve essere una stringa compresa tra 1 e 63 caratteri contenente solo numeri, lettere o trattini. Il nome deve iniziare e terminare con un numero o una lettera e non può contenere trattini consecutivi. Il *nome host* dell'istanza della cache sarà *\<DNS name>.<Azure region>.redisenterprise.cache.azure.net*. | 
-   | **Posizione** | Nell'elenco a discesa selezionare una località. | Durante la fase di anteprima, i livelli Enterprise sono disponibili in un numero limitato di aree di Azure. |
+   | **Posizione** | Nell'elenco a discesa selezionare una località. | I livelli Enterprise sono disponibili nelle aree di Azure selezionate. |
    | **Tipo di cache** | Nell'elenco a discesa selezionare il livello *Enterprise* o *Enterprise Flash* e le dimensioni. |  Il livello determina le dimensioni, le prestazioni e le funzionalità disponibili per la cache. |
    
    :::image type="content" source="media/cache-create/enterprise-tier-basics.png" alt-text="Scheda nozioni di base livello Enterprise":::

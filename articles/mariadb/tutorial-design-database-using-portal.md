@@ -1,17 +1,17 @@
 ---
-title: 'Esercitazione: Progettare un database di Azure per MariaDB - Portale di Azure'
+title: 'Esercitazione: progettare un database di Azure per MariaDB-portale di Azure'
 description: Questa esercitazione illustra come creare e gestire un database e un server di Database di Azure per MariaDB usando il portale di Azure.
 author: savjani
 ms.author: pariks
-ms.service: jroth
+ms.service: mariadb
 ms.topic: tutorial
 ms.date: 3/18/2020
 ms.custom: mvc
-ms.openlocfilehash: 9df151be99ba81af28f6b7b0cc012eae7db3ea1b
-ms.sourcegitcommit: 52e3d220565c4059176742fcacc17e857c9cdd02
+ms.openlocfilehash: fe503d0e579e30b0c355d3be3e8d02b2bd7a44a8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/21/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98664470"
 ---
 # <a name="tutorial-design-an-azure-database-for-mariadb-database-by-using-the-azure-portal"></a>Esercitazione: Progettare un database di Database di Azure per MariaDB con il portale di Azure
@@ -45,7 +45,7 @@ Si crea un server di Database di Azure per MariaDB con un set definito di [risor
 
    ![Passare a MySQL](./media/tutorial-design-database-using-portal/1-Navigate-to-mariadb.png)
 
-3. Selezionare il riquadro **Database di Azure per MariaDB**. Immettere o selezionare le informazioni richieste.
+3. Selezionare il riquadro **database di Azure per MariaDB** . Immettere o selezionare le informazioni richieste.
 
    ![Modulo per la creazione](./media/tutorial-design-database-using-portal/2-create-form.png)
 
@@ -107,7 +107,7 @@ mysql -h mydemoserver.mariadb.database.azure.com -u myadmin@mydemoserver -p
 
 ## <a name="create-a-blank-database"></a>Creazione di un database vuoto
 
-Dopo avere stabilito la connessione al server, creare un database vuoto:
+Quando si è connessi al server, creare un database vuoto da usare:
 
 ```sql
 CREATE DATABASE mysampledb;

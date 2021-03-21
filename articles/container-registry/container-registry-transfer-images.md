@@ -4,12 +4,12 @@ description: Trasferire raccolte di immagini o altri artefatti da un registro co
 ms.topic: article
 ms.date: 10/07/2020
 ms.custom: ''
-ms.openlocfilehash: ab6657ecd335a6de8c6c93e3c2ff392ac54c487c
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: 30e6c0fa7a33c7a83543fee297c582b15bce4c8b
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98935340"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104606770"
 ---
 # <a name="transfer-artifacts-to-another-registry"></a>Trasferire gli artefatti in un altro registro
 
@@ -426,7 +426,8 @@ az resource delete \
   * Non tutti gli artefatti o nessuno vengono trasferiti. Confermare l'ortografia degli elementi nell'esecuzione dell'esportazione e il nome del BLOB nelle esecuzioni di esportazione ed importazione. Confermare che si sta trasferendo un massimo di 50 artefatti.
   * L'esecuzione della pipeline potrebbe non essere stata completata. Un'operazione di esportazione o importazione può richiedere del tempo. 
   * Per altri problemi della pipeline, fornire l' [ID di correlazione](../azure-resource-manager/templates/deployment-history.md) della distribuzione dell'esecuzione dell'esportazione o dell'importazione al team di container Registry di Azure.
-
+* **Problemi di pull dell'immagine in un ambiente fisicamente isolato**
+  * Se vengono visualizzati errori relativi a livelli esterni o si tenta di risolvere mcr.microsoft.com quando si tenta di eseguire il pull di un'immagine in un ambiente fisicamente isolato, è probabile che il manifesto dell'immagine disponga di livelli non distribuibile. A causa della natura di un ambiente fisicamente isolato, queste immagini spesso non riescono a eseguire il pull. È possibile verificare che questo sia il caso controllando il manifesto dell'immagine per tutti i riferimenti a registri esterni. In tal caso, sarà necessario effettuare il push dei livelli non distribuibile nel record di dominio di pubblicazione del cloud pubblico prima di distribuire una pipeline di esportazione-esecuzione per tale immagine. Per istruzioni su come eseguire questa operazione, vedere [ricerca per categorie effettuare il push di livelli non distribuibile a un registro?](./container-registry-faq.md#how-do-i-push-non-distributable-layers-to-a-registry)
 
 ## <a name="next-steps"></a>Passaggi successivi
 

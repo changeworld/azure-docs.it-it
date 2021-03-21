@@ -6,25 +6,25 @@ ms.author: anvar
 ms.manager: bsiva
 ms.topic: how-to
 ms.date: 03/02/2021
-ms.openlocfilehash: 1c93002a6dd97aadbf407713ab25091436bd85e0
-ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
+ms.openlocfilehash: 1425eafd92737e08596499e395dc62af3d967207
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/10/2021
-ms.locfileid: "102612066"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104607654"
 ---
 # <a name="scale-agentless-migration-of-vmware-virtual-machines-to-azure"></a>Ridimensionare la migrazione senza agenti di macchine virtuali VMware in Azure
 
-Questo articolo illustra come usare un'appliance con scalabilità orizzontale per eseguire la migrazione di un numero elevato di macchine virtuali (VM) VMware in Azure usando la funzionalità di migrazione senza agenti dello strumento di migrazione di Azure Migrate server. 
+Questo articolo illustra come usare un'appliance con scalabilità orizzontale per eseguire la migrazione di un numero elevato di macchine virtuali VMware in Azure usando il metodo senza agente dell'utilità di migrazione Azure Migrate server per la migrazione di macchine virtuali VMware.
 
-Con la migrazione senza agente delle macchine virtuali VMware funzionalità dello strumento di migrazione del server, è possibile:
+Utilizzando il metodo di migrazione senza agenti per le macchine virtuali VMware, è possibile:
 
 - Eseguire la replica di un massimo di 300 VM da un singolo server vCenter simultaneamente usando una Azure Migrate Appliance.
 - Replicare fino a 500 VM da un singolo server vCenter simultaneamente distribuendo una seconda Appliance con scalabilità orizzontale per la migrazione.
 
 In questo articolo verrà spiegato come:
 
-- Distribuire una appliance con scalabilità orizzontale per la migrazione a VMware
+- Aggiungere un'appliance con scalabilità orizzontale per la migrazione senza agenti di macchine virtuali VMware
 - Eseguire la migrazione simultanea di un massimo di 500 VM usando l'appliance con scalabilità orizzontale.
 
 ##  <a name="prerequisites"></a>Prerequisiti
@@ -37,8 +37,9 @@ Prima di iniziare, è necessario eseguire i passaggi seguenti:
 > [!IMPORTANT]
 > Prima di poter aggiungere un'appliance con scalabilità orizzontale per la migrazione, è necessario che nel progetto sia presente almeno una macchina virtuale di replica.
 
-## <a name="deploy-a-scale-out-appliance"></a>Distribuire un'appliance con scalabilità orizzontale
+Per informazioni su come eseguire la procedura precedente, vedere l'esercitazione sulla [migrazione di macchine virtuali VMware in Azure con il metodo di migrazione senza agente](./tutorial-migrate-vmware.md).
 
+## <a name="deploy-a-scale-out-appliance"></a>Distribuire un'appliance con scalabilità orizzontale
 
 Per aggiungere un'appliance con scalabilità orizzontale, attenersi alla procedura indicata di seguito:
 

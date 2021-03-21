@@ -2,27 +2,29 @@
 title: Controllare e gestire la conformità dei criteri
 titleSuffix: Azure Machine Learning
 description: Informazioni su come usare i criteri di Azure per usare i criteri predefiniti per Azure Machine Learning per assicurarsi che le aree di lavoro siano conformi ai propri requisiti.
-author: jhirono
-ms.author: jhirono
-ms.date: 09/15/2020
+author: aashishb
+ms.author: aashishb
+ms.date: 03/12/2021
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: how-to
 ms.reviewer: larryfr
-ms.openlocfilehash: 22901c4e8409fc4846c1566a57b2679f4fa92396
-ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
+ms.openlocfilehash: 21b07130e99ad4fac9a0a9b2d11aca852a1f205f
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94444561"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104584313"
 ---
 # <a name="audit-and-manage-azure-machine-learning-using-azure-policy"></a>Controllare e gestire Azure Machine Learning usando criteri di Azure
 
 [Criteri di Azure](../governance/policy/index.yml) è uno strumento di governance che consente di garantire che le risorse di Azure siano conformi ai criteri. Con Azure Machine Learning è possibile assegnare i seguenti criteri:
 
-* **Chiave gestita dal cliente** : controlla o impone se le aree di lavoro devono usare una chiave gestita dal cliente.
-* **Collegamento privato** : controllare se le aree di lavoro usano un endpoint privato per comunicare con una rete virtuale.
+* **Chiave gestita dal cliente**: controlla o impone se le aree di lavoro devono usare una chiave gestita dal cliente.
+* **Collegamento privato**: controlla o impone se le aree di lavoro utilizzano un endpoint privato per comunicare con una rete virtuale.
+* **Endpoint privato**: configurare la subnet della rete virtuale di Azure in cui deve essere creato l'endpoint privato.
+* **Zona DNS privato**: configurare la zona DNS privata da usare per il collegamento privato.
 
 I criteri possono essere impostati in ambiti diversi, ad esempio a livello di sottoscrizione o di gruppo di risorse. Per ulteriori informazioni, vedere la [documentazione di criteri di Azure](../governance/policy/overview.md).
 
@@ -33,26 +35,39 @@ Azure Machine Learning fornisce un set di criteri che è possibile utilizzare pe
 Per visualizzare le definizioni dei criteri predefinite correlate ai Azure Machine Learning, attenersi alla procedura seguente:
 
 1. Passare a __criteri di Azure__ nella [portale di Azure](https://portal.azure.com).
-1. Selezionare le __definizioni__.
+1. Selezionare __Definizioni__.
 1. Per __tipo__ selezionare _predefinito_ e per __categoria__ selezionare __Machine Learning__.
 
 Da qui è possibile selezionare le definizioni dei criteri per visualizzarle. Durante la visualizzazione di una definizione, è possibile usare il collegamento __assign__ per assegnare il criterio a un ambito specifico e configurare i parametri per il criterio. Per altre informazioni, vedere [assegnare un criterio-portale](../governance/policy/assign-policy-portal.md).
 
 È anche possibile assegnare i criteri tramite [Azure PowerShell](../governance/policy/assign-policy-powershell.md), l'interfaccia della riga di comando di [Azure](../governance/policy/assign-policy-azurecli.md)e i [modelli](../governance/policy/assign-policy-template.md).
 
-## <a name="workspaces-encryption-with-customer-managed-key"></a>Crittografia delle aree di lavoro con chiave gestita dal cliente
+## <a name="workspace-encryption-with-customer-managed-key"></a>Crittografia dell'area di lavoro con chiave gestita dal cliente
 
-Controlla se le aree di lavoro devono essere crittografate con una chiave gestita dal cliente o usando una chiave gestita da Microsoft per crittografare le metriche e i metadati. Per altre informazioni sull'uso della chiave gestita dal cliente, vedere la sezione [Azure Cosmos DB](concept-data-encryption.md#azure-cosmos-db) dell'articolo sulla crittografia dei dati.
+Controlla se un'area di lavoro deve essere crittografata con una chiave gestita dal cliente o usando una chiave gestita da Microsoft per crittografare le metriche e i metadati. Per altre informazioni sull'uso della chiave gestita dal cliente, vedere la sezione [Azure Cosmos DB](concept-data-encryption.md#azure-cosmos-db) dell'articolo sulla crittografia dei dati.
 
-Per configurare questo criterio, impostare il parametro Effect su __Audit__ o __Deny__. Se è impostato su __Audit__ , è possibile creare aree di lavoro senza una chiave gestita dal cliente e nel log attività viene creato un evento di avviso.
+Per configurare questo criterio, impostare il parametro Effect su __Audit__ o __Deny__. Se è impostato su __Audit__, è possibile creare un'area di lavoro senza una chiave gestita dal cliente e nel log attività viene creato un evento di avviso.
 
-Se il criterio è impostato su __Nega__ , non è possibile creare un'area di lavoro a meno che non specifichi una chiave gestita dal cliente. Il tentativo di creare un'area di lavoro senza una chiave gestita dal cliente genera un errore simile a `Resource 'clustername' was disallowed by policy` e crea un errore nel log attività. L'identificatore dei criteri viene restituito anche come parte di questo errore.
+Se il criterio è impostato su __Nega__, non è possibile creare un'area di lavoro a meno che non specifichi una chiave gestita dal cliente. Il tentativo di creare un'area di lavoro senza una chiave gestita dal cliente genera un errore simile a `Resource 'clustername' was disallowed by policy` e crea un errore nel log attività. L'identificatore dei criteri viene restituito anche come parte di questo errore.
 
-## <a name="workspaces-should-use-private-link"></a>Le aree di lavoro devono usare un collegamento privato
+## <a name="workspace-should-use-private-link"></a>L'area di lavoro deve usare un collegamento privato
 
-Controlla se le aree di lavoro devono usare il collegamento privato di Azure per comunicare con la rete virtuale di Azure. Per altre informazioni sull'uso del collegamento privato, vedere [configurare un collegamento privato per un'area di lavoro](how-to-configure-private-link.md).
+Controlla se un'area di lavoro deve usare il collegamento privato di Azure per comunicare con la rete virtuale di Azure. Per altre informazioni sull'uso del collegamento privato, vedere [configurare un collegamento privato per un'area di lavoro](how-to-configure-private-link.md).
 
-Per configurare questo criterio, impostare il parametro Effect su __Audit__. Se si crea un'area di lavoro senza usare un collegamento privato, nel log attività viene creato un evento di avviso.
+Per configurare questo criterio, impostare il parametro Effect su __Audit__ o __Deny__. Se è impostato su __Audit__, è possibile creare un'area di lavoro senza usare un collegamento privato e nel log attività viene creato un evento di avviso.
+
+Se il criterio è impostato su __Nega__, non è possibile creare un'area di lavoro a meno che non utilizzi un collegamento privato. Il tentativo di creare un'area di lavoro senza un collegamento privato genera un errore. Anche l'errore viene registrato nel log attività. L'identificatore dei criteri viene restituito come parte di questo errore.
+
+## <a name="workspace-should-use-private-endpoint"></a>L'area di lavoro deve usare un endpoint privato
+
+Configura un'area di lavoro per creare un endpoint privato all'interno della subnet specificata di una rete virtuale di Azure.
+
+Per configurare questo criterio, impostare il parametro Effect su __DeployIfNotExists__. Impostare il __privateEndpointSubnetID__ sull'ID Azure Resource Manager della subnet.
+## <a name="workspace-should-use-private-dns-zones"></a>L'area di lavoro deve usare le zone DNS private
+
+Configura un'area di lavoro per l'uso di una zona DNS privata, sostituendo la risoluzione DNS predefinita per un endpoint privato.
+
+Per configurare questo criterio, impostare il parametro Effect su __DeployIfNotExists__. Impostare __privateDnsZoneId__ sull'ID Azure Resource Manager della zona DNS privata da usare. 
 
 ## <a name="next-steps"></a>Passaggi successivi
 

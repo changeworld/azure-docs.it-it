@@ -41,6 +41,12 @@
           href: tutorial-cross-region-powershell.md
         - name: Creare un servizio di bilanciamento del carico tra aree-interfaccia della riga di comando di Azure
           href: tutorial-cross-region-cli.md
+    - name: Gateway NAT
+      items:
+        - name: Integrare il servizio di bilanciamento del carico pubblico del gateway NAT
+          href: ../virtual-network/tutorial-nat-gateway-load-balancer-public-portal.md?toc=%2fazure%2fload-balancer%2ftoc.json
+        - name: Integrare il servizio di bilanciamento del carico interno del gateway NAT
+          href: ../virtual-network/tutorial-nat-gateway-load-balancer-internal-portal.md?toc=%2fazure%2fload-balancer%2ftoc.json
 - name: Esempi
   items:
     - name: Interfaccia della riga di comando di Azure
@@ -49,6 +55,8 @@
       href: powershell-samples.md
 - name: Concetti
   items:
+    - name: Impostazioni del portale
+      href: manage.md
     - name: Bilanciamento del carico tra aree
       href: cross-region-overview.md
     - name: Novità
@@ -99,8 +107,6 @@
       href: instance-metadata-service-load-balancer.md
 - name: Procedure
   items:
-    - name: Impostazioni del portale
-      href: manage.md
     - name: set di scalabilità di macchine virtuali
       items:
         - name: Aggiornare o eliminare le istanze esistenti di Azure Load Balancer usate da un set di scalabilità di macchine virtuali

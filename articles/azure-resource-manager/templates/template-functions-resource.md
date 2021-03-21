@@ -4,10 +4,10 @@ description: Descrive le funzioni da usare in un modello di Azure Resource Manag
 ms.topic: conceptual
 ms.date: 02/10/2021
 ms.openlocfilehash: da85308e7d214f198b29b40bc380a4d33947c865
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/14/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100364563"
 ---
 # <a name="resource-functions-for-arm-templates"></a>Funzioni delle risorse per i modelli di Azure Resource Manager

@@ -7,10 +7,10 @@ ms.manager: abhemraj
 ms.topic: conceptual
 ms.date: 11/10/2020
 ms.openlocfilehash: 7e0bc21fde2c030de7a836d82384c09c78d993ad
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/04/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102047826"
 ---
 # <a name="support-matrix-for-vmware-assessment"></a>Matrice di supporto per la valutazione di VMware 
@@ -80,7 +80,7 @@ Oltre a individuare i server, la valutazione del server può individuare applica
 ## <a name="requirements-for-discovery-of-sql-server-instances-and-databases"></a>Requisiti per l'individuazione di istanze e database di SQL Server
 
 > [!Note]
-> L'individuazione e la valutazione di SQL Server istanze e database in esecuzione nell'ambiente VMware sono ora in anteprima. Per provare questa funzionalità, usare [**questo collegamento**](https://aka.ms/AzureMigrate/SQL) per creare un progetto nell'area **Australia orientale** . Se si dispone già di un progetto in Australia orientale e si vuole provare questa funzionalità, assicurarsi di aver completato questi [**prerequisiti**](how-to-discover-sql-existing-project.md) nel portale.
+> L'individuazione e la valutazione di SQL Server istanze e database in esecuzione nell'ambiente VMware sono ora in anteprima. Per provare questa funzionalità, usare [**questo collegamento**](https://aka.ms/AzureMigrate/SQL) per creare un progetto nell'area **Australia orientale**. Se si dispone già di un progetto nell'Australia orientale e si vuole provare questa funzionalità, assicurarsi di aver completato questi [**prerequisiti**](how-to-discover-sql-existing-project.md) nel portale.
 
 L' [individuazione delle applicazioni](how-to-discover-applications.md) identifica le istanze di SQL Server. Usando queste informazioni, l'appliance tenta di connettersi alle rispettive istanze di SQL Server tramite l'autenticazione di Windows o le credenziali di autenticazione SQL Server fornite nell'appliance. Una volta stabilita la connessione, appliance raccoglie i dati di configurazione e delle prestazioni delle istanze di SQL Server e dei database. I dati di configurazione SQL Server vengono aggiornati ogni 24 ore e i dati sulle prestazioni vengono acquisiti ogni 30 secondi.
 

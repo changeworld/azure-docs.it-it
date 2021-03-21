@@ -8,10 +8,10 @@ ms.subservice: purview-data-catalog
 ms.topic: reference
 ms.date: 02/05/2021
 ms.openlocfilehash: 60aede65f8217d46844398d0199ff7edca7f36a9
-ms.sourcegitcommit: 5f32f03eeb892bf0d023b23bd709e642d1812696
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/12/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "103200795"
 ---
 # <a name="supported-classifications-in-azure-purview"></a>Classificazioni supportate in Azure competenza
@@ -407,7 +407,7 @@ tfn
 
 11 cifre più delimitatori:
 
-- sei cifre e due punti facoltativi nel formato YY. MM.DD per la data di nascita
+- sei cifre e due punti facoltativi nel formato YY. MM. DD per la data di nascita
 - Un delimitatore facoltativo da punti, trattini, spazio
 - tre cifre sequenziali (dispari per i maschi, anche per le femmine)
 - Un delimitatore facoltativo da punti, trattini, spazio

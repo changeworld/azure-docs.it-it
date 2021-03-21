@@ -2,23 +2,23 @@
 title: 'Concetti: identità e accesso'
 description: Informazioni sui concetti di identità e accesso della soluzione VMware di Azure
 ms.topic: conceptual
-ms.date: 02/02/2021
-ms.openlocfilehash: 68f4ce9136cca1cf9bf0824395e31704d8ed1a17
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.date: 03/18/2021
+ms.openlocfilehash: 07a7ac8093524ef4240b8f7607d649520b9439e1
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100364886"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104586251"
 ---
 # <a name="azure-vmware-solution-identity-concepts"></a>Concetti di identità della soluzione VMware di Azure
 
-Viene eseguito il provisioning dei cloud privati della soluzione VMware di Azure con un server vCenter e una gestione NSX-T. VCenter viene usato per gestire i carichi di lavoro delle macchine virtuali (VM). Usare la gestione NSX-T per estendere il cloud privato.
+Viene eseguito il provisioning dei cloud privati della soluzione VMware di Azure con un server vCenter e una gestione NSX-T. VCenter viene usato per gestire i carichi di lavoro delle macchine virtuali (VM). Per gestire ed estendere la rete cloud privata, è possibile usare la gestione NSX-T.
 
-La gestione dell'accesso e delle identità usa i privilegi del gruppo CloudAdmin per vCenter e i diritti di amministratore limitati per NSX-T Manager. Garantisce che la piattaforma cloud privata venga aggiornata automaticamente con le funzionalità e le patch più recenti.  Per altre informazioni, vedere l' [articolo Concetti relativi agli aggiornamenti per il cloud privato][concepts-upgrades].
+La gestione delle identità e dell'accesso a vCenter usa i privilegi del gruppo buildin CloudAdmin. Il gestore NSX-T USA autorizzazioni di amministratore limitate. Questo è per natura del servizio gestito e garantisce che la piattaforma cloud privata venga aggiornata con le funzionalità e le patch più recenti previste.  Per altre informazioni, vedere l' [articolo Concetti relativi agli aggiornamenti per il cloud privato][concepts-upgrades].
 
 ## <a name="vcenter-access-and-identity"></a>accesso e identità vCenter
 
-Il gruppo CloudAdmin fornisce i privilegi in vCenter. Il gruppo viene gestito localmente in vCenter. Un'altra opzione consiste nell'integrazione di vCenter LDAP Single Sign-On con Azure Active Directory. Questa integrazione viene abilitata dopo la distribuzione del cloud privato. 
+Il gruppo vCenter CloudAdmin definisce e fornisce i privilegi in vCenter. Un'altra opzione consiste nel fornire l'accesso e l'identità tramite l'integrazione di vCenter LDAP Single Sign-On con Azure Active Directory. Questa integrazione viene abilitata dopo la distribuzione del cloud privato. 
 
 La tabella mostra i privilegi **CloudAdmin** e **CloudGlobalAdmin** .
 
@@ -49,7 +49,7 @@ La tabella mostra i privilegi **CloudAdmin** e **CloudGlobalAdmin** .
 
 ## <a name="nsx-t-manager-access-and-identity"></a>Accesso e identità di gestione NSX-T
 
-Usare l'account *Administrator* per accedere a NSX-T Manager. Dispone di privilegi completi e consente di creare e gestire gateway di livello 1 (T1), segmenti (commutatori logici) e tutti i servizi. I privilegi consentono di accedere al gateway NSX-T Tier-0 (T0). Una modifica al gateway T0 può comportare un calo delle prestazioni di rete o l'accesso al cloud privato. Aprire una richiesta di supporto nella portale di Azure per richiedere eventuali modifiche al gateway NSX-T T0.
+Usare l'account *Administrator* per accedere a NSX-T Manager. Dispone di privilegi completi e consente di creare e gestire gateway di livello 1 (T1), segmenti (commutatori logici) e tutti i servizi. Questo account fornisce anche l'accesso al gateway NSX-T Tier-0 (T0). Tenere in considerazione le modifiche apportate, poiché ciò potrebbe causare una riduzione delle prestazioni della rete o l'accesso al cloud privato. Aprire una richiesta di supporto nella portale di Azure per richiedere eventuali modifiche al gateway NSX-T T0.
   
 ## <a name="next-steps"></a>Passaggi successivi
 

@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 04/26/2019
 ms.author: pafarley
 ms.openlocfilehash: 68d1e9744d937cf80327c3f41cc69f4af97d3400
-ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/20/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98600183"
 ---
 # <a name="face-detection-and-attributes"></a>Rilevamento viso e attributi
@@ -35,7 +35,7 @@ I punti di interesse della faccia sono un set di punti di facile individuazione 
 
 Le coordinate dei punti vengono restituite in unità di pixel.
 
-## <a name="attributes"></a>Attributes
+## <a name="attributes"></a>Attributi
 
 Gli attributi sono un set di funzionalità che possono essere rilevate facoltativamente dall'API di [rilevamento facciale](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236) . È possibile rilevare gli attributi seguenti:
 

@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 01/08/2021
 ms.author: trbye
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 90a4ad068f332b198696d96bddbb794c820f42f5
-ms.sourcegitcommit: 18a91f7fe1432ee09efafd5bd29a181e038cee05
+ms.openlocfilehash: 76b4a749bff94cbf218d3cd3c7d132eef119b7ef
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/16/2021
-ms.locfileid: "103564389"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104606906"
 ---
 # <a name="speech-to-text-rest-api"></a>API REST di riconoscimento vocale
 
@@ -51,7 +51,8 @@ Vedere le informazioni di riferimento complete sull'API REST di sintesi vocale v
 
 ## <a name="speech-to-text-rest-api-for-short-audio"></a>API REST per sintesi vocale per audio breve
 
-In alternativa all' [SDK vocale](speech-sdk.md), il servizio riconoscimento vocale consente di convertire il riconoscimento vocale usando un'API REST. Ogni endpoint accessibile è associato a un'area. L'applicazione richiede una chiave di sottoscrizione per l'endpoint che si intende usare. L'API REST per l'audio breve è molto limitata ed è consigliabile usarla solo nei casi in cui non è possibile usare l' [SDK di riconoscimento vocale](speech-sdk.md) .
+In alternativa all' [SDK vocale](speech-sdk.md), il servizio riconoscimento vocale consente di convertire il riconoscimento vocale usando un'API REST.
+L'API REST per l'audio breve è molto limitata ed è consigliabile usarla solo nei casi in cui non è possibile usare l' [SDK di riconoscimento vocale](speech-sdk.md) .
 
 Prima di usare l'API REST di sintesi vocale per l'audio breve, tenere presente quanto segue:
 
@@ -341,3 +342,4 @@ Risposta tipica per il riconoscimento con la valutazione della pronuncia:
 - [Personalizzare modelli acustici](./how-to-custom-speech-train-model.md)
 - [Personalizzare modelli linguistici](./how-to-custom-speech-train-model.md)
 - [Acquisire familiarità con la trascrizione batch](batch-transcription.md)
+

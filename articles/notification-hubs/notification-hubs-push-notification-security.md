@@ -17,10 +17,10 @@ ms.author: sethm
 ms.reviewer: thsomasu
 ms.lastreviewed: 09/23/2019
 ms.openlocfilehash: 07600b1fe0cb7420989fbbfbe55c2f1a4197d2fc
-ms.sourcegitcommit: 5a999764e98bd71653ad12918c09def7ecd92cf6
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/16/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100548251"
 ---
 # <a name="notification-hubs-security"></a>Sicurezza di hub di notifica

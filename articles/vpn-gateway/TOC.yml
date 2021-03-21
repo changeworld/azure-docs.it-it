@@ -262,6 +262,8 @@
     - name: Risolvere problemi
       href: vpn-gateway-troubleshoot.md
       items:
+        - name: Risolvere i problemi del gateway VPN di Azure tramite log di diagnostica
+          href: troubleshoot-vpn-with-azure-diagnostics.md
         - name: Impostazioni di dispositivi firewall o VPN suggerite dalla community
           href: vpn-gateway-third-party-settings.md
         - name: Configurare e convalidare connessioni VPN o di reti virtuali
