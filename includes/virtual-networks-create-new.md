@@ -1,6 +1,6 @@
 ---
-title: File di inclusione
-description: File di inclusione
+title: includere file
+description: includere file
 services: virtual-network
 author: asudbring
 ms.service: virtual-network
@@ -9,10 +9,10 @@ ms.date: 03/01/2020
 ms.author: allensu
 ms.custom: include file
 ms.openlocfilehash: e1d4d29f8edca87ec1cca0ffced7b3e1bca90717
-ms.sourcegitcommit: 8245325f9170371e08bbc66da7a6c292bbbd94cc
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/07/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "99808487"
 ---
 ## <a name="create-the-virtual-network-and-subnet"></a>Creare la rete virtuale e la subnet
@@ -53,4 +53,4 @@ In questa sezione si crea una rete virtuale e una subnet.
 
 8. Selezionare la scheda **Rivedi e crea** oppure il pulsante **Rivedi e crea**.
 
-9. Selezionare **Create** (Crea).
+9. Selezionare **Crea**.

@@ -4,16 +4,16 @@ description: Informazioni sui dischi ultra per le macchine virtuali di Azure
 author: roygara
 ms.service: virtual-machines
 ms.topic: how-to
-ms.date: 12/10/2020
+ms.date: 03/16/2021
 ms.author: rogarana
 ms.subservice: disks
 ms.custom: references_regions, devx-track-azurecli
-ms.openlocfilehash: 9c3c1acbc2606d882ad45744457137be5014bc4c
-ms.sourcegitcommit: 5db975ced62cd095be587d99da01949222fc69a3
+ms.openlocfilehash: 43dac1692dd6ee4ed1ab67a9b18ca69738e0a0f0
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97093486"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104580504"
 ---
 # <a name="using-azure-ultra-disks"></a>Uso di Azure ultra Disks
 
@@ -56,7 +56,7 @@ La risposta sarà simile a quella riportata di seguito, dove X è la zona da usa
 
 Mantenere il valore **Zones** , che rappresenta la zona di disponibilità e sarà necessario per distribuire un disco Ultra.
 
-|ResourceType  |Nome  |Località  |Zone  |Restrizione  |Funzionalità  |Valore  |
+|ResourceType  |Nome  |Location  |Zone  |Restrizione  |Funzionalità  |Valore  |
 |---------|---------|---------|---------|---------|---------|---------|
 |disks     |UltraSSD_LRS         |eastus2         |X         |         |         |         |
 
@@ -133,31 +133,31 @@ Dopo aver effettuato il provisioning della macchina virtuale, è possibile parti
 
 In questa sezione viene illustrata la distribuzione di una macchina virtuale dotata di disco rigido come disco dati. Si presuppone che l'utente abbia familiarità con la distribuzione di una macchina virtuale. in caso contrario, vedere [la Guida introduttiva: creare una macchina virtuale Windows nel portale di Azure](./windows/quick-create-portal.md).
 
-- Accedere al [portale di Azure](https://portal.azure.com/) e passare a distribuire una macchina virtuale (VM).
-- Assicurarsi di scegliere [le dimensioni e l'area della VM supportate](#ga-scope-and-limitations).
-- Selezionare **zona di disponibilità** in **Opzioni di disponibilità**.
-- Inserire le voci rimanenti con le selezioni preferite.
-- Selezionare **Dischi**.
+1. Accedere al [portale di Azure](https://portal.azure.com/) e passare a distribuire una macchina virtuale (VM).
+1. Assicurarsi di scegliere [le dimensioni e l'area della VM supportate](#ga-scope-and-limitations).
+1. Selezionare **zona di disponibilità** in **Opzioni di disponibilità**.
+1. Inserire le voci rimanenti con le selezioni preferite.
+1. Selezionare **Dischi**.
 
-![Screenshot del flusso di creazione della macchina virtuale, pannello di base.](media/virtual-machines-disks-getting-started-ultra-ssd/create-ultra-disk-enabled-vm.png)
+    :::image type="content" source="media/virtual-machines-disks-getting-started-ultra-ssd/new-ultra-vm-create.png" alt-text="Screenshot del flusso di creazione della macchina virtuale, pannello nozioni di base." lightbox="media/virtual-machines-disks-getting-started-ultra-ssd/new-ultra-vm-create.png":::
 
-- Nel pannello dischi selezionare **Sì** per **Abilita compatibilità dischi Ultra**.
-- Selezionare **Crea e alleghi un nuovo disco** per alleghi ora un disco Ultra.
+1. Nel pannello dischi selezionare **Sì** per **Abilita compatibilità dischi Ultra**.
+1. Selezionare **Crea e alleghi un nuovo disco** per alleghi ora un disco Ultra.
 
-![Screenshot del flusso di creazione della macchina virtuale, del pannello del disco, della funzionalità ultra abilitata e della creazione e del allineamento di un nuovo disco.](media/virtual-machines-disks-getting-started-ultra-ssd/enable-and-attach-ultra-disk.png)
+    :::image type="content" source="media/virtual-machines-disks-getting-started-ultra-ssd/new-ultra-vm-disk-enable.png" alt-text="Screenshot del flusso di creazione della macchina virtuale, del pannello del disco, della funzionalità ultra abilitata e della creazione e del allineamento di un nuovo disco." :::
 
-- Nel pannello **Crea un nuovo disco** immettere un nome, quindi selezionare **modifica dimensioni**.
+1. Nel pannello **Crea un nuovo disco** immettere un nome, quindi selezionare **modifica dimensioni**.
 
-    :::image type="content" source="media/virtual-machines-disks-getting-started-ultra-ssd/ultra-disk-create-new-disk-flow.png" alt-text="Screenshot del pannello Crea nuovo disco, modifica dimensioni evidenziate.":::
+    :::image type="content" source="media/virtual-machines-disks-getting-started-ultra-ssd/new-ultra-create-disk.png" alt-text="Screenshot del pannello Crea nuovo disco, modifica dimensioni evidenziate.":::
 
 
-- Modificare il **tipo di archiviazione** in **ultra disk**.
-- Modificare i valori delle **dimensioni del disco personalizzato (GIB)**, **IOPS del disco** e la **velocità effettiva del disco** in uno di loro scelta.
-- Selezionare **OK** in entrambi i pannelli.
+1. Modificare lo **SKU del disco** in **ultra disk**.
+1. Modificare i valori delle **dimensioni del disco personalizzato (GIB)**, **IOPS del disco** e la **velocità effettiva del disco** in uno di loro scelta.
+1. Selezionare **OK** in entrambi i pannelli.
 
-    :::image type="content" source="media/virtual-machines-disks-getting-started-ultra-ssd/ultra-disk-select-new-disk.png" alt-text="Screenshot del pannello selezionare una dimensione del disco, disco Ultra selezionato per tipo di archiviazione, altri valori evidenziati.":::
+    :::image type="content" source="media/virtual-machines-disks-getting-started-ultra-ssd/new-select-ultra-disk-size.png" alt-text="Screenshot del pannello selezionare una dimensione del disco, disco Ultra selezionato per tipo di archiviazione, altri valori evidenziati.":::
 
-- Continuare con la distribuzione della macchina virtuale, sarà uguale a quella di qualsiasi altra macchina virtuale.
+1. Continuare con la distribuzione della macchina virtuale, sarà uguale a quella di qualsiasi altra macchina virtuale.
 
 # <a name="azure-cli"></a>[Interfaccia della riga di comando di Azure](#tab/azure-cli)
 
@@ -230,7 +230,21 @@ Update-AzVM -VM $vm -ResourceGroupName $resourceGroup
 
 # <a name="portal"></a>[Portale](#tab/azure-portal)
 
-Il portale di Azure attualmente non supporta la creazione di un disco Ultra con dimensioni di settore a 512 byte. È invece possibile creare un disco Ultra con dimensioni di settore di 512 byte usando il modulo Azure PowerShell o l'interfaccia della riga di comando di Azure.
+1. Accedere al [portale di Azure](https://portal.azure.com/), quindi cercare e selezionare **dischi**.
+1. Selezionare **+ nuovo** per creare un nuovo disco.
+1. Selezionare un'area che supporta i dischi Ultra e selezionare una zona di disponibilità, inserire il resto dei valori desiderati.
+1. Selezionare **Modifica dimensioni**.
+
+    :::image type="content" source="media/virtual-machines-disks-getting-started-ultra-ssd/create-managed-disk-basics-workflow.png" alt-text="Screenshot del pannello Crea disco, area, zona di disponibilità e dimensioni delle modifiche evidenziate.":::
+
+1. Per lo **SKU del disco** selezionare **ultra disk**, quindi immettere i valori per le prestazioni desiderate e selezionare **OK**.
+
+    :::image type="content" source="media/virtual-machines-disks-getting-started-ultra-ssd/select-disk-size-ultra.png" alt-text="Screenshot della creazione del disco Ultra.":::
+
+1. Nel pannello **nozioni di base** selezionare la scheda **Avanzate** .
+1. Selezionare **512** per **dimensioni settore logico**, quindi selezionare **Verifica + crea**.
+
+    :::image type="content" source="media/virtual-machines-disks-getting-started-ultra-ssd/select-different-sector-size-ultra.png" alt-text="Screenshot del selettore per la modifica delle dimensioni del settore logico del disco Ultra a 512.":::
 
 # <a name="azure-cli"></a>[Interfaccia della riga di comando di Azure](#tab/azure-cli)
 
@@ -303,32 +317,25 @@ Update-AzVM -VM $vm -ResourceGroupName $resourceGroup
 
 In alternativa, se la macchina virtuale esistente si trova in un'area geografica o in una zona di disponibilità in grado di usare dischi Ultra, è possibile usare dischi Ultra senza dover creare una nuova macchina virtuale. Abilitando i dischi Ultra nella VM esistente, quindi li alleghi come dischi dati. Per abilitare la compatibilità con dischi Ultra, è necessario arrestare la macchina virtuale. Dopo l'arresto della macchina virtuale, è possibile abilitare la compatibilità, quindi riavviare la macchina virtuale. Una volta abilitata la compatibilità, è possibile aggiungere un disco Ultra:
 
-- Passare alla macchina virtuale e arrestarla e attenderne la deallocazione.
-- Dopo la deallocazione della macchina virtuale, selezionare **dischi**.
-- Selezionare **Edit** (Modifica).
+1. Passare alla macchina virtuale e arrestarla e attenderne la deallocazione.
+1. Dopo la deallocazione della macchina virtuale, selezionare **dischi**.
+1. Seleziona **Impostazioni aggiuntive**.
 
-![Screenshot di un pannello del disco della macchina virtuale esistente, la modifica è evidenziata.](media/virtual-machines-disks-getting-started-ultra-ssd/options-selector-ultra-disks.png)
+    :::image type="content" source="media/virtual-machines-disks-getting-started-ultra-ssd/new-ultra-disk-additional-settings.png" alt-text="Screenshot del pannello del disco, impostazioni aggiuntive evidenziate.":::
 
-- Selezionare **Sì** per **Enable ultra disk Compatibility**.
+1. Selezionare **Sì** per **Enable ultra disk Compatibility**.
 
-![Screenshot di Abilita compatibilità disco Ultra.](media/virtual-machines-disks-getting-started-ultra-ssd/ultra-options-yes-enable.png)
+    :::image type="content" source="media/virtual-machines-disks-getting-started-ultra-ssd/enable-ultra-disks-existing-vm.png" alt-text="Screenshot di Abilita compatibilità disco Ultra.":::
 
-- Selezionare **Salva**.
-- Selezionare **Aggiungi disco dati** quindi nell'elenco a discesa per **nome** Selezionare **Crea disco**.
+1. Selezionare **Salva**.
+1. Selezionare **Crea e alleghi un nuovo disco** e immettere un nome per il nuovo disco.
+1. Per **tipo di archiviazione** selezionare **ultra disk**.
+1. Modificare i valori delle **dimensioni (GIB)**, il **numero massimo di IOPS** e la **velocità effettiva massima** in quelli scelti.
+1. Dopo che si è tornati al pannello del disco, selezionare **Salva**.
 
-![Screenshot del pannello del disco, aggiungendo un nuovo disco.](media/virtual-machines-disks-getting-started-ultra-ssd/create-and-attach-new-ultra-disk.png)
+    :::image type="content" source="media/virtual-machines-disks-getting-started-ultra-ssd/new-create-ultra-disk-existing-vm.png" alt-text="Screenshot del pannello del disco, con l'aggiunta di un nuovo disco Ultra.":::
 
-- Immettere un nome per il nuovo disco e quindi selezionare **modifica dimensioni**.
-- Modificare il **tipo di account** in **ultra disk**.
-- Modificare i valori delle **dimensioni del disco personalizzato (GIB)**, **IOPS del disco** e la **velocità effettiva del disco** in uno di loro scelta.
-
-    :::image type="content" source="media/virtual-machines-disks-getting-started-ultra-ssd/ultra-disk-select-new-disk.png" alt-text="Screenshot del pannello selezionare una dimensione del disco, disco Ultra selezionato per tipo di archiviazione, altri valori evidenziati.":::
-
-- Selezionare **OK** , quindi selezionare **Crea**.
-- Dopo che si è tornati al pannello del disco, selezionare **Salva**.
-- Avviare di nuovo la macchina virtuale.
-
-![Screenshot del pannello dischi nella macchina virtuale.](media/virtual-machines-disks-getting-started-ultra-ssd/saving-and-attaching-new-ultra-disk.png)
+1. Avviare di nuovo la macchina virtuale.
 
 # <a name="azure-cli"></a>[Interfaccia della riga di comando di Azure](#tab/azure-cli)
 
@@ -444,15 +451,15 @@ Update-AzVM -VM $vm -ResourceGroupName $resourceGroup
 
 I dischi Ultra offrono una funzionalità univoca che consente di regolare le prestazioni. Queste modifiche possono essere apportate dal portale di Azure sui dischi.
 
-- Passare alla macchina virtuale e selezionare **dischi**.
-- Selezionare il disco Ultra a cui si desidera modificare le prestazioni.
+1. Passare alla macchina virtuale e selezionare **dischi**.
+1. Selezionare il disco Ultra a cui si desidera modificare le prestazioni.
 
-![Screenshot del pannello dischi nella macchina virtuale, il disco Ultra è evidenziato.](media/virtual-machines-disks-getting-started-ultra-ssd/selecting-ultra-disk-to-modify.png)
+    :::image type="content" source="media/virtual-machines-disks-getting-started-ultra-ssd/select-ultra-disk-to-modify.png" alt-text="Screenshot del pannello dischi nella macchina virtuale, il disco Ultra è evidenziato.":::
 
-- Selezionare **configurazione** , quindi apportare le modifiche.
-- Selezionare **Salva**.
+1. Selezionare **dimensioni e prestazioni** e quindi apportare le modifiche.
+1. Selezionare **Salva**.
 
-![Screenshot del pannello di configurazione su disco Ultra, dimensioni del disco, IOPS e velocità effettiva sono evidenziati. il salvataggio viene evidenziato.](media/virtual-machines-disks-getting-started-ultra-ssd/configuring-ultra-disk-performance-and-size.png)
+    :::image type="content" source="media/virtual-machines-disks-getting-started-ultra-ssd/modify-ultra-disk-performance.png" alt-text="Screenshot del pannello di configurazione su disco Ultra, dimensioni del disco, IOPS e velocità effettiva sono evidenziati. il salvataggio viene evidenziato.":::
 
 # <a name="azure-cli"></a>[Interfaccia della riga di comando di Azure](#tab/azure-cli)
 

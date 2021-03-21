@@ -7,10 +7,10 @@ ms.topic: article
 ms.date: 06/02/2020
 zone_pivot_groups: app-service-platform-windows-linux
 ms.openlocfilehash: 1223ff5c56d3c7d58b324d2099980bc0b5408125
-ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/17/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97655969"
 ---
 # <a name="configure-an-aspnet-core-app-for-azure-app-service"></a>Configurare un'app ASP.NET Core per il servizio app Azure
@@ -144,7 +144,7 @@ az webapp config appsettings set --resource-group <resource-group-name> --name <
 
 ## <a name="access-diagnostic-logs"></a>Accedere ai log di diagnostica
 
-ASP.NET Core fornisce un [provider di registrazione predefinito per il servizio app](/aspnet/core/fundamentals/logging/#azure-app-service). In *Program.cs* del progetto aggiungere il provider all'applicazione tramite il `ConfigureLogging` metodo di estensione, come illustrato nell'esempio seguente:
+ASP.NET Core fornisce un [provider di registrazione predefinito per il servizio app](/aspnet/core/fundamentals/logging/#azure-app-service). In *Program. cs* del progetto aggiungere il provider all'applicazione tramite il `ConfigureLogging` metodo di estensione, come illustrato nell'esempio seguente:
 
 ```csharp
 public static IHostBuilder CreateHostBuilder(string[] args) =>
@@ -167,7 +167,7 @@ Per altre informazioni sulla risoluzione dei problemi relativi alle app ASP.NET 
 
 ## <a name="get-detailed-exceptions-page"></a>Pagina get detailed Exceptions
 
-Quando l'app ASP.NET Core genera un'eccezione nel debugger di Visual Studio, il browser visualizza una pagina di eccezione dettagliata, ma nel servizio app la pagina viene sostituita da un errore **HTTP 500** generico o **si è verificato un errore durante l'elaborazione della richiesta.** . Per visualizzare la pagina di eccezione dettagliata nel servizio app, aggiungere l' `ASPNETCORE_ENVIRONMENT` impostazione dell'app all'app eseguendo il comando seguente nella <a target="_blank" href="https://shell.azure.com" >cloud Shell</a>.
+Quando l'app ASP.NET Core genera un'eccezione nel debugger di Visual Studio, il browser visualizza una pagina di eccezione dettagliata, ma nel servizio app la pagina viene sostituita da un errore **HTTP 500** generico o **si è verificato un errore durante l'elaborazione della richiesta.** il messaggio "Hello World!". Per visualizzare la pagina di eccezione dettagliata nel servizio app, aggiungere l' `ASPNETCORE_ENVIRONMENT` impostazione dell'app all'app eseguendo il comando seguente nella <a target="_blank" href="https://shell.azure.com" >cloud Shell</a>.
 
 ```azurecli-interactive
 az webapp config appsettings set --name <app-name> --resource-group <resource-group-name> --settings ASPNETCORE_ENVIRONMENT="Development"
@@ -175,7 +175,7 @@ az webapp config appsettings set --name <app-name> --resource-group <resource-gr
 
 ## <a name="detect-https-session"></a>Rilevare una sessione HTTPS
 
-Nel servizio app la [terminazione SSL](https://wikipedia.org/wiki/TLS_termination_proxy) si verifica nei servizi di bilanciamento del carico di rete, pertanto tutte le richieste HTTPS raggiungano l'app come richieste HTTP non crittografate. Se la logica dell'app deve essere in grado di verificare se le richieste utente sono crittografate o meno, configurare il middleware delle intestazioni in *Startup.cs*:
+Nel servizio app la [terminazione SSL](https://wikipedia.org/wiki/TLS_termination_proxy) si verifica nei servizi di bilanciamento del carico di rete, pertanto tutte le richieste HTTPS raggiungano l'app come richieste HTTP non crittografate. Se la logica dell'app deve essere in grado di stabilire se le richieste dell'utente sono crittografate o meno, configurare il middleware delle intestazioni con inoltri in *Startup. cs*:
 
 - Configurare il middleware con [ForwardedHeadersOptions](/dotnet/api/microsoft.aspnetcore.builder.forwardedheadersoptions) per l'inoltro delle intestazioni `X-Forwarded-For` e `X-Forwarded-Proto` in `Startup.ConfigureServices`.
 - Aggiungere gli intervalli di indirizzi IP privati alle reti note, in modo che il middleware possa considerare attendibile il servizio di bilanciamento del carico del servizio app.

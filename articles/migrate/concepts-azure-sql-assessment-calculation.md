@@ -6,10 +6,10 @@ ms.author: rajosh
 ms.topic: conceptual
 ms.date: 02/07/2021
 ms.openlocfilehash: d1ea328575cf07a22ce39549c34d5cd21e916427
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/04/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102054765"
 ---
 # <a name="assessment-overview-migrate-to-azure-sql"></a>Panoramica della valutazione (migrazione a SQL di Azure)
@@ -17,7 +17,7 @@ ms.locfileid: "102054765"
 Questo articolo fornisce una panoramica delle valutazioni per la migrazione di istanze di SQL Server locali da un ambiente VMware a database SQL di Azure o a istanze gestite usando lo [strumento Azure migrate: Discovery and Assessment](https://docs.microsoft.com/azure/migrate/migrate-services-overview#azure-migrate-server-assessment-tool).
 
 > [!Note]
-> L'individuazione e la valutazione di SQL Server istanze e database in esecuzione nell'ambiente VMware sono ora in anteprima. Per provare questa funzionalità, usare [**questo collegamento**](https://aka.ms/AzureMigrate/SQL) per creare un progetto nell'area **Australia orientale** . Se si dispone già di un progetto in Australia orientale e si vuole provare questa funzionalità, assicurarsi di aver completato questi [**prerequisiti**](how-to-discover-sql-existing-project.md) nel portale.
+> L'individuazione e la valutazione di SQL Server istanze e database in esecuzione nell'ambiente VMware sono ora in anteprima. Per provare questa funzionalità, usare [**questo collegamento**](https://aka.ms/AzureMigrate/SQL) per creare un progetto nell'area **Australia orientale**. Se si dispone già di un progetto nell'Australia orientale e si vuole provare questa funzionalità, assicurarsi di aver completato questi [**prerequisiti**](how-to-discover-sql-existing-project.md) nel portale.
 
 ## <a name="whats-an-assessment"></a>Che cos'è una valutazione?
 Una valutazione con lo strumento di individuazione e valutazione è uno snapshot temporizzato dei dati e misura la conformità e stima l'effetto della migrazione dei server locali in Azure.
@@ -93,7 +93,7 @@ Ecco cosa è incluso nelle proprietà di valutazione di SQL Azure:
 ## <a name="calculate-readiness"></a>Calcola conformità
 
 > [!NOTE]
-> La valutazione include solo i database in stato online. Nel caso in cui il database si trovi in un altro stato, la valutazione ignora la preparazione, il dimensionamento e il calcolo dei costi per tali database. Se si desidera valutare tali database, modificare lo stato del database e ricalcolare la valutazione in un determinato periodo di tempo.
+> La valutazione include solo i database in stato online. Nel caso in cui lo stato del database sia un altro, la valutazione ignora l'idoneità, il dimensionamento e il calcolo dei costi per tali database. Se si desidera valutare tali database, modificarne lo stato e ricalcolare la valutazione in un secondo momento.
 
 ### <a name="azure-sql-readiness"></a>Conformità a SQL di Azure
 
@@ -127,7 +127,7 @@ Se si seleziona il tipo di distribuzione di destinazione come **consigliato** ne
 Se l'istanza di SQL non è pronta per il database SQL di Azure e Istanza gestita SQL di Azure, il tipo di distribuzione consigliato è contrassegnato come *potenzialmente pronto per la VM di Azure*.
 - Per determinare se il server in cui è in esecuzione l'istanza è pronto per la migrazione a una macchina virtuale di Azure, è consigliabile creare una valutazione in Azure Migrate con tipo di valutazione "VM di Azure". Tenere presente quanto segue:
     - Le valutazioni delle VM di Azure in Azure Migrate sono attualmente in fase di Lift-and-Shift e non prendono in considerazione le metriche delle prestazioni specifiche per l'esecuzione di istanze e database SQL nella macchina virtuale di Azure. 
-    - Quando si esegue una valutazione delle VM di Azure in un server, le stime delle dimensioni e dei costi consigliate saranno per tutte le istanze in esecuzione nel server e di cui è possibile eseguire la migrazione a una macchina virtuale di Azure tramite lo strumento di migrazione server. Prima di eseguire la migrazione, [esaminare le linee guida sulle prestazioni](https://docs.microsoft.com/azure/azure-sql/virtual-machines/windows/performance-guidelines-best-practices) per SQL Server in macchine virtuali di Azure.
+    - Quando si esegue una valutazione della macchina virtuale di Azure in un server, le dimensioni consigliate e le stime dei costi faranno riferimento a tutte le istanze in esecuzione nel server e sarà possibile eseguire la migrazione a una macchina virtuale di Azure tramite lo strumento di migrazione del server. Prima di eseguire la migrazione, [esaminare le linee guida sulle prestazioni](https://docs.microsoft.com/azure/azure-sql/virtual-machines/windows/performance-guidelines-best-practices) per SQL Server nelle macchine virtuali di Azure.
 
 
 ## <a name="calculate-sizing"></a>Calcolare il dimensionamento
@@ -176,7 +176,7 @@ Ecco alcuni motivi per cui una valutazione potrebbe ottenere un livello di confi
     - I server sono accesi per la durata della valutazione
     - Sono consentite le connessioni in uscita sulle porte 443
     - Se Azure Migrate stato della connessione dell'agente SQL in Azure Migrate è' Connected ' e controllare l'ultimo heartbeat 
-    - Se Azure Migrate stato di connessione per tutte le istanze SQL è "connesso" nel pannello istanza SQL individuata
+    - Se lo stato della connessione di Azure Migrate per tutte le istanze di SQL è "Connesso" nel pannello dell'istanza di SQL individuata
 
     Ricalcolare la valutazione in modo da riflettere le ultime modifiche apportate alla classificazione di attendibilità.
 - Alcuni database o istanze sono stati creati durante la fase di calcolo della valutazione. Si supponga, ad esempio, di aver creato una valutazione per la cronologia delle prestazioni dell'ultimo mese, ma alcuni database o istanze sono stati creati solo una settimana fa. In questo caso, i dati sulle prestazioni per i nuovi server non saranno disponibili per l'intera durata e la classificazione di attendibilità sarà bassa.

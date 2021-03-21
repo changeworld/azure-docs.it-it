@@ -14,16 +14,16 @@ ms.reviewer: vanto
 ms.date: 02/17/2021
 tags: azure-synapse
 ms.openlocfilehash: f47303a953dbb06b4c9efdfbbae41715cad81d2a
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/03/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "101690805"
 ---
 # <a name="data-discovery--classification"></a>Individuazione dati e classificazione
 [!INCLUDE[appliesto-sqldb-sqlmi-asa](../includes/appliesto-sqldb-sqlmi-asa.md)]
 
-L'individuazione dei dati & classificazione è incorporata nel database SQL di Azure, in Azure SQL Istanza gestita e in Azure sinapsi Analytics. Fornisce funzionalità di base per l'individuazione, la classificazione, l'assegnazione di etichette e la segnalazione dei dati sensibili nei database.
+L'individuazione e la classificazione dei dati è integrata nel database SQL di Azure, in Istanza gestita di SQL di Azure e in Azure Synapse Analytics. Offre funzionalità di base per l'individuazione, la classificazione, l'etichettatura e la segnalazione dei dati sensibili nei database.
 
 I dati più sensibili possono includere informazioni aziendali, finanziarie, sanitarie o personali. L'individuazione e la classificazione di questi dati possono svolgere un ruolo fondamentale nell'approccio di protezione delle informazioni dell'organizzazione. Individuazione dati e classificazione può svolgere la funzione di infrastruttura per:
 
@@ -122,7 +122,7 @@ Questi ruoli predefiniti possono leggere la classificazione dei dati di un datab
 
 - Proprietario
 - Lettore
-- Collaboratore
+- Autore di contributi
 - Gestione della sicurezza SQL
 - Amministratore accessi utente
 
@@ -188,7 +188,7 @@ Gestire le classificazioni e le raccomandazioni per il database SQL di Azure e I
 ## <a name="faq---advanced-classification-capabilities"></a>Domande frequenti: funzionalità di classificazione avanzate
 
 **Domanda**: [Azure competenza](../../purview/overview.md) sostituisce SQL Data Discovery & classificazione o SQL Data Discovery & classificazione verrà ritirata a breve?
-**Risposta**: continuiamo a supportare SQL Data Discovery & classificazione e ti invitiamo ad adottare competenze di [Azure](../../purview/overview.md) con funzionalità più avanzate per promuovere funzionalità di classificazione avanzate e governance dei dati. Se si decide di ritirare tutti i servizi, le funzionalità, l'API o lo SKU, si riceverà una notifica di avanzamento, incluso un percorso di migrazione o di transizione. Altre informazioni sui criteri del ciclo di vita di Microsoft sono disponibili qui.
+**Risposta**: continuiamo a supportare SQL Data Discovery & classificazione e ti invitiamo ad adottare competenze di [Azure](../../purview/overview.md) con funzionalità più avanzate per promuovere funzionalità di classificazione avanzate e governance dei dati. Se Microsoft decide di ritirare un servizio, una funzionalità, un'API o uno SKU, l'utente riceverà prima una notifica che include un percorso di migrazione o transizione. Altre informazioni sui criteri del ciclo di vita di Microsoft sono disponibili qui.
 
 
 ## <a name="next-steps"></a><a id="next-steps"></a>Passaggi successivi

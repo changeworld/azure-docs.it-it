@@ -5,10 +5,10 @@ ms.topic: conceptual
 ms.date: 08/06/2020
 ms.custom: devx-track-js, devx-track-dotnet
 ms.openlocfilehash: 7661066bc2666070c8b3ed9263b1223c09d6c720
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/03/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "101734724"
 ---
 # <a name="monitor-azure-app-service-performance"></a>Monitorare le prestazioni del Servizio app di Azure
@@ -59,7 +59,7 @@ Esistono due modi per abilitare il monitoraggio dell'applicazione per le applica
  
  Di seguito è riportato un riepilogo dei dati raccolti per ogni route:
         
-| Data | Raccolta ASP.NET Basic | Raccolta consigliata ASP.NET |
+| Dati | Raccolta ASP.NET Basic | Raccolta consigliata ASP.NET |
 | --- | --- | --- |
 | Aggiunge le tendenze di utilizzo della CPU, della memoria e delle operazioni di I/O |Sì |Sì |
 | Raccoglie le tendenze di utilizzo e consente la correlazione dei risultati di disponibilità con le transazioni | Sì |Sì |
@@ -395,7 +395,7 @@ La tabella seguente fornisce una spiegazione più dettagliata del significato di
 |Valore problema|Spiegazione|Fix
 |---- |----|---|
 | `AppAlreadyInstrumented:true` | Questo valore indica che l'estensione ha rilevato che alcuni aspetti dell'SDK sono già presenti nell'applicazione e che verrà eseguito il backup. Può essere dovuto a un riferimento a `System.Diagnostics.DiagnosticSource` ,  `Microsoft.AspNet.TelemetryCorrelation` o `Microsoft.ApplicationInsights`  | Rimuovere i riferimenti. Alcuni di questi riferimenti vengono aggiunti per impostazione predefinita da determinati modelli di Visual Studio e le versioni precedenti di Visual Studio possono aggiungere riferimenti a `Microsoft.ApplicationInsights` .
-|`AppAlreadyInstrumented:true` | Se l'applicazione è destinata a ASP.NET Core 2,1 o 2,2, questo valore indica che l'estensione ha rilevato che alcuni aspetti dell'SDK sono già presenti nell'applicazione e verrà eseguito il backup | Per i clienti di .NET Core 2.1, 2.2 è [consigliabile](https://github.com/aspnet/Announcements/issues/287) usare invece il meta pacchetto Microsoft. AspNetCore. app. Inoltre, attivare "interoperabilità con Application Insights SDK" nel portale (vedere le istruzioni sopra).|
+|`AppAlreadyInstrumented:true` | Se l'applicazione è destinata a ASP.NET Core 2,1 o 2,2, questo valore indica che l'estensione ha rilevato che alcuni aspetti dell'SDK sono già presenti nell'applicazione e verrà eseguito il backup | I clienti in .NET Core 2.1, 2.2 sono [consigliati](https://github.com/aspnet/Announcements/issues/287) per l'uso del meta-package Microsoft.AspNetCore.app. Inoltre, attivare "interoperabilità con Application Insights SDK" nel portale (vedere le istruzioni sopra).|
 |`AppAlreadyInstrumented:true` | Questo valore può anche essere causato dalla presenza delle dll precedenti nella cartella dell'app da una distribuzione precedente. | Pulire la cartella dell'app per assicurarsi che queste DLL vengano rimosse. Controllare sia la directory bin dell'app locale che la directory wwwroot nel servizio app. (Per controllare la directory wwwroot dell'app Web del servizio app: strumenti avanzati (kudu) > console di debug > CMD > home\site\wwwroot).
 |`AppContainsAspNetTelemetryCorrelationAssembly: true` | Questo valore indica che l'estensione ha rilevato riferimenti a `Microsoft.AspNet.TelemetryCorrelation` nell'applicazione e verrà riattivata. | Rimuovere il riferimento.
 |`AppContainsDiagnosticSourceAssembly**:true`|Questo valore indica che l'estensione ha rilevato riferimenti a `System.Diagnostics.DiagnosticSource` nell'applicazione e verrà riattivata.| Per ASP.NET rimuovere il riferimento. 

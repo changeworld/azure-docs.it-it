@@ -4,10 +4,10 @@ description: Acquisire informazioni sulla rete da una traccia del browser per fa
 ms.date: 05/11/2020
 ms.topic: troubleshooting
 ms.openlocfilehash: 504a32fb63022f97e8049c7c1ccc7721bbac31ab
-ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/06/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96745996"
 ---
 # <a name="capture-a-browser-trace-for-troubleshooting"></a>Acquisire una traccia del browser per la risoluzione dei problemi

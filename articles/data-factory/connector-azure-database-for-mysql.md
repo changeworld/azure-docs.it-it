@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 03/10/2021
 ms.openlocfilehash: 4d13f6f435a21b467cae1b8e14211a001792787f
-ms.sourcegitcommit: 225e4b45844e845bc41d5c043587a61e6b6ce5ae
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/11/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "103012607"
 ---
 # <a name="copy-and-transform-data-in-azure-database-for-mysql-by-using-azure-data-factory"></a>Copiare e trasformare i dati in database di Azure per MySQL usando Azure Data Factory
@@ -30,7 +30,7 @@ Questo connettore di database di Azure per MySQL è supportato per le attività 
 - [Flusso di dati per mapping](concepts-data-flow-overview.md)
 - [Attività Lookup](control-flow-lookup-activity.md)
 
-## <a name="getting-started"></a>Guida introduttiva
+## <a name="getting-started"></a>Introduzione
 
 [!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 

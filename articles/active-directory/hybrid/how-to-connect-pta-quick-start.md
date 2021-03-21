@@ -16,12 +16,12 @@ ms.date: 04/13/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5394a2829af4b0cd7a1c817f6aad4ca5451cc4bc
-ms.sourcegitcommit: 00aa5afaa9fac91f1059cfed3d8dbc954caaabe2
+ms.openlocfilehash: 60d7d4888c17ffe46340aa85b8d2a1cc4fa7ed34
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/27/2020
-ms.locfileid: "97792433"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104581831"
 ---
 # <a name="azure-active-directory-pass-through-authentication-quickstart"></a>Azure Active Directory dell'autenticazione pass-through: avvio rapido
 
@@ -69,10 +69,11 @@ Accertarsi che siano soddisfatti i prerequisiti seguenti.
      | --- | --- |
      | **80** | Scarica gli elenchi di revoche di certificati (CRL) durante la convalida del certificato TLS/SSL |
      | **443** | Gestisce tutte le comunicazioni in uscita con il servizio |
-     | **8080** (facoltativo) | Se la porta 443 non è disponibile, gli agenti di autenticazione segnalano il proprio stato ogni dieci minuti attraverso la porta 8080. Lo stato viene visualizzato nel portale di Azure AD. La porta 8080 _non_ viene usata per l'accesso degli utenti. |
+     | **8080** (facoltativo) | Se la porta 443 non è disponibile, gli agenti di autenticazione segnalano il proprio stato ogni dieci minuti attraverso la porta 8080. Lo stato viene visualizzato nel portale di Azure AD. La porta 8080 _non_ viene usata per gli accessi utente. |
      
      Se il firewall applica regole in base agli utenti di origine, aprire queste porte per il traffico proveniente da servizi di Windows in esecuzione come servizi di rete.
    - Se il firewall o il proxy consente di aggiungere voci DNS a un oggetto Allow, aggiungere connessioni a **\* . msappproxy.NET** e **\* . ServiceBus.Windows.NET**. In caso contrario, è necessario consentire l'accesso agli [intervalli IP del data center di Azure](https://www.microsoft.com/download/details.aspx?id=41653), che vengono aggiornati ogni settimana.
+   - Se si dispone di un proxy HTTP in uscita, assicurarsi che l'URL, autologon.microsoftazuread-sso.com, sia incluso nell'elenco elementi consentiti. È necessario specificare questo URL in modo esplicito perché il carattere jolly potrebbe non essere accettato. 
    - Gli agenti di autenticazione devono poter accedere a **login.windows.net** e **login.microsoftonline.net** per la registrazione iniziale. Aprire il firewall anche per questi URL.
     - Per la convalida del certificato, sbloccare gli URL seguenti: **crl3.DigiCert.com:80**, **CRL4.DigiCert.com:80**, **ocsp.digicert.com:80**, **www \. d-trust.net:80**, **root-C3-Ca2-2009.OCSP.d-trust.NET:80**, **CRL.Microsoft.com:80**, **oneocsp.Microsoft.com:80** e **OCSP.msocsp.com:80**. Poiché vengono usati per la convalida del certificato con altri prodotti Microsoft, questi URL potrebbero essere già sbloccati.
 

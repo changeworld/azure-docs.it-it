@@ -7,10 +7,10 @@ ms.service: postgresql
 ms.topic: conceptual
 ms.date: 10/21/2020
 ms.openlocfilehash: 7ccd01f8c351ac2a7326a3b893bd78d14599db50
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/17/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100588291"
 ---
 # <a name="monitor-and-tune-azure-database-for-postgresql---single-server"></a>Monitorare e ottimizzare Database di Azure per PostgreSQL - Server singolo
@@ -44,7 +44,7 @@ Per Database di Azure per PostgreSQL sono disponibili le metriche seguenti:
 ## <a name="server-logs"></a>Log del server
 È possibile abilitare l'accesso al server. Questi log delle risorse possono essere inviati a [log di monitoraggio di Azure](../azure-monitor/logs/log-query-overview.md), Hub eventi e un account di archiviazione. Per altre informazioni sull'accesso, visitare la pagina dei [log del server](concepts-server-logs.md).
 
-## <a name="query-store"></a>Archivio query
+## <a name="query-store"></a>Query Store
 [Query Store](concepts-query-store.md) tiene traccia delle prestazioni delle query nel tempo, incluse le statistiche di runtime di query e gli eventi di attesa. La funzionalità salva in modo permanente le informazioni sulle prestazioni dei runtime di query in un database di sistema denominato **azure_sys** nello schema query_store. È possibile controllare la raccolta e l'archiviazione dei dati tramite vari controlli di configurazione.
 
 ## <a name="query-performance-insight"></a>Informazioni dettagliate prestazioni query

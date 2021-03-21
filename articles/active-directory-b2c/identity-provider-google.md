@@ -8,17 +8,17 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 03/15/2021
+ms.date: 03/17/2021
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: 433e44e9998376d0bea57264f3daeaff7499a3cf
-ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
+ms.openlocfilehash: 7d5786c4188db63efc3012e565071f8fd410b92f
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/16/2021
-ms.locfileid: "103488840"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104579961"
 ---
 # <a name="set-up-sign-up-and-sign-in-with-a-google-account-using-azure-active-directory-b2c"></a>Configurare l'iscrizione e l'accesso con un account Google tramite Azure Active Directory B2C
 
@@ -67,6 +67,9 @@ Immettere un **nome** per l'applicazione. Immettere *b2clogin.com* nella sezione
 1. Selezionare **Salva**.
 
 ## <a name="add-google-identity-provider-to-a-user-flow"></a>Aggiungere il provider di identità Google a un flusso utente 
+
+A questo punto, il provider di identità Google è stato configurato, ma non è ancora disponibile in nessuna delle pagine di accesso. Per aggiungere il provider di identità Google a un flusso utente:
+
 
 1. Nel tenant di Azure AD B2C selezionare **Flussi utente**.
 1. Fare clic sul flusso utente per cui si vuole aggiungere il provider di identità Google.

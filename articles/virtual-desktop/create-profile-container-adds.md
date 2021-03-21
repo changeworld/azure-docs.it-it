@@ -7,10 +7,10 @@ ms.date: 04/10/2020
 ms.author: helohr
 manager: lizross
 ms.openlocfilehash: 70a56b7efc34ba2fd3c06521c6e4cac6ea28778f
-ms.sourcegitcommit: ab94795f9b8443eef47abae5bc6848bb9d8d8d01
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/27/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96302463"
 ---
 # <a name="create-a-profile-container-with-azure-files-and-azure-ad-ds"></a>Creare un contenitore di profili con File di Azure e Azure AD DS
@@ -107,7 +107,7 @@ Per ottenere la chiave di accesso dell'account di archiviazione:
     - Sostituire `<share-name>` con il nome della condivisione creata in precedenza.
     - Sostituire `<storage-account-key>` con la chiave dell'account di archiviazione di Azure.
 
-    Esempio:
+    Ad esempio:
 
      ```cmd
      net use y: \\fsprofile.file.core.windows.net\share HDZQRoFP2BBmoYQ=(truncated)= /user:Azure\fsprofile)
@@ -125,7 +125,7 @@ Per ottenere la chiave di accesso dell'account di archiviazione:
     - Sostituire `<mounted-drive-letter>` con la lettera dell'unità utilizzata per eseguire il mapping dell'unità.
     - Sostituire `<user-email>` con l'UPN dell'utente o del gruppo di Active Directory contenente gli utenti che dovranno accedere alla condivisione.
 
-    Esempio:
+    Ad esempio:
 
      ```cmd
      icacls <mounted-drive-letter>: /grant john.doe@contoso.com:(M)
@@ -142,7 +142,7 @@ Per configurare un contenitore del profilo FSLogix:
 
 1. Accedere alla VM host sessione configurata all'inizio di questo articolo, quindi [scaricare e installare l'agente FSLogix](/fslogix/install-ht/).
 
-2. Decomprimere il file dell'agente FSLogix scaricato e **x64** passare a  >  **versioni** x64, quindi aprire **FSLogixAppsSetup.exe**.
+2. Decomprimere il file dell'agente FSLogix scaricato e passare a  >  **versioni** x64, quindi aprire **FSLogixAppsSetup.exe**.
 
 3. Una volta avviato il programma di installazione, selezionare Accetto **i termini e le condizioni di licenza.** Se applicabile, specificare una nuova chiave.
 
@@ -206,7 +206,7 @@ Per assegnare gli utenti:
 
     Analogamente ai cmdlet precedenti, assicurarsi di sostituire `<your-wvd-tenant>` , `<wvd-pool>` e `<user-principal>` con i valori pertinenti.
 
-    Esempio:
+    Ad esempio:
 
      ```powershell
      $pool1 = "contoso"

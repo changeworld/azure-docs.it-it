@@ -9,10 +9,10 @@ ms.author: govindk
 ms.reviewer: sngun
 ms.custom: references_regions
 ms.openlocfilehash: d1dc108ecec93dddeb768eb61af425ba67f23002
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/14/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100393140"
 ---
 # <a name="continuous-backup-with-point-in-time-restore-preview-feature-in-azure-cosmos-db"></a>Backup continuo con funzionalità di ripristino temporizzato (anteprima) in Azure Cosmos DB
@@ -41,7 +41,7 @@ Nella versione di anteprima pubblica è possibile ripristinare l'account Azure C
 
 In uno stato stabile, tutte le mutazioni eseguite sull'account di origine (che include database, contenitori ed elementi) vengono sottoposte a backup in modo asincrono entro 100 secondi. Se il supporto di backup, ovvero archiviazione di Azure, non è attivo o non è disponibile, le mutazioni vengono rese disponibili localmente fino a quando il supporto non è disponibile e quindi vengono scaricate per evitare la perdita di fedeltà delle operazioni che possono essere ripristinate.
 
-È possibile scegliere di ripristinare qualsiasi combinazione di contenitori di velocità effettiva con provisioning, database di velocità effettiva condivisa o l'intero account. L'azione di ripristino Ripristina tutti i dati e le relative proprietà di indice in un nuovo account. Il processo di ripristino garantisce che tutti i dati ripristinati in un account, un database o un contenitore siano coerenti fino al tempo di ripristino specificato. La durata del ripristino dipende dalla quantità di dati che deve essere ripristinata.
+È possibile scegliere di ripristinare qualsiasi combinazione di contenitori di velocità effettiva con provisioning, database di velocità effettiva condivisi o l'intero account. Questa azione ripristina tutti i dati e le relative proprietà di indice in un nuovo account. Il processo di ripristino garantisce che tutti i dati ripristinati in un account, un database o un contenitore siano coerenti fino all'ora di ripristino specificata. La durata del ripristino dipende dalla quantità di dati da ripristinare.
 
 > [!NOTE]
 > Con la modalità di backup continuo, i backup vengono eseguiti in ogni area in cui è disponibile l'account Azure Cosmos DB. I backup eseguiti per ogni account di area sono ridondanti localmente per impostazione predefinita e con ridondanza della zona se per l'account è abilitata la funzionalità della [zona di disponibilità](high-availability.md#availability-zone-support) . Con l'azione di ripristino i dati vengono sempre ripristinati in un nuovo account.
@@ -104,7 +104,7 @@ Se, ad esempio, si dispone di 1 TB di dati in due aree:
 
 Attualmente la funzionalità di ripristino temporizzato è disponibile in anteprima pubblica e presenta le limitazioni seguenti:
 
-* Per il backup continuo sono supportate solo API Azure Cosmos DB per SQL e MongoDB. Le API Cassandra, Table e Gremlin non sono ancora supportate.
+* Per il backup continuo sono supportate solo le API Azure Cosmos DB per SQL e MongoDB. Le API Cassandra, Tabella e Gremlin non sono ancora supportate.
 
 * Non è possibile convertire un account esistente con criteri di backup periodici predefiniti per usare la modalità di backup continuo.
 
@@ -116,23 +116,23 @@ Attualmente la funzionalità di ripristino temporizzato è disponibile in antepr
 
 * Gli account con collegamento sinapsi abilitato non sono supportati.
 
-* L'account ripristinato viene creato nella stessa area in cui risiede l'account di origine. Non è possibile ripristinare un account in un'area in cui l'account di origine non esiste.
+* L'account ripristinato viene creato nella stessa area in cui risiede l'account di origine. Non è possibile ripristinare un account in un'area in cui l'account di origine non esisteva.
 
 * La finestra di ripristino è costituita solo da 30 giorni e non può essere modificata.
 
-* I backup non sono automaticamente resistenti all'emergenza geografica. È necessario aggiungere in modo esplicito un'altra area per ottenere la resilienza per l'account e il backup.
+* I backup non sono automaticamente resistenti al ripristino di emergenza geografico. È necessario aggiungere in modo esplicito un'altra area per ottenere la resilienza per l'account e il backup.
 
 * Mentre è in corso un ripristino, non modificare o eliminare i criteri di gestione delle identità e degli accessi che concedono le autorizzazioni per l'account o modificare la configurazione del firewall VNET.
 
-* Azure Cosmos DB API per gli account SQL o MongoDB che creano un indice univoco dopo la creazione del contenitore non sono supportati per il backup continuo. Sono supportati solo i contenitori che creano un indice univoco come parte della creazione del contenitore iniziale. Per gli account MongoDB, è possibile creare un indice univoco usando i [comandi di estensione](mongodb-custom-commands.md).
+* Le API di Azure Cosmos DB per gli account SQL o MongoDB che creano un indice univoco dopo la creazione del contenitore non sono supportate per il backup continuo. Sono supportati solo i contenitori che creano un indice univoco nell'ambito della creazione del contenitore iniziale. Per gli account MongoDB, è possibile creare un indice univoco usando i [comandi di estensione](mongodb-custom-commands.md).
 
-* La funzionalità di ripristino temporizzato viene sempre ripristinata in un nuovo account Azure Cosmos. Il ripristino in un account esistente non è al momento supportato. Se si è interessati a fornire commenti e suggerimenti sul ripristino sul posto, contattare il team di Azure Cosmos DB tramite il rappresentante dell'account o [UserVoice](https://feedback.azure.com/forums/263030-azure-cosmos-db).
+* La funzionalità di ripristino temporizzato esegue sempre il ripristino in un nuovo account Azure Cosmos. Il ripristino in un account esistente non è attualmente supportato. Se si è interessati a fornire commenti e suggerimenti sul ripristino sul posto, contattare il team di Azure Cosmos DB tramite il rappresentante dell'account o [UserVoice](https://feedback.azure.com/forums/263030-azure-cosmos-db).
 
 * Tutte le nuove API esposte `RestorableDatabaseAccount` per `RestorableSqlDatabases` l'elenco,,, `RestorableSqlContainer` `RestorableMongodbDatabase` , `RestorableMongodbCollection` sono soggette a modifiche mentre la funzionalità è in anteprima.
 
 * Dopo il ripristino, è possibile che per alcune raccolte l'indice coerente possa essere ricompilato. È possibile controllare lo stato dell'operazione di ricompilazione tramite la proprietà [IndexTransformationProgress](how-to-manage-indexing-policy.md) .
 
-* Il processo di ripristino Ripristina tutte le proprietà di un contenitore, inclusa la relativa configurazione TTL. Di conseguenza, è possibile che i dati ripristinati vengano eliminati immediatamente se è stato configurato in questo modo. Per evitare questa situazione, il timestamp di ripristino deve essere precedente all'aggiunta delle proprietà TTL nel contenitore.
+* Questo processo ripristina tutte le proprietà di un contenitore, inclusa la relativa configurazione TTL. Di conseguenza, è possibile che, se configurati in questo modo, i dati ripristinati vengano eliminati immediatamente. Per evitare questa situazione, il timestamp di ripristino deve essere precedente al momento in cui le proprietà TTL sono state aggiunte al contenitore.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

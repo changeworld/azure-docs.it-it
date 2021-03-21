@@ -12,10 +12,10 @@ ms.workload: infrastructure-services
 ms.date: 08/28/2020
 ms.author: yitoh
 ms.openlocfilehash: 8e860bf47420f2b58c44df695da7761bcc2aa0ce
-ms.sourcegitcommit: 27d616319a4f57eb8188d1b9d9d793a14baadbc3
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/15/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100521782"
 ---
 # <a name="azure-ddos-rapid-response"></a>Risposta rapida DDoS di Azure
@@ -31,7 +31,7 @@ Durante un accesso attivo, i clienti standard di protezione DDoS di Azure hanno 
 È necessario coinvolgere DRR solo se: 
 
 - Durante un attacco DDoS se si ritiene che le prestazioni della risorsa protetta siano gravemente degradate o che la risorsa non sia disponibile. 
-- Si ritiene che la risorsa sia sotto attacco DDoS, ma il servizio di protezione DDoS non sta mitigando efficacemente l'attacco.
+- Si ritiene che la risorsa stia subendo un attacco DDoS, ma il servizio di protezione DDoS non mitiga l'attacco in modo efficace.
 - Si prevede un evento virale che aumenterà significativamente il traffico di rete.
 - Per gli attacchi che hanno un importante effetto aziendale.
 

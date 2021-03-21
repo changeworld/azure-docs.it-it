@@ -17,10 +17,10 @@ ms.date: 9/18/2018
 ms.author: aanandr
 ms.custom: ''
 ms.openlocfilehash: b95b3cfdf8fea6e31015d945566803569b4ba064
-ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/14/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98222922"
 ---
 # <a name="deploy-the-azure-virtual-network-container-network-interface-plug-in"></a>Distribuire il plug-in CNI (Container Network Interface) della rete virtuale di Azure
@@ -29,7 +29,7 @@ Il plug-in CNI (Container Network Interface) della rete virtuale di Azure viene 
 
 ## <a name="deploy-plug-in-for-acs-engine-kubernetes-cluster"></a>Distribuire il plug-in per un cluster Kubernetes del motore ACS
 
-Il motore ACS distribuisce un cluster Kubernetes con un modello di Azure Resource Manager. La configurazione del cluster è specificata in un file JSON che viene passato allo strumento durante la generazione del modello. Per altre informazioni sull'intero elenco delle impostazioni di cluster supportate e le relative descrizioni, vedere [Microsoft Azure Container Service Engine - Cluster Definition](https://github.com/Azure/acs-engine/blob/master/docs/clusterdefinition.md) (Motore del servizio Microsoft Azure Container - Definizione del cluster). Il plug-in corrisponde al plug-in di rete predefinito per i cluster creati con il motore ACS. Le seguenti impostazioni di configurazione di rete sono importanti per la configurazione del plug-in:
+Il motore ACS distribuisce un cluster Kubernetes con un modello di Azure Resource Manager. La configurazione del cluster è specificata in un file JSON che viene passato allo strumento durante la generazione del modello. Per ulteriori informazioni sull'intero elenco delle impostazioni del cluster supportate e sulle relative descrizioni, vedere [Microsoft Azure definizione del cluster del motore del servizio contenitore](https://github.com/Azure/acs-engine/blob/master/docs/clusterdefinition.md). Il plug-in corrisponde al plug-in di rete predefinito per i cluster creati con il motore ACS. Le seguenti impostazioni di configurazione di rete sono importanti per la configurazione del plug-in:
 
   | Impostazione                              | Descrizione                                                                                                           |
   |--------------------------------------|------------------------------------------------------------------------------------------------------                 |
@@ -161,8 +161,8 @@ Il file di configurazione di rete CNI è descritto in formato JSON. Per impostaz
 - **name**: nome della rete. Questa proprietà può essere impostata su qualsiasi valore univoco.
 - **type**: nome del plug-in di rete. Impostato su *azure-vnet*.
 - **mode**: modalità operativa. Questo campo è facoltativo. L'unica modalità supportata è "bridge". Per altre informazioni, vedere le [modalità operative](https://github.com/Azure/azure-container-networking/blob/master/docs/network.md).
-- **bridge**: nome del bridge che verrà usato per connettere i contenitori a una rete virtuale. Questo campo è facoltativo. Se omesso, il plug-in sceglie automaticamente un nome univoco, in base all'indice dell'interfaccia master.
-- **ipam type**: nome del plug-in Gestione indirizzi IP. È impostato sempre su *azure-vnet-ipam*.
+- **Bridge**: nome del bridge che verrà usato per connettere contenitori a una rete virtuale. Questo campo è facoltativo. Se omesso, il plug-in sceglie automaticamente un nome univoco, in base all'indice dell'interfaccia master.
+- **ipam type**: nome del plug-in IPAM. È impostato sempre su *azure-vnet-ipam*.
 
 ## <a name="download-and-install-the-plug-in"></a>Scaricare e installare il plug-in
 
