@@ -9,10 +9,10 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 12/14/2020
 ms.openlocfilehash: 0dbf418d0a673dd0799f0f638e454c484f837fd7
-ms.sourcegitcommit: 66479d7e55449b78ee587df14babb6321f7d1757
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/15/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97516594"
 ---
 # <a name="lucene-query-syntax-in-azure-cognitive-search"></a>Sintassi di query Lucene in Azure ricerca cognitiva
@@ -72,7 +72,7 @@ I caratteri non sicuri sono ``" ` < > # % { } | \ ^ ~ [ ]``. I caratteri riserva
 
 È possibile incorporare gli operatori booleani in una stringa di query per migliorare la precisione di una corrispondenza. La sintassi completa supporta gli operatori di testo oltre agli operatori di caratteri. Specificare sempre gli operatori booleani di testo (AND, OR, NOT) in lettere tutte maiuscole.
 
-|Operatore di testo | Carattere | Esempio | Uso |
+|Operatore di testo | Carattere | Esempio | Utilizzo |
 |--------------|----------- |--------|-------|
 | AND | `&`, `+` | `wifi + luxury` | Specifica i termini che una corrispondenza deve contenere. Nell'esempio, il motore di query cercherà i documenti contenenti sia `wifi` che `luxury` . Il carattere più ( `+` ) viene usato per i termini richiesti. Ad esempio, `+wifi +luxury` stabilisce che entrambi i termini devono essere presenti nel campo di un singolo documento.|
 | OR | `|` | `wifi | luxury` | Trova una corrispondenza quando viene trovato uno o più termini. Nell'esempio, il motore di query restituirà match nei documenti contenenti `wifi` o `luxury` o entrambi. Poiché OR è l'operatore di congiunzione predefinito, è anche possibile escluderlo, in modo che `wifi luxury` sia l'equivalente di `wifi | luxury`.|
@@ -164,7 +164,7 @@ Il raggruppamento di campi è simile, ma definisce un singolo campo come ambito 
 
 È previsto un limite per le dimensioni delle query che è possibile inviare al ricerca cognitiva di Azure. In particolare, è possibile avere al massimo 1024 clausole (espressioni separate da AND, OR e così via). È previsto anche un limite di circa 32 KB per la dimensione di ogni singolo termine di una query. Se l'applicazione genera query di ricerca a livello di codice, è consigliabile progettarla in modo che non generi query di dimensioni illimitate.  
 
-## <a name="see-also"></a>Vedere anche
+## <a name="see-also"></a>Vedi anche
 
 + [Esempi di query per la ricerca semplice](search-query-simple-examples.md)
 + [Esempi di query per la ricerca Lucene completa](search-query-lucene-examples.md)

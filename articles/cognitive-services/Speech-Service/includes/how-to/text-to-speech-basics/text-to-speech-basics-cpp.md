@@ -4,12 +4,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 03/25/2020
 ms.author: trbye
-ms.openlocfilehash: 78639386c9d836055d80566f4b84565c2c3b8e80
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 41cf1646d75080bc5b5996504ce8711edfae89fa
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 03/19/2021
-ms.locfileid: "104612599"
+ms.locfileid: "104719915"
 ---
 Questo argomento di avvio rapido illustra i modelli di progettazione comuni per eseguire la sintesi vocale con Speech SDK. Si inizia con la configurazione di base e la sintesi e si passa ad esempi più avanzati per lo sviluppo di applicazioni personalizzate, tra cui:
 
@@ -115,7 +115,7 @@ Eseguire il programma. Un file `.wav` sintetizzato viene scritto nella posizione
 
 ## <a name="synthesize-to-speaker-output"></a>Sintetizzare l'output dell'altoparlante
 
-In alcuni casi, si può scegliere di indirizzare la voce sintetizzata di output direttamente a un altoparlante. A questo scopo, è sufficiente omettere il parametro `AudioConfig` durante la creazione di `SpeechSynthesizer` nell'esempio precedente. L'output viene così indirizzato al dispositivo di output attivo corrente.
+In alcuni casi, si può scegliere di indirizzare la voce sintetizzata di output direttamente a un altoparlante. A tale scopo, omettere il `AudioConfig` parametro durante `SpeechSynthesizer` la creazione di nell'esempio precedente. Questo sintetizza il dispositivo di output attivo corrente.
 
 ```cpp
 void synthesizeSpeech()
@@ -255,10 +255,10 @@ Per passare a una voce neurale, impostare `name` su una delle [opzioni di voce n
 </speak>
 ```
 
-## <a name="visemes"></a>Visemes
+## <a name="get-facial-pose-events"></a>Ottenere gli eventi di posa facciali
 
-Il discorso viene in genere trattato come un modo efficace per guidare l'animazione delle espressioni facciali.
-Spesso [visemes](../../../how-to-speech-synthesis-viseme.md) vengono usati per rappresentare la chiave che si pone in un riconoscimento vocale osservato, ovvero la posizione dei labbri, la mascella e la lingua durante la produzione di un fonema particolare.
-È possibile sottoscrivere l'evento viseme nell'SDK vocale per generare dati di animazione facciali.
-Quindi, è possibile applicare tali dati a un carattere per realizzare animazioni facciali.
-Informazioni [su come ottenere output viseme](../../../how-to-speech-synthesis-viseme.md#get-viseme-outputs-with-the-speech-sdk).
+Il riconoscimento vocale può essere un modo efficace per guidare l'animazione di espressioni facciali.
+Spesso [visemes](../../../how-to-speech-synthesis-viseme.md) vengono usati per rappresentare la chiave che si pone in un discorso osservato, ad esempio la posizione dei labbri, la mascella e la lingua durante la produzione di un fonema particolare.
+È possibile sottoscrivere l'evento viseme in Speech SDK.
+Quindi, è possibile applicare gli eventi viseme per animare la faccia di un carattere come riproduzione audio vocale.
+Informazioni [su come ottenere gli eventi viseme](../../../how-to-speech-synthesis-viseme.md#get-viseme-events-with-the-speech-sdk).

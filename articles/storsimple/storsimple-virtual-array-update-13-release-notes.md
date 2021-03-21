@@ -4,14 +4,14 @@ description: Descrive i problemi e le risoluzioni critici aperti per l'array vir
 ms.service: storsimple
 author: v-dalc
 ms.topic: article
-ms.date: 01/22/2021
+ms.date: 03/17/2021
 ms.author: alkohli
-ms.openlocfilehash: 4e50f866c0bd44ca54c2f4df78b9507aa7077169
-ms.sourcegitcommit: 6386854467e74d0745c281cc53621af3bb201920
+ms.openlocfilehash: b2c2af4267140370c2aa9421a67cb3a6f413165f
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/08/2021
-ms.locfileid: "102452561"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104657553"
 ---
 # <a name="storsimple-virtual-array-update-13-release-notes"></a>Note sulla versione dell'aggiornamento 1,3 di StorSimple Virtual Array
 
@@ -31,6 +31,11 @@ L'aggiornamento 1,3 corrisponde alla versione del software 10.0.10319.0.
 Questo aggiornamento contiene i miglioramenti seguenti: KB4540725
 
 - Transport Layer Security (TLS) 1,2 è un aggiornamento obbligatorio e deve essere installato. Da questa versione in poi, TLS 1,2 diventa il protocollo standard per tutte le comunicazioni portale di Azure.
+  
+   Se viene visualizzato l'avviso seguente, è necessario aggiornare il software nel dispositivo prima di procedere:
+
+   Uno o più dispositivi StorSimple eseguono una versione precedente del software. L'ultimo aggiornamento disponibile per TLS 1,2 è un aggiornamento obbligatorio e deve essere installato immediatamente in questi dispositivi. TLS 1,2 viene usato per tutte le comunicazioni portale di Azure e senza questo aggiornamento, il dispositivo non sarà in grado di comunicare con il servizio StorSimple.
+
 - Le correzioni di bug di Garbage Collection migliorano le prestazioni del ciclo Garbage Collection quando il dispositivo e l'account di archiviazione si trovano in due aree distanti.
 - Correzione per errori di backup causati da timeout del BLOB.
 - Patch di sicurezza del sistema operativo/.NET Framework aggiornate:
@@ -65,4 +70,4 @@ Si desidera consultare le note su una versione precedente? Passare a:
 - [Note sulla versione dell'aggiornamento 0.4 per l'array virtuale StorSimple](./storsimple-virtual-array-update-04-release-notes.md)
 - [Note sulla versione dell'aggiornamento 0.3 per l'array virtuale StorSimple](./storsimple-ova-update-03-release-notes.md)
 - [Note sulla versione dell'Aggiornamento 0.1 e 0.2 per l'array virtuale StorSimple](./storsimple-ova-update-01-release-notes.md)
-- [Note sulla versione con disponibilità generale dell'array virtuale StorSimple](/azure/storsimple/storsimple-ova-pp-release-notes)
+- [Note sulla versione con disponibilità generale dell'array virtuale StorSimple](./storsimple-virtual-array-update-06-release-notes.md)
