@@ -9,10 +9,10 @@ ms.service: iot-central
 services: iot-central
 manager: philmea
 ms.openlocfilehash: c2d5310d1a664aa2e22d4241d8066e41d9c82bd1
-ms.sourcegitcommit: ab829133ee7f024f9364cd731e9b14edbe96b496
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/28/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97796721"
 ---
 # <a name="azure-iot-central-architecture"></a>Architettura di Azure IoT Central
@@ -117,7 +117,7 @@ Azure IoT Central archivia i dati dell'applicazione nel cloud. I dati archiviati
 
 Azure IoT Central usa un archivio di serie temporali per i dati di misura inviati dai dispositivi. Dati di serie temporali dei dispositivi utilizzati dal servizio di analisi.
 
-## <a name="analytics"></a>Analytics
+## <a name="analytics"></a>Analisi
 
 Il servizio di analisi è responsabile della generazione dei dati dei report personalizzati mostrati dall'applicazione. Un operatore può [personalizzare le analisi](howto-create-analytics.md) visualizzate nell'applicazione. Il servizio di analisi si basa su [Azure Time Series Insights](https://azure.microsoft.com/services/time-series-insights/) ed elabora i dati di misura inviati dai dispositivi.
 
@@ -140,7 +140,7 @@ In un [modello di dispositivo](concepts-device-templates.md) IOT Central contien
 
 Un'applicazione può avere uno o più dispositivi simulati e reali basati su ogni modello di dispositivo.
 
-## <a name="data-export"></a>Esportazione dei dati
+## <a name="data-export"></a>Esportazione dati
 
 In un'applicazione IoT Central di Azure è possibile [esportare i dati](howto-export-data.md) in modo continuo nelle istanze di hub eventi di Azure e del bus di servizio di Azure. È anche possibile esportare periodicamente i dati nell'account di archiviazione BLOB di Azure. IoT Central possibile esportare misure, dispositivi e modelli di dispositivo.
 

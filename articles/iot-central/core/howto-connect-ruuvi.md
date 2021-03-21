@@ -11,10 +11,10 @@ ms.author: avneets
 author: avneet723
 ms.date: 11/27/2019
 ms.openlocfilehash: 7cf0d31895eaeaa41c23f9f07664b27bed1d3126
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/25/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96006388"
 ---
 # <a name="connect-a-ruuvitag-sensor-to-your-azure-iot-central-application"></a>Connettere un sensore RuuviTag all'applicazione IoT Central di Azure
@@ -45,10 +45,10 @@ Per caricare un sensore RuuviTag nell'istanza dell'applicazione IoT Central di A
 
 Per aggiungere un modello di dispositivo RuuviTag:
 
-1. Passare alla scheda ***modelli di dispositivo** nel riquadro sinistro, selezionare _* + nuovo * *: ![ Crea nuovo modello di dispositivo. ](./media/howto-connect-ruuvi/devicetemplate-new.png) la pagina consente di *_creare un modello personalizzato_* o di_ _*_usare un modello di dispositivo preconfigurato_*_
+1. Passare alla scheda ***modelli di dispositivo** nel riquadro a sinistra, selezionare _* + nuovo * *: ![ Crea nuovo modello di dispositivo. ](./media/howto-connect-ruuvi/devicetemplate-new.png) la pagina offre un'opzione per **creare un modello personalizzato**_ o _ *_usare un modello di dispositivo preconfigurato_**
 1. Selezionare il modello di dispositivo RuuviTag dall'elenco dei modelli di dispositivo preconfigurati, come illustrato di seguito:  ![ selezionare il modello di dispositivo RuuviTag](./media/howto-connect-ruuvi/devicetemplate-preconfigured.png)
-1. Selezionare _*_Avanti: Personalizza_*_ per continuare con il passaggio successivo.
-1. Nella schermata successiva selezionare _*_Crea_*_ per caricare il modello di dispositivo C500 nell'applicazione IoT Central.
+1. Selezionare ***Avanti: Personalizza*** per continuare con il passaggio successivo.
+1. Nella schermata successiva selezionare ***Crea*** per caricare il modello di dispositivo C500 nell'applicazione IoT Central.
 
 ## <a name="connect-a-ruuvitag-sensor"></a>Connettere un sensore RuuviTag
 
@@ -68,7 +68,7 @@ Se non si ha un dispositivo RuuviTag fisico, è possibile creare un sensore Ruuv
 
 Per creare un RuuviTag simulato:
 
-1. Selezionare _ * Devices > RuuviTag * *.
+1. Selezionare **dispositivi > RuuviTag**.
 1. Selezionare **+ Nuovo**.
 1. Specificare un **ID dispositivo** univoco e un nome descrittivo del **dispositivo**.  
 1. Abilitare l'impostazione **Simulato**.

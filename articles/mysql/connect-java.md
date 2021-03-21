@@ -9,10 +9,10 @@ ms.topic: quickstart
 ms.devlang: java
 ms.date: 08/17/2020
 ms.openlocfilehash: 457f7e07391c647d2ab0e7d78197086f6f5e2cf7
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
-ms.translationtype: HT
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/26/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96187783"
 ---
 # <a name="quickstart-use-java-and-jdbc-with-azure-database-for-mysql"></a>Avvio rapido: Usare Java e JDBC con Database di Azure per MySQL

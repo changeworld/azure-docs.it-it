@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 10/20/2019
 ms.author: jingwang
 ms.openlocfilehash: a7df69e7c5701074b40d6fa8340d8a0e247f00de
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/14/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100393004"
 ---
 # <a name="copy-data-from-office-365-into-azure-using-azure-data-factory"></a>Copiare dati da Office 365 in Azure usando Azure Data Factory
@@ -52,7 +52,7 @@ Per informazioni sul modo in cui il responsabile dell'approvazione può approvar
 
 Se Azure Data Factory viene creato come parte di un'app gestita e le assegnazioni dei criteri di Azure vengono eseguite sulle risorse all'interno del gruppo di risorse di gestione, quindi per ogni esecuzione dell'attività di copia, Azure Data Factory verificherà che vengano applicate le assegnazioni dei criteri. Per un elenco dei criteri supportati, vedere [questo articolo](/graph/data-connect-policies#policies).
 
-## <a name="getting-started"></a>Guida introduttiva
+## <a name="getting-started"></a>Introduzione
 
 >[!TIP]
 >Per una procedura dettagliata sull'uso del connettore di Office 365, vedere l'articolo [Caricare dati da Office 365](load-office-365-data.md).

@@ -12,10 +12,10 @@ ms.reviewer: nibaccam
 ms.date: 03/02/2021
 ms.custom: how-to, devx-track-python, data4ml, synapse-azureml
 ms.openlocfilehash: acd8df620e23ee4ebc103d8910c6443f47ffa141
-ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
+ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/09/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102503828"
 ---
 # <a name="attach-apache-spark-pools-powered-by-azure-synapse-analytics-for-data-wrangling-preview"></a>Connetti pool di Apache Spark (basati su Azure sinapsi Analytics) per data wrangling (anteprima)
@@ -75,7 +75,7 @@ Una volta recuperato il servizio collegato, collegare un pool di Apache Spark si
 * Python SDK 
 
 ### <a name="attach-a-pool-via-the-studio"></a>Allegare un pool tramite studio
-Seguire questa procedura: 
+A tale scopo, seguire questa procedura: 
 
 1. Accedere a [Azure Machine Learning Studio](https://ml.azure.com/).
 1. Selezionare **servizi collegati** nella sezione **Gestisci** del riquadro sinistro.

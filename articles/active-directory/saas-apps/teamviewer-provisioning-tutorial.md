@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 01/27/2020
 ms.author: Zhchia
 ms.openlocfilehash: 0362f0d69581c252170b4f37f8564caa7acd3d29
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
-ms.translationtype: HT
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/26/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96182241"
 ---
 # <a name="tutorial-configure-teamviewer-for-automatic-user-provisioning"></a>Esercitazione: Configurare TeamViewer per il provisioning utenti automatico
@@ -40,7 +40,7 @@ Per lo scenario descritto in questa esercitazione si presuppone che l'utente dis
 * Un identificatore personalizzato valido della configurazione [Single Sign-On](https://community.teamviewer.com/t5/Knowledge-Base/Single-Sign-On-with-Azure-Active-Directory/ta-p/60209#toc-hId--473669723) disponibile.
 
 ## <a name="step-1-plan-your-provisioning-deployment"></a>Passaggio 1. Pianificare la distribuzione del provisioning
-1. Vedere le informazioni su [come funziona il servizio di provisioning](../app-provisioning/user-provisioning.md).
+1. Acquisire informazioni su [come funziona il servizio di provisioning](../app-provisioning/user-provisioning.md).
 2. Determinare gli utenti che verranno inclusi nell'[ambito per il provisioning](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
 3. Determinare i dati di cui [eseguire il mapping tra Azure AD e TeamViewer](../app-provisioning/customize-application-attributes.md). 
 

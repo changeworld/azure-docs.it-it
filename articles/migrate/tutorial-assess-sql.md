@@ -6,10 +6,10 @@ ms.author: rajosh
 ms.topic: tutorial
 ms.date: 02/07/2021
 ms.openlocfilehash: 9b33890d53f67eee870b42462a65b4a0b7ba9981
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/04/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102055531"
 ---
 # <a name="tutorial-assess-sql-instances-for-migration-to-azure-sql"></a>Esercitazione: valutare le istanze di SQL per la migrazione ad Azure SQL
@@ -18,7 +18,7 @@ Il percorso di migrazione ad Azure prevede la valutazione dei carichi di lavoro 
 Questo articolo illustra come valutare i database delle istanze di SQL Server individuati in preparazione per la migrazione ad Azure SQL, usando lo strumento Azure Migrate: Discovery and Assessment.
 
 > [!Note]
-> L'individuazione e la valutazione di SQL Server istanze e database in esecuzione nell'ambiente VMware sono ora in anteprima. Per provare questa funzionalità, usare [**questo collegamento**](https://aka.ms/AzureMigrate/SQL) per creare un progetto nell'area **Australia orientale** . Se si dispone già di un progetto in Australia orientale e si vuole provare questa funzionalità, assicurarsi di aver completato questi [**prerequisiti**](how-to-discover-sql-existing-project.md) nel portale.
+> L'individuazione e la valutazione di SQL Server istanze e database in esecuzione nell'ambiente VMware sono ora in anteprima. Per provare questa funzionalità, usare [**questo collegamento**](https://aka.ms/AzureMigrate/SQL) per creare un progetto nell'area **Australia orientale**. Se si dispone già di un progetto nell'Australia orientale e si vuole provare questa funzionalità, assicurarsi di aver completato questi [**prerequisiti**](how-to-discover-sql-existing-project.md) nel portale.
 
 In questa esercitazione verranno illustrate le procedure per:
 

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 12/12/2019
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: 02dc2b4e86c9d0bad0c8274967aa4da77440ec01
-ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
+ms.openlocfilehash: a084b8d14acc02c67b0678cd7fa9e5993b629a51
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/09/2021
-ms.locfileid: "102498762"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "104578525"
 ---
 # <a name="quickstart-acquire-a-token-and-call-microsoft-graph-api-from-a-windows-desktop-app"></a>Avvio rapido: Acquisire un token e chiamare l'API Microsoft Graph da un'app di Windows Desktop
 
@@ -75,6 +75,8 @@ Per un'illustrazione, vedere [Funzionamento dell'esempio](#how-the-sample-works)
 > Eseguire il progetto con Visual Studio 2019.
 > [!div renderon="portal" id="autoupdate" class="sxs-lookup nextstepaction"]
 > [Scaricare il codice di esempio](https://github.com/Azure-Samples/active-directory-dotnet-desktop-msgraph-v2/archive/msal3x.zip)
+
+[!INCLUDE [active-directory-develop-path-length-tip](../../../includes/active-directory-develop-path-length-tip.md)]
 
 > [!div class="sxs-lookup" renderon="portal"]
 > #### <a name="step-3-your-app-is-configured-and-ready-to-run"></a>Passaggio 3: L'app è configurata e pronta per l'esecuzione

@@ -4,10 +4,10 @@ description: Risposte alle domande frequenti su backup dischi di Azure
 ms.topic: conceptual
 ms.date: 01/07/2021
 ms.openlocfilehash: 3ef18a7d178075194e24889477768583f05f0cdd
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/23/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98734563"
 ---
 # <a name="frequently-asked-questions-about-azure-disk-backup-in-preview"></a>Domande frequenti sul backup su disco di Azure (in anteprima)
