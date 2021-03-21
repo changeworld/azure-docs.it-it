@@ -6,12 +6,12 @@ ms.author: weetok
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 10/27/2020
-ms.openlocfilehash: ba2ff2b5f108d7910958b374cc4b602a84a3f53d
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: f595766d49d6c00c313990717d8fd241ddfc8f81
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100367912"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104593867"
 ---
 # <a name="mapping-data-flow-transformation-overview"></a>Panoramica sulla trasformazione del flusso di dati
 
@@ -31,6 +31,7 @@ Di seguito è riportato un elenco delle trasformazioni attualmente supportate ne
 | [Join](data-flow-join.md). | Input/output multipli |  Combinare dati da due origini o flussi. |
 | [Ricerca](data-flow-lookup.md) | Input/output multipli | Dati di riferimento da un'altra origine. |
 | [Nuovo ramo](data-flow-new-branch.md) | Input/output multipli | Applicare più set di operazioni e trasformazioni a fronte dello stesso flusso di dati. |
+| [Parse](data-flow-new-branch.md). | Formattatore | Analizza le colonne di testo nel flusso di dati che sono stringhe di testo JSON, testo delimitato o testo formattato XML. |
 | [Pivot](data-flow-pivot.md) | Modificatore schema | Aggregazione in cui una o più colonne di raggruppamento presentano valori di riga distinti trasformati in singole colonne. |
 | [Classifica](data-flow-rank.md) | Modificatore schema | Genera una classificazione ordinata in base alle condizioni di ordinamento |
 | [Select](data-flow-select.md) | Modificatore schema | Colonne alias e nomi di flusso, colonne drop o riordina |

@@ -2,21 +2,21 @@
 title: Risoluzione dei problemi relativi al pool SQL dedicato (in precedenza SQL DW)
 description: Risoluzione dei problemi relativi al pool SQL dedicato (in precedenza SQL DW) in Azure sinapsi Analytics.
 services: synapse-analytics
-author: kevinvngo
+author: gaursa
 manager: craigg
 ms.service: synapse-analytics
 ms.topic: conceptual
 ms.subservice: sql-dw
 ms.date: 11/13/2020
-ms.author: kevin
+ms.author: gaursa
 ms.reviewer: jrasnick
 ms.custom: azure-synapse
-ms.openlocfilehash: de6c7e47af3019d034d457f43334aad1aeafabdc
-ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
+ms.openlocfilehash: 949a89dd4e84bdb44ad15eaff9ca160fdd21b395
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/02/2021
-ms.locfileid: "99254275"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104602129"
 ---
 # <a name="troubleshooting-dedicated-sql-pool-formerly-sql-dw-in-azure-synapse-analytics"></a>Risoluzione dei problemi relativi al pool SQL dedicato (in precedenza SQL DW) in Azure sinapsi Analytics
 
@@ -42,7 +42,7 @@ Questo articolo elenca i problemi comuni di risoluzione dei problemi nel pool SQ
 
 ## <a name="data-ingestion-and-preparation"></a>Inserimento e preparazione dei dati
 
-| Problema                                                        | Risoluzione                                                   |
+| Problema                                                        | Soluzione                                                   |
 | :----------------------------------------------------------- | :----------------------------------------------------------- |
 | L'esportazione di stringhe vuote tramite CETAS comporterà valori NULL nei file parquet e ORC. Si noti che se si esportano stringhe vuote da colonne con vincoli NOT NULL, CETAS comporterà la reiezione dei record e l'esportazione potrà potenzialmente avere esito negativo. | Rimuovere le stringhe vuote o la colonna che causa il danneggiamento nell'istruzione SELECT del CETAS. |
 | Il caricamento di un valore non compreso nell'intervallo 0-127 in una colonna tinyint per il formato di file parquet e ORC non è supportato. | Specificare un tipo di dati più grande per la colonna di destinazione.           |

@@ -3,13 +3,13 @@ title: Creare un dashboard del portale di Azure usando un modello di Azure Resou
 description: Informazioni su come creare un dashboard del portale di Azure usando un modello di Azure Resource Manager.
 ms.topic: quickstart
 ms.custom: subject-armqs
-ms.date: 06/15/2020
-ms.openlocfilehash: 55ac24e48c1c976eca1e6e8e51cf6e88361ec630
-ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
-ms.translationtype: HT
+ms.date: 03/15/2021
+ms.openlocfilehash: a3ab8767e09256ed8235dbd980ea3336a6f0fb1d
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/06/2020
-ms.locfileid: "96745724"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "104658327"
 ---
 # <a name="quickstart-create-a-dashboard-in-the-azure-portal-by-using-an-arm-template"></a>Avvio rapido: Creare un dashboard nel portale di Azure usando un modello di Resource Manager
 
@@ -30,9 +30,13 @@ Se l'ambiente soddisfa i prerequisiti e si ha familiarità con l'uso dei modelli
 
 Il dashboard che si creerà nella parte successiva di questo avvio rapido necessita di una macchina virtuale esistente. Creare una VM seguendo questa procedura.
 
-1. Nel portale di Azure selezionare Cloud Shell.
+1. Nel portale di Azure selezionare **Cloud Shell**.
 
     ![Selezionare Cloud Shell sulla barra multifunzione del portale di Azure](media/quick-create-template/cloud-shell.png)
+
+1. Nella finestra di **cloud Shell** selezionare **PowerShell**.
+
+    ![Selezionare PowerShell nella finestra del terminale](media/quick-create-template/powershell.png)
 
 1. Copiare il comando seguente e immetterlo al prompt dei comandi per creare un gruppo di risorse.
 
@@ -85,19 +89,7 @@ Per distribuire il modello è stato usato il portale di Azure. Oltre al portale 
 
 ## <a name="review-deployed-resources"></a>Esaminare le risorse distribuite
 
-Verificare che il dashboard sia stato creato correttamente e che sia possibile visualizzare i dati della VM.
-
-1. Nel portale di Azure selezionare **Dashboard**.
-
-    ![passaggio al dashboard nel portale di Azure](media/quick-create-template/navigate-to-dashboards.png)
-
-1. Nella pagina del dashboard selezionare **Simple VM Dashboard**.
-
-    ![Passare a Simple VM Dashboard](media/quick-create-template/select-simple-vm-dashboard.png)
-
-1. Esaminare il dashboard creato dal modello di Resource Manager. Come si può notare, parte del contenuto è statico, ma sono presenti anche alcuni grafici che mostrano le prestazioni della VM creata all'inizio.
-
-    ![Esaminare il dashboard Simple VM Dashboard](media/quick-create-template/review-simple-vm-dashboard.png)
+[!INCLUDE [azure-portal-review-deployed-resources](../../includes/azure-portal-review-deployed-resources.md)]
 
 ## <a name="clean-up-resources"></a>Pulire le risorse
 

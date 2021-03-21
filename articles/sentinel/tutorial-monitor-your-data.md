@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/04/2020
 ms.author: yelevin
-ms.openlocfilehash: 3a07670e3348f74fb5c6eaec57f5e9da627e8c09
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 048a089209ef7c5f20c96f77593e2cf39590147e
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100586729"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104600527"
 ---
 # <a name="tutorial-visualize-and-monitor-your-data"></a>Esercitazione: Visualizzare e monitorare i dati
 
@@ -76,6 +76,17 @@ Questa esercitazione consente di visualizzare i dati in Azure Sentinel.
 
    ![Passare a un'altra cartella di lavoro](./media/tutorial-monitor-data/switch-workbooks.png)
 
+
+## <a name="print-a-workbook-or-save-as-pdf"></a>Stampare una cartella di lavoro o salvarla come PDF
+
+Per stampare una cartella di lavoro o salvarla in formato PDF, usare il menu opzioni a destra del titolo della cartella di lavoro.
+
+1. Selezionare opzioni > :::image type="icon" source="media/whats-new/print-icon.png" border="false"::: **stampa contenuto**. 
+2. Nella schermata di stampa modificare le impostazioni di stampa in base alle esigenze oppure selezionare **Salva con nome PDF** per salvarlo in locale.
+
+Ad esempio:
+
+:::image type="content" source="media/whats-new/print-workbook.png" alt-text="Stampare la cartella di lavoro o salvarla in formato PDF.":::
 
 ## <a name="how-to-delete-workbooks"></a>Come eliminare le cartelle di lavoro
 

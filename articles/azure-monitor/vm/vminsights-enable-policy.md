@@ -6,10 +6,10 @@ author: bwren
 ms.author: bwren
 ms.date: 07/27/2020
 ms.openlocfilehash: 51baf009543208fbbfe091238d0215a24761641d
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/04/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102031957"
 ---
 # <a name="enable-vm-insights-by-using-azure-policy"></a>Abilitare VM Insights tramite criteri di Azure
@@ -47,7 +47,7 @@ Nella pagina **parametri** selezionare un'area di **lavoro log Analytics** che v
    > [!NOTE]
    > Se l'area di lavoro non rientra nell'ambito dell'assegnazione, concedere le autorizzazioni di *Collaboratore di Log Analytics* all'ID entità di sicurezza dell'assegnazione dei criteri. Se non si esegue questa operazione, è possibile che venga visualizzato un errore di distribuzione come `The client '343de0fe-e724-46b8-b1fb-97090f7054ed' with object id '343de0fe-e724-46b8-b1fb-97090f7054ed' does not have authorization to perform action 'microsoft.operationalinsights/workspaces/read' over scope ...`
 
-[![Area](media/vminsights-enable-policy/assignment-workspace.png)](media/vminsights-enable-policy/assignment-workspace.png#lightbox)
+[![Area di lavoro](media/vminsights-enable-policy/assignment-workspace.png)](media/vminsights-enable-policy/assignment-workspace.png#lightbox)
 
 Fare clic su **Verifica + crea** per esaminare i dettagli dell'assegnazione prima di fare clic su **Crea** per crearla. In questo momento non è possibile creare un'attività di correzione poiché è molto probabile che siano necessarie più attività di monitoraggio e aggiornamento per abilitare le macchine virtuali esistenti. Vedere [correggere i risultati di conformità](#remediate-compliance-results) di seguito.
 

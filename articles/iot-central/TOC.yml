@@ -131,10 +131,10 @@
       href: core/concepts-architecture.md
     - name: Guida per sviluppatori di dispositivi
       href: core/overview-iot-central-developer.md
-    - name: Guida dell'operatore
-      href: core/overview-iot-central-operator.md
     - name: Guida al generatore di soluzioni
       href: core/overview-iot-central-solution-builder.md
+    - name: Guida dell'operatore
+      href: core/overview-iot-central-operator.md
     - name: Che cosa i modelli di applicazione?
       href: core/concepts-app-templates.md
     - name: Modelli di applicazione specifici del settore
