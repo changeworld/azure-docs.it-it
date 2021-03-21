@@ -9,12 +9,12 @@ ms.service: virtual-machines
 ms.subservice: image-builder
 ms.custom: references_regions
 ms.reviewer: cynthn
-ms.openlocfilehash: 0e72c35af1f1990527b0154d2ba47a45d3f8b8c9
-ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
+ms.openlocfilehash: 20bb6925f859d497046eb42bbafb5264826b77b7
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/07/2021
-ms.locfileid: "102425626"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104604067"
 ---
 # <a name="preview-azure-image-builder-overview"></a>Anteprima: Panoramica di Azure Image Builder
 
@@ -70,7 +70,7 @@ Il generatore di immagini di macchine virtuali di Azure è un servizio di Azure 
 
 Le configurazioni dei modelli possono essere passate usando PowerShell, AZ CLI, ARM Templates e usando l'attività DevOps di Azure VM Image Builder, quando lo si invia al servizio, verrà creata una risorsa modello di immagine. Quando viene creata la risorsa modello di immagine, verrà visualizzato un gruppo di risorse di staging creato nella sottoscrizione, nel formato: it_ \<DestinationResourceGroup> _\<TemplateName>_ \( GUID). Il gruppo di risorse di staging contiene file e script a cui si fa riferimento nel file, Shell, personalizzazione di PowerShell nella proprietà ScriptURI.
 
-Per eseguire la compilazione che verrà richiamata `Run` sulla risorsa modello di immagine, il servizio distribuirà quindi risorse aggiuntive per la compilazione, ad esempio una macchina virtuale, una rete, un disco, una scheda di rete e così via. Se si compila un'immagine senza usare un generatore di immagini VNET esistente, distribuirà anche un IP pubblico e un NSG, il servizio si connette alla macchina virtuale di compilazione usando SSH o WinRM. Se si seleziona un VNET esistente, il servizio verrà distribuito usando il collegamento privato di Azure e non è necessario un indirizzo IP pubblico. per altri dettagli su Image Builder networking, vedere i [Dettagli](https://docs.microsoft.com/azure/virtual-machines/linux/image-builder-networking).
+Per eseguire la compilazione che verrà richiamata `Run` sulla risorsa modello di immagine, il servizio distribuirà quindi risorse aggiuntive per la compilazione, ad esempio una macchina virtuale, una rete, un disco, una scheda di rete e così via. Se si compila un'immagine senza usare un generatore di immagini VNET esistente, distribuirà anche un IP pubblico e un NSG, il servizio si connette alla macchina virtuale di compilazione usando SSH o WinRM. Se si seleziona un VNET esistente, il servizio verrà distribuito usando il collegamento privato di Azure e non è necessario un indirizzo IP pubblico. per altri dettagli su Image Builder networking, vedere i [Dettagli](./linux/image-builder-networking.md).
 
 Al termine della compilazione, tutte le risorse verranno eliminate, ad eccezione del gruppo di risorse di staging e dell'account di archiviazione, per rimuoverle verrà eliminata la risorsa modello di immagine oppure è possibile lasciarle per eseguire nuovamente la compilazione.
 
@@ -84,7 +84,7 @@ Quando si esegue la registrazione in Azure Image Builder, si concede al servizio
 
 Per consentire a Image Builder per macchine virtuali di Azure di distribuire immagini nelle immagini gestite o in una raccolta immagini condivise, sarà necessario creare un'identità assegnata dall'utente di Azure con le autorizzazioni di lettura e scrittura di immagini. Se si accede ad archiviazione di Azure, sarà necessario disporre delle autorizzazioni per leggere i contenitori privati e pubblici.
 
-Le autorizzazioni sono illustrate in modo più dettagliato per [PowerShell](https://docs.microsoft.com/azure/virtual-machines/linux/image-builder-permissions-powershell)e [AZ CLI](https://docs.microsoft.com/azure/virtual-machines/linux/image-builder-permissions-cli).
+Le autorizzazioni sono illustrate in modo più dettagliato per [PowerShell](./linux/image-builder-permissions-powershell.md)e [AZ CLI](./linux/image-builder-permissions-cli.md).
 
 ## <a name="costs"></a>Costi
 Durante la creazione, la compilazione e l'archiviazione di immagini con Azure Image Builder si incorrerà in alcuni costi di calcolo, rete e archiviazione. Questi costi sono simili a quelli sostenuti per la creazione manuale di immagini personalizzate. Per le risorse, verranno addebitate le tariffe di Azure. 
@@ -101,4 +101,3 @@ Il generatore di immagini attualmente supporta solo in modo nativo la creazione 
 ## <a name="next-steps"></a>Passaggi successivi 
  
 Per provare Azure Image Builder, vedere gli articoli per la compilazione di immagini [Linux](./linux/image-builder.md) o [Windows](./windows/image-builder.md).
-

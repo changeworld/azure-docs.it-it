@@ -3,12 +3,12 @@ title: Eseguire il backup di macchine virtuali di Azure in un insieme di credenz
 description: Informazioni su come eseguire il backup di macchine virtuali di Azure in un insieme di credenziali di Servizi di ripristino tramite Backup di Azure
 ms.topic: conceptual
 ms.date: 07/28/2020
-ms.openlocfilehash: f6fe2f629742e15e62dfc13106e92623a4b45add
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 5c3bc66c2111c347f8ed0e32c9e597a52ed404ed
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 03/19/2021
-ms.locfileid: "92172752"
+ms.locfileid: "104670427"
 ---
 # <a name="back-up-azure-vms-in-a-recovery-services-vault"></a>Eseguire il backup di macchine virtuali di Azure in un insieme di credenziali di Servizi di ripristino
 
@@ -117,6 +117,8 @@ Se si è scelto di creare un nuovo criterio di backup, specificare le impostazio
 4. In **Intervallo di conservazione** specificare per quanto tempo si vogliono conservare i punti di backup giornalieri o settimanali.
 5. In **conservazione del punto** di backup mensile e **della conservazione del punto di backup annuale** specificare se si vuole mantenere un backup mensile o annuale dei backup giornalieri o settimanali.
 6. Selezionare **OK** per salvare il criterio.
+    > [!NOTE]
+    > Per archiviare la raccolta di punti di ripristino (RPC), il servizio di backup crea un gruppo di risorse separato (RG). Questo RG è diverso da RG della macchina virtuale. [Altre informazioni](backup-during-vm-creation.md#azure-backup-resource-group-for-virtual-machines)
 
     ![Nuovo criterio di backup](./media/backup-azure-arm-vms-prepare/new-policy.png)
 

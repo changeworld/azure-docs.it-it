@@ -10,12 +10,12 @@ ms.author: jeanyd
 ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: how-to
-ms.openlocfilehash: 4087d618209ab4db46f89ef4e6db7ac87ca4cf57
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: de7d23689ae984ea0abece5edb03cf8a0c3a9be1
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91331013"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104670342"
 ---
 # <a name="get-connection-endpoints-and-form-connection-strings-for-your-arc-enabled-postgresql-hyperscale-server-group"></a>Ottenere gli endpoint di connessione e le stringhe di connessione del modulo per il gruppo di server con iperscalabilità PostgreSQL abilitato per Arc
 
@@ -43,22 +43,23 @@ Eseguire il comando seguente:
 ```console
 azdata arc postgres endpoint list -n <server group name>
 ```
-Restituisce un output come:
+ad esempio:
 ```console
-[
-  {
-    "Description": "PostgreSQL Instance",
-    "Endpoint": "postgresql://postgres:<replace with password>@12.345.123.456:1234"
-  },
-  {
-    "Description": "Log Search Dashboard",
-    "Endpoint": "https://12.345.123.456:12345/kibana/app/kibana#/discover?_a=(query:(language:kuery,query:'custom_resource_name:\"postgres01\"'))"
-  },
-  {
-    "Description": "Metrics Dashboard",
-    "Endpoint": "https://12.345.123.456:12345/grafana/d/postgres-metrics?var-Namespace=arc3&var-Name=postgres01"
-  }
-]
+azdata arc postgres endpoint list -n postgres01
+```
+
+Viene visualizzato l'elenco degli endpoint: l'endpoint PostgreSQL usato per connettere l'applicazione e usare gli endpoint database, Kibana e Grafana per log Analytics e il monitoraggio. Ad esempio: 
+```console
+Arc
+ ===================================================================================================================
+ Postgres01 Instance
+ -------------------------------------------------------------------------------------------------------------------
+ Description           Endpoint
+
+ PostgreSQL Instance   postgresql://postgres:<replace with password>@12.345.567.89:5432
+ Log Search Dashboard  https://89.345.712.81:30777/kibana/app/kibana#/discover?_a=(query:(language:kuery,query:'custom_resource_name:postgres01'))
+ Metrics Dashboard     https://89.345.712.81:30777/grafana/d/postgres-metrics?var-Namespace=arc&var-Name=postgres01
+
 ```
 Usare questi endpoint per:
 - Formare le stringhe di connessione e connettersi con gli strumenti o le applicazioni client
@@ -66,7 +67,7 @@ Usare questi endpoint per:
 
 Ad esempio, è possibile usare l'istanza di end point denominata _PostgreSQL_ per connettersi a PSQL al gruppo di server. Ad esempio:
 ```console
-psql postgresql://postgres:MyPassworkd@12.345.123.456:1234
+psql postgresql://postgres:MyPassworkd@12.345.567.89:5432
 psql (10.14 (Ubuntu 10.14-0ubuntu0.18.04.1), server 12.4 (Ubuntu 12.4-1.pgdg16.04+1))
 WARNING: psql major version 10, server major version 12.
          Some psql features might not work.
@@ -77,20 +78,20 @@ postgres=#
 ```
 > [!NOTE]
 >
-> - La password dell'utente _Postgres_ indicata nel punto finale denominato "istanza di_PostgreSQL_" è la password scelta per la distribuzione del gruppo di server.
+> - La password dell'utente _Postgres_ indicata nel punto finale denominato "istanza di _PostgreSQL_" è la password scelta per la distribuzione del gruppo di server.
 > - Informazioni su azdata: il lease associato alla connessione dura circa 10 ore. Dopodiché è necessario riconnettersi. Se il lease è scaduto, viene ricevuto il messaggio di errore seguente quando si tenta di eseguire un comando con azdata (diverso dall'account di accesso di azdata): _errore: (401)_ 
->  motivo: intestazioni di risposta http_non autorizzate_ 
+>  motivo: intestazioni di risposta http _non autorizzate_ 
 >  _: HTTPHeaderDict ({' date ':' Sun, 06 Sep 2020 16:58:38 GMT ',' Content-Length ':' 0',' www-Authenticate ':'_ 
 >  _Basic realm = "login_ Credentials required", Bearer Error = "invalid_token", error_description = "il token è scaduto"'}) _ quando si verifica questo problema, è necessario riconnettersi a azdata come illustrato in precedenza.
 
 ## <a name="from-cli-with-kubectl"></a>Dall'interfaccia della riga di comando con kubectl
 - Se il gruppo di server è di Postgres versione 12 (impostazione predefinita), il comando seguente:
 ```console
-kubectl get postgresql-12/<server group name>
+kubectl get postgresql-12/<server group name> -n <namespace name>
 ```
 - Se il gruppo di server è di Postgres versione 11, il comando seguente:
 ```console
-kubectl get postgresql-11/<server group name>
+kubectl get postgresql-11/<server group name> -n <namespace name>
 ```
 
 Questi comandi produrranno output come quello riportato di seguito. È possibile utilizzare tali informazioni per formare le stringhe di connessione:
@@ -149,12 +150,6 @@ dbname='postgres' user='postgres' host='192.168.1.121' password='{your_password_
 
 ```ruby
 host=192.168.1.121; dbname=postgres user=postgres password={your_password_here} port=24276 sslmode=require
-```
-
-### <a name="web-app"></a>App Web
-
-```webapp
-Database=postgres; Data Source=192.168.1.121; User Id=postgres; Password={your_password_here}
 ```
 
 ## <a name="next-steps"></a>Passaggi successivi

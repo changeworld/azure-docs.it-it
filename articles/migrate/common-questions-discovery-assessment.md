@@ -7,10 +7,10 @@ ms.manager: abhemraj
 ms.topic: conceptual
 ms.date: 06/09/2020
 ms.openlocfilehash: 6c4dfed27a105fad951ae12ca053b6d86772717a
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/04/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102032569"
 ---
 # <a name="discovery-assessment-and-dependency-analysis---common-questions"></a>Individuazione, valutazione e analisi delle dipendenze-domande comuni
@@ -39,7 +39,7 @@ Esaminare le aree geografiche supportate per i cloud [pubblico](migrate-support-
 - Usare il tipo di valutazione **Azure SQL** quando si vuole valutare la SQL Server locale dall'ambiente VMware per la migrazione al database SQL di Azure o al istanza gestita SQL di Azure. [Altre informazioni](concepts-assessment-calculation.md)
 
     > [!Note]
-    > L'individuazione e la valutazione di SQL Server istanze e database in esecuzione nell'ambiente VMware sono ora in anteprima. Per provare questa funzionalità, usare [**questo collegamento**](https://aka.ms/AzureMigrate/SQL) per creare un progetto nell'area **Australia orientale** . Se si dispone già di un progetto in Australia orientale e si vuole provare questa funzionalità, assicurarsi di aver completato questi [**prerequisiti**](how-to-discover-sql-existing-project.md) nel portale.
+    > L'individuazione e la valutazione di SQL Server istanze e database in esecuzione nell'ambiente VMware sono ora in anteprima. Per provare questa funzionalità, usare [**questo collegamento**](https://aka.ms/AzureMigrate/SQL) per creare un progetto nell'area **Australia orientale**. Se si dispone già di un progetto nell'Australia orientale e si vuole provare questa funzionalità, assicurarsi di aver completato questi [**prerequisiti**](how-to-discover-sql-existing-project.md) nel portale.
 
 - Usare le valutazioni della **soluzione VMware di Azure (AVS)** quando si vuole valutare le [macchine virtuali VMware](how-to-set-up-appliance-vmware.md) locali per la migrazione ad [Azure VMware Solution (AVS)](../azure-vmware/introduction.md) con questo tipo di valutazione. [Scopri di più](concepts-azure-vmware-solution-assessment-calculation.md)
 
@@ -61,12 +61,12 @@ Per una valutazione basata sulle prestazioni, l'esportazione del report di valut
 
 ## <a name="why-is-performance-data-missing-for-someall-sql-instancesdatabases-in-my-azure-sql-assessment"></a>Perché mancano i dati sulle prestazioni per alcune/tutte le istanze/database SQL nella valutazione SQL di Azure?
 
-Per assicurarsi che vengano raccolti i dati sulle prestazioni, controllare:
+Per assicurarsi che i dati sulle prestazioni vengano raccolti, controllare:
 
 - Se i server SQL sono accesi per la durata per la quale si sta creando la valutazione
 - Se lo stato della connessione dell'agente SQL in Azure Migrate è' Connected ' e controllare l'ultimo heartbeat 
 - Se Azure Migrate stato della connessione per tutte le istanze SQL è' Connected ' nel pannello istanza SQL individuata
-- Se tutti i contatori delle prestazioni risultano mancanti, assicurarsi che le connessioni in uscita sulle porte 443 (HTTPS) siano consentite
+- Se mancano tutti i contatori delle prestazioni, assicurarsi che le connessioni in uscita sulle porte 443 (HTTPS) siano consentite
 
 Se uno dei contatori delle prestazioni non è presente, Azure SQL Assessment consiglia la configurazione di Azure SQL più piccola per tale istanza/database.
 
@@ -83,38 +83,38 @@ La classificazione di attendibilità viene calcolata per le valutazioni basate s
     - Lo stato della connessione degli agenti nel Azure Migrate è' Connected ' e controlla l'ultimo heartbeat
     - Per le valutazioni SQL di Azure, Azure Migrate stato di connessione per tutte le istanze SQL è "connesso" nel pannello istanza SQL individuata
 
-    **Ricalcolare** la valutazione in modo da riflettere le ultime modifiche apportate alla classificazione di attendibilità.
+    **Ricalcolare** la valutazione in modo che rifletta le ultime modifiche apportate alla classificazione di attendibilità.
 
 - Per le valutazioni di VM e AVS di Azure, sono stati creati pochi server dopo l'avvio dell'individuazione. Ad esempio, se si sta creando una valutazione per la cronologia delle prestazioni dell'ultimo mese, ma sono stati creati pochi server nell'ambiente solo una settimana fa. In questo caso, i dati sulle prestazioni per i nuovi server non saranno disponibili per l'intera durata e la classificazione di attendibilità sarà bassa. [Scopri di più](./concepts-assessment-calculation.md#confidence-ratings-performance-based)
 
-- Per le valutazioni SQL di Azure, alcune istanze o database SQL sono stati creati dopo l'avvio dell'individuazione. Se, ad esempio, si sta creando una valutazione per la cronologia delle prestazioni dell'ultimo mese, ma nell'ambiente sono state create alcune istanze o database SQL solo una settimana fa. In questo caso, i dati sulle prestazioni per i nuovi server non saranno disponibili per l'intera durata e la classificazione di attendibilità sarà bassa. [Scopri di più](./concepts-azure-sql-assessment-calculation.md#confidence-ratings)
+- Per le valutazioni di Azure SQL, alcuni database o istanze di SQL sono stati creati dopo l'avvio dell'individuazione. Se, ad esempio, si sta creando una valutazione per la cronologia delle prestazioni dell'ultimo mese, ma nell'ambiente sono state create alcune istanze o database SQL solo una settimana fa. In questo caso, i dati sulle prestazioni per i nuovi server non saranno disponibili per l'intera durata e la classificazione di attendibilità sarà bassa. [Scopri di più](./concepts-azure-sql-assessment-calculation.md#confidence-ratings)
 
-## <a name="i-want-to-try-out-the-new-azure-sql-assessment-feature-in-azure-migrate"></a>Si vuole provare la nuova funzionalità di valutazione di SQL Azure in Azure Migrate
-Per provare questa funzionalità, usare [questo collegamento](https://go.microsoft.com/fwlink/?linkid=2155668L) per creare un progetto nell'area **Australia orientale** .
-- Per iniziare, vedere le esercitazioni sull' [individuazione](https://docs.microsoft.com/azure/migrate/tutorial-discover-vmware) e la [valutazione](https://docs.microsoft.com/azure/migrate/tutorial-assess-sql) .
-- Si noti che l'individuazione e la valutazione di SQL Server istanze e i database in esecuzione nell'ambiente VMware sono attualmente in anteprima.
+## <a name="i-want-to-try-out-the-new-azure-sql-assessment-feature-in-azure-migrate"></a>Si desidera provare la nuova funzionalità di valutazione di Azure SQL in Azure Migrate
+Per provare questa funzionalità, usare [questo collegamento](https://go.microsoft.com/fwlink/?linkid=2155668L) per creare un progetto nell'area **Australia orientale**.
+- Per iniziare, fare riferimento alle esercitazioni su [individuazione](https://docs.microsoft.com/azure/migrate/tutorial-discover-vmware) e [valutazione](https://docs.microsoft.com/azure/migrate/tutorial-assess-sql).
+- Si noti che l'individuazione e la valutazione delle istanze di SQL Server e dei database in esecuzione nell'ambiente VMware sono attualmente in anteprima.
 
-## <a name="i-cant-see-some-servers-when-i-am-creating-an-azure-sql-assessment"></a>Non è possibile visualizzare alcuni server quando si crea una valutazione SQL di Azure
+## <a name="i-cant-see-some-servers-when-i-am-creating-an-azure-sql-assessment"></a>Durante la creazione di una valutazione di Azure SQL, non è possibile visualizzare alcuni server
 
-- La valutazione di SQL Azure può essere eseguita solo su server in cui sono in esecuzione le istanze di SQL individuate. Se non vengono visualizzati i server e le istanze SQL che si desidera valutare, attendere qualche minuto prima che l'individuazione venga completata e quindi creare la valutazione. 
+- La valutazione di Azure SQL può essere eseguita solo in server in esecuzione in cui sono state individuate istanze di SQL. Se non vengono visualizzati i server e le istanze di SQL che si desidera valutare, attendere qualche minuto prima che l'individuazione venga completata e quindi creare la valutazione. 
 - Se non è possibile visualizzare un gruppo creato in precedenza durante la creazione della valutazione, rimuovere tutti i server non VMware o i server senza un'istanza di SQL dal gruppo.
-- Se si eseguono valutazioni SQL di Azure in Azure Migrate per la prima volta, è consigliabile creare un nuovo gruppo di server.
+- Se si eseguono per la prima volta le valutazioni di Azure SQL in Azure Migrate, è consigliabile creare un nuovo gruppo di server.
 
 ## <a name="i-want-to-understand-how-was-the-readiness-for-my-instance-computed"></a>Si desidera capire come è stata calcolata la conformità per l'istanza?
-La conformità per le istanze di SQL è stata calcolata dopo aver eseguito un controllo di compatibilità delle funzionalità con il tipo di distribuzione SQL di Azure di destinazione (database SQL di Azure o Azure SQL Istanza gestita). [Scopri di più](./concepts-azure-sql-assessment-calculation.md#calculate-readiness)
+L'idoneità delle istanze di SQL è stata calcolata dopo che è stato eseguito un controllo della compatibilità delle funzionalità con il tipo di distribuzione di Azure SQL di destinazione (Database SQL di Azure o Istanza gestita di SQL di Azure). [Scopri di più](./concepts-azure-sql-assessment-calculation.md#calculate-readiness)
 
 ## <a name="why-is-the-readiness-for-all-my-sql-instances-marked-as-unknown"></a>Perché la conformità per tutte le istanze di SQL è contrassegnata come sconosciuta?
-Se l'individuazione è stata avviata di recente ed è ancora in corso, è possibile visualizzare la conformità per alcune o tutte le istanze di SQL come sconosciute. Si consiglia di attendere il tempo necessario per l'applicazione per profilare l'ambiente e quindi ricalcolare la valutazione.
+Se l'individuazione è stata avviata di recente ed è ancora in corso, è possibile visualizzare la conformità per alcune o tutte le istanze di SQL come sconosciute. È consigliabile attendere un po' di tempo prima che l'appliance profili l'ambiente e quindi ricalcoli la valutazione.
 Il rilevamento SQL viene eseguito una volta ogni 24 ore e potrebbe essere necessario attendere fino a un giorno per le ultime modifiche di configurazione da riflettere. 
 
 ## <a name="why-is-the-readiness-for-some-of-my-sql-instances-marked-as-unknown"></a>Perché la conformità per alcune istanze di SQL è contrassegnata come sconosciuta?
 Questo problema può verificarsi se: 
-- L'individuazione è ancora in corso. Si consiglia di attendere il tempo necessario per l'applicazione per profilare l'ambiente e quindi ricalcolare la valutazione.
-- Ci sono alcuni problemi di individuazione che è necessario correggere nel pannello Errori e notifiche.
+- L'individuazione è ancora in corso. È consigliabile attendere un po' di tempo prima che l'appliance profili l'ambiente e quindi ricalcoli la valutazione.
+- Sono presenti alcuni problemi di individuazione da correggere nel pannello "Errors and notifications" (Errori e notifiche).
 
 Il rilevamento SQL viene eseguito una volta ogni 24 ore e potrebbe essere necessario attendere fino a un giorno per le ultime modifiche di configurazione da riflettere.
 
-## <a name="my-assessment-is-in-outdated-state"></a>La valutazione è in stato obsoleto
+## <a name="my-assessment-is-in-outdated-state"></a>Lo stato della valutazione è Obsoleto
 
 ### <a name="azure-vmavs-assessment"></a>Valutazione della macchina virtuale di Azure/AVS
 Se sono presenti modifiche locali alle macchine virtuali che si trovano in un gruppo valutato, la valutazione viene contrassegnata come obsoleta. Una valutazione può essere contrassegnata come "obsoleta" a causa di una o più modifiche nelle proprietà seguenti:
@@ -130,33 +130,33 @@ Se sono presenti modifiche locali alle macchine virtuali che si trovano in un gr
 **Ricalcolare** la valutazione in modo da riflettere le ultime modifiche apportate alla valutazione.
 
 ### <a name="azure-sql-assessment"></a>Valutazione di Azure SQL
-Se sono state apportate modifiche alle istanze e ai database SQL locali inclusi in un gruppo valutato, la valutazione viene contrassegnata come **obsoleta**:
-- L'istanza SQL è stata aggiunta o rimossa da un server
+Se sono state apportate modifiche ai database e alle istanze di SQL locali presenti in un gruppo valutato, la valutazione viene contrassegnata come **Obsoleto**:
+- L'istanza di SQL è stata aggiunta o rimossa da un server
 - Il database SQL è stato aggiunto o rimosso da un'istanza di SQL
-- Dimensioni totali del database in un'istanza di SQL modificate da oltre il 20%
+- Le dimensioni totali del database in un'istanza di SQL sono cambiate di una percentuale superiore al 20%
 - Modifica del numero di core del processore e/o della memoria allocata
 
 **Ricalcolare** la valutazione in modo da riflettere le ultime modifiche apportate alla valutazione.
 
-## <a name="why-was-i-recommended-a-particular-target-deployment-type"></a>Perché è stato consigliato un tipo specifico di distribuzione di destinazione?
-Azure Migrate consiglia un tipo specifico di distribuzione SQL di Azure compatibile con l'istanza di SQL. La migrazione a una destinazione consigliata da Microsoft riduce il lavoro di migrazione globale. Questa configurazione di SQL Azure (SKU) è stata consigliata dopo aver preso in considerazione le caratteristiche relative alle prestazioni dell'istanza di SQL e dei database gestiti. Se sono idonee più configurazioni SQL di Azure, è consigliabile scegliere quella più conveniente. [Scopri di più](./concepts-azure-sql-assessment-calculation.md#calculate-sizing)
+## <a name="why-was-i-recommended-a-particular-target-deployment-type"></a>Perché è stato consigliato un determinato tipo di distribuzione di destinazione?
+Azure Migrate consiglia un determinato tipo di distribuzione di Azure SQL compatibile con l'istanza di SQL. La migrazione a una destinazione consigliata da Microsoft riduce il lavoro richiesto complessivo per la migrazione. Questa configurazione di Azure SQL (SKU) è stata consigliata dopo che sono state prese in considerazione le caratteristiche delle prestazioni dell'istanza di SQL e dei database che gestisce. Se varie configurazioni di Azure SQL sono idonee, è consigliabile scegliere quella più efficace. [Scopri di più](./concepts-azure-sql-assessment-calculation.md#calculate-sizing)
 
-## <a name="what-deployment-target-should-i-choose-if-my-sql-instance-is-ready-for-azure-sql-db-and-azure-sql-mi"></a>Quale destinazione di distribuzione è possibile scegliere se l'istanza di SQL è pronta per il database SQL di Azure e Azure SQL MI? 
-Se l'istanza è pronta sia per il database SQL di Azure che per Azure SQL MI, è consigliabile usare il tipo di distribuzione di destinazione per il quale il costo stimato della configurazione di SQL di Azure è inferiore.
+## <a name="what-deployment-target-should-i-choose-if-my-sql-instance-is-ready-for-azure-sql-db-and-azure-sql-mi"></a>Quale destinazione di distribuzione è consigliabile scegliere se l'istanza di SQL è pronta per il database e l'istanza gestita di SQL Azure? 
+Se l'istanza è pronta sia per il database che per l'istanza gestita di Azure SQL, è consigliabile usare il tipo di distribuzione di destinazione per il quale il costo stimato della configurazione di Azure SQL è inferiore.
 
 ## <a name="why-is-my-instance-marked-as-potentially-ready-for-azure-vm-in-my-azure-sql-assessment"></a>Perché l'istanza è contrassegnata come potenzialmente pronta per la macchina virtuale di Azure nella valutazione SQL di Azure?
-Questo problema può verificarsi quando si **consiglia** il tipo di distribuzione di destinazione scelto nelle proprietà di valutazione e l'istanza di SQL non è pronta per il database SQL di Azure e azure SQL istanza gestita. Si consiglia di creare una valutazione in Azure migrate con tipo di valutazione come **macchina virtuale di Azure** per determinare se il server in cui è in esecuzione l'istanza è pronto per la migrazione a una macchina virtuale di Azure.
+Questo può verificarsi quando lo stato del tipo di distribuzione di destinazione scelto nelle proprietà della valutazione è **Consigliato** e l'istanza di SQL non è pronta per Database SQL di Azure e Istanza gestita di SQL di Azure. È consigliabile creare una valutazione in Azure Migrate con il tipo di valutazione **Macchina virtuale di Azure** per determinare se il server in cui è in esecuzione l'istanza è pronto per eseguire la migrazione a una macchina virtuale di Azure.
 È consigliabile creare una valutazione in Azure Migrate con tipo di valutazione come **macchina virtuale di Azure** per determinare se il server in cui è in esecuzione l'istanza è pronto per la migrazione a una macchina virtuale di Azure:
 - Le valutazioni delle VM di Azure in Azure Migrate sono attualmente incentrate su Lift-a-Shift e non prenderanno in considerazione le metriche delle prestazioni specifiche per l'esecuzione di istanze e database SQL nella macchina virtuale di Azure. 
-- Quando si esegue una valutazione delle VM di Azure in un server, le stime delle dimensioni e dei costi consigliate saranno per tutte le istanze in esecuzione nel server e di cui è possibile eseguire la migrazione a una macchina virtuale di Azure tramite lo strumento di migrazione server. Prima di eseguire la migrazione, [esaminare le linee guida sulle prestazioni](https://docs.microsoft.com/azure/azure-sql/virtual-machines/windows/performance-guidelines-best-practices) per SQL Server in macchine virtuali di Azure.
+- Quando si esegue una valutazione della macchina virtuale di Azure in un server, le dimensioni consigliate e le stime dei costi faranno riferimento a tutte le istanze in esecuzione nel server e sarà possibile eseguire la migrazione a una macchina virtuale di Azure tramite lo strumento di migrazione del server. Prima di eseguire la migrazione, [esaminare le linee guida sulle prestazioni](https://docs.microsoft.com/azure/azure-sql/virtual-machines/windows/performance-guidelines-best-practices) per SQL Server nelle macchine virtuali di Azure.
 
 ## <a name="i-cant-see-some-databases-in-my-assessment-even-though-the-instance-is-part-of-the-assessment"></a>Non è possibile visualizzare alcuni database nella valutazione anche se l'istanza fa parte della valutazione
 
-La valutazione SQL di Azure include solo database in stato online. Nel caso in cui il database si trovi in un altro stato, la valutazione ignora la preparazione, il dimensionamento e il calcolo dei costi per tali database. Se si desidera valutare tali database, modificare lo stato del database e ricalcolare la valutazione in un determinato periodo di tempo.
+La valutazione di Azure SQL include solo database il cui stato è Online. Nel caso in cui lo stato del database sia un altro, la valutazione ignora l'idoneità, il dimensionamento e il calcolo dei costi per tali database. Se si desidera valutare tali database, modificarne lo stato e ricalcolare la valutazione in un secondo momento.
 
 ## <a name="i-want-to-compare-costs-for-running-my-sql-instances-on-azure-vm-vs-azure-sql-databaseazure-sql-managed-instance"></a>Vorrei confrontare i costi per l'esecuzione delle istanze di SQL in una VM di Azure rispetto al database SQL di Azure/Azure SQL Istanza gestita
 
-È possibile creare una valutazione con tipo di **macchina virtuale di Azure** nello stesso gruppo usato nella valutazione **SQL di Azure** . È quindi possibile confrontare i due report side-by-side. Tuttavia, le valutazioni delle VM di Azure in Azure Migrate sono attualmente incentrate su Lift-and-Shift e non prenderanno in considerazione le metriche delle prestazioni specifiche per l'esecuzione di istanze e database SQL nella macchina virtuale di Azure. Quando si esegue una valutazione delle VM di Azure in un server, le stime delle dimensioni e dei costi consigliate saranno per tutte le istanze in esecuzione nel server e di cui è possibile eseguire la migrazione a una macchina virtuale di Azure tramite lo strumento di migrazione server. Prima di eseguire la migrazione, [esaminare le linee guida sulle prestazioni](https://docs.microsoft.com/azure/azure-sql/virtual-machines/windows/performance-guidelines-best-practices) per SQL Server in macchine virtuali di Azure.
+È possibile creare una valutazione con il tipo **Macchina virtuale di Azure** nello stesso gruppo usato nella valutazione di **Azure SQL**. È quindi possibile confrontare i due report affiancati. Tuttavia, le valutazioni delle macchine virtuali di Azure in Azure Migrate sono attualmente in fase di trasferimento in modalità lift-and-shift e non prenderanno in considerazione le metriche delle prestazioni specifiche per l'esecuzione di database e istanze di SQL nella macchina virtuale di Azure. Quando si esegue una valutazione della macchina virtuale di Azure in un server, le dimensioni consigliate e le stime dei costi faranno riferimento a tutte le istanze in esecuzione nel server e sarà possibile eseguire la migrazione a una macchina virtuale di Azure tramite lo strumento di migrazione del server. Prima di eseguire la migrazione, [esaminare le linee guida sulle prestazioni](https://docs.microsoft.com/azure/azure-sql/virtual-machines/windows/performance-guidelines-best-practices) per SQL Server nelle macchine virtuali di Azure.
 
 ## <a name="the-storage-cost-in-my-azure-sql-assessment-is-zero"></a>Il costo di archiviazione nella valutazione SQL di Azure è zero
 Per il Istanza gestita SQL di Azure, non è stato aggiunto alcun costo di archiviazione per la prima archiviazione da 32 GB/istanza/mese e viene aggiunto un costo di archiviazione aggiuntivo per l'archiviazione con incrementi di 32 GB. [Altre informazioni](https://azure.microsoft.com/pricing/details/azure-sql/sql-managed-instance/single/)
@@ -246,7 +246,7 @@ Agente | Non è necessario installare gli agenti nei computer che si vuole contr
 Prerequisiti | [Esaminare](concepts-dependency-visualization.md#agentless-analysis) i prerequisiti e i requisiti di distribuzione. | [Esaminare](concepts-dependency-visualization.md#agent-based-analysis) i prerequisiti e i requisiti di distribuzione.
 Log Analytics | Non obbligatorio. | Azure Migrate usa la soluzione [Mapping dei servizi](../azure-monitor/vm/service-map.md) in [Log di Monitoraggio di Azure](../azure-monitor/logs/log-query-overview.md) per la visualizzazione delle dipendenze. [Altre informazioni](concepts-dependency-visualization.md#agent-based-analysis)
 Funzionamento | Acquisisce i dati di connessione TCP nei computer abilitati per la visualizzazione delle dipendenze. Dopo l'individuazione, raccoglie i dati a intervalli di cinque minuti. | Mapping dei servizi agenti installati in un computer raccolgono i dati relativi ai processi TCP e alle connessioni in ingresso/in uscita per ogni processo.
-Data | Nome del server del computer di origine, processo, nome dell'applicazione.<br/><br/> Nome del server del computer di destinazione, processo, nome dell'applicazione e porta. | Nome del server del computer di origine, processo, nome dell'applicazione.<br/><br/> Nome del server del computer di destinazione, processo, nome dell'applicazione e porta.<br/><br/> Il numero di connessioni, la latenza e le informazioni sul trasferimento dei dati sono raccolte e disponibili per Log Analytics query. 
+Dati | Nome del server del computer di origine, processo, nome dell'applicazione.<br/><br/> Nome del server del computer di destinazione, processo, nome dell'applicazione e porta. | Nome del server del computer di origine, processo, nome dell'applicazione.<br/><br/> Nome del server del computer di destinazione, processo, nome dell'applicazione e porta.<br/><br/> Il numero di connessioni, la latenza e le informazioni sul trasferimento dei dati sono raccolte e disponibili per Log Analytics query. 
 Visualizzazione | La mappa delle dipendenze di un singolo server può essere visualizzata per una durata di un'ora a 30 giorni. | Mappa delle dipendenze di un singolo server.<br/><br/> La mappa può essere visualizzata solo in un'ora.<br/><br/> Mappa delle dipendenze di un gruppo di server.<br/><br/> Aggiungere e rimuovere i server in un gruppo dalla vista mappa.
 Esportazione dati | Ultimi 30 giorni è possibile scaricare i dati in formato CSV. | È possibile eseguire query sui dati con Log Analytics.
 

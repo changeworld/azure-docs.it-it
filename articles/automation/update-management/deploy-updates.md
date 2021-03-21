@@ -3,14 +3,14 @@ title: Come creare distribuzioni di aggiornamenti per Gestione aggiornamenti di 
 description: Questo articolo descrive come pianificare le distribuzioni degli aggiornamenti e controllarne lo stato.
 services: automation
 ms.subservice: update-management
-ms.date: 12/09/2020
+ms.date: 03/19/2021
 ms.topic: conceptual
-ms.openlocfilehash: fb81d38b066e1abb54664225daa6840d895e9ace
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 6d35d6b49ab72d8aa7b25506011147ab624273fd
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100575893"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104669679"
 ---
 # <a name="how-to-deploy-updates-and-review-results"></a>Come distribuire gli aggiornamenti ed esaminare i risultati
 
@@ -21,6 +21,9 @@ In ogni scenario, la distribuzione creata ha come destinazione il computer o il 
 * Il sistema operativo viene preselezionato automaticamente in base al sistema operativo del computer
 * Il computer di destinazione da aggiornare è impostato automaticamente come destinazione
 * Quando si configura la pianificazione, è possibile specificare l' **aggiornamento ora**, si verifica una volta o una pianificazione ricorrente.
+
+> [!IMPORTANT]
+> Grazie alla creazione di una distribuzione degli aggiornamenti, si accettano le condizioni di licenza software fornite dall'azienda che offrono aggiornamenti per il sistema operativo in uso.
 
 ## <a name="sign-in-to-the-azure-portal"></a>Accedere al portale di Azure
 

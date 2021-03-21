@@ -1,20 +1,20 @@
 ---
 title: Creare sottoscrizioni con contratto Enterprise di Azure a livello di codice con le API più recenti
-description: Informazioni su come creare sottoscrizioni con contratto Enterprise di Azure a livello di codice usando le versioni più recenti dell'API REST, dell'interfaccia della riga di comando di Azure e di Azure PowerShell.
+description: Informazioni su come creare sottoscrizioni di Contratto Enterprise di Azure a livello di codice usando le versioni più recenti di API REST, interfaccia della riga di comando di Azure, Azure PowerShell e modelli di Azure Resource Manager.
 author: bandersmsft
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: how-to
-ms.date: 01/13/2021
+ms.date: 03/12/2021
 ms.reviewer: andalmia
 ms.author: banders
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
-ms.openlocfilehash: 4de89892d27bb811be6670c1a14ca85859342ecc
-ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
+ms.openlocfilehash: 3f07d18ccdca87f6395b24e4e3f9e6ee91cfaee3
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102218911"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104593978"
 ---
 # <a name="programmatically-create-azure-enterprise-agreement-subscriptions-with-the-latest-apis"></a>Creare sottoscrizioni con contratto Enterprise di Azure a livello di codice con le API più recenti
 
@@ -41,7 +41,7 @@ Dopo l'aggiunta dell'utente a un account di registrazione associato a un proprie
 
 Per eseguire i comandi seguenti è necessario che sia stato effettuato l'accesso nella *home directory* del proprietario dell'account, ovvero la directory in cui, per impostazione predefinita, vengono create le sottoscrizioni.
 
-### <a name="rest"></a>[REST](#tab/rest-getEnrollments)
+### <a name="rest"></a>[REST](#tab/rest)
 
 Richiesta per ottenere l'elenco di tutti gli account di registrazione a cui si può accedere:
 
@@ -91,17 +91,13 @@ La risposta dell'API elenca tutti gli account di registrazione a cui si può acc
 
 ```
 
-Il valore di un ambito di fatturazione e `id` sono la stessa cosa. L'`id` dell'account di registrazione è l'ambito di fatturazione in cui è stata iniziata la richiesta di sottoscrizione. È importante conoscere l'ID in quanto è un parametro obbligatorio che verrà usato più avanti nell'articolo per creare una sottoscrizione.
+I valori per un ambito di fatturazione e `id` sono uguali. L'`id` dell'account di registrazione è l'ambito di fatturazione in cui è stata iniziata la richiesta di sottoscrizione. È importante conoscere l'ID in quanto è un parametro obbligatorio che verrà usato più avanti nell'articolo per creare una sottoscrizione.
 
-<!-- 
-### [PowerShell](#tab/azure-powershell-getEnrollments)
+### <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
-we're still working on enabling PowerShell SDK for billing APIs. Check back soon.
+Per ottenere questo valore, usare l'interfaccia della riga di comando di Azure o l'API REST.
 
--->
-
-
-### <a name="azure-cli"></a>[Interfaccia della riga di comando di Azure](#tab/azure-cli-getEnrollments)
+### <a name="azure-cli"></a>[Interfaccia della riga di comando di Azure](#tab/azure-cli)
 
 Richiesta per ottenere l'elenco di tutti gli account di registrazione a cui si può accedere:
 
@@ -159,7 +155,8 @@ Risposta elenca tutti gli account di registrazione a cui si ha accesso
     "type": "Microsoft.Billing/billingAccounts"
   },
 ```
-Il valore di un ambito di fatturazione e `id` sono la stessa cosa. L'`id` dell'account di registrazione è l'ambito di fatturazione in cui è stata iniziata la richiesta di sottoscrizione. È importante conoscere l'ID in quanto è un parametro obbligatorio che verrà usato più avanti nell'articolo per creare una sottoscrizione.
+
+I valori per un ambito di fatturazione e `id` sono uguali. L'`id` dell'account di registrazione è l'ambito di fatturazione in cui è stata iniziata la richiesta di sottoscrizione. È importante conoscere l'ID in quanto è un parametro obbligatorio che verrà usato più avanti nell'articolo per creare una sottoscrizione.
 
 ---
 
@@ -167,7 +164,7 @@ Il valore di un ambito di fatturazione e `id` sono la stessa cosa. L'`id` dell'a
 
 L'esempio seguente crea una sottoscrizione denominata *Dev Team Subscription* nell'account di registrazione selezionato nel passaggio precedente. 
 
-### <a name="rest"></a>[REST](#tab/rest-EA)
+### <a name="rest"></a>[REST](#tab/rest)
 
 Chiamare l'API PUT per creare una richiesta/un alias di creazione della sottoscrizione.
 
@@ -227,7 +224,7 @@ GET https://management.azure.com/providers/Microsoft.Subscription/aliases/sample
 
 Uno stato in corso viene restituito come stato `Accepted` in `provisioningState`.
 
-### <a name="powershell"></a>[PowerShell](#tab/azure-powershell-EA)
+### <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
 Per installare la versione più recente del modulo che contiene il cmdlet `New-AzSubscriptionAlias`, eseguire `Install-Module Az.Subscription`. Per installare una versione recente di PowerShellGet, vedere [Ottenere il modulo PowerShellGet](/powershell/scripting/gallery/installing-psget).
 
@@ -251,7 +248,7 @@ Si ottiene il valore subscriptionId come parte della risposta dal comando.
 }
 ```
 
-### <a name="azure-cli"></a>[Interfaccia della riga di comando di Azure](#tab/azure-cli-EA)
+### <a name="azure-cli"></a>[Interfaccia della riga di comando di Azure](#tab/azure-cli)
 
 Installare prima di tutto l'estensione eseguendo `az extension add --name account` e `az extension add --name alias`.
 
@@ -277,6 +274,113 @@ Si ottiene il valore subscriptionId come parte della risposta dal comando.
 
 ---
 
+## <a name="use-arm-template"></a>Usare un modello di Azure Resource Manager
+
+La sezione precedente ha illustrato come creare una sottoscrizione con PowerShell, l'interfaccia della riga di comando o l'API REST. Se è necessario automatizzare la creazione di sottoscrizioni, provare a usare un modello di Azure Resource Manager (modello ARM).
+
+Il modello seguente crea una sottoscrizione. Per `billingScope` , specificare l'ID dell'account di registrazione. Per `targetManagementGroup` , specificare il gruppo di gestione in cui si desidera creare la sottoscrizione.
+
+```json
+{
+    "$schema": "https://schema.management.azure.com/schemas/2019-08-01/managementGroupDeploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "subscriptionAliasName": {
+            "type": "string",
+            "metadata": {
+                "description": "Provide a name for the alias. This name will also be the display name of the subscription."
+            }
+        },
+        "billingScope": {
+            "type": "string",
+            "metadata": {
+                "description": "Provide the full resource ID of billing scope to use for subscription creation."
+            }
+        },
+        "targetManagementGroup": {
+            "type": "string",
+            "metadata": {
+                "description": "Provide the ID of the target management group to place the subscription."
+            }
+        }
+    },
+    "resources": [
+        {
+            "scope": "/", 
+            "name": "[parameters('subscriptionAliasName')]",
+            "type": "Microsoft.Subscription/aliases",
+            "apiVersion": "2020-09-01",
+            "properties": {
+                "workLoad": "Production",
+                "displayName": "[parameters('subscriptionAliasName')]",
+                "billingScope": "[parameters('billingScope')]",
+                "managementGroupId": "[tenantResourceId('Microsoft.Management/managementGroups/', parameters('targetManagementGroup'))]"
+            }
+        }
+    ],
+    "outputs": {}
+}
+```
+
+Distribuire il modello a [livello di gruppo di gestione](../../azure-resource-manager/templates/deploy-to-management-group.md).
+
+### <a name="rest"></a>[REST](#tab/rest)
+
+```json
+PUT https://management.azure.com/providers/Microsoft.Management/managementGroups/mg1/providers/Microsoft.Resources/deployments/exampledeployment?api-version=2020-06-01
+```
+
+Con un corpo della richiesta:
+
+```json
+{
+  "location": "eastus",
+  "properties": {
+    "templateLink": {
+      "uri": "http://mystorageaccount.blob.core.windows.net/templates/template.json"
+    },
+    "parameters": {
+      "subscriptionAliasName": {
+        "value": "sampleAlias"
+      },
+      "billingScope": {
+        "value": "/providers/Microsoft.Billing/BillingAccounts/1234567/enrollmentAccounts/7654321"
+      },
+      "targetManagementGroup": {
+        "value": "mg2"
+      }
+    },
+    "mode": "Incremental"
+  }
+}
+```
+
+### <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
+
+```azurepowershell-interactive
+New-AzManagementGroupDeployment `
+  -Name exampledeployment `
+  -Location eastus `
+  -ManagementGroupId mg1 `
+  -TemplateFile azuredeploy.json `
+  -subscriptionAliasName sampleAlias `
+  -billingScope "/providers/Microsoft.Billing/BillingAccounts/1234567/enrollmentAccounts/7654321" `
+  -targetManagementGroup mg2
+```
+
+### <a name="azure-cli"></a>[Interfaccia della riga di comando di Azure](#tab/azure-cli)
+
+```azurecli-interactive
+az deployment mg create \
+  --name exampledeployment \
+  --location eastus \
+  --management-group-id mg1 \
+  --template-file azuredeploy.json \
+  --parameters subscriptionAliasName='sampleAlias' billingScope='/providers/Microsoft.Billing/BillingAccounts/1234567/enrollmentAccounts/7654321' targetManagementGroup=mg2
+```
+
+---
+
 ## <a name="limitations-of-azure-enterprise-subscription-creation-api"></a>Limitazioni dell'API di creazione della sottoscrizione di Azure Enterprise
 
 - Usando l'API è possibile creare solo le sottoscrizioni di Azure Enterprise.
@@ -289,3 +393,4 @@ Si ottiene il valore subscriptionId come parte della risposta dal comando.
 
 * Ora che la sottoscrizione è stata creata, è possibile concedere la medesima possibilità ad altri utenti ed entità servizio. Per altre informazioni, vedere [Grant access to create Azure Enterprise subscriptions (preview)](grant-access-to-create-subscription.md) (Concedere l'accesso a creare sottoscrizioni di Azure Enterprise (anteprima)).
 * Per altre informazioni sulla gestione di un numero elevato di sottoscrizioni mediante i gruppi di gestione, vedere [Organizzare le risorse con i gruppi di gestione di Azure](../../governance/management-groups/overview.md).
+* Per modificare il gruppo di gestione per una sottoscrizione, vedere [spostare le sottoscrizioni](../../governance/management-groups/manage.md#move-subscriptions).

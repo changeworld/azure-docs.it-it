@@ -10,28 +10,28 @@ ms.subservice: sql
 ms.date: 05/01/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick
-ms.openlocfilehash: 9e4dc7f50bc3734b78e9053fe2b35072b46af120
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 75e187369eccefb255ae2bbd88de79afbc4fd4dc
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 03/19/2021
-ms.locfileid: "104609780"
+ms.locfileid: "104669475"
 ---
 # <a name="best-practices-for-serverless-sql-pool-in-azure-synapse-analytics"></a>Procedure consigliate per il pool SQL senza server in Azure sinapsi Analytics
 
 In questo articolo è presente una raccolta di procedure consigliate per l'uso di un pool SQL senza server. Il pool SQL senza server è una risorsa in Azure sinapsi Analytics.
 
-## <a name="general-considerations"></a>Considerazioni generali
-
 Il pool SQL senza server consente di eseguire query sui file negli account di archiviazione di Azure. Non include funzionalità di archiviazione o inserimento in locale. Tutti i file di destinazione della query sono quindi esterni al pool SQL senza server. Tutte le operazioni correlate alla lettura di file dall'archiviazione possono avere un impatto sulle prestazioni delle query.
 
-## <a name="colocate-your-storage-and-serverless-sql-pool"></a>Percorso di archiviazione e pool SQL senza server
+## <a name="storage-and-content-layout"></a>Archiviazione e layout del contenuto
+
+### <a name="colocate-your-storage-and-serverless-sql-pool"></a>Percorso di archiviazione e pool SQL senza server
 
 Per ridurre al minimo la latenza, colocare l'account di archiviazione di Azure o l'archiviazione analitica CosmosDB e l'endpoint del pool SQL senza server. Gli account di archiviazione e gli endpoint sottoposti a provisioning durante la creazione dell'area di lavoro si trovano nella stessa area.
 
 Per ottenere prestazioni ottimali, se si accede ad altri account di archiviazione con un pool SQL senza server, assicurarsi che si trovino nella stessa area. Se non si trovano nella stessa area, si verificherà un aumento della latenza per il trasferimento in rete dei dati tra l'area remota e l'area dell'endpoint.
 
-## <a name="azure-storage-throttling"></a>Limitazione delle richieste di archiviazione di Azure
+### <a name="azure-storage-throttling"></a>Limitazione delle richieste di archiviazione di Azure
 
 Più applicazioni e servizi possono accedere all'account di archiviazione. La limitazione dell'archiviazione si verifica quando le operazioni di i/o al secondo combinate generate da applicazioni, servizi e carichi di lavoro del pool SQL senza server superano i limiti dell'account di archiviazione. Di conseguenza, si verificherà un effetto negativo significativo sulle prestazioni delle query.
 
@@ -40,7 +40,13 @@ Quando viene rilevata una limitazione, il pool SQL senza server dispone di una g
 > [!TIP]
 > Per un'esecuzione ottimale delle query, evitare di sovraccaricare l'account di archiviazione con altri carichi di lavoro durante l'esecuzione di query.
 
-## <a name="prepare-files-for-querying"></a>Preparare i file per l'esecuzione di query
+### <a name="azure-ad-pass-through-performance"></a>Prestazioni del pass-through di Azure AD
+
+Il pool SQL senza server consente di accedere ai file nella risorsa di archiviazione usando Azure Active Directory (Azure AD) le credenziali di firma di accesso condiviso. È possibile riscontrare prestazioni inferiori con il pass-through di Azure AD rispetto alla firma di accesso condiviso.
+
+Se è necessario ottenere prestazioni migliori, provare a usare le credenziali SAS per accedere all'archiviazione.
+
+### <a name="prepare-files-for-querying"></a>Preparare i file per l'esecuzione di query
 
 Se possibile, preparare i file per migliorare le prestazioni:
 
@@ -50,11 +56,20 @@ Se possibile, preparare i file per migliorare le prestazioni:
 - È preferibile avere file di dimensioni uguali per un singolo percorso OPENROWSET o per la proprietà LOCATION di una tabella esterna.
 - Partizionare i dati archiviando le partizioni in cartelle o nomi di file diversi. Vedere [Usare le funzioni filename e filepath per indicare come destinazione partizioni specifiche](#use-filename-and-filepath-functions-to-target-specific-partitions).
 
-## <a name="push-wildcards-to-lower-levels-in-the-path"></a>Eseguire il push di caratteri jolly per ridurre i livelli nel percorso
+## <a name="csv-optimizations"></a>Ottimizzazioni CSV
 
-È possibile usare caratteri jolly nel percorso per [eseguire query su più file e cartelle](query-data-storage.md#query-multiple-files-or-folders). Il pool SQL senza server elenca i file nell'account di archiviazione, a partire dalla prima * con l'API di archiviazione. Elimina i file che non corrispondono al percorso specificato. La riduzione dell'elenco iniziale di file può migliorare le prestazioni nel caso in cui molti file corrispondano al percorso specificato fino al primo carattere jolly.
+### <a name="use-parser_version-20-to-query-csv-files"></a>Usare PARSER_VERSION 2.0 per eseguire query su file CSV
 
-## <a name="use-appropriate-data-types"></a>Usare i tipi di dati appropriati
+Quando si eseguono query su file CSV, è possibile usare un parser ottimizzato per le prestazioni. Per informazioni dettagliate, vedere [PARSER_VERSION](develop-openrowset.md).
+
+### <a name="manually-create-statistics-for-csv-files"></a>Creare manualmente le statistiche per i file CSV
+
+Il pool SQL senza server si basa sulle statistiche per generare piani di esecuzione di query ottimali. Quando necessario, le statistiche vengono create automaticamente per le colonne nei file parquet. In questo momento, le statistiche non vengono create automaticamente per le colonne nei file CSV ed è necessario creare manualmente le statistiche per le colonne utilizzate nelle query, in particolare quelle utilizzate in DISTINCT, JOIN, WHERE, ORDER BY e GROUP BY. Per informazioni dettagliate, controllare le [statistiche nel pool SQL senza server](develop-tables-statistics.md#statistics-in-serverless-sql-pool) .
+
+
+## <a name="data-types"></a>Tipi di dati
+
+### <a name="use-appropriate-data-types"></a>Usare i tipi di dati appropriati
 
 I tipi di dati usati nella query influiscono sulle prestazioni. Per migliorare le prestazioni, seguire queste linee guida: 
 
@@ -66,7 +81,7 @@ I tipi di dati usati nella query influiscono sulle prestazioni. Per migliorare l
 - Se possibile, usare tipi di dati basati su integer. Le operazioni SORT, JOIN e GROUP BY vengono completate più velocemente su numeri interi che non su dati di tipo carattere.
 - Se si usa l'inferenza dello schema, [controllare i tipi di dati dedotti](#check-inferred-data-types).
 
-## <a name="check-inferred-data-types"></a>Controllare i tipi di dati dedotti
+### <a name="check-inferred-data-types"></a>Controllare i tipi di dati dedotti
 
 L'[inferenza dello schema](query-parquet-files.md#automatic-schema-inference) consente di scrivere rapidamente query e di esplorare i dati senza conoscere gli schemi dei file. Il costo di questa praticità è che i tipi di dati dedotti possono essere più grandi dei tipi di dati effettivi. Questa situazione si verifica quando nei file di origine non sono disponibili informazioni sufficienti per assicurare che venga usato il tipo di dati appropriato. Ad esempio, i file Parquet non contengono metadati sulla lunghezza massima delle colonne di caratteri. Quindi, il pool SQL senza server lo deduce come varchar (8000).
 
@@ -109,7 +124,13 @@ FROM
     ) AS nyc;
 ```
 
-## <a name="use-filename-and-filepath-functions-to-target-specific-partitions"></a>Usare le funzioni filename e filepath per indicare come destinazione partizioni specifiche
+## <a name="filter-optimization"></a>Ottimizzazione filtro
+
+### <a name="push-wildcards-to-lower-levels-in-the-path"></a>Eseguire il push di caratteri jolly per ridurre i livelli nel percorso
+
+È possibile usare caratteri jolly nel percorso per [eseguire query su più file e cartelle](query-data-storage.md#query-multiple-files-or-folders). Il pool SQL senza server elenca i file nell'account di archiviazione, a partire dalla prima * con l'API di archiviazione. Elimina i file che non corrispondono al percorso specificato. La riduzione dell'elenco iniziale di file può migliorare le prestazioni nel caso in cui molti file corrispondano al percorso specificato fino al primo carattere jolly.
+
+### <a name="use-filename-and-filepath-functions-to-target-specific-partitions"></a>Usare le funzioni filename e filepath per indicare come destinazione partizioni specifiche
 
 I dati sono spesso organizzati in partizioni. È possibile impostare il pool SQL senza server per eseguire una query su cartelle e file specifici. Questa operazione ridurrà il numero di file e la quantità di dati che la query deve leggere ed elaborare. Un ulteriore vantaggio è che si otterranno prestazioni più elevate.
 
@@ -123,28 +144,22 @@ Per altre informazioni, vedere le informazioni sulle funzioni [filename](query-d
 
 Se i dati archiviati non sono partizionati, prendere in considerazione di partizionarli. In questo modo è possibile usare queste funzioni per ottimizzare le query da eseguire su tali file. Quando si [esegue una query Apache Spark partizionate per le tabelle di sinapsi di Azure](develop-storage-files-spark-tables.md) da un pool SQL senza server, la query verrà destinata automaticamente solo ai file necessari.
 
-## <a name="use-parser_version-20-to-query-csv-files"></a>Usare PARSER_VERSION 2.0 per eseguire query su file CSV
+### <a name="use-proper-collation-to-utilize-predicate-pushdown-for-character-columns"></a>Utilizzare le regole di confronto appropriate per utilizzare il predicato distribuzione per le colonne di tipo carattere
 
-Quando si eseguono query su file CSV, è possibile usare un parser ottimizzato per le prestazioni. Per informazioni dettagliate, vedere [PARSER_VERSION](develop-openrowset.md).
+I dati nel file parquet sono organizzati in gruppi di righe. Il pool SQL senza server ignora i gruppi di righe in base al predicato specificato nella clausola WHERE e quindi riduce i/o che comportano un miglioramento delle prestazioni delle query. 
 
-## <a name="manually-create-statistics-for-csv-files"></a>Creare manualmente le statistiche per i file CSV
+Si noti che il predicato distribuzione per le colonne di tipo carattere nei file parquet è supportato solo per le regole di confronto Latin1_General_100_BIN2_UTF8. È possibile specificare regole di confronto per una colonna specifica utilizzando la clausola WITH. Se non si specificano queste regole di confronto utilizzando la clausola WITH, verranno utilizzate le regole di confronto del database.
 
-Il pool SQL senza server si basa sulle statistiche per generare piani di esecuzione di query ottimali. Quando necessario, le statistiche vengono create automaticamente per le colonne nei file parquet. In questo momento, le statistiche non vengono create automaticamente per le colonne nei file CSV ed è necessario creare manualmente le statistiche per le colonne utilizzate nelle query, in particolare quelle utilizzate in DISTINCT, JOIN, WHERE, ORDER BY e GROUP BY. Per informazioni dettagliate, controllare le [statistiche nel pool SQL senza server](develop-tables-statistics.md#statistics-in-serverless-sql-pool) .
+## <a name="optimize-repeating-queries"></a>Ottimizzare le query ripetute
 
-## <a name="use-cetas-to-enhance-query-performance-and-joins"></a>Usare CETAS per ottimizzare le prestazioni e i join delle query
+### <a name="use-cetas-to-enhance-query-performance-and-joins"></a>Usare CETAS per ottimizzare le prestazioni e i join delle query
 
 [CETAS](develop-tables-cetas.md) è una delle funzionalità più importanti disponibili nel pool SQL senza server. CETAS è un'operazione parallela che crea metadati di tabelle esterne ed esporta i risultati delle query SELECT in un set di file nell'account di archiviazione.
 
-È possibile usare CETAS per archiviare parti di query usate di frequente, come le tabelle di riferimento unite in join, in un nuovo set di file. È quindi possibile creare un join a questa sola tabella esterna invece di ripetere join comuni in più query.
+È possibile utilizzare CETAS per materializzare parti di query utilizzate di frequente, come le tabelle di riferimento Unite in join, a un nuovo set di file. È quindi possibile creare un join a questa sola tabella esterna invece di ripetere join comuni in più query.
 
 Quando CETAS genera file parquet, le statistiche vengono create automaticamente quando la prima query è destinata a questa tabella esterna, con conseguente miglioramento delle prestazioni per le query successive destinate alla tabella generata con CETAS.
 
-## <a name="azure-ad-pass-through-performance"></a>Prestazioni del pass-through di Azure AD
-
-Il pool SQL senza server consente di accedere ai file nella risorsa di archiviazione usando Azure Active Directory (Azure AD) le credenziali di firma di accesso condiviso. È possibile riscontrare prestazioni inferiori con il pass-through di Azure AD rispetto alla firma di accesso condiviso.
-
-Se sono necessarie prestazioni più elevate, provare a usare credenziali di firma di accesso condiviso per accedere allo spazio di archiviazione finché le prestazioni del pass-through di Azure AD non risultano migliorate.
-
 ## <a name="next-steps"></a>Passaggi successivi
 
-Vedere l'articolo sulla [risoluzione dei problemi](../sql-data-warehouse/sql-data-warehouse-troubleshoot.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) per la risoluzione di problemi comuni. Se si usa un pool SQL dedicato piuttosto che un pool SQL senza server, vedere [procedure consigliate per i pool SQL dedicati](best-practices-dedicated-sql-pool.md) per istruzioni specifiche.
+Vedere l'articolo sulla [risoluzione dei problemi](resources-self-help-sql-on-demand.md) per la risoluzione di problemi comuni. Se si usa un pool SQL dedicato piuttosto che un pool SQL senza server, vedere [procedure consigliate per i pool SQL dedicati](best-practices-dedicated-sql-pool.md) per istruzioni specifiche.

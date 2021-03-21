@@ -4,10 +4,10 @@ description: Come rimuovere Application Insights SDK per ASP.NET e ASP.NET Core 
 ms.topic: conceptual
 ms.date: 04/06/2020
 ms.openlocfilehash: 1d70413fa6a47e2d41693db6eb705f31b2a2b1b2
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/03/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "101704311"
 ---
 # <a name="how-to-remove-application-insights-in-visual-studio"></a>Come rimuovere Application Insights in Visual Studio
@@ -72,7 +72,7 @@ Per rimuovere Application Insights, è necessario rimuovere i pacchetti NuGet e 
     
     ![Screenshot mostra una finestra di dialogo con le dipendenze da rimuovere.](./media/remove-application-insights/preview-uninstall-framework.png)
     
-1.  Dopo la disinstallazione di tutti gli elementi, è possibile che nella *Esplora soluzioni* venga visualizzato anche "ApplicationInsights.config" e "AiHandleErrorAttribute.cs". È possibile eliminare manualmente i due file.
+1.  Dopo la disinstallazione di tutti gli elementi, è possibile che nel *Esplora soluzioni* venga visualizzato anche "ApplicationInsights.config" e "AiHandleErrorAttribute. cs". È possibile eliminare manualmente i due file.
 
 # <a name="net-core"></a>[.NET Core](#tab/netcore)
 
@@ -97,7 +97,7 @@ Quando si aggiungono Application Insights al progetto, vengono creati file e vie
 Quando si aggiunge Application Insights Telemetry a un progetto ASP.NET di Visual Studio, vengono aggiunti i file seguenti:
 
 - ApplicationInsights.config
-- AiHandleErrorAttribute.cs
+- AiHandleErrorAttribute. cs
 
 Sono state aggiunte le parti di codice seguenti:
 
@@ -167,7 +167,7 @@ Sono state aggiunte le parti di codice seguenti:
     }
     ```
 
-- FilterConfig.cs
+- FilterConfig. cs
 
     ```csharp
             public static void RegisterGlobalFilters(GlobalFilterCollection filters)

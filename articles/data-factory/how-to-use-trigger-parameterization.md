@@ -7,12 +7,12 @@ ms.author: chez
 ms.reviewer: ''
 ms.topic: conceptual
 ms.date: 03/02/2021
-ms.openlocfilehash: 57024d6cb23ab273aa69bf59f4ec436a6f873a05
-ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
+ms.openlocfilehash: 50a9f9cd59ebeecae89580c878442eb20788f462
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102193496"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104593646"
 ---
 # <a name="reference-trigger-metadata-in-pipeline-runs"></a>Metadati del trigger di riferimento nelle esecuzioni di pipeline
 
@@ -22,7 +22,7 @@ Questo articolo descrive come è possibile usare i metadati del trigger, ad esem
 
 Pipeline a volte deve comprendere e leggere i metadati dal trigger che li richiama. Ad esempio, con l'esecuzione del trigger di finestra a cascata, in base all'ora di inizio e di fine della finestra, la pipeline elaborerà diverse sezioni di dati o cartelle. In Azure Data Factory viene usata la parametrizzazione e la [variabile di sistema](control-flow-system-variables.md) per passare i metadati dal trigger alla pipeline.
 
-Questo modello è particolarmente utile per il [trigger di finestra a cascata](how-to-create-tumbling-window-trigger.md), dove trigger fornisce l'ora di inizio e di fine della finestra.
+Questo modello è particolarmente utile per il [trigger di finestra a cascata](how-to-create-tumbling-window-trigger.md), dove trigger fornisce l'ora di inizio e di fine della finestra e il trigger di [evento personalizzato](how-to-create-custom-event-trigger.md), in cui il trigger analizza ed elabora i valori nel [campo _dati_ definito personalizzato](../event-grid/event-schema.md).
 
 > [!NOTE]
 > Il tipo di trigger diverso fornisce informazioni sui metadati diversi. Per ulteriori informazioni, vedere [variabile di sistema](control-flow-system-variables.md)

@@ -3,14 +3,14 @@ title: Automazione di Azure - Panoramica di Gestione aggiornamenti
 description: Questo articolo fornisce una panoramica della funzionalità Gestione aggiornamenti che implementa gli aggiornamenti per computer Windows e Linux.
 services: automation
 ms.subservice: update-management
-ms.date: 03/08/2021
+ms.date: 03/19/2021
 ms.topic: conceptual
-ms.openlocfilehash: 0a79be9d879e9ccb7ae4583d0674cf2bb23aafa4
-ms.sourcegitcommit: 8d1b97c3777684bd98f2cfbc9d440b1299a02e8f
+ms.openlocfilehash: e24a90f05ef52c5164ce966e905e9c27055d1bf4
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/09/2021
-ms.locfileid: "102485674"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104670614"
 ---
 # <a name="update-management-overview"></a>Panoramica di Gestione aggiornamenti
 
@@ -76,8 +76,8 @@ Nella tabella seguente sono elencati i sistemi operativi supportati per la valut
 |---------|---------|
 |Windows Server 2019 (Datacenter/standard, incluso Server Core)<br><br>Windows Server 2016 (Datacenter/standard escluso Server Core)<br><br>Windows Server 2012 R2(Data center/Standard)<br><br>Windows Server 2012 | |
 |Windows Server 2008 R2 (RTM e SP1 Standard)| Gestione aggiornamenti supporta le valutazioni e l'applicazione di patch per questo sistema operativo. Il ruolo di [lavoro ibrido per Runbook](../automation-windows-hrw-install.md) è supportato per Windows Server 2008 R2. |
-|CentOS 6 e 7 (x64)      | Gli agenti Linux devono avere accesso a un repository degli aggiornamenti. L'applicazione di patch basata sulla classificazione richiede `yum` per restituire i dati sulla sicurezza che non sono disponibili nelle release RTM di CentOS. Per altre informazioni sull'applicazione di patch basata sulla classificazione in CentOS, vedere [Classificazioni degli aggiornamenti in Linux](view-update-assessments.md#linux).          |
-|Red Hat Enterprise 6 e 7 (x64)     | Gli agenti Linux devono avere accesso a un repository degli aggiornamenti.        |
+|CentOS 6, 7 e 8 (x64)      | Gli agenti Linux devono avere accesso a un repository degli aggiornamenti. L'applicazione di patch basata sulla classificazione richiede `yum` per restituire i dati sulla sicurezza che non sono disponibili nelle release RTM di CentOS. Per altre informazioni sull'applicazione di patch basata sulla classificazione in CentOS, vedere [Classificazioni degli aggiornamenti in Linux](view-update-assessments.md#linux).          |
+|Red Hat Enterprise 6, 7 e 8 (x64)     | Gli agenti Linux devono avere accesso a un repository degli aggiornamenti.        |
 |SUSE Linux Enterprise Server 12, 15 e 15,1 (x64)     | Gli agenti Linux devono avere accesso a un repository degli aggiornamenti. Per SUSE 15. x, Python 3 è necessario nel computer.      |
 |Ubuntu 14,04 LTS, 16,04 LTS e 18,04 LTS (x64)      |Gli agenti Linux devono avere accesso a un repository degli aggiornamenti.         |
 

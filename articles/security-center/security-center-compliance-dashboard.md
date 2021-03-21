@@ -14,10 +14,10 @@ ms.workload: na
 ms.date: 02/10/2021
 ms.author: memildin
 ms.openlocfilehash: fb8dc22c923b7b53a6263baa43046862af4d2f04
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/14/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100370266"
 ---
 # <a name="tutorial-improve-your-regulatory-compliance"></a>Esercitazione: Migliorare la conformità alle normative
@@ -123,7 +123,7 @@ Ad esempio, è possibile che il Centro sicurezza invii un messaggio di posta ele
 
 
 
-## <a name="faq---regulatory-compliance-dashboard"></a>Domande frequenti-dashboard conformità normativa
+## <a name="faq---regulatory-compliance-dashboard"></a>Domande frequenti - Dashboard sulla conformità con le normative
 
 - [Quali standard sono supportati nel dashboard di conformità?](#what-standards-are-supported-in-the-compliance-dashboard)
 - [Perché alcuni controlli sono visualizzati in grigio?](#why-do-some-controls-appear-grayed-out)
