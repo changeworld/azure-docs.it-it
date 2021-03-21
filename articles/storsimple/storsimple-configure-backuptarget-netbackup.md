@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 06/15/2017
 ms.author: matd
 ms.openlocfilehash: 4f71cf82b675222836a73eec12d68bd8f62a5538
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/20/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94967279"
 ---
 # <a name="storsimple-as-a-backup-target-with-netbackup"></a>StorSimple come destinazione di backup con NetBackup
@@ -265,7 +265,7 @@ In base ai presupposti precedenti creare un volume a più livelli StorSimple a 2
 
 ### <a name="to-set-up-netbackup-storage"></a>Per configurare l'archiviazione di NetBackup
 
-1.  Nella console di amministrazione di NetBackup selezionare dispositivi di **gestione del dispositivo e dei supporti**  >  **Devices**  >  **pool di dischi**. Nella Configurazione guidata pool di dischi selezionare il tipo di server di archiviazione **AdvancedDisk** e poi fare clic su **Avanti**.
+1.  Nella console di amministrazione di NetBackup selezionare dispositivi di **gestione del dispositivo e dei supporti**  >    >  **pool di dischi**. Nella Configurazione guidata pool di dischi selezionare il tipo di server di archiviazione **AdvancedDisk** e poi fare clic su **Avanti**.
 
     ![Console di amministrazione di NetBackup, Configurazione guidata pool di dischi](./media/storsimple-configure-backup-target-using-netbackup/nbimage1.png)
 
@@ -340,7 +340,7 @@ Nella sequenza seguente si presuppone che NetBackup e l'host di destinazione sia
 
    ![Console di amministrazione di NetBackup, frequenza e rotazione dei backup per un nuovo criterio](./media/storsimple-configure-backup-target-using-netbackup/nbimage12.png)
 
-8. Selezionare **Avanti** al  >  **Next**  >  **termine** successivo.  La pianificazione può essere modificata dopo la creazione dei criteri.
+8. Selezionare **Avanti** al  >    >  **termine** successivo.  La pianificazione può essere modificata dopo la creazione dei criteri.
 
 9. Selezionare il criterio creato per espanderlo e selezionare **Pianificazioni**.
 
@@ -430,7 +430,7 @@ Dopo aver definito i pool di dischi iniziali, è necessario definire altri tre c
 
 ### <a name="to-assign-storsimple-volumes-to-a-netbackup-archive-and-duplication-job"></a>Per assegnare volumi StorSimple a un processo di archiviazione e duplicazione di NetBackup
 
-1. Nella console di amministrazione di NetBackup selezionare **archiviazione** criteri del ciclo di vita dell'archiviazione  >  **Storage Lifecycle Policies**  >  **nuovi criteri del ciclo** di vita di archiviazione.
+1. Nella console di amministrazione di NetBackup selezionare **archiviazione** criteri del ciclo di vita dell'archiviazione  >    >  **nuovi criteri del ciclo** di vita di archiviazione.
 
    ![Console di amministrazione di NetBackup, nuovi criteri del ciclo di vita di archiviazione](./media/storsimple-configure-backup-target-using-netbackup/nbimage20.png)
 

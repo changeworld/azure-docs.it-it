@@ -1,9 +1,9 @@
 ---
 ms.openlocfilehash: dfb887004cd29b5bd9f1d9886b7dfa5f43c83dbe
-ms.sourcegitcommit: ea822acf5b7141d26a3776d7ed59630bf7ac9532
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/03/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "99532164"
 ---
 I file MP4 vengono scritti in una directory sul dispositivo perimetrale configurato nel file con *estensione ENV* usando la chiave VIDEO_OUTPUT_FOLDER_ON_DEVICE. Se è stato usato il valore predefinito, i risultati dovrebbero essere nella cartella */var/media/* .

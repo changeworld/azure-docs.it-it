@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.date: 10/08/2020
 ms.author: cherylmc
 ms.openlocfilehash: 42b0945de55775f55f20cefdeb547cb5d6492c06
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/17/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94657075"
 ---
 # <a name="configure-a-point-to-site-connection-by-using-certificate-authentication-classic"></a>Configurare una connessione da punto a sito usando l'autenticazione del certificato (versione classica)
@@ -22,7 +22,7 @@ ms.locfileid: "94657075"
 Questo articolo illustra come creare una rete virtuale con una connessione da punto a sito. Per creare questo VNet con il modello di distribuzione classica, usare il portale di Azure. Questa configurazione usa i certificati autofirmati o rilasciati da un'autorità di certificazione per autenticare il client di connessione. È anche possibile creare questa configurazione con un diverso modello o strumento di distribuzione usando le opzioni descritte negli articoli seguenti:
 
 > [!div class="op_single_selector"]
-> * [Portale di Azure](vpn-gateway-howto-point-to-site-resource-manager-portal.md)
+> * [Azure portal](vpn-gateway-howto-point-to-site-resource-manager-portal.md)
 > * [PowerShell](vpn-gateway-howto-point-to-site-rm-ps.md)
 > * [Portale di Azure (classico)](vpn-gateway-howto-point-to-site-classic-azure-portal.md)
 >

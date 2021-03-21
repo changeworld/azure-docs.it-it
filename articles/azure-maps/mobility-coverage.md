@@ -9,10 +9,10 @@ ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.openlocfilehash: e902f313edf22d75f6b183575c3dc8d0dd94bc1f
-ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96904755"
 ---
 # <a name="azure-maps-mobility-services-preview-coverage"></a>Copertura dei servizi di mobilità di Azure Maps (anteprima)
@@ -22,7 +22,7 @@ ms.locfileid: "96904755"
 > Questa versione di anteprima viene messa a disposizione senza contratto di servizio e non è consigliata per i carichi di lavoro di produzione. Alcune funzionalità potrebbero non essere supportate o potrebbero presentare funzionalità limitate. Per altre informazioni, vedere [Condizioni supplementari per l'utilizzo delle anteprime di Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 
-I servizi di [mobilità](/rest/api/maps/mobility) di Azure Maps migliorano il tempo di sviluppo per le applicazioni con funzionalità di transito pubblico, ad esempio il routing di transito e la ricerca di interruzioni di transito pubblico vicine. Gli utenti possono recuperare informazioni dettagliate su fermate dei trasporti pubblici, linee e orari. I servizi Mobility consentono inoltre agli utenti di recuperare le geometrie di interruzione e di linea, gli avvisi per le interruzioni, le linee e le aree di servizio, nonché gli arrivi e gli avvisi del servizio in tempo reale. Inoltre, i servizi Mobility forniscono funzionalità di routing con opzioni di pianificazione dei viaggi multimodale. La pianificazione di itinerari multimodali incorpora le opzioni di itinerario a piedi, in bicicletta e con trasporti pubblici, in un unico itinerario. Gli utenti possono anche accedere a itinerari dettagliati multimodali.
+I servizi di [mobilità](/rest/api/maps/mobility) di Azure Maps migliorano il tempo di sviluppo per le applicazioni con funzionalità di transito pubblico, ad esempio il routing di transito e la ricerca di interruzioni di transito pubblico vicine. Gli utenti possono recuperare informazioni dettagliate su fermate dei trasporti pubblici, linee e orari. I servizi Mobility consentono inoltre agli utenti di recuperare le geometrie di interruzione e di linea, gli avvisi per le interruzioni, le linee e le aree di servizio, nonché gli arrivi e gli avvisi del servizio in tempo reale. I servizi di mobilità forniscono anche funzionalità di pianificazione percorso con opzioni di pianificazione di itinerari multimodali. La pianificazione di itinerari multimodali incorpora le opzioni di itinerario a piedi, in bicicletta e con trasporti pubblici, in un unico itinerario. Gli utenti possono anche accedere a itinerari dettagliati multimodali.
 
 Azure Maps non fornisce lo stesso livello di informazioni e accuratezza per tutte le città e i paesi o le aree geografiche. La possibilità di chiamare i dati di transito pubblici dipende dall'area metro. Inoltre, i dati della mappa potrebbero non includere tutte le opzioni di transito pubblico e le agenzie che svolgono l'area metropolitana.
 

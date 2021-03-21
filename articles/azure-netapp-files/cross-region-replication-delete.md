@@ -15,13 +15,13 @@ ms.topic: how-to
 ms.date: 11/18/2020
 ms.author: b-juche
 ms.openlocfilehash: 5ce7a591acd8203775808457219b0ec392cd696e
-ms.sourcegitcommit: 30906a33111621bc7b9b245a9a2ab2e33310f33f
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/22/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "95249895"
 ---
-# <a name="delete-volume-replications-or-volumes"></a>Elimina volumi o repliche di volumi
+# <a name="delete-volume-replications-or-volumes"></a>Eliminare repliche di volumi o volumi
 
 Questo articolo descrive come eliminare le repliche del volume. Viene inoltre descritto come eliminare il volume di origine o di destinazione.
 
@@ -34,10 +34,10 @@ Questo articolo descrive come eliminare le repliche del volume. Viene inoltre de
     1. Selezionare il volume di *destinazione* . Fare clic su **replica** in servizio di archiviazione.  
 
     2.  Prima di continuare, controllare i campi seguenti:  
-        * Verificare che lo stato del mirror indichi ***Mirrored** _.   
-            Non tentare di interrompere il peering della replica se lo stato del mirror indica _Uninitialized *.
-        * Verificare che lo stato della relazione sia visualizzato ***inattivo** _.   
-            Non tentare di interrompere il peering di replica se lo stato della relazione Mostra _Transferring *.   
+        * Verificare che lo stato del mirror indichi il ***mirroring***.   
+            Non tentare di interrompere il peering della replica se lo stato del mirror viene visualizzato come non *inizializzato*.
+        * Verificare che lo stato della relazione mostri ***inattivo***.   
+            Non tentare di interrompere il peering di replica se lo stato della relazione indica il *trasferimento*.   
 
         Vedere [visualizzare lo stato di integrità della relazione di replica](cross-region-replication-display-health-status.md). 
 

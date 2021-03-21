@@ -4,10 +4,10 @@ description: Informazioni su come il servizio backup di Azure gestisce i punti d
 ms.topic: conceptual
 ms.date: 11/08/2020
 ms.openlocfilehash: 256df693aba0f799c24bcba6defe846e5c37ccaa
-ms.sourcegitcommit: 0dcafc8436a0fe3ba12cb82384d6b69c9a6b9536
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94428706"
 ---
 # <a name="manage-recovery-points"></a>Gestire i punti di ripristino
@@ -75,14 +75,14 @@ Quando il punto di ripristino iniziale scade, viene eseguito il merge con il suc
 
 ### <a name="case-2-in-between-incremental-recovery-point-expires"></a>Caso 2: scadenza del punto di ripristino incrementale tra
 
-- Se *il punto di ripristino 2* scade prima del *punto di ripristino 1* , i dati del *punto di ripristino 2* vengono uniti al successivo punto di ripristino disponibile: punto di ripristino *3*. Quindi, il blocco D3 viene unito al *punto di ripristino 3*.
+- Se *il punto di ripristino 2* scade prima del *punto di ripristino 1*, i dati del *punto di ripristino 2* vengono uniti al successivo punto di ripristino disponibile: punto di ripristino *3*. Quindi, il blocco D3 viene unito al *punto di ripristino 3*.
 - Il *punto di ripristino 1* è ancora il backup completo con blocco D1 e D2.
 
 ![Secondo caso](./media/manage-recovery-points/second-case.png)
 
 ### <a name="case-3-on-demand-recovery-point-expires"></a>Caso 3: il punto di ripristino su richiesta scade
 
-In questo esempio, è pianificato l'esecuzione di un criterio di pianificazione (backup giornaliero) con periodo di conservazione di *n* giorni.  Se un backup su richiesta viene attivato il quarto giorno prima del successivo backup pianificato e il relativo periodo di conservazione viene specificato come 10 giorni, sarà ancora un backup incrementale. Un punto di ripristino ( *RP1 su richiesta* ) verrà creato dopo il *punto di ripristino 3* e prima del *punto di ripristino 4*.  Alla fine del giorno 14, il punto di ripristino su richiesta ( *RP1 su richiesta* ) viene scaduto e verrà unito al successivo punto di ripristino disponibile. I blocchi di dati ancora presenti nel server vengono Uniti, mentre i blocchi di dati modificati (sovrascritti o eliminati) vengono eliminati dal punto di ripristino scaduto.
+In questo esempio, è pianificato l'esecuzione di un criterio di pianificazione (backup giornaliero) con periodo di conservazione di *n* giorni.  Se un backup su richiesta viene attivato il quarto giorno prima del successivo backup pianificato e il relativo periodo di conservazione viene specificato come 10 giorni, sarà ancora un backup incrementale. Un punto di ripristino (*RP1 su richiesta*) verrà creato dopo il *punto di ripristino 3* e prima del *punto di ripristino 4*.  Alla fine del giorno 14, il punto di ripristino su richiesta (*RP1 su richiesta*) viene scaduto e verrà unito al successivo punto di ripristino disponibile. I blocchi di dati ancora presenti nel server vengono Uniti, mentre i blocchi di dati modificati (sovrascritti o eliminati) vengono eliminati dal punto di ripristino scaduto.
 
 ![Terzo caso](./media/manage-recovery-points/third-case.png)
 

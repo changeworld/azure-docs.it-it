@@ -10,10 +10,10 @@ ms.date: 05/20/2020
 ms.author: stefanazaric
 ms.reviewer: jrasnick
 ms.openlocfilehash: f2f0cdf307e91fb40c55d4a98139bad1a5eca886
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/01/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96462585"
 ---
 # <a name="query-csv-files"></a>Eseguire query su file CSV
@@ -51,7 +51,7 @@ Consente `firstrow` di ignorare la prima riga del file CSV che rappresenta l'int
 > Una mancata corrispondenza tra la codifica del testo nel file e le regole di confronto può provocare errori di conversione imprevisti.
 > È possibile modificare facilmente le regole di confronto predefinite del database corrente usando l'istruzione T-SQL seguente: `alter database current collate Latin1_General_100_CI_AI_SC_UTF8`
 
-### <a name="data-source-usage"></a>Utilizzo dell'origine dati
+### <a name="data-source-usage"></a>Utilizzo delle origini dati
 
 Nell'esempio precedente viene usato il percorso completo del file. In alternativa, è possibile creare un'origine dati esterna con il percorso che punta alla cartella radice dell'archiviazione:
 

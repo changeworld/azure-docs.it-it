@@ -4,10 +4,10 @@ description: In questo articolo è possibile trovare le risposte ad alcune doman
 ms.topic: conceptual
 ms.date: 11/7/2019
 ms.openlocfilehash: bf662600bafcd18b00c8f8d3b673fc3f9c110aca
-ms.sourcegitcommit: 1d366d72357db47feaea20c54004dc4467391364
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/23/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "95400208"
 ---
 # <a name="frequently-asked-questions--back-up-sap-hana-databases-on-azure-vms"></a>Domande frequenti - Backup di database SAP HANA in VM di Azure
@@ -129,7 +129,7 @@ Per informazioni sui tipi di ripristino attualmente supportati, vedere la nota S
 
 Sì, è possibile usare i backup in streaming attivati in un database HANA in esecuzione su SLES per ripristinarlo in un sistema RHEL HANA e viceversa. Ovvero il ripristino tra più sistemi operativi è possibile utilizzando i backup di flusso. Tuttavia, sarà necessario assicurarsi che il sistema HANA in cui si vuole eseguire il ripristino e il sistema HANA usato per il ripristino siano entrambi compatibili per il ripristino in base a SAP. Per informazioni sui tipi di ripristino compatibili, vedere la nota SAP HANA [1642148](https://launchpad.support.sap.com/#/notes/1642148) .
 
-## <a name="policy"></a>Policy
+## <a name="policy"></a>Criteri
 
 ### <a name="different-options-available-during-creation-of-a-new-policy-for-sap-hana-backup"></a>Opzioni diverse disponibili durante la creazione di un nuovo criterio per il backup SAP HANA
 
@@ -139,7 +139,7 @@ RPO (Recovery-Point-Objective) indica la quantità di perdita di dati accettabil
 
 RTO (Recovery-Time-Objective) indica la velocità con cui i dati devono essere ripristinati fino all'ultimo punto nel tempo disponibile dopo uno scenario di perdita dei dati. Questo dipende dalla strategia di ripristino utilizzata da HANA, che dipende in genere dal numero di file necessari per il ripristino. Questo ha anche implicazioni relative ai costi e la tabella seguente dovrebbe aiutare a comprendere tutti gli scenari e le relative implicazioni.
 
-|Criteri di backup  |RTO  |Costi  |
+|Criteri di backup  |RTO  |Costo  |
 |---------|---------|---------|
 |Log completi giornalieri +     |   Più veloce, poiché è necessaria una sola copia completa + log necessari per il ripristino temporizzato      |    Opzione costliest perché una copia completa viene eseguita giornalmente e un numero sempre maggiore di dati viene accumulato nel back-end fino al periodo di conservazione   |
 |Totale settimanale + differenziale giornaliera + log     |   Più lenta dell'opzione precedente, ma più veloce rispetto all'opzione successiva, perché è necessaria una copia completa + una copia differenziale + log per il ripristino temporizzato      |    Opzione meno costosa poiché il differenziale giornaliero è in genere inferiore a completo e una copia completa viene eseguita solo una volta alla settimana      |

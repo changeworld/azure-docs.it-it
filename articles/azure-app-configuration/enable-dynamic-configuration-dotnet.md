@@ -1,6 +1,6 @@
 ---
-title: 'Esercitazione su .NET Framework: configurazione dinamica in Configurazione app di Azure'
-description: In questa esercitazione viene illustrato come aggiornare dinamicamente i dati di configurazione per le app .NET Framework con Configurazione app di Azure.
+title: 'Esercitazione .NET Framework: configurazione dinamica nella configurazione app Azure'
+description: Questa esercitazione illustra come aggiornare dinamicamente i dati di configurazione per le app .NET Framework usando app Azure configurazione.
 services: azure-app-configuration
 author: AlexandraKemperMS
 ms.service: azure-app-configuration
@@ -10,13 +10,13 @@ ms.topic: tutorial
 ms.date: 07/24/2020
 ms.author: alkemper
 ms.openlocfilehash: 03940a86176d0bc93c5066977fdc87de5c456060
-ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
-ms.translationtype: HT
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96932762"
 ---
-# <a name="tutorial-use-dynamic-configuration-in-a-net-framework-app"></a>Esercitazione: Usare la configurazione dinamica in un'app .NET Framework
+# <a name="tutorial-use-dynamic-configuration-in-a-net-framework-app"></a>Esercitazione: usare la configurazione dinamica in un'app .NET Framework
 
 La libreria client .NET di Configurazione app supporta l'aggiornamento su richiesta di un set di impostazioni di configurazione senza causare il riavvio di un'applicazione. Questa funzionalità può essere implementata recuperando prima un'istanza di `IConfigurationRefresher` dalle opzioni del provider di configurazione e poi chiamando `TryRefreshAsync` in tale istanza in un punto qualsiasi del codice.
 
@@ -41,7 +41,7 @@ In questa esercitazione verranno illustrate le procedure per:
 
 7. Selezionare **Esplora configurazioni** >  **+ Crea** > **Coppia chiave-valore** per aggiungere le chiavi chiave-valore seguenti:
 
-    | Chiave | valore |
+    | Chiave | Valore |
     |---|---|
     | TestApp:Settings:Message | Dati di Configurazione app di Azure |
 
@@ -140,7 +140,7 @@ In questa esercitazione verranno illustrate le procedure per:
 
 1. Selezionare **Configuration Explorer** e aggiornare i valori delle chiavi seguenti:
 
-    | Chiave | valore |
+    | Chiave | Valore |
     |---|---|
     | TestApp:Settings:Message | Dati di Configurazione app di Azure - Aggiornati |
 

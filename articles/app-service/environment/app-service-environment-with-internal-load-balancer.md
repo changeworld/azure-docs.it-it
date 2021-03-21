@@ -8,10 +8,10 @@ ms.date: 07/11/2017
 ms.author: ccompy
 ms.custom: seodec18
 ms.openlocfilehash: c4e5dedf2075a2e13cc91c5eed2c0f03ba498b97
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/25/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96021521"
 ---
 # <a name="using-an-internal-load-balancer-with-an-app-service-environment"></a>Uso di un servizio di bilanciamento del carico interno con un ambiente del servizio app
@@ -58,12 +58,12 @@ La creazione di un ambiente del servizio app con bilanciamento del carico intern
 
 Nel riquadro Rete virtuale è disponibile l'opzione Configurazione rete virtuale che consente di scegliere tra un indirizzo VIP esterno o interno. L'opzione predefinita è Esterno. Se si seleziona Esterno, l'ambiente del servizio app userà un indirizzo VIP accessibile da Internet. Se si seleziona l'opzione Interno, l'ambiente del servizio app verrà configurato con un bilanciamento del carico interno su un indirizzo IP all'interno della rete virtuale. 
 
-Dopo aver selezionato Interno, non sarà possibile aggiungere altri indirizzi IP all'ambiente del servizio app e sarà invece necessario specificare il sottodominio dell'ambiente del servizio app. In un ambiente del servizio app con un indirizzo VIP esterno viene usato il nome dell'ambiente nel sottodominio per le app create in questo ambiente. Se l'ambiente del servizio app è denominato **_ContosoTest_* _ e l'app in tale ambiente del servizio app è denominata _*_test_*_, il formato del sottodominio è _*_ContosoTest.p.azurewebsites.NET_*_ e l'URL dell'app è _*_myTest.ContosoTest.p.azurewebsites.NET_*_. Se si imposta il tipo di indirizzo VIP su Interno, il nome dell'ambiente del servizio app non viene usato nel sottodominio per l'ambiente. Specificare il sottodominio in modo esplicito. Se il sottodominio è _*_contoso.Corp.NET_*_ ed è stata creata un'app nell'ambiente del servizio app denominata _*_TIMEREPORTING_*_, l'URL dell'app è _*_timereporting.contoso.Corp.NET_*_.
+Dopo aver selezionato Interno, non sarà possibile aggiungere altri indirizzi IP all'ambiente del servizio app e sarà invece necessario specificare il sottodominio dell'ambiente del servizio app. In un ambiente del servizio app con un indirizzo VIP esterno viene usato il nome dell'ambiente nel sottodominio per le app create in questo ambiente. Se l'ambiente del servizio app è denominato ***ContosoTest** _ e l'app in tale ambiente del servizio app è denominata _*_test_*_, il formato del sottodominio è _*_ContosoTest.p.azurewebsites.NET_*_ e l'URL dell'app è _* _myTest.ContosoTest.p.azurewebsites.NET_* *. Se si imposta il tipo di indirizzo VIP su interno, il nome dell'ambiente del servizio app non viene usato nel sottodominio per l'ambiente del servizio app. Il sottodominio viene specificato in modo esplicito. Se il sottodominio è ***contoso.Corp.NET**_ ed è stata creata un'app nell'ambiente del servizio app denominata _*_timereporting_*_, l'URL per l'app è _ *_timereporting.contoso.Corp.NET_* *.
 
 ## <a name="apps-in-an-ilb-ase"></a>App in un ambiente del servizio app con bilanciamento del carico interno
 La creazione di un'app in un ambiente del servizio app con bilanciamento del carico interno è la stessa che in un ambiente del servizio app regolare. 
 
-1. Nella portale di Azure selezionare _ *Crea una risorsa-> Web e dispositivi mobili-> Web** o app per **dispositivi mobili** o per le **API**.
+1. Nel portale di Azure selezionare **Crea una risorsa -> Web e dispositivi mobili -> Web** oppure **Dispositivi mobili** o **App per le API**.
 2. Immettere il nome dell'app.
 3. Selezionare la propria sottoscrizione.
 4. Selezionare o creare un gruppo di risorse.

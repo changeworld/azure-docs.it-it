@@ -12,23 +12,23 @@ ms.author: vanto
 ms.reviewer: sstein
 ms.date: 12/18/2018
 ms.openlocfilehash: 6d753a90f2a4cb19c9f3933d007fb3d378af6d81
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/28/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92793212"
 ---
 # <a name="multi-tenant-applications-with-elastic-database-tools-and-row-level-security"></a>Applicazioni multi-tenant con strumenti di database elastici e sicurezza a livello di riga
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
-Gli [strumenti di database elastici](elastic-scale-get-started.md) e la [sicurezza a livello di riga][rls] cooperano per consentire il ridimensionamento del livello dati di un'applicazione multi-tenant con un database SQL di Azure. La combinazione di queste tecnologie consente di creare un'applicazione con un livello dati estremamente scalabile. Il livello dati supporta partizioni multi-tenant e usa **ADO.NET SqlClient** o **Entity Framework** . Per altre informazioni, vedere [Schemi progettuali per applicazioni SaaS multi-tenant con il database SQL di Azure](./saas-tenancy-app-design-patterns.md).
+Gli [strumenti di database elastici](elastic-scale-get-started.md) e la [sicurezza a livello di riga][rls] cooperano per consentire il ridimensionamento del livello dati di un'applicazione multi-tenant con un database SQL di Azure. La combinazione di queste tecnologie consente di creare un'applicazione con un livello dati estremamente scalabile. Il livello dati supporta partizioni multi-tenant e usa **ADO.NET SqlClient** o **Entity Framework**. Per altre informazioni, vedere [Schemi progettuali per applicazioni SaaS multi-tenant con il database SQL di Azure](./saas-tenancy-app-design-patterns.md).
 
 - Gli **strumenti di database elastici** consentono agli sviluppatori di scalare il livello dati tramite procedure di partizionamento orizzontale standard usando librerie .NET e modelli di servizio di Azure. La gestione delle partizioni mediante la [libreria client dei database elastici][s-d-elastic-database-client-library] consente di automatizzare e semplificare molte delle attività infrastrutturali generalmente associate al partizionamento orizzontale.
 - La **sicurezza a livello di riga** consente agli sviluppatori di archiviare in modo sicuro i dati di più tenant nello stesso database. I criteri di sicurezza a livello di riga escludono le righe che non appartengono al tenant che esegue una query. La centralizzazione della logica di filtro all'interno del database semplifica inoltre la manutenzione e riduce il rischio di errori di sicurezza. L'alternativa di affidarsi esclusivamente a codice client per applicare la sicurezza è troppo rischiosa.
 
 L'utilizzo combinato di queste funzionalità consente a un'applicazione di memorizzare i dati di più tenant nello stesso database di partizionamento. Se i tenant condividono uno stesso database, inoltre, il costo per tenant è inferiore. La stessa applicazione può anche offrire ai tenant "premium" la possibilità di pagare solo per la partizione a singolo tenant dedicata. L'isolamento dei singoli tenant garantisce inoltre prestazioni più stabili. In un database a singolo tenant, infine, non sono presenti altri tenant con cui competere per l'acquisizione delle risorse.
 
-L'obiettivo consiste nell'usare le API di [routing dipendente dai dati](elastic-scale-data-dependent-routing.md) della libreria client dei database elastici per connettere automaticamente ogni tenant al database di partizione corretto. Solo una partizione contiene il valore TenantId relativo al tenant specificato. Il TenantId corrisponde alla *chiave di partizionamento orizzontale* . Dopo aver stabilito la connessione, i criteri di sicurezza a livello di riga all'interno del database garantiscono che il tenant specificato possa accedere solo alle righe di dati contenenti il relativo TenantId.
+L'obiettivo consiste nell'usare le API di [routing dipendente dai dati](elastic-scale-data-dependent-routing.md) della libreria client dei database elastici per connettere automaticamente ogni tenant al database di partizione corretto. Solo una partizione contiene il valore TenantId relativo al tenant specificato. Il TenantId corrisponde alla *chiave di partizionamento orizzontale*. Dopo aver stabilito la connessione, i criteri di sicurezza a livello di riga all'interno del database garantiscono che il tenant specificato possa accedere solo alle righe di dati contenenti il relativo TenantId.
 
 > [!NOTE]
 > L'identificatore del tenant può essere costituito da più di una colonna. Per praticità, si presuppone in questo caso che il TenantId sia costituito da una sola colonna.
@@ -54,8 +54,8 @@ Compilare ed eseguire l'applicazione. In questo modo, viene eseguito il bootstra
 
 Si noti che poiché RLS non è stata ancora abilitata nei database di partizionamento, ciascuno di questi test rivela un problema: i tenant sono in grado di visualizzare i blog non appartenenti ad essi, e all'applicazione non viene impedito di inserire un blog per il tenant errato. Nella parte restante di questo articolo viene descritto come risolvere questi problemi mediante l'isolamento dei tenant con RLS. Eseguire due passaggi:
 
-1. **Livello applicazione** : modificare il codice dell'applicazione per impostare sempre il TenantId corrente in SESSION\_CONTEXT dopo l'apertura di una connessione. Il progetto di esempio imposta il TenantId in questo modo.
-2. **Livello dati** : creare criteri di sicurezza a livello di riga in ogni database di partizionamento per filtrare le righe in base al TenantId archiviato in SESSION\_CONTEXT. Creare criteri per ogni database di partizionamento; in caso contrario, le righe nelle partizioni multi-tenant non verranno filtrate.
+1. **Livello applicazione**: modificare il codice dell'applicazione per impostare sempre il TenantId corrente in SESSION\_CONTEXT dopo l'apertura di una connessione. Il progetto di esempio imposta il TenantId in questo modo.
+2. **Livello dati**: creare criteri di sicurezza a livello di riga in ogni database di partizionamento per filtrare le righe in base al TenantId archiviato in SESSION\_CONTEXT. Creare criteri per ogni database di partizionamento; in caso contrario, le righe nelle partizioni multi-tenant non verranno filtrate.
 
 ## <a name="1-application-tier-set-tenantid-in-the-session_context"></a>1. livello applicazione: impostare TenantId nel contesto della sessione \_
 
@@ -341,8 +341,8 @@ GO
 
 ### <a name="maintenance"></a>Manutenzione
 
-- **Aggiunta di nuove partizioni** : eseguire lo script T-SQL per abilitare RLS in tutte le nuove partizioni. In caso contrario, le query su tali partizioni non verranno filtrate.
-- **Aggiunta di nuove tabelle** : aggiungere un predicato di FILTRO e di BLOCCO ai criteri di sicurezza in tutte le partizioni ogni volta che si crea una nuova tabella. In caso contrario, le query sulla nuova tabella non verranno filtrate. Questa operazione può essere automatizzata tramite un trigger DDL, come descritto nel [blog relativo all'applicazione automatica della sicurezza a livello di riga alle tabelle create di recente](https://techcommunity.microsoft.com/t5/SQL-Server/Apply-Row-Level-Security-automatically-to-newly-created-tables/ba-p/384393).
+- **Aggiunta di nuove partizioni**: eseguire lo script T-SQL per abilitare RLS in tutte le nuove partizioni. In caso contrario, le query su tali partizioni non verranno filtrate.
+- **Aggiunta di nuove tabelle**: aggiungere un predicato di FILTRO e di BLOCCO ai criteri di sicurezza in tutte le partizioni ogni volta che si crea una nuova tabella. In caso contrario, le query sulla nuova tabella non verranno filtrate. Questa operazione può essere automatizzata tramite un trigger DDL, come descritto nel [blog relativo all'applicazione automatica della sicurezza a livello di riga alle tabelle create di recente](https://techcommunity.microsoft.com/t5/SQL-Server/Apply-Row-Level-Security-automatically-to-newly-created-tables/ba-p/384393).
 
 ## <a name="summary"></a>Riepilogo
 

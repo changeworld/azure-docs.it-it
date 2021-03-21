@@ -11,13 +11,13 @@ ms.topic: conceptual
 ms.custom: mvc
 ms.date: 09/06/2020
 ms.openlocfilehash: 43d7a697b3cb013a73a0b14db8ec1758244ae3b9
-ms.sourcegitcommit: 5db975ced62cd095be587d99da01949222fc69a3
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/10/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97092194"
 ---
-# <a name="use-jupyter-notebook-to-hunt-for-security-threats"></a>Usare Jupyter Notebook per cercare minacce per la sicurezza
+# <a name="use-jupyter-notebook-to-hunt-for-security-threats"></a>Usare Jupyter Notebook per cercare le minacce alla sicurezza
 
 La base di Azure Sentinel è l'archivio dati. combina query a prestazioni elevate, schemi dinamici e scalabilità a volumi di dati di grandi dimensioni. Il portale di Azure e tutti gli strumenti di Azure Sentinel usano un'API comune per accedere a questo archivio dati. La stessa API è disponibile anche per strumenti esterni come Python e i notebook [Jupyter](https://jupyter.org/). Mentre è possibile eseguire nel portale molte attività comuni, Jupyter estende l'ambito delle operazioni che è possibile eseguire con questi dati. Combina la programmabilità completa con una vasta raccolta di librerie per l'apprendimento automatico, la visualizzazione e l'analisi dei dati. Questi attributi rendono Jupyter uno strumento efficace per l'analisi e la ricerca della sicurezza.
 
@@ -63,7 +63,7 @@ Per usare i notebook, è necessario innanzitutto creare un'area di lavoro di Azu
 
     |Campo|Descrizione|
     |--|--|
-    |Sottoscrizione|Selezionare la sottoscrizione di Azure da usare.|
+    |Subscription|Selezionare la sottoscrizione di Azure da usare.|
     |Resource group|Usare un gruppo di risorse esistente nella sottoscrizione oppure immettere un nome per creare un nuovo gruppo di risorse. Un gruppo di risorse include risorse correlate per una soluzione Azure. In questo esempio viene usato **AzureMLRG**.|
     |Nome dell'area di lavoro|Immettere un nome univoco che identifichi l'area di lavoro. In questo esempio viene usato **testworkspace1**. I nomi devono essere univoci all'interno del gruppo di risorse. Usare un nome facile da ricordare e da distinguere dai nomi delle aree di lavoro create da altri utenti.|
     |Region|Selezionare la località più vicina agli utenti e alle risorse di dati per creare l'area di lavoro.|

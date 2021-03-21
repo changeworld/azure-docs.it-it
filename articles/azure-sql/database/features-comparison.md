@@ -13,10 +13,10 @@ ms.author: danil
 ms.reviewer: bonova, sstein, danil
 ms.date: 03/08/2021
 ms.openlocfilehash: 8c98ce661e7bb753d4e62d1eaf98702de91c5106
-ms.sourcegitcommit: 8d1b97c3777684bd98f2cfbc9d440b1299a02e8f
+ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/09/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102489770"
 ---
 # <a name="features-comparison-azure-sql-database-and-azure-sql-managed-instance"></a>Confronto tra le funzionalità: database SQL di Azure e Istanza gestita SQL di Azure
@@ -90,7 +90,7 @@ La tabella seguente elenca le principali funzionalità di SQL Server e fornisce 
 | [OPENQUERY](/sql/t-sql/functions/openquery-transact-sql)|No|Sì, solo per database SQL, SQL Istanza gestita e SQL Server. Vedere le [differenze di T-SQL](../managed-instance/transact-sql-tsql-differences-sql-server.md)|
 | [OPENROWSET](/sql/t-sql/functions/openrowset-transact-sql)|Sì, solo per l'importazione dall'archiviazione BLOB di Azure. |Sì, solo per database SQL, SQL Istanza gestita e SQL Server e per l'importazione dall'archiviazione BLOB di Azure. Vedere le [differenze di T-SQL](../managed-instance/transact-sql-tsql-differences-sql-server.md)|
 | [Operatori](/sql/t-sql/language-elements/operators-transact-sql) | Supportati per la maggior parte. Vedere i singoli operatori |Sì, vedere le [differenze relative a T-SQL](../managed-instance/transact-sql-tsql-differences-sql-server.md) |
-| [Polybase](/sql/relational-databases/polybase/polybase-guide) | No. È possibile eseguire query sui dati nei file inseriti nell'archiviazione BLOB di Azure usando la `OPENROWSET` funzione o usare [una tabella esterna che fa riferimento a un pool SQL senza server in sinapsi Analytics](https://devblogs.microsoft.com/azure-sql/read-azure-storage-files-using-synapse-sql-external-tables/). | No. È possibile eseguire query sui dati nei file inseriti nell'archiviazione BLOB di Azure usando la `OPENROWSET` funzione, [un server collegato che fa riferimento a un pool SQL senza server in sinapsi Analytics](https://devblogs.microsoft.com/azure-sql/linked-server-to-synapse-sql-to-implement-polybase-like-scenarios-in-managed-instance/)o una tabella esterna (in anteprima pubblica) che fa riferimento [a un pool SQL senza server in sinapsi Analytics](https://devblogs.microsoft.com/azure-sql/read-azure-storage-files-using-synapse-sql-external-tables/) o SQL Server. |
+| [PolyBase](/sql/relational-databases/polybase/polybase-guide) | No. È possibile eseguire query sui dati nei file inseriti nell'archiviazione BLOB di Azure usando la `OPENROWSET` funzione o usare [una tabella esterna che fa riferimento a un pool SQL senza server in sinapsi Analytics](https://devblogs.microsoft.com/azure-sql/read-azure-storage-files-using-synapse-sql-external-tables/). | No. È possibile eseguire query sui dati nei file inseriti nell'archiviazione BLOB di Azure usando la `OPENROWSET` funzione, [un server collegato che fa riferimento a un pool SQL senza server in sinapsi Analytics](https://devblogs.microsoft.com/azure-sql/linked-server-to-synapse-sql-to-implement-polybase-like-scenarios-in-managed-instance/)o una tabella esterna (in anteprima pubblica) che fa riferimento [a un pool SQL senza server in sinapsi Analytics](https://devblogs.microsoft.com/azure-sql/read-azure-storage-files-using-synapse-sql-external-tables/) o SQL Server. |
 | [Notifiche delle query](/sql/relational-databases/native-client/features/working-with-query-notifications) | No | Sì |
 | [Machine Learning Services](/sql/advanced-analytics/what-is-sql-server-machine-learning)(in _precedenza R Services_)| Sì, in [anteprima pubblica](/sql/advanced-analytics/what-s-new-in-sql-server-machine-learning-services)  | No |
 | [Modelli di recupero](/sql/relational-databases/backup-restore/recovery-models-sql-server) | È supportato solo il ripristino completo che garantisce la disponibilità elevata. Non sono disponibili modelli di recupero con registrazione minima e con registrazione minima delle operazioni bulk. | È supportato solo il ripristino completo che garantisce la disponibilità elevata. Non sono disponibili modelli di recupero con registrazione minima e con registrazione minima delle operazioni bulk. |

@@ -9,10 +9,10 @@ ms.date: 06/29/2020
 ms.service: virtual-machines-sql
 ms.subservice: deployment
 ms.openlocfilehash: a20cb27ac91a0b01ed9cc3a5ac4c5c57f90ceda1
-ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
-ms.translationtype: HT
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/12/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97359643"
 ---
 # <a name="quickstart-create-sql-server-vm-using-an-arm-template"></a>Avvio rapido: Creare una VM di SQL Server con un modello di Resource Manager
@@ -97,7 +97,7 @@ az resource list --resource-group $resourcegroupName
 
 Quando non è più necessario, eliminare il gruppo di risorse con l'interfaccia della riga di comando di Azure o con Azure PowerShell:
 
-# <a name="cli"></a>[Interfaccia della riga di comando](#tab/CLI)
+# <a name="cli"></a>[CLI](#tab/CLI)
 
 ```azurecli-interactive
 echo "Enter the Resource Group name:" &&

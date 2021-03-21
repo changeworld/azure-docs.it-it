@@ -17,10 +17,10 @@ ms.author: barclayn
 ms.reviewer: mamkumar
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: bb84eae2db01180865db54250598f45c7b2ddca0
-ms.sourcegitcommit: 6e2d37afd50ec5ee148f98f2325943bafb2f4993
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/23/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97746236"
 ---
 # <a name="request-process-and-email-notifications-in-azure-ad-entitlement-management"></a>Richiedere il processo e le notifiche tramite posta elettronica in Azure AD gestione dei diritti

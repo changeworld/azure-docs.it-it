@@ -5,13 +5,13 @@ ms.topic: include
 ms.date: 12/10/2020
 ms.author: wolfma
 ms.openlocfilehash: 329241c2660ff7828f57fb21daeb6de20caedc43
-ms.sourcegitcommit: 2ba6303e1ac24287762caea9cd1603848331dd7a
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/15/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97504458"
 ---
-| Area geografica | Area | Identificatore area |
+| Area geografica | Region | Identificatore area |
 | ----- | ----- | ----- |
 | Americhe | Stati Uniti centrali | `centralus` |
 | Americhe | Stati Uniti orientali | `eastus` |
@@ -20,7 +20,7 @@ ms.locfileid: "97504458"
 | Americhe | Stati Uniti centro-meridionali | `southcentralus` |
 | Americhe | Stati Uniti centro-occidentali | `westcentralus` |
 | Americhe | Stati Uniti occidentali | `westus` |
-| Americhe | West US 2 | `westus2` |
+| Americhe | Stati Uniti occidentali 2 | `westus2` |
 | Americhe | Canada centrale | `canadacentral` |
 | Americhe | Brasile meridionale | `brazilsouth` |
 | Asia Pacifico | Asia orientale | `eastasia` |

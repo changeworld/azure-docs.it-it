@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 02/18/2020
 ms.openlocfilehash: 16126e8b9e5c34529016018273edcf65a31e2280
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/14/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100379982"
 ---
 # <a name="copy-data-to-or-from-azure-data-explorer-by-using-azure-data-factory"></a>Copiare dati da o verso Azure Esplora dati usando Azure Data Factory
@@ -41,7 +41,7 @@ Con il connettore Azure Esplora dati è possibile eseguire le operazioni seguent
 * Come origine, recupero di dati tramite una query KQL (Kusto).
 * Come sink, accodamento di dati a una tabella di destinazione.
 
-## <a name="getting-started"></a>Guida introduttiva
+## <a name="getting-started"></a>Introduzione
 
 >[!TIP]
 >Per una procedura dettagliata di Azure Esplora dati Connector, vedere Copiare dati da e verso [azure Esplora dati usando Azure Data Factory](/azure/data-explorer/data-factory-load-data) e [la copia bulk da un database in Azure Esplora dati](/azure/data-explorer/data-factory-template).

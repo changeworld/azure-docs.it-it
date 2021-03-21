@@ -6,13 +6,13 @@ ms.reviewer: jasonh
 ms.topic: how-to
 ms.date: 06/30/2017
 ms.openlocfilehash: 0842a2cfa021ef8ea45c19ec885c7dec371730de
-ms.sourcegitcommit: df66dff4e34a0b7780cba503bb141d6b72335a96
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/02/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96512572"
 ---
-# <a name="use-user-defined-applier"></a>USA oggetto di applicazione definito dall'utente 
+# <a name="use-user-defined-applier"></a>Usare oggetti di applicazione definiti dall'utente 
 
 ## <a name="u-sql-udo-user-defined-applier"></a>U-SQL UDO: oggetto di applicazione definito dall'utente
 Un oggetto di applicazione definito dall'utente di U-SQL consente di richiamare una funzione C# personalizzata per ogni riga restituita dall'espressione di tabella esterna di una query. L'input di destra viene valutato per ogni riga dell'input di sinistra e le righe prodotte vengono combinate per l'output finale. L'elenco delle colonne prodotte dall'operatore APPLY è la combinazione del set di colonne dell'input di destra e di sinistra.
