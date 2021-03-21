@@ -8,10 +8,10 @@ ms.date: 6/23/2020
 ms.topic: how-to
 ms.service: digital-twins
 ms.openlocfilehash: a0f2b971eae5d37e8fb0771e213075289af6c519
-ms.sourcegitcommit: 8dd8d2caeb38236f79fe5bfc6909cb1a8b609f4a
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/08/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98045258"
 ---
 # <a name="understand-event-data"></a>Informazioni sui dati degli eventi
@@ -103,11 +103,11 @@ Le notifiche del ciclo di vita vengono attivate nei casi seguenti:
 
 Di seguito sono riportati i campi nel corpo di una notifica del ciclo di vita.
 
-| Nome | valore |
+| Nome | Valore |
 | --- | --- |
 | `id` | Identificatore della notifica, ad esempio un UUID o un contatore gestito dal servizio. `source` + `id` è univoco per ogni evento distinto. |
 | `source` | Nome dell'hub Internet delle cose o dell'istanza di Azure Digital gemelli, ad esempio *MyHub.Azure-Devices.NET* o *mydigitaltwins.westus2.azuredigitaltwins.NET* |
-| `specversion` | *1,0*<br>Il messaggio è conforme a questa versione della [specifica CloudEvents](https://github.com/cloudevents/spec). |
+| `specversion` | *1.0*<br>Il messaggio è conforme a questa versione della [specifica CloudEvents](https://github.com/cloudevents/spec). |
 | `type` | `Microsoft.DigitalTwins.Twin.Create`<br>`Microsoft.DigitalTwins.Twin.Delete` |
 | `datacontenttype` | `application/json` |
 | `subject` | ID del dispositivo gemello digitale |
@@ -189,11 +189,11 @@ Le **notifiche di modifica delle relazioni** vengono attivate quando viene creat
 
 Ecco i campi nel corpo di una notifica di modifica del bordo.
 
-| Nome    | valore |
+| Nome    | Valore |
 | --- | --- |
 | `id` | Identificatore della notifica, ad esempio un UUID o un contatore gestito dal servizio. `source` + `id` univoco per ogni evento distinto |
 | `source` | Nome dell'istanza di Azure Digital Twins, ad esempio *mydigitaltwins.westus2.azuredigitaltwins.NET* |
-| `specversion` | *1,0*<br>Il messaggio è conforme a questa versione della [specifica CloudEvents](https://github.com/cloudevents/spec). |
+| `specversion` | *1.0*<br>Il messaggio è conforme a questa versione della [specifica CloudEvents](https://github.com/cloudevents/spec). |
 | `type` | `Microsoft.DigitalTwins.Relationship.Create`<br>`Microsoft.DigitalTwins.Relationship.Update`<br>`Microsoft.DigitalTwins.Relationship.Delete`
 |`datacontenttype`| `application/json` |
 | `subject` | ID della relazione, ad esempio `<twinID>/relationships/<relationshipID>` |
@@ -245,11 +245,11 @@ Quando si aggiorna un dispositivo gemello digitale, vengono attivate le notifich
 
 Ecco i campi nel corpo di una notifica di modifica del dispositivo gemello digitale.
 
-| Nome    | valore |
+| Nome    | Valore |
 | --- | --- |
 | `id` | Identificatore della notifica, ad esempio un UUID o un contatore gestito dal servizio. `source` + `id` univoco per ogni evento distinto |
 | `source` | Nome dell'hub Internet delle cose o dell'istanza di Azure Digital gemelli, ad esempio *MyHub.Azure-Devices.NET* o *mydigitaltwins.westus2.azuredigitaltwins.NET*
-| `specversion` | *1,0*<br>Il messaggio è conforme a questa versione della [specifica CloudEvents](https://github.com/cloudevents/spec). |
+| `specversion` | *1.0*<br>Il messaggio è conforme a questa versione della [specifica CloudEvents](https://github.com/cloudevents/spec). |
 | `type` | `Microsoft.DigitalTwins.Twin.Update` |
 | `datacontenttype` | `application/json` |
 | `subject` | ID del dispositivo gemello digitale |

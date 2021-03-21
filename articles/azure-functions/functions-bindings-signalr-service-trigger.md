@@ -7,10 +7,10 @@ ms.custom: devx-track-csharp
 ms.date: 05/11/2020
 ms.author: chenyl
 ms.openlocfilehash: 2482a26987ec142880acc51bf470d844655b6e3f
-ms.sourcegitcommit: 799f0f187f96b45ae561923d002abad40e1eebd6
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/24/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97763515"
 ---
 # <a name="signalr-service-trigger-binding-for-azure-functions"></a>Binding del trigger del servizio SignalR per funzioni di Azure
@@ -196,7 +196,7 @@ InvocationContext contiene tutto il contenuto del messaggio inviato dal servizio
 |Errore| Disponibile per l'evento *disconnesso* . Può essere vuoto se la connessione è chiusa senza errori o contiene i messaggi di errore.|
 |Hub| Nome dell'hub a cui appartiene il messaggio.|
 |Category| Categoria del messaggio.|
-|Event| Evento del messaggio.|
+|Evento| Evento del messaggio.|
 |ConnectionId| ID connessione del client che invia il messaggio.|
 |UserId| Identità utente del client che invia il messaggio.|
 |Intestazioni| Intestazioni della richiesta.|
@@ -222,7 +222,7 @@ Dopo aver impostato `parameterNames` , il nome definito corrisponderà rispettiv
 Quindi, conterrà il `arg1` contenuto di `message1` e conterrà `arg2` il contenuto di `message2` .
 
 
-### <a name="remarks"></a>Osservazioni
+### <a name="remarks"></a>Commenti
 
 Per l'associazione di parametri, l'ordine è importante. Se si utilizza `ParameterNames` , l'ordine in `ParameterNames` corrisponde all'ordine degli argomenti richiamati nel client. Se si usa l'attributo `[SignalRParameter]` in C#, l'ordine degli argomenti nei metodi della funzione di Azure corrisponde all'ordine degli argomenti nei client.
 

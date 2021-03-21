@@ -7,10 +7,10 @@ ms.date: 12/19/2020
 ms.topic: how-to
 ms.service: iot-central
 ms.openlocfilehash: 73c78f514f974b97eb178177f12dc4ceff7ede63
-ms.sourcegitcommit: ab829133ee7f024f9364cd731e9b14edbe96b496
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/28/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97797010"
 ---
 # <a name="configure-the-application-dashboard"></a>Configurare il dashboard dell'applicazione
@@ -60,7 +60,7 @@ La tabella seguente descrive i diversi tipi di riquadro che è possibile aggiung
 | Etichetta            | I riquadri etichetta visualizzano testo personalizzato in un dashboard. È possibile scegliere la dimensione del testo. Usare un riquadro etichetta per aggiungere informazioni pertinenti al dashboard, ad esempio descrizioni, dettagli di contatto o informazioni della Guida.|
 | Conteggio            | I riquadri conteggio visualizzano il numero di dispositivi in un gruppo di dispositivi.|
 | Mappa              | I riquadri mappa visualizzano la posizione di uno o più dispositivi su una mappa. È anche possibile visualizzare fino a 100 punti della cronologia della posizione di un dispositivo. Ad esempio, è possibile visualizzare la route campionata in cui si è verificato un dispositivo nella settimana precedente.|
-| KPI              |  I riquadri KPI visualizzano i valori di telemetria aggregati per uno o più dispositivi in un periodo di tempo. Ad esempio, è possibile usarlo per mostrare la temperatura massima e la pressione raggiunta per uno o più dispositivi nell'ultima ora.|
+| Indicatore KPI              |  I riquadri KPI visualizzano i valori di telemetria aggregati per uno o più dispositivi in un periodo di tempo. Ad esempio, è possibile usarlo per mostrare la temperatura massima e la pressione raggiunta per uno o più dispositivi nell'ultima ora.|
 | Grafico a linee       | I riquadri del grafico a linee tracciano uno o più valori di telemetria aggregati per uno o più dispositivi per un periodo di tempo. Ad esempio, è possibile visualizzare un grafico a linee per tracciare la temperatura e la pressione media di uno o più dispositivi nell'ultima ora.|
 | Grafico a barre        | I riquadri del grafico a barre tracciano uno o più valori di telemetria aggregati per uno o più dispositivi per un periodo di tempo. Ad esempio, è possibile visualizzare un grafico a barre per mostrare la temperatura e la pressione media di uno o più dispositivi nell'ultima ora.|
 | Grafico a torta        | I riquadri del grafico a torta visualizzano uno o più valori di telemetria aggregati per uno o più dispositivi per un periodo di tempo.|

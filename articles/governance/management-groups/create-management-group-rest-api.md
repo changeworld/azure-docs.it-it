@@ -4,10 +4,10 @@ description: In questo argomento di avvio rapido si usa l'API REST per creare un
 ms.date: 02/05/2021
 ms.topic: quickstart
 ms.openlocfilehash: ff1487bf25945c733402ddb74d1e102bea80b4b1
-ms.sourcegitcommit: f377ba5ebd431e8c3579445ff588da664b00b36b
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/05/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "99592501"
 ---
 # <a name="quickstart-create-a-management-group-with-rest-api"></a>Avvio rapido: Creare un gruppo di gestione con l'API REST
@@ -98,4 +98,4 @@ In questo argomento di avvio rapido è stato creato un gruppo di gestione per or
 Per altre informazioni sui gruppi di gestione e su come gestire la gerarchia delle risorse, continuare con:
 
 > [!div class="nextstepaction"]
-> [Gestire le risorse con i gruppi di gestione](./manage.md)
+> Gestire le risorse con i gruppi di gestione

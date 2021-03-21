@@ -5,10 +5,10 @@ ms.topic: conceptual
 ms.date: 12/21/2020
 ms.custom: contperf-fy21q2
 ms.openlocfilehash: 59c8eb0737d2cef1c4b1df34d673b74944fef4e1
-ms.sourcegitcommit: 6cca6698e98e61c1eea2afea681442bd306487a4
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/24/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97760436"
 ---
 # <a name="your-service-fabric-application-and-next-steps"></a>Applicazione dell'infrastruttura di servizi e fasi successive
@@ -62,9 +62,9 @@ Analogamente ad altre piattaforme, un'applicazione su Service Fabric in genere p
 Service Fabric include una serie di articoli che descrivono le [procedure consigliate](./service-fabric-best-practices-overview.md). Usare queste informazioni per garantire la corretta esecuzione del cluster e dell'applicazione.
 Gli argomenti trattati includono:
 * [Sicurezza](./service-fabric-best-practices-security.md)
-* [Rete](./service-fabric-best-practices-networking.md)
+* [Funzionalità di rete](./service-fabric-best-practices-networking.md)
 * [Pianificazione e scalabilità dell'ambiente di calcolo](./service-fabric-best-practices-capacity-scaling.md)
-* [Infrastructure as code](./service-fabric-best-practices-infrastructure-as-code.md)
+* [Infrastruttura come codice](./service-fabric-best-practices-infrastructure-as-code.md)
 * [Monitoraggio e diagnostica](./service-fabric-best-practices-monitoring.md)
 * [Progettazione di applicazioni](./service-fabric-best-practices-applications.md)
 

@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: cynthn
 ms.openlocfilehash: 046a4bc9abb936ca6f9fcecd0f660a723edb092b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
-ms.translationtype: HT
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "80117023"
 ---
 ## <a name="create-a-resource-group"></a>Creare un gruppo di risorse
@@ -64,7 +64,7 @@ az vm open-port --port 80 --resource-group myResourceGroup --name myVM
 ## <a name="ssh-into-your-vm"></a>Usare SSH per connettersi alla macchina virtuale
 
 
-Se non si conosce già l'indirizzo IP pubblico della macchina virtuale, eseguire il comando [az network public-ip list](/cli/azure/network/public-ip). Questo indirizzo IP sarà necessario in alcuni passaggi successivi.
+Se non si conosce già l'indirizzo IP pubblico della macchina virtuale, eseguire il comando [AZ Network Public-IP list](/cli/azure/network/public-ip) . Questo indirizzo IP sarà necessario in alcuni passaggi successivi.
 
 
 ```azurecli-interactive

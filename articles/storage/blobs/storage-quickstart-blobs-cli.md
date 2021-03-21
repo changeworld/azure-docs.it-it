@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.date: 08/17/2020
 ms.author: tamram
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: fa502f5ca95b1726da7f00f987b35be362ae865a
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
-ms.translationtype: HT
+ms.openlocfilehash: 04f793f78cef938c31e7a30aad5569a54eb461a1
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96021759"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104613108"
 ---
 # <a name="quickstart-create-download-and-list-blobs-with-azure-cli"></a>Avvio rapido: Caricare, scaricare ed elencare BLOB con l'interfaccia della riga di comando di Azure
 
@@ -145,7 +145,7 @@ az storage blob download \
 
 ## <a name="data-transfer-with-azcopy"></a>Trasferimento dati con AzCopy
 
-L'utilità da riga di comando AzCopy offre il trasferimento dei dati di script a elevate prestazioni per Archiviazione di Azure. È possibile usare AzCopy per trasferire i dati da e verso Archiviazione BLOB e File di Azure. Per altre informazioni su AzCopy v10, la versione più recente, vedere [Introduzione ad AzCopy](../common/storage-use-azcopy-v10.md). Per informazioni sull'uso di AzCopy v10 con archiviazione BLOB, vedere [Trasferire dati con AzCopy e archiviazione BLOB](../common/storage-use-azcopy-blobs.md).
+L'utilità da riga di comando AzCopy offre il trasferimento dei dati di script a elevate prestazioni per Archiviazione di Azure. È possibile usare AzCopy per trasferire i dati da e verso Archiviazione BLOB e File di Azure. Per altre informazioni su AzCopy v10, la versione più recente, vedere [Introduzione ad AzCopy](../common/storage-use-azcopy-v10.md). Per informazioni sull'uso di AzCopy v10 con archiviazione BLOB, vedere [Trasferire dati con AzCopy e archiviazione BLOB](../common/storage-use-azcopy-v10.md#transfer-data).
 
 Gli esempi seguenti usano AzCopy per caricare un file locale in un BLOB. Ricordarsi di sostituire i valori dell'esempio con i propri valori:
 

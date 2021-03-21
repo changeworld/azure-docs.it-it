@@ -1,13 +1,13 @@
 ---
-title: 'Criterio: Proprietà field in una definizione di criteri'
+title: 'Modello: proprietà dei campi in una definizione di criteri'
 description: Questo modello di Criteri di Azure fornisce un esempio di come usare le proprietà field in una definizione di criteri.
 ms.date: 10/14/2020
 ms.topic: sample
 ms.openlocfilehash: 267c687f78f0bbb100843faee40ab6f3d3cbb64c
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
-ms.translationtype: HT
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/15/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92072969"
 ---
 # <a name="azure-policy-pattern-field-properties"></a>Modello di Criteri di Azure: proprietà field

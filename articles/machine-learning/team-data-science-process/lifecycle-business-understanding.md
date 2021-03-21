@@ -12,10 +12,10 @@ ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ms.openlocfilehash: a7aaed519f8f97a9be77a263568aeed5257c16d6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "76710344"
 ---
 # <a name="the-business-understanding-stage-of-the-team-data-science-process-lifecycle"></a>Fase di comprensione delle strategie aziendali nel ciclo di vita del processo di data science per i team
@@ -61,10 +61,10 @@ Questa fase comprende due attività principali:
 4. Definire le metriche di riuscita. Si supponga ad esempio di voler ottenere una stima del tasso di abbandono da parte dei clienti. Occorre un tasso di accuratezza di "x" % entro la fine di questo progetto che dura tre mesi. Con questi dati è possibile offrire ai clienti promozioni per ridurre il tasso di abbandono. Le metriche devono essere **SMART**: 
 
    * PECIFICHE **S** 
-   * **M**easurable: misurabili
-   * **A**chievable: conseguibili 
+   * **M** easurable: misurabili
+   * **A** chievable: conseguibili 
    * Elevant **R** 
-   * **T**ime-bound: con associazione temporale 
+   * **T** ime-bound: con associazione temporale 
 
 ### <a name="identify-data-sources"></a>Identificare le origini dati
 Identificare le origini dati che contengono esempi noti di risposte a domande precise. Cercare i dati seguenti:

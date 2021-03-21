@@ -8,13 +8,13 @@ ms.topic: conceptual
 ms.date: 11/16/2020
 ms.author: victorh
 ms.openlocfilehash: 694868f2a75cc66bf9e3ede9d12e30a2cc3d7af9
-ms.sourcegitcommit: 0aec60c088f1dcb0f89eaad5faf5f2c815e53bf8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/14/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98185938"
 ---
-# <a name="tls-termination-with-key-vault-certificates"></a>Terminazione TLS con certificati Key Vault
+# <a name="tls-termination-with-key-vault-certificates"></a>Terminazione TLS con certificati di Key Vault
 
 [Azure Key Vault](../key-vault/general/overview.md) è un archivio segreto gestito da piattaforma che è possibile usare per proteggere segreti, chiavi e certificati TLS/SSL. Il gateway applicazione di Azure supporta l'integrazione con Key Vault per i certificati server associati a listener abilitati per HTTPS. Questo supporto è limitato allo SKU V2 del gateway applicazione.
 

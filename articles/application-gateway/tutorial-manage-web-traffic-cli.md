@@ -9,10 +9,10 @@ ms.date: 07/20/2019
 ms.author: victorh
 ms.custom: devx-track-azurecli
 ms.openlocfilehash: 89ba84be61469ff07eff55bb9cd114fe124b3ec2
-ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/12/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94566606"
 ---
 # <a name="manage-web-traffic-with-an-application-gateway-using-the-azure-cli"></a>Gestire il traffico Web con un gateway applicazione usando l'interfaccia della riga di comando di Azure
@@ -31,7 +31,7 @@ Se si preferisce, è possibile completare questa procedura usando [Azure PowerSh
 
 [!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
 
- - Questa esercitazione richiede la versione 2.0.4 o successiva dell'interfaccia della riga di comando di Azure. Se si usa Azure Cloud Shell, la versione più recente è già installata.
+ - Per questa esercitazione è necessaria la versione 2.0.4 o successiva dell'interfaccia della riga di comando di Azure. Se si usa Azure Cloud Shell, la versione più recente è già installata.
 
 ## <a name="create-a-resource-group"></a>Creare un gruppo di risorse
 
@@ -91,11 +91,11 @@ az network application-gateway create \
 
  Il processo di creazione del gateway applicazione può richiedere alcuni minuti. Dopo aver creato il gateway applicazione, saranno disponibili le nuove funzionalità seguenti:
 
-- *appGatewayBackendPool* : un gateway applicazione deve avere almeno un pool di indirizzi back-end.
-- *appGatewayBackendHttpSettings* : specifica che per le comunicazioni vengono usati la porta 80 e il protocollo HTTP.
-- *appGatewayHttpListener* : il listener predefinito associato ad *appGatewayBackendPool*.
-- *appGatewayFrontendIP* : assegna *myAGPublicIPAddress* ad *appGatewayHttpListener*.
-- *rule1* : regola di routing predefinita associata ad *appGatewayHttpListener*.
+- *appGatewayBackendPool*: un gateway applicazione deve avere almeno un pool di indirizzi back-end.
+- *appGatewayBackendHttpSettings*: specifica che per le comunicazioni vengono usati la porta 80 e il protocollo HTTP.
+- *appGatewayHttpListener*: il listener predefinito associato ad *appGatewayBackendPool*.
+- *appGatewayFrontendIP*: assegna *myAGPublicIPAddress* ad *appGatewayHttpListener*.
+- *rule1*: regola di routing predefinita associata ad *appGatewayHttpListener*.
 
 ## <a name="create-a-virtual-machine-scale-set"></a>Creare un set di scalabilità di macchine virtuali
 

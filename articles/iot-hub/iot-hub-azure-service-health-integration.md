@@ -13,17 +13,17 @@ ms.custom:
 - 'Role: Technical Support'
 - devx-track-csharp
 ms.openlocfilehash: 27fca7b76ab148fc355eb7d52ee0cbcbd3540458
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/26/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92548518"
 ---
 # <a name="check-iot-hub-service-and-resource-health"></a>Controllare integrità risorse e servizio dell'hub Internet
 
 L'hub Azure è integrato con il [servizio integrità dei servizi di Azure](../service-health/overview.md) per offrire la possibilità di monitorare l'integrità a livello di servizio del servizio hub Internet e degli hub Internet. È anche possibile impostare gli avvisi per ricevere una notifica quando lo stato del servizio hub Internet o dell'hub Internet viene modificato. Il servizio integrità dei servizi di Azure è una combinazione di tre servizi più piccoli: Integrità risorse di Azure, integrità dei servizi di Azure e la pagina relativa allo stato di Azure. Le sezioni di questo articolo descrivono in modo più dettagliato ogni servizio e la relativa relazione con l'hub.
 
-Il servizio integrità dei servizi di Azure consente di monitorare gli eventi a livello di servizio, ad esempio interruzioni e aggiornamenti che potrebbero influire sulla disponibilità del servizio hub Internet e dei singoli hub Internet. L'hub Internet si integra anche con monitoraggio di Azure per fornire le metriche della piattaforma dell'hub Internet e i log delle risorse dell'hub cose che è possibile usare per monitorare le condizioni e gli errori operativi che si verificano in uno specifico Hub. Per altre informazioni, vedere [monitorare l'hub](monitor-iot-hub.md).
+Il servizio integrità dei servizi di Azure consente di monitorare gli eventi a livello di servizio, ad esempio interruzioni e aggiornamenti che potrebbero influire sulla disponibilità del servizio hub Internet e dei singoli hub Internet. L'hub Internet si integra anche con monitoraggio di Azure per fornire le metriche della piattaforma dell'hub Internet e i log delle risorse dell'hub cose che è possibile usare per monitorare le condizioni e gli errori operativi che si verificano in uno specifico Hub. Per altre informazioni, vedere [Monitoraggio dell'hub IoT di Azure](monitor-iot-hub.md).
 
 ## <a name="check-health-of-an-iot-hub-with-azure-resource-health"></a>Verificare l'integrità di un hub Internet con Integrità risorse di Azure
 
@@ -33,7 +33,7 @@ Per visualizzare la cronologia dello stato e dello stato dell'hub Internet delle
 
 1. In [portale di Azure](https://portal.azure.com)passare all'hub Internet delle cose in portale di Azure.
 
-1. Nel riquadro sinistro, in **supporto e risoluzione dei problemi** , selezionare **integrità risorse** .
+1. Nel riquadro sinistro, in **supporto e risoluzione dei problemi**, selezionare **integrità risorse**.
 
     :::image type="content" source="./media/iot-hub-azure-service-health-integration/iot-hub-resource-health.png" alt-text="Pagina integrità risorse per un hub Internet":::
 
@@ -49,7 +49,7 @@ Per controllare l'integrità degli hub IoT, seguire questi passaggi:
 
 1. Accedere al [portale di Azure](https://portal.azure.com).
 
-2. Passare a **Service Health** integrità  >  **risorse** servizio integrità.
+2. Passare a integrità  >  **risorse** servizio integrità.
 
 3. Nelle caselle di riepilogo a discesa selezionare la sottoscrizione e quindi selezionare l' **Hub** Internet come tipo di risorsa.
 

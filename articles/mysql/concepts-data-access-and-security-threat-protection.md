@@ -7,10 +7,10 @@ ms.service: mysql
 ms.topic: conceptual
 ms.date: 3/18/2020
 ms.openlocfilehash: c9e884d153e85e7b68dee38494ac5d6f4271978a
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/12/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94542576"
 ---
 # <a name="azure-database-for-mysql-advanced-threat-protection"></a>Advanced Threat Protection per Database di Azure per MySQL
@@ -34,11 +34,11 @@ Advanced Threat Protection per Database di Azure per MySQL offre un nuovo livell
 
 ## <a name="advanced-threat-protection-alerts"></a>Avvisi di Advanced Threat Protection 
 Advanced Threat Protection per Database di Azure per MySQL rileva le attività anomale che indicano tentativi insoliti e potenzialmente dannosi di accesso o exploit dei database e può attivare gli avvisi seguenti:
-- **Accesso da una posizione insolita** : questo avviso viene attivato quando il modello di accesso al server Database di Azure per MySQL cambia, quando un utente ha effettuato l'accesso a Database di Azure per MySQL da una posizione geografica insolita. In alcuni casi, l'avviso rileva un'azione legittima (una nuova applicazione o la manutenzione da parte dello sviluppatore). In altri casi, l'avviso rileva un'azione dannosa (da parte di un ex dipendente o un utente malintenzionato esterno).
-- **Accesso da un data center di Azure insolito** : questo avviso viene attivato quando il modello di accesso al server Database di Azure per MySQL cambia, quando un utente ha effettuato l'accesso al server da un data center di Azure insolito, rilevato nel server di recente. In alcuni casi, l'avviso rileva un'azione legittima (una nuova applicazione in Azure, Power BI, l'editor di query di Database di Azure per MySQL). In altri casi, l'avviso rileva un'azione dannosa proveniente da una risorsa o un servizio di Azure (da parte di un ex dipendente o un utente malintenzionato esterno).
-- **Accesso da un'entità di sicurezza non familiare** : questo avviso viene attivato quando il modello di accesso a Database di Azure per MySQL cambia, quando un utente ha effettuato l'accesso al server usando un'entità di sicurezza insolita (utente di Database di Azure per MySQL). In alcuni casi, l'avviso rileva un'azione legittima (nuova applicazione o manutenzione da parte dello sviluppatore). In altri casi, l'avviso rileva un'azione dannosa (da parte di un ex dipendente o un utente malintenzionato esterno).
-- **Accesso da un'applicazione potenzialmente dannosa** : questo avviso viene attivato quando un'applicazione potenzialmente dannosa viene usata per accedere al database. In alcuni casi, l'avviso rileva test di penetrazione in corso. In altri casi, l'avviso rileva un attacco mediante strumenti comuni di attacco.
-- **Attacco di forza bruta a credenziali Database di Azure per MySQL** : questo avviso viene attivato quando si verifica un numero insolitamente elevato di accessi non riusciti con credenziali diverse. In alcuni casi, l'avviso rileva test di penetrazione in corso. In altri casi, l'avviso rileva un attacco di forza bruta.
+- **Accesso da una posizione insolita**: questo avviso viene attivato quando il modello di accesso al server Database di Azure per MySQL cambia, quando un utente ha effettuato l'accesso a Database di Azure per MySQL da una posizione geografica insolita. In alcuni casi, l'avviso rileva un'azione legittima (una nuova applicazione o la manutenzione da parte dello sviluppatore). In altri casi, l'avviso rileva un'azione dannosa (da parte di un ex dipendente o un utente malintenzionato esterno).
+- **Accesso da un data center di Azure insolito**: questo avviso viene attivato quando il modello di accesso al server Database di Azure per MySQL cambia, quando un utente ha effettuato l'accesso al server da un data center di Azure insolito, rilevato nel server di recente. In alcuni casi, l'avviso rileva un'azione legittima (una nuova applicazione in Azure, Power BI, l'editor di query di Database di Azure per MySQL). In altri casi, l'avviso rileva un'azione dannosa proveniente da una risorsa o un servizio di Azure (da parte di un ex dipendente o un utente malintenzionato esterno).
+- **Accesso da un'entità di sicurezza non familiare**: questo avviso viene attivato quando il modello di accesso a Database di Azure per MySQL cambia, quando un utente ha effettuato l'accesso al server usando un'entità di sicurezza insolita (utente di Database di Azure per MySQL). In alcuni casi, l'avviso rileva un'azione legittima (nuova applicazione o manutenzione da parte dello sviluppatore). In altri casi, l'avviso rileva un'azione dannosa (da parte di un ex dipendente o un utente malintenzionato esterno).
+- **Accesso da un'applicazione potenzialmente dannosa**: questo avviso viene attivato quando un'applicazione potenzialmente dannosa viene usata per accedere al database. In alcuni casi, l'avviso rileva test di penetrazione in corso. In altri casi, l'avviso rileva un attacco mediante strumenti comuni di attacco.
+- **Attacco di forza bruta a credenziali Database di Azure per MySQL**: questo avviso viene attivato quando si verifica un numero insolitamente elevato di accessi non riusciti con credenziali diverse. In alcuni casi, l'avviso rileva test di penetrazione in corso. In altri casi, l'avviso rileva un attacco di forza bruta.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

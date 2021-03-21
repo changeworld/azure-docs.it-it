@@ -12,10 +12,10 @@ ms.date: 03/04/2021
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: c5c8e21f2ce3f6907547bf1b2fe4681eb937864b
-ms.sourcegitcommit: dac05f662ac353c1c7c5294399fca2a99b4f89c8
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/04/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102119876"
 ---
 # <a name="json-claims-transformations"></a>Trasformazioni delle attestazioni JSON
@@ -58,11 +58,11 @@ Nell'esempio seguente viene generata una stringa JSON basata sul valore dell'att
 La trasformazione delle attestazioni seguente restituisce un'attestazione di stringa JSON che sarà il corpo della richiesta inviata a SendGrid (un provider di posta elettronica di terze parti). La struttura dell'oggetto JSON è definita dagli ID nella notazione del punto di InputParameters e TransformationClaimTypes di InputClaims. I numeri nella notazione del punto implicano matrici. I valori provengono dalle proprietà InputClaims ' Values e InputParameters ' "value".
 
 - Attestazioni di input:
-  - **indirizzo di posta elettronica**, trasformazione tipo di attestazione  **personalizzazione. 0. a. 0. messaggio di posta elettronica**: " someone@example.com "
+  - **posta elettronica**, tipo di attestazione di trasformazione  **personalizations.0.to.0.email**: " someone@example.com "
   - **OTP**, tipo di attestazione di trasformazione **personalizations.0.dynamic_template_data. OTP** "346349"
 - Parametro di input:
   - **template_id**: "d-4c56ffb40fa648b1aa6822283df94f60"
-  - **da. email**: " service@contoso.com "
+  - **from.email**: " service@contoso.com "
   - **personalizzazioni. 0. oggetto** "contoso account email verifica codice"
 - Attestazione di output:
   - **requestBody**: valore JSON
@@ -115,7 +115,7 @@ Nell'esempio seguente viene generata una stringa JSON basata sui valori dell'att
 La trasformazione delle attestazioni seguente restituisce un'attestazione di stringa JSON che sarà il corpo della richiesta inviata a un'API REST. La struttura dell'oggetto JSON è definita dagli ID nella notazione del punto di InputParameters e TransformationClaimTypes di InputClaims. I valori provengono dalle proprietà InputClaims ' Values e InputParameters ' "value".
 
 - Attestazioni di input:
-  - **posta elettronica**, tipo di attestazione di trasformazione  **customerEntity. email**: " john.s@contoso.com "
+  - **posta elettronica**, tipo di attestazione di trasformazione  **customerEntity.email**: " john.s@contoso.com "
   - **ObjectID**, tipo di attestazione di trasformazione **customerEntity. userObjectId** "01234567-89ab-cdef-0123-456789abcdef"
   - **DATANAME**, tipo di attestazione di trasformazione **customerEntity. FirstName** "John"
   - **Cognome**, tipo di attestazione di trasformazione **customerEntity. LastName** "Smith"

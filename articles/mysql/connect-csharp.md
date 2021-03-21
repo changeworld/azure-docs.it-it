@@ -9,10 +9,10 @@ ms.devlang: csharp
 ms.topic: quickstart
 ms.date: 10/18/2020
 ms.openlocfilehash: 3b90d8819b5d327c3ccd143257198c7ec8538f03
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
-ms.translationtype: HT
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/12/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94535827"
 ---
 # <a name="quickstart-use-net-c-to-connect-and-query-data-in-azure-database-for-mysql"></a>Avvio rapido: Usare .NET (C#) per connettersi ai dati ed eseguire query in Database di Azure per MySQL
@@ -23,7 +23,7 @@ Questa guida introduttiva illustra come connettersi a un database di Azure per M
 Per questa guida di avvio rapido, è necessario:
 
 - Un account Azure con una sottoscrizione attiva. [Creare un account gratuitamente](https://azure.microsoft.com/free).
-- Creare un server singolo di Database di Azure per MySQL usando il [portale di Azure](./quickstart-create-mysql-server-database-using-azure-portal.md) <br/> o in alternativa l'[interfaccia della riga di comando di Azure](./quickstart-create-mysql-server-database-using-azure-cli.md).
+- Creare un server singolo del database di Azure per MySQL usando il [portale di Azure](./quickstart-create-mysql-server-database-using-azure-portal.md) <br/> o in alternativa l'[interfaccia della riga di comando di Azure](./quickstart-create-mysql-server-database-using-azure-cli.md).
 - A seconda che si usi l'accesso pubblico o privato, completare **UNA** delle azioni seguenti per abilitare la connettività.
 
 |Action| Metodo di connettività|Guida pratica|

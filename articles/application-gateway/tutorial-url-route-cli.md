@@ -9,10 +9,10 @@ ms.date: 08/01/2019
 ms.author: victorh
 ms.custom: mvc, devx-track-azurecli
 ms.openlocfilehash: 8e8fed99fe0b1de52d2e2d0018dfd8867b54b63b
-ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/12/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94566521"
 ---
 # <a name="route-web-traffic-based-on-the-url-using-the-azure-cli"></a>Instradare il traffico Web in base all'URL tramite l'interfaccia della riga di comando di Azure
@@ -36,7 +36,7 @@ Se si preferisce, è possibile completare questa procedura usando [Azure PowerSh
 
 [!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
 
- - Questa esercitazione richiede la versione 2.0.4 o successiva dell'interfaccia della riga di comando di Azure. Se si usa Azure Cloud Shell, la versione più recente è già installata.
+ - Per questa esercitazione è necessaria la versione 2.0.4 o successiva dell'interfaccia della riga di comando di Azure. Se si usa Azure Cloud Shell, la versione più recente è già installata.
 
 ## <a name="create-a-resource-group"></a>Creare un gruppo di risorse
 
@@ -50,7 +50,7 @@ az group create --name myResourceGroupAG --location eastus
 
 ## <a name="create-network-resources"></a>Creare risorse di rete
 
-Creare la rete virtuale denominata *myVNet* e la subnet denominata *myAGSubnet* usando il comando `az network vnet create`. Aggiungere quindi una subnet denominata *myBackendSubnet* , necessaria per i server back-end, usando il comando `az network vnet subnet create`. Creare l'indirizzo IP pubblico denominato *myAGPublicIPAddress* usando il comando `az network public-ip create`.
+Creare la rete virtuale denominata *myVNet* e la subnet denominata *myAGSubnet* usando il comando `az network vnet create`. Aggiungere quindi una subnet denominata *myBackendSubnet*, necessaria per i server back-end, usando il comando `az network vnet subnet create`. Creare l'indirizzo IP pubblico denominato *myAGPublicIPAddress* usando il comando `az network public-ip create`.
 
 ```azurecli-interactive
 az network vnet create \
@@ -183,7 +183,7 @@ az network application-gateway rule create \
 
 ## <a name="create-virtual-machine-scale-sets"></a>Creare set di scalabilità di macchine virtuali
 
-In questo articolo si creeranno tre set di scalabilità di macchine virtuali che supportano i tre pool back-end creati. È necessario creare tre set di scalabilità denominati *myvmss1* , *myvmss2* e *myvmss3*. Ogni set di scalabilità contiene due istanze di macchina virtuale in cui è necessario installare NGINX.
+In questo articolo si creeranno tre set di scalabilità di macchine virtuali che supportano i tre pool back-end creati. È necessario creare tre set di scalabilità denominati *myvmss1*, *myvmss2* e *myvmss3*. Ogni set di scalabilità contiene due istanze di macchina virtuale in cui è necessario installare NGINX.
 
 ```azurecli-interactive
 for i in `seq 1 3`; do

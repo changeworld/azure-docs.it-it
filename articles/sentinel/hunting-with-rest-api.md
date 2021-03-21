@@ -16,13 +16,13 @@ ms.workload: na
 ms.date: 11/06/2020
 ms.author: yelevin
 ms.openlocfilehash: 64f05e18ff757d9f086cf06d74109bf64e32a05c
-ms.sourcegitcommit: 95c2cbdd2582fa81d0bfe55edd32778ed31e0fe8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/26/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98795686"
 ---
-# <a name="manage-hunting-and-livestream-queries-in-azure-sentinel-using-rest-api"></a>Gestire le query di caccia e livestream in Sentinel di Azure con l'API REST
+# <a name="manage-hunting-and-livestream-queries-in-azure-sentinel-using-rest-api"></a>Gestire le query di ricerca e livestream in Azure Sentinel usando l'API REST
 
 Azure Sentinel, che è integrato in Log Analytics di monitoraggio di Azure, consente di usare Log Analytics API REST per gestire le query di caccia e livestream. Questo documento illustra come creare e gestire le query di caccia usando l'API REST.  Le query create in questo modo verranno visualizzate nell'interfaccia utente di Sentinel di Azure.
 
