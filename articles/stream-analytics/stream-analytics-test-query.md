@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.date: 3/6/2020
 ms.custom: seodec18
 ms.openlocfilehash: eff9103f476e6074ab46198ff8cc78588675569f
-ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/08/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98020044"
 ---
 # <a name="test-an-azure-stream-analytics-job-in-the-portal"></a>Testare un processo di analisi di flusso di Azure nel portale
@@ -80,7 +80,7 @@ Invece di usare i dati dinamici, è possibile usare dati di esempio da un file l
 
    ![Screenshot che mostra l'opzione Upload Sample input.](./media/stream-analytics-test-query/asa-upload-sample-file.png)
 
-5. Caricare il file locale per testare la query. È possibile caricare solo file con i formati JSON, CSV o AVRO. Seleziona **OK**.
+5. Caricare il file locale per testare la query. È possibile caricare solo file con i formati JSON, CSV o AVRO. Selezionare **OK**.
 
    ![Screenshot mostra la finestra di dialogo Carica dati di esempio in cui è possibile selezionare un file.](./media/stream-analytics-test-query/asa-upload-sample-json-file.png)
 

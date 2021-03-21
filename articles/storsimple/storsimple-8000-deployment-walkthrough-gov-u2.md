@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 06/22/2017
 ms.author: alkohli
 ms.openlocfilehash: d736c09fc1c9490f79dfc526895970e01b8b45cc
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/20/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94963182"
 ---
 # <a name="deploy-your-on-premises-storsimple-device-in-the-government-portal"></a>Distribuire un dispositivo StorSimple locale nel portale di Azure per enti pubblici
@@ -46,7 +46,7 @@ Eseguire questi passaggi obbligatori per configurare il dispositivo StorSimple e
 | --- | --- |
 | **Prerequisiti** |Questi elementi dovranno essere completati in preparazione per la prossima distribuzione. |
 | [Elenco di controllo configurazione della distribuzione](#deployment-configuration-checklist) |Utilizzare questo elenco di controllo per raccogliere e registrare informazioni prima e durante la distribuzione. |
-| [Prerequisiti per la distribuzione](#deployment-prerequisites) |Confermano che l'ambiente è pronto per la distribuzione. |
+| [Prerequisiti di distribuzione](#deployment-prerequisites) |Confermano che l'ambiente è pronto per la distribuzione. |
 |  | |
 | **DISTRIBUZIONE STEP-BY-STEP** |Questi passaggi sono necessari per distribuire il dispositivo StorSimple nell'ambiente di produzione. |
 | [Passaggio 1: creare un nuovo servizio](#step-1-create-a-new-service) |Impostare Gestione cloud e archiviazione per il dispositivo StorSimple. *Ignorare questo passaggio se si dispone di un servizio esistente per altri dispositivi StorSimple*. |
@@ -198,4 +198,4 @@ Attenersi alla procedura seguente nel portale per enti pubblici per creare un ba
 
 ## <a name="next-steps"></a>Passaggi successivi
 * Configurare un [dispositivo virtuale](storsimple-8000-cloud-appliance-u2.md).
-* Usare il [servizio Device Manager StorSimple](storsimple-8000-manager-service-administration.md) per gestire il dispositivo StorSimple.
+* Usare il [servizio gestione dispositivi StorSimple](storsimple-8000-manager-service-administration.md) per gestire il dispositivo StorSimple.

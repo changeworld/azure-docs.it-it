@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 01/21/2019
 ms.author: jeedes
 ms.openlocfilehash: 38b2ff6909dae15ff0f836316d5d12140ecc331a
-ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
-ms.translationtype: HT
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/18/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97672948"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-clarizen"></a>Esercitazione: Integrazione di Azure Active Directory con Clarizen
@@ -73,10 +73,10 @@ Per il corretto funzionamento dell'accesso Single Sign-On, deve essere stabilita
 Per configurare e testare l'accesso Single Sign-On di Azure AD con Clarizen, è necessario completare i blocchi predefiniti seguenti:
 
 1. **[Configurare l'accesso Single Sign-On di Azure AD](#configure-azure-ad-single-sign-on)** : per consentire agli utenti di usare questa funzionalità.
-2. **[Configurare l'accesso Single Sign-On di Clarizen](#configure-clarizen-single-sign-on)** : per configurare le impostazioni di Single Sign-On sul lato applicazione.
+2. **[Configurare l'accesso Single Sign-On di Clarizen](#configure-clarizen-single-sign-on)**: per configurare le impostazioni di Single Sign-On sul lato applicazione.
 3. **[Creare un utente di test di Azure AD](#create-an-azure-ad-test-user)** : per testare l'accesso Single Sign-On di Azure AD con l'utente Britta Simon.
 4. **[Assegnare l'utente di test di Azure AD](#assign-the-azure-ad-test-user)** : per abilitare Britta Simon all'uso dell'accesso Single Sign-On di Azure AD.
-5. **[Creare un utente di test di Clarizen](#create-clarizen-test-user)** : per avere una controparte di Britta Simon in Clarizen collegata alla rappresentazione dell'utente in Azure AD.
+5. **[Creare un utente di test di Clarizen](#create-clarizen-test-user)**: per avere una controparte di Britta Simon in Clarizen collegata alla rappresentazione dell'utente in Azure AD.
 6. **[Testare l'accesso Single Sign-On](#test-single-sign-on)** per verificare se la configurazione funziona.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Configurare l'accesso Single Sign-On di Azure AD
@@ -130,7 +130,7 @@ Per configurare l'accesso Single Sign-On di Azure AD con Clarizen, seguire quest
 
     ![Clic sulla voce relativa alle impostazioni sotto il nome utente](./media/clarizen-tutorial/tutorial_clarizen_001.png "Impostazioni")
 
-1. Fare clic sulla scheda **Global Settings** (Impostazioni globali), quindi accanto a **Federated Authentication** (Autenticazione federata) fare clic su **edit** (modifica).
+1. Fare clic sulla scheda **Impostazioni globali** . Quindi, accanto a **autenticazione federata**, fare clic su **modifica**.
 
     ![Scheda delle impostazioni globali](./media/clarizen-tutorial/tutorial_clarizen_002.png "Impostazioni globali")
 
@@ -140,13 +140,13 @@ Per configurare l'accesso Single Sign-On di Azure AD con Clarizen, seguire quest
 
     a. Selezionare **Enable Federated Authentication** (Abilita autenticazione federata).
 
-    b. Per caricare il certificato scaricato, fare clic su **Carica** .
+    b. Fare clic su **Upload** per caricare il certificato scaricato.
 
     c. Nella casella **Sign-in URL** (URL di accesso) immettere il valore di **Login URL** (URL di accesso) dalla finestra di configurazione dell'applicazione di Azure AD.
 
     d. Nella casella **Sign-out URL** (URL di disconnessione) immettere il valore di **Logout URL** (URL di disconnessione) dalla finestra di configurazione dell'applicazione di Azure AD.
 
-    e. Selezionare **Utilizza POST**.
+    e. Selezionare **Use POST**.
 
     f. Fare clic su **Salva**.
 
@@ -211,17 +211,17 @@ Per consentire agli utenti di Azure AD di accedere a Clarizen, è necessario eff
 
 1. Accedere al sito aziendale di Clarizen come amministratore.
 
-2. Fare clic su **Persone**.
+2. Fare clic su **People** (Persone).
 
     ![Clic sull'opzione relativa alle persone](./media/clarizen-tutorial/create_aaduser_001.png "Persone")
 
 3. Fare clic su **Invite User**.
 
-    ![Pulsante di invito dell'utente](./media/clarizen-tutorial/create_aaduser_002.png "Invite Users")
+    ![Pulsante di invito dell'utente](./media/clarizen-tutorial/create_aaduser_002.png "Invitare gli utenti")
 
 1. Nella finestra di dialogo **Invite People** (Invita persone) seguire questa procedura:
 
-    ![Finestra di dialogo di invito delle persone](./media/clarizen-tutorial/create_aaduser_003.png "Invita persone")
+    ![Finestra di dialogo di invito delle persone](./media/clarizen-tutorial/create_aaduser_003.png "Invitare persone")
 
     a. Nella casella **Email** (Posta elettronica) digitare l'indirizzo di posta elettronica dell'account di Britta Simon.
 

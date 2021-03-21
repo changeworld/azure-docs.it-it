@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 07/25/2019
 ms.author: alkohli
 ms.openlocfilehash: 71b018da6b54ebf2b45a261378ea521a397159e5
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/20/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94964984"
 ---
 # <a name="storsimple-virtual-array-best-practices"></a>Procedure consigliate per l'array virtuale StorSimple
@@ -287,5 +287,5 @@ Può essere necessario distribuire più array virtuali per tenere conto di un wo
 * Se si distribuiscono più array virtuali, dal punto di vista del bilanciamento del carico è consigliabile distribuire l'array in host hypervisor diversi.
 * Più array virtuali, se configurati come file server o server iSCSI, possono essere distribuiti in uno spazio dei nomi del file system distribuito. Per i passaggi dettagliati, vedere [Distributed File System Namespace Solution with Hybrid Cloud Storage Deployment Guide](https://www.microsoft.com/download/details.aspx?id=45507)(Guida alla distribuzione di una soluzione per lo spazio dei nomi del file system distribuito con archiviazione cloud ibrida). L'uso di Replica DFS con l'array virtuale non è attualmente consigliato. 
 
-## <a name="see-also"></a>Vedere anche
+## <a name="see-also"></a>Vedi anche
 Informazioni su come [amministrare l'array virtuale StorSimple](storsimple-virtual-array-manager-service-administration.md) usando il servizio StorSimple Manager.

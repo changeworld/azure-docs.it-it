@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 09/30/2020
 ms.custom: seodec18
 ms.openlocfilehash: c3f6f6a5ac1068f2eabca351e85376b8e16d1058
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/21/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "95016752"
 ---
 # <a name="best-practices-for-choosing-a-time-series-id"></a>Procedure consigliate per la scelta di un ID serie temporale
@@ -32,11 +32,11 @@ La selezione di un ID Time Series appropriato è fondamentale. Scegliere un ID s
 > * Una proprietà non *modificabile* : una volta creata, non può essere modificata.
 
 > [!TIP]
-> Se l'origine evento è un hub Internet delle cose, l'ID della serie temporale sarà probabilmente ***iothub-Connection-Device-ID** _.
+> Se l'origine evento è un hub Internet delle cose, l'ID della serie temporale sarà probabilmente ***iothub-Connection-Device-ID***.
 
 Di seguito sono riportate le principali procedure consigliate:
 
-_ Selezionare una chiave di partizione con molti valori distinti (ad esempio, centinaia o migliaia). In molti casi, potrebbe trattarsi dell'ID del dispositivo, dell'ID del sensore o dell'ID tag in JSON.
+* Selezionare una chiave di partizione con molti valori distinti (ad esempio, centinaia o migliaia). In molti casi, potrebbe trattarsi dell'ID del dispositivo, dell'ID del sensore o dell'ID tag in JSON.
 * L'ID serie temporale deve essere univoco a livello di nodo foglia del [modello serie temporale](./concepts-model-overview.md).
 * Il limite di caratteri per la stringa del nome di proprietà dell'ID della serie temporale è 128. Per il valore della proprietà dell'ID della serie temporale, il limite di caratteri è 1.024.
 * Se manca un valore di proprietà univoco per l'ID della serie temporale, questo viene considerato come un valore null e segue la stessa regola del vincolo di univocità.

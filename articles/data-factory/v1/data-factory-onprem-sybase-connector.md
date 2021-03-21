@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 02/02/2018
 robots: noindex
 ms.openlocfilehash: 8142ec51f93a066faafa1f3e44d0f87517187425
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/14/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100387241"
 ---
 # <a name="move-data-from-sybase-using-azure-data-factory"></a>Spostare i dati da Sybase utilizzando Data factory di Azure
@@ -39,7 +39,7 @@ Perché Gateway di gestione dati si connetta al database Sybase, è necessario i
 
 SAP Sybase SQL Anywhere (ASA) versione 16 e successive è supportato. IQ e ASE non sono supportati.
 
-## <a name="getting-started"></a>Guida introduttiva
+## <a name="getting-started"></a>Introduzione
 È possibile creare una pipeline con l'attività di copia che sposta i dati da un archivio dati Cassandra usando diversi strumenti/API. 
 
 - Il modo più semplice per creare una pipeline consiste nell'usare la **Copia guidata**. Vedere [Esercitazione: Creare una pipeline usando la Copia guidata](data-factory-copy-data-wizard-tutorial.md) per la procedura dettagliata sulla creazione di una pipeline attenendosi alla procedura guidata per copiare i dati. 

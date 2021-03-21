@@ -5,10 +5,10 @@ ms.date: 08/17/2020
 ms.topic: how-to
 ms.custom: devx-track-azurepowershell
 ms.openlocfilehash: 352c8b1936c38c9b5f706ac88bd4fd06e008b892
-ms.sourcegitcommit: ea822acf5b7141d26a3776d7ed59630bf7ac9532
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/03/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "99525348"
 ---
 # <a name="how-to-create-guest-configuration-policies-for-linux"></a>Come creare criteri di Configurazione guest per Linux
@@ -19,25 +19,25 @@ Per informazioni sulla creazione di criteri di Configurazione guest per Windows,
 
 Quando si esegue il controllo di Linux, Configurazione guest usa [Chef InSpec](https://www.inspec.io/). Il profilo InSpec definisce la condizione in cui deve trovarsi il computer. Se la valutazione della configurazione ha esito negativo, viene attivato l'effetto del criterio **auditIfNotExists** e il computer viene considerato **non conforme**.
 
-[Configurazione guest di Criteri di Azure](../concepts/guest-configuration.md) può essere usata solo per controllare le impostazioni all'interno dei computer. La correzione delle impostazioni all'interno dei computer non è ancora disponibile.
+È possibile usare la funzione [Configurazione guest di Criteri di Azure](../concepts/guest-configuration.md) solo per controllare le impostazioni all'interno dei computer. La correzione delle impostazioni all'interno dei computer non è ancora disponibile.
 
 Usare le azioni seguenti per creare una configurazione personalizzata per la convalida dello stato di un computer Azure o non Azure.
 
 > [!IMPORTANT]
 > Le definizioni dei criteri personalizzati con la configurazione Guest negli ambienti Azure per enti pubblici e Azure Cina sono una funzionalità in anteprima.
 >
-> L'estensione Configurazione guest è necessaria per eseguire controlli in macchine virtuali di Azure. Per distribuire l'estensione su larga scala in tutti i computer Linux, assegnare la definizione dei criteri seguente: `Deploy prerequisites to enable Guest Configuration Policy on Linux VMs`
+> L'estensione Configurazione guest è necessaria per eseguire controlli nelle macchine virtuali di Azure. Per distribuire l'estensione su larga scala in tutti i computer Linux, assegnare la definizione dei criteri seguente: `Deploy prerequisites to enable Guest Configuration Policy on Linux VMs`
 > 
 > Non usare segreti o informazioni riservate nei pacchetti di contenuto personalizzati.
 
 ## <a name="install-the-powershell-module"></a>Installare il modulo PowerShell
 
-Il modulo Configurazione guest automatizza il processo di creazione di contenuto personalizzato, tra cui:
+Il modulo Configurazione guest automatizza il processo di creazione di contenuti personalizzati, tra cui:
 
-- La creazione di un artefatto del contenuto di Configurazione guest (.ZIP)
-- Il test automatizzato dell'artefatto
-- La creazione di una definizione di criteri
-- La pubblicazione dei criteri
+- Creazione di un artefatto del contenuto di Configurazione guest (ZIP)
+- Test automatizzato dell'artefatto
+- Creazione di una definizione dei criteri
+- Pubblicazione dei criteri
 
 Il modulo può essere installato in un computer che esegue Windows, macOS o Linux con PowerShell 6.2 o versioni successive in esecuzione in locale oppure con [Azure Cloud Shell](https://shell.azure.com) o con l'[immagine Docker Azure PowerShell Core](https://hub.docker.com/r/azuresdk/azure-powershell-core).
 

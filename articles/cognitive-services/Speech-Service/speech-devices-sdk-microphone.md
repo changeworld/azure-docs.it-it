@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 07/16/2019
 ms.author: erhopf
 ms.openlocfilehash: 698a1d52af6c2472d6c025851ead1a0b6a6dff82
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/21/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "95015342"
 ---
 # <a name="speech-devices-sdk-microphone-array-recommendations"></a>Suggerimenti per i dispositivi vocali SDK per array microfoni
@@ -41,7 +41,7 @@ I canali del microfono devono essere ordinati in base alla numerazione raffigura
 
 Le proprietà consigliate quando si selezionano i microfoni sono:
 
-| Parametro | Implementazione consigliata |
+| Parametro | Consigliato |
 | --------- | ----------- |
 | SNR | \>= 65 dB (1 kHz Signal 94 dBSPL, A-weighted Noise) |
 | Corrispondenza dell'ampiezza | ± 1 dB a 1 kHz |
@@ -60,7 +60,7 @@ Per evitare di compromettere le prestazioni dei componenti usati, è necessario 
 
 Le prestazioni dell'array di microfoni quando integrato in un dispositivo si differenziano dalla specifica del componente. È importante assicurarsi che i microfoni siano abbinati correttamente dopo l'integrazione. Pertanto, le prestazioni del dispositivo misurate dopo qualsiasi guadagno fisso o EQ devono soddisfare le raccomandazioni seguenti:
 
-| Parametro          | Implementazione consigliata                                        |
+| Parametro          | Consigliato                                        |
 | ------------------ | -------------------------------------------------- |
 | SNR                | \> 63 dB (1 kHz Signal 94 dBSPL, A-weighted Noise) |
 | Sensibilità output | -26 dBFS/PA a 1 kHz (scelta consigliata)                  |
@@ -76,7 +76,7 @@ Le prestazioni dell'array di microfoni quando integrato in un dispositivo si dif
 
 Poiché l'annullamento Echo è necessario per i dispositivi di riconoscimento vocale che contengono altoparlanti, vengono fornite indicazioni aggiuntive per la selezione e l'integrazione del relatore.
 
-| Parametro | Implementazione consigliata |
+| Parametro | Consigliato |
 | --------- | ----------- |
 | Considerazioni sulla linearità | Nessuna elaborazione non lineare dopo il riferimento del relatore; in caso contrario, è necessario un flusso di riferimento loopback basato su hardware |
 | Loopback altoparlante | Fornito tramite WASAPI, le API private, il plug-in ALSA personalizzato (Linux) o fornito tramite il canale del firmware |

@@ -1,5 +1,5 @@
 ---
-title: 'Esercitazione: Integrazione di Azure Active Directory con AppBlade | Microsoft Docs'
+title: 'Esercitazione: Integrazione di Azure Active Directory con AppBlade | Documentazione Microsoft'
 description: Informazioni su come configurare l'accesso Single Sign-On tra Azure Active Directory e AppBlade.
 services: active-directory
 author: jeevansd
@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 01/17/2019
 ms.author: jeedes
 ms.openlocfilehash: 49fa266319423b4c1a0bc56ad2a32b49c18f168e
-ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
-ms.translationtype: HT
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/18/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97672628"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-appblade"></a>Esercitazione: Integrazione di Azure Active Directory con AppBlade
@@ -74,10 +74,10 @@ Per il funzionamento dell'accesso Single Sign-On, deve essere stabilita una rela
 Per configurare e testare l'accesso Single Sign-On di Azure AD con AppBlade, è necessario completare i blocchi predefiniti seguenti:
 
 1. **[Configurare l'accesso Single Sign-On di Azure AD](#configure-azure-ad-single-sign-on)** : per consentire agli utenti di usare questa funzionalità.
-2. **[Configurare l'accesso Single Sign-On di AppBlade](#configure-appblade-single-sign-on)** : per configurare le impostazioni di Single Sign-On sul lato applicazione.
+2. **[Configurare l'accesso Single Sign-On di AppBlade](#configure-appblade-single-sign-on)**: per configurare le impostazioni di Single Sign-On sul lato applicazione.
 3. **[Creare un utente di test di Azure AD](#create-an-azure-ad-test-user)** : per testare l'accesso Single Sign-On di Azure AD con l'utente Britta Simon.
 4. **[Assegnare l'utente di test di Azure AD](#assign-the-azure-ad-test-user)** : per abilitare Britta Simon all'uso dell'accesso Single Sign-On di Azure AD.
-5. **[Creare un utente di test di AppBlade](#create-appblade-test-user)** : per avere una controparte di Britta Simon in AppBlade collegata alla rappresentazione dell'utente in Azure AD.
+5. **[Creare un utente di test di AppBlade](#create-appblade-test-user)**: per avere una controparte di Britta Simon in AppBlade collegata alla rappresentazione dell'utente in Azure AD.
 6. **[Testare l'accesso Single Sign-On](#test-single-sign-on)** per verificare se la configurazione funziona.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Configurare l'accesso Single Sign-On di Azure AD
@@ -178,14 +178,14 @@ In questa sezione Britta Simon viene abilitata per l'uso dell'accesso Single Sig
 
 ### <a name="create-appblade-test-user"></a>Creare un utente di test di AppBlade
 
-Questa sezione descrive come creare un utente chiamato Britta Simon in AppBlade. AppBlade supporta il provisioning just-in-time, che è abilitato per impostazione predefinita. **Assicurarsi che il nome di dominio sia configurato con AppBlade per il provisioning utente. Successivamente, funzionerà sono il provisioning utente JIT.**
+Questa sezione descrive come creare un utente chiamato Britta Simon in AppBlade. AppBlade supporta il provisioning just-in-time, che è abilitato per impostazione predefinita. **Verificare che il nome di dominio sia configurato con AppBlade per il provisioning degli utenti. Successivamente, viene eseguito il provisioning degli utenti just-in-time.**
 
 Se l'utente ha un indirizzo e-mail che termina con il dominio configurato da AppBlade per l'account, l'utente verrà aggiunto automaticamente all'account come membro con il livello di autorizzazione specificato, ovvero "Basic" (utente di base che può solo installare applicazioni), "Team Member" (utente che può caricare nuove versioni dell'app e gestire progetti) o "Administrator" (privilegi completi di amministratore per l'account). In genere si sceglie il livello Basic e quindi si alzano di livello manualmente gli utenti tramite un accesso amministrativo. AppBlade deve configurare in anticipo un accesso amministrativo basato su posta elettronica o deve alzare di livello un utente per conto del cliente dopo l'accesso.
 
 Non è necessario alcun intervento dell'utente in questa sezione. Durante un tentativo di accesso ad AppBlade viene creato un nuovo utente, se questo non esiste già.
 
 > [!NOTE]
-> Per creare un utente manualmente, è necessario contattare il [team di supporto di AppBlade](mailto:support@appblade.com).
+> Se è necessario creare un utente manualmente, è necessario contattare il team di [supporto di AppBlade](mailto:support@appblade.com).
 
 ### <a name="test-single-sign-on"></a>Testare l'accesso Single Sign-On
 

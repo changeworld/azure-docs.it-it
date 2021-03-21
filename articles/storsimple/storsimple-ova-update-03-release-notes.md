@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 09/15/2016
 ms.author: alkohli
 ms.openlocfilehash: 8301b45fe778bd3df7fc665db2662ba81d3e644f
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/20/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94966106"
 ---
 # <a name="storsimple-virtual-array-update-03-release-notes"></a>Note sulla versione dell'aggiornamento 0.3 per l'array virtuale StorSimple
