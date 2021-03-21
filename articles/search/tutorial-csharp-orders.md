@@ -10,10 +10,10 @@ ms.topic: tutorial
 ms.date: 01/26/2021
 ms.custom: devx-track-js, devx-track-csharp
 ms.openlocfilehash: 1f8100dd6340383eadec5d10b7f23db59ba0ebdf
-ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/26/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98786386"
 ---
 # <a name="tutorial-order-search-results-using-the-net-sdk"></a>Esercitazione: Ordinare i risultati della ricerca con .NET SDK
@@ -50,7 +50,7 @@ Per abilitare l'ordinamento, non è necessario modificare alcun modello. Solo la
 
 ### <a name="add-the-orderby-property-to-the-search-parameters"></a>Aggiungere la proprietà OrderBy ai parametri di ricerca
 
-1. In HomeController.cs aggiungere l'opzione **OrderBy** e includere la proprietà rating con un ordinamento decrescente. Nel metodo **Index(SearchData model)** aggiungere la riga seguente ai parametri di ricerca.
+1. In HomeController. cs aggiungere l'opzione **OrderBy** e includere la proprietà rating con un ordinamento decrescente. Nel metodo **Index(SearchData model)** aggiungere la riga seguente ai parametri di ricerca.
 
     ```cs
     options.OrderBy.Add("Rating desc");

@@ -7,10 +7,10 @@ ms.date: 2/28/2018
 ms.author: gwallace
 ms.custom: devx-track-csharp
 ms.openlocfilehash: 7127d9906cfe1ba87241bd3810a9567e77bf0391
-ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/26/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98785499"
 ---
 # <a name="view-service-fabric-health-reports"></a>Come visualizzare i report sull'integrità di Service Fabric
@@ -1047,7 +1047,7 @@ Di seguito sono elencate le query che contengono **HealthState** per le entità:
 > [!NOTE]
 > Alcune query restituiscono risultati di paging. Queste query restituiscono un elenco derivato da [PagedList\<T>](/dotnet/api/system.fabric.query.pagedlist-1). Se questi risultati non corrispondono a un messaggio, viene restituita solo una pagina e un ContinuationToken che tiene traccia del punto in cui l'enumerazione è stata arrestata. Continuare a chiamare la stessa query e passare il token di continuazione dalla query precedente per ottenere i risultati successivi.
 
-### <a name="examples"></a>Esempi
+### <a name="examples"></a>Esempio
 Il codice seguente permette di ottenere le applicazioni non integre nel cluster:
 
 ```csharp

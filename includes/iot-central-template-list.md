@@ -1,6 +1,6 @@
 ---
-title: File di inclusione
-description: File di inclusione
+title: includere file
+description: includere file
 services: iot-central
 author: dominicbetts
 ms.service: iot-central
@@ -9,17 +9,17 @@ ms.date: 02/11/2020
 ms.author: dobett
 ms.custom: include file
 ms.openlocfilehash: 08e4fd82bea6bb1b510b127db8dee7803ee112f5
-ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/08/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96912301"
 ---
 **Modelli di applicazione**
 
 **Modelli di applicazione IoT Central**
 
-| Modello                 | Nome        | Description |
+| Modello                 | Nome        | Descrizione |
 | ------------------------ | ----------- | ----------- |
 | IOTC-PNP-anteprima         | Applicazione personalizzata | Crea un'applicazione vuota per l'utente da popolare con i propri modelli di dispositivi e dispositivi. |
 | IOTC-Condition           | Analisi in-Store-monitoraggio delle condizioni | Crea un'applicazione per la connessione e il monitoraggio di un ambiente di archiviazione. |

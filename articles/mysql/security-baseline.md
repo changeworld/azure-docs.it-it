@@ -8,17 +8,17 @@ ms.date: 09/02/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
 ms.openlocfilehash: c05abc6b761b9839df83f3170ce295d4480ca96a
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/17/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100577920"
 ---
 # <a name="azure-security-baseline-for-azure-database-for-mysql"></a>Baseline della sicurezza di Azure per database di Azure per MySQL
 
 La baseline di sicurezza di Azure per Database di Azure per MySQL contiene raccomandazioni utili per migliorare il comportamento della distribuzione in termini di sicurezza.
 
-La baseline per questo servizio è tratta dal [benchmark di sicurezza di Azure versione 1.0](../security/benchmarks/overview.md), che fornisce raccomandazioni su come proteggere le soluzioni cloud in Azure seguendo le indicazioni delle procedure consigliate Microsoft.
+La baseline per questo servizio è tratta da [Azure Security Benchmark, versione 1.0](../security/benchmarks/overview.md), che fornisce raccomandazioni su come proteggere le soluzioni cloud in Azure seguendo le indicazioni delle procedure consigliate Microsoft.
 
 Per altre informazioni, vedere [Panoramica delle baseline di sicurezza di Azure](../security/benchmarks/security-baselines-overview.md).
 

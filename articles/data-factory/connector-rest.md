@@ -4,14 +4,14 @@ description: Informazioni su come copiare dati da un'origine REST cloud o locale
 author: linda33wj
 ms.service: data-factory
 ms.topic: conceptual
-ms.date: 12/08/2020
+ms.date: 03/16/2021
 ms.author: jingwang
-ms.openlocfilehash: 972a7b32e6308c3aa8a3b42705038838dae9b2be
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 45e71b636d43633d5b157db2815ddd19c31395b3
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100369884"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104608130"
 ---
 # <a name="copy-data-from-and-to-a-rest-endpoint-by-using-azure-data-factory"></a>Copiare dati da e in un endpoint REST utilizzando Azure Data Factory
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -57,7 +57,8 @@ Per il servizio collegato REST sono supportate le proprietà seguenti:
 | type | La proprietà **Type** deve essere impostata su **RestService**. | Sì |
 | url | URL di base del servizio REST. | Sì |
 | enableServerCertificateValidation | Indica se convalidare il certificato TLS/SSL sul lato server per la connessione all'endpoint. | No<br /> (il valore predefinito è **true**) |
-| authenticationType | Tipo di autenticazione usato per connettersi al servizio REST. I valori consentiti sono **Anonymous**, **Basic**, **AadServicePrincipal** e **ManagedServiceIdentity**. Per altre proprietà ed esempi su ogni valore, vedere le sezioni corrispondenti di seguito. | Sì |
+| authenticationType | Tipo di autenticazione usato per connettersi al servizio REST. I valori consentiti sono **Anonymous**, **Basic**, **AadServicePrincipal** e **ManagedServiceIdentity**. OAuth basato su utente non è supportato. È inoltre possibile configurare le intestazioni di autenticazione nella `authHeader` Proprietà. Per altre proprietà ed esempi su ogni valore, vedere le sezioni corrispondenti di seguito.| Sì |
+| authHeaders | Intestazioni di richiesta HTTP aggiuntive per l'autenticazione.<br/> Ad esempio, per usare l'autenticazione con chiave API, è possibile selezionare "Anonymous" come tipo di autenticazione e specificare la chiave API nell'intestazione. | No |
 | connectVia | [Runtime di integrazione](concepts-integration-runtime.md) da usare per la connessione all'archivio dati. Per altre informazioni, vedere la sezione [Prerequisiti](#prerequisites). Se non è specificata, questa proprietà usa il tipo Azure Integration Runtime predefinito. |No |
 
 ### <a name="use-basic-authentication"></a>Usare l'autenticazione di base
@@ -150,6 +151,35 @@ Impostare la proprietà **authenticationType** su **ManagedServiceIdentity**. Ol
             "url": "<REST endpoint e.g. https://www.example.com/>",
             "authenticationType": "ManagedServiceIdentity",
             "aadResourceId": "<AAD resource URL e.g. https://management.core.windows.net>"
+        },
+        "connectVia": {
+            "referenceName": "<name of Integration Runtime>",
+            "type": "IntegrationRuntimeReference"
+        }
+    }
+}
+```
+
+### <a name="using-authentication-headers"></a>Uso delle intestazioni di autenticazione
+
+Inoltre, è possibile configurare le intestazioni delle richieste per l'autenticazione insieme ai tipi di autenticazione predefiniti.
+
+**Esempio: uso dell'autenticazione con chiave API**
+
+```json
+{
+    "name": "RESTLinkedService",
+    "properties": {
+        "type": "RestService",
+        "typeProperties": {
+            "url": "<REST endpoint>",
+            "authenticationType": "Anonymous",
+            "authHeader": {
+                "x-api-key": {
+                    "type": "SecureString",
+                    "value": "<API key>"
+                }
+            }
         },
         "connectVia": {
             "referenceName": "<name of Integration Runtime>",
