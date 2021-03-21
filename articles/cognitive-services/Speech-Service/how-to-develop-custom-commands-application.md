@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 12/15/2020
 ms.author: trbye
 ms.openlocfilehash: 1a002b6efbe2603ae254c19f9e3cc7377198cea2
-ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/06/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97935819"
 ---
 # <a name="develop-custom-commands-applications"></a>Sviluppare applicazioni di comandi personalizzati
@@ -96,7 +96,7 @@ Per altre informazioni sulle regole e sulle regole di completamento, vedere [con
     | Impostazione    | Valore consigliato                          | Descrizione                                        |
     | ---------- | ---------------------------------------- | -------------------------------------------------- |
     | **Nome**       | `ConfirmationResponse`                  | Nome che descrive lo scopo della regola          |
-    | **Condizioni** | Nessuno                                     | Condizioni che determinano quando la regola può essere eseguita    |
+    | **Condizioni** | nessuno                                     | Condizioni che determinano quando la regola può essere eseguita    |
     | **Actions**    | **Invia risposta vocale**  >  **Editor semplice**  >  **Prima variazione** > `Ok, turning the tv on` | Azione da eseguire quando la condizione della regola è true |
 
    > [!div class="mx-imgBorder"]
@@ -119,7 +119,7 @@ Modificare quindi le regole di completamento **eseguite** esistenti come segue:
 | Impostazione    | Valore consigliato                          |
 | ---------- | ---------------------------------------- |
 | **Nome**  | `ConfirmationResponse`                  |
-| **Condizioni** | Nessuno                                     |
+| **Condizioni** | nessuno                                     |
 | **Actions**    | **Invia risposta vocale**  >  **Editor semplice**  >  **Prima variazione** > `Ok, setting temperature to 40 degrees` |
 
 Selezionare **Save (Salva** ) per salvare tutte le modifiche apportate al comando.
@@ -131,7 +131,7 @@ Creare un nuovo `SetAlarm` comando. Usare la frase di esempio `Set an alarm for 
 | Impostazione    | Valore consigliato                          |
 | ---------- | ---------------------------------------- |
 | **Nome**  | `ConfirmationResponse`                  |
-| **Condizioni** | Nessuno                                     |
+| **Condizioni** | nessuno                                     |
 | **Actions**    | **Invia risposta vocale**  >  **Editor semplice**  >  **Prima variazione** > `Ok, setting an alarm for 9 am tomorrow` |
 
 Selezionare **Save (Salva** ) per salvare tutte le modifiche apportate al comando.
@@ -187,7 +187,7 @@ Per iniziare, modificare il `TurnOn` comando esistente per attivare e disattivar
        | ------------------ | ----------------| ---------------------------------------------------------------------|
        | **Nome**               | `OnOff`           | Nome descrittivo per il parametro                                                                           |
        | **È globale**          | Deselezionato       | Casella di controllo che indica se un valore per questo parametro viene applicato globalmente a tutti i comandi nell'applicazione.|
-       | **Richiesto**           | Opzione selezionata         | Casella di controllo che indica se è necessario un valore per questo parametro prima del completamento del comando. |
+       | **Obbligatorio**           | Opzione selezionata         | Casella di controllo che indica se è necessario un valore per questo parametro prima del completamento del comando. |
        | **Risposta per il parametro obbligatorio**      |**Editor semplice** > `On or Off?`      | Messaggio che richiede il valore di questo parametro quando non è noto. |
        | **Tipo**               | **Stringa**          | Tipo di parametro, ad esempio numero, stringa, data/ora o geografia.   |
        | **Configuration**      | **Accetta valori di input predefiniti da un catalogo interno** | Per le stringhe, questa impostazione limita gli input a un set di valori possibili. |
@@ -210,7 +210,7 @@ Per iniziare, modificare il `TurnOn` comando esistente per attivare e disattivar
     | ------------------ | --------------------- |
     | **Nome**               | `SubjectDevice`         |
     | **È globale**          | Deselezionato             |
-    | **Richiesto**           | Opzione selezionata               |
+    | **Obbligatorio**           | Opzione selezionata               |
     | **Risposta per il parametro obbligatorio**     | **Editor semplice** > `Which device do you want to control?`    | 
     | **Tipo**               | **Stringa**                |          |
     | **Configuration**      | **Accetta valori di input predefiniti da un catalogo interno** | 
@@ -221,7 +221,7 @@ Per iniziare, modificare il `TurnOn` comando esistente per attivare e disattivar
 
 #### <a name="modify-example-sentences"></a>Modificare le frasi di esempio
 
-Per i comandi che usano parametri, è utile aggiungere frasi di esempio che coprono tutte le possibili combinazioni. Esempio:
+Per i comandi che usano parametri, è utile aggiungere frasi di esempio che coprono tutte le possibili combinazioni. Ad esempio:
 
 * Informazioni complete sui parametri: `turn {OnOff} the {SubjectDevice}`
 * Informazioni sul parametro parziale: `turn it {OnOff}`
@@ -282,7 +282,7 @@ Aggiungere un `Temperature` parametro. Usare la configurazione seguente:
 | Configurazione      | Valore consigliato     |
 | ------------------ | ----------------|
 | **Nome**               | `Temperature`           |
-| **Richiesto**           | Opzione selezionata         |
+| **Obbligatorio**           | Opzione selezionata         |
 | **Risposta per il parametro obbligatorio**      | **Editor semplice** > `What temperature would you like?`
 | **Tipo**               | `Number`          |
 
@@ -310,7 +310,7 @@ Aggiungere un parametro denominato `DateTime` . Utilizzare la configurazione seg
    | Impostazione                           | Valore consigliato                     | 
    | --------------------------------- | ----------------------------------------|
    | **Nome**                              | `DateTime`                               |
-   | **Richiesto**                          | Opzione selezionata                                 |
+   | **Obbligatorio**                          | Opzione selezionata                                 |
    | **Risposta per il parametro obbligatorio**   | **Editor semplice** > `For what time?`            | 
    | **Tipo**                              | **DateTime**                                |
    | **Impostazioni predefinite data**                     | Se la data non è presente, usare oggi.            |
@@ -422,7 +422,7 @@ Testare le convalide tramite il `SetTemperature` comando. Usare la procedura seg
 1. Nel riquadro a sinistra selezionare il comando **setemperature** .
 1. Nel riquadro centrale selezionare **temperatura**.
 1. Nel riquadro a destra selezionare **Aggiungi una convalida**.
-1. Nella nuova finestra di **convalida** configurare la convalida come illustrato nella tabella seguente. Selezionare quindi **Crea**.
+1. Nella nuova finestra di **convalida** configurare la convalida come illustrato nella tabella seguente. Quindi selezionare **Crea**
 
 
     | Configurazione parametri | Valore consigliato | Descrizione |
@@ -589,7 +589,7 @@ Modificare il `TurnOnOff` comando per aggiungere un nuovo parametro. Utilizzare 
 | ------------------ | --------------------- | 
 | **Nome**               | `SubjectContext`         | 
 | **È globale**          | Deselezionato             | 
-| **Richiesto**           | Deselezionato               | 
+| **Obbligatorio**           | Deselezionato               | 
 | **Tipo**               | **Stringa**                |
 | **Valore predefinito**      | `all` |
 | **Configuration**      | **Accetta valori di input predefiniti dal catalogo interno** | 

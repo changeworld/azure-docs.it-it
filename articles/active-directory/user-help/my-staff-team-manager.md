@@ -1,5 +1,5 @@
 ---
-title: Gestire password e numeri di telefono con My Staff (anteprima) - Azure AD | Microsoft Docs
+title: Gestisci password e numeri di telefono con il personale personale-Azure AD | Microsoft Docs
 description: Gestire password e numeri di telefono degli utenti con My Staff
 services: active-directory
 documentationcenter: ''
@@ -9,18 +9,18 @@ ms.topic: end-user-help
 ms.service: active-directory
 ms.subservice: user-help
 ms.workload: identity
-ms.date: 04/14/2020
+ms.date: 03/17/2021
 ms.author: curtand
 ms.reviewer: sahenry
 ms.custom: oldportal;it-pro;
-ms.openlocfilehash: 56ee7df52abf97c920dfe2fa4ba5d1d858975f7d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7b435c56f53001275fbdb1a3b3cfae25536a9a63
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91537091"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104583599"
 ---
-# <a name="delegate-user-management-with-my-staff-preview"></a>Delegare la gestione degli utenti con My Staff (anteprima)
+# <a name="delegate-user-management-with-my-staff"></a>Delegare la gestione degli utenti con il personale
 
 L'organizzazione può usare **My Staff** per delegare le attività di gestione degli utenti a figure autorevoli, ad esempio uno store manager o un team leader, per consentire ai membri del personale di accedere alle applicazioni necessarie. Se un membro del team non è in grado di accedere a un'applicazione perché dimentica una password, si verificano conseguenze negative in termini di produttività persa, aumento dei costi di supporto e creazione di colli di bottiglia nei processi amministrativi.  Con My Staff, un membro del team che non riesce ad accedere al proprio account può recuperare l'accesso con pochi clic, senza chiedere assistenza all'amministratore.
 

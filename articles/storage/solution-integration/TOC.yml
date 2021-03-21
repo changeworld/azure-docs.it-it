@@ -1,5 +1,5 @@
 - name: Soluzioni partner convalidate per archiviazione di Azure
-  href: /azure/storage/solution-integration
+  href: ./index.yml
 - name: Partner di analisi e Big Data
   items:
     - name: Panoramica dei partner convalidati

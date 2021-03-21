@@ -9,16 +9,26 @@ ms.subservice: general
 ms.topic: how-to
 ms.date: 10/01/2020
 ms.author: mbaldwin
-ms.openlocfilehash: 7b71fc2f3afb67d766bfe267888674b55af6a3a5
-ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
+ms.openlocfilehash: 62035b2fe6c3db71e392a05946ea3f230dfa030e
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/09/2021
-ms.locfileid: "102503914"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104604627"
 ---
 # <a name="how-to-enable-key-vault-logging"></a>Come abilitare la registrazione di Key Vault
 
 Dopo aver creato una o più insiemi di credenziali delle chiavi, può essere utile monitorare come, quando e da chi vengono usate. Per informazioni dettagliate sulla funzionalità, vedere [Key Vault registrazione](logging.md).
+
+Cosa viene registrato:
+
+* Tutte le richieste API REST autenticate, incluse le richieste non riuscite a causa di autorizzazioni di accesso, errori di sistema o richieste non valide.
+* Operazioni sull'insieme di credenziali delle chiavi stesso, tra cui creazione, eliminazione e impostazione di criteri di accesso all'insieme di credenziali delle chiavi, nonché aggiornamento degli attributi dell'insieme di credenziali delle chiavi, quali i tag.
+* Operazioni su chiavi e segreti nell'insieme di credenziali delle chiavi, tra cui:
+  * Creazione, modifica o eliminazione di queste chiavi o segreti.
+  * Firma, verifica, crittografia, decrittografia, wrapping e annullamento del wrapping delle chiavi, recupero di segreti ed elenco di chiavi e segreti (e delle relative versioni).
+* Richieste non autenticate che generano una risposta 401. Alcuni esempi sono le richieste che non hanno un token di connessione, hanno un formato non valido, sono scadute o hanno un token non valido.  
+* Eventi di notifica di modifica di Griglia di eventi per i criteri di accesso all'insieme di credenziali delle chiavi vicini alla scadenza o scaduti (l'evento su nuove versioni non viene registrato). Gli eventi vengono registrati indipendentemente dalla disponibilità di una sottoscrizione di eventi creata nell'insieme di credenziali delle chiavi. Per altre informazioni, vedere [Schema di eventi di Griglia di eventi per Key Vault](../../event-grid/event-schema-key-vault.md)
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -58,7 +68,7 @@ Per rendere la gestione ancora più facile, si userà anche lo stesso gruppo di 
 
 È anche necessario specificare un nome di account di archiviazione. I nomi degli account di archiviazione devono essere univoci, con una lunghezza compresa tra 3 e 24 caratteri e usare solo numeri e lettere minuscole.  Infine, verrà creato un account di archiviazione dello SKU "Standard_LRS".
 
-Con l'interfaccia della riga di comando di Azure usare il comando [AZ storage account create](/cli/azure/storage/account#az_storage_account_create) .
+Con l'interfaccia della riga di comando di Azure usare il comando [AZ storage account create](/cli/azure/storage/account#az_storage_account_create) . 
 
 ```azurecli-interactive
 az storage account create --name "<your-unique-storage-account-name>" -g "myResourceGroup" --sku "Standard_LRS"
@@ -100,44 +110,67 @@ Get-AzKeyVault -VaultName "<your-unique-keyvault-name>"
 
 L'ID di risorsa per l'insieme di credenziali delle chiavi sarà nel formato "/subscriptions/<your-Subscription-ID>/resourceGroups/myResourceGroup/providers/Microsoft.KeyVault/vaults/<Your-Unique-Key Vault-Name>". Si noti che per il passaggio successivo.
 
-## <a name="enable-logging-using-azure-powershell"></a>Abilitare la registrazione con Azure PowerShell
+## <a name="enable-logging"></a>Abilitare la registrazione
 
-Per abilitare la registrazione per Key Vault, usare l'interfaccia della riga di comando di Azure [AZ monitor Diagnostic-Settings create](/cli/azure/monitor/diagnostic-settings) oppure il cmdlet [set-AzDiagnosticSetting](/powershell/module/az.monitor/set-azdiagnosticsetting) , insieme all'ID dell'account di archiviazione e all'ID della risorsa dell'insieme di credenziali delle chiavi.
+È possibile abilitare la registrazione per Key Vault usando l'interfaccia della riga di comando di Azure, Azure PowerShell o il portale di Azure.
+
+# <a name="azure-cli"></a>[Interfaccia della riga di comando di Azure](#tab/azure-cli)
+
+### <a name="azure-cli"></a>Interfaccia della riga di comando di Azure
+
+Usare l'interfaccia della riga di comando [AZ monitor Diagnostic-Settings create](/cli/azure/monitor/diagnostic-settings) con l'ID dell'account di archiviazione e l'ID della risorsa dell'insieme di credenziali delle chiavi.
 
 ```azurecli-interactive
 az monitor diagnostic-settings create --storage-account "<storage-account-id>" --resource "<key-vault-resource-id>" --name "Key vault logs" --logs '[{"category": "AuditEvent","enabled": true}]' --metrics '[{"category": "AllMetrics","enabled": true}]'
 ```
 
-Con Azure PowerShell, verrà usato il cmdlet [set-AzDiagnosticSetting](/powershell/module/az.monitor/set-azdiagnosticsetting) , con il flag **-Enabled** impostato su **$true** e la categoria impostata su `AuditEvent` (l'unica categoria per la registrazione Key Vault):
+Facoltativamente, è possibile impostare un criterio di conservazione per i log, in modo che i log meno recenti vengano eliminati automaticamente dopo un periodo di tempo specificato. Ad esempio, è possibile impostare un criterio di conservazione che elimini automaticamente i log anteriori a 90 giorni.
+
+Con l'interfaccia della riga di comando di Azure, usare il comando [AZ monitor Diagnostic-Settings Update](/cli/azure/monitor/diagnostic-settings#az_monitor_diagnostic_settings_update) . 
+
+```azurecli-interactive
+az monitor diagnostic-settings update --name "Key vault retention policy" --resource "<key-vault-resource-id>" --set retentionPolicy.days=90
+```
+
+# <a name="azure-powershell"></a>[Azure PowerShell](#tab/azure-powershell)
+
+Usare il cmdlet [set-AzDiagnosticSetting](/powershell/module/az.monitor/set-azdiagnosticsetting) con il flag **-Enabled** impostato su **$true** e la categoria impostata su `AuditEvent` (l'unica categoria per la registrazione Key Vault):
 
 ```powershell-interactive
 Set-AzDiagnosticSetting -ResourceId "<key-vault-resource-id>" -StorageAccountId $sa.id -Enabled $true -Category "AuditEvent"
 ```
 
-Facoltativamente, è possibile impostare un criterio di conservazione per i log, in modo che i log meno recenti vengano eliminati automaticamente dopo un periodo di tempo specificato. Ad esempio, è possibile impostare criteri di conservazione per l'eliminazione automatica dei log più vecchi di 90 giorni.
+Facoltativamente, è possibile impostare un criterio di conservazione per i log, in modo che i log meno recenti vengano eliminati automaticamente dopo un periodo di tempo specificato. Ad esempio, è possibile impostare un criterio di conservazione che elimini automaticamente i log anteriori a 90 giorni.
 
-<!-- With the Azure CLI, use the [az monitor diagnostic-settings update](/cli/azure/monitor/diagnostic-settings#az_monitor_diagnostic_settings_update) command. 
-
-```azurecli-interactive
-az monitor diagnostic-settings update 
-```
--->
-
-Con Azure PowerShell, usare il cmdlet [set-AzDiagnosticSetting](/powershell/module/az.monitor/set-azdiagnosticsetting) . 
+Con Azure PowerShell, usare il cmdlet [set-AzDiagnosticSetting](/powershell/module/az.monitor/set-azdiagnosticsetting) .
 
 ```powershell-interactive
 Set-AzDiagnosticSetting "<key-vault-resource-id>" -StorageAccountId $sa.id -Enabled $true -Category AuditEvent -RetentionEnabled $true -RetentionInDays 90
 ```
 
-Cosa viene registrato:
+# <a name="azure-portal"></a>[Azure portal](#tab/azure-portal)
 
-* Tutte le richieste API REST autenticate, incluse le richieste non riuscite a causa di autorizzazioni di accesso, errori di sistema o richieste non valide.
-* Operazioni sull'insieme di credenziali delle chiavi stesso, tra cui creazione, eliminazione e impostazione di criteri di accesso all'insieme di credenziali delle chiavi, nonché aggiornamento degli attributi dell'insieme di credenziali delle chiavi, quali i tag.
-* Operazioni su chiavi e segreti nell'insieme di credenziali delle chiavi, tra cui:
-  * Creazione, modifica o eliminazione di queste chiavi o segreti.
-  * Firma, verifica, crittografia, decrittografia, wrapping e annullamento del wrapping delle chiavi, recupero di segreti ed elenco di chiavi e segreti (e delle relative versioni).
-* Richieste non autenticate che generano una risposta 401. Alcuni esempi sono le richieste che non hanno un token di connessione, hanno un formato non valido, sono scadute o hanno un token non valido.  
-* Eventi di notifica di modifica di Griglia di eventi per i criteri di accesso all'insieme di credenziali delle chiavi vicini alla scadenza o scaduti (l'evento su nuove versioni non viene registrato). Gli eventi vengono registrati indipendentemente dalla disponibilità di una sottoscrizione di eventi creata nell'insieme di credenziali delle chiavi. Per altre informazioni, vedere [Schema di eventi di Griglia di eventi per Key Vault](../../event-grid/event-schema-key-vault.md)
+Per configurare le impostazioni di diagnostica nel portale, seguire questa procedura.
+
+1. Selezionare le impostazioni di diagnostica dal menu del pannello della risorsa.
+
+    :::image type="content" source="../media/diagnostics-portal-1.png" alt-text="Portale di diagnostica 1":::
+
+1. Fare clic su "+ Aggiungi impostazione di diagnostica"
+
+    :::image type="content" source="../media/diagnostics-portal-2.png" alt-text="Portale di diagnostica 2":::
+ 
+1. Selezionare un nome per chiamare l'impostazione di diagnostica. Per configurare la registrazione per monitoraggio di Azure per Key Vault, selezionare l'opzione "AuditEvent" e "Invia a Log Analytics area di lavoro". Scegliere quindi la sottoscrizione e l'area di lavoro Log Analytics a cui si vogliono inviare i log.
+
+    :::image type="content" source="../media/diagnostics-portal-3.png" alt-text="Portale di diagnostica 3":::
+
+    In caso contrario, selezionare le opzioni relative ai log che si desidera selezionare
+
+1. Dopo aver selezionato le opzioni desiderate, selezionare Salva.
+
+    :::image type="content" source="../media/diagnostics-portal-4.png" alt-text="Portale di diagnostica 4":::
+
+---
 
 ## <a name="access-your-logs"></a>Accedere ai log
 

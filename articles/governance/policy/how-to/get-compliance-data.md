@@ -1,14 +1,14 @@
 ---
 title: Ottenere i dati di conformità ai criteri
 description: Le valutazioni e gli effetti di Criteri di Azure determinano la conformità. Informazioni su come ottenere informazioni dettagliate sulle risorse di Azure.
-ms.date: 10/05/2020
+ms.date: 03/16/2021
 ms.topic: how-to
-ms.openlocfilehash: 3c1c128b414444c6004f32f3f3173548f81a82e1
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: cdd23d685750fb8a5d3803f4b6030e7e67bbddce
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100577121"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104598542"
 ---
 # <a name="get-compliance-data-of-azure-resources"></a>Ottenere i dati di conformità delle risorse di Azure
 
@@ -26,7 +26,7 @@ Prima di esaminare i metodi disponibili per creare report sulla conformità, è 
 
 ## <a name="evaluation-triggers"></a>Trigger di valutazione
 
-I risultati di un ciclo di valutazione completato sono disponibili nel provider di risorse `Microsoft.PolicyInsights` attraverso le operazioni `PolicyStates` e `PolicyEvents`. Per altre informazioni sulle operazioni dell'API REST di Azure Policy Insights, vedere [Azure Policy Insights](/rest/api/policy-insights/).
+I risultati di un ciclo di valutazione completato sono disponibili nel provider di risorse `Microsoft.PolicyInsights` attraverso le operazioni `PolicyStates` e `PolicyEvents`. Per altre informazioni sulle operazioni dell'API REST di Azure Policy Insights, vedere [Azure Policy Insights](/rest/api/policy/).
 
 Le valutazioni delle iniziative e dei criteri assegnati sono il risultato di diversi eventi:
 
@@ -237,13 +237,13 @@ Quando una risorsa **non è conforme**, i motivi possibili sono molti. Per deter
 
 ## <a name="command-line"></a>Riga di comando
 
-Le stesse informazioni disponibili nel portale possono essere recuperate con l'API REST (incluso con [ARMClient](https://github.com/projectkudu/ARMClient)), Azure PowerShell e l'interfaccia della riga di comando di Azure. Per tutti i dettagli sull'API REST, vedere le informazioni di riferimento su [Azure Policy Insights](/rest/api/policy-insights/). Le pagine di riferimento sull'API REST includono un pulsante verde "Prova", che consente di provare ogni operazione direttamente nel browser.
+Le stesse informazioni disponibili nel portale possono essere recuperate con l'API REST (incluso con [ARMClient](https://github.com/projectkudu/ARMClient)), Azure PowerShell e l'interfaccia della riga di comando di Azure. Per informazioni dettagliate sull'API REST, vedere informazioni di riferimento sui [criteri di Azure](/rest/api/policy/) . Le pagine di riferimento sull'API REST includono un pulsante verde "Prova", che consente di provare ogni operazione direttamente nel browser.
 
 Usare ARMClient o uno strumento simile per gestire l'autenticazione in Azure per gli esempi di API REST.
 
 ### <a name="summarize-results"></a>Riepilogare i risultati
 
-L'API REST consente di eseguire il riepilogo per contenitore, definizione o assegnazione. Di seguito è riportato un esempio di riepilogo a livello di sottoscrizione tramite il [riepilogo per sottoscrizione](/rest/api/policy-insights/policystates/summarizeforsubscription) di Azure Policy Insights:
+L'API REST consente di eseguire il riepilogo per contenitore, definizione o assegnazione. Di seguito è riportato un esempio di riepilogo a livello di sottoscrizione tramite il [riepilogo per sottoscrizione](/rest/api/policy/policystates/summarizeforsubscription) di Azure Policy Insights:
 
 ```http
 POST https://management.azure.com/subscriptions/{subscriptionId}/providers/Microsoft.PolicyInsights/policyStates/latest/summarize?api-version=2019-10-01
@@ -353,7 +353,7 @@ I risultati saranno simili all'esempio seguente:
 }
 ```
 
-Per altre informazioni sull'esecuzione di query sugli eventi dei criteri, vedere l'articolo di riferimento [Azure Policy Events](/rest/api/policy-insights/policyevents) (Eventi di Criteri di Azure).
+Per altre informazioni sull'esecuzione di query sugli eventi dei criteri, vedere l'articolo di riferimento [Azure Policy Events](/rest/api/policy/policyevents) (Eventi di Criteri di Azure).
 
 ### <a name="azure-cli"></a>Interfaccia della riga di comando di Azure
 
@@ -648,7 +648,7 @@ $policyEvents = Get-AzPolicyEvent -Filter "ResourceType eq '/Microsoft.Network/v
 $policyEvents | ConvertTo-Csv | Out-File 'C:\temp\policyEvents.csv'
 ```
 
-L'output dell' `$policyEvents` oggetto è simile al seguente:
+L'output dell'oggetto ha un `$policyEvents` aspetto simile al seguente:
 
 ```output
 Timestamp                  : 9/19/2020 5:18:53 AM

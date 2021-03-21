@@ -1,18 +1,18 @@
 ---
 title: 'Avvio rapido: Creare un cluster di Analisi di flusso di Azure'
 description: Informazioni su come creare un cluster di Analisi di flusso di Azure.
+ms.service: stream-analytics
 author: sidramadoss
 ms.author: sidram
-ms.service: stream-analytics
-ms.topic: overview
+ms.topic: quickstart
 ms.custom: mvc
 ms.date: 09/22/2020
-ms.openlocfilehash: eb36af5b3f1e142405b24ade16516d0268b4ab2f
-ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
-ms.translationtype: HT
+ms.openlocfilehash: 6b7a7c5feb6165f5b2c7c0ea052318a255e8025c
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98016559"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104600225"
 ---
 # <a name="quickstart-create-a-dedicated-azure-stream-analytics-cluster-using-azure-portal"></a>Avvio rapido: Creare un cluster dedicato di Analisi di flusso di Azure tramite il portale di Azure
 
@@ -37,7 +37,7 @@ In questa sezione si crea una risorsa cluster di Analisi di flusso.
 
    |Impostazione|Valore|Descrizione |
    |---|---|---|
-   |Sottoscrizione|Nome sottoscrizione|Selezionare la sottoscrizione di Azure da usare per il cluster di Analisi di flusso. |
+   |Subscription|Nome sottoscrizione|Selezionare la sottoscrizione di Azure da usare per il cluster di Analisi di flusso. |
    |Gruppo di risorse|Nome del gruppo di risorse|Selezionare un gruppo di risorse oppure fare clic su **Crea nuovo**, quindi immettere un nome univoco per il nuovo gruppo di risorse. |
    |Cluster Name|Un nome univoco|Immettere un nome per identificare il cluster di Analisi di flusso.|
    |Location|L'area più vicina alle origini dati e ai sink|Selezionare una località geografica in cui ospitare il cluster di Analisi di flusso. Usare l'area più vicina alle origini dati e ai sink per un'analisi a bassa latenza.|

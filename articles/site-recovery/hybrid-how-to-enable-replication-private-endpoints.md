@@ -7,10 +7,10 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 07/14/2020
 ms.openlocfilehash: 7f10654e1c96f1756e5864d20fa2a6817385e994
-ms.sourcegitcommit: 484f510bbb093e9cfca694b56622b5860ca317f7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/21/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98629794"
 ---
 # <a name="replicate-on-premises-machines-by-using-private-endpoints"></a>Eseguire la replica di computer locali usando endpoint privati

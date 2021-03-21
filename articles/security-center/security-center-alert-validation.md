@@ -1,24 +1,18 @@
 ---
 title: Convalida degli avvisi nel centro sicurezza di Azure | Microsoft Docs
 description: Informazioni su come verificare che gli avvisi di sicurezza siano configurati correttamente nel centro sicurezza di Azure
-services: security-center
-documentationcenter: na
 author: memildin
 manager: rkarlin
-ms.assetid: f8f17a55-e672-4d86-8ba9-6c3ce2e71a57
 ms.service: security-center
-ms.devlang: na
 ms.topic: how-to
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 02/17/2021
+ms.date: 03/17/2021
 ms.author: memildin
-ms.openlocfilehash: 74323c63ab8985dee2391a546d82258dcb8d0114
-ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
+ms.openlocfilehash: b90ca39d7bf01b84400464240bb581a5e7bc922a
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102099523"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104602384"
 ---
 # <a name="alert-validation-in-azure-security-center"></a>Convalida degli avvisi nel centro sicurezza di Azure
 Questo documento illustra come verificare che il sistema sia configurato correttamente per gli avvisi del Centro sicurezza di Azure.
@@ -39,7 +33,7 @@ Usare gli avvisi di esempio per:
 
 Per creare avvisi di esempio:
 
-1. Nella barra degli strumenti della pagina avvisi selezionare **Crea avvisi di esempio**. 
+1. Un utente con ruolo amministratore della **sicurezza** o **collaboratore della sottoscrizione**, sulla barra degli strumenti della pagina avvisi selezionare **Crea avvisi di esempio**.
 1. Selezionare la sottoscrizione.
 1. Selezionare il piano/i pertinente di Azure Defender per il quale si desidera visualizzare gli avvisi. 
 1. Selezionare **Crea avvisi di esempio**.

@@ -14,10 +14,10 @@ ms.date: 09/17/2020
 ms.author: alkemper
 ms.custom: devx-track-csharp, mvc
 ms.openlocfilehash: 327bc687c466a30d4f92810e48dc08f822f752ec
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/03/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "101726428"
 ---
 # <a name="tutorial-use-feature-flags-in-an-aspnet-core-app"></a>Esercitazione: Usare i flag di funzionalità in un'app ASP.NET Core
@@ -151,7 +151,7 @@ Il modo più semplice per connettere l'applicazione ASP.NET Core alla configuraz
     ```
     ---
 
-2. Aprire *Startup.cs* e aggiornare il `Configure` `ConfigureServices` metodo e per aggiungere il middleware incorporato denominato `UseAzureAppConfiguration` . Questo middleware consente di aggiornare i valori dei flag delle funzionalità a intervalli ricorrenti mentre l'app Web ASP.NET Core continua a ricevere richieste.
+2. Aprire *Startup. cs* e aggiornare il `Configure` `ConfigureServices` metodo e per aggiungere il middleware incorporato denominato `UseAzureAppConfiguration` . Questo middleware consente di aggiornare i valori dei flag delle funzionalità a intervalli ricorrenti mentre l'app Web ASP.NET Core continua a ricevere richieste.
 
 
 

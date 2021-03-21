@@ -9,10 +9,10 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 12/14/2020
 ms.openlocfilehash: f679d6fbab57bcbcccc09b722f6b2f670df49eb2
-ms.sourcegitcommit: 66479d7e55449b78ee587df14babb6321f7d1757
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/15/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97516581"
 ---
 # <a name="simple-query-syntax-in-azure-cognitive-search"></a>Sintassi di query semplice in Azure ricerca cognitiva
@@ -60,7 +60,7 @@ Con la stessa semplicità di questa operazione, esiste un aspetto dell'esecuzion
 
 È possibile incorporare gli operatori booleani in una stringa di query per migliorare la precisione di una corrispondenza. Nella sintassi semplice, gli operatori booleani sono basati su caratteri. Gli operatori di testo, ad esempio Word e, non sono supportati.
 
-| Carattere | Esempio | Uso |
+| Carattere | Esempio | Utilizzo |
 |----------- |--------|-------|
 | `+` | `pool + ocean` | Operazione AND. Ad esempio, `pool + ocean` stabilisce che un documento deve contenere entrambi i termini.|
 | `|` | `pool | ocean` | Un'operazione o trova una corrispondenza quando viene trovato uno o più termini. Nell'esempio, il motore di query restituirà match nei documenti contenenti `pool` o `ocean` o entrambi. Poiché OR è l'operatore di congiunzione predefinito, è anche possibile escluderlo, in modo che `pool ocean` sia l'equivalente di `pool | ocean`.|
@@ -72,7 +72,7 @@ Con la stessa semplicità di questa operazione, esiste un aspetto dell'esecuzion
 
 Per le query "inizia con", aggiungere un suffisso operator ( `*` ) come segnaposto per il resto di un termine. Una query di prefisso deve iniziare con almeno un carattere alfanumerico prima di poter aggiungere l'operatore del suffisso.
 
-| Carattere | Esempio | Uso |
+| Carattere | Esempio | Utilizzo |
 |----------- |--------|-------|
 | `*` | `lingui*` corrisponderà a "linguistico" o "linguinei" | L'asterisco ( `*` ) rappresenta uno o più caratteri di lunghezza arbitraria, ignorando la distinzione tra maiuscole e minuscole.  |
 

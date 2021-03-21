@@ -9,12 +9,12 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/24/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 4390291eb96c11b8fb7fdb48eb92abaf802b80c0
-ms.sourcegitcommit: 2e9643d74eb9e1357bc7c6b2bca14dbdd9faa436
+ms.openlocfilehash: 748ad9fdab781ba03135f026ab846099fe50c51f
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96030782"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104604407"
 ---
 # <a name="create-a-suggester-to-enable-autocomplete-and-suggested-results-in-a-query"></a>Creare un suggerimento per abilitare il completamento automatico e i risultati suggeriti in una query
 
@@ -66,7 +66,7 @@ La scelta di un analizzatore determina il modo in cui i campi vengono suddivisi 
 
 Quando si valutano gli analizzatori, provare a usare l' [API di analisi del testo](/rest/api/searchservice/test-analyzer) per informazioni dettagliate sull'elaborazione dei termini. Una volta compilato un indice, è possibile provare diversi analizzatori su una stringa per visualizzare l'output del token.
 
-I campi che usano [analizzatori personalizzati](index-add-custom-analyzers.md) o [analizzatori predefiniti](index-add-custom-analyzers.md#predefined-analyzers-reference) (ad eccezione di Lucene standard) non sono consentiti in modo esplicito per evitare risultati insoddisfacenti.
+I campi che usano [analizzatori personalizzati](index-add-custom-analyzers.md) o [analizzatori incorporati](index-add-custom-analyzers.md#built-in-analyzers) (ad eccezione di Lucene standard) non sono consentiti in modo esplicito per evitare risultati insoddisfacenti.
 
 > [!NOTE]
 > Se è necessario aggirare il vincolo dell'analizzatore, ad esempio se è necessaria una parola chiave o Ngram Analyzer per determinati scenari di query, è necessario usare due campi distinti per lo stesso contenuto. Questo consentirà a uno dei campi di avere un suggerimento, mentre l'altro può essere configurato con una configurazione dell'analizzatore personalizzato.

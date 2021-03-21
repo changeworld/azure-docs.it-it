@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 3/15/2021
 ms.custom: template-concept,references_regions
 ms.openlocfilehash: 26485c84749b7d4c91159476b3f683c2b0f3831b
-ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/16/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "103555679"
 ---
 # <a name="azure-private-link-availability"></a>Disponibilità collegamento privato di Azure
@@ -85,7 +85,7 @@ Nelle tabelle seguenti sono elencati i servizi di collegamento privato e le aree
 | Automazione di Azure  | Tutte le aree pubbliche<br/> Tutte le aree per enti pubblici |  | Anteprima </br> [Informazioni su come creare un endpoint privato per Automazione di Azure.](../automation/how-to/private-link-security.md)|
 |Backup di Azure | Tutte le aree pubbliche<br/> Tutte le aree per enti pubblici   |  | GA <br/> [Informazioni su come creare un endpoint privato per Backup di Azure.](../backup/private-endpoints.md)   |
 
-### <a name="security"></a>Security
+### <a name="security"></a>Sicurezza
 
 |Servizi supportati  |Aree disponibili | Altre considerazioni | Stato  |
 |:-------------------|:-----------------|:----------------|:--------|
