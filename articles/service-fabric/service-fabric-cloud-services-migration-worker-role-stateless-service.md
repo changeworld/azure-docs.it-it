@@ -5,10 +5,10 @@ ms.topic: conceptual
 ms.date: 11/02/2017
 ms.custom: devx-track-csharp
 ms.openlocfilehash: cf593f793aabf2a0650684ed8d02fe02d756ec2b
-ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/03/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96575738"
 ---
 # <a name="guide-to-converting-web-and-worker-roles-to-service-fabric-stateless-services"></a>Guida alla conversione di ruoli di lavoro e Web in servizi senza stato di Service Fabric
@@ -29,7 +29,7 @@ Concettualmente un ruolo di lavoro rappresenta un carico di lavoro senza stato, 
 ## <a name="web-role-to-stateless-service"></a>Da ruolo Web a servizio senza stato
 Analogamente a un ruolo di lavoro, anche un ruolo Web rappresenta un carico di lavoro senza stato e quindi concettualmente può essere associato anch'esso a un servizio senza stato di Service Fabric. Tuttavia, a differenza dei ruoli Web, Service Fabric non supporta IIS. Per eseguire la migrazione di un'applicazione Web da un ruolo Web a un servizio senza stato è necessario passare prima a un framework Web che possa essere self-hosted e non dipenda da IIS o System.Web, ad esempio ASP.NET Core 1.
 
-| **Applicazione** | **Supporto** | **Percorso di migrazione** |
+| **Applicazione** | **Supportato** | **Percorso di migrazione** |
 | --- | --- | --- |
 | Web Form ASP.NET |No |Convertire in ASP.NET Core 1 MVC |
 | ASP.NET MVC |Con migrazione |Eseguire l'aggiornamento ad ASP.NET Core 1 MVC |
@@ -41,7 +41,7 @@ Le API del servizio di Service Fabric e del ruolo di lavoro offrono punti di ing
 
 | **Punto di ingresso** | **Istanze del ruolo di lavoro** | **Servizio di Service Fabric** |
 | --- | --- | --- |
-| Elaborazione |`Run()` |`RunAsync()` |
+| Elaborazione in corso |`Run()` |`RunAsync()` |
 | Avvio della macchina virtuale |`OnStart()` |N/D |
 | Arresto della macchina virtuale |`OnStop()` |N/D |
 | Apertura del listener per le richieste client |N/D |<ul><li> `CreateServiceInstanceListener()` per servizi senza stato</li><li>`CreateServiceReplicaListener()` per servizi con stato</li></ul> |

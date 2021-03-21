@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 04/15/2019
 ms.author: jeedes
 ms.openlocfilehash: eed0ea075c5e9eb39810259be2aa6781a59f2f22
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
-ms.translationtype: HT
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/24/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92511648"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-rackspace-sso"></a>Esercitazione: Integrazione di Azure Active Directory con Rackspace SSO
@@ -53,7 +53,7 @@ Per configurare l'integrazione di Rackspace SSO in Azure AD, è necessario aggiu
 
     ![Pulsante Azure Active Directory](common/select-azuread.png)
 
-2. Passare ad **Applicazioni aziendali** e quindi selezionare l'opzione **Tutte le applicazioni** .
+2. Passare ad **Applicazioni aziendali** e quindi selezionare l'opzione **Tutte le applicazioni**.
 
     ![Pannello Applicazioni aziendali](common/enterprise-applications.png)
 
@@ -61,22 +61,22 @@ Per configurare l'integrazione di Rackspace SSO in Azure AD, è necessario aggiu
 
     ![Pulsante Nuova applicazione](common/add-new-app.png)
 
-4. Nella casella di ricerca digitare **Rackspace SSO** , selezionare **Rackspace SSO** nel riquadro dei risultati e quindi fare clic sul pulsante **Aggiungi** per aggiungere l'applicazione.
+4. Nella casella di ricerca digitare **Rackspace SSO**, selezionare **Rackspace SSO** nel riquadro dei risultati e quindi fare clic sul pulsante **Aggiungi** per aggiungere l'applicazione.
 
      ![Rackspace SSO nell'elenco risultati](common/search-new-app.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurare e testare l'accesso Single Sign-On di Azure AD
 
-In questa sezione viene configurato e testato l'accesso Single Sign-On di Azure AD con Rackspace SSO usando un utente di test di nome **Britta Simon** .
+In questa sezione viene configurato e testato l'accesso Single Sign-On di Azure AD con Rackspace SSO usando un utente di test di nome **Britta Simon**.
 Quando si usa l'accesso Single Sign-On con Rackspace, gli utenti di Rackspace verranno creati automaticamente al primo accesso al portale di Rackspace. 
 
-Per configurare e testare l'accesso Single Sign-On di Azure AD con Rackspace SSO, è necessario completare le procedure di base seguenti:
+Per configurare e testare l'accesso Single Sign-On di Azure AD con Rackspace SSO, è necessario completare i blocchi predefiniti seguenti:
 
 1. **[Configurare l'accesso Single Sign-On di Azure AD](#configure-azure-ad-single-sign-on)** : per consentire agli utenti di usare questa funzionalità.
-2. **[Configurare l'accesso Single Sign-On di Rackspace SSO](#configure-rackspace-sso-single-sign-on)** : per configurare le impostazioni di Single Sign-On sul lato applicazione.
+2. **[Configurare l'accesso Single Sign-On di Rackspace SSO](#configure-rackspace-sso-single-sign-on)**: per configurare le impostazioni di Single Sign-On sul lato applicazione.
 3. **[Creare un utente di test di Azure AD](#create-an-azure-ad-test-user)** : per testare l'accesso Single Sign-On di Azure AD con l'utente Britta Simon.
 4. **[Assegnare l'utente di test di Azure AD](#assign-the-azure-ad-test-user)** : per abilitare Britta Simon all'uso dell'accesso Single Sign-On di Azure AD.
-1. **[Configurare il mapping degli attributi nel pannello di controllo di Rackspace](#set-up-attribute-mapping-in-the-rackspace-control-panel)** : per assegnare i ruoli di Rackspace agli utenti di Azure AD.
+1. **[Configurare il mapping degli attributi nel pannello di controllo di Rackspace](#set-up-attribute-mapping-in-the-rackspace-control-panel)**: per assegnare i ruoli di Rackspace agli utenti di Azure AD.
 1. **[Testare l'accesso Single Sign-On](#test-single-sign-on)** per verificare se la configurazione funziona.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Configurare l'accesso Single Sign-On di Azure AD
@@ -85,7 +85,7 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
 
 Per configurare l'accesso Single Sign-On di Azure AD con Rackspace SSO, seguire questa procedura:
 
-1. Nella pagina di integrazione dell'applicazione **Rackspace SSO** del [portale di Azure](https://portal.azure.com/) selezionare **Single Sign-On** .
+1. Nella pagina di integrazione dell'applicazione **Rackspace SSO** del [portale di Azure](https://portal.azure.com/) selezionare **Single Sign-On**.
 
     ![Collegamento Configura accesso Single Sign-On](common/select-sso.png)
 
@@ -93,17 +93,17 @@ Per configurare l'accesso Single Sign-On di Azure AD con Rackspace SSO, seguire 
 
     ![Selezione della modalità Single Sign-On](common/select-saml-option.png)
 
-3. Nella pagina **Configura l'accesso Single Sign-On con SAML** fare clic sull'icona **Modifica** per aprire la finestra di dialogo **Configurazione SAML di base** .
+3. Nella pagina **Configura l'accesso Single Sign-On con SAML** fare clic sull'icona **Modifica** per aprire la finestra di dialogo **Configurazione SAML di base**.
 
     ![Modificare la configurazione SAML di base](common/edit-urls.png)
 
-4. Nella sezione **Configurazione SAML di base** caricare il **file di metadati del provider di servizi** scaricabile dall' [URL](https://login.rackspace.com/federate/sp.xml) e seguire questa procedura:
+4. Nella sezione **Configurazione SAML di base** caricare il **file di metadati del provider di servizi** scaricabile dall'[URL](https://login.rackspace.com/federate/sp.xml) e seguire questa procedura:
 
-    a. Fare clic su **Carica il file di metadati** .
+    a. Fare clic su **Carica il file di metadati**.
 
     ![Screenshot che mostra la sezione Configurazione SAML di base con il collegamento Carica file di metadati.](common/upload-metadata.png)
 
-    b. Fare clic su **logo cartella** per selezionare il file di metadati e fare quindi clic su **Upload** .
+    b. Fare clic su **logo cartella** per selezionare il file di metadati e fare quindi clic su **Upload**.
 
     ![Screenshot che mostra una finestra di dialogo in cui è possibile selezionare e caricare un file.](common/browse-upload-metadata.png)
 
@@ -113,7 +113,7 @@ Per configurare l'accesso Single Sign-On di Azure AD con Rackspace SSO, seguire 
 
     ![Informazioni su URL e dominio per l'accesso Single Sign-On di Rackspace SSO](common/sp-signonurl.png)   
 
-5. Nella pagina **Configura l'accesso Single Sign-On con SAML** , nella sezione **Certificato di firma SAML** , fare clic su **Scarica** per scaricare il file **XML metadati federazione** definito dalle opzioni specificate in base ai propri requisiti e salvarlo in questo computer.
+5. Nella pagina **Configura l'accesso Single Sign-On con SAML**, nella sezione **Certificato di firma SAML**, fare clic su **Scarica** per scaricare il file **XML metadati federazione** definito dalle opzioni specificate in base ai propri requisiti e salvarlo in questo computer.
 
     ![Collegamento di download del certificato](common/metadataxml.png)
 
@@ -121,7 +121,7 @@ Questo file verrà caricato in Rackspace per compilare le impostazioni di config
 
 ### <a name="configure-rackspace-sso-single-sign-on"></a>Configurare l'accesso Single Sign-On di Rackspace SSO
 
-Per configurare l'accesso Single Sign-On sul lato **Rackspace SSO** :
+Per configurare l'accesso Single Sign-On sul lato **Rackspace SSO**:
 
 1. Vedere l'argomento della documentazione sull'[aggiunta di un provider di identità al Pannello di controllo](https://developer.rackspace.com/docs/rackspace-federation/gettingstarted/add-idp-cp/).
 1. Vengono descritte le procedure per:
@@ -133,9 +133,9 @@ In questo modo le impostazioni SSO di base necessarie per la connessione di Azur
 
 ### <a name="create-an-azure-ad-test-user"></a>Creare un utente di test di Azure AD
 
-Questa sezione descrive come creare un utente di test di nome Britta Simon nel portale di Azure.
+Questa sezione descrive come creare un utente test denominato Britta Simon nel portale di Azure.
 
-1. Nel riquadro sinistro del portale di Azure, selezionare **Azure Active Directory** , **Utenti** e quindi **Tutti gli utenti** .
+1. Nel riquadro sinistro del portale di Azure, selezionare **Azure Active Directory**, **Utenti** e quindi **Tutti gli utenti**.
 
     ![Collegamenti "Utenti e gruppi" e "Tutti gli utenti"](common/users.png)
 
@@ -147,23 +147,23 @@ Questa sezione descrive come creare un utente di test di nome Britta Simon nel p
 
     ![Finestra di dialogo Utente](common/user-properties.png)
 
-    a. Nel campo **Nome** immettere **BrittaSimon** .
+    a. Nel campo **Nome** immettere **BrittaSimon**.
   
     b. Nel campo **Nome utente** digitare `brittasimon@yourcompanydomain.extension`. Ad esempio, usare BrittaSimon@contoso.com
 
     c. Selezionare la casella di controllo **Mostra password** e quindi prendere nota del valore visualizzato nella casella Password.
 
-    d. Fare clic su **Crea** .
+    d. Fare clic su **Crea**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Assegnare l'utente di test di Azure AD
 
 In questa sezione si abilita Britta Simon all'uso dell'accesso Single Sign-On di Azure concedendole l'accesso a Rackspace SSO.
 
-1. Nel portale di Azure selezionare **Applicazioni aziendali** , quindi **Tutte le applicazioni** e infine **Rackspace SSO** .
+1. Nel portale di Azure selezionare **Applicazioni aziendali**, quindi **Tutte le applicazioni** e infine **Rackspace SSO**.
 
     ![Pannello delle applicazioni aziendali](common/enterprise-applications.png)
 
-2. Nell'elenco delle applicazioni selezionare **Rackspace SSO** .
+2. Nell'elenco di applicazioni selezionare **Rackspace SSO**.
 
     ![Collegamento a Rackspace SSO nell'elenco delle applicazioni](common/all-applications.png)
 
@@ -171,7 +171,7 @@ In questa sezione si abilita Britta Simon all'uso dell'accesso Single Sign-On di
 
     ![Collegamento "Utenti e gruppi"](common/users-groups-blade.png)
 
-4. Fare clic sul pulsante **Aggiungi utente** e quindi selezionare **Utenti e gruppi** nella finestra di dialogo **Aggiungi assegnazione** .
+4. Fare clic sul pulsante **Aggiungi utente** e quindi selezionare **Utenti e gruppi** nella finestra di dialogo **Aggiungi assegnazione**.
 
     ![Riquadro Aggiungi assegnazione](common/add-assign-user.png)
 
@@ -179,7 +179,7 @@ In questa sezione si abilita Britta Simon all'uso dell'accesso Single Sign-On di
 
 6. Se si prevede un valore di ruolo nell'asserzione SAML, nella finestra di dialogo **Selezionare un ruolo** selezionare il ruolo appropriato per l'utente dall'elenco, quindi fare clic sul pulsante **Seleziona** nella parte inferiore della schermata.
 
-7. Nella finestra di dialogo **Aggiungi assegnazione** fare clic sul pulsante **Assegna** .
+7. Nella finestra di dialogo **Aggiungi assegnazione** fare clic sul pulsante **Assegna**.
 
 ### <a name="set-up-attribute-mapping-in-the-rackspace-control-panel"></a>Configurare il mapping degli attributi nel pannello di controllo di Rackspace
 
@@ -196,7 +196,7 @@ Rackspace usa **criteri di mapping degli attributi** per assegnare ruoli e grupp
 L'esempio seguente di **criteri di mapping degli attributi** illustra come:
 1. Impostare il nome dell'utente di Rackspace nell'attestazione SAML `user.name`. È possibile usare qualsiasi attestazione, ma in genere viene impostato su un campo contenente l'indirizzo di posta elettronica dell'utente.
 1. Impostare i ruoli `admin` e `billing:admin` di Rackspace su un utente abbinandoli a un gruppo di Azure AD in base al nome del gruppo o all'UID del gruppo. Viene usata una *sostituzione* di `"{0}"` nel campo `roles` e verrà sostituita dai risultati delle espressioni della regola `remote`.
-1. L'uso della *sostituzione predefinita* `"{D}"` per consentire a Rackspace di recuperare campi SAML aggiuntivi cercando attestazioni SAML standard e note nella sostituzione SAML.
+1. L'uso della `"{D}"` *sostituzione predefinita* per consentire a Rackspace di recuperare campi SAML aggiuntivi cercando attestazioni SAML standard e note nella sostituzione SAML.
 
 ```yaml
 ---
@@ -228,9 +228,9 @@ Per altri esempi, vedere la [documentazione di base sul mapping degli attributi]
 
 In questa sezione viene testata la configurazione dell'accesso Single Sign-On di Azure AD usando il pannello di accesso.
 
-Quando si fa clic sul riquadro di Rackspace SSO nel pannello di accesso, si dovrebbe accedere automaticamente all'istanza di Rackspace SSO per cui si è configurato l'accesso SSO. Per altre informazioni sul pannello di accesso, vedere [Introduzione al Pannello di accesso](../user-help/my-apps-portal-end-user-access.md).
+Quando si fa clic sul riquadro di Rackspace SSO nel pannello di accesso, si dovrebbe accedere automaticamente all'applicazione Rackspace SSO per cui si è configurato l'accesso SSO. Per altre informazioni sul pannello di accesso, vedere [Introduzione al Pannello di accesso](../user-help/my-apps-portal-end-user-access.md).
 
-È anche possibile usare il pulsante **Convalida** nelle impostazioni dell'accesso Single Sign-On di **Rackspace SSO** :
+È anche possibile usare il pulsante **Convalida** nelle impostazioni dell'accesso Single Sign-On di **Rackspace SSO**:
 
    ![Pulsante di convalida SSO](common/sso-validate-sign-on.png)
 

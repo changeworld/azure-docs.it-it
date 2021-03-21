@@ -3,12 +3,12 @@ title: Sicurezza e autenticazione di Griglia di eventi di Azure
 description: Vengono descritti il servizio Griglia di eventi di Azure e i concetti correlati.
 ms.topic: conceptual
 ms.date: 02/12/2021
-ms.openlocfilehash: 326fa00645302eb4b9c9bc59f17c1ca153bdb0b7
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: e9bcf00e832e4deaaf9c5f81ba5af51609a1c412
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100371721"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104601041"
 ---
 # <a name="authorizing-access-to-event-grid-resources"></a>Autorizzazione dell'accesso alle risorse di griglia di eventi
 Griglia di eventi di Azure consente di controllare il livello di accesso assegnato a utenti diversi per eseguire varie **operazioni di gestione** , ad esempio elencare sottoscrizioni di eventi, crearne di nuove e generare chiavi. Griglia di eventi usa il controllo degli accessi in base al ruolo di Azure (RBAC di Azure).
@@ -31,80 +31,23 @@ Le operazioni seguenti restituiscono informazioni potenzialmente segrete, che ve
 
 
 ## <a name="built-in-roles"></a>Ruoli predefiniti
+Griglia di eventi fornisce i tre ruoli predefiniti seguenti. 
 
-Griglia di eventi offre due ruoli predefiniti per la gestione delle sottoscrizioni di eventi. Sono importanti quando si implementano i [domini eventi](event-domains.md) perché forniscono agli utenti le autorizzazioni necessarie per sottoscrivere gli argomenti nel dominio dell'evento. Questi ruoli sono finalizzati soprattutto alle sottoscrizioni di eventi e non concedono l'accesso per azioni come la creazione di argomenti.
+Il lettore di sottoscrizioni di griglia di eventi e i ruoli collaboratore della sottoscrizione griglia di eventi sono destinati alla gestione delle sottoscrizioni Sono importanti quando si implementano i [domini eventi](event-domains.md) perché forniscono agli utenti le autorizzazioni necessarie per sottoscrivere gli argomenti nel dominio dell'evento. Questi ruoli sono finalizzati soprattutto alle sottoscrizioni di eventi e non concedono l'accesso per azioni come la creazione di argomenti.
 
-È possibile [assegnare questi ruoli a un utente o a un gruppo](../role-based-access-control/quickstart-assign-role-user-portal.md).
+Il ruolo Collaboratore griglia di eventi consente di creare e gestire le risorse di griglia di eventi. 
 
-**EventGrid sottoscrizione evento Contributor**: gestire le operazioni di sottoscrizione di griglia di eventi
 
-```json
-[
-  {
-    "Description": "Lets you manage EventGrid event subscription operations.",
-    "IsBuiltIn": true,
-    "Id": "428e0ff05e574d9ca2212c70d0e0a443",
-    "Name": "EventGrid EventSubscription Contributor",
-    "IsServiceRole": false,
-    "Permissions": [
-      {
-        "Actions": [
-          "Microsoft.Authorization/*/read",
-          "Microsoft.EventGrid/eventSubscriptions/*",
-          "Microsoft.EventGrid/systemtopics/eventsubscriptions/*",
-          "Microsoft.EventGrid/partnertopics/eventsubscriptions/*",
-          "Microsoft.EventGrid/topicTypes/eventSubscriptions/read",
-          "Microsoft.EventGrid/locations/eventSubscriptions/read",
-          "Microsoft.EventGrid/locations/topicTypes/eventSubscriptions/read",
-          "Microsoft.Insights/alertRules/*",
-          "Microsoft.Resources/deployments/*",
-          "Microsoft.Resources/subscriptions/resourceGroups/read",
-          "Microsoft.Support/*"
-        ],
-        "NotActions": [],
-        "DataActions": [],
-        "NotDataActions": [],
-        "Condition": null
-      }
-    ],
-    "Scopes": [
-      "/"
-    ]
-  }
-]
-```
+| Ruolo | Descrizione |
+| ---- | ----------- | 
+| [Lettore di sottoscrizioni di griglia di eventi](../role-based-access-control/built-in-roles.md#eventgrid-eventsubscription-reader) | Consente di gestire le operazioni di sottoscrizione di eventi di griglia di eventi. |
+| [Collaboratore della sottoscrizione di griglia di eventi](../role-based-access-control/built-in-roles.md#eventgrid-eventsubscription-contributor) | Consente di leggere le sottoscrizioni di eventi di griglia di eventi. |
+| [Collaboratore griglia di eventi](../role-based-access-control/built-in-roles.md#eventgrid-contributor) | Consente di creare e gestire le risorse di griglia di eventi. |
 
-**EventGrid sottoscrizione evento Reader**: lettura sottoscrizioni di griglia di eventi
 
-```json
-[
-  {
-    "Description": "Lets you read EventGrid event subscriptions.",
-    "IsBuiltIn": true,
-    "Id": "2414bbcf64974faf8c65045460748405",
-    "Name": "EventGrid EventSubscription Reader",
-    "IsServiceRole": false,
-    "Permissions": [
-      {
-        "Actions": [
-          "Microsoft.Authorization/*/read",
-          "Microsoft.EventGrid/eventSubscriptions/read",
-          "Microsoft.EventGrid/topicTypes/eventSubscriptions/read",
-          "Microsoft.EventGrid/locations/eventSubscriptions/read",
-          "Microsoft.EventGrid/locations/topicTypes/eventSubscriptions/read",
-          "Microsoft.Resources/subscriptions/resourceGroups/read"
-        ],
-        "NotActions": [],
-        "DataActions": [],
-        "NotDataActions": []
-       }
-    ],
-    "Scopes": [
-      "/"
-    ]
-  }
-]
-```
+> [!NOTE]
+> Selezionare collegamenti nella prima colonna per passare a un articolo che fornisce ulteriori dettagli sul ruolo. Per istruzioni su come assegnare utenti o gruppi ai ruoli RBAC, vedere [questo articolo](../role-based-access-control/quickstart-assign-role-user-portal.md).
+
 
 ## <a name="custom-roles"></a>Ruoli personalizzati
 

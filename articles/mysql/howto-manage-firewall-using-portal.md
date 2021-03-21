@@ -7,10 +7,10 @@ ms.service: mysql
 ms.topic: how-to
 ms.date: 3/18/2020
 ms.openlocfilehash: 032db324f9dd2f0d6a5dce5c4fd5c64342fed59f
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/12/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94540485"
 ---
 # <a name="create-and-manage-azure-database-for-mysql-firewall-rules-by-using-the-azure-portal"></a>Creare e gestire regole del firewall di Database di Azure per MySQL con il portale di Azure
@@ -50,7 +50,7 @@ Per consentire alle applicazioni da Azure di stabilire la connessione al server 
 ## <a name="manage-existing-server-level-firewall-rules-by-using-the-azure-portal"></a>Gestire le regole del firewall a livello di server esistenti tramite il portale di Azure
 Ripetere i passaggi per gestire le regole del firewall.
 * Per aggiungere il computer corrente, fare clic su **+ Aggiungi indirizzo IP corrente**. Fare clic su **Salva** per salvare le modifiche.
-* Per aggiungere altri indirizzi IP, digitare **NOME REGOLA** , **INDIRIZZO IP INIZIALE** e **INDIRIZZO IP FINALE**. Fare clic su **Salva** per salvare le modifiche.
+* Per aggiungere altri indirizzi IP, digitare **NOME REGOLA**, **INDIRIZZO IP INIZIALE** e **INDIRIZZO IP FINALE**. Fare clic su **Salva** per salvare le modifiche.
 * Per modificare una regola esistente, fare clic su uno dei campi nella regola e inserire la modifica. Fare clic su **Salva** per salvare le modifiche.
 * Per eliminare una regola esistente, fare clic sui puntini di sospensione (…) e quindi su **Elimina**. È consigliabile fare clic su **Salva** per salvare le modifiche.
 

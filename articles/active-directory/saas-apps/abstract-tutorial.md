@@ -1,5 +1,5 @@
 ---
-title: 'Esercitazione: Integrazione di Azure Active Directory con Abstract | Microsoft Docs'
+title: 'Esercitazione: integrazione di Azure Active Directory con abstract | Microsoft Docs'
 description: Informazioni su come configurare l'accesso Single Sign-On tra Azure Active Directory e Abstract.
 services: active-directory
 author: jeevansd
@@ -12,13 +12,13 @@ ms.topic: tutorial
 ms.date: 07/16/2019
 ms.author: jeedes
 ms.openlocfilehash: e1c3236c4c1957b4d0daee8d30c71f03fb8674dd
-ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
-ms.translationtype: HT
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/16/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97587826"
 ---
-# <a name="tutorial-integrate-abstract-with-azure-active-directory"></a>Esercitazione: Integrare Abstract con Azure Active Directory
+# <a name="tutorial-integrate-abstract-with-azure-active-directory"></a>Esercitazione: integrare abstract con Azure Active Directory
 
 Questa esercitazione descrive come integrare Abstract con Azure Active Directory (Azure AD). Integrando Abstract con Azure AD, è possibile:
 
@@ -60,10 +60,10 @@ Configurare e testare l'accesso SSO di Azure AD con Abstract usando un utente di
 Per configurare e testare l'accesso SSO di Azure AD con Abstract, completare le procedure di base seguenti:
 
 1. **[Configurare l'accesso Single Sign-On di Azure AD](#configure-azure-ad-sso)** : per consentire agli utenti di usare questa funzionalità.
-2. **[Configurare l'accesso Single Sign-On di Abstract](#configure-abstract-sso)** : per configurare le impostazioni di Single Sign-On sul lato applicazione.
+2. **[Configurare l'accesso Single Sign-On di Abstract](#configure-abstract-sso)**: per configurare le impostazioni di Single Sign-On sul lato applicazione.
 3. **[Creare un utente di test di Azure AD](#create-an-azure-ad-test-user)** : per testare l'accesso Single Sign-On di Azure AD con l'utente Britta Simon.
 4. **[Assegnare l'utente di test di Azure AD](#assign-the-azure-ad-test-user)** : per abilitare Britta Simon all'uso dell'accesso Single Sign-On di Azure AD.
-5. **[Creare l'utente di test di Abstract](#create-abstract-test-user)** : per avere una controparte di Britta Simon in Abstract collegata alla rappresentazione dell'utente in Azure AD.
+5. **[Creare l'utente di test di Abstract](#create-abstract-test-user)**: per avere una controparte di Britta Simon in Abstract collegata alla rappresentazione dell'utente in Azure AD.
 6. **[Testare l'accesso Single Sign-On](#test-sso)** : per verificare se la configurazione funziona.
 
 ### <a name="configure-azure-ad-sso"></a>Configurare l'accesso SSO di Azure AD

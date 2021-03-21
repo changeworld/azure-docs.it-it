@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 12/18/2019
 ms.author: aahi
 ms.openlocfilehash: ac214f158703fdfeaddfa4052a83481adebda060
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/30/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96348229"
 ---
 # <a name="sending-queries-to-the-bing-news-search-api"></a>Invio di query all'API Ricerca notizie Bing
@@ -44,7 +44,7 @@ La richiesta deve specificare il parametro di query [q](/rest/api/cognitiveservi
 
 La richiesta deve specificare l'intestazione [Ocp-Apim-Subscription-Key](/rest/api/cognitiveservices-bingsearch/bing-news-api-v7-reference#subscriptionkey). Nonostante sia facoltativo, è consigliabile specificare anche le intestazioni seguenti:
 
-- [User-Agent](/rest/api/cognitiveservices-bingsearch/bing-news-api-v7-reference#useragent)
+- [Agente utente](/rest/api/cognitiveservices-bingsearch/bing-news-api-v7-reference#useragent)
 - [X-MSEdge-ClientID](/rest/api/cognitiveservices-bingsearch/bing-news-api-v7-reference#clientid)
 - [X-Search-ClientIP](/rest/api/cognitiveservices-bingsearch/bing-news-api-v7-reference#clientip)
 - [X-ricerca-percorso](/rest/api/cognitiveservices-bingsearch/bing-news-api-v7-reference#location)

@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 03/14/2019
 ms.author: jeedes
 ms.openlocfilehash: f2baeaf72bb77dfe9247380b8b26f3860cbfd5b0
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
-ms.translationtype: HT
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/25/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "95999162"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-iqualify-lms"></a>Esercitazione: Integrazione di Azure Active Directory con iQualify LMS
@@ -30,7 +30,7 @@ L'integrazione di iQualify LMS con Azure AD offre i vantaggi seguenti:
 Per altre informazioni sull'integrazione di app SaaS con Azure AD, vedere [Informazioni sull'accesso alle applicazioni e Single Sign-On con Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
 Se non si ha una sottoscrizione di Azure, [creare un account gratuito](https://azure.microsoft.com/free/) prima di iniziare.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerequisiti
 
 Per configurare l'integrazione di Azure AD con iQualify LMS, sono necessari gli elementi seguenti:
 
@@ -68,16 +68,16 @@ Per configurare l'integrazione di iQualify LMS in Azure AD, è necessario aggiun
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurare e testare l'accesso Single Sign-On di Azure AD
 
-In questa sezione viene configurato e testato l'accesso Single Sign-On di Azure AD con iQualify LMS usando un utente di test di nome **Britta Simon**.
+In questa sezione viene configurato e testato Azure AD Single Sign-On con iQualify LMS in base a un utente test di nome **Britta Simon**.
 Per il corretto funzionamento dell'accesso Single Sign-On, deve essere stabilita una relazione di collegamento tra un utente di Azure AD e l'utente correlato in iQualify LMS.
 
 Per configurare e testare l'accesso Single Sign-On di Azure AD con iQualify LMS, è necessario completare le procedure di base seguenti:
 
 1. **[Configurare l'accesso Single Sign-On di Azure AD](#configure-azure-ad-single-sign-on)** : per consentire agli utenti di usare questa funzionalità.
-2. **[Configurare l'accesso Single Sign-On di iQualify LMS](#configure-iqualify-lms-single-sign-on)** : per configurare le impostazioni di Single Sign-On sul lato applicazione.
+2. **[Configurare l'accesso Single Sign-On di iQualify LMS](#configure-iqualify-lms-single-sign-on)**: per configurare le impostazioni di Single Sign-On sul lato applicazione.
 3. **[Creare un utente di test di Azure AD](#create-an-azure-ad-test-user)** : per testare l'accesso Single Sign-On di Azure AD con l'utente Britta Simon.
 4. **[Assegnare l'utente di test di Azure AD](#assign-the-azure-ad-test-user)** : per abilitare Britta Simon all'uso dell'accesso Single Sign-On di Azure AD.
-5. **[Creare l'utente di test di iQualify LMS](#create-iqualify-lms-test-user)** : per avere una controparte di Britta Simon in iQualify LMS collegata alla rappresentazione dell'utente in Azure AD.
+5. **[Creare l'utente di test di iQualify LMS](#create-iqualify-lms-test-user)**: per avere una controparte di Britta Simon in iQualify LMS collegata alla rappresentazione dell'utente in Azure AD.
 6. **[Testare l'accesso Single Sign-On](#test-single-sign-on)** per verificare se la configurazione funziona.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Configurare l'accesso Single Sign-On di Azure AD
@@ -179,11 +179,11 @@ Per configurare l'accesso Single Sign-On di Azure AD con iQualify LMS, seguire q
 
 1. Aprire una nuova finestra del browser e quindi accedere all'ambiente di iQualify come amministratore.
 
-1. Una volta connessi, fare clic sul proprio avatar in alto a destra e quindi fare clic su **Account settings** (Impostazioni account)
+1. Dopo aver eseguito l'accesso, fare clic sull'avatar in alto a destra, quindi fare clic su **Impostazioni account** .
 
-    ![Impostazioni dell'account](./media/iqualify-tutorial/setting1.png)
+    ![Impostazioni account](./media/iqualify-tutorial/setting1.png)
 
-1. Nell'area delle impostazioni dell'account fare clic sul menu a sinistra sulla barra multifunzione e fare clic su **INTEGRATIONS** (INTEGRAZIONI)
+1. Nell'area Impostazioni account fare clic sul menu della barra multifunzione a sinistra e fare clic su **Integrations (integrazioni** ).
 
     ![INTEGRAZIONI](./media/iqualify-tutorial/setting2.png)
 
@@ -205,7 +205,7 @@ Per configurare l'accesso Single Sign-On di Azure AD con iQualify LMS, seguire q
 
     e. Fare clic su **SAVE**.
 
-    f. Fare clic su **UPDATE** (AGGIORNA).
+    f. Fare clic su **Aggiorna**.
 
 ### <a name="create-an-azure-ad-test-user"></a>Creare un utente di test di Azure AD
 

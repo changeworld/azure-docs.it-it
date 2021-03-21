@@ -8,10 +8,10 @@ ms.subservice: purview-data-catalog
 ms.topic: conceptual
 ms.date: 11/06/2020
 ms.openlocfilehash: af8ec9e0aac38240c7da92edd614892ff65712e2
-ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/03/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96552700"
 ---
 # <a name="understand-search-features-in-azure-purview"></a>Informazioni sulle funzionalità di ricerca di Azure
@@ -58,6 +58,6 @@ Pertinenza è l'ordinamento predefinito nella pagina dei risultati della ricerca
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* [Guida introduttiva: creare un account Azure per la competenza nel portale di Azure](create-catalog-portal.md)
-* [Guida introduttiva: creare un account Azure per la competenza usando Azure PowerShell CLI di Azure](create-catalog-powershell.md)
+* [Avvio rapido: Creare un account Azure Purview nel portale di Azure](create-catalog-portal.md)
+* [Avvio rapido: Creare un account Azure Purview mediante Azure PowerShell o l'interfaccia della riga di comando di Azure](create-catalog-powershell.md)
 * [Guida introduttiva: usare ambito studio](use-purview-studio.md)

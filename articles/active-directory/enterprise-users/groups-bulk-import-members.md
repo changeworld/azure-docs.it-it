@@ -14,10 +14,10 @@ ms.custom: it-pro
 ms.reviewer: jeffsta
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 22d39a2ee66f2c63612ad2cb3cf9ae61f1660de3
-ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/03/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96547747"
 ---
 # <a name="bulk-add-group-members-in-azure-active-directory"></a>Aggiunta di membri del gruppo in blocco in Azure Active Directory
@@ -26,7 +26,7 @@ Tramite il portale di Azure Active Directory (Azure AD), è possibile aggiungere
 
 ## <a name="understand-the-csv-template"></a>Informazioni sul modello CSV
 
-Scaricare e compilare il modello CSV di caricamento in blocco per aggiungere correttamente in blocco i membri del gruppo di Azure AD. Il modello CSV sarà simile a questo esempio:
+Scaricare e compilare il modello CSV di caricamento in blocco per aggiungere i membri di un gruppo di Azure AD in una sola volta. Il modello CSV potrebbe essere simile a questo esempio:
 
 ![Foglio di calcolo per il caricamento con callout che illustrano lo scopo e i valori di ogni riga e colonna](./media/groups-bulk-import-members/template-with-callouts.png)
 
@@ -35,15 +35,15 @@ Scaricare e compilare il modello CSV di caricamento in blocco per aggiungere cor
 Un modello CSV scaricato contiene le righe descritte di seguito:
 
 - **Numero di versione**: nel file CSV di caricamento deve essere inclusa la prima riga contenente il numero di versione.
-- **Intestazioni di colonna**: il formato delle intestazioni di colonna è &lt;*Nome elemento*&gt; [NomeProprietà] &lt;*Required o vuoto*&gt;. Ad esempio: `Member object ID or user principal name [memberObjectIdOrUpn] Required`. Alcune versioni precedenti del modello potrebbero presentare lievi variazioni. Per apportare modifiche all'appartenenza al gruppo, è possibile scegliere l'identificatore da usare: ID oggetto membro o nome dell'entità utente.
+- **Intestazioni di colonna**: il formato delle intestazioni di colonna è &lt;*Nome elemento*&gt; [NomeProprietà] &lt;*Required o vuoto*&gt;. Ad esempio: `Member object ID or user principal name [memberObjectIdOrUpn] Required`. Alcune versioni precedenti del modello potrebbero presentare lievi variazioni. Per le modifiche apportate all'appartenenza al gruppo, è possibile scegliere quale identificatore usare, tra ID oggetto membro e nome dell'entità utente.
 - **Riga di esempi**: nel modello è stata inclusa una riga di esempi di valori accettabili per ogni colonna. È necessario rimuovere la riga degli esempi e sostituirla con le proprie voci.
 
 ### <a name="additional-guidance"></a>Indicazioni aggiuntive
 
-- Le prime due righe del modello di caricamento non devono essere rimosse o modificate. In caso contrario, il caricamento non potrà essere elaborato.
+- Le prime due righe del modello di caricamento non devono essere rimosse o modificate. In caso contrario, il caricamento non può essere elaborato.
 - Le colonne obbligatorie sono riportate per prime.
-- Non è consigliabile aggiungere nuove colonne al modello. Le colonne aggiunte saranno ignorate e non verranno elaborate.
-- È consigliabile scaricare l'ultima versione del modello CSV il più spesso possibile.
+- Non è consigliabile aggiungere nuove colonne al modello. Eventuali colonne aggiuntive aggiunte saranno ignorate e non verranno elaborate.
+- È consigliabile scaricare la versione più recente del modello CSV il più spesso possibile.
 - Per caricare correttamente il file, aggiungere almeno due ID oggetto o UPN dell'utente.
 
 ## <a name="to-bulk-import-group-members"></a>Per importare in blocco i membri del gruppo

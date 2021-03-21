@@ -13,12 +13,12 @@ metadata:
   ms.date: 03/03/2021
   featureFlags:
   - clicktale
-  ms.openlocfilehash: 323172092a6530e97de36c1cf50fea855f38da28
-  ms.sourcegitcommit: 225e4b45844e845bc41d5c043587a61e6b6ce5ae
+  ms.openlocfilehash: b7dceb243f0a85166cd1d7180198c6aac95fab7d
+  ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
   ms.translationtype: MT
   ms.contentlocale: it-IT
-  ms.lasthandoff: 03/11/2021
-  ms.locfileid: "103011171"
+  ms.lasthandoff: 03/19/2021
+  ms.locfileid: "104601058"
 highlightedContent:
   items:
   - title: Guida introduttiva per gli sviluppatori in Azure
@@ -1384,3 +1384,11 @@ additionalContent:
     - title: 21Vianet per Azure Cina
       summary: Un cloud dedicato situato in Cina e gestito da 21Vianet.
       url: /azure/china/
+  - title: Soluzioni partner
+    items:
+    - title: Soluzioni per partner Azure
+      summary: Soluzioni partner integrate che è possibile usare in Azure per migliorare l'infrastruttura cloud.
+      url: ./partner-solutions/overview.md
+    - title: Marketplace commerciale
+      summary: Un marketplace online di applicazioni e servizi di partner di fornitori di software indipendenti (ISV).
+      url: ./marketplace/index.yml

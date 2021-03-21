@@ -17,10 +17,10 @@ ms.date: 02/07/2017
 ms.author: jegeib
 ms.custom: has-adal-ref, devx-track-js, devx-track-csharp
 ms.openlocfilehash: ee4dd70faab9ed44b1aa6ca8ca0ec517c7746f66
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/18/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94832531"
 ---
 # <a name="security-frame-authentication--mitigations"></a>Infrastruttura di sicurezza: autenticazione - Procedure di mitigazione
@@ -181,7 +181,7 @@ ms.locfileid: "94832531"
 | **Fase SDL**               | Distribuzione |
 | **Tecnologie applicabili** | Generico |
 | **Attributes (Attributi)**              | N/D  |
-| **Riferimenti**              | [Che cos'è Azure AD Multi-Factor Authentication?](../../active-directory/authentication/concept-mfa-howitworks.md) |
+| **Riferimenti**              | [Informazioni su Azure AD Multi-Factor Authentication](../../active-directory/authentication/concept-mfa-howitworks.md) |
 | **Passaggi** | <p>Multi-Factor Authentication (MFA) è un metodo di autenticazione che richiede più di un metodo di verifica e con il quale viene aggiunto un secondo livello di sicurezza critico agli accessi e alle transazioni degli utenti. In genere richiede due o più dei metodi di verifica seguenti:</p><ul><li>Un elemento noto, in genere una password</li><li>Un oggetto fisico (un dispositivo attendibile non facilmente duplicabile, come un telefono)</li><li>Una caratteristica fisica dell'utente (biometrica)</li><ul>|
 
 ## <a name="restrict-anonymous-access-to-service-fabric-cluster"></a><a id="anon-access-cluster"></a>Limitare l'accesso anonimo a un cluster di Service Fabric

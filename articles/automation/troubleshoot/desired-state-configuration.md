@@ -6,10 +6,10 @@ ms.subservice: ''
 ms.date: 04/16/2019
 ms.topic: troubleshooting
 ms.openlocfilehash: e6caf3fed708e89b55a88719ca5358f6174c2ac8
-ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/27/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98896529"
 ---
 # <a name="troubleshoot-azure-automation-state-configuration-issues"></a>Risolvere problemi relativi a State Configuration in Automazione di Azure
@@ -107,7 +107,7 @@ VM has reported a failure when processing extension 'Microsoft.Powershell.DSC / 
 
 Questo problema è causato da un certificato non valido o scaduto. Vedere [Ripetere la registrazione di un nodo](../automation-dsc-onboarding.md#re-register-a-node).
 
-Questo problema potrebbe essere causato anche da una configurazione proxy che non consente l'accesso a **_. Azure-Automation.NET_*. Per altre informazioni, vedere [Configurazione di reti private](../automation-dsc-overview.md#network-planning). 
+Questo problema può essere causato anche da una configurazione del proxy che non consente l'accesso ad * **.azure-automation.net**. Per altre informazioni, vedere [Configurazione di reti private](../automation-dsc-overview.md#network-planning). 
 
 ### <a name="resolution"></a>Risoluzione
 
@@ -341,5 +341,5 @@ Questo errore può essere causato da una configurazione DSC la cui compilazione 
 Se il problema riscontrato non è presente in questo elenco o se non si riesce a risolverlo, visitare uno dei canali seguenti per ottenere ulteriore assistenza:
 
 * Ottenere risposte dagli esperti di Azure tramite i [forum di Azure](https://azure.microsoft.com/support/forums/).
-* Connettersi con [@AzureSupport](https://twitter.com/azuresupport), l'account ufficiale Microsoft Azure per migliorare l'esperienza del cliente. Il supporto di Azure mette in contatto la community di Azure con le risorse giuste: risposte, supporto ed esperti.
+* Connettersi con [@AzureSupport](https://twitter.com/azuresupport), l'account ufficiale Microsoft Azure per migliorare l'esperienza del cliente. Il supporto di Azure consente di entrare in contatto con la community di Azure e quindi di ottenere risposte, assistenza e consulenza.
 * Archiviare un incidente del supporto tecnico di Azure. Accedere al [sito del supporto tecnico di Azure](https://azure.microsoft.com/support/options/) e selezionare **Supporto tecnico**.
