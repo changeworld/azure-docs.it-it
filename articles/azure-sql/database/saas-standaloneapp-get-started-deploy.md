@@ -12,10 +12,10 @@ ms.author: sstein
 ms.reviewer: ''
 ms.date: 11/07/2018
 ms.openlocfilehash: 896f4edb1e94c1eca06b046382727a5042375e3b
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
-ms.translationtype: HT
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/28/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92793280"
 ---
 # <a name="deploy-and-explore-a-standalone-single-tenant-application-that-uses-azure-sql-database"></a>Distribuire ed esplorare un'applicazione autonoma a singolo tenant che usa il database SQL di Azure
@@ -60,16 +60,16 @@ Distribuire l'app per i tre tenant specificati:
     > Alcune impostazioni di autenticazione e per i firewall server sono intenzionalmente non protette a scopo dimostrativo. **Creare un nuovo gruppo di risorse** per ogni distribuzione di applicazione.  Non usare un gruppo di risorse esistente. Non utilizzare l'applicazione o le risorse che crea per la produzione. Eliminare tutti i gruppi di risorse quando non è più necessario usare le applicazioni, per interrompere la fatturazione correlata.
 
     Nei nomi delle risorse è preferibile usare solo lettere minuscole, numeri e trattini.
-    * Per **Gruppo di risorse** selezionare Crea nuovo e quindi specificare un valore in minuscolo in Nome. **wingtip-sa-\<venueName\>-\<user\>** è il modello consigliato.  Per \<venueName\>, sostituire il nome del locale senza spazi. Per \<user\>, sostituire il valore dell'utente indicato qui sotto.  Utilizzando questo modello, i possibili nomi dei gruppi di risorse sono *wingtip-sa-contosoconcerthall-af1* , *wingtip-sa-dogwooddojo-af1* , *wingtip-sa-fabrikamjazzclub-af1* .
+    * Per **Gruppo di risorse** selezionare Crea nuovo e quindi specificare un valore in minuscolo in Nome. **wingtip-sa-\<venueName\>-\<user\>** è il modello consigliato.  Per \<venueName\>, sostituire il nome del locale senza spazi. Per \<user\>, sostituire il valore dell'utente indicato qui sotto.  Utilizzando questo modello, i possibili nomi dei gruppi di risorse sono *wingtip-sa-contosoconcerthall-af1*, *wingtip-sa-dogwooddojo-af1*, *wingtip-sa-fabrikamjazzclub-af1*.
     * Selezionare un **percorso** nell'elenco a discesa.
 
-    * Per **User** è consigliabile un valore breve, ad esempio le iniziali seguite da una cifra, ad esempio *af1* .
+    * Per **User** è consigliabile un valore breve, ad esempio le iniziali seguite da una cifra, ad esempio *af1*.
 
 
-3. **Distribuire l'applicazione** .
+3. **Distribuire l'applicazione**.
 
     * Fare clic per accettare i termini e le condizioni.
-    * Fare clic su **Acquista** .
+    * Fare clic su **Acquista**.
 
 4. Monitorare lo stato delle tre distribuzioni facendo clic su **Notifiche** (l'icona a forma di campanella a destra della casella di ricerca). La distribuzione dell'app richiede circa cinque minuti.
 
@@ -102,7 +102,7 @@ In un ambiente di produzione si crea in genere un record CNAME DNS per [*configu
 
 1. Nel [portale di Azure](https://portal.azure.com) passare all'elenco dei gruppi di risorse.
 2. Dovrebbero essere visualizzati i tre gruppi di risorse del tenant.
-3. Aprire il gruppo di risorse **wingtip-sa-fabrikam-&lt;user&gt;** , che contiene le risorse per la distribuzione di Fabrikam Jazz Club.  Il server **fabrikamjazzclub-&lt;user&gt;** contiene il database **fabrikamjazzclub** .
+3. Aprire il gruppo di risorse **wingtip-sa-fabrikam-&lt;user&gt;** , che contiene le risorse per la distribuzione di Fabrikam Jazz Club.  Il server **fabrikamjazzclub-&lt;user&gt;** contiene il database **fabrikamjazzclub**.
 
 Ogni database del tenant è un database *autonomo* con 50 DTU.
 

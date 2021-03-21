@@ -16,13 +16,13 @@ ms.date: 06/14/2018
 ms.author: allensu
 ms.custom: devx-track-azurecli
 ms.openlocfilehash: e0d43ae8f76e89ffe429ec1778922ee465ad7db4
-ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
-ms.translationtype: HT
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/17/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94696528"
 ---
-# <a name="azure-cli-script-example-load-balance-traffic-to-vms-within-a-specific-availability-zone"></a>Esempio di script dell'interfaccia della riga di comando di Azure: Bilanciare il carico del traffico verso le macchine virtuali all'interno di una zona di disponibilità specifica
+# <a name="azure-cli-script-example-load-balance-traffic-to-vms-within-a-specific-availability-zone"></a>Esempio di script dell'interfaccia della riga di comando di Azure: bilanciamento del carico del traffico verso le VM in una zona
 
 Questo script di esempio dell'interfaccia della riga di comando di Azure crea tutti gli elementi necessari per eseguire più macchine virtuali Ubuntu configurate in una configurazione a disponibilità elevata e con bilanciamento del carico in una zona di disponibilità specifica. Dopo aver eseguito lo script, si disporrà di tre macchine virtuali, in una singola zona di disponibilità all'interno di un'area, accessibili tramite Azure Load Balancer Standard. 
 

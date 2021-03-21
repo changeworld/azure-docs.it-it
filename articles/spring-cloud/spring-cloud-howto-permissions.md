@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.date: 09/04/2020
 ms.custom: devx-track-java
 ms.openlocfilehash: 0c0b3bd81e0f73a7879382e28516378bd722bc17
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/02/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96498643"
 ---
 # <a name="how-to-use-permissions-in-azure-spring-cloud"></a>Come usare le autorizzazioni nel cloud Spring di Azure
@@ -20,7 +20,7 @@ Questo articolo illustra come creare ruoli personalizzati che delegano le autori
 Si implementeranno i seguenti ruoli personalizzati:
 
 * **Ruolo sviluppatore**: 
-    * Distribuire
+    * Distribuisci
     * Test
     * Riavviare le app
     * Può applicare e apportare modifiche alle configurazioni delle app nel repository git
@@ -54,7 +54,7 @@ Per iniziare a definire un ruolo, seguire questa procedura.
    ![Inizio aggiunta autorizzazioni](media/spring-cloud-permissions/add-permissions.png)
 
 ### <a name="search-for-azure-spring-cloud-permissions"></a>Cercare le autorizzazioni cloud Spring per Azure:
-7. Nella casella di ricerca cercare *Microsoft. app*.
+7. Nella casella di ricerca cercare *Microsoft.app*.
 Selezionare *Microsoft Azure Spring cloud*.
 
    ![Selezionare Azure Spring cloud](media/spring-cloud-permissions/spring-cloud-permissions.png)
@@ -95,7 +95,7 @@ Da **Microsoft. AppPlatform/locations/OperationStatus/OperationId** selezionare:
 
     [![Creare autorizzazioni ](media/spring-cloud-permissions/developer-permissions-box.png) Developler](media/spring-cloud-permissions/developer-permissions-box.png#lightbox)
 
-9. Scegliere **Aggiungi**.
+9. Fare clic su **Aggiungi**.
 
 10. Esaminare le autorizzazioni.
 
@@ -153,7 +153,7 @@ Da **Microsoft. AppPlatform/SKU** selezionare:
 
    [![Autorizzazioni ](media/spring-cloud-permissions/dev-ops-permissions.png) di sviluppo/op](media/spring-cloud-permissions/dev-ops-permissions.png#lightbox)
 
-3. Scegliere **Aggiungi**.
+3. Fare clic su **Aggiungi**.
 
 4. Esaminare le autorizzazioni.
 
@@ -187,7 +187,7 @@ Da **Microsoft. AppPlatform/locations/OperationStatus/OperationId** selezionare:
 
    [![Autorizzazioni ](media/spring-cloud-permissions/ops-sre-permissions.png) Ops/SRE](media/spring-cloud-permissions/ops-sre-permissions.png#lightbox)
 
-3. Scegliere **Aggiungi**.
+3. Fare clic su **Aggiungi**.
 
 4. Esaminare le autorizzazioni.
 
@@ -249,7 +249,7 @@ Da **Microsoft. AppPlatform/SKU** selezionare:
 
    [![Autorizzazioni ](media/spring-cloud-permissions/pipelines-permissions-box.png) per pipeline](media/spring-cloud-permissions/pipelines-permissions-box.png#lightbox)  
 
-4. Scegliere **Aggiungi**.
+4. Fare clic su **Aggiungi**.
 
 5. Esaminare le autorizzazioni.
 

@@ -9,10 +9,10 @@ ms.date: 04/15/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick
 ms.openlocfilehash: 436dbac814197556385a33d956928f97fd4716bf
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93311926"
 ---
 # <a name="database-collation-support-for-synapse-sql-in-azure-synapse-analytics"></a>Supporto delle regole di confronto del database per le sinapsi SQL in Azure sinapsi Analytics 
@@ -113,9 +113,9 @@ Quando viene passato ' Collation ' come parametro Property, la funzione Database
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Altre informazioni sulle procedure consigliate per il pool SQL dedicato e per il pool SQL senza server sono disponibili negli articoli seguenti:
+Per altre informazioni sulle procedure consigliate per il pool SQL dedicato e il pool SQL serverless, vedere gli articoli seguenti:
 
 - [Procedure consigliate per il pool SQL dedicato](best-practices-sql-pool.md)
-- [Procedure consigliate per il pool SQL senza server](best-practices-sql-on-demand.md)
+- [Procedure consigliate per il pool SQL serverless](best-practices-sql-on-demand.md)
 
 

@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 06/04/2020
 ms.author: jingwang
 ms.openlocfilehash: aae25536f0ac1d5d3b43b5173d3e5789cd66a774
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/14/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100385643"
 ---
 # <a name="copy-data-from-marketo-using-azure-data-factory-preview"></a>Copiare dati da Marketo tramite Azure Data Factory (anteprima)
@@ -35,7 +35,7 @@ Attualmente, l'istanza di Marketo integrata con CRM esterno non è supportata.
 >[!NOTE]
 >Il connettore Marketo è basato sull'API REST di Marketo. Tenere presente che Marketo presenta un [limite di richieste simultanee](https://developers.marketo.com/rest-api/) sul lato servizio. Se si verificano errori, ad esempio durante il tentativo di usare l'API REST con il superamento di 20 secondi del limite di velocità massimo pari a 100 (errore 606) oppure con il raggiungimento del limite di accessi simultanei pari a 10 (errore 615), è consigliabile ridurre le esecuzioni delle attività di copia simultanee per diminuire il numero di richieste inviate al servizio.
 
-## <a name="getting-started"></a>Guida introduttiva
+## <a name="getting-started"></a>Introduzione
 
 [!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 

@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.date: 06/08/2020
 ms.custom: devx-track-azurepowershell
 ms.openlocfilehash: 2d37de4a1861cb78b4a76c8ca7bc8c3643245b32
-ms.sourcegitcommit: 0830e02635d2f240aae2667b947487db01f5fdef
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/21/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97706967"
 ---
 # <a name="restart-azure-database-for-postgresql-server-using-powershell"></a>Riavviare il database di Azure per il server PostgreSQL con PowerShell
@@ -38,7 +38,7 @@ Se si sceglie di usare PowerShell in locale, connettersi all'account di Azure us
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-## <a name="restart-the-server"></a>Riavviare il server.
+## <a name="restart-the-server"></a>Riavviare il server
 
 Riavviare il server con il comando seguente:
 

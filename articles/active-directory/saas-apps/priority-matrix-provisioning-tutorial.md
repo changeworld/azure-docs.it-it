@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 10/08/2019
 ms.author: Zhchia
 ms.openlocfilehash: e79f21300325c6b451dd564bf2c69830f003f55c
-ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
-ms.translationtype: HT
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/07/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94357862"
 ---
 # <a name="tutorial-configure-priority-matrix-for-automatic-user-provisioning"></a>Esercitazione: configurare la matrice di priorità per il provisioning utenti automatico
@@ -37,7 +37,7 @@ Per lo scenario descritto in questa esercitazione si presuppone che l'utente dis
 
 ## <a name="assign-users-to-priority-matrix"></a>Assegnare utenti a una matrice di priorità
 
-Azure Active Directory usa un concetto denominato assegnazioni per determinare gli utenti che devono ricevere l'accesso alle app selezionate. Nel contesto del provisioning utenti automatico, vengono sincronizzati solo gli utenti e/o i gruppi che sono stati assegnati a un'applicazione in Azure AD.
+Per determinare gli utenti che dovranno ricevere l'accesso alle app selezionate, Azure Active Directory usa il concetto delle assegnazioni. Nel contesto del provisioning utenti automatico vengono sincronizzati solo gli utenti e/o i gruppi che sono stati assegnati a un'applicazione in Azure AD.
 
 Prima di configurare e abilitare il provisioning utenti automatico, è necessario stabilire quali utenti e/o gruppi in Azure AD necessario accedere alla matrice di priorità. Dopo aver stabilito questo, è possibile assegnare questi utenti e/o gruppi a una matrice di priorità seguendo le istruzioni riportate qui:
 
@@ -67,7 +67,7 @@ Prima di configurare la matrice di priorità per il provisioning utenti automati
 
 Per configurare la matrice di priorità per il provisioning utenti automatico con Azure AD, è necessario aggiungere la matrice di priorità dalla raccolta di applicazioni Azure AD al proprio elenco di applicazioni SaaS gestite.
 
-1. Nel riquadro di spostamento a sinistra del **[portale di Azure](https://portal.azure.com)** selezionare **Azure Active Directory**.
+1. Nel **[portale di Azure](https://portal.azure.com)** selezionare **Azure Active Directory** nel riquadro di spostamento sinistro.
 
     ![Pulsante Azure Active Directory](common/select-azuread.png)
 
@@ -75,7 +75,7 @@ Per configurare la matrice di priorità per il provisioning utenti automatico co
 
     ![Pannello Applicazioni aziendali](common/enterprise-applications.png)
 
-3. Per aggiungere una nuova applicazione, selezionare il pulsante **nuova applicazione** nella parte superiore del riquadro.
+3. Per aggiungere una nuova applicazione, selezionare il pulsante **Nuova applicazione** nella parte superiore del riquadro.
 
     ![Pulsante Nuova applicazione](common/add-new-app.png)
 
@@ -91,7 +91,7 @@ Per configurare la matrice di priorità per il provisioning utenti automatico co
 
     ![Accesso OIDC matrice di priorità](media/priority-matrix-provisioning-tutorial/msftsignin.png)
 
-7. Una volta completata l'autenticazione, accettare la richiesta di consenso per la pagina di consenso. L'applicazione verrà quindi aggiunta automaticamente al tenant e si verrà reindirizzati all'account della matrice di priorità.
+7. Una volta eseguita l'autenticazione, l'utente accetta la richiesta di consenso nella pagina di consenso. L'applicazione verrà quindi aggiunta automaticamente al tenant e si verrà reindirizzati all'account della matrice di priorità.
 
     ![Consenso OIDc matrice di priorità](media/priority-matrix-provisioning-tutorial/consent.png)
 
@@ -114,13 +114,13 @@ Questa sezione illustra i passaggi per configurare il servizio di provisioning A
 
 3. Selezionare la scheda **Provisioning**.
 
-    ![Screenshot delle opzioni Gestisci con l'opzione di provisioning denominata.](common/provisioning.png)
+    ![Screenshot delle opzioni disponibili in Gestisci con l'opzione Provisioning evidenziata.](common/provisioning.png)
 
 4. Impostare **Modalità di provisioning** su **Automatico**.
 
-    ![Screenshot dell'elenco a discesa modalità di provisioning con l'opzione automatica chiamata.](common/provisioning-automatic.png)
+    ![Screenshot dell'elenco a discesa Modalità di provisioning con l'opzione Automatico evidenziata.](common/provisioning-automatic.png)
 
-5. Nella sezione **credenziali amministratore** immettere `https://sync.appfluence.com/scim/v2/` in **URL tenant**. Immettere il valore recuperato e salvato in precedenza dalla matrice di priorità nel **token segreto**. Fare clic su **Test connessione** per verificare che Azure ad possibile connettersi alla matrice di priorità. Se la connessione non riesce, verificare che l'account della matrice di priorità disponga delle autorizzazioni di amministratore e riprovare.
+5. Nella sezione **Credenziali amministratore** immettere `https://sync.appfluence.com/scim/v2/` in **URL tenant**. Immettere il valore recuperato e salvato in precedenza dalla matrice di priorità nel **token segreto**. Fare clic su **Test connessione** per verificare che Azure ad possibile connettersi alla matrice di priorità. Se la connessione non riesce, verificare che l'account della matrice di priorità disponga delle autorizzazioni di amministratore e riprovare.
 
     ![URL del tenant e token](common/provisioning-testconnection-tenanturltoken.png)
 

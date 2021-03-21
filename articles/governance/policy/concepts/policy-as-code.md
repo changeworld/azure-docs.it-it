@@ -4,10 +4,10 @@ description: Informazioni su come progettare i flussi di lavoro per distribuire 
 ms.date: 10/20/2020
 ms.topic: conceptual
 ms.openlocfilehash: 74d2097e4db4442e6e65f30541864fb554f7379d
-ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/07/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94359681"
 ---
 # <a name="design-azure-policy-as-code-workflows"></a>Progettare flussi di lavoro di Criteri di Azure come codice
@@ -135,7 +135,7 @@ Una volta completati tutti i controlli di convalida, aggiornare l'assegnazione i
 
 Il flusso di lavoro generale per i criteri di Azure come codice è per lo sviluppo e la distribuzione di criteri e iniziative in un ambiente su larga scala. La valutazione dei criteri, tuttavia, deve far parte del processo di distribuzione per tutti i flussi di lavoro che distribuiscono o creano risorse in Azure, ad esempio la distribuzione di applicazioni o l'esecuzione di modelli ARM per la creazione dell'infrastruttura.
 
-In questi casi, dopo aver eseguito la distribuzione dell'applicazione o dell'infrastruttura in una sottoscrizione o un gruppo di risorse di test, è necessario eseguire la valutazione dei criteri per tale ambito convalidando tutti i criteri e le iniziative esistenti. Anche se in un ambiente di questo tipo potrebbero essere configurati con la proprietà **enforcementMode** _disabilitata_ , è utile sapere in anticipo se la distribuzione di un'applicazione o di un'infrastruttura viola le definizioni dei criteri. La valutazione dei criteri deve quindi essere un passaggio di questi flussi di lavoro e contrassegnare come non riuscite le distribuzioni che creano risorse non conformi.
+In questi casi, dopo aver eseguito la distribuzione dell'applicazione o dell'infrastruttura in una sottoscrizione o un gruppo di risorse di test, è necessario eseguire la valutazione dei criteri per tale ambito convalidando tutti i criteri e le iniziative esistenti. Anche se in un ambiente di questo tipo potrebbero essere configurati con la proprietà **enforcementMode** _disabilitata_, è utile sapere in anticipo se la distribuzione di un'applicazione o di un'infrastruttura viola le definizioni dei criteri. La valutazione dei criteri deve quindi essere un passaggio di questi flussi di lavoro e contrassegnare come non riuscite le distribuzioni che creano risorse non conformi.
 
 ## <a name="review"></a>Verifica
 

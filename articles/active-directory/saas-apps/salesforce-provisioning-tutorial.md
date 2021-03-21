@@ -11,10 +11,10 @@ ms.topic: tutorial
 ms.date: 08/01/2019
 ms.author: jeedes
 ms.openlocfilehash: 2a4d3f3f9465b8813cdf6ee26760d819d73a08c1
-ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
-ms.translationtype: HT
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/07/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94353105"
 ---
 # <a name="tutorial-configure-salesforce-for-automatic-user-provisioning"></a>Esercitazione: Configurare Salesforce per il provisioning utenti automatico
@@ -77,21 +77,21 @@ In questa sezione viene descritto come abilitare il provisioning utenti degli ac
 
 6. Per ottenere il token di sicurezza di Salesforce, aprire una nuova scheda e accedere allo stesso account di amministratore di Salesforce. Nell'angolo superiore destro della pagina fare clic sul proprio nome e quindi su **Impostazioni**.
 
-    ![Screenshot Visualizza il collegamento impostazioni selezionato.](./media/salesforce-provisioning-tutorial/sf-my-settings.png "Abilita provisioning utenti automatico")
+    ![Screenshot che mostra il collegamento Impostazioni selezionato.](./media/salesforce-provisioning-tutorial/sf-my-settings.png "Abilita provisioning utenti automatico")
 
 7. Nel pannello di navigazione sinistro fare clic su **My Personal Information** (Informazioni personali) per espandere la sezione corrispondente e quindi fare clic su **Reset My Security Token** (Reimposta token di sicurezza personale).
   
-    ![Screenshot Visualizza Reimposta il token di sicurezza selezionato da informazioni personali.](./media/salesforce-provisioning-tutorial/sf-personal-reset.png "Abilita provisioning utenti automatico")
+    ![Screenshot che mostra Reset My Security Token (Reimposta token di sicurezza personale) selezionato in Personal Information (Informazioni personali).](./media/salesforce-provisioning-tutorial/sf-personal-reset.png "Abilita provisioning utenti automatico")
 
 8. Nella pagina **Reset Security Token** (Reimposta token di sicurezza) fare clic sul pulsante **Reset Security Token** (Reimposta token di sicurezza).
 
-    ![Screenshot mostra la pagina token di sicurezza Rest, con testo esplicativo e l'opzione per reimpostare il token di sicurezza](./media/salesforce-provisioning-tutorial/sf-reset-token.png "Abilita provisioning utenti automatico")
+    ![Screenshot che mostra la pagina Reset Security Token (Reimposta token di sicurezza), con testo esplicativo e l'opzione Reset Security Token (Reimposta token di sicurezza)](./media/salesforce-provisioning-tutorial/sf-reset-token.png "Abilita provisioning utenti automatico")
 
 9. Controllare la casella di posta elettronica associata a questo account di amministratore. Cercare un messaggio di posta elettronica da Salesforce.com contenente il nuovo token di sicurezza.
 
 10. Copiare il token, passare alla finestra di Azure AD e incollarlo nel campo **Token segreto**.
 
-11. L' **URL del tenant** deve essere immesso se l'istanza di Salesforce si trova in Salesforce Government Cloud. In caso contrario, è facoltativo. Immettere l'URL del tenant usando il formato "https:// \<your-instance\> . My.salesforce.com", sostituendo \<your-instance\> con il nome dell'istanza di Salesforce.
+11. L'**URL del tenant** deve essere immesso se l'istanza di Salesforce si trova in Salesforce Government Cloud. In caso contrario, è facoltativo. Immettere l'URL del tenant usando il formato "https:// \<your-instance\> . My.salesforce.com", sostituendo \<your-instance\> con il nome dell'istanza di Salesforce.
 
 12. Nel portale di Azure fare clic su **Test connessione** per verificare che Azure AD possa connettersi all'app Salesforce.
 
@@ -131,4 +131,4 @@ Per altre informazioni sulla lettura dei log di provisioning di Azure AD, vedere
 
 * [Gestione del provisioning degli account utente per app aziendali](tutorial-list.md)
 * [Informazioni sull'accesso alle applicazioni e Single Sign-On con Azure Active Directory](../manage-apps/what-is-single-sign-on.md)
-* [Configura accesso Single Sign-on](./salesforce-tutorial.md)
+* [Configurare l'accesso Single Sign-On](./salesforce-tutorial.md)

@@ -9,10 +9,10 @@ ms.author: owend
 ms.reviewer: minewiskan
 ms.custom: references_regions
 ms.openlocfilehash: 049ff6d14c3967481eb73037814082fa261154e3
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/02/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96497929"
 ---
 # <a name="move-analysis-services-to-a-different-region"></a>Spostare Analysis Services in un'area diversa
@@ -54,7 +54,7 @@ Prima di trasferire un server in un'area diversa, è consigliabile creare un pia
 - **SQL Server Management Studio (SSMS)**: obbligatorio per il backup e il ripristino dei database modello.
 - **Azure PowerShell**. Obbligatorio solo se si sceglie di completare questa attività usando PowerShell.
 
-## <a name="prepare"></a>Preparare
+## <a name="prepare"></a>Preparazione
 
 ### <a name="backup-model-databases"></a>Database modello di backup
 
@@ -183,7 +183,7 @@ Per ottenere le aree di Azure, vedere [località di Azure](https://azure.microso
    Get-AzLocation | format-table 
 ```
 
-## <a name="move"></a>Spostamento
+## <a name="move"></a>Sposta
 
 Per distribuire una nuova risorsa server in un'area diversa, si userà il **template.js** nel file esportato e modificato nelle sezioni precedenti.
 
@@ -195,7 +195,7 @@ Per distribuire una nuova risorsa server in un'area diversa, si userà il **temp
 
 3. Selezionare **distribuzione modelli**.
 
-4. Selezionare **Create** (Crea).
+4. Selezionare **Crea**.
 
 5. Selezionare **Creare un modello personalizzato nell'editor**.
 

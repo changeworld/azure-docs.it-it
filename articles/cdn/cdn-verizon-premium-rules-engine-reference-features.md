@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 06/02/2020
 ms.author: allensu
 ms.openlocfilehash: 0ea4f167b992ccfbc4156ac06c8f636d2ef4a355
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/25/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96020416"
 ---
 # <a name="azure-cdn-from-verizon-premium-rules-engine-features"></a>Funzionalità del motore regole della rete CDN di Azure da Verizon Premium
@@ -113,7 +113,7 @@ Queste funzionalità sono progettate per personalizzare i dati archiviati nei fi
 
 **[Torna all'inizio](#top)**
 
-### <a name="optimize"></a><a name="optimize"></a>Ottimizzazione
+### <a name="optimize"></a><a name="optimize"></a>Ottimizzare
 
 Queste funzionalità determinano se una richiesta sarà sottoposta alle ottimizzazioni fornite da Edge Optimizer.
 

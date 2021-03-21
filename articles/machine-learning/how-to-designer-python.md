@@ -11,10 +11,10 @@ ms.date: 09/09/2020
 ms.topic: conceptual
 ms.custom: how-to, designer, devx-track-python
 ms.openlocfilehash: dcc28d98efbc82079586de8cfbecd35effc93d6e
-ms.sourcegitcommit: dc342bef86e822358efe2d363958f6075bcfc22a
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/12/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94556234"
 ---
 # <a name="run-python-code-in-azure-machine-learning-designer"></a>Eseguire codice Python in Azure Machine Learning Designer
@@ -58,7 +58,7 @@ I moduli di input sono facoltativi perché è possibile generare o importare dat
 
 La finestra di progettazione fornisce uno script iniziale che è possibile modificare per immettere il proprio codice Python. 
 
-In questo esempio vengono usati Pandas per combinare due colonne trovate nel set di dati dell'automobile, **Prezzo** e **Potenza** , in modo da creare una nuova colonna, **Dollari per potenza**. Questo articolo rappresenta quanto si paga per ogni cavallo, una funzionalità potenzialmente utile per decidere se un'automobile ha un buon rapporto qualità/prezzo. 
+In questo esempio vengono usati Pandas per combinare due colonne trovate nel set di dati dell'automobile, **Prezzo** e **Potenza**, in modo da creare una nuova colonna, **Dollari per potenza**. Questo articolo rappresenta quanto si paga per ogni cavallo, una funzionalità potenzialmente utile per decidere se un'automobile ha un buon rapporto qualità/prezzo. 
 
 1. Selezionare il modulo **Execute Python Script**.
 
@@ -83,7 +83,7 @@ In questo esempio vengono usati Pandas per combinare due colonne trovate nel set
     
 1. Inviare la pipeline.
 
-A questo punto, si dispone di un set di dati con la nuova funzionalità **Dollari/Potenza** , potenzialmente utile per il training di un esperto di automobili. Si tratta di un esempio di estrazione della funzionalità e di riduzione della dimensionalità. 
+A questo punto, si dispone di un set di dati con la nuova funzionalità **Dollari/Potenza**, potenzialmente utile per il training di un esperto di automobili. Si tratta di un esempio di estrazione della funzionalità e di riduzione della dimensionalità. 
 
 ## <a name="next-steps"></a>Passaggi successivi
 

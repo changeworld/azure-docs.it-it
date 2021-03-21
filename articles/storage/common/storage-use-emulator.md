@@ -8,10 +8,10 @@ ms.service: storage
 ms.subservice: common
 ms.topic: how-to
 ms.openlocfilehash: 6d9e0e63a3586be139620c154616acfcba2ab10f
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/02/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96498218"
 ---
 # <a name="use-the-azure-storage-emulator-for-development-and-testing"></a>Usare l'emulatore di archiviazione di Azure per sviluppo e test
@@ -186,7 +186,7 @@ Per visualizzare l'elenco di opzioni, digitare `/help` al prompt dei comandi.
 | --- | --- | --- | --- |
 | **Inizia** |Avvia l'emulatore di archiviazione. |`AzureStorageEmulator.exe start [-inprocess]` |*-Rielaborare*: avviare l'emulatore nel processo corrente anziché creare un nuovo processo. |
 | **Stop** |Arresta l'emulatore di archiviazione. |`AzureStorageEmulator.exe stop` | |
-| **Stato** |Stampa lo stato dell'emulatore di archiviazione. |`AzureStorageEmulator.exe status` | |
+| **Status** |Stampa lo stato dell'emulatore di archiviazione. |`AzureStorageEmulator.exe status` | |
 | **Cancella** |Cancella i dati in tutti i servizi specificati nella riga di comando. |`AzureStorageEmulator.exe clear [blob] [table] [queue] [all]` |*blob*: cancella i dati BLOB. <br/>*queue*: cancella i dati della coda. <br/>*table*: cancella i dati delle tabelle. <br/>*all*: cancella tutti i dati in tutti i servizi. |
 | **Init** |Esegue l'inizializzazione una sola volta per configurare l'emulatore. |<code>AzureStorageEmulator.exe init [-server serverName] [-sqlinstance instanceName] [-forcecreate&#124;-skipcreate] [-reserveports&#124;-unreserveports] [-inprocess]</code> |*-server serverName\instanceName*: specifica il server che ospita l'istanza di SQL. <br/>*-sqlinstance instanceName*: specifica il nome dell'istanza di SQL da usare. <br/>*-forcecreate*: forza la creazione del database SQL, anche se già esistente. <br/>*-skipcreate*: ignora la creazione del database SQL. Questa opzione ha la precedenza sull'opzione -forcecreate.<br/>*-reserveports*: tenta di prenotare le porte HTTP associate ai servizi.<br/>*-unreserveports*: tenta di rimuovere le prenotazioni delle porte HTTP associate ai servizi. Questa opzione ha la precedenza sull'opzione -reserveports.<br/>*-inprocess*: esegue l'inizializzazione nel processo corrente anziché generare un nuovo processo. Se si modificano le prenotazioni delle porte, è necessario avviare il processo corrente con autorizzazioni elevate. |
 

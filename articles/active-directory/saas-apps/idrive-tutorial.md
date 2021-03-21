@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 01/23/2019
 ms.author: jeedes
 ms.openlocfilehash: ba0dad7f3b01b8ac985af1d9cfc2257073163d3a
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
-ms.translationtype: HT
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/23/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92460381"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-idrive"></a>Esercitazione: Integrazione di Azure Active Directory con IDrive
@@ -61,7 +61,7 @@ Per configurare l'integrazione di IDrive in Azure AD, è necessario aggiungere I
 
     ![Pulsante Nuova applicazione](common/add-new-app.png)
 
-4. Nella casella di ricerca digitare **IDrive** , selezionare **IDrive** nel pannello dei risultati e quindi fare clic sul pulsante **Aggiungi** per aggiungere l'applicazione.
+4. Nella casella di ricerca digitare **IDrive**, selezionare **IDrive** nel pannello dei risultati e quindi fare clic sul pulsante **Aggiungi** per aggiungere l'applicazione.
 
      ![IDrive nell'elenco dei risultati](common/search-new-app.png)
 
@@ -101,13 +101,13 @@ Per configurare l'accesso Single Sign-On di Azure AD con IDrive, seguire questa 
 
     ![Screenshot che mostra la sezione Configurazione SAML di base.](common/preintegrated.png)
 
-5. Fare clic su **Impostare URL aggiuntivi** e seguire questa procedura se si vuole configurare l'applicazione in modalità avviata da **SP** :
+5. Fare clic su **Impostare URL aggiuntivi** e seguire questa procedura se si vuole configurare l'applicazione in modalità avviata da **SP**:
 
     ![Screenshot che mostra l'opzione Impostare URL aggiuntivi che consente di immettere un URL di accesso.](common/metadata-upload-additional-signon.png)
 
     Nella casella di testo **URL di accesso** digitare l'URL `https://www.idrive.com/idrive/login/loginForm`
 
-6. Nella pagina **Configura l'accesso Single Sign-On con SAML** , nella sezione **Certificato di firma SAML** , fare clic su **Scarica** per scaricare il file **Certificato (base)** definito dalle opzioni specificate in base ai propri requisiti e salvarlo nel computer in uso.
+6. Nella pagina **Configura l'accesso Single Sign-On con SAML**, nella sezione **Certificato di firma SAML**, fare clic su **Scarica** per scaricare il file **Certificato (base)** definito dalle opzioni specificate in base ai propri requisiti e salvarlo nel computer in uso.
 
     ![Collegamento di download del certificato](common/certificateraw.png)
 
@@ -123,13 +123,13 @@ Per configurare l'accesso Single Sign-On di Azure AD con IDrive, seguire questa 
 
 ### <a name="configure-idrive-single-sign-on"></a>Configurare l'accesso Single Sign-On di IDrive
 
-Per configurare l'accesso Single Sign-On sul lato **IDrive** , è necessario inviare il file di **Certificato (base)** scaricato e gli URL appropriati copiati dal portale di Azure al [team di supporto di IDrive](https://www.idrive.com/support). La configurazione viene eseguita in modo che la connessione SSO SAML sia impostata correttamente su entrambi i lati.
+Per configurare l'accesso Single Sign-On sul lato **IDrive**, è necessario inviare il file di **Certificato (base)** scaricato e gli URL appropriati copiati dal portale di Azure al [team di supporto di IDrive](https://www.idrive.com/support). La configurazione viene eseguita in modo che la connessione SSO SAML sia impostata correttamente su entrambi i lati.
 
 ### <a name="create-an-azure-ad-test-user"></a>Creare un utente di test di Azure AD 
 
 Questa sezione descrive come creare un utente test denominato Britta Simon nel portale di Azure.
 
-1. Nel riquadro sinistro del portale di Azure, selezionare **Azure Active Directory** , **Utenti** e quindi **Tutti gli utenti**.
+1. Nel riquadro sinistro del portale di Azure, selezionare **Azure Active Directory**, **Utenti** e quindi **Tutti gli utenti**.
 
     ![Collegamenti "Utenti e gruppi" e "Tutti gli utenti"](common/users.png)
 
@@ -154,7 +154,7 @@ Questa sezione descrive come creare un utente test denominato Britta Simon nel p
 
 In questa sezione si abilita Britta Simon all'uso dell'accesso Single Sign-On di Azure concedendole l'accesso a IDrive.
 
-1. Nel portale di Azure selezionare **Applicazioni aziendali** , quindi **Tutte le applicazioni** e infine **IDrive**.
+1. Nel portale di Azure selezionare **Applicazioni aziendali**, quindi **Tutte le applicazioni** e infine **IDrive**.
 
     ![Pannello delle applicazioni aziendali](common/enterprise-applications.png)
 

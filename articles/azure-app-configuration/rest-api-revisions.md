@@ -7,10 +7,10 @@ ms.service: azure-app-configuration
 ms.topic: reference
 ms.date: 08/17/2020
 ms.openlocfilehash: cfa117d1ed017170c279b7c4e0a146ae4edac108
-ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96932473"
 ---
 # <a name="key-value-revisions"></a>Revisioni chiave-valore
@@ -94,7 +94,7 @@ GET /revisions?api-version={api-version} HTTP/1.1
 Range: items=0-2
 ```
 
-**Response**.
+**Risposta**
 
 ```http
 HTTP/1.1 206 Partial Content
@@ -159,7 +159,7 @@ Content-Type: application/problem+json; charset=utf-8
 }
 ```
 
-### <a name="examples"></a>Esempi
+### <a name="examples"></a>Esempio
 
 - Tutto:
 

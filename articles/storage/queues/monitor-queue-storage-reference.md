@@ -10,10 +10,10 @@ ms.service: azure-monitor
 ms.subservice: logs
 ms.custom: monitoring
 ms.openlocfilehash: 95f20737b044140fe12ea939e71cd2397cb4826d
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/17/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100576686"
 ---
 # <a name="azure-queue-storage-monitoring-data-reference"></a>Riferimento ai dati di monitoraggio dell'archiviazione code di Azure

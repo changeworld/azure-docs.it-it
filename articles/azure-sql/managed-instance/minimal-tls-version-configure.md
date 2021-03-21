@@ -11,16 +11,16 @@ ms.author: srbozovi
 ms.reviewer: ''
 ms.date: 05/25/2020
 ms.openlocfilehash: 17d430946f3cba1aa4680d1eaf8979fa4338bc22
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/28/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92788401"
 ---
-# <a name="configure-minimal-tls-version-in-azure-sql-managed-instance"></a>Configurare la versione minima di TLS in Azure SQL Istanza gestita
+# <a name="configure-minimal-tls-version-in-azure-sql-managed-instance"></a>Configurare la versione minima di TLS in Istanza gestita di SQL di Azure
 L'impostazione della versione [Transport Layer Security minima (TLS)](https://support.microsoft.com/help/3135244/tls-1-2-support-for-microsoft-sql-server) consente ai clienti di controllare la versione di TLS usata dalle istanza gestita SQL di Azure.
 
-Al momento sono supportati TLS 1.0, 1.1 e TLS 1.2. L'impostazione Versione minima TLS assicura il supporto delle nuove versioni di TLS. Ad esempio, la scelta di una versione di TLS successiva a 1.1 indica che vengono accettate solo le connessioni con TLS 1.1 e 1.2, mentre quelle con TLS 1.0 vengono rifiutate. Dopo il test per confermare che le applicazioni lo supportano, è consigliabile impostare una versione minima di TLS su 1,2, perché include correzioni per le vulnerabilità rilevate nelle versioni precedenti ed è la versione più recente di TLS supportata in Azure SQL Istanza gestita.
+Al momento sono supportati TLS 1.0, 1.1 e TLS 1.2. L'impostazione Versione minima TLS assicura il supporto delle nuove versioni di TLS. Ad esempio, la scelta di una versione di TLS successiva a 1.1 indica che vengono accettate solo le connessioni con TLS 1.1 e 1.2, mentre quelle con TLS 1.0 vengono rifiutate. Dopo aver verificato che le applicazioni la supportano, è consigliabile impostare la versione minima di TLS su 1.2, perché include gli aggiornamenti per le vulnerabilità rilevati nelle versioni precedenti ed è la versione più recente di TLS supportata in Istanza gestita di SQL di Azure.
 
 Per i clienti con applicazioni che si basano su versioni precedenti di TLS, è consigliabile impostare la versione minima di TLS in base ai requisiti delle applicazioni. Per i clienti le cui applicazioni usano connessioni non crittografate, è consigliabile non impostare una versione minima di TLS. 
 

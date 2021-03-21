@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 07/21/2020
 ms.author: jeedes
 ms.openlocfilehash: 6e05b73ff07cb821c406f46a28ae3c613c4e26ba
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
-ms.translationtype: HT
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/24/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92520456"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-titanfile"></a>Esercitazione: Integrazione dell'accesso Single Sign-On (SSO) di Azure Active Directory con Titanfile
@@ -61,7 +61,7 @@ Configurare e testare l'accesso SSO di Azure AD con Titanfile usando un utente d
 Per configurare e testare l'accesso SSO di Azure AD con Titanfile, completare le procedure di base seguenti:
 
 1. **[Configurare l'accesso Single Sign-On di Azure AD](#configure-azure-ad-sso)** : per consentire agli utenti di usare questa funzionalità.
-    1. **[Creare un utente di test di Azure AD](#create-an-azure-ad-test-user)** : per testare l'accesso Single Sign-On di Azure AD con l'utente B. Simon.
+    1. **[Creare un utente di test di Azure AD](#create-an-azure-ad-test-user)** : per testare l'accesso Single Sign-On di Azure AD con l'utente B.Simon.
     1. **[Assegnare l'utente di test di Azure AD](#assign-the-azure-ad-test-user)** : per abilitare B. Simon all'uso dell'accesso Single Sign-On di Azure AD.
 1. **[Configurare l'accesso Single Sign-On di Titanfile](#configure-titanfile-sso)** : per configurare le impostazioni di Single Sign-On sul lato applicazione.
     1. **[Creare un utente di test di Titanfile](#create-titanfile-test-user)** : per avere una controparte di B. Simon in Titanfile collegata alla rappresentazione dell'utente in Azure AD.
@@ -98,7 +98,7 @@ Per abilitare l'accesso Single Sign-On di Azure AD nel portale di Azure, seguire
 
 In questa sezione verrà creato un utente di test di nome B.Simon nel portale di Azure.
 
-1. Nel riquadro sinistro del portale di Azure selezionare **Azure Active Directory** , **Utenti** e quindi **Tutti gli utenti**.
+1. Nel riquadro sinistro del portale di Azure selezionare **Azure Active Directory**, **Utenti** e quindi **Tutti gli utenti**.
 1. Selezionare **Nuovo utente** in alto nella schermata.
 1. In **Proprietà utente** seguire questa procedura:
    1. Nel campo **Nome** immettere `B.Simon`.  
@@ -126,7 +126,7 @@ In questa sezione si abiliterà B. Simon all'uso dell'accesso Single Sign-On di 
 
 ## <a name="configure-titanfile-sso"></a>Configurare l'accesso SSO di Titanfile
 
-Per configurare l'accesso Single Sign-On sul lato **Titanfile** , è necessario inviare il file **XML dei metadati di federazione** scaricato e gli URL appropriati copiati dal portale di Azure al [team di supporto di Titanfile](mailto:support@titanfile.com). La configurazione viene eseguita in modo che la connessione SSO SAML sia impostata correttamente su entrambi i lati.
+Per configurare l'accesso Single Sign-On sul lato **Titanfile**, è necessario inviare il file **XML dei metadati di federazione** scaricato e gli URL appropriati copiati dal portale di Azure al [team di supporto di Titanfile](mailto:support@titanfile.com). La configurazione viene eseguita in modo che la connessione SSO SAML sia impostata correttamente su entrambi i lati.
 
 ### <a name="create-titanfile-test-user"></a>Creare un utente di test di Titanfile
 

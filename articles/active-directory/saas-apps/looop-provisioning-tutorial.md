@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 09/19/2019
 ms.author: Zhchia
 ms.openlocfilehash: 528003ac482da6f254bf437321c70c389d23844b
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
-ms.translationtype: HT
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/18/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94835035"
 ---
 # <a name="tutorial-configure-looop-for-automatic-user-provisioning"></a>Esercitazione: Configurare Looop per il provisioning utenti automatico
@@ -117,7 +117,7 @@ Questa sezione descrive la procedura per configurare il servizio di provisioning
 
 4. Impostare **Modalità di provisioning** su **Automatico**.
 
-    ![Screenshot dell'elenco a discesa Modalità di provisioning con l'opzione Automatica evidenziata.](common/provisioning-automatic.png)
+    ![Screenshot dell'elenco a discesa Modalità di provisioning con l'opzione Automatico evidenziata.](common/provisioning-automatic.png)
 
 5. Nella sezione **Credenziali amministratore** immettere `https://<organisation_domain>.looop.co/scim/v2` in **URL tenant**. Ad esempio, `https://demo.looop.co/scim/v2` Immettere il valore recuperato e salvato in precedenza da Looop in **Token segreto**. Fare clic su **Test connessione** per verificare che Azure AD possa connettersi a Looop. Se la connessione non riesce, verificare che l'account Looop abbia autorizzazioni di amministratore e riprovare.
 

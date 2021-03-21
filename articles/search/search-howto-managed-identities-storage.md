@@ -10,10 +10,10 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 09/22/2020
 ms.openlocfilehash: f26ca04955dfa854a8ee17b7aa255a6ed991b8df
-ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/07/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94358372"
 ---
 # <a name="set-up-a-connection-to-an-azure-storage-account-using-a-managed-identity"></a>Configurare una connessione a un account di Archiviazione di Azure usando un'identità gestita
@@ -34,7 +34,7 @@ Quando un'identità gestita assegnata dal sistema è abilitata, Azure crea un'id
 
 ![Attivare l'identità gestita assegnata dal sistema](./media/search-managed-identities/turn-on-system-assigned-identity.png "Attivare l'identità gestita assegnata dal sistema")
 
-Dopo aver selezionato **Salva** , viene visualizzato un ID oggetto che è stato assegnato al servizio di ricerca.
+Dopo aver selezionato **Salva**, viene visualizzato un ID oggetto che è stato assegnato al servizio di ricerca.
 
 ![ID oggetto](./media/search-managed-identities/system-assigned-identity-object-id.png "ID dell'oggetto.")
  
@@ -61,7 +61,7 @@ In questo passaggio si autorizza il servizio Ricerca cognitiva di Azure a legger
 
     Esempio per l'archiviazione tabelle di Azure:
 
-    ![Aggiungere l'assegnazione di ruolo Lettore e accesso ai dati](./media/search-managed-identities/add-role-assignment-reader-and-data-access.png "Aggiungere l'assegnazione di ruolo di lettura e di accesso ai dati")
+    ![Aggiunta dell'assegnazione di ruolo di lettura e di accesso ai dati](./media/search-managed-identities/add-role-assignment-reader-and-data-access.png "Aggiungere l'assegnazione di ruolo di lettura e di accesso ai dati")
 
 ### <a name="3---create-the-data-source"></a>3 - Creare l'origine dati
 
@@ -77,7 +77,7 @@ Quando si esegue l'indicizzazione da un account di archiviazione, l'origine dati
 * **credentials**
     * Quando si usa un'identità gestita per l'autenticazione, il formato delle **credenziali** è diverso rispetto alla situazione in cui non viene usata un'identità gestita. In questo caso, si fornirà un valore ResourceId senza chiave o password dell'account. ResourceId deve includere l'ID sottoscrizione dell'account di archiviazione, il gruppo di risorse dell'account di archiviazione e il nome dell'account di archiviazione.
     * Formato dell'identità gestita: 
-        * *ResourceId=/subscriptions/ **ID sottoscrizione** /resourceGroups/ **nome del gruppo di risorse** /providers/Microsoft.Storage/storageAccounts/ **nome dell'account di archiviazione** /;*
+        * *ResourceId=/subscriptions/**ID sottoscrizione**/resourceGroups/**nome del gruppo di risorse**/providers/Microsoft.Storage/storageAccounts/**nome dell'account di archiviazione**/;*
 * **container** specifica un nome di contenitore o di tabella nell'account di archiviazione. Per impostazione predefinita, tutti i BLOB all'interno del contenitore sono recuperabili. Per indicizzare soltanto i BLOB in una determinata directory virtuale, è possibile specificare la directory usando il parametro facoltativo **query**.
 
 Esempio di creazione di un oggetto origine dati BLOB usando l'[API REST ](/rest/api/searchservice/create-data-source):

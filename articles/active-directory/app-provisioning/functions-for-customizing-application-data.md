@@ -12,10 +12,10 @@ ms.date: 03/04/2021
 ms.author: kenwith
 ms.custom: contperf-fy21q2
 ms.openlocfilehash: 0334f52b87071c8f363a0dfcc793170316747096
-ms.sourcegitcommit: dda0d51d3d0e34d07faf231033d744ca4f2bbf4a
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/05/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102198507"
 ---
 # <a name="reference-for-writing-expressions-for-attribute-mappings-in-azure-ad"></a>Riferimento per la scrittura di espressioni per i mapping degli attributi in Azure AD
@@ -372,7 +372,7 @@ Restituisce true se l'attributo non è presente o è una stringa vuota.
  `Item([proxyAddresses], 1)` Restituisce il secondo elemento nell'attributo multivalore.
 
 ---
-### <a name="join"></a>Join
+### <a name="join"></a>Partecipa
 **Funzione:** Join (separatore, source1, source2,...)
 
 **Descrizione:** Join () è simile a Append (), ad eccezione del fatto che può combinare più valori di stringa di **origine** in un'unica stringa e ogni valore sarà separato da una stringa di **separazione** .
