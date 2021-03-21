@@ -13,15 +13,15 @@ ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
 ms.custom: has-adal-ref
 ms.openlocfilehash: fa3a2366f007ff1481e7c84f049e606586392037
-ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/06/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96742953"
 ---
 # <a name="resolve-error-messages-from-the-nps-extension-for-azure-ad-multi-factor-authentication"></a>Risolvere i messaggi di errore dall'estensione NPS per Azure AD Multi-Factor Authentication
 
-Se si verificano errori con l'estensione NPS per Azure AD Multi-Factor Authentication, usare questo articolo per ottenere una risoluzione più rapida. I log di estensione server dei criteri di rete sono disponibili in Visualizzatore eventi in ruoli del server **visualizzazioni personalizzate**  >  **Server Roles**  >  **servizi di accesso e criteri di rete** nel server in cui è installata l'estensione NPS.
+Se si verificano errori con l'estensione NPS per Azure AD Multi-Factor Authentication, usare questo articolo per ottenere una risoluzione più rapida. I log di estensione server dei criteri di rete sono disponibili in Visualizzatore eventi in ruoli del server **visualizzazioni personalizzate**  >    >  **servizi di accesso e criteri di rete** nel server in cui è installata l'estensione NPS.
 
 ## <a name="troubleshooting-steps-for-common-errors"></a>Procedura per la risoluzione di errori comuni
 

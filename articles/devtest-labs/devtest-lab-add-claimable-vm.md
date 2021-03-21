@@ -4,10 +4,10 @@ description: Informazioni su come usare il portale di Azure per aggiungere una m
 ms.topic: article
 ms.date: 06/26/2020
 ms.openlocfilehash: 1fe949d7104fe6437087e77c403cc0d921ebd025
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "88270980"
 ---
 # <a name="create-and-manage-claimable-vms-in-azure-devtest-labs"></a>Creare e gestire macchine virtuali richiedibili in Azure DevTest Labs
@@ -44,7 +44,7 @@ Per aggiungere una macchina virtuale a disposizione degli utenti a un lab è nec
    Nella pagina del lab viene visualizzato lo stato di creazione della macchina virtuale, prima come **Creazione** e poi come **Esecuzione** dopo l'avvio della macchina virtuale.
 
 > [!NOTE]
-> Se si distribuiscono macchine virtuali lab tramite i  [modelli di Azure Resource Manager](devtest-lab-create-environment-from-arm.md), è possibile creare macchine virtuali a disposizione degli utenti impostando la proprietà **allowClaim** su true nella sezione delle proprietà.
+> Se si distribuiscono macchine virtuali lab tramite i [modelli di Azure Resource Manager](devtest-lab-create-environment-from-arm.md), è possibile creare macchine virtuali a disposizione degli utenti impostando la proprietà **allowClaim** su vero nella sezione delle proprietà.
 
 
 ## <a name="using-a-claimable-vm"></a>Usare una macchina virtuale a disposizione degli utenti

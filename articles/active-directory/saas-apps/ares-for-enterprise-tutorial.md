@@ -1,5 +1,5 @@
 ---
-title: 'Esercitazione: Integrazione di Azure Active Directory con ARES for Enterprise | Microsoft Docs'
+title: 'Esercitazione: integrazione di Azure Active Directory con ARES for Enterprise | Microsoft Docs'
 description: Informazioni su come configurare l'accesso Single Sign-On tra Azure Active Directory e ARES for Enterprise.
 services: active-directory
 author: jeevansd
@@ -12,13 +12,13 @@ ms.topic: tutorial
 ms.date: 01/16/2019
 ms.author: jeedes
 ms.openlocfilehash: 7cd8faece0d737e97f1c5809f27840f1d9192548
-ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
-ms.translationtype: HT
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/18/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97673406"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-ares-for-enterprise"></a>Esercitazione: Integrazione di Azure Active Directory con ARES for Enterprise
+# <a name="tutorial-azure-active-directory-integration-with-ares-for-enterprise"></a>Esercitazione: integrazione di Azure Active Directory con ARES for Enterprise
 
 Questa esercitazione descrive come integrare ARES for Enterprise con Azure Active Directory (Azure AD).
 L'integrazione di ARES for Enterprise con Azure AD offre i vantaggi seguenti:
@@ -75,10 +75,10 @@ Per il corretto funzionamento dell'accesso Single Sign-On, deve essere stabilita
 Per configurare e testare l'accesso Single Sign-On di Azure AD con ARES for Enterprise, è necessario completare le procedure di base seguenti:
 
 1. **[Configurare l'accesso Single Sign-On di Azure AD](#configure-azure-ad-single-sign-on)** : per consentire agli utenti di usare questa funzionalità.
-2. **[Configurare l'accesso Single Sign-On per ARES for Enterprise](#configure-ares-for-enterprise-single-sign-on)** : per configurare le impostazioni di Single Sign-On sul lato applicazione. 
+2. **[Configurare l'accesso Single Sign-On per ARES for Enterprise](#configure-ares-for-enterprise-single-sign-on)**: per configurare le impostazioni di Single Sign-On sul lato applicazione. 
 3. **[Creare un utente di test di Azure AD](#create-an-azure-ad-test-user)** : per testare l'accesso Single Sign-On di Azure AD con l'utente Britta Simon.
 4. **[Assegnare l'utente di test di Azure AD](#assign-the-azure-ad-test-user)** : per abilitare Britta Simon all'uso dell'accesso Single Sign-On di Azure AD.
-5. **[Creare un utente di test di ARES for Enterprise](#create-ares-for-enterprise-test-user)** : per avere una controparte di Britta Simon in ARES for Enterprise collegata alla rappresentazione dell'utente in Azure AD.
+5. **[Creare un utente di test di ARES for Enterprise](#create-ares-for-enterprise-test-user)**: per avere una controparte di Britta Simon in ARES for Enterprise collegata alla rappresentazione dell'utente in Azure AD.
 6. **[Testare l'accesso Single Sign-On](#test-single-sign-on)** per verificare se la configurazione funziona.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Configurare l'accesso Single Sign-On di Azure AD
@@ -103,7 +103,7 @@ Per configurare l'accesso Single Sign-On di Azure AD con ARES for Enterprise, se
 
     ![Informazioni su URL e dominio per l'accesso Single Sign-On di ARES for Enterprise](common/sp-intiated.png)
 
-    Nella casella di testo **URL di accesso** digitare un URL: `https://login.graebert.com`
+    Nella casella di testo **URL di accesso** Digitare un URL:  `https://login.graebert.com`
 
 5. Nella pagina **Configura l'accesso Single Sign-On con SAML**, nella sezione **Certificato di firma SAML**, fare clic sul pulsante Copia per copiare l'**URL dei metadati di federazione dell'app** e salvarlo nel computer.
 

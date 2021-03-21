@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: b42f920726d4b3046ab0c292e1090f5217e8b1f9
-ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/06/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96743242"
 ---
 # <a name="securing-cloud-resources-with-azure-ad-multi-factor-authentication-and-ad-fs"></a>Protezione delle risorse cloud con Azure AD Multi-Factor Authentication e AD FS
@@ -80,7 +80,7 @@ Per prima cosa è necessario configurare le attestazioni ADFS. Creare due regole
 ```
 
 13. Fare clic su **Fine**.
-14. Fare clic su **Apply**.
+14. Fare clic su **Applica**.
 15. Fare clic su **OK**.
 16. Chiudere Gestione ADFS.
 
@@ -97,4 +97,4 @@ Ora che le attestazioni sono configurate, è possibile procedere alla configuraz
 4. In **Indirizzi IP attendibili** nella pagina Impostazioni servizio selezionare **Ignora l'autenticazione a più fattori per le richieste provenienti da utenti federati nella Intranet**.  
 5. Fare clic su **save**.
 
-Ecco fatto! A questo punto, gli utenti federati Microsoft 365 devono usare l'autenticazione a più fattori solo quando un'attestazione proviene dall'esterno della Intranet aziendale.
+Questo è tutto. A questo punto, gli utenti federati Microsoft 365 devono usare l'autenticazione a più fattori solo quando un'attestazione proviene dall'esterno della Intranet aziendale.

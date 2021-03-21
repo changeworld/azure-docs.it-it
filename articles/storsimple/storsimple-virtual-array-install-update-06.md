@@ -15,10 +15,10 @@ ms.workload: TBD
 ms.date: 05/18/2017
 ms.author: alkohli
 ms.openlocfilehash: 4b379bb76eaf7587c53ec55972ccee3f54a55f22
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/12/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94534246"
 ---
 # <a name="install-update-06-on-your-storsimple-virtual-array"></a>Installare l'aggiornamento 0.6 nell'array virtuale StorSimple
@@ -64,7 +64,7 @@ Eseguire i passaggi seguenti per scaricare l'aggiornamento del software da Micro
 
 3. Nella casella di ricerca di Microsoft Update Catalog, immettere il numero dell'hotfix da scaricare riportato nella Knowledge Base (KB). Immettere **4023268** per l'aggiornamento 0.6 e quindi fare clic su **Cerca**.
    
-    Verrà visualizzato l'elenco degli aggiornamenti rapidi, tra cui l' **aggiornamento 0.6 per l'array virtuale StorSimple**.
+    Verrà visualizzato l'elenco degli aggiornamenti rapidi, tra cui l'**aggiornamento 0.6 per l'array virtuale StorSimple**.
    
     ![Cercare nel catalogo](./media/storsimple-virtual-array-install-update-06/download1.png)
 
@@ -95,11 +95,11 @@ Usare questo metodo per installare gli aggiornamenti in un dispositivo che esegu
 
 #### <a name="to-install-the-update-or-the-hotfix"></a>Per installare l'aggiornamento o l'hotfix
 
-1. Nell'interfaccia utente Web locale passare a **manutenzione**  >  **aggiornamento software**. Prendere nota della versione del software in esecuzione. Se si esegue la versione **10.0.10290.0** , non è necessario aggiornare l'agente MDS nel passaggio 6.
+1. Nell'interfaccia utente Web locale passare a **manutenzione**  >  **aggiornamento software**. Prendere nota della versione del software in esecuzione. Se si esegue la versione **10.0.10290.0**, non è necessario aggiornare l'agente MDS nel passaggio 6.
    
     ![Screenshot mostra l'aggiornamento software selezionato dal menu manutenzione.](./media/storsimple-virtual-array-install-update-05/update1m.png)
 
-2. In **Percorso del file di aggiornamento** , immettere il nome del file dell'aggiornamento o dell'hotfix. È possibile anche cercare il file di installazione dell'aggiornamento o dell'hotfix, se posizionato in una condivisione di rete. Fare clic su **Applica**.
+2. In **Percorso del file di aggiornamento**, immettere il nome del file dell'aggiornamento o dell'hotfix. È possibile anche cercare il file di installazione dell'aggiornamento o dell'hotfix, se posizionato in una condivisione di rete. Fare clic su **Applica**.
    
     ![Screenshot mostra la casella di testo percorso file di aggiornamento nella pagina di aggiornamento software.](./media/storsimple-virtual-array-install-update-05/update2m.png)
 
@@ -114,11 +114,11 @@ Usare questo metodo per installare gli aggiornamenti in un dispositivo che esegu
 5. Al termine del riavvio si viene indirizzati alla pagina **di accesso** . Per verificare che il software del dispositivo sia stato aggiornato, nell'interfaccia utente Web locale passare a **manutenzione**  >  **aggiornamento software**. Dovrebbe essere visualizzata la versione del software **10.0.0.0.0.10293** per l'aggiornamento 0.6.
    
    > [!NOTE]
-   > Le versioni del software vengono riportate in modo leggermente diverso nell'interfaccia utente Web locale e nel portale di Azure. Ad esempio, l'interfaccia utente Web locale indica **10.0.0.0.0.10293** , mentre il portale di Azure indica **10.0.10293.0** per la stessa versione.
+   > Le versioni del software vengono riportate in modo leggermente diverso nell'interfaccia utente Web locale e nel portale di Azure. Ad esempio, l'interfaccia utente Web locale indica **10.0.0.0.0.10293**, mentre il portale di Azure indica **10.0.10293.0** per la stessa versione.
    
     ![Screenshot mostra la pagina di aggiornamento software con la versione del software corrente.](./media/storsimple-virtual-array-install-update-06/update6m.png)
 
-6. Ignorare questo passaggio se si eseguiva l'aggiornamento 0.5 dell'array virtuale StorSimple ( **10.0.10290.0** ) prima di applicare questo aggiornamento. L'utente ha preso nota della versione del software nel passaggio 1 prima di avviare l'aggiornamento. Se veniva eseguito l'aggiornamento 0.5, l'agente MDS è già aggiornato.
+6. Ignorare questo passaggio se si eseguiva l'aggiornamento 0.5 dell'array virtuale StorSimple (**10.0.10290.0**) prima di applicare questo aggiornamento. L'utente ha preso nota della versione del software nel passaggio 1 prima di avviare l'aggiornamento. Se veniva eseguito l'aggiornamento 0.5, l'agente MDS è già aggiornato.
 
     Se si esegue una versione del software precedente all'aggiornamento 0.5, il passaggio successivo per l'utente consiste nell'aggiornare l'agente MDS. Nella pagina **Software Update** (Aggiornamento software), passare a **Update file path** (Aggiorna percorso file) e cercare il file `GenevaMonitoringAgentPackageInstaller.msi`. Ripetere i passaggi da 2 a 4. Dopo il riavvio dell'array virtuale, accedere all'interfaccia utente Web locale.
 

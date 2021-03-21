@@ -3,11 +3,11 @@ title: Accedere al registro di sistema con restrizioni di rete usando un servizi
 description: Abilitare un'istanza del servizio di Azure attendibile per accedere in modo sicuro a un registro contenitori con restrizioni di rete per eseguire il pull o il push di immagini
 ms.topic: article
 ms.date: 01/29/2021
-ms.openlocfilehash: 3cc32630ea689891e7ba75163c33bc499a38becd
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 2e6b6ee3736f98f53ebb0aa43d707d42ba4cc058
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/03/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "101716483"
 ---
 # <a name="allow-trusted-services-to-securely-access-a-network-restricted-container-registry-preview"></a>Consenti ai servizi attendibili di accedere in modo sicuro a un registro contenitori con restrizioni di rete (anteprima)
@@ -41,6 +41,7 @@ Le istanze dei servizi seguenti possono accedere a un registro contenitori con r
 |Servizio attendibile  |Scenari di utilizzo supportati  |
 |---------|---------|
 |Attività di Registro Azure Container     | [Accedere a un registro diverso da un'attività ACR](container-registry-tasks-cross-registry-authentication.md)       |
+|Machine Learning | [Distribuire](../machine-learning/how-to-deploy-custom-docker-image.md) o eseguire il [Training](../machine-learning/how-to-train-with-custom-image.md) di un modello in un'area di lavoro Machine Learning usando un'immagine del contenitore Docker personalizzata |
 |Registro Azure Container | [Importa immagini da un altro registro contenitori di Azure](container-registry-import-images.md#import-from-an-azure-container-registry-in-the-same-ad-tenant) | 
 
 > [!NOTE]

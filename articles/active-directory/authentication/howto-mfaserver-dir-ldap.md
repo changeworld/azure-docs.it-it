@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 8961cccbd57294e477f0d33202fe91cd292b7814
-ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/06/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96742222"
 ---
 # <a name="ldap-authentication-and-azure-multi-factor-authentication-server"></a>Autenticazione LDAP e server Azure Multi-Factor Authentication
@@ -44,7 +44,7 @@ Per configurare l'autenticazione LDAP, è necessario installare il server Azure 
 
 3. Nella scheda client modificare la porta TCP e la porta SSL (TLS) se il servizio LDAP di Azure Multi-Factor Authentication deve essere associato a porte non standard per l'ascolto delle richieste LDAP.
 4. Se si prevede di usare LDAPs dal client al server Multi-Factor Authentication di Azure, è necessario installare un certificato TLS/SSL nello stesso server del server di autenticazione a più fattori. Fare clic su **Sfoglia** accanto alla casella certificato SSL (TLS) e selezionare un certificato da usare per la connessione protetta.
-5. Scegliere **Aggiungi**.
+5. Fare clic su **Aggiungi**.
 6. Nella finestra di dialogo Aggiungi client LDAP immettere l'indirizzo IP del dispositivo, del server o dell'applicazione che esegue l'autenticazione al server e il nome di un'applicazione (facoltativo). Il nome dell'applicazione viene visualizzato nei report di Azure multi-Factor Authentication e potrebbe essere visualizzato all'interno di messaggi di autenticazione dell'App Mobile o SMS.
 7. Se tutti gli utenti sono già stati o verranno importati nel server e saranno soggetti alla verifica in due passaggi, selezionare la casella di controllo **Richiedi corrispondenza utente di Multi-Factor Authentication**. Se un numero significativo di utenti non è ancora stato importato nel server e/o non è soggetto alla verifica in due passaggi, lasciare deselezionata la casella. Vedere il file della Guida del server di MFA per altre informazioni su questa funzionalità.
 
