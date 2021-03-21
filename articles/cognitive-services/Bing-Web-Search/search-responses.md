@@ -12,16 +12,16 @@ ms.date: 06/25/2019
 ms.author: aahi
 ms.custom: seodec2018
 ms.openlocfilehash: 3dda95312a0b9191ddc11de62959f308ee19fff4
-ms.sourcegitcommit: 8a1ba1ebc76635b643b6634cc64e137f74a1e4da
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94380981"
 ---
 # <a name="bing-web-search-api-response-structure-and-answer-types"></a>Tipi e struttura delle risposte dell'API Ricerca Web Bing  
 
 > [!WARNING]
-> Le API Ricerca Bing sono state trasferite da Servizi cognitivi ai servizi di Ricerca Bing. A partire dal **30 ottobre 2020** , è necessario effettuare il provisioning di tutte le nuove istanze di Ricerca Bing seguendo la procedura documentata [qui](/bing/search-apis/bing-web-search/create-bing-search-service-resource).
+> Le API Ricerca Bing sono state trasferite da Servizi cognitivi ai servizi di Ricerca Bing. A partire dal **30 ottobre 2020**, è necessario effettuare il provisioning di tutte le nuove istanze di Ricerca Bing seguendo la procedura documentata [qui](/bing/search-apis/bing-web-search/create-bing-search-service-resource).
 > Le API Ricerca Bing di cui viene effettuato il provisioning con Servizi cognitivi saranno supportate per i prossimi tre anni oppure fino alla data di fine del contratto Enterprise, se precedente.
 > Per le istruzioni sulla migrazione, vedere [Servizi di Ricerca Bing](/bing/search-apis/bing-web-search/create-bing-search-service-resource).
 
@@ -43,7 +43,7 @@ Quando si invia Ricerca Web Bing una richiesta di ricerca, viene restituito un [
 }, ...
 ```
 
-Ricerca Web Bing restituisce in genere un subset delle risposte. Se, ad esempio, il termine della query era *Sailing derive* , la risposta potrebbe includere `webPages` , `images` e `rankingResponse` . A meno che non sia stata usata la query [responseFilter](/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#responsefilter) per filtrare le pagine Web, la risposta include sempre le risposte `webpages` e `rankingResponse`.
+Ricerca Web Bing restituisce in genere un subset delle risposte. Se, ad esempio, il termine della query era *Sailing derive*, la risposta potrebbe includere `webPages` , `images` e `rankingResponse` . A meno che non sia stata usata la query [responseFilter](/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#responsefilter) per filtrare le pagine Web, la risposta include sempre le risposte `webpages` e `rankingResponse`.
 
 [!INCLUDE [cognitive-services-bing-url-note](../../../includes/cognitive-services-bing-url-note.md)]
 
@@ -301,9 +301,9 @@ Un'espressione matematica può contenere i simboli seguenti:
 |-|Sottrazione|
 |/|Divisione|
 |*|Moltiplicazione|
-|^|Elettricità|
+|^|Potenza|
 |!|Fattoriale|
-|.|Decimale|
+|.|Decimal|
 |()|Raggruppamento con precedenza|
 |[]|Funzione|
 
@@ -333,7 +333,7 @@ Le espressioni matematiche che contengono variabili (ad esempio, 4x + 6 = 18, do
 
 ## <a name="timezone-answer"></a>Risposta TimeZone
 
-Se si immette una query di ora o data, la risposta può contenere una risposta [TimeZone](/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#timezone). Questa risposta supporta query implicite o esplicite. Una query implicita, ad esempio *Che ora è?* , restituisce l'ora locale in base alla posizione dell'utente. Una query esplicita, ad esempio *Che ora è a Seattle?* , restituisce l'ora locale di Seattle, WA.
+Se si immette una query di ora o data, la risposta può contenere una risposta [TimeZone](/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#timezone). Questa risposta supporta query implicite o esplicite. Una query implicita, ad esempio *Che ora è?*, restituisce l'ora locale in base alla posizione dell'utente. Una query esplicita, ad esempio *Che ora è a Seattle?*, restituisce l'ora locale di Seattle, WA.
 
 La risposta `timeZone` include il nome della posizione, la data e l'ora UTC corrente nella posizione specificata e la differenza dall'ora UTC. Se all'interno dei confini della posizione sono presenti più fusi orari, la risposta contiene la data e l'ora UTC corrente di tutti i fusi orari presenti. Lo Stato della Florida rientra ad esempio in due fusi orari, pertanto la risposta contiene la data e l'ora locali di entrambi i fusi orari.  
 
@@ -424,7 +424,7 @@ Query: What time is it in the U.S.
 
 ## <a name="spellsuggestion-answer"></a>Risposta SpellSuggestion
 
-Se Bing stabilisce che l'utente potrebbe aver voluto cercare qualcosa di diverso, la risposta include un oggetto [SpellSuggestions](/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#spellsuggestions). Se si cerca ad esempio *carlos pen* , Bing può stabilire che probabilmente l'utente intendeva cercare Carlos Pena, sulla base delle ricerche di *carlos pen* eseguite in precedenza da altri utenti. Di seguito è riportato un esempio di risposta SpellSuggestions.
+Se Bing stabilisce che l'utente potrebbe aver voluto cercare qualcosa di diverso, la risposta include un oggetto [SpellSuggestions](/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#spellsuggestions). Se si cerca ad esempio *carlos pen*, Bing può stabilire che probabilmente l'utente intendeva cercare Carlos Pena, sulla base delle ricerche di *carlos pen* eseguite in precedenza da altri utenti. Di seguito è riportato un esempio di risposta SpellSuggestions.
 
 ```json
 "spellSuggestions": {
@@ -485,6 +485,6 @@ Di seguito è riportato un esempio di suggerimento ortografico da parte di Bing.
 
 * Rivedere la documentazione relativa alla [limitazione delle richieste](throttling-requests.md).  
 
-## <a name="see-also"></a>Vedere anche  
+## <a name="see-also"></a>Vedi anche  
 
 * [Informazioni di riferimento per l'API Ricerca Web Bing](/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference)

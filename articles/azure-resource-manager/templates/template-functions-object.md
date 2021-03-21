@@ -4,10 +4,10 @@ description: Descrive le funzioni da usare in un modello di Azure Resource Manag
 ms.topic: conceptual
 ms.date: 11/18/2020
 ms.openlocfilehash: 5e13177db1a7cf2f19a822363cb3884474566add
-ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96920437"
 ---
 # <a name="object-functions-for-arm-templates"></a>Funzioni oggetto per i modelli ARM
@@ -33,7 +33,7 @@ Verifica se una matrice contiene un valore, se un oggetto contiene una chiave o 
 
 ### <a name="parameters"></a>Parametri
 
-| Parametro | Obbligatorio | Type | Descrizione |
+| Parametro | Obbligatoria | Tipo | Descrizione |
 |:--- |:--- |:--- |:--- |
 | contenitore |Sì |matrice, oggetto o stringa |Valore che contiene il valore da trovare. |
 | itemToFind |Sì |stringa o numero intero |Valore da trovare. |
@@ -145,7 +145,7 @@ Crea un oggetto dalle chiavi e dai valori. La `createObject` funzione non è sup
 
 ### <a name="parameters"></a>Parametri
 
-| Parametro | Obbligatorio | Type | Descrizione |
+| Parametro | Obbligatoria | Tipo | Descrizione |
 |:--- |:--- |:--- |:--- |
 | key1 |No |string |Nome della chiave. |
 | value1 |No |int, Boolean, String, Object o Array |Valore della chiave. |
@@ -219,7 +219,7 @@ Determina se una matrice, un oggetto o una stringa sono vuoti.
 
 ### <a name="parameters"></a>Parametri
 
-| Parametro | Obbligatorio | Type | Descrizione |
+| Parametro | Obbligatoria | Tipo | Descrizione |
 |:--- |:--- |:--- |:--- |
 | itemToTest |Sì |matrice, oggetto o stringa |Valore per verificare se è vuoto. |
 
@@ -300,7 +300,7 @@ Restituisce una matrice o un oggetto singoli con gli elementi comuni dei paramet
 
 ### <a name="parameters"></a>Parametri
 
-| Parametro | Obbligatorio | Type | Descrizione |
+| Parametro | Obbligatoria | Tipo | Descrizione |
 |:--- |:--- |:--- |:--- |
 | arg1 |Sì |matrice o oggetto |Primo valore da usare per cercare elementi comuni. |
 | arg2 |Sì |matrice o oggetto |Secondo valore da usare per cercare elementi comuni. |
@@ -407,7 +407,7 @@ Converte una stringa JSON valida in un tipo di dati JSON.
 
 ### <a name="parameters"></a>Parametri
 
-| Parametro | Obbligatorio | Type | Descrizione |
+| Parametro | Obbligatoria | Tipo | Descrizione |
 |:--- |:--- |:--- |:--- |
 | arg1 |Sì |string |Valore da convertire in JSON. La stringa deve essere una stringa JSON formattata correttamente. |
 
@@ -415,7 +415,7 @@ Converte una stringa JSON valida in un tipo di dati JSON.
 
 Il tipo di dati JSON dalla stringa specificata o un valore vuoto quando viene specificato **null** .
 
-### <a name="remarks"></a>Osservazioni
+### <a name="remarks"></a>Commenti
 
 Se è necessario includere un valore del parametro o una variabile nell'oggetto JSON, usare la funzione [concat](template-functions-string.md#concat) per creare la stringa che viene passata alla funzione.
 
@@ -524,7 +524,7 @@ L'output dell'esempio precedente con i valori predefiniti è il seguente:
 | ---- | ---- | ----- |
 | emptyObjectOutput | Boolean | True |
 | objectOutput | Oggetto | {"a": "b"} |
-| stringOutput | Stringa | test |
+| stringOutput | string | test |
 | booleanOutput | Boolean | True |
 | intOutput | Integer | 3 |
 | arrayOutput | Array | [ 1, 2, 3 ] |
@@ -538,7 +538,7 @@ Restituisce il numero di elementi in una matrice, i caratteri di una stringa o l
 
 ### <a name="parameters"></a>Parametri
 
-| Parametro | Obbligatorio | Type | Descrizione |
+| Parametro | Obbligatoria | Tipo | Descrizione |
 |:--- |:--- |:--- |:--- |
 | arg1 |Sì |Array, String o Object |Matrice da usare per ottenere il numero di elementi, la stringa da usare per ottenere il numero di caratteri o l'oggetto da usare per ottenere il numero di proprietà a livello di radice. |
 
@@ -690,7 +690,7 @@ Restituisce una matrice o un oggetto singoli con tutti gli elementi dei parametr
 
 ### <a name="parameters"></a>Parametri
 
-| Parametro | Obbligatorio | Type | Descrizione |
+| Parametro | Obbligatoria | Tipo | Descrizione |
 |:--- |:--- |:--- |:--- |
 | arg1 |Sì |matrice o oggetto |Primo valore da usare per l'aggiunta di elementi. |
 | arg2 |Sì |matrice o oggetto |Secondo valore da usare per l'aggiunta di elementi. |

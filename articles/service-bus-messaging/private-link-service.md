@@ -6,10 +6,10 @@ ms.author: spelluru
 ms.date: 10/07/2020
 ms.topic: article
 ms.openlocfilehash: 66de9a4ff65c73264257cb6f7f215fc15820c95f
-ms.sourcegitcommit: 0dcafc8436a0fe3ba12cb82384d6b69c9a6b9536
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94427148"
 ---
 # <a name="allow-access-to-azure-service-bus-namespaces-via-private-endpoints"></a>Consentire l'accesso agli spazi dei nomi del bus di servizio di Azure tramite endpoint privati
@@ -71,12 +71,12 @@ Se si ha già uno spazio dei nomi esistente, è possibile creare un endpoint pri
     1. Selezionare la **sottoscrizione di Azure** in cui creare l'endpoint privato. 
     2. Selezionare il **gruppo di risorse** per la risorsa endpoint privato.
     3. Immettere un **nome** per l'endpoint privato. 
-    5. Selezionare un' **area** per l'endpoint privato. L'endpoint privato deve trovarsi nella stessa area della rete virtuale, ma può trovarsi in un'area diversa rispetto alla risorsa collegamento privato a cui si sta effettuando la connessione. 
+    5. Selezionare un'**area** per l'endpoint privato. L'endpoint privato deve trovarsi nella stessa area della rete virtuale, ma può trovarsi in un'area diversa rispetto alla risorsa collegamento privato a cui si sta effettuando la connessione. 
     6. Selezionare **Avanti: Risorsa >** nella parte inferiore della pagina.
 
         ![Creare l'endpoint privato - Pagina Informazioni di base](./media/private-link-service/create-private-endpoint-basics-page.png)
 8. Nella pagina **Risorsa** seguire questa procedura:
-    1. Per il metodo di connessione, se si è selezionato **Connettersi a una risorsa di Azure nella directory** , seguire questa procedura:   
+    1. Per il metodo di connessione, se si è selezionato **Connettersi a una risorsa di Azure nella directory**, seguire questa procedura:   
         1. Selezionare la **sottoscrizione di Azure** in cui si trova lo **spazio dei nomi del bus di servizio**. 
         2. Per **Tipo di risorsa** selezionare **Microsoft.ServiceBus/namespaces**.
         3. Per **Risorsa** selezionare uno spazio dei nomi del bus di servizio nell'elenco a discesa. 
@@ -84,8 +84,8 @@ Se si ha già uno spazio dei nomi esistente, è possibile creare un endpoint pri
         5. Selezionare **Avanti: Configurazione >** nella parte inferiore della pagina. 
         
             ![Creare l'endpoint privato - Pagina Risorsa](./media/private-link-service/create-private-endpoint-resource-page.png)
-    2. Se si seleziona **Connettersi a una risorsa di Azure in base all'alias o all'ID risorsa** , seguire questa procedura:
-        1. Immettere l' **ID risorsa** o l' **alias**. Può trattarsi dell'ID risorsa o dell'alias condiviso da un altro utente. Il modo più semplice per ottenere l'ID risorsa è passare allo spazio dei nomi del bus di servizio nel portale di Azure e copiare la parte dell'URI a partire da `/subscriptions/`. Per un esempio, vedere l'immagine seguente. 
+    2. Se si seleziona **Connettersi a una risorsa di Azure in base all'alias o all'ID risorsa**, seguire questa procedura:
+        1. Immettere l'**ID risorsa** o l'**alias**. Può trattarsi dell'ID risorsa o dell'alias condiviso da un altro utente. Il modo più semplice per ottenere l'ID risorsa è passare allo spazio dei nomi del bus di servizio nel portale di Azure e copiare la parte dell'URI a partire da `/subscriptions/`. Per un esempio, vedere l'immagine seguente. 
         2. Per **Sottorisorsa di destinazione** immettere **namespace**. È il tipo della sottorisorsa a cui l'endpoint privato può accedere. 
         3. (facoltativo) Immettere un **messaggio di richiesta**. Il proprietario della risorsa visualizza questo messaggio mentre gestisce la connessione endpoint privato. 
         4. Selezionare quindi **Avanti: Configurazione >** nella parte inferiore della pagina. 
@@ -101,7 +101,7 @@ Se si ha già uno spazio dei nomi esistente, è possibile creare un endpoint pri
 11. In **Rivedi e crea** rivedere tutte le impostazioni e selezionare **Crea** per creare l'endpoint privato.
     
     ![Creare l'endpoint privato - Pagina Rivedi e crea](./media/private-link-service/create-private-endpoint-review-create-page.png)
-12. Verificare che l'endpoint privato sia stato creato. Se l'utente è il proprietario della risorsa e aveva selezionato l'opzione **Connettersi a una risorsa di Azure nella directory** come **Metodo di connessione** , la connessione all'endpoint deve essere impostata su **Approvazione automatica**. Se lo stato della connessione è **In sospeso** , vedere la sezione [Gestire gli endpoint privati con il portale di Azure](#manage-private-endpoints-using-azure-portal).
+12. Verificare che l'endpoint privato sia stato creato. Se l'utente è il proprietario della risorsa e aveva selezionato l'opzione **Connettersi a una risorsa di Azure nella directory** come **Metodo di connessione**, la connessione all'endpoint deve essere impostata su **Approvazione automatica**. Se lo stato della connessione è **In sospeso**, vedere la sezione [Gestire gli endpoint privati con il portale di Azure](#manage-private-endpoints-using-azure-portal).
 
     ![Endpoint privato creato](./media/private-link-service/private-endpoint-created.png)
 
@@ -193,11 +193,11 @@ Sono disponibili quattro stati di provisioning:
 ### <a name="approve-a-private-endpoint-connection"></a>Approvare una connessione endpoint privato
 
 1. Se sono presenti connessioni in sospeso, verrà visualizzata una connessione elencata con **In sospeso** nello stato di provisioning. 
-2. Selezionare l' **endpoint privato** che si vuole approvare
+2. Selezionare l'**endpoint privato** che si vuole approvare
 3. Selezionare il pulsante **Approva**.
 
     ![Approvare un endpoint privato](./media/private-link-service/private-endpoint-approve.png)
-4. Nella pagina **Approva la connessione** immettere un **commento** facoltativo e selezionare **Sì**. Se si seleziona **No** , non accade nulla. 
+4. Nella pagina **Approva la connessione** immettere un **commento** facoltativo e selezionare **Sì**. Se si seleziona **No**, non accade nulla. 
 
     ![Pagina Approva la connessione](./media/private-link-service/approve-connection-page.png)
 5. Si noterà che lo stato della connessione nell'elenco è diventato **Approvata**. 
@@ -209,7 +209,7 @@ Sono disponibili quattro stati di provisioning:
 1. Se sono presenti connessioni endpoint privato da rifiutare, sia che si tratti di una richiesta in sospeso o di una connessione esistente approvata in precedenza, selezionare la connessione all'endpoint e fare clic sul pulsante **Rifiuta**.
 
     ![Pulsante Rifiuta](./media/private-link-service/private-endpoint-reject.png)
-2. Nella pagina **Rifiuta la connessione** immettere un commento facoltativo e selezionare **Sì**. Se si seleziona **No** , non accade nulla. 
+2. Nella pagina **Rifiuta la connessione** immettere un commento facoltativo e selezionare **Sì**. Se si seleziona **No**, non accade nulla. 
 
     ![Pagina Rifiuta la connessione](./media/private-link-service/reject-connection-page.png)
 3. Si noterà che lo stato della connessione nell'elenco è diventato **Rifiutata**. 
@@ -222,7 +222,7 @@ Sono disponibili quattro stati di provisioning:
 1. Per rimuovere una connessione endpoint privato, selezionarla nell'elenco e selezionare **Rimuovi** sulla barra degli strumenti. 
 
     ![Pulsante Rimuovi](./media/private-link-service/remove-endpoint.png)
-2. Nella pagina **Elimina connessione** selezionare **Sì** per confermare l'eliminazione dell'endpoint privato. Se si seleziona **No** , non accade nulla. 
+2. Nella pagina **Elimina connessione** selezionare **Sì** per confermare l'eliminazione dell'endpoint privato. Se si seleziona **No**, non accade nulla. 
 
     ![Pagina Elimina connessione](./media/private-link-service/delete-connection-page.png)
 3. Si noterà che lo stato è diventato **Disconnessa** e che l'endpoint non è più presente nell'elenco. 
@@ -233,7 +233,7 @@ Sono disponibili quattro stati di provisioning:
 
 Creare prima di tutto una macchina virtuale seguendo la procedura descritta nell'articolo [Creare una macchina virtuale di Windows nel portale di Azure](../virtual-machines/windows/quick-create-portal.md).
 
-Nella scheda **Rete** : 
+Nella scheda **Rete**: 
 
 1. Specificare **Rete virtuale** e **Subnet**. È necessario selezionare la rete virtuale in cui è stato distribuito l'endpoint privato.
 2. Specificare una risorsa **IP pubblico**.
@@ -259,9 +259,9 @@ Aliases:  <service-bus-namespace-name>.servicebus.windows.net
 
 **Pricing** (Prezzi): per informazioni sui prezzi, vedere [Prezzi di Collegamento privato di Azure](https://azure.microsoft.com/pricing/details/private-link/).
 
-**Limitazioni** :  Questa funzionalità è disponibile in tutte le aree pubbliche di Azure.
+**Limitazioni**:  Questa funzionalità è disponibile in tutte le aree pubbliche di Azure.
 
-**Numero massimo di endpoint privati per lo spazio dei nomi del bus di servizio** : 120.
+**Numero massimo di endpoint privati per lo spazio dei nomi del bus di servizio**: 120.
 
 Per altre informazioni, vedere [Servizio Collegamento privato di Azure: Limitazioni](../private-link/private-link-service-overview.md#limitations)
 

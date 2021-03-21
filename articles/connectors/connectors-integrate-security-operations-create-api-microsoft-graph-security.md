@@ -10,10 +10,10 @@ ms.topic: article
 ms.date: 02/21/2020
 tags: connectors
 ms.openlocfilehash: a83cd68df2f1d722517d6239bf6959075860d0b8
-ms.sourcegitcommit: 230d5656b525a2c6a6717525b68a10135c568d67
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/19/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94888539"
 ---
 # <a name="improve-threat-protection-by-integrating-security-operations-with-microsoft-graph-security--azure-logic-apps"></a>Migliorare la protezione dalle minacce integrando le operazioni di sicurezza con Microsoft Graph Security e le app per la logica di Azure
@@ -38,7 +38,7 @@ Per altre informazioni su Microsoft Graph Security, vedere [Microsoft Graph Secu
 
 * Per usare il connettore di Microsoft Graph Security, è necessario *fornire in modo esplicito* il consenso dell'amministratore del tenant di Azure Active Directory (AD), come previsto dai [requisiti di autenticazione di Microsoft Graph Security](/graph/security-authorization). Questo consenso richiede l'ID applicazione e il nome del connettore di Microsoft Graph Security, che è anche possibile trovare nel [portale di Azure](https://portal.azure.com):
 
-  | Proprietà | valore |
+  | Proprietà | Valore |
   |----------|-------|
   | **Nome dell'applicazione** | `MicrosoftGraphSecurityConnector` |
   | **ID applicazione** | `c4829704-0edc-4c3d-a347-7c4a67586f3c` |
@@ -91,7 +91,7 @@ Questo esempio illustra come è possibile avviare un flusso di lavoro dell'app p
 
 1.  Nel trigger fornire le informazioni sugli avvisi che si desidera monitorare. Per ulteriori proprietà, aprire l'elenco **Aggiungi nuovo parametro** e selezionare un parametro per aggiungere tale proprietà al trigger.
 
-   | Proprietà | Proprietà (JSON) | Obbligatoria | Type | Descrizione |
+   | Proprietà | Proprietà (JSON) | Obbligatoria | Tipo | Descrizione |
    |----------|-----------------|----------|------|-------------|
    | **Interval** | `interval` | Sì | Integer | Numero intero positivo che indica l'intervallo con cui viene eseguito il flusso di lavoro in base alla frequenza. Ecco gli intervalli minimo e massimo: <p><p>- Mese: 1-16 mesi <br>- Giorno: 1-500 giorni <br>- Ora: 1-12.000 ore <br>- Minuto: 1-72.000 minuti <br>- Secondo: 1-9.999.999 secondi <p>Ad esempio, se l'intervallo è 6 e la frequenza è "Mese", la ricorrenza è ogni 6 mesi. |
    | **Frequenza** | `frequency` | Sì | string | L'unità di tempo per la ricorrenza: **Secondo**, **Minuto**, **Ora**, **Giorno**, **Settimana** o **Mese** |
@@ -117,7 +117,7 @@ Per altre informazioni sulle query che è possibile usare con questo connettore,
 
 | Azione | Descrizione |
 |--------|-------------|
-| **Ottenere gli avvisi** | Ottenere gli avvisi filtrati in base a una o più [proprietà dell'avviso](/graph/api/resources/alert), ad esempio `Provider eq 'Azure Security Center' or 'Palo Alto Networks'` . | 
+| **Ottieni avvisi** | Ottenere gli avvisi filtrati in base a una o più [proprietà dell'avviso](/graph/api/resources/alert), ad esempio `Provider eq 'Azure Security Center' or 'Palo Alto Networks'` . | 
 | **Get alert by ID** (Ottieni avviso in base all'ID) | Ottenere un avviso specifico in base all'ID dell'avviso. | 
 | **Aggiorna avviso** | Aggiornare un avviso specifico in base all'ID dell'avviso. Per assicurarsi di passare le proprietà obbligatorie e modificabili nella richiesta, vedere le [proprietà modificabili per gli avvisi](/graph/api/alert-update). Ad esempio, per assegnare un avviso a un analista della sicurezza in modo che possa svolgere indagini, è possibile aggiornare la proprietà **Assegnato a** dell'avviso. |
 |||

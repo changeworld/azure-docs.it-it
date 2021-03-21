@@ -3,15 +3,15 @@ title: Spostare le aree di Azure-portale di Azure database di Azure per MariaDB
 description: Spostare un database di Azure per il server MariaDB da un'area di Azure a un'altra usando una replica di lettura e il portale di Azure.
 author: savjani
 ms.author: pariks
-ms.service: jroth
+ms.service: mariadb
 ms.topic: how-to
 ms.custom: subject-moving-resources
 ms.date: 06/29/2020
-ms.openlocfilehash: adb82b3ff371bdcdecbd964fef3c1d0c971df71a
-ms.sourcegitcommit: 52e3d220565c4059176742fcacc17e857c9cdd02
+ms.openlocfilehash: f4ce34bc1a1af7b2c0ee57a3297415bd9d033517
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/21/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98664937"
 ---
 # <a name="move-an-azure-database-for-mariadb-server-to-another-region-by-using-the-azure-portal"></a>Spostare un database di Azure per il server MariaDB in un'altra area usando il portale di Azure
@@ -44,7 +44,7 @@ Per creare un server di replica di lettura tra aree nell'area di destinazione us
 >[!NOTE]
 > Quando si crea una replica, non eredita gli endpoint di servizio VNet del server di origine. Queste regole devono essere configurate in modo indipendente per la replica.
 
-## <a name="move"></a>Spostamento
+## <a name="move"></a>Sposta
 
 > [!IMPORTANT]
 > Il server autonomo non può essere di nuovo impostato come replica.

@@ -7,10 +7,10 @@ ms.date: 03/18/2020
 ms.author: azfuncdf
 zone_pivot_groups: code-editors-set-one
 ms.openlocfilehash: d5b6ecc12cee983cee0772da8b6f8f26a3b5a8ae
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
-ms.translationtype: HT
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/25/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96008195"
 ---
 # <a name="create-your-first-durable-function-in-c"></a>Creare la prima funzione durevole in C\#
@@ -53,7 +53,7 @@ In questa sezione si userà Visual Studio Code per creare un progetto di Funzion
 
 1. Seguire le istruzioni e specificare le informazioni seguenti:
 
-    | Prompt | valore | Descrizione |
+    | Prompt | Valore | Descrizione |
     | ------ | ----- | ----------- |
     | Selezionare un linguaggio per il progetto di app per le funzioni | C# | Creare un progetto Funzioni C# in locale. |
     | Selezionare una versione | Azure Functions v3 (Funzioni di Azure v3) | Questa opzione viene visualizzata solo quando gli strumenti Core Tools non sono già installati. In questo caso, gli strumenti Core Tools vengono installati la prima volta che si esegue l'app. |
@@ -70,7 +70,7 @@ La procedura seguente usa un modello per creare il codice di funzione durevole n
 
 1. Seguire le istruzioni e specificare le informazioni seguenti:
 
-    | Prompt | valore | Descrizione |
+    | Prompt | Valore | Descrizione |
     | ------ | ----- | ----------- |
     | Select a template for your function (Selezionare un modello per la funzione) | DurableFunctionsOrchestration | Creare un'orchestrazione Durable Functions |
     | Specificare un nome di funzione | HelloOrchestration | Nome della classe in cui vengono create le funzioni |
@@ -78,7 +78,7 @@ La procedura seguente usa un modello per creare il codice di funzione durevole n
 
 1. Quando VS Code richiede di selezionare un account di archiviazione, scegliere **Select storage account** (Seleziona account di archiviazione). Seguire le istruzioni e specificare le informazioni seguenti per creare un nuovo account di archiviazione in Azure.
 
-    | Prompt | valore | Descrizione |
+    | Prompt | Valore | Descrizione |
     | ------ | ----- | ----------- |
     | Seleziona sottoscrizione | *nome della sottoscrizione* | Selezionare la sottoscrizione ad Azure |
     | Select a storage account (Selezionare un account di archiviazione) | Creare un nuovo account di archiviazione. |  |

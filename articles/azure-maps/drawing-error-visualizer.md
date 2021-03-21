@@ -9,16 +9,16 @@ ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.openlocfilehash: db88e347e12783205ea8c31fed0bb374fccb4736
-ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96903582"
 ---
 # <a name="using-the-azure-maps-drawing-error-visualizer-with-creator-preview"></a>Uso del Visualizzatore errori di disegno di mappe di Azure con Creator (anteprima)
 
 > [!IMPORTANT]
-> I servizi Azure Maps Creator sono attualmente in anteprima pubblica.
+> I servizi Creator di Mappe di Azure sono attualmente disponibili in anteprima pubblica.
 > Questa versione di anteprima viene messa a disposizione senza contratto di servizio e non è consigliata per i carichi di lavoro di produzione. Alcune funzionalità potrebbero non essere supportate o potrebbero presentare funzionalità limitate. Per altre informazioni, vedere [Condizioni supplementari per l'utilizzo delle anteprime di Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 
@@ -29,7 +29,7 @@ Il visualizzatore errori di disegno è un'applicazione Web autonoma che consente
 Prima di poter scaricare il visualizzatore errori di disegno, è necessario:
 
 1. [Creare un account di Mappe di Azure](quick-demo-map-app.md#create-an-azure-maps-account)
-2. [Ottenere una chiave di sottoscrizione primaria](quick-demo-map-app.md#get-the-primary-key-for-your-account), nota anche come chiave primaria o chiave di sottoscrizione.
+2. [Ottenere una chiave di sottoscrizione primaria](quick-demo-map-app.md#get-the-primary-key-for-your-account), nota anche come chiave primaria o chiave di sottoscrizione
 3. [Creare una risorsa Creator (anteprima)](how-to-manage-creator.md)
 
 Questa esercitazione usa l'applicazione [Postman](https://www.postman.com/), ma è possibile scegliere un ambiente di sviluppo API diverso.

@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 01/31/2019
 ms.author: aahi
 ms.openlocfilehash: 4300860039b76bd076f19acfc252f59ef10d462b
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/30/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96351845"
 ---
 # <a name="bing-search-api-use-and-display-requirements"></a>Requisiti per l'uso e la visualizzazione delle API di ricerca Bing
@@ -44,7 +44,7 @@ Questi requisiti per l'uso e la visualizzazione si applicano a qualsiasi impleme
 |Risposta     | Una categoria di risultati restituiti in una risposta. Una risposta dell'API Ricerca Web Bing può ad esempio includere riscontri delle categorie pagine Web, immagini, video e notizie. |
 |Risposta     | Tutti i riscontri e i dati associati ricevuti in risposta a una singola chiamata a un'API di ricerca. |
 |Risultato    | Un'informazione contenuta in un riscontro. Ad esempio, il set di dati collegato a un singolo articolo di notizie rappresenta un risultato in un riscontro relativo a notizie. |
-|API di ricerca    | L'insieme delle API di ricerca Bing, che include Ricerca personalizzata, Ricerca entità, Ricerca immagini, Ricerca notizie, Ricerca video, Ricerca visiva, Ricerca aziende locali e Ricerca Web. |
+|API per la ricerca    | L'insieme delle API di ricerca Bing, che include Ricerca personalizzata, Ricerca entità, Ricerca immagini, Ricerca notizie, Ricerca video, Ricerca visiva, Ricerca aziende locali e Ricerca Web. |
 
 ## <a name="bing-spell-check-and-bing-autosuggest-api-restrictions"></a>Restrizioni delle API Controllo ortografico Bing e Suggerimenti automatici Bing
 

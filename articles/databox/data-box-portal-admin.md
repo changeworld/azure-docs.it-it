@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 12/18/2020
 ms.author: alkohli
 ms.openlocfilehash: 46a18cb2b6e1682427d5674be28b240f35b120fe
-ms.sourcegitcommit: 66b0caafd915544f1c658c131eaf4695daba74c8
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/18/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97678647"
 ---
 # <a name="use-the-azure-portal-to-administer-your-azure-data-box-and-azure-data-box-heavy"></a>Usare il portale di Azure per amministrare i Azure Data Box e Azure Data Box Heavy
@@ -60,7 +60,7 @@ Il clone viene creato in pochi minuti e il portale viene aggiornato per mostrare
 
 È possibile eliminare solo gli ordini completati o annullati. Eseguire la procedura seguente per eliminare un ordine.
 
-1. Passare a **tutte le risorse**. Cercare l'ordine.
+1. Passare a **Tutte le risorse**. Cercare l'ordine.
 
 2. Fare clic sull'ordine da eliminare e passare a **Panoramica**. Nella barra dei comandi fare clic su **Elimina**.
 

@@ -9,10 +9,10 @@ ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.openlocfilehash: 7d94a681fa987a4b23dbcda744c2f8516da4437a
-ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/28/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92891666"
 ---
 # <a name="add-a-map-layer-from-the-open-geospatial-consortium-ogc"></a>Aggiungere un livello mappa dal Open Geospatial Consortium (OGC)
@@ -73,7 +73,7 @@ Lo strumento seguente sovrappone le immagini dei servizi Web Map Services (WMS) 
 
 <br/>
 
-<iframe height='750' style='width: 100%;' scrolling='no' title='Esplora servizi di mappe Web OGC' src='//codepen.io/azuremaps/embed/YzXxYdX/?height=750&theme-id=0&default-tab=result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Per informazioni su CodePen, vedere la pagina relativa a <a href='https://codepen.io/azuremaps/pen/YzXxYdX/'>Esplora servizi mappa Web</a> di Pen OGC di Azure Maps ( <a href='https://codepen.io/azuremaps'>@azuremaps</a> ). <a href='https://codepen.io'>CodePen</a>
+<iframe height='750' style='width: 100%;' scrolling='no' title='Esplora servizi di mappe Web OGC' src='//codepen.io/azuremaps/embed/YzXxYdX/?height=750&theme-id=0&default-tab=result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Per informazioni su CodePen, vedere la pagina relativa a <a href='https://codepen.io/azuremaps/pen/YzXxYdX/'>Esplora servizi mappa Web</a> di Pen OGC di Azure Maps ( <a href='https://codepen.io/azuremaps'>@azuremaps</a> ). <a href='https://codepen.io'></a>
 </iframe>
 
 È anche possibile specificare le impostazioni della mappa per usare un servizio proxy. Il servizio proxy consente di caricare le risorse ospitate in domini per i quali non è abilitato CORS.

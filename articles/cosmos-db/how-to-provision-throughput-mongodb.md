@@ -9,10 +9,10 @@ ms.date: 10/15/2020
 ms.author: mjbrown
 ms.custom: devx-track-js, devx-track-azurecli, devx-track-csharp
 ms.openlocfilehash: 25eaa4a66fb4a73f976edbd30e6f82015ce84f6f
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93086126"
 ---
 # <a name="provision-database-container-or-autoscale-throughput-on-azure-cosmos-db-api-for-mongodb-resources"></a>Provisioning di velocità effettiva di database, contenitori o scalabilità automatica in Azure Cosmos DB API per MongoDB risorse
@@ -28,13 +28,13 @@ Se si usa un'API diversa, vedere l'articolo relativo all' [API SQL](how-to-provi
 
 1. [Creare un nuovo account Azure Cosmos](create-mongodb-dotnet.md#create-a-database-account) o selezionarne uno esistente.
 
-1. Aprire il riquadro **Esplora dati** e selezionare **Nuova raccolta** . Specificare quindi i dettagli seguenti:
+1. Aprire il riquadro **Esplora dati** e selezionare **Nuova raccolta**. Specificare quindi i dettagli seguenti:
 
    * Indicare se si intende creare un nuovo database o usarne uno esistente. Selezionare l'opzione **provisioning database throughput** se si desidera effettuare il provisioning della velocità effettiva a livello di database.
    * Immettere un ID raccolta.
    * Immettere un valore della chiave di partizione, ad esempio `/ItemID`.
    * Immettere una velocità effettiva di cui si desidera eseguire il provisioning (ad esempio, 1000 UR).
-   * Selezionare **OK** .
+   * Selezionare **OK**.
 
     :::image type="content" source="./media/how-to-provision-throughput-mongodb/provision-database-throughput-portal-mongodb-api.png" alt-text="Screenshot della Esplora dati quando si crea una nuova raccolta con velocità effettiva a livello di database":::
 

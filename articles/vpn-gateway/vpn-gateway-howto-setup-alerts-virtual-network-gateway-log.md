@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.date: 11/18/2020
 ms.author: alzam
 ms.openlocfilehash: 70cac6ef566ef52409cd9667708c2fc297e046f7
-ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/17/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97656615"
 ---
 # <a name="set-up-alerts-on-resource-log-events-from-vpn-gateway"></a>Configurare gli avvisi per gli eventi del log delle risorse dal gateway VPN
@@ -20,7 +20,7 @@ Questo articolo consente di configurare gli avvisi in base agli eventi del log d
 
 In Azure sono disponibili i log delle risorse seguenti:
 
-|***Nome** _ | _*_Descrizione_*_ |
+|***Nome** _ | _ *_Descrizione_** |
 |--- | --- |
 |GatewayDiagnosticLog | Contiene i log delle risorse per eventi di configurazione del gateway, modifiche primarie ed eventi di manutenzione |
 |TunnelDiagnosticLog | Contiene gli eventi di modifica dello stato del tunnel. Gli eventi di connessione/disconnessione del tunnel hanno un motivo riepilogativo per la modifica dello stato, se applicabile |
@@ -33,7 +33,7 @@ In Azure sono disponibili i log delle risorse seguenti:
 La procedura di esempio seguente crea un avviso per un evento di disconnessione che include un tunnel VPN da sito a sito:
 
 
-1. Nella portale di Azure cercare _ *log Analytics** in **tutti i servizi** e selezionare aree di **lavoro log Analytics**.
+1. Nella portale di Azure cercare **log Analytics** in **tutti i servizi** e selezionare aree di **lavoro log Analytics**.
 
    ![Selezioni per passare ad aree di lavoro Log Analytics](./media/vpn-gateway-howto-setup-alerts-virtual-network-gateway-log/log-alert0.png "Crea")
 

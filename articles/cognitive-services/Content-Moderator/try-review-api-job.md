@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 10/24/2019
 ms.author: pafarley
 ms.openlocfilehash: 924c21037a464770fac13c9b45ddcf261ff5a058
-ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96905171"
 ---
 # <a name="define-and-use-moderation-jobs-api-console"></a>Definire e usare i processi di moderazione (console API)
@@ -51,7 +51,7 @@ Il corpo della chiamata REST contiene un campo, **ContentValue**. Incollare il c
 
 ### <a name="submit-your-request"></a>Inviare la richiesta
 
-Selezionare **Send** (Invia). Se l'operazione ha esito positivo, lo **stato della risposta** è `200 OK` e nella casella **contenuto risposta** viene visualizzato un ID per il processo. Copiare questo ID da usare nei passaggi seguenti.
+Selezionare **Invia**. Se l'operazione ha esito positivo, lo **stato della risposta** è `200 OK` e nella casella **contenuto risposta** viene visualizzato un ID per il processo. Copiare questo ID da usare nei passaggi seguenti.
 
 ![La casella Response content (Contenuto della risposta) della console Review - Create (Revisione - Creazione) visualizza l'ID revisione](images/test-drive-job-3.PNG)
 
@@ -61,7 +61,7 @@ Per ottenere lo stato e i dettagli di un processo in esecuzione o completato, pa
 
 ![Processo-Ottieni selezione area](images/test-drive-region.png)
 
-Immettere i parametri di chiamata REST come nella sezione precedente. Per questo passaggio, **JobID** è la stringa ID univoca ricevuta al momento della creazione del processo. Selezionare **Send** (Invia). Se l'operazione ha esito positivo, lo **stato della risposta** è `200 OK` e nella casella **contenuto risposta** viene visualizzato il processo in formato JSON, come indicato di seguito:
+Immettere i parametri di chiamata REST come nella sezione precedente. Per questo passaggio, **JobID** è la stringa ID univoca ricevuta al momento della creazione del processo. Selezionare **Invia**. Se l'operazione ha esito positivo, lo **stato della risposta** è `200 OK` e nella casella **contenuto risposta** viene visualizzato il processo in formato JSON, come indicato di seguito:
 
 ```json
 {  
@@ -115,7 +115,7 @@ Immettere i parametri di chiamata REST come nella sezione precedente. Per questo
 
 ### <a name="examine-the-new-reviews"></a>Esaminare le nuove verifiche
 
-Se il processo di contenuto ha comportato la creazione di una revisione, è possibile visualizzarla nello [strumento di revisione](https://contentmoderator.cognitive.microsoft.com). Selezionare **Verifica**  >  **Image** / **Text** / il **video** del testo dell'immagine (a seconda del contenuto usato). Il contenuto dovrebbe essere visualizzato, pronto per la revisione umana. Quando un moderatore umano esamina i tag e i dati di stima assegnati automaticamente e invia una decisione di moderazione finale, l'API Jobs Invia tutte queste informazioni all'endpoint di callback designato.
+Se il processo di contenuto ha comportato la creazione di una revisione, è possibile visualizzarla nello [strumento di revisione](https://contentmoderator.cognitive.microsoft.com). Selezionare **Verifica**  >   /  / il **video** del testo dell'immagine (a seconda del contenuto usato). Il contenuto dovrebbe essere visualizzato, pronto per la revisione umana. Quando un moderatore umano esamina i tag e i dati di stima assegnati automaticamente e invia una decisione di moderazione finale, l'API Jobs Invia tutte queste informazioni all'endpoint di callback designato.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

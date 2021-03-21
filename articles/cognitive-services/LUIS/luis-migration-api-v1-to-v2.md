@@ -10,10 +10,10 @@ ms.subservice: language-understanding
 ms.topic: how-to
 ms.date: 04/02/2019
 ms.openlocfilehash: 867ae2cc7567077786bb0840cd11c47b786be423
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/21/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "95018753"
 ---
 # <a name="api-v1-to-v2-migration-guide-for-luis-apps"></a>Guida alla migrazione delle API da v1 a v2 per le app LUIS
@@ -26,7 +26,7 @@ LUIS offre nuove [regioni](./luis-reference-regions.md) per le API LUIS. LUIS fo
 L'API di creazione non è più basata sulla route **prog** ma sulla route **api**.
 
 
-| Versione | route |
+| version | Route |
 |--|--|
 |1|/luis/v1.0/**prog**/apps|
 |2|/luis/**api**/v2.0/apps|
@@ -35,7 +35,7 @@ L'API di creazione non è più basata sulla route **prog** ma sulla route **api*
 ## <a name="endpoint-route-changes"></a>Modifiche alla route endpoint
 L'API dell'endpoint ha nuovi parametri della stringa di query e una risposta diversa. Se il flag verbose è true, tutte le finalità, indipendentemente dal punteggio, vengono restituite in una matrice di finalità denominate, oltre a topScoringIntent.
 
-| Versione | GET route |
+| version | GET route |
 |--|--|
 |1|/luis/v1/application?ID={appId}&q={q}|
 |2|/luis/v2.0/apps/{appId}?q={q}[&timezoneOffset][&verbose][&spellCheck][&staging][&bing-spell-check-subscription-key][&log]|
@@ -105,7 +105,7 @@ v2 endpoint success response:
 ## <a name="key-management-no-longer-in-api"></a>Gestione chiavi non più nell'API
 Le API chiavi endpoint di sottoscrizione sono deprecate e viene restituito l'errore 410 GONE.
 
-| Versione | route |
+| version | Route |
 |--|--|
 |1|/luis/v1.0/prog/subscriptions|
 |1|/luis/v1.0/prog/subscriptions/{subscriptionKey}|
@@ -115,7 +115,7 @@ Le [chiavi endpoint](luis-how-to-azure-subscription.md) di Azure vengono generat
 ## <a name="new-versioning-route"></a>Nuova route controllo versioni
 Il modello v2 è ora contenuto in una [versione](luis-how-to-manage-versions.md). Il nome di una versione è dato da 10 caratteri nella route. La versione predefinita è "0.1".
 
-| Versione | route |
+| version | Route |
 |--|--|
 |1|/luis/v1.0/**prog**/apps/{appId}/entities|
 |2|/luis/**api**/v2.0/apps/{appId}/**versions**/{versionId}/entities|
@@ -134,7 +134,7 @@ Diverse API restituiscono metadati LUIS presentano nuovi nomi.
 ## <a name="sample-renamed-to-suggest"></a>"Sample" rinominata in "suggest"
 LUIS suggerisce espressioni da [espressioni endpoint](luis-how-to-review-endpoint-utterances.md) esistenti che potrebbero migliorare il modello. Nella versione precedente il nome era **sample**. Nella nuova versione il nome è **suggest**. Si tratta della **[revisione delle espressioni endpoint](luis-how-to-review-endpoint-utterances.md)** nel sito Web LUIS.
 
-| Versione | route |
+| version | Route |
 |--|--|
 |1|/luis/v1.0/**prog**/apps/{appId}/entities/{entityId}/**sample**|
 |1|/luis/v1.0/**prog**/apps/{appId}/intents/{intentId}/**sample**|

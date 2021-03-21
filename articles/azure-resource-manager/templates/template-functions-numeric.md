@@ -4,10 +4,10 @@ description: Descrive le funzioni da usare in un modello di Azure Resource Manag
 ms.topic: conceptual
 ms.date: 11/18/2020
 ms.openlocfilehash: f3687581d94f80cc923614a0655da1813bd5c97b
-ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/12/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97359711"
 ---
 # <a name="numeric-functions-for-arm-templates"></a>Funzioni numeriche per i modelli ARM
@@ -35,7 +35,7 @@ Restituisce la somma dei due numeri interi forniti. La `add` funzione non è sup
 
 ### <a name="parameters"></a>Parametri
 
-| Parametro | Obbligatorio | Tipo | Description |
+| Parametro | Obbligatoria | Tipo | Descrizione |
 |:--- |:--- |:--- |:--- |
 |operand1 |Sì |INT |Il primo numero da aggiungere. |
 |operand2 |Sì |INT |Il secondo numero da aggiungere. |
@@ -106,7 +106,7 @@ Restituisce l'indice di un ciclo di iterazione.
 
 ### <a name="parameters"></a>Parametri
 
-| Parametro | Obbligatorio | Tipo | Description |
+| Parametro | Obbligatoria | Tipo | Descrizione |
 |:--- |:--- |:--- |:--- |
 | loopName | No | string | Nome del ciclo per ottenere l'iterazione. |
 | offset |No |INT |Il numero da aggiungere al valore di iterazione in base zero. |
@@ -180,7 +180,7 @@ Restituisce la divisione Integer dei due numeri interi forniti. La `div` funzion
 
 ### <a name="parameters"></a>Parametri
 
-| Parametro | Obbligatorio | Tipo | Description |
+| Parametro | Obbligatoria | Tipo | Descrizione |
 |:--- |:--- |:--- |:--- |
 | operand1 |Sì |INT |Il numero da dividere. |
 | operand2 |Sì |INT |Il numero usato per dividere. Non può essere 0. |
@@ -251,7 +251,7 @@ Converte il valore in un numero a virgola mobile. Usare questa funzione solo qua
 
 ### <a name="parameters"></a>Parametri
 
-| Parametro | Obbligatorio | Tipo | Description |
+| Parametro | Obbligatoria | Tipo | Descrizione |
 |:--- |:--- |:--- |:--- |
 | arg1 |Sì |stringa o numero intero |Il valore da convertire in un numero a virgola mobile. |
 
@@ -294,7 +294,7 @@ Converte il valore specificato in un numero intero.
 
 ### <a name="parameters"></a>Parametri
 
-| Parametro | Obbligatorio | Tipo | Description |
+| Parametro | Obbligatoria | Tipo | Descrizione |
 |:--- |:--- |:--- |:--- |
 | valueToConvert |Sì |stringa o numero intero |Il valore da convertire in numero intero. |
 
@@ -353,7 +353,7 @@ Restituisce il valore massimo da una matrice di numeri interi o da un elenco di 
 
 ### <a name="parameters"></a>Parametri
 
-| Parametro | Obbligatorio | Tipo | Description |
+| Parametro | Obbligatoria | Tipo | Descrizione |
 |:--- |:--- |:--- |:--- |
 | arg1 |Sì |matrice di numeri interi o elenco di numeri interi delimitato da virgole |La raccolta per ottenere il valore massimo. |
 
@@ -423,7 +423,7 @@ Restituisce il valore minimo di una matrice di numeri interi o di un elenco di n
 
 ### <a name="parameters"></a>Parametri
 
-| Parametro | Obbligatorio | Tipo | Description |
+| Parametro | Obbligatoria | Tipo | Descrizione |
 |:--- |:--- |:--- |:--- |
 | arg1 |Sì |matrice di numeri interi o elenco di numeri interi delimitato da virgole |La raccolta per ottenere il valore minimo. |
 
@@ -493,7 +493,7 @@ Restituisce la parte rimanente della divisione Integer usando i due numeri inter
 
 ### <a name="parameters"></a>Parametri
 
-| Parametro | Obbligatorio | Tipo | Description |
+| Parametro | Obbligatoria | Tipo | Descrizione |
 |:--- |:--- |:--- |:--- |
 | operand1 |Sì |INT |Il numero da dividere. |
 | operand2 |Sì |INT |Il numero usato per dividere, non può essere 0. |
@@ -564,7 +564,7 @@ Restituisce la moltiplicazione dei due numeri interi forniti. La `mul` funzione 
 
 ### <a name="parameters"></a>Parametri
 
-| Parametro | Obbligatorio | Tipo | Description |
+| Parametro | Obbligatoria | Tipo | Descrizione |
 |:--- |:--- |:--- |:--- |
 | operand1 |Sì |INT |Il primo numero da moltiplicare. |
 | operand2 |Sì |INT |Il secondo numero da moltiplicare. |
@@ -635,7 +635,7 @@ Restituisce la sottrazione dei due numeri interi forniti. La `sub` funzione non 
 
 ### <a name="parameters"></a>Parametri
 
-| Parametro | Obbligatorio | Tipo | Description |
+| Parametro | Obbligatoria | Tipo | Descrizione |
 |:--- |:--- |:--- |:--- |
 | operand1 |Sì |INT |Il numero da cui sottrarre. |
 | operand2 |Sì |INT |Il numero sottratto. |

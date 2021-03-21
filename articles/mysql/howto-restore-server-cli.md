@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.date: 3/27/2020
 ms.custom: devx-track-azurecli
 ms.openlocfilehash: ee06eed1b8f54877d01a8b316c015938038879cf
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/12/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94535402"
 ---
 # <a name="how-to-back-up-and-restore-a-server-in-azure-database-for-mysql-using-the-azure-cli"></a>Come eseguire il backup e il ripristino di un server in Database di Azure per MySQL usando l'interfaccia della riga di comando di Azure
@@ -27,7 +27,7 @@ Per completare questa guida pratica:
 
 [!INCLUDE [azure-cli-prepare-your-environment-no-header.md](../../includes/azure-cli-prepare-your-environment-no-header.md)]
 
-- Questo articolo richiede la versione 2,0 o successiva dell'interfaccia della riga di comando di Azure. Se si usa Azure Cloud Shell, la versione più recente è già installata.
+- Questo articolo richiede la versione 2.0 dell'interfaccia della riga di comando di Azure. Se si usa Azure Cloud Shell, la versione più recente è già installata.
 
 ## <a name="set-backup-configuration"></a>Impostare la configurazione del backup
 
@@ -103,7 +103,7 @@ Per eseguire un ripristino geografico del server, al prompt dei comandi dell'int
 ```azurecli-interactive
 az mysql server georestore --resource-group myresourcegroup --name mydemoserver-georestored --source-server mydemoserver --location eastus --sku-name GP_Gen5_8 
 ```
-Questo comando crea un nuovo server denominato *mydemoserver-georestored* negli Stati Uniti orientali che apparterrà a *myresourcegroup*. Si tratta di un server per utilizzo generico di quinta generazione con otto vCore. Il server viene creato dal backup con ridondanza geografica di *mydemoserver* , che si trova anch'esso nel gruppo di risorse *myresourcegroup*.
+Questo comando crea un nuovo server denominato *mydemoserver-georestored* negli Stati Uniti orientali che apparterrà a *myresourcegroup*. Si tratta di un server per utilizzo generico di quinta generazione con otto vCore. Il server viene creato dal backup con ridondanza geografica di *mydemoserver*, che si trova anch'esso nel gruppo di risorse *myresourcegroup*.
 
 Se si vuole creare il nuovo server in un gruppo di risorse diverso dal server esistente, nel parametro `--source-server` è necessario specificare il nome del server come nell'esempio seguente:
 
