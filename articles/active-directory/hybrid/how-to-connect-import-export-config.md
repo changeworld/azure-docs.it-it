@@ -12,10 +12,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: d67460c654c854c5a855560dde1d67732fa818c7
-ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/22/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98681956"
 ---
 # <a name="import-and-export-azure-ad-connect-configuration-settings"></a>Importare ed esportare le impostazioni di configurazione Azure AD Connect 
@@ -77,10 +77,10 @@ Per eseguire la migrazione delle impostazioni:
 
    ![Screenshot che mostra le directory Azure AD Connect.](media/how-to-connect-import-export-config/migrate1.png)
 
-1. Eseguire lo script come illustrato qui e salvare l'intera directory di configurazione del server di livello inferiore. Copiare questa directory nel nuovo server di gestione temporanea. È necessario copiare l'intera cartella **esportata-ServerConfiguration-** _ nel nuovo server.
+1. Eseguire lo script come illustrato qui e salvare l'intera directory di configurazione del server di livello inferiore. Copiare questa directory nel nuovo server di gestione temporanea. È necessario copiare l'intera cartella **esportata-ServerConfiguration-*** nel nuovo server.
 
    ![Screenshot che mostra lo script in Windows PowerShell. ](media/how-to-connect-import-export-config/migrate2.png)
-    ![ Screenshot che mostra la copia della cartella Exported-ServerConfiguration-_.](media/how-to-connect-import-export-config/migrate3.png)
+    ![ Screenshot che mostra la copia della cartella Exported-ServerConfiguration-*.](media/how-to-connect-import-export-config/migrate3.png)
 
 1. Avviare **Azure ad Connect** facendo doppio clic sull'icona sul desktop. Accettare le condizioni di licenza software Microsoft e, nella pagina successiva, selezionare **Personalizza**.
 1. Selezionare la casella di controllo **Importa impostazioni di sincronizzazione** . Selezionare **Sfoglia** per visualizzare la cartella copiato-over esportated-ServerConfiguration-*. Selezionare il MigratedPolicy.jssu per importare le impostazioni migrate.

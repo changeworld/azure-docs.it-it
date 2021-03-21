@@ -4,10 +4,10 @@ description: Come usare l'API Java Message Service (JMS) 2,0 per comunicare con 
 ms.topic: article
 ms.date: 01/17/2021
 ms.openlocfilehash: 492da46a5ce4f5955a72972d91a8c56d54c385bb
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/03/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "101726955"
 ---
 # <a name="azure-service-bus-jms-20-developer-guide"></a>Guida per gli sviluppatori di JMS 2,0 per il bus di servizio
@@ -16,7 +16,7 @@ Questa guida contiene informazioni dettagliate per facilitare la comunicazione c
 
 Gli sviluppatori Java, se non si ha familiarità con il bus di servizio di Azure, si consiglia di leggere gli articoli seguenti.
 
-| Guida introduttiva | Concetti |
+| Introduzione | Concetti |
 |----------------|-------|
 | <ul> <li> [Informazioni sul bus di servizio di Azure](service-bus-messaging-overview.md) </li> <li> [Code, argomenti e sottoscrizioni](service-bus-queues-topics-subscriptions.md) </li> </ul> | <ul> <li> [Bus di servizio di Azure-livello Premium](service-bus-premium-messaging.md) </li> </ul> |
 

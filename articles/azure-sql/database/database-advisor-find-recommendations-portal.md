@@ -12,10 +12,10 @@ ms.author: danil
 ms.reviewer: wiassaf, sstein
 ms.date: 12/19/2018
 ms.openlocfilehash: 748ac448ad8bf5c06e5be8b7a4a8b00a9b7af84b
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/02/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96500887"
 ---
 # <a name="find-and-apply-performance-recommendations"></a>Trovare e applicare raccomandazioni per le prestazioni
@@ -42,8 +42,8 @@ Le raccomandazioni vengono ordinate in base all'impatto potenziale sulle prestaz
 | Impatto | Descrizione |
 |:--- |:--- |
 | Alto |Le indicazioni ad alto impatto devono fornire l'impatto più significativo sulle prestazioni. |
-| Media |Le raccomandazioni a impatto medio devono migliorare le prestazioni, ma non sostanzialmente. |
-| Bassa |Le raccomandazioni a basso impatto devono offrire prestazioni migliori, ma i miglioramenti potrebbero non essere significativi. |
+| Medio |Le raccomandazioni a impatto medio devono migliorare le prestazioni, ma non sostanzialmente. |
+| Basso |Le raccomandazioni a basso impatto devono offrire prestazioni migliori, ma i miglioramenti potrebbero non essere significativi. |
 
 > [!NOTE]
 > Il database SQL di Azure deve monitorare le attività almeno per un giorno per poter individuare alcune raccomandazioni. Il database SQL di Azure può ottimizzare più facilmente modelli di query coerenti anziché picchi irregolari casuali di attività. Se non sono disponibili raccomandazioni, nella pagina **Performance recommendation** (Raccomandazione prestazioni) viene visualizzato un messaggio che ne spiega il motivo.
@@ -132,7 +132,7 @@ L'applicazione di un'indicazione potrebbe non avvenire in tempo reale. Il portal
 | In sospeso |Il comando di applicazione della raccomandazione è stato ricevuto ed è pianificato per l'esecuzione. |
 | In esecuzione |La raccomandazione viene applicata. |
 | Convalida in corso. |La raccomandazione è stata applicata e il servizio sta valutando i vantaggi. |
-| Operazione completata |La raccomandazione è stata applicata e i vantaggi sono stati misurati. |
+| Operazione riuscita |La raccomandazione è stata applicata e i vantaggi sono stati misurati. |
 | Errore |Si è verificato un errore durante il processo di applicazione della raccomandazione. Può trattarsi di un problema temporaneo o eventualmente di una modifica dello schema della tabella e lo script non è più valido. |
 | Ripristino |La raccomandazione è stata applicata, ma è stata considerata non efficiente e verrà ripristinata automaticamente. |
 | Ripristinato |La raccomandazione è stata ripristinata. |

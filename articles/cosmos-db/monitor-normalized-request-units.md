@@ -7,10 +7,10 @@ author: kanshiG
 ms.author: govindk
 ms.date: 01/07/2021
 ms.openlocfilehash: ec82532b54e7834b62fcc03d3ee7de1345a0f546
-ms.sourcegitcommit: e46f9981626751f129926a2dae327a729228216e
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/08/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98027781"
 ---
 # <a name="how-to-monitor-normalized-rus-for-an-azure-cosmos-container-or-an-account"></a>Come monitorare le UR/sec normalizzate per un contenitore o un account di Azure Cosmos
@@ -22,7 +22,7 @@ La metrica di **utilizzo delle UR normalizzata** viene usata per vedere quanto s
 
 ## <a name="what-to-expect-and-do-when-normalized-rus-is-higher"></a>Cosa aspettarsi e quando le UR/sec normalizzate sono più elevate
 
-Quando il consumo di Ur/s normalizzato raggiunge il 100% per l'intervallo di chiavi di partizione specificato e se un client effettua ancora richieste nell'intervallo di tempo di un secondo per l'intervallo di chiavi di partizione specifico, riceve un errore di frequenza limitato. Il client deve rispettare il tempo di attesa suggerito e ripetere la richiesta. L'SDK semplifica la gestione di questa situazione ritentando i tempi preconfigurati attendendo in modo appropriato.  Non è necessario visualizzare l'errore di limitazione della frequenza ur solo perché l'unità richiesta normalizzata ha raggiunto il 100%. Questo perché l'unità richiesta normalizzata è un singolo valore che rappresenta l'utilizzo massimo di tutti gli intervalli di chiavi di partizione, un intervallo di chiavi di partizione può essere occupato, ma gli altri intervalli di chiavi di partizione possono soddisfare le richieste senza problemi. Ad esempio, una singola operazione, ad esempio un stored procedure che utilizza tutte le UR/s in un intervallo di chiavi di partizione, provocherà un breve picco nel consumo di Ur/s normalizzato. In questi casi, non si verificano errori di limitazione della frequenza immediata se la frequenza delle richieste è insufficiente o se le richieste vengono eseguite ad altre partizioni in intervalli di chiavi di partizione differenti. 
+Quando il consumo di Ur/s normalizzato raggiunge il 100% per l'intervallo di chiavi di partizione specificato e se un client effettua ancora richieste nell'intervallo di tempo di un secondo per l'intervallo di chiavi di partizione specifico, riceve un errore di frequenza limitato. Il client deve rispettare il tempo di attesa suggerito e ripetere la richiesta. L'SDK semplifica la gestione di questa situazione ritentando i tempi preconfigurati attendendo in modo appropriato.  Non è necessario visualizzare l'errore di limitazione della frequenza ur solo perché l'unità richiesta normalizzata ha raggiunto il 100%. Questo perché l'unità richiesta normalizzata è un singolo valore che rappresenta l'utilizzo massimo di tutti gli intervalli di chiavi di partizione, un intervallo di chiavi di partizione può essere occupato, ma gli altri intervalli di chiavi di partizione possono soddisfare le richieste senza problemi. Ad esempio, una singola operazione, ad esempio un stored procedure che utilizza tutte le UR/s in un intervallo di chiavi di partizione, provocherà un breve picco nel consumo di Ur/s normalizzato. In questi casi gli errori di limitazione della velocità non si verificano subito se la velocità delle richieste non è elevata o se le richieste vengono inviate ad altre partizioni in intervalli di chiavi di partizione diversi. 
 
 Le metriche di monitoraggio di Azure consentono di trovare le operazioni per ogni codice di stato per l'API SQL usando la metrica **Totale richieste** . Successivamente, è possibile filtrare in base a queste richieste con il codice di stato 429 e suddividerle in base al **tipo di operazione**.  
 

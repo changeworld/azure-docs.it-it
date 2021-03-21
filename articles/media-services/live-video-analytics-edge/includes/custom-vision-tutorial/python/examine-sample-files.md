@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 10/05/2020
 ms.author: russellcooks
 ms.openlocfilehash: 5dd823c618a0d49bef29c473e6c293762b859149
-ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
-ms.translationtype: HT
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/07/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94358240"
 ---
 1. In Visual Studio Code passare a src/edge. Verranno visualizzati il file con estensione env creato e alcuni file del modello di distribuzione.

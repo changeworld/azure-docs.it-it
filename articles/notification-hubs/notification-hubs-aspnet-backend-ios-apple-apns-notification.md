@@ -15,10 +15,10 @@ ms.author: sethm
 ms.reviewer: thsomasu
 ms.lastreviewed: 01/04/2019
 ms.openlocfilehash: 167c666c536ee33531fd069dbd1edb530331a9f3
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/25/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96016948"
 ---
 # <a name="tutorial-send-push-notifications-to-specific-users-using-azure-notification-hubs"></a>Esercitazione: inviare notifiche push a utenti specifici usando hub di notifica di Azure
@@ -476,7 +476,7 @@ Se si desidera usare le app per dispositivi mobili come servizio back-end, veder
     }
     ```
 
-## <a name="test-the-application"></a>Test dell'applicazione
+## <a name="test-the-application"></a>Testare l'applicazione
 
 1. In XCode eseguire l'app su un dispositivo iOS fisico (le notifiche push non funzionano nel simulatore).
 2. Nell'interfaccia utente dell'app per iOS immettere lo stesso valore per il nome utente e per la password. Fare quindi clic su **Accedi**.

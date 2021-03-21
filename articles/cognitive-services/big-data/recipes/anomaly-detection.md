@@ -12,10 +12,10 @@ ms.date: 07/06/2020
 ms.author: marhamil
 ms.custom: devx-track-python
 ms.openlocfilehash: d2995f39bc61ae5bb87abafd674f411271e57ca2
-ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/08/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94366282"
 ---
 # <a name="recipe-predictive-maintenance-with-the-cognitive-services-for-big-data"></a>Ricetta: manutenzione predittiva con servizi cognitivi per Big Data
@@ -98,7 +98,7 @@ df_anomaly.select("timestamp","value","deviceId","anomalies.isAnomaly").show(3)
 
 Questa cella deve restituire un risultato simile al seguente:
 
-| timestamp           |   value | deviceId   | isAnomaly   |
+| timestamp           |   Valore | deviceId   | isAnomaly   |
 |:--------------------|--------:|:-----------|:------------|
 | 2020-05-01 18:33:51 |    3174 | dev-7      | Falso       |
 | 2020-05-01 18:33:52 |    2976 | dev-7      | Falso       |

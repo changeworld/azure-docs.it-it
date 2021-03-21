@@ -9,10 +9,10 @@ ms.topic: include
 ms.date: 08/19/2020
 ms.custom: include file
 ms.openlocfilehash: efdd4a065e1eab55f5af420585a44754d42a43e9
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
-ms.translationtype: HT
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/25/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96010380"
 ---
 1. Nel menu del portale di Azure o dalla **pagina Home** selezionare **Crea una risorsa**.
@@ -23,7 +23,7 @@ ms.locfileid: "96010380"
 
 1. Nella pagina **Crea account Cosmos DB** immettere le impostazioni base per il nuovo account Azure Cosmos. 
 
-    |Impostazione|valore|Descrizione |
+    |Impostazione|Valore|Descrizione |
     |---|---|---|
     |Subscription|Nome sottoscrizione|Selezionare la sottoscrizione di Azure da usare per l'account Azure Cosmos. |
     |Gruppo di risorse|Nome del gruppo di risorse|Selezionare un gruppo di risorse oppure fare clic su **Crea nuovo**, quindi immettere un nome univoco per il nuovo gruppo di risorse. |

@@ -4,10 +4,10 @@ description: Questa guida di avvio rapido illustra la procedura per abilitare l'
 ms.date: 02/05/2021
 ms.topic: quickstart
 ms.openlocfilehash: ec1b010771790339a13777624f04c7bd2db01f11
-ms.sourcegitcommit: f377ba5ebd431e8c3579445ff588da664b00b36b
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/05/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "99594384"
 ---
 # <a name="quickstart-create-a-resource-graph-shared-query-using-azure-cli"></a>Avvio rapido: Creare una query condivisa di Resource Graph usando l'interfaccia della riga di comando di Azure

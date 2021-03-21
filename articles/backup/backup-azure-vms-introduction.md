@@ -4,10 +4,10 @@ description: Questo articolo illustra come il servizio backup di Azure esegue il
 ms.topic: conceptual
 ms.date: 09/13/2019
 ms.openlocfilehash: 691fe991ad141696c0c68e915d7225001a1befd0
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/23/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98733571"
 ---
 # <a name="an-overview-of-azure-vm-backup"></a>Panoramica del backup delle macchine virtuali di Azure
@@ -121,7 +121,7 @@ Quando si configurano backup per macchine virtuali, è consigliabile seguire que
 - Se si ripristinano le macchine virtuali da un unico insieme di credenziali, è consigliabile usare [account di archiviazione di uso generico V2](../storage/common/storage-account-upgrade.md) diversi per assicurarsi che l'account di archiviazione di destinazione non venga limitato. Ogni macchina virtuale, ad esempio, deve avere un account di archiviazione diverso. Se, ad esempio, vengono ripristinate 10 macchine virtuali, usare 10 account di archiviazione diversi.
 - Per il backup delle macchine virtuali che usano archiviazione Premium con il ripristino immediato, si consiglia di allocare lo spazio disponibile del *50%* dello spazio di archiviazione totale allocato, necessario **solo** per il primo backup. Il 50% di spazio disponibile non è un requisito per i backup dopo il completamento del primo backup
 - Il limite relativo al numero di dischi per account di archiviazione dipende dalla modalità con cui le applicazioni in esecuzione in una macchina virtuale IaaS accedono ai dischi. Come regola generale, se sono presenti da 5 a 10 o più dischi in un solo account di archiviazione, bilanciare il carico spostando alcuni dischi in account di archiviazione separati.
-- Per ripristinare le macchine virtuali con dischi gestiti usando PowerShell, specificare il parametro aggiuntivo **_TargetResourceGroupName_* _ per specificare il gruppo di risorse in cui verranno ripristinati i dischi gestiti. [altre informazioni](./backup-azure-vms-automation.md#restore-managed-disks)sono disponibili qui.
+- Per ripristinare le macchine virtuali con dischi gestiti usando PowerShell, specificare il parametro aggiuntivo ***TargetResourceGroupName*** per specificare il gruppo di risorse in cui verranno ripristinati i dischi gestiti. [altre informazioni](./backup-azure-vms-automation.md#restore-managed-disks)sono disponibili qui.
 
 ## <a name="backup-costs"></a>Costi di backup
 
@@ -131,7 +131,7 @@ La fatturazione non viene avviata fino al completamento del primo backup complet
 
 La fatturazione relativa a una macchina virtuale specifica viene interrotta solo se viene arrestata la protezione e vengono eliminati i dati di backup. Quando si arresta la protezione e non vi sono processi di backup attivi, la dimensione dell'ultimo backup della macchina virtuale completato correttamente diventa la dimensione dell'istanza protetta usata per la fatturazione mensile.
 
-Il calcolo delle dimensioni dell'istanza protetta è basato sulle dimensioni _actual * della VM. Le dimensioni della VM corrispondono alla somma di tutti i dati della macchina virtuale, esclusa l'archiviazione temporanea. I prezzi sono basati sui dati effettivi archiviati nei dischi dati, non sulle dimensioni massime supportate per ogni disco dati collegato alla macchina virtuale.
+Il calcolo delle dimensioni dell'istanza protetta è basato sulle dimensioni *effettive* della macchina virtuale. Le dimensioni della VM corrispondono alla somma di tutti i dati della macchina virtuale, esclusa l'archiviazione temporanea. I prezzi sono basati sui dati effettivi archiviati nei dischi dati, non sulle dimensioni massime supportate per ogni disco dati collegato alla macchina virtuale.
 
 Analogamente, la fattura relativa all'archiviazione dei backup è basata sulla quantità di dati archiviati in backup di Azure, ovvero la somma dei dati effettivi in ogni punto di ripristino.
 

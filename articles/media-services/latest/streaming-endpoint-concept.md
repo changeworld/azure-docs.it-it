@@ -52,7 +52,7 @@ Per informazioni sul contratto di contratto, vedere [prezzi e contratto di contr
 Funzionalità|Standard|Premium
 ---|---|---
 Velocità effettiva |Fino a 600 Mbps e possono fornire una velocità effettiva molto più elevata quando si usa una rete CDN.|200 Mbps per unità di streaming (SU). Può fornire una velocità effettiva molto più elevata quando viene usata una rete CDN.
-RETE CDN|Rete CDN di Azure, rete CDN di terze parti o nessuna rete CDN.|Rete CDN di Azure, rete CDN di terze parti o nessuna rete CDN.
+Rete CDN|Rete CDN di Azure, rete CDN di terze parti o nessuna rete CDN.|Rete CDN di Azure, rete CDN di terze parti o nessuna rete CDN.
 Fatturazione con ripartizione proporzionale| Ogni giorno|Ogni giorno
 Crittografia dinamica|Sì|Sì
 creazione dinamica dei pacchetti|Sì|Sì

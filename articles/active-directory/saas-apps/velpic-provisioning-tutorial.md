@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 03/27/2019
 ms.author: zhchia
 ms.openlocfilehash: cdd4fb96a42d154ccd8b508950283978ddf58ef4
-ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
-ms.translationtype: HT
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/07/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94354904"
 ---
 # <a name="tutorial-configuring-velpic-for-automatic-user-provisioning"></a>Esercitazione: configurazione di Velpic per il provisioning utenti automatico
@@ -56,7 +56,7 @@ Questa sezione illustra la connessione del Azure AD all'API di provisioning degl
 
 ### <a name="to-configure-automatic-user-account-provisioning-to-velpic-in-azure-ad"></a>Per configurare il provisioning automatico degli account utente in Velpic in Azure AD:
 
-1. Nella [portale di Azure](https://portal.azure.com)passare alla sezione **Azure Active Directory > app aziendali > tutte le applicazioni**  .
+1. Nel [portale di Azure](https://portal.azure.com) passare alla sezione **Azure Active Directory > App aziendali > Tutte le applicazioni**.
 
 2. Se Velpic è già stato configurato per Single Sign-On, cercare l'istanza di Velpic usando il campo di ricerca. In caso contrario, selezionare **Aggiungi** e cercare **Velpic** nella raccolta di applicazioni. Selezionare Velpic nei risultati della ricerca e aggiungerlo all'elenco delle applicazioni.
 
@@ -66,7 +66,7 @@ Questa sezione illustra la connessione del Azure AD all'API di provisioning degl
 
     ![Provisioning di Velpic](./media/velpic-provisioning-tutorial/Velpic1.png)
 
-5. Nella sezione **credenziali amministratore** immettere l'URL del **tenant&token segreto** di Velpic. (È possibile trovare questi valori nell'account Velpic: **Gestisci**  >  **Integrazione**  >  di **Plug**  >  -in **Scim** )
+5. Nella sezione **credenziali amministratore** immettere l'URL del **tenant&token segreto** di Velpic. (È possibile trovare questi valori nell'account Velpic: **Gestisci**  >  **Integrazione**  >  di **Plug**  >  -in **Scim**)
 
     ![Valori di autorizzazione](./media/velpic-provisioning-tutorial/Velpic2.png)
 

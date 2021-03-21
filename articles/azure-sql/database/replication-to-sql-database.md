@@ -12,10 +12,10 @@ ms.author: sstein
 ms.reviewer: mathoma
 ms.date: 04/28/2020
 ms.openlocfilehash: 6ff1d485ab4c0662ae8a9d754ce67b1446b76fcc
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/28/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92780955"
 ---
 # <a name="replication-to-azure-sql-database"></a>Replica nel database SQL di Azure
@@ -31,7 +31,7 @@ ms.locfileid: "92780955"
 - Il database SQL di Azure può essere solo l'abbonato push di un SQL Server server di pubblicazione e di un server di distribuzione  
 - L'istanza SQL Server che funge da server di pubblicazione e/o database di distribuzione può essere un'istanza di [SQL Server in esecuzione in locale](https://www.microsoft.com/sql-server/sql-server-downloads), un [istanza gestita SQL di Azure](../managed-instance/instance-create-quickstart.md)o un'istanza di [SQL Server in esecuzione in una macchina virtuale di Azure nel cloud](../virtual-machines/windows/sql-vm-create-portal-quickstart.md). 
 - Il database di distribuzione e gli agenti di replica non possono essere inseriti in un database nel database SQL di Azure.  
-- [Snapshot](/sql/relational-databases/replication/snapshot-replication) Sono supportate la replica [transazionale snapshot e unidirezionale](/sql/relational-databases/replication/transactional/transactional-replication) . La replica transazionale peer-to-peer e la replica di tipo merge non sono supportate.
+- [](/sql/relational-databases/replication/snapshot-replication) Sono supportate la replica [transazionale snapshot e unidirezionale](/sql/relational-databases/replication/transactional/transactional-replication) . La replica transazionale peer-to-peer e la replica di tipo merge non sono supportate.
 
 ### <a name="versions"></a>Versioni  
 
@@ -52,7 +52,7 @@ Per usare tutte le funzionalità del database SQL di Azure, è necessario usare 
 
 Esistono diversi [tipi di replica](/sql/relational-databases/replication/types-of-replication):
 
-| Replica | database SQL di Azure | Istanza gestita di SQL di Azure |
+| Replica | Database SQL di Azure | Istanza gestita di SQL di Azure |
 | :----| :------------- | :--------------- |
 | [**Transazionale standard**](/sql/relational-databases/replication/transactional/transactional-replication) | Sì (solo come sottoscrittore) | Sì | 
 | [**Snapshot**](/sql/relational-databases/replication/snapshot-replication) | Sì (solo come sottoscrittore) | Sì|
@@ -127,7 +127,7 @@ Le opzioni seguenti non sono supportate per le sottoscrizioni del database SQL d
 Creare una pubblicazione e una sottoscrizione push. Per altre informazioni, vedere:
   
 - [Creare una pubblicazione](/sql/relational-databases/replication/publish/create-a-publication)
-- [Creare una sottoscrizione push](/sql/relational-databases/replication/create-a-push-subscription/) usando il nome del server come Sottoscrittore (ad esempio, **n'azuresqldbdns. database. Windows. NET '** ) e il nome del database SQL di Azure come database di destinazione (ad esempio **AdventureWorks** ).  
+- [Creare una sottoscrizione push](/sql/relational-databases/replication/create-a-push-subscription/) usando il nome del server come Sottoscrittore (ad esempio, **n'azuresqldbdns. database. Windows. NET '**) e il nome del database SQL di Azure come database di destinazione (ad esempio **AdventureWorks**).  
 
 ## <a name="see-also"></a>Vedere anche  
 

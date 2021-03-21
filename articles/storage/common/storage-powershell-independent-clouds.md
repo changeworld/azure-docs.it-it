@@ -11,10 +11,10 @@ ms.author: tamram
 ms.subservice: common
 ms.custom: devx-track-azurepowershell
 ms.openlocfilehash: e924a5f6c765b5b964fe3b1492393b063d9d23b4
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/28/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92783573"
 ---
 # <a name="managing-storage-in-the-azure-independent-clouds-using-powershell"></a>Gestione dell'archiviazione nei cloud indipendenti di Azure con PowerShell
@@ -31,7 +31,7 @@ La maggior parte delle persone usa il cloud pubblico di Azure per la distribuzio
 
 Per usare Archiviazione di Azure in uno dei cloud indipendenti, ci si connette a tale cloud anziché al cloud pubblico di Azure. Per usare uno dei cloud indipendenti anziché il cloud pubblico di Azure:
 
-* Specificare l' *ambiente* a cui connettersi.
+* Specificare l'*ambiente* a cui connettersi.
 * Determinare e usare le aree disponibili.
 * Usare il suffisso corretto dell'endpoint, che è diverso rispetto al cloud pubblico di Azure.
 
@@ -51,7 +51,7 @@ Accedere all'account che ha accesso al cloud a cui ci si vuole connettere e impo
 Connect-AzAccount –Environment AzureUSGovernment
 ```
 
-Per accedere al cloud per la Cina, usare l'ambiente **AzureChinaCloud** . Per accedere al cloud per la Germania, usare **AzureGermanCloud** .
+Per accedere al cloud per la Cina, usare l'ambiente **AzureChinaCloud**. Per accedere al cloud per la Germania, usare **AzureGermanCloud**.
 
 A questo punto, se è necessario l'elenco di località per creare un account di archiviazione o un'altra risorsa, è possibile eseguire query sulle località disponibili per il cloud selezionato tramite [Get-AzLocation](/powershell/module/az.resources/get-azlocation).
 
@@ -69,7 +69,7 @@ La tabella seguente mostra le località restituite per il cloud per la Germania.
 
 ## <a name="endpoint-suffix"></a>Suffisso dell'endpoint
 
-Il suffisso dell'endpoint per ognuno di questi ambienti è diverso dall'endpoint pubblico di Azure. Ad esempio, il suffisso dell'endpoint BLOB del cloud pubblico di Azure è **blob.core.windows.net** . Per il cloud per enti pubblici, il suffisso dell'endpoint BLOB è **blob.core.usgovcloudapi.net** .
+Il suffisso dell'endpoint per ognuno di questi ambienti è diverso dall'endpoint pubblico di Azure. Ad esempio, il suffisso dell'endpoint BLOB del cloud pubblico di Azure è **blob.core.windows.net**. Per il cloud per enti pubblici, il suffisso dell'endpoint BLOB è **blob.core.usgovcloudapi.net**.
 
 ### <a name="get-endpoint-using-get-azenvironment"></a>Ottenere l'endpoint tramite Get-AzEnvironment
 
@@ -100,7 +100,7 @@ Get-AzEnvironment -Name AzureGermanCloud
 
 I risultati sono simili ai valori seguenti:
 
-|Nome proprietà|valore|
+|Nome della proprietà|Valore|
 |----|----|
 | Nome | `AzureGermanCloud` |
 | EnableAdfsAuthentication | `False` |

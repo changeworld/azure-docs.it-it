@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 09/10/2020
 ms.custom: seodec18, devx-track-csharp
 ms.openlocfilehash: 52fa6f05db5452a2e7b8ec4f93d65525873c8c7e
-ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/08/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98020571"
 ---
 # <a name="develop-net-standard-user-defined-functions-for-azure-stream-analytics-jobs-preview"></a>Sviluppare .NET Standard funzioni definite dall'utente per i processi di analisi di flusso di Azure (anteprima)
@@ -42,7 +42,7 @@ Per usare i valori di analisi di flusso di Azure in C#, è necessario eseguirne 
 |float | double |
 |nvarchar(max) | string |
 |Datetime | Datetime |
-|Record | Dizionario\<string, object> |
+|Registra | Dizionario\<string, object> |
 |Array | Oggetto [] |
 
 Lo stesso vale quando è necessario effettuare il marshalling dei dati da C# ad analisi di flusso di Azure, che si verifica sul valore di output di una funzione definita dall'utente. La tabella seguente illustra i tipi supportati:
@@ -53,10 +53,10 @@ Lo stesso vale quando è necessario effettuare il marshalling dei dati da C# ad 
 |double  |  float   |
 |string  |  nvarchar(max)   |
 |Datetime  |  dateTime   |
-|struct  |  Record   |
-|object  |  Record   |
+|struct  |  Registra   |
+|object  |  Registra   |
 |Oggetto []  |  Array   |
-|Dizionario\<string, object>  |  Record   |
+|Dizionario\<string, object>  |  Registra   |
 
 ## <a name="develop-a-udf-in-visual-studio-code"></a>Sviluppare una funzione definita dall'utente in Visual Studio Code
 

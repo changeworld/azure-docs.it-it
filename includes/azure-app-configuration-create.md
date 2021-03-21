@@ -5,10 +5,10 @@ ms.service: azure-app-configuration
 ms.topic: include
 ms.date: 1/31/2020
 ms.openlocfilehash: c344d7e1aa1f6d45131295ba9aad1294c5ba548c
-ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
-ms.translationtype: HT
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96930713"
 ---
 1. Per creare un nuovo archivio di Configurazione app, accedere al [portale di Azure](https://portal.azure.com). Nell'angolo superiore sinistro della home page selezionare **Crea una risorsa**. Nella casella **Cerca nel Marketplace** immettere *Configurazione app* e quindi premere <kbd>INVIO</kbd>.

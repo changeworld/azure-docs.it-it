@@ -10,10 +10,10 @@ ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
 ms.openlocfilehash: fcf3e9228c8e651efb8f97067f7ba9eead5959db
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/28/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92789676"
 ---
 # <a name="use-the-azure-storage-resource-provider-to-access-management-resources"></a>Usare il provider di risorse di archiviazione di Azure per accedere alle risorse di gestione
@@ -53,7 +53,7 @@ I ruoli predefiniti che concedono le autorizzazioni per chiamare le operazioni d
 | **Amministratore accessi utente** | Può gestire l'accesso all'account di archiviazione.   | Sì, consente a un'entità di sicurezza di assegnare autorizzazioni a se stessi e ad altri utenti. |
 | **Collaboratore macchine virtuali** | Consente di gestire le macchine virtuali, ma non l'account di archiviazione a cui sono connesse.   | Sì, fornisce le autorizzazioni per visualizzare e rigenerare le chiavi dell'account di archiviazione. |
 
-La terza colonna della tabella indica se il ruolo predefinito supporta **Microsoft. storage/storageAccounts/listkeys/Action** . Questa azione concede le autorizzazioni per la lettura e la rigenerazione delle chiavi dell'account di archiviazione. Le autorizzazioni per accedere alle risorse di gestione archiviazione di Azure non includono anche le autorizzazioni per accedere ai dati. Tuttavia, se un utente ha accesso alle chiavi dell'account, può usare le chiavi dell'account per accedere ai dati di archiviazione di Azure tramite l'autorizzazione della chiave condivisa.
+La terza colonna della tabella indica se il ruolo predefinito supporta **Microsoft. storage/storageAccounts/listkeys/Action**. Questa azione concede le autorizzazioni per la lettura e la rigenerazione delle chiavi dell'account di archiviazione. Le autorizzazioni per accedere alle risorse di gestione archiviazione di Azure non includono anche le autorizzazioni per accedere ai dati. Tuttavia, se un utente ha accesso alle chiavi dell'account, può usare le chiavi dell'account per accedere ai dati di archiviazione di Azure tramite l'autorizzazione della chiave condivisa.
 
 ### <a name="custom-roles-for-management-operations"></a>Ruoli personalizzati per le operazioni di gestione
 

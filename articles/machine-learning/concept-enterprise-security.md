@@ -11,10 +11,10 @@ author: aashishb
 ms.reviewer: larryfr
 ms.date: 11/20/2020
 ms.openlocfilehash: a079504872eaf3840416a99e784c4d33a6828b0c
-ms.sourcegitcommit: 9889a3983b88222c30275fd0cfe60807976fd65b
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/20/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94992030"
 ---
 # <a name="enterprise-security-and-governance-for-azure-machine-learning"></a>Sicurezza e governance aziendale per Azure Machine Learning
@@ -83,7 +83,7 @@ Per altre informazioni, vedere i documenti seguenti:
 * [Proteggere le risorse dell'area di lavoro](how-to-secure-workspace-vnet.md)
 * [Proteggere l'ambiente di training](how-to-secure-training-vnet.md)
 * [Ambiente di inferenza sicuro](how-to-secure-inferencing-vnet.md)
-* [Usare studio in una rete virtuale protetta](how-to-enable-studio-virtual-network.md)
+* [Usare Studio in una rete virtuale protetta](how-to-enable-studio-virtual-network.md)
 * [Usare DNS personalizzato](how-to-custom-dns.md)
 * [Configurare il firewall](how-to-access-azureml-behind-firewall.md)
 
@@ -97,7 +97,7 @@ Quando si distribuiscono i modelli come servizi Web, è possibile abilitare la s
 
 ## <a name="vulnerability-scanning"></a>Analisi delle vulnerabilità
 
-Il [Centro sicurezza di Azure](../security-center/security-center-introduction.md) offre la gestione unificata della sicurezza e la protezione avanzata dalle minacce nei carichi di lavoro cloud ibridi. Per Azure Machine Learning, è necessario abilitare l'analisi delle risorse di [azure container Registry](../container-registry/container-registry-intro.md) e del servizio Azure Kubernetes. Per altre informazioni, vedere [azure container Registry Image Scan by Security Center](../security-center/defender-for-container-registries-introduction.md) and [Azure Kubernetes Services Integration with Security Center](../security-center/defender-for-kubernetes-introduction.md).
+[Centro sicurezza di Azure](../security-center/security-center-introduction.md) fornisce funzionalità unificate di gestione della sicurezza e Advanced Threat Protection per i carichi di lavoro del cloud ibrido. Per Azure Machine Learning, è necessario abilitare l'analisi delle risorse di [azure container Registry](../container-registry/container-registry-intro.md) e del servizio Azure Kubernetes. Per altre informazioni, vedere [azure container Registry Image Scan by Security Center](../security-center/defender-for-container-registries-introduction.md) and [Azure Kubernetes Services Integration with Security Center](../security-center/defender-for-kubernetes-introduction.md).
 
 ## <a name="audit-and-manage-compliance"></a>Controllare e gestire la conformità
 

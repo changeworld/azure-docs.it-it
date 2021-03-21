@@ -11,10 +11,10 @@ author: nibaccam
 ms.author: nibaccam
 ms.date: 04/09/2020
 ms.openlocfilehash: ba85bda1e322d3efd467527b48bd4cd90eb7ce8c
-ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96922616"
 ---
 # <a name="prevent-overfitting-and-imbalanced-data-with-automated-machine-learning"></a>Impedire l'overfitting e lo sbilanciamento dei dati con Machine learning automatizzato
