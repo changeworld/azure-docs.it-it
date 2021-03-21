@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.date: 01/13/2020
 ms.custom: devx-track-azurecli
 ms.openlocfilehash: 00670746c1686bca354adc989ddce6c9dd336491
-ms.sourcegitcommit: 84e3db454ad2bccf529dabba518558bd28e2a4e6
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/02/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96519060"
 ---
 # <a name="data-encryption-for-azure-database-for-mysql-by-using-the-azure-portal"></a>Crittografia dei dati per database di Azure per MySQL usando il portale di Azure
@@ -40,12 +40,12 @@ Informazioni su come usare la portale di Azure per configurare e gestire la crit
     az keyvault update --name <key_vault_name> --resource-group <resource_group_name>  --retention-days 90
     ```
 
-* La chiave deve avere gli attributi seguenti da usare come chiave gestita dal cliente:
+* Per essere usata come chiave gestita dal cliente, la chiave deve disporre degli attributi seguenti:
   * Nessuna data di scadenza
   * Non disabilitato
   * Eseguire operazioni **Get**, **Wrap** e **Unwrap**
   * attributo recoverylevel impostato su **reversibile** . questa operazione richiede l'eliminazione temporanea abilitata con il periodo di memorizzazione impostato su 90 giorni.
-  * Ripulisci protezione abilitata
+  * È abilitata la protezione della rimozione
 
 È possibile verificare gli attributi precedenti della chiave usando il comando seguente:
 
@@ -95,7 +95,7 @@ Una volta eseguita la crittografia di Database di Azure per MySQL con una chiave
 
    :::image type="content" source="media/concepts-data-access-and-security-data-encryption/show-restore-data-encryption.png" alt-text="Screenshot del database di Azure per MySQL, con stato inaccessibile evidenziato":::
 
-3. Per rendere accessibile il server, rivalidare la chiave nel server ripristinato. Selezionare **Data encryption**  >  **chiave di riconvalida** crittografia dati.
+3. Per rendere accessibile il server, rivalidare la chiave nel server ripristinato. Selezionare   >  **chiave di riconvalida** crittografia dati.
 
    > [!NOTE]
    > Il primo tentativo di riconvalida avrà esito negativo perché l'entità servizio del nuovo server deve avere accesso all'insieme di credenziali delle chiavi. Per generare l'entità servizio, selezionare **revalidate Key**, che visualizzerà un errore ma genera l'entità servizio. Successivamente, fare riferimento a [questi passaggi descritti](#set-the-right-permissions-for-key-operations) in precedenza in questo articolo.

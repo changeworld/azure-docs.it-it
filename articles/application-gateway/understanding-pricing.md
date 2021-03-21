@@ -9,10 +9,10 @@ ms.custom: references_regions
 ms.date: 09/01/2020
 ms.author: azhussai
 ms.openlocfilehash: 89ba6b7a69c95951a083628f23be68d811c7768c
-ms.sourcegitcommit: c4246c2b986c6f53b20b94d4e75ccc49ec768a9a
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/04/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96601612"
 ---
 # <a name="understanding-pricing-for-azure-application-gateway-and-web-application-firewall"></a>Informazioni sui prezzi per applicazione Azure gateway e Web Application Firewall
@@ -57,7 +57,7 @@ La tabella seguente illustra i prezzi di esempio basati su uno snapshot dei prez
 |              Tipo di gateway applicazione             |  Costi ($/ora)  |
 | ------------------------------------------------- | ---------------|
 |                     Piccola                         |    $0,025      |
-|                     Media                        |    $ 0,07       |
+|                     Medio                        |    $ 0,07       |
 |                     Grande                         |    $0,32       |
 
 I prezzi mensili stimati si basano su 730 ore di utilizzo al mese.
@@ -66,8 +66,8 @@ I prezzi mensili stimati si basano su 730 ore di utilizzo al mese.
 
 |              Dati elaborati             |  Piccolo ($/GB)  |  Media ($/GB) |  Grande ($/GB) |
 | --------------------------------------- | -------------- | -------------- | ------------- |
-| Primi 10 TB/mese                       |     $ 0,008     |      Livello gratuito      |     Livello gratuito      |
-| Successivi 30 TB (10 – 40 TB)/mese             |     $ 0,008     |     $0,007     |     Livello gratuito      |
+| Primi 10 TB/mese                       |     $ 0,008     |      Gratuito      |     Gratuito      |
+| Successivi 30 TB (10 – 40 TB)/mese             |     $ 0,008     |     $0,007     |     Gratuito      |
 | Oltre 40 TB/mese                        |     $ 0,008     |     $0,007     |     $0,0035   |
 
 Per ulteriori informazioni sui prezzi in base all'area geografica, vedere la pagina relativa ai [prezzi](https://azure.microsoft.com/pricing/details/application-gateway/).
@@ -83,7 +83,7 @@ La tabella seguente illustra i prezzi di esempio basati su uno snapshot dei prez
 |              Tipo di gateway applicazione             |  Costi ($/ora)  |
 | ------------------------------------------------- | ---------------|
 |                     Piccola                         |       N/D       |
-|                     Media                        |     $0,126     |
+|                     Medio                        |     $0,126     |
 |                     Grande                         |     $0,448     |
 
 I prezzi mensili stimati si basano su 730 ore di utilizzo al mese.
@@ -92,8 +92,8 @@ I prezzi mensili stimati si basano su 730 ore di utilizzo al mese.
 
 |              Dati elaborati             |  Piccolo ($/GB)  |  Media ($/GB) |  Grande ($/GB) |
 | --------------------------------------- | -------------- | -------------- | ------------- |
-| Primi 10 TB/mese                       |     $ 0,008     |      Livello gratuito      |     Livello gratuito      |
-| Successivi 30 TB (10 – 40 TB)/mese             |     $ 0,008     |     $0,007     |     Livello gratuito      |
+| Primi 10 TB/mese                       |     $ 0,008     |      Gratuito      |     Gratuito      |
+| Successivi 30 TB (10 – 40 TB)/mese             |     $ 0,008     |     $0,007     |     Gratuito      |
 | Oltre 40 TB/mese                        |     $ 0,008     |     $0,007     |     $0,0035   |
 
 Per ulteriori informazioni sui prezzi in base all'area geografica, vedere la pagina relativa ai [prezzi](https://azure.microsoft.com/pricing/details/application-gateway/).

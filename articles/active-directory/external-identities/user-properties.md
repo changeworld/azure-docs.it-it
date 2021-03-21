@@ -5,19 +5,19 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: how-to
-ms.date: 02/12/2021
+ms.date: 03/18/2021
 ms.author: mimart
 author: msmimart
 manager: celestedg
 ms.reviewer: mal
 ms.custom: it-pro, seo-update-azuread-jan, seoapril2019
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0e9189b6608b74be6a72dbdfe66276c5050f042f
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 08ed02c65db201e18ce710633b421edb5ecb2db0
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100365464"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104655700"
 ---
 # <a name="properties-of-an-azure-active-directory-b2b-collaboration-user"></a>Proprietà di un utente di Collaborazione B2B di Azure Active Directory
 
@@ -106,7 +106,7 @@ In alcuni casi può essere necessario dare privilegi più elevati agli utenti gu
 ![Screenshot che mostra l'opzione utenti esterni nelle impostazioni utente](media/user-properties/remove-guest-limitations.png)
 
 ## <a name="can-i-make-guest-users-visible-in-the-exchange-global-address-list"></a>È possibile creare utenti guest visibili nell'elenco indirizzi globale di Exchange?
-Sì. Per impostazione predefinita, gli oggetti guest non sono visibili nell'elenco indirizzi globale dell'organizzazione, ma è possibile usare Azure Active Directory PowerShell per renderli visibili. Per informazioni dettagliate, vedere è **possibile rendere visibili gli oggetti Guest nell'elenco indirizzi globale** in [gestire l'accesso guest in gruppi Microsoft 365](/office365/admin/create-groups/manage-guest-access-in-groups).
+Sì. Per impostazione predefinita, gli oggetti guest non sono visibili nell'elenco indirizzi globale dell'organizzazione, ma è possibile usare Azure Active Directory PowerShell per renderli visibili. Per informazioni dettagliate, vedere l'articolo relativo all'aggiunta di Guest all'elenco indirizzi globale nell'articolo relativo all' [accesso Microsoft 365 per gruppo](/microsoft-365/solutions/per-group-guest-access).
 
 ## <a name="can-i-update-a-guest-users-email-address"></a>È possibile aggiornare l'indirizzo di posta elettronica di un utente Guest?
 

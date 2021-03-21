@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 03/25/2019
 ms.author: jeedes
 ms.openlocfilehash: adf00d24c05deab149edb95b8087b8522dbda99a
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
-ms.translationtype: HT
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/24/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92515390"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-predictix-assortment-planning"></a>Esercitazione: Integrazione di Azure Active Directory con Predictix Assortment Planning
@@ -52,7 +52,7 @@ Per configurare l'integrazione di Predictix Assortment Planning in Azure AD, è 
 
     ![Selezionare Azure Active Directory](common/select-azuread.png)
 
-2. Passare a **Applicazioni aziendali** > **Tutte le applicazioni** :
+2. Passare a **Applicazioni aziendali** > **Tutte le applicazioni**:
 
     ![Pannello Applicazioni aziendali](common/enterprise-applications.png)
 
@@ -60,7 +60,7 @@ Per configurare l'integrazione di Predictix Assortment Planning in Azure AD, è 
 
     ![Selezionare Nuova applicazione](common/add-new-app.png)
 
-4. Nella casella di ricerca immettere **Predictix Assortment Planning** . Selezionare **Predictix Assortment Planning** nei risultati della ricerca e quindi selezionare **Aggiungi** .
+4. Nella casella di ricerca immettere **Predictix Assortment Planning**. Selezionare **Predictix Assortment Planning** nei risultati della ricerca e quindi selezionare **Aggiungi**.
 
      ![Search Results](common/search-new-app.png)
 
@@ -84,7 +84,7 @@ In questa sezione verrà abilitato l'accesso Single Sign-On di Azure AD nel port
 
 Per configurare l'accesso Single Sign-On di Azure AD con Predictix Assortment Planning, seguire questa procedura:
 
-1. Nella pagina di integrazione dell'applicazione **Predictix Assortment Planning** del [portale di Azure](https://portal.azure.com/) selezionare **Single Sign-On** .
+1. Nella pagina di integrazione dell'applicazione **Predictix Assortment Planning** del [portale di Azure](https://portal.azure.com/) selezionare **Single Sign-On**.
 
     ![Selezionare Single Sign-On](common/select-sso.png)
 
@@ -92,7 +92,7 @@ Per configurare l'accesso Single Sign-On di Azure AD con Predictix Assortment Pl
 
     ![Selezionare un metodo di accesso Single Sign-On](common/select-saml-option.png)
 
-3. Nella pagina **Configura l'accesso Single Sign-On con SAML** selezionare l'icona **Modifica** per aprire la finestra di dialogo **Configurazione SAML di base** :
+3. Nella pagina **Configura l'accesso Single Sign-On con SAML** selezionare l'icona **Modifica** per aprire la finestra di dialogo **Configurazione SAML di base**:
 
     ![Icona Modifica](common/edit-urls.png)
 
@@ -125,11 +125,11 @@ Per configurare l'accesso Single Sign-On di Azure AD con Predictix Assortment Pl
 
     ![Copiare gli URL di configurazione](common/copy-configuration-urls.png)
 
-    1. **URL di accesso** .
+    1. **URL di accesso**.
 
-    1. **Identificatore Azure AD** .
+    1. **Identificatore Azure AD**.
 
-    1. **URL di disconnessione** .
+    1. **URL di disconnessione**.
 
 ### <a name="configure-predictix-assortment-planning-single-sign-on"></a>Configurare l'accesso Single Sign-On di Predictix Assortment Planning
 
@@ -139,7 +139,7 @@ Per configurare l'accesso Single Sign-On sul lato Predictix Assortment Planning,
 
 In questa sezione verrà creato un utente di test di nome Britta Simon nel portale di Azure.
 
-1. Nel riquadro sinistro del portale di Azure selezionare **Azure Active Directory** , **Utenti** e quindi **Tutti gli utenti** :
+1. Nel riquadro sinistro del portale di Azure selezionare **Azure Active Directory**, **Utenti** e quindi **Tutti gli utenti**:
 
     ![Selezionare Tutti gli utenti](common/users.png)
 
@@ -151,31 +151,31 @@ In questa sezione verrà creato un utente di test di nome Britta Simon nel porta
 
     ![Finestra di dialogo Utente](common/user-properties.png)
 
-    1. Nella casella **Nome** immettere **BrittaSimon** .
+    1. Nella casella **Nome** immettere **BrittaSimon**.
   
     1. Nella casella **Nome utente** immettere **BrittaSimon@\<yourcompanydomain>.\<extension>** . ad esempio BrittaSimon@contoso.com.
 
-    1. Selezionare **Mostra password** e quindi prendere nota del valore visualizzato nella casella **Password** .
+    1. Selezionare **Mostra password** e quindi prendere nota del valore visualizzato nella casella **Password**.
 
-    1. Selezionare **Crea** .
+    1. Selezionare **Crea**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Assegnare l'utente di test di Azure AD
 
 In questa sezione Britta Simon verrà abilitata per l'uso dell'accesso Single Sign-On di Azure AD concedendole l'accesso a Predictix Assortment Planning.
 
-1. Nel portale di Azure selezionare **Applicazioni aziendali** , quindi **Tutte le applicazioni** e infine **Predictix Assortment Planning** .
+1. Nel portale di Azure selezionare **Applicazioni aziendali**, quindi **Tutte le applicazioni** e infine **Predictix Assortment Planning**.
 
     ![Applicazioni aziendali](common/enterprise-applications.png)
 
-2. Nell'elenco delle applicazioni selezionare **Predictix Assortment Planning** .
+2. Nell'elenco delle applicazioni selezionare **Predictix Assortment Planning**.
 
     ![Elenco delle applicazioni](common/all-applications.png)
 
-3. Nel riquadro sinistro selezionare **Utenti e gruppi** :
+3. Nel riquadro sinistro selezionare **Utenti e gruppi**:
 
     ![Selezionare Utenti e gruppi](common/users-groups-blade.png)
 
-4. Selezionare **Aggiungi utente** e quindi **Utenti e gruppi** nella finestra di dialogo **Aggiungi assegnazione** .
+4. Selezionare **Aggiungi utente** e quindi **Utenti e gruppi** nella finestra di dialogo **Aggiungi assegnazione**.
 
     ![Selezionare Aggiungi utente](common/add-assign-user.png)
 
@@ -183,7 +183,7 @@ In questa sezione Britta Simon verrà abilitata per l'uso dell'accesso Single Si
 
 6. Se si prevede un valore di ruolo nell'asserzione SAML, nella finestra di dialogo **Selezionare un ruolo** selezionare il ruolo appropriato per l'utente dall'elenco. Fare clic sul pulsante **Seleziona** nella parte inferiore della schermata.
 
-7. Nella finestra di dialogo **Aggiungi assegnazione** selezionare **Assegna** .
+7. Nella finestra di dialogo **Aggiungi assegnazione** selezionare **Assegna**.
 
 ### <a name="create-a-predictix-assortment-planning-test-user"></a>Creare un utente di test di Predictix Assortment Planning
 

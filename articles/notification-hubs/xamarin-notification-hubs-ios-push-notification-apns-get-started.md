@@ -1,5 +1,5 @@
 ---
-title: Inviare notifiche push a Xamarin con Hub di notifica di Azure | Microsoft Docs
+title: Inviare notifiche push a Novell usando hub di notifica di Azure | Microsoft Docs
 description: In questa esercitazione viene illustrato come usare Hub di notifica di Azure per inviare notifiche push a un'applicazione Xamarin.iOS.
 services: notification-hubs
 keywords: notifiche push di ios,messaggi push,notifiche push,messaggio push
@@ -17,13 +17,13 @@ ms.author: sethm
 ms.reviewer: thsomasu
 ms.lastreviewed: 05/23/2019
 ms.openlocfilehash: ff1e5edad05ebd7157f71ad2e099ea88905be4f3
-ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/14/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98221137"
 ---
-# <a name="tutorial-send-push-notifications-to-xamarinios-apps-using-azure-notification-hubs"></a>Esercitazione: Inviare notifiche push alle app Xamarin.iOS con Hub di notifica di Azure
+# <a name="tutorial-send-push-notifications-to-xamarinios-apps-using-azure-notification-hubs"></a>Esercitazione: inviare notifiche push a app Novell. iOS usando hub di notifica di Azure
 
 [!INCLUDE [notification-hubs-selector-get-started](../../includes/notification-hubs-selector-get-started.md)]
 
@@ -75,7 +75,7 @@ Il completamento di questa esercitazione costituisce un prerequisito per tutte l
 
     ![Visual Studio - Configurazione di entitlement iOS][33]
 
-5. Aggiungere il pacchetto di messaggistica di Azure. Nella visualizzazione della soluzione fare clic con il pulsante destro del mouse sul progetto e scegliere **Aggiungi** > **Aggiungi pacchetti NuGet**. Cercare **Xamarin.Azure.NotificationHubs.iOS** e aggiungere il pacchetto al progetto.
+5. Aggiungere il pacchetto di messaggistica di Azure. Nella visualizzazione soluzione fare clic con il pulsante destro del mouse sul progetto e scegliere **Aggiungi**  >  **Aggiungi pacchetti NuGet**. Cercare **Xamarin.Azure.NotificationHubs.iOS** e aggiungere il pacchetto al progetto.
 
 6. Aggiungere un nuovo file alla classe, assegnargli il nome `Constants.cs`, aggiungere le variabili seguenti e sostituire i segnaposto dei valori letterali stringa con i valori `hubname` e `DefaultListenSharedAccessSignature` annotati in precedenza.
 

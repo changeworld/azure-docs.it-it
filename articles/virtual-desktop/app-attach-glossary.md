@@ -9,10 +9,10 @@ ms.date: 08/17/2020
 ms.author: helohr
 manager: lizross
 ms.openlocfilehash: 7132eae073f3d53a104536076ae801ec9ff93e5f
-ms.sourcegitcommit: 84e3db454ad2bccf529dabba518558bd28e2a4e6
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/02/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96518669"
 ---
 # <a name="msix-app-attach-glossary"></a>Glossario per il fissaggio dell'app MSIX
@@ -108,7 +108,7 @@ La degestione temporanea notifica al sistema operativo che un'applicazione o un 
 
 ## <a name="cim"></a>CIM
 
-CIM è una nuova estensione di file associata a composite image file System (CimFS). Il montaggio e lo smontaggio dei file CIM sono più veloci dei file VHD. CIM usa anche meno CPU e memoria rispetto al disco rigido virtuale.
+. CIM è una nuova estensione di file associata a composite image file System (CimFS). Il montaggio e lo smontaggio dei file CIM sono più veloci dei file VHD. CIM usa anche meno CPU e memoria rispetto al disco rigido virtuale.
 
 Un file CIM è un file con un. Estensione CIM che contiene i metadati e almeno sei file aggiuntivi che contengono dati effettivi. I file all'interno del file CIM non hanno estensioni. Nella tabella seguente è riportato un elenco di file di esempio disponibili all'interno di un CIM:
 

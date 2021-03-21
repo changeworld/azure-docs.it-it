@@ -13,17 +13,17 @@ ms.workload: infrastructure
 ms.date: 02/21/2020
 ms.author: rdhillon
 ms.openlocfilehash: bdf0e87c92a55d0dbb5bbe34334a6de4580cb350
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/25/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96004960"
 ---
 # <a name="create-change-or-delete-service-endpoint-policy-using-the-azure-portal"></a>Creare, modificare o eliminare i criteri degli endpoint di servizio usando il portale di Azure
 
 I criteri degli endpoint di servizio consentono di filtrare il traffico della rete virtuale a specifiche risorse di Azure, tramite gli endpoint di servizio. Se non si ha familiarità con i criteri degli endpoint di servizio, vedere [Panoramica dei criteri degli endpoint di servizio](virtual-network-service-endpoint-policies-overview.md) per altre informazioni.
 
- In questa esercitazione viene illustrato come:
+ In questa esercitazione verranno illustrate le procedure per:
 
 > [!div class="checklist"]
 > * Creare un criterio di endpoint di servizio

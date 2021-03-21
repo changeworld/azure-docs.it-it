@@ -6,13 +6,13 @@ ms.reviewer: jasonh
 ms.topic: how-to
 ms.date: 06/30/2017
 ms.openlocfilehash: 56b104b5cc8f8923445455c71fe2418e39539b8e
-ms.sourcegitcommit: df66dff4e34a0b7780cba503bb141d6b72335a96
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/02/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96512567"
 ---
-# <a name="use-user-defined-outputter"></a>USA outputter definito dall'utente
+# <a name="use-user-defined-outputter"></a>Usare outputter definiti dall'utente
 
 ## <a name="u-sql-udo-user-defined-outputter"></a>U-SQL UDO: outputter definito dall'utente
 L'outputter definito dall'utente è un altro oggetto definito dall'utente di U-SQL che consente di estendere una funzionalità predefinita di U-SQL. Come per l'estrattore, esistono diversi outputter integrati.

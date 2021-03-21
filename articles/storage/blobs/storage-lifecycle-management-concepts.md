@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.reviewer: yzheng
 ms.custom: devx-track-azurepowershell, references_regions
 ms.openlocfilehash: 1b568687ffe646a91544c1bb75d26d552a23f49c
-ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/24/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96005283"
 ---
 # <a name="optimize-costs-by-automating-azure-blob-storage-access-tiers"></a>Ottimizzare i costi automatizzando i livelli di accesso all'archivio BLOB di Azure
@@ -53,7 +53,7 @@ La funzionalità di gestione del ciclo di vita è gratuita. Ai clienti viene add
 Un criterio può essere letto o scritto completamente. Gli aggiornamenti parziali non sono supportati. 
 
 > [!NOTE]
-> Se per l'account di archiviazione si abilitano regole firewall, è possibile che le richieste di gestione del ciclo di vita vengano bloccate. È possibile sbloccare queste richieste fornendo eccezioni per i servizi Microsoft attendibili. Per altre informazioni, vedere la sezione Eccezioni in [Configurare i firewall e le reti virtuali](../common/storage-network-security.md#exceptions).
+> Se per l'account di archiviazione si abilitano regole firewall, è possibile che le richieste di gestione del ciclo di vita vengano bloccate. È possibile sbloccarle specificando eccezioni per servizi attendibili di Microsoft. Per ulteriori informazioni, vedere la sezione eccezioni in [configurare firewall e reti virtuali](../common/storage-network-security.md#exceptions).
 
 Questo articolo illustra come gestire i criteri usando il portale e i metodi di PowerShell.
 
@@ -247,10 +247,10 @@ Ogni regola all'interno del criterio presenta diversi parametri:
 
 | Nome parametro | Tipo di parametro | Note | Necessario |
 |----------------|----------------|-------|----------|
-| `name`         | string |Il nome di una regola può includere fino a 256 caratteri alfanumerici. Nel nome della regola viene applicata la distinzione tra maiuscole e minuscole. Il nome deve essere univoco nel criterio. | True |
-| `enabled`      | Boolean | Valore booleano facoltativo per consentire la disabilitazione temporanea di una regola. Il valore predefinito è true se non è impostato. | False | 
-| `type`         | Un valore di enumerazione | Il tipo valido corrente è `Lifecycle` . | True |
-| `definition`   | Un oggetto che definisce la regola del ciclo di vita | Ogni definizione è composta da un set di filtri e un set di azioni. | True |
+| `name`         | string |Il nome di una regola può includere fino a 256 caratteri alfanumerici. Nel nome della regola viene applicata la distinzione tra maiuscole e minuscole. Il nome deve essere univoco nel criterio. | Vero |
+| `enabled`      | Boolean | Valore booleano facoltativo per consentire la disabilitazione temporanea di una regola. Il valore predefinito è true se non è impostato. | Falso | 
+| `type`         | Un valore di enumerazione | Il tipo valido corrente è `Lifecycle` . | Vero |
+| `definition`   | Un oggetto che definisce la regola del ciclo di vita | Ogni definizione è composta da un set di filtri e un set di azioni. | Vero |
 
 ## <a name="rules"></a>Regole
 
@@ -333,7 +333,7 @@ La gestione del ciclo di vita supporta la suddivisione in livelli e l'eliminazio
 | Azione                      | BLOB di base                                  | Snapshot      | Versione
 |-----------------------------|--------------------------------------------|---------------|---------------|
 | tierToCool                  | Supportato per `blockBlob`                  | Supportato     | Supportato     |
-| enableAutoTierToHotFromCool | Supportato per `blockBlob`                  | Non supportate | Non supportate |
+| enableAutoTierToHotFromCool | Supportato per `blockBlob`                  | Non supportato | Non supportato |
 | tierToArchive               | Supportato per `blockBlob`                  | Supportato     | Supportato     |
 | eliminare                      | Supportato per `blockBlob` e `appendBlob` | Supportato     | Supportato     |
 
@@ -596,4 +596,4 @@ Informazioni su come recuperare i dati dopo l'eliminazione accidentale:
 
 Informazioni su come gestire e trovare i dati con l'indice BLOB:
 
-- [Gestire e trovare i dati nell'archivio BLOB di Azure con indice BLOB](storage-manage-find-blobs.md)
+- [Gestire e trovare i dati nell'Archiviazione BLOB di Azure con l'indice BLOB](storage-manage-find-blobs.md)

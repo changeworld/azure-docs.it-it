@@ -4,10 +4,10 @@ description: Descrive le proprietà disponibili per gli eventi di archiviazione 
 ms.topic: conceptual
 ms.date: 02/11/2021
 ms.openlocfilehash: 893e86ecf220ceb327eed9c6f95be4c7ed1afb1c
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/14/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100363645"
 ---
 # <a name="azure-blob-storage-as-an-event-grid-source"></a>Archiviazione BLOB di Azure come origine di griglia di eventi
