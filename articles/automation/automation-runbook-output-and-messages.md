@@ -6,10 +6,10 @@ ms.subservice: process-automation
 ms.date: 11/03/2020
 ms.topic: conceptual
 ms.openlocfilehash: beed3ec50d0c7990168ee75976c732796cdbe246
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93324421"
 ---
 # <a name="configure-runbook-output-and-message-streams"></a>Configurare l'output del Runbook e i flussi di messaggi
@@ -117,9 +117,9 @@ Il runbook include il tipo di output `Microsoft.Azure.Commands.Profile.Models.PS
 
 Anche se questo runbook è semplice, è necessario chiamare un elemento di configurazione. L'ultima attività esegue il cmdlet `Write-Output` per scrivere i dati del profilo in una variabile usando un'espressione di PowerShell per il parametro `Inputobject`. Questo parametro è obbligatorio per `Write-Output`.
 
-Il secondo runbook di questo esempio, denominato **Test-ChildOutputType** , definisce semplicemente due attività.<br> ![Esempio di runbook di tipo di output figlio](media/automation-runbook-output-and-messages/runbook-display-authentication-results-example.png)
+Il secondo runbook di questo esempio, denominato **Test-ChildOutputType**, definisce semplicemente due attività.<br> ![Esempio di runbook di tipo di output figlio](media/automation-runbook-output-and-messages/runbook-display-authentication-results-example.png)
 
-La prima attività chiama il runbook **AuthenticateTo-Azure**. La seconda attività esegue il cmdlet `Write-Verbose` con **Origine dati** impostato su **Output attività**. Anche **Percorso campo** è impostato su **Context.Subscription.SubscriptionName** , l'output del contesto del runbook **AuthenticateTo-Azure**.<br> ![Origine dati del parametro per il cmdlet Write-Verbose](media/automation-runbook-output-and-messages/runbook-write-verbose-parameters-config.png)
+La prima attività chiama il runbook **AuthenticateTo-Azure**. La seconda attività esegue il cmdlet `Write-Verbose` con **Origine dati** impostato su **Output attività**. Anche **Percorso campo** è impostato su **Context.Subscription.SubscriptionName**, l'output del contesto del runbook **AuthenticateTo-Azure**.<br> ![Origine dati del parametro per il cmdlet Write-Verbose](media/automation-runbook-output-and-messages/runbook-write-verbose-parameters-config.png)
 
 L'output risultante è il nome della sottoscrizione.<br> ![Risultati del runbook Test-ChildOutputType](media/automation-runbook-output-and-messages/runbook-test-childoutputtype-results.png)
 
@@ -153,7 +153,7 @@ Per acquisire i dati del flusso di debug, è necessario eseguire due azioni in m
 
 1. Reindirizzare il flusso di debug che non viene acquisito in un flusso che viene acquisito come *output*. Questa operazione viene eseguita impostando il reindirizzamento di PowerShell sull'istruzione da eseguire. Per ulteriori informazioni sul reindirizzamento PowerShell, vedere informazioni sul [Reindirizzamento](/powershell/module/microsoft.powershell.core/about/about_redirection).
 
-#### <a name="examples"></a>Esempi
+#### <a name="examples"></a>Esempio
 
 In questo esempio, Runbook viene configurato usando i `Write-Output` cmdlet e `Write-Debug` con l'intenzione di output di due flussi diversi.
 
@@ -279,7 +279,7 @@ Tuttavia, a meno che non siano necessarie per tenere traccia dello stato di un r
 3. Nella pagina Runbook selezionare un runbook grafico dall'elenco dei runbook.
 4. In **Impostazioni** fare clic su **Registrazione e traccia**.
 5. Nella pagina Registrazione e traccia fare clic su **Attiva** per abilitare la registrazione dettagliata in **Registra record dettagliati**.
-6. In **Traccia a livello di attività** impostare il livello di traccia su **Di base** o **Dettagliato** , in base al livello di traccia necessario.<br>
+6. In **Traccia a livello di attività** impostare il livello di traccia su **Di base** o **Dettagliato**, in base al livello di traccia necessario.<br>
 
    ![Pannello Registrazione e traccia per la creazione grafica](media/automation-runbook-output-and-messages/logging-and-tracing-settings-blade.png)
 

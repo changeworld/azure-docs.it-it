@@ -6,10 +6,10 @@ ms.custom: hdinsightactive
 ms.topic: tutorial
 ms.date: 06/25/2019
 ms.openlocfilehash: 304ba791d107ca497e65905657e87e84cdb9567d
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/28/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98942730"
 ---
 # <a name="tutorial-use-apache-storm-with-apache-kafka-on-hdinsight"></a>Esercitazione: usare Apache Storm con Apache Kafka in HDInsight
@@ -403,7 +403,7 @@ Per creare una Rete virtuale di Microsoft Azure e quindi crearvi i cluster Kafka
 
    1. Usare le informazioni seguenti per popolare le voci nella sezione **Modello personalizzato**:
 
-      | Impostazione | valore |
+      | Impostazione | Valore |
       | --- | --- |
       | Subscription | Sottoscrizione di Azure |
       | Resource group | Gruppo di risorse che contiene le risorse. |

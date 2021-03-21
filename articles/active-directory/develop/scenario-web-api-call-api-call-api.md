@@ -13,10 +13,10 @@ ms.date: 09/26/2020
 ms.author: jmprieur
 ms.custom: aaddev
 ms.openlocfilehash: f4dfd2c7f9dbdd111f70a5dd5a648c11eacbf7b0
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/04/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102038544"
 ---
 # <a name="a-web-api-that-calls-web-apis-call-an-api"></a>API Web che chiama API Web: chiamare un'API
@@ -35,7 +35,7 @@ Quando si usa *Microsoft. Identity. Web*, sono disponibili tre scenari di utiliz
 
 #### <a name="option-1-call-microsoft-graph-with-the-sdk"></a>Opzione 1: chiamare Microsoft Graph con l'SDK
 
-In questo scenario è stato aggiunto `.AddMicrosoftGraph()` in *Startup.cs* come specificato nella [configurazione del codice](scenario-web-api-call-api-app-configuration.md#option-1-call-microsoft-graph)ed è possibile inserire direttamente `GraphServiceClient` nel controller o nel costruttore della pagina per l'uso nelle azioni. La pagina Razor di esempio seguente mostra la foto dell'utente che ha eseguito l'accesso.
+In questo scenario è stato aggiunto `.AddMicrosoftGraph()` in *Startup. cs* come specificato nella [configurazione del codice](scenario-web-api-call-api-app-configuration.md#option-1-call-microsoft-graph)ed è possibile inserire direttamente nel `GraphServiceClient` controller o nel costruttore della pagina per l'uso nelle azioni. La pagina Razor di esempio seguente mostra la foto dell'utente che ha eseguito l'accesso.
 
 ```CSharp
  [Authorize]
@@ -71,7 +71,7 @@ In questo scenario è stato aggiunto `.AddMicrosoftGraph()` in *Startup.cs* come
 
 #### <a name="option-2-call-a-downstream-web-api-with-the-helper-class"></a>Opzione 2: chiamare un'API Web downstream con la classe helper
 
-In questo scenario è stato aggiunto `.AddDownstreamWebApi()` in *Startup.cs* come specificato nella [configurazione del codice](scenario-web-api-call-api-app-configuration.md#option-2-call-a-downstream-web-api-other-than-microsoft-graph)ed è possibile inserire direttamente un `IDownstreamWebApi` servizio nel controller o nel costruttore della pagina e usarlo nelle azioni:
+In questo scenario è stato aggiunto `.AddDownstreamWebApi()` in *Startup. cs* come specificato nella [configurazione del codice](scenario-web-api-call-api-app-configuration.md#option-2-call-a-downstream-web-api-other-than-microsoft-graph)ed è possibile inserire direttamente un `IDownstreamWebApi` servizio nel controller o nel costruttore della pagina e usarlo nelle azioni:
 
 ```CSharp
  [Authorize]

@@ -10,10 +10,10 @@ ms.date: 08/08/2018
 ms.reviewer: jushiman
 ms.custom: mimckitt, devx-track-azurecli
 ms.openlocfilehash: c5ddd5846be91e9fc99a251d6ad45ade8bde2937
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/25/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96016659"
 ---
 # <a name="create-a-virtual-machine-scale-set-that-uses-availability-zones"></a>Creare un set di scalabilità di macchine virtuali che usa le zone di disponibilità
@@ -62,7 +62,7 @@ Quando si crea un set di scalabilità in una sola zona, la zona in cui tutte le 
 
 Per usare le zone di disponibilità, è necessario creare il set di scalabilità in un'[area di Azure supportata](../availability-zones/az-region.md). È possibile creare un set di scalabilità che usa le zone di disponibilità in uno dei modi seguenti:
 
-- [Portale di Azure](#use-the-azure-portal)
+- [Azure portal](#use-the-azure-portal)
 - Interfaccia della riga di comando di Azure
 - [Azure PowerShell](#use-azure-powershell)
 - [Modelli di Gestione risorse di Azure](#use-azure-resource-manager-templates)
@@ -75,7 +75,7 @@ La procedura per creare un set di scalabilità che usa una zona di disponibilit�
 
 Il set di scalabilità e le risorse di supporto, ad esempio Azure Load Balancer e l'indirizzo IP pubblico, vengono creati nella sola zona specificata.
 
-## <a name="use-the-azure-cli"></a>Usare l'interfaccia della riga di comando di Azure
+## <a name="use-the-azure-cli"></a>Utilizzare l’interfaccia della riga di comando di Azure
 
 La procedura per creare un set di scalabilità che usa una zona di disponibilità è identica a quella descritta in dettaglio nell'[articolo introduttivo](quick-create-cli.md). Per usare le zone di disponibilità, è necessario creare il set di scalabilità in un'area di Azure supportata.
 

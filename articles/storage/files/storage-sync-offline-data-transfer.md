@@ -8,10 +8,10 @@ ms.date: 02/12/2019
 ms.author: rogarana
 ms.subservice: files
 ms.openlocfilehash: 94abb33d39765a19306a013576d43fb2602d1c37
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/25/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96017628"
 ---
 # <a name="migrate-bulk-data-to-azure-file-sync-with-azure-databox"></a>Eseguire la migrazione di dati in blocco a Sincronizzazione file di Azure con Azure DataBox
@@ -98,4 +98,4 @@ Se si dispone di un seeding di file in una condivisione file di Azure con altri 
 
 ## <a name="next-steps"></a>Passaggi successivi
 - [Pianificare una distribuzione di Sincronizzazione file di Azure](storage-sync-files-planning.md)
-- [Distribuire Sincronizzazione file di Azure](storage-sync-files-deployment-guide.md)
+- [Come distribuire Sincronizzazione file di Azure](storage-sync-files-deployment-guide.md)

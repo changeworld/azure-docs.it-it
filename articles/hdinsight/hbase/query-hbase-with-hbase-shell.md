@@ -1,5 +1,5 @@
 ---
-title: 'Guida introduttiva: Eseguire query Apache HBase in Azure HDInsight - Shell di HBase'
+title: 'Guida introduttiva: eseguire query su Apache HBase in Azure HDInsight-Shell HBase'
 description: L'argomento di avvio rapido descrive come usare la shell di Apache HBase per eseguire query Apache HBase.
 keywords: hdinsight,hadoop,HBase
 ms.service: hdinsight
@@ -7,13 +7,13 @@ ms.custom: hdinsightactive
 ms.topic: quickstart
 ms.date: 06/12/2019
 ms.openlocfilehash: 358e058667cb1750a6fc97dffebcbfb2c6e06f84
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/28/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98942924"
 ---
-# <a name="quickstart-query-apache-hbase-in-azure-hdinsight-with-hbase-shell"></a>Guida introduttiva: Eseguire query Apache HBase in Azure HDInsight con la shell di HBase
+# <a name="quickstart-query-apache-hbase-in-azure-hdinsight-with-hbase-shell"></a>Guida introduttiva: eseguire query su Apache HBase in Azure HDInsight con HBase Shell
 
 In questo argomento di avvio rapido si apprenderà come usare la shell di Apache HBase per creare una tabella HBase, inserire dati e quindi eseguire query sulla tabella.
 

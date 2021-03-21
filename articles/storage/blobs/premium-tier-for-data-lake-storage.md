@@ -9,10 +9,10 @@ ms.custom: references_regions
 ms.date: 10/30/2020
 ms.author: normesta
 ms.openlocfilehash: be440407fb6f4d9715ba80c584af023a5f662394
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93324229"
 ---
 # <a name="premium-tier-for-azure-data-lake-storage"></a>Livello Premium per Azure Data Lake Storage
@@ -81,7 +81,7 @@ Il livello Premium per Azure Data Lake Storage è disponibile nelle aree seguent
 |Stati Uniti orientali 2|LRS, ZRS|
 |Stati Uniti centrali|LRS|
 |Stati Uniti occidentali|LRS|
-|West US 2|LRS, ZRS|
+|Stati Uniti occidentali 2|LRS, ZRS|
 |Stati Uniti centro-occidentali|LRS|
 |Stati Uniti centro-meridionali|LRS|
 |Canada centrale|LRS|

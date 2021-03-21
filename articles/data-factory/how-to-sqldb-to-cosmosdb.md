@@ -7,10 +7,10 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.date: 04/29/2020
 ms.openlocfilehash: 3d67ac9474704fac39dbe7eb91aead5c4babc4ce
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/14/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100383943"
 ---
 # <a name="migrate-normalized-database-schema-from-azure-sql-database-to-azure-cosmosdb-denormalized-container"></a>Eseguire la migrazione dello schema del database normalizzato dal database SQL di Azure al contenitore denormalizzato di Azure Cosmos DB
@@ -68,7 +68,7 @@ Il contenitore CosmosDB risultante incorpora la query interna in un unico docume
 
 10. Fare clic sulla scheda Anteprima dati nel nuovo join aggiunto per poter visualizzare i risultati fino a questo punto. Verranno visualizzate tutte le righe di intestazione unite con le righe di dettaglio. Questo è il risultato del join creato da ```SalesOrderID``` . Verranno quindi combinati i dettagli delle righe comuni nello struct dei dettagli e verranno aggregate le righe comuni.
 
-![Join](media/data-flow/cosmosb4.png)
+![Partecipa](media/data-flow/cosmosb4.png)
 
 11. Prima di poter creare le matrici per denormalizzare queste righe, è necessario prima rimuovere le colonne indesiderate e assicurarsi che i valori dei dati corrispondano ai tipi di dati CosmosDB.
 

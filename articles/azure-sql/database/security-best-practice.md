@@ -11,10 +11,10 @@ ms.topic: article
 ms.date: 09/21/2020
 ms.reviewer: ''
 ms.openlocfilehash: 1217d3af855e96b6d6a0f403c2ff351a6b957d9a
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/01/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96459670"
 ---
 # <a name="playbook-for-addressing-common-security-requirements-with-azure-sql-database-and-azure-sql-managed-instance"></a>PlayBook per soddisfare i requisiti di sicurezza comuni con il database SQL di Azure e Azure SQL Istanza gestita
@@ -376,7 +376,7 @@ La separazione dei compiti non è limitata ai dati in un database, ma include il
 
 - Assicurarsi di essere a conoscenza di tutte le origini di modifiche del codice. Il codice può essere in script T-SQL. Può essere l'esecuzione o la distribuzione di comandi ad hoc in forme di viste, funzioni, trigger e stored procedure. Può far parte delle definizioni dei processi di SQL Agent (passaggi). Può anche essere eseguita dall'interno di pacchetti SSIS, Azure Data Factory e altri servizi.
 
-## <a name="data-protection"></a>Protezione dati
+## <a name="data-protection"></a>Protezione dei dati
 
 La protezione dei dati è un set di funzionalità per salvaguardare le informazioni importanti dalla compromissione mediante crittografia o offuscamento.
 

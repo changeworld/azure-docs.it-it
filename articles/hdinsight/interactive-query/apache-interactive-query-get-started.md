@@ -6,10 +6,10 @@ ms.topic: overview
 ms.custom: hdinsightactive
 ms.date: 03/03/2020
 ms.openlocfilehash: 2813554700e015c0ac34e47d632d16d97c948c4e
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/28/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98941087"
 ---
 # <a name="what-is-interactive-query-in-azure-hdinsight"></a>Che cos'è Interactive Query in Azure HDInsight
@@ -20,7 +20,7 @@ Interactive Query (chiamato anche Apache Hive LLAP o [Low Latency Analytical Pro
 
 Un cluster Interactive Query è diverso da un cluster Apache Hadoop in quanto contiene solo il servizio Hive.
 
-È possibile accedere al servizio Hive nel cluster Interactive Query solo tramite la vista Apache Hive di Ambari, Beeline e il driver Microsoft Hive Open Database Connectivity (Hive ODBC). Non è possibile accedervi tramite la console Hive, Templeton, l'interfaccia della riga di comando classica di Azure o Azure PowerShell.
+È possibile accedere al servizio Hive nel cluster Interactive Query solo tramite la vista Apache Hive di Ambari, Beeline e il driver Microsoft Hive Open Database Connectivity (Hive ODBC). Non è possibile accedervi tramite la console di hive, Templeton, l'interfaccia della riga di comando di Azure classico o Azure PowerShell.
 
 ## <a name="create-an-interactive-query-cluster"></a>Creare un cluster Interactive Query
 
@@ -35,12 +35,12 @@ Per eseguire query Hive, sono disponibili le opzioni seguenti:
 
 |Metodo |Descrizione |
 |---|---|
-|Microsoft Power BI|Vedere [Visualizzare i dati Apache Hive di Interactive Query con Power BI in Azure HDInsight](./apache-hadoop-connect-hive-power-bi-directquery.md) e [Visualizzare Big Data con Power BI in Azure HDInsight](../hadoop/apache-hadoop-connect-hive-power-bi.md).|
+|Microsoft Power BI|Vedere [visualizzare i dati di Apache hive Interactive query con Power bi in Azure HDInsight](./apache-hadoop-connect-hive-power-bi-directquery.md)e [visualizzare Big data con Power bi in Azure HDInsight](../hadoop/apache-hadoop-connect-hive-power-bi.md).|
 |Visual Studio|Vedere [Connettersi ad Azure HDInsight ed eseguire query Apache Hive usando Strumenti Data Lake per Visual Studio](../hadoop/apache-hadoop-visual-studio-tools-get-started.md#run-interactive-apache-hive-queries).|
 |Visual Studio Code|Visualizzare [Usare Visual Studio Code per Apache Hive, LLAP o pySpark](../hdinsight-for-vscode.md).|
-|Visualizzazione di Apache Ambari Hive|Vedere [Usare la vista Apache Hive di Apache Ambari con Apache Hadoop in Azure HDInsight](../hadoop/apache-hadoop-use-hive-ambari-view.md). La visualizzazione Hive non è disponibile per HDInsight 4.0.|
-|Apache Beeline|Vedere [Usare Apache Hive con Apache Hadoop in HDInsight con Beeline](../hadoop/apache-hadoop-use-hive-beeline.md). È possibile usare Beeline dal nodo head o da un nodo perimetrale vuoto. È consigliabile usare Beeline da un nodo perimetrale vuoto. Per informazioni sulla creazione di un cluster HDInsight usando un nodo perimetrale vuoto, vedere [Usare i nodi perimetrali vuoti in HDInsight](../hdinsight-apps-use-edge-node.md).|
-|Hive ODBC|Vedere [Connettere Excel ad Apache Hadoop mediante Microsoft Hive ODBC Driver](../hadoop/apache-hadoop-connect-excel-hive-odbc-driver.md).|
+|Visualizzazione hive di Apache Ambari|Vedere [Usare la vista Apache Hive di Apache Ambari con Apache Hadoop in Azure HDInsight](../hadoop/apache-hadoop-use-hive-ambari-view.md). La visualizzazione hive non è disponibile per HDInsight 4,0.|
+|Coeline Apache|Vedere [Usare Apache Hive con Apache Hadoop in HDInsight con Beeline](../hadoop/apache-hadoop-use-hive-beeline.md). È possibile usare Beeline dal nodo head o da un nodo perimetrale vuoto. È consigliabile usare Beeline da un nodo perimetrale vuoto. Per informazioni sulla creazione di un cluster HDInsight usando un nodo perimetrale vuoto, vedere [Usare i nodi perimetrali vuoti in HDInsight](../hdinsight-apps-use-edge-node.md).|
+|ODBC hive|Vedere [Connettere Excel ad Apache Hadoop mediante Microsoft Hive ODBC Driver](../hadoop/apache-hadoop-connect-excel-hive-odbc-driver.md).|
 
 Per trovare la stringa di connessione JDBC (Java Database Connectivity):
 

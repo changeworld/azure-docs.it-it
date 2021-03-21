@@ -5,10 +5,10 @@ ms.topic: tutorial
 ms.date: 07/22/2019
 ms.custom: mvc, devx-track-azurecli
 ms.openlocfilehash: 60c43adddd4799a639c2d58e0293086eb1776588
-ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/26/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98791089"
 ---
 # <a name="tutorial-remove-a-service-fabric-cluster-running-in-azure"></a>Esercitazione: Rimuovere un cluster di Service Fabric in esecuzione in Azure
@@ -32,18 +32,18 @@ In questa serie di esercitazioni si apprenderà come:
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerequisiti
 
 Prima di iniziare questa esercitazione:
 
 * Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
-* Installare [Azure PowerShell](/powershell/azure//install-az-ps) o l'[interfaccia della riga di comando di Azure](/cli/azure/install-azure-cli).
+* Installare [Azure PowerShell](/powershell/azure//install-az-ps) o l'interfaccia della riga di comando di [Azure](/cli/azure/install-azure-cli)
 * Creare un [cluster Windows](service-fabric-tutorial-create-vnet-and-windows-cluster.md) protetto in Azure
 
 ## <a name="delete-the-resource-group-containing-the-service-fabric-cluster"></a>Eliminare il gruppo di risorse che contiene il cluster di Service Fabric
 Il modo più semplice per eliminare il cluster e tutte le risorse che utilizza consiste nell'eliminare il gruppo di risorse.
 
-Accedere ad Azure e selezionare l'ID della sottoscrizione da usare per rimuovere il cluster.  È possibile trovare l'ID della sottoscrizione accedendo al [portale di Azure](https://portal.azure.com). Eliminare il gruppo di risorse e tutte le risorse cluster usando il cmdlet [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) o il comando [az group delete](/cli/azure/group).
+Accedere ad Azure e selezionare l'ID della sottoscrizione da usare per rimuovere il cluster.  È possibile trovare l'ID sottoscrizione accedendo al [portale di Azure](https://portal.azure.com). Eliminare il gruppo di risorse e tutte le risorse cluster usando il cmdlet [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) o il comando [az group delete](/cli/azure/group).
 
 ```powershell
 Connect-AzAccount

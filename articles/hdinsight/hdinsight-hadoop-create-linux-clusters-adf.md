@@ -6,10 +6,10 @@ ms.topic: tutorial
 ms.custom: seoapr2020
 ms.date: 04/24/2020
 ms.openlocfilehash: 762938ebb4785a54224771e96c5bca274721dc30
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/28/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98945975"
 ---
 # <a name="tutorial-create-on-demand-apache-hadoop-clusters-in-hdinsight-using-azure-data-factory"></a>Esercitazione: Creare cluster Apache Hadoop on demand in HDInsight con Azure Data Factory
@@ -189,7 +189,7 @@ In questo articolo viene configurata l'attività Hive per la creazione di un clu
 
 3. Immettere o selezionare i valori seguenti per il riquadro **Nuova data factory**:
 
-    |Proprietà  |valore  |
+    |Proprietà  |Valore  |
     |---------|---------|
     |Nome | Immettere un nome per la data factory. Il nome deve essere univoco a livello globale.|
     |Versione | Lasciare **V2**. |
@@ -231,7 +231,7 @@ In questa sezione si creano due servizi collegati nella data factory.
 
 4. Specificare i valori seguenti per il servizio collegato di archiviazione:
 
-    |Proprietà |valore |
+    |Proprietà |Valore |
     |---|---|
     |Nome |Immettere `HDIStorageLinkedService`.|
     |Sottoscrizione di Azure |Selezionare la sottoscrizione dall'elenco a discesa.|
@@ -253,7 +253,7 @@ In questa sezione si creano due servizi collegati nella data factory.
 
 4. Nella finestra **Nuovo Servizio collegato** immettere i valori seguenti e lasciare le altre impostazioni sui valori predefiniti:
 
-    | Proprietà | valore |
+    | Proprietà | Valore |
     | --- | --- |
     | Nome | Immettere `HDInsightLinkedService`.|
     | Type | Selezionare **On-demand HDInsight** (HDInsight su richiesta). |

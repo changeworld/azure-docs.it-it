@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 02/11/2021
 tags: connectors
 ms.openlocfilehash: bec3416195358121b85eb61679ab39647e664a9e
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/14/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100382353"
 ---
 # <a name="create-and-manage-records-in-common-data-service-microsoft-dataverse-by-using-azure-logic-apps"></a>Creare e gestire i record in Common Data Service (Microsoft dataverse) usando app per la logica di Azure
@@ -196,7 +196,7 @@ Per arrestare le notifiche indesiderate, eliminare la registrazione del callback
       |------------|-----------------|
       | Crea | 1 |
       | Delete | 2 |
-      | Aggiorna | 3 |
+      | Aggiornamento | 3 |
       | CreateOrUpdate | 4 |
       | CreateOrDelete | 5 |
       | UpdateOrDelete | 6 |

@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 02/18/2021
 ms.author: yuajia
 ms.openlocfilehash: 4c65d0e7f80fab59ca7df4849df7117d482352c1
-ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/18/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "101100039"
 ---
 # <a name="azure-front-door-standardpremium-preview-rule-set-match-conditions"></a>Condizioni di corrispondenza del set di regole standard/Premium (anteprima) di Azure front door
