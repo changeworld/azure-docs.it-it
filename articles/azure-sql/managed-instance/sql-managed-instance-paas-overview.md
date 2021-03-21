@@ -10,13 +10,13 @@ ms.topic: overview
 author: bonova
 ms.author: bonova
 ms.reviewer: sstein, vanto
-ms.date: 08/14/2020
-ms.openlocfilehash: 81d4527817d637e7b764cc83160153d974ced5c0
-ms.sourcegitcommit: 27cd3e515fee7821807c03e64ce8ac2dd2dd82d2
+ms.date: 01/14/2021
+ms.openlocfilehash: dca4d699ac1253753c82949cb480d95a1dde26e2
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/16/2021
-ms.locfileid: "103600962"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104594105"
 ---
 # <a name="what-is-azure-sql-managed-instance"></a>Che cos'è Istanza gestita di SQL di Azure?
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -36,7 +36,7 @@ Nel diagramma seguente vengono descritte le funzionalità principali di Istanza 
 Istanza gestita di SQL di Azure è stato pensato per i clienti che vogliono eseguire la migrazione di un numero elevato di app da un ambiente locale o IaaS creato personalmente oppure da un ambiente fornito da un ISV a un ambiente cloud PaaS completamente gestito, con il minor numero possibile di operazioni di migrazione. Usando il [Servizio Migrazione del database di Azure](../../dms/tutorial-sql-server-to-managed-instance.md#create-an-azure-database-migration-service-instance) completamente automatizzato, i clienti possono trasferire l'istanza di SQL Server esistente in Istanza gestita di SQL, il che garantisce la compatibilità con SQL Server e il completo isolamento delle istanze dei clienti grazie al supporto delle reti virtuali native. Per altre informazioni sulle opzioni e gli strumenti disponibili per la migrazione, vedere [Panoramica della migrazione: da SQL Server a Istanza gestita di SQL di Azure](../migration-guides/managed-instance/sql-server-to-managed-instance-overview.md).</br> Con Software Assurance è possibile scambiare le licenze esistenti con tariffe scontate per Istanza gestita di SQL usando il [Vantaggio Azure Hybrid per SQL Server](https://azure.microsoft.com/pricing/hybrid-benefit/). Istanza gestita di SQL è la destinazione di migrazione migliore nel cloud per le istanze di SQL Server che richiedono un livello di sicurezza elevato e una superficie di programmazione avanzata.
 
 > [!TIP]
-> Come è possibile migliorare Azure SQL? [Partecipa al sondaggio](https://aka.ms/AzureSQLSurvey).
+> Come è possibile migliorare Azure SQL? [Partecipa al sondaggio](https://microsoft.qualtrics.com/jfe/form/SV_ePOznHhP4gDKfGu?channel=456).
 
 ## <a name="key-features-and-capabilities"></a>Funzionalità e le caratteristiche chiave
 
@@ -79,8 +79,8 @@ Il [modello di acquisto basato su vCore](../database/service-tiers-vcore.md) per
 
 Nel modello basato su vCore è possibile scegliere tra diverse generazioni di hardware.
 
-- Le CPU logiche di **quarta generazione** sono basate su processori Intel® E5-2673 v3 (Haswell) da 2,4 GHz, unità SSD collegata, core fisici, 7 GB di RAM per core e dimensioni di calcolo comprese tra 8 e 24 vCore.
-- Le CPU logiche di **quinta generazione** sono basate su processori Intel® E5-2673 v4 (Broadwell) da 2,3 GHz, Intel® SP-8160 (Skylake) e Intel® 8272CL (Cascade Lake) da 2,5 GHz, unità SSD NVMe veloce, core logico con hyperthreading e dimensioni di calcolo comprese tra 4 e 80 core.
+- Le CPU logiche **Gen4** sono basate su &reg; processori Intel E5-2673 V3 (Haswell) a 2,4 GHz, SSD collegati, core fisici, 7 GB di RAM per core e dimensioni di calcolo comprese tra 8 e 24 vcore.
+- Le CPU logiche **quinta generazione** sono basate su &reg; processori Intel E5-2673 V4 (Broadwell) 2,3 GHz, intel &reg; SP-8160 (Skylake) e Intel &reg; 8272CL (Cascade Lake) 2,5 GHz, unità SSD veloce, core logico Hyper-thread e dimensioni di calcolo tra 4 e 80 core.
 
 Per altre informazioni sulle differenze tra le generazioni di hardware, vedere [Limiti delle risorse per Istanza gestita di SQL](resource-limits.md#hardware-generation-characteristics).
 

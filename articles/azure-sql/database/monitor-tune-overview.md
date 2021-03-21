@@ -10,13 +10,13 @@ ms.topic: conceptual
 author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: wiassaf, sstein
-ms.date: 09/30/2020
-ms.openlocfilehash: 6b56da68b10bc40304097fbe9eeaf200d422b663
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.date: 03/17/2021
+ms.openlocfilehash: 4c9edaea75215bc4b471cd2e0ac50c4e69546bb0
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100592699"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104592133"
 ---
 # <a name="monitoring-and-performance-tuning-in-azure-sql-database-and-azure-sql-managed-instance"></a>Monitoraggio e ottimizzazione delle prestazioni del database SQL di Azure e di Istanza gestita di SQL di Azure
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -35,6 +35,10 @@ Nel portale di Azure, il database SQL di Azure e Azure SQL Istanza gestita conse
 
 > [!NOTE]
 > I database con un utilizzo estremamente basso possono essere visualizzati nel portale con un utilizzo inferiore a quello effettivo. A causa del modo in cui i dati di telemetria vengono emessi durante la conversione di un valore Double nell'intero più vicino, determinati importi di utilizzo minori di 0,5 verranno arrotondati a 0, causando una perdita di granularità dei dati di telemetria emessi. Per informazioni dettagliate, vedere [metriche del database ridotto e del pool elastico arrotondamento a zero](#low-database-and-elastic-pool-metrics-rounding-to-zero).
+
+### <a name="monitor-with-sql-insights"></a>Monitorare con SQL Insights
+
+[SQL Insights di monitoraggio di Azure](../../azure-monitor/insights/sql-insights-overview.md) è uno strumento per il monitoraggio di istanze gestite di SQL di Azure, database SQL di Azure e istanze di SQL Server nelle macchine virtuali SQL di Azure. Questo servizio usa un agente remoto per acquisire i dati dalle viste a gestione dinamica (DMV) e instrada i dati ad Azure Log Analytics, dove possono essere monitorati e analizzati. È possibile visualizzare i dati da [monitoraggio di Azure](../../azure-monitor/overview.md) in viste fornite o accedere direttamente ai dati di log per eseguire query e analizzare le tendenze. Per iniziare a usare il monitoraggio di Azure SQL Insights, vedere [abilitare SQL Insights](../../azure-monitor/insights/sql-insights-enable.md).
 
 ### <a name="azure-sql-database-and-azure-sql-managed-instance-resource-monitoring"></a>Monitoraggio delle risorse del database SQL di Azure e di Azure SQL Istanza gestita
 

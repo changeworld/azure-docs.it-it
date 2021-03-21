@@ -789,7 +789,9 @@
         - name: Trigger della pipeline
           href: pipeline-trigger-troubleshoot-guide.md
         - name: Flussi di dati
-          href: data-flow-troubleshoot-guide.md
+          items:
+            - name: Cenni preliminari sui flussi di dati
+              href: data-flow-troubleshoot-guide.md
         - name: Integrazione e distribuzione continue
           href: ci-cd-github-troubleshoot-guide.md
         - name: Sicurezza e controllo di accesso

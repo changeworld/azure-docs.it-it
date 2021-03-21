@@ -7,10 +7,10 @@ ms.tgt_pltfrm: na
 ms.date: 10/22/2020
 ms.author: bwren
 ms.openlocfilehash: 5066264777c66369205489fb27a6f9206c5da521
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/03/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "101708000"
 ---
 # <a name="azure-monitor-logs-overview"></a>Panoramica dei log di Monitoraggio di Azure
@@ -25,7 +25,7 @@ La tabella seguente descrive alcuni dei diversi modi in cui è possibile usare i
 
 |  |  |
 |:---|:---|
-| **Analyze (Analizza)** | Usare [log Analytics](./log-analytics-tutorial.md) nel portale di Azure per scrivere [query di log](./log-query-overview.md) e analizzare i dati di log in modo interattivo usando un potente motore di analisi |
+| **Analisi** | Usare [log Analytics](./log-analytics-tutorial.md) nel portale di Azure per scrivere [query di log](./log-query-overview.md) e analizzare i dati di log in modo interattivo usando un potente motore di analisi |
 | **Avviso** | Configurazione di una [regola di avviso per il log](../alerts/alerts-log.md) che invia una notifica o esegue un'[azione automatica](../alerts/action-groups.md) quando i risultati della query corrispondono a un risultato specifico. |
 | **Visualizzazione** | Aggiungere i risultati delle query visualizzati come tabelle o grafici in un [dashboard di Azure](../../azure-portal/azure-portal-dashboards.md).<br>Creare una [cartella di lavoro](../visualize/workbooks-overview.md) per combinare più set di dati in un report interattivo. <br>Esportazione dei risultati di una query in [Power BI](../visualize/powerbi.md) per usare diverse visualizzazioni e condividerle con utenti esternamente ad Azure.<br>Esportare i risultati di una query in [Grafana](../visualize/grafana-plugin.md) per sfruttarne le capacità di creazione dashboard e combinare i risultati con altre origini dati.|
 | **Insights** | Supporto di [informazioni dettagliate](../monitor-reference.md#insights-and-core-solutions) che forniscono un'esperienza di monitoraggio personalizzata per applicazioni e servizi specifici.  |

@@ -5,14 +5,14 @@ author: alkohli
 ms.assetid: ''
 ms.service: storsimple
 ms.topic: conceptual
-ms.date: 03/05/2020
+ms.date: 03/18/2021
 ms.author: alkohli
-ms.openlocfilehash: a6a359888e782751892f2a034a8d92a014fd3a81
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: cdb971851ba678ce18f5a1c7954e5620740f3a4c
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90055844"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104657570"
 ---
 # <a name="storsimple-8000-series-update-51-release-notes"></a>Note sulla versione dell'aggiornamento 5,1 di StorSimple serie 8000
 
@@ -35,6 +35,10 @@ Verificare le informazioni contenute nelle note sulla versione prima di distribu
 Nell'aggiornamento 5,1 sono stati apportati i principali miglioramenti e correzioni di bug seguenti:
 
 * **Tls 1,2** : l'aggiornamento di StorSimple imporrà TLS 1,2 su tutti i client. Si tratta di un aggiornamento obbligatorio per tutti i dispositivi StorSimple serie 8000.
+
+   Se viene visualizzato l'avviso seguente, è necessario aggiornare il software nel dispositivo prima di procedere:
+
+   Uno o più dispositivi StorSimple eseguono una versione precedente del software. L'ultimo aggiornamento disponibile per TLS 1,2 è un aggiornamento obbligatorio e deve essere installato immediatamente in questi dispositivi. TLS 1,2 viene usato per tutte le comunicazioni portale di Azure e senza questo aggiornamento, il dispositivo non sarà in grado di comunicare con il servizio StorSimple.
 
 ## <a name="known-issues-in-update-51-from-previous-releases"></a>Problemi noti nell'aggiornamento 5,1 delle versioni precedenti
 

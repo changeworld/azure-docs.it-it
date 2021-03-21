@@ -2,7 +2,7 @@
 title: 'Avvio rapido: Creare ed eseguire query su un pool SQL dedicato (in precedenza SQL Data Warehouse) (portale di Azure)'
 description: Creare ed eseguire query su un pool SQL dedicato (in precedenza SQL Data Warehouse) usando il portale di Azure
 services: synapse-analytics
-author: kevinvngo
+author: pimorano
 manager: craigg
 ms.service: synapse-analytics
 ms.topic: quickstart
@@ -11,12 +11,12 @@ ms.date: 05/28/2019
 ms.author: pimorano
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, azure-synapse
-ms.openlocfilehash: 7a14aa2d73e35008675819c07fa96f34b088f26a
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: dd9d66683d5f2349807915651c50bf9eedd285c1
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101672825"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104602231"
 ---
 # <a name="quickstart-create-and-query-a-dedicated-sql-pool-formerly-sql-dw-in-azure-synapse-analytics-using-the-azure-portal"></a>Avvio rapido: Creare ed eseguire query su un pool SQL dedicato (in precedenza SQL Data Warehouse) in Azure Synapse Analytics usando il portale di Azure
 
@@ -29,7 +29,7 @@ Creare rapidamente ed eseguire query su un pool SQL dedicato (in precedenza SQL 
    > [!NOTE]
    > La creazione di un pool SQL dedicato (in precedenza SQL Data Warehouse) in Azure Synapse può risultare in un nuovo servizio fatturabile. Per altre informazioni, vedere [Prezzi di Azure Synapse Analytics](https://azure.microsoft.com/pricing/details/synapse-analytics/).
 
-2. Scaricare e installare la versione più recente di [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) (SSMS). Nota: SSMS è disponibile solo nelle piattaforme basate su Windows, vedere l' [elenco completo delle piattaforme supportate](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms?view=sql-server-ver15#supported-operating-systems-ssms-185).
+2. Scaricare e installare la versione più recente di [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) (SSMS). Nota: SSMS è disponibile solo nelle piattaforme basate su Windows, vedere l' [elenco completo delle piattaforme supportate](/sql/ssms/download-sql-server-management-studio-ssms?view=sql-server-ver15&preserve-view=true#supported-operating-systems-ssms-185t).
 
 ## <a name="sign-in-to-the-azure-portal"></a>Accedere al portale di Azure
 

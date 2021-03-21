@@ -4,10 +4,10 @@ description: Usare l'operazione di copia e le matrici in un modello di Azure Res
 ms.topic: conceptual
 ms.date: 12/21/2020
 ms.openlocfilehash: c9bcb22ec53129520fd9574d0eb58b1e5777531e
-ms.sourcegitcommit: a4533b9d3d4cd6bb6faf92dd91c2c3e1f98ab86a
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/22/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97724494"
 ---
 # <a name="resource-iteration-in-arm-templates"></a>Iterazione delle risorse nei modelli ARM
@@ -254,7 +254,7 @@ Gli esempi seguenti mostrano alcuni scenari comuni per la creazione di più ista
 
 * Per impostare le dipendenze dalle risorse create in un ciclo di copia, vedere [definire l'ordine per la distribuzione delle risorse nei modelli ARM](define-resource-dependency.md).
 * Per eseguire un'esercitazione, vedere [esercitazione: creare più istanze di risorse con i modelli ARM](template-tutorial-create-multiple-instances.md).
-* Per un modulo Microsoft Learn che copre la copia delle risorse, vedere [gestire le distribuzioni cloud complesse usando le funzionalità avanzate del modello ARM](/learn/modules/manage-deployments-advanced-arm-template-features/).
+* Per un modulo Microsoft Learn che illustra la copia delle risorse, vedere [Gestire distribuzioni cloud complesse usando le funzionalità avanzate dei modelli di ARM](/learn/modules/manage-deployments-advanced-arm-template-features/).
 * Per altri usi dell'elemento Copy, vedere:
   * [Iterazione delle proprietà nei modelli ARM](copy-properties.md)
   * [Iterazione delle variabili nei modelli ARM](copy-variables.md)

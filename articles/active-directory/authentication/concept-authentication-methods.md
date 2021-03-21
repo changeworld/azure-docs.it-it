@@ -12,10 +12,10 @@ manager: daveba
 ms.collection: M365-identity-device-management
 ms.custom: contperf-fy20q4
 ms.openlocfilehash: ee10aa7c461aca65f385c735f6e9aaa28af7f9e5
-ms.sourcegitcommit: 66ce33826d77416dc2e4ba5447eeb387705a6ae5
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/15/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "103471702"
 ---
 # <a name="what-authentication-and-verification-methods-are-available-in-azure-active-directory"></a>Quali metodi di autenticazione e verifica sono disponibili in Azure Active Directory?
@@ -38,7 +38,7 @@ Quando si distribuiscono funzionalità come Azure AD Multi-Factor Authentication
 
 Nella tabella seguente vengono descritte le considerazioni sulla sicurezza per i metodi di autenticazione disponibili. La disponibilità indica che l'utente è in grado di usare il metodo di autenticazione, non della disponibilità del servizio in Azure AD:
 
-| Metodo di autenticazione          | Security | Usabilità | Disponibilità |
+| Metodo di autenticazione          | Sicurezza | Usabilità | Disponibilità |
 |--------------------------------|:--------:|:---------:|:------------:|
 | Windows Hello for Business     | Alto     | Alto      | Alto         |
 | App Microsoft Authenticator    | Alto     | Alto      | Alto         |

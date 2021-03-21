@@ -3,13 +3,13 @@ title: Indirizzi IP in ingresso/in uscita
 description: Informazioni sul modo in cui gli indirizzi IP in ingresso e in uscita vengono usati nel servizio app Azure, quando cambiano e come trovare gli indirizzi per l'app.
 ms.topic: article
 ms.date: 08/25/2020
-ms.custom: seodec18, devx-track-azurecli
-ms.openlocfilehash: e5b271cc5cd8cb52267b6ee44bc3965d0e4b0aab
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.custom: seodec18
+ms.openlocfilehash: 4237e51251a7ece05800aa7efa328a9c6cf65e76
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92746143"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104591368"
 ---
 # <a name="inbound-and-outbound-ip-addresses-in-azure-app-service"></a>Indirizzi IP in ingresso e in uscita in Servizio app di Azure
 
@@ -19,7 +19,7 @@ Gli [ambienti del servizio app](environment/intro.md) usano infrastrutture di re
 
 ## <a name="how-ip-addresses-work-in-app-service"></a>Funzionamento degli indirizzi IP nel servizio app
 
-Un'app del servizio app viene eseguita in un piano di servizio app e i piani di servizio app vengono distribuiti in una delle unità di distribuzione nell'infrastruttura di Azure, denominata internamente uno spazio Web. A ogni unità di distribuzione vengono assegnati fino a cinque indirizzi IP virtuali, che includono un indirizzo IP in ingresso pubblico e quattro indirizzi IP in uscita. Tutti i piani di servizio app nella stessa unità di distribuzione e le istanze dell'app in esecuzione in essi condividono lo stesso set di indirizzi IP virtuali. Per un ambiente del servizio app (un piano di servizio app in un [livello isolato](https://azure.microsoft.com/pricing/details/app-service/)), il piano di servizio app è l'unità di distribuzione stessa, quindi gli indirizzi IP virtuali sono dedicati come risultato.
+Un'app del servizio app viene eseguita in un piano di servizio app e i piani di servizio app vengono distribuiti in una delle unità di distribuzione nell'infrastruttura di Azure, denominata internamente uno spazio Web. A ogni unità di distribuzione viene assegnato un set di indirizzi IP virtuali, che include un indirizzo IP in ingresso pubblico e un set di [indirizzi IP in uscita](#find-outbound-ips). Tutti i piani di servizio app nella stessa unità di distribuzione e le istanze dell'app in esecuzione in essi condividono lo stesso set di indirizzi IP virtuali. Per un ambiente del servizio app (un piano di servizio app in un [livello isolato](https://azure.microsoft.com/pricing/details/app-service/)), il piano di servizio app è l'unità di distribuzione stessa, quindi gli indirizzi IP virtuali sono dedicati come risultato.
 
 Poiché non si è autorizzati a spostare un piano di servizio app tra unità di distribuzione, gli indirizzi IP virtuali assegnati all'app in genere rimangono invariati, ma vi sono eccezioni.
 
@@ -51,7 +51,7 @@ Il set di indirizzi IP in uscita per l'app viene modificato quando si esegue una
 
 - Eliminare un'app e ricrearla in un gruppo di risorse diverso. l'unità di distribuzione può cambiare.
 - Eliminare l'ultima app in una combinazione di gruppi di risorse _e_ aree e ricrearla (l'unità di distribuzione può cambiare).
-- Ridimensionare l'app tra i livelli inferiori ( **Basic** , **standard** e **Premium** ) e il livello **Premium v2** (gli indirizzi IP possono essere aggiunti o sottratti dal set).
+- Ridimensionare l'app tra i livelli inferiori (**Basic**, **standard** e **Premium**) e il livello **Premium v2** (gli indirizzi IP possono essere aggiunti o sottratti dal set).
 
 È possibile trovare il set di tutti i possibili indirizzi IP in uscita che possono essere usati dall'app, indipendentemente dai piani tariffari, cercando la `possibleOutboundIpAddresses` proprietà o nel campo **indirizzi IP in uscita aggiuntivi** nel pannello **proprietà** della portale di Azure. Vedere [Trovare gli indirizzi IP in uscita](#find-outbound-ips).
 

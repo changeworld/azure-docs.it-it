@@ -5,16 +5,16 @@ author: bandersmsft
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: how-to
-ms.date: 01/13/2021
+ms.date: 03/11/2021
 ms.reviewer: andalmia
 ms.author: banders
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
-ms.openlocfilehash: 546ed24b5f9e7892f40c9d425b668f60ad705f8f
-ms.sourcegitcommit: 740698a63c485390ebdd5e58bc41929ec0e4ed2d
+ms.openlocfilehash: 9ec0ffeb930fd9285f34ad9ba9e6aa606b15b5a2
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/03/2021
-ms.locfileid: "99493889"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104593889"
 ---
 # <a name="create-azure-subscriptions-programmatically"></a>Creare sottoscrizioni di Azure a livello di codice
 
@@ -36,9 +36,9 @@ API più recenti:
 - [Creare sottoscrizioni MCA](programmatically-create-subscription-microsoft-customer-agreement.md)
 - [Creare sottoscrizioni MPA](programmatically-create-subscription-microsoft-partner-agreement.md)
 
-Se si usano ancora le [API di anteprima](programmatically-create-subscription-preview.md), è possibile continuare a usarle per creare sottoscrizioni. 
+Questi articoli illustrano anche come creare sottoscrizioni con un modello di Azure Resource Manager (modello ARM). Un modello ARM consente di automatizzare il processo di creazione della sottoscrizione.
 
-Inoltre, è possibile [creare sottoscrizioni con un modello di Resource Manager](create-subscription-template.md). Un modello di Resource Manager consente di automatizzare il processo di creazione di sottoscrizioni con le API REST. 
+Se si usano ancora le [API di anteprima](programmatically-create-subscription-preview.md), è possibile continuare a creare sottoscrizioni con loro. 
 
 ## <a name="next-steps"></a>Passaggi successivi
 

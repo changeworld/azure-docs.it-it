@@ -5,10 +5,10 @@ ms.topic: article
 ms.date: 11/4/2020
 ms.custom: devx-track-python
 ms.openlocfilehash: 3eb3b3b015f401e872a879c46ec6f8c69df5f87f
-ms.sourcegitcommit: 6386854467e74d0745c281cc53621af3bb201920
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/08/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102455417"
 ---
 # <a name="azure-functions-python-developer-guide"></a>Guida per sviluppatori Python per Funzioni di Azure
@@ -17,7 +17,7 @@ Questo articolo è un'introduzione allo sviluppo di Funzioni di Azure con Python
 
 Gli sviluppatori di Python possono anche essere interessati a uno degli articoli seguenti:
 
-| Guida introduttiva | Concetti| Scenari/esempi |
+| Introduzione | Concetti| Scenari/esempi |
 | -- | -- | -- | 
 | <ul><li>[Funzione Python con Visual Studio Code](./create-first-function-vs-code-csharp.md?pivots=programming-language-python)</li><li>[Funzione Python con terminale/prompt dei comandi](./create-first-function-cli-csharp.md?pivots=programming-language-python)</li></ul> | <ul><li>[Guida per sviluppatori](functions-reference.md)</li><li>[Opzioni di hosting](functions-scale.md)</li><li>[Considerazioni sulle prestazioni &nbsp;](functions-best-practices.md)</li></ul> | <ul><li>[Classificazione di immagini con PyTorch](machine-learning-pytorch.md)</li><li>[Esempio di automazione di Azure](/samples/azure-samples/azure-functions-python-list-resource-groups/azure-functions-python-sample-list-resource-groups/)</li><li>[Machine Learning con TensorFlow](functions-machine-learning-tensorflow.md)</li><li>[Esplora esempi di Python](/samples/browse/?products=azure-functions&languages=python)</li></ul> |
 
