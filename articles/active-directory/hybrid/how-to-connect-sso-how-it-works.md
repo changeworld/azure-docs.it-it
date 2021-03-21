@@ -16,11 +16,11 @@ ms.date: 04/16/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: addb90ed3929847612fd423e3af01c1b3982c2d6
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: bde937adba8d2469390a6cf404f6cce8c5008e87
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/14/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100369646"
 ---
 # <a name="azure-active-directory-seamless-single-sign-on-technical-deep-dive"></a>Accesso Single Sign-On facile di Azure Active Directory: approfondimento tecnico
@@ -67,10 +67,6 @@ Il flusso di accesso in un browser Web è il seguente:
 6. Active Directory individua l'account computer e restituisce un ticket Kerberos al browser, crittografato con il segreto dell'account computer.
 7. Il browser inoltra il ticket Kerberos acquisito da Active Directory ad Azure AD.
 8. Azure AD esegue la decrittografia del ticket Kerberos, che include l'identità dell'utente connesso al dispositivo aziendale, usando la chiave già condivisa.
-
-   >[!NOTE]
-   >Azure AD tenterà di trovare la corrispondenza dell'UPN dell'utente dal ticket Kerberos a un oggetto utente Azure AD con un valore corrispondente nell'attributo userPrincipalName. Se l'operazione ha esito negativo, Azure AD eseguirà il fallback alla corrispondenza di samAccountName dal ticket Kerberos a un oggetto utente Azure AD con un valore corrispondente nell'attributo onPremisesSamAccountName.
-   
 9. Dopo la valutazione, Azure AD restituisce un token all'applicazione oppure chiede all'utente di eseguire prove aggiuntive, ad esempio l'autenticazione a più fattori.
 10. Se l'accesso dell'utente ha esito positivo, l'utente può accedere all'applicazione.
 

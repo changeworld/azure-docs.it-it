@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 robots: noindex
 ms.openlocfilehash: fbd1e1d652db3bbd91344ea828278d057baeb060
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/14/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100368813"
 ---
 # <a name="move-data-to-and-from-sql-server-using-azure-data-factory"></a>Spostare i dati da e verso SQL Server usando Azure Data Factory
@@ -46,7 +46,7 @@ Vedere l'articolo sullo [spostamento di dati tra sedi locali e cloud](data-facto
 
 Sebbene sia possibile installare il gateway nello stesso computer locale o istanza cloud della macchina virtuale come SQL Server per migliorare le prestazioni, si consiglia di installarli in computer separati, per evitare che il gateway e il server SQL entrino in conflitto sulle risorse.
 
-## <a name="getting-started"></a>Guida introduttiva
+## <a name="getting-started"></a>Introduzione
 È possibile creare una pipeline con un'attività di copia che sposta i dati da e verso un database di SQL Server usando diversi strumenti o API.
 
 Il modo più semplice per creare una pipeline consiste nell'usare la **Copia guidata**. Vedere [Esercitazione: Creare una pipeline usando la Copia guidata](data-factory-copy-data-wizard-tutorial.md) per la procedura dettagliata sulla creazione di una pipeline attenendosi alla procedura guidata per copiare i dati.

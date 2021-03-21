@@ -216,8 +216,6 @@
               href: manage/programmatically-create-subscription-microsoft-customer-agreement.md
             - name: Creare sottoscrizioni MPA a livello di codice
               href: manage/programmatically-create-subscription-microsoft-partner-agreement.md
-            - name: Creare sottoscrizioni - Modello di Resource Manager
-              href: manage/create-subscription-template.md
             - name: Creare sottoscrizioni a livello di codice - API in anteprima
               href: manage/programmatically-create-subscription-preview.md
         - name: Gestire le sottoscrizioni con Contratto Enterprise
