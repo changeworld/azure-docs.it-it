@@ -8,10 +8,10 @@ ms.topic: tutorial
 ms.date: 9/14/2020
 ms.custom: mvc
 ms.openlocfilehash: 4d2b0fbb377beacdb75a1a5552855936bee2b205
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/04/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102041312"
 ---
 # <a name="tutorial-discover-servers-running-in-vmware-environment-with-azure-migrate-server-assessment"></a>Esercitazione: individuare i server in esecuzione nell'ambiente VMware con Azure Migrate: server Assessment
@@ -47,7 +47,7 @@ Prima di iniziare questa esercitazione, verificare che siano rispettati i prereq
 **Server** | Tutte le versioni del sistema operativo Windows e Linux sono supportate per l'individuazione dei metadati di configurazione e delle prestazioni. <br/><br/> Per eseguire l'individuazione delle applicazioni sui server, sono supportate tutte le versioni del sistema operativo Windows e Linux. Vedere [qui](migrate-support-matrix-vmware.md#dependency-analysis-requirements-agentless) per le versioni del sistema operativo supportate per l'analisi delle dipendenze senza agenti.<br/><br/> Per eseguire l'individuazione delle applicazioni installate e l'analisi delle dipendenze senza agenti, è necessario che gli strumenti VMware (successivi a 10.2.0) siano installati e in esecuzione nei server. Per i server Windows deve essere installata la versione 2,0 o successiva di PowerShell.<br/><br/> Per individuare le istanze e i database di SQL Server, fare clic [qui](migrate-support-matrix-vmware.md#requirements-for-discovery-of-sql-server-instances-and-databases) per le versioni ed edizioni supportate di SQL Server, le versioni del sistema operativo Windows supportate e i meccanismi di autenticazione.
 
 > [!Note]
-> L'individuazione e la valutazione di SQL Server istanze e database in esecuzione nell'ambiente VMware sono ora in anteprima. Per provare questa funzionalità, usare [**questo collegamento**](https://aka.ms/AzureMigrate/SQL) per creare un progetto nell'area **Australia orientale** . Se si dispone già di un progetto in Australia orientale e si vuole provare questa funzionalità, assicurarsi di aver completato questi [**prerequisiti**](how-to-discover-sql-existing-project.md) nel portale.
+> L'individuazione e la valutazione di SQL Server istanze e database in esecuzione nell'ambiente VMware sono ora in anteprima. Per provare questa funzionalità, usare [**questo collegamento**](https://aka.ms/AzureMigrate/SQL) per creare un progetto nell'area **Australia orientale**. Se si dispone già di un progetto nell'Australia orientale e si vuole provare questa funzionalità, assicurarsi di aver completato questi [**prerequisiti**](how-to-discover-sql-existing-project.md) nel portale.
 
 ## <a name="prepare-an-azure-user-account"></a>Preparare un account utente Azure
 
@@ -274,7 +274,7 @@ In **passaggio 3: fornire le credenziali del server per eseguire l'inventario so
 :::image type="content" source="./media/tutorial-discover-vmware/appliance-server-credentials-mapping.png" alt-text="Pannello 3 in Gestione configurazione Appliance per i dettagli del server":::
 
 > [!Note]
-> L'individuazione e la valutazione di SQL Server istanze e database in esecuzione nell'ambiente VMware sono ora in anteprima. Per provare questa funzionalità, usare [**questo collegamento**](https://aka.ms/AzureMigrate/SQL) per creare un progetto nell'area **Australia orientale** . Se si dispone già di un progetto in Australia orientale e si vuole provare questa funzionalità, assicurarsi di aver completato questi [**prerequisiti**](how-to-discover-sql-existing-project.md) nel portale.
+> L'individuazione e la valutazione di SQL Server istanze e database in esecuzione nell'ambiente VMware sono ora in anteprima. Per provare questa funzionalità, usare [**questo collegamento**](https://aka.ms/AzureMigrate/SQL) per creare un progetto nell'area **Australia orientale**. Se si dispone già di un progetto nell'Australia orientale e si vuole provare questa funzionalità, assicurarsi di aver completato questi [**prerequisiti**](how-to-discover-sql-existing-project.md) nel portale.
 
 Se si desidera utilizzare queste funzionalità, è possibile fornire le credenziali del server attenendosi alla procedura descritta di seguito. Il dispositivo tenterà di eseguire automaticamente il mapping delle credenziali ai server per eseguire le funzionalità di individuazione.
 
