@@ -7,10 +7,10 @@ ms.reviewer: divswa, logicappspm
 ms.topic: article
 ms.date: 01/30/2020
 ms.openlocfilehash: 765c15897bd5d435503d3bef07e76a93b148971c
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/17/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "100596864"
 ---
 # <a name="set-up-azure-monitor-logs-and-collect-diagnostics-data-for-b2b-messages-in-azure-logic-apps"></a>Configurare i log di Monitoraggio di Azure e raccogliere i dati di diagnostica per i messaggi B2B in App per la logica di Azure

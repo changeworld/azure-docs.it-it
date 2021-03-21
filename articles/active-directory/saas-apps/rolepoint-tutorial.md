@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 03/15/2019
 ms.author: jeedes
 ms.openlocfilehash: 3225aa9eaff5c3cd0acca99261935feb9774810f
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
-ms.translationtype: HT
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/25/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96010266"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-rolepoint"></a>Esercitazione: Integrazione di Azure Active Directory con RolePoint
@@ -152,7 +152,7 @@ In questa sezione verrà creato un utente di test di nome Britta Simon nel porta
 
     1. Selezionare **Mostra password** e quindi prendere nota del valore visualizzato nella casella **Password**.
 
-    1. Selezionare **Create** (Crea).
+    1. Selezionare **Crea**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Assegnare l'utente di test di Azure AD
 

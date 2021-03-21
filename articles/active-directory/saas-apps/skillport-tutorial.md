@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 03/25/2019
 ms.author: jeedes
 ms.openlocfilehash: 8b49e3594754e8eed38e3b1ef44648bc065558b8
-ms.sourcegitcommit: e15c0bc8c63ab3b696e9e32999ef0abc694c7c41
-ms.translationtype: HT
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/16/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97608359"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-skillport"></a>Esercitazione: Integrazione di Azure Active Directory con Skillport
@@ -30,7 +30,7 @@ L'integrazione di Skillport con Azure AD offre i vantaggi seguenti:
 Per altre informazioni sull'integrazione di app SaaS con Azure AD, vedere [Informazioni sull'accesso alle applicazioni e Single Sign-On con Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
 Se non si ha una sottoscrizione di Azure, [creare un account gratuito](https://azure.microsoft.com/free/) prima di iniziare.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerequisiti
 
 Per configurare l'integrazione di Azure AD con Skillport, sono necessari gli elementi seguenti:
 
@@ -67,16 +67,16 @@ Per configurare l'integrazione di Skillport in Azure AD, è necessario aggiunger
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurare e testare l'accesso Single Sign-On di Azure AD
 
-In questa sezione viene configurato e testato l'accesso Single Sign-On di Azure AD con Skillport usando un utente di test di nome **Britta Simon**.
+In questa sezione viene configurato e testato Azure AD Single Sign-On con SkillPort in base a un utente test di nome **Britta Simon**.
 Per il corretto funzionamento dell'accesso Single Sign-On, deve essere stabilita una relazione di collegamento tra un utente di Azure AD e l'utente correlato in Skillport.
 
 Per configurare e testare l'accesso Single Sign-On di Azure AD con Skillport, è necessario completare le procedure di base seguenti:
 
 1. **[Configurare l'accesso Single Sign-On di Azure AD](#configure-azure-ad-single-sign-on)** : per consentire agli utenti di usare questa funzionalità.
-2. **[Configurare l'accesso Single Sign-On di Skillport](#configure-skillport-single-sign-on)** : per configurare le impostazioni di Single Sign-On sul lato applicazione.
+2. **[Configurare l'accesso Single Sign-On di Skillport](#configure-skillport-single-sign-on)**: per configurare le impostazioni di Single Sign-On sul lato applicazione.
 3. **[Creare un utente di test di Azure AD](#create-an-azure-ad-test-user)** : per testare l'accesso Single Sign-On di Azure AD con l'utente Britta Simon.
 4. **[Assegnare l'utente di test di Azure AD](#assign-the-azure-ad-test-user)** : per abilitare Britta Simon all'uso dell'accesso Single Sign-On di Azure AD.
-5. **[Creare un utente di test di Skillport](#create-skillport-test-user)** : per avere una controparte di Britta Simon in Skillport collegata alla rappresentazione dell'utente in Azure AD.
+5. **[Creare un utente di test di Skillport](#create-skillport-test-user)**: per avere una controparte di Britta Simon in Skillport collegata alla rappresentazione dell'utente in Azure AD.
 6. **[Testare l'accesso Single Sign-On](#test-single-sign-on)** per verificare se la configurazione funziona.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Configurare l'accesso Single Sign-On di Azure AD

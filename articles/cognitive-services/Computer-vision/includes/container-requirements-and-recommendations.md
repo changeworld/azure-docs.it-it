@@ -9,10 +9,10 @@ ms.topic: include
 ms.date: 11/23/2020
 ms.author: aahi
 ms.openlocfilehash: 4697be519eee96778eecdf37f7b358a88ad886c6
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/25/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96006909"
 ---
 > [!NOTE]
@@ -20,10 +20,10 @@ ms.locfileid: "96006909"
 
 La tabella seguente descrive l'allocazione minima e consigliata di risorse per ogni contenitore Read.
 
-| Contenitore | Minima | Implementazione consigliata |
+| Contenitore | Minima | Consigliato |
 |-----------|---------|-------------|
 | Leggi 2,0-Anteprima | 1 core, 8 GB di memoria |  8 core, 16 GB di memoria |
-| Leggi 3,2-anteprima | 8 core, 16 GB di memoria | 8 core, 24 GB di memoria |
+| Read 3.2-preview | 8 core, 16 GB di memoria | 8 core, 24 GB di memoria |
 
 * Ogni core deve essere di almeno 2,6 gigahertz (GHz) o superiore.
 

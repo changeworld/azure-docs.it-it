@@ -10,10 +10,10 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 07/12/2020
 ms.openlocfilehash: 04e4801c26b0ac8ef91af0b028d9dc2bb9a3cd1c
-ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/07/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94358627"
 ---
 # <a name="connect-to-and-index-azure-sql-content-using-an-azure-cognitive-search-indexer"></a>Connettersi e indicizzare il contenuto SQL di Azure usando un indicizzatore di Azure ricerca cognitiva
@@ -26,7 +26,7 @@ Oltre al database SQL di Azure e a SQL Istanza gestita, Azure ricerca cognitiva 
 
 ## <a name="indexers-and-data-sources"></a>Indicizzatori e origini dati
 
-Un' **origine dati** specifica i dati da indicizzare, le credenziali necessarie per accedere ai dati e i criteri che consentono di identificare in modo efficace le modifiche apportate ai dati, ovvero righe nuove, modificate o eliminate. L'origine dati è definita come risorsa indipendente affinché possa essere usata da più indicizzatori.
+Un'**origine dati** specifica i dati da indicizzare, le credenziali necessarie per accedere ai dati e i criteri che consentono di identificare in modo efficace le modifiche apportate ai dati, ovvero righe nuove, modificate o eliminate. L'origine dati è definita come risorsa indipendente affinché possa essere usata da più indicizzatori.
 
 Un **indicizzatore** è una risorsa che connette una singola origine dati agli indici di ricerca di destinazione. Un indicizzatore viene usato nei modi seguenti:
 

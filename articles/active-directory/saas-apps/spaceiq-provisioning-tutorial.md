@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 10/07/2019
 ms.author: Zhchia
 ms.openlocfilehash: a5bd3c39c293880e31ebe63f85b3814725f6027a
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
-ms.translationtype: HT
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/30/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96347294"
 ---
 # <a name="tutorial-configure-spaceiq-for-automatic-user-provisioning"></a>Esercitazione: Configurare SpaceIQ per il provisioning utenti automatico
@@ -113,7 +113,7 @@ Questa sezione descrive la procedura per configurare il servizio di provisioning
 
 4. Impostare **Modalità di provisioning** su **Automatico**.
 
-    ![Screenshot dell'elenco a discesa Modalità di provisioning con l'opzione Automatica evidenziata.](common/provisioning-automatic.png)
+    ![Screenshot dell'elenco a discesa Modalità di provisioning con l'opzione Automatico evidenziata.](common/provisioning-automatic.png)
 
 5. Nella sezione **Credenziali amministratore** immettere `https://api.spaceiq.com/scim` in **URL tenant**. Immettere il valore del **token di autenticazione SCIM** recuperato in precedenza in **Token segreto**. Fare clic su **Test connessione** per verificare che Azure AD possa connettersi a SpaceIQ. Se la connessione non riesce, verificare che l'account SpaceIQ abbia autorizzazioni di amministratore e riprovare.
 

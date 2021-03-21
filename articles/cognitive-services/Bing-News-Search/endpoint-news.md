@@ -11,20 +11,20 @@ ms.topic: conceptual
 ms.date: 1/10/2019
 ms.author: aahi
 ms.openlocfilehash: 9c095a46b3a0526b23645c9cbb5e99eb8eda9067
-ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/08/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94366401"
 ---
 # <a name="bing-news-search-api-endpoints"></a>Endpoint di API Ricerca notizie Bing
 
 > [!WARNING]
-> API di ricerca Bing passano da servizi cognitivi a Ricerca Bing Services. A partire dal **30 ottobre 2020** , le nuove istanze di ricerca Bing devono essere sottoposte a provisioning in base al processo documentato [qui](/bing/search-apis/bing-web-search/create-bing-search-service-resource).
-> API di ricerca Bing provisioning con servizi cognitivi sarà supportato per i prossimi tre anni o fino alla fine del Enterprise Agreement, a seconda di quale evento si verifichi per primo.
-> Per istruzioni sulla migrazione, vedere [ricerca Bing Services](/bing/search-apis/bing-web-search/create-bing-search-service-resource).
+> Le API Ricerca Bing sono state trasferite da Servizi cognitivi ai servizi di Ricerca Bing. A partire dal **30 ottobre 2020**, è necessario effettuare il provisioning di tutte le nuove istanze di Ricerca Bing seguendo la procedura documentata [qui](/bing/search-apis/bing-web-search/create-bing-search-service-resource).
+> Le API Ricerca Bing di cui viene effettuato il provisioning con Servizi cognitivi saranno supportate per i prossimi tre anni oppure fino alla data di fine del contratto Enterprise, se precedente.
+> Per le istruzioni sulla migrazione, vedere [Servizi di Ricerca Bing](/bing/search-apis/bing-web-search/create-bing-search-service-resource).
 
-L' **API Ricerca notizie** restituisce articoli, pagine Web, immagini, video ed [entità](../bing-entities-search/overview.md). Le entità contengono informazioni di riepilogo su una persona, un luogo o un argomento.
+L'**API Ricerca notizie** restituisce articoli, pagine Web, immagini, video ed [entità](../bing-entities-search/overview.md). Le entità contengono informazioni di riepilogo su una persona, un luogo o un argomento.
 
 ## <a name="endpoints"></a>Endpoint
 

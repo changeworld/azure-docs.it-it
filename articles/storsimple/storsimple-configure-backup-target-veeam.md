@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 12/06/2016
 ms.author: matd
 ms.openlocfilehash: bf28265de2b297dade545695c9369b8074eeb72c
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/20/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94962553"
 ---
 # <a name="storsimple-as-a-backup-target-with-veeam"></a>StorSimple come destinazione di backup con Veeam

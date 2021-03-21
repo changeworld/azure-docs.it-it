@@ -10,10 +10,10 @@ ms.devlang: rest-api
 ms.topic: tutorial
 ms.date: 11/17/2020
 ms.openlocfilehash: e8c16f02cf6b77fa54d2a19abac48e9914aa99bd
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
-ms.translationtype: HT
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/25/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96008566"
 ---
 # <a name="tutorial-query-a-cognitive-search-index-from-power-apps"></a>Esercitazione: Eseguire query su un indice di Ricerca cognitiva da Power Apps
@@ -254,7 +254,7 @@ In questo passaggio creare un'app Power Apps con una casella di ricerca, un puls
 
 ## <a name="clean-up-resources"></a>Pulire le risorse
 
-Quando si lavora nella propria sottoscrizione, alla fine di un progetto è opportuno verificare se le risorse create sono ancora necessarie. Le risorse che rimangono in esecuzione hanno un costo. È possibile eliminare le singole risorse oppure il gruppo di risorse per eliminare l'intero set di risorse.
+Quando si lavora nella propria sottoscrizione, alla fine di un progetto è opportuno verificare se le risorse create sono ancora necessarie. L'esecuzione continua delle risorse può avere un costo. È possibile eliminare le singole risorse oppure il gruppo di risorse per eliminare l'intero set di risorse.
 
 Per trovare e gestire le risorse nel portale, usare il collegamento **Tutte le risorse** o **Gruppi di risorse** nel riquadro di spostamento a sinistra.
 

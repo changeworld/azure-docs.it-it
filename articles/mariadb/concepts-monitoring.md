@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.custom: references_regions
 ms.date: 10/21/2020
 ms.openlocfilehash: f63b0b523184917097c73c852a7624b366fbbb24
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/17/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100595206"
 ---
 # <a name="monitoring-in-azure-database-for-mariadb"></a>Monitoraggio in Database di Azure per MariaDB
@@ -47,7 +47,7 @@ Per Database di Azure per MariaDB sono disponibili le metriche seguenti:
 
 È possibile abilitare la registrazione delle query lente nel server. Questi log sono disponibili anche tramite i log di diagnostica di Azure in log di monitoraggio di Azure, Hub eventi e account di archiviazione. Per altre informazioni sull'accesso, visitare la pagina dei [log del server](concepts-server-logs.md).
 
-## <a name="query-store"></a>Archivio query
+## <a name="query-store"></a>Query Store
 
 [Query Store](concepts-query-store.md) tiene traccia delle prestazioni delle query nel tempo, incluse le statistiche di runtime di query e gli eventi di attesa. La funzionalità rende permanente le informazioni sulle prestazioni di query runtime nello schema **MySQL** . È possibile controllare la raccolta e l'archiviazione dei dati tramite vari controlli di configurazione.
 

@@ -1,6 +1,6 @@
 ---
-title: File di inclusione
-description: File di inclusione
+title: includere file
+description: includere file
 services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
@@ -9,10 +9,10 @@ ms.date: 11/12/2019
 ms.author: cherylmc
 ms.custom: include file
 ms.openlocfilehash: 1643b20c6c157c43e93967cef364e703dbf4478e
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
-ms.translationtype: HT
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/25/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96010769"
 ---
 |**VPN<br>Gateway<br>Generation** |**SKU**   | **Tunnel S2S/<br>rete virtuale-rete virtuale** | **P2S<br> Connessioni SSTP** | **P2S<br> Connessioni IKEv2/OpenVPN** | **Benchmark<br>velocità effettiva aggregata** | **BGP** | **Zone-redundant** |
@@ -48,7 +48,7 @@ ms.locfileid: "96010769"
 
 Per aiutare i clienti a comprendere le prestazioni relative degli SKU che usano algoritmi diversi, sono stati usati gli strumenti iPerf e CTSTraffic disponibili pubblicamente per misurare le prestazioni. La tabella seguente elenca i risultati dei test delle prestazioni per gli SKU VpnGw Generation1. È possibile notare come si ottengano le prestazioni migliori quando viene usato l'algoritmo GCMAES256 per la crittografia e l'integrità IPsec. Quando viene usato AES256 per la crittografia IPsec e SHA256 per l'integrità, si ottengono prestazioni medie. Quando infine viene usato DES3 per la crittografia IPsec e SHA256 per l'integrità, si ottengono le prestazioni più basse.
 
-|**Generazione**|**SKU**   | **Algoritmi<br>usati** | **Velocità effettiva <br>osservata** | **Pacchetti al secondo<br>osservati** |
+|**Generation**|**SKU**   | **Algoritmi<br>usati** | **Velocità effettiva <br>osservata** | **Pacchetti al secondo<br>osservati** |
 |---           |---       | ---                 | ---            | ---                    |
 |**Generation1**|**VpnGw1**| GCMAES256<br>AES256 e SHA256<br>DES3 e SHA256| 650 Mbps<br>500 Mbps<br>120 Mbps   | 58.000<br>50.000<br>50.000|
 |**Generation1**|**VpnGw2**| GCMAES256<br>AES256 e SHA256<br>DES3 e SHA256| 1 Gbps<br>500 Mbps<br>120 Mbps | 90.000<br>80.000<br>55.000|

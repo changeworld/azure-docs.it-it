@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.date: 11/13/2019
 ms.author: victorh
 ms.openlocfilehash: 67153fa750fee765dcaa1072eec87a2f6169b918
-ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/05/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93397281"
 ---
 # <a name="create-an-application-gateway-with-http-to-https-redirection-using-the-azure-portal"></a>Creare un gateway applicazione con reindirizzamento da HTTP a HTTPS tramite il portale di Azure
@@ -77,7 +77,7 @@ Per le comunicazioni tra le risorse create è necessaria una rete virtuale. In q
      ![Creare il nuovo gateway applicazione](./media/create-url-route-portal/application-gateway-create.png)
 
 5. Accettare i valori predefiniti per le altre impostazioni e quindi fare clic su **OK**.
-6. Fare clic su **Scegliere una rete virtuale** , **Crea nuova** e quindi immettere i valori seguenti per la rete virtuale:
+6. Fare clic su **Scegliere una rete virtuale**, **Crea nuova** e quindi immettere i valori seguenti per la rete virtuale:
 
    - *myVNet* come nome della rete virtuale.
    - *10.0.0.0/16* come spazio indirizzi della rete virtuale.
@@ -88,7 +88,7 @@ Per le comunicazioni tra le risorse create è necessaria una rete virtuale. In q
 
 7. Fare clic su **OK** per creare la rete virtuale e la subnet.
 8. In **Configurazione dell'indirizzo IP front-end** verificare che **Tipo di indirizzo IP** sia impostato su **pubblico** e che **Crea nuovo** sia selezionato. Immettere *myAGPublicIPAddress* per il nome. Accettare i valori predefiniti per le altre impostazioni e quindi fare clic su **OK**.
-9. In **Configurazione listener** selezionare **HTTPS** , quindi **Selezionare un file** , passare al file *c:\appgwcert.pfx* e scegliere **Apri**.
+9. In **Configurazione listener** selezionare **HTTPS**, quindi **Selezionare un file**, passare al file *c:\appgwcert.pfx* e scegliere **Apri**.
 10. Digitare *appgwcert* come nome del certificato e *Azure123456!* come password.
 11. Lasciare disabilitato il web application firewall e quindi selezionare **OK**.
 12. Rivedere le impostazioni nella pagina di riepilogo e quindi fare clic su **OK** per creare le risorse di rete e il gateway applicazione. La creazione del gateway applicazione potrebbe richiedere alcuni minuti. Attendere il completamento della distribuzione prima di passare alla sezione successiva.
@@ -113,16 +113,16 @@ In primo luogo, aggiungere il listener denominato *myListener* per la porta 80.
 2. Selezionare **Listener** e quindi **+ Base**.
 3. Digitare *MyListener* per il nome.
 4. Digitare *httpPort* come nome della nuova porta front-end e *80* per la porta.
-5. Verificare che il protocollo sia impostato su **HTTP** , quindi selezionare **OK**.
+5. Verificare che il protocollo sia impostato su **HTTP**, quindi selezionare **OK**.
 
 ### <a name="add-a-routing-rule-with-a-redirection-configuration"></a>Aggiungere una regola di routing con una configurazione di reindirizzamento
 
 1. In **myAppGateway** selezionare **regole** e quindi selezionare **+ regola di routing richiesta**.
-2. Per il **nome della regola** , digitare *Rule2*.
+2. Per il **nome della regola**, digitare *Rule2*.
 3. Assicurarsi che come listener sia selezionato **MyListener**.
 4. Fare clic sulla scheda **destinazioni backend** e selezionare il **tipo di destinazione** come *Reindirizzamento*.
-5. Per **Tipo di reindirizzamento** , selezionare **Permanente**.
-6. Per **Destinazione di reindirizzamento** , selezionare **Listener**.
+5. Per **Tipo di reindirizzamento**, selezionare **Permanente**.
+6. Per **Destinazione di reindirizzamento**, selezionare **Listener**.
 7. Verificare che il **Listener di destinazione** sia impostato su **appGatewayHttpListener**.
 8. Per la **stringa di query include** e il **percorso di inclusione** Selezionare *Sì*.
 9. Selezionare **Aggiungi**.
@@ -134,13 +134,13 @@ In questo esempio viene creato un set di scalabilità di macchine virtuali per f
 1. Selezionare **+ Crea una risorsa** nell'angolo in alto a sinistra del portale.
 2. Selezionare **Calcolo**.
 3. Nella casella di ricerca digitare *set di scalabilità* e premere INVIO.
-4. Selezionare **Set di scalabilità di macchine virtuali** , quindi selezionare **Crea**.
+4. Selezionare **Set di scalabilità di macchine virtuali**, quindi selezionare **Crea**.
 5. Per **Nome del set di scalabilità di macchine virtuali** digitare *myvmss*.
 6. Per Immagine del disco del sistema operativo,** assicurarsi che sia selezionato **Windows Server 2016 Datacenter**.
 7. Per **Gruppo di risorse** selezionare **myResourceGroupAG**.
 8. Per **Nome utente** digitare *azureuser*.
 9. Per **Password** digitare *Azure123456!* e confermare la password.
-10. Per **Numero di istanze** , verificare che il valore sia **2**.
+10. Per **Numero di istanze**, verificare che il valore sia **2**.
 11. Per la **Dimensioni istanze** selezionare **D2s_v3**.
 12. In **Rete** assicurarsi che **Scegliere le opzioni di bilanciamento del carico** sia impostato su **Gateway applicazione**.
 13. Assicurarsi che **Gateway applicazione** sia impostato su **myAppGateway**.
@@ -157,7 +157,7 @@ L'interfaccia utente del portale del set di scalabilità di macchine virtuali cr
 4. Selezionare **myAppGatewaymyvmss**.
 5. Selezionare **Rimuovi tutte le destinazioni dal pool back-end**.
 6. Selezionare **Salva**.
-7. Al termine del processo, selezionare il pool back-end **myAppGatewaymyvmss** , selezionare **Elimina** e quindi **OK** per confermare.
+7. Al termine del processo, selezionare il pool back-end **myAppGatewaymyvmss**, selezionare **Elimina** e quindi **OK** per confermare.
 8. Selezionare **appGatewayBackendPool**.
 9. In **Destinazioni** selezionare **VMSS**.
 10. In **VMSS** selezionare **myvmss**.
@@ -173,7 +173,7 @@ Infine, è necessario aggiornare il set di scalabilità con queste modifiche.
 3. Selezionare entrambe le istanze e quindi **Aggiorna**.
 4. Selezionare **Sì** per confermare.
 5. Dopo il completamento, tornare a **myAppGateway** e selezionare **Pool back-end**. A questo punto **appGatewayBackendPool** dovrebbe avere due destinazioni e **myAppGatewaymyvmss** zero destinazioni.
-6. Selezionare **myAppGatewaymyvmss** , quindi selezionare **Elimina**.
+6. Selezionare **myAppGatewaymyvmss**, quindi selezionare **Elimina**.
 7. Selezionare **OK** per confermare.
 
 ### <a name="install-iis"></a>Installare IIS
@@ -214,7 +214,7 @@ Dopo aver modificato le istanze con IIS, è necessario aggiornare di nuovo il se
 1. Selezionare **myAppGateway**.
 2. Nella pagina **Panoramica** prendere nota dell'indirizzo IP in **Indirizzo IP pubblico front-end**.
 
-3. Copiare l'indirizzo IP pubblico e quindi incollarlo nella barra degli indirizzi del browser. ad esempio, http://52.170.203.149
+3. Copiare l'indirizzo IP pubblico e quindi incollarlo nella barra degli indirizzi del browser. Ad esempio: http://52.170.203.149
 
    ![Avviso di sicurezza](./media/redirect-http-to-https-powershell/application-gateway-secure.png)
 

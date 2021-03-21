@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 02/27/2020
 ms.author: jeedes
 ms.openlocfilehash: efbb8a9ca0d475939d7713fa6a6a4a8245aead90
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
-ms.translationtype: HT
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/23/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92457062"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-bizagi-for-digital-process-automation"></a>Esercitazione: Integrazione dell'accesso Single Sign-On (SSO) di Azure Active Directory con Bizagi for Digital Process Automation
@@ -49,15 +49,15 @@ In questa esercitazione vengono eseguiti la configurazione e il test dell'access
 Per configurare l'integrazione di Bizagi for Digital Process Automation in Azure AD, è necessario aggiungere Bizagi for Digital Process Automation dalla raccolta all'elenco di app SaaS gestite.
 
 1. Accedere al [portale di Azure](https://portal.azure.com) con un account aziendale o dell'istituto di istruzione oppure con un account Microsoft personale.
-1. Nel riquadro di spostamento a sinistra selezionare il servizio **Azure Active Directory** .
-1. Passare ad **Applicazioni aziendali** e quindi selezionare **Tutte le applicazioni** .
-1. Per aggiungere una nuova applicazione, selezionare **Nuova applicazione** .
+1. Nel riquadro di spostamento a sinistra selezionare il servizio **Azure Active Directory**.
+1. Passare ad **Applicazioni aziendali** e quindi selezionare **Tutte le applicazioni**.
+1. Per aggiungere una nuova applicazione, selezionare **Nuova applicazione**.
 1. Nella sezione **Aggiungi dalla raccolta** digitare **Bizagi for Digital Process Automation** nella casella di ricerca.
 1. Selezionare **Bizagi for Digital Process Automation** nel pannello dei risultati e quindi aggiungere l'app. Attendere alcuni secondi che l'app venga aggiunta al tenant.
 
 ## <a name="configure-and-test-azure-ad-single-sign-on-for-bizagi-for-digital-process-automation"></a>Configurare e testare l'accesso Single Sign-On di Azure AD per Bizagi for Digital Process Automation
 
-Configurare e testare l'accesso SSO di Azure AD con Bizagi for Digital Process Automation usando un utente di test di nome **B.Simon** . Per consentire il funzionamento dell'accesso Single Sign-On, è necessario stabilire una relazione di collegamento tra un utente di Azure AD e l'utente correlato nel progetto Bizagi.
+Configurare e testare l'accesso SSO di Azure AD con Bizagi for Digital Process Automation usando un utente di test di nome **B.Simon**. Per consentire il funzionamento dell'accesso Single Sign-On, è necessario stabilire una relazione di collegamento tra un utente di Azure AD e l'utente correlato nel progetto Bizagi.
 
 Per configurare e testare l'accesso SSO di Azure AD con Bizagi for Digital Process Automation, completare le procedure di base seguenti:
 
@@ -72,9 +72,9 @@ Per configurare e testare l'accesso SSO di Azure AD con Bizagi for Digital Proce
 
 Per abilitare l'accesso Single Sign-On di Azure AD nel portale di Azure, seguire questa procedura.
 
-1. Nella pagina di integrazione dell'applicazione **Bizagi for Digital Process Automation** del [portale di Azure](https://portal.azure.com/) individuare la sezione **Gestione** e selezionare **Single Sign-On** .
-1. Nella pagina **Selezionare un metodo di accesso Single Sign-On** selezionare **SAML** .
-1. Caricare il file di metadati di Bizagi nell'opzione **Carica file di metadati** .
+1. Nella pagina di integrazione dell'applicazione **Bizagi for Digital Process Automation** del [portale di Azure](https://portal.azure.com/) individuare la sezione **Gestione** e selezionare **Single Sign-On**.
+1. Nella pagina **Selezionare un metodo di accesso Single Sign-On** selezionare **SAML**.
+1. Caricare il file di metadati di Bizagi nell'opzione **Carica file di metadati**.
 1. Rivedere la configurazione. Nella pagina **Configura l'accesso Single Sign-On con SAML** fare clic sull'icona Modifica (la penna) relativa a **Configurazione SAML di base** per modificare le impostazioni.
 
    ![Modificare la configurazione SAML di base](common/edit-urls.png)
@@ -88,7 +88,7 @@ Per abilitare l'accesso Single Sign-On di Azure AD nel portale di Azure, seguire
     > [!NOTE]
     > Poiché questi non sono i valori reali, è necessario aggiornarli con l'identificatore e l'URL di accesso effettivi. Per ottenere questi valori, contattare il [team di supporto di Bizagi for Digital Process Automation](mailto:jarvein.rivera@bizagi.com). È anche possibile fare riferimento ai modelli mostrati nella sezione **Configurazione SAML di base** del portale di Azure.
 
-1. Nella sezione **Certificato di firma SAML** della pagina **Configura l'accesso Single Sign-On con SAML** fare clic sul pulsante Copia per copiare l' **URL dei metadati di federazione dell'app** e salvarlo nel computer.
+1. Nella sezione **Certificato di firma SAML** della pagina **Configura l'accesso Single Sign-On con SAML** fare clic sul pulsante Copia per copiare l'**URL dei metadati di federazione dell'app** e salvarlo nel computer.
 
     ![Collegamento di download del certificato](common/copy-metadataurl.png)
     
@@ -102,35 +102,35 @@ Per abilitare l'accesso Single Sign-On di Azure AD nel portale di Azure, seguire
 
 In questa sezione verrà creato un utente di test di nome B.Simon nel portale di Azure.
 
-1. Nel riquadro sinistro del portale di Azure selezionare **Azure Active Directory** , **Utenti** e quindi **Tutti gli utenti** .
+1. Nel riquadro sinistro del portale di Azure selezionare **Azure Active Directory**, **Utenti** e quindi **Tutti gli utenti**.
 1. Selezionare **Nuovo utente** in alto nella schermata.
 1. In **Proprietà utente** seguire questa procedura:
    1. Nel campo **Nome** immettere `B.Simon`.  
    1. Nel campo **Nome utente** immettere username@companydomain.extension. Ad esempio: `B.Simon@contoso.com`.
-   1. Selezionare la casella di controllo **Mostra password** e quindi prendere nota del valore visualizzato nella casella **Password** .
-   1. Fare clic su **Crea** .
+   1. Selezionare la casella di controllo **Mostra password** e quindi prendere nota del valore visualizzato nella casella **Password**.
+   1. Fare clic su **Crea**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Assegnare l'utente di test di Azure AD
 
 In questa sezione si abiliterà B.Simon all'uso dell'accesso Single Sign-On di Azure concedendole l'accesso a Bizagi for Digital Process Automation.
 
-1. Nel portale di Azure selezionare **Applicazioni aziendali** e quindi **Tutte le applicazioni** .
-1. Nell'elenco delle applicazioni selezionare **Bizagi for Digital Process Automation** .
-1. Nella pagina di panoramica dell'app trovare la sezione **Gestione** e selezionare **Utenti e gruppi** .
+1. Nel portale di Azure selezionare **Applicazioni aziendali** e quindi **Tutte le applicazioni**.
+1. Nell'elenco delle applicazioni selezionare **Bizagi for Digital Process Automation**.
+1. Nella pagina di panoramica dell'app trovare la sezione **Gestione** e selezionare **Utenti e gruppi**.
 
    ![Collegamento "Utenti e gruppi"](common/users-groups-blade.png)
 
-1. Selezionare **Aggiungi utente** e quindi **Utenti e gruppi** nella finestra di dialogo **Aggiungi assegnazione** .
+1. Selezionare **Aggiungi utente** e quindi **Utenti e gruppi** nella finestra di dialogo **Aggiungi assegnazione**.
 
     ![Collegamento Aggiungi utente](common/add-assign-user.png)
 
 1. Nella finestra di dialogo **Utenti e gruppi** selezionare **B.Simon** dall'elenco degli utenti e quindi fare clic sul pulsante **Seleziona** nella parte inferiore della schermata.
 1. Se si prevede un valore di ruolo nell'asserzione SAML, nella finestra di dialogo **Selezionare un ruolo** selezionare il ruolo appropriato per l'utente dall'elenco e quindi fare clic sul pulsante **Seleziona** nella parte inferiore della schermata.
-1. Nella finestra di dialogo **Aggiungi assegnazione** fare clic sul pulsante **Assegna** .
+1. Nella finestra di dialogo **Aggiungi assegnazione** fare clic sul pulsante **Assegna**.
 
 ## <a name="configure-bizagi-for-digital-process-automation-sso"></a>Configurare l'accesso Single Sign-On di Bizagi for Digital Process Automation
 
-Per configurare l'accesso Single Sign-On sul lato **Bizagi for Digital Process Automation** , è necessario inviare l' **URL dei metadati di federazione dell'app** al [team di supporto di Bizagi for Digital Process Automation](mailto:jarvein.rivera@bizagi.com). La configurazione viene eseguita in modo che la connessione SSO SAML sia impostata correttamente su entrambi i lati.
+Per configurare l'accesso Single Sign-On sul lato **Bizagi for Digital Process Automation**, è necessario inviare l'**URL dei metadati di federazione dell'app** al [team di supporto di Bizagi for Digital Process Automation](mailto:jarvein.rivera@bizagi.com). La configurazione viene eseguita in modo che la connessione SSO SAML sia impostata correttamente su entrambi i lati.
 
 ### <a name="create-bizagi-for-digital-process-automation-test-user"></a>Creare l'utente di test di Bizagi for Digital Process Automation
 

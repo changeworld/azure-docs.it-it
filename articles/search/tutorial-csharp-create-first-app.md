@@ -10,10 +10,10 @@ ms.topic: tutorial
 ms.date: 02/26/2021
 ms.custom: devx-track-csharp
 ms.openlocfilehash: 0a57e45b264badffd0305eb6ac5b3c8f7c42adf3
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/03/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "101695125"
 ---
 # <a name="tutorial-create-your-first-search-app-using-the-net-sdk"></a>Esercitazione: Creare la prima app di ricerca con .NET SDK

@@ -9,10 +9,10 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 ms.date: 11/06/2020
 ms.openlocfilehash: 91b6d432042aa37a1b929f61e9742f814fb9dc40
-ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/08/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94370325"
 ---
 # <a name="how-to-configure-your-azure-application-offer-listing-details"></a>Come configurare i dettagli dell'elenco di offerte di applicazione Azure
@@ -24,7 +24,7 @@ Le informazioni fornite nella pagina di presentazione dell' **offerta** per l'of
 
 ## <a name="marketplace-details"></a>Dettagli del marketplace
 
-Nella pagina di presentazione dell' **offerta** , in **Dettagli Marketplace** , completare i passaggi seguenti. Per ulteriori informazioni su questi dettagli necessari, vedere l'articolo relativo ai [Dettagli dell'offerta](plan-azure-application-offer.md#offer-listing-details).
+Nella pagina di presentazione dell' **offerta** , in **Dettagli Marketplace**, completare i passaggi seguenti. Per ulteriori informazioni su questi dettagli necessari, vedere l'articolo relativo ai [Dettagli dell'offerta](plan-azure-application-offer.md#offer-listing-details).
 
 1. La casella **nome** viene precompilata con il nome immesso in precedenza nella finestra di dialogo **nuova offerta** . È possibile modificare il nome in qualsiasi momento. Il nome immesso qui verrà visualizzato ai clienti come titolo della presentazione dell'offerta.
 1. Nella casella **Riepilogo risultati ricerca** immettere fino a 100 caratteri di testo. Questo riepilogo viene usato nei risultati della ricerca nell'elenco del Marketplace.

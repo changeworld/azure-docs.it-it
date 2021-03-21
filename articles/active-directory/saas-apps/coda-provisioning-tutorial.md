@@ -16,10 +16,10 @@ ms.topic: tutorial
 ms.date: 08/31/2020
 ms.author: Zhchia
 ms.openlocfilehash: 8df1588a78829252d55f82349d6889c754c989e6
-ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
-ms.translationtype: HT
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/18/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97673227"
 ---
 # <a name="tutorial-configure-coda-for-automatic-user-provisioning"></a>Esercitazione: Configurare Coda per il provisioning utenti automatico
@@ -43,7 +43,7 @@ Per lo scenario descritto in questa esercitazione si presuppone che l'utente dis
 * Un account amministratore di [Coda Enterprise](https://help.coda.io/en/articles/3520174-getting-started-with-sso).
 
 ## <a name="step-1-plan-your-provisioning-deployment"></a>Passaggio 1. Pianificare la distribuzione del provisioning
-1. Vedere le informazioni su [come funziona il servizio di provisioning](../app-provisioning/user-provisioning.md).
+1. Acquisire informazioni su [come funziona il servizio di provisioning](../app-provisioning/user-provisioning.md).
 2. Determinare gli utenti che verranno inclusi nell'[ambito per il provisioning](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
 3. Determinare i dati di cui [eseguire il mapping tra Azure AD e Coda](../app-provisioning/customize-application-attributes.md).
 

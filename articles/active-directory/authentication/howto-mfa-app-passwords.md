@@ -12,13 +12,13 @@ manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: dfb38f9fcdba6898b690d0af68b715fea07e80bb
-ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/06/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96743106"
 ---
-# <a name="enable-and-use-azure-ad-multi-factor-authentication-with-legacy-applications-using-app-passwords"></a>Abilitare e usare Azure AD Multi-Factor Authentication con le applicazioni legacy usando le password dell'app
+# <a name="enable-and-use-azure-ad-multi-factor-authentication-with-legacy-applications-using-app-passwords"></a>Abilitare e usare l'autenticazione a più fattori di Azure AD con applicazioni legacy usando le password delle app
 
 Alcune app meno recenti non basate su browser, come Office 2010 o versioni precedenti e Apple Mail, prima di iOS 11, non comprendono pause o interruzioni nel processo di autenticazione. Se un utente è abilitato per Azure AD Multi-Factor Authentication e tenta di usare una di queste app non basate su browser, non è possibile eseguire correttamente l'autenticazione. Per usare queste applicazioni in modo sicuro con Azure AD Multi-Factor Authentication abilitata per gli account utente, è possibile usare le password dell'app. Queste password dell'app hanno sostituito la password tradizionale per consentire a un'app di ignorare l'autenticazione a più fattori e di funzionare correttamente.
 

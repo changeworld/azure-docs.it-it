@@ -7,10 +7,10 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.date: 12/09/2020
 ms.openlocfilehash: 9441885766dad97dfc237ab81a59710245bf13ce
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/14/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100364257"
 ---
 # <a name="copy-data-from-amazon-redshift-using-azure-data-factory"></a>Copiare dati da Amazon Redshift usando Azure Data Factory
@@ -41,7 +41,7 @@ In particolare, il connettore Amazon Redshift supporta il recupero di dati da Re
 * Se si copiano dati in un archivio dati locale usando il [runtime di integrazione self-hosted](create-self-hosted-integration-runtime.md), concedere al runtime di integrazione (usare l'indirizzo IP del computer) l'accesso al cluster Amazon Redshift. Vedere [Autorizzare l'accesso al cluster](https://docs.aws.amazon.com/redshift/latest/gsg/rs-gsg-authorize-cluster-access.html) per le istruzioni.
 * Se si copiano dati in un archivio dati di Azure, vedere [Azure Data Center IP Ranges](https://www.microsoft.com/download/details.aspx?id=41653) (Intervalli IP del centro dati di Azure) per gli intervalli di indirizzi IP ed SQL di calcolo usati dai data center di Azure.
 
-## <a name="getting-started"></a>Guida introduttiva
+## <a name="getting-started"></a>Introduzione
 
 [!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 

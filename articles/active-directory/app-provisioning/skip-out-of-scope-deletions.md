@@ -12,18 +12,19 @@ ms.date: 12/10/2019
 ms.author: kenwith
 ms.reviewer: celested
 ms.openlocfilehash: a6cbabe35b223020528d1cf48aa9e0ef9b9f7c05
-ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/02/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "99256120"
 ---
 # <a name="skip-deletion-of-user-accounts-that-go-out-of-scope"></a>Ignora l'eliminazione di account utente che non rientrano nell'ambito
 
 Per impostazione predefinita, il motore di provisioning di Azure AD elimina temporaneamente o Disabilita gli utenti che non rientrano nell'ambito. Tuttavia, per determinati scenari come la giornata lavorativa ad Active Directory in ingresso, questo comportamento potrebbe non essere quello previsto e potrebbe essere necessario eseguire l'override di questo comportamento predefinito.  
 
-Questo articolo descrive come usare l'API Microsoft Graph e il Microsoft Graph Esplora API per impostare il flag ***SkipOutOfScopeDeletions** _ che controlla l'elaborazione degli account che non rientrano nell'ambito. _ Se ***SkipOutOfScopeDeletions** _ è impostato su 0 (false), gli account che non rientrano nell'ambito verranno disabilitati nella destinazione.
-_ Se ***SkipOutOfScopeDeletions** _ è impostato su 1 (true), gli account che non rientrano nell'ambito non verranno disabilitati nella destinazione. Questo flag viene impostato a livello di _Provisioning app * e può essere configurato usando il API Graph. 
+Questo articolo descrive come usare l'API Microsoft Graph e il Microsoft Graph Esplora API per impostare il flag ***SkipOutOfScopeDeletions*** che controlla l'elaborazione degli account che non rientrano nell'ambito. 
+* Se ***SkipOutOfScopeDeletions*** è impostato su 0 (false), gli account che non rientrano nell'ambito verranno disabilitati nella destinazione.
+* Se ***SkipOutOfScopeDeletions** _ è impostato su 1 (true), gli account che non rientrano nell'ambito non verranno disabilitati nella destinazione. Questo flag viene impostato a livello di _Provisioning app * e può essere configurato usando il API Graph. 
 
 Poiché questa configurazione viene usata ampiamente con la *giornata lavorativa per Active Directory app per il provisioning degli utenti* , i passaggi seguenti includono screenshot dell'applicazione per la giornata lavorativa. Tuttavia, la configurazione può essere usata anche con *tutte le altre app*, ad esempio ServiceNow, Salesforce e Dropbox.
 
@@ -68,9 +69,9 @@ Ecco il blocco JSON da aggiungere al mapping.
 
 ## <a name="step-4-update-the-secrets-endpoint-with-the-skipoutofscopedeletions-flag"></a>Passaggio 4: aggiornare l'endpoint dei segreti con il flag SkipOutOfScopeDeletions
 
-In Graph Explorer eseguire il comando seguente per aggiornare l'endpoint Secrets con il flag **_SkipOutOfScopeDeletions_* _. 
+In Graph Explorer eseguire il comando seguente per aggiornare l'endpoint Secrets con il flag ***SkipOutOfScopeDeletions*** . 
 
-Nell'URL seguente sostituire [servicePrincipalId] con _ *servicePrincipalId** Estratto dal [passaggio 1](#step-1-retrieve-your-provisioning-app-service-principal-id-object-id). 
+Nell'URL seguente sostituire [servicePrincipalId] con il **servicePrincipalId** Estratto dal [passaggio 1](#step-1-retrieve-your-provisioning-app-service-principal-id-object-id). 
 
 ```http
    PUT https://graph.microsoft.com/beta/servicePrincipals/[servicePrincipalId]/synchronization/secrets

@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 07/31/2017
 ms.author: yegu
 ms.openlocfilehash: 9ee3b447b2b5f6dfa8972749c3c46ae01f79bfdc
-ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/30/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96327509"
 ---
 # <a name="import-and-export-data-in-azure-cache-for-redis"></a>Importare ed esportare dati in Cache Redis di Azure
@@ -28,7 +28,7 @@ Questo articolo è una guida all'importazione e all'esportazione dei dati con Ca
 >
 >
 
-## <a name="import"></a>Comando Importa
+## <a name="import"></a>Importa
 L'importazione può essere usata per spostare i file RDB compatibili con Redis da qualsiasi server Redis in esecuzione su qualsiasi cloud o ambiente, compresi i server Redis in esecuzione su Linux, Windows o su altri provider di servizi cloud come Amazon Web Services e altri. L'importazione dei dati è un modo semplice per creare una cache con dati già popolati. Durante il processo di importazione Cache Redis di Azure carica i file RDB dall'archiviazione di Azure nella memoria e quindi inserisce le chiavi nella cache.
 
 > [!NOTE]
@@ -55,7 +55,7 @@ L'importazione può essere usata per spostare i file RDB compatibili con Redis d
    >
    >
 
-    ![Comando Importa](./media/cache-how-to-import-export-data/cache-import-blobs.png)
+    ![Importa](./media/cache-how-to-import-export-data/cache-import-blobs.png)
 
     È possibile controllare lo stato dell'operazione di importazione tramite le notifiche del portale di Azure oppure visualizzando gli eventi nel [log di controllo](../azure-resource-manager/management/view-activity-logs.md).
 

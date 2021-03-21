@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 08/17/2019
 ms.author: Zhchia
 ms.openlocfilehash: f465438a6be80a1b487a4df7d3ee8bd38be9c102
-ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
-ms.translationtype: HT
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/07/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94354208"
 ---
 # <a name="tutorial-configure-workteam--for-automatic-user-provisioning"></a>Esercitazione: configurare workteam per il provisioning utenti automatico
@@ -37,7 +37,7 @@ Per lo scenario descritto in questa esercitazione si presuppone che l'utente dis
 
 ## <a name="assigning-users-to-workteam"></a>Assegnazione di utenti a workteam 
 
-Per determinare gli utenti che dovranno ricevere l'accesso alle app selezionate, Azure Active Directory usa il concetto delle *assegnazioni*. Nel contesto del provisioning utenti automatico, vengono sincronizzati solo gli utenti e/o i gruppi che sono stati assegnati a un'applicazione in Azure AD.
+Per determinare gli utenti che dovranno ricevere l'accesso alle app selezionate, Azure Active Directory usa il concetto delle *assegnazioni*. Nel contesto del provisioning utenti automatico vengono sincronizzati solo gli utenti e/o i gruppi che sono stati assegnati a un'applicazione in Azure AD.
 
 Prima di configurare e abilitare il provisioning utenti automatico, è necessario stabilire quali utenti e/o gruppi in Azure AD necessario accedere a workteam. Dopo aver stabilito questo, è possibile assegnare gli utenti e/o i gruppi a workteam seguendo le istruzioni riportate qui:
 * [Assegnare un utente o gruppo a un'app aziendale](../manage-apps/assign-user-or-group-access-portal.md)
@@ -52,7 +52,7 @@ Prima di configurare e abilitare il provisioning utenti automatico, è necessari
 
 Prima di configurare workteam per il provisioning utenti automatico con Azure AD, sarà necessario abilitare il provisioning di SCIM in workteam.
 
-1. Accedere a [workteam](https://app.workte.am/account/signin). Fare clic su impostazioni **Impostazioni organizzazione**  >  **SETTINGS**.
+1. Accedere a [workteam](https://app.workte.am/account/signin). Fare clic su impostazioni **Impostazioni organizzazione**  >  .
 
     ![Screenshot della workteam U i con le impostazioni dell'organizzazione e le opzioni delle impostazioni denominate.](media/workteam-provisioning-tutorial/settings.png)
 
@@ -71,7 +71,7 @@ Per configurare workteam per il provisioning utenti automatico con Azure AD, è 
 
 **Per aggiungere workteam dalla raccolta di applicazioni Azure AD, seguire questa procedura:**
 
-1. Nel riquadro di spostamento a sinistra del **[portale di Azure](https://portal.azure.com)** selezionare **Azure Active Directory**.
+1. Nel **[portale di Azure](https://portal.azure.com)** selezionare **Azure Active Directory** nel riquadro di spostamento sinistro.
 
     ![Pulsante Azure Active Directory](common/select-azuread.png)
 
@@ -79,11 +79,11 @@ Per configurare workteam per il provisioning utenti automatico con Azure AD, è 
 
     ![Pannello Applicazioni aziendali](common/enterprise-applications.png)
 
-3. Per aggiungere una nuova applicazione, selezionare il pulsante **nuova applicazione** nella parte superiore del riquadro.
+3. Per aggiungere una nuova applicazione, selezionare il pulsante **Nuova applicazione** nella parte superiore del riquadro.
 
     ![Pulsante Nuova applicazione](common/add-new-app.png)
 
-4. Nella casella di ricerca immettere **workteam** , selezionare **workteam** nel pannello dei risultati e quindi fare clic sul pulsante **Aggiungi** per aggiungere l'applicazione.
+4. Nella casella di ricerca immettere **workteam**, selezionare **workteam** nel pannello dei risultati e quindi fare clic sul pulsante **Aggiungi** per aggiungere l'applicazione.
 
     ![Workteam nell'elenco risultati](common/search-new-app.png)
 
@@ -92,7 +92,7 @@ Per configurare workteam per il provisioning utenti automatico con Azure AD, è 
 Questa sezione illustra i passaggi per configurare il servizio di provisioning Azure AD per creare, aggiornare e disabilitare utenti e/o gruppi in workteam in base alle assegnazioni di utenti e/o gruppi in Azure AD.
 
 > [!TIP]
-> È anche possibile scegliere di abilitare la Single Sign-On basata su SAML per workteam, seguendo le istruzioni fornite nell' [esercitazione sull'accesso Single Sign-on di workteam](workteam-tutorial.md). Il Single Sign-on può essere configurato indipendentemente dal provisioning utenti automatico, anche se queste due funzionalità sono complementari
+> È anche possibile scegliere di abilitare la Single Sign-On basata su SAML per workteam, seguendo le istruzioni fornite nell' [esercitazione sull'accesso Single Sign-on di workteam](workteam-tutorial.md). Il Single Sign-On può essere configurato indipendentemente dal provisioning utenti automatico, anche se queste due funzionalità sono complementari.
 
 ### <a name="to-configure-automatic-user-provisioning-for-workteam--in-azure-ad"></a>Per configurare il provisioning utenti automatico per workteam in Azure AD:
 
@@ -106,11 +106,11 @@ Questa sezione illustra i passaggi per configurare il servizio di provisioning A
 
 3. Selezionare la scheda **Provisioning**.
 
-    ![Screenshot delle opzioni Gestisci con l'opzione di provisioning denominata.](common/provisioning.png)
+    ![Screenshot delle opzioni disponibili in Gestisci con l'opzione Provisioning evidenziata.](common/provisioning.png)
 
 4. Impostare **Modalità di provisioning** su **Automatico**.
 
-    ![Screenshot dell'elenco a discesa modalità di provisioning con l'opzione automatica chiamata.](common/provisioning-automatic.png)
+    ![Screenshot dell'elenco a discesa Modalità di provisioning con l'opzione Automatico evidenziata.](common/provisioning-automatic.png)
 
 5. Nella sezione credenziali amministratore immettere rispettivamente i valori dell' **URL di base** e del token di **porta** recuperati in precedenza in **URL tenant** e **token segreto** . Fare clic su **Test connessione** per assicurarsi che Azure ad possa connettersi a workteam. Se la connessione non riesce, verificare che l'account workteam disponga delle autorizzazioni di amministratore e riprovare.
 
@@ -144,9 +144,9 @@ Questa sezione illustra i passaggi per configurare il servizio di provisioning A
 
     ![Salvataggio della configurazione del provisioning](common/provisioning-configuration-save.png)
 
-L'operazione avvia la sincronizzazione iniziale di tutti gli utenti e/o i gruppi definiti in **Ambito** nella sezione **Impostazioni**. La sincronizzazione iniziale richiede più tempo delle sincronizzazioni successive. Per ulteriori informazioni sul tempo necessario per il provisioning di utenti e/o gruppi, vedere [quanto tempo sarà necessario per il provisioning degli utenti](../app-provisioning/application-provisioning-when-will-provisioning-finish-specific-user.md#how-long-will-it-take-to-provision-users).
+L'operazione avvia la sincronizzazione iniziale di tutti gli utenti e/o i gruppi definiti in **Ambito** nella sezione **Impostazioni**. La sincronizzazione iniziale richiede più tempo rispetto a quelle successive. Per altre informazioni sul tempo necessario per effettuare il provisioning di utenti e/o gruppi, vedere [Quanto tempo sarà necessario per eseguire il provisioning degli utenti?](../app-provisioning/application-provisioning-when-will-provisioning-finish-specific-user.md#how-long-will-it-take-to-provision-users).
 
-È possibile usare la sezione **stato corrente** per monitorare lo stato di avanzamento e selezionare i collegamenti al report delle attività di provisioning, che descrivono tutte le azioni eseguite dal servizio Azure ad provisioning su workteam. Per altre informazioni, vedere [Controllare lo stato del provisioning utenti](../app-provisioning/application-provisioning-when-will-provisioning-finish-specific-user.md). Per leggere i log di provisioning di Azure AD, vedere [creazione di report sul provisioning automatico degli account utente](../app-provisioning/check-status-user-account-provisioning.md).
+È possibile usare la sezione **stato corrente** per monitorare lo stato di avanzamento e selezionare i collegamenti al report delle attività di provisioning, che descrivono tutte le azioni eseguite dal servizio Azure ad provisioning su workteam. Per altre informazioni, vedere [Controllare lo stato del provisioning utenti](../app-provisioning/application-provisioning-when-will-provisioning-finish-specific-user.md). Per leggere i log di provisioning di Azure AD, vedere [Creazione di report sul provisioning automatico degli account utente](../app-provisioning/check-status-user-account-provisioning.md).
 
 ## <a name="additional-resources"></a>Risorse aggiuntive
 

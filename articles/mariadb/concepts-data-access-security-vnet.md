@@ -3,14 +3,14 @@ title: Endpoint del servizio VNet-database di Azure per MariaDB
 description: Questo articolo descrive il funzionamento degli endpoint di servizio di rete virtuale per il server di Database di Azure per MariaDB.
 author: savjani
 ms.author: pariks
-ms.service: jroth
+ms.service: mariadb
 ms.topic: conceptual
 ms.date: 7/17/2020
-ms.openlocfilehash: 0f90e64f2a20b6455d5a169025230b78e64287cc
-ms.sourcegitcommit: 52e3d220565c4059176742fcacc17e857c9cdd02
+ms.openlocfilehash: bd7d08e4f65612b9a76b63e8153603d043209ad3
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/21/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98662679"
 ---
 # <a name="use-virtual-network-service-endpoints-and-rules-for-azure-database-for-mariadb"></a>Usare gli endpoint servizio e le regole di rete virtuale per Database di Azure per MariaDB
