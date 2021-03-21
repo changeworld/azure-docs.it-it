@@ -3,12 +3,12 @@ title: Panoramica delle funzionalità - Hub eventi di Azure | Microsoft Docs
 description: Questo articolo fornisce informazioni dettagliate sulle funzionalità e la terminologia di Hub eventi di Azure.
 ms.topic: article
 ms.date: 03/15/2021
-ms.openlocfilehash: fbfc2a23a7cde50172b80769558c2dfd6fd5ec84
-ms.sourcegitcommit: 27cd3e515fee7821807c03e64ce8ac2dd2dd82d2
+ms.openlocfilehash: da59d62cb7060389ea94b3af5e6f66a4b6347d7d
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/16/2021
-ms.locfileid: "103601305"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104602622"
 ---
 # <a name="features-and-terminology-in-azure-event-hubs"></a>Funzionalità e terminologia di Hub eventi di Azure
 
@@ -174,7 +174,7 @@ Per altre informazioni su Hub eventi, vedere i collegamenti seguenti:
     - [.NET](event-hubs-dotnet-standard-getstarted-send.md)
     - [Java](event-hubs-java-get-started-send.md)
     - [Python](event-hubs-python-get-started-send.md)
-    - [JavaScript](event-hubs-java-get-started-send.md)
+    - [JavaScript](event-hubs-node-get-started-send.md)
 * [Guida alla programmazione di Hub eventi](event-hubs-programming-guide.md)
 * [Disponibilità e coerenza nell'Hub eventi](event-hubs-availability-and-consistency.md)
 * [Domande frequenti su Hub eventi](event-hubs-faq.md)

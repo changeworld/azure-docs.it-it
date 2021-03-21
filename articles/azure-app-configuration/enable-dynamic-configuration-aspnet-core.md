@@ -15,10 +15,10 @@ ms.date: 09/1/2020
 ms.author: alkemper
 ms.custom: devx-track-csharp, mvc
 ms.openlocfilehash: 083bd56b2b211d11206a277bf31eea797b37cdb9
-ms.sourcegitcommit: 706e7d3eaa27f242312d3d8e3ff072d2ae685956
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/09/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "99979930"
 ---
 # <a name="tutorial-use-dynamic-configuration-in-an-aspnet-core-app"></a>Esercitazione: Usare la configurazione dinamica in un'app ASP.NET Core
@@ -142,7 +142,7 @@ Una *chiave Sentinel* è una chiave speciale usata per segnalare quando la confi
 
     Per attivare effettivamente un'operazione di aggiornamento, è necessario configurare un middleware di aggiornamento per l'applicazione, per aggiornare i dati di configurazione quando si verifica una modifica. Si vedrà come eseguire questa operazione in un passaggio successivo.
 
-2. Aggiungere un file *Settings.cs* nella directory Controllers che definisce e implementa una nuova `Settings` classe. Sostituire lo spazio dei nomi con il nome del progetto. 
+2. Aggiungere un file *Settings. cs* nella directory Controllers che definisce e implementa una nuova `Settings` classe. Sostituire lo spazio dei nomi con il nome del progetto. 
 
     ```csharp
     namespace TestAppConfig

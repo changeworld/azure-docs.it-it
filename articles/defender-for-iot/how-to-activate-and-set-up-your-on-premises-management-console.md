@@ -1,18 +1,18 @@
 ---
 title: Attivare e configurare la console di gestione locale
-description: L'attivazione e l'installazione della console di gestione garantiscono che i sensori siano registrati in Azure e inviino informazioni alla console di gestione locale e che la console di gestione locale esegua le attività di gestione sui sensori connessi.
+description: L'attivazione della console di gestione garantisce che i sensori siano registrati in Azure e inviino informazioni alla console di gestione locale e che la console di gestione locale esegua le attività di gestione sui sensori connessi.
 author: shhazam-ms
 manager: rkarlin
 ms.author: shhazam
-ms.date: 1/12/2021
+ms.date: 3/18/2021
 ms.topic: how-to
-ms.service: azure
-ms.openlocfilehash: d326a90ffb957604dba74982d8983acedc6ab85d
-ms.sourcegitcommit: 27d616319a4f57eb8188d1b9d9d793a14baadbc3
+ms.service: defender-for-iot
+ms.openlocfilehash: f659b25abbbad5f2150ed44766d30dc1f64dd3bb
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/15/2021
-ms.locfileid: "100522581"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104602757"
 ---
 # <a name="activate-and-set-up-your-on-premises-management-console"></a>Attivare e configurare la console di gestione locale 
 
@@ -30,24 +30,32 @@ L'attivazione e l'installazione della console di gestione locale assicurano che:
 
 Per accedere alla console di gestione:
 
-- Aprire un Web browser e immettere l'indirizzo IP e la password ricevuti per la console di gestione locale durante l'installazione del sistema. Se si dimentica la password, selezionare **Ripristina password** e vedere [ripristino della password](how-to-manage-the-on-premises-management-console.md#password-recovery).
+1. Passare all'indirizzo IP ricevuto per la console di gestione locale durante l'installazione del sistema.
+ 
+1. Immettere il nome utente e la password ricevuti per la console di gestione locale durante l'installazione del sistema. 
 
-## <a name="upload-an-activation-file"></a>Carica un file di attivazione
 
-Dopo aver eseguito l'accesso per la prima volta, attivare la console di gestione locale scaricando un file di attivazione dalla pagina dei **prezzi** di Azure Defender per il portale. Questo file contiene i dispositivi aggregati di cui è stato eseguito il commit definiti durante il processo di onboarding. **Dispositivi** di cui è stato eseguito il commit indica il numero di dispositivi che Defender per l'Internet delle cose monitorerà per sottoscrizione
+Se la password è stata dimenticata, selezionare l'opzione **Ripristina password**  e vedere il [ripristino](how-to-manage-the-on-premises-management-console.md#password-recovery) della password per istruzioni su come recuperare la password.
 
-Per caricare un file di attivazione:
+## <a name="get-and-upload-an-activation-file"></a>Ottenere e caricare un file di attivazione
 
-1. Vai alla pagina dei **prezzi** di Defender for all.
+Dopo aver eseguito l'accesso per la prima volta, sarà necessario attivare la console di gestione locale ottenendo e caricando un file di attivazione. 
+
+Per ottenere un file di attivazione:
+
+1. Passare alla pagina dei **prezzi** di Azure Defender per il portale di Azure. 
+1. Selezionare la sottoscrizione a cui associare la console di gestione locale.
 1. Selezionare la scheda **scaricare il file di attivazione per la console di gestione** . Il file di attivazione viene scaricato.
 
    :::image type="content" source="media/how-to-manage-sensors-from-the-on-premises-management-console/cloud_download_opm_activation_file.png" alt-text="Scaricare il file di attivazione.":::
 
-1. Selezionare **impostazioni di sistema** dalla console di gestione.
-1. Selezionare **Activation**.
-1. Selezionare **Scegli un file** e selezionare il file salvato.
+Per caricare un file di attivazione:
 
-Dopo l'attivazione iniziale, il numero di dispositivi monitorati può superare il numero di dispositivi di cui è stato eseguito il commit definiti durante l'onboarding. Questo potrebbe accadere, ad esempio, se si connettono più sensori alla console di gestione. In caso di discrepanza tra il numero di dispositivi monitorati e il numero di dispositivi di cui è stato eseguito il commit, viene visualizzato un avviso nella console di gestione. In questo caso, è necessario caricare un nuovo file di attivazione.
+1. Passare alla pagina **Impostazioni sistema** nella console di gestione locale.
+1. Selezionare l'icona di **attivazione** :::image type="icon" source="media/how-to-manage-sensors-from-the-on-premises-management-console/activation-icon.png" border="false"::: .
+1. Selezionare **Scegli un file** e selezionare il file scaricato.
+
+Dopo l'attivazione iniziale, il numero di dispositivi monitorati può superare il numero di dispositivi di cui è stato eseguito il commit definiti durante l'onboarding. Questo problema si verifica se si connettono più sensori alla console di gestione. In caso di discrepanza tra il numero di dispositivi monitorati e il numero di dispositivi di cui è stato eseguito il commit, nella console di gestione verrà visualizzato un avviso. In questo caso, caricare un nuovo file di attivazione.
 
 ## <a name="set-up-a-certificate"></a>Configurare un certificato
 
@@ -316,6 +324,6 @@ Per annullare l'assegnazione ed eliminare un sensore:
 
 3. Per eliminare il sensore non assegnato dal sito, selezionare il sensore dall'elenco dei sensori non assegnati e selezionare :::image type="icon" source="media/how-to-activate-and-set-up-your-on-premises-management-console/delete-icon.png" border="false"::: .
 
-## <a name="next-steps"></a>Passaggi successivi
+## <a name="see-also"></a>Vedi anche
 
 [Risolvere i problemi relativi al sensore e alla console di gestione locale](how-to-troubleshoot-the-sensor-and-on-premises-management-console.md)

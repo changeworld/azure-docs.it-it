@@ -8,12 +8,12 @@ ms.date: 08/28/2020
 ms.author: cynthn
 ms.subservice: disks
 ms.collection: linux
-ms.openlocfilehash: a6ef2cd62fc14958e8505a03e69e4b20cf6ce49f
-ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
+ms.openlocfilehash: 0fe584ea8559c285ee7e25caca958ff56aa9454d
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/10/2021
-ms.locfileid: "102556826"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104601832"
 ---
 # <a name="use-the-portal-to-attach-a-data-disk-to-a-linux-vm"></a>Usare il portale per collegare un disco dati a una macchina virtuale Linux 
 In questo articolo viene illustrato come collegare dischi nuovi o esistenti a una macchina virtuale Linux tramite il portale di Azure. È possibile anche [collegare un disco dati a una macchina virtuale Windows nel portale di Azure](../windows/attach-managed-disk-portal.md). 
@@ -81,7 +81,7 @@ In questo esempio, il disco aggiunto è `sdc` . Si tratta di un LUN 0 e è di 4 
 
 Per un esempio più complesso, ecco l'aspetto di più dischi dati nel portale:
 
-:::image type="content" source="./media/attach-disk-portal/create-new-md.png" alt-text="Verificare le impostazioni del disco.":::
+:::image type="content" source="./media/attach-disk-portal/find-disk.png" alt-text="Screenshot di più dischi mostrati nel portale.":::
 
 Nell'immagine è possibile vedere che ci sono 3 dischi dati: 4 GB su LUN 0, 16GB in LUN 1 e 32G in LUN 2.
 
@@ -227,6 +227,6 @@ Esistono due modi per abilitare la funzione TRIM in una VM Linux. Come di consue
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Per altre informazioni e per risolvere i problemi relativi ai dischi, vedere risolvere i problemi relativi alle [modifiche del nome dispositivo della VM Linux](../troubleshooting/troubleshoot-device-names-problems.md).
+Per altre informazioni e per risolvere i problemi relativi ai dischi, vedere risolvere i problemi relativi alle [modifiche del nome dispositivo della VM Linux](/troubleshoot/azure/virtual-machines/troubleshoot-device-names-problems).
 
 È anche possibile [collegare un disco dati](add-disk.md) usando l'interfaccia della riga di comando di Azure.

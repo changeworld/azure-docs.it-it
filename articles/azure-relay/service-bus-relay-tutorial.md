@@ -5,10 +5,10 @@ ms.topic: tutorial
 ms.custom: devx-track-dotnet
 ms.date: 06/23/2020
 ms.openlocfilehash: 7669bc07ad91933cd31bd2ccd10eaf830d98de7c
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/03/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "101710788"
 ---
 # <a name="tutorial-expose-an-on-premises-wcf-rest-service-to-external-client-by-using-azure-wcf-relay"></a>Esercitazione: esporre un servizio WCF REST locale al client esterno usando Azure Inoltro WCF
@@ -304,7 +304,7 @@ Per questa esercitazione l'URI è `sb://putServiceNamespaceHere.windows.net/Echo
 
     L'host del servizio è l'oggetto WCF che crea un'istanza del servizio. In questo caso, viene passato il tipo di servizio che si vuole creare (`EchoService`), insieme all'indirizzo in cui si vuole esporre il servizio.
 
-1. Nella parte superiore del file *Program.cs* aggiungere i riferimenti a [System. ServiceModel. Description](/dotnet/api/system.servicemodel.description) e a [Microsoft. ServiceBus. Description](/dotnet/api/microsoft.servicebus.description).
+1. Nella parte superiore del file *Program. cs* aggiungere riferimenti a [System. ServiceModel. Description](/dotnet/api/system.servicemodel.description) e a [Microsoft. ServiceBus. Description](/dotnet/api/microsoft.servicebus.description).
 
     ```csharp
     using System.ServiceModel.Description;

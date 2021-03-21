@@ -8,13 +8,13 @@ ms.subservice: core
 ms.topic: reference
 author: likebupt
 ms.author: keli19
-ms.date: 07/28/2020
-ms.openlocfilehash: c6e3d56958168cd279c98a4ba4c021c2362c2694
-ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
+ms.date: 03/19/2021
+ms.openlocfilehash: 90755aef66fa51084d83d036722187b61449a6fc
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "93421312"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104656907"
 ---
 # <a name="export-data-module"></a>Modulo Export Data
 
@@ -45,13 +45,16 @@ Prima di esportare i dati, è necessario prima registrare un archivio dati nell'
     > [!NOTE]
     > L'esportazione di dati di un determinato tipo di dati in una colonna del database SQL specificata come un altro tipo di dati non è supportata. Non è necessario che la tabella di destinazione esista per prima.
 
-1. La casella di controllo **Rigenera output** , decide se eseguire il modulo per rigenerare l'output in fase di esecuzione. 
+1. La casella di controllo **Rigenera output**, decide se eseguire il modulo per rigenerare l'output in fase di esecuzione. 
 
     Per impostazione predefinita, è deselezionata, ovvero se il modulo è stato eseguito con gli stessi parametri in precedenza, il sistema riutilizzerà l'output dell'ultima esecuzione per ridurre il tempo di esecuzione. 
 
     Se questa opzione è selezionata, il sistema eseguirà di nuovo il modulo per rigenerare l'output.
 
-1. Definire il percorso nell'archivio dati in cui si trovano i dati. Il percorso è un percorso relativo. I percorsi vuoti o i percorsi URL non sono consentiti.
+1. Definire il percorso nell'archivio dati in cui si trovano i dati. Il percorso è un percorso relativo. Prendere `data/testoutput` come esempio, il che significa che i dati di input dei **dati di esportazione** verranno esportati nell' `data/testoutput` archivio dati impostato nelle **impostazioni di output** del modulo.
+
+    > [!NOTE]
+    > I percorsi vuoti o i **percorsi URL** non sono consentiti.
 
 
 1. Per **formato file** selezionare il formato in cui archiviare i dati.

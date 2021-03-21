@@ -7,10 +7,10 @@ ms.topic: how-to
 ms.date: 01/14/2020
 ms.custom: subject-moving-resources
 ms.openlocfilehash: 1b59d482b8b88e37da2d61636ff3f254a46ba5c2
-ms.sourcegitcommit: 59cfed657839f41c36ccdf7dc2bee4535c920dd4
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/06/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "99626088"
 ---
 # <a name="move-a-service-fabric-mesh-application-to-another-azure-region"></a>Spostare un'applicazione Service Fabric mesh in un'altra area di Azure
@@ -29,7 +29,7 @@ Questo articolo descrive come spostare l'applicazione Service Fabric mesh e le r
 * Il controller di ingresso, ad esempio il [gateway applicazione](../application-gateway/index.yml), funge da intermediario per il routing del traffico tra i client e l'applicazione Service Fabric mesh
 * Disponibilità di Service Fabric mesh (anteprima) nell'area di Azure di destinazione ( `westus` , `eastus` o `westeurope` )
 
-## <a name="prepare"></a>Preparare
+## <a name="prepare"></a>Preparazione
 
 1. Eseguire uno "snapshot" dello stato corrente dell'applicazione Service Fabric mesh esportando il modello di Azure Resource Manager e i parametri dalla distribuzione più recente. A tale scopo, seguire la procedura descritta in [esportare il modello dopo la distribuzione](../azure-resource-manager/templates/export-template-portal.md#export-template-after-deployment) usando il portale di Azure. È anche possibile usare l'interfaccia della riga di comando di [Azure](../azure-resource-manager/management/manage-resource-groups-cli.md#export-resource-groups-to-templates), [Azure PowerShell](../azure-resource-manager/management/manage-resource-groups-powershell.md#export-resource-groups-to-templates)o l' [API REST](/rest/api/resources/resourcegroups/exporttemplate).
 
@@ -37,7 +37,7 @@ Questo articolo descrive come spostare l'applicazione Service Fabric mesh e le r
 
 3. Esaminare (e modificare, se necessario) il modello esportato per assicurarsi che i valori di proprietà esistenti siano quelli che si vuole usare nell'area di destinazione. La nuova `location` (area di Azure) è un parametro che verrà fornito durante la ridistribuzione.
 
-## <a name="move"></a>Spostamento
+## <a name="move"></a>Sposta
 
 1. Creare un nuovo gruppo di risorse (o utilizzarne uno esistente) nell'area di destinazione.
 

@@ -6,10 +6,10 @@ ms.subservice: language-understanding
 ms.topic: reference
 ms.date: 05/08/2020
 ms.openlocfilehash: 7c65c8272172cab9f5361d16141bf7b229037480
-ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/26/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98786945"
 ---
 # <a name="language-understanding-glossary-of-common-vocabulary-and-concepts"></a>Glossario per la comprensione del linguaggio con vocabolario e concetti comuni
@@ -287,7 +287,7 @@ Nelle entità di LUIS [List](reference-entity-list.md)è possibile creare un val
 |Valore Nomalized| Sinonimi|
 |--|--|
 |Small| il piccolo, 8 once|
-|Media| normale, 12 once|
+|Medio| normale, 12 once|
 |Grande| grande, 16 once|
 |Xtra Large| quello più grande, 24 once|
 

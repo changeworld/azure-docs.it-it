@@ -11,13 +11,13 @@ ms.topic: guide
 author: stevestein
 ms.author: sstein
 ms.reviewer: ''
-ms.date: 05/29/2020
-ms.openlocfilehash: a9f9e03227bfb75d94ed79cdf858278e2efe4f31
-ms.sourcegitcommit: 5bbc00673bd5b86b1ab2b7a31a4b4b066087e8ed
+ms.date: 03/17/2021
+ms.openlocfilehash: 96f40f1abd14987b7c404f5a4210a2cab1fa9143
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/07/2021
-ms.locfileid: "102440395"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104594173"
 ---
 # <a name="azure-sql-database-and-azure-sql-managed-instance-connect-and-query-articles"></a>Articoli su come connettersi al database SQL di Azure e all'istanza gestita di SQL di Azure ed eseguire query
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -118,6 +118,7 @@ La tabella seguente elenca esempi di framework ORM (Object Relational Mapping) e
   - [Connettersi ed eseguire query con Java](connect-query-java.md)
   - [Connettersi ed eseguire query con Python](connect-query-python.md)
   - [Connettersi ed eseguire query con Ruby](connect-query-ruby.md)
+  - [Installare sqlcmd e bcp i SQL Server gli strumenti da riga di comando in Linux](/sql/linux/sql-server-linux-setup-tools) : per gli utenti Linux, provare a connettersi al database SQL di Azure o al istanza gestita SQL di Azure tramite [SQLCMD](/sql/ssms/scripting/sqlcmd-use-the-utility).
 - Esempi di codice di logica di ripetizione dei tentativi:
   - [Connettersi in modo resiliente con ADO.NET][step-4-connect-resiliently-to-sql-with-ado-net-a78n]
   - [Connettersi in modo resiliente con PHP][step-4-connect-resiliently-to-sql-with-php-p42h]

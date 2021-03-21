@@ -10,12 +10,12 @@ ms.service: cognitive-services
 ms.topic: conceptual
 ms.date: 03/15/2021
 ms.author: aahi
-ms.openlocfilehash: 69c83e9172a8369b7ff31116ee4db74fc33d86bb
-ms.sourcegitcommit: 66ce33826d77416dc2e4ba5447eeb387705a6ae5
+ms.openlocfilehash: 115457180efab719b406c4e1e021234fa99736ab
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/15/2021
-ms.locfileid: "103472121"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104670508"
 ---
 # <a name="quickstart-create-a-cognitive-services-resource-using-the-azure-portal"></a>Guida introduttiva: creare una risorsa di servizi cognitivi usando il portale di Azure
 
@@ -39,12 +39,10 @@ La risorsa multiservizio è denominata **Servizi cognitivi** nel portale. [Crear
 
 A questo punto, la risorsa multiservizio consente l'accesso ai servizi cognitivi seguenti:
 
-* Visione artificiale
-* Content Moderator
-* Viso
-* Language Understanding (LUIS)
-* Text Analytics
-* Funzione di conversione
+* **Visione** -Visione artificiale, visione personalizzata, riconoscimento moduli, viso
+* **Sintesi** vocale
+* LUIS ( **Language** -Language Understanding), analisi del testo, translator
+* Personalizzatore della **decisione** , content moderator
 
 ### <a name="single-service-resource"></a>[Risorsa a servizio singolo](#tab/singleservice)
 
@@ -52,10 +50,11 @@ Usare i collegamenti seguenti per creare una risorsa per i servizi cognitivi dis
 
 | Visione                      | Sintesi vocale                  | Lingua                          | Decisione             |
 |-----------------------------|-------------------------|-----------------------------------|----------------------|
-| [Visione artificiale](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesComputerVision)         | [Servizi vocali](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesSpeechServices)     | [Lettore immersivo](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesImmersiveReader)              | [Rilevamento anomalie](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesAnomalyDetector) | 
-| [Servizio visione artificiale personalizzato](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesCustomVision) | [Riconoscimento del parlante](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesSpeakerRecognition) | [Language Understanding (LUIS)](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesLUISAllInOne) | [Content Moderator](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesContentModerator) | 
+| [Visione artificiale](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesComputerVision)         | [Servizi Voce](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesSpeechServices)     | [Lettore immersivo](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesImmersiveReader)              | [Rilevamento anomalie](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesAnomalyDetector) | 
+| [Servizio visione artificiale personalizzato](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesCustomVision) |  | [Language Understanding (LUIS)](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesLUISAllInOne) | [Content Moderator](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesContentModerator) | 
 | [Viso](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesFace)                    |                         | [QnA Maker](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesQnAMaker)                     | [Personalizza esperienze](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesPersonalizer)     |
-| [Riconoscimento input penna](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesInkRecognizer)        |                         | [Analisi del testo](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesTextAnalytics)                |  [Advisor metriche](https://go.microsoft.com/fwlink/?linkid=2142156)                    |
+| [Riconoscimento modulo](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesFormRecognizer)        |                         | [Analisi del testo](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesTextAnalytics)                |  [Advisor metriche](https://go.microsoft.com/fwlink/?linkid=2142156)                    |
+| | | [Translator](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesTextTranslation) | |
 
 ---
 
@@ -72,9 +71,10 @@ Usare i collegamenti seguenti per creare una risorsa per i servizi cognitivi dis
 | **Nome** | Nome descrittivo per la risorsa di Servizi cognitivi. Ad esempio, *MyCognitiveServicesResource*. |
 | **Piano tariffario** | Il costo dell'account Servizi cognitivi dipende dalle opzioni scelte e dall'utilizzo. Per altre informazioni, vedere i [dettagli sui prezzi](https://azure.microsoft.com/pricing/details/cognitive-services/) delle API.
 
-![Schermata di creazione delle risorse per più servizi](media/cognitive-services-apis-create-account/resource_create_screen-multi.png)
+<!--![Multi-service resource creation screen](media/cognitive-services-apis-create-account/resource_create_screen-multi.png)-->
+:::image type="content" source="media/cognitive-services-apis-create-account/resource_create_screen-multi.png" alt-text="Schermata di creazione di risorse per più servizi":::
 
-Selezionare **Crea**.
+Leggere e accettare le condizioni (come applicabile), quindi selezionare **Verifica + crea**.
 
 ### <a name="single-service-resource"></a>[Risorsa a servizio singolo](#tab/singleservice)
 
@@ -86,9 +86,10 @@ Selezionare **Crea**.
 | **Nome** | Nome descrittivo per la risorsa di Servizi cognitivi. Ad esempio, *MyCognitiveServicesResource*. |
 | **Piano tariffario** | Il costo dell'account Servizi cognitivi dipende dalle opzioni scelte e dall'utilizzo. Per altre informazioni, vedere i [dettagli sui prezzi](https://azure.microsoft.com/pricing/details/cognitive-services/) delle API.
 
-![Schermata di creazione di risorse a servizio singolo](media/cognitive-services-apis-create-account/resource_create_screen.png)
+<!--![Single-service resource creation screen](media/cognitive-services-apis-create-account/resource_create_screen.png)-->
+:::image type="content" source="media/cognitive-services-apis-create-account/resource_create_screen.png" alt-text="Schermata di creazione di risorse a servizio singolo":::
 
-Selezionare **Crea**.
+Selezionare **Avanti: rete virtuale** e scegliere il tipo di accesso alla rete che si vuole consentire per la risorsa e quindi selezionare **Verifica + crea**.
 
 ---
 

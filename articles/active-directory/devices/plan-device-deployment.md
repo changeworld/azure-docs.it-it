@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: fc631e4329c1df2cdcbfe57c2b43ccccf14afa85
-ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/06/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97936448"
 ---
 # <a name="plan-your-azure-active-directory-device-deployment"></a>Pianificare la distribuzione del dispositivo Azure Active Directory
@@ -34,7 +34,7 @@ Sono disponibili diversi metodi per integrare i dispositivi in Azure AD:
 
 * [Creare un join di Azure ad ibrido](concept-azure-ad-join-hybrid.md) tra dispositivi nel Active Directory locale e Azure ad. 
 
-## <a name="learn"></a>Informazioni
+## <a name="learn"></a>Learn
 
 Prima di iniziare, assicurarsi di avere familiarità con la [panoramica sulla gestione delle identità dei dispositivi](overview.md).
 

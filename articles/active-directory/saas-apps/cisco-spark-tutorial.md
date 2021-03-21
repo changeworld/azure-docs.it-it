@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 02/17/2021
 ms.author: jeedes
-ms.openlocfilehash: 23c2b55fd56677a15f444e1b568517bdf1c32c99
-ms.sourcegitcommit: dda0d51d3d0e34d07faf231033d744ca4f2bbf4a
+ms.openlocfilehash: ad6d5308638b112afe2b51c4e149f876651e429d
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102200802"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104592524"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-cisco-webex"></a>Esercitazione: Integrazione dell'accesso Single Sign-On (SSO) di Azure Active Directory con Cisco Webex
 
@@ -38,7 +38,7 @@ Per iniziare, sono necessari gli elementi seguenti:
 In questa esercitazione vengono eseguiti la configurazione e il test dell'accesso Single Sign-On di Azure AD in un ambiente di test.
 
 * Cisco Webex supporta l'accesso SSO avviato da **SP**.
-* Cisco WebEx supporta il [**provisioning automatizzato degli utenti**](https://docs.microsoft.com/azure/active-directory/saas-apps/cisco-webex-provisioning-tutorial).
+* Cisco WebEx supporta il [**provisioning automatizzato degli utenti**](./cisco-webex-provisioning-tutorial.md).
 
 ## <a name="adding-cisco-webex-from-the-gallery"></a>Aggiunta di Cisco Webex dalla raccolta
 
@@ -159,7 +159,7 @@ In questa sezione si abiliterà B. Simon all'uso dell'accesso Single Sign-On di 
 
 ### <a name="create-cisco-webex-test-user"></a>Creare un utente di test per Cisco Webex
 
-In questa sezione, un utente denominato B. Simon viene creato in Cisco WebEx. questa applicazione supporta il provisioning utenti automatico, che consente il provisioning e il deprovisioning automatici in base alle regole di business.  Quando possibile, Microsoft consiglia di usare il provisioning automatico. Vedere come abilitare il provisioning automatico per [Cisco WebEx](https://docs.microsoft.com/azure/active-directory/saas-apps/cisco-webex-provisioning-tutorial).
+In questa sezione, un utente denominato B. Simon viene creato in Cisco WebEx. questa applicazione supporta il provisioning utenti automatico, che consente il provisioning e il deprovisioning automatici in base alle regole di business.  Quando possibile, Microsoft consiglia di usare il provisioning automatico. Vedere come abilitare il provisioning automatico per [Cisco WebEx](./cisco-webex-provisioning-tutorial.md).
 
 Per creare un utente manualmente, seguire questa procedura:
 
@@ -195,7 +195,7 @@ In questa sezione viene testata la configurazione dell'accesso Single Sign-On di
 
 * Passare direttamente all'URL di accesso a Cisco WebEx e avviare il flusso di accesso da qui.
 
-* È possibile usare App personali Microsoft. Quando si fa clic sul riquadro Cisco WebEx in app personali, questo verrà reindirizzato all'URL di accesso a Cisco WebEx. Per altre informazioni su App personali, vedere l'[introduzione ad App personali](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+* È possibile usare App personali Microsoft. Quando si fa clic sul riquadro Cisco WebEx in app personali, questo verrà reindirizzato all'URL di accesso a Cisco WebEx. Per altre informazioni su App personali, vedere l'[introduzione ad App personali](../user-help/my-apps-portal-end-user-access.md).
 
 
 ## <a name="next-steps"></a>Passaggi successivi

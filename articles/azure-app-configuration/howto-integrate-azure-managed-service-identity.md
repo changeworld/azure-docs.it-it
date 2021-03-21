@@ -9,10 +9,10 @@ ms.custom: devx-track-csharp, fasttrack-edit
 ms.topic: conceptual
 ms.date: 2/25/2020
 ms.openlocfilehash: 2f446df95c795eaac378340ed0d5de7b31dfcfee
-ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/05/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102219039"
 ---
 # <a name="use-managed-identities-to-access-app-configuration"></a>Usare le identità gestite per accedere a Configurazione app
@@ -96,7 +96,7 @@ Per configurare un'identità gestita nel portale, è innanzitutto necessario cre
     }
     ```
 
-1. Aprire *Program.cs* e aggiungere un riferimento agli `Azure.Identity` `Microsoft.Azure.Services.AppAuthentication` spazi dei nomi e:
+1. Aprire *Program. cs* e aggiungere un riferimento agli `Azure.Identity` `Microsoft.Azure.Services.AppAuthentication` spazi dei nomi e:
 
     ```csharp-interactive
     using Azure.Identity;
@@ -148,7 +148,7 @@ Per configurare un'identità gestita nel portale, è innanzitutto necessario cre
     >Come illustrato nelle [domande frequenti sulle identità gestite per le risorse di Azure](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/known-issues#what-identity-will-imds-default-to-if-dont-specify-the-identity-in-the-request), esiste una modalità predefinita per risolvere l'identità gestita usata. In questo caso, la libreria di identità di Azure impone di specificare l'identità desiderata per evitare problemi di runtime di posible in futuro, ad esempio se viene aggiunta una nuova identità gestita assegnata dall'utente o se è abilitata l'identità gestita assegnata dal sistema. Sarà quindi necessario specificare i ClientID anche se è definita una sola identità gestita assegnata dall'utente e non è presente alcuna identità gestita assegnata dal sistema.
 
 
-1. Per usare sia i valori di configurazione delle app che i riferimenti Key Vault, aggiornare *Program.cs* come illustrato di seguito. Questo codice chiama `SetCredential` come parte di `ConfigureKeyVault` per indicare al provider di configurazione le credenziali da usare per l'autenticazione per Key Vault.
+1. Per usare sia i valori di configurazione delle app che i riferimenti Key Vault, aggiornare *Program. cs* , come illustrato di seguito. Questo codice chiama `SetCredential` come parte di `ConfigureKeyVault` per indicare al provider di configurazione le credenziali da usare per l'autenticazione per Key Vault.
 
     ### <a name="net-core-2x"></a>[.NET Core 2.x](#tab/core2x)
 

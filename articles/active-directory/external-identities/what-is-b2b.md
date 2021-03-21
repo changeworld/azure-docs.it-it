@@ -5,19 +5,19 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: overview
-ms.date: 03/02/2021
+ms.date: 03/19/2021
 ms.author: mimart
 author: msmimart
 manager: celestedg
 ms.reviewer: mal
 ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8bee6a007004253106703ae2c19b940bf3de5d44
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: 231d3ab81c2376aa8a2a4bf182e1b5e9799e51d5
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101649292"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104669781"
 ---
 # <a name="what-is-guest-user-access-in-azure-active-directory-b2b"></a>Che cos'è l'accesso utente guest in Azure Active Directory B2B?
 
@@ -80,7 +80,7 @@ Gli amministratori possono aggiungere facilmente utenti guest all'organizzazione
 
 ## <a name="integrate-with-identity-providers"></a>Integrazione con i provider di identità
 
-Azure AD supporta provider di identità esterni come Facebook, account Microsoft, Google o provider di identità aziendali. È possibile configurare la federazione con i provider di identità in modo che gli utenti esterni possano accedere con i propri account aziendali o di social networking invece di crearne uno nuovo solo per l'applicazione. Vedere altre informazioni sui provider di identità per Identità esterne.
+Azure AD supporta provider di identità esterni come Facebook, account Microsoft, Google o provider di identità aziendali. È possibile configurare la federazione con i provider di identità in modo che gli utenti esterni possano accedere con i propri account aziendali o di social networking invece di crearne uno nuovo solo per l'applicazione. Altre informazioni sui [provider di identità per le identità esterne](identity-providers.md).
 
 ![Screenshot con la pagina di provider di identità](media/what-is-b2b/identity-providers.png)
 

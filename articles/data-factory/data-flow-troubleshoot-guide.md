@@ -6,13 +6,13 @@ author: kromerm
 ms.reviewer: daperlov
 ms.service: data-factory
 ms.topic: troubleshooting
-ms.date: 03/15/2021
-ms.openlocfilehash: fe65a9528e35416d537f3aecd3a44f8b4e568afe
-ms.sourcegitcommit: 3ea12ce4f6c142c5a1a2f04d6e329e3456d2bda5
+ms.date: 03/18/2021
+ms.openlocfilehash: 8617c32eac86d8e47678c06e3b028a475b4a5efb
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/15/2021
-ms.locfileid: "103467732"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104593852"
 ---
 # <a name="troubleshoot-mapping-data-flows-in-azure-data-factory"></a>Risolvere i problemi relativi al mapping dei flussi di dati in Azure Data Factory
 
@@ -26,12 +26,6 @@ Questo articolo illustra i metodi comuni per la risoluzione dei problemi relativ
 - **Messaggio**: data preview, debug, and pipeline data flow execution failed because container does not exist (esecuzione del flusso di dati di anteprima, debug e pipeline non riuscita. Il contenitore non esiste)
 - **Motivo**: un set di dati contiene un contenitore che non esiste nell'archivio.
 - **Raccomandazione**: assicurarsi che il contenitore a cui si fa riferimento nel set di dati esista e che sia accessibile.
-
-### <a name="error-code-df-executor-systemimplicitcartesian"></a>Codice errore: DF-Executor-SystemImplicitCartesian
-
-- **Messaggio**: implicit cartesian product for INNER join is not supported, use CROSS JOIN instead (il prodotto cartesiano implicito per INNER JOIN non è supportato. Usare CROSS JOIN). Le colonne usate nel join devono creare una chiave univoca per le righe.
-- **Motivo**: i prodotti cartesiani impliciti per Inner join tra piani logici non sono supportati. Se si usano colonne nel join, creare una chiave univoca con almeno una colonna da entrambi i lati della relazione.
-- **Raccomandazione**: per i join non basati sull'uguaglianza, usare cross join personalizzato.
 
 ### <a name="error-code-df-executor-systeminvalidjson"></a>Codice errore: DF-Executor-SystemInvalidJson
 
@@ -82,11 +76,6 @@ Questo articolo illustra i metodi comuni per la risoluzione dei problemi relativ
 - **Motivo**: il tipo di dati per il tipo dichiarato non è compatibile con il valore del parametro effettivo.
 - **Raccomandazione**: controllare che i valori dei parametri passati nel flusso di dati corrispondano al tipo dichiarato.
 
-### <a name="error-code-df-executor-columnunavailable"></a>Codice di errore: DF-Executor-ColumnUnavailable
-- **Messaggio**: il nome della colonna utilizzato nell'espressione non è disponibile o non è valido
-- **Cause**: nome di colonna non valido o non disponibile usato in un'espressione.
-- **Raccomandazione**: controllare i nomi delle colonne nelle espressioni.
-
 ### <a name="error-code-df-executor-parseerror"></a>Codice di errore: DF-Executor-ParseError
 - **Messaggio**: non è possibile analizzare l'espressione
 - **Causa**: un'espressione ha generato errori di analisi a causa di una formattazione non corretta.
@@ -96,29 +85,6 @@ Questo articolo illustra i metodi comuni per la risoluzione dei problemi relativ
 - **Messaggio**: implicit cartesian product for INNER join is not supported, use CROSS JOIN instead (il prodotto cartesiano implicito per INNER JOIN non è supportato. Usare CROSS JOIN). Le colonne usate nel join devono creare una chiave univoca per le righe.
 - **Motivo**: i prodotti cartesiani impliciti per Inner join tra piani logici non sono supportati. Se si usano colonne nel join, creare una chiave univoca.
 - **Raccomandazione**: per i join non basati sull'uguaglianza, usare cross join.
-
-### <a name="error-code-df-executor-systeminvalidjson"></a>Codice errore: DF-Executor-SystemInvalidJson
-- **Messaggio**: JSON parsing error, unsupported encoding or multiline (errore di analisi JSON, codifica non supportata o su più righe)
-- **Causa**: possibili problemi con il file JSON: codifica non supportata, byte danneggiati o uso dell'origine JSON come documento singolo su molte righe nidificate.
-- **Raccomandazione**: verificare che la codifica del file JSON sia supportata. Nella trasformazione di origine che usa un set di dati JSON, espandere **Impostazioni JSON** e attivare un **singolo documento**.
-
-
-
-### <a name="error-code-df-executor-conversion"></a>Codice errore: DF-Executor-Conversion
-- **Messaggio**: converting to a date or time failed due to an invalid character (conversione in una data o ora non riuscita a causa di un carattere non valido)
-- **Motivo**: i dati non sono nel formato previsto.
-- **Raccomandazione**: usare il tipo di dati corretto.
-
-
-### <a name="error-code-df-executor-blockcountexceedslimiterror"></a>Codice di errore: DF-Executor-BlockCountExceedsLimitError
-- **Messaggio**: il conteggio dei blocchi di cui non è stato eseguito il commit non può superare il limite massimo di 100.000 blocchi. Controllare la configurazione del BLOB.
-- **Motivo**: il numero massimo di blocchi di cui non è stato eseguito il commit in un blob è 100.000.
-- **Consiglio**: per informazioni dettagliate su questo problema, contattare il team del prodotto Microsoft.
-
-### <a name="error-code-df-executor-partitiondirectoryerror"></a>Codice di errore: DF-Executor-PartitionDirectoryError
-- **Messaggio**: il percorso di origine specificato ha più directory partizionate, ad esempio *<Source Path> /<directory radice della partizione 1>/a = 10/b = 20, <Source Path> /<directory radice partizione 2>/c = 10/d = 30*) o directory partizionata con altro file o directory non partizionata (ad esempio *<Source Path> /<directory radice partizione 1>/A = 10/b = 20, <Source Path> /Directory 2/file1*), rimuovere la directory radice della partizione dal percorso di origine e leggerla tramite una trasformazione di origine separata.
-- **Causa**: il percorso di origine contiene più directory partizionate o una directory partizionata con un altro file o una directory non partizionata. 
-- **Raccomandazione**: rimuovere la directory radice partizionata dal percorso di origine e leggerla tramite una trasformazione di origine separata.
 
 ### <a name="error-code-getcommand-outputasync-failed"></a>Codice errore: GetCommand OutputAsync failed
 - **Messaggio**: durante il debug di Flusso di dati e l'anteprima dei dati: GetCommand OutputAsync failed with ... (l'operazione GetCommand OutputAsync non è riuscita con ...)
@@ -137,22 +103,10 @@ Questo articolo illustra i metodi comuni per la risoluzione dei problemi relativ
 - **Causa**: il nome dell'account o la chiave di accesso non è corretta.
 - **Raccomandazione**: assicurarsi che il nome dell'account o la chiave di accesso specificata nel servizio collegato sia corretta. 
 
-### <a name="error-code-df-executor-invalidtype"></a>Codice di errore: DF-Executor-InvalidType
-- **Messaggio**: assicurarsi che il tipo di parametro corrisponda al tipo di valore passato. Il passaggio di parametri float dalle pipeline non è attualmente supportato.
-- **Motivo**: il tipo di dati per il tipo dichiarato non è compatibile con il valore del parametro effettivo. 
-- **Raccomandazione**: specificare i tipi di dati corretti.
-
 ### <a name="error-code-df-executor-columnunavailable"></a>Codice di errore: DF-Executor-ColumnUnavailable
 - **Messaggio**: il nome della colonna utilizzato nell'espressione non è disponibile o non è valido.
 - **Motivo**: un nome di colonna non valido o non disponibile viene utilizzato in un'espressione.
 - **Raccomandazione**: controllare i nomi di colonna usati nelle espressioni.
-
-
-### <a name="error-code-df-executor-parseerror"></a>Codice di errore: DF-Executor-ParseError
-- **Messaggio**: Impossibile analizzare l'espressione.
-- **Causa**: un'espressione ha generato errori di analisi a causa di una formattazione non corretta. 
-- **Raccomandazione**: controllare la formattazione nell'espressione.
-
 
  ### <a name="error-code-df-executor-outofdiskspaceerror"></a>Codice di errore: DF-Executor-OutOfDiskSpaceError
 - **Messaggio**: errore interno del server
