@@ -9,10 +9,10 @@ ms.subservice: blobs
 ms.topic: quickstart
 ms.custom: devx-track-csharp
 ms.openlocfilehash: bb26a865ab8b8beba99fcba51e2d05e166b1e84b
-ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/04/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102095358"
 ---
 # <a name="quickstart-azure-blob-storage-client-library-v12-for-net"></a>Guida introduttiva: libreria client di archiviazione BLOB di Azure V12 per .NET
@@ -80,7 +80,7 @@ dotnet add package Azure.Storage.Blobs
 
 Dalla directory del progetto:
 
-1. Aprire il file *Program.cs* nell'editor.
+1. Aprire il file *Program. cs* nell'editor.
 1. Rimuovere l'istruzione `Console.WriteLine("Hello World!");` .
 1. Aggiungere `using` direttive.
 1. Aggiornare la `Main` dichiarazione di metodo per supportare Async.

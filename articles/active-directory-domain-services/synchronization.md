@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.date: 07/06/2020
 ms.author: justinha
 ms.openlocfilehash: 41ba337765b4a0a93be52f08ae6656707cf7aa73
-ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/05/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96618808"
 ---
 # <a name="how-objects-and-credentials-are-synchronized-in-an-azure-active-directory-domain-services-managed-domain"></a>Modalità di sincronizzazione di oggetti e credenziali in un Azure Active Directory Domain Services dominio gestito
@@ -24,7 +24,7 @@ Gli oggetti e le credenziali in un dominio gestito di Azure Active Directory Dom
 
 In un ambiente ibrido, gli oggetti e le credenziali di un dominio di servizi di dominio Active Directory locale possono essere sincronizzati con Azure AD usando Azure AD Connect. Una volta che gli oggetti sono stati sincronizzati correttamente con Azure AD, la sincronizzazione automatica in background rende disponibili tali oggetti e credenziali per le applicazioni che usano il dominio gestito.
 
-Se servizi di dominio Active Directory e Azure AD locali sono configurati per l'autenticazione federata tramite ADFS, non è disponibile alcun hash della password (corrente/valida) in Azure DS. Azure AD gli account utente creati prima dell'implementazione dell'autenticazione basata su Fed potrebbero avere un vecchio hash della password, ma probabilmente non corrisponde a un hash della password locale. Di conseguenza Azure AD DS non sarà in grado di convalidare le credenziali degli utenti.
+Se Active Directory Domain Services locale e Azure AD sono configurati per l'autenticazione federata tramite ADFS, non è disponibile alcun hash delle password (corrente/valido) in Azure DS. Gli account utente di Azure AD creati prima dell'implementazione dell'autenticazione federata potrebbero avere un hash delle password precedente, che probabilmente non corrisponde a un hash della password locale. Di conseguenza Azure AD DS non sarà in grado di convalidare le credenziali degli utenti.
 
 Il diagramma seguente illustra il funzionamento della sincronizzazione tra Azure AD DS, Azure AD e un ambiente di servizi di dominio Active Directory locale facoltativo:
 

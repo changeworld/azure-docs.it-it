@@ -8,10 +8,10 @@ author: trkeya
 ms.author: trkeya
 ms.date: 08/25/2020
 ms.openlocfilehash: 3c8b9444344e5bae414145e2b3367c265114a423
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/17/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100586853"
 ---
 # <a name="use-azure-table-storage-to-manage-commercial-marketplace-leads"></a>Usare l'archiviazione tabelle di Azure per gestire i lead del marketplace commerciale
@@ -183,7 +183,7 @@ Quando si è pronti per configurare le informazioni di gestione dei lead per l'o
 
 1. Passare alla pagina **Configurazione dell'offerta** per l'offerta.
 
-1. Nella sezione **Customer leads** (Lead clienti) selezionare **Connect** (Connetti).
+1. Nella sezione **Customer leads** (Lead clienti) selezionare **Connetti**.
 
     :::image type="content" source="./media/commercial-marketplace-lead-management-instructions-azure-table/customer-leads.png" alt-text="Lead clienti":::
 

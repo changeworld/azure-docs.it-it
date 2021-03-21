@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: conceptual
 ms.date: 03/12/2021
 ms.author: duau
-ms.openlocfilehash: 417a6a55f0114ec35554e598b456f4fb67eb1c1b
-ms.sourcegitcommit: 87a6587e1a0e242c2cfbbc51103e19ec47b49910
+ms.openlocfilehash: da293f15ba070fc9a00ad37defd6a76175ded2f2
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/16/2021
-ms.locfileid: "103574459"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104587280"
 ---
 # <a name="expressroute-faq"></a>Domande frequenti su ExpressRoute
 
@@ -204,7 +204,7 @@ Se il provider di servizi offre ExpressRoute in entrambe le località, è possib
 
 Sì. È possibile avere più circuiti ExpressRoute con provider di servizi uguali o diversi. Se nell'area metropolitana sono presenti più località peer per ExpressRoute e i circuiti vengono creati in località peer diverse, è possibile collegarli alla stessa rete virtuale. Se i circuiti vengono creati nella stessa posizione di peering, è possibile collegare fino a quattro circuiti alla stessa rete virtuale.
 
-### <a name="how-do-i-connect-my-virtual-networks-to-an-expressroute-circuit"></a>Come si connettono le reti virtuali a un circuito ExpressRoute?
+### <a name="how-do-i-connect-my-virtual-networks-to-an-expressroute-circuit"></a>Ricerca per categorie connettere le reti virtuali a un circuito ExpressRoute?
 
 I passaggi di base sono:
 
@@ -298,6 +298,15 @@ Sarà anche necessario contattare il provider di connettività per assicurare ch
 ### <a name="how-do-i-change-the-bandwidth-of-an-expressroute-circuit"></a>Come si modifica la larghezza di banda di un circuito ExpressRoute?
 
 È possibile aggiornare la larghezza di banda del circuito ExpressRoute usando l'API REST dedicata o il cmdlet di PowerShell.
+
+### <a name="i-received-a-notification-about-maintenance-on-my-expressroute-circuit-what-is-the-technical-impact-of-this-maintenance"></a>Ho ricevuto una notifica relativa alla manutenzione del circuito ExpressRoute. Qual è l'effetto tecnico di questa manutenzione?
+
+Se si utilizza il circuito in [modalità attivo-attivo](https://docs.microsoft.com/azure/expressroute/designing-for-high-availability-with-expressroute#active-active-connections), è consigliabile non avere alcun effetto minimo durante la manutenzione. Viene eseguita la manutenzione delle connessioni primarie e secondarie del circuito separatamente. La manutenzione pianificata viene in genere eseguita al di fuori dell'orario di ufficio nel fuso orario della località di peering e non è possibile selezionare un'ora di manutenzione.
+
+### <a name="i-received-a-notification-about-a-software-upgrade-or-maintenance-on-my-expressroute-gateway-what-is-the-technical-impact-of-this-maintenance"></a>È stata ricevuta una notifica relativa all'aggiornamento del software o alla manutenzione del gateway ExpressRoute. Qual è l'effetto tecnico di questa manutenzione?
+
+Durante un aggiornamento software o una manutenzione sul gateway, è consigliabile avere un effetto minimo. Il gateway ExpressRoute è costituito da più istanze e durante gli aggiornamenti, le istanze vengono portate offline una alla volta. Sebbene sia possibile che il gateway supporti temporaneamente una velocità effettiva di rete inferiore alla rete virtuale, il gateway stesso non subirà alcun tempo di inattività.
+
 
 ## <a name="expressroute-premium"></a>ExpressRoute Premium
 

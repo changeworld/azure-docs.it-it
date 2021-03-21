@@ -4,14 +4,14 @@ description: Informazioni su come copiare dati da archivi di origine supportati 
 author: linda33wj
 ms.service: data-factory
 ms.topic: conceptual
-ms.date: 02/20/2021
+ms.date: 03/17/2021
 ms.author: jingwang
-ms.openlocfilehash: ebafac024593767e884be908acbf0efb9ead50e9
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 9e6be88af13d5dd7ddceba32ec08cab54ca5e3a0
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101703304"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104587273"
 ---
 # <a name="copy-data-from-and-to-oracle-by-using-azure-data-factory"></a>Copiare dati da e in Oracle usando Azure Data Factory
 
@@ -263,6 +263,7 @@ Per copiare dati in Oracle, impostare il tipo di sink nell'attività di copia su
 | writeBatchSize | Inserisce i dati nella tabella SQL quando la dimensione del buffer raggiunge `writeBatchSize` .<br/>I valori consentiti sono integer (numero di righe). |No (il valore predefinito è 10.000) |
 | writeBatchTimeout | Tempo di attesa per l'operazione di inserimento batch da completare prima del timeout.<br/>I valori consentiti sono un intervallo di tempo. Ad esempio "00:30:00" (30 minuti). | No |
 | preCopyScript | Specificare una query SQL per l'attività di copia da eseguire prima di scrivere i dati in Oracle a ogni esecuzione. È possibile usare questa proprietà per pulire i dati precaricati. | No |
+| maxConcurrentConnections |Limite massimo di connessioni simultanee stabilite all'archivio dati durante l'esecuzione dell'attività. Specificare un valore solo quando si desidera limitare le connessioni simultanee.| No |
 
 **Esempio:**
 

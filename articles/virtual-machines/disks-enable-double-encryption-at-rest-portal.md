@@ -9,17 +9,17 @@ ms.service: virtual-machines
 ms.subservice: disks
 ms.custom: references_regions
 ms.openlocfilehash: b5f58b549fc9d879f6c2e5515c679d82c3ff44e4
-ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
+ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/10/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102560362"
 ---
 # <a name="use-the-azure-portal-to-enable-double-encryption-at-rest-for-managed-disks"></a>Usare il portale di Azure per abilitare la crittografia doppia per i dischi gestiti
 
 Archiviazione su disco di Azure supporta la crittografia doppia per i dischi gestiti. Per informazioni di carattere generale sulla crittografia dei dati inattivi, oltre ad altri tipi di crittografia del disco gestito, vedere la sezione relativa alla crittografia [a doppio](disk-encryption.md#double-encryption-at-rest) inattivo dell'articolo crittografia del disco.
 
-## <a name="getting-started"></a>Guida introduttiva
+## <a name="getting-started"></a>Introduzione
 
 1. Accedere al [portale di Azure](https://aka.ms/diskencryptionupdates).
 

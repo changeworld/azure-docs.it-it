@@ -4,10 +4,10 @@ description: Descrive in che modo i tipi di risorsa gestiscono l'eliminazione in
 ms.topic: conceptual
 ms.date: 10/21/2020
 ms.openlocfilehash: e0c67bfcda81ad128e0018c4ab37c4b0cbe680f0
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/26/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96184026"
 ---
 # <a name="deletion-of-azure-resources-for-complete-mode-deployments"></a>Eliminazione di risorse di Azure per distribuzioni in modalità completa
@@ -920,7 +920,7 @@ Passare a uno spazio dei nomi del provider di risorse:
 > | Departments | No |
 > | Dimensioni | No |
 > | EnrollmentAccounts | No |
-> | Esporta | No |
+> | Esportazioni | No |
 > | ExternalBillingAccounts | No |
 > | ExternalBillingAccounts/avvisi | No |
 > | ExternalBillingAccounts/dimensioni | No |
@@ -1391,7 +1391,7 @@ Passare a uno spazio dei nomi del provider di risorse:
 > [!div class="mx-tableFixed"]
 > | Tipo di risorsa | Eliminazione in modalità completa |
 > | ------------- | ----------- |
-> | dispositivi | Sì |
+> | devices | Sì |
 > | networkFunctions | Sì |
 > | networkFunctionVendors | No |
 > | registeredSubscriptions | No |
@@ -2410,7 +2410,7 @@ Passare a uno spazio dei nomi del provider di risorse:
 > [!div class="mx-tableFixed"]
 > | Tipo di risorsa | Eliminazione in modalità completa |
 > | ------------- | ----------- |
-> | dispositivi | Sì |
+> | devices | Sì |
 > | registeredSubscriptions | No |
 > | fornitori | No |
 > | fornitori/SKU | No |

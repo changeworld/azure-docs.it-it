@@ -1,9 +1,9 @@
 ---
 ms.openlocfilehash: 69fd32c1569dbd1f08815be156585b0cce9f10d4
-ms.sourcegitcommit: 31cfd3782a448068c0ff1105abe06035ee7b672a
-ms.translationtype: HT
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/10/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98061067"
 ---
 Quando si configurano le risorse di Azure, nella VM Linux di Azure usata come dispositivo IoT Edge viene copiato un breve video del traffico in autostrada. In questa guida il file video viene usato per simulare uno streaming live.

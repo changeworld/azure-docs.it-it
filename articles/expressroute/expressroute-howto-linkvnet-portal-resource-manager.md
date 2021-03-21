@@ -9,10 +9,10 @@ ms.date: 10/15/2020
 ms.author: duau
 ms.custom: seodec18
 ms.openlocfilehash: 0ffc9c2ee17862497d3fd986da8e003f7a497056
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
-ms.translationtype: HT
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/25/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "95998771"
 ---
 # <a name="tutorial-connect-a-virtual-network-to-an-expressroute-circuit-using-the-portal"></a>Esercitazione: Connettere una rete virtuale a un circuito ExpressRoute usando il portale
@@ -27,7 +27,7 @@ ms.locfileid: "95998771"
 
 Questa esercitazione spiega come creare una connessione per collegare una rete virtuale a un circuito Azure ExpressRoute tramite il portale di Azure. Le reti virtuali da connettere al circuito Azure ExpressRoute possono trovarsi nella stessa sottoscrizione o appartenere a un'altra sottoscrizione.
 
-In questa esercitazione si apprenderà come:
+In questa esercitazione verranno illustrate le procedure per:
 > [!div class="checklist"]
 > - Collegare una rete virtuale a un circuito nella stessa sottoscrizione.
 > - Collegare una rete virtuale a un circuito in un'altra sottoscrizione.

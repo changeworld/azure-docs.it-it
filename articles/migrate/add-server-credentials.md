@@ -7,10 +7,10 @@ ms.manager: abhemraj
 ms.topic: how-to
 ms.date: 01/26/2021
 ms.openlocfilehash: 2359855ce3949eb022a03f6e8e2dbc05f98907db
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/04/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102054773"
 ---
 # <a name="provide-server-credentials-to-discover-applications-dependencies-and-sql-server-instances-and-databases"></a>Fornire le credenziali del server per individuare le applicazioni, le dipendenze e i database e le istanze di SQL Server
@@ -18,7 +18,7 @@ ms.locfileid: "102054773"
 Seguire questo articolo per informazioni su come aggiungere più credenziali del server in Gestione configurazione Appliance per eseguire l'inventario software (individuare le applicazioni installate), l'analisi delle dipendenze senza agenti e individuare SQL Server istanze e database.
 
 > [!Note]
-> L'individuazione e la valutazione di SQL Server istanze e database in esecuzione nell'ambiente VMware sono ora in anteprima. Per provare questa funzionalità, usare [**questo collegamento**](https://aka.ms/AzureMigrate/SQL) per creare un progetto nell'area **Australia orientale** . Se si dispone già di un progetto in Australia orientale e si vuole provare questa funzionalità, assicurarsi di aver completato questi [**prerequisiti**](how-to-discover-sql-existing-project.md) nel portale.
+> L'individuazione e la valutazione di SQL Server istanze e database in esecuzione nell'ambiente VMware sono ora in anteprima. Per provare questa funzionalità, usare [**questo collegamento**](https://aka.ms/AzureMigrate/SQL) per creare un progetto nell'area **Australia orientale**. Se si dispone già di un progetto nell'Australia orientale e si vuole provare questa funzionalità, assicurarsi di aver completato questi [**prerequisiti**](how-to-discover-sql-existing-project.md) nel portale.
 
 Il [Azure migrate Appliance](migrate-appliance.md) è un'appliance semplice usata da Azure migrate: server assessment per individuare i server locali in esecuzione nell'ambiente VMware e inviare i metadati di configurazione e prestazioni del server ad Azure. Il dispositivo può essere usato anche per eseguire l'inventario software, l'analisi delle dipendenze senza agenti e l'individuazione di SQL Server istanze e database.
 

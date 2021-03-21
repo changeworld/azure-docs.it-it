@@ -12,12 +12,12 @@ ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: c19f6f8c59ac38bf46999372497205e0c33ebac4
-ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
+ms.openlocfilehash: 3a3cdb93ee4cbf4a2e15540b9daf78b6c231d393
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102175108"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104579740"
 ---
 # <a name="configure-session-behavior-in-azure-active-directory-b2c"></a>Configurare il comportamento della sessione in Azure Active Directory B2C
 
@@ -81,7 +81,7 @@ La sessione dell'applicazione può essere una sessione basata su cookie archivia
   - **Tenant**: questa è l'impostazione predefinita. L'uso di questa impostazione consente a più applicazioni e flussi utente del tenant di B2C di condividere la stessa sessione utente. Ad esempio, una volta che un utente accede a un'applicazione, l'utente può anche accedere a un altro utente in seguito all'accesso.
   - **Applicazione**: questa impostazione consente di mantenere una sessione utente esclusivamente per un'applicazione, indipendentemente dalle altre applicazioni. Ad esempio, è possibile usare questa impostazione se si vuole che l'utente possa accedere a Contoso Pharmacy indipendentemente dal fatto che l'utente abbia già eseguito l'accesso a Contoso Grocers.
   - **Criterio**: questa impostazione consente di mantenere una sessione utente esclusivamente per un flusso utente, indipendentemente dalle applicazioni che lo usano. Se, ad esempio, l'utente ha già effettuato l'accesso e ha completato un passaggio di multi-factor authentication, l'utente può accedere a parti con sicurezza più elevata di più applicazioni, purché la sessione associata al flusso utente non scada.
-  - **Disabilitato** : questa impostazione impone all'utente di eseguire il flusso dell'intero utente a ogni esecuzione del criterio.
+  - **Eliminato** : questa impostazione impone all'utente di eseguire l'intero flusso utente a ogni esecuzione del criterio.
 - **Mantieni l'accesso (KMSI)** : estende la durata della sessione tramite l'uso di un cookie permanente. Se questa funzionalità è abilitata e l'utente la seleziona, la sessione rimane attiva anche dopo che l'utente ha chiuso e riaperto il browser. La sessione viene revocata solo quando l'utente si disconnette. La funzionalità KMSI si applica solo all'accesso con account locali. La funzionalità KMSI ha la precedenza sulla durata della sessione.
 
 ::: zone pivot="b2c-user-flow"
@@ -249,7 +249,7 @@ In seguito a una richiesta di disconnessione, Azure AD B2C:
 ::: zone-end
 ::: zone pivot="b2c-custom-policy"
 3. Tenta di disconnettersi dai provider di identità federati:
-   - OpenId Connect: se l'endpoint di configurazione noto del provider di identità specifica un `end_session_endpoint` percorso.
+   - OpenId Connect: se l'endpoint di configurazione noto del provider di identità specifica un `end_session_endpoint` percorso. La richiesta di disconnessione non passa il `id_token_hint` parametro. Se il provider di identità federato richiede questo parametro, la richiesta di disconnessione avrà esito negativo.
    - OAuth2-se i [metadati del provider di identità](oauth2-technical-profile.md#metadata) contengono il `end_session_endpoint` percorso.
    - SAML: se i [metadati del provider di identità](identity-provider-generic-saml.md) contengono il `SingleLogoutService` percorso.
 4. Facoltativamente, si disconnette da altre applicazioni. Per altre informazioni, vedere la sezione [Single Sign-out](#single-sign-out) .

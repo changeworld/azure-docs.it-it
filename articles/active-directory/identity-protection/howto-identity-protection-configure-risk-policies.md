@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 366d68be1a7f115980973015e363da6095876754
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/25/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "95997631"
 ---
 # <a name="how-to-configure-and-enable-risk-policies"></a>Procedura: configurare e abilitare i criteri di rischio
@@ -54,7 +54,7 @@ I [percorsi di rete](../conditional-access/location-condition.md) attendibili co
 Per abilitare il rischio utente e i criteri di rischio di accesso, completare i passaggi seguenti.
 
 1. Passare al [portale di Azure](https://portal.azure.com).
-1. Passare a **Azure Active Directory**  >  Panoramica di **Security**  >  **Identity Protection**  >  **Overview**.
+1. Passare a **Azure Active Directory**  >  Panoramica di **Security**  >  **Identity Protection**  >  .
 1. Selezionare **criteri di rischio utente**.
    1. In **assegnazioni**
       1. **Utenti** : scegliere **tutti gli utenti** o **selezionare singoli utenti e gruppi** in caso di limitazione dell'implementazione.

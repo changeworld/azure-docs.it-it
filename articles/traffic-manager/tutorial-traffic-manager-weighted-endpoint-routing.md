@@ -9,10 +9,10 @@ ms.topic: tutorial
 ms.date: 10/19/2020
 ms.author: duau
 ms.openlocfilehash: 55c316a370b9e44e906e48b4716201384567c9c2
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
-ms.translationtype: HT
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/25/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96003787"
 ---
 # <a name="tutorial-control-traffic-routing-with-weighted-endpoints-by-using-traffic-manager"></a>Esercitazione: Controllare il routing del traffico agli endpoint ponderati con Gestione traffico
@@ -137,7 +137,7 @@ Creare un profilo di Gestione traffico basato sul metodo di routing **Ponderato*
 1. In alto a sinistra nella schermata selezionare **Crea una risorsa** > **Rete** > **Profilo di Gestione traffico** > **Crea**.
 2. In **Crea profilo di Gestione traffico** immettere o selezionare le informazioni seguenti. Accettare i valori predefiniti delle altre impostazioni e quindi selezionare **Crea**.
 
-    | Impostazione                 | valore                                              |
+    | Impostazione                 | Valore                                              |
     | ---                     | ---                                                |
     | Nome                   | Immettere un nome univoco all'interno della zona trafficmanager.net. Tale nome determinerà il nome DNS trafficmanager.net, che viene usato per accedere al profilo di Gestione traffico.                                   |
     | Metodo di routing          | Selezionare il metodo di routing **Ponderato**.                                       |
@@ -155,7 +155,7 @@ Aggiungere le due macchine virtuali che eseguono i server IIS, ovvero myIISVMEas
 2. In **Profilo di Gestione traffico** selezionare **Endpoint** > **Aggiungi** nella sezione **Impostazioni**.
 3. Immettere o selezionare le informazioni seguenti. Accettare i valori predefiniti delle altre impostazioni e quindi fare clic su **OK**.
 
-    | Impostazione                 | valore                                              |
+    | Impostazione                 | Valore                                              |
     | ---                     | ---                                                |
     | Type                    | Immettere l'endpoint di Azure.                                   |
     | Nome           | Immettere **myEastUSEndpoint**.                                        |

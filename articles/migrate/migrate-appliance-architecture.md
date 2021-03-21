@@ -7,10 +7,10 @@ ms.manager: abhemraj
 ms.topic: conceptual
 ms.date: 06/09/2020
 ms.openlocfilehash: d695758849fd4f7e6f595820221f6b8606fe7cf1
-ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/04/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102096191"
 ---
 # <a name="azure-migrate-appliance-architecture"></a>Architettura dell'appliance di Azure Migrate
@@ -51,7 +51,7 @@ L'Appliance dispone dei servizi seguenti:
 - **SQL Discovery and Assessment Agent**: Invia i metadati di configurazione e delle prestazioni di SQL Server istanze e database in Azure.
 
 > [!Note]
-> Gli ultimi 3 servizi sono disponibili solo nell'appliance usato per l'individuazione e la valutazione dei server in esecuzione nell'ambiente VMware.<br/> L'individuazione e la valutazione di SQL Server istanze e database in esecuzione nell'ambiente VMware sono ora in anteprima. Per provare questa funzionalità, usare [**questo collegamento**](https://aka.ms/AzureMigrate/SQL) per creare un progetto nell'area **Australia orientale** . Se si dispone già di un progetto in Australia orientale e si vuole provare questa funzionalità, assicurarsi di aver completato questi [**prerequisiti**](how-to-discover-sql-existing-project.md) nel portale.
+> Gli ultimi 3 servizi sono disponibili solo nell'appliance usato per l'individuazione e la valutazione dei server in esecuzione nell'ambiente VMware.<br/> L'individuazione e la valutazione di SQL Server istanze e database in esecuzione nell'ambiente VMware sono ora in anteprima. Per provare questa funzionalità, usare [**questo collegamento**](https://aka.ms/AzureMigrate/SQL) per creare un progetto nell'area **Australia orientale**. Se si dispone già di un progetto nell'Australia orientale e si vuole provare questa funzionalità, assicurarsi di aver completato questi [**prerequisiti**](how-to-discover-sql-existing-project.md) nel portale.
 
 
 ## <a name="discovery-and-collection-process"></a>Processo di individuazione e raccolta

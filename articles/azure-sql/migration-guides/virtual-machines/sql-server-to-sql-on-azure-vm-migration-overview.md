@@ -11,10 +11,10 @@ ms.author: markjon
 ms.reviewer: mathoma
 ms.date: 11/06/2020
 ms.openlocfilehash: 0eabb48aabcb50557b342385068807eb67a9b165
-ms.sourcegitcommit: 95c2cbdd2582fa81d0bfe55edd32778ed31e0fe8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/26/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98797854"
 ---
 # <a name="migration-overview-sql-server-to-sql-server-on-azure-vms"></a>Panoramica della migrazione: SQL Server SQL Server in macchine virtuali di Azure
@@ -77,7 +77,7 @@ La tabella seguente illustra in dettaglio il metodo disponibile per la strategia
 | --- | --- | --- | --- | --- |
 | [Azure Migrate](../../../migrate/index.yml) | SQL Server 2008 SP4| SQL Server 2008 SP4| [Limite di archiviazione della macchina virtuale di Azure](../../../index.yml) |  SQL Server esistenti da spostare così come sono nell'istanza di SQL Server in una macchina virtuale di Azure. Consente di ridimensionare i carichi di lavoro di migrazione fino a 35.000 VM. <br /><br /> I server di origine restano online e richiedono richieste durante la sincronizzazione dei dati del server, riducendo al minimo i tempi di inattività. <br /><br /> **Scripting & di automazione**: [Azure Site Recovery script](../../../migrate/how-to-migrate-at-scale.md) ed [esempio di migrazione e pianificazione con scalabilità per Azure](/azure/cloud-adoption-framework/migrate/azure-best-practices/contoso-migration-scale)|
 
-## <a name="migrate"></a>Migrazione  
+## <a name="migrate"></a>Migrate  
 
 A causa della semplicità di installazione, l'approccio di migrazione consigliato consiste nell'eseguire un [backup](/sql/t-sql/statements/backup-transact-sql) nativo SQL Server localmente e quindi copiare il file in Azure. Questo metodo supporta database di dimensioni maggiori (>1 TB) per tutte le versioni di SQL Server a partire da 2008 e backup di database di dimensioni maggiori (>1 TB). Tuttavia, per i database a partire da SQL Server 2014, che hanno dimensioni inferiori a 1 TB e che dispongono di una connettività adeguata ad Azure, [SQL Server backup su URL](/sql/relational-databases/backup-restore/sql-server-backup-to-url) è l'approccio migliore. 
 

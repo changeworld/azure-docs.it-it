@@ -5,10 +5,10 @@ ms.date: 06/25/2019
 ms.service: cognitive-services
 ms.topic: include
 ms.openlocfilehash: b08516b35a864eae6d15c4c5c928f0550c64c239
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/25/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96001178"
 ---
 Fluentd è un agente di raccolta dati open source per la registrazione unificata. Le impostazioni `Fluentd` gestiscono la connessione del contenitore a un server [Fluentd](https://www.fluentd.org). Il contenitore include un provider di registrazione di Fluentd che consente al contenitore di scrivere log e, facoltativamente, dati delle metriche in un server di Fluentd.

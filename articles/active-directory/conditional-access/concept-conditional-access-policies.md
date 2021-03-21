@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: conceptual
-ms.date: 10/16/2020
+ms.date: 03/17/2021
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 28d58c476a805b672a6ec8b4d8ec465eba17e559
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: 35d2bf33b4a22c14abfb61a87a3697b05188ed31
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96169682"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104579094"
 ---
 # <a name="building-a-conditional-access-policy"></a>Creazione di un criterio di accesso condizionale
 
@@ -71,7 +71,7 @@ Le organizzazioni con più piattaforme del sistema operativo per dispositivi pot
 
 Le informazioni utilizzate per calcolare la piattaforma del dispositivo provengono da origini non verificate, ad esempio stringhe agente utente che possono essere modificate.
 
-#### <a name="locations"></a>Percorsi
+#### <a name="locations"></a>Posizioni
 
 I dati relativi alla posizione sono forniti dai dati di georilevazione IP. Gli amministratori possono scegliere di definire le località e scegliere di contrassegnare alcuni come attendibili come quelli per i percorsi di rete dell'organizzazione.
 
@@ -106,13 +106,15 @@ Il controllo Grant può attivare l'applicazione di uno o più controlli.
 - Richiedi dispositivo aggiunto ad Azure AD ibrido
 - Richiedere app client approvata
 - Richiedere criteri di protezione dell'app
+- Richiedere la modifica della password
+- Richiedere le condizioni per l'utilizzo
 
 Gli amministratori possono scegliere di richiedere uno dei controlli precedenti o tutti i controlli selezionati usando le opzioni seguenti. Il valore predefinito per più controlli consiste nel richiedere all.
 
 - Richiedi tutti i controlli selezionati (controllo e controllo)
 - Richiedi uno dei controlli selezionati (controllo o controllo)
 
-### <a name="session"></a>sessione
+### <a name="session"></a>Sessione
 
 I [controlli della sessione](concept-conditional-access-session.md) possono limitare l'esperienza 
 
@@ -150,7 +152,7 @@ L'articolo [criteri di accesso condizionale comuni](concept-conditional-access-p
 
 [Simulare il comportamento di accesso usando lo strumento What If per l'accesso condizionale](troubleshoot-conditional-access-what-if.md)
 
-[Pianificazione di una distribuzione di Multi-Factor Authentication Azure AD basata sul cloud](../authentication/howto-mfa-getstarted.md)
+[Pianificazione di una distribuzione di Azure AD Multi-Factor Authentication basata sul cloud](../authentication/howto-mfa-getstarted.md)
 
 [Gestione della conformità dei dispositivi con Intune](/intune/device-compliance-get-started)
 

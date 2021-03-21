@@ -1,6 +1,6 @@
 ---
-title: File di inclusione
-description: File di inclusione
+title: includere file
+description: includere file
 services: storage
 author: twooley
 ms.service: storage
@@ -9,10 +9,10 @@ ms.date: 11/19/2018
 ms.author: twooley
 ms.custom: include file
 ms.openlocfilehash: 51b76e2d5feb2b194ba472c2982ca0ace0f6f5fb
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
-ms.translationtype: HT
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/25/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96001738"
 ---
 |Category | Archivio dati |  
