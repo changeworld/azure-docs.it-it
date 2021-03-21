@@ -8,28 +8,28 @@ ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 09/01/2020
 ms.openlocfilehash: 9e4d686f582a202dbc543620c7bf73dc4e7adb22
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/14/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100389179"
 ---
 # <a name="azure-private-link-for-azure-data-factory"></a>Collegamento privato di Azure per Azure Data Factory
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-xxx-md.md)]
 
-Con il collegamento privato di Azure è possibile connettersi a varie distribuzioni di piattaforme distribuite come servizio (PaaS) in Azure tramite un endpoint privato. Un endpoint privato è un indirizzo IP privato all'interno di una rete virtuale e una subnet specifiche. Per un elenco delle distribuzioni PaaS che supportano la funzionalità di collegamento privato, vedere la [documentazione del collegamento privato](../private-link/index.yml). 
+Con il collegamento privato di Azure è possibile connettersi a varie distribuzioni di piattaforme distribuite come servizio (PaaS) in Azure tramite un endpoint privato. Un endpoint privato è un indirizzo IP privato all'interno di una rete virtuale e di una subnet specifiche. Per un elenco delle distribuzioni PaaS che supportano la funzionalità di collegamento privato, vedere la [documentazione del collegamento privato](../private-link/index.yml). 
 
 ## <a name="secure-communication-between-customer-networks-and-azure-data-factory"></a>Comunicazione sicura tra le reti dei clienti e Azure Data Factory 
-È possibile configurare una rete virtuale di Azure come rappresentazione logica della rete nel cloud. Questa operazione offre i vantaggi seguenti:
-* Proteggi le tue risorse di Azure da attacchi nelle reti pubbliche.
-* Si consente alle reti e Data Factory di comunicare in modo sicuro tra loro. 
+È possibile configurare una rete virtuale di Azure come una rappresentazione logica della propria rete nel cloud. Questa operazione offre i vantaggi seguenti:
+* È possibile proteggere le risorse di Azure da attacchi nelle reti pubbliche.
+* Si consente alle reti e a Data Factory di comunicare in modo sicuro tra loro. 
 
-È anche possibile connettere una rete locale alla rete virtuale configurando una connessione VPN Internet Protocol Security (IPsec) (da sito a sito) o una connessione di Azure ExpressRoute (peering privato). 
+È anche possibile connettere una rete locale alla rete virtuale configurando una connessione VPN (da sito a sito) con Internet Protocol Security (IPsec) o una connessione di Azure ExpressRoute (peering privato). 
 
 È anche possibile installare un runtime di integrazione self-hosted in un computer locale o in una macchina virtuale nella rete virtuale. In questo modo è possibile:
 * Eseguire attività di copia tra un archivio dati cloud e un archivio dati in una rete privata.
-* Inviare le attività di trasformazione sulle risorse di calcolo in una rete locale o in una rete virtuale di Azure. 
+* Inviare le attività di trasformazione per le risorse di calcolo in una rete locale o in una rete virtuale di Azure. 
 
 Tra Azure Data Factory e la rete virtuale del cliente sono necessari diversi canali di comunicazione, come illustrato nella tabella seguente:
 

@@ -10,17 +10,17 @@ ms.date: 01/05/2021
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to configure compute on Azure Stack Edge Pro so I can use it to transform the data before sending it to Azure.
 ms.openlocfilehash: 28b5c107fb35c7bda9b1680050b92004436b98ff
-ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
-ms.translationtype: HT
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/06/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97935463"
 ---
 # <a name="tutorial-transform-data-with-azure-stack-edge-pro"></a>Esercitazione: Trasformare i dati con Azure Stack Edge Pro
 
 <!--[!INCLUDE [applies-to-skus](../../includes/azure-stack-edge-applies-to-all-sku.md)]-->
 
-Questa esercitazione illustra come configurare un ruolo di calcolo nel dispositivo Azure Stack Edge Pro. Dopo la configurazione del ruolo di calcolo, Azure Stack Edge Pro può trasformare i dati prima che vengano inviati ad Azure.
+Questa esercitazione descrive come configurare un ruolo di calcolo nel dispositivo Azure Stack Edge Pro. Dopo la configurazione del ruolo di calcolo, Azure Stack Edge Pro può trasformare i dati prima che vengano inviati ad Azure.
 
 Il completamento di questa procedura può richiedere circa 10-15 minuti.
 

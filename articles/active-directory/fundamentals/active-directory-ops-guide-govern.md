@@ -12,10 +12,10 @@ ms.subservice: fundamentals
 ms.date: 10/31/2019
 ms.author: martinco
 ms.openlocfilehash: ba3ca140abe36a31ffa03422420ea537bbe4f39a
-ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/06/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97935751"
 ---
 # <a name="azure-active-directory-governance-operations-reference-guide"></a>Guida di riferimento per le operazioni di Azure Active Directory governance
@@ -113,7 +113,7 @@ Per impedire che il tenant venga bloccato inavvertitamente perché non è possib
 
 ### <a name="privileged-access-to-azure-ea-portal"></a>Accesso con privilegi al portale EA di Azure
 
-Il [portale di azure Enterprise Agreement (Azure EA)](https://azure.microsoft.com/blog/create-enterprise-subscription-experience-in-azure-portal-public-preview/) consente di creare sottoscrizioni di Azure per un Enterprise Agreement Master, che è un ruolo potente all'interno dell'azienda. È comune avviare la creazione di questo portale prima di ottenere Azure AD sul posto, quindi è necessario usare Azure AD identità per bloccarlo, rimuovere gli account personali dal portale, assicurarsi che sia presente la delega appropriata e mitigare il rischio di blocco.
+Il [portale di azure contratto Enterprise (Azure EA)](https://azure.microsoft.com/blog/create-enterprise-subscription-experience-in-azure-portal-public-preview/) consente di creare sottoscrizioni di Azure per un contratto Enterprise Master, che è un ruolo potente all'interno dell'azienda. È comune avviare la creazione di questo portale prima di ottenere Azure AD sul posto, quindi è necessario usare Azure AD identità per bloccarlo, rimuovere gli account personali dal portale, assicurarsi che sia presente la delega appropriata e mitigare il rischio di blocco.
 
 Per chiarire, se il livello di autorizzazione del portale EA è attualmente impostato su "modalità mista", è necessario rimuovere tutti gli [account Microsoft](https://support.skype.com/en/faq/FA12059/what-is-a-microsoft-account) da tutti gli accessi con privilegi nel portale EA e configurare il portale EA per l'uso di Azure ad solo account. Se i ruoli delegati del portale EA non sono configurati, è inoltre necessario trovare e implementare i ruoli delegati per i reparti e gli account.
 

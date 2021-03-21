@@ -10,10 +10,10 @@ ms.reviewer: mikeray
 ms.date: 02/11/2021
 ms.topic: how-to
 ms.openlocfilehash: 046f9d80c034e1ac1f2e7ffe144b4f389861b043
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/03/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "101687941"
 ---
 # <a name="create-an-azure-arc-enabled-postgresql-hyperscale-server-group"></a>Creare un gruppo di server PostgreSQL Hyperscale abilitato per Azure Arc
@@ -24,7 +24,7 @@ Questo documento descrive i passaggi per creare un gruppo di server con iperscal
 
 [!INCLUDE [azure-arc-data-preview](../../../includes/azure-arc-data-preview.md)]
 
-## <a name="getting-started"></a>Guida introduttiva
+## <a name="getting-started"></a>Introduzione
 Se si ha già familiarità con gli argomenti riportati di seguito, è possibile ignorare questo paragrafo.
 È possibile leggere alcuni argomenti importanti prima di procedere con la creazione:
 - [Panoramica dei servizi dati abilitati per Azure Arc](overview.md)

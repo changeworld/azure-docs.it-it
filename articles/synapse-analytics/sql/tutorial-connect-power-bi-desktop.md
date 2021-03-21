@@ -10,10 +10,10 @@ ms.date: 05/20/2020
 ms.author: stefanazaric
 ms.reviewer: jrasnick
 ms.openlocfilehash: 8dd3edd25d21bfcd0fde1bc8b5f103877d968c8a
-ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
-ms.translationtype: HT
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/12/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98119986"
 ---
 # <a name="tutorial-use-serverless-sql-pool-with-power-bi-desktop--create-a-report"></a>Esercitazione: Usare un pool SQL serverless con Power BI Desktop e creare un report

@@ -7,10 +7,10 @@ ms.author: daviste
 ms.date: 07/17/2017
 ms.reviewer: mbullwin
 ms.openlocfilehash: d0e5cb5097a2f8833b10fec16a99b67c5c109fc8
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/17/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100583465"
 ---
 # <a name="discover-how-customers-are-using-your-application-with-application-insights-funnels"></a>Informazioni sulle modalità d'uso dell'applicazione da parte dei clienti attraverso gli imbuti di Application Insights

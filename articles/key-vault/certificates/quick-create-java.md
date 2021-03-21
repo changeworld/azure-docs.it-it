@@ -9,10 +9,10 @@ ms.service: key-vault
 ms.subservice: certificates
 ms.topic: quickstart
 ms.openlocfilehash: 99b8c63060cebeffea0f3473e03b5f49a415230b
-ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
-ms.translationtype: HT
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/06/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97936040"
 ---
 # <a name="quickstart-azure-key-vault-certificate-client-library-for-java-certificates"></a>Avvio rapido: Libreria client di certificati di Azure Key Vault per Java (certificati)

@@ -17,10 +17,10 @@ ms.workload: infrastructure
 ms.date: 12/11/2020
 ms.author: kumud
 ms.openlocfilehash: cb3a4b6a726ee9163582b15586c65fc750712c63
-ms.sourcegitcommit: 1bdcaca5978c3a4929cccbc8dc42fc0c93ca7b30
-ms.translationtype: HT
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/13/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97368294"
 ---
 # <a name="tutorial-restrict-network-access-to-paas-resources-with-virtual-network-service-endpoints-using-the-azure-portal"></a>Esercitazione: Limitare l'accesso di rete alle risorse PaaS con gli endpoint servizio di rete virtuale usando il portale di Azure
@@ -49,9 +49,9 @@ Accedere al portale di Azure all'indirizzo https://portal.azure.com.
 2. Selezionare **Rete** e quindi **Reti virtuali**.
 3. Fare clic su **+ Aggiungi** e immettere le informazioni seguenti: 
 
-   |Impostazione|valore|
+   |Impostazione|Valore|
    |----|----|
-   |Sottoscrizione| Selezionare la propria sottoscrizione|
+   |Subscription| Selezionare la propria sottoscrizione|
    |Resource group | Selezionare **Crea nuovo** e immettere *myResourceGroup*.|
    |Name| Immettere *myVirtualNetwork* |
    |Area| Selezionare **(Stati Uniti) Stati Uniti orientali** |
@@ -89,7 +89,7 @@ Gli endpoint di servizio sono abilitati per servizio e per subnet. Per creare un
 
 3. In **Aggiungi subnet** selezionare o immettere le informazioni seguenti e quindi fare clic su **OK**:
 
-    |Impostazione|valore|
+    |Impostazione|Valore|
     |----|----|
     |Nome| Privato |
     |Intervallo di indirizzi| Lasciare il valore predefinito|
@@ -110,9 +110,9 @@ Per impostazione predefinita, tutte le istanze di macchine virtuali in una subne
 3. Nella pagina **Gruppi di sicurezza di rete** fare clic su **+ Aggiungi**.
 4. Immettere le informazioni seguenti 
 
-    |Impostazione|valore|
+    |Impostazione|Valore|
     |----|----|
-    |Sottoscrizione| Selezionare la propria sottoscrizione|
+    |Subscription| Selezionare la propria sottoscrizione|
     |Gruppo di risorse | Selezionare *myResourceGroup* nell'elenco|
     |Name| Immettere **myNsgPrivate** |
     |Location| Selezionare **Stati Uniti orientali**. |
@@ -123,7 +123,7 @@ Per impostazione predefinita, tutte le istanze di macchine virtuali in una subne
 8. Selezionare **+ Aggiungi**.
 9. Creare una regola che consenta le comunicazioni in uscita al servizio Archiviazione di Azure. Immettere o selezionare le informazioni seguenti e quindi fare clic su **Aggiungi**:
 
-    |Impostazione|valore|
+    |Impostazione|Valore|
     |----|----|
     |Source (Sorgente)| Selezionare **VirtualNetwork** |
     |Intervalli di porte di origine| * |
@@ -131,13 +131,13 @@ Per impostazione predefinita, tutte le istanze di macchine virtuali in una subne
     |Tag del servizio di destinazione | Selezionare **Archiviazione**|
     |Intervalli di porte di destinazione| Lasciare il valore predefinito *8080* |
     |Protocollo|Qualsiasi|
-    |Azione|Consenti|
+    |Azione|Allow|
     |Priorità|100|
     |Nome|Assegnare il nuovo nome **Allow-Storage-All**|
 
 10. Creare un'altra regola di sicurezza in uscita che neghi la comunicazione in Internet. Questa regola esegue l'override di una regola predefinita in tutti i gruppi di sicurezza di rete che consente le comunicazioni Internet in uscita. Completare i passaggi 6-9 precedenti usando i valori seguenti:
 
-    |Impostazione|valore|
+    |Impostazione|Valore|
     |----|----|
     |Source (Sorgente)| Selezionare **VirtualNetwork** |
     |Intervalli di porte di origine| * |
@@ -153,14 +153,14 @@ Per impostazione predefinita, tutte le istanze di macchine virtuali in una subne
 12. In **Impostazioni** selezionare **Regole di sicurezza in ingresso**.
 13. Selezionare **+ Aggiungi** e usare i valori seguenti:
 
-    |Impostazione|valore|
+    |Impostazione|Valore|
     |----|----|
-    |Origine| Qualsiasi |
+    |Source (Sorgente)| Qualsiasi |
     |Intervalli di porte di origine| * |
     |Destination | Selezionare **VirtualNetwork**|
     |Intervalli di porte di destinazione| Cambiare il valore in *3389* |
     |Protocollo|Qualsiasi|
-    |Azione|Consenti|
+    |Azione|Allow|
     |Priorità|120|
     |Nome|Cambiare il nome in *Allow-RDP-All*|
 
@@ -183,9 +183,9 @@ I passaggi necessari per limitare l'accesso di rete alle risorse create tramite 
 3. Fare clic su **+ Aggiungi**.
 4. Immettere le seguenti informazioni:
 
-    |Impostazione|valore|
+    |Impostazione|Valore|
     |----|----|
-    |Sottoscrizione| Selezionare la propria sottoscrizione|
+    |Subscription| Selezionare la propria sottoscrizione|
     |Gruppo di risorse| Selezionare *MyResourceGroup*|
     |Nome account di archiviazione| Immettere un nome univoco per tutte le località di Azure, di lunghezza compresa tra 3 e 24 caratteri e costituito solo da numeri e lettere minuscole.|
     |Posizione| Selezionare **(Stati Uniti) Stati Uniti orientali** |
@@ -205,7 +205,7 @@ I passaggi necessari per limitare l'accesso di rete alle risorse create tramite 
 1. Passare alla pagina di panoramica dell'account di archiviazione.
 2. Selezionare l'icona dell'app **Condivisioni file**, quindi fare clic su **+ Condivisione file**.
 
-    |Impostazione|valore|
+    |Impostazione|Valore|
     |----|----|
     |Nome| my-file-share|
     |Quota| 'Imposta su massimo' |
@@ -224,9 +224,9 @@ Per impostazione predefinita, gli account di archiviazione accettano connessioni
 3. Selezionare **+ Aggiungi rete virtuale esistente**.
 4. In **Aggiungi reti** selezionare i valori seguenti e quindi selezionare **Aggiungi**:
 
-    |Impostazione|valore|
+    |Impostazione|Valore|
     |----|----|
-    |Sottoscrizione| Selezionare la propria sottoscrizione|
+    |Subscription| Selezionare la propria sottoscrizione|
     |Reti virtuali| **myVirtualNetwork**|
     |Subnet| **Privata**|
 
@@ -249,9 +249,9 @@ Per testare l'accesso di rete a un account di archiviazione, distribuire una VM 
 2. Selezionare **+ Aggiungi > Macchina virtuale**. 
 3. Immettere le informazioni seguenti:
 
-   |Impostazione|valore|
+   |Impostazione|Valore|
    |----|----|
-   |Sottoscrizione| Selezionare la propria sottoscrizione|
+   |Subscription| Selezionare la propria sottoscrizione|
    |Gruppo di risorse| Selezionare **myResourceGroup, creato in precedenza.|
    |Nome macchina virtuale| Immettere *myVmPublic*|
    |Area | (Stati Uniti) Stati Uniti orientali

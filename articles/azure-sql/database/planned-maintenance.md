@@ -12,10 +12,10 @@ ms.author: aamalvea
 ms.reviewer: sstein
 ms.date: 1/21/2021
 ms.openlocfilehash: d38ac9731959cf9a23052753b09c9e7819846705
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/02/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "101664118"
 ---
 # <a name="plan-for-azure-maintenance-events-in-azure-sql-database-and-azure-sql-managed-instance"></a>Pianificare gli eventi di manutenzione di Azure nel database SQL di Azure e in Azure SQL Istanza gestita

@@ -7,10 +7,10 @@ ms.topic: how-to
 ms.date: 01/13/2020
 ms.author: rohogue
 ms.openlocfilehash: c17d3c7cd2cf6fe5bca725cf94344b2d2cb50bf2
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/25/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96001525"
 ---
 # <a name="configure-storage"></a>Configurare l'archiviazione
@@ -172,7 +172,7 @@ Altre informazioni sulle giunzioni sono disponibili nella [sezione relativa agli
 
 Attenersi alla seguente procedura nell'interfaccia del pannello di controllo di.
 
-* Fare **VServer** clic su  >  **spazio dei nomi** vserver in alto a sinistra.
+* Fare clic su  >  **spazio dei nomi** vserver in alto a sinistra.
 * Fornire un percorso dello spazio dei nomi che inizi con una barra (/), ad esempio ``/vfxt/data``.
 * Scegliere il core filer.
 * Scegliere l'esportazione del core filer.

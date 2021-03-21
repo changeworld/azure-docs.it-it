@@ -6,13 +6,13 @@ ms.date: 10/09/2019
 ms.topic: tutorial
 ms.author: jgao
 ms.openlocfilehash: 12d246a493ff9ee9e20868da32d633d51939e66c
-ms.sourcegitcommit: 59cfed657839f41c36ccdf7dc2bee4535c920dd4
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/06/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "99626628"
 ---
-# <a name="tutorial-use-health-check-in-azure-deployment-manager-public-preview"></a>Esercitazione: Usare il controllo integrità in Azure Deployment Manager (anteprima pubblica)
+# <a name="tutorial-use-health-check-in-azure-deployment-manager-public-preview"></a>Esercitazione: usare il controllo integrità in Azure Gestione distribuzione (anteprima pubblica)
 
 Informazioni su come integrare il controllo integrità in [Azure Deployment Manager](./deployment-manager-overview.md). Questa esercitazione si basa sull'esercitazione [Usare Azure Deployment Manager con modelli di Resource Manager](./deployment-manager-tutorial.md). Prima di procedere, è necessario completare tale esercitazione.
 

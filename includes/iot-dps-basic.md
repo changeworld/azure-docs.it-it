@@ -1,6 +1,6 @@
 ---
-title: File di inclusione
-description: File di inclusione
+title: includere file
+description: includere file
 services: iot-dps
 author: kgremban
 ms.service: iot-dps
@@ -9,10 +9,10 @@ ms.date: 04/01/2018
 ms.author: kgremban
 ms.custom: include file
 ms.openlocfilehash: ccbfb83c779adbeb6a93a3a09896a7f5050c692a
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
-ms.translationtype: HT
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/25/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96001406"
 ---
 >[!NOTE]

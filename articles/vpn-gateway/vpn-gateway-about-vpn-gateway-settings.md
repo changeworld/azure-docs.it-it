@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 10/21/2020
 ms.author: cherylmc
 ms.openlocfilehash: 1aba87b2139fb8a7d395fb3180d2074e47310fa9
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/25/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96010815"
 ---
 # <a name="about-vpn-gateway-configuration-settings"></a>Informazioni sulle impostazioni di configurazione del gateway VPN
@@ -53,7 +53,7 @@ New-AzVirtualNetworkGateway -Name vnetgw1 -ResourceGroupName testrg `
 
 ### <a name="configure-a-gateway-sku"></a>Configurare uno SKU del gateway
 
-**Portale di Azure**
+**Azure portal**
 
 Se si usa il portale di Azure per creare un gateway di rete virtuale di Resource Manager, è possibile selezionare lo SKU del dal menu a discesa. Le opzioni disponibili corrispondono al tipo di gateway e al tipo di VPN selezionati.
 
@@ -83,7 +83,7 @@ Se è disponibile un gateway VPN e si vuole usare un diverso SKU del gateway, le
 
 #### <a name="to-resize-a-gateway"></a><a name="resizegwsku"></a>Per ridimensionare un gateway
 
-**Portale di Azure**
+**Azure portal**
 
 [!INCLUDE [Resize a SKU - portal](../../includes/vpn-gateway-resize-gw-portal-include.md)]
 
@@ -177,7 +177,7 @@ Per altre risorse tecniche e requisiti di sintassi specifici quando si usano le 
 | --- | --- |
 | [PowerShell](/powershell/module/az.network/#networking) |[PowerShell](/powershell/module/az.network#vpn) |
 | [REST API](/previous-versions/azure/reference/jj154113(v=azure.100)) |[REST API](/rest/api/network/virtualnetworkgateways) |
-| Non supportate | [Interfaccia della riga di comando di Azure](/cli/azure/network/vnet-gateway)|
+| Non supportato | [Interfaccia della riga di comando di Azure](/cli/azure/network/vnet-gateway)|
 
 ## <a name="next-steps"></a>Passaggi successivi
 

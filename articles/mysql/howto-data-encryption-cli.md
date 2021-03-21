@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.date: 03/30/2020
 ms.custom: devx-track-azurecli
 ms.openlocfilehash: 6d9abc67035b4581a028d8e59ef080b4f1ffa5b9
-ms.sourcegitcommit: 84e3db454ad2bccf529dabba518558bd28e2a4e6
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/02/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96519043"
 ---
 # <a name="data-encryption-for-azure-database-for-mysql-by-using-the-azure-cli"></a>Crittografia dei dati per database di Azure per MySQL tramite l'interfaccia della riga di comando di Azure
@@ -51,12 +51,12 @@ Informazioni su come usare l'interfaccia della riga di comando di Azure per conf
     az keyvault update --name <key_vault_name> --resource-group <resource_group_name>  --retention-days 90
     ```
 
-* La chiave deve avere gli attributi seguenti da usare come chiave gestita dal cliente:
+* Per essere usata come chiave gestita dal cliente, la chiave deve disporre degli attributi seguenti:
   * Nessuna data di scadenza
   * Non disabilitato
   * Eseguire operazioni **Get**, **Wrap** e **Unwrap**
   * attributo recoverylevel impostato su **reversibile** . questa operazione richiede l'eliminazione temporanea abilitata con il periodo di memorizzazione impostato su 90 giorni.
-  * Ripulisci protezione abilitata
+  * È abilitata la protezione della rimozione
 
 È possibile verificare gli attributi precedenti della chiave usando il comando seguente:
 

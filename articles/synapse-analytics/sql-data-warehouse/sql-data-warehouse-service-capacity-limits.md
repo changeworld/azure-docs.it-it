@@ -12,10 +12,10 @@ ms.author: martinle
 ms.reviewer: igorstan
 ms.custom: azure-synapse
 ms.openlocfilehash: d778844fee8cad9359532ffa23e177bf7b13c4b8
-ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/12/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98117691"
 ---
 # <a name="capacity-limits-for-dedicated-sql-pool-in-azure-synapse-analytics"></a>Limiti di capacità per il pool SQL dedicato in Azure sinapsi Analytics
@@ -54,7 +54,7 @@ Valori massimi consentiti per vari componenti di un pool SQL dedicato in Azure s
 | Statistiche |Colonne per oggetto statistiche. |32 |
 | Statistiche |Statistiche create per le colonne per tabella. |30.000 |
 | Stored procedure |Livello massimo di annidamento. |8 |
-| Visualizza |Colonne per ogni vista |1\.024 |
+| Visualizzazione |Colonne per ogni vista |1\.024 |
 ||||
 
 ## <a name="loads"></a>Carichi

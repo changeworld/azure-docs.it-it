@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: alkohli
 ms.openlocfilehash: 746198f87e23cd7aca2a3177c23974917cb4b12a
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/25/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96025935"
 ---
 #### <a name="to-create-a-new-service"></a>Per creare un nuovo servizio
@@ -21,7 +21,7 @@ ms.locfileid: "96025935"
 
     Cercare _StorSimple Physical_ (Dispositivi fisici StorSimple). Selezionare e fare clic su **Serie di dispositivi fisici StorSimple** e quindi fare clic su **Crea**. In alternativa, nella portale di Azure fare clic su **+** e quindi in **archiviazione** fare clic su **serie di dispositivi fisici StorSimple**.
 
-    ![Creazione di StorSimple Device Manager 2](./media/storsimple-8000-create-new-service/createssdevman11.png)
+    ![Creazione di StorSimple Gestione dispositivi 2](./media/storsimple-8000-create-new-service/createssdevman11.png)
 
 3. Nel pannello **Gestione dispositivi StorSimple** seguire questa procedura:
 
@@ -42,8 +42,8 @@ ms.locfileid: "96025935"
 
    7. Fare clic su **Crea** per creare il servizio Gestione dispositivi StorSimple.
 
-       ![Creazione di StorSimple Device Manager 3](./media/storsimple-8000-create-new-service/createssdevman2.png)
+       ![Creazione di StorSimple Gestione dispositivi 3](./media/storsimple-8000-create-new-service/createssdevman2.png)
 
 La creazione del servizio richiede alcuni minuti. Al termine della creazione del servizio, verrà visualizzata una notifica e verrà aperto il pannello del nuovo servizio.
 
-![Creazione di StorSimple Device Manager 4](./media/storsimple-8000-create-new-service/createssdevman5.png)
+![Creazione di StorSimple Gestione dispositivi 4](./media/storsimple-8000-create-new-service/createssdevman5.png)

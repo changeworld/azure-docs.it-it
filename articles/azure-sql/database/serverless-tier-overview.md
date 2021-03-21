@@ -12,16 +12,16 @@ ms.author: moslake
 ms.reviewer: sstein
 ms.date: 2/22/2021
 ms.openlocfilehash: 4dd7bbe613b30df2611bfe6631950e121235204a
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/02/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "101658589"
 ---
 # <a name="azure-sql-database-serverless"></a>Database SQL di Azure senza server
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
-Senza server è un livello di calcolo per i database singoli nel database SQL di Azure che ridimensiona automaticamente le risorse di calcolo in base alla domanda del carico di lavoro e alle fatture per la quantità di calcolo usata al secondo. Il livello di calcolo serverless inoltre sospende automaticamente i database durante i periodi di inattività, in cui viene addebitata solo l'archiviazione, e li riprende automaticamente quando necessario.
+Il livello serverless è un livello di calcolo per database singoli in Database SQL di Azure che ridimensiona automaticamente il calcolo in base alle esigenze dei carichi di lavoro, addebitando la quantità di calcolo usata al secondo. Il livello di calcolo serverless inoltre sospende automaticamente i database durante i periodi di inattività, in cui viene addebitata solo l'archiviazione, e li riprende automaticamente quando necessario.
 
 ## <a name="serverless-compute-tier"></a>Livello di elaborazione serverless
 
