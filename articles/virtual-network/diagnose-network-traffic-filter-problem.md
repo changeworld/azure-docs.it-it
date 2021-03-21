@@ -16,10 +16,10 @@ ms.workload: infrastructure-services
 ms.date: 05/29/2018
 ms.author: kumud
 ms.openlocfilehash: 73562d8d32f265fa43ca80d2f8d4f84b1b631ec6
-ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/14/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98223670"
 ---
 # <a name="diagnose-a-virtual-machine-network-traffic-filter-problem"></a>Diagnosticare problemi di filtro del traffico di rete di una macchina virtuale
@@ -175,7 +175,7 @@ Indipendentemente dall'uso del [portale di Azure](#diagnose-using-azure-portal),
 | Destination             | L'indirizzo IP della VM, un intervallo di indirizzi IP o tutti gli indirizzi nella subnet. |
 | Intervalli di porte di destinazione | 80                                                                                 |
 | Protocollo                | TCP                                                                                |
-| Azione                  | Consenti                                                                              |
+| Azione                  | Allow                                                                              |
 | Priorità                | 100                                                                                |
 | Nome                    | Allow-HTTP-All                                                                     |
 

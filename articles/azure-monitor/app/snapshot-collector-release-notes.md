@@ -6,10 +6,10 @@ author: pharring
 ms.author: pharring
 ms.date: 11/10/2020
 ms.openlocfilehash: 4a787c6e2a9b59874f965a2bbcebea9ce02d8082
-ms.sourcegitcommit: 5db975ced62cd095be587d99da01949222fc69a3
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/10/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97093261"
 ---
 # <a name="release-notes-for-microsoftapplicationinsightssnapshotcollector"></a>Note sulla versione per Microsoft. ApplicationInsights. SnapshotCollector
@@ -70,7 +70,7 @@ Una versione punto per risolvere un paio di problemi ad alto effetto.
 - L'aggiunta di un agente di raccolta snapshot è stata semplificata tramite AddSnapshotCollector (). Altre informazioni sono disponibili [qui](./snapshot-debugger-appservice.md).
 - Usare l'impostazione MD5 di FISMA per verificare i blocchi BLOB. In questo modo si evita l'algoritmo di crittografia MD5 .NET predefinito, che non è disponibile quando il sistema operativo è impostato sulla modalità conforme a FIPS.
 - Ignorare i frame .NET Framework durante la deottimizzazione delle chiamate di funzione. Questo comportamento può essere controllato dall'impostazione di configurazione DeoptimizeIgnoredModules.
-- Aggiungere `DeoptimizeMethodCount` un'impostazione di configurazione che consente la deottimizzazione di più di una chiamata di funzione. Altre informazioni sono disponibili qui
+- Aggiungere `DeoptimizeMethodCount` un'impostazione di configurazione che consente la deottimizzazione di più di una chiamata di funzione. Ulteriori informazioni sono disponibili qui
 
 ## <a name="134"></a>[1.3.4](https://www.nuget.org/packages/Microsoft.ApplicationInsights.SnapshotCollector/1.3.4)
 - Consentire chiavi di strumentazione strutturate.

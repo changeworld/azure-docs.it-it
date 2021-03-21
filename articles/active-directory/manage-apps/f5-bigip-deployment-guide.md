@@ -12,10 +12,10 @@ ms.date: 10/12/2020
 ms.author: gasinh
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: f962bf131b87f17712186145b8c8b8e6090f7002
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/23/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98730658"
 ---
 # <a name="tutorial-to-deploy-f5-big-ip-virtual-edition-vm-in-azure-iaas-for-secure-hybrid-access"></a>Esercitazione per la distribuzione della VM F5 BIG-IP Virtual Edition in Azure IaaS per l'accesso ibrido sicuro
@@ -77,7 +77,7 @@ Completare le attività seguenti per distribuire BIG-IP VE da [Azure Marketplace
 
 7. Scorrere il menu **nozioni di base** e usare le impostazioni seguenti
 
- |  Dettagli del progetto     |  valore     |
+ |  Dettagli del progetto     |  Valore     |
  |:-------|:--------|
  |Subscription|Sottoscrizione di destinazione per la distribuzione di macchine virtuali BIG-IP|
  |Resource group | Gruppo di risorse di Azure esistente in cui verrà distribuita la VM BIG-IP o ne verrà creata una. Deve essere lo stesso gruppo di risorse del controller di dominio e delle macchine virtuali IIS|
@@ -111,7 +111,7 @@ Completare le attività seguenti per distribuire BIG-IP VE da [Azure Marketplace
 
 10. Selezionare **Avanti: gestione** e completare queste impostazioni.
 
- |Monitoraggio|    valore |
+ |Monitoraggio|    Valore |
  |:---------|:-----|
  |Monitoraggio dettagliato| Off|
  |Diagnostica di avvio|Abilitare con l'account di archiviazione personalizzato. Consente la connessione all'interfaccia di Secure Shell BIG-IP (SSH) tramite l'opzione console seriale nell'portale di Azure. Selezionare un account di archiviazione di Azure disponibile|
@@ -212,7 +212,7 @@ I passaggi seguenti presuppongono che la zona DNS del dominio pubblico usato per
 
 6. Usare i dettagli seguenti per creare il primo record di alias DNS:
 
- | Campo | valore |
+ | Campo | Valore |
  |:-------|:-----------|
  |Subscription| Stessa sottoscrizione della BIG-IP-VM|
  |Zona DNS| Zona DNS autorevole per il suffisso di dominio verificato che i siti Web pubblicati utilizzeranno, ad esempio, www.contoso.com |
@@ -241,7 +241,7 @@ Per impostazione predefinita, Azure reti virtuali e le subnet associate sono ret
 
 2. Selezionare **Aggiungi** regola connessioni in entrata per immettere le proprietà della regola NSG seguenti:
 
- |     Campo   |   valore        |
+ |     Campo   |   Valore        |
  |:------------|:------------|
  |Source (Sorgente)| Qualsiasi|
  |Intervalli di porte di origine| *|

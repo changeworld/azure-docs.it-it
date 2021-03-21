@@ -4,10 +4,10 @@ description: Usare server di Backup di Azure per eseguire il backup dello stato 
 ms.topic: conceptual
 ms.date: 05/15/2017
 ms.openlocfilehash: c5096158ca0e76ca03577347d8dd3e1419a33ca0
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/25/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96021623"
 ---
 # <a name="back-up-system-state-and-restore-to-bare-metal-by-using-azure-backup-server"></a>Eseguire il backup dello stato del sistema e il ripristino in bare metal usando server di Backup di Azure
@@ -69,7 +69,7 @@ Il server di backup chiama Windows Server Backup e condivide il volume di replic
 
 Al termine del backup, il file viene trasferito nel computer del server di backup. I log vengono archiviati in *C:\Windows\Logs\WindowsServerBackup*.
 
-## <a name="prerequisites-and-limitations"></a>Prerequisiti e limiti
+## <a name="prerequisites-and-limitations"></a>Prerequisiti e limitazioni
 
 * Il ripristino bare metal non è supportato per i computer con Windows Server 2003 o che eseguono un sistema operativo client.
 
@@ -109,7 +109,7 @@ Al termine del backup, il file viene trasferito nel computer del server di backu
 
 Per eseguire il backup dello stato del sistema e bare metal:
 
-1. Per aprire la creazione guidata gruppo protezione dati crea, nel server di backup console di amministrazione selezionare azioni di **protezione**  >  **Actions**  >  **Crea gruppo protezione** dati.
+1. Per aprire la creazione guidata gruppo protezione dati crea, nel server di backup console di amministrazione selezionare azioni di **protezione**  >    >  **Crea gruppo protezione** dati.
 
 1. Nella pagina **Selezione tipo di gruppo protezione dati** selezionare **Server**, quindi **Avanti**.
 

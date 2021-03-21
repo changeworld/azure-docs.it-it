@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 3766db0d5070f15216ac612353e2c25737ad092a
-ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/06/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96741627"
 ---
 # <a name="customize-the-user-experience-for-azure-active-directory-self-service-password-reset"></a>Personalizzare l'esperienza utente per la reimpostazione della password self-service Azure Active Directory
@@ -56,8 +56,8 @@ Per altre informazioni sui diversi ruoli di amministratore e su come assegnarli,
 
 Se l'organizzazione non vuole inviare notifiche agli amministratori sulle richieste di reimpostazione della password, è possibile usare le opzioni di configurazione seguenti:
 
-* Personalizzare il collegamento al supporto tecnico per fornire un URL Web o mailto: indirizzo che gli utenti possono usare per ottenere assistenza. Questa opzione si trova in **reimpostazione password**  >  **Customization**  >  **personalizzato indirizzo di posta elettronica o URL del supporto tecnico**.
-* Abilitare la reimpostazione self-service della password per tutti gli utenti. Questa opzione si trova in proprietà di **reimpostazione della password**  >  **Properties**. Se non si vuole che gli utenti reimpostino le proprie password, è possibile definire l'ambito di accesso a un gruppo vuoto. *Questa opzione non è consigliata.*
+* Personalizzare il collegamento al supporto tecnico per fornire un URL Web o mailto: indirizzo che gli utenti possono usare per ottenere assistenza. Questa opzione si trova in **reimpostazione password**  >    >  **personalizzato indirizzo di posta elettronica o URL del supporto tecnico**.
+* Abilitare la reimpostazione self-service della password per tutti gli utenti. Questa opzione si trova in proprietà di **reimpostazione della password**  >  . Se non si vuole che gli utenti reimpostino le proprie password, è possibile definire l'ambito di accesso a un gruppo vuoto. *Questa opzione non è consigliata.*
 
 ## <a name="customize-the-sign-in-page-and-access-panel"></a>Personalizzare la pagina di accesso e il pannello di accesso
 

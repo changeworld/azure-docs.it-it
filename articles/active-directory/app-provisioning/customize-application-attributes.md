@@ -8,14 +8,14 @@ ms.service: active-directory
 ms.subservice: app-provisioning
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 02/08/2021
+ms.date: 03/17/2021
 ms.author: kenwith
-ms.openlocfilehash: 100f66d6217533ff6eba7881f938e877b98c735e
-ms.sourcegitcommit: 24f30b1e8bb797e1609b1c8300871d2391a59ac2
+ms.openlocfilehash: 738b89ee9347a25e2d24369a48e966f0bec6daf0
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/10/2021
-ms.locfileid: "100091109"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104579468"
 ---
 # <a name="tutorial---customize-user-provisioning-attribute-mappings-for-saas-applications-in-azure-active-directory"></a>Esercitazione: Personalizzare i mapping di attributi del provisioning utenti per le applicazioni SaaS in Azure Active Directory
 
@@ -113,13 +113,13 @@ Alcuni sistemi e applicazioni che supportano la personalizzazione dell'elenco di
 - ServiceNow
 - Da Workday ad Active Directory/Da Workday ad Azure Active Directory
 - Da SuccessFactors ad Active Directory/Da SuccessFactors ad Azure Active Directory
-- Azure Active Directory (sono supportati gli [attributi predefiniti dell'API Graph di Azure AD](/previous-versions/azure/ad/graph/api/entity-and-complex-type-reference#user-entity) e le estensione della directory personalizzate)
+- Sono supportati Azure Active Directory ([Azure AD API Graph gli attributi predefiniti](/previous-versions/azure/ad/graph/api/entity-and-complex-type-reference#user-entity) e le estensioni di directory personalizzate). Altre informazioni sulla [creazione di estensioni](https://docs.microsoft.com/azure/active-directory/app-provisioning/user-provisioning-sync-attributes-for-mapping#create-an-extension-attribute-on-a-cloud-only-user) e [limitazioni note](https://docs.microsoft.com/azure/active-directory/app-provisioning/known-issues). 
 - App che supportano [SCIM 2.0](https://tools.ietf.org/html/rfc7643)
 - Per il writeback da Azure Active Directory a Workday o SuccessFactors, è supportato l'aggiornamento dei metadati appropriati per gli attributi supportati (XPATH e JSONPath), ma non è supportata l'aggiunta di nuovi attributi di Workday o SuccessFactors oltre a quelli inclusi nello schema predefinito
 
 
 > [!NOTE]
-> La modifica dell'elenco degli attributi supportati è consigliata solo agli amministratori che hanno personalizzato lo schema dei propri sistemi e applicazioni e che hanno una conoscenza diretta del modo in cui sono stati definiti gli attributi personalizzati. Questa operazione richiede a volte familiarità con le API e gli strumenti per sviluppatori forniti da un'applicazione o un sistema. Per impostazione predefinita, la possibilità di modificare l'elenco degli attributi supportati è bloccata, ma i clienti possono abilitare la funzionalità passando all'URL seguente: https://portal.azure.com/?Microsoft_AAD_IAM_forceSchemaEditorEnabled=true. Sarà quindi possibile passare all'applicazione per visualizzare l'elenco di attributi come descritto [sopra](#editing-the-list-of-supported-attributes). 
+> La modifica dell'elenco degli attributi supportati è consigliata solo per gli amministratori che hanno personalizzato lo schema delle applicazioni e dei sistemi e hanno una conoscenza approfondita del modo in cui sono stati definiti gli attributi personalizzati o se un attributo di origine non viene visualizzato automaticamente nell'interfaccia utente del portale di Azure. Questa operazione richiede a volte familiarità con le API e gli strumenti per sviluppatori forniti da un'applicazione o un sistema. Per impostazione predefinita, la possibilità di modificare l'elenco degli attributi supportati è bloccata, ma i clienti possono abilitare la funzionalità passando all'URL seguente: https://portal.azure.com/?Microsoft_AAD_IAM_forceSchemaEditorEnabled=true. Sarà quindi possibile passare all'applicazione per visualizzare l'elenco di attributi come descritto [sopra](#editing-the-list-of-supported-attributes). 
 
 Quando si modifica l'elenco degli attributi supportati, vengono fornite le proprietà seguenti:
 

@@ -9,10 +9,10 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 06/18/2020
 ms.openlocfilehash: 47e9b80bb25b7ff14695cc67682265fe338ff76f
-ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/12/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98119102"
 ---
 # <a name="how-to-rebuild-an-index-in-azure-cognitive-search"></a>Come ricompilare un indice in Azure ricerca cognitiva
@@ -95,7 +95,7 @@ Per verificare la presenza di contenuto aggiornato, è possibile usare [Esplora 
 
 Se è stato aggiunto o rinominato un campo, usare [$Select](search-query-odata-select.md) per restituire il campo: `search=*&$select=document-id,my-new-field,some-old-field&$count=true`
 
-## <a name="see-also"></a>Vedere anche
+## <a name="see-also"></a>Vedi anche
 
 + [Panoramica degli indicizzatori](search-indexer-overview.md)
 + [Indicizzare set di dati di grandi dimensioni](search-howto-large-index.md)

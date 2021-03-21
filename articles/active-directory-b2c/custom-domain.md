@@ -8,20 +8,22 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 03/15/2021
+ms.date: 03/17/2021
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: 869bd7b02186873f490d324cec863c7f26ee8469
-ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
+ms.openlocfilehash: 2de419885938b27ebce4a934db5ef966965b3dbd
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/16/2021
-ms.locfileid: "103555313"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104580165"
 ---
 # <a name="enable-custom-domains-for-azure-active-directory-b2c"></a>Abilitare domini personalizzati per Azure Active Directory B2C
 
 [!INCLUDE [active-directory-b2c-choose-user-flow-or-custom-policy](../../includes/active-directory-b2c-choose-user-flow-or-custom-policy.md)]
+
+[!INCLUDE [b2c-public-preview-feature](../../includes/active-directory-b2c-public-preview.md)]
 
 Questo articolo descrive come abilitare domini personalizzati negli URL di reindirizzamento per Azure Active Directory B2C (Azure AD B2C). L'uso di un dominio personalizzato con l'applicazione offre un'esperienza utente più trasparente. Dal punto di vista dell'utente, rimangono nel dominio durante il processo di accesso anziché eseguire il reindirizzamento al Azure AD B2C dominio predefinito *<nome-tenant>. b2clogin.com*.
 
@@ -48,7 +50,7 @@ Quando si utilizzano domini personalizzati, tenere presente quanto segue:
 
 - È possibile configurare più domini personalizzati. Per il numero massimo di domini personalizzati supportati, vedere [limiti e restrizioni del servizio Azure ad](../active-directory/enterprise-users/directory-service-limits-restrictions.md) per Azure ad B2C e [sottoscrizione di Azure e limiti, quote e vincoli dei servizi](../azure-resource-manager/management/azure-subscription-service-limits.md#azure-front-door-service-limits) per il front-end di Azure.
 - Azure front door è un servizio di Azure separato, quindi verranno addebitati costi aggiuntivi. Per altre informazioni, vedere [prezzi di porte anteriori](https://azure.microsoft.com/pricing/details/frontdoor).
-- Attualmente, la funzionalità [Web Application Firewall](../web-application-firewall/afds/afds-overview.md) di Azure front door non è supportata.
+- Per usare il [Web Application Firewall](../web-application-firewall/afds/afds-overview.md)di Azure front-end, è necessario verificare che la configurazione del firewall e le regole funzionino correttamente con i flussi utente Azure ad B2C.
 - Dopo aver configurato i domini personalizzati, gli utenti potranno comunque accedere al Azure AD B2C nome di dominio predefinito *<nome-tenant>. b2clogin.com* , a meno che non si usi un criterio personalizzato e si [blocchi l'accesso](#block-access-to-the-default-domain-name).
 - Se si dispone di più applicazioni, eseguirne la migrazione nel dominio personalizzato perché il browser archivia la sessione di Azure AD B2C sotto il nome di dominio attualmente in uso.
 
@@ -193,7 +195,7 @@ Sostituire:
 - **Policy-Name** con il nome del criterio. [Altre informazioni sui criteri di Azure ad B2C](technical-overview.md#identity-experiences-user-flows-or-custom-policies). 
 
 
-I metadati del [provider di servizi SAML](connect-with-saml-service-providers.md) possono avere un aspetto simile al seguente: 
+I metadati del [provider di servizi SAML](./saml-service-provider.md) possono avere un aspetto simile al seguente: 
 
 ```html
 https://custom-domain-name/tenant-name/policy-name/Samlp/metadata
@@ -258,12 +260,10 @@ Copiare l'URL, modificare manualmente il nome di dominio e quindi incollarlo di 
 
 Lo sportello anteriore di Azure passa l'indirizzo IP originale dell'utente. Si tratta dell'indirizzo IP che verrà visualizzato nei report di controllo o nei criteri personalizzati.
 
-### <a name="can-i-use-a-third-party-wab-application-firewall-waf-with-b2c"></a>È possibile usare un firewall applicazione WAB di terze parti (WAF) con B2C?
+### <a name="can-i-use-a-third-party-web-application-firewall-waf-with-b2c"></a>È possibile usare un web application firewall di terze parti (WAF) con B2C?
 
-Attualmente, Azure AD B2C supporta un dominio personalizzato tramite l'uso del solo sportello anteriore di Azure. Non aggiungere un altro WAF davanti all'avantreno di Azure.
-
+Per usare i propri web application firewall davanti all'ingresso di Azure, è necessario configurare e verificare che tutto funzioni correttamente con i flussi utente Azure AD B2C.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
 Informazioni sulle [richieste di autorizzazione OAuth](protocols-overview.md).
-

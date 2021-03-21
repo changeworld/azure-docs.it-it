@@ -86,7 +86,7 @@
           href: stream-files-nodejs-quickstart.md
     - name: Python
       items:
-        - name: Guida introduttiva alla codifica Python Basic
+        - name: Codifica Python Basic
           href: quickstart-basic-encoding-python.md
     - name: Portale di Azure
       items:
@@ -223,9 +223,9 @@
         - name: Monitoraggio con griglia di eventi
           items:
             - name: Eventi con Griglia di eventi
-              href: reacting-to-media-services-events.md
+              href: monitoring/reacting-to-media-services-events.md
             - name: Schemi di Griglia di eventi
-              href: media-services-event-schemas.md
+              href: monitoring/media-services-event-schemas.md
     - name: Lettori compatibili
       items:
         - name: Lettori multimediali per servizi multimediali
@@ -394,15 +394,15 @@
     - name: Usare Griglia di eventi
       items:
         - name: Monitorare gli eventi - Portale
-          href: monitor-events-portal-how-to.md
+          href: monitoring/monitor-events-portal-how-to.md
         - name: Monitorare gli eventi - Interfaccia della riga di comando
-          href: job-state-events-cli-how-to.md
+          href: monitoring/job-state-events-cli-how-to.md
     - name: Usare Monitoraggio di Azure
       items:
         - name: Monitorare le metriche
-          href: media-services-metrics-howto.md
+          href: monitoring/media-services-metrics-howto.md
         - name: Monitorare i log di diagnostica
-          href: media-services-diagnostic-logs-howto.md
+          href: monitoring/media-services-diagnostic-logs-howto.md
     - name: Proteggere il contenuto
       items:
         - name: Ottenere i criteri di chiave simmetrica

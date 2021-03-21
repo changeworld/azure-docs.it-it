@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 04/19/2017
 ms.author: alkohli
 ms.openlocfilehash: 48671e7558ea1bd613d33372c96fa3c563407e81
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/25/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96017220"
 ---
 # <a name="configure-web-proxy-for-your-storsimple-device"></a>Configurare il proxy web per il dispositivo StorSimple
@@ -71,7 +71,7 @@ Usare l'installazione guidata per semplificare i passaggi per la configurazione 
 4. Scegliere il tipo di autenticazione, ovvero **NTLM**, **Basic** o **None**. L'autenticazione di base è quella meno sicura per la configurazione del server proxy. NT LAN Manager (NTLM) è un protocollo di autenticazione altamente protetta e complessa che utilizza un sistema di messaggistica a tre vie (a volte quattro, se è necessaria ulteriore integrità) per autenticare un utente. L'autenticazione predefinita è NTLM. Per altre informazioni, vedere l'autenticazione [di base](https://hc.apache.org/httpclient-3.x/authentication.html) e [NTLM](https://hc.apache.org/httpclient-3.x/authentication.html). 
    
    > [!IMPORTANT]
-   > **Nel servizio Device Manager StorSimple, i grafici di monitoraggio del dispositivo non funzionano quando l'autenticazione di base o NTLM è abilitata nella configurazione del server proxy per il dispositivo. Per il corretto funzionamento dei grafici di monitoraggio, è necessario assicurarsi che l'autenticazione sia impostata su NONE.**
+   > **Nel servizio Gestione dispositivi StorSimple, i grafici di monitoraggio del dispositivo non funzionano quando l'autenticazione di base o NTLM è abilitata nella configurazione del server proxy per il dispositivo. Per il corretto funzionamento dei grafici di monitoraggio, è necessario assicurarsi che l'autenticazione sia impostata su NONE.**
   
 5. Se l'autenticazione è abilitata, fornire un **nome utente del proxy Web** e la **password del proxy Web**. È necessario anche confermare la password.
    
