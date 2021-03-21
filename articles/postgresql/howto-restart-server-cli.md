@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.date: 5/6/2019
 ms.custom: devx-track-azurecli
 ms.openlocfilehash: e812b7872dd4d41d9a6cb87d75403524106c5981
-ms.sourcegitcommit: 0830e02635d2f240aae2667b947487db01f5fdef
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/21/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97706865"
 ---
 # <a name="restart-azure-database-for-postgresql---single-server-using-the-azure-cli"></a>Riavviare database di Azure per PostgreSQL-server singolo con l'interfaccia della riga di comando di Azure
@@ -30,7 +30,7 @@ Per completare questa guida pratica:
 
 - Questo articolo richiede la versione 2.0 dell'interfaccia della riga di comando di Azure. Se si usa Azure Cloud Shell, la versione più recente è già installata.
 
-## <a name="restart-the-server"></a>Riavviare il server.
+## <a name="restart-the-server"></a>Riavviare il server
 
 Riavviare il server con il comando seguente:
 

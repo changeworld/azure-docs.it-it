@@ -15,10 +15,10 @@ ms.workload: TBD
 ms.date: 07/03/2017
 ms.author: alkohli
 ms.openlocfilehash: 038084ba9ae43e14bc2eb42bf258912be27d062c
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/25/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96023755"
 ---
 # <a name="use-the-storsimple-device-manager-service-to-change-your-storsimple-passwords"></a>Usare il servizio Gestione dispositivi StorSimple per modificare le password di StorSimple
@@ -36,11 +36,11 @@ La password impostata la prima volta durante la registrazione attraverso l'inter
 
 2. Nell'elenco tabulare dei dispositivi, selezionare e fare clic sul dispositivo di cui si vuole modificare la password.
 
-    ![Screenshot che illustra il servizio Device Manager di StorSimple. In gestione è selezionato dispositivi. Nell'elenco dei dispositivi è selezionato un dispositivo.](./media/storsimple-8000-change-passwords/changepwd1.png)
+    ![Screenshot che illustra il servizio Gestione dispositivi di StorSimple. In gestione è selezionato dispositivi. Nell'elenco dei dispositivi è selezionato un dispositivo.](./media/storsimple-8000-change-passwords/changepwd1.png)
 
 3. Nel pannello **Impostazioni**, passare a **Impostazioni dispositivo > Sicurezza**.
 
-    ![Screenshot che mostra il pannello impostazioni del servizio Device Manager. In Impostazioni dispositivo è selezionata l'opzione sicurezza.](./media/storsimple-8000-change-passwords/changepwd2.png)
+    ![Screenshot che mostra il pannello impostazioni del servizio Gestione dispositivi. In Impostazioni dispositivo è selezionata l'opzione sicurezza.](./media/storsimple-8000-change-passwords/changepwd2.png)
 
 4. Nel pannello **Impostazioni di sicurezza**, fare clic su **Password** per modificare la password di amministratore del dispositivo.
 
@@ -70,11 +70,11 @@ Quando si configura un dispositivo in StorSimple Snapshot Manager, verrà richie
 
 2. Nell'elenco tabulare dei dispositivi, selezionare e fare clic sul dispositivo di cui si vuole modificare la password di StorSimple Snapshot Manager.
 
-     ![Screenshot che illustra il servizio Device Manager di StorSimple. In gestione è selezionato dispositivi. Nell'elenco dei dispositivi è selezionato un dispositivo.](./media/storsimple-8000-change-passwords/changepwd1.png)
+     ![Screenshot che illustra il servizio Gestione dispositivi di StorSimple. In gestione è selezionato dispositivi. Nell'elenco dei dispositivi è selezionato un dispositivo.](./media/storsimple-8000-change-passwords/changepwd1.png)
 
 3. Nel pannello **Impostazioni**, passare a **Impostazioni dispositivo > Sicurezza**.
 
-     ![Screenshot che mostra il pannello impostazioni del servizio Device Manager. In Impostazioni dispositivo è selezionata l'opzione sicurezza.](./media/storsimple-8000-change-passwords/changepwd2.png)
+     ![Screenshot che mostra il pannello impostazioni del servizio Gestione dispositivi. In Impostazioni dispositivo è selezionata l'opzione sicurezza.](./media/storsimple-8000-change-passwords/changepwd2.png)
 
 4. Nel pannello **le Impostazioni di protezione**, fare clic su **Password** per impostare o modificare la password di StorSimple Snapshot Manager.
 

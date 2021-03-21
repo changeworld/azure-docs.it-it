@@ -7,10 +7,10 @@ ms.topic: how-to
 ms.date: 12/19/2016
 ms.author: twooley
 ms.openlocfilehash: 082d684ed0a29cb6bf2de9c506886b6d98cf174a
-ms.sourcegitcommit: a4533b9d3d4cd6bb6faf92dd91c2c3e1f98ab86a
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/22/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97723782"
 ---
 # <a name="performance-tuning-guidance-for-hive-on-hdinsight-and-azure-data-lake-storage-gen1"></a>Materiale sussidiario per l'ottimizzazione delle prestazioni di Hive in HDInsight e Azure Data Lake Storage Gen1
@@ -45,7 +45,7 @@ Di seguito sono elencate le impostazioni più importanti da ottimizzare per otte
 
 **hive.exec.reducer.bytes.per.reducer**: questo parametro consente di impostare la dimensione di ciascun riduttore.  Per impostazione predefinita, ogni riduttore ha una dimensione di 256 MB.  
 
-## <a name="guidance"></a>Materiale sussidiario
+## <a name="guidance"></a>Indicazioni
 
 **Set hive.exec.reducer.bytes.per.reducer**: il valore predefinito funziona bene quando i dati non sono compressi.  In caso di dati compressi, è consigliabile ridurre la dimensione del riduttore.  
 

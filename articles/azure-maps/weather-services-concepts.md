@@ -9,16 +9,16 @@ ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.openlocfilehash: 657cb6a86122d267b86e82b6f02eb58e968cddd3
-ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96904738"
 ---
 # <a name="weather-services-preview-in-azure-maps"></a>Servizi meteorologici (anteprima) in mappe di Azure
 
 > [!IMPORTANT]
-> I servizi meteo di Azure Maps sono attualmente in anteprima pubblica.
+> I servizi Meteo di Mappe di Azure sono attualmente disponibili in anteprima pubblica.
 > Questa versione di anteprima viene messa a disposizione senza contratto di servizio e non è consigliata per i carichi di lavoro di produzione. Alcune funzionalità potrebbero non essere supportate o potrebbero presentare funzionalità limitate. Per altre informazioni, vedere [Condizioni supplementari per l'utilizzo delle anteprime di Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 Questo articolo presenta i concetti che si applicano ai [servizi meteorologici](/rest/api/maps/weather)di Azure maps. Si consiglia di eseguire questo articolo prima di iniziare con le API Meteo.
@@ -27,7 +27,7 @@ Questo articolo presenta i concetti che si applicano ai [servizi meteorologici](
 
 Alcune API del servizio meteorologico (anteprima) consentono all'utente di specificare se i dati vengono restituiti in formato metrica o in unità imperiali. Le risposte restituite per queste API includono unitType e un valore numerico che può essere usato per le traduzioni di unità. Vedere la tabella seguente per interpretare questi valori.
 
-|unitType|Description         |
+|unitType|Descrizione         |
 |--------|--------------------|
 |0       |piedi                |
 |1       |pollici              |
@@ -51,7 +51,7 @@ Alcune API del servizio meteorologico (anteprima) consentono all'utente di speci
 |19      |kelvin              |
 |20      |percent             |
 |21      |float               |
-|22      |integer             |
+|22      |numero intero             |
 
 
 ## <a name="weather-icons"></a>Icone Meteo
@@ -85,7 +85,7 @@ Alcune API del servizio meteo (anteprima) restituiscono `iconCode` nella rispost
 | 25           | :::image type="icon" source="./media/weather-services-concepts/sleet-i.png"::: | Sì |  Sì   | Nevischio|
 | 26           | :::image type="icon" source="./media/weather-services-concepts/freezing-rain.png"::: | Sì |  Sì   | Congelamento pioggia|
 | 29           | :::image type="icon" source="./media/weather-services-concepts/rain-snow.png"::: | Sì |  Sì   | Pioggia e neve|
-| 30           | :::image type="icon" source="./media/weather-services-concepts/hot-i.png"::: | Sì |  Sì   | Frequente|
+| 30           | :::image type="icon" source="./media/weather-services-concepts/hot-i.png"::: | Sì |  Sì   | Accesso frequente|
 | 31           | :::image type="icon" source="./media/weather-services-concepts/cold-i.png"::: | Sì |  Sì   | Cold|
 | 32           | :::image type="icon" source="./media/weather-services-concepts/windy-i.png"::: | Sì |  Sì   | Ventoso|
 | 33           | :::image type="icon" source="./media/weather-services-concepts/clear-night.png"::: | No  |  Sì   | Cancella|
@@ -589,7 +589,7 @@ L'API per l' [ottenimento di indici giornalieri](/rest/api/maps/weather) restitu
   ----------------|--------------|------------
   Basso                |  0         |        1,99
   Moderato           |  2         |        3,99
-  Alta               |  4         |        5,99
+  Alto               |  4         |        5,99
   Molto elevata          |  6         |        7,99
   Extreme            |  8         |        10
 
@@ -599,7 +599,7 @@ L'API per l' [ottenimento di indici giornalieri](/rest/api/maps/weather) restitu
   ----------------|--------------|------------
   Basso                |  0            |      2,99
   Moderato           |  3            |      4,99
-  Alta               |  5            |      6,99
+  Alto               |  5            |      6,99
   Molto elevata          |  7            |      8,99
   Extreme            |  9            |      10
 

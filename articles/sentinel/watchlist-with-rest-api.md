@@ -16,10 +16,10 @@ ms.workload: na
 ms.date: 01/11/2021
 ms.author: yelevin
 ms.openlocfilehash: ea571f9b033ba82709a13c6d32649f3228ee04b1
-ms.sourcegitcommit: 95c2cbdd2582fa81d0bfe55edd32778ed31e0fe8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/26/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98798466"
 ---
 # <a name="manage-watchlists-in-azure-sentinel-using-rest-api"></a>Gestire watchlists in Sentinel di Azure con l'API REST
@@ -33,7 +33,7 @@ Azure Sentinel, che è integrato in Log Analytics di monitoraggio di Azure, cons
 
 Di seguito sono riportati i parametri URI comuni per tutti i comandi dell'API Watcher:
 
-| Nome | In | Obbligatoria | Type | Descrizione |
+| Nome | In | Obbligatoria | Tipo | Descrizione |
 |-|-|-|-|-|
 | **SubscriptionId** | path | sì | GUID | ID sottoscrizione di Azure |
 | **ResourceGroupName** | path | sì | string | nome del gruppo di risorse all'interno della sottoscrizione |

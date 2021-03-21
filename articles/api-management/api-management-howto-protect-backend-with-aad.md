@@ -10,10 +10,10 @@ ms.date: 09/23/2020
 ms.author: apimpm
 ms.custom: contperf-fy21q1
 ms.openlocfilehash: face4beab450e92be76b2bb90e45625e025de6ee
-ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/10/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97027918"
 ---
 # <a name="protect-a-web-api-backend-in-azure-api-management-by-using-oauth-20-authorization-with-azure-ad"></a>Proteggere il back-end di un'API Web in gestione API di Azure usando l'autorizzazione OAuth 2,0 con Azure AD 
@@ -153,7 +153,7 @@ In questo esempio la console per sviluppatori è l'app client. La procedura segu
 
 1. Immediatamente dopo il segreto client è riportato il valore di **redirect_url** per il tipo di concessione con codice di autorizzazione. Prendere nota dell'URL.
 
-1. Selezionare **Create** (Crea).
+1. Selezionare **Crea**.
 
 1. Tornare alla registrazione dell'app client in Azure Active Directory e selezionare **autenticazione**.
 

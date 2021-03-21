@@ -5,10 +5,10 @@ ms.date: 09/05/2019
 ms.topic: conceptual
 ms.reviewer: brendal
 ms.openlocfilehash: 1fff70ef2eeb1dc27d33769fd48fe5923f56717b
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/25/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96021606"
 ---
 # <a name="azure-blockchain-workbench-architecture"></a>Architettura di Azure Blockchain Workbench
@@ -93,7 +93,7 @@ Gli eventi riflettono informazioni rilevanti per persone e sistemi. Ad esempio, 
 
 Ad esempio, il consumer SQL monitora gli eventi, li utilizza e popola il database con i valori inclusi. La copia permette la ricreazione di una replica di dati on-chain in un archivio off-chain.
 
-## <a name="azure-sql-database"></a>database SQL di Azure
+## <a name="azure-sql-database"></a>Database SQL di Azure
 
 Il database collegato a blockchain Workbench archivia le definizioni del contratto, i metadati di configurazione e una replica accessibile da SQL dei dati archiviati in blockchain. È possibile visualizzare, analizzare ed eseguire query su questi dati in tutta semplicità accedendo direttamente al database. Gli sviluppatori e altri utenti possono usare il database per la creazione di report, l'analisi o altre integrazioni basate sui dati. Ad esempio, gli utenti possono visualizzare i dati delle transazioni tramite Power BI.
 

@@ -4,10 +4,10 @@ description: Panoramica dell'esempio di progetto di benchmark v Microsoft Azure 
 ms.date: 03/11/2021
 ms.topic: sample
 ms.openlocfilehash: d6b3a84ab426c5003233958b77f5c480f28cd704
-ms.sourcegitcommit: 5f32f03eeb892bf0d023b23bd709e642d1812696
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/12/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "103202663"
 ---
 # <a name="cis-microsoft-azure-foundations-benchmark-v130-blueprint-sample"></a>Esempio di modello di benchmark v 1.3.0 di CIS Microsoft Azure Foundation

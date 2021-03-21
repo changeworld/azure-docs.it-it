@@ -5,10 +5,10 @@ ms.topic: conceptual
 ms.date: 01/25/2021
 ms.custom: devx-track-csharp
 ms.openlocfilehash: 2070cfd94b39a08afb86ffd3579f1116faac72d5
-ms.sourcegitcommit: fc8ce6ff76e64486d5acd7be24faf819f0a7be1d
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/26/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98805268"
 ---
 # <a name="authenticate-a-managed-identity-with-azure-active-directory-to-access-event-hubs-resources"></a>Autenticare un'identità gestita con Azure Active Directory per accedere alle risorse di hub eventi
@@ -57,8 +57,8 @@ Per assegnare un ruolo alle risorse di hub eventi, passare a tale risorsa nel po
 1. Nella portale di Azure passare allo spazio dei nomi di hub eventi e visualizzare la **Panoramica** per lo spazio dei nomi. 
 1. Selezionare **controllo di accesso (IAM)** nel menu a sinistra per visualizzare le impostazioni di controllo di accesso per l'hub eventi.
 1.  Selezionare la scheda **Assegnazioni di ruolo** per visualizzare l'elenco di assegnazioni di ruolo.
-3.  Selezionare **Aggiungi** e quindi selezionare **Aggiungi assegnazione ruolo** _.
-4.  Nella pagina _ *Aggiungi assegnazione ruolo**, attenersi alla seguente procedura:
+3.  Selezionare **Aggiungi** e quindi selezionare * * Aggiungi assegnazione ruolo * * *.
+4.  Nella pagina **Aggiungi assegnazione ruolo** , attenersi alla seguente procedura:
     1. Per **ruolo** selezionare il ruolo di hub eventi che si vuole assegnare. In questo esempio è il **proprietario dei dati di hub eventi di Azure**.
     1. Per il campo **assegna accesso a** selezionare **servizio app** in **identità gestita assegnata dal sistema**. 
     1. Selezionare la **sottoscrizione** in cui è stata creata l'identità gestita per l'app Web.

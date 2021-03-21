@@ -10,15 +10,15 @@ services: azure-maps
 manager: cpendle
 ms.custom: ''
 ms.openlocfilehash: a563a7776e84289e38743057778e8fe10fd17503
-ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96904704"
 ---
 # <a name="getting-started-with-the-azure-maps-power-bi-visual"></a>Introduzione ad Azure Maps Power BI Visual
 
-<Token>**si applica a:** ![ Segno di spunta verde. ](media/power-bi-visual/yes.png) Servizio Power BI per **_consumer_* _ ![ segno di spunta verde. ](media/power-bi-visual/yes.png) Servizio Power BI per le finestre di progettazione & gli sviluppatori hanno un ![ segno di spunta verde. ](media/power-bi-visual/yes.png) Power BI Desktop ![ X che indica No. ](media/power-bi-visual/no.png) Richiede la licenza Pro o Premium</Token>
+<Token>**si applica a:** ![ Segno di spunta verde. ](media/power-bi-visual/yes.png) Servizio Power BI per **_i consumer_** ![ segno di spunta verde. ](media/power-bi-visual/yes.png) Servizio Power BI per le finestre di progettazione & gli sviluppatori hanno un ![ segno di spunta verde. ](media/power-bi-visual/yes.png) Power BI Desktop ![ X che indica No. ](media/power-bi-visual/no.png) Richiede la licenza Pro o Premium</Token>
 
 Questo articolo illustra come usare l'oggetto visivo Microsoft Azure Maps per Power BI.
 
@@ -47,7 +47,7 @@ Per ulteriori informazioni sulla privacy e le condizioni per l'utilizzo correlat
 
 ## <a name="azure-maps-visual-preview-behavior-and-requirements"></a>Comportamento e requisiti visivi di mappe di Azure (anteprima)
 
-Esistono alcune considerazioni e requisiti per l'oggetto visivo _ *mappe di Azure**. :
+Esistono alcune considerazioni e requisiti per l'oggetto visivo **mappe di Azure** . :
 
 -   L'oggetto visivo **mappe di Azure** (anteprima) deve essere abilitato in Power bi desktop. Per abilitare l'oggetto visivo **mappe di Azure** , selezionare opzioni **file** &gt; **e impostazioni** &gt; **Opzioni** &gt; **Anteprima funzionalità**, quindi selezionare la casella di controllo **Visual Maps Azure** . Se l'oggetto visivo Maps di Azure non è disponibile dopo questa operazione, è probabile che sia necessario abilitare l'opzione di amministrazione del tenant nel portale di amministrazione.
 -   Il set di dati deve contenere campi che contengono informazioni sulla **Latitudine** e la **Longitudine** . La geocodifica dei campi della località verrà aggiunta in un aggiornamento futuro.
@@ -92,7 +92,7 @@ Per caricare l'oggetto visivo di Azure Maps, seguire questa procedura:
 
 I bucket di dati seguenti sono disponibili nel riquadro **campi** dell'oggetto visivo mappe di Azure.
 
-| Campo     | Description  |
+| Campo     | Descrizione  |
 |-----------|--------------|
 | Latitude  | Campo utilizzato per specificare il valore di latitudine dei punti dati. I valori di latitudine devono essere compresi tra-90 e 90 in formato decimale.  |
 | Longitudine | Campo utilizzato per specificare il valore di longitudine dei punti dati. I valori di longitudine devono essere compresi tra-180 e 180 in formato decimale.  |

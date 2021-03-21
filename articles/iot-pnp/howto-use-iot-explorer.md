@@ -9,10 +9,10 @@ ms.service: iot-pnp
 services: iot-pnp
 ms.custom: contperf-fy21q2
 ms.openlocfilehash: b0a86a32148086a3b644d0bf147d12be0d812536
-ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/10/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97030316"
 ---
 # <a name="install-and-use-azure-iot-explorer"></a>Installare e usare Azure Internet Explorer
@@ -111,7 +111,7 @@ Nella pagina **componente** è possibile visualizzare le proprietà di sola lett
 
 Dopo aver inviato una modifica, è possibile tenere traccia dello stato di aggiornamento: **sincronizzazione**, **esito positivo** o **errore**. Al termine della sincronizzazione, viene visualizzato il nuovo valore della proprietà nella colonna delle **proprietà restituita** . Se si passa ad altre pagine prima del completamento della sincronizzazione, lo strumento continua a notificare il completamento dell'aggiornamento. È anche possibile usare il centro notifiche dello strumento per visualizzare la cronologia delle notifiche.
 
-#### <a name="commands"></a>Comandi:
+#### <a name="commands"></a>Comandi
 
 Per inviare un comando a un dispositivo, passare alla scheda **comandi** :
 

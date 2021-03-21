@@ -6,10 +6,10 @@ ms.topic: quickstart
 ms.date: 08/01/2020
 zone_pivot_groups: app-service-platform-windows-linux
 ms.openlocfilehash: f6876d0aef0d3d87e038b623c395f8368a14e90c
-ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
-ms.translationtype: HT
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/16/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97561852"
 ---
 # <a name="create-a-php-web-app-in-azure-app-service"></a>Creare un'app Web PHP nel Servizio app di Azure

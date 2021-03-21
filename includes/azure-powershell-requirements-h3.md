@@ -9,16 +9,16 @@ ms.service: azure-powershell
 ms.devlang: azurepowershell
 ms.custom: devx-track-azurepowershell
 ms.openlocfilehash: 2ef86d27be47c6cd1ed73a52157dd429937535b4
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/25/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96026658"
 ---
 ### <a name="requirements"></a>Requisiti
 
-* Se si sceglie di usare Azure PowerShell localmente:
-  * [Installare il modulo AZ PowerShell](/powershell/azure/install-az-ps).
-  * Connettersi al proprio account di Azure usando il cmdlet [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount) .
+* Se si sceglie di usare Azure PowerShell in locale:
+  * [Installare il modulo Az di PowerShell](/powershell/azure/install-az-ps).
+  * Connettersi all'account Azure con il cmdlet [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount).
 * Se si sceglie di usare Azure Cloud Shell:
-  * Per ulteriori informazioni, vedere [Panoramica delle Azure cloud Shell](../articles/cloud-shell/overview.md) .
+  * Vedere [Panoramica di Azure Cloud Shell](../articles/cloud-shell/overview.md) per altre informazioni.

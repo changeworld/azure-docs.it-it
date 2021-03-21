@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 01/17/2019
 ms.author: jeedes
 ms.openlocfilehash: 79c6a5959d000217dcb69370b0e0ac4ccc18ccdd
-ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
-ms.translationtype: HT
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/18/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97673903"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-15five"></a>Esercitazione: Integrazione di Azure Active Directory con 15Five
@@ -30,7 +30,7 @@ L'integrazione di 15Five con Azure AD offre i vantaggi seguenti:
 Per altre informazioni sull'integrazione di app SaaS con Azure AD, vedere [Informazioni sull'accesso alle applicazioni e Single Sign-On con Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
 Se non si ha una sottoscrizione di Azure, [creare un account gratuito](https://azure.microsoft.com/free/) prima di iniziare.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerequisiti
 
 Per configurare l'integrazione di Azure AD con 15Five, sono necessari gli elementi seguenti:
 
@@ -73,10 +73,10 @@ Per il corretto funzionamento dell'accesso Single Sign-On, deve essere stabilita
 Per configurare e testare l'accesso Single Sign-On di Azure AD con 15Five, è necessario completare i blocchi predefiniti seguenti:
 
 1. **[Configurare l'accesso Single Sign-On di Azure AD](#configure-azure-ad-single-sign-on)** : per consentire agli utenti di usare questa funzionalità.
-2. **[Configurare l'accesso Single Sign-On per 15Five](#configure-15five-single-sign-on)** : per configurare le impostazioni di Single Sign-On sul lato applicazione.
+2. **[Configurare l'accesso Single Sign-On per 15Five](#configure-15five-single-sign-on)**: per configurare le impostazioni di Single Sign-On sul lato applicazione.
 3. **[Creare un utente di test di Azure AD](#create-an-azure-ad-test-user)** : per testare l'accesso Single Sign-On di Azure AD con l'utente Britta Simon.
 4. **[Assegnare l'utente di test di Azure AD](#assign-the-azure-ad-test-user)** : per abilitare Britta Simon all'uso dell'accesso Single Sign-On di Azure AD.
-5. **[Creare l'utente di test di 15Five](#create-15five-test-user)** : per avere una controparte di Britta Simon in 15Five collegata alla rappresentazione dell'utente in Azure AD.
+5. **[Creare l'utente di test di 15Five](#create-15five-test-user)**: per avere una controparte di Britta Simon in 15Five collegata alla rappresentazione dell'utente in Azure AD.
 6. **[Testare l'accesso Single Sign-On](#test-single-sign-on)** per verificare se la configurazione funziona.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Configurare l'accesso Single Sign-On di Azure AD
@@ -183,13 +183,13 @@ Per consentire agli utenti di Azure AD di accedere a 15Five, è necessario effet
 
 ### <a name="to-configure-user-provisioning-perform-the-following-steps"></a>Per configurare il provisioning utente, eseguire la procedura seguente:
 
-1. Accedere al sito aziendale di **15Five** come amministratore.
+1. Accedere al sito della società **15Five** come amministratore.
 
-2. Passare a **Gestisci azienda**.
+2. Passare a **Manage Company**.
 
     ![Gestire l'azienda](./media/15five-tutorial/ic784675.png "Gestisci azienda")
 
-3. Passare a **People \> Add PEOPLE** (Persone > Aggiungi persone).
+3. Passare a **persone \> Aggiungi persone**.
 
     ![People](./media/15five-tutorial/ic784676.png "Persone")
 
@@ -197,9 +197,9 @@ Per consentire agli utenti di Azure AD di accedere a 15Five, è necessario effet
 
     ![Aggiungere una nuova persona](./media/15five-tutorial/ic784677.png "Add New Person")
 
-    a. Digitare il **Nome**, il **Cognome**, il **Titolo**, l'**Indirizzo email** di un account utente Azure Active Directory valido di cui si vuole eseguire il provisioning.
+    a. Digitare i valori **First Name**, **Last Name**, **Title**, **Email address** di un account Azure Active Directory valido di cui si vuole effettuare il provisioning nelle caselle di testo correlate.
 
-    b. Fare clic su **Done**.
+    b. Fare clic su **Fine**.
 
     > [!NOTE]
     > Il titolare dell'account Azure AD riceve un messaggio di posta elettronica contenente un collegamento per confermare l'account e attivarlo.

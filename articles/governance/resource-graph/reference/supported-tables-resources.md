@@ -5,10 +5,10 @@ ms.date: 03/10/2021
 ms.topic: reference
 ms.custom: generated
 ms.openlocfilehash: d7b4be0b35fdfebd2f680a299bc7b90375e36afc
-ms.sourcegitcommit: b572ce40f979ebfb75e1039b95cea7fce1a83452
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/11/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102633768"
 ---
 # <a name="azure-resource-graph-table-and-resource-type-reference"></a>Tabella di Azure Resource Graph e riferimenti sui tipi di risorsa
@@ -91,7 +91,7 @@ Azure Resource Graph supporta i **tipi di risorsa** di [Azure Resource Manager](
 - Hive. Streaming/Servizi (streaming hive)
 - incapsula.waf/accounts
 - LiveArena. Broadcast/Services (trasmissione LiveArena)
-- Mailjet. email/Services (servizio di posta elettronica Mailjet)
+- Mailjet.Email/services (servizio di posta elettronica Mailjet)
 - Microsoft. AAD/domainServices (Azure AD Domain Services)
 - Microsoft. aadiam/azureadmetrics
 - Microsoft. aadiam/privateLinkForAzureAD (collegamento privato per Azure AD)
@@ -639,7 +639,7 @@ Azure Resource Graph supporta i **tipi di risorsa** di [Azure Resource Manager](
 - providers.test/statelessresources
 - RavenHq. DB/databases (RavenHQ)
 - Raygun. CrashReporting/Apps (Raygun)
-- SendGrid. email/accounts (account SendGrid)
+- Sendgrid.Email/accounts (account SendGrid)
 - Sparkpost. Basic/Services (SparkPost)
 - stackify. retrace/Services (Stackify)
 - test.shoebox/testresources

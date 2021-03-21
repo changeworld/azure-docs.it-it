@@ -5,17 +5,17 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: alkohli
 ms.openlocfilehash: df572b88cf8a67163b28ec87154dcea01646b9a2
-ms.sourcegitcommit: b8eba4e733ace4eb6d33cc2c59456f550218b234
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/23/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "95564248"
 ---
 #### <a name="to-install-updates-via-the-azure-portal"></a>Per installare gli aggiornamenti tramite il portale di Azure
 
 1. Passare a Gestione dispositivi StorSimple e selezionare **Dispositivi**. Dall'elenco dei dispositivi connessi al servizio selezionare e fare clic sul dispositivo che si vuole aggiornare. 
 
-    ![In recente, Device Manager MySSDevManager è evidenziato e selezionato, i dispositivi vengono evidenziati e selezionati e il dispositivo MYSSIS1103 è evidenziato e selezionato.](../includes/media/storsimple-virtual-array-install-update-via-portal/azupdate1m.png) 
+    ![In recente, Gestione dispositivi MySSDevManager è evidenziato e selezionato, i dispositivi vengono evidenziati e selezionati e il dispositivo MYSSIS1103 è evidenziato e selezionato.](../includes/media/storsimple-virtual-array-install-update-via-portal/azupdate1m.png) 
 
 2. Nel pannello **Impostazioni** fare clic su **Aggiornamenti del dispositivo**. 
 
