@@ -9,10 +9,10 @@ ms.author: owend
 ms.reviewer: minewiskan
 ms.custom: references_regions
 ms.openlocfilehash: e9fd20fd42e9fe1eb0e98766798e5c759c974c97
-ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/14/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92013900"
 ---
 # <a name="asynchronous-refresh-with-the-rest-api"></a>Aggiornamento asincrono con l'API REST
@@ -98,7 +98,7 @@ Il corpo dovrebbe essere simile al seguente:
 
 Non è necessario specificare parametri. Viene applicato il valore predefinito.
 
-| Nome             | Type  | Descrizione  |Predefinito  |
+| Nome             | Tipo  | Descrizione  |Predefinito  |
 |------------------|-------|--------------|---------|
 | `Type`           | Enumerazione  | Il tipo di elaborazione da eseguire. I tipi sono allineati con i tipi del [comando refresh](/analysis-services/tmsl/refresh-command-tmsl) di TMSL: full, clearValues, calculate, dataOnly, automatic e defragment. Il tipo add non è supportato.      |   automatic      |
 | `CommitMode`     | Enumerazione  | Determina se verrà eseguito il commit degli oggetti in batch o solo al termine. Le modalità comprendono: default, transactional, partialBatch.  |  transactional       |
@@ -223,7 +223,7 @@ Vedere [Creare un'entità servizio - Portale di Azure](../active-directory/devel
 3.    Eseguire l'esempio.
 
 
-## <a name="see-also"></a>Vedere anche
+## <a name="see-also"></a>Vedi anche
 
 [Campioni](analysis-services-samples.md)   
 [REST API](/rest/api/analysisservices/servers)

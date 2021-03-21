@@ -6,10 +6,10 @@ ms.suite: integration
 ms.topic: article
 ms.date: 12/18/2020
 ms.openlocfilehash: de4af34182fc1a95968e95d322a6ec35101a3dc9
-ms.sourcegitcommit: b6267bc931ef1a4bd33d67ba76895e14b9d0c661
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/19/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97695882"
 ---
 # <a name="handle-large-messages-with-chunking-in-azure-logic-apps"></a>Gestire messaggi di grandi dimensioni con la suddivisione in blocchi in App per la logica di Azure
@@ -160,7 +160,7 @@ Questa procedura descrive il processo dettagliato che App per la logica di Azure
 
 1. L'app per la logica invia una richiesta HTTP POST o PUT iniziale con corpo del messaggio vuoto. L'intestazione della richiesta include queste informazioni sul contenuto di cui l'app per la logica eseguirà il caricamento in blocchi:
 
-   | Campo intestazione della richiesta di App per la logica di Azure | valore | Type | Descrizione |
+   | Campo intestazione della richiesta di App per la logica di Azure | valore | Tipo | Descrizione |
    |---------------------------------|-------|------|-------------|
    | **x-ms-transfer-mode** | suddiviso in blocchi | string | Indica che il contenuto viene caricato in blocchi |
    | **x-ms-content-length** | <*content-length*> | Integer | Dimensioni dell'intero contenuto in byte prima della suddivisione in blocchi |
@@ -168,7 +168,7 @@ Questa procedura descrive il processo dettagliato che App per la logica di Azure
 
 2. L'endpoint risponde con il codice di stato di esito positivo"200" e queste informazioni facoltative:
 
-   | Campo intestazione della risposta dell'endpoint | Type | Obbligatorio | Descrizione |
+   | Campo intestazione della risposta dell'endpoint | Type | Obbligatoria | Descrizione |
    |--------------------------------|------|----------|-------------|
    | **x-ms-chunk-size** | Integer | No | Dimensioni del blocco suggerite in byte |
    | **Posizione** | string | Sì | Percorso URL a cui inviare i messaggi HTTP PATCH |
@@ -180,7 +180,7 @@ Questa procedura descrive il processo dettagliato che App per la logica di Azure
 
    * Questa intestazione descrive in dettaglio il blocco di contenuto inviato in ogni messaggio PATCH:
 
-     | Campo intestazione della richiesta di App per la logica di Azure | valore | Type | Descrizione |
+     | Campo intestazione della richiesta di App per la logica di Azure | valore | Tipo | Descrizione |
      |---------------------------------|-------|------|-------------|
      | **Content-Range** | <*range*> | string | Intervallo in byte del blocco di contenuto corrente, incluso il valore iniziale, il valore finale e le dimensioni totali del contenuto, ad esempio: "bytes=0-1023/10100" |
      | **Content-Type** | <*content-type*> | string | Tipo di contenuto in blocchi |
@@ -189,7 +189,7 @@ Questa procedura descrive il processo dettagliato che App per la logica di Azure
 
 4. Dopo ogni richiesta PATCH, l'endpoint conferma la ricezione di ogni blocco rispondendo con il codice di stato "200" e le intestazioni di risposta seguenti:
 
-   | Campo intestazione della risposta dell'endpoint | Type | Obbligatorio | Descrizione |
+   | Campo intestazione della risposta dell'endpoint | Type | Obbligatoria | Descrizione |
    |--------------------------------|------|----------|-------------|
    | **Range** | string | Sì | Intervallo di byte relativo al contenuto ricevuto dall'endpoint, ad esempio: "bytes = 0-1023" |   
    | **x-ms-chunk-size** | Integer | No | Dimensioni del blocco suggerite in byte |

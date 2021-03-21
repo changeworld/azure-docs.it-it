@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 4/15/2020
 ms.topic: tutorial
 ms.service: digital-twins
-ms.openlocfilehash: aec60218774f3f8e293a5e5ab8c03707d117c2a0
-ms.sourcegitcommit: b572ce40f979ebfb75e1039b95cea7fce1a83452
+ms.openlocfilehash: b7883d6c541558e26793f94e37014a20b14d761e
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/11/2021
-ms.locfileid: "102634975"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104577256"
 ---
 # <a name="tutorial-build-out-an-end-to-end-solution"></a>Esercitazione: Creare una soluzione end-to-end
 
@@ -121,35 +121,51 @@ Tornare alla finestra di Visual Studio in cui è aperto il progetto _**AdtE2ESam
 
 [!INCLUDE [digital-twins-publish-azure-function.md](../../includes/digital-twins-publish-azure-function.md)]
 
-Per consentire all'app per le funzioni di accedere ai dispositivi gemelli digitali di Azure, sarà necessario disporre di un'identità gestita dal sistema con le autorizzazioni per accedere all'istanza di Azure Digital gemelli. Che verrà impostato successivamente.
+Per consentire all'app per le funzioni di accedere ai dispositivi gemelli digitali di Azure, sarà necessario avere le autorizzazioni per accedere all'istanza di Azure Digital Twins e al nome host dell'istanza. Questi verranno configurati successivamente.
 
-### <a name="assign-permissions-to-the-function-app"></a>Assegnare le autorizzazioni all'app per le funzioni
+### <a name="configure-permissions-for-the-function-app"></a>Configurare le autorizzazioni per l'app per le funzioni
 
-Per consentire l'accesso dell'app per le funzioni a Gemelli digitali di Azure, il passaggio successivo consiste nel configurare un'impostazione dell'app, assegnare all'app un'identità di Azure AD gestita dal sistema e assegnare a questa identità il ruolo *Proprietario dei dati di Gemelli digitali di Azure* nell'istanza di Gemelli digitali di Azure. Questo ruolo è necessario per qualsiasi utente o funzione che vuole eseguire molte attività del piano dati nell'istanza. Per altre informazioni sulla sicurezza e le assegnazioni di ruolo, vedere [*Concetti: Sicurezza per le soluzioni di Gemelli digitali di Azure*](concepts-security.md).
+Per l'app per le funzioni è necessario impostare due impostazioni per accedere all'istanza di Azure Digital gemelli. Queste operazioni possono essere eseguite tramite comandi nel [Azure cloud Shell](https://shell.azure.com). 
 
-In Azure Cloud Shell usare il comando seguente per configurare un'impostazione che verrà usata dall'app per le funzioni per fare riferimento all'istanza di Gemelli digitali di Azure. Inserire i segnaposto con i dettagli delle risorse (tenere presente che l'URL dell'istanza di Azure Digital Twins è il nome host preceduto da *https://*).
+#### <a name="assign-access-role"></a>Assegnare un ruolo di accesso
+
+La prima impostazione fornisce all'app per le funzioni il ruolo di **proprietario dei dati di Azure Digital gemelli** nell'istanza di Azure Digital gemelli. Questo ruolo è necessario per qualsiasi utente o funzione che vuole eseguire molte attività del piano dati nell'istanza. Per altre informazioni sulla sicurezza e le assegnazioni di ruolo, vedere [*Concetti: Sicurezza per le soluzioni di Gemelli digitali di Azure*](concepts-security.md). 
+
+1. Usare il comando seguente per visualizzare i dettagli dell'identità gestita dal sistema per la funzione. Prendere nota del campo **principalId** nell'output.
+
+    ```azurecli-interactive 
+    az functionapp identity show -g <your-resource-group> -n <your-App-Service-(function-app)-name> 
+    ```
+
+    >[!NOTE]
+    > Se il risultato è vuoto anziché visualizzare i dettagli di un'identità, creare una nuova identità gestita dal sistema per la funzione utilizzando questo comando:
+    > 
+    >```azurecli-interactive    
+    >az functionapp identity assign -g <your-resource-group> -n <your-App-Service-(function-app)-name>  
+    >```
+    >
+    > L'output visualizzerà quindi i dettagli dell'identità, incluso il valore **PrincipalId** richiesto per il passaggio successivo. 
+
+1. Usare il valore **principalId** nel comando seguente per assegnare l'identità dell'app per le funzioni al ruolo **Azure Digital Twins Owner** (Proprietario di Gemelli digitali di Azure) per l'istanza di Gemelli digitali di Azure.
+
+    ```azurecli-interactive 
+    az dt role-assignment create --dt-name <your-Azure-Digital-Twins-instance> --assignee "<principal-ID>" --role "Azure Digital Twins Data Owner"
+    ```
+
+Il risultato di questo comando è costituito dalle informazioni sull'assegnazione di ruolo creata. L'app per le funzioni ha ora le autorizzazioni per accedere ai dati nell'istanza di Azure Digital gemelli.
+
+#### <a name="configure-application-settings"></a>Configurare le impostazioni dell'applicazione
+
+La seconda impostazione crea una **variabile di ambiente** per la funzione con l'URL dell'istanza di Azure Digital gemelli. Il codice della funzione lo userà per fare riferimento all'istanza. Per altre informazioni sulle variabili di ambiente, vedere [*gestire l'app per le funzioni*](../azure-functions/functions-how-to-use-azure-function-app-settings.md?tabs=portal). 
+
+Eseguire il comando seguente, inserendo i segnaposto con i dettagli delle risorse.
 
 ```azurecli-interactive
-az functionapp config appsettings set -g <your-resource-group> -n <your-App-Service-(function-app)-name> --settings "ADT_SERVICE_URL=<your-Azure-Digital-Twins-instance-URL>"
+az functionapp config appsettings set -g <your-resource-group> -n <your-App-Service-(function-app)-name> --settings "ADT_SERVICE_URL=https://<your-Azure-Digital-Twins-instance-hostname>"
 ```
 
 L'output è l'elenco delle impostazioni per la funzione di Azure, che ora dovrebbe contenere una voce denominata **ADT_SERVICE_URL**.
 
-Usare il comando seguente per creare l'identità gestita dal sistema. Cercare il campo **PrincipalId** nell'output.
-
-```azurecli-interactive
-az functionapp identity assign -g <your-resource-group> -n <your-App-Service-(function-app)-name>
-```
-
-Usare il valore **PrincipalId** dell'output nel comando seguente per assegnare l'identità dell'app per le funzioni al ruolo di *proprietario dei dati di Azure Digital gemelli* per l'istanza di Azure Digital gemelli.
-
-[!INCLUDE [digital-twins-permissions-required.md](../../includes/digital-twins-permissions-required.md)]
-
-```azurecli-interactive
-az dt role-assignment create --dt-name <your-Azure-Digital-Twins-instance> --assignee "<principal-ID>" --role "Azure Digital Twins Data Owner"
-```
-
-Il risultato di questo comando è costituito dalle informazioni sull'assegnazione di ruolo creata. L'app per le funzioni ha ora le autorizzazioni per accedere all'istanza di Gemelli digitali di Azure.
 
 ## <a name="process-simulated-telemetry-from-an-iot-hub-device"></a>Elaborare i dati di telemetria simulati da un dispositivo hub IoT
 

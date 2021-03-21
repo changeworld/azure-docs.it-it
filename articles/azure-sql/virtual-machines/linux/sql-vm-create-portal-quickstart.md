@@ -11,10 +11,10 @@ ms.workload: iaas-sql-server
 ms.author: mathoma
 ms.reviewer: jroth
 ms.openlocfilehash: fd5c289f2b441b5862d863d9a390a1cd054acbfa
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
-ms.translationtype: HT
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/28/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92790152"
 ---
 # <a name="provision-a-linux-virtual-machine-running-sql-server-in-the-azure-portal"></a>Effettuare il provisioning di una macchina virtuale Linux che esegue SQL Server nel portale di Azure
@@ -32,7 +32,7 @@ In questa esercitazione di avvio rapido si usa il portale di Azure per creare un
 * [Modificare la password dell'amministratore di sistema](#password)
 * [Configurare connessioni remote](#remote)
 
-## <a name="prerequisites"></a>Prerequisiti 
+## <a name="prerequisites"></a>Prerequisiti
 
 Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free) prima di iniziare.
 
@@ -40,53 +40,53 @@ Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://a
 
 1. Accedere al [portale di Azure](https://portal.azure.com/).
 
-1. Nel riquadro a sinistra selezionare **Crea risorsa** .
+1. Nel riquadro a sinistra selezionare **Crea risorsa**.
 
-1. Nel riquadro **Crea una risorsa** selezionare **Calcolo** .
+1. Nel riquadro **Crea una risorsa** selezionare **Calcolo**.
 
-1. Selezionare **Visualizza tutto** accanto all'intestazione **In primo piano** .
+1. Selezionare **Visualizza tutto** accanto all'intestazione **In primo piano**.
 
    ![Visualizzare tutte le immagini di VM](./media/sql-vm-create-portal-quickstart/azure-compute-blade.png)
 
 1. Nella casella di ricerca digitare **SQL Server 2019** e selezionare **INVIO** per avviare la ricerca.
 
-1. Limitare i risultati della ricerca selezionando **Sistema operativo** > **RedHat** .
+1. Limitare i risultati della ricerca selezionando **Sistema operativo** > **RedHat**.
 
     ![Filtro di ricerca per le immagini di VM di SQL Server 2019](./media/sql-vm-create-portal-quickstart/searchfilter.png)
 
-1. Selezionare un'immagine Linux di SQL Server 2019 nei risultati della ricerca. Questa esercitazione usa **SQL Server 2019 su RHEL74** .
+1. Selezionare un'immagine Linux di SQL Server 2019 nei risultati della ricerca. Questa esercitazione usa **SQL Server 2019 su RHEL74**.
 
    > [!TIP]
    > L'edizione Developer consente di testare o sviluppare con le funzionalità dell'edizione Enterprise, ma senza i costi di licenza per SQL Server. Si paga solo il costo dell'esecuzione della VM Linux.
 
-1. Selezionare **Crea** . 
+1. Selezionare **Crea**. 
 
 
 ### <a name="set-up-your-linux-vm"></a>Configurare la macchina virtuale Linux
 
-1. Nella scheda **Informazioni di base** selezionare le opzioni per **Sottoscrizione** e **Gruppo di risorse** . 
+1. Nella scheda **Informazioni di base** selezionare le opzioni per **Sottoscrizione** e **Gruppo di risorse**. 
 
     ![Finestra Informazioni di base](./media/sql-vm-create-portal-quickstart/basics.png)
 
 1. In **Nome macchina virtuale** immettere un nome per la nuova macchina virtuale Linux.
 1. Digitare o selezionare quindi i valori seguenti:
-   * **Area** : selezionare l'area di Azure appropriata.
-   * **Opzioni di disponibilità** : scegliere l'opzione di ridondanza e disponibilità più appropriata per le app e i dati in uso.
-   * **Modifica dimensioni** : selezionare questa opzione per scegliere una dimensione di macchina e al termine scegliere **Seleziona** . Per altre informazioni sulle dimensioni delle VM, vedere [Dimensioni delle macchine virtuali](../../../virtual-machines/sizes.md).
+   * **Area**: selezionare l'area di Azure appropriata.
+   * **Opzioni di disponibilità**: scegliere l'opzione di ridondanza e disponibilità più appropriata per le app e i dati in uso.
+   * **Modifica dimensioni**: selezionare questa opzione per scegliere una dimensione di macchina e al termine scegliere **Seleziona**. Per altre informazioni sulle dimensioni delle VM, vedere [Dimensioni delle macchine virtuali](../../../virtual-machines/sizes.md).
 
      ![Scegliere le dimensioni per la macchina virtuale](./media/sql-vm-create-portal-quickstart/vmsizes.png)
 
    > [!TIP]
    > Per lo sviluppo e i test funzionali, usare la dimensione di macchina virtuale **DS2** o superiore. Per test delle prestazioni, usare **DS13** o una dimensione superiore.
 
-   * **Tipo di autenticazione** : selezionare **Chiave pubblica SSH** .
+   * **Tipo di autenticazione**: selezionare **Chiave pubblica SSH**.
 
      > [!Note]
      > Per l'autenticazione, si può scegliere di usare una chiave pubblica SSH o una password. L'opzione più sicura è SSH. Per istruzioni su come generare una chiave SSH, vedere l'articolo su come [creare chiavi SSH in Linux e Mac per le VM Linux in Azure](../../../virtual-machines/linux/mac-create-ssh-keys.md).
 
-   * **Nome utente** : immettere il nome dell'amministratore della macchina virtuale.
-   * **Chiave pubblica SSH** : immettere la chiave pubblica RSA.
-   * **Porte in ingresso pubbliche** : scegliere **Consenti porte selezionate** e selezionare la porta **SSH (22)** nell'elenco **Selezionare le porte in ingresso pubbliche** . In questo argomento di avvio rapido questo passaggio è necessario per connettersi e completare la configurazione di SQL Server. Per connettersi in remoto a SQL Server, è necessario consentire manualmente il traffico alla porta predefinita (1433) usata da Microsoft SQL Server per le connessioni su Internet dopo la creazione della macchina virtuale.
+   * **Nome utente**: immettere il nome dell'amministratore della macchina virtuale.
+   * **Chiave pubblica SSH**: immettere la chiave pubblica RSA.
+   * **Porte in ingresso pubbliche**: scegliere **Consenti porte selezionate** e selezionare la porta **SSH (22)** nell'elenco **Selezionare le porte in ingresso pubbliche**. In questo argomento di avvio rapido questo passaggio è necessario per connettersi e completare la configurazione di SQL Server. Per connettersi in remoto a SQL Server, è necessario consentire manualmente il traffico alla porta predefinita (1433) usata da Microsoft SQL Server per le connessioni su Internet dopo la creazione della macchina virtuale.
 
      ![Porte in ingresso](./media/sql-vm-create-portal-quickstart/port-settings.png)
 
@@ -97,12 +97,12 @@ Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://a
     * **Configurazione guest**
     * **Tag**
 
-1. Selezionare **Rivedi e crea** .
-1. Nel riquadro **Rivedi e crea** selezionare **Crea** .
+1. Selezionare **Rivedi e crea**.
+1. Nel riquadro **Rivedi e crea** selezionare **Crea**.
 
 ## <a name="connect-to-the-linux-vm"></a><a id="connect"></a> Connettersi alla VM Linux
 
-Se si usa già una shell BASH, connettersi alla VM di Azure con il comando **ssh** . Nel comando seguente, sostituire il nome utente e l'indirizzo IP della VM per connettersi alla propria VM Linux.
+Se si usa già una shell BASH, connettersi alla VM di Azure con il comando **ssh**. Nel comando seguente, sostituire il nome utente e l'indirizzo IP della VM per connettersi alla propria VM Linux.
 
 ```bash
 ssh azureadmin@40.55.55.555
@@ -125,7 +125,7 @@ Se l'esecuzione avviene in Windows e non si ha una shell BASH, installare un cli
 Per altre informazioni sulla connessione alle VM Linux, vedere l'articolo su come [creare una VM Linux in Azure con il portale](../../../virtual-machines/linux/quick-create-portal.md).
 
 > [!NOTE]
-> Se viene visualizzato un avviso di sicurezza PuTTY relativo alla mancata memorizzazione nella cache della chiave host del server, scegliere tra le opzioni seguenti. Se si considera attendibile l'host, selezionare **Sì** per aggiungere la chiave nella cache di PuTTy e continuare a la procedura di connessione. Se si vuole eseguire la connessione una sola volta, senza aggiungere la chiave nella cache, selezionare **No** . Se non si considera attendibile l'host, selezionare **Annulla** per abbandonare la connessione.
+> Se viene visualizzato un avviso di sicurezza PuTTY relativo alla mancata memorizzazione nella cache della chiave host del server, scegliere tra le opzioni seguenti. Se si considera attendibile l'host, selezionare **Sì** per aggiungere la chiave nella cache di PuTTy e continuare a la procedura di connessione. Se si vuole eseguire la connessione una sola volta, senza aggiungere la chiave nella cache, selezionare **No**. Se non si considera attendibile l'host, selezionare **Annulla** per abbandonare la connessione.
 
 ## <a name="change-the-sa-password"></a><a id="password"></a> Cambiare la password dell'amministratore di sistema
 
@@ -150,7 +150,7 @@ La nuova macchina virtuale installa SQL Server con una password dell'amministrat
 
 ## <a name="add-the-tools-to-your-path-optional"></a>Aggiungere gli strumenti al percorso (facoltativo)
 
-Per impostazione predefinita vengono installati diversi [pacchetti](sql-server-on-linux-vm-what-is-iaas-overview.md#packages) di SQL Server, incluso il pacchetto degli strumenti da riga di comando di SQL Server. Questo pacchetto contiene gli strumenti **sqlcmd** e **bcp** . Per praticità, si può facoltativamente aggiungere il percorso degli strumenti, `/opt/mssql-tools/bin/`, alla variabile di ambiente **PATH** .
+Per impostazione predefinita vengono installati diversi [pacchetti](sql-server-on-linux-vm-what-is-iaas-overview.md#packages) di SQL Server, incluso il pacchetto degli strumenti da riga di comando di SQL Server. Questo pacchetto contiene gli strumenti **sqlcmd** e **bcp**. Per praticità, si può facoltativamente aggiungere il percorso degli strumenti, `/opt/mssql-tools/bin/`, alla variabile di ambiente **PATH**.
 
 1. Eseguire i comandi seguenti per modificare la variabile **PATH** sia per le sessioni di accesso che per le sessioni interattive/non di accesso:
 
@@ -168,12 +168,12 @@ Se è necessario connettersi in remoto a SQL Server nella VM di Azure, è necess
 > Se è stata selezionata la porta in ingresso **MS SQL (1433)** nelle impostazioni durante il provisioning, queste modifiche sono state effettuate automaticamente. È possibile passare alla sezione successiva di configurazione del firewall.
 
 1. Nel portale selezionare **Macchine virtuali** e quindi la propria macchina virtuale di SQL Server.
-1. Nel riquadro di spostamento a sinistra, in **Impostazioni** selezionare **Rete** .
-1. Nella finestra Rete selezionare **Aggiungi porta in ingresso** in **Regole porta in ingresso** .
+1. Nel riquadro di spostamento a sinistra, in **Impostazioni** selezionare **Rete**.
+1. Nella finestra Rete selezionare **Aggiungi porta in ingresso** in **Regole porta in ingresso**.
 
    ![Regole porta in ingresso](./media/sql-vm-create-portal-quickstart/networking.png)
 
-1. Nell'elenco **Servizio** selezionare **MS SQL** .
+1. Nell'elenco **Servizio** selezionare **MS SQL**.
 
     ![Regola del gruppo di sicurezza per MS SQL](./media/sql-vm-create-portal-quickstart/sqlnsgrule.png)
 

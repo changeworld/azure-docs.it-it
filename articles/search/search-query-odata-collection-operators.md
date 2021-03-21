@@ -20,10 +20,10 @@ translation.priority.mt:
 - zh-cn
 - zh-tw
 ms.openlocfilehash: 4c1243d5d9122539466e94b6bbfdd5ced588e69a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "88934906"
 ---
 # <a name="odata-collection-operators-in-azure-cognitive-search---any-and-all"></a>Operatori di raccolte OData in Azure ricerca cognitiva `any` e `all`
@@ -62,7 +62,7 @@ Sono disponibili tre forme di espressione che filtrano le raccolte.
 
 Un' **espressione lambda** in un filtro di raccolta è simile al corpo di un ciclo in un linguaggio di programmazione. Definisce una variabile, denominata variabile di **intervallo**, che include l'elemento corrente della raccolta durante l'iterazione. Definisce anche un'altra espressione booleana che rappresenta i criteri di filtro da applicare alla variabile di intervallo per ogni elemento della raccolta.
 
-## <a name="examples"></a>Esempi
+## <a name="examples"></a>Esempio
 
 Trova la corrispondenza `tags` dei documenti il cui campo contiene esattamente la stringa "WiFi":
 

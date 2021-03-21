@@ -10,10 +10,10 @@ ms.date: 07/03/2019
 ms.author: alkohli
 Customer intent: As an IT admin, I need to be able to order Data Box Disk to upload on-premises data from my server onto Azure.
 ms.openlocfilehash: c83e46932e8d2a28d8503fe3fb6514988c364d97
-ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
-ms.translationtype: HT
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/16/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92125270"
 ---
 # <a name="tutorial-order-an-azure-data-box-disk"></a>Esercitazione: Ordinare un disco di Azure Data Box
@@ -63,7 +63,7 @@ Per ordinare Data Box Disk, seguire questa procedura.
 
     ![Selezionare l'opzione Data Box Disk](media/data-box-disk-deploy-ordered/select-data-box-sku-1.png)
 
-    |Impostazione|valore|
+    |Impostazione|Valore|
     |---|---|
     |Subscription|Selezionare la sottoscrizione per cui è abilitato il servizio Data Box.<br> La sottoscrizione viene collegata all'account di fatturazione. |
     |Tipo di trasferimento| Importa in Azure|
@@ -76,7 +76,7 @@ Per ordinare Data Box Disk, seguire questa procedura.
 
 5. In **Ordine** specificare i **Dettagli ordine**. Immettere o selezionare le informazioni seguenti.
 
-    |Impostazione|valore|
+    |Impostazione|Valore|
     |---|---|
     |Nome|Specificare un nome descrittivo per tenere traccia dell'ordine.<br> Il nome può contenere da 3 a 24 caratteri che possono essere lettere, numeri e trattini. <br> Il nome deve iniziare e terminare con una lettera o un numero. |
     |Resource group| Usare un gruppo esistente o crearne uno nuovo. <br> Un gruppo di risorse è un contenitore logico per le risorse che possono essere gestite o distribuite insieme. |
@@ -91,7 +91,7 @@ Per ordinare Data Box Disk, seguire questa procedura.
 
     Se si usa Data Box Disk per creare dischi gestiti da dischi rigidi virtuali in locale, è necessario fornire anche le informazioni seguenti:
 
-    |Impostazione  |valore  |
+    |Impostazione  |Valore  |
     |---------|---------|
     |Resource group     | Se si prevede la creazione di dischi gestiti da dischi rigidi virtuali in locale, creare un nuovo gruppo di risorse. Usare un gruppo di risorse esistente solo se è stato creato per l'ordine di Data Box Disk per il disco gestito dal servizio Data Box. <br> È supportato un solo gruppo di risorse.|
 

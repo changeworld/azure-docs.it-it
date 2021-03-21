@@ -9,10 +9,10 @@ ms.topic: troubleshooting
 ms.date: 09/10/2020
 ms.author: alkohli
 ms.openlocfilehash: bb70946fda4fad7a42fd885a2515cb0d82698eca
-ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/16/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92124677"
 ---
 # <a name="troubleshoot-issues-related-to-azure-data-box-and-azure-data-box-heavy"></a>Risolvere i problemi relativi a Azure Data Box e Azure Data Box Heavy
@@ -27,10 +27,10 @@ Gli errori in Data Box e Data Box Heavy sono riepilogati come segue:
 
 | Categoria di errore *        | Descrizione        | Azione consigliata    |
 |----------------------------------------------|---------|--------------------------------------|
-| Nomi di contenitori o condivisioni | I nomi di contenitore o condivisione non seguono le regole di denominazione di Azure.  |Scaricare gli elenchi degli errori. <br> Rinominare i contenitori o le condivisioni. [Altre informazioni](#container-or-share-name-errors).  |
-| Limite dimensioni contenitore o condivisione | Il totale dei dati in contenitori o condivisioni supera il limite di Azure.   |Scaricare gli elenchi degli errori. <br> Ridurre i dati complessivi nel contenitore o nella condivisione. [Altre informazioni](#container-or-share-size-limit-errors).|
-| Limite dimensioni oggetti o file | L'oggetto o i file in contenitori o condivisioni superano il limite di Azure.|Scaricare gli elenchi degli errori. <br> Ridurre le dimensioni del file nel contenitore o nella condivisione. [Altre informazioni](#object-or-file-size-limit-errors). |    
-| Tipo di dati o di file | Il formato dei dati o il tipo di file non è supportato. |Scaricare gli elenchi degli errori. <br> Per i BLOB di pagine o i dischi gestiti, assicurarsi che i dati siano allineati a 512 byte e che vengano copiati nelle cartelle create in precedenza. [Altre informazioni](#data-or-file-type-errors). |
+| Nomi di contenitori o condivisioni | I nomi di contenitore o condivisione non seguono le regole di denominazione di Azure.  |Scaricare gli elenchi degli errori. <br> Rinominare i contenitori o le condivisioni. [Altre informazioni](#container-or-share-name-errors)  |
+| Limite dimensioni contenitore o condivisione | Il totale dei dati in contenitori o condivisioni supera il limite di Azure.   |Scaricare gli elenchi degli errori. <br> Ridurre i dati complessivi nel contenitore o nella condivisione. [Altre informazioni](#container-or-share-size-limit-errors)|
+| Limite dimensioni oggetti o file | L'oggetto o i file in contenitori o condivisioni superano il limite di Azure.|Scaricare gli elenchi degli errori. <br> Ridurre le dimensioni del file nel contenitore o nella condivisione. [Altre informazioni](#object-or-file-size-limit-errors) |    
+| Tipo di dati o di file | Il formato dei dati o il tipo di file non è supportato. |Scaricare gli elenchi degli errori. <br> Per i BLOB di pagine o i dischi gestiti, assicurarsi che i dati siano allineati a 512 byte e che vengano copiati nelle cartelle create in precedenza. [Altre informazioni](#data-or-file-type-errors) |
 | Errori di BLOB o file non critici  | I nomi di BLOB o file non seguono le regole di denominazione di Azure o il tipo di file non è supportato. | È possibile che questi BLOB o file non vengano copiati o che i nomi vengano modificati. [Informazioni su come risolvere questi errori](#non-critical-blob-or-file-errors). |
 
 \* Le prime quattro categorie di errore sono errori critici e devono essere corrette prima di procedere alla preparazione per la spedizione.
@@ -104,7 +104,7 @@ Si tratta di errori relativi ai nomi di contenitori e condivisioni.
 - Nella pagina Connetti e copia dell'interfaccia utente Web locale scaricare ed esaminare i file di errore per identificare i nomi delle cartelle con problemi. 
 - Rinominare la directory o i contenitori per assicurarsi che siano conformi alle convenzioni di denominazione di Azure.
 
-Per altre informazioni, vedere convenzioni di denominazione di Azure per [directory](/rest/api/storageservices/naming-and-referencing-shares--directories--files--and-metadata#directory-and-file-names)   e [contenitori](/rest/api/storageservices/naming-and-referencing-containers--blobs--and-metadata#container-names).
+Per altre informazioni, vedere convenzioni di denominazione di Azure per [directory](/rest/api/storageservices/naming-and-referencing-shares--directories--files--and-metadata#directory-and-file-names) e [contenitori](/rest/api/storageservices/naming-and-referencing-containers--blobs--and-metadata#container-names).
 
 ## <a name="container-or-share-size-limit-errors"></a>Errori limite dimensioni contenitore o condivisione
 

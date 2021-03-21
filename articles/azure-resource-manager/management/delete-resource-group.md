@@ -2,14 +2,14 @@
 title: Eliminare il gruppo di risorse e le risorse
 description: Viene descritto come eliminare i gruppi di risorse e le risorse. Descrive il modo in cui Azure Resource Manager Ordina l'eliminazione delle risorse quando si elimina un gruppo di risorse. Descrive i codici di risposta e il modo in cui Resource Manager li gestisce in modo da determinare se l'eliminazione è stata completata.
 ms.topic: conceptual
-ms.date: 09/03/2019
+ms.date: 03/18/2021
 ms.custom: seodec18
-ms.openlocfilehash: d6c38169916cc6c47d6f05c88645fa435bbdb146
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 244d59ffc096b5e219e27fd376b07baecde3670e
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91614411"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104587662"
 ---
 # <a name="azure-resource-manager-resource-group-and-resource-deletion"></a>Azure Resource Manager l'eliminazione di risorse e gruppi di risorse
 
@@ -119,6 +119,13 @@ az resource delete \
 
 ---
 
+## <a name="required-access"></a>Accesso obbligatorio
+
+Per eliminare un gruppo di risorse, è necessario accedere all'azione Delete per la risorsa **Microsoft. resources/subscriptions/resourceGroups** . È anche necessario eliminare per tutte le risorse nel gruppo di risorse.
+
+Per un elenco di operazioni, vedere [operazioni del provider di risorse di Azure](../../role-based-access-control/resource-provider-operations.md). Per un elenco dei ruoli predefiniti, vedere [ruoli predefiniti di Azure](../../role-based-access-control/built-in-roles.md).
+
+Se si dispone dell'accesso richiesto, ma la richiesta di eliminazione ha esito negativo, è possibile che si verifichi un [blocco](lock-resources.md) sul gruppo di risorse.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

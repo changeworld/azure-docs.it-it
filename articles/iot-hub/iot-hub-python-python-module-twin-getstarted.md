@@ -10,10 +10,10 @@ ms.date: 04/03/2020
 ms.author: menchi
 ms.custom: devx-track-python
 ms.openlocfilehash: 665281adc892e6b3655c0b1d0533cb3148e62940
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/17/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92139407"
 ---
 # <a name="get-started-with-iot-hub-module-identity-and-module-twin-python"></a>Introduzione all'identità del modulo dell'hub Internet e al modulo gemello (Python)
@@ -44,7 +44,7 @@ Al termine di questa esercitazione si avranno tre app Python:
 
 ## <a name="get-the-iot-hub-connection-string"></a>Ottenere la stringa di connessione dell'hub IoT
 
-In questo articolo viene creato un servizio back-end che aggiunge un dispositivo nel registro delle identità e quindi aggiunge un modulo al dispositivo. Questo servizio richiede l'autorizzazione di **scrittura del registro di sistema** , che include anche la **lettura del registro**di sistema. Si crea anche un servizio che aggiunge le proprietà desiderate al modulo gemello per il modulo appena creato. Questo servizio richiede l'autorizzazione Connect per il **servizio** . Sebbene esistano criteri di accesso condiviso predefiniti che concedono singolarmente queste autorizzazioni, in questa sezione viene creato un criterio di accesso condiviso personalizzato che contiene entrambe le autorizzazioni.
+In questo articolo viene creato un servizio back-end che aggiunge un dispositivo nel registro delle identità e quindi aggiunge un modulo al dispositivo. Questo servizio richiede l'autorizzazione di **scrittura del registro di sistema** , che include anche la **lettura del registro** di sistema. Si crea anche un servizio che aggiunge le proprietà desiderate al modulo gemello per il modulo appena creato. Questo servizio richiede l'autorizzazione Connect per il **servizio** . Sebbene esistano criteri di accesso condiviso predefiniti che concedono singolarmente queste autorizzazioni, in questa sezione viene creato un criterio di accesso condiviso personalizzato che contiene entrambe le autorizzazioni.
 
 [!INCLUDE [iot-hub-include-find-service-regrw-connection-string](../../includes/iot-hub-include-find-service-regrw-connection-string.md)]
 
@@ -187,7 +187,7 @@ In questa sezione si crea un'app di servizio Python che aggiorna le proprietà d
 
 In questa sezione si crea un'app Python per ottenere l'aggiornamento delle proprietà desiderate del modulo gemello nel dispositivo.
 
-1. Ottenere la stringa di connessione del modulo. In [portale di Azure](https://portal.azure.com/)passare all'hub Internet delle cose e selezionare **dispositivi** Internet nel riquadro sinistro. Selezionare **myFirstDevice** nell'elenco dei dispositivi e aprirlo. In **identità modulo**selezionare **myFirstModule**. Copiare la stringa di connessione del modulo. È necessario in un passaggio successivo.
+1. Ottenere la stringa di connessione del modulo. In [portale di Azure](https://portal.azure.com/)passare all'hub Internet delle cose e selezionare **dispositivi** Internet nel riquadro sinistro. Selezionare **myFirstDevice** nell'elenco dei dispositivi e aprirlo. In **identità modulo** selezionare **myFirstModule**. Copiare la stringa di connessione del modulo. È necessario in un passaggio successivo.
 
    ![Dettagli del modulo nel portale di Azure](./media/iot-hub-python-python-module-twin-getstarted/module-detail.png)
 

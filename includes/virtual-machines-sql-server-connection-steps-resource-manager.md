@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: jroth
 ms.openlocfilehash: 51dc04fbef8d09878f33d7fda6f15039d3afba3e
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/25/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96026051"
 ---
 ### <a name="configure-a-dns-label-for-the-public-ip-address"></a>Configurare un'etichetta DNS per l'indirizzo IP pubblico
@@ -28,7 +28,7 @@ Per creare un'etichetta DNS, selezionare prima di tutto **Macchine virtuali** ne
 
 1. Immettere un nome per l'etichetta DNS. Il nome è un record A che consente di connettersi alla macchina virtuale di SQL Server usando il nome, anziché tramite l'indirizzo IP.
 
-1. Fare clic sul pulsante **Salva** .
+1. Fare clic sul pulsante **Salva**.
 
     ![etichetta dns](./media/virtual-machines-sql-server-connection-steps/rm-dns-label.png)
 
@@ -44,6 +44,6 @@ Per creare un'etichetta DNS, selezionare prima di tutto **Macchine virtuali** ne
 
 1. Nella casella **Password** digitare la password dell'account di accesso.
 
-1. Fare clic su **Connetti**.
+1. Fare clic su **Connect** (Connetti).
 
     ![connessione a ssms](./media/virtual-machines-sql-server-connection-steps/rm-ssms-connect.png)

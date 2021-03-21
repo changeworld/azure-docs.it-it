@@ -13,12 +13,12 @@ ms.author: baselden
 ms.reviewer: ajburnle
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 049025a5d871f1dd26e5dab498756aa44d2ebfe2
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 27353e6086085aadae622e007a38f97e15cbcb7f
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101693168"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104587866"
 ---
 # <a name="introduction-to-securing-azure-service-accounts"></a>Introduzione alla protezione degli account dei servizi di Azure
 
@@ -38,13 +38,13 @@ Per i servizi ospitati in Azure, è consigliabile usare un'identità gestita, se
 
 ## <a name="managed-identities"></a>Identità gestite
 
-Le identità gestite sono identità sicure di Azure Active Directory (Azure AD) create per fornire identità per le risorse di Azure. Esistono [due tipi di identità gestite](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview#managed-identity-types): 
+Le identità gestite sono identità sicure di Azure Active Directory (Azure AD) create per fornire identità per le risorse di Azure. Esistono [due tipi di identità gestite](../managed-identities-azure-resources/overview.md#managed-identity-types): 
  
 * Le identità gestite assegnate dal sistema possono essere assegnate direttamente a un'istanza di un servizio. 
 
 * Le identità gestite assegnate dall'utente possono essere create come risorse autonome. 
 
-Per altre informazioni, vedere [protezione delle identità gestite](service-accounts-managed-identities.md). Per informazioni generali sulle identità gestite, vedere [che cosa sono le identità gestite per le risorse di Azure?](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview)
+Per altre informazioni, vedere [protezione delle identità gestite](service-accounts-managed-identities.md). Per informazioni generali sulle identità gestite, vedere [che cosa sono le identità gestite per le risorse di Azure?](../managed-identities-azure-resources/overview.md)
 
 ## <a name="service-principals"></a>Entità servizio
 
@@ -67,6 +67,3 @@ Per ulteriori informazioni sulla protezione degli account dei servizi di Azure, 
 [Protezione delle entità servizio](service-accounts-principal.md)
 
 [Gestione degli account del servizio di Azure](service-accounts-governing-azure.md)
-
-
-

@@ -9,17 +9,17 @@ ms.date: 11/12/2019
 ms.author: raynew
 ms.custom: MVC
 ms.openlocfilehash: b8fd34c8f1e3a32a8252074941a49d61aa540207
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
-ms.translationtype: HT
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "86134911"
 ---
 # <a name="prepare-on-premises-vmware-servers-for-disaster-recovery-to-azure"></a>Preparare i server VMware locali per il ripristino di emergenza in Azure
 
 Questo articolo descrive come preparare i server VMware locali per il ripristino di emergenza in Azure usando i servizi [Azure Site Recovery](site-recovery-overview.md). 
 
-Questa è la seconda esercitazione di una serie che illustra come configurare il ripristino di emergenza in Azure per macchine virtuali VMware locali. Nella prima esercitazione sono stati [configurati i componenti di Azure](tutorial-prepare-azure.md) necessari per il ripristino di emergenza di VMware.
+Questa è la seconda esercitazione di una serie che illustra come configurare il ripristino di emergenza in Azure per macchine virtuali VMware locali. Nella prima esercitazione vengono [impostati i componenti di Azure](tutorial-prepare-azure.md) necessari per il ripristino di emergenza di VMware.
 
 
 In questo articolo vengono illustrate le operazioni seguenti:
@@ -94,7 +94,7 @@ Per connettersi alle macchine virtuali Windows tramite RDP dopo il failover, ese
 - **Accesso VPN da sito a sito**:
     - Prima del failover, abilitare RDP nella macchina virtuale locale.
     - RDP deve essere consentito in **Windows Firewall** -> **App e funzionalità consentite** per le reti di **dominio e private**.
-    - Verificare che il criterio SAN del sistema operativo sia impostato su **OnlineAll**. [Altre informazioni](https://support.microsoft.com/kb/3031135).
+    - Verificare che il criterio SAN del sistema operativo sia impostato su **OnlineAll**. [Altre informazioni](https://support.microsoft.com/kb/3031135)
 - Quando si attiva un failover, nella macchina virtuale non devono essere presenti aggiornamenti di Windows in sospeso. Se sono presenti aggiornamenti in sospeso, non sarà possibile accedere alla macchina virtuale fino al completamento dell'aggiornamento.
 - Dopo il failover nella macchina virtuale Windows di Azure selezionare **Diagnostica di avvio** per visualizzare uno screenshot della macchina virtuale. Se non è possibile connettersi, controllare che la macchina virtuale sia in esecuzione e rivedere i [suggerimenti per la risoluzione dei problemi](https://social.technet.microsoft.com/wiki/contents/articles/31666.troubleshooting-remote-desktop-connection-after-failover-using-asr.aspx).
 
@@ -116,5 +116,5 @@ Se si prevede di eseguire il failback nel proprio sito locale, esistono alcuni [
 
 Configurare il ripristino di emergenza. Se si esegue la replica di più macchine virtuali, pianificare la capacità.
 > [!div class="nextstepaction"]
-> [Configurare il ripristino di emergenza in Azure per macchine virtuali VMware](vmware-azure-tutorial.md)
-> [Eseguire la pianificazione della capacità](site-recovery-deployment-planner.md).
+> [Configurare il ripristino di emergenza in Azure per le macchine virtuali VMware](vmware-azure-tutorial.md) 
+>  [Eseguire la pianificazione della capacità](site-recovery-deployment-planner.md).

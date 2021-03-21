@@ -6,10 +6,10 @@ ms.author: jobreen
 author: jjbfour
 ms.date: 06/20/2019
 ms.openlocfilehash: e1b8c44f020d18066423eed236018308fe88b607
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "75650383"
 ---
 # <a name="custom-resource-cache-reference"></a>Riferimento alla cache delle risorse personalizzate
@@ -46,7 +46,7 @@ Un **endpoint** che implementa un **endpoint** della risorsa "proxy, cache" deve
 
 > [!NOTE]
 > L'API di Azure genererà i metodi `PUT` di richiesta, `GET` e `DELETE` , ma l' **endpoint** della cache deve solo gestire `PUT` e `DELETE` .
-> Si consiglia inoltre di **endpoint** implementare l'endpoint `GET` .
+> Si consiglia inoltre di  implementare l'endpoint `GET` .
 
 ### <a name="create-a-custom-resource"></a>Creare una risorsa personalizzata
 
