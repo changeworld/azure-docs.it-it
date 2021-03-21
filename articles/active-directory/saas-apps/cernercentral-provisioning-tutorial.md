@@ -11,10 +11,10 @@ ms.topic: tutorial
 ms.date: 03/27/2019
 ms.author: arvinh
 ms.openlocfilehash: 1f82cab1172e7293e2a5910d35280eefb30ed49e
-ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
-ms.translationtype: HT
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/07/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94357454"
 ---
 # <a name="tutorial-configure-cerner-central-for-automatic-user-provisioning"></a>Esercitazione: Configurare Cerner Central per il provisioning utenti automatico
@@ -92,7 +92,7 @@ Per effettuare il provisioning degli account utente in Cerner Central, è necess
 
    ![Provisioning in Cerner Central](./media/cernercentral-provisioning-tutorial/Cerner.PNG)
 
-9. Compilare i campi seguenti in **Credenziali amministratore** :
+9. Compilare i campi seguenti in **Credenziali amministratore**:
 
    * Nel campo **URL tenant** immettere un URL nel formato seguente, sostituendo "ID-Area-Autenticazione-Roster-Utenti" con l'ID area autenticazione acquisito nel passaggio 4.
 

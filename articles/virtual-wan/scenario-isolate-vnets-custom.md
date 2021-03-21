@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 09/22/2020
 ms.author: cherylmc
 ms.openlocfilehash: ca1ee8418bc08d70a031d81a15dc1b4ace2f1a3a
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/23/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92461822"
 ---
 # <a name="scenario-custom-isolation-for-vnets"></a>Scenario: isolamento personalizzato per reti virtuali
@@ -55,7 +55,7 @@ Per altre informazioni sul routing degli hub virtuali, vedere [informazioni sul 
 
 ## <a name="workflow"></a><a name="architecture"></a>Flusso di lavoro
 
-Nella **Figura 1**sono presenti connessioni VNet blu e rosse.
+Nella **Figura 1** sono presenti connessioni VNet blu e rosse.
 
 * Il reti virtuali connesso a blu può raggiungere l'altro, oltre a raggiungere tutte le connessioni di Branch (VPN/ER/P2S).
 * Il reti virtuali rosso può raggiungere l'altro, oltre a raggiungere tutte le connessioni di Branch (VPN/ER/P2S).
@@ -63,7 +63,7 @@ Nella **Figura 1**sono presenti connessioni VNet blu e rosse.
 Quando si configura il routing, tenere presente i passaggi seguenti.
 
 1. Creare due tabelle di route personalizzate nell'portale di Azure, **RT_BLUE** e **RT_RED**.
-2. Per **RT_BLUE**della tabella di route, per le impostazioni seguenti:
+2. Per **RT_BLUE** della tabella di route, per le impostazioni seguenti:
    * **Associazione**: selezionare tutti reti virtuali blu.
    * **Propagazione**: per i Branch selezionare l'opzione per i rami, le connessioni che implicano il ramo (VPN/er/P2S) propagheranno le route a questa tabella di route.
 3. Ripetere gli stessi passaggi per **RT_RED** tabella di route per reti virtuali e rami rossi (VPN/er/P2S).

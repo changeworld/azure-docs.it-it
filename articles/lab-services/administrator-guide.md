@@ -4,10 +4,10 @@ description: Questa guida consente agli amministratori che creano e gestiscono g
 ms.topic: article
 ms.date: 10/20/2020
 ms.openlocfilehash: 3ad3ee38a6c08a6af85822d76012cc6dfc34ff4e
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/01/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96462468"
 ---
 # <a name="azure-lab-services---administrator-guide"></a>Azure Lab Services - Guida dell'amministratore
@@ -121,7 +121,7 @@ Quando si inizia a usare Azure Lab Services, è consigliabile definire convenzio
 | Resource group | Contiene uno o più account lab e una o più raccolte di immagini condivise | \<organization short name\>-\<environment\>-RG<ul><li>**Nome breve organizzazione** identifica il nome dell'organizzazione supportata dal gruppo di risorse.</li><li>**Environment** identifica l'ambiente per la risorsa, ad esempio *Pilot* o *Production*.</li><li>**RG** sta per il gruppo di *risorse* del tipo di risorsa.</li></ul> | contosouniversitylabs-rg<br/>contosouniversitylabs-pilot-rg<br/>contosouniversitylabs-prod-rg |
 | Account lab | Contiene uno o più lab. | \<organization short name\>-\<environment\>-la<ul><li>**Nome breve organizzazione** identifica il nome dell'organizzazione supportata dal gruppo di risorse.</li><li>**Environment** identifica l'ambiente per la risorsa, ad esempio *Pilot* o *Production*.</li><li>**La** sta per il tipo di risorsa *account Lab*.</li></ul> | contosouniversitylabs-la<br/>mathdeptlabs-la<br/>sciencedeptlabs-pilot-la<br/>sciencedeptlabs-prod-la |
 | Lab | Contiene una o più VM. |\<class name\>-\<timeframe\>-\<educator identifier\><ul><li>**Nome classe** identifica il nome della classe supportata dal Lab.</li><li>**Intervallo di tempo** identifica l'intervallo di tempo in cui il corso in classe viene offerto.</li>L' **identificatore dell'insegnante** identifica l'insegnante che possiede il Lab.</li></ul> | CS1234-fall2019-johndoe<br/>CS1234-spring2019-johndoe |
-| Raccolta di immagini condivise | Contiene una o più versioni di immagini di VM | \<organization short name\>gallery | contosouniversitylabsgallery |
+| Raccolta di immagini condivise | Contiene una o più versioni di immagini di VM | \<organization short name\>raccolta | contosouniversitylabsgallery |
 
 Per altre informazioni sulla denominazione di altre risorse di Azure, vedere [convenzioni di denominazione per le risorse di Azure](/azure/architecture/best-practices/naming-conventions).
 
@@ -168,7 +168,7 @@ Quando gli amministratori o i creatori di Lab creano un Lab, possono scegliere t
 | Dimensione | Specifiche | Serie | Uso suggerito |
 | ---- | ----- | ------ | ------------- |
 | Piccolo| <ul><li>2 &nbsp; Core</li><li>3,5 gigabyte (GB) di RAM</li> | [Standard_A2_v2](../virtual-machines/av2-series.md?bc=%2fazure%2fvirtual-machines%2flinux%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) | Ideale per la riga di comando, apertura del Web browser, server Web con traffico ridotto, database di piccole e medie dimensioni. |
-| Media | <ul><li>4 &nbsp; Core</li><li>7 &nbsp; GB di &nbsp; RAM</li> | [Standard_A4_v2](../virtual-machines/av2-series.md?bc=%2fazure%2fvirtual-machines%2flinux%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) | Ideale per database relazionali, Caching in memoria e analisi. |
+| Medio | <ul><li>4 &nbsp; Core</li><li>7 &nbsp; GB di &nbsp; RAM</li> | [Standard_A4_v2](../virtual-machines/av2-series.md?bc=%2fazure%2fvirtual-machines%2flinux%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) | Ideale per database relazionali, Caching in memoria e analisi. |
 | Media (virtualizzazione annidata) | <ul><li>4 &nbsp; Core</li><li>16 &nbsp; GB di &nbsp; RAM</li></ul> | [Standard_D4s_v3](../virtual-machines/dv3-dsv3-series.md?bc=%2fazure%2fvirtual-machines%2flinux%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json#dsv3-series) | Ideale per database relazionali, Caching in memoria e analisi.
 | Grande | <ul><li>8 &nbsp; Core</li><li>16 &nbsp; GB di &nbsp; RAM</li></ul>  | [Standard_A8_v2](../virtual-machines/av2-series.md) | Ideale per le applicazioni che richiedono CPU più veloci, prestazioni migliori del disco locale, database di grandi dimensioni, cache di memoria di grandi dimensioni.  Queste dimensioni supportano anche la virtualizzazione annidata. |
 | Grande (virtualizzazione annidata) | <ul><li>8 &nbsp; Core</li><li>32 &nbsp; GB di &nbsp; RAM</li></ul>  | [Standard_D8s_v3](../virtual-machines/dv3-dsv3-series.md?bc=%2fazure%2fvirtual-machines%2flinux%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json#dsv3-series) | Ideale per le applicazioni che richiedono CPU più veloci, prestazioni migliori del disco locale, database di grandi dimensioni, cache di memoria di grandi dimensioni. |

@@ -7,10 +7,10 @@ ms.service: postgresql
 ms.topic: how-to
 ms.date: 5/6/2019
 ms.openlocfilehash: 5583e8423f0909936d9e55c6d87593835eded8f7
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/23/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92489898"
 ---
 # <a name="advanced-threat-protection-for-azure-database-for-postgresql---single-server"></a>Advanced Threat Protection per database di Azure per PostgreSQL-server singolo
@@ -42,15 +42,15 @@ Si riceverà una notifica tramite posta elettronica al rilevamento di attività 
     
 1. Fare clic sul collegamento **View recent alerts** (Visualizza gli avvisi recenti) nel messaggio di posta elettronica per avviare il portale di Azure e visualizzare la pagina degli avvisi del Centro sicurezza di Azure, con una panoramica delle minacce attive rilevate nel database di SQL.
     
-    :::image type="content" source="./media/howto-database-threat-protection-portal/anomalous-activity-report.png" alt-text="Impostare il rilevamento delle minacce":::
+    :::image type="content" source="./media/howto-database-threat-protection-portal/anomalous-activity-report.png" alt-text="Report Anomalie dell'attività":::
 
     Visualizzare le minacce attive:
 
-    :::image type="content" source="./media/howto-database-threat-protection-portal/active-threats.png" alt-text="Impostare il rilevamento delle minacce":::
+    :::image type="content" source="./media/howto-database-threat-protection-portal/active-threats.png" alt-text="Minacce attive":::
 
 2. Fare clic su uno specifico avviso per visualizzare altri dettagli e azioni per analizzare la minaccia e risolvere eventuali minacce future.
     
-    :::image type="content" source="./media/howto-database-threat-protection-portal/specific-alert.png" alt-text="Impostare il rilevamento delle minacce":::
+    :::image type="content" source="./media/howto-database-threat-protection-portal/specific-alert.png" alt-text="Avviso specifico":::
 
 ## <a name="explore-threat-detection-alerts"></a>Esplorare gli avvisi di rilevamento minacce
 
@@ -58,7 +58,7 @@ Advanced Threat Protection integra i suoi avvisi con il [Centro sicurezza di Azu
 
 Fare clic su **Avvisi di sicurezza** sotto **PROTEZIONE DALLE MINACCE** per avviare la pagina degli avvisi del Centro sicurezza di Azure e ottenere una panoramica delle minacce SQL attive rilevate nel database.
 
-  :::image type="content" source="./media/howto-database-threat-protection-portal/threat-detection-alert-asc.png" alt-text="Impostare il rilevamento delle minacce":::
+  :::image type="content" source="./media/howto-database-threat-protection-portal/threat-detection-alert-asc.png" alt-text="Centro sicurezza di protezione dalle minacce":::
 
 ## <a name="next-steps"></a>Passaggi successivi
 

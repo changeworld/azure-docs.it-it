@@ -10,10 +10,10 @@ ms.author: tamram
 ms.subservice: blobs
 ms.custom: devx-track-csharp
 ms.openlocfilehash: ddd19c90c8c47016497e2c3b00e04595a94e7715
-ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/24/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "95543069"
 ---
 # <a name="list-blobs-with-net"></a>Elencare BLOB con .NET
@@ -26,14 +26,14 @@ Questo articolo illustra come elencare i BLOB usando la [libreria client di Arch
 
 Per elencare i BLOB in un account di archiviazione, chiamare uno dei metodi seguenti:
 
-# <a name="net-v12"></a>[.NET V12](#tab/dotnet)
+# <a name="net-v12"></a>[.NET v12](#tab/dotnet)
 
 - [BlobContainerClient. GetBlobs](/dotnet/api/azure.storage.blobs.blobcontainerclient.getblobs)
 - [BlobContainerClient.GetBlobsAsync](/dotnet/api/azure.storage.blobs.blobcontainerclient.getblobsasync)
 - [BlobContainerClient.GetBlobsByHierarchy](/dotnet/api/azure.storage.blobs.blobcontainerclient.getblobsbyhierarchy)
 - [BlobContainerClient.GetBlobsByHierarchyAsync](/dotnet/api/azure.storage.blobs.blobcontainerclient.getblobsbyhierarchyasync)
 
-# <a name="net-v11"></a>[V11 .NET](#tab/dotnet11)
+# <a name="net-v11"></a>[.NET v11](#tab/dotnet11)
 
 - [CloudBlobClient.ListBlobs](/dotnet/api/microsoft.azure.storage.blob.cloudblobclient.listblobs)
 - [CloudBlobClient.ListBlobsSegmented](/dotnet/api/microsoft.azure.storage.blob.cloudblobclient.listblobssegmented)
@@ -85,11 +85,11 @@ Nell'esempio seguente vengono elencati i BLOB nel contenitore specificato utiliz
 
 Se è stata abilitata la funzionalità spazio dei nomi gerarchico nell'account, le directory non sono virtuali. Sono invece oggetti concreti e indipendenti. Pertanto, le directory vengono visualizzate nell'elenco come BLOB di lunghezza zero.
 
-# <a name="net-v12"></a>[.NET V12](#tab/dotnet)
+# <a name="net-v12"></a>[.NET v12](#tab/dotnet)
 
 :::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/dotnet-v12/CRUD.cs" id="Snippet_ListBlobsFlatListing":::
 
-# <a name="net-v11"></a>[V11 .NET](#tab/dotnet11)
+# <a name="net-v11"></a>[.NET v11](#tab/dotnet11)
 
 Se un'operazione di elenco restituisce più di 5000 BLOB o se il numero di BLOB disponibili supera il numero specificato, archiviazione di Azure restituisce un *token di continuazione* con l'elenco di BLOB. Un token di continuazione è un valore opaco che è possibile usare per recuperare il set di risultati successivo da Archiviazione di Azure.
 
@@ -155,7 +155,7 @@ Blob name: FolderA/FolderB/FolderC/blob3.txt
 
 Quando si chiama un'operazione di elenco gerarchico, Archiviazione di Azure restituisce le directory virtuali e i BLOB del primo livello della gerarchia. Il [prefisso](/dotnet/api/microsoft.azure.storage.blob.cloudblobdirectory.prefix) proprietà di ogni directory virtuale è impostato in modo che sia possibile passare il prefisso in una chiamata ricorsiva per recuperare la directory successiva.
 
-# <a name="net-v12"></a>[.NET V12](#tab/dotnet)
+# <a name="net-v12"></a>[.NET v12](#tab/dotnet)
 
 Per elencare i BLOB in modo gerarchico, chiamare il metodo [BlobContainerClient. GetBlobsByHierarchy](/dotnet/api/azure.storage.blobs.blobcontainerclient.getblobsbyhierarchy)o [BlobContainerClient. GetBlobsByHierarchyAsync](/dotnet/api/azure.storage.blobs.blobcontainerclient.getblobsbyhierarchyasync) .
 
@@ -163,7 +163,7 @@ L'esempio seguente elenca i BLOB nel contenitore specificato usando un elenco ge
 
 :::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/dotnet-v12/CRUD.cs" id="Snippet_ListBlobsHierarchicalListing":::
 
-# <a name="net-v11"></a>[V11 .NET](#tab/dotnet11)
+# <a name="net-v11"></a>[.NET v11](#tab/dotnet11)
 
 Per elencare i BLOB in modo gerarchico, impostare il parametro `useFlatBlobListing` del metodo di elenco su **false**.
 

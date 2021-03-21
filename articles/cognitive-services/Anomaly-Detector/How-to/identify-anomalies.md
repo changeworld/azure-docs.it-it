@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 10/01/2019
 ms.author: mbullwin
 ms.openlocfilehash: 74f891ba7f5b400b5782565e670539167f4e2464
-ms.sourcegitcommit: e7152996ee917505c7aba707d214b2b520348302
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/20/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97703433"
 ---
 # <a name="how-to-use-the-anomaly-detector-api-on-your-time-series-data"></a>Procedura: usare l'API del rilevatore di anomalie nei dati delle serie temporali  
@@ -71,4 +71,4 @@ Gli esempi seguenti mostrano un risultato dell'API del rilevamento delle anomali
 ## <a name="next-steps"></a>Passaggi successivi
 
 * [Cos'è l'API Rilevamento anomalie?](../overview.md)
-* [Guida introduttiva: rilevare anomalie nei dati delle serie temporali usando il rilevatore di anomalie](../quickstarts/client-libraries.md)
+* [Avvio rapido: Rilevare le anomalie nei dati delle serie temporali tramite Rilevamento anomalie](../quickstarts/client-libraries.md)

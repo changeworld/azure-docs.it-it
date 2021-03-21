@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 12/30/2019
 ms.author: kgremban
 ms.openlocfilehash: 8cae7ac2d3b961120cb9100f5072dc141769afff
-ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
-ms.translationtype: HT
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/24/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "95558345"
 ---
 ## <a name="create-a-container-registry"></a>Creare un registro contenitori
@@ -23,7 +23,7 @@ Se non è ancora disponibile alcun registro contenitori, seguire questa procedur
 
 2. Specificare i valori seguenti per creare il registro contenitori:
 
-   | Campo | valore |
+   | Campo | Valore |
    | ----- | ----- |
    | Sottoscrizione | Selezionare una sottoscrizione nell'elenco a discesa. |
    | Resource group | È consigliabile usare lo stesso gruppo di risorse per tutte le risorse di test create durante le esercitazioni e le guide introduttive di IoT Edge. Ad esempio, **IoTEdgeResources**. |

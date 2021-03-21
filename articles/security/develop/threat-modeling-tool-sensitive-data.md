@@ -17,10 +17,10 @@ ms.date: 02/07/2017
 ms.author: jegeib
 ms.custom: devx-track-js, devx-track-csharp
 ms.openlocfilehash: 0bcbe35fc6d9f104325bec8a3404ad57a6376cf2
-ms.sourcegitcommit: 5831eebdecaa68c3e006069b3a00f724bea0875a
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/11/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94518125"
 ---
 # <a name="security-frame-sensitive-data--mitigations"></a>Infrastruttura di sicurezza: dati sensibili - Procedure di mitigazione 
@@ -449,7 +449,7 @@ La configurazione seguente imposta la modalità di sicurezza su None.
 
 ### <a name="example"></a>Esempio
 Le associazioni ai servizi presentano cinque modalità di sicurezza possibili: 
-* No. Disabilita la sicurezza. 
+* Nessuna. Disabilita la sicurezza. 
 * Transport. Usa la sicurezza del trasporto per la protezione reciproca del messaggio e dell'autenticazione. 
 * Message. Usa la sicurezza del messaggio per la protezione reciproca del messaggio e dell'autenticazione. 
 * Both. Permette di specificare le impostazioni per la sicurezza del trasporto e a livello di messaggio (supportata solo in MSMQ). 

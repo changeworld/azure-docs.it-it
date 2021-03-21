@@ -4,10 +4,10 @@ description: Questo articolo illustra come spostare uno spazio dei nomi di hub e
 ms.topic: how-to
 ms.date: 09/01/2020
 ms.openlocfilehash: b177c3916919e3d97325f9d8c6b6027c00cb476f
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/25/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96019923"
 ---
 # <a name="move-an-azure-event-hubs-namespace-to-another-region"></a>Spostare uno spazio dei nomi di hub eventi di Azure in un'altra area
@@ -21,7 +21,7 @@ Se sono presenti altre risorse nel gruppo di risorse di Azure che contiene lo sp
 - Se è stata abilitata la **funzionalità di acquisizione** per hub eventi nello spazio dei nomi, spostare [Azure Storage o Azure Data Lake Store](../storage/common/storage-account-move.md) gli account di generazione 2 o [Azure Data Lake Store di generazione 1](../data-lake-store/data-lake-store-migration-cross-region.md) prima di spostare lo spazio dei nomi di hub eventi. È anche possibile spostare il gruppo di risorse che contiene gli spazi dei nomi dell'hub eventi e di archiviazione nell'altra area seguendo questa procedura in modo analogo a quelli descritti in questo articolo. 
 - Se lo spazio dei nomi di hub eventi si trova in un **cluster di hub eventi**, [spostare il cluster dedicato](move-cluster-across-regions.md) nell' **area di destinazione** prima di procedere con i passaggi descritti in questo articolo. È anche possibile usare il [modello di avvio rapido in GitHub](https://github.com/Azure/azure-quickstart-templates/tree/master/201-eventhubs-create-cluster-namespace-eventhub/) per creare un cluster di hub eventi. Nel modello rimuovere la parte relativa allo spazio dei nomi di JSON per creare solo il cluster. 
 
-## <a name="prepare"></a>Preparare
+## <a name="prepare"></a>Preparazione
 Per iniziare, esportare un modello di Gestione risorse. Questo modello contiene le impostazioni che descrivono lo spazio dei nomi di hub eventi.
 
 1. Accedere al [portale di Azure](https://portal.azure.com).
@@ -35,7 +35,7 @@ Per iniziare, esportare un modello di Gestione risorse. Questo modello contiene 
    Questo file zip contiene i file con estensione JSON che includono il modello e gli script per distribuire il modello.
 
 
-## <a name="move"></a>Spostamento
+## <a name="move"></a>Sposta
 
 Distribuire il modello per creare uno spazio dei nomi di hub eventi nell'area di destinazione. 
 

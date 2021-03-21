@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 09/09/2020
 ms.author: surmb
 ms.openlocfilehash: f214b0b0751f44ea1357f569fd814a7621af61ab
-ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/05/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93397621"
 ---
 # <a name="application-gateway-infrastructure-configuration"></a>Configurazione dell'infrastruttura del gateway applicazione
@@ -69,7 +69,7 @@ Per questo scenario, usare gruppi nella subnet del gateway applicazione. Inserir
 
    Per lo SKU V1, le route definite dall'utente (UDR) sono supportate nella subnet del gateway applicazione, purché non modifichino la comunicazione di richiesta/risposta end-to-end. Ad esempio, è possibile configurare un UDR nella subnet del gateway applicazione in modo che punti a un'appliance firewall per l'ispezione dei pacchetti. È tuttavia necessario assicurarsi che il pacchetto possa raggiungere la destinazione prevista dopo l'ispezione. In caso contrario, potrebbe verificarsi un comportamento non corretto del probe di integrità o del routing del traffico. Sono incluse le route apprese o le route 0.0.0.0/0 predefinite propagate dai gateway VPN o ExpressRoute di Azure nella rete virtuale. Qualsiasi scenario in cui 0.0.0.0/0 deve essere reindirizzato in locale (tunneling forzato) non è supportato per V1.
 
-- **v2**
+- **V2**
 
    Per lo SKU V2 sono disponibili scenari supportati e non supportati:
 
@@ -78,7 +78,7 @@ Per questo scenario, usare gruppi nella subnet del gateway applicazione. Inserir
    > Una configurazione non corretta della tabella di route può causare il routing asimmetrico nel gateway applicazione V2. Assicurarsi che tutto il traffico del piano di gestione/controllo venga inviato direttamente a Internet e non tramite un appliance virtuale. Potrebbero essere interessate anche la registrazione e le metriche.
 
 
-  **Scenario 1** : UdR per disabilitare la propagazione della route BGP (Border Gateway Protocol) alla subnet del gateway applicazione
+  **Scenario 1**: UdR per disabilitare la propagazione della route BGP (Border Gateway Protocol) alla subnet del gateway applicazione
 
    In alcuni casi la route del gateway predefinita (0.0.0.0/0) viene annunciata tramite il ExpressRoute o i gateway VPN associati alla rete virtuale del gateway applicazione. Questo problema interrompe il traffico del piano di gestione, che richiede un percorso diretto a Internet. In questi scenari, è possibile usare un UDR per disabilitare la propagazione di route BGP. 
 
@@ -90,11 +90,11 @@ Per questo scenario, usare gruppi nella subnet del gateway applicazione. Inserir
 
    L'abilitazione di UDR per questo scenario non dovrebbe interrompere le configurazioni esistenti.
 
-  **Scenario 2** : UdR per indirizzare 0.0.0.0/0 a Internet
+  **Scenario 2**: UdR per indirizzare 0.0.0.0/0 a Internet
 
    È possibile creare un UDR per inviare il traffico 0.0.0.0/0 direttamente a Internet. 
 
-  **Scenario 3** : UdR per il servizio Kubernetes di Azure con kubenet
+  **Scenario 3**: UdR per il servizio Kubernetes di Azure con kubenet
 
   Se si usa kubenet con Azure Kubernetes Service (AKS) e il controller di ingresso del gateway applicazione (AGIC), è necessaria una tabella di route per consentire il routing del traffico ai pod dal gateway applicazione al nodo corretto. Questa operazione non è necessaria se si usa Azure CNI. 
 
@@ -109,7 +109,7 @@ Per questo scenario, usare gruppi nella subnet del gateway applicazione. Inserir
     
   **V2 scenari non supportati**
 
-  **Scenario 1** : UdR per appliance virtuali
+  **Scenario 1**: UdR per appliance virtuali
 
   Qualsiasi scenario in cui 0.0.0.0/0 deve essere reindirizzato tramite qualsiasi appliance virtuale, rete virtuale hub/spoke o locale (tunneling forzato) non è supportato per V2.
 

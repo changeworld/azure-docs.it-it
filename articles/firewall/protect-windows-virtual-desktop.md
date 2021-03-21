@@ -8,13 +8,13 @@ ms.topic: how-to
 ms.date: 05/06/2020
 ms.author: victorh
 ms.openlocfilehash: ad4f42d0e33f6d70c75abfcd1daab4f5aa9a515f
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/17/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94654984"
 ---
-# <a name="use-azure-firewall-to-protect-window-virtual-desktop-deployments"></a>Usare Firewall di Azure per proteggere distribuzioni di desktop virtuali Windows
+# <a name="use-azure-firewall-to-protect-window-virtual-desktop-deployments"></a>Usare Firewall di Azure per proteggere le distribuzioni di Desktop virtuale Windows
 
 Desktop virtuale di Windows è un servizio di virtualizzazione di applicazioni e desktop eseguito in Azure. Quando un utente finale si connette a un ambiente desktop virtuale Windows, la sessione viene eseguita da un pool host. Un pool di host è una raccolta di macchine virtuali di Azure che si registrano in un desktop virtuale Windows come host di sessione. Queste macchine virtuali vengono eseguite nella rete virtuale e sono soggette ai controlli di sicurezza della rete virtuale. Per funzionare correttamente, è necessario l'accesso a Internet in uscita al servizio desktop virtuale di Windows e potrebbe essere necessario l'accesso a Internet in uscita per gli utenti finali. Il firewall di Azure consente di bloccare l'ambiente e filtrare il traffico in uscita.
 

@@ -9,10 +9,10 @@ ms.subservice: common
 ms.topic: how-to
 ms.custom: devx-track-csharp
 ms.openlocfilehash: b5051a5e29f9e34c43963a9a264ee47e2ad7b04a
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/23/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92490782"
 ---
 # <a name="use-the-azurite-emulator-for-local-azure-storage-development"></a>Usare l'emulatore di azzurrite per lo sviluppo locale di archiviazione di Azure
@@ -97,7 +97,7 @@ docker run -p 10000:10000 -p 10001:10001 \
 
 **Specificare il percorso dell'area di lavoro**:
 
-Nell'esempio seguente il `-v c:/azurite:/data` parametro specifica *c:/azzurrite* come percorso dati permanente azzurrite. È necessario creare la directory *c:/azzurrite*prima di eseguire il comando docker.
+Nell'esempio seguente il `-v c:/azurite:/data` parametro specifica *c:/azzurrite* come percorso dati permanente azzurrite. È necessario creare la directory *c:/azzurrite* prima di eseguire il comando docker.
 
 ```console
 docker run -p 10000:10000 -p 10001:10001 \
@@ -148,7 +148,7 @@ Questo comando indica a azzurrite di archiviare tutti i dati in una directory sp
 
 Questa sezione illustra in dettaglio le opzioni della riga di comando disponibili all'avvio di azzurrite.
 
-### <a name="help"></a>Guida
+### <a name="help"></a>Help
 
 **Facoltativo** : ottenere la guida della riga di comando usando `-h` l' `--help` opzione o.
 
@@ -480,7 +480,7 @@ In Storage Explorer connettersi a azzurrite attenendosi alla procedura seguente:
 
 #### <a name="connect-to-azurite-using-https"></a>Connettersi a azzurrite tramite HTTPS
 
-Per impostazione predefinita Storage Explorer non apre un endpoint HTTPS che utilizza un certificato autofirmato. Se si esegue azzurrite con HTTPS, è probabile che si stia usando un certificato autofirmato. In Storage Explorer importare i certificati SSL tramite la finestra di dialogo **modifica**certificati  ->  **SSL**  ->  **Importa certificati** .
+Per impostazione predefinita Storage Explorer non apre un endpoint HTTPS che utilizza un certificato autofirmato. Se si esegue azzurrite con HTTPS, è probabile che si stia usando un certificato autofirmato. In Storage Explorer importare i certificati SSL tramite la finestra di dialogo **modifica** certificati  ->  **SSL**  ->  **Importa certificati** .
 
 ##### <a name="import-certificate-to-storage-explorer"></a>Importa certificato in Storage Explorer
 

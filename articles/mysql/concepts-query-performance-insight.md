@@ -7,10 +7,10 @@ ms.service: mysql
 ms.topic: conceptual
 ms.date: 5/12/2020
 ms.openlocfilehash: 30457b950e6400c799f35924e7b2ee90d868a465
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/12/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94535181"
 ---
 # <a name="query-performance-insight-in-azure-database-for-mysql"></a>Informazioni dettagliate prestazioni query in Database di Azure per MySQL
@@ -56,7 +56,7 @@ La scheda **Query a esecuzione prolungata** mostra le prime 5 query in base alla
 ### <a name="wait-statistics"></a>Statistiche di attesa
 
 > [!NOTE]
-> Le statistiche di attesa sono destinate alla risoluzione dei problemi di prestazioni delle query. È consigliabile attivarle solo a scopo di risoluzione dei problemi. <br>Se nel portale di Azure viene visualizzato il messaggio di errore " *Si è verificato un errore per 'Microsoft.DBforMySQL', quindi non è possibile soddisfare la richiesta. Se il problema persiste o non è previsto, contattare il supporto tecnico specificando queste informazioni* " durante la visualizzazione delle statistiche di attesa, usare un periodo di tempo inferiore.
+> Le statistiche di attesa sono destinate alla risoluzione dei problemi di prestazioni delle query. È consigliabile attivarle solo a scopo di risoluzione dei problemi. <br>Se nel portale di Azure viene visualizzato il messaggio di errore "*Si è verificato un errore per 'Microsoft.DBforMySQL', quindi non è possibile soddisfare la richiesta. Se il problema persiste o non è previsto, contattare il supporto tecnico specificando queste informazioni*" durante la visualizzazione delle statistiche di attesa, usare un periodo di tempo inferiore.
 
 Le statistiche di attesa forniscono una visualizzazione degli eventi di attesa che si verificano durante l'esecuzione di una query specifica. Per altre informazioni sui tipi di evento di attesa, vedere la [documentazione del motore MySQL](https://go.microsoft.com/fwlink/?linkid=2098206).
 

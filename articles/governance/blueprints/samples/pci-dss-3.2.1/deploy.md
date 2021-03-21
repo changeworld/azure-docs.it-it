@@ -4,10 +4,10 @@ description: Procedura di distribuzione per l'esempio di progetto Payment Card I
 ms.date: 01/08/2021
 ms.topic: sample
 ms.openlocfilehash: 37e39231ee7395b951f69035cd98f2e14028ba1c
-ms.sourcegitcommit: 8dd8d2caeb38236f79fe5bfc6909cb1a8b609f4a
-ms.translationtype: HT
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/08/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98045054"
 ---
 # <a name="deploy-the-pci-dss-v321-blueprint-sample"></a>Distribuire l'esempio di progetto PCI-DSS v3.2.1

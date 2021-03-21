@@ -4,10 +4,10 @@ description: Questo articolo illustra come sospendere temporaneamente e riattiva
 ms.topic: article
 ms.date: 09/29/2020
 ms.openlocfilehash: ea1acab3d0a86b0064f8b3eef7bfd1496bd17041
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/12/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94543052"
 ---
 # <a name="suspend-and-reactivate-messaging-entities-disable"></a>Sospendere e riattivare le entità di messaggistica (disabilitazione)
@@ -21,15 +21,15 @@ Una sospensione o una riattivazione può essere eseguita dall'utente o dal siste
 ## <a name="queue-status"></a>Stato coda 
 Gli Stati che possono essere impostati per una **coda** sono:
 
--   **Active** : la coda è attiva. È possibile inviare e ricevere messaggi dalla coda. 
--   **Disabled** : la coda è sospesa. Equivale a impostare sia **SendDisabled** che **ReceiveDisabled**. 
--   **SendDisabled** : non è possibile inviare messaggi alla coda, ma è possibile ricevere messaggi da tale coda. Si otterrà un'eccezione se si tenta di inviare messaggi alla coda. 
--   **ReceiveDisabled** : è possibile inviare messaggi alla coda, ma non è possibile ricevere messaggi da tale coda. Si otterrà un'eccezione se si tenta di ricevere messaggi nella coda.
+-   **Active**: la coda è attiva. È possibile inviare e ricevere messaggi dalla coda. 
+-   **Disabled**: la coda è sospesa. Equivale a impostare sia **SendDisabled** che **ReceiveDisabled**. 
+-   **SendDisabled**: non è possibile inviare messaggi alla coda, ma è possibile ricevere messaggi da tale coda. Si otterrà un'eccezione se si tenta di inviare messaggi alla coda. 
+-   **ReceiveDisabled**: è possibile inviare messaggi alla coda, ma non è possibile ricevere messaggi da tale coda. Si otterrà un'eccezione se si tenta di ricevere messaggi nella coda.
 
 
 ### <a name="change-the-queue-status-in-the-azure-portal"></a>Modificare lo stato della coda nel portale di Azure: 
 
-1. Nella portale di Azure passare allo spazio dei nomi del bus di servizio. 
+1. Nel portale di Azure passare allo spazio dei nomi del bus di servizio. 
 1. Selezionare la coda per cui si desidera modificare lo stato. Le code vengono visualizzate nel riquadro inferiore al centro. 
 1. Nella pagina **coda del bus di servizio** , vedere lo stato corrente della coda come collegamento ipertestuale. Se la **Panoramica** non è selezionata nel menu a sinistra, selezionarla per visualizzare lo stato della coda. Selezionare lo stato corrente della coda per modificarlo. 
 
@@ -57,9 +57,9 @@ Set-AzServiceBusQueue -ResourceGroup mygrp -NamespaceName myns -QueueName myqueu
 :::image type="content" source="./media/entity-suspend/topic-state-change.png" alt-text="Modifica stato argomento":::
 
 Gli Stati che possono essere impostati per un **argomento** sono i seguenti:
-- **Attivo** : l'argomento è attivo. È possibile inviare messaggi all'argomento. 
-- **Disabled** : l'argomento è sospeso. Non è possibile inviare messaggi all'argomento. 
-- **SendDisabled** : lo stesso effetto di **disabled**. Non è possibile inviare messaggi all'argomento. Si otterrà un'eccezione se si tenta di inviare messaggi all'argomento. 
+- **Attivo**: l'argomento è attivo. È possibile inviare messaggi all'argomento. 
+- **Disabled**: l'argomento è sospeso. Non è possibile inviare messaggi all'argomento. 
+- **SendDisabled**: lo stesso effetto di **disabled**. Non è possibile inviare messaggi all'argomento. Si otterrà un'eccezione se si tenta di inviare messaggi all'argomento. 
 
 ## <a name="subscription-status"></a>Stato della sottoscrizione
 È possibile modificare lo stato della sottoscrizione nella portale di Azure. Selezionare lo stato corrente della sottoscrizione per visualizzare la pagina seguente, che consente di modificare lo stato. 
@@ -67,9 +67,9 @@ Gli Stati che possono essere impostati per un **argomento** sono i seguenti:
 :::image type="content" source="./media/entity-suspend/subscription-state-change.png" alt-text="Modificare lo stato della sottoscrizione":::
 
 Gli Stati che possono essere impostati per una **sottoscrizione** sono:
-- **Attivo** : la sottoscrizione è attiva. È possibile ricevere messaggi frm per la sottoscrizione.
-- **Disabled** : la sottoscrizione è sospesa. Non è possibile ricevere messaggi dalla sottoscrizione. 
-- **ReceiveDisabled** : lo stesso effetto di **disabled**. Non è possibile ricevere messaggi dalla sottoscrizione. Si otterrà un'eccezione se si tenta di ricevere messaggi nella sottoscrizione.
+- **Attivo**: la sottoscrizione è attiva. È possibile ricevere messaggi frm per la sottoscrizione.
+- **Disabled**: la sottoscrizione è sospesa. Non è possibile ricevere messaggi dalla sottoscrizione. 
+- **ReceiveDisabled**: lo stesso effetto di **disabled**. Non è possibile ricevere messaggi dalla sottoscrizione. Si otterrà un'eccezione se si tenta di ricevere messaggi nella sottoscrizione.
 
 | Stato argomento | Stato della sottoscrizione | Comportamento | 
 | ------------ | ------------------- | -------- | 

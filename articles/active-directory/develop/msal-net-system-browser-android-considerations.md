@@ -14,10 +14,10 @@ ms.author: marsma
 ms.reviewer: saeeda
 ms.custom: devx-track-csharp, aaddev
 ms.openlocfilehash: 4230a194fb18587a209c100a39b0924e6170502d
-ms.sourcegitcommit: 2488894b8ece49d493399d2ed7c98d29b53a5599
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/11/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98063468"
 ---
 #  <a name="xamarin-android-system-browser-considerations-for-using-msalnet"></a>Novell Android System Browser considerazioni sull'uso di MSAL.NET
@@ -45,7 +45,7 @@ Nella tabella seguente sono elencati i dispositivi e i browser testati per la co
 | Dispositivo | Browser     |  Risultato  | 
 | ------------- |:-------------:|:-----:|
 | Huawei/uno + | Chrome\* | Pass|
-| Huawei/uno + | Edge\* | Pass|
+| Huawei/uno + | Microsoft Edge\* | Pass|
 | Huawei/uno + | Firefox\* | Pass|
 | Huawei/uno + | Incredibile\* | Pass|
 | Uno + | Ecosia\* | Pass|

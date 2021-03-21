@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 11/02/2020
 ms.author: jeedes
 ms.openlocfilehash: fe83a012cac68f705bc9fabc7748f5a7c7c61bbb
-ms.sourcegitcommit: 46c5ffd69fa7bc71102737d1fab4338ca782b6f1
-ms.translationtype: HT
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/06/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94330572"
 ---
 # <a name="tutorial-integrate-atlassian-cloud-with-azure-active-directory"></a>Esercitazione: Integrare Atlassian Cloud con Azure Active Directory
@@ -71,7 +71,7 @@ Per configurare e testare l'accesso SSO di Azure AD con Atlassian Cloud, complet
 
 Per abilitare l'accesso Single Sign-On di Azure AD nel portale di Azure, seguire questa procedura.
 
-1. Per automatizzare la configurazione all'interno di Atlassian Cloud, è necessario installare l' **estensione del browser MyApps per l'accesso sicuro** facendo clic su **Installa l'estensione**.
+1. Per automatizzare la configurazione all'interno di Atlassian Cloud, è necessario installare l'**estensione del browser MyApps per l'accesso sicuro** facendo clic su **Installa l'estensione**.
 
     ![Estensione MyApps](common/install-myappssecure-extension.png)
 
@@ -128,7 +128,7 @@ Per abilitare l'accesso Single Sign-On di Azure AD nel portale di Azure, seguire
 
    ![Opzione Entity ID](./media/atlassian-cloud-tutorial/entity-id-and-ss.png)
 
-1. Nella sezione **Certificato di firma SAML** della pagina **Configura l'accesso Single Sign-On con SAML** , trovare **Certificato (Base64)** e selezionare **Scarica** per scaricare il certificato e salvarlo nel computer in uso.
+1. Nella sezione **Certificato di firma SAML** della pagina **Configura l'accesso Single Sign-On con SAML**, trovare **Certificato (Base64)** e selezionare **Scarica** per scaricare il certificato e salvarlo nel computer in uso.
 
    ![Certificato di firma](./media/atlassian-cloud-tutorial/certificate.png)
 
@@ -136,7 +136,7 @@ Per abilitare l'accesso Single Sign-On di Azure AD nel portale di Azure, seguire
 
 1. Fare clic su **Add/Save** (Aggiungi/Salva) per aggiungere o salvare la configurazione SAML in Atlassian
 
-1. Se si vuole configurare l'applicazione in modalità avviata da **IDP** , modificare la sezione **Configurazione SAML di base** della pagina **Configura l'accesso Single Sign-On con SAML** in Azure e aprire la **pagina per l'accesso Single Sign-On SAML** nel portale di amministrazione di Atlassian
+1. Se si vuole configurare l'applicazione in modalità avviata da **IDP**, modificare la sezione **Configurazione SAML di base** della pagina **Configura l'accesso Single Sign-On con SAML** in Azure e aprire la **pagina per l'accesso Single Sign-On SAML** nel portale di amministrazione di Atlassian
 
    a. Copiare il valore di **SP Entity ID** (ID entità SP) da Atlassian, incollarlo nella casella **Identificatore (ID entità)** in Azure e impostarlo come predefinito
    
@@ -150,7 +150,7 @@ Per abilitare l'accesso Single Sign-On di Azure AD nel portale di Azure, seguire
 
    ![Immagine degli URL](./media/atlassian-cloud-tutorial/urls.png)
    
-1. Se si vuole configurare l'applicazione in modalità avviata da **IDP** , modificare la sezione **Configurazione SAML di base** della pagina **Configura l'accesso Single Sign-On con SAML** in Azure. Copiare il valore di **Instance URL** (URL istanza) dal passaggio 1 e incollarlo nella casella **URL di accesso** in Azure
+1. Se si vuole configurare l'applicazione in modalità avviata da **IDP**, modificare la sezione **Configurazione SAML di base** della pagina **Configura l'accesso Single Sign-On con SAML** in Azure. Copiare il valore di **Instance URL** (URL istanza) dal passaggio 1 e incollarlo nella casella **URL di accesso** in Azure
 
    ![Pulsante di modifica negli URL](./media/atlassian-cloud-tutorial/edit-button.png)
 
@@ -166,7 +166,7 @@ Per abilitare l'accesso Single Sign-On di Azure AD nel portale di Azure, seguire
 
       ![Attributi e attestazioni](./media/atlassian-cloud-tutorial/user-attributes-and-claims.png)
       
-      b. Atlassian Cloud prevede il mapping di **nameidentifier** ( **Identificatore univoco dell'utente** ) all'indirizzo di posta elettronica dell'utente ( **user.email** ). Modificare il valore di **Attributo di origine** impostandolo su **user.mail**. Salvare le modifiche apportate all'attestazione.
+      b. Atlassian Cloud prevede il mapping di **nameidentifier** (**Identificatore univoco dell'utente**) all'indirizzo di posta elettronica dell'utente (**user.email**). Modificare il valore di **Attributo di origine** impostandolo su **user.mail**. Salvare le modifiche apportate all'attestazione.
 
       ![ID utente univoco](./media/atlassian-cloud-tutorial/unique-user-identifier.png)
       
@@ -180,7 +180,7 @@ Per abilitare l'accesso Single Sign-On di Azure AD nel portale di Azure, seguire
 
       ![immagine 3](./media/atlassian-cloud-tutorial/email-address.png)
          
-      b. Azure non popola l'attributo **user.mail** per gli utenti creati in tenant di Azure AD senza licenze di Microsoft 365 e archivia l'indirizzo di posta elettronica per tali utenti nell'attributo **userprincipalname**. Atlassian Cloud prevede il mapping di **nameidentifier** ( **Identificatore univoco dell'utente** ) all'indirizzo di posta elettronica dell'utente ( **user.userprincipalname** ).  Modificare il valore di **Attributo di origine** impostandolo su **user.userprincipalname**. Salvare le modifiche apportate all'attestazione.
+      b. Azure non popola l'attributo **user.mail** per gli utenti creati in tenant di Azure AD senza licenze di Microsoft 365 e archivia l'indirizzo di posta elettronica per tali utenti nell'attributo **userprincipalname**. Atlassian Cloud prevede il mapping di **nameidentifier** (**Identificatore univoco dell'utente**) all'indirizzo di posta elettronica dell'utente (**user.userprincipalname**).  Modificare il valore di **Attributo di origine** impostandolo su **user.userprincipalname**. Salvare le modifiche apportate all'attestazione.
 
       ![Impostazione dell'indirizzo di posta elettronica](./media/atlassian-cloud-tutorial/set-email.png)
          
@@ -192,7 +192,7 @@ Per abilitare l'accesso Single Sign-On di Azure AD nel portale di Azure, seguire
 
 In questa sezione verrà creato un utente di test di nome B.Simon nel portale di Azure.
 
-1. Nel riquadro sinistro del portale di Azure selezionare **Azure Active Directory** , **Utenti** e quindi **Tutti gli utenti**.
+1. Nel riquadro sinistro del portale di Azure selezionare **Azure Active Directory**, **Utenti** e quindi **Tutti gli utenti**.
 1. Selezionare **Nuovo utente** in alto nella schermata.
 1. In **Proprietà utente** seguire questa procedura:
    1. Nel campo **Nome** immettere `B.Simon`.  

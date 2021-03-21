@@ -9,10 +9,10 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 10/16/2020
 ms.openlocfilehash: ee122727100ec0abad0dfe93b9e5f1be0276cb8e
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/24/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92519500"
 ---
 # <a name="set-azure-roles-for-administrative-access-to-azure-cognitive-search"></a>Impostare i ruoli di Azure per l'accesso amministrativo ad Azure ricerca cognitiva
@@ -30,7 +30,7 @@ Per ricerca cognitiva di Azure, i ruoli sono associati ai livelli di autorizzazi
 | --- | --- |
 | Proprietario |Creare o eliminare il servizio o qualsiasi oggetto nel servizio, inclusi chiavi API, indici, indicizzatori, origini dati di un indicizzatore e pianificazioni di indicizzatore.<p>Visualizzare lo stato del servizio, inclusi conteggi e dimensioni.<p>Aggiunta o eliminazione dell'appartenenza al ruolo, che può essere gestita solo da un Proprietario.<p>Gli amministratori delle sottoscrizioni e i proprietari del servizio vengono aggiunti automaticamente al ruolo proprietario. |
 | Autore di contributi | Lo stesso livello di accesso del proprietario, meno la gestione dei ruoli di Azure. Ad esempio, un Collaboratore può creare o eliminare un oggetto o visualizzare e rigenerare [chiavi API](search-security-api-keys.md), ma non può modificare le appartenenze ai ruoli.<br><br>[Servizio di ricerca collaboratore](../role-based-access-control/built-in-roles.md#search-service-contributor) è equivalente al ruolo predefinito collaboratore generico. |
-| Reader |Visualizzare gli elementi di base del servizio, ad esempio endpoint servizio, sottoscrizione, gruppo di risorse, area, livello e capacità. È anche possibile visualizzare le metriche del servizio, ad esempio query medie al secondo, nella scheda monitoraggio. I membri di questo ruolo non possono visualizzare le informazioni relative a indici, indicizzatori, origini dati o competenze. Sono inclusi i dati di utilizzo per tali oggetti, ad esempio il numero di indici presenti nel servizio. |
+| Lettore |Visualizzare gli elementi di base del servizio, ad esempio endpoint servizio, sottoscrizione, gruppo di risorse, area, livello e capacità. È anche possibile visualizzare le metriche del servizio, ad esempio query medie al secondo, nella scheda monitoraggio. I membri di questo ruolo non possono visualizzare le informazioni relative a indici, indicizzatori, origini dati o competenze. Sono inclusi i dati di utilizzo per tali oggetti, ad esempio il numero di indici presenti nel servizio. |
 
 I ruoli non concedono diritti di accesso all'endpoint di servizio. Le operazioni del servizio di ricerca, ad esempio la gestione e il popolamento degli indici e le query sui dati di ricerca, sono controllate tramite le chiavi API, non tramite i ruoli. Per altre informazioni, vedere [Gestire le chiavi API](search-security-api-keys.md).
 

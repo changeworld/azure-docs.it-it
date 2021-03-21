@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 11/07/2019
 ms.author: Zhchia
 ms.openlocfilehash: 46766a7439185714648572f3f1b9d51ef96abba6
-ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
-ms.translationtype: HT
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/07/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94357471"
 ---
 # <a name="tutorial-configure-netskope-user-authentication-for-automatic-user-provisioning"></a>Esercitazione: configurare l'autenticazione utente Netskope per il provisioning utenti automatico
@@ -37,7 +37,7 @@ Per lo scenario descritto in questa esercitazione si presuppone che l'utente dis
 
 ## <a name="assigning-users-to-netskope-user-authentication"></a>Assegnazione di utenti a Netskope User Authentication
 
-Per determinare gli utenti che dovranno ricevere l'accesso alle app selezionate, Azure Active Directory usa il concetto delle *assegnazioni*. Nel contesto del provisioning utenti automatico, vengono sincronizzati solo gli utenti e/o i gruppi che sono stati assegnati a un'applicazione in Azure AD.
+Per determinare gli utenti che dovranno ricevere l'accesso alle app selezionate, Azure Active Directory usa il concetto delle *assegnazioni*. Nel contesto del provisioning utenti automatico vengono sincronizzati solo gli utenti e/o i gruppi che sono stati assegnati a un'applicazione in Azure AD.
 
 Prima di configurare e abilitare il provisioning utenti automatico, è necessario stabilire quali utenti e/o gruppi in Azure AD necessario accedere all'autenticazione utente di Netskope. Dopo aver stabilito questo, è possibile assegnare questi utenti e/o gruppi all'autenticazione utente Netskope seguendo le istruzioni riportate qui:
 * [Assegnare un utente o gruppo a un'app aziendale](../manage-apps/assign-user-or-group-access-portal.md)
@@ -76,7 +76,7 @@ Prima di configurare l'autenticazione utente di Netskope per il provisioning ute
 
 **Per aggiungere l'autenticazione utente Netskope dalla raccolta di applicazioni Azure AD, seguire questa procedura:**
 
-1. Nel riquadro di spostamento a sinistra del **[portale di Azure](https://portal.azure.com)** selezionare **Azure Active Directory**.
+1. Nel **[portale di Azure](https://portal.azure.com)** selezionare **Azure Active Directory** nel riquadro di spostamento sinistro.
 
     ![Pulsante Azure Active Directory](common/select-azuread.png)
 
@@ -84,11 +84,11 @@ Prima di configurare l'autenticazione utente di Netskope per il provisioning ute
 
     ![Pannello Applicazioni aziendali](common/enterprise-applications.png)
 
-3. Per aggiungere una nuova applicazione, selezionare il pulsante **nuova applicazione** nella parte superiore del riquadro.
+3. Per aggiungere una nuova applicazione, selezionare il pulsante **Nuova applicazione** nella parte superiore del riquadro.
 
     ![Pulsante Nuova applicazione](common/add-new-app.png)
 
-4. Nella casella di ricerca immettere **autenticazione utente Netskope** , selezionare **autenticazione utente Netskope** nel pannello dei risultati e quindi fare clic sul pulsante **Aggiungi** per aggiungere l'applicazione.
+4. Nella casella di ricerca immettere **autenticazione utente Netskope**, selezionare **autenticazione utente Netskope** nel pannello dei risultati e quindi fare clic sul pulsante **Aggiungi** per aggiungere l'applicazione.
 
     ![Netskope l'autenticazione utente nell'elenco dei risultati](common/search-new-app.png)
 
@@ -97,7 +97,7 @@ Prima di configurare l'autenticazione utente di Netskope per il provisioning ute
 Questa sezione illustra i passaggi per configurare il servizio di provisioning Azure AD per creare, aggiornare e disabilitare utenti e/o gruppi in Netskope autenticazione utente in base alle assegnazioni di utenti e/o gruppi in Azure AD.
 
 > [!TIP]
-> È anche possibile scegliere di abilitare la Single Sign-On basata su SAML per l'autenticazione utente Netskope seguendo le istruzioni fornite nell' [esercitazione sull'accesso Single Sign-on di autenticazione utente di Netskope](./netskope-cloud-security-tutorial.md). Il Single Sign-on può essere configurato indipendentemente dal provisioning utenti automatico, anche se queste due funzionalità sono complementari.
+> È anche possibile scegliere di abilitare la Single Sign-On basata su SAML per l'autenticazione utente Netskope seguendo le istruzioni fornite nell' [esercitazione sull'accesso Single Sign-on di autenticazione utente di Netskope](./netskope-cloud-security-tutorial.md). L'accesso Single Sign-On può essere configurato indipendentemente dal provisioning utenti automatico, anche se queste due funzionalità sono complementari.
 
 > [!NOTE]
 > Per altre informazioni sull'endpoint SCIM dell'autenticazione utente di Netskope, vedere [questo](https://docs.google.com/document/d/1n9P_TL98_kd1sx5PAvZL2HS6MQAqkQqd-OSkWAAU6ck/edit#heading=h.prxq74iwdpon)articolo.
@@ -114,11 +114,11 @@ Questa sezione illustra i passaggi per configurare il servizio di provisioning A
 
 3. Selezionare la scheda **Provisioning**.
 
-    ![Screenshot delle opzioni Gestisci con l'opzione di provisioning denominata.](common/provisioning.png)
+    ![Screenshot delle opzioni disponibili in Gestisci con l'opzione Provisioning evidenziata.](common/provisioning.png)
 
 4. Impostare **Modalità di provisioning** su **Automatico**.
 
-    ![Screenshot dell'elenco a discesa modalità di provisioning con l'opzione automatica chiamata.](common/provisioning-automatic.png)
+    ![Screenshot dell'elenco a discesa Modalità di provisioning con l'opzione Automatico evidenziata.](common/provisioning-automatic.png)
 
 5. Nella sezione **credenziali amministratore** , immettere il valore dell' **URL del server scim** recuperato in precedenza nell' **URL del tenant**. Immettere il valore del **token** recuperato in precedenza in **token segreto**. Fare clic su **Test connessione** per assicurarsi che Azure ad possibile connettersi all'autenticazione utente di Netskope. Se la connessione non riesce, verificare che l'account di autenticazione utente di Netskope disponga delle autorizzazioni di amministratore e riprovare.
 

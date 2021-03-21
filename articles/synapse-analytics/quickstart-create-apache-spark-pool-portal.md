@@ -10,10 +10,10 @@ ms.date: 04/15/2020
 ms.author: jrasnick
 ms.reviewer: jrasnick
 ms.openlocfilehash: 3fc7a7f137701590e4bddd791a3fdd2d1eaeca4a
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
-ms.translationtype: HT
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/01/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96461609"
 ---
 # <a name="quickstart-create-a-new-serverless-apache-spark-pool-using-the-azure-portal"></a>Avvio rapido: Creare un nuovo pool di Apache Spark serverless usando il portale di Azure
@@ -52,7 +52,7 @@ Accedere al [portale di Azure](https://portal.azure.com/)
     |Impostazione | Valore consigliato | Descrizione |
     | :------ | :-------------- | :---------- |
     | **Nome del pool di Apache Spark** | Un nome di pool valido | Si tratta del nome che avrà il pool di Apache Spark. |
-    | **Dimensioni nodo** | Piccole (4 vCPU/32 GB) | Per questo argomento di avvio rapido, impostare questa opzione sulle dimensioni minime per ridurre i costi |
+    | **Dimensioni nodo** | Piccole (4 vCPU/32 GB) | Per questa guida di avvio rapido, impostare questa opzione sulle dimensioni minime per ridurre i costi |
     | **Autoscale** | Disabled | La scalabilità automatica non è necessaria per questo argomento di avvio rapido |
     | **Numero di nodi** | 5 | Usare dimensioni ridotte per limitare i costi per questo argomento di avvio rapido |
 

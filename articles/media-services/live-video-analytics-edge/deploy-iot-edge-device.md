@@ -4,10 +4,10 @@ description: Questo articolo elenca i passaggi che consentono di distribuire ana
 ms.topic: how-to
 ms.date: 09/09/2020
 ms.openlocfilehash: 01b98c7a1f4073adcd8dea7cbfbfc57abc3787c1
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/03/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "101718931"
 ---
 # <a name="deploy-live-video-analytics-on-an-iot-edge-device"></a>Distribuire analisi video in tempo reale in un dispositivo IoT Edge
@@ -24,7 +24,7 @@ Questo articolo elenca i passaggi che consentono di distribuire analisi video in
 * Sottoscrizione di Azure a cui si dispone dei [privilegi di proprietario](../../role-based-access-control/built-in-roles.md#owner)
 * [Creare e configurare l'hub Internet](../../iot-hub/iot-hub-create-through-portal.md)
 * [Registrare IoT Edge dispositivo](../../iot-edge/how-to-register-device.md)
-* [Installare il runtime di Azure IoT Edge nei sistemi Linux basati su Debian](../../iot-edge/how-to-install-iot-edge.md)
+* [Installare il runtime Azure IoT Edge in sistemi Linux basati su Debian](../../iot-edge/how-to-install-iot-edge.md)
 * [Creare un account di Servizi multimediali di Azure](../latest/create-account-howto.md)
 
     * Usare una di queste aree: Stati Uniti orientali 2, Stati Uniti orientali, Stati Uniti centrali, Stati Uniti centro-settentrionali, Stati Uniti centro-occidentali, Stati Uniti occidentali, Stati Uniti occidentali 2, Stati Uniti centro-occidentali, Canada orientale, Regno Unito meridionale, Francia centrale, Francia meridionale, Svizzera settentrionale, Svizzera occidentale e Giappone occidentale.
