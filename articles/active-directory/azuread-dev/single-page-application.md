@@ -14,10 +14,10 @@ ms.reviewer: saeeda, jmprieur
 ms.custom: aaddev
 ROBOTS: NOINDEX
 ms.openlocfilehash: adf3c5b5cd40a9ea3f07ba9c92cfc4544ca60f1e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "80154747"
 ---
 # <a name="single-page-applications"></a>Applicazioni a pagina singola
@@ -47,7 +47,7 @@ In questo scenario, quando l'utente accede, il front-end JavaScript utilizza [Ac
 
 Vedere gli [esempi di codice per gli scenari di applicazioni a pagina singola](sample-v1-code.md#single-page-applications). Consultare spesso questa pagina perché vengono aggiunti regolarmente nuovi esempi.
 
-## <a name="app-registration"></a>Registrazione delle app
+## <a name="app-registration"></a>Registrazione dell'app
 
 * Singolo tenant: se si compila un'applicazione solo per la propria organizzazione, è necessario registrarla nella directory aziendale usando il portale di Azure.
 * Multi-tenant: se si compila un'applicazione che può essere usata da utenti esterni all'organizzazione, è necessario registrarla nella directory aziendale, ma anche nella directory di ogni organizzazione che utilizzerà l'applicazione. Per rendere disponibile l'applicazione nella propria directory, è possibile includere un processo di accesso per i clienti che permetta loro di concedere il consenso all'applicazione. Al momento dell'iscrizione all'applicazione, viene visualizzata una finestra di dialogo in cui sono indicate le autorizzazioni richieste dall'applicazione e quindi viene presentata l'opzione per il consenso. A seconda delle autorizzazioni richieste, è possibile che il consenso debba essere fornito da un amministratore dell'altra organizzazione. Quando l'utente o l'amministratore acconsente, l'applicazione viene registrata nella directory.

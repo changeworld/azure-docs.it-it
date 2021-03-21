@@ -12,12 +12,12 @@ ms.date: 11/04/2020
 ms.author: kenwith
 ms.reviewer: arvinh
 ms.custom: contperf-fy21q2
-ms.openlocfilehash: 048adee21d5c2e49ef02f518002a1dc6025c1ecd
-ms.sourcegitcommit: 7e117cfec95a7e61f4720db3c36c4fa35021846b
+ms.openlocfilehash: 19ec3ec95fbbccbaa5c646c8de16999b86349626
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/09/2021
-ms.locfileid: "99988967"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104579451"
 ---
 # <a name="how-provisioning-works"></a>Come funziona il provisioning
 
@@ -138,7 +138,7 @@ Dopo il ciclo iniziale, tutti gli altri cicli consisteranno in quanto segue:
 Il servizio di provisioning continuerà a eseguire cicli incrementali back-to-back all'infinito, in base agli intervalli definiti nell'[esercitazione specifica di ogni applicazione](../saas-apps/tutorial-list.md). I cicli incrementali continueranno fino al verificarsi di uno degli eventi seguenti:
 
 - Il servizio viene arrestato manualmente tramite il portale di Azure o con il comando appropriato dell'API Microsoft Graph.
-- Viene attivato un nuovo ciclo iniziale tramite l'opzione **Cancella lo stato corrente e riavvia la sincronizzazione** nel portale di Azure o con il comando appropriato dell'API Microsoft Graph. Per effetto di questa operazione, le eventuali filigrane salvate vengono cancellate e tutti gli oggetti di origine vengono nuovamente valutati.
+- Un nuovo ciclo iniziale viene attivato utilizzando l'opzione **Riavvia provisioning** nel portale di Azure o utilizzando il comando Microsoft Graph API appropriato. Per effetto di questa operazione, le eventuali filigrane salvate vengono cancellate e tutti gli oggetti di origine vengono nuovamente valutati.
 - Viene attivato un nuovo ciclo iniziale a causa di una modifica nel mapping degli attributi o nei filtri di ambito. Per effetto di questa operazione, anche le eventuali filigrane salvate vengono cancellate e tutti gli oggetti di origine vengono nuovamente valutati.
 - Il processo di provisioning entra in quarantena (vedere sotto) a causa di errori molto frequenti e resta in quarantena per più di quattro settimane. In questo caso, il servizio viene disabilitato automaticamente.
 

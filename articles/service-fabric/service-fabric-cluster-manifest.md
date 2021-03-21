@@ -4,10 +4,10 @@ description: Informazioni su come configurare un cluster di Azure Service Fabric
 ms.topic: conceptual
 ms.date: 11/12/2018
 ms.openlocfilehash: fd93263b38340ce080cca1aecb98f3a599ff1861
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91843159"
 ---
 # <a name="configuration-settings-for-a-standalone-windows-cluster"></a>Impostazioni di configurazione per un cluster autonomo in Windows
@@ -197,7 +197,7 @@ Tutte le funzionalità del componente aggiuntivo disponibili possono essere visu
 Per abilitare il supporto dei contenitori sia per i contenitori di Windows Server che per i contenitori di Hyper-V per i cluster autonomi, deve essere attivata la funzionalità aggiuntiva DnsService.
 
 ## <a name="next-steps"></a>Passaggi successivi
-Dopo aver configurato unClusterConfig.jscompleto per il file * in* base alla configurazione del cluster autonomo, è possibile distribuire il cluster. Eseguire la procedura in [Creare un cluster autonomo di Service Fabric](service-fabric-cluster-creation-for-windows-server.md). 
+Dopo aver configurato unClusterConfig.jscompleto per il file *in* base alla configurazione del cluster autonomo, è possibile distribuire il cluster. Eseguire la procedura in [Creare un cluster autonomo di Service Fabric](service-fabric-cluster-creation-for-windows-server.md). 
 
 Se si dispone di un cluster autonomo distribuito, è anche possibile [aggiornare la configurazione di un cluster autonomo](service-fabric-cluster-config-upgrade-windows-server.md). 
 

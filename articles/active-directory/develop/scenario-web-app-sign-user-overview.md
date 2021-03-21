@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 09/17/2019
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: dbd4923dd2843ab2c043da69f1b72efd8e1eb701
-ms.sourcegitcommit: 87a6587e1a0e242c2cfbbc51103e19ec47b49910
+ms.openlocfilehash: 0bbc799f946d318c305a96d9cb8c6831d9242ff6
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/16/2021
-ms.locfileid: "103573048"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104578295"
 ---
 # <a name="scenario-web-app-that-signs-in-users"></a>Scenario: App Web per l'accesso degli utenti
 
@@ -43,6 +43,12 @@ Se si è uno sviluppatore Java, provare a eseguire la Guida introduttiva seguent
 
 [Avvio rapido: Aggiungere l'accesso con Microsoft a un'app Web Java](quickstart-v2-java-webapp.md)
 
+# <a name="nodejs"></a>[Node.js](#tab/nodejs)
+
+Se si è uno sviluppatore Node.js, provare a eseguire la Guida introduttiva seguente:
+
+[Guida introduttiva: aggiungere l'accesso con Microsoft a un'app Web Node.js](quickstart-v2-nodejs-webapp-msal.md)
+
 # <a name="python"></a>[Python](#tab/python)
 
 Se si sviluppa con Python, provare a eseguire la Guida introduttiva seguente:
@@ -62,7 +68,7 @@ App Web autenticare un utente in un Web browser. In questo scenario l'app Web in
 Come seconda fase, è possibile abilitare l'applicazione per chiamare le API Web per conto dell'utente che ha eseguito l'accesso. Questa fase successiva è uno scenario diverso, disponibile nell' [app Web che chiama le API Web](scenario-web-app-call-api-overview.md).
 
 > [!NOTE]
-> Per aggiungere l'accesso a un'app Web, è necessario proteggere l'app Web e convalidare un token utente, ovvero le librerie  **middleware** . Nel caso di .NET, questo scenario non richiede ancora Microsoft Authentication Library (MSAL), che sta per acquisire un token per chiamare le API protette. Le librerie di autenticazione verranno introdotte nello scenario di completamento, quando l'app Web deve chiamare le API Web.
+> Per aggiungere l'accesso a un'app Web, è necessario proteggere l'app Web e convalidare un token utente, ovvero le librerie  **middleware** . Nel caso di .NET, questo scenario non richiede ancora Microsoft Authentication Library (MSAL), che sta per acquisire un token per chiamare le API protette. Le librerie di autenticazione per .NET verranno introdotte nello scenario di completamento, quando l'app Web deve chiamare le API Web.
 
 ## <a name="specifics"></a>Specifiche
 
@@ -87,6 +93,10 @@ Passare all'articolo successivo in questo scenario, registrazione dell' [app](./
 # <a name="java"></a>[Java](#tab/java)
 
 Passare all'articolo successivo in questo scenario, registrazione dell' [app](./scenario-web-app-sign-user-app-registration.md?tabs=java).
+
+# <a name="nodejs"></a>[Node.js](#tab/nodejs)
+
+Passare all'articolo successivo in questo scenario, registrazione dell' [app](./scenario-web-app-sign-user-app-registration.md?tabs=nodejs).
 
 # <a name="python"></a>[Python](#tab/python)
 

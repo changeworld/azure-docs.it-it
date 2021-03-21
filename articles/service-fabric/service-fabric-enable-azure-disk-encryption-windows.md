@@ -4,10 +4,10 @@ description: Questo articolo descrive come abilitare la crittografia del disco p
 ms.topic: article
 ms.date: 03/22/2019
 ms.openlocfilehash: b08cdb63aa6f334c5a6f7c230b1624d232206c3b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "78251808"
 ---
 # <a name="enable-disk-encryption-for-azure-service-fabric-cluster-nodes-in-windows"></a>Abilitare la crittografia del disco per i nodi del cluster Service Fabric di Azure in Windows 
@@ -42,7 +42,7 @@ L'anteprima della crittografia del disco per il set di scalabilità di macchine 
     Get-AzProviderFeature -ProviderNamespace "Microsoft.Compute" -FeatureName "UnifiedDiskEncryption"
     Register-AzResourceProvider -ProviderNamespace Microsoft.Compute
     ```
-**Insieme di credenziali chiave Azure** 
+**Azure Key Vault** 
 
 1. Creare un insieme di credenziali delle chiavi nella stessa sottoscrizione e nella stessa area del set di scalabilità, quindi selezionare il criterio di accesso **EnabledForDiskEncryption** nell'insieme di credenziali delle chiavi usando il relativo cmdlet di PowerShell. È anche possibile impostare il criterio usando l'interfaccia utente di Key Vault nel portale di Azure con il comando seguente:
     ```powershell

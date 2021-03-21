@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 8/27/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 7bb9b6d4a6ca006952d709244e6526345d44431e
-ms.sourcegitcommit: b572ce40f979ebfb75e1039b95cea7fce1a83452
+ms.openlocfilehash: f1ed4b9beda9848bba8fb12783f49dcf8016d3dd
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/11/2021
-ms.locfileid: "102630267"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104590620"
 ---
 # <a name="connect-function-apps-in-azure-for-processing-data"></a>Connetti le app per le funzioni in Azure per l'elaborazione dei dati
 
@@ -48,7 +48,7 @@ Selezionare il tipo di app per le funzioni del *trigger griglia di eventi* e sel
 
 :::image type="content" source="media/how-to-create-azure-function/event-grid-trigger-function.png" alt-text="Screenshot di Visual Studio che mostra la finestra di dialogo per creare una nuova applicazione funzioni di Azure. L'opzione trigger griglia di eventi è evidenziata.":::
 
-Una volta creata l'app per le funzioni, Visual Studio genererà un esempio di codice in un file **function1.cs** nella cartella del progetto. Questa funzione breve viene utilizzata per registrare gli eventi.
+Una volta creata l'app per le funzioni, Visual Studio genererà un esempio di codice in un file **funzione1. cs** nella cartella del progetto. Questa funzione breve viene utilizzata per registrare gli eventi.
 
 :::image type="content" source="media/how-to-create-azure-function/visual-studio-sample-code.png" alt-text="Screenshot di Visual Studio nella finestra del progetto per il nuovo progetto creato. Esiste codice per una funzione di esempio denominata Funzione1." lightbox="media/how-to-create-azure-function/visual-studio-sample-code.png":::
 
@@ -63,13 +63,13 @@ Per usare l'SDK, è necessario includere nel progetto i pacchetti seguenti. È p
 * [System.Net.Http](https://www.nuget.org/packages/System.Net.Http/)
 * [Azure. Core](https://www.nuget.org/packages/Azure.Core/)
 
-Successivamente, nel Esplora soluzioni di Visual Studio aprire il file _function1.cs_ in cui è presente il codice di esempio e aggiungere le `using` istruzioni seguenti per questi pacchetti alla funzione.
+Successivamente, nel Esplora soluzioni di Visual Studio aprire il file _funzione1. cs_ in cui è presente il codice di esempio e aggiungere le `using` istruzioni seguenti per questi pacchetti alla funzione.
 
 :::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/adtIngestFunctionSample.cs" id="Function_dependencies":::
 
 ## <a name="add-authentication-code-to-the-function"></a>Aggiungere il codice di autenticazione alla funzione
 
-Verranno ora dichiarate le variabili a livello di classe e verrà aggiunto il codice di autenticazione che consente alla funzione di accedere ai dispositivi gemelli digitali di Azure. Si aggiungerà quanto segue alla funzione nel file _function1.cs_ .
+Verranno ora dichiarate le variabili a livello di classe e verrà aggiunto il codice di autenticazione che consente alla funzione di accedere ai dispositivi gemelli digitali di Azure. Si aggiungerà quanto segue alla funzione nel file _funzione1. cs_ .
 
 * Codice per leggere l'URL del servizio di dispositivi digitali gemelli di Azure come **variabile di ambiente**. È consigliabile leggere l'URL del servizio da una variabile di ambiente, anziché impostarlo come hardcoded nella funzione. Il valore di questa variabile di ambiente verrà impostato [più avanti in questo articolo](#set-up-security-access-for-the-function-app). Per altre informazioni sulle variabili di ambiente, vedere [*gestire l'app per le funzioni*](../azure-functions/functions-how-to-use-azure-function-app-settings.md?tabs=portal).
 
@@ -118,12 +118,14 @@ Per consentire all'app per le funzioni di accedere ai dispositivi gemelli digita
 # <a name="cli"></a>[CLI](#tab/cli)
 
 È possibile eseguire questi comandi in [Azure cloud Shell](https://shell.azure.com) o in un' [installazione locale dell'interfaccia](/cli/azure/install-azure-cli)della riga di comando di Azure.
+È possibile usare l'identità gestita dal sistema dell'app per le funzioni per assegnargli il ruolo di _**proprietario dei dati di Azure Digital gemelli**_ per l'istanza di Digital gemelli di Azure. In questo modo si concede all'app per le funzioni l'autorizzazione per l'esecuzione di attività del piano dati. Quindi, rendere accessibile l'URL dell'istanza di Azure Digital Twins alla funzione impostando una variabile di ambiente.
 
 ### <a name="assign-access-role"></a>Assegnare un ruolo di accesso
 
+[!INCLUDE [digital-twins-permissions-required.md](../../includes/digital-twins-permissions-required.md)]
+
 Per poter eseguire l'autenticazione con i dispositivi gemelli digitali di Azure, la struttura della funzione degli esempi precedenti richiede che venga passata una bearer token. Per assicurarsi che questo bearer token venga passato, è necessario configurare le autorizzazioni di [identità del servizio gestita (MSI)](../active-directory/managed-identities-azure-resources/overview.md) per l'app per le funzioni per accedere ai dispositivi gemelli digitali di Azure. Questa operazione deve essere eseguita solo una volta per ogni app per le funzioni.
 
-È possibile usare l'identità gestita dal sistema dell'app per le funzioni per assegnargli il ruolo di _**proprietario dei dati di Azure Digital gemelli**_ per l'istanza di Digital gemelli di Azure. In questo modo si concede all'app per le funzioni l'autorizzazione per l'esecuzione di attività del piano dati. Quindi, rendere accessibile l'URL dell'istanza di Azure Digital Twins alla funzione impostando una variabile di ambiente.
 
 1. Usare il comando seguente per visualizzare i dettagli dell'identità gestita dal sistema per la funzione. Prendere nota del campo _principalId_ nell'output.
 
@@ -162,6 +164,8 @@ az functionapp config appsettings set -g <your-resource-group> -n <your-App-Serv
 Completare i passaggi seguenti nell' [portale di Azure](https://portal.azure.com/).
 
 ### <a name="assign-access-role"></a>Assegnare un ruolo di accesso
+
+[!INCLUDE [digital-twins-permissions-required.md](../../includes/digital-twins-permissions-required.md)]
 
 Un'identità gestita assegnata dal sistema consente alle risorse di Azure di eseguire l'autenticazione nei servizi cloud, ad esempio Azure Key Vault, senza archiviare le credenziali nel codice. Una volta abilitate, tutte le autorizzazioni necessarie possono essere concesse tramite il controllo degli accessi in base al ruolo di Azure. Il ciclo di vita di questo tipo di identità gestita è associato al ciclo di vita di questa risorsa. Ogni risorsa, inoltre, può avere solo un'identità gestita assegnata dal sistema.
 

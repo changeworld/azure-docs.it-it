@@ -73,7 +73,7 @@
     - name: Distribuire
       items:
         - name: App ASP.NET di distribuire e migrazione ad AKS
-          href: tutorial-containerize-aspnet-kubernetes.md
+          href: tutorial-app-containerization-aspnet-kubernetes.md
         - name: App Web Java distribuire e migrazione ad AKS
           href: tutorial-containerize-java-kubernetes.md
 - name: Concetti

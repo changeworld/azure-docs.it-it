@@ -9,10 +9,10 @@ ms.service: virtual-machines
 ms.date: 08/4/2020
 ms.custom: avverma
 ms.openlocfilehash: d6ee4179dce905d637e933743ade7452a2484077
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/13/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91978561"
 ---
 # <a name="put-calls-for-creation-or-updates-on-compute-resources"></a>Inserire le chiamate per la creazione o gli aggiornamenti nelle risorse di calcolo
@@ -47,7 +47,7 @@ Questo è importante quando si inviano le operazioni di aggiornamento a una riso
 > [!IMPORTANT]
 > Non è disponibile alcun supporto per l'applicazione di patch a un elemento di matrice. Al contrario, il client deve eseguire una richiesta PUT o PATCH con l'intero contenuto della matrice aggiornata. Ad esempio, per scollegare un disco dati da una macchina virtuale, eseguire una richiesta GET per ottenere il modello di macchina virtuale corrente, rimuovere il disco da scollegare `properties.storageProfile.dataDisks` ed eseguire una richiesta PUT con l'entità VM aggiornata.
 
-## <a name="examples"></a>Esempi
+## <a name="examples"></a>Esempio
 
 ### <a name="correct-payload-to-remove-a-proximity-placement-groups-association"></a>Correggere il payload per rimuovere un'associazione gruppi di posizionamento prossimità
 

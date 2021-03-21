@@ -10,12 +10,12 @@ ms.date: 02/17/2021
 ms.author: normesta
 ms.reviewer: prishet
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: b606e69baec8d159a6a3fa7373500176260ef0d7
-ms.sourcegitcommit: 227b9a1c120cd01f7a39479f20f883e75d86f062
+ms.openlocfilehash: dd522355d30564d84fec15bdc57c7397c1e6cfe4
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/18/2021
-ms.locfileid: "100654353"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "104702542"
 ---
 # <a name="use-powershell-to-manage-acls-in-azure-data-lake-storage-gen2"></a>Usare PowerShell per gestire gli ACL in Azure Data Lake Storage Gen2
 
@@ -172,7 +172,7 @@ $dir.ACL
 ```
 
 > [!NOTE]
-> Se si vuole impostare una voce ACL **predefinita** , usare il parametro **-DefaultScope** quando si esegue il comando **set-AzDataLakeGen2ItemAclObject** . Ad esempio: `$acl = set-AzDataLakeGen2ItemAclObject -AccessControlType user -Permission rwx -DefaultScope`.
+> Se si vuole impostare una voce ACL **predefinita** , usare il parametro **-DefaultScope** quando si esegue il comando **set-AzDataLakeGen2ItemAclObject** . Ad esempio: `$acl = set-AzDataLakeGen2ItemAclObject -AccessControlType user -Permission rwx -DefaultScope`. 
 
 In questo esempio viene impostato l'ACL in un **file** per l'utente proprietario, il gruppo proprietario o altri utenti, quindi viene stampato l'ACL nella console.
 
@@ -188,7 +188,7 @@ $file.ACL
 ```
 
 > [!NOTE]
-> Se si vuole impostare una voce ACL **predefinita** , usare il parametro **-DefaultScope** quando si esegue il comando **set-AzDataLakeGen2ItemAclObject** . Ad esempio: `$acl = set-AzDataLakeGen2ItemAclObject -AccessControlType user -Permission rwx -DefaultScope`.
+> Per impostare l'ACL di un gruppo o di un utente specifico, utilizzare i rispettivi ID oggetto. Ad esempio, `group:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx` o `user:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx`.
 
 Nell'immagine seguente illustra l'output dopo aver impostato l'ACL di un file.
 
@@ -267,7 +267,7 @@ Update-AzDataLakeGen2AclRecursive -Context $ctx -FileSystem $filesystemName -Pat
 ```
 
 > [!NOTE]
-> Se si desidera aggiornare una voce ACL **predefinita** , utilizzare il parametro **-DefaultScope** quando si esegue il comando **set-AzDataLakeGen2ItemAclObject** . Ad esempio: `$acl = set-AzDataLakeGen2ItemAclObject -AccessControlType user -EntityId $userID -Permission rwx -DefaultScope`.
+> Per impostare l'ACL di un gruppo o di un utente specifico, utilizzare i rispettivi ID oggetto. Ad esempio, `group:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx` o `user:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx`.
 
 Per un esempio in cui gli ACL vengono aggiornati in modo ricorsivo in batch specificando una dimensione del batch, vedere l'articolo di riferimento [Update-AzDataLakeGen2AclRecursive](/powershell/module/az.storage/update-azdatalakegen2aclrecursive) .
 

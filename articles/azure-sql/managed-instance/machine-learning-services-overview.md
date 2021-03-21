@@ -1,5 +1,5 @@
 ---
-title: Machine Learning Services in Istanza gestita SQL di Azure (anteprima)
+title: Machine Learning Services in Istanza gestita di SQL di Azure
 description: Questo articolo fornisce una panoramica o Machine Learning Services in Istanza gestita SQL di Azure.
 services: sql-database
 ms.service: sql-managed-instance
@@ -11,26 +11,17 @@ author: garyericson
 ms.author: garye
 ms.reviewer: sstein, davidph
 manager: cgronlun
-ms.date: 06/03/2020
-ms.openlocfilehash: c805bacbd4a2219fb79168ad6426efd8b0a390df
-ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
+ms.date: 03/17/2021
+ms.openlocfilehash: 94495144c64b3770995a5f67e9129b3ba86e741e
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96324517"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104599562"
 ---
-# <a name="machine-learning-services-in-azure-sql-managed-instance-preview"></a>Machine Learning Services in Istanza gestita SQL di Azure (anteprima)
+# <a name="machine-learning-services-in-azure-sql-managed-instance"></a>Machine Learning Services in Istanza gestita di SQL di Azure
 
-Machine Learning Services è una funzionalità di Istanza gestita SQL di Azure (anteprima) che fornisce l'apprendimento automatico nel database, che supporta gli script Python e R. La funzionalità include i pacchetti Microsoft Python e R per l'analisi predittiva ad alte prestazioni e l'apprendimento automatico. I dati relazionali possono essere usati negli script tramite stored procedure, script T-SQL contenenti istruzioni Python o R oppure codice Python o R contenente T-SQL.
-
-> [!IMPORTANT]
-> Machine Learning Services è una funzionalità di Istanza gestita di SQL di Azure attualmente disponibile in anteprima pubblica.
-> Questa funzionalità di anteprima è inizialmente disponibile in un numero limitato di aree negli Stati Uniti, in Asia Europa e in Australia con altre aree aggiunte in un secondo momento.
->
-> Questa versione di anteprima viene messa a disposizione senza contratto di servizio e non è consigliata per i carichi di lavoro di produzione. Alcune funzionalità potrebbero non essere supportate o potrebbero presentare funzionalità limitate.
-> Per altre informazioni, vedere [Condizioni supplementari per l'utilizzo delle anteprime di Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
->
-> [Iscriversi per l'anteprima](#signup) più avanti.
+Machine Learning Services è una funzionalità di Istanza gestita SQL di Azure che offre l'apprendimento automatico nel database, che supporta gli script Python e R. La funzionalità include i pacchetti Microsoft Python e R per l'analisi predittiva ad alte prestazioni e l'apprendimento automatico. I dati relazionali possono essere usati negli script tramite stored procedure, script T-SQL contenenti istruzioni Python o R oppure codice Python o R contenente T-SQL.
 
 ## <a name="what-is-machine-learning-services"></a>Che cos'è Machine Learning Services?
 
@@ -44,47 +35,32 @@ Usare Machine Learning Services con supporto R/Python in Azure SQL Istanza gesti
 
 - **Distribuire i modelli e gli script nell'ambiente di produzione nelle stored procedure** . gli script e i modelli sottoposti a training possono essere operativi semplicemente incorporati nelle stored procedure T-SQL. Le app che si connettono ad Azure SQL Istanza gestita possono trarre vantaggio da stime e intelligence in questi modelli semplicemente chiamando una stored procedure. È anche possibile usare la funzione di stima T-SQL nativa per rendere operativo i modelli per un punteggio rapido in scenari con punteggio in tempo reale altamente simultanei.
 
-Le distribuzioni di base di Python e R sono incluse in Machine Learning Services. È possibile installare e usare pacchetti e framework open source, come PyTorch, TensorFlow e scikit-learn, oltre ai pacchetti Microsoft [revoscalepy](/sql/advanced-analytics/python/ref-py-revoscalepy) e [microsoftml](/sql/advanced-analytics/python/ref-py-microsoftml) per Python e [RevoScaleR](/sql/advanced-analytics/r/ref-r-revoscaler), [MicrosoftML](/sql/advanced-analytics/r/ref-r-microsoftml), [olapR](/sql/advanced-analytics/r/ref-r-olapr) e [sqlrutils](/sql/advanced-analytics/r/ref-r-sqlrutils) per R.
+Le distribuzioni di base di Python e R sono incluse in Machine Learning Services. È possibile installare e usare pacchetti e framework open source, come PyTorch, TensorFlow e scikit-learn, oltre ai pacchetti Microsoft [revoscalepy](/sql/machine-learning/python/ref-py-revoscalepy) e [microsoftml](/sql/machine-learning/python/ref-py-microsoftml) per Python e [RevoScaleR](/sql/machine-learning/r/ref-r-revoscaler), [MicrosoftML](/sql/machine-learning/r/ref-r-microsoftml), [olapR](/sql/machine-learning/r/ref-r-olapr) e [sqlrutils](/sql/machine-learning/r/ref-r-sqlrutils) per R.
 
-<a name="signup"></a>
+## <a name="how-to-enable-machine-learning-services"></a>Come abilitare Machine Learning Services
 
-## <a name="sign-up-for-the-preview"></a>Iscriversi per l'anteprima
+È possibile abilitare Machine Learning Services in Azure SQL Istanza gestita abilitando l'estendibilità con i seguenti comandi SQL (SQL Istanza gestita verrà riavviato e non sarà disponibile per alcuni secondi):
 
-Questa versione di anteprima pubblica limitata è soggetta alle condizioni per l' [Anteprima di Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). 
+```sql
+sp_configure 'external scripts enabled', 1;
+RECONFIGURE WITH OVERRIDE;
+```
 
-Se si è interessati a partecipare al programma di anteprima e accettare le presenti condizioni, è possibile richiedere la registrazione creando un ticket di supporto di Azure all'indirizzo [**https://azure.microsoft.com/support/create-ticket/**](https://azure.microsoft.com/support/create-ticket/) . 
+Per informazioni dettagliate su come questo comando influisca sulle risorse di SQL Istanza gestita, vedere [governance delle risorse](machine-learning-services-differences.md#resource-governance).
 
-1. Nella pagina **Crea un ticket di supporto** fare clic su **Crea un evento imprevisto**.
+### <a name="enable-machine-learning-services-in-a-failover-group"></a>Abilitare Machine Learning Services in un gruppo di failover
 
-1. Nella pagina **Guida e supporto** fare clic su **nuova richiesta di supporto** per creare un nuovo ticket.
+In un [gruppo di failover](failover-group-add-instance-tutorial.md), i database di sistema non vengono replicati nell'istanza secondaria (vedere [limitazioni dei gruppi di failover](../database/auto-failover-group-overview.md#limitations-of-failover-groups) per ulteriori informazioni).
 
-1. Selezionare le opzioni seguenti:
-   - Tipo di problema- **tecnico**
-   - Sottoscrizione: *selezionare la sottoscrizione*
-   - Servizio- **istanza gestita SQL**
-   - Risorsa: *selezionare l'istanza gestita*
-   - Riepilogo: *immettere una breve descrizione della richiesta*
-   - Tipo di problema- **Machine Learning Services per SQL istanza gestita (anteprima)**
-   - Sottotipo di problema: **altro problema o domande "procedura"**
+Se il Istanza gestita in uso fa parte di un gruppo di failover, eseguire le operazioni seguenti:
 
-1. Fare clic su **Avanti: soluzioni**.
+- `sp_configure` `RECONFIGURE` Per abilitare Machine Learning Services, eseguire i comandi e in ogni istanza del gruppo di failover.
 
-1. Leggere le informazioni sull'anteprima, quindi fare clic su **Avanti: dettagli**.
-
-1. In questa pagina:
-   - Per la domanda **che si sta tentando di iscriversi all'anteprima**, selezionare **Sì**. 
-   - Per **Descrizione**, immettere le specifiche della richiesta, inclusi il nome del server logico, l'area e l'ID sottoscrizione che si desidera registrare nell'anteprima. Immettere altri dettagli in base alle esigenze.
-   - Selezionare il metodo di contatto preferito. 
-
-1. Al termine, fare clic su **Avanti: rivedere + crea** e quindi fare clic su **Crea**.
-
-Dopo la registrazione nel programma, Microsoft eseguirà l'onboarding all'anteprima pubblica e abiliterà Machine Learning Services per il database nuovo o esistente.
-
-Non usare Machine Learning Services in Istanza gestita di SQL per carichi di lavoro di produzione durante l'anteprima pubblica.
+- Installare le librerie R/Python in un database utente piuttosto che nel database master.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
 - Vedere le [differenze principali tra SQL Server Machine Learning Services](machine-learning-services-differences.md).
-- Per informazioni su come usare Python in Machine Learning Services, vedere [eseguire script Python](/sql/machine-learning/tutorials/quickstart-python-create-script?context=%2fazure%2fazure-sql%2fmanaged-instance%2fcontext%2fml-context&view=sql-server-ver15).
-- Per informazioni sull'uso di R in Machine Learning Services, vedere [eseguire script r](/sql/machine-learning/tutorials/quickstart-r-create-script?context=%2fazure%2fazure-sql%2fmanaged-instance%2fcontext%2fml-context&view=sql-server-ver15).
-- Per ulteriori informazioni su Machine Learning su altre piattaforme SQL, vedere la [documentazione di SQL Machine Learning](/sql/machine-learning/).
+- Per informazioni su come usare Python in Machine Learning Services, vedere [eseguire script Python](/sql/machine-learning/tutorials/quickstart-python-create-script?context=/azure/azure-sql/managed-instance/context/ml-context&view=azuresqldb-mi-current&preserve-view=true).
+- Per informazioni sull'uso di R in Machine Learning Services, vedere [eseguire script r](/sql/machine-learning/tutorials/quickstart-r-create-script?context=/azure/azure-sql/managed-instance/context/ml-context&view=azuresqldb-mi-current&preserve-view=true).
+- Per ulteriori informazioni su Machine Learning su altre piattaforme SQL, vedere la [documentazione di SQL Machine Learning](/sql/machine-learning/index).

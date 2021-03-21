@@ -6,13 +6,13 @@ author: linda33wj
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 08/28/2020
-ms.openlocfilehash: 9b8402e5ae4d0358d17342d30ddf36f5e1228f65
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.date: 03/17/2021
+ms.openlocfilehash: 19b32bed15a4d292a7427d8401e777c7761e45a3
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100393463"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104592031"
 ---
 # <a name="copy-data-from-and-to-the-sftp-server-by-using-azure-data-factory"></a>Copiare i dati da e verso il server SFTP usando Azure Data Factory
 
@@ -34,7 +34,7 @@ Il connettore SFTP è supportato per le attività seguenti:
 
 In particolare, il connettore SFTP supporta:
 
-- Copia di file da e verso il server SFTP usando l'autenticazione di *base* o *SshPublicKey* .
+- Copia di file da e verso il server SFTP usando la **chiave pubblica SSH** di **base** o l'autenticazione a più **fattori** .
 - La copia di file così come sono o tramite l'analisi o la generazione di file con i [formati di file supportati e i codec di compressione](supported-file-formats-and-compression-codecs.md).
 
 ## <a name="prerequisites"></a>Prerequisiti
@@ -58,7 +58,7 @@ Per il servizio collegato SFTP sono supportate le proprietà seguenti:
 | port | Porta su cui il server SFTP è in ascolto.<br/>Il valore consentito è un numero intero e il valore predefinito è *22*. |No |
 | skipHostKeyValidation | Specificare se si desidera ignorare la convalida tramite della chiave host.<br/>I valori consentiti sono *true* e *false* (impostazione predefinita).  | No |
 | hostKeyFingerprint | Specificare l'impronta digitale della chiave host. | Sì, se "skipHostKeyValidation" è impostato su false.  |
-| authenticationType | Specificare il tipo di autenticazione.<br/>I valori consentiti sono *Basic* e *SshPublicKey*. Per altre proprietà, vedere la sezione [usare l'autenticazione di base](#use-basic-authentication) . Per esempi JSON, vedere la sezione [usare l'autenticazione con chiave pubblica SSH](#use-ssh-public-key-authentication) . |Sì |
+| authenticationType | Specificare il tipo di autenticazione.<br/>I valori consentiti sono *Basic*, *SshPublicKey* e a più *fattori*. Per altre proprietà, vedere la sezione [usare l'autenticazione di base](#use-basic-authentication) . Per esempi JSON, vedere la sezione [usare l'autenticazione con chiave pubblica SSH](#use-ssh-public-key-authentication) . |Sì |
 | connectVia | [Runtime di integrazione](concepts-integration-runtime.md) da usare per la connessione all'archivio dati. Per ulteriori informazioni, vedere la sezione [prerequisiti](#prerequisites) . Se il runtime di integrazione non è specificato, il servizio usa il Azure Integration Runtime predefinito. |No |
 
 ### <a name="use-basic-authentication"></a>Usare l'autenticazione di base
@@ -75,7 +75,6 @@ Per usare l'autenticazione di base, impostare la proprietà *AuthenticationType*
 ```json
 {
     "name": "SftpLinkedService",
-    "type": "linkedservices",
     "properties": {
         "type": "Sftp",
         "typeProperties": {
@@ -117,7 +116,6 @@ Per usare l'autenticazione basata su chiave pubblica SSH, impostare la propriet�
 ```json
 {
     "name": "SftpLinkedService",
-    "type": "Linkedservices",
     "properties": {
         "type": "Sftp",
         "typeProperties": {
@@ -161,6 +159,43 @@ Per usare l'autenticazione basata su chiave pubblica SSH, impostare la propriet�
             "passPhrase": {
                 "type": "SecureString",
                 "value": "<pass phrase>"
+            }
+        },
+        "connectVia": {
+            "referenceName": "<name of integration runtime>",
+            "type": "IntegrationRuntimeReference"
+        }
+    }
+}
+```
+
+### <a name="use-multi-factor-authentication"></a>Utilizzare Multi-Factor Authentication
+
+Per usare l'autenticazione a più fattori, ovvero una combinazione di autenticazioni con chiave pubblica SSH e di base, specificare il nome utente, la password e le informazioni sulla chiave privata descritte nelle sezioni precedenti.
+
+**Esempio: autenticazione a più fattori**
+
+```json
+{
+    "name": "SftpLinkedService",
+    "properties": {
+        "type": "Sftp",
+        "typeProperties": {
+            "host": "<host>",
+            "port": 22,
+            "authenticationType": "MultiFactor",
+            "userName": "<username>",
+            "password": {
+                "type": "SecureString",
+                "value": "<password>"
+            },
+            "privateKeyContent": {
+                "type": "SecureString",
+                "value": "<base64 encoded private key content>"
+            },
+            "passPhrase": {
+                "type": "SecureString",
+                "value": "<passphrase for private key>"
             }
         },
         "connectVia": {
@@ -236,7 +271,7 @@ Le proprietà seguenti sono supportate per SFTP nelle `storeSettings` impostazio
 | modifiedDatetimeEnd      | Come sopra.                                               | No                                            |
 | enablePartitionDiscovery | Per i file partizionati, specificare se analizzare le partizioni dal percorso del file e aggiungerle come colonne di origine aggiuntive.<br/>I valori consentiti sono **false** (impostazione predefinita) e **true**. | No                                            |
 | partitionRootPath | Quando è abilitata l'individuazione delle partizioni, specificare il percorso radice assoluto per leggere le cartelle partizionate come colonne di dati.<br/><br/>Se non viene specificato, per impostazione predefinita<br/>-Quando si usa il percorso del file in un set di dati o un elenco di file nell'origine, il percorso radice della partizione è il percorso configurato nel set di dati.<br/>-Quando si usa il filtro di cartelle con caratteri jolly, il percorso radice della partizione è il percorso secondario prima del primo carattere jolly.<br/><br/>Si supponga, ad esempio, di configurare il percorso nel set di dati come "root/folder/Year = 2020/month = 08/Day = 27":<br/>-Se si specifica il percorso radice della partizione come "root/folder/Year = 2020", l'attività di copia genererà altre due colonne `month` e `day` con il valore "08" e "27", oltre alle colonne all'interno dei file.<br/>-Se il percorso radice della partizione non è specificato, non verrà generata alcuna colonna aggiuntiva. | No                                            |
-| maxConcurrentConnections | Il numero di connessioni che possono connettersi all'archivio di archiviazione simultaneamente. Specificare un valore solo quando si desidera limitare la connessione simultanea all'archivio dati. | No                                            |
+| maxConcurrentConnections | Limite massimo di connessioni simultanee stabilite all'archivio dati durante l'esecuzione dell'attività. Specificare un valore solo quando si desidera limitare le connessioni simultanee.| No                                            |
 
 **Esempio:**
 
@@ -289,7 +324,7 @@ Per SFTP in `storeSettings` impostazioni in un sink di copia basato sul formato 
 | ------------------------ | ------------------------------------------------------------ | -------- |
 | type                     | La proprietà *Type* in `storeSettings` deve essere impostata su *SftpWriteSettings*. | Sì      |
 | copyBehavior             | Definisce il comportamento di copia quando l'origine è costituita da file di un archivio dati basato su file.<br/><br/>I valori consentiti sono i seguenti:<br/><b>- PreserveHierarchy (impostazione predefinita)</b>: mantiene la gerarchia dei file nella cartella di destinazione. Il percorso relativo del file di origine nella cartella di origine è identico al percorso relativo del file di destinazione nella cartella di destinazione.<br/><b>- FlattenHierarchy</b>: tutti i file della cartella di origine si trovano nel primo livello della cartella di destinazione. I nomi dei file di destinazione vengono generati automaticamente. <br/><b>- MergeFiles</b>: unisce tutti i file della cartella di origine in un solo file. Se si specifica il nome di file, il nome del file unito sarà il nome specificato. In caso contrario, verrà usato un nome di file generato automaticamente. | No       |
-| maxConcurrentConnections | Il numero di connessioni che possono connettersi all'archivio di archiviazione simultaneamente. Specificare un valore solo quando si desidera limitare la connessione simultanea all'archivio dati. | No       |
+| maxConcurrentConnections | Limite massimo di connessioni simultanee stabilite all'archivio dati durante l'esecuzione dell'attività. Specificare un valore solo quando si desidera limitare le connessioni simultanee. | No       |
 | useTempFileRename | Indicare se caricare i file temporanei e rinominarli oppure scrivere direttamente nella cartella o nel percorso del file di destinazione. Per impostazione predefinita, Azure Data Factory scrive prima nei file temporanei e li rinomina al termine del caricamento. Questa sequenza consente a (1) di evitare conflitti che potrebbero generare un file danneggiato se si hanno altri processi che scrivono nello stesso file e (2) assicurarsi che la versione originale del file esista durante il trasferimento. Se il server SFTP non supporta un'operazione di ridenominazione, disabilitare questa opzione e assicurarsi che non sia presente una scrittura simultanea nel file di destinazione. Per ulteriori informazioni, vedere la sezione relativa alla risoluzione dei problemi alla fine della tabella. | No. Il valore predefinito è *true*. |
 | operationTimeout | Tempo di attesa prima del timeout di ogni richiesta di scrittura al server SFTP. Il valore predefinito 60 min(01:00:00).|No |
 
@@ -422,7 +457,7 @@ Per informazioni sulle proprietà dell'attività Delete, vedere [attività Delet
 |:--- |:--- |:--- |
 | type | La proprietà *Type* dell'origine dell'attività di copia deve essere impostata su *FileSystemSource* |Sì |
 | ricorsiva | Indica se i dati vengono letti in modo ricorsivo dalle cartelle secondarie o solo dalla cartella specificata. Quando ricorsivo è impostato su *true* e il sink è un archivio basato su file, le cartelle e le sottocartelle vuote non verranno copiate o create nel sink.<br/>I valori consentiti sono *true* (impostazione predefinita) e *false* | No |
-| maxConcurrentConnections | Il numero di connessioni che possono connettersi a un archivio di archiviazione simultaneamente. Specificare un numero solo quando si desidera limitare le connessioni simultanee all'archivio dati. | No |
+| maxConcurrentConnections |Limite massimo di connessioni simultanee stabilite all'archivio dati durante l'esecuzione dell'attività. Specificare un valore solo quando si desidera limitare le connessioni simultanee.| No |
 
 **Esempio:**
 
