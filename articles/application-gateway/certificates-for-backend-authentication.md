@@ -9,13 +9,13 @@ ms.topic: how-to
 ms.date: 06/17/2020
 ms.author: absha
 ms.openlocfilehash: 874e554063f64ddefce99a223678d64b2e0774c3
-ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/05/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93397723"
 ---
-# <a name="create-certificates-to-allow-the-backend-with-azure-application-gateway"></a>Creare certificati per consentire il back-end con applicazione Azure gateway
+# <a name="create-certificates-to-allow-the-backend-with-azure-application-gateway"></a>Creare i certificati per consentire il back-end con il gateway applicazione di Azure
 
 Per eseguire TLS end-to-end, il gateway applicazione richiede che le istanze back-end siano consentite caricando i certificati radice attendibili e di autenticazione. Per lo SKU V1 sono necessari i certificati di autenticazione, ma per i certificati radice attendibili dello SKU V2 sono necessari per consentire i certificati.
 
@@ -51,7 +51,7 @@ Dal certificato TLS/SSL esportare il file con estensione cer della chiave pubbli
 
    ![Codifica Base 64](./media/certificates-for-backend-authentication/base64.png)
 
-5. In **File da esportare** fare clic su **Sfoglia** e passare alla posizione in cui si vuole esportare il certificato. Per **Nome file** , assegnare un nome al file del certificato. Quindi fare clic su **Next**.
+5. In **File da esportare** fare clic su **Sfoglia** e passare alla posizione in cui si vuole esportare il certificato. Per **Nome file**, assegnare un nome al file del certificato. Quindi fare clic su **Next**.
 
    ![Screenshot che mostra l'esportazione guidata certificati in cui si specifica un file da esportare.](./media/certificates-for-backend-authentication/browse.png)
 

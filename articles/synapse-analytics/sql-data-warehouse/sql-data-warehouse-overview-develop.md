@@ -11,10 +11,10 @@ ms.date: 08/29/2018
 ms.author: xiaoyul
 ms.reviewer: igorstan
 ms.openlocfilehash: 6b34c70b453c26fe27a51e1aa802564864640cb9
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/01/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96453689"
 ---
 # <a name="design-decisions-and-coding-techniques-for-a-dedicated-sql-pool-formerly-sql-dw-in-azure-synapse-analytics"></a>Decisioni di progettazione e tecniche di codifica per un pool SQL dedicato (in precedenza SQL DW) in Azure sinapsi Analytics 
@@ -46,7 +46,7 @@ Negli articoli seguenti sono disponibili tecniche di codifica, suggerimenti e co
 * [SQL dinamico](sql-data-warehouse-develop-dynamic-sql.md)
 * [ciclo](sql-data-warehouse-develop-loops.md)
 * [opzioni di raggruppamento](sql-data-warehouse-develop-group-by-options.md)
-* [assegnazione di variabili](sql-data-warehouse-develop-variable-assignment.md)
+* [assegnazione di variabile](sql-data-warehouse-develop-variable-assignment.md)
 
 ## <a name="next-steps"></a>Passaggi successivi
 

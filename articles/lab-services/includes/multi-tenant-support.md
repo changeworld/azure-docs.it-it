@@ -4,10 +4,10 @@ ms.author: juliako
 ms.date: 10/30/2020
 ms.topic: include
 ms.openlocfilehash: d2eff2720d4a8d7b18bb52c827c86bc883ff1dfb
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/21/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "95096313"
 ---
 Se si dispone di un ruolo di amministratore o di proprietario del Lab in due o più Azure AD tenant, è possibile spostarsi tra i tenant nel portale di Azure Lab Services selezionando il controllo in alto a destra, come illustrato nello screenshot seguente: 

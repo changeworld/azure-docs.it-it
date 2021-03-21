@@ -12,10 +12,10 @@ ms.author: sstein
 ms.reviewer: ''
 ms.date: 02/07/2019
 ms.openlocfilehash: 3bfbf56b6e5f2be33b407945490531e6e2e8ac47
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/28/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92781261"
 ---
 # <a name="create-performance-counters-to-track-performance-of-shard-map-manager"></a>Creare contatori delle prestazioni per tenere traccia delle prestazioni del gestore delle mappe partizioni
@@ -31,7 +31,7 @@ I contatori delle prestazioni vengono utilizzati per tenere traccia delle presta
 ## <a name="prerequisites"></a>Prerequisiti
 
 * Per creare la categoria e i contatori delle prestazioni, l'utente deve far parte del gruppo **Administrators** locale per il computer che ospita l'applicazione.  
-* Per creare un'istanza del contatore delle prestazioni e aggiornare i contatori, l'utente deve essere membro del gruppo **Administrators** o **Performance Monitor Users** .
+* Per creare un'istanza del contatore delle prestazioni e aggiornare i contatori, l'utente deve essere membro del gruppo **Administrators** o **Performance Monitor Users**.
 
 ## <a name="create-performance-category-and-counters"></a>Creare una categoria e contatori delle prestazioni
 
@@ -42,12 +42,12 @@ Per creare i contatori, chiamare il metodo CreatePerformanceCategoryAndCounters 
 È inoltre possibile utilizzare [questo](https://gallery.technet.microsoft.com/scriptcenter/Elastic-DB-Tools-for-Azure-17e3d283) script di PowerShell per eseguire il metodo.
 Il metodo crea i contatori delle prestazioni seguenti:  
 
-* **Mapping memorizzati nella cache** : numero di mapping memorizzati nella cache per la mappa partizioni.
-* **Operazioni di routing dipendente dai dati al secondo** : frequenza delle operazioni di routing dipendente dai dati per la mappa partizioni. Questo contatore viene aggiornato quando una chiamata a [OpenConnectionForKey()](/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmap.openconnectionforkey) genera una connessione riuscita alla partizione di destinazione.
-* **Riscontri di ricerca dei mapping nella cache al secondo** : frequenza delle operazioni di ricerca di mapping della mappa partizioni nella cache che hanno esito positivo.
-* **Mancati riscontri di ricerca dei mapping nella cache al secondo** : frequenza delle operazioni di ricerca di mapping della mappa partizioni nella cache che hanno esito negativo.
-* **Mapping aggiunti o aggiornati nella cache al secondo** : frequenza con cui i mapping della mappa partizioni vengono aggiunti o aggiornati nella cache.
-* **Mapping rimossi dalla cache al secondo** : frequenza con cui i mapping della mappa partizioni vengono rimossi dalla cache.
+* **Mapping memorizzati nella cache**: numero di mapping memorizzati nella cache per la mappa partizioni.
+* **Operazioni di routing dipendente dai dati al secondo**: frequenza delle operazioni di routing dipendente dai dati per la mappa partizioni. Questo contatore viene aggiornato quando una chiamata a [OpenConnectionForKey()](/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmap.openconnectionforkey) genera una connessione riuscita alla partizione di destinazione.
+* **Riscontri di ricerca dei mapping nella cache al secondo**: frequenza delle operazioni di ricerca di mapping della mappa partizioni nella cache che hanno esito positivo.
+* **Mancati riscontri di ricerca dei mapping nella cache al secondo**: frequenza delle operazioni di ricerca di mapping della mappa partizioni nella cache che hanno esito negativo.
+* **Mapping aggiunti o aggiornati nella cache al secondo**: frequenza con cui i mapping della mappa partizioni vengono aggiunti o aggiornati nella cache.
+* **Mapping rimossi dalla cache al secondo**: frequenza con cui i mapping della mappa partizioni vengono rimossi dalla cache.
 
 Vengono creati contatori delle prestazioni per ciascuna mappa partizioni memorizzata nella cache in modalità per processo.  
 
@@ -66,7 +66,7 @@ I contatori delle prestazioni verranno aggiornati da tutte le operazioni della c
 * La creazione della categoria e dei contatori delle prestazioni deve essere eseguita solo una volta prima della creazione dell'oggetto ShardMapManager. Ogni esecuzione del comando CreatePerformanceCategoryAndCounters() cancella i contatori precedenti (con la perdita di tutti i dati segnalati da tutte le istanze) e ne crea di nuovi.  
 * Le istanze dei contatori delle prestazioni vengono create in modalità per processo. Un arresto anomalo dell'applicazione o la rimozione di una mappa partizioni dalla cache causa l'eliminazione delle istanze dei contatori delle prestazioni.  
 
-### <a name="see-also"></a>Vedere anche
+### <a name="see-also"></a>Vedi anche
 
 [Panoramica sulle funzionalità di database elastico](elastic-scale-introduction.md)  
 

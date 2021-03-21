@@ -8,17 +8,17 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 ms.date: 07/22/2020
 ms.openlocfilehash: bff20468e8185073f5c192c1e115bc405dd089eb
-ms.sourcegitcommit: b6267bc931ef1a4bd33d67ba76895e14b9d0c661
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/19/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97693606"
 ---
 # <a name="create-a-power-bi-app-offer"></a>Creare un'offerta di app Power BI
 
 Questo articolo descrive come creare e pubblicare un'offerta di app Power BI per [Microsoft AppSource](https://appsource.microsoft.com/).
 
-Prima di iniziare, [creare un account per il marketplace commerciale nel Centro per i partner](create-account.md) se non è ancora stato fatto. Assicurarsi che l'account sia registrato nel programma del marketplace commerciale.
+Prima di iniziare, [creare un account per il marketplace commerciale nel Centro per i partner](create-account.md), se non è ancora stato fatto. Assicurarsi che l'account sia registrato nel programma del marketplace commerciale.
 
 ## <a name="create-a-new-offer"></a>Creare una nuova offerta
 
@@ -38,8 +38,8 @@ Prima di iniziare, [creare un account per il marketplace commerciale nel Centro 
 
 Immettere un ID in **ID offerta**. Si tratta di un identificatore univoco per ogni offerta nell'account.
 
-- Questo ID è visibile ai clienti nell'indirizzo Web per l'offerta nel marketplace e nei modelli di Azure Resource Manager, se applicabile.
-- Usare solo lettere minuscole e numeri. Può includere trattini e caratteri di sottolineatura, ma senza spazi e con un limite di 50 caratteri. Se ad esempio si immette **test-offer-1**, l'indirizzo Web dell'offerta sarà `https://azuremarketplace.microsoft.com/marketplace/../test-offer-1`.
+- Questo ID è visibile ai clienti nell'indirizzo Web per l'offerta del marketplace e nei modelli di Azure Resource Manager, se applicabile.
+- Usare solo lettere minuscole e numeri. È possibile includere trattini e caratteri di sottolineatura, ma non spazi, per un massimo di 50 caratteri. Ad esempio, se si immette **test-offer-1**, l'indirizzo Web dell'offerta sarà `https://azuremarketplace.microsoft.com/marketplace/../test-offer-1`.
 - Non è possibile modificare l'ID offerta dopo aver selezionato **Crea**.
 
 Immettere un alias in **Alias offerta**. Si tratta del nome usato per l'offerta nel Centro per i partner.
@@ -56,8 +56,8 @@ Questa pagina mostra una rappresentazione visiva dei passaggi per pubblicare l'o
 Sono inclusi i collegamenti per eseguire operazioni su questa offerta in base alla selezione effettuata. Ad esempio:
 
 - Se l'offerta è una bozza: Eliminare un'offerta bozza
-- Se l'offerta è stata pubblicata, [Interrompi vendita](update-existing-offer.md#stop-selling-an-offer-or-plan)
-- Se l'offerta è in anteprima, [Passa allo stato Live](../review-publish-offer.md#previewing-and-approving-your-offer)
+- Se l'offerta è live: [Interrompere la vendita dell'offerta](update-existing-offer.md#stop-selling-an-offer-or-plan)
+- Se l'offerta è in anteprima: [Passare allo stato Live](../review-publish-offer.md#previewing-and-approving-your-offer)
 - Se non è stata completata la disconnessione dell'editore: [Annullare la pubblicazione](../review-publish-offer.md#cancel-publishing)
 
 ## <a name="offer-setup"></a>Configurazione dell'offerta
@@ -76,10 +76,10 @@ Quando si pubblica l'offerta nel marketplace con il Centro per i partner, è nec
     > Se il sistema CRM non è incluso nell'elenco, usare la [tabella di Azure](commercial-marketplace-lead-management-instructions-azure-table.md) o l' [endpoint HTTPS](commercial-marketplace-lead-management-instructions-https.md) per archiviare i dati dei clienti. Esportare quindi i dati nel sistema CRM.
 
 2. Quando si pubblica l'offerta nel Centro per i partner, connettere l'offerta alla destinazione dei lead.
-3. Verificare che la connessione alla destinazione dei lead sia configurata correttamente. Dopo la pubblicazione nel Centro per i partner, la connessione verrà convalidata e verrà inviato un lead di test. Quando si visualizza l'offerta in anteprima prima della pubblicazione, è anche possibile testare la connessione dei lead provando ad acquistare personalmente l'offerta nell'ambiente di anteprima.
-4. Assicurarsi che la connessione alla destinazione dei lead resti aggiornata in modo da non perdere alcun lead.
+3. Verificare che la connessione alla destinazione del cliente potenziale sia configurata correttamente. Dopo la pubblicazione nel Centro per i partner, la connessione verrà convalidata e verrà inviato un cliente potenziale di prova. Quando si visualizza l'offerta in anteprima prima della pubblicazione, è anche possibile testare la connessione dei clienti potenziali tentando di acquistare l'offerta nell'ambiente di anteprima.
+4. Assicurarsi che la connessione alla destinazione dei clienti potenziali rimanga aggiornata, in modo da non perdere alcun cliente potenziale.
 
-Di seguito sono elencate alcune risorse aggiuntive per la gestione dei lead:
+Di seguito sono elencate alcune risorse aggiuntive per la gestione dei clienti potenziali:
 
 - [Lead di clienti tramite l'offerta del marketplace commerciale](commercial-marketplace-get-customer-leads.md)
 - [Domande frequenti sulla gestione dei lead](../lead-management-faq.md#common-questions-about-lead-management)

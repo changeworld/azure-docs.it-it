@@ -9,10 +9,10 @@ ms.date: 10/19/2020
 ms.author: cherylmc
 ms.custom: include file
 ms.openlocfilehash: 3c825f042bb3e7fee5c00a8b34c12ca2d05f8d2e
-ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/20/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92217956"
 ---
 Nel portale di Azure è possibile visualizzare lo stato della connessione di un gateway VPN di Resource Manager passando alla connessione. La procedura seguente illustra uno dei modi in cui è possibile accedere alla connessione e verificarla.
@@ -22,6 +22,6 @@ Nel portale di Azure è possibile visualizzare lo stato della connessione di un 
 
    :::image type="content" source="./media/vpn-gateway-verify-connection-portal-rm-include/connections.png" alt-text="Visualizza connessioni" lightbox="./media/vpn-gateway-verify-connection-portal-rm-include/connections-expand.png":::
 
-1. Fare clic sul nome della connessione che si desidera verificare. In **Essentials**è possibile visualizzare altre informazioni sulla connessione. Quando è stata stabilita una connessione, i valori di **stato** sono "succeeded" e "Connected".
+1. Fare clic sul nome della connessione che si desidera verificare. In **Essentials** è possibile visualizzare altre informazioni sulla connessione. Quando è stata stabilita una connessione, i valori di **stato** sono "succeeded" e "Connected".
 
-   :::image type="content" source="./media/vpn-gateway-verify-connection-portal-rm-include/essentials.png" alt-text="Visualizza connessioni" lightbox="./media/vpn-gateway-verify-connection-portal-rm-include/essentials-expand.png":::
+   :::image type="content" source="./media/vpn-gateway-verify-connection-portal-rm-include/essentials.png" alt-text="Verificare le connessioni" lightbox="./media/vpn-gateway-verify-connection-portal-rm-include/essentials-expand.png":::

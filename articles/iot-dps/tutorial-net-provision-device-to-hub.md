@@ -10,15 +10,15 @@ services: iot-dps
 ms.devlang: csharp
 ms.custom: mvc, devx-track-csharp
 ms.openlocfilehash: f9a14ee6ee3e10b36d64ec11fc23807efe2bfaf2
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
-ms.translationtype: HT
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/20/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94966565"
 ---
-# <a name="tutorial-enroll-the-device-to-an-iot-hub-using-the-azure-iot-hub-provisioning-service-client-net"></a>Esercitazione: Registrare il dispositivo in un hub IoT usando il client del servizio Device Provisioning in hub IoT di Azure (.NET)
+# <a name="tutorial-enroll-the-device-to-an-iot-hub-using-the-azure-iot-hub-provisioning-service-client-net"></a>Esercitazione: registrare il dispositivo in un hub cose usando il client del servizio di provisioning dell'hub Azure Internet (.NET)
 
-Nell'esercitazione precedente abbiamo appreso come configurare un dispositivo per la connessione al servizio Device Provisioning. In questa esercitazione viene illustrato come usare questo servizio per eseguire il provisioning del dispositivo a un singolo hub IoT, usando la **_registrazione singola_** e i **_gruppi di registrazioni_** . Questa esercitazione illustra come:
+Nell'esercitazione precedente abbiamo appreso come configurare un dispositivo per la connessione al servizio Device Provisioning. In questa esercitazione viene illustrato come usare questo servizio per eseguire il provisioning del dispositivo a un singolo hub IoT, usando la **_registrazione singola_** e i **_gruppi di registrazioni_**. Questa esercitazione illustra come:
 
 > [!div class="checklist"]
 > * Registrare il dispositivo
@@ -61,7 +61,7 @@ Questo passaggio prevede l'aggiunta di elementi di sicurezza esclusivi del dispo
     
 1. In Esplora soluzioni fare clic con il pulsante destro del mouse sul progetto **DeviceProvisioning** e quindi scegliere **Gestisci pacchetti NuGet**.
 
-1. Nella finestra **Gestione pacchetti NuGet** selezionare **Sfoglia** e cercare **microsoft.azure.devices.provisioning.service**. Selezionare la voce e fare clic su **Installa** per installare il pacchetto **Microsoft.Azure.Devices.Provisioning.Service** e accettare le condizioni per l'utilizzo. Questa procedura scarica, installa e aggiunge un riferimento al pacchetto NuGet [Azure IoT Device Provisioning Service SDK](https://www.nuget.org/packages/Microsoft.Azure.Devices.Provisioning.Service/) e alle relative dipendenze.
+1. Nella finestra **Gestione pacchetti NuGet** selezionare **Sfoglia** e cercare **microsoft.azure.devices.provisioning.service**. Selezionare la voce e fare clic su **Installa** per installare il pacchetto **Microsoft.Azure.Devices.Provisioning.Service** e accettare le condizioni per l'utilizzo. Questa procedura Scarica, installa e aggiunge un riferimento al pacchetto NuGet [Azure Azure Device Provisioning Service SDK](https://www.nuget.org/packages/Microsoft.Azure.Devices.Provisioning.Service/) e alle relative dipendenze.
 
 1. Aggiungere le istruzione `using` seguenti all'inizio del file **Program.cs** :
    
@@ -129,7 +129,7 @@ Questo passaggio prevede l'aggiunta di elementi di sicurezza esclusivi del dispo
     Console.ReadLine();
     ```
         
-1. In Esplora soluzioni in Visual Studio fare clic con il pulsante destro del mouse sulla soluzione e quindi scegliere **Imposta progetti di avvio...** . Selezionare **Progetto di avvio singolo**, quindi selezionare il progetto **DeviceProvisioning** nel menu a discesa.  
+1. Nella Esplora soluzioni di Visual Studio fare clic con il pulsante destro del mouse sulla soluzione, quindi scegliere **Imposta progetti di avvio...**. Selezionare **progetto di avvio singolo**, quindi selezionare il progetto **DeviceProvisioning** nel menu a discesa.  
 
 1. Eseguire l'app **DeviceProvisiong** del dispositivo .NET. Dovrebbe configurare il provisioning per il dispositivo: 
 

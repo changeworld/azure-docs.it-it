@@ -8,10 +8,10 @@ ms.service: storage
 ms.subservice: blobs
 ms.topic: quickstart
 ms.openlocfilehash: bf0e868e9ee746da1dfe1b03403d21f7edb3bd5e
-ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
-ms.translationtype: HT
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/24/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "95544650"
 ---
 # <a name="quickstart-upload-download-and-list-blobs-using-go"></a>Guida introduttiva: Caricare, scaricare ed elencare BLOB con Go
@@ -149,9 +149,9 @@ L'archiviazione BLOB supporta BLOB in blocchi, BLOB di aggiunta e BLOB di pagine
 
 Per caricare un file in un BLOB, aprire il file usando **os.Open**. È quindi possibile caricare il file nel percorso specificato usando una delle API REST, ovvero Upload (PutBlob) o StageBlock/CommitBlockList (PutBlock/PutBlockList). 
 
-In alternativa, l'SDK offre [API generali](https://github.com/Azure/azure-storage-blob-go/blob/master/azblob/highlevel.go) basate sulle API REST specifiche. Ad esempio, la funzione **_UploadFileToBlockBlob_* _ usa operazioni StageBlock (PutBlock) per caricare simultaneamente un file in blocchi in modo da ottimizzare la velocità effettiva. Se le dimensioni del file sono inferiori a 256 MB, la funzione usa invece Upload (PutBlob) per completare il trasferimento in una singola transazione.
+In alternativa, l'SDK offre [API generali](https://github.com/Azure/azure-storage-blob-go/blob/master/azblob/highlevel.go) basate sulle API REST specifiche. Ad esempio, la funzione ***UploadFileToBlockBlob*** usa le operazioni StageBlock (PutBlock) per caricare simultaneamente un file in blocchi per ottimizzare la velocità effettiva. Se le dimensioni del file sono inferiori a 256 MB, la funzione usa invece Upload (PutBlob) per completare il trasferimento in una singola transazione.
 
-Nell'esempio seguente il file viene caricato in un contenitore denominato _*quickstartblobs-[randomstring]**.
+Nell'esempio seguente il file viene caricato nel contenitore denominato **quickstartblobs-[StringaCasuale]**.
 
 ```go
 // Create a file to test the upload and download.

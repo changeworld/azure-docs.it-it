@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 07/19/2019
 ms.author: zhchia
 ms.openlocfilehash: 07c476c0de644ac63c577d466f4691b5cf415334
-ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
-ms.translationtype: HT
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/07/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94357936"
 ---
 # <a name="tutorial-configure-starleaf-for-automatic-user-provisioning"></a>Esercitazione: configurare StarLeaf per il provisioning utenti automatico
@@ -36,7 +36,7 @@ Per lo scenario descritto in questa esercitazione si presuppone che l'utente dis
 * Un account utente in StarLeaf con autorizzazioni di amministratore.
 
 ## <a name="assign-users-to-starleaf"></a>Assegnare gli utenti a StarLeaf
-Azure Active Directory usa un concetto denominato assegnazioni per determinare gli utenti che devono ricevere l'accesso alle app selezionate. Nel contesto del provisioning utenti automatico, vengono sincronizzati solo gli utenti e/o i gruppi che sono stati assegnati a un'applicazione in Azure AD.
+Per determinare gli utenti che dovranno ricevere l'accesso alle app selezionate, Azure Active Directory usa il concetto delle assegnazioni. Nel contesto del provisioning utenti automatico vengono sincronizzati solo gli utenti e/o i gruppi che sono stati assegnati a un'applicazione in Azure AD.
 
 Prima di configurare e abilitare il provisioning utenti automatico, è necessario decidere quali utenti e gruppi in Azure AD necessario accedere a StarLeaf. È quindi possibile assegnare utenti e gruppi a StarLeaf seguendo [queste istruzioni](../manage-apps/assign-user-or-group-access-portal.md).
 
@@ -68,7 +68,7 @@ Per configurare StarLeaf per il provisioning utenti automatico con Azure AD, è 
 
 **Per aggiungere StarLeaf dalla raccolta di applicazioni Azure AD, seguire questa procedura:**
 
-1. Nel riquadro di spostamento a sinistra del **[portale di Azure](https://portal.azure.com)** selezionare **Azure Active Directory**.
+1. Nel **[portale di Azure](https://portal.azure.com)** selezionare **Azure Active Directory** nel riquadro di spostamento sinistro.
 
     ![Pulsante Azure Active Directory](common/select-azuread.png)
 
@@ -76,11 +76,11 @@ Per configurare StarLeaf per il provisioning utenti automatico con Azure AD, è 
 
     ![Pannello Applicazioni aziendali](common/enterprise-applications.png)
 
-3. Per aggiungere una nuova applicazione, selezionare il pulsante **nuova applicazione** nella parte superiore del riquadro.
+3. Per aggiungere una nuova applicazione, selezionare il pulsante **Nuova applicazione** nella parte superiore del riquadro.
 
     ![Pulsante Nuova applicazione](common/add-new-app.png)
 
-4. Nella casella di ricerca immettere **StarLeaf** , selezionare **StarLeaf** nel pannello dei risultati.
+4. Nella casella di ricerca immettere **StarLeaf**, selezionare **StarLeaf** nel pannello dei risultati.
     ![StarLeaf nell'elenco risultati](common/search-new-app.png)
 
 ## <a name="configure-automatic-user-provisioning-to-starleaf"></a>Configurare il provisioning utenti automatico in StarLeaf
@@ -97,11 +97,11 @@ Questa sezione illustra i passaggi per configurare il servizio di provisioning A
 
 3. Selezionare la scheda **Provisioning**.
 
-    ![Screenshot delle opzioni Gestisci con l'opzione di provisioning denominata.](common/provisioning.png)
+    ![Screenshot delle opzioni disponibili in Gestisci con l'opzione Provisioning evidenziata.](common/provisioning.png)
 
 4. Impostare **Modalità di provisioning** su **Automatico**.
 
-    ![Screenshot dell'elenco a discesa modalità di provisioning con l'opzione automatica chiamata.](common/provisioning-automatic.png)
+    ![Screenshot dell'elenco a discesa Modalità di provisioning con l'opzione Automatico evidenziata.](common/provisioning-automatic.png)
 
 5. Nella sezione credenziali amministratore immettere l'URL di **base di SCIM** e i valori dei **token di accesso** recuperati in precedenza rispettivamente in **URL tenant** e **token segreto** . Fare clic su **Test connessione** per assicurarsi che Azure ad possa connettersi a StarLeaf. Se la connessione non riesce, verificare che l'account StarLeaf disponga delle autorizzazioni di amministratore e riprovare.
 
@@ -139,7 +139,7 @@ Questa sezione illustra i passaggi per configurare il servizio di provisioning A
 
 L'operazione avvia la sincronizzazione iniziale di tutti gli utenti e/o i gruppi definiti in **Ambito** nella sezione **Impostazioni**. La sincronizzazione iniziale richiede più tempo delle sincronizzazioni successive, che saranno eseguite circa ogni 40 minuti quando il servizio di provisioning di Azure AD è in esecuzione. È possibile usare la sezione **Dettagli sincronizzazione** per monitorare lo stato di avanzamento e selezionare i collegamenti ai report delle attività di provisioning, che descrivono tutte le azioni eseguite dal servizio Azure ad provisioning su StarLeaf.
 
-Per altre informazioni su come leggere i log di provisioning di Azure AD, vedere [creazione di report sul provisioning automatico degli account utente](../app-provisioning/check-status-user-account-provisioning.md)
+Per altre informazioni sulla lettura dei log di provisioning di Azure AD, vedere [Creazione di report sul provisioning automatico degli account utente](../app-provisioning/check-status-user-account-provisioning.md)
 
 ## <a name="connector-limitations"></a>Limitazioni dei connettori
 

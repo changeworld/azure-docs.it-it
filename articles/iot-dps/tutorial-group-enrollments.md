@@ -10,13 +10,13 @@ services: iot-dps
 ms.devlang: java
 ms.custom: mvc, devx-track-java
 ms.openlocfilehash: 4cfbfe3e3e3ba620d8292767012c9bb866d8a878
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
-ms.translationtype: HT
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/20/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94968095"
 ---
-# <a name="tutorial-create-and-provision-a-simulated-x509-device-using-java-device-and-service-sdk-and-group-enrollments-for-iot-hub-device-provisioning-service"></a>Esercitazione: Creare ed effettuare il provisioning di un dispositivo X.509 simulato usando un dispositivo Java, un SDK del servizio e gruppi di registrazioni per il servizio Device Provisioning in hub IoT
+# <a name="tutorial-create-and-provision-a-simulated-x509-device-using-java-device-and-service-sdk-and-group-enrollments-for-iot-hub-device-provisioning-service"></a>Esercitazione: creare ed effettuare il provisioning di un dispositivo X. 509 simulato usando il dispositivo Java e l'SDK del servizio e le registrazioni di gruppo per il servizio Device provisioning in hub
 
 Questi passaggi illustrano come simulare un dispositivo X.509 in un computer di sviluppo con sistema operativo Windows e usare un esempio di codice per connettere il dispositivo simulato con il servizio Device Provisioning e l'hub IoT tramite i gruppi di registrazioni. 
 
@@ -48,11 +48,11 @@ Assicurarsi di completare la procedura descritta in [Configurare il servizio Dev
             - Selezionare il file **_RootCA.pem_** creato.
             - Al termine, fare clic sul pulsante **Save** (Salva).
 
-           ![Aggiungere il certificato](./media/tutorial-group-enrollments/add-certificate.png)
+           ![Aggiunta del certificato](./media/tutorial-group-enrollments/add-certificate.png)
 
         1. Selezionare il certificato appena creato:
             - Fare clic su **Genera codice di verifica**. Copiare il codice generato.
-            - Eseguire il passaggio di verifica. Immettere il _codice di verifica_ o fare clic con il pulsante destro del mouse o incollare il codice nella finestra di PowerShell in esecuzione.  Premere **Invio**.
+            - Eseguire il passaggio di verifica. Immettere il _codice di verifica_ o fare clic con il pulsante destro del mouse o incollare il codice nella finestra di PowerShell in esecuzione.  Premere **INVIO**.
             - Selezionare il file **_verifyCert4.pem_** appena creato nel portale di Azure. Fare clic su **Verifica**.
 
               ![Convalidare il certificato](./media/tutorial-group-enrollments/validate-certificate.png)
@@ -145,7 +145,7 @@ Assicurarsi di completare la procedura descritta in [Configurare il servizio Dev
 
     ![Registrazione completata](./media/tutorial-group-enrollments/enrollment.png) 
 
-1. Passare al servizio di provisioning nel portale di Azure. Fare clic su **Gestisci registrazioni**. Si noti che il gruppo di dispositivi X.509 viene visualizzato nella scheda **Gruppi di registrazioni** con un *NOME GRUPPO* generato automaticamente.
+1. Passare al servizio di provisioning nel portale di Azure. Fare clic su **Gestisci registrazioni**. Si noti che il gruppo di dispositivi X. 509 viene visualizzato nella scheda **gruppi di registrazioni** con un *nome di gruppo* generato automaticamente.
 
 ## <a name="simulate-the-device"></a>Simulare il dispositivo
 
@@ -176,7 +176,7 @@ Assicurarsi di completare la procedura descritta in [Configurare il servizio Dev
 
     Se i certificati del dispositivo sono stati generati con la shell Bash, ./certs/new-device.cert.pem contiene la chiave pubblica. La chiave privata del dispositivo si troverà nel file ./private/new-device.key.pem.
 
-    Aprire il file della chiave pubblica e aggiornare la variabile `leafPublicPem` con questo valore. Copiare il testo da _-----BEGIN PRIVATE KEY-----_ a _-----END PRIVATE KEY-----_ .
+    Aprire il file della chiave pubblica e aggiornare la variabile `leafPublicPem` con questo valore. Copiare il testo da _-----BEGIN PRIVATE KEY-----_ a _-----END PRIVATE KEY-----_.
 
     ```java
     private static final String leafPublicPem = "-----BEGIN CERTIFICATE-----\n" +
@@ -188,7 +188,7 @@ Assicurarsi di completare la procedura descritta in [Configurare il servizio Dev
         "-----END CERTIFICATE-----\n";
     ```
 
-    Aprire il file della chiave privata e aggiornare la variabile `leafPrivatePem` con questo valore. Copiare il testo da _-----BEGIN RSA PRIVATE KEY-----_ a _-----END RSA PRIVATE KEY-----_ .
+    Aprire il file della chiave privata e aggiornare la variabile `leafPrivatePem` con questo valore. Copiare il testo da _-----BEGIN RSA PRIVATE KEY-----_ a _-----END RSA PRIVATE KEY-----_.
 
     ```java
     private static final String leafPrivateKey = "-----BEGIN RSA PRIVATE KEY-----\n" +
@@ -251,7 +251,7 @@ Assicurarsi di completare la procedura descritta in [Configurare il servizio Dev
 Se si prevede di continuare a usare ed esplorare l'esempio di client del dispositivo, non pulire le risorse create in questa guida introduttiva. Se non si prevede di continuare, usare i passaggi seguenti per eliminare tutte le risorse create da questa guida introduttiva.
 
 1. Chiudere la finestra di output di esempio di client del dispositivo sul computer.
-1. Nel portale di Azure fare clic su **Tutte le risorse** nel menu a sinistra e quindi selezionare il servizio Device Provisioning. Aprire il pannello **Gestisci registrazioni** per il servizio, quindi fare clic sulla scheda **Registrazioni singole**. Selezionare l'*ID registrazione* del dispositivo registrato in questa guida introduttiva e fare clic sul pulsante **Elimina** nella parte superiore. 
+1. Nel portale di Azure fare clic su **Tutte le risorse** nel menu a sinistra e quindi selezionare il servizio Device Provisioning. Aprire il pannello **Gestisci registrazioni** per il servizio, quindi fare clic sulla scheda **registrazioni singole** . Selezionare l' *ID registrazione* del dispositivo registrato in questa Guida introduttiva e fare clic sul pulsante **Elimina** nella parte superiore. 
 1. Nel portale di Azure fare clic su **Tutte le risorse** nel menu a sinistra e quindi selezionare l'hub IoT. Aprire il pannello **Dispositivi IoT** per l'hub, selezionare l'*ID* del dispositivo registrato in questa guida introduttiva e quindi fare clic su **Elimina** nella parte superiore.
 
 

@@ -12,10 +12,10 @@ ms.workload: infrastructure-services
 ms.date: 10/16/2020
 ms.author: duau
 ms.openlocfilehash: 1835377f4690097c8390957bf7d897242ba7aace
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
-ms.translationtype: HT
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/19/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92208057"
 ---
 # <a name="tutorial-configure-priority-traffic-routing-method-in-traffic-manager"></a>Esercitazione: Configurare il metodo di routing del traffico Priorità di Gestione traffico
@@ -38,7 +38,7 @@ Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://a
 ## <a name="to-configure-the-priority-traffic-routing-method"></a>Per configurare il metodo di routing del traffico Priorità
 1. Da un browser accedere al [portale di Azure](https://portal.azure.com).
 
-1. Selezionare **+ Crea una risorsa** a sinistra. Cercare **Profilo di Gestione traffico** e selezionare **Crea** .
+1. Selezionare **+ Crea una risorsa** a sinistra. Cercare **Profilo di Gestione traffico** e selezionare **Crea**.
 
     :::image type="content" source="./media/traffic-manager-priority-routing-method/create-traffic-manager-priority-profile.png" alt-text="Creare un profilo prioritario di Gestione traffico":::
 
@@ -47,7 +47,7 @@ Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://a
     | Impostazione         | Valore                                              |
     | ---             | ---                                                |
     | Nome            | Specificare un nome per il profilo. Questo nome deve essere univoco all'interno della zona trafficmanager.net. Per accedere al profilo di Gestione traffico, usare il nome DNS `<profilename>.trafficmanager.net`. |    
-    | Metodo di routing  | Selezionare **Priorità** . |
+    | Metodo di routing  | Selezionare **Priorità**. |
     | Subscription    | Selezionare la propria sottoscrizione. |
     | Resource group   | Usare un gruppo di risorse esistente oppure crearne uno nuovo per posizionare il profilo. Se si sceglie di creare un nuovo gruppo di risorse, usare il menu a discesa *Località del gruppo di risorse* per specificare la località del gruppo di risorse. Questa impostazione indica la località del gruppo di risorse e non ha alcun impatto sul profilo di Gestione traffico che viene distribuito a livello globale. |
 
@@ -59,11 +59,11 @@ Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://a
 
 1. Selezionare il profilo di Gestione traffico nell'elenco.
 
-    :::image type="content" source="./media/traffic-manager-priority-routing-method/traffic-manager-profile-list.png" alt-text="Creare un profilo prioritario di Gestione traffico":::
+    :::image type="content" source="./media/traffic-manager-priority-routing-method/traffic-manager-profile-list.png" alt-text="Elenco di profili di Gestione traffico":::
 
-1. Selezionare **Endpoint** in *Impostazioni* , quindi selezionare **+ Aggiungi** per aggiungere un nuovo endpoint.
+1. Selezionare **Endpoint** in *Impostazioni*, quindi selezionare **+ Aggiungi** per aggiungere un nuovo endpoint.
 
-    :::image type="content" source="./media/traffic-manager-priority-routing-method/traffic-manager-add-endpoints.png" alt-text="Creare un profilo prioritario di Gestione traffico":::
+    :::image type="content" source="./media/traffic-manager-priority-routing-method/traffic-manager-add-endpoints.png" alt-text="Aggiungere gli endpoint in Gestione traffico":::
 
 1. Selezionare o immettere le impostazioni seguenti: 
 
@@ -78,11 +78,11 @@ Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://a
 
 1. Selezionare **Aggiungi** per aggiungere l'endpoint. Ripetere i passaggi 2 e 3 per aggiungere altri endpoint. Assicurarsi di impostare il numero di priorità appropriato.
 
-    :::image type="content" source="./media/traffic-manager-priority-routing-method/add-endpoint.png" alt-text="Creare un profilo prioritario di Gestione traffico":::
+    :::image type="content" source="./media/traffic-manager-priority-routing-method/add-endpoint.png" alt-text="Aggiungere l'endpoint con priorità 1":::
 
-1. Nella pagina **Endpoint** esaminare l'ordine di priorità per gli endpoint. Quando si seleziona il metodo di routing del traffico **Priorità** , l'ordine degli endpoint selezionati è rilevante. Verificare l'ordine di priorità degli endpoint.  L'endpoint primario si trova nella parte superiore. Controllare l'ordine visualizzato. Tutte le richieste verranno instradate al primo endpoint. Se Gestione traffico rileva che non è integro, verrà automaticamente eseguito il failover del traffico all'endpoint successivo. 
+1. Nella pagina **Endpoint** esaminare l'ordine di priorità per gli endpoint. Quando si seleziona il metodo di routing del traffico **Priorità**, l'ordine degli endpoint selezionati è rilevante. Verificare l'ordine di priorità degli endpoint.  L'endpoint primario si trova nella parte superiore. Controllare l'ordine visualizzato. Tutte le richieste verranno instradate al primo endpoint. Se Gestione traffico rileva che non è integro, verrà automaticamente eseguito il failover del traffico all'endpoint successivo. 
 
-    :::image type="content" source="./media/traffic-manager-priority-routing-method/endpoints-list.png" alt-text="Creare un profilo prioritario di Gestione traffico":::
+    :::image type="content" source="./media/traffic-manager-priority-routing-method/endpoints-list.png" alt-text="Elenco di endpoint con priorità":::
 
 1. Per cambiare l'ordine di priorità di un endpoint, selezionarlo, cambiare il valore della priorità, quindi selezionare **Salva** per salvare le impostazioni.
 
@@ -90,19 +90,19 @@ Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://a
 
 1.  Nella barra di ricerca del portale cercare il nome del **profilo di Gestione traffico** creato nella sezione precedente e selezionarlo nei risultati visualizzati.
 
-    :::image type="content" source="./media/traffic-manager-priority-routing-method/search-traffic-manager-profile.png" alt-text="Creare un profilo prioritario di Gestione traffico":::
+    :::image type="content" source="./media/traffic-manager-priority-routing-method/search-traffic-manager-profile.png" alt-text="Cercare il profilo di Gestione traffico":::
 
 1.  La pagina di panoramica **Profilo di Gestione traffico** visualizza il nome DNS del profilo di Gestione traffico appena creato. Questo nome può essere usato da qualsiasi client (ad esempio raggiungendolo tramite un Web browser) che deve essere indirizzato all'endpoint corretto in base al tipo di routing. In questo caso, tutte le richieste vengono instradate al primo endpoint. Se Gestione traffico rileva che non è integro, viene eseguito automaticamente il failover del traffico sull'endpoint successivo.
 
-    :::image type="content" source="./media/traffic-manager-priority-routing-method/traffic-manager-profile-dns-name.png" alt-text="Creare un profilo prioritario di Gestione traffico":::
+    :::image type="content" source="./media/traffic-manager-priority-routing-method/traffic-manager-profile-dns-name.png" alt-text="Nome DNS di Gestione traffico":::
 
 1. Dopo aver verificato il funzionamento del profilo di Gestione traffico, modificare il record DNS sul server DNS autorevole per fare in modo che il nome del dominio aziendale punti al nome di dominio di Gestione traffico.
 
 ## <a name="clean-up-resources"></a>Pulire le risorse
 
-Se il profilo di Gestione traffico non è più necessario, individuarlo e selezionare **Elimina profilo** .
+Se il profilo di Gestione traffico non è più necessario, individuarlo e selezionare **Elimina profilo**.
 
-:::image type="content" source="./media/traffic-manager-priority-routing-method/traffic-manager-delete-priority-profile.png" alt-text="Creare un profilo prioritario di Gestione traffico":::
+:::image type="content" source="./media/traffic-manager-priority-routing-method/traffic-manager-delete-priority-profile.png" alt-text="Eliminare il profilo prioritario di Gestione traffico":::
 
 ## <a name="next-steps"></a>Passaggi successivi
 

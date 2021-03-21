@@ -8,10 +8,10 @@ ms.reviewer: spelluru
 ms.date: 07/08/2020
 ms.topic: article
 ms.openlocfilehash: 8314447e7d5d282eb428ec9316c4eef6844a7423
-ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/22/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98682380"
 ---
 # <a name="event-grid-concepts"></a>Concetti relativi a Griglia di eventi
@@ -50,7 +50,7 @@ Vedere la [documentazione sull'API REST](api.md) per informazioni su come gestir
 
 Dal punto di vista di Griglia di eventi, un gestore eventi è la posizione in cui l'evento viene inviato. Il gestore esegue ulteriori operazioni per elaborare l'evento. Griglia di eventi supporta diversi tipi di gestori. È possibile usare un servizio di Azure supportato o il proprio webhook come gestore. A seconda del tipo di gestore, Griglia di eventi segue meccanismi diversi per garantire il recapito dell'evento. Se il gestore dell'evento di destinazione è un webhook HTTP, l'evento viene ripetuto fino a quando il gestore non restituisce un codice di stato `200 – OK` . Per l'Hub Edge, se l'evento viene recapitato senza alcuna eccezione, viene considerato riuscito.
 
-## <a name="security"></a>Security
+## <a name="security"></a>Sicurezza
 
 Griglia di eventi fornisce la sicurezza per la sottoscrizione e la pubblicazione degli argomenti. Per altre informazioni, vedere [Event Grid security and authentication](security-authentication.md) (Sicurezza e autenticazione di Griglia di eventi).
 

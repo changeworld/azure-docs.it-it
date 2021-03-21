@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.service: iot-accelerators
 services: iot-accelerators
 ms.openlocfilehash: e1409b43f0ce1fc0d8c622dda79e857ac6abdd33
-ms.sourcegitcommit: 48cb2b7d4022a85175309cf3573e72c4e67288f5
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/08/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96854564"
 ---
 # <a name="use-time-series-insights-to-visualize-telemetry-sent-from-the-device-simulation-solution-accelerator"></a>Usare Time Series Insights per visualizzare i dati di telemetria inviati dall'acceleratore della soluzione Simulazione dispositivi
@@ -23,7 +23,7 @@ L'acceleratore della soluzione Simulazione dispositivi consente di generare dati
 
 Per seguire la procedura descritta in questa guida pratica, è necessaria una sottoscrizione di Azure attiva. Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) prima di iniziare.
 
-I passaggi descritti in questa guida presuppongono di aver distribuito l'acceleratore della soluzione Simulazione dispositivi alla sottoscrizione di Azure. Se la simulazione del dispositivo non è stata ancora distribuita, vedere la pagina relativa alla [distribuzione della simulazione del dispositivo](https://github.com/Azure/device-simulation-dotnet/blob/master/README.md) in
+I passaggi descritti in questa guida presuppongono di aver distribuito l'acceleratore della soluzione Simulazione dispositivi alla sottoscrizione di Azure. Se Simulazione dispositivi non è stato ancora distribuito, vedere [Distribuzione di Simulazione dispositivi](https://github.com/Azure/device-simulation-dotnet/blob/master/README.md) su GitHub.
 
 Questo articolo presuppone che l'acceleratore della soluzione sia denominato **contoso-simulation**. Sostituire **contoso-simulation** con il nome dell'acceleratore della soluzione durante il completamento dei passaggi seguenti.
 
@@ -68,7 +68,7 @@ I passaggi seguenti usano l'interfaccia della riga di comando di Azure in Azure 
     | Nome ambiente | Nella screenshot seguente viene usato il nome **Contoso-TSI**. Quando si completa questo passaggio, scegliere il proprio nome univoco. |
     | Subscription | Selezionare la sottoscrizione di Azure nell'elenco a discesa. |
     | Resource group | **contoso-simulation**. Usare il nome dell'acceleratore di soluzioni. |
-    | Posizione | In questo esempio viene usato **Stati Uniti orientali**. Creare l'ambiente nella stessa area dell'acceleratore di Simulazione dispositivi. |
+    | Location | In questo esempio viene usato **Stati Uniti orientali**. Creare l'ambiente nella stessa area dell'acceleratore di Simulazione dispositivi. |
     | Sku |**S1** |
     | Capacità | **1** |
 
@@ -106,7 +106,7 @@ Creare una nuova origine evento per la connessione all'hub IoT. Usare il gruppo 
     | Chiave dei criteri dell'hub IoT | Il campo viene popolato automaticamente. |
     | Gruppo di consumer dell'hub IoT | **devicesimulationtsi** |
     | Formato di serializzazione eventi | **JSON** |
-    | Nome della proprietà Timestamp | Lasciare vuoto |
+    | Nome della proprietà Timestamp | Lasciare vuoto il campo |
 
     ![Creare un'origine evento](./media/iot-accelerators-device-simulation-time-series-insights/time-series-insights-event-source-create.png)
 

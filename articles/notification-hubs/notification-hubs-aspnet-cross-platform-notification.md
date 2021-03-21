@@ -17,10 +17,10 @@ ms.reviewer: thsomasu
 ms.lastreviewed: 10/02/2019
 ms.custom: devx-track-csharp
 ms.openlocfilehash: 3f8f9357fff4773467dd93046ece8533514eb444
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/21/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92313896"
 ---
 # <a name="send-cross-platform-notifications-with-azure-notification-hubs"></a>Inviare notifiche multipiattaforma con hub di notifica di Azure
@@ -41,7 +41,7 @@ Questa sezione usa il codice di esempio creato nell'esercitazione [inviare notif
 
 Per inviare notifiche multipiattaforma tramite modelli, eseguire le operazioni seguenti:
 
-1. In Visual Studio in **Esplora soluzioni**espandere la cartella **Controllers** , quindi aprire il file *RegisterController.cs* .
+1. In Visual Studio in **Esplora soluzioni** espandere la cartella **Controllers** , quindi aprire il file *RegisterController. cs* .
 
 1. Trovare il blocco di codice nel metodo `Put` che crea una nuova registrazione e quindi sostituire il contenuto di `switch` con il codice seguente:
 
@@ -76,7 +76,7 @@ Per inviare notifiche multipiattaforma tramite modelli, eseguire le operazioni s
 
     In questo codice viene chiamato il metodo specifico della piattaforma per creare una registrazione modello anziché una registrazione nativa. Dato che le registrazioni dei modelli derivano da registrazioni native, non è necessario modificare le registrazioni esistenti.
 
-1. In **Esplora soluzioni**aprire il file **NotificationsController.cs** nella cartella **Controllers** . Sostituire il metodo `Post` con il codice seguente:
+1. Nella cartella **Controllers** di **Esplora soluzioni** aprire il file **NotificationsController. cs** . Sostituire il metodo `Post` con il codice seguente:
 
     ```csharp
     public async Task<HttpResponseMessage> Post()

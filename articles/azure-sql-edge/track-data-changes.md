@@ -10,10 +10,10 @@ ms.author: sourabha
 ms.reviewer: sstein
 ms.date: 05/19/2020
 ms.openlocfilehash: dddaad3e171c757b353deb81ffcb77cfbe706340
-ms.sourcegitcommit: 48e5379c373f8bd98bc6de439482248cd07ae883
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/12/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98108263"
 ---
 # <a name="track-data-changes-in-azure-sql-edge"></a>Rilevare le modifiche ai dati in Azure SQL Edge
@@ -39,7 +39,7 @@ Per informazioni su come eseguire una query e usare i dati modificati, vedere [u
 > [!NOTE]
 > Le funzioni Change Data Capture che dipendono da CLR non sono supportate in Azure SQL Edge.
 
-## <a name="change-tracking"></a>Change tracking
+## <a name="change-tracking"></a>Rilevamento modifiche
 
 Per comprendere i dettagli sul funzionamento di questa funzionalità, vedere [informazioni sul rilevamento delle modifiche](/sql/relational-databases/track-changes/about-change-tracking-sql-server).
 

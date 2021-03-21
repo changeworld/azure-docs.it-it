@@ -8,10 +8,10 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.date: 01/10/2018
 ms.openlocfilehash: 6431321d788e7311e076d302173ffffb96e07876
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/14/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100385371"
 ---
 # <a name="until-activity-in-azure-data-factory"></a>Attività Until in Azure Data Factory
@@ -287,7 +287,7 @@ while ($True) {
 Vedere altre attività del flusso di controllo supportate da Data Factory: 
 
 - [Attività della condizione If](control-flow-if-condition-activity.md)
-- [Eseguire l'attività di pipeline](control-flow-execute-pipeline-activity.md)
+- [Attività Esegui pipeline](control-flow-execute-pipeline-activity.md)
 - [Per ogni attività](control-flow-for-each-activity.md)
 - [Ottenere attività di metadati](control-flow-get-metadata-activity.md)
 - [Attività Lookup](control-flow-lookup-activity.md)

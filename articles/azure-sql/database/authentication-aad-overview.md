@@ -12,10 +12,10 @@ ms.author: mireks
 ms.reviewer: vanto, sstein
 ms.date: 04/23/2020
 ms.openlocfilehash: a636c0e2a41b636f30ada14d4f16a022f2890b71
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/01/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96454304"
 ---
 # <a name="use-azure-active-directory-authentication"></a>Usa autenticazione Azure Active Directory
@@ -49,7 +49,7 @@ Con l'autenticazione di Azure AD è possibile gestire centralmente le identità 
 - Azure AD supporta connessioni analoghe da SQL Server Data Tools (SSDT) che usano l'autenticazione interattiva di Active Directory. Per ulteriori informazioni, vedere [supporto Azure Active Directory in SQL Server Data Tools (SSDT)](/sql/ssdt/azure-active-directory)
 
 > [!NOTE]  
-> La connessione a un'istanza di SQL Server in esecuzione in una macchina virtuale (VM) di Azure non è supportata con un account di Azure Active Directory. Usare un account Active Directory di dominio.  
+> La connessione a un'istanza di SQL Server in esecuzione in una macchina virtuale di Azure non è supportata con un account di Azure Active Directory. Usare un account Active Directory di dominio.  
 
 I passaggi di configurazione includono le procedure seguenti per configurare e usare l'autenticazione di Azure Active Directory.
 
@@ -140,7 +140,7 @@ L'autenticazione di Azure Active Directory supporta i metodi seguenti per la con
 - Azure Active Directory universale con Multi-Factor Authentication
 - Con l'autenticazione del token dell'applicazione
 
-Per Azure AD entità server (account di accesso) sono supportati i metodi di autenticazione seguenti:
+Per le entità server (account di accesso) di Azure AD sono supportati i metodi di autenticazione seguenti:
 
 - Password di Azure Active Directory
 - Autenticazione integrata di Azure Active Directory

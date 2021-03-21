@@ -7,10 +7,10 @@ ms.date: 03/30/2020
 ms.author: helohr
 manager: lizross
 ms.openlocfilehash: 5110e97e52939ea2115bb839768cc7ab96802961
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/21/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "95020709"
 ---
 # <a name="customize-remote-desktop-protocol-properties-for-a--windows-virtual-desktop-classic-host-pool"></a>Personalizzare le proprietà Remote Desktop Protocol per un pool di host di desktop virtuali Windows (classico)
@@ -34,7 +34,7 @@ Per impostazione predefinita, i file RDP pubblicati contengono le proprietà seg
 
 |Proprietà di RDP | Desktop | RemoteApps |
 |---|---| --- |
-| Modalità multimonitor | Attivato | N/D |
+| Modalità multimonitor | Abilitato | N/D |
 | Reindirizzamento unità abilitati | Unità, appunti, stampanti, porte COM, dispositivi USB e smart card| Unità, appunti e stampanti |
 | Modalità audio remoto | Riproduci localmente | Riproduci localmente |
 

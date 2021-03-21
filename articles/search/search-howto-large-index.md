@@ -9,10 +9,10 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 09/25/2020
 ms.openlocfilehash: b4f54aff78526ba52e56ed9f4cf1feddf40fa69b
-ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/07/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94358393"
 ---
 # <a name="how-to-index-large-data-sets-in-azure-cognitive-search"></a>Come indicizzare set di dati di grandi dimensioni in ricerca cognitiva di Azure
@@ -45,7 +45,7 @@ Quando si è soddisfatti del livello, il passaggio successivo potrebbe consister
 
 ### <a name="review-index-schema"></a>Esaminare lo schema dell'indice
 
-Lo schema dell'indice svolge un ruolo importante nell'indicizzazione dei dati. Maggiore è il numero di campi disponibili e il numero di proprietà impostate, ad esempio *ricercabile* , con *facet* o *filtrabile* , contribuisce a un aumento del tempo di indicizzazione. In generale, è consigliabile creare e specificare solo i campi effettivamente necessari in un indice di ricerca.
+Lo schema dell'indice svolge un ruolo importante nell'indicizzazione dei dati. Maggiore è il numero di campi disponibili e il numero di proprietà impostate, ad esempio *ricercabile*, con *facet* o *filtrabile*, contribuisce a un aumento del tempo di indicizzazione. In generale, è consigliabile creare e specificare solo i campi effettivamente necessari in un indice di ricerca.
 
 > [!NOTE]
 > Per ridurre le dimensioni del documento, evitare di aggiungere dati non Queryable a un indice. Le immagini e altri dati binari non sono direttamente disponibili per la ricerca e non devono quindi essere archiviati nell'indice. Per integrare i dati non disponibili per query nei risultati della ricerca, occorre definire un campo non disponibile per la ricerca che archivia un riferimento URL alla risorsa.
@@ -159,7 +159,7 @@ All'ora pianificata tutti gli indicizzatori avviano l'esecuzione, caricando i da
 > [!Note]
 > Quando si aumentano le repliche, è opportuno aumentare il conteggio delle partizioni se le dimensioni dell'indice sono state pensate per un aumento significativo. Le partizioni archiviano sezioni di contenuto indicizzato: più sono le partizioni, più piccola è la sezione che ognuna deve archiviare.
 
-## <a name="see-also"></a>Vedere anche
+## <a name="see-also"></a>Vedi anche
 
 + [Panoramica degli indicizzatori](search-indexer-overview.md)
 + [Indicizzazione nel portale](search-import-data-portal.md)

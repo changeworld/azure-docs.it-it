@@ -8,10 +8,10 @@ ms.subservice: purview-data-catalog
 ms.topic: conceptual
 ms.date: 11/23/2020
 ms.openlocfilehash: 48966e481f9cf8796c866b5c15a4e2a8616eade7
-ms.sourcegitcommit: b6267bc931ef1a4bd33d67ba76895e14b9d0c661
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/19/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97695852"
 ---
 # <a name="azure-purview-deployment-best-practices"></a>Procedure consigliate per la distribuzione di Azure
@@ -47,7 +47,7 @@ Alcuni degli obiettivi comuni di governance dei dati che possono essere identifi
 * Riduzione del time-to-market per la distribuzione di soluzioni di analisi che migliorano il servizio ai clienti
 * Riduzione dei rischi operativi dovuti all'utilizzo di strumenti specifici del dominio e tecnologia non supportata
 
-L'approccio generale consiste nel suddividere gli obiettivi più inarcanti in diverse categorie e obiettivi. Ad esempio:
+L'approccio generale consiste nel suddividere gli obiettivi più inarcanti in diverse categorie e obiettivi. Di seguito sono riportati alcuni esempi:
 
 |Category|Obiettivo|
 |---------|---------|
@@ -56,7 +56,7 @@ L'approccio generale consiste nel suddividere gli obiettivi più inarcanti in di
 |Consumo|Gli utenti aziendali dovrebbero essere in grado di trovare informazioni su ogni asset per i metadati aziendali e tecnici.|
 |Derivazione|Ogni asset deve mostrare una visualizzazione grafica dei set di dati sottostanti, in modo che gli utenti conoscano le origini originali e quali modifiche sono state apportate.|
 |Collaborazione|La piattaforma deve consentire agli utenti di collaborare fornendo informazioni aggiuntive su ogni asset di dati.|
-|Reporting|Gli utenti devono essere in grado di visualizzare i report relativi ai dati, inclusi i dati sensibili e i dati che richiedono un arricchimento aggiuntivo.|
+|Creazione di report|Gli utenti devono essere in grado di visualizzare i report relativi ai dati, inclusi i dati sensibili e i dati che richiedono un arricchimento aggiuntivo.|
 |Governance dei dati|La piattaforma deve consentire all'amministratore di definire i criteri per il controllo di accesso e di applicare automaticamente l'accesso ai dati in base a ogni utente.|
 |Flusso di lavoro|La piattaforma deve avere la possibilità di creare e modificare il flusso di lavoro in modo da semplificare la scalabilità orizzontale e automatizzare diverse attività all'interno della piattaforma.|
 |Integrazione|Altre tecnologie di terze parti, come la creazione di ticket o l'orchestrazione, devono essere in grado di integrarsi nella piattaforma tramite script o API REST.|
@@ -110,7 +110,7 @@ Questi scenari possono essere scritti in vari modi, ma è necessario includere a
 
 Gli scenari devono essere specifici, interoperabili ed eseguibili con risultati misurabili. Di seguito sono riportati alcuni scenari di esempio che è possibile usare:
 
-|Scenario|Dettagli|Utente tipo|
+|Scenario|Dettaglio|Utente tipo|
 |---------|---------|---------|
 |Asset aziendali critici del catalogo|È necessario disporre di informazioni su ogni set di dati per avere una conoscenza approfondita di ciò che si tratta. Questo scenario include i dati dei metadati aziendali e tecnici relativi al set di dati nel catalogo. Le origini dati includono Azure Data Lake Storage Gen2, Azure sinapsi DW e/o Power BI. Questo scenario include anche risorse locali come SQL Server.|Analista aziendale, data scientist, Data Engineer|
 |Individuare asset aziendali critici|È necessario disporre di un motore di ricerca in grado di eseguire ricerche in tutti i metadati del catalogo. Dovrebbe essere possibile eseguire una ricerca usando un termine tecnico, un termine aziendale con una ricerca semplice o complessa usando caratteri jolly.|Business Analyst, data scientist, Data Engineer, data Admins|
@@ -165,7 +165,7 @@ In questa fase, è necessario creare e configurare la competenza per un set di u
 
 ### <a name="tasks-to-complete"></a>Attività da completare
 
-|Attività|Dettagli|Durata|
+|Attività|Dettaglio|Duration|
 |---------|---------|---------|
 |Raccogliere & accettare i requisiti|Discussione con tutte le parti interessate per raccogliere un set completo di requisiti. Per ogni fase del progetto, è necessario che altri utenti debbano accettare un subset di requisiti.|una settimana|
 |Configurare la starter kit|Esaminare il [avvio rapido di competenza](create-catalog-portal.md) e configurare lo [Starter Kit di competenza](tutorial-scan-data.md) per le competenze dimostrative per tutte le parti interessate.|1 giorno|
@@ -192,7 +192,7 @@ Una volta che sono stati concordati i requisiti e le business unit che hanno par
 
 ### <a name="tasks-to-complete"></a>Attività da completare
 
-|Attività|Dettagli|Durata|
+|Attività|Dettaglio|Duration|
 |---------|---------|---------|
 |[Analizza analisi sinapsi di Azure](register-scan-azure-synapse-analytics.md)|Iniziare a caricare le origini del database e analizzarle per popolare gli asset chiave|2 giorni|
 |[Creare regole e classificazioni personalizzate](create-a-custom-classification-and-classification-rule.md)|Una volta analizzate le risorse, gli utenti possono tenere presente che esistono altri casi d'uso per una maggiore classificazione accanto alle classificazioni predefinite di competenza.|2-4 settimane|
@@ -217,7 +217,7 @@ Una volta superata la fase MVP, è possibile pianificare l'attività cardine di 
 
 ### <a name="tasks-to-complete"></a>Attività da completare
 
-|Attività|Dettagli|Durata|
+|Attività|Dettaglio|Duration|
 |---------|---------|---------|
 |Perfezionare l'analisi con il set di regole di analisi|L'organizzazione avrà una grande quantità di origini dati per la pre-produzione. È importante predefinire i criteri chiave per l'analisi, in modo che le classificazioni e l'estensione di file possano essere applicate in modo coerente nella bacheca.|1-2 giorni|
 |Valutazione della disponibilità dell'area per l'analisi|A seconda dell'area geografica delle origini dati e dei requisiti aziendali per la conformità e la sicurezza, è opportuno considerare le aree che devono essere disponibili per l'analisi.|1 giorno|
@@ -243,7 +243,7 @@ Una volta superata la fase MVP, è possibile pianificare l'attività cardine di 
 
 ### <a name="tasks-to-complete"></a>Attività da completare
 
-|Attività|Dettagli|Durata|
+|Attività|Dettaglio|Duration|
 |---------|---------|---------|
 |Analizza le origini dati di produzione con il firewall abilitato|Se questa opzione è facoltativa quando il firewall è presente, ma è importante esplorare le opzioni per la protezione avanzata dell'infrastruttura.|1-5 giorni|
 |Abilita collegamento privato|Se questa opzione è facoltativa quando si usa il collegamento privato. In caso contrario, è possibile ignorare questo perché è necessario avere un criterio quando privato è abilitato.|1-5 giorni|

@@ -11,10 +11,10 @@ author: prasanthpul
 ms.date: 06/18/2020
 ms.custom: seodec18
 ms.openlocfilehash: 5a1ed6c43e4d3a96e0e19d7be50e1e16bcab780e
-ms.sourcegitcommit: 3af12dc5b0b3833acb5d591d0d5a398c926919c8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/11/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98071239"
 ---
 # <a name="onnx-and-azure-machine-learning-create-and-accelerate-ml-models"></a>ONNX e Azure Machine Learning: creare e accelerare i modelli ML
@@ -81,7 +81,7 @@ results = session.run([], {"input1": indata1, "input2": indata2})
 
 Per informazioni di riferimento complete sull'API di Python, vedere la [documentazione di riferimento su ONNX Runtime](https://aka.ms/onnxruntime-python).    
 
-## <a name="examples"></a>Esempi
+## <a name="examples"></a>Esempio
 Vedere [How-to-use-azureml/Deployment/Onnx](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/deployment/onnx) per esempi di notebook Python per la creazione e la distribuzione di modelli Onnx.
 
 [!INCLUDE [aml-clone-in-azure-notebook](../../includes/aml-clone-for-examples.md)]

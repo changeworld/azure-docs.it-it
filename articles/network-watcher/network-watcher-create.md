@@ -13,10 +13,10 @@ ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: damendo
 ms.openlocfilehash: c308824afdcae5f5c04a316c199bad71ad84a429
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/20/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94962006"
 ---
 # <a name="create-an-azure-network-watcher-instance"></a>Creare un'istanza di Azure Network Watcher
@@ -49,7 +49,7 @@ az provider register -n Microsoft.Network
 
 ## <a name="create-a-network-watcher-in-the-portal"></a>Creare un'istanza di Network Watcher nel portale
 
-Passare a **tutti i servizi**  >  **Networking**  >  **Network Watcher** di rete. È possibile selezionare tutte le sottoscrizioni per cui si vuole abilitare Network Watcher. Questa azione crea un'istanza di Network Watcher in ogni area in cui è disponibile.
+Passare a **tutti i servizi**  >    >  **Network Watcher** di rete. È possibile selezionare tutte le sottoscrizioni per cui si vuole abilitare Network Watcher. Questa azione crea un'istanza di Network Watcher in ogni area in cui è disponibile.
 
 ![Creare un'istanza di Network Watcher](./media/network-watcher-create/figure1.png)
 
@@ -107,7 +107,7 @@ Per creare un'istanza di Network Watcher fare riferimento a questo [modello di a
 
 ## <a name="delete-a-network-watcher-in-the-portal"></a>Eliminare un Network Watcher nel portale
 
-Passare a **tutti i servizi**  >  **Networking**  >  **Network Watcher** di rete.
+Passare a **tutti i servizi**  >    >  **Network Watcher** di rete.
 
 Selezionare la scheda Panoramica, se non lo si è già fatto. Usare l'elenco a discesa per selezionare la sottoscrizione in cui si vuole disabilitare Network Watcher.
 Espandere l'elenco delle aree per la sottoscrizione scelta facendo clic sulla freccia. Per qualsiasi dato, usare i 3 puntini a destra per accedere al menu di scelta rapida.

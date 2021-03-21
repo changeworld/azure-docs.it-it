@@ -13,10 +13,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: dca888bf9e3dc75e80764949a11d95efe3514635
-ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/08/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96861817"
 ---
 # <a name="migrate-from-federation-to-password-hash-synchronization-for-azure-active-directory"></a>Eseguire la migrazione dalla federazione alla sincronizzazione degli hash delle password per Azure Active Directory
@@ -172,7 +172,7 @@ Per gli account computer di Windows 8 e Windows 7, la funzionalità di aggiunta 
 
 Per altre informazioni, vedere [Configurare i dispositivi aggiunti ad Azure AD ibrido](../devices/hybrid-azuread-join-plan.md).
 
-#### <a name="branding"></a>Marchio
+#### <a name="branding"></a>Personalizzazione
 
 Se l'organizzazione [ha personalizzato le pagine di accesso di AD FS](/windows-server/identity/ad-fs/operations/ad-fs-user-sign-in-customization) per visualizzare informazioni più pertinenti all'organizzazione, valutare l'opportunità di eseguire [personalizzazioni simili nella pagina di accesso di Azure AD](../fundamentals/customize-branding.md).
 

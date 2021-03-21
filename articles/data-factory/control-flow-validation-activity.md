@@ -8,10 +8,10 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.date: 03/25/2019
 ms.openlocfilehash: e00090fc31c129f35632d30b9a5ed6c39c13a414
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/14/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100385252"
 ---
 # <a name="validation-activity-in-azure-data-factory"></a>Attività di convalida in Azure Data Factory
@@ -71,7 +71,7 @@ minimumSize | Dimensioni minime di un file in byte. Se non viene specificato alc
 Vedere altre attività del flusso di controllo supportate da Data Factory:
 
 - [Attività della condizione If](control-flow-if-condition-activity.md)
-- [Eseguire l'attività di pipeline](control-flow-execute-pipeline-activity.md)
+- [Attività Esegui pipeline](control-flow-execute-pipeline-activity.md)
 - [Per ogni attività](control-flow-for-each-activity.md)
 - [Ottenere attività di metadati](control-flow-get-metadata-activity.md)
 - [Attività Lookup](control-flow-lookup-activity.md)
