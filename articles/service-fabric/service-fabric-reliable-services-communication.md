@@ -5,10 +5,10 @@ ms.topic: conceptual
 ms.date: 11/01/2017
 ms.custom: devx-track-csharp
 ms.openlocfilehash: 3436d29446e963faea9bda47f5a5247b7de7d859
-ms.sourcegitcommit: 67b44a02af0c8d615b35ec5e57a29d21419d7668
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/06/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97912615"
 ---
 # <a name="how-to-use-the-reliable-services-communication-apis"></a>Come usare le API di comunicazione di Reliable Services
@@ -206,7 +206,7 @@ ServicePartitionResolver resolver = ServicePartitionResolver.GetDefault();
 FabricServicePartitionResolver resolver = FabricServicePartitionResolver.getDefault();
 ```
 
-Per connettersi ai servizi in un cluster diverso, è possibile creare un oggetto ServicePartitionResolver con un set di endpoint del gateway del cluster. Si noti che gli endpoint del gateway sono solo endpoint diversi per la connessione allo stesso cluster. Esempio:
+Per connettersi ai servizi in un cluster diverso, è possibile creare un oggetto ServicePartitionResolver con un set di endpoint del gateway del cluster. Si noti che gli endpoint del gateway sono solo endpoint diversi per la connessione allo stesso cluster. Ad esempio:
 
 ```csharp
 ServicePartitionResolver resolver = new  ServicePartitionResolver("mycluster.cloudapp.azure.com:19000", "mycluster.cloudapp.azure.com:19001");

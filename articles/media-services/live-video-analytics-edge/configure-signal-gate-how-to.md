@@ -4,10 +4,10 @@ description: Questo articolo fornisce indicazioni su come configurare un control
 ms.topic: how-to
 ms.date: 11/3/2020
 ms.openlocfilehash: afcec7c03f1353f08b58311278f5a533e0c911bc
-ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94410794"
 ---
 # <a name="configure-a-signal-gate-for-event-based-video-recording"></a>Configurare un controllo del segnale per la registrazione video basata su eventi
@@ -58,35 +58,35 @@ Gli ID correlazione vengono impostati per ogni evento. Questi ID vengono imposta
 
 ### <a name="parameters-based-on-the-physical-time-that-events-arrive-at-the-signal-gate"></a>Parametri, basati sul tempo fisico che gli eventi arrivano al Gate del segnale
 
-* **minimumActivationTime (durata più breve possibile di una registrazione)** : il numero minimo di secondi durante i quali il processore del Gate del segnale rimane aperto dopo che è stato attivato per ricevere nuovi eventi, a meno che non venga interrotto dal maximumActivationTime.
-* **maximumActivationTime (durata più lunga possibile di una registrazione)** : il numero massimo di secondi dall'evento iniziale che il processore di Gate del segnale rimane aperto dopo essere stato attivato per ricevere nuovi eventi, indipendentemente dagli eventi ricevuti.
-* **activationSignalOffset** : numero di secondi tra l'attivazione del processore del Gate del segnale e l'avvio della registrazione video. In genere, questo valore è negativo perché avvia la registrazione prima dell'evento di attivazione.
-* **activationEvaluationWindow** : a partire dall'evento di attivazione iniziale, il numero di secondi durante i quali un evento che si è verificato prima dell'evento iniziale, nel tempo dei supporti, deve arrivare all'elaboratore di controllo del segnale prima che venga ignorato e considerato un arrivo in ritardo.
+* **minimumActivationTime (durata più breve possibile di una registrazione)**: il numero minimo di secondi durante i quali il processore del Gate del segnale rimane aperto dopo che è stato attivato per ricevere nuovi eventi, a meno che non venga interrotto dal maximumActivationTime.
+* **maximumActivationTime (durata più lunga possibile di una registrazione)**: il numero massimo di secondi dall'evento iniziale che il processore di Gate del segnale rimane aperto dopo essere stato attivato per ricevere nuovi eventi, indipendentemente dagli eventi ricevuti.
+* **activationSignalOffset**: numero di secondi tra l'attivazione del processore del Gate del segnale e l'avvio della registrazione video. In genere, questo valore è negativo perché avvia la registrazione prima dell'evento di attivazione.
+* **activationEvaluationWindow**: a partire dall'evento di attivazione iniziale, il numero di secondi durante i quali un evento che si è verificato prima dell'evento iniziale, nel tempo dei supporti, deve arrivare all'elaboratore di controllo del segnale prima che venga ignorato e considerato un arrivo in ritardo.
 
 > [!NOTE]
 > Un *arrivo in ritardo* è un evento che arriva dopo che la finestra di valutazione dell'attivazione è stata superata ma che arriva prima dell'evento iniziale nel tempo dei supporti.
 
 ### <a name="limits-of-parameters"></a>Limiti dei parametri
 
-* **activationEvaluationWindow** : da 0 a 10 secondi
-* **activationSignalOffset** : da 1 minuto a 1 minuto
-* **minimumActivationTime** : da 1 secondo a 1 ora
-* **maximumActivationTime** : da 1 secondo a 1 ora
+* **activationEvaluationWindow**: da 0 a 10 secondi
+* **activationSignalOffset**: da 1 minuto a 1 minuto
+* **minimumActivationTime**: da 1 secondo a 1 ora
+* **maximumActivationTime**: da 1 secondo a 1 ora
 
 
 Nel caso di utilizzo, è necessario impostare i parametri come indicato di seguito:
 
-* **activationEvaluationWindow** : *K* secondi
-* **activationSignalOffset** : *-X* secondi
-* **minimumActivationWindow** : *Y* secondi
-* **maximumActivationWindow** : *Z* secondi
+* **activationEvaluationWindow**: *K* secondi
+* **activationSignalOffset**: *-X* secondi
+* **minimumActivationWindow**: *Y* secondi
+* **maximumActivationWindow**: *Z* secondi
 
 
 Di seguito è riportato un esempio di come la sezione del nodo del processore del controllo del **segnale** cercherebbe in una topologia del grafico multimediale per i valori di parametro seguenti:
-* **activationEvaluationWindow** : 1 secondo
-* **activationSignalOffset** :-5 secondi
-* **minimumActivationTime** : 20 secondi
-* **maximumActivationTime** : 40 secondi
+* **activationEvaluationWindow**: 1 secondo
+* **activationSignalOffset**:-5 secondi
+* **minimumActivationTime**: 20 secondi
+* **maximumActivationTime**: 40 secondi
 
 > [!IMPORTANT]
 > Per ogni valore di parametro è previsto il [formato di durata ISO 8601](https://en.wikipedia.org/wiki/ISO_8601#Durations
@@ -120,7 +120,7 @@ Si consideri ora il comportamento di questa configurazione del processore del co
 
 ### <a name="recording-scenarios"></a>Scenari di registrazione
 
-**Un evento da un'origine ( *attivazione normale* )**
+**Un evento da un'origine (*attivazione normale*)**
 
 Un processore di controllo del segnale che riceve un evento genera una registrazione che inizia 5 secondi (segnale di attivazione = 5 secondi) prima che l'evento arrivi al Gate. Il resto della registrazione è 20 secondi (tempo minimo di attivazione = 20 secondi) perché nessun altro evento arriva prima della fine del tempo di attivazione minimo per riattivare il controllo.
 
@@ -131,7 +131,7 @@ Diagramma di esempio:
 * Durata della registrazione =-offset + minimumActivationTime = [E1 + offset, E1 + minimumActivationTime]
 
 
-**Due eventi da un'origine ( *attivazione riattivata* )**
+**Due eventi da un'origine (*attivazione riattivata*)**
 
 Un processore di Gate per i segnali che riceve due eventi genera una registrazione che inizia 5 secondi (offset del segnale di attivazione = 5 secondi) prima che l'evento arrivi al Gate. Inoltre, l'evento 2 raggiunge 5 secondi dopo l'evento 1. Poiché l'evento 2 arriva prima della fine del periodo di attivazione minimo dell'evento 1 (20 secondi), il Gate viene riattivato. Il resto della registrazione è 20 secondi (tempo minimo di attivazione = 20 secondi) perché nessun altro evento arriva prima della fine del tempo di attivazione minimo dall'evento 2 per riattivare il controllo.
 
@@ -142,7 +142,7 @@ Diagramma di esempio:
 * Durata della registrazione =-offset + (arrivo dell'evento 2-arrivo dell'evento 1) + minimumActivationTime
 
 
-***N* eventi da un'origine ( *attivazione massima* )**
+***N* eventi da un'origine (*attivazione massima*)**
 
 Un processore di controllo del segnale che riceve *N* eventi genera una registrazione che inizia 5 secondi (offset del segnale di attivazione = 5 secondi) prima che il primo evento arrivi al Gate. Poiché ogni evento arriva prima della fine del tempo di attivazione minimo di 20 secondi dall'evento precedente, il controllo viene riattivato continuamente. Rimane aperto fino al tempo massimo di attivazione di 40 secondi dopo il primo evento. Il Gate si chiude e non accetta più nuovi eventi.
 

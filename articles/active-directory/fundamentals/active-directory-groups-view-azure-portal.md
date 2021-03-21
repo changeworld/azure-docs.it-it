@@ -14,10 +14,10 @@ ms.custom: it-pro, seodec18, seo-update-azuread-jan
 ms.reviewer: krbain
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: ddedd753eb98a8656006c9dddc412e44330e1a21
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
-ms.translationtype: HT
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/25/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "95996729"
 ---
 <!--As a brand-new Azure AD administrator, I need to view my organization’s groups along with the assigned members, so I can manage permissions to apps and services for people in my organization-->
@@ -44,13 +44,13 @@ Creare un nuovo gruppo denominato _MDM policy - West_. Per altre informazioni su
 
 2. Completare la pagina **Gruppo**:
     
-    - **Tipo gruppo:** Scegliere **Sicurezza**
+    - **Tipo di gruppo:** Selezionare la **sicurezza**
     
-    - **Nome gruppo:** Digitare _criteri MDM - occidentale_
+    - **Nome gruppo:** digitare _MDM policy - West_
     
-    - **Tipo di appartenenza:** Selezionare **Assegnato**.
+    - **Tipo di appartenenza:** Selezionare **assegnato**.
 
-3. Selezionare **Create** (Crea).
+3. Selezionare **Crea**.
 
 ## <a name="create-a-new-user"></a>Creare un nuovo utente
 Creare un nuovo utente denominato _Alain Charon_. Un utente deve esistere prima di essere aggiunto come membro di un gruppo. Controllare prima la scheda "Nomi di dominio personalizzati" per ottenere il nome dominio verificato in cui creare gli utenti. Per altre informazioni sulla creazione di un utente, vedere [Come aggiungere o eliminare utenti](add-users-azure-active-directory.md).
@@ -59,9 +59,9 @@ Creare un nuovo utente denominato _Alain Charon_. Un utente deve esistere prima 
 
 2. Completare la pagina **Utente**:
 
-    - **Nome:** Digitare _Alain Charon_.
+    - **Nome:** digitare _Alain Charon_.
 
-    - **Nome utente:** Digitare *alain\@contoso.com*.
+    - **Nome utente:** Digitare *alain \@ contoso.com*.
 
 3. Copiare la password generata automaticamente nella casella **Password** e quindi selezionare **Crea**.
 
@@ -81,7 +81,7 @@ Dopo aver creato un gruppo e un utente, è possibile aggiungere _Alain Charon_ c
 ## <a name="view-all-groups"></a>Visualizzare tutti i gruppi
 È possibile visualizzare tutti i gruppi dell'organizzazione nella pagina **Gruppi - Tutti i gruppi** del portale di Azure.
 
-- Selezionare **Azure Active Directory** > **Gruppi**.
+- Selezionare gruppi di **Active Directory** di Azure  >  .
 
     Verrà visualizzata la pagina **Gruppi - Tutti i gruppi** con tutti i gruppi attivi.
 

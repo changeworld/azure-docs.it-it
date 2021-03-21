@@ -9,10 +9,10 @@ ms.service: virtual-machines
 ms.subservice: disks
 ms.custom: references_regions
 ms.openlocfilehash: 1a7e8e71e26af241d16095a5fa1e6a02a7e3d4c2
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/02/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96500768"
 ---
 # <a name="what-disk-types-are-available-in-azure"></a>Quali tipi di dischi sono disponibili in Azure?
@@ -54,10 +54,10 @@ Di seguito sono riportate alcune funzionalità chiave di dischi Ultra:
 |8     |2400         |600         |
 |16     |4.800         |1.200         |
 |32     |9.600         |2.000         |
-|64     |19.200         |2.000         |
+|64     |19.200         |2\.000         |
 |128     |38.400         |2.000         |
 |256     |76.800         |2.000         |
-|512     |153.600         |2.000         |
+|512     |153.600         |2\.000         |
 |1.024-65.536 (dimensioni in questo intervallo con aumento con incrementi di 1 TiB)     |160.000         |2.000         |
 
 I dischi Ultra sono progettati per fornire latenze di sottomillisecondo e IOPS e velocità effettiva di destinazione descritti nella tabella precedente 99,99% del tempo.

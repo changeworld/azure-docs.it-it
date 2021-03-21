@@ -10,10 +10,10 @@ author: likebupt
 ms.author: keli19
 ms.date: 08/24/2020
 ms.openlocfilehash: 810878956a89b6e7400be99692cf43925d1cd134
-ms.sourcegitcommit: 051908e18ce42b3b5d09822f8cfcac094e1f93c2
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94375914"
 ---
 # <a name="two-class-boosted-decision-tree-module"></a>Modulo di albero delle decisioni con boosting Two-Class
@@ -38,36 +38,36 @@ Questo modulo crea un modello di classificazione non sottoposto a training. Poic
   
 2.  Specificare il modo in cui si desidera eseguire il training del modello, impostando l'opzione **crea modalità trainer** .
   
-    + **Singolo parametro** : se si sa come si desidera configurare il modello, è possibile fornire un set di valori specifico come argomenti.
+    + **Singolo parametro**: se si sa come si desidera configurare il modello, è possibile fornire un set di valori specifico come argomenti.
   
     + **Intervallo** di parametri: se non si è certi dei parametri migliori, è possibile trovare i parametri ottimali usando il modulo [Tune Model iperparametri](tune-model-hyperparameters.md) . Viene fornito un intervallo di valori e il trainer scorre più combinazioni di impostazioni per determinare la combinazione di valori che produce il risultato migliore.
   
-3.  Per il **numero massimo di foglie per albero** , indicare il numero massimo di nodi terminali (foglie) che è possibile creare in qualsiasi albero.
+3.  Per il **numero massimo di foglie per albero**, indicare il numero massimo di nodi terminali (foglie) che è possibile creare in qualsiasi albero.
   
      Aumentando questo valore, potenzialmente si aumentano le dimensioni dell'albero e si ottiene una maggiore precisione. Possono tuttavia verificarsi casi di overfitting e tempi di training più lunghi.
   
-4.  Per il **numero minimo di campioni per nodo foglia** , indicare il numero di case necessari per creare qualsiasi nodo terminale (foglia) in un albero.  
+4.  Per il **numero minimo di campioni per nodo foglia**, indicare il numero di case necessari per creare qualsiasi nodo terminale (foglia) in un albero.  
   
      Aumentando questo valore, aumenta la soglia per la creazione di nuove regole. Ad esempio, con un valore predefinito di 1, anche un singolo caso può determinare la creazione di una nuova regola. Se si aumenta il valore a 5, i dati di training devono contenere almeno cinque casi che soddisfano le stesse condizioni.
   
-5.  Per la **velocità di apprendimento** , digitare un numero compreso tra 0 e 1 che definisce le dimensioni del passaggio durante l'apprendimento.  
+5.  Per la **velocità di apprendimento**, digitare un numero compreso tra 0 e 1 che definisce le dimensioni del passaggio durante l'apprendimento.  
   
      La velocità di apprendimento determina la velocità o la lentezza della convergenza degli studenti sulla soluzione ottimale. Se le dimensioni del passaggio sono troppo grandi, è possibile che si richieda la soluzione ottimale. Se le dimensioni del passaggio sono troppo ridotte, il training impiega più tempo per convergere sulla soluzione migliore.
   
-6.  Per il **numero di alberi costruiti** , indicare il numero totale di alberi delle decisioni da creare nell'insieme. Creando più alberi delle decisioni, è possibile ottenere una migliore copertura, ma saranno necessari tempi di training maggiori.
+6.  Per il **numero di alberi costruiti**, indicare il numero totale di alberi delle decisioni da creare nell'insieme. Creando più alberi delle decisioni, è possibile ottenere una migliore copertura, ma saranno necessari tempi di training maggiori.
   
      Se si imposta il valore su 1, viene prodotto un solo albero (l'albero con il set di parametri iniziale) e non vengono eseguite altre iterazioni.
   
-7.  Per il valore di **inizializzazione numerico casuale** , digitare facoltativamente un numero intero non negativo da usare come valore di inizializzazione casuale. La specifica di un valore di inizializzazione garantisce la riproducibilità tra esecuzioni con gli stessi dati e parametri.  
+7.  Per il valore di **inizializzazione numerico casuale**, digitare facoltativamente un numero intero non negativo da usare come valore di inizializzazione casuale. La specifica di un valore di inizializzazione garantisce la riproducibilità tra esecuzioni con gli stessi dati e parametri.  
   
      Per impostazione predefinita, il valore di inizializzazione casuale viene impostato su 0, il che significa che il valore di inizializzazione iniziale viene ottenuto dal clock di sistema.  Le esecuzioni successive con un valore di inizializzazione casuale possono avere risultati diversi.
   
 
 9. Eseguire il training del modello:
 
-    + Se si imposta la **modalità di creazione dell'allenatore** su un **singolo parametro** , connettere un set di dati con tag e il modulo [Train Model](train-model.md) .  
+    + Se si imposta la **modalità di creazione dell'allenatore** su un **singolo parametro**, connettere un set di dati con tag e il modulo [Train Model](train-model.md) .  
   
-    + Se si imposta la **modalità di creazione dell'allenatore** sull'intervallo di **parametri** , connettere un set di dati con tag ed eseguire il training del modello usando gli [iperparametri del modello di ottimizzazione](tune-model-hyperparameters.md).  
+    + Se si imposta la **modalità di creazione dell'allenatore** sull'intervallo di **parametri**, connettere un set di dati con tag ed eseguire il training del modello usando gli [iperparametri del modello di ottimizzazione](tune-model-hyperparameters.md).  
   
     > [!NOTE]
     > 

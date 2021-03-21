@@ -6,13 +6,13 @@ ms.reviewer: jasonh
 ms.topic: how-to
 ms.date: 06/30/2017
 ms.openlocfilehash: a6c560cf4ec11197183711656d69024591e7008c
-ms.sourcegitcommit: df66dff4e34a0b7780cba503bb141d6b72335a96
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/02/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96512601"
 ---
-# <a name="use-user-defined-combiner"></a>USA combinatore definito dall'utente
+# <a name="use-user-defined-combiner"></a>Usare combinatori definiti dall'utente
 
 ## <a name="u-sql-udo-user-defined-combiner"></a>UDO U-SQL: combinatore definito dall'utente
 Un combinatore definito dall'utente (UDC) consente di combinare le righe dei set di sinistra e di destra, in base a logica personalizzata. Il combinatore definito dall'utente viene usato con l'espressione COMBINE.
@@ -92,7 +92,7 @@ I principali oggetti di programmabilità sono i seguenti:
         IUpdatableRow output
 ```
 
-I set di righe di input **left** vengono passati come **right** `IRowset` tipo di interfaccia a sinistra e a destra. Entrambi i set di righe devono essere enumerati per l'elaborazione. È possibile enumerare ogni interfaccia una sola volta, quindi deve essere enumerata e memorizzata nella cache, se necessario.
+I set di righe di input  vengono passati come  `IRowset` tipo di interfaccia a sinistra e a destra. Entrambi i set di righe devono essere enumerati per l'elaborazione. È possibile enumerare ogni interfaccia una sola volta, quindi deve essere enumerata e memorizzata nella cache, se necessario.
 
 Ai fini della memorizzazione nella cache, è possibile creare un \<T\> tipo di elenco di struttura di memoria come risultato dell'esecuzione di una query LINQ, in particolare l'elenco<`IRow`>. Durante l'enumerazione è possibile usare anche il tipo di dati anonimo.
 

@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 04/03/2020
 ms.author: nitinme
 ms.openlocfilehash: d0ffd786d3fb6bb5f0d70095d947c81caa070518
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/02/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96499136"
 ---
 # <a name="migrate-from-bing-speech-to-the-speech-service"></a>Eseguire la migrazione dal riconoscimento vocale Bing al servizio riconoscimento vocale
@@ -37,7 +37,7 @@ Una singola chiave di sottoscrizione del servizio vocale concede l'accesso alle 
 
 Il servizio riconoscimento vocale è in gran parte simile a Bing Speech, con le differenze seguenti.
 
-| Feature | Riconoscimento vocale Bing | Servizio Voce | Dettagli |
+| Funzionalità | Riconoscimento vocale Bing | Servizio Voce | Dettagli |
 |--|--|--|--|
 | SDK per C# | :heavy_check_mark: | :heavy_check_mark: | Il servizio riconoscimento vocale supporta Windows 10, piattaforma UWP (Universal Windows Platform) (UWP) e .NET Standard 2,0. |
 | C++ SDK | :heavy_minus_sign: | :heavy_check_mark: | Il servizio riconoscimento vocale supporta Windows e Linux. |

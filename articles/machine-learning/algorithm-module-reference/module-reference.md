@@ -10,10 +10,10 @@ author: likebupt
 ms.author: keli19
 ms.date: 11/09/2020
 ms.openlocfilehash: 89ad9aae7c0d01971bbcfc7e392cb9d455ef85cd
-ms.sourcegitcommit: 051908e18ce42b3b5d09822f8cfcac094e1f93c2
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94376843"
 ---
 # <a name="algorithm--module-reference-for-azure-machine-learning-designer"></a>Guida di riferimento al modulo & dell'algoritmo per Azure Machine Learning Designer
@@ -45,7 +45,7 @@ Per assistenza nella scelta degli algoritmi, vedere:
 | --- |--- | --- |
 | Regressione | Prevede un valore. | [Boosted Decision Tree Regression](boosted-decision-tree-regression.md) (Regressione albero delle decisioni con boosting) <br/> [Decision Forest Regression](decision-forest-regression.md) (Regressione foresta delle decisioni) <br/> [Regressione quantile della foresta rapida](fast-forest-quantile-regression.md)  <br/> [Linear Regression](linear-regression.md) (Regressione lineare)  <br/> [Neural Network Regression](neural-network-regression.md) (Regressione rete neurale)  <br/> [Regressione di Poisson](poisson-regression.md)  <br/>|
 | Clustering | Raggruppa i dati.| [Clustering K-Means](k-means-clustering.md)
-| Classificazione | Prevedono una classe.  Scegliere tra algoritmi binari (a due classi) o multiclasse.| [Albero delle decisioni incrementato a più classi](multiclass-boosted-decision-tree.md) <br/> [Foresta delle decisioni multiclasse](multiclass-decision-forest.md) <br/> [Regressione logistica multiclasse](multiclass-logistic-regression.md)  <br/> [Rete neurale multiclasse](multiclass-neural-network.md) <br/> [One vs. All Multiclass](one-vs-all-multiclass.md) (Uno contro tutti multiclasse) <br/> [Uno rispetto a una multiclasse](one-vs-one-multiclass.md) <br/>[Percettrone medio a due classi](two-class-averaged-perceptron.md) <br/>  [Albero delle decisioni incrementato a due classi](two-class-boosted-decision-tree.md)  <br/> [Foresta delle decisioni a due classi](two-class-decision-forest.md) <br/>  [Regressione logistica a due classi](two-class-logistic-regression.md) <br/> [Rete neurale a due classi](two-class-neural-network.md) <br/> [Two Class Support Vector Machine](two-class-support-vector-machine.md) (Macchina a vettori di supporto a due classi) | 
+| Classificazione | Prevedono una classe.  Scegliere tra algoritmi binari (a due classi) o multiclasse.| [Albero delle decisioni incrementato a più classi](multiclass-boosted-decision-tree.md) <br/> [Foresta delle decisioni multiclasse](multiclass-decision-forest.md) <br/> [Regressione logistica multiclasse](multiclass-logistic-regression.md)  <br/> [Rete neurale multiclasse](multiclass-neural-network.md) <br/> [One vs. All Multiclass](one-vs-all-multiclass.md) (Uno contro tutti multiclasse) <br/> [One vs. One Multiclass](one-vs-one-multiclass.md) <br/>[Percettrone medio a due classi](two-class-averaged-perceptron.md) <br/>  [Albero delle decisioni incrementato a due classi](two-class-boosted-decision-tree.md)  <br/> [Foresta delle decisioni a due classi](two-class-decision-forest.md) <br/>  [Regressione logistica a due classi](two-class-logistic-regression.md) <br/> [Rete neurale a due classi](two-class-neural-network.md) <br/> [Two Class Support Vector Machine](two-class-support-vector-machine.md) (Macchina a vettori di supporto a due classi) | 
 
 ## <a name="modules-for-building-and-evaluating-models"></a>Moduli per la creazione e la valutazione dei modelli
 

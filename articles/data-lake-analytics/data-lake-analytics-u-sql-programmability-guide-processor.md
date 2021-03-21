@@ -6,13 +6,13 @@ ms.reviewer: jasonh
 ms.topic: how-to
 ms.date: 06/30/2017
 ms.openlocfilehash: 6ff45c577e94a8c63bd7cb1e6603e4d5519af5c6
-ms.sourcegitcommit: df66dff4e34a0b7780cba503bb141d6b72335a96
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/02/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96512598"
 ---
-# <a name="use-user-defined-processor"></a>Usa processore definito dall'utente
+# <a name="use-user-defined-processor"></a>Usare processori definiti dall'utente
 
 ## <a name="u-sql-udo-user-defined-processor"></a>U-SQL UDO: processore definito dall'utente
 Un elaboratore definito dall'utente (UDP) è un tipo di oggetto definito dall'utente di U-SQL che consente di elaborare le righe in ingresso applicando funzionalità di programmabilità. Un elaboratore definito dall'utente consente di combinare colonne, modificare valori e aggiungere nuove colonne, se necessario. Essenzialmente, consente di elaborare un set di righe per produrre gli elementi dati necessari.

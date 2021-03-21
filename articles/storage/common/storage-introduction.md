@@ -9,10 +9,10 @@ ms.date: 04/08/2020
 ms.author: tamram
 ms.subservice: common
 ms.openlocfilehash: b49e780714bd5e0662c6cb7ef208c473a8b45ccc
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/02/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96498150"
 ---
 # <a name="introduction-to-the-core-azure-storage-services"></a>Introduzione ai servizi di archiviazione di Azure di base
@@ -41,7 +41,7 @@ Ogni servizio è accessibile tramite un account di archiviazione. Per iniziare, 
 
 Nella tabella seguente vengono confrontati i file, i BLOB, i dischi, le code e le tabelle e vengono illustrati gli scenari di esempio per ognuno di essi.
 
-| Feature | Descrizione | Utilizzo |
+| Funzionalità | Descrizione | Utilizzo |
 |--------------|-------------|-------------|
 | **File di Azure** |Offre condivisioni file cloud completamente gestite a cui è possibile accedere da qualsiasi luogo tramite il protocollo SMB (Server Message Block) standard di settore.<br><br>È possibile montare condivisioni file di Azure da distribuzioni cloud o locali di Windows, Linux e macOS. | Si vuole "sollevare e spostare" un'applicazione nel cloud che usa già le API file system native per condividere i dati tra l'IT e altre applicazioni in esecuzione in Azure.<br/><br/>Si desidera sostituire o integrare i file server o i dispositivi NAS locali.<br><br> Si intende archiviare gli strumenti di sviluppo e di debug a cui deve essere possibile accedere da molte macchine virtuali. |
 | **BLOB di Azure** | Consente di archiviare e accedere ai dati non strutturati su vasta scala nei BLOB in blocchi.<br/><br/>Supporta anche [Azure Data Lake Storage Gen2](../blobs/data-lake-storage-introduction.md) per le soluzioni aziendali di analisi di Big Data. | Si desidera che la propria applicazione supporti scenari di accesso casuale e tramite flusso.<br/><br/>Si desidera poter accedere ai dati dell'applicazione ovunque ci si trovi.<br/><br/>Si vuole compilare un Data Lake aziendale in Azure ed eseguire l'analisi dei Big Data. |

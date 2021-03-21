@@ -17,16 +17,16 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: e09dd6a127bd04ae698cb6cad2ffd7f35e3b51c3
-ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94413429"
 ---
 # <a name="identity-synchronization-and-duplicate-attribute-resiliency"></a>Sincronizzazione delle identità e resilienza degli attributi duplicati
 La resilienza degli attributi duplicati è una funzionalità di Azure Active Directory che eliminerà i conflitti causati dai conflitti **userPrincipalName** e SMTP **ProxyAddress** durante l'esecuzione di uno degli strumenti di sincronizzazione Microsoft.
 
-In genere questi due attributi devono essere univoci in tutti gli oggetti **User** , **Group** o **Contact** di un tenant di Azure Active Directory specificato.
+In genere questi due attributi devono essere univoci in tutti gli oggetti **User**, **Group** o **Contact** di un tenant di Azure Active Directory specificato.
 
 > [!NOTE]
 > Solo gli oggetti User possono avere UPN.
@@ -44,7 +44,7 @@ _**\<OriginalPrefix> + \<4DigitNumber> \@ \<InitialTenantDomain> . onmicrosoft.c
 
 Il processo di resilienza degli attributi gestisce solo i valori UPN e SMTP **ProxyAddress** .
 
-Se l'attributo non è obbligatorio, ad esempio **ProxyAddress** , Azure Active Directory mette semplicemente in quarantena l'attributo in conflitto e procede alla creazione o all'aggiornamento dell'oggetto.
+Se l'attributo non è obbligatorio, ad esempio **ProxyAddress**, Azure Active Directory mette semplicemente in quarantena l'attributo in conflitto e procede alla creazione o all'aggiornamento dell'oggetto.
 
 Dopo aver messo in quarantena l'attributo, vengono inviate informazioni sul conflitto nello stesso messaggio di posta elettronica di segnalazione dell'errore usato nel comportamento precedente. Queste informazioni vengono però visualizzate nella segnalazione dell'errore una sola volta, al momento dell'inserimento in quarantena, e non continuano a essere registrate nei messaggi di posta elettronica futuri. Poiché l'esportazione di questo oggetto è riuscita, il client di sincronizzazione non registra un errore e non prova a ripetere l'operazione di creazione o aggiornamento nei cicli di sincronizzazione successivi.
 
@@ -75,7 +75,7 @@ Sono attualmente disponibili due metodi per identificare gli oggetti che present
 Per i cmdlet di PowerShell in questo argomento si applicano le condizioni seguenti:
 
 * Tutti i cmdlet seguenti fanno distinzione tra maiuscole e minuscole.
-* È necessario includere sempre **–ErrorCategory PropertyConflict** . Non sono attualmente disponibili altri tipi di **ErrorCategory** , ma potrebbero essere estesi in futuro.
+* È necessario includere sempre **–ErrorCategory PropertyConflict** . Non sono attualmente disponibili altri tipi di **ErrorCategory**, ma potrebbero essere estesi in futuro.
 
 Per iniziare, eseguire prima di tutto **Connect-MsolService** e immettere le credenziali di amministratore tenant.
 
@@ -97,16 +97,16 @@ Viene generato un risultato simile al seguente:
  ![Get-MsolDirSyncProvisioningError](./media/how-to-connect-syncservice-duplicate-attribute-resiliency/1.png "Get-MsolDirSyncProvisioningError")  
 
 #### <a name="by-property-type"></a>Per tipo di proprietà
-Per visualizzare gli errori per tipo di proprietà, aggiungere il flag **-PropertyName** con l'argomento **UserPrincipalName** o **ProxyAddresses** :
+Per visualizzare gli errori per tipo di proprietà, aggiungere il flag **-PropertyName** con l'argomento **UserPrincipalName** o **ProxyAddresses**:
 
 `Get-MsolDirSyncProvisioningError -ErrorCategory PropertyConflict -PropertyName UserPrincipalName`
 
-Or
+Oppure
 
 `Get-MsolDirSyncProvisioningError -ErrorCategory PropertyConflict -PropertyName ProxyAddresses`
 
 #### <a name="by-conflicting-value"></a>Per valore in conflitto
-Per visualizzare gli errori relativi a una proprietà specifica, aggiungere il flag **-PropertyValue**. Quando si aggiunge questo flag, è necessario usare anche **-PropertyName** :
+Per visualizzare gli errori relativi a una proprietà specifica, aggiungere il flag **-PropertyValue**. Quando si aggiunge questo flag, è necessario usare anche **-PropertyName**:
 
 `Get-MsolDirSyncProvisioningError -ErrorCategory PropertyConflict -PropertyValue User@domain.com -PropertyName UserPrincipalName`
 
@@ -140,7 +140,7 @@ La strategia di risoluzione dei problemi e le tattiche per risolvere questi erro
 L'articolo seguente descrive varie strategie di risoluzione dei problemi e degli errori: [Gli attributi duplicati o non validi impediscono la sincronizzazione delle directory in Office 365](https://support.microsoft.com/kb/2647098).
 
 ## <a name="known-issues"></a>Problemi noti
-Nessuno di questi problemi noti causa perdite di dati o la riduzione delle prestazioni del servizio. Alcuni sono di tipo estetico, altri causano la generazione di errori di attributi duplicati di tipo " *pre-resilienza* " standard invece di mettere in quarantena l'attributo in conflitto e altri ancora causano la richiesta di correzioni manuali aggiuntive per determinati errori.
+Nessuno di questi problemi noti causa perdite di dati o la riduzione delle prestazioni del servizio. Alcuni sono di tipo estetico, altri causano la generazione di errori di attributi duplicati di tipo "*pre-resilienza*" standard invece di mettere in quarantena l'attributo in conflitto e altri ancora causano la richiesta di correzioni manuali aggiuntive per determinati errori.
 
 **Comportamento di base:**
 
@@ -154,7 +154,7 @@ Nessuno di questi problemi noti causa perdite di dati o la riduzione delle prest
     c. Al momento dell'esportazione viene generato un errore per un **conflitto di ProxyAddress** , invece di mettere in quarantena gli attributi in conflitto. L'operazione viene ritentata durante ogni ciclo di sincronizzazione successivo, come avveniva prima dell'abilitazione della funzionalità di resilienza.
 2. Se in locale vengono creati due gruppi con lo stesso indirizzo SMTP, uno non riesce a effettuare il provisioning al primo tentativo, con un errore duplicato **ProxyAddress** standard. Il valore duplicato viene tuttavia messo correttamente in quarantena al successivo ciclo di sincronizzazione.
 
-**Report del portale di Office** :
+**Report del portale di Office**:
 
 1. Il messaggio di errore dettagliato per due oggetti in un set di conflitti UPN è lo stesso. Ciò indica che per entrambi l'UPN è stato modificato o messo in quarantena, mentre in realtà i dati sono stati modificati solo per uno di essi.
 2. Il messaggio di errore dettagliato per un conflitto di UPN mostra il valore displayName errato per un utente il cui UPN è stato modificato o messo in quarantena. Ad esempio:
@@ -167,7 +167,7 @@ Nessuno di questi problemi noti causa perdite di dati o la riduzione delle prest
    
     d. Il messaggio di errore per l' **utente B** deve indicare che l' **utente A** dispone già di **\@ contoso.com utente** come UPN, ma Visualizza il DisplayName dell' **utente b** .
 
-**Segnalazione dell'errore di sincronizzazione delle identità** :
+**Segnalazione dell'errore di sincronizzazione delle identità**:
 
 Il collegamento per i *passaggi per risolvere il problema* non è corretto:  
     ![Active users](./media/how-to-connect-syncservice-duplicate-attribute-resiliency/6.png "Active users")  

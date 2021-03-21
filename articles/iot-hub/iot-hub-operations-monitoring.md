@@ -10,10 +10,10 @@ ms.date: 03/11/2019
 ms.author: robinsh
 ms.custom: amqp, devx-track-csharp
 ms.openlocfilehash: 045d5693c4388c6285bc6983ac2a385ceac9f6d0
-ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94408125"
 ---
 # <a name="iot-hub-operations-monitoring-deprecated"></a>Monitoraggio delle operazioni dell’hub IoT (deprecata)
@@ -197,17 +197,17 @@ Per connettersi all'endpoint di monitoraggio, è necessaria una stringa di conne
 
 1. Nel portale, passare al pannello di risorse dell'hub IoT.
 
-2. Scegliere **Monitoraggio operazioni** e prendere nota dei valori in **Nome compatibile con Hub eventi** e in **Endpoint compatibile con Hub eventi** :
+2. Scegliere **Monitoraggio operazioni** e prendere nota dei valori in **Nome compatibile con Hub eventi** e in **Endpoint compatibile con Hub eventi**:
 
     ![Valori di Endpoint compatibile con Hub eventi](./media/iot-hub-operations-monitoring/monitoring-endpoint.png)
 
-3. Scegliere **Criteri di accesso condiviso** , quindi scegliere **servizio**. Prendere nota del valore presente in **Chiave primaria** :
+3. Scegliere **Criteri di accesso condiviso**, quindi scegliere **servizio**. Prendere nota del valore presente in **Chiave primaria**:
 
     ![Chiave primaria del servizio dei criteri di accesso condiviso](./media/iot-hub-operations-monitoring/service-key.png)
 
 L'esempio di codice C# seguente viene preso da un'app console C# per **Desktop classico di Windows** di Visual Studio. Il progetto ha il pacchetto **WindowsAzure.ServiceBus** NuGet installato.
 
-* Sostituire il placeholder della stringa di connessione con una stringa di connessione che usa i valori precedentemente annotati per l' **endpoint compatibile con Hub eventi** e il servizio **Chiave primaria** come illustrato nell'esempio seguente:
+* Sostituire il placeholder della stringa di connessione con una stringa di connessione che usa i valori precedentemente annotati per l'**endpoint compatibile con Hub eventi** e il servizio **Chiave primaria** come illustrato nell'esempio seguente:
 
     ```csharp
     "Endpoint={your Event Hub-compatible endpoint};SharedAccessKeyName=service;SharedAccessKey={your service primary key value}"
