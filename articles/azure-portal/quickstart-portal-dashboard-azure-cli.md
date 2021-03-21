@@ -4,16 +4,18 @@ description: "Avvio rapido: Informazioni su come creare un dashboard nel portale
 ms.topic: quickstart
 ms.custom: devx-track-azurepowershell
 ms.date: 12/4/2020
-ms.openlocfilehash: ede915df5cd2967c3b6b700bcb9174c89af8f233
-ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
-ms.translationtype: HT
+ms.openlocfilehash: ddfee1932c6887c6ca7593ca7a28c03e68e09899
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/06/2020
-ms.locfileid: "96745656"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "104613212"
 ---
 # <a name="quickstart-create-an-azure-portal-dashboard-with-azure-cli"></a>Avvio rapido: Creare un dashboard del portale di Azure con l'interfaccia della riga di comando di Azure
 
-Un dashboard nel portale di Azure offre una visualizzazione mirata e organizzata delle risorse cloud.
+Un dashboard nel portale di Azure offre una visualizzazione mirata e organizzata delle risorse cloud. Questo articolo è incentrato sul processo di uso dell'interfaccia della riga di comando di Azure per creare un dashboard.
+Il dashboard mostra le prestazioni di una macchina virtuale (VM), oltre ad alcune informazioni statiche e alcuni collegamenti.
+
 
 [!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
 
@@ -103,19 +105,7 @@ az portal dashboard update --resource-group myResourceGroup --name 'Simple VM Da
    --input-path portal-dashboard-template-testvm.json --location centralus
 ```
 
-Verificare che sia possibile visualizzare i dati relativi alla macchina virtuale dal portale di Azure.
-
-1. Nel portale di Azure selezionare **Dashboard**.
-
-   ![passaggio al dashboard nel portale di Azure](media/quickstart-portal-dashboard-powershell/navigate-to-dashboards.png)
-
-1. Nella pagina del dashboard selezionare **Simple VM Dashboard**.
-
-   ![Passare a Simple VM Dashboard](media/quickstart-portal-dashboard-powershell/select-simple-vm-dashboard.png)
-
-1. Esaminare il dashboard. Come si può notare, parte del contenuto è statico, ma sono presenti anche alcuni grafici che mostrano le prestazioni della VM.
-
-   ![Esaminare il dashboard Simple VM Dashboard](media/quickstart-portal-dashboard-powershell/review-simple-vm-dashboard.png)
+[!INCLUDE [azure-portal-review-deployed-resources](../../includes/azure-portal-review-deployed-resources.md)]
 
 ## <a name="clean-up-resources"></a>Pulire le risorse
 

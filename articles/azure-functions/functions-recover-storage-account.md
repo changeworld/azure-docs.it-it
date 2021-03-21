@@ -3,12 +3,12 @@ title: 'Errore di risoluzione dei problemi: runtime di Funzioni di Azure non è 
 description: Informazioni su come risolvere il problema di un account di archiviazione non valido.
 ms.topic: article
 ms.date: 09/05/2018
-ms.openlocfilehash: a62001cedd695badc72eb76c93ea9c3cb4507403
-ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
+ms.openlocfilehash: 392882fc2f0394e61aee973a20479d8f1fa9bc92
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/09/2021
-ms.locfileid: "102499629"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104606974"
 ---
 # <a name="troubleshoot-error-azure-functions-runtime-is-unreachable"></a>Errore di risoluzione dei problemi: "runtime di Funzioni di Azure non è raggiungibile"
 
@@ -59,6 +59,7 @@ L'app per le funzioni deve essere in grado di accedere all'account di archiviazi
 * L'app per le funzioni viene distribuita nel ambiente del servizio app (ASE) senza le regole di rete corrette per consentire il traffico da e verso l'account di archiviazione.
 
 * Il firewall dell'account di archiviazione è abilitato e non è configurato per consentire il traffico da e verso le funzioni. Per altre informazioni, vedere [Configurare i firewall e le reti virtuali di Archiviazione di Azure](../storage/common/storage-network-security.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json).
+* Verificare che l' `allowSharedKeyAccess` impostazione sia impostata sul `true` valore predefinito. Per altre informazioni, vedere [Impedisci l'autorizzazione della chiave condivisa per un account di archiviazione di Azure](https://docs.microsoft.com/azure/storage/common/shared-key-authorization-prevent?tabs=portal#verify-that-shared-key-access-is-not-allowed). 
 
 ## <a name="daily-execution-quota-is-full"></a>Quota di esecuzione giornaliera piena
 

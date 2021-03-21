@@ -2,21 +2,21 @@
 title: Usare analisi di flusso di Azure in un pool SQL dedicato
 description: Suggerimenti per l'uso di analisi di flusso di Azure con pool SQL dedicato in sinapsi di Azure per lo sviluppo di soluzioni in tempo reale.
 services: synapse-analytics
-author: kevinvngo
+author: gaursa
 manager: craigg
 ms.service: synapse-analytics
 ms.topic: conceptual
 ms.subservice: sql-dw
 ms.date: 9/25/2020
-ms.author: kevin
+ms.author: gaursa
 ms.reviewer: igorstan
 ms.custom: azure-synapse
-ms.openlocfilehash: 8fbe546beb1004214e544f8eb160884c0f64ef9e
-ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
+ms.openlocfilehash: 023cf55a01f34277dd5c5707d0d123f54c1674df
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/13/2021
-ms.locfileid: "96458226"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104600089"
 ---
 # <a name="use-azure-stream-analytics-with-dedicated-sql-pool-in-azure-synapse-analytics"></a>Usare analisi di flusso di Azure con un pool SQL dedicato in Azure sinapsi Analytics
 
@@ -52,8 +52,8 @@ Immettere i valori seguenti:
 
 * *Alias di output*: immettere un nome descrittivo per l'output del processo.
 * *Sottoscrizione*:
-  * Se il pool SQL dedicato si trova nella stessa sottoscrizione del processo di analisi di flusso, fare clic su ***selezionare Azure sinapsi Analytics dalle sottoscrizioni** _.
-  _ Se il pool SQL dedicato si trova in una sottoscrizione diversa, fare clic su fornire le impostazioni di Azure sinapsi Analytics manualmente.
+  * Se il pool SQL dedicato si trova nella stessa sottoscrizione del processo di analisi di flusso, fare clic su ***selezionare Azure sinapsi Analytics dalle sottoscrizioni***.
+  * Se il pool SQL dedicato si trova in una sottoscrizione diversa, fare clic su fornire le impostazioni di Azure sinapsi Analytics manualmente.
 * *Database*: selezionare il database di destinazione dall'elenco a discesa.
 * *Nome utente*: digitare il nome utente di un account con autorizzazioni di scrittura nel database.
 * *Password*: fornire la password per l'account utente specificato.
@@ -100,23 +100,23 @@ WITH (DISTRIBUTION = ROUND_ROBIN)
 
 ### <a name="step-5"></a>Passaggio 5
 
-Nel portale di Azure per il processo di analisi di flusso, fare clic sul nome del processo.  Fare clic sul pulsante **_test_* _ nel riquadro _*_Dettagli output_*_ .
+Nel portale di Azure per il processo di analisi di flusso, fare clic sul nome del processo.  Fare clic sul pulsante ***test** _ nel riquadro _ *_output Details_**.
 
 ![Pulsante test sui dettagli dell'outbroncio ](./media/sql-data-warehouse-integrate-azure-stream-analytics/sqlpool-asatest.png) quando la connessione al database ha esito positivo, nel portale viene visualizzata una notifica.
 
 ### <a name="step-6"></a>Passaggio 6
 
-Fare clic sul menu _*_query_*_ in _*_topologia processo_*_ e modificare la query per inserire i dati nell'output del flusso creato.  Fai clic sul pulsante _*_test selezionato_*_ per testare la query.  Quando il test di query ha esito positivo, fare clic sul pulsante _*_Salva query_*_ .
+Fare clic sul menu ***query** _ in _*_topologia processo_*_ e modificare la query per inserire i dati nell'output del flusso creato.  Fai clic sul pulsante _*_test selezionato_*_ per testare la query.  Quando il test di query ha esito positivo, fare clic sul pulsante _ *_Salva query_**.
 
 ![Salvare la query](./media/sql-data-warehouse-integrate-azure-stream-analytics/sqlpool-asaquery.png)
 
 ### <a name="step-7"></a>Passaggio 7
 
-Avviare il processo di analisi di flusso di Azure.  Fare clic sul pulsante _*_Start_*_ nel menu _*_Overview (panoramica_*_ ).
+Avviare il processo di analisi di flusso di Azure.  Fare clic sul pulsante ***Start** _ nel menu _ *_Overview_**.
 
 ![Avviare il processo di Analisi di flusso](./media/sql-data-warehouse-integrate-azure-stream-analytics/sqlpool-asastart.png)
 
-Fare clic sul pulsante _ *_Avvia_** nel riquadro Avvia processo.
+Fare clic sul pulsante ***Avvia*** nel riquadro Avvia processo.
 
 ![Fare clic su Start](./media/sql-data-warehouse-integrate-azure-stream-analytics/sqlpool-asastartconfirm.png)
 

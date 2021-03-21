@@ -6,16 +6,16 @@ services: storage
 author: normesta
 ms.service: storage
 ms.topic: conceptual
-ms.date: 03/12/2020
+ms.date: 03/16/2021
 ms.author: normesta
 ms.reviewer: santoshc
 ms.subservice: common
-ms.openlocfilehash: 13e274a0d43ba4399e039d1280aa5ada3c94afe5
-ms.sourcegitcommit: 27cd3e515fee7821807c03e64ce8ac2dd2dd82d2
+ms.openlocfilehash: 3fcc58f626622bcc728265e782906226859e1bf9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/16/2021
-ms.locfileid: "103601475"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104600463"
 ---
 # <a name="use-private-endpoints-for-azure-storage"></a>Usare endpoint privati per archiviazione di Azure
 
@@ -53,6 +53,16 @@ I proprietari dell'account di archiviazione possono gestire le richieste di cons
 
 ## <a name="creating-a-private-endpoint"></a>Creazione di un endpoint privato
 
+Per creare un endpoint privato tramite il portale di Azure, vedere [connettersi privatamente a un account di archiviazione dall'esperienza dell'account di archiviazione nell'portale di Azure](../../private-link/tutorial-private-endpoint-storage-portal.md).
+
+Per creare un endpoint privato tramite PowerShell o l'interfaccia della riga di comando di Azure, vedere uno di questi articoli. Entrambe includono un'app Web di Azure come servizio di destinazione, ma i passaggi per creare un collegamento privato sono gli stessi per un account di archiviazione di Azure.
+
+- [Creare un endpoint privato con l'interfaccia della riga di comando di Azure](../../private-link/create-private-endpoint-cli.md)
+
+- [Creare un endpoint privato con Azure PowerShell](../../private-link/create-private-endpoint-powershell.md)
+
+
+
 Quando si crea un endpoint privato, è necessario specificare l'account di archiviazione e il servizio di archiviazione a cui si connette. 
 
 È necessario un endpoint privato separato per ogni risorsa di archiviazione a cui è necessario accedere, ovvero [BLOB](../blobs/storage-blobs-overview.md), [Data Lake storage Gen2](../blobs/data-lake-storage-introduction.md), [file](../files/storage-files-introduction.md), [Code](../queues/storage-queues-introduction.md), [tabelle](../tables/table-storage-overview.md)o [siti web statici](../blobs/storage-blob-static-website.md). Nell'endpoint privato i servizi di archiviazione sono definiti come la **risorsa secondaria di destinazione** dell'account di archiviazione associato. 
@@ -64,13 +74,6 @@ Se si crea un endpoint privato per la risorsa di archiviazione Data Lake Storage
 > Assicurarsi di creare un account di archiviazione per utilizzo generico V2 (standard o Premium).
 
 Per l'accesso in lettura all'area secondaria con un account di archiviazione configurato per l'archiviazione con ridondanza geografica, sono necessari endpoint privati distinti per le istanze primarie e secondarie del servizio. Non è necessario creare un endpoint privato per l'istanza secondaria per il **failover**. L'endpoint privato si connette automaticamente alla nuova istanza primaria dopo il failover. Per altre informazioni sulle opzioni di ridondanza di archiviazione, vedere [ridondanza di archiviazione di Azure](storage-redundancy.md).
-
-Per informazioni più dettagliate sulla creazione di un endpoint privato per l'account di archiviazione, fare riferimento agli articoli seguenti:
-
-- [Connettersi privatamente a un account di archiviazione dall'esperienza dell'account di archiviazione nell'portale di Azure](../../private-link/tutorial-private-endpoint-storage-portal.md)
-- [Creare un endpoint privato usando il centro collegamenti privati nel portale di Azure](../../private-link/create-private-endpoint-portal.md)
-- [Creare un endpoint privato con l'interfaccia della riga di comando di Azure](../../private-link/create-private-endpoint-cli.md)
-- [Creare un endpoint privato con Azure PowerShell](../../private-link/create-private-endpoint-powershell.md)
 
 <a id="connecting-to-private-endpoints"></a>
 

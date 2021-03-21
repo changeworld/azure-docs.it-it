@@ -13,12 +13,12 @@ ms.workload: infrastructure-services
 ms.date: 10/30/2020
 ms.author: kumud
 ms.reviewer: kumud
-ms.openlocfilehash: 18b79b105bcc4b5b0b65fc6f7d6b602ffff55561
-ms.sourcegitcommit: 6386854467e74d0745c281cc53621af3bb201920
+ms.openlocfilehash: 472b0d2886d9177c6507c84d5a8b6da6e99e65e5
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/08/2021
-ms.locfileid: "102455823"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104597964"
 ---
 # <a name="virtual-network-service-tags"></a>Tag del servizio di rete virtuale
 <a name="network-service-tags"></a>
@@ -75,7 +75,7 @@ Per impostazione predefinita, i tag del servizio riflettono gli intervalli per l
 | **AzureKeyVault** | Azure Key Vault.<br/><br/>*Nota:* questo tag presenta una dipendenza dal tag  **AzureActiveDirectory**. | In uscita | Sì | Sì |
 | **AzureLoadBalancer** | Bilanciamento del carico di infrastruttura di Azure. Viene convertito nell'[indirizzo IP virtuale dell'host](./network-security-groups-overview.md#azure-platform-considerations) (168.63.129.16) da cui hanno origine i probe di integrità di Azure. Questo include solo il traffico Probe, non il traffico reale verso la risorsa back-end. Se non si usa Azure Load Balancer, è possibile ignorare questa regola. | Entrambe | No | No |
 | **AzureMachineLearning** | Azure Machine Learning | Entrambe | No | Sì |
-| **AzureMonitor** | Log Analytics, Application Insights, AzMon e metriche personalizzate (GiG endpoints).<br/><br/>*Nota:* per Log Analytics, questo tag presenta una dipendenza dal tag **Storage**. | In uscita | No | Sì |
+| **AzureMonitor** | Log Analytics, Application Insights, AzMon e metriche personalizzate (GiG endpoints).<br/><br/>*Nota:* Per Log Analytics, è necessario anche il tag di **archiviazione** . Se vengono usati gli agenti Linux, è necessario anche il tag **GuestAndHybridManagement** . | In uscita | No | Sì |
 | **AzureOpenDatasets** | Set di dati aperti di Azure.<br/><br/>*Nota:* questo tag presenta una dipendenza dai tag **AzureFrontDoor.Frontend** e **Storage**. | In uscita | No | No |
 | **AzurePlatformDNS** | Servizio DNS dell'infrastruttura di base (impostazione predefinita).<br/><br>È possibile usare questo tag per disabilitare il DNS predefinito. Prestare attenzione quando si usa questo tag. È consigliabile leggere le [considerazioni sulla piattaforma di Azure](./network-security-groups-overview.md#azure-platform-considerations). È consigliabile inoltre eseguire i test prima di usare questo tag. | In uscita | No | No |
 | **AzurePlatformIMDS** | Servizio metadati dell'istanza di Azure, un servizio dell'infrastruttura di base.<br/><br/>È possibile usare questo tag per disabilitare il servizio metadati dell'istanza di Azure predefinito. Prestare attenzione quando si usa questo tag. È consigliabile leggere le [considerazioni sulla piattaforma di Azure](./network-security-groups-overview.md#azure-platform-considerations). È consigliabile inoltre eseguire i test prima di usare questo tag. | In uscita | No | No |

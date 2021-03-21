@@ -10,14 +10,14 @@ ms.service: virtual-machines-sap
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 02/01/2021
+ms.date: 03/17/2021
 ms.author: radeltch
-ms.openlocfilehash: 2939e00d704f5c2799a1f16822cccdcc963fb73e
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: c5f94329920f8c850c0a47dd607ade8e83658b29
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101671571"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104599919"
 ---
 # <a name="high-availability-of-sap-hana-scale-up-with-azure-netapp-files-on-red-hat-enterprise-linux"></a>Disponibilità elevata di SAP HANA scalabilità verticale con Azure NetApp Files in Red Hat Enterprise Linux
 
@@ -599,6 +599,15 @@ In questo esempio ogni nodo del cluster ha i propri filesystem HANA NFS/Hana/Sha
     nc_HN1_03  (ocf::heartbeat:azure-lb):  Started hanadb1
     vip_HN1_03 (ocf::heartbeat:IPaddr2):   Started hanadb1
     ```
+
+## <a name="configure-hana-activeread-enabled-system-replication-in-pacemaker-cluster"></a>Configurare la replica di sistema HANA Active/Read Enabled nel cluster Pacemaker
+
+A partire da SAP HANA 2,0 SPS 01 SAP consente le configurazioni abilitate per la replica del sistema SAP HANA, attive o in lettura, in cui i sistemi secondari di SAP HANA la replica di sistema possono essere usati attivamente per carichi di lavoro di lettura intensa. Per supportare tale configurazione in un cluster, è necessario un secondo indirizzo IP virtuale che consente ai client di accedere al database di SAP HANA abilitato per la lettura secondario. Per assicurarsi che sia ancora possibile accedere al sito di replica secondaria dopo che si è verificata un'acquisizione, il cluster deve spostare l'indirizzo IP virtuale intorno al database secondario della risorsa SAPHana.
+
+La configurazione aggiuntiva, necessaria per gestire la replica di sistema abilitata per Active/Read HANA in un cluster a disponibilità elevata di Red Hat con il secondo indirizzo IP virtuale, è descritta in [configurare la replica di sistema di Hana Active/Read Enabled nel cluster Pacemaker](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-hana-high-availability-rhel#configure-hana-activeread-enabled-system-replication-in-pacemaker-cluster).  
+
+Prima di procedere, assicurarsi di avere configurato completamente il cluster a disponibilità elevata di Red Hat gestendo SAP HANA database come descritto nei segmenti precedenti della documentazione.    
+
 
 ## <a name="test-the-cluster-setup"></a>Testare la configurazione del cluster
 

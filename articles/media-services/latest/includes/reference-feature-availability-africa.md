@@ -4,12 +4,12 @@ ms.service: media-services
 ms.topic: include
 ms.date: 10/28/2020
 ms.author: inhenkel
-ms.openlocfilehash: c80a17b1e458793fe8f18ad5c4438884e007d666
-ms.sourcegitcommit: 80034a1819072f45c1772940953fef06d92fefc8
+ms.openlocfilehash: 11bee8a36bcf6f5cbf0d16b27c6cff38414d4647
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93242601"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104612733"
 ---
 <!--Feature availability in region-->
 
@@ -17,7 +17,7 @@ ms.locfileid: "93242601"
 
 | Funzionalità| Sudafrica settentrionale | Sudafrica occidentale |
 | --- | --- | --- |
-| [Azure EventGrid](../reacting-to-media-services-events.md) | ![disponibilità generale della griglia di eventi Africa settentrionale](../media/azure-clouds-regions/ga.svg) | ![disponibilità generale della griglia di eventi Africa meridionale](../media/azure-clouds-regions/ga.svg) |
+| [Azure EventGrid](../monitoring/reacting-to-media-services-events.md) | ![disponibilità generale della griglia di eventi Africa settentrionale](../media/azure-clouds-regions/ga.svg) | ![disponibilità generale della griglia di eventi Africa meridionale](../media/azure-clouds-regions/ga.svg) |
 | [VideoAnalyzerPreset](../analyzing-video-audio-files-concept.md) | ![disponibilità generale del nord di analizzatore video di Africa](../media/azure-clouds-regions/ga.svg) | ![disponibilità generale dell'analizzatore video dell'Africa meridionale](../media/azure-clouds-regions/ga.svg) |
 | [AudioAnalyzerPreset](../analyzing-video-audio-files-concept.md) | ![disponibilità generale Africa settentrionale AudioAnalyzerPreset](../media/azure-clouds-regions/ga.svg) | ![disponibilità generale Africa meridionale AudioAnalyzerPreset](../media/azure-clouds-regions/ga.svg) |
 | [StandardEncoderPreset](../encoding-concept.md) | ![disponibilità generale Africa settentrionale StandardEncoderPreset](../media/azure-clouds-regions/ga.svg) | ![disponibilità generale Africa meridionale StandardEncoderPreset](../media/azure-clouds-regions/ga.svg) |

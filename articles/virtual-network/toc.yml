@@ -29,6 +29,8 @@
       href: tutorial-create-nat-gateway-portal.md
     - name: Integrare il servizio di bilanciamento del carico pubblico del gateway NAT
       href: tutorial-nat-gateway-load-balancer-public-portal.md
+    - name: Integrare il servizio di bilanciamento del carico interno del gateway NAT
+      href: tutorial-nat-gateway-load-balancer-internal-portal.md
 - name: Esempi
   items:
     - name: Interfaccia della riga di comando di Azure

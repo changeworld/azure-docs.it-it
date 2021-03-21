@@ -9,10 +9,10 @@ ms.service: virtual-machines
 ms.subservice: disks
 ms.custom: references_regions
 ms.openlocfilehash: cfef3925152c0b94a59c662443cf202724dadc0a
-ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/10/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102549550"
 ---
 # <a name="use-the-azure-powershell-module-to-enable-double-encryption-at-rest-for-managed-disks"></a>Usare il modulo Azure PowerShell per abilitare la crittografia doppia per i dischi gestiti
@@ -23,7 +23,7 @@ Archiviazione su disco di Azure supporta la crittografia doppia per i dischi ges
 
 Installare la versione più recente di [Azure PowerShell](/powershell/azure/install-az-ps)e accedere a un account Azure usando [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount).
 
-## <a name="getting-started"></a>Guida introduttiva
+## <a name="getting-started"></a>Introduzione
 
 1. Creare un'istanza di Azure Key Vault e la chiave di crittografia.
 

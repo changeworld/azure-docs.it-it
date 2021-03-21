@@ -20,10 +20,10 @@ translation.priority.mt:
 - zh-cn
 - zh-tw
 ms.openlocfilehash: 27d5427d34de591f9cfeab2310d79a2fde217624
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "88917874"
 ---
 # <a name="odata-logical-operators-in-azure-cognitive-search---and-or-not"></a>Operatori logici OData in Azure ricerca cognitiva- `and` , `or` , `not`
@@ -89,7 +89,7 @@ La maggior parte delle espressioni booleane quali funzioni e confronti non può 
 
 Quando un campo booleano `b` viene visualizzato da solo in un'espressione di filtro, si comporta come se fosse stato scritto `b eq true` , quindi se `b` è `null` , l'espressione restituisce `false` . Analogamente, `not b` si comporta come `not (b eq true)` , quindi restituisce `true` . In questo modo, `null` i campi si comportano come `false` . Questo comportamento è coerente con il modo in cui si comportano in combinazione con altre espressioni usando `and` e `or` , come illustrato nella tabella precedente. Nonostante questo, un confronto diretto a `false` ( `b eq false` ) restituirà comunque `false` . In altre parole, `null` non è uguale a `false` , anche se si comporta come in espressioni booleane.
 
-## <a name="examples"></a>Esempi
+## <a name="examples"></a>Esempio
 
 Trova la corrispondenza dei documenti in cui il `rating` campo è compreso tra 3 e 5 inclusi:
 

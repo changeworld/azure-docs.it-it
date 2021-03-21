@@ -9,10 +9,10 @@ ms.service: virtual-machines
 ms.subservice: disks
 ms.custom: references_regions, devx-track-azurecli
 ms.openlocfilehash: 266ba4a6fbe0607fd09f86f5cd01addfa60252aa
-ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
+ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/10/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102558322"
 ---
 # <a name="use-the-azure-cli-to-enable-double-encryption-at-rest-for-managed-disks"></a>Usare l'interfaccia della riga di comando di Azure per abilitare la crittografia doppia per i dischi gestiti
@@ -23,7 +23,7 @@ Archiviazione su disco di Azure supporta la crittografia doppia per i dischi ges
 
 Installare la versione più recente dell'interfaccia della riga di comando di [Azure](/cli/azure/install-az-cli2) e accedere a un account Azure con [AZ login](/cli/azure/reference-index).
 
-## <a name="getting-started"></a>Guida introduttiva
+## <a name="getting-started"></a>Introduzione
 
 1. Creare un'istanza di Azure Key Vault e la chiave di crittografia.
 

@@ -8,16 +8,16 @@ ms.assetid: ef2797d7-d440-4a9a-a648-db32ad137494
 ms.service: active-directory
 ms.topic: reference
 ms.workload: identity
-ms.date: 08/07/2020
+ms.date: 03/16/2021
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 706f759243fd9edbd5f47633cb2638d6b06beec1
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: a19babffa63667b0d2deb954d432421a2b7868b8
+ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "100376361"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "104722141"
 ---
 # <a name="azure-ad-connect-version-release-history"></a>Azure AD Connect: Cronologia delle versioni
 Il team di Azure Active Directory (Azure AD) aggiorna regolarmente Azure AD Connect con nuove funzionalità. Le nuove funzionalità potrebbero non essere disponibili in tutti i paesi.
@@ -56,6 +56,86 @@ Seguire questo collegamento per altre informazioni sull'[aggiornamento automatic
 >Per altre informazioni su come aggiornare Azure AD Connect alla versione più recente, vedere [questo articolo](./how-to-upgrade-previous-version.md).
 >
 >Per informazioni sulla cronologia delle versioni per le versioni ritirate, vedere [Azure ad Connect versione archivio cronologia](reference-connect-version-history-archive.md) delle versioni
+
+
+## <a name="1623"></a>1.6.2.3
+
+>[!NOTE]
+> - Questa versione verrà resa disponibile solo per il download.
+> - Per l'aggiornamento a questa versione è necessaria una sincronizzazione completa a causa delle modifiche alle regole di sincronizzazione.
+> - Questa versione imposta come valore predefinito il server AADConnect sul nuovo endpoint V2. Si noti che questo endpoint non è supportato nel cloud nazionale tedesco, nel cloud nazionale cinese e nel cloud del governo degli Stati Uniti e, se è necessario distribuire questa versione in questi cloud, è necessario seguire [queste istruzioni](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-sync-endpoint-api-v2#rollback) per tornare all'endpoint V1. In caso contrario, si verificano errori di sincronizzazione.
+
+### <a name="release-status"></a>Stato della versione
+3/17/2021: rilasciato per il download
+
+### <a name="functional-changes"></a>Modifiche funzionali
+
+ - Sono state aggiornate le regole di sincronizzazione predefinite per limitare l'appartenenza ai gruppi riscritti a 50.000 membri.
+   - Sono state aggiunte nuove regole di sincronizzazione predefinite per limitare il numero di appartenenze nel writeback del gruppo (al limite dei membri di writeback del gruppo AD) e la sincronizzazione di gruppo per i gruppi di Azure Active Directory (out to AAD-Group writeup Limit).
+   - Aggiunta dell'attributo member alla regola ' out to AD-Group SOAInAAD-Exchange ' per limitare i membri dei gruppi di cui è stato eseguito il writeback a 50.000
+ - Aggiornamento delle regole di sincronizzazione per supportare il writeback del gruppo V2-se la regola "in da AAD-gruppo SOAInAAD" è clonata e AADConnect viene aggiornato.
+     -La regola aggiornata sarà disabilitata per impostazione predefinita, quindi targetWritebackType sarà null.
+     - AADConnect effettuerà il writeback di tutti i gruppi di cloud (inclusi Azure Active Directory gruppi di sicurezza abilitati per il writeback) come gruppi di distribuzione.
+   -Se la regola "out to AD-Group SOAInAAD" viene clonata e AADConnect viene aggiornato.
+     - La regola aggiornata sarà disabilitata per impostazione predefinita. Tuttavia, verrà abilitata una nuova regola di sincronizzazione "out to AD-Group SOAInAAD-Exchange" che verrà aggiunta.
+     - A seconda della precedenza della regola di sincronizzazione personalizzata clonata, AADConnect produrrà gli attributi mail e Exchange.
+     - Se la regola di sincronizzazione personalizzata clonata non scorre alcuni attributi di posta e di scambio, la nuova regola di sincronizzazione di Exchange aggiungerà tali attributi.
+ - Aggiunta del supporto per la [sincronizzazione selettiva dell'hash delle password](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-selective-password-hash-synchronization)
+ - Aggiunta del nuovo [cmdlet di sincronizzazione oggetto singolo](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-single-object-sync). Utilizzare questo cmdlet per risolvere i problemi relativi alla configurazione della sincronizzazione Azure AD Connect. 
+ - Aggiornamento dell'agente di AADConnectHealth a 3.1.83.0
+ - Nuova versione del [modulo ADSyncTools di PowerShell](https://docs.microsoft.com/azure/active-directory/hybrid/reference-connect-adsynctools), che include diversi cmdlet nuovi o migliorati. 
+ 
+   - Clear-ADSyncToolsMsDsConsistencyGuid
+   - ConvertFrom-ADSyncToolsAadDistinguishedName
+   - ConvertFrom-ADSyncToolsImmutableID
+   - ConvertTo-ADSyncToolsAadDistinguishedName
+   - ConvertTo-ADSyncToolsCloudAnchor
+   - ConvertTo-ADSyncToolsImmutableID
+   - Export-ADSyncToolsAadDisconnectors
+   - Export-ADSyncToolsObjects
+   - Export-ADSyncToolsRunHistory
+   - Get-ADSyncToolsAadObject
+   - Get-ADSyncToolsMsDsConsistencyGuid
+   - Import-ADSyncToolsObjects
+   - Import-ADSyncToolsRunHistory
+   - Remove-ADSyncToolsAadObject
+   - Search-ADSyncToolsADobject
+   - Set-ADSyncToolsMsDsConsistencyGuid
+   - Trace-ADSyncToolsADImport
+   - Trace-ADSyncToolsLdapQuery
+
+ - Aggiornamento della registrazione degli errori per gli errori di acquisizione dei token.
+ - Sono stati aggiornati i collegamenti "ulteriori informazioni" nella pagina di configurazione per fornire maggiori dettagli sulle informazioni collegate.
+ - Rimozione della colonna esplicita dalla pagina di ricerca CS nell'interfaccia utente di sincronizzazione precedente
+ - È stata aggiunta un'interfaccia utente aggiuntiva al flusso di writeback del gruppo per richiedere le credenziali all'utente o per configurarne le autorizzazioni usando il modulo ADSyncConfig se le credenziali non sono già state fornite in un passaggio precedente.
+ - Creazione automatica di MSA per l'account del servizio ADSync in un controller di dominio. 
+ -  Aggiunta della possibilità di impostare e ottenere Azure Active Directory writeback del gruppo di funzionalità DirSync V2 nei cmdlet esistenti:
+    - Set-ADSyncAADCompanyFeature
+    - Get-ADSyncAADCompanyFeature
+ - Sono stati aggiunti 2 cmdlet per leggere la versione dell'API AWS
+    - Get-ADSyncAADConnectorImportApiVersion-per ottenere la versione dell'API Import AWS
+    - Get-ADSyncAADConnectorExportApiVersion-per ottenere la versione dell'API Export AWS
+
+ - Vengono ora rilevate le modifiche apportate alle regole di sincronizzazione per facilitare la risoluzione dei problemi relativi alle modifiche nel servizio. Il cmdlet "Get-ADSyncRuleAudit" recupererà le modifiche rilevate.
+ - Aggiornamento del cmdlet Add-ADSyncADDSConnectorAccount nel [modulo ADSyncConfig di PowerShell](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-configure-ad-ds-connector-account#using-the-adsyncconfig-powershell-module) per consentire a un utente del gruppo ADSyncAdmin di modificare l'account del connettore di servizi di dominio Active Directory. 
+
+### <a name="bug-fixes"></a>Correzioni di bug
+ - Il colore di primo piano disabilitato è stato aggiornato per soddisfare i requisiti di luminosità su uno sfondo bianco. Sono state aggiunte altre condizioni per l'albero di navigazione per impostare il colore del testo in primo piano su bianco quando viene selezionata una pagina disabilitata per soddisfare i requisiti di luminosità.
+ - Aumentare la granularità per Set-ADSyncPasswordHashSyncPermissions lo script di autorizzazioni pH aggiornato dal cmdlet (set-ADSyncPasswordHashSyncPermissions) per includere un parametro "ADobjectDN" facoltativo. 
+ - Correzione di bug di accessibilità. L'elemento UX che include l'elenco di foreste come "**elenco di foreste**", anziché "elenco di insiemi di **strutture**", verrà ora descritto dall'utente.
+ - Aggiornamento dell'output dell'Reader per alcuni elementi nella procedura guidata Azure AD Connect. Colore del pulsante aggiornato al passaggio del mouse per soddisfare i requisiti di contrasto. Aggiornamento del colore del titolo Synchronization Service Manager per soddisfare i requisiti di contrasto.
+ - Correzione di un problema relativo all'installazione di AADConnect dalla configurazione esportata con attributi di estensione personalizzati: è stata aggiunta una condizione per ignorare il controllo degli attributi di estensione nello schema di destinazione durante l'applicazione della regola di sincronizzazione.
+ - Se la funzionalità di writeback dei gruppi è abilitata, vengono aggiunte le autorizzazioni appropriate durante l'installazione.
+ - Correggi la precedenza della regola di sincronizzazione predefinita duplicata durante l'importazione
+ - È stato risolto un problema che causava un errore di gestione temporanea durante l'importazione delta dell'API v2 per un oggetto in conflitto riparato tramite il portale per l'integrità.
+ - Correzione di un problema nel motore di sincronizzazione che ha causato lo stato di collegamento incoerente degli oggetti CS
+ - Aggiunta dei contatori di importazione all'output Get-ADSyncConnectorStatistics.
+ - Correzione della deselezione del dominio non raggiungibile (selezionata in precedenza) in alcuni casi d'angolo durante la procedura guidata di pass2.
+ - Modifica dell'importazione e dell'esportazione dei criteri non riuscita se la regola personalizzata ha precedenza duplicata 
+ - Correzione di un bug nella logica di selezione del dominio.
+ - Corregge un problema relativo alla compilazione 1.5.18.0 se si usa mS-DS-ConsistencyGuid come ancoraggio di origine e si clona la regola in da AD-Group Join.
+ - Le nuove installazioni di AADConnect utilizzeranno la soglia di eliminazione delle esportazioni archiviata nel cloud se disponibile e non ne è stato passato uno diverso.
+ - Correzione di un problema per cui AADConnect non legge le modifiche AD displayName dei dispositivi aggiunti a un ibrido
 
 ## <a name="15450"></a>1.5.45.0
 

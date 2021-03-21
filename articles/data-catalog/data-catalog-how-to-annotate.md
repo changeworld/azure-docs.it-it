@@ -6,14 +6,16 @@ ms.author: jasonh
 ms.service: data-catalog
 ms.topic: how-to
 ms.date: 08/01/2019
-ms.openlocfilehash: 61a91ca8a51886c28beee77853d1ae67911e00e7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 89fa1b542c54fc962f8c12a2142884c677afb259
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87081237"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104674649"
 ---
 # <a name="how-to-annotate-data-sources-in-azure-data-catalog"></a>Come annotare le origini dati in Azure Data Catalog
+
+[!INCLUDE [Azure Purview redirect](../../includes/data-catalog-use-purview.md)]
 
 ## <a name="introduction"></a>Introduzione
 
@@ -21,7 +23,7 @@ ms.locfileid: "87081237"
 
 ## <a name="annotation-and-crowdsourcing"></a>Annotazione e crowdsourcing
 Oggi tutti hanno un parere. E questo è positivo.
-Data Catalog riconosce che utenti diversi hanno prospettive diverse sulle origini dati aziendali e che ognuna di queste prospettive può essere utile. Si consideri lo scenario seguente:
+Data Catalog riconosce che utenti diversi hanno prospettive diverse sulle origini dati aziendali e che ognuna di queste prospettive può essere utile. Considerare lo scenario seguente:
 
 * L'amministratore di sistema conosce il contratto di servizio per il server o servizi che ospitano l'origine dati.
 * L'amministratore del database conosce la pianificazione del backup per ogni database e le finestre di elaborazione ETL consentite.
@@ -60,5 +62,5 @@ Così come i metadati estratti dall'origine dati durante la registrazione vengon
 ## <a name="summary"></a>Riepilogo
 La registrazione di un'origine dati in Data Catalog rende individuabili tali dati copiando i metadati strutturali e descrittivi dall'origine dati al servizio Catalog. Dopo la registrazione di un'origine dati, gli utenti possono specificare annotazioni per facilitare l'individuazione e la comprensione dal portale di Data Catalog.
 
-## <a name="see-also"></a>Vedere anche
+## <a name="see-also"></a>Vedi anche
 * [Introduzione ad Azure Data Catalog](data-catalog-get-started.md) .

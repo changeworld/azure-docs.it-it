@@ -3,17 +3,17 @@ title: Livelli di accesso per archiviazione BLOB di Azure-accesso frequente, ad 
 description: Informazioni sui livelli di accesso ad accesso frequente, ad accesso sporadico e archivio per archiviazione BLOB di Azure. Esaminare gli account di archiviazione che supportano la suddivisione in livelli.
 author: mhopkins-msft
 ms.author: mhopkins
-ms.date: 01/11/2021
+ms.date: 03/18/2021
 ms.service: storage
 ms.subservice: blobs
 ms.topic: conceptual
 ms.reviewer: klaasl
-ms.openlocfilehash: 67534e70904c70f7bf9dda44502e723916bdce93
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: 1a1cb8e1676405cbfbb3f4f61c86d8136b688b88
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98928803"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104656839"
 ---
 # <a name="access-tiers-for-azure-blob-storage---hot-cool-and-archive"></a>Livelli di accesso per archiviazione BLOB di Azure-accesso frequente, ad accesso sporadico e archivio
 
@@ -100,7 +100,9 @@ La modifica del livello di accesso dell'account si applica a tutti gli oggetti _
 
 La suddivisione in livelli a livello di BLOB consente di caricare i dati nel livello di accesso desiderato usando le operazioni [Put Blob](/rest/api/storageservices/put-blob) o [Put Block List](/rest/api/storageservices/put-block-list) e modificare il livello dei dati a livello di oggetto usando la funzionalità [set BLOB](/rest/api/storageservices/set-blob-tier) Operation o [Lifecycle Management](#blob-lifecycle-management) . È possibile caricare i dati nel livello di accesso richiesto, quindi modificare facilmente il livello di accesso BLOB tra i livelli ad accesso frequente, ad accesso sporadico o archivio, in quanto i modelli di utilizzo cambiano, senza dover spostare i dati tra gli account. Tutte le richieste di modifica del livello si verificano immediatamente e le modifiche al livello tra accesso frequente e accesso sporadico sono La riattivazione di un BLOB dal livello archivio può richiedere diverse ore.
 
-L'ora dell'ultima modifica a livello di BLOB viene esposta tramite la proprietà BLOB **Access Tier Change Time** (Ora modifica livello di accesso). Quando si sovrascrive un BLOB nel livello ad accesso frequente o sporadico, il BLOB appena creato eredita il livello del BLOB che è stato sovrascritto, a meno che il nuovo livello di accesso al BLOB non venga impostato in modo esplicito al momento della creazione. Se un BLOB si trova nel livello archivio, non può essere sovrascritto, quindi il caricamento dello stesso BLOB non è consentito in questo scenario.
+L'ora dell'ultima modifica a livello di BLOB viene esposta tramite la proprietà BLOB **Access Tier Change Time** (Ora modifica livello di accesso). L' **ora di modifica del livello di accesso** è una proprietà a livello di BLOB e non viene aggiornata quando viene modificato il livello di account predefinito. Le proprietà dell'account e le proprietà del BLOB sono separate. Sarebbe troppo costoso aggiornare l' **ora di modifica del livello di accesso** in ogni BLOB in un account di archiviazione ogni volta che viene modificato il livello di accesso predefinito dell'account.
+
+Quando si sovrascrive un BLOB nel livello ad accesso frequente o sporadico, il BLOB appena creato eredita il livello del BLOB che è stato sovrascritto, a meno che il nuovo livello di accesso al BLOB non venga impostato in modo esplicito al momento della creazione. Se un BLOB si trova nel livello archivio, non può essere sovrascritto, quindi il caricamento dello stesso BLOB non è consentito in questo scenario.
 
 > [!NOTE]
 > Il livello di archiviazione archivio e l'organizzazione a livello di BLOB supportano solo BLOB in blocchi.

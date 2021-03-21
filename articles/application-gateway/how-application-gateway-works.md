@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: conceptual
 ms.date: 11/16/2019
 ms.author: absha
-ms.openlocfilehash: 9166125fac28f43a93cbee2875b91bee986b1400
-ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
+ms.openlocfilehash: d2055bf812c3dc986a907d4358fa0e74e8af20fa
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93397468"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104599664"
 ---
 # <a name="how-an-application-gateway-works"></a>Funzionamento del gateway applicazione
 
@@ -30,7 +30,7 @@ Questo articolo illustra il modo in cui un gateway applicazione accetta le richi
 
 4. Se è in uso un web application firewall (WAF), il gateway applicazione controlla le intestazioni della richiesta e il corpo, se presente, rispetto alle regole di WAF. Questa azione determina se la richiesta è una richiesta valida o una minaccia per la sicurezza. Se la richiesta è valida, viene indirizzata al back-end. Se la richiesta non è valida e WAF è in modalità di prevenzione, viene bloccata come minaccia per la sicurezza. Se è in modalità di rilevamento, la richiesta viene valutata e registrata, ma viene comunque trasmessa al server back-end.
 
-Applicazione Azure gateway può essere usato come servizio di bilanciamento del carico dell'applicazione interno o come servizio di bilanciamento del carico dell'applicazione con connessione Internet. Un gateway applicazione con connessione Internet usa indirizzi IP pubblici. Il nome DNS di un gateway applicazione con connessione Internet è risolvibile pubblicamente nell'indirizzo IP pubblico. Di conseguenza, i gateway applicazione con connessione Internet possono indirizzare le richieste client a Internet.
+Applicazione Azure gateway può essere usato come servizio di bilanciamento del carico dell'applicazione interno o come servizio di bilanciamento del carico dell'applicazione con connessione Internet. Un gateway applicazione con connessione Internet usa indirizzi IP pubblici. Il nome DNS di un gateway applicazione con connessione Internet è risolvibile pubblicamente nell'indirizzo IP pubblico. Di conseguenza, i gateway applicazione con connessione Internet possono indirizzare le richieste client da Internet.
 
 I gateway applicazione interni usano solo indirizzi IP privati. Se si usa una zona personalizzata o [DNS privato](../dns/private-dns-overview.md), il nome di dominio deve essere risolvibile internamente nell'indirizzo IP privato del gateway applicazione. Pertanto, i bilanciamenti del carico interno possono indirizzare le richieste dai client con accesso a una rete virtuale per il gateway applicazione.
 
@@ -52,9 +52,9 @@ Quando un gateway applicazione invia la richiesta originale al server back-end, 
 
  >[!NOTE]
 >Se il pool back-end:
-> - **È un endpoint pubblico** , il gateway applicazione usa l'indirizzo IP pubblico front-end per raggiungere il server. Se non è disponibile un indirizzo IP pubblico front-end, ne viene assegnato uno per la connettività esterna in uscita.
-> - **Contiene un nome di dominio completo risolvibile internamente o un indirizzo IP privato** , il gateway applicazione instrada la richiesta al server back-end usando gli indirizzi IP privati dell'istanza.
-> - **Contiene un endpoint esterno o un nome di dominio completo risolvibile esternamente** , il gateway applicazione instrada la richiesta al server back-end usando il relativo indirizzo IP pubblico front-end. La risoluzione DNS si basa su una zona DNS privata o su un server DNS personalizzato, se configurata, oppure usa il DNS predefinito fornito da Azure. Se non è disponibile un indirizzo IP pubblico front-end, ne viene assegnato uno per la connettività esterna in uscita.
+> - **È un endpoint pubblico**, il gateway applicazione usa l'indirizzo IP pubblico front-end per raggiungere il server. Se non è disponibile un indirizzo IP pubblico front-end, ne viene assegnato uno per la connettività esterna in uscita.
+> - **Contiene un nome di dominio completo risolvibile internamente o un indirizzo IP privato**, il gateway applicazione instrada la richiesta al server back-end usando gli indirizzi IP privati dell'istanza.
+> - **Contiene un endpoint esterno o un nome di dominio completo risolvibile esternamente**, il gateway applicazione instrada la richiesta al server back-end usando il relativo indirizzo IP pubblico front-end. La risoluzione DNS si basa su una zona DNS privata o su un server DNS personalizzato, se configurata, oppure usa il DNS predefinito fornito da Azure. Se non è disponibile un indirizzo IP pubblico front-end, ne viene assegnato uno per la connettività esterna in uscita.
 
 ### <a name="modifications-to-the-request"></a>Modifiche alla richiesta
 

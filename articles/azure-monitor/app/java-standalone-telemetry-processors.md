@@ -7,10 +7,10 @@ author: kryalama
 ms.custom: devx-track-java
 ms.author: kryalama
 ms.openlocfilehash: 35e53454e5b2c6265082bbedb4a8b60e82df7191
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/03/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "101734571"
 ---
 # <a name="telemetry-processors-preview---azure-monitor-application-insights-for-java"></a>Processori di telemetria (anteprima)-Application Insights di monitoraggio di Azure per Java
@@ -54,7 +54,7 @@ Può anche usare un'espressione regolare per estrarre uno o più nuovi attributi
 > [!NOTE]
 > Attualmente, i processori di telemetria elaborano solo gli attributi di tipo stringa. Non elaborano attributi di tipo booleano o numerico.
 
-## <a name="getting-started"></a>Guida introduttiva
+## <a name="getting-started"></a>Introduzione
 
 Per iniziare, creare un file di configurazione denominato *applicationinsights.json*. Salvarlo nella stessa directory di *applicationinsights-Agent- \* . jar*. Usare il modello seguente.
 

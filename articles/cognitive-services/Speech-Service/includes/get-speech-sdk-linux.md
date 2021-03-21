@@ -4,12 +4,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 04/03/2020
 ms.author: trbye
-ms.openlocfilehash: 2466b9b9b812ae9fb590a6678d840661c74f47bd
-ms.sourcegitcommit: df1930c9fa3d8f6592f812c42ec611043e817b3b
+ms.openlocfilehash: cdcb61249f6cb8f7b60c891dd4899d2e5cedbae6
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/13/2021
-ms.locfileid: "103439235"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104612819"
 ---
 :::row:::
     :::column span="3":::
@@ -32,7 +32,7 @@ ms.locfileid: "103439235"
 > Per C# in Linux ARM64, è necessario .NET Core 3. x (pacchetto dotnet-SDK-3. x).
 
 > [!NOTE]
-> Per usare l'SDK di riconoscimento vocale in Alpine Linux, creare un ambiente di chroot Debian come documentato in the Alpine Linux wiki su [https://wiki.alpinelinux.org/wiki/Running_glibc_programs](running glibc programs) e quindi seguire le istruzioni Debian qui.
+> Per usare l'SDK di riconoscimento vocale in Alpine Linux, creare un ambiente chroot Debian come documentato nel wiki di Alpine Linux sull' [esecuzione di programmi glibc](https://wiki.alpinelinux.org/wiki/Running_glibc_programs), quindi seguire le istruzioni Debian qui.
 
 ### <a name="system-requirements"></a>Requisiti di sistema
 
