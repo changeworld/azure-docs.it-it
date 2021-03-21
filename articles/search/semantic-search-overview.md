@@ -9,12 +9,12 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 03/18/2021
 ms.custom: references_regions
-ms.openlocfilehash: 443d6349aab68fd05edfe4c4007fd043c932f4f0
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: d4b0a4107b3894d65dd8e168cd58566d4a4b5090
+ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104604271"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "104720492"
 ---
 # <a name="semantic-search-in-azure-cognitive-search"></a>Ricerca semantica in Azure ricerca cognitiva
 
@@ -50,7 +50,9 @@ I componenti della ricerca semantica estendono la pipeline di esecuzione di quer
 
 L'esecuzione della query procede come di consueto, con l'analisi dei termini, l'analisi e le analisi degli indici invertiti. Il motore recupera i documenti usando la corrispondenza dei token e assegna punteggi ai risultati usando l' [algoritmo di Punteggio di somiglianza predefinito](index-similarity-and-scoring.md#similarity-ranking-algorithms). I punteggi vengono calcolati in base al grado di somiglianza linguistica tra i termini di query e i termini corrispondenti nell'indice. Se sono stati definiti, i profili di punteggio vengono applicati anche in questa fase. I risultati vengono quindi passati al sottosistema di ricerca semantica.
 
-Nel passaggio di preparazione, il corpus del documento restituito dal set di risultati iniziale viene analizzato a livello di frase e paragrafo per trovare i passaggi che riepilogano ogni documento. Diversamente dalla ricerca di parole chiave, questo passaggio usa la lettura e la comprensione del computer per valutare il contenuto. Come parte della composizione dei risultati, una query semantica restituisce didascalie e risposte. Per formularle, la ricerca semantica usa la rappresentazione del linguaggio per estrarre ed evidenziare i passaggi di chiave che riepilogano meglio un risultato. Se la query di ricerca è una domanda e vengono richieste risposte, la risposta includerà anche un passaggio di testo che meglio risponde alla domanda, come espresso dalla query di ricerca. Per le didascalie e le risposte, nella formulazione viene usato il testo esistente. I modelli semantici non compongono nuove frasi o frasi dal contenuto disponibile, né applicano la logica per giungere a nuove conclusioni. In breve, il sistema non restituirà mai contenuto che non esiste già.
+Nel passaggio di preparazione, il corpus del documento restituito dal set di risultati iniziale viene analizzato a livello di frase e paragrafo per trovare i passaggi che riepilogano ogni documento. Diversamente dalla ricerca di parole chiave, questo passaggio usa la lettura e la comprensione del computer per valutare il contenuto. Tramite questa fase dell'elaborazione del contenuto, una query semantica restituisce [didascalie](semantic-how-to-query-request.md) e [risposte](semantic-answers.md). Per formularle, la ricerca semantica usa la rappresentazione del linguaggio per estrarre ed evidenziare i passaggi di chiave che riepilogano meglio un risultato. Se la query di ricerca è una domanda e vengono richieste risposte, la risposta includerà anche un passaggio di testo che meglio risponde alla domanda, come espresso dalla query di ricerca. 
+
+Per le didascalie e le risposte, nella formulazione viene usato il testo esistente. I modelli semantici non compongono nuove frasi o frasi dal contenuto disponibile, né applicano la logica per giungere a nuove conclusioni. In breve, il sistema non restituirà mai contenuto che non esiste già.
 
 I risultati vengono quindi riassegnati in base alla [somiglianza concettuale](semantic-ranking.md) dei termini di query.
 

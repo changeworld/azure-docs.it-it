@@ -4,10 +4,10 @@ description: Questo articolo illustra come visualizzare l'argomento di sistema e
 ms.topic: conceptual
 ms.date: 07/07/2020
 ms.openlocfilehash: 2dbb0893668d72cfebf2d64e6515ff6ab6fed9bc
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "86115112"
 ---
 # <a name="create-view-and-manage-event-grid-system-topics-in-the-azure-portal"></a>Creare, visualizzare e gestire gli argomenti del sistema di griglia di eventi nel portale di Azure
@@ -83,7 +83,7 @@ Per visualizzare tutti gli argomenti di sistema di griglia di eventi esistenti, 
 2. Nella pagina **argomento del sistema di griglia di eventi** selezionare **+ sottoscrizione di eventi** sulla barra degli strumenti. 
 
     ![Argomento di sistema-pulsante Aggiungi sottoscrizione evento](./media/create-view-manage-system-topics/add-event-subscription-button.png)
-3. Verificare che il **tipo di argomento**, la **risorsa di origine**e il **nome dell'argomento** vengano popolati automaticamente. Immettere un nome, selezionare un **tipo di endpoint**e specificare l' **endpoint**. Selezionare quindi **Crea** per creare la sottoscrizione di eventi. 
+3. Verificare che il **tipo di argomento**, la **risorsa di origine** e il **nome dell'argomento** vengano popolati automaticamente. Immettere un nome, selezionare un **tipo di endpoint** e specificare l' **endpoint**. Selezionare quindi **Crea** per creare la sottoscrizione di eventi. 
 
     ![Argomento di sistema-creare una sottoscrizione di eventi](./media/create-view-manage-system-topics/create-event-subscription.png)
 

@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.date: 5/2/2020
 ms.author: derekol
 ms.openlocfilehash: 69201c97882846fb929b3b6f9a90be6647603bcc
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "84700481"
 ---
 # <a name="create-or-modify-an-exchange-peering-by-using-the-azure-portal"></a>Creare o modificare un peering di Exchange con il portale di Azure
@@ -35,21 +35,21 @@ Se si preferisce, è possibile completare questa esercitazione usando [Azure Pow
 
 I provider di Internet Exchange possono creare una richiesta di peering di Exchange tramite la [creazione di un peering]( https://go.microsoft.com/fwlink/?linkid=2129593).
 
-1. Nella scheda **Generale**, nella pagina **Create a Peering** (Crea peering) completare le caselle nel modo seguente:
+1. Nella scheda **Generale** della pagina **Create a Peering** (Crea peering) compilare le caselle come illustrato nell'immagine seguente:
 
     > [!div class="mx-imgBorder"] 
     > ![Registrare un servizio di peering](./media/setup-basics-tab.png)
 
 *    Selezionare la sottoscrizione di Azure.
 
-* Per il gruppo di risorse, è possibile sceglierne uno esistente nell'elenco a discesa o crearne uno nuovo selezionando Crea nuova. Per questo esempio, creare un nuovo gruppo di risorse.
+* Per Gruppo di risorse, è possibile sceglierne uno esistente nell'elenco a discesa o crearne uno nuovo selezionando Crea nuovo. Per questo esempio, creare un nuovo gruppo di risorse.
 
 * Il nome corrisponde a quello della risorsa e può essere qualsiasi nome desiderato.
 
 * Se si sceglie un gruppo di risorse esistente, l'area viene selezionata automaticamente. Se si sceglie di creare un nuovo gruppo di risorse, è necessario scegliere anche l'area di Azure in cui deve trovarsi la risorsa.
 
 >[!NOTE]
->L'area in cui si trova un gruppo di risorse è indipendente dalla località in cui si vuole creare il peering con Microsoft. Tuttavia, è consigliabile organizzare le risorse di peering all'interno di gruppi di risorse che si trovano nelle aree di Azure più vicine. Ad esempio, per peering in Ashburn, è consigliabile creare un gruppo di risorse nell'area Stati Uniti orientali o Stati Uniti orientali 2.
+>L'area in cui si trova un gruppo di risorse è indipendente dalla località in cui si vuole creare il peering con Microsoft. Tuttavia, è consigliabile organizzare le risorse di peering all'interno di gruppi di risorse che si trovano nelle aree di Azure più vicine. Ad esempio, per peering in Ashburn è possibile creare un gruppo di risorse nell'area Stati Uniti orientali o Stati Uniti orientali 2.
 
 * Selezionare l'ASN nella casella **ASN peer**.
 

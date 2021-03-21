@@ -7,15 +7,15 @@ ms.reviewer: klam, logicappspm
 ms.topic: conceptual
 ms.date: 03/31/2020
 ms.openlocfilehash: 0a36cb468ebcb77c0614bffd0afc392df3655c20
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "89658196"
 ---
 # <a name="business-continuity-and-disaster-recovery-for-azure-logic-apps"></a>Continuità aziendale e ripristino di emergenza per app per la logica di Azure
 
-Per ridurre l'impatto e gli effetti che gli eventi imprevisti hanno sull'azienda e sui clienti, assicurarsi di disporre di una soluzione di [ *ripristino di emergenza* ](https://en.wikipedia.org/wiki/Disaster_recovery) per poter proteggere i dati, ripristinare rapidamente le risorse che supportano le funzioni aziendali critiche e mantenere le operazioni in esecuzione per mantenere la [ *continuità aziendale* (BC)](https://en.wikipedia.org/wiki/Business_continuity_planning). Ad esempio, le interruzioni possono includere interruzioni, perdite nell'infrastruttura o nei componenti sottostanti, ad esempio risorse di archiviazione, rete o calcolo, errori di applicazioni irreversibili o addirittura una perdita di dati completa. Grazie alla disponibilità di una soluzione di continuità aziendale e ripristino di emergenza (BCDR), l'azienda o l'organizzazione può rispondere più rapidamente a interruzioni, pianificate o non pianificate e ridurre i tempi di inattività per i clienti.
+Per ridurre l'impatto e gli effetti che gli eventi imprevisti hanno sull'azienda e sui clienti, assicurarsi di disporre di una soluzione di [ *ripristino di emergenza*](https://en.wikipedia.org/wiki/Disaster_recovery) per poter proteggere i dati, ripristinare rapidamente le risorse che supportano le funzioni aziendali critiche e mantenere le operazioni in esecuzione per mantenere la [ *continuità aziendale* (BC)](https://en.wikipedia.org/wiki/Business_continuity_planning). Ad esempio, le interruzioni possono includere interruzioni, perdite nell'infrastruttura o nei componenti sottostanti, ad esempio risorse di archiviazione, rete o calcolo, errori di applicazioni irreversibili o addirittura una perdita di dati completa. Grazie alla disponibilità di una soluzione di continuità aziendale e ripristino di emergenza (BCDR), l'azienda o l'organizzazione può rispondere più rapidamente a interruzioni, pianificate o non pianificate e ridurre i tempi di inattività per i clienti.
 
 Questo articolo fornisce indicazioni e strategie BCDR che è possibile applicare quando si compilano flussi di lavoro automatizzati usando app per la [logica di Azure](../logic-apps/logic-apps-overview.md). I flussi di lavoro delle app per la logica consentono di integrare e orchestrare più facilmente i dati tra app, servizi cloud e sistemi locali riducendo la quantità di codice da scrivere. Quando si pianifica BCDR, assicurarsi di considerare non solo le app per la logica, ma anche le risorse di Azure usate con le app per la logica:
 
@@ -103,7 +103,7 @@ La risorsa del gateway dati è associata a una località o a un'area di Azure, p
 | Primario-ruolo secondario | Descrizione |
 |------------------------|-------------|
 | *Attivo-attivo* | Le istanze dell'app per la logica primaria e secondaria in entrambe le posizioni gestiscono attivamente le richieste seguendo uno di questi modelli: <p><p>- *Bilanciamento del carico*: è possibile fare in modo che entrambe le istanze attendano un endpoint e bilanciare il carico del traffico in ogni istanza, se necessario. <p>- *Consumer concorrenti*: è possibile fare in modo che entrambe le istanze fungano da consumer concorrenti, in modo che le istanze concorrano per i messaggi da una coda. Se un'istanza ha esito negativo, l'altra istanza assume il carico di lavoro. |
-| *Modalità attiva-passiva* | L'istanza dell'app per la logica primaria gestisce attivamente l'intero carico di lavoro, mentre l'istanza secondaria è passiva (disabilitata o inattiva). Il database secondario attende un segnale che il database primario non è disponibile o non funziona a causa di interruzioni o errori e assume il carico di lavoro come istanza attiva. |
+| *Attivo-passivo* | L'istanza dell'app per la logica primaria gestisce attivamente l'intero carico di lavoro, mentre l'istanza secondaria è passiva (disabilitata o inattiva). Il database secondario attende un segnale che il database primario non è disponibile o non funziona a causa di interruzioni o errori e assume il carico di lavoro come istanza attiva. |
 | Combinazione | Alcune app per la logica svolgono un ruolo attivo-attivo, mentre altre app per la logica svolgono un ruolo attivo-passivo. |
 |||
 
@@ -183,7 +183,7 @@ Per ottenere altre informazioni sulle esecuzioni passate del flusso di lavoro de
 
 Il tipo di trigger usato nelle app per la logica determina le opzioni per la configurazione delle app per la logica nelle diverse posizioni della strategia di ripristino di emergenza. Ecco i tipi di trigger disponibili che è possibile usare nelle app per la logica:
 
-* [Trigger Recurrence](#recurrence-trigger)
+* [Trigger di ricorrenza](#recurrence-trigger)
 * [Trigger di polling](#polling-trigger)
 * [Trigger di richiesta](#request-trigger)
 * [Trigger webhook](#webhook-trigger)
@@ -249,7 +249,7 @@ Dal punto di vista del ripristino di emergenza, quando si configurano le istanze
   Ad esempio, la lettura da una coda di messaggi, ad esempio una coda del bus di servizio di Azure, USA lo stato lato server perché il servizio di Accodamento mantiene i blocchi sui messaggi per evitare che altri client leggano gli stessi messaggi.
 
   > [!NOTE]
-  > Se l'app per la logica deve leggere i messaggi in un ordine specifico, ad esempio da una coda del bus di servizio, è possibile usare il modello di consumer concorrente ma solo se combinato con le sessioni del bus di servizio, noto anche come modello di serie di istruzioni [ *sequenziali* ](/azure/architecture/patterns/sequential-convoy). In caso contrario, è necessario configurare le istanze dell'app per la logica con i ruoli attivo-passivo.
+  > Se l'app per la logica deve leggere i messaggi in un ordine specifico, ad esempio da una coda del bus di servizio, è possibile usare il modello di consumer concorrente ma solo se combinato con le sessioni del bus di servizio, noto anche come modello di serie di istruzioni [ *sequenziali*](/azure/architecture/patterns/sequential-convoy). In caso contrario, è necessario configurare le istanze dell'app per la logica con i ruoli attivo-passivo.
 
 <a name="request-trigger"></a>
 

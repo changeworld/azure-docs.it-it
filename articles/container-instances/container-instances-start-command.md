@@ -4,10 +4,10 @@ description: Impostare una riga di comando per eseguire l'override del EntryPoin
 ms.topic: article
 ms.date: 04/15/2019
 ms.openlocfilehash: 23221de3dc91c37c2e6fb96489539d3954efcd87
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "86169630"
 ---
 # <a name="set-the-command-line-in-a-container-instance-to-override-the-default-command-line-operation"></a>Impostare la riga di comando in un'istanza di contenitore per sostituire l'operazione della riga di comando predefinita
@@ -50,7 +50,7 @@ La sintassi della riga di comando varia a seconda dell'API o dello strumento di 
 
   Se si ha familiarità con la sintassi di [Dockerfile](https://docs.docker.com/engine/reference/builder/) , questo formato è simile al formato *Exec* dell'istruzione cmd.
 
-### <a name="examples"></a>Esempi
+### <a name="examples"></a>Esempio
 
 |    |  Interfaccia della riga di comando di Azure   | Portale | Modello | 
 | ---- | ---- | --- | --- |

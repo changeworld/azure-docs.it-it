@@ -9,12 +9,12 @@ ms.subservice: synapse-link
 ms.date: 09/15/2020
 ms.author: acomet
 ms.reviewer: jrasnick
-ms.openlocfilehash: 32e8ad5028920cefd717cdaa5429786c83367f6d
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 615998de45c4a9993899065a4aef7a15332a59c8
+ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 03/20/2021
-ms.locfileid: "101671274"
+ms.locfileid: "104720407"
 ---
 # <a name="interact-with-azure-cosmos-db-using-apache-spark-in-azure-synapse-link"></a>Interagire con Azure Cosmos DB usando Apache Spark nel collegamento ad Azure Synapse
 
@@ -28,6 +28,10 @@ Le funzionalità seguenti sono supportate durante l'interazione con Azure Cosmos
 * Apache Spark per Synapse supporta anche lo streaming strutturato Spark con Azure Cosmos DB come origine, oltre a un sink. 
 
 Le sezioni seguenti illustrano la sintassi delle funzionalità indicate precedentemente. I movimenti nell'area di lavoro di Azure Synapse Analytics sono progettati per offrire una semplice esperienza predefinita per iniziare. I movimenti sono visibili quando si fa clic con il pulsante destro del mouse su un contenitore Azure Cosmos DB nella scheda **Dati** dell'area di lavoro di Synapse. Con i movimenti è possibile generare rapidamente il codice e modificarlo in base alle esigenze. Sono inoltre perfetti per l'individuazione dei dati con un singolo clic.
+
+> [!IMPORTANT]
+> È necessario tenere presenti alcuni vincoli nello schema analitico che potrebbero causare un comportamento imprevisto delle operazioni di caricamento dei dati.
+> Ad esempio, solo le prime 1000 proprietà dello schema transazionale sono disponibili nello schema analitico, le proprietà con spazi non sono disponibili e così via. Se si verificano risultati imprevisti, controllare i [vincoli dello schema dell'archivio analitico](../../cosmos-db/analytical-store-introduction.md#schema-constraints) per altri dettagli.
 
 ## <a name="query-azure-cosmos-db-analytical-store"></a>Eseguire query sull'archivio analitico di Azure Cosmos DB
 

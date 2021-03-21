@@ -5,16 +5,16 @@ author: bsiva
 ms.author: bsiva
 ms.manager: abhemraj
 ms.topic: tutorial
-ms.date: 06/08/2020
+ms.date: 03/18/2021
 ms.custom:
 - MVC
 - fasttrack-edit
-ms.openlocfilehash: 9d0fa516fefefe4c3d8e67c3e6d592ec4274943c
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: 0072ce81fc619c39770eba52e24dc5a0c57280a6
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98878173"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104604577"
 ---
 # <a name="migrate-hyper-v-vms-to-azure"></a>Eseguire la migrazione di VM Hyper-V ad Azure 
 
@@ -135,12 +135,7 @@ Al termine dell'individuazione, è possibile avviare la replica delle VM Hyper-V
 ## <a name="provision-for-the-first-time"></a>Primo provisioning
 
 Se si tratta della prima VM che si sta replicando nel progetto Azure Migrate, lo strumento Azure Migrate: Migrazione del server effettua automaticamente il provisioning di queste risorse nello stesso gruppo di risorse del progetto.
-
-- **Bus di servizio**: Azure Migrate: Migrazione del server usa il bus di servizio per inviare i messaggi di orchestrazione della replica all'appliance.
-- **Account di archiviazione del gateway**: Azure Migrate: lo strumento Migrazione server usa l'account di archiviazione del gateway per archiviare le informazioni sullo stato delle VM da replicare.
-- **Account di archiviazione di log**: l'appliance di Azure Migrate carica i log di replica per le VM in un account di archiviazione di log. Azure Migrate applica le informazioni di replica ai dischi gestiti dalla replica.
-- **Insieme di credenziali delle chiavi**: l'appliance di Azure Migrate usa l'insieme di credenziali delle chiavi per gestire le stringhe di connessione per il bus di servizio e le chiavi di accesso per gli account di archiviazione usati nella replica. Le autorizzazioni necessarie all'insieme di credenziali delle chiavi per accedere all'account di archiviazione dovrebbero essere state configurate durante la [preparazione di Azure](./tutorial-discover-hyper-v.md#prepare-an-azure-user-account) per la valutazione e la migrazione delle macchine virtuali Hyper-V. 
-
+- **Account di archiviazione della cache**: il software del provider Azure Site Recovery installato negli host Hyper-V carica i dati di replica per le macchine virtuali configurate per la replica in un account di archiviazione (noto come account di archiviazione della cache o account di archiviazione di log) nella sottoscrizione. Il servizio Azure Migrate copia quindi i dati di replica caricati dall'account di archiviazione nei dischi gestiti dalla replica corrispondenti alla macchina virtuale. L'account di archiviazione della cache deve essere specificato durante la configurazione della replica per una macchina virtuale e il portale di Azure Migrate crea automaticamente uno per il progetto Azure Migrate quando la replica è configurata per la prima volta nel progetto.
 
 ## <a name="track-and-monitor"></a>Tenere traccia e monitorare
 

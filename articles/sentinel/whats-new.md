@@ -7,13 +7,13 @@ ms.author: bagol
 ms.service: azure-sentinel
 ms.subservice: azure-sentinel
 ms.topic: conceptual
-ms.date: 03/08/2021
-ms.openlocfilehash: 88ac8bb1bc804604b96d5c90025b8325a6ce4962
-ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
+ms.date: 03/11/2021
+ms.openlocfilehash: 31ba96e0f8772877d7b4881c6bab0561cbe7956e
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/09/2021
-ms.locfileid: "102503122"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104604254"
 ---
 # <a name="whats-new-in-azure-sentinel"></a>Novità di Azure Sentinel
 
@@ -32,10 +32,54 @@ Le funzionalità indicate sono attualmente in anteprima. Le [condizioni aggiunti
 
 ## <a name="march-2021"></a>Marzo 2021
 
-- [Integrazione di Microsoft 365 Defender Incident](#microsoft-365-defender-incident-integration) (anteprima pubblica)
+- [Regole di automazione e PlayBook attivati dagli eventi imprevisti](#automation-rules-and-incident-triggered-playbooks) (inclusa la documentazione di tutti i nuovi PlayBook)
+- [Nuovi miglioramenti degli avvisi: mapping di entità migliorato e dettagli personalizzati](#new-alert-enrichments-enhanced-entity-mapping-and-custom-details)
+- [Stampa le cartelle di lavoro di Azure Sentinel o Salva come PDF](#print-your-azure-sentinel-workbooks-or-save-as-pdf)
+- [Filtri per gli eventi imprevisti e preferenze di ordinamento ora salvati nella sessione (anteprima pubblica)](#incident-filters-and-sort-preferences-now-saved-in-your-session-public-preview)
+- [Integrazione di Microsoft 365 Defender Incident (anteprima pubblica)](#microsoft-365-defender-incident-integration-public-preview)
 - [Nuovi connettori del servizio Microsoft con criteri di Azure](#new-microsoft-service-connectors-using-azure-policy)
+ 
+### <a name="automation-rules-and-incident-triggered-playbooks"></a>Regole di automazione e PlayBook attivati dagli eventi imprevisti
 
-### <a name="microsoft-365-defender-incident-integration"></a>Integrazione di Microsoft 365 Defender Incident
+Le regole di automazione sono un nuovo concetto di Azure Sentinel, che consente di gestire centralmente l'automazione della gestione degli eventi imprevisti. Oltre a consentire l'assegnazione di PlayBook a eventi imprevisti (non solo agli avvisi come prima), le regole di automazione consentono anche di automatizzare le risposte per più regole di analisi in una sola volta, contrassegnare, assegnare o chiudere automaticamente gli eventi imprevisti senza la necessità di PlayBook e controllare l'ordine delle azioni eseguite. Le regole di automazione semplificano l'uso dell'automazione in Sentinel di Azure e consentono di semplificare i flussi di lavoro complessi per i processi di orchestrazione degli eventi imprevisti.
+
+Scopri di più con questa [spiegazione completa delle regole di automazione](automate-incident-handling-with-automation-rules.md).
+
+Come indicato in precedenza, è ora possibile attivare i PlayBook con il trigger di evento imprevisto oltre al trigger di avviso. Il trigger di evento imprevisto fornisce ai PlayBook un set di input più ampio da usare (poiché l'evento imprevisto include anche tutti i dati di avviso e di entità), garantendo una maggiore potenza e flessibilità nei flussi di lavoro di risposta. I PlayBook attivati dagli eventi imprevisti vengono attivati chiamando dalle regole di automazione.
+
+Scopri di più sui [funzionalità avanzati dei PlayBook](automate-responses-with-playbooks.md)e su come [creare un flusso di lavoro di risposta](tutorial-respond-threats-playbook.md) usando i PlayBook insieme alle regole di automazione.
+
+### <a name="new-alert-enrichments-enhanced-entity-mapping-and-custom-details"></a>Nuovi miglioramenti degli avvisi: mapping di entità migliorato e dettagli personalizzati
+
+Arricchisci gli avvisi in due nuovi modi per renderli più utilizzabili e informativi.
+
+Per iniziare, eseguire il mapping dell'entità al livello successivo. È ora possibile eseguire il mapping di quasi 20 tipi di entità, da utenti, host e indirizzi IP, a file e processi, alle cassette postali, alle risorse di Azure e ai dispositivi Internet. È anche possibile usare più identificatori per ciascuna entità, per rafforzare la propria identificazione univoca. In questo modo si ottiene un set di dati molto più completo per gli eventi imprevisti, che fornisce una correlazione più ampia e un'analisi più potente. [Informazioni sul nuovo modo per eseguire il mapping delle entità](map-data-fields-to-entities.md) negli avvisi.
+
+[Per altre informazioni sulle entità](entities-in-azure-sentinel.md) , vedere l' [elenco completo delle entità disponibili e i relativi identificatori](entities-reference.md).
+
+Fornire le funzionalità di analisi e risposta a un miglioramento ancora maggiore personalizzando gli avvisi per la superficie dei dettagli degli eventi non elaborati. Offri la visibilità dei contenuti degli eventi agli eventi imprevisti, offrendo sempre più potenza e flessibilità per rispondere e analizzare le minacce per la sicurezza. [Informazioni su come visualizzare i dettagli personalizzati](surface-custom-details-in-alerts.md) negli avvisi.
+
+
+
+### <a name="print-your-azure-sentinel-workbooks-or-save-as-pdf"></a>Stampa le cartelle di lavoro di Azure Sentinel o Salva come PDF
+
+È ora possibile stampare cartelle di lavoro di Azure Sentinel, che consentono anche di esportarle in file PDF e di salvarle localmente o condividerle.
+
+Nella cartella di lavoro di selezionare il menu opzioni > :::image type="icon" source="media/whats-new/print-icon.png" border="false"::: **stampa contenuto**. Selezionare quindi la stampante oppure selezionare **Salva con nome PDF** in base alle esigenze.
+
+:::image type="content" source="media/whats-new/print-workbook.png" alt-text="Stampare la cartella di lavoro o salvarla in formato PDF.":::
+
+Per altre informazioni, vedere [esercitazione: visualizzare e monitorare i dati](tutorial-monitor-your-data.md).
+
+### <a name="incident-filters-and-sort-preferences-now-saved-in-your-session-public-preview"></a>Filtri per gli eventi imprevisti e preferenze di ordinamento ora salvati nella sessione (anteprima pubblica)
+
+A questo punto, i filtri e l'ordinamento degli eventi imprevisti vengono salvati in tutta la sessione di Azure Sentinel, anche durante l'esplorazione ad altre aree del prodotto.
+Fino a quando ci si trova ancora nella stessa sessione, tornando all'area [eventi imprevisti](tutorial-investigate-cases.md) in Sentinel di Azure vengono visualizzati i filtri e l'ordinamento proprio come è stato lasciato.
+
+> [!NOTE]
+> I filtri e l'ordinamento degli eventi imprevisti non vengono salvati dopo l'uscita da Azure Sentinel o l'aggiornamento del browser.
+
+### <a name="microsoft-365-defender-incident-integration-public-preview"></a>Integrazione di Microsoft 365 Defender Incident (anteprima pubblica)
 
 L'integrazione degli eventi imprevisti [Microsoft 365 Defender (M365D)](/microsoft-365/security/mtp/microsoft-threat-protection) di Azure Sentinel consente di trasmettere tutti gli eventi imprevisti M365D in Sentinel di Azure e di mantenerli sincronizzati tra entrambi i portali. Gli eventi imprevisti di M365D (precedentemente noto come Microsoft Threat Protection o MTP) includono tutti gli avvisi, le entità e le informazioni rilevanti associate, fornendo un contesto sufficiente per eseguire la valutazione e l'analisi preliminare in Sentinel di Azure. Una volta in Sentinel, gli eventi imprevisti rimarranno sincronizzati in modo bidirezionale con M365D, consentendo di sfruttare i vantaggi di entrambi i portali nell'analisi degli eventi imprevisti.
 
@@ -60,8 +104,8 @@ I clienti potranno comunque inviare i log manualmente per le istanze specifiche 
 
 - [Cartella di lavoro Cybersecurity Maturity Model Certification (CMMC)](#cybersecurity-maturity-model-certification-cmmc-workbook)
 - [Connettori dati di terze parti](#third-party-data-connectors)
-- [OFFRONO dati Insights nella pagina entità](#ueba-insights-in-the-entity-page)
-- [Ricerca di eventi imprevisti migliorata](#improved-incident-search)
+- [OFFRONO dati Insights nella pagina entità (anteprima pubblica)](#ueba-insights-in-the-entity-page-public-preview)
+- [Ricerca di eventi imprevisti migliorata (anteprima pubblica)](#improved-incident-search-public-preview)
 
 ### <a name="cybersecurity-maturity-model-certification-cmmc-workbook"></a>Cartella di lavoro Cybersecurity Maturity Model Certification (CMMC)
 
@@ -117,7 +161,7 @@ La nostra raccolta di integrazioni di terze parti continua a crescere, con trent
 - [Micro XDR tendenza](connect-data-sources.md)
 - [VMware ESXi](connect-vmware-esxi.md)
 
-### <a name="ueba-insights-in-the-entity-page"></a>OFFRONO dati Insights nella pagina entità
+### <a name="ueba-insights-in-the-entity-page-public-preview"></a>OFFRONO dati Insights nella pagina entità (anteprima pubblica)
 
 Le pagine dei dettagli dell'entità Sentinel di Azure forniscono un [riquadro Insights](identify-threats-with-entity-behavior-analytics.md#entity-insights), che consente di visualizzare informazioni sul comportamento sull'entità e di identificare rapidamente le anomalie e le minacce per la sicurezza.
 
@@ -131,7 +175,7 @@ Se la [offrono dati è abilitata](ueba-enrichments.md)e si è selezionato un int
 |**Indicatori di minaccia correlati all'utente**     |  Elenca una raccolta di minacce note relative agli indirizzi IP rappresentati nelle attività dell'utente. Le minacce sono elencate in base al tipo di minaccia e alla famiglia e sono arricchite dal servizio di intelligence per le minacce di Microsoft.       |
 |     |         |
 
-### <a name="improved-incident-search"></a>Ricerca di eventi imprevisti migliorata
+### <a name="improved-incident-search-public-preview"></a>Ricerca di eventi imprevisti migliorata (anteprima pubblica)
 
 È stata migliorata l'esperienza di ricerca degli eventi imprevisti di Azure Sentinel, che consente di spostarsi più velocemente attraverso gli eventi imprevisti quando si esamina una minaccia specifica.
 
@@ -148,7 +192,7 @@ Quando si esegue la ricerca di eventi imprevisti in Sentinel di Azure, è ora po
 - [Procedura guidata per le regole di analisi: miglioramento dell'esperienza di modifica delle query (anteprima pubblica)](#analytics-rule-wizard-improved-query-editing-experience-public-preview)
 - [AZ. SecurityInsights PowerShell Module (anteprima pubblica)](#azsecurityinsights-powershell-module-public-preview)
 - [Connettore database SQL](#sql-database-connector)
-- [Connettore Dynamics 365](#dynamics-365-connector)
+- [Connettore Dynamics 365 (anteprima pubblica)](#dynamics-365-connector-public-preview)
 - [Commenti per gli eventi imprevisti migliorati](#improved-incident-comments)
 - [Cluster Log Analytics dedicati](#dedicated-log-analytics-clusters)
 - [Identità gestite di app per la logica](#logic-apps-managed-identities)
@@ -183,7 +227,7 @@ Azure SQL è un motore di database PaaS (Platform-as-a-Service) completamente ge
 
 Per altre informazioni, vedere [connettere i log di diagnostica e di controllo del database SQL di Azure](connect-azure-sql-logs.md).
 
-### <a name="dynamics-365-connector"></a>Connettore Dynamics 365
+### <a name="dynamics-365-connector-public-preview"></a>Connettore Dynamics 365 (anteprima pubblica)
 
 Azure Sentinel offre ora un connettore per Microsoft Dynamics 365, che consente di raccogliere i log delle attività di utenti, amministratori e di supporto delle applicazioni di Dynamics 365 in Sentinel di Azure. È possibile utilizzare questi dati per controllare l'intera azione di elaborazione dei dati e analizzarla per individuare possibili violazioni della sicurezza.
 

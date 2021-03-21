@@ -9,10 +9,10 @@ ms.service: iot-central
 services: iot-central
 manager: philmea
 ms.openlocfilehash: aec72644f708d6363a80da28c5e571d0165fcdfa
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91651837"
 ---
 # <a name="export-your-application"></a>Esportare l'applicazione
@@ -74,7 +74,7 @@ Per creare un modello di applicazione da un'applicazione IoT Central esistente:
 
 ### <a name="use-an-application-template"></a>Usare un modello di applicazione
 
-Per usare un modello di applicazione per creare una nuova applicazione IoT Central, è necessario un **collegamento condiviso**creato in precedenza. Incollare il **collegamento condivisibile** nella barra degli indirizzi del browser. Viene visualizzata la pagina **Crea un'applicazione** con il modello di applicazione personalizzato selezionato:
+Per usare un modello di applicazione per creare una nuova applicazione IoT Central, è necessario un **collegamento condiviso** creato in precedenza. Incollare il **collegamento condivisibile** nella barra degli indirizzi del browser. Viene visualizzata la pagina **Crea un'applicazione** con il modello di applicazione personalizzato selezionato:
 
 ![Creare un'applicazione da un modello](media/howto-use-app-templates/create-app.png)
 

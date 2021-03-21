@@ -8,10 +8,10 @@ ms.date: 01/17/2020
 ms.custom: devx-track-js, devx-track-csharp
 ms.reviewer: mbullwin
 ms.openlocfilehash: df87b060423aeff9fa5f83f21634395fe30e0bbb
-ms.sourcegitcommit: 8d1b97c3777684bd98f2cfbc9d440b1299a02e8f
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/09/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102486285"
 ---
 # <a name="connection-strings"></a>Stringhe di connessione
@@ -40,7 +40,7 @@ Scenari per i clienti in cui viene visualizzato questo comportamento con maggior
     Gli utenti possono inviare dati a un' [area di Azure per enti pubblici](../../azure-government/compare-azure-government-global-azure.md#application-insights)definita.
     Le stringhe di connessione consentono di definire le impostazioni degli endpoint per i server Intranet o le impostazioni del cloud ibrido. 
 
-## <a name="getting-started"></a>Guida introduttiva
+## <a name="getting-started"></a>Introduzione
 
 ### <a name="finding-my-connection-string"></a>Trovare la stringa di connessione?
 

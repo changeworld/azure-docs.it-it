@@ -12,10 +12,10 @@ ms.author: vanto
 ms.reviewer: sstein
 ms.date: 12/18/2018
 ms.openlocfilehash: 235efc550fd47d4244a5bf081c75d5e824a8e4b4
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/28/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92793433"
 ---
 # <a name="split-merge-security-configuration"></a>Configurazione della sicurezza del servizio di divisione e unione
@@ -34,7 +34,7 @@ I certificati vengono configurati in due modi.
 
 È possibile ottenere i certificati da Autorità di certificazione (CA) pubbliche o dal [servizio certificati di Windows](/windows/win32/seccrypto/certificate-services). Questi sono i metodi consigliati per ottenere i certificati.
 
-Se tali opzioni non sono disponibili, è possibile generare **certificati autofirmati** .
+Se tali opzioni non sono disponibili, è possibile generare **certificati autofirmati**.
 
 ## <a name="tools-to-generate-certificates"></a>Strumenti per generare i certificati
 
@@ -124,7 +124,7 @@ La configurazione predefinita nega qualunque accesso all'endpoint HTTP. Questa �
 La configurazione predefinita consente qualunque accesso all'endpoint HTTPS. Tale impostazione può essere limitata ulteriormente.
 
 ### <a name="changing-the-configuration"></a>Modifica della configurazione
-Il gruppo di regole di controllo di accesso che si applicano a e l'endpoint vengono configurati nella **\<EndpointAcls>** sezione del **file di configurazione del servizio** .
+Il gruppo di regole di controllo di accesso che si applicano a e l'endpoint vengono configurati nella **\<EndpointAcls>** sezione del **file di configurazione del servizio**.
 
 ```xml
 <EndpointAcls>
@@ -441,31 +441,31 @@ A tale scopo, seguire questa procedura:
 
 1. Eseguire mmc.exe.
 2. File -> Aggiungi/Rimuovi snap-in.
-3. Selezionare **Certificati** .
-4. Scegliere **Aggiungi** .
+3. Selezionare **Certificati**.
+4. Fare clic su **Aggiungi**.
 5. Scegliere il percorso dell'archivio certificati.
-6. Fare clic su **Fine** .
-7. Fare clic su **OK** .
-8. Espandi **Certificati** .
+6. Fare clic su **Fine**.
+7. Fare clic su **OK**.
+8. Espandi **Certificati**.
 9. Espandere il nodo dell'archivio certificati.
 10. Espandere il nodo figlio Certificato.
 11. Selezionare un certificato nell'elenco.
 
 ## <a name="export-certificate"></a>Esportare il certificato
-In **Esportazione guidata certificati** :
+In **Esportazione guidata certificati**:
 
-1. Fare clic su **Avanti** .
-2. Selezionare **Sì** e quindi **Esporta la chiave privata** .
-3. Fare clic su **Avanti** .
+1. Fare clic su **Avanti**.
+2. Selezionare **Sì** e quindi **Esporta la chiave privata**.
+3. Fare clic su **Avanti**.
 4. Selezionare il formato del file di output desiderato.
 5. Controllare le opzioni desiderate.
-6. Selezionare **Password** .
+6. Selezionare **Password**.
 7. Immettere una password complessa e confermarla.
-8. Fare clic su **Avanti** .
+8. Fare clic su **Avanti**.
 9. Digitare o cercare un nome file in cui archiviare il certificato (usare un'estensione PFX).
-10. Fare clic su **Avanti** .
-11. Fare clic su **Fine** .
-12. Fare clic su **OK** .
+10. Fare clic su **Avanti**.
+11. Fare clic su **Fine**.
+12. Fare clic su **OK**.
 
 ## <a name="import-certificate"></a>Importare il certificato
 In Esportazione guidata certificati:
@@ -474,26 +474,26 @@ In Esportazione guidata certificati:
    
    * Selezionare **Utente corrente** se solo i processi eseguiti dall'utente corrente accederanno al servizio.
    * Selezionare **Computer locale** se altri processi nel computer accederanno al servizio.
-2. Fare clic su **Avanti** .
+2. Fare clic su **Avanti**.
 3. Se l'importazione viene effettuata da un file, verificare il percorso del file.
 4. Se si importa un file PFX:
    1. Immettere la password che protegge la chiave privata.
    2. Selezionare le opzioni di importazione.
 5. Selezionare "Colloca" tutti i certificati nel seguente archivio.
-6. Fare clic su **Sfoglia** .
+6. Fare clic su **Sfoglia**.
 7. Selezionare l'archivio da usare.
-8. Fare clic su **Fine** .
+8. Fare clic su **Fine**.
    
-   * Se è stato scelto l'archivio dell'autorità di certificazione radice attendibile, fare clic su **Sì** .
+   * Se è stato scelto l'archivio dell'autorità di certificazione radice attendibile, fare clic su **Sì**.
 9. Fare clic su **OK** in tutte le finestre di dialogo.
 
 ## <a name="upload-certificate"></a>Caricamento del certificato
 Nella [portale di Azure](https://portal.azure.com/)
 
-1. Selezionare **Servizi cloud** .
+1. Selezionare **Servizi cloud**.
 2. Selezionare il servizio cloud.
-3. Nel menu superiore fare clic su **Certificati** .
-4. Nella barra inferiore fare clic su **Carica** .
+3. Nel menu superiore fare clic su **Certificati**.
+4. Nella barra inferiore fare clic su **Carica**.
 5. Selezionare il file del certificato.
 6. Se è un file con estensione PFX, immettere la password per la chiave privata.
 7. Una volta completata l'operazione, copiare l'identificazione personale del certificato dalla nuova voce nell'elenco.

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.custom: contperf-fy21q1
 ms.date: 10/13/2020
 ms.author: allensu
-ms.openlocfilehash: 6b73eb51831238f23400ef60d0a6162bca38ea85
-ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
+ms.openlocfilehash: 2fc703e0532c86bfc0874c8dccbb17c6142aeed0
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97033154"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104590212"
 ---
 # <a name="outbound-rules-azure-load-balancer"></a><a name="outboundrules"></a>Azure Load Balancer regole in uscita
 
@@ -36,11 +36,11 @@ Con le regole in uscita è possibile definire in modo esplicito il comportamento
 Le regole in uscita consentono di controllare:
 
 * **Quali macchine virtuali vengono convertite in indirizzi IP pubblici.**
-     * Due regole erano il pool back-end A USA l'indirizzo IP A e B. il pool back-end B usa l'indirizzo IP C e D.
+     * Due regole erano il pool back-end 1 USA l'indirizzo IP blu 1 e 2, il pool back-end 2 usa il prefisso IP giallo.
 * **Come vengono allocate le porte SNAT in uscita.**
-     * Il pool back-end B è l'unico pool che effettua connessioni in uscita, assegna tutte le porte SNAT al pool back-end B e nessuna al pool back-end a.
+     * Se il pool back-end 2 è l'unico pool che effettua connessioni in uscita, assegnare tutte le porte SNAT al pool back-end 2 e None al pool back-end 1.
 * **Protocolli per i quali fornire la traduzione in uscita.**
-     * Il pool back-end B necessita di porte UDP per l'uscita. Il pool back-end A richiede TCP. Assegnare le porte TCP a e a porte UDP a B.
+     * Se il pool back-end 2 richiede porte UDP per l'uscita e il pool back-end 1 richiede TCP, assegnare le porte TCP a 1 e UDP a 2.
 * **La durata da usare per il timeout di inattività della connessione in uscita (4-120 minuti).**
      * Se sono presenti connessioni con esecuzione prolungata con KeepAlive, riservare le porte inattive per le connessioni a esecuzione prolungata per un massimo di 120 minuti. Si supponga che le connessioni non aggiornate vengano abbandonate e rilasciate in 4 minuti per le connessioni recenti 
 * **Indica se inviare una reimpostazione TCP al timeout di inattività.**
