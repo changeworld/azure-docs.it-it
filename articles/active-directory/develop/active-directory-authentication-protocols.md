@@ -14,10 +14,10 @@ ms.custom: aaddev
 ms.reviewer: hirsin
 ROBOTS: NOINDEX
 ms.openlocfilehash: 803f52666fb09a836eae3294410584ebbd71a1b6
-ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/25/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98755882"
 ---
 # <a name="microsoft-identity-platform-authentication-protocols"></a>Protocolli di autenticazione della piattaforma Microsoft Identity
@@ -34,7 +34,7 @@ La piattaforma Microsoft Identity supporta diversi protocolli di autenticazione 
 * [Chiamate da servizio a servizio con flusso on-behalf-of](v2-oauth2-on-behalf-of-flow.md): informazioni su come usare il flusso on-behalf-of di OAuth 2.0 per le chiamate da servizio a servizio.
 * Informazioni di [riferimento sul protocollo SAML](active-directory-saml-protocol-reference.md) : informazioni sui profili saml Single Sign-On e Single Sign-out della piattaforma di identità Microsoft.
 
-## <a name="see-also"></a>Vedere anche
+## <a name="see-also"></a>Vedi anche
 
 * [Panoramica di Microsoft Identity Platform](v2-overview.md)
 * [Esempi di codice di Active Directory](sample-v2-code.md)

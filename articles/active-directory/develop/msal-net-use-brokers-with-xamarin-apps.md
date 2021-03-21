@@ -13,10 +13,10 @@ ms.author: jmprieur
 ms.reviewer: saeeda
 ms.custom: devx-track-csharp, aaddev
 ms.openlocfilehash: 226e94510709b37a7e6b1aae90a7e0ec5b4222b9
-ms.sourcegitcommit: 5f32f03eeb892bf0d023b23bd709e642d1812696
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/12/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "103199584"
 ---
 # <a name="use-microsoft-authenticator-or-intune-company-portal-on-xamarin-applications"></a>Usare Microsoft Authenticator o Portale aziendale Intune nelle applicazioni Novell
@@ -65,7 +65,7 @@ Per altre informazioni, vedere [Enable Keychain Access](msal-net-xamarin-ios-con
 
 ### <a name="step-3-update-appdelegate-to-handle-the-callback"></a>Passaggio 3: aggiornare AppDelegate per gestire il callback
 
-Quando MSAL.NET chiama il broker, il broker richiama l'applicazione tramite il `OpenUrl` metodo della `AppDelegate` classe. Poiché MSAL attende la risposta del broker, l'applicazione deve collaborare per chiamare MSAL.NET. Per abilitare questa collaborazione, aggiornare il file *AppDelegate.cs* per eseguire l'override del metodo seguente.
+Quando MSAL.NET chiama il broker, il broker richiama l'applicazione tramite il `OpenUrl` metodo della `AppDelegate` classe. Poiché MSAL attende la risposta del broker, l'applicazione deve collaborare per chiamare MSAL.NET. Per abilitare questa collaborazione, aggiornare il file *AppDelegate. cs* per eseguire l'override del metodo seguente.
 
 ```csharp
 public override bool OpenUrl(UIApplication app, NSUrl url,
@@ -91,23 +91,23 @@ Questo metodo viene richiamato ogni volta che l'applicazione viene avviata. Vien
 
 ### <a name="step-4-set-uiviewcontroller"></a>Passaggio 4: impostare UIViewController ()
 
-Sempre nel file *AppDelegate.cs* impostare una finestra degli oggetti. Non è in genere necessario impostare la finestra degli oggetti per Novell iOS, ma è necessaria una finestra oggetto per inviare e ricevere risposte dal broker.
+Sempre nel file *AppDelegate. cs* , impostare una finestra degli oggetti. Non è in genere necessario impostare la finestra degli oggetti per Novell iOS, ma è necessaria una finestra oggetto per inviare e ricevere risposte dal broker.
 
 Per configurare la finestra oggetto:
 
-1. Nel file *AppDelegate.cs* impostare `App.RootViewController` su un nuovo `UIViewController()` . Questa assegnazione garantisce che la chiamata al broker includa `UIViewController` . Se questa impostazione viene assegnata in modo errato, è possibile che venga ricevuto questo errore:
+1. Nel file *AppDelegate. cs* impostare `App.RootViewController` su un nuovo `UIViewController()` . Questa assegnazione garantisce che la chiamata al broker includa `UIViewController` . Se questa impostazione viene assegnata in modo errato, è possibile che venga ricevuto questo errore:
 
       `"uiviewcontroller_required_for_ios_broker":"UIViewController is null, so MSAL.NET cannot invoke the iOS broker. See https://aka.ms/msal-net-ios-broker"`
 
 1. Nella `AcquireTokenInteractive` chiamata usare `.WithParentActivityOrWindow(App.RootViewController)` e quindi passare il riferimento alla finestra oggetto che verrà usata.
 
-    In *app.cs*:
+    In *app. cs*:
 
     ```csharp
        public static object RootViewController { get; set; }
     ```
 
-    In *AppDelegate.cs*:
+    In *AppDelegate. cs*:
 
     ```csharp
        LoadApplication(new App());

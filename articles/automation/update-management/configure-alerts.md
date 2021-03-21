@@ -3,14 +3,14 @@ title: Come creare avvisi per Gestione aggiornamenti di automazione di Azure
 description: Questo articolo descrive come configurare gli avvisi di Azure per notificare lo stato delle valutazioni o delle distribuzioni degli aggiornamenti.
 services: automation
 ms.subservice: update-management
-ms.date: 10/19/2020
+ms.date: 03/15/2021
 ms.topic: conceptual
-ms.openlocfilehash: 74207fe088034ff8d102fb2254d8ab78a6d57671
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 224a7b5457a099fd763ac657349fc5497824ab76
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100579705"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104601418"
 ---
 # <a name="how-to-create-alerts-for-update-management"></a>Come creare avvisi per Gestione aggiornamenti
 
@@ -38,51 +38,37 @@ Attenersi alla procedura seguente per configurare gli avvisi per indicare lo sta
 
 1. Nell'account di automazione selezionare **avvisi** sotto **monitoraggio** e quindi selezionare **nuova regola di avviso**.
 
-2. Nella pagina **Crea regola di avviso** l'account di automazione è già selezionato come risorsa. Se si desidera modificarlo, selezionare **Modifica risorsa**.
+1. Nella pagina **Crea regola di avviso** l'account di automazione è già selezionato come risorsa. Se si desidera modificarlo, selezionare **Modifica risorsa**.
 
-3. Nella pagina selezionare una risorsa scegliere account di **automazione** dall'elenco a discesa **Filtra per tipo di risorsa** .
+1. Nella pagina selezionare una risorsa scegliere account di **automazione** dall'elenco a discesa **Filtra per tipo di risorsa** .
 
-4. Selezionare l'account di automazione che si vuole usare e quindi fare clic su **fine**.
+1. Selezionare l'account di automazione che si vuole usare e quindi fare clic su **fine**.
 
-5. Selezionare **Aggiungi condizione** per scegliere il segnale appropriato per il requisito.
+1. Selezionare **Aggiungi condizione** per scegliere il segnale appropriato per il requisito.
 
-6. Per una dimensione, selezionare un valore valido dall'elenco. Se il valore desiderato non è presente nell'elenco, selezionare **\+** accanto alla dimensione e digitare il nome personalizzato. Selezionare quindi il valore da cercare. Se si desidera selezionare tutti i valori per una dimensione, selezionare il **pulsante \* Seleziona** . Se non si sceglie un valore per la dimensione, Gestione aggiornamenti ignorerà la dimensione.
+1. Per una dimensione, selezionare un valore valido dall'elenco. Se il valore desiderato non è presente nell'elenco, selezionare **\+** accanto alla dimensione e digitare il nome personalizzato. Selezionare quindi il valore da cercare. Se si desidera selezionare tutti i valori per una dimensione, selezionare il **pulsante \* Seleziona** . Se non si sceglie un valore per la dimensione, Gestione aggiornamenti ignorerà la dimensione.
 
     ![Configurare la logica dei segnali](./media/manage-updates-for-vm/signal-logic.png)
 
-7. In **logica avvisi**, immettere i valori nei campi **aggregazione temporale** e **soglia** , quindi selezionare **fine**.
+1. In **logica avvisi**, immettere i valori nei campi **aggregazione temporale** e **soglia** , quindi selezionare **fine**.
 
-8. Nella pagina successiva immettere un nome e una descrizione per l'avviso.
+1. Nella pagina successiva immettere un nome e una descrizione per l'avviso.
 
-9. Impostare il campo **Gravità** su **Informazioni (gravità 2)** per un'esecuzione riuscita o su **Informazioni (gravità 1)** per un'esecuzione non riuscita.
+1. Impostare il campo **Gravità** su **Informazioni (gravità 2)** per un'esecuzione riuscita o su **Informazioni (gravità 1)** per un'esecuzione non riuscita.
 
     ![Screenshot mostra la sezione Definisci dettagli avviso con i campi relativi a nome, descrizione e gravità della regola di avviso evidenziati.](./media/manage-updates-for-vm/define-alert-details.png)
 
-10. Selezionare **Sì** per abilitare la regola di avviso.
+1. Selezionare **Sì** per abilitare la regola di avviso.
 
 ## <a name="configure-action-groups-for-your-alerts"></a>Configurare gruppi di azioni per gli avvisi
 
 Dopo aver configurato gli avvisi, è possibile configurare un gruppo di azioni da usare in più avvisi. Le azioni possono includere notifiche tramite posta elettronica, manuali operativi, webhook e molto altro ancora. Per altre informazioni sui gruppi di azioni, vedere [Creare e gestire gruppi di azioni](../../azure-monitor/alerts/action-groups.md).
 
-1. Selezionare un avviso e quindi selezionare **Crea nuovo** in **Gruppi di azioni**.
+1. Selezionare un avviso e quindi selezionare **Aggiungi gruppi di azioni** in **azioni**. Verrà visualizzato il riquadro **selezionare un gruppo di azioni da allineare a questa regola di avviso** .
 
-2. Immettere un nome completo e un nome breve per il gruppo di azioni. Gestione aggiornamenti usa il nome breve quando invia notifiche usando il gruppo specificato.
+   :::image type="content" source="./media/manage-updates-for-vm/select-an-action-group.png" alt-text="Utilizzo e costi stimati.":::
 
-3. In **Azioni** immettere un nome che specifichi l'azione, ad esempio **Notifica via posta elettronica**.
-
-4. Per **Tipo azione** selezionare il tipo appropriato, ad esempio **Email/SMS/Push/Voice** (Posta elettronica/SMS/Push/Voce).
-
-5. Selezionare **Modifica dettagli**.
-
-6. Compilare il riquadro per il tipo di azione. Ad esempio, se si usa **posta elettronica/SMS/push/voce**, immettere un nome di azione, selezionare la casella di controllo **posta elettronica** , immettere un indirizzo di posta elettronica valido e quindi fare clic su **OK**.
-
-    ![Configurare un gruppo di azioni di posta elettronica](./media/manage-updates-for-vm/configure-email-action-group.png)
-
-7. Nel riquadro Aggiungi gruppo di azioni selezionare **OK**.
-
-8. Per i messaggi di posta elettronica di avviso è possibile personalizzare l'oggetto. Selezionare **Personalizza azioni** in **Crea regola** e quindi selezionare **Oggetto messaggio di posta elettronica**.
-
-9. Al termine, selezionare **Crea regola di avviso**.
+1. Selezionare la casella di controllo per il gruppo di azioni da alleghi e premere SELECT.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

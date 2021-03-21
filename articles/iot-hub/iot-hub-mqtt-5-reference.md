@@ -8,10 +8,10 @@ ms.topic: reference
 ms.date: 11/19/2020
 ms.author: jlian
 ms.openlocfilehash: 5f0af7d6bf16a05fad1ca9df5db1729abd088010
-ms.sourcegitcommit: c4246c2b986c6f53b20b94d4e75ccc49ec768a9a
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/04/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96603559"
 ---
 # <a name="iot-hub-data-plane-mqtt-5-api-reference"></a>Informazioni di riferimento sull'API del piano dati dell'hub MQTT 5
@@ -74,9 +74,9 @@ Stato segnalato della patch gemello
 
 **Proprietà**:
 
-| Nome | Type | Obbligatorio | Descrizione |
+| Nome | Tipo | Obbligatoria | Descrizione |
 | :--- | :--- | :------- | :---------- |
-| versione if | u64 | No |  |
+| versione if | u64 | no |  |
 
 **Payload**: TwinState
 
@@ -84,7 +84,7 @@ Stato segnalato della patch gemello
 
 **Proprietà**:
 
-| Nome | Type | Obbligatorio | Descrizione |
+| Nome | Tipo | Obbligatoria | Descrizione |
 | :--- | :--- | :------- | :---------- |
 | version | u64 | sì | Versione dello stato segnalato dopo l'applicazione della patch |
 
@@ -122,23 +122,23 @@ Stato segnalato della patch gemello
 
 Comandi Receive e handle
 
-#### <a name="message"></a>Messaggio
+#### <a name="message"></a>Message
 
 **Nome argomento:**`$iothub/commands`
 
 **Proprietà**:
 
-| Nome | Type | Obbligatorio | Descrizione |
+| Nome | Tipo | Obbligatoria | Descrizione |
 | :--- | :--- | :------- | :---------- |
 | sequenza-No | u64 | sì | Numero di sequenza del messaggio |
 | tempo di Accodamento | time | sì | Timestamp del momento in cui il messaggio è stato inserito nel sistema |
 | delivery-count | piantare u32 | sì | Numero di tentativi di recapito dei messaggi |
-| creation-time | time | No | Timestamp di quando è stato creato il messaggio (fornito dal mittente) |
-| message-id | string | No | Identità del messaggio (fornita dal mittente) |
-| user-id | string | No | Identità utente (fornita dal mittente) |
-| correlation-id | string | No | Identità di correlazione (fornita dal mittente) |
-| Tipo di contenuto | string | No | determina il tipo di contenuto del payload |
-| content-encoding | string | No | determina la codifica del contenuto del payload |
+| creation-time | time | no | Timestamp di quando è stato creato il messaggio (fornito dal mittente) |
+| message-id | string | no | Identità del messaggio (fornita dal mittente) |
+| user-id | string | no | Identità utente (fornita dal mittente) |
+| correlation-id | string | no | Identità di correlazione (fornita dal mittente) |
+| Tipo di contenuto | string | no | determina il tipo di contenuto del payload |
+| content-encoding | string | no | determina la codifica del contenuto del payload |
 
 **Payload**: qualsiasi sequenza di byte
 
@@ -190,7 +190,7 @@ Ricevere e gestire le chiamate ai metodi diretti
 
 **Proprietà**:
 
-| Nome | Type | Obbligatorio | Descrizione |
+| Nome | Tipo | Obbligatoria | Descrizione |
 | :--- | :--- | :------- | :---------- |
 | codice di risposta | piantare u32 | sì |  |
 
@@ -223,13 +223,13 @@ Ricevere e gestire le chiamate ai metodi diretti
 
 Ricevere gli aggiornamenti allo stato desiderato del dispositivo gemello
 
-#### <a name="message"></a>Messaggio
+#### <a name="message"></a>Message
 
 **Nome argomento:**`$iothub/twin/patch/desired`
 
 **Proprietà**:
 
-| Nome | Type | Obbligatorio | Descrizione |
+| Nome | Tipo | Obbligatoria | Descrizione |
 | :--- | :--- | :------- | :---------- |
 | version | u64 | sì | Versione dello stato desiderato corrispondente a questo aggiornamento |
 
@@ -254,20 +254,20 @@ Ricevere gli aggiornamenti allo stato desiderato del dispositivo gemello
 
 Inviare un messaggio al canale di telemetria: EventHubs per impostazione predefinita o un altro endpoint tramite la configurazione di routing.
 
-#### <a name="message"></a>Messaggio
+#### <a name="message"></a>Message
 
 **Nome argomento:**`$iothub/telemetry`
 
 **Proprietà**:
 
-| Nome | Type | Obbligatorio | Descrizione |
+| Nome | Tipo | Obbligatoria | Descrizione |
 | :--- | :--- | :------- | :---------- |
-| Tipo di contenuto | string | No | converte nella `content-type` proprietà di sistema del messaggio inviato |
-| content-encoding | string | No | converte nella `content-encoding` proprietà di sistema del messaggio inviato |
-| message-id | string | No | converte nella `message-id` proprietà di sistema del messaggio inviato |
-| user-id | string | No | converte nella `user-id` proprietà di sistema del messaggio inviato |
-| correlation-id | string | No | converte nella `correlation-id` proprietà di sistema del messaggio inviato |
-| creation-time | time | No | converte nella `iothub-creation-time-utc` proprietà del messaggio inviato |
+| Tipo di contenuto | string | no | converte nella `content-type` proprietà di sistema del messaggio inviato |
+| content-encoding | string | no | converte nella `content-encoding` proprietà di sistema del messaggio inviato |
+| message-id | string | no | converte nella `message-id` proprietà di sistema del messaggio inviato |
+| user-id | string | no | converte nella `user-id` proprietà di sistema del messaggio inviato |
+| correlation-id | string | no | converte nella `correlation-id` proprietà di sistema del messaggio inviato |
+| creation-time | time | no | converte nella `iothub-creation-time-utc` proprietà del messaggio inviato |
 
 **Payload**: qualsiasi sequenza di byte
 
@@ -321,9 +321,9 @@ Il formato del messaggio dell'operazione non è corretto e non può essere elabo
 
 **Proprietà**:
 
-| Nome | Type | Obbligatorio | Descrizione |
+| Nome | Tipo | Obbligatoria | Descrizione |
 | :--- | :--- | :------- | :---------- |
-| reason | string | No | contiene informazioni sugli elementi non validi per il messaggio |
+| reason | string | no | contiene informazioni sugli elementi non validi per il messaggio |
 
 **Payload**: vuoto
 
@@ -337,10 +337,10 @@ L'operazione è in conflitto con un'altra operazione in corso.
 
 **Proprietà**:
 
-| Nome | Type | Obbligatorio | Descrizione |
+| Nome | Tipo | Obbligatoria | Descrizione |
 | :--- | :--- | :------- | :---------- |
-| Trace-ID | string | No | ID di traccia per la correlazione con la diagnostica aggiuntiva per l'errore |
-| reason | string | No | contiene informazioni sugli elementi non validi per il messaggio |
+| Trace-ID | string | no | ID di traccia per la correlazione con la diagnostica aggiuntiva per l'errore |
+| reason | string | no | contiene informazioni sugli elementi non validi per il messaggio |
 
 **Payload**: vuoto
 
@@ -354,9 +354,9 @@ Operazione non consentita.
 
 **Proprietà**:
 
-| Nome | Type | Obbligatorio | Descrizione |
+| Nome | Tipo | Obbligatoria | Descrizione |
 | :--- | :--- | :------- | :---------- |
-| reason | string | No | contiene informazioni sugli elementi non validi per il messaggio |
+| reason | string | no | contiene informazioni sugli elementi non validi per il messaggio |
 
 **Payload**: vuoto
 
@@ -370,9 +370,9 @@ Il client non è autorizzato a eseguire l'operazione.
 
 **Proprietà**:
 
-| Nome | Type | Obbligatorio | Descrizione |
+| Nome | Tipo | Obbligatoria | Descrizione |
 | :--- | :--- | :------- | :---------- |
-| Trace-ID | string | No | ID di traccia per la correlazione con la diagnostica aggiuntiva per l'errore |
+| Trace-ID | string | no | ID di traccia per la correlazione con la diagnostica aggiuntiva per l'errore |
 
 **Payload**: vuoto
 
@@ -386,9 +386,9 @@ la risorsa richiesta non esiste
 
 **Proprietà**:
 
-| Nome | Type | Obbligatorio | Descrizione |
+| Nome | Tipo | Obbligatoria | Descrizione |
 | :--- | :--- | :------- | :---------- |
-| reason | string | No | contiene informazioni sugli elementi non validi per il messaggio |
+| reason | string | no | contiene informazioni sugli elementi non validi per il messaggio |
 
 **Payload**: vuoto
 
@@ -438,9 +438,9 @@ la risorsa non ha capacità per completare l'operazione
 
 **Proprietà**:
 
-| Nome | Type | Obbligatorio | Descrizione |
+| Nome | Tipo | Obbligatoria | Descrizione |
 | :--- | :--- | :------- | :---------- |
-| reason | string | No | contiene informazioni sugli elementi non validi per il messaggio |
+| reason | string | no | contiene informazioni sugli elementi non validi per il messaggio |
 
 **Payload**: vuoto
 
@@ -454,9 +454,9 @@ Server occupato
 
 **Proprietà**:
 
-| Nome | Type | Obbligatorio | Descrizione |
+| Nome | Tipo | Obbligatoria | Descrizione |
 | :--- | :--- | :------- | :---------- |
-| Trace-ID | string | No | ID di traccia per la correlazione con la diagnostica aggiuntiva per l'errore |
+| Trace-ID | string | no | ID di traccia per la correlazione con la diagnostica aggiuntiva per l'errore |
 
 **Payload**: vuoto
 
@@ -470,9 +470,9 @@ errore interno del server
 
 **Proprietà**:
 
-| Nome | Type | Obbligatorio | Descrizione |
+| Nome | Tipo | Obbligatoria | Descrizione |
 | :--- | :--- | :------- | :---------- |
-| Trace-ID | string | No | ID di traccia per la correlazione con la diagnostica aggiuntiva per l'errore |
+| Trace-ID | string | no | ID di traccia per la correlazione con la diagnostica aggiuntiva per l'errore |
 
 **Payload**: vuoto
 
@@ -486,9 +486,9 @@ La destinazione ha risposto ma la risposta non è valida o non è valida
 
 **Proprietà**:
 
-| Nome | Type | Obbligatorio | Descrizione |
+| Nome | Tipo | Obbligatoria | Descrizione |
 | :--- | :--- | :------- | :---------- |
-| reason | string | No | contiene informazioni sugli elementi non validi per il messaggio |
+| reason | string | no | contiene informazioni sugli elementi non validi per il messaggio |
 
 **Payload**: vuoto
 
@@ -502,10 +502,10 @@ timeout durante l'attesa del completamento della richiesta da parte della destin
 
 **Proprietà**:
 
-| Nome | Type | Obbligatorio | Descrizione |
+| Nome | Tipo | Obbligatoria | Descrizione |
 | :--- | :--- | :------- | :---------- |
-| Trace-ID | string | No | ID di traccia per la correlazione con la diagnostica aggiuntiva per l'errore |
-| reason | string | No | contiene informazioni sugli elementi non validi per il messaggio |
+| Trace-ID | string | no | ID di traccia per la correlazione con la diagnostica aggiuntiva per l'errore |
+| reason | string | no | contiene informazioni sugli elementi non validi per il messaggio |
 
 **Payload**: vuoto
 
@@ -543,9 +543,9 @@ timeout dell'operazione prima del completamento
 
 **Proprietà**:
 
-| Nome | Type | Obbligatorio | Descrizione |
+| Nome | Tipo | Obbligatoria | Descrizione |
 | :--- | :--- | :------- | :---------- |
-| Trace-ID | string | No | ID di traccia per la correlazione con la diagnostica aggiuntiva per l'errore |
+| Trace-ID | string | no | ID di traccia per la correlazione con la diagnostica aggiuntiva per l'errore |
 
 **Payload**: vuoto
 

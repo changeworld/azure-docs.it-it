@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 02/26/2021
 ms.reviewer: cynthn
 ms.custom: template-concept; references_regions
-ms.openlocfilehash: 449eb1d65e0104e6c5c74a78901cf29c5aeb3e57
-ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
+ms.openlocfilehash: 01c5d4aaa3896e05bc743be309df050471ece5ae
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/10/2021
-ms.locfileid: "102609091"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104582052"
 ---
 # <a name="trusted-launch-for-azure-virtual-machines-preview"></a>Avvio attendibile per macchine virtuali di Azure (anteprima)
 
@@ -73,7 +73,7 @@ Azure offre un avvio attendibile come metodo semplice per migliorare la sicurezz
 
 ## <a name="secure-boot"></a>Avvio protetto
 
-Alla radice dell'avvio attendibile è disponibile l'avvio protetto per la macchina virtuale. Questa modalità, implementata nel firmware della piattaforma, protegge dall'installazione di rootkit basati su malware e di boot Kit. L'avvio protetto funziona per assicurarsi che sia possibile avviare solo i driver e i sistemi operativi firmati. Stabilisce una "radice di attendibilità" per lo stack software nella macchina virtuale. Con l'avvio protetto abilitato, tutti i componenti di avvio del sistema operativo (caricatore di avvio, kernel, driver del kernel) devono essere firmati da autori attendibili. Entrambe le finestre e selezionare le distribuzioni Linux supportano l'avvio protetto. Se l'avvio protetto non è in grado di autenticare che l'immagine è stata firmata da un autore attendibile, non sarà possibile eseguire l'avvio della macchina virtuale. Per altre informazioni, vedere [Avvio protetto](https://docs.microsoft.com/windows-hardware/design/device-experiences/oem-secure-boot).
+Alla radice dell'avvio attendibile è disponibile l'avvio protetto per la macchina virtuale. Questa modalità, implementata nel firmware della piattaforma, protegge dall'installazione di rootkit basati su malware e di boot Kit. L'avvio protetto funziona per assicurarsi che sia possibile avviare solo i driver e i sistemi operativi firmati. Stabilisce una "radice di attendibilità" per lo stack software nella macchina virtuale. Con l'avvio protetto abilitato, tutti i componenti di avvio del sistema operativo (caricatore di avvio, kernel, driver del kernel) devono essere firmati da autori attendibili. Entrambe le finestre e selezionare le distribuzioni Linux supportano l'avvio protetto. Se l'avvio protetto non è in grado di autenticare che l'immagine è stata firmata da un autore attendibile, non sarà possibile eseguire l'avvio della macchina virtuale. Per altre informazioni, vedere [Avvio protetto](/windows-hardware/design/device-experiences/oem-secure-boot).
 
 ## <a name="vtpm"></a>vTPM
 
@@ -87,7 +87,7 @@ La [sicurezza basata sulla virtualizzazione](/windows-hardware/design/device-exp
 
 HVCI obbligatoria è una potente mitigazione del sistema che protegge i processi in modalità kernel di Windows dall'inserimento e dall'esecuzione di codice dannoso o non verificato. Controlla i driver e i file binari in modalità kernel prima di eseguirli, impedendo il caricamento in memoria dei file non firmati. Ciò garantisce che tale codice eseguibile non possa essere modificato dopo che è stato consentito il caricamento. Per ulteriori informazioni su VBS e HVCI obbligatoria, vedere la pagina relativa alla [sicurezza basata su virtualizzazione (VBS) e l'integrità del codice applicato da hypervisor (hvci obbligatoria)](https://techcommunity.microsoft.com/t5/windows-insider-program/virtualization-based-security-vbs-and-hypervisor-enforced-code/m-p/240571).
 
-Con avvio attendibile e VBS è possibile abilitare Windows Defender Credential Guard. Questa funzionalità consente di isolare e proteggere i segreti in modo che solo il software di sistema con privilegi possa accedervi. Consente di impedire l'accesso non autorizzato a segreti e attacchi di furto di credenziali, ad esempio gli attacchi pass-the-hash (PtH). Per altre informazioni, vedere [Credential Guard](https://docs.microsoft.com/windows/security/identity-protection/credential-guard/credential-guard).
+Con avvio attendibile e VBS è possibile abilitare Windows Defender Credential Guard. Questa funzionalità consente di isolare e proteggere i segreti in modo che solo il software di sistema con privilegi possa accedervi. Consente di impedire l'accesso non autorizzato a segreti e attacchi di furto di credenziali, ad esempio gli attacchi pass-the-hash (PtH). Per altre informazioni, vedere [Credential Guard](/windows/security/identity-protection/credential-guard/credential-guard).
 
 
 ## <a name="security-center-integration"></a>Integrazione nel Centro sicurezza
@@ -134,7 +134,7 @@ Nella catena di avvio protetta ogni passaggio del processo di avvio controlla un
 
 ### <a name="what-happens-when-an-integrity-fault-is-detected"></a>Cosa accade quando viene rilevato un errore di integrità?
 
-Il lancio attendibile per le macchine virtuali di Azure viene monitorato per le minacce avanzate. Se vengono rilevate tali minacce, verrà generato un avviso. Gli avvisi sono disponibili solo nel [livello standard](/azure/security-center/security-center-pricing) del Centro sicurezza di Azure.
+Il lancio attendibile per le macchine virtuali di Azure viene monitorato per le minacce avanzate. Se vengono rilevate tali minacce, verrà generato un avviso. Gli avvisi sono disponibili solo nel [livello standard](../security-center/security-center-pricing.md) del Centro sicurezza di Azure.
 Il Centro sicurezza di Azure esegue periodicamente l'attestazione. Se l'attestazione non riesce, verrà generato un avviso con livello di gravità medio. L'attestazione dell'avvio attendibile può non riuscire per i motivi seguenti: 
 - Le informazioni attestate, che includono un log di Trusted computing base (TCB), differiscono da una baseline attendibile (ad esempio, quando è abilitato l'avvio protetto). Questo può indicare che i moduli non attendibili sono stati caricati e che il sistema operativo potrebbe essere compromesso.
 - Non è stato possibile verificare l'offerta di attestazione per avere origine dalla vTPM della VM attestata. Questo può indicare che il malware è presente ed è possibile che stia intercettando il traffico al TPM. 

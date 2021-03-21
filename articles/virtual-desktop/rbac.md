@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 12/15/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 52f0151fd4be7505cf7beea0eeb54f8e34404997
-ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
+ms.openlocfilehash: 1120db685c54ff062f03aca9002bf77af549bc26
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97577703"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104582120"
 ---
 # <a name="built-in-roles-for-windows-virtual-desktop"></a>Ruoli predefiniti per desktop virtuale di Windows
 
@@ -146,7 +146,7 @@ Nell'elenco seguente vengono descritte le autorizzazioni accessibili per il ruol
 
 ## <a name="session-host-operator"></a>Operatore Session Host
 
-Il ruolo Collaboratore host sessione consente di visualizzare e rimuovere gli host di sessione, nonché di modificare la modalità di svuotamento. Non possono aggiungere host di sessione usando il portale di Azure perché non hanno l'autorizzazione di scrittura per gli oggetti del pool host. Se il token di registrazione è valido (generato e non scaduto), è possibile usare questo ruolo per aggiungere gli host di sessione al pool di host all'esterno di portale di Azure se l'amministratore ha autorizzazioni di calcolo tramite il ruolo Collaboratore macchina virtuale.
+Il ruolo Operatore host sessione consente di visualizzare e rimuovere gli host di sessione, nonché di modificare la modalità di svuotamento. Non possono aggiungere host di sessione usando il portale di Azure perché non hanno l'autorizzazione di scrittura per gli oggetti del pool host. Se il token di registrazione è valido (generato e non scaduto), è possibile usare questo ruolo per aggiungere gli host di sessione al pool di host all'esterno di portale di Azure se l'amministratore ha autorizzazioni di calcolo tramite il ruolo Collaboratore macchina virtuale.
 
 Nell'elenco seguente vengono descritte le autorizzazioni accessibili per il ruolo:
 

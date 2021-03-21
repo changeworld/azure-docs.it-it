@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 11/19/2020
 ms.author: jlian
 ms.openlocfilehash: fb2cc0b81083936a67bcd465e0408b9f4b53996b
-ms.sourcegitcommit: c4246c2b986c6f53b20b94d4e75ccc49ec768a9a
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/04/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96603558"
 ---
 # <a name="iot-hub-mqtt-5-support-overview-preview"></a>Panoramica sul supporto dell'hub MQTT 5 (anteprima)
@@ -403,7 +403,7 @@ Per fare affidamento su `Session Present` , il client deve tenere traccia delle 
 
 Per evitare che una versione precedente del client non abbia sottoscritto tutti gli argomenti, è preferibile sottoscrivere in modo incondizionato quando il comportamento del client cambia (ad esempio, come parte dell'aggiornamento del firmware). Inoltre, per assicurarsi che non vengano lasciate sottoscrizioni obsolete (prendendo il numero massimo consentito di sottoscrizioni), annullare in modo esplicito le sottoscrizioni che non sono più in uso.
 
-### <a name="batching"></a>Batch
+### <a name="batching"></a>Creazione di batch
 
 Non esiste un formato speciale per l'invio di un batch di messaggi. Per ridurre il sovraccarico delle operazioni a elevato utilizzo di risorse in TLS e rete, `PUBLISH` combinare pacchetti (,, `PUBACK` `SUBSCRIBE` e così via) prima di passarli allo stack TLS/TCP sottostante. Inoltre, il client può semplificare l'alias degli argomenti all'interno del "batch":
 

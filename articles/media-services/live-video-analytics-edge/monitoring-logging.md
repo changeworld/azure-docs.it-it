@@ -4,10 +4,10 @@ description: Questo articolo fornisce una panoramica del monitoraggio e della re
 ms.topic: reference
 ms.date: 04/27/2020
 ms.openlocfilehash: e81b1e98fb30bb8876c78c8c911585f5448db8f2
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/03/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "101730244"
 ---
 # <a name="monitoring-and-logging"></a>Monitoraggio e registrazione
@@ -206,7 +206,7 @@ I tipi di evento vengono assegnati a uno spazio dei nomi in base a questo schema
 
 `Microsoft.Media.Graph.{EventClass}.{EventType}`
 
-#### <a name="event-classes"></a>Classi di eventi
+#### <a name="event-classes"></a>Classi di evento
 
 |Nome di classe|Descrizione|
 |---|---|

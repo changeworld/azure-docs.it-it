@@ -12,10 +12,10 @@ ms.date: 4/26/2019
 ms.author: scottwhi
 ms.custom: devx-track-python, devx-track-js, devx-track-csharp
 ms.openlocfilehash: 161266a69308175637f5967b2ded48621d4d9c53
-ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/07/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102424071"
 ---
 # <a name="use-an-insights-token-to-get-insights-for-an-image"></a>Usare un token Insights per ottenere informazioni dettagliate per un'immagine
@@ -95,7 +95,7 @@ Per esempi che usano il token Insights, vedere:
 Per eseguire l'applicazione, seguire questa procedura:
 
 1. Creare una soluzione console in Visual Studio.
-2. Sostituire il contenuto di Program.cs con il codice illustrato in questa Guida introduttiva.
+2. Sostituire il contenuto di Program. cs con il codice illustrato in questa Guida introduttiva.
 3. Sostituire il valore di `accessKey` con la chiave di sottoscrizione.
 4. Sostituire il valore `insightsToken` con un token di informazioni dettagliate da una risposta /images/search.
 5. Eseguire il programma.
