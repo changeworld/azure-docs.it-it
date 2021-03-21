@@ -15,12 +15,12 @@ ms.date: 02/12/2021
 ms.author: kenwith
 ms.custom: seoapril2019
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8a21b6f5e7d2976bda0efd37577b7cca90469aea
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 6ed101282a69120162d6e3b526693c0a83df45b6
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101686445"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104607110"
 ---
 # <a name="configure-azure-active-directory-sign-in-behavior-for-an-application-by-using-a-home-realm-discovery-policy"></a>Configurare i comportamenti delle informazioni di accesso di Azure Active Directory per un'applicazione usando criteri di individuazione dell'area di autenticazione principale
 
@@ -91,7 +91,7 @@ Alcune applicazioni non forniscono un modo per configurare la richiesta di auten
 
 ### <a name="home-realm-discovery-policy-to-prevent-auto-acceleration"></a>Criteri di individuazione dell'area di autenticazione principale per impedire l'accelerazione automatica
 
-Alcune applicazioni Microsoft e SaaS includono automaticamente domain_hints (ad esempio, `https://outlook.com/contoso.com` comporta una richiesta di accesso con `&domain_hint=contoso.com` Accodamento), che può compromettere l'implementazione di credenziali gestite come fido.  È possibile usare i [criteri di individuazione dell'area di autenticazione principale](https://docs.microsoft.com/graph/api/resources/homeRealmDiscoveryPolicy) per ignorare i suggerimenti di dominio di determinate app o per determinati domini, durante l'implementazione delle credenziali gestite.  
+Alcune applicazioni Microsoft e SaaS includono automaticamente domain_hints (ad esempio, `https://outlook.com/contoso.com` comporta una richiesta di accesso con `&domain_hint=contoso.com` Accodamento), che può compromettere l'implementazione di credenziali gestite come fido.  È possibile usare i [criteri di individuazione dell'area di autenticazione principale](/graph/api/resources/homeRealmDiscoveryPolicy) per ignorare i suggerimenti di dominio di determinate app o per determinati domini, durante l'implementazione delle credenziali gestite.  
 
 ## <a name="enable-direct-ropc-authentication-of-federated-users-for-legacy-applications"></a>Abilitare l'autenticazione ROPC diretta degli utenti federati per le applicazioni legacy
 
@@ -129,7 +129,7 @@ Di seguito è riportato un esempio di definizione di criteri HRD:
    }
 ```
 
-Il tipo di criteri è "[HomeRealmDiscoveryPolicy](https://docs.microsoft.com/graph/api/resources/homeRealmDiscoveryPolicy)".
+Il tipo di criteri è "[HomeRealmDiscoveryPolicy](/graph/api/resources/homeRealmDiscoveryPolicy)".
 
 **AccelerateToFederatedDomain** è facoltativo. Se **AccelerateToFederatedDomain** è falso, i criteri non hanno alcun effetto sull'accelerazione automatica. Se **AccelerateToFederatedDomain** è vero ed esiste solo un dominio verificato e federato nel tenant, gli utenti verranno condotti direttamente al provider di identità federato per l'accesso. Se è vero ed è presente più di un dominio verificato del tenant, **PreferredDomain** deve essere specificato.
 

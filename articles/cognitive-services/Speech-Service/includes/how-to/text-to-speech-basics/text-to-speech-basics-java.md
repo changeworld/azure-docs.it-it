@@ -5,12 +5,12 @@ ms.topic: include
 ms.date: 03/25/2020
 ms.custom: devx-track-java
 ms.author: trbye
-ms.openlocfilehash: 80384662789e9dad979566715672c15a8648ea9a
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 7dd84b8f2f0834a03b41179531245ebdff35b7ff
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 03/19/2021
-ms.locfileid: "104612754"
+ms.locfileid: "104719675"
 ---
 Questo argomento di avvio rapido illustra i modelli di progettazione comuni per eseguire la sintesi vocale con Speech SDK. Si inizia con la configurazione di base e la sintesi e si passa ad esempi più avanzati per lo sviluppo di applicazioni personalizzate, tra cui:
 
@@ -255,9 +255,9 @@ Per passare a una voce neurale, impostare `name` su una delle [opzioni di voce n
 </speak>
 ```
 
-## <a name="visemes"></a>Visemes
+## <a name="get-facial-pose-events"></a>Ottenere gli eventi di posa facciali
 
-Il discorso viene in genere trattato come un modo efficace per guidare l'animazione delle espressioni facciali.
-Spesso [visemes](../../../how-to-speech-synthesis-viseme.md) vengono usati per rappresentare la chiave che si pone in un riconoscimento vocale osservato, ovvero la posizione dei labbri, la mascella e la lingua durante la produzione di un fonema particolare.
-È possibile sottoscrivere l'evento viseme nell'SDK vocale per generare dati di animazione facciali. Quindi, è possibile applicare tali dati a un carattere per realizzare animazioni facciali.
-Informazioni [su come ottenere output viseme](../../../how-to-speech-synthesis-viseme.md#get-viseme-outputs-with-the-speech-sdk).
+Il riconoscimento vocale può essere un modo efficace per guidare l'animazione di espressioni facciali.
+Spesso [visemes](../../../how-to-speech-synthesis-viseme.md) vengono usati per rappresentare la chiave che si pone in un discorso osservato, ad esempio la posizione dei labbri, la mascella e la lingua durante la produzione di un fonema particolare.
+È possibile sottoscrivere gli eventi viseme nell'SDK vocale per ottenere i dati di animazione facciali, quindi applicare i dati a un carattere durante un'animazione facciale.
+Informazioni [su come ottenere gli eventi viseme](../../../how-to-speech-synthesis-viseme.md#get-viseme-events-with-the-speech-sdk).

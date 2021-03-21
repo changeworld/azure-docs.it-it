@@ -6,14 +6,16 @@ ms.author: jasonh
 ms.service: data-catalog
 ms.topic: conceptual
 ms.date: 08/01/2019
-ms.openlocfilehash: 63d1213a2dded41df3f462722b354b03fe9f6e33
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ebfaa59f1800da084d611f6e050a59da63a7f195
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "72801889"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104674751"
 ---
 # <a name="approach-and-process-for-adopting-azure-data-catalog"></a>Approccio e processo per l'adozione di Azure Data Catalog
+
+[!INCLUDE [Azure Purview redirect](../../includes/data-catalog-use-purview.md)]
 
 Questo articolo illustra come iniziare ad adottare **Azure Data Catalog** nell'organizzazione. Per adottare **Azure Data Catalog**, è opportuno tenere presenti tre elementi chiave: definire il proprio punto di vista, identificare i principali casi d'uso di business nell'organizzazione e scegliere un progetto pilota.
 
@@ -155,7 +157,7 @@ Il test finale per il progetto consiste nel verificare se gli utenti riescono a 
 
 Il training deve aiutare gli utenti a iniziare e deve basarsi sugli obiettivi specifici e sul livello di esperienza dei membri del team pilota. Per iniziare con il training, è possibile seguire i passaggi illustrati nell'articolo [Introduzione a Catalogo dati di Azure](data-catalog-get-started.md) . È anche possibile scaricare la [presentazione sul training per il progetto pilota di Catalogo dati di Azure](https://github.com/Azure-Samples/data-catalog-dotnet-get-started/blob/master/Azure%20Data%20Catalog%20Training.pptx?raw=true). Questa presentazione di PowerPoint è un valido aiuto per introdurre Catalogo dati ai membri del team pilota.
 
-## <a name="conclusion"></a>Conclusioni
+## <a name="conclusion"></a>Conclusione
 
 Una volta che il team pilota inizia a lavorare con una certa facilità e gli obiettivi iniziali vengono raggiunti, è consigliabile espandere l'adozione di Catalogo dati ad altri team. Applicare e perfezionare quanto si è appreso dal progetto pilota per espandere Catalogo dati in tutta l'organizzazione.
 

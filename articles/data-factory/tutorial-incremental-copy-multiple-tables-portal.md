@@ -7,12 +7,12 @@ ms.service: data-factory
 ms.topic: tutorial
 ms.custom: seo-lt-2019; seo-dt-2019
 ms.date: 02/18/2021
-ms.openlocfilehash: 3b97887e7bbd31fc1bb6ec0a074267aa081184c8
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 1fad6274b1dbbc4bf255caabd79352b3c836e352
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101724898"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104606694"
 ---
 # <a name="incrementally-load-data-from-multiple-tables-in-sql-server-to-a-database-in-azure-sql-database-using-the-azure-portal"></a>Caricare dati in modo incrementale da più tabelle di SQL Server in un database di Database SQL di Azure con il portale di Azure
 
@@ -253,7 +253,7 @@ END
 8. Fare clic su **Crea**.      
 9. Al termine della creazione verrà visualizzata la pagina **Data factory**, come illustrato nell'immagine.
    
-   ![Home page di Data factory](./media/doc-common-process/data-factory-home-page.png)
+    :::image type="content" source="./media/doc-common-process/data-factory-home-page.png" alt-text="Home page per la Azure Data Factory, con il riquadro Author & monitor.":::
 10. Fare clic sul riquadro **Crea e monitora** per avviare l'interfaccia utente di Azure Data Factory in una scheda separata.
 
 ## <a name="create-self-hosted-integration-runtime"></a>Creare un runtime di integrazione self-hosted
@@ -291,7 +291,7 @@ In questo passaggio si collega il database di SQL Server alla data factory.
 
 1. Nella finestra **Connessioni** passare dalla scheda **Integration Runtimes** (Runtime di integrazione) alla scheda **Servizi collegati** e fare clic su **+ Nuovo**.
 
-   ![Nuovo servizio collegato](./media/doc-common-process/new-linked-service.png)
+    :::image type="content" source="./media/doc-common-process/new-linked-service.png" alt-text="Nuovo servizio collegato.":::
 1. Nella finestra **New Linked Service** (Nuovo servizio collegato) selezionare **SQL Server** e fare clic su **Continua**. 
 
 1. Nella finestra **New Linked Service** (Nuovo servizio collegato) seguire questa procedura:

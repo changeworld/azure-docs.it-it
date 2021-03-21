@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 9/1/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: c2e7c9c96f237512d7f28f7243707b097c034aab
-ms.sourcegitcommit: dda0d51d3d0e34d07faf231033d744ca4f2bbf4a
+ms.openlocfilehash: acaab347d56d320f2287bb8f548fd832f52efece
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102198456"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104595363"
 ---
 # <a name="auto-manage-devices-in-azure-digital-twins-using-device-provisioning-service-dps"></a>Gestire automaticamente i dispositivi nei dispositivi gemelli digitali di Azure usando il servizio Device provisioning (DPS)
 
@@ -99,7 +99,7 @@ Aggiungere l'impostazione con questo comando dell'interfaccia della riga di coma
 az functionapp config appsettings set --settings "ADT_SERVICE_URL=https://<Azure Digital Twins instance _host name_>" -g <resource group> -n <your App Service (function app) name>
 ```
 
-Assicurarsi che le autorizzazioni e l'assegnazione di ruolo identità gestita siano configurate correttamente per l'app per le funzioni, come descritto nella sezione [*assegnare le autorizzazioni all'app per le funzioni*](tutorial-end-to-end.md#assign-permissions-to-the-function-app) nell'esercitazione end-to-end.
+Assicurarsi che le autorizzazioni e l'assegnazione di ruolo identità gestita siano configurate correttamente per l'app per le funzioni, come descritto nella sezione [*assegnare le autorizzazioni all'app per le funzioni*](tutorial-end-to-end.md#configure-permissions-for-the-function-app) nell'esercitazione end-to-end.
 
 ### <a name="create-device-provisioning-enrollment"></a>Creare la registrazione del provisioning dei dispositivi
 
@@ -202,7 +202,7 @@ Successivamente, sarà necessario configurare la variabile di ambiente Function 
 az functionapp config appsettings set --settings "EVENTHUB_CONNECTIONSTRING=<Event Hubs SAS connection string Listen>" -g <resource group> -n <your App Service (function app) name>
 ```
 
-Assicurarsi che le autorizzazioni e l'assegnazione di ruolo identità gestita siano configurate correttamente per l'app per le funzioni, come descritto nella sezione [*assegnare le autorizzazioni all'app per le funzioni*](tutorial-end-to-end.md#assign-permissions-to-the-function-app) nell'esercitazione end-to-end.
+Assicurarsi che le autorizzazioni e l'assegnazione di ruolo identità gestita siano configurate correttamente per l'app per le funzioni, come descritto nella sezione [*assegnare le autorizzazioni all'app per le funzioni*](tutorial-end-to-end.md#configure-permissions-for-the-function-app) nell'esercitazione end-to-end.
 
 ### <a name="create-an-iot-hub-route-for-lifecycle-events"></a>Creare una route dell'hub Internet per gli eventi del ciclo di vita
 

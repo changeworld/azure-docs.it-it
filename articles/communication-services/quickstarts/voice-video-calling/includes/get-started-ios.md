@@ -1,17 +1,17 @@
 ---
 title: "Avvio rapido: Aggiungere chiamate a un'app iOS con Servizi di comunicazione di Azure"
 description: Questa guida di avvio rapido illustra come usare la libreria client Chiamate di Servizi di comunicazione di Azure per iOS.
-author: matthewrobertson
-ms.author: marobert
-ms.date: 07/24/2020
+author: chpalm
+ms.author: mikben
+ms.date: 03/10/2021
 ms.topic: quickstart
 ms.service: azure-communication-services
-ms.openlocfilehash: 36ec27f3a0e69126a91b52bed26dc645ec89e46e
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: 6cdd38f1e849efc416d62f22bd85ed7efb2e6349
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101656654"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104719790"
 ---
 In questo argomento di avvio rapido si apprenderà come avviare una chiamata usando la libreria client Chiamate di Servizi di comunicazione di Azure per iOS.
 
@@ -37,7 +37,8 @@ In Xcode creare un nuovo progetto iOS e selezionare il modello **Single View App
 
 ### <a name="install-the-package-and-dependencies-with-cocoapods"></a>Installare il pacchetto e le dipendenze con CocoaPods
 
-1. Creare un file Podfile per l'applicazione, come questo:
+1. Per creare un Podfile per l'applicazione, aprire il terminale e passare alla cartella del progetto ed eseguire ```pod init```
+3. Aggiungere il codice seguente a Podfile e salvare:
 
    ```
    platform :ios, '13.0'
@@ -50,7 +51,7 @@ In Xcode creare un nuovo progetto iOS e selezionare il modello **Single View App
    end
    ```
 
-2. Eseguire `pod install`.
+3. Eseguire `pod install`.
 3. Aprire `.xcworkspace` con Xcode.
 
 ### <a name="request-access-to-the-microphone"></a>Richiedere l'accesso al microfono

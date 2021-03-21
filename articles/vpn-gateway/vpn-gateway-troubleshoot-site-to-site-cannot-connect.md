@@ -7,12 +7,12 @@ ms.service: vpn-gateway
 ms.topic: troubleshooting
 ms.date: 09/16/2019
 ms.author: genli
-ms.openlocfilehash: 674b8ab8266921a4eef8bbf212f3c556b1e587d7
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: 4454afbe543f374ebd745af7cd59be1ab745036f
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94658350"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104670888"
 ---
 # <a name="troubleshooting-an-azure-site-to-site-vpn-connection-cannot-connect-and-stops-working"></a>Risoluzione dei problemi: una connessione VPN da sito a sito di Azure non può essere stabilita e smette di funzionare
 
@@ -46,7 +46,7 @@ Confrontare la chiave condivisa del dispositivo VPN locale con quella del gatewa
 
 Per visualizzare la chiave condivisa per la connessione VPN di Azure, usare uno dei metodi seguenti:
 
-**Portale di Azure**
+**Azure portal**
 
 1. Passare alla connessione gateway VPN di Azure da sito a sito appena creata.
 
@@ -110,5 +110,5 @@ La funzionalità PFS (Perfect Forward Secrecy) può causare problemi di disconne
 
 ## <a name="next-steps"></a>Passaggi successivi
 
--   [Configurare una connessione da sito a sito a una rete virtuale](vpn-gateway-howto-site-to-site-resource-manager-portal.md)
+-   [Configurare una connessione da sito a sito a una rete virtuale](./tutorial-site-to-site-portal.md)
 -   [Configurare criteri IPsec/IKE per connessioni VPN da sito a sito o da rete virtuale a rete virtuale](vpn-gateway-ipsecikepolicy-rm-powershell.md)

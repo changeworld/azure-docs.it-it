@@ -5,12 +5,12 @@ author: cachai2
 ms.topic: conceptual
 ms.date: 1/21/2021
 ms.author: cachai
-ms.openlocfilehash: 0267184a921c92c3dc092908a09467ef3a090175
-ms.sourcegitcommit: afb9e9d0b0c7e37166b9d1de6b71cd0e2fb9abf5
+ms.openlocfilehash: c35780ae2c4741454685d7d9740a660e965df19e
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/14/2021
-ms.locfileid: "103463035"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104606991"
 ---
 # <a name="azure-functions-networking-options"></a>Opzioni di rete di Funzioni di Azure
 
@@ -81,34 +81,15 @@ Per informazioni su come configurare l'integrazione della rete virtuale, vedere 
 
 ## <a name="connect-to-service-endpoint-secured-resources"></a>Connettersi a risorse protette dell'endpoint di servizio
 
-Per garantire un livello di sicurezza più elevato, è possibile limitare vari servizi di Azure a una rete virtuale usando gli endpoint di servizio. Sarà quindi necessario integrare l'app per le funzioni con la rete virtuale per accedere alla risorsa. Questa configurazione è supportata in tutti i piani che supportano l'integrazione della rete virtuale.
+Per garantire un livello di sicurezza più elevato, è possibile limitare vari servizi di Azure a una rete virtuale usando gli endpoint di servizio. Sarà quindi necessario integrare l'app per le funzioni con la rete virtuale per accedere alla risorsa. Questa configurazione è supportata in tutti i [piani](functions-scale.md#networking-features) che supportano l'integrazione della rete virtuale.
 
 Per altre informazioni, vedere [Endpoint servizio di rete virtuale](../virtual-network/virtual-network-service-endpoints-overview.md).
 
 ## <a name="restrict-your-storage-account-to-a-virtual-network"></a>Limitare l'account di archiviazione a una rete virtuale 
 
-Quando si crea un'app per le funzioni, è necessario creare o collegare un account di archiviazione di Azure di uso generico che supporta l'archiviazione BLOB, Coda e Tabella. È possibile sostituire questo account di archiviazione con uno protetto con endpoint di servizio o privato. Questa funzionalità è attualmente disponibile per tutti gli SKU supportati da rete virtuale Windows, che includono standard e Premium, tranne che per gli indicatori Flex in cui le reti virtuali sono disponibili solo per lo SKU Premium. Per configurare una funzione con un account di archiviazione limitato a una rete privata:
+Quando si crea un'app per le funzioni, è necessario creare o collegare un account di archiviazione di Azure di uso generico che supporta l'archiviazione BLOB, Coda e Tabella. È possibile sostituire questo account di archiviazione con uno protetto con endpoint di servizio o privato. 
 
-1. Creare una funzione con un account di archiviazione in cui non sono abilitati gli endpoint di servizio.
-1. Configurare la funzione per la connessione alla rete virtuale.
-1. Creare o configurare un account di archiviazione diverso.  Si tratta dell'account di archiviazione protetto con gli endpoint di servizio e della connessione alla funzione.
-1. [Creare una condivisione file](../storage/files/storage-how-to-create-file-share.md#create-file-share) nell'account di archiviazione protetto.
-1. Abilitare gli endpoint servizio o l'endpoint privato per l'account di archiviazione.  
-    * Se si usano connessioni a endpoint privati, per l'account di archiviazione è necessario un endpoint privato per le `file` `blob` sottorisorse e.  Se si usano determinate funzionalità come Durable Functions, sarà necessario `queue` e `table` accessibili anche tramite una connessione all'endpoint privato.
-    * Se si usano gli endpoint del servizio, abilitare la subnet dedicata alle app per le funzioni per gli account di archiviazione.
-1. Copiare il contenuto del file e del BLOB dall'account di archiviazione dell'app per le funzioni nell'account di archiviazione e nella condivisione file protetti.
-1. Copiare la stringa di connessione per questo account di archiviazione.
-1. Aggiornare le **impostazioni dell'applicazione** in **configurazione** per l'app per le funzioni come riportato di seguito:
-    - `AzureWebJobsStorage` alla stringa di connessione per l'account di archiviazione protetto.
-    - `WEBSITE_CONTENTAZUREFILECONNECTIONSTRING` alla stringa di connessione per l'account di archiviazione protetto.
-    - `WEBSITE_CONTENTSHARE` al nome della condivisione file creata nell'account di archiviazione protetto.
-    - Creare una nuova impostazione con il nome `WEBSITE_CONTENTOVERVNET` e il valore di `1` .
-    - Se l'account di archiviazione usa connessioni a endpoint privati, verificare o aggiungere le impostazioni seguenti
-        - `WEBSITE_VNET_ROUTE_ALL` con un valore di `1` .
-        - `WEBSITE_DNS_SERVER` con un valore di `168.63.129.16` 
-1. Salvare le impostazioni dell'applicazione.  
-
-L'app per le funzioni verrà riavviata e verrà ora connessa a un account di archiviazione protetto.
+Questa funzionalità funziona attualmente per tutti gli SKU supportati da rete virtuale Windows nel piano dedicato (servizio app) e per il piano Premium. Il piano a consumo non è supportato. Per informazioni su come configurare una funzione con un account di archiviazione limitato a una rete privata, vedere [limitare l'account di archiviazione a una rete virtuale](configure-networking-how-to.md#restrict-your-storage-account-to-a-virtual-network).
 
 ## <a name="use-key-vault-references"></a>Usare i riferimenti di Key Vault
 
@@ -173,6 +154,8 @@ Per altre informazioni, vedere la [Documentazione del servizio app per le connes
 Le restrizioni IP in uscita sono disponibili in un piano Premium, un piano di servizio app o un ambiente del servizio app. È possibile configurare le restrizioni in uscita per la rete virtuale in cui è distribuito l'ambiente del servizio app.
 
 Quando si integra un'app per le funzioni in un piano Premium o in un piano di servizio app con una rete virtuale, per impostazione predefinita l'app può comunque effettuare chiamate in uscita a Internet. Se si aggiunge l'impostazione dell'applicazione `WEBSITE_VNET_ROUTE_ALL=1` si forza l'invio di tutto il traffico in uscita alla rete virtuale, in cui è possibile usare regole del gruppo di sicurezza di rete per limitare il traffico.
+
+Per informazioni su come controllare l'IP in uscita tramite una rete virtuale, vedere [esercitazione: controllare l'IP in uscita di funzioni di Azure con un gateway NAT di rete virtuale di Azure](functions-how-to-use-nat-gateway.md). 
 
 ## <a name="automation"></a>Automazione
 Le seguenti API consentono di gestire a livello di codice le integrazioni delle reti virtuali internazionali:
