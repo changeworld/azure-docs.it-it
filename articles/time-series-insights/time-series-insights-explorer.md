@@ -13,10 +13,10 @@ ms.topic: conceptual
 ms.date: 09/29/2020
 ms.custom: seodec18
 ms.openlocfilehash: 639f2ef12d190a56e04a9b48d96ea0a6537d243c
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/21/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "95020113"
 ---
 # <a name="azure-time-series-insights-gen1-explorer"></a>Azure Time Series Insights Esplora Gen1
@@ -111,7 +111,7 @@ Entro pochi minuti dalla connessione dell'origine evento all'ambiente di Azure T
 
 1. Usare **mappa termica** per individuare in modo rapido la serie di dati univoca o anomala in una determinata query. È possibile visualizzare come mappa termica solo un termine di ricerca.
 
-    Creazione di [grafici mappa termica in esplora Time Series Insights](media/time-series-insights-explorer/tsi-ga-example-heatmap-charting.png)] (media/Time-Series-Insights-Explorer/tsi-ga-example-heatmap-charting.png # Lightbox)
+    Creazione di [grafici mappa termica in esplora Time Series Insights](media/time-series-insights-explorer/tsi-ga-example-heatmap-charting.png)] (media/Time-Series-Insights-Explorer/tsi-ga-example-heatmap-charting.png#lightbox)
 
 1. Quando si esplorano gli eventi selezionando o facendo clic con il pulsante destro del mouse, viene reso disponibile il pannello **eventi** . Qui è possibile esaminare tutti gli eventi non elaborati ed esportare gli eventi come file JSON o CSV. Azure Time Series Insights archivia tutti i dati non elaborati.
 

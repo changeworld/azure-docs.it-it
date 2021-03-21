@@ -9,10 +9,10 @@ ms.date: 03/12/2020
 ms.author: cherylmc
 ms.custom: include file
 ms.openlocfilehash: 34e841a5f17d589c4fbef54a4a8674a99ac6c640
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/25/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96026054"
 ---
 Per stabilire correttamente un tunnel del dispositivo, è necessario soddisfare i requisiti seguenti:
@@ -28,7 +28,7 @@ Per stabilire correttamente un tunnel del dispositivo, è necessario soddisfare 
 
 Dopo aver configurato il gateway di rete virtuale e installato il certificato client nell'archivio del computer locale nel client Windows 10, usare gli esempi seguenti per configurare un tunnel del dispositivo client:
 
-1. Copiare il testo seguente e salvarlo come ***devicecert.ps1** _.
+1. Copiare il testo seguente e salvarlo come ***devicecert.ps1***.
 
    ```
    Param(
@@ -80,7 +80,7 @@ Dopo aver configurato il gateway di rete virtuale e installato il certificato cl
    $Message = "Complete."
    Write-Host "$Message"
    ```
-1. Copiare il testo seguente e salvarlo come _*_VPNProfile.xml_*_ nella stessa cartella di _ * devicecert.ps1 * *. Modificare il testo seguente in modo che corrisponda all'ambiente.
+1. Copiare il testo seguente e salvarlo come ***VPNProfile.xml** _ nella stessa cartella di _ * devicecert.ps1 * *. Modificare il testo seguente in modo che corrisponda all'ambiente.
 
    * `<Servers>azuregateway-1234-56-78dc.cloudapp.net</Servers> <= Can be found in the VpnSettings.xml in the downloaded profile zip file`
    * `<Address>192.168.3.5</Address> <= IP of resource in the vnet or the vnet address space`

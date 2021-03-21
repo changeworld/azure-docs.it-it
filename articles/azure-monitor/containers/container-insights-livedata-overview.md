@@ -5,10 +5,10 @@ ms.topic: conceptual
 ms.date: 03/04/2021
 ms.custom: references_regions
 ms.openlocfilehash: 5277f5051e291e9058255d8920ac0be950389704
-ms.sourcegitcommit: dda0d51d3d0e34d07faf231033d744ca4f2bbf4a
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/05/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102203199"
 ---
 # <a name="how-to-view-kubernetes-logs-events-and-pod-metrics-in-real-time"></a>Come visualizzare i log Kubernetes, gli eventi e le metriche pod in tempo reale
@@ -104,7 +104,7 @@ Dopo l'autenticazione, il riquadro della console dati attivi verrà visualizzato
 ## <a name="using-live-data-views"></a>Uso delle visualizzazioni dati attive
 Le sezioni seguenti descrivono le funzionalità che è possibile usare nelle diverse visualizzazioni dati in tempo reale.
 
-### <a name="search"></a>Ricerca
+### <a name="search"></a>Cerca
 La funzionalità dati dinamici include funzionalità di ricerca. Nel campo di **ricerca** è possibile filtrare i risultati digitando una parola chiave o un termine e i risultati corrispondenti vengono evidenziati per consentire la revisione rapida. Quando si visualizzano gli eventi, è anche possibile limitare i risultati usando la pillola di **filtro** trovata a destra della barra di ricerca. A seconda della risorsa selezionata, la pillola elenca un pod, uno spazio dei nomi o un cluster da cui scegliere.
 
 ![Esempio di filtro del riquadro della console dati in tempo reale](./media/container-insights-livedata-overview/livedata-pane-filter-example.png)

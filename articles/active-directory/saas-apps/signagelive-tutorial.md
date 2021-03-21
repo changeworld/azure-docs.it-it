@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 1/11/2019
 ms.author: jeedes
 ms.openlocfilehash: 78324cfa58a8ac015b085052bdec7e3793befc1b
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
-ms.translationtype: HT
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/30/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96348399"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-signagelive"></a>Esercitazione: Integrazione di Azure Active Directory con Signagelive
@@ -147,7 +147,7 @@ Questa sezione descrive come creare un utente test denominato Britta Simon nel p
 
     c. Selezionare la casella di controllo **Mostra password** e quindi prendere nota del valore visualizzato nella casella Password.
 
-    d. Selezionare **Create** (Crea).
+    d. Selezionare **Crea**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Assegnare l'utente di test di Azure AD
 

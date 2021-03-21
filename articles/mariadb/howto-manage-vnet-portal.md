@@ -3,14 +3,14 @@ title: Gestire endpoint VNet-portale di Azure-database di Azure per MariaDB
 description: Creare e gestire gli endpoint e le regole di servizio di rete virtuale per Database di Azure per MariaDB tramite il portale di Azure
 author: savjani
 ms.author: pariks
-ms.service: jroth
+ms.service: mariadb
 ms.topic: how-to
 ms.date: 3/18/2020
-ms.openlocfilehash: e84d5d15073e7ff4f22b15556345e40b01a9c37b
-ms.sourcegitcommit: 52e3d220565c4059176742fcacc17e857c9cdd02
+ms.openlocfilehash: 5eaa7821c61010b322d8f9032c439df28c297f3d
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/21/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98665022"
 ---
 # <a name="create-and-manage-azure-database-for-mariadb-vnet-service-endpoints-and-vnet-rules-by-using-the-azure-portal"></a>Creare e gestire gli endpoint e le regole di servizio di rete virtuale per Database di Azure per MariaDB tramite il portale di Azure

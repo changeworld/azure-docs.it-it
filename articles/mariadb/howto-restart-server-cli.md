@@ -3,15 +3,15 @@ title: Riavviare il server-interfaccia della riga di comando di Azure-database d
 description: Questo articolo descrive come riavviare un database di Azure per il server MariaDB usando l'interfaccia della riga di comando di Azure.
 author: savjani
 ms.author: pariks
-ms.service: jroth
+ms.service: mariadb
 ms.topic: how-to
 ms.date: 3/18/2020
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 50389c7c4e1f497e63c5221181713649a7b068c5
-ms.sourcegitcommit: 52e3d220565c4059176742fcacc17e857c9cdd02
+ms.openlocfilehash: 8ae69adfe83b871eb29c85fc4d03e817026ec006
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/21/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98664920"
 ---
 # <a name="restart-azure-database-for-mariadb-server-using-the-azure-cli"></a>Riavviare il database di Azure per il server MariaDB usando l'interfaccia della riga di comando
@@ -34,7 +34,7 @@ Per completare questa guida pratica:
 - Questo articolo richiede la versione 2.0 dell'interfaccia della riga di comando di Azure. Se si usa Azure Cloud Shell, la versione più recente è già installata.
 
 
-## <a name="restart-the-server"></a>Riavviare il server.
+## <a name="restart-the-server"></a>Riavviare il server
 
 Riavviare il server con il comando seguente:
 

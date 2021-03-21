@@ -7,10 +7,10 @@ ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 02/14/2020
 ms.openlocfilehash: 0eebd0b62e973572a40b7b141ae908046700ba3c
-ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/08/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98020486"
 ---
 # <a name="azure-stream-analytics-jobconfigjson-fields"></a>JobConfig.jsdi analisi di flusso di Azure sui campi
@@ -41,10 +41,10 @@ I campi seguenti sono supportati nell' *JobConfig.jssu* file usato per [creare u
 |----|----|--------|-----|
 |Impostazioni locali|stringa|No|Impostazioni locali dei dati del processo di analisi di flusso. Il valore deve corrispondere al nome di un oggetto supportato. Se non è specificato alcun valore, il valore predefinito è "en-US".|
 |OutputErrorPolicy|stringa|No|Indica i criteri da applicare agli eventi che arrivano all'output e che non possono essere scritti nella risorsa di archiviazione esterna a causa di un formato non valido (valori di colonna mancanti, valori di colonna di tipo o dimensione errata). -Arresta o Elimina|
-|EventsLateArrivalMaxDelayInSeconds|integer|No|Ritardo massimo tollerabile in secondi in cui potrebbero essere inclusi gli eventi che arrivano in ritardo. L'intervallo supportato è compreso tra-1 e 1814399 (20.23:59:59 giorni) e-1 viene usato per specificare un'attesa indefinita. Se la proprietà è assente, viene interpretato come un valore pari a-1.|
-|EventsOutOfOrderMaxDelayInSeconds|integer|No|Il ritardo massimo tollerabile in secondi per cui è possibile modificare gli eventi non ordinati in modo da essere nuovamente nell'ordine.|
+|EventsLateArrivalMaxDelayInSeconds|numero intero|No|Ritardo massimo tollerabile in secondi in cui potrebbero essere inclusi gli eventi che arrivano in ritardo. L'intervallo supportato è compreso tra-1 e 1814399 (20.23:59:59 giorni) e-1 viene usato per specificare un'attesa indefinita. Se la proprietà è assente, viene interpretato come un valore pari a-1.|
+|EventsOutOfOrderMaxDelayInSeconds|numero intero|No|Il ritardo massimo tollerabile in secondi per cui è possibile modificare gli eventi non ordinati in modo da essere nuovamente nell'ordine.|
 |EventsOutOfOrderPolicy|stringa|No|Indica i criteri da applicare agli eventi che non arrivano in ordine nel flusso di eventi di input. -Regola o Elimina|
-|Streaming|integer|Sì|Specifica il numero di unità di streaming utilizzate dal processo di streaming.|
+|Streaming|numero intero|Sì|Specifica il numero di unità di streaming utilizzate dal processo di streaming.|
 |CompatibilityLevel|stringa|No|Controlla alcuni comportamenti di runtime del processo di streaming. -I valori accettabili sono "1,0", "1,1", "1,2"|
 |UseSystemAssignedIdentity|boolean|No|Impostare true per consentire a questo processo di comunicare con altri servizi di Azure usando un'identità del Azure Active Directory gestito.|
 |GlobalStorage. AccountName|stringa|No|L'account di archiviazione globale viene usato per archiviare il contenuto correlato al processo di analisi di flusso, ad esempio snapshot dei dati di riferimento SQL.|

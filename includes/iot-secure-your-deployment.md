@@ -9,10 +9,10 @@ ms.date: 08/07/2018
 ms.author: robinsh
 ms.custom: include file
 ms.openlocfilehash: 08cca67455df4b2d28bba0a7410fccc11446fcdc
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/25/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96010700"
 ---
 L'articolo fornisce una serie di informazioni avanzate per proteggere l'infrastruttura Azure IoT e fornisce i collegamenti ai dettagli a livello di implementazione per configurare e distribuire ciascun componente. Offre anche una serie di confronti e scelte tra i vari metodi concorrenti.
@@ -109,6 +109,6 @@ I dati inseriti dall'Hub IoT di Azure possono essere usati da una serie di servi
 
 * [Archiviazione BLOB di Azure](https://azure.microsoft.com/services/storage/): archiviazione cloud affidabile ed economica per i dati che i dispositivi inviano al cloud.
 
-## <a name="conclusion"></a>Conclusioni
+## <a name="conclusion"></a>Conclusione
 
 Questo articolo fornisce una panoramica a livello di implementazione per progettare e distribuire un'infrastruttura mediante Azure IoT. Per una protezione complessiva dell'infrastruttura IoT è fondamentale configurare la sicurezza di ciascun componente. Le scelte di progettazione disponibili in Azure IoT forniscono un certo livello di flessibilità e scelta; tuttavia, ogni scelta può avere determinate implicazioni di sicurezza. Si consiglia di vagliare entrambe le opzioni secondo il criterio di una valutazione dei costi e del rischio.

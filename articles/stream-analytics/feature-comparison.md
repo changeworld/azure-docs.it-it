@@ -7,10 +7,10 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 06/27/2019
 ms.openlocfilehash: 037bd8bc823cd8c77241d0ca25174e29d25149b9
-ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/08/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98020537"
 ---
 # <a name="azure-stream-analytics-feature-comparison"></a>Confronto delle funzionalità di analisi di flusso di Azure
@@ -23,7 +23,7 @@ Con analisi di flusso di Azure è possibile creare soluzioni di streaming nel cl
 ## <a name="cloud-job-features"></a>Funzionalità del processo cloud
 
 
-|Feature  |Portale  |Visual Studio  |Visual Studio Code  |
+|Funzionalità  |Portale  |Visual Studio  |Visual Studio Code  |
 |---------|---------|---------|---------|
 |Multipiattaforma     |Mac</br>Linux</br>Windows         |Windows        |Mac</br>Linux</br>Windows          |
 |Creazione di script     |Sì         |Sì         |Sì         |
@@ -53,7 +53,7 @@ Con analisi di flusso di Azure è possibile creare soluzioni di streaming nel cl
 
 ## <a name="iot-edge-job-features"></a>Funzionalità del processo di IoT Edge
 
-|Feature  |Portale  |Visual Studio  |Visual Studio Code  |
+|Funzionalità  |Portale  |Visual Studio  |Visual Studio Code  |
 |---------|---------|---------|---------|
 |Creazione di processi     |Sì         |Sì         |No         |
 |Controllo del codice sorgente     |No         |Sì         |No         |

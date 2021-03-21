@@ -8,10 +8,10 @@ ms.date: 02/12/2021
 ms.topic: how-to
 ms.service: digital-twins
 ms.openlocfilehash: 89bd77c30ec52a72087598b86f22e85659fa1b0e
-ms.sourcegitcommit: dda0d51d3d0e34d07faf231033d744ca4f2bbf4a
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/05/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102203896"
 ---
 # <a name="integrate-azure-digital-twins-with-azure-signalr-service"></a>Integrare i dispositivi gemelli digitali di Azure con il servizio Azure SignalR
@@ -65,7 +65,7 @@ In questa sezione vengono impostate due funzioni di Azure:
 
 Avviare Visual Studio (o un altro editor di codice di propria scelta) e aprire la soluzione di codice nella cartella *Digital-Twins-Samples-master > ADTSampleApp* . Eseguire quindi la procedura seguente per creare le funzioni:
 
-1. Nel progetto *SampleFunctionsApp* creare una nuova classe C# denominata **SignalRFunctions.cs**.
+1. Nel progetto *SampleFunctionsApp* creare una nuova classe C# denominata **SignalRFunctions. cs**.
 
 1. Sostituire il contenuto del file di classe con il codice seguente:
     

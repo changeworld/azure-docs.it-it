@@ -8,10 +8,10 @@ ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
 ms.openlocfilehash: aa364ec434db980bf226008537ca928628fcac1b
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/14/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100392086"
 ---
 # <a name="copy-data-to-and-from-azure-synapse-analytics-using-azure-data-factory"></a>Copiare dati da e verso Azure sinapsi Analytics usando Azure Data Factory
@@ -42,7 +42,7 @@ Questo articolo illustra come usare l'attività di copia in Azure Data Factory p
 ## <a name="supported-authentication-type"></a>Tipo di autenticazione supportato
 Il connettore Azure sinapsi Analytics supporta l'autenticazione di base.
 
-## <a name="getting-started"></a>Guida introduttiva
+## <a name="getting-started"></a>Introduzione
 È possibile creare una pipeline con un'attività di copia che sposta i dati da e verso un'analisi delle sinapsi di Azure usando diversi strumenti/API.
 
 Il modo più semplice per creare una pipeline che copia i dati da e verso Azure sinapsi Analytics consiste nell'usare la procedura guidata copia dati. Vedere [esercitazione: caricare i dati in Azure sinapsi Analytics con data factory](../load-azure-sql-data-warehouse.md) per una rapida procedura dettagliata sulla creazione di una pipeline usando la copia guidata dati.

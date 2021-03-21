@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 03/18/2019
 ms.author: pafarley
 ms.openlocfilehash: 479c7c455f07d098edd327196803e85df24dfb6d
-ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96905135"
 ---
 # <a name="create-human-reviews-api-console"></a>Creare recensioni umane (console API)
@@ -129,13 +129,13 @@ Il corpo della richiesta predefinito Mostra esempi dei diversi tipi di revisione
 
 ### <a name="submit-your-request"></a>Inviare la richiesta
   
-Selezionare **Send** (Invia). Se l'operazione ha esito positivo, lo **stato della risposta** è `200 OK` e nella casella **contenuto risposta** viene visualizzato un ID per la revisione. Copiare questo ID da usare nei passaggi seguenti.
+Selezionare **Invia**. Se l'operazione ha esito positivo, lo **stato della risposta** è `200 OK` e nella casella **contenuto risposta** viene visualizzato un ID per la revisione. Copiare questo ID da usare nei passaggi seguenti.
 
 ![La casella Response content (Contenuto della risposta) della console Review - Create (Revisione - Creazione) visualizza l'ID revisione](images/test-drive-review-2.PNG)
 
 ### <a name="examine-the-new-review"></a>Esaminare la nuova revisione
 
-Nello [strumento di revisione](https://contentmoderator.cognitive.microsoft.com)selezionare **Verifica**  >  **Image** / **Text** / **video** immagine testo (a seconda del contenuto usato). Il contenuto caricato dovrebbe essere visualizzato, pronto per la revisione umana.
+Nello [strumento di revisione](https://contentmoderator.cognitive.microsoft.com)selezionare **Verifica**  >   /  / **video** immagine testo (a seconda del contenuto usato). Il contenuto caricato dovrebbe essere visualizzato, pronto per la revisione umana.
 
 ![Immagine di un pallone da calcio nello strumento di revisione](images/test-drive-review-5.PNG)
 
@@ -149,7 +149,7 @@ Immettere i parametri di chiamata REST come nella sezione precedente. Per questo
 
 ![Ottenere i risultati nella console di creazione della revisione](images/test-drive-review-3.PNG)
   
-Selezionare **Send** (Invia). Se l'operazione ha esito positivo, lo **stato della risposta** è `200 OK` e nella casella **contenuto risposta** vengono visualizzati i dettagli della verifica in formato JSON, come nel seguente esempio:
+Selezionare **Invia**. Se l'operazione ha esito positivo, lo **stato della risposta** è `200 OK` e nella casella **contenuto risposta** vengono visualizzati i dettagli della verifica in formato JSON, come nel seguente esempio:
 
 ```json
 {  

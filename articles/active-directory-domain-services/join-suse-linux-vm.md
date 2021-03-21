@@ -11,10 +11,10 @@ ms.topic: how-to
 ms.date: 08/12/2020
 ms.author: justinha
 ms.openlocfilehash: f2f421d95dfc376aed373c718198db33a870d9dc
-ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/05/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96619607"
 ---
 # <a name="join-a-suse-linux-enterprise-virtual-machine-to-an-azure-active-directory-domain-services-managed-domain"></a>Aggiungere una macchina virtuale SUSE Linux Enterprise a un dominio gestito Azure Active Directory Domain Services
@@ -93,7 +93,7 @@ Per aggiungere il dominio gestito usando **SSSD** e il modulo *gestione accesso 
 
     Aggiungere gli indirizzi IP del dominio gestito, quindi selezionare **OK**.
 
-1. Dalla finestra principale di YaST scegliere *Network Services*  >  *gestione accesso utenti* servizi di rete.
+1. Dalla finestra principale di YaST scegliere   >  *gestione accesso utenti* servizi di rete.
 
     Il modulo si apre con una panoramica che mostra le diverse proprietà di rete del computer e il metodo di autenticazione attualmente in uso, come illustrato nello screenshot di esempio seguente:
 
@@ -139,7 +139,7 @@ Dopo che la macchina virtuale è stata registrata nel dominio gestito, configura
 
 1. Dalla barra laterale selezionare **Opzioni servizio › opzione nome**, quindi *Opzioni estese*. Da tale finestra selezionare *fallback_homedir* o *override_homedir*, quindi selezionare **Aggiungi**.
 
-1. Specificare un valore per il percorso della Home Directory. Per fare in modo che Home directory segua il formato di */home/user_name*, utilizzare */Home/%u*. Per ulteriori informazioni sulle possibili variabili, vedere la sezione override_homedir della pagina dell'uomo SSSD. conf ( `man 5 sssd.conf` ). *override_homedir*
+1. Specificare un valore per il percorso della Home Directory. Per fare in modo che Home directory segua il formato di */home/user_name*, utilizzare */Home/%u*. Per ulteriori informazioni sulle possibili variabili, vedere la sezione override_homedir della pagina dell'uomo SSSD. conf ( `man 5 sssd.conf` ). 
 
 1. Selezionare **OK**.
 
