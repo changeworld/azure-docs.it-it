@@ -12,10 +12,10 @@ ms.author: jovanpop
 ms.reviewer: ''
 ms.date: 12/18/2018
 ms.openlocfilehash: b5a1035f8a213a6ce02dd3252ff7d3ddea46faf7
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
-ms.translationtype: HT
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/28/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92786582"
 ---
 # <a name="in-memory-sample"></a>Esempio in memoria
@@ -70,11 +70,11 @@ Se viene visualizzato l'errore 40536 quando si esegue lo script T-SQL, verificar
 SELECT DatabasePropertyEx(DB_Name(), 'IsXTPSupported');
 ```
 
-Se il risultato è **0** , le funzionalità in memoria non sono supportate, mentre **1** indica che sono supportate. Per diagnosticare il problema, verificare che il livello di servizio del database sia Premium.
+Se il risultato è **0**, le funzionalità in memoria non sono supportate, mentre **1** indica che sono supportate. Per diagnosticare il problema, verificare che il livello di servizio del database sia Premium.
 
 ### <a name="about-the-created-memory-optimized-items"></a>Informazioni sugli elementi ottimizzati per la memoria creati
 
-**Tabelle** : l'esempio contiene le tabelle ottimizzate per la memoria seguenti:
+**Tabelle**: l'esempio contiene le tabelle ottimizzate per la memoria seguenti:
 
 - SalesLT.Product_inmem
 - SalesLT.SalesOrderHeader_inmem
@@ -82,7 +82,7 @@ Se il risultato è **0** , le funzionalità in memoria non sono supportate, ment
 - Demo.DemoSalesOrderHeaderSeed
 - Demo.DemoSalesOrderDetailSeed
 
-È possibile esaminare le tabelle ottimizzate per la memoria tramite **Esplora oggetti** in SSMS. Fare doppio clic su **Tabelle** > **Filtro** > **Impostazioni filtro** > **Con ottimizzazione per la memoria** . Il valore è uguale a 1.
+È possibile esaminare le tabelle ottimizzate per la memoria tramite **Esplora oggetti** in SSMS. Fare doppio clic su **Tabelle** > **Filtro** > **Impostazioni filtro** > **Con ottimizzazione per la memoria**. Il valore è uguale a 1.
 
 In alternativa, è possibile eseguire una query delle viste del catalogo, ad esempio:
 
@@ -92,7 +92,7 @@ SELECT is_memory_optimized, name, type_desc, durability_desc
     WHERE is_memory_optimized = 1;
 ```
 
-**Stored procedure compilata in modo nativo** : è possibile esaminare SalesLT.usp_InsertSalesOrder_inmem usando una query delle viste del catalogo.
+**Stored procedure compilata in modo nativo**: è possibile esaminare SalesLT.usp_InsertSalesOrder_inmem usando una query delle viste del catalogo.
 
 ```sql
 SELECT uses_native_compilation, OBJECT_NAME(object_id), definition
@@ -150,7 +150,7 @@ begin;
 end
 ```
 
-Per creare la versione *_ondisk* dello script T-SQL precedente per ostress.exe, occorre sostituire le due occorrenze della sottostringa *_inmem* con *_ondisk* . Queste sostituzioni interessano i nomi delle tabelle e delle stored procedure.
+Per creare la versione *_ondisk* dello script T-SQL precedente per ostress.exe, occorre sostituire le due occorrenze della sottostringa *_inmem* con *_ondisk*. Queste sostituzioni interessano i nomi delle tabelle e delle stored procedure.
 
 #### <a name="install-rml-utilities-and-ostress"></a>Installare le utilità RML e `ostress`
 
@@ -207,7 +207,7 @@ Al termine, `ostress.exe` scrive la durata dell'esecuzione come ultima riga di o
 
 #### <a name="reset-edit-for-_ondisk-then-rerun"></a>Reimpostare, modificare per l'esecuzione *_ondisk* ed eseguire di nuovo il test
 
-Dopo aver ottenuto il risultato dell'esecuzione *_inmem* , seguire la procedura indicata di seguito per l'esecuzione *_ondisk* :
+Dopo aver ottenuto il risultato dell'esecuzione *_inmem*, seguire la procedura indicata di seguito per l'esecuzione *_ondisk*:
 
 1. Reimpostare il database eseguendo questo comando in SSMS per eliminare tutti i dati inseriti dall'esecuzione precedente:
 
@@ -215,7 +215,7 @@ Dopo aver ottenuto il risultato dell'esecuzione *_inmem* , seguire la procedura 
    EXECUTE Demo.usp_DemoReset;
    ```
 
-2. Modificare la riga di comando ostress.exe per sostituire tutte le occorrenze di *_inmem* con *_ondisk* .
+2. Modificare la riga di comando ostress.exe per sostituire tutte le occorrenze di *_inmem* con *_ondisk*.
 
 3. Eseguire ostress.exe per la seconda volta e acquisire il risultato relativo alla durata.
 
@@ -246,7 +246,7 @@ Per l'analisi in tempo reale in un carico di lavoro OLTP, è spesso preferibile 
    - Lo script crea la tabella delle dimensioni e due tabelle dei fatti. Ogni tabella dei fatti viene popolata con 3,5 milioni di righe.
    - Il completamento dello script potrebbe richiedere 15 minuti.
 
-3. Incollare lo script T-SQL in SSMS.exe, quindi eseguirlo. La parola chiave **COLUMNSTORE** è fondamentale in una istruzione **CREATE INDEX** , ad esempio:<br/>`CREATE NONCLUSTERED COLUMNSTORE INDEX ...;`
+3. Incollare lo script T-SQL in SSMS.exe, quindi eseguirlo. La parola chiave **COLUMNSTORE** è fondamentale in una istruzione **CREATE INDEX**, ad esempio:<br/>`CREATE NONCLUSTERED COLUMNSTORE INDEX ...;`
 
 4. Impostare AdventureWorksLT sul livello di compatibilità 130:<br/>`ALTER DATABASE AdventureworksLT SET compatibility_level = 130;`
 
@@ -254,9 +254,9 @@ Per l'analisi in tempo reale in un carico di lavoro OLTP, è spesso preferibile 
 
 #### <a name="key-tables-and-columnstore-indexes"></a>Tabelle e indici columnstore fondamentali
 
-- dbo.FactResellerSalesXL_CCI è una tabella contenente un indice Columnstore con cluster, che presenta una compressione avanzata a livello di *dati* .
+- dbo.FactResellerSalesXL_CCI è una tabella contenente un indice Columnstore con cluster, che presenta una compressione avanzata a livello di *dati*.
 
-- dbo.FactResellerSalesXL_PageCompressed è una tabella contenente un indice cluster equivalente tradizionale, che presenta una compressione solo a livello di *pagina* .
+- dbo.FactResellerSalesXL_PageCompressed è una tabella contenente un indice cluster equivalente tradizionale, che presenta una compressione solo a livello di *pagina*.
 
 #### <a name="key-queries-to-compare-the-columnstore-index"></a>Query fondamentali per il confronto dell'indice columnstore
 

@@ -10,10 +10,10 @@ author: likebupt
 ms.author: keli19
 ms.date: 10/22/2019
 ms.openlocfilehash: cc58689e30e9b03e490c0871f3decd50372371fa
-ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/06/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93421924"
 ---
 # <a name="convert-to-csv-module"></a>Converti in modulo CSV
@@ -48,9 +48,9 @@ Quando si converte un set di dati in formato CSV, il volume CSV viene salvato ne
 
 Selezionare la scheda **output** nel riquadro di destra di **Converti in CSV** e selezionare una di queste icone sotto gli output della **porta**.  
 
-+ **Registra set di dati** : selezionare l'icona e salvare di nuovo il file CSV nell'area di lavoro di Azure ml come set di dati separato. È possibile trovare il set di dati come modulo nell'albero del modulo nella sezione set di dati **personali** .
++ **Registra set di dati**: selezionare l'icona e salvare di nuovo il file CSV nell'area di lavoro di Azure ml come set di dati separato. È possibile trovare il set di dati come modulo nell'albero del modulo nella sezione set di dati **personali** .
 
- + **Visualizza output** : selezionare l'icona a forma di occhio e seguire le istruzioni per esplorare la cartella **Results_dataset** e scaricare il file di data.csv.
+ + **Visualizza output**: selezionare l'icona a forma di occhio e seguire le istruzioni per esplorare la cartella **Results_dataset** e scaricare il file di data.csv.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

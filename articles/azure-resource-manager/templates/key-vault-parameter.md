@@ -4,10 +4,10 @@ description: Viene illustrato come passare una chiave privata da un insieme di c
 ms.topic: conceptual
 ms.date: 12/17/2020
 ms.openlocfilehash: 8983d51d90e07e21ac4c9489c7ed553530278d3c
-ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/18/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97672706"
 ---
 # <a name="use-azure-key-vault-to-pass-secure-parameter-value-during-deployment"></a>Usare Azure Key Vault per passare valori di parametro protetti durante la distribuzione

@@ -14,15 +14,15 @@ ms.workload: na
 ms.date: 02/04/2021
 ms.author: memildin
 ms.openlocfilehash: 768f686889663d9b1af4b88d84b361ac9460a5a0
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/14/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100381733"
 ---
 # <a name="customize-the-set-of-standards-in-your-regulatory-compliance-dashboard"></a>Personalizzare il set di standard nel dashboard conformità normativa
 
-Il Centro sicurezza di Azure confronta continuamente la configurazione delle risorse con i requisiti di standard del settore, normative e benchmark. Il **Dashboard conformità normativa** fornisce informazioni approfondite sul comportamento di conformità in base al modo in cui si soddisfano i requisiti di conformità specifici.
+Il Centro sicurezza di Azure confronta continuamente la configurazione delle risorse con i requisiti di benchmark, normative e standard del settore. Il **Dashboard conformità normativa** fornisce informazioni approfondite sul comportamento di conformità in base al modo in cui si soddisfano i requisiti di conformità specifici.
 
 
 ## <a name="how-are-regulatory-compliance-standards-represented-in-security-center"></a>In che modo vengono rappresentati gli standard di conformità normativa nel centro sicurezza?

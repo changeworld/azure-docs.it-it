@@ -11,10 +11,10 @@ ms.topic: tutorial
 ms.date: 09/25/2020
 ms.custom: devx-track-python
 ms.openlocfilehash: ea1cc022cbea7dbf3d1fa12cb83cfe3084b28560
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
-ms.translationtype: HT
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/28/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92788083"
 ---
 # <a name="tutorial-use-python-and-ai-to-generate-searchable-content-from-azure-blobs"></a>Esercitazione: Usare Python e intelligenza artificiale per generare contenuto ricercabile dai BLOB di Azure
@@ -45,7 +45,7 @@ Se non si ha una sottoscrizione di Azure, aprire un [account gratuito](https://a
 
 1. Aprire questa [cartella OneDrive](https://1drv.ms/f/s!As7Oy81M_gVPa-LCb5lC_3hbS-4) e nell'angolo in alto a sinistra fare clic su **Scarica** per copiare i file nel computer. 
 
-1. Fare clic con il pulsante destro del mouse sul file ZIP e selezionare **Estrai tutto** . Sono presenti 14 file di vari tipi. Per questo esercizio ne verranno usati 7.
+1. Fare clic con il pulsante destro del mouse sul file ZIP e selezionare **Estrai tutto**. Sono presenti 14 file di vari tipi. Per questo esercizio ne verranno usati 7.
 
 ## <a name="1---create-services"></a>1 - Creare i servizi
 
@@ -55,7 +55,7 @@ Se possibile, crearli entrambi nella stessa area e nello stesso gruppo di risors
 
 ### <a name="start-with-azure-storage"></a>Iniziare con Archiviazione di Azure
 
-1. [Accedere al portale di Azure](https://portal.azure.com/) e fare clic su **+ Crea una risorsa** .
+1. [Accedere al portale di Azure](https://portal.azure.com/) e fare clic su **+ Crea una risorsa**.
 
 1. Cercare *account di archiviazione* e selezionare l'offerta Account di archiviazione di Microsoft.
 
@@ -63,29 +63,29 @@ Se possibile, crearli entrambi nella stessa area e nello stesso gruppo di risors
 
 1. Nella scheda Informazioni di base gli elementi seguenti sono obbligatori. Accettare le impostazioni predefinite per tutti gli altri elementi.
 
-   + **Gruppo di risorse** . Selezionarne uno esistente o crearne uno nuovo, ma usare lo stesso gruppo per tutti i servizi in modo che sia possibile gestirli collettivamente.
+   + **Gruppo di risorse**. Selezionarne uno esistente o crearne uno nuovo, ma usare lo stesso gruppo per tutti i servizi in modo che sia possibile gestirli collettivamente.
 
-   + **Nome account di archiviazione** . Se si ritiene che potrebbero esistere più risorse dello stesso tipo, usare il nome per distinguerle in base al tipo e all'area, ad esempio *blobstoragewestus* . 
+   + **Nome account di archiviazione**. Se si ritiene che potrebbero esistere più risorse dello stesso tipo, usare il nome per distinguerle in base al tipo e all'area, ad esempio *blobstoragewestus*. 
 
-   + **Località** . Se possibile, scegliere la stessa località usata per Ricerca cognitiva di Azure e Servizi cognitivi. La scelta di un'unica località consente di azzerare i costi correlati alla larghezza di banda.
+   + **Località**. Se possibile, scegliere la stessa località usata per Ricerca cognitiva di Azure e Servizi cognitivi. La scelta di un'unica località consente di azzerare i costi correlati alla larghezza di banda.
 
-   + **Tipologia account** . Scegliere l'impostazione predefinita *Archiviazione (utilizzo generico v2)* .
+   + **Tipologia account**. Scegliere l'impostazione predefinita *Archiviazione (utilizzo generico v2)* .
 
 1. Fare clic su **Rivedi e crea** per creare il servizio.
 
 1. Al termine dell'operazione, fare clic su **Vai alla risorsa** per aprire la pagina Panoramica.
 
-1. Fare clic sul servizio **BLOB** .
+1. Fare clic sul servizio **BLOB**.
 
-1. Fare clic su **+ Contenitore** per creare un contenitore e assegnargli il nome *cog-search-demo* .
+1. Fare clic su **+ Contenitore** per creare un contenitore e assegnargli il nome *cog-search-demo*.
 
 1. Selezionare *cog-search-demo* e quindi fare clic su **Carica** per aprire la cartella in cui sono stati salvati i file di download. Selezionare tutti i file non di immagine. I file selezionati dovrebbero essere 7. Fare clic su **OK** per caricarli.
 
-   :::image type="content" source="media/cognitive-search-tutorial-blob/sample-files.png" alt-text="Creare un account di archiviazione" border="false":::
+   :::image type="content" source="media/cognitive-search-tutorial-blob/sample-files.png" alt-text="Carica file di esempio" border="false":::
 
 1. Prima di uscire da Archiviazione di Azure, ottenere una stringa di connessione in modo che sia possibile definire una connessione in Ricerca cognitiva di Azure. 
 
-   1. Tornare alla pagina Panoramica dell'account di archiviazione (come esempio è stato usato *blobstragewestus* ). 
+   1. Tornare alla pagina Panoramica dell'account di archiviazione (come esempio è stato usato *blobstragewestus*). 
    
    1. Nel riquadro di spostamento sinistro selezionare **Chiavi di accesso** e copiare una delle stringhe di connessione. 
 
@@ -111,13 +111,13 @@ Come per Archiviazione BLOB di Azure dedicare qualche istante alla raccolta dell
 
 ### <a name="get-an-admin-api-key-and-url-for-azure-cognitive-search"></a>Ottenere un URL e una chiave API di amministrazione per Ricerca cognitiva di Azure
 
-1. [Accedere al portale di Azure](https://portal.azure.com/) e ottenere il nome del servizio di ricerca nella relativa pagina **Panoramica** . È possibile verificare il nome del servizio esaminando l'URL dell'endpoint. Se l'URL dell'endpoint fosse `https://mydemo.search.windows.net`, il nome del servizio sarebbe `mydemo`.
+1. [Accedere al portale di Azure](https://portal.azure.com/) e ottenere il nome del servizio di ricerca nella relativa pagina **Panoramica**. È possibile verificare il nome del servizio esaminando l'URL dell'endpoint. Se l'URL dell'endpoint fosse `https://mydemo.search.windows.net`, il nome del servizio sarebbe `mydemo`.
 
 2. In **Impostazioni** > **Chiavi** ottenere una chiave amministratore per diritti completi sul servizio. Sono disponibili due chiavi amministratore interscambiabili, fornite per continuità aziendale nel caso in cui sia necessario eseguire il rollover di una di esse. È possibile usare la chiave primaria o secondaria nelle richieste per l'aggiunta, la modifica e l'eliminazione di oggetti.
 
    Ottenere anche la chiave di query. È consigliabile inviare richieste di query con accesso di sola lettura.
 
-   :::image type="content" source="media/search-get-started-javascript/service-name-and-keys.png" alt-text="Creare un account di archiviazione" border="false":::
+   :::image type="content" source="media/search-get-started-javascript/service-name-and-keys.png" alt-text="Ottenere il nome del servizio e le chiavi amministratore e di query" border="false":::
 
 Nell'intestazione di ogni richiesta inviata al servizio è necessario specificare una chiave API (api-key). La presenza di una chiave valida stabilisce una relazione di trust, in base a singole richieste, tra l'applicazione che invia la richiesta e il servizio che la gestisce.
 
@@ -188,13 +188,13 @@ print(r.status_code)
 
 La richiesta restituirà il codice di stato 201 come conferma dell'avvenuta operazione.
 
-Nella pagina del dashboard del servizio di ricerca nel portale di Azure verificare che cogsrch-py-datasource sia visualizzato nell'elenco **Origini dati** . Fare clic su **Aggiorna** per aggiornare la pagina.
+Nella pagina del dashboard del servizio di ricerca nel portale di Azure verificare che cogsrch-py-datasource sia visualizzato nell'elenco **Origini dati**. Fare clic su **Aggiorna** per aggiornare la pagina.
 
-:::image type="content" source="media/cognitive-search-tutorial-blob-python/py-data-source-tile.png" alt-text="Creare un account di archiviazione" border="false":::
+:::image type="content" source="media/cognitive-search-tutorial-blob-python/py-data-source-tile.png" alt-text="Riquadro Origini dati nel portale" border="false":::
 
 ### <a name="step-2-create-a-skillset"></a>Passaggio 2: Creare un set di competenze
 
-In questo passaggio viene definito un set di passaggi di arricchimento da applicare ai dati. Ogni passaggio di arricchimento è noto come *competenza* e il set di passaggi di arricchimento è un *set di competenze* . Questa esercitazione usa [competenze cognitive predefinite](cognitive-search-predefined-skills.md) per il set di competenze:
+In questo passaggio viene definito un set di passaggi di arricchimento da applicare ai dati. Ogni passaggio di arricchimento è noto come *competenza* e il set di passaggi di arricchimento è un *set di competenze*. Questa esercitazione usa [competenze cognitive predefinite](cognitive-search-predefined-skills.md) per il set di competenze:
 
 + [Riconoscimento di entità](cognitive-search-skill-entity-recognition.md) per estrarre i nomi di organizzazioni dal contenuto nel contenitore BLOB.
 
@@ -303,7 +303,7 @@ Ogni competenza viene eseguita sul contenuto del documento. Durante l'elaborazio
 
 Di seguito è riportata una rappresentazione grafica del set di competenze.
 
-:::image type="content" source="media/cognitive-search-tutorial-blob/skillset.png" alt-text="Creare un account di archiviazione" border="false":::
+:::image type="content" source="media/cognitive-search-tutorial-blob/skillset.png" alt-text="Informazioni sui set di competenze" border="false":::
 
 Gli output possono essere mappati a un indice, usati come input per una competenza a valle o sottoposti a entrambe le operazioni, come nel caso del codice lingua. Nell'indice, un codice di lingua è utile per le operazioni di filtro. Come input, il codice di lingua viene usato dalle competenze di analisi del testo per la selezione delle regole linguistiche per la separazione delle parole.
 
@@ -472,11 +472,11 @@ pprint(json.dumps(r.json(), indent=1))
 
 Nella risposta monitorare i valori `"status"` e `"endTime"` di `"lastResult"`. Eseguire periodicamente lo script per verificare lo stato. Quando l'indicizzatore completa l'elaborazione, lo stato verrà impostato su "success", verrà specificato un elemento "endTime" e la risposta includerà gli eventuali errori e avvisi restituiti durante l'arricchimento.
 
-:::image type="content" source="media/cognitive-search-tutorial-blob-python/py-indexer-is-created.png" alt-text="Creare un account di archiviazione" border="false":::
+:::image type="content" source="media/cognitive-search-tutorial-blob-python/py-indexer-is-created.png" alt-text="L'indicizzatore è stato creato" border="false":::
 
 Gli avvisi sono comuni con alcune combinazioni di file di origine e competenze e non sempre indicano un problema. Molti avvisi non sono dannosi. Ad esempio, se si indicizza un file JPEG che non contiene testo, verrà visualizzato l'avviso in questo screenshot.
 
-:::image type="content" source="media/cognitive-search-tutorial-blob-python/py-indexer-warning-example.png" alt-text="Creare un account di archiviazione" border="false":::
+:::image type="content" source="media/cognitive-search-tutorial-blob-python/py-indexer-warning-example.png" alt-text="Avviso dell'indicizzatore di esempio" border="false":::
 
 ## <a name="5---search"></a>5 - Eseguire ricerche
 
@@ -493,7 +493,7 @@ pprint(json.dumps(r.json(), indent=1))
 
 I risultati saranno simili all'esempio seguente. Lo screenshot mostra solo una parte della risposta.
 
-:::image type="content" source="media/cognitive-search-tutorial-blob-python/py-query-index-for-fields.png" alt-text="Creare un account di archiviazione" border="false":::
+:::image type="content" source="media/cognitive-search-tutorial-blob-python/py-query-index-for-fields.png" alt-text="Indice di query per tutti i campi" border="false":::
 
 L'output è lo schema dell'indice, con nome, tipo e attributi di ogni campo.
 
@@ -508,7 +508,7 @@ pprint(json.dumps(r.json(), indent=1))
 
 I risultati saranno simili all'esempio seguente. Lo screenshot mostra solo una parte della risposta.
 
-:::image type="content" source="media/cognitive-search-tutorial-blob-python/py-query-index-for-organizations.png" alt-text="Creare un account di archiviazione" border="false":::
+:::image type="content" source="media/cognitive-search-tutorial-blob-python/py-query-index-for-organizations.png" alt-text="Indice di query per il contenuto delle organizzazioni" border="false":::
 
 Ripetere la procedura per i campi `content`, `languageCode`, `keyPhrases` e `organizations` in questo esercizio. È possibile restituire più campi tramite `$select` usando un elenco delimitato da virgole.
 
@@ -522,7 +522,7 @@ Nelle prime fasi sperimentali di sviluppo l'approccio più pratico per le iteraz
 
 È possibile usare il portale per eliminare indici, indicizzatori, origini dati e set di competenze. Quando si elimina l'indicizzatore, è facoltativamente possibile eliminare l'indice, il set di competenze e l'origine dati in modo selettivo contemporaneamente.
 
-:::image type="content" source="media/cognitive-search-tutorial-blob-python/py-delete-indexer-delete-all.png" alt-text="Creare un account di archiviazione" border="false":::
+:::image type="content" source="media/cognitive-search-tutorial-blob-python/py-delete-indexer-delete-all.png" alt-text="Eliminare gli oggetti di ricerca nel portale" border="false":::
 
 È anche possibile eliminarli usando uno script. Lo script seguente mostra come eliminare un set di competenze. 
 

@@ -4,10 +4,10 @@ description: Viene descritto come risolvere gli errori quando non è possibile t
 ms.topic: troubleshooting
 ms.date: 06/10/2020
 ms.openlocfilehash: 40f3c2ac61b6a6d5fdbcefdf62761668b013b1db
-ms.sourcegitcommit: ea822acf5b7141d26a3776d7ed59630bf7ac9532
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/03/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "99526247"
 ---
 # <a name="resolve-resource-not-found-errors"></a>Risolvere gli errori di risorsa non trovata

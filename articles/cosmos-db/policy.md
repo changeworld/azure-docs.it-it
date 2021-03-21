@@ -7,10 +7,10 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 09/23/2020
 ms.openlocfilehash: 1390f5db6e0f0370788bef60d5a2cafee1e8a96d
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93080652"
 ---
 # <a name="use-azure-policy-to-implement-governance-and-controls-for-azure-cosmos-db-resources"></a>Uso di Criteri di Azure per implementare governance e controlli delle risorse di Azure Cosmos DB
@@ -25,7 +25,7 @@ Criteri di Azure fornisce definizioni di criteri predefinite. Si possono creare 
 
 ## <a name="assign-a-built-in-policy-definition"></a>Assegnare una definizione di criteri predefinita
 
-Le definizioni di criteri descrivono le condizioni di conformità delle risorse e l'azione da eseguire se viene soddisfatta una condizione. Le _assegnazioni_ dei criteri vengono create a partire dalle _definizioni_ . È possibile usare le definizioni di criteri predefinite o personalizzate per le risorse Azure Cosmos DB. Le assegnazioni di criteri hanno come ambito un gruppo di gestione di Azure, una sottoscrizione di Azure o un gruppo di risorse e vengono applicate alle risorse nell'ambito selezionato. È possibile escludere risorse specifiche dall'ambito.
+Le definizioni di criteri descrivono le condizioni di conformità delle risorse e l'azione da eseguire se viene soddisfatta una condizione. Le _assegnazioni_ dei criteri vengono create a partire dalle _definizioni_. È possibile usare le definizioni di criteri predefinite o personalizzate per le risorse Azure Cosmos DB. Le assegnazioni di criteri hanno come ambito un gruppo di gestione di Azure, una sottoscrizione di Azure o un gruppo di risorse e vengono applicate alle risorse nell'ambito selezionato. È possibile escludere risorse specifiche dall'ambito.
 
 È possibile creare assegnazioni di criteri usando il [portale di Azure](../governance/policy/assign-policy-portal.md), [Azure PowerShell](../governance/policy/assign-policy-powershell.md), l'[interfaccia della riga di comando di Azure](../governance/policy/assign-policy-azurecli.md) o il [modello di Resource Manager di Azure](../governance/policy/assign-policy-template.md).
 
@@ -40,7 +40,7 @@ Nel passaggio per selezionare una definizione dei criteri, immettere `Cosmos DB`
 
 ## <a name="create-a-custom-policy-definition"></a>Creare una definizione di criteri personalizzata
 
-Per scenari specifici non previsti dai criteri predefiniti, è possibile creare una [definizione di criteri personalizzata](../governance/policy/tutorials/create-custom-policy-definition.md). In seguito è possibile creare un' _assegnazione_ di criteri dalla _definizione_ di criteri personalizzata.
+Per scenari specifici non previsti dai criteri predefiniti, è possibile creare una [definizione di criteri personalizzata](../governance/policy/tutorials/create-custom-policy-definition.md). In seguito è possibile creare un'_assegnazione_ di criteri dalla _definizione_ di criteri personalizzata.
 
 ### <a name="property-types-and-property-aliases-in-policy-rules"></a>Tipi e alias di proprietà nelle regole dei criteri
 
@@ -109,7 +109,7 @@ Le definizioni di criteri personalizzate possono essere usate per creare assegna
 
 ## <a name="policy-compliance"></a>Conformità ai criteri
 
-Una volta create le assegnazioni di criteri, Criteri di Azure esamina le risorse nell'ambito dell'assegnazione. Viene valutata la _conformità_ di ciascuna risorsa con i criteri. L' _azione_ specificata nel criterio viene quindi applicata alle risorse non conformi.
+Una volta create le assegnazioni di criteri, Criteri di Azure esamina le risorse nell'ambito dell'assegnazione. Viene valutata la _conformità_ di ciascuna risorsa con i criteri. L'_azione_ specificata nel criterio viene quindi applicata alle risorse non conformi.
 
 È possibile esaminare i risultati di conformità e i dettagli delle correzioni nel [portale di Azure](../governance/policy/how-to/get-compliance-data.md#portal) o tramite l'[interfaccia della riga di comando di Azure](../governance/policy/how-to/get-compliance-data.md#command-line) o i [log di Monitoraggio di Azure](../governance/policy/how-to/get-compliance-data.md#azure-monitor-logs).
 
@@ -127,7 +127,7 @@ Lo screenshot mostra i risultati della valutazione di conformità seguenti per g
 - Nessuno dei due account è conforme a un criterio che richiede la configurazione dell'account per più percorsi di scrittura
 - Nessuno dei due account è conforme a un criterio in cui le risorse sono state distribuite nelle aree di Azure consentite.
 
-:::image type="content" source="./media/policy/compliance.png" alt-text="Ricerca delle definizioni di criteri predefinite per Azure Cosmos DB":::
+:::image type="content" source="./media/policy/compliance.png" alt-text="Risultati di conformità per le assegnazioni di criteri di Azure elencate":::
 
 Per correggere le risorse non conformi, vedere [How to remediate Resources with Azure Policy](../governance/policy/how-to/remediate-resources.md).
 

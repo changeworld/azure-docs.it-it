@@ -4,10 +4,10 @@ description: Come escludere dischi dalla replica in Azure con Azure Site Recover
 ms.topic: conceptual
 ms.date: 12/17/2019
 ms.openlocfilehash: 15989fbfd65f758eb777c5170c217aba8707e0be
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/25/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96008260"
 ---
 # <a name="exclude-disks-from-disaster-recovery"></a>Escludere dischi dal ripristino di emergenza
@@ -56,13 +56,13 @@ Esempi di varianza dei dati che sono candidati rilevanti per l'esclusione includ
 
 ## <a name="example-1-exclude-the-sql-server-tempdb-disk"></a>Esempio 1: Escludere il disco del tempdb di SQL Server
 
-Si osservi come gestire l'esclusione, il failover e il failover del disco per un'origine SQL Server Windows VM- **SalesDB** _, per cui si vuole escludere tempdb. 
+Esaminiamo ora come gestire l'esclusione e il failover dei dischi per un'origine SQL Server Windows VM - **SalesDB***, per cui si desidera escludere il file tempdb. 
 
 ### <a name="exclude-disks-from-replication"></a>Escludere dischi dalla replica
 
 Nella macchina virtuale Windows di origine SalesDB sono presenti questi dischi.
 
-_ *Nome disco** | **Disco del SO guest** | **Lettera di unità** | **Tipo di dati del disco**
+**Nome del disco** | **Disco del SO guest** | **Lettera di unità** | **Tipo di dati del disco**
 --- | --- | --- | ---
 DB-Disk0-OS | Disk0 | C:\ | Disco del sistema operativo.
 DB-Disk1| Disk1 | D:\ | Database di sistema SQL e Database1 dell'utente
@@ -148,7 +148,7 @@ Prima di eseguire il failback delle macchine virtuali VMware nel percorso origin
 **Disco del SO guest** | **Lettera di unità** | **Tipo di dati del disco**
 --- | --- | ---
 Disk0 | C:\ | Disco del sistema operativo.
-Disk1 | E:\ | Archiviazione temporanea:
+Disk1 | E:\ | Archiviazione temporanea.
 Disk2 | D:\ | Database di sistema SQL e Database1 dell'utente.
 Disk3 | G:\ | Database2 dell'utente
 

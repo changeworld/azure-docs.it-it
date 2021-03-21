@@ -12,18 +12,18 @@ ms.author: sstein
 ms.reviewer: ''
 ms.date: 01/25/2019
 ms.openlocfilehash: 60e8b4b21a9e62279cd0eccfabbbed680183e2a9
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/28/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92787024"
 ---
 # <a name="use-data-dependent-routing-to-route-a-query-to-an-appropriate-database"></a>Usare il routing dipendente dai dati per indirizzare una query a un database appropriato
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
-**Routing dipendente dai dati** è la possibilità di usare i dati in una query per instradare la richiesta a un database appropriato. Il routing dipendente dai dati è un modello fondamentale quando si lavora con i database partizionati. Per instradare la richiesta è anche possibile usare il contesto della richiesta stessa, soprattutto se la chiave di partizionamento orizzontale non fa parte della query. Ogni query o transazione specifica in un'applicazione che usa il routing dipendente dai dati può accedere a un unico database per richiesta. Per gli strumenti elastici del database SQL di Azure, questo routing viene eseguito con la classe **ShardMapManager** ( [Java](/java/api/com.microsoft.azure.elasticdb.shard.mapmanager.shardmapmanager), [.NET](/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanager)).
+**Routing dipendente dai dati** è la possibilità di usare i dati in una query per instradare la richiesta a un database appropriato. Il routing dipendente dai dati è un modello fondamentale quando si lavora con i database partizionati. Per instradare la richiesta è anche possibile usare il contesto della richiesta stessa, soprattutto se la chiave di partizionamento orizzontale non fa parte della query. Ogni query o transazione specifica in un'applicazione che usa il routing dipendente dai dati può accedere a un unico database per richiesta. Per gli strumenti elastici del database SQL di Azure, questo routing viene eseguito con la classe **ShardMapManager** ([Java](/java/api/com.microsoft.azure.elasticdb.shard.mapmanager.shardmapmanager), [.NET](/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanager)).
 
-Per l'applicazione non è necessario rilevare le diverse stringhe di connessione o i percorsi dei database associati a diverse sezioni di dati nell'ambiente partizionato. È [Shard Map Manager](elastic-scale-shard-map-management.md) che, quando necessario, apre le connessioni ai database corretti in base ai dati contenuti nella mappa partizioni e al valore della chiave di partizionamento orizzontale, che costituisce la destinazione della richiesta dell'applicazione. La chiave è in genere il *customer_id* , *tenant_id* , *Date_Key* o un altro identificatore specifico che è un parametro fondamentale della richiesta di database.
+Per l'applicazione non è necessario rilevare le diverse stringhe di connessione o i percorsi dei database associati a diverse sezioni di dati nell'ambiente partizionato. È [Shard Map Manager](elastic-scale-shard-map-management.md) che, quando necessario, apre le connessioni ai database corretti in base ai dati contenuti nella mappa partizioni e al valore della chiave di partizionamento orizzontale, che costituisce la destinazione della richiesta dell'applicazione. La chiave è in genere il *customer_id*, *tenant_id*, *Date_Key* o un altro identificatore specifico che è un parametro fondamentale della richiesta di database.
 
 Per altre informazioni, vedere [all'aumento del numero di istanze di SQL Server con il routing dipendente dai dati](/previous-versions/sql/sql-server-2005/administrator/cc966448(v=technet.10)).
 
@@ -36,7 +36,7 @@ Per eseguire il download:
 
 ## <a name="using-a-shardmapmanager-in-a-data-dependent-routing-application"></a>Uso di ShardMapManager in un'applicazione di routing dipendente dai dati
 
-Le applicazioni devono creare un'istanza di **ShardMapManager** durante l'inizializzazione, usando la chiamata alla factory **GetSQLShardMapManager** ( [Java](/java/api/com.microsoft.azure.elasticdb.shard.mapmanager.shardmapmanagerfactory.getsqlshardmapmanager) o [.NET](/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanagerfactory.getsqlshardmapmanager)). In questo esempio, viene eseguita l'inizializzazione sia di **ShardMapManager** che una **ShardMap** specifica in essa contenuta. Questo esempio illustra i metodi GetSqlShardMapManager e GetRangeShardMap ([Java](/java/api/com.microsoft.azure.elasticdb.shard.mapmanager.shardmapmanager.getrangeshardmap) o [.NET](/previous-versions/azure/dn824173(v=azure.100))).
+Le applicazioni devono creare un'istanza di **ShardMapManager** durante l'inizializzazione, usando la chiamata alla factory **GetSQLShardMapManager** ([Java](/java/api/com.microsoft.azure.elasticdb.shard.mapmanager.shardmapmanagerfactory.getsqlshardmapmanager) o [.NET](/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanagerfactory.getsqlshardmapmanager)). In questo esempio, viene eseguita l'inizializzazione sia di **ShardMapManager** che una **ShardMap** specifica in essa contenuta. Questo esempio illustra i metodi GetSqlShardMapManager e GetRangeShardMap ([Java](/java/api/com.microsoft.azure.elasticdb.shard.mapmanager.shardmapmanager.getrangeshardmap) o [.NET](/previous-versions/azure/dn824173(v=azure.100))).
 
 ```Java
 ShardMapManager smm = ShardMapManagerFactory.getSqlShardMapManager(connectionString, ShardMapManagerLoadPolicy.Lazy);
@@ -50,11 +50,11 @@ RangeShardMap<int> customerShardMap = smm.GetRangeShardMap<int>("customerMap");
 
 ### <a name="use-lowest-privilege-credentials-possible-for-getting-the-shard-map"></a>Usare credenziali con i privilegi più bassi possibile per ottenere la mappa partizioni
 
-Se un'applicazione non gestisce direttamente la mappa partizioni, le credenziali usate nel metodo factory devono disporre solo di autorizzazioni di sola lettura per il database della **mappa globale partizioni** . Queste credenziali sono in genere diverse da quelle usate per aprire connessioni al gestore delle mappe partizioni. Vedere anche [Credenziali usate per accedere alla libreria client dei database elastici](elastic-scale-manage-credentials.md).
+Se un'applicazione non gestisce direttamente la mappa partizioni, le credenziali usate nel metodo factory devono disporre solo di autorizzazioni di sola lettura per il database della **mappa globale partizioni**. Queste credenziali sono in genere diverse da quelle usate per aprire connessioni al gestore delle mappe partizioni. Vedere anche [Credenziali usate per accedere alla libreria client dei database elastici](elastic-scale-manage-credentials.md).
 
 ## <a name="call-the-openconnectionforkey-method"></a>Chiamare il metodo OpenConnectionForKey
 
-Il metodo **ShardMap.OpenConnectionForKey** ( [Java](/java/api/com.microsoft.azure.elasticdb.shard.mapper.listshardmapper.openconnectionforkey) o [.NET](/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmap.openconnectionforkey)) restituisce una connessione pronta per l'invio di comandi al database appropriato in base al valore del parametro **key** . Le informazioni sulla partizione vengono memorizzate nella cache dell'applicazione tramite **ShardMapManager** , in modo che in genere tali richieste non comportino una ricerca di database sul database **Mappa globale partizioni** .
+Il metodo **ShardMap.OpenConnectionForKey** ([Java](/java/api/com.microsoft.azure.elasticdb.shard.mapper.listshardmapper.openconnectionforkey) o [.NET](/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmap.openconnectionforkey)) restituisce una connessione pronta per l'invio di comandi al database appropriato in base al valore del parametro **key**. Le informazioni sulla partizione vengono memorizzate nella cache dell'applicazione tramite **ShardMapManager**, in modo che in genere tali richieste non comportino una ricerca di database sul database **Mappa globale partizioni**.
 
 ```Java
 // Syntax:
@@ -67,14 +67,14 @@ public SqlConnection OpenConnectionForKey<TKey>(TKey key, string connectionStrin
 ```
 
 * Il parametro **key** viene usato come chiave di ricerca nella mappa partizioni per determinare il database appropriato per la richiesta.
-* Il parametro **connectionString** viene usato per passare solo le credenziali utente per la connessione specifica. In *connectionString* non viene incluso il nome del database o del server perché il metodo determina il database e il server usando **ShardMap** .
-* Il parametro **connectionOptions** ( [Java](/java/api/com.microsoft.azure.elasticdb.shard.mapper.connectionoptions) o [.NET](/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.connectionoptions)) deve essere impostato su **ConnectionOptions.Validate** per un ambiente in cui le mappe partizioni possono essere modificate e le righe possono essere spostate in altri database in seguito a operazioni di divisione o unione. Tale convalida prevede una breve query sulla mappa locale partizioni nel database di destinazione (non sulla mappa globale partizioni) prima che la connessione venga fornita all'applicazione.
+* Il parametro **connectionString** viene usato per passare solo le credenziali utente per la connessione specifica. In *connectionString* non viene incluso il nome del database o del server perché il metodo determina il database e il server usando **ShardMap**.
+* Il parametro **connectionOptions** ([Java](/java/api/com.microsoft.azure.elasticdb.shard.mapper.connectionoptions) o [.NET](/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.connectionoptions)) deve essere impostato su **ConnectionOptions.Validate** per un ambiente in cui le mappe partizioni possono essere modificate e le righe possono essere spostate in altri database in seguito a operazioni di divisione o unione. Tale convalida prevede una breve query sulla mappa locale partizioni nel database di destinazione (non sulla mappa globale partizioni) prima che la connessione venga fornita all'applicazione.
 
 In caso di esito negativo della convalida in base alla mappa partizioni locale (che indica che la cache non è corretta), il gestore delle mappe partizioni esegue una query sulla mappa partizioni globale per ottenere il nuovo valore corretto per la ricerca, aggiornare la cache e ottenere e restituire la connessione al database appropriato.
 
 Usare **ConnectionOptions.None** solo se non sono previste modifiche al mapping delle partizioni mentre l'applicazione è online. In tal caso, i valori memorizzati nella cache possono essere considerati sempre corretti e la chiamata di convalida round trip aggiuntiva al database di destinazione può essere tranquillamente ignorata. Ciò riduce il traffico del database. L'enumerazione **connectionOptions** può anche essere impostata tramite un valore in un file di configurazione per indicare se le modifiche di partizionamento sono o meno previste durante un intervallo di tempo.  
 
-Questo esempio usa il valore di una chiave Integer **CustomerID** , tramite un oggetto **ShardMap** denominato **customerShardMap** .  
+Questo esempio usa il valore di una chiave Integer **CustomerID**, tramite un oggetto **ShardMap** denominato **customerShardMap**.  
 
 ```Java
 int customerId = 12345;
@@ -112,7 +112,7 @@ using (SqlConnection conn = customerShardMap.OpenConnectionForKey(customerId, Co
 
 Il metodo **OpenConnectionForKey** restituisce una nuova connessione già aperta al database corretto. Le connessioni utilizzate in questo modo usufruiscono comunque del pool di connessioni.
 
-Se l'applicazione usa la programmazione asincrona, è disponibile anche il metodo **OpenConnectionForKeyAsync** ( [Java](/java/api/com.microsoft.azure.elasticdb.shard.mapper.listshardmapper.openconnectionforkeyasync) o [.NET](/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmap.openconnectionforkeyasync)).
+Se l'applicazione usa la programmazione asincrona, è disponibile anche il metodo **OpenConnectionForKeyAsync** ([Java](/java/api/com.microsoft.azure.elasticdb.shard.mapper.listshardmapper.openconnectionforkeyasync) o [.NET](/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmap.openconnectionforkeyasync)).
 
 ## <a name="integrating-with-transient-fault-handling"></a>Integrazione con la gestione degli errori temporanei
 

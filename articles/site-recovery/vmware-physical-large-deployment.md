@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 11/14/2019
 ms.author: raynew
 ms.openlocfilehash: cc87429f269fba5083b87e2c328f0e21de9707ff
-ms.sourcegitcommit: 6386854467e74d0745c281cc53621af3bb201920
+ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/08/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102454348"
 ---
 # <a name="set-up-disaster-recovery-at-scale-for-vmware-vmsphysical-servers"></a>Configurare il ripristino di emergenza su larga scala per macchine virtuali VMware/server fisici
@@ -212,7 +212,7 @@ Per eseguire un failover su larga scala, si consiglia quanto segue:
 1. Creare piani di ripristino per il failover del carico di lavoro.
     - Ogni piano di ripristino può attivare il failover di un massimo di 100 computer.
     - [Ulteriori informazioni](recovery-plan-overview.md) sui piani di ripristino.
-2. Aggiungere gli script Runbook di automazione di Azure ai piani di ripristino per automatizzare le attività manuali in Azure. Le attività tipiche includono la configurazione di bilanciamento del carico, l'aggiornamento di DNS e così via. [Altre informazioni](site-recovery-runbook-automation.md)
+2. Aggiungere gli script Runbook di automazione di Azure ai piani di ripristino per automatizzare le attività manuali in Azure. Le attività tipiche includono la configurazione di bilanciamento del carico, l'aggiornamento di DNS e così via. [Scopri di più](site-recovery-runbook-automation.md)
 2. Prima del failover, preparare i computer Windows in modo che siano conformi all'ambiente Azure. I [limiti di failover](#plan-azure-subscriptions-and-quotas) sono maggiori per i computer conformi. [Altre](site-recovery-failover-to-azure-troubleshoot.md#failover-failed-with-error-id-170010) informazioni su manuali operativi.
 4.  Attivare il failover con il cmdlet [Start-AzRecoveryServicesAsrPlannedFailoverJob](/powershell/module/az.recoveryservices/start-azrecoveryservicesasrplannedfailoverjob) di PowerShell, insieme a un piano di ripristino.
 

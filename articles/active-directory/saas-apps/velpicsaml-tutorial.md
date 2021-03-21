@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 10/01/2019
 ms.author: jeedes
 ms.openlocfilehash: 81523a1c11b6a3da4e7d1db5d8249921ad5047ff
-ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
-ms.translationtype: HT
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/27/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92635865"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-velpic-saml"></a>Esercitazione: Integrazione dell'accesso Single Sign-On (SSO) di Azure Active Directory con Velpic SAML
@@ -59,7 +59,7 @@ Configurare e testare l'accesso SSO di Azure AD con Velpic SAML usando un utente
 Per configurare e testare l'accesso SSO di Azure AD con Velpic SAML, completare le procedure di base seguenti:
 
 1. **[Configurare l'accesso Single Sign-On di Azure AD](#configure-azure-ad-sso)** : per consentire agli utenti di usare questa funzionalità.
-    1. **[Creare un utente di test di Azure AD](#create-an-azure-ad-test-user)** : per testare l'accesso Single Sign-On di Azure AD con l'utente B. Simon.
+    1. **[Creare un utente di test di Azure AD](#create-an-azure-ad-test-user)** : per testare l'accesso Single Sign-On di Azure AD con l'utente B.Simon.
     1. **[Assegnare l'utente di test di Azure AD](#assign-the-azure-ad-test-user)** : per abilitare B. Simon all'uso dell'accesso Single Sign-On di Azure AD.
 1. **[Configurare l'accesso Single Sign-On di Velpic SAML](#configure-velpic-saml-sso)** : per configurare le impostazioni di Single Sign-On sul lato applicazione.
     1. **[Creare l'utente di test di Velpic SAML](#create-velpic-saml-test-user)** : per avere una controparte di B.Simon in Velpic SAML collegata alla rappresentazione dell'utente in Azure AD.
@@ -96,7 +96,7 @@ Per abilitare l'accesso Single Sign-On di Azure AD nel portale di Azure, seguire
 
 In questa sezione verrà creato un utente di test di nome B.Simon nel portale di Azure.
 
-1. Nel riquadro sinistro del portale di Azure selezionare **Azure Active Directory** , **Utenti** e quindi **Tutti gli utenti**.
+1. Nel riquadro sinistro del portale di Azure selezionare **Azure Active Directory**, **Utenti** e quindi **Tutti gli utenti**.
 1. Selezionare **Nuovo utente** in alto nella schermata.
 1. In **Proprietà utente** seguire questa procedura:
    1. Nel campo **Nome** immettere `B.Simon`.  
@@ -124,7 +124,7 @@ In questa sezione si abiliterà B.Simon all'uso dell'accesso Single Sign-On di A
 
 ## <a name="configure-velpic-saml-sso"></a>Configurare l'accesso Single Sign-On di Velpic SAML
 
-1. Per automatizzare la configurazione all'interno di Velpic SAML, è necessario installare l' **estensione del browser per l'accesso sicuro ad App personali** facendo clic su **Installa l'estensione**.
+1. Per automatizzare la configurazione all'interno di Velpic SAML, è necessario installare l'**estensione del browser per l'accesso sicuro ad App personali** facendo clic su **Installa l'estensione**.
 
     ![Estensione MyApps](common/install-myappssecure-extension.png)
 
@@ -162,7 +162,7 @@ In questa sezione si abiliterà B.Simon all'uso dell'accesso Single Sign-On di A
 
     d. È anche possibile scegliere di abilitare SAML al momento del provisioning selezionando la casella di controllo **Auto create new users** (Crea automaticamente nuovi utenti). Se un utente non esiste in Velpic e questo flag non è abilitato, l'accesso da Azure avrà esito negativo. Se il flag è abilitato, verrà automaticamente eseguito il provisioning dell'utente in Velpic al momento dell'accesso. 
 
-    e. Copiare l' **URL di Single Sign-On** dalla casella di testo e incollarlo nel portale di Azure.
+    e. Copiare l'**URL di Single Sign-On** dalla casella di testo e incollarlo nel portale di Azure.
     
     f. Fare clic su **Salva**.
 

@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 02/20/2019
 ms.author: aahi
 ms.openlocfilehash: a97bd6bfc1cb7a0760894faaf3fd0617e6165f58
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/30/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96351198"
 ---
 # <a name="language-and-region-support-for-bing-spell-check-api"></a>Supporto lingua e area geografica di API Controllo ortografico Bing
@@ -44,7 +44,7 @@ Si noti che per lavorare con lingue diverse da `en-US` è necessario impostare `
 | Inglese (Malaysia)     | `en-MY`          |
 | Inglese (Nuova Zelanda)    | `en-NZ`          |
 | Inglese (Filippine)     | `en-PH`          |
-| Inglese (Sud Africa)    | `en-ZA`          |
+| Inglese (Sudafrica)    | `en-ZA`          |
 | Inglese (Regno Unito)    | `en-GB`          |
 | Inglese (Stati Uniti)    | `en-US`          |
 | Finlandese     | `fi`          |
