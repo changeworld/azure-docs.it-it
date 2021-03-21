@@ -5,7 +5,3 @@
     - name: Infrastruttura BareMetal
       tocHref: /azure/
       topicHref: /azure/baremetal-infrastructure/index
-      items:
-        - name: Informazioni di riferimento
-          tocHref: /azure/virtual-machines/workloads/sap/
-          topicHref: /azure/baremetal-infrastructure/index

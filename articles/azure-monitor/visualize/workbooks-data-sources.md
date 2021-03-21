@@ -9,10 +9,10 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 06/29/2020
 ms.openlocfilehash: 862c6c5253c1bb4481476b67c7cfb203c2568e24
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/03/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "101700576"
 ---
 # <a name="azure-monitor-workbooks-data-sources"></a>Origini dati delle cartelle di lavoro di monitoraggio di Azure
@@ -40,7 +40,7 @@ Le risorse di Azure emettono [metriche](../essentials/data-platform-metrics.md) 
 
 ![Screenshot dell'interfaccia della metrica cartella di lavoro](./media/workbooks-data-sources/metrics.png)
 
-## <a name="azure-resource-graph"></a>Diagramma delle risorse di Azure
+## <a name="azure-resource-graph"></a>Azure Resource Graph
 
 Le cartelle di lavoro supportano l'esecuzione di query per le risorse e i relativi metadati tramite Azure Resource Graph (ARG). Questa funzionalità viene utilizzata principalmente per creare ambiti di query personalizzati per i report. L'ambito della risorsa viene espresso tramite un subset di KQL supportato da ARG, che è spesso sufficiente per i casi d'uso comuni.
 

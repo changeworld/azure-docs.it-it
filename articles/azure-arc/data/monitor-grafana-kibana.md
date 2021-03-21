@@ -7,14 +7,14 @@ ms.subservice: azure-arc-data
 author: twright-msft
 ms.author: twright
 ms.reviewer: mikeray
-ms.date: 09/22/2020
+ms.date: 12/08/2020
 ms.topic: how-to
-ms.openlocfilehash: 3693c30a34601512770f5d9071f5d786410fb00e
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: cb53aba300b933c78d9ac2f5fc5cf8054f3413e3
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92360378"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104670002"
 ---
 # <a name="view-logs-and-metrics-using-kibana-and-grafana"></a>Visualizzare i log e le metriche con Kibana e Grafana
 
@@ -22,43 +22,51 @@ I dashboard Web Kibana e Grafana offrono informazioni e chiarezza sugli spazi de
 
 [!INCLUDE [azure-arc-data-preview](../../../includes/azure-arc-data-preview.md)]
 
-## <a name="retrieve-the-ip-address-of-your-cluster"></a>Recuperare l'indirizzo IP del cluster
 
-Per accedere ai dashboard, sarà necessario recuperare l'indirizzo IP del cluster. Il metodo per il recupero dell'indirizzo IP corretto varia a seconda del modo in cui si è scelto di distribuire Kubernetes. Scorrere le opzioni seguenti per trovare quello più adatto.
+## <a name="monitor-azure-sql-managed-instances-on-azure-arc"></a>Monitorare le istanze gestite di SQL Azure in Azure Arc
 
-### <a name="azure-virtual-machine"></a>Macchina virtuale di Azure
+Per accedere ai log e ai dashboard di monitoraggio per la Istanza gestita SQL abilitata per Arc, eseguire il comando seguente dell' `azdata` interfaccia della riga di comando
 
-per recuperare l'indirizzo IP pubblico, usare il comando seguente:
+```bash
 
-```azurecli
-az network public-ip list -g azurearcvm-rg --query "[].{PublicIP:ipAddress}" -o table
+azdata arc sql endpoint list -n <name of SQL instance>
+
+```
+I dashboard di Grafana pertinenti sono:
+
+* "Metriche dell'istanza gestita di SQL di Azure"
+* "Metriche del nodo host"
+* "Metriche di Pod host"
+
+
+> [!NOTE]
+>  Quando viene richiesto di immettere un nome utente e una password, immettere il nome utente e la password specificati al momento della creazione del controller di dati di Azure Arc.
+
+> [!NOTE]
+>  Verrà visualizzato un avviso di certificato perché i certificati usati in anteprima sono certificati autofirmati.
+
+
+## <a name="monitor-azure-database-for-postgresql-hyperscale-on-azure-arc"></a>Monitorare l'iperscalabilità di database di Azure per PostgreSQL in Azure Arc
+
+Per accedere ai log e ai dashboard di monitoraggio per l'iperscalabilità di PostgreSQL, eseguire il `azdata` comando CLI seguente
+
+```bash
+
+azdata arc postgres endpoint list -n <name of postgreSQL instance>
+
 ```
 
-### <a name="kubeadm-cluster"></a>Cluster Kubeadm
+I dashboard di postgreSQL pertinenti sono:
 
-Per recuperare l'indirizzo IP del cluster, usare il comando seguente:
+* "Metriche postgres"
+* "Metriche tabella postgres"
+* "Metriche del nodo host"
+* "Metriche di Pod host"
 
-```console
-kubectl cluster-info
-```
-
-
-### <a name="aks-or-other-load-balanced-cluster"></a>AKS o altro cluster con bilanciamento del carico
-
-Per monitorare l'ambiente in AKS o in un altro cluster con bilanciamento del carico, è necessario ottenere l'indirizzo IP del servizio proxy di gestione. Usare questo comando per recuperare l'indirizzo **IP esterno** :
-
-```console
-kubectl get svc mgmtproxy-svc-external -n <namespace>
-
-#Example:
-#kubectl get svc mgmtproxy-svc-external -n arc
-NAME                     TYPE           CLUSTER-IP    EXTERNAL-IP     PORT(S)           AGE
-mgmtproxy-svc-external   LoadBalancer   10.0.186.28   52.152.148.25   30777:30849/TCP   19h
-```
 
 ## <a name="additional-firewall-configuration"></a>Configurazione aggiuntiva del firewall
 
-Potrebbe essere necessario aprire le porte nel firewall per accedere agli endpoint Kibana e Grafana.
+A seconda della posizione in cui viene distribuito il controller dati, potrebbe essere necessario aprire le porte nel firewall per accedere agli endpoint Kibana e Grafana.
 
 Di seguito è riportato un esempio di come eseguire questa operazione per una macchina virtuale di Azure. È necessario eseguire questa operazione se Kubernetes è stato distribuito con lo script.
 
@@ -78,49 +86,11 @@ Una volta ottenuto il nome del NSG, è possibile aggiungere una regola usando il
 az network nsg rule create -n ports_30777 --nsg-name azurearcvmNSG --priority 600 -g azurearcvm-rg --access Allow --description 'Allow Kibana and Grafana ports' --destination-address-prefixes '*' --destination-port-ranges 30777 --direction Inbound --protocol Tcp --source-address-prefixes '*' --source-port-ranges '*'
 ```
 
-## <a name="monitor-azure-sql-managed-instances-on-azure-arc"></a>Monitorare le istanze gestite di SQL Azure in Azure Arc
-
-Ora che si dispone dell'indirizzo IP ed è stata esposta la porta, è necessario poter accedere a Grafana e Kibana.
-
-> [!NOTE]
->  Quando viene richiesto di immettere un nome utente e una password, immettere il nome utente e la password specificati al momento della creazione del controller di dati di Azure Arc.
-
-> [!NOTE]
->  Verrà visualizzato un avviso di certificato perché i certificati usati in anteprima sono certificati autofirmati.
-
-Usare il modello di URL seguente per accedere ai dashboard di registrazione e monitoraggio per l'istanza gestita di SQL di Azure:
-
-```html
-https://<external-ip-from-above>:30777/grafana
-https://<external-ip-from-above>:30777/kibana
-```
-
-I dashboard pertinenti sono:
-
-* "Metriche dell'istanza gestita di SQL di Azure"
-* "Metriche del nodo host"
-* "Metriche di Pod host"
-
-## <a name="monitor-azure-database-for-postgresql-hyperscale---azure-arc"></a>Monitorare l'iperscalabilità di database di Azure per PostgreSQL-Azure Arc
-
-Usare il modello di URL seguente per accedere ai dashboard di registrazione e monitoraggio per l'iperscalabilità PostgreSQL:
-
-```html
-https://<external-ip-from-above>:30777/grafana
-https://<external-ip-from-above>:30777/kibana
-```
-
-I dashboard pertinenti sono:
-
-* "Metriche postgres"
-* "Metriche tabella postgres"
-* "Metriche del nodo host"
-* "Metriche di Pod host"
 
 ## <a name="next-steps"></a>Passaggi successivi
 - Provare [a caricare metriche e log in monitoraggio di Azure](upload-metrics-and-logs-to-azure-monitor.md)
 - Leggere le informazioni su Grafana:
-   - [Introduzione](https://grafana.com/docs/grafana/latest/getting-started/getting-started)
+   - [Attività iniziali](https://grafana.com/docs/grafana/latest/getting-started/getting-started)
    - [Nozioni fondamentali su Grafana](https://grafana.com/tutorials/grafana-fundamentals/#1)
    - [Esercitazioni su Grafana](https://grafana.com/tutorials/grafana-fundamentals/#1)
 - Scopri di più su Kibana

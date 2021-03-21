@@ -7,10 +7,10 @@ ms.author: regutier
 ms.date: 01/14/2021
 ms.reviewer: mbullwin
 ms.openlocfilehash: 9c3ff91cbfb6423099040a6ea46eeb66f5461f48
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/17/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100589660"
 ---
 # <a name="configure-bring-your-own-storage-byos-for-application-insights-profiler-and-snapshot-debugger"></a>Configurare Bring your own Storage (BYOS) per Application Insights Profiler e Snapshot Debugger
@@ -31,7 +31,7 @@ Con Bring your own storage, questi elementi vengono caricati in un account di ar
 1. Quando si visualizzano le tracce del profiler o l'analisi del debugger snapshot, il servizio recupererà i risultati dell'analisi dall'archiviazione BLOB.
 
 ## <a name="prerequisites"></a>Prerequisiti
-* Assicurarsi di creare l'account di archiviazione nello stesso percorso della risorsa Application Insights. Esempio: Se la risorsa Application Insights si trova negli Stati Uniti occidentali 2, l'account di archiviazione deve essere anche negli Stati Uniti occidentali 2. 
+* Assicurarsi di creare l'account di archiviazione nello stesso percorso della risorsa Application Insights. Ex. Se la risorsa Application Insights si trova negli Stati Uniti occidentali 2, l'account di archiviazione deve essere anche negli Stati Uniti occidentali 2. 
 * Concedere il ruolo "collaboratore dati BLOB di archiviazione" all'applicazione AAD "accesso all'archiviazione Trusted dei servizi di diagnostica" nell'account di archiviazione tramite l'interfaccia utente di controllo di accesso (IAM).
 * Se il collegamento privato è abilitato, configurare l'impostazione aggiuntiva per consentire la connessione al servizio Microsoft attendibile dalla rete virtuale. 
 

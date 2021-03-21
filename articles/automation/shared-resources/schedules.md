@@ -3,14 +3,14 @@ title: Gestire le pianificazioni in Automazione di Azure
 description: Questo articolo descrive come creare e usare una pianificazione in Automazione di Azure.
 services: automation
 ms.subservice: shared-capabilities
-ms.date: 09/10/2020
+ms.date: 03/19/2021
 ms.topic: conceptual
-ms.openlocfilehash: f40e3d555d6e1472b9d2368a114ee27d588f6383
-ms.sourcegitcommit: 6776f0a27e2000fb1acb34a8dddc67af01ac14ac
+ms.openlocfilehash: 6f7cd1f3684bb14d25a77fe8e3980e8e2041808a
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/11/2021
-ms.locfileid: "103149478"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104669560"
 ---
 # <a name="manage-schedules-in-azure-automation"></a>Gestire le pianificazioni in Automazione di Azure
 
@@ -38,7 +38,7 @@ I cmdlet nella tabella seguente consentono di creare e gestire le pianificazioni
 
 ## <a name="create-a-schedule"></a>Creare una pianificazione
 
-È possibile creare una nuova pianificazione per i runbook nel portale di Azure o con PowerShell. Per evitare conseguenze per i runbook e i processi che vengono automatizzati, è consigliabile prima di tutto testare tutti i runbook che includono pianificazioni collegate con un account di Automazione dedicato ai test. Un test convalida che i runbook pianificati continuino a funzionare correttamente. Se si verifica un problema, è possibile risolverlo e applicare eventuali modifiche necessarie prima di eseguire la migrazione della versione aggiornata del runbook in produzione.
+È possibile creare una nuova pianificazione per il manuali operativi dalla portale di Azure, con PowerShell o usando un modello di Azure Resource Manager (ARM). Per evitare conseguenze per i runbook e i processi che vengono automatizzati, è consigliabile prima di tutto testare tutti i runbook che includono pianificazioni collegate con un account di Automazione dedicato ai test. Un test convalida che i runbook pianificati continuino a funzionare correttamente. Se si verifica un problema, è possibile risolverlo e applicare eventuali modifiche necessarie prima di eseguire la migrazione della versione aggiornata del runbook in produzione.
 
 > [!NOTE]
 > L'account di Automazione non riceve automaticamente nuove versioni dei moduli a meno che tali versioni non siano state aggiornate manualmente selezionando l'opzione [Aggiorna moduli di Azure](../automation-update-azure-modules.md) in **Moduli**. Quando viene eseguito un nuovo processo pianificato, Automazione di Azure usa i moduli più recenti nell'account di automazione. 

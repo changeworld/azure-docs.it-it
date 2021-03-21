@@ -17,10 +17,10 @@ ms.author: barclayn
 ms.reviewer: markwahl-msft
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 4122e645b76751e8944704a6405cf5dee09129f1
-ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/06/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97932436"
 ---
 # <a name="planning-azure-active-directory-access-reviews-deployment"></a>Pianificazione della distribuzione delle verifiche di accesso Azure Active Directory
@@ -244,7 +244,7 @@ Per creare un criterio di verifica di accesso, è necessario disporre delle info
 | Componente| Valore |
 | - | - |
 | **Risorse da rivedere**| Accesso a Microsoft Dynamics |
-| **Frequenza di Revisione**| Mensilmente |
+| **Frequenza di Revisione**| Ogni mese |
 | **Chi esegue la revisione**| Responsabili del programma di Dynamics Business Group |
 | **Notifica**| Invia un messaggio di posta elettronica 24 ore prima della revisione all'alias Dynamics-Pms<p>Includere un messaggio personalizzato incoraggiante ai revisori per proteggere l'acquisto |
 | **Sequenza temporale**| 48 ore dalla notifica |
@@ -496,7 +496,7 @@ Quando si creano nuove query di API Graph per l'automazione, è consigliabile us
 
 Le attività delle verifiche di accesso vengono registrate e disponibili dai [log di controllo Azure ad](../reports-monitoring/concept-audit-logs.md). È possibile filtrare i dati di controllo relativi alla categoria, al tipo di attività e all'intervallo di date. Ecco una query di esempio:
 
-| Category| Policy |
+| Category| Criteri |
 | - | - |
 | Tipo di attività| Creare una verifica di accesso |
 | | Aggiornamento della verifica di accesso |

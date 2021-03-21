@@ -1,5 +1,5 @@
 ---
-title: Abilitare l'implementazione temporanea delle funzionalità per destinatari specifici
+title: Abilitare l'implementazione a fasi di funzionalità per destinatari specifici
 titleSuffix: Azure App Configuration
 description: Informazioni su come abilitare la distribuzione temporanea delle funzionalità per destinatari specifici
 ms.service: azure-app-configuration
@@ -8,13 +8,13 @@ ms.author: alkemper
 ms.topic: conceptual
 ms.date: 11/20/2020
 ms.openlocfilehash: c415eaeab2edd0a1b324bba4266266201cb50cbf
-ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96929685"
 ---
-# <a name="enable-staged-rollout-of-features-for-targeted-audiences"></a>Abilitare l'implementazione temporanea delle funzionalità per destinatari specifici
+# <a name="enable-staged-rollout-of-features-for-targeted-audiences"></a>Abilitare l'implementazione a fasi di funzionalità per destinatari specifici
 
 I flag funzionalità consentono di attivare o disattivare dinamicamente le funzionalità nell'applicazione. I filtri delle funzionalità determinano lo stato di un flag di funzionalità ogni volta che viene valutato. La `Microsoft.FeatureManagement` libreria include `TargetingFilter` , che Abilita un flag funzionalità per un elenco specificato di utenti e gruppi o per una percentuale specificata di utenti. `TargetingFilter` è "Sticky". Ciò significa che, una volta che un singolo utente riceve una funzionalità, continuerà a vedere tale funzionalità in tutte le richieste future. È possibile usare `TargetingFilter` per abilitare una funzionalità per un account specifico durante una demo, per implementare progressivamente nuove funzionalità per gli utenti in gruppi diversi o "anelli" e molto altro ancora.
 
@@ -46,7 +46,7 @@ A questo punto, è possibile usare il flag funzionalità per abilitare o disabil
    dotnet add package Microsoft.FeatureManagement.AspNetCore
    ```
 
-1. Aggiungere un file *TestTargetingContextAccessor.cs* :
+1. Aggiungere un file *TestTargetingContextAccessor. cs* :
 
     ```csharp
     using Microsoft.AspNetCore.Http;
@@ -91,7 +91,7 @@ A questo punto, è possibile usare il flag funzionalità per abilitare o disabil
     }
     ```
 
-1. In *Startup.cs* aggiungere un riferimento allo spazio dei nomi *Microsoft. FeatureManagement. FeatureFilters* :
+1. In *Startup. cs* aggiungere un riferimento allo spazio dei nomi *Microsoft. FeatureManagement. FeatureFilters* :
 
     ```csharp
     using Microsoft.FeatureManagement.FeatureFilters;
@@ -133,7 +133,7 @@ L'intero metodo *ConfigureServices* sarà simile al seguente:
 
 1. Nella portale di Azure passare all'archivio di configurazione dell'app e selezionare **Gestione funzionalità**.
 
-1. Selezionare il menu di scelta rapida per il flag della funzionalità *beta* creato nella Guida introduttiva. Selezionare **Edit** (Modifica).
+1. Selezionare il menu di scelta rapida per il flag della funzionalità *beta* creato nella Guida introduttiva. Selezionare **Modifica**.
 
     > [!div class="mx-imgBorder"]
     > ![Modifica flag funzionalità beta](./media/edit-beta-feature-flag.png)

@@ -7,12 +7,12 @@ ms.service: azure-percept
 ms.topic: tutorial
 ms.date: 02/10/2021
 ms.custom: template-tutorial
-ms.openlocfilehash: 6de86cbc065b5352b3b643708dd55c6856b37dd7
-ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
+ms.openlocfilehash: e661dbbe31e7624cba0a3d5421b81de16d0a5363
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102097908"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104608198"
 ---
 # <a name="create-a-no-code-vision-solution-in-azure-percept-studio"></a>Creare una soluzione per la visione senza codice in Azure Percept Studio
 
@@ -161,6 +161,16 @@ Se per questa esercitazione è stata creata una nuova risorsa di Azure e non si 
 1. Fare clic su **tutte le risorse**.
 1. Fare clic sulla casella di controllo accanto alla risorsa creata durante questa esercitazione. Il tipo di risorsa verrà elencato come **Servizi cognitivi**.
 1. Fare clic sull'icona **Elimina** nella parte superiore della schermata.
+
+## <a name="video-walkthrough"></a>Procedura dettagliata video
+
+Per una procedura dettagliata visiva dei passaggi descritti in precedenza, vedere il video seguente:
+
+</br>
+
+> [!VIDEO https://www.youtube.com/embed/9LvafyazlJM]
+
+</br>
 
 ## <a name="next-steps"></a>Passaggi successivi
 

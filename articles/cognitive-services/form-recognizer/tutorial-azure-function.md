@@ -2,19 +2,19 @@
 title: "Esercitazione: usare una funzione di Azure per l'elaborazione di documenti archiviati"
 titleSuffix: Azure Cognitive Services
 description: Questa guida illustra come usare una funzione di Azure per attivare l'elaborazione dei documenti caricati in un contenitore di archiviazione BLOB di Azure.
-author: PatrickFarley
+author: laujan
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: forms-recognizer
 ms.topic: tutorial
-ms.date: 10/28/2020
-ms.author: pafarley
-ms.openlocfilehash: ee91a9e881ee5e8707feb862162b4272e3552d5f
-ms.sourcegitcommit: b572ce40f979ebfb75e1039b95cea7fce1a83452
+ms.date: 03/19/2021
+ms.author: lajanuar
+ms.openlocfilehash: 8c72a018f03b5284d3fc53be02d9eb526cdfcf28
+ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/11/2021
-ms.locfileid: "102663336"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "104722243"
 ---
 # <a name="tutorial-use-an-azure-function-to-process-stored-documents"></a>Esercitazione: usare una funzione di Azure per l'elaborazione di documenti archiviati
 
@@ -150,7 +150,7 @@ Il blocco di codice seguente chiama il modulo Recognizer [Analyze](https://westc
 # This is the call to the Form Recognizer endpoint
     endpoint = r"Your Form Recognizer Endpoint"
     apim_key = "Your Form Recognizer Key"
-    post_url = endpoint + "/formrecognizer/v2.1-preview.2/Layout/analyze"
+    post_url = endpoint + "/formrecognizer/v2.1-preview.3/Layout/analyze"
     source = myblob.read()
 
     headers = {

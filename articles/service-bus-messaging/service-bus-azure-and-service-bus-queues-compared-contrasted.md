@@ -4,10 +4,10 @@ description: Analizza i punti in comune e le differenze tra i due tipi di code o
 ms.topic: article
 ms.date: 11/04/2020
 ms.openlocfilehash: 31992aa2012009c51cbeae78010ae8ced65fc872
-ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96928308"
 ---
 # <a name="storage-queues-and-service-bus-queues---compared-and-contrasted"></a>Analogie e differenze tra le code di archiviazione e le code del bus di servizio
@@ -128,10 +128,10 @@ Questa sezione confronta le code di Azure e le code del bus di servizio in termi
 | Criteri di confronto | Code di archiviazione | Code del bus di servizio |
 | --- | --- | --- |
 | Dimensioni massime della coda |**500 TB**<br/><br/>(limitate alla capacità di un [singolo account di archiviazione](../storage/common/storage-introduction.md#queue-storage)) |**Da 1 GB a 80 GB**<br/><br/>(valori definiti al momento della creazione della coda e dell'[abilitazione del partizionamento](service-bus-partitioning.md). Vedere la sezione "Informazioni aggiuntive"). |
-| Dimensioni massime del messaggio |**64 KB**<br/><br/>(48 KB quando si usa una codifica **Base64**)<br/><br/>Azure supporta messaggi di grandi dimensioni combinando code e BLOB. È quindi possibile accodare fino a 200 GB per un unico elemento. |**256 KB** o **1 MB**<br/><br/>(inclusi l'intestazione e il corpo, dimensioni massime dell'intestazione: 64 KB).<br/><br/>Dipende dal [livello di servizio](service-bus-premium-messaging.md). |
+| Dimensioni massime del messaggio |**64 kB**<br/><br/>(48 KB quando si usa una codifica **Base64**)<br/><br/>Azure supporta messaggi di grandi dimensioni combinando code e BLOB. È quindi possibile accodare fino a 200 GB per un unico elemento. |**256 KB** o **1 MB**<br/><br/>(inclusi l'intestazione e il corpo, dimensioni massime dell'intestazione: 64 KB).<br/><br/>Dipende dal [livello di servizio](service-bus-premium-messaging.md). |
 | Durata TTL massima del messaggio |**Infinito** (API-versione 2017-07-27 o successiva) |**TimeSpan.Max** |
 | Numero massimo di code |**Illimitato** |**10,000**<br/><br/>(per spazio dei nomi del servizio) |
-| Numero massimo di client concorrenti |**Illimitato** |**5\.000** |
+| Numero massimo di client concorrenti |**Illimitato** |**5.000** |
 
 ### <a name="additional-information"></a>Informazioni aggiuntive
 * Bus di servizio impone l'applicazione dei limiti di dimensione della coda. Quando si crea una coda, viene specificata la dimensione massima della coda. Può avere una lunghezza compresa tra 1 GB e 80 GB. Se le dimensioni della coda raggiungono questo limite, i messaggi in arrivo aggiuntivi verranno rifiutati e il chiamante riceverà un'eccezione. Per altre informazioni sulle quote nel bus di servizio, vedere [Quote del bus di servizio](service-bus-quotas.md).
@@ -162,7 +162,7 @@ Questa sezione confronta le funzionalità di gestione fornite dalle code di arch
 * Le code di archiviazione forniscono supporto per gli attributi arbitrari applicabili alla descrizione della coda, sotto forma di coppie nome-valore.
 * Entrambe le tecnologie di coda consentono di visualizzare un messaggio senza doverlo bloccare. Questa funzionalità può essere utile quando si implementa uno strumento di esplorazione delle code.
 * Le API di messaggistica negoziata .NET del bus di servizio usano le connessioni TCP full-duplex per ottenere prestazioni migliori rispetto a REST su HTTP e supportano il protocollo standard AMQP 1,0.
-* I nomi delle code di archiviazione possono avere una lunghezza compresa tra 3 e 63 caratteri e contenere lettere minuscole, numeri e trattini. Per altre informazioni, vedere [Naming Queues and Metadata](/rest/api/storageservices/fileservices/Naming-Queues-and-Metadata) (Denominazione di code e metadati).
+* I nomi delle code di archiviazione possono avere una lunghezza compresa tra 3 e 63 caratteri e contenere lettere minuscole, numeri e trattini. Per ulteriori informazioni, vedere [denominazione di code e metadati](/rest/api/storageservices/fileservices/Naming-Queues-and-Metadata).
 * I nomi delle code del bus di servizio possono avere una lunghezza massima di 260 caratteri e presentano regole di denominazione meno restrittive. I nomi delle code del bus di servizio possono contenere lettere, numeri, punti, trattini e caratteri di sottolineatura.
 
 ## <a name="authentication-and-authorization"></a>Autenticazione e autorizzazione
@@ -170,7 +170,7 @@ Questa sezione illustra le funzionalità di autenticazione e autorizzazione supp
 
 | Criteri di confronto | Code di archiviazione | Code del bus di servizio |
 | --- | --- | --- |
-| Autenticazione |**Chiave simmetrica** |**Chiave simmetrica** |
+| Authentication |**Chiave simmetrica** |**Chiave simmetrica** |
 | Modello di protezione |Accesso delegato tramite token di firma di accesso condiviso. |SAS |
 | Federazione del provider di identità |**No** |**Sì** |
 

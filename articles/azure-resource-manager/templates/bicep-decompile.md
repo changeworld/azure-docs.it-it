@@ -4,10 +4,10 @@ description: Descrive i comandi per la conversione di modelli di Azure Resource 
 ms.topic: conceptual
 ms.date: 03/12/2021
 ms.openlocfilehash: 6d242f5846996cd0f5b9510a1a2b9f2bf063a0c7
-ms.sourcegitcommit: df1930c9fa3d8f6592f812c42ec611043e817b3b
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/13/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "103422186"
 ---
 # <a name="converting-arm-templates-between-json-and-bicep"></a>Conversione di modelli ARM tra JSON e bicipite

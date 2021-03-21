@@ -5,39 +5,45 @@ author: vermagit
 ms.service: virtual-machines
 ms.subservice: hpc
 ms.topic: article
-ms.date: 03/12/2021
+ms.date: 03/18/2021
 ms.author: amverma
 ms.reviewer: cynthn
-ms.openlocfilehash: 0a0eaa18f5b120fcc9cbf0e4da470ee46772c925
-ms.sourcegitcommit: 66ce33826d77416dc2e4ba5447eeb387705a6ae5
+ms.openlocfilehash: e8d191dfed5b33116dadaf34b17d5f6525060e13
+ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/15/2021
-ms.locfileid: "103470405"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "104721210"
 ---
 # <a name="known-issues-with-h-series-and-n-series-vms"></a>Problemi noti delle VM serie H e serie N
 
-Questo articolo descrive i problemi e le soluzioni più comuni quando si [usano le VM](../../sizes-hpc.md) HPC e GPU serie [N e N](../../sizes-gpu.md) .
+Questo articolo tenta di elencare i problemi comuni recenti e le relative soluzioni quando si usano le VM HPC e GPU serie [H](../../sizes-hpc.md) e serie [N](../../sizes-gpu.md) .
+
+## <a name="mofed-installation-on-ubuntu"></a>Installazione di MOFED in Ubuntu
+In Ubuntu-18,04 la versione del kernel 5.4.0-1041-Azure è incompatibile con le versioni MOFED 5.2-2 e 5.2-1.0.4.0. È consigliabile eseguire il rollback alla versione kernel 5.4.0-1040-Azure o usare un'immagine del Marketplace con un kernel precedente e non aggiornare il kernel. Questo problema dovrebbe essere risolto con un MOFED più recente (TBD).
 
 ## <a name="known-issues-on-hbv3"></a>Problemi noti relativi a modello HBV3
-- InfiniBand è attualmente supportato solo nella VM 120-Core (Standard_HB120rs_v3). Il supporto di altre dimensioni di VM verrà abilitato a breve.
-- La rete accelerata di Azure non è supportata per le serie modello HBV3 in tutte le aree. Questa funzionalità verrà abilitata a breve.
+- Attualmente, InfiniBand è supportato solo nella VM 120-Core (Standard_HB120rs_v3).
+- Attualmente la rete accelerata di Azure non è supportata in tutte le aree della serie modello HBV3.
 
 ## <a name="accelerated-networking-on-hb-hc-hbv2-and-ndv2"></a>Rete accelerata su HB, HC, HBv2 e NDv2
 
-La [funzionalità rete accelerata di Azure](https://azure.microsoft.com/blog/maximize-your-vm-s-performance-with-accelerated-networking-now-generally-available-for-both-windows-and-linux/) è ora disponibile in RDMA e InfiniBand con supporto per le macchine virtuali con supporto per IOV e le dimensioni [HB](../../hb-series.md), [HC](../../hc-series.md), [HBv2](../../hbv2-series.md)e [NDv2](../../ndv2-series.md). Questa funzionalità consente ora un miglioramento in tutto (fino a 30 Gbps) e le latenze sulla rete Ethernet di Azure. Sebbene questo sia separato dalle funzionalità di RDMA sulla rete InfiniBand, alcune modifiche della piattaforma per questa funzionalità possono incorrere sul comportamento di determinate implementazioni MPI durante l'esecuzione di processi su InfiniBand. In particolare, l'interfaccia InfiniBand in alcune macchine virtuali può avere un nome leggermente diverso (mlx5_1 rispetto ai mlx5_0 precedenti) e potrebbe essere necessario modificare le righe di comando MPI soprattutto quando si usa l'interfaccia UCX (in genere con OpenMPi e HPC-X).
-Altre informazioni su questo articolo sono disponibili in questo [articolo di Blog](https://techcommunity.microsoft.com/t5/azure-compute/accelerated-networking-on-hb-hc-and-hbv2/ba-p/2067965) con le istruzioni su come risolvere eventuali problemi osservati.
+La [funzionalità rete accelerata di Azure](https://azure.microsoft.com/blog/maximize-your-vm-s-performance-with-accelerated-networking-now-generally-available-for-both-windows-and-linux/) è ora disponibile in RDMA e InfiniBand con supporto per le macchine virtuali con supporto per IOV e le dimensioni [HB](../../hb-series.md), [HC](../../hc-series.md), [HBv2](../../hbv2-series.md)e [NDv2](../../ndv2-series.md). Questa funzionalità consente ora un miglioramento in tutto (fino a 30 Gbps) e le latenze sulla rete Ethernet di Azure. Sebbene questo sia separato dalle funzionalità di RDMA sulla rete InfiniBand, alcune modifiche della piattaforma per questa funzionalità possono incorrere sul comportamento di determinate implementazioni MPI durante l'esecuzione di processi su InfiniBand. In particolare, l'interfaccia InfiniBand in alcune macchine virtuali può avere un nome leggermente diverso (mlx5_1 rispetto ai mlx5_0 precedenti) e potrebbe essere necessario modificare le righe di comando MPI soprattutto quando si usa l'interfaccia UCX (in genere con OpenMPi e HPC-X). La soluzione più semplice attualmente può consistere nell'usare la versione più recente di HPC-X sulle immagini di VM CentOS-HPC o disabilitare la rete accelerata, se non è necessario.
+Altre informazioni su questo argomento sono disponibili in questo [articolo di TechCommunity](https://techcommunity.microsoft.com/t5/azure-compute/accelerated-networking-on-hb-hc-and-hbv2/ba-p/2067965) con istruzioni su come risolvere eventuali problemi osservati.
 
-## <a name="infiniband-driver-installation-on-n-series-vms"></a>Installazione del driver InfiniBand nelle macchine virtuali serie N
+## <a name="infiniband-driver-installation-on-non-sr-iov-vms"></a>Installazione del driver InfiniBand in macchine virtuali non SR-IOV
 
-NC24r_v3 e ND40r_v2 sono abilitati SR-IOV mentre NC24r e NC24r_v2 non sono abilitati SR-IOV. Di [seguito](../../sizes-hpc.md#rdma-capable-instances)sono riportati alcuni dettagli sulla biforcazione.
-È possibile configurare InfiniBand (IB) nelle dimensioni delle VM abilitate per SR-IOV con i driver OFED, mentre le dimensioni delle macchine virtuali non SR-IOV richiedono driver ND. Questo supporto IB è disponibile in modo appropriato in [CentOS-HPC VMIs](configure.md). Per Ubuntu, vedere l' [istruzione qui](https://techcommunity.microsoft.com/t5/azure-compute/configuring-infiniband-for-ubuntu-hpc-and-gpu-vms/ba-p/1221351) per installare i driver OFED e ND come descritto in [docs](enable-infiniband.md#vm-images-with-infiniband-drivers).
+Attualmente H16r, H16mr e NC24r non sono compatibili con SR-IOV. Di [seguito](../../sizes-hpc.md#rdma-capable-instances)sono riportati alcuni dettagli sulla biforcazione dello stack InfiniBand.
+InfiniBand può essere configurato nelle dimensioni delle VM abilitate per SR-IOV con i driver OFED, mentre le dimensioni delle macchine virtuali non SR-IOV richiedono driver ND. Questo supporto IB è disponibile in modo appropriato per [CentOS, RHEL e Ubuntu](configure.md).
 
 ## <a name="duplicate-mac-with-cloud-init-with-ubuntu-on-h-series-and-n-series-vms"></a>Duplicare MAC con cloud-init con Ubuntu sulle VM serie H e serie N
 
-Si è verificato un problema noto con cloud-init sulle immagini di macchina virtuale Ubuntu durante il tentativo di visualizzare l'interfaccia IB. Questo problema può verificarsi al riavvio della macchina virtuale o quando si tenta di creare un'immagine di macchina virtuale dopo la generalizzazione. Nei log di avvio della macchina virtuale potrebbe essere visualizzato un errore simile al seguente: "avvio del servizio di rete... RuntimeError: trovato Mac duplicato. ' eth1' è Ib0' hanno Mac ".
+Si è verificato un problema noto con cloud-init sulle immagini di macchina virtuale Ubuntu durante il tentativo di visualizzare l'interfaccia IB. Questo problema può verificarsi al riavvio della macchina virtuale o quando si tenta di creare un'immagine di macchina virtuale dopo la generalizzazione. Nei log di avvio della macchina virtuale potrebbe essere visualizzato un errore simile al seguente:
+```console
+“Starting Network Service...RuntimeError: duplicate mac found! both 'eth1' and 'ib0' have mac”.
+```
 
-Questo "MAC duplicato con cloud-init in Ubuntu" è un problema noto. La soluzione alternativa è la seguente:
+Questo "MAC duplicato con cloud-init in Ubuntu" è un problema noto. Questa operazione verrà risolta nei kernel più recenti. Se si verifica il problema, la soluzione alternativa è la seguente:
 1) Distribuire l'immagine di macchina virtuale del Marketplace (Ubuntu 18,04)
 2) Installare i pacchetti software necessari per abilitare IB ([istruzioni qui](https://techcommunity.microsoft.com/t5/azure-compute/configuring-infiniband-for-ubuntu-hpc-and-gpu-vms/ba-p/1221351))
 3) Modificare waagent. conf per modificare EnableRDMA = y
@@ -56,13 +62,13 @@ Questo "MAC duplicato con cloud-init in Ubuntu" è un problema noto. La soluzion
     EOF
     ```
 
-## <a name="dram-on-hb-series"></a>DRAM su serie HB
-
-Al momento, le VM serie HB possono esporre solo 228 GB di RAM alle macchine virtuali guest. Analogamente, 458 GB in HBv2 e 448 GB in macchine virtuali modello HBV3. Ciò è dovuto a una limitazione nota dell'hypervisor di Azure per impedire che le pagine vengano assegnate al DRAM locale di AMD CCX (domini NUMA) riservato per la VM guest.
-
 ## <a name="qp0-access-restriction"></a>Restrizione di accesso qp0
 
 Per impedire l'accesso hardware di basso livello che può comportare vulnerabilità di sicurezza, la coppia di code 0 non è accessibile alle macchine virtuali guest. Questa operazione influisce solo sulle azioni generalmente associate all'amministrazione della scheda di interfaccia di rete ConnectX-5 e sull'esecuzione di una diagnostica InfiniBand come ibdiagnet, ma non sulle applicazioni dell'utente finale.
+
+## <a name="dram-on-hb-series-vms"></a>DRAM sulle VM serie HB
+
+Al momento, le VM serie HB possono esporre solo 228 GB di RAM alle macchine virtuali guest. Analogamente, 458 GB in HBv2 e 448 GB in macchine virtuali modello HBV3. Ciò è dovuto a una limitazione nota dell'hypervisor di Azure per impedire che le pagine vengano assegnate al DRAM locale di AMD CCX (domini NUMA) riservato per la VM guest.
 
 ## <a name="gss-proxy"></a>Proxy GSS
 

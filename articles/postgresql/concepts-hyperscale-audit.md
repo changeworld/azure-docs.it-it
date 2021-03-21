@@ -7,10 +7,10 @@ ms.service: postgresql
 ms.topic: conceptual
 ms.date: 01/29/2021
 ms.openlocfilehash: 8a36062a2d29bcec10279d73211526a0dcba619e
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/03/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "101702114"
 ---
 # <a name="audit-logging-in-azure-database-for-postgresql---hyperscale-citus"></a>Registrazione di controllo nel database di Azure per PostgreSQL-iperscalabilità (CITUS)
@@ -42,7 +42,7 @@ pgAudit consente di configurare la registrazione di controllo di una sessione o 
 
 > [!NOTE]
 > `pgaudit.log_client`Se si imposta su on, i log vengono reindirizzati a un processo client, ad esempio PSQL, anziché essere scritti nel file. Questa impostazione viene in genere disabilitata. <br> <br>
-> `pgaudit.log_level` viene abilitato solo quando `pgaudit.log_client` è on.
+> `pgaudit.log_level` viene abilitato solo quando `pgaudit.log_client` è attivo.
 
 > [!NOTE]
 > In database di Azure per PostgreSQL-iperscalabilità (CITUS) `pgaudit.log` non può essere impostato usando un `-` collegamento di segno (meno), come descritto nella documentazione di pgAudit. Tutte le classi di istruzioni obbligatorie (lettura, scrittura e così via) devono essere specificate singolarmente.
@@ -50,7 +50,7 @@ pgAudit consente di configurare la registrazione di controllo di una sessione o 
 ## <a name="audit-log-format"></a>Formato del log di controllo
 Ogni voce di controllo è indicata da `AUDIT:` vicino all'inizio della riga del log. Il formato del resto della voce è descritto in dettaglio nella [documentazione di pgAudit](https://github.com/pgaudit/pgaudit/blob/master/README.md#format).
 
-## <a name="getting-started"></a>Guida introduttiva
+## <a name="getting-started"></a>Introduzione
 Per iniziare rapidamente, impostare `pgaudit.log` su `WRITE` e aprire i log del server per esaminare l'output. 
 
 ## <a name="viewing-audit-logs"></a>Visualizzazione dei log di controllo
