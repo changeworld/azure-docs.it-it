@@ -8,17 +8,17 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 03/12/2021
-ms.openlocfilehash: e467affd3ba1b839ce3323e3689d7f5134a0686f
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 9bb62544887e0bc0269b98cd98fbf97fc477352f
+ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104604305"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "104722430"
 ---
 # <a name="return-a-semantic-answer-in-azure-cognitive-search"></a>Restituire una risposta semantica in Azure ricerca cognitiva
 
 > [!IMPORTANT]
-> Le funzionalità di ricerca semantica sono disponibili in anteprima pubblica, disponibile solo tramite l'API REST di anteprima. Le funzionalità di anteprima sono offerte così come sono, in condizioni per l' [utilizzo aggiuntive](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)e non sono garantite che abbiano la stessa implementazione a livello generale. Per altre informazioni, vedere [disponibilità e prezzi](semantic-search-overview.md#availability-and-pricing).
+> La ricerca semantica è in anteprima pubblica, disponibile solo tramite l'API REST di anteprima. Le funzionalità di anteprima sono offerte così come sono, in condizioni per l' [utilizzo aggiuntive](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)e non sono garantite che abbiano la stessa implementazione a livello generale. Queste funzionalità sono fatturabili. Per altre informazioni, vedere [disponibilità e prezzi](semantic-search-overview.md#availability-and-pricing).
 
 Quando si formula una [query semantica](semantic-how-to-query-request.md), è possibile estrarre il contenuto dai documenti corrispondenti che "risponde" direttamente alla query. Una o più risposte possono essere incluse nella risposta, che è quindi possibile eseguire il rendering in una pagina di ricerca per migliorare l'esperienza utente dell'app.
 
@@ -28,27 +28,27 @@ In questo articolo viene illustrato come richiedere una risposta semantica, deco
 
 Tutti i prerequisiti che si applicano alle [query semantiche](semantic-how-to-query-request.md) si applicano anche alle risposte, tra cui il livello di servizio e l'area.
 
-+ Query formulate usando i parametri della query semantica e includono il parametro "Answers". I parametri obbligatori sono descritti in questo articolo.
++ La logica di query deve includere i parametri della query semantica, oltre al parametro "Answers". I parametri obbligatori sono descritti in questo articolo.
 
-+ Le stringhe di query devono essere formulate nel linguaggio con le caratteristiche di una domanda (cosa, dove, quando, come).
++ Le stringhe di query immesse dall'utente devono essere formulate nel linguaggio con le caratteristiche di una domanda (cosa, dove, quando, come).
 
-+ I documenti di ricerca devono contenere testo con le caratteristiche di una risposta e il testo deve esistere in uno dei campi elencati in "searchFields".
++ I documenti di ricerca devono contenere testo con le caratteristiche di una risposta e il testo deve esistere in uno dei campi elencati in "searchFields". Ad esempio, data una query "che cos'è una tabella hash", se nessuno dei searchFields contiene passaggi che includono "una tabella hash è...", è improbabile che venga restituita una risposta.
 
 ## <a name="what-is-a-semantic-answer"></a>Che cos'è una risposta semantica?
 
-Una risposta semantica è un artefatto di una [query semantica](semantic-how-to-query-request.md). È costituito da uno o più passaggi Verbatim da un documento di ricerca, formulati come una risposta a una query simile a una domanda. Affinché venga restituita una risposta, le frasi o le frasi devono esistere in un documento di ricerca con le caratteristiche del linguaggio di una risposta e la query stessa deve essere rappresentata come una domanda.
+Una risposta semantica è una sottostruttura di una [risposta di query semantica](semantic-how-to-query-request.md). È costituito da uno o più passaggi Verbatim da un documento di ricerca, formulati come una risposta a una query simile a una domanda. Affinché venga restituita una risposta, le frasi o le frasi devono esistere in un documento di ricerca con le caratteristiche del linguaggio di una risposta e la query stessa deve essere rappresentata come una domanda.
 
-Ricerca cognitiva usa un modello di comprensione della lettura del computer per formulare le risposte. Il modello genera un set di potenziali risposte dai documenti disponibili e, quando raggiunge un livello di confidenza sufficientemente elevato, proporrà una risposta.
+Ricerca cognitiva usa un modello di comprensione della lettura del computer per scegliere la risposta migliore. Il modello genera un set di potenziali risposte dal contenuto disponibile e, quando raggiunge un livello di confidenza sufficientemente elevato, proporrà una risposta.
 
-Le risposte vengono restituite come un oggetto di livello superiore indipendente nel payload di risposta alla query che è possibile scegliere di eseguire il rendering nelle pagine di ricerca, lungo i risultati della ricerca. Strutturalmente, si tratta di un elemento di matrice di una risposta che include testo, una chiave del documento e un punteggio di confidenza.
+Le risposte vengono restituite come un oggetto di livello superiore indipendente nel payload di risposta alla query che è possibile scegliere di eseguire il rendering nelle pagine di ricerca, lungo i risultati della ricerca. Strutturalmente, si tratta di un elemento di matrice all'interno della risposta costituito da testo, una chiave del documento e un punteggio di confidenza.
 
 <a name="query-params"></a>
 
 ## <a name="how-to-request-semantic-answers-in-a-query"></a>Come richiedere risposte semantiche in una query
 
-Per restituire una risposta semantica, la query deve avere il tipo di query semantico, il linguaggio, i campi di ricerca e il parametro "Answers". La specifica del parametro "Answers" non garantisce che venga restituita una risposta, ma la richiesta deve includere questo parametro se l'elaborazione della risposta deve essere richiamata.
+Per restituire una risposta semantica, la query deve avere la semantica "queryType", "queryLanguage", "searchFields" e il parametro "Answers". La specifica del parametro "Answers" non garantisce che venga restituita una risposta, ma la richiesta deve includere questo parametro se l'elaborazione della risposta deve essere richiamata.
 
-Il parametro "searchFields" è essenziale per restituire una risposta di qualità elevata, sia in termini di contenuto che di ordine. 
+Il parametro "searchFields" è fondamentale per restituire una risposta di qualità elevata, sia in termini di contenuto che di ordine (vedere di seguito). 
 
 ```json
 {
@@ -63,9 +63,9 @@ Il parametro "searchFields" è essenziale per restituire una risposta di qualit�
 
 + Una stringa di query non deve essere null e deve essere formulata come question. In questa versione di anteprima, i "queryType" e "queryLanguage" devono essere impostati esattamente come illustrato nell'esempio.
 
-+ Il parametro "searchFields" determina i campi che forniscono token al modello di estrazione. Assicurarsi di impostare questo parametro. È necessario disporre di almeno un campo stringa, ma è possibile includere qualsiasi campo stringa che si ritenga utile per fornire una risposta. Collettivamente in tutti i campi di searchFields, nel modello vengono passati solo circa 8.000 token per documento. Avviare l'elenco dei campi con campi concisi e quindi passare a campi con testo completo. Per indicazioni precise su come impostare questo campo, vedere [set searchFields](semantic-how-to-query-request.md#searchfields).
++ Il parametro "searchFields" determina i campi stringa che forniscono i token al modello di estrazione. Gli stessi campi che producono didascalie generano anche risposte. Per indicazioni precise su come impostare questo campo in modo che funzioni per le didascalie e le risposte, vedere [set searchFields](semantic-how-to-query-request.md#searchfields). 
 
-+ Per "Answers", la costruzione di parametri `"answers": "extractive"` di base è, dove il numero predefinito di risposte restituito è uno. È possibile aumentare il numero di risposte aggiungendo un conteggio, fino a un massimo di cinque.  Se è necessaria più di una risposta dipende dall'esperienza utente dell'app e da come si desidera eseguire il rendering dei risultati.
++ Per "Answers", la costruzione di parametri è `"answers": "extractive"` , dove il numero predefinito di risposte restituito è uno. È possibile aumentare il numero di risposte aggiungendo un conteggio, come illustrato nell'esempio precedente, fino a un massimo di cinque.  Se è necessaria più di una risposta dipende dall'esperienza utente dell'app e da come si desidera eseguire il rendering dei risultati.
 
 ## <a name="deconstruct-an-answer-from-the-response"></a>Decostruire una risposta dalla risposta
 
@@ -115,7 +115,7 @@ Data la query "How do Clouds form", nella risposta viene restituita la risposta 
 
 Per ottenere risultati ottimali, restituire le risposte semantiche in un corpus di documenti con le caratteristiche seguenti:
 
-+ "searchFields" deve fornire campi che offrano un testo sufficiente in cui è probabile che venga trovata una risposta. Solo il testo Verbatim di un documento può essere visualizzato come risposta.
++ "searchFields" deve fornire campi che offrano un testo sufficiente in cui è probabile che venga trovata una risposta. Solo il testo Verbatim di un documento può sembrare una risposta.
 
 + le stringhe di query non devono essere null (Search = `*` ) e la stringa deve avere le caratteristiche di una domanda, in contrapposizione a una ricerca di parole chiave (un elenco sequenziale di termini o frasi arbitrarie). Se la stringa di query non sembra rispondere, l'elaborazione delle risposte viene ignorata, anche se la richiesta specifica "Answers" come parametro di query.
 

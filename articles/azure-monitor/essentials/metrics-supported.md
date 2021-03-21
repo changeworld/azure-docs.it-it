@@ -7,10 +7,10 @@ ms.topic: reference
 ms.date: 02/06/2021
 ms.author: robb
 ms.openlocfilehash: 2437ab80a23ffc39c180bcdf72921fdf13768541
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/04/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102033504"
 ---
 # <a name="supported-metrics-with-azure-monitor"></a>Metriche supportate con il monitoraggio di Azure
@@ -2544,7 +2544,7 @@ Per informazioni aggiuntive importanti, vedere [Panoramica degli agenti di monit
 |Average_Virtual Shared Memory|Sì|Virtual Shared Memory|Conteggio|Media|Average_Virtual Shared Memory|Computer, ObjectName, InstanceName, CounterPath, SourceSystem|
 |Evento|Sì|Event|Conteggio|Media|Evento|Source, EventLog, Computer, EventCategory, EventLevel, EventLevelName, EventID|
 |Heartbeat|Sì|Heartbeat|Conteggio|Totale|Heartbeat|Computer, OSType, Version, SourceComputerId|
-|Aggiorna|Sì|Aggiornamento|Conteggio|Media|Aggiorna|Computer, Product, Classification, UpdateState, Optional, Approved|
+|Aggiornamento|Sì|Aggiornamento|Conteggio|Media|Aggiornamento|Computer, Product, Classification, UpdateState, Optional, Approved|
 
 
 ## <a name="microsoftpeeringpeerings"></a>Microsoft. peering/peering

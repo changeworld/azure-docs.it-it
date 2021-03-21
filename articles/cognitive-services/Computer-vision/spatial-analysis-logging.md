@@ -10,12 +10,12 @@ ms.subservice: computer-vision
 ms.topic: conceptual
 ms.date: 01/12/2021
 ms.author: aahi
-ms.openlocfilehash: dda3ece27fd2c687647e0aa289bd1596a87b274f
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: a825b9e0abc4e33eb0f9033f46bb77c38559f740
+ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98186023"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "104722702"
 ---
 # <a name="telemetry-and-troubleshooting"></a>Telemetria e risoluzione dei problemi
 
@@ -60,7 +60,7 @@ Dopo aver configurato monitoraggio di Azure, è necessario creare le credenziali
 
 ```bash
 # Find your Azure IoT Hub resource ID by running this command. The resource ID  should start with something like 
-# "/subscriptions/b60d6458-1234-4be4-9885-c7e73af9ced8/resourceGroups/...”
+# "/subscriptions/b60d6458-1234-4be4-9885-c7e73af9ced8/resourceGroups/..."
 az iot hub list
 
 # Create a Service Principal with `Monitoring Metrics Publisher` role in the IoTHub resource:
@@ -105,16 +105,16 @@ Una volta distribuito il modulo Telegraf, è possibile accedere alle metriche se
 
 | Nome evento | Descrizione|
 |------|---------|
-|archon_exit    |Inviato quando un utente modifica lo stato del modulo di analisi spaziale da *in esecuzione* a *arrestato*.  |
-|archon_error   |Inviato quando uno dei processi all'interno del contenitore si arresta in modo anomalo. Si tratta di un errore critico.  |
-|InputRate  |Velocità con cui il grafico elabora l'input video. Segnalato ogni 5 minuti. | 
+|archon_exit     |Inviato quando un utente modifica lo stato del modulo di analisi spaziale da *in esecuzione* a *arrestato*.  |
+|archon_error     |Inviato quando uno dei processi all'interno del contenitore si arresta in modo anomalo. Si tratta di un errore critico.  |
+|InputRate     |Velocità con cui il grafico elabora l'input video. Segnalato ogni 5 minuti. | 
 |OutputRate     |Velocità con cui il grafo genera informazioni dettagliate di intelligenza artificiale. Segnalato ogni 5 minuti. |
 |archon_allGraphsStarted | Inviato al termine dell'avvio di tutti i grafici. |
-|archon_configchange    | Inviato quando viene modificata una configurazione del grafo. |
+|archon_configchange     | Inviato quando viene modificata una configurazione del grafo. |
 |archon_graphCreationFailed     |Inviato quando il grafico con l'oggetto restituito `graphId` non viene avviato. |
-|archon_graphCreationSuccess    |Inviato quando il grafo con l'oggetto riportato `graphId` viene avviato correttamente. |
-|archon_graphCleanup    | Inviato quando il grafico con il segnalato viene `graphId` pulito e chiuso. |
-|archon_graphHeartbeat  |Heartbeat inviato ogni minuto per ogni grafico di una competenza. |
+|archon_graphCreationSuccess     |Inviato quando il grafo con l'oggetto riportato `graphId` viene avviato correttamente. |
+|archon_graphCleanup     | Inviato quando il grafico con il segnalato viene `graphId` pulito e chiuso. |
+|archon_graphHeartbeat     |Heartbeat inviato ogni minuto per ogni grafico di una competenza. |
 |archon_apiKeyAuthFail |Inviato quando la chiave della risorsa Visione artificiale non riesce ad autenticare il contenitore per più di 24 ore, a causa dei motivi seguenti: fuori quota, non valido, offline. |
 |VideoIngesterHeartbeat     |Inviato ogni ora per indicare che il video è trasmesso dall'origine video, con il numero di errori in quell'ora. Segnalato per ogni grafico. |
 |VideoIngesterState | Report *interrotti* o *avviati* per lo streaming video. Segnalato per ogni grafico. |
@@ -363,7 +363,7 @@ Dopo aver creato il cluster Kubernetes, è possibile usare lo `kubectl` strument
     New-HcsKubernetesUser -UserName
     ```
 
-3. Aggiungere il file di *configurazione* alla cartella *. Kube* nel profilo utente nel computer locale.   
+3. Aggiungere il file di *configurazione* alla cartella *. Kube* nel profilo utente nel computer locale.    
 
 4. Associare lo spazio dei nomi all'utente creato.
 
@@ -400,6 +400,34 @@ kubectl logs <pod-name> -n <namespace> --all-containers
 |`Get-HcsKubernetesUserConfig -AseUser`     | Genera un file di configurazione Kubernetes. Quando si usa il comando, copiare le informazioni in un file denominato *config*. Non salvare il file con un'estensione di file.        |
 | `Get-HcsApplianceInfo` | Restituisce informazioni sul dispositivo. |
 | `Enable-HcsSupportAccess` | Genera le credenziali di accesso per avviare una sessione di supporto. |
+
+
+## <a name="how-to-file-a-support-ticket-for-spatial-analysis"></a>Come archiviare un ticket di supporto per l'analisi spaziale 
+
+Se è necessario un supporto maggiore per trovare una soluzione a un problema che si sta verificando con il contenitore di analisi spaziale, seguire questa procedura per compilare e inviare un ticket di supporto. Il nostro team riceverà informazioni aggiuntive. 
+
+### <a name="fill-out-the-basics"></a>Compila le nozioni di base 
+Creare un nuovo ticket di supporto nella pagina [nuova richiesta di supporto](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest) . Seguire le istruzioni per specificare i parametri seguenti:
+
+![Nozioni fondamentali sul supporto](./media/support-ticket-page-1-final.png)
+
+1. Impostare **tipo di problema** su `Technical` .
+2. Selezionare la sottoscrizione che si sta usando per distribuire il contenitore di analisi spaziale.
+3. Selezionare `My services` e selezionare `Cognitive Services` come servizio.
+4. Selezionare la risorsa che si sta usando per distribuire il contenitore di analisi spaziale.
+5. Scrivere una breve descrizione dettagliata del problema riscontrato. 
+6. Selezionare `Spatial Analysis` come tipo di problema.
+7. Selezionare il sottotipo appropriato dall'elenco a discesa.
+8. Selezionare **Avanti: soluzioni** per passare alla pagina successiva.
+
+### <a name="recommended-solutions"></a>Soluzioni consigliate
+Nella fase successiva vengono offerte le soluzioni consigliate per il tipo di problema selezionato. Queste soluzioni risolveranno i problemi più comuni, ma se non sono utili per la soluzione, fare clic su **Avanti: dettagli** per andare al passaggio successivo.
+
+### <a name="details"></a>Dettagli
+In questa pagina, aggiungere alcuni dettagli aggiuntivi sul problema riscontrato. Assicurarsi di includere il maggior numero possibile di dettagli, in quanto ciò consentirà ai tecnici di restringere meglio il problema. Includere il metodo di contatto preferito e la gravità del problema, in modo che sia possibile contattare l'utente in modo appropriato e fare clic su **Avanti: rivedere + crea** per passare al passaggio successivo. 
+
+### <a name="review-and-create"></a>Rivedi e crea 
+Esaminare i dettagli della richiesta di supporto per assicurarsi che tutto sia accurato e che rappresenti in modo efficace il problema. Quando si è pronti, selezionare **Crea** per inviare il ticket al team. Si riceverà un messaggio di posta elettronica di conferma dopo la ricezione del ticket e il team funzionerà per tornare al più presto possibile. È possibile visualizzare lo stato del ticket nel portale di Azure.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

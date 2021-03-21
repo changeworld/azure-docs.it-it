@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 03/16/2021
-ms.openlocfilehash: 73f7ab83ea15d223b76b9f71fde2f8a6a37bdacf
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 2a91062a701ca1b07f47f381a04cdf06c57c5746
+ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104586370"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "104721529"
 ---
 # <a name="configure-data-collection-for-the-azure-monitor-agent-preview"></a>Configurare la raccolta dati per l'agente di monitoraggio di Azure (anteprima)
 
@@ -72,6 +72,8 @@ Fare clic su **Aggiungi origine dati** , quindi su **+ Crea** per esaminare i de
 Poiché vengono addebitati tutti i dati raccolti in un'area di lavoro di Log Analytics, è consigliabile raccogliere solo i dati necessari. Utilizzando la configurazione di base nel portale di Azure, è possibile filtrare solo gli eventi da raccogliere. Per i registri applicazioni e di sistema, si tratta di tutti i log con una particolare gravità. Per i log di sicurezza, si tratta di tutti i registri di esito positivo o di controllo.
 
 Per specificare filtri aggiuntivi, è necessario usare la configurazione personalizzata e specificare un XPath che filtra gli eventi che non è possibile eseguire. Le voci XPath vengono scritte nel formato `LogName!XPathQuery` . Ad esempio, è possibile che si desideri restituire solo gli eventi dal registro eventi dell'applicazione con ID evento 1035. XPathQuery per questi eventi sarà `*[System[EventID=1035]]` . Poiché si desidera recuperare gli eventi dal registro eventi dell'applicazione, XPath è `Application!*[System[EventID=1035]]`
+
+Vedere [limitazioni di xpath 1,0](/windows/win32/wes/consuming-events#xpath-10-limitations) per un elenco di limitazioni nell'XPath supportato dal registro eventi di Windows.
 
 > [!TIP]
 > Usare il cmdlet di PowerShell `Get-WinEvent` con il `FilterXPath` parametro per verificare la validità di un XPathQuery. Lo script seguente mostra un esempio.

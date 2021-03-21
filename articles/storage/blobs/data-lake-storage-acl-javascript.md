@@ -1,24 +1,24 @@
 ---
-title: Utilizzare JavaScript per impostare gli ACL in Azure Data Lake Storage Gen2
+title: Utilizzare JavaScript (Node.js) per impostare gli ACL in Azure Data Lake Storage Gen2
 description: Usare archiviazione di Azure Data Lake libreria client per JavaScript per gestire gli elenchi di controllo di accesso (ACL) negli account di archiviazione in cui è abilitato lo spazio dei nomi gerarchico (HNS).
 author: normesta
 ms.service: storage
-ms.date: 02/17/2021
+ms.date: 03/19/2021
 ms.author: normesta
 ms.topic: how-to
 ms.subservice: data-lake-storage-gen2
 ms.reviewer: prishet
 ms.custom: devx-track-js
-ms.openlocfilehash: 4d3e13c6593c0e11df84131a9a07eb2868277d2f
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 21b4977102a484d8a3a680450a9cb6f77c7e3fbd
+ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "100654236"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "104722753"
 ---
-# <a name="use-javascript-to-manage-acls-in-azure-data-lake-storage-gen2"></a>Utilizzare JavaScript per gestire gli ACL in Azure Data Lake Storage Gen2
+# <a name="use-javascript-sdk-in-nodejs-to-manage-acls-in-azure-data-lake-storage-gen2"></a>Usare JavaScript SDK in Node.js per gestire gli ACL in Azure Data Lake Storage Gen2
 
-Questo articolo illustra come usare JavaScript per ottenere, impostare e aggiornare gli elenchi di controllo di accesso di directory e file. 
+Questo articolo illustra come usare Node.js per ottenere, impostare e aggiornare gli elenchi di controllo di accesso di directory e file. 
 
 [Pacchetto (gestione pacchetti di nodi)](https://www.npmjs.com/package/@azure/storage-file-datalake)  |  [Esempi](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/storage/storage-file-datalake/samples)  |  di [Invia commenti e suggerimenti](https://github.com/Azure/azure-sdk-for-java/issues)
 
@@ -49,7 +49,11 @@ npm install @azure/storage-file-datalake
 Importare il `storage-file-datalake` pacchetto inserendo questa istruzione all'inizio del file di codice. 
 
 ```javascript
-const AzureStorageDataLake = require("@azure/storage-file-datalake");
+const {
+AzureStorageDataLake,
+DataLakeServiceClient,
+StorageSharedKeyCredential
+} = require("@azure/storage-file-datalake");
 ```
 
 ## <a name="connect-to-the-account"></a>Effettuare la connessione all'account

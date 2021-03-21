@@ -5,29 +5,30 @@ author: enkrumah
 ms.author: ebnkruma
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 03/10/2020
-ms.openlocfilehash: 07df391e664fe04b9c7d2eda34960666c44a2e06
-ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
+ms.date: 03/18/2021
+ms.openlocfilehash: a040aecbdee40832bd21256e26a140a986b65e39
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/30/2021
-ms.locfileid: "99094085"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104606243"
 ---
 # <a name="compatibility-level-for-azure-stream-analytics-jobs"></a>Livello di compatibilità per i processi di Analisi di flusso di Azure
 
-Questo articolo descrive l'opzione del livello di compatibilità in analisi di flusso di Azure. Analisi di flusso è un servizio gestito, con aggiornamenti regolari delle funzionalità e miglioramenti delle prestazioni. La maggior parte degli aggiornamenti dei runtime del servizio viene resa disponibile automaticamente agli utenti finali. 
+Questo articolo descrive l'opzione del livello di compatibilità in analisi di flusso di Azure.
 
-Tuttavia, alcune nuove funzionalità del servizio possono introdurre una modifica sostanziale, ad esempio una modifica nel comportamento di un processo esistente, o una modifica nel modo in cui i dati vengono utilizzati nei processi in esecuzione. È possibile mantenere i processi di analisi di flusso esistenti in esecuzione senza modifiche sostanziali lasciando l'impostazione del livello di compatibilità diminuita. Quando si è pronti per i comportamenti di runtime più recenti, è possibile acconsentire esplicitamente aumentando il livello di compatibilità. 
+Analisi di flusso è un servizio gestito, con [aggiornamenti regolari delle funzionalità e miglioramenti delle prestazioni costanti](https://azure.microsoft.com/updates/?product=stream-analytics). La maggior parte degli aggiornamenti dei runtime del servizio viene automaticamente resa disponibile agli utenti finali, indipendentemente dal livello di compatibilità. Tuttavia, quando una nuova funzionalità introduce una modifica nel comportamento dei processi esistenti o una modifica nel modo in cui i dati vengono utilizzati nei processi in esecuzione, questa modifica viene introdotta in un nuovo livello di compatibilità. È possibile mantenere i processi di analisi di flusso esistenti in esecuzione senza modifiche sostanziali lasciando l'impostazione del livello di compatibilità diminuita. Quando si è pronti per i comportamenti di runtime più recenti, è possibile acconsentire esplicitamente aumentando il livello di compatibilità.
+
 
 ## <a name="choose-a-compatibility-level"></a>Scegliere un livello di compatibilità
 
-Il livello di compatibilità controlla il comportamento di runtime di un processo di Analisi di flusso. 
+Il livello di compatibilità controlla il comportamento di runtime di un processo di Analisi di flusso.
 
 Analisi di flusso di Azure supporta attualmente tre livelli di compatibilità:
 
-* 1,0: livello di compatibilità originale, introdotto durante la disponibilità generale di analisi di flusso di Azure diversi anni fa.
-* 1,1-comportamento precedente
 * 1,2-comportamento più recente con i miglioramenti più recenti
+* 1,1-comportamento precedente
+* 1,0: livello di compatibilità originale, introdotto durante la disponibilità generale di analisi di flusso di Azure diversi anni fa. 
 
 Quando si crea un nuovo processo di analisi di flusso, è consigliabile crearlo usando il livello di compatibilità più recente. Iniziare la progettazione del processo basandosi sui comportamenti più recenti, per evitare di aggiungere modifiche e complessità in un secondo momento.
 

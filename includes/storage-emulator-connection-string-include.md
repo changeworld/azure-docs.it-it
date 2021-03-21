@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 12/28/2020
 ms.author: tamram
 ms.openlocfilehash: a9d7f4f77d91abc88ea348e71a3d9c471b26a273
-ms.sourcegitcommit: 87a6587e1a0e242c2cfbbc51103e19ec47b49910
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/16/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "103622078"
 ---
 L'emulatore supporta un singolo account fisso e una chiave di autenticazione nota per l'autenticazione con chiave condivisa. Questo account e questa chiave sono le uniche credenziali chiave condivise consentite per l'uso con l'emulatore. Ad esempio:

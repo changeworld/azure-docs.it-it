@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/07/2021
 ms.author: damendo
-ms.openlocfilehash: a5db1ac9c70429d4b6a0b690de1b29c3656b3cc8
-ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
+ms.openlocfilehash: 3b8b53446799eec3473d63c89672393a35f9787a
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98016712"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104670956"
 ---
 # <a name="diagnose-on-premises-connectivity-via-vpn-gateways"></a>Diagnosticare la connettività locale tramite i gateway VPN
 
@@ -34,11 +34,11 @@ Con la funzionalità di risoluzione dei problemi di Azure Network Watcher è pos
 Si vuole configurare una connessione da sito a sito tra Azure e la rete locale tramite FortiGate come Gateway VPN locale. Per ottenere questo scenario è necessaria la configurazione seguente:
 
 1. Gateway di rete virtuale, ovvero il gateway VPN di Azure
-1. Gateway di rete locale, ovvero la rappresentazione del [Gateway VPN (FortiGate) locale](../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md#LocalNetworkGateway) nel cloud di Azure
-1. Connessione da sito a sito basata su route, ovvero [connessione tra il Gateway VPN e il router locale](../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md#CreateConnection)
+1. Gateway di rete locale, ovvero la rappresentazione del [Gateway VPN (FortiGate) locale](../vpn-gateway/tutorial-site-to-site-portal.md#LocalNetworkGateway) nel cloud di Azure
+1. Connessione da sito a sito basata su route, ovvero [connessione tra il Gateway VPN e il router locale](../vpn-gateway/tutorial-site-to-site-portal.md#CreateConnection)
 1. [Configurazione di FortiGate](https://github.com/Azure/Azure-vpn-config-samples/blob/master/Fortinet/Current/Site-to-Site_VPN_using_FortiGate.md)
 
-Per istruzioni dettagliate per la configurazione di una connessione da sito a sito, vedere: [Creare una rete virtuale con una connessione da sito a sito usando il portale di Azure](../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md).
+Per istruzioni dettagliate per la configurazione di una connessione da sito a sito, vedere: [Creare una rete virtuale con una connessione da sito a sito usando il portale di Azure](../vpn-gateway/tutorial-site-to-site-portal.md).
 
 Uno dei passaggi critici consiste nella configurazione dei parametri di comunicazione IPsec perché qualsiasi errore di configurazione comporta la perdita di connettività tra la rete locale e Azure. I gateway VPN di Azure sono attualmente configurati per supportare i parametri IPsec seguenti per la fase 1. Come si può notare nella tabella seguente, gli algoritmi di crittografia supportati dal gateway VPN di Azure sono AES256, AES128 e 3DES.
 

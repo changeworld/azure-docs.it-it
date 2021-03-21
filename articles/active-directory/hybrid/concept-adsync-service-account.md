@@ -11,75 +11,100 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 06/27/2019
+ms.date: 03/17/2021
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8dddfb8426b769c06cb5b7494431b7eee34dbf9e
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: fb23d79caa6964c3f61fbb84c8b8f229f475b8ab
+ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "94410896"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "104722158"
 ---
 # <a name="adsync-service-account"></a>Account del servizio ADSync
 Azure AD Connect installa un servizio locale che orchestra la sincronizzazione tra Active Directory e Azure Active Directory.  Il servizio di sincronizzazione Microsoft Azure AD sincronizzazione (ADSync) viene eseguito in un server nell'ambiente locale.  Le credenziali per il servizio sono impostate per impostazione predefinita nelle installazioni Express, ma possono essere personalizzate per soddisfare i requisiti di sicurezza dell'organizzazione.  Queste credenziali non vengono usate per la connessione alle foreste locali o Azure Active Directory.
 
 La scelta dell'account del servizio ADSync è una decisione importante da prendere prima di installare Azure AD Connect.  Qualsiasi tentativo di modificare le credenziali dopo l'installazione comporterà il mancato avvio del servizio, la perdita dell'accesso al database di sincronizzazione e la mancata autenticazione con le directory connesse (Azure e AD DS).  Non verrà eseguita alcuna sincronizzazione fino al ripristino delle credenziali originali.
 
-## <a name="the-default-adsync-service-account"></a>Account del servizio ADSync predefinito
+Il servizio di sincronizzazione può essere eseguito con account diversi, Può essere eseguito con un account del servizio virtuale (VSA), un account del servizio gestito (gMSA/sMSA) o un account utente normale. Le opzioni supportate sono state modificate con la versione di aprile 2017 e la versione di marzo 2021 di Azure AD Connect quando si esegue una nuova installazione. Se si esegue un aggiornamento da una versione precedente di Azure AD Connect, tali opzioni non sono disponibili. 
 
-Quando viene eseguito in un server membro, il servizio AdSync viene eseguito nel contesto di un account del servizio virtuale (VSA).  A causa di una limitazione del prodotto, viene creato un account del servizio personalizzato quando viene installato in un controller di dominio.  Se l'account del servizio impostazioni rapide non soddisfa i requisiti di sicurezza dell'organizzazione, distribuire Azure AD Connect scegliendo l'opzione Personalizza.  Quindi scegliere l'opzione relativa all'account del servizio che soddisfi i requisiti dell'organizzazione.
 
->[!NOTE]
->L'account di servizio predefinito quando è installato in un controller di dominio è nel formato dominio \ AAD_InstallationIdentifier.  La password per questo account viene generata in modo casuale e presenta importanti problemi per il ripristino e la rotazione delle password.  Microsoft consiglia di personalizzare l'account del servizio durante l'installazione iniziale in un controller di dominio per l'utilizzo di un account del servizio gestito autonomo o del gruppo (sMSA/gMSA)
+|Tipo di account|Opzione di installazione|Descrizione| 
+|-----|------|-----|
+|account Servizio virtuale|Rapida e personalizzata, aprile 2017 e versioni successive| Un account del servizio virtuale viene utilizzato per tutte le installazioni rapide, ad eccezione delle installazioni in un controller di dominio. Quando si usa l'installazione personalizzata, si tratta dell'opzione predefinita, a meno che non si usi un'altra opzione.| 
+|Account del servizio gestito|Personalizzata, aprile 2017 e versioni successive|Se si usa un SQL Server remoto, è consigliabile usare un account del servizio gestito del gruppo. |
+|Account del servizio gestito|Express e Custom, 2021 marzo e versioni successive|Un account del servizio gestito autonomo con prefisso ADSyncMSA_ viene creato durante l'installazione per le installazioni rapide quando viene installato in un controller di dominio. Quando si usa l'installazione personalizzata, si tratta dell'opzione predefinita, a meno che non si usi un'altra opzione.|
+|Account utente|Express e Custom, 2017 da aprile a 2021 marzo|Un account utente con prefisso AAD_ viene creato durante l'installazione per le installazioni rapide quando viene installato in un controller di dominio. Quando si usa l'installazione personalizzata, si tratta dell'opzione predefinita, a meno che non si usi un'altra opzione.|
+|Account utente|Rapida e personalizzata, marzo 2017 e versioni precedenti|Un account utente con prefisso AAD_ viene creato durante l'installazione per le installazioni rapide. Se si usa l'installazione personalizzata, è possibile specificare un altro account.| 
 
-|Località Azure AD Connect|Account del servizio creato|
-|-----|-----|
-|Server membro|NT SERVICE\ADSync|
-|Controller di dominio|Dominio \ AAD_74dc30c01e80 (vedere la nota)|
+>[!IMPORTANT]
+> Se si usa Connect con una build di marzo 2017 o precedente, non reimpostare la password nell'account del servizio poiché Windows elimina le chiavi di crittografia per motivi di sicurezza. Non è possibile modificare l'account impostandone un altro senza reinstallare Azure AD Connect. Se si esegue l'aggiornamento a una build da 2017 aprile o versione successiva, è supportata la modifica della password nell'account del servizio, ma non è possibile modificare l'account usato. 
 
-## <a name="custom-adsync-service-accounts"></a>Account del servizio ADSync personalizzati
-Microsoft consiglia di eseguire il servizio ADSync nel contesto di un account del servizio virtuale o di un account del servizio gestito autonomo o del gruppo.  L'amministratore di dominio può anche scegliere di creare un account del servizio di cui è stato effettuato il provisioning per soddisfare i requisiti di sicurezza aziendali specifici.   Per personalizzare l'account del servizio utilizzato durante l'installazione, scegliere l'opzione Personalizza nella pagina Impostazioni rapide riportata di seguito.   Sono disponibili le opzioni seguenti:
+> [!IMPORTANT]
+> È possibile impostare solo l'account del servizio durante la prima installazione. Non è supportata la modifica dell'account del servizio dopo che l'installazione è stata completata. Se è necessario modificare la password dell'account del servizio, questa operazione è supportata e le istruzioni sono disponibili [qui](how-to-connect-sync-change-serviceacct-pass.md).
 
-- account predefinito: Azure AD Connect effettuerà il provisioning dell'account del servizio come descritto in precedenza
-- account del servizio gestito: usare un MSA autonomo o di gruppo di cui l'amministratore ha eseguito il provisioning
-- account di dominio: usare un account del servizio del dominio di cui l'amministratore ha eseguito il provisioning
+Di seguito è riportata una tabella delle opzioni predefinite, consigliate e supportate per l'account del servizio di sincronizzazione. 
 
-![Screenshot della pagina delle impostazioni di Azure AD Connect Express con i pulsanti di opzione "Personalizza" o "Usa impostazioni rapide".](media/concept-adsync-service-account/adsync1.png)
+Legenda: 
 
-![Screenshot della pagina Azure AD Connect "installazione dei componenti richiesti" con l'opzione per l'uso di un account del servizio gestito esistente selezionato.](media/concept-adsync-service-account/adsync2.png)
+- **Bold** indica l'opzione predefinita e, nella maggior parte dei casi, l'opzione consigliata. 
+- Il *corsivo* indica l'opzione consigliata quando non è l'opzione predefinita. 
+- Non in grassetto: opzione supportata 
+- Account locale: account utente locale sul server 
+- Account di dominio: account utente di dominio 
+- sMSA: [account del servizio gestito autonomo](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd548356(v=ws.10))
+- gMSA: [account del servizio gestito del gruppo](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/hh831782(v=ws.11)) 
 
-## <a name="diagnosing-adsync-service-account-changes"></a>Diagnosi delle modifiche all'account del servizio ADSync
-Se si modificano le credenziali per il servizio ADSync dopo l'installazione, il servizio non viene avviato, perde l'accesso al database di sincronizzazione e non riesce a eseguire l'autenticazione con le directory connesse (Azure e AD DS).  La concessione dell'accesso al database al nuovo account del servizio ADSync non è sufficiente per risolvere il problema. Non verrà eseguita alcuna sincronizzazione fino al ripristino delle credenziali originali.
+ ||**Database locale </br> Express**|**Database locale/LocalSQL </br> personalizzato**|**SQL </br> personalizzato remoto**|
+|-----|-----|-----|-----|
+|**computer aggiunto a un dominio**|**VSA**|**VSA**</br> *sMSA*</br> *gMSA*</br> Account locale</br> Account di dominio| *gMSA* </br>Account di dominio|
+|Controller di dominio| **sMSA**|**sMSA** </br>*gMSA*</br> Account di dominio|*gMSA*</br>Account di dominio| 
 
-Il servizio ADSync emetterà un messaggio a livello di errore nel registro eventi quando non è possibile avviarlo.  Il contenuto del messaggio varia a seconda che sia in uso il database predefinito o il database SQL completo.  Di seguito sono riportati esempi delle voci del registro eventi che possono essere presenti.
+## <a name="virtual-service-account"></a>account Servizio virtuale 
 
-### <a name="example-1"></a>Esempio 1
+Un account del servizio virtuale è un tipo speciale di account locale gestito che non dispone di una password e viene gestito automaticamente da Windows. 
 
-Non è stato possibile trovare le chiavi di crittografia del servizio AdSync e sono state ricreate.  La sincronizzazione non verrà eseguita fino a quando il problema non verrà corretto.
+ ![Account del servizio virtuale](media/concept-adsync-service-account/account-1.png)
 
-Risoluzione del problema la Microsoft Azure AD le chiavi di crittografia della sincronizzazione diventeranno inaccessibili se le credenziali di accesso al servizio AdSync sono state modificate.  Se le credenziali sono state modificate, utilizzare l'applicazione dei servizi per riportare l'account di accesso al relativo valore configurato in origine (ad esempio, NT SERVICE\AdSync) e riavviare il servizio.  Verrà ripristinato immediatamente il funzionamento corretto del servizio AdSync.
+L'account del servizio virtuale deve essere utilizzato con scenari in cui il motore di sincronizzazione e SQL si trovano nello stesso server. Se si usa SQL remoto, è consigliabile usare invece un account del servizio gestito del gruppo. 
 
-Per ulteriori informazioni, vedere l' [articolo](./whatis-hybrid-identity.md) seguente.
+Impossibile utilizzare l'account del servizio virtuale in un controller di dominio a causa di problemi di [Windows Data Protection API (DPAPI)](https://msdn.microsoft.com/library/ms995355.aspx) . 
 
-### <a name="example-2"></a>Esempio 2
+## <a name="managed-service-account"></a>Account del servizio gestito 
 
-Impossibile avviare il servizio perché non è stato possibile stabilire una connessione al database locale (local DB).
+Se si usa un SQL Server remoto, è consigliabile usare un account del servizio gestito del gruppo. Per ulteriori informazioni su come preparare la Active Directory per l'account del servizio gestito del gruppo, vedere [Panoramica degli account del servizio gestiti del gruppo](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/hh831782(v=ws.11)). 
 
-Risoluzione di questo problema il servizio di sincronizzazione Microsoft Azure AD perderà l'autorizzazione ad accedere al provider di database locale se le credenziali di accesso al servizio AdSync sono state modificate.  Se le credenziali sono state modificate, utilizzare l'applicazione Servizi per riportare l'account di accesso al relativo valore configurato in origine (ad esempio, NT SERVICE\AdSync) e riavviare il servizio.  Verrà ripristinato immediatamente il funzionamento corretto del servizio AdSync.
+Per usare questa opzione, nella pagina [Installazione dei componenti necessari](how-to-connect-install-custom.md#install-required-components) selezionare **Usa un account del servizio esistente** e quindi **Account del servizio gestito**. 
 
-Per ulteriori informazioni, vedere l' [articolo](./whatis-hybrid-identity.md) seguente.
+ ![account del servizio gestito](media/concept-adsync-service-account/account-2.png)
 
-Ulteriori dettagli le seguenti informazioni sull'errore sono state restituite dal provider:
- 
+L'opzione è supportata anche per l'uso di un account del servizio gestito autonomo. Tuttavia, questi possono essere usati solo sul computer locale e non vi è alcun vantaggio di usarli sull'account del servizio virtuale predefinito. 
 
-``` 
-OriginalError=0x80004005 OLEDB Provider error(s): 
-Description  = 'Login timeout expired'
-Failure Code = 0x80004005
-Minor Number = 0 
-Description  = 'A network-related or instance-specific error has occurred while establishing a connection to SQL Server. Server is not found or not accessible. Check if instance name is correct and if SQL Server is configured to allow remote connections. For more information see SQL Server Books Online.'
-```
+### <a name="auto-generated-standalone-managed-service-account"></a>Account del servizio gestito autonomo generato automaticamente 
+
+Se si installa Azure AD Connect in un controller di dominio, tramite l'installazione guidata viene creato un account del servizio gestito autonomo (a meno che non si specifichi l'account da usare nelle impostazioni personalizzate). L'account è preceduto **ADSyncMSA_** e utilizzato per l'esecuzione del servizio di sincronizzazione effettivo. 
+
+Questo account è un account di dominio gestito che non dispone di una password e viene gestito automaticamente da Windows. 
+
+Questo account deve essere usato con scenari in cui il motore di sincronizzazione e SQL si trovano nel controller di dominio. 
+
+## <a name="user-account"></a>Account utente 
+
+Mediante l'installazione guidata viene creato un account di servizio locale (a meno che non si specifichi l'account da usare nelle impostazioni personalizzate). L'account, preceduto da AAD_ , viene usato per l'esecuzione del servizio di sincronizzazione effettivo. Se si installa Azure AD Connect in un Controller di dominio, l'account viene creato nel dominio. L'account del servizio AAD_ deve essere presente nel dominio se: 
+- si usa un server remoto che esegue SQL Server 
+- si usa un proxy che richiede l'autenticazione 
+
+ ![account utente](media/concept-adsync-service-account/account-3.png)
+
+L'account viene creato con una password lunga e complessa priva di scadenza. 
+
+Questo account viene usato per archiviare in modo sicuro le password per gli altri account. Le password di questi altri account vengono archiviate crittografate nel database. Le chiavi private per le chiavi di crittografia sono protette tramite la crittografia a chiave segreta dei servizi di crittografia con Data Protection API (DPAPI) di Windows. 
+
+Se si usa una versione completa di SQL Server, l'account del servizio corrisponde al DBO del database creato per il motore di sincronizzazione. Il servizio non funzionerà come previsto con qualsiasi altra autorizzazione. Viene inoltre creato l'accesso a SQL. 
+
+All'account viene inoltre concessa l'autorizzazione per file, chiavi del registro di sistema e altri oggetti correlati al motore di sincronizzazione. 
+
+
 ## <a name="next-steps"></a>Passaggi successivi
 Altre informazioni su [Integrazione delle identità locali con Azure Active Directory](whatis-hybrid-identity.md).

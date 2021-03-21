@@ -44,6 +44,16 @@
       href: search-get-started-arm.md
 - name: Esercitazioni
   items:
+    - name: Aggiungi ricerca al sito Web
+      items:
+        - name: 1-Panoramica del sito Web
+          href: tutorial-javascript-overview.md
+        - name: 2-creare un indice di ricerca
+          href: tutorial-javascript-create-load-index.md
+        - name: 3-distribuire un'app Web statica
+          href: tutorial-javascript-deploy-static-web-app.md
+        - name: 4-informazioni sull'integrazione della ricerca
+          href: tutorial-javascript-search-query-integration.md
     - name: Creare un'app C#
       items:
         - name: 1 - Pagina di ricerca di base
@@ -198,7 +208,7 @@
           href: index-add-language-analyzers.md
         - name: Aggiungere un analizzatore personalizzato
           href: index-add-custom-analyzers.md
-    - name: Data
+    - name: Dati
       items:
         - name: Panoramica dell'importazione dei dati
           href: search-what-is-data-import.md

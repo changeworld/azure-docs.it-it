@@ -2,7 +2,7 @@
 title: crittografare video con AES-128: Descrizione di servizi multimediali di Azure: informazioni su come crittografare i video con la crittografia AES a 128 bit e come usare il servizio di distribuzione delle chiavi in servizi multimediali di Azure.
 Servizi: Media-Services documentationcenter:'' Author: IngridAtMicrosoft Manager: FEMila Editor:''
 
-ms. Service: Media-Services ms. workload: media ms.tgt_pltfrm: na ms. DevLang: na ms. Topic: esercitazione ms. Date: 08/31/2020 ms. Author: inhenkel
+ms. Service: Media-Services ms. workload: media ms.tgt_pltfrm: na ms. DevLang: na ms. Topic: esercitazione ms. Date: 03/17/2021 ms. Author: inhenkel
 
 ---
 # <a name="tutorial-encrypt-video-with-aes-128-and-use-the-key-delivery-service"></a>Esercitazione: Crittografare video con AES-128 e usare il servizio di distribuzione delle chiavi
@@ -89,7 +89,7 @@ In questa esercitazione si crea l'input del processo in base a un file che viene
 
 ## <a name="wait-for-the-job-to-complete"></a>Attendere il completamento del processo
 
-Il completamento del processo richiede qualche istante. Al termine dell'operazione, si vorrà ricevere una notifica. L'esempio di codice seguente illustra come eseguire il polling del servizio per determinare lo stato del [processo](/rest/api/media/jobs). Il polling non è una procedura consigliata per le app di produzione a causa dei rischi di latenza. Il polling può essere limitato se usato eccessivamente su un account. In alternativa, è preferibile che gli sviluppatori usino Griglia di eventi. Per altre informazioni, [Instradare gli eventi a un endpoint Web personalizzato](job-state-events-cli-how-to.md).
+Il completamento del processo richiede qualche istante. Al termine dell'operazione, si vorrà ricevere una notifica. L'esempio di codice seguente illustra come eseguire il polling del servizio per determinare lo stato del [processo](/rest/api/media/jobs). Il polling non è una procedura consigliata per le app di produzione a causa dei rischi di latenza. Il polling può essere limitato se usato eccessivamente su un account. In alternativa, è preferibile che gli sviluppatori usino Griglia di eventi. Per altre informazioni, [Instradare gli eventi a un endpoint Web personalizzato](monitoring/job-state-events-cli-how-to.md).
 
 L'oggetto **Job** assume progressivamente gli stati seguenti: **Scheduled**, **Queued**, **Processing**, **Finished** (stato finale). Se nel corso del processo si verifica un errore, viene restituito lo stato **Errore**. Se il processo è in fase di annullamento, vengono restituiti lo stato **Annullamento in corso** e, al termine, lo stato **Annullato**.
 
