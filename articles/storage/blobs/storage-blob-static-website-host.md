@@ -1,5 +1,5 @@
 ---
-title: "Esercitazione: Ospitare un sito Web statico nell'archiviazione BLOB - Archiviazione di Azure"
+title: "Esercitazione: ospitare un sito Web statico nell'archivio BLOB-archiviazione di Azure"
 description: Informazioni su come configurare un account di archiviazione per l'hosting di siti Web statici e come distribuire un sito Web statico in Archiviazione di Azure.
 author: normesta
 ms.service: storage
@@ -9,15 +9,15 @@ ms.date: 1/22/2020
 ms.author: normesta
 ms.reviewer: dineshm
 ms.openlocfilehash: 36cdaa813e0eccb23563301052aee268ab61533a
-ms.sourcegitcommit: 230d5656b525a2c6a6717525b68a10135c568d67
-ms.translationtype: HT
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/19/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94888505"
 ---
 <!---Customer intent: I want to host files for a static website in Blob storage and access the website from an Azure endpoint.--->
 
-# <a name="tutorial-host-a-static-website-on-blob-storage"></a>Esercitazione: Ospitare un sito Web statico nell'archiviazione BLOB
+# <a name="tutorial-host-a-static-website-on-blob-storage"></a>Esercitazione: ospitare un sito Web statico nell'archivio BLOB
 
 In questa esercitazione si apprenderà come creare e distribuire un sito Web statico in Archiviazione di Azure. Al termine, sarà presente un sito Web statico cui gli utenti potranno accedere a livello pubblico. 
 
@@ -32,7 +32,7 @@ In questa esercitazione verranno illustrate le procedure per:
 [!INCLUDE [storage-quickstart-prereq-include](../../../includes/storage-quickstart-prereq-include.md)]
 
 > [!NOTE] 
-> Assicurarsi di creare un account di archiviazione standard per utilizzo generico v2. I siti Web statici non sono disponibili in nessun altro tipo di account di archiviazione.
+> Assicurarsi di creare un account di archiviazione standard per utilizzo generico V2. I siti Web statici non sono disponibili in nessun altro tipo di account di archiviazione.
 
 Questa esercitazione usa [Visual Studio Code](https://code.visualstudio.com/download), uno strumento gratuito per i programmatori che permette di creare il sito Web statico e di distribuirlo in un account di archiviazione di Azure.
 

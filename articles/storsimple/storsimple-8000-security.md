@@ -15,10 +15,10 @@ ms.workload: TBD
 ms.date: 05/18/2018
 ms.author: alkohli
 ms.openlocfilehash: 72bf252488878c8b6fabb2ea2d61658a2cd87e14
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/20/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94966208"
 ---
 # <a name="storsimple-security-and-data-protection"></a>Sicurezza e protezione dei dati di StorSimple
@@ -254,7 +254,7 @@ Di seguito sono riportate alcune domande e risposte relative alla sicurezza e a 
 
 **R:** Modificare e reimpostare le password che consentono di accedere al dispositivo StorSimple e modificare la chiave DEK del servizio per garantire che le nuove informazioni non siano note al personale non autorizzato. Per istruzioni, vedere:
 
-* [Usare il servizio Device Manager StorSimple per modificare le password di StorSimple](storsimple-8000-change-passwords.md)
+* [Usare il servizio Gestione dispositivi StorSimple per modificare le password di StorSimple](storsimple-8000-change-passwords.md)
 * [Modificare la chiave di crittografia dei dati del servizio](storsimple-8000-manage-service.md#change-the-service-data-encryption-key)
 * [Configurare CHAP per il dispositivo StorSimple](storsimple-8000-configure-chap.md)
 

@@ -10,10 +10,10 @@ ms.date: 10/06/2020
 ms.author: anfeldma
 ms.custom: seo-java-august2019, seo-java-september2019, devx-track-java
 ms.openlocfilehash: f31eb0fa6dbb881f7a09b21b9dd4842fdfd291f5
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
-ms.translationtype: HT
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93090291"
 ---
 # <a name="quickstart-build-a-spring-data-azure-cosmos-db-v3-app-to-manage-azure-cosmos-db-sql-api-data"></a>Avvio rapido: Creare un'app Spring Data Azure Cosmos DB v3 per gestire i dati dell'API SQL di Azure Cosmos DB
@@ -50,15 +50,15 @@ In questo argomento di avvio rapido verrà creato e gestito un account API SQL d
 
 ## <a name="introductory-notes"></a>Note introduttive
 
-*Struttura di un account Cosmos DB.* Indipendentemente dall'API o dal linguaggio di programmazione, un *account* Cosmos DB contiene zero o più *database* , un *database* (DB) contiene zero o più *contenitori* e un *contenitore* contiene zero o più elementi, come illustrato nel diagramma seguente:
+*Struttura di un account Cosmos DB.* Indipendentemente dall'API o dal linguaggio di programmazione, un *account* Cosmos DB contiene zero o più *database*, un *database* (DB) contiene zero o più *contenitori* e un *contenitore* contiene zero o più elementi, come illustrato nel diagramma seguente:
 
 :::image type="content" source="./media/account-databases-containers-items/cosmos-entities.png" alt-text="Entità dell'account Azure Cosmos DB" border="false":::
 
 Altre informazioni su database, contenitori ed elementi sono disponibili [qui](account-databases-containers-items.md). Alcune proprietà importanti sono definite a livello del contenitore, tra cui *velocità effettiva con provisioning* e *chiave di partizione*. 
 
-La velocità effettiva con provisioning viene misurata in unità richiesta ( *UR* ) che hanno un prezzo monetario e rappresentano un fattore determinante sostanziale nel costo operativo dell'account. È possibile selezionare la velocità effettiva con provisioning in base alla granularità per contenitore o alla granularità per database, ma è in genere preferibile specificare la velocità effettiva a livello di contenitore. Per altre informazioni sul provisioning della velocità effettiva, vedere [qui.](set-throughput.md)
+La velocità effettiva con provisioning viene misurata in unità richiesta (*UR*) che hanno un prezzo monetario e rappresentano un fattore determinante sostanziale nel costo operativo dell'account. È possibile selezionare la velocità effettiva con provisioning in base alla granularità per contenitore o alla granularità per database, ma è in genere preferibile specificare la velocità effettiva a livello di contenitore. Per altre informazioni sul provisioning della velocità effettiva, vedere [qui.](set-throughput.md)
 
-Man mano che gli elementi vengono inseriti in un contenitore Cosmos DB, il database aumenta orizzontalmente aggiungendo più risorse di archiviazione e calcolo per gestire le richieste. La capacità di archiviazione e di calcolo viene aggiunta in unità discrete note come *partizioni* ed è necessario scegliere un campo nei documenti come chiave di partizione che esegue il mapping di ogni documento a una partizione. Il modo in cui vengono gestite le partizioni è che a ogni partizione viene assegnata una sezione approssimativamente uguale non compresa nell'intervallo di valori delle chiavi di partizione. È pertanto consigliabile scegliere una chiave di partizione che sia relativamente casuale o distribuita in modo uniforme. In caso contrario, alcune partizioni conterranno sostanzialmente più richieste ( *partizione con accesso frequente* ) mentre altre partizioni conterranno sostanzialmente meno richieste ( *partizione con accesso sporadico* ) e questo deve essere evitato. Per altre informazioni sul partizionamento, vedere [qui](partitioning-overview.md).
+Man mano che gli elementi vengono inseriti in un contenitore Cosmos DB, il database aumenta orizzontalmente aggiungendo più risorse di archiviazione e calcolo per gestire le richieste. La capacità di archiviazione e di calcolo viene aggiunta in unità discrete note come *partizioni* ed è necessario scegliere un campo nei documenti come chiave di partizione che esegue il mapping di ogni documento a una partizione. Il modo in cui vengono gestite le partizioni è che a ogni partizione viene assegnata una sezione approssimativamente uguale non compresa nell'intervallo di valori delle chiavi di partizione. È pertanto consigliabile scegliere una chiave di partizione che sia relativamente casuale o distribuita in modo uniforme. In caso contrario, alcune partizioni conterranno sostanzialmente più richieste (*partizione con accesso frequente*) mentre altre partizioni conterranno sostanzialmente meno richieste (*partizione con accesso sporadico*) e questo deve essere evitato. Per altre informazioni sul partizionamento, vedere [qui](partitioning-overview.md).
 
 ## <a name="create-a-database-account"></a>Creare un account di database
 
@@ -95,7 +95,7 @@ Questo passaggio è facoltativo. Per scoprire in che modo le risorse del databas
 
 ### <a name="application-configuration-file"></a>File di configurazione dell'applicazione
 
-Si vedrà ora come Spring Boot e Spring Data migliorano l'esperienza utente: il processo di creazione di un client Cosmos e la sua connessione alle risorse Cosmos avviene ora tramite configurazione anziché usando il codice. All'avvio dell'applicazione, Spring Boot gestisce il boilerplate usando le impostazioni in **application.properties** :
+Si vedrà ora come Spring Boot e Spring Data migliorano l'esperienza utente: il processo di creazione di un client Cosmos e la sua connessione alle risorse Cosmos avviene ora tramite configurazione anziché usando il codice. All'avvio dell'applicazione, Spring Boot gestisce il boilerplate usando le impostazioni in **application.properties**:
 
 ```xml
 cosmos.uri=${ACCOUNT_HOST}

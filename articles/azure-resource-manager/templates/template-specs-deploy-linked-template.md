@@ -4,10 +4,10 @@ description: Informazioni su come distribuire una specifica di modello esistente
 ms.topic: conceptual
 ms.date: 11/17/2020
 ms.openlocfilehash: b30a99a469ec010dcc2e128bbeb446b493631608
-ms.sourcegitcommit: 84e3db454ad2bccf529dabba518558bd28e2a4e6
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/02/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96518873"
 ---
 # <a name="tutorial-deploy-a-template-spec-as-a-linked-template-preview"></a>Esercitazione: distribuire una specifica di modello come modello collegato (anteprima)
@@ -19,7 +19,7 @@ Informazioni su come distribuire una [specifica di modello](template-specs.md) e
 Un account Azure con una sottoscrizione attiva. [Creare un account gratuitamente](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
 > [!NOTE]
-> La funzionalità Specifiche di modello è attualmente in anteprima. Per usarlo con Azure PowerShell, è necessario installare la [versione 5.0.0 o successiva](/powershell/azure/install-az-ps). Per usarlo con l'interfaccia della riga di comando di Azure, usare la [versione 2.14.2 o successiva](/cli/azure/install-azure-cli).
+> La funzionalità Specifiche di modello è attualmente in anteprima. Per usarla con Azure PowerShell, è necessario installare la [versione 5.0.0 o successiva](/powershell/azure/install-az-ps). Per usarla con l'interfaccia della riga di comando di Azure, usare la [versione 2.14.2 o successiva](/cli/azure/install-azure-cli).
 
 ## <a name="create-a-template-spec"></a>Creare una specifica del modello
 

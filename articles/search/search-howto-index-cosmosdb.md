@@ -10,10 +10,10 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 07/11/2020
 ms.openlocfilehash: 563edae0292062e1ed7f216c69aeeb84ef0fa7a8
-ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/12/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98119476"
 ---
 # <a name="how-to-index-cosmos-db-data-using-an-indexer-in-azure-cognitive-search"></a>Come indicizzare i dati di Cosmos DB usando un indicizzatore in Ricerca cognitiva di Azure 
@@ -391,7 +391,7 @@ L'esempio seguente crea un'origine dati con criteri di eliminazione temporanea:
 
 ## <a name="next-steps"></a><a name="NextSteps"></a>Passaggi successivi
 
-La procedura è stata completata. Si è appreso come integrare Azure Cosmos DB con ricerca cognitiva di Azure usando un indicizzatore.
+Congratulazioni! Si è appreso come integrare Azure Cosmos DB con ricerca cognitiva di Azure usando un indicizzatore.
 
 * Per altre informazioni su Azure Cosmos DB, vedere la [pagina del servizio Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/).
 * Per ulteriori informazioni su Azure ricerca cognitiva, vedere la [pagina del servizio di ricerca](https://azure.microsoft.com/services/search/).

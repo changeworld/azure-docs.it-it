@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 12/05/2016
 ms.author: matd
 ms.openlocfilehash: 66a1e22282864d0425173504735d6beb42b76ad7
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/20/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94967262"
 ---
 # <a name="storsimple-as-a-backup-target-with-backup-exec"></a>StorSimple come destinazione di backup con Backup Exec
@@ -233,7 +233,7 @@ Configurare la soluzione in base alle linee guida riportate nelle sezioni seguen
 -   StorSimple supporta i backup completi e incrementali di Backup Exec. Si consiglia di non usare backup sintetici e differenziali.
 -   I file dei dati di backup devono contenere solo i dati per un processo specifico. Non è ad esempio consentito alcun supporto di aggiunta tra diversi processi.
 -   Disabilitare la verifica dei processi. Se necessario, pianificare la verifica dopo l'ultimo processo di backup. È importante tenere presente che questo processo influisce sulla finestra di backup.
--   Selezionare **Archivia**  >  **le**  >  proprietà dei **Dettagli** del disco  >  **Properties**. Disattivare **Pre-allocate disk space** (Prealloca spazio del disco).
+-   Selezionare **Archivia**  >  **le**  >  proprietà dei **Dettagli** del disco  >  . Disattivare **Pre-allocate disk space** (Prealloca spazio del disco).
 
 Per le ultime impostazioni di Backup Exec e le procedure consigliate per l'implementazione di questi requisiti, vedere [il sito Web di Veritas](https://www.veritas.com).
 
@@ -323,7 +323,7 @@ Nella sequenza seguente si presuppone che Veritas Backup Exec, l'host di destina
 
 #### <a name="to-assign-storsimple-volumes-to-a-backup-exec-backup-job"></a>Per assegnare volumi StorSimple a un processo di backup di Backup Exec
 
-1.  Nella console di gestione di backup exec selezionare backup **host** backup  >  **Backup**  >  **su disco**.
+1.  Nella console di gestione di backup exec selezionare backup **host** backup  >    >  **su disco**.
 
     ![Nella console di gestione di Backup Exec selezionare Host (Host), Backup (Backup), Backup to Disk (Backup su disco)](./media/storsimple-configure-backup-target-using-backup-exec/image14.png)
 
@@ -395,7 +395,7 @@ La tabella seguente indica come configurare il backup per l'esecuzione su dischi
 
 #### <a name="to-assign-storsimple-volumes-to-a-backup-exec-archive-and-duplication-job"></a>Per assegnare volumi StorSimple a un processo di archiviazione e duplicazione di Backup Exec
 
-1.  Nella console di gestione di backup exec, fare clic con il pulsante destro del mouse sul processo che si desidera archiviare in un volume StorSimple, quindi scegliere modifica **Proprietà definizione di backup**  >  **Edit**.
+1.  Nella console di gestione di backup exec, fare clic con il pulsante destro del mouse sul processo che si desidera archiviare in un volume StorSimple, quindi scegliere modifica **Proprietà definizione di backup**  >  .
 
     ![Console di gestione di Backup Exec, scheda Backup Definition Properties (Proprietà definizione backup)](./media/storsimple-configure-backup-target-using-backup-exec/image19.png)
 

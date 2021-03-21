@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 04/01/2020
 ms.author: aahi
 ms.openlocfilehash: 5c76e45f09a0f432d2775eb19d3dcaa668294e6f
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/25/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96002342"
 ---
 # <a name="language-understanding-luis-container-limitations"></a>Limitazioni del contenitore Language Understanding (LUIS)
@@ -46,7 +46,7 @@ Configurazioni dell'app non supportate|Dettagli|
 
 I contenitori LUIS supportano un subset di [lingue supportate](luis-language-support.md#languages-supported) da Luis proper. I contenitori LUIS sono in grado di comprendere le espressioni nelle seguenti lingue:
 
-| Linguaggio | Impostazioni locali | Dominio predefinito | Entità predefinita | Raccomandazioni elenco frasi | **[Analisi del testo](../text-analytics/language-support.md)<br>(Valutazione e<br>parole chiave)|
+| Linguaggio | Locale | Dominio predefinito | Entità predefinita | Raccomandazioni elenco frasi | **[Analisi del testo](../text-analytics/language-support.md)<br>(Valutazione e<br>parole chiave)|
 |--|--|:--:|:--:|:--:|:--:|
 | Inglese (Stati Uniti) | `en-US` | ✔️ | ✔️ | ✔️ | ✔️ |
 | Arabo (anteprima-arabo standard moderno) |`ar-AR`|❌|❌|❌|❌|

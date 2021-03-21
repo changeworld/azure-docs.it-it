@@ -7,10 +7,10 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.date: 04/13/2018
 ms.openlocfilehash: cedb0b99f04df00763a3ee83287eec90bd5fb45d
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/14/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100387513"
 ---
 # <a name="move-data-from-mongodb-using-azure-data-factory"></a>Spostare i dati da MongoDB con Azure Data Factory
@@ -38,7 +38,7 @@ Per consentire al servizio Azure Data Factory di connettersi al database MongoDB
     > [!NOTE]
     > È necessario usare il gateway per connettersi a MongoDB anche se è ospitato in VM IaaS di Azure. Se si sta provando a connettersi a un'istanza di MongoDB ospitata nel cloud è anche possibile installare l'istanza del gateway nella macchina virtuale IaaS.
 
-## <a name="getting-started"></a>Guida introduttiva
+## <a name="getting-started"></a>Introduzione
 È possibile creare una pipeline con l'attività di copia che sposta i dati da e verso un archivio dati MongoDB usando diversi strumenti/API.
 
 Il modo più semplice per creare una pipeline consiste nell'usare la **Copia guidata**. Vedere [Esercitazione: Creare una pipeline usando la Copia guidata](data-factory-copy-data-wizard-tutorial.md) per la procedura dettagliata sulla creazione di una pipeline attenendosi alla procedura guidata per copiare i dati.

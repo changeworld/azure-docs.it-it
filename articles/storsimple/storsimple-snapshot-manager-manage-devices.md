@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 06/05/2017
 ms.author: alkohli
 ms.openlocfilehash: dbb7e835d110bcb6cb81fd5425a2aafbb578e692
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/25/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96022973"
 ---
 # <a name="use-storsimple-snapshot-manager-to-connect-and-manage-storsimple-devices"></a>Utilizzo di Gestione snapshot StorSimple per connettere e gestire i dispositivi StorSimple
@@ -34,7 +34,7 @@ A seconda delle opzioni di visualizzazione selezionate, il riquadro **Risultati*
 | Colonna risultati | Descrizione |
 |:--- |:--- |
 | Nome |Il nome del dispositivo come configurato nel portale di gestione di Azure classico |
-| Modellare |Il numero di modello del dispositivo |
+| Modello |Il numero di modello del dispositivo |
 | Versione |La versione software installata sul dispositivo |
 | Stato |Se il dispositivo è disponibile |
 | Ultima sincronizzazione |Data e ora dell'ultima sincronizzazione del dispositivo |

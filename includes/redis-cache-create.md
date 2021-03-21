@@ -1,5 +1,5 @@
 ---
-title: File di inclusione
+title: includere file
 description: File di inclusione
 services: redis-cache
 author: curib
@@ -9,10 +9,10 @@ ms.date: 10/06/2020
 ms.author: cauribeg
 ms.custom: include file
 ms.openlocfilehash: da36cb5c5d2db20b89f80d381f48632c7528c193
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
-ms.translationtype: HT
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/25/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96002460"
 ---
 1. Per creare una cache, accedere al [portale di Azure](https://portal.azure.com) e selezionare **Crea una risorsa**.

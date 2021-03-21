@@ -1,6 +1,6 @@
 ---
-title: File di inclusione
-description: File di inclusione
+title: includere file
+description: includere file
 services: notification-hubs
 author: sethmanheim
 ms.service: notification-hubs
@@ -9,21 +9,21 @@ ms.date: 11/07/2019
 ms.author: sethm
 ms.custom: include file
 ms.openlocfilehash: bfd5d42d83046c9c5b0bc3a78fabec08da5da646
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
-ms.translationtype: HT
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/25/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96026581"
 ---
 In questa sezione si invieranno notizie aggiornate come notifiche modello con tag da un'app console .NET.
 
 1. In Visual Studio creare una nuova applicazione console in Visual C#:
-    1. Nel menu selezionare **File** > **Nuovo** > **Progetto**.
+    1. Scegliere **file**  >  **nuovo**  >  **progetto** dal menu.
     1. In **Crea un nuovo progetto** selezionare **App console (.NET Framework)** per C# nell'elenco di modelli e scegliere **Avanti**.
     1. Immettere un nome per l'app.
     1. Per **Soluzione** scegliere **Aggiungi a soluzione** e selezionare **Crea** per creare il progetto.
 
-1. Scegliere **Strumenti**,  > **Gestione pacchetti NuGet** > **Console di Gestione pacchetti** e quindi eseguire il comando seguente nella finestra della console:
+1. Selezionare **strumenti**  >  **Gestione pacchetti NuGet**  >  **console di gestione pacchetti** e quindi nella finestra della console eseguire il comando seguente:
 
    ```powershell
    Install-Package Microsoft.Azure.NotificationHubs
@@ -31,7 +31,7 @@ In questa sezione si invieranno notizie aggiornate come notifiche modello con ta
 
    Questa azione aggiunge un riferimento ad Azure Notification Hubs SDK usando il pacchetto [Microsoft.Azure.NotificationHubs].
 
-1. Aprire il file *Program.cs* e aggiungere l'istruzione `using` seguente:
+1. Aprire il file *Program. cs* e aggiungere l'istruzione seguente `using` :
 
    ```csharp
    using Microsoft.Azure.NotificationHubs;

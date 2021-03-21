@@ -16,10 +16,10 @@ ms.date: 07/18/2017
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 37e41a00c1489d5b7b4822fec8bb4da35e917826
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/03/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "101686462"
 ---
 # <a name="azure-active-directory-connect-health-operations"></a>Operazioni di Azure Active Directory Connect Health
@@ -110,7 +110,7 @@ Azure AD Connect Health supporta i ruoli predefiniti seguenti:
 | Ruolo | Autorizzazioni |
 | --- | --- |
 | Proprietario |I proprietari possono *gestire l'accesso* (ad esempio assegnare ruoli a un utente o gruppo), *visualizzare tutte le informazioni* (ad esempio visualizzare gli avvisi) dal portale e *modificare le impostazioni* (ad esempio le notifiche di posta elettronica) all'interno di Azure AD Connect Health. <br>Per impostazione predefinita, gli amministratori globali di Azure AD vengono assegnati a questo ruolo e questa assegnazione non è modificabile. |
-| Collaboratore |I collaboratori possono *visualizzare tutte le informazioni* (ad esempio visualizzare gli avvisi) dal portale e *modificare le impostazioni* (ad esempio le notifiche di posta elettronica) all'interno di Azure AD Connect Health. |
+| Autore di contributi |I collaboratori possono *visualizzare tutte le informazioni* (ad esempio visualizzare gli avvisi) dal portale e *modificare le impostazioni* (ad esempio le notifiche di posta elettronica) all'interno di Azure AD Connect Health. |
 | Lettore |I lettori possono *visualizzare tutte le informazioni* (ad esempio visualizzare gli avvisi) dal portale all'interno di Azure AD Connect Health. |
 
 Tutti gli altri ruoli, ad esempio gli amministratori dell'accesso utente o gli utenti DevTest Labs, anche se disponibili nell'esperienza del portale, non influiscono sull'accesso all'interno di Azure AD Connect Health.

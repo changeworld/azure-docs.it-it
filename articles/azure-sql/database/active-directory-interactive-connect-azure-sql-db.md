@@ -12,10 +12,10 @@ ms.author: MirekS
 ms.reviewer: vanto
 ms.date: 04/23/2020
 ms.openlocfilehash: 93831ec4c1dc3e34c2ea144e71b67dae711ee870
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/18/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94841649"
 ---
 # <a name="connect-to-azure-sql-database-with-azure-ad-multi-factor-authentication"></a>Connettersi al database SQL di Azure con Azure AD Multi-Factor Authentication
@@ -62,7 +62,7 @@ Per registrare e impostare le autorizzazioni necessarie per l'applicazione:
 
 1. Nella portale di Azure selezionare **Azure Active Directory**  >  **registrazioni app**  >  **nuova registrazione**.
 
-    ![Registrazione delle app](./media/active-directory-interactive-connect-azure-sql-db/image1.png)
+    ![Registrazione dell'app](./media/active-directory-interactive-connect-azure-sql-db/image1.png)
 
     Dopo la creazione della registrazione dell'app, viene generato e visualizzato il valore dell' **ID applicazione** .
 

@@ -8,10 +8,10 @@ ms.service: web-application-firewall
 ms.date: 02/08/2020
 ms.author: victorh
 ms.openlocfilehash: 26078c3757e42c3e290a5f4122461b287582fb80
-ms.sourcegitcommit: 84e3db454ad2bccf529dabba518558bd28e2a4e6
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/02/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96518822"
 ---
 # <a name="create-web-application-firewall-policies-for-application-gateway"></a>Creare criteri del Web Application Firewall per il gateway applicazione
@@ -27,7 +27,7 @@ Se per il gateway applicazione è stato applicato un criterio e si applica un cr
 
 Tutte le nuove impostazioni WAF del Web Application Firewall (regole personalizzate, configurazioni rulset gestite, esclusioni e così via) risiedono all'interno di un criterio WAF. Se si dispone di un WAF esistente, queste impostazioni potrebbero ancora esistere nella configurazione di WAF. Per istruzioni su come passare al nuovo criterio WAF, vedere eseguire la [migrazione della configurazione di WAF a un criterio WAF](#migrate) più avanti in questo articolo. 
 
-## <a name="create-a-policy"></a>Creare un criterio
+## <a name="create-a-policy"></a>Creare criteri
 
 Per prima cosa, creare un criterio WAF di base con un set di regole predefinite gestito usando il portale di Azure.
 
@@ -37,7 +37,7 @@ Per prima cosa, creare un criterio WAF di base con un set di regole predefinite 
    |Impostazione  |Valore  |
    |---------|---------|
    |Criteri per     |WAF a livello di area (gateway applicazione)|
-   |Sottoscrizione     |Selezionare il nome della sottoscrizione|
+   |Subscription     |Selezionare il nome della sottoscrizione|
    |Gruppo di risorse     |Selezionare un gruppo di risorse|
    |Nome criteri     |Digitare un nome univoco per i criteri di WAF.|
 3. Nella scheda **associazione** immettere una delle impostazioni seguenti e quindi selezionare **Aggiungi**:

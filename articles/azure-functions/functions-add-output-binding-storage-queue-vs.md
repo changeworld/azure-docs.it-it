@@ -5,10 +5,10 @@ ms.date: 07/22/2019
 ms.topic: quickstart
 ms.custom: mvc
 ms.openlocfilehash: 635392212027c73e5aa954eb671be31228796a0d
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
-ms.translationtype: HT
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/26/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96185131"
 ---
 # <a name="connect-functions-to-azure-storage-using-visual-studio"></a>Connettere funzioni ad Archiviazione di Azure con Visual Studio
@@ -19,7 +19,7 @@ Questo articolo illustra come usare Visual Studio per connettere la funzione cre
 
 La maggior parte dei binding richiede una stringa di connessione archiviata che verrà usata da Funzioni per accedere al servizio associato. Per semplicità, usare l'account di archiviazione creato con l'app per le funzioni. La connessione a questo account è già archiviata in un'impostazione dell'app denominata `AzureWebJobsStorage`.  
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerequisiti
 
 Prima di iniziare questo articolo, è necessario: 
 
@@ -29,7 +29,7 @@ Prima di iniziare questo articolo, è necessario:
 
 ## <a name="download-the-function-app-settings"></a>Scaricare le impostazioni dell'app per le funzioni
 
-Nel [precedente argomento di avvio rapido](./create-first-function-vs-code-csharp.md) è stata creata un'app per le funzioni in Azure insieme all'account di archiviazione necessario. La stringa di connessione per questo account è archiviata in modo sicuro nelle impostazioni dell'app in Azure. In questo articolo verranno scritti messaggi in una coda di archiviazione dello stesso account. Per connettersi all'account di archiviazione durante l'esecuzione della funzione in locale, è necessario scaricare le impostazioni dell'app nel file *local.settings.json*. 
+Nel [precedente argomento di avvio rapido](./create-first-function-vs-code-csharp.md) è stata creata un'app per le funzioni in Azure insieme all'account di archiviazione necessario. La stringa di connessione per questo account è archiviata in modo sicuro nelle impostazioni dell'app in Azure. In questo articolo verranno scritti messaggi in una coda di archiviazione dello stesso account. Per connettersi all'account di archiviazione quando si esegue la funzione localmente, è necessario scaricare le impostazioni dell'app nel *local.settings.js* file. 
 
 1. In **Esplora soluzioni** fare clic con il pulsante destro del mouse sul progetto e scegliere **Pubblica**. 
 
@@ -109,4 +109,4 @@ Quindi, è consigliabile abilitare il monitoraggio di Application Insights per l
 > [Abilitare l'integrazione di Application Insights](configure-monitoring.md#add-to-an-existing-function-app)
 
 [Azure Storage Explorer]: https://storageexplorer.com/
-[precedente argomento di avvio rapido]: functions-create-your-first-function-visual-studio.md
+[articolo di avvio rapido precedente]: functions-create-your-first-function-visual-studio.md

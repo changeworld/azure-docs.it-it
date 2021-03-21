@@ -6,10 +6,10 @@ ms.author: jakras
 ms.date: 02/11/2020
 ms.topic: reference
 ms.openlocfilehash: 8313243bf680ea1a1d63f2719b647149a04935a9
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/25/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96024045"
 ---
 # <a name="material-mapping-for-model-formats"></a>Mapping del materiale per i formati di modello
@@ -101,7 +101,7 @@ Il mapping precedente è la parte più complessa della conversione del materiale
 Alcune definizioni usate di seguito:
 
 * `Specular` =  `SpecularColor` * `SpecularFactor`
-* `SpecularIntensity` = `Specular`. Rosso ∗ 0,2125 +  `Specular` . ∗ Verde 0,7154 + `Specular` . Blu ∗ 0,0721
+* `SpecularIntensity` = `Specular`. ∗ Rosso 0,2125 +  `Specular` . ∗ Verde 0,7154 + `Specular` . Blu ∗ 0,0721
 * `DiffuseBrightness` = 0,299 * `Diffuse` . Rosso<sup>2</sup> + 0,587 * `Diffuse` . Verde<sup>2</sup> + 0,114 * `Diffuse` . Blu<sup>2</sup>
 * `SpecularBrightness` = 0,299 * `Specular` . Rosso<sup>2</sup> + 0,587 * `Specular` . Verde<sup>2</sup> + 0,114 * `Specular` . Blu<sup>2</sup>
 * `SpecularStrength` = Max ( `Specular` . Rosso, `Specular` Verde, `Specular` . Blu

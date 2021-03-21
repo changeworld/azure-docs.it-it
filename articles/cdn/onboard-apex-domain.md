@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.date: 11/07/2020
 ms.author: allensu
 ms.openlocfilehash: 8ab4f698c7149d8d57f790e221ccbe35ec090fe6
-ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/08/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94370355"
 ---
 # <a name="onboard-a-root-or-apex-domain-to-an-existing-azure-cdn-endpoint"></a>Eseguire l'onboarding di un dominio radice o Apex in un endpoint della rete CDN di Azure esistente
@@ -40,9 +40,9 @@ Per eseguire il mapping di un dominio Apex o radice al profilo della rete CDN è
     | Impostazione | Valore |
     | ------- | ------|
     | Nome | Immettere **@** . |
-    | Type | Selezionare **un**. |
+    | Tipo | Selezionare **un**. |
     | Set di record alias | Selezionare **Sì**. |
-    | Tipo di alias | Selezionare **risorsa di Azure**. |
+    | Tipo di alias | Selezionare **Risorsa di Azure**. |
     | Scegliere una sottoscrizione. | Selezionare la propria sottoscrizione. |
     | Risorsa di Azure | Selezionare l'endpoint della rete CDN. |
 
@@ -64,13 +64,13 @@ Dopo avere registrato il dominio personalizzato, è possibile aggiungerlo all'en
     
 2. Nella pagina **Profilo CDN** selezionare l'endpoint della rete CDN da associare al dominio personalizzato.
 
-    :::image type="content" source="media/onboard-apex-domain/cdn-endpoint-selection.png" alt-text="Selezione endpoint rete CDN" border="true":::
+    :::image type="content" source="media/onboard-apex-domain/cdn-endpoint-selection.png" alt-text="Selezione dell'endpoint della rete CDN" border="true":::
     
-3. Selezionare **+ dominio personalizzato**. 
+3. Selezionare **+ Dominio personalizzato**. 
 
    :::image type="content" source="media/onboard-apex-domain/cdn-custom-domain-button.png" alt-text="Pulsante Aggiungi dominio personalizzato" border="true":::
 
-4. In **Aggiungi un dominio personalizzato** , **nome host dell'endpoint** , è precompilato ed è derivato dall'URL dell'endpoint della rete CDN: **\<endpoint-hostname>** . azureedge.NET. Non può essere modificato.
+4. In **Aggiungere un dominio personalizzato** il **Nome host dell'endpoint** è precompilato ed è derivato dall'URL dell'endpoint della rete CDN: **\<endpoint-hostname>** .azureedge.net. Non può essere modificato.
 
 5. Per **nome host personalizzato** immettere il dominio personalizzato radice o Apex da usare come dominio di origine del record CNAME. 
     1. Ad esempio, **contoso.com**. **Non usare il nome del sottodominio cdnverify**.

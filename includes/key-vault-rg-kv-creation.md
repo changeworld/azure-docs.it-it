@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 07/20/2020
 ms.author: msmbaldwin
 ms.openlocfilehash: ccb69b4f0dc6090cc96849b09f7830c05aa77b73
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
-ms.translationtype: HT
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/25/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96026607"
 ---
 In questo argomento di avvio rapido si usa un'istanza creata in precedenza di Azure Key Vault. È possibile creare un insieme di credenziali delle chiavi seguendo la procedura descritta negli argomenti di avvio rapido per l'[interfaccia della riga di comando di Azure](../articles/key-vault/general/quick-create-cli.md), [Azure PowerShell](../articles/key-vault/general/quick-create-powershell.md) o il [portale di Azure](../articles/key-vault/general/quick-create-portal.md). 
