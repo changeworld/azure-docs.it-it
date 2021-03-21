@@ -9,15 +9,15 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 ms.date: 11/06/2020
 ms.openlocfilehash: fd5ee9085cf716128c5b3ae073f963c76d2bd17a
-ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/08/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94370264"
 ---
 # <a name="how-to-create-plans-for-your-azure-application-offer"></a>Come creare piani per l'offerta di applicazione Azure
 
-Le offerte vendute attraverso Microsoft Commercial Marketplace devono avere almeno un piano per elencare l'offerta nel Marketplace commerciale. È possibile creare un'ampia gamma di piani con diverse opzioni all'interno della stessa offerta. Questi piani, detti anche SKU, possono differire in termini di tipo di piano ( _modello di soluzione_ o _applicazione gestita_ ), monetizzazione o destinatari. Per indicazioni generali sui piani, vedere [piani e prezzi per le offerte per Marketplace commerciali](plans-pricing.md).
+Le offerte vendute attraverso Microsoft Commercial Marketplace devono avere almeno un piano per elencare l'offerta nel Marketplace commerciale. È possibile creare un'ampia gamma di piani con diverse opzioni all'interno della stessa offerta. Questi piani, detti anche SKU, possono differire in termini di tipo di piano (_modello di soluzione_ o _applicazione gestita_), monetizzazione o destinatari. Per indicazioni generali sui piani, vedere [piani e prezzi per le offerte per Marketplace commerciali](plans-pricing.md).
 
 ## <a name="create-a-plan"></a>Creare un piano
 
@@ -84,7 +84,7 @@ Nella scheda **elenco piani** è possibile configurare i dettagli dell'elenco de
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Eseguire una di queste operazioni:
+Eseguire una delle operazioni seguenti:
 
 - Se si sta configurando un piano di modello di soluzione, vedere [configurare un piano del modello di soluzione](create-new-azure-apps-offer-solution.md).
 - Se si sta configurando un piano di applicazione gestito, vedere [configurare un piano di applicazione gestita](create-new-azure-apps-offer-managed.md).

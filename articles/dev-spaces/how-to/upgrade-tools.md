@@ -7,10 +7,10 @@ ms.custom: devx-track-azurecli
 description: Informazioni su come aggiornare gli strumenti da riga di comando di Azure Dev Spaces, l'estensione di Visual Studio Code e l'estensione di Visual Studio
 keywords: Docker, Kubernetes, Azure, servizio Azure Kubernetes, servizio Azure Container, contenitori
 ms.openlocfilehash: f17643e6130abbc9d5da8b484144c95b0e803f33
-ms.sourcegitcommit: dda0d51d3d0e34d07faf231033d744ca4f2bbf4a
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/05/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102199238"
 ---
 # <a name="how-to-upgrade-azure-dev-spaces-tools"></a>Aggiornare gli strumenti di Azure Dev Spaces

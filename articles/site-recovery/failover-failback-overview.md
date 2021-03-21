@@ -4,10 +4,10 @@ description: Informazioni sul failover e sui problemi in Azure Site Recovery.
 ms.topic: conceptual
 ms.date: 12/24/2019
 ms.openlocfilehash: b900655d6fdf1143d430ac842bfd84eb1dfdf34c
-ms.sourcegitcommit: 3af12dc5b0b3833acb5d591d0d5a398c926919c8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/11/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98070745"
 ---
 # <a name="about-on-premises-disaster-recovery-failoverfailback"></a>Informazioni sul failover/failback del ripristino di emergenza locale
@@ -43,7 +43,7 @@ Il failover è un'attività a due fasi:
 
 Per connettersi alle macchine virtuali di Azure create dopo il failover tramite RDP/SSH, esistono diversi requisiti.
 
-**Failover** | **Località** | **Actions**
+**Failover** | **Posizione** | **Actions**
 --- | --- | ---
 **VM di Azure che esegue Windows** | Nel computer locale prima del failover | **Accesso tramite Internet**: abilitare RDP. Assicurarsi che vengano aggiunte regole TCP e UDP per **pubblico** e che il protocollo RDP sia consentito per tutti i profili in **Windows Firewall**  >  **app consentite**.<br/><br/> **Accesso tramite VPN da sito a sito**: abilitare RDP nel computer. Verificare che il protocollo RDP sia consentito nella **Windows Firewall**  ->  **app e funzionalità consentite** per le reti di **dominio e private** .<br/><br/>  Verificare che il criterio SAN del sistema operativo sia impostato su **OnlineAll**. [Altre informazioni](https://support.microsoft.com/kb/3031135)<br/><br/> Quando si attiva un failover, verificare che nella macchina virtuale non siano in sospeso aggiornamenti di Windows. Windows Update potrebbe iniziare quando si esegue il failover e non sarà possibile accedere alla macchina virtuale fino a quando non vengono eseguiti gli aggiornamenti.
 **VM di Azure che esegue Windows** | Nella macchina virtuale di Azure dopo il failover |  [Aggiungere un indirizzo IP pubblico](/archive/blogs/srinathv/how-to-add-a-public-ip-address-to-azure-vm-for-vm-failed-over-using-asr) per la macchina virtuale.<br/><br/> Le regole del gruppo di sicurezza di rete nella macchina virtuale sottoposta a failover e nella subnet di Azure a cui è connessa devono consentire le connessioni in ingresso alla porta RDP.<br/><br/> Selezionare **Diagnostica di avvio** per visualizzare uno screenshot della macchina virtuale. Se non è possibile connettersi, verificare che la macchina virtuale sia in esecuzione ed esaminare i suggerimenti per la [risoluzione dei problemi](https://social.technet.microsoft.com/wiki/contents/articles/31666.troubleshooting-remote-desktop-connection-after-failover-using-asr.aspx).
@@ -54,7 +54,7 @@ Per connettersi alle macchine virtuali di Azure create dopo il failover tramite 
 
 Site Recovery offre diverse opzioni di failover.
 
-**Failover** | **Informazioni dettagliate** | **Ripristino** | **Workflow**.
+**Failover** | **Dettagli** | **Ripristino** | **Workflow**.
 --- | --- | --- | ---
 **Failover di test** | Usato per eseguire un'esercitazione che convalida la strategia di BCDR, senza perdita di dati o tempi di inattività.| Crea una copia della macchina virtuale in Azure, senza alcun impatto sulla replica in corso o sull'ambiente di produzione. | 1. eseguire un failover di test in una singola macchina virtuale o in più macchine virtuali in un piano di ripristino.<br/><br/> 2. Selezionare un punto di ripristino da usare per il failover di test.<br/><br/> 3. Selezionare una rete di Azure in cui verrà posizionata la macchina virtuale di Azure quando viene creata dopo il failover. La rete viene utilizzata solo per il failover di test.<br/><br/> 4. Verificare che il drill abbia funzionato come previsto. Site Recovery pulisce automaticamente le macchine virtuali create in Azure durante il drill-through.
 **Failover pianificato-Hyper-V**  | Usato in genere per i tempi di inattività pianificati.<br/><br/> Le macchine virtuali di origine vengono arrestate. I dati più recenti vengono sincronizzati prima di avviare il failover. | Nessuna perdita di dati per il flusso di lavoro pianificato. | 1. pianificare una finestra di manutenzione del tempo di inattività e inviare notifiche agli utenti.<br/><br/> 2. portare offline le app per gli utenti.<br/><br/> 3. avviare un failover pianificato con il punto di ripristino più recente. Il failover non viene eseguito se il computer non viene arrestato o se vengono rilevati errori.<br/><br/> 4. dopo il failover, verificare che la macchina virtuale di Azure di replica sia attiva in Azure.<br/><br/> 5. eseguire il commit del failover per completare la configurazione. L'azione di commit Elimina tutti i punti di ripristino.
@@ -76,7 +76,7 @@ In alcuni scenari il failover richiede un'altra elaborazione il cui completament
 
 Durante il failover, è possibile selezionare diverse opzioni per i punti di ripristino.
 
-**Opzione** | **Informazioni dettagliate**
+**Opzione** | **Dettagli**
 --- | ---
 **Più recente (RPO più basso)** | Questa opzione assicura l'obiettivo del punto di ripristino (RPO) più basso. Prima vengono elaborati tutti i dati inviati al servizio Site Recovery per creare un punto di ripristino per ogni macchina virtuale e quindi viene eseguito il failover in tale punto di ripristino. Per questo punto di ripristino, tutti i dati vengono replicati in Site Recovery da quando è stato attivato il failover.
 **Elaborato più recente**  | Questa opzione esegue il failover delle macchine virtuali nel punto di ripristino più recente elaborato da Site Recovery. Per vedere il punto di ripristino più recente per una macchina virtuale specifica, selezionare **Punti di ripristino più recenti** nelle impostazioni della macchina virtuale. Offre un RTO (Recovery Time Objective) basso poiché non viene impiegato tempo per elaborare dati non elaborati.

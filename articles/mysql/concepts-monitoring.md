@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.custom: references_regions
 ms.date: 10/21/2020
 ms.openlocfilehash: 8d6aa4de7c3b75747c6e2f103e66e39dfa288ba7
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/17/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100576252"
 ---
 # <a name="monitoring-in-azure-database-for-mysql"></a>Monitoraggio in Database di Azure per MySQL
@@ -44,7 +44,7 @@ Per Database di Azure per MySQL sono disponibili le metriche seguenti:
 ## <a name="server-logs"></a>Log del server
 È possibile abilitare la registrazione lenta della query e del controllo nel server. Questi log sono disponibili anche tramite i log di diagnostica di Azure in log di monitoraggio di Azure, Hub eventi e account di archiviazione. Per altre informazioni sulla registrazione, vedere gli articoli [log di controllo](concepts-audit-logs.md) e log di [query lente](concepts-server-logs.md) .
 
-## <a name="query-store"></a>Archivio query
+## <a name="query-store"></a>Query Store
 [Query Store](concepts-query-store.md) è una funzionalità che tiene traccia delle prestazioni delle query nel tempo, incluse le statistiche di runtime di query e gli eventi di attesa. La funzionalità rende permanente le informazioni sulle prestazioni di query runtime nello schema **MySQL** . È possibile controllare la raccolta e l'archiviazione dei dati tramite vari controlli di configurazione.
 
 ## <a name="query-performance-insight"></a>Informazioni dettagliate prestazioni query

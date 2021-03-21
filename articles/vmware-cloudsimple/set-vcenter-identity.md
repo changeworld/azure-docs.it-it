@@ -9,10 +9,10 @@ ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
 ms.openlocfilehash: a76fecb942c5c6da926e37149245e82dcbc4661b
-ms.sourcegitcommit: d7d5f0da1dda786bda0260cf43bd4716e5bda08b
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/05/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97899151"
 ---
 # <a name="set-up-vcenter-identity-sources-to-use-active-directory"></a>Configurare le origini di identità vCenter da usare Active Directory
@@ -115,7 +115,7 @@ Dopo aver stabilito la connessione di rete, seguire la procedura descritta in [a
 
 3. Selezionare **Home > amministrazione**.
 
-    ![coda](media/OnPremAD01.png)
+    ![Amministrazione](media/OnPremAD01.png)
 
 4. Selezionare **Single Sign-On > Configuration**.
 

@@ -12,10 +12,10 @@ ms.author: emtehran
 ms.reviewer: nibruno; jrasnick
 ms.custom: seo-lt-2019, azure-synapse
 ms.openlocfilehash: 88b63ce30000340a70811e9f623e4273ccbb272a
-ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/12/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98117283"
 ---
 # <a name="primary-key-foreign-key-and-unique-key-using-dedicated-sql-pool-in-azure-synapse-analytics"></a>Chiave primaria, chiave esterna e chiave univoca usando un pool SQL dedicato in Azure sinapsi Analytics
@@ -33,7 +33,7 @@ Per la sintassi, controllare [ALTER TABLE](/sql/t-sql/statements/alter-table-tra
 Il vincolo FOREIGN KEY non è supportato nel pool SQL dedicato.  
 
 
-## <a name="remarks"></a>Osservazioni
+## <a name="remarks"></a>Commenti
 
 La presenza di chiave primaria e/o chiave univoca consente al motore del pool SQL dedicato di generare un piano di esecuzione ottimale per una query.  Tutti i valori in una colonna chiave primaria o in una colonna vincolo univoca devono essere univoci.
 
@@ -162,7 +162,7 @@ a1          total
 
 ```
 
-## <a name="examples"></a>Esempi
+## <a name="examples"></a>Esempio
 
 Creare una tabella del pool SQL dedicata con una chiave primaria: 
 

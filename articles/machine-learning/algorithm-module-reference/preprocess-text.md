@@ -10,10 +10,10 @@ author: likebupt
 ms.author: keli19
 ms.date: 11/16/2020
 ms.openlocfilehash: 366b30df677a5b74bc7d70e1aea60e05b4df0152
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/17/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94659284"
 ---
 # <a name="preprocess-text"></a>Preprocess Text
@@ -93,8 +93,8 @@ Ecco alcuni esempi:
 
 | Configurazione | Risultato output |
 | --- | --- |
-|Con tutte le opzioni selezionate </br> Spiegazione </br> Per i casi come ' 3Test ' in ' WC-3 3Test 4test ', la finestra di progettazione rimuove l'intera parola ' 3Test ', poiché in questo contesto, il codificatore della parte del discorso specifica questo token ' 3Test ' come numero e in base alla parte del discorso il modulo lo rimuove.| :::image type="content" source="./media/module/preprocess-text-all-options-selected.png" alt-text="Con tutte le opzioni selezionate" border="True"::: |
-|Con solo `Removing number` selezionato </br> Spiegazione </br> Per i casi come ' 3Test ',' 4-EC ', la finestra di progettazione Tokenizer dose non divide questi casi e li considera come l'intero token. Quindi, non rimuoverà i numeri nelle parole.| :::image type="content" source="./media/module/preprocess-text-removing-numbers-selected.png" alt-text="Selezionato solo ' rimozione numerò" border="True"::: |
+|Con tutte le opzioni selezionate </br> Spiegazione: </br> Per i casi come ' 3Test ' in ' WC-3 3Test 4test ', la finestra di progettazione rimuove l'intera parola ' 3Test ', poiché in questo contesto, il codificatore della parte del discorso specifica questo token ' 3Test ' come numero e in base alla parte del discorso il modulo lo rimuove.| :::image type="content" source="./media/module/preprocess-text-all-options-selected.png" alt-text="Con tutte le opzioni selezionate" border="True"::: |
+|Con solo `Removing number` selezionato </br> Spiegazione: </br> Per i casi come ' 3Test ',' 4-EC ', la finestra di progettazione Tokenizer dose non divide questi casi e li considera come l'intero token. Quindi, non rimuoverà i numeri nelle parole.| :::image type="content" source="./media/module/preprocess-text-removing-numbers-selected.png" alt-text="Selezionato solo ' rimozione numerò" border="True"::: |
 
 È anche possibile usare un'espressione regolare per restituire risultati personalizzati:
 

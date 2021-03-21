@@ -7,10 +7,10 @@ ms.service: azure-app-configuration
 ms.topic: reference
 ms.date: 08/17/2020
 ms.openlocfilehash: 95081d6f8c2770d01f7836e08b6851860bf47ba8
-ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96932558"
 ---
 # <a name="key-values"></a>Coppie chiave-valore
@@ -178,13 +178,13 @@ GET /kv?key={key}&label={label}&api-version={api-version}
 |`label=prod*`|Corrisponde alle etichette che iniziano con **Prod**|
 |`label=prod,test`|Corrisponde alle etichette **Prod** o **test** (limitato a 5 CSV)|
 
-**_Caratteri riservati_* _
+***Caratteri riservati***
 
-`_`, `\`, `,`
+`*`, `\`, `,`
 
 Se un carattere riservato è parte del valore, deve essere preceduto da un carattere di escape usando `\{Reserved Character}` . I caratteri non riservati possono anche essere preceduti da un carattere di escape.
 
-***Convalida filtro** _
+***Convalida filtro***
 
 In caso di errore di convalida del filtro, la risposta è HTTP `400` con i dettagli dell'errore:
 
@@ -203,7 +203,7 @@ Content-Type: application/problem+json; charset=utf-8
 }
 ```
 
-_ *Esempi**
+**esempi**
 
 - Tutti
 

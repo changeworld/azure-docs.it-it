@@ -8,10 +8,10 @@ ms.topic: troubleshooting
 ms.date: 06/18/2020
 ms.author: caya
 ms.openlocfilehash: f2b9f79f0914e645c736f8a577c46baa42587332
-ms.sourcegitcommit: 642988f1ac17cfd7a72ad38ce38ed7a5c2926b6c
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/18/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94874611"
 ---
 # <a name="troubleshoot-common-questions-or-issues-with-ingress-controller"></a>Risolvere problemi comuni o problemi con il controller di ingresso
@@ -133,7 +133,7 @@ Il controller di ingresso del gateway applicazione (AGIC) monitora continuamente
 
 Per il corretto funzionamento di AGIC è necessario quanto segue:
   1. AKS deve avere uno o più **Pod** integri.
-     Verificare questa operazione [Cloud Shell](https://shell.azure.com/) da cloud shell `kubectl get pods -o wide --show-labels` se si dispone di un pod con un `apsnetapp` , l'output potrebbe essere simile al seguente:
+     Verificare questa operazione [](https://shell.azure.com/) da cloud shell `kubectl get pods -o wide --show-labels` se si dispone di un pod con un `apsnetapp` , l'output potrebbe essere simile al seguente:
      ```bash
      delyan@Azure:~$ kubectl get pods -o wide --show-labels
 
