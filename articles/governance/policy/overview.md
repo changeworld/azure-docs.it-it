@@ -1,14 +1,14 @@
 ---
 title: Panoramica dei criteri di Azure
 description: Criteri di Azure è un servizio disponibile in Azure che consente di creare, assegnare e gestire definizioni di criteri nell'ambiente Azure.
-ms.date: 10/05/2020
+ms.date: 01/14/2021
 ms.topic: overview
-ms.openlocfilehash: 96fd29b5e3d24bc3e678461a95005e004a8a3a80
-ms.sourcegitcommit: 7e97ae405c1c6c8ac63850e1b88cf9c9c82372da
-ms.translationtype: HT
+ms.openlocfilehash: df430586af2e701ec2881f6ea760095fd2ca79d0
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/29/2020
-ms.locfileid: "97803953"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "98220729"
 ---
 # <a name="what-is-azure-policy"></a>Informazioni su Criteri di Azure
 
@@ -83,7 +83,7 @@ Se nessuno dei ruoli predefiniti dispone delle autorizzazioni necessarie, creare
 
 ### <a name="resources-covered-by-azure-policy"></a>Risorse coperte da Criteri di Azure
 
-Criteri di Azure valuta tutte le risorse in Azure e le risorse con abilitazione di Azure Arc. Per alcuni provider di risorse, ad esempio [Configurazione guest](./concepts/guest-configuration.md), [servizio Azure Kubernetes](../../aks/intro-kubernetes.md) e [Azure Key Vault](../../key-vault/general/overview.md), esiste un'integrazione più profonda per la gestione di impostazioni e oggetti. Per altre informazioni, vedere [Modalità dei provider di risorse](./concepts/definition-structure.md).
+Criteri di Azure valuta tutte le risorse di Azure a livello di sottoscrizione, incluse le risorse abilitate per Arc. Per alcuni provider di risorse, ad esempio [Configurazione guest](./concepts/guest-configuration.md), [servizio Azure Kubernetes](../../aks/intro-kubernetes.md) e [Azure Key Vault](../../key-vault/general/overview.md), esiste un'integrazione più profonda per la gestione di impostazioni e oggetti. Per altre informazioni, vedere [Modalità dei provider di risorse](./concepts/definition-structure.md).
 
 ### <a name="recommendations-for-managing-policies"></a>Raccomandazioni per la gestione dei criteri
 

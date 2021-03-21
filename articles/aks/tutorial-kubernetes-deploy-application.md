@@ -6,10 +6,10 @@ ms.topic: tutorial
 ms.date: 01/12/2021
 ms.custom: mvc
 ms.openlocfilehash: a0de097a545a831e39a671fe4cf5eadcd336ce24
-ms.sourcegitcommit: 25d1d5eb0329c14367621924e1da19af0a99acf1
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/16/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98250180"
 ---
 # <a name="tutorial-run-applications-in-azure-kubernetes-service-aks"></a>Esercitazione: eseguire applicazioni nel servizio Azure Kubernetes
@@ -19,7 +19,7 @@ Kubernetes fornisce una piattaforma distribuita per applicazioni in contenitori.
 > [!div class="checklist"]
 > * Aggiornare un file manifesto Kubernetes
 > * Eseguire un'applicazione in Kubernetes
-> * Test dell'applicazione
+> * Testare l'applicazione
 
 Nelle esercitazioni successive questa applicazione viene scalata orizzontalmente e aggiornata.
 
@@ -96,7 +96,7 @@ Per monitorare lo stato, usare il comando [kubectl get service][kubectl-get] con
 kubectl get service azure-vote-front --watch
 ```
 
-*EXTERNAL-IP* per il servizio *azure-vote-front* viene inizialmente visualizzato come *pending*:
+Inizialmente l' *IP esterno* per il servizio *Azure-vote-front* è indicato come *in sospeso*:
 
 ```output
 azure-vote-front   LoadBalancer   10.0.34.242   <pending>     80:30676/TCP   5s
@@ -121,7 +121,7 @@ In questa esercitazione l'applicazione di voto di Azure di esempio è stata dist
 > [!div class="checklist"]
 > * Aggiornare un file manifesto Kubernetes
 > * Eseguire un'applicazione in Kubernetes
-> * Test dell'applicazione
+> * Testare l'applicazione
 
 Passare all'esercitazione successiva per informazioni su come ridimensionare un'applicazione Kubernetes e l'infrastruttura Kubernetes sottostante.
 

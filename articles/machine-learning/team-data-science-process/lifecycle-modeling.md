@@ -12,10 +12,10 @@ ms.date: 11/17/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ms.openlocfilehash: 4719bd21bc6299373f9dabfe4733541c6fa27b94
-ms.sourcegitcommit: c2dd51aeaec24cd18f2e4e77d268de5bcc89e4a7
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/18/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94740182"
 ---
 # <a name="modeling-stage-of-the-team-data-science-process-lifecycle"></a>Fase di modellazione del ciclo di vita del processo di data science per i team
@@ -45,7 +45,7 @@ Questa fase comprende tre attività principali:
   * **Training del modello**: trovare il modello che risponde alla domanda in modo più accurato confrontando le metriche di successo.
   * Determinare se il modello è **adatto per la produzione.**
 
-### <a name="feature-engineering"></a>Progettazione delle funzioni
+### <a name="feature-engineering"></a>Progettazione delle caratteristiche
 La progettazione di funzionalità prevede l'aggiunta, l'aggregazione e la trasformazione delle variabili non elaborate per creare funzionalità usate nell'analisi. Se si vuole analizzare i risultati di un modello, è necessario comprendere in che modo le funzioni sono correlate tra loro e come gli algoritmi di Machine Learning vengono usati da tali funzionalità. 
 
 Questo passaggio richiede una combinazione creativa di competenze a livello di dominio e di informazioni approfondite ottenute dal passaggio di esplorazione dei dati. La progettazione di funzionalità è un compromesso di ricerca e inclusione di variabili informative, evitando al contempo troppe variabili non correlate. Le variabili informative migliorano il risultato, mentre le variabili non correlate disturbano inutilmente il modello. È anche necessario generare le seguenti funzionalità per i nuovi dati ottenuti durante la valutazione. La generazione di queste funzionalità, quindi, può dipendere esclusivamente dai dati disponibili al momento della valutazione. 
@@ -80,7 +80,7 @@ Gli elementi generati in questa fase includono:
 
 Ecco i collegamenti a ogni passaggio del ciclo di vita del processo di data science per i team:
 
-   1. [Informazioni aziendali](lifecycle-business-understanding.md)
+   1. [Informazioni commerciali](lifecycle-business-understanding.md)
    2. [Acquisizione e comprensione dei dati](lifecycle-data.md)
    3. [Modellazione](lifecycle-modeling.md)
    4. [Distribuzione](lifecycle-deployment.md)

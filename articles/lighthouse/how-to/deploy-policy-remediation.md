@@ -4,10 +4,10 @@ description: Per distribuire i criteri che usano un'attività di monitoraggio e 
 ms.date: 01/14/2021
 ms.topic: how-to
 ms.openlocfilehash: 01070133241117596bdf2b8e1e7c3fa101fc656c
-ms.sourcegitcommit: c7153bb48ce003a158e83a1174e1ee7e4b1a5461
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/15/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98233883"
 ---
 # <a name="deploy-a-policy-that-can-be-remediated-within-a-delegated-subscription"></a>Distribuire un criterio che è possibile correggere all'interno di una sottoscrizione delegata

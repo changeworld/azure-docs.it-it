@@ -8,10 +8,10 @@ ms.subservice: purview-data-catalog
 ms.topic: how-to
 ms.date: 03/09/2021
 ms.openlocfilehash: 37ac292acc76c681ea38b2ae881ff8cd2ae5ec3c
-ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
+ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/09/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102502447"
 ---
 # <a name="automatically-label-your-data-in-azure-purview"></a>Etichettare automaticamente i dati in ambito Azure
@@ -198,7 +198,7 @@ Analizza i dati in Azure per applicare automaticamente le etichette create, in b
 
 Per altre informazioni su come configurare le analisi in diversi asset in Azure, vedere:
 
-|Source (Sorgente)  |Riferimento  |
+|Source (Sorgente)  |Informazioni di riferimento  |
 |---------|---------|
 |**Archiviazione BLOB di Azure**     |[Registrare e analizzare l'archivio BLOB di Azure](register-scan-azure-blob-storage-source.md)         |
 |**Archiviazione di Azure Data Lake**     |[Registra e analizza Azure Data Lake Storage Gen1](register-scan-adls-gen1.md) </br>[Registra e analizza Azure Data Lake Storage Gen2](register-scan-adls-gen2.md)         |

@@ -9,10 +9,10 @@ ms.service: storage
 ms.subservice: blobs
 ms.topic: quickstart
 ms.openlocfilehash: b5c34cea5d8222a246462bfadde66fd8a5ddbec7
-ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/29/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "99054704"
 ---
 # <a name="quickstart-manage-blobs-with-java-v12-sdk"></a>Guida introduttiva: Gestire i BLOB con Java v12 SDK
@@ -26,7 +26,7 @@ Risorse aggiuntive:
 * [Pacchetto (Maven)](https://mvnrepository.com/artifact/com.azure/azure-storage-blob)
 * [Esempi](../common/storage-samples-java.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#blob-samples)
 
-## <a name="prerequisites"></a>Prerequisiti 
+## <a name="prerequisites"></a>Prerequisiti
 
 - Un account Azure con una sottoscrizione attiva. [Creare un account gratuitamente](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
 - Un account dell'Archiviazione di Azure. [Creare un account di archiviazione](../common/storage-account-create.md).

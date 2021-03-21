@@ -10,10 +10,10 @@ ms.date: 02/04/2021
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to connect and activate Azure Stack Edge Pro so I can use it to transfer data to Azure.
 ms.openlocfilehash: 07a4c06b840d41455beea9be4ed0343b4946ddb3
-ms.sourcegitcommit: f377ba5ebd431e8c3579445ff588da664b00b36b
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/05/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "99594604"
 ---
 # <a name="tutorial-configure-network-for-azure-stack-edge-pro-with-gpu"></a>Esercitazione: Configurare la rete per Azure Stack Edge Pro con GPU
@@ -131,7 +131,7 @@ Si tratta di una configurazione facoltativa.
 > [!IMPORTANT]
 > * Se si abilita il calcolo e si usa il modulo IoT Edge nel dispositivo Azure Stack Edge Pro, è consigliabile impostare l'autenticazione proxy Web su **Nessuna**. L'autenticazione integrata di Windows non è supportata.
 > * I file PAC (proxy-auto config) non sono supportati. Un file PAC definisce il modo in cui i Web browser e altri agenti utente possono scegliere automaticamente il server proxy appropriato (metodo di accesso) per recuperare un determinato URL. 
-> * I proxy trasparenti funzionano bene con Azure Stack Edge Pro. Per i proxy non trasparenti che intercettano e leggono tutto il traffico (tramite i propri certificati installati nel server proxy), caricare la chiave pubblica del certificato del proxy come catena di firma sul dispositivo Azure Stack Edge Pro. È quindi possibile configurare le impostazioni del server proxy nel dispositivo Azure Stack Edge. Per altre informazioni, vedere [Bring your own certificates and upload through the local UI](azure-stack-edge-gpu-deploy-configure-certificates.md#bring-your-own-certificates).  
+> * I proxy trasparenti funzionano correttamente con Azure Stack Edge Pro. Per i proxy non trasparenti che intercettano e leggono tutto il traffico (tramite i propri certificati installati nel server proxy), caricare la chiave pubblica del certificato del proxy come catena di firma sul dispositivo Azure Stack Edge Pro. È quindi possibile configurare le impostazioni del server proxy nel dispositivo Azure Stack Edge. Per altre informazioni, vedere [Bring your own certificates and upload through the local UI](azure-stack-edge-gpu-deploy-configure-certificates.md#bring-your-own-certificates).  
 
 <!--1. Go to the **Get started** page in the local web UI of your device.
 2. On the **Network** tile, configure your web proxy server settings. Although web proxy configuration is optional, if you use a web proxy, you can configure it on this page only.

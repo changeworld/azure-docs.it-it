@@ -7,10 +7,10 @@ author: lrtoyou1223
 ms.author: lle
 ms.date: 02/10/2021
 ms.openlocfilehash: 3e61b6a0f17d2d21aaaebc5ff42b0221cf851a4b
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/14/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100389503"
 ---
 # <a name="create-and-configure-a-self-hosted-integration-runtime"></a>Creare e configurare un runtime di integrazione self-hosted
@@ -19,7 +19,7 @@ ms.locfileid: "100389503"
 
 Il runtime di integrazione è l'infrastruttura di calcolo usata da Azure Data Factory per distribuire le funzionalità di integrazione di dati in ambienti di rete diversi. Per informazioni dettagliate sul runtime di integrazione, vedere [Runtime di integrazione in Azure Data Factory](concepts-integration-runtime.md).
 
-Un runtime di integrazione self-hosted può eseguire attività di copia tra un archivio dati cloud e un archivio dati in una rete privata. Può anche inviare le attività di trasformazione sulle risorse di calcolo in una rete locale o in una rete virtuale di Azure. Per l'installazione di un runtime di integrazione self-hosted è necessario un computer locale o una macchina virtuale all'interno di una rete privata.  
+Un runtime di integrazione self-hosted può eseguire attività di copia tra un archivio dati cloud e un archivio dati in una rete privata. Può anche inviare le attività di trasformazione a risorse di calcolo in una rete locale o in una rete virtuale di Azure. L'installazione del runtime di integrazione self-hosted è necessaria in un computer locale oppure in una macchina virtuale all'interno di una rete privata.  
 
 Questo articolo descrive come creare e configurare un runtime di integrazione self-hosted.
 

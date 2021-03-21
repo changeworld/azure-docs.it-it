@@ -1,5 +1,5 @@
 ---
-title: File di inclusione
+title: includere file
 description: File di inclusione
 services: storage
 author: tamram
@@ -9,10 +9,10 @@ ms.date: 01/11/2021
 ms.author: tamram
 ms.custom: include file
 ms.openlocfilehash: 3da4fd26b3f985e034ca60039c09412e8237e965
-ms.sourcegitcommit: 48e5379c373f8bd98bc6de439482248cd07ae883
-ms.translationtype: HT
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/12/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98109512"
 ---
 Per creare un account di archiviazione per utilizzo generico v2 nel portale di Azure, eseguire questa procedura:

@@ -6,10 +6,10 @@ ms.topic: tutorial
 ms.date: 01/12/2021
 ms.custom: mvc
 ms.openlocfilehash: dfebb6561e83c51063515ec655153aaaa7a09c0c
-ms.sourcegitcommit: 25d1d5eb0329c14367621924e1da19af0a99acf1
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/16/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98251370"
 ---
 # <a name="tutorial-scale-applications-in-azure-kubernetes-service-aks"></a>Esercitazione: Ridimensionare le applicazioni nel servizio Azure Kubernetes
@@ -74,9 +74,9 @@ az aks show --resource-group myResourceGroup --name myAKSCluster --query kuberne
 ```
 
 > [!NOTE]
-> Se la versione del cluster servizio Azure Kubernetes in uso è inferiore a *1.10*, il server delle metriche non verrà installato automaticamente. I manifesti di installazione del server delle metriche sono disponibili come asset `components.yaml` nelle versioni del server delle metriche, il che significa che è possibile installarli tramite un URL. Per altre informazioni su queste definizioni YAML, vedere la sezione [Distribuzione][metrics-server-github] del file Leggimi.
+> Se la versione del cluster servizio Azure Kubernetes in uso è inferiore a *1.10*, il server delle metriche non verrà installato automaticamente. I manifesti di installazione del server delle metriche sono disponibili come `components.yaml` asset nelle versioni del server delle metriche, quindi è possibile installarli tramite un URL. Per ulteriori informazioni su queste definizioni YAML, vedere la sezione relativa alla [distribuzione][metrics-server-github] del file Leggimi.
 > 
-> Installazione di esempio:
+> Esempio di installazione:
 > ```console
 > kubectl apply -f https://github.com/kubernetes-sigs/metrics-server/releases/download/v0.3.6/components.yaml
 > ```

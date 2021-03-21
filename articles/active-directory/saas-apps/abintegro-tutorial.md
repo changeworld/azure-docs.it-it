@@ -1,5 +1,5 @@
 ---
-title: "Esercitazione: Integrazione dell'accesso Single Sign-On (SSO) di Azure Active Directory con Abintegro | Microsoft Docs"
+title: 'Esercitazione: integrazione di Azure Active Directory Single Sign-On (SSO) con Abintegro | Microsoft Docs'
 description: Informazioni su come configurare l'accesso Single Sign-On tra Azure Active Directory e Abintegro.
 services: active-directory
 author: jeevansd
@@ -12,13 +12,13 @@ ms.topic: tutorial
 ms.date: 09/03/2019
 ms.author: jeedes
 ms.openlocfilehash: d8c785295380d3a90fde41f52b002f4686decad6
-ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
-ms.translationtype: HT
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/16/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97587364"
 ---
-# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-abintegro"></a>Esercitazione: Integrazione dell'accesso Single Sign-On (SSO) di Azure Active Directory con Abintegro
+# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-abintegro"></a>Esercitazione: integrazione di Azure Active Directory Single Sign-On (SSO) con Abintegro
 
 Questa esercitazione descrive come integrare Abintegro con Azure Active Directory (Azure AD). Integrando Abintegro con Azure AD, è possibile:
 
@@ -62,10 +62,10 @@ Configurare e testare l'accesso SSO di Azure AD con Abintegro usando un utente d
 Per configurare e testare l'accesso SSO di Azure AD con Abintegro, completare le procedure di base seguenti:
 
 1. **[Configurare l'accesso Single Sign-On di Azure AD](#configure-azure-ad-sso)** : per consentire agli utenti di usare questa funzionalità.
-    1. **[Creare un utente di test di Azure AD](#create-an-azure-ad-test-user)** : per testare l'accesso Single Sign-On di Azure AD con l'utente B. Simon.
-    1. **[Assegnare l'utente di test di Azure AD](#assign-the-azure-ad-test-user)** : per abilitare B. Simon all'uso dell'accesso Single Sign-On di Azure AD.
-1. **[Configurare l'accesso SSO di Abintegro](#configure-abintegro-sso)** : per configurare le impostazioni dell'accesso Single Sign-On sul lato applicazione.
-    1. **[Creare l'utente di test di Abintegro](#create-abintegro-test-user)** : per avere una controparte di B.Simon in Abintegro collegata alla rappresentazione dell'utente in Azure AD.
+    1. **[Creare un utente di test di Azure AD](#create-an-azure-ad-test-user)** : per testare l'accesso Single Sign-On di Azure AD con l'utente B.Simon.
+    1. **[Assegnare l'utente di test di Azure AD](#assign-the-azure-ad-test-user)** : per abilitare B.Simon all'uso dell'accesso Single Sign-On di Azure AD.
+1. **[Configurare l'accesso SSO di Abintegro](#configure-abintegro-sso)**: per configurare le impostazioni dell'accesso Single Sign-On sul lato applicazione.
+    1. **[Creare l'utente di test di Abintegro](#create-abintegro-test-user)**: per avere una controparte di B.Simon in Abintegro collegata alla rappresentazione dell'utente in Azure AD.
 1. **[Testare l'accesso Single Sign-On](#test-sso)** : per verificare se la configurazione funziona.
 
 ## <a name="configure-azure-ad-sso"></a>Configurare l'accesso SSO di Azure AD
