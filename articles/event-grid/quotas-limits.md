@@ -2,13 +2,13 @@
 title: Quote e limiti - Griglia di eventi di Azure | Microsoft Docs
 description: Questo articolo illustra i limiti e le quote di Griglia di eventi di Azure. Ad esempio, numero di sottoscrizioni per argomento, numero di argomenti personalizzati per sottoscrizione e così via.
 ms.topic: reference
-ms.date: 07/07/2020
-ms.openlocfilehash: 78fb18f579eb1fa0c032b72c6d32bf56a7f0c8f4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 02/17/2021
+ms.openlocfilehash: a885ad45b2dcbcd5108249dc011f0f175e9991b9
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86120433"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104702457"
 ---
 # <a name="azure-event-grid-quotas-and-limits"></a>Quote e limiti di Griglia di eventi di Azure
 Questo articolo elenca le quote e i limiti in Griglia di eventi di Azure. 

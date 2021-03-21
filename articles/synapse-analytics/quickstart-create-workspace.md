@@ -9,12 +9,12 @@ ms.subservice: workspace
 ms.date: 09/03/2020
 ms.author: saveenr
 ms.reviewer: jrasnick
-ms.openlocfilehash: d2f2ed99af288b72a4c53f07d3cd7ba8b46974c0
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: d38f1f294f60b73e8f1e69169a75333eb175c9f6
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101693629"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104600157"
 ---
 # <a name="quickstart-create-a-synapse-workspace"></a>Avvio rapido: Creare un'area di lavoro di Synapse
 Questo argomento di avvio rapido descrive la procedura per creare un'area di lavoro di Azure Synapse Analytics con il portale di Azure.
@@ -35,7 +35,7 @@ Questo argomento di avvio rapido descrive la procedura per creare un'area di lav
 
 > [!NOTE]
 > Dopo aver creato l'area di lavoro di Azure Synapse, non sarà possibile spostarla in un altro tenant di Azure Active Directory. Se si esegue lo spostamento tramite la migrazione delle sottoscrizioni o altre azioni, è possibile che si perda l'accesso agli artefatti all'interno dell'area di lavoro.
-> Attualmente non è possibile creare un'area di lavoro di sinapsi Analytics in una sottoscrizione di [Cloud Solution Provider (CSP)](https://docs.microsoft.com/partner-center/csp-overview) .
+> Attualmente non è possibile creare un'area di lavoro di sinapsi Analytics in una sottoscrizione di [Cloud Solution Provider (CSP)](/partner-center/csp-overview) .
 
 ## <a name="open-synapse-studio"></a>Aprire Synapse Studio
 

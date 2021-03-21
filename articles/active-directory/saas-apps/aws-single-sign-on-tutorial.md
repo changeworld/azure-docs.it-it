@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 02/18/2021
+ms.date: 03/12/2021
 ms.author: jeedes
-ms.openlocfilehash: e890ff1cb64961c7747b8865b68504ff0a266a3e
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 2d0b9e45dc5de0cd4550cf4b9f944fd33ebd7e7e
+ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104599698"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "104720691"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-aws-single-sign-on"></a>Esercitazione: integrazione di Azure Active Directory Single Sign-On (SSO) con AWS Single Sign-on
 
@@ -37,7 +37,7 @@ Per iniziare, sono necessari gli elementi seguenti:
 
 In questa esercitazione vengono eseguiti la configurazione e il test dell'accesso Single Sign-On di Azure AD in un ambiente di test.
 
-* AWS Single Sign-on supporta SSO avviato da **SP e IDP**
+* AWS Single Sign-on supporta la funzionalità SSO avviata da **SP e IDP** .
 
 * AWS Single Sign-on supporta il [**provisioning automatizzato degli utenti**](./aws-single-sign-on-provisioning-tutorial.md).
 
@@ -72,7 +72,7 @@ Per abilitare l'accesso Single Sign-On di Azure AD nel portale di Azure, seguire
 
 1. Nella pagina di integrazione dell'applicazione **Single Sign-on di AWS** della portale di Azure individuare la sezione **Gestisci** e selezionare **Single Sign-on**.
 1. Nella pagina **Selezionare un metodo di accesso Single Sign-On** selezionare **SAML**.
-1. Nella pagina **Configura l'accesso Single Sign-On con SAML** fare clic sull'icona Modifica (la penna) relativa a **Configurazione SAML di base** per modificare le impostazioni.
+1. Nella pagina **Configura l'accesso Single Sign-On con SAML** fare clic sull'icona della matita per modificare le impostazioni di **Configurazione SAML di base**.
 
    ![Modificare la configurazione SAML di base](common/edit-urls.png)
 
@@ -80,9 +80,7 @@ Per abilitare l'accesso Single Sign-On di Azure AD nel portale di Azure, seguire
 
     a. Fare clic su **Carica il file di metadati**.
 
-    ![immagine1](common/upload-metadata.png)
-
-    b. Fare clic su **logo cartella** per selezionare il file di metadati e fare quindi clic su **Upload**.
+    b. Fare clic sul **logo della cartella** per selezionare il file di metadati scaricato dalla sezione **Configure AWS Single Sign-on SSO** (punto 8) e fare clic su **Aggiungi**.
 
     ![Immagine2](common/browse-upload-metadata.png)
 
@@ -148,15 +146,45 @@ In questa sezione si consentirà a B. Simon di usare Azure Single Sign-On conced
 
 ## <a name="configure-aws-single-sign-on-sso"></a>Configurare SSO Single Sign-on di AWS
 
-1. Aprire la **console SSO di AWS** . 
+1. Per automatizzare la configurazione all'interno di AWS Single Sign-on, è necessario installare l'estensione del browser per l' **accesso sicuro di app personali** facendo clic su **installa l'estensione**.
+
+    ![Estensione MyApps](common/install-myappssecure-extension.png)
+
+2. Dopo l'aggiunta dell'estensione al browser, fare clic su **Configura AWS Single Sign-on** per indirizzare l'utente all'applicazione Single Sign-on di AWS. Da qui, fornire le credenziali di amministratore per l'accesso a AWS Single Sign-on. L'estensione del browser configurerà automaticamente l'applicazione e automatizzerà i passaggi da 3 a 10.
+
+    ![Eseguire la configurazione](common/setup-sso.png)
+
+3. Se si vuole configurare l'accesso Single Sign-on di AWS manualmente, in un'altra finestra del Web browser accedere al sito della società Single Sign-on di AWS come amministratore.
+
+1. Passare a **Servizi-> sicurezza, identità, & conformità-> AWS Single Sign-on**.
 2. Nel riquadro di spostamento a sinistra scegliere **Impostazioni**.
-3. Nella pagina **Impostazioni** individuare **origine identità**, scegliere **modifica**.
-4. Nella pagina Cambia directory scegliere provider di **identità esterno**.
-5. Nella sezione **metadati del provider di servizi** individuare i **metadati SAML di AWS SSO** e selezionare **Scarica file di metadati** per scaricare il file di metadati e salvarlo nel computer.
-6. Nella sezione **metadati del provider di identità** scegliere **Sfoglia** per caricare il file di metadati scaricato dal portale di Azure.
-7. Scegliere **Avanti: Revisione**.
-8. Nella casella di testo digitare **Confirm** per confermare la modifica della directory.
-9. Scegliere **Fine**.
+3. Nella pagina **Impostazioni** individuare **origine identità** e fare clic su **modifica**.
+
+    ![Schermata per il servizio di modifica dell'origine identità](./media/aws-single-sign-on-tutorial/settings.png)
+
+4. In modifica origine identità scegliere provider di **identità esterno**.
+
+    
+    ![Schermata per la selezione della sezione del provider di identità esterno](./media/aws-single-sign-on-tutorial/external-identity-provider.png)
+
+
+1. Eseguire i passaggi seguenti nella sezione **configurare il provider di identità esterno** :
+
+    ![Screenshot per scaricare e caricare la sezione dei metadati](./media/aws-single-sign-on-tutorial/upload-metadata.png)
+
+    a. Nella sezione **metadati del provider di servizi** individuare i **metadati SAML di AWS SSO** e selezionare **Scarica file di metadati** per scaricare il file di metadati e salvarlo nel computer e usare questo file di metadati per caricare il portale di Azure.
+
+    b. Copiare il valore dell' **URL di accesso SSO di AWS** , incollare questo valore nella casella di testo **URL di accesso** nella **sezione configurazione SAML di base** nel portale di Azure.
+
+    c. Nella sezione **metadati del provider di identità** scegliere **Sfoglia** per caricare il file di metadati scaricato dal portale di Azure.
+
+    d. Scegliere **Avanti: Revisione**.
+
+8. Nella casella di testo digitare **Accept** per modificare l'origine dell'identità.
+
+    ![Screenshot per confermare la configurazione](./media/aws-single-sign-on-tutorial/accept.png)
+
+9. Fare clic su **Cambia origine identità**.
 
 ### <a name="create-aws-single-sign-on-test-user"></a>Creare un utente di test di AWS Single Sign-on
 

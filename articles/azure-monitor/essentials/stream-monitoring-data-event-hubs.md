@@ -7,10 +7,10 @@ ms.author: bwren
 ms.topic: conceptual
 ms.date: 07/15/2020
 ms.openlocfilehash: a929563df3e7e98575056d07519abfda0d6ac13b
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/04/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102032960"
 ---
 # <a name="stream-azure-monitoring-data-to-an-event-hub-or-external-partner"></a>Trasmettere i dati di monitoraggio di Azure a un hub eventi o a un partner esterno
@@ -31,7 +31,7 @@ Prima di configurare il flusso per qualsiasi origine dati, è necessario [creare
 ## <a name="monitoring-data-available"></a>Dati di monitoraggio disponibili
 Le [origini dei dati di monitoraggio per monitoraggio di Azure](../agents/data-sources.md) descrivono i diversi livelli di dati per le applicazioni Azure e i tipi di dati di monitoraggio disponibili per ognuno di essi. La tabella seguente elenca ognuno di questi livelli e una descrizione del modo in cui i dati possono essere trasmessi a un hub eventi. Per ulteriori dettagli, attenersi ai collegamenti disponibili.
 
-| Livello | Data | Metodo |
+| Livello | Dati | Metodo |
 |:---|:---|:---|
 | [Tenant di Azure](../agents/data-sources.md#azure-tenant) | Log di controllo di Azure Active Directory | Configurare un'impostazione di diagnostica del tenant nel tenant di AAD. Per informazioni dettagliate, vedere  [esercitazione: trasmettere i log Azure Active Directory a un hub eventi di Azure](../../active-directory/reports-monitoring/tutorial-azure-monitor-stream-logs-to-event-hub.md) . |
 | [Sottoscrizione di Azure](../agents/data-sources.md#azure-subscription) | Azure Activity Log | Creare un profilo di log per esportare gli eventi del log attività in hub eventi.  Per informazioni dettagliate, vedere [trasmettere i log della piattaforma Azure a hub eventi di Azure](../essentials/resource-logs.md#send-to-azure-event-hubs) . |

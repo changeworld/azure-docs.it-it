@@ -4,19 +4,19 @@ ms.service: media-services
 ms.topic: include
 ms.date: 10/28/2020
 ms.author: inhenkel
-ms.openlocfilehash: c6ce5d2afb3390cb4777938c2888908350453e3e
-ms.sourcegitcommit: 80034a1819072f45c1772940953fef06d92fefc8
+ms.openlocfilehash: abbe5298c4acdee0607c1ba1c2ffad491f471e68
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93242649"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104612377"
 ---
 <!--Feature availability in region-->
 ## <a name="japan"></a>Giappone
 
 | Funzionalità | Giappone orientale | Giappone occidentale |
 | --- | :---: | :---: |
-| [Azure EventGrid](../reacting-to-media-services-events.md) |![Azure EventGrid Giappone orientale-disponibilità generale](../media/azure-clouds-regions/ga.svg)  |![Disponibilità generale di Azure EventGrid Giappone occidentale](../media/azure-clouds-regions/ga.svg) |
+| [Azure EventGrid](../monitoring/reacting-to-media-services-events.md) |![Azure EventGrid Giappone orientale-disponibilità generale](../media/azure-clouds-regions/ga.svg)  |![Disponibilità generale di Azure EventGrid Giappone occidentale](../media/azure-clouds-regions/ga.svg) |
 | [VideoAnalyzerPreset](../analyzing-video-audio-files-concept.md) |![Disponibilità generale VideoAnalyzerPreset Giappone orientale](../media/azure-clouds-regions/ga.svg)  | ![Disponibilità generale di VideoAnalyzerPreset Giappone occidentale](../media/azure-clouds-regions/ga.svg) |
 | [AudioAnalyzerPreset](../analyzing-video-audio-files-concept.md) |![Disponibilità generale AudioAnalyzerPreset Giappone orientale](../media/azure-clouds-regions/ga.svg)  | ![Disponibilità generale di AudioAnalyzerPreset Giappone occidentale](../media/azure-clouds-regions/ga.svg) |
 | [StandardEncoderPreset](../encoding-concept.md) |![Disponibilità generale StandardEncoderPreset Giappone orientale](../media/azure-clouds-regions/ga.svg)  | ![Disponibilità generale di StandardEncoderPreset Giappone occidentale](../media/azure-clouds-regions/ga.svg) |

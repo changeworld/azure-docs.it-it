@@ -9,14 +9,14 @@ editor: ''
 ms.service: media-services
 ms.workload: na
 ms.topic: article
-ms.date: 10/21/2020
+ms.date: 03/17/2021
 ms.author: inhenkel
-ms.openlocfilehash: d7cfb4cf9b6b061f5fb53667e968cb0403f22bfc
-ms.sourcegitcommit: 18a91f7fe1432ee09efafd5bd29a181e038cee05
+ms.openlocfilehash: 9e5a6737d2e37392efd305910ff5370adc84940f
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/16/2021
-ms.locfileid: "103562570"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104596740"
 ---
 # <a name="azure-media-services-v3-release-notes"></a>Note sulla versione di Servizi multimediali v3
 
@@ -84,7 +84,7 @@ La versione 3 fornisce:
  
 - supporto degli eventi live 24x7
 - API REST ARM, SDK client per .NET Core, Node.js, Python, Java, go e Ruby.
-- Chiavi gestite dal cliente, integrazione dell'archiviazione attendibile, supporto dei collegamenti privati e [altro ancora](https://review.docs.microsoft.com/azure/media-services/latest/migrate-v-2-v-3-migration-benefits)
+- Chiavi gestite dal cliente, integrazione dell'archiviazione attendibile, supporto dei collegamenti privati e [altro ancora](https://docs.microsoft.com/azure/media-services/latest/migrate-v-2-v-3-migration-benefits)
 
 #### <a name="action-required"></a>Azione richiesta
 
@@ -123,7 +123,6 @@ Eseguire l'aggiornamento agli SDK client più recenti nelle basi di codice usand
 - **[Archiviazione attendibile](concept-trusted-storage.md)**: Servizi multimediali può essere configurato per accedere ad archiviazione di Azure usando un'identità gestita associata all'account di servizi multimediali. Quando viene eseguito l'accesso agli account di archiviazione usando un'identità gestita, i clienti possono configurare ACL di rete più restrittivi nell'account di archiviazione senza bloccare gli scenari di servizi multimediali.
 
 - **[Identità gestite](concept-managed-identities.md)**: i clienti possono abilitare un'identità gestita assegnata dal sistema per un account di servizi multimediali per fornire l'accesso agli insiemi di credenziali delle chiavi (per le chiavi gestite dal cliente) e agli account di archiviazione (per l'archiviazione attendibile).
-
 
 ### <a name="updated-typescript-nodejs-samples-using-isomorphic-sdk-for-javascript"></a>Esempi di typescript Node.js aggiornati con isomorfi SDK per JavaScript
 
@@ -373,7 +372,7 @@ La creazione dinamica dei pacchetti ora supporta Dolby Atmos. Per altre informaz
 
 La versione 3 di Servizi multimediali è ora supportata nei cloud nazionali di Azure. Non tutte le funzionalità sono già disponibili in tutti i cloud. Per informazioni, vedere [Cloud e aree in cui sono presenti Servizi multimediali di Azure v3](azure-clouds-regions.md).
 
-L'evento [Microsoft.Media.JobOutputProgress](media-services-event-schemas.md#monitoring-job-output-progress) è stato aggiunto agli schemi di Griglia di eventi di Azure per Servizi multimediali.
+L'evento [Microsoft.Media.JobOutputProgress](monitoring/media-services-event-schemas.md#monitoring-job-output-progress) è stato aggiunto agli schemi di Griglia di eventi di Azure per Servizi multimediali.
 
 ## <a name="january-2019"></a>Gennaio 2019
 

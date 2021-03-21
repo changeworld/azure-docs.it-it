@@ -4,12 +4,12 @@ description: Informazioni su come creare un dashboard nel portale di Azure con A
 ms.topic: quickstart
 ms.custom: devx-track-azurepowershell
 ms.date: 07/24/2020
-ms.openlocfilehash: 02e243a7296555d73427f8e31c4abdf9c3e56735
-ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
-ms.translationtype: HT
+ms.openlocfilehash: 1b001c8f1ab73d23441697c93202cf1f6ea65687
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/06/2020
-ms.locfileid: "96745741"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "104613325"
 ---
 # <a name="quickstart-create-an-azure-portal-dashboard-with-powershell"></a>Avvio rapido: Creare un dashboard nel portale di Azure con PowerShell
 
@@ -23,7 +23,7 @@ Se non si ha una sottoscrizione di Azure, creare un account [gratuito](https://a
 Se si sceglie di usare PowerShell in locale, per questo articolo è necessario installare il modulo Az PowerShell e connettersi all'account di Azure usando il cmdlet [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount). Per altre informazioni sull'installazione del modulo Az PowerShell, vedere [Installare Azure PowerShell](/powershell/azure/install-az-ps).
 
 > [!IMPORTANT]
-> Durante la fase di anteprima del modulo **Az.Portal** di PowerShell, è necessario installarlo separatamente dal modulo Az di PowerShell usando il cmdlet `Install-Module`. Quando il modulo di PowerShell diventerà disponibile a livello generale, entrerà a far parte delle future versioni del modulo Az di PowerShell e sarà disponibile in modalità nativa all'interno di Azure Cloud Shell.
+> Mentre il modulo **AZ. Portal** PowerShell è in anteprima, è necessario installarlo separatamente dal modulo AZ PowerShell usando il `Install-Module` cmdlet. Quando il modulo di PowerShell diventerà disponibile a livello generale, entrerà a far parte delle future versioni del modulo Az di PowerShell e sarà disponibile in modalità nativa all'interno di Azure Cloud Shell.
 
 ```azurepowershell-interactive
 Install-Module -Name Az.Portal
@@ -146,19 +146,7 @@ Verificare che il dashboard sia stato creato correttamente.
 Get-AzPortalDashboard -Name $dashboardName -ResourceGroupName $resourceGroupName
 ```
 
-Verificare che sia possibile visualizzare i dati relativi alla macchina virtuale dall'interno del portale di Azure.
-
-1. Nel portale di Azure selezionare **Dashboard**.
-
-   ![passaggio al dashboard nel portale di Azure](media/quickstart-portal-dashboard-powershell/navigate-to-dashboards.png)
-
-1. Nella pagina del dashboard selezionare **Simple VM Dashboard**.
-
-   ![Passare a Simple VM Dashboard](media/quickstart-portal-dashboard-powershell/select-simple-vm-dashboard.png)
-
-1. Esaminare il dashboard. Come si può notare, parte del contenuto è statico, ma sono presenti anche alcuni grafici che mostrano le prestazioni della VM.
-
-   ![Esaminare il dashboard Simple VM Dashboard](media/quickstart-portal-dashboard-powershell/review-simple-vm-dashboard.png)
+[!INCLUDE [azure-portal-review-deployed-resources](../../includes/azure-portal-review-deployed-resources.md)]
 
 ## <a name="clean-up-resources"></a>Pulire le risorse
 

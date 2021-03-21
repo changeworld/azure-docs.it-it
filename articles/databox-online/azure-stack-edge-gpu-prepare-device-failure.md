@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.date: 02/22/2021
 ms.author: alkohli
 ms.openlocfilehash: 60469dc834c28bd8dbc73a1883ea01b06797c01f
-ms.sourcegitcommit: 5bbc00673bd5b86b1ab2b7a31a4b4b066087e8ed
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/07/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102442979"
 ---
 # <a name="prepare-for-an-azure-stack-edge-pro-gpu-device-failure"></a>Preparare un errore del dispositivo GPU Pro Azure Stack Edge
@@ -78,7 +78,7 @@ Le soluzioni di protezione dei dati di terze parti seguenti possono fornire una 
 Azure Stack Edge funziona con backup di Azure e altre soluzioni di protezione dei dati di terze parti per fornire una soluzione di backup per proteggere i dati contenuti nelle VM distribuite nel dispositivo. Nella tabella seguente sono elencati i riferimenti alle soluzioni disponibili tra cui è possibile scegliere.
 
 
-| Soluzioni di backup        | Sistema operativo supportato   | Riferimento                                                                |
+| Soluzioni di backup        | Sistema operativo supportato   | Informazioni di riferimento                                                                |
 |-------------------------|----------------|--------------------------------------------------------------------------|
 | Agente di Servizi di ripristino di Microsoft Azure (MARS) per backup di Azure | Windows        | [Informazioni sull'agente MARS](../backup/backup-azure-about-mars.md)    |
 | Cohesity                | Windows, Linux | [Integrazione di Microsoft Azure, soluzione backup & Recovery Brief](https://www.cohesity.com/solution/cloud/azure) <br>Per informazioni dettagliate, contattare Cohesity.                          |

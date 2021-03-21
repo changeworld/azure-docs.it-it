@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 08/19/2020
 ms.author: amverma
 ms.reviewer: cynthn
-ms.openlocfilehash: 746c7ec91c888d9a55722c00f8765915d0043a98
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: e2f6fb167ec8b1ea15f7f08cf77720e705b2e4a3
+ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "101666081"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "104721384"
 ---
 # <a name="hc-series-virtual-machine-overview"></a>Panoramica delle macchine virtuali della serie HC
 
@@ -51,13 +51,13 @@ Il diagramma seguente illustra la separazione dei core riservati per l'hyperviso
 |-----------------------------|-----------------------|
 | Dimensioni massime del processo MPI            | 13200 Core (300 VM in un singolo set di scalabilità di macchine virtuali con singlePlacementGroup = true)  |
 | Supporto MPI                 | HPC-X, Intel MPI, OpenMPi, MVAPICH2, MPICH, Platform MPI  |
-| Framework aggiuntivi       | Comunicazione unificata X, libfabric, PGA |
+| Framework aggiuntivi       | UCX, libfabric, PGA |
 | Supporto per archiviazione di Azure       | Dischi standard e Premium (massimo 4 dischi) |
-| Supporto del sistema operativo per SRIOV RDMA   | CentOS/RHEL 7.6 +, SLES 12 SP4 +, WinServer 2016 +  |
-| Supporto per l'agente di orchestrazione        | CycleCloud, batch  |
+| Supporto del sistema operativo per SRIOV RDMA   | CentOS/RHEL 7.6 +, Ubuntu 16.04 +, SLES 12 SP4 +, WinServer 2016 +  |
+| Supporto per l'agente di orchestrazione        | CycleCloud, batch, AKS; [Opzioni di configurazione del cluster](../../sizes-hpc.md#cluster-configuration-options)  |
 
 ## <a name="next-steps"></a>Passaggi successivi
 
 - Scopri di più sull' [architettura Intel Xeon SP](https://software.intel.com/content/www/us/en/develop/articles/intel-xeon-processor-scalable-family-technical-overview.html).
-- Leggere gli ultimi annunci e alcuni esempi HPC e risultati nei [blog della community tecnica di Calcolo di Azure](https://techcommunity.microsoft.com/t5/azure-compute/bg-p/AzureCompute).
+- Per informazioni sugli annunci più recenti, sugli esempi di carico di lavoro HPC e sui risultati delle prestazioni, vedere i [Blog della community tecnica di Azure Compute](https://techcommunity.microsoft.com/t5/azure-compute/bg-p/AzureCompute).
 - Per un quadro generale sull'architettura per l'esecuzione di carichi di lavoro HPC, vedere [HPC (High Performance Computing) in Azure](/azure/architecture/topics/high-performance-computing/).

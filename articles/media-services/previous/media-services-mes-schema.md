@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 03/10/2021
 ms.author: inhenkel
 ms.openlocfilehash: f82e0c3f76dba05c3404b11e07c7130119ce0b9d
-ms.sourcegitcommit: 225e4b45844e845bc41d5c043587a61e6b6ce5ae
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/11/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "103015659"
 ---
 # <a name="media-encoder-standard-schema"></a>Schema di Media Encoder Standard
@@ -127,7 +127,7 @@ Per impostazione predefinita, se si invia al codificatore un input che contiene 
 
 ### <a name="groups"></a>Gruppi
 
-| Riferimento | Descrizione |
+| Informazioni di riferimento | Descrizione |
 | --- | --- |
 | [AudioGroup](media-services-mes-schema.md#AudioGroup)<br/><br/> minOccurs="0" |Vedere la descrizione di [AudioGroup](media-services-mes-schema.md#AudioGroup) per conoscere il numero di canali, la frequenza di campionamento e la velocità in bit appropriati che è possibile impostare per ogni profilo. |
 

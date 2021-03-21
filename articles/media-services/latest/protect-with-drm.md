@@ -11,15 +11,15 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 08/31/2020
+ms.date: 03/17/2021
 ms.author: inhenkel
 ms.custom: seodec18
-ms.openlocfilehash: eeb41967ac7e2b73bfb32933f7f019a5722fdc9b
-ms.sourcegitcommit: 6386854467e74d0745c281cc53621af3bb201920
+ms.openlocfilehash: 72015dd23da60644c3ecb0bbe9616b35ff1acbcb
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/08/2021
-ms.locfileid: "102454433"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104596791"
 ---
 # <a name="tutorial-use-drm-dynamic-encryption-and-license-delivery-service"></a>Esercitazione: Usare il servizio di crittografia dinamica e di distribuzione di licenze DRM
 
@@ -103,7 +103,7 @@ In questa esercitazione si crea l'input del processo in base a un file che viene
 
 ## <a name="wait-for-the-job-to-complete"></a>Attendere il completamento del processo
 
-Il completamento del processo richiede qualche istante. Al termine dell'operazione, si vorrà ricevere una notifica. L'esempio di codice seguente illustra come eseguire il polling del servizio per determinare lo stato del **processo**. Il polling non è una procedura consigliata per le app di produzione a causa dei rischi di latenza. Il polling può essere limitato se usato eccessivamente su un account. In alternativa, è preferibile che gli sviluppatori usino Griglia di eventi. Vedere [Instradare gli eventi verso un endpoint Web personalizzato](job-state-events-cli-how-to.md).
+Il completamento del processo richiede qualche istante. Al termine dell'operazione, si vorrà ricevere una notifica. L'esempio di codice seguente illustra come eseguire il polling del servizio per determinare lo stato del **processo**. Il polling non è una procedura consigliata per le app di produzione a causa dei rischi di latenza. Il polling può essere limitato se usato eccessivamente su un account. In alternativa, è preferibile che gli sviluppatori usino Griglia di eventi. Vedere [Instradare gli eventi verso un endpoint Web personalizzato](monitoring/job-state-events-cli-how-to.md).
 
 L'oggetto **Job** assume progressivamente gli stati seguenti: **Scheduled**, **Queued**, **Processing**, **Finished** (stato finale). Se nel corso del processo si verifica un errore, viene restituito lo stato **Errore**. Se il processo è in fase di annullamento, vengono restituiti lo stato **Annullamento in corso** e, al termine, lo stato **Annullato**.
 

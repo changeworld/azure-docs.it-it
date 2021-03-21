@@ -5,10 +5,10 @@ ms.service: cognitive-services
 ms.date: 10/26/2020
 ms.custom: devx-track-js
 ms.openlocfilehash: cfcc5bbc101a37e607fcc1bdb0d374510e7c3825
-ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/07/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102445315"
 ---
 Questa guida fornisce istruzioni e codice di esempio per iniziare a usare la libreria client di Visione personalizzata per Node.js per creare un modello di rilevamento oggetti. Si creerà un progetto, si aggiungeranno tag, si eseguirà il training del progetto e si userà l'URL dell'endpoint di stima del progetto per testarlo a livello di codice. Usare questo esempio come modello per la creazione di un'applicazione di riconoscimento immagini personalizzata.

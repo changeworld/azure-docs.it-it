@@ -5,15 +5,15 @@ author: vermagit
 ms.service: virtual-machines
 ms.subservice: hpc
 ms.topic: article
-ms.date: 11/06/2020
+ms.date: 03/18/2021
 ms.author: amverma
 ms.reviewer: cynthn
-ms.openlocfilehash: cd4d928217ceba80fa5ea0252a6ed20803a812d3
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 089976f2009e006f53dd2a77f09f57d5090429b7
+ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "101666955"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "104721244"
 ---
 # <a name="enable-infiniband"></a>Abilitare InfiniBand
 
@@ -22,9 +22,9 @@ Le macchine virtuali [serie H](../../sizes-hpc.md) e [serie N](../../sizes-gpu.m
 Esistono diversi modi per abilitare InfiniBand sulle dimensioni delle macchine virtuali in grado di supportare.
 
 ## <a name="vm-images-with-infiniband-drivers"></a>Immagini di VM con driver InfiniBand
-Vedere [Immagini di VM](configure.md#vm-images) per un elenco di immagini di VM supportate nel Marketplace, che precaricano i driver InfiniBand (per VM SR-IOV o non SR-IOV) oppure possono essere configurati con i driver appropriati.
-Per le [macchine virtuali](../../sizes-hpc.md#rdma-capable-instances)abilitate per SR-IOV abilitate per RDMA, [CentOS-HPC versione 7,6 o una versione successiva](https://techcommunity.microsoft.com/t5/Azure-Compute/CentOS-HPC-VM-Image-for-SR-IOV-enabled-Azure-HPC-VMs/ba-p/665557) le immagini di VM nel Marketplace rappresentano il modo più semplice per iniziare.
-Le immagini di macchine virtuali Ubuntu possono essere configurate con i driver corretti per le VM abilitate per SR-IOV e non SR-IOV usando le istruzioni riportate [qui](https://techcommunity.microsoft.com/t5/azure-compute/configuring-infiniband-for-ubuntu-hpc-and-gpu-vms/ba-p/1221351).
+Vedere [Immagini di VM](configure.md#vm-images) per un elenco di immagini di VM supportate nel Marketplace, che precaricano i driver InfiniBand (per VM SR-IOV o non SR-IOV) oppure possono essere configurati con i driver appropriati per le [macchine virtuali](../../sizes-hpc.md#rdma-capable-instances)con supporto per RDMA.
+- Le immagini di VM [CentOS-HPC](configure.md#centos-hpc-vm-images) nel Marketplace rappresentano il modo più semplice per iniziare.
+- Le immagini di VM [Ubuntu](configure.md#ubuntu-vm-images) possono essere configurate con i driver IB corretti.
 
 ## <a name="infiniband-driver-vm-extensions"></a>Estensioni macchina virtuale driver InfiniBand
 In Linux l' [estensione della macchina virtuale InfiniBandDriverLinux](../../extensions/hpc-compute-infiniband-linux.md) può essere usata per installare i driver OFED di Mellanox e abilitare InfiniBand sulle VM serie H e N abilitate per SR-IOV.
@@ -68,6 +68,6 @@ sudo systemctl restart waagent
 ## <a name="next-steps"></a>Passaggi successivi
 
 - Altre informazioni sull'installazione di varie [librerie MPI supportate](setup-mpi.md) e sulla relativa configurazione ottimale nelle macchine virtuali.
-- Esaminare la [panoramica della serie HB](hb-series-overview.md) e la [panoramica della serie HC](hc-series-overview.md) per informazioni su come configurare in modo ottimale i carichi di lavoro ai fini delle prestazioni e della scalabilità.
-- Leggere gli ultimi annunci e alcuni esempi HPC e risultati nei [blog della community tecnica di Calcolo di Azure](https://techcommunity.microsoft.com/t5/azure-compute/bg-p/AzureCompute).
+- Vedere [Panoramica della serie modello HBV3](hbv3-series-overview.md) e [Panoramica della serie HC](hc-series-overview.md).
+- Per informazioni sugli annunci più recenti, sugli esempi di carico di lavoro HPC e sui risultati delle prestazioni, vedere i [Blog della community tecnica di Azure Compute](https://techcommunity.microsoft.com/t5/azure-compute/bg-p/AzureCompute).
 - Per un quadro generale sull'architettura per l'esecuzione di carichi di lavoro HPC, vedere [HPC (High Performance Computing) in Azure](/azure/architecture/topics/high-performance-computing/).

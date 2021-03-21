@@ -12,10 +12,10 @@ ms.reviewer: artek
 ms.subservice: common
 ms.custom: devx-track-csharp
 ms.openlocfilehash: 1a07acedadfaf3d5158ba8e494d4527301655425
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/04/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102035102"
 ---
 # <a name="use-geo-redundancy-to-design-highly-available-applications"></a>Usare la ridondanza geografica per progettare applicazioni a disponibilità elevata
@@ -215,8 +215,8 @@ Nella tabella seguente viene illustrato un esempio di ciò che può verificarsi 
 |----------|------------------------------------------------------------|---------------------------------------|--------------------|------------| 
 | T0       | Transazione A: <br> Inserimento dell'entità <br> employee nell'area primaria |                                   |                    | Transazione A inserita nell'area primaria,<br> non ancora replicata. |
 | T1       |                                                            | Transazione A <br> replicata<br> nell'area secondaria | T1 | Transazione A replicata nell'area secondaria. <br>Ora ultima sincronizzazione aggiornata.    |
-| T2       | Transazione B:<br>Aggiorna<br> dell'entità employee<br> nell'area primaria  |                                | T1                 | Transazione B scritta nell'area primaria,<br> non ancora replicata.  |
-| T3       | Transazione C:<br> Aggiorna <br>entità<br>administrator role nell'area<br>primaria |                    | T1                 | Transazione C scritta nell'area primaria,<br> non ancora replicata.  |
+| T2       | Transazione B:<br>Aggiornamento<br> dell'entità employee<br> nell'area primaria  |                                | T1                 | Transazione B scritta nell'area primaria,<br> non ancora replicata.  |
+| T3       | Transazione C:<br> Aggiornamento <br>entità<br>administrator role nell'area<br>primaria |                    | T1                 | Transazione C scritta nell'area primaria,<br> non ancora replicata.  |
 | *T4*     |                                                       | Transazione C <br>replicata<br> nell'area secondaria | T1         | Transazione C replicata nell'area secondaria.<br>LastSyncTime non aggiornato perché <br>la transazione B non è stata ancora replicata.|
 | *T5*     | Lettura delle entità <br>dall'area secondaria                           |                                  | T1                 | Si ottiene un valore non aggiornato per l'entità <br> employee perché la transazione B <br> non è stata ancora replicata. Si ottiene il nuovo valore per<br> l'entità administrator role perché C è stata<br> replicata. Ora ultima sincronizzazione non ancora<br> aggiornata perché la transazione B<br> non è stata replicata. È possibile stabilire che<br>l'entità administrator role è incoerente <br>perché la data/ora dell'entità è successiva <br>all'ora dell'ultima sincronizzazione. |
 | *T6*     |                                                      | Transazione B<br> replicata<br> nell'area secondaria | T6                 | *T6*: tutte le transazioni fino alla C sono <br>state replicate, ora ultima sincronizzazione<br> aggiornata. |

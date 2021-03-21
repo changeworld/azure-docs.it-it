@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 09/25/2020
 ms.author: jmprieur
 ms.custom: aaddev, devx-track-python
-ms.openlocfilehash: 2109705116c323fd3632b7230a81ccd9158c1a64
-ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
+ms.openlocfilehash: aa377547f7f4961e199ec8d62bf0f1435296f983
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/05/2021
-ms.locfileid: "99582319"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "104669305"
 ---
 # <a name="a-web-app-that-calls-web-apis-code-configuration"></a>App Web che chiama le API Web: Configurazione del codice
 
@@ -28,15 +28,11 @@ Come illustrato nello scenario [App Web che esegue l'accesso degli utenti](scena
 
 Gli scenari [App Web che esegue l'accesso degli utenti](scenario-web-app-sign-user-overview.md) prevedono solo il primo passaggio. Di seguito viene descritto come modificare l'app Web in modo che non solo esegua l'accesso degli utenti ma chiami anche le API Web.
 
-## <a name="libraries-that-support-web-app-scenarios"></a>Librerie che supportano gli scenari delle app Web
+## <a name="microsoft-libraries-supporting-web-apps"></a>Librerie Microsoft che supportano app Web
 
-Le librerie seguenti in Microsoft Authentication Library (MSAL) supportano il flusso del codice di autorizzazione per le app Web:
+Le librerie Microsoft seguenti supportano le app Web:
 
-| Libreria MSAL | Descrizione |
-|--------------|-------------|
-| ![MSAL.NET](media/sample-v2-code/logo_NET.png) <br/> MSAL.NET  | Supporto per le piattaforme .NET Framework e .NET Core. Non sono supportate le piattaforme UWP (Universal Windows Platform), Xamarin.iOS e Xamarin.Android perché usate per creare applicazioni client pubbliche. <br/><br/>Per ASP.NET Core app Web e le API Web, MSAL.NET è incapsulato in una libreria di livello superiore denominata [Microsoft. Identity. Web](https://aka.ms/ms-identity-web). |
-| ![MSAL Python](media/sample-v2-code/logo_python.png) <br/> MSAL per Python | Supporto per le applicazioni Web Python. |
-| ![MSAL Java](media/sample-v2-code/logo_java.png) <br/> MSAL per Java | Supporto per le applicazioni Web Java. |
+[!INCLUDE [active-directory-develop-libraries-webapp](../../../includes/active-directory-develop-libraries-webapp.md)]
 
 Selezionare la scheda della piattaforma desiderata:
 
@@ -99,7 +95,7 @@ Anziché un segreto client, è possibile fornire un certificato client. Il framm
 
 ## <a name="startupcs"></a>Startup.cs
 
-L'app Web deve acquisire un token per l'API downstream. Per specificarlo, aggiungere la `.EnableTokenAcquisitionToCallDownstreamApi()` riga dopo `.AddMicrosoftIdentityWebApi(Configuration)` . Questa riga espone il `ITokenAcquisition` servizio che è possibile usare nelle azioni del controller e della pagina. Tuttavia, come si vedrà nelle due opzioni seguenti, l'operazione può essere eseguita in modo più semplice. È anche necessario scegliere un'implementazione della cache dei token, ad esempio `.AddInMemoryTokenCaches()` in *Startup.cs*:
+L'app Web deve acquisire un token per l'API downstream. Per specificarlo, aggiungere la `.EnableTokenAcquisitionToCallDownstreamApi()` riga dopo `.AddMicrosoftIdentityWebApi(Configuration)` . Questa riga espone il `ITokenAcquisition` servizio che è possibile usare nelle azioni del controller e della pagina. Tuttavia, come si vedrà nelle due opzioni seguenti, l'operazione può essere eseguita in modo più semplice. Sarà inoltre necessario scegliere un'implementazione della cache dei token, ad esempio `.AddInMemoryTokenCaches()` , in *Startup. cs*:
 
    ```csharp
    using Microsoft.Identity.Web;
@@ -129,7 +125,7 @@ Se non si vuole acquisire il token, *Microsoft. Identity. Web* offre due meccani
 Se si vuole chiamare Microsoft Graph, *Microsoft. Identity. Web* consente di usare direttamente `GraphServiceClient` (esposto da SDK Microsoft Graph) nelle azioni dell'API. Per esporre Microsoft Graph:
 
 1. Aggiungere il pacchetto NuGet [Microsoft. Identity. Web. MicrosoftGraph](https://www.nuget.org/packages/Microsoft.Identity.Web.MicrosoftGraph) al progetto.
-1. Aggiungere `.AddMicrosoftGraph()` after `.EnableTokenAcquisitionToCallDownstreamApi()` nel file *Startup.cs* . `.AddMicrosoftGraph()` include diverse sostituzioni. Utilizzando la sostituzione che accetta una sezione di configurazione come parametro, il codice diventa:
+1. Aggiungere `.AddMicrosoftGraph()` after `.EnableTokenAcquisitionToCallDownstreamApi()` nel file *Startup. cs* . `.AddMicrosoftGraph()` include diverse sostituzioni. Utilizzando la sostituzione che accetta una sezione di configurazione come parametro, il codice diventa:
 
    ```csharp
    using Microsoft.Identity.Web;
@@ -179,7 +175,7 @@ Per chiamare un'API Web diversa da Microsoft Graph, *Microsoft. Identity. Web* f
 
 Come per le API Web, è possibile scegliere diverse implementazioni della cache dei token. Per informazioni dettagliate, vedere la pagina relativa alla [serializzazione della cache del token Microsoft. Identity. Web](https://aka.ms/ms-id-web/token-cache-serialization) in GitHub.
 
-Nell'immagine seguente vengono illustrate le diverse possibilità di *Microsoft. Identity. Web* e il relativo effetto sul file *Startup.cs* :
+Nell'immagine seguente vengono illustrate le diverse possibilità di *Microsoft. Identity. Web* e il relativo effetto sul file *Startup. cs* :
 
 :::image type="content" source="media/scenarios/microsoft-identity-web-startup-cs.svg" alt-text="Diagramma di blocco che mostra le opzioni di configurazione del servizio nel punto di avvio C S per chiamare un'API Web e specificare un'implementazione della cache dei token":::
 
