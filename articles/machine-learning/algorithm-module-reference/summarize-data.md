@@ -10,10 +10,10 @@ author: likebupt
 ms.author: keli19
 ms.date: 01/27/2020
 ms.openlocfilehash: 5206565b85d1551e5e551f1dfe75d28c93bc53f0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "90898209"
 ---
 # <a name="summarize-data"></a>Riepilogare i dati
@@ -49,7 +49,7 @@ Il report del modulo può includere le statistiche seguenti.
 |Nome colonna|Descrizione|
 |------|------|  
 |**Funzionalità**|Nome della colonna|
-|**Numero**|Count of all rows|
+|**Count**|Count of all rows|
 |**Conteggio valori univoci**|Numero di valori univoci nella colonna|
 |**Conteggio valori mancanti**|Numero di valori univoci nella colonna|
 |**Min**|Valore minimo nella colonna|  
@@ -60,7 +60,7 @@ Il report del modulo può includere le statistiche seguenti.
 |**Mediana**|Valore della colonna mediana|
 |**3rd Quartile**|Valore al terzo quartile|
 |**Modalità**|Modalità dei valori di colonna|
-|**Intervallo**|Integer che rappresenta il numero di valori compresi tra i valori minimo e massimo|
+|**Range**|Integer che rappresenta il numero di valori compresi tra i valori minimo e massimo|
 |**Varianza di esempio**|Varianza per la colonna; vedere la nota|
 |**Deviazione standard di esempio**|Deviazione standard per la colonna; vedere la nota|
 |**Asimmetria di esempio**|Asimmetria per la colonna; vedere la nota|

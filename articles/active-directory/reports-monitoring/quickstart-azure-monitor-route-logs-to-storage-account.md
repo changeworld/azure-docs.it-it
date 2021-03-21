@@ -18,13 +18,13 @@ ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: fa2cac7c89a2cb1bd99675727bcd51e82c4a18ef
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
-ms.translationtype: HT
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "74007853"
 ---
-# <a name="tutorial-archive-azure-ad-logs-to-an-azure-storage-account"></a>Esercitazione: Archiviare i log di Azure AD in un account di archiviazione di Azure
+# <a name="tutorial-archive-azure-ad-logs-to-an-azure-storage-account"></a>Esercitazione: archiviare i log dei Azure AD in un account di archiviazione di Azure
 
 In questa esercitazione viene descritto come configurare le impostazioni di diagnostica di Monitoraggio di Azure per instradare i log di Azure Active Directory (Azure AD) a un account di archiviazione di Azure.
 
@@ -40,7 +40,7 @@ Per usare questa funzionalità, sono necessari:
 
 1. Accedere al [portale di Azure](https://portal.azure.com). 
 
-2. Selezionare **Azure Active Directory** > **Attività** > **Log di controllo**. 
+2. Selezionare i log di controllo dell'  >  **attività** Azure Active Directory  >  . 
 
 3. Selezionare **Esporta impostazioni**. 
 

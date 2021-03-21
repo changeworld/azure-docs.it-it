@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 08/20/2019
 ms.author: xshi
 ms.openlocfilehash: c56bb7030b2ebc12e3afc24e2d8cb29ce2dda0bf
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "74079483"
 ---
 # <a name="use-cloud-explorer-for-visual-studio-to-send-and-receive-messages-between-your-device-and-iot-hub"></a>Usare Cloud Explorer per Visual Studio per inviare e ricevere messaggi tra il dispositivo e l'hub IoT
@@ -64,7 +64,7 @@ Per accedere all'hub, seguire questa procedura:
 
 1. Selezionare le sottoscrizioni di Azure che si vuole usare e scegliere **applica**.
 
-1. Espandere la sottoscrizione, quindi espandere **Hub**Internet.  In ogni hub è possibile visualizzare i dispositivi per l'hub.
+1. Espandere la sottoscrizione, quindi espandere **Hub** Internet.  In ogni hub è possibile visualizzare i dispositivi per l'hub.
 
     ![Elenco dei dispositivi](media/iot-hub-visual-studio-cloud-device-messaging/hub-device-list.png)
 

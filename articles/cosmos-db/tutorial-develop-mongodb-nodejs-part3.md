@@ -11,10 +11,10 @@ ms.author: jopapa
 ms.custom: seodec18, devx-track-js
 ms.reviewer: sngun
 ms.openlocfilehash: 181af5cf26d19a9f51e8d456e777badf7efa224d
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
-ms.translationtype: HT
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93097822"
 ---
 # <a name="create-an-angular-app-with-azure-cosmos-dbs-api-for-mongodb---build-the-ui-with-angular"></a>Creare un'app Angular con l'API di Azure Cosmos DB per MongoDB - Compilare l'interfaccia utente con Angular
@@ -104,7 +104,7 @@ Prima di iniziare questa parte dell'esercitazione, assicurarsi di avere completa
     </div>
     ```
 
-7. Quando il codice HTML è disponibile, è necessario aggiungerlo al file **heroes.component.ts** , in modo che sia possibile interagire con il modello. Il codice seguente aggiunge il modello al file del componente. È stato aggiunto un costruttore che recupera alcuni elementi hero e inizializza il componente del servizio hero per ottenere tutti i dati. Questo codice consente anche di aggiungere tutti i metodi necessari per la gestione di eventi nell'interfaccia utente. È possibile copiare il codice seguente sopra il codice esistente nel file **heroes.component.ts**. È previsto che vengano visualizzati errori nelle aree Hero e HeroService dal momento che i componenti corrispondenti non sono stati ancora importati; questo errore verrà risolto nella sezione successiva. 
+7. Quando il codice HTML è disponibile, è necessario aggiungerlo al file **heroes.component.ts**, in modo che sia possibile interagire con il modello. Il codice seguente aggiunge il modello al file del componente. È stato aggiunto un costruttore che recupera alcuni elementi hero e inizializza il componente del servizio hero per ottenere tutti i dati. Questo codice consente anche di aggiungere tutti i metodi necessari per la gestione di eventi nell'interfaccia utente. È possibile copiare il codice seguente sopra il codice esistente nel file **heroes.component.ts**. È previsto che vengano visualizzati errori nelle aree Hero e HeroService dal momento che i componenti corrispondenti non sono stati ancora importati; questo errore verrà risolto nella sezione successiva. 
 
     ```ts
     import { Component, OnInit } from '@angular/core';
@@ -193,7 +193,7 @@ Prima di iniziare questa parte dell'esercitazione, assicurarsi di avere completa
 
 1. Nel riquadro Esplora risorse aprire il file **src/styles.scss**.
 
-2. Copiare il codice seguente nel file **styles.scss** , sostituendo il contenuto esistente del file.
+2. Copiare il codice seguente nel file **styles.scss**, sostituendo il contenuto esistente del file.
 
     ```css
     /* You can add global styles to this file, and also import other style files */
@@ -354,7 +354,7 @@ Prima di iniziare questa parte dell'esercitazione, assicurarsi di avere completa
 
 Quando il componente è disponibile, è necessario fare in modo che venga visualizzato sullo schermo. Modificare i componenti predefiniti nel file **app.component.ts**.
 
-1. Nel riquadro Esplora risorse aprire **/app/app.component.ts** , modificare il titolo in Heroes e quindi inserire il nome del componente creato nel file **heroes.components.ts** (app-heroes) in modo da fare riferimento al nuovo componente. Il contenuto del file dovrebbe avere ora un aspetto simile al seguente: 
+1. Nel riquadro Esplora risorse aprire **/app/app.component.ts**, modificare il titolo in Heroes e quindi inserire il nome del componente creato nel file **heroes.components.ts** (app-heroes) in modo da fare riferimento al nuovo componente. Il contenuto del file dovrebbe avere ora un aspetto simile al seguente: 
 
     ```ts
     import { Component } from '@angular/core';
@@ -375,7 +375,7 @@ Quando il componente è disponibile, è necessario fare in modo che venga visual
 
     ```
 
-2. Il file **heroes.components.ts** include altri componenti a cui viene fatto riferimento, ad esempio il componente Hero, quindi è necessario creare anche quello. Nel prompt dei comandi dell'interfaccia della riga di comando di Angular usare il comando seguente per creare un modello hero e un file denominato **hero.ts** , in cui g equivale a generare, cl a classe e hero al nome della classe.
+2. Il file **heroes.components.ts** include altri componenti a cui viene fatto riferimento, ad esempio il componente Hero, quindi è necessario creare anche quello. Nel prompt dei comandi dell'interfaccia della riga di comando di Angular usare il comando seguente per creare un modello hero e un file denominato **hero.ts**, in cui g equivale a generare, cl a classe e hero al nome della classe.
 
     ```bash
     ng g cl hero
@@ -409,7 +409,7 @@ Quando il componente è disponibile, è necessario fare in modo che venga visual
 
 ## <a name="create-the-service"></a>Creare il servizio
 
-1. Nel prompt dei comandi dell'interfaccia della riga di comando di Angular immettere il comando seguente per creare un servizio di tipo hero in **app.module.ts** , in cui g equivale a generare, s a servizio, hero al nome del servizio e -m all'inserimento in app.module.
+1. Nel prompt dei comandi dell'interfaccia della riga di comando di Angular immettere il comando seguente per creare un servizio di tipo hero in **app.module.ts**, in cui g equivale a generare, s a servizio, hero al nome del servizio e -m all'inserimento in app.module.
 
     ```bash
     ng g s hero -m app.module
@@ -483,7 +483,7 @@ Quando il componente è disponibile, è necessario fare in modo che venga visual
     ng b
     ``` 
 
-    Se si verificano problemi, la finestra del terminale mostra informazioni sui file da correggere. Al termine della compilazione, i file vengono inseriti nella cartella **dist**. È possibile esaminare i nuovi file nella cartella **dist** , se si vuole.
+    Se si verificano problemi, la finestra del terminale mostra informazioni sui file da correggere. Al termine della compilazione, i file vengono inseriti nella cartella **dist**. È possibile esaminare i nuovi file nella cartella **dist**, se si vuole.
 
     Ora eseguire l'app.
 

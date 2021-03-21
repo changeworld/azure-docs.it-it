@@ -12,10 +12,10 @@ ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=jainr, previous-ms.author=jainr
 ms.openlocfilehash: af7900faff18d526686b80f23b9de3b3bce5ec5c
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93309611"
 ---
 # <a name="create-cicd-pipelines-for-ai-apps-using-azure-pipelines-docker-and-kubernetes"></a>Creare pipeline di integrazione continua/recapito continuo per app per intelligenza artificiale con Azure Pipelines, Docker e Kubernetes
@@ -60,7 +60,7 @@ Il diagramma e i passaggi seguenti descrivono l'architettura della pipeline CI/C
 10. Le richieste degli utenti per l'app passano attraverso il server DNS.
 11. Il server DNS passa le richieste a un servizio di bilanciamento del carico e restituisce le risposte agli utenti.
 
-## <a name="see-also"></a>Vedere anche
+## <a name="see-also"></a>Vedi anche
 
 - [Team Data Science Process (TDSP)](./index.yml)
 - [Azure Machine Learning (AML)](../index.yml)

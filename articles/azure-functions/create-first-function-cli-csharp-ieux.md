@@ -8,10 +8,10 @@ ms.custom:
 - devx-track-azurecli
 ROBOTS: NOINDEX,NOFOLLOW
 ms.openlocfilehash: a78abea5bcc5925cb2e137d918c7217ae92b118e
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/04/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102044324"
 ---
 # <a name="quickstart-create-a-c-function-in-azure-from-the-command-line"></a>Avvio rapido: Creare una funzione C# in Azure dalla riga di comando
@@ -101,7 +101,7 @@ In questa sezione viene creato un locale <abbr title="Un contenitore logico per 
     
     <br/>   
     <details>  
-    <summary><strong>Facoltativo: codice per HttpExample.cs</strong></summary>  
+    <summary><strong>Facoltativo: codice per HttpExample. cs</strong></summary>  
     
     *HttpExample.cs* contiene un metodo `Run` che riceve i dati della richiesta nella variabile `req` come oggetto [HttpRequest](/dotnet/api/microsoft.aspnetcore.http.httprequest) decorato con **HttpTriggerAttribute**, che definisce il comportamento del trigger.
 

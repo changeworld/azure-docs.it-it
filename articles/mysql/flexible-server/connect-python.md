@@ -9,10 +9,10 @@ ms.devlang: python
 ms.topic: quickstart
 ms.date: 9/21/2020
 ms.openlocfilehash: ff14bb1daeef6fc54ee5d11632ad98a29db2a172
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
-ms.translationtype: HT
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/05/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "90944195"
 ---
 # <a name="quickstart-use-python-to-connect-and-query-data-in-azure-database-for-mysql---flexible-server"></a>Avvio rapido: Usare Python per connettersi ai dati ed eseguire query nel server flessibile di Database di Azure per MySQL
@@ -31,7 +31,7 @@ Questo articolo presuppone che si abbia familiarità con lo sviluppo con Python,
 
 ## <a name="preparing-your-client-workstation"></a>Preparazione della workstation client
 - Se il server flessibile è stato creato con l'opzione per l'*accesso privato (integrazione rete virtuale)* , sarà necessario connettersi al server da una risorsa all'interno della stessa rete virtuale usata dal server. È possibile creare una macchina virtuale e aggiungerla alla rete virtuale creata con il server flessibile. Vedere [Creare e gestire la rete virtuale del server flessibile di Database di Azure per MySQL tramite l'interfaccia della riga di comando di Azure](./how-to-manage-virtual-network-cli.md).
-- Se il server flessibile è stato creato con l'opzione *Accesso pubblico (indirizzi IP consentiti)* , è possibile aggiungere il proprio indirizzo IP locale all'elenco di regole del firewall nel server. Vedere [Creare e gestire le regole del firewall del server flessibile di Database di Azure per MySQL tramite l'interfaccia della riga di comando di Azure](./how-to-manage-firewall-cli.md).
+- Se il server flessibile è stato creato con l'opzione per l'*accesso pubblico (indirizzi IP consentiti)* , è possibile aggiungere l'indirizzo IP locale all'elenco di regole del firewall nel server. Vedere [Creare e gestire le regole del firewall del server flessibile di Database di Azure per MySQL tramite l'interfaccia della riga di comando di Azure](./how-to-manage-firewall-cli.md).
 
 ## <a name="install-python-and-the-mysql-connector"></a>Installare Python e il connettore MySQL
 

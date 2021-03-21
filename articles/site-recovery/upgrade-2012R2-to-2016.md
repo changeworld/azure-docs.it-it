@@ -9,10 +9,10 @@ ms.service: site-recovery
 ms.date: 12/03/2018
 ms.author: sharrai
 ms.openlocfilehash: b9869ae7dfbf5afd6b8d3b870a2ad4e56fd54c1a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91250069"
 ---
 # <a name="upgrade-windows-server-serversystem-center-2012-r2-vmm-to-windows-servervmm-2016"></a>Aggiornare Windows Server Server/System Center 2012 R2 VMM a Windows Server/VMM 2016 
@@ -42,10 +42,10 @@ Prima di eseguire l'aggiornamento, tenere presente quanto segue:
 
 - Se si usa System Center 2012 R2 VMM: 
 
-    - Controllare le informazioni sul database in VMM: impostazioni della **console VMM**  ->  **settings**  ->  **General**  ->  **connessione al database** generale
+    - Controllare le informazioni sul database in VMM: impostazioni della **console VMM**  ->    ->    ->  **connessione al database** generale
     - Controllare gli account del servizio usati per il servizio agente System Center Virtual Machine Manager
     - Assicurarsi di disporre di un backup del database VMM.
-    - Annotare il nome del database dei server SCVMM coinvolti. Questa operazione può essere eseguita passando a impostazioni **console VMM**  ->  **Settings**  ->  **General**  ->  **connessione database** generale
+    - Annotare il nome del database dei server SCVMM coinvolti. Questa operazione può essere eseguita passando a impostazioni **console VMM**  ->    ->    ->  **connessione database** generale
     - Annotare l'ID di VMM di entrambi i server VMM primario 2012 R2 e di ripristino. L'ID di VMM è reperibile nel Registro di sistema "HKLM:\SOFTWARE\Microsoft\Server Microsoft System Center Virtual Machine Manager\Setup".
     - Verificare che le nuove istanze di SCVMM aggiunte al cluster abbiano gli stessi nomi di prima. 
 

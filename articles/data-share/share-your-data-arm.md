@@ -8,10 +8,10 @@ ms.topic: quickstart
 ms.custom: subject-armqs
 ms.date: 08/19/2020
 ms.openlocfilehash: 5abe92120c8b822ac86ced90658869a0858d4ff4
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
-ms.translationtype: HT
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/23/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92487688"
 ---
 # <a name="quickstart-share-data-using-azure-data-share-and-arm-template"></a>Avvio rapido: Condividere dati con Condivisione dati di Azure e un modello di Resource Manager
@@ -69,12 +69,12 @@ Il motivo di questo errore è che la distribuzione prova a creare il set di dati
     [![Distribuzione in Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-data-share-share-storage-account%2Fazuredeploy.json)
 1. Selezionare o immettere i valori seguenti:
 
-    * **Sottoscrizione** : selezionare una sottoscrizione di Azure usata per creare la condivisione dati e le altre risorse.
-    * **Gruppo di risorse** : selezionare **Crea nuovo** per creare un nuovo gruppo di risorse oppure selezionarne uno esistente.
-    * **Località** : selezionare una località per il gruppo di risorse.
-    * **Nome progetto** : immettere un nome per il progetto.  Il nome del progetto viene usato per generare i nomi delle risorse.  Vedere le definizioni delle variabili nel modello precedente.
-    * **Località** : selezionare una località per le risorse.  È possibile usare la stessa località per il gruppo di risorse.
-    * **Messaggio di posta elettronica di invito** : immettere l'indirizzo di posta elettronica del destinatario della condivisione dati usato per l'accesso ad Azure.  L'alias di posta elettronica non funziona.
+    * **Sottoscrizione**: selezionare una sottoscrizione di Azure usata per creare la condivisione dati e le altre risorse.
+    * **Gruppo di risorse**: selezionare **Crea nuovo** per creare un nuovo gruppo di risorse oppure selezionarne uno esistente.
+    * **Località**: selezionare una località per il gruppo di risorse.
+    * **Nome progetto**: immettere un nome per il progetto.  Il nome del progetto viene usato per generare i nomi delle risorse.  Vedere le definizioni delle variabili nel modello precedente.
+    * **Località**: selezionare una località per le risorse.  È possibile usare la stessa località per il gruppo di risorse.
+    * **Messaggio di posta elettronica di invito**: immettere l'indirizzo di posta elettronica del destinatario della condivisione dati usato per l'accesso ad Azure.  L'alias di posta elettronica non funziona.
 
     Per le impostazioni rimanenti, usare i valori predefiniti.
 1. Selezionare **Accetto le condizioni riportate sopra** e quindi **Acquista**.

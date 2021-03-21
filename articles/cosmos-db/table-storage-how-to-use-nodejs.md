@@ -10,10 +10,10 @@ author: sakash279
 ms.author: akshanka
 ms.custom: devx-track-js
 ms.openlocfilehash: 2d40b70d49b1934c9dd2d911369245b1b2e4f2ff
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
-ms.translationtype: HT
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93079703"
 ---
 # <a name="how-to-use-azure-table-storage-or-the-azure-cosmos-db-table-api-from-nodejs"></a>Come usare l'archiviazione tabelle di Azure o l'API Tabelle di Azure Cosmos DB da Node.js
@@ -135,8 +135,8 @@ var tableSvc = azure.createTableService().withFilter(retryOperations);
 
 Per aggiungere un'entità, creare prima un oggetto che definisca le proprietà dell'entità. Tutte le entità devono contenere **PartitionKey** e **RowKey** che sono gli identificatori univoci dell'entità.
 
-* **PartitionKey** : determina la partizione in cui è archiviata l'entità.
-* **RowKey** : identifica in modo univoco l'entità all'interno della partizione.
+* **PartitionKey**: determina la partizione in cui è archiviata l'entità.
+* **RowKey**: identifica in modo univoco l'entità all'interno della partizione.
 
 Sia **PartitionKey** che **RowKey** devono essere valori stringa. Per altre informazioni, vedere [Informazioni sul modello di dati del servizio tabelle](/rest/api/storageservices/Understanding-the-Table-Service-Data-Model).
 
@@ -221,7 +221,7 @@ tableSvc.replaceEntity('mytable', updatedTask, function(error, result, response)
 
 Con `replaceEntity` e `mergeEntity`, se l'entità da aggiornare non esiste, l'operazione di aggiornamento ha esito negativo. Di conseguenza, se si vuole archiviare un'entità indipendentemente dal fatto che sia già presente, usare `insertOrReplaceEntity` o `insertOrMergeEntity`.
 
-L'oggetto `result` per le operazioni di aggiornamento riuscite contiene l' **Etag** dell'entità aggiornata.
+L'oggetto `result` per le operazioni di aggiornamento riuscite contiene l'**Etag** dell'entità aggiornata.
 
 ## <a name="work-with-groups-of-entities"></a>Usare i gruppi di entità
 
@@ -261,15 +261,15 @@ Per le operazioni in batch riuscite, `result` contiene le informazioni relative 
 
 È possibile esaminare le operazioni aggiunte a un batch visualizzando la proprietà `operations`. Per usare le operazioni sono disponibili anche i metodi seguenti:
 
-* **clear** : cancella tutte le operazioni da un batch.
-* **getOperations** : recupera un'operazione dal batch.
-* **hasOperations** : restituisce true se il batch contiene operazioni.
-* **removeOperations** : rimuove un'operazione.
-* **size** : restituisce il numero di operazioni nel batch.
+* **clear**: cancella tutte le operazioni da un batch.
+* **getOperations**: recupera un'operazione dal batch.
+* **hasOperations**: restituisce true se il batch contiene operazioni.
+* **removeOperations**: rimuove un'operazione.
+* **size**: restituisce il numero di operazioni nel batch.
 
 ## <a name="retrieve-an-entity-by-key"></a>Recuperare un'entità in base alla chiave
 
-Per restituire un'entità specifica in base a **PartitionKey** e **RowKey** , usare il metodo **retrieveEntity**.
+Per restituire un'entità specifica in base a **PartitionKey** e **RowKey**, usare il metodo **retrieveEntity**.
 
 ```javascript
 tableSvc.retrieveEntity('mytable', 'hometasks', '1', function(error, result, response){
@@ -285,12 +285,12 @@ Al termine di questa operazione, `result` contiene l'entità.
 
 Per eseguire una query su una tabella, usare l'oggetto **TableQuery** per creare un'espressione di query con queste clausole:
 
-* **select** : i campi che la query deve restituire.
-* **where** : la clausola where.
+* **select**: i campi che la query deve restituire.
+* **where**: la clausola where.
 
-  * **and** : una condizione where `and`.
-  * **or** : una condizione where `or`.
-* **top** : il numero di elementi da recuperare.
+  * **and**: una condizione where `and`.
+  * **or**: una condizione where `or`.
+* **top**: il numero di elementi da recuperare.
 
 L'esempio seguente crea una query che restituisce i primi cinque elementi con PartitionKey 'hometasks'.
 

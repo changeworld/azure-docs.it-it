@@ -10,10 +10,10 @@ author: likebupt
 ms.author: keli19
 ms.date: 10/22/2019
 ms.openlocfilehash: a4c93b12ad654e54a7f3c7ee0e75507d5cb45e90
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "90907811"
 ---
 # <a name="split-data-module"></a>Modulo Split data
@@ -48,7 +48,7 @@ Questo modulo è utile quando è necessario separare i dati in set di training e
 
 1. Aggiungere il modulo [Split data](./split-data.md) alla pipeline nella finestra di progettazione e connettere il set di dati che si desidera suddividere.
   
-1. Per la **modalità di suddivisione**selezionare **Dividi righe**. 
+1. Per la **modalità di suddivisione** selezionare **Dividi righe**. 
 
 1. **Frazione di righe nel primo set di dati di output**: usare questa opzione per determinare il numero di righe che verranno inserite nel primo output (lato sinistro). Tutte le altre righe verranno inserite nel secondo output (lato destro).
 
@@ -60,7 +60,7 @@ Questo modulo è utile quando è necessario separare i dati in set di training e
 
 1. Valore di **inizializzazione casuale**: immettere un valore integer non negativo per avviare la sequenza di istanze di pseudocasuale da usare. Questo valore di inizializzazione predefinito viene usato in tutti i moduli che generano numeri casuali. 
 
-   La specifica di un valore di inizializzazione rende riproducibili i risultati. Se è necessario ripetere i risultati di un'operazione Split, è necessario specificare un valore di inizializzazione per il generatore di numeri casuali. In caso contrario, il valore di inizializzazione casuale viene impostato su **0**per impostazione predefinita, il che significa che il valore di inizializzazione iniziale viene ottenuto dal clock di sistema. Di conseguenza, la distribuzione dei dati può differire leggermente ogni volta che si esegue una suddivisione. 
+   La specifica di un valore di inizializzazione rende riproducibili i risultati. Se è necessario ripetere i risultati di un'operazione Split, è necessario specificare un valore di inizializzazione per il generatore di numeri casuali. In caso contrario, il valore di inizializzazione casuale viene impostato su **0** per impostazione predefinita, il che significa che il valore di inizializzazione iniziale viene ottenuto dal clock di sistema. Di conseguenza, la distribuzione dei dati può differire leggermente ogni volta che si esegue una suddivisione. 
 
 1. **Suddivisione stratificata**: impostare questa opzione su **true** per assicurarsi che i due set di risultati di output contengano un campione rappresentativo dei valori nella *colonna Strata* o nella *colonna chiave di stratificazione*. 
 
@@ -73,7 +73,7 @@ Questo modulo è utile quando è necessario separare i dati in set di training e
 
 1. Aggiungere il modulo [Split data](./split-data.md) alla pipeline e connetterlo come input al set di dati che si desidera suddividere.  
   
-1. Per la **modalità di suddivisione**selezionare **espressione regolare divisa**.
+1. Per la **modalità di suddivisione** selezionare **espressione regolare divisa**.
 
 1. Nella casella **espressione regolare** immettere un'espressione regolare valida. 
   
@@ -107,7 +107,7 @@ Il primo set di dati di risultati contiene tutte le righe in cui la colonna inde
 
 1. Aggiungere il modulo [Split data](./split-data.md) alla pipeline e connetterlo come input al set di dati che si desidera suddividere.
   
-1. Per la **modalità di suddivisione**selezionare **espressione relativa**.
+1. Per la **modalità di suddivisione** selezionare **espressione relativa**.
   
 1. Nella casella **espressione relazionale** immettere un'espressione che esegue un'operazione di confronto su una sola colonna.
 

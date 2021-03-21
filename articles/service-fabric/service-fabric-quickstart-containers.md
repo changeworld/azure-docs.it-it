@@ -6,10 +6,10 @@ ms.date: 07/10/2019
 ms.author: atsenthi
 ms.custom: mvc
 ms.openlocfilehash: 934b679813323fe144f935811eb613ab68b561db
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
-ms.translationtype: HT
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/05/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "87089618"
 ---
 # <a name="quickstart-deploy-windows-containers-to-service-fabric"></a>Avvio rapido: Distribuire i contenitori Windows in Service Fabric
@@ -30,7 +30,7 @@ In questa guida introduttiva si apprende come:
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerequisiti
 
 * Una sottoscrizione di Azure. È possibile creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 * Un computer di sviluppo che esegue:
@@ -152,7 +152,7 @@ Mentre il cluster è in esecuzione, continuano a essere addebitati i relativi co
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-In questa guida introduttiva si è appreso come:
+In questo argomento di avvio rapido si è appreso come:
 
 * Creare un pacchetto di un contenitore di un'immagine Docker
 * Configurare la comunicazione

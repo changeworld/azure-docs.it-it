@@ -4,10 +4,10 @@ description: Questo articolo illustra come usare PowerShell per configurare back
 ms.topic: conceptual
 ms.date: 12/2/2019
 ms.openlocfilehash: 582d8123f16b2d5a543d862b8eb3e45895087e4a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "90987106"
 ---
 # <a name="deploy-and-manage-backup-to-azure-for-windows-serverwindows-client-using-powershell"></a>Distribuire e gestire il backup in Azure per server Windows/client Windows mediante PowerShell

@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.date: 03/27/2019
 ms.author: chrande
 ms.openlocfilehash: 18cefb1dd80368a8ccdad9f6f3ffc30881a8a889
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93087486"
 ---
 # <a name="how-to-use-the-execution-profile-step-to-evaluate-your-gremlin-queries"></a>Come usare il passaggio del profilo di esecuzione per valutare le query Gremlin
@@ -139,12 +139,12 @@ Di seguito è riportato un esempio annotato dell'output che verrà restituito:
 ## <a name="execution-profile-response-objects"></a>Oggetti di risposta del profilo di esecuzione
 
 La risposta di una funzione executionProfile () produrrà una gerarchia di oggetti JSON con la struttura seguente:
-  - **Oggetto dell'operazione Gremlin** : rappresenta l'intera operazione Gremlin eseguita. Contiene le proprietà seguenti.
+  - **Oggetto dell'operazione Gremlin**: rappresenta l'intera operazione Gremlin eseguita. Contiene le proprietà seguenti.
     - `gremlin`: Istruzione Gremlin esplicita che è stata eseguita.
     - `totalTime`: Tempo, in millisecondi, durante il quale è stata ricorreta l'esecuzione del passaggio. 
     - `metrics`: Matrice che contiene tutti gli operatori di runtime Cosmos DB eseguiti per completare la query. Questo elenco è ordinato in ordine di esecuzione.
     
-  - **Cosmos DB operatori di runtime** : rappresenta tutti i componenti dell'intera operazione Gremlin. Questo elenco è ordinato in ordine di esecuzione. Ogni oggetto contiene le proprietà seguenti:
+  - **Cosmos DB operatori di runtime**: rappresenta tutti i componenti dell'intera operazione Gremlin. Questo elenco è ordinato in ordine di esecuzione. Ogni oggetto contiene le proprietà seguenti:
     - `name`: Nome dell'operatore. Si tratta del tipo di passaggio valutato ed eseguito. Per altre informazioni, vedere la tabella seguente.
     - `time`: Periodo di tempo, in millisecondi, impiegato da un determinato operatore.
     - `annotations`: Contiene informazioni aggiuntive, specifiche dell'operatore che è stato eseguito.
@@ -177,7 +177,7 @@ Di seguito sono riportati alcuni esempi di ottimizzazioni comuni che è possibil
 
 ### <a name="blind-fan-out-query-patterns"></a>Modelli di query con ventola cieca
 
-Si supponga che la risposta del profilo di esecuzione seguente da un **grafo partizionato** :
+Si supponga che la risposta del profilo di esecuzione seguente da un **grafo partizionato**:
 
 ```json
 [

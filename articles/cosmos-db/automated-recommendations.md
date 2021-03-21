@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 07/28/2020
 ms.reviewer: sngun
 ms.openlocfilehash: d9eb55030c7ec52f9b2ac79fbab19944f0a3e190
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93087826"
 ---
 # <a name="automated-recommendations-for-azure-cosmos-db"></a>Suggerimenti automatici per Azure Cosmos DB
@@ -27,9 +27,9 @@ Tutti i servizi cloud, tra cui Azure Cosmos DB ricevere aggiornamenti frequenti 
 
    :::image type="content" source="./media/automated-recommendations/cosmos-db-pane-recommendations.png" alt-text="Visualizzare le raccomandazioni dal riquadro Azure Cosmos DB":::
 
-- È anche possibile trovare le raccomandazioni tramite [Azure Advisor](../advisor/advisor-overview.md) categorizzate in base a bucket diversi, ad esempio costi, sicurezza, affidabilità, prestazioni e eccellenza operativa. È possibile selezionare sottoscrizioni specifiche e filtrare in base al tipo di risorsa, che è **Azure Cosmos DB account** .  Quando si seleziona una raccomandazione specifica, vengono visualizzate le azioni che è possibile eseguire per trarre vantaggio dai carichi di lavoro.
+- È anche possibile trovare le raccomandazioni tramite [Azure Advisor](../advisor/advisor-overview.md) categorizzate in base a bucket diversi, ad esempio costi, sicurezza, affidabilità, prestazioni e eccellenza operativa. È possibile selezionare sottoscrizioni specifiche e filtrare in base al tipo di risorsa, che è **Azure Cosmos DB account**.  Quando si seleziona una raccomandazione specifica, vengono visualizzate le azioni che è possibile eseguire per trarre vantaggio dai carichi di lavoro.
 
-   :::image type="content" source="./media/automated-recommendations/advisor-pane-recommendations.png" alt-text="Visualizzare le raccomandazioni dal riquadro Azure Cosmos DB":::
+   :::image type="content" source="./media/automated-recommendations/advisor-pane-recommendations.png" alt-text="Visualizzare le raccomandazioni dal riquadro Azure Advisor":::
 
 Non tutte le raccomandazioni visualizzate nel riquadro Azure Cosmos DB sono disponibili nell'Azure Advisor e viceversa. Ciò è dovuto al fatto che in base al tipo di raccomandazione rientrano nel riquadro Azure Advisor, Azure Cosmos DB riquadro o entrambi.
 

@@ -3,16 +3,16 @@ title: 'Guida introduttiva: Creare un server - Interfaccia della riga di comando
 description: Questa guida introduttiva descrive come usare l'interfaccia della riga di comando di Azure per creare un server di Database di Azure per MariaDB in un gruppo di risorse di Azure.
 author: savjani
 ms.author: pariks
-ms.service: jroth
+ms.service: mariadb
 ms.devlang: azurecli
 ms.topic: quickstart
 ms.date: 3/18/2020
 ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: 2242b0842bda9587915fc949046b8fa7effb725c
-ms.sourcegitcommit: 52e3d220565c4059176742fcacc17e857c9cdd02
+ms.openlocfilehash: 3279150d0cb7b287f0a78581094a51356033596c
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/21/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98662161"
 ---
 # <a name="quickstart-create-an-azure-database-for-mariadb-server-by-using-the-azure-cli"></a>Avvio rapido: Creare un server di Database di Azure per MariaDB usando l'interfaccia della riga di comando di Azure
