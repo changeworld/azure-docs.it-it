@@ -1,5 +1,5 @@
 ---
-title: "Esercitazione: Integrazione dell'accesso Single Sign-On (SSO) di Azure Active Directory con FloQast | Microsoft Docs"
+title: 'Esercitazione: integrazione di Azure Active Directory Single Sign-On (SSO) con FloQast | Microsoft Docs'
 description: Informazioni su come configurare l'accesso Single Sign-On tra Azure Active Directory e FloQast.
 services: active-directory
 author: jeevansd
@@ -12,13 +12,13 @@ ms.topic: tutorial
 ms.date: 10/10/2019
 ms.author: jeedes
 ms.openlocfilehash: ed35a0b6e6f2ad620b528283a332507845e4f00d
-ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
-ms.translationtype: HT
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/16/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97588268"
 ---
-# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-floqast"></a>Esercitazione: Integrazione dell'accesso Single Sign-On (SSO) di Azure Active Directory con FloQast
+# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-floqast"></a>Esercitazione: integrazione di Azure Active Directory Single Sign-On (SSO) con FloQast
 
 Questa esercitazione descrive come integrare FloQast con Azure Active Directory (Azure AD). Integrando FloQast con Azure AD, è possibile:
 
@@ -59,10 +59,10 @@ Configurare e testare l'accesso SSO di Azure AD con FloQast usando un utente di 
 Per configurare e testare l'accesso SSO di Azure AD con FloQast, completare le procedure di base seguenti:
 
 1. **[Configurare l'accesso Single Sign-On di Azure AD](#configure-azure-ad-sso)** : per consentire agli utenti di usare questa funzionalità.
-    * **[Creare un utente di test di Azure AD](#create-an-azure-ad-test-user)** : per testare l'accesso Single Sign-On di Azure AD con l'utente B. Simon.
-    * **[Assegnare l'utente di test di Azure AD](#assign-the-azure-ad-test-user)** : per abilitare B. Simon all'uso dell'accesso Single Sign-On di Azure AD.
-1. **[Configurare l'accesso Single Sign-On di FloQast](#configure-floqast-sso)** : per configurare le impostazioni di Single Sign-On sul lato applicazione.
-    * **[Creare l'utente di test di FloQast](#create-floqast-test-user)** : per avere una controparte di B.Simon in FloQast collegata alla rappresentazione dell'utente in Azure AD.
+    * **[Creare un utente di test di Azure AD](#create-an-azure-ad-test-user)** : per testare l'accesso Single Sign-On di Azure AD con l'utente B.Simon.
+    * **[Assegnare l'utente di test di Azure AD](#assign-the-azure-ad-test-user)** : per abilitare B.Simon all'uso dell'accesso Single Sign-On di Azure AD.
+1. **[Configurare l'accesso Single Sign-On di FloQast](#configure-floqast-sso)**: per configurare le impostazioni di Single Sign-On sul lato applicazione.
+    * **[Creare l'utente di test di FloQast](#create-floqast-test-user)**: per avere una controparte di B.Simon in FloQast collegata alla rappresentazione dell'utente in Azure AD.
 1. **[Testare l'accesso Single Sign-On](#test-sso)** : per verificare se la configurazione funziona.
 
 ## <a name="configure-azure-ad-sso"></a>Configurare l'accesso SSO di Azure AD

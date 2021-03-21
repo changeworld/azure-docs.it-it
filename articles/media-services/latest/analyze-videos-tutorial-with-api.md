@@ -2,31 +2,24 @@
 title: Analizzare i video con Servizi multimediali v3
 description: Informazioni su come analizzare i video con Servizi multimediali di Azure.
 services: media-services
-documentationcenter: ''
 author: IngridAtMicrosoft
 manager: femila
-editor: ''
 ms.service: media-services
-ms.workload: ''
 ms.topic: tutorial
-ms.date: 08/31/2020
+ms.date: 03/17/2021
 ms.author: inhenkel
-ms.custom: seodec18
-ms.openlocfilehash: 4a050d838bae9b394f5f292698781a9a824af0bf
-ms.sourcegitcommit: 6386854467e74d0745c281cc53621af3bb201920
+ms.openlocfilehash: a083fbbf54d6f03316a2e647d47e76cdb5db7c2c
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/08/2021
-ms.locfileid: "102454125"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104581237"
 ---
 # <a name="tutorial-analyze-videos-with-media-services-v3"></a>Esercitazione: Analizzare i video con Servizi multimediali v3
 
 [!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
 
-> [!NOTE]
-> Anche se l'esercitazione usa esempi di [.NET SDK](/dotnet/api/microsoft.azure.management.media.models.liveevent), le procedure generali sono identiche per l'[API REST](/rest/api/media/liveevents), l'[interfaccia della riga di comando](/cli/azure/ams/live-event) o altri [SDK](media-services-apis-overview.md#sdks) supportati.
-
-Questa esercitazione illustra come analizzare i video usando Servizi multimediali di Azure. Esistono molti scenari in cui può essere opportuno acquisire informazioni dettagliate da video registrati e contenuti audio. Le organizzazioni, ad esempio, per migliorare la soddisfazione dei clienti, possono convertire in testo scritto l'audio delle registrazioni del supporto clienti e trasformarle in un catalogo di consultazione, con indici e dashboard. Possono quindi acquisire informazioni dettagliate sull'andamento dell'attività. Queste informazioni dettagliate includono un elenco dei reclami frequenti, delle origini di tali reclami, nonché altre informazioni utili.
+Questa esercitazione illustra come analizzare i video usando Servizi multimediali di Azure. Esistono molti scenari in cui può essere opportuno acquisire informazioni dettagliate da video registrati e contenuti audio. Le organizzazioni, ad esempio, per migliorare la soddisfazione dei clienti, possono convertire in testo scritto l'audio delle registrazioni del supporto clienti e trasformarle in un catalogo di consultazione, con indici e dashboard.
 
 Questa esercitazione illustra come:
 
@@ -41,7 +34,7 @@ Questa esercitazione illustra come:
 
 ## <a name="compliance-privacy-and-security"></a>Conformità, privacy e sicurezza
  
-È importante ricordare che è necessario usare Video Indexer in conformità con tutte le leggi applicabili e non è possibile usare Video Indexer né qualsiasi altro servizio di Azure in un modo che violi i diritti di altri utenti o possa arrecare danni ad altri utenti. Per poter caricare video, inclusi dati biometrici, nel servizio Video Indexer per elaborarli e archiviarli, è necessario disporre di tutti i diritti appropriati, inclusi tutti i consensi appropriati delle persone che compaiono nel video. Per informazioni su conformità, privacy e sicurezza in Video Indexer, vedere le [condizioni di Servizi cognitivi Microsoft](https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/). Per informazioni sugli obblighi relativi alla privacy e la gestione dei dati degli utenti da parte di Microsoft, vedere l'[informativa sulla privacy](https://privacy.microsoft.com/PrivacyStatement), le [condizioni per l'utilizzo dei servizi online](https://www.microsoft.com/licensing/product-licensing/products) e l'[addendum sull'elaborazione dati](https://www.microsoftvolumelicensing.com/DocumentSearch.aspx?Mode=3&DocumentTypeId=67) Microsoft. Informazioni aggiuntive sulla privacy, tra cui la conservazione e l'eliminazione/distruzione dei dati, sono disponibili nelle condizioni per l'utilizzo dei servizi online e [qui](../video-indexer/faq.md). Usando Video Indexer, l'utente accetta di essere vincolato dalle condizioni di Servizi cognitivi, dalle condizioni per l'utilizzo dei servizi online, dall'addendum sull'elaborazione dati e dall'informativa sulla privacy.
+Per un promemoria importante, è necessario rispettare tutte le leggi applicabili nell'utilizzo del Video Indexer. Non è necessario usare Video Indexer o altri servizi di Azure in modo da violare i diritti di altri utenti. Prima di caricare tutti i video, inclusi i dati biometrici, nel servizio Video Indexer per l'elaborazione e l'archiviazione, è necessario disporre di tutti i diritti appropriati, inclusi tutti i consensi appropriati, dai singoli utenti del video. Per informazioni su conformità, privacy e sicurezza in Video Indexer, le [condizioni dei servizi cognitivi](https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/)di Azure. Per gli obblighi sulla privacy e la gestione dei dati di Microsoft, consultare l' [informativa sulla privacy](https://privacy.microsoft.com/PrivacyStatement)di Microsoft, le condizioni per i [servizi online](https://www.microsoft.com/licensing/product-licensing/products) (OST) e l'Addendum per l' [elaborazione dati](https://www.microsoftvolumelicensing.com/DocumentSearch.aspx?Mode=3&DocumentTypeId=67) ("DPA"). Altre informazioni sulla privacy, tra cui la conservazione dei dati, l'eliminazione o la distruzione, sono disponibili nella OST e [qui](../video-indexer/faq.md). Utilizzando Video Indexer, l'utente accetta di essere vincolato dalle condizioni di servizi cognitivi, da OST, DPA e dall'Informativa sulla privacy.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -131,7 +124,7 @@ Il completamento del processo richiede qualche istante. Al termine dell'operazio
 
 Il polling non è una procedura consigliata per le app di produzione a causa dei rischi di latenza. Il polling può essere limitato se usato eccessivamente su un account. In alternativa, è preferibile che gli sviluppatori usino Griglia di eventi.
 
-Griglia di eventi è un servizio progettato per garantire disponibilità elevata, coerenza nelle prestazioni e scalabilità dinamica. Con Griglia di eventi, le app possono rimanere in ascolto e reagire agli eventi praticamente da tutti i servizi di Azure, oltre che da origini personalizzate. Questo semplice servizio di gestione degli eventi, reattivo e basato su HTTP, consente di creare soluzioni efficienti tramite funzioni intelligenti di filtraggio e routing di eventi. Per altre informazioni, [Instradare gli eventi a un endpoint Web personalizzato](job-state-events-cli-how-to.md).
+Griglia di eventi è un servizio progettato per garantire disponibilità elevata, coerenza nelle prestazioni e scalabilità dinamica. Con Griglia di eventi, le app possono rimanere in ascolto e reagire agli eventi praticamente da tutti i servizi di Azure, oltre che da origini personalizzate. Questo semplice servizio di gestione degli eventi, reattivo e basato su HTTP, consente di creare soluzioni efficienti tramite funzioni intelligenti di filtraggio e routing di eventi. Per altre informazioni, [Instradare gli eventi a un endpoint Web personalizzato](monitoring/job-state-events-cli-how-to.md).
 
 L'oggetto **Job** assume progressivamente gli stati seguenti: **Scheduled**, **Queued**, **Processing**, **Finished** (stato finale). Se nel corso del processo si verifica un errore, viene restituito lo stato **Errore**. Se il processo è in fase di annullamento, vengono restituiti lo stato **Annullamento in corso** e, al termine, lo stato **Annullato**.
 
@@ -147,11 +140,19 @@ La funzione seguente scarica i risultati del processo dall'[asset](/rest/api/med
 
 [!code-csharp[Main](../../../media-services-v3-dotnet-tutorials/AMSV3Tutorials/AnalyzeVideos/Program.cs#DownloadResults)]
 
-### <a name="clean-up-resource-in-your-media-services-account"></a>Pulire le risorse nell'account di Servizi multimediali
+### <a name="clean-up-resources-in-your-media-services-account"></a>Pulire le risorse nell'account di Servizi multimediali
+
+[!INCLUDE [clean-up-warning](includes/clean-up-warning.md)]
 
 Normalmente è necessario pulire tutti gli oggetti tranne quelli che si prevede di riutilizzare. In genere si riutilizzano le trasformazioni e si salvano in modo permanente i localizzatori di streaming. Se dopo l'attività di sperimentazione si vuole pulire l'account, eliminare le risorse che non si prevede di riutilizzare. Il codice seguente, ad esempio, elimina il processo e l'asset di output:
 
+### <a name="delete-resources-with-code"></a>Elimina risorse con codice
+
 [!code-csharp[Main](../../../media-services-v3-dotnet-tutorials/AMSV3Tutorials/AnalyzeVideos/Program.cs#CleanUp)]
+
+È anche possibile usare l'interfaccia della riga di comando.
+
+[!INCLUDE [clean-up-resources-cli](includes/clean-up-resources-cli.md)]
 
 ## <a name="run-the-sample-app"></a>Eseguire l'app di esempio
 
@@ -163,23 +164,10 @@ Quando si esegue il programma, il processo genera anteprime per ogni volto rilev
 
 Il file di output risultante dall'analisi dei video è denominato insights.json e contiene informazioni dettagliate sul video analizzato. La descrizione degli elementi presenti nel file json è riportata nell'articolo [Intelligenza dei contenuti multimediali](./analyzing-video-audio-files-concept.md).
 
-## <a name="clean-up-resources"></a>Pulire le risorse
-
-Se nessuna delle risorse usate è più necessaria, compresi gli account di archiviazione e di Servizi multimediali creati per questa esercitazione, eliminare il gruppo di risorse creato in precedenza.
-
-Eseguire il comando dell'interfaccia della riga di comando seguente:
-
-```azurecli
-az group delete --name amsResourceGroup
-```
-
 ## <a name="multithreading"></a>Multithreading
 
-Gli SDK di Servizi multimediali di Azure v3 non sono thread-safe. Quando si usa un'app multithreading, è necessario generare un nuovo oggetto AzureMediaServicesClient per ogni thread.
-
-## <a name="ask-questions-give-feedback-get-updates"></a>Porre domande, fornire feedback, ottenere aggiornamenti
-
-Consultare l'articolo [Community di Servizi multimediali di Azure](media-services-community.md) per esaminare i diversi modi in cui è possibile porre domande, fornire feedback e ottenere aggiornamenti su Servizi multimediali.
+> [!WARNING]
+> Gli SDK di Servizi multimediali di Azure v3 non sono thread-safe. Quando si usa un'app multithreading, è necessario generare un nuovo oggetto AzureMediaServicesClient per ogni thread.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

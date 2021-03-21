@@ -265,22 +265,8 @@
           href: /python/api/azure-mgmt-policyinsights/azure.mgmt.policyinsights
     - name: REST
       items:
-        - name: Eventi
-          href: /rest/api/policy-insights/policyevents
-        - name: Stati
-          href: /rest/api/policy-insights/policystates
-        - name: Assegnazioni
-          href: /rest/api/resources/policyassignments
-        - name: Definizioni dei criteri
-          href: /rest/api/resources/policydefinitions
-        - name: Esenzioni dei criteri
-          href: /rest/api/resources/policyexemptions
-        - name: Definizioni delle iniziative
-          href: /rest/api/resources/policysetdefinitions
-        - name: Risorse monitorate dai criteri
-          href: /rest/api/policy-insights/policytrackedresources
-        - name: Correzioni
-          href: /rest/api/policy-insights/remediations
+        - name: Criteri
+          href: /rest/api/policy/
         - name: Configurazione guest
           href: /rest/api/guestconfiguration/
     - name: Modelli di Gestione risorse

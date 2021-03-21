@@ -30,6 +30,8 @@
       href: data-flow-create.md
 - name: Esercitazioni
   items:
+    - name: Elenco delle esercitazioni
+      href: data-factory-tutorials.md
     - name: Copiare e inserire dati
       items:
         - name: Da Archiviazione BLOB di Azure al database SQL di Azure
@@ -694,14 +696,16 @@
           href: azure-ssis-integration-runtime-package-store.md
     - name: Creare trigger
       items:
-        - name: Creare un trigger di evento di archiviazione
-          href: how-to-create-event-trigger.md
         - name: Creare un trigger di pianificazione
           href: how-to-create-schedule-trigger.md
         - name: Creare un trigger di finestra a cascata
           href: how-to-create-tumbling-window-trigger.md
         - name: Creare una dipendenza del trigger di finestra a cascata
           href: tumbling-window-trigger-dependency.md
+        - name: Creare un trigger di evento di archiviazione
+          href: how-to-create-event-trigger.md
+        - name: Creare un trigger di evento personalizzato
+          href: how-to-create-custom-event-trigger.md
         - name: Metadati del trigger di riferimento nella pipeline
           href: how-to-use-trigger-parameterization.md
     - name: Data Catalog e governance

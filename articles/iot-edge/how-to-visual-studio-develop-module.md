@@ -9,10 +9,10 @@ ms.date: 3/27/2020
 ms.topic: conceptual
 ms.service: iot-edge
 ms.openlocfilehash: 6e5b5c021eb6a83de9ecfb31757855065b70c290
-ms.sourcegitcommit: 5f32f03eeb892bf0d023b23bd709e642d1812696
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/12/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "103196957"
 ---
 # <a name="use-visual-studio-2019-to-develop-and-debug-modules-for-azure-iot-edge"></a>Utilizzare Visual Studio 2019 per sviluppare ed eseguire il debug di moduli per Azure IoT Edge
@@ -114,7 +114,7 @@ Il progetto **IotEdgeModule1** è un'applicazione console .net core 2,1 se è un
 
 ## <a name="develop-your-module"></a>Sviluppare il modulo
 
-Il codice del modulo predefinito incluso nella soluzione si trova in **IotEdgeModule1**  >  **Program.cs** (per C#) o **Main. c** (c). Il modulo e il `deployment.template.json` file sono configurati in modo da poter compilare la soluzione, eseguirne il push nel registro contenitori e distribuirla in un dispositivo per avviare i test senza toccare alcun codice. Il modulo viene compilato per l'input da un'origine (in questo caso, il modulo **SimulatedTemperatureSensor** che simula i dati) e lo invia tramite pipe all'hub Azure.
+Il codice del modulo predefinito incluso nella soluzione si trova in **IotEdgeModule1**  >  **Program. cs** (per C#) o **Main. c** (c). Il modulo e il `deployment.template.json` file sono configurati in modo da poter compilare la soluzione, eseguirne il push nel registro contenitori e distribuirla in un dispositivo per avviare i test senza toccare alcun codice. Il modulo viene compilato per l'input da un'origine (in questo caso, il modulo **SimulatedTemperatureSensor** che simula i dati) e lo invia tramite pipe all'hub Azure.
 
 Quando si è pronti per personalizzare il modello di modulo con il proprio codice, usare gli [SDK dell'hub Azure](../iot-hub/iot-hub-devguide-sdks.md) per creare moduli che risolvono le esigenze principali per le soluzioni Internet, come la sicurezza, la gestione dei dispositivi e l'affidabilità.
 
@@ -149,7 +149,7 @@ In genere, è consigliabile testare ed eseguire il debug di ogni modulo prima di
 
    ![Modulo in esecuzione](./media/how-to-visual-studio-develop-csharp-module/single-module-run.png)
 
-1. Se si sviluppa in C#, impostare un punto di interruzione nella `PipeMessage()` funzione in **Program.cs**; se si usa C, impostare un punto di interruzione nella `InputQueue1Callback()` funzione in **Main. C**. È quindi possibile testarlo inviando un messaggio eseguendo il comando seguente in una shell bash **git** o **WSL bash** . (non è possibile eseguire il comando `curl` in PowerShell o nel prompt dei comandi).
+1. Se si sviluppa in C#, impostare un punto di interruzione nella `PipeMessage()` funzione in **Program. cs**; se si usa C, impostare un punto di interruzione nella `InputQueue1Callback()` funzione in **Main. C**. È quindi possibile testarlo inviando un messaggio eseguendo il comando seguente in una shell bash **git** o **WSL bash** . (non è possibile eseguire il comando `curl` in PowerShell o nel prompt dei comandi).
 
     ```bash
     curl --header "Content-Type: application/json" --request POST --data '{"inputName": "input1","data":"hello world"}' http://localhost:53000/api/v1/messages

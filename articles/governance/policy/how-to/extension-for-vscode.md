@@ -4,10 +4,10 @@ description: Informazioni su come usare l'estensione di criteri di Azure per Vis
 ms.date: 01/11/2021
 ms.topic: how-to
 ms.openlocfilehash: 4c4ba0eeb0506179ff92ead0ee86f048600d157e
-ms.sourcegitcommit: 48e5379c373f8bd98bc6de439482248cd07ae883
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/12/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98107940"
 ---
 # <a name="use-azure-policy-extension-for-visual-studio-code"></a>Usare l'estensione di criteri di Azure per Visual Studio Code

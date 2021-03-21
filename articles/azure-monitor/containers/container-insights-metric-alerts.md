@@ -4,10 +4,10 @@ description: Questo articolo esamina gli avvisi di metrica consigliati disponibi
 ms.topic: conceptual
 ms.date: 10/28/2020
 ms.openlocfilehash: f19959c76d31422a0bdf898a6fa41e6b168e2e61
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/03/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "101728893"
 ---
 # <a name="recommended-metric-alerts-preview-from-container-insights"></a>Avvisi sulle metriche consigliati (anteprima) da contenitore Insights

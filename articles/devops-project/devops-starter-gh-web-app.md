@@ -8,10 +8,10 @@ ms.topic: tutorial
 ms.date: 08/25/2020
 author: ninallam
 ms.openlocfilehash: 4caac943df33177728997c74c9ec812105efd62c
-ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
-ms.translationtype: HT
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/16/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97588778"
 ---
 # <a name="tutorial-deploy-nodejs-app-to-azure-web-app-using-devops-starter-for-github-actions"></a>Esercitazione: Distribuire un'app Node.js in App Web di Azure usando DevOps Starter per GitHub Actions
@@ -104,7 +104,7 @@ DevOps Starter crea un repository in GitHub. Per visualizzare il repository e ap
 
 1. Sul lato sinistro del dashboard di DevOps Starter selezionare il collegamento per il ramo principale. Questo collegamento apre una visualizzazione del repository GitHub appena creato.
 
-1. Per visualizzare l'URL clone del repository, selezionare **Clona** in alto a destra nel browser. È possibile clonare il repository Git nell'IDE preferito. Nei passaggi successivi è possibile usare il Web browser per apportare modifiche al codice ed eseguirne il commit direttamente nel ramo principale.
+1. Per visualizzare l'URL clone del repository, selezionare **Clona** in alto a destra nel browser. È possibile clonare il repository Git nell'IDE preferito. Nei passaggi successivi, è possibile usare il Web browser per apportare modifiche al codice ed eseguirne il commit direttamente nel ramo principale.
 
 1. Sul lato sinistro del browser passare al file **/Application/views/index.pug**.
 
