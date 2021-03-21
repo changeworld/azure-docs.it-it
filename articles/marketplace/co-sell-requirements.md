@@ -6,17 +6,18 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 author: vamahtan
 ms.author: vamahtan
-ms.date: 3/12/2021
-ms.openlocfilehash: fa8f2b5e952ddd188f99d130c2154d4602191c2b
-ms.sourcegitcommit: 94c3c1be6bc17403adbb2bab6bbaf4a717a66009
+ms.reviewer: stmummer
+ms.date: 3/17/2021
+ms.openlocfilehash: e67219e0b029ce401ffc05c009a5cc4a96680a9f
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/12/2021
-ms.locfileid: "103225065"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104593391"
 ---
 # <a name="co-sell-requirements"></a>Requisiti di co-selling
 
-Questo articolo fornisce i requisiti per i vari livelli di stato di co-selling. Per l'elenco più recente dei tipi di offerta che supportano la co-selling, vedere  [configurare la co-selling per un'offerta di Marketplace commerciale](commercial-marketplace-co-sell.md). Per una panoramica di co-selling, vedere la pagina relativa [alla co-selling con i team di vendita e i partner Microsoft](marketplace-co-sell.md).
+Questo articolo fornisce i requisiti per i vari livelli di stato di co-selling. Per l'elenco più recente dei tipi di offerta che supportano la co-selling, vedere  [configurare la co-selling per un'offerta di Marketplace commerciale](co-sell-configure.md). Per una panoramica di co-selling, vedere la pagina relativa [alla co-selling con i team di vendita e i partner Microsoft](co-sell-overview.md).
 
 Questa tabella Mostra tutti i possibili stati di co-selling:
 
@@ -25,7 +26,7 @@ Questa tabella Mostra tutti i possibili stati di co-selling:
 | Non co-selling pronto | I [requisiti minimi per lo stato pronto per il co-selling](#requirements-for-co-sell-ready-status) non sono stati soddisfatti. |
 | Co-selling pronto | Tutti i [requisiti per lo stato di co-selling pronto](#requirements-for-co-sell-ready-status) sono stati soddisfatti. |
 | Co-selling IP di Azure incentivate | Sono stati soddisfatti i requisiti di co-selling pronti, oltre a [questi requisiti aggiuntivi](#requirements-for-azure-ip-co-sell-incentivized-status). |
-| App biz ISV Connect Premium Incentive  | Questo stato si applica alle offerte Dynamics 365 e Power Apps e indica che sono stati soddisfatti tutti i [requisiti per questo stato](#requirements-for-biz-apps-isv-connect-premium-incentive-status) . |
+| Business Applications co-selling incentivate | Questo stato si applica alle offerte di Dynamics 365 e Power Apps nel [programma Microsoft Business Applications ISV Connect](business-applications-isv-program.md) e indica che sono stati soddisfatti tutti i [requisiti per questo stato](#requirements-for-business-applications-co-sell-incentivized-status) . |
 |||
 
 ## <a name="requirements-for-co-sell-ready-status"></a>Requisiti per lo stato pronto per il co-selling
@@ -37,15 +38,15 @@ Per un'offerta per ottenere lo stato pronto per il co-selling, è necessario sod
 - Avere un ID MPN e un [account Marketplace commerciale attivo nel centro per i partner](./partner-center-portal/create-account.md).
 - Assicurarsi di disporre di un [profilo di business](/partner-center/create-a-marketing-profile) completo nel centro per i partner. In qualità di partner Microsoft qualificato, il tuo profilo aziendale ti aiuta a presentare la tua attività ai clienti che cercano soluzioni e competenze esclusive per soddisfare le esigenze aziendali, ottenendo [riferimenti](/partner-center/referrals).
 - Completare la **co-selling con** la scheda Microsoft e pubblicare l'offerta nel Marketplace commerciale.
-- Fornire un contatto per le vendite per ogni co-selling geography idoneo e la fattura di materiali necessaria)
+- Fornire un contatto per le vendite per ogni co-selling geography idoneo e la fattura di materiali richiesta.
 
 **Partner dei servizi**:
 
 - Per le offerte del tipo di _soluzione del servizio_ , è necessario disporre di una competenza Gold attiva in qualsiasi area di competenza.
- 
+
 **Business Applications ISV**:
 
-- Dynamics 365 Customer Engagement & PowerApps e Dynamics 365 Finance & Ops (ad eccezione di Dynamics 365 business Central) e le soluzioni PowerApps richiedono la registrazione con ISV Connect.
+- Dynamics 365 & le soluzioni PowerApps (ad eccezione di Dynamics 365 business Central) richiedono la registrazione di ISV Connect.
 
 ### <a name="complete-the-co-sell-with-microsoft-tab"></a>Completare la co-selling con la scheda Microsoft
 
@@ -82,13 +83,9 @@ Requisito 2: passare la convalida tecnica Microsoft per una soluzione basata su 
 Requisito 3: fornire un diagramma dell'architettura di riferimento:
 - Caricare un diagramma dell'architettura di riferimento con i documenti di co-selling nel centro per i partner per la revisione. Per istruzioni sulla creazione di questo diagramma, vedere [diagramma dell'architettura di riferimento](reference-architecture-diagram.md). Per informazioni sul caricamento del diagramma, vedere Configurare la [co-selling per un'offerta di Marketplace commerciale](commercial-marketplace-co-sell.md).
 
-## <a name="requirements-for-biz-apps-isv-connect-premium-incentive-status"></a>Requisiti per le app biz stato di incentivo Premium per ISV Connect
+## <a name="requirements-for-business-applications-co-sell-incentivized-status"></a>Requisiti per Business Applications stato incentivate di co-selling
 
-Questo stato si applica alle soluzioni, alle app e ai servizi basati su IP basati su Dynamics 365 o Power Apps.
-
-Non è necessario ottenere lo stato pronto per la co-selling (elencato in precedenza) per ottenere le app biz ISV Connect standard incentive. Tuttavia, dopo che un'app ha raggiunto lo stato pronto per il co-selling, può essere considerato per le app biz che ISV connettono lo stato di incentivo Premium in base agli ultimi 12 mesi di condivisione dei ricavi e risultati/soglie di co-selling.
-
-Requisito: è necessario disporre di una registrazione attiva nel livello Premium della [connessione ISV](business-applications-isv-program.md) .
+Questo stato si applica alle soluzioni basate su IP compilate in Dynamics 365 o Power Apps (ad eccezione di Dynamics 365 business Central) registrate nel programma ISV Connect. Tuttavia, le offerte devono anche completare i requisiti per lo stato di co-selling pronto (descritto in precedenza) per consentire ai venditori Microsoft di essere in grado di co-vendere l'offerta.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

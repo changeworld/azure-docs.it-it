@@ -1,9 +1,9 @@
 ---
 ms.openlocfilehash: 597a617f892ba00af13b4f88cad1eddf00f0d11b
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/03/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "101750345"
 ---
 ### <a name="examine-and-edit-the-sample-files"></a>Esaminare e modificare i file di esempio

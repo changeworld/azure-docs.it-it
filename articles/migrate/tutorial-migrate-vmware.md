@@ -7,12 +7,12 @@ ms.manager: bsiva
 ms.topic: tutorial
 ms.date: 06/09/2020
 ms.custom: mvc
-ms.openlocfilehash: bebc2e629193944c840948c9c573462a43e3032e
-ms.sourcegitcommit: 5f32f03eeb892bf0d023b23bd709e642d1812696
+ms.openlocfilehash: 0dcb750871eeae504ddb3d4e3851c834bcad125c
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/12/2021
-ms.locfileid: "103201694"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104604543"
 ---
 # <a name="migrate-vmware-vms-to-azure-agentless"></a>Eseguire la migrazione di VM VMware ad Azure (senza agente)
 
@@ -202,6 +202,8 @@ Dopo aver verificato che la migrazione di test funzioni nel modo previsto, è po
 - Per una maggiore resilienza:
     - Proteggere i dati eseguendo il backup delle macchine virtuali di Azure con il servizio Backup di Azure. [Altre informazioni](../backup/quick-backup-vm-portal.md)
     - Mantenere i carichi di lavoro in esecuzione e sempre disponibili eseguendo la replica delle macchine virtuali di Azure in un'area secondaria con Site Recovery. [Altre informazioni](../site-recovery/azure-to-azure-tutorial-enable-replication.md)
+- Per migliorare le prestazioni:
+    - Per impostazione predefinita, i dischi dati vengono creati con la memorizzazione nella cache dell'host impostata su "None". Esaminare e modificare la memorizzazione nella cache del disco dati in base alle esigenze del carico di lavoro. [Altre informazioni](../virtual-machines/premium-storage-performance.md#disk-caching)  
 - Per una maggiore sicurezza:
     - Bloccare e limitare l'accesso del traffico in ingresso con la funzionalità di [amministrazione JIT del Centro sicurezza di Azure](../security-center/security-center-just-in-time.md).
     - Limitare il traffico di rete verso gli endpoint di gestione con la funzionalità [Gruppi di sicurezza di rete](../virtual-network/network-security-groups-overview.md).

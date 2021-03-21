@@ -6,12 +6,12 @@ ms.author: rosouz
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 11/30/2020
-ms.openlocfilehash: 9fb6e94062639d32707f52f66e0b99531884a636
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 120bec65c92e2a13022682265b83bfe0f69d8ed0
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101692267"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104592085"
 ---
 # <a name="frequently-asked-questions-about-azure-synapse-link-for-azure-cosmos-db"></a>Domande frequenti su Collegamento ad Azure Synapse per Azure Cosmos DB
 [!INCLUDE[appliesto-sql-mongodb-api](includes/appliesto-sql-mongodb-api.md)]
@@ -33,6 +33,10 @@ Quando si pianifica la configurazione di un account Azure Cosmos DB per più are
 ### <a name="can-i-choose-to-enable-azure-synapse-link-for-only-certain-region-and-not-all-regions-in-a-multi-region-account-set-up"></a>È possibile scegliere di abilitare il collegamento sinapsi di Azure solo per determinate aree geografiche e non tutte le aree in una configurazione di account in più aree?
 
 Quando il collegamento sinapsi di Azure è abilitato per un account in più aree, l'archivio analitico viene creato in tutte le aree. I dati sottostanti sono ottimizzati per la velocità effettiva e per la coerenza transazionale nell'archivio transazionale.
+
+### <a name="is-analytical-store-supported-in-all-azure-cosmos-db-regions"></a>L'archivio analitico è supportato in tutte le aree Azure Cosmos DB?
+
+Sì.
 
 ### <a name="is-backup-and-restore-supported-for-azure-synapse-link-enabled-accounts"></a>Il backup e il ripristino sono supportati per gli account abilitati per il collegamento sinapsi di Azure?
 
@@ -165,6 +169,10 @@ Questa funzionalità non è attualmente disponibile.
 ### <a name="can-i-do-spark-structured-streaming-from-analytical-store"></a>È possibile eseguire Structured Streaming di Spark dall'archivio analitico?
 
 Attualmente il supporto di Structured Streaming di Spark per Azure Cosmos DB viene implementato tramite la funzionalità del feed di modifiche dell'archivio transazionale e non è ancora previsto nell'archivio analitico.
+
+### <a name="is-streaming-supported"></a>Il flusso è supportato?
+
+Non è supportato lo streaming dei dati dall'archivio analitico.
 
 ## <a name="azure-synapse-studio"></a>Azure Synapse Studio
 

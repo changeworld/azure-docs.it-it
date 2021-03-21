@@ -6,13 +6,13 @@ ms.topic: conceptual
 ms.author: jingwang
 author: linda33wj
 ms.custom: seo-lt-2019
-ms.date: 03/08/2021
-ms.openlocfilehash: b1e7511f7666455592b6d5f463a316c3354ec76b
-ms.sourcegitcommit: f6193c2c6ce3b4db379c3f474fdbb40c6585553b
+ms.date: 03/17/2021
+ms.openlocfilehash: ec24fa1bde21c70aa95fc33c92048aebc9f6659c
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/08/2021
-ms.locfileid: "102447436"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104597386"
 ---
 # <a name="copy-data-from-and-to-dynamics-365-common-data-servicemicrosoft-dataverse-or-dynamics-crm-by-using-azure-data-factory"></a>Copiare dati da e in Dynamics 365 (Common Data Service/Microsoft dataverse) o Dynamics CRM usando Azure Data Factory
 
@@ -323,6 +323,7 @@ Per copiare i dati in Dynamics, la sezione **sink** dell'attività di copia supp
 | alternateKeyName | Nome della chiave alternativa definito nell'entità per eseguire un Upsert. | No. |
 | writeBatchSize | Conteggio delle righe di dati scritti da Dynamics in ogni batch. | No. Il valore predefinito è 10. |
 | ignoreNullValues | Indica se ignorare i valori null dai dati di input diversi dai campi chiave durante un'operazione di scrittura.<br/><br/>I valori validi sono **true** e **false**:<ul><li>**True**: lasciare invariati i dati nell'oggetto di destinazione quando si esegue un'operazione Upsert o Update. Inserire un valore predefinito definito quando si esegue un'operazione di inserimento.</li><li>**False**: aggiornare i dati nell'oggetto di destinazione in un valore null quando si esegue un'operazione Upsert o Update. Inserire un valore null quando si esegue un'operazione di inserimento.</li></ul> | No. Il valore predefinito è **false**. |
+| maxConcurrentConnections |Limite massimo di connessioni simultanee stabilite all'archivio dati durante l'esecuzione dell'attività. Specificare un valore solo quando si desidera limitare le connessioni simultanee.| No |
 
 >[!NOTE]
 >Il valore predefinito sia per il sink **writeBatchSize** che per l'attività di copia **[parallelCopies](copy-activity-performance-features.md#parallel-copy)** per il sink Dynamics è 10. Pertanto, per impostazione predefinita, i record 100 vengono inviati simultaneamente a Dynamics.

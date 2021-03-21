@@ -1,15 +1,15 @@
 ---
 title: Dettagli di conformità alle normative per 1.3.0 di base di CIS Microsoft Azure Foundation
 description: Dettagli del 1.3.0 di base di riferimento per la conformità alle normative di Microsoft Azure CIS. Ogni controllo viene mappato a una o più definizioni di Criteri di Azure che assistono nella valutazione.
-ms.date: 03/10/2021
+ms.date: 03/17/2021
 ms.topic: sample
 ms.custom: generated
-ms.openlocfilehash: 1d7883a6e7bb8d5732676906895cae06cbe8e12b
-ms.sourcegitcommit: b572ce40f979ebfb75e1039b95cea7fce1a83452
+ms.openlocfilehash: 9c268e1146b61656ec3a98153c9bd9060075c93d
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/11/2021
-ms.locfileid: "102632323"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104604730"
 ---
 # <a name="details-of-the-cis-microsoft-azure-foundations-benchmark-130-regulatory-compliance-built-in-initiative"></a>Dettagli del 1.3.0 di base di riferimento per la conformità alle normative di Microsoft Azure CIS
 
@@ -493,7 +493,7 @@ Quindi, trovare e selezionare il **sid Microsoft Azure Foundations benchmark 1.3
 
 |Nome<br /><sub>(Portale di Azure)</sub> |Descrizione |Effetto/i |Versione<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
-|[Gli aggiornamenti di sistema devono essere installati nelle macchine](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F86b3d65f-7626-441e-b690-81a8b71cff60) |Gli aggiornamenti di sistema per la sicurezza nei server verranno monitorati dal Centro sicurezza di Azure che invierà i consigli corrispondenti |AuditIfNotExists, Disabled |[3.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Security%20Center/ASC_MissingSystemUpdates_Audit.json) |
+|[Gli aggiornamenti di sistema devono essere installati nelle macchine](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F86b3d65f-7626-441e-b690-81a8b71cff60) |Gli aggiornamenti di sistema per la sicurezza nei server verranno monitorati dal Centro sicurezza di Azure che invierà i consigli corrispondenti |AuditIfNotExists, Disabled |[4.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Security%20Center/ASC_MissingSystemUpdates_Audit.json) |
 
 ### <a name="ensure-that-the-endpoint-protection-for-all-virtual-machines-is-installed"></a>Assicurarsi che venga installata la protezione endpoint per tutte le Macchine virtuali di Microsoft Azure
 

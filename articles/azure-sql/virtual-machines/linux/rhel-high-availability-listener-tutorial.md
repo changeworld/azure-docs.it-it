@@ -8,10 +8,10 @@ ms.author: vanto
 ms.reviewer: jroth
 ms.date: 03/11/2020
 ms.openlocfilehash: 83fde9e957cb2011ce585603e51d331be171bc08
-ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
-ms.translationtype: HT
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/16/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97586228"
 ---
 # <a name="tutorial-configure-an-availability-group-listener-for-sql-server-on-rhel-virtual-machines-in-azure"></a>Esercitazione: Configurare un listener del gruppo di disponibilità per SQL Server nelle macchine virtuali RHEL in Azure
@@ -54,7 +54,7 @@ Le istruzioni seguenti illustrano i passaggi da 1 a 4 della sezione [Creare e co
 
 5. Bella finestra di dialogo **Crea servizio di bilanciamento del carico** configurare il servizio di bilanciamento del carico come segue:
 
-   | Impostazione | valore |
+   | Impostazione | Valore |
    | --- | --- |
    | **Nome** |Nome che rappresenta il servizio di bilanciamento del carico. Ad esempio **sqlLB**. |
    | **Tipo** |**Interno** |
@@ -95,7 +95,7 @@ Il probe definisce come Azure deve verificare quali istanze di SQL Server sono a
 
 3. Configurare il probe nel pannello **Aggiungi probe** . Usare i valori seguenti per configurare il probe.
 
-   | Impostazione | valore |
+   | Impostazione | Valore |
    | --- | --- |
    | **Nome** |Nome che rappresenta il probe. Ad esempio **SQLAlwaysOnEndPointProbe**. |
    | **Protocollo** |**TCP** |
@@ -124,7 +124,7 @@ Le regole di bilanciamento del carico consentono di configurare il modo in cui i
 
 3. Nel pannello **Aggiungi regola di bilanciamento del carico** configurare la regola di bilanciamento del carico. Usare le seguenti impostazioni: 
 
-   | Impostazione | valore |
+   | Impostazione | Valore |
    | --- | --- |
    | **Nome** |Nome che rappresenta la regola di bilanciamento del carico. Ad esempio **SQLAlwaysOnEndPointListener**. |
    | **Protocollo** |**TCP** |

@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 3/10/2021
 ms.author: inhenkel
 ms.openlocfilehash: 0961b52ebc7271fabf4cc05ed99eea23d911a2d4
-ms.sourcegitcommit: 225e4b45844e845bc41d5c043587a61e6b6ce5ae
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/11/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "103009094"
 ---
 # <a name="streaming-endpoints-overview"></a>Panoramica degli endpoint di streaming  
@@ -77,7 +77,7 @@ Se l'endpoint di streaming **versione "1.0"** ha una o più unità di streaming 
 
 ### <a name="versions"></a>Versioni
 
-|Tipo|StreamingEndpointVersion|ScaleUnits|RETE CDN|Fatturazione|
+|Tipo|StreamingEndpointVersion|ScaleUnits|Rete CDN|Fatturazione|
 |--------------|----------|-----------------|-----------------|-----------------|
 |Classic|1.0|0|N/D|Gratuito|
 |Endpoint di streaming standard (anteprima)|2.0|0|Sì|Paid|
@@ -89,7 +89,7 @@ Se l'endpoint di streaming **versione "1.0"** ha una o più unità di streaming 
 Funzionalità|Standard|Premium
 ---|---|---
 Velocità effettiva |Fino a 600 Mbps e possono fornire una velocità effettiva molto più elevata quando si usa una rete CDN.|200 Mbps per unità di streaming (SU). Può fornire una velocità effettiva molto più elevata quando viene usata una rete CDN.
-RETE CDN|Rete CDN di Azure, rete CDN di terze parti o nessuna rete CDN.|Rete CDN di Azure, rete CDN di terze parti o nessuna rete CDN.
+Rete CDN|Rete CDN di Azure, rete CDN di terze parti o nessuna rete CDN.|Rete CDN di Azure, rete CDN di terze parti o nessuna rete CDN.
 Fatturazione con ripartizione proporzionale| Ogni giorno|Ogni giorno
 Crittografia dinamica|Sì|Sì
 creazione dinamica dei pacchetti|Sì|Sì

@@ -6,10 +6,10 @@ ms.subservice: language-understanding
 ms.topic: how-to
 ms.date: 06/30/2020
 ms.openlocfilehash: 59dfa439f6428f2db972a8f848887e1a74bc2622
-ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/21/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98624304"
 ---
 # <a name="prediction-endpoint-changes-for-v3"></a>Modifiche all'endpoint di stima per V3
@@ -104,9 +104,9 @@ Per eseguire una query in base alla versione, è prima di tutto necessario [pubb
 |--|--|--|--|--|
 |`dynamicLists`|array|Solo V3|Non obbligatorio.|Gli [elenchi dinamici](schema-change-prediction-runtime.md#dynamic-lists-passed-in-at-prediction-time) consentono di estendere un'entità di elenco con training e pubblicato esistente, già nell'app Luis.|
 |`externalEntities`|array|Solo V3|Non obbligatorio.|Le [entità esterne](schema-change-prediction-runtime.md#external-entities-passed-in-at-prediction-time) offrono all'app Luis la possibilità di identificare ed etichettare entità durante il runtime, che possono essere usate come funzionalità per le entità esistenti. |
-|`options.datetimeReference`|stringa|Solo V3|Nessun valore predefinito|Utilizzato per determinare l' [offset del datetimeV2](luis-concept-data-alteration.md#change-time-zone-of-prebuilt-datetimev2-entity). Il formato di datetimeReference è [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601).|
+|`options.datetimeReference`|string|Solo V3|Nessun valore predefinito|Utilizzato per determinare l' [offset del datetimeV2](luis-concept-data-alteration.md#change-time-zone-of-prebuilt-datetimev2-entity). Il formato di datetimeReference è [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601).|
 |`options.preferExternalEntities`|boolean|Solo V3|false|Specifica se l' [entità esterna dell'utente (con lo stesso nome dell'entità esistente)](schema-change-prediction-runtime.md#override-existing-model-predictions) viene utilizzata o se per la stima viene utilizzata l'entità esistente del modello. |
-|`query`|stringa|Solo V3|Obbligatorio.|**Nella versione V2**, l'espressione da stimare si trova nel `q` parametro. <br><br>**Nella V3** la funzionalità viene passata nel `query` parametro.|
+|`query`|string|Solo V3|Obbligatorio.|**Nella versione V2**, l'espressione da stimare si trova nel `q` parametro. <br><br>**Nella V3** la funzionalità viene passata nel `query` parametro.|
 
 ## <a name="response-changes"></a>Modifiche della risposta
 

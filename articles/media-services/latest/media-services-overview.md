@@ -78,7 +78,7 @@ Le guide pratiche contengono esempi di codice che illustrano come completare un'
 * [Creare un account - Interfaccia della riga di comando](./create-account-howto.md)
 * [Accedere alle API - Interfaccia della riga di comando](./access-api-howto.md)
 * [Codificare con HTTPS come input del processo - .NET](job-input-from-http-how-to.md)  
-* [Monitorare gli eventi - Portale](monitor-events-portal-how-to.md)
+* [Monitorare gli eventi - Portale](monitoring/monitor-events-portal-how-to.md)
 * [Crittografare in modo dinamico il contenuto con più tecnologie DRM - .NET](protect-with-drm.md) 
 * [Come codificare con una trasformazione personalizzata - CLI](custom-preset-cli-howto.md)
 

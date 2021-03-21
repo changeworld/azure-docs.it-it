@@ -11,12 +11,12 @@ ms.custom:
 - 'Role: Cloud Development'
 - 'Role: Operations'
 - 'Role: Technical Support'
-ms.openlocfilehash: 3de9eccd001e421ef3255f83630716df12b7a2ee
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 4b65d42522f40eb7d0e65356223313a924de3039
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 03/19/2021
-ms.locfileid: "104595261"
+ms.locfileid: "104656992"
 ---
 # <a name="reference---iot-hub-quotas-and-throttling"></a>Riferimento - Quote e limitazioni dell'hub IoT
 
@@ -87,7 +87,7 @@ Ad esempio, si usa un dispositivo simulato per inviare i messaggi da dispositivo
 
 Le operazioni del registro delle identità dei dispositivi sono progettate per l'uso in fase di esecuzione in scenari di provisioning e gestione dei dispositivi. L'operazione di lettura o aggiornamento di un numero elevato di identità dei dispositivi è supportata tramite i [processi di importazione ed esportazione](iot-hub-devguide-identity-registry.md#import-and-export-device-identities).
 
-Quando si avviano le operazioni di identità tramite [operazioni bulk sui dispositivi](iot-hub-bulk-identity-mgmt.md), si applicano gli stessi limiti di limitazione. Se, ad esempio, si desidera inviare un'operazione bulk per creare dispositivi 50 e si dispone di un hub per le cose S1 con 1 unità, vengono accettate solo due richieste Bulk al minuto. Questo perché la limitazione dell'operazione di identità per per un hub di tutto S1 con 1 unità è 100/min/unità. Inoltre, in questo caso, una terza richiesta (e oltre) nello stesso minuto verrebbe rifiutata perché era già stato raggiunto il limite. 
+Quando si avviano le operazioni di identità tramite [operazioni bulk di aggiornamento del registro di sistema](https://docs.microsoft.com/rest/api/iothub/service/bulkregistry/updateregistry) (*non* processi di importazione ed esportazione bulk), si applicano gli stessi limiti di limitazione. Se, ad esempio, si desidera inviare un'operazione bulk per creare dispositivi 50 e si dispone di un hub per le cose S1 con 1 unità, vengono accettate solo due richieste Bulk al minuto. Questo perché la limitazione dell'operazione di identità per per un hub di tutto S1 con 1 unità è 100/min/unità. Inoltre, in questo caso, una terza richiesta (e oltre) nello stesso minuto verrebbe rifiutata perché era già stato raggiunto il limite. 
 
 ### <a name="device-connections-throttle"></a>Limitazione delle connessioni del dispositivo
 

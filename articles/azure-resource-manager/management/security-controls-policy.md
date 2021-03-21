@@ -1,18 +1,18 @@
 ---
 title: Controlli di conformità alle normative di Criteri di Azure per Azure Resource Manager
 description: Elenca i controlli di conformità alle normative di Criteri di Azure disponibili per Azure Resource Manager. Queste definizioni di criteri predefiniti rappresentano approcci comuni per gestire la conformità delle risorse di Azure.
-ms.date: 03/10/2021
+ms.date: 03/17/2021
 ms.topic: sample
 author: tfitzmac
 ms.author: tomfitz
 ms.service: azure-resource-manager
 ms.custom: subject-policy-compliancecontrols
-ms.openlocfilehash: a845ceb6e5bf5da4dc9eda7f90aec498bf4616aa
-ms.sourcegitcommit: b572ce40f979ebfb75e1039b95cea7fce1a83452
+ms.openlocfilehash: b4913a18329d94eae787fbc23fdb73f14a0f1a1a
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/11/2021
-ms.locfileid: "102635527"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104594453"
 ---
 # <a name="azure-policy-regulatory-compliance-controls-for-azure-resource-manager"></a>Controlli di conformità alle normative di Criteri di Azure per Azure Resource Manager
 

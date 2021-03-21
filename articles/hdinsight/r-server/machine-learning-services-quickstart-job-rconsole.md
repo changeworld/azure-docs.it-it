@@ -1,18 +1,18 @@
 ---
-title: 'Guida introduttiva: Script R in ML Services e console R - Azure HDInsight'
+title: 'Guida introduttiva: script R in ML Services & console R-Azure HDInsight'
 description: In questa guida introduttiva si eseguirà uno script R in un cluster ML Services in Azure HDInsight con la console R.
 ms.service: hdinsight
 ms.topic: quickstart
 ms.date: 06/19/2019
 ms.custom: mvc
 ms.openlocfilehash: eac6fd14acfe12a0f505419a229bb78e423706d1
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/28/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98935739"
 ---
-# <a name="quickstart-execute-an-r-script-on-an-ml-services-cluster-in-azure-hdinsight-using-r-console"></a>Guida introduttiva: Eseguire uno script R in un cluster ML Services in Azure HDInsight con la console R
+# <a name="quickstart-execute-an-r-script-on-an-ml-services-cluster-in-azure-hdinsight-using-r-console"></a>Guida introduttiva: eseguire uno script R in un cluster ML Services in Azure HDInsight usando la console di R
 
 ML Services in Azure HDInsight consente agli script R di usare Apache Spark e Apache Hadoop MapReduce per eseguire i calcoli distribuiti. ML Services controlla l'esecuzione delle chiamate impostando il contesto di calcolo. Il nodo perimetrale di un cluster offre una posizione pratica per connettersi al cluster ed eseguire gli script R. Con un nodo perimetrale è possibile eseguire le funzioni distribuite parallelizzate di RevoScaleR nei core del server del nodo perimetrale. È anche possibile eseguire tali funzioni tra i nodi del cluster usando contesti di calcolo Hadoop MapReduce o Apache Spark di RevoScaleR.
 
@@ -147,13 +147,13 @@ Questa guida introduttiva illustra come eseguire uno script R con una console R 
     
       ---
     
-      Signif. codes:  0 ‘**_’ 0.001 ‘_*’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+      Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
     
       Condition number of final variance-covariance matrix: 11904202
       Number of iterations: 7
     ```
 
-1. Eseguire la stessa regressione logistica usando il contesto di **Spark**. Il contesto di Spark distribuisce l'elaborazione su tutti i nodi del ruolo di lavoro del cluster HDInsight. Immettere il codice seguente nella console R:
+1. Eseguire la stessa regressione logistica usando il contesto di **Spark** . Il contesto di Spark distribuisce l'elaborazione su tutti i nodi del ruolo di lavoro del cluster HDInsight. Immettere il codice seguente nella console R:
 
     ```R
     # Define the Spark compute context

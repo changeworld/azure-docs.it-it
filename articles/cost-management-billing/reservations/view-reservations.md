@@ -6,14 +6,14 @@ ms.reviewer: yashar
 ms.service: cost-management-billing
 ms.subservice: reservations
 ms.topic: how-to
-ms.date: 02/24/2021
+ms.date: 03/17/2021
 ms.author: banders
-ms.openlocfilehash: 477dff9db28672f8231710af34786ac387f43b71
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.openlocfilehash: 1c666602f764e8274cb2a30df204e97479c85ba3
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102050342"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104583055"
 ---
 # <a name="view-azure-reservations"></a>Visualizzare le prenotazioni di Azure
 
@@ -39,7 +39,7 @@ Per consentire ad altre persone di gestire le prenotazioni sono disponibili due 
     1. Selezionare l'utente e quindi selezionare **Salva**.
 
 - Aggiungere un utente come amministratore della fatturazione a un Contratto Enterprise o a un Contratto del cliente Microsoft:
-    - Per un Contratto Enterprise, aggiungere gli utenti con il ruolo di _Amministratore dell'organizzazione_ per visualizzare e gestire tutti gli ordini di prenotazione applicabili al Contratto Enterprise. Gli utenti con il ruolo _Amministratore dell'organizzazione (sola lettura)_ possono solo visualizzare la prenotazione. Gli amministratori del reparto e i proprietari dell'account non possono visualizzare le prenotazioni _a meno che_ non vengano aggiunti ad esse in modo esplicito tramite Controllo di accesso (IAM). Per altre informazioni, vedere [Gestione dei ruoli Enterprise di Azure](../manage/understand-ea-roles.md).
+    - Per un Contratto Enterprise, aggiungere gli utenti con il ruolo di _Amministratore dell'organizzazione_ per visualizzare e gestire tutti gli ordini di prenotazione applicabili al Contratto Enterprise. Gli amministratori dell'organizzazione possono visualizzare e gestire prenotazioni in **Gestione costi e fatturazione**, non **prenotazioni**. Gli utenti con il ruolo _Amministratore dell'organizzazione (sola lettura)_ possono solo visualizzare la prenotazione. Gli amministratori del reparto e i proprietari dell'account non possono visualizzare le prenotazioni _a meno che_ non vengano aggiunti ad esse in modo esplicito tramite Controllo di accesso (IAM). Per altre informazioni, vedere [Gestione dei ruoli Enterprise di Azure](../manage/understand-ea-roles.md).
 
         _Gli amministratori dell'organizzazione possono assumere la proprietà di un ordine di prenotazione e aggiungere altri utenti a una prenotazione tramite Controllo di accesso (IAM)._
     - Per un Contratto del cliente Microsoft, gli utenti con il ruolo di proprietario del profilo di fatturazione o di collaboratore per il profilo di fatturazione possono gestire tutti gli acquisti di prenotazioni effettuati usando il profilo di fatturazione. Gli utenti con il ruolo di lettore profilo di fatturazione e responsabile fatturazione possono visualizzare tutte le prenotazioni pagate con il profilo di fatturazione. Non possono però apportare modifiche alle prenotazioni.

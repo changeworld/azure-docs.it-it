@@ -1,9 +1,9 @@
 ---
 ms.openlocfilehash: 426c735dfd0d015cdc1a734edde9d336fb88cfbc
-ms.sourcegitcommit: cc13f3fc9b8d309986409276b48ffb77953f4458
-ms.translationtype: HT
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/14/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97486775"
 ---
 Come parte dei prerequisiti per questo argomenti di avvio rapido, il codice di esempio è stato scaricato in una cartella. Seguire questa procedura per esaminare e modificare il codice di esempio.
@@ -12,11 +12,11 @@ Come parte dei prerequisiti per questo argomenti di avvio rapido, il codice di e
 
     Il modello di distribuzione fa riferimento al manifesto della distribuzione per il dispositivo perimetrale, in cui per alcune proprietà vengono usate delle variabili. Il file *.env* include i valori per queste variabili.
 1. Passare alla cartella *src/cloud-to-device-console-app*. Sono inclusi il file *appsettings.json* e alcuni altri file:
-    * ***c2d-console-app.csproj** _ - Il file di progetto per Visual Studio Code.
-    _ ***operations.json** _ - elenco di operazioni che il programma dovrà eseguire.
-    _ ***Program.cs** _ - Il codice del programma di esempio. Questo codice:
+    * ***c2d-console-app.csproj***: il file di progetto per Visual Studio Code.
+    * ***operations.json***: l'elenco di operazioni che il programma dovrà eseguire.
+    * ***Program.cs***: il codice del programma di esempio. Questo codice:
 
-        _ Carica le impostazioni dell'app.
+        * Carica le impostazioni dell'app.
         * Richiama i metodi diretti esposti dal modulo Analisi video live in IoT Edge. È possibile usare il modulo per analizzare i flussi video live richiamando i [metodi diretti](../../../direct-methods.md). 
         * Sospende l'esecuzione per consentire di esaminare l'output del programma nella finestra **TERMINALE** e gli eventi generati dal modulo nella finestra **OUTPUT**.
         * Richiama i metodi diretti per pulire le risorse.

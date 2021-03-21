@@ -5,14 +5,14 @@ services: azure-resource-manager
 author: mumian
 ms.service: azure-resource-manager
 ms.topic: conceptual
-ms.date: 12/28/2020
+ms.date: 03/18/2021
 ms.author: jgao
-ms.openlocfilehash: 9d045fb75838ac016f3e9b04cd2519d8a8530a4b
-ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
+ms.openlocfilehash: 130deea4e5998d696065df4854a47bf7ffd1183c
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102175652"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104594243"
 ---
 # <a name="use-deployment-scripts-in-arm-templates"></a>Usare gli script di distribuzione nei modelli ARM
 
@@ -162,11 +162,11 @@ Dettagli sui valori delle proprietà:
   > [!NOTE]
   > Il portale di Azure non può analizzare uno script di distribuzione con più righe. Per distribuire un modello con uno script di distribuzione dalla portale di Azure, è possibile concatenare i comandi di PowerShell usando un punto e virgola in un'unica riga o usare la `primaryScriptUri` proprietà con un file di script esterno.
 
-- `primaryScriptUri`: Specificare un URL accessibile pubblicamente per lo script di distribuzione primario con le estensioni di file supportate.
-- `supportingScriptUris`: Specificare una matrice di URL accessibili pubblicamente per supportare i file che vengono chiamati in `scriptContent` o `primaryScriptUri` .
+- `primaryScriptUri`: Specificare un URL accessibile pubblicamente per lo script di distribuzione primario con le estensioni di file supportate. Per altre informazioni, vedere [use External scripts](#use-external-scripts).
+- `supportingScriptUris`: Specificare una matrice di URL accessibili pubblicamente per supportare i file che vengono chiamati in `scriptContent` o `primaryScriptUri` . Per altre informazioni, vedere [use External scripts](#use-external-scripts).
 - `timeout`: specificare il tempo di esecuzione dello script massimo consentito nel [formato ISO 8601](https://en.wikipedia.org/wiki/ISO_8601). Il valore predefinito è **P1D**.
 - `cleanupPreference`. Specificare la preferenza per la pulizia delle risorse di distribuzione quando l'esecuzione dello script si trova in uno stato terminale. L'impostazione predefinita è **Sempre**, che indica l'eliminazione delle risorse nonostante lo stato del terminale (Riuscito, Non riuscito, Annullato). Per altre informazioni, vedere [Pulire le risorse dello script di distribuzione](#clean-up-deployment-script-resources).
-- `retentionInterval`: Specificare l'intervallo per cui il servizio mantiene le risorse dello script di distribuzione dopo che l'esecuzione dello script di distribuzione raggiunge uno stato terminale. Le risorse dello script di distribuzione verranno eliminate alla scadenza di tale durata. La durata è basata sul [modello ISO 8601](https://en.wikipedia.org/wiki/ISO_8601). L'intervallo di conservazione è compreso tra 1 e 26 ore (PT26H). Questa proprietà viene usata quando l'opzione `cleanupPreference` è impostata su **OnExpiration**. La proprietà **Onexpirement** non è attualmente abilitata. Per altre informazioni, vedere [Pulire le risorse dello script di distribuzione](#clean-up-deployment-script-resources).
+- `retentionInterval`: Specificare l'intervallo per cui il servizio mantiene le risorse dello script di distribuzione dopo che l'esecuzione dello script di distribuzione raggiunge uno stato terminale. Le risorse dello script di distribuzione verranno eliminate alla scadenza di tale durata. La durata è basata sul [modello ISO 8601](https://en.wikipedia.org/wiki/ISO_8601). L'intervallo di conservazione è compreso tra 1 e 26 ore (PT26H). Questa proprietà viene usata quando l'opzione `cleanupPreference` è impostata su **OnExpiration**. Per altre informazioni, vedere [Pulire le risorse dello script di distribuzione](#clean-up-deployment-script-resources).
 
 ### <a name="additional-samples"></a>Altri esempi
 
@@ -212,7 +212,7 @@ Oltre agli script inline, è anche possibile usare file di script esterni. Sono 
 
 Per ulteriori informazioni, vedere il [modello di esempio](https://github.com/Azure/azure-docs-json-samples/blob/master/deployment-script/deploymentscript-helloworld-primaryscripturi.json).
 
-I file di script esterni devono essere accessibili. Per proteggere i file di script archiviati negli account di archiviazione di Azure, vedere [Distribuire un modello ARM privato con token di firma di accesso condiviso](./secure-template-with-sas-token.md).
+I file di script esterni devono essere accessibili. Per proteggere i file di script archiviati negli account di archiviazione di Azure, generare un token di firma di accesso condiviso e includerlo nell'URI del modello. Impostare l'ora di scadenza in modo da garantire un tempo sufficiente per completare la distribuzione. Per altre informazioni, vedere [distribuire un modello ARM privato con token SAS](./secure-template-with-sas-token.md).
 
 L'utente è responsabile di garantire l'integrità degli script a cui viene fatto riferimento dallo script di distribuzione, `primaryScriptUri` o `supportingScriptUris` . Fare riferimento solo a script attendibili.
 
@@ -313,7 +313,7 @@ Il servizio script imposta lo stato di provisioning delle risorse su **non riusc
 
 ### <a name="pass-secured-strings-to-deployment-script"></a>Passare stringhe protette allo script di distribuzione
 
-L'impostazione delle variabili di ambiente (EnvironmentVariable) nelle istanze di contenitore consente di offrire la configurazione dinamica dell'applicazione o dello script eseguiti dal contenitore. Lo script di distribuzione gestisce variabili di ambiente non protette e protette in modo analogo all'istanza di contenitore di Azure. Per altre informazioni, vedere [Impostare variabili di ambiente in istanze di contenitore](../../container-instances/container-instances-environment-variables.md#secure-values).
+L'impostazione delle variabili di ambiente (EnvironmentVariable) nelle istanze di contenitore consente di offrire la configurazione dinamica dell'applicazione o dello script eseguiti dal contenitore. Lo script di distribuzione gestisce variabili di ambiente non protette e protette in modo analogo all'istanza di contenitore di Azure. Per altre informazioni, vedere [Impostare variabili di ambiente in istanze di contenitore](../../container-instances/container-instances-environment-variables.md#secure-values). Per un esempio, vedere [modelli di esempio](#sample-templates).
 
 La dimensione massima consentita per le variabili di ambiente è 64 KB.
 
