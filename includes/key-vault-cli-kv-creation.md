@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 07/20/2020
 ms.author: msmbaldwin
 ms.openlocfilehash: a87fbbb276fd8813492cc293bc08b958ee3d6b7b
-ms.sourcegitcommit: dd24c3f35e286c5b7f6c3467a256ff85343826ad
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/29/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "99070283"
 ---
 Usare l'interfaccia della riga di comando di Azure [AZ le create](/cli/azure/keyvault#az_keyvault_create) per creare una Key Vault nel gruppo di risorse del passaggio precedente. Sarà necessario specificare alcune informazioni:

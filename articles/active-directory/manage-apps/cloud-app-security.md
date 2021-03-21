@@ -12,10 +12,10 @@ ms.date: 02/03/2020
 ms.author: kenwith
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 682549b5b99169060437c8c91d465121002edc6e
-ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/02/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "99259605"
 ---
 # <a name="cloud-app-visibility-and-control"></a>Visibilità e controllo delle app cloud
@@ -24,19 +24,19 @@ Per sfruttare tutti i vantaggi offerti dalle app e dai servizi cloud, un team IT
 
 ## <a name="discover-and-manage-shadow-it-in-your-network"></a>Individuare e gestire shadow IT nella rete
 
-Se si chiede agli amministratori IT quante app cloud pensano che i dipendenti usino, in media rispondono 30 o 40, quando in realtà la media è superiore a 1.000 app separate usate dai dipendenti dell'organizzazione. Shadow IT aiuta a conoscere e identificare le app in uso e il livello di rischio associato. L'80% dei dipendenti usa app non approvate che non sono state esaminate e che potrebbero non essere conformi ai criteri di sicurezza e conformità. Dal momento che i dipendenti possono accedere alle risorse e alle app dall'esterno della rete aziendale, non è neanche più sufficiente stabilire regole e criteri nei firewall.
+quando viene chiesto agli amministratori IT di indicare il numero di app cloud usate dai dipendenti, la risposta è in media 30 o 40, nonostante la media effettiva sia di oltre 1.000 app distinte usate dai dipendenti di un'organizzazione. Shadow IT consente di conoscere e identificare le app usate e il livello di rischio. L'80% dei dipendenti usa app non approvate che non sono state esaminate e che potrebbero non essere conformi ai criteri di sicurezza e conformità. Poiché, inoltre, i dipendenti possono accedere alle risorse e alle app anche dall'esterno della rete aziendale, non è più sufficiente avere criteri e regole per i firewall.
 
 È possibile usare Microsoft Cloud App Discovery (una funzionalità di Azure Active Directory Premium P1) per individuare le app in uso, esplorare il rischio a esse associato, configurare i criteri per identificare nuove app rischiose e annullare l'approvazione di queste app per bloccarle in modo nativo con il dispositivo proxy o firewall.
 
-- Individuare e identificare Shadow IT
+- Individuare e identificare gli utenti non autorizzati
 - Valutare e analizzare
-- Gestire le app
-- Report di individuazione Shadow IT avanzati
+- Gestire le proprie app
+- Creazione avanzata di report di Shadow IT Discovery
 - Controllare le app approvate
  
 ### <a name="learn-more"></a>Altre informazioni
 
-- [Individuare e gestire shadow IT nella rete](/cloud-app-security/tutorial-shadow-it)
+- [Individuare e gestire shadow IT nella rete ](/cloud-app-security/tutorial-shadow-it)
 - [App individuate con Cloud App Security](/cloud-app-security/discovered-apps)
  
 ## <a name="user-session-visibility-and-control"></a>Visibilità e controllo della sessione utente 
@@ -65,7 +65,7 @@ I connettori di app usano i vantaggi offerti dalle API dei provider di app per c
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- [Individuare e gestire shadow IT nella rete](/cloud-app-security/tutorial-shadow-it)
+- [Individuare e gestire shadow IT nella rete ](/cloud-app-security/tutorial-shadow-it)
 - [App individuate con Cloud App Security](/cloud-app-security/discovered-apps)
 - [Proteggere le app con il controllo sessioni in Cloud App Security](/cloud-app-security/proxy-intro-aad)
 - [Connettere le app in Cloud App Security](/cloud-app-security/enable-instant-visibility-protection-and-governance-actions-for-your-apps)

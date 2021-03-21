@@ -2,17 +2,17 @@
 title: Provider di risorse per servizi di Azure
 description: Elenca tutti gli spazi dei nomi del provider di risorse per Azure Resource Manager e Mostra il servizio di Azure per lo spazio dei nomi.
 ms.topic: conceptual
-ms.date: 12/01/2020
-ms.openlocfilehash: 65fa6a690f05a61e54bae2d22f4889c3193bcb1a
-ms.sourcegitcommit: 225e4b45844e845bc41d5c043587a61e6b6ce5ae
+ms.date: 03/16/2021
+ms.openlocfilehash: ee8cb054f3f10c3b33d5235b2b03cdfeac266139
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/11/2021
-ms.locfileid: "103008706"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104592162"
 ---
 # <a name="resource-providers-for-azure-services"></a>Provider di risorse per i servizi di Azure
 
-Questo articolo illustra come eseguire il mapping degli spazi dei nomi del provider di risorse ai servizi di Azure.
+Questo articolo illustra come eseguire il mapping degli spazi dei nomi del provider di risorse ai servizi di Azure. Se non si conosce il provider di risorse, vedere [trovare il provider di risorse](#find-resource-provider).
 
 ## <a name="match-resource-provider-to-service"></a>Associare il provider di risorse al servizio
 
@@ -192,6 +192,42 @@ I provider di risorse indicati in precedenza contrassegnati con **-registered** 
 
 > [!IMPORTANT]
 > Registrare un provider di risorse solo quando si è pronti a usarlo. Il passaggio di registrazione consente di mantenere i privilegi minimi all'interno della sottoscrizione. Un utente malintenzionato non può usare i provider di risorse che non sono registrati.
+
+## <a name="find-resource-provider"></a>Trova provider di risorse
+
+Se si dispone di un'infrastruttura esistente in Azure, ma non si è certi del provider di risorse usato, è possibile usare l'interfaccia della riga di comando di Azure o PowerShell per trovare il provider di risorse. Specificare il nome del gruppo di risorse che contiene le risorse da trovare.
+
+L'esempio seguente usa l'interfaccia della riga di comando Azure:
+
+```azurecli-interactive
+az resource list -g examplegroup
+```
+
+I risultati includono il tipo di risorsa. Lo spazio dei nomi del provider di risorse è la prima parte del tipo di risorsa. L'esempio seguente mostra il provider di risorse **Microsoft.** l'insieme di credenziali.
+
+```json
+[
+  {
+    ...
+    "type": "Microsoft.KeyVault/vaults"
+  }
+]
+```
+
+Nell'esempio seguente viene usato PowerShell:
+
+```azurepowershell-interactive
+Get-AzResource -ResourceGroupName examplegroup
+```
+
+I risultati includono il tipo di risorsa. Lo spazio dei nomi del provider di risorse è la prima parte del tipo di risorsa. L'esempio seguente mostra il provider di risorse **Microsoft.** l'insieme di credenziali.
+
+```azurepowershell
+Name              : examplekey
+ResourceGroupName : examplegroup
+ResourceType      : Microsoft.KeyVault/vaults
+...
+```
 
 ## <a name="next-steps"></a>Passaggi successivi
 

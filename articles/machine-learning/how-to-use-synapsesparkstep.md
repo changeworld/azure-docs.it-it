@@ -10,16 +10,18 @@ author: lobrien
 ms.date: 03/04/2021
 ms.topic: conceptual
 ms.custom: how-to, synapse-azureml
-ms.openlocfilehash: 1dc4e0b70b0d39d01bada26992eb2213c1e855c5
-ms.sourcegitcommit: 6386854467e74d0745c281cc53621af3bb201920
+ms.openlocfilehash: 2a9f0a8c943f539166f18a1e41a36136fbb63a6f
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/08/2021
-ms.locfileid: "102455060"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104584288"
 ---
 # <a name="how-to-use-apache-spark-powered-by-azure-synapse-analytics-in-your-machine-learning-pipeline-preview"></a>Come usare Apache Spark (basati su Azure sinapsi Analytics) nella pipeline di Machine Learning (anteprima)
 
 Questo articolo illustra come usare i pool di Apache Spark basati su Azure sinapsi Analytics come destinazione di calcolo per un passaggio di preparazione dei dati in una pipeline di Azure Machine Learning. Si apprenderà come una singola pipeline può usare le risorse di calcolo appropriate per il passaggio specifico, ad esempio la preparazione dei dati o la formazione. Verranno visualizzati i dati preparati per il passaggio Spark e il modo in cui vengono passati al passaggio successivo. 
+
+[!INCLUDE [preview disclaimer](../../includes/machine-learning-preview-generic-disclaimer.md)]
 
 ## <a name="prerequisites"></a>Prerequisiti
 

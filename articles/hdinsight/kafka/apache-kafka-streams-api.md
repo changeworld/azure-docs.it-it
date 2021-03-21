@@ -6,13 +6,13 @@ ms.topic: tutorial
 ms.custom: hdinsightactive
 ms.date: 03/20/2020
 ms.openlocfilehash: 5a1548cdf1d05a1f9d42f5c64b7fdc18f514518e
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/28/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98939198"
 ---
-# <a name="tutorial-use-apache-kafka-streams-api-in-azure-hdinsight"></a>Esercitazione: Usare l'API Apache Kafka Streams in Azure HDInsight
+# <a name="tutorial-use-apache-kafka-streams-api-in-azure-hdinsight"></a>Esercitazione: usare l'API di Apache Kafka streams in Azure HDInsight
 
 Informazioni su come creare un'applicazione che usa l'API Apache Kafka Streams ed eseguirla con Kafka in HDInsight.
 
@@ -47,7 +47,7 @@ In questa esercitazione verranno illustrate le procedure per:
 L'applicazione di esempio si trova in [https://github.com/Azure-Samples/hdinsight-kafka-java-get-started](https://github.com/Azure-Samples/hdinsight-kafka-java-get-started) nella sottodirectory `Streaming`. L'applicazione è costituita da due file:
 
 * `pom.xml`: Questo file definisce le dipendenze progetto, la versione Java e i metodi di creazione pacchetti.
-* `Stream.java`: questo file implementa la logica di streaming.
+* `Stream.java`: implementa la logica di flusso.
 
 ### <a name="pomxml"></a>Pom.xml
 
@@ -69,7 +69,7 @@ Gli aspetti importanti da comprendere nel file `pom.xml` sono:
 * Plug-in: I plug-in Maven offrono varie funzionalità. In questo progetto vengono usati i plug-in seguenti:
 
     * `maven-compiler-plugin`: Usato per impostare su 8 la versione Java usata dal progetto. Java 8 è richiesto da HDInsight 3.6.
-    * `maven-shade-plugin`: Usato per generare un file uber-jar che contiene questa applicazione e le eventuali dipendenze. Viene inoltre usato per impostare il punto di ingresso dell'applicazione, in modo che sia possibile eseguire il file Jar direttamente senza dover specificare la classe principale.
+    * `maven-shade-plugin`: Usato per generare un file jar uber che contiene l'applicazione e tutte le dipendenze. Viene inoltre usato per impostare il punto di ingresso dell'applicazione, in modo che sia possibile eseguire il file Jar direttamente senza dover specificare la classe principale.
 
 ### <a name="streamjava"></a>Stream.Java
 
@@ -199,7 +199,7 @@ Per creare e distribuire il progetto in un cluster Kafka in HDInsight, seguire q
    * `test`: in questo argomento vengono ricevuti i record. Applicazione di streaming legge i dati da questo argomento.
    * `wordcounts`: in questo argomento l'applicazione di streaming archivia l'output.
    * `RekeyedIntermediateTopic`: questo argomento viene usato per partizionare nuovamente i dati mentre il conteggio viene aggiornato dall'operatore `countByKey`.
-   * `wordcount-example-Counts-changelog`: questo argomento è un archivio di stati usato dall'operazione `countByKey`
+   * `wordcount-example-Counts-changelog`: questo argomento è un archivio di stati usato dall'operazione `countByKey`.
 
     È possibile configurare Kafka in HDInsight anche in modo che gli argomenti vengano creati automaticamente. Per altre informazioni, vedere il documento [Configure automatic topic creation](apache-kafka-auto-create-topics.md) (Configurare la creazione automatica degli argomenti).
 

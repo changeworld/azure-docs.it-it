@@ -1,5 +1,5 @@
 ---
-title: "Esercitazione: Usare la configurazione dinamica in un'app .NET Core"
+title: "Esercitazione: usare la configurazione dinamica in un'app .NET Core"
 titleSuffix: Azure App Configuration
 description: In questa esercitazione viene illustrato come aggiornare dinamicamente i dati di configurazione per le app .NET Core
 services: azure-app-configuration
@@ -16,13 +16,13 @@ ms.topic: tutorial
 ms.date: 07/01/2019
 ms.author: abarora
 ms.openlocfilehash: 95c48bded224a40879328dba5861b3564f0ebcf8
-ms.sourcegitcommit: 706e7d3eaa27f242312d3d8e3ff072d2ae685956
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/09/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "99979862"
 ---
-# <a name="tutorial-use-dynamic-configuration-in-a-net-core-app"></a>Esercitazione: Usare la configurazione dinamica in un'app .NET Core
+# <a name="tutorial-use-dynamic-configuration-in-a-net-core-app"></a>Esercitazione: usare la configurazione dinamica in un'app .NET Core
 
 La libreria client .NET Core per la configurazione delle app supporta l'aggiornamento della configurazione su richiesta senza causare il riavvio di un'applicazione. Questa funzionalità può essere implementata recuperando prima un'istanza di `IConfigurationRefresher` dalle opzioni del provider di configurazione e poi chiamando `TryRefreshAsync` in tale istanza in un punto qualsiasi del codice.
 
@@ -129,13 +129,13 @@ Il metodo `ConfigureRefresh` consente di specificare le impostazioni usate per a
      dotnet run
     ```
 
-    ![Guida introduttiva: avvio dell'app in locale](./media/quickstarts/dotnet-core-app-run.png)
+    ![Avvio rapido: avvio dell'app in locale](./media/quickstarts/dotnet-core-app-run.png)
 
 1. Accedere al [portale di Azure](https://portal.azure.com). Selezionare **Tutte le risorse** e quindi l'istanza di archivio di Configurazione app creata nell'argomento di avvio rapido.
 
 1. Selezionare **Configuration Explorer** e aggiornare i valori delle chiavi seguenti:
 
-    | Chiave | valore |
+    | Chiave | Valore |
     |---|---|
     | TestApp:Settings:Message | Dati di Configurazione app di Azure - Aggiornati |
 

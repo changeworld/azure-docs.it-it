@@ -7,12 +7,12 @@ ms.topic: quickstart
 ms.date: 09/29/2020
 ms.author: yegu
 ms.custom: devx-track-csharp, mvc
-ms.openlocfilehash: 342125da35868b2b0f71609c4114cc561821eb1a
-ms.sourcegitcommit: dac05f662ac353c1c7c5294399fca2a99b4f89c8
+ms.openlocfilehash: 88cfddb12de0949d56e4b8f9c3e363e4c8f75676
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102121134"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104657765"
 ---
 # <a name="quickstart-use-azure-cache-for-redis-with-an-aspnet-web-app"></a>Guida introduttiva: usare cache di Azure per Redis con un'app Web ASP.NET 
 
@@ -29,29 +29,29 @@ Se si vuole passare direttamente al codice, vedere la [Guida introduttiva di ASP
 
 ## <a name="create-the-visual-studio-project"></a>Creare il progetto di Visual Studio
 
-1. Aprire Visual Studio e selezionare **file**  > **nuovo**  >  **progetto**.
+1. Aprire Visual Studio e selezionare **file**  >  **nuovo**  >  **progetto**.
 
-2. Nella finestra di dialogo **Nuovo progetto** seguire questa procedura:
+2. Nella finestra di dialogo **Crea un nuovo progetto** seguire questa procedura:
 
     ![Crea progetto](./media/cache-web-app-howto/cache-create-project.png)
 
-    a. Nell'elenco **Modelli** espandere il nodo **Visual C#**.
+    a. Nella casella di ricerca immettere _C# ASP.NET Web Application_.
 
-    b. Selezionare **cloud**.
+    b. Selezionare **ASP.NET Web Application (.NET Framework)** (Applicazione Web ASP.NET - .NET Framework).
 
-    c. Selezionare **Applicazione Web ASP.NET**.
+    c. Selezionare **Avanti**.
 
-    d. Verificare che sia selezionata l'opzione **.NET Framework 4.5.2** o versione successiva.
+3. Nella casella **nome progetto** assegnare un nome al progetto. Per questo esempio è stato usato il nome **ContosoTeamStats**.
 
-    e. Nella casella **Nome** digitare un nome per il progetto. Per questo esempio è stato usato il nome **ContosoTeamStats**.
+4. Verificare che sia selezionato **.NET Framework 4.6.1** o versione successiva.
 
-    f. Selezionare **OK**.
+5. Selezionare **Crea**.
    
-3. Selezionare **MVC** come tipo di progetto.
+6. Selezionare **MVC** come tipo di progetto.
 
-4. Assicurarsi che per l'impostazione **Autenticazione** sia selezionata l'opzione **Nessuna autenticazione**. A seconda della versione di Visual Studio, il valore predefinito dell'impostazione **Autenticazione** può essere diverso. Per modificarlo, selezionare **Modifica autenticazione** e quindi **Nessuna autenticazione**.
+7. Assicurarsi che per l'impostazione **Autenticazione** sia selezionata l'opzione **Nessuna autenticazione**. A seconda della versione di Visual Studio, il valore predefinito dell'impostazione **Autenticazione** può essere diverso. Per modificarlo, selezionare **Modifica autenticazione** e quindi **Nessuna autenticazione**.
 
-5. Selezionare **OK** per creare il progetto.
+8. Selezionare **Crea** per creare il progetto.
 
 ## <a name="create-a-cache"></a>Creare una cache
 
@@ -125,10 +125,11 @@ Il runtime ASP.NET unisce il contenuto del file esterno con il markup nell'eleme
 
 1. In **Esplora soluzioni** espandere la cartella **Controllers** e aprire il file *HomeController.cs*.
 
-2. Aggiungere le due istruzioni `using` seguenti all'inizio del file per supportare le impostazioni dell'app e del client della cache.
+2. Aggiungere le seguenti `using` istruzioni all'inizio del file per supportare il client della cache, le impostazioni dell'app e il generatore di stringhe.
 
     ```csharp
     using System.Configuration;
+    using System.Text;
     using StackExchange.Redis;
     ```
 

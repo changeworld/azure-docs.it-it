@@ -12,10 +12,10 @@ author: sdgilley
 ms.reviewer: sgilley
 ms.date: 10/02/2020
 ms.openlocfilehash: 6c29bf87c5f0ecaaeb6d608069791431a949c89b
-ms.sourcegitcommit: 225e4b45844e845bc41d5c043587a61e6b6ce5ae
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/11/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "103009964"
 ---
 # <a name="create-and-manage-an-azure-machine-learning-compute-instance"></a>Creare e gestire un'istanza di calcolo Azure Machine Learning
@@ -40,7 +40,7 @@ Le istanze di calcolo possono eseguire processi in modo sicuro in un [ambiente d
 
 * Estensione dell'interfaccia della riga [di comando di Azure per il servizio Machine Learning](reference-azure-machine-learning-cli.md), [Azure Machine Learning Python SDK](/python/api/overview/azure/ml/intro)o l' [estensione di Visual Studio code Azure Machine Learning](tutorial-setup-vscode-extension.md).
 
-## <a name="create"></a>Create
+## <a name="create"></a>Crea
 
 **Tempo stimato**: circa 5 minuti.
 
@@ -147,7 +147,7 @@ Negli esempi seguenti il nome dell'istanza di calcolo è **instance**
     instance.stop(wait_for_completion=True, show_output=True)
     ```
 
-* Inizia
+* Avvio
 
     ```python
     # start() is used to start the ComputeInstance if it is in stopped state
@@ -180,7 +180,7 @@ Negli esempi seguenti il nome dell'istanza di calcolo è **instance**
 
     Per ulteriori informazioni, vedere [AZ ml computetarget stop computeinstance](/cli/azure/ext/azure-cli-ml/ml/computetarget/computeinstance#ext-azure-cli-ml-az-ml-computetarget-computeinstance-stop).
 
-* Inizia 
+* Avvio 
 
     ```azurecli-interactive
     az ml computetarget start computeinstance -n instance -v

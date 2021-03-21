@@ -7,10 +7,10 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 07/23/2020
 ms.openlocfilehash: e401eb4a5608db6e5767298f53046099a42679b4
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/17/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100613737"
 ---
 # <a name="azure-monitor-workbooks"></a>Cartelle di lavoro di monitoraggio di Azure
@@ -51,7 +51,7 @@ Le cartelle di lavoro di offrono un set completo di funzionalità per la visuali
 
 ![Visualizzazioni di cartelle di lavoro di esempio](./media/workbooks-overview/visualizations.png)
 
-## <a name="getting-started"></a>Guida introduttiva
+## <a name="getting-started"></a>Introduzione
 
 Per esplorare l'esperienza delle cartelle di lavoro, passare prima al servizio monitoraggio di Azure. Questa operazione può essere eseguita digitando **monitoraggio** nella casella cerca della portale di Azure.
 
