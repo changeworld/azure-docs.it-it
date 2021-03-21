@@ -12,10 +12,10 @@ ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ms.openlocfilehash: 6a015da77cb7c0ba54be1dd5e729a9ee8a848c9d
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93321878"
 ---
 # <a name="sample-data-in-azure-hdinsight-hive-tables"></a>Dati di esempio nelle tabelle Hive di Azure HDInsight
@@ -54,7 +54,7 @@ where samplekey<='${hiveconf:sampleRate}'
 In questo caso, `<sample rate, 0-1>` indica la proporzione di record che gli utenti desiderano campionare.
 
 ## <a name="random-sampling-by-groups"></a><a name="group"></a> Campionamento casuale per gruppi
-Quando si esegue il campionamento dei dati di categoria, è possibile scegliere di includere o di escludere tutte le istanze di un valore della variabile di categoria. Questo tipo di campionamento è chiamato "campionamento per gruppo". Se, ad esempio, si ha una variabile di categoria " *State* " con valori quali NY, MA, CA, NJ e PA, è possibile che l'utente voglia che i record di uno stesso stato siano sempre visualizzati insieme, che siano campionati o meno.
+Quando si esegue il campionamento dei dati di categoria, è possibile scegliere di includere o di escludere tutte le istanze di un valore della variabile di categoria. Questo tipo di campionamento è chiamato "campionamento per gruppo". Se, ad esempio, si ha una variabile di categoria "*State*" con valori quali NY, MA, CA, NJ e PA, è possibile che l'utente voglia che i record di uno stesso stato siano sempre visualizzati insieme, che siano campionati o meno.
 
 Di seguito è presentata una query di esempio che consente di eseguire il campionamento per gruppi:
 

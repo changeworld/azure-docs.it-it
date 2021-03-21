@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 12/18/2020
 ms.author: aahi
 ms.openlocfilehash: 003b4411ac791898f4a7467b9b03f29aadba2fc7
-ms.sourcegitcommit: e7152996ee917505c7aba707d214b2b520348302
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/20/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97704843"
 ---
 # <a name="deploy-and-run-container-on-azure-container-instance"></a>Distribuire ed eseguire un contenitore in Istanze di Azure Container
@@ -56,7 +56,7 @@ Tutte le variabili racchiuse tra parentesi angolari `<>` devono essere sostituit
 
 ## <a name="use-the-container-instance"></a>Usare l'istanza di contenitore
 
-# <a name="azure-portal"></a>[Portale di Azure](#tab/portal)
+# <a name="azure-portal"></a>[Azure portal](#tab/portal)
 
 1. Selezionare la **Panoramica** e copiare l'indirizzo IP. Si tratta di un indirizzo IP numerico, ad esempio `55.55.55.55` .
 1. Aprire una nuova scheda del browser e usare l'indirizzo IP, ad esempio, `http://<IP-address>:5000 (http://55.55.55.55:5000` . Verrà visualizzato il home page del contenitore, che informa che il contenitore è in esecuzione.

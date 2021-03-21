@@ -1,5 +1,5 @@
 ---
-title: Panoramica Integrità risorse del gateway applicazione Azure
+title: Panoramica di Integrità risorse del gateway applicazione di Azure
 description: Questo articolo è una panoramica della funzionalità di integrità delle risorse per applicazione Azure gateway
 services: application-gateway
 author: vhorne
@@ -8,13 +8,13 @@ ms.topic: article
 ms.date: 7/9/2019
 ms.author: victorh
 ms.openlocfilehash: 7e30a93f8270cfaf8910130cc1e2633bb80c2b8e
-ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/05/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93397173"
 ---
-# <a name="azure-application-gateway-resource-health-overview"></a>Panoramica Integrità risorse del gateway applicazione Azure
+# <a name="azure-application-gateway-resource-health-overview"></a>Panoramica di Integrità risorse del gateway applicazione di Azure
 
 [Integrità risorse di Azure](../service-health/resource-health-overview.md) aiuta a diagnosticare gli eventuali problemi dei servizi di Azure con effetti negativi sulle risorse e a ottenere il supporto necessario. Informa sull'integrità corrente e passata delle risorse e offre il supporto tecnico necessario per attenuare i problemi.
 

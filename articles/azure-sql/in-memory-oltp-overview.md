@@ -12,10 +12,10 @@ ms.author: sstein
 ms.reviewer: ''
 ms.date: 03/19/2019
 ms.openlocfilehash: 48b74a5507eb4a1d48b7bf70133e476a30fe8169
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/28/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92779952"
 ---
 # <a name="optimize-performance-by-using-in-memory-technologies-in-azure-sql-database-and-azure-sql-managed-instance"></a>Ottimizzare le prestazioni usando le tecnologie in memoria nel database SQL di Azure e in Azure SQL Istanza gestita
@@ -78,12 +78,12 @@ Per ulteriori informazioni sulla SQL Server in memoria, vedere:
 
 In-Memory tecnologia OLTP fornisce operazioni di accesso ai dati estremamente veloci mantenendo tutti i dati in memoria. Usa inoltre indici specializzati, la compilazione nativa delle query e un accesso ai dati privo di latch per migliorare le prestazioni del carico di lavoro OLTP. Esistono due modi per organizzare i dati OLTP in memoria:
 
-- Il formato **rowstore ottimizzato per la memoria** , in cui ogni riga è un oggetto di memoria distinto. Questo è un classico formato OLTP in memoria ottimizzato per carichi di lavoro OLTP ad alte prestazioni. Esistono due tipi di tabelle ottimizzate per la memoria che possono essere usate nel formato rowstore ottimizzato per la memoria:
+- Il formato **rowstore ottimizzato per la memoria**, in cui ogni riga è un oggetto di memoria distinto. Questo è un classico formato OLTP in memoria ottimizzato per carichi di lavoro OLTP ad alte prestazioni. Esistono due tipi di tabelle ottimizzate per la memoria che possono essere usate nel formato rowstore ottimizzato per la memoria:
 
   - Le *tabelle durevoli* (SCHEMA_AND_DATA), in cui le righe inserite nella memoria vengono mantenute dopo il riavvio del server. Questo tipo di tabelle si comporta come una tabella rowstore tradizionale con i vantaggi aggiuntivi delle ottimizzazioni in memoria.
   - Le *tabelle non durevoli* (SCHEMA_ONLY) in cui le righe non vengono mantenute dopo il riavvio. Questo tipo di tabella è progettato per i dati temporanei (ad esempio, la sostituzione di tabelle temporanee) o per le tabelle in cui è necessario caricare rapidamente i dati prima di spostarli in una tabella persistente (le cosiddette tabelle di staging).
 
-- Il formato **columnstore ottimizzato per la memoria** , in cui dati sono organizzati in un formato a colonne. Questa struttura è progettata per gli scenari HTAP in cui è necessario eseguire query di analisi sulla stessa struttura dei dati in cui è in esecuzione il carico di lavoro OLTP.
+- Il formato **columnstore ottimizzato per la memoria**, in cui dati sono organizzati in un formato a colonne. Questa struttura è progettata per gli scenari HTAP in cui è necessario eseguire query di analisi sulla stessa struttura dei dati in cui è in esecuzione il carico di lavoro OLTP.
 
 > [!Note]
 > La tecnologia OLTP in memoria è progettata per le strutture dei dati che possono risiedere completamente in memoria. Poiché non è possibile eseguire l'offload su disco dei dati in memoria, assicurarsi di usare un database che disponga di memoria sufficiente. Per altre informazioni, vedere [Limite su dimensioni dei dati e archiviazione per OLTP in memoria](#data-size-and-storage-cap-for-in-memory-oltp).
@@ -101,7 +101,7 @@ Esiste un modo a livello di codice per capire se un determinato database support
 SELECT DatabasePropertyEx(DB_NAME(), 'IsXTPSupported');
 ```
 
-Se la query restituisce **1** , OLTP in memoria è supportato nel database. Le query seguenti identificano tutti gli oggetti che devono essere rimossi prima di poter eseguire il downgrade di un database a per utilizzo generico, standard o Basic:
+Se la query restituisce **1**, OLTP in memoria è supportato nel database. Le query seguenti identificano tutti gli oggetti che devono essere rimossi prima di poter eseguire il downgrade di un database a per utilizzo generico, standard o Basic:
 
 ```sql
 SELECT * FROM sys.tables WHERE is_memory_optimized=1
@@ -111,7 +111,7 @@ SELECT * FROM sys.sql_modules WHERE uses_native_compilation=1
 
 ### <a name="data-size-and-storage-cap-for-in-memory-oltp"></a>Limite su dimensioni dei dati e archiviazione per OLTP in memoria
 
-OLTP in memoria include tabelle ottimizzate per la memoria che vengono usate per archiviare i dati utente. Queste tabelle devono rientrare nella memoria. Poiché la memoria viene gestita direttamente nel database SQL, si ha il concetto di quota per i dati utente. Questo concetto è definito *archiviazione di OLTP in memoria* .
+OLTP in memoria include tabelle ottimizzate per la memoria che vengono usate per archiviare i dati utente. Queste tabelle devono rientrare nella memoria. Poiché la memoria viene gestita direttamente nel database SQL, si ha il concetto di quota per i dati utente. Questo concetto è definito *archiviazione di OLTP in memoria*.
 
 Ogni piano tariffario relativo a database singoli e pool elastici supportati include una certa quantità di spazio di archiviazione OLTP in memoria.
 
@@ -149,15 +149,15 @@ Tuttavia, eseguire il downgrade del piano può avere un impatto negativo sul dat
 
 Prima di eseguire il downgrade del database a per utilizzo generico, standard o Basic, rimuovere tutte le tabelle ottimizzate per la memoria e i tipi di tabella, nonché tutti i moduli T-SQL compilati in modo nativo.
 
-*Ridimensionamento delle risorse nel livello business critical* : i dati nelle tabelle ottimizzate per la memoria devono rientrare nell'archivio OLTP In-Memory associato al livello del database o dell'istanza gestita oppure sono disponibili nel pool elastico. Se si tenta di ridurre il piano tariffario o di spostare il database in un pool che non dispone di sufficiente spazio di archiviazione OLTP in memoria, l'operazione avrà esito negativo.
+*Ridimensionamento delle risorse nel livello business critical*: i dati nelle tabelle ottimizzate per la memoria devono rientrare nell'archivio OLTP In-Memory associato al livello del database o dell'istanza gestita oppure sono disponibili nel pool elastico. Se si tenta di ridurre il piano tariffario o di spostare il database in un pool che non dispone di sufficiente spazio di archiviazione OLTP in memoria, l'operazione avrà esito negativo.
 
 ## <a name="in-memory-columnstore"></a>Columnstore in memoria
 
 La tecnologia columnstore in memoria consente di archiviare ed eseguire query su una grande quantità di dati nelle tabelle. La tecnologia columnstore usa un formato di archiviazione dei dati basato su colonne e l'elaborazione batch delle query allo scopo di ottenere prestazioni delle query fino a 10 volte superiori nei carichi di lavoro OLAP rispetto all'archiviazione tradizionale orientata alle righe. È anche possibile migliorare fino a 10 volte la compressione dei dati rispetto alla dimensione dei dati non compressi.
 Esistono due tipi di modelli di columnstore che è possibile usare per organizzare i dati:
 
-- **Columnstore cluster** , in cui tutti i dati nella tabella sono organizzati in un formato a colonne. In questo modello, tutte le righe nella tabella vengono inserite in formato a colonne, che esegue la compressione dei dati e consente di eseguire rapidamente query analitiche e report sulla tabella. A seconda della natura dei dati, è possibile ottenere una riduzione delle dimensioni da 10 a 100 volte. Il modello con columnstore cluster consente inoltre l'inserimento rapido di grandi quantità di dati (caricamento bulk), perché i batch di dati di grandi dimensioni con più di 100.000 righe vengono compressi prima di essere archiviati su disco. Questo modello è una scelta appropriata per i classici scenari di data warehouse.
-- **Columnstore non cluster** , in cui i dati vengono archiviati in una tabella rowstore tradizionale ed è presente un indice in formato columnstore usato per le query di analisi. Questo modello consente l'elaborazione analitica e transazionale ibrida (HTAP), che offre la possibilità di eseguire analisi in tempo reale ad alte prestazioni su carichi di lavoro transazionali. Le query OLTP vengono eseguite sulla tabella rowstore ottimizzata per l'accesso a un set di righe limitato, mentre le query OLAP vengono eseguite sull'indice columnstore, che rappresenta la scelta migliore per le analisi. Il Query Optimizer sceglie dinamicamente il formato rowstore o columnstore in base alla query. Gli indici columnstore non cluster non riducono le dimensioni dei dati, poiché il set di dati originale viene mantenuto nella tabella rowstore originale senza apportare modifiche. Tuttavia, le dimensioni dell'indice columnstore aggiuntivo dovrebbero essere significativamente inferiori rispetto all'indice ad albero B equivalente.
+- **Columnstore cluster**, in cui tutti i dati nella tabella sono organizzati in un formato a colonne. In questo modello, tutte le righe nella tabella vengono inserite in formato a colonne, che esegue la compressione dei dati e consente di eseguire rapidamente query analitiche e report sulla tabella. A seconda della natura dei dati, è possibile ottenere una riduzione delle dimensioni da 10 a 100 volte. Il modello con columnstore cluster consente inoltre l'inserimento rapido di grandi quantità di dati (caricamento bulk), perché i batch di dati di grandi dimensioni con più di 100.000 righe vengono compressi prima di essere archiviati su disco. Questo modello è una scelta appropriata per i classici scenari di data warehouse.
+- **Columnstore non cluster**, in cui i dati vengono archiviati in una tabella rowstore tradizionale ed è presente un indice in formato columnstore usato per le query di analisi. Questo modello consente l'elaborazione analitica e transazionale ibrida (HTAP), che offre la possibilità di eseguire analisi in tempo reale ad alte prestazioni su carichi di lavoro transazionali. Le query OLTP vengono eseguite sulla tabella rowstore ottimizzata per l'accesso a un set di righe limitato, mentre le query OLAP vengono eseguite sull'indice columnstore, che rappresenta la scelta migliore per le analisi. Il Query Optimizer sceglie dinamicamente il formato rowstore o columnstore in base alla query. Gli indici columnstore non cluster non riducono le dimensioni dei dati, poiché il set di dati originale viene mantenuto nella tabella rowstore originale senza apportare modifiche. Tuttavia, le dimensioni dell'indice columnstore aggiuntivo dovrebbero essere significativamente inferiori rispetto all'indice ad albero B equivalente.
 
 > [!Note]
 > La tecnologia columnstore in memoria mantiene in memoria solo i dati necessari per l'elaborazione, mentre i dati che non possono essere contenuti nella memoria sono archiviati su disco. Pertanto, la quantità di dati nelle strutture columnstore in memoria può superare la quantità di memoria disponibile.
@@ -180,7 +180,7 @@ Quando si usano indici columnstore non cluster, la tabella di base è ancora arc
 
 *Il downgrade di un database singolo a Basic o Standard* potrebbe non essere possibile se il database di destinazione è inferiore a S3. Gli indici columnstore sono supportati solo nel piano tariffario Business Critical/Premium e non nel piano Standard, S3 e superiore, né nel piano Basic. Quando si effettua il downgrade del database a un piano o un livello non supportato, l'indice columnstore non è più disponibile. Il sistema conserva l'indice columnstore, ma non lo usa mai. Se in seguito si torna a un piano o un livello supportato, l'indice columnstore torna subito disponibile all'uso.
 
-Se dispone di un indice columnstore **cluster** , l'intera tabella non sarà più disponibile dopo il downgrade. Pertanto è consigliabile eliminare tutti gli indici columnstore *cluster* prima di effettuare il downgrade del database a un piano o un livello non supportato.
+Se dispone di un indice columnstore **cluster**, l'intera tabella non sarà più disponibile dopo il downgrade. Pertanto è consigliabile eliminare tutti gli indici columnstore *cluster* prima di effettuare il downgrade del database a un piano o un livello non supportato.
 
 > [!Note]
 > SQL Istanza gestita supporta gli indici columnstore in tutti i livelli.

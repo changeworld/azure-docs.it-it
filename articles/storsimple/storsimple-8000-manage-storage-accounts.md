@@ -15,10 +15,10 @@ ms.workload: TBD
 ms.date: 06/29/2017
 ms.author: alkohli
 ms.openlocfilehash: 0df0c12d5942179e2492bfdc932fa25d126a2426
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/25/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96016872"
 ---
 # <a name="use-the-storsimple-device-manager-service-to-manage-your-storage-account-credentials"></a>Usare il servizio Gestione dispositivi StorSimple per gestire le credenziali degli account di archiviazione
@@ -77,7 +77,7 @@ Usare le procedure seguenti per aggiungere le credenziali dell'account di archiv
 
 1. Passare al servizio Gestione dispositivi StorSimple, selezionare e fare doppio clic. Si apre il pannello **Panoramica**.
 2. Selezionare **Credenziali dell'account di archiviazione** nella sezione **Configurazione**. Elenca le credenziali di un qualsiasi account di archiviazione esistente associate al servizio Gestione dispositivi StorSimple.
-3. Scegliere **Aggiungi**.
+3. Fare clic su **Aggiungi**.
 4. Nel pannello **Aggiungi credenziali dell'account di archiviazione** seguire questa procedura:
    
     1. Per **Sottoscrizione** selezionare **Altro**.
@@ -86,9 +86,9 @@ Usare le procedure seguenti per aggiungere le credenziali dell'account di archiv
    
     3. Nella casella di testo **Chiave di accesso dell'account di archiviazione** specificare la chiave di accesso primaria per la credenziale dell'account di archiviazione di Azure. Per ottenere questa chiave, passare al servizio Archiviazione di Azure, selezionare la credenziale dell'account di archiviazione e fare clic su **Gestisci chiavi di accesso**. È ora possibile copiare la chiave di accesso primaria.
    
-    4. Per abilitare TLS, fare clic sul pulsante **Abilita** per creare un canale sicuro per la comunicazione di rete tra il servizio StorSimple Device Manager e il cloud. Fare clic sul pulsante **Disabilita** solo se si opera all'interno di un cloud privato.
+    4. Per abilitare TLS, fare clic sul pulsante **Abilita** per creare un canale sicuro per la comunicazione di rete tra il servizio StorSimple gestione dispositivi e il cloud. Fare clic sul pulsante **Disabilita** solo se si opera all'interno di un cloud privato.
    
-    5. Scegliere **Aggiungi**. Quando la creazione della credenziale dell'account di archiviazione viene completata, si riceve una notifica.
+    5. Fare clic su **Aggiungi**. Quando la creazione della credenziale dell'account di archiviazione viene completata, si riceve una notifica.
 
 5. La credenziale dell'account di archiviazione appena creata viene visualizzata nel pannello del servizio Gestione dispositivi StorSimple in **Credenziali dell'account di archiviazione**.
    

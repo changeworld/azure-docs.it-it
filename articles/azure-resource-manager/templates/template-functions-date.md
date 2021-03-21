@@ -4,10 +4,10 @@ description: Descrive le funzioni da usare in un modello di Azure Resource Manag
 ms.topic: conceptual
 ms.date: 11/18/2020
 ms.openlocfilehash: 58d865f109ecca2629b89eeb55e554743824c195
-ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96920496"
 ---
 # <a name="date-functions-for-arm-templates"></a>Funzioni di data per i modelli ARM
@@ -27,7 +27,7 @@ Aggiunge una durata di tempo a un valore di base. È previsto il formato ISO 860
 
 ### <a name="parameters"></a>Parametri
 
-| Parametro | Obbligatorio | Type | Descrizione |
+| Parametro | Obbligatoria | Tipo | Descrizione |
 |:--- |:--- |:--- |:--- |
 | base | Sì | string | Valore DateTime iniziale per l'addizione. Usare il [formato timestamp ISO 8601](https://en.wikipedia.org/wiki/ISO_8601). |
 | duration | Sì | string | Valore di ora da aggiungere alla base. Può essere un valore negativo. Usare il [formato di durata ISO 8601](https://en.wikipedia.org/wiki/ISO_8601#Durations). |
@@ -37,7 +37,7 @@ Aggiunge una durata di tempo a un valore di base. È previsto il formato ISO 860
 
 Valore DateTime risultante dall'aggiunta del valore Duration al valore di base.
 
-### <a name="examples"></a>Esempi
+### <a name="examples"></a>Esempio
 
 Nel modello di esempio seguente vengono illustrate diverse modalità di aggiunta di valori temporali.
 
@@ -96,9 +96,9 @@ Quando il modello precedente viene distribuito con un'ora di base `2020-04-07 14
 
 | Nome | Type | valore |
 | ---- | ---- | ----- |
-| add3YearsOutput | Stringa | 4/7/2023 2:53:14 PM |
-| subtract9DaysOutput | Stringa | 3/29/2020 2:53:14 PM |
-| add1HourOutput | Stringa | 4/7/2020 3:53:14 PM |
+| add3YearsOutput | string | 4/7/2023 2:53:14 PM |
+| subtract9DaysOutput | string | 3/29/2020 2:53:14 PM |
+| add1HourOutput | string | 4/7/2020 3:53:14 PM |
 
 Il modello di esempio successivo Mostra come impostare l'ora di inizio per una pianificazione di automazione.
 
@@ -186,11 +186,11 @@ Restituisce il valore DateTime corrente (UTC) nel formato specificato. Se non vi
 
 ### <a name="parameters"></a>Parametri
 
-| Parametro | Obbligatorio | Type | Descrizione |
+| Parametro | Obbligatoria | Tipo | Descrizione |
 |:--- |:--- |:--- |:--- |
 | format |No |string |Valore URI codificato da convertire in stringa. Utilizzare [stringhe di formato standard](/dotnet/standard/base-types/standard-date-and-time-format-strings) o [stringhe di formato personalizzate](/dotnet/standard/base-types/custom-date-and-time-format-strings). |
 
-### <a name="remarks"></a>Osservazioni
+### <a name="remarks"></a>Commenti
 
 Questa funzione può essere usata solo all'interno di un'espressione per il valore predefinito di un parametro. L'uso di questa funzione in qualsiasi altra posizione in un modello restituisce un errore. La funzione non è consentita in altre parti del modello perché restituisce un valore diverso ogni volta che viene chiamato. La distribuzione dello stesso modello con gli stessi parametri non produrrebbe in modo affidabile gli stessi risultati.
 
@@ -202,7 +202,7 @@ Prestare attenzione nella ridistribuzione di un modello che si basa sulla funzio
 
 Valore DateTime UTC corrente.
 
-### <a name="examples"></a>Esempi
+### <a name="examples"></a>Esempio
 
 Il modello di esempio seguente mostra formati diversi per il valore DateTime.
 

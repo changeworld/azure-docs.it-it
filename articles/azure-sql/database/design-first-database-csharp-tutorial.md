@@ -11,10 +11,10 @@ ms.author: genemi
 ms.reviewer: sstein
 ms.date: 07/29/2019
 ms.openlocfilehash: 4b3235f457f1c6475c18045886c49d3dd2ca2242
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
-ms.translationtype: HT
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/27/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92671184"
 ---
 # <a name="tutorial-design-a-relational-database-in-azure-sql-database-cx23-and-adonet"></a>Esercitazione: Progettare un database relazionale nel database SQL di Azure con C&#x23; e ADO.NET
@@ -47,7 +47,7 @@ Un database nel database SQL di Azure viene creato con un set definito di risors
 Per creare un database vuoto, seguire questa procedura.
 
 1. Fare clic su **Crea una risorsa** nell'angolo superiore sinistro del portale di Azure.
-2. Nella pagina **Nuovo** , selezionare **Database** nella sezione Azure Marketplace e quindi fare clic su **Database SQL** nella sezione **In primo piano** .
+2. Nella pagina **Nuovo**, selezionare **Database** nella sezione Azure Marketplace e quindi fare clic su **Database SQL** nella sezione **In primo piano**.
 
    ![creare database vuoto](./media/design-first-database-csharp-tutorial/create-empty-database.png)
 
@@ -71,14 +71,14 @@ Per creare un database vuoto, seguire questa procedura.
 
     ![Creare il server di database](./media/design-first-database-csharp-tutorial/create-database-server.png)
 
-5. Fare clic su **Seleziona** .
+5. Fare clic su **Seleziona**.
 6. Fare clic su **Piano tariffario** per specificare il livello di servizio, il numero di DTU o vCores e la quantità di risorse di archiviazione. Esplorare le opzioni relative al numero di DTU/vCore e di risorse di archiviazione disponibile per ogni livello di servizio.
 
-    Dopo aver selezionato il livello di servizio, il numero di DTU o vCore e la quantità di spazio di archiviazione, fare clic su **Applica** .
+    Dopo aver selezionato il livello di servizio, il numero di DTU o vCore e la quantità di spazio di archiviazione, fare clic su **Applica**.
 
 7. Immettere le **regole di confronto** per il database vuoto. Per questa esercitazione usare il valore predefinito. Per altre informazioni sulle regole di confronto, vedere [Collations](/sql/t-sql/statements/collations) (Regole di confronto)
 
-8. Dopo aver completato il modulo **Database SQL** , fare clic su **Crea** per effettuare il provisioning del database. Questo passaggio potrebbe richiedere alcuni minuti.
+8. Dopo aver completato il modulo **Database SQL**, fare clic su **Crea** per effettuare il provisioning del database. Questo passaggio potrebbe richiedere alcuni minuti.
 
 9. Sulla barra degli strumenti fare clic su **Notifiche** per monitorare il processo di distribuzione.
 
@@ -91,7 +91,7 @@ Database SQL crea un firewall per gli indirizzi IP a livello di server. Questo i
 > [!IMPORTANT]
 > Il database SQL comunica attraverso la porta 1433. Se si intende connettersi al servizio da una rete aziendale, il firewall della rete potrebbe non consentire il traffico in uscita sulla porta 1433. In questo caso, non è possibile connettersi al database a meno che l'amministratore non apra la porta 1433.
 
-1. Al termine della distribuzione, fare clic su **Database SQL** nel menu a sinistra e quindi su *yourDatabase* nella pagina **Database SQL** . Verrà visualizzata la pagina di panoramica del database, che mostra il **nome server** completo, ad esempio *yourserver.database.windows.net* , e offre opzioni per operazioni di configurazione aggiuntive.
+1. Al termine della distribuzione, fare clic su **Database SQL** nel menu a sinistra e quindi su *yourDatabase* nella pagina **Database SQL**. Verrà visualizzata la pagina di panoramica del database, che mostra il **nome server** completo, ad esempio *yourserver.database.windows.net*, e offre opzioni per operazioni di configurazione aggiuntive.
 
 2. Copiare il nome completo del server per usarlo per la connessione al server e ai database da SQL Server Management Studio.
 
@@ -103,9 +103,9 @@ Database SQL crea un firewall per gli indirizzi IP a livello di server. Questo i
 
 4. Fare clic su **Aggiungi IP client** sulla barra degli strumenti per aggiungere l'indirizzo IP corrente a una nuova regola del firewall per gli indirizzi IP. Una regola del firewall per gli indirizzi IP può aprire la porta 1433 per un singolo indirizzo IP o un intervallo di indirizzi IP.
 
-5. Fare clic su **Salva** . Viene creata una regola del firewall IP a livello di server per l'indirizzo IP corrente, che apre la porta 1433 nel server.
+5. Fare clic su **Salva**. Viene creata una regola del firewall IP a livello di server per l'indirizzo IP corrente, che apre la porta 1433 nel server.
 
-6. Fare clic su **OK** e quindi chiudere la pagina **Impostazioni del firewall** .
+6. Fare clic su **OK** e quindi chiudere la pagina **Impostazioni del firewall**.
 
 L'indirizzo IP può ora superare il firewall per gli indirizzi IP. È quindi possibile connettersi al database usando SQL Server Management Studio o un altro strumento di propria scelta. Assicurarsi di usare l'account amministratore del server creato in precedenza.
 

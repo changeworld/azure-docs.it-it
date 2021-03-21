@@ -10,10 +10,10 @@ author: likebupt
 ms.author: keli19
 ms.date: 08/04/2020
 ms.openlocfilehash: 7e0b61c1ca6ae30044e4c9d4705bdce01eac1942
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93323683"
 ---
 # <a name="module-k-means-clustering"></a>Modulo: clustering K-means
@@ -58,46 +58,46 @@ Quando elabora i dati di training, l'algoritmo K-means inizia con un set inizial
   
 2.  Per specificare il modo in cui si desidera eseguire il training del modello, selezionare l'opzione **crea modalità trainer** .  
   
-    -   **Singolo parametro** : se si conoscono i parametri esatti da usare nel modello di clustering, è possibile specificare come argomenti un set specifico di valori.  
+    -   **Singolo parametro**: se si conoscono i parametri esatti da usare nel modello di clustering, è possibile specificare come argomenti un set specifico di valori.  
   
-3.  Per **numero di centroidi** , digitare il numero di cluster per i quali si vuole iniziare l'algoritmo.  
+3.  Per **numero di centroidi**, digitare il numero di cluster per i quali si vuole iniziare l'algoritmo.  
   
      Non è garantito che il modello produca esattamente questo numero di cluster. L'algoritmo inizia con questo numero di punti dati e scorre per trovare la configurazione ottimale. È possibile fare riferimento al [codice sorgente di sklearn](https://github.com/scikit-learn/scikit-learn/blob/fd237278e/sklearn/cluster/_kmeans.py#L1069).
   
 4.  L' **inizializzazione** delle proprietà viene utilizzata per specificare l'algoritmo utilizzato per definire la configurazione iniziale del cluster.  
   
-    -   **First N** : un numero iniziale di punti dati viene scelto dal set di dati e usato come mezzo iniziale. 
+    -   **First N**: un numero iniziale di punti dati viene scelto dal set di dati e usato come mezzo iniziale. 
     
          Questo metodo viene chiamato anche *metodo false*.  
   
-    -   **Random** : l'algoritmo inserisce in modo casuale un punto dati in un cluster e quindi calcola il valore medio iniziale per essere il baricentro dei punti assegnati in modo casuale del cluster. 
+    -   **Random**: l'algoritmo inserisce in modo casuale un punto dati in un cluster e quindi calcola il valore medio iniziale per essere il baricentro dei punti assegnati in modo casuale del cluster. 
 
          Questo metodo viene chiamato anche metodo di *partizione casuale* .  
   
-    -   **K-means + +** : questo è il metodo predefinito per l'inizializzazione dei cluster.  
+    -   **K-means + +**: questo è il metodo predefinito per l'inizializzazione dei cluster.  
   
          L'algoritmo **k-means + +** è stato proposto in 2007 da David Arthur e Sergei vassilvitski per evitare un clustering insufficiente nell'algoritmo k-means standard. **K-means + +** migliora la modalità k standard usando un metodo diverso per la scelta dei centri cluster iniziali.  
   
     
-5.  Per il valore di inizializzazione **numerico casuale** , digitare facoltativamente un valore da usare come valore di inizializzazione per l'inizializzazione del cluster. Questo valore può avere un effetto significativo sulla selezione del cluster.  
+5.  Per il valore di inizializzazione **numerico casuale**, digitare facoltativamente un valore da usare come valore di inizializzazione per l'inizializzazione del cluster. Questo valore può avere un effetto significativo sulla selezione del cluster.  
   
-6.  Per **metrica** , scegliere la funzione da usare per misurare la distanza tra i vettori del cluster o tra i nuovi punti dati e il baricentro scelto in modo casuale. Azure Machine Learning supporta le metriche di distanza del cluster seguenti:  
+6.  Per **metrica**, scegliere la funzione da usare per misurare la distanza tra i vettori del cluster o tra i nuovi punti dati e il baricentro scelto in modo casuale. Azure Machine Learning supporta le metriche di distanza del cluster seguenti:  
   
-    -   **Euclideo** : la distanza euclidea viene comunemente usata come misura della dispersione del cluster per il clustering K-means. Questa metrica è preferibile perché riduce al minimo la distanza media tra i punti e i centroidi.
+    -   **Euclideo**: la distanza euclidea viene comunemente usata come misura della dispersione del cluster per il clustering K-means. Questa metrica è preferibile perché riduce al minimo la distanza media tra i punti e i centroidi.
   
-7.  Per le **iterazioni** , digitare il numero di volte in cui l'algoritmo deve eseguire l'iterazione sui dati di training prima di finalizzare la selezione di centroidi.  
+7.  Per le **iterazioni**, digitare il numero di volte in cui l'algoritmo deve eseguire l'iterazione sui dati di training prima di finalizzare la selezione di centroidi.  
   
      È possibile modificare questo parametro per bilanciare l'accuratezza rispetto al tempo di training.  
   
-8.  Per la **modalità assegnazione etichetta** , scegliere un'opzione che specifichi il modo in cui deve essere gestita una colonna di etichetta, se è presente nel set di dati.  
+8.  Per la **modalità assegnazione etichetta**, scegliere un'opzione che specifichi il modo in cui deve essere gestita una colonna di etichetta, se è presente nel set di dati.  
   
      Poiché il clustering K-means è un metodo di apprendimento automatico non supervisionato, le etichette sono facoltative. Tuttavia, se il set di dati contiene già una colonna di etichetta, è possibile usare tali valori per guidare la selezione dei cluster oppure è possibile specificare che i valori vengano ignorati.  
   
-    -   **Ignora colonna etichetta** : i valori nella colonna etichetta vengono ignorati e non vengono utilizzati nella compilazione del modello.
+    -   **Ignora colonna etichetta**: i valori nella colonna etichetta vengono ignorati e non vengono utilizzati nella compilazione del modello.
   
-    -   **Fill Missing Values** : i valori della colonna Label vengono usati come funzionalità per facilitare la compilazione dei cluster. Se nelle righe manca un'etichetta, il valore viene imputato utilizzando altre funzionalità.  
+    -   **Fill Missing Values**: i valori della colonna Label vengono usati come funzionalità per facilitare la compilazione dei cluster. Se nelle righe manca un'etichetta, il valore viene imputato utilizzando altre funzionalità.  
   
-    -   **Sovrascrivi dal più vicino al centro** : i valori delle colonne dell'etichetta vengono sostituiti con i valori delle etichette stimati, usando l'etichetta del punto più vicino al baricentro corrente.  
+    -   **Sovrascrivi dal più vicino al centro**: i valori delle colonne dell'etichetta vengono sostituiti con i valori delle etichette stimati, usando l'etichetta del punto più vicino al baricentro corrente.  
 
 8.  Selezionare l'opzione **normalizza funzionalità** se si vuole normalizzare le funzionalità prima del training.
   
@@ -105,7 +105,7 @@ Quando elabora i dati di training, l'algoritmo K-means inizia con un set inizial
 
 10. Eseguire il training del modello.  
   
-    -   Se si imposta la **modalità di creazione dell'allenatore** su un **singolo parametro** , aggiungere un set di dati con tag ed eseguire il training del modello usando il modulo [Train clustering Model](train-clustering-model.md) .  
+    -   Se si imposta la **modalità di creazione dell'allenatore** su un **singolo parametro**, aggiungere un set di dati con tag ed eseguire il training del modello usando il modulo [Train clustering Model](train-clustering-model.md) .  
   
 ## <a name="results"></a>Risultati
 

@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 01/07/2019
 ms.author: mbaldwin
 ms.openlocfilehash: a9545c040809331a5556b11f6cc7536931e2d421
-ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/03/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93289574"
 ---
 # <a name="certificate-creation-methods"></a>Metodi di creazione dei certificati
@@ -80,7 +80,7 @@ La chiave e il segreto indirizzabili ottengono i propri attributi dagli attribut
 ## <a name="partnered-ca-providers"></a>Provider CA partner
 La creazione del certificato può essere completata manualmente oppure usando un'autorità di certificazione "Self". Key Vault collabora con alcuni provider di autorità di certificazione per semplificare la creazione dei certificati. Presso questi provider autorità di certificazione partner è possibile ordinare i tipi seguenti di certificati per l'insieme di credenziali delle chiavi.  
 
-|Provider|Tipo di certificato|Configurazione configurazione  
+|Provider|Tipo di certificato|Eseguire la configurazione  
 |--------------|----------------------|------------------|  
 |DigiCert|Key Vault offre certificati SSL OV o EV con DigiCert| [Guida all'integrazione](./how-to-integrate-certificate-authority.md)
 |GlobalSign|Key Vault offre certificati SSL OV o EV con GlobalSign| [Guida all'integrazione](https://support.globalsign.com/digital-certificates/digital-certificate-installation/generating-and-importing-certificate-microsoft-azure-key-vault)

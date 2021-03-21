@@ -5,10 +5,10 @@ ms.service: data-lake-analytics
 ms.topic: how-to
 ms.date: 02/12/2018
 ms.openlocfilehash: cd339729f2300ff7e13e7422bf73373b4ce4658e
-ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/20/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92221010"
 ---
 # <a name="accessing-diagnostic-logs-for-azure-data-lake-analytics"></a>Accesso ai log di diagnostica per Azure Data Lake Analytics
@@ -125,7 +125,7 @@ Di seguito viene riportata una voce di esempio nel log delle richieste in format
 
 #### <a name="request-log-schema"></a>Schema del log delle richieste
 
-| Nome | Type | Description |
+| Nome | Tipo | Descrizione |
 | --- | --- | --- |
 | time |string |Il timestamp del log (fusorario UTC) |
 | resourceId |string |Identificatore della risorsa interessata dall'operazione |
@@ -139,10 +139,10 @@ Di seguito viene riportata una voce di esempio nel log delle richieste in format
 
 #### <a name="request-log-properties-schema"></a>Schema delle proprietà del log di richiesta
 
-| Nome | Type | Description |
+| Nome | Tipo | Descrizione |
 | --- | --- | --- |
 | HttpMethod |string |Il metodo HTTP utilizzato per l'operazione. Esempio: GET. |
-| Path |string |Il percorso coinvolto nell'operazione |
+| Percorso |string |Il percorso coinvolto nell'operazione |
 | RequestContentLength |INT |La lunghezza del contenuto della richiesta HTTP |
 | ClientRequestId |string |Identificatore che identifica in modo univoco la richiesta |
 | StartTime |string |L'ora in cui il server ha ricevuto la richiesta |
@@ -175,7 +175,7 @@ Di seguito viene riportata una voce di esempio nel log di controllo in formato J
 
 #### <a name="audit-log-schema"></a>Schema del log di controllo
 
-| Nome | Type | Description |
+| Nome | Tipo | Descrizione |
 | --- | --- | --- |
 | time |string |Il timestamp del log (fusorario UTC) |
 | resourceId |string |Identificatore della risorsa interessata dall'operazione |
@@ -193,7 +193,7 @@ Di seguito viene riportata una voce di esempio nel log di controllo in formato J
 
 #### <a name="audit-log-properties-schema"></a>Schema delle proprietà del log di controllo
 
-| Nome | Type | Description |
+| Nome | Tipo | Descrizione |
 | --- | --- | --- |
 | JobId |string |L'ID assegnato al processo |
 | JobName |string |Il nome fornito per il processo |

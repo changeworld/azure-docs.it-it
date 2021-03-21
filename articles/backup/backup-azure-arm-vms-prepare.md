@@ -4,10 +4,10 @@ description: Informazioni su come eseguire il backup di macchine virtuali di Azu
 ms.topic: conceptual
 ms.date: 07/28/2020
 ms.openlocfilehash: f6fe2f629742e15e62dfc13106e92623a4b45add
-ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/19/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92172752"
 ---
 # <a name="back-up-azure-vms-in-a-recovery-services-vault"></a>Eseguire il backup di macchine virtuali di Azure in un insieme di credenziali di Servizi di ripristino
@@ -115,7 +115,7 @@ Se si è scelto di creare un nuovo criterio di backup, specificare le impostazio
     * Quando si esegue il ripristino, i dischi delle macchine virtuali di cui è stato eseguito il backup vengono copiati dalla risorsa di archiviazione attraverso la rete nella posizione di archiviazione di ripristino. Con il ripristino istantaneo è possibile sfruttare gli snapshot archiviati localmente eseguiti durante un processo di backup, senza attendere il trasferimento dei dati di backup nell'insieme di credenziali.
     * È possibile conservare gli snapshot per il ripristino istantaneo per un periodo compreso tra uno e cinque giorni. L'impostazione predefinita è due giorni.
 4. In **Intervallo di conservazione** specificare per quanto tempo si vogliono conservare i punti di backup giornalieri o settimanali.
-5. In **conservazione del punto** di backup mensile e **della conservazione del punto di backup annuale**specificare se si vuole mantenere un backup mensile o annuale dei backup giornalieri o settimanali.
+5. In **conservazione del punto** di backup mensile e **della conservazione del punto di backup annuale** specificare se si vuole mantenere un backup mensile o annuale dei backup giornalieri o settimanali.
 6. Selezionare **OK** per salvare il criterio.
 
     ![Nuovo criterio di backup](./media/backup-azure-arm-vms-prepare/new-policy.png)
@@ -128,7 +128,7 @@ Se si è scelto di creare un nuovo criterio di backup, specificare le impostazio
 Il backup iniziale verrà eseguito in base alla pianificazione, ma è possibile eseguirlo immediatamente come segue:
 
 1. Nel menu dell'insieme di credenziali selezionare **elementi di backup**.
-2. In **elementi di backup**selezionare **macchina virtuale di Azure**.
+2. In **elementi di backup** selezionare **macchina virtuale di Azure**.
 3. Nell'elenco **elementi di backup selezionare i puntini** di sospensione (...).
 4. Selezionare **Esegui backup ora**.
 5. In **Esegui backup** usare il comando del calendario per selezionare l'ultimo giorno di conservazione del punto di ripristino. Selezionare **OK**.

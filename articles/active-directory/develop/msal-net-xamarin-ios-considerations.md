@@ -14,10 +14,10 @@ ms.author: marsma
 ms.reviewer: saeeda
 ms.custom: devx-track-csharp, aaddev
 ms.openlocfilehash: 62eb4ab9eb6e4b0e7be0f7aadae1173950d21615
-ms.sourcegitcommit: 2488894b8ece49d493399d2ed7c98d29b53a5599
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/11/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98064488"
 ---
 # <a name="considerations-for-using-xamarin-ios-with-msalnet"></a>Considerazioni sull'uso di Novell iOS con MSAL.NET
@@ -151,7 +151,7 @@ Se si hanno domande o si vuole segnalare un problema riscontrato in MSAL.NET, ap
 
 Per informazioni sulle proprietà per Novell iOS, vedere il paragrafo [considerazioni specifiche per iOS](https://github.com/Azure-Samples/active-directory-xamarin-native-v2/tree/master/1-Basic#ios-specific-considerations) del file Readme.MD dell'esempio seguente:
 
-Esempio | Piattaforma | Description
+Esempio | Piattaforma | Descrizione
 ------ | -------- | -----------
 [https://github.com/Azure-Samples/active-directory-xamarin-native-v2](https://github.com/azure-samples/active-directory-xamarin-native-v2) | Novell iOS, Android, piattaforma UWP (Universal Windows Platform) (UWP) | Una semplice app Novell Forms che illustra come usare MSAL per autenticare gli account personali Microsoft e Azure AD tramite l'endpoint Azure AD 2,0. L'app mostra anche come usare il token risultante per accedere Microsoft Graph.
 

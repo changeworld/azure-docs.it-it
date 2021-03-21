@@ -13,10 +13,10 @@ ms.author: jovanpop
 ms.reviewer: sstein
 ms.date: 04/16/2019
 ms.openlocfilehash: b7f2f060f32cf3bf92660a2e8b75a45b7ec76b82
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/28/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92779765"
 ---
 # <a name="azure-sql-managed-instance-content-reference"></a>Informazioni di riferimento sul contenuto del Istanza gestita SQL di Azure
@@ -79,9 +79,9 @@ In questo articolo è possibile trovare un riferimento al contenuto per diverse 
 
 - [Creare avvisi per l'istanza gestita](alerts-create.md)
 
-## <a name="operations"></a>Operazioni
+## <a name="operations"></a>Gestione operativa
 
-- [Failover manuale avviato dall'utente in SQL Istanza gestita](user-initiated-failover.md)
+- [Failover manuale avviato dall'utente in Istanza gestita di SQL](user-initiated-failover.md)
 
 ## <a name="develop-applications"></a>Sviluppare applicazioni
 

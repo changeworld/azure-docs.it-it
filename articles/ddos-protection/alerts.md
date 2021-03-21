@@ -12,10 +12,10 @@ ms.workload: infrastructure-services
 ms.date: 12/28/2020
 ms.author: yitoh
 ms.openlocfilehash: a5639d583d9b98f6527e47bf5db213cb191ebeb7
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/17/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100575302"
 ---
 # <a name="view-and-configure-ddos-protection-alerts"></a>Visualizzare e configurare gli avvisi di protezione DDoS
@@ -25,9 +25,9 @@ Lo standard Protezione DDoS di Azure fornisce informazioni dettagliate sugli att
 In questa esercitazione si apprenderà come:
 
 > [!div class="checklist"]
-> * Configurare gli avvisi tramite monitoraggio di Azure
-> * Configurare gli avvisi tramite il portale
-> * Visualizzare gli avvisi nel centro sicurezza di Azure
+> * Configurare avvisi tramite Monitoraggio di Azure
+> * Configurare avvisi tramite il portale
+> * Visualizzare avvisi nel Centro sicurezza di Azure
 > * Convalidare e testare gli avvisi
 
 ## <a name="prerequisites"></a>Prerequisiti
@@ -36,7 +36,7 @@ In questa esercitazione si apprenderà come:
 - Prima di eseguire i passaggi di questa esercitazione, è necessario creare prima di tutto un [piano di protezione standard DDoS di Azure](manage-ddos-protection.md) e la protezione DDoS standard deve essere abilitata in una rete virtuale.
 - La protezione DDoS esegue il monitoraggio degli indirizzi IP pubblici assegnati alle risorse all'interno di una rete virtuale. Se non si dispone di risorse con indirizzi IP pubblici nella rete virtuale, è innanzitutto necessario creare una risorsa con un indirizzo IP pubblico. È possibile monitorare l'indirizzo IP pubblico di tutte le risorse distribuite tramite Gestione risorse (non classico) elencate in [rete virtuale per i servizi di Azure](../virtual-network/virtual-network-for-azure-services.md#services-that-can-be-deployed-into-a-virtual-network) (inclusi i servizi di bilanciamento del carico di Azure in cui le macchine virtuali di back-end si trovano nella rete virtuale), ad eccezione dei app Azure ambienti del servizio. Per continuare questa esercitazione, è possibile creare rapidamente una macchina virtuale [Windows](../virtual-machines/windows/quick-create-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json) o [Linux](../virtual-machines/linux/quick-create-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json).     
 
-## <a name="configure-alerts-through-azure-monitor"></a>Configurare gli avvisi tramite monitoraggio di Azure
+## <a name="configure-alerts-through-azure-monitor"></a>Configurare avvisi tramite Monitoraggio di Azure
 
 Con questi modelli, sarà possibile configurare gli avvisi per tutti gli indirizzi IP pubblici per i quali è stata abilitata la registrazione diagnostica. Quindi, per usare questi modelli di avviso, è necessario prima di tutto un'area di lavoro Log Analytics con le impostazioni di diagnostica abilitate. Vedere [visualizzare e configurare la registrazione diagnostica DDoS](diagnostic-logging.md).
 
@@ -52,7 +52,7 @@ Questo [modello](https://aka.ms/ddosalert) distribuisce i componenti necessari d
 
 [![Distribuzione in Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2FAzure-Network-Security%2Fmaster%2FAzure%2520DDoS%2520Protection%2FDDoS%2520Mitigation%2520Alert%2520Enrichment%2FEnrich-DDoSAlert.json)
 
-## <a name="configure-alerts-through-portal"></a>Configurare gli avvisi tramite il portale
+## <a name="configure-alerts-through-portal"></a>Configurare avvisi tramite il portale
 
 Usando la configurazione degli avvisi di Monitoraggio di Azure, è possibile selezionare una delle metriche di protezione DDoS disponibili per ricevere un avviso nel caso in cui ci sia una mitigazione attiva durante un attacco. 
 
@@ -74,7 +74,7 @@ Entro pochi minuti dal rilevamento degli attacchi, si dovrebbe ricevere un messa
 
 È anche possibile leggere altre informazioni relative alla [configurazione dei webhook](../azure-monitor/alerts/alerts-webhooks.md?toc=%2fazure%2fvirtual-network%2ftoc.json) e alle [app per la logica](../logic-apps/logic-apps-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) per la creazione di avvisi.
 
-## <a name="view-alerts-in-azure-security-center"></a>Visualizzare gli avvisi nel centro sicurezza di Azure
+## <a name="view-alerts-in-azure-security-center"></a>Visualizzare avvisi nel Centro sicurezza di Azure
 
 Il Centro sicurezza di Azure fornisce un elenco di [avvisi di sicurezza](../security-center/security-center-managing-and-responding-alerts.md), con informazioni che consentono di analizzare e correggere i problemi. Questa funzionalità consente di ottenere una visualizzazione unificata degli avvisi, inclusi gli avvisi relativi agli attacchi DDoS e le azioni intraprese per attenuare l'attacco in tempi più prossimi.
 Esistono due avvisi specifici che verranno visualizzati per qualsiasi rilevamento e mitigazione degli attacchi DDoS:
@@ -95,9 +95,9 @@ Per simulare un attacco DDoS per convalidare gli avvisi, vedere [Validate DDoS D
 
 In questa esercitazione sono state illustrate le procedure per:
 
-- Configurare gli avvisi tramite monitoraggio di Azure
-- Configurare gli avvisi tramite il portale
-- Visualizzare gli avvisi nel centro sicurezza di Azure
+- Configurare avvisi tramite Monitoraggio di Azure
+- Configurare avvisi tramite il portale
+- Visualizzare avvisi nel Centro sicurezza di Azure
 - Convalidare e testare gli avvisi
 
 Per informazioni su come testare e simulare un attacco DDoS, vedere la guida ai test di simulazione:

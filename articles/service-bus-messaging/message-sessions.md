@@ -4,10 +4,10 @@ description: In questo articolo viene illustrato come usare le sessioni per abil
 ms.topic: article
 ms.date: 01/20/2021
 ms.openlocfilehash: 6d316571d69d2e1e73ddca4ccca53c116ee8fa5f
-ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/22/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98680754"
 ---
 # <a name="message-sessions"></a>Sessioni di messaggistica
@@ -34,9 +34,9 @@ Nel portale impostare il flag con la casella di controllo seguente:
 ![Screenshot della finestra di dialogo Crea coda con l'opzione Abilita sessioni selezionata e delineata in rosso.][2]
 
 > [!NOTE]
-> Quando le sessioni sono abilitate in una coda o in una sottoscrizione, le applicazioni client **non possono più** inviare/ricevere messaggi regolari. Tutti i messaggi devono essere inviati come parte di una sessione (impostando l'ID sessione) e ricevuti ricevendo la sessione.
+> Quando le sessioni sono abilitate in una coda o in una sottoscrizione, le applicazioni client ***non possono più*** inviare/ricevere messaggi regolari. Tutti i messaggi devono essere inviati come parte di una sessione (impostando l'ID sessione) e ricevuti ricevendo la sessione.
 
-Le API per le sessioni sono presenti nei client di accodamento e di sottoscrizione. È disponibile un modello imperativo che controlla quando vengono ricevuti i messaggi e le sessioni e un modello basato su gestore, simile a _OnMessage *, che nasconde la complessità della gestione del ciclo di ricezione.
+Le API per le sessioni sono presenti nei client di accodamento e di sottoscrizione. Esiste un modello imperativo che controlla quando vengono ricevuti i messaggi e le sessioni e un modello basato su gestore, simile a *OnMessage*, che nasconde la complessità di gestione del ciclo di ricezione.
 
 ### <a name="session-features"></a>Funzionalità delle sessioni
 

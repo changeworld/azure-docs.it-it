@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 05/06/2020
 ms.author: dayshen
 ms.openlocfilehash: aaa97c2cb062f30b1260ec7f80f85a3caccf932f
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/17/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92152325"
 ---
 # <a name="use-service-tags-for-azure-signalr-service"></a>Usare i tag di servizio per il servizio Azure SignalR
@@ -41,7 +41,7 @@ Il servizio Azure SignalR gestisce questi tag del servizio. Non è possibile cre
 
 1. Modificare gli altri campi in base alle esigenze.
 
-1. Scegliere **Aggiungi**.
+1. Fare clic su **Aggiungi**.
 
 
 ## <a name="next-steps"></a>Passaggi successivi

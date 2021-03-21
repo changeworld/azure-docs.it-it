@@ -1,5 +1,5 @@
 ---
-title: Sinonimi di esempio in C#
+title: Esempio di sinonimi in C#
 titleSuffix: Azure Cognitive Search
 description: In questo esempio di C# si apprenderà come aggiungere la funzionalità sinonimi a un indice in ricerca cognitiva di Azure. Un mapping dei sinonimi è un elenco di termini equivalenti. I campi con supporto dei sinonimi espandono le query in modo da includere il termine fornito dall'utente e tutti i relativi sinonimi.
 manager: nitinme
@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 12/18/2020
 ms.custom: devx-track-csharp
 ms.openlocfilehash: 50d5d73e71b8129f061ec49b363a0ebb13d22bdf
-ms.sourcegitcommit: e7152996ee917505c7aba707d214b2b520348302
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/20/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97704657"
 ---
 # <a name="example-add-synonyms-for-azure-cognitive-search-in-c"></a>Esempio: aggiungere sinonimi per ricerca cognitiva di Azure in C #

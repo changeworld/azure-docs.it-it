@@ -10,10 +10,10 @@ ms.topic: article
 ms.date: 01/07/2020
 tags: connectors
 ms.openlocfilehash: 4995a91783c2302f3bda5cc9409f017248ca29fa
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "88761645"
 ---
 # <a name="manage-ibm-informix-database-resources-by-using-azure-logic-apps"></a>Gestire le risorse del database IBM Informix usando app per la logica di Azure
@@ -60,7 +60,7 @@ Questo argomento illustra come usare il connettore in un'app per la logica per e
 
    | Azione | Descrizione | Proprietà e descrizioni |
    |--------|-------------|-----------------------------|
-   | **Ottieni tabelle** | Elencare le tabelle di database eseguendo un'istruzione di chiamata Informix. | Nessuno |
+   | **Ottieni tabelle** | Elencare le tabelle di database eseguendo un'istruzione di chiamata Informix. | nessuno |
    | **Ottieni righe** | Recuperare tutte le righe nella tabella specificata eseguendo un' `SELECT *` istruzione Informix. | **Nome tabella**: il nome della tabella Informix desiderata <p><p>Per aggiungere altre proprietà a questa azione, selezionarle nell'elenco **Aggiungi nuovo parametro** . Per altre informazioni, vedere l' [argomento di riferimento del connettore](/connectors/informix/). |
    | **Ottenere la riga** | Eseguire un'istruzione Informix per recuperare una riga dalla tabella specificata `SELECT WHERE` . | - **Nome tabella**: il nome della tabella Informix desiderata <br>- **ID riga**: ID univoco per la riga, ad esempio `9999` |
    | **Inserimento di una riga** | Aggiungere una riga alla tabella Informix specificata eseguendo un' `INSERT` istruzione Informix. | - **Nome tabella**: il nome della tabella Informix desiderata <br>- **Item**: la riga con i valori da aggiungere |
@@ -107,15 +107,15 @@ Questo argomento illustra come usare il connettore in un'app per la logica per e
 
 1. Nella barra degli strumenti di progettazione app per la logica selezionare **Esegui**. Dopo l'esecuzione dell'app per la logica, è possibile visualizzare gli output di tale esecuzione.
 
-1. Scegliere **Panoramica**dal menu dell'app per la logica. Nel riquadro Panoramica, in **Riepilogo**  >  **esecuzioni cronologia**, selezionare l'esecuzione più recente.
+1. Scegliere **Panoramica** dal menu dell'app per la logica. Nel riquadro Panoramica, in **Riepilogo**  >  **esecuzioni cronologia**, selezionare l'esecuzione più recente.
 
-1. In **esecuzione App**per la logica selezionare **Dettagli esecuzione**.
+1. In **esecuzione App** per la logica selezionare **Dettagli esecuzione**.
 
 1. Nell'elenco azioni selezionare l'azione con gli output che si desidera visualizzare, ad esempio **Get_tables**.
 
    Se l'azione ha avuto esito positivo, la relativa proprietà **status** è contrassegnata come **succeeded**.
 
-1. Per visualizzare gli input, in **input collegamento**selezionare il collegamento URL. Per visualizzare gli output, in collegamento a **collegamento output** selezionare il collegamento URL. Ecco alcuni output di esempio:
+1. Per visualizzare gli input, in **input collegamento** selezionare il collegamento URL. Per visualizzare gli output, in collegamento a **collegamento output** selezionare il collegamento URL. Ecco alcuni output di esempio:
 
    * **Get_tables** Visualizza un elenco di tabelle:
 

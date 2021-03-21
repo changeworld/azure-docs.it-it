@@ -4,10 +4,10 @@ description: Informazioni sul nuovo schema e struttura della tabella per monitor
 ms.topic: conceptual
 ms.date: 05/09/2020
 ms.openlocfilehash: ef9d22cd2b45679928ee54778b2a521ea9ecab03
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/17/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100575610"
 ---
 # <a name="workspace-based-resource-changes"></a>Modifiche alle risorse basate sull'area di lavoro
@@ -146,7 +146,7 @@ Tabella legacy: dipendenze
 |cloud_RoleName|string|AppRoleName|string|
 |customDimensions|dinamico|Proprietà|Dynamic|
 |customMeasurements|dinamico|Misurazioni|Dynamic|
-|data|string|Data|string|
+|data|string|Dati|string|
 |duration|real|DurationMs|real|
 |`id`|string|`Id`|string|
 |iKey|string|IKey|string|
