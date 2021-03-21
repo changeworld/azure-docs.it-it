@@ -1,22 +1,22 @@
 ---
-title: 'Guida introduttiva: Usare lo strumento URL per ottenere una risposta dalla knowledge base - QnA Maker'
+title: Usare lo strumento URL per ottenere una risposta dalla knowledge base - QnA Maker
 titleSuffix: Azure Cognitive Services
-description: Questo argomento di avvio rapido assiste nell'ottenimento di una risposta da una knowledge base usando lo strumento di test URL come cURL o Postman.
+description: Questo articolo illustra come ottenere una risposta dalla Knowledge base usando uno strumento di test dell'URL, ad esempio cURL o postazione.
 services: cognitive-services
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 zone_pivot_groups: URL-test-interface
-ms.topic: quickstart
+ms.topic: how-to
 ms.date: 07/16/2020
-ms.openlocfilehash: eddae69c0946ab135540b77d3cc89937079e6293
-ms.sourcegitcommit: 225e4b45844e845bc41d5c043587a61e6b6ce5ae
+ms.openlocfilehash: 46657cfaf513cdd2dd0ecfd284602d2277781626
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/11/2021
-ms.locfileid: "103016254"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104583072"
 ---
-# <a name="quickstart-get-an-answer-from-knowledge-base"></a>Guida introduttiva: Ottenere una risposta da una knowledge base
+# <a name="get-an-answer-from-a-knowledge-base"></a>Ottenere una risposta da una Knowledge base
 
 
 ::: zone pivot="url-test-tool-curl"

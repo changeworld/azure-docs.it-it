@@ -3,14 +3,14 @@ title: Pagamento anticipato per il calcolo con capacità riservata-database di A
 description: Pagamento anticipato per le risorse di calcolo per database di Azure per MariaDB con capacità riservata
 author: mksuni
 ms.author: sumuth
-ms.service: jroth
+ms.service: mariadb
 ms.topic: conceptual
 ms.date: 05/20/2020
-ms.openlocfilehash: 0acdf09da081ee179fb4edc8f2608068fc081dee
-ms.sourcegitcommit: 52e3d220565c4059176742fcacc17e857c9cdd02
+ms.openlocfilehash: 462ba0ccbd5d7e7048c2c7fcb9c5bece04adaebe
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/21/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98661764"
 ---
 # <a name="prepay-for-azure-database-for-mariadb-compute-resources-with-reserved-capacity"></a>Pagamento anticipato per le risorse di calcolo per database di Azure per MariaDB con capacità riservata
@@ -50,7 +50,7 @@ Nella tabella seguente vengono descritti i campi obbligatori.
 
 | Campo | Descrizione |
 | :------------ | :------- |
-| Subscription   | Sottoscrizione usata per pagare la prenotazione di capacità riservata per il database di Azure per MariaDB. Il metodo di pagamento per la sottoscrizione viene addebitato ai costi iniziali per la prenotazione di capacità riservata del database di Azure per MariaDB. Il tipo di sottoscrizione deve essere un contratto Enterprise Agreement (numero offerta: MS-AZR-0017P o MS-AZR-0148P) o un contratto singolo con prezzi con pagamento in base al consumo (numeri di offerta: MS-AZR-0003P o MS-AZR-0023P). Per una sottoscrizione Enterprise, gli addebiti vengono dedotti dal saldo prepagato di Azure per la registrazione (denominato in precedenza impegno monetario) o addebitato come eccedenza. Per una singola sottoscrizione con prezzi con pagamento in base al consumo, i costi vengono addebitati sulla carta di credito o sul metodo di pagamento della fattura per la sottoscrizione.
+| Subscription   | Sottoscrizione usata per pagare la prenotazione di capacità riservata per il database di Azure per MariaDB. Il metodo di pagamento per la sottoscrizione viene addebitato ai costi iniziali per la prenotazione di capacità riservata del database di Azure per MariaDB. Il tipo di sottoscrizione deve essere un contratto Enterprise Agreement (numero offerta: MS-AZR-0017P o MS-AZR-0148P) o un contratto singolo con prezzi con pagamento in base al consumo (numeri di offerta: MS-AZR-0003P o MS-AZR-0023P). Per le sottoscrizioni Enterprise, gli addebiti vengono dedotti dal saldo del pagamento anticipato di Azure (in precedenza detto impegno monetario) oppure applicati come eccedenza. Per una singola sottoscrizione con prezzi con pagamento in base al consumo, i costi vengono addebitati sulla carta di credito o sul metodo di pagamento della fattura per la sottoscrizione.
 | Ambito | L'ambito della prenotazione vCore può coprire una sottoscrizione o più sottoscrizioni (ambito condiviso). Se si seleziona: </br></br> **Condiviso**, lo sconto di prenotazione vCore viene applicato al database di Azure per i server MariaDB in esecuzione in tutte le sottoscrizioni all'interno del contesto di fatturazione. Per i clienti aziendali, l'ambito condiviso è la registrazione e include tutte le sottoscrizioni all'interno della registrazione. Per i clienti con pagamento in base al consumo, l'ambito condiviso copre tutte le sottoscrizioni con pagamento in base al consumo create dall'amministratore dell'account.</br></br> **Sottoscrizione singola**, lo sconto di prenotazione vCore viene applicato al database di Azure per i server MariaDB in questa sottoscrizione. </br></br> **Gruppo di risorse singolo**, lo sconto relativo alla prenotazione viene applicato al database di Azure per i server MariaDB nella sottoscrizione selezionata e al gruppo di risorse selezionato all'interno di tale sottoscrizione.
 | Region | Area di Azure coperta dalla prenotazione di capacità riservata del database di Azure per MariaDB.
 | Tipo di distribuzione | Tipo di risorsa del database di Azure per MariaDB per cui si vuole acquistare la prenotazione.

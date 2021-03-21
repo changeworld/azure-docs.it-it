@@ -7,18 +7,21 @@ ms.reviewer: maghan
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 03/25/2019
-ms.openlocfilehash: 435cad4d1ef002261b194431dbdb787e072808f5
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 59aa395db27c26a7c94eebdc0e3b34d7776ee75f
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100361486"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104591997"
 ---
 # <a name="webhook-activity-in-azure-data-factory"></a>Attività webhook in Azure Data Factory
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 Un'attività webhook può controllare l'esecuzione delle pipeline tramite il codice personalizzato. Con l'attività webhook, il codice dei clienti può chiamare un endpoint e passargli un URL di callback. L'esecuzione della pipeline attende la chiamata di callback prima di procedere all'attività successiva.
+
+> [!IMPORTANT]
+> L'attività webhook consente ora di riportare lo stato di errore e i messaggi personalizzati all'attività e alla pipeline. Impostare _reportStatusOnCallBack_ su true e includere _statusCode_ ed _Error_ nel payload di callback. Per ulteriori informazioni, vedere la sezione [Note aggiuntive](#additional-notes) .
 
 ## <a name="syntax"></a>Sintassi
 
@@ -37,6 +40,7 @@ Un'attività webhook può controllare l'esecuzione delle pipeline tramite il cod
             "key": "value"
         },
         "timeout": "00:03:00",
+        "reportStatusOnCallBack": false,
         "authentication": {
             "type": "ClientCertificate",
             "pfx": "****",
@@ -141,7 +145,7 @@ Quando si utilizza la proprietà **report status on callback** , è necessario a
 Vedere le seguenti attività del flusso di controllo supportate da Data Factory:
 
 - [Attività della condizione If](control-flow-if-condition-activity.md)
-- [Eseguire l'attività di pipeline](control-flow-execute-pipeline-activity.md)
+- [Attività Esegui pipeline](control-flow-execute-pipeline-activity.md)
 - [Per ogni attività](control-flow-for-each-activity.md)
 - [Ottenere attività di metadati](control-flow-get-metadata-activity.md)
 - [Attività Lookup](control-flow-lookup-activity.md)

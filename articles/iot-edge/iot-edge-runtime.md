@@ -10,10 +10,10 @@ ms.service: iot-edge
 services: iot-edge
 ms.custom: amqp, mqtt, devx-track-csharp
 ms.openlocfilehash: 74cfe4ba3c92d8d96dd196ef6f612b9ed7c0da9d
-ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/16/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "103496253"
 ---
 # <a name="understand-the-azure-iot-edge-runtime-and-its-architecture"></a>Informazioni sul runtime di Azure IoT Edge e sulla relativa architettura
@@ -67,7 +67,7 @@ L'agente di IoT Edge invia la risposta runtime all'hub IoT. Ecco un elenco di ri
 
 Per ulteriori informazioni sulla creazione di manifesti di distribuzione, vedere [informazioni su come distribuire moduli e stabilire route in IOT Edge](module-composition.md).
 
-### <a name="security"></a>Security
+### <a name="security"></a>Sicurezza
 
 L'agente di IoT Edge svolge un ruolo fondamentale nella protezione di un dispositivo di IoT Edge. Ad esempio, esegue azioni come la verifica dell'immagine di un modulo prima di avviarlo.
 

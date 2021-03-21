@@ -1,5 +1,5 @@
 ---
-title: Panoramica di micro Agent autonomo
+title: Panoramica di micro Agent autonomo (anteprima)
 titleSuffix: Azure Defender for IoT
 description: Azure Defender per gli agenti di sicurezza di Azure ti permette di creare sicurezza direttamente nei tuoi nuovi dispositivi e nei progetti Azure.
 author: shhazam-ms
@@ -8,14 +8,14 @@ ms.author: shhazam
 ms.date: 1/19/2021
 ms.topic: article
 ms.service: azure
-ms.openlocfilehash: a3f71860801c7f611a10acd4ec4e8f8ed03ab20a
-ms.sourcegitcommit: dac05f662ac353c1c7c5294399fca2a99b4f89c8
+ms.openlocfilehash: 84afa4205b57481efc3ed9df805cfa7a3657a6c8
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/04/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102120080"
 ---
-# <a name="standalone-micro-agent-overview"></a>Panoramica di micro Agent autonomo 
+# <a name="standalone-micro-agent-overview-preview"></a>Panoramica di micro Agent autonomo (anteprima)
 
 La sicurezza è un problema quasi universale per gli implementatori di Internet delle cose. I dispositivi Internet delle cose hanno esigenze specifiche per il monitoraggio degli endpoint, la gestione del comportamento della sicurezza e il rilevamento delle minacce, il tutto con requisiti di prestazioni estremamente specifici. 
 
@@ -47,4 +47,4 @@ Azure Defender per gli elementi micro micro Agent è facile da distribuire e ha 
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Controllare i [metodi di autenticazione dell'agente micro ](concept-security-agent-authentication.md).
+Controllare i [metodi di autenticazione di micro Agent (anteprima)](concept-security-agent-authentication.md).

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-pnp
 services: iot-pnp
 zone_pivot_groups: programming-languages-set-ten
-ms.openlocfilehash: df913716ff34a61e5bde4c0771ea8b7599db3d30
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.openlocfilehash: a5889be88dfd0870a2eee868c97787ff354cff68
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92521389"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104582732"
 ---
 # <a name="iot-plug-and-play-service-developer-guide"></a>Guida per gli sviluppatori del servizio Plug and Play
 
@@ -64,5 +64,5 @@ Ora che si è appreso come modellare i dispositivi, di seguito sono riportate al
 - [DTDL (Digital Twins Definition Language)](https://github.com/Azure/opendigitaltwins-dtdl)
 - [SDK per dispositivi per C](/azure/iot-hub/iot-c-sdk-ref/)
 - [API REST](/rest/api/iothub/device)
-- [Componenti del modello](./concepts-components.md)
+- [Guida alla modellazione Plug and Play](concepts-modeling-guide.md)
 - [Installare e usare gli strumenti di creazione di DTDL](howto-use-dtdl-authoring-tools.md)

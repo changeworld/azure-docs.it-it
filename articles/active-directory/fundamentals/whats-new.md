@@ -16,12 +16,12 @@ ms.author: ajburnle
 ms.reviewer: dhanyahk
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: df90857bf30b6fff3c18faf126efabe8c959c0c6
-ms.sourcegitcommit: b572ce40f979ebfb75e1039b95cea7fce1a83452
+ms.openlocfilehash: 0d9769a2cfdbd5f552e97a6cd665263cbd488325
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/11/2021
-ms.locfileid: "102633428"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104592965"
 ---
 # <a name="whats-new-in-azure-active-directory"></a>Novità di Azure Active Directory
 
@@ -79,7 +79,7 @@ Il passaggio di accesso temporaneo è un codice di accesso limitato al tempo che
 **Categoria di servizio:** B2C - Gestione delle identità degli utenti  
 **Funzionalità del prodotto:** B2B/B2C
 
-La nuova generazione di flussi utente B2C supporta ora la funzionalità [Mantieni l'accesso (KMSI)](https://docs.microsoft.com/azure/active-directory-b2c/session-behavior?pivots=b2c-custom-policy#enable-keep-me-signed-in-kmsi) che consente ai clienti di estendere la durata della sessione per gli utenti delle applicazioni Web e native usando un cookie permanente.  la funzionalità consente di mantenere attiva la sessione anche quando l'utente chiude e riapre il browser e viene revocato quando l'utente si disconnette.
+La nuova generazione di flussi utente B2C supporta ora la funzionalità [Mantieni l'accesso (KMSI)](../../active-directory-b2c/session-behavior.md?pivots=b2c-custom-policy#enable-keep-me-signed-in-kmsi) che consente ai clienti di estendere la durata della sessione per gli utenti delle applicazioni Web e native usando un cookie permanente.  la funzionalità consente di mantenere attiva la sessione anche quando l'utente chiude e riapre il browser e viene revocato quando l'utente si disconnette.
 
 ---
 
@@ -109,7 +109,7 @@ I clienti possono ora reinvitare gli utenti Guest esterni esistenti per reimpost
 **Categoria di servizio:** Provisioning di app  
 **Funzionalità del prodotto:** Gestione del ciclo di vita delle identità
  
-I clienti possono ora usare Application. ReadWrite. ownedby come autorizzazione dell'applicazione per chiamare le API di sincronizzazione. Si noti che questa operazione è supportata solo per il provisioning da Azure AD in applicazioni di terze parti, ad esempio AWS, Brick di dati e così via. Attualmente non è supportata per il provisioning delle risorse umane (giorni lavorativi/SuccessFactors) o per la sincronizzazione cloud (AD Azure AD). [Altre informazioni](https://docs.microsoft.com/graph/api/resources/provisioningobjectsummary?view=graph-rest-beta)
+I clienti possono ora usare Application. ReadWrite. ownedby come autorizzazione dell'applicazione per chiamare le API di sincronizzazione. Si noti che questa operazione è supportata solo per il provisioning da Azure AD in applicazioni di terze parti, ad esempio AWS, Brick di dati e così via. Attualmente non è supportata per il provisioning delle risorse umane (giorni lavorativi/SuccessFactors) o per la sincronizzazione cloud (AD Azure AD). [Altre informazioni](/graph/api/resources/provisioningobjectsummary?view=graph-rest-beta)
  
 ---
 
@@ -199,7 +199,7 @@ Per elencare l'applicazione nella raccolta di app Azure AD, leggere i dettagli q
 - [Iris Intranet](../saas-apps/iris-intranet-provisioning-tutorial.md)
 - [Preciate](../saas-apps/preciate-provisioning-tutorial.md)
 
-Per altre informazioni, vedere [automatizzare il provisioning degli utenti in applicazioni SaaS con Azure ad](https://docs.microsoft.com/azure/active-directory/manage-apps/user-provisioning).
+Per altre informazioni, vedere [automatizzare il provisioning degli utenti in applicazioni SaaS con Azure ad](../app-provisioning/user-provisioning.md).
 
 ---
 
@@ -209,7 +209,7 @@ Per altre informazioni, vedere [automatizzare il provisioning degli utenti in ap
 **Categoria di servizio:** RBAC  
 **Funzionalità del prodotto:** Controllo di accesso
  
-10 Azure AD ruoli predefiniti sono stati rinominati in modo che siano allineati nell'interfaccia di [amministrazione di Microsoft 365](https://docs.microsoft.com/microsoft-365/admin/microsoft-365-admin-center-preview), nel portale di [Azure ad](https://portal.azure.com/)e [Microsoft Graph](https://developer.microsoft.com/graph/). Per ulteriori informazioni sui nuovi ruoli, fare riferimento alle [autorizzazioni del ruolo amministratore in Azure Active Directory](../roles/permissions-reference.md#all-roles).
+10 Azure AD ruoli predefiniti sono stati rinominati in modo che siano allineati nell'interfaccia di [amministrazione di Microsoft 365](/microsoft-365/admin/microsoft-365-admin-center-preview), nel portale di [Azure ad](https://portal.azure.com/)e [Microsoft Graph](https://developer.microsoft.com/graph/). Per ulteriori informazioni sui nuovi ruoli, fare riferimento alle [autorizzazioni del ruolo amministratore in Azure Active Directory](../roles/permissions-reference.md#all-roles).
 
 ![Tabella che mostra i nomi dei ruoli in MS API Graph e il portale di Azure e il nome finale proposto tra API, portale di Azure e Mac.](media/whats-new/roles-table-rbac.png)
 
@@ -270,20 +270,20 @@ I clienti possono ovviare a questo requisito a scopo di test usando un flag di f
  
 ---
 
-### <a name="public-preview---customize-and-configure-android-shared-devices-for-firstline-workers-at-scale"></a>Anteprima pubblica: personalizzare e configurare i dispositivi condivisi Android per i prima riga Worker su larga scala
+### <a name="public-preview---customize-and-configure-android-shared-devices-for-frontline-workers-at-scale"></a>Anteprima pubblica: personalizzare e configurare i dispositivi condivisi Android per i ruoli di lavoro Frontline su larga scala
 
 **Tipo:** Nuova funzionalità  
 **Categoria di servizio:** Registrazione e gestione dei dispositivi  
 **Funzionalità del prodotto:** Protezione e sicurezza delle identità
  
-I team di Azure AD e Microsoft Endpoint Manager sono stati combinati per consentire la personalizzazione, la scalabilità e la protezione dei dispositivi prima riga Worker.
+I team di Azure AD e Microsoft Endpoint Manager sono stati combinati per consentire la personalizzazione, la scalabilità e la protezione dei dispositivi di lavoro Frontline.
 
 Le funzionalità di anteprima seguenti consentiranno di:
 - Effettuare il provisioning di dispositivi condivisi Android su larga scala con Microsoft Endpoint Manager
 - Proteggere l'accesso per i ruoli di lavoro Shift usando l'accesso condizionale basato su dispositivo
 - Personalizzare le esperienze di accesso per i ruoli di lavoro di spostamento con la schermata iniziale gestita
 
-Per altre informazioni, vedere [personalizzare e configurare i dispositivi condivisi per i prima riga Worker su larga scala](https://techcommunity.microsoft.com/t5/azure-active-directory-identity/customize-and-configure-shared-devices-for-firstline-workers-at/ba-p/1751708).
+Per altre informazioni, vedere [personalizzare e configurare i dispositivi condivisi per i ruoli di lavoro Frontline su larga scala](https://techcommunity.microsoft.com/t5/azure-active-directory-identity/customize-and-configure-shared-devices-for-firstline-workers-at/ba-p/1751708).
 
 ---
 
@@ -413,7 +413,7 @@ Per elencare l'applicazione nella raccolta di app Azure AD, vedere qui i dettagl
 **Categoria di servizio:** Gestione degli accessi degli utenti  
 **Funzionalità del prodotto:** Gestione dei diritti
  
-Un'opzione aggiuntiva quando si seleziona responsabili approvazione è ora disponibile nella gestione dei diritti. Se si seleziona "responsabile come responsabile approvazione" per il primo responsabile approvazione, sarà disponibile un'altra opzione, ovvero "secondo livello gestione come responsabile approvazione alternativo", disponibile per scegliere nel campo responsabile approvazione alternativo. Se si seleziona questa opzione, è necessario aggiungere un responsabile approvazione del fallback per inviare la richiesta a nel caso in cui il sistema non riesca a trovare il gestore di secondo livello. [Altre informazioni](../governance/entitlement-management-access-package-approval-policy.md#alternate-approvers)
+Un'opzione aggiuntiva quando si seleziona responsabili approvazione è ora disponibile nella gestione dei diritti. Se si seleziona "responsabile come responsabile approvazione" per il primo responsabile approvazione, sarà disponibile un'altra opzione, ovvero "secondo livello gestione come responsabile approvazione alternativo", disponibile per scegliere nel campo responsabile approvazione alternativo. Se si seleziona questa opzione, è necessario aggiungere un responsabile approvazione del fallback per inviare la richiesta a nel caso in cui il sistema non riesca a trovare il gestore di secondo livello. [Scopri di più](../governance/entitlement-management-access-package-approval-policy.md#alternate-approvers)
  
 ---
 
@@ -1024,7 +1024,7 @@ Azure AD Connect aggiornamento dell'anteprima pubblica del provisioning nel clou
 
 - Esperienza di mapping degli attributi tramite portale di Azure
 
-    Con questa funzionalità gli amministratori IT possono eseguire il mapping degli attributi utente, gruppo o contatto da AD a Azure AD usando diversi tipi di mapping attualmente presenti. Il mapping degli attributi è una funzionalità usata per standardizzare i valori degli attributi che fluiscono da Active Directory a Azure Active Directory. È possibile determinare se eseguire direttamente il mapping del valore dell'attributo come da AD a Azure AD o utilizzare espressioni per trasformare i valori dell'attributo durante il provisioning degli utenti. [Altre informazioni](../cloud-sync/how-to-attribute-mapping.md)
+    Con questa funzionalità gli amministratori IT possono eseguire il mapping degli attributi utente, gruppo o contatto da AD a Azure AD usando diversi tipi di mapping attualmente presenti. Il mapping degli attributi è una funzionalità usata per standardizzare i valori degli attributi che fluiscono da Active Directory a Azure Active Directory. È possibile determinare se eseguire direttamente il mapping del valore dell'attributo come da AD a Azure AD o utilizzare espressioni per trasformare i valori dell'attributo durante il provisioning degli utenti. [Scopri di più](../cloud-sync/how-to-attribute-mapping.md)
 
 - Esperienza utente di test o provisioning su richiesta
 

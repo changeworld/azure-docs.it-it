@@ -7,10 +7,10 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.date: 11/19/2019
 ms.openlocfilehash: 870c812a68f765f987cfd3d1b953e0afeb3e9055
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/14/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100364529"
 ---
 # <a name="pipelines-and-activities-in-azure-data-factory"></a>Pipeline e attività in Azure Data Factory
@@ -58,8 +58,8 @@ Attività di trasformazione dei dati | Ambiente di calcolo
 [U-SQL](transform-data-using-data-lake-analytics.md) | Azure Data Lake Analytics.
 [Attività personalizzata](transform-data-using-dotnet-custom-activity.md) | Azure Batch
 [Notebook di Databricks](transform-data-databricks-notebook.md) | Azure Databricks
-[Attività JAR di Databricks](transform-data-databricks-jar.md) | Azure Databricks
-[Attività Python di Databricks](transform-data-databricks-python.md) | Azure Databricks
+[Attività jar di databricks](transform-data-databricks-jar.md) | Azure Databricks
+[Attività Python di databricks](transform-data-databricks-python.md) | Azure Databricks
 
 Per altre informazioni, vedere l'articolo [Attività di trasformazione dei dati](transform-data.md).
 
@@ -75,7 +75,7 @@ Attività di controllo | Descrizione
 [Ottenere metadati](control-flow-get-metadata-activity.md) | Questa attività può essere usata per recuperare i metadati di tutti i dati in Azure Data Factory.
 [Attività della condizione If](control-flow-if-condition-activity.md) | Può essere usata per creare un ramo in base alla condizione che il valore restituito sia true o false. L'attività IfCondition svolge la stessa funzione dell'istruzione If nei linguaggi di programmazione. Valuta un set di attività quando la condizione restituisce `true` e un altro set di attività quando la condizione restituisce `false.`
 [Attività Lookup](control-flow-lookup-activity.md) | L'attività Lookup può essere usata per la lettura o la ricerca di un record/nome di tabella/valore da qualsiasi origine esterna. Questo output può essere referenziato ulteriormente dalle attività successive.
-[Imposta variabile](control-flow-set-variable-activity.md) | Impostare il valore di una variabile esistente.
+[Impostare una variabile](control-flow-set-variable-activity.md) | Impostare il valore di una variabile esistente.
 [Attività Until](control-flow-until-activity.md) | Implementa il ciclo Do-Until che è simile alla struttura di esecuzione cicli Do-Until nei linguaggi di programmazione. Esegue infatti un set di attività in un ciclo finché la condizione associata con l'attività restituisce true. È possibile specificare un valore di timeout per l'attività Until in Data Factory.
 [Attività Validation](control-flow-validation-activity.md) | Verificare che una pipeline continui l'esecuzione solo se esiste un set di dati di riferimento, soddisfa i criteri specificati oppure è stato raggiunto un timeout.
 [Attività Wait](control-flow-wait-activity.md) | Quando si usa un'attività Wait in una pipeline, la pipeline attende il tempo specificato prima di continuare con l'esecuzione delle attività successive.
