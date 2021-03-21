@@ -7,16 +7,16 @@ ms.topic: article
 ms.date: 03/03/2021
 ms.author: qpetraroia
 author: qpetraroia
-ms.openlocfilehash: 307183292b60a6556df69a4e5541cbfb5e13098f
-ms.sourcegitcommit: 5f32f03eeb892bf0d023b23bd709e642d1812696
+ms.openlocfilehash: 8526d7c1c436074fbf6f838caf232e1abee06339
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/12/2021
-ms.locfileid: "103201573"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104670376"
 ---
 # <a name="use-planned-maintenance-to-schedule-maintenance-windows-for-your-azure-kubernetes-service-aks-cluster-preview"></a>Usare la manutenzione pianificata per pianificare le finestre di manutenzione per il cluster Azure Kubernetes Service (AKS) (anteprima)
 
-Il cluster AKS prevede una manutenzione regolare eseguita automaticamente. Per impostazione predefinita, questa operazione può essere eseguita in qualsiasi momento. La manutenzione pianificata consente di pianificare finestre di manutenzione settimanali che aggiorneranno il piano di controllo e ridurranno al minimo l'effetto del carico di lavoro. Una volta pianificata, tutte le operazioni di manutenzione si verificheranno durante la finestra selezionata. È possibile pianificare una o più finestre settimanali nel cluster specificando un giorno o un intervallo di tempo in un giorno specifico. Le finestre di manutenzione vengono configurate tramite l'interfaccia della riga di comando
+Il cluster AKS prevede una manutenzione regolare eseguita automaticamente. Per impostazione predefinita, questa operazione può essere eseguita in qualsiasi momento. La manutenzione pianificata consente di pianificare le finestre di manutenzione settimanali che aggiorneranno il piano di controllo, nonché i pod del sistema Kube in un'istanza di VMSS e ridurranno al minimo l'effetto del carico di lavoro. Una volta pianificata, tutte le operazioni di manutenzione si verificheranno durante la finestra selezionata. È possibile pianificare una o più finestre settimanali nel cluster specificando un giorno o un intervallo di tempo in un giorno specifico. Le finestre di manutenzione vengono configurate tramite l'interfaccia della riga di comando
 
 ## <a name="before-you-begin"></a>Prima di iniziare
 
@@ -107,7 +107,7 @@ az aks maintenanceconfiguration add -g MyResourceGroup --cluster-name myAKSClust
         "notAllowedTime": [
           {
             "start": "2021-05-26T03:00:00Z",
-            "end": "2021-05-30T012:00:00Z"
+            "end": "2021-05-30T12:00:00Z"
           }
         ]
 }

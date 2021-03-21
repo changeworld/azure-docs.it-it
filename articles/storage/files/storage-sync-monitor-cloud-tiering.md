@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 1/4/2021
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 93e9d9a552ab1bff16ca15d6bb11faeb5d47a503
-ms.sourcegitcommit: dda0d51d3d0e34d07faf231033d744ca4f2bbf4a
+ms.openlocfilehash: c27916afb0d199bcb32db9d43202e552a4a04f53
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102204365"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104593136"
 ---
 # <a name="monitor-cloud-tiering"></a>Monitorare la suddivisione in livelli cloud
 Esistono due modi per monitorare i criteri di suddivisione in livelli nel cloud: il pannello delle proprietà dell'endpoint server e monitoraggio di Azure.
@@ -55,7 +55,7 @@ Per essere più specifici su ciò che si vuole visualizzare nei grafici, provare
  
 Per informazioni dettagliate sui diversi tipi di metriche per Sincronizzazione file di Azure e su come usarli, vedere [monitorare sincronizzazione file di Azure](storage-sync-files-monitoring.md).
 
-Per informazioni dettagliate su come usare le metriche, vedere la pagina relativa all' [Introduzione ad Azure Esplora metriche.](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-getting-started)
+Per informazioni dettagliate su come usare le metriche, vedere la pagina relativa all' [Introduzione ad Azure Esplora metriche.](../../azure-monitor/essentials/metrics-getting-started.md)
 
 Per modificare i criteri di suddivisione in livelli nel cloud, vedere scegliere i criteri di suddivisione in [livelli cloud](storage-sync-choose-cloud-tiering-policies.md).
 

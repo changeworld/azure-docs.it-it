@@ -3,12 +3,12 @@ title: Variabili di ambiente del runtime attività
 description: Linee guida alle variabili di ambiente del runtime attività e informazioni di riferimento per le analisi di Azure Batch.
 ms.topic: conceptual
 ms.date: 12/30/2020
-ms.openlocfilehash: c1d9ffb3fe6775b061863656adcb7f45f8840997
-ms.sourcegitcommit: beacda0b2b4b3a415b16ac2f58ddfb03dd1a04cf
+ms.openlocfilehash: dbdc13e28a3a0c772480d2602f147e0d3354ff48
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/31/2020
-ms.locfileid: "97830888"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104669985"
 ---
 # <a name="azure-batch-runtime-environment-variables"></a>Variabili di ambiente del runtime attività di Azure Batch
 
@@ -61,6 +61,8 @@ Le righe di comando eseguite dalle attività nei nodi di calcolo non vengono ese
 | AZ_BATCH_TASK_ID                | ID dell'attività corrente. | Tutte le attività tranne l'attività di avvio. | task001 |
 | AZ_BATCH_TASK_SHARED_DIR | Percorso di directory identico per l'attività principale e tutte le sottoattività di un'[attività a istanze multiple](batch-mpi.md). Il percorso esiste in ogni nodo in cui viene eseguita l'attività a istanze multipli ed è accessibile in lettura/scrittura per i comandi delle attività in esecuzione su tale nodo, sia il [comando di coordinamento](batch-mpi.md#coordination-command) che il [comando dell'applicazione](batch-mpi.md#application-command). Le sottoattività o l'attività principale eseguita in altri nodi non hanno accesso remoto a questa directory (non è una directory di rete "condivisa"). | Principale multi-istanza e sottoattività. | C:\user\tasks\workitems\multiinstancesamplejob\job-1\multiinstancesampletask |
 | AZ_BATCH_TASK_WORKING_DIR       | Percorso completo della [directory di lavoro delle attività](files-and-directories.md) nel nodo. L'attività attualmente in esecuzione ha accesso in lettura/scrittura per questa directory. | Tutte le attività. | C:\user\tasks\workitems\batchjob001\job-1\task001\wd |
+| AZ_BATCH_TASK_WORKING_DIR       | Percorso completo della [directory di lavoro delle attività](files-and-directories.md) nel nodo. L'attività attualmente in esecuzione ha accesso in lettura/scrittura per questa directory. | Tutte le attività. | C:\user\tasks\workitems\batchjob001\job-1\task001\wd |
+| AZ_BATCH_TASK_RESERVED_EPHEMERAL_DISK_SPACE_BYTES | Soglia corrente per lo spazio su disco in cui la VM verrà contrassegnata come `DiskFull` . | Tutte le attività. | 1000000 |
 | CCP_NODES                       | Elenco dei nodi e numero di core per nodo allocati a un'[attività a istanze multiple](batch-mpi.md). I nodi e i core sono elencati nel formato`numNodes<space>node1IP<space>node1Cores<space>`<br/>`node2IP<space>node2Cores<space> ...`, dove il numero di nodi è seguito da uno o più indirizzi IP di nodo e dal numero di core per ognuno. |  Principale multi-istanza e sottoattività. |`2 10.0.0.4 1 10.0.0.5 1` |
 
 ## <a name="next-steps"></a>Passaggi successivi

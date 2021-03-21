@@ -12,10 +12,10 @@ ms.date: 1/29/2021
 ms.author: nichola
 ms.custom: aaddev
 ms.openlocfilehash: f63d7aed75b14f5f008a639d667d8806b233b9fa
-ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/05/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102174599"
 ---
 # <a name="support-passwordless-authentication-with-fido2-keys-in-apps-you-develop"></a>Supporto dell'autenticazione senza password con chiavi di FIDO2 nelle app sviluppate

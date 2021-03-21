@@ -13,12 +13,12 @@ ms.author: ajburnle
 ms.reviewer: krbain
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 51f1b122cb005f47e9816db3b403a35f4f502248
-ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
+ms.openlocfilehash: 36455b3f6395216bd1ed26c8bd193f0e3ca10b5b
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/07/2021
-ms.locfileid: "102426825"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104594598"
 ---
 # <a name="add-or-delete-users-using-azure-active-directory"></a>Aggiungere o eliminare utenti tramite Azure Active Directory
 
@@ -75,7 +75,7 @@ Se l'ambiente usa sia Azure Active Directory (cloud) che Windows Server Active D
 Con il portale Azure Active Directory è possibile eliminare un utente esistente.
 
 >[!Note]
->È necessario disporre di un'assegnazione di ruolo amministratore globale o amministratore utente per eliminare gli utenti nell'organizzazione. Gli amministratori globali possono eliminare qualsiasi utente che includa altri amministratori. Gli amministratori utente possono eliminare eventuali utenti non amministratori, amministratori del supporto tecnico e altri amministratori utenti. Per ulteriori informazioni, vedere [autorizzazioni per i ruoli di amministratore in Azure ad](https://docs.microsoft.com/azure/active-directory/roles/permissions-reference).
+>È necessario disporre di un'assegnazione di ruolo amministratore globale o amministratore utente per eliminare gli utenti nell'organizzazione. Gli amministratori globali possono eliminare qualsiasi utente che includa altri amministratori. Gli amministratori utente possono eliminare eventuali utenti non amministratori, amministratori del supporto tecnico e altri amministratori utenti. Per ulteriori informazioni, vedere [autorizzazioni per i ruoli di amministratore in Azure ad](../roles/permissions-reference.md).
 
 Per eliminare un utente, attenersi alla seguente procedura:
 
