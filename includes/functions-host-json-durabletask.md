@@ -7,12 +7,12 @@ ms.topic: include
 ms.date: 03/14/2019
 ms.author: glenga
 ms.custom: include file
-ms.openlocfilehash: 6a862a051d0040ac99746d81f10ae63d5af7545f
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
-ms.translationtype: HT
+ms.openlocfilehash: 54ce9438f768e347e306432a1874ab1816a1ae95
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96013726"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104719902"
 ---
 Impostazioni di configurazione per [Funzioni permanenti](../articles/azure-functions/durable/durable-functions-overview.md).
 
@@ -100,15 +100,15 @@ Impostazioni di configurazione per [Funzioni permanenti](../articles/azure-funct
 I nomi degli hub attività devono iniziare con una lettera e contenere solo lettere e numeri. Se non specificato, il nome dell'hub attività predefinito per un'app per le funzioni è **DurableFunctionsHub**. Per altre informazioni, vedere [Hub attività](../articles/azure-functions/durable/durable-functions-task-hubs.md).
 
 |Proprietà  |Predefinito | Descrizione |
-|---------|---------|---------|
+|---------|---------|----------|
 |hubName|DurableFunctionsHub|I nomi alternativi dell'[hub attività](../articles/azure-functions/durable/durable-functions-task-hubs.md) possono essere usati per separare le applicazioni di Durable Functions, anche se usano lo stesso back-end di archiviazione.|
 |controlQueueBatchSize|32|Numero di messaggi di cui eseguire il pull dalla coda di controllo contemporaneamente.|
-|controlQueueBufferThreshold|256|Numero di messaggi della coda di controllo che possono essere memorizzati nel buffer in memoria contemporaneamente. Dopo tale soglia il dispatcher attenderà prima di rimuovere dalla coda eventuali altri messaggi.|
+|controlQueueBufferThreshold| **Piano a consumo**: 32 <br> **Piano dedicato/Premium**: 256 |Numero di messaggi della coda di controllo che possono essere memorizzati nel buffer in memoria contemporaneamente. Dopo tale soglia il dispatcher attenderà prima di rimuovere dalla coda eventuali altri messaggi.|
 |partitionCount |4|Numero di partizioni per la coda di controllo. Può essere un numero intero positivo compreso tra 1 e 16.|
 |controlQueueVisibilityTimeout |5 minuti|Timeout di visibilità dei messaggi rimossi dalla coda di controllo.|
 |workItemQueueVisibilityTimeout |5 minuti|Timeout di visibilità dei messaggi rimossi dalla coda degli elementi di lavoro.|
-|maxConcurrentActivityFunctions |10 volte il numero di processori sul computer corrente|Numero massimo di funzioni di attività che possono essere elaborate contemporaneamente in una singola istanza host.|
-|maxConcurrentOrchestratorFunctions |10 volte il numero di processori sul computer corrente|Numero massimo di funzioni dell'agente di orchestrazione che possono essere elaborate contemporaneamente in una singola istanza host.|
+|maxConcurrentActivityFunctions | **Piano a consumo**: 10 <br> **Piano dedicato/Premium**: 10x numero di processori nel computer corrente|Numero massimo di funzioni di attività che possono essere elaborate contemporaneamente in una singola istanza host.|
+|maxConcurrentOrchestratorFunctions | **Piano a consumo**: 5 <br> **Piano dedicato/Premium**: 10x numero di processori nel computer corrente |Numero massimo di funzioni dell'agente di orchestrazione che possono essere elaborate contemporaneamente in una singola istanza host.|
 |maxQueuePollingInterval|30 secondi|Intervallo massimo di polling della coda di controllo e degli elementi di lavoro nel formato *hh:mm:ss*. Valori più elevati possono comportare un incremento della latenza nell'elaborazione dei messaggi. Valori inferiori possono comportare un incremento dei costi di archiviazione a causa dell'aumento del numero di transazione di archiviazione.|
 |azureStorageConnectionStringName |AzureWebJobsStorage|Nome dell'impostazione dell'app che include la stringa di connessione di Archiviazione di Azure usata per gestire le risorse di Archiviazione di Azure sottostanti.|
 |trackingStoreConnectionStringName||Nome di una stringa di connessione da usare per le tabelle Cronologia e Istanze. Se non è specificato, viene usata la connessione `connectionStringName` (Durable 2.x) o `azureStorageConnectionStringName` (Durable 1.x).|

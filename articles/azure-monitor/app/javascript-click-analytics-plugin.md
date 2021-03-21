@@ -9,17 +9,17 @@ ms.topic: conceptual
 ms.date: 01/14/2021
 ms.author: lagayhar
 ms.openlocfilehash: e48d669321ad8c58681e8a92e68f2089962bdc17
-ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/07/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102429851"
 ---
 # <a name="click-analytics-auto-collection-plugin-for-application-insights-javascript-sdk"></a>Fare clic sul plug-in di analisi automatica della raccolta per Application Insights JavaScript SDK
 
 Questo plug-in consente di tenere traccia automaticamente degli eventi click sulle pagine Web e di usare gli attributi data-* sugli elementi HTML per popolare la telemetria degli eventi.
 
-## <a name="getting-started"></a>Guida introduttiva
+## <a name="getting-started"></a>Introduzione
 
 Gli utenti possono configurare il plug-in di raccolta automatica di analisi dei clic tramite NPM.
 

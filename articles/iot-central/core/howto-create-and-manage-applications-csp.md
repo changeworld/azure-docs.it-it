@@ -5,19 +5,21 @@ services: iot-central
 ms.service: iot-central
 author: dominicbetts
 ms.author: dobett
-ms.date: 08/23/2019
+ms.date: 12/11/2020
 ms.topic: how-to
 manager: philmea
-ms.openlocfilehash: 43c201150ab0b2d5d350aa228a4ade5e2faf3461
-ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
+ms.openlocfilehash: f3293ada549351cc7273847cde48c0531f06f028
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92123114"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104675808"
 ---
 # <a name="create-and-manage-an-azure-iot-central-application-from-the-csp-portal"></a>Creare e gestire un'applicazione IoT Central di Azure dal portale CSP
 
 Il programma Microsoft Cloud Solution Provider (CSP) è un programma Microsoft Reseller. La finalità è quella di fornire ai partner di canale un programma centralizzato per rivendere tutti i servizi Online commerciali di Microsoft. Altre informazioni sul [programma Cloud Solution Provider](https://partner.microsoft.com/cloud-solution-provider).
+
+[!INCLUDE [Warning About Access Required](../../../includes/iot-central-warning-contribitorrequireaccess.md)]
 
 In qualità di CSP, è possibile creare e gestire le applicazioni IoT Central si Microsoft Azure per conto dei clienti tramite il [Centro per i partner Microsoft](https://partnercenter.microsoft.com/partner/home). Quando le applicazioni IoT Central di Azure vengono create per conto dei clienti dai CSP, proprio come con altri servizi di Azure gestiti dai CSP, questi gestiscono la fatturazione per i clienti. Un addebito per IoT Central di Azure verrà inserito nella fattura totale nel Centro per i partner Microsoft.
 
@@ -75,7 +77,7 @@ Per altre informazioni, vedere la documentazione sulle [sottoscrizioni di Azure]
 
 ## <a name="location"></a>Location
 
-**Location** è la posizione [geografica](https://azure.microsoft.com/global-infrastructure/geographies/) in cui si vuole creare l'applicazione. Per ottenere prestazioni ottimali, è in genere consigliabile scegliere la località fisicamente più vicina ai dispositivi. Attualmente, è possibile creare un'applicazione IoT Central in **Australia**, **Asia Pacifico**, **Europa**, **Stati Uniti**, **Regno Unito**e geografia del **Giappone** . Dopo aver scelto una località, non è possibile spostare l'applicazione in un'altra località in un secondo momento.
+**Location** è la posizione [geografica](https://azure.microsoft.com/global-infrastructure/geographies/) in cui si vuole creare l'applicazione. Per ottenere prestazioni ottimali, è in genere consigliabile scegliere la località fisicamente più vicina ai dispositivi. Attualmente, è possibile creare un'applicazione IoT Central in **Australia**, **Asia Pacifico**, **Europa**, **Stati Uniti**, **Regno Unito** e geografia del **Giappone** . Dopo aver scelto una località, non è possibile spostare l'applicazione in un'altra località in un secondo momento.
 
 ## <a name="application-template"></a>Modello di applicazione
 

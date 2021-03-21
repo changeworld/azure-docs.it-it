@@ -9,10 +9,10 @@ ms.topic: include
 ms.date: 11/27/2019
 ms.author: prmitiki
 ms.openlocfilehash: d125471d4a6c68aff12921a8524a91ef75b6c51a
-ms.sourcegitcommit: 956dec4650e551bdede45d96507c95ecd7a01ec9
+ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/09/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102532524"
 ---
 Per eseguire i cmdlet, è possibile usare Azure Cloud Shell, una shell interattiva gratuita. Include strumenti comuni di Azure preinstallati e configurati per l'uso con l'account. Selezionare **copia** per copiare il codice e incollarlo in cloud Shell. Quindi premere **invio** per eseguirlo. Esistono diversi modi per avviare Cloud Shell:

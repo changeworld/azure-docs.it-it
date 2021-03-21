@@ -3,12 +3,12 @@ title: Risolvere i problemi relativi alla griglia di eventi
 description: Questo articolo illustra diversi modi per risolvere i problemi di griglia di eventi di Azure
 ms.topic: conceptual
 ms.date: 02/11/2021
-ms.openlocfilehash: 9c52ba8561c10dd94ec6ef51c78b8534c6c58e96
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: d30b8464de90474ad74853cc423de700b41226a4
+ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "100417600"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "104720560"
 ---
 # <a name="troubleshoot-azure-event-grid-issues"></a>Risolvere i problemi di griglia di eventi di Azure
 Questo articolo fornisce informazioni che consentono di risolvere i problemi relativi alla griglia di eventi di Azure. 
@@ -32,7 +32,7 @@ Esistono diversi motivi per cui le applicazioni client non sono in grado di conn
 Se vengono visualizzati messaggi di errore con codici di errore, ad esempio 400, 409 e 403, vedere [risolvere gli errori di griglia di eventi](troubleshoot-errors.md). 
 
 ## <a name="distributed-tracing-net"></a>Traccia distribuita (.NET)
-La libreria .NET di griglia di eventi supporta la distribuzione della traccia. Per rispettare le [linee guida della specifica CloudEvents](https://github.com/cloudevents/spec/blob/master/extensions/distributed-tracing.md) sulla distribuzione della traccia, la libreria imposta `traceparent` e `tracestate` in [ExtensionAttributes](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/eventgrid/Azure.Messaging.EventGrid/src/Customization/CloudEvent.cs#L126) di una `CloudEvent` quando è abilitata la traccia distribuita. Per altre informazioni su come abilitare la traccia distribuita nell'applicazione, vedere la [documentazione relativa alla traccia distribuita](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/core/Azure.Core/samples/Diagnostics.md#Distributed-tracing)di Azure SDK.
+La libreria .NET di griglia di eventi supporta la distribuzione della traccia. Per rispettare le [linee guida della specifica CloudEvents](https://github.com/cloudevents/spec/blob/master/extensions/distributed-tracing.md) sulla distribuzione della traccia, la libreria imposta `traceparent` e `tracestate` in [ExtensionAttributes](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/eventgrid/Azure.Messaging.EventGrid/src/Customization#L126) di una `CloudEvent` quando è abilitata la traccia distribuita. Per altre informazioni su come abilitare la traccia distribuita nell'applicazione, vedere la [documentazione relativa alla traccia distribuita](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/core/Azure.Core/samples/Diagnostics.md#Distributed-tracing)di Azure SDK.
 
 ### <a name="sample"></a>Esempio
 Vedere l' [esempio di contatore di righe](/samples/azure/azure-sdk-for-net/line-counter/). Questa app di esempio illustra l'uso di archiviazione, Hub eventi e client di griglia di eventi insieme a ASP.NET Core integrazione, traccia distribuita e servizi ospitati. Consente agli utenti di caricare un file in un BLOB, che attiva un evento di hub eventi contenente il nome del file. Il processore di hub eventi riceve l'evento, quindi l'app Scarica il BLOB e conta il numero di righe nel file. L'app Visualizza un collegamento a una pagina che contiene il conteggio delle righe. Quando si fa clic sul collegamento, un CloudEvent contenente il nome del file viene pubblicato usando griglia di eventi.
