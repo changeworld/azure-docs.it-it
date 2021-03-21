@@ -8,10 +8,10 @@ ms.date: 02/20/2020
 ms.author: victorh
 ms.topic: conceptual
 ms.openlocfilehash: 2d34641fdecfe334e84347efe1a2f64482cae74b
-ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93040256"
 ---
 # <a name="web-application-firewall-request-size-limits-and-exclusion-lists"></a>Limiti ed elenchi di esclusione delle dimensioni delle richieste del Web Application Firewall
@@ -38,11 +38,11 @@ Gli attributi seguenti possono essere aggiunti agli elenchi di esclusione in bas
 
 Di seguito sono riportati gli operatori di criteri di corrispondenza supportati:
 
-- **Uguale a** : questo operatore viene usato per una corrispondenza esatta. Ad esempio, per selezionare un'intestazione denominata **bearerToken** , usare l'operatore uguale a con il selettore impostato come **bearerToken** .
-- **Inizia con** : questo operatore corrisponde a tutti i campi che iniziano con il valore del selettore specificato.
-- **Termina con** : questo operatore corrisponde a tutti i campi di richiesta che terminano con il valore del selettore specificato.
-- **Contiene** : questo operatore corrisponde a tutti i campi di richiesta che contengono il valore del selettore specificato.
-- **Uguale a any** : questo operatore corrisponde a tutti i campi della richiesta. * sarà il valore del selettore.
+- **Uguale a**: questo operatore viene usato per una corrispondenza esatta. Ad esempio, per selezionare un'intestazione denominata **bearerToken**, usare l'operatore uguale a con il selettore impostato come **bearerToken**.
+- **Inizia con**: questo operatore corrisponde a tutti i campi che iniziano con il valore del selettore specificato.
+- **Termina con**: questo operatore corrisponde a tutti i campi di richiesta che terminano con il valore del selettore specificato.
+- **Contiene**: questo operatore corrisponde a tutti i campi di richiesta che contengono il valore del selettore specificato.
+- **Uguale a any**: questo operatore corrisponde a tutti i campi della richiesta. * sarà il valore del selettore.
 
 In tutti i casi, la corrispondenza non distingue le maiuscole e le minuscole e le espressioni regolari non sono consentite come selettori.
 
@@ -81,7 +81,7 @@ $exclusion2 = New-AzApplicationGatewayFirewallExclusionConfig `
    -SelectorMatchOperator "StartsWith" `
    -Selector "user"
 ```
-Quindi, se l'URL `http://www.contoso.com/?user%281%29=fdafdasfda` viene passato a WAF, non valuterà la stringa **fdafdasfda** , ma valuterà comunque il nome del parametro **User %281 %29** . 
+Quindi, se l'URL `http://www.contoso.com/?user%281%29=fdafdasfda` viene passato a WAF, non valuterà la stringa **fdafdasfda**, ma valuterà comunque il nome del parametro **User %281 %29**. 
 
 ## <a name="waf-request-size-limits"></a>Limiti di dimensioni di richiesta WAF
 

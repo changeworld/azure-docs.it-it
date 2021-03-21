@@ -7,10 +7,10 @@ ms.date: 09/30/2020
 ms.custom: devx-track-csharp, mvc, devcenter, vs-azure, 23113853-34f2-4f
 ROBOTS: NOINDEX,NOFOLLOW
 ms.openlocfilehash: 9e3144738bd259ab9be75059af00f125581bb37c
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/04/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102050121"
 ---
 # <a name="quickstart-create-your-first-function-in-azure-using-visual-studio"></a>Avvio rapido: Creare la prima funzione in Azure con Visual Studio
@@ -57,7 +57,7 @@ Se si desidera creare un <abbr title="Un contenitore logico per una o più funzi
 
 L'attributo del metodo `FunctionName` imposta il nome della funzione, che per impostazione predefinita viene generato come `Function1`. Poiché gli strumenti non consentono di eseguire l'override del nome predefinito della funzione quando si crea il progetto, è necessario creare un nome migliore per la classe, il file e i metadati della funzione.
 
-1. In **Esplora file** fare clic con il pulsante destro del mouse sul file function1.cs e rinominarlo *HttpExample.cs*.
+1. In **Esplora file** fare clic con il pulsante destro del mouse sul file funzione1. cs e rinominarlo *HttpExample. cs*.
 
 1. Nel codice rinominare la classe Function1 in 'HttpExample'.
 

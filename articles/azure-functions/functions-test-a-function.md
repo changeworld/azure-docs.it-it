@@ -7,10 +7,10 @@ ms.custom: devx-track-csharp, devx-track-js
 ms.date: 03/25/2019
 ms.author: cshoe
 ms.openlocfilehash: f75f42f3879f551a945bdeb2d88450ae3b9d6106
-ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/22/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98674151"
 ---
 # <a name="strategies-for-testing-your-code-in-azure-functions"></a>Strategie per il test del codice in Funzioni di Azure
@@ -51,7 +51,7 @@ Ogni funzione accetta un'istanza di [ILogger](/dotnet/api/microsoft.extensions.l
 
 Verrà creata una nuova classe denominata `ListLogger` che include un elenco interno di messaggi da valutare durante un test. Per implementare l' `ILogger` interfaccia richiesta, la classe richiede un ambito. La classe seguente simula un ambito per i test case da passare alla `ListLogger` classe.
 
-Creare una nuova classe nel progetto *Functions. tests* denominato **NullScope.cs** e immettere il codice seguente:
+Creare una nuova classe nel progetto *Functions. tests* denominato **NullScope. cs** e immettere il codice seguente:
 
 ```csharp
 using System;
@@ -69,7 +69,7 @@ namespace Functions.Tests
 }
 ```
 
-Successivamente, creare una nuova classe nel progetto *Functions. tests* denominato **ListLogger.cs** e immettere il codice seguente:
+Successivamente, creare una nuova classe nel progetto *Functions. tests* denominato **ListLogger. cs** e immettere il codice seguente:
 
 ```csharp
 using Microsoft.Extensions.Logging;
@@ -115,7 +115,7 @@ La classe `ListLogger` implementa i membri seguenti come contrattato dall'interf
 
 La raccolta `Logs` è un'istanza di `List<string>` e viene inizializzata nel costruttore.
 
-Successivamente, creare un nuovo file nel progetto *Functions. tests* denominato **LoggerTypes.cs** e immettere il codice seguente:
+Successivamente, creare un nuovo file nel progetto *Functions. tests* denominato **LoggerTypes. cs** e immettere il codice seguente:
 
 ```csharp
 namespace Functions.Tests
@@ -130,7 +130,7 @@ namespace Functions.Tests
 
 Questa enumerazione specifica il tipo di logger usato dai test.
 
-A questo punto, creare una nuova classe nel progetto *Functions. tests* denominato **TestFactory.cs** e immettere il codice seguente:
+A questo punto, creare una nuova classe nel progetto *Functions. tests* denominato **TestFactory. cs** e immettere il codice seguente:
 
 ```csharp
 using Microsoft.AspNetCore.Http;
@@ -201,7 +201,7 @@ La classe `TestFactory` implementa i seguenti membri:
 
 - **CreateLogger**: in base al tipo di logger, questo metodo restituisce una classe logger utilizzata per il testing. `ListLogger` tiene traccia dei messaggi registrati disponibili per la valutazione nei test.
 
-Infine, creare una nuova classe nel progetto *Functions. tests* denominato **FunctionsTests.cs** e immettere il codice seguente:
+Infine, creare una nuova classe nel progetto *Functions. tests* denominato **FunctionsTests. cs** e immettere il codice seguente:
 
 ```csharp
 using Microsoft.AspNetCore.Mvc;

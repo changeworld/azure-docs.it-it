@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.date: 02/18/2021
 ms.custom: template-how-to
 ms.openlocfilehash: 66498fabadc0784a4a4ab1c3762daaaa9a5738c4
-ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/09/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102503216"
 ---
 # <a name="dev-tools-pack-installer-overview"></a>Panoramica del programma di installazione di Dev Tools Pack
@@ -99,13 +99,13 @@ Il programma di installazione di Dev Tools Pack è una soluzione unica che conse
         
     1. Per Mac:
     
-        1. Dopo il download, spostare il file Dev-Tools-Pack-Installer. app nella cartella applicazioni.
+        1. Al termine del download, spostare il file Dev-Tools-Pack-Installer.app nella cartella applicazioni.
         
-        1. Fare clic su **dev-Tools-Pack-Installer. app** per aprire l'installazione guidata.
+        1. Fare clic su **dev-Tools-Pack-Installer.app** per aprire l'installazione guidata.
         
         1. Se viene visualizzata una finestra di dialogo di sicurezza per sviluppatori non identificati:
         
-            1. Passare a preferenze di sistema-> sicurezza & privacy-> generale e fare clic sul pulsante "Apri comunque" accanto a "Dev-Tools-Pack-Installer. app".
+            1. Passare a preferenze di sistema-> sicurezza & privacy-> generale e fare clic sul pulsante "Apri comunque" accanto a "Dev-Tools-Pack-Installer.app".
         
             1. Fare di nuovo clic sull'icona dell'elettrone sul Dock
         

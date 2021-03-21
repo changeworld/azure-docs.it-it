@@ -10,10 +10,10 @@ author: likebupt
 ms.author: keli19
 ms.date: 11/12/2020
 ms.openlocfilehash: 1489ce74da2ecff5212feb5a1a2e3c9151b73424
-ms.sourcegitcommit: dc342bef86e822358efe2d363958f6075bcfc22a
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/12/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94555584"
 ---
 # <a name="convert-to-image-directory"></a>Convert to Image Directory
@@ -71,13 +71,13 @@ L'output del modulo **Convert to Image directory** è in formato di **directory 
 
 ###  <a name="expected-inputs"></a>Input previsti  
 
-| Nome          | Type                  | Descrizione   |
+| Nome          | Tipo                  | Descrizione   |
 | ------------- | --------------------- | ------------- |
 | Set di dati di input | AnyDirectory, ZipFile | Set di dati di input |
 
 ###  <a name="output"></a>Output  
 
-| Nome                   | Type           | Descrizione            |
+| Nome                   | Tipo           | Descrizione            |
 | ---------------------- | -------------- | ---------------------- |
 | Directory dell'immagine di output | ImageDirectory | Directory dell'immagine di output |
 

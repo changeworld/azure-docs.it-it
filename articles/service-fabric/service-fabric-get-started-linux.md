@@ -5,10 +5,10 @@ ms.topic: conceptual
 ms.date: 10/16/2020
 ms.custom: devx-track-js
 ms.openlocfilehash: 14b8a278605a908b4182c724831b2e42de54a753
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93086891"
 ---
 # <a name="prepare-your-development-environment-on-linux"></a>Preparare l'ambiente di sviluppo in Linux
@@ -300,11 +300,11 @@ Per compilare servizi di Service Fabric con Java, installare Gradle per eseguire
 
 1. In Eclipse verificare che siano installati Eclipse Neon o versione successiva e Buildship versione 2.2.1 o successiva. Controllare le versioni dei componenti installati selezionando la **Guida**  >  **sui**  >  **Dettagli di installazione** di Eclipse. È possibile aggiornare Buildship seguendo le istruzioni riportate in [Eclipse Buildship: Eclipse Plug-ins for Gradle][buildship-update] (Eclipse Buildship: plug-in Eclipse per Gradle).
 
-2. Per installare il plug-in Service Fabric, selezionare **Guida**  >  **Installa nuovo software** .
+2. Per installare il plug-in Service Fabric, selezionare **Guida**  >  **Installa nuovo software**.
 
-3. Nella casella **work with** (USA) immettere **https: \/ /dl.Microsoft.com/Eclipse** .
+3. Nella casella **work with** (USA) immettere **https: \/ /dl.Microsoft.com/Eclipse**.
 
-4. Selezionare **Aggiungi** .
+4. Selezionare **Aggiungi**.
 
     ![Pagina relativa al software disponibile][sf-eclipse-plugin]
 

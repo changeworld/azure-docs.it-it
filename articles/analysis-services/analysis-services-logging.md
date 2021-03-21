@@ -8,10 +8,10 @@ ms.date: 05/19/2020
 ms.author: owend
 ms.reviewer: minewiskan
 ms.openlocfilehash: 2bee856adef1208aabbe65ecd5fd11235579bb82
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/17/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100582703"
 ---
 # <a name="setup-diagnostic-logging"></a>Configurare la registrazione diagnostica
@@ -146,7 +146,7 @@ Informazioni su come [abilitare le impostazioni di diagnostica durante la creazi
 
 I log sono in genere disponibili entro due ore dall'impostazione della registrazione. La gestione dei log nell'account di archiviazione è compito dell'utente:
 
-* Usare i metodi di controllo di accesso standard di Azure per proteggere i log limitando l'accesso agli utenti specificati.
+* Usare i metodi di controllo di accesso standard di Azure per proteggere i log limitandone l'accesso.
 * Eliminare i log che non è più necessario mantenere nell'account di archiviazione.
 * Assicurarsi di impostare un periodo di conservazione dopo il quale i log obsoleti vengono eliminati dall'account di archiviazione.
 

@@ -3,14 +3,14 @@ title: Configurare la replica dei dati-nel database di Azure per MariaDB
 description: Questo articolo descrive come configurare Replica dei dati in ingresso nel database di Azure per MariaDB.
 author: savjani
 ms.author: pariks
-ms.service: jroth
+ms.service: mariadb
 ms.topic: how-to
 ms.date: 01/18/2021
-ms.openlocfilehash: ed1031bd45ca4f1223de9c0bce2053a393e3a2c6
-ms.sourcegitcommit: 52e3d220565c4059176742fcacc17e857c9cdd02
+ms.openlocfilehash: 67e4da13d6954342b9979eb57a35c812cb63bb3e
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/21/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98665124"
 ---
 # <a name="configure-data-in-replication-in-azure-database-for-mariadb"></a>Configurare Replica dei dati in ingresso nel database di Azure per MariaDB
@@ -239,7 +239,7 @@ I passaggi seguenti preparano e configurano il server MariaDB ospitato in locale
 
     * È consigliabile passare il parametro master_ssl_ca come variabile. Per altre informazioni, vedere gli esempi seguenti.
 
-   **Esempi**
+   **esempi**
 
    - Replica con SSL
 
