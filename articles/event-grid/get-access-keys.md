@@ -4,10 +4,10 @@ description: Questo articolo descrive come ottenere la chiave di accesso per un 
 ms.topic: how-to
 ms.date: 07/07/2020
 ms.openlocfilehash: a642affbac79766684dc75a37dae0373450d20e8
-ms.sourcegitcommit: 484f510bbb093e9cfca694b56622b5860ca317f7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/21/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98632530"
 ---
 # <a name="get-access-keys-for-event-grid-resources-topics-or-domains"></a>Ottenere le chiavi di accesso per le risorse di griglia di eventi (argomenti o domini)

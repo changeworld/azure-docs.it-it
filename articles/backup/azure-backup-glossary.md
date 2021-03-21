@@ -4,10 +4,10 @@ description: Questo articolo definisce i termini utili per l'uso con backup di A
 ms.topic: conceptual
 ms.date: 12/21/2020
 ms.openlocfilehash: fb46415c8bdb463556d57004e37d741c1b9a9b57
-ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/09/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102502026"
 ---
 # <a name="azure-backup-glossary"></a>Glossario di backup di Azure
@@ -192,7 +192,7 @@ Attività correlata al backup creata da un utente o dal servizio backup di Azure
 
 (Termine specifico del carico di lavoro)
 
-Con il server di Backup di Azure è possibile proteggere i carichi di lavoro dell'applicazione, ad esempio le VM Hyper-V, Microsoft SQL Server, SharePoint Server, Microsoft Exchange e i client di Windows, da una singola console. Eredita gran parte della funzionalità di backup del carico di lavoro da DPM, ma con alcune differenze. [Altre informazioni](backup-azure-microsoft-azure-backup.md)
+Con il server di Backup di Azure è possibile proteggere i carichi di lavoro dell'applicazione, ad esempio le VM Hyper-V, Microsoft SQL Server, SharePoint Server, Microsoft Exchange e i client di Windows, da una singola console. Eredita gran parte della funzionalità di backup del carico di lavoro da DPM, ma con alcune differenze. [Scopri di più](backup-azure-microsoft-azure-backup.md)
 
 ## <a name="managed-disks"></a>Dischi gestiti
 

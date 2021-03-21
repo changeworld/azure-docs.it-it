@@ -6,10 +6,10 @@ ms.topic: tutorial
 ms.date: 06/19/2019
 ms.author: jobreen
 ms.openlocfilehash: 55554678047faeedd16b78dea61a42d50fd59491
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/23/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98737321"
 ---
 # <a name="set-up-azure-functions-for-azure-custom-providers"></a>Configurare Funzioni di Azure per i provider personalizzati di Azure
@@ -79,4 +79,4 @@ L'elemento XML seguente è un esempio di file di progetto C#:
 
 In questa esercitazione è stata configurata un'app per le funzioni di Azure da usare come endpoint di provider personalizzati di Azure.
 
-Per informazioni su come creare un endpoint RESTful per provider personalizzati, vedere [Esercitazione: Creazione di un endpoint RESTful per provider personalizzati](./tutorial-custom-providers-function-authoring.md).
+Per informazioni su come creare un endpoint del provider personalizzato RESTful, vedere [esercitazione: creazione di un endpoint del provider personalizzato RESTful](./tutorial-custom-providers-function-authoring.md).

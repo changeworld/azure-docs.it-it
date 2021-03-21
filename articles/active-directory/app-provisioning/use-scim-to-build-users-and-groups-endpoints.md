@@ -12,10 +12,10 @@ ms.date: 01/27/2021
 ms.author: kenwith
 ms.reviewer: arvinh
 ms.openlocfilehash: 4e933000c8e700d8bfd193b542e3855b2fca26f8
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/03/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "101689335"
 ---
 # <a name="tutorial-develop-a-sample-scim-endpoint"></a>Esercitazione: sviluppare un endpoint SCIM di esempio
@@ -104,7 +104,7 @@ Il codice di convalida del token predefinito è configurato per l'uso di un toke
 
 Dopo aver distribuito l'endpoint SCIM, è possibile eseguire un test per assicurarsi che sia conforme a SCIM RFC. Questo esempio fornisce un set di test nel post che convalidano le operazioni CRUD (creazione, lettura, aggiornamento ed eliminazione) su utenti e gruppi, l'applicazione di filtri, gli aggiornamenti per l'appartenenza al gruppo e la disabilitazione degli utenti.
 
-Gli endpoint si trovano nella `{host}/scim/` Directory ed è possibile usare le richieste HTTP standard per interagire con esse. Per modificare la `/scim/` Route, vedere *ControllerConstant.cs* in **AzureADProvisioningSCIMreference**  >  **ScimReferenceApi**  >  **Controllers**.
+Gli endpoint si trovano nella `{host}/scim/` Directory ed è possibile usare le richieste HTTP standard per interagire con esse. Per modificare la `/scim/` Route, vedere *ControllerConstant. cs* nei   >    >  **controller** ScimReferenceApi di AzureADProvisioningSCIMreference.
 
 > [!NOTE]
 > È possibile usare solo endpoint HTTP per i test locali. Il servizio di provisioning di Azure AD richiede che l'endpoint supporti HTTPS.

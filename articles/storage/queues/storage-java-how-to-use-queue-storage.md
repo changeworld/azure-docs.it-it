@@ -10,10 +10,10 @@ ms.service: storage
 ms.subservice: queues
 ms.custom: devx-track-java
 ms.openlocfilehash: 997a37ac4252813abf1b35877cd34e192ec3e2ae
-ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/16/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97585718"
 ---
 # <a name="how-to-use-queue-storage-from-java"></a>Come usare l'archiviazione di Accodamento da Java
@@ -36,7 +36,7 @@ Prima di tutto, verificare che il sistema di sviluppo soddisfi i prerequisiti el
 
 Per creare un'applicazione Java denominata `queues-how-to-v12` :
 
-1. In una finestra della console (ad esempio, cmd, PowerShell o bash) usare Maven per creare una nuova app console con il nome `queues-how-to-v12` . Digitare il `mvn` comando seguente per creare un progetto Java "Hello World".
+1. Nella finestra di una console (ad esempio cmd, PowerShell o Bash) usare Maven `queues-how-to-v12`blob-quickstart-v12. Digitare il comando `mvn` seguente per creare un progetto Java "hello world".
 
    ```bash
     mvn archetype:generate \
@@ -101,7 +101,7 @@ Per creare un'applicazione Java denominata `queues-how-to-v12` :
 
 ### <a name="install-the-package"></a>Installare il pacchetto
 
-Aprire il `pom.xml` file nell'editor di testo. Aggiungere l'elemento di dipendenza seguente al gruppo di dipendenze.
+Aprire il file `pom.xml` nell'editor di testo. Aggiungere l'elemento di dipendenza seguente al gruppo di dipendenze.
 
 ```xml
 <dependency>

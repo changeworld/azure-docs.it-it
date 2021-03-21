@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: tanning
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: df70891ef090d44769aadbc235273e3193bc780e
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/18/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94837210"
 ---
 # <a name="troubleshooting-enterprise-state-roaming-settings-in-azure-active-directory"></a>Risoluzione dei problemi di Enterprise State Roaming in Azure Active Directory
@@ -111,7 +111,7 @@ Assicurarsi che il client Windows 10 v1511 disponga dell'aggiornamento cumulativ
 Per evitare la perdita di dati, i dati protetti con [windows Information Protection](/windows/security/information-protection/windows-information-protection/protect-enterprise-data-using-wip) non vengono sincronizzati tramite Enterprise state roaming per i dispositivi che usano l'aggiornamento dell'anniversario di Windows 10.
 
 **Azione consigliata**  
-Nessuno. È possibile che questo problema venga risolto da aggiornamenti futuri di Windows.
+Nessuna. È possibile che questo problema venga risolto da aggiornamenti futuri di Windows.
 
 ---
 
@@ -120,7 +120,7 @@ Nessuno. È possibile che questo problema venga risolto da aggiornamenti futuri 
 Nei dispositivi aggiunti a un dominio non verranno sincronizzati la data, l'ora e l'ora automatica dell'area. L'uso dell'ora automatica potrebbe sovrascrivere le altre impostazioni di data, ora e area e causare la mancata sincronizzazione di queste impostazioni. 
 
 **Azione consigliata**  
-Nessuno. 
+Nessuna. 
 
 ---
 
@@ -138,7 +138,7 @@ Assicurarsi che il client Windows 10 v1511 disponga dell'aggiornamento cumulativ
 Se si tenta di accedere al dispositivo Windows utilizzando una smart card, anche virtuale, la sincronizzazione delle impostazioni cesserà di funzionare.     
 
 **Azione consigliata**  
-Nessuno. È possibile che questo problema venga risolto da aggiornamenti futuri di Windows.
+Nessuna. È possibile che questo problema venga risolto da aggiornamenti futuri di Windows.
 
 ---
 

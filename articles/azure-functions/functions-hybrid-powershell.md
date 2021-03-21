@@ -6,10 +6,10 @@ ms.topic: conceptual
 ms.date: 04/26/2020
 ms.author: eamono
 ms.openlocfilehash: 5e01ffd8e17fda9113c7ec0fdb2c7f436b39c810
-ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/06/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97936907"
 ---
 # <a name="managing-hybrid-environments-with-powershell-in-azure-functions-and-app-service-hybrid-connections"></a>Gestione di ambienti ibridi con PowerShell in funzioni di Azure e Connessioni ibride del servizio app
@@ -117,7 +117,7 @@ Le connessioni ibride sono configurate dalla sezione rete dell'app per le funzio
     | **Host endpoint** | finance1 |
     | **Porta endpoint** | 5986 |
     | **Spazio dei nomi ServiceBus** | Creazione di un nuovo sito |
-    | **Località** | Seleziona un percorso disponibile |
+    | **Posizione** | Seleziona un percorso disponibile |
     | **Nome** | contosopowershellhybrid | 
 
 1. Selezionare **OK** per creare la connessione ibrida.

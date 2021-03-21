@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: c2124ca9fae76d87a695a2c453f7b222e7a08794
-ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/06/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96742794"
 ---
 # <a name="azure-ad-multi-factor-authentication-user-data-collection"></a>Azure AD Multi-Factor Authentication raccolta dati utente
@@ -43,7 +43,7 @@ Tentativi di autenticazione (utilizzati per la segnalazione e la risoluzione dei
 - Modalità app per dispositivi mobili (Standard, PIN)
 - Modalità token mobili (Standard, PIN)
 - Tipo di autenticazione
-- Nome applicazione
+- Nome dell'applicazione
 - Prefisso internazionale per chiamata primario
 - Numero di telefono per chiamata primario
 - Interno chiamata primario
@@ -58,14 +58,14 @@ Tentativi di autenticazione (utilizzati per la segnalazione e la risoluzione dei
 - Risultati complessivi
 - Risultati
 - Autenticata
-- Result
+- Risultato
 - Indirizzo IP di avvio
 - Dispositivi
 - Token dispositivo
 - Tipo di dispositivo
 - Versione dell'app per dispositivi mobili
 - Versione sistema operativo
-- Result
+- Risultato
 - Cerca notifiche usato
 
 Attivazioni (tentativi di attivare un account nell'app per dispositivi mobili Microsoft Authenticator):

@@ -7,10 +7,10 @@ ms.service: mysql
 ms.topic: how-to
 ms.date: 1/26/2021
 ms.openlocfilehash: 83876f77e0d7ffc0ae20bc5a545c1f18f53f4a8f
-ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/27/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98897986"
 ---
 # <a name="manage-an-azure-database-for-mysql-server-using-the-azure-portal"></a>Gestire un database di Azure per il server MySQL usando il portale di Azure
@@ -90,7 +90,7 @@ Dopo la creazione del server è possibile scalare tra i livelli per utilizzo gen
  
 
 > [!IMPORTANT]
-> Reimpostando la password amministratore del server, i privilegi di amministratore server verranno reimpostati automaticamente sul valore predefinito. Provare a reimpostare la password amministratore del server se sono stati revocati accidentalmente uno o più privilegi di amministratore del server.
+> Il ripristino della password di amministratore del server reimposterà automaticamente i privilegi di amministratore del server predefiniti. Provare a reimpostare la password amministratore del server se sono stati revocati accidentalmente uno o più privilegi di amministratore del server.
    
 > [!NOTE]
 > Per impostazione predefinita, l'utente amministratore del server dispone dei privilegi seguenti: SELECT, INSERT, UPDATE, DELETE, CREATE, DROP, reload, PROCESS, REFERENCEs, INDEX, ALTER, SHOW databases, CREATE TEMPORARY Tables, LOCK TABLES, EXECUTE, REPLICATION SLAVE, REPLICATION CLIENT, CREATE VIEW, SHOW VIEW, CREATE ROUTINE, ALTER ROUTINE, CREATE USER, EVENT, TRIGGER
