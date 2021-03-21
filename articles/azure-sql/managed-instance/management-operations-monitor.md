@@ -13,10 +13,10 @@ ms.author: urmilano
 ms.reviewer: sstein, bonova, MashaMSFT
 ms.date: 09/03/2020
 ms.openlocfilehash: 6cdd3137798e221974dadda78dd55b6ae944bc78
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/17/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100589344"
 ---
 # <a name="monitoring-azure-sql-managed-instance-management-operations"></a>Monitoraggio delle operazioni di gestione Istanza gestita di Azure SQL
@@ -43,7 +43,7 @@ Sono disponibili diversi modi per monitorare le operazioni di gestione di istanz
 
 Nella tabella seguente vengono confrontate le opzioni di monitoraggio delle operazioni di gestione: 
 
-| Opzione | Conservazione | Supporta l'annullamento | Crea | Aggiorna | Delete | Annulla | Passaggi |
+| Opzione | Conservazione | Supporta l'annullamento | Crea | Aggiornamento | Delete | Annulla | Passaggi |
 | --- | --- | --- | --- | --- | --- | --- | --- |
 | Distribuzioni di gruppi di risorse | Infinito<sup>1</sup> | No<sup>2</sup> | Visible | Visible | Non visibile | Visible | Non visibile |
 | Log attività | 90 giorni | No | Visible | Visible | Visible | Visible |  Non visibile |

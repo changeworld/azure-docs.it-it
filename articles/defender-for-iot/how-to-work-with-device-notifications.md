@@ -7,11 +7,11 @@ ms.author: shhazam
 ms.date: 12/12/2020
 ms.topic: how-to
 ms.service: azure
-ms.openlocfilehash: 2083da329c41afbe95ff570194a1c3ad5c2661be
-ms.sourcegitcommit: 27d616319a4f57eb8188d1b9d9d793a14baadbc3
+ms.openlocfilehash: cac8d609272be1d9f34b7e0d6404e0a0ea524df7
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/15/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100523567"
 ---
 # <a name="work-with-device-notifications"></a>Gestire le notifiche sui dispositivi
@@ -98,6 +98,6 @@ Esaminare le raccomandazioni per migliorare la classificazione del sistema opera
 
 Quando si accetta una raccomandazione, le informazioni sul tipo di sistema operativo verranno aggiornate nel sensore.
 
-## <a name="next-steps"></a>Passaggi successivi
+## <a name="see-also"></a>Vedi anche
 
 [Visualizzare gli avvisi](how-to-view-alerts.md)

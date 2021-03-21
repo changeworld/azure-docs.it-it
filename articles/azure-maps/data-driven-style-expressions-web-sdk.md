@@ -10,10 +10,10 @@ services: azure-maps
 manager: cpendle
 ms.custom: codepen, devx-track-js
 ms.openlocfilehash: 41a117c9ea8b47afcedaa1714abc2031d3be6c21
-ms.sourcegitcommit: 66b0caafd915544f1c658c131eaf4695daba74c8
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/18/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97680067"
 ---
 # <a name="data-driven-style-expressions-web-sdk"></a>Espressioni di stile basate sui dati (SDK Web)
@@ -101,7 +101,7 @@ Le espressioni di dati consentono di accedere ai dati delle proprietà di una fu
 | `['length', string | array]` | d'acquisto | Ottiene la lunghezza di una stringa o di una matrice. |
 | `['slice', array | string, number]`<br/><br/>`['slice', array | string, number, number]` | matrice di stringhe \| | Restituisce un elemento da una matrice o da una sottostringa da una stringa da un indice iniziale specificato o tra un indice iniziale e un indice finale se impostato. Il valore restituito è incluso nell'indice iniziale ma non nell'indice finale. |
 
-**Esempi**
+**esempi**
 
 È possibile accedere alle proprietà di una funzionalità direttamente in un'espressione tramite un' `get` espressione. In questo esempio viene utilizzato il `zoneColor` valore della funzionalità per specificare la proprietà Color di un livello Bubble. 
 
@@ -224,7 +224,7 @@ Un'espressione di aggregazione accetta tre valori: un valore di operatore e un v
 - initialValue: valore iniziale in cui viene aggregato il primo valore calcolato.
 - mapExpression: espressione applicata a ogni punto del set di dati.
 
-**Esempi**
+**esempi**
 
 Se tutte le funzionalità di un set di dati dispongono di una `revenue` proprietà, che è un numero. Quindi, è possibile calcolare i ricavi totali di tutti i punti di un cluster creati dal set di dati. Questo calcolo viene eseguito utilizzando l'espressione di aggregazione seguente: `['+', 0, ['get', 'revenue']]`
 
@@ -323,7 +323,7 @@ Lo pseudocodice seguente definisce la struttura dell' `match` espressione.
 ]
 ```
 
-**Esempi**
+**esempi**
 
 Nell'esempio seguente viene analizzata la `entityType` proprietà di una funzionalità punto in un livello a bolle per cercare una corrispondenza. Se viene trovata una corrispondenza, viene restituito il valore specificato o viene restituito il valore di fallback.
 

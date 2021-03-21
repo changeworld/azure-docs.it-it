@@ -6,10 +6,10 @@ ms.topic: conceptual
 ms.date: 12/20/2019
 ms.custom: accessibility
 ms.openlocfilehash: de107d88fc404ead889a08f775054ce999e3233f
-ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/06/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96745911"
 ---
 # <a name="keyboard-shortcuts-in-the-azure-portal"></a>Tasti di scelta rapida nel portale di Azure
@@ -27,7 +27,7 @@ Questo articolo elenca i tasti di scelta rapida che funzionano ovunque nel porta
 |Sposta in alto l'elemento della barra laterale sinistra selezionata |ALT+MAIUSC+FRECCIA SU|
 |Sposta l'elemento della sidebar a sinistra selezionato verso il basso |ALT+MAIUSC+FRECCIA GIÙ|
 
-## <a name="navigation"></a>Navigazione
+## <a name="navigation"></a>Spostamento
 
 |Per eseguire questa navigazione |Premere |
 | --- | --- |

@@ -4,10 +4,10 @@ description: Informazioni su come analizzare le tendenze cronologiche e ottenere
 ms.topic: conceptual
 ms.date: 09/01/2020
 ms.openlocfilehash: c48173749a9b47be7eeb906e9f8eec716e0cb200
-ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/09/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102506013"
 ---
 # <a name="obtain-insights-using-backup-center"></a>Ottenere informazioni dettagliate con backup Center
@@ -42,19 +42,19 @@ Selezionando la voce di menu **backup Reports** in Backup Center vengono aperti 
 
 Di seguito sono riportate le visualizzazioni disponibili:
 
-1. **Riepilogo** : usare questa scheda per ottenere una panoramica di alto livello del patrimonio di backup. [Altre informazioni](./configure-reports.md#summary)
+1. **Riepilogo** : usare questa scheda per ottenere una panoramica di alto livello del patrimonio di backup. [Scopri di più](./configure-reports.md#summary)
 
-2. **Elementi di backup** : usare questa scheda per visualizzare informazioni e tendenze sull'archiviazione cloud usata a livello di elemento di backup. [Altre informazioni](./configure-reports.md#backup-items)
+2. **Elementi di backup** : usare questa scheda per visualizzare informazioni e tendenze sull'archiviazione cloud usata a livello di elemento di backup. [Scopri di più](./configure-reports.md#backup-items)
 
-3. **Utilizzo** : usare questa scheda per visualizzare i parametri di fatturazione principali per i backup. [Altre informazioni](./configure-reports.md#usage)
+3. **Utilizzo** : usare questa scheda per visualizzare i parametri di fatturazione principali per i backup. [Scopri di più](./configure-reports.md#usage)
 
-4. **Processi** : usare questa scheda per visualizzare le tendenze con esecuzione prolungata nei processi, ad esempio il numero di processi non riusciti al giorno e le cause principali dell'errore del processo. [Altre informazioni](./configure-reports.md#jobs)
+4. **Processi** : usare questa scheda per visualizzare le tendenze con esecuzione prolungata nei processi, ad esempio il numero di processi non riusciti al giorno e le cause principali dell'errore del processo. [Scopri di più](./configure-reports.md#jobs)
 
-5. **Criteri** : usare questa scheda per visualizzare le informazioni su tutti i criteri attivi, ad esempio il numero di elementi associati e l'archiviazione cloud totale utilizzata dagli elementi di cui è stato eseguito il backup in base a un determinato criterio. [Altre informazioni](./configure-reports.md#policies)
+5. **Criteri** : usare questa scheda per visualizzare le informazioni su tutti i criteri attivi, ad esempio il numero di elementi associati e l'archiviazione cloud totale utilizzata dagli elementi di cui è stato eseguito il backup in base a un determinato criterio. [Scopri di più](./configure-reports.md#policies)
 
-6. **Ottimizza** : usare questa scheda per ottenere visibilità sulle possibili opportunità di ottimizzazione dei costi per i backup. [Altre informazioni](./configure-reports.md#optimize)
+6. **Ottimizza** : usare questa scheda per ottenere visibilità sulle possibili opportunità di ottimizzazione dei costi per i backup. [Scopri di più](./configure-reports.md#optimize)
 
-7. **Conformità ai criteri** : utilizzare questa scheda per ottenere una visibilità specifica se a ogni istanza di backup è stato associato almeno un backup al giorno. [Altre informazioni](./configure-reports.md#policy-adherence)
+7. **Conformità ai criteri** : utilizzare questa scheda per ottenere una visibilità specifica se a ogni istanza di backup è stato associato almeno un backup al giorno. [Scopri di più](./configure-reports.md#policy-adherence)
 
 È inoltre possibile configurare messaggi di posta elettronica per tutti i report utilizzando la funzionalità [report di posta elettronica](backup-reports-email.md) .
 

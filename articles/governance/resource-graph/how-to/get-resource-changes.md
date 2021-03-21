@@ -4,10 +4,10 @@ description: Informazioni su come capire quando una risorsa è stata modificata,
 ms.date: 01/27/2021
 ms.topic: how-to
 ms.openlocfilehash: 5ad86ec2598cd7f24b8e0cd2208889bb7a088568
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/17/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100594656"
 ---
 # <a name="get-resource-changes"></a>Ottenere le modifiche delle risorse
