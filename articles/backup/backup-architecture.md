@@ -4,10 +4,10 @@ description: Panoramica dell'architettura, dei componenti e dei processi usati d
 ms.topic: conceptual
 ms.date: 02/19/2019
 ms.openlocfilehash: 1e5a61bd4e3287c1100ff1f54fda797c1add438b
-ms.sourcegitcommit: 3ea12ce4f6c142c5a1a2f04d6e329e3456d2bda5
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/15/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "103466412"
 ---
 # <a name="azure-backup-architecture-and-components"></a>Architettura e componenti di backup di Azure
@@ -45,7 +45,7 @@ Gli insiemi di credenziali includono le funzionalità seguenti:
 - È necessario specificare come vengono replicati i dati nell'insieme di credenziali per la ridondanza:
   - **Archiviazione con ridondanza locale (con ridondanza locale)**: per evitare errori in un Data Center, è possibile usare con ridondanza locale. L'archiviazione con ridondanza locale replica i dati in un'unità di scala di archiviazione. [Altre informazioni](../storage/common/storage-redundancy.md#locally-redundant-storage)
   - **Archiviazione con ridondanza geografica**: per proteggersi da interruzioni a livello di area, è possibile usare GRS. Il GRS replica i dati in un'area secondaria. [Altre informazioni](../storage/common/storage-redundancy.md#geo-redundant-storage)
-  - **Archiviazione con ridondanza della zona (ZRS)**: replica i dati nelle [zone di disponibilità](../availability-zones/az-overview.md#availability-zones), garantendo la residenza e la resilienza dei dati nella stessa area. [Altre informazioni](../storage/common/storage-redundancy.md#zone-redundant-storage)
+  - **Archiviazione con ridondanza della zona (ZRS)**: replica i dati nelle [zone di disponibilità](../availability-zones/az-overview.md#availability-zones), garantendo la residenza e la resilienza dei dati nella stessa area. [Scopri di più](../storage/common/storage-redundancy.md#zone-redundant-storage)
   - Per impostazione predefinita, gli insiemi di credenziali dei servizi di ripristino usano GRS.
 
 Gli insiemi di credenziali dei servizi di ripristino offrono le seguenti funzionalità aggiuntive:

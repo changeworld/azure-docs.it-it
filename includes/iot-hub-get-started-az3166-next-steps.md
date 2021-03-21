@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 06/09/2018
 ms.author: liydu
 ms.openlocfilehash: 1383f976e73fd9a59b87201cac8aeeb043f3c1cc
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/27/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98900993"
 ---
 Per altre informazioni sulle attività iniziali con l'hub IoT di Azure e per esplorare altri scenari IoT usando IoT DevKit, vedere:

@@ -7,10 +7,10 @@ ms.date: 12/04/2020
 ms.author: helohr
 manager: lizross
 ms.openlocfilehash: 872a67d8d9f41c0c809df54304352b2a5f58e011
-ms.sourcegitcommit: 25d1d5eb0329c14367621924e1da19af0a99acf1
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/16/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98251761"
 ---
 # <a name="required-url-list"></a>Elenco di URL necessari
@@ -73,8 +73,8 @@ La tabella seguente elenca gli URL facoltativi accessibili alle macchine virtual
 |login.windows.net|443|Accedere a Microsoft Online Services, Microsoft 365|login.microsoftonline.us|
 |*.sfx.ms|443|Aggiornamenti per il software client di OneDrive|oneclient.sfx.ms|
 |*.digicert.com|443|Verifica della revoca del certificato|nessuno|
-|*. azure-dns.com|443|Risoluzione DNS di Azure|Nessuno|
-|*. azure-dns.net|443|Risoluzione DNS di Azure|Nessuno|
+|*. azure-dns.com|443|Risoluzione DNS di Azure|nessuno|
+|*. azure-dns.net|443|Risoluzione DNS di Azure|nessuno|
 
 >[!NOTE]
 >Desktop virtuale di Windows attualmente non dispone di un elenco di intervalli di indirizzi IP che è possibile sbloccare per consentire il traffico di rete. Al momento è supportato solo l'sblocco di URL specifici.
@@ -101,7 +101,7 @@ Tutti i client Desktop remoto utilizzati devono avere accesso agli URL seguenti:
 |aka.ms|443|Abbreviazione URL Microsoft|Tutti|nessuno|
 |docs.microsoft.com|443|Documentazione|Tutti|nessuno|
 |privacy.microsoft.com|443|Informativa sulla privacy|Tutti|nessuno|
-|query.prod.cms.rt.microsoft.com|443|Aggiornamenti client|Desktop di Windows|Nessuno|
+|query.prod.cms.rt.microsoft.com|443|Aggiornamenti client|Desktop di Windows|nessuno|
 
 >[!IMPORTANT]
 >L'apertura di questi URL è essenziale per un'esperienza client affidabile. Il blocco dell'accesso a questi URL non è supportato e influirà sulle funzionalità del servizio.

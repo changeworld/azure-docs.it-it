@@ -13,10 +13,10 @@ ms.date: 02/27/2019
 ms.author: billmath
 author: billmath
 ms.openlocfilehash: bef5942707c1ded22ba82bdb0d945b9fdb23fffa
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/30/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96349351"
 ---
 # <a name="configure-group-claims-for-applications-with-azure-active-directory"></a>Configurare le attestazioni di gruppo per le applicazioni con Azure Active Directory
@@ -64,7 +64,7 @@ Tuttavia, se un'applicazione esistente prevede di utilizzare le informazioni sul
 
 ## <a name="prerequisites-for-using-group-attributes-synchronized-from-active-directory"></a>Prerequisiti per l'uso di attributi di gruppo sincronizzati da Active Directory
 
-Se si usa il formato ObjectId, le attestazioni di appartenenza a gruppi possono essere emesse in token per qualsiasi gruppo. Per usare le attestazioni di gruppo in formati diversi da ObjectId del gruppo, i gruppi devono essere sincronizzati da Active Directory usando Azure AD Connect.
+Se si usa il formato ObjectId, le attestazioni di appartenenza ai gruppi possono essere emesse in token per qualsiasi gruppo. Per usare le attestazioni di gruppo in formati diversi da ObjectId del gruppo, i gruppi devono essere sincronizzati da Active Directory usando Azure AD Connect.
 
 Per la configurazione di Azure Active Directory per la creazione di nomi di gruppo per i gruppi di Active Directory sono necessari due passaggi.
 
@@ -192,7 +192,7 @@ I valori validi sono:
    > [!NOTE]
    > Se viene usata la proprietà "emit_as_roles", i ruoli applicazione configurati a cui l'utente è assegnato non verranno visualizzati nell'attestazione del ruolo
 
-### <a name="examples"></a>Esempi
+### <a name="examples"></a>Esempio
 
 Creare gruppi come nomi di gruppo nei token di accesso OAuth in formato dnsDomainName\SAMAccountName
 

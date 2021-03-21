@@ -7,10 +7,10 @@ ms.author: jife
 ms.topic: conceptual
 ms.date: 12/16/2020
 ms.openlocfilehash: 852c44f5edc5c0b0f5f655f63ab040927bd9bc7b
-ms.sourcegitcommit: f6f928180504444470af713c32e7df667c17ac20
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/07/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97963680"
 ---
 # <a name="supported-data-stores-in-azure-data-share"></a>Archivi dati supportati in Condivisione dati di Azure
@@ -28,7 +28,7 @@ La tabella seguente illustra gli archivi dati supportati da Azure Data Share.
 | Archiviazione BLOB di Azure |✓ |✓ | |
 | Azure Data Lake Storage Gen1 |✓ |✓ | |
 | Azure Data Lake Storage Gen2 |✓ |✓ ||
-| database SQL di Azure |✓ | | |
+| Database SQL di Azure |✓ | | |
 | Azure Synapse Analytics (in precedenza Azure SQL Data Warehouse) |✓ | | |
 | Azure sinapsi Analytics (area di lavoro) pool SQL dedicato |✓ | | |
 | Esplora dati di Azure | | |✓ |

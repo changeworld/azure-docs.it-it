@@ -7,10 +7,10 @@ ms.service: postgresql
 ms.topic: conceptual
 ms.date: 01/28/2020
 ms.openlocfilehash: 33fa6420f52cae9c869cc75a04ea82de0ec48262
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/17/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100596301"
 ---
 # <a name="audit-logging-in-azure-database-for-postgresql---single-server"></a>Registrazione di controllo nel database di Azure per PostgreSQL-server singolo
@@ -66,7 +66,7 @@ Dopo aver [installato pgAudit](#installing-pgaudit), è possibile configurarne i
 
 > [!NOTE]
 > `pgaudit.log_client`Se si imposta su on, i log vengono reindirizzati a un processo client, ad esempio PSQL, anziché essere scritti nel file. Questa impostazione viene in genere disabilitata. <br> <br>
-> `pgaudit.log_level` viene abilitato solo quando `pgaudit.log_client` è on.
+> `pgaudit.log_level` viene abilitato solo quando `pgaudit.log_client` è attivo.
 
 > [!NOTE]
 > In database di Azure per PostgreSQL `pgaudit.log` non è possibile impostare l'uso di un `-` collegamento di segno (meno), come descritto nella documentazione di pgAudit. Tutte le classi di istruzioni obbligatorie (READ, WRITE e così via) devono essere specificate singolarmente.
@@ -82,7 +82,7 @@ t=%m u=%u db=%d pid=[%p]:
 
 Per altre informazioni su `log_line_prefix` , vedere la [documentazione di PostgreSQL](https://www.postgresql.org/docs/current/runtime-config-logging.html#GUC-LOG-LINE-PREFIX).
 
-### <a name="getting-started"></a>Guida introduttiva
+### <a name="getting-started"></a>Introduzione
 Per iniziare rapidamente, impostare `pgaudit.log` su `WRITE` e aprire i log per esaminare l'output. 
 
 ## <a name="viewing-audit-logs"></a>Visualizzazione dei log di controllo

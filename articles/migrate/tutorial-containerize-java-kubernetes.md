@@ -8,10 +8,10 @@ ms.topic: tutorial
 ms.date: 3/2/2021
 ms.author: rahugup
 ms.openlocfilehash: ecc31019ccedc21683eed1a3186cec91d4c5c567
-ms.sourcegitcommit: 3ea12ce4f6c142c5a1a2f04d6e329e3456d2bda5
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/15/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "103466593"
 ---
 # <a name="containerize-java-web-applications-and-migrate-to-azure-kubernetes-service"></a>Distribuire applicazioni Web Java e migrazione al servizio Azure Kubernetes
@@ -20,7 +20,7 @@ In questo articolo si apprenderà come distribuire le applicazioni Web Java (in 
 
 Il Azure Migrate: lo strumento di contenitori di app supporta attualmente
 
-- Inserimento ASP.NET app e distribuirle in contenitori Windows in AKS. [Altre informazioni](./tutorial-containerize-aspnet-kubernetes.md)
+- Inserimento ASP.NET app e distribuirle in contenitori Windows in AKS. [Scopri di più](./tutorial-containerize-aspnet-kubernetes.md)
 - Inserimento le app Web Java su Apache Tomcat (su server Linux) e distribuirle in contenitori Linux in AKS.
 
 
@@ -31,7 +31,7 @@ Il Azure Migrate: lo strumento di contenitori di app consente di
 - **Eseguire la distribuzione nel servizio Azure Kubernetes**: lo strumento genera quindi i file YAML della definizione di risorsa Kubernetes necessari per distribuire l'applicazione in contenitori nel cluster del servizio Kubernetes di Azure. È possibile personalizzare i file YAML e usarli per distribuire l'applicazione in AKS.
 
 > [!NOTE]
-> Lo strumento di Azure Migrate: app Container consente di individuare specifici tipi di applicazioni (ASP.NET e app Web Java su Apache Tomcat) e i relativi componenti in un server applicazioni. Per individuare i server e l'inventario di app, ruoli e funzionalità in esecuzione nei computer locali, usare Azure Migrate: funzionalità di individuazione e valutazione. [Altre informazioni](./tutorial-discover-vmware.md)
+> Lo strumento di Azure Migrate: app Container consente di individuare specifici tipi di applicazioni (ASP.NET e app Web Java su Apache Tomcat) e i relativi componenti in un server applicazioni. Per individuare i server e l'inventario di app, ruoli e funzionalità in esecuzione nei computer locali, usare Azure Migrate: funzionalità di individuazione e valutazione. [Scopri di più](./tutorial-discover-vmware.md)
 
 Sebbene tutte le applicazioni non possano trarre vantaggio da un semplice passaggio ai contenitori senza una riprogettazione significativa, alcuni dei vantaggi dello spostamento delle app esistenti nei contenitori senza riscrivere includono:
 
@@ -178,7 +178,7 @@ Parametrizzazione la configurazione lo rende disponibile come parametro della fa
 
 ### <a name="externalize-file-system-dependencies"></a>Dipendenze file system Externalize
 
- È possibile aggiungere altre cartelle utilizzate dall'applicazione. Specificare se devono far parte dell'immagine del contenitore o devono essere esternalizzate tramite volumi permanenti nella condivisione file di Azure. L'uso di volumi permanenti funziona perfettamente per le applicazioni con stato che archiviano lo stato all'esterno del contenitore o che contengono altro contenuto statico archiviato nel file system. [Altre informazioni](https://docs.microsoft.com/azure/aks/concepts-storage)
+ È possibile aggiungere altre cartelle utilizzate dall'applicazione. Specificare se devono far parte dell'immagine del contenitore o devono essere esternalizzate tramite volumi permanenti nella condivisione file di Azure. L'uso di volumi permanenti funziona perfettamente per le applicazioni con stato che archiviano lo stato all'esterno del contenitore o che contengono altro contenuto statico archiviato nel file system. [Scopri di più](https://docs.microsoft.com/azure/aks/concepts-storage)
 
 1. Fare clic su **modifica** in cartelle app per esaminare le cartelle dell'applicazione rilevate. Le cartelle dell'applicazione rilevate sono state identificate come elementi obbligatori necessari per l'applicazione e verranno copiati nell'immagine del contenitore.
 
