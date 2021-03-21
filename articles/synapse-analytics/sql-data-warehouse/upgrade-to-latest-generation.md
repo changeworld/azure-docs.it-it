@@ -12,10 +12,10 @@ ms.author: martinle
 ms.reviewer: jrasnick
 ms.custom: seo-lt-2019
 ms.openlocfilehash: b5a9d1781bd0498ac6ad74439b1572c52e3c345a
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/01/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96459253"
 ---
 # <a name="optimize-performance-by-upgrading-dedicated-sql-pool-formerly-sql-dw-in-azure-synapse-analytics"></a>Ottimizzare le prestazioni tramite l'aggiornamento di un pool SQL dedicato (in precedenza SQL DW) in Azure sinapsi Analytics
@@ -116,7 +116,7 @@ Aggiornare il pool SQL dedicato (in precedenza SQL DW) all'ultima generazione de
    > Se la scheda **Aggiorna alla seconda generazione** non è visualizzata sotto la scheda Attività, il tipo di sottoscrizione è limitato nell'area corrente.
    > [Invia un ticket di supporto](sql-data-warehouse-get-started-create-support-ticket.md) per richiedere l'approvazione della sottoscrizione.
 
-3. Assicurarsi che il carico di lavoro abbia completato l'esecuzione e sia inattivo prima dell'aggiornamento. Si verificheranno tempi di inattività per alcuni minuti prima che il pool SQL dedicato (noto in precedenza come SQL DW) sia di nuovo online come pool SQL dedicato di calcolo ottimizzato per il livello Gen2 (in precedenza SQL DW). **Selezionare l'aggiornamento**:
+3. Assicurarsi che il carico di lavoro abbia completato l'esecuzione e sia inattivo prima dell'aggiornamento. Si verificheranno tempi di inattività per alcuni minuti prima che il pool SQL dedicato (noto in precedenza come SQL DW) sia di nuovo online come pool SQL dedicato di calcolo ottimizzato per il livello Gen2 (in precedenza SQL DW). **Selezionare Aggiorna**:
 
    ![Upgrade_2](./media/upgrade-to-latest-generation/upgrade-to-gen2-2.png)
 

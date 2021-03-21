@@ -10,10 +10,10 @@ ms.tgt_pltfrm: arduino
 ms.date: 07/18/2019
 ms.author: robinsh
 ms.openlocfilehash: cd14ff0688f4230aeedac748ca4b32609bdd2938
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/23/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92490323"
 ---
 # <a name="iot-remote-monitoring-and-notifications-with-azure-logic-apps-connecting-your-iot-hub-and-mailbox"></a>Monitoraggio remoto e notifiche di IoT con App per la logica di Azure tramite la connessione all'hub IoT e alla cassetta postale
@@ -98,7 +98,7 @@ Creare uno spazio dei nomi del bus di servizio e una coda Più avanti in questo 
 
 1. Tornare al riquadro **spazio dei nomi del bus di servizio** , in **entità**, selezionare **Code**. Aprire la coda del bus di servizio dall'elenco e quindi selezionare **criteri di accesso condiviso**  >  **+ Aggiungi**.
 
-1. Immettere un nome per il criterio, selezionare **Gestisci**e quindi selezionare **Crea**.
+1. Immettere un nome per il criterio, selezionare **Gestisci** e quindi selezionare **Crea**.
 
    ![Aggiungere un criterio di coda del bus di servizio nel portale di Azure](media/iot-hub-monitoring-notifications-with-azure-logic-apps/2-add-service-bus-queue-azure-portal.png)
 
@@ -110,7 +110,7 @@ Aggiungere un endpoint personalizzato per la coda del bus di servizio all'hub In
 
 1. Aprire l'hub IoT. Il modo più semplice per ottenere l'hub Internet è quello di selezionare i **gruppi di risorse** nel riquadro delle risorse, selezionare il gruppo di risorse e quindi selezionare l'hub Internet nell'elenco di risorse.
 
-1. In **messaggistica**selezionare **routing messaggi**. Nel riquadro **routing messaggi** selezionare la scheda **endpoint personalizzati** , quindi selezionare **+ Aggiungi**. Dall'elenco a discesa selezionare **coda del bus di servizio**.
+1. In **messaggistica** selezionare **routing messaggi**. Nel riquadro **routing messaggi** selezionare la scheda **endpoint personalizzati** , quindi selezionare **+ Aggiungi**. Dall'elenco a discesa selezionare **coda del bus di servizio**.
 
    ![Schermata che evidenzia l'opzione della coda del bus di servizio.](media/iot-hub-monitoring-notifications-with-azure-logic-apps/select-iot-hub-custom-endpoint.png)
 
@@ -150,7 +150,7 @@ Nella sezione precedente si configura l'hub delle cose per indirizzare i messagg
 
 ### <a name="create-a-logic-app"></a>Creare un'app per la logica
 
-1. Selezionare **Crea una risorsa**  >  **integrazione**  >  **app**per la logica.
+1. Selezionare **Crea una risorsa**  >  **integrazione**  >  **app** per la logica.
 
 1. Immettere le seguenti informazioni:
 
@@ -176,7 +176,7 @@ Nella sezione precedente si configura l'hub delle cose per indirizzare i messagg
 
    ![Selezionare il bus di servizio per avviare la creazione dell'app per la logica nel portale di Azure](media/iot-hub-monitoring-notifications-with-azure-logic-apps/6-select-service-bus-when-creating-blank-logic-app-azure-portal.png)
 
-1. In **trigger**selezionare **l'arrivo di uno o più messaggi in una coda (completamento automatico)**.
+1. In **trigger** selezionare **l'arrivo di uno o più messaggi in una coda (completamento automatico)**.
 
    ![Selezionare il trigger per l'app per la logica nella portale di Azure](media/iot-hub-monitoring-notifications-with-azure-logic-apps/select-service-bus-trigger.png)
 
@@ -189,7 +189,7 @@ Nella sezione precedente si configura l'hub delle cose per indirizzare i messagg
 
       ![Creare una connessione del bus di servizio per l'app per la logica nel portale di Azure](media/iot-hub-monitoring-notifications-with-azure-logic-apps/7-create-service-bus-connection-in-logic-app-azure-portal.png)
 
-   1. Nella schermata finale per **nome coda**selezionare la coda creata dall'elenco a discesa. Immettere `175` per il **numero massimo di messaggi**.
+   1. Nella schermata finale per **nome coda** selezionare la coda creata dall'elenco a discesa. Immettere `175` per il **numero massimo di messaggi**.
 
       ![Specificare il numero massimo di messaggi per la connessione del bus di servizio nell'app per la logica](media/iot-hub-monitoring-notifications-with-azure-logic-apps/8-specify-maximum-message-count-for-service-bus-connection-logic-app-azure-portal.png)
 
@@ -199,7 +199,7 @@ Nella sezione precedente si configura l'hub delle cose per indirizzare i messagg
 
 1. Creare una connessione del servizio SMTP.
 
-   1. Selezionare **Nuovo passaggio**. In **scegliere un'azione**selezionare la scheda **tutti** .
+   1. Selezionare **Nuovo passaggio**. In **scegliere un'azione** selezionare la scheda **tutti** .
 
    1. Digitare `smtp` nella casella di ricerca, selezionare il servizio **SMTP** nei risultati della ricerca e quindi selezionare **Invia messaggio di posta elettronica**.
 

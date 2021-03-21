@@ -7,13 +7,13 @@ ms.topic: tutorial
 ms.date: 06/27/2019
 ms.custom: devx-track-azurepowershell
 ms.openlocfilehash: 1a6274ce36878af6cfbae04be935485c462bc86a
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/28/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98941362"
 ---
-# <a name="tutorial-query-apache-hive-with-odbc-and-powershell"></a>Esercitazione: Eseguire query in Apache Hive con ODBC e PowerShell
+# <a name="tutorial-query-apache-hive-with-odbc-and-powershell"></a>Esercitazione: eseguire query Apache Hive con ODBC e PowerShell
 
 I driver ODBC di Microsoft rappresentano un modo flessibile per interagire con tipi diversi di origini dati, tra cui Apache Hive. È possibile scrivere codice in linguaggi di script, ad esempio PowerShell, che usano i driver ODBC per stabilire una connessione al cluster Hive, passare la query desiderata e visualizzare i risultati.
 
@@ -30,17 +30,17 @@ Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://a
 
 Prima di iniziare questa esercitazione sono necessari gli elementi seguenti:
 
-* Un cluster Interactive Query in HDInsight. Per crearne uno, vedere [Introduzione all'uso di Hadoop in HDInsight](../hdinsight-hadoop-provision-linux-clusters.md). Selezionare **Interactive Query** come tipo di cluster.
+* Un cluster Interactive Query in HDInsight. Per crearne uno, vedere l'[introduzione ad Azure HDInsight](../hdinsight-hadoop-provision-linux-clusters.md). Selezionare **Interactive Query** come tipo di cluster.
 
 ## <a name="install-microsoft-hive-odbc-driver"></a>Installare Microsoft Hive ODBC driver
 
-Scaricare e installare [Microsoft Hive ODBC driver](https://www.microsoft.com/download/details.aspx?id=40886).
+Scaricare e installare il [Microsoft Hive ODBC driver](https://www.microsoft.com/download/details.aspx?id=40886).
 
 ## <a name="create-apache-hive-odbc-data-source"></a>Creare un'origine dati Apache Hive ODBC
 
 I passaggi seguenti descrivono come creare un'origine dati ODBC Apache Hive.
 
-1. In Windows scegliere **Start** > **Strumenti di amministrazione Windows** > **Configura origini dati ODBC (32 bit)/(64 bit)** .  Verrà aperta la finestra **Amministrazione origine dati ODBC**.
+1. Da Windows, passare a **Start**  >  **strumenti di amministrazione di Windows**  >  **ODBC Data Sources (32 bit)/(64 bit)**.  Verrà aperta la finestra **Amministrazione origine dati ODBC**.
 
     ![Amministrazione origine dati ODBC](./media/apache-hive-query-odbc-driver-powershell/hive-odbc-driver-dsn-setup.png "Configurare un DSN usando l'amministrazione origine dati ODBC")
 
@@ -53,9 +53,9 @@ I passaggi seguenti descrivono come creare un'origine dati ODBC Apache Hive.
    | Proprietà | Descrizione |
    | --- | --- |
    |  Data Source Name |Assegnare un nome all'origine dati |
-   |  Host |Immettere `CLUSTERNAME.azurehdinsight.net`. Ad esempio, usare `myHDICluster.azurehdinsight.net` |
+   |  Host |Immettere `CLUSTERNAME.azurehdinsight.net`. Ad esempio: `myHDICluster.azurehdinsight.net` |
    |  Porta |Utilizzare **443**.|
-   |  Database |Usare l'**impostazione predefinita**. |
+   |  Database |Usare il **valore predefinito**. |
    |  Mechanism |Selezionare **Servizio HDInsight di Microsoft Azure** |
    |  Nome utente |Immettere il nome utente HTTP del cluster HDInsight. Il nome utente predefinito è **admin**. |
    |  Password |Immettere la password utente del cluster HDInsight. Selezionare la casella di controllo **Save Password (Encrypted)** (Salva password (crittografata)).|

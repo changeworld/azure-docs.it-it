@@ -4,10 +4,10 @@ description: Usare portale di Azure e gestione risorse di Azure per distribuire 
 ms.topic: conceptual
 ms.date: 10/22/2020
 ms.openlocfilehash: d8467bb4e51fc4e6ba89a84f1260a8d2743758d2
-ms.sourcegitcommit: e46f9981626751f129926a2dae327a729228216e
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/08/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98028676"
 ---
 # <a name="deploy-resources-with-arm-templates-and-azure-portal"></a>Distribuire le risorse con i modelli ARM e portale di Azure
@@ -129,4 +129,4 @@ Se si desidera eseguire una distribuzione ma non usare i modelli in Marketplace,
 - Per visualizzare i log di controllo, vedere [Operazioni di controllo con Resource Manager](../management/view-activity-logs.md).
 - Per risolvere gli errori di distribuzione, vedere [View deployment operations](deployment-history.md) (Visualizzare le operazioni di distribuzione).
 - Per esportare un modello da una distribuzione o un gruppo di risorse, vedere [esportare modelli ARM](export-template-portal.md).
-- Per distribuire in modo sicuro il servizio in più aree, vedere [Deployment Manager di Azure](deployment-manager-overview.md).
+- Per distribuire in modo sicuro il servizio in più aree, vedere [Gestione distribuzione di Azure](deployment-manager-overview.md).

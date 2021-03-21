@@ -1,5 +1,5 @@
 ---
-title: Gestione dei costi per il pool SQL senza server
+title: Gestione dei costi per i pool SQL serverless
 description: Questo documento descrive come gestire i costi del pool SQL senza server e come vengono calcolati i dati elaborati durante l'esecuzione di query sui dati in archiviazione di Azure.
 services: synapse analytics
 author: filippopovic
@@ -10,10 +10,10 @@ ms.date: 11/05/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick
 ms.openlocfilehash: 8a26f8ced5e91810f8cadff0a27796dc817e6517
-ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/11/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94491570"
 ---
 # <a name="cost-management-for-serverless-sql-pool-in-azure-synapse-analytics"></a>Gestione dei costi per pool SQL senza server in Azure sinapsi Analytics
@@ -63,7 +63,7 @@ La quantità di dati elaborati viene arrotondata per eccesso ai MB più vicini p
 
 È possibile ottimizzare la quantità di dati elaborati per query e migliorare le prestazioni tramite il partizionamento e la conversione dei dati in un formato basato su colonne compresso come parquet.
 
-## <a name="examples"></a>Esempi
+## <a name="examples"></a>Esempio
 
 Immaginate tre tabelle.
 
@@ -71,23 +71,23 @@ Immaginate tre tabelle.
 - La tabella population_parquet presenta gli stessi dati della tabella population_csv. È supportato da 1 TB di file parquet. Questa tabella è più piccola rispetto a quella precedente perché i dati sono compressi in formato parquet.
 - Il very_small_csv tabella è supportato da 100 KB di file CSV.
 
-**Query 1** : selezionare SUM (popolamento) da population_csv
+**Query 1**: selezionare SUM (popolamento) da population_csv
 
 Questa query consente di leggere e analizzare interi file per ottenere i valori per la colonna population. I nodi elaborano i frammenti della tabella e la somma della popolazione per ogni frammento viene trasferita tra i nodi. La somma finale viene trasferita all'endpoint. 
 
 Questa query elabora 5 TB di dati, oltre a un sovraccarico ridotto per il trasferimento di somme di frammenti.
 
-**Query 2** : selezionare SUM (popolamento) da population_parquet
+**Query 2**: selezionare SUM (popolamento) da population_parquet
 
 Quando si esegue una query su formati compressi e basati su colonne, ad esempio parquet, viene letto un minor numero di dati rispetto a query 1. Questo risultato viene visualizzato perché il pool SQL senza server legge una singola colonna compressa anziché l'intero file. In questo caso, viene letto 0,2 TB. Cinque colonne di dimensioni equivalenti sono 0,2 TB ciascuna. I nodi elaborano i frammenti della tabella e la somma della popolazione per ogni frammento viene trasferita tra i nodi. La somma finale viene trasferita all'endpoint. 
 
 Questa query elabora 0,2 TB più una piccola quantità di overhead per il trasferimento di somme di frammenti.
 
-**Query 3** : selezionare * da population_parquet
+**Query 3**: selezionare * da population_parquet
 
 Questa query legge tutte le colonne e trasferisce tutti i dati in un formato non compresso. Se il formato di compressione è 5:1, la query elabora 6 TB perché legge 1 TB e trasferisce 5 TB di dati non compressi.
 
-**Query 4** : selezionare Count (*) da very_small_csv
+**Query 4**: selezionare Count (*) da very_small_csv
 
 Questa query legge i file interi. La dimensione totale dei file nella risorsa di archiviazione per questa tabella è 100 KB. I nodi elaborano i frammenti della tabella e la somma di ogni frammento viene trasferita tra i nodi. La somma finale viene trasferita all'endpoint. 
 

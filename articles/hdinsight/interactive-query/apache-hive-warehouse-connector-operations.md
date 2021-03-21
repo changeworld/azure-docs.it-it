@@ -7,10 +7,10 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.date: 05/22/2020
 ms.openlocfilehash: 20567a1e38686b5d452a5353bc459e7e1125f499
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/28/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98941299"
 ---
 # <a name="apache-spark-operations-supported-by-hive-warehouse-connector-in-azure-hdinsight"></a>Operazioni di Apache Spark supportate da Hive Warehouse Connector in Azure HDInsight
@@ -31,13 +31,13 @@ Per avviare una sessione della shell Spark, seguire questa procedura:
     ssh sshuser@CLUSTERNAME-ssh.azurehdinsight.net
     ```
 
-1. Nella sessione ssh eseguire il comando seguente per prendere nota della versione `hive-warehouse-connector-assembly`:
+1. Nella sessione ssh eseguire il comando seguente per prendere nota della versione di `hive-warehouse-connector-assembly`:
 
     ```bash
     ls /usr/hdp/current/hive_warehouse_connector
     ```
 
-1. Modificare il codice seguente con la versione `hive-warehouse-connector-assembly` identificata in precedenza. Eseguire quindi il comando per avviare la shell Spark:
+1. Modificare il codice seguente con la versione di `hive-warehouse-connector-assembly` identificata in precedenza. Eseguire quindi il comando per avviare la shell Spark:
 
     ```bash
     spark-shell --master yarn \

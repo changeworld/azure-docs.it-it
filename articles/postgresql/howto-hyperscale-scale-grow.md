@@ -8,10 +8,10 @@ ms.subservice: hyperscale-citus
 ms.topic: how-to
 ms.date: 11/17/2020
 ms.openlocfilehash: 59e6e73c99569b0a35c56d65c1a7ccdfcb394c0f
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/21/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "95026421"
 ---
 # <a name="scale-a-hyperscale-citus-server-group"></a>Ridimensionare un gruppo di server di scalabilità (CITUS)
@@ -27,14 +27,14 @@ Per aggiungere nodi, passare alla scheda **calcolo e archiviazione** nel gruppo 
 Fare clic sul pulsante **Salva** per rendere effettivo il valore modificato.
 
 > [!NOTE]
-> Una volta aumentata e salvata, il numero di nodi del ruolo di lavoro non può essere ridotto usando il dispositivo di scorrimento.
+> Una volta aumentato e salvato, il numero di nodi di lavoro non può essere ridotto mediante il dispositivo di scorrimento.
 
 > [!NOTE]
-> Per sfruttare i vantaggi dei nuovi nodi aggiunti è necessario [ribilanciare le partizioni delle tabelle distribuite](howto-hyperscale-scale-rebalance.md), ovvero trasferire alcune partizioni dai nodi esistenti a quelle nuove. [shards](concepts-hyperscale-distributed-data.md#shards)
+> Per sfruttare i vantaggi dei nuovi nodi aggiunti è necessario [ribilanciare le partizioni delle tabelle distribuite](howto-hyperscale-scale-rebalance.md), ovvero trasferire alcune partizioni dai nodi esistenti a quelle nuove. [](concepts-hyperscale-distributed-data.md#shards)
 
-## <a name="increase-or-decrease-vcores-on-nodes"></a>Aumentare o ridurre Vcore nei nodi
+## <a name="increase-or-decrease-vcores-on-nodes"></a>Aumentare o ridurre il numero di vCore nei nodi
 
-Oltre ad aggiungere nuovi nodi, è possibile aumentare le capacità dei nodi esistenti. La regolazione della capacità di calcolo verso l'alto e verso il basso può essere utile per gli esperimenti sulle prestazioni, nonché per le modifiche a breve o a lungo termine delle richieste di traffico.
+Oltre ad aggiungere nuovi nodi, è possibile aumentare la capacità dei nodi esistenti. La regolazione della capacità di calcolo verso l'alto e verso il basso può essere utile per gli esperimenti sulle prestazioni, nonché per le modifiche a breve o a lungo termine delle richieste di traffico.
 
 Per modificare il vcore per tutti i nodi del ruolo di lavoro, modificare il dispositivo di scorrimento **Vcore** in **configurazione (per nodo** del ruolo di lavoro). Il vcore del nodo coordinatore può essere regolato in modo indipendente. Regolare il dispositivo di scorrimento **Vcore** in  **configurazione (nodo coordinatore)**.
 

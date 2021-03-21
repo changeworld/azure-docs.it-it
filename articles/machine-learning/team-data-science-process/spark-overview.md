@@ -12,10 +12,10 @@ ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ms.openlocfilehash: 1dd82fb00c55e3676929999f204eae8755671038
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93314741"
 ---
 # <a name="overview-of-data-science-using-spark-on-azure-hdinsight"></a>Panoramica dell'analisi scientifica dei dati con Spark in Azure HDInsight
@@ -156,13 +156,13 @@ I dati relativi alle corse dei taxi della città di New York sono costituiti da 
 
 ![Dashboard del cluster](./media/spark-overview/spark-jupyter-on-portal.png)
 
-È anche possibile passare a * *_`https://CLUSTERNAME.azurehdinsight.net/jupyter`_* _ per accedere ai notebook di Jupyter. Sostituire NOMECLUSTER nell'URL con il nome del proprio cluster. Per accedere ai notebook, sarà necessaria la password dell'account amministratore.
+È anche possibile passare a ***`https://CLUSTERNAME.azurehdinsight.net/jupyter`*** per accedere ai notebook di Jupyter. Sostituire NOMECLUSTER nell'URL con il nome del proprio cluster. Per accedere ai notebook, sarà necessaria la password dell'account amministratore.
 
 ![Sfogliare i notebook di Jupyter](./media/spark-overview/spark-jupyter-notebook.png)
 
 Selezionare PySpark per visualizzare una directory contenente alcuni esempi di notebook pre-confezionati che usano l'API PySpark. I notebook che contengono gli esempi di codice per questa serie di argomenti su Spark sono disponibili in [GitHub](https://github.com/Azure/Azure-MachineLearning-DataScience/tree/master/Misc/Spark/pySpark)
 
-È possibile caricare i notebook direttamente da [GitHub](https://github.com/Azure/Azure-MachineLearning-DataScience/tree/master/Misc/Spark/pySpark) nel server del notebook di Jupyter sul cluster Spark. Nella home page della Jupyter fare clic sul pulsante _ *upload* * nella parte destra della schermata. Verrà visualizzata una finestra di esplorazione file, in cui è possibile incollare l'URL di GitHub (contenuto non elaborato) del notebook e fare clic su **Open** (Apri).
+È possibile caricare i notebook direttamente da [GitHub](https://github.com/Azure/Azure-MachineLearning-DataScience/tree/master/Misc/Spark/pySpark) nel server del notebook di Jupyter sul cluster Spark. Nella home page di Jupyter fare clic sul pulsante **Upload** (Carica) a destra nella schermata. Verrà visualizzata una finestra di esplorazione file, in cui è possibile incollare l'URL di GitHub (contenuto non elaborato) del notebook e fare clic su **Open** (Apri).
 
 Il nome del file verrà visualizzato nell'elenco di file Jupyter e sarà di nuovo disponibile il pulsante **Upload** (Carica). Fare clic sul pulsante **Upload** (Carica). A questo punto, il notebook è stato importato. Ripetere i passaggi per caricare gli altri notebook di questa procedura dettagliata.
 
@@ -175,7 +175,7 @@ A questo punto è possibile:
 
 * Fare clic sul notebook per visualizzare il codice.
 * Eseguire ogni cella premendo **MAIUSC+INVIO**.
-* Eseguire l'intero Notebook facendo clic su **Cell**  ->  **esecuzione** cella.
+* Eseguire l'intero Notebook facendo clic su   ->  **esecuzione** cella.
 * Usare la visualizzazione automatica delle query.
 
 > [!TIP]

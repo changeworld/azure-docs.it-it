@@ -12,10 +12,10 @@ ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ms.openlocfilehash: f2294ccb1d958b229a71e45bb502b8134d8d5c7f
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93305662"
 ---
 # <a name="customer-acceptance-stage-of-the-team-data-science-process-lifecycle"></a>Fase di accettazione del cliente del ciclo di vita del processo di data science per i team
@@ -34,13 +34,13 @@ Ecco una rappresentazione visiva del ciclo di vita del processo TDSP:
 
 
 ## <a name="goal"></a>Obiettivo
-**Finalizzare i risultati del progetto** : verificare che la pipeline, il modello e la relativa distribuzione in un ambiente di produzione soddisfino gli obiettivi del cliente.
+**Finalizzare i risultati del progetto**: verificare che la pipeline, il modello e la relativa distribuzione in un ambiente di produzione soddisfino gli obiettivi del cliente.
 
 ## <a name="how-to-do-it"></a>Come eseguirla
 Questa fase comprende due attività principali:
 
-   * **Convalida del sistema** : verificare che il modello e la pipeline distribuiti soddisfino le esigenze del cliente.
-   * **Consegna del progetto** : consegnare il progetto all'entità che eseguirà il sistema nell'ambiente di produzione.
+   * **Convalida del sistema**: verificare che il modello e la pipeline distribuiti soddisfino le esigenze del cliente.
+   * **Consegna del progetto**: consegnare il progetto all'entità che eseguirà il sistema nell'ambiente di produzione.
 
 Il cliente deve verificare che il sistema soddisfi le esigenze aziendali e che risponda alle domande con un'accuratezza accettabile per la distribuzione del sistema nell'ambiente di produzione per l'utilizzo da parte delle applicazioni client. Tutta la documentazione viene finalizzata ed esaminata. Il progetto viene consegnato all'entità responsabile delle operazioni. Questa entità potrebbe essere, ad esempio, un team IT, un team di data science o un agente del cliente responsabile dell'esecuzione del sistema nell'ambiente di produzione. 
 

@@ -12,10 +12,10 @@ manager: celestedg
 ms.reviewer: mal
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: cd91d1d2c9f5a4a413f9ea64cfdef649823d0f09
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93131021"
 ---
 # <a name="grant-b2b-users-in-azure-ad-access-to-your-on-premises-applications"></a>Concedere agli utenti B2B in Azure AD l'accesso alle applicazioni locali
@@ -28,10 +28,10 @@ Se l'app locale usa l'autenticazione basata su SAML, è possibile renderla facil
 
 Sono necessarie entrambe queste operazioni:
 
-- Integrare l'app con SAML come descritto in [configurare la Single Sign-on basata su SAML](../manage-apps/configure-saml-single-sign-on.md). Assicurarsi di prendere nota del valore usato per **URL di accesso** .
+- Integrare l'app con SAML come descritto in [configurare la Single Sign-on basata su SAML](../manage-apps/configure-saml-single-sign-on.md). Assicurarsi di prendere nota del valore usato per **URL di accesso**.
 -  Usare Azure AD Application Proxy per pubblicare l'app locale, configurando **Azure Active Directory** come origine dell'autenticazione. Per istruzioni, vedere [Pubblicare applicazioni con Azure AD Application Proxy](../manage-apps/application-proxy-add-on-premises-application.md). 
 
-   Quando si configura l'impostazione **URL interno** , usare l'URL di accesso specificato nel modello di applicazione non nella raccolta. In questo modo, gli utenti possono accedere all'app dall'esterno dei confini dell'organizzazione. Application Proxy esegue l'accesso Single Sign-On SAML per l'app locale.
+   Quando si configura l'impostazione **URL interno**, usare l'URL di accesso specificato nel modello di applicazione non nella raccolta. In questo modo, gli utenti possono accedere all'app dall'esterno dei confini dell'organizzazione. Application Proxy esegue l'accesso Single Sign-On SAML per l'app locale.
  
    ![URL interno e autenticazione nelle impostazioni dell'app locale](media/hybrid-cloud-to-on-premises/OnPremAppSettings.PNG)
 
@@ -39,8 +39,8 @@ Sono necessarie entrambe queste operazioni:
 
 Per fornire agli utenti B2B l'accesso alle applicazioni locali protette con l'autenticazione integrata di Windows e la delega vincolata Kerberos, sono necessari i componenti seguenti:
 
-- **Autenticazione tramite Azure AD Application Proxy** . Gli utenti B2B devono poter eseguire l'autenticazione nell'applicazione locale. A tale scopo, è necessario pubblicare l'app locale tramite Azure AD Application Proxy. Per altre informazioni, vedere [esercitazione: aggiungere un'applicazione locale per l'accesso remoto tramite il proxy di applicazione](../manage-apps/application-proxy-add-on-premises-application.md).
-- **Autorizzazione tramite un oggetto utente B2B nella directory locale** . L'applicazione deve poter eseguire i controlli di accesso utente e concedere l'accesso alle risorse corrette. L'autenticazione integrata di Windows e la delega vincolata Kerberos richiedono un oggetto utente nell'istanza locale di Windows Server Active Directory per completare l'autorizzazione. Come descritto in [Funzionamento di Single Sign-On con KCD](../manage-apps/application-proxy-configure-single-sign-on-with-kcd.md#how-single-sign-on-with-kcd-works), Application Proxy richiede questo oggetto utente per rappresentare l'utente e ottenere un token Kerberos per l'app. 
+- **Autenticazione tramite Azure AD Application Proxy**. Gli utenti B2B devono poter eseguire l'autenticazione nell'applicazione locale. A tale scopo, è necessario pubblicare l'app locale tramite Azure AD Application Proxy. Per altre informazioni, vedere [esercitazione: aggiungere un'applicazione locale per l'accesso remoto tramite il proxy di applicazione](../manage-apps/application-proxy-add-on-premises-application.md).
+- **Autorizzazione tramite un oggetto utente B2B nella directory locale**. L'applicazione deve poter eseguire i controlli di accesso utente e concedere l'accesso alle risorse corrette. L'autenticazione integrata di Windows e la delega vincolata Kerberos richiedono un oggetto utente nell'istanza locale di Windows Server Active Directory per completare l'autorizzazione. Come descritto in [Funzionamento di Single Sign-On con KCD](../manage-apps/application-proxy-configure-single-sign-on-with-kcd.md#how-single-sign-on-with-kcd-works), Application Proxy richiede questo oggetto utente per rappresentare l'utente e ottenere un token Kerberos per l'app. 
 
    > [!NOTE]
    > Quando si configura il proxy di applicazione Azure AD, assicurarsi che l' **identità di accesso delegata** sia impostata su **nome entità utente** (impostazione predefinita) nella configurazione Single Sign-on per autenticazione integrata di Windows (IWA).

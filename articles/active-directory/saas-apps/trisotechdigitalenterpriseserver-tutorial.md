@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 03/28/2019
 ms.author: jeedes
 ms.openlocfilehash: 05978b7300c401a0658d6c3316f37735fcb70c20
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
-ms.translationtype: HT
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/24/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92521935"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-trisotech-digital-enterprise-server"></a>Esercitazione: Integrazione di Azure Active Directory con Trisotech Digital Enterprise Server
@@ -63,7 +63,7 @@ Per configurare l'integrazione di Trisotech Digital Enterprise Server in Azure A
 
     ![Pulsante Nuova applicazione](common/add-new-app.png)
 
-4. Nella casella di ricerca digitare **Trisotech Digital Enterprise Server** , selezionare **Trisotech Digital Enterprise Server** nel pannello dei risultati e quindi fare clic sul pulsante **Aggiungi** per aggiungere l'applicazione.
+4. Nella casella di ricerca digitare **Trisotech Digital Enterprise Server**, selezionare **Trisotech Digital Enterprise Server** nel pannello dei risultati e quindi fare clic sul pulsante **Aggiungi** per aggiungere l'applicazione.
 
      ![Trisotech Digital Enterprise Server nell'elenco dei risultati](common/search-new-app.png)
 
@@ -110,7 +110,7 @@ Per configurare l'accesso Single Sign-On di Azure AD con Trisotech Digital Enter
     > [!NOTE]
     > Poiché questi non sono i valori reali, è necessario aggiornarli con l'ID e l'URL di accesso effettivi. Per ottenere questi valori, contattare il [team del supporto clienti di Trisotech Digital Enterprise Server](mailto:support@trisotech.com). È anche possibile fare riferimento ai modelli mostrati nella sezione **Configurazione SAML di base** del portale di Azure.
 
-4. Nella pagina **Configura l'accesso Single Sign-On con SAML** , nella sezione **Certificato di firma SAML** , fare clic sul pulsante Copia per copiare l' **URL dei metadati di federazione dell'app** e salvarlo nel computer.
+4. Nella pagina **Configura l'accesso Single Sign-On con SAML**, nella sezione **Certificato di firma SAML**, fare clic sul pulsante Copia per copiare l'**URL dei metadati di federazione dell'app** e salvarlo nel computer.
 
     ![Collegamento di download del certificato](common/copy-metadataurl.png)
 
@@ -118,7 +118,7 @@ Per configurare l'accesso Single Sign-On di Azure AD con Trisotech Digital Enter
 
 1. In un'altra finestra del Web browser accedere al sito aziendale di Trisotech Digital Enterprise Server come amministratore.
 
-2. Fare clic sull' **icona Menu** e quindi selezionare **Administration** (Amministrazione).
+2. Fare clic sull'**icona Menu** e quindi selezionare **Administration** (Amministrazione).
 
     ![Screenshot che mostra l'icona Administration in Microsoft Digital Enterprise Server.](./media/trisotechdigitalenterpriseserver-tutorial/user1.png)
 
@@ -132,7 +132,7 @@ Per configurare l'accesso Single Sign-On di Azure AD con Trisotech Digital Enter
 
     a. Selezionare **Secured Assertion Markup Language 2 (SAML 2)** nell'elenco a discesa **Authentication Method** (Metodo di autenticazione).
 
-    b. Nella casella di testo **Metadata URL** (URL dei metadati) incollare il valore dell' **URL dei metadati di federazione dell'app** copiato dal portale di Azure.
+    b. Nella casella di testo **Metadata URL** (URL dei metadati) incollare il valore dell'**URL dei metadati di federazione dell'app** copiato dal portale di Azure.
 
     c. Nella casella di testo **Application ID** (ID applicazione) digitare l'URL usando il modello seguente: `https://<companyname>.trisotech.com`.
 
@@ -146,7 +146,7 @@ Per configurare l'accesso Single Sign-On di Azure AD con Trisotech Digital Enter
 
 Questa sezione descrive come creare un utente test denominato Britta Simon nel portale di Azure.
 
-1. Nel riquadro sinistro del portale di Azure, selezionare **Azure Active Directory** , **Utenti** e quindi **Tutti gli utenti**.
+1. Nel riquadro sinistro del portale di Azure, selezionare **Azure Active Directory**, **Utenti** e quindi **Tutti gli utenti**.
 
     ![Collegamenti "Utenti e gruppi" e "Tutti gli utenti"](common/users.png)
 
@@ -170,7 +170,7 @@ Questa sezione descrive come creare un utente test denominato Britta Simon nel p
 
 In questa sezione Britta Simon viene abilitata per l'uso dell'accesso Single Sign-On di Azure concedendole l'accesso a Trisotech Digital Enterprise Server.
 
-1. Nel portale di Azure selezionare **Applicazioni aziendali** , quindi **Tutte le applicazioni** e infine **Trisotech Digital Enterprise Server**.
+1. Nel portale di Azure selezionare **Applicazioni aziendali**, quindi **Tutte le applicazioni** e infine **Trisotech Digital Enterprise Server**.
 
     ![Pannello delle applicazioni aziendali](common/enterprise-applications.png)
 

@@ -5,10 +5,10 @@ ms.topic: tutorial
 ms.date: 01/31/2019
 ms.custom: mvc, devx-track-azurecli
 ms.openlocfilehash: 999682c9bf4a4d70d886f0e85cede99f215aa046
-ms.sourcegitcommit: b6267bc931ef1a4bd33d67ba76895e14b9d0c661
-ms.translationtype: HT
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/19/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97694719"
 ---
 # <a name="restore-a-vm-with-azure-cli"></a>Ripristinare una macchina virtuale con l'interfaccia della riga di comando di Azure
@@ -72,7 +72,7 @@ Se nella macchina virtuale di cui si esegue il backup sono presenti dischi gesti
         --sku Standard_LRS
     ```
 
-2. Ripristinare il disco dal punto di ripristino con [az backup restore restore-disks](/cli/azure/backup/restore#az-backup-restore-restore-disks). Sostituire *mystorageaccount* con il nome dell'account di archiviazione creato con il comando precedente. Sostituire *myRecoveryPointName* con il nome del punto di ripristino ottenuto nell'output del comando [az backup recoverypoint list](/cli/azure/backup/recoverypoint#az-backup-recoverypoint-list) precedente. ***Specificare anche il gruppo di risorse di destinazione in cui vengono ripristinati i dischi gestiti** _.
+2. Ripristinare il disco dal punto di ripristino con [az backup restore restore-disks](/cli/azure/backup/restore#az-backup-restore-restore-disks). Sostituire *mystorageaccount* con il nome dell'account di archiviazione creato con il comando precedente. Sostituire *myRecoveryPointName* con il nome del punto di ripristino ottenuto nell'output del comando [az backup recoverypoint list](/cli/azure/backup/recoverypoint#az-backup-recoverypoint-list) precedente. ***Specificare anche il gruppo di risorse in cui vengono ripristinati i dischi gestiti***.
 
     ```azurecli-interactive
     az backup restore restore-disks \
@@ -86,7 +86,7 @@ Se nella macchina virtuale di cui si esegue il backup sono presenti dischi gesti
     ```
 
     > [!WARNING]
-    > Se il _ *gruppo di risorse di destinazione** non viene fornito, i dischi gestiti verranno ripristinati come dischi non gestiti nell'account di archiviazione specificato. Le conseguenze per il tempo di ripristino saranno significative, dal momento che il tempo impiegato per ripristinare i dischi dipende esclusivamente dall'account di archiviazione specificato. Si otterrà il vantaggio del ripristino istantaneo solo quando viene specificato il parametro target-resource-group. Se si intende ripristinare i dischi gestiti come non gestiti, non specificare il parametro **target-resource-group** e fornire invece il parametro **restore-as-unmanaged-disk** come illustrato di seguito. Questo parametro è disponibile in az 3.4.0 e versioni successive.
+    > Se il **gruppo di risorse di destinazione** non è indicato, i dischi gestiti verranno ripristinati come dischi non gestiti nell'account di archiviazione specificato. Le conseguenze per il tempo di ripristino saranno significative, dal momento che il tempo impiegato per ripristinare i dischi dipende esclusivamente dall'account di archiviazione specificato. Si otterrà il vantaggio del ripristino istantaneo solo quando viene specificato il parametro target-resource-group. Se si intende ripristinare i dischi gestiti come non gestiti, non specificare il parametro **target-resource-group** e fornire invece il parametro **restore-as-unmanaged-disk** come illustrato di seguito. Questo parametro è disponibile in az 3.4.0 e versioni successive.
 
     ```azurecli-interactive
     az backup restore restore-disks \

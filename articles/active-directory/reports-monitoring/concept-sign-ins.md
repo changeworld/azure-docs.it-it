@@ -18,10 +18,10 @@ ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: d61962667953b20f4b542874e902411bb579b9c3
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93122844"
 ---
 # <a name="sign-in-activity-reports-in-the-azure-active-directory-portal"></a>Report delle attività di accesso nel portale di Azure Active Directory
@@ -29,9 +29,9 @@ ms.locfileid: "93122844"
 L'architettura di report in Azure Active Directory (Azure AD) include i componenti seguenti:
 
 - **Attività** 
-    - **Accessi** : informazioni sull'uso delle applicazioni gestite e sulle attività di accesso degli utenti.
+    - **Accessi**: informazioni sull'uso delle applicazioni gestite e sulle attività di accesso degli utenti.
     - **Log**  -  di controllo I [log di controllo](concept-audit-logs.md) forniscono informazioni sulle attività di sistema relative agli utenti e alla gestione dei gruppi, alle applicazioni gestite e alle attività di directory.
-    - Log di provisioning **Provisioning logs**  -  I [log di provisioning](./concept-provisioning-logs.md) consentono ai clienti di monitorare l'attività da parte del servizio di provisioning, ad esempio la creazione di un gruppo in ServiceNow o di un utente importato da giorni lavorativi. 
+    - Log di provisioning   -  I [log di provisioning](./concept-provisioning-logs.md) consentono ai clienti di monitorare l'attività da parte del servizio di provisioning, ad esempio la creazione di un gruppo in ServiceNow o di un utente importato da giorni lavorativi. 
 - **Sicurezza** 
     - **Accessi a rischio** : un [accesso rischioso](../identity-protection/overview-identity-protection.md) è un indicatore del tentativo di accesso da parte di un utente che non è il proprietario legittimo di un account utente.
     - **Utenti contrassegnati per il rischio** : un [utente rischioso](../identity-protection/overview-identity-protection.md) è un indicatore per un account utente che potrebbe essere stato compromesso.
@@ -69,7 +69,7 @@ In **monitoraggio** selezionare **accessi** per aprire il report degli [accessi]
 Potrebbero essere necessarie fino a due ore per la visualizzazione di alcuni record di accesso nel portale.
 
 > [!IMPORTANT]
-> Il report degli accessi mostra solo gli accessi **interattivi** , ovvero gli accessi eseguiti manualmente da un utente usando nome utente e password. Gli accessi non interattivi, ad esempio l'autenticazione da servizio a servizio, non vengono visualizzati nel report degli accessi. 
+> Il report degli accessi mostra solo gli accessi **interattivi**, ovvero gli accessi eseguiti manualmente da un utente usando nome utente e password. Gli accessi non interattivi, ad esempio l'autenticazione da servizio a servizio, non vengono visualizzati nel report degli accessi. 
 
 Un log di accesso ha una visualizzazione elenco predefinita che include:
 
@@ -177,11 +177,11 @@ Il **percorso: il percorso da** cui è stata avviata la connessione:
 
 **Accesso condizionale** -lo stato delle regole di accesso condizionale applicate
 
-- **Non applicato** : nessun criterio applicato all'utente e all'applicazione durante l'accesso.
+- **Non applicato**: nessun criterio applicato all'utente e all'applicazione durante l'accesso.
 
-- **Operazione riuscita** : uno o più criteri di accesso condizionale applicati all'utente e all'applicazione, ma non necessariamente alle altre condizioni, durante l'accesso. 
+- **Operazione riuscita**: uno o più criteri di accesso condizionale applicati all'utente e all'applicazione, ma non necessariamente alle altre condizioni, durante l'accesso. 
 
-- **Errore** : l'accesso ha soddisfatto la condizione dell'utente e dell'applicazione di almeno un criterio di accesso condizionale e i controlli di concessione non sono soddisfatti o impostati per bloccare l'accesso.
+- **Errore**: l'accesso ha soddisfatto la condizione dell'utente e dell'applicazione di almeno un criterio di accesso condizionale e i controlli di concessione non sono soddisfatti o impostati per bloccare l'accesso.
 
 
 
@@ -228,7 +228,7 @@ Ogni riga dell'elenco delle attività di accesso mostra:
 Facendo clic su un elemento, si ottengono altri dettagli sull'operazione di accesso:
 
 - ID utente
-- Utente
+- User
 - Username
 - ID applicazione
 - Applicazione
@@ -242,7 +242,7 @@ Facendo clic su un elemento, si ottengono altri dettagli sull'operazione di acce
 > [!NOTE]
 > gli indirizzi IP vengono rilasciati in modo che non esista una connessione certa tra un IP e la posizione in cui si trova fisicamente il computer con tale indirizzo. Il mapping degli indirizzi IP è complicato dal fatto che provider di telefonia mobile e VPN possono rilasciare indirizzi IP da pool centrali spesso molto distanti dal luogo in cui viene effettivamente usato il dispositivo client. Attualmente nei report di Azure AD la conversione di un indirizzo IP in una posizione fisica è un'approssimazione basata su tracce, dati del Registro di sistema, ricerche inverse e altre informazioni.
 
-Nella pagina **Utenti** è possibile accedere a una panoramica completa di tutti i accessi degli utenti facendo clic su **Accessi** nella sezione **Attività** .
+Nella pagina **Utenti** è possibile accedere a una panoramica completa di tutti i accessi degli utenti facendo clic su **Accessi** nella sezione **Attività**.
 
 ![Screenshot mostra la sezione attività in cui è possibile selezionare accessi.](./media/concept-sign-ins/08.png "Attività di accesso")
 
@@ -254,7 +254,7 @@ Con una visualizzazione dei dati di accesso basata sulle applicazioni, è possib
 * Quali sono le prime tre applicazioni nell'organizzazione?
 * In che modo l'applicazione più recente?
 
-Il punto di ingresso a questi dati è le prime tre applicazioni dell'organizzazione. I dati sono contenuti nel report ultimi 30 giorni della sezione **Panoramica** in **applicazioni aziendali** .
+Il punto di ingresso a questi dati è le prime tre applicazioni dell'organizzazione. I dati sono contenuti nel report ultimi 30 giorni della sezione **Panoramica** in **applicazioni aziendali**.
 
 ![Screenshot mostra dove è possibile selezionare panoramica.](./media/concept-sign-ins/10.png "Attività di accesso")
 
@@ -264,7 +264,7 @@ I grafici dell'utilizzo delle app sono aggregazioni settimanali degli accessi pe
 
 Se si preferisce, è possibile mettere in evidenza un'applicazione specifica.
 
-![Creazione di report](./media/concept-sign-ins/single-app-usage-graph.png "Reporting")
+![Reporting](./media/concept-sign-ins/single-app-usage-graph.png "Creazione di report")
 
 Quando si fa clic su un giorno nel grafico dell'utilizzo dell'app, si ottiene un elenco dettagliato delle attività di accesso.
 

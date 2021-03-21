@@ -12,10 +12,10 @@ ms.author: sstein
 ms.reviewer: ''
 ms.date: 12/18/2018
 ms.openlocfilehash: 98896b5b728a729a29f989b3b9a76f29131af8d7
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
-ms.translationtype: HT
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93305976"
 ---
 # <a name="cross-tenant-analytics-using-extracted-data---single-tenant-app"></a>Analisi su più tenant con dati estratti in un'app a singolo tenant
@@ -72,8 +72,8 @@ Per completare questa esercitazione, verificare che siano soddisfatti i prerequi
 - È stata distribuita l'applicazione SaaS di database per tenant Wingtip Tickets. Per distribuire in meno di cinque minuti, vedere [Distribuire ed esplorare l'applicazione SaaS Wingtip](./saas-dbpertenant-get-started-deploy.md)
 - Gli script e il [codice sorgente](https://github.com/Microsoft/WingtipTicketsSaaS-DbPerTenant/) dell'applicazione SaaS di database per tenant Wingtip Tickets sono stati scaricati da GitHub. Vedere le istruzioni di download. Assicurarsi di *sbloccare il file ZIP* prima di estrarne il contenuto. Leggere le [linee guida generali](saas-tenancy-wingtip-app-guidance-tips.md) per i passaggi da seguire per scaricare e sbloccare gli script dell'app SaaS Wingtip Tickets.
 - Power BI Desktop è installato. [Scarica Power BI Desktop](https://powerbi.microsoft.com/downloads/)
-- È stato effettuato il provisioning del batch di tenant aggiuntivi. Vedere l' [**esercitazione sul provisioning di tenant**](./saas-dbpertenant-provision-and-catalog.md).
-- Sono stati creati un account per i processi e un database di tale account. Vedere la procedura appropriata nell' [**esercitazione sulla gestione dello schema**](./saas-tenancy-schema-management.md#create-a-job-agent-database-and-new-job-agent).
+- È stato effettuato il provisioning del batch di tenant aggiuntivi. Vedere l'[**esercitazione sul provisioning di tenant**](./saas-dbpertenant-provision-and-catalog.md).
+- Sono stati creati un account per i processi e un database di tale account. Vedere la procedura appropriata nell'[**esercitazione sulla gestione dello schema**](./saas-tenancy-schema-management.md#create-a-job-agent-database-and-new-job-agent).
 
 ### <a name="create-data-for-the-demo"></a>Creare dati per la dimostrazione
 
@@ -86,7 +86,7 @@ In questa esercitazione viene eseguita un'analisi sui dati relativi alle vendite
 ### <a name="deploy-the-analytics-store"></a>Distribuire l'archivio di analisi
 Spesso tutti i dati dei tenant sono contenuti in numerosi database transazionali. È necessario aggregare i dati dei tenant dei diversi database transazionali in un archivio di analisi. L'aggregazione consente di eseguire query efficienti sui dati. In questa esercitazione, per archiviare i dati aggregati viene usato un database SQL di Azure.
 
-Nei passaggi seguenti si distribuiscono l'archivio di analisi, denominato **tenantanalytics** , e le tabelle predefinite che verranno popolate più avanti nell'esercitazione:
+Nei passaggi seguenti si distribuiscono l'archivio di analisi, denominato **tenantanalytics**, e le tabelle predefinite che verranno popolate più avanti nell'esercitazione:
 1. In PowerShell ISE aprire *…\Learning Modules\Operational Analytics\Tenant Analytics\Demo-TenantAnalytics.ps1*. 
 2. Impostare la variabile $DemoScenario nello script in base all'archivio di analisi scelto:
     - Per usare un database SQL senza columnstore, impostare **$DemoScenario** = **2**
@@ -106,8 +106,8 @@ In Esplora oggetti seguire questa procedura:
 
 Visualizzare gli elementi di database seguenti in Esplora oggetti di SSMS espandendo il nodo dell'archivio di analisi:
 
-- Le tabelle **TicketsRawData** ed **EventsRawData** , contenenti dati non elaborati estratti dai database dei tenant.
-- Le tabelle dello schema star, ossia **fact_Tickets** , **dim_Customers** , **dim_Venues** , **dim_Events** e **dim_Dates**.
+- Le tabelle **TicketsRawData** ed **EventsRawData**, contenenti dati non elaborati estratti dai database dei tenant.
+- Le tabelle dello schema star, ossia **fact_Tickets**, **dim_Customers**, **dim_Venues**, **dim_Events** e **dim_Dates**.
 - La stored procedure usata per popolare le tabelle dello schema star dalle tabelle dei dati non elaborati.
 
 ![Screenshot degli elementi di database visualizzati in Esplora oggetti di SQL Server Management Studio.](./media/saas-tenancy-tenant-analytics/tenantAnalytics.png)
@@ -209,7 +209,7 @@ Il tracciato precedente per Contoso Concert Hall mostra che la corsa all'acquist
 
 Le informazioni dettagliate sui modelli di vendita dei biglietti potrebbero consentire a Wingtip Tickets di ottimizzare il modello aziendale. Invece di applicare lo stesso addebito a tutti i tenant, Wingtip potrebbe introdurre livelli di servizio con diverse dimensioni di calcolo. Alle sedi più grandi che devono vendere un maggior numero di biglietti al giorno potrà essere offerto un livello più elevato con un contratto di servizio superiore. I database di tali sedi potranno essere inseriti in pool con limiti di risorse per database superiori. Ogni livello di servizio potrà avere un'allocazione di vendite per ogni ora, con addebito di tariffe aggiuntive in caso di superamento dell'allocazione. Le sedi più grandi con picchi periodici di vendite trarranno vantaggio dai livelli superiori e Wingtip Tickets potrà monetizzare il servizio in modo più efficiente.
 
-Nel frattempo, alcuni clienti di Wingtip Tickets segnalano di avere difficoltà a vendere un numero di biglietti sufficiente a giustificare il costo del servizio. Queste informazioni dettagliate potrebbero offrire l'opportunità di incrementare le vendite di biglietti per le sedi con prestazioni inferiori. Vendite superiori aumenteranno il valore percepito del servizio. Fare clic con il pulsante destro del mouse su fact_Tickets e scegliere **Nuova misura**. Immettere l'espressione seguente per la nuova misura denominata **AverageTicketsSold** :
+Nel frattempo, alcuni clienti di Wingtip Tickets segnalano di avere difficoltà a vendere un numero di biglietti sufficiente a giustificare il costo del servizio. Queste informazioni dettagliate potrebbero offrire l'opportunità di incrementare le vendite di biglietti per le sedi con prestazioni inferiori. Vendite superiori aumenteranno il valore percepito del servizio. Fare clic con il pulsante destro del mouse su fact_Tickets e scegliere **Nuova misura**. Immettere l'espressione seguente per la nuova misura denominata **AverageTicketsSold**:
 
 ```
 AverageTicketsSold = AVERAGEX( SUMMARIZE( TableName, TableName[Venue Name] ), CALCULATE( SUM(TableName[Tickets Sold] ) ) )

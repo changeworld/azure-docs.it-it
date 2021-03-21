@@ -6,15 +6,15 @@ ms.topic: quickstart
 ms.custom: hdinsightactive
 ms.date: 12/03/2019
 ms.openlocfilehash: 1199fee82532eacf1f0ef41b877b970d7d9f2cf5
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/28/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98941071"
 ---
-# <a name="quickstart-execute-apache-hive-queries-in-azure-hdinsight-with-apache-zeppelin"></a>Guida introduttiva: Eseguire query Apache Hive in Azure HDInsight con Apache Zeppelin
+# <a name="quickstart-execute-apache-hive-queries-in-azure-hdinsight-with-apache-zeppelin"></a>Guida introduttiva: eseguire query Apache Hive in Azure HDInsight con Apache Zeppelin
 
-Questo argomento di avvio rapido illustra come usare Apache Zeppelin per eseguire query [Apache Hive](https://hive.apache.org/) in Azure HDInsight. I cluster Interactive Query HDInsight includono notebook [Apache Zeppelin](https://zeppelin.apache.org/) che è possibile usare per eseguire query Hive interattive.
+Questo argomento di avvio rapido illustra come usare Apache Zeppelin per eseguire query [Apache Hive](https://hive.apache.org/) in Azure HDInsight. I cluster Interactive query HDInsight includono notebook [Apache Zeppelin](https://zeppelin.apache.org/) che è possibile usare per eseguire query hive interattive.
 
 Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) prima di iniziare.
 
@@ -34,8 +34,8 @@ Cluster HDInsight Interactive Query. Per creare un cluster HDInsight, vedere [Cr
 
 4. Nella finestra di dialogo **Create new note** (Crea una nuova nota) digitare o selezionare i valori seguenti:
 
-    - Nome della nota: immettere un nome per la nota.
-    - Interprete predefinito: selezionare **jdbc** dall'elenco a discesa.
+    - Nome Nota: immettere un nome per la nota.
+    - Interprete predefinito: selezionare **JDBC** dall'elenco a discesa.
 
 5. Selezionare **Create Note** (Crea nota).
 

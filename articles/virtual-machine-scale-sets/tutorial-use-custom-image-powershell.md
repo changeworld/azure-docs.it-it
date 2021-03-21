@@ -10,10 +10,10 @@ ms.author: cynthn
 ms.reviewer: akjosh
 ms.custom: akjosh
 ms.openlocfilehash: 803bbf485d783fc160d1f2644a56e1339f73690e
-ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/22/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98678306"
 ---
 # <a name="tutorial-create-and-use-a-custom-image-for-virtual-machine-scale-sets-with-azure-powershell"></a>Esercitazione: Creare e usare un'immagine personalizzata per i set di scalabilità di macchine virtuali con Azure PowerShell
@@ -33,7 +33,7 @@ Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://a
 
 La procedura riportata di seguito illustra come convertire una macchina virtuale esistente in un'immagine personalizzata riutilizzabile che è possibile usare per creare un set di scalabilità.
 
-Per completare l'esempio contenuto in questa esercitazione è necessario disporre di una macchina virtuale esistente. Se necessario, vedere l'[avvio rapido di PowerShell](quick-create-powershell.md) per creare una macchina virtuale da usare per questa esercitazione. Quando si esegue l'esercitazione, sostituire i nomi delle risorse dove necessario.
+Per completare l'esempio contenuto in questa esercitazione è necessario disporre di una macchina virtuale esistente. Se necessario, vedere l'[avvio rapido con PowerShell](quick-create-powershell.md) per creare una macchina virtuale da usare per questa esercitazione. Quando si esegue l'esercitazione, sostituire i nomi delle risorse dove necessario.
 
 ## <a name="launch-azure-cloud-shell"></a>Avviare Azure Cloud Shell
 
