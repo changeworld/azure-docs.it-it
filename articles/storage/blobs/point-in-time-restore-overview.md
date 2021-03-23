@@ -10,12 +10,12 @@ ms.date: 03/03/2021
 ms.author: tamram
 ms.subservice: blobs
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: da869091fb1f7bf31a29ba1bc6db8c1c42254dc4
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
+ms.openlocfilehash: b959038753dd15282de357da746ef9b0e0cf2be5
+ms.sourcegitcommit: ba3a4d58a17021a922f763095ddc3cf768b11336
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102618084"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104802268"
 ---
 # <a name="point-in-time-restore-for-block-blobs"></a>Ripristino temporizzato per BLOB in blocchi
 
@@ -53,9 +53,11 @@ L'operazione **Restore Ranges BLOB** restituisce un ID di ripristino che identif
 
 Il ripristino temporizzato richiede che le funzionalità di archiviazione di Azure seguenti siano abilitate prima che sia possibile abilitare il ripristino temporizzato:
 
-- [Eliminazione temporanea](./soft-delete-blob-overview.md)
+- [Eliminazione temporanea](soft-delete-blob-overview.md)
 - [Feed delle modifiche](storage-blob-change-feed.md)
 - [Controllo delle versioni dei BLOB](versioning-overview.md)
+
+L'abilitazione di queste funzionalità può comportare addebiti aggiuntivi. Assicurarsi di aver compreso le implicazioni di fatturazione prima di abilitare il ripristino temporizzato e le funzionalità dei prerequisiti.
 
 ### <a name="retention-period-for-point-in-time-restore"></a>Periodo di memorizzazione per il ripristino temporizzato
 
@@ -88,6 +90,8 @@ Il ripristino temporizzato per i BLOB in blocchi presenta le limitazioni e i pro
 > Se si ripristinano i BLOB in blocchi in un punto precedente al 22 settembre 2020, verranno applicate le limitazioni di anteprima per il ripristino temporizzato. Microsoft consiglia di scegliere un punto di ripristino uguale o successivo al 22 settembre 2020 per sfruttare i vantaggi della funzionalità di ripristino temporizzato disponibile a livello generale.
 
 ## <a name="pricing-and-billing"></a>Prezzi e fatturazione
+
+Per abilitare il ripristino temporizzato non è previsto alcun addebito. Tuttavia, l'abilitazione del ripristino temporizzato Abilita anche il controllo delle versioni dei BLOB, l'eliminazione temporanea e il feed delle modifiche, ciascuno dei quali può comportare addebiti aggiuntivi.
 
 La fatturazione per il ripristino temporizzato dipende dalla quantità di dati elaborati per eseguire l'operazione di ripristino. La quantità di dati elaborati è basata sul numero di modifiche che si sono verificate tra il punto di ripristino e il momento corrente. Supponendo, ad esempio, una frequenza relativamente costante di modifiche per bloccare i dati BLOB in un account di archiviazione, un'operazione di ripristino che torna indietro nel tempo di 1 giorno comporterebbe il costo 1/10 di un ripristino che torna indietro nel tempo di 10 giorni.
 

@@ -8,22 +8,22 @@ ms.author: brjohnst
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 12/14/2020
-ms.openlocfilehash: 0dbf418d0a673dd0799f0f638e454c484f837fd7
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: fc3662d8198e6ab6ab215ac1e9e8eac585f4250b
+ms.sourcegitcommit: ba3a4d58a17021a922f763095ddc3cf768b11336
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "97516594"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104801588"
 ---
 # <a name="lucene-query-syntax-in-azure-cognitive-search"></a>Sintassi di query Lucene in Azure ricerca cognitiva
 
 Quando si creano query, è possibile optare per la sintassi del [parser di query Lucene](https://lucene.apache.org/core/6_6_1/queryparser/org/apache/lucene/queryparser/classic/package-summary.html) per i moduli di query specializzati: caratteri jolly, ricerca fuzzy, ricerca di prossimità, espressioni regolari. Gran parte della sintassi del parser di query Lucene è stata [implementata intatto in Azure ricerca cognitiva](search-lucene-query-architecture.md), ad eccezione delle *ricerche di intervallo* costruite tramite **`$filter`** espressioni. 
 
-La sintassi Lucene completa viene usata per le espressioni di query passate nel **`search`** parametro di una richiesta di [ricerca di documenti (API REST)](/rest/api/searchservice/search-documents) , da non confondere con la [sintassi OData](query-odata-filter-orderby-syntax.md) usata per le [**`$filter`**](search-filters.md) [**`$orderby`**](search-query-odata-orderby.md) espressioni e nella stessa richiesta. I parametri OData hanno sintassi e regole diverse per la costruzione di query, l'escape di stringhe e così via.
+Per usare la sintassi Lucene completa, è necessario impostare queryType su "full" e passare un'espressione di query con pattern per il carattere jolly, la ricerca fuzzy o uno degli altri moduli di query supportati dalla sintassi completa. In REST, le espressioni di query vengono fornite nel **`search`** parametro di una richiesta di [ricerca di documenti (API REST)](/rest/api/searchservice/search-documents) .
 
 ## <a name="example-full-syntax"></a>Esempio (sintassi completa)
 
-Impostare il **`queryType`** parametro per specificare il Lucene completo. Nell'esempio seguente vengono richiamati la ricerca nel campo e l'incremento dei termini. Questa query cerca gli hotel in cui il campo categoria contiene il termine "budget". Tutti i documenti contenenti la frase "rinnovata di recente" vengono classificati più in alto a causa del valore Boost del termine (3).  
+L'esempio seguente è una richiesta di ricerca costruita usando la sintassi completa. Questo particolare esempio mostra la ricerca nel campo e l'incremento di termini. Cerca gli hotel in cui il campo categoria contiene il termine "budget". Tutti i documenti contenenti la frase "rinnovata di recente" vengono classificati più in alto a causa del valore Boost del termine (3).  
 
 ```http
 POST /indexes/hotels-sample-index/docs/search?api-version=2020-06-30
@@ -34,9 +34,9 @@ POST /indexes/hotels-sample-index/docs/search?api-version=2020-06-30
 }
 ```
 
-Il **`searchMode`** parametro è pertinente in questo esempio. Quando nella query sono presenti operatori, è in genere consigliabile impostare `searchMode=all` per assicurarsi che venga trovata una corrispondenza per *tutti* i criteri.  
+Sebbene non sia specifico di un tipo di query, il **`searchMode`** parametro è pertinente in questo esempio. Quando nella query sono presenti operatori, è in genere consigliabile impostare `searchMode=all` per assicurarsi che venga trovata una corrispondenza per *tutti* i criteri.  
 
-Per altri esempi, vedere [esempi di sintassi di query Lucene](search-query-lucene-examples.md). Per informazioni dettagliate sulla richiesta di query e sui parametri, vedere [eseguire ricerche nei documenti (API REST)](/rest/api/searchservice/Search-Documents).
+Per altri esempi, vedere [esempi di sintassi di query Lucene](search-query-lucene-examples.md). Per informazioni dettagliate sui parametri e la richiesta di query, tra cui searchMode, vedere [eseguire ricerche nei documenti (API REST)](/rest/api/searchservice/Search-Documents).
 
 ## <a name="syntax-fundamentals"></a><a name="bkmk_syntax"></a> Nozioni fondamentali sulla sintassi  
 

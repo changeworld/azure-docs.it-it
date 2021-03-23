@@ -3,17 +3,17 @@ title: Novità di Desktop virtuale Windows - Azure
 description: Nuove funzionalità e aggiornamenti del prodotto per Desktop virtuale Windows.
 author: Heidilohr
 ms.topic: overview
-ms.date: 02/23/2021
+ms.date: 03/20/2021
 ms.author: helohr
 ms.reviewer: thhickli; darank
 manager: lizross
 ms.custom: references_regions
-ms.openlocfilehash: c0b4ad17c5aefe29a313b9eaf75fc87ce4d88720
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: acb9b6d9d2080c63243ec4b924d07a927d6ccdfd
+ms.sourcegitcommit: 2c1b93301174fccea00798df08e08872f53f669c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102499884"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104774440"
 ---
 # <a name="whats-new-in-windows-virtual-desktop"></a>Novità di Desktop virtuale Windows
 
@@ -36,6 +36,15 @@ Servizi Desktop remoto, vedere questi articoli:
 - [iOS](/windows-server/remote/remote-desktop-services/clients/ios-whatsnew)
 - [Android](/windows-server/remote/remote-desktop-services/clients/android-whatsnew)
 - [Web](/windows-server/remote/remote-desktop-services/clients/web-client-whatsnew)
+
+## <a name="windows-virtual-desktop-agent-updates"></a>Aggiornamenti dell'agente di Desktop virtuale Windows
+
+L'agente desktop virtuale di Windows viene aggiornato almeno una volta al mese.
+
+Ecco le modifiche apportate all'agente desktop virtuale di Windows:
+
+- Versione 1.0.2800.2800: questo aggiornamento è stato rilasciato il 2021 marzo ed è stato risolto un problema di connessione inversa.
+- Versione 1.0.2800.2700: questo aggiornamento è stato rilasciato nel febbraio 2021 ed è stato risolto un problema dell'orchestrazione di accesso negato.
 
 ## <a name="fslogix-updates"></a>Aggiornamenti FSLogix
 

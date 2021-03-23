@@ -6,14 +6,14 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
 author: cpercy737
 ms.author: camper
-ms.date: 03/19/2021
+ms.date: 03/22/2021
 ms.custom: devx-track-terraform
-ms.openlocfilehash: 79f3276347aa64655f0c9086db5f152c4ff5fbcf
-ms.sourcegitcommit: 2c1b93301174fccea00798df08e08872f53f669c
+ms.openlocfilehash: ed7f27b0b8fde902f4ae9b65b9f6b4ada78f79c6
+ms.sourcegitcommit: ba3a4d58a17021a922f763095ddc3cf768b11336
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/22/2021
-ms.locfileid: "104771091"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104799191"
 ---
 # <a name="azure-customer-usage-attribution"></a>Attribuzione dell'utilizzo dei clienti di Azure
 
@@ -39,7 +39,9 @@ Il monitoraggio dell'utilizzo di Azure da parte delle app di Azure pubblicate su
 Se si usano Azure Resource Manager API, sarà necessario aggiungere l'ID di traccia in base alle [istruzioni](#use-resource-manager-apis) riportate di seguito per passarlo alla Azure Resource Manager mentre il codice distribuisce le risorse. Questo ID è visibile nel centro per i partner nella pagina di configurazione tecnica del piano. 
 
 > [!NOTE]
-> Per le app di Azure esistenti, è stata eseguita una migrazione monouso nel 2021 marzo per aggiornare gli ID di rilevamento nella configurazione tecnica di ogni piano. L'utilizzo delle distribuzioni precedenti di tali offerte rimarrà registrato nei sistemi Microsoft.
+> Per le app di Azure esistenti, è stata avviata una migrazione monouso nel 2021 marzo per aggiornare gli ID di rilevamento nella configurazione tecnica di ogni piano. L'utilizzo delle distribuzioni precedenti di tali offerte rimarrà registrato nei sistemi Microsoft.
+>
+>Quando si aggiornano le offerte, non è più necessario aggiungere il tipo di risorsa **Microsoft. resources/Deployments** nel file di modello principale.
 
 ## <a name="other-use-cases"></a>Altri casi d'uso 
 

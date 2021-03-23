@@ -5,15 +5,15 @@ author: ThomasWeiss
 ms.service: cosmos-db
 ms.subservice: cosmosdb-mongo
 ms.topic: how-to
-ms.date: 10/14/2020
+ms.date: 03/19/2021
 ms.author: thweiss
 ms.custom: devx-track-js
-ms.openlocfilehash: e488d1acfe116409caf571e7878e454628a9dea9
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 6b2944c1d29849ea44b5afd878d5b0e030358cc5
+ms.sourcegitcommit: ba3a4d58a17021a922f763095ddc3cf768b11336
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103201321"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104801826"
 ---
 # <a name="find-the-request-unit-charge-for-operations-executed-in-azure-cosmos-db-api-for-mongodb"></a>Trovare l'addebito delle unità richiesta per le operazioni eseguite nell'API Azure Cosmos DB per MongoDB
 [!INCLUDE[appliesto-mongodb-api](includes/appliesto-mongodb-api.md)]
@@ -34,13 +34,17 @@ L'addebito delle UR è esposto da un [comando di database](https://docs.mongodb.
 
 1. Passare al riquadro **Esplora dati** e quindi selezionare il contenitore da usare.
 
-1. Selezionare **Nuova query**.
+1. Selezionare il **...** accanto al nome del contenitore e selezionare **nuova query**.
 
 1. Immettere una query valida e quindi fare clic su **Esegui query**.
 
-1. Fare clic su **Statistiche query** per visualizzare l'addebito effettivo per la richiesta eseguita.
+1. Fare clic su **Statistiche query** per visualizzare l'addebito effettivo per la richiesta eseguita. Questo editor di query consente di eseguire e visualizzare gli addebiti per le unità richiesta solo per i predicati di query. Non è possibile usare questo editor per i comandi di manipolazione dei dati, ad esempio istruzioni INSERT.
 
-:::image type="content" source="./media/find-request-unit-charge/portal-mongodb-query.png" alt-text="Screenshot dell'addebito per la richiesta relativa a una query MongoDB nel portale di Azure":::
+   :::image type="content" source="./media/find-request-unit-charge/portal-mongodb-query.png" alt-text="Screenshot dell'addebito per la richiesta relativa a una query MongoDB nel portale di Azure":::
+
+1. Per ottenere gli addebiti per le richieste di manipolazione dei dati, eseguire il `getLastRequestStatistics` comando da un'interfaccia utente basata su Shell, ad esempio Mongo Shell, [Robo 3T](mongodb-robomongo.md), [MongoDB Compass](mongodb-compass.md)o un'estensione vs code con script della shell.
+
+   `db.runCommand({getLastRequestStatistics: 1})`
 
 ## <a name="use-the-mongodb-net-driver"></a>Usare il driver .NET di MongoDB
 

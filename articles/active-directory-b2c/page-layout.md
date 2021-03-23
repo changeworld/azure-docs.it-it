@@ -8,19 +8,29 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 03/09/2021
+ms.date: 03/22/2021
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: b15c63545c71d4513abe9102b4de165e2ab5857a
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
+ms.openlocfilehash: dc52414fa0d2eeffe0381a68bd66eadafe4862ea
+ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102499850"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104781280"
 ---
 # <a name="page-layout-versions"></a>Versioni del layout di pagina
 
 I pacchetti del layout di pagina vengono aggiornati periodicamente per includere correzioni e miglioramenti negli elementi della pagina. Nel log delle modifiche seguente vengono specificate le modifiche introdotte in ogni versione.
+
+## <a name="jquery-version"></a>versione di jQuery
+
+Azure AD B2C layout di pagina usa la versione seguente della [libreria jQuery](https://jquery.com/):
+
+|Dalla versione del layout della pagina  |versione di jQuery  |
+|---------|---------|
+|2.1.4 | 3.5.1 |
+|1.2.0 | 3.4.1 |
+|1.1.0 | 1.10.2 |
 
 ## <a name="self-asserted-page-selfasserted"></a>Pagina autocertificata (selfasserted)
 

@@ -4,15 +4,15 @@ description: Questo articolo illustra come risolvere i problemi delle modifiche 
 services: automation
 ms.subservice: change-inventory-management
 keywords: modifica, rilevamento, rilevamento modifiche, inventario, automazione
-ms.date: 12/05/2018
+ms.date: 03/21/2021
 ms.topic: tutorial
 ms.custom: mvc
-ms.openlocfilehash: a223ac4296dd160bbdd904e1d3443552d4f49a23
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 980740d387f9e953d1ea764327c8aa13f8650948
+ms.sourcegitcommit: 2c1b93301174fccea00798df08e08872f53f669c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "100587937"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104775808"
 ---
 # <a name="troubleshoot-changes-on-an-azure-vm"></a>Risolvere i problemi delle modifiche in una VM di Azure
 
@@ -208,15 +208,15 @@ La visualizzazione delle modifiche nel portale di Azure può essere utile, ma la
 
 14. In **Azioni** immettere un nome per l'azione, ad esempio **Amministratori posta elettronica**. 
 
-15. In **Tipo di azione** selezionare **Messaggio di posta elettronica/SMS/push/vocale**. 
+15. Per **tipo di azione** selezionare **messaggio di posta elettronica/SMS/push/Voice**. 
 
 16. In **Dettagli** selezionare **Modifica dettagli**.
 
-    ![Aggiungere un gruppo di azioni](./media/automation-tutorial-troubleshoot-changes/add-action-group.png)
+    :::image type="content" source="./media/automation-tutorial-troubleshoot-changes/add-action-group.png" alt-text="Utilizzo e costi stimati." lightbox="./media/automation-tutorial-troubleshoot-changes/add-action-group.png":::
 
-17. Nel riquadro Messaggio di posta elettronica/SMS/push/vocale immettere un nome, selezionare la casella di controllo **Posta elettronica**, quindi immettere un indirizzo di posta elettronica valido. Al termine, fare clic su **OK** nel riquadro e quindi su **OK** nella pagina Aggiungi gruppo di azioni.
+17. Nel riquadro **messaggi di posta elettronica/SMS/push/Voice** immettere un nome, selezionare la casella di controllo **posta elettronica** , quindi immettere un indirizzo di posta elettronica valido. Al termine, fare clic su **OK** nel riquadro, quindi fare clic su **OK** nella pagina **Aggiungi gruppo di azione** .
 
-18. Per personalizzare l'oggetto del messaggio di posta elettronica di avviso, selezionare **Personalizza azioni**. 
+18. Per personalizzare l'oggetto del messaggio di posta elettronica di avviso, selezionare **Personalizza azioni**.
 
 19. Per **Crea regola**, selezionare **Oggetto del messaggio di posta elettronica**, quindi scegliere **Crea regola di avviso**. L'avviso segnala quando una distribuzione di un aggiornamento ha esito positivo e indica i computer inclusi nella distribuzione. L'immagine seguente illustra un messaggio di posta elettronica di esempio ricevuto in caso di arresto dei servizi W3SVC.
 

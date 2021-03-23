@@ -5,12 +5,12 @@ ms.topic: tutorial
 author: bwren
 ms.author: bwren
 ms.date: 10/07/2020
-ms.openlocfilehash: 06a73b495cefc361db88d80413f4f4be50e105d1
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: a5788e5ac64c1c74a06c94c5634a05315ee098b8
+ms.sourcegitcommit: ba3a4d58a17021a922f763095ddc3cf768b11336
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102041145"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104799293"
 ---
 # <a name="log-analytics-tutorial"></a>Esercitazione su Log Analytics
 Log Analytics è uno strumento disponibile nel portale di Azure che consente di modificare ed eseguire query su log dai dati raccolti dai log di Monitoraggio di Azure e analizzarne i risultati in modo interattivo. È possibile usare le query di Log Analytics per recuperare i record che corrispondono a determinati criteri, identificare le tendenze, analizzare i modelli e fornire un'ampia varietà di informazioni dettagliate sui dati. 
@@ -72,7 +72,7 @@ Viene aggiunga alla query un'istruzione **where** con il valore selezionato. I r
 ## <a name="time-range"></a>Intervallo di ore
 Per tutte le tabelle in un'area di lavoro Log Analytics è presente una colonna denominata **TimeGenerated** che indica l'ora di creazione del record. Tutte le query hanno un intervallo di tempo che limita i risultati ai record con un valore **TimeGenerated** compreso in tale intervallo. L'intervallo di tempo può essere impostato nella query o con il selettore nella parte superiore della schermata.
 
-Per impostazione predefinita, la query restituirà i record delle ultime 24 ore. Selezionare il menu a discesa **Intervallo di tempo** e modificarlo impostandolo su **7 giorni**. Fare di nuovo clic su **Esegui** per restituire i risultati. Si noterà che i risultati vengono restituiti, ma è presente un messaggio che indica che non sono visualizzati tutti i risultati, in quanto Log Analytics può restituire un massimo di 10.000 record e la query ha restituito più record rispetto a questo valore. 
+Per impostazione predefinita, la query restituirà i record delle ultime 24 ore. Selezionare il menu a discesa **Intervallo di tempo** e modificarlo impostandolo su **7 giorni**. Fare di nuovo clic su **Esegui** per restituire i risultati. Si noterà che i risultati vengono restituiti, ma è presente un messaggio che indica che non sono visualizzati tutti i risultati, Questo perché Log Analytics può restituire un massimo di 30.000 record e la query ha restituito più record rispetto a questo. 
 
 [![Intervallo di tempo](media/log-analytics-tutorial/query-results-max.png)](media/log-analytics-tutorial/query-results-max.png#lightbox)
 

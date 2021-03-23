@@ -5,7 +5,7 @@ description: Questo articolo descrive la personalizzazione delle attività nell'
 author: sukhans
 manager: sukhans
 ms.author: terrylan
-ms.date: 07/31/2019
+ms.date: 03/22/2021
 ms.topic: article
 ms.service: security
 services: azure
@@ -13,14 +13,17 @@ ms.assetid: 521180dc-2cc9-43f1-ae87-2701de7ca6b8
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.openlocfilehash: 4016e1dd055b45f9cd59a172d0e71ef95fec1c40
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: ad395e1b782edb28845bb7db0607d2bab5b5697c
+ms.sourcegitcommit: ba3a4d58a17021a922f763095ddc3cf768b11336
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "96008685"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104802013"
 ---
 # <a name="configure-and-customize-the-build-tasks"></a>Configurare e personalizzare le attività di compilazione
+
+> [!Note]
+> A partire dal 1 ° marzo 2022, l'estensione Microsoft Security Code Analysis (MSCA) verrà ritirata. I clienti esistenti di MSCA manterranno l'accesso a MSCA fino al 1 ° marzo 2022. Vedere gli strumenti di [analisi del codice sorgente di OWASP](https://owasp.org/www-community/Source_Code_Analysis_Tools) per opzioni alternative in Azure DevOps. Per i clienti che pianificano di eseguire la migrazione a GitHub, è possibile consultare la pagina [sicurezza avanzata di GitHub](https://docs.github.com/github/getting-started-with-github/about-github-advanced-security).
 
 Questo articolo descrive in dettaglio le opzioni di configurazione disponibili in ognuna delle attività di compilazione. L'articolo inizia con le attività per gli strumenti di analisi del codice di sicurezza. Termina con le attività di post-elaborazione.
 

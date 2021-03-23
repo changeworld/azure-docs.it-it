@@ -366,8 +366,6 @@
           href: search-query-troubleshoot-collection-filters.md
         - name: Informazioni sui filtri di raccolta
           href: search-query-understand-collection-filters.md
-        - name: Filtrare per lingua
-          href: search-filters-language.md
         - name: Normalizza testo
           href: search-normalizers.md
     - name: Pertinenza

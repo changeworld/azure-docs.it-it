@@ -1,15 +1,15 @@
 ---
 title: Usare un riquadro markdown personalizzato nei dashboard di Azure
 description: Informazioni su come aggiungere un riquadro markdown a un dashboard di Azure per visualizzare il contenuto statico
-ms.date: 01/08/2020
+ms.date: 03/19/2021
 ms.topic: how-to
 ms.custom: devx-track-js
-ms.openlocfilehash: 5121142ecf568aa1ac9a7ec19f7211c6f9a6253f
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 8324b736565cfa353e48cf49b76e2784866f47f7
+ms.sourcegitcommit: 2c1b93301174fccea00798df08e08872f53f669c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "96745758"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104774457"
 ---
 # <a name="use-a-markdown-tile-on-azure-dashboards-to-show-custom-content"></a>Usare un riquadro markdown nei dashboard di Azure per visualizzare il contenuto personalizzato
 
@@ -21,7 +21,7 @@ ms.locfileid: "96745758"
 
    ![Screenshot che mostra la sidebar del portale](./media/azure-portal-markdown-tile/azure-portal-nav.png)
 
-1. Se sono stati creati dashboard personalizzati, nella visualizzazione dashboard usare l'elenco a discesa per selezionare il dashboard in cui deve essere visualizzato il riquadro markdown personalizzato. Selezionare l'icona di modifica per aprire la **Raccolta riquadri**.
+1. Nella visualizzazione Dashboard selezionare il dashboard in cui deve essere visualizzato il riquadro Markdown personalizzato, quindi selezionare **modifica**.
 
    ![Screenshot con la modifica della visualizzazione del dashboard](./media/azure-portal-markdown-tile/azure-portal-dashboard-edit.png)
 
@@ -52,9 +52,9 @@ ms.locfileid: "96745758"
 
 È possibile usare qualsiasi combinazione di testo normale, sintassi Markdown e contenuto HTML nel riquadro markdown. Il portale di Azure usa una libreria open source denominata _marked_ per trasformare il contenuto nel codice HTML visualizzato nel riquadro. Il codice HTML generato da _marked_ viene preelaborato dal portale prima del rendering. Questo passaggio consente di assicurarsi che la personalizzazione non influisca sulla sicurezza o sul layout del portale. Durante la preelaborazione, viene rimossa qualsiasi parte del codice HTML che rappresenta una potenziale minaccia. I tipi di contenuto seguenti non sono consentiti dal portale:
 
-* JavaScript: i tag `<script>` e le valutazioni JavaScript inline verranno rimossi.
-* iframes: i tag `<iframe>` verranno rimossi.
-* Stile: i tag `<style>` verranno rimossi. Gli attributi di stile in linea negli elementi HTML non sono ufficialmente supportati. Alcuni elementi di stile in linea possono essere accettabili, ma se interferiscono con il layout del portale, potrebbero smettere di funzionare in qualsiasi momento. Il riquadro markdown è destinato al contenuto statico di base che usa gli stili predefiniti del portale.
+* JavaScript: `<script>` i tag e le valutazioni JavaScript inline vengono rimossi.
+* iframes: `<iframe>` i tag vengono rimossi.
+* `<style>`I tag di stile vengono rimossi. Gli attributi di stile in linea negli elementi HTML non sono ufficialmente supportati. Alcuni elementi di stile in linea possono essere accettabili, ma se interferiscono con il layout del portale, potrebbero smettere di funzionare in qualsiasi momento. Il riquadro markdown è destinato al contenuto statico di base che usa gli stili predefiniti del portale.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

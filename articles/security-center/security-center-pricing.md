@@ -6,13 +6,13 @@ ms.author: memildin
 manager: rkarlin
 ms.service: security-center
 ms.topic: overview
-ms.date: 03/08/2021
-ms.openlocfilehash: d45dae8b0b3725555bd83a05032339671a9595be
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
+ms.date: 03/22/2021
+ms.openlocfilehash: ede812dc2ce063ec38423db73f4b269a7618e00c
+ms.sourcegitcommit: ba3a4d58a17021a922f763095ddc3cf768b11336
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102454365"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104799616"
 ---
 # <a name="azure-security-center-free-vs-azure-defender-enabled"></a>Il Centro sicurezza di Azure è disponibile rispetto ad Azure Defender abilitato
 Azure Defender è gratuito per i primi 30 giorni. Al termine dei 30 giorni, se si sceglie di continuare a usare il servizio, l'utilizzo inizierà a essere addebitato automaticamente.
@@ -48,6 +48,7 @@ Il Centro sicurezza è disponibile in due modalità:
 - [Se un agente di Log Analytics è associato a più aree di lavoro, l'addebito verrà applicato due volte?](#if-a-log-analytics-agent-reports-to-multiple-workspaces-will-i-be-charged-twice)
 - [Se l'agente di Log Analytics è associato a più aree di lavoro, la funzionalità gratuita di inserimento di 500 MB di dati è disponibile per tutte?](#if-a-log-analytics-agent-reports-to-multiple-workspaces-is-the-500-mb-free-data-ingestion-available-on-all-of-them)
 - [L'inserimento gratuito di 500 MB di dati viene calcolato per un'intera area di lavoro o rigorosamente per computer?](#is-the-500-mb-free-data-ingestion-calculated-for-an-entire-workspace-or-strictly-per-machine)
+- [Quali tipi di dati sono inclusi nel limite di dati liberi da 500 MB?](#what-data-types-are-included-in-the-500-mb-free-data-limit)
 
 ### <a name="how-can-i-track-who-in-my-organization-enabled-azure-defender-changes-in-security-center"></a>Come è possibile verificare chi nell'organizzazione ha abilitato le modifiche di Azure Defender nel Centro sicurezza di?
 Le sottoscrizioni di Azure possono avere più amministratori con le autorizzazioni per cambiare le impostazioni dei prezzi. Per individuare l'utente che ha apportato una modifica, usare il log attività di Azure.
@@ -114,6 +115,24 @@ Sì. Se l'agente di Log Analytics è stato configurato per l'invio di dati a due
 Si ottiene l'inserimento gratuito di 500 MB di dati al giorno, per ogni computer connesso all'area di lavoro. In particolare, per i tipi di dati sulla sicurezza raccolti direttamente dal Centro sicurezza di Azure.
 
 Questi dati vengono calcolati come media di frequenza giornaliera tra tutti i nodi. Quindi se alcuni computer inviano 100 MB di dati e altri ne inviano 800 MB, se il totale non supera il limite gratuito **[numero di computer] x 500 MB**, non verranno addebitati altri costi.
+
+### <a name="what-data-types-are-included-in-the-500-mb-free-data-limit"></a>Quali tipi di dati sono inclusi nel limite di dati liberi da 500 MB?
+
+La fatturazione del Centro sicurezza è strettamente legata alla fatturazione per Log Analytics. Il Centro sicurezza offre un'allocazione di 500 MB/nodo/giorno rispetto ai seguenti subset di [tipi di dati di sicurezza](/azure/azure-monitor/reference/tables/tables-category.md#security):
+- WindowsEvent
+- SecurityAlert
+- SecurityBaseline
+- SecurityBaselineSummary
+- SecurityDetection
+- SecurityEvent
+- WindowsFirewall
+- MaliciousIPCommunication
+- LinuxAuditLog
+- SysmonEvent
+- ProtectionStatus
+- Aggiornare i tipi di dati UpdateSummary quando la soluzione Gestione aggiornamenti non è in esecuzione nell'area di lavoro o la destinazione della soluzione è abilitata
+
+Se l'area di lavoro è nel piano tariffario legacy per nodo, il Centro sicurezza e le allocazioni di Log Analytics vengono combinate e applicate congiuntamente a tutti i dati inseriti fatturabili.
 
 ## <a name="next-steps"></a>Passaggi successivi
 Questo articolo ha illustrato le opzioni per i prezzi del Centro sicurezza. Per informazioni correlate, vedere:

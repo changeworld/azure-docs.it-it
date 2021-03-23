@@ -3,13 +3,13 @@ title: Come creare una richiesta di supporto in Azure
 description: I clienti che necessitano di assistenza possono usare il portale di Azure per trovare soluzioni self-service e per creare e gestire richieste di supporto.
 ms.assetid: fd6841ea-c1d5-4bb7-86bd-0c708d193b89
 ms.topic: how-to
-ms.date: 06/25/2020
-ms.openlocfilehash: 71aba8f2769a75805f47d90b71a8db4eeb26a97a
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.date: 03/16/2021
+ms.openlocfilehash: 395fc0d5905389ffb8f68d8bbc4c6f8b3a871d36
+ms.sourcegitcommit: 2c1b93301174fccea00798df08e08872f53f669c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "100652395"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104774873"
 ---
 # <a name="create-an-azure-support-request"></a>Creare una richiesta di supporto in Azure
 
@@ -42,7 +42,7 @@ Per creare una richiesta di supporto, è necessario essere [Proprietario](../../
 
 Per avviare una richiesta di supporto da qualsiasi punto del portale di Azure:
 
-1. Selezionare il simbolo **?** nell'intestazione globale. Selezionare quindi **Guida e supporto**.
+1. Selezionare il simbolo **?** nell'intestazione globale, quindi selezionare **Guida e supporto**.
 
    ![Guida e supporto](./media/how-to-create-azure-support-request/helpandsupportnewlower.png)
 
@@ -52,7 +52,7 @@ Per avviare una richiesta di supporto da qualsiasi punto del portale di Azure:
 
 ### <a name="go-to-help--support-from-a-resource-menu"></a>Passare a Guida e supporto da un menu delle risorse
 
-Per avviare una richiesta di supporto nel contesto della risorsa, attualmente è necessario procedere come segue:
+Per avviare una richiesta di supporto nel contesto della risorsa attualmente in uso:
 
 1. Dal menu delle risorse, nella sezione **Supporto e risoluzione dei problemi**, selezionare **Nuova richiesta di supporto**.
 

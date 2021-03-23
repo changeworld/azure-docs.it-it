@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: conceptual
 ms.date: 09/19/2019
 ms.author: duau
-ms.openlocfilehash: 0dc2b48d02eb8a69afc947891c263ef1510257a7
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: c65825a6d8d2d7f9059e91a1f248367fa1788e1a
+ms.sourcegitcommit: ba3a4d58a17021a922f763095ddc3cf768b11336
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101721838"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104799497"
 ---
 # <a name="expressroute-routing-requirements"></a>Requisiti per il routing di ExpressRoute
 Per connettersi ai servizi cloud Microsoft con ExpressRoute, è necessario configurare e gestire il routing. Alcuni provider di connettività offrono la configurazione e la gestione del routing come servizio gestito. Rivolgersi al proprio provider di connettività per verificare se viene offerto questo servizio. Se non è offerto, è necessario rispettare i requisiti seguenti:
@@ -106,7 +106,7 @@ Assicurarsi che l'indirizzo IP e il numero AS siano registrati a nome dell'utent
 
 Se i prefissi e il numero AS non sono assegnati all'utente specifico nei registri precedenti, è necessario aprire un caso di supporto per la convalida manuale di prefissi e ASN. Il supporto richiede documentazione, ad esempio una lettera di autorizzazione, che dimostri che l'utente è autorizzato a usare le risorse.
 
-Un numero AS privato è consentito con il peering Microsoft, ma sarà necessaria anche la convalida manuale. Inoltre, i numeri AS privati in AS PATH per i prefissi ricevuti vengono rimossi. Di conseguenza, non è possibile aggiungere numeri AS privati in AS PATH per [determinare il routing per peering Microsoft](expressroute-optimize-routing.md). 
+Un numero AS privato è consentito con il peering Microsoft, ma sarà necessaria anche la convalida manuale. Inoltre, i numeri AS privati in AS PATH per i prefissi ricevuti vengono rimossi. Di conseguenza, non è possibile aggiungere numeri AS privati in AS PATH per [determinare il routing per peering Microsoft](expressroute-optimize-routing.md). Inoltre, i numeri 64496-64511 riservati da IANA per finalità di documentazione non sono consentiti nel percorso.
 
 > [!IMPORTANT]
 > Non annunciare la stessa route IP pubblica tramite Internet pubblico ed ExpressRoute. Per ridurre il rischio che una configurazione errata causi un routing asimmetrico, è opportuno che gli [indirizzi IP NAT](expressroute-nat.md) annunciati a Microsoft su ExpressRoute siano inclusi in un intervallo non annunciato a Internet. Se questo non è possibile, è essenziale assicurarsi di annunciare un intervallo su ExpressRoute più specifico di quello sulla connessione Internet. Oltre alla route pubblica per NAT, è anche possibile annunciare over ExpressRoute gli indirizzi IP pubblici usati dai server nella rete locale che comunicano con Microsoft 365 endpoint all'interno di Microsoft. 

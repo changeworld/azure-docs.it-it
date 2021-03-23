@@ -1,19 +1,14 @@
 ---
 title: Informazioni sull'integrazione di Splunk
-titleSuffix: Azure Defender for IoT
 description: Per risolvere la mancanza di visibilità per la sicurezza e la resilienza delle reti OT, Defender for Internet IT ha sviluppato il Defender per Internet delle cose, IIoT e l'applicazione di monitoraggio delle minacce ICS per Splunk, un'integrazione nativa tra Defender for Internet e Splunk che consente un approccio unificato all'IT e alla sicurezza.
-author: shhazam-ms
-manager: rkarlin
-ms.author: shhazam
 ms.date: 1/4/2021
 ms.topic: article
-ms.service: azure
-ms.openlocfilehash: 91d877d644b4b5ca7231f5f81f9163a0fd3cbe25
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 28bdc6deaac09d795c45460bb211126a105b80c8
+ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98557987"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104785921"
 ---
 # <a name="defender-for-iot-and-ics-threat-monitoring-application-for-splunk"></a>Defender per l'applicazione di monitoraggio delle minacce e ICS per Splunk
 
@@ -158,7 +153,7 @@ Per creare una regola di invio:
     | **Seleziona gravità** | Evento imprevisto minimo del livello di sicurezza da trasmettere. Se, ad esempio, è selezionata l'opzione minore, verranno trasmessi gli avvisi secondari e gli eventuali avvisi al di sopra di tale livello di gravità. |
     | **Protocolli** | Per impostazione predefinita, vengono selezionati tutti i protocolli. Per selezionare un protocollo specifico, selezionare **specifico** e selezionare il protocollo per cui viene applicata la regola. |
     | **Motori** | Per impostazione predefinita, sono interessati tutti i motori di sicurezza. Per selezionare un motore di sicurezza specifico a cui applicare la regola, selezionare **specifico** e selezionare il motore. |
-    | **Notifiche di sistema** | Stato di avanzamento del sensore online/offline. Questa opzione è disponibile solo se è stato effettuato l'accesso a gestione centrale. |                                            |
+    | **Notifiche di sistema** | Stato di avanzamento del sensore online/offline. Questa opzione è disponibile solo se è stato effettuato l'accesso a gestione centrale. |
 
 1. Per indicare a Defender per l'invio di informazioni sugli asset a Splunk, selezionare **azione** e quindi selezionare **Invia a server Splunk**.
 

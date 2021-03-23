@@ -5,13 +5,13 @@ author: markjbrown
 ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 12/09/2020
-ms.openlocfilehash: a480c8f2dfdda0ce7a1eb879554fb79c96adbe1e
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.date: 03/22/2021
+ms.openlocfilehash: 0a203531e026d00b274ac98784076d33b22666d8
+ms.sourcegitcommit: ba3a4d58a17021a922f763095ddc3cf768b11336
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "97347813"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104800143"
 ---
 # <a name="consistency-levels-in-azure-cosmos-db"></a>Livelli di coerenza in Azure Cosmos DB
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
@@ -51,15 +51,19 @@ La coerenza di lettura si applica a una singola operazione di lettura con ambito
 
 Azure Cosmos DB garantisce che il 100% delle richieste di lettura soddisfi la garanzia di coerenza per il livello di coerenza scelto. Le definizioni esatte dei cinque livelli di coerenza in Azure Cosmos DB usando il linguaggio di specifica di TLA + sono disponibili nel repository [Azure-Cosmos-TLA](https://github.com/Azure/azure-cosmos-tla) github.
 
-La semantica dei cinque livelli di coerenza è descritta qui:
+La semantica dei cinque livelli di coerenza è descritta nelle sezioni riportate di seguito.
 
-- **Forte**: la coerenza assoluta offre una garanzia della linearità. Della linearità si riferisce alle richieste di servizio simultaneamente. È garantito che le letture restituiscano sempre la versione di un elemento di cui sia stato eseguito il commit più di recente. Un client non visualizza mai una scrittura parziale o di cui non sia stato eseguito il commit. Gli utenti possono sempre essere certi di leggere la scrittura più recente sottoposta a commit.
+### <a name="strong-consistency"></a>Coerenza assoluta
+
+La coerenza assoluta offre una garanzia di linearizzabilità. Della linearità si riferisce alle richieste di servizio simultaneamente. È garantito che le letture restituiscano sempre la versione di un elemento di cui sia stato eseguito il commit più di recente. Un client non visualizza mai una scrittura parziale o di cui non sia stato eseguito il commit. Gli utenti possono sempre essere certi di leggere la scrittura più recente sottoposta a commit.
 
   Il grafico seguente illustra la coerenza assoluta con le note musicali. Dopo che i dati sono stati scritti nell'area "Stati Uniti occidentali 2", quando si leggono i dati da altre aree, si ottiene il valore più recente:
 
   :::image type="content" source="media/consistency-levels/strong-consistency.gif" alt-text="Illustrazione del livello di coerenza forte":::
 
-- Decadimento **delimitato**: le letture sono garantite per rispettare la garanzia di prefisso coerente. È possibile che le letture ritardino alla base delle Scritture al massimo da *"K"* versioni (ovvero "aggiornamenti") di un elemento o dall'intervallo di tempo *"T"* , a seconda del valore raggiunto per primo. In altre parole, quando si sceglie il decadimento ristretto, il "obsolescenza" può essere configurato in due modi:
+### <a name="bounded-staleness-consistency"></a>Coerenza con decadimento ristretto
+
+Nella coerenza con decadimento ristretto, le letture sono garantite per rispettare la garanzia di prefisso coerente. È possibile che le letture ritardino alla base delle Scritture al massimo da *"K"* versioni (ovvero "aggiornamenti") di un elemento o dall'intervallo di tempo *"T"* , a seconda del valore raggiunto per primo. In altre parole, quando si sceglie il decadimento ristretto, il "obsolescenza" può essere configurato in due modi:
 
 - Numero di versioni (*K*) dell'elemento
 - Le letture dell'intervallo di tempo (*T*) potrebbero ritardare dietro le Scritture
@@ -79,7 +83,9 @@ All'interno della finestra di obsolescenza, il decadimento associato fornisce le
 
   :::image type="content" source="media/consistency-levels/bounded-staleness-consistency.gif" alt-text="Illustrazione del livello di coerenza con obsolescenza ristretta":::
 
-- **Sessione**: all'interno di una singola sessione client le letture sono garantite per rispettare il prefisso coerente, le letture monotone, le Scritture monotone, la lettura delle Scritture e le garanzie Write-follows. Si presuppone una singola sessione "writer" o si condivide il token di sessione per più writer.
+### <a name="session-consistency"></a>Coerenza di sessione
+
+In una coerenza di sessione, all'interno di una singola sessione client, le letture sono garantite per rispettare il prefisso coerente, le letture monotone, le Scritture monotone, le operazioni di lettura e scrittura e le garanzie di lettura/scrittura. Si presuppone una singola sessione "writer" o si condivide il token di sessione per più writer.
 
 I client al di fuori della sessione che esegue le Scritture vedranno le garanzie seguenti:
 
@@ -92,7 +98,9 @@ I client al di fuori della sessione che esegue le Scritture vedranno le garanzie
 
   :::image type="content" source="media/consistency-levels/session-consistency.gif" alt-text="Illustrazione del livello di coerenza della sessione":::
 
-- **Prefisso coerente**: gli aggiornamenti restituiti contengono un prefisso di tutti gli aggiornamenti, senza gap. Il livello di coerenza del prefisso coerente garantisce che le letture non visualizzino mai le Scritture non ordinate.
+### <a name="consistent-prefix-consistency"></a>Coerenza con prefisso coerente
+
+In opzione di prefisso coerente gli aggiornamenti restituiti contengono un prefisso di tutti gli aggiornamenti, senza gap. Il livello di coerenza del prefisso coerente garantisce che le letture non visualizzino mai le Scritture non ordinate.
 
 Se le Scritture sono state eseguite nell'ordine `A, B, C` , un client può vedere `A` , `A,B` o `A,B,C` , ma non le permutazioni non ordinate come `A,C` o `B,A,C` . Il prefisso coerente fornisce latenze di scrittura, disponibilità e velocità effettiva di lettura paragonabili a quelle della coerenza finale, ma fornisce anche le garanzie di ordine che soddisfano le esigenze degli scenari in cui l'ordine è importante.
 
@@ -107,7 +115,9 @@ Il grafico seguente illustra la coerenza del prefisso di coerenza con le note mu
 
   :::image type="content" source="media/consistency-levels/consistent-prefix.gif" alt-text="Illustrazione del prefisso coerente":::
 
-- **Eventuale**: non esiste alcuna garanzia di ordinamento per le letture. In assenza di ulteriori operazioni di scrittura, le repliche alla fine convergeranno.  
+### <a name="eventual-consistency"></a>Coerenza finale
+
+Per coerenza finale, non esiste alcuna garanzia di ordinamento per le letture. In assenza di ulteriori operazioni di scrittura, le repliche alla fine convergeranno.  
 La coerenza finale è la forma di coerenza più debole, perché un client può leggere i valori più vecchi di quelli precedentemente letti. La coerenza finale è ideale in cui l'applicazione non richiede alcuna garanzia di ordinamento. Gli esempi includono il numero di Retweet, mi piace o commenti non thread. Il grafico seguente illustra la coerenza finale con le note musicali.
 
   :::image type="content" source="media/consistency-levels/eventual-consistency.gif" alt-text="viIllustration di coerenza finale":::

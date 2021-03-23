@@ -10,16 +10,16 @@ ms.service: active-directory
 ms.topic: how-to
 ms.workload: identity
 ms.subservice: pim
-ms.date: 11/18/2020
+ms.date: 03/22/2021
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 079dcdc9d1667809779489c5d1126bc85cafb881
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: fa9861dd1ffbdd33f59abe76c7ebbd1befe3e7a6
+ms.sourcegitcommit: ba3a4d58a17021a922f763095ddc3cf768b11336
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "96511321"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104799429"
 ---
 # <a name="activate-my-azure-ad-roles-in-pim"></a>Attivare i ruoli di Azure AD in PIM
 
@@ -110,11 +110,7 @@ Nel caso in cui non è richiesta l'attivazione di un ruolo che richiede l'approv
 
 ### <a name="permissions-are-not-granted-after-activating-a-role"></a>Le autorizzazioni non vengono concesse dopo l'attivazione di un ruolo
 
-Quando si attiva un ruolo in Privileged Identity Management, è possibile che l'attivazione non venga propagata immediatamente a tutti i portali che richiedono il ruolo privilegiato. In alcuni casi, anche se la modifica viene propagata, la memorizzazione nella cache Web in un portale può comportare che la modifica non abbia effetto immediato. Se l'attivazione viene ritardata, è necessario eseguire le operazioni seguenti.
-
-1. Disconnettersi dal portale di Azure e quindi eseguire nuovamente l'accesso.
-
-1. In Privileged Identity Management verificare di essere elencati come membri del ruolo.
+Quando si attiva un ruolo in Privileged Identity Management, è possibile che l'attivazione non venga propagata immediatamente a tutti i portali che richiedono il ruolo privilegiato. In alcuni casi, anche se la modifica viene propagata, la memorizzazione nella cache Web in un portale può comportare che la modifica non abbia effetto immediato. Se l'attivazione è posticipata, disconnettersi dal portale che si sta tentando di eseguire l'azione e quindi eseguire di nuovo l'accesso. Nel portale di Azure, PIM si disconnette e si ripristina automaticamente.
 
 # <a name="previous-version"></a>[Versione precedente](#tab/previous)
 
@@ -216,13 +212,7 @@ Nel caso in cui non è richiesta l'attivazione di un ruolo che richiede l'approv
 
 ### <a name="permissions-are-not-granted-after-activating-a-role"></a>Le autorizzazioni non vengono concesse dopo l'attivazione di un ruolo
 
-Quando si attiva un ruolo in Privileged Identity Management, è possibile che l'attivazione non venga propagata immediatamente a tutti i portali che richiedono il ruolo privilegiato. In alcuni casi, anche se la modifica viene propagata, la memorizzazione nella cache Web in un portale può comportare che la modifica non abbia effetto immediato. Se l'attivazione viene ritardata, è necessario eseguire le operazioni seguenti.
-
-1. Disconnettersi dal portale di Azure e quindi eseguire nuovamente l'accesso.
-
-    Quando si attiva un ruolo di Azure AD, vengono visualizzate le fasi dell'attivazione. Dopo aver completato tutte le fasi, si vedrà il collegamento **Disconnetti**. È possibile usare questo collegamento per la disconnessione. Questo consente di risolvere la maggior parte dei casi per il ritardo di attivazione.
-
-1. In Privileged Identity Management verificare di essere elencati come membri del ruolo.
+Quando si attiva un ruolo in Privileged Identity Management, è possibile che l'attivazione venga posticipata nei portali di amministrazione diversi da portale di Azure, ad esempio il portale di Office 365. Se l'attivazione è posticipata, disconnettersi dal portale e quindi eseguire di nuovo l'accesso. Utilizzare quindi Privileged Identity Management per verificare che l'utente sia elencato come membro del ruolo.
 
  ---
 

@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 03/12/2021
 ms.author: amverma
 ms.reviewer: cynthn
-ms.openlocfilehash: b1f2800c3787cd28437afa70b78ef8388461e413
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
+ms.openlocfilehash: d1abd03f517f9e0b13a2994418cbae5cfbe22454
+ms.sourcegitcommit: ba3a4d58a17021a922f763095ddc3cf768b11336
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "104721164"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104801868"
 ---
 # <a name="hbv3-series-virtual-machine-overview"></a>Panoramica delle macchine virtuali serie modello HBV3 
 
@@ -32,6 +32,9 @@ Di conseguenza, il server viene avviato con 4 domini NUMA (2 per socket) ciascun
 Per consentire il funzionamento dell'hypervisor di Azure senza interferire con la macchina virtuale, si riservano 8 core fisici per ogni server. 
 
 Si noti che le dimensioni della VM Core vincolati riducono solo il numero di core fisici esposti alla macchina virtuale. Tutte le risorse globali condivise (RAM, larghezza di banda della memoria, cache L3, connettività GMI e xGMI, InfiniBand, rete Ethernet di Azure, unità SSD locale) rimanere costanti. Questo consente a un cliente di scegliere le dimensioni della macchina virtuale più adattate a un determinato set di carico di lavoro o alle esigenze di licenza software.
+
+Il diagramma seguente illustra la separazione dei core riservati per l'hypervisor di Azure (giallo) e la VM della serie modello HBV3 (verde).
+![Separazione dei core riservati per la macchina virtuale di Azure hypervisor e serie modello HBV3](./media/architecture/hbv3-segregation-cores.png)
 
 ## <a name="infiniband-networking"></a>Rete InfiniBand
 Le macchine virtuali modello HBV3 includono anche schede di rete NVIDIA Mellanox HDR InfiniBand (ConnectX-6) che funzionano fino a 200 Gigabit al secondo. La scheda di interfaccia di rete viene passata alla macchina virtuale tramite SRIOV, consentendo al traffico di rete di ignorare l'hypervisor. Di conseguenza, i clienti caricano i driver Mellanox OFED standard in macchine virtuali modello HBV3 come un ambiente bare metal.

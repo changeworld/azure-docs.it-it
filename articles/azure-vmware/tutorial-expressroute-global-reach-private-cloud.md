@@ -3,12 +3,12 @@ title: Esercitazione - Associare gli ambienti locali a un cloud privato
 description: Informazioni su come creare il peering di Copertura globale ExpressRoute a un cloud privato in una soluzione Azure VMware.
 ms.topic: tutorial
 ms.date: 03/17/2021
-ms.openlocfilehash: ae92bf89a08c5fade8757e3ee596c4ed4a5e6389
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 08a461ab7d441eb813d435086dfcea121ef4a7f1
+ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103494165"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104786907"
 ---
 # <a name="tutorial-peer-on-premises-environments-to-a-private-cloud"></a>Esercitazione: Associare gli ambienti locali a un cloud privato
 
@@ -37,7 +37,7 @@ Prima di abilitare la connettività tra due circuiti ExpressRoute usando Copertu
 >[!IMPORTANT]
 >Nel contesto di questi prerequisiti, il circuito ExpressRoute locale è _circuito 1_ e il circuito ExpressRoute del cloud privato si trova in una sottoscrizione diversa ed è contrassegnato come _circuito 2_.
 
-## <a name="create-an-expressroute-authorization-key-in-the-on-premises-circuit"></a>Creare una chiave di autorizzazione ExpressRoute nel circuito locale
+## <a name="create-an-expressroute-authorization-key-in-the-private-cloud-expressroute-circuit"></a>Creare una chiave di autorizzazione ExpressRoute nel circuito ExpressRoute del cloud privato
 
 [!INCLUDE [request-authorization-key](includes/request-authorization-key.md)]
  

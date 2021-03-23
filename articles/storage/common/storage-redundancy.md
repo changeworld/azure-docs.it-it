@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 03/02/2021
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: 955d3330d3f08d7e7f024ec2c36941d02244d9ba
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 7ecf3d23f745d9281008433eee471c14c7afe337
+ms.sourcegitcommit: ba3a4d58a17021a922f763095ddc3cf768b11336
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101726837"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104802200"
 ---
 # <a name="azure-storage-redundancy"></a>Ridondanza di Archiviazione di Azure
 
@@ -32,6 +32,9 @@ I dati in un account di Archiviazione di Azure vengono sempre replicati tre volt
 
 - L'**archiviazione con ridondanza locale (LRS)** copia i dati in modo sincrono tre volte all'interno di un'unica posizione fisica nell'area primaria. L'archiviazione con ridondanza locale è l'opzione di replica meno costosa, ma non è consigliata per le applicazioni che richiedono una disponibilità elevata.
 - L'**archiviazione con ridondanza della zona (ZRS)** copia i dati in modo sincrono in tre zone di disponibilità di Azure nell'area primaria. Per le applicazioni che richiedono la disponibilità elevata, è consigliabile usare ZRS nell'area primaria oltre a eseguire la replica in un'area secondaria.
+
+> [!NOTE]
+> Microsoft consiglia di usare ZRS nell'area primaria per i carichi di lavoro Azure Data Lake Storage Gen2.
 
 ### <a name="locally-redundant-storage"></a>Archiviazione con ridondanza locale
 

@@ -3,12 +3,12 @@ title: Configurare operazioni vRealize per la soluzione VMware di Azure
 description: Informazioni su come configurare le operazioni vRealize per il cloud privato della soluzione VMware di Azure.
 ms.topic: how-to
 ms.date: 01/26/2021
-ms.openlocfilehash: 3d2617f893c34fde6a154f9f93b5bda520c5a91a
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 8015bb61a7401b4c97807e0256e06d4967c39026
+ms.sourcegitcommit: ba3a4d58a17021a922f763095ddc3cf768b11336
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101738430"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104802489"
 ---
 # <a name="set-up-vrealize-operations-for-azure-vmware-solution"></a>Configurare operazioni vRealize per la soluzione VMware di Azure
 
@@ -61,7 +61,7 @@ Una volta distribuita l'istanza, è possibile configurare le operazioni di vReal
 
 ## <a name="known-limitations"></a>Limitazioni note
 
-- L'utente **cloudadmin \@ vSphere. local** nella soluzione VMware di Azure dispone di [privilegi limitati](concepts-role-based-access-control.md).  Macchine virtuali (VM) in una soluzione VMware di Azure non supporta la raccolta di memoria in-Guest mediante gli strumenti VMware.  L'utilizzo della memoria attivo e utilizzato continua a funzionare in questo caso.
+- L'utente **cloudadmin \@ vSphere. local** nella soluzione VMware di Azure dispone di [privilegi limitati](concepts-identity.md).  Macchine virtuali (VM) in una soluzione VMware di Azure non supporta la raccolta di memoria in-Guest mediante gli strumenti VMware.  L'utilizzo della memoria attivo e utilizzato continua a funzionare in questo caso.
 - L'ottimizzazione del carico di lavoro per finalità aziendali basate su host non funziona perché le soluzioni VMware di Azure gestiscono le configurazioni del cluster, incluse le impostazioni DRS.
 - L'ottimizzazione del carico di lavoro per la selezione host tra cluster all'interno della SDDC usando lo scopo aziendale basato su cluster è completamente supportata con vRealize Operations Manager 8,0 e versioni successive. Tuttavia, l'ottimizzazione del carico di lavoro non è in grado di riconoscere i pool di risorse e le macchine virtuali a livello di cluster. Un utente può correggerlo manualmente nella soluzione VMware di Azure server vCenter interfaccia.
 - Non è possibile accedere a vRealize Operations Manager usando la soluzione VMware di Azure server vCenter le credenziali. 

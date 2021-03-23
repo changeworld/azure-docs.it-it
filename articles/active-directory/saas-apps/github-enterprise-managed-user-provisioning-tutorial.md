@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/05/2021
 ms.author: Zhchia
-ms.openlocfilehash: ee19c69b47e68328a89a0e3ca6ee3f86a5c13c7d
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: cbae87a005240c15a2c3c28dcb8ab126d9957ba6
+ms.sourcegitcommit: ba3a4d58a17021a922f763095ddc3cf768b11336
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104583735"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104801231"
 ---
 # <a name="tutorial-configure-github-enterprise-managed-user-for-automatic-user-provisioning"></a>Esercitazione: configurare l'utente gestito di GitHub Enterprise per il provisioning utenti automatico
 
@@ -34,6 +34,10 @@ Questa esercitazione descrive i passaggi che è necessario eseguire sia nell'ute
 > * Mantieni gli attributi utente sincronizzati tra Azure AD e l'utente gestito aziendale di GitHub
 > * Effettuare il provisioning di gruppi e appartenenze a gruppi nell'utente gestito di GitHub Enterprise
 > * Single Sign-on per l'utente gestito di GitHub Enterprise (scelta consigliata)
+
+> [!NOTE]
+> Questo connettore di provisioning è abilitato solo per i partecipanti della versione beta di utenti gestiti dall'organizzazione.
+
 
 ## <a name="prerequisites"></a>Prerequisiti
 

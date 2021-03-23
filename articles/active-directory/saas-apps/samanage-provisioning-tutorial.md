@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 01/13/2020
 ms.author: Zhchia
-ms.openlocfilehash: cca46d47003a1611c861986f8df839de57500db6
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: d68811c5e7b92698944d7b1b1736eef864d97d20
+ms.sourcegitcommit: ba3a4d58a17021a922f763095ddc3cf768b11336
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "96181483"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104802302"
 ---
 # <a name="tutorial-configure-solarwinds-service-desk-previously-samanage-for-automatic-user-provisioning"></a>Esercitazione: Configurare SolarWinds Service Desk (in precedenza Samanage) per il provisioning utenti automatico
 
@@ -57,6 +57,9 @@ Per lo scenario descritto in questa esercitazione si presuppone che l'utente dis
 * Un account utente in Azure AD con l'[autorizzazione](../roles/permissions-reference.md) per configurare il provisioning, ad esempio amministratore applicazione, amministratore applicazione cloud, proprietario dell'applicazione o amministratore globale. 
 * Un [tenant di SolarWinds Service Desk](https://www.samanage.com/pricing/) con il pacchetto Professional.
 * Un account utente in SolarWinds Service Desk con autorizzazioni di amministratore.
+
+> [!Note]
+> I ruoli non devono essere modificati manualmente in Azure Active Directory durante le importazioni di ruolo.
 
 ## <a name="step-1-plan-your-provisioning-deployment"></a>Passaggio 1. Pianificare la distribuzione del provisioning
 1. Acquisire informazioni su [come funziona il servizio di provisioning](../app-provisioning/user-provisioning.md).

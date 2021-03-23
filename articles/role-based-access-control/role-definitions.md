@@ -5,22 +5,18 @@ services: active-directory
 documentationcenter: ''
 author: rolyon
 manager: mtillman
-ms.assetid: ''
 ms.service: role-based-access-control
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 01/18/2021
+ms.date: 03/22/2021
 ms.author: rolyon
-ms.reviewer: bagovind
 ms.custom: ''
-ms.openlocfilehash: f6ae9ff27e773c36626812387b1284d660cbf39d
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 5b2ec3289d187997763ee0d9280a777d4fa1f396
+ms.sourcegitcommit: ba3a4d58a17021a922f763095ddc3cf768b11336
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98602467"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104801758"
 ---
 # <a name="understand-azure-role-definitions"></a>Informazioni sulle definizioni dei ruoli di Azure
 
@@ -63,7 +59,7 @@ La tabella seguente descrive il significato delle proprietà del ruolo.
 | Proprietà | Descrizione |
 | --- | --- |
 | `Name`</br>`roleName` | Nome visualizzato del ruolo. |
-| `Id`</br>`name` | ID univoco del ruolo. |
+| `Id`</br>`name` | ID univoco del ruolo. I ruoli predefiniti hanno lo stesso ID ruolo nei cloud. |
 | `IsCustom`</br>`roleType` | Indica se questo è un ruolo personalizzato. Impostare su `true` o `CustomRole` per i ruoli personalizzati. Impostare su `false` o `BuiltInRole` per i ruoli predefiniti. |
 | `Description`</br>`description` | Descrizione del ruolo. |
 | `Actions`</br>`actions` | Matrice di stringhe che specifica le operazioni di gestione che il ruolo consente di eseguire. |

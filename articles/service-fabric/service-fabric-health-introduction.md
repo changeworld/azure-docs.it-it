@@ -5,12 +5,12 @@ author: georgewallace
 ms.topic: conceptual
 ms.date: 2/28/2018
 ms.author: gwallace
-ms.openlocfilehash: f691eb6433907ed10737329de3edd78547f130f1
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 6c96651fa48acc2f88658148c7e60be2f3fa09da
+ms.sourcegitcommit: ba3a4d58a17021a922f763095ddc3cf768b11336
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "96008277"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104800160"
 ---
 # <a name="introduction-to-service-fabric-health-monitoring"></a>Introduzione al monitoraggio dell'integrità di Service Fabric
 Con Azure Service Fabric è stato introdotto un modello di integrità che offre funzionalità di valutazione e reporting dell'integrità dettagliate, flessibili ed estendibili. Il modello include il monitoraggio quasi in tempo reale dello stato del cluster e dei servizi in esso eseguiti. Questo consente di ottenere facilmente informazioni relative all'integrità e correggere i potenziali problemi prima che si propaghino a catena e causino un numero elevato di interruzioni. Nel modello tipico i servizi inviano report basati sulla situazione locale e le informazioni vengono aggregate per fornire una panoramica generale a livello di cluster.
@@ -79,6 +79,7 @@ Per impostazione predefinita, per la relazione gerarchica padre-figlio Service F
 
 ### <a name="cluster-health-policy"></a>Criteri di integrità del cluster
 I [criteri di integrità del cluster](/dotnet/api/system.fabric.health.clusterhealthpolicy) vengono usati per valutare lo stato di integrità del cluster e dei nodi. e possono essere definiti nel manifesto del cluster. Se non sono definiti, vengono usati i criteri predefiniti, in base ai quali non sono tollerati errori.
+
 I criteri di integrità del cluster includono:
 
 * [ConsiderWarningAsError](/dotnet/api/system.fabric.health.clusterhealthpolicy.considerwarningaserror). Specifica se considerare i report sull'integrità di tipo Warning come errori durante la valutazione dell'integrità. Valore predefinito: false.
@@ -87,18 +88,33 @@ I criteri di integrità del cluster includono:
 * [ApplicationTypeHealthPolicyMap](/dotnet/api/system.fabric.health.clusterhealthpolicy.applicationtypehealthpolicymap). La mappa dei criteri di integrità dei tipi di applicazioni può essere usata durante la valutazione dell'integrità del cluster per descrivere i tipi di applicazioni speciali. Per impostazione predefinita, tutte le applicazioni vengono inserite in un pool e valutate con MaxPercentUnhealthyApplications. I tipi di applicazioni che devono essere trattati in modo diverso possono essere estratti dal pool globale ed essere invece valutati in base alle percentuali associate al nome del tipo di applicazione nella mappa. Ad esempio, in un cluster esistono migliaia di applicazioni di tipi diversi e alcune istanze di applicazioni di controllo di un tipo di applicazione speciale. Le applicazioni di controllo non devono mai riscontrare errori. È possibile specificare l'impostazione globale di MaxPercentUnhealthyApplications al 20% per tollerare alcuni errori, impostando però MaxPercentUnhealthyApplications su 0 per il tipo di applicazione "ControlApplicationType". In questo modo, se alcune delle numerose applicazioni non sono integre, ma si trovano al di sotto della percentuale di non integrità globale, il cluster verrà valutato come Warning. Uno stato di integrità Warning non influisce sull'aggiornamento del cluster o su altri tipi di monitoraggio attivati dallo stato di integrità Error. Tuttavia, anche un'applicazione di controllo in errore renderebbe non integro il cluster, che attiva il rollback o sospende l'aggiornamento del cluster, a seconda della configurazione dell'aggiornamento.
   Per i tipi di applicazioni definiti nella mappa, tutte le istanze delle applicazioni vengono estratte dal pool globale di applicazioni. Vengono valutate in base al numero totale di applicazioni del tipo di applicazione, usando il valore MaxPercentUnhealthyApplications specifico della mappa. Tutte le altre applicazioni rimangono nel pool globale e vengono valutate con MaxPercentUnhealthyApplications.
 
-L'esempio seguente è un estratto del manifesto di un cluster. Per definire le voci nella mappa dei tipi di applicazioni, anteporre "ApplicationTypeMaxPercentUnhealthyApplications-" al nome del parametro, seguito dal nome del tipo di applicazione.
+  L'esempio seguente è un estratto del manifesto di un cluster. Per definire le voci nella mappa dei tipi di applicazioni, anteporre "ApplicationTypeMaxPercentUnhealthyApplications-" al nome del parametro, seguito dal nome del tipo di applicazione.
 
-```xml
-<FabricSettings>
-  <Section Name="HealthManager/ClusterHealthPolicy">
-    <Parameter Name="ConsiderWarningAsError" Value="False" />
-    <Parameter Name="MaxPercentUnhealthyApplications" Value="20" />
-    <Parameter Name="MaxPercentUnhealthyNodes" Value="20" />
-    <Parameter Name="ApplicationTypeMaxPercentUnhealthyApplications-ControlApplicationType" Value="0" />
-  </Section>
-</FabricSettings>
-```
+  ```xml
+  <FabricSettings>
+    <Section Name="HealthManager/ClusterHealthPolicy">
+      <Parameter Name="ConsiderWarningAsError" Value="False" />
+      <Parameter Name="MaxPercentUnhealthyApplications" Value="20" />
+      <Parameter Name="MaxPercentUnhealthyNodes" Value="20" />
+      <Parameter Name="ApplicationTypeMaxPercentUnhealthyApplications-ControlApplicationType" Value="0" />
+    </Section>
+  </FabricSettings>
+  ```
+
+* [NodeTypeHealthPolicyMap](/dotnet/api/system.fabric.health.clusterhealthpolicy.nodetypehealthpolicymap). La mappa dei criteri di integrità del tipo di nodo può essere utilizzata durante la valutazione dell'integrità del cluster per descrivere tipi di nodo speciali. I tipi di nodo vengono valutati in base alle percentuali associate al nome del tipo di nodo nella mappa. L'impostazione di questo valore non ha alcun effetto sul pool globale di nodi utilizzati per `MaxPercentUnhealthyNodes` . Un cluster, ad esempio, dispone di centinaia di nodi di tipi diversi e di alcuni tipi di nodo che ospitano un lavoro importante. Nessun nodo del tipo deve essere inattivo. È possibile specificare globale `MaxPercentUnhealthyNodes` sul 20% per tollerare alcuni errori per tutti i nodi, ma per il tipo `SpecialNodeType` di nodo impostare `MaxPercentUnhealthyNodes` su 0. In questo modo, se alcuni dei molti nodi sono non integri ma al di sotto della percentuale di integrità globale, il cluster viene valutato come nello stato di integrità di avviso. Uno stato di integrità di avviso non influisce sull'aggiornamento del cluster o su un altro monitoraggio attivato da uno stato di errore. Tuttavia, anche un nodo di tipo `SpecialNodeType` in uno stato di integrità degli errori renderebbe il cluster non integro e attiverà il rollback o sospenderà l'aggiornamento del cluster, a seconda della configurazione dell'aggiornamento. Viceversa, impostando il valore globale `MaxPercentUnhealthyNodes` su 0 e impostando la `SpecialNodeType` percentuale massima di nodi non integri su 100 con un nodo di tipo `SpecialNodeType` in uno stato di errore, il cluster viene comunque inserito in uno stato di errore perché la restrizione globale è più restrittiva in questo caso. 
+
+  L'esempio seguente è un estratto del manifesto di un cluster. Per definire le voci nella mappa del tipo di nodo, anteporre il nome del parametro "NodeTypeMaxPercentUnhealthyNodes-", seguito dal nome del tipo di nodo.
+
+  ```xml
+  <FabricSettings>
+    <Section Name="HealthManager/ClusterHealthPolicy">
+      <Parameter Name="ConsiderWarningAsError" Value="False" />
+      <Parameter Name="MaxPercentUnhealthyApplications" Value="20" />
+      <Parameter Name="MaxPercentUnhealthyNodes" Value="20" />
+      <Parameter Name="NodeTypeMaxPercentUnhealthyNodes-SpecialNodeType" Value="0" />
+    </Section>
+  </FabricSettings>
+  ```
 
 ### <a name="application-health-policy"></a>Criteri di integrità dell'applicazione
 I [criteri di integrità delle applicazioni](/dotnet/api/system.fabric.health.applicationhealthpolicy) descrivono come viene eseguita la valutazione dell'aggregazione degli eventi e degli stati degli elementi figlio per le applicazioni e i relativi elementi figlio. Possono essere definiti nel manifesto delle applicazioni, **ApplicationManifest.xml**, nel pacchetto delle applicazioni. Se non vengono specificati criteri, Service Fabric considera l'entità come non integra se presenta un report sull'integrità o un elemento figlio con stato Warning o Error.

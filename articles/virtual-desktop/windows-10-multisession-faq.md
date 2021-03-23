@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 02/19/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: aafac1133b2bee54624d5f0b00061c5332fcd90b
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 5c03d3f9769aec0736d23f18372701e08ad93dac
+ms.sourcegitcommit: ba3a4d58a17021a922f763095ddc3cf768b11336
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102631881"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104802795"
 ---
 # <a name="windows-10-enterprise-multi-session-faq"></a>Domande frequenti su Windows 10 Enterprise multisessione
 
@@ -33,9 +33,13 @@ Windows 10 Enterprise Multisession è un'edizione virtuale di Windows 10 Enterpr
 
 La multisessione Enterprise di Windows 10 non può essere eseguita in ambienti di produzione locali perché è ottimizzata per il servizio desktop virtuale di Windows per Azure. Si tratta di un contratto di licenza per l'esecuzione di più sessioni di Windows 10 Enterprise all'esterno di Azure per scopi di produzione. La multisessione Enterprise di Windows 10 non viene attivata per i servizi di gestione delle chiavi (KMS) locali.
 
+## <a name="can-i-upgrade-a-windows-10-vm-to-windows-10-enterprise-multi-session"></a>È possibile aggiornare una macchina virtuale Windows 10 a più sessioni Enterprise di Windows 10?
+
+No. Attualmente non è possibile aggiornare una macchina virtuale (VM) esistente che esegue Windows 10 Professional o Enterprise a una sessione multisessione Enterprise di Windows 10. Inoltre, se si distribuisce una VM multisessione Enterprise di Windows 10 e quindi si aggiorna il codice Product Key in un'altra edizione, non sarà possibile riportare la macchina virtuale a una multisessione Enterprise di Windows 10 e sarà necessario ridistribuire la macchina virtuale.
+
 ## <a name="how-do-i-customize-the-windows-10-enterprise-multi-session-image-for-my-organization"></a>Ricerca per categorie personalizzare l'immagine di Windows 10 Enterprise multisessione per la mia organizzazione?
 
-È possibile avviare una macchina virtuale (VM) in Azure con Windows 10 Enterprise multisessione e personalizzarla installando applicazioni LOB, Sysprep/generalizzate, quindi creare un'immagine usando il portale di Azure.
+È possibile avviare una macchina virtuale in Azure con Windows 10 Enterprise multisessione Windows 10 e personalizzarla installando applicazioni LOB, Sysprep/generalizzate, quindi creare un'immagine usando il portale di Azure.
 
 Per iniziare, creare una macchina virtuale in Azure con la multisessione Enterprise di Windows 10. Anziché avviare la VM in Azure, è possibile scaricare direttamente il disco rigido virtuale. Successivamente, sarà possibile usare il disco rigido virtuale scaricato per creare una nuova macchina virtuale di prima generazione in un PC Windows 10 con Hyper-V abilitato.
 

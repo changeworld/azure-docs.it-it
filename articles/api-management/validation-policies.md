@@ -8,12 +8,12 @@ ms.service: api-management
 ms.topic: article
 ms.date: 03/12/2021
 ms.author: apimpm
-ms.openlocfilehash: 3f91ca21512b8cddcac7fe71fa3eec07e1a8745a
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
+ms.openlocfilehash: 1a835d26b4c41c92b9849856a2f31b3550947bd8
+ms.sourcegitcommit: ba3a4d58a17021a922f763095ddc3cf768b11336
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "104720084"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104801894"
 ---
 # <a name="api-management-policies-to-validate-requests-and-responses"></a>Criteri di gestione API per convalidare le richieste e le risposte
 
@@ -115,7 +115,7 @@ Questo criterio può essere usato nelle [sezioni](./api-management-howto-policie
 Il `validate-parameters` criterio convalida i parametri di intestazione, query o percorso nelle richieste rispetto allo schema dell'API.
 
 > [!IMPORTANT]
-> Se è stata importata un'API usando una versione dell'API di gestione precedente a `2021-01-01-preview` , il `validate-parameters` criterio potrebbe non funzionare. Potrebbe essere necessario reimportare l'API usando la versione dell'API di gestione `2021-01-01-preview` o versioni successive.
+> Se è stata importata un'API usando una versione dell'API di gestione precedente a `2021-01-01-preview` , il `validate-parameters` criterio potrebbe non funzionare. Potrebbe essere necessario [reimportare l'API usando la versione dell'](/rest/api/apimanagement/2021-01-01-preview/apis/createorupdate) API di gestione `2021-01-01-preview` o versioni successive.
 
 
 ### <a name="policy-statement"></a>Istruzione del criterio
@@ -145,6 +145,7 @@ In questo esempio, tutti i parametri di query e percorso vengono convalidati in 
         <parameter name="User-Agent" action="ignore" />
         <parameter name="Host" action="ignore" />
         <parameter name="Referrer" action="ignore" />
+    </headers>   
 </validate-parameters>
 ```
 
