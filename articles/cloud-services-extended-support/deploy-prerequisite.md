@@ -8,12 +8,12 @@ ms.author: gachandw
 ms.reviewer: mimckitt
 ms.date: 10/13/2020
 ms.custom: ''
-ms.openlocfilehash: 79d6fecddf060909a74664ff29e08301f45d7042
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: d85aad16049dee6496cb1eaf9def5451625ab876
+ms.sourcegitcommit: 2c1b93301174fccea00798df08e08872f53f669c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103472314"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104773471"
 ---
 # <a name="prerequisites-for-deploying-azure-cloud-services-extended-support"></a>Prerequisiti per la distribuzione di servizi cloud di Azure (supporto esteso)
 
@@ -86,6 +86,9 @@ Rimuovere le impostazioni di diagnostica obsolete per ogni ruolo nel file di con
 
 ## <a name="required-service-definition-file-csdef-updates"></a>Aggiornamenti necessari per il file di definizione del servizio (con estensione csdef)
 
+> [!NOTE]
+> Per le modifiche nel file di definizione del servizio (con estensione csdef) è necessario che il file del pacchetto (con estensione cspkg) venga nuovamente generato. Compilare e ricreare il pacchetto. cspkg apportando le modifiche seguenti nel file con estensione csdef per ottenere le impostazioni più recenti per il servizio cloud
+
 ### <a name="1-virtual-machine-sizes"></a>1) dimensioni delle macchine virtuali
 Le dimensioni seguenti sono deprecate in Azure Resource Manager. Tuttavia, se si vuole continuare a usarli, aggiornare il `vmsize` nome con la convenzione di denominazione Azure Resource Manager associata.  
 
@@ -130,7 +133,7 @@ Per le distribuzioni che utilizzano i plug-in di diagnostica obsoleti è necessa
 
 ## <a name="key-vault-creation"></a>Creazione Key Vault 
 
-Key Vault viene utilizzato per archiviare i certificati associati ai servizi cloud (supporto esteso). Aggiungere i certificati a Key Vault, quindi fare riferimento alle identificazioni personali del certificato nel file di configurazione del servizio. È anche necessario abilitare Key Vault per le autorizzazioni appropriate in modo che la risorsa servizi cloud (supporto esteso) possa recuperare il certificato archiviato come segreto da Key Vault. È possibile creare un insieme di credenziali delle chiavi nella [portale di Azure](../key-vault/general/quick-create-portal.md) o tramite [PowerShell](../key-vault/general/quick-create-powershell.md). L'insieme di credenziali delle chiavi deve essere creato nella stessa area e nella stessa sottoscrizione del servizio cloud. Per altre informazioni, vedere [usare i certificati con servizi cloud di Azure (supporto esteso)](certificates-and-key-vault.md).
+Key Vault viene utilizzato per archiviare i certificati associati ai servizi cloud (supporto esteso). Aggiungere i certificati a Key Vault, quindi fare riferimento alle identificazioni personali del certificato nel file di configurazione del servizio. È anche necessario abilitare Key Vault ' criteri di accesso ' (nel portale) per l'accesso a' macchine virtuali di Azure per la distribuzione ' è Azure Resource Manager per la distribuzione del modello ' in modo che la risorsa servizi cloud (supporto esteso) possa recuperare il certificato archiviato come segreto da Key Vault. È possibile creare un insieme di credenziali delle chiavi nella [portale di Azure](../key-vault/general/quick-create-portal.md) o tramite [PowerShell](../key-vault/general/quick-create-powershell.md). L'insieme di credenziali delle chiavi deve essere creato nella stessa area e nella stessa sottoscrizione del servizio cloud. Per altre informazioni, vedere [usare i certificati con servizi cloud di Azure (supporto esteso)](certificates-and-key-vault.md).
 
 ## <a name="next-steps"></a>Passaggi successivi 
 - Esaminare i [prerequisiti di distribuzione](deploy-prerequisite.md) per i servizi cloud (supporto esteso).

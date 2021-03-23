@@ -4,7 +4,7 @@ description: Questo articolo illustra le procedure consigliate da prendere in co
 author: TerryLanfear
 manager: barbkess
 ms.author: terrylan
-ms.date: 06/12/2019
+ms.date: 03/21/2021
 ms.topic: article
 ms.service: security
 ms.subservice: security-develop
@@ -13,15 +13,16 @@ ms.assetid: 521180dc-2cc9-43f1-ae87-2701de7ca6b8
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.openlocfilehash: 52c93bef4529f27ad38677f17209e7b48e997368
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
+ms.openlocfilehash: 8edceb31a0cdde36c987076e91350116a4f81255
+ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102548445"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104782402"
 ---
 # <a name="develop-secure-applications-on-azure"></a>Sviluppare applicazioni sicure in Azure
-In questo articolo vengono presentati i controlli e le attività di sicurezza da prendere in considerazione quando si sviluppano applicazioni per il cloud. Vengono analizzate le domande e i concetti di sicurezza da considerare durante le fasi di implementazione e verifica di Microsoft [Security Development Lifecycle (SDL)](/previous-versions/windows/desktop/cc307891(v=msdn.10)). L'obiettivo è consentire di definire le attività e i servizi di Azure che è possibile usare per sviluppare un'applicazione più protetta.
+
+In questo articolo vengono presentate le attività e i controlli di sicurezza da prendere in considerazione quando si sviluppano applicazioni per il cloud. Vengono analizzate le domande e i concetti di sicurezza da considerare durante le fasi di implementazione e verifica di Microsoft [Security Development Lifecycle (SDL)](/previous-versions/windows/desktop/cc307891(v=msdn.10)). L'obiettivo è consentire di definire le attività e i servizi di Azure che è possibile usare per sviluppare un'applicazione più protetta.
 
 Questo articolo tratta le fasi di SDL seguenti:
 
@@ -29,6 +30,7 @@ Questo articolo tratta le fasi di SDL seguenti:
 - Verifica
 
 ## <a name="implementation"></a>Implementazione
+
 L'obiettivo della fase di implementazione consiste nel definire le procedure consigliate per la prevenzione anticipata e per rilevare e rimuovere i problemi di sicurezza dal codice.
 Si supponga che l'applicazione verrà usata in modi in cui non era previsto usarla. Ciò consente di evitare un uso improprio accidentale o intenzionale dell'applicazione.
 
@@ -89,11 +91,11 @@ Ciò significa che un minor numero di utenti ha accesso ai dati reali, riducendo
 
 Per proteggersi da attacchi di forza bruta e attacchi a dizionario è necessario implementare criteri password complessi, per fare in modo che gli utenti creino password complesse, ad esempio con una lunghezza minima di 12 caratteri o con caratteri speciali e alfanumerici.
 
-È possibile usare un framework di identità per creare e applicare i criteri password. Azure AD B2C facilita la gestione delle password fornendo [criteri predefiniti](../../active-directory-b2c/tutorial-create-user-flows.md#create-a-password-reset-user-flow), la [reimpostazione della password self-service](../../active-directory-b2c/user-flow-self-service-password-reset.md) e altro ancora.
+Azure Active Directory B2C facilita la gestione delle password, fornendo la reimpostazione della password [self-service](../../active-directory-b2c/add-password-reset-policy.md), [forzando la reimpostazione della password](../../active-directory-b2c/force-password-reset.md)e altro ancora.
 
 Per difendersi da attacchi ad account predefiniti, verificare che tutte le chiavi e le password siano sostituibili e che vengano generate o sostituite dopo la fase di installazione.
 
-Se l'applicazione deve generare automaticamente le password, assicurarsi che le password generate siano casuali e abbiano un'entropia elevata.
+Se l'applicazione deve generare automaticamente le password, verificare che le password generate siano casuali e che abbiano un'entropia elevata.
 
 ### <a name="validate-file-uploads"></a>Convalidare caricamenti di file
 
@@ -108,6 +110,7 @@ Se l'applicazione consente il [caricamento dei file](https://owasp.org/www-commu
 Non memorizzare nella cache contenuto sensibile del browser. I browser possono archiviare informazioni per la memorizzazione nella cache e la cronologia. Questi file memorizzati nella cache vengono archiviati in una cartella, come la cartella Temporary Internet Files, nel caso di Internet Explorer. Quando queste pagine vengono visitate di nuovo, il browser le visualizza dalla cache. Se vengono visualizzate informazioni riservate, come l'indirizzo, i dati della carta di credito e il codice fiscale dell'utente o il nome utente, tali informazioni possono essere memorizzate nella cache del browser e quindi recuperate esaminando la cache del browser o semplicemente premendo il pulsante **Indietro** del browser.
 
 ## <a name="verification"></a>Verifica
+
 La fase di verifica prevede un impegno completo per garantire che il codice soddisfi i principi di sicurezza e privacy stabiliti nelle fasi precedenti.
 
 ### <a name="find-and-fix-vulnerabilities-in-your-application-dependencies"></a>Trovare e correggere le vulnerabilità nelle dipendenze dell'applicazione
@@ -151,6 +154,7 @@ Verificare che l'applicazione sia protetta è importante come testare qualsiasi 
 [Secure DevOps Kit per Azure](https://azsk.azurewebsites.net/index.html) (AzSK) contiene test di verifica della sicurezza (SVT) per più servizi della piattaforma Azure. Questi SVT vengono eseguiti periodicamente, per assicurarsi che la sottoscrizione di Azure e le diverse risorse che costituiscono l'applicazione siano in uno stato sicuro. È anche possibile automatizzare questi test usando la funzionalità di integrazione continua/distribuzione continua (CI/CD) di AzSK, che rende disponibili gli SVT come estensione di Visual Studio.
 
 ## <a name="next-steps"></a>Passaggi successivi
+
 Negli articoli seguenti si consigliano controlli di sicurezza e attività che consentono di progettare e distribuire applicazioni sicure.
 
 - [Progettare applicazioni sicure](secure-design.md)

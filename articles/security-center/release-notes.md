@@ -5,14 +5,14 @@ author: memildin
 manager: rkarlin
 ms.service: security-center
 ms.topic: reference
-ms.date: 03/11/2021
+ms.date: 03/22/2021
 ms.author: memildin
-ms.openlocfilehash: 4f2b31a4760a07779eebdd9492731ffe7e324d37
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: f6ec14c577d1203b92085b791f89e4873a97c41a
+ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103149639"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104786092"
 ---
 # <a name="whats-new-in-azure-security-center"></a>Novità del Centro sicurezza di Azure
 
@@ -26,7 +26,6 @@ Per informazioni sulle modifiche *pianificate* che saranno presto disponibili ne
 > Se si cercano informazioni precedenti agli ultimi sei mesi, è possibile trovarle in [Archive for What's new in Azure Security Center](release-notes-archive.md) (Archivio per le novità nel Centro sicurezza di Azure).
 
 
-
 ## <a name="march-2021"></a>Marzo 2021
 
 Gli aggiornamenti di marzo includono:
@@ -38,6 +37,7 @@ Gli aggiornamenti di marzo includono:
 - [I dati delle raccomandazioni possono essere visualizzati in Azure Resource Graph con "Esplora in ARG"](#recommendation-data-can-be-viewed-in-azure-resource-graph-with-explore-in-arg)
 - [Aggiornamenti ai criteri per la distribuzione dell'automazione dei flussi di lavoro](#updates-to-the-policies-for-deploying-workflow-automation)
 - [Due consigli legacy non scrivono più dati direttamente nel log attività di Azure](#two-legacy-recommendations-no-longer-write-data-directly-to-azure-activity-log)
+- [Miglioramenti della pagina raccomandazioni](#recommendations-page-enhancements)
 
 
 ### <a name="azure-firewall-management-integrated-into-security-center"></a>Gestione del firewall di Azure integrata nel centro sicurezza
@@ -140,6 +140,22 @@ Le due raccomandazioni legacy sono:
 
 Se è stato effettuato l'accesso alle informazioni per questi due consigli nella categoria "raccomandazione di tipo TaskDiscovery" del log attività, questo non è più disponibile.
 
+
+### <a name="recommendations-page-enhancements"></a>Miglioramenti della pagina raccomandazioni 
+
+È stata rilasciata una versione migliorata dell'elenco di raccomandazioni per presentare più informazioni a colpo d'occhio.
+
+A questo punto, nella pagina verrà visualizzato:
+
+1. Punteggio massimo e punteggio corrente per ogni controllo di sicurezza.
+1. Icone che sostituiscono tag come la **correzione rapida** e l' **Anteprima**.
+1. Una nuova colonna che mostra l'iniziativa relativa ai [criteri](security-policy-concept.md) relativa a ogni raccomandazione, visibile quando "Group by Controls" è disabilitata.
+
+:::image type="content" source="media/release-notes/recommendations-grid-enhancements.png" alt-text="Miglioramenti alla pagina delle raccomandazioni del Centro sicurezza di Azure-2021 marzo" lightbox="media/release-notes/recommendations-grid-enhancements.png":::
+
+:::image type="content" source="media/release-notes/recommendations-grid-enhancements-initiatives.png" alt-text="Miglioramenti apportati all'elenco &quot;flat&quot; del Centro sicurezza di Azure-2021 marzo" lightbox="media/release-notes/recommendations-grid-enhancements-initiatives.png":::
+
+Per altre informazioni, vedere [Raccomandazioni di sicurezza nel Centro sicurezza di Azure](security-center-recommendations.md).
 
 
 ## <a name="february-2021"></a>2021 febbraio

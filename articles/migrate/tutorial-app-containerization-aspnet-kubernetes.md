@@ -7,12 +7,12 @@ manager: bsiva
 ms.topic: tutorial
 ms.date: 3/2/2021
 ms.author: rahugup
-ms.openlocfilehash: 7c9b4032346e61eb3bfd21c0c4067e2364bc28af
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: ffc97984a335b72a3aa8c8d8cca65a3fddf7af38
+ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104670841"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104780736"
 ---
 # <a name="containerize-aspnet-applications-and-migrate-to-azure-kubernetes-service"></a>Distribuire ASP.NET Applications e migrate to Azure Kubernetes Service
 
@@ -59,7 +59,7 @@ Prima di iniziare questa esercitazione, è necessario:
 
 **Requisito** | **Dettagli**
 --- | ---
-**Identificare un computer per installare lo strumento** | Un computer Windows per installare ed eseguire lo strumento di Azure Migrate: app container. Il computer Windows potrebbe essere un sistema operativo server (Windows Server 2016 o versione successiva) o client (Windows 10), ovvero lo strumento può essere eseguito anche sul desktop. <br/><br/> Il computer Windows che esegue lo strumento deve disporre della connettività di rete per i server o le macchine virtuali che ospitano le applicazioni ASP.NET da includere nel contenitore.<br/><br/> Verificare che nel computer Windows in cui è in esecuzione lo strumento di Azure Migrate: app container per archiviare gli elementi dell'applicazione siano disponibili 6 GB di spazio. <br/><br/> Il computer Windows deve disporre di accesso a Internet, direttamente o tramite un proxy. <br/> <br/>Installare lo strumento Microsoft Distribuzione Web nel computer che esegue lo strumento di supporto per la gestione dei contenitori delle app e il server applicazioni, se non è già installato. È possibile scaricare lo strumento da [qui](https://aka.ms/webdeploy3.6)
+**Identificare un computer per installare lo strumento** | Un computer Windows per installare ed eseguire lo strumento di Azure Migrate: app container. Il computer Windows potrebbe essere un sistema operativo server (Windows Server 2016 o versione successiva) o client (Windows 10), ovvero lo strumento può essere eseguito anche sul desktop. <br/><br/> Il computer Windows che esegue lo strumento deve disporre della connettività di rete per i server o le macchine virtuali che ospitano le applicazioni ASP.NET di cui eseguire la containerizzazione.<br/><br/> Verificare che nel computer Windows in cui è in esecuzione lo strumento di Azure Migrate: app container per archiviare gli elementi dell'applicazione siano disponibili 6 GB di spazio. <br/><br/> Il computer Windows deve disporre di accesso a Internet, diretto o tramite un proxy. <br/> <br/>Installare lo strumento Microsoft Distribuzione Web nel computer che esegue lo strumento di supporto per la gestione dei contenitori delle app e il server applicazioni, se non è già installato. È possibile scaricare lo strumento da [qui](https://aka.ms/webdeploy3.6)
 **Server applicazioni** | Abilitare la comunicazione remota di PowerShell nei server applicazioni: accedere al server applicazioni e seguire [queste](https://docs.microsoft.com/powershell/module/microsoft.powershell.core/enable-psremoting) istruzioni per attivare la comunicazione remota di PowerShell. <br/><br/> Se il server applicazioni esegue Windows Server 2008 R2, assicurarsi che PowerShell 5,1 sia installato nel server applicazioni. Seguire le istruzioni riportate [qui](https://docs.microsoft.com/powershell/scripting/windows-powershell/wmf/setup/install-configure) per scaricare e installare PowerShell 5,1 nel server applicazioni. <br/><br/> Installare lo strumento Microsoft Distribuzione Web nel computer che esegue lo strumento di supporto per la gestione dei contenitori delle app e il server applicazioni, se non è già installato. È possibile scaricare lo strumento da [qui](https://aka.ms/webdeploy3.6)
 **Applicazione ASP.NET** | Lo strumento attualmente supporta <br/><br/> -ASP.NET applicazioni che usano Microsoft .NET Framework 3,5 o versione successiva.<br/> -Server applicazioni che eseguono Windows Server 2008 R2 o versione successiva (i server applicazioni devono eseguire PowerShell versione 5,1). <br/> -Applicazioni in esecuzione in Internet Information Services (IIS) 7,5 o versione successiva. <br/><br/> Lo strumento non supporta attualmente <br/><br/> -Applicazioni che richiedono l'autenticazione di Windows (AKS non supporta attualmente gMSA). <br/> -Applicazioni che dipendono da altri servizi di Windows ospitati all'esterno di IIS.
 
@@ -105,7 +105,7 @@ Se è appena stato creato un account Azure gratuito, si è proprietari della pro
 3. Eseguire lo script di installazione usando il comando
 
    ```powershell
-   .\App ContainerizationInstaller.ps1
+   .\AppContainerizationInstaller.ps1
    ```
 
 ## <a name="launch-the-app-containerization-tool"></a>Avviare lo strumento di contenitori di app

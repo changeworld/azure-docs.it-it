@@ -6,16 +6,16 @@ ms.author: rajosh
 ms.manager: abhemraj
 ms.topic: how-to
 ms.date: 01/19/2020
-ms.openlocfilehash: 45954a42613fb1716e3b66305c0485a3966b8e37
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 232475c50ab56fe6fb7a39a3497a8de3947fe851
+ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "96753689"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104780311"
 ---
 # <a name="assess-large-numbers-of-physical-servers-for-migration-to-azure"></a>Valutare un numero elevato di server fisici per la migrazione ad Azure
 
-Questo articolo descrive come valutare un numero elevato di server fisici locali per la migrazione ad Azure, usando lo strumento di valutazione di Azure Migrate server.
+Questo articolo descrive come valutare un numero elevato di server fisici locali per la migrazione ad Azure, usando lo strumento di individuazione e valutazione Azure Migrate.
 
 [Azure Migrate](migrate-services-overview.md) offre un hub di strumenti che consentono di individuare, valutare ed eseguire la migrazione di app, infrastruttura e carichi di lavoro a Microsoft Azure. L'hub include gli strumenti di Azure Migrate e offerte di fornitori di software indipendenti (ISV) di terze parti. 
 
@@ -36,7 +36,7 @@ In questo articolo vengono illustrate le operazioni seguenti:
 Quando si pianifica la valutazione di un numero elevato di server fisici, è necessario considerare alcuni aspetti:
 
 - **Pianificare Azure migrate progetti**: scoprire come distribuire progetti di Azure migrate. Se, ad esempio, i Data Center si trovano in aree geografiche diverse oppure è necessario archiviare i metadati relativi a individuazione, valutazione o migrazione in un'altra area geografica, potrebbero essere necessari più progetti.
-- **Dispositivi del piano**: Azure migrate usa un'appliance Azure migrate locale, distribuita in un computer Windows, per individuare continuamente i server per la valutazione e la migrazione. Il dispositivo monitora le modifiche apportate all'ambiente, ad esempio l'aggiunta di VM, dischi o schede di rete. Invia inoltre i metadati e i dati sulle prestazioni relativi ad Azure. È necessario determinare il numero di Appliance da distribuire.
+- **Dispositivi del piano**: Azure migrate usa un'appliance Azure migrate locale, distribuita in un server Windows, per individuare continuamente i server per la valutazione e la migrazione. Il dispositivo monitora le modifiche apportate all'ambiente, ad esempio l'aggiunta di server, dischi o schede di rete. Invia inoltre i metadati e i dati sulle prestazioni relativi ad Azure. È necessario determinare il numero di Appliance da distribuire.
 
 
 ## <a name="planning-limits"></a>Limiti di pianificazione
@@ -57,7 +57,7 @@ Usare i limiti riepilogati in questa tabella per la pianificazione.
 
 ## <a name="prepare-for-assessment"></a>Preparare la valutazione
 
-Preparare i server fisici e di Azure per la valutazione del server. 
+Preparare i server fisici e di Azure per lo strumento di individuazione e valutazione:  
 
 1. Verificare i [requisiti e le limitazioni del supporto per i server fisici](migrate-support-matrix-physical.md).
 2. Configurare le autorizzazioni per l'account di Azure per interagire con Azure Migrate.
@@ -70,7 +70,7 @@ Per configurare queste impostazioni, seguire le istruzioni riportate in [questa 
 In conformità ai requisiti di pianificazione, eseguire le operazioni seguenti:
 
 1. Creare un progetto di Azure Migrate.
-2. Aggiungere lo strumento Azure Migrate server assessment ai progetti.
+2. Aggiungere lo strumento di individuazione e valutazione Azure Migrate ai progetti.
 
 [Scopri di più](./create-manage-projects.md)
 

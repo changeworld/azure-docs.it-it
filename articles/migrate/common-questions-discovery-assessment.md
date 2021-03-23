@@ -1,17 +1,17 @@
 ---
 title: Domande sull'individuazione, la valutazione e l'analisi delle dipendenze in Azure Migrate
 description: Risposte alle domande più comuni sull'individuazione, la valutazione e l'analisi delle dipendenze in Azure Migrate.
-author: vineetvikram
-ms.author: vivikram
+author: rashijoshi
+ms.author: rajosh
 ms.manager: abhemraj
 ms.topic: conceptual
 ms.date: 06/09/2020
-ms.openlocfilehash: 6c4dfed27a105fad951ae12ca053b6d86772717a
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: f9fe4109d2b21f7c44ba340db53dc24311652441
+ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102032569"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104782351"
 ---
 # <a name="discovery-assessment-and-dependency-analysis---common-questions"></a>Individuazione, valutazione e analisi delle dipendenze-domande comuni
 
@@ -28,18 +28,15 @@ Questo articolo risponde alle domande più comuni sull'individuazione, la valuta
 Esaminare le aree geografiche supportate per i cloud [pubblico](migrate-support-matrix.md#supported-geographies-public-cloud) e per [enti pubblici](migrate-support-matrix.md#supported-geographies-azure-government).
 
 
-## <a name="how-many-vms-can-i-discover-with-an-appliance"></a>Quante VM è possibile individuare con un'appliance?
+## <a name="how-many-servers-can-i-discover-with-an-appliance"></a>Quanti server è possibile individuare con un'appliance?
 
-È possibile individuare fino a 10.000 VM VMware, fino a 5.000 macchine virtuali Hyper-V e fino a 1000 server fisici usando una singola appliance. Se sono presenti più computer, vedere la pagina relativa alla [scalabilità di una valutazione di Hyper-V](scale-hyper-v-assessment.md), alla [scalabilità di una valutazione VMware](scale-vmware-assessment.md)o alla [scalabilità di una valutazione del server fisico](scale-physical-assessment.md)
+È possibile individuare fino a 10.000 server dall'ambiente VMware, fino a 5.000 server dall'ambiente Hyper-V e fino a 1000 server fisici utilizzando una singola appliance. Se sono presenti più server, vedere la pagina relativa alla [scalabilità di una valutazione di Hyper-V](scale-hyper-v-assessment.md), alla [scalabilità di una valutazione VMware](scale-vmware-assessment.md)o alla [scalabilità di una valutazione del server fisico](scale-physical-assessment.md)
 
 ## <a name="how-do-i-choose-the-assessment-type"></a>Come è possibile scegliere il tipo di valutazione?
 
-- Usare **le valutazioni delle VM di Azure** per valutare le macchine [virtuali VMware](how-to-set-up-appliance-vmware.md)locali, le [VM Hyper-V](how-to-set-up-appliance-hyper-v.md)e i [server fisici](how-to-set-up-appliance-physical.md) per la migrazione alle macchine virtuali di Azure. [Altre informazioni](concepts-assessment-calculation.md)
+- Usare le **valutazioni delle VM di Azure** per valutare i server dell'ambiente [VMware](how-to-set-up-appliance-vmware.md) e [Hyper-V](how-to-set-up-appliance-hyper-v.md) locale e i [server fisici](how-to-set-up-appliance-physical.md) per la migrazione alle macchine virtuali di Azure. [Altre informazioni](concepts-assessment-calculation.md)
 
 - Usare il tipo di valutazione **Azure SQL** quando si vuole valutare la SQL Server locale dall'ambiente VMware per la migrazione al database SQL di Azure o al istanza gestita SQL di Azure. [Altre informazioni](concepts-assessment-calculation.md)
-
-    > [!Note]
-    > L'individuazione e la valutazione di SQL Server istanze e database in esecuzione nell'ambiente VMware sono ora in anteprima. Per provare questa funzionalità, usare [**questo collegamento**](https://aka.ms/AzureMigrate/SQL) per creare un progetto nell'area **Australia orientale**. Se si dispone già di un progetto nell'Australia orientale e si vuole provare questa funzionalità, assicurarsi di aver completato questi [**prerequisiti**](how-to-discover-sql-existing-project.md) nel portale.
 
 - Usare le valutazioni della **soluzione VMware di Azure (AVS)** quando si vuole valutare le [macchine virtuali VMware](how-to-set-up-appliance-vmware.md) locali per la migrazione ad [Azure VMware Solution (AVS)](../azure-vmware/introduction.md) con questo tipo di valutazione. [Scopri di più](concepts-azure-vmware-solution-assessment-calculation.md)
 
@@ -48,10 +45,10 @@ Esaminare le aree geografiche supportate per i cloud [pubblico](migrate-support-
 
 ## <a name="why-is-performance-data-missing-for-someall-servers-in-my-azure-vm-andor-avs-assessment-report"></a>Perché mancano i dati sulle prestazioni per alcuni/tutti i server nella macchina virtuale di Azure e/o nel report di valutazione AVS?
 
-Per una valutazione basata sulle prestazioni, l'esportazione del report di valutazione dice "PercentageOfCoresUtilizedMissing" o "PercentageOfMemoryUtilizedMissing" quando l'appliance di Azure Migrate non riesce a raccogliere i dati sulle prestazioni per le macchine virtuali locali. Verificare:
+Per la valutazione "basata sulle prestazioni", l'esportazione del report di valutazione dice ' PercentageOfCoresUtilizedMissing ' o ' PercentageOfMemoryUtilizedMissing ' quando l'appliance Azure Migrate non è in grado di raccogliere i dati sulle prestazioni per i server locali. Verificare:
 
-- se le macchine virtuali sono accese per il periodo di tempo per cui si sta creando la valutazione
-- Se mancano solo i contatori di memoria e si sta provando a valutare le VM Hyper-V. In questo scenario, abilitare la memoria dinamica sulle VM è Ricalcola ' la valutazione in modo da riflettere le ultime modifiche. L'appliance può raccogliere i valori di utilizzo della memoria per le macchine virtuali Hyper-V solo quando la macchina virtuale dispone di memoria dinamica abilitata.
+- Se i server sono accesi per la durata per la quale si sta creando la valutazione
+- Se mancano solo i contatori di memoria e si sta tentando di valutare i server nell'ambiente Hyper-V. In questo scenario, abilitare la memoria dinamica nei server è Ricalcola ' la valutazione in modo da riflettere le modifiche più recenti. L'appliance può raccogliere i valori di utilizzo della memoria per l'ambiente Hyper-V solo quando nel server è abilitata la memoria dinamica.
 
 - Se tutti i contatori delle prestazioni risultano mancanti, assicurarsi che le connessioni in uscita sulle porte 443 (HTTPS) siano consentite.
 
@@ -89,11 +86,6 @@ La classificazione di attendibilità viene calcolata per le valutazioni basate s
 
 - Per le valutazioni di Azure SQL, alcuni database o istanze di SQL sono stati creati dopo l'avvio dell'individuazione. Se, ad esempio, si sta creando una valutazione per la cronologia delle prestazioni dell'ultimo mese, ma nell'ambiente sono state create alcune istanze o database SQL solo una settimana fa. In questo caso, i dati sulle prestazioni per i nuovi server non saranno disponibili per l'intera durata e la classificazione di attendibilità sarà bassa. [Scopri di più](./concepts-azure-sql-assessment-calculation.md#confidence-ratings)
 
-## <a name="i-want-to-try-out-the-new-azure-sql-assessment-feature-in-azure-migrate"></a>Si desidera provare la nuova funzionalità di valutazione di Azure SQL in Azure Migrate
-Per provare questa funzionalità, usare [questo collegamento](https://go.microsoft.com/fwlink/?linkid=2155668L) per creare un progetto nell'area **Australia orientale**.
-- Per iniziare, fare riferimento alle esercitazioni su [individuazione](https://docs.microsoft.com/azure/migrate/tutorial-discover-vmware) e [valutazione](https://docs.microsoft.com/azure/migrate/tutorial-assess-sql).
-- Si noti che l'individuazione e la valutazione delle istanze di SQL Server e dei database in esecuzione nell'ambiente VMware sono attualmente in anteprima.
-
 ## <a name="i-cant-see-some-servers-when-i-am-creating-an-azure-sql-assessment"></a>Durante la creazione di una valutazione di Azure SQL, non è possibile visualizzare alcuni server
 
 - La valutazione di Azure SQL può essere eseguita solo in server in esecuzione in cui sono state individuate istanze di SQL. Se non vengono visualizzati i server e le istanze di SQL che si desidera valutare, attendere qualche minuto prima che l'individuazione venga completata e quindi creare la valutazione. 
@@ -117,7 +109,7 @@ Il rilevamento SQL viene eseguito una volta ogni 24 ore e potrebbe essere necess
 ## <a name="my-assessment-is-in-outdated-state"></a>Lo stato della valutazione è Obsoleto
 
 ### <a name="azure-vmavs-assessment"></a>Valutazione della macchina virtuale di Azure/AVS
-Se sono presenti modifiche locali alle macchine virtuali che si trovano in un gruppo valutato, la valutazione viene contrassegnata come obsoleta. Una valutazione può essere contrassegnata come "obsoleta" a causa di una o più modifiche nelle proprietà seguenti:
+Se sono presenti modifiche locali ai server che fanno parte di un gruppo che è stato valutato, la valutazione viene contrassegnata come obsoleta. Una valutazione può essere contrassegnata come "obsoleta" a causa di una o più modifiche nelle proprietà seguenti:
 - Numero di core del processore
 - Memoria allocata
 - Tipo di avvio o firmware
@@ -166,18 +158,18 @@ Per il Istanza gestita SQL di Azure, non è stato aggiunto alcun costo di archiv
 - La valutazione della soluzione Azure VMware può essere eseguita su gruppi che hanno solo computer VMware. Se si intende eseguire una valutazione della soluzione Azure VMware, rimuovere dal gruppo eventuali computer non VMware.
 - Se si eseguono per la prima volta le valutazioni della soluzione Azure VMware in Azure Migrate, è consigliabile creare un nuovo gruppo di computer VMware.
 
-## <a name="i-cant-see-some-vm-types-in-azure-government"></a>Non è possibile visualizzare alcuni tipi di VM in Azure per enti pubblici
+## <a name="i-cant-see-some-vm-types-and-sizes-in-azure-government"></a>Non è possibile visualizzare alcuni tipi di VM e dimensioni in Azure per enti pubblici
 
-I tipi di VM supportati per la valutazione e la migrazione dipendono dalla disponibilità nella località di Azure per enti pubblici. È possibile [esaminare e confrontare](https://azure.microsoft.com/global-infrastructure/services/?regions=usgov-non-regional,us-dod-central,us-dod-east,usgov-arizona,usgov-iowa,usgov-texas,usgov-virginia&products=virtual-machines) i tipi di VM in Azure per enti pubblici.
+I tipi e le dimensioni delle macchine virtuali supportate per la valutazione e la migrazione dipendono dalla disponibilità in Azure Government location. È possibile [esaminare e confrontare](https://azure.microsoft.com/global-infrastructure/services/?regions=usgov-non-regional,us-dod-central,us-dod-east,usgov-arizona,usgov-iowa,usgov-texas,usgov-virginia&products=virtual-machines) i tipi di VM in Azure per enti pubblici.
 
-## <a name="the-size-of-my-vm-changed-can-i-run-an-assessment-again"></a>La dimensione della macchina virtuale è cambiata. È possibile eseguire nuovamente una valutazione?
+## <a name="the-size-of-my-server-changed-can-i-run-an-assessment-again"></a>La dimensione del server è cambiata. È possibile eseguire nuovamente una valutazione?
 
-L'appliance Azure Migrate raccoglie continuamente informazioni sull'ambiente locale.  Una valutazione è uno snapshot temporizzato delle macchine virtuali locali. Se si modificano le impostazioni in una macchina virtuale che si desidera valutare, utilizzare l'opzione Ricalcola per aggiornare la valutazione con le modifiche più recenti.
+L'appliance Azure Migrate raccoglie continuamente informazioni sull'ambiente locale.  Una valutazione è uno snapshot temporizzato dei server locali. Se si modificano le impostazioni in un server che si desidera valutare, utilizzare l'opzione Ricalcola per aggiornare la valutazione con le modifiche più recenti.
 
-## <a name="how-do-i-discover-vms-in-a-multitenant-environment"></a>Ricerca per categorie individuare le macchine virtuali in un ambiente multi-tenant?
+## <a name="how-do-i-discover-servers-in-a-multitenant-environment"></a>Ricerca per categorie individuare i server in un ambiente multi-tenant?
 
-- **VMware**: se un ambiente viene condiviso tra i tenant e non si vuole individuare le macchine virtuali di un tenant nella sottoscrizione di un altro tenant, creare server VMware vCenter credenziali che possono accedere solo alle macchine virtuali che si desidera individuare. Quindi, usare queste credenziali quando si avvia l'individuazione nell'appliance Azure Migrate.
-- **Hyper-v**: l'individuazione usa le credenziali dell'host Hyper-v. Se le VM condividono lo stesso host Hyper-V, attualmente non è possibile separare l'individuazione.  
+- **VMware**: se un ambiente viene condiviso tra i tenant e non si vuole individuare i server di un tenant nella sottoscrizione di un altro tenant, creare server VMware vCenter credenziali che possono accedere solo ai server che si desidera individuare. Quindi, usare queste credenziali quando si avvia l'individuazione nell'appliance Azure Migrate.
+- **Hyper-v**: l'individuazione usa le credenziali dell'host Hyper-v. Se i server condividono lo stesso host Hyper-V, attualmente non è possibile separare l'individuazione.  
 
 ## <a name="do-i-need-vcenter-server"></a>È necessario server vCenter?
 
@@ -185,9 +177,9 @@ Sì, Azure Migrate richiede server vCenter in un ambiente VMware per eseguire l'
 
 ## <a name="what-are-the-sizing-options-in-an-azure-vm-assessment"></a>Quali sono le opzioni di ridimensionamento in una valutazione delle VM di Azure?
 
-Con il ridimensionamento locale, Azure Migrate non considera i dati sulle prestazioni della macchina virtuale per la valutazione. Azure Migrate valuta le dimensioni delle macchine virtuali in base alla configurazione locale. Con il dimensionamento basato sulle prestazioni, il dimensionamento è basato sui dati di utilizzo.
+Con il ridimensionamento locale, Azure Migrate non considera i dati sulle prestazioni del server per la valutazione. Azure Migrate valuta le dimensioni delle macchine virtuali in base alla configurazione locale. Con il dimensionamento basato sulle prestazioni, il dimensionamento è basato sui dati di utilizzo.
 
-Ad esempio, se una macchina virtuale locale ha quattro core e 8 GB di memoria al 50% di utilizzo della CPU e il 50% di memoria:
+Ad esempio, se un server locale ha quattro core e 8 GB di memoria al 50% di utilizzo della CPU e il 50% di memoria:
 - Il dimensionamento locale consiglierà uno SKU di VM di Azure con quattro core e 8 GB di memoria.
 - Il dimensionamento basato sulle prestazioni consiglierà uno SKU di VM con due core e 4 GB di memoria perché la percentuale di utilizzo è considerata.
 
@@ -230,7 +222,7 @@ Per i computer importati tramite un file CSV, lo strumento di migrazione predefi
 
 ## <a name="what-is-dependency-visualization"></a>Informazioni sulla visualizzazione delle dipendenze
 
-La visualizzazione delle dipendenze consente di valutare i gruppi di macchine virtuali per la migrazione con maggiore sicurezza. La visualizzazione delle dipendenze controlla le dipendenze tra computer prima di eseguire una valutazione. Consente di evitare interruzioni impreviste quando si esegue la migrazione ad Azure. Azure Migrate usa la soluzione Mapping dei servizi in Monitoraggio di Azure per abilitare la visualizzazione delle dipendenze. [Altre informazioni](concepts-dependency-visualization.md)
+La visualizzazione delle dipendenze può essere utile per valutare i gruppi di server di cui eseguire la migrazione con maggiore sicurezza. La visualizzazione delle dipendenze controlla le dipendenze tra computer prima di eseguire una valutazione. Consente di evitare interruzioni impreviste quando si esegue la migrazione ad Azure. Azure Migrate usa la soluzione Mapping dei servizi in Monitoraggio di Azure per abilitare la visualizzazione delle dipendenze. [Altre informazioni](concepts-dependency-visualization.md)
 
 > [!NOTE]
 > L'analisi delle dipendenze basata su agente non è disponibile in Azure per enti pubblici. È possibile usare l'analisi delle dipendenze senza agenti
@@ -241,7 +233,7 @@ Le differenze tra la visualizzazione senza agente e la visualizzazione basata su
 
 **Requisito** | **Senza agente** | **Basata su agenti**
 --- | --- | ---
-Supporto | Questa opzione è attualmente in anteprima ed è disponibile solo per le macchine virtuali VMware. [Esaminare](migrate-support-matrix-vmware.md#dependency-analysis-requirements-agentless) i sistemi operativi supportati. | In disponibilità generale (GA).
+Supporto | Questa opzione è attualmente in anteprima ed è disponibile solo per i server nell'ambiente VMware. [Esaminare](migrate-support-matrix-vmware.md#dependency-analysis-requirements-agentless) i sistemi operativi supportati. | In disponibilità generale (GA).
 Agente | Non è necessario installare gli agenti nei computer che si vuole controllare in modo incrociato. | Agenti da installare in ogni computer locale che si vuole analizzare: [Microsoft Monitoring Agent (MMA)](../azure-monitor/agents/agent-windows.md)e [Dependency Agent](../azure-monitor/agents/agents-overview.md#dependency-agent). 
 Prerequisiti | [Esaminare](concepts-dependency-visualization.md#agentless-analysis) i prerequisiti e i requisiti di distribuzione. | [Esaminare](concepts-dependency-visualization.md#agent-based-analysis) i prerequisiti e i requisiti di distribuzione.
 Log Analytics | Non obbligatorio. | Azure Migrate usa la soluzione [Mapping dei servizi](../azure-monitor/vm/service-map.md) in [Log di Monitoraggio di Azure](../azure-monitor/logs/log-query-overview.md) per la visualizzazione delle dipendenze. [Altre informazioni](concepts-dependency-visualization.md#agent-based-analysis)
@@ -296,9 +288,9 @@ Per la visualizzazione basata su agenti, è possibile visualizzare le dipendenze
 
 Per la visualizzazione senza agenti, è possibile visualizzare la mappa delle dipendenze di un singolo server da una durata compresa tra un'ora e 30 giorni.
 
-## <a name="can-i-visualize-dependencies-for-groups-of-more-than-10-vms"></a>È possibile visualizzare le dipendenze per gruppi di più di 10 VM?
+## <a name="can-i-visualize-dependencies-for-groups-of-more-than-10-servers"></a>È possibile visualizzare le dipendenze per gruppi di più di 10 server?
 
-È possibile [visualizzare le dipendenze](./how-to-create-a-group.md#refine-a-group-with-dependency-mapping) per i gruppi che dispongono di un massimo di 10 macchine virtuali. Se si dispone di un gruppo con più di 10 macchine virtuali, è consigliabile suddividere il gruppo in gruppi più piccoli, quindi visualizzare le dipendenze.
+È possibile [visualizzare le dipendenze](./how-to-create-a-group.md#refine-a-group-with-dependency-mapping) per i gruppi che dispongono di un massimo di 10 server. Se si dispone di un gruppo con più di 10 server, è consigliabile suddividere il gruppo in gruppi più piccoli, quindi visualizzare le dipendenze.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

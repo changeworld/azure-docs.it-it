@@ -11,18 +11,22 @@ ms.topic: conceptual
 ms.date: 03/18/2021
 ms.author: oliversc
 ms.custom: seodec18
-ms.openlocfilehash: 8f3e8d72db6679a766991160c303948557719bb9
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 1bd91ca63034f77553abb00f4fbf05431a45bd55
+ms.sourcegitcommit: 2c1b93301174fccea00798df08e08872f53f669c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104657740"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104773386"
 ---
 # <a name="speech-service-release-notes"></a>Note sulla versione del Servizio di riconoscimento vocale
 
 ## <a name="speech-sdk-1160-2021-march-release"></a>Speech SDK 1.16.0:2021-versione di marzo
 
 **Nota**: l'SDK di riconoscimento vocale in Windows dipende dal Microsoft Visual C++ ridistribuibile condiviso per Visual Studio 2015, 2017 e 2019. Scaricarla [qui](https://support.microsoft.com/help/2977003/the-latest-supported-visual-c-downloads).
+
+**Problemi noti**
+
+**C++/c #/Java**: `DialogServiceConnector` non è possibile usare un oggetto `CustomCommandsConfig` per accedere a un'applicazione di comandi personalizzata e viene invece rilevato un errore di connessione. È possibile risolvere il problema aggiungendo manualmente l'ID applicazione alla richiesta con `config.SetServiceProperty("X-CommandsAppId", "your-application-id", ServicePropertyChannel.UriQueryParameter)` . Il comportamento previsto di `CustomCommandsConfig` verrà ripristinato nella prossima versione.
 
 **Riepilogo evidenziazioni**
 - Memoria e footprint del disco più piccoli che rendono più efficiente l'SDK: questa volta lo stato attivo era in Android.

@@ -5,18 +5,18 @@ ms.service: azure-functions
 ms.topic: conceptual
 ms.date: 03/01/2021
 ms.custom: template-concept
-ms.openlocfilehash: b4cf3699243e990b5e7b7478ba643067ac456020
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: be11c32cf06b9873e10247d7ccc4a84133a6c688
+ms.sourcegitcommit: 2c1b93301174fccea00798df08e08872f53f669c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104584704"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104774933"
 ---
 # <a name="guide-for-running-functions-on-net-50-in-azure"></a>Guida per l'esecuzione di funzioni in .NET 5,0 in Azure
 
 Questo articolo è un'introduzione all'uso di C# per sviluppare funzioni di processo isolate .NET, che eseguono out-of-process in funzioni di Azure. L'esecuzione out-of-process consente di separare il codice di funzione dal runtime di funzioni di Azure. Fornisce inoltre un modo per creare ed eseguire funzioni destinate alla versione corrente di .NET 5,0. 
 
-| Guida introduttiva | Concetti| Esempi |
+| Introduzione | Concetti| Esempi |
 |--|--|--| 
 | <ul><li>[Uso di Visual Studio Code](dotnet-isolated-process-developer-howtos.md?pivots=development-environment-vscode)</li><li>[Uso degli strumenti da riga di comando](dotnet-isolated-process-developer-howtos.md?pivots=development-environment-cli)</li><li>[Con Visual Studio](dotnet-isolated-process-developer-howtos.md?pivots=development-environment-vs)</li></ul> | <ul><li>[Opzioni di hosting](functions-scale.md)</li><li>[Monitoring](functions-monitoring.md)</li> | <ul><li>[Esempi di riferimento](https://github.com/Azure/azure-functions-dotnet-worker/tree/main/samples)</li></ul> |
 
@@ -68,37 +68,36 @@ Questi pacchetti di estensione sono disponibili in [Microsoft. Azure. Functions.
 
 ## <a name="start-up-and-configuration"></a>Avvio e configurazione 
 
-Quando si usano le funzioni di isolamento .NET, è possibile accedere all'avvio dell'app per le funzioni, che in genere si trova in Program. cs. Si è responsabili della creazione e dell'avvio dell'istanza host. Di conseguenza, è anche possibile accedere direttamente alla pipeline di configurazione per l'app. È possibile inserire in modo più semplice le dipendenze ed eseguire il middleware quando si esegue out-of-process. 
+Quando si usano le funzioni di isolamento .NET, è possibile accedere all'avvio dell'app per le funzioni, che in genere si trova in Program. cs. Si è responsabili della creazione e dell'avvio dell'istanza host. Di conseguenza, è anche possibile accedere direttamente alla pipeline di configurazione per l'app. Quando si esegue out-of-process, è possibile aggiungere più facilmente configurazioni, inserire dipendenze ed eseguire un middleware personalizzato. 
 
-Il codice seguente illustra un esempio di `HostBuilder` pipeline:
+Il codice seguente illustra un esempio di pipeline [HostBuilder] :
 
 :::code language="csharp" source="~/azure-functions-dotnet-worker/samples/FunctionApp/Program.cs" id="docsnippet_startup":::
 
-`HostBuilder`Viene usato per compilare e restituire un'istanza completamente inizializzata `IHost` , che viene eseguita in modo asincrono per avviare l'app per le funzioni. 
+Un [HostBuilder] viene usato per compilare e restituire un'istanza di [IHost] completamente inizializzata, che viene eseguita in modo asincrono per avviare l'app per le funzioni. 
 
 :::code language="csharp" source="~/azure-functions-dotnet-worker/samples/FunctionApp/Program.cs" id="docsnippet_host_run":::
 
 ### <a name="configuration"></a>Configurazione
 
-L'accesso alla pipeline del generatore host significa che è possibile impostare qualsiasi configurazione specifica dell'app durante l'inizializzazione. Queste configurazioni si applicano all'app per le funzioni in esecuzione in un processo separato. Per apportare modifiche all'host di funzioni o al trigger e alla configurazione dell'associazione, sarà comunque necessario utilizzare il [host.jssu file](functions-host-json.md).      
+Il metodo [ConfigureFunctionsWorkerDefaults] viene usato per aggiungere le impostazioni necessarie per l'esecuzione out-of-process dell'app per le funzioni, che include le funzionalità seguenti:
 
-<!--The following example shows how to add configuration `args`, which are read as command-line arguments: 
- 
-:::code language="csharp" 
-                .ConfigureAppConfiguration(c =>
-                {
-                    c.AddCommandLine(args);
-                })
-                :::
++ Set predefinito di convertitori.
++ Impostare il valore predefinito di [JsonSerializerOptions] per ignorare le maiuscole e minuscole nei nomi delle proprietà
++ Eseguire l'integrazione con la registrazione di funzioni di Azure.
++ Middleware e funzionalità di associazione di output.
++ Middleware di esecuzione della funzione.
++ Supporto gRPC predefinito. 
 
-The `ConfigureAppConfiguration` method is used to configure the rest of the build process and application. This example also uses an [IConfigurationBuilder](/dotnet/api/microsoft.extensions.configuration.iconfigurationbuilder?view=dotnet-plat-ext-5.0&preserve-view=true), which makes it easier to add multiple configuration items. Because `ConfigureAppConfiguration` returns the same instance of [`IConfiguration`](/dotnet/api/microsoft.extensions.configuration.iconfiguration?view=dotnet-plat-ext-5.0&preserve-view=true), you can also just call it multiple times to add multiple configuration items.-->  
-È possibile accedere al set completo di configurazioni sia da [`HostBuilderContext.Configuration`](/dotnet/api/microsoft.extensions.hosting.hostbuildercontext.configuration?view=dotnet-plat-ext-5.0&preserve-view=true) che da [`IHost.Services`](/dotnet/api/microsoft.extensions.hosting.ihost.services?view=dotnet-plat-ext-5.0&preserve-view=true) .
+:::code language="csharp" source="~/azure-functions-dotnet-worker/samples/FunctionApp/Program.cs" id="docsnippet_configure_defaults" :::   
 
-Per ulteriori informazioni sulla configurazione, vedere la pagina relativa alla [configurazione in ASP.NET Core](/aspnet/core/fundamentals/configuration/?view=aspnetcore-5.0&preserve-view=true). 
+L'accesso alla pipeline del generatore host significa che è anche possibile impostare qualsiasi configurazione specifica dell'app durante l'inizializzazione. È possibile chiamare il metodo [ConfigureAppConfiguration] su [HostBuilder] una o più volte per aggiungere le configurazioni richieste dall'app per le funzioni. Per altre informazioni sulla configurazione delle app, vedere [configurazione in ASP.NET Core](/aspnet/core/fundamentals/configuration/?view=aspnetcore-5.0&preserve-view=true). 
+
+Queste configurazioni si applicano all'app per le funzioni in esecuzione in un processo separato. Per apportare modifiche all'host di funzioni o al trigger e alla configurazione dell'associazione, sarà comunque necessario utilizzare il [host.jssu file](functions-host-json.md).   
 
 ### <a name="dependency-injection"></a>Inserimento di dipendenze
 
-L'inserimento di dipendenze è semplificato rispetto alle librerie di classi .NET. Anziché dover creare una classe di avvio per registrare i servizi, è sufficiente chiamare `ConfigureServices` sul generatore host e usare i metodi di estensione su [`IServiceCollection`](/dotnet/api/microsoft.extensions.dependencyinjection.iservicecollection?view=dotnet-plat-ext-5.0&preserve-view=true) per inserire servizi specifici. 
+L'inserimento di dipendenze è semplificato rispetto alle librerie di classi .NET. Anziché dover creare una classe di avvio per registrare i servizi, è sufficiente chiamare [ConfigureServices] nel generatore host e usare i metodi di estensione in [IServiceCollection] per inserire servizi specifici. 
 
 Nell'esempio seguente viene inserita una dipendenza del servizio singleton:  
  
@@ -106,21 +105,23 @@ Nell'esempio seguente viene inserita una dipendenza del servizio singleton:
 
 Per altre informazioni, vedere [inserimento delle dipendenze in ASP.NET Core](/aspnet/core/fundamentals/dependency-injection?view=aspnetcore-5.0&preserve-view=true).
 
-<!--### Middleware
+### <a name="middleware"></a>Middleware
 
-.NET isolated also supports middleware registration, again by using a model similar to what exists in ASP.NET. This model gives you the ability to inject logic into the invocation pipeline, and before and after functions execute.
+.NET isolated supporta anche la registrazione del middleware, usando un modello simile a quello esistente in ASP.NET. Questo modello offre la possibilità di inserire la logica nella pipeline di chiamata e prima e dopo l'esecuzione delle funzioni.
 
-While the full middleware registration set of APIs is not yet exposed, we do support middleware registration and have added an example to the sample application under the Middleware folder.
+Il metodo di estensione [ConfigureFunctionsWorkerDefaults] ha un overload che consente di registrare un middleware personalizzato, come illustrato nell'esempio seguente.  
 
-:::code language="csharp" source="~/azure-functions-dotnet-worker/samples/FunctionApp/Program.cs" id="docsnippet_middleware" :::-->
+:::code language="csharp" source="~/azure-functions-dotnet-worker/samples/CustomMiddleware/Program.cs" id="docsnippet_middleware_register" :::
+
+Per un esempio più completo dell'uso del middleware personalizzato nell'app per le funzioni, vedere l' [esempio di riferimento del middleware personalizzato](https://github.com/Azure/azure-functions-dotnet-worker/blob/main/samples/CustomMiddleware).
 
 ## <a name="execution-context"></a>Contesto di esecuzione
 
-.NET isolated passa un `FunctionContext` oggetto ai metodi della funzione. Questo oggetto consente di ottenere un' [`ILogger`](/dotnet/api/microsoft.extensions.logging.ilogger?view=dotnet-plat-ext-5.0&preserve-view=true) istanza di per scrivere nei log chiamando il `GetLogger` metodo e fornendo una `categoryName` stringa. Per altre informazioni, vedere [registrazione](#logging). 
+.NET isolated passa un oggetto [FunctionContext] ai metodi della funzione. Questo oggetto consente di ottenere un'istanza di [ILogger] per scrivere nei log chiamando il metodo [GetLogger] e fornendo una `categoryName` stringa. Per altre informazioni, vedere [registrazione](#logging). 
 
 ## <a name="bindings"></a>Associazioni 
 
-Le associazioni vengono definite utilizzando attributi su metodi, parametri e tipi restituiti. Un metodo di funzione è un metodo con un oggetto `Function` e un attributo trigger applicato a un parametro di input, come illustrato nell'esempio seguente:
+Le associazioni vengono definite utilizzando attributi su metodi, parametri e tipi restituiti. Un metodo di funzione è un metodo con un `Function` attributo e un attributo trigger applicato a un parametro di input, come illustrato nell'esempio seguente:
 
 :::code language="csharp" source="~/azure-functions-dotnet-worker/samples/Extensions/Queue/QueueFunction.cs" id="docsnippet_queue_trigger" :::
 
@@ -128,9 +129,11 @@ L'attributo trigger specifica il tipo di trigger e associa i dati di input a un 
 
 L'attributo `Function` indica il metodo come punto di ingresso della funzione. Il nome deve essere univoco all'interno di un progetto, iniziare con una lettera e contenere solo lettere, numeri, `_` e `-` , fino a 127 caratteri di lunghezza. I modelli di progetto spesso creano un metodo denominato `Run`, ma il nome del metodo può essere qualsiasi nome di metodo c# valido.
 
-Poiché i progetti isolati .NET vengono eseguiti in un processo di lavoro separato, le associazioni non possono sfruttare le classi di associazione avanzate, ad esempio `ICollector<T>` , `IAsyncCollector<T>` e `CloudBlockBlob` . Non è inoltre disponibile il supporto diretto per i tipi ereditati dagli SDK del servizio sottostanti, ad esempio [DocumentClient](/dotnet/api/microsoft.azure.documents.client.documentclient) e [BrokeredMessage](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage). Al contrario, le associazioni si basano su stringhe, matrici e tipi serializzabili, ad esempio oggetti POCO (Plain Old Class Objects). 
+Poiché i progetti isolati .NET vengono eseguiti in un processo di lavoro separato, le associazioni non possono sfruttare le classi di associazione avanzate, ad esempio `ICollector<T>` , `IAsyncCollector<T>` e `CloudBlockBlob` . Non è inoltre disponibile il supporto diretto per i tipi ereditati dagli SDK del servizio sottostanti, ad esempio [DocumentClient] e [BrokeredMessage]. Al contrario, le associazioni si basano su stringhe, matrici e tipi serializzabili, ad esempio oggetti POCO (Plain Old Class Objects). 
 
-Per i trigger HTTP, è necessario usare `HttpRequestData` e `HttpResponseData` per accedere ai dati di richiesta e risposta. Ciò è dovuto al fatto che non è possibile accedere agli oggetti richiesta e risposta HTTP originali durante l'esecuzione out-of-process. 
+Per i trigger HTTP, è necessario usare [HttpRequestData] e [HttpResponseData] per accedere ai dati di richiesta e risposta. Ciò è dovuto al fatto che non è possibile accedere agli oggetti richiesta e risposta HTTP originali durante l'esecuzione out-of-process.
+
+Per un set completo di esempi di riferimento per l'utilizzo di trigger e associazioni durante l'esecuzione out-of-process, vedere l' [esempio di riferimento alle estensioni di binding](https://github.com/Azure/azure-functions-dotnet-worker/blob/main/samples/Extensions). 
 
 ### <a name="input-bindings"></a>Associazioni di input
 
@@ -146,13 +149,13 @@ Per scrivere in un'associazione di output, è necessario applicare un attributo 
 
 I dati scritti in un'associazione di output sono sempre il valore restituito della funzione. Se è necessario scrivere in più di un'associazione di output, è necessario creare un tipo restituito personalizzato. Questo tipo restituito deve avere l'attributo di associazione di output applicato a una o più proprietà della classe. Nell'esempio seguente viene scritta sia una risposta HTTP che un'associazione di output della coda:
 
-:::code language="csharp" source="~/azure-functions-dotnet-worker/samples/FunctionApp/Function1/Function1.cs" id="docsnippet_multiple_outputs":::
+:::code language="csharp" source="~/azure-functions-dotnet-worker/samples/Extensions/MultiOutput/MultiOutput.cs" id="docsnippet_multiple_outputs":::
 
 ### <a name="http-trigger"></a>Trigger HTTP
 
-Il trigger HTTP converte il messaggio di richiesta HTTP in ingresso in un `HttpRequestData` oggetto passato alla funzione. Questo oggetto fornisce i dati della richiesta, tra cui,,, `Headers` `Cookies` `Identities` `URL` e un messaggio facoltativo `Body` . Questo oggetto è una rappresentazione dell'oggetto richiesta HTTP e non della richiesta. 
+Il trigger HTTP converte il messaggio di richiesta HTTP in ingresso in un oggetto [HttpRequestData] passato alla funzione. Questo oggetto fornisce i dati della richiesta, tra cui,,, `Headers` `Cookies` `Identities` `URL` e un messaggio facoltativo `Body` . Questo oggetto è una rappresentazione dell'oggetto richiesta HTTP e non della richiesta. 
 
-Analogamente, la funzione restituisce un `HttpReponseData` oggetto che fornisce i dati utilizzati per creare la risposta http, incluso il messaggio `StatusCode` , `Headers` , e facoltativamente un messaggio `Body` .  
+Analogamente, la funzione restituisce un oggetto [HttpReponseData], che fornisce i dati utilizzati per creare la risposta HTTP, incluso il messaggio `StatusCode` , `Headers` , e facoltativamente un messaggio `Body` .  
 
 Il codice seguente è un trigger HTTP 
 
@@ -160,15 +163,15 @@ Il codice seguente è un trigger HTTP
 
 ## <a name="logging"></a>Registrazione
 
-In .NET isolated è possibile scrivere nei log usando un' [`ILogger`](/dotnet/api/microsoft.extensions.logging.ilogger?view=dotnet-plat-ext-5.0&preserve-view=true) istanza ottenuta da un `FunctionContext` oggetto passato alla funzione. Chiamare il `GetLogger` metodo, passando un valore stringa che rappresenta il nome della categoria in cui vengono scritti i log. La categoria è in genere il nome della funzione specifica da cui vengono scritti i log. Per ulteriori informazioni sulle categorie, vedere l' [articolo monitoraggio](functions-monitoring.md#log-levels-and-categories). 
+In .NET isolated è possibile scrivere nei log usando un'istanza di [ILogger] ottenuta da un oggetto [FunctionContext] passato alla funzione. Chiamare il metodo [GetLogger] , passando un valore stringa che rappresenta il nome della categoria in cui vengono scritti i log. La categoria è in genere il nome della funzione specifica da cui vengono scritti i log. Per ulteriori informazioni sulle categorie, vedere l' [articolo monitoraggio](functions-monitoring.md#log-levels-and-categories). 
 
-Nell'esempio seguente viene illustrato come ottenere `ILogger` e scrivere i log all'interno di una funzione:
+Nell'esempio seguente viene illustrato come ottenere un [ILogger] e scrivere i log all'interno di una funzione:
 
 :::code language="csharp" source="~/azure-functions-dotnet-worker/samples/Extensions/Http/HttpFunction.cs" id="docsnippet_logging" ::: 
 
-Usare diversi metodi di `ILogger` per scrivere diversi livelli di log, ad esempio `LogWarning` o `LogError` . Per altre informazioni sui livelli di registrazione, vedere l' [articolo monitoraggio](functions-monitoring.md#log-levels-and-categories).
+Usare vari metodi di [ILogger] per scrivere diversi livelli di log, ad esempio `LogWarning` o `LogError` . Per altre informazioni sui livelli di registrazione, vedere l' [articolo monitoraggio](functions-monitoring.md#log-levels-and-categories).
 
-[`ILogger`](/dotnet/api/microsoft.extensions.logging.ilogger?view=dotnet-plat-ext-5.0&preserve-view=true)Viene anche fornito un oggetto quando si usa l' [inserimento delle dipendenze](#dependency-injection).
+Quando si usa l' [inserimento delle dipendenze](#dependency-injection), viene anche fornito un [ILogger] .
 
 ## <a name="differences-with-net-class-library-functions"></a>Differenze con le funzioni della libreria di classi .NET
 
@@ -178,13 +181,13 @@ Questa sezione descrive lo stato corrente delle differenze funzionali e comporta
 | ---- | ---- | ---- |
 | Versioni di .NET | LTS (.NET Core 3,1) | Corrente (.NET 5,0) |
 | Pacchetti principali | [Microsoft.NET.Sdk.Functions](https://www.nuget.org/packages/Microsoft.NET.Sdk.Functions/) | [Microsoft. Azure. Functions. Worker](https://www.nuget.org/packages/Microsoft.Azure.Functions.Worker/)<br/>[Microsoft. Azure. Functions. Worker. SDK](https://www.nuget.org/packages/Microsoft.Azure.Functions.Worker.Sdk) | 
-| Binding di pacchetti di estensione | [`Microsoft.Azure.WebJobs.Extensions.*`](https://www.nuget.org/packages?q=Microsoft.Azure.WebJobs.Extensions)  | In [`Microsoft.Azure.Functions.Worker.Extensions.*`](https://www.nuget.org/packages?q=Microsoft.Azure.Functions.Worker.Extensions) | 
-| Registrazione | [`ILogger`](/dotnet/api/microsoft.extensions.logging.ilogger?view=dotnet-plat-ext-5.0&preserve-view=true) passato alla funzione | [`ILogger`](/dotnet/api/microsoft.extensions.logging.ilogger?view=dotnet-plat-ext-5.0&preserve-view=true) ottenuta da `FunctionContext` |
+| Binding di pacchetti di estensione | [Microsoft. Azure. webjobs. Extensions. *](https://www.nuget.org/packages?q=Microsoft.Azure.WebJobs.Extensions)  | In [Microsoft. Azure. Functions. Worker. Extensions. *](https://www.nuget.org/packages?q=Microsoft.Azure.Functions.Worker.Extensions) | 
+| Registrazione | [ILogger] passato alla funzione | [ILogger] ottenuta da [FunctionContext] |
 | Token di annullamento | [Supportato](functions-dotnet-class-library.md#cancellation-tokens) | Non supportato |
 | Associazioni di output | Parametri out | Valori restituiti |
-| Tipi di associazioni di output |  `IAsyncCollector`, [DocumentClient](/dotnet/api/microsoft.azure.documents.client.documentclient?view=azure-dotnet&preserve-view=true), [BrokeredMessage](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage?view=azure-dotnet&preserve-view=true)e altri tipi specifici del client | Tipi semplici, tipi serializzabili JSON e matrici. |
+| Tipi di associazioni di output |  `IAsyncCollector`, [DocumentClient], [BrokeredMessage]e altri tipi specifici del client | Tipi semplici, tipi serializzabili JSON e matrici. |
 | Più associazioni di output | Supportato | [Supportato](#multiple-output-bindings) |
-| Trigger HTTP | [`HttpRequest`](/dotnet/api/microsoft.aspnetcore.http.httprequest?view=aspnetcore-5.0&preserve-view=true)/[`ObjectResult`](/dotnet/api/microsoft.aspnetcore.mvc.objectresult?view=aspnetcore-5.0&preserve-view=true) | `HttpRequestData`/`HttpResponseData` |
+| Trigger HTTP | [HttpRequest] / [ObjectResult] | [HttpRequestData] / [HttpResponseData] |
 | Funzioni permanenti | [Supportato](durable/durable-functions-overview.md) | Non supportato | 
 | Associazioni imperative | [Supportato](functions-dotnet-class-library.md#binding-at-runtime) | Non supportato |
 | function.jssull'artefatto | Generato | Non generato |
@@ -202,3 +205,21 @@ Per informazioni sulle soluzioni alternative per conoscere i problemi relativi a
 
 + [Altre informazioni sui trigger e le associazioni](functions-triggers-bindings.md)
 + [Altre informazioni sulle procedure consigliate per Funzioni di Azure](functions-best-practices.md)
+
+
+[HostBuilder]: /dotnet/api/microsoft.extensions.hosting.hostbuilder?view=dotnet-plat-ext-5.0&preserve-view=true
+[IHost]: /dotnet/api/microsoft.extensions.hosting.ihost?view=dotnet-plat-ext-5.0&preserve-view=true
+[ConfigureFunctionsWorkerDefaults]: /dotnet/api/microsoft.extensions.hosting.workerhostbuilderextensions.configurefunctionsworkerdefaults?view=azure-dotnet&preserve-view=true#Microsoft_Extensions_Hosting_WorkerHostBuilderExtensions_ConfigureFunctionsWorkerDefaults_Microsoft_Extensions_Hosting_IHostBuilder_
+[ConfigureAppConfiguration]: /dotnet/api/microsoft.extensions.hosting.hostbuilder.configureappconfiguration?view=dotnet-plat-ext-5.0&preserve-view=true
+[IServiceCollection]: /dotnet/api/microsoft.extensions.dependencyinjection.iservicecollection?view=dotnet-plat-ext-5.0&preserve-view=true
+[ConfigureServices]: /dotnet/api/microsoft.extensions.hosting.hostbuilder.configureservices?view=dotnet-plat-ext-5.0&preserve-view=true
+[FunctionContext]: /dotnet/api/microsoft.azure.functions.worker.functioncontext?view=azure-dotnet&preserve-view=true
+[ILogger]: /dotnet/api/microsoft.extensions.logging.ilogger?view=dotnet-plat-ext-5.0&preserve-view=true
+[GetLogger]: /dotnet/api/microsoft.azure.functions.worker.functioncontextloggerextensions.getlogger?view=azure-dotnet&preserve-view=true
+[DocumentClient]: /dotnet/api/microsoft.azure.documents.client.documentclient
+[BrokeredMessage]: /dotnet/api/microsoft.servicebus.messaging.brokeredmessage
+[HttpRequestData]: /dotnet/api/microsoft.azure.functions.worker.http.httprequestdata?view=azure-dotnet&preserve-view=true
+[HttpResponseData]: /dotnet/api/microsoft.azure.functions.worker.http.httpresponsedata?view=azure-dotnet&preserve-view=true
+[HttpRequest]: /dotnet/api/microsoft.aspnetcore.http.httprequest?view=aspnetcore-5.0&preserve-view=true
+[ObjectResult]: /dotnet/api/microsoft.aspnetcore.mvc.objectresult?view=aspnetcore-5.0&preserve-view=true
+[JsonSerializerOptions]: /api/system.text.json.jsonserializeroptions?view=net-5.0&preserve-view=true

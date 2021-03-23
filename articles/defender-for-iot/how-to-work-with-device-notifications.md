@@ -1,18 +1,14 @@
 ---
 title: Gestire le notifiche sui dispositivi
 description: Le notifiche forniscono informazioni sulle attività di rete che potrebbero richiedere attenzione, oltre a indicazioni per la gestione di questa attività.
-author: shhazam-ms
-manager: rkarlin
-ms.author: shhazam
 ms.date: 12/12/2020
 ms.topic: how-to
-ms.service: azure
-ms.openlocfilehash: cac8d609272be1d9f34b7e0d6404e0a0ea524df7
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: c0c2fc5a4c01a8a31512cd43c340bf3fadc259b1
+ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "100523567"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104781331"
 ---
 # <a name="work-with-device-notifications"></a>Gestire le notifiche sui dispositivi
 
@@ -24,11 +20,7 @@ Le notifiche forniscono informazioni sulle attività di rete che potrebbero rich
 
 La risposta alle notifiche consente di migliorare le informazioni fornite nella mappa del dispositivo, nell'inventario dei dispositivi e nelle query e nei report di data mining. Fornisce inoltre informazioni dettagliate sulle modifiche di rete legittime e sui potenziali problemi di configurazione della rete.
 
-Per accedere alle notifiche:
-
-- Selezionare **impostazioni di sistema** , quindi selezionare **miglioramento dei dati**.
-
-## <a name="notifications-vs-alerts"></a>Notifiche e avvisi
+**Notifiche e avvisi**
 
 Oltre a ricevere notifiche sull'attività di rete, è possibile ricevere *avvisi*. Le notifiche forniscono informazioni sulle modifiche alla rete o sulle proprietà dei dispositivi non risolte che non presentano una minaccia. Gli avvisi forniscono informazioni sulle deviazioni della rete e sulle modifiche che potrebbero presentare una minaccia per la rete.
 
@@ -85,18 +77,6 @@ Per visualizzare le notifiche e gestire le notifiche:
 2. Indica al sensore di applicare le informazioni rilevate di recente ai dispositivi selezionati selezionando **Learn**. In alternativa, indicare al sensore di ignorare le informazioni rilevate di recente selezionando **Ignora**. Viene visualizzato il numero di notifiche che è possibile apprendere e ignorare contemporaneamente, insieme al numero di notifiche che è necessario gestire singolarmente.
 
 Non è possibile gestire contemporaneamente i **nuovi indirizzi IP** e **Nessuna Subnet** configurata. Richiedono una conferma manuale.
-
-## <a name="improve-device-os-classification-data-enhancement"></a>Migliorare la classificazione del sistema operativo del dispositivo: miglioramento dei dati 
-
-Il sensore individua continuamente i nuovi dispositivi OT. Consente inoltre di individuare le modifiche apportate ai dispositivi individuati in precedenza, inclusi i tipi di sistema operativo.
-
-In determinate circostanze, i conflitti possono essere rilevati nei sistemi operativi individuati. Questo problema può verificarsi perché è presente una versione del sistema operativo che fa riferimento a sistemi desktop o server. Se si verifica questa situazione, si riceverà una notifica con le classificazioni del sistema operativo facoltative.
-
-:::image type="content" source="media/how-to-enrich-asset-information/enhance-data-screen.png" alt-text="Migliorare i dati.":::
-
-Esaminare le raccomandazioni per migliorare la classificazione del sistema operativo. Queste informazioni vengono visualizzate nei report inventario dispositivi, data mining e altro. Consente inoltre di migliorare l'accuratezza di avvisi, minacce e analisi dei rischi.
-
-Quando si accetta una raccomandazione, le informazioni sul tipo di sistema operativo verranno aggiornate nel sensore.
 
 ## <a name="see-also"></a>Vedi anche
 

@@ -11,12 +11,12 @@ ms.subservice: core
 ms.date: 12/09/2020
 ms.topic: conceptual
 ms.custom: how-to, contperf-fy21q2, automl
-ms.openlocfilehash: 6d8c56bc306a7ab0bf118d04f64d6523fc385cdd
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
+ms.openlocfilehash: b60e5f656b675a1382b8b4776975723a437183bc
+ms.sourcegitcommit: 2c1b93301174fccea00798df08e08872f53f669c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102520779"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104773114"
 ---
 # <a name="evaluate-automated-machine-learning-experiment-results"></a>Valuta i risultati dell'esperimento di Machine Learning automatizzato
 
@@ -91,6 +91,8 @@ weighted_accuracy|L'accuratezza ponderata è l'accuratezza in cui ogni campione 
 Il Machine Learning automatico non distingue le metriche binarie e multiclasse. Le stesse metriche di convalida vengono segnalate se un set di dati ha due classi o più di due classi. Tuttavia, alcune metriche sono destinate alla classificazione multiclasse. Quando vengono applicati a un set di dati binario, queste metriche non considerano alcuna classe come la `true` classe, come si può immaginare. Le metriche che sono chiaramente destinate per la multiclasse sono con suffisso `micro` , `macro` o `weighted` . Gli esempi sono `average_precision_score` ,, `f1_score` `precision_score` , `recall_score` e `AUC` .
 
 Ad esempio, invece di calcolare il richiamo come `tp / (tp + fn)` , la media della multiclasse richiama ( `micro` , `macro` o `weighted` ) la media su entrambe le classi di un set di dati di classificazione binario. Questa operazione equivale a calcolare il richiamo per la `true` classe e la `false` classe separatamente e quindi a prendere la media dei due.
+
+Automatizzato ML non calcola le metriche binarie, ovvero le metriche per i set di impostazioni di classificazione binaria. Tuttavia, queste metriche possono essere calcolate manualmente usando la [matrice di confusione](#confusion-matrix) generata da Machine Learning automatiche per quella particolare esecuzione. Ad esempio, è possibile calcolare la precisione, `tp / (tp + fp)` , con i valori veri positivi e falsi positivi mostrati in un grafico a matrice di confusione 2x2.
 
 ## <a name="confusion-matrix"></a>Matrice di confusione
 

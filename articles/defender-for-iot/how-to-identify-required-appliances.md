@@ -1,18 +1,14 @@
 ---
 title: Identificare le appliance necessarie
 description: Informazioni su hardware e appliance virtuali per il Defender certificato per i sensori Internet e la console di gestione locale.
-author: shhazam-ms
-manager: rkarlin
-ms.author: shhazam
 ms.date: 01/13/2021
 ms.topic: how-to
-ms.service: azure
-ms.openlocfilehash: 2ad5bf08542cd98f7acae36827b1a7b284a893b0
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 242e88e92d6197fd018c56fa55a4dd8166f5d027
+ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103149300"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104782759"
 ---
 # <a name="identify-required-appliances"></a>Identificare le appliance necessarie
 
@@ -272,27 +268,6 @@ Questa sezione illustra le appliance aggiuntive certificate da Microsoft, ma non
 Dopo aver acquistato il dispositivo, passare a **Defender per** i  >  **sensori di rete** dell'  >  **installazione** ISO per scaricare il software.
 
 :::image type="content" source="media/how-to-prepare-your-network/azure-defender-for-iot-sensor-download-software-screen.png" alt-text="Sensori di rete ISO.":::
-
-## <a name="enterprise-deployment-dell-poweredge-r340-xl"></a>Distribuzione aziendale: Dell PowerEdge R340 supplementare XL
-
-| Componente | Specifiche tecniche |
-|--|--|
-| Chassis | server rack 1U
-| Dimensioni | 42,8 x 434,0 x 596 (mm)/1,67 "x 17,09" x 23,5 "(in) |
-| Peso | Massimo 29,98 lb/13,6 kg |
-| Processore | Intel Xeon E-2144G 3,6 GHz, 8M Cache, 4C/8T, Turbo (71 W) |
-| Chipset | Intel C246 |
-| Memoria | 32 GB = 2 x 16 GB 2666MT/s DDR4 ECC UDIMM |
-| Archiviazione | 3 x 2-TB 7,2 K RPM SATA 6-Gbps 512N 3,5-in Hot-Plug disco rigido-RAID 5 |
-| Controller di rete | A bordo: 2 x 1-GB Broadcom BCM5720<br>LOM a bordo: iDRAC porta scheda 1-GB Broadcom BCM5720 <br><br>Esterno: 1 x Intel Ethernet I350 QP 1-GB Server Adapter, low profile |
-| Gestione | iDRAC Nine Enterprise |
-| Accesso al dispositivo | Due USB posteriori 3,0 <br> Un front-end USB 3,0 |
-| Potenza | Alimentatori con doppio collegamento a caldo 350 W |
-| Supporto rack | ReadyRails II guide scorrevoli per le operazioni di montaggio senza strumenti in rack di 4 post con buchi rotondi o senza thread o montaggio con strumenti in quattro post con threading a thread, con supporto per la gestione dei cavi senza strumenti facoltativi. |
-
-## <a name="dell-r340-bom"></a>BOM R340 supplementare dell
-
-:::image type="content" source="media/how-to-prepare-your-network/enterprise-deployment-for-azure-defender-for-iot-dell-r340-bom.png" alt-text="Dell R340 supplementare BOM.":::
 
 ## <a name="next-steps"></a>Passaggi successivi
 

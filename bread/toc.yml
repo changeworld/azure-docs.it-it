@@ -174,9 +174,6 @@
     - name: Rendering remoto di Azure
       tocHref: /azure/remote-rendering/
       topicHref: /azure/remote-rendering/
-    - name: Informazioni sugli oggetti di Azure
-      tocHref: /azure/object-understanding/
-      topicHref: /azure/object-understanding/
     - name: Registro Container
       tocHref: /azure/container-registry/
       topicHref: /azure/container-registry/

@@ -3,12 +3,12 @@ title: Aggiornamenti della piattaforma per la soluzione VMware di Azure
 description: Informazioni sugli aggiornamenti della piattaforma per la soluzione VMware di Azure.
 ms.topic: reference
 ms.date: 03/16/2021
-ms.openlocfilehash: 73bd1d088f9055ebd80a28c6247ea9dfa6229093
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: ce25df2cb221c032f6dd430f292522fe86e69ceb
+ms.sourcegitcommit: 2c1b93301174fccea00798df08e08872f53f669c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104586234"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104771771"
 ---
 # <a name="platform-updates-for-azure-vmware-solution"></a>Aggiornamenti della piattaforma per la soluzione VMware di Azure
 
@@ -16,7 +16,7 @@ Gli aggiornamenti importanti della soluzione VMware di Azure verranno applicati 
 
 ## <a name="march-15-2021"></a>15 marzo 2021 
 
-- Il servizio di soluzione VMware di Azure eseguirà il lavoro di manutenzione fino al 19 marzo 20201 per aggiornare vCenter Server nel cloud privato alla versione server vCenter 6,7 Update 3L.
+- Il servizio di soluzione VMware di Azure eseguirà il lavoro di manutenzione fino al 19 marzo 2021 per aggiornare vCenter Server nel cloud privato alla versione server vCenter 6,7 Update 3L.
 
 - Durante questo periodo, VMware vCenter non sarà disponibile e non sarà possibile gestire le macchine virtuali (arresto, avvio, creazione, eliminazione). Anche la scalabilità del cloud privato (aggiunta/rimozione di server e cluster) non sarà disponibile. La disponibilità elevata VMware continuerà a funzionare per fornire protezione per le macchine virtuali esistenti. 
  

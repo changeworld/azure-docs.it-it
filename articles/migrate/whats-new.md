@@ -7,12 +7,12 @@ ms.author: anvar
 ms.manager: bsiva
 ms.date: 04/19/2020
 ms.custom: mvc
-ms.openlocfilehash: 41476c5f8165729caa6780f8e74eb6c3ae30a59c
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
+ms.openlocfilehash: cca4612d3b22296209b4adfc6be97cbe95477aa3
+ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102614633"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104786669"
 ---
 # <a name="whats-new-in-azure-migrate"></a>Novità di Azure Migrate
 
@@ -20,7 +20,7 @@ ms.locfileid: "102614633"
 
 ## <a name="update-march-2021"></a>Aggiornamento (2021 marzo)
 - Supporto per fornire più credenziali del server in Azure Migrate Appliance per individuare le applicazioni installate (inventario software), l'analisi delle dipendenze senza agenti e individuare SQL Server istanze e database nell'ambiente VMware. [Scopri di più](tutorial-discover-vmware.md#provide-server-credentials)
-- L'individuazione e la valutazione di SQL Server istanze e database in esecuzione nell'ambiente VMware sono ora in anteprima. [Altre informazioni](concepts-azure-sql-assessment-calculation.md)<br/>Per provare questa funzionalità, usare [questo collegamento](https://aka.ms/AzureMigrate/SQL) per creare un progetto nell'area **Australia orientale**. Per iniziare, fare riferimento alle esercitazioni su [individuazione](tutorial-discover-vmware.md) e [valutazione](tutorial-assess-sql.md).
+- L'individuazione e la valutazione di SQL Server istanze e database in esecuzione nell'ambiente VMware sono ora in anteprima. [Altre informazioni](concepts-azure-sql-assessment-calculation.md) Per iniziare, vedere le esercitazioni sull' [individuazione](tutorial-discover-vmware.md) e la [valutazione](tutorial-assess-sql.md) .
 - La migrazione VMware senza agente supporta ora la replica simultanea di VM 500 per vCenter.
 - Azure Migrate installa ora automaticamente l'agente di macchine virtuali di Azure nelle VM VMware mentre ne esegue la migrazione in Azure usando il metodo senza agente della migrazione di VMware.
 

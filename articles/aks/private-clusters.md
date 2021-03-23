@@ -4,12 +4,12 @@ description: Informazioni su come creare un cluster privato del servizio Azure K
 services: container-service
 ms.topic: article
 ms.date: 3/5/2021
-ms.openlocfilehash: 190658e23ee02651e64c3718824315c0265c0f04
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 21d839df04c868d2c21932f96a6b72a32b0404e5
+ms.sourcegitcommit: 2c1b93301174fccea00798df08e08872f53f669c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102556537"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104771856"
 ---
 # <a name="create-a-private-azure-kubernetes-service-cluster"></a>Creare un cluster privato del servizio Azure Kubernetes
 
@@ -72,7 +72,7 @@ Per configurare DNS privato zona, è possibile sfruttare i seguenti parametri.
 
 - "System" è il valore predefinito. Se l'argomento--private-DNS-zone viene omesso, AKS creerà una DNS privato zona nel gruppo di risorse del nodo.
 - "None" significa che AKS non creerà una zona DNS privato.  A questo scopo, è necessario portare il proprio server DNS e configurare la risoluzione DNS per il nome di dominio completo privato.  Se non si configura la risoluzione DNS, DNS è risolvibile solo nei nodi dell'agente e causerà problemi del cluster dopo la distribuzione. 
-- Per "CUSTOM_PRIVATE_DNS_ZONE_RESOURCE_ID" è necessario creare una zona di DNS privato in questo formato per il cloud globale di Azure: `privatelink.<region>.azmk8s.io` . Sarà necessario l'ID risorsa di tale zona DNS privato in futuro.  Inoltre, sarà necessaria un'identità o un'entità servizio assegnata dall'utente con almeno il `private dns zone contributor` ruolo.
+- Per "CUSTOM_PRIVATE_DNS_ZONE_RESOURCE_ID" è necessario creare una zona di DNS privato in questo formato per il cloud globale di Azure: `privatelink.<region>.azmk8s.io` . Sarà necessario l'ID risorsa di tale zona DNS privato in futuro.  Inoltre, sarà necessaria un'identità o un'entità servizio assegnata dall'utente con almeno `private dns zone contributor`  i `vnet contributor` ruoli e.
 - "FQDN-sottodominio" può essere utilizzato con "CUSTOM_PRIVATE_DNS_ZONE_RESOURCE_ID" solo per fornire funzionalità di sottodominio a `privatelink.<region>.azmk8s.io`
 
 ### <a name="prerequisites"></a>Prerequisiti

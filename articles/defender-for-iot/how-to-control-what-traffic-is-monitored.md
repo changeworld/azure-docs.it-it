@@ -1,18 +1,14 @@
 ---
 title: Controllare quale traffico viene monitorato
 description: I sensori eseguono automaticamente il rilevamento approfondito dei pacchetti per l'IT e il traffico e per risolvere le informazioni sui dispositivi di rete, ad esempio gli attributi e il comportamento della rete. Sono disponibili diversi strumenti per controllare il tipo di traffico rilevato da ogni sensore.
-author: shhazam-ms
-manager: rkarlin
-ms.author: shhazam
 ms.date: 12/07/2020
 ms.topic: how-to
-ms.service: azure
-ms.openlocfilehash: bfe3e00c4930ba57c930eb1bc2f2dd4ed11886e0
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: b80ef4a4a1fca7383da80fda6fdf42831913f2bd
+ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "100522394"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104784442"
 ---
 # <a name="control-what-traffic-is-monitored"></a>Controllare quale traffico viene monitorato
 

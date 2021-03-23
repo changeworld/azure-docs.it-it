@@ -1,18 +1,14 @@
 ---
 title: Accelerare i flussi di lavoro degli avvisi
 description: Migliorare i flussi di lavoro di avvisi ed eventi imprevisti.
-author: shhazam-ms
-manager: rkarlin
-ms.author: shhazam
 ms.date: 12/02/2020
-ms.service: azure
 ms.topic: how-to
-ms.openlocfilehash: 0a445abe0f448c28742282aedd1a886fae0f5a43
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: c12d1135b7a7bc87a38a609aeeb6ada8caa9a25e
+ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "100526290"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104779121"
 ---
 # <a name="accelerate-alert-workflows"></a>Accelerare i flussi di lavoro degli avvisi
 
@@ -81,16 +77,29 @@ Questi campi devono essere configurati nella soluzione partner per visualizzare 
 ### <a name="default-alert-groups"></a>Gruppi di avvisi predefiniti
 
 I gruppi di avvisi seguenti vengono definiti automaticamente:
-|  |  |  |
-|--|--|--|
-| Comportamento anomalo della comunicazione | Avvisi personalizzati | Accesso remoto |
-| Comportamento anomalo della comunicazione HTTP | Individuazione | Comandi di riavvio e arresto |
-| Authentication | Modifica del firmware | Scansione |
-| Comportamento di comunicazione non autorizzato | Comandi non validi | Traffico del sensore |
-| Anomalie della larghezza di banda | Accesso a Internet | Sospetto di malware |
-| Overflow del buffer | Errori delle operazioni | Sospetto di attività dannose |
-| Errori di comando | Problemi operativi |  |
-| Modifiche di configurazione | Programmazione |  |
+
+- Comportamento anomalo della comunicazione
+- Avvisi personalizzati
+- Accesso remoto
+- Comportamento anomalo della comunicazione HTTP
+- Individuazione
+- Comandi di riavvio e arresto
+- Authentication
+- Modifica del firmware
+- Scansione
+- Comportamento di comunicazione non autorizzato
+- Comandi non validi
+- Traffico del sensore
+- Anomalie della larghezza di banda
+- Accesso a Internet
+- Sospetto di malware
+- Overflow del buffer 
+- Errori delle operazioni
+- Sospetto di attività dannose
+- Errori di comando
+- Problemi operativi
+- Modifiche di configurazione
+- Programmazione
 
 I gruppi di avvisi sono predefiniti. Per informazioni dettagliate sugli avvisi associati ai gruppi di avvisi e sulla creazione di gruppi di avvisi personalizzati, contattare [supporto tecnico Microsoft](https://support.microsoft.com/supportforbusiness/productselection?sapId=82c8f35-1b8e-f274-ec11-c6efdd6dd099).
 

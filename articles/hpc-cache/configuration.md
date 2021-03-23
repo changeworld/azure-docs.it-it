@@ -4,14 +4,14 @@ description: Viene illustrato come configurare impostazioni aggiuntive per la ca
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: how-to
-ms.date: 03/15/2021
+ms.date: 03/17/2021
 ms.author: v-erkel
-ms.openlocfilehash: 06feefe3a934d1ee02793fab442852e5ef40899a
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 6e1e1283cb82dcb900da6473de65ef087a5cea82
+ms.sourcegitcommit: 2c1b93301174fccea00798df08e08872f53f669c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103563380"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104773233"
 ---
 # <a name="configure-additional-azure-hpc-cache-settings"></a>Configurare altre impostazioni della cache HPC di Azure
 
@@ -75,6 +75,8 @@ Se è necessario impostare un server DNS personalizzato per la cache, usare i ca
   > [!NOTE]
   > The cache will use only the first DNS server it successfully finds. -->
 
+Provare a usare una cache di test per controllare e perfezionare la configurazione DNS prima di usarla in un ambiente di produzione.
+
 ### <a name="refresh-storage-target-dns"></a>Aggiornare DNS di destinazione di archiviazione
 
 Se il server DNS Aggiorna gli indirizzi IP, le destinazioni di archiviazione NFS associate diventeranno temporaneamente non disponibili. Leggere le informazioni su come aggiornare gli indirizzi IP di sistema DNS personalizzati in [Modifica destinazioni di archiviazione](hpc-cache-edit-storage.md#update-ip-address-custom-dns-configurations-only).
@@ -94,10 +96,10 @@ Questa funzionalità è disponibile solo per le destinazioni di archiviazione BL
 
 Gli snapshot vengono effettuati ogni otto ore, alle ore UTC 0:00, 08:00 e 16:00.
 
-Cache HPC di Azure archivia snapshot giornalieri, settimanali e mensili fino a quando non vengono sostituiti con quelli nuovi. I limiti sono i seguenti:
+Cache HPC di Azure archivia snapshot giornalieri, settimanali e mensili fino a quando non vengono sostituiti con quelli nuovi. I limiti di conservazione degli snapshot sono:
 
 * Fino a 20 snapshot giornalieri
 * Fino a 8 snapshot settimanali
 * Fino a 3 snapshot mensili
 
-Accedere agli snapshot dalla `.snapshot` Directory nello spazio dei nomi della destinazione di archiviazione BLOB.
+Accedere agli snapshot dalla `.snapshot` directory nella radice della destinazione di archiviazione BLOB montata.

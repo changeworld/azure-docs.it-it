@@ -7,15 +7,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 12/16/2020
+ms.date: 03/22/2021
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 6b0bdc5a5b58c205d888c8892a4333225a9b316f
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: c42c6465af8e895d833332be847c134b97ee8ddc
+ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "100557142"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104781297"
 ---
 # <a name="tutorial-create-user-flows-in-azure-active-directory-b2c"></a>Esercitazione: Creare flussi utente in Azure Active Directory B2C
 
@@ -25,8 +25,9 @@ In questo articolo vengono illustrate le operazioni seguenti:
 
 > [!div class="checklist"]
 > * Creare un flusso utente di iscrizione e accesso
+> * Abilitare la reimpostazione self-service delle password
 > * Creare un flusso utente di modifica del profilo
-> * Creare un flusso utente di reimpostazione delle password
+
 
 Questa esercitazione illustra come creare alcuni flussi utente consigliati tramite il portale di Azure. Se servono informazioni su come configurare un flusso delle credenziali password del proprietario della risorsa (ROPC) nell'applicazione, vedere [Configurare il flusso delle credenziali password del proprietario della risorsa in Azure AD B2C](add-ropc-policy.md).
 
@@ -85,6 +86,24 @@ Il flusso utente di iscrizione e accesso consente di gestire le esperienze di is
 > [!NOTE]
 > L'esperienza "Esegui il flusso utente" non è attualmente compatibile con l'URL di risposta di tipo applicazione a pagina singola con il flusso di codice di autorizzazione. Per usare l'esperienza "Esegui il flusso utente" con questi tipi di app, registrare un URL di risposta di tipo "Web" e abilitare il flusso implicito come descritto [qui](tutorial-register-spa.md).
 
+## <a name="enable-self-service-password-reset"></a>Abilitare la reimpostazione self-service delle password
+
+Per abilitare la [reimpostazione della password self-service](add-password-reset-policy.md) per il flusso utente di iscrizione o accesso:
+
+1. Selezionare il flusso utente di iscrizione o accesso creato.
+1. In **Impostazioni** nel menu a sinistra selezionare **Proprietà**.
+1. In **complessità password** selezionare **reimpostazione password self-service**.
+1. Selezionare **Salva**.
+
+### <a name="test-the-user-flow"></a>Testare il flusso utente
+
+1. Selezionare il flusso utente creato per aprire la relativa pagina di panoramica, quindi selezionare **Esegui il flusso utente**.
+1. Per **Applicazione** selezionare l'applicazione Web denominata *webapp1* che è stata registrata in precedenza. L'**URL di risposta** dovrebbe mostrare `https://jwt.ms`.
+1. Selezionare **Esegui il flusso utente**.
+1. Dalla pagina di iscrizione o accesso selezionare **password dimenticata**.
+1. Verificare l'indirizzo di posta elettronica dell'account creato in precedenza e quindi selezionare **continue (continua**).
+1. Ora è possibile modificare la password per l'utente. Cambiare la password e selezionare **Continua**. Il token viene restituito a `https://jwt.ms` e dovrebbe essere visualizzato.
+
 ## <a name="create-a-profile-editing-user-flow"></a>Creare un flusso utente di modifica del profilo
 
 Se si vuole abilitare nell'applicazione la modifica del profilo da parte degli utenti, usare un flusso utente di modifica del profilo.
@@ -103,26 +122,6 @@ Se si vuole abilitare nell'applicazione la modifica del profilo da parte degli u
 1. Per **Applicazione** selezionare l'applicazione Web denominata *webapp1* che è stata registrata in precedenza. L'**URL di risposta** dovrebbe mostrare `https://jwt.ms`.
 1. Fare clic su **Esegui il flusso utente**, quindi accedere con l'account creato in precedenza.
 1. A questo punto si ha la possibilità di modificare il nome visualizzato e la posizione dell'utente. Fare clic su **Continua**. Il token viene restituito a `https://jwt.ms` e dovrebbe essere visualizzato.
-
-## <a name="create-a-password-reset-user-flow"></a>Creare un flusso utente di reimpostazione delle password
-
-Per consentire agli utenti dell'applicazione di reimpostare la propria password, si può usare il flusso utente Reimpostazione password.
-
-1. Nel menu della pagina di panoramica del tenant Azure AD B2C selezionare **Flussi utente** e quindi **Nuovo flusso utente**.
-1. Nella pagina **Crea un flusso utente** selezionare il flusso utente **Reimpostazione password**. 
-1. In **Selezionare una versione** selezionare **Consigliata**, quindi selezionare **Crea**.
-1. Immettere un **nome** per il flusso utente. Ad esempio, *passwordreset1*.
-1. Per **Provider di identità** abilitare **Ripristinare la password usando la verifica tramite posta elettronica**.
-2. In Attestazioni dell'applicazione fare clic su **Mostra altro** e scegliere le attestazioni che devono essere restituite nei token di autorizzazione inviati all'applicazione. Selezionare ad esempio **ID oggetto dell'utente**.
-3. Fare clic su **OK**.
-4. Fare clic su **Crea** per aggiungere il flusso utente. Un prefisso *B2C_1* viene automaticamente aggiunto al nome.
-
-### <a name="test-the-user-flow"></a>Testare il flusso utente
-
-1. Selezionare il flusso utente creato per aprire la relativa pagina di panoramica, quindi selezionare **Esegui il flusso utente**.
-1. Per **Applicazione** selezionare l'applicazione Web denominata *webapp1* che è stata registrata in precedenza. L'**URL di risposta** dovrebbe mostrare `https://jwt.ms`.
-1. Fare clic su **Esegui il flusso utente**, verificare l'indirizzo di posta elettronica dell'account creato in precedenza e selezionare **Continua**.
-1. Ora è possibile modificare la password per l'utente. Cambiare la password e selezionare **Continua**. Il token viene restituito a `https://jwt.ms` e dovrebbe essere visualizzato.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

@@ -1,25 +1,14 @@
 ---
 title: Raccomandazioni basate su agenti
-titleSuffix: Azure Defender for IoT
 description: Informazioni sul concetto di consigli per la sicurezza e su come vengono usati per i dispositivi Defender for Internet.
-services: defender-for-iot
-ms.service: defender-for-iot
-documentationcenter: na
-author: shhazam-ms
-manager: rkarlin
-editor: ''
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 02/16/2021
-ms.author: shhazam
-ms.openlocfilehash: e746f37fdf3b67467c1844ebea9191679d52d6d1
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: a29957f459edad8b768daea7bc4567d77c80b165
+ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103491266"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104784986"
 ---
 # <a name="security-recommendations-for-iot-devices"></a>Raccomandazioni sulla sicurezza per i dispositivi Internet
 
@@ -46,9 +35,9 @@ Le indicazioni operative forniscono informazioni dettagliate e suggerimenti per 
 
 | Gravità | Nome | origine dati | Descrizione |
 |--|--|--|--|
-| Basso | Agent invia messaggi non utilizzati | Defender classico-un micro-agente| il 10% o più messaggi di sicurezza sono inferiori a 4 KB durante le ultime 24 ore. |
-| Basso | Configurazione del gemello di sicurezza non ottimale | Defender classico-un micro-agente| La configurazione di dispositivi gemelli di sicurezza non è ottimale. |
-| Basso | Conflitto di configurazione della sicurezza dei dispositivi gemelli | Defender classico-un micro-agente| Sono stati identificati conflitti nella configurazione dei dispositivi gemelli di sicurezza. |  |
+| Basso | Agent invia messaggi non utilizzati | Defender classico-un micro-agente | il 10% o più messaggi di sicurezza sono inferiori a 4 KB durante le ultime 24 ore. |
+| Basso | Configurazione del gemello di sicurezza non ottimale | Defender classico-un micro-agente | La configurazione di dispositivi gemelli di sicurezza non è ottimale. |
+| Basso | Conflitto di configurazione della sicurezza dei dispositivi gemelli | Defender classico-un micro-agente | Sono stati identificati conflitti nella configurazione dei dispositivi gemelli di sicurezza. |
 
 ## <a name="next-steps"></a>Passaggi successivi
 

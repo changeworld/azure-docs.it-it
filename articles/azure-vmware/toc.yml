@@ -61,7 +61,7 @@
     - name: Risparmiare sui costi con le istanze riservate
       href: reserved-instance.md
     - name: Valutazione della migrazione
-      href: ../migrate/how-to-create-azure-vmware-solution-assessment.md?context=/azure/migrate/context/migrate-context.json
+      href: /azure/migrate/how-to-create-azure-vmware-solution-assessment?context=/azure/azure-vmware/context/context
     - name: Gestire DHCP
       href: manage-dhcp.md
     - name: Configurare i componenti di rete NSX
@@ -112,6 +112,8 @@
       items:
         - name: Soluzioni di backup per le macchine virtuali
           href: ecosystem-back-up-vms.md
+        - name: Soluzioni di migrazione per le macchine virtuali
+          href: ecosystem-migration-vms.md
 - name: Risorse
   items:
     - name: Risoluzione dei problemi

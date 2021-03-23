@@ -1,24 +1,24 @@
 ---
-title: Configurare l'analisi delle dipendenze senza agente in Azure Migrate server Assessment
-description: Configurare l'analisi delle dipendenze senza agente in Azure Migrate server assessment.
+title: Configurare l'analisi delle dipendenze senza agente in Azure Migrate
+description: Configurare l'analisi delle dipendenze senza agente in Azure Migrate.
 author: vikram1988
 ms.author: vibansa
 ms.manager: abhemraj
 ms.topic: how-to
 ms.date: 6/08/2020
-ms.openlocfilehash: c3aa2aea764af8469152b007e60427724fea398a
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 7966750d7c3e0f12bb9404a4d78bbc27e4075c52
+ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102045854"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104786584"
 ---
 # <a name="analyze-server-dependencies-agentless"></a>Analizzare le dipendenze del server (senza agenti)
 
-Questo articolo descrive come configurare l'analisi delle dipendenze senza agenti usando Azure Migrate: server assessment. L' [analisi delle dipendenze](concepts-dependency-visualization.md) consente di identificare e comprendere le dipendenze tra i server per la valutazione e la migrazione ad Azure.
+Questo articolo descrive come configurare l'analisi delle dipendenze senza agenti usando Azure Migrate: strumento di individuazione e valutazione. L' [analisi delle dipendenze](concepts-dependency-visualization.md) consente di identificare e comprendere le dipendenze tra i server per la valutazione e la migrazione ad Azure.
 
 > [!IMPORTANT]
-> L'analisi delle dipendenze senza agenti è attualmente in anteprima per i server in esecuzione nell'ambiente VMware, individuati con lo strumento Azure Migrate: server assessment.
+> L'analisi delle dipendenze senza agenti è attualmente disponibile in anteprima per i server in esecuzione nell'ambiente VMware, individuati con lo strumento Azure Migrate: Discovery and Assessment.
 > Questa versione di anteprima è coperta dal supporto tecnico e può essere usata per i carichi di lavoro di produzione.
 > Per altre informazioni, vedere [Condizioni supplementari per l'utilizzo delle anteprime di Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
@@ -30,7 +30,7 @@ Questo articolo descrive come configurare l'analisi delle dipendenze senza agent
 
 ## <a name="before-you-start"></a>Prima di iniziare
 
-- Assicurarsi di aver [creato un progetto Azure migrate](./create-manage-projects.md) con lo strumento Azure migrate: server assessment.
+- Assicurarsi di aver [creato un progetto](./create-manage-projects.md) con lo strumento Azure migrate: individuazione e valutazione aggiunto.
 - Esaminare i [requisiti di VMware](migrate-support-matrix-vmware.md#vmware-requirements) per eseguire l'analisi delle dipendenze.
 - Esaminare i [requisiti dell'appliance](migrate-support-matrix-vmware.md#azure-migrate-appliance-requirements) prima di configurare l'appliance.
 - [Esaminare i requisiti di analisi delle dipendenze](migrate-support-matrix-vmware.md#dependency-analysis-requirements-agentless) prima di abilitare l'analisi delle dipendenze nei server
@@ -41,7 +41,7 @@ Questo articolo descrive come configurare l'analisi delle dipendenze senza agent
 2. Esaminare gli URL di Azure a cui l'appliance dovrà accedere nei cloud [pubblici](migrate-appliance.md#public-cloud-urls) e [governativi](migrate-appliance.md#government-cloud-urls).
 3. [Esaminare i dati](migrate-appliance.md#collected-data---vmware) che l'appliance raccoglierà durante l'individuazione e la valutazione.
 4. [Prendere nota](migrate-support-matrix-vmware.md#port-access-requirements) dei requisiti di accesso alle porte per l'appliance.
-5. [Distribuire il dispositivo Azure migrate](how-to-set-up-appliance-vmware.md) per avviare l'individuazione. Per distribuire l'appliance, scaricare e importare un modello OVA in VMware per creare un server in esecuzione nel server vCenter. Dopo aver distribuito il dispositivo, è necessario registrarlo con il progetto Azure Migrate e configurarlo per avviare l'individuazione.
+5. [Distribuire il dispositivo Azure migrate](how-to-set-up-appliance-vmware.md) per avviare l'individuazione. Per distribuire l'appliance, scaricare e importare un modello OVA in VMware per creare un server in esecuzione nel server vCenter. Dopo aver distribuito il dispositivo, è necessario registrarlo con il progetto e configurarlo per avviare l'individuazione.
 6. Quando si configura l'appliance, è necessario specificare quanto segue in Gestione configurazione Appliance:
     - Dettagli del server vCenter a cui si desidera connettersi.
     - server vCenter le credenziali con ambito per individuare i server nell'ambiente VMware.
@@ -50,7 +50,7 @@ Questo articolo descrive come configurare l'analisi delle dipendenze senza agent
 ## <a name="verify-permissions"></a>Verificare le autorizzazioni
 
 - È necessario [creare un account di sola lettura server vCenter per l'](./tutorial-discover-vmware.md#prepare-vmware) individuazione e la valutazione. Per poter   >  interagire con i server per raccogliere i dati sulle dipendenze, per l'account di sola lettura devono essere abilitati i privilegi per le **operazioni Guest** delle macchine virtuali.
-- È necessario un account utente in modo che server assessment possa accedere al server per raccogliere i dati delle dipendenze. [Informazioni sui requisiti](migrate-support-matrix-vmware.md#dependency-analysis-requirements-agentless) dell'account per i server Windows e Linux.
+- È necessario un account utente in modo che Azure Migrate possa accedere al server per raccogliere i dati sulle dipendenze. [Informazioni sui requisiti](migrate-support-matrix-vmware.md#dependency-analysis-requirements-agentless) dell'account per i server Windows e Linux.
 
 ### <a name="add-credentials-and-initiate-discovery"></a>Aggiungere le credenziali e avviare l'individuazione
 
@@ -67,7 +67,7 @@ Questo articolo descrive come configurare l'analisi delle dipendenze senza agent
 
 Selezionare i server in cui si desidera abilitare l'individuazione delle dipendenze.
 
-1. In **Azure migrate: server Assessment** fare clic su **server individuati**.
+1. In **Azure migrate: individuazione e valutazione** fare clic su **server individuati**.
 2. Scegliere il **nome del dispositivo** di cui si vuole esaminare l'individuazione.
 1. È possibile visualizzare lo stato di convalida dei server sotto la colonna **dipendenze (senza agenti)** .
 1. Fare clic sull'elenco a discesa **analisi delle dipendenze** .
@@ -81,7 +81,7 @@ Selezionare i server in cui si desidera abilitare l'individuazione delle dipende
 
 ## <a name="visualize-dependencies"></a>Visualizza dipendenze
 
-1. In **Azure migrate: server Assessment** fare clic su **server individuati**.
+1. In **Azure migrate: individuazione e valutazione** fare clic su **server individuati**.
 1. Scegliere il **nome del dispositivo** di cui si vuole esaminare l'individuazione.
 1. Cercare il server di cui si desidera esaminare le dipendenze.
 1. Nella colonna **dipendenze (senza agenti)** fare clic su **Visualizza dipendenze** .
@@ -100,7 +100,7 @@ Selezionare i server in cui si desidera abilitare l'individuazione delle dipende
 
 ## <a name="export-dependency-data"></a>Esporta dati sulle dipendenze
 
-1. In **Azure migrate: server Assessment** fare clic su **server individuati**.
+1. In **Azure migrate: individuazione e valutazione** fare clic su **server individuati**.
 2. Fare clic sull'elenco a discesa **analisi delle dipendenze** .
 3. Fare clic su **Esporta dipendenze dell'applicazione**.
 4. Nella pagina **Esporta dipendenze applicazione** scegliere il nome del dispositivo che sta scoprendo i server desiderati.
@@ -132,7 +132,7 @@ Porta di destinazione | Numero di porta nel server di destinazione
 
 Selezionare i server in cui si desidera arrestare l'individuazione delle dipendenze.
 
-1. In **Azure migrate: server Assessment** fare clic su **server individuati**.
+1. In **Azure migrate: individuazione e valutazione** fare clic su **server individuati**.
 1. Scegliere il **nome del dispositivo** di cui si vuole esaminare l'individuazione.
 1. Fare clic sull'elenco a discesa **analisi delle dipendenze** .
 1. Fare clic su **Rimuovi server**.
@@ -157,7 +157,7 @@ Scaricare il modulo PowerShell dal repository [Azure PowerShell Samples](https:/
     Connect-AzAccount -EnvironmentName AzureUSGovernment
     ```
 
-2. Selezionare la sottoscrizione in cui è stato creato il progetto di Azure Migrate 
+2. Selezionare la sottoscrizione in cui è stato creato il progetto 
 
     ```PowerShell
     select-azsubscription -subscription "Fabrikam Demo Subscription"
@@ -171,7 +171,7 @@ Scaricare il modulo PowerShell dal repository [Azure PowerShell Samples](https:/
 
 ### <a name="enable-or-disable-dependency-data-collection"></a>Abilitare o disabilitare la raccolta dei dati sulle dipendenze
 
-1. Ottenere l'elenco dei server individuati nel progetto Azure Migrate usando i comandi seguenti. Nell'esempio seguente il nome del progetto è FabrikamDemoProject e il gruppo di risorse a cui appartiene è FabrikamDemoRG. L'elenco dei server verrà salvato in FabrikamDemo_VMs.csv
+1. Ottenere l'elenco dei server individuati nel progetto usando i comandi seguenti. Nell'esempio seguente il nome del progetto è FabrikamDemoProject e il gruppo di risorse a cui appartiene è FabrikamDemoRG. L'elenco dei server verrà salvato in FabrikamDemo_VMs.csv
 
     ```PowerShell
     Get-AzMigDiscoveredVMwareVMs -ResourceGroupName "FabrikamDemoRG" -ProjectName "FabrikamDemoProject" -OutputCsvFile "FabrikamDemo_VMs.csv"
@@ -212,7 +212,7 @@ Azure Migrate offre un modello di Power BI che è possibile usare per visualizza
         Connect-AzAccount -EnvironmentName AzureUSGovernment
         ```
 
-    - Selezionare la sottoscrizione in cui è stato creato il progetto di Azure Migrate
+    - Selezionare la sottoscrizione in cui è stato creato il progetto
 
         ```PowerShell
         select-azsubscription -subscription "Fabrikam Demo Subscription"

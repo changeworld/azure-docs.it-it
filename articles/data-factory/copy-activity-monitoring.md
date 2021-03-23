@@ -4,14 +4,14 @@ description: Informazioni su come monitorare l'esecuzione dell'attività di copi
 author: linda33wj
 ms.service: data-factory
 ms.topic: conceptual
-ms.date: 08/06/2020
+ms.date: 03/22/2021
 ms.author: jingwang
-ms.openlocfilehash: 58860e404dff3030e51ff2977eaee081a15247f7
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 4aefeea33e61b6ee2541e929dbeb3fc36343cac5
+ms.sourcegitcommit: 2c1b93301174fccea00798df08e08872f53f669c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "100388295"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104771380"
 ---
 # <a name="monitor-copy-activity"></a>Monitorare l'attività di copia
 
@@ -59,7 +59,7 @@ I dettagli dell'esecuzione dell'attività di copia e le caratteristiche delle pr
 | rowsCopied | Numero di righe copiate nel sink. Questa metrica non si applica quando si copiano i file così come sono senza analizzarli, ad esempio quando i set di dati di origine e sink sono di tipo binario o di altro tipo di formato con impostazioni identiche.  | Valore Int64 (senza unità) |
 | rowsSkipped | Numero di righe non compatibili ignorate. È possibile abilitare le righe incompatibili da ignorare impostando `enableSkipIncompatibleRow` su true. | Valore Int64 (senza unità) |
 | copyDuration | Durata dell'esecuzione della copia. | Valore Int32, in secondi |
-| throughput | Frequenza di trasferimento dei dati. | Numero a virgola mobile, in KBps |
+| throughput | Velocità di trasferimento dei dati, calcolata da `dataRead` diviso per `copyDuration` . | Numero a virgola mobile, in KBps |
 | sourcePeakConnections | Numero massimo di connessioni simultanee stabilite nell'archivio dati di origine durante l'esecuzione dell'attività di copia. | Valore Int32 (nessuna unità) |
 | sinkPeakConnections| Numero massimo di connessioni simultanee stabilite nell'archivio dati sink durante l'esecuzione dell'attività di copia.| Valore Int32 (nessuna unità) |
 | sqlDwPolyBase | Se viene usato polibase quando i dati vengono copiati in Azure sinapsi Analytics. | Boolean |

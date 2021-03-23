@@ -6,14 +6,14 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
 author: cpercy737
 ms.author: camper
-ms.date: 03/09/2021
+ms.date: 03/19/2021
 ms.custom: devx-track-terraform
-ms.openlocfilehash: 8f84d77b5a424d5f7273c7e748c35c52882819c6
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
+ms.openlocfilehash: 79f3276347aa64655f0c9086db5f152c4ff5fbcf
+ms.sourcegitcommit: 2c1b93301174fccea00798df08e08872f53f669c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102608394"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104771091"
 ---
 # <a name="azure-customer-usage-attribution"></a>Attribuzione dell'utilizzo dei clienti di Azure
 
@@ -30,7 +30,7 @@ Esistono casi d'uso secondari per l'attribuzione dell'utilizzo dei clienti all'e
 >[!IMPORTANT]
 >- L'attribuzione dell'utilizzo dei clienti non è destinata a tenere traccia del lavoro degli integratori di sistemi, dei provider di servizi gestiti o degli strumenti progettati principalmente per la distribuzione e la gestione delle risorse di Azure.
 >- L'attribuzione dell'utilizzo dei clienti riguarda le nuove distribuzioni e non supporta il rilevamento delle risorse già distribuite.
->- Non tutti i servizi di Azure sono compatibili con l'attribuzione dell'utilizzo del cliente. I servizi di Azure Kubernetes (AKS) e i set di scalabilità di VM presentano problemi noti che provocano la creazione di report in base all'utilizzo.
+>- Non tutti i servizi di Azure sono compatibili con l'attribuzione dell'utilizzo del cliente. I servizi Azure Kubernetes (AKS), i set di scalabilità di macchine virtuali e Azure Batch presentano problemi noti che provocano la creazione di report in base all'utilizzo.
 
 ## <a name="commercial-marketplace-azure-apps"></a>Marketplace commerciale app di Azure
 
