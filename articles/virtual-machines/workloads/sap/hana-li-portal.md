@@ -15,17 +15,17 @@ ms.workload: infrastructure
 ms.date: 12/31/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: d32adab35852cd19933fe3877c2742a21ddc5f1e
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 07094e399f153f56746a931a4a100b3c0d38f92f
+ms.sourcegitcommit: 2c1b93301174fccea00798df08e08872f53f669c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101676983"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104772077"
 ---
 # <a name="azure-hana-large-instances-control-through-azure-portal"></a>Controllo di istanze Large di HANA in Azure tramite il portale di Azure
 
 >[!NOTE]
->Per Rev 4,2, seguire le istruzioni riportate nell'argomento [gestire le istanze di Baremetal tramite l'portale di Azure](../../../baremetal-infrastructure/workloads/sap/baremetal-infrastructure-portal.md) .
+>Per Rev 4,2, seguire le istruzioni riportate nell'argomento [gestire le istanze di Baremetal tramite l'portale di Azure](../../../baremetal-infrastructure/connect-baremetal-infrastructure.md) .
 
 Questo documento illustra il modo in cui vengono presentate le [istanze large di Hana](./hana-overview-architecture.md) in [portale di Azure](https://portal.azure.com) e quali attività possono essere eseguite tramite portale di Azure con le unità di istanze large di Hana distribuite per l'utente. La visibilità delle istanze large di HANA in portale di Azure viene fornita tramite un provider di risorse di Azure per istanze large di HANA, attualmente disponibile in anteprima pubblica
 

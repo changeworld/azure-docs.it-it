@@ -5,13 +5,13 @@ author: deborahc
 ms.author: dech
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 10/12/2020
-ms.openlocfilehash: b91c846b5a79125c1cee9c36ce81b5c3d3229ba9
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.date: 03/19/2021
+ms.openlocfilehash: ab1b7028ce5f1afef861e696c98f25b56e78ef36
+ms.sourcegitcommit: 2c1b93301174fccea00798df08e08872f53f669c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "99627772"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104772468"
 ---
 # <a name="partitioning-and-horizontal-scaling-in-azure-cosmos-db"></a>Partizionamento e scalabilità orizzontale in Azure Cosmos DB
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
@@ -63,8 +63,6 @@ Azure Cosmos DB in modo trasparente e automatico gestisce il posizionamento dell
 Azure Cosmos DB usa il partizionamento basato su hash per distribuire partizioni logiche tra partizioni fisiche. Azure Cosmos DB hashing del valore della chiave di partizione di un elemento. Il risultato con hash determina la partizione fisica. Quindi, Azure Cosmos DB alloca in modo uniforme lo spazio chiavi degli hash della chiave di partizione tra le partizioni fisiche.
 
 Le transazioni (in stored procedure o trigger) sono consentite solo per gli elementi di una singola partizione logica.
-
-Sono disponibili altre informazioni sul [modo in cui Azure Cosmos DB gestisce le partizioni](partitioning-overview.md). Non è necessario comprendere i dettagli interni per compilare o eseguire le applicazioni, ma è stato aggiunto qui per un lettore curioso.
 
 ## <a name="replica-sets"></a>Set di repliche
 

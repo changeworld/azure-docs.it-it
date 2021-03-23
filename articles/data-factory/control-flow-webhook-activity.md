@@ -3,16 +3,16 @@ title: Attività webhook in Azure Data Factory
 description: L'attività webhook non continua l'esecuzione della pipeline fino a quando non convalida il set di dati collegato con determinati criteri specificati dall'utente.
 author: dcstwh
 ms.author: weetok
-ms.reviewer: maghan
+ms.reviewer: jburchel
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 03/25/2019
-ms.openlocfilehash: 59aa395db27c26a7c94eebdc0e3b34d7776ee75f
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 4c3ff5d7139f4167769f78aa858c7d7a693539a3
+ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104591997"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104785938"
 ---
 # <a name="webhook-activity-in-azure-data-factory"></a>Attività webhook in Azure Data Factory
 

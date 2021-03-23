@@ -6,12 +6,12 @@ ms.service: hpc-cache
 ms.topic: how-to
 ms.date: 03/15/2021
 ms.author: v-erkel
-ms.openlocfilehash: bba6745a4cc0be30648e23501f9a9e2f0cc6c8db
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: afb896100ea60c21aaf37890d7b520bf38c6ce18
+ms.sourcegitcommit: 2c1b93301174fccea00798df08e08872f53f669c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103563242"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104772723"
 ---
 # <a name="add-storage-targets"></a>Aggiungere destinazioni di archiviazione
 
@@ -164,7 +164,7 @@ Una destinazione di archiviazione NFS ha impostazioni diverse da una destinazion
 > Prima di creare una destinazione di archiviazione NFS, assicurarsi che il sistema di archiviazione sia accessibile dalla cache HPC di Azure e soddisfi i requisiti di autorizzazione. La creazione della destinazione di archiviazione avrà esito negativo se la cache non riesce ad accedere al sistema di archiviazione. Per informazioni dettagliate, vedere [requisiti di archiviazione NFS](hpc-cache-prerequisites.md#nfs-storage-requirements) e [risolvere i problemi di configurazione NAS e di destinazione archiviazione NFS](troubleshoot-nas.md) .
 
 ### <a name="choose-a-usage-model"></a>Scegliere un modello di utilizzo
-<!-- referenced from GUI - update aka.ms link to point at new article when published -->
+<!-- referenced from GUI by aka.ms link -->
 
 Quando si crea una destinazione di archiviazione che usa NFS per raggiungere il proprio sistema di archiviazione, è necessario scegliere un modello di utilizzo per tale destinazione. Questo modello determina il modo in cui i dati vengono memorizzati nella cache.
 
@@ -195,16 +195,6 @@ Per informazioni dettagliate sulle altre opzioni, vedere [comprendere i modelli 
 In questa tabella vengono riepilogate le differenze tra tutti i modelli di utilizzo:
 
 [!INCLUDE [usage-models-table.md](includes/usage-models-table.md)]
-
-<!-- | Usage model | Caching mode | Back-end verification | Maximum write-back delay |
-|--|--|--|--|
-| Read heavy, infrequent writes | Read | Never | None |
-| Greater than 15% writes | Read/write | 8 hours | 20 minutes |
-| Clients bypass the cache | Read | 30 seconds | None |
-| Greater than 15% writes, frequent back-end checking (30 seconds) | Read/write | 30 seconds | 20 minutes |
-| Greater than 15% writes, frequent back-end checking (60 seconds) | Read/write | 60 seconds | 20 minutes |
-| Greater than 15% writes, frequent write-back | Read/write | 30 seconds | 30 seconds |
-| Read heavy, checking the backing server every 3 hours | Read | 3 hours | None | -->
 
 > [!NOTE]
 > Il valore di **Verifica back-end** indica quando la cache confronta automaticamente i propri file con i file di origine nell'archiviazione remota. Tuttavia, è possibile attivare un confronto inviando una richiesta client che include un'operazione READDIRPLUS nel sistema di archiviazione back-end. READDIRPLUS è un'API NFS standard (detta anche lettura estesa) che restituisce i metadati della directory, che determina il confronto e l'aggiornamento dei file nella cache.

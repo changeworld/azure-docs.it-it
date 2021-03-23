@@ -6,14 +6,14 @@ ms.author: bagol
 ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
-ms.date: 03/07/2021
+ms.date: 03/21/2021
 ms.custom: references_regions
-ms.openlocfilehash: ddd5c5de85da5ae8cec9d24d33dfd2bf035b5b34
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: f77bd69f8266d9461481cd0a12a7b70107622de5
+ms.sourcegitcommit: 2c1b93301174fccea00798df08e08872f53f669c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102438729"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104773454"
 ---
 # <a name="azure-purview-connector-for-amazon-s3"></a>Connettore Azure per le competenze per Amazon S3
 
@@ -49,29 +49,30 @@ La tabella seguente consente di eseguire il mapping delle aree in cui i dati ven
 | Area di archiviazione | Area di analisi |
 | ------------------------------- | ------------------------------------- |
 | Stati Uniti orientali (Ohio)                  | Stati Uniti orientali (Ohio)                        |
-| Stati Uniti orientali (N. Virginia           | Stati Uniti orientali (Ohio)                        |
+| Stati Uniti orientali (N. Virginia           | Stati Uniti orientali (Ohio) o Stati Uniti orientali (N. Virginia                       |
 | Stati Uniti occidentali (N. California         | Stati Uniti orientali (Ohio)                        |
 | Stati Uniti occidentali (Oregon)                | Stati Uniti orientali (Ohio)                        |
 | Africa (città del Capo)              | Europa (Francoforte)                    |
-| Asia Pacifico (Hong Kong)        | Europa (Francoforte)                    |
-| Asia Pacifico (Mumbai)           | Europa (Francoforte)                    |
-| Asia Pacifico (Osaka-local)      | Europa (Francoforte)                    |
-| Asia Pacifico (Seoul)            | Europa (Francoforte)                    |
-| Asia Pacifico (Singapore)        | Europa (Francoforte)                    |
-| Asia Pacifico (Sydney)           | Europa (Francoforte)                    |
-| Asia Pacifico (Tokyo)            | Europa (Francoforte)                    |
+| Asia Pacifico (Hong Kong)        | Europa (Francoforte) o Asia Pacifico (Sydney)                   |
+| Asia Pacifico (Mumbai)           | Europa (Francoforte) o Asia Pacifico (Sydney)                   |
+| Asia Pacifico (Osaka-local)      | Europa (Francoforte) o Asia Pacifico (Sydney)                   |
+| Asia Pacifico (Seoul)            | Europa (Francoforte) o Asia Pacifico (Sydney)                   |
+| Asia Pacifico (Singapore)        | Europa (Francoforte) o Asia Pacifico (Sydney)                   |
+| Asia Pacifico (Sydney)           | Europa (Francoforte) o Asia Pacifico (Sydney)                  |
+| Asia Pacifico (Tokyo)            | Europa (Francoforte) o Asia Pacifico (Sydney)                 |
 | Canada (centrale)                | Stati Uniti orientali (Ohio)                        |
 | Cina (Pechino)                 | Non supportato                    |
 | Cina (Ningxia)                 | Non supportato                   |
 | Europa (Francoforte)              | Europa (Francoforte)                    |
-| Europa (Irlanda)                | Europa (Francoforte)                    |
-| Europa (Londra)                 | Europa (Francoforte)                    |
+| Europa (Irlanda)                | Europa (Francoforte) o Europa (Irlanda)                   |
+| Europa (Londra)                 | Europa (Francoforte) o Europa (Irlanda)                   |
 | Europa (Milano)                  | Europa (Francoforte)                    |
 | Europa (Parigi)                  | Europa (Francoforte)                    |
 | Europa (Stoccolma)              | Europa (Francoforte)                    |
 | Medio Oriente (Bahrain)           | Europa (Francoforte)                    |
 | America del Sud (São Paulo)       | Stati Uniti orientali (Ohio)                        |
 | | |
+
 ## <a name="prerequisites"></a>Prerequisiti
 
 Assicurarsi di aver eseguito i prerequisiti seguenti prima di aggiungere i bucket di Amazon S3 come origini dati di competenza e di analizzare i dati S3.

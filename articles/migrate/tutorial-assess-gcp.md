@@ -1,28 +1,28 @@
 ---
-title: Valutare le istanze di VM GCP per la migrazione ad Azure con Valutazione server di Azure Migrate
-description: Informazioni su come valutare le istanze di VM GCP per la migrazione ad Azure usando Valutazione server di Azure Migrate.
+title: Valutare le istanze di macchine virtuali GCP per la migrazione ad Azure con Azure Migrate
+description: Viene descritto come valutare le istanze di macchine virtuali GCP per la migrazione ad Azure usando Azure Migrate.
 author: rashi-ms
 ms.author: rajosh
 ms.manager: abhemraj
 ms.topic: tutorial
 ms.date: 09/14/2020
 ms.custom: MVC
-ms.openlocfilehash: b5e6a0cd58fca954646640e43a81155822cdba04
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 6a59400ca0d8f2e4ced899166fe6e67b5ac1d2d9
+ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98567000"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104780685"
 ---
 # <a name="tutorial-assess-google-cloud-platform-gcp-vm-instances-for-migration-to-azure"></a>Esercitazione: Valutare le istanze di VM GCP (Google Cloud Platform) per la migrazione ad Azure
 
 Il percorso di migrazione ad Azure prevede la valutazione dei carichi di lavoro locali per determinare l'idoneità per il cloud, identificare i rischi e stimare costi e complessità.
 
-Questo articolo descrive come valutare le istanze di VM GCP (Google Cloud Platform) per la migrazione ad Azure con lo strumento Azure Migrate: Valutazione server.
+Questo articolo illustra come valutare Google Cloud Platform istanze di macchine virtuali (GCP) per la migrazione ad Azure usando lo strumento Azure Migrate: Discovery and Assessment.
 
 In questa esercitazione verranno illustrate le procedure per:
 > [!div class="checklist"]
-- Eseguire una valutazione in base alle informazioni relative a metadati e configurazioni delle macchine virtuali.
+- Eseguire una valutazione basata sui metadati del server e le informazioni di configurazione.
 - Eseguire una valutazione in base ai dati sulle prestazioni.
 
 > [!NOTE]
@@ -38,30 +38,30 @@ Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://a
 
 ## <a name="decide-which-assessment-to-run"></a>Decidere la valutazione da eseguire
 
-Decidere se si vuole eseguire una valutazione usando criteri di dimensionamento in base a dati/metadati di configurazione delle macchine virtuali raccolti in locale o in base a dati sulle prestazioni.
+Decidere se si vuole eseguire una valutazione usando criteri di ridimensionamento in base ai dati di configurazione del server o ai metadati raccolti così come sono in locale o in base ai dati sulle prestazioni.
 
 **Valutazione** | **Dettagli** | **Consiglio**
 --- | --- | ---
-**Come in locale** | Eseguire la valutazione in base ai dati/metadati di configurazione delle macchine virtuali.  | Le dimensioni consigliate per le macchine virtuali di Azure sono basate sulle dimensioni delle macchine virtuali locali.<br/><br> Il tipo di disco di Azure consigliato è basato sull'opzione selezionata nella valutazione per l'impostazione del tipo di archiviazione.
+**Come in locale** | Valuta in base ai metadati o ai dati di configurazione del server.  | Le dimensioni consigliate per le macchine virtuali di Azure sono basate sulle dimensioni delle macchine virtuali locali.<br/><br> Il tipo di disco di Azure consigliato è basato sull'opzione selezionata nella valutazione per l'impostazione del tipo di archiviazione.
 **Basata sulle prestazioni** | Valutazione basata sui dati sulle prestazioni raccolti. | Le dimensioni consigliate per le macchine virtuali di Azure sono basate sui dati di utilizzo della CPU e della memoria.<br/><br/> Il tipo di disco consigliato è basato sulle operazioni di I/O al secondo e sulla velocità effettiva dei dischi locali.
 
 ## <a name="run-an-assessment"></a>Eseguire una valutazione
 
 Eseguire una valutazione nel modo seguente:
 
-1. Nella pagina **Server** selezionare **Server Windows e Linux** e fare clic su **Valutare ed eseguire la migrazione dei server**.
+1. Nella pagina **panoramica** > **Windows, Linux e SQL Server** fare clic su **valuta ed Esegui la migrazione dei server**.
 
    ![Posizione del pulsante Valutare ed eseguire la migrazione dei server](./media/tutorial-assess-vmware-azure-vm/assess.png)
 
-2. In **Azure Migrate: Valutazione server** fare clic su **Valuta**.
+2. In **Azure migrate: individuazione e valutazione** fare clic su **valuta**.
 
     ![Posizione del pulsante Valuta](./media/tutorial-assess-vmware-azure-vm/assess-servers.png)
 
 3. In **Valuta server** > **Tipo di valutazione** selezionare **Macchina virtuale di Azure**.
 4. In **Origine individuazione**:
 
-    - Se le macchine virtuali sono state individuate usando l'appliance, selezionare **Macchine virtuali individuate dall'appliance di Azure Migrate**.
-    - Se le macchine virtuali sono state individuate usando un file CSV importato, selezionare **Macchine virtuali importate**. 
+    - Se sono stati individuati server che usano il dispositivo, selezionare **server individuati dal dispositivo Azure migrate**.
+    - Se sono stati individuati server che usano un file CSV importato, selezionare **Server importati**. 
     
 1. Fare clic su **modifica** per esaminare le proprietà della valutazione.
 
@@ -78,7 +78,7 @@ Eseguire una valutazione nel modo seguente:
         - Se si sceglie di usare un'istanza riservata, non è possibile specificare **Sconto (%)** o **Tempo di attività macchina virtuale**. 
         - [Altre informazioni](https://aka.ms/azurereservedinstances)
  1. In **Dimensioni macchina virtuale**:
-     - In **Criterio di dimensionamento** scegliere se si vuole basare la valutazione sui dati/metadati di configurazione della macchina virtuale o sui dati relativi alle prestazioni. Se si usano i dati relativi alle prestazioni:
+     - In **criterio di ridimensionamento** selezionare se si desidera basare la valutazione sui metadati o sui dati di configurazione del server o sui dati basati sulle prestazioni. Se si usano i dati relativi alle prestazioni:
         - In **Cronologia delle prestazioni** indicare la durata dei dati in base alla quale basare la valutazione
         - In **Utilizzo percentile** specificare il valore percentile da usare per il campione delle prestazioni. 
     - In **Serie macchina virtuale** specificare la serie di macchine virtuali di Azure che si vuole prendere in considerazione.
@@ -92,7 +92,7 @@ Eseguire una valutazione nel modo seguente:
         Memoria | 8 GB | 16 GB
    
 1. In **Prezzi**:
-    - In **Offerta** specificare l'[offerta di Azure](https://azure.microsoft.com/support/legal/offer-details/) sottoscritta. Valutazione server stima il costo di tale offerta.
+    - In **Offerta** specificare l'[offerta di Azure](https://azure.microsoft.com/support/legal/offer-details/) sottoscritta. La valutazione stima il costo per l'offerta.
     - In **Valuta** selezionare la valuta di fatturazione per l'account.
     - In **Sconto (%)** aggiungere eventuali sconti specifici della sottoscrizione ricevuti oltre all'offerta di Azure. L'impostazione predefinita è 0%.
     - In **Tempo di attività macchina virtuale** specificare la durata (giorni al mese/ora al giorno) in cui le macchine virtuali sono in esecuzione.
@@ -108,19 +108,17 @@ Eseguire una valutazione nel modo seguente:
 
 1. In **valuta server** > fare clic su **Avanti**.
 
-1. In **Seleziona computer per valutare**  >  il **nome della valutazione** > specificare un nome per la valutazione. 
+1. In **selezionare i server per valutare**  >  il **nome della valutazione** > specificare un nome per la valutazione. 
 
 1. In **selezionare o creare un gruppo** > selezionare **Crea nuovo** e specificare un nome di gruppo. 
     
-    :::image type="content" source="./media/tutorial-assess-physical/assess-group.png" alt-text="Aggiungere macchine virtuali a un gruppo":::
-
 
 1. Selezionare l'appliance e quindi le macchine virtuali da aggiungere al gruppo. Quindi fare clic su **Next**.
 
 
 1. In **Rivedi e crea valutazione** esaminare i dettagli della valutazione e fare clic su **Crea valutazione** per creare il gruppo ed eseguire la valutazione.
 
-1. Dopo aver creato la valutazione, visualizzarla in **Server** > **Azure Migrate: Valutazione server** > **Valutazioni**.
+1. Una volta creata la valutazione, visualizzarla nei **Server**  >  **Azure migrate: valutazioni di individuazione e valutazione**  >  .
 
 1. Fare clic su **Esporta valutazione** per scaricarla come file di Excel.
     > [!NOTE]
@@ -136,7 +134,7 @@ Una valutazione descrive:
 
 Per visualizzare una valutazione:
 
-1. In **Server** > **Azure Migrate: Valutazione server**, fare clic sul numero accanto a **Valutazioni**.
+1. In **Windows, Linux e SQL Server**  >  **Azure migrate: individuazione e valutazione**, fare clic sul numero accanto a **valutazioni**.
 2. In **Valutazioni** selezionare una valutazione per aprirla. A titolo di esempio (stime e costi sono solo esemplificativi): 
 
     ![Riepilogo della valutazione](./media/tutorial-assess-gcp/assessment-summary.png)
@@ -161,7 +159,7 @@ Il riepilogo della valutazione mostra i costi di calcolo e archiviazione stimati
 
 1. Esaminare i costi totali mensili. I costi sono aggregati per tutte le VM nel gruppo valutato.
 
-    - Le stime dei costi sono basate sulle dimensioni consigliate per una macchina virtuale e sui relativi dischi e proprietà.
+    - Le stime dei costi si basano sulle raccomandazioni relative alle dimensioni per un server, i relativi dischi e le relative proprietà.
     - Vengono visualizzati i costi mensili stimati per il calcolo e l'archiviazione.
     - La stima dei costi è relativa all'esecuzione delle macchine virtuali locali in macchine virtuali di Azure. La stima non considera i costi per PaaS o SaaS.
 
@@ -170,7 +168,7 @@ Il riepilogo della valutazione mostra i costi di calcolo e archiviazione stimati
 
 ### <a name="review-confidence-rating"></a>Esaminare la classificazione di attendibilità
 
-Valutazione server assegna una classificazione di attendibilità alle valutazioni basate sulle prestazioni. La classificazione è compresa tra una stella (più bassa) e cinque stelle (più alta).
+Azure Migrate assegna una classificazione di attendibilità alle valutazioni basate sulle prestazioni. La classificazione è compresa tra una stella (più bassa) e cinque stelle (più alta).
 
 ![Classificazione di attendibilità](./media/tutorial-assess-gcp/confidence-rating.png)
 
@@ -194,5 +192,5 @@ Le classificazioni di attendibilità sono elencate di seguito.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Per trovare le dipendenze delle macchine virtuali, usare il [mapping delle dipendenze](concepts-dependency-visualization.md).
+- Trovare le dipendenze del server usando il [mapping delle dipendenze](concepts-dependency-visualization.md)
 - Configurare il mapping delle dipendenze [basato sull'agente](how-to-create-group-machine-dependencies.md).

@@ -1,0 +1,23 @@
+### YamlMime:Landing
+title: Documentazione della piattaforma Azure Industrial Internet
+summary: La piattaforma Azure Industrial Internet è una suite Microsoft di moduli e servizi distribuiti in Azure.
+metadata:
+  description: Scopri di più
+  ms.service: industrial-iot
+  ms.topic: landing-page
+  author: philmea
+  ms.author: philmea
+  ms.date: 12/7/2020
+  ms.openlocfilehash: 236cbb059919646910b2cacd53da3f9311225d69
+  ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
+  ms.translationtype: MT
+  ms.contentlocale: it-IT
+  ms.lasthandoff: 03/22/2021
+  ms.locfileid: "104787060"
+landingContent:
+- title: Informazioni sulla piattaforma Azure Industrial Internet
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Che cos'è la piattaforma IIoT (Industrial tutto)?
+      url: overview-what-is-industrial-iot-platform.md

@@ -4,12 +4,12 @@ description: Informazioni su come proteggere il cluster usando un intervallo di 
 services: container-service
 ms.topic: article
 ms.date: 09/21/2020
-ms.openlocfilehash: ca6e1c06b3ad90ef12c9bf375bae50d46c5f7c37
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 20c3d46e9a19c66c727e5a21bccd6caa0dc5f0ba
+ms.sourcegitcommit: 2c1b93301174fccea00798df08e08872f53f669c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98890638"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104771924"
 ---
 # <a name="secure-access-to-the-api-server-using-authorized-ip-address-ranges-in-azure-kubernetes-service-aks"></a>Proteggere l'accesso al server API usando gli intervalli di indirizzi IP autorizzati in Azure Kubernetes Service (AKS)
 
@@ -27,7 +27,7 @@ Questo articolo illustra come creare un cluster AKS usando l'interfaccia della r
 
 La funzionalità degli intervalli IP autorizzati del server API presenta le limitazioni seguenti:
 - Nei cluster creati dopo che gli intervalli di indirizzi IP autorizzati del server API sono stati spostati all'esterno dell'anteprima nel 2019 ottobre, gli intervalli di indirizzi IP autorizzati del server API sono supportati solo nel servizio di bilanciamento del carico dello SKU *standard* . I cluster esistenti con lo SKU di *base* Load Balancer e gli intervalli di indirizzi IP autorizzati del server API configurati continueranno a funzionare così come sono, ma non è possibile eseguirne la migrazione a un servizio di bilanciamento del carico *standard* . I cluster esistenti continueranno a funzionare anche se la versione o il piano di controllo di Kubernetes viene aggiornato. Gli intervalli di indirizzi IP autorizzati del server API non sono supportati per i cluster privati.
-- Questa funzionalità non è compatibile con i cluster che usano la [funzionalità di anteprima dei pool di nodi per nodo IP pubblico per nodo](use-multiple-node-pools.md#assign-a-public-ip-per-node-for-your-node-pools-preview).
+- Questa funzionalità non è compatibile con i cluster che usano [IP pubblico per nodo](use-multiple-node-pools.md#assign-a-public-ip-per-node-for-your-node-pools).
 
 ## <a name="overview-of-api-server-authorized-ip-ranges"></a>Panoramica degli intervalli IP autorizzati del server API
 

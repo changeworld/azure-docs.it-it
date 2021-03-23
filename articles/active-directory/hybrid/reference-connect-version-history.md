@@ -12,12 +12,12 @@ ms.date: 03/16/2021
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a19babffa63667b0d2deb954d432421a2b7868b8
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
+ms.openlocfilehash: 71eaccd615f5c3460e7b48b2e92d5f874c8de12e
+ms.sourcegitcommit: 2c1b93301174fccea00798df08e08872f53f669c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "104722141"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104772111"
 ---
 # <a name="azure-ad-connect-version-release-history"></a>Azure AD Connect: Cronologia delle versioni
 Il team di Azure Active Directory (Azure AD) aggiorna regolarmente Azure AD Connect con nuove funzionalità. Le nuove funzionalità potrebbero non essere disponibili in tutti i paesi.
@@ -58,7 +58,7 @@ Seguire questo collegamento per altre informazioni sull'[aggiornamento automatic
 >Per informazioni sulla cronologia delle versioni per le versioni ritirate, vedere [Azure ad Connect versione archivio cronologia](reference-connect-version-history-archive.md) delle versioni
 
 
-## <a name="1623"></a>1.6.2.3
+## <a name="1624"></a>1.6.2.4
 
 >[!NOTE]
 > - Questa versione verrà resa disponibile solo per il download.
@@ -66,7 +66,7 @@ Seguire questo collegamento per altre informazioni sull'[aggiornamento automatic
 > - Questa versione imposta come valore predefinito il server AADConnect sul nuovo endpoint V2. Si noti che questo endpoint non è supportato nel cloud nazionale tedesco, nel cloud nazionale cinese e nel cloud del governo degli Stati Uniti e, se è necessario distribuire questa versione in questi cloud, è necessario seguire [queste istruzioni](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-sync-endpoint-api-v2#rollback) per tornare all'endpoint V1. In caso contrario, si verificano errori di sincronizzazione.
 
 ### <a name="release-status"></a>Stato della versione
-3/17/2021: rilasciato per il download
+3/19/2021: rilasciato per il download
 
 ### <a name="functional-changes"></a>Modifiche funzionali
 

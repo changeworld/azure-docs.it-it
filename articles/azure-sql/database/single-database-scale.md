@@ -11,12 +11,12 @@ author: WilliamDAssafMSFT
 ms.author: wiassaf
 ms.reviewer: sstein
 ms.date: 02/22/2021
-ms.openlocfilehash: 2aba44f6c2f10ead1827e1b1411f3824a0ec2d6c
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: ce8d4bf36524e3e7e7b3b8c974aa189fa000d845
+ms.sourcegitcommit: 2c1b93301174fccea00798df08e08872f53f669c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "101658555"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104773250"
 ---
 # <a name="scale-single-database-resources-in-azure-sql-database"></a>Ridimensionare le risorse di database singoli nel database SQL di Azure
 
@@ -112,7 +112,7 @@ else {
 - Quando si effettua il downgrade di un database con la [replica geografica](active-geo-replication-configure-portal.md) abilitata, eseguire il downgrade dei database primari al livello di servizio e alle dimensioni di calcolo desiderati prima del downgrade del database secondario (indicazione generale per ottenere prestazioni ottimali). Quando si effettua il downgrade a un'edizione diversa, è necessario eseguire prima il downgrade del database primario.
 - Le offerte per il ripristino del servizio sono diverse per i vari livelli di servizio. Se si esegue il downgrade al livello **Basic** , si verifica un periodo di conservazione dei backup inferiore. Vedere l'articolo relativo ai [backup del database SQL di Azure](automated-backups-overview.md).
 - Le nuove proprietà del database non verranno applicate finché le modifiche non vengono completate.
-- Quando la copia dei dati è necessaria per ridimensionare un database (vedere [latenza](#latency)) quando si modifica il livello di servizio, l'utilizzo elevato delle risorse simultaneo all'operazione di ridimensionamento può causare tempi di ridimensionamento più lunghi. Con il [recupero accelerato del database (ADR)](/sql/relational-databases/accelerated-database-recovery-concepts.md), il rollback delle transazioni a esecuzione prolungata non è un'origine significativa del ritardo, ma l'utilizzo di risorse simultanee elevate può lasciare meno risorse di calcolo, archiviazione e larghezza di banda di rete per la scalabilità, in particolare per le dimensioni di calcolo più piccole.
+- Quando la copia dei dati è necessaria per ridimensionare un database (vedere [latenza](#latency)) quando si modifica il livello di servizio, l'utilizzo elevato delle risorse simultaneo all'operazione di ridimensionamento può causare tempi di ridimensionamento più lunghi. Con il [recupero accelerato del database (ADR)](/sql/relational-databases/accelerated-database-recovery-concepts), il rollback delle transazioni a esecuzione prolungata non è un'origine significativa del ritardo, ma l'utilizzo di risorse simultanee elevate può lasciare meno risorse di calcolo, archiviazione e larghezza di banda di rete per la scalabilità, in particolare per le dimensioni di calcolo più piccole.
 
 ## <a name="billing"></a>Fatturazione
 

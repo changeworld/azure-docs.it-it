@@ -1,17 +1,17 @@
 ---
 title: Crittografia doppia dell'infrastruttura-portale di Azure-database di Azure per PostgreSQL
 description: Informazioni su come configurare e gestire la crittografia doppia dell'infrastruttura per il database di Azure per PostgreSQL.
-author: mksuni
-ms.author: sumuth
+author: sunilagarwal
+ms.author: sunila
 ms.service: postgresql
 ms.topic: how-to
-ms.date: 06/30/2020
-ms.openlocfilehash: ea486b534ac3e703849ddb3922d7c3a428dd076b
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.date: 03/14/2021
+ms.openlocfilehash: 0b1079a084072556ae79a18a12f6b35f74c92775
+ms.sourcegitcommit: 2c1b93301174fccea00798df08e08872f53f669c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "93242229"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104771652"
 ---
 # <a name="infrastructure-double-encryption-for-azure-database-for-postgresql"></a>Crittografia doppia infrastruttura per database di Azure per PostgreSQL
 
@@ -23,7 +23,7 @@ Informazioni su come usare la crittografia doppia per la configurazione e la ges
 
 ## <a name="create-an-azure-database-for-postgresql-server-with-infrastructure-double-encryption---portal"></a>Creare un database di Azure per il server PostgreSQL con infrastruttura doppia crittografia-portale
 
-Seguire questa procedura per creare un database di Azure per il server MySQL con l'infrastruttura di crittografia doppia da portale di Azure:
+Seguire questa procedura per creare un database di Azure per il server PostgreSQL con l'infrastruttura di crittografia doppia da portale di Azure:
 
 1. Nell'angolo in alto a sinistra del portale selezionare **Crea una risorsa** (+).
 
@@ -45,7 +45,7 @@ Seguire questa procedura per creare un database di Azure per il server MySQL con
 
 ## <a name="create-an-azure-database-for-postgresql-server-with-infrastructure-double-encryption---cli"></a>Creare un database di Azure per il server PostgreSQL con infrastruttura doppia crittografia-interfaccia della riga di comando
 
-Seguire questa procedura per creare un database di Azure per il server MySQL con l'infrastruttura doppia crittografia dall'interfaccia della riga di comando:
+Seguire questa procedura per creare un database di Azure per il server PostgreSQL con l'infrastruttura doppia crittografia dall'interfaccia della riga di comando:
 
 Questo esempio crea un gruppo di risorse denominato `myresourcegroup` nella `westus` posizione.
 

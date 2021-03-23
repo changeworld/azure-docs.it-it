@@ -5,17 +5,17 @@ ms.service: digital-twins
 ms.topic: include
 ms.date: 10/29/2020
 ms.author: baanders
-ms.openlocfilehash: 2be13256ff0fcc93aa40db3bcb2f38aa0cf58cbc
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 3f46f7131d5465ec6542d9212e310c04a656f50c
+ms.sourcegitcommit: 2c1b93301174fccea00798df08e08872f53f669c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103463758"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104774067"
 ---
 Per usare Gemelli digitali di Azure come descritto in questo articolo, è necessario prima **configurare un'istanza di Gemelli digitali di Azure** e le autorizzazioni necessarie. Se in precedenza è stata già configurata un'istanza di Gemelli digitali di Azure, è possibile usare tale istanza.
 
 In caso contrario, seguire le istruzioni descritte in [*Procedura: Configurare un'istanza e l'autenticazione*](../articles/digital-twins/how-to-set-up-instance-portal.md). Le istruzioni contengono anche le operazioni da eseguire per verificare che ogni passaggio sia stato completato correttamente e sia quindi possibile passare all'uso della nuova istanza.
 
 Dopo aver configurato l'istanza di Gemelli digitali di Azure, prendere nota dei valori seguenti che saranno necessari per connettersi all'istanza in un secondo momento:
-* Il **_nome host_** dell'istanza. È possibile trovare questo valore nel portale di Azure ([istruzioni](../articles/digital-twins/how-to-set-up-instance-portal.md#verify-success-and-collect-important-values)).
+* Il **nome host** dell'istanza. È possibile trovare questo valore nel portale di Azure ([istruzioni](../articles/digital-twins/how-to-set-up-instance-portal.md#verify-success-and-collect-important-values)).
 * La **sottoscrizione di Azure** usata per creare l'istanza (sono validi sia il nome che l'ID). È possibile vedere in quale sottoscrizione si trova un'istanza di Gemelli digitali di Azure nella stessa pagina *Panoramica* dell'istanza nel [portale di Azure](https://portal.azure.com).
