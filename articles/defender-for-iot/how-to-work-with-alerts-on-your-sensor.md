@@ -1,22 +1,18 @@
 ---
-title: Usare gli avvisi sul sensore
+title: Informazioni sugli avvisi del sensore
 description: Usare gli avvisi per migliorare la sicurezza e il funzionamento della rete.
-author: shhazam-ms
-manager: rkarlin
-ms.author: shhazam
 ms.date: 11/30/2020
 ms.topic: how-to
-ms.service: azure
-ms.openlocfilehash: 00207ffb8480ae99c2f1aad74183fca9ea45ee17
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 178d3aedb44c29f53aab481894defeb4b9355d39
+ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "100523550"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104781348"
 ---
-# <a name="work-with-alerts-on-your-sensor"></a>Usare gli avvisi sul sensore
+# <a name="about-sensor-alerts"></a>Informazioni sugli avvisi del sensore
 
-Usare gli avvisi per migliorare la sicurezza e il funzionamento della rete. Gli avvisi forniscono informazioni su:
+Gli avvisi consentono di migliorare la sicurezza e il funzionamento della rete. Gli avvisi forniscono informazioni su:
 
 - Deviazioni dall'attività di rete autorizzata
 

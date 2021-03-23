@@ -1,24 +1,14 @@
 ---
 title: Raccomandazioni sulla sicurezza per l'hub Internet
 description: Informazioni sul concetto di consigli sulla sicurezza e su come vengono usati nell'hub Defender for Internet.
-services: defender-for-iot
-ms.service: defender-for-iot
-documentationcenter: na
-author: shhazam-ms
-manager: rkarlin
-editor: ''
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 02/16/2021
-ms.author: shhazam
-ms.openlocfilehash: 4ae479fcff0514b42d46aef455d8a32d6ebfaf23
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: a9e33248354aab659694e39df605cc070fdaaf73
+ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "100636544"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104779342"
 ---
 # <a name="security-recommendations-for-iot-hub"></a>Raccomandazioni sulla sicurezza per l'hub Internet
 

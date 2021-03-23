@@ -8,12 +8,12 @@ ms.author: gachandw
 ms.reviewer: mimckitt
 ms.date: 10/13/2020
 ms.custom: ''
-ms.openlocfilehash: 53f873013a6f16ce5a28ee5d915afa556057f643
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 94827916f28c9028d46bf7b5461a4fbd941b2a96
+ms.sourcegitcommit: 2c1b93301174fccea00798df08e08872f53f669c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98744420"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104773403"
 ---
 # <a name="apply-the-remote-desktop-extension-to-azure-cloud-services-extended-support"></a>Applicare l'estensione Desktop remoto ai servizi cloud di Azure (supporto esteso)
 
@@ -27,8 +27,9 @@ Il portale di Azure usa l'estensione desktop remoto per abilitare Desktop remoto
 2. Selezionare **Aggiungi**.
 3. Scegliere i ruoli per i quali abilitare Desktop remoto.
 4. Compilare i campi obbligatori per nome utente, password, scadenza e certificato (non obbligatorio).
+> Si noti La password per desktop remoto deve avere una lunghezza compresa tra 8-123 caratteri e deve soddisfare almeno 3 dei requisiti di complessità delle password seguenti: 1) contiene un carattere maiuscolo 2) contiene un carattere minuscolo 3) contiene una cifra numerica 4) che contiene un carattere speciale 5) non sono consentiti caratteri di controllo
 
-    :::image type="content" source="media/remote-desktop-2.png" alt-text="Image Mostra come inserire le informazioni necessarie per connettersi a desktop remoto.":::
+   :::image type="content" source="media/remote-desktop-2.png" alt-text="Image Mostra come inserire le informazioni necessarie per connettersi a desktop remoto.":::
 
 5. Al termine, selezionare **Salva**. Ci vorranno alcuni minuti affinché le istanze del ruolo siano pronte a ricevere le connessioni.
 

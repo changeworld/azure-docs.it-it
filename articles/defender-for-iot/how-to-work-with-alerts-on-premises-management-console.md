@@ -1,18 +1,14 @@
 ---
 title: Gestire gli avvisi della console di gestione locale
 description: Usare la console di gestione locale per ottenere una visualizzazione aziendale delle minacce recenti nella rete e comprendere meglio il modo in cui gli utenti dei sensori li gestiscono.
-author: shhazam-ms
-manager: rkarlin
-ms.author: shhazam
 ms.date: 12/06/2020
-ms.service: azure
 ms.topic: how-to
-ms.openlocfilehash: 878b1b2d5ba13b68b5122e4b9cffc3c408e211e2
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: a99c489c54b2671a463c0c3dad1909c74b4fa203
+ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "100526324"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104781467"
 ---
 # <a name="work-with-alerts-on-the-on-premises-management-console"></a>Gestire gli avvisi della console di gestione locale 
 

@@ -6,12 +6,12 @@ ms.service: hpc-cache
 ms.topic: how-to
 ms.date: 03/15/2021
 ms.author: v-erkel
-ms.openlocfilehash: 5ac0f0677be6b641d496a941c5a8e1343fd017bc
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 7d40dcf80d9ec566146bbe46bc2cb3c558584fcd
+ms.sourcegitcommit: 2c1b93301174fccea00798df08e08872f53f669c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103562559"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104775766"
 ---
 # <a name="prerequisites-for-azure-hpc-cache"></a>Prerequisiti per cache HPC di Azure
 
@@ -156,13 +156,6 @@ Altre informazioni sono disponibili in [risolvere i problemi relativi alla confi
     Alcuni sistemi utilizzano numeri di porta diversi per questi servizi. per assicurarsi, consultare la documentazione del sistema di archiviazione.
 
   * Controllare le impostazioni del firewall per assicurarsi che consentano il traffico su tutte le porte necessarie. Assicurarsi di controllare i firewall usati in Azure e nei firewall locali nel data center.
-
-* **Accesso alla directory:** Abilitare il `showmount` comando nel sistema di archiviazione. Cache HPC di Azure usa questo comando per verificare che la configurazione di destinazione di archiviazione punti a un'esportazione valida e anche per assicurarsi che più montaggi non accedano alle stesse sottodirectory (rischio per collisioni di file).
-
-  > [!NOTE]
-  > Se il sistema di archiviazione NFS usa il sistema operativo ONTAP 9,2 di NetApp, non **abilitare `showmount`**. Per assistenza, [contattare il servizio Microsoft e il supporto tecnico](hpc-cache-support-ticket.md) .
-
-  Altre informazioni sull'accesso all'elenco delle directory sono disponibili nell' [articolo sulla risoluzione dei problemi](troubleshoot-nas.md#enable-export-listing)di destinazione di archiviazione NFS.
 
 * **Accesso alla radice** (lettura/scrittura): la cache si connette al sistema back-end come ID utente 0. Controllare le impostazioni seguenti nel sistema di archiviazione:
   

@@ -1,18 +1,14 @@
 ---
 title: Configurare la rete
 description: Informazioni sull'architettura della soluzione, la preparazione della rete, i prerequisiti e altre informazioni necessarie per garantire la corretta configurazione della rete per l'uso con Azure Defender per le appliance delle cose.
-author: shhazam-ms
-manager: rkarlin
-ms.author: shhazam
 ms.date: 02/18/2021
 ms.topic: how-to
-ms.service: azure
-ms.openlocfilehash: 0f85eebbfa8fcdfd9ad6e31a564f27b5d9bfbdfc
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: ed75995b7cbc3b051d77942698a5d0d948e6eef0
+ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101733245"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104781807"
 ---
 # <a name="about-azure-defender-for-iot-network-setup"></a>Informazioni sulla configurazione della rete di Azure Defender per IoT
 

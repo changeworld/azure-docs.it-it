@@ -1,18 +1,14 @@
 ---
 title: Rilevare l'attività dei sensori
 description: La sequenza temporale dell'evento presenta una cronologia delle attività rilevate sulla rete, inclusi avvisi e azioni di gestione degli avvisi, eventi di rete e operazioni dell'utente, ad esempio l'accesso utente e l'eliminazione dell'utente.
-author: shhazam-ms
-manager: rkarlin
-ms.author: shhazam
 ms.date: 12/10/2020
 ms.topic: article
-ms.service: azure
-ms.openlocfilehash: 6dbe15da85a85303742ef28c7ca609755193f25e
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 195908001fbd247ed2e0fa007bc8dcd5ebf28e60
+ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "100523601"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104781620"
 ---
 # <a name="track-sensor-activity"></a>Rilevare l'attività dei sensori
 

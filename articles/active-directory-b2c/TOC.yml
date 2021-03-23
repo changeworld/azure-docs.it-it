@@ -496,6 +496,7 @@
       href: custom-policy-developer-notes.md
     - name: Versioni del layout di pagina
       href: page-layout.md
+      displayName: Page version
     - name: Aree di disponibilità e residenza dei dati
       href: data-residency.md
     - name: Sviluppare per la resilienza

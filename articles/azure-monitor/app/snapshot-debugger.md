@@ -7,12 +7,12 @@ ms.date: 10/23/2019
 author: cweining
 ms.author: cweining
 ms.reviewer: cweining
-ms.openlocfilehash: bd196e60fed8a18064bfa59e343e51a878a11237
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: b0c26aa95d8c3aba5df164fb0707b4833accd052
+ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102217398"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104786482"
 ---
 # <a name="debug-snapshots-on-exceptions-in-net-apps"></a>Snapshot di debug per le eccezioni nelle app .NET
 Quando si verifica un'eccezione, è possibile raccogliere automaticamente uno snapshot di debug dall'applicazione Web live. Lo snapshot mostra lo stato del codice sorgente e delle variabili nel momento in cui è stata generata l'eccezione. Il Snapshot Debugger in [applicazione Azure Insights](./app-insights-overview.md) monitora i dati di telemetria delle eccezioni dall'app Web. Raccoglie snapshot per le eccezioni generate più frequentemente in modo che l'utente possa avere le informazioni necessarie per diagnosticare i problemi nell'ambiente di produzione. Includere il [pacchetto NuGet snapshot Collector](https://www.nuget.org/packages/Microsoft.ApplicationInsights.SnapshotCollector) nell'applicazione e, facoltativamente, configurare i parametri di raccolta in [ApplicationInsights.config](./configuration-with-applicationinsights-config.md). Gli snapshot vengono visualizzati nelle [eccezioni](./asp-net-exceptions.md) nel portale di Application Insights.
@@ -24,7 +24,10 @@ Gli snapshot di debug vengono archiviati per 15 giorni. I criteri di conservazio
 ## <a name="enable-application-insights-snapshot-debugger-for-your-application"></a>Abilita Snapshot Debugger Application Insights per l'applicazione
 La raccolta di snapshot è disponibile per:
 * Applicazioni .NET Framework e ASP.NET che eseguono .NET Framework 4.5 o versione successiva.
-* Applicazioni .NET Core 2.0 e ASP.NET Core 2.0 in esecuzione in Windows.
+* Applicazioni .NET Core e ASP.NET Core che eseguono .NET Core 2,1 (LTS) o 3,1 (LTS) in Windows.
+* Applicazioni .NET 5,0 in Windows.
+
+Non è consigliabile usare .NET Core 2,0, 2,2 o 3,0 perché non sono supportati.
 
 Sono supportati i seguenti ambienti:
 

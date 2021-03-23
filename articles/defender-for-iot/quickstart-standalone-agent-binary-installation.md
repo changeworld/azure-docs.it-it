@@ -1,19 +1,14 @@
 ---
 title: Installare Defender per gli agenti Internet (anteprima)
-titleSuffix: Azure Defender for IoT
 description: Informazioni su come installare e autenticare Defender micro Agent.
-author: shhazam-ms
-manager: rkarlin
-ms.author: shhazam
 ms.date: 3/9/2021
 ms.topic: quickstart
-ms.service: azure
-ms.openlocfilehash: 8984b1dbcb9a6aca6d313d8195a75093ae421bbd
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
+ms.openlocfilehash: ecde9f42acc5cf4a924a657f4f0cdc545c4a668e
+ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102611676"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104782725"
 ---
 # <a name="install-defender-for-iot-micro-agent-preview"></a>Installare Defender per gli agenti Internet (anteprima)
 

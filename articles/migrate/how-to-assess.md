@@ -6,12 +6,12 @@ ms.author: rajosh
 ms.manager: abhemraj
 ms.topic: how-to
 ms.date: 11/23/2020
-ms.openlocfilehash: 9a4ed5542945b8d281ec750d9bbd3a8f444e44d2
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 37f3748b4f0f3db47bbd6fbe9bc06a307781c2f8
+ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "96752261"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104786805"
 ---
 # <a name="add-assessment-tools"></a>Aggiungere strumenti di valutazione
 
@@ -25,23 +25,23 @@ Questo articolo descrive come aggiungere strumenti di valutazione in [Azure migr
 1. Nel progetto di Azure Migrate fare clic su **Panoramica**.
 2. Selezionare lo scenario di valutazione:
 
-    - Per individuare e valutare i computer e i carichi di lavoro per la migrazione ad Azure, selezionare **valuta ed Esegui la migrazione dei server**.
+    - Per individuare, valutare ed eseguire la migrazione dei server (fisici o virtuali) dal Data Center o da altri cloud ad Azure, selezionare **individua, valuta e Esegui migrazione**. È ora possibile anche individuare e valutare SQL Server dall'ambiente VMware usando questo obiettivo di migrazione.
     - Per valutare i database SQL Server locali, selezionare **valuta ed Esegui la migrazione dei database**.
     - Per valutare o migrare app Web locali, selezionare **Esplora altre**  >  **app Web**.
     - Per valutare l'infrastruttura di desktop virtuale, selezionare **Esplora altre**  >  **infrastrutture desktop virtuali**.
 
     ![Opzioni per la selezione di uno scenario di valutazione](./media/how-to-assess/assess-scenario.png)
 
-## <a name="select-a-server-assessment-tool"></a>Selezionare uno strumento di valutazione del server 
+## <a name="select-a-discovery-and-assessment-tool"></a>Selezionare uno strumento di individuazione e valutazione 
 
 
 1. Aggiungere uno strumento:
 
-    - Se è stato creato un progetto di Azure Migrate utilizzando l'opzione **valuta e Esegui migrazione server** nel portale, lo strumento Azure migrate server assessment viene aggiunto automaticamente al progetto. Per aggiungere altri strumenti di valutazione, in **Server**, accanto a **strumenti di valutazione**, selezionare **Aggiungi altri strumenti**.
-    
+    - Se è stato creato un progetto Azure Migrate usando l'opzione **valuta e Esegui migrazione server** nel portale, lo strumento Azure migrate individuazione e valutazione viene aggiunto automaticamente al progetto. Per aggiungere altri strumenti di valutazione, in **Windows, Linux e SQL Server**, accanto a **strumenti di valutazione**, selezionare **Aggiungi altri strumenti**.
+
          ![Pulsante per aggiungere ulteriori strumenti di valutazione](./media/how-to-assess/add-assessment-tool.png)
 
-    - Se è stato creato un progetto con un'opzione diversa e non sono ancora disponibili strumenti di valutazione, in **Server**  >  **Assessment Tools** selezionare **fare clic qui**.
+    - Se è stato creato un progetto con un'opzione diversa e non sono ancora disponibili strumenti di valutazione, in **Windows, Linux e SQL Server**  >  **Assessment Tools** selezionare **fare clic qui**.
 
         ![Pulsante per aggiungere il primo strumento di valutazione](./media/how-to-assess/no-assessment-tool.png)
 
@@ -83,4 +83,4 @@ Se è stato creato un progetto Azure migrate usando l'opzione **Esplora più**  
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Individuare i computer locali per la valutazione usando Azure Migrate server Assessment Tool per macchine virtuali [VMware](./tutorial-discover-vmware.md) , [Hyper-V](./tutorial-discover-hyper-v.md)o [server fisici](./tutorial-discover-physical.md)
+Individuare i server locali per la valutazione usando Azure Migrate strumento di individuazione e valutazione per i server [VMware](./tutorial-discover-vmware.md), [Hyper-V](./tutorial-discover-hyper-v.md)o [fisici](./tutorial-discover-physical.md)

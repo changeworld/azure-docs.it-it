@@ -1,19 +1,14 @@
 ---
 title: Aggregazione di eventi (anteprima)
-titleSuffix: Azure Defender for IoT
 description: Defender per gli agenti di sicurezza Internet raccoglie gli eventi di dati e di sistema dal dispositivo locale e invia i dati al cloud di Azure per l'elaborazione e l'analisi.
-author: shhazam-ms
-manager: rkarlin
-ms.author: shhazam
 ms.date: 1/20/2021
 ms.topic: conceptual
-ms.service: azure
-ms.openlocfilehash: 9ce24a44e48f090a0dc7d355952b3cf50dd4318c
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: c0280e97549009a1e4911c072a7a8ec052684b4e
+ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102120046"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104779325"
 ---
 # <a name="event-aggregation-preview"></a>Aggregazione di eventi (anteprima)
 

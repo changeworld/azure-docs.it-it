@@ -12,12 +12,12 @@ ms.date: 07/23/2020
 ms.author: kenwith
 ms.reviewer: japere
 ms.custom: contperf-fy21q2
-ms.openlocfilehash: edd2ec633bd78ce1a596782deab57105e9d7f1c3
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
+ms.openlocfilehash: b76934d3f16ec5f87ed1380135d22bc5d943652c
+ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102487747"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104779768"
 ---
 # <a name="active-directory-azure-ad-application-proxy-frequently-asked-questions"></a>Domande frequenti sul proxy di applicazione Active Directory (Azure AD)
 
@@ -45,7 +45,7 @@ Assicurarsi di avere almeno una licenza Azure AD Premium P1 o P2 e un connettore
 Il servizio di aggiornamento è integro se è in esecuzione e non sono presenti errori registrati nel registro eventi (registri applicazioni e servizi-> Microsoft-> AadApplicationProxy-> Updater-> admin). 
 
 > [!IMPORTANT]
-> Per l'aggiornamento automatico vengono rilasciate solo le versioni principali. Si consiglia di aggiornare manualmente il connettore con una pianificazione regolare. Per ulteriori informazioni sulle nuove versioni, il tipo di versione (download, aggiornamento automatico), correzioni di bug e nuove funzionalità, vedere [Azure ad proxy di applicazione: cronologia delle versioni](application-proxy-release-version-history.md).
+> Per l'aggiornamento automatico vengono rilasciate solo le versioni principali. Si consiglia di aggiornare manualmente il connettore solo se necessario. Ad esempio, non è possibile attendere una versione principale, perché è necessario correggere un problema noto oppure si vuole usare una nuova funzionalità. Per ulteriori informazioni sulle nuove versioni, il tipo di versione (download, aggiornamento automatico), correzioni di bug e nuove funzionalità, vedere [Azure ad proxy di applicazione: cronologia delle versioni](application-proxy-release-version-history.md).
 
 Per aggiornare manualmente un connettore:
 

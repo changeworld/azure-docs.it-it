@@ -6,12 +6,12 @@ ms.service: hpc-cache
 ms.topic: how-to
 ms.date: 07/20/2020
 ms.author: v-erkel
-ms.openlocfilehash: e8f1b3fffefcdf1d2ec8bd3e9b1aaea93697ca8a
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: f587de4ee2ce051cb771db90d7f9ce00ce66b07f
+ms.sourcegitcommit: 2c1b93301174fccea00798df08e08872f53f669c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103471966"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104772706"
 ---
 # <a name="use-customer-managed-encryption-keys-for-azure-hpc-cache"></a>Usare le chiavi di crittografia gestite dal cliente per la cache HPC di Azure
 
@@ -21,8 +21,6 @@ ms.locfileid: "103471966"
 > Tutti i dati archiviati in Azure, inclusi i dischi della cache, vengono crittografati a riposo usando chiavi gestite da Microsoft per impostazione predefinita. Se si vogliono gestire le chiavi usate per crittografare i dati, è necessario seguire la procedura descritta in questo articolo.
 
 La cache HPC di Azure è anche protetta dalla [crittografia dell'host delle macchine virtuali](../virtual-machines/disk-encryption.md#encryption-at-host---end-to-end-encryption-for-your-vm-data) nei dischi gestiti che contengono i dati memorizzati nella cache, anche se si aggiunge una chiave cliente per i dischi della cache. L'aggiunta di una chiave gestita dal cliente per la crittografia doppia offre un livello di sicurezza aggiuntivo per i clienti con esigenze di sicurezza elevate. Per informazioni dettagliate, leggere la [crittografia lato server dell'archiviazione su disco di Azure](../virtual-machines/disk-encryption.md) .
-
-<!-- This feature is available only in some of the Azure regions where Azure HPC Cache is available. Refer to the [Region availability](hpc-cache-overview.md#region-availability) list for details. -->
 
 Per abilitare la crittografia della chiave gestita dal cliente per la cache HPC di Azure, è necessario eseguire tre passaggi:
 
@@ -69,14 +67,14 @@ Al momento della creazione della cache è necessario specificare un insieme di c
 Per informazioni dettagliate, leggere la [documentazione Azure Key Vault](../key-vault/general/overview.md) .
 
 > [!NOTE]
-> Il Azure Key Vault deve usare la stessa sottoscrizione e trovarsi nella stessa area della cache HPC di Azure. Assicurarsi che l'area scelta [supporti la funzionalità chiavi gestite dal cliente](hpc-cache-overview.md#region-availability).
+> Il Azure Key Vault deve usare la stessa sottoscrizione e trovarsi nella stessa area della cache HPC di Azure. Assicurarsi che l'area scelta [supporti entrambi i prodotti](https://azure.microsoft.com/global-infrastructure/services/?regions=all&products=hpc-cache,key-vault).
 
 ## <a name="2-create-the-cache-with-customer-managed-keys-enabled"></a>2. creare la cache con chiavi gestite dal cliente abilitate
 
 Quando si crea la cache HPC di Azure, è necessario specificare l'origine della chiave di crittografia. Seguire le istruzioni in [creare una cache HPC di Azure](hpc-cache-create.md)e specificare l'insieme di credenziali delle chiavi e la chiave nella pagina **chiavi di crittografia del disco** . È possibile creare un nuovo insieme di credenziali delle chiavi e una chiave durante la creazione della cache.
 
 > [!TIP]
-> Se la pagina **chiavi di crittografia del disco** non viene visualizzata, verificare che la cache si trovi in una delle aree supportate.
+> Se la pagina **chiavi di crittografia del disco** non viene visualizzata, verificare che la cache si trovi in una delle [aree supportate](https://azure.microsoft.com/global-infrastructure/services/?regions=all&products=hpc-cache,key-vault).
 
 L'utente che crea la cache deve disporre dei privilegi equivalenti al [ruolo di collaboratore Key Vault](../role-based-access-control/built-in-roles.md#key-vault-contributor) o superiore.
 

@@ -1,18 +1,14 @@
 ---
 title: Usare i comandi dell'interfaccia della riga di comando di Defender per IoT
 description: Questo articolo descrive il Defender per i comandi dell'interfaccia della riga di comando per i sensori e le console di gestione locali.
-author: shhazam-ms
-manager: rkarlin
-ms.author: shhazam
 ms.date: 12/12/2020
 ms.topic: article
-ms.service: azure
-ms.openlocfilehash: 93efc89722d3152d92b6f8c8038deaa566741f7c
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 9cd3f4325db2bc45ddcd6cc011dd4993e385a43c
+ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "100636561"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104778679"
 ---
 # <a name="work-with-defender-for-iot-cli-commands"></a>Usare i comandi dell'interfaccia della riga di comando di Defender per IoT
 
@@ -287,7 +283,7 @@ Il comando supporta i flag di input seguenti:
 | --key | \*File con estensione Key. La lunghezza della chiave deve essere almeno di 2.048 bit. |
 | -catena | Percorso del file della catena di certificati (facoltativo). |
 | --Pass | Passphrase utilizzata per crittografare il certificato (facoltativo). |
-| --passphrase-set | Il valore predefinito è **false**, non **usato**. <br />Impostare su **true** per usare la passphrase precedente fornita con il certificato precedente (facoltativo). |  |
+| --passphrase-set | Il valore predefinito è **false**, non **usato**. <br />Impostare su **true** per usare la passphrase precedente fornita con il certificato precedente (facoltativo). | 
 
 Quando si usa lo strumento:
 

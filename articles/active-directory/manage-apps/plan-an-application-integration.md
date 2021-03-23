@@ -1,22 +1,22 @@
 ---
-title: Introduzione all'integrazione di Azure AD con le app
+title: Introduzione all'integrazione di Azure Active Directory con le app
 description: Questo articolo è una guida introduttiva per l'integrazione di Azure Active Directory (AD) con applicazioni locali e applicazioni cloud.
 services: active-directory
 author: kenwith
 manager: daveba
 ms.service: active-directory
+ms.subservice: app-mgmt
 ms.topic: conceptual
-ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 07/16/2018
+ms.date: 03/19/2021
 ms.author: kenwith
 ms.reviewer: asteen
-ms.openlocfilehash: 8b321acb00e6e9b4b6cca117afba8bf0c9432719
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: de06bb4f97568eaa40b0b09e9bc2b50608424aa8
+ms.sourcegitcommit: 2c1b93301174fccea00798df08e08872f53f669c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "99258467"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104775596"
 ---
 # <a name="integrating-azure-active-directory-with-applications-getting-started-guide"></a>Guida introduttiva all'integrazione di Azure Active Directory con le applicazioni
 
@@ -47,7 +47,7 @@ Prima di integrare applicazioni con Azure AD, è importante avere un quadro prec
   * In che modo sono organizzati i gruppi?
   * Chi sono i membri dei gruppi?
   * Quali autorizzazioni/assegnazioni di ruolo hanno attualmente i gruppi?
-* Sarà necessario pulire i database di utenti/gruppi prima dell'integrazione?  Questa è una domanda molto importante. La qualità del risultato dipende dalla qualità dei dati di partenza.
+* Sarà necessario pulire i database di utenti/gruppi prima dell'integrazione?  Si tratta di una domanda importante. La qualità del risultato dipende dalla qualità dei dati di partenza.
 
 ### <a name="access-management-inventory"></a>Inventario della gestione degli accessi
 * In che modo si gestisce attualmente l'accesso utente alle applicazioni? È necessario modificarlo?  Sono stati considerati altri modi per gestire l'accesso, ad esempio con il controllo degli accessi in base al ruolo di [Azure](../../role-based-access-control/role-assignments-portal.md) ?
@@ -66,8 +66,19 @@ Gli articoli seguenti illustrano i diversi modi in cui le applicazioni si integr
 * [Uso delle applicazioni della raccolta di applicazioni di Azure](what-is-single-sign-on.md)
 * [Elenco delle esercitazioni sull'integrazione di applicazioni SaaS](../saas-apps/tutorial-list.md)
 
+## <a name="capabilities-for-apps-not-listed-in-the-azure-ad-gallery"></a>Funzionalità per le app non elencate nella raccolta di Azure AD
+
+È possibile aggiungere qualsiasi applicazione che esiste già nell'organizzazione o qualsiasi applicazione di terze parti di un fornitore che non fa parte della raccolta di Azure AD. A seconda del [contratto di licenza](https://azure.microsoft.com/pricing/details/active-directory/) stipulato, sono disponibili le funzionalità seguenti:
+
+- Integrazione self-service di qualsiasi applicazione che supporta i provider di identità [SAML (Security Assertion Markup Language) 2.0](https://wikipedia.org/wiki/SAML_2.0) (avviata dal provider di servizi o dal provider di identità)
+- Integrazione self-service di qualsiasi applicazione Web con una pagina di accesso basata su HTML con [SSO basato su password](sso-options.md#password-based-sso)
+- Connessione self-service di applicazioni che usano il [protocollo SCIM (System for Cross-domain Identity Management) per il provisioning utenti](../app-provisioning/use-scim-to-provision-users-and-groups.md)
+- Possibilità di aggiungere collegamenti a qualsiasi applicazione nell' [utilità di avvio delle app di Office 365](https://www.microsoft.com/microsoft-365/blog/2014/10/16/organize-office-365-new-app-launcher-2/) o [app personali](sso-options.md#linked-sign-on)
+
+Per informazioni aggiuntive per gli sviluppatori su come integrare app personalizzate con Azure AD, vedere [scenari di autenticazione per Azure ad](../develop/authentication-vs-authorization.md). Quando si sviluppa un'app che usa un protocollo moderno, ad esempio [OpenId Connect/OAuth](../develop/active-directory-v2-protocols.md) per autenticare gli utenti, è possibile registrarlo con Microsoft Identity Platform usando l'esperienza [Registrazioni app](../develop/quickstart-register-app.md) nel portale di Azure.
+
 ### <a name="authentication-types"></a>Tipi di autenticazione
-È possibile che ogni applicazione abbia requisiti di autenticazione diversi. Con Azure AD la firma dei certificati può essere usata con applicazioni che usano i protocolli di connessione SAML 2.0, WS-Federation oppure OpenID, oltre a Password Single Sign-On. Per altre informazioni sui tipi di autenticazione per le applicazioni che possono essere usati con Azure AD, vedere [Gestione di certificati per Single Sign-On federato in Azure Active Directory](manage-certificates-for-federated-single-sign-on.md) e [Accesso Single Sign-On basato su password](what-is-single-sign-on.md).
+È possibile che ogni applicazione abbia requisiti di autenticazione diversi. Con Azure AD, è possibile usare i certificati di firma con le applicazioni che usano i protocolli SAML 2,0, WS-Federation o OpenID Connect e Single Sign-on basato su password. Per ulteriori informazioni sui tipi di autenticazione dell'applicazione, vedere [gestione dei certificati per il singolo Sign-On federato in Azure Active Directory](manage-certificates-for-federated-single-sign-on.md) e [Single Sign-on basato su password](what-is-single-sign-on.md).
 
 ### <a name="enabling-sso-with-azure-ad-app-proxy"></a>Abilitazione di SSO con il proxy dell'app di Azure AD
 Con il proxy di applicazione di Microsoft Azure AD è possibile garantire l'accesso ad applicazioni che si trovano all'interno della rete privata in modo sicuro da qualsiasi posizione e su qualsiasi dispositivo. Dopo aver installato un connettore del proxy di applicazione all'interno dell'ambiente, è possibile configurarlo facilmente con Azure AD.
@@ -85,11 +96,9 @@ Gli articoli seguenti illustrano i modi in cui è possibile gestire l'accesso al
 * [Condivisione di account](../enterprise-users/users-sharing-accounts.md)
 
 ## <a name="next-steps"></a>Passaggi successivi
-Per informazioni dettagliate, è possibile scaricare i piani di distribuzione di Azure Active Directory da [GitHub](../fundamentals/active-directory-deployment-plans.md). Per le applicazioni della raccolta, è possibile scaricare i piani di distribuzione per Single Sign-On, l'accesso condizionale e il provisioning degli utenti tramite l' [portale di Azure](https://portal.azure.com). 
+Per informazioni dettagliate, è possibile scaricare i piani di distribuzione di Azure Active Directory da [GitHub](../fundamentals/active-directory-deployment-plans.md). Per le applicazioni della raccolta, è possibile scaricare i piani di distribuzione per Single Sign-On, l'accesso condizionale e il provisioning degli utenti tramite l' [portale di Azure](https://portal.azure.com).
 
 Per scaricare un piano di distribuzione dal portale di Azure:
 
 1. Accedere al [portale di Azure](https://portal.azure.com).
 2. Selezionare **applicazioni aziendali**  |  **scegliere un piano di distribuzione dell'app**  |  .
-
-Fornire commenti e suggerimenti sui piani di distribuzione grazie all'uso di [Sondaggio piano di distribuzione](https://aka.ms/DeploymentPlanFeedback).
