@@ -8,18 +8,18 @@ ms.topic: conceptual
 ms.date: 03/12/2021
 ms.author: amverma
 ms.reviewer: cynthn
-ms.openlocfilehash: 21576b6714c05e5a0ed703c7a1452103c2c4b355
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: b435547d7cd3b0fab781cc6cf3b617b13ac1120a
+ms.sourcegitcommit: 2c1b93301174fccea00798df08e08872f53f669c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103472840"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104774695"
 ---
 # <a name="hbv3-series"></a>Serie modello HBV3
 
 Le macchine virtuali della serie modello HBV3 sono ottimizzate per le applicazioni HPC, ad esempio fluidodinamica, analisi degli elementi finiti esplicita e implicita, modellazione meteorologica, elaborazione sismica, simulazione del serbatoio e simulazione RTL. Le macchine virtuali modello HBV3 presentano fino a 120 AMD EPYC™ core CPU della serie 7003 (Milano), 448 GB di RAM e senza hyperthreading. Le macchine virtuali della serie modello HBV3 offrono anche 350 GB al secondo di larghezza di banda di memoria, fino a 32 MB di cache L3 per core, fino a 7 GB/s di prestazioni SSD del dispositivo a blocchi e frequenze di clock fino a 3,675 GHz. 
 
-Tutte le macchine virtuali della serie modello HBV3 includono 200 GB/sec HDR InfiniBand da NVIDIA networking per abilitare i carichi di lavoro MPI con scalabilità a livello di computer. Queste VM sono connesse in un albero Fat senza blocco per prestazioni RDMA ottimizzate e coerenti. L'infrastruttura InfiniBand HDR supporta anche il routing adattivo e il trasporto con connessione dinamica (DCT, in aggiunta a trasporti standard RC e UD). Queste funzionalità migliorano le prestazioni, la scalabilità e la coerenza delle applicazioni e il loro utilizzo fortemente consigliato.
+Tutte le macchine virtuali della serie modello HBV3 includono 200 GB/sec HDR InfiniBand da NVIDIA networking per abilitare i carichi di lavoro MPI con scalabilità a livello di computer. Queste VM sono connesse in un albero Fat senza blocco per prestazioni RDMA ottimizzate e coerenti. L'infrastruttura InfiniBand HDR supporta anche il routing adattivo e il trasporto con connessione dinamica (DCT, in aggiunta a trasporti standard RC e UD). Queste funzionalità migliorano le prestazioni, la scalabilità e la coerenza delle applicazioni e il loro utilizzo è fortemente consigliato.
 
 [Archiviazione Premium](premium-storage-performance.md): supportata<br>
 [Caching archiviazione Premium](premium-storage-performance.md): supportato<br>
@@ -28,7 +28,7 @@ Tutte le macchine virtuali della serie modello HBV3 includono 200 GB/sec HDR Inf
 [Supporto](generation-2.md)per la generazione di VM: generazione 1 e 2<br>
 [Rete accelerata](../virtual-network/create-vm-accelerated-networking-cli.md): presto disponibile<br>
 [Dischi del sistema operativo temporaneo](ephemeral-os-disks.md): non supportati <br>
-
+<br>
 
 |Dimensione |vCPU |Processore |Memoria (GiB) |Larghezza di banda di memoria (GB/sec) |Frequenza CPU di base (GHz) |Frequenza di tutti i core (GHz, picco) |Frequenza a core singolo (GHz, picco) |Prestazioni RDMA (GB/sec) |Supporto MPI |Spazio di archiviazione temp (GiB) |Numero massimo di dischi dati |Numero massimo di schede Ethernet |
 |----|----|----|----|----|----|----|----|----|----|----|----|----|
@@ -38,11 +38,10 @@ Tutte le macchine virtuali della serie modello HBV3 includono 200 GB/sec HDR Inf
 |Standard_HB120 32rs_v3 |32  |AMD EPYC 7V13 |448 |350 |2.45 |3.1 |3,675 |200 |Tutti |2 * 960 |32 |8 |
 |Standard_HB120 16rs_v3 |16  |AMD EPYC 7V13 |448 |350 |2.45 |3.1 |3,675 |200 |Tutti |2 * 960 |32 |8 |
 
-
-Sono disponibili altre informazioni su:
-- [Architettura sottostante e topologia di VM](./workloads/hpc/hbv3-series-overview.md)
-- [Stack software supportato](./workloads/hpc/hbv3-series-overview.md#software-specifications) , incluso il sistema operativo supportato
-- [Prestazioni](./workloads/hpc/hbv3-performance.md) previste della macchina virtuale della serie modello HBV3.
+Ulteriori informazioni su:
+- [architettura e topologia di VM](./workloads/hpc/hbv3-series-overview.md),
+- [stack software](./workloads/hpc/hbv3-series-overview.md#software-specifications) supportato, incluso il sistema operativo supportato e
+- [prestazioni](./workloads/hpc/hbv3-performance.md) previste della macchina virtuale della serie modello HBV3.
 
 [!INCLUDE [hpc-include](./workloads/hpc/includes/hpc-include.md)]
 

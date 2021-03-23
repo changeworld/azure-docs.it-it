@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 03/05/2021
 ms.author: amverma
 ms.reviewer: jushiman
-ms.openlocfilehash: 6ec629629fc774ddb5423db91fe0d71a49305ca1
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
+ms.openlocfilehash: 43f8b6efd7c4cc510dac8fcbe84ab38f59008ed9
+ms.sourcegitcommit: 2c1b93301174fccea00798df08e08872f53f669c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102566040"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104773530"
 ---
 # <a name="hc-series"></a>Serie HC
 
@@ -29,14 +29,16 @@ VM serie HC funzionalità 100 GB/sec Mellanox EDR InfiniBand. Queste VM sono con
 [Supporto](generation-2.md)per la generazione di VM: generazione 1 e 2<br>
 [Rete accelerata](../virtual-network/create-vm-accelerated-networking-cli.md): supportata ([altre](https://techcommunity.microsoft.com/t5/azure-compute/accelerated-networking-on-hb-hc-hbv2-and-ndv2/ba-p/2067965) informazioni sulle prestazioni e sui potenziali problemi)<br>
 [Dischi del sistema operativo temporaneo](ephemeral-os-disks.md): supportati <br>
-
 <br>
 
 | Dimensione | vCPU | Processore | Memoria (GiB) | Larghezza di banda di memoria (GB/sec) | Frequenza CPU di base (GHz) | Frequenza di tutti i core (GHz, picco) | Frequenza a core singolo (GHz, picco) | Prestazioni RDMA (GB/sec) | Supporto MPI | Spazio di archiviazione temp (GiB) | Numero massimo di dischi dati | Numero massimo di schede Ethernet |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | Standard_HC44rs | 44 | Intel Xeon Platinum 8168 | 352 | 191 | 2.7 | 3.4 | 3,7 | 100 | Tutti | 700 | 4 | 8 |
 
-Altre informazioni sull'architettura sottostante [, la topologia di VM](./workloads/hpc/hc-series-overview.md) e le [prestazioni](./workloads/hpc/hc-series-performance.md) previste della VM della serie HC.
+Ulteriori informazioni su:
+- [architettura e topologia di VM](./workloads/hpc/hc-series-overview.md),
+- [stack software](./workloads/hpc/hc-series-overview.md#software-specifications) supportato, incluso il sistema operativo supportato e
+- [prestazioni](./workloads/hpc/hc-series-performance.md) previste della macchina virtuale della serie HC.
 
 [!INCLUDE [hpc-include](./workloads/hpc/includes/hpc-include.md)]
 

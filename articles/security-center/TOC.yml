@@ -144,7 +144,7 @@
               displayName: 'jit, management, ports'
               href: security-center-just-in-time.md
         - name: Usare la licenza della soluzione integrata Microsoft Defender per endpoint
-          displayName: 'ATP, mdatp, wdatp'
+          displayName: 'ATP, mdatp, wdatp, mde, mdfe'
           href: security-center-wdatp.md
         - name: Definire elenchi di applicazioni sicure per i computer
           displayName: 'aac, whitelist, allowlist, reviewgroup, adaptive application controls'

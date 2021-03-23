@@ -1,18 +1,14 @@
 ---
 title: Defender per l'installazione di Internet.
 description: Informazioni su come installare un sensore e la console di gestione locale per Azure Defender per l'it.
-author: shhazam-ms
-manager: rkarlin
-ms.author: shhazam
 ms.date: 12/2/2020
 ms.topic: how-to
-ms.service: azure
-ms.openlocfilehash: 175f006adbc18d21e0f0c5d859737aedb00bc457
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 5bdb292750ea041be68a22519583511f58b3b517
+ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103574663"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104782249"
 ---
 # <a name="defender-for-iot-installation"></a>Defender per l'installazione di Internet.
 

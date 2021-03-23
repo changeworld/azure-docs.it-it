@@ -6,12 +6,12 @@ manager: nitinme
 ms.author: lajanuar
 author: laujan
 ms.date: 03/05/2021
-ms.openlocfilehash: cb6b3af8d8fb6c2d3fe63964e59f8e3e32f0f0fd
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
+ms.openlocfilehash: 21df853d9b1c7250e9a6eea37a68835a180f610d
+ms.sourcegitcommit: 2c1b93301174fccea00798df08e08872f53f669c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102486659"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104773046"
 ---
 # <a name="get-started-with-document-translation-preview"></a>Introduzione alla conversione di documenti (anteprima)
 
@@ -20,7 +20,10 @@ ms.locfileid: "102486659"
 ## <a name="prerequisites"></a>Prerequisiti
 
 > [!NOTE]
-> In genere, quando si crea una risorsa di servizi cognitivi nella portale di Azure, è possibile scegliere di creare una chiave di sottoscrizione multiservizio o una chiave di sottoscrizione a servizio singolo. Tuttavia, la traduzione dei documenti è attualmente supportata solo nella risorsa Translator (Single-Service) e **non** è inclusa nella risorsa Servizi cognitivi (multiservizio).
+>
+> 1. In genere, quando si crea una risorsa di servizi cognitivi nella portale di Azure, è possibile scegliere di creare una chiave di sottoscrizione multiservizio o una chiave di sottoscrizione a servizio singolo. Tuttavia, la traduzione dei documenti è attualmente supportata solo nella risorsa Translator (Single-Service) e **non** è inclusa nella risorsa Servizi cognitivi (multiservizio).
+> 2. La traduzione dei documenti è attualmente disponibile nel **piano di servizio standard S1**. _Vedere_ [prezzi di servizi cognitivi-Translator](https://azure.microsoft.com/pricing/details/cognitive-services/translator/).
+>
 
 Per iniziare, è necessario:
 
@@ -29,8 +32,6 @@ Per iniziare, è necessario:
 * Una risorsa del servizio di [**conversione**](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesTextTranslation) (**non** una risorsa Servizi cognitivi).
 
 * Un [**account di archiviazione BLOB di Azure**](https://ms.portal.azure.com/#create/Microsoft.StorageAccount-ARM). Si creeranno contenitori per archiviare e organizzare i dati BLOB nell'account di archiviazione.
-
-* Un [**modulo di traduzione documenti completato (anteprima)**](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR-riVR3Xj0tOnIRdZOALbM9UOEE4UVdFQVBRQVBWWDBRQUM3WjYxUEpUTC4u) per consentire alla sottoscrizione di Azure di usare la nuova funzionalità di traduzione dei documenti.
 
 ## <a name="get-your-custom-domain-name-and-subscription-key"></a>Ottenere il nome di dominio personalizzato e la chiave di sottoscrizione
 

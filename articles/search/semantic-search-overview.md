@@ -9,21 +9,21 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 03/18/2021
 ms.custom: references_regions
-ms.openlocfilehash: d4b0a4107b3894d65dd8e168cd58566d4a4b5090
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
+ms.openlocfilehash: e0656c06f446ed6241b64040f063ed7ba419a942
+ms.sourcegitcommit: 2c1b93301174fccea00798df08e08872f53f669c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "104720492"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104771312"
 ---
 # <a name="semantic-search-in-azure-cognitive-search"></a>Ricerca semantica in Azure ricerca cognitiva
 
 > [!IMPORTANT]
 > La ricerca semantica è in anteprima pubblica, disponibile solo tramite l'API REST di anteprima. Le funzionalità di anteprima sono offerte così come sono, in condizioni per l' [utilizzo aggiuntive](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)e non sono garantite che abbiano la stessa implementazione a livello generale. Queste funzionalità sono fatturabili. Per altre informazioni, vedere [disponibilità e prezzi](semantic-search-overview.md#availability-and-pricing).
 
-La ricerca semantica è una raccolta di funzionalità correlate alle query che supportano un'esperienza di query più elevata e naturale. 
+La ricerca semantica è una raccolta di funzionalità correlate alle query che aggiungono pertinenza semantica e comprensione della lingua ai risultati della ricerca. La *classificazione semantica* Cerca il contesto e la correlazione tra termini, elevando le corrispondenze che risultano più sensate in base alla query. La comprensione del linguaggio trova le *didascalie* e le *risposte* all'interno del contenuto che riepilogano il documento corrispondente o rispondono a una domanda, che può quindi essere sottoposta a rendering in una pagina dei risultati della ricerca per un'esperienza di ricerca più produttiva.
 
-Queste funzionalità includono il riposizionamento semantico dei risultati della ricerca, nonché l'estrazione di didascalie e risposte, con evidenziazione semantica su termini e frasi pertinenti. I modelli con training avanzato vengono usati per l'estrazione e la classificazione. Per mantenere le prestazioni rapide che gli utenti si aspettano dalla ricerca, il riepilogo semantico e la classificazione vengono applicati solo ai primi 50 risultati, in base all' [algoritmo di Punteggio di somiglianza predefinito](index-similarity-and-scoring.md#similarity-ranking-algorithms). Usando i risultati come corpus del documento, la classificazione semantica ripartisce i risultati in base alla forza semantica della corrispondenza.
+I modelli con training avanzato vengono usati per il riepilogo e la classificazione. Per mantenere le prestazioni rapide che gli utenti si aspettano dalla ricerca, il riepilogo semantico e la classificazione vengono applicati solo ai primi 50 risultati, in base all' [algoritmo di Punteggio di somiglianza predefinito](index-similarity-and-scoring.md#similarity-ranking-algorithms). Usando i risultati come corpus del documento, la classificazione semantica ripartisce i risultati in base alla forza semantica della corrispondenza.
 
 La tecnologia sottostante è da Bing e Microsoft Research e integrata nell'infrastruttura ricerca cognitiva come funzionalità di componente aggiuntivo. Per ulteriori informazioni sugli investimenti per la ricerca e l'intelligenza artificiale per la ricerca semantica, vedere la pagina relativa alla [modalità di alimentazione di Azure ricerca cognitiva (Blog di Microsoft Research)](https://www.microsoft.com/research/blog/the-science-behind-semantic-search-how-ai-from-bing-is-powering-azure-cognitive-search/).
 

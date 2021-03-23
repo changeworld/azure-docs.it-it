@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: cost-management-billing
 ms.subservice: enterprise
 ms.reviewer: boalcsva
-ms.openlocfilehash: c2c3636e98d67616826b03cca9657b806c5bd653
-ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
+ms.openlocfilehash: d03ae5062cc81b3e042ed3b714838e14929dbba2
+ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/20/2021
-ms.locfileid: "98598015"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104778220"
 ---
 # <a name="azure-ea-agreements-and-amendments"></a>Contratti Azure EA e modifiche
 
@@ -145,7 +145,7 @@ Qualsiasi quota sopra descritta non costituisce un pagamento anticipato del serv
 
 ## <a name="requesting-a-quota-increase"></a>Richiesta di un aumento di quota
 
-È possibile richiedere un aumento di quota in qualsiasi momento inviando una [richiesta online](https://g.microsoftonline.com/0WAEP00en/6). Per elaborare la richiesta, fornire le informazioni seguenti:
+È possibile richiedere un aumento di quota in qualsiasi momento inviando una [richiesta online](https://ms.portal.azure.com/). Per elaborare la richiesta, fornire le informazioni seguenti:
 
 - L'account Microsoft oppure l'account aziendale o dell'istituto di istruzione associato al proprietario dell'account della sottoscrizione. Corrisponde all'indirizzo di posta elettronica usato per accedere al portale di Microsoft Azure per gestire le sottoscrizioni. Verificare anche che l'account sia associato a una registrazione EA.
 - Le risorse e la quantità per cui si vuole richiedere un aumento di quota.

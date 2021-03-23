@@ -10,12 +10,12 @@ ms.author: mimart
 author: msmimart
 manager: celestedg
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: dea13444a6bd18bd67f05d93a38af70b3b7a2368
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
+ms.openlocfilehash: 2998c3ea0d65bd3c96bd1ac5bdfa8ff148c6c4cc
+ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102556316"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104780430"
 ---
 # <a name="reset-redemption-status-for-a-guest-user"></a>Reimposta lo stato di riscatto per un utente Guest
 
@@ -28,9 +28,20 @@ Dopo che un utente Guest ha riscattato l'invito per la collaborazione B2B, potre
 
 Per gestire questi scenari in precedenza, era necessario eliminare manualmente l'account dell'utente guest dalla directory e reinvitare l'utente. A questo punto è possibile usare PowerShell o l'API di invito Microsoft Graph per reimpostare lo stato di riscatto dell'utente e reinvitare l'utente conservando l'ID oggetto dell'utente, le appartenenze ai gruppi e le assegnazioni di app. Quando l'utente riscatta il nuovo invito, l'UPN dell'utente non cambia, ma il nome di accesso dell'utente viene modificato nel nuovo messaggio di posta elettronica. L'utente può successivamente accedere usando il nuovo messaggio di posta elettronica o un messaggio di posta elettronica aggiunto alla `otherMails` proprietà dell'oggetto utente.
 
+## <a name="reset-the-email-address-used-for-sign-in"></a>Reimposta l'indirizzo di posta elettronica usato per l'accesso
+
+Se un utente vuole accedere con un indirizzo di posta elettronica diverso:
+
+1. Verificare che il nuovo indirizzo di posta elettronica venga aggiunto `mail` alla `otherMails` proprietà o dell'oggetto utente. 
+2.  Sostituire l'indirizzo di posta elettronica nella `InvitedUserEmailAddress` proprietà con il nuovo indirizzo di posta elettronica.
+3. Usare uno dei metodi riportati di seguito per reimpostare lo stato di riscatto dell'utente.
+
+> [!NOTE]
+>Durante l'anteprima pubblica, quando si ripristina l'indirizzo di posta elettronica dell'utente, è consigliabile impostare la `mail` proprietà sul nuovo indirizzo di posta elettronica. In questo modo l'utente può riscattare l'invito eseguendo l'accesso alla directory oltre a usare il collegamento di riscatto nell'invito.
+>
 ## <a name="use-powershell-to-reset-redemption-status"></a>Usare PowerShell per reimpostare lo stato di riscatto
 
-Installare il modulo AzureADPreview PowerShell più recente e creare un nuovo invito con `InvitedUserEMailAddress` impostato sul nuovo indirizzo di posta elettronica e `ResetRedemption` impostare su `true` .
+Installare il modulo AzureADPreview PowerShell più recente e creare un nuovo invito con `InvitedUserEmailAddress` impostato sul nuovo indirizzo di posta elettronica e `ResetRedemption` impostare su `true` .
 
 ```powershell  
 Uninstall-Module AzureADPreview 
@@ -43,7 +54,7 @@ New-AzureADMSInvitation -InvitedUserEmailAddress <<external email>> -SendInvitat
 
 ## <a name="use-microsoft-graph-api-to-reset-redemption-status"></a>Usare Microsoft Graph API per reimpostare lo stato di riscatto
 
-Usando l' [API di invito Microsoft Graph](/graph/api/resources/invitation), impostare la `resetRedemption` proprietà su `true` e specificare il nuovo indirizzo di posta elettronica nella `invitedUserEmailAddress` Proprietà.
+Usando l' [API di invito Microsoft Graph](/graph/api/resources/invitation?view=graph-rest-1.0), impostare la `resetRedemption` proprietà su `true` e specificare il nuovo indirizzo di posta elettronica nella `invitedUserEmailAddress` Proprietà.
 
 ```json
 POST https://graph.microsoft.com/beta/invitations  

@@ -1,21 +1,21 @@
 ---
-title: Creare e condividere dashboard nel portale di Azure
-description: Questo articolo descrive come creare, personalizzare, pubblicare e condividere i dashboard nel portale di Azure.
+title: Creare un dashboard nella portale di Azure
+description: Questo articolo descrive come creare e personalizzare un dashboard nel portale di Azure.
 ms.assetid: ff422f36-47d2-409b-8a19-02e24b03ffe7
 ms.topic: how-to
-ms.date: 03/23/2020
-ms.openlocfilehash: 10c322c9d9d18f7b79a4419bd9efa2e366a5b7c3
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.date: 03/16/2021
+ms.openlocfilehash: fa7f1813d86571b568d23d64cab5705f8a117faa
+ms.sourcegitcommit: 2c1b93301174fccea00798df08e08872f53f669c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "96745826"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104774612"
 ---
-# <a name="create-and-share-dashboards-in-the-azure-portal"></a>Creare e condividere dashboard nel portale di Azure
+# <a name="create-a-dashboard-in-the-azure-portal"></a>Creare un dashboard nella portale di Azure
 
-I dashboard sono una visualizzazione mirata e organizzata delle risorse cloud nella portale di Azure. Usare i dashboard come area di lavoro in cui è possibile avviare rapidamente le attività per le operazioni quotidiane e monitorare le risorse. Creare dashboard personalizzati basati su progetti, attività o ruoli utente, ad esempio.
+I dashboard sono una visualizzazione mirata e organizzata delle risorse cloud nella portale di Azure. Usare i dashboard come area di lavoro in cui è possibile monitorare le risorse e avviare rapidamente le attività per le operazioni quotidiane. Creare dashboard personalizzati basati su progetti, attività o ruoli utente, ad esempio.
 
-Il portale di Azure fornisce un dashboard predefinito come punto di partenza. È possibile modificare il dashboard predefinito. Creazione e personalizzazione di dashboard aggiuntivi e pubblicazione e condivisione di dashboard per renderli disponibili ad altri utenti. Questo articolo descrive come creare un nuovo dashboard, personalizzare l'interfaccia e pubblicare e condividere i dashboard.
+Il portale di Azure fornisce un dashboard predefinito come punto di partenza. È possibile modificare il dashboard predefinito e creare e personalizzare ulteriori dashboard. Questo articolo descrive come creare un nuovo dashboard e personalizzarlo. Per informazioni sulla condivisione dei dashboard, vedere [condividere i dashboard di Azure con il controllo degli accessi in base al ruolo di Azure](azure-portal-dashboard-share-access.md).
 
 ## <a name="create-a-new-dashboard"></a>Creare un nuovo dashboard
 
@@ -27,17 +27,19 @@ In questo esempio si crea un nuovo dashboard privato e si assegna un nome. Per i
 
     ![Aprire il dashboard](./media/azure-portal-dashboards/portal-menu-dashboard.png)
 
-1. Selezionare **nuovo dashboard**.
+1. Selezionare **nuovo dashboard** , quindi **Dashboard vuoto**.
 
     ![Screenshot del nuovo dashboard](./media/azure-portal-dashboards/create-new-dashboard.png)
 
     Questa azione consente di aprire la **raccolta di sezioni**, da cui è possibile selezionare i riquadri e una griglia vuota in cui verranno organizzati i riquadri.
 
-    ![Screenshot della raccolta dei riquadri e della griglia vuota](./media/azure-portal-dashboards/dashboard-name.png)
-
 1. Selezionare il testo del **Dashboard** nell'etichetta del dashboard e immettere un nome che consentirà di identificare facilmente il dashboard personalizzato.
 
-1. Selezionare **fine personalizzazione** nell'intestazione di pagina per uscire dalla modalità di modifica.
+    ![Screenshot della raccolta dei riquadri e della griglia vuota](./media/azure-portal-dashboards/dashboard-name.png)
+
+1. Nell'intestazione di pagina selezionare **fine personalizzazione** per uscire dalla modalità di modifica e quindi selezionare **Salva**.
+
+    :::image type="content" source="media/azure-portal-dashboards/dashboard-save.png" alt-text="Screenshot del processo di salvataggio del dashboard":::
 
 Nella visualizzazione Dashboard è ora visualizzato il nuovo dashboard. Selezionare la freccia accanto al nome del dashboard per visualizzare i dashboard disponibili. L'elenco potrebbe includere i dashboard creati e condivisi da altri utenti.
 
@@ -45,7 +47,7 @@ Nella visualizzazione Dashboard è ora visualizzato il nuovo dashboard. Selezion
 
 A questo punto, modificare il dashboard per aggiungere, ridimensionare e disporre i riquadri che rappresentano le risorse di Azure.
 
-### <a name="add-tiles-from-the-dashboard"></a>Aggiungere riquadri dal dashboard
+### <a name="add-tiles-from-the-tile-gallery"></a>Aggiungere riquadri dalla raccolta di sezioni
 
 Per aggiungere riquadri a un dashboard, attenersi alla procedura seguente:
 
@@ -55,10 +57,13 @@ Per aggiungere riquadri a un dashboard, attenersi alla procedura seguente:
 
 1. Esplorare la **raccolta di riquadri** o usare il campo di ricerca per trovare il riquadro desiderato.
 
-1. Selezionare **Aggiungi** per aggiungere il riquadro al dashboard con le dimensioni e il percorso predefiniti. In alternativa, trascinare il riquadro nella griglia e posizionarlo nel percorso desiderato.
+1. Selezionare **Aggiungi** per aggiungere il riquadro al dashboard con le dimensioni e il percorso predefiniti. In alternativa, trascinare il riquadro nella griglia e posizionarlo nel percorso desiderato. Aggiungere tutti i riquadri desiderati, ma di seguito sono riportate alcune idee:
 
-> [!TIP]
-> Se si lavora con più di un'organizzazione, aggiungere il riquadro **identità organizzazione** al dashboard per visualizzare chiaramente l'organizzazione a cui appartengono le risorse.
+    - Aggiungere **tutte le risorse** per visualizzare le risorse già create.
+
+    - Se si lavora con più di un'organizzazione, aggiungere il riquadro **identità organizzazione** al dashboard per visualizzare chiaramente l'organizzazione a cui appartengono le risorse.
+
+1. Nell'intestazione di pagina selezionare **Salva**.
 
 ### <a name="add-tiles-from-a-resource-page"></a>Aggiungere riquadri da una pagina delle risorse
 
@@ -80,11 +85,11 @@ Per modificare le dimensioni di un riquadro o per ridisporre i riquadri in un da
 
 ### <a name="additional-tile-configuration"></a>Configurazione aggiuntiva del riquadro
 
-Per alcuni riquadri potrebbe essere necessaria una configurazione maggiore per visualizzare le informazioni desiderate. Ad esempio, è necessario configurare il riquadro **grafico metriche** per visualizzare una metrica da **monitoraggio di Azure**. È anche possibile personalizzare i dati del riquadro per sostituire le impostazioni di ora predefinite del dashboard.
+Per alcuni riquadri potrebbe essere necessaria una configurazione maggiore per visualizzare le informazioni desiderate. Ad esempio, è necessario configurare il riquadro **grafico metriche** per visualizzare una metrica da monitoraggio di Azure. È anche possibile personalizzare i dati del riquadro per sostituire le impostazioni di ora predefinite del dashboard.
 
-Tutti i riquadri che devono essere impostati visualizzano un banner di **configurazione del riquadro** fino a quando non si Personalizza il riquadro. Per personalizzare il riquadro:
+Tutti i riquadri che devono essere impostati visualizzano un banner fino a quando non si Personalizza il riquadro. Per il **grafico delle metriche**, il banner viene **modificato nelle metriche**. Per personalizzare il riquadro:
 
-1. Selezionare **fine personalizzazione** nell'intestazione di pagina per uscire dalla modalità di modifica.
+1. Nell'intestazione di pagina selezionare **Salva** per uscire dalla modalità di modifica.
 
 1. Selezionare il banner, quindi eseguire la configurazione richiesta.
 
@@ -97,7 +102,7 @@ Tutti i riquadri che devono essere impostati visualizzano un banner di **configu
 
 I dati nel dashboard mostrano automaticamente le attività per le ultime 24 ore. Per visualizzare un intervallo di tempo diverso solo per questo riquadro, attenersi alla seguente procedura:
 
-1. Selezionare **personalizzare i dati del riquadro** dal menu di scelta rapida o dal ![ filtro dell'icona del filtro nell' ](./media/azure-portal-dashboards/dashboard-filter.png) angolo superiore sinistro del riquadro.
+1. Selezionare **personalizzare i dati del riquadro** dal menu di scelta rapida o dal ![ filtro dell'icona del filtro ](./media/azure-portal-dashboards/dashboard-filter.png) nell'angolo superiore sinistro del riquadro.
 
     ![Screenshot del menu di scelta rapida del riquadro](./media/azure-portal-dashboards/dashboard-customize-tile-data.png)
 
@@ -166,6 +171,10 @@ Per eliminare definitivamente un dashboard privato o condiviso, attenersi alla p
 1. Per un dashboard privato, fare clic su **OK** nella finestra di dialogo di conferma per rimuovere il dashboard. Per un dashboard condiviso, nella finestra di dialogo di conferma selezionare la casella di controllo per confermare che il dashboard pubblicato non sarà più visualizzabile da altri. Quindi selezionare **OK**.
 
     ![Screenshot della conferma dell'eliminazione](./media/azure-portal-dashboards/dashboard-delete-dash.png)
+
+## <a name="recover-a-deleted-dashboard"></a>Ripristinare un dashboard eliminato
+
+Se ci si trova nel cloud di Azure globale e si elimina un dashboard _pubblicato_ nella portale di Azure, è possibile ripristinare il dashboard entro 14 giorni dall'eliminazione. Per informazioni, vedere [ripristinare un dashboard eliminato nel portale di Azure](recover-shared-deleted-dashboard.md).
 
 ## <a name="next-steps"></a>Passaggi successivi
 

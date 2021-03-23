@@ -6,18 +6,18 @@ ms.author: rajosh
 ms.manager: abhemraj
 ms.topic: conceptual
 ms.date: 06/25/2020
-ms.openlocfilehash: b3975d30fca1f7f542f27742ef8408b1feecc146
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 1d9918786b22faddaeb07a12f0840b36a11ffe4d
+ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101727193"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104778382"
 ---
 # <a name="assessment-overview-migrate-to-azure-vmware-solution"></a>Panoramica della valutazione (migrazione alla soluzione VMware di Azure)
 
 [Azure migrate](migrate-services-overview.md) offre un hub centrale per tenere traccia dell'individuazione, della valutazione e della migrazione delle app e dei carichi di lavoro locali. Consente anche di tenere traccia delle istanze di cloud privato e pubblico in Azure. L'hub offre strumenti Azure Migrate per la valutazione e la migrazione, nonché offerte di fornitori di software indipendenti (ISV) di terze parti.
 
-Server assessment è uno strumento di Azure Migrate che consente di valutare i server locali per la migrazione alle macchine virtuali IaaS di Azure e alla soluzione Azure VMware (AVS). Questo articolo fornisce informazioni sul modo in cui vengono calcolate le valutazioni di Azure VMware Solution (AVS).
+Lo strumento di individuazione e valutazione in Azure Migrate valuta i server locali per la migrazione a macchine virtuali di Azure e alla soluzione VMware di Azure (AVS). Questo articolo fornisce informazioni sul modo in cui vengono calcolate le valutazioni di Azure VMware Solution (AVS).
 
 > [!NOTE]
 > La valutazione della soluzione VMware di Azure (AVS) può essere creata solo per le macchine virtuali VMware.
@@ -26,10 +26,11 @@ Server assessment è uno strumento di Azure Migrate che consente di valutare i s
 
 Le valutazioni create con Azure Migrate sono uno snapshot temporizzato dei dati. È possibile creare due tipi di valutazioni con Azure Migrate:
 
-| **Tipo di valutazione** | **Dettagli** |
-| - | - |
-| **Macchina virtuale di Azure** | Valutazioni per la migrazione dei server locali in macchine virtuali di Azure. È possibile valutare i server locali in esecuzione nell'ambiente[VMware](how-to-set-up-appliance-vmware.md) o [Hyper-V](how-to-set-up-appliance-hyper-v.md) e i [server fisici](how-to-set-up-appliance-physical.md) per la migrazione ad Azure usando questo tipo di valutazione. [Altre informazioni](concepts-assessment-calculation.md) |
-| **Soluzione Azure VMware** | Valutazioni per la migrazione dei server o delle VM VMware locali in una[ soluzione VMware di Azure (AVS)](../azure-vmware/introduction.md).  È possibile valutare i server locali in esecuzione nell'ambiente [VMware](how-to-set-up-appliance-vmware.md) per la migrazione ad Azure VMware Solution (AVS) con questo tipo di valutazione. [Altre informazioni](concepts-azure-vmware-solution-assessment-calculation.md) |
+**Tipo di valutazione** | **Dettagli**
+--- | --- 
+**Macchina virtuale di Azure** | Valutazioni per la migrazione dei server locali in macchine virtuali di Azure. È possibile valutare i server locali nell'ambiente [VMware](how-to-set-up-appliance-vmware.md) e [Hyper-V](how-to-set-up-appliance-hyper-v.md) e i [server fisici](how-to-set-up-appliance-physical.md) per la migrazione alle macchine virtuali di Azure con questo tipo di valutazione.
+**SQL di Azure** | Valutazioni per la migrazione dei server SQL locali dall'ambiente VMware al database SQL di Azure o al Istanza gestita SQL di Azure.
+**Soluzione Azure VMware** | Valutazioni per la migrazione dei server locali nella [soluzione Azure VMware](../azure-vmware/introduction.md). È possibile valutare le [macchine virtuali VMware](how-to-set-up-appliance-vmware.md) locali per la migrazione alla soluzione Azure VMware usando questo tipo di valutazione. [Altre informazioni](concepts-azure-vmware-solution-assessment-calculation.md)
 
 La valutazione della soluzione VMware di Azure (AVS) fornisce due opzioni per i criteri di ridimensionamento:
 
@@ -42,18 +43,18 @@ La valutazione della soluzione VMware di Azure (AVS) fornisce due opzioni per i 
 
 Esistono due modi per eseguire una valutazione.
 
-- Valutare i computer usando i metadati del server raccolti da un'appliance Azure Migrate leggera. L'appliance individua i computer locali. Invia quindi i dati sulle prestazioni e i metadati del computer a Azure Migrate. Questo consente una maggiore precisione.
-- Valutare i computer usando i metadati del server importati in un formato con valori delimitati da virgole (CSV).
+- Valutare i server usando i metadati del server raccolti da un'appliance Azure Migrate leggera. L'appliance individua i server locali. Invia quindi i dati sulle prestazioni e i metadati del server a Azure Migrate. Questo consente una maggiore precisione.
+- Valutare i server usando i metadati del server importati in un formato con valori delimitati da virgole (CSV).
 
 ## <a name="how-do-i-assess-with-the-appliance"></a>Ricerca per categorie valutare con l'appliance?
 
 Se si sta distribuendo un'appliance Azure Migrate per individuare i server locali, seguire questa procedura:
 
 1. Configurare Azure e l'ambiente locale per lavorare con Azure Migrate.
-2. Per la prima valutazione, creare un progetto Azure e aggiungervi lo strumento Server assessment.
-3. Distribuire un'appliance Azure Migrate leggera. L'appliance individua continuamente computer locali e invia i dati sulle prestazioni e i metadati del computer a Azure Migrate. Distribuire l'appliance come macchina virtuale. Non è necessario installare alcun elemento nei computer che si desidera valutare.
+2. Per la prima valutazione, creare un progetto Azure e aggiungervi lo strumento di individuazione e valutazione.
+3. Distribuire un'appliance Azure Migrate leggera. L'appliance individua continuamente i server locali e invia i metadati del server e i dati sulle prestazioni a Azure Migrate. Distribuire l'appliance come macchina virtuale. Non è necessario installare alcun elemento sui server che si desidera valutare.
 
-Quando l'appliance inizia l'individuazione del computer, è possibile raccogliere i computer che si vuole valutare in un gruppo ed eseguire una valutazione per il gruppo con tipo di valutazione **soluzione VMware di Azure (AVS)**.
+Quando l'appliance inizia l'individuazione del server, è possibile raccogliere i server che si vuole valutare in un gruppo ed eseguire una valutazione per il gruppo con tipo di valutazione **soluzione VMware di Azure (AVS)**.
 
 Per creare la prima valutazione della soluzione VMware di Azure (AVS [), seguire questa procedura.](how-to-create-azure-vmware-solution-assessment.md)
 
@@ -62,7 +63,7 @@ Per creare la prima valutazione della soluzione VMware di Azure (AVS [), seguire
 Se si sta valutando i server usando un file CSV, non è necessario un dispositivo. Eseguire invece i passaggi seguenti:
 
 1. Configurare Azure per l'uso con Azure Migrate.
-2. Per la prima valutazione, creare un progetto Azure e aggiungervi lo strumento Server assessment.
+2. Per la prima valutazione, creare un progetto Azure e aggiungervi lo strumento di individuazione e valutazione.
 3. Scaricare un modello CSV e aggiungervi i dati del server.
 4. Importare il modello in Azure Migrate.
 5. Individuare i server aggiunti con l'importazione, raccoglierli in un gruppo ed eseguire una valutazione per il gruppo con tipo di valutazione **soluzione VMware di Azure (AVS)**.
@@ -97,7 +98,7 @@ I dati sulle prestazioni seguenti vengono raccolti ma non usati nei consigli per
 
 ## <a name="how-are-avs-assessments-calculated"></a>Come vengono calcolate le valutazioni AVS?
 
-AVS Assessment usa i metadati e i dati sulle prestazioni dei computer locali per calcolare le valutazioni. Se si distribuisce il dispositivo Azure Migrate, la valutazione usa i dati raccolti dal dispositivo. Tuttavia, se si esegue una valutazione importata utilizzando un file CSV, è necessario fornire i metadati per il calcolo.
+AVS Assessment usa i metadati e i dati sulle prestazioni dei server locali per calcolare le valutazioni. Se si distribuisce il dispositivo Azure Migrate, la valutazione usa i dati raccolti dal dispositivo. Tuttavia, se si esegue una valutazione importata utilizzando un file CSV, è necessario fornire i metadati per il calcolo.
 
 I calcoli si verificano in queste tre fasi:
 
@@ -105,7 +106,7 @@ I calcoli si verificano in queste tre fasi:
 2. **Calcolare il numero di nodi AVS e l'utilizzo tra i nodi**: numero stimato di nodi AVS necessari per eseguire le VM VMware e proiezione della CPU, della memoria e dell'utilizzo dello spazio di archiviazione in tutti i nodi.
 3. **Stima dei costi mensili**: i costi mensili stimati per tutti i nodi della soluzione VMware di Azure (AVS) che eseguono le macchine virtuali locali.
 
-I calcoli sono nell'ordine precedente. Un server del computer si sposta in una fase successiva solo se passa quello precedente. Ad esempio, se un server ha esito negativo, la fase di idoneità AVS viene contrassegnata come non adatta per Azure. Il dimensionamento e i calcoli dei costi non vengono eseguiti per quel server
+I calcoli sono nell'ordine precedente. Un server passa a una fase successiva solo se passa quello precedente. Ad esempio, se un server ha esito negativo, la fase di idoneità AVS viene contrassegnata come non adatta per Azure. Il dimensionamento e i calcoli dei costi non vengono eseguiti per quel server
 
 ## <a name="whats-in-an-azure-vmware-solution-avs-assessment"></a>Cosa c'è in una valutazione della soluzione VMware di Azure (AVS)?
 
@@ -119,9 +120,9 @@ Ecco cosa è incluso in una valutazione AVS:
 | **Tipo di nodo** | Specifica il [tipo di nodo AVS](../azure-vmware/concepts-private-clouds-clusters.md) usato per l'uso in Azure. Il tipo di nodo predefinito è AV36. Potrebbero essere disponibili altri tipi di nodo in futuro.  Azure Migrate consiglierà un numero di nodi necessario per la migrazione delle macchine virtuali in AVS. |
 | **Impostazione di ITF, livello RAID** | Specifica la combinazione valida di errori da tollerare e le combinazioni RAID. L'opzione di ITF selezionata combinata con il livello RAID e il requisito del disco della macchina virtuale locale determineranno il totale di spazio di archiviazione rete VSAN necessario in AVS. Lo spazio di archiviazione totale disponibile dopo i calcoli include anche uno spazio riservato per gli oggetti di gestione come vCenter e b) il 25% di Slack di archiviazione necessario per le operazioni rete VSAN. |
 | **Criterio di dimensionamento** | Imposta i criteri da usare per determinare i requisiti di memoria, CPU e archiviazione per i nodi AVS. È possibile optare per il dimensionamento in *base alle prestazioni* o *come locale* senza considerare la cronologia delle prestazioni. Per eseguire semplicemente il lift-and-Shift, scegliere come in locale. Per ottenere il dimensionamento basato sull'utilizzo, scegliere basato sulle prestazioni. |
-| **Cronologia delle prestazioni** | Imposta la durata da considerare per la valutazione dei dati sulle prestazioni dei computer. Questa proprietà è applicabile solo quando i criteri di ridimensionamento sono *basati sulle prestazioni*. |
+| **Cronologia delle prestazioni** | Imposta la durata da considerare per la valutazione dei dati sulle prestazioni dei server. Questa proprietà è applicabile solo quando i criteri di ridimensionamento sono *basati sulle prestazioni*. |
 | **Utilizzo percentile** | Specifica il valore percentile del set di campionamento delle prestazioni da considerare per il corretto dimensionamento. Questa proprietà è applicabile solo quando il ridimensionamento è basato sulle prestazioni. |
-| **Fattore di comfort** | Durante la valutazione, Azure Migrate considera un buffer (fattore di comfort), Questo buffer viene applicato ai dati di utilizzo del computer per le macchine virtuali (CPU, memoria e disco). Il fattore di comfort tiene conto di aspetti come utilizzo stagionale, breve cronologia delle prestazioni e probabile aumento dell'utilizzo futuro. Da una VM con 10 core e un utilizzo del 20%, ad esempio, si ottiene normalmente una VM con 2 core. Con un fattore di comfort pari a 2.0x, invece, il risultato è una VM con 4 core. |
+| **Fattore di comfort** | Durante la valutazione, Azure Migrate considera un buffer (fattore di comfort), Questo buffer viene applicato ai dati di utilizzo del server per le macchine virtuali (CPU, memoria e disco). Il fattore di comfort tiene conto di aspetti come utilizzo stagionale, breve cronologia delle prestazioni e probabile aumento dell'utilizzo futuro. Da una VM con 10 core e un utilizzo del 20%, ad esempio, si ottiene normalmente una VM con 2 core. Con un fattore di comfort pari a 2.0x, invece, il risultato è una VM con 4 core. |
 | **Offerta** | Visualizza l' [offerta di Azure](https://azure.microsoft.com/support/legal/offer-details/) in cui si è iscritti. Azure Migrate stima il costo di conseguenza. |
 | **Valuta** | Mostra la valuta di fatturazione per l'account. |
 | **Sconto (%)** | Elenca gli sconti specifici della sottoscrizione ricevuti dall'offerta di Azure. L'impostazione predefinita è 0%. |
@@ -132,39 +133,39 @@ Ecco cosa è incluso in una valutazione AVS:
 
 ## <a name="azure-vmware-solution-avs-suitability-analysis"></a>Analisi di idoneità per la soluzione VMware di Azure (AVS)
 
-Le valutazioni AVS valutano tutte le VM locali per la relativa idoneità per AVS esaminando le proprietà del computer. Assegna anche ogni computer valutato a una delle categorie di idoneità seguenti:
+Le valutazioni AVS valutano ogni macchina virtuale locale per la relativa idoneità per AVS esaminando le proprietà del server. Assegna anche ogni server valutato a una delle categorie di idoneità seguenti:
 
-- **Pronto per AVS**: è possibile eseguire la migrazione del computer in Azure (AVS) senza alcuna modifica. Verrà avviato in AVS con supporto AVS completo.
+- **Pronto per AVS**: è possibile eseguire la migrazione del server così com'è ad Azure (AVS) senza alcuna modifica. Verrà avviato in AVS con supporto AVS completo.
 - **Pronto con le condizioni**: la macchina virtuale potrebbe avere problemi di compatibilità con la versione corrente di vSphere, nonché richiedere gli strumenti VMware e altre impostazioni prima che sia possibile ottenere le funzionalità complete dalla macchina virtuale in AVS.
 - **Non pronto per AVS**: la macchina virtuale non viene avviata in AVS. Ad esempio, se la macchina virtuale VMware locale dispone di un dispositivo esterno collegato, ad esempio un CD-ROM, l'operazione VMware VMotion avrà esito negativo (se si usa VMware VMotion).
-- **Conformità sconosciuta**: Azure migrate non è stato in grado di determinare la conformità del computer a causa di metadati insufficienti raccolti dall'ambiente locale.
+- **Conformità sconosciuta**: Azure migrate non è stato in grado di determinare la conformità del server a causa di metadati insufficienti raccolti dall'ambiente locale.
 
-La valutazione esamina le proprietà del computer per determinare la conformità di Azure del computer locale.
+La valutazione esamina le proprietà del server per determinare la conformità di Azure del server locale.
 
-### <a name="machine-properties"></a>Proprietà del computer
+### <a name="server-properties"></a>Proprietà server
 
 La valutazione esamina la seguente proprietà della macchina virtuale locale per determinare se può essere eseguita in una soluzione VMware di Azure (AVS).
 
 | **Proprietà** | **Dettagli** | **Stato di conformità con AVS** |
 | - | - | - |
-| **Protocollo Internet** | Azure attualmente non supporta l'indirizzamento Internet IPv6 end-to-end. Se vengono rilevati indirizzi IPv6 nel computer, contattare il team MSFT AVS GBB locale per ricevere indicazioni per la correzione. | Protocollo Internet predisposto in modo condizionale |
+| **Protocollo Internet** | Azure attualmente non supporta l'indirizzamento Internet IPv6 end-to-end. Contattare il team locale MSFT AVS GBB per informazioni aggiuntive sulle linee guida per la correzione se il server viene rilevato con IPv6. | Protocollo Internet predisposto in modo condizionale |
 
 ### <a name="guest-operating-system"></a>Sistema operativo guest
 
 Attualmente, le valutazioni AVS non esaminano il sistema operativo come parte dell'analisi di idoneità. È probabile che tutti i sistemi operativi in esecuzione su macchine virtuali locali vengano eseguiti in una soluzione VMware di Azure (AVS).
 
-Insieme alle proprietà della macchina virtuale, la valutazione esamina il sistema operativo guest dei computer per determinare se può essere eseguito in Azure.
+Insieme alle proprietà delle macchine virtuali, la valutazione esamina il sistema operativo guest dei server per determinare se può essere eseguito in Azure.
 
 ## <a name="sizing"></a>Ridimensionamento
 
-Dopo che un computer è stato contrassegnato come pronto per AVS, AVS Assessment apporta consigli sul dimensionamento dei nodi, che implicano l'identificazione dei requisiti di VM locali appropriati e la ricerca del numero totale di nodi AVS richiesti. Queste raccomandazioni variano a seconda delle proprietà di valutazione specificate.
+Dopo che un server è stato contrassegnato come pronto per AVS, AVS Assessment apporta consigli sul dimensionamento dei nodi, che implicano l'identificazione dei requisiti di VM locali appropriati e la ricerca del numero totale di nodi AVS richiesti. Queste raccomandazioni variano a seconda delle proprietà di valutazione specificate.
 
-- Se la valutazione usa il *dimensionamento in base alle prestazioni*, Azure migrate considera la cronologia delle prestazioni del computer per apportare le indicazioni di dimensionamento appropriate per AVS. Questo metodo è particolarmente utile se la macchina virtuale locale è stata eccessivamente allocata, ma l'utilizzo è basso e si vuole dimensionare correttamente la VM in AVS per ridurre i costi. Questo metodo consente di ottimizzare le dimensioni durante la migrazione.
-- Se non si vogliono considerare i dati sulle prestazioni per il dimensionamento delle macchine virtuali e si vuole portare i computer locali così come sono in AVS, è possibile impostare i criteri di ridimensionamento su * come in locale *. Quindi, la valutazione ridimensiona le macchine virtuali in base alla configurazione locale senza considerare i dati di utilizzo.
+- Se la valutazione usa il *dimensionamento in base alle prestazioni*, Azure migrate considera la cronologia delle prestazioni del server per apportare le indicazioni di dimensionamento appropriate per AVS. Questo metodo è particolarmente utile se la macchina virtuale locale è stata eccessivamente allocata, ma l'utilizzo è basso e si vuole dimensionare correttamente la VM in AVS per ridurre i costi. Questo metodo consente di ottimizzare le dimensioni durante la migrazione.
+- Se non si vogliono considerare i dati sulle prestazioni per il dimensionamento delle macchine virtuali e si vuole portare i server locali così come sono in AVS, è possibile impostare i criteri di ridimensionamento su * come in locale *. Quindi, la valutazione ridimensiona le macchine virtuali in base alla configurazione locale senza considerare i dati di utilizzo.
 
 ### <a name="ftt-sizing-parameters"></a>Parametri di ridimensionamento dell'ITF
 
-Il motore di archiviazione usato in AVS è rete VSAN. i criteri di archiviazione rete VSAN definiscono i requisiti di archiviazione per le macchine virtuali. Questi criteri garantiscono il livello di servizio richiesto per le macchine virtuali, perché determinano la modalità di allocazione dell'archiviazione alla macchina virtuale. Le combinazioni di FTT-Raid disponibili sono:
+Il motore di archiviazione usato in AVS è rete VSAN. i criteri di archiviazione rete VSAN definiscono i requisiti di archiviazione per i server. Questi criteri garantiscono il livello di servizio richiesto per le macchine virtuali, perché determinano la modalità di allocazione dell'archiviazione alla macchina virtuale. Le combinazioni di FTT-Raid disponibili sono:
 
 | **Tolleranza errori** | **Configurazione RAID** | **Numero minimo di host richiesti** | **Considerazioni sul dimensionamento** |
 | - | - | - | - |
@@ -254,7 +255,7 @@ A seconda della percentuale di punti dati disponibili, la classificazione di att
 
 Ecco alcuni motivi per cui una valutazione potrebbe ottenere un livello di confidenza basso:
 
-- L'ambiente non è stato profilato per la durata per la quale si sta creando la valutazione. Se, ad esempio, si crea la valutazione con la durata delle prestazioni impostata su un giorno, è necessario attendere almeno un giorno dopo l'avvio dell'individuazione per tutti i punti dati da raccogliere.
+- L'ambiente non è stato profilato per il periodo di tempo per cui si sta creando la valutazione. Se, ad esempio, si crea la valutazione con la durata delle prestazioni impostata su un giorno, è necessario attendere almeno un giorno dopo l'avvio dell'individuazione per tutti i punti dati da raccogliere.
 - La valutazione non è in grado di raccogliere i dati sulle prestazioni per alcune o tutte le macchine virtuali nel periodo di valutazione. Per una classificazione di attendibilità elevata, verificare che:
 
   - Le macchine virtuali sono accese per la durata della valutazione
@@ -281,8 +282,8 @@ Dato che i prezzi per la soluzione VMware di Azure (AVS) sono per nodo, il costo
 
 Nel report di idoneità per Azure per la valutazione della soluzione Azure VMware è possibile visualizzare gli strumenti consigliati seguenti:
 
-- **VMware HCX o Enterprise**: per i computer VMware, la soluzione VMware Hybrid Cloud Extension (HCx) è lo strumento di migrazione suggerito per eseguire la migrazione del carico di lavoro locale al cloud privato della soluzione VMware di Azure (AVS). [Altre informazioni](../azure-vmware/tutorial-deploy-vmware-hcx.md).
-- **Sconosciuto**: Per i computer importati tramite un file con estensione csv, lo strumento di migrazione predefinito è sconosciuto. Tuttavia, per i computer VMware è consigliabile usare la soluzione VMware Hybrid Cloud Extension (HCX).
+- **VMware HCX o Enterprise**: per i server VMware, la soluzione VMware Hybrid Cloud Extension (HCx) è lo strumento di migrazione suggerito per eseguire la migrazione del carico di lavoro locale al cloud privato della soluzione VMware di Azure (AVS). [Altre informazioni](../azure-vmware/tutorial-deploy-vmware-hcx.md).
+- **Sconosciuto**: per i server importati tramite un file CSV, lo strumento di migrazione predefinito è sconosciuto. Per i server VMware, tuttavia, è consigliabile usare la soluzione VMware Hybrid Cloud Extension (HCX).
 
 ## <a name="next-steps"></a>Passaggi successivi
 

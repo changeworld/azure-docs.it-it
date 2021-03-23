@@ -1,24 +1,14 @@
 ---
 title: 'Guida introduttiva: onboarding di Defender per le cose in una soluzione basata su agenti'
 description: In questa Guida introduttiva si apprenderà come eseguire l'onboarding e abilitare il Defender per il servizio di sicurezza di Internet delle cose nell'hub Azure.
-services: defender-for-iot
-ms.service: defender-for-iot
-documentationcenter: na
-author: shhazam-ms
-manager: rkarlin
-editor: ''
-ms.devlang: na
 ms.topic: quickstart
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 1/20/2021
-ms.author: shhazam
-ms.openlocfilehash: d30a03aa7b7715a8792e7b70a0571270c6ad7b37
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: b795773ae0eb667cf7f53f4209b6476ba937b17f
+ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102449680"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104780957"
 ---
 # <a name="quickstart-onboard-defender-for-iot-to-an-agent-based-solution"></a>Guida introduttiva: onboarding di Defender per le cose in una soluzione basata su agenti
 

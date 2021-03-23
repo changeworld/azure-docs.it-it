@@ -3,12 +3,12 @@ title: Informazioni sulle condizioni dell'infrastruttura BareMetal di Azure
 description: Informazioni sulle condizioni dell'infrastruttura BareMetal di Azure.
 ms.topic: conceptual
 ms.date: 1/4/2021
-ms.openlocfilehash: fd7a39854c86f728ef152f8e7d858157e1ad26f4
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: b22a6cecb2647df3878cb8fd4ade93d9a7d963fd
+ms.sourcegitcommit: 2c1b93301174fccea00798df08e08872f53f669c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "97861921"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104770887"
 ---
 # <a name="know-the-terms-for-baremetal-infrastructure"></a>Informazioni sulle condizioni per l'infrastruttura BareMetal
 
@@ -23,4 +23,4 @@ In questo articolo verranno illustrate alcune importanti condizioni di BareMetal
 - **Tenant**: un cliente distribuito nel timbro dell'istanza di Baremetal viene isolato in un *tenant.* Un tenant è isolato a livello di rete, archiviazione e calcolo dagli altri tenant, Le unità di archiviazione e di calcolo assegnate ai diversi tenant non possono vedersi reciprocamente o comunicare tra loro a livello di timbro dell'istanza di BareMetal. Un cliente può scegliere di avere distribuzioni in tenant diversi. Anche in questo caso, non esiste alcuna comunicazione tra i tenant sul livello di timbro dell'istanza di BareMetal.
 
 ## <a name="next-steps"></a>Passaggi successivi
-Altre informazioni sull' [infrastruttura Baremetal](workloads/sap/baremetal-overview-architecture.md) o su come [identificare e interagire con le unità di istanza di Baremetal](workloads/sap/baremetal-infrastructure-portal.md). 
+Altre informazioni sull' [infrastruttura Baremetal](concepts-baremetal-infrastructure-overview.md) o su come [identificare e interagire con le unità di istanza di Baremetal](connect-baremetal-infrastructure.md). 

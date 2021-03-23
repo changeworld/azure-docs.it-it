@@ -1,31 +1,31 @@
 ---
-title: "Individuare i server in esecuzione nell'ambiente VMware con Azure Migrate: server Assessment"
-description: Informazioni su come individuare macchine virtuali VMware locali con lo strumento Valutazione server di Azure Migrate
-author: vikram1988
-ms.author: vibansa
+title: Individuare i server in esecuzione nell'ambiente VMware con Azure Migrate individuazione e valutazione
+description: Informazioni su come individuare i server locali in esecuzione nell'ambiente VMware con lo strumento di individuazione e valutazione Azure Migrate
+author: vineetvikram
+ms.author: vivikram
 ms.manager: abhemraj
 ms.topic: tutorial
-ms.date: 9/14/2020
+ms.date: 03/17/2021
 ms.custom: mvc
-ms.openlocfilehash: 4d2b0fbb377beacdb75a1a5552855936bee2b205
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: d0acf83ddfb0d2a3aff0db0f3d151869bce1c710
+ms.sourcegitcommit: 2c1b93301174fccea00798df08e08872f53f669c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102041312"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104771737"
 ---
-# <a name="tutorial-discover-servers-running-in-vmware-environment-with-azure-migrate-server-assessment"></a>Esercitazione: individuare i server in esecuzione nell'ambiente VMware con Azure Migrate: server Assessment
+# <a name="tutorial-discover-servers-running-in-vmware-environment-with-azure-migrate-discovery-and-assessment"></a>Esercitazione: individuare i server in esecuzione nell'ambiente VMware con Azure Migrate: individuazione e valutazione
 
 Il percorso di migrazione ad Azure prevede l'individuazione dei carichi di lavoro e dell'inventario locale.
 
-Questa esercitazione illustra come individuare i server in esecuzione nell'ambiente VMware con Azure Migrate: server Assessment Tool, usando un'appliance di Azure Migrate Lightweight. Si distribuisce l'appliance come server in esecuzione nel server vCenter, per individuare continuamente i server e i relativi metadati delle prestazioni, le applicazioni in esecuzione su server, le dipendenze del server e SQL Server istanze e database.
+Questa esercitazione illustra come individuare i server in esecuzione nell'ambiente VMware con Azure Migrate: strumento di individuazione e valutazione, usando un'appliance di Azure Migrate Lightweight. Si distribuisce l'appliance come server in esecuzione nel server vCenter, per individuare continuamente i server e i relativi metadati delle prestazioni, le applicazioni in esecuzione su server, le dipendenze del server e SQL Server istanze e database.
 
 In questa esercitazione verranno illustrate le procedure per:
 
 > [!div class="checklist"]
 > * Configurare un account Azure.
 > * Preparare l'ambiente VMware per l'individuazione.
-> * Creare un progetto di Azure Migrate.
+> * Creare un progetto.
 > * Configurare l'appliance di Azure Migrate.
 > * Avviare l'individuazione continua.
 
@@ -51,7 +51,7 @@ Prima di iniziare questa esercitazione, verificare che siano rispettati i prereq
 
 ## <a name="prepare-an-azure-user-account"></a>Preparare un account utente Azure
 
-Per creare un progetto di Azure Migrate e registrare l'appliance di Azure Migrate, è necessario un account con:
+Per creare un progetto e registrare il dispositivo di Azure Migrate, è necessario un account con:
 - Autorizzazioni di collaboratore o proprietario per la sottoscrizione di Azure
 - Autorizzazioni per la registrazione di app Azure Active Directory (AAD)
 - Proprietario o collaboratore più autorizzazioni di amministratore di accesso utente per la sottoscrizione di Azure per creare un Key Vault, usato durante la migrazione del server senza agenti
@@ -63,7 +63,7 @@ Se è appena stato creato un account Azure gratuito, si è proprietari della pro
     :::image type="content" source="./media/tutorial-discover-vmware/search-subscription.png" alt-text="Casella di ricerca per cercare la sottoscrizione di Azure":::
 
 
-2. Nella pagina **Sottoscrizioni** selezionare la sottoscrizione in cui creare un progetto di Azure Migrate.
+2. Nella pagina **sottoscrizioni** selezionare la sottoscrizione in cui si desidera creare un progetto.
 3. Nella sottoscrizione selezionare **Controllo di accesso (IAM)**  > **Verifica l'accesso**.
 4. In **Verifica l'accesso** cercare l'account utente pertinente.
 5. In **Aggiungi un'assegnazione di ruolo** fare clic su **Aggiungi**.
@@ -117,7 +117,7 @@ In vSphere Web Client configurare un account come descritto di seguito:
 
 ## <a name="set-up-a-project"></a>Configurare un progetto
 
-Configurare un nuovo progetto di Azure Migrate.
+Configurare un nuovo progetto.
 
 1. Nel portale di Azure selezionare **Tutti i servizi** e cercare **Azure Migrate**.
 2. In **Servizi** selezionare **Azure Migrate**.
@@ -128,14 +128,14 @@ Configurare un nuovo progetto di Azure Migrate.
     :::image type="content" source="./media/tutorial-discover-vmware/new-project.png" alt-text="Caselle per il nome del progetto e l'area":::
 
 7. Selezionare **Crea**.
-8. Attendere alcuni minuti per la distribuzione del progetto Azure Migrate. Lo strumento **Azure migrate: server Assessment** viene aggiunto per impostazione predefinita al nuovo progetto.
+8. Attendere alcuni minuti per la distribuzione del progetto. Lo strumento **Azure migrate: individuazione e valutazione** viene aggiunto per impostazione predefinita al nuovo progetto.
 
 > [!NOTE]
 > Se è già stato creato un progetto, è possibile usare lo stesso progetto per registrare appliance aggiuntive per individuare e valutare più no. di server. [ **Altre informazioni**](create-manage-projects.md#find-a-project)
 
 ## <a name="set-up-the-appliance"></a>Configurare l'appliance
 
-Azure Migrate: server Assessment usa un'appliance di Azure Migrate Lightweight. L'Appliance esegue l'individuazione del server e invia i metadati di configurazione e prestazioni del server a Azure Migrate. È possibile configurare l'appliance distribuendo un modello OVA che può essere scaricato dal progetto.
+Azure Migrate: individuazione e valutazione usano un appliance Azure Migrate leggero. L'Appliance esegue l'individuazione del server e invia i metadati di configurazione e prestazioni del server a Azure Migrate. È possibile configurare l'appliance distribuendo un modello OVA che può essere scaricato dal progetto.
 
 > [!NOTE]
 > Se per qualche motivo non è possibile configurare l'appliance usando il modello, è possibile configurarlo usando uno script di PowerShell in un server Windows Server 2016 esistente. [**Scopri di più**](deploy-appliance-script.md#set-up-the-appliance-for-vmware).
@@ -143,18 +143,19 @@ Azure Migrate: server Assessment usa un'appliance di Azure Migrate Lightweight. 
 ### <a name="deploy-with-ova"></a>Distribuire con OVA
 
 Per configurare l'appliance con un modello OVA:
-1. Specificare un nome di appliance e generare una chiave del progetto di Azure Migrate nel portale.
+
+1. Specificare un nome per il dispositivo e generare una chiave del progetto nel portale.
 1. Scaricare un file modello OVA e importarlo nel server vCenter. Verificare che gli OVA siano protetti.
-1. Creare la macchina virtuale dell'appliance dal file OVA e verificare che sia in grado di connettersi a Azure Migrate.
-1. Configurare il dispositivo per la prima volta e registrarlo con il progetto usando la chiave del progetto Azure Migrate.
+1. Creare l'appliance dal file OVA e verificare che sia in grado di connettersi a Azure Migrate.
+1. Configurare il dispositivo per la prima volta e registrarlo con il progetto usando la chiave del progetto.
 
-### <a name="1-generate-the-azure-migrate-project-key"></a>1. generare la chiave del progetto Azure Migrate
+### <a name="1-generate-the-project-key"></a>1. generare la chiave del progetto
 
-1. In **Obiettivi della migrazione** > **Server** > **Azure Migrate: Valutazione server** selezionare **Individua**.
-2. In **Individua macchine virtuali** > **I computer sono virtualizzati?** selezionare **Sì, con VMware vSphere Hypervisor**.
-3. In **1: generare Azure migrate chiave del progetto**, specificare un nome per il dispositivo Azure migrate da configurare per l'individuazione dei server nell'ambiente VMware. Il nome deve essere alfanumerico con un massimo di 14 caratteri.
+1. Negli **obiettivi di migrazione**  >  **Windows, Linux e SQL Server**  >  **Azure migrate: individuazione e valutazione**, selezionare **individua**.
+2. In **individua server**  >  **i server sono virtualizzati?** selezionare **Sì, con VMware vSphere Hypervisor**.
+3. In **1: genera chiave progetto** specificare un nome per il dispositivo Azure migrate che si configurerà per l'individuazione dei server nell'ambiente VMware. Il nome deve essere costituito da un massimo di 14 caratteri alfanumerici.
 1. Fare clic su **Genera chiave** per avviare la creazione delle risorse di Azure necessarie. Non chiudere la pagina di individuazione durante la creazione delle risorse.
-1. Al termine della creazione delle risorse di Azure, viene generata una **Chiave progetto Azure Migrate**.
+1. Una volta completata la creazione delle risorse di Azure, viene generata una **chiave del progetto** .
 1. Copiare la chiave perché sarà necessaria per completare la registrazione dell'appliance durante la configurazione.
 
 ### <a name="2-download-the-ova-template"></a>2. scaricare il modello OVA
@@ -214,13 +215,13 @@ Configurare l'appliance per la prima volta.
 
 1. Nella console del client di vSphere, fare clic con il pulsante destro del mouse sul server e quindi scegliere **Apri console**.
 2. Specificare la lingua, il fuso orario e la password per l'appliance.
-3. Aprire un browser in qualsiasi computer in grado di connettersi al server appliance e aprire l'URL di gestione configurazione Appliance: `https://appliance name or IP address: 44368` .
+3. Aprire un browser in qualsiasi computer in grado di connettersi al dispositivo e aprire l'URL di gestione configurazione Appliance: `https://appliance name or IP address: 44368` .
 
    In alternativa, è possibile aprire Gestione configurazione dal desktop del server appliance selezionando il collegamento per Gestione configurazione.
 1. Accettare le **condizioni di licenza** e leggere le informazioni di terze parti.
 1. In Configuration Manager > **configurare i prerequisiti**, procedere come segue:
    - **Connettività**: il dispositivo verifica che il server disponga di accesso a Internet. Se il server usa un proxy:
-     - Fare clic su **Configura proxy** per specificare l'indirizzo proxy `http://ProxyIPAddress` o la `http://ProxyFQDN` porta di attesa.
+     - Fare clic sul **proxy di installazione** per specificare l'indirizzo proxy o la porta di `http://ProxyIPAddress` `http://ProxyFQDN` attesa.
      - Se il proxy richiede l'autenticazione, specificare le credenziali.
      - È supportato solo il proxy HTTP.
      - Se sono stati aggiunti dettagli del proxy o sono stati disabilitati il proxy e/o l'autenticazione, fare clic su **Save** (Salva) per attivare di nuovo il controllo della connettività.
@@ -236,13 +237,13 @@ Configurare l'appliance per la prima volta.
 
 ### <a name="register-the-appliance-with-azure-migrate"></a>Registrare l'appliance con Azure Migrate
 
-1. Incollare la **chiave del progetto Azure Migrate** copiata dal portale. Se non si dispone della chiave, passare a **Valutazione server > Individua > Gestisci appliance esistenti**, selezionare il nome dell'appliance fornito al momento della generazione della chiave e copiare la chiave corrispondente.
+1. Incollare la **chiave del progetto** copiata dal portale. Se non si dispone della chiave, passare a **Azure migrate: individuazione e valutazione> individua> Gestisci appliance esistenti**, selezionare il nome dell'appliance fornito al momento della generazione della chiave e copiare la chiave corrispondente.
 1. Per eseguire l'autenticazione con Azure, è necessario un codice del dispositivo. Facendo clic su **Accedi** si aprirà una finestra modale con il codice del dispositivo, come illustrato di seguito.
 
     :::image type="content" source="./media/tutorial-discover-vmware/device-code.png" alt-text="Finestra modale con il codice del dispositivo":::
 
 1. Fare clic su **Copy code & Login** (Copia il codice e accedi) per copiare il codice del dispositivo e aprire una richiesta di accesso ad Azure in una nuova scheda del browser. Se l'opzione non è visualizzata, verificare di aver disabilitato il blocco popup nel browser.
-1. Nella nuova scheda incollare il codice del dispositivo e accedere usando il nome utente e la password di Azure.
+1. Nella scheda nuovo incollare il codice del dispositivo e accedere usando il nome utente e la password di Azure.
    
    L'accesso con un PIN non è supportato.
 3. Se si chiude la scheda per errore senza eseguire l'accesso, è necessario aggiornare la scheda del browser di gestione configurazione dell'appliance per abilitare di nuovo il pulsante di accesso.
@@ -260,23 +261,23 @@ L'appliance deve connettersi a server vCenter per individuare i dati relativi al
 
 1. In **passaggio 1: fornire le credenziali server vCenter** fare clic su **Aggiungi credenziali** per specificare un nome descrittivo per le credenziali, aggiungere **nome utente** e **password** per l'account server vCenter che l'appliance userà per individuare i server in esecuzione nel server vCenter.
     - È necessario configurare un account con le autorizzazioni necessarie, come descritto in questo articolo.
-    - Per definire l'ambito dell'individuazione di oggetti VMware specifici (server vCenter data center, cluster, una cartella di cluster, host, una cartella di host o singole VM), rivedere le istruzioni riportate in [questo articolo](set-discovery-scope.md) per limitare l'account usato da Azure Migrate.
+    - Per definire l'ambito dell'individuazione di oggetti VMware specifici (server vCenter Data Center, cluster, una cartella di cluster, host, una cartella di host o singoli server), vedere le istruzioni in [questo articolo](set-discovery-scope.md) per limitare l'account usato da Azure migrate.
 1. In **passaggio 2:** specificare i dettagli della server vCenter fare clic su **Aggiungi origine individuazione** per selezionare il nome descrittivo per le credenziali dall'elenco a discesa, specificare l' **indirizzo IP/FQDN** del server vCenter. È possibile lasciare l'impostazione predefinita per **Porta** (443) o specificare una porta personalizzata sulla quale sarà in ascolto il server vCenter e fare clic su **Salva**.
 1. Quando si fa clic su **Salva**, il dispositivo tenterà di convalidare la connessione al server vCenter con le credenziali specificate e indicherà lo **stato di convalida** nella tabella rispetto al server vCenter indirizzo IP/FQDN.
-1. È possibile **riconvalidare** la connettività al server vCenter in qualsiasi momento prima di avviare l'individuazione.
+1. È possibile **rivalidare** la connettività a server vCenter in qualsiasi momento prima di avviare l'individuazione.
 
     :::image type="content" source="./media/tutorial-discover-vmware/appliance-manage-sources.png" alt-text="Pannello 3 in Gestione configurazione Appliance per server vCenter dettagli":::
 
 ### <a name="provide-server-credentials"></a>Fornire le credenziali del server
 
-In **passaggio 3: fornire le credenziali del server per eseguire l'inventario software, l'analisi delle dipendenze senza agenti e l'individuazione di istanze e database di SQL Server**, è possibile scegliere di fornire più credenziali del server o se non si desidera utilizzare queste funzionalità, è possibile scegliere di ignorare il passaggio e procedere con server vCenter individuazione. È possibile modificare le finalità in un secondo momento.
+In **passaggio 3: fornire le credenziali del server per eseguire l'inventario software, l'analisi delle dipendenze senza agenti e l'individuazione di istanze e database di SQL Server**, è possibile scegliere di fornire più credenziali del server o se non si desidera utilizzare queste funzionalità, è possibile scegliere di ignorare il passaggio e procedere con server vCenter individuazione. È possibile modificare l'intento in qualsiasi momento in un secondo momento.
 
 :::image type="content" source="./media/tutorial-discover-vmware/appliance-server-credentials-mapping.png" alt-text="Pannello 3 in Gestione configurazione Appliance per i dettagli del server":::
 
 > [!Note]
 > L'individuazione e la valutazione di SQL Server istanze e database in esecuzione nell'ambiente VMware sono ora in anteprima. Per provare questa funzionalità, usare [**questo collegamento**](https://aka.ms/AzureMigrate/SQL) per creare un progetto nell'area **Australia orientale**. Se si dispone già di un progetto nell'Australia orientale e si vuole provare questa funzionalità, assicurarsi di aver completato questi [**prerequisiti**](how-to-discover-sql-existing-project.md) nel portale.
 
-Se si desidera utilizzare queste funzionalità, è possibile fornire le credenziali del server attenendosi alla procedura descritta di seguito. Il dispositivo tenterà di eseguire automaticamente il mapping delle credenziali ai server per eseguire le funzionalità di individuazione.
+Se si desidera utilizzare queste funzionalità, è possibile specificare le credenziali del server attenendosi alla procedura descritta di seguito. Il dispositivo tenterà di eseguire automaticamente il mapping delle credenziali ai server per eseguire le funzionalità di individuazione.
 
 - È possibile aggiungere le credenziali del server facendo clic sul pulsante **Aggiungi credenziali** . Verrà aperto un modale in cui è possibile scegliere il **tipo di credenziali** dall'elenco a discesa.
 - È possibile specificare credenziali di autenticazione di dominio/Windows (non di dominio)/Linux (non di dominio)/SQL Server. [Altre](add-server-credentials.md) informazioni su come fornire le credenziali e su come gestirle.
@@ -301,6 +302,7 @@ Se si desidera utilizzare queste funzionalità, è possibile fornire le credenzi
 Se al momento dell'avvio non è stato eseguito il provisioning di alcun certificato sul server, SQL Server genera un certificato autofirmato che viene utilizzato per crittografare i pacchetti di accesso. [**Scopri di più**](https://docs.microsoft.com/sql/database-engine/configure-windows/enable-encrypted-connections-to-the-database-engine).
 
 L'individuazione funziona come segue:
+
 - Sono necessari circa 15 minuti per visualizzare l'inventario dei server individuati nel portale.
 - L'individuazione delle applicazioni installate può richiedere del tempo. La durata dipende dal numero di server individuati. Per i server 500, la visualizzazione dell'inventario individuato nel portale di Azure Migrate richiede circa un'ora.
 - Al termine dell'individuazione dei server, è possibile abilitare l'analisi delle dipendenze senza agenti nei server dal portale.

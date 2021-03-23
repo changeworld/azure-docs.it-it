@@ -9,14 +9,14 @@ ms.service: cognitive-search
 ms.topic: tutorial
 ms.date: 01/23/2021
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 4bda56f3037469477ddfe059dd20c14cd34586d8
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 6cbfa01788f1897264b4197798aa5879cf724db3
+ms.sourcegitcommit: 2c1b93301174fccea00798df08e08872f53f669c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98745718"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104770955"
 ---
-# <a name="tutorial-ai-generated-searchable-content-from-azure-blobs-using-the-net-sdk"></a>Esercitazione: Contenuto ricercabile generato tramite intelligenza artificiale da BLOB di Azure con .NET SDK
+# <a name="tutorial-use-net-and-ai-to-generate-searchable-content-from-azure-blobs"></a>Esercitazione: usare .NET e intelligenza artificiale per generare contenuto ricercabile da BLOB di Azure
 
 Se Archiviazione BLOB di Azure contiene immagini o testo non strutturato, una [pipeline di arricchimento tramite intelligenza artificiale](cognitive-search-concept-intro.md) può estrarre informazioni e creare nuovi contenuti per scenari di ricerca full-text o knowledge mining. 
 

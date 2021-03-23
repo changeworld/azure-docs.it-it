@@ -2,13 +2,13 @@
 title: Visualizzare e filtrare le informazioni sulle risorse di Azure
 description: Filtrare le informazioni e usare visualizzazioni diverse per comprendere meglio le risorse di Azure di cui si dispone.
 ms.topic: how-to
-ms.date: 09/11/2020
-ms.openlocfilehash: d3ad0c225a260fd0ae6b131b951b53c28042f4d9
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.date: 03/16/2021
+ms.openlocfilehash: bb48d0b0a7bf6017fbf407a95c33ef17729e34e3
+ms.sourcegitcommit: 2c1b93301174fccea00798df08e08872f53f669c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101738634"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104771635"
 ---
 # <a name="view-and-filter-azure-resource-information"></a>Visualizzare e filtrare le informazioni sulle risorse di Azure
 
@@ -48,7 +48,7 @@ Per eliminare una visualizzazione:
 
 1. Selezionare **Manage view** (Gestisci visualizzazione) e quindi **Esplora tutte le visualizzazioni**.
 
-1. Nel riquadro **Saved views for "All resources"** (Visualizzazioni salvate per "Tutte le risorse") selezionare la visualizzazione e quindi selezionare l'icona **Elimina** ![icona Elimina visualizzazione](media/manage-filter-resource-views/icon-delete.png).
+1. Nel riquadro **viste salvate** selezionare la visualizzazione, quindi selezionare l'icona **Elimina** visualizzazione icona Elimina ![ ](media/manage-filter-resource-views/icon-delete.png) .
 
 ## <a name="export-information-from-a-view"></a>Esportare le informazioni da una vista
 
@@ -64,7 +64,7 @@ Quando si sposta il portale, verranno visualizzate altre aree in cui è possibil
 
 ## <a name="summarize-resources-with-visuals"></a>Riepilogare le risorse con oggetti visivi
 
-Le visualizzazioni esaminate finora sono state _visualizzazioni elenco_, ma sono presenti anche _visualizzazioni di riepilogo_ che includono oggetti visivi. È possibile salvare e usare queste visualizzazioni esattamente come le visualizzazioni elenco. I filtri vengono mantenuti tra i due tipi di visualizzazioni. Sono disponibili visualizzazioni standard, come la visualizzazione **Località** illustrata di seguito, oltre ad altre pertinenti per specifici servizi, come la visualizzazione **Stato** per Archiviazione di Azure.
+Le visualizzazioni esaminate finora sono state _visualizzazioni elenco_, ma sono presenti anche _visualizzazioni di riepilogo_ che includono oggetti visivi. È possibile salvare e usare queste visualizzazioni esattamente come si può fare con le visualizzazioni elenco. I filtri vengono mantenuti tra i due tipi di visualizzazioni. Sono disponibili visualizzazioni standard, come la visualizzazione **Località** illustrata di seguito, oltre ad altre pertinenti per specifici servizi, come la visualizzazione **Stato** per Archiviazione di Azure.
 
 :::image type="content" source="media/manage-filter-resource-views/summary-map.png" alt-text="Riepilogo delle risorse in una visualizzazione mappa":::
 

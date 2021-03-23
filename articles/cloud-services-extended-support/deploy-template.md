@@ -8,12 +8,12 @@ ms.author: gachandw
 ms.reviewer: mimckitt
 ms.date: 10/13/2020
 ms.custom: ''
-ms.openlocfilehash: b3fd8dcd5f2e73b798f6e9529b5811b9935bc393
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 1e2a0859227ad790763dc9ae07cb408a72538f90
+ms.sourcegitcommit: 2c1b93301174fccea00798df08e08872f53f669c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104605767"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104773369"
 ---
 # <a name="deploy-a-cloud-service-extended-support-using-arm-templates"></a>Distribuire un servizio cloud (supporto esteso) usando i modelli ARM
 
@@ -45,7 +45,7 @@ Questa esercitazione illustra come creare una distribuzione del servizio cloud (
 ## <a name="deploy-a-cloud-service-extended-support"></a>Distribuire un servizio cloud (supporto esteso)
 
 > [!NOTE]
-> Un metodo alternativo per la distribuzione del servizio cloud (supporto esteso) è tramite [portale di Azure](https://portal.azure.com). È possibile [scaricare il modello ARM generato](generate-template-portal.md) tramite il portale per le distribuzioni future
+> Un modo più semplice e rapido per generare il modello ARM e il file dei parametri è tramite il [portale di Azure](https://portal.azure.com). È possibile [scaricare il modello ARM generato](generate-template-portal.md) tramite il portale per creare il servizio cloud tramite PowerShell
  
 1. Creare una rete virtuale. Il nome della rete virtuale deve corrispondere ai riferimenti nel file di configurazione del servizio (con estensione cscfg). Se si usa una rete virtuale esistente, omettere questa sezione dal modello ARM.
 
@@ -191,7 +191,9 @@ Questa esercitazione illustra come creare una distribuzione del servizio cloud (
     ```
 
 6. Opzionale Creare un profilo di estensione per aggiungere estensioni al servizio cloud. Per questo esempio viene aggiunta l'estensione di diagnostica desktop remoto e Windows Azure.
-    
+   > [!Note] 
+   > La password per desktop remoto deve avere una lunghezza compresa tra 8-123 caratteri e deve soddisfare almeno 3 dei requisiti di complessità delle password seguenti: 1) contiene un carattere maiuscolo 2) contiene un carattere minuscolo 3) contiene una cifra numerica 4) che contiene un carattere speciale 5) non sono consentiti caratteri di controllo
+
     ```json
         "extensionProfile": {
           "extensions": [

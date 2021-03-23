@@ -7,12 +7,12 @@ author: nabhishek
 ms.author: abnarain
 ms.custom: seo-lt-2019
 ms.date: 05/08/2019
-ms.openlocfilehash: de897f6350893f6188c9a97480c0a849fc142fb1
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 7d312e4a00cdd2b62ee219df807f30c22f0c9790
+ms.sourcegitcommit: 2c1b93301174fccea00798df08e08872f53f669c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "100375868"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104773947"
 ---
 # <a name="transform-data-using-hadoop-hive-activity-in-azure-data-factory"></a>Trasformare i dati usando l'attività Hive di Hadoop in Azure Data Factory
 
@@ -66,6 +66,9 @@ Se non si ha familiarità con Azure Data Factory, prima di leggere questo artico
 | argomenti           | Specifica una matrice di argomenti per un processo Hadoop. Gli argomenti vengono passati a ogni attività come argomenti della riga di comando. | No       |
 | defines             | Specificare i parametri come coppie chiave/valore per fare riferimento a essi nello script Hive. | No       |
 | queryTimeout        | Valore di timeout di query (in minuti). Applicabile se il cluster HDInsight è abilitato per Enterprise Security Package. | No       |
+
+>[!NOTE]
+>Il valore predefinito per queryTimeout è 120 minuti. 
 
 ## <a name="next-steps"></a>Passaggi successivi
 Vedere gli articoli seguenti, che illustrano altre modalità di trasformazione dei dati: 

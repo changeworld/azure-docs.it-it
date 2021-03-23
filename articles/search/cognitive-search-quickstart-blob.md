@@ -7,19 +7,21 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: quickstart
-ms.date: 01/12/2021
-ms.openlocfilehash: d07b52d8abeab34d565ebde4bac58eec66780dce
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.date: 03/21/2021
+ms.openlocfilehash: d3e1b73789d6bd4df3dfe9a0e05048f9bbbb25bb
+ms.sourcegitcommit: 2c1b93301174fccea00798df08e08872f53f669c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98179266"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104770972"
 ---
 # <a name="quickstart-create-an-azure-cognitive-search-cognitive-skillset-in-the-azure-portal"></a>Avvio rapido: Creare un set di competenze cognitive di Ricerca cognitiva di Azure nel portale di Azure
 
-Un set di competenze è una funzionalità basata su intelligenza artificiale che usa modelli di Deep Learning per estrarre informazioni e struttura da file di testo o di immagine non differenziati di grandi dimensioni, rendendo il contenuto indicizzabile e ricercabile in Ricerca cognitiva di Azure. 
+Questa Guida introduttiva illustra il supporto delle competenze nel portale, mostrando come il riconoscimento ottico dei caratteri (OCR) e il riconoscimento delle entità possono essere usati per creare contenuto di testo ricercabile da immagini e file di applicazione.
 
-In questa guida di avvio rapido verranno combinati servizi e dati nel cloud di Azure per creare il set di competenze. Si userà quindi la procedura guidata **Importa dati** nel portale di Azure per riunire tutti i dati ottenuti. Il risultato finale è un indice ricercabile popolato con i dati creati dall'elaborazione di intelligenza artificiale su cui è possibile eseguire query nel portale ([Esplora ricerche](search-explorer.md)).
+Per preparare, si creeranno alcune risorse e si caricherà le immagini di esempio e i file di contenuto dell'applicazione. Si userà quindi la procedura guidata **Importa dati** nel portale di Azure per riunire tutti i dati ottenuti. Il risultato finale è un indice ricercabile popolato con i dati creati dall'elaborazione di intelligenza artificiale su cui è possibile eseguire query nel portale ([Esplora ricerche](search-explorer.md)).
+
+Preferisci iniziare a usare il codice? Vedere [esercitazione: usare REST e intelligenza artificiale per generare contenuto ricercabile da BLOB di Azure](cognitive-search-tutorial-blob.md) o un' [esercitazione: usare .NET e intelligenza artificiale per generare contenuto ricercabile da BLOB di Azure](cognitive-search-tutorial-blob-dotnet.md) .
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -44,11 +46,11 @@ Nei passaggi seguenti si configura un contenitore BLOB in Archiviazione di Azure
 
    + Per evitare addebiti dovuti alla larghezza di banda, scegliere la stessa area di Ricerca cognitiva di Azure. 
 
-   + Scegliere il tipo di account Archiviazione V2 (utilizzo generico V2) se si vuole provare la funzionalità dell'archivio conoscenze in un secondo momento, in un'altra procedura dettagliata. In caso contrario, scegliere un tipo qualsiasi.
+   + Scegliere archiviazione V2 (utilizzo generico v2).
 
 1. Aprire le pagine dei servizi BLOB e creare un contenitore. È possibile usare il livello di accesso pubblico predefinito. 
 
-1. Nel contenitore fare clic su **Carica** per caricare i file di esempio scaricati nel primo passaggio. Si noti che è disponibile un'ampia gamma di tipi di contenuto, tra cui immagini e file di applicazioni che non sono disponibili per la ricerca full-text nei formati nativi.
+1. In contenitore fare clic su **carica** per caricare i file di esempio scaricati nel primo passaggio. Si noti che è disponibile un'ampia gamma di tipi di contenuto, tra cui immagini e file di applicazioni che non sono disponibili per la ricerca full-text nei formati nativi.
 
    :::image type="content" source="media/cognitive-search-quickstart-blob/sample-data.png" alt-text="File di origine nell'archivio BLOB di Azure" border="false":::
 

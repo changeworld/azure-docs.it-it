@@ -177,6 +177,8 @@
           href: cdn-http-debug-headers.md
     - name: Intestazioni HTTP specifiche per Microsoft
       href: cdn-msft-http-debug-headers.md
+    - name: Interfaccia della riga di comando di Azure
+      href: /cli/azure/cdn
     - name: Azure PowerShell
       href: /powershell/module/az.cdn
     - name: .NET
