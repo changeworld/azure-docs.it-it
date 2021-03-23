@@ -5,12 +5,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 01/12/2021
-ms.openlocfilehash: ff7cfe8ad09201df20db89e14f8c175e678e5107
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 7027e4af9c11db628990d42430c6877340de3534
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98929799"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104868444"
 ---
 # <a name="manage-resources-for-apache-spark-cluster-on-azure-hdinsight"></a>Gestire le risorse del cluster Apache Spark in Azure HDInsight
 
@@ -28,7 +28,7 @@ Server cronologia Spark è l'interfaccia utente Web per le applicazioni Spark co
 
 2. Da **Dashboard cluster** selezionare **Yarn**. Quando richiesto, immettere le credenziali di amministratore per il cluster di Spark.
 
-    ![Avviare l'interfaccia utente di YARN](./media/apache-spark-resource-manager/azure-portal-dashboard-yarn.png)
+    :::image type="content" source="./media/apache-spark-resource-manager/azure-portal-dashboard-yarn.png" alt-text="Avviare l'interfaccia utente di YARN" border="true":::
 
    > [!TIP]  
    > In alternativa, è anche possibile avviare l'interfaccia utente di YARN dall'interfaccia utente di Ambari. Dall'interfaccia utente di Ambariri passare a **Yarn**  >  **Quick Links**  >  **Active**  >  **Gestione risorse UI**.
@@ -43,15 +43,15 @@ I tre parametri di configurazione possono essere configurati a livello di cluste
 
 1. Dall'interfaccia utente di Ambari passare a **Spark2**  >  **configs**  >  **Custom Spark2-defaults**.
 
-    ![Impostare i parametri usando Ambari Custom](./media/apache-spark-resource-manager/ambari-ui-spark2-configs.png "Impostare i parametri usando Ambari Custom")
+    :::image type="content" source="./media/apache-spark-resource-manager/ambari-ui-spark2-configs.png " alt-text="Impostare i parametri usando Ambari Custom" border="true":::
 
 1. I valori predefiniti sono appropriati per quattro applicazioni Spark in esecuzione contemporaneamente nel cluster. È possibile modificare questi valori nell'interfaccia utente, come illustrato nello screenshot seguente:
 
-    ![Impostare parametri con Ambari](./media/apache-spark-resource-manager/ambari-ui-spark2-defaults.png "Impostare parametri con Ambari")
+    :::image type="content" source="./media/apache-spark-resource-manager/ambari-ui-spark2-defaults.png " alt-text="Impostare parametri con Ambari" border="true":::
 
 1. Selezionare **Save (Salva** ) per salvare le modifiche alla configurazione. Nella parte superiore della pagina verrà richiesto di riavviare tutti i servizi interessati. Selezionare **Restart** (Riavvia).
 
-    ![Riavviare i servizi](./media/apache-spark-resource-manager/apache-ambari-restart-services.png)
+    :::image type="content" source="./media/apache-spark-resource-manager/apache-ambari-restart-services.png" alt-text="Riavviare i servizi" border="true":::
 
 ### <a name="change-the-parameters-for-an-application-running-in-jupyter-notebook"></a>Modificare i parametri per un'applicazione in esecuzione in Jupyter Notebook
 
@@ -93,11 +93,11 @@ Il server di risparmio Spark usa l'allocazione dell'executor dinamico Spark e pe
 
 * Espandere la categoria **Advanced spark2-Thrifty-sparkconf** per aggiornare i parametri `spark.dynamicAllocation.maxExecutors` e `spark.dynamicAllocation.minExecutors` .
 
-    ![Configurare il server Spark Thrift](./media/apache-spark-resource-manager/ambari-ui-advanced-thrift-sparkconf.png "Configurare il server Spark Thrift")
+    :::image type="content" source="./media/apache-spark-resource-manager/ambari-ui-advanced-thrift-sparkconf.png " alt-text="Configurare il server Spark Thrift" border="true":::
 
 * Espandere la categoria **spark2-Thrifty-Sparkconf personalizzata** per aggiornare i parametri `spark.executor.cores` e `spark.executor.memory` .
 
-    ![Configurare il parametro del server per la proprietà Spark](./media/apache-spark-resource-manager/ambari-ui-custom-thrift-sparkconf.png "Configurare il parametro del server per la proprietà Spark")
+    :::image type="content" source="./media/apache-spark-resource-manager/ambari-ui-custom-thrift-sparkconf.png " alt-text="Configurare il parametro del server per la proprietà Spark" border="true":::
 
 ### <a name="change-the-driver-memory-of-the-spark-thrift-server"></a>Modificare la memoria del driver del server Spark Thrift
 
@@ -113,38 +113,38 @@ Grazie all'allocazione dinamica di Spark le uniche risorse usate dal server Thri
 
 2. Nella pagina successiva selezionare **Spark2 Thrifty Servers**.
 
-    ![Riavviare la parsimonia Server1](./media/apache-spark-resource-manager/ambari-ui-spark2-thrift-servers.png "Riavviare la parsimonia Server1")
+    :::image type="content" source="./media/apache-spark-resource-manager/ambari-ui-spark2-thrift-servers.png " alt-text="Riavviare la parsimonia Server1" border="true":::
 
 3. Verranno visualizzati i due nodi head su cui è in esecuzione il server di Spark2. Selezionare uno dei nodi head.
 
-    ![Riavviare l'Thrifty](./media/apache-spark-resource-manager/restart-thrift-server-2.png "Riavviare l'Thrifty")
+    :::image type="content" source="./media/apache-spark-resource-manager/restart-thrift-server-2.png " alt-text="Riavviare l'Thrifty" border="true":::
 
 4. Nella pagina successiva sono elencati tutti i servizi in esecuzione in quel nodo head. Nell'elenco selezionare il pulsante a discesa accanto a Spark2 parsimonia server e quindi selezionare **Arresta**.
 
-    ![Riavvia Server3 di risparmio](./media/apache-spark-resource-manager/ambari-ui-spark2-thriftserver-restart.png "Riavvia Server3 di risparmio")
+    :::image type="content" source="./media/apache-spark-resource-manager/ambari-ui-spark2-thriftserver-restart.png " alt-text="Riavvia Server3 di risparmio" border="true":::
 5. Ripetere questi passaggi anche per l'altro nodo head.
 
 ## <a name="restart-the-jupyter-service"></a>Riavviare il servizio Jupyter
 
 Avviare l'interfaccia utente Web di Ambari, come illustrato all'inizio dell'articolo. Dal riquadro di spostamento a sinistra selezionare **Jupyter**, selezionare **azioni di servizio** e quindi selezionare **riavvia tutto**. Verrà avviato il servizio Jupyter su tutti i nodi head.
 
-![Riavviare Jupyter](./media/apache-spark-resource-manager/apache-ambari-restart-jupyter.png "Riavviare Jupyter")
+:::image type="content" source="./media/apache-spark-resource-manager/apache-ambari-restart-jupyter.png " alt-text="Riavviare Jupyter" border="true":::
 
 ## <a name="monitor-resources"></a>Monitorare le risorse
 
 Avviare l'interfaccia utente di Yarn, come illustrato all'inizio dell'articolo. Nella tabella Cluster Metrics (Metriche cluster) nella parte superiore della schermata, verificare i valori delle colonne **Memory Used** (Memoria in uso) e **Memory Total** (Memoria totale). Se i due valori sono simili, potrebbero non esserci risorse sufficienti per avviare l'applicazione successiva. Lo stesso vale per le colonne **VCores Used** (VCore in uso) e **VCores Total** (VCore totali). Inoltre, nella visualizzazione principale, se un'applicazione è rimasta in stato **accettato** e non passa allo stato di **esecuzione** o di **errore** , questo potrebbe anche indicare che non si sta ottenendo risorse sufficienti per iniziare.
 
-![Limite di risorse](./media/apache-spark-resource-manager/apache-ambari-resource-limit.png "Limite di risorse")
+:::image type="content" source="./media/apache-spark-resource-manager/apache-ambari-resource-limit.png " alt-text="Limite di risorse" border="true":::
 
 ## <a name="kill-running-applications"></a>Terminare le applicazioni in esecuzione
 
 1. Nell'interfaccia utente di Yarn selezionare **Running (in esecuzione**) nel riquadro sinistro. Dall'elenco delle applicazioni in esecuzione, determinare l'applicazione da terminare e selezionare l' **ID**.
 
-    ![Kill App1](./media/apache-spark-resource-manager/apache-ambari-kill-app1.png "Kill App1")
+    :::image type="content" source="./media/apache-spark-resource-manager/apache-ambari-kill-app1.png " alt-text="Kill App1" border="true":::
 
 2. Selezionare **Kill Application** (Termina applicazione) nell'angolo superiore destro e quindi fare clic su **OK**.
 
-    ![Kill App2](./media/apache-spark-resource-manager/apache-ambari-kill-app2.png "Kill App2")
+    :::image type="content" source="./media/apache-spark-resource-manager/apache-ambari-kill-app2.png " alt-text="Kill App2" border="true":::
 
 ## <a name="see-also"></a>Vedi anche
 

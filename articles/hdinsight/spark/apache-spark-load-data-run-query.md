@@ -5,12 +5,12 @@ ms.service: hdinsight
 ms.topic: tutorial
 ms.custom: hdinsightactive,mvc
 ms.date: 02/12/2020
-ms.openlocfilehash: d3c8a08a14b23492c4bf032dd2b722c59bdf80ff
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: de17bf02392f0bb05820fabba3f9057e067391cf
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98930089"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104865911"
 ---
 # <a name="tutorial-load-data-and-run-queries-on-an-apache-spark-cluster-in-azure-hdinsight"></a>Esercitazione: Caricare i dati ed eseguire query in un cluster Apache Spark in Azure HDInsight
 
@@ -33,7 +33,7 @@ Jupyter Notebook è un ambiente notebook interattivo che supporta diversi lingua
 
 2. Dalla pagina Web di Jupyter, selezionare **Nuovo** > **PySpark** per creare un notebook.
 
-   ![Creare un Jupyter Notebook per eseguire una query Spark SQL interattiva](./media/apache-spark-load-data-run-query/hdinsight-spark-create-jupyter-interactive-spark-sql-query.png "Creare un Jupyter Notebook per eseguire una query Spark SQL interattiva")
+   :::image type="content" source="./media/apache-spark-load-data-run-query/hdinsight-spark-create-jupyter-interactive-spark-sql-query.png " alt-text="Creare un Jupyter Notebook per eseguire una query Spark SQL interattiva" border="true":::
 
    Un nuovo notebook verrà creato e aperto con il nome Untitled(`Untitled.ipynb`).
 
@@ -44,7 +44,7 @@ Jupyter Notebook è un ambiente notebook interattivo che supporta diversi lingua
 
 Le applicazioni possono creare frame di dati direttamente da file o cartelle nell'archiviazione remota, ad esempio Archiviazione di Azure o Azure Data Lake Storage, da una tabella Hive o da altre origini dati supportate da Spark, come Cosmos DB, data warehouse, database SQL di Azure e così via. Lo screenshot seguente mostra uno snapshot del file HVAC.csv usato in questa esercitazione. Il file csv è disponibile con tutti i cluster HDInsight Spark. I dati acquisiscono le variazioni di temperatura di alcuni edifici.
 
-![Snapshot dei dati per la query Spark SQL interattiva](./media/apache-spark-load-data-run-query/hdinsight-spark-sample-data-interactive-spark-sql-query.png "Snapshot dei dati per la query Spark SQL interattiva")
+:::image type="content" source="./media/apache-spark-load-data-run-query/hdinsight-spark-sample-data-interactive-spark-sql-query.png " alt-text="Snapshot dei dati per la query Spark SQL interattiva" border="true":::
 
 1. Incollare il codice seguente in una cella vuota di Jupyter Notebook e quindi premere **MAIUSC+INVIO** per eseguire il codice. Il codice importa i tipi necessari per questo scenario:
 
@@ -55,7 +55,7 @@ Le applicazioni possono creare frame di dati direttamente da file o cartelle nel
 
     Quando si esegue una query interattiva in Jupyter, la barra del titolo della scheda o della finestra del Web browser visualizza lo stato **(Occupato)** accanto al titolo del notebook. È anche visibile un cerchio pieno accanto al testo **PySpark** nell'angolo in alto a destra. Al termine del processo viene visualizzato un cerchio vuoto.
 
-    ![Stato della query Spark SQL interattiva](./media/apache-spark-load-data-run-query/hdinsight-spark-interactive-spark-query-status.png "Stato della query Spark SQL interattiva")
+    :::image type="content" source="./media/apache-spark-load-data-run-query/hdinsight-spark-interactive-spark-query-status.png " alt-text="Stato della query Spark SQL interattiva" border="true":::
 
 1. Prendere nota dell'ID di sessione restituito. Nell'immagine precedente l'ID sessione è 0. Se si vuole, è possibile recuperare i dettagli della sessione passando a `https://CLUSTERNAME.azurehdinsight.net/livy/sessions/ID/statements` dove CLUSTERNAME è il nome del cluster Spark e ID è il numero dell'ID sessione.
 
@@ -80,11 +80,11 @@ Dopo aver creato la tabella, è possibile eseguire una query interattiva sui dat
 
    Viene visualizzato l'output tabulare seguente.
 
-     ![Output della tabella del risultato della query Spark interattiva](./media/apache-spark-load-data-run-query/hdinsight-interactive-spark-query-result.png "Output della tabella del risultato della query Spark interattiva")
+     :::image type="content" source="./media/apache-spark-load-data-run-query/hdinsight-interactive-spark-query-result.png " alt-text="Output della tabella del risultato della query Spark interattiva" border="true":::
 
 2. È anche possibile visualizzare i risultati in altri formati. Per visualizzare un grafico ad area per lo stesso output, selezionare **Area** e quindi impostare altri valori, come illustrato.
 
-    ![Grafico ad area del risultato della query Spark interattiva](./media/apache-spark-load-data-run-query/hdinsight-interactive-spark-query-result-area-chart.png "Grafico ad area del risultato della query Spark interattiva")
+    :::image type="content" source="./media/apache-spark-load-data-run-query/hdinsight-interactive-spark-query-result-area-chart.png " alt-text="Grafico ad area del risultato della query Spark interattiva" border="true":::
 
 3. Dalla barra dei menu del notebook, passare a **File** > **Save and Checkpoint** (Salva e checkpoint).
 
@@ -96,7 +96,7 @@ Con HDInsight i dati e Jupyter Notebook vengono salvati in Archiviazione di Azur
 
 Aprire il cluster nel portale di Azure e selezionare **Elimina**.
 
-![Eliminare il cluster HDInsight](./media/apache-spark-load-data-run-query/hdinsight-azure-portal-delete-cluster.png "Eliminare un cluster HDInsight")
+:::image type="content" source="./media/apache-spark-load-data-run-query/hdinsight-azure-portal-delete-cluster.png " alt-text="Eliminare il cluster HDInsight" border="true":::
 
 È anche possibile selezionare il nome del gruppo di risorse per aprire la pagina del gruppo di risorse e quindi selezionare **Elimina gruppo di risorse**. Eliminando il gruppo di risorse, si elimina sia il cluster HDInsight Spark che l'account di archiviazione predefinito.
 

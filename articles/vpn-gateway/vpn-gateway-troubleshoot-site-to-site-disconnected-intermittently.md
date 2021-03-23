@@ -6,14 +6,14 @@ titleSuffix: Azure VPN Gateway
 author: chadmath
 ms.service: vpn-gateway
 ms.topic: troubleshooting
-ms.date: 02/10/2021
+ms.date: 03/22/2021
 ms.author: genli
-ms.openlocfilehash: 582077c46f5fc7176b457cf0d392af48fbe7d40b
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 38846bbe717912092ccfe2b236b717770b79302f
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "100369340"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104867254"
 ---
 # <a name="troubleshooting-azure-site-to-site-vpn-disconnects-intermittently"></a>Risoluzione dei problemi: disconnessioni VPN da sito a sito di Azure intermittenti
 
@@ -56,9 +56,7 @@ Il gateway di rete virtuale basato su criteri ha un limite di 200 coppie di asso
 
 ### <a name="step-6-check-on-premises-vpn-device-external-interface-address"></a>Passaggio 6 Controllare l'indirizzo dell'interfaccia esterna del dispositivo VPN locale
 
-- Se l'indirizzo IP per Internet del dispositivo VPN è incluso nella definizione del **gateway di rete locale** in Azure potrebbero verificarsi sporadiche disconnessioni.
-- L'interfaccia esterna del dispositivo deve essere direttamente su Internet. Non devono essere presenti Network Address Translation (NAT) o firewall tra Internet e il dispositivo.
--  Se si configura il clustering di firewall in modo che abbia un IP virtuale, è necessario interrompere il cluster ed esporre il dispositivo VPN direttamente a un'interfaccia pubblica con cui il gateway può interfacciarsi.
+Se l'indirizzo IP per Internet del dispositivo VPN è incluso nella definizione del **gateway di rete locale** in Azure potrebbero verificarsi sporadiche disconnessioni.
 
 ### <a name="step-7-check-whether-the-on-premises-vpn-device-has-perfect-forward-secrecy-enabled"></a>Passaggio 7 Controllare se il dispositivo VPN locale ha PFS (Perfect Forward Secrecy) abilitato
 

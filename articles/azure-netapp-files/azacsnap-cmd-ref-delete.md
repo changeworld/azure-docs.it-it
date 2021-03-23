@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: reference
 ms.date: 12/14/2020
 ms.author: phjensen
-ms.openlocfilehash: 0e2e4beebedb93524da43c5a3fad750b0295f5cd
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 1f2c767d45bb08e25a057c7db1f380ceb250f607
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "97632909"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104864908"
 ---
 # <a name="delete-using-azure-application-consistent-snapshot-tool-preview"></a>Elimina mediante lo strumento di snapshot coerente con applicazione Azure (anteprima)
 
@@ -36,11 +36,11 @@ Con il comando è possibile eliminare gli snapshot del volume e le voci del cata
 
 Per il `-c delete` comando sono disponibili le opzioni seguenti:
 
-- `--delete hana` Se usato con le opzioni `--hanasid <SID>` e `--hanabackupid <HANA backup id>` eliminerà le voci dal catalogo di backup SAP Hana corrispondente ai criteri.
+- `--delete hana` Se usato con le opzioni `--dbsid <SID>` e `--hanabackupid <HANA backup id>` eliminerà le voci dal catalogo di backup SAP Hana corrispondente ai criteri.
 
 - `--delete storage` Se usato con l'opzione `--snapshot <snapshot name>` , eliminerà lo snapshot dal sistema di archiviazione back-end.
 
-- `--delete sync` Se usato con le opzioni `--hanasid <SID>` e `--hanabackupid <HANA backup id>` ottiene il nome dello snapshot di archiviazione dal catalogo di backup per l'oggetto `<HANA backup id>` , quindi Elimina la voce nel catalogo di backup _e_ lo snapshot da uno qualsiasi dei volumi contenenti lo snapshot denominato.
+- `--delete sync` Se usato con le opzioni `--dbsid <SID>` e `--hanabackupid <HANA backup id>` ottiene il nome dello snapshot di archiviazione dal catalogo di backup per l'oggetto `<HANA backup id>` , quindi Elimina la voce nel catalogo di backup _e_ lo snapshot da uno qualsiasi dei volumi contenenti lo snapshot denominato.
 
 - `--delete sync` Se utilizzata con `--snapshot <snapshot name>` , verificherà la presenza di voci nel catalogo di backup per `<snapshot name>` , ottiene l'ID di backup SAP Hana ed Elimina sia la voce nel catalogo di backup _che_ lo snapshot da uno qualsiasi dei volumi contenenti lo snapshot denominato.
 
@@ -51,7 +51,7 @@ Per il `-c delete` comando sono disponibili le opzioni seguenti:
 ### <a name="delete-a-snapshot-using-sync-option"></a>Eliminare uno snapshot utilizzando l' `sync` opzione '
 
 ```bash
-azacsnap -c delete --delete sync --hanasid H80 --hanabackupid 157979797979
+azacsnap -c delete --delete sync --dbsid H80 --hanabackupid 157979797979
 ```
 
 > [!NOTE]
@@ -67,7 +67,7 @@ azacsnap -c delete --delete sync --snapshot hana_hourly.2020-01-22_2358
 ### <a name="delete-a-snapshot-using-hana-option"></a>Eliminare uno snapshot utilizzando l' `hana` opzione '
 
 ```bash
-azacsnap -c delete --delete hana --hanasid H80 --hanabackupid 157979797979
+azacsnap -c delete --delete hana --dbsid H80 --hanabackupid 157979797979
 ```
 
 > [!NOTE]

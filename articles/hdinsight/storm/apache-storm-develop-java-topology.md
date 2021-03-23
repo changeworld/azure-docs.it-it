@@ -5,12 +5,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: H1Hack27Feb2017,hdinsightactive,hdiseo17may2017,seoapr2020,devx-track-java
 ms.date: 04/27/2020
-ms.openlocfilehash: 620a4e1627b25af22db68173f35924376e26f5f8
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 8e51f99496514e40d6c3f85000384a14baf84946
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98929132"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104865367"
 ---
 # <a name="create-an-apache-storm-topology-in-java"></a>Creare una topologia Apache Storm in Java
 
@@ -482,7 +482,7 @@ La topologia unisce i beccucci e i bulloni in un grafico. Il grafico definisce l
 
 La seguente immagine è un diagramma di base del grafico dei componenti della topologia.
 
-![diagramma che mostra la disposizione degli spout e dei bolt](./media/apache-storm-develop-java-topology/word-count-topology1.png)
+:::image type="content" source="./media/apache-storm-develop-java-topology/word-count-topology1.png" alt-text="diagramma che mostra la disposizione degli spout e dei bolt" border="false":::
 
 Per implementare la topologia, immettere il comando seguente per creare e aprire un nuovo file `WordCountTopology.java` :
 

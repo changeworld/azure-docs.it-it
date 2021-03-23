@@ -5,12 +5,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive,seoapr2020
 ms.date: 05/01/2020
-ms.openlocfilehash: 34f752d4c3d50d5f680e317b2724b1e631537f32
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: dcbe44defeb89ad2f67833b263e5f4983070a46c
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98933195"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104863531"
 ---
 # <a name="how-to-monitor-cluster-availability-with-apache-ambari-in-azure-hdinsight"></a>Come monitorare la disponibilità del cluster con Apache Ambari in Azure HDInsight
 
@@ -22,33 +22,33 @@ Questo articolo illustra come usare Ambari per monitorare il cluster e illustra 
 
 È possibile accedere al dashboard di Ambari selezionando il collegamento **Ambari Home** nella sezione **Dashboard del cluster** della panoramica di HDInsight in portale di Azure come illustrato di seguito. In alternativa, è possibile accedervi passando a `https://CLUSTERNAME.azurehdinsight.net` in un browser in cui clustername è il nome del cluster.
 
-![Visualizzazione del portale delle risorse di HDInsight](media/hdinsight-cluster-availability/azure-portal-dashboard-ambari.png)
+:::image type="content" source="media/hdinsight-cluster-availability/azure-portal-dashboard-ambari.png" alt-text="Visualizzazione del portale delle risorse di HDInsight":::
 
 Verranno quindi richiesti il nome utente e la password di accesso al cluster. Immettere le credenziali selezionate durante la creazione del cluster.
 
 Si passerà quindi al dashboard di Ambari, che contiene i widget che mostrano alcune metriche per offrire una rapida panoramica dell'integrità del cluster HDInsight. Questi widget mostrano le metriche, ad esempio il numero di nodi Live datanodes (nodi del ruolo di lavoro) e JournalNodes (nodo Zookeeper), NameNodes (nodi head), nonché metriche specifiche per determinati tipi di cluster, ad esempio il tempo di esecuzione di YARN ResourceManager per i cluster Spark e Hadoop.
 
-![Apache Ambari usare la visualizzazione del dashboard](media/hdinsight-cluster-availability/apache-ambari-dashboard.png)
+:::image type="content" source="media/hdinsight-cluster-availability/apache-ambari-dashboard.png" alt-text="Apache Ambari usare la visualizzazione del dashboard":::
 
 ## <a name="hosts--view-individual-node-status"></a>Host: visualizzare lo stato di un singolo nodo
 
 È anche possibile visualizzare le informazioni sullo stato per i singoli nodi. Selezionare la scheda **host** per visualizzare un elenco di tutti i nodi del cluster e visualizzare le informazioni di base su ogni nodo. Il segno di spunta verde a sinistra di ogni nome di nodo indica che tutti i componenti sono presenti nel nodo. Se un componente è inattivo in un nodo, verrà visualizzato un triangolo di avviso rosso anziché il segno di spunta verde.
 
-![Visualizzazione host HDInsight Apache Ambari](media/hdinsight-cluster-availability/apache-ambari-hosts1.png)
+:::image type="content" source="media/hdinsight-cluster-availability/apache-ambari-hosts1.png" alt-text="Visualizzazione host HDInsight Apache Ambari":::
 
 È quindi possibile selezionare il **nome** di un nodo per visualizzare le metriche host più dettagliate per quel determinato nodo. Questa vista Mostra lo stato e la disponibilità di ogni singolo componente.
 
-![Apache Ambari ospita la visualizzazione a nodo singolo](media/hdinsight-cluster-availability/apache-ambari-hosts-node.png)
+:::image type="content" source="media/hdinsight-cluster-availability/apache-ambari-hosts-node.png" alt-text="Apache Ambari ospita la visualizzazione a nodo singolo":::
 
 ## <a name="ambari-alerts"></a>Avvisi di Ambari
 
 Ambari offre anche diversi avvisi configurabili che possono fornire notifiche di determinati eventi. Quando gli avvisi vengono attivati, vengono visualizzati nell'angolo in alto a sinistra di Ambari in una notifica rossa contenente il numero di avvisi. Se si seleziona questa notifica, viene visualizzato un elenco di avvisi correnti.
 
-![Conteggio avvisi correnti di Apache Ambari](media/hdinsight-cluster-availability/apache-ambari-alerts.png)
+:::image type="content" source="media/hdinsight-cluster-availability/apache-ambari-alerts.png" alt-text="Conteggio avvisi correnti di Apache Ambari":::
 
 Per visualizzare un elenco di definizioni di avviso e i relativi stati, selezionare la scheda **avvisi** , come illustrato di seguito.
 
-![Visualizzazione definizioni avvisi Ambari](media/hdinsight-cluster-availability/ambari-alerts-definitions.png)
+:::image type="content" source="media/hdinsight-cluster-availability/ambari-alerts-definitions.png" alt-text="Visualizzazione definizioni avvisi Ambari":::
 
 Ambari offre molti avvisi predefiniti relativi alla disponibilità, tra cui:
 
@@ -62,11 +62,11 @@ Ambari offre molti avvisi predefiniti relativi alla disponibilità, tra cui:
 
 Per visualizzare i dettagli di un avviso o modificare i criteri, selezionare il **nome** dell'avviso. Come esempio, prendere il **Riepilogo di integrità dataNode** . È possibile visualizzare una descrizione dell'avviso, nonché i criteri specifici che attiveranno un avviso "avviso" o "critico" e l'intervallo di controllo per i criteri. Per modificare la configurazione, fare clic sul pulsante **Edit (modifica** ) nell'angolo superiore destro della casella di configurazione.
 
-![Configurazione degli avvisi di Apache Ambari](media/hdinsight-cluster-availability/ambari-alert-configuration.png)
+:::image type="content" source="media/hdinsight-cluster-availability/ambari-alert-configuration.png" alt-text="Configurazione degli avvisi di Apache Ambari":::
 
 Qui è possibile modificare la descrizione e, ancora più importante, l'intervallo di controllo e le soglie per avvisi o avvisi critici.
 
-![Visualizzazione di modifica configurazioni avvisi Ambari](media/hdinsight-cluster-availability/ambari-alert-configuration-edit.png)
+:::image type="content" source="media/hdinsight-cluster-availability/ambari-alert-configuration-edit.png" alt-text="Visualizzazione di modifica configurazioni avvisi Ambari":::
 
 In questo esempio, è possibile fare in modo che 2 nodi di tipo non integro attivino un avviso critico e 1 dataNode non integro attivi solo un avviso. Al termine della modifica, selezionare **Salva** .
 
@@ -74,7 +74,7 @@ In questo esempio, è possibile fare in modo che 2 nodi di tipo non integro atti
 
 Facoltativamente, è anche possibile configurare le notifiche di posta elettronica per gli avvisi Ambari. A tale scopo, nella scheda **avvisi** fare clic sul pulsante **azioni** in alto a sinistra, quindi su **Gestisci notifiche.**
 
-![Azione di gestione notifiche di Ambari](media/hdinsight-cluster-availability/ambari-manage-notifications.png)
+:::image type="content" source="media/hdinsight-cluster-availability/ambari-manage-notifications.png" alt-text="Azione di gestione notifiche di Ambari":::
 
 Viene visualizzata una finestra di dialogo per la gestione delle notifiche di avviso. Selezionare nella **+** parte inferiore della finestra di dialogo e compilare i campi obbligatori per fornire a Ambari i dettagli del server di posta elettronica da cui inviare i messaggi di posta elettronica.
 

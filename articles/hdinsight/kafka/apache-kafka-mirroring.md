@@ -5,12 +5,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 11/29/2019
-ms.openlocfilehash: c2fce6d4ee95a56cc087d50184fcd69ac113620f
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 633f01d813fe4e6c56d88052cbc7440c43f350dc
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98940841"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104870501"
 ---
 # <a name="use-mirrormaker-to-replicate-apache-kafka-topics-with-kafka-on-hdinsight"></a>Usare MirrorMaker per replicare gli argomenti di Apache Kafka con Kafka in HDInsight
 
@@ -34,7 +34,7 @@ La configurazione del mirroring più utile per il ripristino di emergenza usa i 
 
 Il diagramma seguente illustra il processo di mirroring e il modo in cui il flusso di comunicazione tra i cluster:
 
-![Diagramma del processo di mirroring](./media/apache-kafka-mirroring/kafka-mirroring-vnets2.png)
+:::image type="content" source="./media/apache-kafka-mirroring/kafka-mirroring-vnets2.png" alt-text="Diagramma del processo di mirroring" border="false":::
 
 I cluster primari e secondari possono essere diversi nel numero di nodi e partizioni e gli offset all'interno degli argomenti sono diversi. Il mirroring mantiene il valore della chiave usato per il partizionamento, quindi l'ordine dei record viene conservato in base alla chiave.
 
@@ -84,14 +84,14 @@ Questa architettura include due cluster in gruppi di risorse e reti virtuali div
     1. Selezionare **Aggiungi**.
     1. Nella schermata **Aggiungi peering** immettere i dettagli, come illustrato nella schermata seguente.
 
-        ![HDInsight Kafka-aggiunta del peering VNET](./media/apache-kafka-mirroring/hdi-add-vnet-peering.png)
+        :::image type="content" source="./media/apache-kafka-mirroring/hdi-add-vnet-peering.png" alt-text="HDInsight Kafka-aggiunta del peering VNET" border="true":::
 
 ### <a name="configure-ip-advertising"></a>Configurare la pubblicità IP
 
 Configurare la pubblicità IP per consentire a un client di connettersi tramite indirizzi IP del Broker anziché nomi di dominio.
 
 1. Passare al dashboard di Ambari per il cluster primario: `https://PRIMARYCLUSTERNAME.azurehdinsight.net` .
-1. Selezionare **Servizi**  >  **Kafka**. CliSelectck la scheda **configs (configurazioni** ).
+1. Selezionare **Servizi**  >  **Kafka**. Selezionare la scheda **configs (configurazioni** ).
 1. Aggiungere le seguenti righe di configurazione alla sezione del **modello Kafka-ENV** inferiore. Selezionare **Salva**.
 
     ```
@@ -107,7 +107,7 @@ Configurare la pubblicità IP per consentire a un client di connettersi tramite 
 1. Selezionare **OK** in **Salva modifiche configurazione**.
 1. Selezionare **Riavvia riavvio**  >  **tutti interessati** nella notifica **riavvio richiesto** . Selezionare **Confirm restart all**.
 
-    ![Riavvio di Apache Ambari tutti interessati](./media/apache-kafka-mirroring/ambari-restart-notification.png)
+    :::image type="content" source="./media/apache-kafka-mirroring/ambari-restart-notification.png" alt-text="Riavvio di Apache Ambari tutti interessati" border="true":::
 
 ### <a name="configure-kafka-to-listen-on-all-network-interfaces"></a>Configurare Kafka per l'ascolto su tutte le interfacce di rete.
     
@@ -120,7 +120,7 @@ Configurare la pubblicità IP per consentire a un client di connettersi tramite 
 1. Selezionare **host** nel dashboard di Ambari.
 1. Prendere nota degli indirizzi IP per i broker e Zookeeper. I nodi **broker hanno come** prime due lettere del nome host e i nodi Zookeeper hanno **ZK** come prime due lettere del nome host.
 
-    ![Indirizzi IP del nodo di visualizzazione Apache Ambari](./media/apache-kafka-mirroring/view-node-ip-addresses2.png)
+    :::image type="content" source="./media/apache-kafka-mirroring/view-node-ip-addresses2.png" alt-text="Indirizzi IP del nodo di visualizzazione Apache Ambari" border="true":::
 
 1. Ripetere i tre passaggi precedenti per il secondo cluster **Kafka-Secondary-cluster**: Configure IP Advertising, set Listeners e prendere nota degli indirizzi IP broker e Zookeeper.
 
@@ -256,7 +256,7 @@ Configurare la pubblicità IP per consentire a un client di connettersi tramite 
         1. Cambiare il valore di `auto.create.topics.enable` impostandolo su true e quindi selezionare __Salva__. Aggiungere una nota, quindi selezionare di nuovo __Salva__ .
         1. Selezionare il servizio __Kafka__ , selezionare __Riavvia__, quindi fare clic su __Riavvia tutti gli interessati__. Quando richiesto, selezionare __Confirm restart all__.
 
-        ![argomenti relativi alla creazione automatica di Kafka](./media/apache-kafka-mirroring/kafka-enable-auto-create-topics.png)
+        :::image type="content" source="./media/apache-kafka-mirroring/kafka-enable-auto-create-topics.png" alt-text="argomenti relativi alla creazione automatica di Kafka" border="true":::
 
 ## <a name="start-mirrormaker"></a>Avviare MirrorMaker
 

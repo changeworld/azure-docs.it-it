@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive,seoapr2020
 ms.topic: conceptual
 ms.date: 11/20/2019
-ms.openlocfilehash: 84124f33f6aa02f63c0c47a24bd7d2a71ced2d11
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 47f0ea34fa650371d39252ce6b0ee6a15f3124d6
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101699301"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104871181"
 ---
 # <a name="azure-hdinsight-frequently-asked-questions"></a>Azure HDInsight: domande frequenti
 
@@ -78,11 +78,11 @@ No, non è possibile eseguire Apache Kafka e Apache Spark nello stesso cluster H
 1. Aprire l'interfaccia utente Web di Ambari all'indirizzo `https://CLUSTERNAME.azurehdinsight.net` , dove clustername è il nome del cluster.
 2. Nell'angolo in alto a destra selezionare admin | Impostazioni. 
 
-   ![Impostazioni Ambari](media/hdinsight-faq/ambari-settings.png)
+   :::image type="content" source="media/hdinsight-faq/ambari-settings.png" alt-text="Impostazioni Ambari":::
 
 3. Nella finestra impostazioni utente selezionare il nuovo fuso orario dall'elenco a discesa fuso orario, quindi fare clic su Salva.
 
-   ![Impostazioni utente Ambari](media/hdinsight-faq/ambari-user-settings.png)
+   :::image type="content" source="media/hdinsight-faq/ambari-user-settings.png" alt-text="Impostazioni utente Ambari":::
 
 ## <a name="metastore"></a>Metastore
 

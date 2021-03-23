@@ -1,21 +1,21 @@
 ---
-title: Supporto per la valutazione del server fisico in Azure Migrate
-description: Informazioni sul supporto per la valutazione dei server fisici con Azure Migrate individuazione e valutazione
+title: Supporto per l'individuazione e la valutazione fisica in Azure Migrate
+description: Informazioni sul supporto per l'individuazione e la valutazione fisiche con Azure Migrate individuazione e valutazione
 author: vineetvikram
 ms.author: vivikram
 ms.manager: abhemraj
 ms.topic: conceptual
 ms.date: 03/18/2021
-ms.openlocfilehash: 18176c5a79eda080c72b387781e6c7c9b0c66673
-ms.sourcegitcommit: 2c1b93301174fccea00798df08e08872f53f669c
+ms.openlocfilehash: b62160861f686c6ea5a8ebfd03d904da2ad5d80a
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/22/2021
-ms.locfileid: "104773199"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104869447"
 ---
 # <a name="support-matrix-for-physical-server-discovery-and-assessment"></a>Matrice di supporto per l'individuazione e la valutazione dei server fisici 
 
-Questo articolo riepiloga i prerequisiti e i requisiti di supporto quando si valutano i server fisici per la migrazione ad Azure, usando lo strumento [Azure migrate: Discovery and Assessment](migrate-services-overview.md#azure-migrate-server-assessment-tool) . Per eseguire la migrazione di server fisici ad Azure, esaminare la [matrice di supporto](migrate-support-matrix-physical-migration.md)per la migrazione.
+Questo articolo riepiloga i prerequisiti e i requisiti di supporto quando si valutano i server fisici per la migrazione ad Azure, usando lo strumento [Azure migrate: Discovery and Assessment](migrate-services-overview.md#azure-migrate-discovery-and-assessment-tool) . Per eseguire la migrazione di server fisici ad Azure, esaminare la [matrice di supporto](migrate-support-matrix-physical-migration.md)per la migrazione.
 
 Per valutare i server fisici, creare un progetto e aggiungere lo strumento Azure Migrate: individuazione e valutazione al progetto. Dopo avere aggiunto lo strumento, distribuire [l'appliance di Azure Migrate](migrate-appliance.md). L'appliance individua continuamente i server locali e invia i metadati dei server e i dati sulle prestazioni in Azure. Al termine dell'individuazione, è possibile raccogliere i server individuati in gruppi ed eseguire una valutazione per un gruppo.
 
@@ -23,7 +23,7 @@ Per valutare i server fisici, creare un progetto e aggiungere lo strumento Azure
 
 **Supporto** | **Dettagli**
 --- | ---
-**Limiti di valutazione** | È possibile individuare e valutare fino a 35.000 di server fisici in un singolo [progetto](migrate-support-matrix.md#azure-migrate-projects).
+**Limiti di valutazione** | È possibile individuare e valutare fino a 35.000 di server fisici in un singolo [progetto](migrate-support-matrix.md#project).
 **Limiti di progetto** | In una sottoscrizione di Azure è possibile creare più progetti. Oltre ai server fisici, un progetto può includere server in VMware e in Hyper-V, fino ai limiti di valutazione per ciascuno di essi.
 **Individuazione** | L'appliance Azure Migrate è in grado di individuare fino a 1000 di server fisici.
 **Valutazione** | È possibile aggiungere fino a 35.000 server in un singolo gruppo.<br/><br/> È possibile valutare fino a 35.000 server in una singola valutazione.
@@ -84,4 +84,4 @@ L' [analisi](concepts-dependency-visualization.md) delle dipendenze consente di 
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-[Preparare la valutazione del server fisico](./tutorial-discover-physical.md).
+[Prepararsi per l'individuazione fisica e la valutazione](./tutorial-discover-physical.md).

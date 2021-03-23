@@ -6,16 +6,16 @@ ms.author: vivikram
 ms.manager: abhemraj
 ms.topic: conceptual
 ms.date: 03/17/2021
-ms.openlocfilehash: 943223ee99838b2b6d6de7eecb3c3b8c06d3562c
-ms.sourcegitcommit: 2c1b93301174fccea00798df08e08872f53f669c
+ms.openlocfilehash: 520aedd9dbb618788107bc83c5d72ad237acea22
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/22/2021
-ms.locfileid: "104773590"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104870739"
 ---
 # <a name="support-matrix-for-vmware-assessment"></a>Matrice di supporto per la valutazione di VMware 
 
-Questo articolo riepiloga i prerequisiti e i requisiti di supporto quando si individuano e valutano i server in esecuzione nell'ambiente VMware per la migrazione ad Azure, usando lo strumento [Azure migrate: Discovery and Assessment](migrate-services-overview.md#azure-migrate-server-assessment-tool) . Per valutare i server, è necessario creare un progetto che aggiunga lo strumento Azure Migrate: individuazione e valutazione al progetto. Dopo avere aggiunto lo strumento, distribuire l'appliance di Azure Migrate. L'appliance individua continuamente i server locali e invia i metadati di configurazione e prestazioni ad Azure. Al termine dell'individuazione, è possibile raccogliere i server individuati in gruppi ed eseguire una valutazione per un gruppo.
+Questo articolo riepiloga i prerequisiti e i requisiti di supporto quando si individuano e valutano i server in esecuzione nell'ambiente VMware per la migrazione ad Azure, usando lo strumento [Azure migrate: Discovery and Assessment](migrate-services-overview.md#azure-migrate-discovery-and-assessment-tool) . Per valutare i server, è necessario creare un progetto che aggiunga lo strumento Azure Migrate: individuazione e valutazione al progetto. Dopo avere aggiunto lo strumento, distribuire l'appliance di Azure Migrate. L'appliance individua continuamente i server locali e invia i metadati di configurazione e prestazioni ad Azure. Al termine dell'individuazione, è possibile raccogliere i server individuati in gruppi ed eseguire una valutazione per un gruppo.
 
 Per eseguire la migrazione dei server VMware ad Azure, esaminare la [matrice di supporto](migrate-support-matrix-vmware-migration.md)per la migrazione.
 
@@ -25,7 +25,7 @@ Per eseguire la migrazione dei server VMware ad Azure, esaminare la [matrice di 
 
 **Requisito** | **Dettagli**
 --- | ---
-**Limiti di progetto** | In una sottoscrizione di Azure è possibile creare più progetti.<br/><br/> È possibile individuare e valutare fino a 50.000 server dall'ambiente VMware in un singolo [progetto](migrate-support-matrix.md#azure-migrate-projects). Un progetto può includere anche server fisici e server dall'ambiente Hyper-V, fino ai limiti di valutazione.
+**Limiti di progetto** | In una sottoscrizione di Azure è possibile creare più progetti.<br/><br/> È possibile individuare e valutare fino a 50.000 server dall'ambiente VMware in un singolo [progetto](migrate-support-matrix.md#project). Un progetto può includere anche server fisici e server dall'ambiente Hyper-V, fino ai limiti di valutazione.
 **Individuazione** | L'appliance Azure Migrate è in grado di individuare fino a 10.000 server in una server vCenter.
 **Valutazione** | È possibile aggiungere fino a 35.000 server in un singolo gruppo.<br/><br/> È possibile valutare fino a 35.000 server in una singola valutazione.
 
@@ -78,9 +78,6 @@ Oltre a individuare i server, Azure Migrate: individuazione e valutazione consen
 **Accesso alla porta** | Il dispositivo di Azure Migrate deve essere in grado di connettersi alla porta TCP 443 in ESXi ospita server in cui si vuole eseguire l'individuazione delle applicazioni. Il server vCenter restituisce una connessione all'host ESXi, per scaricare il file contenente i dettagli dell'inventario software.
 
 ## <a name="requirements-for-discovery-of-sql-server-instances-and-databases"></a>Requisiti per l'individuazione di istanze e database di SQL Server
-
-> [!Note]
-> L'individuazione e la valutazione di SQL Server istanze e database in esecuzione nell'ambiente VMware sono ora in anteprima. Per provare questa funzionalità, usare [**questo collegamento**](https://aka.ms/AzureMigrate/SQL) per creare un progetto nell'area **Australia orientale**. Se si dispone già di un progetto nell'Australia orientale e si vuole provare questa funzionalità, assicurarsi di aver completato questi [**prerequisiti**](how-to-discover-sql-existing-project.md) nel portale.
 
 L' [individuazione delle applicazioni](how-to-discover-applications.md) identifica le istanze di SQL Server. Usando queste informazioni, l'appliance tenta di connettersi alle rispettive istanze di SQL Server tramite l'autenticazione di Windows o le credenziali di autenticazione SQL Server fornite nell'appliance. Una volta stabilita la connessione, appliance raccoglie i dati di configurazione e delle prestazioni delle istanze di SQL Server e dei database. I dati di configurazione SQL Server vengono aggiornati ogni 24 ore e i dati sulle prestazioni vengono acquisiti ogni 30 secondi.
 

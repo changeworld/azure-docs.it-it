@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: how-to
 ms.date: 12/14/2020
 ms.author: phjensen
-ms.openlocfilehash: 00aaa5bdc0d48adb735679fc4a71b3431970ef09
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 458f4d3f29cb08a94095167ed45133f5cd70f5f4
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98737168"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104869192"
 ---
 # <a name="install-azure-application-consistent-snapshot-tool-preview"></a>Installare applicazione Azure strumento di snapshot coerente (anteprima)
 
@@ -239,71 +239,6 @@ database, modificare l'indirizzo IP, i nomi utente e le password nel modo approp
     ENV : <IP_address_of_host>:
     USER: AZACSNAP
     ```
-
-### <a name="additional-instructions-for-using-the-log-trimmer-sap-hana-20-and-later"></a>Istruzioni aggiuntive per l'uso di log trimmer (SAP HANA 2,0 e versioni successive)
-
-Se si usa il log trimmer, i comandi di esempio seguenti configurano un utente (AZACSNAP) nei database TENANT in un sistema di database SAP HANA 2,0. Ricordarsi di modificare l'indirizzo IP, i nomi utente e le password in base alle esigenze:
-
-1. Connettersi al database TENANT per creare l'utente. i dettagli specifici del tenant sono `<IP_address_of_host>` e `<SYSTEM_USER_PASSWORD>` .  Si noti inoltre la porta ( `30015` ) necessaria per comunicare con il database tenant.
-
-    ```bash
-    hdbsql -n <IP_address_of_host>:30015 - i 00 -u SYSTEM -p <SYSTEM_USER_PASSWORD>
-    ```
-
-    ```output  
-    Welcome to the SAP HANA Database interactive terminal.
-
-    Type: \h for help with commands
-    \q to quit
-
-    hdbsql TENANTDB=>
-    ```
-
-1. Creazione dell'utente
-
-    Questo esempio crea l'utente AZACSNAP in SYSTEMDB.
-
-    ```sql
-    hdbsql TENANTDB=> CREATE USER AZACSNAP PASSWORD <AZACSNAP_PASSWORD_CHANGE_ME> NO FORCE_FIRST_PASSWORD_CHANGE;
-    ```
-
-1. Concedere le autorizzazioni utente
-
-    Questo esempio Mostra come impostare l'autorizzazione per l'utente AZACSNAP in modo da consentire l'esecuzione di uno snapshot di archiviazione coerente con il database.
-
-    ```sql
-    hdbsql TENANTDB=> GRANT BACKUP ADMIN, CATALOG READ, MONITORING TO AZACSNAP;
-    ```
-
-1. *Facoltativo* : impedisce la scadenza della password dell'utente
-
-    > [!NOTE]
-    > Prima di apportare questa modifica, verificare con i criteri aziendali.
-
-   Questo esempio Mostra come disabilitare la scadenza della password per l'utente AZACSNAP, senza questa modifica la password dell'utente scadrà impedendo la corretta creazione degli snapshot.  
-
-   ```sql
-   hdbsql TENANTDB=> ALTER USER AZACSNAP DISABLE PASSWORD LIFETIME;
-   ```
-
-> [!NOTE]  
-> Ripetere questi passaggi per tutti i database tenant. È possibile ottenere i dettagli della connessione per tutti i tenant usando la query SQL seguente sul SYSTEMDB.
-
-```sql
-SELECT HOST, SQL_PORT, DATABASE_NAME FROM SYS_DATABASES.M_SERVICES WHERE SQL_PORT LIKE '3%'
-```
-
-Vedere la query e l'output di esempio seguenti.
-
-```bash
-hdbsql -jaxC -n 10.90.0.31:30013 -i 00 -u SYSTEM -p <SYSTEM_USER_PASSWORD> " SELECT HOST,SQL_PORT, DATABASE_NAME FROM SYS_DATABASES.M_SERVICES WHERE SQL_PORT LIKE '3%' "
-```
-
-```output
-sapprdhdb80,30013,SYSTEMDB
-sapprdhdb80,30015,H81
-sapprdhdb80,30041,H82
-```
 
 ### <a name="using-ssl-for-communication-with-sap-hana"></a>Uso di SSL per la comunicazione con SAP HANA
 

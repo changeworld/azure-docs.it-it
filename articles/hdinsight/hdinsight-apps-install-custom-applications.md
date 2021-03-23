@@ -5,12 +5,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 11/29/2019
-ms.openlocfilehash: 9591551b7d5657803e770bd71b47acb141b40fb6
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 19dd5bf94b524ff3eb6eb601c77b503a0040bd75
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98942700"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104867645"
 ---
 # <a name="install-custom-apache-hadoop-applications-on-azure-hdinsight"></a>Installare applicazioni Apache Hadoop personalizzate in Azure HDInsight
 
@@ -106,13 +106,13 @@ Se l'installazione di un'applicazione non è riuscita, è possibile visualizzare
 
     Aprire il cluster dal portale e selezionare applicazioni da impostazioni:
 
-    ![applicazioni HDInsight errore di installazione dell'applicazione](./media/hdinsight-apps-install-custom-applications/hdinsight-apps-error.png)
+    :::image type="content" source="./media/hdinsight-apps-install-custom-applications/hdinsight-apps-error.png" alt-text="applicazioni HDInsight errore di installazione dell'applicazione":::
 
 * Azione script di HDInsight: se il messaggio di errore delle applicazioni di HDInsight indica un errore dell'azione script, nel pannello Azioni script verranno presentati altri dettagli sull'errore di script.
 
     Selezionare azione script da impostazioni. In Cronologia azione script vengono visualizzati i messaggi di errore.
 
-    ![applicazioni HDInsight errore di azione script](./media/hdinsight-apps-install-custom-applications/hdinsight-apps-script-action-error.png)
+    :::image type="content" source="./media/hdinsight-apps-install-custom-applications/hdinsight-apps-script-action-error.png" alt-text="applicazioni HDInsight errore di azione script":::
 
 * Interfaccia utente Web di Apache Ambari: se lo script di installazione ha causato l'errore, usare l'interfaccia utente Web di Ambari per controllare i log completi sugli script di installazione.
 

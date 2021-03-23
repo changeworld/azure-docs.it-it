@@ -3,12 +3,12 @@ title: Esercitazione - Distribuire e configurare VMware HCX
 description: Informazioni su come distribuire e configurare una soluzione VMware HCX per il cloud privato della soluzione Azure VMware.
 ms.topic: tutorial
 ms.date: 03/13/2021
-ms.openlocfilehash: d4607483e64e6b7daa45f576f70ce3f5eeef65ca
-ms.sourcegitcommit: ba3a4d58a17021a922f763095ddc3cf768b11336
+ms.openlocfilehash: ab59b4a29f8ba372c1892613d5e0461bf3fdc512
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 03/23/2021
-ms.locfileid: "104801112"
+ms.locfileid: "104869090"
 ---
 # <a name="deploy-and-configure-vmware-hcx"></a>Distribuire e configurare VMware HCX
 
@@ -265,7 +265,7 @@ Per una panoramica completa di questa procedura, guardare il video [Soluzione Az
 1. In **Select Distributed Switches for Network Extensions** (Seleziona switch distribuiti per le estensioni di rete) selezionare gli switch che contengono le macchine virtuali di cui eseguire la migrazione alla soluzione Azure VMware in una rete estesa di livello 2. Selezionare quindi **Continua**.
 
    > [!NOTE]
-   > Se non si esegue la migrazione delle macchine virtuali nelle reti estese di livello 2, è possibile ignorare questo passaggio.
+   > Se non si esegue la migrazione di macchine virtuali in reti estese di livello 2 (L2), è possibile ignorare questo passaggio.
    
    :::image type=" content" source="media/tutorial-vmware-hcx/select-layer-2-distributed-virtual-switch.png" alt-text="Screenshot che mostra la selezione di commutatori virtuali distribuiti e il pulsante Continue." lightbox="media/tutorial-vmware-hcx/select-layer-2-distributed-virtual-switch.png":::
 
@@ -376,4 +376,4 @@ Per altre informazioni sull'uso di HCX, vedere la documentazione tecnica di VMwa
 * [Documentazione di VMware HCX](https://docs.vmware.com/en/VMware-HCX/index.html)
 * [Migrazione delle macchine virtuali con VMware HCX](https://docs.vmware.com/en/VMware-HCX/services/user-guide/GUID-D0CD0CC6-3802-42C9-9718-6DA5FEC246C6.html?hWord=N4IghgNiBcIBIGEAaACAtgSwOYCcwBcMB7AOxAF8g)
 * [Porte HCX necessarie](https://ports.vmware.com/home/VMware-HCX)
-* [Configurare un servr proxy di HCX prima di approvare il codice di licenza](https://docs.vmware.com/en/VMware-HCX/services/user-guide/GUID-920242B3-71A3-4B24-9ACF-B20345244AB2.html?hWord=N4IghgNiBcIA4CcD2APAngAgBIGEAaIAvkA)
+* [Configurare un server proxy HCX prima di approvare il codice di licenza](https://docs.vmware.com/en/VMware-HCX/services/user-guide/GUID-920242B3-71A3-4B24-9ACF-B20345244AB2.html?hWord=N4IghgNiBcIA4CcD2APAngAgBIGEAaIAvkA)

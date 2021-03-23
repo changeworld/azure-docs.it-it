@@ -8,12 +8,12 @@ ms.author: gachandw
 ms.reviewer: mimckitt
 ms.date: 10/13/2020
 ms.custom: ''
-ms.openlocfilehash: 1e2a0859227ad790763dc9ae07cb408a72538f90
-ms.sourcegitcommit: 2c1b93301174fccea00798df08e08872f53f669c
+ms.openlocfilehash: 6d54216d8992b5bb233c79919284f96b24385651
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/22/2021
-ms.locfileid: "104773369"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104865588"
 ---
 # <a name="deploy-a-cloud-service-extended-support-using-arm-templates"></a>Distribuire un servizio cloud (supporto esteso) usando i modelli ARM
 
@@ -141,7 +141,7 @@ Questa esercitazione illustra come creare una distribuzione del servizio cloud (
     ```
  
 
-4. Aggiungere il riferimento all'insieme di credenziali delle chiavi nella  `OsProfile`   sezione del modello ARM. Key Vault viene utilizzato per archiviare i certificati associati ai servizi cloud (supporto esteso). Aggiungere i certificati a Key Vault, quindi fare riferimento alle identificazioni personali del certificato nel file di configurazione del servizio (con estensione cscfg). È anche necessario abilitare Key Vault per le autorizzazioni appropriate in modo che la risorsa servizi cloud (supporto esteso) possa recuperare il certificato archiviato come segreto da Key Vault. L'insieme di credenziali delle chiavi deve trovarsi nella stessa area e nella stessa sottoscrizione del servizio cloud e avere un nome univoco. Per ulteriori informazioni, vedere [utilizzo di certificati con servizi cloud (supporto esteso)](certificates-and-key-vault.md).
+4. Aggiungere il riferimento all'insieme di credenziali delle chiavi nella  `OsProfile`   sezione del modello ARM. Key Vault viene utilizzato per archiviare i certificati associati ai servizi cloud (supporto esteso). Aggiungere i certificati a Key Vault, quindi fare riferimento alle identificazioni personali del certificato nel file di configurazione del servizio (con estensione cscfg). È anche necessario abilitare Key Vault "criteri di accesso" per "macchine virtuali di Azure per la distribuzione" (nel portale), in modo che la risorsa servizi cloud (supporto esteso) possa recuperare il certificato archiviato come segreto da Key Vault. L'insieme di credenziali delle chiavi deve trovarsi nella stessa area e nella stessa sottoscrizione del servizio cloud e avere un nome univoco. Per ulteriori informazioni, vedere [utilizzo di certificati con servizi cloud (supporto esteso)](certificates-and-key-vault.md).
      
     ```json
     "osProfile": { 

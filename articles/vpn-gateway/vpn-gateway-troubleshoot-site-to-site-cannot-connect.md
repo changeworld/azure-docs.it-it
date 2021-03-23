@@ -5,14 +5,14 @@ services: vpn-gateway
 author: chadmath
 ms.service: vpn-gateway
 ms.topic: troubleshooting
-ms.date: 09/16/2019
+ms.date: 03/22/2021
 ms.author: genli
-ms.openlocfilehash: 4454afbe543f374ebd745af7cd59be1ab745036f
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: cebb05b35379573fc9797e89dee3c0c2bf3de6e2
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104670888"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104867288"
 ---
 # <a name="troubleshooting-an-azure-site-to-site-vpn-connection-cannot-connect-and-stops-working"></a>Risoluzione dei problemi: una connessione VPN da sito a sito di Azure non può essere stabilita e smette di funzionare
 
@@ -81,9 +81,7 @@ Cercare e rimuovere il routing definito dall'utente o i gruppi di sicurezza di r
 
 ### <a name="step-5-check-the-on-premises-vpn-device-external-interface-address"></a>Passaggio 5. Controllare l'indirizzo dell'interfaccia esterna del dispositivo VPN locale
 
-- Se l'indirizzo IP per Internet del dispositivo VPN è incluso nella definizione della **rete locale** in Azure, è possibile che si verifichino sporadiche disconnessioni.
-- L'interfaccia esterna del dispositivo deve essere direttamente su Internet. Non devono essere presenti Network Address Translation o firewall tra Internet e il dispositivo.
-- Per configurare il clustering di firewall in modo che abbia un IP virtuale, è necessario interrompere il cluster ed esporre il dispositivo VPN direttamente a un'interfaccia pubblica con cui il gateway può interfacciarsi.
+Se l'indirizzo IP per Internet del dispositivo VPN è incluso nella definizione della **rete locale** in Azure, è possibile che si verifichino sporadiche disconnessioni.
 
 ### <a name="step-6-verify-that-the-subnets-match-exactly-azure-policy-based-gateways"></a>Passaggio 6. Verificare che le subnet corrispondano esattamente (gateway basati su criteri di Azure)
 

@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: estfan, logicappspm, azla
 ms.topic: reference
 ms.date: 03/12/2021
-ms.openlocfilehash: 8093b61213c3e26b93df2a3f495e7efe0a61d523
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 1414a7b0f17918caa16ccf854d70ea199fb42a47
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103420035"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104870195"
 ---
 # <a name="reference-guide-to-using-functions-in-expressions-for-azure-logic-apps-and-power-automate"></a>Guida di riferimento all'uso delle funzioni nelle espressioni per App per la logica di Azure e Power Automate
 
@@ -690,10 +690,10 @@ addProperty(<object>, '<property>', <value>)
 | <*updated-object*> | Oggetto | Oggetto JSON aggiornato con la proprietà specificata |
 ||||
 
-Per aggiungere una proprietà figlio a una proprietà esistente, usare questa sintassi:
+Per aggiungere una proprietà padre a una proprietà esistente, usare la `setProperty()` funzione, non la `addProperty()` funzione. Altrimenti, la funzione restituisce solo l'oggetto figlio come output.
 
 ```
-addProperty(<object>['<parent-property>'], '<child-property>', <value>)
+setProperty(<object>['<parent-property>'], '<parent-property>', addProperty(<object>['<parent-property>'], '<child-property>', <value>)
 ```
 
 | Parametro | Obbligatoria | Tipo | Descrizione |
@@ -741,7 +741,7 @@ Ecco l'oggetto JSON aggiornato:
 Questo esempio aggiunge la proprietà figlio `middleName` alla proprietà `customerName` esistente in un oggetto JSON, di cui viene eseguita la conversione da stringa a JSON con la funzione [JSON()](#json). La funzione assegna il valore specificato alla nuova proprietà e restituisce l'oggetto aggiornato:
 
 ```
-addProperty(json('{ "customerName": { "firstName": "Sophia", "surName": "Owen" } }')['customerName'], 'middleName', 'Anne')
+setProperty(json('{ "customerName": { "firstName": "Sophia", "surName": "Owen" } }'), 'customerName', addProperty(json('{ "customerName": { "firstName": "Sophia", "surName": "Owen" } }')['customerName'], 'middleName', 'Anne'))
 ```
 
 Ecco l'oggetto JSON corrente:

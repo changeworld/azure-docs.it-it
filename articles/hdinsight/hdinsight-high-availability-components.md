@@ -4,12 +4,12 @@ description: Panoramica dei vari componenti di disponibilità elevata usati dai 
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 10/07/2020
-ms.openlocfilehash: 336fe91174a8fc6d73d6e45c5fd1e2bf244eda52
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 93d2317c85f93ce8a22f2d434fbc081a88265a74
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98945316"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104863718"
 ---
 # <a name="high-availability-services-supported-by-azure-hdinsight"></a>Servizi a disponibilità elevata supportati da Azure HDInsight
 
@@ -34,7 +34,7 @@ Questa infrastruttura è costituita da diversi componenti software e servizi, al
 - Servizio slave a disponibilità elevata
 - Servizio master a disponibilità elevata
 
-![infrastruttura a disponibilità elevata](./media/hdinsight-high-availability-components/high-availability-architecture.png)
+:::image type="content" source="./media/hdinsight-high-availability-components/high-availability-architecture.png" alt-text="infrastruttura a disponibilità elevata" border="false":::
 
 Sono disponibili anche altri servizi a disponibilità elevata, supportati da componenti di affidabilità Apache open source. Questi componenti sono presenti anche nei cluster HDInsight:
 
@@ -91,7 +91,7 @@ Master-ha-Service viene eseguito solo sul nodo head attivo, arresta i servizi a 
 
 ### <a name="the-failover-process"></a>Processo di failover
 
-![Processo di failover](./media/hdinsight-high-availability-components/failover-steps.png)
+:::image type="content" source="./media/hdinsight-high-availability-components/failover-steps.png" alt-text="Processo di failover" border="false":::
 
 Un Health Monitor viene eseguito in ogni nodo head insieme al controller di failover master per inviare notifiche di heartbeat al quorum di Zookeeper. In questo scenario, nodo head viene considerato come servizio a disponibilità elevata. Il monitoraggio dell'integrità verifica se ogni servizio a disponibilità elevata è integro e se è pronto per partecipare all'elezione della leadership. In caso affermativo, il nodo head parteciperà alle elezioni. In caso contrario, l'elezione verrà chiusa fino a quando non diventa nuovamente pronta.
 

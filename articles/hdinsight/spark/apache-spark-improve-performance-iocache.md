@@ -4,12 +4,12 @@ description: Informazioni su Azure HDInsight IO Cache e su come usare questa fun
 ms.service: hdinsight
 ms.topic: how-to
 ms.date: 12/23/2019
-ms.openlocfilehash: 32f0756e59f81ad2c5d155581feed8c4fef09808
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 9df585c102e2c7307e949e38b6b69147372c38dd
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98940124"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104866302"
 ---
 # <a name="improve-performance-of-apache-spark-workloads-using-azure-hdinsight-io-cache"></a>Migliorare le prestazioni dei carichi di lavoro Apache Spark usando la cache IO di Azure HDInsight
 
@@ -37,7 +37,7 @@ Nell'anteprima Azure HDInsight IO Cache è disattivato per impostazione predefin
 
 1. Selezionare **Actions** (**azioni del servizio** in HDI 3,6) e **Activate (attiva**).
 
-    ![Abilitazione del servizio cache IO in Ambari](./media/apache-spark-improve-performance-iocache/ambariui-enable-iocache.png "Abilitazione del servizio cache IO in Ambari")
+    :::image type="content" source="./media/apache-spark-improve-performance-iocache/ambariui-enable-iocache.png " alt-text="Abilitazione del servizio cache IO in Ambari" border="true":::
 
 1. Confermare il riavvio di tutti i servizi interessati nel cluster.
 
@@ -52,7 +52,7 @@ Nell'anteprima Azure HDInsight IO Cache è disattivato per impostazione predefin
 
 1. Selezionare le schede **Configs** (Configurazioni) e **Advanced** (Avanzate).
 
-    ![Modificare la configurazione avanzata di HDFS](./media/apache-spark-improve-performance-iocache/ambariui-hdfs-service-configs-advanced.png "Modificare la configurazione avanzata di HDFS")
+    :::image type="content" source="./media/apache-spark-improve-performance-iocache/ambariui-hdfs-service-configs-advanced.png " alt-text="Modificare la configurazione avanzata di HDFS" border="true":::
 
 1. Scorrere verso il basso ed espandere l'area **Custom core-site** (Impostazioni core-site personalizzate).
 
@@ -60,13 +60,13 @@ Nell'anteprima Azure HDInsight IO Cache è disattivato per impostazione predefin
 
 1. Modificare il valore nella casella.
 
-    ![Modifica percentuale di completezza cache i/o](./media/apache-spark-improve-performance-iocache/ambariui-cache-data-fullness-percentage-property.png "Modifica percentuale di completezza cache i/o")
+    :::image type="content" source="./media/apache-spark-improve-performance-iocache/ambariui-cache-data-fullness-percentage-property.png " alt-text="Modifica percentuale di completezza cache i/o" border="true":::
 
 1. Selezionare **Save** (Salva) in alto a destra.
 
 1. Selezionare **Riavvia**  >  **riavvio tutti interessati**.
 
-    ![Apache Ambari riavvia tutti gli effettivi](./media/apache-spark-improve-performance-iocache/ambariui-restart-all-affected.png "Riavvia tutti gli interessati")
+    :::image type="content" source="./media/apache-spark-improve-performance-iocache/ambariui-restart-all-affected.png " alt-text="Apache Ambari riavvia tutti gli effettivi" border="true":::
 
 1. Selezionare **Confirm restart all**.
 

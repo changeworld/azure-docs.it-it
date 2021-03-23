@@ -11,12 +11,12 @@ ms.workload: ''
 ms.topic: article
 ms.date: 08/31/2020
 ms.author: inhenkel
-ms.openlocfilehash: a9394a5e117a577c903eccdf91cf22d0c359df2b
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: d1c2fd2ac7f809b4a70a0edffbddfb6e733fed57
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104581117"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104871402"
 ---
 # <a name="media-services-v3-frequently-asked-questions"></a>Domande frequenti su servizi multimediali V3
 
@@ -47,12 +47,6 @@ Vedere [controllo degli accessi in base al ruolo di Azure (RBAC di Azure) per gl
 ### <a name="how-do-i-stream-to-apple-ios-devices"></a>Ricerca per categorie trasmettere ai dispositivi Apple iOS?
 
 Assicurarsi di avere **(format = m3u8-aapl)** alla fine del percorso (dopo la parte **/manifest** dell'URL) per indicare al server di origine del flusso di restituire http live streaming contenuto (HLS) per l'utilizzo nei dispositivi nativi Apple iOS. Per informazioni dettagliate, vedere [distribuzione di contenuto](dynamic-packaging-overview.md).
-
-### <a name="how-do-i-configure-media-reserved-units"></a>Come si esegue la configurazione di Media Reserved Units?
-
-Per i processi di analisi audio e analisi dei video attivati da Media Services V3 o Video Indexer, è consigliabile effettuare il provisioning dell'account con 10 media reserved Unit S3 (MRU). Se sono necessari più di 10 MRU S3, aprire un ticket di supporto usando il [portale di Azure](https://portal.azure.com/).
-
-Per informazioni dettagliate, vedere [ridimensionare l'elaborazione di contenuti multimediali](media-reserved-units-cli-how-to.md).
 
 ### <a name="what-is-the-recommended-method-to-process-videos"></a>Qual è il metodo consigliato per l'elaborazione dei processi?
 
