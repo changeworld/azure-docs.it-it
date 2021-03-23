@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 02/17/2021
 ms.author: normesta
 ms.reviewer: jamesbak
-ms.openlocfilehash: 4d75e60d0e497dcdd2aa121f8da73f11a7e2af5b
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 50c6b4f309eb78acee0cfa59d1b540adba65cab2
+ms.sourcegitcommit: 2c1b93301174fccea00798df08e08872f53f669c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103015217"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104774814"
 ---
 # <a name="access-control-lists-acls-in-azure-data-lake-storage-gen2"></a>Elenchi di controllo di accesso (ACL) in Azure Data Lake Storage Gen2
 
@@ -40,6 +40,7 @@ Per impostare le autorizzazioni a livello di file e directory, vedere gli artico
 |.NET |[Usare .NET per impostare gli ACL in Azure Data Lake Storage Gen2](data-lake-storage-acl-dotnet.md)|
 |Java|[Usare Java per impostare gli ACL in Azure Data Lake Storage Gen2](data-lake-storage-acl-java.md)|
 |Python|[Usare Python per impostare gli ACL in Azure Data Lake Storage Gen2](data-lake-storage-acl-python.md)|
+|JavaScript (Node.js)|[Usare JavaScript SDK in Node.js per impostare gli ACL in Azure Data Lake Storage Gen2](data-lake-storage-directory-file-acl-javascript.md)|
 |PowerShell|[Usare PowerShell per impostare gli ACL in Azure Data Lake Storage Gen2](data-lake-storage-acl-powershell.md)|
 |Interfaccia della riga di comando di Azure|[Usare l'interfaccia della riga di comando di Azure per impostare gli elenchi Azure Data Lake Storage Gen2 di](data-lake-storage-acl-cli.md)|
 |API REST |[Percorso-aggiornamento](/rest/api/storageservices/datalakestoragegen2/path/update)|

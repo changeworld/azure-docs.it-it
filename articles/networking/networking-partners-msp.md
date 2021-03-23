@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: conceptual
 ms.date: 07/23/2020
 ms.author: sukishen
-ms.openlocfilehash: e2365fc76ca76423a5e6806f5dd23ef2bd9a4c52
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
+ms.openlocfilehash: 2d799cb85bfa6cbfa233410eaf0825bb42bb3fa9
+ms.sourcegitcommit: ba3a4d58a17021a922f763095ddc3cf768b11336
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "104720424"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104799310"
 ---
 # <a name="about-azure-networking-msp-partners"></a>Informazioni sui partner MSP di rete di Azure
 
@@ -34,7 +34,7 @@ Usare i collegamenti in questa sezione per altre informazioni sui servizi di ret
 |[Aryaka Networks](https://www.aryaka.com/azure-msp-vwan-managed-service-provider-launch-partner-aryaka/)||[Connect di Azure Aryaka](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/aryaka.cloudconnect_azure_19?tab=Overview)|[SD-WAN gestito da Aryaka per la rete virtuale di Azure](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/aryaka.aryaka_azure_virtual_wan?tab=Overview) | | |
 |[AXESDN](https://www.axesdn.com/en/azure-msp.html)||[Azure ExpressRoute gestito da AXESDN](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/1584591601184.axesdn_managed_azure_expressroute?tab=Overview)|[Rete WAN virtuale di Azure gestita da AXESDN](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/1584591601184.axesdn_managed_azure_virtualwan?tab=Overview) | | |
 |[BT](https://www.globalservices.bt.com/en/solutions/products/cloud-connect-azure)|[Consulenza sulla trasformazione della rete: Valutazione di 1 ora](https://azuremarketplace.microsoft.com/en-us/marketplace/consulting-services/bt-americas-inc.network-transformation-consulting);[BT Cloud Connect Azure](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/bt-americas-inc.bt-cca-lh-001?tab=Overview)|[BT Cloud Connect Azure ExpressRoute](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/bt-americas-inc.bt-cca-lh-003?tab=Overview)|[Rete WAN virtuale BT Cloud Connect Azure](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/bt-americas-inc.bt-cca-lh-002?tab=Overview)|||
-|[COMP](https://www.bui.co.za/)|[Gestione cloud a2zManaged](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/bui.a2zmanagement?tab=Overview)||[BUI gestito SD-WAN con VeloCloud](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/bui.buimanaged_sd-wan?tab=Overview)||[BUI CyberSoC](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/bui.buicybersoc_msp?tab=Overview)|
+|[COMP](https://www.bui.co.za/)|[Gestione cloud a2zManaged](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/bui.a2zmanagement?tab=Overview)||[BUI gestito di Azure vWAN con VMware SD-WAN](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/bui.bui_managed_vwan?tab=Overview)||[BUI CyberSoC](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/bui.buicybersoc_msp?tab=Overview)|
 |[Coevolve](https://www.coevolve.com/services/azure-networking-services/)|||[Rete WAN virtuale gestita di Azure](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/coevolveptylimited1581027739259.coevolve-managed-azure-vwan?tab=Overview); [Edge virtuale SD gestito VMware-WAN](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/coevolveptylimited1581027739259.managed-vmware-sdwan-edge?tab=Overview)|||
 |[Colt](https://www.colt.net/why-colt/strategic-alliances/microsoft-partnership/msp/)|[Ottimizzazione della rete in Azure: Valutazione di 2 ore](https://azuremarketplace.microsoft.com/en-us/marketplace/consulting-services/colttechnologyservices.azure_networking)|||||
 |[Equinix](https://www.equinix.com/)|[Workshop sulla rete WAN ottimizzata per il cloud](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/equinix.cloudoptimizedwan?tab=Overview)|[Workshop sulla strategia di connettività ExpressRoute](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/equinix.expressroutestrategy?tab=Overview); [Infrastruttura di Equinix cloud Exchange](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/equinix.equinix_ecx_fabric?tab=Overview)||||

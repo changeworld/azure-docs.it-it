@@ -1,0 +1,89 @@
+- name: Infrastruttura BareMetal di Azure
+  href: index.yml
+- name: Panoramica
+  items:
+    - name: Che cos'è l'infrastruttura BareMetal?
+      href: concepts-baremetal-infrastructure-overview.md
+    - name: Conoscere i termini
+      href: know-baremetal-terms.md
+    - name: Connettere unità di istanze di BareMetal in Azure
+      displayName: 'Azure CLI, az baremetalinstance, az baremetalinstance restart'
+      href: connect-baremetal-infrastructure.md
+- name: Carichi di lavoro
+  items:
+    - name: Tipi di carico di lavoro BareMetal
+      href: /azure/virtual-machines/workloads/sap/get-started?context=/azure/baremetal-infrastructure/workloads/sap/context/context
+    - name: SAP HANA in Azure (istanze Large)
+      items:
+        - name: Certificazione
+          href: /azure/virtual-machines/workloads/sap/hana-certification?context=/azure/baremetal-infrastructure/workloads/sap/context/context
+        - name: SKU disponibili per HLI
+          href: /azure/virtual-machines/workloads/sap/hana-available-skus?context=/azure/baremetal-infrastructure/workloads/sap/context/context
+        - name: Ridimensionamento
+          href: /azure/virtual-machines/workloads/sap/hana-sizing?context=/azure/baremetal-infrastructure/workloads/sap/context/context
+        - name: Requisiti di onboarding
+          href: /azure/virtual-machines/workloads/sap/hana-onboarding-requirements?context=/azure/baremetal-infrastructure/workloads/sap/context/context
+        - name: Nodi di estensione e suddivisione in livelli dei dati di SAP HANA
+          href: /azure/virtual-machines/workloads/sap/hana-data-tiering-extension-nodes?context=/azure/baremetal-infrastructure/workloads/sap/context/context
+        - name: Responsabilità e modello operativo
+          href: /azure/virtual-machines/workloads/sap/hana-operations-model?context=/azure/baremetal-infrastructure/workloads/sap/context/context
+        - name: Sistemi operativi compatibili
+          href: /azure/virtual-machines/workloads/sap/os-compatibility-matrix-hana-large-instance?context=/azure/baremetal-infrastructure/workloads/sap/context/context
+        - name: Scenari HLI supportati
+          href: /azure/virtual-machines/workloads/sap/hana-supported-scenario?context=/azure/baremetal-infrastructure/workloads/sap/context/context
+        - name: Architecture
+          items:
+            - name: Architettura generale
+              href: /azure/virtual-machines/workloads/sap/hana-architecture?context=/azure/baremetal-infrastructure/workloads/sap/context/context
+            - name: Architettura di rete
+              href: /azure/virtual-machines/workloads/sap/hana-network-architecture?context=/azure/baremetal-infrastructure/workloads/sap/context/context
+            - name: Architettura di archiviazione
+              href: /azure/virtual-machines/workloads/sap/hana-storage-architecture?context=/azure/baremetal-infrastructure/workloads/sap/context/context
+        - name: Infrastruttura e connettività
+          items:
+            - name: Distribuzione HLI
+              href: /azure/virtual-machines/workloads/sap/hana-overview-infrastructure-connectivity?context=/azure/baremetal-infrastructure/workloads/sap/context/context
+            - name: Connessione di macchine virtuali di Azure a istanze Large di HANA
+              href: /azure/virtual-machines/workloads/sap/hana-connect-azure-vm-large-instances?context=/azure/baremetal-infrastructure/workloads/sap/context/context
+            - name: Connessione di una rete virtuale a ExpressRoute per istanze Large di HANA
+              href: /azure/virtual-machines/workloads/sap/hana-connect-vnet-express-route?context=/azure/baremetal-infrastructure/workloads/sap/context/context
+            - name: Requisiti di rete aggiuntivi
+              href: /azure/virtual-machines/workloads/sap/hana-additional-network-requirements?context=/azure/baremetal-infrastructure/workloads/sap/context/context
+        - name: Installare SAP HANA
+          items:
+            - name: Convalidare la configurazione
+              href: /azure/virtual-machines/workloads/sap/hana-installation?context=/azure/baremetal-infrastructure/workloads/sap/context/context
+            - name: Installazione di SAP HANA
+              href: /azure/virtual-machines/workloads/sap/hana-example-installation?context=/azure/baremetal-infrastructure/workloads/sap/context/context
+        - name: Disponibilità elevata e ripristino di emergenza
+          items:
+            - name: Opzioni e considerazioni
+              href: /azure/virtual-machines/workloads/sap/hana-overview-high-availability-disaster-recovery?context=/azure/baremetal-infrastructure/workloads/sap/context/context
+            - name: Backup e ripristino
+              href: /azure/virtual-machines/workloads/sap/hana-backup-restore?context=/azure/baremetal-infrastructure/workloads/sap/context/context
+            - name: Principi e preparazione
+              href: /azure/virtual-machines/workloads/sap/hana-concept-preparation?context=/azure/baremetal-infrastructure/workloads/sap/context/context
+            - name: Procedura di failover di ripristino di emergenza
+              href: /azure/virtual-machines/workloads/sap/hana-failover-procedure?context=/azure/baremetal-infrastructure/workloads/sap/context/context
+        - name: Eseguire la risoluzione dei problemi e il monitoraggio
+          items:
+            - name: Monitoraggio di HLI
+              href: /azure/virtual-machines/workloads/sap/troubleshooting-monitoring?context=/azure/baremetal-infrastructure/workloads/sap/context/context
+            - name: Monitoraggio e risoluzione dei problemi dal lato HANA
+              href: /azure/virtual-machines/workloads/sap/hana-monitor-troubleshoot?context=/azure/baremetal-infrastructure/workloads/sap/context/context
+        - name: Procedure
+          items:
+            - name: Configurazione a disponibilità elevata con STONITH
+              href: /azure/virtual-machines/workloads/sap/ha-setup-with-stonith?context=/azure/baremetal-infrastructure/workloads/sap/context/context
+            - name: Backup del sistema operativo per SKU di tipo II
+              href: /azure/virtual-machines/workloads/sap/os-backup-type-ii-skus?context=/azure/baremetal-infrastructure/workloads/sap/context/context
+            - name: Abilitare Kdump per istanze Large di HANA
+              href: /azure/virtual-machines/workloads/sap/hana-large-instance-enable-kdump?context=/azure/baremetal-infrastructure/workloads/sap/context/context
+            - name: Aggiornamento del sistema operativo per istanze Large di Hana
+              href: /azure/virtual-machines/workloads/sap/os-upgrade-hana-large-instance?context=/azure/baremetal-infrastructure/workloads/sap/context/context
+            - name: Configurazione del server SMT per SUSE Linux
+              href: /azure/virtual-machines/workloads/sap/hana-setup-smt?context=/azure/baremetal-infrastructure/workloads/sap/context/context
+            - name: Migrazione da HLI a VM di Azure
+              href: /azure/virtual-machines/workloads/sap/hana-large-instance-virtual-machine-migration?context=/azure/baremetal-infrastructure/workloads/sap/context/context
+            - name: Acquistare una prenotazione di SAP HANA in istanze Large
+              href: /azure/cost-management-billing/reservations/prepay-hana-large-instances-reserved-capacity

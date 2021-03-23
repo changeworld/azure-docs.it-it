@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 09/09/2019
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 66f11b7a5124f0b9b834b79368d57443ab33e850
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 263397aa2cd09ba24fa750131b76047801869a65
+ms.sourcegitcommit: ba3a4d58a17021a922f763095ddc3cf768b11336
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104578346"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104798936"
 ---
 # <a name="desktop-app-that-calls-web-apis-app-registration"></a>App desktop che chiama le API Web: registrazione dell'app
 
@@ -50,6 +50,7 @@ Specificare l'URI di reindirizzamento per l'app [configurando le impostazioni de
   > Come procedura consigliata di sicurezza, è consigliabile impostare in modo esplicito `https://login.microsoftonline.com/common/oauth2/nativeclient` o `http://localhost` come URI di reindirizzamento. Alcune librerie di autenticazione, ad esempio MSAL.NET, usano un valore predefinito `urn:ietf:wg:oauth:2.0:oob` quando non viene specificato nessun altro URI di reindirizzamento, operazione sconsigliata. Questa impostazione predefinita verrà aggiornata come modifica sostanziale nella prossima versione principale.
 
 - Se si compila un'app Objective-C o SWIFT nativa per macOS, registrare l'URI di reindirizzamento in base all'identificatore del bundle dell'applicazione nel formato seguente: `msauth.<your.app.bundle.id>://auth` . Sostituire `<your.app.bundle.id>` con l'identificatore del bundle dell'applicazione.
+- Se si compila un'app Node.js Electron, usare un protocollo file personalizzato invece di un normale URI di reindirizzamento Web (https://) per gestire il passaggio di reindirizzamento del flusso di autorizzazione, ad esempio `msal://redirect` . Il nome del protocollo file personalizzato non dovrebbe essere ovvio e deve seguire i suggerimenti nella [specifica di OAuth 2.0 per le app native](https://tools.ietf.org/html/rfc8252#section-7.1).
 - Se l'app usa solo l'autenticazione integrata di Windows o un nome utente e una password, non è necessario registrare un URI di reindirizzamento per l'applicazione. Questi flussi eseguono una round trip all'endpoint della piattaforma Microsoft Identity Platform v 2.0. L'applicazione non verrà richiamata su un URI specifico.
 - Per distinguere [il flusso del codice del dispositivo](scenario-desktop-acquire-token.md#device-code-flow), [l'autenticazione integrata di Windows](scenario-desktop-acquire-token.md#integrated-windows-authentication)e un [nome utente e una password](scenario-desktop-acquire-token.md#username-and-password) da un'applicazione client riservata usando un flusso di credenziali client usato nelle [applicazioni daemon](scenario-daemon-overview.md), nessuna delle quali richiede un URI di reindirizzamento, lo configura come applicazione client pubblica. Per ottenere questa configurazione:
 

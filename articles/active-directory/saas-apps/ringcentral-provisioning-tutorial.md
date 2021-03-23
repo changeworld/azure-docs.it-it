@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 10/30/2019
 ms.author: Zhchia
-ms.openlocfilehash: f57114fc4cb76c500cc422966635273c3a923046
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 1891af9acae2b976a18f68983693a7df559b6476
+ms.sourcegitcommit: ba3a4d58a17021a922f763095ddc3cf768b11336
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "96181623"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104800770"
 ---
 # <a name="tutorial-configure-ringcentral-for-automatic-user-provisioning"></a>Esercitazione: Configurare RingCentral per il provisioning utenti automatico
 
@@ -46,15 +46,7 @@ Per lo scenario descritto in questa esercitazione si presuppone che l'utente dis
 
 ## <a name="step-2-configure-ringcentral-to-support-provisioning-with-azure-ad"></a>Passaggio 2: Configurare RingCentral per supportare il provisioning con Azure AD
 
-1. Accedere alla [console di amministrazione di RingCentral](https://login.ringcentral.com/sw.html). Passare a **Tools > Directory Integration** (Strumenti > Integrazione directory).
-
-    ![Console di amministrazione di RingCentral](media/ringcentral-provisioning-tutorial/admin.png)
-
-2.  Selezionare **SCIM** in **Select Directory Provider** (Seleziona provider di directory). In futuro sarà disponibile l'opzione Azure Active Directory. Fare clic su **Enable SCIM service** (Abilita servizio SCIM).
-
-    ![Aggiunta di SCIM in RingCentral](media/ringcentral-provisioning-tutorial/scim.png)
-
-3.  Contattare il team di supporto di RingCentral all'indirizzo matthew.hunt@ringcentral.com per ottenere un **token di autenticazione SCIM**. Questo valore dovrà essere immesso nel campo Token segreto nella scheda Provisioning dell'applicazione RingCentral nel portale di Azure.
+È necessario un account amministratore di [RingCentral](https://www.ringcentral.com/office/plansandpricing.html) per l'autorizzazione nella sezione credenziali amministratore nel passaggio 5.
 
 > [!NOTE]
 > Per assegnare licenze agli utenti, vedere il collegamento al video [qui](https://support.ringcentral.com/s/article/5-10-Adding-Extensions-via-Web?language).
@@ -94,9 +86,13 @@ Questa sezione descrive la procedura per configurare il servizio di provisioning
 
     ![Screenshot dell'elenco a discesa Modalità di provisioning con l'opzione Automatico evidenziata.](common/provisioning-automatic.png)
 
-5. Nella sezione **Credenziali amministratore** immettere `https://platform.ringcentral.com/scim/v2` in **URL tenant**. Immettere il valore del **token di autenticazione SCIM** recuperato in precedenza in **Token segreto**. Fare clic su **Test connessione** per verificare che Azure AD possa connettersi a RingCentral. Se la connessione non riesce, verificare che l'account RingCentral abbia autorizzazioni di amministratore e riprovare.
+5. Nella sezione **Credenziali amministratore** fare clic su **Autorizza**. Si verrà reindirizzati alla pagina di accesso di RingCentral. Immettere l'indirizzo di posta elettronica, il numero di telefono e la password e fare clic sul pulsante **Accedi** . Fare clic su **autorizza** nella pagina **richiesta di accesso** a RingCentral. Fare clic su **Test connessione** per verificare che Azure AD possa connettersi a RingCentral. Se la connessione non riesce, verificare che l'account RingCentral abbia autorizzazioni di amministratore e riprovare.
 
-    ![Screenshot dei campi di testo URL tenant e Token segreto con l'opzione Test connessione evidenziata.](./media/ringcentral-provisioning-tutorial/provisioning.png)
+   ![AAD](./media/ringcentral-provisioning-tutorial/admincredentials.png)
+
+   ![Access](./media/ringcentral-provisioning-tutorial/authorize.png)
+
+   ![Autorizza](./media/ringcentral-provisioning-tutorial/accessrequest.png)
 
 6. Nel campo **Messaggio di posta elettronica di notifica** immettere l'indirizzo di posta elettronica di una persona o un gruppo che riceverà le notifiche di errore relative al provisioning e selezionare la casella di controllo **Invia una notifica di posta elettronica in caso di errore**.
 
@@ -151,6 +147,7 @@ Dopo aver configurato il provisioning, usare le risorse seguenti per monitorare 
 ## <a name="change-log"></a>Registro delle modifiche
 
 * 10/09/2020: è stato rimosso il supporto per gli attributi "displayName" e "manager".
+* 03/15/2021: metodo di autorizzazione aggiornato da bearer token permanenti al flusso di concessione del codice OAuth.
 
 ## <a name="additional-resources"></a>Risorse aggiuntive
 

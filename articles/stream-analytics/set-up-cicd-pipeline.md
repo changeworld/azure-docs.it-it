@@ -7,12 +7,12 @@ ms.author: sujie
 ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 09/10/2020
-ms.openlocfilehash: f62b4c354ffa90bf1a03651fccf8780074344e46
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: dbd6a1a0c8643adc4918cc15e214e903dfb1ccb6
+ms.sourcegitcommit: 2c1b93301174fccea00798df08e08872f53f669c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103466423"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104775936"
 ---
 # <a name="use-azure-devops-to-create-a-cicd-pipeline-for-a-stream-analytics-job"></a>Usare Azure DevOps per creare una pipeline CI/CD per un processo di analisi di flusso
 
@@ -20,13 +20,13 @@ Questo articolo illustra come creare pipeline di [compilazione](/azure/devops/pi
 
 ## <a name="commit-your-stream-analytics-project"></a>Eseguire il commit del progetto di analisi di flusso
 
-Prima di iniziare, eseguire il commit dei progetti di analisi di flusso completi come file di origine in un repository di [Azure DevOps](/azure/devops/user-guide/source-control) . È possibile fare riferimento a questo [repository di esempio](https://dev.azure.com/wenyzou/azure-streamanalytics-cicd-demo) e al [codice sorgente del progetto di analisi di flusso](https://dev.azure.com/wenyzou/_git/azure-streamanalytics-cicd-demo?path=%2FmyASAProject) in Azure Pipelines.
+Prima di iniziare, eseguire il commit dei progetti di analisi di flusso completi come file di origine in un repository di [Azure DevOps](/azure/devops/user-guide/source-control) . È possibile fare riferimento a questo [repository di esempio](https://dev.azure.com/ASA-CICD-sample/azure-streamanalytics-cicd-demo) e al [codice sorgente del progetto di analisi di flusso](https://dev.azure.com/ASA-CICD-sample/_git/azure-streamanalytics-cicd-demo) in Azure Pipelines.
 
 I passaggi descritti in questo articolo usano un progetto di analisi di flusso Visual Studio Code. Se si usa un progetto di Visual Studio, seguire i passaggi in [automatizzare le compilazioni, i test e le distribuzioni di un processo di analisi di flusso di Azure usando gli strumenti ci/CD](cicd-tools.md).
 
 ## <a name="create-a-build-pipeline"></a>Creare una pipeline di compilazione
 
-In questa sezione viene illustrato come creare una pipeline di compilazione. È possibile fare riferimento a questa [pipeline di compilazione e di test automatica](https://dev.azure.com/wenyzou/_git/azure-streamanalytics-cicd-demo?path=%2FmyASAProject) di esempio in Azure DevOps.
+In questa sezione viene illustrato come creare una pipeline di compilazione. È possibile fare riferimento a questa [pipeline di compilazione e di test automatica](https://dev.azure.com/ASA-CICD-sample/azure-streamanalytics-cicd-demo/_build) di esempio in Azure DevOps.
 
 1. Aprire un Web browser e passare al progetto in Azure DevOps.  
 
@@ -155,7 +155,7 @@ Il file di riepilogo dei test e i file del modello di Azure Resource Manager si 
 
 ## <a name="release-with-azure-pipelines"></a>Rilascia con Azure Pipelines
 
-In questa sezione viene illustrato come creare una pipeline di rilascio. È possibile fare riferimento a questa [pipeline di versione](https://dev.azure.com/wenyzou/azure-streamanalytics-cicd-demo/_release?_a=releases&view=mine&definitionId=2&preserve-view=true) di esempio in Azure DevOps.
+In questa sezione viene illustrato come creare una pipeline di rilascio. È possibile fare riferimento a questa [pipeline di versione](https://dev.azure.com/ASA-CICD-sample/azure-streamanalytics-cicd-demo/_release?_a=releases&view=mine&definitionId=2) di esempio in Azure DevOps.
 
 Aprire un Web browser e passare al progetto di analisi di flusso di Azure Visual Studio Code.
 

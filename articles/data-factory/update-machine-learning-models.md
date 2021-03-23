@@ -3,16 +3,16 @@ title: Aggiornare i modelli Azure Machine Learning Studio (classico) utilizzando
 description: Viene descritto come creare pipeline predittive usando Azure Data Factory e Azure Machine Learning Studio (classico)
 author: dcstwh
 ms.author: weetok
-ms.reviewer: maghan
+ms.reviewer: jburchel
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 07/16/2020
-ms.openlocfilehash: ef89ecef34a7c5afb94547181f449b0fc393e67c
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 5eac6f939ffcc39961f508a993ca17757221503f
+ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "100377568"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104783099"
 ---
 # <a name="update-azure-machine-learning-studio-classic-models-by-using-update-resource-activity"></a>Aggiornare i modelli di Azure Machine Learning Studio (classico) usando l'attività Aggiorna risorsa
 

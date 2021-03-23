@@ -12,12 +12,12 @@ author: bonova
 ms.author: bonova
 ms.reviewer: sstein, jovanpop, sachinp
 ms.date: 09/14/2020
-ms.openlocfilehash: 9a96da607ceea5a6d5cb6ef02df5a9a4db24562e
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: ee0c673027892e6d3ee55b6ec5f67a30d88be683
+ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "97770962"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104780345"
 ---
 # <a name="overview-of-azure-sql-managed-instance-resource-limits"></a>Panoramica dei limiti delle risorse di Istanza gestita di SQL di Azure
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -76,7 +76,7 @@ SQL Istanza gestita dispone di due livelli di servizio: [per utilizzo generico](
 | Numero massimo di file di database per istanza | Fino a 280, a meno che non sia stato raggiunto il limite per le dimensioni di archiviazione dell'istanza o per lo [spazio di allocazione dell'archiviazione nel disco Premium di Azure](../database/doc-changes-updates-release-notes.md#exceeding-storage-space-with-small-database-files). | 32.767 file per database, a meno che non sia stato raggiunto il limite per le dimensioni di archiviazione dell'istanza. |
 | Dimensioni massime dei file di dati | Limitate alle dimensioni dello spazio di archiviazione delle istanze attualmente disponibile (max 2 TB - 8 TB) e allo [spazio di allocazione dell'archiviazione nel disco Premium di Azure](../database/doc-changes-updates-release-notes.md#exceeding-storage-space-with-small-database-files). | Limitate alle dimensioni dello spazio di archiviazione dell'istanza attualmente disponibile (fino a 1 TB - 4 TB). |
 | Dimensioni massime del file di log | Limitate a 2 TB e alle dimensioni dello spazio di archiviazione dell'istanza attualmente disponibile. | Limitate a 2 TB e alle dimensioni dello spazio di archiviazione dell'istanza attualmente disponibile. |
-| Dati/Log di IOPS (approssimativi) | Fino a 30 - 40 K IOPS per istanza*, 500 - 7500 per file<br/>\*[Aumentare le dimensioni del file per ottenere più IOPS](#file-io-characteristics-in-general-purpose-tier)| 10 k-200 K (4000 IOPS/vCore)<br/>Aggiungere altri vCore per ottenere prestazioni I/O migliori. |
+| Dati/Log di IOPS (approssimativi) | Fino a 30 - 40 K IOPS per istanza*, 500 - 7500 per file<br/>\*[Aumentare le dimensioni del file per ottenere più IOPS](#file-io-characteristics-in-general-purpose-tier)| 16 k-320 K (4000 IOPS/vCore)<br/>Aggiungere altri vCore per ottenere prestazioni I/O migliori. |
 | Limite di velocità effettiva della scrittura di log (per istanza) | 3 MB/s per ogni vCore<br/>Massimo 120 MB/s per istanza<br/>22-65 MB/s per database<br/>\*[Aumentare le dimensioni del file per ottenere prestazioni I/O migliori](#file-io-characteristics-in-general-purpose-tier) | 4 MB/s per vCore<br/>Massimo 96 MB/s |
 | Dati effettivi (approssimativi) | 100 - 250 MB/s per ogni file<br/>\*[Aumentare le dimensioni del file per ottenere prestazioni I/O migliori](#file-io-characteristics-in-general-purpose-tier) | Non limitate. |
 | Latenza I/O di archiviazione (approssimativa) | 5-10 ms | 1-2 ms |

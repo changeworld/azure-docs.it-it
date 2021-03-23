@@ -4,12 +4,12 @@ ms.service: iot-edge
 ms.topic: include
 ms.date: 08/26/2020
 ms.author: v-tcassi
-ms.openlocfilehash: 9572f4c663c820c76a57cdbdcecff082b150b577
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
+ms.openlocfilehash: 8009d98ddbfa778cf5f357248ecd943b810e06e3
+ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "104761187"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104803368"
 ---
 ## <a name="create-a-release-pipeline-for-continuous-deployment"></a>Creare una pipeline di versione per la distribuzione continua
 
@@ -89,6 +89,9 @@ Creare una nuova pipeline e aggiungere una nuova fase:
     | Scegliere un dispositivo singolo/multiplo | Scegliere se si vuole distribuire la pipeline di rilascio in uno o più dispositivi. Se si distribuisce a un singolo dispositivo, immettere l'**ID del dispositivo IoT Edge**. Se si distribuisce a più dispositivi, specificare la **condizione di destinazione** del dispositivo. La condizione di destinazione è un filtro che corrisponde a un set di dispositivi IoT Edge nell'hub Internet. Se si vuole usare i tag del dispositivo come condizione, è necessario aggiornare i tag dei dispositivi corrispondenti con il dispositivo gemello dell'hub Internet. Aggiornare l'**ID distribuzione di IoT Edge** e la **priorità della distribuzione IoT Edge** nelle impostazioni avanzate. Per altre informazioni sulla creazione di una distribuzione per più dispositivi, vedere [Informazioni sulle distribuzioni automatiche IoT Edge](../articles/iot-edge/module-deployment-monitoring.md). |
     | ID dispositivo o condizione di destinazione | A seconda della selezione precedente, specificare un ID dispositivo o una [condizione di destinazione](../articles/iot-edge/module-deployment-monitoring.md#target-condition) da distribuire a più dispositivi. |
     | Avanzato | Per il IoT Edge ID distribuzione, specificare `$(System.TeamProject)-$(Release.EnvironmentName)` . Questa variabile esegue il mapping del progetto e del nome della versione con l'ID distribuzione del IoT Edge. |
+    
+
+    Se l'attività prevede l'uso di un'immagine che risiede in un registro di sistema Trusted Docker privato che non è visibile al cloud pubblico, è possibile impostare la variabile di ambiente **SKIP_MODULE_IMAGE_VALIDATION** su `true` per ignorare la convalida dell'immagine. 
 
     ![Aggiungere Azure IoT Edge attività per la fase di sviluppo](./media/iot-edge-create-release-pipeline-for-continuous-deployment/add-quality-assurance-task.png)
 

@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c30ad26f079e6353dc4763b9ae968c33882d8ab6
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: cfea22c10d98adf3b8c89491c248bf7a934ba1ed
+ms.sourcegitcommit: ba3a4d58a17021a922f763095ddc3cf768b11336
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "96029348"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104798885"
 ---
 # <a name="device-identity-and-desktop-virtualization"></a>Identità del dispositivo e virtualizzazione desktop
 
@@ -79,6 +79,8 @@ Gli amministratori devono fare riferimento agli articoli seguenti, in base alla 
 - [Configurare il join di Azure Active Directory ibrido per l'ambiente federato](hybrid-azuread-join-federated-domains.md)
 - [Configurare il join di Azure Active Directory ibrido per l'ambiente gestito](hybrid-azuread-join-managed-domains.md)
 
+### <a name="non-persistent-vdi"></a>VDI non persistente
+
 Quando si distribuisce un'infrastruttura VDI non persistente, Microsoft consiglia agli amministratori IT di implementare le indicazioni seguenti. In caso contrario, la directory che contiene molti dispositivi non aggiornati Azure AD ibrido aggiunti alla piattaforma VDI non persistente comporta un aumento della quota dei tenant e il rischio di interruzioni del servizio dovuti all'esaurimento della quota del tenant.
 
 - Se si utilizza l'utilità preparazione sistema (sysprep.exe) e si utilizza un'immagine precedente a Windows 10 1809 per l'installazione, assicurarsi che l'immagine non venga da un dispositivo già registrato con Azure AD come ibrido Azure AD aggiunto.
@@ -92,6 +94,15 @@ Quando si distribuisce un'infrastruttura VDI non persistente, Microsoft consigli
 - Definire e implementare il processo per la [gestione dei dispositivi non aggiornati](manage-stale-devices.md).
    - Quando si ha una strategia per identificare i dispositivi non persistenti Azure AD ibrido aggiunti (ad esempio, usando il prefisso del nome visualizzato del computer), è necessario essere più aggressivi per la pulizia di questi dispositivi per assicurarsi che la directory non venga usata con molti dispositivi non aggiornati.
    - Per le distribuzioni VDI non persistenti in Windows correnti e di livello inferiore, è consigliabile eliminare i dispositivi con **ApproximateLastLogonTimestamp** di età superiore a 15 giorni.
+
+### <a name="persistent-vdi"></a>VDI persistente
+
+Quando si distribuisce un'infrastruttura VDI persistente, Microsoft consiglia agli amministratori IT di implementare le linee guida seguenti. In caso contrario, si verificano problemi di distribuzione e di autenticazione. 
+
+- Se si utilizza l'utilità preparazione sistema (sysprep.exe) e si utilizza un'immagine precedente a Windows 10 1809 per l'installazione, assicurarsi che l'immagine non venga da un dispositivo già registrato con Azure AD come ibrido Azure AD aggiunto.
+- Se si utilizza uno snapshot di macchina virtuale (VM) per creare altre macchine virtuali, assicurarsi che lo snapshot non venga da una macchina virtuale già registrata con Azure AD come Azure AD ibrido join.
+
+Si consiglia inoltre di implementare il processo per la [gestione dei dispositivi non aggiornati](manage-stale-devices.md). In questo modo la directory non viene utilizzata con molti dispositivi non aggiornati se si reimpostano periodicamente le VM.
  
 ## <a name="next-steps"></a>Passaggi successivi
 

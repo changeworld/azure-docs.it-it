@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 05/18/2020
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: feedc0065419162237c4f4826fe275a6fd947e53
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: ea6ecf456bbcea01bf4c1eef5377d918bf0918fd
+ms.sourcegitcommit: ba3a4d58a17021a922f763095ddc3cf768b11336
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98753722"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104798953"
 ---
 # <a name="scenario-desktop-app-that-calls-web-apis"></a>Scenario: App desktop che chiama le API Web
 
@@ -30,6 +30,7 @@ Se non è già stato fatto, creare la prima applicazione completando una guida i
 - [Avvio rapido: Acquisire un token e chiamare l'API Microsoft Graph da un'app desktop Windows](./quickstart-v2-windows-desktop.md)
 - [Avvio rapido: Acquisire un token e chiamare l'API Microsoft Graph da un'app UWP](./quickstart-v2-uwp.md)
 - [Avvio rapido: Acquisire un token e chiamare l'API Microsoft Graph da un'app nativa macOS](./quickstart-v2-ios.md)
+- [Guida introduttiva: acquisire un token e chiamare Microsoft Graph API da un'app Node.js & Electron](./quickstart-v2-nodejs-desktop.md)
 
 ## <a name="overview"></a>Panoramica
 
@@ -39,6 +40,7 @@ Si scrive un'applicazione desktop e si vuole far accedere gli utenti all'applica
 
   - Se l'applicazione desktop supporta i controlli grafici, ad esempio, se si tratta di un'applicazione Windows.Form, di un'applicazione WPF o di un'applicazione nativa macOS.
   - In alternativa, se si tratta di un'applicazione .NET Core e si accetta che l'interazione di autenticazione con Azure Active Directory (Azure AD) venga eseguita nel browser del sistema.
+  - In alternativa, se si tratta di un'applicazione Node.js Electron, che viene eseguita in un'istanza di Chromium.
 
 - Per le applicazioni ospitate in Windows, è anche possibile che le applicazioni in esecuzione su computer aggiunti a un dominio di Windows o Azure AD uniti per acquisire un token in modo invisibile all'utente usando l'autenticazione integrata di Windows.
 - Infine, anche se non è consigliabile, è possibile usare un nome utente e una password nelle applicazioni client pubbliche. Questo è ancora necessario in alcuni scenari, come DevOps. Il suo uso impone vincoli alle applicazioni. Ad esempio, non sarà possibile concedere l'accesso a un utente che deve eseguire l'[autenticazione a più fattori](../authentication/concept-mfa-howitworks.md) (accesso condizionale). Inoltre, le applicazioni non usufruiscono dell'accesso Single Sign-On (SSO).

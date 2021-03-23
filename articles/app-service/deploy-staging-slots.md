@@ -5,12 +5,12 @@ ms.assetid: e224fc4f-800d-469a-8d6a-72bcde612450
 ms.topic: article
 ms.date: 04/30/2020
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 1c4cff264b63506432daf350be3557bae7234584
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: c779e95b790d91b801d5d35b4702191f5e7986d5
+ms.sourcegitcommit: ba3a4d58a17021a922f763095ddc3cf768b11336
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "100594247"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104802965"
 ---
 # <a name="set-up-staging-environments-in-azure-app-service"></a>Configurare gli ambienti di gestione temporanea nel Servizio app di Azure
 <a name="Overview"></a>
@@ -214,6 +214,7 @@ Per altre informazioni sulla personalizzazione dell' `applicationInitialization`
 
 - `WEBSITE_SWAP_WARMUP_PING_PATH`: Il percorso di ping per scaldare il sito. Aggiungere questa impostazione dell'app specificando un percorso personalizzato che inizi con una barra come valore. Un esempio è `/statuscheck`. Il valore predefinito è `/`. 
 - `WEBSITE_SWAP_WARMUP_PING_STATUSES`: Codici di risposta HTTP validi per l'operazione di riscaldamento. Aggiungere questa impostazione dell'app con un elenco di codici HTTP separati da virgole. Un esempio è `200,202` . Se il codice di stato restituito non è presente nell'elenco, le operazioni di riscaldamento e scambio vengono interrotte. Per impostazione predefinita, sono validi tutti i codici di risposta.
+- `WEBSITE_WARMUP_PATH`: Percorso relativo del sito a cui eseguire il ping ogni volta che il sito viene riavviato, non solo durante gli scambi di slot. I valori di esempio includono `/statuscheck` o il percorso radice, `/` .
 
 > [!NOTE]
 > L' `<applicationInitialization>` elemento di configurazione fa parte di ogni avvio dell'app, mentre le due impostazioni dell'app per il comportamento di riscaldamento si applicano solo agli scambi di slot.

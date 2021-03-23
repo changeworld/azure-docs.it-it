@@ -3,12 +3,12 @@ title: Indice degli esempi di progetto
 description: Indice di esempi di conformità e standard per la distribuzione di ambienti, criteri ed elementi di base di Cloud Adoptions Framework con Azure Blueprints.
 ms.date: 03/11/2021
 ms.topic: sample
-ms.openlocfilehash: 0873de5879a40b13bea03c97e0b78d146f0d6696
-ms.sourcegitcommit: 5f32f03eeb892bf0d023b23bd709e642d1812696
+ms.openlocfilehash: 06dc65ca601c938f6610df3ed22b4ea0f3826208
+ms.sourcegitcommit: ba3a4d58a17021a922f763095ddc3cf768b11336
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/12/2021
-ms.locfileid: "103200982"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104799463"
 ---
 # <a name="azure-blueprints-samples"></a>Esempi di Azure Blueprints
 
@@ -34,6 +34,7 @@ La tabella seguente include collegamenti a esempi per Azure Blueprints. Ogni ese
 | [Servizi condivisi ISO 27001](./iso27001-shared/index.md) | Offre un set di modelli di infrastrutture conformi e limiti di criteri utili per ottenere l'attestazione ISO 27001. |
 | [Carico di lavoro dell'ambiente del servizio app/database SQL ISO 27001](./iso27001-ase-sql-workload/index.md) | Fornisce una maggiore infrastruttura per l'esempio di progetto [dei servizi condivisi ISO 27001](./iso27001-shared/index.md) . |
 | [Supporti](./media/index.md) | Fornisce un set di criteri per garantire la conformità ai controlli MPAA per Media. |
+| [New Zealand ISM con restrizioni](./new-zealand-ism.md) | Assegna i criteri per gestire i controlli manuali specifici per la sicurezza delle informazioni di New Zealand. |
 | [NIST SP 800-53 R4](./nist-sp-800-53-r4.md) | Fornisce Guardrails per la conformità con NIST SP 800-53 R4. |
 | [NIST SP 800-171 R2](./nist-sp-800-171-r2.md) | Fornisce Guardrails per la conformità con NIST SP 800-171 R2. |
 | [PCI-DSS v3.2.1](./pci-dss-3.2.1/index.md) | Fornisce un set di criteri per agevolare la conformità allo standard PCI-DSS v3.2.1. |

@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 02/18/2021
 ms.author: tyao
 ms.custom: references_regions
-ms.openlocfilehash: 6a1ec6e0b8862c6ad2b884b019e908e7d2a59a1e
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 88c000c96e632f970db075fafb13ea5eb4bbddfc
+ms.sourcegitcommit: ba3a4d58a17021a922f763095ddc3cf768b11336
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101715514"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104799936"
 ---
 # <a name="secure-your-origin-with-private-link-in-azure-front-door-standardpremium-preview"></a>Proteggi la tua origine con un collegamento privato in Azure front door standard/Premium (anteprima)
 
@@ -30,7 +30,7 @@ Il [collegamento privato di Azure](../../private-link/private-link-overview.md) 
 > Questa versione di anteprima viene messa a disposizione senza contratto di servizio e non è consigliata per i carichi di lavoro di produzione. Alcune funzionalità potrebbero non essere supportate o potrebbero presentare funzionalità limitate.
 > Per altre informazioni, vedere [Condizioni supplementari per l'utilizzo delle anteprime di Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-Lo SKU di Azure front door Premium può connettersi all'origine dietro l'app Web e l'account di archiviazione usando il servizio di collegamento privato, eliminando la necessità che l'origine sia accessibile pubblicamente.
+Lo SKU di Azure front door Premium può connettersi all'origine tramite il servizio di collegamento privato. Le applicazioni possono essere ospitate nel VNet privato o dietro un servizio PaaS, ad esempio l'app Web e l'account di archiviazione, eliminando la necessità che l'origine sia accessibile pubblicamente.
 
 :::image type="content" source="../media/concept-private-link/front-door-private-endpoint-architecture.png" alt-text="Architettura degli endpoint privati di front door":::
 

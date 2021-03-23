@@ -1,18 +1,14 @@
 ---
 title: Usare le API di Defender per IoT
 description: Usare un'API REST esterna per accedere ai dati individuati da sensori e console di gestione ed eseguire azioni con tali dati.
-author: shhazam-ms
-manager: rkarlin
-ms.author: shhazam
 ms.date: 12/14/2020
 ms.topic: reference
-ms.service: azure
-ms.openlocfilehash: 73c5d1f31d9e0651ee710593aa4e1b68fe972560
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: d509f2674a61af1d0ab03892186526b1cb109eee
+ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "100523244"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104778832"
 ---
 # <a name="defender-for-iot-sensor-and-management-console-apis"></a>Defender per le API del sensore e della console di gestione
 

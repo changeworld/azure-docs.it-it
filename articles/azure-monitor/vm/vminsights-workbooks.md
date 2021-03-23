@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 03/12/2020
-ms.openlocfilehash: bebe9424df24792f7450620657c5e2da5f08196a
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 874df4301165aaf253dd0f4316adee7ab9ce7ce5
+ms.sourcegitcommit: ba3a4d58a17021a922f763095ddc3cf768b11336
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102046517"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104798851"
 ---
 # <a name="create-interactive-reports-vm-insights-with-workbooks"></a>Creazione di report interattivi VM Insights con cartelle di lavoro
 
@@ -27,15 +27,15 @@ La tabella seguente riepiloga le cartelle di lavoro incluse in VM Insights per i
 
 | Cartella di lavoro | Descrizione | Ambito |
 |----------|-------------|-------|
-| Prestazioni | Fornisce una versione personalizzabile della visualizzazione Top N list e Charts in una singola cartella di lavoro che utilizza tutti i contatori delle prestazioni Log Analytics abilitati.| Su larga scala |
-| Contatori delle prestazioni | Visualizzazione del grafico Top N in un'ampia gamma di contatori delle prestazioni. | Su larga scala |
-| Connessioni | Connessioni fornisce una visualizzazione approfondita delle connessioni in ingresso e in uscita dalle macchine virtuali monitorate. | Su larga scala |
-| Porte attive | Fornisce un elenco dei processi associati alle porte nelle VM monitorate e le relative attività nell'intervallo di tempo scelto. | Su larga scala |
-| Open Ports (Porte aperte) | Fornisce il numero di porte aperte sulle VM monitorate e i dettagli sulle porte aperte. | Su larga scala |
-| Connessioni non riuscite | Visualizzare il numero di connessioni non riuscite nelle VM monitorate, la tendenza dell'errore e se la percentuale di errori aumenta nel tempo. | Su larga scala |
-| Security and Audit | Un'analisi del traffico TCP/IP che segnala le connessioni globali, le connessioni dannose, in cui gli endpoint IP si trovano a livello globale.  Per abilitare tutte le funzionalità, è necessario abilitare il rilevamento della sicurezza. | Su larga scala |
-| Traffico TCP | Un report classificato per le macchine virtuali monitorate e il traffico di rete inviato, ricevuto e totale in una griglia e visualizzato come linea di tendenza. | Su larga scala |
-| Confronto traffico | Questa cartella di lavoro consente di confrontare le tendenze del traffico di rete per un singolo computer o un gruppo di computer. | Su larga scala |
+| Prestazioni | Fornisce una versione personalizzabile della visualizzazione Top N list e Charts in una singola cartella di lavoro che utilizza tutti i contatori delle prestazioni Log Analytics abilitati.| Più macchine virtuali |
+| Contatori delle prestazioni | Visualizzazione del grafico Top N in un'ampia gamma di contatori delle prestazioni. | Più macchine virtuali |
+| Connessioni | Connessioni fornisce una visualizzazione approfondita delle connessioni in ingresso e in uscita dalle macchine virtuali monitorate. | Più macchine virtuali |
+| Porte attive | Fornisce un elenco dei processi associati alle porte nelle VM monitorate e le relative attività nell'intervallo di tempo scelto. | Più macchine virtuali |
+| Open Ports (Porte aperte) | Fornisce il numero di porte aperte sulle VM monitorate e i dettagli sulle porte aperte. | Più macchine virtuali |
+| Connessioni non riuscite | Visualizzare il numero di connessioni non riuscite nelle VM monitorate, la tendenza dell'errore e se la percentuale di errori aumenta nel tempo. | Più macchine virtuali |
+| Security and Audit | Un'analisi del traffico TCP/IP che segnala le connessioni globali, le connessioni dannose, in cui gli endpoint IP si trovano a livello globale.  Per abilitare tutte le funzionalità, è necessario abilitare il rilevamento della sicurezza. | Più macchine virtuali |
+| Traffico TCP | Un report classificato per le macchine virtuali monitorate e il traffico di rete inviato, ricevuto e totale in una griglia e visualizzato come linea di tendenza. | Più macchine virtuali |
+| Confronto traffico | Questa cartella di lavoro consente di confrontare le tendenze del traffico di rete per un singolo computer o un gruppo di computer. | Più macchine virtuali |
 | Prestazioni | Fornisce una versione personalizzabile della vista prestazioni che sfrutta tutti i contatori delle prestazioni Log Analytics abilitati. | Macchina virtuale singola | 
 | Connessioni | Connections (connessioni) fornisce una visualizzazione approfondita delle connessioni in ingresso e in uscita dalla macchina virtuale. | Macchina virtuale singola |
  

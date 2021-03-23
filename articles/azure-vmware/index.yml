@@ -9,12 +9,12 @@ metadata:
   author: shortpatti
   ms.author: v-patsho
   ms.date: 03/22/2021
-  ms.openlocfilehash: 70643a698e089df87a68b93c9f264d15d3735bf5
-  ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
+  ms.openlocfilehash: 30d83fe98253e9681d9c2d14c0b4081909326c44
+  ms.sourcegitcommit: ba3a4d58a17021a922f763095ddc3cf768b11336
   ms.translationtype: MT
   ms.contentlocale: it-IT
-  ms.lasthandoff: 03/22/2021
-  ms.locfileid: "104782079"
+  ms.lasthandoff: 03/23/2021
+  ms.locfileid: "104800245"
 landingContent:
 - title: Informazioni sulla soluzione Azure VMware
   linkLists:
@@ -36,8 +36,6 @@ landingContent:
       url: concepts-storage.md
     - text: Accedere e identificare i cloud privati
       url: concepts-identity.md
-    - text: Controllo degli accessi in base al ruolo di vSphere
-      url: concepts-role-based-access-control.md
     - text: Monitorare e riparare cloud privati
       url: concepts-monitor-repair-private-cloud.md
     - text: Aggiornamenti di cloud privati

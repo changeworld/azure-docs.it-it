@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 11/30/2020
 ms.author: rosouz
 ms.custom: references_regions
-ms.openlocfilehash: 64b9b6690eafe8f28fdf9711cd0534f4d7d96908
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 7accf705ee64be5ba416be9df2f92693b07e8a8c
+ms.sourcegitcommit: ba3a4d58a17021a922f763095ddc3cf768b11336
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104584585"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104799650"
 ---
 # <a name="configure-and-use-azure-synapse-link-for-azure-cosmos-db"></a>Configurare e usare Collegamento ad Azure Synapse per Azure Cosmos DB
 [!INCLUDE[appliesto-sql-mongodb-api](includes/appliesto-sql-mongodb-api.md)]
@@ -276,7 +276,7 @@ Il pool SQL senza server consente di eseguire query e analizzare i dati nei cont
 
 Il [modello di Azure Resource Manager](./manage-with-templates.md#azure-cosmos-account-with-analytical-store) crea un collegamento sinapsi abilitato Azure Cosmos DB account per l'API SQL. Questo modello crea un account dell'API (SQL) Core in un'area con un contenitore configurato con il TTL dei dati analitici abilitato e un'opzione per usare la velocità effettiva manuale o con scalabilità automatica. Per distribuire questo modello, fare clic su **Distribuisci in Azure** nella pagina README.
 
-## <a name="getting-started-with-azure-synpase-link---samples"></a><a id="cosmosdb-synapse-link-samples"></a> Introduzione a Collegamento ad Azure Synapse - Esempi
+## <a name="getting-started-with-azure-synapse-link---samples"></a><a id="cosmosdb-synapse-link-samples"></a> Introduzione ad Azure sinapsi link-esempi
 
 È possibile trovare esempi per iniziare a usare il collegamento a sinapsi di Azure in [GitHub](https://aka.ms/cosmosdb-synapselink-samples). Queste sono la presentazione di soluzioni end-to-end con scenari Internet e di tutto. È anche possibile trovare gli esempi corrispondenti a Azure Cosmos DB API per MongoDB nello stesso repository nella cartella [MongoDB](https://github.com/Azure-Samples/Synapse/tree/main/Notebooks/PySpark/Synapse%20Link%20for%20Cosmos%20DB%20samples) . 
 

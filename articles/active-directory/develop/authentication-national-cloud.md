@@ -13,12 +13,12 @@ ms.date: 08/28/2019
 ms.author: negoe
 ms.reviewer: marsma, negoe,celested
 ms.custom: aaddev,references_regions
-ms.openlocfilehash: da1ea6462d22242d23629bcec192d7760314dfed
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 719d89fafe57e7f5132698404bcc0a41a9f9db37
+ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "96444815"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104780073"
 ---
 # <a name="national-clouds"></a>Cloud nazionali
 
@@ -55,7 +55,7 @@ La tabella seguente elenca gli URL di base per gli endpoint di Azure AD usati pe
 |----------------|-------------------------|
 | Azure AD for US Government | `https://login.microsoftonline.us` |
 | Azure AD Germania| `https://login.microsoftonline.de` |
-| Azure AD Cina gestito da 21Vianet | `https://login.chinacloudapi.cn` |
+| Azure AD Cina gestito da 21Vianet | `https://login.partner.microsoftonline.cn/common` |
 | Azure AD (servizio globale)| `https://login.microsoftonline.com` |
 
 Le richieste agli endpoint di autorizzazione o token di Azure AD possono essere create usando l'URL di base specifico dell'area appropriato. Ad esempio, per Azure Germania:

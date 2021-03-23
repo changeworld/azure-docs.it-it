@@ -9,12 +9,12 @@ ms.topic: how-to
 ms.date: 03/09/2021
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: 9d80c0b8d4d913322c47d1ad278d6dbc033d2409
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
+ms.openlocfilehash: 79b88ad58a2eb95a48a140b3b98d606af495cb94
+ms.sourcegitcommit: ba3a4d58a17021a922f763095ddc3cf768b11336
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102620060"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104799786"
 ---
 # <a name="apply-an-azure-resource-manager-lock-to-a-storage-account"></a>Applicare un blocco Azure Resource Manager a un account di archiviazione
 
@@ -25,8 +25,8 @@ Microsoft consiglia di bloccare tutti gli account di archiviazione con un blocco
 
 Per ulteriori informazioni sui blocchi di Azure Resource Manager, vedere [bloccare le risorse per impedire le modifiche](../../azure-resource-manager/management/lock-resources.md).
 
-> [!IMPORTANT]
-> Il blocco di un account di archiviazione non protegge i dati all'interno di tale account dall'aggiornamento o dall'eliminazione.
+> [!CAUTION]
+> Il blocco di un account di archiviazione non protegge i contenitori o i BLOB in tale account dall'eliminazione o dalla sovrascrittura. Per ulteriori informazioni su come proteggere i dati BLOB, vedere [Cenni preliminari sulla protezione dei dati](../blobs/data-protection-overview.md).
 
 ## <a name="configure-an-azure-resource-manager-lock"></a>Configurare un blocco di Azure Resource Manager
 
@@ -83,4 +83,5 @@ I dati in File di Azure o nel servizio tabelle potrebbero non essere accessibili
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-[Bloccare le risorse per impedire modifiche](../../azure-resource-manager/management/lock-resources.md)
+- [Panoramica della protezione dei dati](../blobs/data-protection-overview.md)
+- [Bloccare le risorse per impedire modifiche](../../azure-resource-manager/management/lock-resources.md)

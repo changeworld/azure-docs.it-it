@@ -8,17 +8,17 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 03/08/2021
+ms.date: 03/22/2021
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: 8b3224333a3915b7827242004d1dec0f4695f479
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: f451d08dfbde643d91705f54296e9757a51c9d88
+ms.sourcegitcommit: ba3a4d58a17021a922f763095ddc3cf768b11336
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104581916"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104798394"
 ---
 # <a name="set-up-a-password-reset-flow-in-azure-active-directory-b2c"></a>Configurare un flusso di reimpostazione della password in Azure Active Directory B2C
 
@@ -35,6 +35,9 @@ Il [percorso di iscrizione e accesso](add-sign-up-and-sign-in-policy.md) consent
 ![Flusso di reimpostazione della password](./media/add-password-reset-policy/password-reset-flow.png)
 
 Il flusso di reimpostazione della password si applica agli account locali in Azure AD B2C che usano un [indirizzo di posta elettronica](identity-provider-local.md#email-sign-in) o un [nome utente](identity-provider-local.md#username-sign-in) con una password per l'accesso.
+
+> [!TIP]
+> Il flusso di reimpostazione della password self-service consente agli utenti di modificare la password quando l'utente dimentica la password e vuole reimpostarla. Prendere in considerazione la configurazione di un [flusso di modifica della password](add-password-change-policy.md) per supportare i casi in cui un utente conosce la password e vuole modificarla.
 
 Una procedura comune dopo la migrazione degli utenti a Azure AD B2C con password casuali consiste nel fare in modo che gli utenti verifichino gli indirizzi di posta elettronica e reimpostino le password durante il primo accesso. È inoltre frequente forzare l'utente a reimpostare la password dopo che un amministratore ha modificato la password. per abilitare questa funzionalità, vedere [Force reimpostazione della password](force-password-reset.md) .
 

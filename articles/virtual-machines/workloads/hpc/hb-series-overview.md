@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 08/19/2020
 ms.author: amverma
 ms.reviewer: cynthn
-ms.openlocfilehash: cfaab3f095dbf2f1657f5ebb587a3de958d11cda
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
+ms.openlocfilehash: 2f5dddd3d59ebe778d577176e439528a86bb42a7
+ms.sourcegitcommit: ba3a4d58a17021a922f763095ddc3cf768b11336
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "104721195"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104802594"
 ---
 # <a name="hb-series-virtual-machines-overview"></a>Panoramica delle macchine virtuali serie HB
 
@@ -31,7 +31,7 @@ Il blocco dei processi funziona sulle VM serie HB perché il silicio sottostante
 
 Il diagramma seguente illustra la separazione dei core riservati per l'hypervisor di Azure e la macchina virtuale della serie HB.
 
-![Separazione dei core riservati per la VM di Azure hypervisor e della serie HB](./media/hb-series-overview/segregation-cores.png)
+![Separazione dei core riservati per la VM di Azure hypervisor e della serie HB](./media/architecture/hb-segregation-cores.png)
 
 ## <a name="hardware-specifications"></a>Specifiche hardware
 

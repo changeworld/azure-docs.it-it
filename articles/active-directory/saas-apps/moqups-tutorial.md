@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 03/19/2021
 ms.author: jeedes
-ms.openlocfilehash: ac31323547ec2d0b6330b0b1c13dd9f219f224e7
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
+ms.openlocfilehash: c6db83dd46d988b5e8b4122a9e89e3c36136ad89
+ms.sourcegitcommit: ba3a4d58a17021a922f763095ddc3cf768b11336
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "104726864"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104799011"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-moqups"></a>Esercitazione: integrazione di Azure Active Directory Single Sign-On (SSO) con Moqups
 
@@ -127,7 +127,15 @@ In questa sezione si consentirà a B. Simon di usare Azure Single Sign-On conced
 
 ## <a name="configure-moqups-sso"></a>Configurare Moqups SSO
 
-Per configurare Single Sign-On sul lato **Moqups** , è necessario inviare l' **URL dei metadati di Federazione dell'app** al team di supporto di [Moqups](mailto:support@moqups.com). La configurazione viene eseguita in modo che la connessione SSO SAML sia impostata correttamente su entrambi i lati.
+1. Accedere al sito Web Moqups come amministratore.
+
+1.  Passare all' **account** e selezionare la scheda **integrazione** .
+
+1. Nella sezione **SAML authentication (autenticazione SAML** ) incollare il valore dell' **URL dei metadati di Federazione dell'App** copiato dal portale di Azure.
+
+    ![Screenshot per la sezione di configurazione.](./media/moqups-tutorial/saml-authentication.png)
+
+1. Fare clic sul pulsante **Configura** .
 
 ### <a name="create-moqups-test-user"></a>Creare un utente di test di Moqups
 

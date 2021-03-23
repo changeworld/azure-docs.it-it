@@ -3,12 +3,12 @@ title: Informazioni su come controllare i contenuti delle macchine virtuali
 description: Informazioni su come i criteri di Azure usano il client di configurazione Guest per controllare le impostazioni all'interno delle macchine virtuali.
 ms.date: 01/14/2021
 ms.topic: conceptual
-ms.openlocfilehash: 33a492eb3c8c175bfcdc6a13cb467ed2f180c1e1
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: a18f230c1b7b1eb2c953542e276127f4f47cbb39
+ms.sourcegitcommit: ba3a4d58a17021a922f763095ddc3cf768b11336
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101702879"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104802523"
 ---
 # <a name="understand-azure-policys-guest-configuration"></a>Informazioni su Configurazione guest di Criteri di Azure
 
@@ -57,7 +57,7 @@ Nella tabella seguente è riportato un elenco degli strumenti locali utilizzati 
 
 ### <a name="validation-frequency"></a>Frequenza di convalida
 
-Il client di Configurazione guest verifica la presenza di nuovi contenuti ogni cinque minuti. Una volta ricevuta un'assegnazione guest, le impostazioni per tale configurazione vengono controllate di nuovo con un intervallo di 15 minuti. Al termine del controllo, i risultati vengono inviati al provider di risorse di Configurazione guest. Quando vengono applicati criteri di tipo [trigger di valutazione](../how-to/get-compliance-data.md#evaluation-triggers), nel provider di risorse di Configurazione guest viene scritto lo stato del computer. In seguito a questo aggiornamento, il servizio Criteri di Azure valuta le proprietà di Azure Resource Manager. Una valutazione on demand di Criteri di Azure recupera il valore più recente dal provider di risorse di Configurazione guest. Non viene tuttavia attivato un nuovo controllo della configurazione nel computer.
+Il client di configurazione Guest controlla le assegnazioni Guest nuove o modificate ogni 5 minuti. Una volta ricevuta un'assegnazione guest, le impostazioni per tale configurazione vengono controllate di nuovo con un intervallo di 15 minuti. Al termine del controllo, i risultati vengono inviati al provider di risorse di Configurazione guest. Quando vengono applicati criteri di tipo [trigger di valutazione](../how-to/get-compliance-data.md#evaluation-triggers), nel provider di risorse di Configurazione guest viene scritto lo stato del computer. In seguito a questo aggiornamento, il servizio Criteri di Azure valuta le proprietà di Azure Resource Manager. Una valutazione on demand di Criteri di Azure recupera il valore più recente dal provider di risorse di Configurazione guest. Non viene tuttavia attivato un nuovo controllo della configurazione nel computer. Lo stato viene scritto simultaneamente in Azure Resource Graph.
 
 ## <a name="supported-client-types"></a>Tipi di client supportati
 

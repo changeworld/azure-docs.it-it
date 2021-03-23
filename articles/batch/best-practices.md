@@ -3,12 +3,12 @@ title: Procedure consigliate
 description: Informazioni sulle procedure consigliate e suggerimenti utili per lo sviluppo di soluzioni Azure Batch.
 ms.date: 03/11/2020
 ms.topic: conceptual
-ms.openlocfilehash: 697ac5d213bbe2e52134cad519f69c233f1cd593
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 7ef94b07a5131726c42a94088fd3ee1f413dbec7
+ms.sourcegitcommit: ba3a4d58a17021a922f763095ddc3cf768b11336
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104583276"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104802353"
 ---
 # <a name="azure-batch-best-practices"></a>Procedure consigliate per Azure Batch
 
@@ -31,7 +31,12 @@ I [pool](nodes-and-pools.md#pools) sono le risorse di calcolo per l'esecuzione d
 
 - I **pool devono avere più di un nodo di calcolo:** Non è garantito che i singoli nodi siano sempre disponibili. Anche se non comuni, gli errori dell'hardware, gli aggiornamenti del sistema operativo e una serie di altri problemi possono portare offline i singoli nodi. Se il carico di lavoro di Batch richiede un avanzamento deterministico e garantito, è consigliabile allocare pool con più nodi.
 
-- **Non riutilizzare i nomi delle risorse:** Le risorse batch (processi, pool e così via) passano spesso nel tempo. Ad esempio, è possibile creare un pool il lunedì, eliminarlo il martedì e quindi crearne un altro il giovedì. A ogni nuova risorsa creata è necessario assegnare un nome univoco che non è mai stato usato prima. A tale scopo, è possibile usare un GUID (per l'intero nome della risorsa o solo per una parte) o incorporare nel nome l'ora in cui è stata creata la risorsa. Batch supporta [DisplayName](/dotnet/api/microsoft.azure.batch.jobspecification.displayname), che è possibile usare per assegnare a una risorsa un nome facilmente leggibile, anche se l'ID risorsa effettiva può essere più complesso. L'uso di nomi univoci consente di distinguere più facilmente la risorsa specifica a cui fanno riferimento log e metriche. Rimuove anche l'ambiguità se è necessario presentare un caso di supporto per una risorsa.
+- **Non usare le immagini con date imminenti (EOL) per la scadenza.**
+    Si consiglia vivamente di evitare le immagini con date di supporto batch imminenti (EOL). Queste date possono essere individuate tramite l' [ `ListSupportedImages` API](https://docs.microsoft.com/rest/api/batchservice/account/listsupportedimages), [PowerShell](https://docs.microsoft.com/powershell/module/az.batch/get-azbatchsupportedimage)o l'interfaccia della riga di comando di [Azure](https://docs.microsoft.com/cli/azure/batch/pool/supported-images). È responsabilità dell'utente aggiornare periodicamente la visualizzazione delle date di EOL pertinenti ai pool ed eseguire la migrazione dei carichi di lavoro prima che venga eseguita la data di EOL. Se si usa un'immagine personalizzata con un agente node specificato, sarà necessario assicurarsi di seguire le date di fine del ciclo di vita del supporto batch per l'immagine per cui è derivata o allineata l'immagine personalizzata.
+
+- **Non riutilizzare i nomi delle risorse.**
+    Le risorse di Batch (processi, pool e così via) non sono in genere fisse nel corso del tempo. Ad esempio, è possibile creare un pool il lunedì, eliminarlo il martedì e quindi crearne un altro il giovedì. A ogni nuova risorsa creata è necessario assegnare un nome univoco che non è mai stato usato prima. A tale scopo, è possibile usare un GUID (per l'intero nome della risorsa o solo per una parte) o incorporare nel nome l'ora in cui è stata creata la risorsa. Batch supporta [DisplayName](/dotnet/api/microsoft.azure.batch.jobspecification.displayname), che è possibile usare per assegnare a una risorsa un nome facilmente leggibile, anche se l'ID risorsa effettiva può essere più complesso. L'uso di nomi univoci consente di distinguere più facilmente la risorsa specifica a cui fanno riferimento log e metriche. Rimuove anche l'ambiguità se è necessario presentare un caso di supporto per una risorsa.
+
 
 - **Continuità durante la manutenzione e l'errore del pool:** È preferibile che i processi usino i pool in modo dinamico. Se i processi usano lo stesso pool per tutte le operazioni, è possibile che non vengano eseguiti se si verificano problemi in tale pool. Questo aspetto è particolarmente importante per i carichi di lavoro dipendenti dal tempo. Per risolvere questo problema, selezionare o creare un pool in modo dinamico quando si pianifica ogni processo oppure ignorare in qualche modo il nome del pool in modo che sia possibile evitare un pool non integro.
 

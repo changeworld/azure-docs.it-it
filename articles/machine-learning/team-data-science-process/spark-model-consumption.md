@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: bb38a76de41885b6f39a1c6dce7c44bcb52a4d60
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 659f61734001163ada6fd26caabe2fb007892f61
+ms.sourcegitcommit: 2c1b93301174fccea00798df08e08872f53f669c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "86027444"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104774491"
 ---
 # <a name="operationalize-spark-built-machine-learning-models"></a>Rendere operativi i modelli di apprendimento automatico compilati con Spark
 
@@ -266,7 +266,8 @@ Tempo impiegato per eseguire questa cella: 5,37 secondi.
 ### <a name="create-rdd-objects-with-feature-arrays-for-input-into-models"></a>Creare oggetti RDD con matrici di funzionalità per l'inserimento in modelli
 Questa sezione contiene codice che illustra come indicizzare dati di testo categorici come oggetti RDD e come usare la codifica one-hot per codificarli per l'uso per il training e il testing della regressione logistica MLlib e dei modelli basati su albero. I dati indicizzati vengono archiviati come oggetti [RDD (Resilient Distributed Dataset)](https://spark.apache.org/docs/latest/api/java/org/apache/spark/rdd/RDD.html) . RDD sono l'astrazione di base in Spark. Un oggetto RDD rappresenta una raccolta partizionata non modificabile di elementi su cui è possibile operare in parallelo con Spark.
 
-Contiene anche codice che mostra come ridimensionare i dati con `StandardScalar` , fornito da MLlib per l'uso nella regressione lineare con la discesa del gradiente stocastica (SGD), un algoritmo molto diffuso per il training di una vasta gamma di modelli di Machine Learning. [StandardScaler](https://spark.apache.org/docs/latest/api/python/pyspark.mllib.html#pyspark.mllib.feature.StandardScaler) viene usato per ridimensionare le funzionalità alla varianza unitaria. Il ridimensionamento di funzionalità, noto anche come normalizzazione dei dati, permette di fare in modo che alle funzionalità con valori molto dispersi non venga attribuito un peso eccessivo nella funzione obiettivo. 
+Contiene anche codice che mostra come ridimensionare i dati con `StandardScalar` , fornito da MLlib per l'uso nella regressione lineare con la discesa del gradiente stocastica (SGD), un algoritmo molto diffuso per il training di una vasta gamma di modelli di Machine Learning. [StandardScaler](https://spark.apache.org/docs/latest/api/python/reference/api/pyspark.mllib.tree.RandomForest.html#pyspark.mllib.tree.RandomForest
+) viene usato per ridimensionare le funzionalità alla varianza unitaria. Il ridimensionamento di funzionalità, noto anche come normalizzazione dei dati, permette di fare in modo che alle funzionalità con valori molto dispersi non venga attribuito un peso eccessivo nella funzione obiettivo. 
 
 ```python
 # CREATE RDD OBJECTS WITH FEATURE ARRAYS FOR INPUT INTO MODELS

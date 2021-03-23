@@ -6,15 +6,15 @@ ms.service: virtual-machines
 ms.subservice: spot
 ms.workload: infrastructure-services
 ms.topic: how-to
-ms.date: 06/26/2020
+ms.date: 03/22/2021
 ms.author: cynthn
 ms.reviewer: jagaveer
-ms.openlocfilehash: 33172004ac4361de51b92389fbf56bd699f7124f
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 9a2ad2eb197af613919efa4414da1759cd47e2e7
+ms.sourcegitcommit: ba3a4d58a17021a922f763095ddc3cf768b11336
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102096446"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104802744"
 ---
 # <a name="deploy-azure-spot-virtual-machines-using-azure-powershell"></a>Distribuire macchine virtuali Azure spot usando Azure PowerShell
 
@@ -76,20 +76,53 @@ Get-AzVM -ResourceGroupName $resourceGroup | `
 
 ## <a name="simulate-an-eviction"></a>Simulare un'eliminazione
 
-È possibile [simulare un'eliminazione](/rest/api/compute/virtualmachines/simulateeviction) di una macchina virtuale di Azure spot, per testare il modo in cui l'applicazione effettuerà il ristagno a una rimozione improvvisa. 
+È possibile simulare un'eliminazione di una macchina virtuale di Azure spot usando REST, PowerShell o l'interfaccia della riga di comando per verificare il grado di risposta dell'applicazione a una rimozione improvvisa.
 
-Sostituire quanto segue con le informazioni: 
+Nella maggior parte dei casi, è consigliabile usare le macchine virtuali dell'API REST, [simulando la rimozione](/rest/api/compute/virtualmachines/simulateeviction) , per consentire il test automatizzato delle applicazioni. Per REST, un `Response Code: 204` indica che l'eliminazione simulata ha avuto esito positivo. È possibile combinare eliminazioni simulate con il [servizio eventi pianificato](scheduled-events.md), per automatizzare il modo in cui l'app risponderà quando la macchina virtuale verrà eliminata.
 
-- `subscriptionId`
-- `resourceGroupName`
-- `vmName`
+Per visualizzare gli eventi pianificati in azione, Guarda [Azure Friday-uso di azure eventi pianificati per preparare la manutenzione della macchina virtuale](https://channel9.msdn.com/Shows/Azure-Friday/Using-Azure-Scheduled-Events-to-Prepare-for-VM-Maintenance).
 
 
-```rest
-POST https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/virtualMachines/{vmName}/simulateEviction?api-version=2020-06-01
+### <a name="quick-test"></a>Test rapido
+
+Per un rapido test per illustrare il funzionamento di un'operazione di rimozione simulata, è possibile esaminare il servizio eventi pianificati per verificarne l'aspetto quando si simula una rimozione usando PowerShell.
+
+Il servizio eventi pianificato è abilitato per il servizio la prima volta che si effettua una richiesta per gli eventi. 
+
+Accedere in remoto alla macchina virtuale e quindi aprire un prompt dei comandi. 
+
+Al prompt dei comandi nella macchina virtuale, digitare:
+
+```
+curl -H Metadata:true http://169.254.169.254/metadata/scheduledevents?api-version=2019-08-01
 ```
 
-`Response Code: 204` indica che l'eliminazione simulata è stata completata. 
+Questa prima risposta potrebbe richiedere fino a 2 minuti. Da questo momento in poi, dovrebbero visualizzare l'output quasi immediatamente.
+
+Da un computer in cui è installato il modulo AZ PowerShell (come il computer locale), simulare un'eliminazione usando [set-AzVM](https://docs.microsoft.com/powershell/module/az.compute/set-azvm). Sostituire il nome del gruppo di risorse e il nome della macchina virtuale con quelli personalizzati. 
+
+```azurepowershell-interactive
+Set-AzVM -ResourceGroupName "mySpotRG" -Name "mySpotVM" -SimulateEviction
+```
+
+L'output della risposta sarà `Status: Succeeded` se la richiesta è stata eseguita correttamente.
+
+Tornare rapidamente alla macchina virtuale spot ed eseguire di nuovo la query sull'endpoint Eventi pianificati. Ripetere il comando seguente fino a ottenere un output che contiene altre informazioni:
+
+```
+curl -H Metadata:true http://169.254.169.254/metadata/scheduledevents?api-version=2019-08-01
+```
+
+Quando il servizio eventi pianificato riceve la notifica di rimozione, verrà visualizzata una risposta simile alla seguente:
+
+```output
+{"DocumentIncarnation":1,"Events":[{"EventId":"A123BC45-1234-5678-AB90-ABCDEF123456","EventStatus":"Scheduled","EventType":"Preempt","ResourceType":"VirtualMachine","Resources":["myspotvm"],"NotBefore":"Tue, 16 Mar 2021 00:58:46 GMT","Description":"","EventSource":"Platform"}]}
+```
+
+Come si può notare `"EventType":"Preempt"` , la risorsa è la risorsa della macchina virtuale `"Resources":["myspotvm"]` . 
+
+È anche possibile vedere quando la macchina virtuale verrà rimossa controllando il `"NotBefore"` valore. La macchina virtuale non verrà eliminata prima del periodo di tempo specificato in `NotBefore` , quindi la finestra dell'applicazione si chiuderà normalmente.
+
 
 ## <a name="next-steps"></a>Passaggi successivi
 

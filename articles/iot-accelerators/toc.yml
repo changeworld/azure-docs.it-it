@@ -7,22 +7,10 @@
     - name: AzureIoTSolutions.com
       href: iot-accelerators-permissions.md
     - name: IoT industriale
-      href: overview-iot-industrial.md
-      items:
-        - name: Informazioni su OPC Twin
-          href: overview-opc-twin.md
-        - name: Informazioni su OPC Vault
-          href: overview-opc-vault.md
-        - name: Informazioni su OPC Publisher
-          href: overview-opc-publisher.md
-        - name: Informazioni su Connected Factory
-          href: iot-accelerators-connected-factory-features.md
     - name: Simulazione dei dispositivi
       href: iot-accelerators-device-simulation-overview.md
 - name: Avvi rapidi
   items:
-    - name: Provare una soluzione di fabbrica connessa
-      href: quickstart-connected-factory-deploy.md
     - name: Distribuire l'acceleratore della soluzione di simulazione di dispositivi
       href: 'https://github.com/Azure/device-simulation-dotnet/blob/master/README.md'
   expanded: true
@@ -37,47 +25,14 @@
 - name: Concetti
   items:
     - name: IoT industriale
-      items:
-        - name: Architettura di OPC Twin
-          href: overview-opc-twin-architecture.md
-        - name: Architettura OPC Vault
-          href: overview-opc-vault-architecture.md
 - name: Guide pratiche
   items:
     - name: IoT industriale
       items:
         - name: Connected Factory
-          items:
-            - name: Usare il dashboard
-              href: iot-accelerators-connected-factory-dashboard.md
-            - name: Configurare l'acceleratore di soluzioni
-              href: iot-accelerators-connected-factory-configure.md
-            - name: Personalizzare l'acceleratore di soluzioni
-              href: iot-accelerators-connected-factory-customize.md
         - name: OPC Twin
-          items:
-            - name: Distribuire servizi OPC Twin
-              href: howto-opc-twin-deploy-existing.md
-            - name: Distribuire il modulo OPC Twin in IoT Edge
-              href: howto-opc-twin-deploy-modules.md
-            - name: Distribuire solo le dipendenze di OPC Twin
-              href: howto-opc-twin-deploy-dependencies.md
         - name: OPC Vault
-          items:
-            - name: Distribuire il servizio OPC Vault
-              href: howto-opc-vault-deploy.md
-            - name: Gestire il servizio OPC Vault
-              href: howto-opc-vault-manage.md
-            - name: Proteggere la comunicazione dei dispositivi OPC UA con OPC Vault
-              href: howto-opc-vault-secure.md
-            - name: Usare il servizio OPC Vault in modo sicuro
-              href: howto-opc-vault-secure-ca.md
         - name: OPC Publisher
-          items:
-            - name: Configurare OPC Publisher
-              href: howto-opc-publisher-configure.md
-            - name: Eseguire OPC Publisher
-              href: howto-opc-publisher-run.md
     - name: Simulazione dei dispositivi
       items:
         - name: Usare un hub IoT esistente
@@ -122,8 +77,6 @@
       items:
         - name: Repository GitHub
           href: 'https://github.com/Azure/azure-iot-connected-factory'
-        - name: Domande frequenti su Connected Factory
-          href: iot-accelerators-faq-cf.md
     - name: Simulazione dei dispositivi
       items:
         - name: Guida di riferimento per gli sviluppatori

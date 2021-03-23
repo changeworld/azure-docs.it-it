@@ -10,16 +10,16 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: pim
 ms.topic: overview
-ms.date: 09/29/2020
+ms.date: 03/19/2021
 ms.author: curtand
 ms.custom: pim ; azuread-video-2020
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c3c7003ce3e8c65f6fdb7f3d847947114aee251f
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: d42611705b7756ed2fd0c7a488339f0f638fb5b4
+ms.sourcegitcommit: ba3a4d58a17021a922f763095ddc3cf768b11336
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "92370186"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104802166"
 ---
 # <a name="what-is-azure-ad-privileged-identity-management"></a>Che cos'è Azure AD Privileged Identity Management?
 
@@ -92,8 +92,8 @@ Per una migliore comprensione di Privileged Identity Management e della document
 | attivato | State | Un utente che ha un'assegnazione di ruolo idonea, ha eseguito le azioni per attivare il ruolo ed è ora attivo.  Dopo l'attivazione, l'utente può usare il ruolo per un periodo di tempo preconfigurato prima che sia necessario ripeterla. |
 | idonea permanente | Duration | Un'assegnazione di ruolo in cui un utente è sempre idoneo ad attivare il ruolo. |
 | attiva permanente | Duration | Un'assegnazione di ruolo in cui un utente può sempre usare il ruolo senza eseguire alcuna azione. |
-| idonea dopo | Duration | Un'assegnazione di ruolo in cui un utente è idoneo ad attivare il ruolo tra una data di inizio e una data di fine specificate. |
-| attiva dopo | Duration | Un'assegnazione di ruolo in cui un utente può usare il ruolo senza eseguire alcuna azione tra una data di inizio e fine specificate. |
+| idoneo per il tempo | Duration | Assegnazione di ruolo in cui un utente è idoneo ad attivare il ruolo solo entro le date di inizio e di fine. |
+| tempo di attività attivo | Duration | Assegnazione di ruolo in cui un utente può utilizzare il ruolo solo entro le date di inizio e di fine. |
 | accesso JIT (Just-In-Time) |  | Un modello in base al quale gli utenti ricevono autorizzazioni temporanee per eseguire attività con privilegi, che impedisce a utenti non autorizzati o malintenzionati di ottenere l'accesso dopo la scadenza delle autorizzazioni. L'accesso viene concesso solo quando l'utente ne ha necessità. |
 | principio di accesso con privilegi minimi |  | Una procedura consigliata per la sicurezza in base alla quale ogni utente viene dotato solo dei privilegi minimi necessari per eseguire le attività che è autorizzato a svolgere. Ciò consente di ridurre al minimo il numero di amministratori globali usando in alternativa ruoli di amministratore specifici per determinati scenari. |
 

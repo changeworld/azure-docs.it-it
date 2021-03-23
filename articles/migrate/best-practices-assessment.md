@@ -1,40 +1,39 @@
 ---
-title: Procedure consigliate di valutazione in Azure Migrate server Assessment
-description: Suggerimenti per la creazione di valutazioni con Azure Migrate server assessment.
+title: Procedure consigliate di valutazione in Azure Migrate strumento di individuazione e valutazione
+description: Suggerimenti per la creazione di valutazioni con Azure Migrate strumento di individuazione e valutazione.
 author: rashi-ms
 ms.author: rajosh
 ms.manager: abhemraj
 ms.topic: conceptual
 ms.date: 11/19/2019
-ms.openlocfilehash: c1fff5b5b7f6450ad8d1977e55a1f6b255f3d668
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 1bf844dafe450e90213db2e447bb5392064eb245
+ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "96754318"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104786771"
 ---
 # <a name="best-practices-for-creating-assessments"></a>Procedure consigliate per la creazione di valutazioni
 
 [Azure Migrate](./migrate-services-overview.md) offre un hub di strumenti che consentono di individuare, valutare ed eseguire la migrazione di app, infrastruttura e carichi di lavoro a Microsoft Azure. L'hub include gli strumenti di Azure Migrate e offerte di fornitori di software indipendenti (ISV) di terze parti.
 
-In questo articolo vengono riepilogate le procedure consigliate per la creazione di valutazioni mediante lo strumento Azure Migrate server assessment.
+In questo articolo vengono riepilogate le procedure consigliate per la creazione di valutazioni mediante lo strumento Azure Migrate Discovery and Assessment.
 
-## <a name="about-assessments"></a>Informazioni sulle valutazioni
-
-Le valutazioni create con Azure Migrate server assessment sono uno snapshot temporizzato dei dati. Esistono due tipi di valutazione che è possibile creare usando Azure Migrate: server assessment:
+Valutazioni create con Azure Migrate: lo strumento di individuazione e valutazione è uno snapshot temporizzato dei dati. Esistono tre tipi di valutazione che è possibile creare usando Azure Migrate: individuazione e valutazione:
 
 **Tipo di valutazione** | **Dettagli**
 --- | --- 
-**Macchina virtuale di Azure** | Valutazioni per la migrazione dei server locali in macchine virtuali di Azure. <br/><br/> È possibile valutare le [macchine virtuali VMware](how-to-set-up-appliance-vmware.md) locali, le [VM Hyper-V](how-to-set-up-appliance-hyper-v.md) e i [server fisici](how-to-set-up-appliance-physical.md) per la migrazione ad Azure usando questo tipo di valutazione. [Altre informazioni](concepts-assessment-calculation.md)
+**Macchina virtuale di Azure** | Valutazioni per la migrazione dei server locali in macchine virtuali di Azure. <br/><br/> È possibile valutare i server locali nell'ambiente [VMware](how-to-set-up-appliance-vmware.md) e [Hyper-V](how-to-set-up-appliance-hyper-v.md) e i [server fisici](how-to-set-up-appliance-physical.md) per la migrazione ad Azure usando questo tipo di valutazione. [Scopri di più](concepts-assessment-calculation.md)
+**SQL di Azure** | Valutazioni per la migrazione dei server SQL locali dall'ambiente VMware al database SQL di Azure o al Istanza gestita SQL di Azure. [Altre informazioni](concepts-azure-sql-assessment-calculation.md)
 **Soluzione Azure VMware** | Valutazioni per la migrazione dei server locali nella [soluzione Azure VMware](../azure-vmware/introduction.md). <br/><br/> È possibile valutare le [macchine virtuali VMware](how-to-set-up-appliance-vmware.md) locali per la migrazione alla soluzione Azure VMware usando questo tipo di valutazione. [Altre informazioni](concepts-azure-vmware-solution-assessment-calculation.md)
 
 
 ### <a name="sizing-criteria"></a>Criteri di dimensionamento
-Lo strumento Valutazione server offre due opzioni per i criteri di dimensionamento:
+Opzioni relative ai criteri di ridimensionamento nelle valutazioni Azure Migrate:
 
 **Criteri di dimensionamento** | **Dettagli** | **Dati**
 --- | --- | ---
-**Basata sulle prestazioni** | Valutazioni che fanno raccomandazioni in base ai dati sulle prestazioni raccolti | **Valutazione delle macchine virtuali di Azure**: la raccomandazione sulle dimensioni della VM è basata sui dati relativi all'utilizzo di CPU e memoria.<br/><br/> La raccomandazione sul tipo di disco (HDD/SSD standard o dischi gestiti Premium) è basata sulle operazioni di I/O al secondo e sulla velocità effettiva dei dischi locali.<br/><br/> **Valutazione della soluzione Azure VMware**: la raccomandazione sui nodi della soluzione Azure VMware è basata sui dati relativi all'utilizzo di CPU e memoria.
+**Basata sulle prestazioni** | Valutazioni che fanno raccomandazioni in base ai dati sulle prestazioni raccolti | **Valutazione delle macchine virtuali di Azure**: la raccomandazione sulle dimensioni della VM è basata sui dati relativi all'utilizzo di CPU e memoria.<br/><br/> La raccomandazione sul tipo di disco (HDD/SSD standard o dischi gestiti Premium) è basata sulle operazioni di I/O al secondo e sulla velocità effettiva dei dischi locali.<br/><br/>**Azure SQL Assessment**: la configurazione di SQL Azure è basata sui dati sulle prestazioni delle istanze e dei database SQL, che includono: utilizzo della CPU, utilizzo della memoria, IOPS (file di dati e di log), velocità effettiva e latenza delle operazioni di i/o<br/><br/>**Valutazione della soluzione Azure VMware**: la raccomandazione sui nodi della soluzione Azure VMware è basata sui dati relativi all'utilizzo di CPU e memoria.
 **Come in locale** | Valutazioni che non usano i dati sulle prestazioni per fare raccomandazioni. | **Valutazione delle macchine virtuali di Azure**: la raccomandazione sulle dimensioni della VM è basata sulle dimensioni delle VM locali<br/><br> Il tipo di disco consigliato è basato sull'opzione selezionata nell'impostazione del tipo di archiviazione per la valutazione.<br/><br/> **Valutazione della soluzione Azure VMware**: la raccomandazione sui nodi della soluzione Azure VMware è basata sulle dimensioni delle VM locali.
 
 #### <a name="example"></a>Esempio
@@ -53,7 +52,7 @@ Ad esempio, se si dispone di una macchina virtuale locale con quattro core con u
 
 Il Azure Migrate appliance continua a profilare l'ambiente locale e invia i metadati e i dati sulle prestazioni in Azure. Seguire queste procedure consigliate per le valutazioni dei server individuati usando un'appliance:
 
-- **Crea valutazioni così come sono**: è possibile creare valutazioni così come sono immediatamente dopo la visualizzazione dei computer nel portale di Azure migrate.
+- **Crea valutazioni così come sono**: è possibile creare valutazioni così come sono immediatamente dopo la visualizzazione dei server nel portale di Azure migrate. Non è possibile creare una valutazione SQL di Azure con criteri di ridimensionamento "come in locale".
 - **Creare una valutazione basata sulle prestazioni**: dopo aver configurato l'individuazione, è consigliabile attendere almeno un giorno prima di eseguire una valutazione basata sulle prestazioni:
     - La raccolta dei dati sulle prestazioni richiede tempo. L'attesa di almeno un giorno garantisce che siano presenti sufficienti punti dati sulle prestazioni prima di eseguire la valutazione.
     - Quando si eseguono valutazioni basate sulle prestazioni, assicurarsi di profilare l'ambiente per la durata della valutazione. Se, ad esempio, si crea una valutazione con una durata delle prestazioni impostata su una settimana, è necessario attendere almeno una settimana dopo l'avvio dell'individuazione, per tutti i punti dati da raccogliere. In caso contrario, la valutazione non otterrà una classificazione a cinque stelle.
@@ -61,7 +60,7 @@ Il Azure Migrate appliance continua a profilare l'ambiente locale e invia i meta
 
 Seguire queste procedure consigliate per le valutazioni dei server importati in Azure Migrate tramite. File CSV:
 
-- **Crea valutazioni così come sono**: è possibile creare valutazioni così come sono immediatamente dopo la visualizzazione dei computer nel portale di Azure migrate.
+- **Crea valutazioni così come sono**: è possibile creare valutazioni così come sono immediatamente dopo la visualizzazione dei server nel portale di Azure migrate.
 - **Creazione di una valutazione basata sulle prestazioni**: consente di ottenere una stima dei costi migliore, soprattutto se si ha un provisioning eccessivo della capacità del server in locale. Tuttavia, l'accuratezza della valutazione basata sulle prestazioni dipende dai dati sulle prestazioni specificati dall'utente per i server. 
 - **Ricalcola valutazioni**: poiché le valutazioni sono snapshot temporizzati, non vengono aggiornate automaticamente con i dati più recenti. Per aggiornare una valutazione con i dati importati più recenti, è necessario ricalcolarli.
  
@@ -81,9 +80,16 @@ Il motore di archiviazione usato in AVS è rete VSAN. I criteri di archiviazione
 ## <a name="best-practices-for-confidence-ratings"></a>Procedure consigliate per le classificazioni di confidenza
 
 Quando si eseguono valutazioni basate sulle prestazioni, alla valutazione viene assegnata una classificazione di attendibilità compresa tra 1 stella (più bassa) e 5 stelle. Per usare in modo efficace la classificazione delle confidenze:
-- Azure Migrate server assessment richiede i dati di utilizzo per la CPU/memoria della macchina virtuale.
-- Per ogni disco collegato alla VM locale sono necessari i dati di IOPS/velocità effettiva di lettura/scrittura.
-- Per ogni scheda di rete collegata alla macchina virtuale, sono necessari i dati di rete in/out.
+
+- Le valutazioni delle macchine virtuali di Azure e AVS sono necessarie:
+    - I dati di utilizzo della CPU e della memoria per ogni server
+    - Dati di IOPS/velocità effettiva di lettura/scrittura per ogni disco collegato al server locale
+    - I dati di rete in/out per ogni scheda di rete collegata al server.
+     
+- Per le valutazioni SQL di Azure sono necessari i dati sulle prestazioni delle istanze e dei database SQL da valutare, tra cui:
+    - Dati relativi all'utilizzo della CPU e della memoria
+    - Dati di IOPS/velocità effettiva di lettura/scrittura dei file di dati e di log
+    - Latenza delle operazioni di i/o
 
 A seconda della percentuale di punti dati disponibili per la durata selezionata, la classificazione di attendibilità per una valutazione viene fornita come riepilogata nella tabella seguente.
 
@@ -102,12 +108,12 @@ Di seguito viene illustrato come risolvere alcuni problemi di ambiente comuni ch
 
 ###  <a name="out-of-sync-assessments"></a>Valutazioni out-of-Sync
 
-Se si aggiungono o rimuovono computer da un gruppo dopo aver creato una valutazione, la valutazione creata verrà contrassegnata come non **sincronizzata**. Eseguire nuovamente la valutazione (**Ricalcola**) per riflettere le modifiche apportate al gruppo.
+Se si aggiungono o rimuovono server da un gruppo dopo aver creato una valutazione, la valutazione creata verrà contrassegnata come non **sincronizzata**. Eseguire nuovamente la valutazione (**Ricalcola**) per riflettere le modifiche apportate al gruppo.
 
 ### <a name="outdated-assessments"></a>Valutazioni obsolete
 
-Se sono presenti modifiche locali alle macchine virtuali che si trovano in un gruppo valutato, la valutazione viene contrassegnata come **obsoleta**. Una valutazione può essere contrassegnata come "obsoleta" a causa di una o più modifiche nelle proprietà seguenti:
-
+#### <a name="azure-vm-assessment-and-avs-assessment"></a>Valutazione delle macchine virtuali di Azure e AVS Assessment
+Se sono presenti modifiche nei server locali che si trovano in un gruppo valutato, la valutazione viene contrassegnata come **obsoleta**. Una valutazione può essere contrassegnata come "obsoleta" a causa di una o più modifiche nelle proprietà seguenti:
 - Numero di core del processore
 - Memoria allocata
 - Tipo di avvio o firmware
@@ -116,24 +122,43 @@ Se sono presenti modifiche locali alle macchine virtuali che si trovano in un gr
 - Numero di scheda di rete
 - Modifica dimensioni disco (GB allocato)
 - Aggiornamento delle proprietà nic. Esempio: modifiche all'indirizzo Mac, aggiunta dell'indirizzo IP e così via.
-
+    
 Eseguire di nuovo la valutazione (**Ricalcola**) per riflettere le modifiche.
+    
+#### <a name="azure-sql-assessment"></a>Valutazione di Azure SQL
+Se vengono apportate modifiche alle istanze e ai database SQL locali inclusi in un gruppo valutato, la valutazione viene contrassegnata come **obsoleta**. Una valutazione può essere contrassegnata come "obsoleta" a causa di uno o più dei motivi seguenti:
+- L'istanza di SQL è stata aggiunta o rimossa da un server
+- Il database SQL è stato aggiunto o rimosso da un'istanza di SQL
+- Le dimensioni totali del database in un'istanza di SQL sono cambiate di una percentuale superiore al 20%
+- Modifica del numero di core del processore
+- Modifica nella memoria allocata        
+  
+    Eseguire di nuovo la valutazione (**Ricalcola**) per riflettere le modifiche.
 
 ### <a name="low-confidence-rating"></a>Classificazione con attendibilità bassa
 
 Una valutazione potrebbe non avere tutti i punti dati per diversi motivi:
 
-- L'ambiente non è stato analizzato per il perioro di tempo per cui si sta creando la valutazione. Se, ad esempio, si sta creando una *valutazione basata sulle prestazioni* con durata delle prestazioni impostata su una settimana, è necessario attendere almeno una settimana dopo l'avvio dell'individuazione per tutti i punti dati da raccogliere. È sempre possibile fare clic su **Ricalcola** per visualizzare l'ultima classificazione di attendibilità applicabile. La classificazione di attendibilità è applicabile solo quando si crea una valutazione *basata sulle prestazioni* .
+- L'ambiente non è stato analizzato per il perioro di tempo per cui si sta creando la valutazione. Ad esempio, se si sta creando una valutazione con periodo di tempo delle prestazioni impostato su 1 settimana, è necessario attendere almeno una settimana dopo avere avviato l'individuazione perché siano raccolti tutti i punti dati. Se non è possibile attendere per tale periodo, modificare la durata delle prestazioni a un periodo più breve e "Ricalcolare" la valutazione.
+ 
+- La valutazione non è in grado di raccogliere i dati sulle prestazioni per alcuni o tutti i server nel periodo di valutazione. Per una classificazione di attendibilità elevata, verificare che: 
+    - I server sono accesi per la durata della valutazione
+    - Sono consentite le connessioni in uscita sulle porte 443
+    - Per i server Hyper-V la memoria dinamica è abilitata 
+    - Lo stato della connessione degli agenti nel Azure Migrate è' Connected ' e controlla l'ultimo heartbeat
+    - Per le valutazioni SQL di Azure, Azure Migrate stato di connessione per tutte le istanze SQL è "connesso" nel pannello istanza SQL individuata
 
-- Durante il periodo per cui viene calcolata la valutazione sono state arrestate alcune VM. Se alcune macchine virtuali sono state spente per un certo periodo di tempo, Server Assessment non sarà in grado di raccogliere i dati sulle prestazioni per questo periodo.
+    Ricalcolare la valutazione in modo da riflettere le ultime modifiche apportate alla classificazione di attendibilità.
 
-- Dopo avere avviato l'individuazione in Server Assessment sono state create alcune macchine virtuali. Questa situazione si verifica, ad esempio, se si crea una valutazione per la cronologia delle prestazioni dell'ultimo mese, ma solo una settimana prima sono state create alcune VM nell'ambiente. In questo caso, i dati sulle prestazioni per le nuove macchine virtuali non saranno disponibili per l'intera durata e la classificazione di attendibilità sarà limitata.
+- Per le valutazioni di VM e AVS di Azure, sono stati creati pochi server dopo l'avvio dell'individuazione. Ad esempio, se si sta creando una valutazione per la cronologia delle prestazioni dell'ultimo mese, ma sono stati creati pochi server nell'ambiente solo una settimana fa. In questo caso, i dati sulle prestazioni per i nuovi server non saranno disponibili per l'intera durata e la classificazione di attendibilità sarà bassa.
+
+- Per le valutazioni di Azure SQL, alcuni database o istanze di SQL sono stati creati dopo l'avvio dell'individuazione. Se, ad esempio, si sta creando una valutazione per la cronologia delle prestazioni dell'ultimo mese, ma nell'ambiente sono state create alcune istanze o database SQL solo una settimana fa. In questo caso, i dati sulle prestazioni per i nuovi server non saranno disponibili per l'intera durata e la classificazione di attendibilità sarà bassa.
 
 ### <a name="migration-tool-guidance-for-avs-assessments"></a>Guida dello strumento di migrazione per le valutazioni AVS
 
 Nel report di idoneità per Azure per la valutazione della soluzione Azure VMware è possibile visualizzare gli strumenti consigliati seguenti: 
-- **VMware HCX o Enterprise**: per i computer VMware, la soluzione VMware Hybrid Cloud Extension (HCx) è lo strumento di migrazione suggerito per eseguire la migrazione del carico di lavoro locale al cloud privato della soluzione VMware di Azure (AVS). [Altre informazioni](../azure-vmware/tutorial-deploy-vmware-hcx.md).
-- **Sconosciuto**: Per i computer importati tramite un file con estensione csv, lo strumento di migrazione predefinito è sconosciuto. Tuttavia, per i computer VMware è consigliabile usare la soluzione VMware Hybrid Cloud Extension (HCX).
+- **VMware HCX o Enterprise**: per i server VMware, la soluzione VMware Hybrid Cloud Extension (HCx) è lo strumento di migrazione suggerito per eseguire la migrazione del carico di lavoro locale al cloud privato della soluzione VMware di Azure (AVS). [Altre informazioni](../azure-vmware/tutorial-deploy-vmware-hcx.md).
+- **Sconosciuto**: per i server importati tramite un file CSV, lo strumento di migrazione predefinito è sconosciuto. Tuttavia, per i server in ambiente VMware, è consigliabile usare la soluzione VMware Hybrid Cloud Extension (HCX).
 
 
 ## <a name="next-steps"></a>Passaggi successivi

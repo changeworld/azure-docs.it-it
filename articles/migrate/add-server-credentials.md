@@ -1,40 +1,40 @@
 ---
-title: Fornire le credenziali del server per individuare le applicazioni, le dipendenze e i database e le istanze di SQL Server
+title: Fornire le credenziali del server per individuare l'inventario software, le dipendenze e i database e le istanze di SQL Server
 description: Informazioni su come fornire le credenziali del server in Gestione configurazione Appliance
-author: vikram1988
-ms.author: vibansa
+author: vineetvikram
+ms.author: vivikram
 ms.manager: abhemraj
 ms.topic: how-to
-ms.date: 01/26/2021
-ms.openlocfilehash: 2359855ce3949eb022a03f6e8e2dbc05f98907db
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.date: 03/18/2021
+ms.openlocfilehash: 990ca661eb6ec17c7f8aca246c15f89fcf8975a8
+ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102054773"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104785224"
 ---
-# <a name="provide-server-credentials-to-discover-applications-dependencies-and-sql-server-instances-and-databases"></a>Fornire le credenziali del server per individuare le applicazioni, le dipendenze e i database e le istanze di SQL Server
+# <a name="provide-server-credentials-to-discover-software-inventory-dependencies-and-sql-server-instances-and-databases"></a>Fornire le credenziali del server per individuare l'inventario software, le dipendenze e i database e le istanze di SQL Server
 
 Seguire questo articolo per informazioni su come aggiungere più credenziali del server in Gestione configurazione Appliance per eseguire l'inventario software (individuare le applicazioni installate), l'analisi delle dipendenze senza agenti e individuare SQL Server istanze e database.
 
 > [!Note]
 > L'individuazione e la valutazione di SQL Server istanze e database in esecuzione nell'ambiente VMware sono ora in anteprima. Per provare questa funzionalità, usare [**questo collegamento**](https://aka.ms/AzureMigrate/SQL) per creare un progetto nell'area **Australia orientale**. Se si dispone già di un progetto nell'Australia orientale e si vuole provare questa funzionalità, assicurarsi di aver completato questi [**prerequisiti**](how-to-discover-sql-existing-project.md) nel portale.
 
-Il [Azure migrate Appliance](migrate-appliance.md) è un'appliance semplice usata da Azure migrate: server assessment per individuare i server locali in esecuzione nell'ambiente VMware e inviare i metadati di configurazione e prestazioni del server ad Azure. Il dispositivo può essere usato anche per eseguire l'inventario software, l'analisi delle dipendenze senza agenti e l'individuazione di SQL Server istanze e database.
+Il [Azure migrate Appliance](migrate-appliance.md) è un'appliance semplice usata da Azure migrate: individuazione e valutazione per individuare i server locali in esecuzione nell'ambiente VMware e inviare i metadati di configurazione e prestazioni del server ad Azure. Il dispositivo può essere usato anche per eseguire l'inventario software, l'analisi delle dipendenze senza agenti e l'individuazione di SQL Server istanze e database.
 
-Se si desidera utilizzare queste funzionalità, è possibile fornire le credenziali del server attenendosi alla procedura descritta di seguito. Il dispositivo tenterà di eseguire automaticamente il mapping delle credenziali ai server per eseguire le funzionalità di individuazione.
+Se si desidera utilizzare queste funzionalità, è possibile specificare le credenziali del server attenendosi alla procedura descritta di seguito. Il dispositivo tenterà di eseguire automaticamente il mapping delle credenziali ai server per eseguire le funzionalità di individuazione.
 
 ## <a name="add-credentials-for-servers-running-in-vmware-environment"></a>Aggiungere le credenziali per i server in esecuzione nell'ambiente VMware
 
 ### <a name="types-of-server-credentials-supported"></a>Tipi di credenziali del server supportate
 
-È possibile aggiungere più credenziali del server in Gestione configurazione appliance che possono essere di dominio, non di dominio (Windows o Linux) o SQL Server credenziali di autenticazione.
+È possibile aggiungere più credenziali del server in Gestione configurazione Appliance, che può essere di dominio, non di dominio (Windows o Linux) o SQL Server credenziali di autenticazione.
 
 I tipi di credenziali del server supportati sono elencati nella tabella seguente:
 
 Tipo di credenziali | Descrizione
 --- | ---
-**Credenziali di dominio** | È possibile aggiungere le **credenziali di dominio** selezionando l'opzione dall'elenco a discesa nel campo modale **Aggiungi credenziali** . <br/><br/> Per fornire le credenziali di dominio, è necessario specificare il **nome di dominio** che deve essere specificato nel formato FQDN (ad esempio prod.Corp.contoso.com). <br/><br/> È anche necessario specificare un nome descrittivo per le credenziali, il nome utente e la password. <br/><br/> Le credenziali di dominio aggiunte verranno convalidate automaticamente per l'autenticità rispetto all'Active Directory del dominio. Ciò consente di evitare i blocchi degli account quando l'appliance tenta di eseguire il mapping delle credenziali di dominio rispetto ai server individuati. <br/><br/> L'appliance non tenterà di eseguire il mapping delle credenziali di dominio che non hanno superato la convalida. È necessario disporre almeno di una credenziale di dominio convalidata correttamente o almeno una credenziale non di dominio per procedere con l'inventario software.<br/><br/>Le credenziali di dominio mappate automaticamente ai server Windows verranno usate per eseguire l'inventario software e possono essere usate anche per individuare SQL Server istanze e _i database, se è stata configurata la modalità di autenticazione di Windows in SQL Server_.<br/> [Altre](https://docs.microsoft.com/dotnet/framework/data/adonet/sql/authentication-in-sql-server) informazioni sui tipi di modalità di autenticazione supportati in SQL Server.
+**Credenziali di dominio** | È possibile aggiungere le **credenziali di dominio** selezionando l'opzione dall'elenco a discesa nel campo modale **Aggiungi credenziali** . <br/><br/> Per fornire le credenziali di dominio, è necessario specificare il **nome di dominio** che deve essere specificato nel formato FQDN (ad esempio, prod.Corp.contoso.com). <br/><br/> È anche necessario specificare un nome descrittivo per le credenziali, il nome utente e la password. <br/><br/> Le credenziali di dominio aggiunte verranno convalidate automaticamente per l'autenticità rispetto all'Active Directory del dominio. Ciò consente di evitare i blocchi degli account quando l'appliance tenta di eseguire il mapping delle credenziali di dominio rispetto ai server individuati. <br/><br/> L'appliance non tenterà di eseguire il mapping delle credenziali di dominio che non hanno superato la convalida. È necessario disporre almeno di una credenziale di dominio convalidata correttamente o almeno una credenziale non di dominio per procedere con l'inventario software.<br/><br/>Le credenziali di dominio mappate automaticamente ai server Windows verranno usate per eseguire l'inventario software e possono essere usate anche per individuare SQL Server istanze e _i database, se è stata configurata la modalità di autenticazione di Windows in SQL Server_.<br/> [Altre](https://docs.microsoft.com/dotnet/framework/data/adonet/sql/authentication-in-sql-server) informazioni sui tipi di modalità di autenticazione supportati in SQL Server.
 **Credenziali non di dominio (Windows/Linux)** | È possibile aggiungere **Windows (non di dominio)** o **Linux (non dominio)** selezionando l'opzione richiesta nell'elenco a discesa in **Aggiungi credenziali** modale. <br/><br/> È necessario specificare un nome descrittivo per le credenziali, il nome utente e la password.
 **Credenziali di autenticazione SQL Server** | È possibile aggiungere **SQL Server** credenziali di autenticazione selezionando l'opzione dall'elenco a discesa in **Aggiungi credenziali** modale. <br/><br/> È necessario specificare un nome descrittivo per le credenziali, il nome utente e la password. <br/><br/> È possibile aggiungere questo tipo di credenziali per individuare SQL Server istanze e i database in esecuzione nell'ambiente VMware, se è stata configurata la modalità di autenticazione SQL Server in SQL Server.<br/> [Altre](https://docs.microsoft.com/dotnet/framework/data/adonet/sql/authentication-in-sql-server) informazioni sui tipi di modalità di autenticazione supportati in SQL Server.<br/><br/> È necessario specificare almeno una credenziale del dominio convalidata correttamente o almeno una credenziale Windows (non di dominio), in modo che l'appliance possa completare l'inventario software per individuare SQL installato nei server prima di utilizzare le credenziali di autenticazione SQL Server per individuare le istanze di SQL Server e i database.
 
@@ -55,7 +55,7 @@ Funzionalità | Credenziali di Windows | Credenziali Linux
 - È consigliabile creare un account utente di dominio dedicato con le [autorizzazioni necessarie](add-server-credentials.md#required-permissions), con ambito per eseguire l'inventario software, l'analisi delle dipendenze senza agenti e l'individuazione di SQL Server istanze e database nei server desiderati.
 - È consigliabile specificare almeno una credenziale del dominio convalidata correttamente o almeno una credenziale non di dominio per avviare l'inventario software.
 - Per individuare SQL Server istanze e i database, è possibile specificare le credenziali del dominio, se la modalità di autenticazione di Windows è stata configurata nei server SQL.
--  È anche possibile fornire le credenziali di autenticazione SQL Server se è stata configurata la modalità di autenticazione SQL Server su SQL Server, ma è consigliabile specificare almeno una credenziale di dominio convalidata correttamente o almeno una credenziale Windows (non di dominio), in modo che l'appliance possa prima completare l'inventario software.
+- È anche possibile fornire le credenziali di autenticazione SQL Server se è stata configurata la modalità di autenticazione SQL Server su SQL Server, ma è consigliabile specificare almeno una credenziale di dominio convalidata correttamente o almeno una credenziale Windows (non di dominio), in modo che l'appliance possa prima completare l'inventario software.
 
 ## <a name="credentials-handling-on-appliance"></a>Gestione delle credenziali nel dispositivo
 

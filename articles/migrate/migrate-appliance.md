@@ -1,17 +1,17 @@
 ---
 title: Appliance Azure Migrate
 description: Fornisce un riepilogo del supporto per Azure Migrate Appliance.
-author: vikram1988
-ms.author: vibansa
+author: vineetvikram
+ms.author: vivikram
 ms.manager: abhemraj
 ms.topic: conceptual
-ms.date: 05/04/2020
-ms.openlocfilehash: 08cd0e9d33dd88b9bdc418f3d1bbd382b2d80632
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.date: 03/18/2021
+ms.openlocfilehash: dadca1fadef9d2967f20cae13e40d01de73d39e4
+ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102038765"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104778339"
 ---
 # <a name="azure-migrate-appliance"></a>Appliance Azure Migrate
 
@@ -23,10 +23,10 @@ L'appliance di Azure Migrate viene usata negli scenari seguenti.
 
 **Scenario** | **Strumento** | **Utilizzato per**
 --- | --- | ---
-**Individuazione e valutazione dei server in esecuzione nell'ambiente VMware** | Azure Migrate: Valutazione server | Individuare i server in esecuzione nell'ambiente VMware<br/><br/> Eseguire l'individuazione delle applicazioni installate, l'analisi delle dipendenze senza agenti e individuare SQL Server istanze e database.<br/><br/> Raccolta dei metadati delle prestazioni e della configurazione del server per le valutazioni.
+**Individuazione e valutazione dei server in esecuzione nell'ambiente VMware** | Azure Migrate: individuazione e valutazione | Individuare i server in esecuzione nell'ambiente VMware<br/><br/> Eseguire l'individuazione dell'inventario software installato, l'analisi delle dipendenze senza agenti e individuare SQL Server istanze e database.<br/><br/> Raccolta dei metadati delle prestazioni e della configurazione del server per le valutazioni.
 **Migrazione senza agenti di server in esecuzione nell'ambiente VMware** | Azure Migrate: Migrazione del server | Individuare i server in esecuzione nell'ambiente VMware. <br/><br/> Replicare i server senza installare agenti su di essi.
-**Individuazione e valutazione dei server in esecuzione nell'ambiente Hyper-V** | Azure Migrate: Valutazione server | Individuare i server in esecuzione nell'ambiente Hyper-V.<br/><br/> Raccolta dei metadati delle prestazioni e della configurazione del server per le valutazioni.
-**Individuazione e valutazione dei server fisici o virtualizzati in locale** |  Azure Migrate: Valutazione server |  Individuare i server fisici o virtualizzati locali.<br/><br/> Raccolta dei metadati delle prestazioni e della configurazione del server per le valutazioni.
+**Individuazione e valutazione dei server in esecuzione nell'ambiente Hyper-V** | Azure Migrate: individuazione e valutazione | Individuare i server in esecuzione nell'ambiente Hyper-V.<br/><br/> Raccolta dei metadati delle prestazioni e della configurazione del server per le valutazioni.
+**Individuazione e valutazione dei server fisici o virtualizzati in locale** |  Azure Migrate: individuazione e valutazione |  Individuare i server fisici o virtualizzati locali.<br/><br/> Raccolta dei metadati delle prestazioni e della configurazione del server per le valutazioni.
 
 ## <a name="deployment-methods"></a>Metodi di distribuzione
 
@@ -38,7 +38,6 @@ L'appliance può essere distribuita usando due metodi:
 - Per i server fisici o virtualizzati in locale o in qualsiasi altro cloud, è sempre necessario distribuire l'appliance usando uno script del programma di installazione di PowerShell. Vedere i passaggi della distribuzione [qui](how-to-set-up-appliance-physical.md).
 - I collegamenti di download sono disponibili nelle tabelle seguenti.
 
-
 ## <a name="appliance---vmware"></a>Appliance - VMware
 
 La tabella seguente riepiloga i requisiti dell'appliance di Azure Migrate per VMware.
@@ -46,7 +45,7 @@ La tabella seguente riepiloga i requisiti dell'appliance di Azure Migrate per VM
 > [!Note]
 > L'individuazione e la valutazione di SQL Server istanze e database in esecuzione nell'ambiente VMware sono ora in anteprima. Per provare questa funzionalità, usare [**questo collegamento**](https://aka.ms/AzureMigrate/SQL) per creare un progetto nell'area **Australia orientale**. Se si dispone già di un progetto nell'Australia orientale e si vuole provare questa funzionalità, assicurarsi di aver completato questi [**prerequisiti**](how-to-discover-sql-existing-project.md) nel portale.
 
-**Requisito** | **VMware** 
+**Requisito** | **VMware**
 --- | ---
 **Autorizzazioni** | Per accedere a Gestione configurazione Appliance localmente o in remoto, è necessario disporre di un account utente locale o di dominio con privilegi amministrativi nel server appliance.
 **Servizi Appliance** | L'Appliance dispone dei servizi seguenti:<br/><br/> - **Gestione configurazione Appliance**: si tratta di un'applicazione Web che può essere configurata con i dettagli dell'origine per avviare l'individuazione e la valutazione dei server.<br/> - **Agente di individuazione VMware**: l'agente raccoglie i metadati di configurazione del server che possono essere usati per creare come valutazioni locali.<br/>- **Agente di valutazione VMware**: l'agente raccoglie i metadati delle prestazioni del server che possono essere usati per creare valutazioni basate sulle prestazioni.<br/>- **Servizio di aggiornamento automatico**: il servizio mantiene aggiornati tutti gli agenti in esecuzione nell'appliance. Viene eseguito automaticamente una volta ogni 24 ore.<br/>- **Agente DRA**: Orchestra la replica del server e coordina la comunicazione tra i server replicati e Azure. Usato solo quando si esegue la replica di server in Azure usando la migrazione senza agente.<br/>- **Gateway**: invia i dati replicati ad Azure. Usato solo quando si esegue la replica di server in Azure usando la migrazione senza agente.<br/>- **SQL Discovery and Assessment Agent**: Invia i metadati di configurazione e delle prestazioni di SQL Server istanze e database in Azure.
@@ -62,7 +61,7 @@ La tabella seguente riepiloga i requisiti dell'appliance di Azure Migrate per VM
 
 ## <a name="appliance---hyper-v"></a>Appliance - Hyper-V
 
-**Requisito** | **Hyper-V** 
+**Requisito** | **Hyper-V**
 --- | ---
 **Autorizzazioni** | Per accedere a Gestione configurazione Appliance localmente o in remoto, è necessario disporre di un account utente locale o di dominio con privilegi amministrativi nel server appliance.
 **Servizi Appliance** | L'Appliance dispone dei servizi seguenti:<br/><br/> - **Gestione configurazione Appliance**: si tratta di un'applicazione Web che può essere configurata con i dettagli dell'origine per avviare l'individuazione e la valutazione dei server.<br/> - **Agente di individuazione**: l'agente raccoglie i metadati di configurazione del server che possono essere usati per creare come valutazioni locali.<br/>- **Agente di valutazione**: l'agente raccoglie i metadati delle prestazioni del server che possono essere usati per creare valutazioni basate sulle prestazioni.<br/>- **Servizio di aggiornamento automatico**: il servizio mantiene aggiornati tutti gli agenti in esecuzione nell'appliance. Viene eseguito automaticamente una volta ogni 24 ore.
@@ -77,17 +76,16 @@ La tabella seguente riepiloga i requisiti dell'appliance di Azure Migrate per VM
 
 ## <a name="appliance---physical"></a>Appliance - Computer fisico
 
-**Requisito** | **Computer fisico** 
+**Requisito** | **Computer fisico**
 --- | ---
 **Autorizzazioni** | Per accedere a Gestione configurazione Appliance localmente o in remoto, è necessario disporre di un account utente locale o di dominio con privilegi amministrativi nel server appliance.
 **Servizi Appliance** | L'Appliance dispone dei servizi seguenti:<br/><br/> - **Gestione configurazione Appliance**: si tratta di un'applicazione Web che può essere configurata con i dettagli dell'origine per avviare l'individuazione e la valutazione dei server.<br/> - **Agente di individuazione**: l'agente raccoglie i metadati di configurazione del server che possono essere usati per creare come valutazioni locali.<br/>- **Agente di valutazione**: l'agente raccoglie i metadati delle prestazioni del server che possono essere usati per creare valutazioni basate sulle prestazioni.<br/>- **Servizio di aggiornamento automatico**: il servizio mantiene aggiornati tutti gli agenti in esecuzione nell'appliance. Viene eseguito automaticamente una volta ogni 24 ore.
-**Limiti di progetto** |  Un appliance può essere registrato solo con un singolo progetto.<br/> Un singolo progetto può avere più appliance registrate.<br/> 
+**Limiti di progetto** |  Un appliance può essere registrato solo con un singolo progetto.<br/> Un singolo progetto può avere più appliance registrate.<br/>
 **Limiti dell'individuazione** | Un'appliance può individuare fino a 1000 di server fisici.
 **Distribuzione supportata** | Distribuire in un server esistente che esegue Windows Server 2016 usando lo script del programma di installazione di PowerShell.
 **Script di PowerShell** | Scaricare lo script (AzureMigrateInstaller.ps1) in un file zip dal progetto o da [qui](https://go.microsoft.com/fwlink/?linkid=2140334). [Altre informazioni](tutorial-discover-physical.md)<br/><br/> Le dimensioni del download sono pari a 85,8 MB.
 **Verifica script** | [Verificare](tutorial-discover-physical.md#verify-security) lo script del programma di installazione di PowerShell scaricato dal progetto controllando i valori hash.
 **Requisiti hardware e di rete** |  Il dispositivo deve essere eseguito in un server con Windows Server 2016, 16 GB di RAM, 8 vCPU, circa 80 GB di spazio di archiviazione su disco.<br/> L'appliance deve avere un indirizzo IP statico o dinamico e richiede l'accesso a Internet, direttamente o tramite un proxy.<br/><br/> Se si esegue l'appliance in un server esistente, assicurarsi che sia in esecuzione Windows Server 2016 e soddisfi i requisiti hardware.<br/>_Attualmente la distribuzione di appliance è supportata solo in Windows Server 2016._
-
 
 ## <a name="url-access"></a>accesso con URL
 
@@ -95,7 +93,7 @@ L'appliance di Azure Migrate richiede la connettività a Internet.
 
 - Quando si distribuisce l'appliance, Azure Migrate esegue un controllo della connettività agli URL richiesti.
 - È necessario consentire l'accesso a tutti gli URL nell'elenco. Se si esegue solo la valutazione, è possibile ignorare gli URL contrassegnati come richiesti per la migrazione senza agenti di VMware.
--  Se si usa un proxy basato su URL per eseguire la connessione a Internet, verificare che il proxy risolva tutti i record CNAME ricevuti durante la ricerca degli URL.
+- Se si usa un proxy basato su URL per eseguire la connessione a Internet, verificare che il proxy risolva tutti i record CNAME ricevuti durante la ricerca degli URL.
 
 ### <a name="public-cloud-urls"></a>URL del cloud pubblico
 
@@ -132,7 +130,6 @@ download.microsoft.com/download | Consenti i download dall'area download Microso
 *.blob.core.usgovcloudapi.net  |  **Usato per la migrazione senza agente VMware**<br/><br/>Caricare i dati nella risorsa di archiviazione per la migrazione.
 *.applicationinsights.us | Caricare i log degli appliance usati per il monitoraggio interno.
 
-
 ## <a name="collected-data---vmware"></a>Dati raccolti - VMware
 
 L'appliance raccoglie i metadati di configurazione, i metadati delle prestazioni e i dati sulle dipendenze del server (se si usa l' [analisi delle dipendenze](concepts-dependency-visualization.md) senza agenti).
@@ -144,12 +141,12 @@ I metadati individuati dal dispositivo Azure Migrate consentono di determinare s
 Ecco l'elenco completo dei metadati del server che il dispositivo raccoglie e Invia ad Azure.
 
 **DATI** | **CONTATORE**
---- | --- 
-**Dettagli del server** | 
-ID del server | vm.Config.InstanceUuid 
+--- | ---
+**Dettagli del server** |
+ID del server | vm.Config.InstanceUuid
 Nome server | vm.Config.Name
 ID server vCenter | VMwareClient.Instance.Uuid
-Descrizione macchina virtuale | vm.Summary.Config.Annotation
+Descrizione server | vm.Summary.Config.Annotation
 Nome prodotto con licenza | vm.Client.ServiceContent.About.LicenseProductName
 Tipo di sistema operativo | vm.SummaryConfig.GuestFullName
 Tipo di avvio | vm.Config.Firmware
@@ -160,7 +157,7 @@ Elenco dimensioni disco | vm.Config.Hardware.Device.ToList().FindAll(x => è Vir
 Elenco schede di rete | vm.Config.Hardware.Device.ToList().FindAll(x => è VirtualEthernet).count
 Uso della CPU | cpu.usage.average
 Utilizzo della memoria |mem.usage.average
-**Dettagli del disco** | 
+**Dettagli del disco** |
 Valore chiave disco | disk.Key
 Numero di unità del disco | disk.UnitNumber
 Valore chiave controller del disco | disk.ControllerKey.Value
@@ -170,53 +167,51 @@ Operazioni di lettura per secondo | virtualDisk.numberReadAveraged.average
 Operazioni di scrittura per secondo | virtualDisk.numberWriteAveraged.average
 Velocità effettiva di lettura (MB al secondo) | virtualDisk.read.average
 Velocità effettiva di scrittura (MB al secondo) | virtualDisk.write.average
-**Dettagli della scheda di interfaccia di rete** | 
+**Dettagli della scheda di interfaccia di rete** |
 Nome scheda di rete | nic.Key
 Indirizzo MAC | ((VirtualEthernetCard)nic).MacAddress
 Indirizzi IPv4 | vm.Guest.Net
 Indirizzi IPv6 | vm.Guest.Net
 Velocità effettiva di lettura (MB al secondo) | net.received.average
 Velocità effettiva di scrittura (MB al secondo) | net.transmitted.average
-**Dettagli percorso di inventario** | 
+**Dettagli percorso di inventario** |
 Nome | container.GetType().Name
 Tipo di oggetto figlio | container.ChildType
 Informazioni di riferimento | container.MoRef
 Dettagli elemento padre | Container.Parent
-Dettagli della cartella per ogni macchina virtuale | ((Folder)container).ChildEntity.Type
-Dettagli del data center per ogni macchina virtuale | ((Datacenter)container).VmFolder
+Dettagli cartella per server | ((Folder)container).ChildEntity.Type
+Dettagli Data Center per server | ((Datacenter)container).VmFolder
 Dettagli del data center per ogni cartella host | ((Datacenter)container).HostFolder
 Dettagli del cluster per host | ((ClusterComputeResource)container).Host
-Dettagli dell'host per ogni macchina virtuale | ((HostSystem)container).VM
+Dettagli host per server | ((HostSystem)container).VM
 
 ### <a name="performance-data"></a>Dati sulle prestazioni
 
-
-Di seguito sono riportati i dati sulle prestazioni delle macchine virtuali VMware raccolti dall'appliance e inviati ad Azure.
+Ecco i dati sulle prestazioni raccolti da un'appliance per un server in esecuzione su VMware e che invia ad Azure.
 
 **Dati** | **Contatore** | **Impatto sulla valutazione**
 --- | --- | ---
-Uso della CPU | cpu.usage.average | Dimensioni/costo della macchina virtuale consigliati
-Utilizzo della memoria | mem.usage.average | Dimensioni/costo della macchina virtuale consigliati
-Velocità effettiva di lettura del disco (MB al secondo) | virtualDisk.read.average | Calcolo delle dimensioni del disco, dei costi di archiviazione e delle dimensioni della macchina virtuale
-Velocità effettiva di scrittura del disco (MB al secondo) | virtualDisk.write.average | Calcolo delle dimensioni del disco, dei costi di archiviazione e delle dimensioni della macchina virtuale
-Operazioni di lettura da disco al secondo | virtualDisk.numberReadAveraged.average | Calcolo delle dimensioni del disco, dei costi di archiviazione e delle dimensioni della macchina virtuale
-Operazioni di scrittura su disco al secondo | virtualDisk.numberWriteAveraged.average  | Calcolo delle dimensioni del disco, dei costi di archiviazione e delle dimensioni della macchina virtuale
-Velocità effettiva di lettura della scheda di interfaccia di rete (MB al secondo) | net.received.average | Calcolo delle dimensioni della macchina virtuale
-Velocità effettiva di scrittura della scheda di interfaccia di rete (MB al secondo) | net.transmitted.average  |Calcolo delle dimensioni della macchina virtuale
+Uso della CPU | cpu.usage.average | Dimensioni/costi del server consigliati
+Utilizzo della memoria | mem.usage.average | Dimensioni/costi del server consigliati
+Velocità effettiva di lettura del disco (MB al secondo) | virtualDisk.read.average | Calcolo delle dimensioni del disco, dei costi di archiviazione e delle dimensioni del server
+Velocità effettiva di scrittura del disco (MB al secondo) | virtualDisk.write.average | Calcolo delle dimensioni del disco, dei costi di archiviazione e delle dimensioni del server
+Operazioni di lettura da disco al secondo | virtualDisk.numberReadAveraged.average | Calcolo delle dimensioni del disco, dei costi di archiviazione e delle dimensioni del server
+Operazioni di scrittura su disco al secondo | virtualDisk.numberWriteAveraged.average  | Calcolo delle dimensioni del disco, dei costi di archiviazione e delle dimensioni del server
+Velocità effettiva di lettura della scheda di interfaccia di rete (MB al secondo) | net.received.average | Calcolo delle dimensioni del server
+Velocità effettiva di scrittura della scheda di interfaccia di rete (MB al secondo) | net.transmitted.average  |Calcolo delle dimensioni del server
 
+### <a name="installed-software-inventory"></a>Inventario software installato
 
-### <a name="installed-applications-data"></a>Dati applicazioni installate
+Il dispositivo raccoglie i dati sull'inventario software installato nei server.
 
-Il dispositivo raccoglie i dati sulle applicazioni, i ruoli e le funzionalità installate nei server.
+#### <a name="windows-server-software-inventory-data"></a>Dati di inventario software di Windows Server
 
-#### <a name="windows-server-application-data"></a>Dati applicazioni Windows Server
-
-Ecco i dati delle applicazioni raccolti dal dispositivo da ogni server Windows individuato nell'ambiente VMware.
+Ecco i dati di inventario software raccolti dal dispositivo da ogni server Windows individuato nell'ambiente VMware.
 
 **Dati** | **Percorso del registro** | **Chiave**
 --- | --- | ---
 Nome dell'applicazione  | HKLM: \ Software\Microsoft\Windows\CurrentVersion\Uninstall\* <br/> HKLM: \ Software\Wow6432Node\Microsoft\Windows\CurrentVersion\Uninstall\*  | DisplayName
-Versione  | HKLM: \ Software\Microsoft\Windows\CurrentVersion\Uninstall\*  <br/> HKLM: \ Software\Wow6432Node\Microsoft\Windows\CurrentVersion\Uninstall\*  | DisplayVersion 
+Versione  | HKLM: \ Software\Microsoft\Windows\CurrentVersion\Uninstall\*  <br/> HKLM: \ Software\Wow6432Node\Microsoft\Windows\CurrentVersion\Uninstall\*  | DisplayVersion
 Provider  | HKLM: \ Software\Microsoft\Windows\CurrentVersion\Uninstall\*  <br/> HKLM: \ Software\Wow6432Node\Microsoft\Windows\CurrentVersion\Uninstall\*  | Publisher
 
 #### <a name="windows-server-features-data"></a>Dati delle funzionalità di Windows Server
@@ -236,9 +231,9 @@ Ecco i dati SQL Server raccolti dal dispositivo da ogni server Windows individua
 **Dati**  | **Percorso del registro**  | **Chiave**
 --- | --- | ---
 Nome  | HKLM: \ SOFTWARE\Microsoft\Microsoft SQL server\istanza Names\SQL  | installedInstance
-Edizione  | HKLM: \ SOFTWARE\Microsoft\Microsoft SQL Server \\ \<InstanceName> \setup  | Edizione 
+Edizione  | HKLM: \ SOFTWARE\Microsoft\Microsoft SQL Server \\ \<InstanceName> \setup  | Edizione
 Service Pack  | HKLM: \ SOFTWARE\Microsoft\Microsoft SQL Server \\ \<InstanceName> \setup  | SP
-Versione  | HKLM: \ SOFTWARE\Microsoft\Microsoft SQL Server \\ \<InstanceName> \setup  | Versione 
+Versione  | HKLM: \ SOFTWARE\Microsoft\Microsoft SQL Server \\ \<InstanceName> \setup  | Versione
 
 #### <a name="windows-server-operating-system-data"></a>Dati del sistema operativo Windows Server
 
@@ -250,12 +245,12 @@ Nome  | Win32_operatingsystem  | Didascalia
 Versione  | Win32_operatingsystem  | Versione
 Architettura  | Win32_operatingsystem  | OSArchitecture
 
-#### <a name="linux-server-application-data"></a>Dati dell'applicazione server Linux
+#### <a name="linux-server-software-inventory-data"></a>Dati inventario software server Linux
 
-Ecco i dati delle applicazioni raccolti dal dispositivo da ciascun server Linux individuato nell'ambiente VMware. In base al sistema operativo del server, vengono eseguiti uno o più comandi.
+Ecco i dati di inventario software raccolti dal dispositivo da ciascun server Linux individuato nell'ambiente VMware. In base al sistema operativo del server, vengono eseguiti uno o più comandi.
 
 **Dati**  | **Comandi**
---- | --- 
+--- | ---
 Nome | rpm, dpkg-query, snap
 Versione | rpm, dpkg-query, snap
 Provider | rpm, dpkg-query, snap
@@ -265,8 +260,8 @@ Provider | rpm, dpkg-query, snap
 Ecco i dati del sistema operativo raccolti dal dispositivo da ciascun server Linux individuato nell'ambiente VMware.
 
 **Dati**  | **Comandi**
---- | --- 
-Nome <br/> version | Raccolto da uno o più dei seguenti file:<br/> <br/>/etc/os-release  <br> /usr/lib/os-release  <br> /etc/enterprise-release  <br> /etc/redhat-release  <br> /etc/oracle-release  <br> /etc/SuSE-release  <br> /etc/lsb-release  <br> /etc/debian_version 
+--- | ---
+Nome <br/> version | Raccolto da uno o più dei seguenti file:<br/> <br/>/etc/os-release  <br> /usr/lib/os-release  <br> /etc/enterprise-release  <br> /etc/redhat-release  <br> /etc/oracle-release  <br> /etc/SuSE-release  <br> /etc/lsb-release  <br> /etc/debian_version
 Architettura | uname
 
 ### <a name="sql-server-instances-and-databases-data"></a>SQL Server le istanze e i dati dei database
@@ -296,13 +291,13 @@ Il database è abilitato per la Change Data Capture | sys.databases
 
 **Metadati del server** | **Proprietà views/SQL Server**
 --- | ---
-Nome server |SERVERPROPERTY 
+Nome server |SERVERPROPERTY
 Nome di dominio completo | Stringa di connessione derivata dall'individuazione delle applicazioni installate
 ID installazione | sys.dm_server_registry
 Versione del server | SERVERPROPERTY
 Edizione server | SERVERPROPERTY
 Piattaforma host server (Windows/Linux) | SERVERPROPERTY
-Livello di prodotto del server (RTM SP CTP) | SERVERPROPERTY 
+Livello di prodotto del server (RTM SP CTP) | SERVERPROPERTY
 Percorso di backup predefinito | SERVERPROPERTY
 Percorso predefinito dei file di dati | SERVERPROPERTY e Software\Microsoft\MSSQLServer\MSSQLServer
 Percorso predefinito dei file di log | SERVERPROPERTY e Software\Microsoft\MSSQLServer\MSSQLServer
@@ -313,8 +308,8 @@ ID server univoco | sys.dm_server_registry
 HA abilitato o meno | SERVERPROPERTY
 Estensione pool di buffer abilitata o meno | sys.dm_os_buffer_pool_extension_configuration
 Cluster di failover configurato o meno | SERVERPROPERTY
-Server che usa solo la modalità di autenticazione di Windows | SERVERPROPERTY 
-Il server installa la polibase | SERVERPROPERTY 
+Server che usa solo la modalità di autenticazione di Windows | SERVERPROPERTY
+Il server installa la polibase | SERVERPROPERTY
 No. di CPU logiche nel sistema | sys.dm_server_registry, sys.dm_os_sys_info
 Rapporto tra il numero di core logici o fisici esposti da un pacchetto del processore fisico | sys.dm_os_schedulers, sys.dm_os_sys_info
 Nessuna CPU fisica nel sistema | sys.dm_os_schedulers, sys.dm_os_sys_info
@@ -351,8 +346,8 @@ L'analisi delle dipendenze senza agenti raccoglie la connessione ed elabora i da
 
 Ecco i dati di connessione raccolti dal dispositivo da ogni server Windows, abilitati per l'analisi delle dipendenze senza agenti.
 
-**Dati** | **Comandi** 
---- | --- 
+**Dati** | **Comandi**
+--- | ---
 Porta locale | netstat
 Indirizzo IP locale | netstat
 Porta remota | netstat
@@ -373,19 +368,18 @@ Nome applicazione | Win32_Process | Parametro VersionInfo.ProductName della prop
 
 Ecco i dati di connessione raccolti dal dispositivo da ciascun server Linux, abilitati per l'analisi delle dipendenze senza agenti.
 
-**Dati** | **Comandi** 
+**Dati** | **Comandi**
 --- | ---
-Porta locale | netstat 
-Indirizzo IP locale | netstat 
-Porta remota | netstat 
-Indirizzo IP remoto | netstat 
-Stato di connessione TCP | netstat 
+Porta locale | netstat
+Indirizzo IP locale | netstat
+Porta remota | netstat
+Indirizzo IP remoto | netstat
+Stato di connessione TCP | netstat
 Numero di connessioni attive | netstat
-ID di processo  | netstat 
+ID di processo  | netstat
 Nome del processo | ps
 Argomenti del processo | ps
 Nome applicazione | dpkg o rpm
-
 
 ## <a name="collected-data---hyper-v"></a>Dati raccolti - Hyper-V
 
@@ -400,20 +394,20 @@ Ecco l'elenco completo dei metadati del server che il dispositivo raccoglie e In
 --- | --- | ---
 **Dettagli del server** | 
 Numero di serie del BIOS | Msvm_BIOSElement | BIOSSerialNumber
-Tipo di macchina virtuale (Gen 1 o 2) | Msvm_VirtualSystemSettingData | VirtualSystemSubType
-Nome visualizzato della macchina virtuale | Msvm_VirtualSystemSettingData | ElementName
-Versione della macchina virtuale | Msvm_ProcessorSettingData | VirtualQuantity
+Tipo di server (gen 1 o 2) | Msvm_VirtualSystemSettingData | VirtualSystemSubType
+Nome visualizzato del server | Msvm_VirtualSystemSettingData | ElementName
+Versione del server | Msvm_ProcessorSettingData | VirtualQuantity
 Memoria (byte) | Msvm_MemorySettingData | VirtualQuantity
-Memoria massima che può essere usata dalla macchina virtuale | Msvm_MemorySettingData | Limite
+Memoria massima che può essere utilizzata dal server | Msvm_MemorySettingData | Limite
 Memoria dinamica abilitata | Msvm_MemorySettingData | DynamicMemoryEnabled
 Nome/versione/FQDN del sistema operativo | Msvm_KvpExchangeComponent | Dati nome GuestIntrinsicExchangeItems
-Stato di alimentazione della macchina virtuale | Msvm_ComputerSystem | EnabledState
-**Dettagli del disco** | 
+Stato di alimentazione del server | Msvm_ComputerSystem | EnabledState
+**Dettagli del disco** |
 Identificatore del disco | Msvm_VirtualHardDiskSettingData | VirtualDiskId
 Tipo di disco rigido virtuale | Msvm_VirtualHardDiskSettingData | Type
 Dimensioni del disco rigido virtuale | Msvm_VirtualHardDiskSettingData | MaxInternalSize
 Disco rigido virtuale padre | Msvm_VirtualHardDiskSettingData | ParentPath
-**Dettagli della scheda di interfaccia di rete** | 
+**Dettagli della scheda di interfaccia di rete** |
 Indirizzi IP (schede di interfaccia di rete sintetiche) | Msvm_GuestNetworkAdapterConfiguration | IPAddresses
 DHCP abilitato (schede di interfaccia di rete sintetiche) | Msvm_GuestNetworkAdapterConfiguration | DHCPEnabled
 ID scheda di interfaccia di rete (schede di interfaccia di rete sintetiche) | Msvm_SyntheticEthernetPortSettingData | InstanceID
@@ -427,17 +421,16 @@ Ecco i dati sulle prestazioni del server che il dispositivo raccoglie e Invia ad
 
 **Classe del contatore delle prestazioni** | **Contatore** | **Impatto sulla valutazione**
 --- | --- | ---
-Processore virtuale hypervisor Hyper-V | % tempo di esecuzione guest | Dimensioni/costo della macchina virtuale consigliati
-Macchina virtuale della memoria dinamica Hyper-V | Utilizzo elevato corrente (%)<br/> Memoria fisica visibile guest (MB) | Dimensioni/costo della macchina virtuale consigliati
-Dispositivo di archiviazione virtuale Hyper-V | Byte letti al secondo | Calcolo delle dimensioni del disco, dei costi di archiviazione e delle dimensioni della macchina virtuale
-Dispositivo di archiviazione virtuale Hyper-V | Byte scritti al secondo | Calcolo delle dimensioni del disco, dei costi di archiviazione e delle dimensioni della macchina virtuale
-Scheda di rete virtuale Hyper-V | Byte ricevuti al secondo | Calcolo delle dimensioni della macchina virtuale
-Scheda di rete virtuale Hyper-V | Byte inviati al secondo | Calcolo delle dimensioni della macchina virtuale
+Processore virtuale hypervisor Hyper-V | % tempo di esecuzione guest | Dimensioni/costi del server consigliati
+Server memoria dinamica Hyper-V | Utilizzo elevato corrente (%)<br/> Memoria fisica visibile guest (MB) | Dimensioni/costi del server consigliati
+Dispositivo di archiviazione virtuale Hyper-V | Byte letti al secondo | Calcolo delle dimensioni del disco, dei costi di archiviazione e delle dimensioni del server
+Dispositivo di archiviazione virtuale Hyper-V | Byte scritti al secondo | Calcolo delle dimensioni del disco, dei costi di archiviazione e delle dimensioni del server
+Scheda di rete virtuale Hyper-V | Byte ricevuti al secondo | Calcolo delle dimensioni del server
+Scheda di rete virtuale Hyper-V | Byte inviati al secondo | Calcolo delle dimensioni del server
 
-- L'utilizzo della CPU è la somma di tutti gli utilizzi, per tutti i processori virtuali collegati a una macchina virtuale.
+- L'utilizzo della CPU è la somma di tutti i dati di utilizzo, per tutti i processori virtuali collegati a un server.
 - L'utilizzo della memoria è dato da (utilizzo elevato corrente * memoria fisica visibile guest)/100.
 - I valori di utilizzo del disco e della rete vengono raccolti dai contatori delle prestazioni di Hyper-V elencati.
-
 
 ## <a name="collected-data---physical"></a>Dati raccolti - Computer fisico
 
@@ -472,8 +465,8 @@ Indirizzo MAC della scheda di interfaccia di rete | Win32_NetworkAdapterConfigur
 
 Di seguito è riportato l'elenco completo dei metadati del server Linux raccolti dall'appliance e inviati ad Azure.
 
-**Dati** | **Comandi** 
---- | --- 
+**Dati** | **Comandi**
+--- | ---
 Nome di dominio completo | cat /proc/sys/kernel/hostname, hostname -f
 Numero di core del processore |  /proc/cpuinfo \| awk '/^processor/{print $3}' \| wc -l
 Memoria allocata | cat /proc/meminfo \| grep MemTotal \| awk '{printf "%.0f", $2/1024}'
@@ -507,8 +500,8 @@ Dettagli del disco | Win32_PerfFormattedData_PerfDisk_PhysicalDisk | DiskWritesP
 
 Di seguito sono riportati i dati sulle prestazioni del server Linux raccolti dall'appliance e inviati ad Azure.
 
-**Dati** | **Comandi** 
---- | --- 
+**Dati** | **Comandi**
+--- | ---
 Utilizzo di CPU | cat /proc/stat/| grep 'cpu' /proc/stat
 Utilizzo della memoria | free \| grep Mem \| awk '{print $3/$2 * 100.0}'
 Numero di schede di interfaccia di rete | lshw -class network \| grep eth[0-60] \| wc -l
@@ -540,7 +533,7 @@ Il dispositivo viene aggiornato quando vengono aggiornati i servizi Azure Migrat
 
 Per eliminare la chiave del Registro di sistema:
 
-1. Nel computer che esegue l'appliance aprire l'Editor del Registro di sistema.
+1. Nel server che esegue l'appliance, aprire l'editor del registro di sistema.
 2. Passare a **HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\AzureAppliance**.
 3. Eliminare la chiave del Registro di sistema **AutoUpdate**, creata in precedenza per disattivare l'aggiornamento automatico.
 
@@ -556,7 +549,7 @@ Per attivare l'aggiornamento automatico nel Configuration Manager dell'appliance
 È possibile verificare la versione dei servizi dell'appliance usando uno di questi metodi:
 
 - In Gestione configurazione Appliance passare a **Configura il** pannello dei prerequisiti.
-- Nel **Pannello di controllo** > **Programmi e funzionalità** del computer dell'appliance.
+- Nel dispositivo, nel pannello di **controllo**  >  **programmi e funzionalità**.
 
 Per archiviare Gestione configurazione Appliance:
 
@@ -577,12 +570,12 @@ Per verificare nel Pannello di controllo:
 Se si esegue una versione precedente per uno dei servizi, è necessario disinstallare il servizio ed eseguire manualmente l'aggiornamento alla versione più recente.
 
 1. Per verificare le versioni del servizio dell'appliance più recenti, [scaricare](https://aka.ms/latestapplianceservices) il file LatestComponents.json.
-2.    Dopo il download, aprire il file LatestComponents.json nel Blocco note.
+2. Dopo il download, aprire il file LatestComponents.json nel Blocco note.
 3. Individuare la versione del servizio più recente nel file e il relativo collegamento di download. Ad esempio:
 
     "Nome": "ASRMigrationWebApp", "DownloadLink": "https://download.microsoft.com/download/f/3/4/f34b2eb9-cc8d-4978-9ffb-17321ad9b7ed/MicrosoftAzureApplianceConfigurationManager.msi", "Versione": "6.0.211.2", "Md5Hash": "e00a742acc35e78a64a6a81e75469b84"
 
-4.    Scaricare la versione più recente di un servizio obsoleto usando il collegamento di download nel file.
+4. Scaricare la versione più recente di un servizio obsoleto usando il collegamento di download nel file.
 5. Dopo il download, eseguire il comando seguente in una finestra di comando dell'amministratore per verificare l'integrità del file MSI.
 
     ``` C:\>Get-FileHash -Path <file_location> -Algorithm [Hashing Algorithm] ``` Ad esempio:  C:\>CertUtil -HashFile C:\Utenti\public\download\MicrosoftAzureApplianceConfigurationManager.MSI MD5
@@ -591,11 +584,8 @@ Se si esegue una versione precedente per uno dei servizi, è necessario disinsta
 6. Eseguire ora il file MSI per installare il servizio. Si tratta di un'installazione invisibile; al termine la finestra di installazione si chiude.
 7. Al termine dell'installazione, verificare la versione del servizio nel **Pannello di controllo** > **Programmi e funzionalità**. La versione del servizio dovrebbe ora essere aggiornata alla versione più recente visualizzata nel file JSON.
 
-
-
 ## <a name="next-steps"></a>Passaggi successivi
 
 - [Informazioni su come](how-to-set-up-appliance-vmware.md) configurare l'appliance per VMware.
 - [Informazioni su come](how-to-set-up-appliance-hyper-v.md) configurare l'appliance per Hyper-V.
 - [Informazioni su come](how-to-set-up-appliance-physical.md) configurare l'appliance per i server fisici.
-

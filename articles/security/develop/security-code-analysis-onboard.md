@@ -4,7 +4,7 @@ description: Informazioni su come eseguire l'onboarding e installare l'estension
 author: sukhans
 manager: sukhans
 ms.author: terrylan
-ms.date: 04/24/2020
+ms.date: 03/22/2021
 ms.topic: article
 ms.service: security
 services: azure
@@ -12,14 +12,17 @@ ms.assetid: 521180dc-2cc9-43f1-ae87-2701de7ca6b8
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.openlocfilehash: 30d6061e15b8eb17c1450500d9e8c141a83a3e08
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
+ms.openlocfilehash: c827dc81c1ef1ab03dd6c9178a609b512e59ef15
+ms.sourcegitcommit: ba3a4d58a17021a922f763095ddc3cf768b11336
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102553919"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104801215"
 ---
 # <a name="onboarding-and-installing"></a>Onboarding e installazione
+
+> [!Note]
+> A partire dal 1 ° marzo 2022, l'estensione Microsoft Security Code Analysis (MSCA) verrà ritirata. I clienti esistenti di MSCA manterranno l'accesso a MSCA fino al 1 ° marzo 2022. Vedere gli strumenti di [analisi del codice sorgente di OWASP](https://owasp.org/www-community/Source_Code_Analysis_Tools) per opzioni alternative in Azure DevOps. Per i clienti che pianificano di eseguire la migrazione a GitHub, è possibile consultare la pagina [sicurezza avanzata di GitHub](https://docs.github.com/github/getting-started-with-github/about-github-advanced-security).
 
 Prerequisiti per la Guida introduttiva all'analisi del codice di sicurezza Microsoft:
 

@@ -5,19 +5,16 @@ author: rashi-ms
 ms.author: rajosh
 ms.topic: conceptual
 ms.date: 02/07/2021
-ms.openlocfilehash: d1ea328575cf07a22ce39549c34d5cd21e916427
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: e4e726f742d46a4b63563f55c191cf21e49d06fc
+ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102054765"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104778322"
 ---
 # <a name="assessment-overview-migrate-to-azure-sql"></a>Panoramica della valutazione (migrazione a SQL di Azure)
 
 Questo articolo fornisce una panoramica delle valutazioni per la migrazione di istanze di SQL Server locali da un ambiente VMware a database SQL di Azure o a istanze gestite usando lo [strumento Azure migrate: Discovery and Assessment](https://docs.microsoft.com/azure/migrate/migrate-services-overview#azure-migrate-server-assessment-tool).
-
-> [!Note]
-> L'individuazione e la valutazione di SQL Server istanze e database in esecuzione nell'ambiente VMware sono ora in anteprima. Per provare questa funzionalità, usare [**questo collegamento**](https://aka.ms/AzureMigrate/SQL) per creare un progetto nell'area **Australia orientale**. Se si dispone già di un progetto nell'Australia orientale e si vuole provare questa funzionalità, assicurarsi di aver completato questi [**prerequisiti**](how-to-discover-sql-existing-project.md) nel portale.
 
 ## <a name="whats-an-assessment"></a>Che cos'è una valutazione?
 Una valutazione con lo strumento di individuazione e valutazione è uno snapshot temporizzato dei dati e misura la conformità e stima l'effetto della migrazione dei server locali in Azure.
@@ -28,9 +25,9 @@ Sono disponibili tre tipi di valutazione che è possibile creare utilizzando lo 
 
 **Tipo di valutazione** | **Dettagli**
 --- | --- 
-**Macchina virtuale di Azure** | Valutazioni per la migrazione dei server locali in macchine virtuali di Azure. È possibile valutare i server locali nell'ambiente [VMware](how-to-set-up-appliance-vmware.md) e [Hyper-V](how-to-set-up-appliance-hyper-v.md) e i [server fisici](how-to-set-up-appliance-physical.md) per la migrazione alle macchine virtuali di Azure con questo tipo di valutazione.
+**Macchina virtuale di Azure** | Valutazioni per la migrazione dei server locali in macchine virtuali di Azure. <br/><br/> È possibile valutare i server locali nell'ambiente [VMware](how-to-set-up-appliance-vmware.md) e [Hyper-V](how-to-set-up-appliance-hyper-v.md) e i [server fisici](how-to-set-up-appliance-physical.md) per la migrazione alle macchine virtuali di Azure con questo tipo di valutazione.
 **SQL di Azure** | Valutazioni per la migrazione dei server SQL locali dall'ambiente VMware al database SQL di Azure o al Istanza gestita SQL di Azure.
-**Soluzione Azure VMware** | Valutazioni per la migrazione dei server locali nella [soluzione Azure VMware](../azure-vmware/introduction.md). È possibile valutare le [macchine virtuali VMware](how-to-set-up-appliance-vmware.md) locali per la migrazione alla soluzione Azure VMware usando questo tipo di valutazione. [Altre informazioni](concepts-azure-vmware-solution-assessment-calculation.md)
+**Soluzione Azure VMware** | Valutazioni per la migrazione dei server locali nella [soluzione Azure VMware](../azure-vmware/introduction.md). <br/><br/> È possibile valutare le [macchine virtuali VMware](how-to-set-up-appliance-vmware.md) locali per la migrazione alla soluzione Azure VMware usando questo tipo di valutazione. [Altre informazioni](concepts-azure-vmware-solution-assessment-calculation.md)
 
 Una valutazione di Azure SQL fornisce un criterio di ridimensionamento:
 
@@ -76,34 +73,34 @@ Ecco cosa è incluso nelle proprietà di valutazione di SQL Azure:
 **Proprietà** | **Dettagli**
 --- | ---
 **Posizione di destinazione** | Area di Azure in cui si vuole eseguire la migrazione. Le raccomandazioni per la configurazione e i costi di Azure SQL si basano sul percorso specificato.
-**Tipo di distribuzione di destinazione** | Il tipo di distribuzione di destinazione in cui si vuole eseguire la valutazione: selezionare **consigliato**. Se si vuole Azure migrate valutare la conformità dei server SQL per la migrazione al database SQL di Azure mi e Azure, e consigliare l'opzione di distribuzione di destinazione più adatta, il livello di destinazione, la configurazione di SQL Azure e le stime mensili. Selezionare il database **SQL di Azure**, se si vuole valutare i server SQL per la migrazione solo ai database SQL di Azure ed esaminare il livello di destinazione, la configurazione del database SQL di Azure e le stime mensili. Selezionare **Azure SQL mi**, se si vuole valutare i server SQL per la migrazione solo ai database SQL di Azure ed esaminare il livello di destinazione, la configurazione di Azure SQL mi e le stime mensili.
-**Capacità riservata** | Specifica la capacità riservata in modo da tenere conto delle stime dei costi nella valutazione. Se si seleziona un'opzione di capacità riservata, non è possibile specificare "discount (%)".
-**Criteri di dimensionamento** | Questa proprietà viene usata per dimensionare correttamente la configurazione di SQL Azure. Il valore predefinito è **basato sulle prestazioni** , ovvero la valutazione raccoglierà le metriche delle prestazioni SQL Server istanze e database per consigliare una istanza gestita SQL di Azure e/o una raccomandazione per il livello/configurazione del database SQL di Azure di dimensioni ottimali.
+**Tipo di distribuzione di destinazione** | Tipo di distribuzione di destinazione in cui si vuole eseguire la valutazione: <br/><br/> Selezionare **consigliato**, se si vuole Azure migrate valutare la conformità dei server SQL per la migrazione al database SQL di Azure mi e di Azure e consigliare l'opzione di distribuzione di destinazione più adatta, il livello di destinazione, la configurazione di SQL di Azure e le stime mensili.<br/><br/>Selezionare il database **SQL di Azure**, se si vuole valutare i server SQL per la migrazione solo ai database SQL di Azure ed esaminare il livello di destinazione, la configurazione del database SQL di Azure e le stime mensili.<br/><br/>Selezionare **Azure SQL mi**, se si vuole valutare i server SQL per la migrazione solo ai database SQL di Azure ed esaminare il livello di destinazione, la configurazione di Azure SQL mi e le stime mensili.
+**Capacità riservata** | Specifica la capacità riservata in modo da tenere conto delle stime dei costi nella valutazione.<br/><br/> Se si seleziona un'opzione di capacità riservata, non è possibile specificare "discount (%)".
+**Criteri di dimensionamento** | Questa proprietà viene usata per dimensionare correttamente la configurazione di SQL Azure. <br/><br/> Il valore predefinito è **basato sulle prestazioni** , ovvero la valutazione raccoglierà le metriche delle prestazioni SQL Server istanze e database per consigliare una istanza gestita SQL di Azure e/o una raccomandazione per il livello/configurazione del database SQL di Azure di dimensioni ottimali.
 **Cronologia delle prestazioni** | Cronologia prestazioni specifica la durata utilizzata per la valutazione dei dati sulle prestazioni.
 **Utilizzo percentile** | L'utilizzo percentile specifica il valore percentile dell'esempio di prestazioni utilizzato per rightsizing.
-**Fattore di comfort** | Buffer utilizzato durante la valutazione. In questo modo vengono rilevati problemi come l'utilizzo stagionale, la cronologia delle prestazioni brevi e probabilmente aumenti nell'utilizzo futuro. Ad esempio, un'istanza di 10 core con utilizzo del 20% normalmente produce un'istanza a due core. Con un fattore di comfort di 2,0, il risultato è invece un'istanza a quattro core.
+**Fattore di comfort** | Buffer utilizzato durante la valutazione. In questo modo vengono rilevati problemi come l'utilizzo stagionale, la cronologia delle prestazioni brevi e probabilmente aumenti nell'utilizzo futuro.<br/><br/> Ad esempio, un'istanza di 10 core con utilizzo del 20% normalmente produce un'istanza a due core. Con un fattore di comfort di 2,0, il risultato è invece un'istanza a quattro core.
 **Programma offerta/licenza** | [Offerta di Azure](https://azure.microsoft.com/support/legal/offer-details/) in cui si è iscritti. Attualmente è possibile scegliere solo da sviluppo/test con pagamento in base al consumo e con pagamento in base al consumo. Si noti che è possibile usufruire di uno sconto aggiuntivo applicando la capacità riservata e Vantaggio Azure Hybrid sull'offerta con pagamento in base al consumo.
-**Livello di servizio** | L'opzione del livello di servizio più appropriata per soddisfare le esigenze aziendali per la migrazione al database SQL di Azure e/o Istanza gestita SQL di Azure: selezionare **consigliata** se si desidera Azure migrate di consigliare il livello di servizio più adatto per i server. Può trattarsi di un utilizzo generico o di un business critical. Selezionare **per utilizzo generico** se si vuole una configurazione SQL di Azure progettata per carichi di lavoro orientati al budget. [Altre informazioni](https://docs.microsoft.com/azure/azure-sql/database/service-tier-general-purpose) Selezionare **business critical** se si vuole una configurazione SQL di Azure progettata per carichi di lavoro a bassa latenza con resilienza elevata a errori e failover rapidi. [Altre informazioni](https://docs.microsoft.com/azure/azure-sql/database/service-tier-business-critical)
+**Livello di servizio** | L'opzione del livello di servizio più appropriata per soddisfare le esigenze aziendali per la migrazione al database SQL di Azure e/o Istanza gestita SQL di Azure:<br/><br/>**Consigliato** se si desidera che Azure migrate consigli il livello di servizio più adatto per i server. Può trattarsi di un utilizzo generico o di un business critical. <br/><br/> **Per utilizzo generico** Se si vuole una configurazione SQL di Azure progettata per carichi di lavoro orientati al budget. [Altre informazioni](https://docs.microsoft.com/azure/azure-sql/database/service-tier-general-purpose) <br/><br/> **Business critical** Se si vuole una configurazione SQL di Azure progettata per carichi di lavoro a bassa latenza con resilienza elevata a errori e failover rapidi. [Altre informazioni](https://docs.microsoft.com/azure/azure-sql/database/service-tier-business-critical)
 **Valuta** | Valuta di fatturazione per l'account.
 **Sconto (%)** | Tutti gli sconti specifici della sottoscrizione ricevuti dall'offerta di Azure. L'impostazione predefinita è 0%.
-**Vantaggio Azure Hybrid** | Specifica se si dispone già di una licenza di SQL Server. In tal caso, è possibile applicare la Vantaggio Azure Hybrid quando si impostano le licenze in Azure con il software SQL Server Assurance attivo.
+**Vantaggio Azure Hybrid** | Specifica se si dispone già di una licenza di SQL Server. <br/><br/> In tal caso, è possibile applicare la Vantaggio Azure Hybrid quando si impostano le licenze in Azure con il software SQL Server Assurance attivo.
 
 [Esaminare le procedure consigliate per la](best-practices-assessment.md) creazione di una valutazione con Azure migrate.
 
 ## <a name="calculate-readiness"></a>Calcola conformità
 
 > [!NOTE]
-> La valutazione include solo i database in stato online. Nel caso in cui lo stato del database sia un altro, la valutazione ignora l'idoneità, il dimensionamento e il calcolo dei costi per tali database. Se si desidera valutare tali database, modificarne lo stato e ricalcolare la valutazione in un secondo momento.
+La valutazione include solo i database in stato online. Nel caso in cui lo stato del database sia un altro, la valutazione ignora l'idoneità, il dimensionamento e il calcolo dei costi per tali database. Se si desidera valutare tali database, modificarne lo stato e ricalcolare la valutazione in un secondo momento.
 
 ### <a name="azure-sql-readiness"></a>Conformità a SQL di Azure
 
 La conformità di SQL Azure per le istanze e i database SQL si basa su un controllo di compatibilità delle funzionalità con il database SQL di Azure e Istanza gestita SQL di Azure:
-- La valutazione SQL di Azure considera le funzionalità dell'istanza SQL Server attualmente utilizzate dai carichi di lavoro SQL Server di origine (processi di SQL Agent, server collegati e così via) e gli schemi di database utente (tabelle, viste, trigger, stored procedure e così via) per identificare i problemi di compatibilità.
-- Se non sono stati rilevati problemi di compatibilità, la conformità è contrassegnata come **pronta** per il tipo di distribuzione di destinazione (database SQL di azure o istanza gestita SQL di Azure)
-- Se sono presenti problemi di compatibilità non critici, ad esempio funzionalità danneggiate o non supportate che non bloccano la migrazione a un tipo di distribuzione di destinazione specifico, l'idoneità viene contrassegnata come **pronta** (icona con collegamento ipertestuale e informazioni blu) con i dettagli dell' **avviso** e le linee guida consigliate per la correzione.
-- Se si verificano problemi di compatibilità che potrebbero bloccare la migrazione a un tipo di distribuzione di destinazione specifico, la conformità viene contrassegnata come **non pronta** con i dettagli del **problema** e le linee guida consigliate per la correzione.
+1. La valutazione SQL di Azure considera le funzionalità dell'istanza SQL Server attualmente utilizzate dai carichi di lavoro SQL Server di origine (processi di SQL Agent, server collegati e così via) e gli schemi di database utente (tabelle, viste, trigger, stored procedure e così via) per identificare i problemi di compatibilità.
+1. Se non sono stati rilevati problemi di compatibilità, la conformità è contrassegnata come **pronta** per il tipo di distribuzione di destinazione (database SQL di azure o istanza gestita SQL di Azure)
+1. Se sono presenti problemi di compatibilità non critici, ad esempio funzionalità danneggiate o non supportate che non bloccano la migrazione a un tipo di distribuzione di destinazione specifico, l'idoneità viene contrassegnata come **pronta** (icona con collegamento ipertestuale e informazioni blu) con i dettagli dell' **avviso** e le linee guida consigliate per la correzione.
+1. Se si verificano problemi di compatibilità che potrebbero bloccare la migrazione a un tipo di distribuzione di destinazione specifico, la conformità viene contrassegnata come **non pronta** con i dettagli del **problema** e le linee guida consigliate per la correzione.
     - Se in un'istanza SQL è presente anche un database non pronto per un tipo di distribuzione di destinazione specifico, l'istanza viene contrassegnata come **non pronta** per quel tipo di distribuzione.
-- Se l'individuazione è ancora in corso o si verificano problemi di individuazione per un'istanza o un database SQL, la conformità è contrassegnata come **sconosciuta** perché la valutazione non è stata in grado di calcolare la conformità per l'istanza di SQL.
+1. Se l'individuazione è ancora in corso o si verificano problemi di individuazione per un'istanza o un database SQL, la conformità è contrassegnata come **sconosciuta** perché la valutazione non è stata in grado di calcolare la conformità per l'istanza di SQL.
 
 ### <a name="recommended-deployment-type"></a>Tipo di distribuzione consigliato
 
@@ -113,11 +110,11 @@ Se si seleziona il tipo di distribuzione di destinazione come **consigliato** ne
 
  **Conformità del database SQL di Azure** | **Disponibilità di SQL in Azure** | **Tipo di distribuzione consigliato** | **Sono state calcolate le stime dei costi e la configurazione di SQL Azure?**
  --- | --- | --- | --- |
- Ready | Ready | DATABASE SQL di Azure o Azure SQL MI | Sì
- Ready | Non pronto o sconosciuto | Database SQL di Azure | Sì
- Non pronto o sconosciuto | Ready | Azure SQL MI | Sì
+ Ready | Ready | DATABASE SQL di Azure o <br/>Azure SQL MI | Sì
+ Ready | Non pronto o<br/> Sconosciuto | Database SQL di Azure | Sì
+ Non pronto o<br/>Sconosciuto | Ready | Azure SQL MI | Sì
  Non pronto | Non pronto | Potenzialmente pronto per la macchina virtuale di Azure | No
- Non pronto o sconosciuto | Non pronto o sconosciuto | Sconosciuto | No
+ Non pronto o<br/>Sconosciuto | Non pronto o<br/>Sconosciuto | Sconosciuto | No
 
 > [!NOTE]
 > Se il tipo di distribuzione consigliato è selezionato **in proprietà** di valutazione e se il SQL Server di origine è adatto sia per il database SQL di Azure database singolo che per il istanza gestita SQL di Azure, la valutazione suggerisce un'opzione specifica che ottimizza i costi e si adatta ai limiti delle dimensioni e delle prestazioni.
@@ -171,7 +168,7 @@ Questa tabella mostra le classificazioni di attendibilità della valutazione, ch
 
 #### <a name="low-confidence-ratings"></a>Classificazione con confidenza bassa
 Ecco alcuni motivi per cui una valutazione potrebbe ottenere un livello di confidenza basso:
-- L'ambiente non è stato profilato per la durata per la quale si sta creando la valutazione. Se, ad esempio, si crea la valutazione con la durata delle prestazioni impostata su un giorno, è necessario attendere almeno un giorno dopo l'avvio dell'individuazione per tutti i punti dati da raccogliere.
+- L'ambiente non è stato profilato per il periodo di tempo per cui si sta creando la valutazione. Se, ad esempio, si crea la valutazione con la durata delle prestazioni impostata su un giorno, è necessario attendere almeno un giorno dopo l'avvio dell'individuazione per tutti i punti dati da raccogliere.
 - La valutazione non è in grado di raccogliere i dati sulle prestazioni per alcuni o tutti i server nel periodo di valutazione. Per una classificazione di attendibilità elevata, verificare che:
     - I server sono accesi per la durata della valutazione
     - Sono consentite le connessioni in uscita sulle porte 443

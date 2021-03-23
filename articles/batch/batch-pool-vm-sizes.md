@@ -2,14 +2,14 @@
 title: Scegliere le dimensioni e le immagini delle macchine virtuali per i pool
 description: Come scegliere tra le dimensioni delle macchine virtuali disponibili e le versioni del sistema operativo per i nodi di calcolo nei pool di Azure Batch
 ms.topic: conceptual
-ms.date: 03/08/2021
+ms.date: 11/24/2020
 ms.custom: seodec18
-ms.openlocfilehash: 42b8743fac6a6c64e98271490f0bfc4671fa7698
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: f108e1347ef6c3c7df45c4b3d807a754f4867097
+ms.sourcegitcommit: ba3a4d58a17021a922f763095ddc3cf768b11336
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102455196"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104800483"
 ---
 # <a name="choose-a-vm-size-and-image-for-compute-nodes-in-an-azure-batch-pool"></a>Scegliere le dimensioni e l'immagine di una macchina virtuale per i nodi di calcolo in un pool di Azure Batch
 
@@ -35,11 +35,13 @@ I pool di batch nella configurazione della macchina virtuale supportano quasi tu
 | DC | Non supportato |
 | Dv2, DSv2 | Tutte le dimensioni |
 | Dv3, Dsv3 | Tutte le dimensioni |
-| Dav4, Dasv4 | Tutte le dimensioni |
+| Dav4 | Tutte le dimensioni |
+| Dasv4 | Tutte le dimensioni |
 | Ddv4, Ddsv4 |  Tutte le dimensioni |
 | DV4, Dsv4 | Non supportato |
 | Ev3, Esv3 | Tutte le dimensioni, ad eccezione di E64is_v3 |
-| Eav4, Easv4 | Tutte le dimensioni |
+| Eav4 | Tutte le dimensioni |
+| Easv4 | Tutte le dimensioni |
 | Edv4, Edsv4 |  Tutte le dimensioni |
 | Ev4, Esv4 | Non supportato |
 | F, Fs | Tutte le dimensioni |
@@ -56,7 +58,7 @@ I pool di batch nella configurazione della macchina virtuale supportano quasi tu
 | NC | Tutte le dimensioni |
 | NCv2 | Tutte le dimensioni |
 | NCv3 | Tutte le dimensioni |
-| NCasT4_v3 | Tutte le dimensioni |
+| NCasT4_v3 | Nessuna - non ancora disponibile |
 | ND | Tutte le dimensioni |
 | NDv2 | Nessuna - non ancora disponibile |
 | NV | Tutte le dimensioni |
@@ -100,6 +102,8 @@ Usare una delle API seguenti per restituire un elenco di immagini di macchine vi
 - API REST del servizio batch: [elencare le immagini supportate](/rest/api/batchservice/account/listsupportedimages)
 - PowerShell: [Get-AzBatchSupportedImage](/powershell/module/az.batch/get-azbatchsupportedimage)
 - INTERFACCIA della riga [di comando di Azure: AZ batch pool supported-images](/cli/azure/batch/pool/supported-images)
+
+Si consiglia vivamente di evitare le immagini con date di supporto batch imminenti (EOL). Queste date possono essere individuate tramite l' [ `ListSupportedImages` API](https://docs.microsoft.com/rest/api/batchservice/account/listsupportedimages), [PowerShell](https://docs.microsoft.com/powershell/module/az.batch/get-azbatchsupportedimage)o l'interfaccia della riga di comando di [Azure](https://docs.microsoft.com/cli/azure/batch/pool/supported-images). Vedere la [Guida alle procedure consigliate di batch](best-practices.md) per ulteriori informazioni sulla selezione delle immagini della macchina virtuale del pool di batch.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
