@@ -63,6 +63,8 @@
       href: how-to-compression.md
     - name: Abilita collegamento privato
       items:
+        - name: Connettersi a un servizio di bilanciamento del carico interno
+          href: how-to-enable-private-link-internal-load-balancer.md
         - name: Eseguire la connessione a un account di archiviazione
           href: how-to-enable-private-link-storage-account.md
         - name: Connettersi a un'app Web

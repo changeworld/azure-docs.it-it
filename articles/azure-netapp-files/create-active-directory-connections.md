@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-ms.date: 02/16/2021
+ms.date: 03/01/2021
 ms.author: b-juche
-ms.openlocfilehash: 44959b2f60f9aafd7d9430c9c19baea72344293f
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: ccc88cabfa81e2d911546fae776f581885ed8fa6
+ms.sourcegitcommit: ba3a4d58a17021a922f763095ddc3cf768b11336
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102183880"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104801256"
 ---
 # <a name="create-and-manage-active-directory-connections-for-azure-netapp-files"></a>Creare e gestire connessioni di Active Directory per Azure NetApp Files
 
@@ -206,6 +206,18 @@ Questa impostazione viene configurata in **Connessioni Active Directory** in **A
         ```
         
         È anche possibile usare i [comandi dell'interfaccia](/cli/azure/feature) `az feature register` della riga di comando di Azure e `az feature show` registrare la funzionalità e visualizzare lo stato della registrazione. 
+
+     * **Utenti con privilegi di sicurezza**   <!-- SMB CA share feature -->   
+        È possibile concedere privilegi di sicurezza ( `SeSecurityPrivilege` ) agli utenti che richiedono privilegi elevati per accedere ai volumi Azure NetApp files. Agli account utente specificati sarà consentito eseguire determinate azioni su Azure NetApp Files condivisioni SMB che richiedono privilegi di sicurezza non assegnati per impostazione predefinita agli utenti di dominio.   
+
+        Per gli account utente utilizzati per l'installazione di SQL Server in determinati scenari, ad esempio, è necessario concedere privilegi di sicurezza elevati. Se si usa un account non amministratore (dominio) per installare SQL Server e all'account non è assegnato il privilegio di sicurezza, è necessario aggiungere privilegi di sicurezza all'account.  
+
+        > [!IMPORTANT]
+        > L'account di dominio utilizzato per l'installazione di SQL Server deve esistere già prima di aggiungerlo al campo **privilegi di sicurezza utenti** . Quando si aggiunge l'account del programma di installazione di SQL Server agli **utenti con privilegi di sicurezza**, il servizio Azure NetApp files può convalidare l'account contattando il controller di dominio. Il comando potrebbe non riuscire se non è in grado di contattare il controller di dominio.  
+
+        Per ulteriori informazioni su `SeSecurityPrivilege` e SQL Server, vedere [errore di installazione SQL Server se l'account di installazione non dispone di determinati diritti utente](/troubleshoot/sql/install/installation-fails-if-remove-user-right).
+
+        ![Screenshot che mostra la casella utenti con privilegi di sicurezza della finestra connessioni Active Directory.](../media/azure-netapp-files/security-privilege-users.png) 
 
      * **Utenti dei criteri di backup**  
         È possibile includere account aggiuntivi che richiedono privilegi elevati per l'account computer creato per l'uso con Azure NetApp Files. Agli account specificati sarà consentito modificare le autorizzazioni NTFS a livello di file o di cartella. È ad esempio possibile specificare un account del servizio senza privilegi usato per la migrazione dei dati a una condivisione file SMB in Azure NetApp Files.  

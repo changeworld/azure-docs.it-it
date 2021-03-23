@@ -12,12 +12,12 @@ ms.date: 01/4/2020
 ms.author: metang
 ms.custom: cog-serv-seo-aug-2020
 keywords: lettori, studenti di lingue, visualizzare immagini, migliorare la lettura, leggere contenuto, tradurre
-ms.openlocfilehash: 6affc0a2b94c7ea950a8995981d63470722d981f
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 1911d3ce62434f1dc24966798e9ace259ae072bc
+ms.sourcegitcommit: ba3a4d58a17021a922f763095ddc3cf768b11336
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104599528"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104801571"
 ---
 # <a name="what-is-immersive-reader"></a>Cos'è lo strumento di lettura immersiva?
 
@@ -25,8 +25,8 @@ Lo [strumento di lettura immersiva](https://www.onenote.com/learningtools) è st
 
 Questa documentazione contiene i seguenti tipi di articoli:  
 
-* Le **[guide introduttive](quickstarts/client-libraries.md)** sono istruzioni dettagliate che consentono di effettuare chiamate al servizio e ottenere risultati.
-* Le **[guide alle procedure](how-to-create-immersive-reader.md)** contengono istruzioni per l'uso del servizio in modi più specifici o personalizzati.  
+* Nelle **[guide introduttive](quickstarts/client-libraries.md)** vengono fornite istruzioni introduttive per l'esecuzione di richieste al servizio.
+* Le **[guide alle procedure](how-to-create-immersive-reader.md)** contengono istruzioni per l'uso del servizio in modi più specifici o personalizzati.
 
 ## <a name="use-immersive-reader-to-improve-reading-accessibility"></a>Usare lo strumento di lettura immersiva per migliorare l'accessibilità della lettura 
 

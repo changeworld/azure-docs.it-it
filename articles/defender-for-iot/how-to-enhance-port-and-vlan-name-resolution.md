@@ -1,20 +1,16 @@
 ---
 title: Migliorare la risoluzione dei nomi di porte e VLAN
 description: Personalizzare i nomi di porta e VLAN sui sensori per arricchire la risoluzione del dispositivo.
-author: shhazam-ms
-manager: rkarlin
-ms.author: shhazam
 ms.date: 12/13/2020
 ms.topic: how-to
-ms.service: azure
-ms.openlocfilehash: 9c976671bccb420ae24d8def7a6574098d86ce6d
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: de6fbe70d5a5359ad4e4c276642b9b9ed0cef00f
+ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98803584"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104784170"
 ---
-# <a name="enhance-port-and-vlan-name-resolution"></a>Migliorare la risoluzione dei nomi di porte e VLAN
+# <a name="enhance-port-vlan-and-os-resolution"></a>Miglioramento della porta, della VLAN e della risoluzione del sistema operativo
 
 È possibile personalizzare i nomi di porta e VLAN sui sensori per arricchire la risoluzione del dispositivo.
 
@@ -72,7 +68,7 @@ I nomi VLAN possono contenere fino a 50 caratteri ASCII.
 > I nomi VLAN non sono sincronizzati tra il sensore e la console di gestione. È necessario definire anche il nome nella console di gestione.  
 Per i commutatori Cisco, aggiungere la riga seguente alla configurazione span: `monitor session 1 destination interface XX/XX encapsulation dot1q` . In tale comando *XX/XX* è il nome e il numero della porta.
 
-Per configurare le VLAN:
+Per configurare i nomi VLAN:
 
 1. Nel menu laterale selezionare impostazioni di **sistema**.
 
@@ -81,6 +77,21 @@ Per configurare le VLAN:
     :::image type="content" source="media/how-to-enrich-asset-information/edit-vlan.png" alt-text="Usare le impostazioni di sistema per modificare le VLAN.":::
 
 3. Aggiungere un nome univoco accanto a ogni ID VLAN.
+
+## <a name="improve-device-operating-system-classification-data-enhancement"></a>Migliorare la classificazione del sistema operativo del dispositivo: miglioramento dei dati
+
+I sensori individuano continuamente i nuovi dispositivi, nonché le modifiche apportate ai dispositivi individuati in precedenza, inclusi i tipi di sistema operativo.
+
+In determinate circostanze, i conflitti possono essere rilevati nei sistemi operativi individuati. Questo problema può verificarsi, ad esempio, se si dispone di una versione del sistema operativo che fa riferimento a sistemi desktop o server. In tal caso, si riceverà una notifica con le classificazioni dei sistemi operativi facoltativi.
+
+:::image type="content" source="media/how-to-enrich-asset-information/enhance-data-screen.png" alt-text="Migliorare i dati.":::
+
+Esaminare le raccomandazioni per migliorare la classificazione del sistema operativo. Questa classificazione viene visualizzata nell'inventario dei dispositivi, nei report di data mining e in altre visualizzazioni. Verificare che queste informazioni siano aggiornate possono migliorare l'accuratezza di avvisi, minacce e report di analisi dei rischi.
+
+Per accedere alle raccomandazioni del sistema operativo:
+
+1. Selezionare **impostazioni di sistema**.
+1. Selezionare **miglioramento dei dati**.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

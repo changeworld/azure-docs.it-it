@@ -93,7 +93,7 @@
               displayName: 'custom, setting, properties'
               href: concept-baseline.md
             - name: Baseline della sicurezza di Azure per Azure Defender per l'it
-              displayName: 'identity management, active directory, privileged access, data protection, asset management, incident response, posture, vulnerability, governance'
+              displayName: 'identity management, active directory, privileged access, data protection, incident response, posture, vulnerability, governance'
               href: security-baseline.md
             - name: 'Defender-Internet, aggregazione di eventi classici micro-Agent'
               displayName: 'twin, default, configuration, alerts'
@@ -114,10 +114,10 @@
               href: how-to-identify-required-appliances.md
               displayName: 'virtual, Dell, HPE, SMB, certified, hardware, deployment, DL20, EL300, R340, enterprise, SMB, corporate'
             - name: Configurare la rete
-              displayName: 'passive, browsers, network access, TAP, switch, mirroring, firewall, SPAN, monitoring, tuning'
+              displayName: 'passive, browsers, setup, deployment, network access, TAP, switch, mirroring, firewall, SPAN, monitoring, tuning'
               href: how-to-set-up-your-network.md
             - name: Installazione del software
-              displayName: 'virtual, Dell, HPE, SMB, certified, hardware, port mirroring, ESXi, DL20, EL300, R340,enterprise, SMB, corporate'
+              displayName: 'setup, deployment, virtual, Dell, HPE, SMB, certified, hardware, port mirroring, ESXi, DL20, EL300, R340,enterprise, SMB, corporate'
               href: how-to-install-software.md
         - name: Preparare i sensori
           items:
@@ -125,12 +125,12 @@
               displayName: 'onboard, cloud, register, activate, offboard, subscription, subscriptions'
               href: how-to-manage-sensors-on-the-cloud.md
             - name: Attivare e configurare il sensore
-              displayName: 'onboard, register, activation, SSL, TLS, certificate, cloud connected, sign in, login, setup, learning mode, initial'
+              displayName: 'deployment, onboard, register, activation, SSL, TLS, certificate, cloud connected, sign in, login, setup, learning mode, initial'
               href: how-to-activate-and-set-up-your-sensor.md
         - name: Preparare la console di gestione locale
           items:
             - name: Attivare e configurare la console di gestione locale
-              displayName: 'activate, certificate, sign in, SSL, TLS, login, setup, initial, committed activation file'
+              displayName: 'deployment, activate, certificate, sign in, SSL, TLS, login, setup, initial, committed activation file'
               href: how-to-activate-and-set-up-your-on-premises-management-console.md
             - name: Configurare la disponibilità elevata
               displayName: 'primary, secondary, failover, failback fail, recovery'
@@ -166,19 +166,22 @@
               displayName: classification
             - name: Esaminare i rilevamenti dei sensori in un inventario dei dispositivi
               href: how-to-investigate-sensor-detections-in-a-device-inventory.md
-              displayName: 'classification, Windows registry, asset, device, firmware, import'
+              displayName: 'classification, Windows registry, device, firmware, import'
         - name: Usare la mappa dei dispositivi rilevati dai sensori
           href: how-to-work-with-the-sensor-device-map.md
           displayName: 'connections, Purdue, zoom, delete device'
         - name: Gestire gli avvisi rilevati da un sensore
           items:
-            - name: Gestire gli avvisi sul sensore
+            - name: Informazioni sugli avvisi del sensore
               href: how-to-work-with-alerts-on-your-sensor.md
-            - name: Visualizzare gli avvisi
+            - name: Filtrare e gestire gli avvisi dalla pagina degli avvisi
               href: how-to-view-alerts.md
-            - name: Visualizzare le informazioni fornite negli avvisi
+            - name: Informazioni sui messaggi di avviso
               href: how-to-view-information-provided-in-alerts.md
-              displayName: PCAP
+              displayName: 'PCAP, metadata, alerts, link, device map,'
+            - name: Tipi di avviso e descrizioni
+              href: alert-engine-messages.md
+              displayName: 'alert, alerts, description, engine, anomaly, protocol, policy, malware, violation, operational'
             - name: Gestire gli eventi degli avvisi
               href: how-to-manage-the-alert-event.md
               displayName: 'PCAP, acknowledge, learn, mute, policy'
@@ -191,6 +194,9 @@
         - name: 'Acquisire informazioni su minacce locali, globali e a livello di area'
           href: how-to-gain-insight-into-global-regional-and-local-threats.md
           displayName: 'site, business unit, region, map'
+        - name: 'Pochi dispositivi informativi, avvisi e sensori per zona'
+          href: how-to-view-information-per-zone.md
+          displayName: zones
         - name: Gestire gli avvisi della console di gestione locale
           href: how-to-work-with-alerts-on-premises-management-console.md
         - name: Creare report

@@ -5,14 +5,14 @@ author: christopheranderson
 ms.service: cosmos-db
 ms.subservice: cosmosdb-graph
 ms.topic: overview
-ms.date: 11/25/2020
+ms.date: 03/22/2021
 ms.author: chrande
-ms.openlocfilehash: 806904943f4e4a20734d595f835dc9450afdded5
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: ffe11fafa6ba217572f9d12d40324a5201b62630
+ms.sourcegitcommit: ba3a4d58a17021a922f763095ddc3cf768b11336
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "100547278"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104801690"
 ---
 # <a name="introduction-to-gremlin-api-in-azure-cosmos-db"></a>Introduzione all'API Gremlin in Azure Cosmos DB
 [!INCLUDE[appliesto-gremlin-api](includes/appliesto-gremlin-api.md)]
@@ -26,11 +26,14 @@ Questo articolo offre una panoramica dell'API Gremlin di Azure Cosmos DB e descr
 L'API Gremlin di Azure Cosmos DB combina le potenzialità degli algoritmi per database a grafo con un'infrastruttura gestita a scalabilità elevata per offrire una soluzione univoca e flessibile per i problemi relativi ai dati più comuni associati alla mancanza di flessibilità e agli approcci relazionali.
 
 > [!NOTE]
-> La [modalità di capacità serverless](serverless.md) è ora disponibile nell'API Gremlin di Azure Cosmos DB.
+> Il motore di Azure Cosmos DB Graph segue strettamente la specifica di Apache TinkerPop. Esistono tuttavia alcune differenze nei dettagli di implementazione specifici per Azure Cosmos DB. Alcune funzionalità supportate da Apache TinkerPop non sono disponibili in Azure Cosmos DB. per altre informazioni sulle funzionalità non supportate, vedere l'articolo relativo alla [compatibilità con Apache TinkerPop](gremlin-support.md) .
 
 ## <a name="features-of-azure-cosmos-dbs-gremlin-api"></a>Funzionalità dell'API Gremlin di Azure Cosmos DB
- 
+
 Azure Cosmos DB è un database di grafi completamente gestito che consente distribuzione globale, scalabilità elastica in termini di archiviazione e velocità effettiva, query e indicizzazione automatica, livelli di coerenza regolabili e supporto per lo standard TinkerPop.
+
+> [!NOTE]
+> La [modalità di capacità serverless](serverless.md) è ora disponibile nell'API Gremlin di Azure Cosmos DB.
 
 Di seguito vengono descritte le varie funzionalità offerte dall'API Gremlin di Azure Cosmos DB:
 

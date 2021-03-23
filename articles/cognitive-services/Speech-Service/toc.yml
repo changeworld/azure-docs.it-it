@@ -39,30 +39,30 @@
           href: migrate-v2-to-v3.md
         - name: Valutare la pronuncia
           href: how-to-pronunciation-assessment.md
+        - name: Personalizzazione
+          items:
+            - name: Che cos'è il servizio Riconoscimento vocale personalizzato?
+              href: custom-speech-overview.md
+            - name: Testare un modello usando file audio in Speech Studio
+              href: quickstarts/speech-studio-test-model.md
+            - name: Preparare i dati per Riconoscimento vocale personalizzato
+              href: how-to-custom-speech-test-and-train.md
+            - name: Esaminare i dati di Riconoscimento vocale personalizzato
+              href: how-to-custom-speech-inspect-data.md
+            - name: Valutare e migliorare l'accuratezza di Riconoscimento vocale personalizzato
+              href: how-to-custom-speech-evaluate-data.md
+            - name: Eseguire il training e distribuire un modello di Riconoscimento vocale personalizzato
+              href: how-to-custom-speech-train-model.md
+            - name: CI/CD per Riconoscimento vocale personalizzato
+              href: how-to-custom-speech-continuous-integration-continuous-deployment.md
+            - name: Creare trascrizioni con etichette umane
+              href: how-to-custom-speech-human-labeled-transcriptions.md
+            - name: Ciclo di vita di modelli ed endpoint
+              href: how-to-custom-speech-model-and-endpoint-lifecycle.md
     - name: Esercitazioni
       items:
         - name: Migliorare l'accuratezza con i modelli di tenant
           href: tutorial-tenant-model.md
-    - name: Personalizzazione
-      items:
-        - name: Che cos'è il servizio Riconoscimento vocale personalizzato?
-          href: custom-speech-overview.md
-        - name: Testare un modello usando file audio in Speech Studio
-          href: quickstarts/speech-studio-test-model.md
-        - name: Preparare i dati per Riconoscimento vocale personalizzato
-          href: how-to-custom-speech-test-and-train.md
-        - name: Esaminare i dati di Riconoscimento vocale personalizzato
-          href: how-to-custom-speech-inspect-data.md
-        - name: Valutare e migliorare l'accuratezza di Riconoscimento vocale personalizzato
-          href: how-to-custom-speech-evaluate-data.md
-        - name: Eseguire il training e distribuire un modello di Riconoscimento vocale personalizzato
-          href: how-to-custom-speech-train-model.md
-        - name: CI/CD per Riconoscimento vocale personalizzato
-          href: how-to-custom-speech-continuous-integration-continuous-deployment.md
-        - name: Creare trascrizioni con etichette umane
-          href: how-to-custom-speech-human-labeled-transcriptions.md
-        - name: Ciclo di vita di modelli ed endpoint
-          href: how-to-custom-speech-model-and-endpoint-lifecycle.md
     - name: Informazioni di riferimento
       items:
         - name: C++
@@ -116,25 +116,25 @@
           href: long-audio-api.md
         - name: Ottenere gli eventi di post viso per la sincronizzazione labiale
           href: how-to-speech-synthesis-viseme.md
-    - name: Personalizzazione
-      items:
-        - name: Portale di Voce personalizzata
+        - name: Personalizzazione
           items:
-            - name: Che cos'è la voce neurale personalizzata?
-              href: custom-neural-voice.md
-            - name: Introduzione a Voce personalizzata
-              displayName: 'custom voice, neural voice'
-              href: how-to-custom-voice.md
-            - name: Preparazione dei dati
-              href: how-to-custom-voice-prepare-data.md
-            - name: Creare e usare modelli di Voce personalizzata
-              href: how-to-custom-voice-create-voice.md
-            - name: Registrare esempi vocali
-              href: record-custom-voice-samples.md
-        - name: Creazione di contenuti audio
-          items:
+            - name: Portale di Voce personalizzata
+              items:
+                - name: Che cos'è la voce neurale personalizzata?
+                  href: custom-neural-voice.md
+                - name: Introduzione a Voce personalizzata
+                  displayName: 'custom voice, neural voice'
+                  href: how-to-custom-voice.md
+                - name: Preparazione dei dati
+                  href: how-to-custom-voice-prepare-data.md
+                - name: Creare e usare modelli di Voce personalizzata
+                  href: how-to-custom-voice-create-voice.md
+                - name: Registrare esempi vocali
+                  href: record-custom-voice-samples.md
             - name: Creazione di contenuti audio
-              href: how-to-audio-content-creation.md
+              items:
+                - name: Creazione di contenuti audio
+                  href: how-to-audio-content-creation.md
     - name: Uso responsabile dell'intelligenza artificiale
       items:
         - name: Voce neurale personalizzata

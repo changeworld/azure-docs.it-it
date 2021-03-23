@@ -1,14 +1,14 @@
 ---
 title: Gestione delle estensioni VM con i server abilitati per Azure Arc
 description: I server abilitati per Azure Arc possono gestire la distribuzione delle estensioni delle macchine virtuali che forniscono attività di configurazione e automazione post-distribuzione con macchine virtuali non di Azure.
-ms.date: 03/01/2021
+ms.date: 03/22/2021
 ms.topic: conceptual
-ms.openlocfilehash: 039c52ccbee03636da0f5acc0fc5844be9b646f5
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 9af2700f036352188e646188485285482ee70c69
+ms.sourcegitcommit: ba3a4d58a17021a922f763095ddc3cf768b11336
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101687907"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104799582"
 ---
 # <a name="virtual-machine-extension-management-with-azure-arc-enabled-servers"></a>Gestione delle estensioni macchina virtuale con i server con abilitazione di Azure Arc
 
@@ -42,6 +42,9 @@ La funzionalità di estensione della macchina virtuale è disponibile solo nell'
 In questa versione sono supportate le estensioni di macchina virtuale seguenti nei computer Windows e Linux.
 
 Per informazioni sul pacchetto dell'agente di computer connesso di Azure e per informazioni dettagliate sul componente agente di estensione, vedere [Panoramica degli agenti](agent-overview.md#agent-component-details).
+
+> [!NOTE]
+> Il supporto di recente per l'estensione VM DSC è stato rimosso per i server abilitati per Arc. In alternativa, è consigliabile usare l'estensione di script personalizzati per gestire la configurazione post-distribuzione del server o del computer.
 
 ### <a name="windows-extensions"></a>Estensioni di Windows
 

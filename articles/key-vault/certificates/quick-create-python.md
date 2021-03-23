@@ -8,12 +8,12 @@ ms.service: key-vault
 ms.subservice: certificates
 ms.topic: quickstart
 ms.custom: devx-track-python, devx-track-azurecli
-ms.openlocfilehash: 6ae20c55a16b12f7543af3f08d96400a8e5f20c9
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 2026b1721dbe05af1ecc52324d1dd0ebf2ec3d08
+ms.sourcegitcommit: ba3a4d58a17021a922f763095ddc3cf768b11336
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "97934918"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104802659"
 ---
 # <a name="quickstart-azure-key-vault-certificate-client-library-for-python"></a>Avvio rapido: Libreria client dei certificati di Azure Key Vault per Python
 
@@ -24,14 +24,14 @@ Introduzione alla libreria client dei certificati di Azure Key Vault per Python.
 ## <a name="prerequisites"></a>Prerequisiti
 
 - Una sottoscrizione di Azure: [creare un account gratuitamente](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-- [Python 2.7 o 3.5.3 e versioni successive](/azure/developer/python/configure-local-development-environment)
+- [Python 2.7 + o 3.6 +](/azure/developer/python/configure-local-development-environment)
 - [Interfaccia della riga di comando di Azure](/cli/azure/install-azure-cli)
 
 Questa Guida di avvio rapido presuppone l'esecuzione dell'[interfaccia della riga di comando di Azure](/cli/azure/install-azure-cli) in una finestra del terminale Linux.
 
 ## <a name="set-up-your-local-environment"></a>Configurare l'ambiente locale
 
-Questo argomento di avvio rapido usa la libreria di identità di Azure con l'interfaccia della riga di comando di Azure per autenticare l'utente nei servizi di Azure. Gli sviluppatori possono anche usare Visual Studio o Visual Studio Code per autenticare le chiamate. Per altre informazioni, vedere [Autenticare il client con la libreria client Azure Identity](/java/api/overview/azure/identity-readme).
+Questo argomento di avvio rapido usa la libreria di identità di Azure con l'interfaccia della riga di comando di Azure per autenticare l'utente nei servizi di Azure. Gli sviluppatori possono anche usare Visual Studio o Visual Studio Code per autenticare le chiamate. Per altre informazioni, vedere [Autenticare il client con la libreria client Azure Identity](/python/api/overview/azure/identity-readme).
 
 ### <a name="sign-in-to-azure"></a>Accedere ad Azure
 

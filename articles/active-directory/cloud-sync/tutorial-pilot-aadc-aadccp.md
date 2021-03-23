@@ -7,16 +7,16 @@ manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 05/19/2020
+ms.date: 03/22/2021
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3395afbe95b2a7f35893a0ce7f60c3871597acd0
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 50eac71203a94ffb5c7dddc8995b56980c3f8815
+ms.sourcegitcommit: ba3a4d58a17021a922f763095ddc3cf768b11336
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98612167"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104798715"
 ---
 # <a name="pilot-cloud-sync-for-an-existing-synced-ad-forest"></a>Sincronizzazione cloud pilota per una foresta di Active Directory sincronizzata esistente 
 
@@ -208,20 +208,7 @@ Nel caso il progetto pilota non funzioni come previsto, è possibile tornare nel
 1.  Disabilitare la configurazione del provisioning nel portale di Azure. 
 2.  Disabilitare tutte le regole di sincronizzazione personalizzate create per il provisioning cloud usando l'editor delle regole di sincronizzazione. La disabilitazione genera una sincronizzazione completa in tutti i connettori.
 
-## <a name="configure-azure-ad-connect-sync-to-exclude-the-pilot-ou"></a>Configurare il servizio di sincronizzazione di Azure AD Connect per escludere l'unità organizzativa pilota
-Dopo aver verificato che gli utenti dell'unità organizzativa pilota siano gestiti correttamente da Cloud Sync, è possibile riconfigurare Azure AD Connect per escludere l'unità organizzativa pilota creata in precedenza.  L'agente di provisioning cloud gestirà la sincronizzazione di questi utenti in futuro.  Usare la procedura seguente per definire l'ambito di Azure AD Connect.
 
- 1. Nel server che esegue Azure AD Connect fare doppio clic sull'icona di Azure AD Connect.
- 2. Fare clic su **Configura**.
- 3. Selezionare **Personalizzazione delle opzioni di sincronizzazione** e quindi fare clic su Avanti.
- 4. Accedere a Azure AD e fare clic su **Avanti**.
- 5. Nella schermata **Connessione delle directory** fare clic su **Avanti**.
- 6. Nella schermata **Filtro di domini e unità organizzative** selezionare **Sincronizza le unità organizzative e i domini selezionati**.
- 7. Espandere il dominio e **deselezionare** l'unità organizzativa **CPUsers**.  Fare clic su **Avanti**.
-![ambito](media/tutorial-existing-forest/scope-1.png)</br>
- 9. Nella schermata **Funzionalità facoltative** fare clic su **Avanti**.
- 10. Nella schermata **Ready to configure** (Pronto per la configurazione) fare clic su **Configure** (Configura).
- 11. Al termine, fare clic su **Esci**. 
 
 ## <a name="next-steps"></a>Passaggi successivi 
 

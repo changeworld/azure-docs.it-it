@@ -5,16 +5,16 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: conceptual
-ms.date: 02/01/2021
+ms.date: 03/16/2021
 ms.author: tamram
 ms.reviewer: hux
 ms.subservice: blobs
-ms.openlocfilehash: 8d04d1bd758480ec33a7480e4045d28ed750f22e
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: d1d77e508e627520878dcc27b5a643473d11dd1d
+ms.sourcegitcommit: ba3a4d58a17021a922f763095ddc3cf768b11336
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102430939"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104800721"
 ---
 # <a name="store-business-critical-blob-data-with-immutable-storage"></a>Archiviare dati BLOB critici per l'azienda con archiviazione non modificabile
 
@@ -63,13 +63,15 @@ Per altre informazioni su come impostare e bloccare i criteri di conservazione b
 ## <a name="time-based-retention-policies"></a>Criteri di conservazione basati sul tempo
 
 > [!IMPORTANT]
-> Un criterio di conservazione basato sul tempo deve essere *bloccato* affinché il BLOB sia in uno stato non modificabile conforme (scrittura ed eliminazione protetta) per i secondi 17a-4 (f) e altre normative di conformità. Si consiglia di bloccare il criterio in un periodo di tempo ragionevole, in genere inferiore a 24 ore. Lo stato iniziale di un criterio di conservazione basato sul tempo applicato viene *sbloccato*, consentendo di testare la funzionalità e apportare modifiche ai criteri prima di bloccarlo. Sebbene lo stato *sbloccato* fornisca la protezione dell'immutabilità, non è consigliabile usare lo stato *sbloccato* per qualsiasi scopo, ad eccezione delle versioni di valutazione a breve termine delle funzionalità. 
+> Un criterio di conservazione basato sul tempo deve essere *bloccato* affinché il BLOB sia in uno stato non modificabile conforme (scrittura ed eliminazione protetta) per i secondi 17a-4 (f) e altre normative di conformità. Microsoft consiglia di bloccare il criterio in un periodo di tempo ragionevole, in genere inferiore a 24 ore. Lo stato iniziale di un criterio di conservazione basato sul tempo applicato viene *sbloccato*, consentendo di testare la funzionalità e apportare modifiche ai criteri prima di bloccarlo. Mentre lo stato *sbloccato* fornisce la protezione dell'immutabilità, l'utilizzo dello stato *sbloccato* per qualsiasi scopo, ad eccezione delle versioni di valutazione delle funzionalità a breve termine, non è
+>
+> Quando un criterio di conservazione basato sul tempo è bloccato, non è possibile rimuovere il criterio e sono consentiti al massimo cinque aumenti del periodo di conservazione effettivo. Il periodo di conservazione non può essere ridotto.
 
 Quando un criterio di conservazione basato sul tempo viene applicato in un contenitore, tutti i BLOB nel contenitore resteranno nello stato non modificabile per la durata del periodo di conservazione *effettivo* . Il periodo di conservazione effettivo per i BLOB è uguale alla differenza tra l' **ora di creazione** del BLOB e l'intervallo di conservazione specificato dall'utente. Poiché gli utenti possono estendere l'intervallo di conservazione, l'archiviazione non modificabile usa il valore più recente dell'intervallo di conservazione specificato dall'utente per calcolare il periodo di conservazione effettivo.
 
 Si supponga, ad esempio, che un utente crei un criterio di conservazione basato sul tempo con un intervallo di conservazione di cinque anni. Un BLOB esistente nel contenitore, _testblob1_, è stato creato un anno fa; il periodo di conservazione effettivo per _testblob1_ è quindi di quattro anni. Quando un nuovo BLOB, _testblob2_, viene caricato nel contenitore, il periodo di conservazione effettivo per il _testblob2_ è di cinque anni dal momento della creazione.
 
-Un criterio di conservazione basato sul tempo sbloccato è consigliato solo per i test delle funzionalità e i criteri devono essere bloccati per essere conformi ai secondi 17a-4 (f) e ad altri requisiti normativi. Quando un criterio di conservazione basato sul tempo è bloccato, non è possibile rimuovere il criterio e sono consentiti al massimo cinque aumenti del periodo di conservazione effettivo.
+Un criterio di conservazione basato sul tempo sbloccato è consigliato solo per i test delle funzionalità e i criteri devono essere bloccati per essere conformi ai secondi 17a-4 (f) e ad altri requisiti normativi.
 
 Ai criteri di conservazione si applicano i limiti seguenti:
 

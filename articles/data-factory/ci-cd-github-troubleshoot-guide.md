@@ -7,12 +7,12 @@ ms.reviewer: susabat
 ms.service: data-factory
 ms.topic: troubleshooting
 ms.date: 03/12/2021
-ms.openlocfilehash: 4be015b1a8ba4b6fc6ea3acc74318f9a8b298e8e
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 2b6f97f0966cb2c92dbd88c4a70188282ed3ed27
+ms.sourcegitcommit: ba3a4d58a17021a922f763095ddc3cf768b11336
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103418097"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104802034"
 ---
 # <a name="troubleshoot-ci-cd-azure-devops-and-github-issues-in-adf"></a>Risolvere i problemi relativi a CI-CD, Azure DevOps e GitHub in ADF 
 
@@ -101,8 +101,7 @@ Quando si tenta di pubblicare le modifiche in un Data Factory, viene riportato i
         "details": null
     }
 `
-
-#### <a name="symptom"></a>Sintomo
+### <a name="cause"></a>Causa
 
 La configurazione di Git è stata scollegata e configurata di nuovo con il flag "Importa risorse" selezionato, che imposta il Data Factory come "sincronizzato". Ciò significa che non viene modificata la pubblicazione.
 
@@ -150,11 +149,7 @@ Non è possibile esportare e importare il modello ARM. Tuttavia, nella traccia d
 
 Per risolvere il problema, è necessario aggiungere l'autorizzazione seguente al ruolo: *Microsoft. DataFactory/factorys/queryFeaturesValue/Action*. Per impostazione predefinita, questa autorizzazione deve essere inclusa nel ruolo "collaboratore Data Factory".
 
-###  <a name="automatic-publishing-for-cicd-without-clicking-publish-button"></a>Pubblicazione automatica per CI/CD senza fare clic sul pulsante pubblica  
-
-#### <a name="issue"></a>Problema
-
-La pubblicazione manuale con il pulsante clic nel portale di ADF non Abilita l'operazione di integrazione continua/recapito continuo automatica.
+###  <a name="cannot-automate-publishing-for-cicd"></a>Non è possibile automatizzare la pubblicazione per CI/CD 
 
 #### <a name="cause"></a>Causa
 
@@ -178,15 +173,14 @@ Azure Resource Manager limita le dimensioni del modello a 4 MB. Limitare le dime
 
 Per le piccole e medie soluzioni, un modello singolo è più facile da comprendere e gestire. È possibile vedere tutti i valori e le risorse in un unico file. Per gli scenari avanzati, i modelli collegati consentono di suddividere la soluzione in componenti di destinazione. Seguire le procedure consigliate per l' [uso di modelli collegati e annidati](../azure-resource-manager/templates/linked-templates.md?tabs=azure-powershell).
 
-### <a name="cannot-connect-to-git-enterprise-cloud"></a>Non è possibile connettersi a GIT Enterprise Cloud 
+### <a name="cannot-connect-to-git-enterprise"></a>Non è possibile connettersi a GIT Enterprise  
 
 ##### <a name="issue"></a>Problema
 
-Non è possibile connettersi a GIT Enterprise Cloud a causa di problemi di autorizzazione. È possibile visualizzare un errore simile a **422-entità non elaborabile.**
+Non è possibile connettersi a GIT Enterprise a causa di problemi di autorizzazione. È possibile visualizzare un errore simile a **422-entità non elaborabile.**
 
 #### <a name="cause"></a>Causa
 
-* Si usa Git Enterprise nel server locale. 
 * OAuth non è stato configurato per ADF. 
 * L'URL non è configurato correttamente.
 
@@ -194,7 +188,7 @@ Non è possibile connettersi a GIT Enterprise Cloud a causa di problemi di autor
 
 Per prima cosa si concede l'accesso OAuth ad ADF. Quindi, è necessario usare l'URL corretto per connettersi a GIT Enterprise. La configurazione deve essere impostata sulle organizzazioni del cliente. Ad esempio, ADF tenterà *https://hostname/api/v3/search/repositories?q=user%3 <customer credential> ....* at First e fail. Quindi tenterà *https://hostname/api/v3/orgs/ <org> / <repo> ...* e avrà esito positivo. 
  
-### <a name="recover-from-a-deleted-data-factory"></a>Ripristino da un data factory eliminato
+### <a name="cannot-recover-from-a-deleted-data-factory"></a>Non è possibile eseguire il ripristino da un data factory eliminato
 
 #### <a name="issue"></a>Problema
 Data Factory eliminata dal cliente o il gruppo di risorse che contiene il Data Factory. Desidera ottenere informazioni su come ripristinare un data factory eliminato.

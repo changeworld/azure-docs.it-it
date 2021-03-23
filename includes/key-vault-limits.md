@@ -4,12 +4,12 @@ ms.service: key-vault
 ms.topic: include
 ms.date: 03/09/2021
 ms.author: ambapat
-ms.openlocfilehash: d934d40cad5f4eec929cfd273b6e30ea291e48d5
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: c2548b1669366564809ed2fde725cb3399922a29
+ms.sourcegitcommit: ba3a4d58a17021a922f763095ddc3cf768b11336
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103010958"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104803304"
 ---
 Azure Key Vault servizio supporta due tipi di risorse: insiemi di credenziali e HSM gestiti. Nelle due sezioni seguenti vengono descritti rispettivamente i limiti del servizio per ciascuno di essi.
 
@@ -50,6 +50,17 @@ Questa sezione descrive i limiti del servizio per il tipo di risorsa `vaults` .
 Per informazioni su come gestire la limitazione delle richieste in caso di superamento dei limiti, vedere [Guida alla limitazione delle richieste per Azure Key Vault](../articles/key-vault/general/overview-throttling.md).
 
 <sup>1</sup> Il limite a livello di sottoscrizione per tutti i tipi di transazione corrisponde a un valore pari a cinque volte quello del limite a livello di insieme di credenziali delle chiavi. Ad esempio, le transazioni diverse da HSM hanno un limite di 5.000 transazioni ogni 10 secondi per sottoscrizione.
+
+#### <a name="backup-keys-secrets-certificates"></a>Chiavi di backup, segreti, certificati
+
+Quando si esegue il backup di un oggetto dell'insieme di credenziali delle chiavi, come un segreto, una chiave o un certificato, l'operazione di backup scarica l'oggetto come BLOB crittografato. Questo BLOB non può essere decrittografato all'esterno di Azure. Per ottenere i dati utilizzabili da questo BLOB, è necessario ripristinare il BLOB in un insieme di credenziali delle chiavi all'interno della stessa sottoscrizione di Azure e di Azure geography
+
+| Tipo di transazioni | Numero massimo di versioni degli oggetti Key Vault consentite |
+| --- | --- |
+| Backup della chiave singola, Secret, certfiicate |500 |
+
+> [!NOTE]
+> Il tentativo di eseguire il backup di una chiave, un segreto o un oggetto certificato con più versioni rispetto al limite precedente comporterà un errore. Non è possibile eliminare le versioni precedenti di una chiave, un segreto o un certificato. 
 
 #### <a name="azure-private-link-integration"></a>Integrazione del collegamento privato di Azure
 

@@ -7,18 +7,20 @@ author: MarkHeff
 ms.author: maheff
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 02/03/2021
+ms.date: 03/22/2021
 ms.custom: contperf-fy21q3
-ms.openlocfilehash: 74813fabec4d5fe43cd158bb4aa359c2a3b0188a
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 6f70ae726cf41395e46760dc5cf7da5b4d61478a
+ms.sourcegitcommit: ba3a4d58a17021a922f763095ddc3cf768b11336
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "99988724"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104802897"
 ---
 # <a name="how-to-configure-blob-indexing-in-cognitive-search"></a>Come configurare l'indicizzazione BLOB in ricerca cognitiva
 
-Questo articolo illustra come configurare un indicizzatore BLOB per l'indicizzazione di documenti basati su testo (ad esempio, PDF, documenti Microsoft Office e altri) in Azure ricerca cognitiva. Se non si ha familiarità con i concetti relativi all'indicizzatore, iniziare con gli [indicizzatori in Azure ricerca cognitiva](search-indexer-overview.md) e [creare un indicizzatore di ricerca](search-howto-create-indexers.md) prima di immergersi nell'indicizzazione dei BLOB.
+Un indicizzatore BLOB viene usato per l'inserimento di contenuto dall'archiviazione BLOB di Azure a un indice ricerca cognitiva. Gli indicizzatori BLOB vengono spesso usati nell' [arricchimento di intelligenza artificiale](cognitive-search-concept-intro.md), in cui un [competenze](cognitive-search-working-with-skillsets.md) associate aggiunge un'immagine e l'elaborazione del linguaggio naturale per creare contenuto ricercabile. Tuttavia, è anche possibile usare gli indicizzatori BLOB senza l'arricchimento di intelligenza artificiale, per inserire contenuto da documenti basati su testo, ad esempio PDF, documenti Microsoft Office e formati di file.
+
+Questo articolo illustra come configurare un indicizzatore BLOB per uno scenario. Se non si ha familiarità con i concetti relativi all'indicizzatore, iniziare con gli [indicizzatori in Azure ricerca cognitiva](search-indexer-overview.md) e [creare un indicizzatore di ricerca](search-howto-create-indexers.md) prima di immergersi nell'indicizzazione dei BLOB.
 
 <a name="SupportedFormats"></a>
 
@@ -30,7 +32,7 @@ L'indicizzatore BLOB di Azure ricerca cognitiva può estrarre il testo dai forma
 
 ## <a name="data-source-definitions"></a>Definizioni delle origini dati
 
-La differenza tra un indicizzatore BLOB e qualsiasi altro indicizzatore è la definizione dell'origine dati assegnata all'indicizzatore. L'origine dati incapsula tutte le proprietà che specificano il tipo, la connessione e il percorso del contenuto da indicizzare.
+La differenza principale tra un indicizzatore BLOB e qualsiasi altro indicizzatore è la definizione dell'origine dati assegnata all'indicizzatore. La definizione dell'origine dati specifica il tipo di origine dati ("Type": "azureblob"), nonché altre proprietà per l'autenticazione e la connessione al contenuto da indicizzare.
 
 Una definizione dell'origine dati BLOB è simile all'esempio seguente:
 
@@ -72,7 +74,7 @@ La firma di accesso condiviso deve avere le autorizzazioni per le operazioni di 
 
 ## <a name="index-definitions"></a>Definizioni di indice
 
-L'indice consente di specificare i campi in un documento, gli attributi e altri costrutti che danno forma all'esperienza della ricerca. Nell'esempio seguente viene creato un indice semplice usando [create index (API REST)](/rest/api/searchservice/create-index). 
+L'indice consente di specificare i campi in un documento, gli attributi e altri costrutti che danno forma all'esperienza della ricerca. Per tutti gli indicizzatori è necessario specificare una definizione di indice di ricerca come destinazione. Nell'esempio seguente viene creato un indice semplice usando [create index (API REST)](/rest/api/searchservice/create-index). 
 
 ```http
 POST https://[service name].search.windows.net/indexes?api-version=2020-06-30
@@ -90,7 +92,7 @@ api-key: [admin key]
 
 Per le definizioni di indice è necessario che un campo della `"fields"` raccolta funga da chiave del documento. Le definizioni di indice devono includere anche campi per contenuto e metadati.
 
-**`content`** Per archiviare il testo estratto dai BLOB, viene usato un campo. La definizione di questo campo potrebbe essere simile a quella illustrata in precedenza. Non è necessario usare questo nome, ma in questo modo è possibile sfruttare i mapping dei campi impliciti. L'indicizzatore BLOB può inviare il contenuto del BLOB a un campo EDM. String del contenuto nell'indice e non è necessario alcun mapping dei campi.
+Un **`content`** campo è comune al contenuto del BLOB. Contiene il testo estratto dai BLOB. La definizione di questo campo potrebbe essere simile a quella illustrata in precedenza. Non è necessario usare questo nome, ma in questo modo è possibile sfruttare i mapping dei campi impliciti. L'indicizzatore BLOB può inviare il contenuto del BLOB a un campo EDM. String del contenuto nell'indice senza che siano necessari mapping dei campi.
 
 È anche possibile aggiungere campi per i metadati del BLOB che si desidera includere nell'indice. L'indicizzatore può leggere proprietà dei metadati personalizzati, proprietà [dei metadati standard](#indexing-blob-metadata) e proprietà [dei metadati specifiche del contenuto](search-blob-metadata-properties.md) . Per ulteriori informazioni sugli indici, vedere [creare un indice](search-what-is-an-index.md).
 

@@ -10,16 +10,16 @@ ms.date: 03/05/2021
 ms.author: tamram
 ms.subservice: blobs
 ms.custom: references_regions
-ms.openlocfilehash: f157b44e92289d0e9c5b88108550c144344c5206
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 54e703b096ea4e3572a6fc00aa6b7b2b99c4bcad
+ms.sourcegitcommit: ba3a4d58a17021a922f763095ddc3cf768b11336
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102211142"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104800745"
 ---
 # <a name="soft-delete-for-containers-preview"></a>Eliminazione temporanea per i contenitori (anteprima)
 
-L'eliminazione temporanea per i contenitori (anteprima) impedisce che i dati vengano eliminati accidentalmente o intenzionalmente. Quando l'eliminazione temporanea del contenitore è abilitata per un account di archiviazione, qualsiasi contenitore eliminato e il relativo contenuto vengono conservati in archiviazione di Azure per il periodo specificato. Durante il periodo di memorizzazione è possibile ripristinare i contenitori eliminati in precedenza. Il ripristino di un contenitore ripristina tutti i BLOB all'interno del contenitore al momento dell'eliminazione.
+L'eliminazione temporanea per i contenitori (anteprima) impedisce che i dati vengano eliminati accidentalmente o intenzionalmente. Quando l'eliminazione temporanea dei contenitori è abilitata per un account di archiviazione, qualsiasi contenitore eliminato e il relativo contenuto vengono conservati in Archiviazione di Azure per il periodo specificato. Durante il periodo di conservazione è possibile ripristinare i contenitori eliminati in precedenza. Il ripristino di un contenitore ripristina tutti i BLOB che erano all'interno del contenitore al momento dell'eliminazione.
 
 Per la protezione end-to-end per i dati BLOB, Microsoft consiglia di abilitare le funzionalità di protezione dei dati seguenti:
 
@@ -35,6 +35,9 @@ Per la protezione end-to-end per i dati BLOB, Microsoft consiglia di abilitare l
 Quando si Abilita l'eliminazione temporanea del contenitore, è possibile specificare un periodo di conservazione per i contenitori eliminati tra 1 e 365 giorni. Il periodo di memorizzazione predefinito è 7 giorni. Durante il periodo di memorizzazione è possibile ripristinare un contenitore eliminato chiamando l'operazione di **ripristino del contenitore** .
 
 Quando si ripristina un contenitore, vengono ripristinati anche i BLOB del contenitore e tutte le versioni di BLOB. Tuttavia, è possibile usare l'eliminazione temporanea del contenitore solo per ripristinare i BLOB se il contenitore è stato eliminato. Per ripristinare un BLOB eliminato quando il contenitore padre non è stato eliminato, è necessario usare l'eliminazione temporanea o il controllo delle versioni dei BLOB.
+
+> [!WARNING]
+> L'eliminazione temporanea del contenitore consente di ripristinare solo i contenitori interi e i BLOB che contengono al momento dell'eliminazione. Non è possibile ripristinare un BLOB eliminato all'interno di un contenitore usando l'eliminazione temporanea del contenitore.
 
 Il diagramma seguente mostra come è possibile ripristinare un contenitore eliminato quando è abilitata l'eliminazione temporanea del contenitore:
 

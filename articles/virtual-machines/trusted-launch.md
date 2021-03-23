@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 02/26/2021
 ms.reviewer: cynthn
 ms.custom: template-concept; references_regions
-ms.openlocfilehash: 01c5d4aaa3896e05bc743be309df050471ece5ae
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 5e500eca601d21f106dbe31236e9b5c2aa76b0d2
+ms.sourcegitcommit: ba3a4d58a17021a922f763095ddc3cf768b11336
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104582052"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104801928"
 ---
 # <a name="trusted-launch-for-azure-virtual-machines-preview"></a>Avvio attendibile per macchine virtuali di Azure (anteprima)
 
@@ -55,6 +55,7 @@ Azure offre un avvio attendibile come metodo semplice per migliorare la sicurezz
 - Windows Server 2016
 - Windows 10 Pro
 - Windows 10 Enterprise
+- Windows 10 Enterprise multisessione
 
 **Regioni**: 
 - Stati Uniti centro-meridionali

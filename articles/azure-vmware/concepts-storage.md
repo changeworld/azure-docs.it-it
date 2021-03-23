@@ -3,12 +3,12 @@ title: Concetti-archiviazione
 description: Informazioni sulle funzionalità di archiviazione chiavi in cloud privati della soluzione VMware di Azure.
 ms.topic: conceptual
 ms.date: 03/13/2021
-ms.openlocfilehash: 2551b11ada8b6118fb7524d9fe36f8b4b568aca1
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 83a4a52f8414e656b5bc688796db6e93a53d4d76
+ms.sourcegitcommit: ba3a4d58a17021a922f763095ddc3cf768b11336
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103462474"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104801622"
 ---
 #  <a name="azure-vmware-solution-storage-concepts"></a>Concetti relativi all'archiviazione della soluzione VMware di Azure
 
@@ -44,7 +44,7 @@ La capacità di archiviazione del cluster nativa viene ridimensionata aggiungend
 Ora che sono stati illustrati i concetti relativi all'archiviazione della soluzione VMware di Azure, è possibile acquisire familiarità con:
 
 - [Concetti di identità del cloud privato](concepts-identity.md).
-- [controllo degli accessi in base al ruolo vSphere per la soluzione VMware di Azure](concepts-role-based-access-control.md).
+- [controllo degli accessi in base al ruolo vSphere per la soluzione VMware di Azure](concepts-identity.md).
 - [Come abilitare la risorsa della soluzione VMware di Azure](enable-azure-vmware-solution.md).
 - [Azure NetApp Files con la soluzione VMware di Azure](netapp-files-with-azure-vmware-solution.md)
 

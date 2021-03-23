@@ -180,7 +180,7 @@
     - name: Informazioni di riferimento sui dati del monitoraggio
       href: how-to-monitor-tsi-reference.md
     - name: Interfaccia della riga di comando di Azure
-      href: /cli/azure/ext/timeseriesinsights/timeseriesinsights
+      href: 'https://docs.microsoft.com/cli/azure/ext/timeseriesinsights/'
 - name: Risorse
   items:
     - name: Opzioni di supporto tecnico e assistenza

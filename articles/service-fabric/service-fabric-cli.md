@@ -5,12 +5,12 @@ author: jeffj6123
 ms.topic: conceptual
 ms.date: 5/19/2020
 ms.author: jejarry
-ms.openlocfilehash: b3714f8401def9bed68e4b0845d025734a480cb3
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: a1b0598f34fe894e078dc647149cff4ac74e1fea
+ms.sourcegitcommit: ba3a4d58a17021a922f763095ddc3cf768b11336
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "83681793"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104802149"
 ---
 # <a name="azure-service-fabric-cli"></a>Interfaccia della riga di comando di Azure Service Fabric
 
@@ -22,7 +22,7 @@ L'interfaccia della riga di comando di Azure Service Fabric è un'utilità della
 
 Prima dell'installazione, verificare che nell'ambiente siano installati sia Python che pip. Per informazioni, vedere la [documentazione rapida di pip](https://pip.pypa.io/en/latest/quickstart/) e la [documentazione sull'installazione di Python](https://wiki.python.org/moin/BeginnersGuide/Download) ufficiale.
 
-L'interfaccia della riga di comando supporta Python versione 2.7, 3.5, 3.6 e 3.7. Python 3.x è la versione consigliata, perché Python 2.7 raggiungerà presto la fine del supporto.
+L'interfaccia della riga di comando supporta le versioni 2,7 e 3.6 + di Python, con Python 3. x consigliato.
 
 ### <a name="service-fabric-target-runtime"></a>Runtime di destinazione di Service Fabric
 

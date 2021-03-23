@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.date: 01/22/2019
 ms.author: chrande
 ms.custom: devx-track-python
-ms.openlocfilehash: 91b04b05b810b2b0fc221943a73e81c49f7119dc
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 342b9c9aae0a523ac770ba78f298c4ba91c434e7
+ms.sourcegitcommit: ba3a4d58a17021a922f763095ddc3cf768b11336
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "95972472"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104798749"
 ---
 # <a name="quickstart-create-a-graph-database-in-azure-cosmos-db-using-python-and-the-azure-portal"></a>Avvio rapido: Creare un database a grafo in Azure Cosmos DB usando Python e il portale di Azure
 [!INCLUDE[appliesto-gremlin-api](includes/appliesto-gremlin-api.md)]
@@ -32,7 +32,7 @@ In questa guida di avvio rapido si apprenderà a creare e gestire un account API
 
 ## <a name="prerequisites"></a>Prerequisiti
 - Un account Azure con una sottoscrizione attiva. [È possibile crearne uno gratuitamente](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio). In alternativa, è possibile [provare gratuitamente Azure DB Cosmos](https://azure.microsoft.com/try/cosmosdb/) senza una sottoscrizione di Azure.
-- [Python 3.5+](https://www.python.org/downloads/) che include il programma di installazione del pacchetto [pip](https://pip.pypa.io/en/stable/installing/).
+- [Python 3.6 +](https://www.python.org/downloads/) incluso il programma di installazione del pacchetto [PIP](https://pip.pypa.io/en/stable/installing/) .
 - [Driver Python per Gremlin](https://github.com/apache/tinkerpop/tree/master/gremlin-python).
 - [Git](https://git-scm.com/downloads).
 
