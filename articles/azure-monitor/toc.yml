@@ -722,6 +722,8 @@
                       items:
                         - name: Metriche JMX
                           href: app/java-jmx-metrics-configuration.md
+                        - name: Override del campionamento
+                          href: app/java-standalone-sampling-overrides.md
                         - name: Processori di telemetria
                           items:
                             - name: Panoramica

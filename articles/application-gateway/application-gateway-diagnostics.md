@@ -8,12 +8,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 11/22/2019
 ms.author: victorh
-ms.openlocfilehash: e18267d5a810826e41e05eb3dde3cd82a8eb9197
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 32d96ce79844cd89e06035036bfa68703a738ed1
+ms.sourcegitcommit: ac035293291c3d2962cee270b33fca3628432fac
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98065321"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "104950485"
 ---
 # <a name="back-end-health-and-diagnostic-logs-for-application-gateway"></a>Log di diagnostica e integrità back-end per il gateway applicazione
 
@@ -306,7 +306,7 @@ Il log del firewall viene generato solo se è stato abilitato in ogni gateway ap
 |ruleSetVersion     | Versione del set di regole usata. I valori disponibili sono 2.2.9 e 3.0.     |
 |ruleId     | ID regola dell'evento di attivazione.        |
 |message     | Messaggio descrittivo dell'evento di attivazione. Altre informazioni sono disponibili nella sezione dei dettagli.        |
-|azione     |  Azione eseguita sulla richiesta. I valori disponibili vengono abbinati e bloccati.      |
+|azione     |  Azione eseguita sulla richiesta. I valori disponibili sono bloccati e consentiti (per le regole personalizzate), corrispondenti (quando una regola corrisponde a una parte della richiesta) e rilevati e bloccati (entrambi per le regole obbligatorie, a seconda se il WAF è in modalità di rilevamento o prevenzione).      |
 |site     | Sito per cui è stato generato il log. Attualmente viene visualizzato solo Global poiché le regole sono globali.|
 |dettagli     | Dettagli dell'evento di attivazione.        |
 |details.message     | Descrizione della regola.        |

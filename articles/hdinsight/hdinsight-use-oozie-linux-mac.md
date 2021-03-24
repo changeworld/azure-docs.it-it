@@ -5,12 +5,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: seoapr2020
 ms.date: 04/27/2020
-ms.openlocfilehash: b72d94c1cba3ea0476c6d44e68583f6668b167e2
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 00573f01aab5e9aa86befaebb6b514c76a01b67d
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101702777"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104871776"
 ---
 # <a name="use-apache-oozie-with-apache-hadoop-to-define-and-run-a-workflow-on-linux-based-azure-hdinsight"></a>Usare Apache Oozie con Apache Hadoop per definire ed eseguire un flusso di lavoro in Azure HDInsight basato su Linux
 
@@ -40,7 +40,7 @@ Oozie può anche essere usato per pianificare processi specifici di un sistema, 
 
 Il flusso di lavoro usato in questo documento prevede due azioni. Le azioni sono definizioni di attività, ad esempio l'esecuzione di processi Hive, Sqoop, MapReduce o altri:
 
-![Diagramma del flusso di lavoro oozie HDInsight](./media/hdinsight-use-oozie-linux-mac/oozie-workflow-diagram.png)
+:::image type="content" source="./media/hdinsight-use-oozie-linux-mac/oozie-workflow-diagram.png" alt-text="Diagramma del flusso di lavoro oozie HDInsight" border="false":::
 
 1. Un'azione hive esegue uno script HiveQL per estrarre i record da `hivesampletable` incluso in HDInsight. Ogni riga di dati descrive una visita da un dispositivo mobile specifico. Il formato del record risulterà simile al testo seguente:
 
@@ -516,29 +516,29 @@ Per accedere all'interfaccia utente Web di Oozie, completare la procedura seguen
 
 3. Sul lato sinistro della pagina selezionare **oozie**  >  **Quick Links**  >  **oozie Web UI**.
 
-    ![Passaggi dell'interfaccia utente Web di Apache Ambari OOZIE](./media/hdinsight-use-oozie-linux-mac/hdi-oozie-web-ui-steps.png)
+    :::image type="content" source="./media/hdinsight-use-oozie-linux-mac/hdi-oozie-web-ui-steps.png" alt-text="Passaggi dell'interfaccia utente Web di Apache Ambari OOZIE" border="true":::
 
 4. Per impostazione predefinita, nell'interfaccia utente Web di Oozie sono visualizzati i processi del flusso di lavoro in esecuzione. Per visualizzare tutti i processi del flusso di lavoro, selezionare **All Jobs** (Tutti i processi).
 
-    ![Processi del flusso di lavoro della console Web OOZIE](./media/hdinsight-use-oozie-linux-mac/hdinsight-oozie-jobs.png)
+    :::image type="content" source="./media/hdinsight-use-oozie-linux-mac/hdinsight-oozie-jobs.png" alt-text="Processi del flusso di lavoro della console Web OOZIE" border="true":::
 
 5. Per visualizzare altre informazioni specifiche di un processo, selezionarlo.
 
-    ![Informazioni sul processo di HDInsight Apache OOZIE](./media/hdinsight-use-oozie-linux-mac/hdinsight-oozie-job-info.png)
+    :::image type="content" source="./media/hdinsight-use-oozie-linux-mac/hdinsight-oozie-job-info.png" alt-text="Informazioni sul processo di HDInsight Apache OOZIE" border="true":::
 
 6. Nella scheda **Job Info** (Informazioni processo) è possibile visualizzare informazioni di base sul processo e le singole azioni all'interno del processo. È possibile usare le schede nella parte superiore per visualizzare **Job Definition** (Definizione processo) e **Job Configuration** (Configurazione processo), accedere a **Job Log** (Log processo) o visualizzare un grafo aciclico diretto (DAG) del processo in **Job DAG** (DAG processo).
 
    * **Job Log** (Log processo): selezionare il pulsante **Get Logs** (Ottieni log) per recuperare tutti i log relativi al processo o usare il campo **Enter Search Filter** (Immetti filtro di ricerca) per filtrare i log.
 
-       ![Log del processo Apache oozie di HDInsight](./media/hdinsight-use-oozie-linux-mac/hdinsight-oozie-job-log.png)
+       :::image type="content" source="./media/hdinsight-use-oozie-linux-mac/hdinsight-oozie-job-log.png" alt-text="Log del processo Apache oozie di HDInsight" border="true":::
 
    * **Job DAG** (DAG processo): il grafo aciclico diretto (DAG) è una rappresentazione grafica dei percorsi dati rilevati nel flusso di lavoro.
 
-       ![' HDInsight Apache oozie Job DAG '](./media/hdinsight-use-oozie-linux-mac/hdinsight-oozie-job-dag.png)
+       :::image type="content" source="./media/hdinsight-use-oozie-linux-mac/hdinsight-oozie-job-dag.png" alt-text="' HDInsight Apache oozie Job DAG '" border="true":::
 
 7. Se si seleziona una delle azioni dalla scheda **Job Info** (Informazioni processo), vengono visualizzate informazioni sull'azione. Selezionare ad esempio l'azione **RunSqoopExport**.
 
-    ![Informazioni sull'azione del processo oozie di HDInsight](./media/hdinsight-use-oozie-linux-mac/oozie-job-action-info.png)
+    :::image type="content" source="./media/hdinsight-use-oozie-linux-mac/oozie-job-action-info.png" alt-text="Informazioni sull'azione del processo oozie di HDInsight" border="true":::
 
 8. È possibile visualizzare i dettagli per l'azione, ad esempio un collegamento a **Console URL** (URL della console). Usare questo collegamento per visualizzare le informazioni di JobTracker per il processo.
 
@@ -638,18 +638,18 @@ Per accedere all'interfaccia utente Web di Oozie, completare la procedura seguen
 
 7. Se si accede all'interfaccia utente Web di Oozie e si seleziona la scheda **Coordinator Jobs** (Processi coordinatore), si ottengono informazioni simili a quelle nell'immagine seguente:
 
-    ![Scheda processi coordinatore della console Web OOZIE](./media/hdinsight-use-oozie-linux-mac/coordinator-jobs-tab.png)
+    :::image type="content" source="./media/hdinsight-use-oozie-linux-mac/coordinator-jobs-tab.png" alt-text="Scheda processi coordinatore della console Web OOZIE" border="true":::
 
     La voce **Next Materialization** (Materializzazione successiva) contiene l'orario per l'esecuzione successiva del processo.
 
 8. Come per il processo del flusso di lavoro precedente, se si seleziona la voce del processo nell'interfaccia utente Web vengono visualizzate informazioni sul processo:
 
-    ![Informazioni sul processo di Apache oozie Coordinator](./media/hdinsight-use-oozie-linux-mac/coordinator-job-info.png)
+    :::image type="content" source="./media/hdinsight-use-oozie-linux-mac/coordinator-job-info.png" alt-text="Informazioni sul processo di Apache oozie Coordinator" border="true":::
 
     > [!NOTE]  
     > Questa immagine visualizza solo le esecuzioni riuscite del processo, non le singole azioni nel flusso di lavoro pianificato. Per visualizzare le singole azioni, selezionare una delle voci relative alle **azioni**.
 
-    ![Scheda informazioni processo della console Web OOzie](./media/hdinsight-use-oozie-linux-mac/coordinator-action-job.png)
+    :::image type="content" source="./media/hdinsight-use-oozie-linux-mac/coordinator-action-job.png" alt-text="Scheda informazioni processo della console Web OOzie" border="true":::
 
 ## <a name="next-steps"></a>Passaggi successivi
 
