@@ -5,12 +5,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 01/01/2020
-ms.openlocfilehash: 4b57eddafbf9a5615dc42e9a3c5a49c5f90781e2
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 0780f66c981f0cebebc1ab327d783954753db965
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98946667"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104866727"
 ---
 # <a name="deep-dive---advanced-analytics"></a>Approfondimento - Analisi avanzata
 
@@ -20,7 +20,7 @@ HDInsight offre la possibilità di ottenere informazioni dettagliate importanti 
 
 ## <a name="advanced-analytics-process"></a>Processo di analisi avanzata
 
-![Flusso del processo di analisi avanzata](./media/apache-hadoop-deep-dive-advanced-analytics/hdinsight-analytic-process.png)
+:::image type="content" source="./media/apache-hadoop-deep-dive-advanced-analytics/hdinsight-analytic-process.png" alt-text="Flusso del processo di analisi avanzata" border="false":::
 
 Dopo aver identificato il problema aziendale e aver avviato la raccolta e l'elaborazione dei dati, è necessario creare un modello che rappresenti la domanda per cui generare una previsione. Il modello usa uno o più algoritmi di Machine Learning per creare il tipo di previsione più adatto alle esigenze aziendali specifiche.  La maggior parte dei dati deve essere usata per eseguire il training del modello, mentre i dati rimanenti vengono usati per testare o valutare il modello.
 
@@ -30,7 +30,7 @@ Dopo aver creato, caricato, testato e valutato il modello, il passaggio successi
 
 Le soluzioni di analisi avanzata offrono un set di algoritmi di Machine Learning. Di seguito è riportato un riepilogo delle categorie di algoritmi e dei casi d'uso aziendali comuni associati.
 
-![Riepiloghi della categoria Machine Learning](./media/apache-hadoop-deep-dive-advanced-analytics/machine-learning-use-cases.png)
+:::image type="content" source="./media/apache-hadoop-deep-dive-advanced-analytics/machine-learning-use-cases.png" alt-text="Riepiloghi della categoria Machine Learning" border="false":::
 
 Insieme alla selezione degli algoritmi più adatti, è necessario considerare se devono essere forniti dati per il training. Gli algoritmi di Machine Learning sono suddivisi in categorie come indicato di seguito:
 
@@ -92,11 +92,11 @@ Questo scenario di analisi avanzata prevede tre principali attività:
 
 Questo esempio è basato sul set di immagini CIFAR-10 compilato e distribuito da Alex Krizhevsky, Vinod Nair e Geoffrey Hinton. Il set di dati 10 CIFAR contiene 60.000 immagini a colori 32x32 appartenenti a 10 classi che si escludono a vicenda:
 
-![Immagini di esempio Machine Learning](./media/apache-hadoop-deep-dive-advanced-analytics/machine-learning-images.png)
+:::image type="content" source="./media/apache-hadoop-deep-dive-advanced-analytics/machine-learning-images.png" alt-text="Immagini di esempio Machine Learning" border="false":::
 
 Per altre informazioni sul set di dati, vedere la pagina relativa alla [formazione su più livelli di funzionalità di Alex Krizhevsky da immagini di piccole dimensioni](https://www.cs.toronto.edu/~kriz/learning-features-2009-TR.pdf).
 
-Il set di dati è stato suddiviso in un set di training costituito da 50.000 immagini e un set di test costituito da 10.000 immagini. Il primo set è stato usato per il training di un modello di rete residua (ResNet) convoluzionale costituito da venti livelli tramite Microsoft Cognitive Toolkit seguendo [questa esercitazione](https://github.com/Microsoft/CNTK/tree/master/Examples/Image/Classification/ResNet) disponibile nel repository GitHub di Cognitive Toolkit. Le altre 10.000 immagini sono state usate per testare l'accuratezza del modello. A questo punto entra in gioco l'elaborazione distribuita. L'attività di pre-elaborazione e riconoscimento delle immagini è altamente parallelizzabile. Con il modello sottoposto a training salvato, si è usato:
+Il set di dati è stato suddiviso in un set di training costituito da 50.000 immagini e un set di test costituito da 10.000 immagini. Il primo set è stato usato per il training di un modello di rete residua (ResNet) convoluzionale costituito da venti livelli tramite Microsoft Cognitive Toolkit seguendo [questa esercitazione](https://github.com/Microsoft/CNTK/tree/master/Examples/Image/Classification/ResNet) disponibile nel repository GitHub di Cognitive Toolkit. Le restanti immagini 10.000 sono state usate per testare l'accuratezza del modello. A questo punto entra in gioco l'elaborazione distribuita. L'attività di pre-elaborazione e riconoscimento delle immagini è altamente parallelizzabile. Con il modello sottoposto a training salvato, si è usato:
 
 * PySpark per distribuire le immagini e il modello sottoposto a training nei nodi di lavoro del cluster.
 * Python per elaborare in via preliminare le immagini in ogni nodo del cluster Spark HDInsight.
@@ -105,7 +105,7 @@ Il set di dati è stato suddiviso in un set di training costituito da 50.000 imm
 
 L'intero processo di pre-elaborazione/riconoscimento delle 10.000 immagini dura meno di un minuto in un cluster con quattro nodi di lavoro. Il modello prevede con accuratezza le etichette di circa 9.100 immagini (91%). Una matrice di confusione illustra gli errori di classificazione più comuni, ad esempio l'inversione di etichettatura di cani e gatti che si verifica più spesso rispetto ad altre coppie di etichette.
 
-![Grafico risultati Machine Learning](./media/apache-hadoop-deep-dive-advanced-analytics/machine-learning-results.png)
+:::image type="content" source="./media/apache-hadoop-deep-dive-advanced-analytics/machine-learning-results.png" alt-text="Grafico risultati Machine Learning" border="false":::
 
 ### <a name="try-it-out"></a>Procedura
 

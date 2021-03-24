@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 10/21/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 98b50673b464044af2a038fa93c3b6a022fa2899
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 666e77a06bd2934622400cc2f11830d6ebc34ddb
+ms.sourcegitcommit: ac035293291c3d2962cee270b33fca3628432fac
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103149704"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "104954650"
 ---
 # <a name="manage-digital-twins"></a>Gestire i gemelli digitali
 
@@ -129,9 +129,7 @@ Il risultato della chiamata `object result = await client.GetDigitalTwinAsync("m
 
 Le proprietà definite del gemello digitale vengono restituite come proprietà di primo livello nel dispositivo gemello digitale. I metadati o le informazioni di sistema che non fanno parte della definizione DTDL vengono restituiti con un `$` prefisso. Le proprietà dei metadati includono i valori seguenti:
 * `$dtId`: ID del dispositivo gemello digitale in questa istanza di Azure Digital Twins
-* `$etag`: Campo HTTP standard assegnato dal server Web. Questa operazione viene aggiornata a un nuovo valore ogni volta che il dispositivo gemello viene aggiornato, che può essere utile per determinare se i dati del gemello sono stati aggiornati nel server dopo un controllo precedente. Può essere usato anche nelle intestazioni HTTP nei modi seguenti:
-  - con operazioni di lettura per evitare il recupero di contenuto non modificato
-  - con operazioni di scrittura per supportare la concorrenza ottimistica
+* `$etag`: Campo HTTP standard assegnato dal server Web. Questa operazione viene aggiornata a un nuovo valore ogni volta che il dispositivo gemello viene aggiornato, che può essere utile per determinare se i dati del gemello sono stati aggiornati nel server dopo un controllo precedente. È possibile usare `If-Match` per eseguire gli aggiornamenti e le eliminazioni che vengono completate solo se l'ETag dell'entità corrisponde al valore ETag fornito. Per ulteriori informazioni su queste operazioni, vedere la documentazione relativa a [DigitalTwins Update](/rest/api/digital-twins/dataplane/twins/digitaltwins_update) e [DigitalTwins Delete](/rest/api/digital-twins/dataplane/twins/digitaltwins_delete).
 * `$metadata`: Un set di altre proprietà, tra cui:
   - DTMI del modello del gemello digitale.
   - Stato di sincronizzazione per ogni proprietà scrivibile. Questa operazione è particolarmente utile per i dispositivi, in cui è possibile che il servizio e il dispositivo abbiano stati divergenti, ad esempio quando un dispositivo è offline. Attualmente questa proprietà si applica solo ai dispositivi fisici connessi all'hub Internet. Con i dati nella sezione dei metadati, è possibile comprendere lo stato completo di una proprietà, oltre ai timestamp dell'Ultima modifica. Per altre informazioni sullo stato di sincronizzazione, vedere [questa esercitazione sull'hub di questo](../iot-hub/tutorial-device-twins.md) strumento sulla sincronizzazione dello stato del dispositivo.

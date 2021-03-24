@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: how-to
-ms.date: 07/06/2020
+ms.date: 03/08/2021
 ms.author: justinha
-ms.openlocfilehash: a89c898e150facc9860d86e18a7acc42f5e0f441
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 5fa19e23767af0e121d07872970199a2a1705ea8
+ms.sourcegitcommit: ac035293291c3d2962cee270b33fca3628432fac
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "96618859"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "104951938"
 ---
 # <a name="disable-weak-ciphers-and-password-hash-synchronization-to-secure-an-azure-active-directory-domain-services-managed-domain"></a>Disabilitare le crittografie vulnerabili e la sincronizzazione degli hash delle password per proteggere un dominio gestito Azure Active Directory Domain Services
 
@@ -34,14 +34,25 @@ Per completare l'esercitazione di questo articolo, sono necessarie le risorse se
     * Se necessario, [creare un tenant di Azure Active Directory][create-azure-ad-tenant] o [associare una sottoscrizione di Azure al proprio account][associate-azure-ad-tenant].
 * Un dominio gestito di Azure Active Directory Domain Services abilitato e configurato nel tenant di Azure AD.
     * Se necessario, [creare e configurare un dominio gestito di Azure Active Directory Domain Services][create-azure-ad-ds-instance].
-* Installare e configurare Azure PowerShell.
-    * Se necessario, seguire le istruzioni nell'articolo per [installare il modulo Azure PowerShell e connettersi alla sottoscrizione di Azure](/powershell/azure/install-az-ps).
-    * Assicurarsi di accedere alla sottoscrizione di Azure usando il cmdlet [Connect-AzAccount][Connect-AzAccount].
-* Installare e configurare Azure AD PowerShell.
-    * Se necessario, seguire le istruzioni nell'articolo per [installare il modulo Azure AD PowerShell e connettersi ad Azure AD](/powershell/azure/active-directory/install-adv2).
-    * Assicurarsi di accedere al tenant di Azure usando il cmdlet [Connect-AzureAD][Connect-AzureAD].
 
-## <a name="disable-weak-ciphers-and-ntlm-password-hash-sync"></a>Disabilitare le crittografie vulnerabili e la sincronizzazione degli hash delle password NTLM
+## <a name="use-security-settings-to-disable-weak-ciphers-and-ntlm-password-hash-sync"></a>Usare le impostazioni di sicurezza per disabilitare le crittografie vulnerabili e la sincronizzazione degli hash delle password NTLM
+
+1. Accedere al [portale di Azure](https://portal.azure.com).
+1. Cercare e selezionare **Azure ad Domain Services**.
+1. Scegliere il dominio gestito, ad esempio *aaddscontoso.com*.
+1. Sul lato sinistro selezionare **impostazioni di sicurezza**.
+1. Fare clic su **Disabilita** per le impostazioni seguenti:
+   - **Modalità solo TLS 1,2**
+   - **Autenticazione NTLM**
+   - **Sincronizzazione delle password NTLM da locale**
+
+   ![Screenshot delle impostazioni di sicurezza per disabilitare le crittografie vulnerabili e la sincronizzazione degli hash delle password NTLM](media/secure-your-domain/security-settings.png)
+
+## <a name="use-powershell-to-disable-weak-ciphers-and-ntlm-password-hash-sync"></a>Usare PowerShell per disabilitare le crittografie vulnerabili e la sincronizzazione degli hash delle password NTLM
+
+Se necessario, [installare e configurare Azure PowerShell](/powershell/azure/install-az-ps). Assicurarsi di accedere alla sottoscrizione di Azure usando il cmdlet [Connect-AzAccount][Connect-AzAccount]. 
+
+Inoltre, se necessario, [installare e configurare Azure ad PowerShell](/powershell/azure/active-directory/install-adv2). Assicurarsi di accedere al tenant di Azure usando il cmdlet [Connect-AzureAD][Connect-AzureAD].
 
 Per disabilitare i pacchetti di crittografia vulnerabili e la sincronizzazione degli hash delle credenziali NTLM, accedere al proprio account Azure e quindi ottenere la risorsa Azure AD DS usando il cmdlet [Get-AzResource][Get-AzResource] :
 

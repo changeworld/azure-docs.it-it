@@ -4,12 +4,12 @@ description: Questo articolo descrive come usare SendGrid con Apache Ambari per 
 ms.service: hdinsight
 ms.topic: tutorial
 ms.date: 03/10/2020
-ms.openlocfilehash: 63d0f87925f14fddf3dbd722fa72326ee8b04f31
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 5b344c0c4b1db9159d0223c861e5d371cb225f5a
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98946978"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104867203"
 ---
 # <a name="tutorial-configure-apache-ambari-email-notifications-in-azure-hdinsight"></a>Esercitazione: Configurare le notifiche tramite posta elettronica di Apache Ambari in Azure HDInsight
 
@@ -33,15 +33,15 @@ In questa esercitazione verranno illustrate le procedure per:
 
 1. Nella pagina Panoramica selezionare **Gestisci** per passare alla pagina Web di SendGrid per l'account.
 
-    ![Panoramica di SendGrid nel portale di Azure](./media/apache-ambari-email/azure-portal-sendgrid-manage.png)
+    :::image type="content" source="./media/apache-ambari-email/azure-portal-sendgrid-manage.png" alt-text="Panoramica di SendGrid nel portale di Azure":::
 
 1. Dal menu a sinistra passare al nome dell'account e quindi a **Dettagli account**.
 
-    ![Menu di spostamento del dashboard SendGrid](./media/apache-ambari-email/sendgrid-dashboard-navigation.png)
+    :::image type="content" source="./media/apache-ambari-email/sendgrid-dashboard-navigation.png" alt-text="Menu di spostamento del dashboard SendGrid":::
 
 1. Dalla pagina **Dettagli account** registrare il **Nome utente**.
 
-    ![Dettagli account SendGrid](./media/apache-ambari-email/sendgrid-account-details.png)
+    :::image type="content" source="./media/apache-ambari-email/sendgrid-account-details.png" alt-text="Dettagli account SendGrid":::
 
 ## <a name="configure-ambari-e-mail-notification"></a>Configurare la notifica tramite posta elettronica di Ambari
 
@@ -51,7 +51,7 @@ In questa esercitazione verranno illustrate le procedure per:
 
 1. Nella finestra **Manage Alert Notifications** (Gestisci notifiche di avviso) selezionare l'icona **+** .
 
-    ![Screenshot che mostra la finestra di dialogo Manage Alert Notifications (Gestisci notifiche di avviso).](./media/apache-ambari-email/azure-portal-create-notification.png)
+    :::image type="content" source="./media/apache-ambari-email/azure-portal-create-notification.png" alt-text="Screenshot che mostra la finestra di dialogo Manage Alert Notifications (Gestisci notifiche di avviso).":::
 
 1. Nella finestra di dialogo **Create Alert Notification** (Crea notifica di avviso) specificare le informazioni seguenti:
 
@@ -72,7 +72,7 @@ In questa esercitazione verranno illustrate le procedure per:
     |Conferma password|Reimmettere la password.|
     |Avvia TLS|Selezionare questa casella di controllo|
 
-    ![Screenshot che mostra la finestra di dialogo Create Alert Notification (Crea notifica di avviso).](./media/apache-ambari-email/ambari-create-alert-notification.png)
+    :::image type="content" source="./media/apache-ambari-email/ambari-create-alert-notification.png" alt-text="Screenshot che mostra la finestra di dialogo Create Alert Notification (Crea notifica di avviso).":::
 
     Selezionare **Salva**. Si verrà reindirizzati alla finestra **Manage Alert Notifications** (Gestisci notifiche di avviso).
 

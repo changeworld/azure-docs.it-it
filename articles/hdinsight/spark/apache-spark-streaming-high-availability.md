@@ -5,12 +5,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 11/29/2019
-ms.openlocfilehash: 3eb761a793c41c2e2cc2cb952e4fb9f241b41ab6
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 602fa1cab71a797dd25aca263e0c6a9f2aa616bb
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98929710"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104870229"
 ---
 # <a name="create-high-availability-apache-spark-streaming-jobs-with-yarn"></a>Creare processi di Apache Spark Streaming a disponibilità elevata con YARN
 
@@ -18,7 +18,7 @@ ms.locfileid: "98929710"
 
 Spark streaming crea processi con esecuzione prolungata durante i quali è possibile applicare trasformazioni ai dati e quindi eseguire il push dei risultati in filesystem, database, dashboard e nella console. Spark Streaming elabora micro-batch di dati, raccogliendo prima un batch di eventi per un intervallo di tempo definito. Tale batch viene poi fatto proseguire per l'elaborazione e l'output. Gli intervalli di tempo dei batch sono in genere definiti in frazioni di secondo.
 
-![Spark Streaming](./media/apache-spark-streaming-high-availability/apache-spark-streaming.png)
+:::image type="content" source="./media/apache-spark-streaming-high-availability/apache-spark-streaming.png" alt-text="Streaming Spark" border="false":::
 
 ## <a name="dstreams"></a>DStream
 
@@ -26,13 +26,13 @@ Spark Streaming rappresenta un flusso continuo di dati con un *flusso discretizz
 
 Il core di Spark usa *set di dati distribuiti resilienti* (RDD, Resilient Distributed Dataset). I set RDD distribuiscono i dati tra più nodi nel cluster, in cui ogni nodo mantiene in genere i propri dati completamente in memoria per garantire prestazioni ottimali. Ogni RDD rappresenta gli eventi raccolti in un intervallo di batch. Quando è trascorso l'intervallo di batch, Spark Streaming produce un nuovo RDD contenente tutti i dati in tale intervallo. Questo set continuo di RDD viene raccolto in un flusso DStream. Un'applicazione Spark Streaming elabora i dati archiviati nel set RDD di ogni batch.
 
-![DStream Spark](./media/apache-spark-streaming-high-availability/apache-spark-dstream.png)
+:::image type="content" source="./media/apache-spark-streaming-high-availability/apache-spark-dstream.png" alt-text="DStream Spark" border="false":::
 
 ## <a name="spark-structured-streaming-jobs"></a>Processi di Spark Structured Streaming
 
 Spark Structured Streaming è stato introdotto in Spark 2.0 come motore di analisi per l'uso con dati strutturati di flusso. Spark Structured Streaming usa le API del motore di invio in batch di SparkSQL. Come per lo streaming Spark, Spark Structured streaming esegue i calcoli su micro-batch di dati in arrivo continuo. Spark Structured Streaming rappresenta un flusso di dati come tabella di input con righe illimitate. Questo significa che la tabella di input continua a crescere con l'arrivo di nuovi dati. La tabella di input viene elaborata in modo continuo tramite una query con esecuzione prolungata e i risultati vengono scritti in una tabella di output.
 
-![Spark Structured Streaming](./media/apache-spark-streaming-high-availability/structured-streaming.png)
+:::image type="content" source="./media/apache-spark-streaming-high-availability/structured-streaming.png" alt-text="Spark Structured Streaming" border="false":::
 
 Con Structured Streaming, i dai raggiungono il sistema e vengono acquisiti immediatamente nella tabella di Input. È quindi necessario scrivere query che eseguono operazioni su questa tabella di Input. L'output della query produce un'altra tabella, denominata tabella dei risultati. La tabella dei risultati contiene i risultati della query, da cui è possibile ricavare i dati da inviare a un archivio di dati esterno, come un database relazionale. L'*intervallo di trigger* definisce la tempistica per l'elaborazione dei dati dalla tabella di Input. Per impostazione predefinita,Structured Streaming elabora i dati non appena arrivano. Tuttavia, è anche possibile configurare il trigger per l'esecuzione con intervalli più lunghi, in modo che i dati del flusso vengono elaborati in batch basati sul tempo. I dati nella tabella dei risultati possono essere aggiornati ogni volta che sono presenti nuovi dati, in modo che includano tutti i dati di output dall'inizio della query di streaming (*modalità completa*) oppure solo i dati nuovi dall'ultima elaborazione della query (*modalità Append*).
 
@@ -54,7 +54,7 @@ Per creare un'applicazione che elabora ogni evento una sola volta, valutare la m
 
 In HDInsight, il lavoro del cluster è coordinato da *Yet Another Resource Negotiator* (YARN). La progettazione della disponibilità elevata per Spark Streaming include tecniche per Spark Streaming e anche per i componenti YARN.  Di seguito è illustrata una configurazione di esempio con YARN.
 
-![Architettura YARN](./media/apache-spark-streaming-high-availability/hdi-yarn-architecture.png)
+:::image type="content" source="./media/apache-spark-streaming-high-availability/hdi-yarn-architecture.png" alt-text="Architettura YARN" border="false":::
 
 Nelle sezioni seguenti vengono descritte alcune considerazioni sulla progettazione di questa configurazione.
 

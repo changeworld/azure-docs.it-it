@@ -6,16 +6,16 @@ ms.author: vibansa
 ms.manager: abhemraj
 ms.topic: how-to
 ms.date: 04/16/2020
-ms.openlocfilehash: 1217b51ea91758d25b76394b27d3b21b2e9808b3
-ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
+ms.openlocfilehash: 64be28838abb5d5021f0a8cefc0eed2c2516498b
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/22/2021
-ms.locfileid: "104780872"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104865231"
 ---
 # <a name="set-up-an-appliance-for-servers-in-vmware-environment"></a>Configurare un'appliance per i server in ambiente VMware
 
-Seguire questo articolo per configurare il Azure Migrate Appliance per la valutazione con lo strumento [Azure migrate: individuazione e valutazione](migrate-services-overview.md#azure-migrate-server-assessment-tool) e per la migrazione senza agenti usando lo strumento di [migrazione Azure migrate: server](migrate-services-overview.md#azure-migrate-server-migration-tool) .
+Seguire questo articolo per configurare il Azure Migrate Appliance per la valutazione con lo strumento [Azure migrate: individuazione e valutazione](migrate-services-overview.md#azure-migrate-discovery-and-assessment-tool) e per la migrazione senza agenti usando lo strumento di [migrazione Azure migrate: server](migrate-services-overview.md#azure-migrate-server-migration-tool) .
 
 Il [Azure migrate Appliance](migrate-appliance.md) è un'appliance semplice usata da Azure migrate: individuazione e valutazione e migrazione del server per individuare i server in esecuzione in server vCenter, inviare i metadati di configurazione e delle prestazioni del server ad Azure e per la replica dei server con la migrazione senza agenti.
 
@@ -24,23 +24,23 @@ Il [Azure migrate Appliance](migrate-appliance.md) è un'appliance semplice usat
 - Creare un server in server vCenter usando un modello OVA scaricato. Questo è il metodo descritto in questo articolo.
 - Configurare l'appliance in un server esistente usando uno script del programma di installazione di PowerShell. [Questo metodo](deploy-appliance-script.md) deve essere usato se non è possibile usare il modello OVA o se si è in Azure per enti pubblici.
 
-Dopo aver creato l'appliance, verificare che sia in grado di connettersi a Azure Migrate: individuazione e valutazione, registrarlo con il progetto Azure Migrate e configurare l'appliance per avviare l'individuazione.
+Dopo aver creato l'appliance, verificare che sia in grado di connettersi a Azure Migrate: individuazione e valutazione, registrarlo con il progetto e configurare l'appliance per avviare l'individuazione.
 
 ## <a name="deploy-with-ova"></a>Distribuire con OVA
 
 Per configurare l'appliance con un modello OVA:
-1. Specificare un nome di appliance e generare una chiave del progetto di Azure Migrate nel portale.
+1. Specificare un nome per il dispositivo e generare una chiave del progetto nel portale.
 1. Scaricare un file modello OVA e importarlo nel server vCenter. Verificare che gli OVA siano protetti.
 1. Creare la macchina virtuale dell'appliance dal file OVA e verificare che sia in grado di connettersi a Azure Migrate.
-1. Configurare il dispositivo per la prima volta e registrarlo con il progetto usando la chiave del progetto Azure Migrate.
+1. Configurare il dispositivo per la prima volta e registrarlo con il progetto usando la chiave del progetto.
 
-### <a name="1-generate-the-azure-migrate-project-key"></a>1. generare la chiave del progetto Azure Migrate
+### <a name="1-generate-the-project-key"></a>1. generare la chiave del progetto
 
 1. In server degli **obiettivi di migrazione**  >    >  **Azure migrate: individuazione e valutazione** selezionare **individua**.
 2. In **individua server**  >  **i server sono virtualizzati?** selezionare **Sì, con VMware vSphere Hypervisor**.
-3. In **1: generare Azure migrate chiave del progetto**, specificare un nome per il dispositivo Azure migrate da configurare per l'individuazione dei server nell'ambiente VMware. Il nome deve essere alfanumerico con un massimo di 14 caratteri.
+3. In **1: genera chiave progetto** specificare un nome per il dispositivo Azure migrate che si configurerà per l'individuazione dei server nell'ambiente VMware. Il nome deve essere alfanumerico con un massimo di 14 caratteri.
 1. Fare clic su **Genera chiave** per avviare la creazione delle risorse di Azure necessarie. Non chiudere la pagina di individuazione durante la creazione delle risorse.
-1. Al termine della creazione delle risorse di Azure, viene generata una **Chiave progetto Azure Migrate**.
+1. Una volta completata la creazione delle risorse di Azure, viene generata una **chiave del progetto** .
 1. Copiare la chiave perché sarà necessaria per completare la registrazione dell'appliance durante la configurazione.
 
 ### <a name="2-download-the-ova-template"></a>2. scaricare il modello OVA
@@ -117,7 +117,7 @@ Configurare l'appliance per la prima volta.
 
 ## <a name="register-the-appliance-with-azure-migrate"></a>Registrare l'appliance con Azure Migrate
 
-1. Incollare la **chiave del progetto Azure Migrate** copiata dal portale. Se non si dispone della chiave, passare a **individuazione e valutazione> individua> Gestisci appliance esistenti**, selezionare il nome dell'appliance fornito al momento della generazione della chiave e copiare la chiave corrispondente.
+1. Incollare la **chiave del progetto** copiata dal portale. Se non si dispone della chiave, passare a **individuazione e valutazione> individua> Gestisci appliance esistenti**, selezionare il nome dell'appliance fornito al momento della generazione della chiave e copiare la chiave corrispondente.
 1. Per eseguire l'autenticazione con Azure, è necessario un codice del dispositivo. Facendo clic su **Accedi** si aprirà una finestra modale con il codice del dispositivo, come illustrato di seguito.
 
     :::image type="content" source="./media/tutorial-discover-vmware/device-code.png" alt-text="Finestra modale con il codice del dispositivo":::
@@ -154,8 +154,6 @@ In **passaggio 3: fornire le credenziali del server per eseguire l'inventario so
 
 :::image type="content" source="./media/tutorial-discover-vmware/appliance-server-credentials-mapping.png" alt-text="Pannello 3 in Gestione configurazione Appliance per i dettagli del server":::
 
-> [!Note]
-> L'individuazione e la valutazione di SQL Server istanze e database in esecuzione nell'ambiente VMware sono ora in anteprima. Per provare questa funzionalità, usare [**questo collegamento**](https://aka.ms/AzureMigrate/SQL) per creare un progetto nell'area **Australia orientale**. Se si dispone già di un progetto nell'Australia orientale e si vuole provare questa funzionalità, assicurarsi di aver completato questi [**prerequisiti**](how-to-discover-sql-existing-project.md) nel portale.
 
 Se si desidera utilizzare queste funzionalità, è possibile fornire le credenziali del server attenendosi alla procedura descritta di seguito. Il dispositivo tenterà di eseguire automaticamente il mapping delle credenziali ai server per eseguire le funzionalità di individuazione.
 

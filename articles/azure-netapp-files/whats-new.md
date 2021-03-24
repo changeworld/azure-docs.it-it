@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
-ms.date: 03/11/2021
+ms.date: 03/19/2021
 ms.author: b-juche
-ms.openlocfilehash: f4019a28e98e06ad4a115e57b2cc9d3fb6f0a807
-ms.sourcegitcommit: ba3a4d58a17021a922f763095ddc3cf768b11336
+ms.openlocfilehash: f2167159b03cd0387acfccf4bbd0a2e840f739df
+ms.sourcegitcommit: ac035293291c3d2962cee270b33fca3628432fac
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/23/2021
-ms.locfileid: "104802931"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "104955232"
 ---
 # <a name="whats-new-in-azure-netapp-files"></a>Novità di Azure NetApp Files
 
@@ -27,7 +27,7 @@ Azure NetApp Files viene aggiornato regolarmente. Questo articolo fornisce un ri
 
 ## <a name="march-2021"></a>Marzo 2021
 
-* Condivisioni di disponibilità continua SMB (CA) (anteprima)  
+* [Condivisioni di disponibilità continua SMB (CA)](azure-netapp-files-create-volumes-smb.md#add-an-smb-volume) (anteprima)  
 
     Il failover trasparente SMB consente di eseguire operazioni di manutenzione nel servizio Azure NetApp Files senza interrompere la connettività alle applicazioni server che archiviano e accedono ai dati nei volumi SMB. Per supportare il failover trasparente SMB, Azure NetApp Files supporta ora l'opzione condivisioni di disponibilità continua SMB per l'uso con SQL Server applicazioni su SMB in esecuzione su macchine virtuali di Azure. Questa funzionalità è attualmente supportata in Windows SQL Server. Linux SQL Server attualmente non è supportato. L'abilitazione di questa funzionalità offre miglioramenti significativi in termini di prestazioni SQL Server e scalabilità e vantaggi in termini di costi per [istanza singola, Always-On istanza del cluster di failover e distribuzioni Always-On gruppo di disponibilità](azure-netapp-files-solution-architectures.md#sql-server) Vedere [i vantaggi dell'uso di Azure NetApp files per la distribuzione di SQL Server](solutions-benefits-azure-netapp-files-sql-server.md).
 

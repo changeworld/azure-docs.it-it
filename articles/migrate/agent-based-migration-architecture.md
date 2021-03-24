@@ -6,16 +6,16 @@ ms.author: rahugup
 ms.manager: bsiva
 ms.topic: conceptual
 ms.date: 02/17/2020
-ms.openlocfilehash: c605c21307cda874f34ae5ea9f4e4959e5e6c183
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: f4f79725d0eda65ba00a44e9e7fc2a51c024eccf
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "97861956"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104864058"
 ---
 # <a name="agent-based-migration-architecture"></a>Architettura di migrazione basata su agente
 
-Questo articolo fornisce una panoramica dell'architettura e dei processi usati per la replica basata su agenti delle VM VMware con lo strumento di [migrazione Azure migrate: server](migrate-services-overview.md#azure-migrate-server-assessment-tool) .
+Questo articolo fornisce una panoramica dell'architettura e dei processi usati per la replica basata su agenti delle VM VMware con lo strumento di [migrazione Azure migrate: server](migrate-services-overview.md#azure-migrate-server-migration-tool) .
 
 Utilizzando Azure Migrate: migrazione del server, è possibile eseguire la replica di macchine virtuali VMware con due opzioni:
 
@@ -40,17 +40,17 @@ Nella tabella vengono riepilogati i componenti utilizzati per la migrazione basa
 
 **Componente** | **Dettagli** | **Installazione**
 --- | --- | ---
-**Appliance di replica** | Il dispositivo di replica (server di configurazione/server di elaborazione) è un computer locale che funge da Bridge tra l'ambiente locale e la migrazione del server. L'appliance individua l'inventario del computer locale, in modo che la migrazione del server possa orchestrare la replica e la migrazione. Il dispositivo è costituito da due componenti:<br/><br/> **Server di configurazione**: si connette alla migrazione del server e coordina la replica.<br/> **Server di elaborazione**: gestisce la replica dei dati. Il server di elaborazione riceve i dati del computer, li comprime e li crittografa e li invia ad Azure. In Azure, la migrazione del server scrive i dati in Managed Disks. | Per impostazione predefinita, il server di elaborazione viene installato insieme al server di configurazione nell'appliance di replica.
-**Servizio Mobility** | Il servizio Mobility è un agente installato in ogni computer di cui si vuole eseguire la replica e la migrazione. Invia i dati di replica dal computer al server di elaborazione. | I file di installazione per versioni diverse del servizio Mobility si trovano nell'appliance di replica. Scaricare e installare l'agente necessario, in base al sistema operativo e alla versione del computer che si vuole replicare.
+**Appliance di replica** | Il dispositivo di replica (server di configurazione/server di elaborazione) è un server locale che funge da Bridge tra l'ambiente locale e la migrazione del server. L'appliance individua l'inventario del server locale, in modo che la migrazione del server possa orchestrare la replica e la migrazione. Il dispositivo è costituito da due componenti:<br/><br/> **Server di configurazione**: si connette alla migrazione del server e coordina la replica.<br/> **Server di elaborazione**: gestisce la replica dei dati. Il server di elaborazione riceve i dati del server, li comprime e li crittografa e li invia ad Azure. In Azure, la migrazione del server scrive i dati in Managed Disks. | Per impostazione predefinita, il server di elaborazione viene installato insieme al server di configurazione nell'appliance di replica.
+**Servizio Mobility** | Il servizio Mobility è un agente installato in ogni server di cui si vuole eseguire la replica e la migrazione. Invia i dati di replica dal server al server di elaborazione. | I file di installazione per versioni diverse del servizio Mobility si trovano nell'appliance di replica. È possibile scaricare e installare l'agente necessario, in base al sistema operativo e alla versione del server che si desidera replicare.
 
 ## <a name="mobility-service-installation"></a>Installazione del servizio Mobility
 
 È possibile distribuire il servizio Mobility tramite i metodi seguenti:
 
-- **Installazione push**: il servizio Mobility viene installato dal server di elaborazione quando si Abilita la protezione per un computer. 
-- **Installare manualmente**: è possibile installare manualmente il servizio Mobility in ogni computer tramite l'interfaccia utente o il prompt dei comandi.
+- **Installazione push**: il servizio Mobility viene installato dal server di elaborazione quando si Abilita la protezione per un server. 
+- **Installare manualmente**: è possibile installare manualmente il servizio Mobility in ogni server tramite l'interfaccia utente o il prompt dei comandi.
 
-Il servizio Mobility comunica con l'appliance di replica e i computer replicati. Se si dispone di software antivirus in esecuzione nell'appliance di replica, i server di elaborazione o i computer replicati, è necessario escludere le cartelle seguenti dall'analisi:
+Il servizio Mobility comunica con l'appliance di replica e i server replicati. Se si dispone di software antivirus in esecuzione nell'appliance di replica, i server di elaborazione o i server replicati, è necessario escludere le cartelle seguenti dall'analisi:
 
 
 - C:\Programmi\Agente di Servizi di ripristino di Microsoft Azure
@@ -60,29 +60,29 @@ Il servizio Mobility comunica con l'appliance di replica e i computer replicati.
 - C:\ProgramData\LogUploadServiceLogs
 - C:\ProgramData\Microsoft Azure Site Recovery
 - C:\Programmi (x86)\Microsoft Azure Site Recovery
-- C:\ProgramData\ASR\agent (nei computer Windows con il servizio Mobility installato)
+- C:\ProgramData\ASR\agent (nei server Windows con il servizio Mobility installato)
 
 ## <a name="replication-process"></a>Processo di replica
 
-1. Quando si Abilita la replica per un computer, viene avviata la replica iniziale in Azure.
-2. Durante la replica iniziale, il servizio Mobility legge i dati dai dischi del computer e li invia al server di elaborazione.
+1. Quando si Abilita la replica per un server, viene avviata la replica iniziale in Azure.
+2. Durante la replica iniziale, il servizio Mobility legge i dati dai dischi del server e li invia al server di elaborazione.
 3. Questi dati vengono usati per eseguire il seeding di una copia del disco nella sottoscrizione di Azure. 
 4. Al termine della replica iniziale, viene avviata la replica differenziale in Azure. La replica è a livello di blocco e quasi continua.
-4. Il servizio Mobility intercetta le Scritture nella memoria del disco, integrando il sottosistema di archiviazione del sistema operativo. Questo metodo consente di evitare operazioni di I/O su disco nel computer di replica, per la replica incrementale. 
-5. Le modifiche rilevate per un computer vengono inviate al server di elaborazione sulla porta di ingresso HTTPS 9443. La porta può essere modificata. Il server di elaborazione comprime e ne esegue la crittografia e lo invia ad Azure. 
+4. Il servizio Mobility intercetta le Scritture nella memoria del disco, integrando il sottosistema di archiviazione del sistema operativo. Questo metodo consente di evitare operazioni di I/O su disco nel server di replica, per la replica incrementale. 
+5. Le modifiche rilevate per un server vengono inviate al server di elaborazione sulla porta HTTPS 9443 in ingresso. La porta può essere modificata. Il server di elaborazione comprime e ne esegue la crittografia e lo invia ad Azure. 
 
 ## <a name="ports"></a>Porte
 
 **Dispositivo** | **Connection**
 --- | --- 
-**Replica di computer** | Il servizio Mobility in esecuzione sulle VM comunica con l'appliance di replica locale sulla porta HTTPS 443 in ingresso, per la gestione della replica.<br/><br/> I computer inviano i dati di replica al server di elaborazione sulla porta HTTPS 9443 in ingresso. La porta può essere modificata.
+**Replica dei server** | Il servizio Mobility in esecuzione sulle VM comunica con l'appliance di replica locale sulla porta HTTPS 443 in ingresso, per la gestione della replica.<br/><br/> I server inviano i dati di replica al server di elaborazione sulla porta HTTPS 9443 in ingresso. La porta può essere modificata.
 **Appliance di replica** | L'appliance di replica orchestra la replica con Azure tramite la porta HTTPS 443 in uscita.
 **Server di elaborazione** | Il server di elaborazione riceve i dati della replica, li ottimizza e li crittografa, quindi li invia ad Archiviazione di Azure attraverso la porta 443 in uscita.
 
 
 ## <a name="performance-and-scaling"></a>Prestazioni e ridimensionamento
 
-Per impostazione predefinita, si distribuisce una singola appliance di replica che esegue il server di configurazione e il server di elaborazione. Se si esegue la replica solo di alcuni computer, questa distribuzione è sufficiente. Tuttavia, se si esegue la replica e la migrazione di centinaia di computer, un singolo server di elaborazione potrebbe non essere in grado di gestire tutto il traffico di replica. In questo caso, è possibile distribuire server di elaborazione aggiuntivi e con scalabilità orizzontale.
+Per impostazione predefinita, si distribuisce una singola appliance di replica che esegue il server di configurazione e il server di elaborazione. Se si esegue la replica solo di alcuni server, questa distribuzione è sufficiente. Tuttavia, se si esegue la replica e la migrazione di centinaia di server, un singolo server di elaborazione potrebbe non essere in grado di gestire tutto il traffico di replica. In questo caso, è possibile distribuire server di elaborazione aggiuntivi e con scalabilità orizzontale.
 
 ### <a name="plan-vmware-deployment"></a>Pianificare la distribuzione di VMware
 
@@ -93,13 +93,13 @@ Se si esegue la replica di macchine virtuali VMware, è possibile usare la [Site
 Usare i valori in questa tabella per determinare se è necessario un server di elaborazione aggiuntivo nella distribuzione.
 
 - Se la frequenza di modifica giornaliera (varianza) è superiore a 2 TB, distribuire un server di elaborazione aggiuntivo.
-- Se si esegue la replica di più di 200 computer, distribuire un'altra appliance di replica.
+- Se si esegue la replica di più di 200 server, distribuire un'altra appliance di replica.
 
 **CPU** | **Memoria** | **Spazio disponibile-memorizzazione nella cache dei dati** | **Frequenza di varianza** | **Limiti di replica**
 --- | --- | --- | --- | ---
-8 vCPU (2 socket * 4 core \@ 2,5 GHz) | 16 GB | 300 GB | 500 GB o inferiore | < 100 computer 
-12 vCPU (2 socket * 6 core \@ 2,5 GHz) | 18 GB | 600 GB | Da 501 GB a 1 TB | 100-150 computer.
-16 vCPU (2 socket * 8 core \@ 2,5 GHz) | 32 GB |  1 TB | Da 1 TB a 2 TB | 151-200 computer.
+8 vCPU (2 socket * 4 core \@ 2,5 GHz) | 16 GB | 300 GB | 500 GB o inferiore | Server < 100 
+12 vCPU (2 socket * 6 core \@ 2,5 GHz) | 18 GB | 600 GB | Da 501 GB a 1 TB | Server 100-150.
+16 vCPU (2 socket * 8 core \@ 2,5 GHz) | 32 GB |  1 TB | Da 1 TB a 2 TB | Server 151-200.
 
 ### <a name="sizing-scale-out-process-servers"></a>Ridimensionamento di server di elaborazione con scalabilità orizzontale
 
@@ -107,18 +107,18 @@ Se è necessario distribuire un server di elaborazione con scalabilità orizzont
 
 **Server di elaborazione** | **Spazio disponibile per la memorizzazione nella cache dei dati** | **Frequenza di varianza** | **Limiti di replica**
 --- | --- | --- | --- 
-4 vCPU (2 socket * 2 core \@ 2,5 GHz), 8 GB di memoria | 300 GB | 250 GB o inferiore | Fino a 85 computer 
-8 vCPU (2 socket * 4 core \@ 2,5 GHz), 12 GB di memoria | 600 GB | Da 251 GB a 1 TB | 86-150 computer.
-12 vCPU (2 socket * 6 core \@ 2,5 GHz), 24 GB di memoria | 1 TB | 1-2 TB | 151-225 computer.
+4 vCPU (2 socket * 2 core \@ 2,5 GHz), 8 GB di memoria | 300 GB | 250 GB o inferiore | Fino a 85 server 
+8 vCPU (2 socket * 4 core \@ 2,5 GHz), 12 GB di memoria | 600 GB | Da 251 GB a 1 TB | Server 86-150.
+12 vCPU (2 socket * 6 core \@ 2,5 GHz), 24 GB di memoria | 1 TB | 1-2 TB | Server 151-225.
 
 ## <a name="throttle-upload-bandwidth"></a>Limitazione della larghezza di banda di caricamento.
 
-il traffico VMware che viene replicato in Azure passa attraverso un server di elaborazione specifico. È possibile limitare la velocità effettiva di caricamento limitando la larghezza di banda nei computer che eseguono come server di elaborazione. Con questa chiave del registro di sistema è possibile influenzare la larghezza di banda:
+il traffico VMware che viene replicato in Azure passa attraverso un server di elaborazione specifico. È possibile limitare la velocità effettiva di caricamento limitando la larghezza di banda sui server che eseguono come server di elaborazione. Con questa chiave del registro di sistema è possibile influenzare la larghezza di banda:
 
 - Il valore del Registro di sistema HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Azure Backup\Replication\UploadThreadsPerVM specifica il numero di thread usati per il trasferimento dati di un disco, durante la replica iniziale o differenziale. Un valore più elevato aumenta la larghezza di banda di rete usata per la replica. Il valore predefinito è quattro. Il valore massimo è 32. Monitorare il traffico per ottimizzare il valore.
-- Inoltre, è possibile limitare la larghezza di banda nel computer del server di elaborazione, come indicato di seguito:
+- Inoltre, è possibile limitare la larghezza di banda nel server di elaborazione, come indicato di seguito:
 
-    1. Nel computer del server di elaborazione aprire lo snap-in di MMC backup di Azure. È disponibile un collegamento sul desktop o nella cartella C:\Programmi\Microsoft Azure Recovery Services Agent\bin. 
+    1. Nel server di elaborazione aprire lo snap-in di MMC backup di Azure. È disponibile un collegamento sul desktop o nella cartella C:\Programmi\Microsoft Azure Recovery Services Agent\bin. 
     2. Nello snap-in selezionare **Modifica proprietà**.
     3. In **limitazione** selezionare **Abilita limitazione all'utilizzo della larghezza di banda Internet per le operazioni di backup**. Impostare i limiti per le ore lavorative e non lavorative. Gli intervalli validi sono compresi tra 512 Kbps e 1.023 Mbps.
 

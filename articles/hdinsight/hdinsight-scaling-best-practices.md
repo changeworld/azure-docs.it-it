@@ -6,12 +6,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: seoapr2020
 ms.date: 04/29/2020
-ms.openlocfilehash: 3524b5d2274c52aa94fa1c3420fb0d3245d9b730
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 6e6c692e8fc13d1703df44c99e9969ba4db5f119
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98932069"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104872099"
 ---
 # <a name="scale-azure-hdinsight-clusters"></a>Ridimensionare i cluster HDInsight di Azure
 
@@ -36,7 +36,7 @@ Microsoft fornisce le utilità seguenti per la scalabilità dei cluster:
 |[Interfaccia della riga di comando classica di Azure](hdinsight-administer-use-command-line.md)|`azure hdinsight cluster resize CLUSTERNAME NEWSIZE` |
 |[Azure portal](https://portal.azure.com)|Aprire il riquadro del cluster HDInsight, selezionare **dimensioni del cluster** nel menu a sinistra, quindi nel riquadro Dimensioni del cluster digitare il numero di nodi del ruolo di lavoro e selezionare Salva.|  
 
-![Opzione del cluster portale di Azure scale](./media/hdinsight-scaling-best-practices/azure-portal-settings-nodes.png)
+:::image type="content" source="./media/hdinsight-scaling-best-practices/azure-portal-settings-nodes.png" alt-text="Opzione del cluster portale di Azure scale":::
 
 Usando uno di questi metodi, è possibile aumentare o ridurre il cluster HDInsight in pochi minuti.
 
@@ -82,7 +82,7 @@ Impatto della modifica del numero di nodi dati per ogni tipo di cluster supporta
 
     1. Selezionare la topologia da ribilanciare e quindi fare clic sul pulsante **Rebalance** (Ribilancia). Immettere il ritardo prima che venga eseguita l'operazione di ribilanciamento.
 
-        ![Ribilanciamento di HDInsight Storm](./media/hdinsight-scaling-best-practices/hdinsight-portal-scale-cluster-storm-rebalance.png)
+        :::image type="content" source="./media/hdinsight-scaling-best-practices/hdinsight-portal-scale-cluster-storm-rebalance.png" alt-text="Ribilanciamento scala HDInsight Storm":::
 
   * Interfaccia della riga di comando (CLI)
 
@@ -130,13 +130,13 @@ Per visualizzare un elenco dei processi in sospeso e in esecuzione, è possibile
 3. Dall'interfaccia utente di Ambariri selezionare **Yarn** nell'elenco dei servizi nel menu a sinistra.  
 4. Dalla pagina YARN selezionare **collegamenti rapidi** e passare il puntatore del mouse sul nodo head attivo, quindi selezionare **Gestione risorse interfaccia utente**.
 
-    ![Collegamenti rapidi di Apache Ambari Gestione risorse interfaccia utente](./media/hdinsight-scaling-best-practices/resource-manager-ui1.png)
+    :::image type="content" source="./media/hdinsight-scaling-best-practices/resource-manager-ui1.png" alt-text="Collegamenti rapidi di Apache Ambari Gestione risorse interfaccia utente":::
 
 È possibile accedere direttamente all'interfaccia utente di Gestione risorse con `https://<HDInsightClusterName>.azurehdinsight.net/yarnui/hn/cluster` .
 
 Verrà visualizzato un elenco dei processi, insieme allo stato corrente di ognuno. Nello screenshot c'è un processo attualmente in esecuzione:
 
-![Applicazioni dell'interfaccia utente Gestione risorse](./media/hdinsight-scaling-best-practices/resourcemanager-ui-applications.png)
+:::image type="content" source="./media/hdinsight-scaling-best-practices/resourcemanager-ui-applications.png" alt-text="Applicazioni dell'interfaccia utente Gestione risorse":::
 
 Per terminare manualmente l'applicazione in esecuzione, eseguire il comando seguente dalla shell SSH:
 

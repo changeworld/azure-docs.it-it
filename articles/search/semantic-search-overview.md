@@ -9,17 +9,17 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 03/18/2021
 ms.custom: references_regions
-ms.openlocfilehash: e0656c06f446ed6241b64040f063ed7ba419a942
-ms.sourcegitcommit: 2c1b93301174fccea00798df08e08872f53f669c
+ms.openlocfilehash: 7e3bfa9d91929530ae53c87ceabf639a16a5a0e6
+ms.sourcegitcommit: a67b972d655a5a2d5e909faa2ea0911912f6a828
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/22/2021
-ms.locfileid: "104771312"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104888907"
 ---
 # <a name="semantic-search-in-azure-cognitive-search"></a>Ricerca semantica in Azure ricerca cognitiva
 
 > [!IMPORTANT]
-> La ricerca semantica è in anteprima pubblica, disponibile solo tramite l'API REST di anteprima. Le funzionalità di anteprima sono offerte così come sono, in condizioni per l' [utilizzo aggiuntive](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)e non sono garantite che abbiano la stessa implementazione a livello generale. Queste funzionalità sono fatturabili. Per altre informazioni, vedere [disponibilità e prezzi](semantic-search-overview.md#availability-and-pricing).
+> La ricerca semantica è in anteprima pubblica, disponibile tramite l'API REST e il portale di anteprima. Le funzionalità di anteprima sono offerte così come sono, in condizioni per l' [utilizzo aggiuntive](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)e non sono garantite che abbiano la stessa implementazione a livello generale. Queste funzionalità sono fatturabili. Per altre informazioni, vedere [disponibilità e prezzi](semantic-search-overview.md#availability-and-pricing).
 
 La ricerca semantica è una raccolta di funzionalità correlate alle query che aggiungono pertinenza semantica e comprensione della lingua ai risultati della ricerca. La *classificazione semantica* Cerca il contesto e la correlazione tra termini, elevando le corrispondenze che risultano più sensate in base alla query. La comprensione del linguaggio trova le *didascalie* e le *risposte* all'interno del contenuto che riepilogano il documento corrispondente o rispondono a una domanda, che può quindi essere sottoposta a rendering in una pagina dei risultati della ricerca per un'esperienza di ricerca più produttiva.
 

@@ -8,19 +8,21 @@ ms.topic: article
 ms.date: 03/18/2021
 ms.author: amverma
 ms.reviewer: cynthn
-ms.openlocfilehash: e8d191dfed5b33116dadaf34b17d5f6525060e13
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
+ms.openlocfilehash: 297bc24c570298dddf10a101a0c0c528bddecc10
+ms.sourcegitcommit: a67b972d655a5a2d5e909faa2ea0911912f6a828
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "104721210"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104889825"
 ---
 # <a name="known-issues-with-h-series-and-n-series-vms"></a>Problemi noti delle VM serie H e serie N
 
 Questo articolo tenta di elencare i problemi comuni recenti e le relative soluzioni quando si usano le VM HPC e GPU serie [H](../../sizes-hpc.md) e serie [N](../../sizes-gpu.md) .
 
 ## <a name="mofed-installation-on-ubuntu"></a>Installazione di MOFED in Ubuntu
-In Ubuntu-18,04 la versione del kernel 5.4.0-1041-Azure è incompatibile con le versioni MOFED 5.2-2 e 5.2-1.0.4.0. È consigliabile eseguire il rollback alla versione kernel 5.4.0-1040-Azure o usare un'immagine del Marketplace con un kernel precedente e non aggiornare il kernel. Questo problema dovrebbe essere risolto con un MOFED più recente (TBD).
+In Ubuntu-18,04, il OFED Mellanox ha mostrato l'incompatibilità con i kernel versione `5.4.0-1039-azure #42` e versioni successive, causando un aumento del tempo di avvio della macchina virtuale a circa 30 minuti. Questo report è stato segnalato sia per Mellanox OFED versioni 5.2-1.0.4.0 che per 5.2-2.2.0.0.
+La soluzione temporanea consiste nell'usare l'immagine **canonica: UbuntuServer: 18_04-LTS-Gen2:18.04.202101290** Marketplace o versioni precedenti e non aggiornare il kernel.
+Questo problema dovrebbe essere risolto con un MOFED più recente (TBD).
 
 ## <a name="known-issues-on-hbv3"></a>Problemi noti relativi a modello HBV3
 - Attualmente, InfiniBand è supportato solo nella VM 120-Core (Standard_HB120rs_v3).

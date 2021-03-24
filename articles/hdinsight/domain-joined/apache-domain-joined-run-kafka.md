@@ -4,12 +4,12 @@ description: Esercitazione - Informazioni su come configurare i criteri di Apach
 ms.service: hdinsight
 ms.topic: tutorial
 ms.date: 05/19/2020
-ms.openlocfilehash: 552998de23bebd98f56ba28eb6ad581689e52e41
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: bab3df857dfdac3ca3b9193bda1caea0040a4cbb
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98933691"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104866982"
 ---
 # <a name="tutorial-configure-apache-kafka-policies-in-hdinsight-with-enterprise-security-package-preview"></a>Esercitazione: Configurare i criteri di Apache Kafka in HDInsight con Enterprise Security Package (anteprima)
 
@@ -33,7 +33,7 @@ Un [cluster HDInsight Kafka con Enterprise Security Package](./apache-domain-joi
 
 2. Accedere usando le credenziali di amministratore di Azure Active Directory (AD). Le credenziali di amministratore di Azure AD non sono le stesse del cluster HDInsight o del nodo SSH di Linux HDInsight.
 
-   ![Interfaccia utente di amministrazione di Apache Ranger di HDInsight](./media/apache-domain-joined-run-kafka/apache-ranger-admin-login.png)
+   :::image type="content" source="./media/apache-domain-joined-run-kafka/apache-ranger-admin-login.png" alt-text="Interfaccia utente di amministrazione di Apache Ranger di HDInsight" border="true":::
 
 ## <a name="create-domain-users"></a>Creare utenti del dominio
 
@@ -61,7 +61,7 @@ Creare un criterio di Ranger per **sales_user** e **marketing_user**.
    * "*" indica zero o più occorrenze del carattere.
    * "?" indica un carattere singolo.
 
-   ![Creazione di un criterio 1 nell'interfaccia utente di amministrazione di Apache Ranger](./media/apache-domain-joined-run-kafka/apache-ranger-admin-create-policy.png)
+   :::image type="content" source="./media/apache-domain-joined-run-kafka/apache-ranger-admin-create-policy.png" alt-text="Creazione di un criterio 1 nell'interfaccia utente di amministrazione di Apache Ranger" border="true":::
 
    Attendere alcuni istanti per eseguire la sincronizzazione con Azure AD, se un utente di dominio non viene popolato automaticamente per **Seleziona utente**.
 
@@ -76,7 +76,7 @@ Creare un criterio di Ranger per **sales_user** e **marketing_user**.
    |Seleziona utente  |  marketing_user1 |
    |Autorizzazioni  | publish, consume, create |
 
-   ![Creazione di un criterio 2 nell'interfaccia utente di amministrazione di Apache Ranger](./media/apache-domain-joined-run-kafka/apache-ranger-admin-create-policy-2.png)  
+   :::image type="content" source="./media/apache-domain-joined-run-kafka/apache-ranger-admin-create-policy-2.png" alt-text="Creazione di un criterio 2 nell'interfaccia utente di amministrazione di Apache Ranger" border="true":::  
 
 6. Selezionare **Aggiungi** per salvare il criterio.
 
@@ -177,7 +177,7 @@ In base ai criteri di Ranger configurati, **sales_user** può creare o utilizzar
 
 8. Visualizzare gli eventi di accesso di controllo dall'interfaccia utente di Ranger.
 
-   ![Eventi di accesso di controllo dei criteri dell'interfaccia utente di Ranger ](./media/apache-domain-joined-run-kafka/apache-ranger-admin-audit.png)
+   :::image type="content" source="./media/apache-domain-joined-run-kafka/apache-ranger-admin-audit.png" alt-text="Eventi dell'accesso di controllo criteri dell'interfaccia utente Ranger " border="true":::
    
 ## <a name="produce-and-consume-topics-in-esp-kafka-by-using-the-console"></a>Creare e utilizzare argomenti in ESP Kafka con la console
 

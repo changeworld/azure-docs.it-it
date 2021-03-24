@@ -8,12 +8,12 @@ ms.workload: infrastructure
 ms.topic: conceptual
 ms.date: 01/14/2021
 ms.author: alsin
-ms.openlocfilehash: 2bdf04143121e1286ffc7bfa86b4a9ee291ae6ef
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 18165ce5f39b32fe1c5af28bc88e8e1bd0e9cb62
+ms.sourcegitcommit: ac035293291c3d2962cee270b33fca3628432fac
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103561864"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "104955551"
 ---
 # <a name="troubleshoot-common-automanage-onboarding-errors"></a>Risolvere gli errori di onboarding comuni per la gestione del caricamento
 La gestione automatica potrebbe non riuscire a caricare un computer nel servizio. Questo documento illustra come risolvere gli errori di distribuzione, condivide alcuni motivi comuni per cui le distribuzioni possono avere esito negativo e descrive i potenziali passaggi successivi per la mitigazione.
@@ -38,7 +38,11 @@ Errore |  Strategia di riduzione del rischio
 :-----|:-------------|
 Errore di autorizzazioni insufficienti per l'account di gestione | Questo problema può verificarsi se di recente è stata spostata una sottoscrizione contenente un nuovo account di gestione autogestita in un nuovo tenant. I passaggi per risolvere il problema sono disponibili [qui](./repair-automanage-account.md).
 Area dell'area di lavoro requisiti di mapping area non corrispondenti | La gestione automatica non è riuscita a caricare il computer, ma l'area di lavoro Log Analytics a cui il computer è attualmente collegato non è mappata a un'area di automazione supportata. Assicurarsi che l'area di lavoro Log Analytics esistente e l'account di automazione si trovino in un [mapping di area supportato](../automation/how-to/region-mappings.md).
-"Accesso negato a causa dell'assegnazione Deny con il nome ' assegnazione di rifiuto di sistema creata dall'applicazione gestità" | Nella risorsa è stato creato un [denyAssignment](https://docs.microsoft.com/azure/role-based-access-control/deny-assignments) che ha impedito l'accesso alla risorsa da automanage. Il problema potrebbe essere stato causato da un [progetto](https://docs.microsoft.com/azure/governance/blueprints/concepts/resource-locking) o da un' [applicazione gestita](https://docs.microsoft.com/azure/azure-resource-manager/managed-applications/overview).
+"Accesso negato a causa dell'assegnazione Deny con il nome ' assegnazione di rifiuto di sistema creata dall'applicazione gestità" | Nella risorsa è stato creato un [denyAssignment](../role-based-access-control/deny-assignments.md) che ha impedito l'accesso alla risorsa da automanage. Il problema potrebbe essere stato causato da un [progetto](../governance/blueprints/concepts/resource-locking.md) o da un' [applicazione gestita](../azure-resource-manager/managed-applications/overview.md).
+"Informazioni sistema operativo: nome =' (null)', ver =' (null)', stato agente =' non pronto '". | Verificare che sia in esecuzione una [versione minima dell'agente supportata](/troubleshoot/azure/virtual-machines/support-extensions-agent-version), che l'agente sia in esecuzione ([Linux](/troubleshoot/azure/virtual-machines/linux-azure-guest-agent) e [Windows](/troubleshoot/azure/virtual-machines/windows-azure-guest-agent)) e che l'agente sia aggiornato ([Linux](../virtual-machines/extensions/update-linux-agent.md) e [Windows](../virtual-machines/extensions/agent-windows.md)).
+"La macchina virtuale ha segnalato un errore durante l'elaborazione dell'estensione ' IaaSAntimalware '" | Assicurarsi di non avere un'altra offerta Antimalware/Antivirus già installata nella macchina virtuale. In caso di errore, contattare il supporto tecnico.
+Area di lavoro ASC: la gestione di automanage attualmente non supporta il servizio Log Analytics nel _percorso_. | Verificare che la macchina virtuale si trovi in un' [area supportata](./automanage-virtual-machines.md#supported-regions).
+La distribuzione del modello non è riuscita a causa di una violazione dei criteri. Per ulteriori informazioni, vedere i dettagli. | Si verifica un criterio che impedisce la gestione di automanage dall'onboarding della macchina virtuale. Verificare i criteri applicati alla sottoscrizione o al gruppo di risorse che contiene la macchina virtuale da caricare in automanage.
 "L'assegnazione non è riuscita. non sono disponibili informazioni aggiuntive " | Aprire un caso con supporto Microsoft Azure.
 
 ## <a name="next-steps"></a>Passaggi successivi

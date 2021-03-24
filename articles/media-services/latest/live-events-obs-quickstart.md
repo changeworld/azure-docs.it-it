@@ -6,19 +6,19 @@ ms.service: media-services
 ms.topic: quickstart
 ms.author: inhenkel
 author: IngridAtMicrosoft
-ms.date: 08/31/2020
-ms.openlocfilehash: 83f072b67f5aa162137a55d2b311dccf0daf7f53
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.date: 03/20/2021
+ms.openlocfilehash: d52affbdc4dc433c40be687f2e56afae4bcf4c2a
+ms.sourcegitcommit: ac035293291c3d2962cee270b33fca3628432fac
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98956073"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "104949891"
 ---
 # <a name="create-an-azure-media-services-live-stream-with-obs"></a>Creare un evento di streaming live di Servizi multimediali di Azure con OBS
 
 [!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
 
-Questo argomento di avvio rapido illustra come creare un evento di streaming live di Servizi multimediali di Azure con il portale di Azure e OBS (Open Broadcasting Studio). Si presuppone che si abbia una sottoscrizione di Azure e che sia stato creato un account di Servizi multimediali di Azure.
+Questa Guida introduttiva consente di creare un evento live di servizi multimediali usando il portale di Azure e la trasmissione tramite Open Broadcasting Studio (OBS). Si presuppone che si abbia una sottoscrizione di Azure e che sia stato creato un account di Servizi multimediali di Azure.
 
 In questo argomento di avvio rapido verrà illustrato come:
 
@@ -45,34 +45,34 @@ Aprire il Web browser e passare al [portale di Microsoft Azure](https://portal.a
 
 1. Selezionare **Endpoint di streaming** nell'elenco Servizi multimediali.
 
-   ![Voce di menu Endpoint di streaming](media/live-events-obs-quickstart/streaming-endpoints.png)
+   ![Voce di menu endpoint di streaming.](media/live-events-obs-quickstart/streaming-endpoints.png)
 1. Se lo stato dell'endpoint di streaming predefinito è arrestato, selezionarlo. Verrà visualizzata la pagina relativa a questo endpoint.
 1. Selezionare **Start**.
 
-   ![Pulsante Avvia per l'endpoint di streaming](media/live-events-obs-quickstart/start.png)
+   ![Pulsante Start per l'endpoint di streaming.](media/live-events-obs-quickstart/start.png)
 
 ## <a name="set-up-an-azure-media-services-live-stream"></a>Configurare un evento di streaming live di Servizi multimediali di Azure
 
 1. Passare all'account di Servizi multimediali di Azure all'interno del portale, quindi selezionare **Streaming live** nell'elenco **Servizi multimediali**.
 
-   ![Collegamento a streaming live](media/live-events-obs-quickstart/select-live-streaming.png)
+   ![Collegamento Live streaming.](media/live-events-obs-quickstart/select-live-streaming.png)
 1. Selezionare **Aggiungi evento live** per creare un nuovo evento di streaming live.
 
-   ![Icona Aggiungi evento live](media/live-events-obs-quickstart/add-live-event.png)
+   ![Icona Aggiungi evento Live.](media/live-events-obs-quickstart/add-live-event.png)
 1. Immettere un nome per il nuovo evento, ad esempio *TestLiveEvent*, nella casella **Nome evento live**.
 
-   ![Casella Nome evento live](media/live-events-obs-quickstart/live-event-name.png)
+   ![Casella nome evento Live.](media/live-events-obs-quickstart/live-event-name.png)
 1. Immettere una descrizione facoltativa dell'evento nella casella **Descrizione**.
 1. Selezionare l'opzione **Pass-through - nessuna codifica cloud**.
 
-   ![Opzione per la codifica cloud](media/live-events-obs-quickstart/cloud-encoding.png)
+   ![Opzione di codifica cloud.](media/live-events-obs-quickstart/cloud-encoding.png)
 1. Selezionare l'opzione **RTMP**.
 1. Assicurarsi che per **Avvia evento live** sia selezionata l'opzione **No**, per evitare di ricevere addebiti per l'evento live prima che sia pronto. La fatturazione inizierà dopo l'avvio dell'evento live.
 
-   ![Opzione Avvia evento live](media/live-events-obs-quickstart/start-live-event-no.png)
+   ![Opzione Avvia evento Live.](media/live-events-obs-quickstart/start-live-event-no.png)
 1. Selezionare il pulsante **Rivedi e crea** per rivedere le impostazioni.
 1. Selezionare il pulsante **Crea** per creare l'evento live. Verrà visualizzato di nuovo l'elenco di eventi live.
-1. Selezionare il collegamento all'evento live appena creato. Si noti che l'evento è stato arrestato.
+1. Selezionare il collegamento all'evento Live creato. Si noti che l'evento è stato arrestato.
 1. Lasciare aperta questa pagina nel browser. Verrà usato più tardi.
 
 ## <a name="set-up-a-live-stream-by-using-obs-studio"></a>Configurare un evento di streaming live con OBS Studio
@@ -83,53 +83,53 @@ OBS inizia con una scena predefinita, ma senza input selezionati.
 
 ### <a name="add-a-video-source"></a>Aggiungere un'origine video
 
-1. Nel riquadro **Sources** (Origini) fare clic sull'icona **aggiungi** per selezionare un nuovo dispositivo di origine. Si aprirà il menu **Sources** (Origini).
+1. Nel pannello **origini** selezionare l'icona **Aggiungi** per selezionare un nuovo dispositivo di origine. Si aprirà il menu **Sources** (Origini).
 
 1. Scegliere **Video Capture Device** (Dispositivo di acquisizione video) dal menu dei dispositivi di origine. Si aprirà il menu **Create/Select Source** (Crea/Seleziona origine).
 
-   ![Menu di origini di OBS con il dispositivo video selezionato](media/live-events-obs-quickstart/live-event-obs-video-device-menu.png)
+   ![Menu Sources OBS con dispositivo video selezionato.](media/live-events-obs-quickstart/live-event-obs-video-device-menu.png)
 
-1. Selezionare il pulsante di opzione **Add existing** (Aggiungi esistente), quindi fare clic su **OK**. Si aprirà il menu **Properties for Video Device** (Proprietà del dispositivo video).
+1. Selezionare il pulsante di opzione **Aggiungi esistente** , quindi fare clic su **OK**. Si aprirà il menu **Properties for Video Device** (Proprietà del dispositivo video).
 
-   ![Menu di nuove origini video di OBS con l'opzione add existing selezionata](media/live-events-obs-quickstart/live-event-obs-new-video-source.png)
+   ![Menu nuovo origine video OBS con Aggiungi selezionato esistente.](media/live-events-obs-quickstart/live-event-obs-new-video-source.png)
 
-1. Nell'elenco a discesa **Device** (Dispositivo) selezionare l'input video da usare per la trasmissione. Lasciare le altre impostazioni invariate per il momento e fare clic su **OK**. L'origine di input verrà aggiunta al pannello **Sources** (Origini) e nell'area **Preview** (Anteprima) verranno visualizzati gli input video.
+1. Nell'elenco a discesa **Device** (Dispositivo) selezionare l'input video da usare per la trasmissione. Lasciare le altre impostazioni da solo per il momento e selezionare **OK**. L'origine di input verrà aggiunta al pannello **Sources** (Origini) e nell'area **Preview** (Anteprima) verranno visualizzati gli input video.
 
    ![Impostazioni della fotocamera OBS](media/live-events-obs-quickstart/live-event-surface-camera.png)
 
 ### <a name="add-an-audio-source"></a>Aggiungere un'origine audio
 
-1. Nel riquadro **Sources** (Origini) fare clic sull'icona **aggiungi** per selezionare un nuovo dispositivo di origine. Si aprirà il menu Source Device (Dispositivo di origine).
+1. Nel pannello **origini** selezionare l'icona **Aggiungi** per selezionare un nuovo dispositivo di origine. Si aprirà il menu Source Device (Dispositivo di origine).
 
 1. Scegliere **Audio Capture Device** (Dispositivo di acquisizione audio) dal menu dei dispositivi di origine. Si aprirà il menu **Create/Select Source** (Crea/Seleziona origine).
 
-   ![Menu di origini di OBS con il dispositivo audio selezionato](media/live-events-obs-quickstart/live-event-obs-audio-device-menu.png)
+   ![Menu Sources OBS con dispositivo audio selezionato.](media/live-events-obs-quickstart/live-event-obs-audio-device-menu.png)
 
-1. Selezionare il pulsante di opzione **Add existing** (Aggiungi esistente), quindi fare clic su **OK**. Si aprirà il menu **Properties for Audio Input Capture** (Proprietà dell'acquisizione di input audio).
+1. Selezionare il pulsante di opzione **Aggiungi esistente** , quindi fare clic su **OK**. Si aprirà il menu **Properties for Audio Input Capture** (Proprietà dell'acquisizione di input audio).
 
-   ![Origine audio OBS con l'opzione add existing selezionata ](media/live-events-obs-quickstart/live-event-obs-new-audio-source.png)
+   ![Origine audio OBS con Aggiungi selezionati esistente.](media/live-events-obs-quickstart/live-event-obs-new-audio-source.png)
 
-1. Nell'elenco a discesa **Device** (Dispositivo) selezionare il dispositivo di acquisizione audio da usare per la trasmissione. Lasciare le altre impostazioni invariate per il momento e fare clic su OK. Il dispositivo di acquisizione audio verrà aggiunto al pannello Mixer audio.
+1. Nell'elenco a discesa **Device** (Dispositivo) selezionare il dispositivo di acquisizione audio da usare per la trasmissione. Lasciare le altre impostazioni da solo per il momento e selezionare OK. Il dispositivo di acquisizione audio verrà aggiunto al pannello Mixer audio.
 
    ![Elenco a discesa di selezione del dispositivo audio OBS](media/live-events-obs-quickstart/live-event-select-audio-device.png)
 
-### <a name="set-up-streaming-in-obs"></a>Configurare lo streaming in OBS
+### <a name="set-up-streaming-and-advanced-encoding-settings-in-obs"></a>Configurare le impostazioni di streaming e codifica avanzata in OBS
 
 Nella procedura successiva si tornerà in Servizi multimediali di Azure nel browser per copiare l'URL di input da immettere nelle impostazioni di output:
 
 1. Nella pagina Servizi multimediali di Azure del portale selezionare **Avvia** per avviare l'evento di streaming live. La fatturazione inizia in questo momento.
 
-   ![Icona Avvia](media/live-events-obs-quickstart/start.png)
+   ![Icona di avvio.](media/live-events-obs-quickstart/start.png)
 1. Impostare l'interruttore **RTMP** su **RTMPS**.
 1. Copiare l'URL della casella **URL di input** negli Appunti.
 
-   ![URL di input](media/live-events-obs-quickstart/input-url.png)
+   ![URL di input.](media/live-events-obs-quickstart/input-url.png)
 
 1. Passare all'applicazione OBS.
 
-1. Fare clic sul pulsante **Settings** (Impostazioni) nel pannello **Controls** (Controlli). Verranno visualizzate le opzioni di Settings (Impostazioni).
+1. Selezionare il pulsante **Impostazioni** nel pannello **controlli** . Verranno visualizzate le opzioni di Settings (Impostazioni).
 
-   ![Pannello Controls di OBS con le impostazioni selezionate](media/live-events-obs-quickstart/live-event-obs-settings.png)
+   ![Pannello controlli OBS con le impostazioni selezionate.](media/live-events-obs-quickstart/live-event-obs-settings.png)
 
 1. Scegliere **Stream** (Streaming) dal menu **Settings** (Impostazioni).
 
@@ -139,23 +139,97 @@ Nella procedura successiva si tornerà in Servizi multimediali di Azure nel brow
 
 1. Immettere un valore nel campo **Stream key** (Chiave di streaming).  Non importa quale, ma è necessario immettere un valore.
 
-    ![Impostazioni di streaming di OBS](media/live-events-obs-quickstart/live-event-obs-stream-settings.png)
+    ![Impostazioni del flusso OBS.](media/live-events-obs-quickstart/live-event-obs-stream-settings.png)
 
 1. Scegliere **Output** dal menu **Settings** (Impostazioni).
 
-1. Immettere *2* nel campo **Keyframe interval** (Intervallo tra fotogrammi chiave). In questo modo la durata del frammento viene impostata su 2 secondi. Per la distribuzione live a latenza inferiore, usare 1 secondo come valore.
+1. Selezionare l'elenco a discesa **modalità di output** nella parte superiore della pagina e scegliere **Avanzate** per accedere a tutte le impostazioni del codificatore disponibili.
 
-1. FACOLTATIVO: Impostare **CPU Usage Preset** (Set di impostazioni utilizzo CPU) su *veryfast* se si usa un computer con una potenza di elaborazione ridotta. Facoltativamente, è possibile un valore inferiore di kbps nel caso di condizioni di rete insoddisfacenti.
+1. Selezionare la scheda **streaming** per configurare il codificatore.
 
-   ![Impostazioni dell'output di OBS](media/live-events-obs-quickstart/live-event-obs-advanced-output-settings.png)
+1. Selezionare il codificatore appropriato per il sistema.  Se l'hardware supporta l'accelerazione GPU, scegliere da NVIDIA **NVENC** h. 264 o Intel **QuickSync** h. 264. Se il sistema non dispone di una GPU supportata, selezionare l'opzione **x264** Software Encoder.
 
-1. Lasciare le altre impostazioni invariate per il momento e fare clic su **OK**.
+#### <a name="x264-encoder-settings"></a>Impostazioni del codificatore x264
+
+1. Se è stata selezionata l'opzione di codifica **x264** , selezionare la casella **Ridimensiona output** . Selezionare 1920x1080 se si sta usando un evento Live Premium in servizi multimediali o 1280x720 se si usa un evento live standard (720P).  Se si usa un evento Live pass-through, è possibile scegliere eventuali soluzioni disponibili.
+
+1. Impostare la **velocità in bit** su un punto qualsiasi compreso tra 1500 e 4000 kbps. Si consiglia 2500 kbps se si usa un evento live di codifica standard a 720P. Se si usa un evento Live Premium 1080P, si consiglia 4000 kbps. È possibile modificare la velocità in bit in base alle capacità di CPU e alla larghezza di banda disponibili sulla rete per ottenere l'impostazione di qualità desiderata.
+
+1. Immettere *2* nel campo **Keyframe interval** (Intervallo tra fotogrammi chiave). Il valore imposta l'intervallo del fotogramma chiave su 2 secondi, che controlla la dimensione finale dei frammenti recapitati tramite HLS o DASH da servizi multimediali. Non impostare mai l'intervallo del fotogramma chiave su un valore maggiore di 4 secondi.  Se si verifica una latenza elevata durante la trasmissione, è sempre necessario controllare o informare gli utenti dell'applicazione di impostare sempre questo valore su 2 secondi. Quando si tenta di ottenere un recapito Live con latenza più bassa, è possibile scegliere di impostare questo valore su un valore minimo di 1 secondo.
+
+1. FACOLTATIVO: impostare il set di impostazioni di utilizzo della CPU su **veryfast** ed eseguire alcuni esperimenti per verificare se la CPU locale può gestire la combinazione di bitrate e set di impostazioni con un sovraccarico sufficiente. Provare a evitare le impostazioni che comporterebbero una CPU media superiore al 80% per evitare problemi durante lo streaming live. Per migliorare la qualità, è possibile eseguire il test con impostazioni preimpostate **più veloci** **e veloci fino** a raggiungere le limitazioni della CPU.
+
+   ![Impostazioni del codificatore OBS x264](media/live-events-obs-quickstart/live-event-obs-x264-settings.png)
+
+1. Lasciare invariate le altre impostazioni e selezionare **OK**.
+
+#### <a name="nvidia-nvenc-encoder-settings"></a>Impostazioni del codificatore NVIDIA NVENC
+
+1. Se è stata selezionata l'opzione di codifica GPU **NVENC** , selezionare la casella **Ridimensiona output** e selezionare 1920x1080 se si usa un evento Live Premium in servizi multimediali o 1280x720 se si usa un evento live standard (720p). Se si usa un evento Live pass-through, è possibile scegliere eventuali soluzioni disponibili.
+
+1. Impostare il **controllo della frequenza** su CBR per il controllo della velocità in bit costante.
+
+1. Impostare la **velocità in bit** in un punto qualsiasi tra 1500 kbps e 4000 kbps. Si consiglia 2500 kbps se si usa un evento live di codifica standard a 720P. Se si usa un evento Live Premium 1080P, si consiglia 4000 kbps. È possibile scegliere di modificare questa impostazione in base alle capacità di CPU e alla larghezza di banda disponibili sulla rete per ottenere l'impostazione di qualità desiderata.
+
+1. Impostare l' **intervallo del fotogramma chiave** su 2 secondi come indicato in precedenza sotto le opzioni x264. Non superare i 4 secondi, perché ciò può influire significativamente sulla latenza della trasmissione live.
+
+1. Impostare il set di **Impostazioni** su bassa latenza, prestazioni Low-Latency o qualità Low-Latency a seconda della velocità della CPU nel computer locale. Sperimentare queste impostazioni per ottenere il migliore equilibrio tra la qualità e l'utilizzo della CPU nell'hardware.
+
+1. Se si usa una configurazione hardware più potente, impostare il **profilo** su "Main" o "High".
+
+1. Lasciare deselezionata l'opzione **look-ahead** . Se si dispone di un computer molto potente, è possibile verificarlo.
+
+1. Lasciare deselezionata l' **ottimizzazione di Psycho Visual** . Se si dispone di un computer molto potente, è possibile verificarlo.
+
+1. Impostare **GPU** su 0 per decidere automaticamente quali GPU allocare. Se lo si desidera, è possibile limitare l'utilizzo della GPU.
+
+1. Imposta il **numero massimo di fotogrammi B** su 2
+
+   ![Impostazioni del codificatore GPU NVidia NVidia NVENC.](media/live-events-obs-quickstart/live-event-obs-nvidia-settings.png)
+
+#### <a name="intel-quicksync-encoder-settings"></a>Impostazioni del codificatore Intel QuickSync
+
+1. Se è stata selezionata l'opzione di codifica GPU Intel **QuickSync** , selezionare la casella **Ridimensiona output** e selezionare 1920x1080 se si usa un evento Live Premium in servizi multimediali o 1280x720 se si usa un evento live standard (720p). Se si usa un evento Live pass-through, è possibile scegliere eventuali soluzioni disponibili.
+
+1. Impostare l' **utilizzo di destinazione** su "bilanciato" o modificare in base alle esigenze in base al carico combinato CPU e GPU. Modificare le esigenze e sperimentare per ottenere un utilizzo massimo della CPU del 80% in media con la qualità che l'hardware è in grado di produrre. Se si dispone di un hardware più vincolato, testare con "Fast" o rilasciarlo "molto veloce" Se si verificano problemi di prestazioni.
+
+1. Se si usa una configurazione hardware più potente, impostare il **profilo** su "Main" o "High".
+
+1. Impostare l' **intervallo del fotogramma chiave** su 2 secondi come indicato in precedenza sotto le opzioni x264. Non superare i 4 secondi, perché ciò può influire significativamente sulla latenza della trasmissione live.
+
+1. Impostare il **controllo della frequenza** su CBR per il controllo della velocità in bit costante.
+
+1. Impostare la **velocità in bit** in un punto qualsiasi tra 1500 e 4000 kbps.  Si consiglia 2500 kbps se si usa un evento live di codifica standard a 720P. Se si usa un evento Live Premium 1080P, si consiglia 4000 kbps. È possibile scegliere di modificare questa impostazione in base alle capacità di CPU e alla larghezza di banda disponibili sulla rete per ottenere l'impostazione di qualità desiderata.
+
+1. Impostare la **latenza** su "low".
+
+1. Impostare i **fotogrammi B** su 2.
+
+1. Lasciare deselezionati i miglioramenti apportati ai **video soggettivi** .
+
+   ![Impostazioni del codificatore GPU Intel QuickSync.](media/live-events-obs-quickstart/live-event-obs-intel-settings.png)
+
+### <a name="set-audio-settings"></a>Imposta impostazioni audio
+
+Nella procedura successiva si modificheranno le impostazioni di codifica audio.
+
+1. Selezionare la scheda output->audio in impostazioni.
+
+1. Imposta la velocità in **bit audio** della traccia 1 su 128 kbps.
+
+   ![Impostazioni velocità in bit audio OBS.](media/live-events-obs-quickstart/live-event-obs-audio-output-panel.png)
+
+1. Selezionare la scheda audio in impostazioni.
+
+1. Impostare la **frequenza di campionamento** su 44,1 kHz.
+
+   ![Impostazioni frequenza di campionamento audio OBS.](media/live-events-obs-quickstart/live-event-obs-audio-sample-rate-settings.png)
 
 ### <a name="start-streaming"></a>Avviare lo streaming
 
 1. Nel pannello **Controls** (Controlli) fare clic su **Start Streaming** (Avvia lo streaming).
 
-    ![Pulsante start streaming di OBS](media/live-events-obs-quickstart/live-event-obs-start-streaming.png)
+    ![Pulsante Avvia streaming OBS.](media/live-events-obs-quickstart/live-event-obs-start-streaming.png)
 
 2. Passare alla schermata degli eventi live di Servizi multimediali di Azure nel browser e fare clic sul collegamento **Ricarica lettore**. A questo punto, si dovrebbe vedere lo streaming nel lettore di anteprima.
 
@@ -169,12 +243,12 @@ In questa parte verranno configurati gli output e sarà possibile salvare una re
 1. Selezionare il collegamento **Create outputs** (Crea output) sotto il visualizzatore di video **output**.
 1. Se si desidera, modificare il nome dell'output nella casella **Name** (Nome) specificandone uno più intuitivo e facile da trovare in seguito.
 
-   ![Casella del nome di output](media/live-events-wirecast-quickstart/output-name.png)
+   ![Casella Nome output.](media/live-events-wirecast-quickstart/output-name.png)
 1. Lasciare invariate tutte le restanti caselle per il momento.
 1. Selezionare **Avanti** per aggiungere un localizzatore di streaming.
 1. Cambiare il nome del localizzatore specificandone uno più intuitivo, se si desidera.
 
-   ![Casella del nome del localizzatore](media/live-events-wirecast-quickstart/live-event-locator.png)
+   ![Casella nome localizzatore.](media/live-events-wirecast-quickstart/live-event-locator.png)
 1. Lasciare invariati tutti gli altri campi della schermata per il momento.
 1. Selezionare **Crea**.
 

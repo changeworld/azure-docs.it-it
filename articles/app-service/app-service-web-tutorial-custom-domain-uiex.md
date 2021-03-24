@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 08/25/2020
 ms.custom: mvc, seodec18
 ROBOTS: NOINDEX,NOFOLLOW
-ms.openlocfilehash: ca1308c969227336bfb4970f7c5c77b9f2e0cc22
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 32ad6fa122083b40a948345e360bf5b9b0f09e96
+ms.sourcegitcommit: ac035293291c3d2962cee270b33fca3628432fac
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102216531"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "104954854"
 ---
 # <a name="tutorial-map-an-existing-custom-dns-name-to-azure-app-service"></a>Esercitazione: Eseguire il mapping di un nome DNS personalizzato esistente al Servizio app di Azure
 
@@ -121,7 +121,7 @@ Per aggiungere un dominio personalizzato all'app, è necessario verificare la pr
 
     <details>
         <summary>È possibile gestire il DNS dal provider di dominio usando Azure?</summary>
-        Se lo si desidera, è possibile usare DNS di Azure per gestire i record DNS per il dominio e configurare un nome DNS personalizzato per il servizio app Azure. Per altre informazioni, vedere <a href="https://docs.microsoft.com/azure/dns/dns-delegate-domain-azure-dns">esercitazione: ospitare il dominio in DNS di Azure></a>.
+        Se lo si desidera, è possibile usare DNS di Azure per gestire i record DNS per il dominio e configurare un nome DNS personalizzato per il servizio app Azure. Per altre informazioni, vedere <a href="/azure/dns/dns-delegate-domain-azure-dns">esercitazione: ospitare il dominio in DNS di Azure></a>.
     </details>
 
 1. Individuare la pagina relativa alla gestione dei record DNS. 
@@ -146,7 +146,7 @@ Per aggiungere un dominio personalizzato all'app, è necessario verificare la pr
             <ul>
             <li>Per eseguire il mapping del dominio radice (ad esempio, <code>contoso.com</code> ), usare un record A. Non usare il record CNAME per il record radice (per informazioni, vedere la <a href="https://en.wikipedia.org/wiki/CNAME_record">voce di Wikipedia</a>).</li>
             <li>Per eseguire il mapping di un sottodominio (ad esempio, <code>www.contoso.com</code> ), usare un record CNAME.</li>
-            <li>È possibile eseguire il mapping di un sottodominio all'indirizzo IP dell'app direttamente con un record A, ma è possibile che <a href="https://docs.microsoft.com/azure/app-service/overview-inbound-outbound-ips#when-inbound-ip-changes">l'indirizzo IP venga modificato</a>. Il record CNAME esegue il mapping al nome host dell'app, che è meno soggetto a modifiche.</li>
+            <li>È possibile eseguire il mapping di un sottodominio all'indirizzo IP dell'app direttamente con un record A, ma è possibile che <a href="/azure/app-service/overview-inbound-outbound-ips#when-inbound-ip-changes">l'indirizzo IP venga modificato</a>. Il record CNAME esegue il mapping al nome host dell'app, che è meno soggetto a modifiche.</li>
             <li>Per eseguire il mapping di un <a href="https://en.wikipedia.org/wiki/Wildcard_DNS_record">dominio con caratteri jolly</a> (ad esempio, <code>*.contoso.com</code> ), usare un record CNAME.</li>
             </ul>
         </div>
@@ -247,7 +247,7 @@ Per un nome con caratteri jolly come `*` in `*.contoso.com` , creare due record 
 
     <details>
         <summary>Che cos'è l'etichetta di avviso <strong>non sicuro</strong> ?</summary>
-        Un'etichetta di avviso indica che il dominio personalizzato non è ancora associato a un certificato TLS/SSL. In seguito a qualsiasi richiesta HTTPS inviata da un browser al dominio personalizzato si riceverà un errore o un avviso, a seconda del browser. Per aggiungere un'associazione TLS, vedere <a href="https://docs.microsoft.com/azure/app-service/configure-ssl-bindings">Proteggere un nome DNS personalizzato con un'associazione TLS/SSL nel Servizio app di Azure</a>.
+        Un'etichetta di avviso indica che il dominio personalizzato non è ancora associato a un certificato TLS/SSL. In seguito a qualsiasi richiesta HTTPS inviata da un browser al dominio personalizzato si riceverà un errore o un avviso, a seconda del browser. Per aggiungere un'associazione TLS, vedere <a href="/azure/app-service/configure-ssl-bindings">Proteggere un nome DNS personalizzato con un'associazione TLS/SSL nel Servizio app di Azure</a>.
     </details>
 
     Se è stato saltato un passaggio o è stato inserito un errore di digitazione, nella parte inferiore della pagina viene visualizzato un errore di verifica.
@@ -274,7 +274,7 @@ Per un nome con caratteri jolly come `*` in `*.contoso.com` , creare due record 
 
     <details>
         <summary>Che cos'è l'etichetta di avviso <strong>non sicuro</strong> ?</summary>
-        Un'etichetta di avviso indica che il dominio personalizzato non è ancora associato a un certificato TLS/SSL. In seguito a qualsiasi richiesta HTTPS inviata da un browser al dominio personalizzato si riceverà un errore o un avviso, a seconda del browser. Per aggiungere un'associazione TLS, vedere <a href="https://docs.microsoft.com/azure/app-service/configure-ssl-bindings">Proteggere un nome DNS personalizzato con un'associazione TLS/SSL nel Servizio app di Azure</a>.
+        Un'etichetta di avviso indica che il dominio personalizzato non è ancora associato a un certificato TLS/SSL. In seguito a qualsiasi richiesta HTTPS inviata da un browser al dominio personalizzato si riceverà un errore o un avviso, a seconda del browser. Per aggiungere un'associazione TLS, vedere <a href="/azure/app-service/configure-ssl-bindings">Proteggere un nome DNS personalizzato con un'associazione TLS/SSL nel Servizio app di Azure</a>.
     </details>
     
     Se è stato saltato un passaggio o è stato inserito un errore di digitazione, nella parte inferiore della pagina viene visualizzato un errore di verifica.
@@ -297,7 +297,7 @@ Per un nome con caratteri jolly come `*` in `*.contoso.com` , creare due record 
 
     <details>
         <summary>Che cos'è l'etichetta di avviso <strong>non sicuro</strong> ?</summary>
-        Un'etichetta di avviso indica che il dominio personalizzato non è ancora associato a un certificato TLS/SSL. In seguito a qualsiasi richiesta HTTPS inviata da un browser al dominio personalizzato si riceverà un errore o un avviso, a seconda del browser. Per aggiungere un'associazione TLS, vedere <a href="https://docs.microsoft.com/azure/app-service/configure-ssl-bindings">Proteggere un nome DNS personalizzato con un'associazione TLS/SSL nel Servizio app di Azure</a>.
+        Un'etichetta di avviso indica che il dominio personalizzato non è ancora associato a un certificato TLS/SSL. In seguito a qualsiasi richiesta HTTPS inviata da un browser al dominio personalizzato si riceverà un errore o un avviso, a seconda del browser. Per aggiungere un'associazione TLS, vedere <a href="/azure/app-service/configure-ssl-bindings">Proteggere un nome DNS personalizzato con un'associazione TLS/SSL nel Servizio app di Azure</a>.
     </details>
 
 -----

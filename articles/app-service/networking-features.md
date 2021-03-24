@@ -4,15 +4,15 @@ description: Informazioni sulle funzionalità di rete nel servizio app Azure e i
 author: ccompy
 ms.assetid: 5c61eed1-1ad1-4191-9f71-906d610ee5b7
 ms.topic: article
-ms.date: 10/18/2020
+ms.date: 03/26/2021
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: 730f26039db0f5441563ac7bf5d6b0ab536cbcd2
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 9ba85ecfe2b57ceb1eed5c51929107a95f5a4669
+ms.sourcegitcommit: a67b972d655a5a2d5e909faa2ea0911912f6a828
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "99593130"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104889145"
 ---
 # <a name="app-service-networking-features"></a>Funzionalità di rete del servizio app
 
@@ -129,11 +129,15 @@ Alcuni casi d'uso per questa funzionalità:
 ![Diagramma che illustra l'uso degli endpoint di servizio con il gateway applicazione.](media/networking-features/service-endpoints-appgw.png)
 
 Per altre informazioni sulla configurazione degli endpoint di servizio con l'app, vedere [restrizioni di accesso al servizio app Azure][serviceendpoints].
-#### <a name="access-restriction-rules-based-on-service-tags-preview"></a>Regole di restrizione di accesso in base ai tag del servizio (anteprima)
+
+#### <a name="access-restriction-rules-based-on-service-tags"></a>Regole di restrizione di accesso in base ai tag del servizio
+
 I tag dei servizi di [Azure][servicetags] sono set di indirizzi IP ben definiti per i servizi di Azure. I tag di servizio raggruppano gli intervalli IP usati nei vari servizi di Azure e spesso sono ulteriormente inclusi nell'ambito di aree specifiche. In questo modo è possibile filtrare il traffico in *ingresso* da servizi specifici di Azure. 
 
 Per un elenco completo dei tag e altre informazioni, vedere il collegamento al tag del servizio sopra riportato. Per informazioni su come abilitare questa funzionalità, vedere [Configuring Access Restrictions][iprestrictions].
-#### <a name="http-header-filtering-for-access-restriction-rules-preview"></a>Filtro dell'intestazione HTTP per le regole di restrizione di accesso (anteprima)
+
+#### <a name="http-header-filtering-for-access-restriction-rules"></a>Filtro dell'intestazione HTTP per le regole di restrizione di accesso
+
 Per ogni regola di restrizione dell'accesso, è possibile aggiungere altri filtri di intestazioni HTTP. In questo modo è possibile esaminare ulteriormente la richiesta in ingresso e applicare un filtro in base a specifici valori di intestazione HTTP. Ogni intestazione può avere fino a 8 valori per regola. Il seguente elenco di intestazioni HTTP è attualmente supportato: 
 * X-Forwarded-For
 * X-Forwarded-Host
@@ -143,6 +147,7 @@ Per ogni regola di restrizione dell'accesso, è possibile aggiungere altri filtr
 Alcuni casi d'uso per il filtro dell'intestazione HTTP sono:
 * Limitare l'accesso al traffico dai server proxy che inviano il nome host
 * Limitare l'accesso a un'istanza di Azure front door specifica con una regola di tag del servizio e una restrizione dell'intestazione X-Azure-FDID
+
 ### <a name="private-endpoint"></a>Endpoint privato
 
 L'endpoint privato è un'interfaccia di rete che si connette privatamente e in modo sicuro all'app Web dal collegamento privato di Azure. L'endpoint privato usa un indirizzo IP privato della rete virtuale, portando in realtà l'app Web nella rete virtuale. Questa funzionalità è solo per i flussi in *ingresso* per l'app Web.

@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: hafowler
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 23c74a8a35255162c7c9ddee6c917d4d98d83b89
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 4269ba32a22538eeba35ba484fae0c98cd219b7c
+ms.sourcegitcommit: ac035293291c3d2962cee270b33fca3628432fac
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103561652"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "104952780"
 ---
 # <a name="manage-device-identities-using-the-azure-portal"></a>Gestire le identità dei dispositivi usando il portale di Azure
 
@@ -174,7 +174,7 @@ Per gestire le identità dei dispositivi tramite il portale di Azure AD, è nece
 > - Si consiglia di usare l' [azione utente "registrazione o aggiunta dispositivi"](../conditional-access/concept-conditional-access-cloud-apps.md#user-actions) nell'accesso condizionale per l'applicazione dell'autenticazione a più fattori per l'aggiunta o la registrazione di un dispositivo. 
 > - È necessario impostare questa impostazione su **No** se si usano i criteri di accesso condizionale per richiedere la autenticazione a più fattori. 
 
-- **Numero massimo di dispositivi** : questa impostazione consente di selezionare il numero massimo di dispositivi Azure ad aggiunti o Azure ad registrati che un utente può avere in Azure ad. Se un utente raggiunge la quota specificata, non potrà aggiungere altri dispositivi fino a quando non vengono rimossi uno o più dispositivi esistenti. Il valore predefinito è **50**.
+- **Numero massimo di dispositivi** : questa impostazione consente di selezionare il numero massimo di dispositivi Azure ad aggiunti o Azure ad registrati che un utente può avere in Azure ad. Se un utente raggiunge la quota specificata, non potrà aggiungere altri dispositivi fino a quando non vengono rimossi uno o più dispositivi esistenti. Il valore predefinito è **50**. È possibile aumentare il valore fino a 100 e se si immette un valore superiore a 100, Azure AD lo imposterà su 100. È anche possibile usare un valore illimitato per applicare nessun limite oltre ai limiti di quota esistenti.
 
 > [!NOTE]
 > L'impostazione **numero massimo di dispositivi** si applica ai dispositivi Azure ad aggiunti o Azure ad registrati. Questa impostazione non si applica ai dispositivi ibridi Azure AD aggiunti.

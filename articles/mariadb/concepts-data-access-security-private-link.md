@@ -6,12 +6,12 @@ ms.author: sumuth
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 03/10/2020
-ms.openlocfilehash: ec43fa995fc9772964db399baa0b6f8c2a7db1db
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: a1b97586eeeab1d5d1917f2d1cec9e0f71e9e329
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98665141"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104867458"
 ---
 # <a name="private-link-for-azure-database-for-mariadb"></a>Collegamento privato per database di Azure per MariaDB
 
@@ -85,7 +85,8 @@ Quando l'amministratore di rete crea l'endpoint privato (PE), l'amministratore p
 
 ## <a name="use-cases-of-private-link-for-azure-database-for-mariadb"></a>Casi d'uso di collegamento privato per database di Azure per MariaDB
 
-I client possono connettersi all'endpoint privato dallo stesso VNet, VNet con peering nella stessa area o tramite una connessione da VNet a VNet tra le aree. Inoltre, i client possono connettersi dall'ambiente locale tramite ExpressRoute, peering privato o tunneling VPN. Di seguito è riportato un diagramma semplificato che mostra i casi d'uso comuni.
+
+I client possono connettersi all'endpoint privato dallo stesso VNet, [VNet con peering](../virtual-network/virtual-network-peering-overview.md) nella stessa area o in aree geografiche oppure tramite la [connessione da VNet a VNet](../vpn-gateway/vpn-gateway-howto-vnet-vnet-resource-manager-portal.md) tra le aree. Inoltre, i client possono connettersi dall'ambiente locale tramite ExpressRoute, peering privato o tunneling VPN. Di seguito è riportato un diagramma semplificato che mostra i casi d'uso comuni.
 
 ![Selezionare la panoramica dell'endpoint privato](media/concepts-data-access-and-security-private-link/show-private-link-overview.png)
 

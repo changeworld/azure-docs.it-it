@@ -5,12 +5,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 08/11/2020
-ms.openlocfilehash: d17d067b88add3006bc5c7fb10caa6b80a80a827
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 99a61d3e445bf6887db0c97e365e6e4489eb79e1
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98931771"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104872014"
 ---
 # <a name="nsg-service-tags-for-azure-hdinsight"></a>Tag del servizio NSG per Azure HDInsight
 
@@ -40,7 +40,7 @@ Il modo più semplice per iniziare a usare i tag di servizio con il cluster HDIn
 
 1. Dall'elenco a discesa **tag servizio di origine** selezionare **HDInsight**.
 
-    ![Aggiungere un tag di servizio dal portale di Azure](./media/hdinsight-service-tags/azure-portal-add-service-tag.png)
+    :::image type="content" source="./media/hdinsight-service-tags/azure-portal-add-service-tag.png" alt-text="Aggiungere un tag di servizio dal portale di Azure":::
 
 Questo tag contiene gli indirizzi IP dei servizi di gestione e integrità per tutte le aree in cui è disponibile HDInsight. Il tag assicurerà che il cluster sia in grado di comunicare con i servizi di integrità e gestione necessari indipendentemente da dove vengono creati.
 

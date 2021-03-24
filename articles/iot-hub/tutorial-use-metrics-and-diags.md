@@ -12,12 +12,12 @@ ms.custom:
 - mqtt
 - devx-track-azurecli
 - devx-track-csharp
-ms.openlocfilehash: bf834a6dd648ffc8f4b1633dbb383f33cd99335f
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 1e2983fb50ce3ad1482db85025677cba5fee0c2e
+ms.sourcegitcommit: a67b972d655a5a2d5e909faa2ea0911912f6a828
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98625200"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104889595"
 ---
 # <a name="tutorial-set-up-and-use-metrics-and-logs-with-an-iot-hub"></a>Esercitazione: Configurare e usare metriche e log con un hub IoT
 
@@ -219,7 +219,7 @@ Per configurare gli avvisi delle metriche:
 
 1. Configurare prima di tutto la condizione in base alla quale verrà attivato l'avviso.
 
-    1. In **Condizione** selezionare **Selezione condizione**. Nel riquadro **Configura logica dei segnali** digitare "telemetria" nella casella di ricerca e selezionare **Messaggi di telemetria inviati**.
+    1. In **condizione** selezionare **Aggiungi condizione**. Nel riquadro **Configura logica dei segnali** digitare "telemetria" nella casella di ricerca e selezionare **Messaggi di telemetria inviati**.
 
        :::image type="content" source="media/tutorial-use-metrics-and-diags/configure-signal-logic-telemetry-messages-sent.png" alt-text="Screenshot che mostra la selezione della metrica.":::
 
@@ -245,7 +245,7 @@ Per configurare gli avvisi delle metriche:
 
 1. A questo punto occorre configurare l'azione per l'avviso.
 
-    1. Tornare al riquadro **Crea regola di avviso** e in **Azioni** selezionare **Seleziona gruppo di azioni**. In **Selezionare un gruppo di azioni da collegare a questa regola di avviso** selezionare **Crea gruppo di azioni**.
+    1. Tornare al riquadro **Crea regola di avviso** , in **azioni**, selezionare **Aggiungi gruppi di azioni**. In **Selezionare un gruppo di azioni da collegare a questa regola di avviso** selezionare **Crea gruppo di azioni**.
 
     1. Nella scheda **Informazioni di base** del riquadro **Crea gruppo di azioni** assegnare al gruppo di azioni un nome e un nome visualizzato.
 
@@ -313,7 +313,7 @@ Con queste impostazioni verrà attivato un avviso e si riceverà una notifica tr
 
 ## <a name="run-the-simulated-device-app"></a>Eseguire un'app di dispositivo simulato
 
-Nelle sezione [Configurare le risorse](#set-up-resources) è stata registrata un'identità del dispositivo da usare per la simulazione con un dispositivo IoT. In questa sezione si scarica un'app console .NET che simula un dispositivo che invia messaggi da dispositivo a cloud a un hub IoT, si configura l'app per inviare questi messaggi all'hub IoT e quindi la si esegue. 
+Nelle sezione [Configurare le risorse](#set-up-resources) è stata registrata un'identità del dispositivo da usare per la simulazione con un dispositivo IoT. In questa sezione si scarica un'app console .NET che simula un dispositivo che invia messaggi da dispositivo a cloud a un hub IoT, si configura l'app per inviare questi messaggi all'hub IoT e quindi la si esegue.
 
 > [!IMPORTANT]
 >

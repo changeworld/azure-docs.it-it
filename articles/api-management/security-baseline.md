@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 02/17/2021
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 7c5fbbd8cdfd75819bffcfb93fc81900feb4a612
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: d965ec2f846f09dd61342b3961e7ea8106f6a19f
+ms.sourcegitcommit: ac035293291c3d2962cee270b33fca3628432fac
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101652369"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "104954888"
 ---
 # <a name="azure-security-baseline-for-api-management"></a>Baseline di sicurezza di Azure per Gestione API
 
@@ -52,7 +52,7 @@ Il traffico in ingresso e in uscita nella subnet in cui viene distribuita la ges
 
 Attenzione: Quando si configura un NSG nella subnet di Gestione API è necessario aprire un set di porte. Se una qualsiasi di queste porte non è disponibile, Gestione API potrebbe non funzionare correttamente e potrebbe diventare inaccessibile.
 
-- [Informazioni sulle configurazioni di NSG per Gestione API di Azure](https://docs.microsoft.com/azure/api-management/api-management-using-with-vnet#-common-network-configuration-issues)
+- [Informazioni sulle configurazioni di NSG per Gestione API di Azure](./api-management-using-with-vnet.md#-common-network-configuration-issues)
 
 - [Come abilitare i log dei flussi NSG](../network-watcher/network-watcher-nsg-flow-logging-portal.md)
 
@@ -75,7 +75,7 @@ Nota: Questa funzionalità è disponibile nei livelli Premium e Developer di Ges
 
 - [Informazioni su come integrare Gestione API in una VNET interna con un gateway applicazione](api-management-howto-integrate-internal-vnet-appgateway.md)
 
-- [Informazioni sul gateway applicazione di Azure](/azure/application-gateway/)
+- [Informazioni sul gateway applicazione di Azure](../application-gateway/index.yml)
 
 **Responsabilità**: Customer
 
@@ -96,7 +96,7 @@ Usare l'intelligence sulle minacce integrata del Centro sicurezza di Azure per n
 
 - [Informazioni su come integrare Gestione API in una VNET interna con un gateway applicazione](api-management-howto-integrate-internal-vnet-appgateway.md)
 
-- [Informazioni sul gateway applicazione di Azure](/azure/application-gateway/)
+- [Informazioni sul gateway applicazione di Azure](../application-gateway/index.yml)
 
 - [Informazioni sull'intelligence sulle minacce integrata nel Centro sicurezza di Azure](../security-center/azure-defender.md)
 
@@ -110,7 +110,7 @@ Usare l'intelligence sulle minacce integrata del Centro sicurezza di Azure per n
 
 Attenzione: Quando si configura un NSG nella subnet di Gestione API è necessario aprire un set di porte. Se una qualsiasi di queste porte non è disponibile, Gestione API potrebbe non funzionare correttamente e potrebbe diventare inaccessibile.
 
-- [Informazioni sulle configurazioni di NSG per Gestione API di Azure](https://docs.microsoft.com/azure/api-management/api-management-using-with-vnet#-common-network-configuration-issues)
+- [Informazioni sulle configurazioni di NSG per Gestione API di Azure](./api-management-using-with-vnet.md#-common-network-configuration-issues)
 
 - [Come abilitare i log dei flussi NSG](../network-watcher/network-watcher-nsg-flow-logging-portal.md)
 
@@ -160,7 +160,7 @@ Nota: Questa funzionalità è disponibile nei livelli Premium e Developer di Ges
 
 - [Web application firewall di Azure nel gateway applicazione di Azure](../web-application-firewall/ag/ag-overview.md)
 
-- [Informazioni sul gateway applicazione di Azure](/azure/application-gateway/overview)
+- [Informazioni sul gateway applicazione di Azure](../application-gateway/overview.md)
 
 **Responsabilità**: Customer
 
@@ -174,7 +174,7 @@ Attenzione: Quando si configura un NSG nella subnet di Gestione API è necessari
 
 - [Comprensione e uso dei tag del servizio](../virtual-network/service-tags-overview.md)
 
-- [Porte necessarie per il servizio Gestione API](https://docs.microsoft.com/azure/api-management/api-management-using-with-vnet#-common-network-configuration-issues)
+- [Porte necessarie per il servizio Gestione API](./api-management-using-with-vnet.md#-common-network-configuration-issues)
 
 **Responsabilità**: Customer
 
@@ -198,7 +198,7 @@ Attenzione: Quando si configura un NSG nella subnet di Gestione API è necessari
 
 **Indicazioni**: usare i tag per i gruppi di sicurezza di rete (NSG) e altre risorse correlate alla sicurezza di rete e al flusso del traffico. Per le regole dei singoli gruppi di sicurezza di rete è possibile usare il campo "Descrizione" per specificare le esigenze aziendali e/o la durata (e così via) per le regole che consentono il traffico da e verso una rete.
 
-- [Come creare e usare i tag](/azure/azure-resource-manager/resource-group-using-tags)
+- [Come creare e usare i tag](../azure-resource-manager/management/tag-resources.md)
 
 - [Come creare una rete virtuale](../virtual-network/quick-create-portal.md)
 
@@ -212,9 +212,9 @@ Attenzione: Quando si configura un NSG nella subnet di Gestione API è necessari
 
 **Indicazioni**: usare il log attività di Azure per monitorare le configurazioni delle risorse di rete e rilevare le modifiche alle risorse di rete associate alle distribuzioni di Gestione API di Azure. In Monitoraggio di Azure creare avvisi che si attiveranno quando vengono apportate modifiche alle risorse di rete critiche.
 
-- [Come visualizzare e recuperare gli eventi del log attività di Azure](/azure/azure-monitor/platform/activity-log-view)
+- [Come visualizzare e recuperare gli eventi del log attività di Azure](../azure-monitor/essentials/activity-log.md#view-the-activity-log)
 
-- [Come creare avvisi in Monitoraggio di Azure](/azure/azure-monitor/platform/alerts-activity-log)
+- [Come creare avvisi in Monitoraggio di Azure](../azure-monitor/alerts/alerts-activity-log.md)
 
 **Responsabilità**: Customer
 
@@ -232,7 +232,7 @@ Oltre al Monitoraggio di Azure, Gestione API di Azure può essere integrato con 
 
 Facoltativamente, abilitare e caricare i dati in Azure Sentinel o in una integrazione di Informazioni di sicurezza e gestione degli eventi (SIEM) di terze parti.
 
-- [Come configurare le impostazioni di diagnostica](/azure/azure-monitor/platform/diagnostic-settings#create-in-azure-portal)
+- [Come configurare le impostazioni di diagnostica](../azure-monitor/essentials/diagnostic-settings.md#create-in-azure-portal)
 
 - [Come eseguire l'onboarding di Azure Sentinel](../sentinel/quickstart-onboard.md)
 
@@ -252,9 +252,9 @@ Facoltativamente, abilitare e caricare i dati in Azure Sentinel o in una integra
 
 Per la registrazione dell'audit del piano dati, i log di diagnostica offrono informazioni dettagliate sulle operazioni e sugli errori importanti per il controllo e la risoluzione dei problemi. I log di diagnostica differiscono dai log attività. I log attività offrono informazioni approfondite sulle operazioni eseguite nelle risorse di Azure. I log di diagnostica forniscono informazioni dettagliate sulle operazioni eseguite dalla risorsa.
 
-- [Come abilitare le impostazioni di diagnostica per il log attività di Azure](/azure/azure-monitor/platform/activity-log)
+- [Come abilitare le impostazioni di diagnostica per il log attività di Azure](../azure-monitor/essentials/activity-log.md)
 
-- [Come abilitare le impostazioni di diagnostica per Gestione API di Azure](/Azure/api-management/api-management-howto-use-azure-monitor#resource-logs)
+- [Come abilitare le impostazioni di diagnostica per Gestione API di Azure](./api-management-howto-use-azure-monitor.md#resource-logs)
 
 **Responsabilità**: Customer
 
@@ -264,9 +264,9 @@ Per la registrazione dell'audit del piano dati, i log di diagnostica offrono inf
 
 **Indicazioni**: In monitoraggio di Azure, impostare il periodo di conservazione dell'area di lavoro Log Analytics in base alle normative di conformità dell'organizzazione. Usare gli account di archiviazione di Azure per l'archiviazione a lungo termine o l'archivio.
 
-- [Come impostare i parametri di conservazione dei log per le aree di lavoro Log Analytics](/azure/azure-monitor/platform/manage-cost-storage#change-the-data-retention-period)
+- [Come impostare i parametri di conservazione dei log per le aree di lavoro Log Analytics](../azure-monitor/logs/manage-cost-storage.md#change-the-data-retention-period)
 
-- [Come archiviare i log in un account di archiviazione di Azure](/azure/azure-monitor/platform/resource-logs#send-to-azure-storage)
+- [Come archiviare i log in un account di archiviazione di Azure](../azure-monitor/essentials/resource-logs.md#send-to-azure-storage)
 
 **Responsabilità**: Customer
 
@@ -278,11 +278,11 @@ Per la registrazione dell'audit del piano dati, i log di diagnostica offrono inf
 
 Facoltativamente, è possibile integrare Gestione API con Azure Application Insights e usarlo come strumento di monitoraggio, analisi, creazione di report e avvisi primario o secondario.
 
-- [Come monitorare ed esaminare i log per Gestione API di Azure](/Azure/api-management/api-management-howto-use-azure-monitor)
+- [Come monitorare ed esaminare i log per Gestione API di Azure](./api-management-howto-use-azure-monitor.md)
 
-- [Come eseguire query personalizzate in Monitoraggio di Azure](/azure/azure-monitor/log-query/get-started-queries)
+- [Come eseguire query personalizzate in Monitoraggio di Azure](../azure-monitor/logs/get-started-queries.md)
 
-- [Informazioni sull'area di lavoro Log Analytics](/azure/azure-monitor/log-query/log-analytics-tutorial)
+- [Informazioni sull'area di lavoro Log Analytics](../azure-monitor/logs/log-analytics-tutorial.md)
 
 - [Come eseguire l'integrazione con Azure Application Insights](api-management-howto-app-insights.md)
 
@@ -300,11 +300,11 @@ Facoltativamente, è possibile integrare Gestione API con Azure Application Insi
 
 Facoltativamente, è possibile abilitare ed eseguire l'onboarding dei dati in Azure Sentinel o nelle informazioni di sicurezza e gestione degli eventi di terze parti.
 
-- [Come abilitare le impostazioni di diagnostica per il log attività di Azure](/azure/azure-monitor/platform/activity-log)
+- [Come abilitare le impostazioni di diagnostica per il log attività di Azure](../azure-monitor/essentials/activity-log.md)
 
-- [Come abilitare le impostazioni di diagnostica per Gestione API di Azure](https://docs.microsoft.com/azure/api-management/api-management-howto-use-azure-monitor#resource-logs)
+- [Come abilitare le impostazioni di diagnostica per Gestione API di Azure](./api-management-howto-use-azure-monitor.md#resource-logs)
 
-- [Come configurare una regola di avviso per gestione API di Azure](/Azure/api-management/api-management-howto-use-azure-monitor#set-up-an-alert-rule-for-unauthorized-request)
+- [Come configurare una regola di avviso per gestione API di Azure](./api-management-howto-use-azure-monitor.md#set-up-an-alert-rule)
 
 - [Come visualizzare le metriche della capacità di un'istanza di Gestione API di Azure](api-management-capacity.md)
 
@@ -338,7 +338,7 @@ Seguire le raccomandazioni del Centro sicurezza di Azure per la gestione e la ma
 
 - [Come ottenere una definizione del ruolo della directory in Azure AD con PowerShell](/powershell/module/az.resources/get-azroledefinition)
 
-- [Informazioni sulle raccomandazioni relative a identità e accesso del Centro sicurezza di Azure](https://docs.microsoft.com/azure/security-center/recommendations-reference#identityandaccess-recommendations)
+- [Informazioni sulle raccomandazioni relative a identità e accesso del Centro sicurezza di Azure](../security-center/recommendations-reference.md#identityandaccess-recommendations)
 
 **Responsabilità**: Customer
 
@@ -419,7 +419,7 @@ Inoltre, usare i rilevamenti di rischi di Azure AD per visualizzare gli avvisi e
 
 - [Come distribuire Privileged Identity Management (PIM)](../active-directory/privileged-identity-management/pim-deployment-plan.md)
 
-- [Informazioni sui rilevamenti di rischi di Azure AD](/azure/active-directory/reports-monitoring/concept-risk-events)
+- [Informazioni sui rilevamenti di rischi di Azure AD](../active-directory/identity-protection/overview-identity-protection.md)
 
 **Responsabilità**: Customer
 
@@ -505,7 +505,7 @@ Configurare il monitoraggio avanzato con Gestione API usando il criterio `log-to
 
 **Linee guida**: per la deviazione del comportamento dell'account di accesso nel piano di controllo (il portale di Azure), usare Azure Active Directory (Azure ad) la protezione delle identità e le funzionalità di rilevamento dei rischi per configurare le risposte automatiche per rilevare azioni sospette correlate alle identità utente. È anche possibile inserire i dati in Azure Sentinel per un'analisi più approfondita.
 
-- [Come visualizzare gli accessi a rischio per Azure AD](/azure/active-directory/reports-monitoring/concept-risky-sign-ins)
+- [Come visualizzare gli accessi a rischio per Azure AD](../active-directory/identity-protection/overview-identity-protection.md)
 
 - [Come configurare e abilitare i criteri di rischio di Identity Protection](../active-directory/identity-protection/howto-identity-protection-configure-risk-policies.md)
 
@@ -519,7 +519,7 @@ Configurare il monitoraggio avanzato con Gestione API usando il criterio `log-to
 
 **Indicazioni**: attualmente non disponibile; Customer Lockbox non è attualmente supportata per Gestione API di Azure.
 
-- [Elenco dei servizi Customer Lockbox supportati](https://docs.microsoft.com/azure/security/fundamentals/customer-lockbox-overview#supported-services-and-scenarios-in-general-availability)
+- [Elenco dei servizi Customer Lockbox supportati](../security/fundamentals/customer-lockbox-overview.md#supported-services-and-scenarios-in-general-availability)
 
 **Responsabilità**: Customer
 
@@ -533,7 +533,7 @@ Configurare il monitoraggio avanzato con Gestione API usando il criterio `log-to
 
 **Indicazioni**: usare i tag per rilevare più facilmente le risorse di Azure che memorizzano o elaborano informazioni riservate.
 
-- [Come creare e usare i tag](/azure/azure-resource-manager/resource-group-using-tags)
+- [Come creare e usare i tag](../azure-resource-manager/management/tag-resources.md)
 
 **Responsabilità**: Customer
 
@@ -543,11 +543,11 @@ Configurare il monitoraggio avanzato con Gestione API usando il criterio `log-to
 
 **Indicazioni**: implementare sottoscrizioni e/o gruppi di gestione distinti per lo sviluppo, il test e la produzione. Le istanze di Gestione API di Azure devono essere separate dalla rete virtuale (VNet)/subnet e contrassegnate in modo appropriato.
 
-- [Come creare sottoscrizioni di Azure aggiuntive](/azure/billing/billing-create-subscription)
+- [Come creare sottoscrizioni di Azure aggiuntive](../cost-management-billing/manage/create-subscription.md)
 
 - [Come creare gruppi di gestione](../governance/management-groups/create-management-group-portal.md)
 
-- [Come creare e usare i tag](/azure/azure-resource-manager/resource-group-using-tags)
+- [Come creare e usare i tag](../azure-resource-manager/management/tag-resources.md)
 
 - [Come usare Gestione API di Azure con le reti virtuali](api-management-using-with-vnet.md)
 
@@ -571,7 +571,7 @@ Microsoft gestisce l'infrastruttura sottostante per Gestione API di Azure e ha i
 
 **Indicazioni**: le chiamate del piano di gestione vengono eseguite tramite Azure Resource Manager su TLS. È necessario un token JSON Web (JWT) valido. Le chiamate del piano dati possono essere protette con TLS e uno dei meccanismi di autenticazione supportati (ad esempio, il certificato client o JWT).
 
-- [Informazioni sulla protezione dei dati in Gestione API di Azure](/azure/api-management/api-management-security-controls#data-protection)
+- [Informazioni sulla protezione dei dati in Gestione API di Azure](#data-protection)
 
 - [Gestire le impostazioni TLS in Gestione API di Azure](api-management-howto-manage-protocols-ciphers.md)
 
@@ -621,7 +621,7 @@ Microsoft gestisce l'infrastruttura sottostante per Gestione API di Azure e ha i
 
 **Indicazioni**: usare Monitoraggio di Azure con il log attività di Azure per creare avvisi per il momento in cui le modifiche vengono apportate alle app per le funzioni di Azure e ad altre risorse critiche o correlate.
 
-- [Come creare avvisi per gli eventi del log attività di Azure](/azure/azure-monitor/platform/alerts-activity-log)
+- [Come creare avvisi per gli eventi del log attività di Azure](../azure-monitor/alerts/alerts-activity-log.md)
 
 - [Come usare Monitoraggio di Azure e il log attività di Azure in Gestione API di Azure](api-management-howto-use-azure-monitor.md)
 
@@ -639,7 +639,7 @@ Microsoft gestisce l'infrastruttura sottostante per Gestione API di Azure e ha i
 
 Piattaforma sottostante analizzata e munita di patch applicata da Microsoft. Esaminare i controlli di sicurezza disponibili per ridurre le vulnerabilità correlate alla configurazione del servizio.
 
-- [Informazioni sui controlli di sicurezza disponibili per Gestione API di Azure](/azure/api-management/api-management-security-controls)
+- [Informazioni sui controlli di sicurezza disponibili per Gestione API di Azure]()
 
 **Responsabilità**: Customer
 
@@ -675,7 +675,6 @@ Piattaforma sottostante analizzata e munita di patch applicata da Microsoft. Esa
 
 Piattaforma sottostante analizzata e munita di patch applicata da Microsoft. I clienti devono esaminare i controlli di sicurezza cui hanno accesso per ridurre le vulnerabilità correlate alla configurazione del servizio.
 
-- [Informazioni sui controlli di sicurezza disponibili per Gestione API di Azure](/azure/api-management/api-management-security-controls)
 
 **Responsabilità**: Customer
 
@@ -693,7 +692,7 @@ Sebbene le risorse di Azure (versione classica) possano essere individuate trami
 
 - [Come creare query con Azure Resource Graph](../governance/resource-graph/first-query-portal.md)
 
-- [Come visualizzare le sottoscrizioni di Azure](https://docs.microsoft.com/powershell/module/az.accounts/get-azsubscription?view=azps-4.8.0&amp;preserve-view=true)
+- [Come visualizzare le sottoscrizioni di Azure](/powershell/module/az.accounts/get-azsubscription?preserve-view=true&view=azps-4.8.0)
 
 - [Informazioni sul controllo degli accessi in base al ruolo di Azure](../role-based-access-control/overview.md)
 
@@ -705,7 +704,7 @@ Sebbene le risorse di Azure (versione classica) possano essere individuate trami
 
 **Indicazioni**: applicare i tag alle risorse di Azure che contengono metadati per organizzarle in modo logico in categorie in una tassonomia.
 
-- [Come creare e usare i tag](/azure/azure-resource-manager/resource-group-using-tags)
+- [Come creare e usare i tag](../azure-resource-manager/management/tag-resources.md)
 
 **Responsabilità**: Customer
 
@@ -719,11 +718,11 @@ Usare inoltre Criteri di Azure per applicare restrizioni al tipo di risorse che 
 - Tipi di risorse non consentiti
 - Tipi di risorse consentiti
 
-- [Come creare sottoscrizioni di Azure aggiuntive](/azure/billing/billing-create-subscription)
+- [Come creare sottoscrizioni di Azure aggiuntive](../cost-management-billing/manage/create-subscription.md)
 
 - [Come creare gruppi di gestione](../governance/management-groups/create-management-group-portal.md)
 
-- [Come creare e usare i tag](/azure/azure-resource-manager/resource-group-using-tags)
+- [Come creare e usare i tag](../azure-resource-manager/management/tag-resources.md)
 
 **Responsabilità**: Customer
 
@@ -785,7 +784,7 @@ Usare Azure Resource Graph per eseguire query e individuare le risorse all'inter
 
 - [Come configurare e gestire Criteri di Azure](../governance/policy/tutorials/create-and-manage.md)
 
-- [Come negare un tipo di risorsa specifico con Criteri di Azure](https://docs.microsoft.com/azure/governance/policy/samples/built-in-policies#general)
+- [Come negare un tipo di risorsa specifico con Criteri di Azure](../governance/policy/samples/built-in-policies.md#general)
 
 **Responsabilità**: Customer
 
@@ -835,7 +834,7 @@ Usare Azure Resource Graph per eseguire query e individuare le risorse all'inter
 
 **Indicazioni**: definire e implementare configurazioni di sicurezza standard per il servizio di Gestione API di Azure con Criteri di Azure. Usare gli alias di Criteri di Azure nello spazio dei nomi "Microsoft.ApiManagement" per creare criteri personalizzati per controllare o applicare la configurazione dei servizi di Gestione API di Azure.
 
-- [Come visualizzare gli alias di Criteri di Azure disponibili](https://docs.microsoft.com/powershell/module/az.resources/get-azpolicyalias?view=azps-4.8.0&amp;preserve-view=true)
+- [Come visualizzare gli alias di Criteri di Azure disponibili](/powershell/module/az.resources/get-azpolicyalias?preserve-view=true&view=azps-4.8.0)
 
 - [Come configurare e gestire Criteri di Azure](../governance/policy/tutorials/create-and-manage.md)
 
@@ -939,7 +938,7 @@ Inoltre, definire e implementare configurazioni di sicurezza standard per i serv
 
 - [Come creare un'identità gestita per un'istanza di Gestione API](api-management-howto-use-managed-service-identity.md)
 
-- [Criterio per eseguire l'autenticazione con un'identità gestita](https://docs.microsoft.com/azure/api-management/api-management-authentication-policies#ManagedIdentity)
+- [Criterio per eseguire l'autenticazione con un'identità gestita](./api-management-authentication-policies.md#ManagedIdentity)
 
 **Responsabilità**: Customer
 
@@ -1001,7 +1000,7 @@ Le funzionalità di backup e ripristino dei servizi di Gestione API fornisce i b
 
 - [Come distribuire un piano dati di Gestione API in più aree](api-management-howto-deploy-multi-region.md)
 
-- [Come implementare il ripristino di emergenza usando il backup e il ripristino dei servizi in Gestione API di Azure](https://docs.microsoft.com/azure/api-management/api-management-howto-disaster-recovery-backup-restore#calling-the-backup-and-restore-operations)
+- [Come implementare il ripristino di emergenza usando il backup e il ripristino dei servizi in Gestione API di Azure](./api-management-howto-disaster-recovery-backup-restore.md#calling-the-backup-and-restore-operations)
 
 - [Come chiamare l'operazione di backup di Gestione API](/rest/api/apimanagement/2019-01-01/apimanagementservice/backup)
 
@@ -1017,9 +1016,9 @@ Le funzionalità di backup e ripristino dei servizi di Gestione API fornisce i b
 
 Le identità gestite possono essere usate per ottenere i certificati da Azure Key Vault per i nomi di dominio personalizzati di Gestione API. Eseguire il backup di tutti i certificati archiviati all'interno di Azure Key Vault.
 
-- [Come implementare il ripristino di emergenza usando il backup e il ripristino dei servizi in Gestione API di Azure](https://docs.microsoft.com/azure/api-management/api-management-howto-disaster-recovery-backup-restore#calling-the-backup-and-restore-operations)
+- [Come implementare il ripristino di emergenza usando il backup e il ripristino dei servizi in Gestione API di Azure](./api-management-howto-disaster-recovery-backup-restore.md#calling-the-backup-and-restore-operations)
 
-- [Come eseguire il backup dei certificati di Azure Key Vault](https://docs.microsoft.com/powershell/module/az.keyvault/backup-azkeyvaultcertificate?view=azps-4.8.0&amp;preserve-view=true)
+- [Come eseguire il backup dei certificati di Azure Key Vault](/powershell/module/az.keyvault/backup-azkeyvaultcertificate?preserve-view=true&view=azps-4.8.0)
 
 **Responsabilità**: Customer
 
@@ -1041,7 +1040,7 @@ Le identità gestite possono essere usate per ottenere i certificati da Azure Ke
 
 **Indicazioni**: Gestione API di Azure scrive i backup negli account di archiviazione di Azure di proprietà dei clienti. Seguire le raccomandazioni sulla sicurezza di Archiviazione di Azure per proteggere il backup.
 
-- [Come implementare il ripristino di emergenza usando il backup e il ripristino dei servizi in Gestione API di Azure](https://docs.microsoft.com/azure/api-management/api-management-howto-disaster-recovery-backup-restore#calling-the-backup-and-restore-operations)
+- [Come implementare il ripristino di emergenza usando il backup e il ripristino dei servizi in Gestione API di Azure](./api-management-howto-disaster-recovery-backup-restore.md#calling-the-backup-and-restore-operations)
 
 - [Raccomandazione sulla sicurezza per archiviazione BLOB](../storage/blobs/security-recommendations.md)
 
@@ -1079,7 +1078,7 @@ Contrassegnare anche chiaramente le sottoscrizioni, ad esempio di produzione o n
 
 - [Avvisi di sicurezza nel Centro sicurezza di Azure](../security-center/security-center-alerts-overview.md)
 
-- [Usare tag per organizzare le risorse di Azure](/azure/azure-resource-manager/resource-group-using-tags)
+- [Usare tag per organizzare le risorse di Azure](../azure-resource-manager/management/tag-resources.md)
 
 **Responsabilità**: Customer
 
@@ -1143,5 +1142,5 @@ Contrassegnare anche chiaramente le sottoscrizioni, ad esempio di produzione o n
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Vedere [Panoramica di Azure Security Benchmark V2](/azure/security/benchmarks/overview)
-- Altre informazioni su [Baseline di sicurezza di Azure](/azure/security/benchmarks/security-baselines-overview)
+- Vedere [Panoramica di Azure Security Benchmark V2](../security/benchmarks/overview.md)
+- Altre informazioni su [Baseline di sicurezza di Azure](../security/benchmarks/security-baselines-overview.md)
