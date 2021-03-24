@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 keywords: servizi cognitivi, intelligenza cognitiva, soluzioni cognitive, servizi di intelligenza artificiale
 ms.topic: quickstart
-ms.date: 09/14/2020
+ms.date: 3/22/2021
 ms.author: aahi
-ms.openlocfilehash: c1e8b260f6c06d8f26f5ba99b4fb02edfa5e8656
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 08ff2f416a00002cde5767111ba5a6824a721324
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103472101"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104868172"
 ---
 # <a name="quickstart-create-a-cognitive-services-resource-using-the-azure-command-line-interfacecli"></a>Guida introduttiva: creare una risorsa di servizi cognitivi usando l'interfaccia della Command-Line di Azure
 
@@ -196,7 +196,8 @@ az group delete --name cognitive-services-resource-group
 
 ## <a name="see-also"></a>Vedi anche
 
-* [Autenticare le richieste a Servizi cognitivi di Azure](authentication.md)
-* [Che cos'è la ricerca cognitiva di Azure?](./what-are-cognitive-services.md)
-* [Supporto del linguaggio naturale](language-support.md)
-* [Supporto di contenitori Docker](cognitive-services-container-support.md)
+* Vedere **[autenticare le richieste ai servizi cognitivi di Azure](authentication.md)** per informazioni su come lavorare in modo sicuro con servizi cognitivi.
+* Vedere **[che cosa sono i servizi cognitivi di Azure?](./what-are-cognitive-services.md)** per ottenere un elenco di categorie diverse all'interno di servizi cognitivi.
+* Vedere **[supporto del linguaggio naturale](language-support.md)** per visualizzare l'elenco dei linguaggi naturali supportati da servizi cognitivi.
+* Vedere **[usare servizi cognitivi come contenitori](cognitive-services-container-support.md)** per comprendere come usare i servizi cognitivi locali.
+* Vedere **[pianificare e gestire i costi per i servizi cognitivi](plan-manage-costs.md)** per stimare i costi dell'uso di servizi cognitivi.

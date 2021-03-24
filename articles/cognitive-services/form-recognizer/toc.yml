@@ -7,40 +7,20 @@
       href: overview.md
     - name: Novità
       href: whats-new.md
-- name: Introduzione a Riconoscimento modulo
-  expanded: true
+- name: Avvi rapidi
   items:
-    - name: Uso della libreria client o dell'API REST
+    - name: Introduzione alla libreria client o all'API REST
       href: quickstarts/client-library.md
-    - name: Utilizzo dello strumento di etichettatura di esempio
+    - name: Usare lo strumento di assegnazione di etichette di esempio
       href: quickstarts/label-tool.md
-- name: Esercitazioni
+- name: Esempi
   items:
-    - name: Usare Riconoscimento modulo con Ricerca cognitiva
-      href: ../../search/cognitive-search-custom-skill-form.md
-    - name: Usare il riconoscimento modulo con AI Builder
-      href: tutorial-ai-builder.md
-    - name: Usare il riconoscimento dei moduli con funzioni di Azure
-      href: tutorial-azure-function.md
-    - name: Estrarre dati di moduli in blocco
-      href: tutorial-bulk-processing.md
-- name: Concetti
-  items:
-    - name: API di layout
-      expanded: true
-      items:
-        - name: Estrai dati del modulo
-          href: concept-layout.md
-    - name: Modelli personalizzati
-      href: concept-custom.md
-    - name: Receipts
-      href: concept-receipts.md
-    - name: Biglietti da visita
-      href: concept-business-cards.md
-    - name: Fatture
-      href: concept-invoices.md
-    - name: Schede di identificazione
-      href: concept-identification-cards.md
+    - name: 'C#/.NET: Form riconoscimento SDK libreria client'
+      href: /samples/azure/azure-sdk-for-net/azure-form-recognizer-client-sdk-samples
+    - name: 'Java: Form Recognizer Client Library SDK'
+      href: /samples/azure/azure-sdk-for-java/formrecognizer-java-samples
+    - name: 'Python: Form riconoscimento SDK libreria client'
+      href: /samples/azure/azure-sdk-for-python/formrecognizer-samples
 - name: Guide pratiche
   items:
     - name: Creare un set di dati di training
@@ -64,7 +44,34 @@
           href: ../containers/index.yml
     - name: Modelli di backup e ripristino
       href: disaster-recovery.md
-- name: Informazioni di riferimento
+- name: Concetti
+  items:
+    - name: API di layout
+      expanded: true
+      items:
+        - name: Estrai dati del modulo
+          href: concept-layout.md
+    - name: Modelli personalizzati
+      href: concept-custom.md
+    - name: Receipts
+      href: concept-receipts.md
+    - name: Biglietti da visita
+      href: concept-business-cards.md
+    - name: Fatture
+      href: concept-invoices.md
+    - name: Schede di identificazione
+      href: concept-identification-cards.md
+- name: Esercitazioni
+  items:
+    - name: Estrarre dati di moduli in blocco
+      href: tutorial-bulk-processing.md
+    - name: Usare Riconoscimento modulo con Ricerca cognitiva
+      href: ../../search/cognitive-search-custom-skill-form.md
+    - name: Usare il riconoscimento modulo con AI Builder
+      href: tutorial-ai-builder.md
+    - name: Usare il riconoscimento dei moduli con funzioni di Azure
+      href: tutorial-azure-function.md
+- name: Riferimento
   items:
     - name: Form API Recognizer versione 2.1 Preview. 3
       href: 'https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-3/operations/AnalyzeWithCustomForm'

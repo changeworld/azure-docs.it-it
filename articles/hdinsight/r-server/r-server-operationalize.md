@@ -5,12 +5,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: how-to
 ms.date: 06/27/2018
-ms.openlocfilehash: c90642e58c026c78ce854e7fe74dd36963d48b67
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 7d597c4dbb81562050e9523c61d47d0020fc9059
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98944016"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104869470"
 ---
 # <a name="operationalize-ml-services-cluster-on-azure-hdinsight"></a>Rendere operativo un cluster ML Services in Azure HDInsight
 
@@ -53,31 +53,31 @@ Dopo avere usato il cluster ML Services in HDInsight per completare la modellazi
 
 1. Vengono presentate le opzioni tra cui scegliere. Scegliere la prima opzione, come illustrato nello screenshot seguente, **Configure ML Server for Operationalization**.
 
-    ![Selezione dell'utilità di amministrazione di R server](./media/r-server-operationalize/admin-util-one-box-1.png)
+    :::image type="content" source="./media/r-server-operationalize/admin-util-one-box-1.png" alt-text="Selezione dell'utilità di amministrazione di R server" border="true":::
 
 1. Viene ora presentata l'opzione per scegliere come si vuole rendere operativo ML Server. Tra le opzioni presentate scegliere la prima immettendo **A**.
 
-    ![Utilità di amministrazione di R server rendere operativo](./media/r-server-operationalize/admin-util-one-box-2.png)
+    :::image type="content" source="./media/r-server-operationalize/admin-util-one-box-2.png" alt-text="Utilità di amministrazione di R server rendere operativo" border="true":::
 
 1. Quando richiesto, immettere due volte la password per un utente amministratore locale.
 
 1. Verranno visualizzati gli output indicanti che l'operazione è riuscita. Viene anche chiesto di selezionare un'altra opzione dal menu. Selezionare E per tornare al menu principale.
 
-    ![Utilità di amministrazione di R server riuscita](./media/r-server-operationalize/admin-util-one-box-3.png)
+    :::image type="content" source="./media/r-server-operationalize/admin-util-one-box-3.png" alt-text="Utilità di amministrazione di R server riuscita" border="true":::
 
 1. È facoltativamente possibile effettuare controlli diagnostici eseguendo un test di diagnostica, come illustrato di seguito:
 
     a. Dal menu principale selezionare **6** per eseguire i test diagnostici.
 
-    ![Diagnostica utilità di amministrazione server R](./media/r-server-operationalize/hdinsight-diagnostic1.png)
+    :::image type="content" source="./media/r-server-operationalize/hdinsight-diagnostic1.png" alt-text="Diagnostica utilità di amministrazione server R" border="true":::
 
     b. Dal menu test di diagnostica selezionare **un**. Quando richiesto, immettere la password specificata per l'utente amministratore locale.
 
-    ![Test dell'utilità di amministrazione di R server](./media/r-server-operationalize/hdinsight-diagnostic2.png)
+    :::image type="content" source="./media/r-server-operationalize/hdinsight-diagnostic2.png" alt-text="Test dell'utilità di amministrazione di R server" border="true":::
 
     c. Verificare che l'output indichi che il valore dell'integrità generale è pass.
 
-    ![Passaggio dell'utilità di amministrazione di R server](./media/r-server-operationalize/hdinsight-diagnostic3.png)
+    :::image type="content" source="./media/r-server-operationalize/hdinsight-diagnostic3.png" alt-text="Passaggio dell'utilità di amministrazione di R server" border="true":::
 
     d. Tra le opzioni di menu presentate immettere **E** per tornare al menu principale e quindi immettere **8** per uscire dall'utilità di amministrazione.
 
@@ -154,7 +154,7 @@ Seguire questi passaggi per rimuovere le autorizzazioni dei nodi di lavoro:
 
 1. Fare clic su **azioni** gli host  >  **selezionati**  >    >  **attivano la modalità di manutenzione**. Ad esempio nell'immagine seguente i nodi selezionati per la rimozione delle autorizzazioni sono wn3 e wn4.  
 
-   ![Attivazione della modalità manutenzione di Apache Ambari](./media/r-server-operationalize/get-started-operationalization.png)  
+   :::image type="content" source="./media/r-server-operationalize/get-started-operationalization.png" alt-text="Attivazione della modalità manutenzione di Apache Ambari" border="true":::  
 
 * Selezionare **azioni**  >  **selezionate host**  >  **datanodes** > fare clic su Rimuovi **autorizzazioni**.
 * Selezionare le **azioni**  >  **selezionate ospita**  >  **NodeManagers** > fare clic su Rimuovi **autorizzazioni**.

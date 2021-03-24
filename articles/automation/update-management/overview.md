@@ -5,12 +5,12 @@ services: automation
 ms.subservice: update-management
 ms.date: 03/19/2021
 ms.topic: conceptual
-ms.openlocfilehash: e24a90f05ef52c5164ce966e905e9c27055d1bf4
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: e5deefabd6a37dbfece9f32abdce5d5144681238
+ms.sourcegitcommit: ac035293291c3d2962cee270b33fca3628432fac
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104670614"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "104950060"
 ---
 # <a name="update-management-overview"></a>Panoramica di Gestione aggiornamenti
 
@@ -22,7 +22,7 @@ ms.locfileid: "104670614"
 > [!NOTE]
 > Al momento, l'abilitazione di Gestione aggiornamenti direttamente da un server con abilitazione di Arc non è supportata. Per informazioni sui requisiti e su come eseguire l'abilitazione per il server, vedere [Abilitare Gestione aggiornamenti dal proprio account di Automazione](../../automation/update-management/enable-from-automation-account.md).
 
-Per scaricare e installare automaticamente le patch di *sicurezza* e *critici* disponibili nella macchina virtuale di Azure, vedere applicazione [automatica delle patch Guest](../../virtual-machines/windows/automatic-vm-guest-patching.md) per VM Windows.
+Per scaricare e installare automaticamente le patch di *sicurezza* e *critici* disponibili nella macchina virtuale di Azure, vedere applicazione [automatica delle patch Guest](../../virtual-machines/automatic-vm-guest-patching.md) per VM Windows.
 
 Prima di distribuire Gestione aggiornamenti e abilitare i computer per la gestione, verificare di aver compreso le informazioni nelle sezioni riportate di seguito.  
 

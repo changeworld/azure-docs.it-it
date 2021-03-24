@@ -9,12 +9,12 @@ ms.topic: how-to
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
-ms.openlocfilehash: 57e847116febcea66e1e3ac4ba131617463b6c94
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 955b541bdb4ae38066f1eb4d2f09363ec51be1d2
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "92895767"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104864075"
 ---
 # <a name="manage-authentication-in-azure-maps"></a>Gestire l'autenticazione in Mappe di Azure
 
@@ -78,6 +78,31 @@ Richiedere un token dall'endpoint del token Azure AD. Nella richiesta Azure AD u
 | Cloud di Azure per enti pubblici | `https://login.microsoftonline.us`  | `https://atlas.microsoft.com/` |
 
 Per ulteriori informazioni sulla richiesta di token di accesso da Azure AD per gli utenti e le entità servizio, vedere scenari di [autenticazione per Azure ad](../active-directory/develop/authentication-vs-authorization.md) e visualizzare scenari specifici nella tabella degli [scenari](./how-to-manage-authentication.md#determine-authentication-and-authorization).
+
+## <a name="manage-and-rotate-shared-keys"></a>Gestire e ruotare le chiavi condivise
+
+Le chiavi di sottoscrizione di Azure Maps sono simili a una password radice per l'account Azure maps. Prestare sempre attenzione a proteggere le chiavi di sottoscrizione. Usare Azure Key Vault per gestire e ruotare le chiavi in modo sicuro. Evitare di distribuire chiavi di accesso ad altri utenti, codificarle a livello di codice o salvarle ovunque in testo normale accessibile ad altri utenti. Ruotare le chiavi se si ritiene che potrebbero essere state compromesse.
+
+> [!NOTE]
+> Microsoft consiglia di usare Azure Active Directory (Azure AD) per autorizzare le richieste, se possibile, invece della chiave condivisa. Azure AD offre sicurezza e facilità d'uso superiori rispetto alla chiave condivisa.
+
+### <a name="manually-rotate-subscription-keys"></a>Ruotare manualmente le chiavi della sottoscrizione
+
+Microsoft consiglia di ruotare periodicamente le chiavi di sottoscrizione per proteggere l'account Azure maps. Se possibile, usare Azure Key Vault per gestire le chiavi di accesso. Se non si usa Key Vault, sarà necessario ruotare manualmente le chiavi.
+
+Vengono assegnate due chiavi di sottoscrizione in modo che sia possibile ruotare le chiavi. La presenza di due chiavi garantisce che l'applicazione mantenga l'accesso alle mappe di Azure durante tutto il processo.
+
+Per ruotare le chiavi di sottoscrizione di Azure Maps nel portale di Azure:
+
+1. Aggiornare il codice dell'applicazione per fare riferimento alla chiave secondaria per l'account Azure Maps e distribuire.
+2. Passare all'account Azure Maps nell' [portale di Azure](https://portal.azure.com/).
+3. In **Impostazioni** selezionare **autenticazione**.
+4. Per rigenerare la chiave primaria per l'account Azure Maps, selezionare il pulsante **Rigenera** accanto alla chiave primaria.
+5. Aggiornare il codice dell'applicazione per fare riferimento alla nuova chiave primaria e distribuirla.
+6. Rigenerare la chiave secondaria nello stesso modo.
+
+> [!WARNING]
+> Microsoft consiglia di usare solo una delle chiavi in tutte le applicazioni contemporaneamente. Se si usa la chiave 1 in alcune posizioni e la chiave 2 in altre, non sarà possibile ruotare le chiavi senza che alcune applicazioni perdano l'accesso.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

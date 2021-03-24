@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 08/27/2020
 ms.author: jeedes
-ms.openlocfilehash: d13619b818e18c64d9882f9e3181824173403859
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 383b49a7363fdca9327d419f5bed092d489a95d5
+ms.sourcegitcommit: ac035293291c3d2962cee270b33fca3628432fac
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "96181391"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "104951811"
 ---
 # <a name="tutorial-integrate-wandera-radar-admin-with-azure-active-directory"></a>Esercitazione: Integrare Wandera RADAR Admin con Azure Active Directory
 
@@ -82,7 +82,8 @@ Per abilitare l'accesso Single Sign-On di Azure AD nel portale di Azure, seguire
     Nella casella di testo **URL di risposta** digitare un URL nel formato seguente: `https://radar.wandera.com/saml/acs/<tenant id>`
 
     > [!NOTE]
-    > Poiché non è reale, è necessario aggiornare questo valore con l'URL di risposta effettivo. Per ottenere il valore, contattare il [team di supporto clienti di Wandera RADAR Admin](https://www.wandera.com/about-wandera/contact/#supportsection). È anche possibile fare riferimento ai modelli mostrati nella sezione **Configurazione SAML di base** del portale di Azure.
+    > Poiché non è reale, è necessario aggiornare questo valore con l'URL di risposta effettivo. Per ottenere il valore, contattare il [team di supporto clienti di Wandera RADAR Admin](https://www.wandera.com/about-wandera/contact/#supportsection). È anche possibile fare riferimento ai modelli mostrati nella sezione **Configurazione SAML di base** del portale di Azure. Sostituire con attenzione la <tenant id> parte dell'URL precedente con l'ID del tenant visualizzato nella   >    >  pagina **Single Sign-on** di amministrazione impostazioni nell'account Wandera.
+
 
 1. Nella sezione **Certificato di firma SAML** della pagina **Configura l'accesso Single Sign-On con SAML** individuare il file **XML dei metadati della federazione** e selezionare **Scarica** per scaricare il certificato e salvarlo nel computer.
 

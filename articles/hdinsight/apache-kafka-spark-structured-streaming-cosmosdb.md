@@ -5,12 +5,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive, devx-track-azurecli
 ms.date: 11/18/2019
-ms.openlocfilehash: e14784459a3c7733af274197507b76341d68477e
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: d78b629e90903c58b98de86f425f0c1225d90997
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98946899"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104867050"
 ---
 # <a name="use-apache-spark-structured-streaming-with-apache-kafka-and-azure-cosmos-db"></a>Usare Apache Spark Structured Streaming con Apache Kafka e Azure Cosmos DB
 
@@ -31,7 +31,7 @@ Lo streaming strutturato Spark è un motore di elaborazione del flusso basato su
 
 Apache Kafka in HDInsight non fornisce l'accesso ai broker Kafka tramite Internet pubblico. Tutto ciò che comunica con Kafka deve trovarsi nella stessa rete virtuale di Azure dei nodi del cluster Kafka. Per questo esempio, i cluster Spark e Kafka si trovano entrambi in una rete virtuale di Azure. Il diagramma seguente illustra il flusso delle comunicazioni tra i cluster:
 
-![Diagramma dei cluster Spark e Kafka in una rete virtuale di Azure](./media/apache-kafka-spark-structured-streaming-cosmosdb/apache-spark-kafka-vnet.png)
+:::image type="content" source="./media/apache-kafka-spark-structured-streaming-cosmosdb/apache-spark-kafka-vnet.png" alt-text="Diagramma dei cluster Spark e Kafka in una rete virtuale di Azure" border="false":::
 
 > [!NOTE]  
 > Il servizio Kafka è limitato alle comunicazioni all'interno della rete virtuale. Altri servizi nel cluster, ad esempio SSH e Ambari, sono accessibili tramite Internet. Per altre informazioni sulle porte pubbliche disponibili con HDInsight, vedere [Porte e URI usati da HDInsight](hdinsight-hadoop-port-settings-for-services.md).
@@ -73,7 +73,7 @@ Anche se è possibile creare manualmente cluster Spark e Kafka e una rete virtua
     |Nome utente SSH|utente SSH da creare per i cluster Spark e Kafka.|
     |Password SSH|password dell'utente SSH per i cluster Spark e Kafka.|
 
-    ![HDInsight valori di distribuzione personalizzati](./media/apache-kafka-spark-structured-streaming-cosmosdb/hdi-custom-parameters.png)
+    :::image type="content" source="./media/apache-kafka-spark-structured-streaming-cosmosdb/hdi-custom-parameters.png" alt-text="HDInsight valori di distribuzione personalizzati":::
 
 1. Leggere le **Condizioni** e quindi selezionare **Accetto le condizioni riportate sopra**.
 

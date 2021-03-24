@@ -412,7 +412,7 @@
           href: ../databox-gateway/data-box-gateway-1905-release-notes.md?toc=/azure/databox-online/toc.json&bc=/azure/databox-online/breadcrumb/toc.json
         - name: Disponibilità generale (GA)
           href: ../databox-gateway/data-box-gateway-release-notes.md?toc=/azure/databox-online/toc.json&bc=/azure/databox-online/breadcrumb/toc.json
-- name: Security
+- name: Sicurezza
   items:
     - name: Baseline di sicurezza
       href: security-baseline.md

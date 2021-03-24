@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/20/2020
 ms.author: duau
-ms.openlocfilehash: 6fdcedd19c02251035a838d34ba51e786595134b
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: de6a94b36dab9dd5662062be99f4515d78558b5e
+ms.sourcegitcommit: a67b972d655a5a2d5e909faa2ea0911912f6a828
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102212451"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104889655"
 ---
 # <a name="frequently-asked-questions-for-azure-front-door"></a>Domande frequenti per Azure front door
 
@@ -102,7 +102,7 @@ Per bloccare l'applicazione in modo che accetti il traffico solo da un sportello
 
 - Cercare il `Front Door ID` valore nella sezione Panoramica della pagina del portale di porta anteriore. È quindi possibile filtrare in base all'intestazione in ingresso '**X-Azure-FDID**' inviata dalla porta anteriore al back-end con tale valore per assicurarsi che sia consentita solo un'istanza di front door specifica, perché gli intervalli IP precedenti sono condivisi con altre istanze di altri clienti.
 
-- Applicare il filtro regole nel server Web back-end per limitare il traffico in base al valore dell'intestazione ' X-Azure-FDID ' risultante. Si noti che alcuni servizi come app Azure Service forniscono questa funzionalità di [filtraggio basata sull'intestazione](../app-service/app-service-ip-restrictions.md#restrict-access-to-a-specific-azure-front-door-instance-preview) senza la necessità di modificare l'applicazione o l'host.
+- Applicare il filtro regole nel server Web back-end per limitare il traffico in base al valore dell'intestazione ' X-Azure-FDID ' risultante. Si noti che alcuni servizi come app Azure Service forniscono questa funzionalità di [filtraggio basata sull'intestazione](../app-service/app-service-ip-restrictions.md#restrict-access-to-a-specific-azure-front-door-instance) senza la necessità di modificare l'applicazione o l'host.
 
   Di seguito è riportato un esempio per [Microsoft Internet Information Services (IIS)](https://www.iis.net/):
 

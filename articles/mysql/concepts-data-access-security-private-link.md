@@ -6,14 +6,14 @@ ms.author: sumuth
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 03/10/2020
-ms.openlocfilehash: 1ae35d1ac35dacfab2690980d57973dce050382b
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 438ef806f6c59c6f23877a3d3110f22f08ca8713
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "93242858"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104863565"
 ---
-# <a name="private-link-for-azure-database-for-mysql"></a>Collegamento privato per database di Azure per MySQL
+# <a name="private-link-for-azure-database-for-mysql"></a>Collegamento privato per Database di Azure per MySQL
 
 Il servizio Collegamento privato consente di connettersi a diversi servizi PaaS in Azure tramite un endpoint privato. Collegamento privato di Azure in pratica porta i servizi di Azure all'interno della rete virtuale privata. È possibile accedere alle risorse PaaS usando l'indirizzo IP privato come per qualsiasi altra risorsa nella rete virtuale.
 
@@ -84,7 +84,7 @@ Quando l'amministratore di rete crea l'endpoint privato (PE), l'amministratore d
 
 ## <a name="use-cases-of-private-link-for-azure-database-for-mysql"></a>Casi d'uso di collegamento privato per database di Azure per MySQL
 
-I client possono connettersi all'endpoint privato dallo stesso VNet, VNet con peering nella stessa area o tramite una connessione da VNet a VNet tra le aree. Inoltre, i client possono connettersi dall'ambiente locale tramite ExpressRoute, peering privato o tunneling VPN. Di seguito è riportato un diagramma semplificato che mostra i casi d'uso comuni.
+I client possono connettersi all'endpoint privato dallo stesso VNet, [VNet con peering](../virtual-network/virtual-network-peering-overview.md) nella stessa area o in aree geografiche oppure tramite la [connessione da VNet a VNet](../vpn-gateway/vpn-gateway-howto-vnet-vnet-resource-manager-portal.md) tra le aree. Inoltre, i client possono connettersi dall'ambiente locale tramite ExpressRoute, peering privato o tunneling VPN. Di seguito è riportato un diagramma semplificato che mostra i casi d'uso comuni.
 
 :::image type="content" source="media/concepts-data-access-and-security-private-link/show-private-link-overview.png" alt-text="Selezionare la panoramica dell'endpoint privato":::
 

@@ -8,17 +8,17 @@ ms.topic: overview
 ms.workload: infrastructure-services
 ms.date: 03/09/2021
 ms.author: duau
-ms.openlocfilehash: 2a5c298c201aa2a1f968c2a96dcfd6963a410cf7
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: ef3d415f4f0ca82e79df84ef48acc0323a69099a
+ms.sourcegitcommit: ac035293291c3d2962cee270b33fca3628432fac
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103149223"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "104952151"
 ---
 # <a name="what-is-azure-front-door"></a>Che cos'è il servizio Frontdoor di Azure?
 
 > [!IMPORTANT]
-> Questa documentazione è destinata all'ingresso di Azure. Per informazioni su Azure front door standard/Premium (anteprima) Visualizza [qui](/standard-premium/overview.md).
+> Questa documentazione è destinata all'ingresso di Azure. Per informazioni su Azure front door standard/Premium (anteprima) Visualizza [qui](standard-premium/overview.md).
 
 Frontdoor di Azure è un punto di ingresso globale e scalabile che usa la rete perimetrale globale Microsoft per creare applicazioni Web veloci, sicure e ampiamente scalabili. Con Frontdoor è possibile trasformare il consumer globale e le applicazioni aziendali in applicazioni moderne, solide, personalizzate e dalle alte prestazioni con contenuti che raggiungono un pubblico globale tramite Azure.
 

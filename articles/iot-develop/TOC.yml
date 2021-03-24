@@ -18,7 +18,11 @@
         - name: Inviare dati di telemetria all'hub Internet (node)
           href: quickstart-send-telemetry-cli-node.md
     - name: Introduzione allo sviluppo incorporato
-      href: quickstart-device-development.md
+      items:
+        - name: Guide introduttive per lo sviluppo di dispositivi embedded
+          href: quickstart-device-development.md
+        - name: Connettere un AZ3166 MXCHIP a IoT Central
+          href: quickstart-devkit-mxchip-az3166.md
 - name: Esercitazioni
   items:
     - name: Connettere in modo sicuro dispositivi IoT al cloud

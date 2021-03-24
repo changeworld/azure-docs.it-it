@@ -5,12 +5,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 12/04/2019
-ms.openlocfilehash: d807b591229644984f6658cdacd0bf447759f292
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 2216eb5893b77761f4d31c5819d152ceeb985abc
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98933029"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104869651"
 ---
 # <a name="use-azure-kubernetes-service-with-apache-kafka-on-hdinsight"></a>Usare il servizio Azure Kubernetes con Apache Kafka in HDInsight
 
@@ -42,7 +42,7 @@ Sia HDInsight che il servizio Azure Container usano una rete virtuale di Azure c
 
 Il diagramma seguente illustra la topologia di rete usata in questo documento:
 
-![HDInsight in una rete virtuale e il servizio Azure Kubernetes in un'altra tramite peering](./media/apache-kafka-azure-container-services/kafka-aks-architecture.png)
+:::image type="content" source="./media/apache-kafka-azure-container-services/kafka-aks-architecture.png" alt-text="HDInsight in una rete virtuale e il servizio Azure Kubernetes in un'altra tramite peering" border="false":::
 
 > [!IMPORTANT]  
 > Poiché la risoluzione dei nomi non è abilitata tra le reti con peering, vengono usati gli indirizzi IP. Per impostazione predefinita, Kafka in HDInsight è configurato per restituire i nomi host invece degli indirizzi IP quando i client si connettono. I passaggi illustrati in questo documento modificano Kafka per poter usare invece la pubblicità IP.
@@ -109,15 +109,15 @@ Per configurare Kafka per creare pubblicità per gli indirizzi IP anziché per i
 
 2. Per visualizzare le informazioni su Kafka, selezionare __Kafka__ dall'elenco a sinistra.
 
-    ![Elenco di servizio con Kafka evidenziato](./media/apache-kafka-azure-container-services/select-kafka-service.png)
+    :::image type="content" source="./media/apache-kafka-azure-container-services/select-kafka-service.png" alt-text="Elenco di servizio con Kafka evidenziato" border="true":::
 
 3. Per visualizzare la configurazione di Kafka, selezionare __Configs__ (Configurazioni) nella parte centrale in alto.
 
-    ![Configurazione dei servizi Apache Ambari](./media/apache-kafka-azure-container-services/select-kafka-config1.png)
+    :::image type="content" source="./media/apache-kafka-azure-container-services/select-kafka-config1.png" alt-text="Configurazione dei servizi Apache Ambari" border="true":::
 
 4. Per trovare la configurazione __kafka-env__, immettere `kafka-env` nel campo __Filtro__ in alto a destra.
 
-    ![Configurazione Kafka per kafka-env](./media/apache-kafka-azure-container-services/search-for-kafka-env.png)
+    :::image type="content" source="./media/apache-kafka-azure-container-services/search-for-kafka-env.png" alt-text="Configurazione Kafka per kafka-env" border="true":::
 
 5. Per configurare Kafka affinché generi pubblicità per gli indirizzi IP, aggiungere il testo seguente nella parte inferiore del campo __kafka-env-template__:
 
@@ -135,15 +135,15 @@ Per configurare Kafka per creare pubblicità per gli indirizzi IP anziché per i
 
 8. Per salvare le modifiche alla configurazione usare il pulsante __Salva__. Immettere un messaggio di testo che descrive le modifiche. Selezionare __OK__ dopo aver salvato le modifiche.
 
-    ![Salvare la configurazione di Apache Ambari](./media/apache-kafka-azure-container-services/save-configuration-button.png)
+    :::image type="content" source="./media/apache-kafka-azure-container-services/save-configuration-button.png" alt-text="Salvare la configurazione di Apache Ambari" border="true":::
 
 9. Per evitare errori al riavvio di Kafka, usare il pulsante __Service Actions__ (Azioni del servizio) e selezionare __Attiva modalità di manutenzione__. Per completare questa operazione selezionare OK.
 
-    ![Azioni di servizio, con il pulsante di attivazione manutenzione evidenziato](./media/apache-kafka-azure-container-services/turn-on-maintenance-mode.png)
+    :::image type="content" source="./media/apache-kafka-azure-container-services/turn-on-maintenance-mode.png" alt-text="Azioni di servizio, con il pulsante di attivazione manutenzione evidenziato" border="true":::
 
 10. Per riavviare Kafka, utilizzare il pulsante __Riavvia__ e selezionare __Restart All Affected__ (Riavviare tutti gli elementi interessati). Confermare il riavvio, quindi usare il pulsante __OK__ dopo aver completato l'operazione.
 
-    ![Pulsante di riavvio con Restart all affected (Riavviare tutti gli elementi interessati) evidenziato](./media/apache-kafka-azure-container-services/restart-required-button.png)
+    :::image type="content" source="./media/apache-kafka-azure-container-services/restart-required-button.png" alt-text="Pulsante di riavvio con Restart all affected (Riavviare tutti gli elementi interessati) evidenziato" border="true":::
 
 11. Per disabilitare la modalità di manutenzione, usare il pulsante __Service Actions__ (Azioni del servizio) e selezionare __Disattiva modalità di manutenzione__. Per completare questa operazione selezionare **OK**.
 
@@ -213,7 +213,7 @@ A questo punto, Kafka e il servizio Azure Kubernetes sono in comunicazione trami
 
 11. Aprire un Web browser e immettere l'indirizzo IP esterno per il servizio. Si arriva a una pagina simile all'immagine seguente:
 
-    ![Immagine della pagina Web di test di Apache Kafka](./media/apache-kafka-azure-container-services/test-web-page-image1.png)
+    :::image type="content" source="./media/apache-kafka-azure-container-services/test-web-page-image1.png" alt-text="Immagine della pagina Web di test di Apache Kafka" border="true":::
 
 12. Immettere il testo nel campo e quindi selezionare il pulsante __Send__ (Invia). I dati vengono inviati a Kafka. Il consumer Kafka nell'applicazione legge quindi il messaggio e lo aggiunge alla sezione __Messages from Kafka__ (Messaggi da Kafka).
 

@@ -6,16 +6,16 @@ ms.author: vivikram
 ms.manager: abhemraj
 ms.topic: how-to
 ms.date: 03/13/2021
-ms.openlocfilehash: 85ab07e0b81bf258a56956f5f0f7e80bad6a32fe
-ms.sourcegitcommit: 2c1b93301174fccea00798df08e08872f53f669c
+ms.openlocfilehash: 71fe30212b31e810bfe3e1ba10f80be6b09ad4fc
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/22/2021
-ms.locfileid: "104775222"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104863684"
 ---
 # <a name="set-up-an-appliance-for-servers-on-hyper-v"></a>Configurare un'appliance per i server in Hyper-V
 
-Seguire questo articolo per configurare l'appliance Azure Migrate per l'individuazione e la valutazione dei server in Hyper-V con lo strumento [Azure migrate: Discovery and Assessment](migrate-services-overview.md#azure-migrate-server-assessment-tool) .
+Seguire questo articolo per configurare l'appliance Azure Migrate per l'individuazione e la valutazione dei server in Hyper-V con lo strumento [Azure migrate: Discovery and Assessment](migrate-services-overview.md#azure-migrate-discovery-and-assessment-tool) .
 
 Il [Azure migrate Appliance](migrate-appliance.md)  è un'appliance semplice usata da Azure migrate: individuazione e valutazione/migrazione per individuare i server locali in Hyper-V e inviare i dati relativi a metadati/prestazioni del server in Azure.
 
@@ -24,31 +24,31 @@ Il [Azure migrate Appliance](migrate-appliance.md)  è un'appliance semplice usa
 - Configurare su un server in Hyper-V usando un disco rigido virtuale scaricato. Questo metodo è descritto in questo articolo.
 - Configurare in un server in Hyper-V o in un server fisico con uno script del programma di installazione di PowerShell. [Questo metodo](deploy-appliance-script.md) deve essere usato se non è possibile configurare un server usando un disco rigido virtuale o se si è in Azure per enti pubblici.
 
-Dopo aver creato l'appliance, verificare che sia in grado di connettersi a Azure Migrate: individuazione e valutazione, configurazione per la prima volta e registrazione con il progetto Azure Migrate.
+Dopo aver creato l'appliance, verificare che sia in grado di connettersi a Azure Migrate: individuazione e valutazione, configurazione per la prima volta e registrazione con il progetto.
 
 ## <a name="appliance-deployment-vhd"></a>Distribuzione Appliance (VHD)
 
 Per configurare l'appliance usando un modello VHD:
 
-- Specificare un nome di appliance e generare una chiave del progetto di Azure Migrate nel portale.
+- Specificare un nome per il dispositivo e generare una chiave del progetto nel portale.
 - Scaricare un disco rigido virtuale Hyper-V compresso dal portale di Azure.
 - Creare l'appliance e verificare che sia in grado di connettersi a Azure Migrate: individuazione e valutazione.
-- Configurare l'appliance per la prima volta e registrarla nel progetto di Azure Migrate con la chiave del progetto di Azure Migrate.
+- Configurare il dispositivo per la prima volta e registrarlo con il progetto usando la chiave del progetto.
 
-### <a name="generate-the-azure-migrate-project-key"></a>Generare la chiave del progetto Azure Migrate
+### <a name="generate-the-project-key"></a>Genera la chiave del progetto
 
 1. Negli **obiettivi di migrazione**  >  **Windows, Linux e SQL Server**  >  **Azure migrate: individuazione e valutazione**, selezionare **individua**.
 2. In **individua server**  >  **i server sono virtualizzati?** selezionare **Sì, con Hyper-V**.
 3. In **1: genera chiave progetto** specificare un nome per il dispositivo Azure migrate che verrà configurato per l'individuazione dei server in Hyper-V. il nome deve essere alfanumerico con un massimo di 14 caratteri.
 1. Fare clic su **Genera chiave** per avviare la creazione delle risorse di Azure necessarie. Non chiudere la pagina Individua server durante la creazione delle risorse.
-1. Al termine della creazione delle risorse di Azure, viene generata una **Chiave progetto Azure Migrate**.
+1. Una volta completata la creazione delle risorse di Azure, viene generata una **chiave del progetto** .
 1. Copiare la chiave perché sarà necessaria per completare la registrazione dell'appliance durante la configurazione.
 
 ### <a name="download-the-vhd"></a>Scaricare il disco rigido virtuale
 
 In **2: Scaricare l'appliance di Azure Migrate** selezionare il file VHD e fare clic su **Scarica**.
 
-   ![Selezioni per Individua macchine virtuali](./media/tutorial-assess-hyper-v/servers-discover.png)
+   ![Selezioni per server di individuazione](./media/tutorial-assess-hyper-v/servers-discover.png)
 
 
    ![Selezioni per Genera chiave](./media/tutorial-assess-hyper-v/generate-key-hyperv.png)

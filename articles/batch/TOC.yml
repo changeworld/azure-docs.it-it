@@ -61,7 +61,7 @@
           href: ./scripts/batch-cli-sample-run-job.md
 - name: Concetti
   items:
-    - name: Security
+    - name: Sicurezza
       items:
         - name: Controlli di sicurezza in base a Criteri di Azure
           displayName: 'regulatory, compliance, standards, domains'
@@ -163,6 +163,9 @@
         - name: Configurare le identità gestite
           displayName: user-assigned
           href: managed-identity-pools.md
+        - name: Abilita rotazione certificati
+          displayName: 'key vault, keyvault, automatic'
+          href: automatic-certificate-rotation.md
         - name: Montare un file system virtuale
           href: virtual-file-mount.md
         - name: Montare una condivisione file di Azure

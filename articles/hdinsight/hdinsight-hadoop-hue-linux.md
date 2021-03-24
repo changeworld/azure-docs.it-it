@@ -5,12 +5,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.date: 03/31/2020
-ms.openlocfilehash: 8d4663aac6af4abb8d9855d2f972965e997d9c92
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 97a8dd2476642e693b589b4046f612c5569b9c0b
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98945690"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104865129"
 ---
 # <a name="install-and-use-hue-on-hdinsight-hadoop-clusters"></a>Installare e usare Hue nei cluster Hadoop di HDInsight
 
@@ -80,17 +80,17 @@ Usare le informazioni nella tabella seguente per l'azione di script. Per istruzi
    > [!NOTE]  
    > Quando si accede per la prima volta, viene richiesto di creare un account per l'accesso al portale Hue. Le credenziali specificate saranno limitate al portale e non sono correlate alle credenziali amministratore o utente SSH specificate durante il provisioning del cluster.
 
-    ![Finestra di accesso del portale di Hue HDInsight](./media/hdinsight-hadoop-hue-linux/hdinsight-hue-portal-login.png "Specificare le credenziali per il portale di Hue")
+    :::image type="content" source="./media/hdinsight-hadoop-hue-linux/hdinsight-hue-portal-login.png" alt-text="Finestra di accesso del portale di Hue HDInsight":::
 
 ### <a name="run-a-hive-query"></a>Eseguire una query Hive
 
 1. Nel portale di Hue selezionare **Query Editors** (Editor di query) e quindi selezionare **Hive** per aprire l'editor Hive.
 
-    ![Editor Hive per l'uso del portale di Hue in HDInsight ](./media/hdinsight-hadoop-hue-linux/hdinsight-hue-portal-use-hive.png "Usare Hive")
+    :::image type="content" source="./media/hdinsight-hadoop-hue-linux/hdinsight-hue-portal-use-hive.png" alt-text="Editor Hive per l'uso del portale di Hue in HDInsight ":::
 
 2. Nella scheda **Assist** (Assistenza) in **Database** dovrebbe essere visibile **hivesampletable**. Si tratta di una tabella di esempio inclusa in tutti i cluster Hadoop in HDInsight. Immettere una query di esempio nel riquadro destro e visualizzare l'output nella scheda **Risultati** nel riquadro sottostante, come illustrato nella schermata.
 
-    ![Query Hive del portale di Hue HDInsight](./media/hdinsight-hadoop-hue-linux/hdinsight-hue-portal-hive-query.png "Eseguire query Hive")
+    :::image type="content" source="./media/hdinsight-hadoop-hue-linux/hdinsight-hue-portal-hive-query.png" alt-text="Query Hive del portale di Hue HDInsight":::
 
     È anche possibile usare la scheda **Grafico** per vedere una rappresentazione visiva dei risultati.
 
@@ -99,7 +99,7 @@ Usare le informazioni nella tabella seguente per l'azione di script. Per istruzi
 1. Nel portale di Hue selezionare **Browser file** nell'angolo superiore destro della barra dei menu.
 2. Per impostazione predefinita, il browser file viene aperto in corrispondenza della directory **/user/myuser** . Selezionare la barra subito prima della directory user nel percorso per passare alla radice del contenitore di archiviazione di Azure associato al cluster.
 
-    ![Browser file del portale di Hue in HDInsight](./media/hdinsight-hadoop-hue-linux/hdinsight-hue-portal-file-browser.png "Usare il browser file")
+    :::image type="content" source="./media/hdinsight-hadoop-hue-linux/hdinsight-hue-portal-file-browser.png" alt-text="Browser file del portale di Hue in HDInsight":::
 
 3. Fare clic son il pulsante destro del mouse su un file o una cartella per visualizzare le operazioni disponibili. Usare il pulsante **Carica** nell'angolo destro per caricare i file nella directory corrente. Usare il pulsante **Nuovo** per creare nuovi file o directory.
 
@@ -118,7 +118,7 @@ Usare le informazioni nella tabella seguente per l'azione di script. Per istruzi
 
 1. Con i cluster Linux è possibile avere uno scenario in cui i servizi vengono eseguiti sul nodo head primario mentre Resource Manager potrebbe essere in esecuzione su quello secondario. Questo scenario potrebbe causare errori (illustrati di seguito) quando si usa Hue per visualizzare i dettagli dei processi IN ESECUZIONE nel cluster. I dettagli del processo possono tuttavia essere visualizzati dopo il completamento del processo.
 
-   ![Messaggio di esempio di errore nel portale di Hue](./media/hdinsight-hadoop-hue-linux/hdinsight-hue-portal-error.png "Errore nel portale di Hue")
+   :::image type="content" source="./media/hdinsight-hadoop-hue-linux/hdinsight-hue-portal-error.png" alt-text="Messaggio di esempio di errore nel portale di Hue":::
 
    Questo è causato da un problema noto. Come soluzione alternativa, modificare Ambari in modo che anche l'istanza di Resource Manager attiva venga eseguita sul nodo head primario.
 

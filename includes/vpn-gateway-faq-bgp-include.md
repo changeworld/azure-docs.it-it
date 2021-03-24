@@ -5,15 +5,15 @@ services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: include
-ms.date: 09/17/2020
+ms.date: 03/22/2021
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: 649c5805c600b6282be6d05fefb59cecaf249f4f
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 3877134f8a00cd627909d7f889fd5b104ccbd8b1
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "92526074"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104863624"
 ---
 ### <a name="is-bgp-supported-on-all-azure-vpn-gateway-skus"></a>BGP è supportato in tutti gli SKU del gateway VPN di Azure?
 BGP è supportato in tutti gli SKU del gateway VPN ad eccezione dello SKU Basic.
@@ -108,3 +108,8 @@ Aggiungere una route host dell'indirizzo IP del peer BGP di Azure nel dispositiv
 No. BFD (Bidirectional Forwarding Detection) è un protocollo che può essere usato con BGP per rilevare l'inattività di vicini più rapidamente rispetto ai "keepalive" BGP standard. BFD usa timer di frazioni di secondo progettati per funzionare in ambienti LAN, ma non in connessioni tramite Internet pubblico o reti WAN.
 
 Per le connessioni tramite Internet pubblico, la presenza di alcuni pacchetti ritardati o anche eliminati non è insolita, di conseguenza l'introduzione di questi timer aggressivi potrebbe aggiungere instabilità che potrebbero causare la conseguente attenuazione delle route da parte di BGP. In alternativa, è possibile configurare il dispositivo locale con timer di durata inferiore all'intervallo di attesa di "keepalive" predefinito di 60 secondi e il timer di attesa di 180 secondi. In questo modo si ottiene un tempo di convergenza più rapido.
+
+### <a name="do-azure-vpn-gateways-initiate-bgp-peering-sessions-or-connections"></a>I gateway VPN di Azure avviano sessioni o connessioni di peering BGP?
+
+Il gateway avvierà sessioni di peering BGP agli indirizzi IP del peer BGP locali specificati nelle risorse del gateway di rete locale usando gli indirizzi IP privati sui gateway VPN. A prescindere dal fatto che gli indirizzi IP BGP locali si trovino nell'intervallo APIPA o negli indirizzi IP privati regolari. Se i dispositivi VPN locali usano indirizzi APIPA come IP BGP, è necessario configurare l'altoparlante BGP per avviare le connessioni.
+

@@ -3,12 +3,12 @@ title: Distribuire le risorse con PowerShell e il modello
 description: Usare Azure Resource Manager e Azure PowerShell per distribuire le risorse in Azure. Le risorse sono definite in un modello di Gestione risorse o in un file bicipite.
 ms.topic: conceptual
 ms.date: 03/04/2021
-ms.openlocfilehash: 784f17566ce4fb19a7ec5e3fd4a504d7c25f90fe
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
+ms.openlocfilehash: e1d2197064b94d428855bbb36aadbb5eb88d4032
+ms.sourcegitcommit: ac035293291c3d2962cee270b33fca3628432fac
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102521629"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "104950859"
 ---
 # <a name="deploy-resources-with-arm-templates-and-azure-powershell"></a>Distribuire le risorse con i modelli di Azure Resource Manager e Azure PowerShell
 
@@ -115,7 +115,7 @@ Il completamento della distribuzione può richiedere diversi minuti.
 ## <a name="deploy-remote-template"></a>Distribuisci modello remoto
 
 > [!NOTE]
-> Attualmente, Azure PowerShell non supporta la distribuzione di file del bicipite remoto. Per distribuire un file bicipite remoto, usare l'interfaccia della riga di comando per compilare prima il file bicipite in un modello JSON.
+> Attualmente, Azure PowerShell non supporta la distribuzione di file del bicipite remoto. Usare l'interfaccia della riga di comando di [bicipite](./bicep-install.md#development-environment) per compilare il file bicipite in un modello JSON e quindi caricare il file JSON nel percorso remoto.
 
 Anziché archiviare i modelli ARM nel computer locale, è preferibile archiviarli in una posizione esterna. ad esempio in un repository di controllo del codice sorgente come GitHub. È possibile, in alternativa, archiviarli in un account di archiviazione di Azure per consentire l'accesso condiviso nell'organizzazione.
 

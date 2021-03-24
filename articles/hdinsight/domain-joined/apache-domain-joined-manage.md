@@ -4,12 +4,12 @@ description: Informazioni su come gestire i cluster HDInsight di Azure con Enter
 ms.service: hdinsight
 ms.topic: how-to
 ms.date: 12/04/2019
-ms.openlocfilehash: b0f8ba4adfa4b08c23d3f69fa4e2b01f4580bb19
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: bc31c3d71590a6b8c0b324ffcb8c10129a9f8699
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101742212"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104863242"
 ---
 # <a name="manage-hdinsight-clusters-with-enterprise-security-package"></a>Gestire i cluster HDInsight con Enterprise Security Package
 
@@ -116,7 +116,7 @@ Enterprise Security Package per HDInsight ha i seguenti ruoli:
 2. Nel menu a sinistra selezionare **ruoli**.
 3. Selezionare il punto interrogativo blu per visualizzare le autorizzazioni:
 
-    ![Autorizzazioni dei ruoli HDInsight con ESP](./media/apache-domain-joined-manage/hdinsight-domain-joined-roles-permissions.png)
+    :::image type="content" source="./media/apache-domain-joined-manage/hdinsight-domain-joined-roles-permissions.png" alt-text="Autorizzazioni dei ruoli HDInsight con ESP" border="true":::
 
 ## <a name="open-the-ambari-management-ui"></a>Aprire l'interfaccia utente per la gestione di Ambari.
 
@@ -124,25 +124,25 @@ Enterprise Security Package per HDInsight ha i seguenti ruoli:
 1. Accedere a Ambari usando il nome utente e la password di dominio di amministrazione del cluster.
 1. Selezionare il menu a discesa **amministratore** nell'angolo superiore destro e quindi selezionare **Gestisci Ambari**.
 
-    ![ESP HDInsight gestire Apache Ambari](./media/apache-domain-joined-manage/hdinsight-domain-joined-manage-ambari.png)
+    :::image type="content" source="./media/apache-domain-joined-manage/hdinsight-domain-joined-manage-ambari.png" alt-text="ESP HDInsight gestire Apache Ambari" border="true":::
 
     L'interfaccia utente ha il seguente aspetto:
 
-    ![Interfaccia utente di gestione di Apache Ambari per ESP HDInsight](./media/apache-domain-joined-manage/hdinsight-domain-joined-ambari-management-ui.png)
+    :::image type="content" source="./media/apache-domain-joined-manage/hdinsight-domain-joined-ambari-management-ui.png" alt-text="Interfaccia utente di gestione di Apache Ambari per ESP HDInsight" border="true":::
 
 ## <a name="list-the-domain-users-synchronized-from-your-active-directory"></a>Elencare gli utenti del dominio sincronizzati da Active Directory
 
 1. Aprire l'interfaccia utente per la gestione di Ambari.  Vedere [Open the Ambari Management UI](#open-the-ambari-management-ui) (Aprire l'interfaccia utente per la gestione di Ambari).
 2. Nel menu a sinistra selezionare **utenti**. Verranno visualizzati tutti gli utenti sincronizzati da Active Directory al cluster HDInsight.
 
-    ![Elenco degli utenti dell'interfaccia utente per la gestione di Ambari in HDInsight per ESP](./media/apache-domain-joined-manage/hdinsight-domain-joined-ambari-management-ui-users.png)
+    :::image type="content" source="./media/apache-domain-joined-manage/hdinsight-domain-joined-ambari-management-ui-users.png" alt-text="Elenco degli utenti dell'interfaccia utente per la gestione di Ambari in HDInsight per ESP" border="true":::
 
 ## <a name="list-the-domain-groups-synchronized-from-your-active-directory"></a>Elencare gli utenti del dominio sincronizzati da Active Directory
 
 1. Aprire l'interfaccia utente per la gestione di Ambari.  Vedere [Open the Ambari Management UI](#open-the-ambari-management-ui) (Aprire l'interfaccia utente per la gestione di Ambari).
 2. Scegliere **gruppi** dal menu a sinistra. Verranno visualizzati tutti i gruppi sincronizzati da Active Directory al cluster HDInsight.
 
-    ![Elenco dei gruppi dell'interfaccia utente per la gestione di Ambari in HDInsight per ESP](./media/apache-domain-joined-manage/hdinsight-domain-joined-ambari-management-ui-groups.png)
+    :::image type="content" source="./media/apache-domain-joined-manage/hdinsight-domain-joined-ambari-management-ui-groups.png" alt-text="Elenco dei gruppi dell'interfaccia utente per la gestione di Ambari in HDInsight per ESP" border="true":::
 
 ## <a name="configure-hive-views-permissions"></a>Configurare le autorizzazioni delle viste Hive
 
@@ -150,12 +150,12 @@ Enterprise Security Package per HDInsight ha i seguenti ruoli:
 2. Scegliere **visualizzazioni** dal menu a sinistra.
 3. Selezionare **hive** per visualizzare i dettagli.
 
-    ![Viste Hive dell'interfaccia utente per la gestione di Ambari in HDInsight per ESP](./media/apache-domain-joined-manage/hdinsight-domain-joined-ambari-management-ui-hive-views.png)
+    :::image type="content" source="./media/apache-domain-joined-manage/hdinsight-domain-joined-ambari-management-ui-hive-views.png" alt-text="Viste Hive dell'interfaccia utente per la gestione di Ambari in HDInsight per ESP" border="true":::
 
 4. Selezionare il collegamento **visualizzazione hive** per configurare le visualizzazioni hive.
 5. Scorrere verso il basso fino alla sezione **Permissions** Autorizzazioni.
 
-    ![Configurare le autorizzazioni delle viste Hive nell'interfaccia utente per la gestione di Ambari in HDInsight per ESP](./media/apache-domain-joined-manage/hdinsight-domain-joined-ambari-management-ui-hive-views-permissions.png)
+    :::image type="content" source="./media/apache-domain-joined-manage/hdinsight-domain-joined-ambari-management-ui-hive-views-permissions.png" alt-text="Configurare le autorizzazioni delle viste Hive nell'interfaccia utente per la gestione di Ambari in HDInsight per ESP" border="true":::
 
 6. Selezionare **Aggiungi utente** o **Aggiungi gruppo** e quindi specificare gli utenti o i gruppi che possono usare le visualizzazioni hive.
 

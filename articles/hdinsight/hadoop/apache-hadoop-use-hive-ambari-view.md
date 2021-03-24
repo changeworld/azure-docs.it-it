@@ -5,12 +5,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive,seoapr2020
 ms.date: 04/23/2020
-ms.openlocfilehash: 1f2dbef014f1b48b554e6bc30af83b936fe532a7
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 87a4d3960937450713747fa16bd473b4c34eff0e
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98944865"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104867866"
 ---
 # <a name="use-apache-ambari-hive-view-with-apache-hadoop-in-hdinsight"></a>Usare la vista Hive di Apache Ambari con Apache Hadoop in HDInsight
 
@@ -30,11 +30,11 @@ Un cluster Hadoop in HDInsight. Vedere [Guida introduttiva: Introduzione ad Apac
 
 1. Nell'elenco di viste selezionare __vista Hive__.
 
-    ![Visualizzazione Apache Hive di Apache Ambari Select](./media/apache-hadoop-use-hive-ambari-view/select-apache-hive-view.png)
+    :::image type="content" source="./media/apache-hadoop-use-hive-ambari-view/select-apache-hive-view.png" alt-text="Visualizzazione Apache Hive di Apache Ambari Select" border="true":::
 
     La pagina Vista Hive è simile all'immagine seguente:
 
-    ![Immagine del foglio di lavoro della query per la vista Hive](./media/apache-hadoop-use-hive-ambari-view/ambari-worksheet-view.png)
+    :::image type="content" source="./media/apache-hadoop-use-hive-ambari-view/ambari-worksheet-view.png" alt-text="Immagine del foglio di lavoro della query per la vista Hive" border="true":::
 
 1. Dalla scheda __Query__ incollare le istruzioni HiveQL seguenti nel foglio di lavoro:
 
@@ -99,19 +99,19 @@ Per visualizzare l'interfaccia utente di TeZ per la query, selezionare la scheda
 
 La scheda __Jobs__ (Processi) visualizza una cronologia delle query Hive.
 
-![Cronologia della scheda dei processi di visualizzazione Apache Hive](./media/apache-hadoop-use-hive-ambari-view/apache-hive-job-history.png)
+:::image type="content" source="./media/apache-hadoop-use-hive-ambari-view/apache-hive-job-history.png" alt-text="Cronologia della scheda dei processi di visualizzazione Apache Hive" border="true":::
 
 ## <a name="database-tables"></a>Tabelle di database
 
 È possibile usare la scheda __Tables__ (Tabelle) per utilizzare le tabelle in un database Hive.
 
-![Immagine della scheda tabelle Apache Hive](./media/apache-hadoop-use-hive-ambari-view/hdinsight-tables-tab.png)
+:::image type="content" source="./media/apache-hadoop-use-hive-ambari-view/hdinsight-tables-tab.png" alt-text="Immagine della scheda tabelle Apache Hive" border="true":::
 
 ## <a name="saved-queries"></a>Query salvate
 
 Dalla scheda **Query** è facoltativamente possibile salvare le query. Dopo aver salvato una query, è possibile riusarla dalla scheda __Query salvate__.
 
-![Visualizzazione Apache Hive scheda query salvate](./media/apache-hadoop-use-hive-ambari-view/ambari-saved-queries.png)
+:::image type="content" source="./media/apache-hadoop-use-hive-ambari-view/ambari-saved-queries.png" alt-text="Visualizzazione Apache Hive scheda query salvate" border="true":::
 
 > [!TIP]  
 > Le query salvate vengono archiviate nell'archiviazione cluster predefinita. Le query salvate sono disponibili nel percorso `/user/<username>/hive/scripts`. Vengono archiviate come file `.hql` in testo normale.
@@ -124,7 +124,7 @@ Hive può essere esteso tramite funzioni definite dall'utente (UDF), che consent
 
 La scheda della **funzione definita dall'utente** nella parte superiore della vista Hive consente di dichiarare e salvare un set di funzioni definite dall'utente, che è possibile usare con **Query Editor**.
 
-![Visualizzazione della scheda UDF di visualizzazione Apache Hive](./media/apache-hadoop-use-hive-ambari-view/user-defined-functions.png)
+:::image type="content" source="./media/apache-hadoop-use-hive-ambari-view/user-defined-functions.png" alt-text="Visualizzazione della scheda UDF di visualizzazione Apache Hive" border="true":::
 
 Un pulsante **Inserisci UDF** viene visualizzato nella parte inferiore dell' **editor di query**. Questa voce Visualizza un elenco a discesa delle UDF definite nella visualizzazione hive. La selezione di una funzione definita dall'utente aggiungerà istruzioni HiveQL alla query per abilitare la funzione definita dall'utente.
 

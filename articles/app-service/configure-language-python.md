@@ -5,12 +5,12 @@ ms.topic: quickstart
 ms.date: 03/16/2021
 ms.reviewer: astay; kraigb
 ms.custom: mvc, seodec18, devx-track-python, devx-track-azurecli
-ms.openlocfilehash: 11b9ab8e954827cfcc73e440bee1023504e14057
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 094755ed6c018b3ac82d6f62a43f17e2536bbd9a
+ms.sourcegitcommit: ac035293291c3d2962cee270b33fca3628432fac
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104577613"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "104953511"
 ---
 # <a name="configure-a-linux-python-app-for-azure-app-service"></a>Configurare un'app Python in Linux per il servizio app di Azure
 
@@ -114,7 +114,7 @@ Le applicazione Web esistenti possono essere ridistribuite in Azure come indicat
 
 1. **Avvio dell'app**: per informazioni sul modo in cui il servizio app prova a eseguire l'app, vedere la sezione [Processo di avvio del contenitore](#container-startup-process) più avanti in questo articolo. Il servizio app usa il server Web Gunicorn per impostazione predefinita, che deve essere in grado di trovare l'oggetto app o la cartella *wsgi.py*. Se necessario, è possibile [personalizzare il comando di avvio](#customize-startup-command).
 
-1. **Distribuzione continua**: configurare la distribuzione continua come descritto in [Distribuzione continua nel servizio app di Azure](deploy-continuous-deployment.md), se si usa una distribuzione di Azure Pipelines o Kudu, oppure come descritto in [Eseguire la distribuzione nel servizio app usando GitHub Actions](deploy-github-actions.md), se si usano azioni GitHub.
+1. **Distribuzione continua**: configurare la distribuzione continua come descritto in [Distribuzione continua nel servizio app di Azure](deploy-continuous-deployment.md), se si usa una distribuzione di Azure Pipelines o Kudu, oppure come descritto in [Eseguire la distribuzione nel servizio app usando GitHub Actions](./deploy-continuous-deployment.md), se si usano azioni GitHub.
 
 1. **Azioni personalizzate**: per eseguire azioni all'interno del contenitore del servizio app che ospita l'app, ad esempio migrazioni di database Django, è possibile [connettersi al contenitore tramite SSH](configure-linux-open-ssh-session.md). Per un esempio di migrazioni di database Django, vedere [Esercitazione: Distribuire un'app Web Django con PostgreSQL - Eseguire migrazioni di database](tutorial-python-postgresql-app.md#43-run-django-database-migrations).
     - Con la distribuzione continua, è possibile eseguire queste azioni usando comandi di post-compilazione, come descritto in precedenza nella sezione [Personalizzare l'automazione della compilazione](#customize-build-automation).

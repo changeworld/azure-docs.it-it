@@ -14,12 +14,12 @@ ms.author: rolyon
 ms.reviewer: vincesm
 ms.custom: it-pro, fasttrack-edit
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 99b74319581b4e74c63045afe73ee66b6efcf53c
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 64f74f3aff1153118c54c83bf526c036a775da40
+ms.sourcegitcommit: ac035293291c3d2962cee270b33fca3628432fac
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104585316"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "104955238"
 ---
 # <a name="azure-ad-built-in-roles"></a>Ruoli predefiniti di Azure AD
 
@@ -71,7 +71,7 @@ La procedura consigliata prevede di assegnare questo ruolo a meno di cinque uten
 > | [Amministratore di gruppi](#groups-administrator) | I membri di questo ruolo possono creare o gestire gruppi, creare/gestire impostazioni di gruppi come i criteri di denominazione e scadenza, nonché visualizzare i gruppi attività e report di controllo. | fdd7a751-b60b-444a-984c-02652fe8fa1c |
 > | [Mittente dell'invito guest](#guest-inviter) | Può invitare utenti guest indipendentemente dall'impostazione 'I membri possono invitare utenti guest'. | 95e79109-95c0-4d8e-aee3-d01accf2d47b |
 > | [Amministratore supporto tecnico](#helpdesk-administrator) | Può reimpostare le password per gli utenti non amministratori e gli amministratori supporto tecnico. | 729827e3-9c14-49f7-bb1b-9608f156bbb8 |
-> | [Amministratore delle identità ibride](#hybrid-identity-administrator) | Consente di gestire Active Directory per Azure AD le impostazioni di provisioning e Federazione del cloud. | 8ac3fc64-6eca-42ea-9e69-59f4c7b60eb2 |
+> | [Amministratore delle identità ibride](#hybrid-identity-administrator) | Consente di gestire Active Directory per Azure AD le impostazioni di provisioning, Azure AD Connect e Federazione del cloud. | 8ac3fc64-6eca-42ea-9e69-59f4c7b60eb2 |
 > | [Amministratore di Insights](#insights-administrator) | Ha accesso amministrativo nell'app Microsoft 365 Insights. | eb1f4a8d-243a-41f0-9fbd-c7cdf6c5ef7c |
 > | [Leader aziendale di Insights](#insights-business-leader) | Può visualizzare e condividere dashboard e informazioni dettagliate tramite l'app M365 Insights. | 31e939ad-9672-4796-9c2e-873181342d2d |
 > | [Amministratore di Intune](#intune-administrator) | Può gestire tutti gli aspetti del prodotto Intune. | 3a2c62db-5318-420d-8d74-23affee5d9d5 |
@@ -997,7 +997,7 @@ Questo ruolo era precedentemente chiamato "Amministratore password" nel [portale
 
 ## <a name="hybrid-identity-administrator"></a>Amministratore delle identità ibride
 
-Gli utenti con questo ruolo possono creare, gestire e distribuire il programma di configurazione del provisioning da AD a Azure AD usando il provisioning cloud, nonché gestire le impostazioni di Federazione. Gli utenti possono inoltre risolvere i problemi e monitorare i log utilizzando questo ruolo.
+Gli utenti con questo ruolo possono creare, gestire e distribuire la configurazione del provisioning da AD a Azure AD usando il provisioning cloud, nonché gestire Azure AD Connect e le impostazioni di Federazione. Gli utenti possono inoltre risolvere i problemi e monitorare i log utilizzando questo ruolo.
 
 > [!div class="mx-tableFixed"]
 > | Azioni | Descrizione |

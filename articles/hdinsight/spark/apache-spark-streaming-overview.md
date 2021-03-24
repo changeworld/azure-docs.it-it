@@ -5,18 +5,18 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive,seoapr2020
 ms.date: 04/23/2020
-ms.openlocfilehash: bde6c5b2bad12df8642dd3c9b4a49548f7bc9a6d
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: e8a9f771827b870f493d6b0d7590feee7fc52b20
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98929510"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104870246"
 ---
 # <a name="overview-of-apache-spark-streaming"></a>Panoramica di Apache Spark Streaming
 
 [Apache Spark](https://spark.apache.org/) Il flusso fornisce l'elaborazione del flusso di dati nei cluster HDInsight Spark. Con la garanzia che qualsiasi evento di input venga elaborato una sola volta, anche se si verifica un errore del nodo. Un flusso Spark è un processo a esecuzione prolungata che riceve i dati di input da un'ampia gamma di origini, tra cui Hub eventi di Azure. Inoltre: Hub Azure, Apache Kafka, Apache Flume, Twitter, `ZeroMQ` socket TCP non elaborati o da monitoraggio Apache Hadoop filesystem Yarn. A differenza di un processo basato solo sugli eventi, un flusso Spark raggruppa i dati di input in finestre temporali. Ad esempio una sezione di 2 secondi, quindi trasforma ogni batch di dati tramite operazioni di mapping, riduzione, join ed estrazione. Il flusso Spark scrive quindi i dati trasformati in file system, database, dashboard e nella console.
 
-![Elaborazione di flussi con HDInsight e Spark Streaming](./media/apache-spark-streaming-overview/hdinsight-spark-streaming.png)
+:::image type="content" source="./media/apache-spark-streaming-overview/hdinsight-spark-streaming.png" alt-text="Elaborazione di flussi con HDInsight e Spark Streaming" border="false":::
 
 Le applicazioni Spark streaming devono attendere una frazione di secondo per raccogliere ogni `micro-batch` evento prima dell'invio del batch per l'elaborazione. Al contrario, un'applicazione guidata dagli eventi elabora ogni evento immediatamente. La latenza di Spark Streaming è in genere inferiore a pochi secondi. I vantaggi dell'approccio basato su micro batch consistono in un'elaborazione dati più efficiente e in calcoli di aggregazione più semplici.
 
@@ -30,7 +30,7 @@ Iniziare con un singolo evento, ad esempio una lettura di temperatura da un term
 
 Ogni RDD rappresenta gli eventi raccolti in un intervallo di tempo definito dall'utente, denominato *intervallo batch*. Allo scadere di ogni intervallo di invio in batch, viene prodotto un nuovo RDD che contiene tutti i dati dell'intervallo. Il set continuo di RDD viene raccolto in un DStream. Ad esempio, se l'intervallo di invio in batch è lungo un secondo, il flusso DStream genera ogni secondo un batch che contiene un RDD, che a sua volta contiene tutti i dati inseriti durante il secondo. Durante l'elaborazione del flusso DStream, l'evento di temperatura appare in uno di questi batch. Un'applicazione Spark Streaming elabora i batch che contengono gli eventi e infine agisce sui dati archiviati in ogni RDD.
 
-![Flusso DStream di esempio con eventi di temperatura](./media/apache-spark-streaming-overview/hdinsight-spark-streaming-example.png)
+:::image type="content" source="./media/apache-spark-streaming-overview/hdinsight-spark-streaming-example.png" alt-text="Flusso DStream di esempio con eventi di temperatura" border="false":::
 
 ## <a name="structure-of-a-spark-streaming-application"></a>Struttura di un'applicazione Spark Streaming
 
@@ -168,9 +168,9 @@ Per eseguire calcoli di aggregazione sulla DStream per un determinato periodo di
 
 Le finestre temporali scorrevoli possono sovrapporsi, ad esempio è possibile definire una finestra con una lunghezza di due secondi, con scorrimento ogni secondo. Questa azione significa che ogni volta che si esegue un calcolo di aggregazione, la finestra includerà i dati dell'ultimo secondo della finestra precedente. E tutti i nuovi dati nel prossimo un secondo.
 
-![Finestra iniziale di esempio con eventi di temperatura](./media/apache-spark-streaming-overview/hdinsight-spark-streaming-window-01.png)
+:::image type="content" source="./media/apache-spark-streaming-overview/hdinsight-spark-streaming-window-01.png" alt-text="Finestra iniziale di esempio con eventi di temperatura" border="false":::
 
-![Finestra di esempio con eventi di temperatura dopo lo scorrimento](./media/apache-spark-streaming-overview/hdinsight-spark-streaming-window-02.png)
+:::image type="content" source="./media/apache-spark-streaming-overview/hdinsight-spark-streaming-window-02.png" alt-text="Finestra di esempio con eventi di temperatura dopo lo scorrimento" border="false":::
 
 L'esempio seguente aggiorna il codice che usa DummySource per raccogliere i batch in una finestra con una durata di un minuto e uno scorrimento di un minuto.
 
@@ -244,7 +244,7 @@ Per offrire resilienza e tolleranza di errore, Spark Streaming usa checkpoint pe
 
 In genere, un'applicazione Spark streaming viene compilata localmente in un file JAR. Quindi distribuirlo in Spark in HDInsight copiando il file JAR nella risorsa di archiviazione collegata predefinita. È possibile avviare l'applicazione tramite le API REST LIVY disponibili dal cluster usando un'operazione POST. Il corpo del POST include un documento JSON che fornisce il percorso del file JAR. E il nome della classe il cui metodo principale definisce ed esegue l'applicazione di streaming e, facoltativamente, i requisiti relativi alle risorse del processo, ad esempio il numero di Executor, la memoria e i core. Inoltre, tutte le impostazioni di configurazione richieste dal codice dell'applicazione.
 
-![Distribuzione di un'applicazione Spark Streaming](./media/apache-spark-streaming-overview/hdinsight-spark-streaming-livy.png)
+:::image type="content" source="./media/apache-spark-streaming-overview/hdinsight-spark-streaming-livy.png" alt-text="Distribuzione di un'applicazione Spark Streaming" border="false":::
 
 Lo stato di tutte le applicazioni può anche essere verificato con una richiesta GET su un endpoint LIVY. Infine, è possibile terminare un'applicazione in esecuzione eseguendo una richiesta DELETE sull'endpoint Livio. Per informazioni dettagliate sull'API LIVY, vedere [Processi remoti con Apache LIVY](apache-spark-livy-rest-interface.md)
 

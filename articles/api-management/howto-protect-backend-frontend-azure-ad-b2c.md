@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 02/18/2021
 ms.author: wieastbu
 ms.custom: fasttrack-new, fasttrack-update, devx-track-js
-ms.openlocfilehash: 812b54d10ea3cc3c405f534e36ac66abf3466808
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: baa6a0a6995e206924d14de25b98700e450f3a0c
+ms.sourcegitcommit: ac035293291c3d2962cee270b33fca3628432fac
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102449289"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "104954922"
 ---
 # <a name="protect-spa-backend-with-oauth-20-azure-active-directory-b2c-and-azure-api-management"></a>Proteggere il back-end SPA con OAuth 2,0, Azure Active Directory B2C e gestione API di Azure
 
@@ -193,7 +193,7 @@ Aprire il pannello Azure AD B2C nel portale e seguire questa procedura.
 1. Incollare l'endpoint di configurazione Open-ID noto dal criterio di iscrizione e accesso nella casella URL autorità di certificazione. questa configurazione è stata registrata in precedenza.
 1. Fare clic su' Mostra segreto ' e incollare il segreto client dell'applicazione back-end nella casella appropriata.
 1. Fare clic su OK per tornare al pannello/schermata di selezione del provider di identità.
-1. Lasciare l' [Archivio token](https://docs.microsoft.com/azure/app-service/overview-authentication-authorization#token-store) abilitato in impostazioni avanzate (impostazione predefinita).
+1. Lasciare l' [Archivio token](../app-service/overview-authentication-authorization.md#token-store) abilitato in impostazioni avanzate (impostazione predefinita).
 1. Fare clic su "Salva" nella parte superiore sinistra del pannello.
 
    > [!IMPORTANT]

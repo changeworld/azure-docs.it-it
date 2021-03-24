@@ -5,12 +5,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: how-to
 ms.date: 06/17/2019
-ms.openlocfilehash: cfbbc1f11a24379561df26e2fb8d9da20b249317
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 46a22b78ade3d137f25b14e5cbdaff3264208228
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98942747"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104868393"
 ---
 # <a name="install-third-party-apache-hadoop-applications-on-azure-hdinsight"></a>Installare applicazioni Apache Hadoop di terze parti in Azure HDInsight
 
@@ -53,10 +53,10 @@ La procedura seguente illustra come installare applicazioni HDInsight in un clus
 3. Selezionare un cluster HDInsight dall'elenco.  Se non ci sono cluster disponibili, è necessario crearne uno.  Vedere [Creare cluster](hadoop/apache-hadoop-linux-tutorial-get-started.md).
 4. Nella categoria **Impostazioni** selezionare **Applicazioni**. È possibile visualizzare un elenco delle applicazioni installate nella finestra principale. 
    
-    ![Menu del portale Applicazioni di HDInsight](./media/hdinsight-apps-install-applications/hdinsight-apps-portal-menu.png)
+    :::image type="content" source="./media/hdinsight-apps-install-applications/hdinsight-apps-portal-menu.png" alt-text="Menu del portale Applicazioni di HDInsight":::
 5. Selezionare **+Aggiungi** dal menu. Verrà visualizzato un elenco delle applicazioni disponibili.  Se **+Aggiungi** è disattivato, significa che non sono disponibili applicazioni per questa versione del cluster HDInsight.
    
-    ![Applicazioni disponibili in Applicazioni di HDInsight](./media/hdinsight-apps-install-applications/hdinsight-apps-list1.png)
+    :::image type="content" source="./media/hdinsight-apps-install-applications/hdinsight-apps-list1.png" alt-text="Applicazioni disponibili in Applicazioni di HDInsight":::
 6. Selezionare una delle applicazioni disponibili e quindi seguire le istruzioni per accettare le note legali.
 
 È possibile vedere lo stato di installazione dell'applicazione dalle notifiche del portale selezionando l'icona a forma di campana nella parte superiore del portale. Dopo l'installazione dell'applicazione, questa verrà visualizzata nel pannello App installate.
@@ -65,7 +65,7 @@ La procedura seguente illustra come installare applicazioni HDInsight in un clus
 
 È possibile installare applicazioni HDInsight quando si crea un cluster. Durante il processo, le applicazioni HDInsight vengono installate dopo la creazione del cluster e mentre è nello stato in corso di esecuzione. Per installare le applicazioni durante la creazione del cluster usando il portale di Azure, nella scheda **Configurazione + prezzi** selezionare **+Aggiungi applicazione**.
 
-![Applicazioni di configurazione del cluster del portale di Azure](./media/hdinsight-apps-install-applications/azure-portal-cluster-configuration-applications.png)
+:::image type="content" source="./media/hdinsight-apps-install-applications/azure-portal-cluster-configuration-applications.png" alt-text="Applicazioni di configurazione del cluster del portale di Azure":::
 
 ## <a name="list-installed-hdinsight-apps-and-properties"></a>Elencare le app HDInsight installate e le proprietà
 Il portale include un elenco delle applicazioni HDInsight installate per un cluster e le proprietà di ognuna.
@@ -77,7 +77,7 @@ Il portale include un elenco delle applicazioni HDInsight installate per un clus
 3. Selezionare un cluster HDInsight dall'elenco.
 4. Nella categoria **Impostazioni** selezionare **Applicazioni**. È possibile visualizzare un elenco delle applicazioni installate nella finestra principale. 
    
-    ![App installate in Applicazioni di HDInsight](./media/hdinsight-apps-install-applications/hdinsight-apps-installed-apps-with-apps.png)
+    :::image type="content" source="./media/hdinsight-apps-install-applications/hdinsight-apps-installed-apps-with-apps.png" alt-text="App installate in Applicazioni di HDInsight":::
 5. Selezionare una delle applicazioni installate per visualizzare la proprietà. Elenchi delle proprietà:
 
     |Proprietà | Descrizione |

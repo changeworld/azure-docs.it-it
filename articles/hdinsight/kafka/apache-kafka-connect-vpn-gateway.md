@@ -5,12 +5,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive, devx-track-python
 ms.date: 03/04/2020
-ms.openlocfilehash: ad802b2bdf08a8e43179beece5f52d869513aff3
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: eb97e209bc7bb9bc1a15ecadc88593e4c0573b5c
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98933040"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104870620"
 ---
 # <a name="connect-to-apache-kafka-on-hdinsight-through-an-azure-virtual-network"></a>Connettersi ad Apache Kafka in HDInsight tramite una rete virtuale di Azure
 
@@ -245,15 +245,15 @@ Per impostazione predefinita, Apache ZooKeeper restituisce il nome di dominio de
 
 2. Per visualizzare le informazioni su Kafka, selezionare __Kafka__ dall'elenco a sinistra.
 
-    ![Elenco di servizio con Kafka evidenziato](./media/apache-kafka-connect-vpn-gateway/select-kafka-service.png)
+    :::image type="content" source="./media/apache-kafka-connect-vpn-gateway/select-kafka-service.png" alt-text="Elenco di servizio con Kafka evidenziato" border="true":::
 
 3. Per visualizzare la configurazione di Kafka, selezionare __Configs__ (Configurazioni) nella parte centrale in alto.
 
-    ![Configurazione dei servizi Apache Ambari](./media/apache-kafka-connect-vpn-gateway/select-kafka-config1.png)
+    :::image type="content" source="./media/apache-kafka-connect-vpn-gateway/select-kafka-config1.png" alt-text="Configurazione dei servizi Apache Ambari" border="true":::
 
 4. Per trovare la configurazione __kafka-env__, immettere `kafka-env` nel campo __Filtro__ in alto a destra.
 
-    ![Configurazione Kafka per kafka-env](./media/apache-kafka-connect-vpn-gateway/search-for-kafka-env.png)
+    :::image type="content" source="./media/apache-kafka-connect-vpn-gateway/search-for-kafka-env.png" alt-text="Configurazione Kafka per kafka-env" border="true":::
 
 5. Per configurare Kafka affinché generi pubblicità per gli indirizzi IP, aggiungere il testo seguente nella parte inferiore del campo __kafka-env-template__:
 
@@ -271,15 +271,15 @@ Per impostazione predefinita, Apache ZooKeeper restituisce il nome di dominio de
 
 8. Per salvare le modifiche alla configurazione usare il pulsante __Salva__. Immettere un messaggio di testo che descrive le modifiche. Selezionare __OK__ dopo aver salvato le modifiche.
 
-    ![Salvare la configurazione di Apache Ambari](./media/apache-kafka-connect-vpn-gateway/save-configuration-button.png)
+    :::image type="content" source="./media/apache-kafka-connect-vpn-gateway/save-configuration-button.png" alt-text="Salvare la configurazione di Apache Ambari" border="true":::
 
 9. Per evitare errori al riavvio di Kafka, usare il pulsante __Service Actions__ (Azioni del servizio) e selezionare __Attiva modalità di manutenzione__. Per completare questa operazione selezionare OK.
 
-    ![Azioni di servizio, con il pulsante di attivazione manutenzione evidenziato](./media/apache-kafka-connect-vpn-gateway/turn-on-maintenance-mode.png)
+    :::image type="content" source="./media/apache-kafka-connect-vpn-gateway/turn-on-maintenance-mode.png" alt-text="Azioni di servizio, con il pulsante di attivazione manutenzione evidenziato" border="true":::
 
 10. Per riavviare Kafka, utilizzare il pulsante __Riavvia__ e selezionare __Restart All Affected__ (Riavviare tutti gli elementi interessati). Confermare il riavvio, quindi usare il pulsante __OK__ dopo aver completato l'operazione.
 
-    ![Pulsante di riavvio con Restart all affected (Riavviare tutti gli elementi interessati) evidenziato](./media/apache-kafka-connect-vpn-gateway/restart-required-button.png)
+    :::image type="content" source="./media/apache-kafka-connect-vpn-gateway/restart-required-button.png" alt-text="Pulsante di riavvio con Restart all affected (Riavviare tutti gli elementi interessati) evidenziato" border="true":::
 
 11. Per disabilitare la modalità di manutenzione, usare il pulsante __Service Actions__ (Azioni del servizio) e selezionare __Disattiva modalità di manutenzione__. Per completare questa operazione selezionare **OK**.
 

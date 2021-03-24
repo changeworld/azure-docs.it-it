@@ -6,16 +6,16 @@ ms.author: vivikram
 ms.manager: abhemraj
 ms.topic: conceptual
 ms.date: 03/18/2021
-ms.openlocfilehash: bdd8fd336da12b5549875cf53f9e221cc431c2b9
-ms.sourcegitcommit: 2c1b93301174fccea00798df08e08872f53f669c
+ms.openlocfilehash: 8531d0b2252e6ddff75509046b5a4576b99d339f
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/22/2021
-ms.locfileid: "104773216"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104870790"
 ---
 # <a name="support-matrix-for-hyper-v-assessment"></a>Matrice di supporto per la valutazione di Hyper-V
 
-Questo articolo riepiloga i prerequisiti e i requisiti di supporto quando si individuano e valutano i server locali in esecuzione in un ambiente Hyper-V per la migrazione ad Azure, usando lo strumento [Azure migrate: Discovery and Assessment](migrate-services-overview.md#azure-migrate-server-assessment-tool) . Se si vuole eseguire la migrazione di server in esecuzione in Hyper-V in Azure, esaminare la [matrice di supporto](migrate-support-matrix-hyper-v-migration.md)per la migrazione.
+Questo articolo riepiloga i prerequisiti e i requisiti di supporto quando si individuano e valutano i server locali in esecuzione in un ambiente Hyper-V per la migrazione ad Azure, usando lo strumento [Azure migrate: Discovery and Assessment](migrate-services-overview.md#azure-migrate-discovery-and-assessment-tool) . Se si vuole eseguire la migrazione di server in esecuzione in Hyper-V in Azure, esaminare la [matrice di supporto](migrate-support-matrix-hyper-v-migration.md)per la migrazione.
 
 Per configurare l'individuazione e la valutazione dei server in esecuzione in Hyper-V, è necessario creare un progetto e aggiungere lo strumento Azure Migrate: individuazione e valutazione al progetto. Dopo avere aggiunto lo strumento, distribuire [l'appliance di Azure Migrate](migrate-appliance.md). L'appliance individua continuamente i server locali e invia i metadati del server e i dati sulle prestazioni in Azure. Al termine dell'individuazione, è possibile raccogliere i server individuati in gruppi ed eseguire una valutazione per un gruppo.
 
@@ -23,7 +23,7 @@ Per configurare l'individuazione e la valutazione dei server in esecuzione in Hy
 
 **Supporto** | **Dettagli**
 --- | ---
-**Limiti di valutazione** | È possibile individuare e valutare fino a 35.000 server in un singolo [progetto](migrate-support-matrix.md#azure-migrate-projects).
+**Limiti di valutazione** | È possibile individuare e valutare fino a 35.000 server in un singolo [progetto](migrate-support-matrix.md#project).
 **Limiti di progetto** | In una sottoscrizione di Azure è possibile creare più progetti. Oltre ai server in Hyper-V, un progetto può includere server in VMware e server fisici, fino ai limiti di valutazione per ciascuno di essi.
 **Individuazione** | L'appliance Azure Migrate è in grado di individuare fino a 5000 server in esecuzione in Hyper-V.<br/><br/> Il dispositivo può connettersi a un massimo di 300 host Hyper-V.
 **Valutazione** | È possibile aggiungere fino a 35.000 server in un singolo gruppo.<br/><br/> È possibile valutare fino a 35.000 server in una singola valutazione per un gruppo.

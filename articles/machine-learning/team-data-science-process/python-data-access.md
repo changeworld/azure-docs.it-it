@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, devx-track-python, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 497b8f5598cf7aa7720f47863d465f5e29789b07
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: b773241fdff41323272422f99e88f0d01e884055
+ms.sourcegitcommit: a67b972d655a5a2d5e909faa2ea0911912f6a828
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "93321950"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104889553"
 ---
 # <a name="access-datasets-with-python-using-the-azure-machine-learning-python-client-library"></a>Accedere a set di dati con Python mediante la libreria client Python di Azure Machine Learning
 L'anteprima della libreria client Python di Microsoft Azure Machine Learning consente l'accesso sicuro a set di dati di Azure Machine Learning da un ambiente Python locale, nonché la creazione e la gestione di set di dati in un'area di lavoro.
@@ -32,7 +32,7 @@ Questo argomento fornisce istruzioni su come:
 La libreria client Python è stata testata negli ambienti seguenti:
 
 * Windows, Mac e Linux
-* Python 2.7, 3.3 e 3.4
+* Python 2,7 e 3.6 +
 
 Presenta una dipendenza dai pacchetti seguenti:
 

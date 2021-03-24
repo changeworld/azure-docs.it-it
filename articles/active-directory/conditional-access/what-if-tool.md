@@ -11,18 +11,20 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: nigu
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a3ac799203cade3a907acbe28dee3a8023891db2
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 119540738ac2703afd79891d9bf8a4a9ff0c7472
+ms.sourcegitcommit: ac035293291c3d2962cee270b33fca3628432fac
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "93077643"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "104952763"
 ---
 # <a name="troubleshoot-using-the-what-if-tool-in-conditional-access"></a>Risoluzione dei problemi di Accesso condizionale tramite lo strumento What If
 
 [L'accesso condizionale](./overview.md) è una funzionalità di Azure Active Directory (Azure ad) che consente di controllare il modo in cui gli utenti autorizzati accedono alle app cloud. Come è possibile sapere cosa aspettarsi dai criteri di accesso condizionale nell'ambiente in uso? Per rispondere a questa domanda, è possibile usare lo **strumento di What If dell'accesso condizionale**.
 
 Questo articolo illustra come usare questo strumento per testare i criteri di accesso condizionale.
+
+> [!VIDEO https://www.youtube.com/embed/M_iQVM-3C3E]
 
 ## <a name="what-it-is"></a>Che cos'è
 

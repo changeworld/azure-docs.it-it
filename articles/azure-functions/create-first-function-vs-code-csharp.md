@@ -8,12 +8,12 @@ adobe-target: true
 adobe-target-activity: DocsExp–386541–A/B–Enhanced-Readability-Quickstarts–2.19.2021
 adobe-target-experience: Experience B
 adobe-target-content: ./create-first-function-vs-code-csharp-ieux
-ms.openlocfilehash: b0c659c1b3bf373b7754dd9b058c74da35cc2e0a
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: ea0b66c49d6f37c6b8f7eaa7f667a63ab09155e0
+ms.sourcegitcommit: ac035293291c3d2962cee270b33fca3628432fac
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101704787"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "104952688"
 ---
 # <a name="quickstart-create-a-c-function-in-azure-using-visual-studio-code"></a>Avvio rapido: Creare una funzione in C# in Azure con Visual Studio Code
 
@@ -82,8 +82,10 @@ Dopo aver verificato la corretta esecuzione della funzione nel computer locale, 
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Si è usato [Visual Studio Code](functions-develop-vs-code.md?tabs=csharp) per creare un'app per le funzioni con una semplice funzione attivata tramite http. Nell'articolo successivo si espande la funzione connettendosi ad archiviazione di Azure. Per altre informazioni sulla connessione ad altri servizi di Azure, vedere [aggiungere binding a una funzione esistente in funzioni di Azure](add-bindings-existing-function.md?tabs=csharp). 
+Si è usato [Visual Studio Code](functions-develop-vs-code.md?tabs=csharp) per creare un'app per le funzioni con una semplice funzione attivata tramite http. Nell'articolo successivo si espande la funzione connettendosi a Azure Cosmos DB o archiviazione di Azure. Per altre informazioni sulla connessione ad altri servizi di Azure, vedere [aggiungere binding a una funzione esistente in funzioni di Azure](add-bindings-existing-function.md?tabs=csharp). 
 
+> [!div class="nextstepaction"]
+> [Connettersi a un database](functions-add-output-binding-cosmos-db-vs-code.md?pivots=programming-language-csharp)
 > [!div class="nextstepaction"]
 > [Connettersi a una coda di Archiviazione di Azure](functions-add-output-binding-storage-queue-vs-code.md?pivots=programming-language-csharp)
 

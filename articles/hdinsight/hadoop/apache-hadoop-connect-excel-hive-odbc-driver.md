@@ -5,12 +5,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive,hdiseo17may2017,seoapr2020
 ms.date: 04/22/2020
-ms.openlocfilehash: 2c528859ea5abc6267c10a2ede9c2ca99f84e22f
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: c7125e25c9716a9934c97f9f8f85666d264d5f89
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98946806"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104866948"
 ---
 # <a name="connect-excel-to-apache-hadoop-in-azure-hdinsight-with-the-microsoft-hive-odbc-driver"></a>Connettere Excel ad Apache Hadoop in HDInsight mediante Microsoft Hive ODBC Driver
 
@@ -37,7 +37,7 @@ I passaggi seguenti mostrano come creare un'origine dati Hive ODBC.
 
 1. Da Windows, passare a **Start > strumenti di amministrazione di windows > origini dati ODBC (32 bit)/(64 bit)**.  Questa azione consente di aprire la finestra **Amministrazione origine dati ODBC** .
 
-    ![Amministrazione origine dati ODBC](./media/apache-hadoop-connect-excel-hive-odbc-driver/simbahiveodbc-datasourceadmin1.png "Configurare un DSN usando l'amministrazione origine dati ODBC")
+   :::image type="content" source="./media/apache-hadoop-connect-excel-hive-odbc-driver/simbahiveodbc-datasourceadmin1.png" alt-text="Amministrazione origine dati ODBC" border="true":::
 
 1. Nella scheda **DSN utente** selezionare **Aggiungi** per aprire la finestra **Crea nuova origine dati**.
 
@@ -63,7 +63,7 @@ I passaggi seguenti mostrano come creare un'origine dati Hive ODBC.
    |  Rows fetched per block |Quando si recupera un numero elevato di record, potrebbe essere necessario ottimizzare questo parametro per assicurare prestazioni ottimali. |
    |  Default string column length, Binary column length, Decimal column scale |Le lunghezze e le precisioni del tipo di dati potrebbero avere effetto sulla visualizzazione dei dati. Provocano la restituzione di informazioni non corrette a causa della perdita di precisione e di troncamento. |
 
-    ![Opzioni di configurazione del DSN avanzate](./media/apache-hadoop-connect-excel-hive-odbc-driver/hiveodbc-datasource-advancedoptions1.png "Opzioni di configurazione del DSN avanzate")
+    :::image type="content" source="./media/apache-hadoop-connect-excel-hive-odbc-driver/hiveodbc-datasource-advancedoptions1.png" alt-text="Opzioni di configurazione del DSN avanzate" border="true":::
 
 1. Selezionare **Test** per testare l'origine dati. Quando l'origine dati è configurata correttamente, il risultato del test indica **esito positivo.**
 
@@ -81,7 +81,7 @@ La procedura seguente descrive come importare dati da una tabella Hive in una ca
 
 2. Nella scheda **Dati** passare a **Carica dati** > **Da altre origini** > **Da ODBC** per aprire la finestra **Da ODBC**.
 
-    ![Aprire la connessione guidata dati di Excel](./media/apache-hadoop-connect-excel-hive-odbc-driver/simbahiveodbc-excel-dataconnection1.png "Aprire la connessione guidata dati di Excel")
+   :::image type="content" source="./media/apache-hadoop-connect-excel-hive-odbc-driver/simbahiveodbc-excel-dataconnection1.png" alt-text="Aprire la connessione guidata dati di Excel" border="true":::
 
 3. Nell'elenco a discesa selezionare il nome dell'origine dati creato nell'ultima sezione e quindi fare clic su **OK**.
 
@@ -89,7 +89,7 @@ La procedura seguente descrive come importare dati da una tabella Hive in una ca
 
 5. In **Strumento di spostamento** passare a **HIVE** > **default** > **hivesampletable** e quindi selezionare **Carica**. L'importazione dei dati in Excel potrebbe richiedere alcuni istanti.
 
-    ![Strumento di navigazione ODBC hive HDInsight di Excel](./media/apache-hadoop-connect-excel-hive-odbc-driver/hdinsight-hive-odbc-navigator.png "Strumento di navigazione ODBC hive HDInsight di Excel")
+   :::image type="content" source="./media/apache-hadoop-connect-excel-hive-odbc-driver/hdinsight-hive-odbc-navigator.png" alt-text="Strumento di navigazione ODBC hive HDInsight di Excel" border="true":::
 
 ## <a name="next-steps"></a>Passaggi successivi
 
