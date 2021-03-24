@@ -6,16 +6,16 @@ ms.author: rajosh
 ms.manager: abhemraj
 ms.topic: troubleshooting
 ms.date: 01/02/2020
-ms.openlocfilehash: 09fbc97b84365cc1d6d40b8e1147e1b8e951cc1f
-ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
+ms.openlocfilehash: 78e54543c94cd6e8434023b61516242c2491f353
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/22/2021
-ms.locfileid: "104780702"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104863599"
 ---
 # <a name="troubleshoot-assessmentdependency-visualization"></a>Risolvere i problemi relativi alla visualizzazione di valutazioni/dipendenze
 
-Questo articolo consente di risolvere i problemi relativi alla valutazione e alla visualizzazione delle dipendenze con [Azure migrate: individuazione e valutazione](migrate-services-overview.md#azure-migrate-server-assessment-tool).
+Questo articolo consente di risolvere i problemi relativi alla valutazione e alla visualizzazione delle dipendenze con [Azure migrate: individuazione e valutazione](migrate-services-overview.md#azure-migrate-discovery-and-assessment-tool).
 
 
 ## <a name="assessment-readiness-issues"></a>Problemi di conformità della valutazione
@@ -222,7 +222,7 @@ Dopo aver eseguito la migrazione dei server con la visualizzazione delle dipende
 Nell'analisi delle dipendenze senza agenti, i nomi dei processi vengono acquisiti con il massimo sforzo. In alcuni scenari, sebbene i nomi dei server di origine e di destinazione e la porta di destinazione vengano acquisiti, non è possibile determinare i nomi di processo a entrambe le estremità della dipendenza. In questi casi, il processo è contrassegnato come "processo sconosciuto".
 
 ## <a name="my-log-analytics-workspace-is-not-listed-when-trying-to-configure-the-workspace-in-azure-migrate"></a>L'area di lavoro Log Analytics non è elencata quando si tenta di configurare l'area di lavoro in Azure Migrate
-Attualmente Azure Migrate supporta la creazione dell'area di lavoro OMS nelle aree Stati Uniti orientali, Asia sud-orientale ed Europa occidentale. Se l'area di lavoro viene creata all'esterno di Azure Migrate in un'altra area, attualmente non può essere associata a un progetto Azure Migrate.
+Attualmente Azure Migrate supporta la creazione dell'area di lavoro OMS nelle aree Stati Uniti orientali, Asia sud-orientale ed Europa occidentale. Se l'area di lavoro viene creata all'esterno di Azure Migrate in un'altra area, attualmente non può essere associata a un progetto.
 
 
 ## <a name="capture-network-traffic"></a>Acquisisci traffico di rete

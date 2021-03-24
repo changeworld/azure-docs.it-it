@@ -5,12 +5,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 12/09/2019
-ms.openlocfilehash: f22642ae94ea01a798b1eab639c93fda31f87581
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 9aa11be42aca59458fea0462a90b6aeb70df893d
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98944052"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104863140"
 ---
 # <a name="configure-storage-and-scalability-for-apache-kafka-on-hdinsight"></a>Configurare l'archiviazione e la scalabilità per Apache Kafka in HDInsight
 
@@ -20,7 +20,7 @@ Kafka in HDInsight usa il disco locale delle macchine virtuali nel cluster HDIns
 
 Il diagramma seguente offre un confronto tra Kafka in HDInsight prima dei dischi gestiti e Kafka in HDInsight con i dischi gestiti:
 
-![Kafka con architettura Managed Disks](./media/apache-kafka-scalability/kafka-with-managed-disks-architecture.png)
+:::image type="content" source="./media/apache-kafka-scalability/kafka-with-managed-disks-architecture.png" alt-text="Kafka con architettura Managed Disks" border="false":::
 
 ## <a name="configure-managed-disks-azure-portal"></a>Configurare i dischi gestiti: portale di Azure
 
@@ -31,7 +31,7 @@ Il diagramma seguente offre un confronto tra Kafka in HDInsight prima dei dischi
     > [!NOTE]  
     > Il tipo di disco gestito può essere __Standard__ (HDD) o __Premium__ (SSD). I dischi Premium sono usati con le macchine virtuali serie DS e GS. Tutti gli altri tipi di macchine virtuali usano dischi Standard.
 
-    ![sezione dimensioni cluster con i dischi per nodo del ruolo di lavoro evidenziato](./media/apache-kafka-scalability/azure-portal-cluster-configuration-pricing-kafka-disks.png)
+    :::image type="content" source="./media/apache-kafka-scalability/azure-portal-cluster-configuration-pricing-kafka-disks.png" alt-text="sezione dimensioni cluster con i dischi per nodo del ruolo di lavoro evidenziato" border="true":::
 
 ## <a name="configure-managed-disks-resource-manager-template"></a>Configurare i dischi gestiti: modello di Resource Manager
 

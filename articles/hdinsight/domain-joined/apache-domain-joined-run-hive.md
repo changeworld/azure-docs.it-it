@@ -4,12 +4,12 @@ description: Informazioni su come configurare i criteri di Apache Ranger per Hiv
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 11/27/2019
-ms.openlocfilehash: fbe4361033321f2ba81478c41a138937f70b5498
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 15c406576b373577a2a3a50108acad7ccbf36699
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101705705"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104863259"
 ---
 # <a name="configure-apache-hive-policies-in-hdinsight-with-enterprise-security-package"></a>Configurare i criteri per Apache Hive in HDInsight con Enterprise Security Package
 
@@ -30,7 +30,7 @@ Informazioni su come configurare i criteri di Apache Ranger per Apache Hive. In 
 
 2. Eseguire l'accesso usando il nome utente e la password di amministratore cluster:
 
-    ![Home page di HDInsight ESP Ranger](./media/apache-domain-joined-run-hive/hdinsight-domain-joined-ranger-home-page.png)
+    :::image type="content" source="./media/apache-domain-joined-run-hive/hdinsight-domain-joined-ranger-home-page.png" alt-text="Home page di HDInsight ESP Ranger" border="true":::
 
     Attualmente, Ranger è compatibile solo con Yarn e Hive.
 
@@ -57,7 +57,7 @@ In questa sezione vengono creati due criteri di Ranger per accedere a hivesample
     |Seleziona utente|hiveuser1|
     |Autorizzazioni|Proprietà|
 
-    ![Configurazione di HDInsight ESP Ranger hive Policy](./media/apache-domain-joined-run-hive/hdinsight-domain-joined-configure-ranger-policy.png).
+    :::image type="content" source="./media/apache-domain-joined-run-hive/hdinsight-domain-joined-configure-ranger-policy.png" alt-text="Configurazione di HDINSIGHT ESP Ranger hive Policy" border="true":::.
 
     > [!NOTE]  
     > Se l'utente di un dominio non compare in Seleziona utente, attendere alcuni istanti per la sincronizzazione di Ranger con AAD.
@@ -101,7 +101,7 @@ Nell'ultima sezione sono stati configurati due criteri.  hiveuser1 dispone dell'
 
 1. Nella scheda **Dati** passare a **Carica dati** > **Da altre origini** > **Da ODBC** per aprire la finestra **Da ODBC**.
 
-    ![Aprire la Connessione guidata dati](./media/apache-domain-joined-run-hive/simbahiveodbc-excel-dataconnection1.png)
+    :::image type="content" source="./media/apache-domain-joined-run-hive/simbahiveodbc-excel-dataconnection1.png" alt-text="Aprire la Connessione guidata dati" border="true":::
 
 1. Nell'elenco a discesa selezionare il nome dell'origine dati creato nell'ultima sezione e quindi fare clic su **OK**.
 

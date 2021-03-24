@@ -5,28 +5,27 @@ author: mimcco
 ms.author: mimcco
 ms.service: azure-percept
 ms.topic: conceptual
-ms.date: 02/18/2021
+ms.date: 03/23/2021
 ms.custom: template-concept
-ms.openlocfilehash: f40d9a1285f1eb625a9e33387f2cc9fafcbc3322
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 4abe8e07a8311bab9b6e98746d0fc05bd2e89395
+ms.sourcegitcommit: ac035293291c3d2962cee270b33fca3628432fac
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102098401"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "104956112"
 ---
 # <a name="advanced-development-with-azure-percept"></a>Sviluppo avanzato con Azure Percept
-Con Azure Percept, gli sviluppatori di software e i data scientist possono usare flussi di lavoro di codice avanzati per la gestione del ciclo di vita di intelligenza artificiale. Grazie a una libreria open source in continua crescita, possono usare esempi per iniziare a usare il proprio percorso di sviluppo AI e creare soluzioni di produzione pronte.
 
-## <a name="get-started-with-the-advanced-development-tutorials"></a>Introduzione alle esercitazioni sullo sviluppo avanzato
+Con Azure Percept, gli sviluppatori di software e i data scientist possono usare flussi di lavoro di codice avanzati per la gestione del ciclo di vita AI. Grazie a una libreria open source in continua crescita, possono usare esempi per iniziare a usare il proprio percorso di sviluppo AI e creare soluzioni pronte per la produzione.
 
-Informazioni su tutti i modelli di [intelligenza artificiale di Azure Percept](./overview-ai-models.md)disponibili.
+## <a name="get-started-with-advanced-development"></a>Introduzione allo sviluppo avanzato
 
 Per informazioni aggiornate, esercitazioni ed esempi relativi ad esempio, vedere [Azure PERCEPT dk Advanced Development GitHub](https://github.com/microsoft/azure-percept-advanced-development) .
 
-* Introduzione di un modello di intelligenza artificiale personalizzato al dispositivo
-* Aggiornamento di un modello già supportato con l'apprendimento del trasferimento
-* E altre informazioni
+- Distribuzione di un modello di intelligenza artificiale personalizzato in Azure Percept DK
+- Aggiornamento di un modello supportato con l'apprendimento del trasferimento
+- E altre informazioni
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Informazioni su tutti i modelli di [intelligenza artificiale di Azure Percept](./overview-ai-models.md)disponibili. Se nessuno di questi modelli è adatto alle proprie esigenze, è possibile usare il percorso di codice avanzato per portare la pipeline del modello o della visione artificiale in Percept DK e, se si ritiene che possa aiutare gli altri, aprire una richiesta pull.
+Altre informazioni sui modelli di [intelligenza artificiale di Azure Percept](./overview-ai-models.md)disponibili. Se nessuno di questi modelli è adatto alle proprie esigenze, usare il percorso di codice avanzato per portare la pipeline del modello o della visione del computer a Percept DK. Se si ha un contributo che si ritiene utile per altri, è possibile aprire anche una richiesta pull.
