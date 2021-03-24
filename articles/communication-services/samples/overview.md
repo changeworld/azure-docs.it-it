@@ -9,12 +9,12 @@ ms.author: rifox
 ms.date: 03/12/2021
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: 5e17943d7867bfd6b93d95b6ec0b6e0049a784ef
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: a5b3a94a0b1253b946239cd26113e9dfc955dd9a
+ms.sourcegitcommit: ac035293291c3d2962cee270b33fca3628432fac
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103555791"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "104955959"
 ---
 # <a name="samples"></a>Esempi
 
@@ -24,7 +24,7 @@ I servizi di comunicazione di Azure sono disponibili molti esempi, che è possib
 
 | Nome esempio                                                                                          | Descrizione                                                         | Lingue/piattaforme disponibili      |
 | :--------------------------------------------------------------------------------------------------- | :------------------------------------------------------------------ | :--------------------------------- |
-| [Esempio di chiamata di un gruppo di eroi](./calling-hero-sample.md)                                                | Viene fornito un esempio di creazione di un'applicazione chiamante di gruppo.          | Web, iOS                           |
+| [Esempio di chiamata di un gruppo di eroi](./calling-hero-sample.md)                                                | Viene fornito un esempio di creazione di un'applicazione chiamante di gruppo.          | Web, iOS, Android                           |
 | [Esempio di chiamata Web](./web-calling-sample.md)                                                        | Procedura dettagliata per la chiamata delle funzionalità di ACS all'interno del Web. | Web                                |
 | [Esempio di chat Hero](./chat-hero-sample.md)                                                            | Viene fornito un esempio di creazione di un'applicazione di chat.                   | Web & C# .NET                      |
 | [App per la medicina contoso](https://github.com/Azure-Samples/communication-services-contoso-med-app)       | App di esempio che illustra il flusso di un medico paziente.                     | Node.js & Web                      |

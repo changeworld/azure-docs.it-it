@@ -5,14 +5,14 @@ services: vpn-gateway
 author: yushwang
 ms.service: vpn-gateway
 ms.topic: conceptual
-ms.date: 09/02/2020
+ms.date: 03/22/2021
 ms.author: yushwang
-ms.openlocfilehash: 467c2b9fe8758db5c1da43a65c1bfde133df0823
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 8ca50ae77d9d9e200db3318b8e087b72697c343a
+ms.sourcegitcommit: ac035293291c3d2962cee270b33fca3628432fac
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98880102"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "104953477"
 ---
 # <a name="vpn-gateway-faq"></a>Domande frequenti sul gateway VPN
 
@@ -20,11 +20,15 @@ ms.locfileid: "98880102"
 
 ### <a name="can-i-connect-virtual-networks-in-different-azure-regions"></a>È possibile connettere reti virtuali in diverse aree di Azure?
 
-Sì. Non esistono vincoli di area. Una rete virtuale può connettersi a un'altra rete virtuale nella stessa area o in un'area diversa di Azure. 
+Sì. Non esistono vincoli di area. Una rete virtuale può connettersi a un'altra rete virtuale nella stessa area o in un'area diversa di Azure.
 
 ### <a name="can-i-connect-virtual-networks-in-different-subscriptions"></a>È possibile connettere reti virtuali in diverse sottoscrizioni?
 
 Sì.
+
+### <a name="can-i-specify-private-dns-servers-in-my-vnet-when-configuring-vpn-gateway"></a>È possibile specificare i server DNS privati nella VNet durante la configurazione del gateway VPN?
+
+Se durante la creazione del VNet è stato specificato un server o server DNS, il gateway VPN utilizzerà i server DNS specificati. Se si specifica un server DNS, verificare che il server DNS sia in grado di risolvere i nomi di dominio necessari per Azure.
 
 ### <a name="can-i-connect-to-multiple-sites-from-a-single-virtual-network"></a>È possibile connettersi a più siti da una singola rete virtuale?
 
@@ -32,7 +36,7 @@ Sì.
 
 ### <a name="is-there-an-additional-cost-for-setting-up-a-vpn-gateway-as-active-active"></a>Sono previsti costi aggiuntivi per la configurazione di un gateway VPN come attivo/attivo?
 
-No. 
+No.
 
 ### <a name="what-are-my-cross-premises-connection-options"></a>Quali sono le opzioni di connessione cross-premise?
 
@@ -48,7 +52,7 @@ Per altre informazioni sulle connessioni del gateway VPN, vedere [Informazioni s
 
 ### <a name="what-is-the-difference-between-a-site-to-site-connection-and-point-to-site"></a>Qual è la differenza tra una connessione da sito a sito e una connessione da punto a sito?
 
-Le configurazioni **da sito a sito** (tunnel VPN IPsec/IKE) connettono il percorso locale ad Azure. È quindi possibile connettersi da qualsiasi computer disponibile in locale a qualsiasi macchina virtuale o istanza del ruolo nella rete virtuale, in base alla configurazione scelta per il routing e le autorizzazioni. Questa opzione è ottimale per una connessione cross-premise sempre disponibile ed è adatta per le configurazioni ibride. Questo tipo di connessione si basa su un dispositivo VPN IPSec (dispositivo hardware o software) che è necessario distribuire in corrispondenza del perimetro della rete. Per creare questo tipo di connessione, è necessario disporre di un indirizzo IPv4 con connessione esterna.
+Le configurazioni **da sito a sito** (tunnel VPN IPsec/IKE) connettono il percorso locale ad Azure. È quindi possibile connettersi da qualsiasi computer disponibile in locale a qualsiasi macchina virtuale o istanza del ruolo nella rete virtuale, in base alla configurazione scelta per il routing e le autorizzazioni. Si tratta di un'ottima opzione per una connessione cross-premise sempre disponibile ed è particolarmente adatta per le configurazioni ibride. Questo tipo di connessione si basa su un dispositivo VPN IPSec (dispositivo hardware o software) che è necessario distribuire in corrispondenza del perimetro della rete. Per creare questo tipo di connessione, è necessario disporre di un indirizzo IPv4 con connessione esterna.
 
 Le configurazioni **da punto a sito** (VPN tramite SSTP) consentono di connettersi da un computer singolo a qualsiasi elemento disponibile nella rete virtuale. Questo tipo di connessione usa il client VPN incorporato di Windows. La configurazione da spunto a sito prevede l'installazione di un certificato e di un pacchetto di configurazione client VPN che contiene le impostazioni che consentono al computer di connettersi a qualsiasi macchina virtuale o istanza del ruolo all'interno della rete virtuale. Si tratta di un'ottima opzione quando si desidera connettersi a una rete virtuale ma non ci si trova nella sede locale. È utile anche quando non si ha accesso all'hardware VPN o a un indirizzo IP IPv4 accessibile pubblicamente, entrambi necessari per una connessione da sito a sito.
 
@@ -66,17 +70,20 @@ I gateway basati su criteri implementano VPN basate su criteri. Le VPN basate su
 
 ### <a name="what-is-a-route-based-dynamic-routing-gateway"></a>Cos'è un gateway basato su route (con routing dinamico)?
 
-I gateway basati su route implementano VPN basate su route. Le VPN basate su route usano "route" nella tabella di inoltro IP o di routing per reindirizzare i pacchetti nelle interfacce tunnel corrispondenti. Le interfacce tunnel consentono quindi di crittografare o decrittografare i pacchetti all'interno e all'esterno dei tunnel. I criteri o selettori di traffico per le VPN basate su route vengono configurati come any-to-any (o caratteri jolly).
+I gateway basati su route implementano VPN basate su route. Le VPN basate su route usano "route" nella tabella di inoltro IP o di routing per reindirizzare i pacchetti nelle interfacce tunnel corrispondenti. Le interfacce tunnel consentono quindi di crittografare o decrittografare i pacchetti all'interno e all'esterno dei tunnel. Il criterio o i selettori di traffico per le VPN basate su route sono configurati come any-to-any (o caratteri jolly).
 
 ### <a name="can-i-update-my-policy-based-vpn-gateway-to-route-based"></a>È possibile aggiornare il gateway VPN basato su criteri a basato su Route?
 
-No. Non è possibile modificare il tipo di tipo di gateway di rete virtuale di Azure da basato su criteri a basato su route o viceversa. È necessario eliminare e ricreare il gateway e il processo richiede circa 60 minuti. L'indirizzo IP del gateway non verrà mantenuto, come pure la chiave precondivisa.
-1. Eliminare qualsiasi connessione associata al gateway da eliminare.
-1. Eliminare il gateway:
-   - [Azure portal](vpn-gateway-delete-vnet-gateway-portal.md)
-   - [Azure PowerShell](vpn-gateway-delete-vnet-gateway-powershell.md)
-   - [Azure PowerShell-classico](vpn-gateway-delete-vnet-gateway-classic-powershell.md)
-1. [Creare un nuovo gateway del tipo desiderato e completare la configurazione della VPN](./tutorial-site-to-site-portal.md#VNetGateway).
+No. Non è possibile modificare un tipo di gateway da criteri a basati su Route o da Route a basate su criteri. Per modificare un tipo di gateway, è necessario eliminare e ricreare il gateway. Questo processo richiede circa 60 minuti. Quando si crea il nuovo gateway, non è possibile mantenere l'indirizzo IP del gateway originale.
+
+1. Eliminare tutte le connessioni associate al gateway.
+
+1. Eliminare il gateway usando uno degli articoli seguenti:
+
+   * [Azure portal](vpn-gateway-delete-vnet-gateway-portal.md)
+   * [Azure PowerShell](vpn-gateway-delete-vnet-gateway-powershell.md)
+   * [Azure PowerShell-classico](vpn-gateway-delete-vnet-gateway-classic-powershell.md)
+1. Creare un nuovo gateway usando il tipo di gateway desiderato e quindi completare la configurazione della VPN. Per la procedura, vedere l' [esercitazione da sito a sito](./tutorial-site-to-site-portal.md#VNetGateway).
 
 ### <a name="do-i-need-a-gatewaysubnet"></a>Il valore 'GatewaySubnet' è necessario?
 
@@ -102,7 +109,7 @@ Per i gateway non con ridondanza della zona e non di zona (SKU del gateway che _
 
 ### <a name="how-does-my-vpn-tunnel-get-authenticated"></a>Come si ottiene l'autenticazione del tunnel VPN?
 
-Il tunnel VPN di Azure usa chiavi precondivise (PSK) per l'autenticazione. È possibile generare una chiave precondivisa (PSK) quando si crea il tunnel VPN. È possibile modificare la chiave precondivisa generata automaticamente con il cmdlet di PowerShell di impostazione della chiave precondivisa o l'API REST.
+Il tunnel VPN di Azure usa chiavi precondivise (PSK) per l'autenticazione. È possibile generare una chiave precondivisa (PSK) quando si crea il tunnel VPN. È possibile modificare la PSK generata automaticamente con il cmdlet di PowerShell per la chiave precondivisa o l'API REST.
 
 ### <a name="can-i-use-the-set-pre-shared-key-api-to-configure-my-policy-based-static-routing-gateway-vpn"></a>È possibile usare l'API di impostazione della chiave precondivisa per configurare la VPN gateway con routing statico basata su criteri?
 
@@ -121,11 +128,7 @@ Per l'autenticazione possono essere usate solo chiavi precondivise.
 
 #### <a name="classic-deployment-model"></a>Modello di distribuzione classica
 
-* Portale di Azure: passare alla rete virtuale classica > Connessioni VPN > Connessioni VPN da sito a sito > Local site name (Nome sito locale) > Sito locale > Spazio indirizzi client. 
-
-### <a name="can-i-configure-force-tunneling"></a>È possibile configurare il tunneling forzato?
-
-Sì. Vedere [Configurare il tunneling forzato](vpn-gateway-about-forced-tunneling.md).
+* Portale di Azure: passare alla rete virtuale classica > Connessioni VPN > Connessioni VPN da sito a sito > Local site name (Nome sito locale) > Sito locale > Spazio indirizzi client.
 
 ### <a name="can-i-use-nat-t-on-my-vpn-connections"></a>È possibile utilizzare NAT-T nelle connessioni VPN?
 
@@ -225,10 +228,13 @@ Sì, è possibile. Per altre informazioni, vedere [Configurare connessioni Expre
 
 [!INCLUDE [vpn-gateway-ipsecikepolicy-faq-include](../../includes/vpn-gateway-faq-ipsecikepolicy-include.md)]
 
-
-## <a name="bgp"></a><a name="bgp"></a>BGP
+## <a name="bgp-and-routing"></a><a name="bgp"></a>BGP e routing
 
 [!INCLUDE [vpn-gateway-faq-bgp-include](../../includes/vpn-gateway-faq-bgp-include.md)]
+
+### <a name="can-i-configure-forced-tunneling"></a>È possibile configurare il tunneling forzato?
+
+Sì. Vedere [Configurare il tunneling forzato](vpn-gateway-about-forced-tunneling.md).
 
 ## <a name="cross-premises-connectivity-and-vms"></a><a name="vms"></a>Connettività cross-premise e macchine virtuali
 
@@ -245,7 +251,6 @@ No. Attraverso il gateway della rete virtuale passerà solo il traffico con un I
 ### <a name="how-do-i-troubleshoot-an-rdp-connection-to-a-vm"></a>Come risolvere i problemi di una connessione RDP a una VM
 
 [!INCLUDE [Troubleshoot VM connection](../../includes/vpn-gateway-connect-vm-troubleshoot-include.md)]
-
 
 ## <a name="virtual-network-faq"></a><a name="faq"></a>Domande frequenti sulla rete virtuale
 
