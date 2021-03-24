@@ -3,12 +3,12 @@ title: Eliminare un insieme di credenziali Servizi di ripristino di Microsoft Az
 description: In questo articolo viene illustrato come rimuovere le dipendenze e quindi eliminare un insieme di credenziali di servizi di ripristino di backup di Azure.
 ms.topic: conceptual
 ms.date: 06/04/2020
-ms.openlocfilehash: 8df2528edebbb654e501b8aaaac91c24d932604c
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 1526e9aeef1574f261dcb1a58ee12a12fbf08866
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104670563"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104864959"
 ---
 # <a name="delete-an-azure-backup-recovery-services-vault"></a>Eliminare un insieme di credenziali di servizi di ripristino di Azure Backup
 
@@ -48,6 +48,7 @@ Per eliminare correttamente un insieme di credenziali, è necessario seguire i p
   - **Server di gestione MAB o DPM**: andare al menu del dashboard dell'insieme di credenziali > **backup infrastruttura**  >  **backup server di gestione**. Se si dispone di DPM o server di Backup di Azure (MAB), è necessario eliminare o annullare la registrazione di tutti gli elementi elencati di seguito insieme ai relativi dati di backup. Per eliminare i server di gestione, [attenersi alla seguente procedura](#delete-protected-items-on-premises) .
 
 - **Passaggio 4**: è necessario assicurarsi che tutti gli account di archiviazione registrati vengano eliminati. Passare al menu del dashboard dell'insieme di credenziali > account di archiviazione dell'infrastruttura di **backup**  >  . Se gli account di archiviazione sono elencati qui, è necessario annullare la registrazione di tutti gli account. Per informazioni su come annullare la registrazione dell'account, vedere [annullare la registrazione di un account di archiviazione](manage-afs-backup.md#unregister-a-storage-account).
+- **Passaggio 5**: assicurarsi che non siano stati creati endpoint privati per l'insieme di credenziali. Passare al menu del dashboard dell'insieme di credenziali > **connessioni all'endpoint privato** in ' impostazioni ' > se per l'insieme di credenziali sono state create o tentate le connessioni a un endpoint privato, assicurarsi che vengano rimosse prima di procedere con l'eliminazione dell'insieme di credenziali. 
 
 Una volta completati questi passaggi, è possibile continuare a [eliminare l'](#delete-the-recovery-services-vault)insieme di credenziali.
 

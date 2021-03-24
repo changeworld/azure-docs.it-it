@@ -5,12 +5,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 05/01/2019
-ms.openlocfilehash: 6c020153d5c5cb5aad593c5b15e60e67951b89d4
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: d061832022b983e4d5fd55e72c1d4789b82f6633
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98945182"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104863225"
 ---
 # <a name="set-up-tls-encryption-and-authentication-for-apache-kafka-in-azure-hdinsight"></a>Configurare la crittografia e l'autenticazione TLS per Apache Kafka in Azure HDInsight
 
@@ -128,11 +128,11 @@ Per completare la configurazione, seguire questa procedura:
 1. In **Kafka Broker** (Broker Kafka) impostare la proprietà **listeners** su `PLAINTEXT://localhost:9092,SSL://localhost:9093`
 1. In **Advanced kafka-broker** (Kafka-broker avanzato) impostare la proprietà **security.inter.broker.protocol** su `SSL`
 
-    ![Modifica delle proprietà di configurazione SSL di Kafka in Ambari](./media/apache-kafka-ssl-encryption-authentication/editing-configuration-ambari.png)
+    :::image type="content" source="./media/apache-kafka-ssl-encryption-authentication/editing-configuration-ambari.png" alt-text="Modifica delle proprietà di configurazione di Kafka SSL in Ambari" border="true":::
 
 1. In **Custom kafka-broker** (Kafka-broker personalizzato) impostare la proprietà **ssl.client.auth** su `required`. Questo passaggio è necessario solo se si configurano l'autenticazione e la crittografia.
 
-    ![Modifica delle proprietà di configurazione SSL di Kafka in Ambari](./media/apache-kafka-ssl-encryption-authentication/editing-configuration-ambari2.png)
+    :::image type="content" source="./media/apache-kafka-ssl-encryption-authentication/editing-configuration-ambari2.png" alt-text="Modifica delle proprietà di configurazione SSL di Kafka in Ambari" border="true":::
 
 1. Per HDI versione 3,6, passare all'interfaccia utente di Ambari e aggiungere le configurazioni seguenti in **Advanced Kafka-ENV** e la proprietà del **modello Kafka-ENV** .
 
@@ -153,11 +153,11 @@ Per completare la configurazione, seguire questa procedura:
 
     Per HDI versione 3,6:
 
-    ![Modifica della proprietà del modello Kafka-ENV in Ambari](./media/apache-kafka-ssl-encryption-authentication/editing-configuration-kafka-env.png)
+    :::image type="content" source="./media/apache-kafka-ssl-encryption-authentication/editing-configuration-kafka-env.png" alt-text="Modifica della proprietà del modello Kafka-ENV in Ambari" border="true":::
 
     Per HDI versione 4,0:
 
-     ![Modifica della proprietà del modello Kafka-ENV in Ambari quattro](./media/apache-kafka-ssl-encryption-authentication/editing-configuration-kafka-env-four.png)
+     :::image type="content" source="./media/apache-kafka-ssl-encryption-authentication/editing-configuration-kafka-env-four.png" alt-text="Modifica della proprietà del modello Kafka-ENV in Ambari quattro" border="true":::
 
 1. Riavviare tutti i broker Kafka.
 

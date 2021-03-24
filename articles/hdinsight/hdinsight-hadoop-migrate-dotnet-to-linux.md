@@ -5,12 +5,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: how-to
 ms.date: 02/27/2018
-ms.openlocfilehash: 1ceb5d323ecfed54b4e01d13d66c640769a224ee
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 9e626d08e7fd315ca70765477c5dae56030521c6
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98945590"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104866404"
 ---
 # <a name="migrate-net-solutions-for-windows-based-hdinsight-to-linux-based-hdinsight"></a>Eseguire la migrazione di soluzioni .NET per HDInsight basato su Windows a HDInsight basato su Linux
 
@@ -33,7 +33,7 @@ Per altre informazioni sulla compatibilità tra Mono e .NET, vedere il documento
 
 2. Da Visual Studio 2015 selezionare __analizza__  >  __Portability Analyzer Settings__ e assicurarsi che __4,5__ sia selezionato nella sezione __mono__ .
 
-    ![4.5 selezionato nella sezione Mono per le impostazioni di analisi](./media/hdinsight-hadoop-migrate-dotnet-to-linux/portability-analyzer-settings.png)
+    :::image type="content" source="./media/hdinsight-hadoop-migrate-dotnet-to-linux/portability-analyzer-settings.png" alt-text="4.5 selezionato nella sezione Mono per le impostazioni di analisi":::
 
     Selezionare __OK__ per salvare la configurazione.
 
@@ -41,7 +41,7 @@ Per altre informazioni sulla compatibilità tra Mono e .NET, vedere il documento
 
 4. Una volta completata l'analisi, selezionare __analizza__  >  __Visualizza report di analisi__. In __Portability Analysis Results__ (Risultati analisi di portabilità) selezionare __Open report__ (Apri rapporto) per aprire un rapporto.
 
-    ![Finestra di dialogo dei risultati dell'analizzatore di portabilità](./media/hdinsight-hadoop-migrate-dotnet-to-linux/portability-analyzer-results.png)
+    :::image type="content" source="./media/hdinsight-hadoop-migrate-dotnet-to-linux/portability-analyzer-results.png" alt-text="Finestra di dialogo dei risultati dell'analizzatore di portabilità":::
 
 > [!IMPORTANT]  
 > L'analizzatore non può intercettare tutti i problemi con la soluzione. Un percorso di file di `c:\temp\file.txt` ad esempio viene considerato OK se Mono è in esecuzione su Windows. Lo stesso percorso non è valido in una piattaforma Linux.

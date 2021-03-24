@@ -4,12 +4,12 @@ description: Informazioni su come individuare e risolvere i problemi comuni quan
 services: container-service
 ms.topic: troubleshooting
 ms.date: 06/20/2020
-ms.openlocfilehash: adb6a28d8024c96d55c4e1bb8bc953d34a7c187e
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 1d3dff19bd75bfa4e7564eb4b188ffe68d605025
+ms.sourcegitcommit: ac035293291c3d2962cee270b33fca3628432fac
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104605886"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "104952032"
 ---
 # <a name="aks-troubleshooting"></a>Risoluzione dei problemi di servizio Azure Kubernetes
 
@@ -197,7 +197,7 @@ Quando un cluster kubernetes in Azure (AKS o no) esegue una scalabilità vertica
 Service returned an error. Status=429 Code=\"OperationNotAllowed\" Message=\"The server rejected the request because too many requests have been received for this subscription.\" Details=[{\"code\":\"TooManyRequests\",\"message\":\"{\\\"operationGroup\\\":\\\"HighCostGetVMScaleSet30Min\\\",\\\"startTime\\\":\\\"2020-09-20T07:13:55.2177346+00:00\\\",\\\"endTime\\\":\\\"2020-09-20T07:28:55.2177346+00:00\\\",\\\"allowedRequestCount\\\":1800,\\\"measuredRequestCount\\\":2208}\",\"target\":\"HighCostGetVMScaleSet30Min\"}] InnerError={\"internalErrorCode\":\"TooManyRequestsReceived\"}"}
 ```
 
-Questi errori di limitazione sono descritti in dettaglio [qui](../azure-resource-manager/management/request-limits-and-throttling.md) e [qui](../virtual-machines/troubleshooting/troubleshooting-throttling-errors.md)
+Questi errori di limitazione sono descritti in dettaglio [qui](../azure-resource-manager/management/request-limits-and-throttling.md) e [qui](/troubleshoot/azure/virtual-machines/troubleshooting-throttling-errors)
 
 La raccomandazione del team di progettazione di AKS è di assicurarsi di eseguire la versione almeno 1.18. x, che contiene molti miglioramenti. Per altri dettagli, vedere questi miglioramenti [qui](https://github.com/Azure/AKS/issues/1413) e [qui](https://github.com/kubernetes-sigs/cloud-provider-azure/issues/247).
 

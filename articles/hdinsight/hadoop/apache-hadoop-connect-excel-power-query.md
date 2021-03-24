@@ -5,12 +5,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 12/17/2019
-ms.openlocfilehash: bcca511bcb61ceab8395ee56b377efa99f095586
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 13862e642c6a91fe6f3c635df2efde91672ecbad
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98946703"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104866812"
 ---
 # <a name="connect-excel-to-apache-hadoop-by-using-power-query"></a>Connettere Excel ad Apache Hadoop mediante Power Query
 
@@ -42,13 +42,13 @@ Il componente aggiuntivo Power Query per Excel consente di importare facilmente 
 
      * Selezionare > **dati**  >  **ottenere i dati**  >  **da Azure**  >  **da Azure HDInsight (HDFS)**.
 
-       ![HDI. PowerQuery. SelectHdiSource. 2016](./media/apache-hadoop-connect-excel-power-query/powerquery-selecthdisource-excel2016.png)
+       :::image type="content" source="./media/apache-hadoop-connect-excel-power-query/powerquery-selecthdisource-excel2016.png" alt-text="HDI. PowerQuery. SelectHdiSource. 2016" border="true":::
 
    * Excel 2013/2010
 
      * Selezionare **Power query**  >  **da Azure**  >  **da Microsoft Azure HDInsight**.
 
-       ![HDI.PowerQuery.SelectHdiSource](./media/apache-hadoop-connect-excel-power-query/powerquery-selecthdisource.png)
+       :::image type="content" source="./media/apache-hadoop-connect-excel-power-query/powerquery-selecthdisource.png" alt-text="HDI.PowerQuery.SelectHdiSource" border="true":::
 
        **Nota:** Se non viene visualizzato il menu **Power query** , passare a **file**  >  **Opzioni**  >  **componenti** aggiuntivi e selezionare componenti aggiuntivi **com** dalla casella di riepilogo a discesa nella parte  inferiore della pagina. Fare clic sul pulsante **Vai** e verificare che la casella per il componente aggiuntivo Power Query per Excel sia selezionata.
 
@@ -62,11 +62,11 @@ Il componente aggiuntivo Power Query per Excel consente di importare facilmente 
 
 1. Individuare **HiveSampleData.txt** nella colonna **nome** (il percorso della cartella è **.. /hive/warehouse/hivesampletable/**) e quindi selezionare **Binary** a sinistra di HiveSampleData.txt. HiveSampleData.txt include tutto il cluster. Facoltativamente, è possibile usare un proprio file.
 
-    ![Dati di importazione di Power query di Excel HDI](./media/apache-hadoop-connect-excel-power-query/powerquery-importdata.png)
+    :::image type="content" source="./media/apache-hadoop-connect-excel-power-query/powerquery-importdata.png" alt-text="Dati di importazione di Power query di Excel HDI" border="true":::
 
 1. Se necessario, è possibile ridenominare le colonne. Quando si è pronti, selezionare **chiudi & caricare**.  I dati vengono caricati nella cartella di lavoro:
 
-    ![Tabella di Power query importata di Excel HDI](./media/apache-hadoop-connect-excel-power-query/powerquery-importedtable.png)
+    :::image type="content" source="./media/apache-hadoop-connect-excel-power-query/powerquery-importedtable.png" alt-text="Tabella di Power query importata di Excel HDI" border="true":::
 
 ## <a name="next-steps"></a>Passaggi successivi
 

@@ -5,12 +5,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 05/20/2020
 ms.custom: contperf-fy21q1
-ms.openlocfilehash: d54cf4e9025dfd75d9029dec534fc5dc5dd990a5
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 4e23c5977b2492d2ea8a7a8cc050c77c512c3e16
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98944179"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104868376"
 ---
 # <a name="memory-usage-optimization-for-apache-spark"></a>Ottimizzazione dell'utilizzo della memoria per Apache Spark
 
@@ -31,7 +31,7 @@ La struttura della memoria Spark e alcuni parametri di memoria dell'executor chi
 
 Se si usa Apache Hadoop YARN, questo controlla la memoria usata da tutti i contenitori in ogni nodo Spark.  Il diagramma seguente mostra gli oggetti chiave e le relative relazioni.
 
-![Gestione della memoria Spark in YARN](./media/apache-spark-perf/apache-yarn-spark-memory.png)
+:::image type="content" source="./media/apache-spark-perf/apache-yarn-spark-memory.png" alt-text="Gestione della memoria Spark in YARN" border="false":::
 
 Per indirizzare messaggi di "memoria insufficiente", provare a:
 

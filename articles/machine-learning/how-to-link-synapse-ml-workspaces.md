@@ -11,12 +11,12 @@ author: nibaccam
 ms.reviewer: nibaccam
 ms.date: 03/08/2021
 ms.custom: how-to, devx-track-python, data4ml, synapse-azureml
-ms.openlocfilehash: d1c4defc53c4af0fb481a57c0a455e987fdd480a
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 9d2b416955234cae7a30ac65dff7d64dedad3b1d
+ms.sourcegitcommit: a67b972d655a5a2d5e909faa2ea0911912f6a828
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102519997"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104889111"
 ---
 # <a name="link-azure-synapse-analytics-and-azure-machine-learning-workspaces-preview"></a>Collegare le aree di lavoro Azure Machine Learning e di analisi delle sinapsi di Azure (anteprima)
 
@@ -102,12 +102,14 @@ Collegare l'area di lavoro di machine learning e l'area di lavoro sinapsi tramit
 1. Accedere a [Azure Machine Learning Studio](https://ml.azure.com/).
 1. Selezionare **servizi collegati** nella sezione **Gestisci** del riquadro sinistro.
 1. Selezionare **Aggiungi integrazione**.
-1. Nel form **area di lavoro collegamento** popolare i campi 
-    Campo| Descrizione    
-    ---|---
-    Nome| Specificare un nome per il servizio collegato. Questo nome è quello che verrà usato per fare riferimento a questo particolare servizio collegato.
-    Nome sottoscrizione | Selezionare il nome della sottoscrizione associata all'area di lavoro di machine learning. 
-    Area di lavoro sinapsi | Selezionare l'area di lavoro sinapsi a cui si desidera collegarsi.
+1. Nel form **area di lavoro collegamento** popolare i campi
+
+    |Campo| Descrizione    
+    |---|---
+    |Nome| Specificare un nome per il servizio collegato. Questo nome è quello che verrà usato per fare riferimento a questo particolare servizio collegato.
+    |Nome sottoscrizione | Selezionare il nome della sottoscrizione associata all'area di lavoro di machine learning. 
+    |Area di lavoro sinapsi | Selezionare l'area di lavoro sinapsi a cui si desidera collegarsi.
+    
 1. Selezionare **Next (avanti** ) per aprire il modulo **Select Spark pools (facoltativo)** . In questo modulo si seleziona il pool di Spark di sinapsi da connettersi all'area di lavoro
 
 1. Selezionare **Avanti** per **aprire il modulo di verifica e** verificare le selezioni.

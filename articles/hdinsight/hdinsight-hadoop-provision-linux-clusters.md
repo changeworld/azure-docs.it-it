@@ -5,12 +5,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive,hdiseo17may2017,seodec18
 ms.date: 08/06/2020
-ms.openlocfilehash: a04d976ed3d9be253425b4c8a5a5c0effb6f80b8
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 04da79509ac40ba870014995d8318a49c98e1ce5
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101741838"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104863412"
 ---
 # <a name="set-up-clusters-in-hdinsight-with-apache-hadoop-apache-spark-apache-kafka-and-more"></a>Configurare i cluster di HDInsight con Apache Hadoop, Apache Spark, Apache Kafka e altro ancora
 
@@ -42,7 +42,7 @@ Questo articolo illustra la configurazione nel [portale di Azure](https://portal
 
 ## <a name="basics"></a>Nozioni di base
 
-![HDInsight creare opzioni personalizzate Quick](./media/hdinsight-hadoop-provision-linux-clusters/azure-portal-cluster-basics-blank-fs.png)
+:::image type="content" source="./media/hdinsight-hadoop-provision-linux-clusters/azure-portal-cluster-basics-blank-fs.png" alt-text="HDInsight creare opzioni personalizzate Quick":::
 
 ### <a name="project-details"></a>Dettagli del progetto
 
@@ -107,7 +107,7 @@ Il nome utente SSH presenta le restrizioni seguenti:
 
 ## <a name="storage"></a>Archiviazione
 
-![Impostazioni di archiviazione del cluster: endpoint compatibili con HDFS](./media/hdinsight-hadoop-provision-linux-clusters/azure-portal-cluster-storage.png)
+:::image type="content" source="./media/hdinsight-hadoop-provision-linux-clusters/azure-portal-cluster-storage.png" alt-text="Impostazioni di archiviazione del cluster: endpoint compatibili con HDFS":::
 
 Sebbene l'installazione locale di Hadoop usi Hadoop Distributed File System (HDFS) per l'archiviazione nel cluster, nel cloud vengono usati degli endpoint di archiviazione connessi al cluster. L'uso dell'archiviazione cloud consente di eliminare in modo sicuro i cluster HDInsight usati per il calcolo, mantenendo comunque i dati.
 
@@ -165,7 +165,7 @@ Ambari viene usato per monitorare i cluster HDInsight, apportare modifiche alla 
 
 ## <a name="security--networking"></a>Sicurezza e rete
 
-![Opzioni di creazione di HDInsight Scegliere il pacchetto di sicurezza aziendale](./media/hdinsight-hadoop-provision-linux-clusters/azure-portal-cluster-security-networking.png)
+:::image type="content" source="./media/hdinsight-hadoop-provision-linux-clusters/azure-portal-cluster-security-networking.png" alt-text="Opzioni di creazione di HDInsight Scegliere il pacchetto di sicurezza aziendale":::
 
 ### <a name="enterprise-security-package"></a>Pacchetto di sicurezza aziendale
 
@@ -201,7 +201,7 @@ Per altre informazioni, vedere [identità gestite in Azure HDInsight](./hdinsigh
 
 ## <a name="configuration--pricing"></a>Configurazione e prezzi
 
-![HDInsight scegliere le dimensioni del nodo](./media/hdinsight-hadoop-provision-linux-clusters/azure-portal-cluster-configuration.png)
+:::image type="content" source="./media/hdinsight-hadoop-provision-linux-clusters/azure-portal-cluster-configuration.png" alt-text="HDInsight scegliere le dimensioni del nodo":::
 
 Viene addebitato l'utilizzo del nodo fino a quando esiste il cluster. La fatturazione inizia con la creazione del cluster e si interrompe quando il cluster viene eliminato. I cluster non possono essere deallocati o messi in attesa.
 
@@ -211,10 +211,10 @@ Ogni tipo di cluster ha il proprio numero di nodi, una terminologia specifica pe
 
 | Tipo | Nodi | Diagramma |
 | --- | --- | --- |
-| Hadoop |Nodo Head (2), nodo Worker (1 +) |![Nodi del cluster HDInsight Hadoop](./media/hdinsight-hadoop-provision-linux-clusters/hdinsight-hadoop-cluster-type-nodes.png) |
-| hbase |Server head (2), server di area (1+), nodo master/ZooKeeper (3) |![Installazione del tipo di cluster HDInsight HBase](./media/hdinsight-hadoop-provision-linux-clusters/hdinsight-hbase-cluster-type-setup.png) |
-| Storm |Nodo Nimbus (2), server supervisore (1+), nodo ZooKeeper (3) |![Configurazione del tipo di cluster HDInsight Storm](./media/hdinsight-hadoop-provision-linux-clusters/hdinsight-storm-cluster-type-setup.png) |
-| Spark |Nodo Head (2), nodo Worker (1 +), nodo ZooKeeper (3) (gratuito per le dimensioni della macchina virtuale ZooKeeper a1) |![Installazione del tipo di cluster HDInsight Spark](./media/hdinsight-hadoop-provision-linux-clusters/hdinsight-spark-cluster-type-setup.png) |
+| Hadoop |Nodo Head (2), nodo Worker (1 +) |:::image type="content" source="./media/hdinsight-hadoop-provision-linux-clusters/hdinsight-hadoop-cluster-type-nodes.png" alt-text="Nodi del cluster HDInsight Hadoop" border="false"::: |
+| hbase |Server head (2), server di area (1+), nodo master/ZooKeeper (3) |:::image type="content" source="./media/hdinsight-hadoop-provision-linux-clusters/hdinsight-hbase-cluster-type-setup.png" alt-text="Installazione del tipo di cluster HDInsight HBase" border="false"::: |
+| Storm |Nodo Nimbus (2), server supervisore (1+), nodo ZooKeeper (3) |:::image type="content" source="./media/hdinsight-hadoop-provision-linux-clusters/hdinsight-storm-cluster-type-setup.png" alt-text="Configurazione del tipo di cluster HDInsight Storm" border="false"::: |
+| Spark |Nodo Head (2), nodo Worker (1 +), nodo ZooKeeper (3) (gratuito per le dimensioni della macchina virtuale ZooKeeper a1) |:::image type="content" source="./media/hdinsight-hadoop-provision-linux-clusters/hdinsight-spark-cluster-type-setup.png" alt-text="Installazione del tipo di cluster HDInsight Spark" border="false"::: |
 
 Per altre informazioni, vedere [Configurazione del nodo predefinito e dimensioni della macchina virtuale per i cluster](hdinsight-supported-node-configuration.md) in "Componenti e versioni di Hadoop in HDInsight"
 
@@ -222,7 +222,7 @@ Il costo del cluster HDInsight è determinato dal numero di nodi e dalle dimensi
 
 Diversi tipi di cluster hanno diversi tipi, numeri e dimensioni di nodi:
 * Tipo predefinito di cluster Hadoop:
-    * Due *nodi head*  
+    * Due *nodi head*
     * Quattro *nodi* del ruolo di lavoro
 * Tipo predefinito di cluster Storm:
     * Due *nodi Nimbus*

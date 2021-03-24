@@ -6,12 +6,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.date: 12/31/2019
 ms.custom: devx-track-csharp
-ms.openlocfilehash: a81f2b21545a5362168482f3f0a65fbbbf381c10
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 5360057ec2dfbd2b40c6f086f5e910103c544b62
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98929159"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104865452"
 ---
 # <a name="develop-c-topologies-for-apache-storm-by-using-the-data-lake-tools-for-visual-studio"></a>Sviluppare topologie C# per Apache Storm tramite gli strumenti Data Lake per Visual Studio
 
@@ -128,7 +128,7 @@ Per creare un progetto di topologia C# in Visual Studio:
 
 1. Nella finestra **Configura nuovo progetto** immettere il nome di un **progetto** *WordCount*, passare a o creare un percorso di **Directory per** il progetto e quindi selezionare **Crea**.
 
-    ![Applicazione Storm, configurare la finestra di dialogo nuovo progetto, Visual Studio](./media/apache-storm-develop-csharp-visual-studio-topology/apache-storm-new-project.png)
+    :::image type="content" source="./media/apache-storm-develop-csharp-visual-studio-topology/apache-storm-new-project.png" alt-text="Applicazione Storm, configurare la finestra di dialogo nuovo progetto, Visual Studio" border="true":::
 
 Dopo aver creato il progetto, è necessario disporre dei seguenti file:
 
@@ -333,7 +333,7 @@ A questo punto, creare due Bolt Storm in questo esempio:
 
 Gli spout e i bolt vengono disposti in un grafico che definisce i flussi di dati tra i componenti. Di seguito è riportato il grafico relativo alla topologia in oggetto:
 
-![Diagramma di disposizione del componente beccuccio e Bolt, topologia Storm](./media/apache-storm-develop-csharp-visual-studio-topology/word-count-topology1.png)
+:::image type="content" source="./media/apache-storm-develop-csharp-visual-studio-topology/word-count-topology1.png" alt-text="Diagramma di disposizione del componente beccuccio e Bolt, topologia Storm" border="false":::
 
 Il beccuccio emette le frasi distribuite a istanze del Bolt Splitter. Il bolt Splitter suddivide le frasi in parole, che vengono quindi distribuite al bolt Counter.
 
@@ -413,7 +413,7 @@ A questo punto si è pronti per inviare la topologia al cluster HDInsight.
 
     Quando la topologia è stata inviata correttamente, verrà visualizzata la finestra di **visualizzazione delle topologie Storm** per il cluster. Scegliere la topologia **WordCount** dall'elenco per visualizzare le informazioni sulla topologia in esecuzione.
 
-    ![Finestra visualizzazione topologia Storm, cluster HDInsight, Visual Studio](./media/apache-storm-develop-csharp-visual-studio-topology/storm-topology-view.png)
+    :::image type="content" source="./media/apache-storm-develop-csharp-visual-studio-topology/storm-topology-view.png" alt-text="Finestra visualizzazione topologia Storm, cluster HDInsight, Visual Studio" border="true":::
 
     > [!NOTE]  
     > È inoltre possibile visualizzare le **topologie Storm** da **Esplora Server**. Espandere **Azure**  >  **HDInsight**, fare clic con il pulsante destro del mouse su un cluster Storm in HDInsight e scegliere **Visualizza topologie Storm**.
@@ -567,7 +567,7 @@ Sebbene sia facile distribuire una topologia in un cluster, in alcuni casi potre
 
 1. In **Esplora soluzioni** fare clic con il pulsante destro del mouse sul progetto, quindi scegliere **Proprietà**. Nelle proprietà del progetto. Modificare quindi il **tipo di output** nell' **applicazione console**.
 
-   ![Applicazione HDInsight Storm, proprietà del progetto, tipo di output](./media/apache-storm-develop-csharp-visual-studio-topology/hdi-output-type-window.png)
+   :::image type="content" source="./media/apache-storm-develop-csharp-visual-studio-topology/hdi-output-type-window.png" alt-text="Applicazione HDInsight Storm, proprietà del progetto, tipo di output" border="true":::
 
    > [!NOTE]
    > Ricordarsi di reimpostare **Tipo di output** su **Libreria di classi** prima di distribuire la topologia a un cluster.

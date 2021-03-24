@@ -270,7 +270,7 @@
           href: use-pod-security-policies.md
         - name: Definire gli intervalli IP autorizzati per il server API
           href: api-server-authorized-ip-ranges.md
-        - name: Controllare le distribuzioni con Criteri di Azure (anteprima)
+        - name: Controllare le distribuzioni con criteri di Azure
           href: ../governance/policy/concepts/policy-for-kubernetes.md?toc=/azure/aks/toc.json
         - name: Aggiornare le credenziali del cluster
           href: update-credentials.md

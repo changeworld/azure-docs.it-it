@@ -4,12 +4,12 @@ description: Questo articolo illustra come ripristinare file e cartelle da un pu
 ms.topic: conceptual
 ms.date: 03/12/2020
 ms.custom: references_regions
-ms.openlocfilehash: 63714773d1b6f84b88bd2207aca4196fa16f1a94
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: ed231a4870af7489d48ff54548be380c2cf0799c
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103493527"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104864891"
 ---
 # <a name="recover-files-from-azure-virtual-machine-backup"></a>Ripristinare i file da un backup della macchina virtuale di Azure
 
@@ -35,7 +35,7 @@ Per ripristinare i file o le cartelle dal punto di ripristino, passare alla macc
 
 3. Scegliere **ripristino file** dal menu Dashboard di backup.
 
-    ![Seleziona ripristino file](./media/backup-azure-restore-files-from-vm/vm-backup-menu-file-recovery-button.png)
+    ![Seleziona ripristino file](./media/backup-azure-restore-files-from-vm/vm-backup-menu-file-recovery-button.png)32
 
     Viene aperto il menu **Ripristino file**.
 
@@ -81,6 +81,7 @@ Vedere Requisiti per ripristinare i file dalle macchine virtuali di cui è stato
 [Sistema operativo Windows](#for-backed-up-vms-with-large-disks-windows)<br>
 [Sistema operativo Linux](#for-backed-up-vms-with-large-disks-linux)
 
+Dopo aver scelto il computer corretto per eseguire lo script ILR, verificare che soddisfi i requisiti di [accesso](#step-4-access-requirements-to-successfully-run-the-script)e i requisiti del [sistema operativo](#step-3-os-requirements-to-successfully-run-the-script) . 
 
 ## <a name="step-3-os-requirements-to-successfully-run-the-script"></a>Passaggio 3: requisiti del sistema operativo per eseguire correttamente lo script
 
@@ -126,6 +127,8 @@ Per l'esecuzione e la connessione sicura al punto di ripristino, lo script richi
 | .NET | 4.6.2 e versioni successive |
 | TLS | 1.2 dovrebbe essere supportata  |
 
+Inoltre, assicurarsi di disporre del [computer appropriato per eseguire lo script ILR](#step-2-ensure-the-machine-meets-the-requirements-before-executing-the-script) e che soddisfi i [requisiti di accesso](#step-4-access-requirements-to-successfully-run-the-script).
+
 ## <a name="step-4-access-requirements-to-successfully-run-the-script"></a>Passaggio 4: accedere ai requisiti per eseguire correttamente lo script
 
 Se si esegue lo script in un computer con accesso limitato, verificare che sia disponibile l'accesso a:
@@ -148,12 +151,13 @@ Per Linux, lo script richiede i componenti "open-iscsi" e "lshw" per la connessi
 
 È necessario accedere a `download.microsoft.com` per scaricare i componenti usati per creare un canale sicuro tra il computer in cui viene eseguito lo script e i dati nel punto di ripristino.
 
+Assicurarsi anche di avere il [computer corretto per eseguire lo script ILR](#step-2-ensure-the-machine-meets-the-requirements-before-executing-the-script) e che soddisfi i [requisiti del sistema operativo](#step-3-os-requirements-to-successfully-run-the-script).
 
 ## <a name="step-5-running-the-script-and-identifying-volumes"></a>Passaggio 5: esecuzione dello script e identificazione dei volumi
 
 ### <a name="for-windows"></a>Per Windows
 
-Una volta soddisfatti tutti i requisiti elencati nel passaggio 2, passaggio 3 e passaggio 4, copiare lo script dal percorso scaricato, in genere la cartella Downloads, fare clic con il pulsante destro del mouse sul file eseguibile o sullo script ed eseguirlo con le credenziali di amministratore. Quando richiesto, digitare la password o incollarla dalla memoria e premere INVIO. Dopo l'immissione della password valida, lo script si connette al punto di ripristino.
+Una volta soddisfatti tutti i requisiti elencati nel [passaggio 2](#step-2-ensure-the-machine-meets-the-requirements-before-executing-the-script), [passaggio 3](#step-3-os-requirements-to-successfully-run-the-script) e [passaggio 4](#step-4-access-requirements-to-successfully-run-the-script), copiare lo script dal percorso scaricato, in genere la cartella Downloads, vedere il [passaggio 1 per informazioni su come generare e scaricare lo script](#step-1-generate-and-download-script-to-browse-and-recover-files). Fare clic con il pulsante destro del mouse sul file eseguibile ed eseguirlo con le credenziali di amministratore. Quando richiesto, digitare la password o incollarla dalla memoria e premere INVIO. Dopo l'immissione della password valida, lo script si connette al punto di ripristino.
 
   ![Output eseguibile](./media/backup-azure-restore-files-from-vm/executable-output.png)
 
@@ -180,7 +184,7 @@ Se il processo di ripristino dei file si blocca dopo l'esecuzione dello script d
 
 ### <a name="for-linux"></a>Per Linux
 
-Per i computer Linux, viene generato uno script Python. Scaricare lo script e copiarlo nel server Linux pertinente/compatibile. Potrebbe essere necessario modificare le autorizzazioni per eseguirlo con ```chmod +x <python file name>```. Eseguire quindi il file Python con ```./<python file name>```.
+Una volta soddisfatti tutti i requisiti elencati nel [passaggio 2](#step-2-ensure-the-machine-meets-the-requirements-before-executing-the-script), [passaggio 3](#step-3-os-requirements-to-successfully-run-the-script) e [passaggio 4](#step-4-access-requirements-to-successfully-run-the-script), generare uno script Python per computer Linux. [Per informazioni su come generare e scaricare lo script, vedere il passaggio 1](#step-1-generate-and-download-script-to-browse-and-recover-files). Scaricare lo script e copiarlo nel server Linux pertinente/compatibile. Potrebbe essere necessario modificare le autorizzazioni per eseguirlo con ```chmod +x <python file name>```. Eseguire quindi il file Python con ```./<python file name>```.
 
 
 In Linux i volumi del punto di ripristino sono montati nella cartella in cui viene eseguito lo script. I dischi collegati, i volumi e i percorsi di montaggio corrispondenti vengono visualizzati di conseguenza. Questi percorsi di montaggio sono visibili agli utenti con accesso a livello radice. Esplorare i volumi indicati nell'output dello script.
