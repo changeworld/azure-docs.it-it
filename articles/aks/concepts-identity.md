@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 07/07/2020
 author: palma21
 ms.author: jpalma
-ms.openlocfilehash: 98044f6ff6311241717cb66a6e26a72702d749e6
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 12900a64d9e023e4bddd5b5862b6a127fcba1d36
+ms.sourcegitcommit: ac035293291c3d2962cee270b33fca3628432fac
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102181449"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "104949992"
 ---
 # <a name="access-and-identity-options-for-azure-kubernetes-service-aks"></a>Opzioni di accesso e identità per il servizio Azure Kubernetes
 
@@ -73,6 +73,7 @@ Le autorizzazioni aggiuntive seguenti sono necessarie per l'identità del cluste
 | Microsoft.Network/virtualNetworks/subnets/read <br/> Microsoft.Network/virtualNetworks/subnets/join/action | Obbligatorio se si usa una subnet in un altro gruppo di risorse, ad esempio un VNET personalizzato. |
 | Microsoft.Network/routeTables/routes/read <br/> Microsoft.Network/routeTables/routes/write | Obbligatorio se si usa una subnet associata a una tabella di route in un altro gruppo di risorse, ad esempio un VNET personalizzato con una tabella di route personalizzata. Necessaria per verificare se esiste già una subnet per la subnet nell'altro gruppo di risorse. |
 | Microsoft.Network/virtualNetworks/subnets/read | Obbligatorio se si usa un servizio di bilanciamento del carico interno in un altro gruppo di risorse. Necessaria per verificare se una subnet esiste già per il servizio di bilanciamento del carico interno nel gruppo di risorse. |
+| Microsoft. Network/privatednszones/* | Obbligatorio se si usa una zona DNS privata in un altro gruppo di risorse, ad esempio un privateDNSZone personalizzato. |
 
 ## <a name="kubernetes-role-based-access-control-kubernetes-rbac"></a>Controllo degli accessi in base al ruolo Kubernetes (Kubernetes RBAC)
 

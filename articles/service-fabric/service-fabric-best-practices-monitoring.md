@@ -5,12 +5,12 @@ author: peterpogorski
 ms.topic: conceptual
 ms.date: 01/23/2019
 ms.author: pepogors
-ms.openlocfilehash: a7b1c1b3fc3196557b862c488ee01af8b8e1f04f
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 0eb9ce24f9ead44b7ba5a4d28d24177e62cb7757
+ms.sourcegitcommit: ac035293291c3d2962cee270b33fca3628432fac
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "86529251"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "104950519"
 ---
 # <a name="monitoring-and-diagnostic-best-practices-for-azure-service-fabric"></a>Procedure consigliate per il monitoraggio e la diagnostica per Azure Service Fabric
 
@@ -34,7 +34,7 @@ I [log di monitoraggio di Azure](./service-fabric-diagnostics-oms-agent.md) sono
 
 ## <a name="watchdogs"></a>Watchdog
 
-In genere, un watchdog è un servizio separato che controlla l'integrità e il carico tra servizi, esegue il ping degli endpoint e crea report di eventi di integrità imprevisti nel cluster. Questo consente di evitare errori che non verrebbero rilevati visualizzando le prestazioni di un singolo servizio. I watchdog possono essere usati anche per ospitare codice che esegue azioni correttive senza l'intervento dell'utente, ad esempio la cancellazione dei file di log nell'archiviazione a specifici intervalli di tempo. È possibile trovare un'implementazione di esempio del servizio watchdog in [Eventi cluster Linux di Service Fabric in Syslog](https://github.com/Azure-Samples/service-fabric-watchdog-service).
+In genere, un watchdog è un servizio separato che controlla l'integrità e il carico tra servizi, esegue il ping degli endpoint e crea report di eventi di integrità imprevisti nel cluster. Questo consente di evitare errori che non verrebbero rilevati visualizzando le prestazioni di un singolo servizio. I watchdog sono anche un posto ideale per ospitare codice che esegue azioni correttive che non richiedono l'interazione dell'utente, ad esempio la pulizia dei file di log nell'archiviazione a determinati intervalli di tempo. Se si vuole un servizio di watchdog open source completamente implementato che includa un modello di estendibilità del watchdog di facile utilizzo e che sia in esecuzione in cluster Windows e Linux, vedere il progetto [FabricObserver](https://aka.ms/sf/FabricObserver) . FabricObserver è un software pronto per la produzione. Si consiglia di distribuire FabricObserver nei cluster di test e di produzione e di estenderlo in base alle proprie esigenze tramite il modello di plug-in o di creare un fork e scrivere gli osservatori incorporati. Il primo (plug-in) è l'approccio consigliato.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
