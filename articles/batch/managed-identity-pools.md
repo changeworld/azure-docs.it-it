@@ -2,14 +2,14 @@
 title: Configurare le identità gestite nei pool di batch
 description: Informazioni su come abilitare le identità gestite assegnate dall'utente nei pool di batch e su come usare le identità gestite nei nodi.
 ms.topic: conceptual
-ms.date: 02/10/2021
+ms.date: 03/23/2021
 ms.custom: references_regions
-ms.openlocfilehash: 4a59383d119f88bb3ee180f629ba0a6ea6ac2f44
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 7fab213ac1545c0bff9b74bc46504717b6038e8e
+ms.sourcegitcommit: ac035293291c3d2962cee270b33fca3628432fac
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "100417619"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "104950162"
 ---
 # <a name="configure-managed-identities-in-batch-pools"></a>Configurare le identità gestite nei pool di batch
 
@@ -100,3 +100,4 @@ Per altre informazioni, vedere [come usare le identità gestite per le risorse d
 
 - Altre informazioni sulle [identità gestite per le risorse di Azure](../active-directory/managed-identities-azure-resources/overview.md).
 - Informazioni su come usare [chiavi gestite dal cliente con identità gestite dall'utente](batch-customer-managed-key.md).
+- Informazioni su come [abilitare la rotazione automatica del certificato in un pool di batch](automatic-certificate-rotation.md).

@@ -11,12 +11,12 @@ ms.topic: include
 ms.date: 09/15/2020
 ms.author: pafarley
 ms.custom: devx-track-dotnet, cog-serv-seo-aug-2020
-ms.openlocfilehash: d6f27ca3635ff1efb80e5261b7a5a07269304dfd
-ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
+ms.openlocfilehash: 061cc025f4bda4176cd213ecf1c15a815890371f
+ms.sourcegitcommit: a8ff4f9f69332eef9c75093fd56a9aae2fe65122
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/07/2021
-ms.locfileid: "102445321"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105027939"
 ---
 Introduzione alla libreria client di Azure Content Moderator per .NET. Seguire questi passaggi per installare il pacchetto NuGet e provare il codice di esempio per le attività di base. 
 
@@ -291,12 +291,13 @@ Se si vuole pulire e rimuovere una sottoscrizione a Servizi cognitivi, è possib
 * [Portale](../../../cognitive-services-apis-create-account.md#clean-up-resources)
 * [Interfaccia della riga di comando di Azure](../../../cognitive-services-apis-create-account-cli.md#clean-up-resources)
 
+## <a name="source-code"></a>Codice sorgente
+
+* Il codice sorgente per questo esempio è disponibile su [GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/dotnet/ContentModerator/Program.cs).
+
 ## <a name="next-steps"></a>Passaggi successivi
 
 In questo argomento di avvio rapido si è appreso come usare la libreria .NET di Content Moderator per eseguire attività di moderazione. Per altre informazioni sulla moderazione di immagini o di altri contenuti multimediali, è possibile leggere una guida concettuale.
 
 > [!div class="nextstepaction"]
 > [Concetti di moderazione delle immagini](../../image-moderation-api.md)
-
-* [Che cos'è Azure Content Moderator?](../../overview.md)
-* Il codice sorgente per questo esempio è disponibile su [GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/dotnet/ContentModerator/Program.cs).

@@ -2,25 +2,20 @@
 title: Scegliere le dimensioni e le immagini delle macchine virtuali per i pool
 description: Come scegliere tra le dimensioni delle macchine virtuali disponibili e le versioni del sistema operativo per i nodi di calcolo nei pool di Azure Batch
 ms.topic: conceptual
-ms.date: 11/24/2020
+ms.date: 03/18/2021
 ms.custom: seodec18
-ms.openlocfilehash: f108e1347ef6c3c7df45c4b3d807a754f4867097
-ms.sourcegitcommit: ba3a4d58a17021a922f763095ddc3cf768b11336
+ms.openlocfilehash: 2c3b90d6188dc6660233ae659fb4280dc1d4f2a5
+ms.sourcegitcommit: a8ff4f9f69332eef9c75093fd56a9aae2fe65122
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/23/2021
-ms.locfileid: "104800483"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105027381"
 ---
 # <a name="choose-a-vm-size-and-image-for-compute-nodes-in-an-azure-batch-pool"></a>Scegliere le dimensioni e l'immagine di una macchina virtuale per i nodi di calcolo in un pool di Azure Batch
 
 Quando si selezionano le dimensioni del nodo per un pool di Azure Batch, è possibile scegliere tra quasi tutte le dimensioni di VM disponibili in Azure. Azure offre un'ampia gamma di dimensioni per le VM Linux e Windows per carichi di lavoro diversi.
 
 ## <a name="supported-vm-series-and-sizes"></a>Serie e dimensioni di macchine virtuali supportate
-
-Esistono alcune eccezioni e limitazioni per la scelta delle dimensioni della macchina virtuale per il pool di batch:
-
-- Alcune famiglie o dimensioni di macchine virtuali non sono supportati in Azure Batch.
-- Alcune dimensioni delle macchine virtuali sono soggette a restrizioni e devono essere abilitate specificamente prima che sia possibile allocarle.
 
 ### <a name="pools-in-virtual-machine-configuration"></a>Pool in configurazione di tipo macchina virtuale
 
@@ -32,16 +27,14 @@ I pool di batch nella configurazione della macchina virtuale supportano quasi tu
 | Una | Tutte le dimensioni *eccetto* Standard_A0, Standard_A8, Standard_A9, Standard_A10 Standard_A11 |
 | Av2 | Tutte le dimensioni |
 | b | Non supportato |
-| DC | Non supportato |
+| DCsv2 | Tutte le dimensioni |
 | Dv2, DSv2 | Tutte le dimensioni |
 | Dv3, Dsv3 | Tutte le dimensioni |
-| Dav4 | Tutte le dimensioni |
-| Dasv4 | Tutte le dimensioni |
+| Dav4, Dasv4 | Tutte le dimensioni |
 | Ddv4, Ddsv4 |  Tutte le dimensioni |
 | DV4, Dsv4 | Non supportato |
 | Ev3, Esv3 | Tutte le dimensioni, ad eccezione di E64is_v3 |
-| Eav4 | Tutte le dimensioni |
-| Easv4 | Tutte le dimensioni |
+| Eav4, Easv4 | Tutte le dimensioni |
 | Edv4, Edsv4 |  Tutte le dimensioni |
 | Ev4, Esv4 | Non supportato |
 | F, Fs | Tutte le dimensioni |
@@ -50,6 +43,7 @@ I pool di batch nella configurazione della macchina virtuale supportano quasi tu
 | H | Tutte le dimensioni |
 | HB | Tutte le dimensioni |
 | HBv2 | Tutte le dimensioni |
+| Modello HBV3 | Standard_HB120rs_v3 (altre dimensioni non ancora disponibili) |
 | HC | Tutte le dimensioni |
 | Ls | Tutte le dimensioni |
 | Lsv2 | Tutte le dimensioni |
@@ -58,7 +52,7 @@ I pool di batch nella configurazione della macchina virtuale supportano quasi tu
 | NC | Tutte le dimensioni |
 | NCv2 | Tutte le dimensioni |
 | NCv3 | Tutte le dimensioni |
-| NCasT4_v3 | Nessuna - non ancora disponibile |
+| NCasT4_v3 | Tutte le dimensioni |
 | ND | Tutte le dimensioni |
 | NDv2 | Nessuna - non ancora disponibile |
 | NV | Tutte le dimensioni |

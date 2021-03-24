@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 03/03/2021
 ms.author: bwren
-ms.openlocfilehash: 89264bc17180aaf47611aef73c9fd20427bce104
-ms.sourcegitcommit: 2c1b93301174fccea00798df08e08872f53f669c
+ms.openlocfilehash: 4d546401baa7edc7725e3fdb23065009895f9c1e
+ms.sourcegitcommit: a8ff4f9f69332eef9c75093fd56a9aae2fe65122
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/22/2021
-ms.locfileid: "104772281"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105027432"
 ---
 # <a name="manage-usage-and-costs-with-azure-monitor-logs"></a>Gestire l'utilizzo e i costi con i log di Monitoraggio di Azure    
 
@@ -93,7 +93,7 @@ Per modificare il piano tariffario di Log Analytics dell'area di lavoro,
     
 3. Dopo aver esaminato i costi stimati in base agli ultimi 31 giorni di utilizzo, se si decide di modificare il piano tariffario, fare clic su **Seleziona**.  
 
-È anche possibile [impostare il piano tariffario tramite Azure Resource Manager](../samples/resource-manager-workspace.md) usando il parametro `sku` (`pricingTier` nel modello Azure Resource Manager). 
+È anche possibile [impostare il piano tariffario tramite Azure Resource Manager](./resource-manager-workspace.md) usando il parametro `sku` (`pricingTier` nel modello Azure Resource Manager). 
 
 ## <a name="legacy-pricing-tiers"></a>Piani tariffari legacy
 
@@ -145,7 +145,7 @@ Per impostare la conservazione predefinita per l'area di lavoro,
 
 Quando il periodo di conservazione viene ridotto, è previsto un periodo di prova di diversi giorni prima che i dati precedenti alla nuova impostazione di conservazione vengano rimossi. 
 
-La pagina **conservazione dati** consente le impostazioni di conservazione 30, 31, 60, 90, 120, 180, 270, 365, 550 e 730 giorni. Se è necessaria un'altra impostazione, è possibile configurarla utilizzando [Azure Resource Manager](../samples/resource-manager-workspace.md) utilizzando il `retentionInDays` parametro. Quando si imposta la conservazione dei dati su 30 giorni, è possibile attivare un'eliminazione immediata dei dati meno recenti utilizzando il `immediatePurgeDataOn30Days` parametro (eliminando il periodo di tolleranza di diversi giorni). Questo può essere utile per gli scenari correlati alla conformità in cui è imperativa la rimozione immediata dei dati. Questa funzionalità di ripulitura immediata viene esposta solo tramite Azure Resource Manager. 
+La pagina **conservazione dati** consente le impostazioni di conservazione 30, 31, 60, 90, 120, 180, 270, 365, 550 e 730 giorni. Se è necessaria un'altra impostazione, è possibile configurarla utilizzando [Azure Resource Manager](./resource-manager-workspace.md) utilizzando il `retentionInDays` parametro. Quando si imposta la conservazione dei dati su 30 giorni, è possibile attivare un'eliminazione immediata dei dati meno recenti utilizzando il `immediatePurgeDataOn30Days` parametro (eliminando il periodo di tolleranza di diversi giorni). Questo può essere utile per gli scenari correlati alla conformità in cui è imperativa la rimozione immediata dei dati. Questa funzionalità di ripulitura immediata viene esposta solo tramite Azure Resource Manager. 
 
 Le aree di lavoro con conservazione di 30 giorni possono effettivamente conservare i dati per 31 giorni. Se è fondamentale che i dati vengano conservati solo per 30 giorni, utilizzare il Azure Resource Manager per impostare la conservazione su 30 giorni e con il `immediatePurgeDataOn30Days` parametro.  
 
@@ -322,7 +322,7 @@ Il numero di unità nella fattura si trova in unità di nodo * mesi rappresentat
 
 
 > [!TIP]
-> Usare queste query `find` solo se necessario, poiché le analisi tra tipi di dati comportano un [elevato utilizzo di risorse](../log-query/query-optimization.md#query-performance-pane) per l’esecuzione. Se non sono necessari risultati **per computer**, eseguire una query sul tipo di dati Utilizzo (vedere di seguito).
+> Usare queste query `find` solo se necessario, poiché le analisi tra tipi di dati comportano un [elevato utilizzo di risorse](./query-optimization.md#query-performance-pane) per l’esecuzione. Se non sono necessari risultati **per computer**, eseguire una query sul tipo di dati Utilizzo (vedere di seguito).
 
 ## <a name="understanding-ingested-data-volume"></a>Informazioni sul volume di dati inseriti
 
@@ -406,7 +406,7 @@ find where TimeGenerated > ago(24h) project _IsBillable, Computer
 ```
 
 > [!TIP]
-> Usare queste query `find` solo se necessario, poiché le analisi tra tipi di dati comportano un [elevato utilizzo di risorse](../log-query/query-optimization.md#query-performance-pane) per l’esecuzione. Se non sono necessari risultati **per computer**, eseguire una query sul tipo di dati Utilizzo.
+> Usare queste query `find` solo se necessario, poiché le analisi tra tipi di dati comportano un [elevato utilizzo di risorse](./query-optimization.md#query-performance-pane) per l’esecuzione. Se non sono necessari risultati **per computer**, eseguire una query sul tipo di dati Utilizzo.
 
 ### <a name="data-volume-by-azure-resource-resource-group-or-subscription"></a>Volume di dati per risorse di Azure, gruppo di risorse o sottoscrizione
 
@@ -445,7 +445,7 @@ find where TimeGenerated > ago(24h) project _ResourceId, _BilledSize, _IsBillabl
 ```
 
 > [!TIP]
-> Usare queste query `find` solo se necessario, poiché le analisi tra tipi di dati comportano un [elevato utilizzo di risorse](../log-query/query-optimization.md#query-performance-pane) per l’esecuzione. Se non sono necessari i risultati per sottoscrizione, gruppo di risorse o nome della risorsa, eseguire una query sul tipo di dati di utilizzo.
+> Usare queste query `find` solo se necessario, poiché le analisi tra tipi di dati comportano un [elevato utilizzo di risorse](./query-optimization.md#query-performance-pane) per l’esecuzione. Se non sono necessari i risultati per sottoscrizione, gruppo di risorse o nome della risorsa, eseguire una query sul tipo di dati di utilizzo.
 
 > [!WARNING]
 > Benché siano ancora inclusi nello schema, alcuni campi del tipo di dati Utilizzo sono stati deprecati e i rispettivi valori non verranno più popolati. Si tratta del campo **Computer** e dei campi correlati all'inserimento, ossia **TotalBatches**, **BatchesWithinSla**, **BatchesOutsideSla**, **BatchesCapped** e **AverageProcessingTimeMs**.
@@ -479,7 +479,7 @@ Ecco alcuni suggerimenti utili per ridurre il volume dei log raccolti:
 
 | Origine del volume di dati elevato | Come ridurre il volume di dati |
 | -------------------------- | ------------------------- |
-| Dati analitici sui contenitori         | [Configurare il contenitore Insights](../insights/container-insights-cost.md#controlling-ingestion-to-reduce-cost) per raccogliere solo i dati necessari. |
+| Dati analitici sui contenitori         | [Configurare il contenitore Insights](../containers/container-insights-cost.md#controlling-ingestion-to-reduce-cost) per raccogliere solo i dati necessari. |
 | Eventi di sicurezza            | Selezionare gli [eventi di sicurezza comuni o minimi](../../security-center/security-center-enable-data-collection.md#data-collection-tier) <br> Modificare i criteri di controllo di sicurezza in modo che vengano raccolti solo gli eventi necessari. In particolare, esaminare la necessità di raccogliere eventi per: <br> - [controllo piattaforma filtro](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd772749(v=ws.10)) <br> - [controllo Registro di sistema](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd941614(v%3dws.10))<br> - [controllo file system](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd772661(v%3dws.10))<br> - [controllo oggetto kernel](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd941615(v%3dws.10))<br> - [controllo manipolazione handle](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd772626(v%3dws.10))<br> - controllo archivi rimovibili |
 | Contatori delle prestazioni       | Modificare la [configurazione del contatore delle prestazioni](../agents/data-sources-performance-counters.md) per: <br> - Ridurre la frequenza di raccolta <br> - Ridurre il numero di contatori delle prestazioni |
 | Log eventi                 | Modificare la [configurazione del log eventi](../agents/data-sources-windows-events.md) per: <br> - Ridurre il numero di log eventi raccolti <br> - Raccogliere solo i livelli di eventi richiesti, ad esempio non raccogliendo gli eventi di livello *informazioni* |
@@ -487,8 +487,8 @@ Ecco alcuni suggerimenti utili per ridurre il volume dei log raccolti:
 | AzureDiagnostics           | Modificare la [raccolta di log delle risorse](../essentials/diagnostic-settings.md#create-in-azure-portal) in: <br> - Ridurre il numero di risorse che inviano log a Log Analytics <br> - Raccogliere solo i log necessari |
 | Dati della soluzione da computer che non richiedono la soluzione | Usare il [targeting della soluzione](../insights/solution-targeting.md) per raccogliere dati unicamente dai gruppi di computer necessari |
 | Application Insights | Esaminare le opzioni per [https://docs.microsoft.com/azure/azure-monitor/app/pricing#managing-your-data-volume](managing Application Insights data volume) |
-| [SQL Analytics](https://docs.microsoft.com/azure/azure-monitor/insights/azure-sql) | Usare [set-AzSqlServerAudit](https://docs.microsoft.com/powershell/module/az.sql/set-azsqlserveraudit) per ottimizzare le impostazioni di controllo. |
-| Azure Sentinel | Esaminare le [origini dati Sentinel](https://docs.microsoft.com/azure/sentinel/connect-data-sources) che sono state recentemente abilitate come origini di un volume di dati aggiuntivo. |
+| [SQL Analytics](../insights/azure-sql.md) | Usare [set-AzSqlServerAudit](/powershell/module/az.sql/set-azsqlserveraudit) per ottimizzare le impostazioni di controllo. |
+| Azure Sentinel | Esaminare le [origini dati Sentinel](../../sentinel/connect-data-sources.md) che sono state recentemente abilitate come origini di un volume di dati aggiuntivo. |
 
 ### <a name="getting-nodes-as-billed-in-the-per-node-pricing-tier"></a>Recupero dei nodi come fatturati nel piano tariffario per nodo
 

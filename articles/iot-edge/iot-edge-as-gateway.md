@@ -4,19 +4,19 @@ description: Azure IoT Edge può essere usato per creare un dispositivo gateway 
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 11/10/2020
+ms.date: 03/23/2021
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom:
 - amqp
 - mqtt
-ms.openlocfilehash: ca8f02b375420590bcf1cc732c067a165e22b3fa
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: aa8b7372af91fc7cb194dfc3a6212cb4ce1fa0a2
+ms.sourcegitcommit: a8ff4f9f69332eef9c75093fd56a9aae2fe65122
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103492711"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105027347"
 ---
 # <a name="how-an-iot-edge-device-can-be-used-as-a-gateway"></a>Come usare un dispositivo Azure IoT Edge come gateway
 
@@ -24,12 +24,7 @@ ms.locfileid: "103492711"
 
 I dispositivi IoT Edge possono funzionare come gateway, fornendo una connessione tra altri dispositivi nella rete e nell'hub Internet.
 
-Il modulo Hub IoT Edge funge da hub Internet, in modo da poter gestire le connessioni da qualsiasi dispositivo con un'identità con l'hub Internet, inclusi altri dispositivi IoT Edge. Questo tipo di modello di gateway è denominato *trasparente* perché i messaggi possono passare dai dispositivi downstream all'hub Internet come se non fosse presente un gateway tra di essi.
-
-<!-- 1.2.0 -->
-::: moniker range=">=iotedge-2020-11"
-A partire dalla versione 1,2 di IoT Edge, i gateway trasparenti possono gestire le connessioni downstream da altri dispositivi IoT Edge.
-::: moniker-end
+Il modulo Hub IoT Edge funge da hub Internet, quindi è in grado di gestire le connessioni da altri dispositivi che hanno un'identità con lo stesso hub. Questo tipo di modello di gateway è denominato *trasparente* perché i messaggi possono passare dai dispositivi downstream all'hub Internet come se non fosse presente un gateway tra di essi.
 
 Per i dispositivi che non possono o non possono connettersi all'hub delle cose in modo autonomo, IoT Edge Gateway possono fornire tale connessione. Questo tipo di modello di gateway viene chiamato *traduzione* , perché il dispositivo IOT Edge deve eseguire l'elaborazione dei messaggi di dispositivo downstream in ingresso prima che possano essere inviati all'hub Internet. Questi scenari richiedono moduli aggiuntivi sul gateway IoT Edge per gestire i passaggi di elaborazione.
 
@@ -51,17 +46,19 @@ Per altre informazioni sul modo in cui l'hub IoT Edge gestisce la comunicazione 
 
 <!-- 1.1 -->
 ::: moniker range="iotedge-2018-06"
-
-I dispositivi IoT Edge non possono essere a valle di un gateway di IoT Edge.
-
 ![Diagramma-modello gateway trasparente](./media/iot-edge-as-gateway/edge-as-gateway-transparent.png)
+
+>[!NOTE]
+>In IoT Edge versione 1,1 e versioni precedenti, i dispositivi IoT Edge non possono essere a valle di un gateway di IoT Edge.
+>
+>A partire dalla versione 1,2 di IoT Edge, i gateway trasparenti possono gestire le connessioni da dispositivi IoT Edge downstream. Per ulteriori informazioni, passare alla versione [IoT Edge 1,2](?view=iotedge-2020-11&preserve-view=true) di questo articolo.
 
 ::: moniker-end
 
-<!-- 1.2.0 -->
+<!-- 1.2 -->
 ::: moniker range=">=iotedge-2020-11"
 
-A partire dalla versione 1.2.0, i dispositivi IoT Edge possono connettersi tramite gateway trasparenti.
+A partire dalla versione 1,2 di IoT Edge, i gateway trasparenti possono gestire le connessioni da dispositivi IoT Edge downstream.
 
 <!-- TODO add a downstream IoT Edge device to graphic -->
 
