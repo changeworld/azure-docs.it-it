@@ -6,21 +6,18 @@ ms.author: vivikram
 ms.manager: abhemraj
 ms.topic: how-to
 ms.date: 03/18/2021
-ms.openlocfilehash: 47ea06fa2143f9a5dc5808ccb98fc80c87fefd93
-ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
+ms.openlocfilehash: d68c3729e8a63f8342cd51b62413aec3276c6165
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/22/2021
-ms.locfileid: "104786703"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104871011"
 ---
 # <a name="discover-installed-software-inventory-and-sql-server-instances-and-databases"></a>Individuare l'inventario software installato e SQL Server le istanze e i database
 
 Questo articolo descrive come individuare l'inventario software installato e SQL Server istanze e database nei server in esecuzione nell'ambiente VMware usando Azure Migrate: strumento di individuazione e valutazione.
 
 L'inventario software consente di identificare e personalizzare un percorso di migrazione ad Azure per i carichi di lavoro. L'inventario software usa il dispositivo Azure Migrate per eseguire l'individuazione, usando le credenziali del server. È completamente senza agenti. per raccogliere questi dati, non vengono installati agenti nei server.
-
-> [!NOTE]
-> L'inventario software è attualmente disponibile in anteprima per i server in esecuzione solo nell'ambiente VMware ed è limitato all'individuazione. Attualmente non è disponibile una valutazione basata su applicazioni.<br/> L'individuazione e la valutazione di SQL Server istanze e database in esecuzione nell'ambiente VMware sono ora in anteprima. Per provare questa funzionalità, usare [**questo collegamento**](https://aka.ms/AzureMigrate/SQL) per creare un progetto nell'area **Australia orientale**. Se si dispone già di un progetto nell'Australia orientale e si vuole provare questa funzionalità, assicurarsi di aver completato questi [**prerequisiti**](how-to-discover-sql-existing-project.md) nel portale.
 
 ## <a name="before-you-start"></a>Prima di iniziare
 

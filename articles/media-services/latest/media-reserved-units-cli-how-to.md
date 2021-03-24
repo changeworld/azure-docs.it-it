@@ -2,29 +2,27 @@
 title: INTERFACCIA della riga di comando MRU (media reserved Unit)
 description: In questo argomento viene spiegato come usare l’interfaccia della riga di comando per ridimensionare l'elaborazione di servizi multimediali con Servizi multimediali di Azure.
 services: media-services
-documentationcenter: ''
 author: IngridAtMicrosoft
 manager: femila
-editor: ''
 ms.service: media-services
-ms.workload: media
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: how-to
-ms.date: 09/30/2020
+ms.date: 03/22/2021
 ms.author: inhenkel
-ms.openlocfilehash: a07c4a20b854e09daf3b320b8c99757ca99b2578
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 06c0c6333b84697415ef598d4c5e853d5c006f08
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102213811"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104870161"
 ---
 # <a name="how-to-scale-media-reserved-units"></a>Come ridimensionare media reserved unit
 
 [!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
 
 Questo articolo illustra come ridimensionare media reserved Unit (MRSs) per una codifica più rapida.
+
+> [!WARNING]
+> Questo comando non funzionerà più per gli account di servizi multimediali creati con la versione 2020-05-01 dell'API o versioni successive. Per questi account, le media reserved unit non sono più necessarie perché il sistema verrà ridimensionato automaticamente in base al carico. Se non viene visualizzata l'opzione per gestire MRU nel portale di Azure, si usa un account creato con l'API 2020-05-01 o versione successiva.
 
 ## <a name="prerequisites"></a>Prerequisiti
 

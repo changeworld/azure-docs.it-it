@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: conceptual
 ms.date: 11/23/2020
-ms.openlocfilehash: 48966e481f9cf8796c866b5c15a4e2a8616eade7
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: e02ad9187743603d46259d70965e49d6839ecd71
+ms.sourcegitcommit: ac035293291c3d2962cee270b33fca3628432fac
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "97695852"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "104949839"
 ---
 # <a name="azure-purview-deployment-best-practices"></a>Procedure consigliate per la distribuzione di Azure
 
@@ -150,7 +150,7 @@ In ambito di competenza sono disponibili diverse aree in cui gli amministratori 
 
 ### <a name="plan-and-implement-different-integration-points-with-purview"></a>Pianificare e implementare punti di integrazione diversi con la competenza
 
-È probabile che un'organizzazione matura abbia già un catalogo dati esistente. La domanda fondamentale è se continuare a usare la tecnologia esistente e la sincronizzazione con la competenza. La competenza consente la pubblicazione di informazioni tramite le API Atlas, ma in realtà non sono destinate a supportare questo tipo di scenario. Alcune organizzazioni possono inizialmente decidere di avviare l'utilizzo della competenza eseguendo la migrazione degli asset di dati esistenti da altre soluzioni di Data Catalog. Questa operazione può essere eseguita tramite le API Atlas come approccio unidirezionale. Per eseguire la sincronizzazione tra tecnologie di catalogo diverse non è consigliabile considerare la progettazione a lungo termine. Ciò che in genere si è verificato è che ogni business unit può continuare a usare le soluzioni esistenti per gli asset di dati meno recenti, mentre la competenza viene usata per eseguire la scansione rispetto alle origini dati più recenti.
+È probabile che un'organizzazione matura abbia già un catalogo dati esistente. La domanda fondamentale è se continuare a usare la tecnologia esistente e la sincronizzazione con l'ambito. Per gestire la sincronizzazione con i prodotti esistenti in un'organizzazione, la competenza fornisce le API REST Atlas. Le API Atlas forniscono un meccanismo potente e flessibile per la gestione di scenari push e pull. Le informazioni possono essere pubblicate per la competenza usando le API Atlas per il bootstrap o per effettuare il push degli aggiornamenti più recenti da un altro sistema in ambito. Le informazioni disponibili in ambito di competenza possono essere lette anche usando le API Atlas e quindi sincronizzate con i prodotti esistenti. 
 
 Per altri scenari di integrazione, ad esempio il ticketing, l'interfaccia utente personalizzata e l'orchestrazione, è possibile usare le API Atlas e gli endpoint Kafka. In generale, sono disponibili quattro punti di integrazione con competenza:
 
