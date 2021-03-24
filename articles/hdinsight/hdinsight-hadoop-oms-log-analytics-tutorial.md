@@ -5,12 +5,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: seoapr2020, devx-track-azurecli, devx-track-azurepowershell
 ms.date: 05/13/2020
-ms.openlocfilehash: b81a2021cabefd9587d448aa236e7e87bc254741
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 0dfa89f50dedad41394cb77f1cca9b2dd3a65308
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "100590826"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104865537"
 ---
 # <a name="use-azure-monitor-logs-to-monitor-hdinsight-clusters"></a>Usare i log di Monitoraggio di Azure per monitorare i cluster HDInsight
 
@@ -58,7 +58,7 @@ In questa sezione si configura un cluster Hadoop HDInsight esistente per usare u
 
 1. Selezionare **Salva**.  Sono necessari alcuni minuti per salvare l'impostazione.
 
-    ![Abilitare il monitoraggio per i cluster HDInsight](./media/hdinsight-hadoop-oms-log-analytics-tutorial/azure-portal-monitoring.png "Abilitare il monitoraggio per i cluster HDInsight")
+    :::image type="content" source="./media/hdinsight-hadoop-oms-log-analytics-tutorial/azure-portal-monitoring.png" alt-text="Abilitare il monitoraggio per i cluster HDInsight":::
 
 ## <a name="enable-azure-monitor-using-azure-powershell"></a>Abilitare Monitoraggio di Azure tramite Azure PowerShell
 
@@ -138,7 +138,7 @@ Soluzioni HDInsight disponibili:
 
 Per le istruzioni sulle soluzioni di gestione, vedere [Soluzioni di gestione in Azure](../azure-monitor/insights/solutions.md#install-a-monitoring-solution). Per provare, installare una soluzione di monitoraggio Hadoop di HDInsight. Al termine verrà visualizzato il riquadro **HDInsightHadoop** elencato sotto **Riepilogo**. Selezionare il riquadro **HDInsightHadoop**. La soluzione HDInsightHadoop appare come segue:
 
-![Visualizzazione della soluzione di monitoraggio di HDInsight](media/hdinsight-hadoop-oms-log-analytics-tutorial/hdinsight-oms-hdinsight-hadoop-monitoring-solution.png)
+:::image type="content" source="media/hdinsight-hadoop-oms-log-analytics-tutorial/hdinsight-oms-hdinsight-hadoop-monitoring-solution.png" alt-text="Visualizzazione della soluzione di monitoraggio di HDInsight":::
 
 Poiché il cluster è nuovo, il report non visualizza tutte le attività.
 

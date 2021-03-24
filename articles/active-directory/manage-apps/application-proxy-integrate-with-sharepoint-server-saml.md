@@ -16,12 +16,12 @@ ms.author: kenwith
 ms.reviewer: japere
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7cadf5b7d92e26e561e570f824295e69ca421e16
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 34aaafcd03e737b1e59529f8001e0c008bd39b70
+ms.sourcegitcommit: a67b972d655a5a2d5e909faa2ea0911912f6a828
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "101644519"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104888873"
 ---
 # <a name="integrate-with-sharepoint-saml"></a>Integrazione con SharePoint (SAML)
 
@@ -68,8 +68,8 @@ In questo passaggio viene creata un'applicazione nel tenant di Azure AD che usa 
 
  1. Creare una nuova applicazione proxy di applicazione Azure AD con dominio personalizzato. Per istruzioni dettagliate, vedere [domini personalizzati nel proxy di applicazione Azure ad](./application-proxy-configure-custom-domain.md).
 
-    - URL interno: https://portal.contoso.com/
-    - URL esterno: https://portal.contoso.com/
+    - URL interno:' https://portal.contoso.com/ '
+    - URL esterno:' https://portal.contoso.com/ '
     - Pre-autenticazione: Azure Active Directory
     - Converti URL nelle intestazioni: No
     - Convertire gli URL nel corpo dell'applicazione: No
@@ -84,4 +84,4 @@ In questo passaggio viene creata un'applicazione nel tenant di Azure AD che usa 
  
 ## <a name="step-3-test-your-application"></a>Passaggio 3: testare l'applicazione
 
-Utilizzando un browser da un computer in una rete esterna, passare all'URL ( https://portal.contoso.com/) configurato durante il passaggio di pubblicazione. Verificare che sia possibile accedere con l'account di test configurato.
+Utilizzando un browser da un computer in una rete esterna, passare al collegamento configurato durante il passaggio di pubblicazione. Verificare che sia possibile accedere con l'account di test configurato.

@@ -6,12 +6,12 @@ ms.custom: devx-track-csharp, devx-track-azurecli
 ms.topic: article
 ms.date: 06/02/2020
 zone_pivot_groups: app-service-platform-windows-linux
-ms.openlocfilehash: 1223ff5c56d3c7d58b324d2099980bc0b5408125
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 5e4351529fb7b6a66f554182a195bc26f79c0e2b
+ms.sourcegitcommit: a67b972d655a5a2d5e909faa2ea0911912f6a828
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "97655969"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104889485"
 ---
 # <a name="configure-an-aspnet-core-app-for-azure-app-service"></a>Configurare un'app ASP.NET Core per il servizio app Azure
 
@@ -125,7 +125,7 @@ namespace SomeNamespace
 }
 ```
 
-Se si configura un'impostazione dell'app con lo stesso nome nel servizio app e in *appsettings.js*, ad esempio, il valore del servizio app ha la precedenza sul valore di *appsettings.js* . Il valore locale *appsettings.json* consente di eseguire il debug dell'app in locale, ma il valore del servizio app consente di eseguire l'app in un prodotto con impostazioni di produzione. Le stringhe di connessione funzionano allo stesso modo. In questo modo, è possibile proteggere i segreti dell'applicazione all'esterno del repository di codice e accedere ai valori appropriati senza modificare il codice.
+Se si configura un'impostazione dell'app con lo stesso nome nel servizio app e in *appsettings.js*, ad esempio, il valore del servizio app ha la precedenza sul valore di *appsettings.js* . Il valore locale *appsettings.json* consente di eseguire il debug dell'app in locale, ma il valore del servizio app consente di eseguire l'app nell'ambiente di produzione con le impostazioni di produzione. Le stringhe di connessione funzionano allo stesso modo. In questo modo, è possibile proteggere i segreti dell'applicazione all'esterno del repository di codice e accedere ai valori appropriati senza modificare il codice.
 
 > [!NOTE]
 > Si noti che è possibile accedere ai [dati di configurazione gerarchici](/aspnet/core/fundamentals/configuration/#hierarchical-configuration-data) in *appsettings.json* usando il `:` delimitatore standard di .NET Core. Per eseguire l'override di un'impostazione di configurazione gerarchica specifica nel servizio app, impostare il nome dell'impostazione dell'app con lo stesso formato delimitato nella chiave. nell' [cloud Shell](https://shell.azure.com)è possibile eseguire l'esempio seguente:

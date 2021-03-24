@@ -5,12 +5,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.date: 01/14/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 4393c6797f5a164a063b55f8994d7d37d278f3c4
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: ee483872535c58bde521cf0a751058fdc2fecd40
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98929187"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104871453"
 ---
 # <a name="process-events-from-azure-event-hubs-with-apache-storm-on-hdinsight-c"></a>Elaborare eventi di Hub eventi di Azure con Apache Storm in HDInsight (C#)
 
@@ -126,7 +126,7 @@ L'hub eventi è l'origine dati per questo esempio. Usare le informazioni contenu
    | writer |Invia |
    | reader |Attesa |
 
-    ![Schermata della finestra Criteri di accesso condivisi](./media/apache-storm-develop-csharp-event-hub-topology/share-access-policies.png)
+    :::image type="content" source="./media/apache-storm-develop-csharp-event-hub-topology/share-access-policies.png" alt-text="Schermata della finestra Criteri di accesso condivisi" border="true":::
 
 2. Selezionare i criteri **reader** and **writer**. Copiare e salvare i valori di chiave primaria per entrambi i criteri, perché verranno usati in un secondo momento.
 
@@ -168,15 +168,15 @@ L'hub eventi è l'origine dati per questo esempio. Usare le informazioni contenu
 
 1. Da **Esplora soluzioni**, fare clic con il pulsante destro del mouse sul progetto **EventHubReader** e selezionare **Invia a Storm in HDInsight**.
 
-    ![Schermata di Esplora soluzioni con Submit to Storm on HDInsight (Invia a Storm in HDInsight) evidenziato](./media/apache-storm-develop-csharp-event-hub-topology/submit-to-apache-storm.png)
+    :::image type="content" source="./media/apache-storm-develop-csharp-event-hub-topology/submit-to-apache-storm.png" alt-text="Schermata di Esplora soluzioni con Submit to Storm on HDInsight (Invia a Storm in HDInsight) evidenziato" border="true":::
 
 2. Nella finestra di dialogo **Submit Topology** (Invia topologia) selezionare il **cluster Storm**. Espandere **Additional Configurations** (Configurazioni aggiuntive), selezionare **Java File Paths** (Percorsi file Java), selezionare **...** e quindi selezionare la directory contenente il file JAR scaricato in precedenza. Infine fare clic su **Submit**.
 
-    ![Schermata della finestra di dialogo Submit Topology (Invia topologia)](./media/apache-storm-develop-csharp-event-hub-topology/submit-storm-topology.png)
+    :::image type="content" source="./media/apache-storm-develop-csharp-event-hub-topology/submit-storm-topology.png" alt-text="Schermata della finestra di dialogo Submit Topology (Invia topologia)" border="true":::
 
 3. Dopo l'invio della topologia, verrà visualizzato **Storm Topologies Viewer** (Visualizzatore topologie Storm). Selezionare la topologia **EventHubReader** nel riquadro a sinistra per visualizzare le relative informazioni.
 
-    ![Schermata Storm Topologies Viewer (Visualizzatore topologie Storm)](./media/apache-storm-develop-csharp-event-hub-topology/storm-topology-viewer.png)
+    :::image type="content" source="./media/apache-storm-develop-csharp-event-hub-topology/storm-topology-viewer.png" alt-text="Schermata Storm Topologies Viewer (Visualizzatore topologie Storm)" border="true":::
 
 4. Da **Esplora soluzioni**, fare clic con il pulsante destro del mouse sul progetto **EventHubWriter** e selezionare **Invia a Storm in HDInsight**.
 
@@ -200,7 +200,7 @@ L'hub eventi è l'origine dati per questo esempio. Usare le informazioni contenu
 
 Per arrestare le topologie, selezionarle singolarmente in **Storm Topology Viewer** (Visualizzatore topologie Storm) e quindi fare clic su **Termina**.
 
-![Schermata Storm Topology Viewer (Visualizzatore topologie Storm), con il pulsante Kill (Termina) evidenziato](./media/apache-storm-develop-csharp-event-hub-topology/kill-storm-topology1.png)
+:::image type="content" source="./media/apache-storm-develop-csharp-event-hub-topology/kill-storm-topology1.png" alt-text="Schermata Storm Topology Viewer (Visualizzatore topologie Storm), con il pulsante Kill (Termina) evidenziato" border="true":::
 
 ## <a name="delete-your-cluster"></a>Eliminare il cluster
 

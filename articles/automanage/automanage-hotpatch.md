@@ -3,17 +3,17 @@ title: Danneggiata per Windows Server Azure Edition (anteprima)
 description: Informazioni sul funzionamento di danneggiata per Windows Server Azure Edition e su come abilitarlo
 author: ju-shim
 ms.service: virtual-machines
-ms.subservice: automanage
+ms.subservice: hotpatch
 ms.workload: infrastructure
 ms.topic: conceptual
 ms.date: 02/22/2021
 ms.author: jushiman
-ms.openlocfilehash: 710e6902be6ebe28caaf40fb446e4ee7cd2bf4dc
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 92b8bf240dfd73cc9191675db07f20816b7156a8
+ms.sourcegitcommit: ac035293291c3d2962cee270b33fca3628432fac
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101687567"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "104953392"
 ---
 # <a name="hotpatch-for-new-virtual-machines-preview"></a>Danneggiata per le nuove macchine virtuali (anteprima)
 
@@ -129,21 +129,21 @@ az provider register --namespace Microsoft.Compute
 
 ## <a name="patch-installation"></a>Installazione patch
 
-Durante l'anteprima, l'applicazione [automatica delle patch Guest](https://docs.microsoft.com/azure/virtual-machines/automatic-vm-guest-patching) per le VM è abilitata automaticamente per tutte le macchine virtuali create con _Windows Server 2019 datacenter: Azure Edition_. Con l'applicazione automatica delle patch guest VM abilitata:
+Durante l'anteprima, l'applicazione [automatica delle patch Guest](../virtual-machines/automatic-vm-guest-patching.md) per le VM è abilitata automaticamente per tutte le macchine virtuali create con _Windows Server 2019 datacenter: Azure Edition_. Con l'applicazione automatica delle patch guest VM abilitata:
 * Le patch classificate come critiche o la sicurezza vengono scaricate e applicate automaticamente nella macchina virtuale.
 * Le patch vengono applicate durante gli orari di minore traffico nel fuso orario della macchina virtuale.
-* Patch Orchestration è gestito da Azure e le patch vengono applicate in base ai [principi di disponibilità](https://docs.microsoft.com/azure/virtual-machines/automatic-vm-guest-patching#availability-first-patching).
+* Patch Orchestration è gestito da Azure e le patch vengono applicate in base ai [principi di disponibilità](../virtual-machines/automatic-vm-guest-patching.md#availability-first-patching).
 * L'integrità della macchina virtuale, come determinato dai segnali di integrità della piattaforma, viene monitorata per rilevare errori di applicazione delle patch.
 
 ### <a name="how-does-automatic-vm-guest-patching-work"></a>Come funziona l'applicazione automatica delle patch per guest VM?
 
-Quando l'applicazione [automatica delle patch Guest](https://docs.microsoft.com/azure/virtual-machines/automatic-vm-guest-patching) per le VM è abilitata in una macchina virtuale, le patch di sicurezza e critiche disponibili vengono scaricate e applicate automaticamente. Questo processo viene automaticamente interrotto ogni mese quando vengono rilasciate nuove patch. La valutazione e l'installazione delle patch sono automatiche e il processo include il riavvio della macchina virtuale secondo le esigenze.
+Quando l'applicazione [automatica delle patch Guest](../virtual-machines/automatic-vm-guest-patching.md) per le VM è abilitata in una macchina virtuale, le patch di sicurezza e critiche disponibili vengono scaricate e applicate automaticamente. Questo processo viene automaticamente interrotto ogni mese quando vengono rilasciate nuove patch. La valutazione e l'installazione delle patch sono automatiche e il processo include il riavvio della macchina virtuale secondo le esigenze.
 
 Con danneggiata abilitato in _Windows Server 2019 datacenter:_ macchine virtuali dell'edizione di Azure, la maggior parte degli aggiornamenti di sicurezza mensili viene recapitata come hotpatches che non richiedono il riavvio. Gli aggiornamenti cumulativi più recenti inviati nei mesi di base pianificati o non pianificati richiederanno il riavvio della macchina virtuale. Potrebbero essere disponibili periodicamente altre patch critiche o di sicurezza che potrebbero richiedere il riavvio della macchina virtuale.
 
 La macchina virtuale viene valutata automaticamente ogni pochi giorni e più volte entro un periodo di 30 giorni per determinare le patch applicabili per tale macchina virtuale. Questa valutazione automatica garantisce che tutte le patch mancanti vengano individuate alla prima possibile opportunità.
 
-Le patch vengono installate entro 30 giorni dalle versioni con patch mensili, seguendo i [principi di disponibilità](https://docs.microsoft.com/azure/virtual-machines/automatic-vm-guest-patching#availability-first-patching). Le patch vengono installate solo durante gli orari di minore traffico per la macchina virtuale, a seconda del fuso orario della macchina virtuale. Per installare automaticamente le patch, la macchina virtuale deve essere in esecuzione durante gli orari di minore traffico. Se una macchina virtuale viene spenta durante una valutazione periodica, la macchina virtuale verrà valutata e le patch applicabili verranno installate automaticamente durante la valutazione periodica successiva quando la macchina virtuale è accesa. La valutazione periodica successiva si verifica in genere entro pochi giorni.
+Le patch vengono installate entro 30 giorni dalle versioni con patch mensili, seguendo i [principi di disponibilità](../virtual-machines/automatic-vm-guest-patching.md#availability-first-patching). Le patch vengono installate solo durante gli orari di minore traffico per la macchina virtuale, a seconda del fuso orario della macchina virtuale. Per installare automaticamente le patch, la macchina virtuale deve essere in esecuzione durante gli orari di minore traffico. Se una macchina virtuale viene spenta durante una valutazione periodica, la macchina virtuale verrà valutata e le patch applicabili verranno installate automaticamente durante la valutazione periodica successiva quando la macchina virtuale è accesa. La valutazione periodica successiva si verifica in genere entro pochi giorni.
 
 Gli aggiornamenti delle definizioni e altre patch non classificate come critiche o la sicurezza non verranno installate tramite l'applicazione automatica delle patch Guest per le macchine virtuali.
 
@@ -151,7 +151,7 @@ Gli aggiornamenti delle definizioni e altre patch non classificate come critiche
 
 Per visualizzare lo stato della patch per la macchina virtuale, passare alla sezione **aggiornamenti guest + host** per la macchina virtuale nel portale di Azure. Nella sezione **aggiornamenti del sistema operativo guest** fare clic su "Vai a danneggiata (anteprima)" per visualizzare lo stato più recente della patch per la macchina virtuale.
 
-In questa schermata verrà visualizzato lo stato danneggiata per la macchina virtuale. È anche possibile verificare se sono presenti patch disponibili per la VM che non sono state installate. Come descritto nella sezione precedente "installazione patch", tutti gli aggiornamenti critici e di sicurezza verranno installati automaticamente nella macchina virtuale tramite l'applicazione [automatica di patch per guest VM](https://docs.microsoft.com/azure/virtual-machines/automatic-vm-guest-patching) e non sono necessarie azioni aggiuntive. Le patch con altre classificazioni di aggiornamento non vengono installate automaticamente. Sono invece visualizzabili nell'elenco delle patch disponibili nella scheda "conformità aggiornamenti". È anche possibile visualizzare la cronologia delle distribuzioni degli aggiornamenti nella macchina virtuale tramite "cronologia aggiornamenti". Viene visualizzata la cronologia degli aggiornamenti degli ultimi 30 giorni, insieme ai dettagli sull'installazione della patch.
+In questa schermata verrà visualizzato lo stato danneggiata per la macchina virtuale. È anche possibile verificare se sono presenti patch disponibili per la VM che non sono state installate. Come descritto nella sezione precedente "installazione patch", tutti gli aggiornamenti critici e di sicurezza verranno installati automaticamente nella macchina virtuale tramite l'applicazione [automatica di patch per guest VM](../virtual-machines/automatic-vm-guest-patching.md) e non sono necessarie azioni aggiuntive. Le patch con altre classificazioni di aggiornamento non vengono installate automaticamente. Sono invece visualizzabili nell'elenco delle patch disponibili nella scheda "conformità aggiornamenti". È anche possibile visualizzare la cronologia delle distribuzioni degli aggiornamenti nella macchina virtuale tramite "cronologia aggiornamenti". Viene visualizzata la cronologia degli aggiornamenti degli ultimi 30 giorni, insieme ai dettagli sull'installazione della patch.
 
 
 :::image type="content" source="media\automanage-hotpatch\hotpatch-management-ui.png" alt-text="Gestione danneggiata.":::
@@ -225,5 +225,5 @@ Ci sono alcune considerazioni importanti per l'esecuzione di una VM Windows Serv
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* Scopri di più su Azure Gestione aggiornamenti [qui](https://docs.microsoft.com/azure/automation/update-management/overview).
-* Altre informazioni sull'applicazione automatica di patch per guest VM sono disponibili [qui](https://docs.microsoft.com/azure/virtual-machines/automatic-vm-guest-patching)
+* Scopri di più su Azure Gestione aggiornamenti [qui](../automation/update-management/overview.md).
+* Altre informazioni sull'applicazione automatica di patch per guest VM sono disponibili [qui](../virtual-machines/automatic-vm-guest-patching.md)

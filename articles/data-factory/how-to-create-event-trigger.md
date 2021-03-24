@@ -7,12 +7,12 @@ ms.author: chez
 ms.reviewer: jburchel
 ms.topic: conceptual
 ms.date: 03/11/2021
-ms.openlocfilehash: deaa414a17240e8cdbdad7f4ba9b3e596b4f191f
-ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
+ms.openlocfilehash: ae8b1eab81e3c898c25a613f552a49c8de64f49d
+ms.sourcegitcommit: a67b972d655a5a2d5e909faa2ea0911912f6a828
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/22/2021
-ms.locfileid: "104780328"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104889128"
 ---
 # <a name="create-a-trigger-that-runs-a-pipeline-in-response-to-a-storage-event"></a>Creare un trigger per l'esecuzione di una pipeline in risposta a un evento di archiviazione
 
@@ -43,10 +43,10 @@ Questa sezione illustra come creare un trigger di evento di archiviazione all'in
 
     :::image type="content" source="media/how-to-create-event-trigger/event-based-trigger-image1.png" alt-text="Screenshot della pagina Author (autore) per creare un nuovo trigger di evento di archiviazione nell'interfaccia utente di Data Factory.":::
 
-1. Selezionare l'account di archiviazione nell'elenco a discesa della sottoscrizione di Azure o manualmente usando l'ID risorsa dell'account di archiviazione. Scegliere il contenitore in cui si vuole che si verifichino gli eventi. La selezione del contenitore è facoltativa, ma tenere presente che se si selezionano tutti i contenitori il numero di eventi può essere elevato.
+1. Selezionare l'account di archiviazione nell'elenco a discesa della sottoscrizione di Azure o manualmente usando l'ID risorsa dell'account di archiviazione. Scegliere il contenitore in cui si vuole che si verifichino gli eventi. La selezione del contenitore è obbligatoria, ma tenere presente che la selezione di tutti i contenitori può causare un numero elevato di eventi.
 
    > [!NOTE]
-   > Il trigger dell'evento di archiviazione supporta attualmente solo gli account di archiviazione Azure Data Lake Storage Gen2 e per utilizzo generico versione 2. A causa di una limitazione di griglia di eventi di Azure, Azure Data Factory supporta solo un massimo di 500 trigger di eventi di archiviazione per account di archiviazione.
+   > Il trigger dell'evento di archiviazione supporta attualmente solo gli account di archiviazione Azure Data Lake Storage Gen2 e per utilizzo generico versione 2. A causa di una limitazione di griglia di eventi di Azure, Azure Data Factory supporta solo un massimo di 500 trigger di eventi di archiviazione per account di archiviazione. Se si raggiunge il limite, contattare il supporto tecnico per consigli e aumentare il limite al momento della valutazione da parte del team di griglia di eventi. 
 
    > [!NOTE]
    > Per creare un nuovo trigger di evento di archiviazione esistente o modificarlo, l'account Azure usato per accedere Data Factory e pubblicare il trigger dell'evento di archiviazione deve avere l'autorizzazione appropriata per il controllo degli accessi in base al ruolo (RBAC di Azure) per l'account di archiviazione. Non è necessaria alcuna autorizzazione aggiuntiva: l'entità servizio per la Azure Data Factory _non necessita di_ autorizzazioni speciali per l'account di archiviazione o griglia di eventi. Per altre informazioni sul controllo di accesso, vedere la sezione [controllo degli accessi in base al ruolo](#role-based-access-control) .
@@ -54,7 +54,7 @@ Questa sezione illustra come creare un trigger di evento di archiviazione all'in
 1. Le proprietà **Percorso BLOB inizia con** e **Percorso BLOB termina con** consentono di specificare i contenitori, le cartelle e i nomi di BLOB per cui si vogliono ricevere eventi. Per il trigger dell'evento di archiviazione è necessario definire almeno una di queste proprietà. È possibile usare svariati modelli per le due proprietà **Percorso BLOB inizia con** e **Percorso BLOB termina con**, come mostrato negli esempi più avanti in questo articolo.
 
     * **Il percorso del BLOB inizia con:** il percorso del BLOB deve iniziare con un percorso di cartella. I valori validi includono `2018/` e `2018/april/shoes.csv`. Se non è selezionato un contenitore, questo campo non è selezionabile.
-    * **Il percorso del BLOB termina con:** il percorso del BLOB deve terminare con un nome file o un'estensione. I valori validi includono `shoes.csv` e `.csv`. Il nome del contenitore e della cartella sono facoltativi, ma, se specificati, devono essere separati da un segmento `/blobs/`. Ad esempio, il valore di un contenitore denominato 'orders' è `/orders/blobs/2018/april/shoes.csv`. Per specificare una cartella in qualsiasi contenitore, omettere il carattere '/' iniziale. Ad esempio, con `april/shoes.csv` verrà attivato un evento in tutti i file denominati `shoes.csv` nella cartella denominata 'april' presente in qualsiasi contenitore.
+    * **Il percorso del BLOB termina con:** il percorso del BLOB deve terminare con un nome file o un'estensione. I valori validi includono `shoes.csv` e `.csv`. I nomi di contenitori e cartelle, quando specificati, devono essere separati da un `/blobs/` segmento. Ad esempio, il valore di un contenitore denominato 'orders' è `/orders/blobs/2018/april/shoes.csv`. Per specificare una cartella in qualsiasi contenitore, omettere il carattere '/' iniziale. Ad esempio, con `april/shoes.csv` verrà attivato un evento in tutti i file denominati `shoes.csv` nella cartella denominata 'april' presente in qualsiasi contenitore.
     * Si noti che il percorso BLOB **inizia con** e **termina con** è l'unico criterio consentito nel trigger dell'evento di archiviazione. Altri tipi di corrispondenza con caratteri jolly non sono supportati per il tipo di trigger.
 
 1. Scegliere se il trigger deve rispondere a un evento **Blob created** (BLOB creato), **Blob deleted** (BLOB eliminato) o entrambi. Nel percorso di archiviazione specificato ogni evento attiverà le pipeline di Data Factory associate al trigger.

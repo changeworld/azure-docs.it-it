@@ -5,12 +5,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 12/17/2019
-ms.openlocfilehash: 2b2dfe9da55548f2648f847a9d7c2cb3478e6bad
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 3bf036ff413f720f54deef1a62b502668d1d8ac6
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98931699"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104871997"
 ---
 # <a name="streaming-at-scale-in-hdinsight"></a>Streaming su larga scala in HDInsight
 
@@ -18,7 +18,7 @@ Le soluzioni Big Data in tempo reale agiscono sui dati in movimento. In genere, 
 
 In un'applicazione per l'uso dei flussi, una o più origini dati generano eventi (talvolta milioni al secondo) che devono essere elaborati rapidamente senza eliminare le informazioni utili. Gli eventi in entrata vengono gestiti tramite la *memorizzazione nel buffer del flusso*, tecnica nota anche come *accodamento degli eventi*, eseguita da un servizio come [Apache Kafka](kafka/apache-kafka-introduction.md) o [Hub eventi](https://azure.microsoft.com/services/event-hubs/). Dopo aver raccolto gli eventi, è quindi possibile analizzare i dati tramite un sistema di analisi in tempo reale all'interno del livello di *elaborazione dei flussi*, come [Apache Storm](storm/apache-storm-overview.md) o [Apache Spark Streaming](spark/apache-spark-streaming-overview.md). I dati elaborati possono essere archiviati in sistemi di archiviazione a lungo termine, come [Azure Data Lake Storage](https://azure.microsoft.com/services/storage/data-lake-storage/) e visualizzati in tempo reale in un dashboard di business intelligence, come [Power BI](https://powerbi.microsoft.com), Tableau o una pagina Web personalizzata.
 
-![Modelli di flusso di Azure HDInsight](./media/hdinsight-streaming-at-scale-overview/HDInsight-streaming-patterns.png)
+:::image type="content" source="./media/hdinsight-streaming-at-scale-overview/HDInsight-streaming-patterns.png" alt-text="Modelli di flusso di Azure HDInsight":::
 
 ## <a name="apache-kafka"></a>Apache Kafka
 

@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
 ms.date: 12/02/2020
-ms.openlocfilehash: 7466e143f345ea305c7e9ef118d09fb6f685ac16
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 6f7f481ae0e0c75b14d894080f791161346cd93f
+ms.sourcegitcommit: ac035293291c3d2962cee270b33fca3628432fac
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101694488"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "104952406"
 ---
 # <a name="how-to-create-import-and-export-glossary-terms"></a>Come creare, importare ed esportare i termini di glossario
 
@@ -80,6 +80,9 @@ Si noti che i nomi dei termini fanno distinzione tra maiuscole e minuscole. Ad e
 4. Al termine della compilazione del file con estensione CSV, selezionare il file da importare e quindi fare clic su **OK**.
 
 5. Il sistema caricherà il file e aggiungerà tutti i termini al catalogo.
+ 
+   > [!Important]
+   > L'indirizzo di posta elettronica per gli amministratori e gli esperti deve essere l'indirizzo primario dell'utente dal gruppo AAD. La posta elettronica alternativa, il nome dell'entità utente e i messaggi di posta elettronica non AAD non sono ancora supportati. 
 
 ## <a name="export-terms-from-glossary-with-custom-attributes"></a>Esporta termini dal glossario con attributi personalizzati
 

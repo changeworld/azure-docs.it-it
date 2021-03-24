@@ -5,14 +5,14 @@ services: azure-resource-manager
 author: mumian
 ms.service: azure-resource-manager
 ms.topic: conceptual
-ms.date: 03/18/2021
+ms.date: 03/23/2021
 ms.author: jgao
-ms.openlocfilehash: 130deea4e5998d696065df4854a47bf7ffd1183c
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 9f4c21a4b7e58c4eed3a62ea844eb11ccf4ecb49
+ms.sourcegitcommit: a67b972d655a5a2d5e909faa2ea0911912f6a828
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104594243"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104889383"
 ---
 # <a name="use-deployment-scripts-in-arm-templates"></a>Usare gli script di distribuzione nei modelli ARM
 
@@ -131,6 +131,9 @@ Il codice JSON seguente è un esempio. Per ulteriori informazioni, vedere lo [sc
 > [!NOTE]
 > L'esempio è a scopo dimostrativo. Le proprietà `scriptContent` e `primaryScriptUri` non possono coesistere in un modello.
 
+> [!NOTE]
+> _ScriptContent_ Mostra uno script con più righe.  Il portale di Azure e la pipeline di Azure DevOps non possono analizzare uno script di distribuzione con più righe. È possibile concatenare i comandi di PowerShell (usando punti e virgola o _\\ r \\ n_ o _\\ n_) in una sola riga o usare la `primaryScriptUri` proprietà con un file di script esterno. Sono disponibili molti strumenti gratuiti di escape e di escape per le stringhe JSON. ad esempio [https://www.freeformatter.com/json-escape.html](https://www.freeformatter.com/json-escape.html).
+
 Dettagli sui valori delle proprietà:
 
 - `identity`: Per l'API dello script di distribuzione versione 2020-10-01 o successiva, un'identità gestita assegnata dall'utente è facoltativa, a meno che non sia necessario eseguire azioni specifiche di Azure nello script.  Per la versione API 2019-10-01-Preview, è necessaria un'identità gestita perché il servizio script di distribuzione lo usa per eseguire gli script. Attualmente è supportata solo l'Identità gestita assegnata dall'utente di Azure.
@@ -159,9 +162,6 @@ Dettagli sui valori delle proprietà:
 
 - `environmentVariables`: Specificare le variabili di ambiente da passare allo script. Per altre informazioni, vedere [Sviluppare script di distribuzione](#develop-deployment-scripts).
 - `scriptContent`: specificare il contenuto dello script. Per eseguire uno script esterno, usare `primaryScriptUri`. Per esempi, vedere [Usare script inline](#use-inline-scripts) e [Usare script esterni](#use-external-scripts).
-  > [!NOTE]
-  > Il portale di Azure non può analizzare uno script di distribuzione con più righe. Per distribuire un modello con uno script di distribuzione dalla portale di Azure, è possibile concatenare i comandi di PowerShell usando un punto e virgola in un'unica riga o usare la `primaryScriptUri` proprietà con un file di script esterno.
-
 - `primaryScriptUri`: Specificare un URL accessibile pubblicamente per lo script di distribuzione primario con le estensioni di file supportate. Per altre informazioni, vedere [use External scripts](#use-external-scripts).
 - `supportingScriptUris`: Specificare una matrice di URL accessibili pubblicamente per supportare i file che vengono chiamati in `scriptContent` o `primaryScriptUri` . Per altre informazioni, vedere [use External scripts](#use-external-scripts).
 - `timeout`: specificare il tempo di esecuzione dello script massimo consentito nel [formato ISO 8601](https://en.wikipedia.org/wiki/ISO_8601). Il valore predefinito è **P1D**.

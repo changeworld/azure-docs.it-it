@@ -6,12 +6,12 @@ ms.author: nisgoel
 ms.service: hdinsight
 ms.topic: how-to
 ms.date: 05/28/2020
-ms.openlocfilehash: 4859ff098bf3fdffbecc70608cb147d17d9d7f59
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 7957041c9d445f4239b8f0100128a531d982b451
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98941168"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104871555"
 ---
 # <a name="integrate-apache-zeppelin-with-hive-warehouse-connector-in-azure-hdinsight"></a>Integrare Apache Zeppelin con Hive Warehouse Connector in Azure HDInsight
 
@@ -97,11 +97,11 @@ Le configurazioni seguenti sono necessarie per accedere alle tabelle di Hive da 
 
     * Da un Web browser passare a `https://CLUSTERNAME.azurehdinsight.net/#/main/services/HIVE/summary` dove clustername è il nome del cluster Interactive query. Fare clic su **HiveServer2 Interactive**. Verrà visualizzato il nome di dominio completo (FQDN) del nodo head in cui è in esecuzione LLAP, come illustrato nella schermata. Sostituire `<llap-headnode>` con questo valore.
 
-        ![Nodo head del connettore warehouse di hive](./media/apache-hive-warehouse-connector/head-node-hive-server-interactive.png)
+        :::image type="content" source="./media/apache-hive-warehouse-connector/head-node-hive-server-interactive.png" alt-text="Nodo head del connettore warehouse di hive" border="true":::
 
     * Usare il [comando ssh](../hdinsight-hadoop-linux-use-ssh-unix.md) per connettersi al cluster Interactive query. Cercare `default_realm` il parametro nel `/etc/krb5.conf` file. Sostituire `<AAD-DOMAIN>` con questo valore come stringa maiuscola; in caso contrario, le credenziali non verranno trovate.
 
-        ![Dominio AAD del connettore warehouse di hive](./media/apache-hive-warehouse-connector/aad-domain.png)
+        :::image type="content" source="./media/apache-hive-warehouse-connector/aad-domain.png" alt-text="Dominio AAD del connettore warehouse di hive" border="true":::
 
     * Ad esempio, `hive/hn0-ng36ll.mjry42ikpruuxgs2qy2kpg4q5e.cx.internal.cloudapp.net@PKRSRVUQVMAE6J85.D2.INTERNAL.CLOUDAPP.NET` .
 

@@ -5,12 +5,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive, devx-track-csharp
 ms.topic: conceptual
 ms.date: 05/14/2018
-ms.openlocfilehash: 86e279fef9561397343b3e6cb55ac335a5b39542
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: e5f328d6be52732c30478eb49360efb13919a23e
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98942835"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104872218"
 ---
 # <a name="manage-apache-hadoop-clusters-in-hdinsight-by-using-net-sdk"></a>Gestire i cluster Apache Hadoop in HDInsight con .NET SDK
 
@@ -167,7 +167,7 @@ Questa sezione descrive l'impatto della modifica del numero di nodi dati per ogn
     
     L'interfaccia utente Web di Storm è disponibile nel cluster HDInsight:
     
-    ![Ribilanciamento di HDInsight Storm](./media/hdinsight-administer-use-powershell/hdinsight-portal-scale-cluster-storm-rebalance.png)
+    :::image type="content" source="./media/hdinsight-administer-use-powershell/hdinsight-portal-scale-cluster-storm-rebalance.png" alt-text="Ribilanciamento scala HDInsight Storm":::
     
     Di seguito viene fornito un esempio d'uso del comando CLI per ribilanciare la topologia di Storm:
     

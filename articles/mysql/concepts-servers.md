@@ -6,12 +6,12 @@ ms.author: pariks
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 3/18/2020
-ms.openlocfilehash: ed6d5d676fd2c6eefd3288b7609446eb61611ed6
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: a05037505c122bb974e6da3d11a6f25a715a6843
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "100517978"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104869430"
 ---
 # <a name="server-concepts-in-azure-database-for-mysql"></a>Concetti relativi ai server nel database di Azure per MySQL
 
@@ -62,7 +62,13 @@ Nel momento in cui il server viene arrestato, non è possibile eseguire alcuna o
 
 ## <a name="how-do-i-manage-a-server"></a>Gestione di un server
 
-È possibile gestire il database di Azure per i server MySQL mediante il portale o l'interfaccia della riga di comando di Azure.
+È possibile gestire la creazione, l'eliminazione, la configurazione dei parametri del server (My. cnf), il ridimensionamento, la rete, la sicurezza, la disponibilità elevata, il backup & il ripristino, il monitoraggio del database di Azure per i server MySQL usando l'interfaccia della riga di comando di portale di Azure o Azure. Inoltre, le stored procedure seguenti sono disponibili nel database di Azure per MySQL per eseguire determinate attività di amministrazione del database richieste come privilegi utente con privilegi avanzati non è supportata nel server.
+
+|**Nome della stored procedure**|**Parametri di input**|**Parametri di output**|**Nota sull'utilizzo**|
+|-----|-----|-----|-----|
+|*mysql.az_kill*|processlist_id|N/D|Equivale a [`KILL CONNECTION`](https://dev.mysql.com/doc/refman/8.0/en/kill.html) Command. Termina la connessione associata al processlist_id fornito dopo la terminazione di qualsiasi istruzione che la connessione è in esecuzione.|
+|*mysql.az_kill_query*|processlist_id|N/D|Equivale a [`KILL QUERY`](https://dev.mysql.com/doc/refman/8.0/en/kill.html) Command. Termina l'istruzione attualmente in esecuzione per la connessione. Lascia attiva la connessione.|
+|*mysql.az_load_timezone*|N/D|N/D|Carica le [tabelle del fuso orario](howto-server-parameters.md#working-with-the-time-zone-parameter) per consentire l' `time_zone` impostazione del parametro sui valori denominati, ad esempio "US/Pacific".|
 
 ## <a name="next-steps"></a>Passaggi successivi
 

@@ -3,12 +3,12 @@ title: Distribuire risorse in una sottoscrizione
 description: Questo articolo descrive come creare un gruppo di risorse in un modello di Azure Resource Manager. Illustra anche come distribuire le risorse nell'ambito della sottoscrizione di Azure.
 ms.topic: conceptual
 ms.date: 01/13/2021
-ms.openlocfilehash: b5c99e5dc21c2b93f1c9da3977302a2dd311277f
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: f557a3a15da33b7394d22784bcd2c1c914ad6201
+ms.sourcegitcommit: a67b972d655a5a2d5e909faa2ea0911912f6a828
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "99491504"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104889434"
 ---
 # <a name="subscription-deployments-with-arm-templates"></a>Distribuzioni di sottoscrizioni con modelli ARM
 
@@ -209,7 +209,7 @@ Il modello seguente crea un gruppo di risorse vuoto.
   "resources": [
     {
       "type": "Microsoft.Resources/resourceGroups",
-      "apiVersion": "2020-06-01",
+      "apiVersion": "2020-10-01",
       "name": "[parameters('rgName')]",
       "location": "[parameters('rgLocation')]",
       "properties": {}
@@ -240,7 +240,7 @@ Per creare più gruppi di risorse usare l'[elemento copy](copy-resources.md).
   "resources": [
     {
       "type": "Microsoft.Resources/resourceGroups",
-      "apiVersion": "2020-06-01",
+      "apiVersion": "2020-10-01",
       "location": "[parameters('rgLocation')]",
       "name": "[concat(parameters('rgNamePrefix'), copyIndex())]",
       "copy": {
@@ -284,14 +284,14 @@ L'esempio seguente crea un gruppo di risorse e distribuisce un account di archiv
   "resources": [
     {
       "type": "Microsoft.Resources/resourceGroups",
-      "apiVersion": "2020-06-01",
+      "apiVersion": "2020-10-01",
       "name": "[parameters('rgName')]",
       "location": "[parameters('rgLocation')]",
       "properties": {}
     },
     {
       "type": "Microsoft.Resources/deployments",
-      "apiVersion": "2020-06-01",
+      "apiVersion": "2020-10-01",
       "name": "storageDeployment",
       "resourceGroup": "[parameters('rgName')]",
       "dependsOn": [

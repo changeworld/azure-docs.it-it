@@ -7,12 +7,12 @@ ms.topic: how-to
 author: mingshen-ms
 ms.author: mingshen
 ms.date: 10/19/2020
-ms.openlocfilehash: e5fb425afdd4b212a0b28ce91418eb0ee9e3632f
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: c700cce5f50fda7f7a5773e07549e93da1c9f7a2
+ms.sourcegitcommit: ac035293291c3d2962cee270b33fca3628432fac
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "97964431"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "104956255"
 ---
 # <a name="how-to-create-plans-for-a-virtual-machine-offer"></a>Come creare piani per un'offerta di macchina virtuale
 
@@ -221,6 +221,8 @@ I dischi dati (selezionare **Aggiungi disco dati (massimo 16)**) sono anche URI 
 Indipendentemente dal sistema operativo usato, aggiungere solo il numero minimo di dischi dati necessari per la soluzione. In fase di distribuzione i clienti non possono rimuovere dischi che fanno parte di un'immagine, ma possono sempre aggiungerne altri durante o dopo la distribuzione.
 
 Selezionare **Salva bozza**, quindi selezionare **← panoramica piano** in alto a sinistra per visualizzare il piano appena creato.
+
+Dopo la pubblicazione dell'immagine della macchina virtuale, è possibile eliminare l'immagine dall'archiviazione di Azure.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

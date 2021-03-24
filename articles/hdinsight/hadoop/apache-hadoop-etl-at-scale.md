@@ -5,12 +5,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive,seoapr2020
 ms.date: 04/28/2020
-ms.openlocfilehash: fc488cecb762ff13bcb2999bb06521ebb70b44fb
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: f11b31ba698c193029834caada2e5c4cf3ef2902
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98946581"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104866642"
 ---
 # <a name="extract-transform-and-load-etl-at-scale"></a>Estrarre, trasformare e caricare (ETL) su larga scala
 
@@ -18,7 +18,7 @@ Il processo di estrazione, trasformazione e caricamento (ETL, Extract, Transform
 
 L'uso di HDInsight nel processo ETL è illustrato da questa pipeline:
 
-![Panoramica di ETL in HDInsight su larga scala](./media/apache-hadoop-etl-at-scale/hdinsight-etl-at-scale-overview.png)
+:::image type="content" source="./media/apache-hadoop-etl-at-scale/hdinsight-etl-at-scale-overview.png" alt-text="Panoramica di ETL in HDInsight su larga scala" border="false":::
 
 Le sezioni seguenti illustrano ogni fase del processo ETL e i relativi componenti associati.
 

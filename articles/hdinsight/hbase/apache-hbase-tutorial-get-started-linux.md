@@ -5,12 +5,12 @@ ms.service: hdinsight
 ms.topic: tutorial
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.date: 01/22/2021
-ms.openlocfilehash: 5de98f5bf57626a408dd5bec8575856074f434c7
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 50216b83475e92cbabb5ed78c3836264ceff4600
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101705671"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104866608"
 ---
 # <a name="tutorial-use-apache-hbase-in-azure-hdinsight"></a>Esercitazione: Usare Apache HBase in Azure HDInsight
 
@@ -64,11 +64,11 @@ Dopo l'eliminazione di un cluster HBase, è possibile creare un altro cluster HB
 
 Per la maggior parte delle persone, i dati vengono visualizzati in formato tabulare:
 
-![Dati tabulari Apache HBase in HDInsight](./media/apache-hbase-tutorial-get-started-linux/hdinsight-hbase-contacts-tabular.png)
+:::image type="content" source="./media/apache-hbase-tutorial-get-started-linux/hdinsight-hbase-contacts-tabular.png" alt-text="Dati tabulari Apache HBase in HDInsight" border="false":::
 
 In HBase, che rappresenta un'implementazione di [Cloud BigTable](https://cloud.google.com/bigtable/), gli stessi dati sono simili a:
 
-![Dati BigTable Apache HBase in HDInsight](./media/apache-hbase-tutorial-get-started-linux/hdinsight-hbase-contacts-bigtable.png)
+:::image type="content" source="./media/apache-hbase-tutorial-get-started-linux/hdinsight-hbase-contacts-bigtable.png" alt-text="Dati BigTable Apache HBase in HDInsight" border="false":::
 
 **Per usare la shell HBase**
 
@@ -111,7 +111,7 @@ In HBase, che rappresenta un'implementazione di [Cloud BigTable](https://cloud.g
     scan 'Contacts'
     ```
 
-    ![Shell HBase Apache Hadoop in HDInsight](./media/apache-hbase-tutorial-get-started-linux/hdinsight-hbase-shell.png)
+    :::image type="content" source="./media/apache-hbase-tutorial-get-started-linux/hdinsight-hbase-shell.png" alt-text="Shell HBase Apache Hadoop in HDInsight" border="false":::
 
 1. Usare il comando `get` per recuperare il contenuto di una riga. Immettere il comando seguente:
 
@@ -331,7 +331,7 @@ HBase in HDInsight viene fornito con un'interfaccia utente Web per il monitoragg
 
 1. Selezionare **Collegamenti rapidi** nella parte superiore della pagina, scegliere il collegamento del nodo Zookeeper attivo e quindi selezionare **HBase Master UI** (Interfaccia utente HBase Master).  L'interfaccia utente viene aperta in un'altra scheda del browser:
 
-   ![Interfaccia utente HMaster Apache HBase in HDInsight](./media/apache-hbase-tutorial-get-started-linux/hdinsight-hbase-hmaster-ui.png)
+   :::image type="content" source="./media/apache-hbase-tutorial-get-started-linux/hdinsight-hbase-hmaster-ui.png" alt-text="Interfaccia utente HMaster Apache HBase in HDInsight" border="false":::
 
    L'interfaccia utente master HBase contiene le sezioni seguenti:
 

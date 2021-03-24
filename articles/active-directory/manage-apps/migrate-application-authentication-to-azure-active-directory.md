@@ -14,12 +14,12 @@ ms.date: 02/05/2021
 ms.author: kenwith
 ms.reviewer: baselden
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: db695b55fbef16cb67dce6dc2d3c81ad177c9db6
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 629f71c429d6af8583cb15b9ebc96efe6867f78b
+ms.sourcegitcommit: a67b972d655a5a2d5e909faa2ea0911912f6a828
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103601798"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104888890"
 ---
 # <a name="migrate-application-authentication-to-azure-active-directory"></a>Eseguire la migrazione dell'autenticazione dell'applicazione a Azure Active Directory
 
@@ -489,7 +489,7 @@ Dopo la migrazione, è possibile scegliere di inviare la comunicazione per infor
 
 Durante il processo di migrazione, l'app potrebbe avere già un ambiente di test usato durante le distribuzioni regolari. È possibile continuare a usare questo ambiente per i test di migrazione. Se un ambiente di testing non è attualmente disponibile, potrebbe essere possibile configurarne uno usando app Azure servizio o macchine virtuali di Azure, a seconda dell'architettura dell'applicazione. È possibile scegliere di configurare un tenant di test Azure AD separato da usare durante lo sviluppo delle configurazioni dell'app. Questo tenant verrà avviato in uno stato pulito e non verrà configurato per la sincronizzazione con alcun sistema.
 
-È possibile testare ogni app effettuando l'accesso con un utente di test e assicurarsi che tutte le funzionalità siano uguali a quelle prima della migrazione. Se durante il test si stabilisce che gli utenti dovranno [aggiornare le impostazioni](/active-directory/authentication/howto-mfa-userstates) di autenticazione a più fattori o [SSPR](../authentication/tutorial-enable-sspr.md)o se si aggiunge questa funzionalità durante la migrazione, assicurarsi di aggiungerla al piano di comunicazione dell'utente finale. Vedere [modelli](https://aka.ms/mfatemplates) di comunicazione dell'utente finale di multi-factor authentication e [SSPR](https://aka.ms/ssprtemplates) .
+È possibile testare ogni app effettuando l'accesso con un utente di test e assicurarsi che tutte le funzionalità siano uguali a quelle prima della migrazione. Se durante il test si stabilisce che gli utenti dovranno [aggiornare le impostazioni](/azure/active-directory/authentication/howto-mfa-userstates) di autenticazione a più fattori o [SSPR](../authentication/tutorial-enable-sspr.md)o se si aggiunge questa funzionalità durante la migrazione, assicurarsi di aggiungerla al piano di comunicazione dell'utente finale. Vedere [modelli](https://aka.ms/mfatemplates) di comunicazione dell'utente finale di multi-factor authentication e [SSPR](https://aka.ms/ssprtemplates) .
 
 Dopo aver eseguito la migrazione delle app, passare alla [portale di Azure](https://aad.portal.azure.com/) per verificare se la migrazione ha avuto esito positivo. Seguire le istruzioni riportate di seguito:
 
@@ -573,7 +573,7 @@ Dopo aver eseguito la migrazione delle app, è possibile migliorare l'esperienza
 
 Gli utenti possono scaricare un **browser gestito da Intune**:
 
-- **Per i dispositivi Android**, da [Google Play Store](https://play.google.com/store/apps/details?id=com.microsoft.intune.mam.managedbrowser)
+- **Per i dispositivi Android**, da [Google Play Store](/azure/active-directory/authentication/howto-mfa-userstates)
 
 - **Per i dispositivi Apple**, dall' [App Store di Apple](https://itunes.apple.com/us/app/microsoft-intune-managed-browser/id943264951?mt=8) oppure è possibile scaricare l' [app per dispositivi mobili My Apps per iOS](https://apps.apple.com/us/app/my-apps-azure-active-directory/id824048653)
 

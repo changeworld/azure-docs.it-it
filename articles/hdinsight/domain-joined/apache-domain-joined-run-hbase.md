@@ -4,12 +4,12 @@ description: Esercitazione - Informazioni su come configurare i criteri di Apach
 ms.service: hdinsight
 ms.topic: tutorial
 ms.date: 09/04/2019
-ms.openlocfilehash: deefda126602e9b276b74752330a14cc3eb2aa95
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: a18e0b252facb4f00d9ba5c9b6bfe9fe6aefe1ef
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98933721"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104866999"
 ---
 # <a name="tutorial-configure-apache-hbase-policies-in-hdinsight-with-enterprise-security-package"></a>Esercitazione: Configurare i criteri di Apache HBase in HDInsight con Enterprise Security Package
 
@@ -86,7 +86,7 @@ Vedere [Creare un cluster HDInsight con Enterprise Security Package](./apache-do
     scan 'Customers'
     ```
 
-    ![Output della shell HBase Hadoop di HDInsight](./media/apache-domain-joined-run-hbase/hbase-shell-scan-table.png)
+    :::image type="content" source="./media/apache-domain-joined-run-hbase/hbase-shell-scan-table.png" alt-text="Output della shell HBase Hadoop di HDInsight" border="true":::
 
 ## <a name="create-ranger-policies"></a>Creazione dei criteri di Ranger
 
@@ -94,11 +94,11 @@ Creare un criterio di Ranger per **sales_user1** e **marketing_user1**.
 
 1. Aprire l’**interfaccia utente di amministrazione di Ranger**. Fare clic su **\<ClusterName>_hbase** in **HBase**.
 
-   ![Interfaccia utente di amministrazione di Apache Ranger di HDInsight](./media/apache-domain-joined-run-hbase/apache-ranger-admin-login.png)
+   :::image type="content" source="./media/apache-domain-joined-run-hbase/apache-ranger-admin-login.png" alt-text="Interfaccia utente di amministrazione di Apache Ranger di HDInsight" border="true":::
 
 2. La schermata **List of Policies** (Elenco di criteri) mostrerà tutti i criteri Ranger creati per questo cluster. Potrebbe essere presente un criterio preconfigurato. Fare clic su **Add New Policy** (Aggiungi nuovi criteri).
 
-    ![Elenco dei criteri di Apache Ranger HBase](./media/apache-domain-joined-run-hbase/apache-ranger-hbase-policies-list.png)
+    :::image type="content" source="./media/apache-domain-joined-run-hbase/apache-ranger-hbase-policies-list.png" alt-text="Elenco dei criteri di Apache Ranger HBase" border="true":::
 
 3. Nella schermata **Create Policy** (Crea criterio) inserire i valori seguenti:
 
@@ -117,7 +117,7 @@ Creare un criterio di Ranger per **sales_user1** e **marketing_user1**.
    * `*` indica zero o più occorrenze di caratteri.
    * `?` indica un singolo carattere.
 
-   ![Criteri di Apache Ranger - Creazione di sales](./media/apache-domain-joined-run-hbase/apache-ranger-hbase-policy-create-sales.png)
+   :::image type="content" source="./media/apache-domain-joined-run-hbase/apache-ranger-hbase-policy-create-sales.png" alt-text="Criteri di Apache Ranger - Creazione di sales" border="true":::
 
    >[!NOTE]
    >Attendere alcuni istanti per eseguire la sincronizzazione con Azure AD, se un utente di dominio non viene popolato automaticamente per **Seleziona utente**.
@@ -136,7 +136,7 @@ Creare un criterio di Ranger per **sales_user1** e **marketing_user1**.
    |Seleziona utente  | marketing_user1 |
    |Autorizzazioni  | Lettura |
 
-   ![Criteri di Apache Ranger - Creazione di marketing](./media/apache-domain-joined-run-hbase/apache-ranger-hbase-policy-create-marketing.png)  
+   :::image type="content" source="./media/apache-domain-joined-run-hbase/apache-ranger-hbase-policy-create-marketing.png" alt-text="Criteri di Apache Ranger - Creazione di marketing" border="true":::  
 
 6. Fare clic su **Aggiungi** per salvare il criterio.
 
@@ -226,7 +226,7 @@ In base ai criteri Ranger configurati, **sales_user1** può visualizzare tutti i
 
 1. Visualizzare gli eventi di accesso di controllo dall'interfaccia utente di Ranger.
 
-   ![Controllo dei criteri di Ranger dell'interfaccia utente di HDInsight](./media/apache-domain-joined-run-hbase/apache-ranger-admin-audit.png)
+   :::image type="content" source="./media/apache-domain-joined-run-hbase/apache-ranger-admin-audit.png" alt-text="Controllo dei criteri di Ranger dell'interfaccia utente di HDInsight" border="true":::
 
 ## <a name="clean-up-resources"></a>Pulire le risorse
 

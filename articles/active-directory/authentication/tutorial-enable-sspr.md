@@ -5,17 +5,17 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: tutorial
-ms.date: 07/13/2020
+ms.date: 03/23/2021
 ms.author: justinha
 author: justinha
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8cd1a68b06814d13c386b873ed715f3b03a7b827
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 253aa080b9c160141a274c57e0895291c78d2048
+ms.sourcegitcommit: a67b972d655a5a2d5e909faa2ea0911912f6a828
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102198490"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104887768"
 ---
 # <a name="tutorial-enable-users-to-unlock-their-account-or-reset-passwords-using-azure-active-directory-self-service-password-reset"></a>Esercitazione: Consentire agli utenti di sbloccare l'account o reimpostare le password con la reimpostazione della password self-service di Azure Active Directory
 
@@ -138,6 +138,22 @@ Se non si intende usare più la funzionalità di reimpostazione della password s
 1. Cercare e selezionare **Azure Active Directory**, quindi scegliere **Reimpostazione password** dal menu a sinistra.
 1. Nella pagina **Proprietà** scegliere **Nessuna** per l'opzione *Reimpostazione password self-service abilitata*.
 1. Per applicare la modifica alla reimpostazione della password self-service, selezionare **Salva**.
+
+## <a name="faqs"></a>Domande frequenti
+
+In questa sezione vengono illustrate le domande più comuni degli amministratori e degli utenti finali che tentano di SSPR:
+
+- Perché gli utenti federati attendono fino a 2 minuti dopo che **la password è stata reimpostata** prima di poter usare le password sincronizzate dall'ambiente locale?
+
+  Per gli utenti federati le cui password sono sincronizzate, l'origine dell'autorità per le password è locale. Di conseguenza, SSPR aggiorna solo le password locali. La sincronizzazione dell'hash delle password con Azure AD è pianificata ogni 2 minuti.
+
+- Quando un utente appena creato che viene prepopolato con dati SSPR, ad esempio telefono e posta elettronica, visita la pagina di registrazione SSPR, **non perdere l'accesso al tuo account.** viene visualizzato come titolo della pagina. Perché gli altri utenti che dispongono di dati di SSPR sono già popolati, vedere il messaggio?
+
+  Un utente che **non è in grado di perdere l'accesso all'account.** è un membro di SSPR/gruppi di registrazione combinati configurati per il tenant. Gli utenti che non visualizzano **l'accesso all'account non perdono.** non fanno parte dei gruppi di registrazione SSPR/combinati.
+
+- Quando alcuni utenti passano attraverso il processo SSPR e reimpostano la password, perché non visualizzano l'indicatore di attendibilità della password?
+
+  Per gli utenti che non riescono a visualizzare il livello di attendibilità delle password è abilitato il writeback delle password. Poiché SSPR non è in grado di determinare i criteri password dell'ambiente locale del cliente, non può convalidare il livello di attendibilità o la debolezza della password. 
 
 ## <a name="next-steps"></a>Passaggi successivi
 

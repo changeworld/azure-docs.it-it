@@ -12,12 +12,12 @@ ms.date: 12/15/2020
 ms.author: pafarley
 ms.custom: cog-serv-seo-aug-2020
 keywords: content moderator, azure content moderator, moderazione online, software di filtro dei contenuti, servizio di moderazione del contenuto, moderazione del contenuto
-ms.openlocfilehash: 57a390a1da1e3a10b9fda4b531a83ee48e91125b
-ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
-ms.translationtype: HT
+ms.openlocfilehash: a53611fdad84f06661f3b8928296b6a45851cea4
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97560374"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104867271"
 ---
 # <a name="what-is-azure-content-moderator"></a>Che cos'è Azure Content Moderator?
 
@@ -26,6 +26,13 @@ ms.locfileid: "97560374"
 Azure Content Moderator è un servizio di intelligenza artificiale che consente di gestire i contenuti potenzialmente offensivi, rischiosi o in altro modo indesiderati. Include il servizio di moderazione del contenuto basato sull'intelligenza artificiale che analizza testo, immagini e video e applica automaticamente i flag di contenuto, oltre allo strumento di revisione, un ambiente di moderazione online per un team di revisori umani.
 
 È possibile integrare un software di filtro dei contenuti nell'app per garantire la conformità con le normative o mantenere l'ambiente previsto per gli utenti.
+
+Questa documentazione contiene i tipi di articolo seguenti:  
+
+* Nelle [**guide introduttive**](client-libraries.md) vengono fornite istruzioni introduttive per l'esecuzione di richieste al servizio.  
+* Le [**guide alle procedure**](try-text-api.md) contengono istruzioni per l'uso del servizio in modi più specifici o personalizzati.  
+* I [**concetti**](text-moderation-api.md) forniscono spiegazioni approfondite delle funzionalità e delle funzionalità del servizio.  
+* Le [**esercitazioni**](ecommerce-retail-catalog-moderation.md) sono guide più lunghe che illustrano come usare il servizio come componente in soluzioni aziendali più ampie.  
 
 ## <a name="where-its-used"></a>Scenari di utilizzo
 

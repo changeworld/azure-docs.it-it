@@ -5,12 +5,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: tutorial
 ms.date: 06/25/2019
-ms.openlocfilehash: 304ba791d107ca497e65905657e87e84cdb9567d
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 2078ba177d68cfaa0a91b79611d92e5c68e4e245
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98942730"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104868416"
 ---
 # <a name="tutorial-use-apache-storm-with-apache-kafka-on-hdinsight"></a>Esercitazione: usare Apache Storm con Apache Kafka in HDInsight
 
@@ -377,7 +377,7 @@ Apache Kafka in HDInsight non fornisce l'accesso ai broker Kafka tramite Interne
 
 Il diagramma seguente illustra il flusso delle comunicazioni tra Storm e Kafka:
 
-![Diagramma dei cluster Storm e Kafka in una rete virtuale di Azure](./media/hdinsight-apache-storm-with-kafka/apache-storm-kafka-vnet.png)
+:::image type="content" source="./media/hdinsight-apache-storm-with-kafka/apache-storm-kafka-vnet.png" alt-text="Diagramma dei cluster Storm e Kafka in una rete virtuale di Azure":::
 
 > [!NOTE]  
 > Altri servizi nel cluster, ad esempio SSH e [Apache Ambari](https://ambari.apache.org/), sono accessibili tramite Internet. Per altre informazioni sulle porte pubbliche disponibili con HDInsight, vedere [Porte e URI usati da HDInsight](hdinsight-hadoop-port-settings-for-services.md).
@@ -415,7 +415,7 @@ Per creare una Rete virtuale di Microsoft Azure e quindi crearvi i cluster Kafka
       | Nome utente SSH | Utente SSH da creare per i cluster. |
       | Password SSH | Password per l'utente SSH. |
    
-      ![Immagine dei parametri del modello](./media/hdinsight-apache-storm-with-kafka/storm-kafka-template.png)
+      :::image type="content" source="./media/hdinsight-apache-storm-with-kafka/storm-kafka-template.png" alt-text="Immagine dei parametri del modello":::
 
 3. Leggere le **Condizioni** e quindi selezionare **Accetto le condizioni riportate sopra**.
 

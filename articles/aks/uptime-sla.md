@@ -5,12 +5,12 @@ services: container-service
 ms.topic: conceptual
 ms.date: 01/08/2021
 ms.custom: references_regions, devx-track-azurecli
-ms.openlocfilehash: fae95e6f3a73d7539f81e1486c4ad021f181aa11
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 69a4955f28bbd42cd7bf5651bd057412e15303de
+ms.sourcegitcommit: ac035293291c3d2962cee270b33fca3628432fac
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102176332"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "104952916"
 ---
 # <a name="azure-kubernetes-service-aks-uptime-sla"></a>Servizio Azure Kubernetes: contratto di servizio relativo al tempo di attività
 
@@ -37,9 +37,6 @@ Il contratto di servizio relativo al tempo di attività è una funzionalità a p
 * Installare l' [interfaccia](/cli/azure/install-azure-cli) della riga di comando di Azure versione 2.8.0 o successiva
 
 ## <a name="creating-a-new-cluster-with-uptime-sla"></a>Creazione di un nuovo cluster con contratto di servizio con tempo di esecuzione
-
-> [!NOTE]
-> Attualmente, se si Abilita il contratto di servizio per il tempo di esecuzione, non è possibile rimuoverlo da un cluster.
 
 Per creare un nuovo cluster con il contratto di servizio relativo al tempo di attività, usare l'interfaccia della riga di comando di Azure.
 
@@ -106,6 +103,15 @@ Usare il [`az aks update`][az-aks-update] comando per aggiornare il cluster esis
     "tier": "Paid"
   },
   ```
+
+## <a name="opt-out-of-uptime-sla"></a>Rifiutare esplicitamente il contratto di esecuzione
+
+È possibile aggiornare il cluster per passare al livello gratuito e rifiutare esplicitamente il contratto di servizio con tempo di esecuzione.
+
+```azurecli-interactive
+# Update an existing cluster to opt out of Uptime SLA
+ az aks update --resource-group myResourceGroup --name myAKSCluster --no-uptime-sla
+ ```
 
 ## <a name="clean-up"></a>Eseguire la pulizia
 

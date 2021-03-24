@@ -398,16 +398,16 @@
         - name: Creare più istanze
           items:
             - name: Risorse
-              displayName: 'iteration,copy'
+              displayName: 'iteration,copy,multiple'
               href: copy-resources.md
             - name: Proprietà
-              displayName: 'iteration,copy'
+              displayName: 'iteration,copy,multiple'
               href: copy-properties.md
             - name: variables
-              displayName: 'iteration,copy'
+              displayName: 'iteration,copy,multiple'
               href: copy-variables.md
             - name: Output
-              displayName: 'iteration,copy'
+              displayName: 'iteration,copy,multiple'
               href: copy-outputs.md
     - name: Distribuire modelli
       items:

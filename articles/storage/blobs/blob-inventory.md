@@ -10,12 +10,12 @@ ms.author: mhopkins
 ms.reviewer: yzheng
 ms.subservice: blobs
 ms.custom: references_regions
-ms.openlocfilehash: a625ad780d01f3d19d26f2b9626ead3ae455b86b
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
+ms.openlocfilehash: 8310de465a6416102a7ce4e614ead7029e6be87a
+ms.sourcegitcommit: ac035293291c3d2962cee270b33fca3628432fac
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102631473"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "104950927"
 ---
 # <a name="use-azure-storage-blob-inventory-to-manage-blob-data-preview"></a>Usare l'inventario BLOB di archiviazione di Azure per gestire i dati BLOB (anteprima)
 
@@ -26,7 +26,7 @@ La funzionalità di inventario BLOB di archiviazione di Azure offre una panorami
 L'inventario BLOB è supportato sia per gli account di archiviazione BLOB in blocchi per utilizzo generico versione 2 (GPv2) che per Premium. Questa funzionalità è supportata con o senza la funzionalità di [spazio dei nomi gerarchica](data-lake-storage-namespace.md) abilitata.
 
 > [!IMPORTANT]
-> L'inventario di Bob è attualmente disponibile in **Anteprima**. Vedere le [condizioni per l'utilizzo supplementari per le anteprime di Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) per le note legali applicabili alle funzionalità di Azure disponibili in versione beta, di anteprima o non ancora rilasciate a livello generale.
+> L'inventario BLOB è attualmente in fase di **Anteprima**. Vedere le [condizioni per l'utilizzo supplementari per le anteprime di Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) per le note legali applicabili alle funzionalità di Azure disponibili in versione beta, di anteprima o non ancora rilasciate a livello generale.
 
 ### <a name="preview-regions"></a>Aree di anteprima
 

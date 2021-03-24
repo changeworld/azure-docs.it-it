@@ -6,12 +6,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: seoapr2020, devx-track-python
 ms.date: 04/23/2020
-ms.openlocfilehash: 337a9f3f2ea25e5a4d4fa4204a0f3fa4dcc9369b
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: a6247116cdf579691e48883231f57712da36c4ad
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98940648"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104864568"
 ---
 # <a name="set-up-the-pyspark-interactive-environment-for-visual-studio-code"></a>Configurare l'ambiente PySpark Interactive per Visual Studio Code
 
@@ -38,7 +38,7 @@ La procedura usa il comando **python/pip** per creare un ambiente virtuale nel p
 
 In Linux, se viene riportato il messaggio di errore seguente, installare i pacchetti necessari eseguendo i due comandi seguenti.
 
-   ![Installare il pacchetto libkrb5 per Python](./media/set-up-pyspark-interactive-environment/install-libkrb5-package.png)
+   :::image type="content" source="./media/set-up-pyspark-interactive-environment/install-libkrb5-package.png" alt-text="Installare il pacchetto libkrb5 per Python" border="true":::
 
 ```bash
 sudo apt-get install libkrb5-dev

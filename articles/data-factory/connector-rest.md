@@ -6,12 +6,12 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.date: 03/16/2021
 ms.author: jingwang
-ms.openlocfilehash: 45e71b636d43633d5b157db2815ddd19c31395b3
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 6d9bb17e0e68c563c6d8cc18669d8c298d4f267b
+ms.sourcegitcommit: ac035293291c3d2962cee270b33fca3628432fac
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104608130"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "104951828"
 ---
 # <a name="copy-data-from-and-to-a-rest-endpoint-by-using-azure-data-factory"></a>Copiare dati da e in un endpoint REST utilizzando Azure Data Factory
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -494,7 +494,7 @@ Il modello definisce due parametri:
 5. Selezionare attività **Web** . In **Impostazioni** specificare l' **URL**, il **Metodo**, le **intestazioni** e il **corpo** corrispondenti per recuperare i Bearer token OAuth dall'API di accesso del servizio da cui si desidera copiare i dati. Il segnaposto nel modello presenta un esempio di Azure Active Directory OAuth (AAD). Nota l'autenticazione AAD è supportata in modo nativo dal connettore REST. di seguito è riportato solo un esempio di flusso OAuth. 
 
     | Proprietà | Descrizione |
-    |:--- |:--- |:--- |
+    |:--- |:--- |
     | URL |Specificare l'URL da cui recuperare il bearer token OAuth. Nell'esempio seguente, ad esempio, https://login.microsoftonline.com/microsoft.onmicrosoft.com/oauth2/token |. 
     | Metodo | Metodo HTTP. I valori consentiti sono **post** e **Get**. | 
     | Intestazioni | L'intestazione è definita dall'utente, che fa riferimento a un nome di intestazione nella richiesta HTTP. | 
@@ -505,7 +505,7 @@ Il modello definisce due parametri:
 6. In attività **copia dati** selezionare scheda *origine* . si noterà che il Bearer token (access_token) recuperato dal passaggio precedente verrebbe passato all'attività copia dati come **autorizzazione** in intestazioni aggiuntive. Confermare le impostazioni per le proprietà seguenti prima di avviare un'esecuzione della pipeline.
 
     | Proprietà | Descrizione |
-    |:--- |:--- |:--- | 
+    |:--- |:--- |
     | Metodo richiesta | Metodo HTTP. I valori consentiti sono **Get** (predefinito) e **Post**. | 
     | Intestazioni aggiuntive | Intestazioni richiesta HTTP aggiuntive.| 
 

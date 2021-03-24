@@ -5,19 +5,19 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: reference
-ms.date: 02/12/2021
+ms.date: 03/08/2021
 ms.author: mimart
 author: msmimart
 manager: celestedg
 ms.reviewer: mal
 ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7879b233bf94442de2cad83de8adfe54b6b81e0e
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 3308c2263f80a0772a389900e08c81cfe8da32a2
+ms.sourcegitcommit: ac035293291c3d2962cee270b33fca3628432fac
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "100365515"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "104952627"
 ---
 # <a name="azure-active-directory-b2b-collaboration-faqs"></a>Domande frequenti su Collaborazione B2B di Azure Active Directory
 
@@ -83,6 +83,7 @@ Sì. Sia l'autenticazione a più fattori che gli account di posta elettronica de
 ### <a name="do-you-support-password-reset-for-azure-ad-b2b-collaboration-users"></a>La reimpostazione della password per gli utenti di Collaborazione B2B di Azure AD è supportata?
 Se il tenant di Azure AD è la home directory per l'utente, è possibile [reimpostare la password dell'utente](../fundamentals/active-directory-users-reset-password-azure-portal.md) dal portale di Azure, ma non è possibile reimpostare direttamente una password per un utente guest che accede con un account gestito da un'altra directory di Azure AD o da un altro provider di identità esterno. Solo l'utente guest o un amministratore nella home directory dell'utente può reimpostare la password. Di seguito sono riportati alcuni esempi di come funziona la reimpostazione della password per gli utenti guest:
  
+* Gli utenti guest in un tenant di Azure AD contrassegnati come "Guest" (UserType = = Guest) non possono registrarsi per SSPR tramite [https://aka.ms/ssprsetup](https://aka.ms/ssprsetup) . Questi tipi di utente guest possono eseguire SSPR solo tramite [https://aka.ms/sspr](https://aka.ms/sspr) . 
 * Gli utenti guest che accedono con un account Microsoft (ad esempio, guestuser@live.com) possono reimpostare le proprie password con la reimpostazione della password self-service dell'account Microsoft. Vedere [Come reimpostare la password dell'account Microsoft](https://support.microsoft.com/help/4026971/microsoft-account-how-to-reset-your-password).
 * Gli utenti guest che accedono con un account Google o un altro provider di identità esterno possono reimpostare le proprie password usando il metodo di reimpostazione della password self-service del provider di identità. Un utente guest con un account Google guestuser@gmail.com, ad esempio, può reimpostare la password seguendo le istruzioni contenute in [Modificare o reimpostare la password](https://support.google.com/accounts/answer/41078).
 * Se il tenant dell'identità è un tenant JIT o "virale" (ovvero un tenant di Azure non gestito separato), solo l'utente guest può reimpostare la propria password. A volte un'organizzazione [acquisirà la gestione dei tenant virali](../enterprise-users/domains-admin-takeover.md) che vengono creati quando i dipendenti usano gli indirizzi di posta elettronica aziendali per registrarsi ai servizi. Quando l'organizzazione acquisisce un tenant virale, solo l'amministratore dell'organizzazione può reimpostare la password dell'utente o abilitare la reimpostazione password self-service. Se necessario, l'organizzazione che emette l'invito può rimuovere l'account utente guest dalla directory e inviare di nuovo l'invito.

@@ -6,12 +6,12 @@ ms.author: nisgoel
 ms.service: hdinsight
 ms.topic: how-to
 ms.date: 05/22/2020
-ms.openlocfilehash: 20567a1e38686b5d452a5353bc459e7e1125f499
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 1799aff8bff96d404ddcbefbf58a5f5014cdba6a
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98941299"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104871589"
 ---
 # <a name="apache-spark-operations-supported-by-hive-warehouse-connector-in-azure-hdinsight"></a>Operazioni di Apache Spark supportate da Hive Warehouse Connector in Azure HDInsight
 
@@ -86,7 +86,7 @@ Spark non supporta in modo nativo la scrittura nelle tabelle ACID gestite di Hiv
     hive.table("sampletable_colorado").show()
     ```
     
-    ![Hive Warehouse Connector mostra la tabella Hive](./media/apache-hive-warehouse-connector/hive-warehouse-connector-show-hive-table.png)
+    :::image type="content" source="./media/apache-hive-warehouse-connector/hive-warehouse-connector-show-hive-table.png" alt-text="Hive Warehouse Connector mostra la tabella Hive" border="true":::
 
 
 ## <a name="structured-streaming-writes"></a>Operazioni di scrittura di flussi strutturati

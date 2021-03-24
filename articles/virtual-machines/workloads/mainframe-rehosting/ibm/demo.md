@@ -3,7 +3,7 @@ title: Configurare una distribuzione controllata per gli sviluppatori di applica
 description: Eseguire un ambiente di sviluppo e test IBM Z (zD&T) in macchine virtuali (VM) di Azure.
 services: virtual-machines
 ms.service: virtual-machines
-ms.subservice: workloads
+ms.subservice: mainframe-rehosting
 documentationcenter: ''
 author: njray
 manager: edprice
@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 02/22/2019
 tags: ''
 keywords: ''
-ms.openlocfilehash: d390cca483444dadd278d783c5f93e09a1bf1ff8
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: fda59cc041cc540b95ababa6d56df6e69b0a8970
+ms.sourcegitcommit: ac035293291c3d2962cee270b33fca3628432fac
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102549448"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "104956163"
 ---
 # <a name="set-up-an-application-developers-controlled-distribution-adcd-in-ibm-zdt-v1"></a>Configurare una distribuzione controllata per gli sviluppatori di applicazioni (ADCD) in IBM zD&T V1
 

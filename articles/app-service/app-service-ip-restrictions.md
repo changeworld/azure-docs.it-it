@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 12/17/2020
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: fea189952b1452c680255ceb99e38609775a8bd6
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 4b85397eeda651678fe66c6e78199dd25630dcc4
+ms.sourcegitcommit: a67b972d655a5a2d5e909faa2ea0911912f6a828
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102502689"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104889907"
 ---
 # <a name="set-up-azure-app-service-access-restrictions"></a>Configurare le restrizioni di accesso al servizio app Azure
 
@@ -97,26 +97,25 @@ Con gli endpoint di servizio è possibile configurare l'app con gateway applicaz
 > [!NOTE]
 > - Gli endpoint di servizio non sono attualmente supportati per le app Web che usano IP virtuale (VIP) IP Secure Sockets Layer (SSL).
 >
-#### <a name="set-a-service-tag-based-rule-preview"></a>Impostare una regola basata su tag di servizio (anteprima)
+#### <a name="set-a-service-tag-based-rule"></a>Impostare una regola basata su tag di servizio
 
-* Per il passaggio 4, nell'elenco a discesa **tipo** selezionare **tag servizio (anteprima)**.
+* Nel passaggio 4 Selezionare **tag servizio** nell'elenco a discesa **tipo** .
 
-   :::image type="content" source="media/app-service-ip-restrictions/access-restrictions-service-tag-add.png" alt-text="Screenshot del riquadro ' Aggiungi restrizione ' con il tipo di tag del servizio selezionato.":::
+   :::image type="content" source="media/app-service-ip-restrictions/access-restrictions-service-tag-add.png?v2" alt-text="Screenshot del riquadro ' Aggiungi restrizione ' con il tipo di tag del servizio selezionato.":::
 
 Ogni tag di servizio rappresenta un elenco di intervalli di indirizzi IP dai servizi di Azure. Un elenco di questi servizi e collegamenti a intervalli specifici è disponibile nella [documentazione relativa ai tag del servizio][servicetags].
 
-Il seguente elenco di tag di servizio è supportato nelle regole di restrizione dell'accesso durante la fase di anteprima:
+Tutti i tag di servizio disponibili sono supportati nelle regole di restrizione di accesso. Per semplicità, solo un elenco dei tag più comuni è disponibile tramite il portale di Azure. Usare modelli di Azure Resource Manager o script per configurare regole più avanzate come le regole con ambito regionale. Questi sono i tag disponibili tramite portale di Azure:
+
 * ActionGroup
+* ApplicationInsightsAvailability
 * AzureCloud
 * AzureCognitiveSearch
-* AzureConnectors
 * AzureEventGrid
 * AzureFrontDoor.Backend
 * AzureMachineLearning
-* AzureSignalR
 * AzureTrafficManager
 * LogicApps
-* ServiceFabric
 
 ### <a name="edit-a-rule"></a>Modificare una regola
 
@@ -137,6 +136,31 @@ Per eliminare una regola, nella pagina **restrizioni di accesso** selezionare i 
 
 ## <a name="access-restriction-advanced-scenarios"></a>Scenari avanzati di restrizione dell'accesso
 Le sezioni seguenti descrivono alcuni scenari avanzati che usano restrizioni di accesso.
+
+### <a name="filter-by-http-header"></a>Filtra per intestazione http
+
+Come parte di una regola, è possibile aggiungere altri filtri di intestazione HTTP. Sono supportati i nomi di intestazione HTTP seguenti:
+* X-Forwarded-For
+* X-Forwarded-Host
+* X-Azure-FDID
+* X-FD-HealthProbe
+
+Per ogni nome di intestazione è possibile aggiungere fino a 8 valori separati da virgola. I filtri di intestazione HTTP vengono valutati dopo la regola stessa ed è necessario che entrambe le condizioni siano vere affinché la regola venga applicata.
+
+### <a name="multi-source-rules"></a>Regole multiorigine
+
+Le regole di più origini consentono di combinare fino a 8 intervalli IP o 8 tag del servizio in una singola regola. Questa operazione può essere utilizzata se si dispone di più di 512 intervalli di indirizzi IP o si desidera creare regole logiche in cui più intervalli IP vengono combinati con un singolo filtro di intestazione HTTP.
+
+Le regole di più origini sono definite nello stesso modo in cui si definiscono le regole di origine singola, ma con ogni intervallo separato con la virgola.
+
+Esempio di PowerShell:
+
+  ```azurepowershell-interactive
+  Add-AzWebAppAccessRestrictionRule -ResourceGroupName "ResourceGroup" -WebAppName "AppName" `
+    -Name "Multi-source rule" -IpAddress "192.168.1.0/24,192.168.10.0/24,192.168.100.0/24" `
+    -Priority 100 -Action Allow
+  ```
+
 ### <a name="block-a-single-ip-address"></a>Blocca un singolo indirizzo IP
 
 Quando si aggiunge la prima regola di restrizione dell'accesso, il servizio aggiunge una regola esplicita *Deny All* con una priorità di 2147483647. In pratica, la regola esplicita *Deny All* è la regola finale da eseguire e blocca l'accesso a qualsiasi indirizzo IP non consentito in modo esplicito da una regola di *autorizzazione* .
@@ -151,17 +175,20 @@ Oltre a essere in grado di controllare l'accesso all'app, è possibile limitare 
 
 :::image type="content" source="media/app-service-ip-restrictions/access-restrictions-scm-browse.png" alt-text="Screenshot della pagina &quot;restrizioni di accesso&quot; nella portale di Azure, che indica che non è stata impostata alcuna restrizione di accesso per il sito SCM o l'app.":::
 
-### <a name="restrict-access-to-a-specific-azure-front-door-instance-preview"></a>Limitare l'accesso a una specifica istanza di front door di Azure (anteprima)
-Il traffico dalla porta anteriore di Azure all'applicazione ha origine da un set noto di intervalli di indirizzi IP definiti nel tag del servizio AzureFrontDoor. backend. Usando una regola di restrizione dei tag del servizio, è possibile limitare il traffico solo a originare da Azure front door. Per garantire che il traffico provenga solo da un'istanza specifica, sarà necessario filtrare ulteriormente le richieste in ingresso in base all'intestazione HTTP univoca inviata da Azure front door. Durante l'anteprima è possibile ottenere questo risultato con PowerShell o REST/ARM. 
+### <a name="restrict-access-to-a-specific-azure-front-door-instance"></a>Limitare l'accesso a un'istanza di Azure front door specifica
+Il traffico dalla porta anteriore di Azure all'applicazione ha origine da un set noto di intervalli di indirizzi IP definiti nel tag del servizio AzureFrontDoor. backend. Usando una regola di restrizione dei tag del servizio, è possibile limitare il traffico solo a originare da Azure front door. Per garantire che il traffico provenga solo da un'istanza specifica, sarà necessario filtrare ulteriormente le richieste in ingresso in base all'intestazione HTTP univoca inviata da Azure front door.
 
-* Esempio di PowerShell (l'ID della porta anteriore è reperibile nella portale di Azure):
+:::image type="content" source="media/app-service-ip-restrictions/access-restrictions-frontdoor.png" alt-text="Screenshot della pagina &quot;restrizioni di accesso&quot; nella portale di Azure, che Mostra come aggiungere una restrizione di Azure front door.":::
 
-   ```azurepowershell-interactive
-    $frontdoorId = "xxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
-    Add-AzWebAppAccessRestrictionRule -ResourceGroupName "ResourceGroup" -WebAppName "AppName" `
-      -Name "Front Door example rule" -Priority 100 -Action Allow -ServiceTag AzureFrontDoor.Backend `
-      -HttpHeader @{'x-azure-fdid' = $frontdoorId}
-    ```
+Esempio di PowerShell:
+
+  ```azurepowershell-interactive
+  $afd = Get-AzFrontDoor -Name "MyFrontDoorInstanceName"
+  Add-AzWebAppAccessRestrictionRule -ResourceGroupName "ResourceGroup" -WebAppName "AppName" `
+    -Name "Front Door example rule" -Priority 100 -Action Allow -ServiceTag AzureFrontDoor.Backend `
+    -HttpHeader @{'x-azure-fdid' = $afd.FrontDoorId}
+  ```
+
 ## <a name="manage-access-restriction-rules-programmatically"></a>Gestire le regole di restrizione dell'accesso a livello di codice
 
 È possibile aggiungere restrizioni di accesso a livello di codice effettuando una delle operazioni seguenti: 
@@ -181,7 +208,7 @@ Il traffico dalla porta anteriore di Azure all'applicazione ha origine da un set
       -Name "Ip example rule" -Priority 100 -Action Allow -IpAddress 122.133.144.0/24
   ```
    > [!NOTE]
-   > L'uso di tag di servizio, intestazioni HTTP o regole di più origini richiede almeno la versione 5.1.0. È possibile verificare la versione del modulo installato con: **Get-InstalledModule-Name AZ**
+   > L'uso di tag di servizio, intestazioni HTTP o regole di più origini richiede almeno la versione 5.7.0. È possibile verificare la versione del modulo installato con: **Get-InstalledModule-Name AZ**
 
 È anche possibile impostare manualmente i valori eseguendo una delle operazioni seguenti:
 

@@ -2,21 +2,18 @@
 title: Analizzare i file audio e video
 description: Informazioni su come analizzare il contenuto audio e video usando AudioAnalyzerPreset e VideoAnalyzerPreset in servizi multimediali di Azure.
 services: media-services
-documentationcenter: ''
 author: IngridAtMicrosoft
 manager: femila
-editor: ''
 ms.service: media-services
-ms.workload: ''
 ms.topic: conceptual
-ms.date: 03/17/2021
+ms.date: 03/22/2021
 ms.author: inhenkel
-ms.openlocfilehash: 002f900f03f7bd08753313cde0e6bd46b097a858
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: e062eb1ecc37a60567a6b8af0d4e0f27b1e73c36
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104581151"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104863344"
 ---
 # <a name="analyze-video-and-audio-files-with-azure-media-services"></a>Analizzare i file audio e video con servizi multimediali di Azure
 
@@ -30,12 +27,9 @@ Sono disponibili due modalità per il set di impostazioni dell'analizzatore audi
 
 Per analizzare i contenuti usando i set di impostazioni di Media Services V3, creare una **trasformazione** e inviare un **processo** che usa uno dei set di impostazioni seguenti: [VideoAnalyzerPreset](/rest/api/media/transforms/createorupdate#videoanalyzerpreset) o **AudioAnalyzerPreset**. Per un'esercitazione che illustra come usare **VideoAnalyzerPreset**, vedere [analizzare i video con servizi multimediali di Azure](analyze-videos-tutorial-with-api.md).
 
-> [!NOTE]
-> Quando si usano i set di impostazioni del video o dell'analizzatore audio, usare il portale di Azure per impostare l'account su 10 unità riservate S3, sebbene non sia necessario. È possibile usare S1 o S2 per i set di impostazioni audio. Per altre informazioni, vedere [Panoramica del ridimensionamento dell'elaborazione multimediale](media-reserved-units-cli-how-to.md).
-
 ## <a name="compliance-privacy-and-security"></a>Conformità, privacy e sicurezza
 
-È importante ricordare che è necessario usare Video Indexer in conformità con tutte le leggi applicabili e non è possibile usare Video Indexer né qualsiasi altro servizio di Azure in un modo che violi i diritti di altri utenti o possa arrecare danni ad altri utenti. Per poter caricare video, inclusi dati biometrici, nel servizio Video Indexer per elaborarli e archiviarli, è necessario disporre di tutti i diritti appropriati, inclusi tutti i consensi appropriati delle persone che compaiono nel video. Per informazioni su conformità, privacy e sicurezza in Video Indexer, vedere le [condizioni di Servizi cognitivi Microsoft](https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/). Per informazioni sugli obblighi relativi alla privacy e la gestione dei dati degli utenti da parte di Microsoft, vedere l'[informativa sulla privacy](https://privacy.microsoft.com/PrivacyStatement), le [condizioni per l'utilizzo dei servizi online](https://www.microsoft.com/licensing/product-licensing/products) e l'[addendum sull'elaborazione dati](https://www.microsoftvolumelicensing.com/DocumentSearch.aspx?Mode=3&DocumentTypeId=67) Microsoft. Informazioni aggiuntive sulla privacy, tra cui la conservazione e l'eliminazione/distruzione dei dati, sono disponibili nelle condizioni per l'utilizzo dei servizi online e [qui](../video-indexer/faq.md). Usando Video Indexer, l'utente accetta di essere vincolato dalle condizioni di Servizi cognitivi, dalle condizioni per l'utilizzo dei servizi online, dall'addendum sull'elaborazione dati e dall'informativa sulla privacy.
+È importante ricordare che è necessario usare Video Indexer in conformità con tutte le leggi applicabili e non è possibile usare Video Indexer né qualsiasi altro servizio di Azure in un modo che violi i diritti di altri utenti o possa arrecare danni ad altri utenti. Per poter caricare video, inclusi dati biometrici, nel servizio Video Indexer per elaborarli e archiviarli, è necessario disporre di tutti i diritti appropriati, inclusi tutti i consensi appropriati delle persone che compaiono nel video. Per informazioni su conformità, privacy e sicurezza in Video Indexer, le [condizioni dei servizi cognitivi](https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/)di Azure. Per informazioni sugli obblighi relativi alla privacy e la gestione dei dati degli utenti da parte di Microsoft, vedere l'[informativa sulla privacy](https://privacy.microsoft.com/PrivacyStatement), le [condizioni per l'utilizzo dei servizi online](https://www.microsoft.com/licensing/product-licensing/products) e l'[addendum sull'elaborazione dati](https://www.microsoftvolumelicensing.com/DocumentSearch.aspx?Mode=3&DocumentTypeId=67) Microsoft. Informazioni aggiuntive sulla privacy, tra cui la conservazione e l'eliminazione/distruzione dei dati, sono disponibili nelle condizioni per l'utilizzo dei servizi online e [qui](../video-indexer/faq.md). Usando Video Indexer, l'utente accetta di essere vincolato dalle condizioni di Servizi cognitivi, dalle condizioni per l'utilizzo dei servizi online, dall'addendum sull'elaborazione dati e dall'informativa sulla privacy.
 
 ## <a name="built-in-presets"></a>Set di impostazioni predefiniti
 

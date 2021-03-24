@@ -7,12 +7,12 @@ author: aniket-ms
 ms.author: aadnaik
 ms.reviewer: HDI HiveLLAP Team
 ms.date: 05/05/2020
-ms.openlocfilehash: 7df75077785c66215008e045ef0b1e451ba29f57
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: ca3ba61de13e0e451b43dc9c8ea40db33fed859a
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98931097"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104869668"
 ---
 # <a name="azure-hdinsight-interactive-query-cluster-hive-llap-sizing-guide"></a>Guida al dimensionamento di cluster Interactive Query in HDInsight (Hive LLAP)
 
@@ -47,7 +47,7 @@ Questo documento descrive il dimensionamento del cluster Interactive Query in HD
 
 ### <a name="llap-architecturecomponents"></a>**Architettura/componenti di LLAP:**  
 
-![' Architettura/componenti di LLAP '](./media/hive-llap-sizing-guide/LLAP_architecture_sizing_guide.png "Architettura/componenti di LLAP")
+:::image type="content" source="./media/hive-llap-sizing-guide/LLAP_architecture_sizing_guide.png " alt-text="' Architettura/componenti di LLAP '" border="true":::
 
 ### <a name="llap-daemon-size-estimations"></a>**Stime delle dimensioni dei daemon LLAP:** 
 
@@ -81,7 +81,7 @@ Il cluster di HDInsight predefinito include quattro daemon LLAP in esecuzione in
 
 **Dispositivo di scorrimento dell'interfaccia utente Ambari per la variabile di configurazione hive `hive.server2.tez.sessions.per.default.queue` :**
 
-![' LLAP numero massimo di query simultanee '](./media/hive-llap-sizing-guide/LLAP_sizing_guide_max_concurrent_queries.png "LLAP numero massimo di query simultanee")
+:::image type="content" source="./media/hive-llap-sizing-guide/LLAP_sizing_guide_max_concurrent_queries.png " alt-text="' LLAP numero massimo di query simultanee '" border="true":::
 
 #### <a name="5-tez-container-and-tez-application-master-size"></a>**5. Dimensioni di Tez Container e Tez Application Master**    
 Configurazione: ***tez.am.resource.memory.mb, hive.tez.container.size***  
@@ -165,7 +165,7 @@ Per D14 V2, questo valore è 19 x 3 GB = **57 GB**
 
 `Ambari environment variable for LLAP heap size:`
 
-![' LLAP Heap Size '](./media/hive-llap-sizing-guide/LLAP_sizing_guide_llap_heap_size.png "Dimensioni heap LLAP")
+:::image type="content" source="./media/hive-llap-sizing-guide/LLAP_sizing_guide_llap_heap_size.png " alt-text="' LLAP Heap Size '" border="true":::
 
 Quando la cache SSD è disabilitata, la cache in memoria è la quantità di memoria rimanente dopo aver preso in mano le dimensioni della superficie e dell'heap dalle dimensioni del contenitore del daemon LLAP.
 
@@ -197,11 +197,11 @@ Variabili di ambiente Ambari: ***num_llap_nodes, num_llap_nodes_for_llap_daemons
 
 **num_llap_nodes** : specifica il numero di nodi usati dal servizio LLAP hive, inclusi i nodi che eseguono il daemon LLAP, il master del servizio LLAP e il Master applicazioni TeZ (Tez AM).  
 
-![' Numero di nodi per il servizio LLAP '](./media/hive-llap-sizing-guide/LLAP_sizing_guide_num_llap_nodes.png "Numero di nodi per il servizio LLAP")  
+:::image type="content" source="./media/hive-llap-sizing-guide/LLAP_sizing_guide_num_llap_nodes.png " alt-text="' Numero di nodi per il servizio LLAP '" border="true":::  
 
 numero di nodi specificato **num_llap_nodes_for_llap_daemons** usato solo per i daemon LLAP. Le dimensioni del contenitore del daemon LLAP sono impostate sul nodo max fit, quindi verrà generato un daemon LLAP in ogni nodo.
 
-![' Numero di nodi per daemon LLAP '](./media/hive-llap-sizing-guide/LLAP_sizing_guide_num_llap_nodes_for_llap_daemons.png "Numero di nodi per i daemon LLAP")
+:::image type="content" source="./media/hive-llap-sizing-guide/LLAP_sizing_guide_num_llap_nodes_for_llap_daemons.png " alt-text="' Numero di nodi per daemon LLAP '" border="true":::
 
 È consigliabile usare entrambi i valori come numero di nodi del ruolo di lavoro nel cluster Interactive query.
 

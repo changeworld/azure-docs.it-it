@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 02/17/2021
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: dd612e7e3c54a000d989c5a2f3a633d06d6d11cb
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 3193acf8ef19cdac97f6733a657610801d614f32
+ms.sourcegitcommit: ac035293291c3d2962cee270b33fca3628432fac
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101718337"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "104952304"
 ---
 # <a name="azure-security-baseline-for-app-service"></a>Baseline della sicurezza di Azure per il servizio app
 
@@ -265,9 +265,9 @@ Esaminare gli avvisi di sicurezza e le raccomandazioni dettagliati nel centro si
 
 Si consiglia di creare un processo con strumenti automatici per monitorare le configurazioni delle risorse di rete e rilevare rapidamente le modifiche.
 
-- [Come visualizzare e recuperare gli eventi del log attività di Azure](/azure/azure-monitor/platform/activity-log#view-the-activity-log)
+- [Come visualizzare e recuperare gli eventi del log attività di Azure](../azure-monitor/essentials/activity-log.md#view-the-activity-log)
 
-- [Come creare avvisi in Monitoraggio di Azure](/azure/azure-monitor/platform/alerts-activity-log)
+- [Come creare avvisi in Monitoraggio di Azure](../azure-monitor/alerts/alerts-activity-log.md)
 
 - [Esportare avvisi e raccomandazioni di sicurezza](../security-center/continuous-export.md)
 
@@ -285,7 +285,7 @@ Si consiglia di creare un processo con strumenti automatici per monitorare le co
 
 USA Microsoft Azure Sentinel, una soluzione di gestione degli eventi di sicurezza (SIEM) scalabile, nativa del cloud, per la connessione a diverse origini dati e connettori, in base alle esigenze aziendali. È anche possibile abilitare e caricare i dati in un sistema SIEM (Security Information Event Management) di terze parti, ad esempio Barracuda in Azure Marketplace.
 
-- [Registrazione dell'attività ASE](https://docs.microsoft.com/azure/app-service/environment/using-an-ase#logging)
+- [Registrazione dell'attività ASE](./environment/using-an-ase.md#logging)
 
 - [Come abilitare le impostazioni di diagnostica per il servizio app Azure](troubleshoot-diagnostic-logs.md)
 
@@ -305,7 +305,7 @@ Il "cosa, chi e quando" per qualsiasi operazione di scrittura (PUT, POST, DELETE
 
 Inoltre, Azure Key Vault fornisce una gestione centralizzata dei segreti con i criteri di accesso e la cronologia di controllo. 
 
-- [Come abilitare le impostazioni di diagnostica per il log attività di Azure](/azure/azure-monitor/platform/activity-log)
+- [Come abilitare le impostazioni di diagnostica per il log attività di Azure](../azure-monitor/essentials/activity-log.md)
 
 - [Come abilitare le impostazioni di diagnostica per il servizio app Azure](troubleshoot-diagnostic-logs.md)
 
@@ -322,7 +322,7 @@ Inoltre, Azure Key Vault fornisce una gestione centralizzata dei segreti con i c
 ### <a name="25-configure-security-log-storage-retention"></a>2.5: configurare la conservazione dell'archiviazione dei log di sicurezza
 
 **Linee guida**: in monitoraggio di Azure impostare il periodo di conservazione dei log per le aree di lavoro log Analytics associate alle risorse del servizio app in base alle normative di conformità dell'organizzazione.
-- [Come impostare i parametri di conservazione dei log](/azure/azure-monitor/platform/manage-cost-storage#change-the-data-retention-period)
+- [Come impostare i parametri di conservazione dei log](../azure-monitor/logs/manage-cost-storage.md#change-the-data-retention-period)
 
 **Responsabilità**: Customer
 
@@ -338,7 +338,7 @@ Se è stato distribuito un Web Application Firewall (WAF), è possibile monitora
 
 USA Azure Sentinel, una soluzione di gestione degli eventi di informazioni di sicurezza scalabile e nativa del cloud, per l'integrazione con varie origini dati e connettori, in base ai requisiti. Facoltativamente, abilitare e caricare i dati in una soluzione di gestione degli eventi di informazioni di sicurezza di terze parti in Azure Marketplace.
 
-- [Come abilitare le impostazioni di diagnostica per il log attività di Azure](/azure/azure-monitor/platform/activity-log)
+- [Come abilitare le impostazioni di diagnostica per il log attività di Azure](../azure-monitor/essentials/activity-log.md)
 
 - [Come abilitare Application Insights](../azure-monitor/app/app-insights-overview.md)
 
@@ -372,9 +372,9 @@ Monitorare gli attacchi alle app del servizio app usando un log del Web Applicat
 
 **Linee guida**: Azure Active Directory (Azure ad) include ruoli predefiniti che devono essere assegnati in modo esplicito e in grado di eseguire query. Usare il modulo Azure AD PowerShell per eseguire query ad hoc per individuare gli account che sono membri di gruppi amministrativi.
 
-- [Come ottenere i membri di un ruolo della directory in Azure AD con PowerShell](https://docs.microsoft.com/powershell/module/azuread/get-azureaddirectoryrolemember?view=azureadps-2.0&amp;preserve-view=true)
+- [Come ottenere i membri di un ruolo della directory in Azure AD con PowerShell](/powershell/module/azuread/get-azureaddirectoryrolemember?preserve-view=true&view=azureadps-2.0)
 
-- [Come usare le identità gestite nel servizio app e in Funzioni di Azure](https://docs.microsoft.com/azure/app-service/overview-managed-identity?context=azure%2Factive-directory%2Fmanaged-identities-azure-resources%2Fcontext%2Fmsi-context&amp;tabs=dotnet)
+- [Come usare le identità gestite nel servizio app e in Funzioni di Azure](./overview-managed-identity.md?tabs=dotnet&context=azure%2factive-directory%2fmanaged-identities-azure-resources%2fcontext%2fmsi-context)
 
 - [Assegnare i ruoli di Azure usando il portale di Azure](../role-based-access-control/role-assignments-portal.md)
 
@@ -390,7 +390,7 @@ In generale, evitare di implementare password predefinite per l'accesso utente d
 
 Disabilitare l'accesso anonimo, a meno che non sia necessario supportarlo. 
 
-- [Provider di identità disponibili per impostazione predefinita nel servizio app Azure](https://docs.microsoft.com/azure/app-service/overview-authentication-authorization#identity-providers)
+- [Provider di identità disponibili per impostazione predefinita nel servizio app Azure](./overview-authentication-authorization.md#identity-providers)
 
 - [Autenticazione e autorizzazione nel servizio app Azure e funzioni di Azure](overview-authentication-authorization.md)
 
@@ -437,7 +437,7 @@ Le app del servizio app usano l'identità federata, in cui un provider di identi
 
 Quando si abilitano l'autenticazione e l'autorizzazione con uno di questi provider, il relativo endpoint di accesso è disponibile per l'autenticazione utente e per la convalida dei token di autenticazione del provider.
 
-- [Informazioni sull'autenticazione e l'autorizzazione nel servizio app Azure](https://docs.microsoft.com/azure/app-service/overview-authentication-authorization#identity-providers)
+- [Informazioni sull'autenticazione e l'autorizzazione nel servizio app Azure](./overview-authentication-authorization.md#identity-providers)
 
 - [Informazioni sull'autenticazione e l'autorizzazione nel servizio app Azure](overview-authentication-authorization.md)
 
@@ -451,7 +451,7 @@ Quando si abilitano l'autenticazione e l'autorizzazione con uno di questi provid
 
 Implementare l'autenticazione a più fattori per Azure AD. Gli amministratori devono assicurarsi che gli account di sottoscrizione nel portale siano protetti. La sottoscrizione è vulnerabile agli attacchi perché gestisce le risorse create. 
 
-- [Autenticazione a più fattori per la sicurezza di Azure](/azure/security/develop/secure-aad-app)
+- [Autenticazione a più fattori per la sicurezza di Azure](/previous-versions/azure/security/develop/secure-aad-app)
 
 - [Come abilitare l'autenticazione a più fattori in Azure](../active-directory/authentication/howto-mfa-getstarted.md)
 
@@ -517,7 +517,7 @@ La protezione dalle minacce nel centro sicurezza offre una difesa completa per l
 
 **Linee guida**: individuare gli account obsoleti con i log forniti da Azure Active Directory (Azure ad). Usare le verifiche di accesso alle identità di Azure per gestire in modo efficiente l'appartenenza ai gruppi e l'accesso alle applicazioni aziendali, nonché le assegnazioni di ruolo. Controllare periodicamente l'accesso utente per assicurarsi che solo gli utenti desiderati abbiano accesso continuo. 
 
-- [Informazioni sulla creazione di report Azure AD](/azure/active-directory/reports-monitoring/)
+- [Informazioni sulla creazione di report Azure AD](../active-directory/reports-monitoring/index.yml)
 
 - [Come usare le verifiche di accesso alle identità di Azure](../active-directory/governance/access-reviews-overview.md)
 
@@ -533,7 +533,7 @@ L'accesso alle origini del registro eventi di rischio, controllo e attività di 
 
 - [Come configurare le app del servizio app Azure per l'uso di Azure AD account di accesso](configure-authentication-provider-aad.md)
 
-- [Come integrare i log attività di Azure in Monitoraggio di Azure](/azure/active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics)
+- [Come integrare i log attività di Azure in Monitoraggio di Azure](../active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics.md)
 
 - [Come caricare dati in Azure Sentinel](../sentinel/quickstart-onboard.md)
 
@@ -561,7 +561,7 @@ Usare Azure AD Identity Protection per configurare risposte automatiche a azioni
 
 **Linee guida**: non disponibile; Customer Lockbox non è supportato per app Azure servizio.
 
-- [Elenco dei servizi Customer Lockbox supportati](https://docs.microsoft.com/azure/security/fundamentals/customer-lockbox-overview#supported-services-and-scenarios-in-general-availability)
+- [Elenco dei servizi Customer Lockbox supportati](../security/fundamentals/customer-lockbox-overview.md#supported-services-and-scenarios-in-general-availability)
 
 **Responsabilità**: Customer
 
@@ -661,7 +661,7 @@ I segreti forniti dal cliente vengono crittografati quando sono inattivi durante
 
 Si noti che, mentre i dischi collegati localmente possono essere usati facoltativamente da siti Web come archiviazione temporanea, ad esempio D:\Local e% TMP, non vengono crittografati a riposo.
 
-- [Informazioni sui controlli di protezione dei dati per il servizio app Azure](https://docs.microsoft.com/azure/app-service/security-recommendations#data-protection)
+- [Informazioni sui controlli di protezione dei dati per il servizio app Azure](./security-recommendations.md#data-protection)
 
 - [Informazioni sulla crittografia di archiviazione di Azure](../storage/common/storage-service-encryption.md)
 
@@ -673,7 +673,7 @@ Si noti che, mentre i dischi collegati localmente possono essere usati facoltati
 
 **Linee guida**: usare monitoraggio di Azure con il log attività di Azure per creare avvisi in caso di modifiche alle app del servizio app di produzione e ad altre risorse critiche o correlate.
 
-- [Come creare avvisi per gli eventi del log attività di Azure](/azure/azure-monitor/platform/alerts-activity-log)
+- [Come creare avvisi per gli eventi del log attività di Azure](../azure-monitor/alerts/alerts-activity-log.md)
 
 **Responsabilità**: Customer
 
@@ -689,7 +689,7 @@ Si noti che, mentre i dischi collegati localmente possono essere usati facoltati
 
 Esaminare e seguire le raccomandazioni del Centro sicurezza per la protezione delle app del servizio app.
 
-- [Come aggiungere la convalida della sicurezza continua alla pipeline CI/CD](https://docs.microsoft.com/azure/devops/migrate/security-validation-cicd-pipeline?preserve-view=true&amp;view=azure-devops)
+- [Come aggiungere la convalida della sicurezza continua alla pipeline CI/CD](/azure/devops/migrate/security-validation-cicd-pipeline?view=azure-devops&preserve-view=true)
 
 - [Come implementare le raccomandazioni per la valutazione della vulnerabilità del Centro sicurezza di Azure](../security-center/deploy-vulnerability-assessment-vm.md)
 
@@ -719,7 +719,7 @@ Sebbene le risorse di Azure (versione classica) possano essere individuate trami
 
 - [Come creare query con Azure Resource Graph](../governance/resource-graph/first-query-portal.md)
 
-- [Come visualizzare le sottoscrizioni di Azure](https://docs.microsoft.com/powershell/module/az.accounts/get-azsubscription?preserve-view=true&amp;view=azps-4.8.0)
+- [Come visualizzare le sottoscrizioni di Azure](/powershell/module/az.accounts/get-azsubscription?view=azps-4.8.0&preserve-view=true)
 
 - [Informazioni sul controllo degli accessi in base al ruolo di Azure](../role-based-access-control/overview.md)
 
@@ -840,7 +840,7 @@ Usare i processi Web nel servizio app per monitorare le applicazioni software no
 
 - [Come configurare e gestire Criteri di Azure](../governance/policy/tutorials/create-and-manage.md)
 
-- [Come negare un tipo di risorsa specifico con Criteri di Azure](https://docs.microsoft.com/azure/governance/policy/samples/built-in-policies#general)
+- [Come negare un tipo di risorsa specifico con Criteri di Azure](../governance/policy/samples/built-in-policies.md#general)
 
 - [Eseguire attività in background con processi Web nel servizio app Azure](webjobs-create.md)
 
@@ -864,7 +864,7 @@ Analogamente, usare processi Web nel servizio app per eseguire l'inventario di a
 
 - [Come configurare e gestire Criteri di Azure](../governance/policy/tutorials/create-and-manage.md)
 
-- [Come negare un tipo di risorsa specifico con Criteri di Azure](https://docs.microsoft.com/azure/governance/policy/samples/built-in-policies#general)
+- [Come negare un tipo di risorsa specifico con Criteri di Azure](../governance/policy/samples/built-in-policies.md#general)
 
 **Responsabilità**: Customer
 
@@ -926,7 +926,7 @@ Applicare le definizioni dei criteri predefinite, ad esempio:
 
 È consigliabile documentare il processo per applicare le definizioni dei criteri predefinite per l'utilizzo standardizzato.   
 
-- [Come visualizzare gli alias di Criteri di Azure disponibili](https://docs.microsoft.com/powershell/module/az.resources/get-azpolicyalias?preserve-view=true&amp;view=azps-4.8.0)
+- [Come visualizzare gli alias di Criteri di Azure disponibili](/powershell/module/az.resources/get-azpolicyalias?view=azps-4.8.0&preserve-view=true)
 
 - [Come configurare e gestire Criteri di Azure](../governance/policy/tutorials/create-and-manage.md)
 
@@ -952,9 +952,9 @@ Applicare le definizioni dei criteri predefinite, ad esempio:
 
 Usare la pipeline di integrazione continua (CI) e recapito continuo (CD) esistente per distribuire una configurazione protetta nota.
 
-- [Come archiviare il codice in Azure DevOps](https://docs.microsoft.com/azure/devops/repos/git/gitworkflow?preserve-view=true&amp;view=azure-devops)
+- [Come archiviare il codice in Azure DevOps](/azure/devops/repos/git/gitworkflow?view=azure-devops&preserve-view=true)
 
-- [Documentazione di Azure Repos](https://docs.microsoft.com/azure/devops/repos/?preserve-view=true&amp;view=azure-devops)
+- [Documentazione di Azure Repos](/azure/devops/repos/?view=azure-devops&preserve-view=true)
 
 **Responsabilità**: Customer
 
@@ -1060,7 +1060,7 @@ Altre informazioni sono disponibili nei collegamenti a cui si fa riferimento.
 
 - [Ripristinare un'app in esecuzione nel servizio app Azure](web-sites-restore.md)
 
-- [Informazioni sulla crittografia dei dati inattivi in Azure](https://docs.microsoft.com/azure/security/fundamentals/encryption-atrest#encryption-at-rest-in-microsoft-cloud-services) 
+- [Informazioni sulla crittografia dei dati inattivi in Azure](../security/fundamentals/encryption-atrest.md#encryption-at-rest-in-microsoft-cloud-services) 
 
 - [Modello di crittografia e tabella di gestione delle chiavi](../security/fundamentals/encryption-atrest.md)
 
@@ -1188,5 +1188,5 @@ Per impostazione predefinita, i dati in un account di archiviazione vengono crit
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Vedere [Panoramica di Azure Security Benchmark V2](/azure/security/benchmarks/overview)
-- Altre informazioni su [Baseline di sicurezza di Azure](/azure/security/benchmarks/security-baselines-overview)
+- Vedere [Panoramica di Azure Security Benchmark V2](../security/benchmarks/overview.md)
+- Altre informazioni su [Baseline di sicurezza di Azure](../security/benchmarks/security-baselines-overview.md)
