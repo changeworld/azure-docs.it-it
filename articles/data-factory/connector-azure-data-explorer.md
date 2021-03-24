@@ -6,13 +6,13 @@ author: linda33wj
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 02/18/2020
-ms.openlocfilehash: 16126e8b9e5c34529016018273edcf65a31e2280
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.date: 03/24/2020
+ms.openlocfilehash: f343cf820632c8b53f74a938a039820ea4f56eac
+ms.sourcegitcommit: a8ff4f9f69332eef9c75093fd56a9aae2fe65122
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "100379982"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105027398"
 ---
 # <a name="copy-data-to-or-from-azure-data-explorer-by-using-azure-data-factory"></a>Copiare dati da o verso Azure Esplora dati usando Azure Data Factory
 
@@ -52,7 +52,14 @@ Le sezioni seguenti offrono informazioni dettagliate sulle proprietà usate per 
 
 ## <a name="linked-service-properties"></a>Proprietà del servizio collegato
 
-Il connettore Azure Esplora dati usa l'autenticazione basata su entità servizio. Per ottenere un'entità servizio e concedere le autorizzazioni, attenersi alla procedura seguente:
+Il connettore Azure Esplora dati supporta i tipi di autenticazione seguenti. Per informazioni dettagliate, vedere le sezioni corrispondenti:
+
+- [Autenticazione di un'entità servizio](#service-principal-authentication)
+- [Autenticazione di identità gestite per le risorse di Azure](#managed-identity)
+
+### <a name="service-principal-authentication"></a>Autenticazione di un'entità servizio
+
+Per usare l'autenticazione basata su entità servizio, seguire questa procedura per ottenere un'entità servizio e per concedere le autorizzazioni:
 
 1. Registrare un'entità applicazione in Azure Active Directory attenendosi alla procedura descritta in [registrare l'applicazione con un tenant di Azure ad](../storage/common/storage-auth-aad-app.md#register-your-application-with-an-azure-ad-tenant). Prendere nota dei valori seguenti che si usano per definire il servizio collegato:
 
@@ -66,7 +73,7 @@ Il connettore Azure Esplora dati usa l'autenticazione basata su entità servizio
     - **Come sink**, concedere almeno il ruolo di inserimento del **database** al database
 
 >[!NOTE]
->Quando si usa l'interfaccia utente di Data Factory per creare, l'account utente di accesso viene usato per elencare i cluster, i database e le tabelle di Azure Esplora dati. Immettere manualmente il nome se non si dispone dell'autorizzazione per queste operazioni.
+>Quando si usa l'interfaccia utente di Data Factory per creare, per impostazione predefinita l'account utente di accesso viene usato per elencare i cluster, i database e le tabelle di Azure Esplora dati. È possibile scegliere di elencare gli oggetti usando l'entità servizio facendo clic sull'elenco a discesa accanto al pulsante Aggiorna oppure immettere manualmente il nome se non si dispone dell'autorizzazione per queste operazioni.
 
 Per il servizio collegato di Azure Esplora dati sono supportate le proprietà seguenti:
 
@@ -78,8 +85,9 @@ Per il servizio collegato di Azure Esplora dati sono supportate le proprietà se
 | tenant | Specificare le informazioni sul tenant (nome di dominio o ID tenant) in cui si trova l'applicazione. Questa operazione è nota come "ID autorità" nella [stringa di connessione kusto](/azure/kusto/api/connection-strings/kusto#application-authentication-properties). Recuperarlo posizionando il puntatore del mouse nell'angolo superiore destro del portale di Azure. | Sì |
 | servicePrincipalId | Specificare l'ID client dell'applicazione. Questa operazione è nota come "ID client dell'applicazione AAD" nella [stringa di connessione kusto](/azure/kusto/api/connection-strings/kusto#application-authentication-properties). | Sì |
 | servicePrincipalKey | Specificare la chiave dell'applicazione. Questa operazione è nota come "chiave dell'applicazione AAD" nella [stringa di connessione kusto](/azure/kusto/api/connection-strings/kusto#application-authentication-properties). Contrassegnare questo campo come **SecureString** per archiviarlo in modo sicuro in data factory o [fare riferimento a dati protetti archiviati nel Azure Key Vault](store-credentials-in-key-vault.md). | Sì |
+| connectVia | [Runtime di integrazione](concepts-integration-runtime.md) da usare per la connessione all'archivio dati. È possibile usare Azure Integration Runtime o un runtime di integrazione self-hosted, se l'archivio dati si trova in una rete privata. Se non specificato, viene usato il runtime di integrazione di Azure predefinito. |No |
 
-**Esempio di proprietà del servizio collegato:**
+**Esempio: uso dell'autenticazione con chiave dell'entità servizio**
 
 ```json
 {
@@ -95,6 +103,44 @@ Per il servizio collegato di Azure Esplora dati sono supportate le proprietà se
                 "type": "SecureString",
                 "value": "<service principal key>"
             }
+        }
+    }
+}
+```
+
+### <a name="managed-identities-for-azure-resources-authentication"></a><a name="managed-identity"></a>Autenticazione di identità gestite per le risorse di Azure
+
+Per usare le identità gestite per l'autenticazione delle risorse di Azure, seguire questa procedura per concedere le autorizzazioni:
+
+1. [Recuperare le informazioni relative all'identità gestita di Data Factory](data-factory-service-identity.md#retrieve-managed-identity) copiando il valore di **ID oggetto dell'identità gestita** generato con la factory.
+
+2. Concedere all'identità gestita le autorizzazioni corrette in Azure Esplora dati. Per informazioni dettagliate sui ruoli e sulle autorizzazioni e sulla gestione delle autorizzazioni, vedere gestire le autorizzazioni del [database di Azure Esplora dati](/azure/data-explorer/manage-database-permissions) . In generale, è necessario:
+
+    - **Come origine**, concedere almeno il ruolo **Visualizzatore database** al database
+    - **Come sink**, concedere almeno il ruolo di inserimento del **database** al database
+
+>[!NOTE]
+>Quando si usa l'interfaccia utente di Data Factory per creare, l'account utente di accesso viene usato per elencare i cluster, i database e le tabelle di Azure Esplora dati. Immettere manualmente il nome se non si dispone dell'autorizzazione per queste operazioni.
+
+Per il servizio collegato di Azure Esplora dati sono supportate le proprietà seguenti:
+
+| Proprietà | Descrizione | Obbligatoria |
+|:--- |:--- |:--- |
+| type | La proprietà **Type** deve essere impostata su **AzureDataExplorer**. | Sì |
+| endpoint | URL dell'endpoint del cluster di Esplora dati di Azure con il formato `https://<clusterName>.<regionName>.kusto.windows.net`. | Sì |
+| database | Nome del database. | Sì |
+| connectVia | [Runtime di integrazione](concepts-integration-runtime.md) da usare per la connessione all'archivio dati. È possibile usare Azure Integration Runtime o un runtime di integrazione self-hosted, se l'archivio dati si trova in una rete privata. Se non specificato, viene usato il runtime di integrazione di Azure predefinito. |No |
+
+**Esempio: uso dell'autenticazione di identità gestita**
+
+```json
+{
+    "name": "AzureDataExplorerLinkedService",
+    "properties": {
+        "type": "AzureDataExplorer",
+        "typeProperties": {
+            "endpoint": "https://<clusterName>.<regionName>.kusto.windows.net ",
+            "database": "<database name>",
         }
     }
 }

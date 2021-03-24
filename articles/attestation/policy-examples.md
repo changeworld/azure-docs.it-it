@@ -7,12 +7,12 @@ ms.service: attestation
 ms.topic: overview
 ms.date: 08/31/2020
 ms.author: mbaldwin
-ms.openlocfilehash: 6a5460a691658bda1cd60e503be8c98433c9c343
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: de003025e98109599ecd69c0459e29950c9bd1fd
+ms.sourcegitcommit: ac035293291c3d2962cee270b33fca3628432fac
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101720155"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "104950570"
 ---
 # <a name="examples-of-an-attestation-policy"></a>Esempi di un criterio di attestazione
 
@@ -35,9 +35,9 @@ c:[type=="x-ms-sgx-mrsigner"] => issue(type="<custom-name>", value=c.value);
 };
 
 ```
-Per altre informazioni sulle attestazioni in ingresso generate dall'attestazione di Azure, vedere [set di attestazioni](/azure/attestation/claim-sets). Le attestazioni in ingresso possono essere utilizzate dagli autori di criteri per definire le regole di autorizzazione in un criterio personalizzato. 
+Per altre informazioni sulle attestazioni in ingresso generate dall'attestazione di Azure, vedere [set di attestazioni](./claim-sets.md). Le attestazioni in ingresso possono essere utilizzate dagli autori di criteri per definire le regole di autorizzazione in un criterio personalizzato. 
 
-La sezione regole di rilascio non è obbligatoria. Questa sezione può essere usata dagli utenti per avere altre attestazioni in uscita generate nel token di attestazione con nomi personalizzati. Per ulteriori informazioni sulle attestazioni in uscita generate dal servizio nel token di attestazione, vedere [set](/azure/attestation/claim-sets)di attestazioni.
+La sezione regole di rilascio non è obbligatoria. Questa sezione può essere usata dagli utenti per avere altre attestazioni in uscita generate nel token di attestazione con nomi personalizzati. Per ulteriori informazioni sulle attestazioni in uscita generate dal servizio nel token di attestazione, vedere [set](./claim-sets.md)di attestazioni.
 
 ## <a name="default-policy-for-an-sgx-enclave"></a>Criteri predefiniti per un'enclave SGX
 
@@ -59,7 +59,7 @@ issuancerules
 };
 ```
 
-Le attestazioni utilizzate nei criteri predefiniti sono considerate deprecate, ma sono completamente supportate e continueranno a essere incluse in futuro. Si consiglia di usare i nomi delle attestazioni non deprecate. Per ulteriori informazioni sui nomi di attestazione consigliati, vedere [set di attestazioni](/azure/attestation/claim-sets). 
+Le attestazioni utilizzate nei criteri predefiniti sono considerate deprecate, ma sono completamente supportate e continueranno a essere incluse in futuro. Si consiglia di usare i nomi delle attestazioni non deprecate. Per ulteriori informazioni sui nomi di attestazione consigliati, vedere [set di attestazioni](./claim-sets.md). 
 
 ## <a name="sample-custom-policy-to-support-multiple-sgx-enclaves"></a>Esempio di criteri personalizzati per supportare più enclavi SGX
 
