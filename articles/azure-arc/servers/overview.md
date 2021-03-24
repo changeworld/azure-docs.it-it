@@ -4,12 +4,12 @@ description: Informazioni su come usare i server con abilitazione di Azure Arc p
 keywords: automazione di azure, DSC, powershell, configurazione dello stato desiderato, gestione aggiornamenti, rilevamento modifiche, inventario, runbook, python, grafico, ibrido
 ms.date: 02/18/2021
 ms.topic: overview
-ms.openlocfilehash: 92de3b1a9cf07c25b13e2d038534e93318882bb1
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 863cab073018c5a592cba6e94451a9af038ebd52
+ms.sourcegitcommit: a8ff4f9f69332eef9c75093fd56a9aae2fe65122
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102175975"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105023334"
 ---
 # <a name="what-is-azure-arc-enabled-servers"></a>Che cosa sono i server con abilitazione di Azure Arc?
 
@@ -23,7 +23,7 @@ Quando si connette la macchina virtuale a server con abilitazione di Azure Arc, 
 
 - Assegnare [configurazioni guest di Criteri di Azure](../../governance/policy/concepts/guest-configuration.md) usando la stessa esperienza dell'assegnazione dei criteri per le macchine virtuali di Azure. Oggi la maggior parte dei criteri di Configurazione guest non applicano configurazioni, ma si limitano a controllare le impostazioni all'interno del computer. Per informazioni sul costo associato all'uso dei criteri di Configurazione guest di Criteri di Azure con server con abilitazione di Arc, vedere la [guida sui prezzi](https://azure.microsoft.com/pricing/details/azure-policy/) di Criteri di Azure.
 
-- Report sulle modifiche di configurazione relative al software installato, ai servizi Microsoft, al registro di sistema e ai file di Windows e ai Daemon Linux nei server monitorati usando automazione di Azure [rilevamento modifiche e l'inventario](../../automation/change-tracking/overview.md) e il [monitoraggio dell'integrità dei file del Centro sicurezza di Azure](https://docs.microsoft.com/azure/security-center/security-center-file-integrity-monitoring)per i server abilitati con [Azure Defender per server](https://docs.microsoft.com/azure/security-center/defender-for-servers-introduction).
+- Report sulle modifiche di configurazione relative al software installato, ai servizi Microsoft, al registro di sistema e ai file di Windows e ai Daemon Linux nei server monitorati usando automazione di Azure [rilevamento modifiche e l'inventario](../../automation/change-tracking/overview.md) e il [monitoraggio dell'integrità dei file del Centro sicurezza di Azure](../../security-center/security-center-file-integrity-monitoring.md)per i server abilitati con [Azure Defender per server](../../security-center/defender-for-servers-introduction.md).
 
 - Monitorare le prestazioni del sistema operativo guest della macchina virtuale connessa e individuare i componenti dell'applicazione per monitorarne i processi e le dipendenze con altre risorse che l'applicazione comunica tramite [Monitoraggio di Azure per le macchine virtuali](../../azure-monitor/vm/vminsights-overview.md).
 

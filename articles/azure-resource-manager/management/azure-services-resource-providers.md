@@ -3,12 +3,12 @@ title: Provider di risorse per servizi di Azure
 description: Elenca tutti gli spazi dei nomi del provider di risorse per Azure Resource Manager e Mostra il servizio di Azure per lo spazio dei nomi.
 ms.topic: conceptual
 ms.date: 03/16/2021
-ms.openlocfilehash: ee8cb054f3f10c3b33d5235b2b03cdfeac266139
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: d8239a9305560eb77ac2c714b993373f0d5b16fb
+ms.sourcegitcommit: a8ff4f9f69332eef9c75093fd56a9aae2fe65122
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104592162"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105023011"
 ---
 # <a name="resource-providers-for-azure-services"></a>Provider di risorse per i servizi di Azure
 
@@ -28,7 +28,7 @@ I provider di risorse contrassegnati con **-registered** sono registrati per imp
 | Microsoft.AnalysisServices | [Azure Analysis Services](../../analysis-services/index.yml) |
 | Microsoft.ApiManagement | [Gestione API](../../api-management/index.yml) |
 | Microsoft.AppConfiguration | [Configurazione app di Azure](../../azure-app-configuration/index.yml) |
-| Microsoft.AppPlatform | [Azure Spring Cloud](../../spring-cloud/spring-cloud-overview.md) |
+| Microsoft.AppPlatform | [Azure Spring Cloud](../../spring-cloud/overview.md) |
 | Microsoft.Attestation | Servizio di attestazione di Azure |
 | Microsoft. Authorization- [registrato](#registration) | [Azure Resource Manager](../index.yml) |
 | Microsoft.Automation | [Automazione](../../automation/index.yml) |
@@ -125,7 +125,7 @@ I provider di risorse contrassegnati con **-registered** sono registrati per imp
 | Microsoft.MarketplaceApps | core |
 | Microsoft. MarketplaceOrdering- [registrato](#registration) | core |
 | Microsoft.Media | [Servizi multimediali](../../media-services/index.yml) |
-| Microsoft.Microservices4Spring | [Azure Spring Cloud](../../spring-cloud/spring-cloud-overview.md) |
+| Microsoft.Microservices4Spring | [Azure Spring Cloud](../../spring-cloud/overview.md) |
 | Microsoft.Migrate | [Azure Migrate](../../migrate/migrate-services-overview.md) |
 | Microsoft.MixedReality | [Ancoraggi nello spazio di Azure](../../spatial-anchors/index.yml) |
 | Microsoft.NetApp | [Azure NetApp Files](../../azure-netapp-files/index.yml) |
@@ -155,7 +155,7 @@ I provider di risorse contrassegnati con **-registered** sono registrati per imp
 | Microsoft.Search | [Ricerca cognitiva di Azure](../../search/index.yml) |
 | Microsoft.Security | [Centro sicurezza](../../security-center/index.yml) |
 | Microsoft.SecurityInsights | [Azure Sentinel](../../sentinel/index.yml) |
-| Microsoft. SerialConsole- [registrato](#registration) | [Console seriale di Azure per Windows](../../virtual-machines/troubleshooting/serial-console-windows.md) |
+| Microsoft. SerialConsole- [registrato](#registration) | [Console seriale di Azure per Windows](/troubleshoot/azure/virtual-machines/serial-console-windows) |
 | Microsoft.ServiceBus | [Bus di servizio](/azure/service-bus/) |
 | Microsoft.ServiceFabric | [Service Fabric](../../service-fabric/index.yml) |
 | Microsoft.ServiceFabricMesh | [Service Fabric Mesh](../../service-fabric-mesh/index.yml) |

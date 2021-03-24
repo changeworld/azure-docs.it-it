@@ -3,12 +3,12 @@ title: Come pianificare e distribuire i server abilitati per Azure Arc
 description: Informazioni su come abilitare un numero elevato di computer per i server abilitati per Azure Arc per semplificare la configurazione delle funzionalità di sicurezza, gestione e monitoraggio essenziali in Azure.
 ms.date: 03/18/2021
 ms.topic: conceptual
-ms.openlocfilehash: 401725dcfed85a6675c95434270dd7dbff482b6e
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 5aa7022dba943fa3de247404522408f4660e80e3
+ms.sourcegitcommit: a8ff4f9f69332eef9c75093fd56a9aae2fe65122
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104591181"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105023283"
 ---
 # <a name="plan-and-deploy-arc-enabled-servers"></a>Pianificare e distribuire i server abilitati per Arc
 
@@ -57,7 +57,7 @@ In questa fase, i tecnici o gli amministratori di sistema abilitano le funzional
 |Attività |Dettaglio |Duration |
 |-----|-------|---------|
 | [Creare un gruppo di risorse](../../azure-resource-manager/management/manage-resource-groups-portal.md#create-resource-groups) | Un gruppo di risorse dedicato per includere solo i server abilitati per Arc e centralizzare la gestione e il monitoraggio di queste risorse. | Un'ora |
-| Applicare i [tag](../../azure-resource-manager/management/tag-resources.md) per organizzare i computer. | Valutazione e sviluppo di una strategia di [assegnazione di tag](/cloud-adoption-framework/decision-guides/resource-tagging/) allineata all'IT che consente di ridurre la complessità della gestione dei server abilitati per Arc e semplificare le decisioni di gestione. | Un giorno |
+| Applicare i [tag](../../azure-resource-manager/management/tag-resources.md) per organizzare i computer. | Valutazione e sviluppo di una strategia di [assegnazione di tag](/azure/cloud-adoption-framework/decision-guides/resource-tagging/) allineata all'IT che consente di ridurre la complessità della gestione dei server abilitati per Arc e semplificare le decisioni di gestione. | Un giorno |
 | Progettare e distribuire [log di monitoraggio di Azure](../../azure-monitor/logs/data-platform-logs.md) | Valutare le [considerazioni relative alla progettazione e alla distribuzione](../../azure-monitor/logs/design-logs-deployment.md) per determinare se l'organizzazione deve usare una esistente o implementare un'altra area di lavoro log Analytics per archiviare i dati di log raccolti da computer e server ibridi. <sup>1</sup> | Un giorno |
 | [Sviluppare un piano di governance dei criteri di Azure](../../governance/policy/overview.md) | Determinare come si implementerà la governance dei computer e dei server ibridi nell'ambito della sottoscrizione o del gruppo di risorse con criteri di Azure. | Un giorno |
 | Configurare il [controllo degli accessi in base al ruolo](../../role-based-access-control/overview.md) | Sviluppare un piano di accesso per controllare chi ha accesso per gestire i server abilitati per Arc e la possibilità di visualizzare i dati da altri servizi e soluzioni di Azure. | Un giorno |
@@ -71,7 +71,7 @@ A questo punto, viene aggiunto al fondamento definito nella fase 1 preparando e 
 
 |Attività |Dettaglio |Duration |
 |-----|-------|---------|
-| Scaricare lo script di installazione predefinito | Esaminare e personalizzare lo script di installazione predefinito per la distribuzione su larga scala dell'agente del computer connesso per supportare i requisiti di distribuzione automatica.<br><br> Esempio su come ridimensionare le risorse di onboarding:<br><br> <ul><li> [Script di distribuzione di base su larga scala](onboard-service-principal.md)</ul></li> <ul><li>[Per l'onboarding di VMware vSphere macchine virtuali Windows Server](https://github.com/microsoft/azure_arc/blob/master/azure_arc_servers_jumpstart/docs/vmware_scaled_powercli_win.md)</ul></li> <ul><li>[Per l'onboarding di VMware vSphere macchine virtuali Linux](https://github.com/microsoft/azure_arc/blob/master/azure_arc_servers_jumpstart/docs/vmware_scaled_powercli_linux.md)</ul></li> <ul><li>[Per l'onboarding delle istanze EC2 di AWS con Ansible](https://github.com/microsoft/azure_arc/blob/master/azure_arc_servers_jumpstart/docs/aws_scale_ansible.md)</ul></li> <ul><li>[Distribuzione su larga scala tramite la comunicazione remota di PowerShell](https://docs.microsoft.com/azure/azure-arc/servers/onboard-powershell) (solo Windows)</ul></li>| Uno o più giorni, a seconda dei requisiti, dei processi aziendali (ad esempio, delle modifiche e delle Release Management) e del metodo di automazione utilizzato. |
+| Scaricare lo script di installazione predefinito | Esaminare e personalizzare lo script di installazione predefinito per la distribuzione su larga scala dell'agente del computer connesso per supportare i requisiti di distribuzione automatica.<br><br> Esempio di risorse di onboarding su larga scala:<br><br> <ul><li> [Script di distribuzione di base su larga scala](onboard-service-principal.md)</ul></li> <ul><li>[Onboarding su larga scala VMware vSphere macchine virtuali Windows Server](https://github.com/microsoft/azure_arc/blob/main/docs/azure_arc_jumpstart/azure_arc_servers/scaled_deployment/vmware_scaled_powercli_win/_index.md)</ul></li> <ul><li>[Onboarding su scala VMware vSphere VM Linux](https://github.com/microsoft/azure_arc/blob/main/docs/azure_arc_jumpstart/azure_arc_servers/scaled_deployment/vmware_scaled_powercli_linux/_index.md)</ul></li> <ul><li>[Caricamento a livello di istanze di AWS EC2 con Ansible](https://github.com/microsoft/azure_arc/blob/main/docs/azure_arc_jumpstart/azure_arc_servers/scaled_deployment/aws_scaled_ansible/_index.md)</ul></li> <ul><li>[Distribuzione su larga scala tramite la comunicazione remota di PowerShell](./onboard-powershell.md) (solo Windows)</ul></li>| Uno o più giorni, a seconda dei requisiti, dei processi aziendali (ad esempio, delle modifiche e delle Release Management) e del metodo di automazione utilizzato. |
 | [Creare un'entità servizio](onboard-service-principal.md#create-a-service-principal-for-onboarding-at-scale) |Creare un'entità servizio per connettere i computer in modo non interattivo usando Azure PowerShell o dal portale.| Un'ora |
 | Distribuire l'agente del computer connesso ai server e ai computer di destinazione |Usare lo strumento di automazione per distribuire gli script nei server e connetterli ad Azure.| Uno o più giorni a seconda del piano di rilascio e se si segue un'implementazione graduale. |
 
