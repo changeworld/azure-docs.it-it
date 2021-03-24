@@ -5,12 +5,12 @@ ms.topic: overview
 author: bwren
 ms.author: bwren
 ms.date: 11/17/2019
-ms.openlocfilehash: 544d6937e412e3e1cfc2cf4e520c02f3f804fc8c
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: fe8714f38c6a04b311a748f3eb081be82eb86635
+ms.sourcegitcommit: a8ff4f9f69332eef9c75093fd56a9aae2fe65122
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102047163"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105024133"
 ---
 # <a name="azure-monitor-overview"></a>Panoramica di Monitoraggio di Azure
 
@@ -144,7 +144,7 @@ Sono disponibili varie API di lettura e scrittura di metriche e log in e da Moni
 ## <a name="next-steps"></a>Passaggi successivi
 Altre informazioni su:
 
-* [Metriche e log](https://docs.microsoft.com/azure/azure-monitor/data-platform#metrics) per i dati raccolti da Monitoraggio di Azure.
+* [Metriche e log](./data-platform.md#metrics) per i dati raccolti da Monitoraggio di Azure.
 * [Origini dati](agents/data-sources.md) per come i diversi componenti dell'applicazione inviano i dati di telemetria.
 * [Query di log](logs/log-query-overview.md) per l'analisi dei dati raccolti.
 * [Procedure consigliate](/azure/architecture/best-practices/monitoring) per il monitoraggio di applicazioni e servizi cloud.

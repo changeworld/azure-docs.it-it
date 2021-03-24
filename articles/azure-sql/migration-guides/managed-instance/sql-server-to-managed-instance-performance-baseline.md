@@ -1,5 +1,5 @@
 ---
-title: 'SQL Server a SQL Istanza gestita: analisi delle prestazioni'
+title: 'SQL Server al Istanza gestita SQL di Azure: analisi delle prestazioni'
 description: Informazioni su come creare e confrontare una baseline delle prestazioni quando si esegue la migrazione dei database di SQL Server al Istanza gestita SQL di Azure.
 ms.service: sql-managed-instance
 ms.subservice: migration-guide
@@ -10,14 +10,14 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: mokabiru
 ms.date: 11/06/2020
-ms.openlocfilehash: 28eedd3a22a0a5adc6e9a37c9e0f0fa0214a4e47
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: a97dabe36efb252b04c1b5c8fa741d33a6c92703
+ms.sourcegitcommit: a8ff4f9f69332eef9c75093fd56a9aae2fe65122
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103564440"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105023674"
 ---
-# <a name="migration-performance-sql-server-to-sql-managed-instance-performance-analysis"></a>Prestazioni della migrazione: analisi delle prestazioni da SQL Server a SQL Istanza gestita
+# <a name="migration-performance-sql-server-to--azure-sql-managed-instance-performance-analysis"></a>Prestazioni della migrazione: analisi delle prestazioni da SQL Server ad Azure SQL Istanza gestita
 [!INCLUDE[appliesto-sqldb-sqlmi](../../includes/appliesto-sqlmi.md)]
 
 Creare una baseline per le prestazioni per confrontare le prestazioni del carico di lavoro in un Istanza gestita SQL con il carico di lavoro originale in esecuzione in SQL Server. 

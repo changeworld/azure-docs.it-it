@@ -6,23 +6,22 @@ ms.date: 03/22/2021
 author: trask
 ms.custom: devx-track-java
 ms.author: trstalna
-ms.openlocfilehash: 03d3093f14d97b2cc64d91e0d1b7adf34204a021
-ms.sourcegitcommit: ac035293291c3d2962cee270b33fca3628432fac
+ms.openlocfilehash: 17979bd548ca0d7b704ebdeb4d060bf35973b319
+ms.sourcegitcommit: a8ff4f9f69332eef9c75093fd56a9aae2fe65122
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 03/24/2021
-ms.locfileid: "104962604"
+ms.locfileid: "105024147"
 ---
 # <a name="sampling-overrides-preview---azure-monitor-application-insights-for-java"></a>Override del campionamento (anteprima)-Application Insights di monitoraggio di Azure per Java
 
 > [!NOTE]
-> La funzionalità di override del campionamento è in anteprima.
+> La funzionalità di override del campionamento è in anteprima, a partire da 3.0.3-BETA. 2.
 
-Di seguito sono riportati alcuni casi d'uso per le sostituzioni di campionamento:
- * Evitare di raccogliere dati di telemetria per i controlli di integrità.
- * Non consentire la raccolta di dati di telemetria per chiamate di dipendenza rumorose
- * Ridurre il rumore da controlli di integrità o chiamate di dipendenza rumorose senza eliminarli completamente.
- * Raccoglie il 100% dei dati di telemetria per un tipo di richiesta importante, ad esempio `/login` , anche se il campionamento predefinito è configurato su un valore inferiore.
+Le sostituzioni di campionamento consentono di eseguire l'override della [percentuale di campionamento predefinita](./java-standalone-config.md#sampling), ad esempio:
+ * Impostare la percentuale di campionamento su 0 (o un valore minimo) per i controlli di integrità rumorosi.
+ * Impostare la percentuale di campionamento su 0 (o un valore minimo) per le chiamate di dipendenza rumorose.
+ * Impostare la percentuale di campionamento su 100 per un tipo di richiesta importante, ad esempio `/login` , anche se il campionamento predefinito è configurato su un valore inferiore.
 
 ## <a name="terminology"></a>Terminologia
 
@@ -79,7 +78,7 @@ Viene utilizzato solo il primo override del campionamento corrispondente.
 
 Se nessun override di campionamento corrisponde a:
 
-* Se si tratta del primo intervallo nella traccia, viene utilizzata la [percentuale di campionamento normale](./java-standalone-config.md#sampling) .
+* Se si tratta del primo intervallo nella traccia, viene utilizzata la [percentuale di campionamento predefinita](./java-standalone-config.md#sampling) .
 * Se non si tratta del primo intervallo della traccia, viene utilizzata la decisione di campionamento padre.
 
 > [!IMPORTANT]

@@ -10,12 +10,12 @@ author: markjones-msft
 ms.author: markjon
 ms.reviewer: mathoma
 ms.date: 03/19/2021
-ms.openlocfilehash: 0e1b44667a5ff42978b22ab9450d6a8e9870960b
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 7ef942404158768f4249b5bcd0640632b6475f63
+ms.sourcegitcommit: a8ff4f9f69332eef9c75093fd56a9aae2fe65122
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103563216"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105023708"
 ---
 # <a name="migration-guide-sql-server-to-sql-server-on-azure-vms"></a>Guida alla migrazione: SQL Server di SQL Server in macchine virtuali di Azure 
 [!INCLUDE[appliesto--sqlmi](../../includes/appliesto-sqlvm.md)]
@@ -29,7 +29,7 @@ Questa guida alla migrazione illustra come **individuare**, **valutare** e **mig
 - Servizio database relazionale di Amazon (AWS RDS) 
 - Motore di calcolo (Google Cloud Platform-GCP)
 
-Per informazioni sulle strategie di migrazione aggiuntive, vedere la [SQL Server Panoramica della migrazione delle macchine virtuali](sql-server-to-sql-on-azure-vm-migration-overview.md).
+Per informazioni sulle strategie di migrazione aggiuntive, vedere la [SQL Server Panoramica della migrazione delle macchine virtuali](sql-server-to-sql-on-azure-vm-migration-overview.md). Per altre guide alla migrazione, vedere [Migrazione dei database](https://docs.microsoft.com/data-migration). 
 
 :::image type="content" source="media/sql-server-to-sql-on-azure-vm-migration-overview/migration-process-flow-small.png" alt-text="Flusso del processo di migrazione":::
 

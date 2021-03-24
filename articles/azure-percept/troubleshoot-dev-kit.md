@@ -7,12 +7,12 @@ ms.service: azure-percept
 ms.topic: how-to
 ms.date: 02/18/2021
 ms.custom: template-how-to
-ms.openlocfilehash: 826759907bfe5ec3359bf5c9125909466372c68f
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 313ea98da0426af945dfdea00d33440ab2955cc7
+ms.sourcegitcommit: a8ff4f9f69332eef9c75093fd56a9aae2fe65122
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104608147"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105023079"
 ---
 # <a name="azure-percept-dk-dev-kit-troubleshooting"></a>Risoluzione dei problemi di Azure Percept DK (Dev Kit)
 
@@ -45,7 +45,7 @@ scp [remote username]@[IP address]:[remote file path]/[file name].txt [local hos
 
 ```[local host file path]``` si riferisce al percorso nel computer host in cui si desidera copiare il file con estensione txt. ```[remote username]``` nome utente SSH scelto durante l' [installazione](./quickstart-percept-dk-set-up.md). Se durante la configurazione guidata non è stato configurato un account di accesso SSH, il nome utente remoto sarà ```root``` .
 
-Per ulteriori informazioni sui comandi di Azure IoT Edge, vedere la [documentazione relativa alla risoluzione dei problemi del dispositivo Azure IOT Edge](https://docs.microsoft.com/azure/iot-edge/troubleshoot).
+Per ulteriori informazioni sui comandi di Azure IoT Edge, vedere la [documentazione relativa alla risoluzione dei problemi del dispositivo Azure IOT Edge](../iot-edge/troubleshoot.md).
 
 |Categoria:         |Comando:                    |Funzione:                  |
 |------------------|----------------------------|---------------------------|
@@ -105,5 +105,3 @@ Sono presenti tre piccoli LED nella parte superiore dell'alloggiamento della lav
 |LED 2 (Wi-Fi)   |Lampeggio rapido |L'autenticazione è riuscita, l'associazione del dispositivo è in corso. |
 |LED 2 (Wi-Fi)   |On (tinta unita) |Autenticazione e associazione sono state completate. il dispositivo è connesso a una rete Wi-Fi. |
 |LED 3           |N/D         |Il LED non è in uso. |
-
-
