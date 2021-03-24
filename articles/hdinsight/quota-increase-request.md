@@ -5,12 +5,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 05/07/2020
-ms.openlocfilehash: a539acc423feeab500830fb33262d1b824101072
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: b62e41f280d02664b3df631c3413960f1265356f
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98935829"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104863174"
 ---
 # <a name="requesting-quota-increases-for-azure-hdinsight"></a>Richieste di aumento della quota per Azure HDInsight
 
@@ -34,7 +34,7 @@ Per richiedere un aumento della quota, eseguire questa procedura:
 1. Accedere al [portale di Azure](https://portal.azure.com/).
 1. Selezionare **Guida e supporto** nell'angolo in basso a sinistra della pagina.
 
-    ![pulsante di guida e supporto tecnico](./media/quota-increase-request/help-support-button.png)
+    :::image type="content" source="./media/quota-increase-request/help-support-button.png" alt-text="pulsante di guida e supporto tecnico" border="true":::
 
 1. Selezionare **Nuova richiesta di supporto**.
 1. Nella pagina **Nuova richiesta di supporto** selezionare le opzioni seguenti nella scheda **Informazioni di base**:
@@ -43,20 +43,20 @@ Per richiedere un aumento della quota, eseguire questa procedura:
    - **Sottoscrizione**: la sottoscrizione che si vuole modificare
    - **Tipo di quota**: **HDInsight**
 
-     ![Creare una richiesta di supporto per aumentare la quota di core HDInsight](./media/quota-increase-request/hdinsight-quota-support-request.png)
+     :::image type="content" source="./media/quota-increase-request/hdinsight-quota-support-request.png" alt-text="Creare una richiesta di supporto per aumentare la quota di core HDInsight" border="true":::
 
 1. Selezionare **Avanti: Soluzioni >>** .
 1. Nella pagina **Dettagli** immettere una descrizione del problema, selezionare la gravità del problema, la modalità di contatto preferita e altri campi obbligatori. Usare il modello riportato di seguito per assicurarsi di fornire le informazioni necessarie. Le richieste di aumento della quota vengono valutate dal team di capacità di Azure e non dal team del prodotto HDInsight. Più complete sono le informazioni fornite, più probabile sarà l'approvazione della richiesta.
 
-    ```
-    I would like to request [SPECIFY DESIRED AMOUNT] on [DESIRED SKU] for [SUBSCRIPTION ID].
-    
-    My current quota on this subscription is [CURRENT QUOTA AMOUNT].
-    
-    I would like to use the extra cores for [DETAIL REASON].
-    ```
+   ```text
+   I would like to request [SPECIFY DESIRED AMOUNT] on [DESIRED SKU] for [SUBSCRIPTION ID].
+   
+   My current quota on this subscription is [CURRENT QUOTA AMOUNT].
+   
+   I would like to use the extra cores for [DETAIL REASON].
+   ```
 
-    ![dettagli del problema](./media/quota-increase-request/problem-details.png)
+   :::image type="content" source="./media/quota-increase-request/problem-details.png" alt-text="dettagli del problema" border="true":::
 
 1. Selezionare **Avanti: Rivedi e crea >>** .
 1. Nella scheda **Rivedi e crea** selezionare **Crea**.

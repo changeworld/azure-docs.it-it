@@ -1,14 +1,14 @@
 ---
 title: Esempi di query avanzate
 description: Usare Azure Resource Graph per eseguire alcune query avanzate, ad esempio per usare le colonne, elencare i tag usati e cercare la corrispondenza di risorse con espressioni regolari.
-ms.date: 01/27/2021
+ms.date: 03/23/2021
 ms.topic: sample
-ms.openlocfilehash: 5a87d63e597622ae5c0d8c8f48bc37281d4fd530
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: c6a140b0392affea252e05d63055232532305c75
+ms.sourcegitcommit: ac035293291c3d2962cee270b33fca3628432fac
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "99560352"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "104949856"
 ---
 # <a name="advanced-resource-graph-query-samples"></a>Esempi di query di Resource Graph
 
@@ -28,7 +28,6 @@ Si esamineranno le query avanzate seguenti:
 - [Elencare tutte le estensioni installate in una macchina virtuale](#join-vmextension)
 - [Trovare account di archiviazione con un tag specifico del gruppo di risorse](#join-findstoragetag)
 - [Combinare i risultati di due query in un singolo risultato](#unionresults)
-- [Includere i nomi di tenant e sottoscrizioni con DisplayNames](#displaynames)
 - [Riepilogare la macchina virtuale in base alla proprietà estesa stati di alimentazione](#vm-powerstate)
 - [Numero di assegnazioni di Configurazione guest non conformi](#count-gcnoncompliant)
 - [Dettagli sulle query dei report di assegnazioni di Configurazione guest](#query-gcreports)
@@ -559,26 +558,6 @@ Search-AzGraph -Query "Resources | where type == 'microsoft.compute/virtualmachi
 - Portale di Azure: <a href="https://portal.azure.com/?feature.customportal=false#blade/HubsExtension/ArgQueryBlade/query/Resources%20%7C%20where%20type%20%3D%3D%20%27microsoft.compute%2Fvirtualmachines%27%20%7C%20summarize%20count%28%29%20by%20tostring%28properties.extended.instanceView.powerState.code%29" target="_blank">portal.azure.com</a>
 - Portale di Azure per enti pubblici: <a href="https://portal.azure.us/?feature.customportal=false#blade/HubsExtension/ArgQueryBlade/query/Resources%20%7C%20where%20type%20%3D%3D%20%27microsoft.compute%2Fvirtualmachines%27%20%7C%20summarize%20count%28%29%20by%20tostring%28properties.extended.instanceView.powerState.code%29" target="_blank">Portal.Azure.US</a>
 - Portale di Azure Cina 21Vianet: <a href="https://portal.azure.cn/?feature.customportal=false#blade/HubsExtension/ArgQueryBlade/query/Resources%20%7C%20where%20type%20%3D%3D%20%27microsoft.compute%2Fvirtualmachines%27%20%7C%20summarize%20count%28%29%20by%20tostring%28properties.extended.instanceView.powerState.code%29" target="_blank">Portal.Azure.cn</a>
-
----
-
-## <a name="include-the-tenant-and-subscription-names-with-displaynames"></a><a name="displaynames"></a>Includere i nomi di tenant e sottoscrizioni con DisplayNames
-
-Questa query usa il parametro **Include** con l'opzione _DisplayNames_ per aggiungere **subscriptionDisplayName** e **tenantDisplayName** ai risultati. Questo parametro è disponibile solo per l'interfaccia della riga di comando di Azure e Azure PowerShell.
-
-```azurecli-interactive
-az graph query -q "limit 1" --include displayNames
-```
-
-```azurepowershell-interactive
-Search-AzGraph -Query "limit 1" -Include DisplayNames
-```
-
-Un'alternativa al recupero del nome della sottoscrizione consiste nell'usare l'operatore `join` e connettersi alla tabella **ResourceContainers** e al tipo `Microsoft.Resources/subscriptions`. `join` funziona nell'interfaccia della riga di comando di Azure, in Azure PowerShell, nel portale e in tutti gli SDK supportati. Per un esempio, vedere [Esempio - Insieme di credenziali delle chiavi con il nome della sottoscrizione](#join).
-
-> [!NOTE]
-> Se la query non usa **project** per specificare le proprietà restituite, **subscriptionDisplayName** e **tenantDisplayName** vengono inclusi automaticamente nei risultati.
-> Se la query usa **project**, tutti i campi _DisplayName_ devono essere inclusi in modo esplicito in **project**, altrimenti non verranno restituiti nei risultati, neanche se si usa il parametro **Include**. Il parametro **Include** non funziona con le [tabelle](../concepts/query-language.md#resource-graph-tables).
 
 ---
 

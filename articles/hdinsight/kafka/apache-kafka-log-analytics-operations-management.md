@@ -5,12 +5,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 02/17/2020
-ms.openlocfilehash: 51301bd38bf0700ce42ef33a47b9e763da8d4ed6
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 74db121c33864ee72ad984b49c8fa43afa0f598c
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "100595290"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104870518"
 ---
 # <a name="analyze-logs-for-apache-kafka-on-hdinsight"></a>Analizzare i log per Apache Kafka in HDInsight
 
@@ -97,7 +97,7 @@ I passaggi per abilitare i log di monitoraggio di Azure per HDInsight sono gli s
     | log\_kafkacontroller\_CL | Kafka broker controller.log |
     | metrics\_kafka\_CL | Metriche JMX Kafka |
 
-    ![Utilizzo CPU di Apache Kafka log Analytics](./media/apache-kafka-log-analytics-operations-management/apache-kafka-cpu-usage.png)
+    :::image type="content" source="./media/apache-kafka-log-analytics-operations-management/apache-kafka-cpu-usage.png" alt-text="Utilizzo CPU di Apache Kafka log Analytics" border="true":::
 
 ## <a name="next-steps"></a>Passaggi successivi
 

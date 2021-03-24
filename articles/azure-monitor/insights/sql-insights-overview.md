@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 03/15/2021
-ms.openlocfilehash: b9c5db14bec87b30e51d39b1430ecc1f3cbef855
-ms.sourcegitcommit: ba3a4d58a17021a922f763095ddc3cf768b11336
+ms.openlocfilehash: b5add466a60bc855e08917d02fecaf60a35deeb1
+ms.sourcegitcommit: a67b972d655a5a2d5e909faa2ea0911912f6a828
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 03/23/2021
-ms.locfileid: "104798290"
+ms.locfileid: "104889570"
 ---
 # <a name="monitor-your-sql-deployments-with-sql-insights-preview"></a>Monitora le distribuzioni SQL con SQL Insights (anteprima)
 SQL Insights monitora le prestazioni e l'integrità delle distribuzioni SQL.  Consente di offrire prestazioni prevedibili e la disponibilità di carichi di lavoro fondamentali creati in base a un back-end SQL identificando i colli di bottiglia e i problemi relativi alle prestazioni. SQL Insights archivia i dati nei [log di monitoraggio di Azure](../logs/data-platform-logs.md), che consentono di distribuire potenti aggregazioni e filtri e analizzare le tendenze dei dati nel tempo. È possibile visualizzare questi dati da monitoraggio di Azure nelle visualizzazioni fornite nell'ambito di questa offerta ed è possibile esaminare direttamente i dati di log per eseguire query e analizzare le tendenze.
@@ -59,7 +59,12 @@ Vedere [abilitare SQL Insights](sql-insights-enable.md) per la procedura dettagl
 
 
 ## <a name="data-collected-by-sql-insights"></a>Dati raccolti da SQL Insights
-Nell'anteprima pubblica, SQL Insights supporta solo il metodo remoto di monitoraggio. L' [agente Telegraf](https://www.influxdata.com/time-series-platform/telegraf/) non è installato nel SQL Server. Usa il [plug-in di input SQL Server per Telegraf](https://www.influxdata.com/integration/microsoft-sql-server/) e usa i tre gruppi di query per i diversi tipi di monitor it di SQL: database SQL di azure, istanza gestita SQL di Azure, SQL Server in esecuzione in una macchina virtuale di Azure. 
+
+SQL Insights supporta solo il metodo remoto per il monitoraggio di SQL. Gli agenti non vengono installati nelle macchine virtuali che eseguono SQL Server. Sono necessarie una o più macchine virtuali di monitoraggio dedicate, che consentono di raccogliere i dati dalle risorse SQL in modalità remota. 
+
+Per ognuna di queste macchine virtuali di monitoraggio sarà installato l' [agente di monitoraggio di Azure](https://docs.microsoft.com/azure/azure-monitor/agents/azure-monitor-agent-overview) con l'estensione WLI (workload Insights). 
+
+L'estensione WLI include l' [agente Telegraf](https://www.influxdata.com/time-series-platform/telegraf/)open source.  Si usano le [regole di raccolta dati](https://docs.microsoft.com/azure/azure-monitor/agents/data-collection-rule-overview) per configurare il plug-in di [input di SqlServer](https://www.influxdata.com/integration/microsoft-sql-server/) per specificare i dati da raccogliere dal database SQL di Azure, da azure SQL istanza gestita e SQL Server in esecuzione in una macchina virtuale di Azure. 
 
 Le tabelle seguenti riepilogano quanto segue:
 

@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 06/02/2020
+ms.date: 03/08/2021
 ms.author: justinha
 author: justinha
 manager: daveba
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8f8f270f740951b95b0d4c00cbcf9b08e20a8e0c
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 5d332c831cc764c61a4672ea5ad1db231b68e106
+ms.sourcegitcommit: ac035293291c3d2962cee270b33fca3628432fac
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "96743725"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "104952372"
 ---
 # <a name="licensing-requirements-for-azure-active-directory-self-service-password-reset"></a>Requisiti di licenza per la reimpostazione della password self-service Azure Active Directory
 
@@ -26,7 +26,7 @@ Questo articolo illustra in dettaglio i diversi modi in cui la reimpostazione de
 
 ## <a name="compare-editions-and-features"></a>Confrontare le edizioni e le funzionalità
 
-SSPR è concesso in licenza per utente. Per mantenere la conformità, è necessario che le organizzazioni assegni la licenza appropriata ai propri utenti.
+SSPR richiede una licenza solo per il tenant. 
 
 La tabella seguente descrive i diversi scenari di SSPR per la modifica della password, la reimpostazione o il writeback locale e quali SKU forniscono la funzionalità.
 
@@ -46,12 +46,6 @@ Per ulteriori informazioni sulle licenze, inclusi i costi, vedere le pagine segu
 * [Enterprise Mobility + Security](https://www.microsoft.com/cloud-platform/enterprise-mobility-security)
 * [Microsoft 365 Enterprise](https://www.microsoft.com/microsoft-365/enterprise)
 * [Microsoft 365 Business](/office365/servicedescriptions/microsoft-365-service-descriptions/microsoft-365-business-service-description)
-
-## <a name="enable-group-or-user-based-licensing"></a>Abilitare le licenze per gruppi o per utente
-
-Azure AD supporta le licenze basate sui gruppi. Gli amministratori possono assegnare le licenze in blocco a un gruppo di utenti, anziché assegnarle loro singolarmente. Per altre informazioni, vedere [Assegnare, verificare e risolvere i problemi relativi alle licenze](../enterprise-users/licensing-groups-assign.md#step-1-assign-the-required-licenses).
-
-Alcuni servizi Microsoft non sono disponibili in tutte le località. Per poter assegnare una licenza a un utente, l'amministratore deve specificare la proprietà **località di utilizzo** per l'utente. L'assegnazione delle licenze può essere eseguita   >    >  nella sezione **Impostazioni** profilo utente del portale di Azure. *Quando si usa l'assegnazione di licenze ai gruppi, tutti gli utenti per cui non è specificata un percorso d'uso ereditano il percorso della directory.*
 
 ## <a name="next-steps"></a>Passaggi successivi
 

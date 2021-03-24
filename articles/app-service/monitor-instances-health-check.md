@@ -6,12 +6,12 @@ author: msangapu-msft
 ms.topic: article
 ms.date: 12/03/2020
 ms.author: msangapu
-ms.openlocfilehash: 0e08d016ab85587d451ad2a1e296e7f494ba283e
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: e9d92c60e74ac9106246ccd445afaca926065e5f
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104596026"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104871198"
 ---
 # <a name="monitor-app-service-instances-using-health-check"></a>Monitorare le istanze del servizio app usando il controllo integrità
 
@@ -57,7 +57,7 @@ Oltre a configurare le opzioni di controllo di integrità, è anche possibile co
 
 Il controllo dell'integrità si integra con le funzionalità di autenticazione e autorizzazione del servizio app. Se queste funzionalità di sicurezza sono abilitate, non sono necessarie impostazioni aggiuntive. Tuttavia, se si usa il proprio sistema di autenticazione, il percorso di controllo integrità deve consentire l'accesso anonimo. Se il sito è abilitato solo per HTTP **s**, la richiesta di controllo integrità verrà inviata tramite http **s**.
 
-I team di sviluppo aziendale di grandi dimensioni spesso devono rispettare i requisiti di sicurezza per le API esposte. Per proteggere l'endpoint di controllo di integrità, è necessario innanzitutto usare funzionalità come [restrizioni IP](app-service-ip-restrictions.md#set-an-ip-address-based-rule), [certificati client](app-service-ip-restrictions.md#set-an-ip-address-based-rule)o una rete virtuale per limitare l'accesso alle applicazioni. È possibile proteggere l'endpoint di controllo dell'integrità richiedendo la `User-Agent` corrispondenza tra le corrispondenze della richiesta in ingresso `ReadyForRequest/1.0` . Non è possibile effettuare lo spoofing del User-Agent perché la richiesta è già stata protetta dalle funzionalità di sicurezza precedenti.
+I team di sviluppo aziendale di grandi dimensioni spesso devono rispettare i requisiti di sicurezza per le API esposte. Per proteggere l'endpoint di controllo di integrità, è necessario innanzitutto usare funzionalità come [restrizioni IP](app-service-ip-restrictions.md#set-an-ip-address-based-rule), [certificati client](app-service-ip-restrictions.md#set-an-ip-address-based-rule)o una rete virtuale per limitare l'accesso alle applicazioni. È possibile proteggere l'endpoint di controllo dell'integrità richiedendo la `User-Agent` corrispondenza tra le corrispondenze della richiesta in ingresso `HealthCheck/1.0` . Non è possibile effettuare lo spoofing del User-Agent perché la richiesta è già stata protetta dalle funzionalità di sicurezza precedenti.
 
 ## <a name="monitoring"></a>Monitoraggio
 

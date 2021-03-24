@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 03/15/2021
-ms.openlocfilehash: 5ab51fc4ea64dfd678f5c9acfc80b5e380782153
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: ac37a6de4197d5e7cae20d2bde759b98fe474047
+ms.sourcegitcommit: a67b972d655a5a2d5e909faa2ea0911912f6a828
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104609876"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104889621"
 ---
 # <a name="enable-sql-insights-preview"></a>Abilita SQL Insights (anteprima)
 Questo articolo descrive come abilitare [SQL Insights](sql-insights-overview.md) per monitorare le distribuzioni SQL. Il monitoraggio viene eseguito da una macchina virtuale di Azure che effettua una connessione alle distribuzioni SQL e usa le viste a gestione dinamica (DMV) per raccogliere i dati di monitoraggio. È possibile controllare quali set di dati vengono raccolti e la frequenza della raccolta usando un profilo di monitoraggio.
@@ -92,13 +92,16 @@ Ogni tipo di SQL offre metodi che consentono alla macchina virtuale di monitorag
 
 ### <a name="azure-sql-databases"></a>Database SQL di Azure  
 
-[Esercitazione: connettersi a un server SQL di Azure usando un endpoint privato di Azure: portale di Azure](../../private-link/tutorial-private-endpoint-sql-portal.md) fornisce un esempio di come configurare un endpoint privato che è possibile usare per accedere al database.  Se si usa questo metodo, sarà necessario assicurarsi che le macchine virtuali di monitoraggio si trovino nella stessa VNET e nella stessa subnet che verrà usata per l'endpoint privato.  È quindi possibile creare l'endpoint privato nel database, se non è già stato fatto. 
+SQL Insights supporta l'accesso al database SQL di Azure tramite l'endpoint pubblico, nonché la rete virtuale.
 
-Se si usa un' [impostazione del firewall](../../azure-sql/database/firewall-configure.md) per fornire l'accesso al database SQL, è necessario aggiungere una regola del firewall per fornire l'accesso dall'indirizzo IP pubblico della macchina virtuale di monitoraggio. È possibile accedere alle impostazioni del firewall dalla pagina **Panoramica del database SQL di Azure** nel portale. 
+Per l'accesso tramite l'endpoint pubblico, è necessario aggiungere una regola nella pagina **delle impostazioni del firewall** e nella sezione [impostazioni del firewall IP](https://docs.microsoft.com/azure/azure-sql/database/network-access-controls-overview#ip-firewall-rules) .  Per specificare l'accesso da una rete virtuale, è possibile impostare le regole del firewall per la [rete virtuale](https://docs.microsoft.com/azure/azure-sql/database/network-access-controls-overview#virtual-network-firewall-rules) e impostare i [tag di servizio richiesti dall'agente di monitoraggio di Azure](https://docs.microsoft.com/azure/azure-monitor/agents/azure-monitor-agent-overview#networking).  [Questo articolo](https://docs.microsoft.com/azure/azure-sql/database/network-access-controls-overview#ip-vs-virtual-network-firewall-rules) descrive le differenze tra questi due tipi di regole del firewall.
 
 :::image type="content" source="media/sql-insights-enable/set-server-firewall.png" alt-text="Impostare il firewall del server" lightbox="media/sql-insights-enable/set-server-firewall.png":::
 
 :::image type="content" source="media/sql-insights-enable/firewall-settings.png" alt-text="Impostazioni del firewall." lightbox="media/sql-insights-enable/firewall-settings.png":::
+
+> [!NOTE]
+> SQL Insights attualmente non supporta l'endpoint privato di Azure per il database SQL di Azure.  È consigliabile usare i [tag di servizio](https://docs.microsoft.com/azure/virtual-network/service-tags-overview) nel gruppo di sicurezza di rete o nelle impostazioni del firewall di rete virtuale supportate dall'agente di monitoraggio di [Azure](https://docs.microsoft.com/azure/azure-monitor/agents/azure-monitor-agent-overview#networking).
 
 ### <a name="azure-sql-managed-instances"></a>Istanze gestite di SQL di Azure 
 

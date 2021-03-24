@@ -8,14 +8,14 @@ ms.workload: big-data
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
-ms.date: 09/30/2020
+ms.date: 03/23/2021
 ms.custom: seodec18
-ms.openlocfilehash: c3f6f6a5ac1068f2eabca351e85376b8e16d1058
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 8aefa6efa5f10dae8a28e7126b91b7b5f6ac77a6
+ms.sourcegitcommit: ac035293291c3d2962cee270b33fca3628432fac
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "95016752"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "104950740"
 ---
 # <a name="best-practices-for-choosing-a-time-series-id"></a>Procedure consigliate per la scelta di un ID serie temporale
 
@@ -24,6 +24,11 @@ Questo articolo riepiloga l'importanza dell'ID della serie temporale per l'ambie
 ## <a name="choose-a-time-series-id"></a>Scegliere un ID serie temporale
 
 La selezione di un ID Time Series appropriato è fondamentale. Scegliere un ID serie temporale è come scegliere una chiave di partizione per un database. È obbligatorio quando si crea un ambiente di Azure Time Series Insights Gen2.
+
+Per una spiegazione dettagliata dell'ID della serie temporale, vedere l'esercitazione sul provisioning dell'ambiente. Verranno visualizzati due esempi di payload di telemetria JSON diversi e la scelta corretta per ogni ID della serie temporale.</br>
+
+> [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RWzk3P]
+
 
 > [!IMPORTANT]
 > Gli ID delle serie temporali sono:

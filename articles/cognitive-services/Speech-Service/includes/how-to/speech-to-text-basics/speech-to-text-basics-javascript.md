@@ -5,12 +5,12 @@ ms.topic: include
 ms.date: 03/04/2021
 ms.author: trbye
 ms.custom: devx-track-js
-ms.openlocfilehash: cc5e306aa9677c7370d03dbb26ef3fe69293a630
-ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
+ms.openlocfilehash: dd92cf24cf007418e52cb5091eb390b46d7a5571
+ms.sourcegitcommit: ac035293291c3d2962cee270b33fca3628432fac
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102180055"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "104988102"
 ---
 Una delle principali funzionalità del servizio Voce è la possibilità di riconoscere e trascrivere la voce umana, ovvero di convertire la voce in testo scritto. Questa guida di avvio rapido illustra come usare Speech SDK in app e prodotti per eseguire la conversione della voce in testo scritto di alta qualità.
 
@@ -62,11 +62,7 @@ Il riconoscimento vocale da un microfono **non è supportato in Node.js** ed è 
 
 ## <a name="recognize-from-file"></a>Riconoscimento da file 
 
-Per eseguire il riconoscimento vocale da un file audio in Node.js, è necessario usare uno schema progettuale alternativo che usa un flusso di push, perché l'oggetto `File` JavaScript non può essere usato in un runtime di Node.js. Il codice seguente:
-
-* Crea un flusso push usando `createPushStream()`
-* Apre il file `.wav` creando un flusso di lettura e lo scrive nel flusso push
-* Crea una configurazione audio usando il flusso push
+Per riconoscere il riconoscimento vocale da un file audio, creare un `AudioConfig` `fromWavFileInput()` oggetto usando il quale accetta un `Buffer` oggetto. Quindi, inizializzare una classe [`SpeechRecognizer`](https://docs.microsoft.com/javascript/api/microsoft-cognitiveservices-speech-sdk/speechrecognizer?view=azure-node-latest), passando la classe `audioConfig` e `speechConfig`.
 
 ```javascript
 const fs = require('fs');
@@ -74,6 +70,31 @@ const sdk = require("microsoft-cognitiveservices-speech-sdk");
 const speechConfig = sdk.SpeechConfig.fromSubscription("<paste-your-subscription-key>", "<paste-your-region>");
 
 function fromFile() {
+    let audioConfig = sdk.AudioConfig.fromWavFileInput(fs.readFileSync("YourAudioFile.wav"));
+    let recognizer = new sdk.SpeechRecognizer(speechConfig, audioConfig);
+
+    recognizer.recognizeOnceAsync(result => {
+        console.log(`RECOGNIZED: Text=${result.text}`);
+        recognizer.close();
+    });
+}
+fromFile();
+```
+
+## <a name="recognize-from-in-memory-stream"></a>Riconoscimento dal flusso in memoria
+
+Per molti casi d'uso, è probabile che i dati audio provengano dall'archiviazione BLOB o che siano già in memoria come una struttura di [`ArrayBuffer`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/ArrayBuffer) dati non elaborata o simile. Il codice seguente:
+
+* Crea un flusso push usando `createPushStream()` .
+* Legge un `.wav` file usando `fs.createReadStream` a scopo dimostrativo, ma se sono già presenti dati audio in un oggetto `ArrayBuffer` , è possibile passare direttamente alla scrittura del contenuto nel flusso di input.
+* Crea una configurazione audio usando il flusso di push.
+
+```javascript
+const fs = require('fs');
+const sdk = require("microsoft-cognitiveservices-speech-sdk");
+const speechConfig = sdk.SpeechConfig.fromSubscription("<paste-your-subscription-key>", "<paste-your-region>");
+
+function fromStream() {
     let pushStream = sdk.AudioInputStream.createPushStream();
 
     fs.createReadStream("YourAudioFile.wav").on('data', function(arrayBuffer) {
@@ -89,7 +110,7 @@ function fromFile() {
         recognizer.close();
     });
 }
-fromFile();
+fromStream();
 ```
 
 L'uso di un flusso push come input presuppone che i dati audio siano un PCM non elaborato, ad esempio ignorano le intestazioni.

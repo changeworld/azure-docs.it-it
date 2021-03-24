@@ -2,13 +2,13 @@
 title: Errori di risorsa non trovati
 description: Viene descritto come risolvere gli errori quando non è possibile trovare una risorsa. L'errore può verificarsi durante la distribuzione di un modello di Azure Resource Manager o durante l'esecuzione di azioni di gestione.
 ms.topic: troubleshooting
-ms.date: 06/10/2020
-ms.openlocfilehash: 40f3c2ac61b6a6d5fdbcefdf62761668b013b1db
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.date: 03/23/2021
+ms.openlocfilehash: b80c32683190167d5c0d6e0a7f75acce8bbdb833
+ms.sourcegitcommit: ac035293291c3d2962cee270b33fca3628432fac
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "99526247"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "104950876"
 ---
 # <a name="resolve-resource-not-found-errors"></a>Risolvere gli errori di risorsa non trovata
 
@@ -133,3 +133,9 @@ Quando si distribuisce un modello, cercare le espressioni che usano le funzioni 
 ```json
 "[reference(resourceId('exampleResourceGroup', 'Microsoft.Storage/storageAccounts', 'myStorage'), '2017-06-01')]"
 ```
+
+## <a name="solution-6---after-deleting-resource"></a>Soluzione 6-dopo l'eliminazione della risorsa
+
+Quando si elimina una risorsa, potrebbe essere presente un breve intervallo di tempo durante il quale la risorsa viene ancora visualizzata nel portale, ma non è effettivamente disponibile. Se si seleziona la risorsa, viene visualizzato un errore che indica che la risorsa non è stata trovata. Aggiornare il portale per ottenere la visualizzazione più recente.
+
+Se il problema persiste dopo una breve attesa, [contattare il supporto tecnico](https://azure.microsoft.com/support/options/).

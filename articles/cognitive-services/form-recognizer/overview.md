@@ -11,12 +11,12 @@ ms.date: 03/15/2021
 ms.author: lajanuar
 ms.custom: cog-serv-seo-aug-2020
 keywords: elaborazione dati automatica, elaborazione di documenti, immissione automatica di dati, elaborazione di moduli
-ms.openlocfilehash: fdd482a6b0d6ca53d99cd17076ccd9a3545f7879
-ms.sourcegitcommit: 3ea12ce4f6c142c5a1a2f04d6e329e3456d2bda5
+ms.openlocfilehash: 4465f88e3b0ccab8eace1936f426af8dd32af27b
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/15/2021
-ms.locfileid: "103467339"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104872252"
 ---
 # <a name="what-is-form-recognizer"></a>Informazioni su Riconoscimento modulo
 
@@ -26,7 +26,16 @@ Riconoscimento modulo di Azure è un servizio cognitivo che consente di creare s
 
 Il sistema di riconoscimento dei moduli è costituito da modelli di elaborazione di documenti personalizzati, modelli predefiniti per fatture, ricevute, ID e biglietti da visita e il modello di layout. È possibile chiamare i modelli di Riconoscimento modulo usando un'API REST o SDK delle librerie client per ridurre la complessità e integrarli nel flusso di lavoro o nell'applicazione.
 
-Riconoscimento modulo è costituito dai servizi seguenti:
+Questa documentazione contiene i tipi di articolo seguenti:  
+
+* Nelle [**guide introduttive**](quickstarts/client-library.md) vengono fornite istruzioni introduttive per l'esecuzione di richieste al servizio.  
+* Le [**guide alle procedure**](build-training-data-set.md) contengono istruzioni per l'uso del servizio in modi più specifici o personalizzati.  
+* I [**concetti**](concept-layout.md) forniscono spiegazioni approfondite delle funzionalità e delle funzionalità del servizio.  
+* Le [**esercitazioni**](tutorial-bulk-processing.md) sono guide più lunghe che illustrano come usare il servizio come componente in soluzioni aziendali più ampie.  
+
+## <a name="form-recognizer-features"></a>Funzionalità di riconoscimento moduli
+
+Con il riconoscimento del modulo è possibile estrarre e analizzare facilmente i dati del modulo con queste funzionalità:
 
 * **[API Layout](#layout-api)** : estrarre testo, contrassegni di selezione e strutture di tabelle, oltre alle relative coordinate dei rettangoli delimitatori, dai documenti.
 * **[Modelli personalizzati](#custom-models)** : estrarre testo, coppie chiave-valore, contrassegni di selezione e dati di tabelle dai moduli. Questi modelli vengono sottoposti a training con i dati dell'utente, quindi sono personalizzati per i suoi moduli.
@@ -38,11 +47,10 @@ Riconoscimento modulo è costituito dai servizi seguenti:
   * [Biglietti da visita](./concept-business-cards.md)
   * [Schede di identificazione (ID)](./concept-identification-cards.md)
 
-## <a name="try-it-out"></a>Provare questa operazione
 
-Per provare il servizio Riconoscimento modulo, passare allo strumento dell'interfaccia utente di esempio online:
-<!-- markdownlint-disable MD025 -->
-<!-- markdownlint-disable MD024 -->
+## <a name="get-started"></a>Introduzione
+
+Utilizzare lo strumento di riconoscimento modulo di esempio per provare il layout, i modelli precompilati e il training di un modello personalizzato per i documenti. È necessaria una sottoscrizione di Azure ([**crearne una gratuitamente**](https://azure.microsoft.com/free/cognitive-services)) e un endpoint e una chiave del sistema di [**riconoscimento del modulo**](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesFormRecognizer) per provare il servizio di riconoscimento del modulo.
 
 ### <a name="v21-preview"></a>[v2.1.preview](#tab/v2-1)
 
@@ -55,8 +63,45 @@ Per provare il servizio Riconoscimento modulo, passare allo strumento dell'inter
 > [Provare Riconoscimento modulo](https://fott.azurewebsites.net/)
 
 ---
+Seguire la [Guida introduttiva alla libreria client/API REST](./quickstarts/client-library.md) per iniziare l'estrazione dei dati dai documenti. È consigliabile usare il servizio gratuito mentre si acquisisce familiarità con questa tecnologia. Tenere presente che il numero di pagine gratuite è limitato a 500 al mese.
 
-Per provare il servizio Riconoscimento modulo, è necessario avere una sottoscrizione di Azure ([crearne una gratuita](https://azure.microsoft.com/free/cognitive-services)), oltre a un endpoint e a una chiave della [risorsa Riconoscimento modulo](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesFormRecognizer).
+Per iniziare, è anche possibile usare gli esempi REST (GitHub) 
+
+* Estrai testo, contrassegni di selezione e struttura della tabella da documenti
+  * [Estrarre i dati del layout - Python](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/python/FormRecognizer/rest/python-layout.md)
+* Eseguire il training di modelli personalizzati ed estrarre i dati dei moduli
+  * [Training senza etichette - Python](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/python/FormRecognizer/rest/python-train-extract.md)
+  * [Training con etichette - Python](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/python/FormRecognizer/rest/python-labeled-data.md)
+* Estrarre dati dalle fatture
+  * [Estrarre dati dalle fatture - Python](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/python/FormRecognizer/rest/python-invoices.md)
+* Estrarre dati dalle ricevute di vendita
+  * [Estrarre dati dalle ricevute - Python](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/python/FormRecognizer/rest/python-receipts.md)
+* Estrarre dati dai biglietti da visita
+  * [Estrarre dati dai biglietti da visita - Python](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/python/FormRecognizer/rest/python-business-cards.md)
+
+### <a name="review-the-rest-apis"></a>Esaminare le API REST
+
+Per eseguire il training dei modelli ed estrarre dati strutturati dai moduli, verranno usate le API seguenti.
+
+|Nome |Descrizione |
+|---|---|
+| **Analyze Layout** | Analizzare un documento passato come flusso per estrarre il testo, i contrassegni di selezione, le tabelle e la struttura dal documento |
+| **Eseguire il training di un modello personalizzato**| Eseguire il training di un nuovo modulo per analizzare i moduli usando cinque moduli dello stesso tipo. Impostare il parametro _useLabelFile_ su `true` per eseguire il training con dati etichettati manualmente. |
+| **Analyze Form** |Analizzare un modulo passato come flusso per estrarre testo, coppie chiave-valore e tabelle dal modulo con un modello personalizzato.  |
+| **Analyze Invoice** | Analizzare una fattura per estrarre informazioni chiave, tabelle e altro testo della fattura.|
+| **Analyze Receipt** | Analizzare una ricevuta per estrarre informazioni chiave e altro testo.|
+| **ID analisi** | Analizzare un documento della scheda ID per estrarre informazioni chiave e altro testo della carta di identificazione.|
+| **Analyze Business Card** | Analizzare un biglietto da lavoro per estrarre le principali informazioni e il testo.|
+
+### <a name="v21-preview"></a>[v2.1.preview](#tab/v2-1)
+
+Per altre informazioni, esplorare la [documentazione di riferimento dell'API REST](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-3/operations/AnalyzeWithCustomForm). Se si ha familiarità con una versione precedente dell'API, vedere l'articolo [Novità](./whats-new.md) per informazioni sulle modifiche recenti.
+
+### <a name="v20"></a>[v2.0](#tab/v2-0)
+
+Per altre informazioni, esplorare la [documentazione di riferimento dell'API REST](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-3/operations/AnalyzeWithCustomForm). Se si ha familiarità con una versione precedente dell'API, vedere l'articolo [Novità](./whats-new.md) per informazioni sulle modifiche recenti.
+
+---
 
 ## <a name="layout-api"></a>API di layout
 
@@ -113,61 +158,6 @@ Il modello delle schede di identificazione (ID) consente di estrarre le informaz
 Il modello di biglietto da visita consente di estrarre informazioni quali il nome della persona, la posizione, la via e numero civico, l'indirizzo di posta elettronica, la società e i numeri di telefono dai biglietti da visita in inglese. Per altre informazioni, vedere [Concetti relativi ai biglietti da visita](./concept-business-cards.md).
 
 :::image type="content" source="./media/overview-business-card.jpg" alt-text="biglietto da visita di esempio" lightbox="./media/overview-business-card.jpg":::
-
-## <a name="get-started"></a>Introduzione
-
-Usare lo strumento di riconoscimento moduli di esempio per provare il layout, i modelli precompilati e il training di un modello personalizzato per i documenti:  
-
-### <a name="v21-preview"></a>[v2.1.preview](#tab/v2-1)
-
-> [!div class="nextstepaction"]
-> [Provare Riconoscimento modulo](https://fott-preview.azurewebsites.net/)
-
-### <a name="v20"></a>[v2.0](#tab/v2-0)
-
-> [!div class="nextstepaction"]
-> [Provare Riconoscimento modulo](https://fott.azurewebsites.net/)
-
----
-Seguire la [Guida introduttiva alla libreria client/API REST](./quickstarts/client-library.md) per iniziare l'estrazione dei dati dai documenti. È consigliabile usare il servizio gratuito mentre si acquisisce familiarità con questa tecnologia. Tenere presente che il numero di pagine gratuite è limitato a 500 al mese.
-
-Per iniziare, è anche possibile usare gli esempi REST (GitHub) 
-
-* Estrai testo, contrassegni di selezione e struttura della tabella da documenti
-  * [Estrarre i dati del layout - Python](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/python/FormRecognizer/rest/python-layout.md)
-* Eseguire il training di modelli personalizzati ed estrarre i dati dei moduli
-  * [Training senza etichette - Python](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/python/FormRecognizer/rest/python-train-extract.md)
-  * [Training con etichette - Python](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/python/FormRecognizer/rest/python-labeled-data.md)
-* Estrarre dati dalle fatture
-  * [Estrarre dati dalle fatture - Python](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/python/FormRecognizer/rest/python-invoices.md)
-* Estrarre dati dalle ricevute di vendita
-  * [Estrarre dati dalle ricevute - Python](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/python/FormRecognizer/rest/python-receipts.md)
-* Estrarre dati dai biglietti da visita
-  * [Estrarre dati dai biglietti da visita - Python](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/python/FormRecognizer/rest/python-business-cards.md)
-
-### <a name="review-the-rest-apis"></a>Esaminare le API REST
-
-Per eseguire il training dei modelli ed estrarre dati strutturati dai moduli, verranno usate le API seguenti.
-
-|Nome |Descrizione |
-|---|---|
-| **Analyze Layout** | Analizzare un documento passato come flusso per estrarre il testo, i contrassegni di selezione, le tabelle e la struttura dal documento |
-| **Eseguire il training di un modello personalizzato**| Eseguire il training di un nuovo modulo per analizzare i moduli usando cinque moduli dello stesso tipo. Impostare il parametro _useLabelFile_ su `true` per eseguire il training con dati etichettati manualmente. |
-| **Analyze Form** |Analizzare un modulo passato come flusso per estrarre testo, coppie chiave-valore e tabelle dal modulo con un modello personalizzato.  |
-| **Analyze Invoice** | Analizzare una fattura per estrarre informazioni chiave, tabelle e altro testo della fattura.|
-| **Analyze Receipt** | Analizzare una ricevuta per estrarre informazioni chiave e altro testo.|
-| **ID analisi** | Analizzare un documento della scheda ID per estrarre informazioni chiave e altro testo della carta di identificazione.|
-| **Analyze Business Card** | Analizzare un biglietto da lavoro per estrarre le principali informazioni e il testo.|
-
-### <a name="v21-preview"></a>[v2.1.preview](#tab/v2-1)
-
-Per altre informazioni, esplorare la [documentazione di riferimento dell'API REST](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-3/operations/AnalyzeWithCustomForm). Se si ha familiarità con una versione precedente dell'API, vedere l'articolo [Novità](./whats-new.md) per informazioni sulle modifiche recenti.
-
-### <a name="v20"></a>[v2.0](#tab/v2-0)
-
-Per altre informazioni, esplorare la [documentazione di riferimento dell'API REST](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-3/operations/AnalyzeWithCustomForm). Se si ha familiarità con una versione precedente dell'API, vedere l'articolo [Novità](./whats-new.md) per informazioni sulle modifiche recenti.
-
----
 
 ## <a name="input-requirements"></a>Requisiti di input
 
