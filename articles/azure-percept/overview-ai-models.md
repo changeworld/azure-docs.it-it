@@ -5,18 +5,18 @@ author: elqu20
 ms.author: v-elqu
 ms.service: azure-percept
 ms.topic: conceptual
-ms.date: 02/16/2021
+ms.date: 03/23/2021
 ms.custom: template-concept
-ms.openlocfilehash: e31a696dfb443c20566f13f5a228eefac7af5ecc
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: b644adb98de5ef5e3af6e1c8d45ea1a207d05cc7
+ms.sourcegitcommit: ac035293291c3d2962cee270b33fca3628432fac
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104595924"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "104956129"
 ---
 # <a name="azure-percept-ai-models"></a>Modelli di intelligenza artificiale di Azure Percept
 
-Azure Percept consente di sviluppare e distribuire modelli di intelligenza artificiale direttamente in Azure Percept DK da [Azure Percept Studio](https://go.microsoft.com/fwlink/?linkid=2135819). La distribuzione del modello usa l'hub e la [Azure IOT Edge](https://azure.microsoft.com/services/iot-edge/#iotedge-overview)di [Azure](https://azure.microsoft.com/services/iot-hub/) .
+Azure Percept consente di sviluppare e distribuire modelli di intelligenza artificiale direttamente in [Azure PERCEPT dk](./overview-azure-percept-dk.md) da [Azure Percept Studio](https://go.microsoft.com/fwlink/?linkid=2135819). La distribuzione del modello usa l'hub e la [Azure IOT Edge](https://azure.microsoft.com/services/iot-edge/#iotedge-overview)di [Azure](https://azure.microsoft.com/services/iot-hub/) .
 
 ## <a name="sample-ai-models"></a>Modelli di intelligenza artificiale di esempio
 
@@ -27,7 +27,7 @@ Azure Percept Studio contiene modelli di esempio per le applicazioni seguenti:
 - rilevamento oggetti generali
 - prodotti-rilevamento su scaffale
 
-Con i modelli con training preliminare, non è necessaria alcuna raccolta di dati di codifica o di training. È sufficiente distribuire il modello desiderato in Azure Percept DK dal portale e aprire il flusso video di DevKit per vedere l'inferenza del modello in azione. È possibile accedere ai dati di telemetria di inferenza del modello anche tramite lo strumento [Azure Internet Explorer](https://github.com/Azure/azure-iot-explorer/releases) .
+Con i modelli con training preliminare, non è necessaria alcuna raccolta di dati di codifica o di training. È sufficiente [distribuire il modello desiderato](./how-to-deploy-model.md) in Azure Percept DK dal portale e aprire il [flusso video](./how-to-view-video-stream.md) di DevKit per vedere l'inferenza del modello in azione. È possibile accedere ai dati di [telemetria di inferenza del modello](./how-to-view-telemetry.md) anche tramite lo strumento [Azure Internet Explorer](https://github.com/Azure/azure-iot-explorer/releases) .
 
 ## <a name="reference-solutions"></a>Soluzioni di riferimento
 
@@ -37,7 +37,7 @@ Con i modelli con training preliminare, non è necessaria alcuna raccolta di dat
 
 ## <a name="custom-no-code-solutions"></a>Soluzioni senza codice personalizzate
 
-Grazie ad Azure Percept studio, è possibile sviluppare soluzioni personalizzate per la [visione](./tutorial-nocode-vision.md) e la sintesi vocale, senza necessità di scrivere codice.
+Grazie ad Azure Percept studio, è possibile sviluppare soluzioni personalizzate per la [visione](./tutorial-nocode-vision.md) e la [sintesi vocale](./tutorial-no-code-speech.md) , senza necessità di scrivere codice.
 
 Per le soluzioni di visione artificiale personalizzate, sono disponibili sia il rilevamento degli oggetti che i modelli di intelligenza artificiale. È sufficiente caricare e contrassegnare le immagini di training, che possono essere eseguite direttamente con il modello di Azure Percept Vision SoM di Azure Percept DK, se lo si desidera. Il training e la valutazione del modello vengono eseguiti facilmente in [visione personalizzata](https://www.customvision.ai/), che fa parte dei [Servizi cognitivi di Azure](https://azure.microsoft.com/services/cognitive-services/#overview).
 
@@ -58,6 +58,6 @@ Le parole chiave e i comandi degli assistenti vocali predefiniti sono disponibil
 
 Per informazioni aggiornate, esercitazioni ed esempi relativi ad esempio, vedere [Azure PERCEPT dk Advanced Development GitHub](https://github.com/microsoft/azure-percept-advanced-development) .
 
-* Introduzione di un modello di intelligenza artificiale personalizzato al dispositivo
-* Aggiornamento di un modello già supportato con l'apprendimento del trasferimento
-* E altre informazioni
+- Distribuzione di un modello di intelligenza artificiale personalizzato in Azure Percept DK
+- Aggiornamento di un modello supportato con l'apprendimento del trasferimento
+- E altre informazioni

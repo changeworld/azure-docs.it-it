@@ -5,12 +5,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 08/06/2020
-ms.openlocfilehash: d36c8f1f592bbe714a9e31cad8131523049f29ad
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: a3bfcfbe59ccc15278b30470c6a060a9c1dd609c
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98931355"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104871745"
 ---
 # <a name="use-external-metadata-stores-in-azure-hdinsight"></a>Usare gli archivi di metadati esterni in Azure HDInsight
 
@@ -18,7 +18,7 @@ HDInsight consente di assumere il controllo dei dati e dei metadati con archivi 
 
 Il metastore di Apache Hive in HDInsight è una parte essenziale dell'architettura di Apache Hadoop. Un Metastore è il repository centrale dello schema. Il Metastore viene usato da altri strumenti di accesso Big Data, ad esempio Apache Spark, Interactive query (LLAP), presto o Apache Pig. HDInsight usa un Database SQL di Azure come il metastore Hive.
 
-![Architettura dell'archivio dei metadati Hive di HDInsight](./media/hdinsight-use-external-metadata-stores/metadata-store-architecture.png)
+:::image type="content" source="./media/hdinsight-use-external-metadata-stores/metadata-store-architecture.png" alt-text="Architettura dell'archivio dei metadati Hive di HDInsight" border="false":::
 
 Esistono due modi per configurare un metastore per i cluster HDInsight:
 
@@ -56,7 +56,7 @@ HDInsight supporta inoltre i metastore personalizzati, che sono consigliati per 
 
 * Il cluster e il Metastore esterno devono essere ospitati nella stessa area.
 
-![Caso d'uso dell'archivio dei metadati Hive di HDInsight](./media/hdinsight-use-external-metadata-stores/metadata-store-use-case.png)
+:::image type="content" source="./media/hdinsight-use-external-metadata-stores/metadata-store-use-case.png" alt-text="Caso d'uso dell'archivio dei metadati Hive di HDInsight" border="false":::
 
 ### <a name="create-and-config-azure-sql-database-for-the-custom-metastore"></a>Creare e configurare il database SQL di Azure per il Metastore personalizzato
 
@@ -66,15 +66,15 @@ Durante la creazione del cluster, il servizio HDInsight deve connettersi al Meta
 
 Gli endpoint privati per gli archivi SQL sono supportati solo nei cluster creati con `outbound` ResourceProviderConnection. Per ulteriori informazioni, vedere la [documentazione](./hdinsight-private-link.md)a.
 
-![pulsante Imposta firewall del server](./media/hdinsight-use-external-metadata-stores/configure-azure-sql-database-firewall1.png)
+:::image type="content" source="./media/hdinsight-use-external-metadata-stores/configure-azure-sql-database-firewall1.png" alt-text="pulsante Imposta firewall del server":::
 
-![Consenti accesso ai servizi di Azure](./media/hdinsight-use-external-metadata-stores/configure-azure-sql-database-firewall2.png)
+:::image type="content" source="./media/hdinsight-use-external-metadata-stores/configure-azure-sql-database-firewall2.png" alt-text="Consenti accesso ai servizi di Azure":::
 
 ### <a name="select-a-custom-metastore-during-cluster-creation"></a>Selezionare un metastore personalizzato durante la creazione del cluster
 
 È possibile puntare il cluster a un database SQL di Azure creato in precedenza in qualsiasi momento. Per la creazione di cluster tramite il portale, l'opzione viene specificata dalle **impostazioni di archiviazione > Metastore**.
 
-![Portale dell'archivio dei metadati Hive di HDInsight](./media/hdinsight-use-external-metadata-stores/azure-portal-cluster-storage-metastore.png)
+:::image type="content" source="./media/hdinsight-use-external-metadata-stores/azure-portal-cluster-storage-metastore.png" alt-text="Portale dell'archivio dei metadati Hive di HDInsight":::
 
 ## <a name="hive-metastore-guidelines"></a>Linee guida per metastore Hive
 

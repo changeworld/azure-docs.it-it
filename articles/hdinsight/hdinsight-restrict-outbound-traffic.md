@@ -5,12 +5,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: seoapr2020
 ms.date: 04/17/2020
-ms.openlocfilehash: 4761c1fb6d245071a02fc69677fc9cd50a972fdd
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 297c1d4afca5a1d605a046d69b086a05a9322bc7
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "100574593"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104872082"
 ---
 # <a name="configure-outbound-network-traffic-for-azure-hdinsight-clusters-using-firewall"></a>Configurare il traffico di rete in uscita per i cluster di Azure HDInsight tramite il firewall
 
@@ -52,7 +52,7 @@ Creare una raccolta di regole dell'applicazione che consenta al cluster di invia
 
 1. Passare a **Impostazioni** > **Regole** > **Raccolta regole dell'applicazione** >  **+ Aggiungi raccolta regole dell'applicazione**.
 
-    ![Titolo: Aggiungi raccolta regole dell'applicazione](./media/hdinsight-restrict-outbound-traffic/hdinsight-restrict-outbound-traffic-add-app-rule-collection.png)
+    :::image type="content" source="./media/hdinsight-restrict-outbound-traffic/hdinsight-restrict-outbound-traffic-add-app-rule-collection.png" alt-text="Titolo: Aggiungi raccolta regole dell'applicazione":::
 
 1. Nella schermata **Aggiungi raccolta regole dell'applicazione**, specificare le informazioni seguenti:
 
@@ -78,7 +78,7 @@ Creare una raccolta di regole dell'applicazione che consenta al cluster di invia
     | Rule_3 | * | https:443 | login.microsoftonline.com | Consente l'attività di accesso di Windows |
     | Rule_4 | * | https:443,http:80 | storage_account_name.blob.core.windows.net | Sostituire `storage_account_name` con il nome dell'account di archiviazione. Per usare SOLO le connessioni HTTPS, assicurarsi che nell'account di archiviazione sia abilitato ["trasferimento sicuro obbligatorio"](../storage/common/storage-require-secure-transfer.md). Se si usa un endpoint privato per accedere agli account di archiviazione, questo passaggio non è necessario e il traffico di archiviazione non viene inviato al firewall.|
 
-   ![Titolo: Immetti i dettagli della raccolta regole dell'applicazione](./media/hdinsight-restrict-outbound-traffic/hdinsight-restrict-outbound-traffic-add-app-rule-collection-details.png)
+   :::image type="content" source="./media/hdinsight-restrict-outbound-traffic/hdinsight-restrict-outbound-traffic-add-app-rule-collection-details.png" alt-text="Titolo: Immetti i dettagli della raccolta regole dell'applicazione":::
 
 1. Selezionare **Aggiungi**.
 
@@ -105,7 +105,7 @@ Creare le regole di rete per configurare correttamente il cluster HDInsight.
     | Rule_5 | TCP | * | SQL | 1433 | Se si usano i server SQL predefiniti forniti da HDInsight, configurare una regola di rete nella sezione Tag del servizio per SQL che consentirà di registrare e controllare il traffico SQL. a meno che non siano stati configurati endpoint di servizio per SQL Server nella subnet HDInsight, che ignoreranno il firewall. Se si usa SQL Server personalizzato per Ambari, oozie, Ranger e Metastore hive, è sufficiente consentire il traffico ai server SQL personalizzati.|
     | Rule_6 | TCP | * | Monitoraggio di Azure | * | (Facoltativo) Si consiglia ai clienti che prevedono di usare la funzionalità di scalabilità automatica di aggiungere questa regola. |
     
-   ![Titolo: Immetti la raccolta regole dell'applicazione](./media/hdinsight-restrict-outbound-traffic/hdinsight-restrict-outbound-traffic-add-network-rule-collection.png)
+   :::image type="content" source="./media/hdinsight-restrict-outbound-traffic/hdinsight-restrict-outbound-traffic-add-network-rule-collection.png" alt-text="Titolo: Immetti la raccolta regole dell'applicazione":::
 
 1. Selezionare **Aggiungi**.
 

@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b878abbead68b3268891e1f35087e5942969730c
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 4e1f4c7272c3db3b1e4cd834a621b66f519c6f69
+ms.sourcegitcommit: ac035293291c3d2962cee270b33fca3628432fac
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104579060"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "104952814"
 ---
 # <a name="conditional-access-users-and-groups"></a>Accesso condizionale: utenti e gruppi
 
@@ -38,7 +38,7 @@ Quando si creano criteri di accesso condizionale, è possibile includere le opzi
    - Tutti gli utenti guest ed esterni
       - Questa selezione include tutti i guest B2B e gli utenti esterni, incluso qualsiasi utente con l' `user type` attributo impostato su `guest` . Questa selezione si applica anche a qualsiasi utente esterno connesso da un'organizzazione diversa, ad esempio un provider di soluzioni cloud (CSP). 
    - Ruoli della directory
-      - Consente agli amministratori di selezionare i ruoli di directory Azure AD predefiniti specifici utilizzati per determinare l'assegnazione dei criteri. Ad esempio, le organizzazioni possono creare criteri più restrittivi per gli utenti assegnati al ruolo di amministratore globale. Altri tipi di ruolo non sono supportati, inclusi i ruoli della directory con ambito unità amministrativa, i ruoli personalizzati.
+      - Consente agli amministratori di selezionare i ruoli di directory Azure AD predefiniti specifici utilizzati per determinare l'assegnazione dei criteri. Ad esempio, le organizzazioni possono creare criteri più restrittivi per gli utenti assegnati al ruolo di amministratore globale. Altri tipi di ruolo non sono supportati, inclusi ruoli con ambito unità amministrativa e ruoli personalizzati.
    - Utenti e gruppi
       - Consente la destinazione di set di utenti specifici. Ad esempio, le organizzazioni possono selezionare un gruppo che contiene tutti i membri del reparto risorse umane quando si seleziona un'app per le risorse umane come app cloud. Un gruppo può essere un gruppo di qualsiasi tipo in Azure AD, inclusi gruppi di sicurezza e distribuzione dinamici o assegnati. I criteri verranno applicati a utenti e gruppi annidati.
 

@@ -240,8 +240,12 @@
               href: azure-stack-edge-gpu-deploy-virtual-machine-custom-script-extension.md
             - name: Creare l'immagine della macchina virtuale
               href: azure-stack-edge-gpu-create-virtual-machine-image.md
+            - name: Usa immagine generalizzata di Windows
+              href: azure-stack-edge-gpu-prepare-windows-vhd-generalized-image.md
             - name: Dimensioni e tipi di VM supportati
               href: azure-stack-edge-gpu-virtual-machine-sizes.md
+            - name: Connetti alla console VM
+              href: azure-stack-edge-gpu-connect-virtual-machine-console.md
         - name: Gestire i certificati
           items:
             - name: Requisiti
@@ -310,7 +314,9 @@
               href: azure-stack-edge-contact-microsoft-support.md
     - name: Note sulla versione condivise
       items:
-        - name: 2101-corrente
+        - name: 2103-corrente
+          href: azure-stack-edge-gpu-2103-release-notes.md
+        - name: 2101
           href: azure-stack-edge-gpu-2101-release-notes.md
         - name: 2010
           href: azure-stack-edge-gpu-2010-release-notes.md

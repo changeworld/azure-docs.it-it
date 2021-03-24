@@ -5,14 +5,14 @@ author: elqu20
 ms.author: v-elqu
 ms.service: azure-percept
 ms.topic: overview
-ms.date: 02/18/2021
+ms.date: 03/23/2021
 ms.custom: template-overview
-ms.openlocfilehash: eca0c28b016b2e57f6fe47495c90bf113f0179a6
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 12ca7dff7d106941cc8947d9d3040bcefefde00a
+ms.sourcegitcommit: ac035293291c3d2962cee270b33fca3628432fac
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103490110"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "104953594"
 ---
 # <a name="introduction-to-azure-percept"></a>Introduzione ad Azure Percept
 
@@ -22,30 +22,30 @@ Le difficoltà di integrazione che si verificano quando si tenta di distribuire 
 
 - Identificazione e selezione del silicio appropriato per potenziare le soluzioni.
 - Garanzia della sicurezza collettiva di hardware, software, modelli e dati.
-- La possibilità di creare e gestire soluzioni che funzionano in modo uniforme, su larga scala.
+- La possibilità di creare e gestire soluzioni che funzionano in modo uniforme su larga scala.
 
 ## <a name="components-of-azure-percept"></a>Componenti di Azure Percept
 
 I componenti principali di Azure Percept sono:
 
-1. Programmi di certificazione e progettazione di riferimento hardware per intelligenza artificiale.
+1. [Azure Percept DK.](./overview-azure-percept-dk.md)
 
-    - Fornisce all'ecosistema degli sviluppatori hardware i modelli e le procedure consigliate per lo sviluppo di hardware di intelligenza artificiale perimetrale che può essere integrato facilmente con i servizi di intelligenza artificiale e di Azure.
-
-2. Azure Percept DK (DevKit).
-
-    - Un kit di sviluppo sufficientemente flessibile per supportare un'ampia gamma di scenari di creazione di prototipi per i generatori di dispositivi, i compilatori di soluzioni e i clienti.
+    - Un kit di sviluppo sufficientemente flessibile per supportare un'ampia gamma di scenari di creazione di prototipi per i generatori di dispositivi, i generatori di soluzioni e i clienti.
 
         > [!div class="nextstepaction"]
         > [Acquista ora](https://go.microsoft.com/fwlink/p/?LinkId=2155270)
 
-3. Servizi e flussi di lavoro per accelerare lo sviluppo di soluzioni e modelli di intelligenza artificiale Edge.
+1. Servizi e flussi di lavoro che accelerano lo sviluppo di soluzioni e modelli di intelligenza artificiale Edge.
 
     - Flussi di lavoro di sviluppo e modelli predefiniti accessibili da [Azure Percept Studio](https://go.microsoft.com/fwlink/?linkid=2135819).
     - Servizi per lo sviluppo di modelli.
     - Servizi di gestione dei dispositivi per la scalabilità.
     - Protezione end-to-end.
 
+1. Programmi di certificazione e progettazione di riferimento hardware per intelligenza artificiale.
+
+    - Fornisce all'ecosistema degli sviluppatori hardware i modelli e le procedure consigliate per lo sviluppo di hardware di intelligenza artificiale perimetrale che può essere integrato facilmente con i servizi di intelligenza artificiale e di Azure.
+
 ## <a name="next-steps"></a>Passaggi successivi
 
-Introduzione ad [Azure PERCEPT dk](./overview-azure-percept-dk.md). 
+Scopri di più su [Azure PERCEPT dk](./overview-azure-percept-dk.md) e [Azure Percept Studio](./overview-azure-percept-studio.md).

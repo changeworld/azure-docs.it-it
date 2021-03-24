@@ -2,13 +2,13 @@
 title: Eliminazioni della cronologia di distribuzione
 description: Viene descritto come Azure Resource Manager Elimina automaticamente le distribuzioni dalla cronologia di distribuzione. Le distribuzioni vengono eliminate quando la cronologia è prossima al superamento del limite di 800.
 ms.topic: conceptual
-ms.date: 10/01/2020
-ms.openlocfilehash: 13c65f3311e308708034bb5befb7e3c3ee158d38
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.date: 03/23/2021
+ms.openlocfilehash: fc4f7f33cdd7ccce3158aa95bd002f12c8c44c00
+ms.sourcegitcommit: ac035293291c3d2962cee270b33fca3628432fac
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "91652483"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "104951964"
 ---
 # <a name="automatic-deletions-from-deployment-history"></a>Eliminazioni automatiche dalla cronologia di distribuzione
 
@@ -53,6 +53,12 @@ Per usare l'interfaccia della riga di comando di Azure per eliminare un blocco, 
 lockid=$(az lock show --resource-group lockedRG --name deleteLock --output tsv --query id)
 az lock delete --ids $lockid
 ```
+
+## <a name="required-permissions"></a>Autorizzazioni necessarie
+
+Le eliminazioni vengono richieste con l'identità dell'utente che ha distribuito il modello. Per eliminare le distribuzioni, l'utente deve avere accesso all'azione **Microsoft. resources/Deployments/Delete** . Se l'utente non dispone delle autorizzazioni necessarie, le distribuzioni non vengono eliminate dalla cronologia.
+
+Se l'utente corrente non dispone delle autorizzazioni necessarie, l'eliminazione automatica viene tentata di nuovo durante la distribuzione successiva.
 
 ## <a name="opt-out-of-automatic-deletions"></a>Rifiutare esplicitamente le eliminazioni automatiche
 

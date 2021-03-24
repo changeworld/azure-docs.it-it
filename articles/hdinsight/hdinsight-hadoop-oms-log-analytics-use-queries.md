@@ -5,12 +5,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 12/02/2019
-ms.openlocfilehash: 360a9730025dc24eda93868903fcd356c37d06ef
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 3cf97039983ecec44a7c3a32e178fdcf9f9c45ff
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "100576331"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104872184"
 ---
 # <a name="query-azure-monitor-logs-to-monitor-hdinsight-clusters"></a>Eseguire query nei log di Monitoraggio di Azure per monitorare i cluster HDInsight
 
@@ -37,13 +37,13 @@ Informazioni su come cercare metriche specifiche per il cluster HDInsight.
     search *
     ```
 
-    ![Ricerca di tutte le metriche in Apache Ambari Analytics](./media/hdinsight-hadoop-oms-log-analytics-use-queries/hdinsight-log-analytics-search-all-metrics.png "Cerca in tutte le metriche")
+    :::image type="content" source="./media/hdinsight-hadoop-oms-log-analytics-use-queries/hdinsight-log-analytics-search-all-metrics.png" alt-text="Ricerca di tutte le metriche in Apache Ambari Analytics":::
 
 1. Nel menu a sinistra selezionare la scheda **filtro** .
 
 1. In **tipo** selezionare **heartbeat**. Selezionare quindi **applica & Esegui**.
 
-    ![metriche specifiche per la ricerca in log Analytics](./media/hdinsight-hadoop-oms-log-analytics-use-queries/hdinsight-log-analytics-search-specific-metrics.png "Cercare metriche specifiche")
+    :::image type="content" source="./media/hdinsight-hadoop-oms-log-analytics-use-queries/hdinsight-log-analytics-search-specific-metrics.png" alt-text="metriche specifiche per la ricerca in log Analytics":::
 
 1. Si noti che la query nella casella di testo viene modificata in:
 
@@ -54,13 +54,13 @@ Informazioni su come cercare metriche specifiche per il cluster HDInsight.
 
 1. È possibile analizzare più a fondo usando le opzioni disponibili nel menu a sinistra. Ad esempio:
 
-    - Per visualizzare i log da un nodo specifico:
+   - Per visualizzare i log da un nodo specifico:
 
-        ![Cerca errori specifici output1](./media/hdinsight-hadoop-oms-log-analytics-use-queries/log-analytics-specific-node.png "Cerca errori specifici output1")
+     :::image type="content" source="./media/hdinsight-hadoop-oms-log-analytics-use-queries/log-analytics-specific-node.png" alt-text="Cerca errori specifici output1":::
 
-    - Per visualizzare i log in determinati orari:
+   - Per visualizzare i log in determinati orari:
 
-        ![Cerca errori specifici Output2](./media/hdinsight-hadoop-oms-log-analytics-use-queries/log-analytics-specific-time.png "Cerca errori specifici Output2")
+     :::image type="content" source="./media/hdinsight-hadoop-oms-log-analytics-use-queries/log-analytics-specific-time.png" alt-text="Cerca errori specifici Output2":::
 
 1. Selezionare **applica & Esegui** ed esaminare i risultati. Si noti inoltre che la query è stata aggiornata a:
 
@@ -102,11 +102,11 @@ Il primo passaggio per creare un avviso consiste nel creare una query in base a 
 
 1. Selezionare **nuova regola di avviso** nella parte superiore della pagina.
 
-    ![Immettere una query per creare un Alert1](./media/hdinsight-hadoop-oms-log-analytics-use-queries/hdinsight-log-analytics-create-alert-query.png "Immettere una query per creare un Alert1")
+    :::image type="content" source="./media/hdinsight-hadoop-oms-log-analytics-use-queries/hdinsight-log-analytics-create-alert-query.png" alt-text="Nuova regola di avviso":::
 
 1. Nella finestra **Crea regola** immettere la query e altri dettagli per creare un avviso e selezionare **Crea regola di avviso**.
 
-    ![Immettere una query per creare un alert2](./media/hdinsight-hadoop-oms-log-analytics-use-queries/hdinsight-log-analytics-create-alert.png "Immettere una query per creare un alert2")
+    :::image type="content" source="./media/hdinsight-hadoop-oms-log-analytics-use-queries/hdinsight-log-analytics-create-alert.png" alt-text="Definire la condizione di avviso.":::
 
 ### <a name="edit-or-delete-an-existing-alert"></a>Modificare o eliminare un avviso esistente
 
@@ -120,7 +120,7 @@ Il primo passaggio per creare un avviso consiste nel creare una query in base a 
 
 1. Sono disponibili le opzioni seguenti: **Salva**, **Ignora**, **Disabilita** ed **Elimina**.
 
-    ![HDInsight log di monitoraggio di Azure-modifica avviso eliminazione](media/hdinsight-hadoop-oms-log-analytics-use-queries/hdinsight-log-analytics-edit-alert.png)
+    :::image type="content" source="media/hdinsight-hadoop-oms-log-analytics-use-queries/hdinsight-log-analytics-edit-alert.png" alt-text="HDInsight log di monitoraggio di Azure-modifica avviso eliminazione":::
 
 Per altre informazioni, vedere [Creare, visualizzare e gestire gli avvisi delle metriche con Monitoraggio di Azure](../azure-monitor/alerts/alerts-metric.md).
 

@@ -5,12 +5,12 @@ ms.assetid: c9da27b2-47d4-4c33-a3cb-1819955ee43b
 ms.topic: article
 ms.date: 09/17/2019
 ms.custom: devx-track-csharp, seodec18
-ms.openlocfilehash: 44e18be9d66131ad5f4a3ebcc039621ec9e9dbe6
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 03ef2110af2d9e642019c2b07b53fae3e32b1ea6
+ms.sourcegitcommit: ac035293291c3d2962cee270b33fca3628432fac
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102452255"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "104950179"
 ---
 # <a name="enable-diagnostics-logging-for-apps-in-azure-app-service"></a>Abilitare la registrazione diagnostica per le app nel Servizio app di Azure
 ## <a name="overview"></a>Panoramica
@@ -116,7 +116,7 @@ Nel codice dell'applicazione si usano le normali funzionalità di registrazione 
     System.Diagnostics.Trace.TraceError("If you're seeing this, something bad happened");
     ```
 
-- Per impostazione predefinita, ASP.NET Core usa il provider di registrazione [Microsoft. Extensions. Logging. AzureAppServices](https://www.nuget.org/packages/Microsoft.Extensions.Logging.AzureAppServices) . Per altre informazioni, vedere [Registrazione in ASP.NET Core- Registrazione in Azure](/aspnet/core/fundamentals/logging/). Per informazioni sulla registrazione di webjobs SDK, vedere [Introduzione ad Azure Webjobs SDK](/azure/app-service/webjobs-sdk-get-started#enable-console-logging)
+- Per impostazione predefinita, ASP.NET Core usa il provider di registrazione [Microsoft. Extensions. Logging. AzureAppServices](https://www.nuget.org/packages/Microsoft.Extensions.Logging.AzureAppServices) . Per altre informazioni, vedere [Registrazione in ASP.NET Core- Registrazione in Azure](/aspnet/core/fundamentals/logging/). Per informazioni sulla registrazione di webjobs SDK, vedere [Introduzione ad Azure Webjobs SDK](./webjobs-sdk-get-started.md#enable-console-logging)
 
 ## <a name="stream-logs"></a>Eseguire lo streaming dei log
 

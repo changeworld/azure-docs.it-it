@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 11/21/2019
-ms.openlocfilehash: f8558644fc24f3190247e57b4de7228af161a2a8
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
+ms.openlocfilehash: 6c262e75bfc3fe9c7fb5ce3e00b42b0ff6cbe3bb
+ms.sourcegitcommit: ac035293291c3d2962cee270b33fca3628432fac
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102631167"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "104952950"
 ---
 # <a name="how-to-troubleshoot-issues-with-the-log-analytics-agent-for-linux"></a>Come risolvere i problemi relativi all'agente di Log Analytics per Linux 
 
@@ -19,7 +19,7 @@ Questo articolo fornisce informazioni sulla risoluzione degli errori che possono
 Se nessuno dei passaggi descritti risulta adatto alle proprie esigenze, sono disponibili anche i canali di supporto seguenti:
 
 * I clienti che usufruiscono dei vantaggi del supporto tecnico Premier possono aprire una richiesta di supporto con [Premier](https://premier.microsoft.com/).
-* I clienti con un contratto di supporto tecnico di Azure possono aprire una richiesta di supporto nel [portale di Azure](https://manage.windowsazure.com/?getsupport=true).
+* I clienti con un contratto di supporto tecnico di Azure possono aprire una richiesta di supporto nel [portale di Azure](https://azure.microsoft.com/support/options/).
 * Eseguire la diagnosi dei problemi OMI con la [guida alla risoluzione dei problemi OMI](https://github.com/Microsoft/omi/blob/master/Unix/doc/diagnose-omi-problems.md).
 * Inviare un [problema di GitHub](https://github.com/Microsoft/OMS-Agent-for-Linux/issues).
 * Visitare la pagina di feedback Log Analytics per esaminare le idee e i bug inviati o per inviarne uno [https://aka.ms/opinsightsfeedback](https://aka.ms/opinsightsfeedback) nuovo. 

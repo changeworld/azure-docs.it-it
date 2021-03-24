@@ -3,12 +3,12 @@ title: Bus di servizio di Azure-scadenza messaggio
 description: Questo articolo illustra la scadenza e l'ora di vita dei messaggi del bus di servizio di Azure. Dopo tale scadenza, il messaggio non viene più recapitato.
 ms.topic: conceptual
 ms.date: 02/17/2021
-ms.openlocfilehash: 74df8909633c2fa048c23c559ffdd315a8616e11
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 5d60d84bdc0d437d97c369296a414d55beda4167
+ms.sourcegitcommit: ac035293291c3d2962cee270b33fca3628432fac
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102042828"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "104952321"
 ---
 # <a name="message-expiration-time-to-live"></a>Scadenza dei messaggi (durata)
 Il payload all'interno di un messaggio, oppure di un comando o di una richiesta che un messaggio trasmette a un ricevitore, è quasi sempre soggetto a un qualche tipo di scadenza a livello di applicazione. Dopo tale scadenza, il contenuto non viene più recapitato oppure l'operazione richiesta non viene più eseguita.
@@ -46,7 +46,7 @@ Si consideri, ad esempio, un sito Web che deve eseguire in modo affidabile i pro
  
 La pulizia automatica è utile negli scenari di sviluppo e test in cui le entità vengono create in modo dinamico e non vengono eliminate dopo l'uso, a causa di un'interruzione dell'esecuzione del test o del debug. È utile anche quando un'applicazione crea entità dinamiche, ad esempio una coda di risposta, per la ricezione di risposte in un processo del server Web o in un altro oggetto di durata relativamente breve, in cui è difficile eseguire la pulizia delle entità in modo affidabile quando l'istanza dell'oggetto non è più presente.
 
-La funzionalità viene abilitata utilizzando la proprietà **auto delete on Idle** nello spazio dei nomi. Questa proprietà deve essere impostata sulla durata per cui l'entità deve rimanere inattiva (non usata) prima di essere eliminata automaticamente. Il valore minimo per questa proprietà è 5.
+La funzionalità viene abilitata utilizzando la proprietà **auto delete on Idle** nello spazio dei nomi. Questa proprietà deve essere impostata sulla durata per cui l'entità deve rimanere inattiva (non usata) prima di essere eliminata automaticamente. Il valore minimo per questa proprietà è 5 minuti.
  
 ## <a name="idleness"></a>Inattività
 
