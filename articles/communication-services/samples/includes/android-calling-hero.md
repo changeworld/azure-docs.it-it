@@ -10,16 +10,16 @@ ms.date: 9/1/2020
 ms.topic: include
 ms.custom: include file
 ms.author: mikben
-ms.openlocfilehash: 8262b0c9abc4911c1e5c039eb02920c18e7de90b
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: f71f394f190c5de1c3d64d02fd6113817ecda1ea
+ms.sourcegitcommit: bed20f85722deec33050e0d8881e465f94c79ac2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104783576"
+ms.lasthandoff: 03/25/2021
+ms.locfileid: "105152796"
 ---
 [!INCLUDE [Public Preview Notice](../../includes/public-preview-include.md)]
 
-Il **gruppo di servizi di comunicazione di Azure che chiama l'esempio Hero per Android** illustra come usare i servizi di comunicazione che chiamano la libreria client Android per creare un'esperienza di chiamata di gruppo che include voce e video. In questa Guida introduttiva di esempio si apprenderà come impostare ed eseguire l'esempio. Per il contesto viene fornita una panoramica dell'esempio.
+Il gruppo di servizi **di comunicazione di Azure che chiama l'esempio Hero per Android** illustra il modo in cui i servizi di comunicazione che chiamano Android SDK possono essere usati per creare un'esperienza di chiamata di gruppo che include voce e video. In questa Guida introduttiva di esempio si apprenderà come impostare ed eseguire l'esempio. Per il contesto viene fornita una panoramica dell'esempio.
 
 ## <a name="download-code"></a>Scaricare il codice
 
@@ -27,7 +27,7 @@ Trovare il codice finalizzato per questa Guida introduttiva su [GitHub](https://
 
 ## <a name="overview"></a>Panoramica
 
-L'esempio è un'applicazione Android nativa che usa le librerie client Android dei servizi di comunicazione di Azure per creare un'esperienza di chiamata che include chiamate vocali e video. L'applicazione usa un componente lato server per eseguire il provisioning dei token di accesso che vengono quindi usati per inizializzare la libreria client dei servizi di comunicazione di Azure. Per configurare questo componente lato server, è possibile seguire l'esercitazione [servizio trusted con funzioni di Azure](../../tutorials/trusted-service-tutorial.md) .
+L'esempio è un'applicazione Android nativa che usa i servizi di comunicazione di Azure Android SDK per creare un'esperienza di chiamata che include chiamate vocali e video. L'applicazione usa un componente lato server per eseguire il provisioning dei token di accesso che vengono quindi usati per inizializzare Azure Communication Services SDK. Per configurare questo componente lato server, è possibile seguire l'esercitazione [servizio trusted con funzioni di Azure](../../tutorials/trusted-service-tutorial.md) .
 
 L'esempio ha l'aspetto seguente:
 
@@ -133,7 +133,7 @@ Per pulire e rimuovere una sottoscrizione di Servizi di comunicazione, è possib
 
 Per altre informazioni, vedere gli articoli seguenti:
 
-- Acquisire familiarità con l'[uso della libreria client Chiamate](../../quickstarts/voice-video-calling/calling-client-samples.md)
+- Familiarizzare con [l'uso dell'SDK chiamante](../../quickstarts/voice-video-calling/calling-client-samples.md)
 - Leggere altre informazioni sul [funzionamento delle chiamate](../../concepts/voice-video-calling/about-call-types.md)
 
 ### <a name="additional-reading"></a>Altre letture

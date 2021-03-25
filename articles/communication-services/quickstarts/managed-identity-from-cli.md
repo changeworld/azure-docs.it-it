@@ -9,18 +9,18 @@ ms.topic: how-to
 ms.date: 03/10/2021
 ms.author: jbeauregardb
 ms.reviewer: mikben
-ms.openlocfilehash: b49ee61f3ee4ea8e8a177bca6aa566a07b7ef113
-ms.sourcegitcommit: ed7376d919a66edcba3566efdee4bc3351c57eda
+ms.openlocfilehash: 2ef5a3b162d62fa79ed01a156345070ee12b4862
+ms.sourcegitcommit: bed20f85722deec33050e0d8881e465f94c79ac2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/24/2021
-ms.locfileid: "105044737"
+ms.lasthandoff: 03/25/2021
+ms.locfileid: "105110679"
 ---
 # <a name="authorize-access-with-managed-identity-to-your-communication-resource-in-your-development-environment"></a>Autorizzare l'accesso con identità gestita alla risorsa di comunicazione nell'ambiente di sviluppo
 
-La libreria client di identità di Azure fornisce il supporto per l'autenticazione del token Azure Active Directory (Azure AD) per Azure SDK. Le versioni più recenti delle librerie client dei servizi di comunicazione di Azure per .NET, Java, Python e JavaScript si integrano con la libreria di identità di Azure per fornire un metodo semplice e sicuro per acquisire un token OAuth 2,0 per l'autorizzazione delle richieste dei servizi di comunicazione di Azure.
+Azure Identity SDK fornisce il supporto per l'autenticazione del token Azure Active Directory (Azure AD) per Azure SDK. Le versioni più recenti degli SDK di servizi di comunicazione di Azure per .NET, Java, Python e JavaScript si integrano con la libreria di identità di Azure per fornire un modo semplice e sicuro per acquisire un token OAuth 2,0 per l'autorizzazione delle richieste dei servizi di comunicazione di Azure.
 
-Un vantaggio della libreria client di Azure Identity è che consente di usare lo stesso codice per l'autenticazione tra più servizi, indipendentemente dal fatto che l'applicazione sia in esecuzione nell'ambiente di sviluppo o in Azure. La libreria client Azure Identity autentica un'entità di sicurezza. Quando il codice è in esecuzione in Azure, l'entità di sicurezza è un'identità gestita per le risorse di Azure. Nell'ambiente di sviluppo, l'identità gestita non esiste, pertanto la libreria client autentica l'utente o un'applicazione registrata a scopo di test.
+Un vantaggio di Azure Identity SDK è che consente di usare lo stesso codice per l'autenticazione tra più servizi, indipendentemente dal fatto che l'applicazione sia in esecuzione nell'ambiente di sviluppo o in Azure. Azure Identity SDK autentica un'entità di sicurezza. Quando il codice è in esecuzione in Azure, l'entità di sicurezza è un'identità gestita per le risorse di Azure. Nell'ambiente di sviluppo, l'identità gestita non esiste, pertanto l'SDK autentica l'utente o un'applicazione registrata a scopo di test.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -35,7 +35,7 @@ Le identità gestite devono essere abilitate nelle risorse di Azure che si sta a
 - [Azure PowerShell](../../active-directory/managed-identities-azure-resources/qs-configure-powershell-windows-vm.md)
 - [Interfaccia della riga di comando di Azure](../../active-directory/managed-identities-azure-resources/qs-configure-cli-windows-vm.md)
 - [Modello di Azure Resource Manager](../../active-directory/managed-identities-azure-resources/qs-configure-template-windows-vm.md)
-- [Librerie client di Azure Resource Manager](../../active-directory/managed-identities-azure-resources/qs-configure-sdk-windows-vm.md)
+- [SDK Azure Resource Manager](../../active-directory/managed-identities-azure-resources/qs-configure-sdk-windows-vm.md)
 - [Servizi app](../../app-service/overview-managed-identity.md)
 
 ## <a name="authenticate-a-registered-application-in-the-development-environment"></a>Autenticare un'applicazione registrata nell'ambiente di sviluppo
@@ -68,7 +68,7 @@ Il `az ad sp create-for-rbac` comando restituirà un elenco di proprietà dell'e
 
 #### <a name="set-environment-variables"></a>Impostare le variabili di ambiente
 
-La libreria client di identità di Azure legge i valori da tre variabili di ambiente in fase di esecuzione per autenticare l'applicazione. Nella tabella seguente viene descritto il valore da impostare per ogni variabile di ambiente.
+Azure Identity SDK legge i valori da tre variabili di ambiente in fase di esecuzione per autenticare l'applicazione. Nella tabella seguente viene descritto il valore da impostare per ogni variabile di ambiente.
 
 |Variabile di ambiente|Valore
 |-|-
