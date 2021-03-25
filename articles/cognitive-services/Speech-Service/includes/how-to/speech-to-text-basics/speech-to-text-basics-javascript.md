@@ -5,12 +5,12 @@ ms.topic: include
 ms.date: 03/04/2021
 ms.author: trbye
 ms.custom: devx-track-js
-ms.openlocfilehash: dd92cf24cf007418e52cb5091eb390b46d7a5571
-ms.sourcegitcommit: ac035293291c3d2962cee270b33fca3628432fac
+ms.openlocfilehash: 7649f9c13db1a10bdb48d19f1019ec3b31244f45
+ms.sourcegitcommit: ed7376d919a66edcba3566efdee4bc3351c57eda
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 03/24/2021
-ms.locfileid: "104988102"
+ms.locfileid: "105104489"
 ---
 Una delle principali funzionalità del servizio Voce è la possibilità di riconoscere e trascrivere la voce umana, ovvero di convertire la voce in testo scritto. Questa guida di avvio rapido illustra come usare Speech SDK in app e prodotti per eseguire la conversione della voce in testo scritto di alta qualità.
 
@@ -26,7 +26,7 @@ Questo articolo presuppone che si abbia un account Azure e una sottoscrizione de
 
 ## <a name="install-the-speech-sdk"></a>Installare Speech SDK
 
-Prima di poter eseguire qualsiasi operazione, è necessario installare l'SDK per la sintesi vocale per Node.js. Se si vuole semplicemente installare il nome del pacchetto, eseguire `npm install microsoft-cognitiveservices-speech-sdk` . Per istruzioni sull'installazione guidata, vedere l'articolo [introduttivo](https://docs.microsoft.com/azure/cognitive-services/speech-service/quickstarts/setup-platform?tabs=dotnet%2Clinux%2Cjre%2Cnodejs&pivots=programming-language-javascript) .
+Prima di poter eseguire qualsiasi operazione, è necessario installare l'SDK per la sintesi vocale per Node.js. Se si vuole semplicemente installare il nome del pacchetto, eseguire `npm install microsoft-cognitiveservices-speech-sdk` . Per istruzioni sull'installazione guidata, vedere l'articolo [introduttivo](../../../quickstarts/setup-platform.md?pivots=programming-language-javascript&tabs=dotnet%2clinux%2cjre%2cnodejs) .
 
 Usare l' `require` istruzione seguente per importare l'SDK.
 

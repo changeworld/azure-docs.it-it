@@ -8,12 +8,12 @@ ms.subservice: fhir
 ms.topic: reference
 ms.date: 1/30/2021
 ms.author: cavoeg
-ms.openlocfilehash: a31fb48443cf760186faad705b8be21a62846a44
-ms.sourcegitcommit: 225e4b45844e845bc41d5c043587a61e6b6ce5ae
+ms.openlocfilehash: 9bd61d65d6d64dac6081d3491deb8a15efc4a45b
+ms.sourcegitcommit: ed7376d919a66edcba3566efdee4bc3351c57eda
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/11/2021
-ms.locfileid: "103019502"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105048420"
 ---
 # <a name="features"></a>Funzionalità
 
@@ -35,14 +35,14 @@ Le versioni precedenti sono attualmente supportate anche: `3.0.2`
 | aggiornamento con blocco ottimistico | Sì       | Sì       | Sì       |                                                     |
 | aggiornamento (condizionale)           | Sì       | Sì       | Sì       |                                                     |
 | patch                          | No        | No        | No        |                                                     |
-| eliminare                         | Sì       | Sì       | Sì       |  Vedere la nota di seguito                                                   |
+| eliminare                         | Sì       | Sì       | Sì       |  Vedere la nota seguente.                                   |
 | Elimina (condizionale)           | No        | No        | No        |                                                     |
 | history                        | Sì       | Sì       | Sì       |                                                     |
 | create                         | Sì       | Sì       | Sì       | Supporto per POST/PUT                               |
 | Crea (condizionale)           | Sì       | Sì       | Sì       | [#1382](https://github.com/microsoft/fhir-server/issues/1382) problema |
-| ricerca                         | Parziale   | Parziale   | Parziale   | Vedere di seguito                                           |
-| ricerca concatenata                 | No        | Sì       | No        |                                                     |
-| ricerca inversa concatenata         | No        | Sì       | No        |                                                     |
+| ricerca                         | Parziale   | Parziale   | Parziale   | Vedere la sezione Search riportata di seguito.                           |
+| ricerca concatenata                 | Sì       | Sì       | Parziale   | Vedere la nota 2 di seguito.                                   |
+| ricerca inversa concatenata         | Sì       | Sì       | Parziale   | Vedere la nota 2 di seguito.                                   |
 | capabilities                   | Sì       | Sì       | Sì       |                                                     |
 | o batch                          | Sì       | Sì       | Sì       |                                                     |
 | transaction                    | No        | Sì       | No        |                                                     |
@@ -51,6 +51,12 @@ Le versioni precedenti sono attualmente supportate anche: `3.0.2`
 
 > [!Note]
 > L'eliminazione definita dalla specifica FHIR richiede che dopo l'eliminazione, le letture successive non specifiche della versione di una risorsa restituiscono un codice di stato HTTP 410 e la risorsa non viene più trovata tramite la ricerca. L'API di Azure per FHIR consente inoltre di eliminare completamente (inclusa tutta la cronologia) la risorsa. Per eliminare completamente la risorsa, è possibile passare le impostazioni di un parametro `hardDelete` a true ( `DELETE {server}/{resource}/{id}?hardDelete=true` ). Se questo parametro non viene passato o impostato `hardDelete` su false, le versioni storiche della risorsa saranno ancora disponibili.
+
+
+ **Nota 2**
+* Aggiunge il supporto MVP per la ricerca FHIR concatenata e inversa in CosmosDB. 
+
+  Nell'API di Azure per FHIR e nel server FHIR Open Source supportato da Cosmos, la ricerca concatenata e la ricerca inversa concatenata sono un'implementazione MVP. Per eseguire la ricerca concatenata in Cosmos DB, l'implementazione esamina l'espressione di ricerca ed emette sottoquery per risolvere le risorse corrispondenti. Questa operazione viene eseguita per ogni livello dell'espressione. Se una query restituisce più di 100 risultati, verrà generato un errore. Per impostazione predefinita, la ricerca concatenata è dietro un flag funzionalità. Per utilizzare la ricerca concatenata in Cosmos DB, utilizzare l'intestazione `x-ms-enable-chained-search: true` . Per ulteriori informazioni, vedere la richiesta pull [1695](https://github.com/microsoft/fhir-server/pull/1695).
 
 ## <a name="search"></a>Cerca
 

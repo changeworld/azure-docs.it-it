@@ -8,12 +8,12 @@ ms.custom: mvc, devcenter, devx-track-python
 ms.devlang: python
 ms.topic: quickstart
 ms.date: 10/28/2020
-ms.openlocfilehash: db94a82112f2670facd4d89178f11653c5316c36
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 6c589f3f0913609640ac14534c170c741c16a084
+ms.sourcegitcommit: ed7376d919a66edcba3566efdee4bc3351c57eda
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "95998941"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105048171"
 ---
 # <a name="quickstart-use-python-to-connect-and-query-data-in-azure-database-for-postgresql---single-server"></a>Avvio rapido: Usare Python per connettersi ed eseguire query sui dati in Database di Azure per PostgreSQL - Server singolo
 
@@ -36,7 +36,7 @@ Per questa guida di avvio rapido, è necessario:
   | **Configurare l'endpoint di servizio** | Pubblico | [Portale](./howto-manage-vnet-using-portal.md) <br/> [CLI](./howto-manage-vnet-using-cli.md)|
   | **Configurare il collegamento privato** | Privato | [Portale](./howto-configure-privatelink-portal.md) <br/> [CLI](./howto-configure-privatelink-cli.md) |
 
-- [Python](https://www.python.org/downloads/) 2.7.9 o 3.4 o versioni successive.
+- [Python](https://www.python.org/downloads/) 2,7 o 3.6 +.
 
 - Versione più recente del programma di installazione del pacchetto [pip](https://pip.pypa.io/en/stable/installing/).
 - Installare [psycopg2](https://pypi.python.org/pypi/psycopg2/) usando `pip install psycopg2` in una finestra del terminale o del prompt dei comandi. Per altre informazioni, vedere la [procedura per installare `psycopg2`](http://initd.org/psycopg/docs/install.html).

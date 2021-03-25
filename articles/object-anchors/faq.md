@@ -7,12 +7,12 @@ ms.author: crtreasu
 ms.date: 04/01/2020
 ms.topic: overview
 ms.service: azure-object-anchors
-ms.openlocfilehash: 6de027f317072512bd9893303d3a79d0f34f3e3e
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: aebc1013dcead6c32dab55512ce915e25f60f94a
+ms.sourcegitcommit: ed7376d919a66edcba3566efdee4bc3351c57eda
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101748812"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105047576"
 ---
 # <a name="frequently-asked-questions-about-azure-object-anchors"></a>Domande frequenti sugli ancoraggi degli oggetti di Azure
 
@@ -78,7 +78,7 @@ L'unità rappresenta l'unità di misura del modello. È possibile trovare le uni
  1. Eseguire la calibrazione degli occhi per ottenere un rendering accurato.
  2. Assicurarsi che la stanza abbia una trama visiva avanzata e un'illuminazione adeguata.
  3. Mantieni l'oggetto stazionario, se possibile, lontano dal disordine.
- 4. Facoltativamente, deselezionare la cache di [mapping spaziale](https://docs.microsoft.com/windows/mixed-reality/spatial-mapping) sul dispositivo HoloLens.
+ 4. Facoltativamente, deselezionare la cache di [mapping spaziale](/windows/mixed-reality/spatial-mapping) sul dispositivo HoloLens.
  5. Analizzare l'oggetto esplorando il controllo. Verificare che la maggior parte dell'oggetto venga osservato.
  6. Impostare un'area di ricerca sufficientemente grande per coprire l'oggetto.
  7. L'oggetto deve rimanere fisso durante il rilevamento.

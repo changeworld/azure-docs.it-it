@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 12/06/2018
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: 4fc14083b0912cf18f98c229adcb297b89bc8971
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 4732abacc80a24d268f0e5cb7d100079e5a8d90b
+ms.sourcegitcommit: ed7376d919a66edcba3566efdee4bc3351c57eda
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "95558831"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105104974"
 ---
 Creare una connessione Desktop remoto per connettersi a una macchina virtuale distribuita nella rete virtuale. Il modo migliore per verificare di potersi connettere alla macchina virtuale consiste nel connettersi con il suo indirizzo IP privato invece che con il nome del computer. Ciò consente di verificare se è possibile connettersi, non se la risoluzione dei nomi è configurata correttamente. 
 
@@ -32,4 +32,4 @@ Se si verificano problemi di connessione a una macchina virtuale tramite la conn
 - Se è possibile connettersi alla macchina virtuale usando l'indirizzo IP privato, ma non il nome del computer, verificare di avere configurato correttamente il valore per DNS. Per altre informazioni sul funzionamento della risoluzione dei nomi per le macchine virtuali, vedere [Risoluzione dei nomi per le macchine virtuali](../articles/virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md).
 - Verificare che il pacchetto di configurazione del client VPN sia stato generato dopo aver specificato gli indirizzi IP del server DNS per la rete virtuale. Se gli indirizzi IP del server DNS vengono aggiornati, generare e installare un nuovo pacchetto di configurazione del client VPN.
 
-Per altre informazioni sulla risoluzione dei problemi, vedere l'articolo su come [risolvere i problemi delle connessioni Desktop remoto a una VM](../articles/virtual-machines/troubleshooting/troubleshoot-rdp-connection.md).
+Per altre informazioni sulla risoluzione dei problemi, vedere l'articolo su come [risolvere i problemi delle connessioni Desktop remoto a una VM](/troubleshoot/azure/virtual-machines/troubleshoot-rdp-connection).

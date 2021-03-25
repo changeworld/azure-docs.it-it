@@ -7,12 +7,12 @@ ms.topic: tutorial
 ms.date: 03/19/2020
 ms.author: brendm
 ms.custom: devx-track-java, devx-track-azurecli
-ms.openlocfilehash: d1ee13a464002a2e1503541964cd96957da3c651
-ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
+ms.openlocfilehash: a0fafad208d97e2a4d24036e226b4044764bccb4
+ms.sourcegitcommit: ed7376d919a66edcba3566efdee4bc3351c57eda
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/23/2021
-ms.locfileid: "104879185"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105047083"
 ---
 # <a name="tutorial-map-an-existing-custom-domain-to-azure-spring-cloud"></a>Esercitazione: eseguire il mapping di un dominio personalizzato esistente al cloud Spring di Azure
 
@@ -156,7 +156,7 @@ Passare al provider DNS e aggiungere un record CNAME per eseguire il mapping del
 ![Pagina dei record DNS](./media/custom-dns-tutorial/dns-records.png)
 
 ## <a name="map-your-custom-domain-to-azure-spring-cloud-app"></a>Eseguire il mapping del dominio personalizzato all'app di Azure Spring Cloud
-Se non è stata ancora disponibile un'applicazione in Azure Spring Cloud, seguire le istruzioni riportate in [Avvio rapido: Avviare un'applicazione Azure Spring Cloud esistente con il portale di Azure](/azure/spring-cloud/spring-cloud-quickstart-launch-app-portal).
+Se non è stata ancora disponibile un'applicazione in Azure Spring Cloud, seguire le istruzioni riportate in [Avvio rapido: Avviare un'applicazione Azure Spring Cloud esistente con il portale di Azure](./spring-cloud-quickstart.md).
 
 #### <a name="portal"></a>[Portale](#tab/Azure-portal)
 Passare alla pagina dell'applicazione.

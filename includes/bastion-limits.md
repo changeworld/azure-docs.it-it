@@ -1,6 +1,6 @@
 ---
 title: includere file
-description: File di inclusione
+description: includere file
 services: bastion
 author: cherylmc
 ms.service: bastion
@@ -8,17 +8,18 @@ ms.topic: include
 ms.date: 03/25/2020
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: 40f8f5b234a6aecb1b44e4c565873b3badbd139a
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 4f8a66034990cd3e105759b9a5dad721ad3cb0a9
+ms.sourcegitcommit: ac035293291c3d2962cee270b33fca3628432fac
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "96183912"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "104987909"
 ---
-| Risorsa | Limite |
+| Tipo di carico di lavoro * | Limite * * |
 | --- | --- |
-| Connessioni RDP simultanee |25* |
-| Connessioni SSH simultanee |50** |
+| Chiaro |100 |
+| Medio |50 |
+| Pesante |5 |
 
-*Può variare a causa di altre sessioni RDP o SSH in corso.<br>
-**Può variare se sono già presenti connessioni RDP o viene utilizzata da altre sessioni SSH in corso.
+* Questi tipi di carico di lavoro sono definiti qui: [Desktop remoto carichi di lavoro](https://docs.microsoft.com/windows-server/remote/remote-desktop-services/remote-desktop-workloads)<br>
+* * Questi limiti sono basati sui test delle prestazioni RDP per Azure Bastion. I numeri possono variare a causa di altre sessioni RDP in corso o di altre sessioni SSH in corso. 

@@ -7,12 +7,12 @@ ms.service: azure-percept
 ms.topic: how-to
 ms.date: 02/18/2021
 ms.custom: template-how-to
-ms.openlocfilehash: 66498fabadc0784a4a4ab1c3762daaaa9a5738c4
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 7639af0c6e616a6fd8683f2a529a570f7e856973
+ms.sourcegitcommit: ed7376d919a66edcba3566efdee4bc3351c57eda
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102503216"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105047335"
 ---
 # <a name="dev-tools-pack-installer-overview"></a>Panoramica del programma di installazione di Dev Tools Pack
 
@@ -21,11 +21,11 @@ Il programma di installazione di Dev Tools Pack è una soluzione unica che conse
 ## <a name="mandatory-tools-installed"></a>Strumenti obbligatori installati
 
 * [Visual Studio Code](https://code.visualstudio.com/)
-* [Python 3,6 (Windows) o 3,5 (Linux)](https://www.python.org/)
+* [Python 3,6 o versione successiva](https://www.python.org/)
 * [Docker 19,03](https://www.docker.com/)
 * [PIP3](https://pip.pypa.io/en/stable/user_guide/)
 * [TensorFlow 1,13](https://www.tensorflow.org/)
-* [SDK di Azure Machine Learning 1,1](https://docs.microsoft.com/python/api/overview/azure/ml/)
+* [SDK di Azure Machine Learning 1,1](/python/api/overview/azure/ml/)
 
 ## <a name="optional-tools-available-for-installation"></a>Strumenti facoltativi disponibili per l'installazione
 

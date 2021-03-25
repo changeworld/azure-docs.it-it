@@ -6,12 +6,12 @@ ms.author: lufittl
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 02/19/2021
-ms.openlocfilehash: b76b6ff788d3d7f44db33af96944d528282f0ac7
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 6bcfbc19cbaa078373d6857bdac74eaf86eca104
+ms.sourcegitcommit: ed7376d919a66edcba3566efdee4bc3351c57eda
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101712216"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105048052"
 ---
 # <a name="compute-and-storage-options-in-azure-database-for-postgresql---flexible-server"></a>Opzioni di calcolo e archiviazione nel database di Azure per PostgreSQL-server flessibile
 
@@ -121,7 +121,7 @@ Si noti che gli IOPS sono limitati anche dal tipo di macchina virtuale. Anche se
 Quando contrassegnato con un \* , i valori di IOPS sono limitati dal tipo di macchina virtuale selezionato. In caso contrario, i valori di IOPS sono limitati dalle dimensioni di archiviazione selezionate.
 
 >[!NOTE]
-> È possibile che si verifichi un numero maggiore di operazioni di i/o al secondo nella metrica a causa del picchi del disco Per ulteriori informazioni, consultare la [documentazione](https://docs.microsoft.com/azure/virtual-machines/disk-bursting#disk-level-bursting) . 
+> È possibile che si verifichi un numero maggiore di operazioni di i/o al secondo nella metrica a causa del picchi del disco Per ulteriori informazioni, consultare la [documentazione](../../virtual-machines/disk-bursting.md#disk-level-bursting) . 
 
 ### <a name="maximum-io-bandwidth-mibsec-for-your-configuration"></a>Larghezza di banda di I/O massima (MiB/sec) per la configurazione
 

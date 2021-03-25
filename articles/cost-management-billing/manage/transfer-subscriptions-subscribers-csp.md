@@ -6,14 +6,14 @@ ms.reviewer: dhgandhi
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: how-to
-ms.date: 02/11/2021
+ms.date: 03/24/2021
 ms.author: banders
-ms.openlocfilehash: 63fbf76b2211e530707f3598d176b646c317cc53
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: b88a5bc10afeffe7e15ad7a90e28bd8b8ff28688
+ms.sourcegitcommit: ed7376d919a66edcba3566efdee4bc3351c57eda
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100363050"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105046556"
 ---
 # <a name="transfer-azure-subscriptions-between-subscribers-and-csps"></a>Trasferire le sottoscrizioni di Azure tra sottoscrittori e CSP
 
@@ -21,7 +21,7 @@ Questo articolo illustra i passaggi generali necessari per trasferire le sottosc
 
 Prima di avviare una richiesta di trasferimento, è necessario scaricare o esportare le informazioni relative ai costi e alla fatturazione da conservare. Le informazioni di fatturazione e le informazioni sull'utilizzo non vengono infatti trasferite con la sottoscrizione. Per altre informazioni sull'esportazione dei dati di gestione dei costi, vedere [Creare e gestire dati esportati](../costs/tutorial-export-acm-data.md). Per altre informazioni sul download delle fatture e dei dati sull'utilizzo, vedere [Scaricare o visualizzare la fattura e i dati di uso giornalieri di Azure](download-azure-invoice-daily-usage-date.md).
 
-Se sono presenti delle prenotazioni, non vengono più applicate dopo il trasferimento della sottoscrizione. Assicurarsi quindi di [annullare le eventuali prenotazioni e di rimborsarle](../reservations/exchange-and-refund-azure-reservations.md) prima di trasferire una sottoscrizione.
+Se si dispone di prenotazioni esistenti, si interrompe l'applicazione di 90 giorni dopo il trasferimento di una sottoscrizione. Assicurarsi di [annullare le prenotazioni e di rimborsarle](../reservations/exchange-and-refund-azure-reservations.md) prima di trasferire una sottoscrizione per evitare addebiti dopo il periodo di tolleranza di 90 giorni.
 
 ## <a name="transfer-ea-subscriptions-to-a-csp-partner"></a>Trasferire sottoscrizioni con contratto Enterprise a un partner CSP
 

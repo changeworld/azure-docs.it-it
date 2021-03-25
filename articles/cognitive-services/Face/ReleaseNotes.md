@@ -10,12 +10,12 @@ ms.subservice: face-api
 ms.topic: conceptual
 ms.date: 03/05/2021
 ms.author: pafarley
-ms.openlocfilehash: 9293d47d8aade11f4cc3ee55bb32574f125dfafc
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: f280e1a70ab595a87789c7514d8cce4fccbe8e84
+ms.sourcegitcommit: ed7376d919a66edcba3566efdee4bc3351c57eda
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102428287"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105046896"
 ---
 # <a name="whats-new-in-face-service"></a>Novità del servizio Viso
 
@@ -23,9 +23,9 @@ Il servizio Azure Face viene aggiornato su base continuativa. Usare questo artic
 
 ## <a name="february-2021"></a>2021 febbraio
 
-* Nuovo modello di rilevamento API Viso: il nuovo modello di rilevamento 03 è il modello di rilevamento più accurato attualmente disponibile. Se sei un nuovo cliente, ti consigliamo di usare questo modello. Rilevamento 03 migliora sia il richiamo che la precisione sui visi più piccoli presenti nelle immagini (64x64 pixel). Altri miglioramenti includono una riduzione complessiva nei falsi positivi e un miglioramento del rilevamento sugli orientamenti a faccia ruotati. La combinazione del rilevamento 03 con il nuovo riconoscimento 04 fornirà anche un'accuratezza del riconoscimento migliorata. Per altri dettagli, vedere [specificare un modello di rilevamento viso](https://docs.microsoft.com/azure/cognitive-services/face/face-api-how-to-topics/specify-detection-model) .
-* Attributo Face Mask: l'attributo Face Mask è disponibile con il modello di rilevamento 03 più recente, insieme all'attributo aggiuntivo `"noseAndMouthCovered"` che rileva se la maschera viso viene indossata come previsto, coprendo sia il muso che la bocca. Per usare la funzionalità di rilevamento più recente della maschera, gli utenti devono specificare il modello di rilevamento nella richiesta dell'API: assegnare la versione del modello con il parametro _detectionModel_ a `detection_03` . Per altri dettagli, vedere [specificare un modello di rilevamento viso](https://docs.microsoft.com/azure/cognitive-services/face/face-api-how-to-topics/specify-detection-model) .
-* Nuovo modello di riconoscimento API Viso: il nuovo modello di riconoscimento 04 è il modello di riconoscimento più accurato attualmente disponibile. Se sei un nuovo cliente, ti consigliamo di usare questo modello per la verifica e l'identificazione. Migliora l'accuratezza del riconoscimento 03, incluso un riconoscimento migliorato per gli utenti registrati che indossano i visi (maschere chirurgiche, maschere N95, maschere di abbigliamento). Ora i clienti possono creare esperienze utente sicure e senza problemi che rilevano se un utente registrato sta indossando una copertura con il modello di rilevamento 03 più recente e riconosce chi è il modello di riconoscimento 04 più recente. Per altri dettagli, vedere [specificare un modello per il riconoscimento della faccia](https://docs.microsoft.com/azure/cognitive-services/face/face-api-how-to-topics/specify-recognition-model) .
+* Nuovo modello di rilevamento API Viso: il nuovo modello di rilevamento 03 è il modello di rilevamento più accurato attualmente disponibile. Se sei un nuovo cliente, ti consigliamo di usare questo modello. Rilevamento 03 migliora sia il richiamo che la precisione sui visi più piccoli presenti nelle immagini (64x64 pixel). Altri miglioramenti includono una riduzione complessiva nei falsi positivi e un miglioramento del rilevamento sugli orientamenti a faccia ruotati. La combinazione del rilevamento 03 con il nuovo riconoscimento 04 fornirà anche un'accuratezza del riconoscimento migliorata. Per altri dettagli, vedere [specificare un modello di rilevamento viso](./face-api-how-to-topics/specify-detection-model.md) .
+* Attributo Face Mask: l'attributo Face Mask è disponibile con il modello di rilevamento 03 più recente, insieme all'attributo aggiuntivo `"noseAndMouthCovered"` che rileva se la maschera viso viene indossata come previsto, coprendo sia il muso che la bocca. Per usare la funzionalità di rilevamento più recente della maschera, gli utenti devono specificare il modello di rilevamento nella richiesta dell'API: assegnare la versione del modello con il parametro _detectionModel_ a `detection_03` . Per altri dettagli, vedere [specificare un modello di rilevamento viso](./face-api-how-to-topics/specify-detection-model.md) .
+* Nuovo modello di riconoscimento API Viso: il nuovo modello di riconoscimento 04 è il modello di riconoscimento più accurato attualmente disponibile. Se sei un nuovo cliente, ti consigliamo di usare questo modello per la verifica e l'identificazione. Migliora l'accuratezza del riconoscimento 03, incluso un riconoscimento migliorato per gli utenti registrati che indossano i visi (maschere chirurgiche, maschere N95, maschere di abbigliamento). Ora i clienti possono creare esperienze utente sicure e senza problemi che rilevano se un utente registrato sta indossando una copertura con il modello di rilevamento 03 più recente e riconosce chi è il modello di riconoscimento 04 più recente. Per altri dettagli, vedere [specificare un modello per il riconoscimento della faccia](./face-api-how-to-topics/specify-recognition-model.md) .
 
 
 ## <a name="january-2021"></a>Gennaio 2021
