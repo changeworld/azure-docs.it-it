@@ -8,12 +8,12 @@ ms.author: vikurpad
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 01/28/2021
-ms.openlocfilehash: 22e48239631850d82cbb3e3208748416087da87c
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: ccee8537c2543b67c1bb60711737ec761ebc8cbf
+ms.sourcegitcommit: ed7376d919a66edcba3566efdee4bc3351c57eda
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103422170"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105043071"
 ---
 # <a name="efficiently-scale-out-a-custom-skill"></a>Ridimensionare in modo efficiente un'abilità personalizzata
 
@@ -42,7 +42,7 @@ Nell' [abilità personalizzata](cognitive-search-custom-skill-web-api.md) impost
 
 3. Impostare `timeout` su un valore sufficiente per la capacità di rispondere con una risposta valida.
 
-4. Nella `indexer` definizione impostare sul [`batchSize`](https://docs.microsoft.com/rest/api/searchservice/create-indexer#indexer-parameters) numero di documenti che devono essere letti dall'origine dati e arricchiti simultaneamente.
+4. Nella `indexer` definizione impostare sul [`batchSize`](/rest/api/searchservice/create-indexer#indexer-parameters) numero di documenti che devono essere letti dall'origine dati e arricchiti simultaneamente.
 
 ### <a name="considerations"></a>Considerazioni
 
@@ -106,5 +106,5 @@ Congratulazioni! L'abilità personalizzata è ora ridimensionata in modo da otti
 
 + [Power Skills: un repository di competenze personalizzate](https://github.com/Azure-Samples/azure-search-power-skills)
 + [Aggiungere un'abilità personalizzata a una pipeline di arricchimento di intelligenza artificiale](cognitive-search-custom-skill-interface.md)
-+ [Aggiungere un Azure Machine Learning skill](https://docs.microsoft.com/azure/search/cognitive-search-aml-skill)
-+ [Usare le sessioni di debug per testare le modifiche](https://docs.microsoft.com/azure/search/cognitive-search-debug-session)
++ [Aggiungere un Azure Machine Learning skill](./cognitive-search-aml-skill.md)
++ [Usare le sessioni di debug per testare le modifiche](./cognitive-search-debug-session.md)

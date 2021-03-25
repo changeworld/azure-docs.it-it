@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.author: sgilley
 author: sdgilley
 ms.date: 10/02/2020
-ms.openlocfilehash: ac90827fec65187088787971623483a96da77d7c
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 3f41a68feafe2f0a3eae1e0026a4c350b0959aec
+ms.sourcegitcommit: bb330af42e70e8419996d3cba4acff49d398b399
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103016237"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105036986"
 ---
 # <a name="what-is-an-azure-machine-learning-compute-instance"></a>Che cos'è un'istanza di calcolo di Azure Machine Learning?
 
@@ -178,6 +178,9 @@ Un'istanza di calcolo:
 * Supporta processi di training distribuiti con più GPU a nodo singolo
 
 È possibile usare l'istanza di calcolo come destinazione di distribuzione di inferenza locale per gli scenari di test/debug.
+
+> [!TIP]
+> L'istanza di calcolo ha un disco del sistema operativo da 120 GB. Se lo spazio su disco è insufficiente, deselezionare spazio sufficiente prima di tentare di arrestare o riavviare l'istanza di calcolo.
 
 
 ## <a name="what-happened-to-notebook-vm"></a><a name="notebookvm"></a>Cosa è successo alla macchina virtuale del notebook?

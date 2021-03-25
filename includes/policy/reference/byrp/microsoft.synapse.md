@@ -2,15 +2,15 @@
 author: DCtheGeek
 ms.service: azure-policy
 ms.topic: include
-ms.date: 03/17/2021
+ms.date: 03/24/2021
 ms.author: dacoulte
 ms.custom: generated
-ms.openlocfilehash: 4062375bbde1dce1e20ac04ff16562d892de808e
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 9bc4bd7c557f21c29949938411c76a88d979b3c2
+ms.sourcegitcommit: bb330af42e70e8419996d3cba4acff49d398b399
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104600182"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105037028"
 ---
 |Nome<br /><sub>(Portale di Azure)</sub> |Descrizione |Effetto/i |Versione<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -24,5 +24,5 @@ ms.locfileid: "104600182"
 |[La rete virtuale dell'area di lavoro gestita deve essere abilitata nelle aree di lavoro Azure Synapse](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F2d9dbfa3-927b-4cf0-9d0f-08747f971650) |L'abilitazione di una rete virtuale dell'area di lavoro gestita garantisce che l'area di lavoro sia isolata da altre aree di lavoro in rete. L'integrazione dei dati e le risorse di Spark distribuite in questa rete virtuale fornisce anche l'isolamento a livello di utente per le attività di Spark. |Audit, Deny, Disabled |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Synapse/SynapseWorkspaceManagedVnet_Audit.json) |
 |[Gli endpoint privati gestiti da Synapse devono connettersi solo alle risorse nei tenant di Azure Active Directory approvati](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F3a003702-13d2-4679-941b-937e58c443f0) |Protegge l'area di lavoro Synapse consentendo solo connessioni alle risorse nei tenant di Azure Active Directory (Azure AD) approvati. I tenant di Azure AD approvati possono essere definiti durante l'assegnazione dei criteri. |Audit, Disabled, Deny |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Synapse/Workspace_DataExfiltrationPrevention_Deny.json) |
 |[Le impostazioni di controllo dell'area di lavoro sinapsi devono avere gruppi di azioni configurati per acquisire attività critiche](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F2b18f286-371e-4b80-9887-04759970c0d3) |Per assicurarsi che i log di controllo siano più completi possibile, la proprietà AuditActionsAndGroups deve includere tutti i gruppi pertinenti. È consigliabile aggiungere almeno SUCCESSFUL_DATABASE_AUTHENTICATION_GROUP, FAILED_DATABASE_AUTHENTICATION_GROUP e BATCH_COMPLETED_GROUP. Questa operazione è talvolta necessaria per la conformità agli standard normativi. |AuditIfNotExists, Disabled |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Synapse/SynapseWorkspaceSqlAuditing_ActionsAndGroups_Audit.json) |
-|[Le aree di lavoro sinapsi devono essere configurate con la conservazione del controllo di 90 giorni o superiore.](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F529ea018-6afc-4ed4-95bd-7c9ee47b00bc) |Per finalità di analisi degli eventi imprevisti, è consigliabile impostare la conservazione dei dati per il controllo dell'area di lavoro sinapsi su almeno 90 giorni. Verificare che le regole di conservazione necessarie per le aree in cui si opera siano rispettate. Questa operazione è talvolta necessaria per la conformità agli standard normativi. |AuditIfNotExists, Disabled |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Synapse/SynapseWorkspaceSqlAuditingRetentionDays_Audit.json) |
+|[Le aree di lavoro sinapsi con controllo SQL per la destinazione dell'account di archiviazione devono essere configurate con un periodo di conservazione di 90 giorni o superiore](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F529ea018-6afc-4ed4-95bd-7c9ee47b00bc) |Per finalità di analisi degli eventi imprevisti, è consigliabile impostare la conservazione dei dati per il controllo SQL dell'area di lavoro sinapsi sulla destinazione dell'account di archiviazione per almeno 90 giorni. Verificare di soddisfare le regole di conservazione necessarie per le aree in cui si opera. Questa operazione è talvolta necessaria per la conformità agli standard normativi. |AuditIfNotExists, Disabled |[2.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Synapse/SynapseWorkspaceSqlAuditingRetentionDays_Audit.json) |
 |[La valutazione della vulnerabilità dovrebbe essere abilitata nelle aree di lavoro sinapsi](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F0049a6b3-a662-4f3e-8635-39cf44ace45a) |Individuare, rilevare e correggere le potenziali vulnerabilità configurando le analisi di valutazione della vulnerabilità SQL ricorrenti nelle aree di lavoro sinapsi. |AuditIfNotExists, Disabled |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Synapse/ASC_SQLVulnerabilityAssessmentOnSynapse_Audit.json) |

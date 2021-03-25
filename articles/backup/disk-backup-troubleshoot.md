@@ -3,19 +3,14 @@ title: Risoluzione degli errori di backup nel backup su disco di Azure
 description: Informazioni su come risolvere gli errori di backup nel backup su disco di Azure
 ms.topic: conceptual
 ms.date: 01/07/2021
-ms.openlocfilehash: 855c6c5b19b10bdb699a25f89ebc29001b7941ac
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: f6e9bcbbd618cf820ce91f8a3092d5be4aa045cb
+ms.sourcegitcommit: bed20f85722deec33050e0d8881e465f94c79ac2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98737728"
+ms.lasthandoff: 03/25/2021
+ms.locfileid: "105107245"
 ---
-# <a name="troubleshooting-backup-failures-in-azure-disk-backup-in-preview"></a>Risoluzione degli errori di backup nel backup su disco di Azure (in anteprima)
-
->[!IMPORTANT]
->Il backup su disco di Azure è in anteprima senza un contratto di servizio e non è consigliato per i carichi di lavoro di produzione. Per altre informazioni, vedere [Condizioni supplementari per l'utilizzo delle anteprime di Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Per la disponibilità delle aree, vedere la [matrice di supporto](disk-backup-support-matrix.md).
->
->[Compilare questo modulo](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR1vE8L51DIpDmziRt_893LVUNFlEWFJBN09PTDhEMjVHS05UWFkxUlUzUS4u) per iscriversi all'anteprima.
+# <a name="troubleshooting-backup-failures-in-azure-disk-backup"></a>Risoluzione degli errori di backup nel backup su disco di Azure
 
 Questo articolo fornisce informazioni sulla risoluzione dei problemi di backup e ripristino affrontati con dischi di Azure. Per ulteriori informazioni sulla disponibilità dell'area di [backup su disco di Azure](disk-backup-overview.md) , sulle limitazioni e sugli scenari supportati, vedere la matrice di [supporto](disk-backup-support-matrix.md).
 
@@ -157,7 +152,7 @@ Azione consigliata: prendere in considerazione l'uso di un altro punto di ripris
 
 Messaggio di errore: il backup del disco non è ancora disponibile nell'area dell'insieme di credenziali di backup in cui è in corso il tentativo di configurare la protezione.
 
-Azione consigliata: l'insieme di credenziali per il backup deve trovarsi in un'area di anteprima supportata. Per la disponibilità dell'area, vedere la [matrice di supporto](disk-backup-support-matrix.md).
+Azione consigliata: l'insieme di credenziali per il backup deve trovarsi in un'area supportata. Per la disponibilità dell'area, vedere la [matrice di supporto](disk-backup-support-matrix.md).
 
 ### <a name="error-code-usererrordppdatasourcealreadyhasbackupinstance"></a>Codice di errore: UserErrorDppDatasourceAlreadyHasBackupInstance
 

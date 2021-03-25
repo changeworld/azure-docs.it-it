@@ -10,12 +10,12 @@ ms.date: 03/10/2021
 ms.topic: include
 ms.custom: include file
 ms.author: mikben
-ms.openlocfilehash: 4a281e547691b7dee2f1a6d3e57b1c0030dbbd57
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 031a46f7500d26cb49e1163424acbddc870b71c2
+ms.sourcegitcommit: bed20f85722deec33050e0d8881e465f94c79ac2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104611909"
+ms.lasthandoff: 03/25/2021
+ms.locfileid: "105107043"
 ---
 ## <a name="prerequisites"></a>Prerequisiti
 Prima di iniziare, assicurarsi di:
@@ -167,7 +167,7 @@ ChatAsyncClient client = new ChatAsyncClient.Builder()
 3. Sostituire `<user_access_token>` con un token di accesso valido per i servizi di comunicazione.
 
 ## <a name="object-model"></a>Modello a oggetti
-Le classi e le interfacce seguenti gestiscono alcune delle principali funzionalità della libreria client di chat di Servizi di comunicazione di Azure per JavaScript.
+Le classi e le interfacce seguenti gestiscono alcune delle principali funzionalità di Azure Communication Services Chat SDK per JavaScript.
 
 | Nome                                   | Descrizione                                                                                                                                                                           |
 | -------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
