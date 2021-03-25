@@ -7,16 +7,16 @@ ms.service: data-catalog
 ms.subservice: data-catalog-gen2
 ms.topic: conceptual
 ms.date: 11/24/2020
-ms.openlocfilehash: 149a70ea9b3fad919e771e8eb279e01d1492b3b3
-ms.sourcegitcommit: ac035293291c3d2962cee270b33fca3628432fac
+ms.openlocfilehash: 4dc1af590a1965c155a7af7b233b431f982a73d2
+ms.sourcegitcommit: a8ff4f9f69332eef9c75093fd56a9aae2fe65122
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 03/24/2021
-ms.locfileid: "104952457"
+ms.locfileid: "105024235"
 ---
-# <a name="how-to-bulk-edit-assets-to-tag-glossary-terms"></a>Come modificare in blocco gli asset per contrassegnare i termini di glossario
+# <a name="how-to-bulk-edit-assets-to-annotate-classifications-glossary-terms-and-modify-contacts"></a>Come modificare in blocco gli asset per annotare le classificazioni, i termini di glossario e modificare i contatti
 
-Questo articolo descrive come contrassegnare più termini di glossario in un elenco di asset selezionati in un'unica azione.
+Questo articolo descrive come contrassegnare più termini di glossario, classificazioni, proprietari ed esperti in un elenco di asset selezionati in un'unica azione.
 
 ### <a name="add-assets-to-view-selected-list-using-search"></a>Aggiungi asset per visualizzare l'elenco selezionato usando la ricerca
 

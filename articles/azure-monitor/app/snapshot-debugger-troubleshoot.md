@@ -6,12 +6,12 @@ author: cweining
 ms.author: cweining
 ms.date: 03/07/2019
 ms.reviewer: mbullwin
-ms.openlocfilehash: a285f26a406caa88d91da5647b3b79cffc9b614f
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: bd83367ae073e03f03188cdf62cb60faaad7ac97
+ms.sourcegitcommit: a8ff4f9f69332eef9c75093fd56a9aae2fe65122
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102217415"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105026454"
 ---
 # <a name="troubleshoot-problems-enabling-application-insights-snapshot-debugger-or-viewing-snapshots"></a><a id="troubleshooting"></a> Risolvere i problemi abilitando Application Insights Snapshot Debugger o visualizzando gli snapshot
 Se è stata abilitata Application Insights Snapshot Debugger per l'applicazione, ma non vengono visualizzati snapshot per le eccezioni, è possibile usare queste istruzioni per la risoluzione dei problemi.
@@ -20,7 +20,7 @@ Possono esserci diversi motivi per cui gli snapshot non vengono generati. È pos
 
 ## <a name="make-sure-youre-using-the-appropriate-snapshot-debugger-endpoint"></a>Assicurarsi di usare l'endpoint Snapshot Debugger appropriato
 
-Attualmente le uniche aree che richiedono modifiche all'endpoint sono [Azure per enti pubblici](https://docs.microsoft.com/azure/azure-government/compare-azure-government-global-azure#application-insights) e [Azure Cina](https://docs.microsoft.com/azure/china/resources-developer-guide).
+Attualmente le uniche aree che richiedono modifiche all'endpoint sono [Azure per enti pubblici](../../azure-government/compare-azure-government-global-azure.md#application-insights) e [Azure Cina](/azure/china/resources-developer-guide).
 
 Per il servizio app e le applicazioni che usano l'SDK di Application Insights, è necessario aggiornare la stringa di connessione usando le sostituzioni supportate per Snapshot Debugger come definito di seguito:
 
@@ -28,7 +28,7 @@ Per il servizio app e le applicazioni che usano l'SDK di Application Insights, �
 |---------------|---------------------|-------------|
 |SnapshotEndpoint         | `https://snapshot.monitor.azure.us`    | `https://snapshot.monitor.azure.cn` |
 
-Per ulteriori informazioni su altre sostituzioni di connessione, vedere [Application Insights documentazione](https://docs.microsoft.com/azure/azure-monitor/app/sdk-connection-string?tabs=net#connection-string-with-explicit-endpoint-overrides).
+Per ulteriori informazioni su altre sostituzioni di connessione, vedere [Application Insights documentazione](./sdk-connection-string.md?tabs=net#connection-string-with-explicit-endpoint-overrides).
 
 Per app per le funzioni, è necessario aggiornare `host.json` usando le sostituzioni supportate seguenti:
 

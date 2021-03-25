@@ -6,12 +6,12 @@ services: azure-monitor
 ms.topic: conceptual
 ms.date: 01/22/2019
 ms.author: vitalyg
-ms.openlocfilehash: d728dfb364cb0f82326a472196cb28d79b85b1e9
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: a8a4f84db140ca442371cb71886bebf9214d3e43
+ms.sourcegitcommit: a8ff4f9f69332eef9c75093fd56a9aae2fe65122
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102031482"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105026539"
 ---
 # <a name="advanced-features-of-the-azure-metrics-explorer"></a>Funzionalità avanzate di Esplora metriche di Azure
 
@@ -261,7 +261,7 @@ Facendo clic sull'opzione errore, si verrà portati a un pannello di errore pers
 
 ### <a name="common-problems-with-drill-into-logs"></a>Problemi comuni relativi ai log di drill-through
 
-* Log e query sono disabilitati. per visualizzare i log e le query consigliati, è necessario indirizzare i log di diagnostica a Log Analytics. Leggere [questo documento](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostic-settings) per informazioni su come eseguire questa operazione. 
+* Log e query sono disabilitati. per visualizzare i log e le query consigliati, è necessario indirizzare i log di diagnostica a Log Analytics. Leggere [questo documento](./diagnostic-settings.md) per informazioni su come eseguire questa operazione. 
 * Sono disponibili solo i log attività. la funzionalità drill-in log è disponibile solo per i provider di risorse selezionati. Per impostazione predefinita, vengono forniti i log attività. 
 
  
@@ -278,4 +278,3 @@ Se non vengono visualizzati dati nel grafico, esaminare le seguenti informazioni
 ## <a name="next-steps"></a>Passaggi successivi
 
 Per creare dashboard di utilità pratica usando le metriche, vedere [creazione di dashboard KPI personalizzati](../app/tutorial-app-dashboards.md).
-

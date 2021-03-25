@@ -7,12 +7,12 @@ ms.prod: kinect-dk
 ms.date: 03/05/2021
 ms.topic: conceptual
 keywords: risoluzione dei problemi, aggiornamento, bug, Kinect, feedback, ripristino, registrazione, suggerimenti
-ms.openlocfilehash: 32a86deb0b6ab70e42ae3d659504256baae76202
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 6b83e2952a9039a52aa3b905e376e5d3beccaf8c
+ms.sourcegitcommit: a8ff4f9f69332eef9c75093fd56a9aae2fe65122
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104654765"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105026590"
 ---
 # <a name="azure-kinect-known-issues-and-troubleshooting"></a>Problemi noti e risoluzione dei problemi relativi a Kinect di Azure
 
@@ -189,11 +189,17 @@ La documentazione C# relativa a Body Tracking SDK è disponibile [qui](https://m
 
 Body Tracking SDK supporta gli ambienti di esecuzione CPU, CUDA, DirectML (solo Windows) e TensorRT per inferenzare il modello di stima della posa. Il `K4ABT_TRACKER_PROCESSING_MODE_GPU` valore predefinito è l'esecuzione di CUDA nell'esecuzione di Linux e DirectML in Windows. Sono state aggiunte tre modalità aggiuntive per selezionare ambienti di esecuzione specifici: `K4ABT_TRACKER_PROCESSING_MODE_GPU_CUDA` , `K4ABT_TRACKER_PROCESSING_MODE_GPU_DIRECTML` e `K4ABT_TRACKER_PROCESSING_MODE_GPU_TENSORRT` .
 
+> [!NOTE]  
+> ONNX Runtime Visualizza gli avvisi per i codici operativi che non sono accelerati. Questi possono essere tranquillamente ignorati.
+
 Il runtime di ONNX include le variabili di ambiente per controllare la memorizzazione nella cache del modello TensorRT. I valori consigliati sono:
-- ORT_TENSORRT_ENGINE_CACHE_ENABLE = 1 
-- ORT_TENSORRT_ENGINE_CACHE_PATH = "PathName"
+- ORT_TENSORRT_CACHE_ENABLE = 1 
+- ORT_TENSORRT_CACHE_PATH = "PathName"
 
 È necessario creare la cartella prima di avviare il rilevamento del corpo.
+
+> [!IMPORTANT]  
+> TensorRT pre-elabora il modello prima dell'inferenza causando tempi di avvio estesi rispetto ad altri ambienti di esecuzione. La memorizzazione nella cache del motore limita questa operazione alla prima esecuzione, ma è sperimentale ed è specifica del modello, della versione del runtime ONNX, della versione di TensorRT e del modello GPU.
 
 L'ambiente di esecuzione TensorRT supporta sia FP32 (impostazione predefinita) che FP16. FP16 Trades ~ 2x aumento delle prestazioni per una riduzione accuratezza minima. Per specificare FP16:
 - ORT_TENSORRT_FP16_ENABLE = 1

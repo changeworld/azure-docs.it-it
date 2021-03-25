@@ -3,12 +3,12 @@ title: Richiedi chiave di autorizzazione per ExpressRoute
 description: Procedura per richiedere una chiave di autorizzazione per ExpressRoute.
 ms.topic: include
 ms.date: 03/15/2021
-ms.openlocfilehash: 54a610c8b0f3f3fe9d3ebe39291bba7767007839
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 99d9fba33d64fca1d9c5b960041fbabe1f9060db
+ms.sourcegitcommit: a8ff4f9f69332eef9c75093fd56a9aae2fe65122
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103491843"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105026974"
 ---
 <!-- used in expressroute-global-reach-private-cloud.md and create-ipsec-tunnel.md -->
 
@@ -22,7 +22,7 @@ ms.locfileid: "103491843"
 
    :::image type="content" source="../media/expressroute-global-reach/show-global-reach-auth-key.png" alt-text="Screenshot che mostra la chiave di autorizzazione Copertura globale di ExpressRoute.":::
   
-1. Prendere nota della chiave di autorizzazione e dell'ID ExpressRoute. Verranno usati per completare il peering.  
+1. Copiare la chiave di autorizzazione e l'ID ExpressRoute. Verranno usati per completare il peering.  
 
    > [!NOTE]
    > La chiave di autorizzazione scompare dopo un certo periodo di tempo, quindi copiarla non appena viene visualizzata.

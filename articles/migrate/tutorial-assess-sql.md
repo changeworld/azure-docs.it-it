@@ -5,12 +5,12 @@ author: rashi-ms
 ms.author: rajosh
 ms.topic: tutorial
 ms.date: 02/07/2021
-ms.openlocfilehash: d3077878dc02066b8ca5dd4441217e584f961725
-ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
+ms.openlocfilehash: 2bdb6a085bd9fa0e9967d723db63f2310a8e02db
+ms.sourcegitcommit: a8ff4f9f69332eef9c75093fd56a9aae2fe65122
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/22/2021
-ms.locfileid: "104782266"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105023096"
 ---
 # <a name="tutorial-assess-sql-instances-for-migration-to-azure-sql"></a>Esercitazione: valutare le istanze di SQL per la migrazione ad Azure SQL
 
@@ -32,6 +32,8 @@ In questa esercitazione verranno illustrate le procedure per:
 - Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/pricing/free-trial/) prima di iniziare.
 
 - Prima di seguire questa esercitazione per valutare le istanze di SQL Server per la migrazione a SQL di Azure, assicurarsi di aver individuato le istanze di SQL che si vuole valutare usando il dispositivo Azure Migrate, [seguire questa esercitazione](tutorial-discover-vmware.md)
+- Per provare questa funzionalità in un progetto esistente, assicurarsi di aver completato i [prerequisiti](how-to-discover-sql-existing-project.md) descritti in questo articolo.
+
 
 ## <a name="run-an-assessment"></a>Eseguire una valutazione
 Eseguire una valutazione nel modo seguente:

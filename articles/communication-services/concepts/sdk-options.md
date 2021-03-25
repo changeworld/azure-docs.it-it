@@ -1,7 +1,7 @@
 ---
 title: Librerie client e API REST per i servizi di comunicazione di Azure
 titleSuffix: An Azure Communication Services concept document
-description: Altre informazioni sulle librerie client dei servizi di comunicazione di Azure e sulle API REST.
+description: Altre informazioni sugli SDK di servizi di comunicazione Azure e sulle API REST.
 author: mikben
 manager: jken
 services: azure-communication-services
@@ -9,37 +9,37 @@ ms.author: mikben
 ms.date: 03/10/2021
 ms.topic: conceptual
 ms.service: azure-communication-services
-ms.openlocfilehash: 01a5f4a947f0b89b5881eddb3c743b9a9b184b19
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: effd7658bbfe7359e1f99f9452857824c2c45c2f
+ms.sourcegitcommit: bed20f85722deec33050e0d8881e465f94c79ac2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103495641"
+ms.lasthandoff: 03/25/2021
+ms.locfileid: "105107891"
 ---
 # <a name="client-libraries-and-rest-apis"></a>Librerie client e API REST
 
 [!INCLUDE [Public Preview Notice](../includes/public-preview-include.md)]
 
 
-Le funzionalità dei servizi di comunicazione di Azure sono organizzate concettualmente in sei aree. Alcune aree hanno librerie client completamente open source. La libreria client chiamante utilizza interfacce di rete proprietarie ed è attualmente closed-source e la libreria di chat include una dipendenza di origine chiusa. Gli esempi e i dettagli tecnici aggiuntivi per le librerie client sono pubblicati nel [repository GitHub dei servizi di comunicazione di Azure](https://github.com/Azure/communication).
+Le funzionalità dei servizi di comunicazione di Azure sono organizzate concettualmente in sei aree. Alcune aree hanno SDK completamente open source. L'SDK chiamante usa interfacce di rete proprietarie ed è attualmente closed-source e la libreria di chat include una dipendenza di origine chiusa. Gli esempi e i dettagli tecnici aggiuntivi per gli SDK sono pubblicati nel [repository GitHub dei servizi di comunicazione di Azure](https://github.com/Azure/communication).
 
 ## <a name="client-libraries"></a>Librerie client
 
 | Assembly               | Protocolli             |Apri rispetto a origine chiusa| Spazi dei nomi                          | Funzionalità                                                      |
 | ---------------------- | --------------------- | ---|-------------------------- | --------------------------------------------------------------------------- |
 | Azure Resource Manager | REST | Apri            | Azure. ResourceManager. Communication | Provisioning e gestione delle risorse di servizi di comunicazione             |
-| Comuni                 | REST | Apri               | Azure. Communication. Common          | Fornisce tipi di base per altre librerie client |
+| Comuni                 | REST | Apri               | Azure. Communication. Common          | Fornisce tipi di base per altri SDK |
 | Identità         | REST | Apri               | Azure. Communication. Identity  | Gestire gli utenti, i token di accesso |
 | Numeri di telefono         | REST | Apri               | Azure. Communication. PhoneNumbers  | Gestione dei numeri di telefono |
 | Chat                   | REST con segnalazione proprietaria | Apri con pacchetto di segnalazione origine chiuso    | Azure. Communication. chat            | Aggiungere chat basate su testo in tempo reale alle applicazioni  |
 | SMS                    | REST | Apri              | Azure. Communication. SMS             | Inviare e ricevere messaggi SMS |
 | Chiamata                | Trasporto proprietario | Chiusa |Azure. Communication. Calling         | Sfrutta le funzionalità di comunicazione, video, condivisione dello schermo e altre funzionalità di comunicazione dati in tempo reale          |
 
-Si noti che le librerie client Azure Resource Manager, Identity e SMS sono incentrate sull'integrazione del servizio e in molti casi si verificano problemi di sicurezza se si integrano queste funzioni nelle applicazioni dell'utente finale. Le librerie client comuni e di chat sono adatte per le applicazioni client e di servizio. La libreria client chiamante è progettata per le applicazioni client. Una libreria client incentrata sugli scenari di servizio è in fase di sviluppo.
+Si noti che gli SDK Azure Resource Manager, Identity e SMS sono incentrati sull'integrazione del servizio e in molti casi si verificano problemi di sicurezza se si integrano queste funzioni nelle applicazioni dell'utente finale. Gli SDK comuni e chat sono adatti per le applicazioni client e di servizio. L'SDK chiamante è progettato per le applicazioni client. Un SDK incentrato sugli scenari del servizio è in fase di sviluppo.
 
 ### <a name="languages-and-publishing-locations"></a>Linguaggi e percorsi di pubblicazione
 
-I percorsi di pubblicazione per i singoli pacchetti di librerie client sono descritti di seguito.
+I percorsi di pubblicazione per i singoli pacchetti SDK sono descritti in dettaglio di seguito.
 
 | Area           | JavaScript | .NET | Python | Java SE | iOS | Android | Altro                          |
 | -------------- | ---------- | ---- | ------ | ---- | -------------- | -------------- | ------------------------------ |
@@ -60,8 +60,8 @@ Le API di servizi di comunicazione sono documentate insieme ad altre API REST di
 
 ### <a name="ios-and-android-support-details"></a>dettagli del supporto per iOS e Android
 
-- Le librerie client iOS di servizi di comunicazione sono destinate a iOS versione 13 + e Xcode 11 +.
-- Le librerie client Java Android hanno come destinazione l'API Android livello 21 + e Android Studio 4.0 +
+- I servizi di comunicazione iOS SDK hanno come destinazione iOS versione 13 + e Xcode 11 +.
+- Android Java SDK destinazione API Android livello 21 + e Android Studio 4.0 +
 
 ### <a name="net-support-details"></a>Dettagli del supporto .NET
 
@@ -82,9 +82,9 @@ Supporto tramite .NET Core 2,0:
 - Novell iOS 10,14
 - Novell Mac 3,8
 
-## <a name="calling-client-library-timeouts"></a>Chiamata dei timeout della libreria client
+## <a name="calling-sdk-timeouts"></a>Timeout della chiamata di SDK
 
-I timeout seguenti si applicano ai servizi di comunicazione che chiamano le librerie client:
+I timeout seguenti si applicano ai servizi di comunicazione che chiamano gli SDK:
 
 | Azione           | Timeout in secondi |
 | -------------- | ---------- |
@@ -100,30 +100,30 @@ I timeout seguenti si applicano ai servizi di comunicazione che chiamano le libr
 ## <a name="api-stability-expectations"></a>Aspettative di stabilità dell'API
 
 > [!IMPORTANT]
-> Questa sezione fornisce indicazioni sulle API REST e sulle librerie client contrassegnate come **stabili**. Le API contrassegnate come versione non definitiva, anteprima o beta possono essere modificate o deprecate **senza preavviso**.
+> Questa sezione fornisce indicazioni sulle API REST e sugli SDK contrassegnati come **stabili**. Le API contrassegnate come versione non definitiva, anteprima o beta possono essere modificate o deprecate **senza preavviso**.
 
-In futuro si potrebbero ritirare le versioni delle librerie client dei servizi di comunicazione ed è possibile che vengano introdotte modifiche di rilievo alle API REST e alle librerie client rilasciate. I servizi di comunicazione di Azure seguiranno *in genere* due criteri di supporto per la disattivazione delle versioni del servizio:
+In futuro si potrebbero ritirare le versioni degli SDK di servizi di comunicazione ed è possibile che vengano introdotte modifiche di rilievo per le API REST e gli SDK rilasciati. I servizi di comunicazione di Azure seguiranno *in genere* due criteri di supporto per la disattivazione delle versioni del servizio:
 
-- Si riceverà una notifica per almeno tre anni prima che venga richiesto di modificare il codice a causa di una modifica dell'interfaccia di servizi di comunicazione. Tutte le API REST documentate e le API della libreria client in genere si riferiscono ad almeno tre anni prima di rimuovere le interfacce.
-- Si riceverà una notifica almeno un anno prima di dover aggiornare gli assembly della libreria client alla versione secondaria più recente. Questi aggiornamenti richiesti non devono richiedere modifiche al codice perché si trovano nella stessa versione principale. Questa operazione è particolarmente valida per le librerie di chiamata e di chat con componenti in tempo reale che richiedono spesso aggiornamenti della sicurezza e delle prestazioni. Si consiglia vivamente di aggiornare le librerie client dei servizi di comunicazione.
+- Si riceverà una notifica per almeno tre anni prima che venga richiesto di modificare il codice a causa di una modifica dell'interfaccia di servizi di comunicazione. Tutte le API REST e le API SDK documentate si riferiscono in genere a almeno tre anni prima di rimuovere le interfacce.
+- Si riceverà una notifica almeno un anno prima di dover aggiornare gli assembly SDK alla versione secondaria più recente. Questi aggiornamenti richiesti non devono richiedere modifiche al codice perché si trovano nella stessa versione principale. Questa operazione è particolarmente valida per le librerie di chiamata e di chat con componenti in tempo reale che richiedono spesso aggiornamenti della sicurezza e delle prestazioni. Si consiglia vivamente di proteggere gli SDK di servizi di comunicazione aggiornati.
 
-### <a name="api-and-client-library-decommissioning-examples"></a>Esempi di rimozione di API e librerie client
+### <a name="api-and-sdk-decommissioning-examples"></a>Esempi di rimozione di API e SDK
 
 **La versione V24 dell'API REST SMS è stata integrata nell'applicazione. Azure Communication releases V25.**
 
 Si otterrà un avviso di 3 anni prima che queste API smettano di funzionare e vengano forzate a eseguire l'aggiornamento a V25. Questo aggiornamento potrebbe richiedere una modifica del codice.
 
-**La versione v 2.02 della libreria client chiamante è stata integrata nell'applicazione. Azure Communication releases v 2.05.**
+**La versione v 2.02 dell'SDK chiamante è stata integrata nell'applicazione. Azure Communication releases v 2.05.**
 
-Potrebbe essere necessario eseguire l'aggiornamento alla versione v 2.05 della libreria client chiamante entro 12 mesi dal rilascio di v 2.05. Questa operazione deve essere una semplice sostituzione dell'artefatto senza richiedere una modifica del codice perché v 2.05 è nella versione principale V2 e non ha modifiche di rilievo.
+Potrebbe essere necessario eseguire l'aggiornamento alla versione v 2.05 dell'SDK chiamante entro 12 mesi dal rilascio di v 2.05. Questa operazione deve essere una semplice sostituzione dell'artefatto senza richiedere una modifica del codice perché v 2.05 è nella versione principale V2 e non ha modifiche di rilievo.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Per ulteriori informazioni, vedere le panoramiche della libreria client seguenti:
+Per ulteriori informazioni, vedere le panoramiche sull'SDK seguenti:
 
-- [Panoramica della chiamata della libreria client](../concepts/voice-video-calling/calling-sdk-features.md)
-- [Panoramica della libreria client di chat](../concepts/chat/sdk-features.md)
-- [Panoramica della libreria client SMS](../concepts/telephony-sms/sdk-features.md)
+- [Panoramica dell'SDK chiamante](../concepts/voice-video-calling/calling-sdk-features.md)
+- [Panoramica di Chat SDK](../concepts/chat/sdk-features.md)
+- [Panoramica di SMS SDK](../concepts/telephony-sms/sdk-features.md)
 
 Per iniziare a usare i servizi di comunicazione di Azure:
 

@@ -9,19 +9,19 @@ ms.author: mikben
 ms.date: 03/10/2021
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: 21c247c2fb9e1532c4580eea894c97e2bff84f92
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 9bf3067737ee1f4e15deaf31677513e5ac99cbd1
+ms.sourcegitcommit: bed20f85722deec33050e0d8881e465f94c79ac2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104657043"
+ms.lasthandoff: 03/25/2021
+ms.locfileid: "105108129"
 ---
 # <a name="communication-services-notifications"></a>Notifiche di Servizi di comunicazione
 
 [!INCLUDE [Public Preview Notice](../includes/public-preview-include.md)]
 
 
-Le librerie client Chat e Chiamate di Servizi di comunicazione creano un canale di messaggistica in tempo reale che consente di eseguire il push dei messaggi di segnalazione nei client connessi in modo efficiente e affidabile. In questo modo è possibile integrare funzionalità avanzate di comunicazione in tempo reale nelle applicazioni senza la necessità di implementare una logica di polling HTTP complessa. Nelle applicazioni per dispositivi mobili però questo canale di segnalazione rimane connesso solo quando l'applicazione è attiva in primo piano. Per consentire agli utenti di ricevere chiamate in arrivo o messaggi di chat mentre l'applicazione è in background, occorre usare le notifiche push.
+La chat e la chiamata degli SDK per i servizi di comunicazione di Azure creano un canale di messaggistica in tempo reale che consente di inviare messaggi di segnalazione ai client connessi in modo efficiente e affidabile. In questo modo è possibile integrare funzionalità avanzate di comunicazione in tempo reale nelle applicazioni senza la necessità di implementare una logica di polling HTTP complessa. Nelle applicazioni per dispositivi mobili però questo canale di segnalazione rimane connesso solo quando l'applicazione è attiva in primo piano. Per consentire agli utenti di ricevere chiamate in arrivo o messaggi di chat mentre l'applicazione è in background, occorre usare le notifiche push.
 
 Le notifiche push permettono di inviare informazioni dall'applicazione ai dispositivi mobili degli utenti. È possibile usarle per visualizzare una finestra di dialogo, riprodurre un suono o visualizzare l'interfaccia utente delle chiamate in arrivo. Servizi di comunicazione di Azure supporta l'integrazione con [Griglia di eventi di Azure](../../event-grid/overview.md) e [Hub di notifica di Azure](../../notification-hubs/notification-hubs-push-notification-overview.md) che consentono di aggiungere notifiche push alle app.
 

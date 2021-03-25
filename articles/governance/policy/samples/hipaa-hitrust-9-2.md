@@ -1,15 +1,15 @@
 ---
 title: Dettagli sulla conformità alle normative per HIPAA HITRUST 9.2
 description: Dettagli dell'iniziativa predefinita di conformità alle normative per HIPAA HITRUST 9.2. Ogni controllo viene mappato a una o più definizioni di Criteri di Azure che assistono nella valutazione.
-ms.date: 03/17/2021
+ms.date: 03/24/2021
 ms.topic: sample
 ms.custom: generated
-ms.openlocfilehash: 2e0320052fe2083858f8a263fedee5f2507f926b
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 1da64ad851e1f115d7c2c5ca14b88c9e83c3acbf
+ms.sourcegitcommit: bb330af42e70e8419996d3cba4acff49d398b399
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104590297"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105034504"
 ---
 # <a name="details-of-the-hipaa-hitrust-92-regulatory-compliance-built-in-initiative"></a>Dettagli dell'iniziativa predefinita di conformità alle normative per HIPAA HITRUST 9.2
 
