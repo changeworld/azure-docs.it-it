@@ -3,12 +3,12 @@ title: 'Avvio rapido: Libreria client di QnA Maker per Python'
 description: Questa guida di avvio rapido illustra come usare la libreria client di QnA Maker per Python.
 ms.topic: include
 ms.date: 06/18/2020
-ms.openlocfilehash: 86d0be672b92178703b77b0f34d3d92cffdc1c19
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 39eeb00ba8b59219054c7743f19f6f378d941d5d
+ms.sourcegitcommit: bb330af42e70e8419996d3cba4acff49d398b399
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104583172"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105105639"
 ---
 # <a name="qna-maker-ga-stable-release"></a>[QnA Maker - disponibilità generale (versione stabile)](#tab/version-1)
 
@@ -107,10 +107,11 @@ Creare le variabili per l'endpoint e la chiave di Azure della risorsa.
 > [!IMPORTANT]
 > Passare al portale di Azure e individuare la chiave e l'endpoint per la risorsa QnA Maker creata nei prerequisiti. Si trovano nella pagina **Chiave ed endpoint** della risorsa, in **Gestione risorse**.
 
-- Il formato del valore di QNA_MAKER_ENDPOINT è `https://YOUR-RESOURCE-NAME.cognitiveservices.azure.com`. 
-- Il formato del valore di QNA_MAKER_RUNTIME_ENDPOINT è `https://YOUR-RESOURCE-NAME.azurewebsites.net`. Dopo aver pubblicato la Knowledge base nel portale di QnA Maker, è possibile trovare l'endpoint di runtime, come illustrato di seguito.
+- Il formato del valore di QNA_MAKER_ENDPOINT è `https://YOUR-RESOURCE-NAME.cognitiveservices.azure.com`. Passare alla risorsa QnA Maker nella portale di Azure e fare clic su **chiavi ed endpoint** per individuare la chiave di creazione (sottoscrizione) e QnA Maker endpoint.
 
-  ![Endpoint di runtime QnA Maker](../media/endpoint.png)
+ ![QnA Maker endpoint di creazione](../media/keys-endpoint.png)
+ 
+- Il formato del valore di QNA_MAKER_RUNTIME_ENDPOINT è `https://YOUR-RESOURCE-NAME.azurewebsites.net`.
    
 - Per la produzione, è consigliabile usare un modo sicuro per archiviare e accedere alle credenziali, Ad esempio, [Azure Key Vault](../../../key-vault/general/overview.md) fornisce una risorsa di archiviazione sicura per le chiavi.
 
@@ -121,7 +122,10 @@ Creare le variabili per l'endpoint e la chiave di Azure della risorsa.
 > [!IMPORTANT]
 > Passare al portale di Azure e individuare la chiave e l'endpoint per la risorsa QnA Maker creata nei prerequisiti. Si trovano nella pagina **Chiave ed endpoint** della risorsa, in **Gestione risorse**.
 
-- Il formato del valore di QNA_MAKER_ENDPOINT è `https://YOUR-RESOURCE-NAME.cognitiveservices.azure.com`. 
+- Il formato del valore di QNA_MAKER_ENDPOINT è `https://YOUR-RESOURCE-NAME.cognitiveservices.azure.com`. Passare alla risorsa QnA Maker nella portale di Azure e fare clic su **chiavi ed endpoint** per individuare la chiave di creazione (sottoscrizione) e QnA Maker endpoint.
+
+ ![QnA Maker endpoint di creazione](../media/keys-endpoint.png)
+ 
 - Per la produzione, è consigliabile usare un modo sicuro per archiviare e accedere alle credenziali, Ad esempio, [Azure Key Vault](../../../key-vault/general/overview.md) fornisce una risorsa di archiviazione sicura per le chiavi.
 
 [!code-python[Resource variables](~/cognitive-services-quickstart-code/python/QnAMaker/sdk/preview-sdk/quickstart.py?name=Resourcevariables)]

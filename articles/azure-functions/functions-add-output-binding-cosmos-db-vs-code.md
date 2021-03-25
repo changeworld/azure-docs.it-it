@@ -6,12 +6,12 @@ ms.date: 03/23/2021
 ms.topic: quickstart
 ms.author: thweiss
 zone_pivot_groups: programming-languages-set-functions-temp
-ms.openlocfilehash: 91d27ce0d6f999ac5d13b079c877e49cdf3fcd61
-ms.sourcegitcommit: ac035293291c3d2962cee270b33fca3628432fac
+ms.openlocfilehash: 0a0c63ee54699185bcd02104b1a3f4d0070ea808
+ms.sourcegitcommit: a8ff4f9f69332eef9c75093fd56a9aae2fe65122
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 03/24/2021
-ms.locfileid: "104962871"
+ms.locfileid: "105023249"
 ---
 # <a name="connect-azure-functions-to-azure-cosmos-db-using-visual-studio-code"></a>Connettere funzioni di Azure a Azure Cosmos DB usando Visual Studio Code
 
@@ -20,11 +20,11 @@ ms.locfileid: "104962871"
 Questo articolo illustra come usare Visual Studio Code per connettersi [Azure Cosmos DB](../cosmos-db/introduction.md) alla funzione creata nell'articolo della Guida introduttiva precedente. L'associazione di output aggiunta a questa funzione scrive i dati dalla richiesta HTTP a un documento JSON archiviato in un contenitore Azure Cosmos DB. 
 
 ::: zone pivot="programming-language-csharp"
-Prima di iniziare, è necessario completare l'articolo [Avvio rapido: Creare un progetto di Funzioni di Azure dalla riga di comando](create-first-function-cli-csharp.md). Se è già stata eseguita la pulizia delle risorse alla fine di tale articolo, eseguire di nuovo i passaggi per ricreare l'app per le funzioni e le risorse correlate in Azure.
+Prima di iniziare, è necessario completare la [Guida introduttiva: creare una funzione C# in Azure usando Visual Studio Code](create-first-function-vs-code-csharp.md). Se è già stata eseguita la pulizia delle risorse alla fine di tale articolo, eseguire di nuovo i passaggi per ricreare l'app per le funzioni e le risorse correlate in Azure.
 ::: zone-end
 ::: zone pivot="programming-language-javascript"  
-Prima di iniziare, è necessario completare l'articolo [Avvio rapido: Creare un progetto di Funzioni di Azure dalla riga di comando](create-first-function-cli-node.md). Se è già stata eseguita la pulizia delle risorse alla fine di tale articolo, eseguire di nuovo i passaggi per ricreare l'app per le funzioni e le risorse correlate in Azure.  
-::: zone-end   
+Prima di iniziare, è necessario completare la [Guida introduttiva: creare una funzione JavaScript in Azure usando Visual Studio Code](create-first-function-vs-code-node.md). Se è già stata eseguita la pulizia delle risorse alla fine di tale articolo, eseguire di nuovo i passaggi per ricreare l'app per le funzioni e le risorse correlate in Azure.  
+::: zone-end
 
 ## <a name="configure-your-environment"></a>Configurare l'ambiente
 

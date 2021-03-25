@@ -12,17 +12,17 @@ ms.date: 03/03/2021
 ms.author: yulili
 ms.custom: references_regions
 zone_pivot_groups: programming-languages-speech-services-nomore-variant
-ms.openlocfilehash: 15fa1dd230b7f07846653278533805fa66ed2195
-ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
+ms.openlocfilehash: 7a196ff8c80a6f92e1205f5553a54913e281b52b
+ms.sourcegitcommit: a8ff4f9f69332eef9c75093fd56a9aae2fe65122
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/23/2021
-ms.locfileid: "104870391"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105025884"
 ---
 # <a name="get-facial-pose-events"></a>Ottenere gli eventi di posa facciali
 
 > [!NOTE]
-> Viseme funziona solo per `en-US-AriaNeural` la voce nell'area Stati Uniti occidentali ( `westus` ) per il momento e sarà disponibile per tutte `en-US` le voci entro la fine del 2021 aprile.
+> Per il momento, viseme funziona solo per la `en-US-AriaNeural` voce nell'area Stati Uniti occidentali 2 ( `westus2` ).
 
 Un viseme è la descrizione visiva di un fonema in lingua parlata.
 Definisce la posizione della faccia e della bocca quando si parla di una parola.

@@ -1,5 +1,5 @@
 ---
-title: 'SQL Server a SQL Istanza gestita: Panoramica della migrazione'
+title: 'SQL Server ad Azure SQL Istanza gestita: Panoramica della migrazione'
 description: Informazioni sui diversi strumenti e opzioni disponibili per eseguire la migrazione dei database di SQL Server al Istanza gestita SQL di Azure.
 ms.service: sql-managed-instance
 ms.subservice: migration-guide
@@ -10,14 +10,14 @@ author: mokabiru
 ms.author: mokabiru
 ms.reviewer: MashaMSFT
 ms.date: 02/18/2020
-ms.openlocfilehash: ac2b535b2e6b7a6b4169d08dd1768d69e685a216
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
+ms.openlocfilehash: 1c187ae83ce87c9d4d8da4aa1a5dc38163261b52
+ms.sourcegitcommit: a8ff4f9f69332eef9c75093fd56a9aae2fe65122
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102562011"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105024898"
 ---
-# <a name="migration-overview-sql-server-to-sql-managed-instance"></a>Panoramica della migrazione: SQL Server a SQL Istanza gestita
+# <a name="migration-overview-sql-server-to-azure-sql-managed-instance"></a>Panoramica della migrazione: SQL Server ad Azure SQL Istanza gestita
 [!INCLUDE[appliesto--sqlmi](../../includes/appliesto-sqlmi.md)]
 
 Informazioni sulle diverse opzioni e considerazioni relative alla migrazione per eseguire la migrazione del SQL Server al Istanza gestita SQL di Azure. 
@@ -30,7 +30,7 @@ Informazioni sulle diverse opzioni e considerazioni relative alla migrazione per
 - Motore di calcolo (Google Cloud Platform-GCP)  
 - SQL cloud per SQL Server (Google Cloud Platform-GCP) 
 
-Per altri scenari, vedere la [Guida alla migrazione del database](https://datamigration.microsoft.com/). 
+Per altre guide alla migrazione, vedere [Migrazione dei database](https://docs.microsoft.com/data-migration). 
 
 ## <a name="overview"></a>Panoramica
 
@@ -60,7 +60,7 @@ Alcune linee guida generali che consentono di scegliere il livello di servizio e
 - Usare la latenza i/o di base del sottosistema file per scegliere tra per utilizzo generico (latenza maggiore di 5 ms) e business critical (latenza inferiore a 3 ms) livelli di servizio. 
 - Utilizzare la velocità effettiva di base per preallocare le dimensioni dei file di dati e di log per ottenere le prestazioni di i/o previste. 
 
-È possibile scegliere risorse di calcolo e di archiviazione durante la distribuzione e quindi modificarle dopo aver usato il [portale di Azure](../../database/scale-resources.md) senza incorrere in tempi di inattività per l'applicazione. 
+È possibile scegliere risorse di calcolo e di archiviazione durante la distribuzione e quindi [modificarle dopo aver usato il portale di Azure](../../database/scale-resources.md) senza incorrere in tempi di inattività per l'applicazione. 
 
 > [!IMPORTANT]
 > Eventuali discrepanze nei [requisiti della rete virtuale dell'istanza gestita](../../managed-instance/connectivity-architecture-overview.md#network-requirements) possono impedire la creazione di nuove istanze o l'utilizzo di quelle esistenti. Altre informazioni sulla [creazione di nuove](../../managed-instance/virtual-network-subnet-create-arm-template.md)   reti e sulla configurazione di reti [esistenti](../../managed-instance/vnet-existing-add-subnet.md)   . 
@@ -100,9 +100,9 @@ La tabella seguente elenca gli strumenti di migrazione consigliati:
 
 La tabella seguente elenca gli strumenti di migrazione alternativi: 
 
-|Tecnologia |Descrizione  |
+|**Tecnologia** |**Descrizione**  |
 |---------|---------|
-|[Replica transazionale](../../managed-instance/replication-transactional-overview.md) | Replicare i dati dalle tabelle di database di origine SQL Server a SQL Istanza gestita fornendo un'opzione di migrazione del tipo di Sottoscrittore del server di pubblicazione mantenendo la coerenza transazionale. |  |
+|[Replica transazionale](../../managed-instance/replication-transactional-overview.md) | Replicare i dati dalle tabelle di database di origine SQL Server a SQL Istanza gestita fornendo un'opzione di migrazione del tipo di Sottoscrittore del server di pubblicazione mantenendo la coerenza transazionale. | 
 |[Copia bulk](/sql/relational-databases/import-export/import-and-export-bulk-data-by-using-the-bcp-utility-sql-server)| L' [utilità del programma per la copia bulk (BCP)](/sql/tools/bcp-utility) copia i dati da un'istanza di SQL Server in un file di dati. Usare l'utilità BCP per esportare i dati dall'origine e importare il file di dati nel Istanza gestita SQL di destinazione.</br></br> Per le operazioni di copia bulk ad alta velocità per spostare i dati nel database SQL di Azure, è possibile usare [lo strumento per la copia bulk intelligente](/samples/azure-samples/smartbulkcopy/smart-bulk-copy/) per ottimizzare le velocità di trasferimento sfruttando le attività di copia parallele. | 
 |[Importazione/esportazione guidata/BACPAC](../../database/database-import.md?tabs=azure-powershell)| [BacPac](/sql/relational-databases/data-tier-applications/data-tier-applications#bacpac) è un file di Windows con un' `.bacpac` estensione che incapsula lo schema e i dati di un database. BACPAC può essere usato per esportare i dati da un SQL Server di origine e per importare il file di nuovo in Azure SQL Istanza gestita.  |  
 |[Azure Data Factory](../../../data-factory/connector-azure-sql-managed-instance.md)| L' [attività di copia](../../../data-factory/copy-activity-overview.md) in Azure Data Factory esegue la migrazione dei dati da database SQL Server di origine a SQL istanza gestita usando connettori predefiniti e un [Integration Runtime](../../../data-factory/concepts-integration-runtime.md).</br> </br> ADF supporta un'ampia gamma di [connettori](../../../data-factory/connector-overview.md) per spostare i dati da origini SQL Server a SQL istanza gestita. |
@@ -241,7 +241,7 @@ Queste risorse sono state sviluppate come parte del programma Data SQL Ninja, sp
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Per avviare la migrazione del SQL Server al Istanza gestita SQL di Azure, vedere la [Guida alla migrazione da SQL Server a sql istanza gestita](sql-server-to-managed-instance-guide.md).
+Per avviare la migrazione del SQL Server al Istanza gestita SQL di Azure, vedere la [Guida alla migrazione da SQL Server ad Azure sql istanza gestita](sql-server-to-managed-instance-guide.md).
 
 - Per una matrice di servizi e strumenti di Microsoft e di terze parti disponibili per supportare diversi scenari di migrazione di database e dati, nonché per le attività speciali, vedere [servizio e strumenti per la migrazione dei dati](../../../dms/dms-tools-matrix.md).
 

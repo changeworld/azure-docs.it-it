@@ -37,7 +37,7 @@
         - name: Autenticazione e autorizzazione
           href: relay-authentication-and-authorization.md
         - name: Criteri di sicurezza integrati
-          href: service-bus-relay-security-controls.md
+          href: ../service-bus-messaging/security-baseline.md
         - name: Sicurezza di rete
           href: network-security.md
     - name: Protocollo per connessioni ibride

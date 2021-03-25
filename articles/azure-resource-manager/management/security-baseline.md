@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 02/17/2021
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 996159f7014e735c8a4b3e5975c2716ce1ab6910
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: cca60ba9948299f4e9557f26097d4a23e4ebea12
+ms.sourcegitcommit: a8ff4f9f69332eef9c75093fd56a9aae2fe65122
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101728553"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105025340"
 ---
 # <a name="azure-security-baseline-for-azure-resource-manager"></a>Baseline della sicurezza di Azure per Azure Resource Manager
 
@@ -32,9 +32,9 @@ Per informazioni su come Azure Resource Manager viene eseguito il mapping comple
 
 - [Come eseguire l'onboarding di Azure Sentinel](../../sentinel/quickstart-onboard.md) 
 
-- [Come raccogliere i log e le metriche della piattaforma con monitoraggio di Azure](/azure/azure-monitor/platform/diagnostic-settings) 
+- [Come raccogliere i log e le metriche della piattaforma con monitoraggio di Azure](../../azure-monitor/essentials/diagnostic-settings.md) 
 
-- [Come raccogliere i log degli host interni della macchina virtuale di Azure con monitoraggio di Azure](/azure/azure-monitor/learn/quick-collect-azurevm) 
+- [Come raccogliere i log degli host interni della macchina virtuale di Azure con monitoraggio di Azure](../../azure-monitor/vm/quick-collect-azurevm.md) 
 
 - [Come iniziare a usare Monitoraggio di Azure e l'integrazione SIEM di terze parti](https://azure.microsoft.com/blog/use-azure-monitor-to-integrate-with-siem-tools/)
 
@@ -50,9 +50,9 @@ Per informazioni su come Azure Resource Manager viene eseguito il mapping comple
 
 **Indicazioni**: Azure Resource Manager usa i log attività, abilitati automaticamente, per includere l'origine evento, la data, l'utente, il timestamp, gli indirizzi di origine, gli indirizzi di destinazione e altri elementi utili.
 
-- [Come raccogliere i log e le metriche della piattaforma con monitoraggio di Azure](/azure/azure-monitor/platform/diagnostic-settings) 
+- [Come raccogliere i log e le metriche della piattaforma con monitoraggio di Azure](../../azure-monitor/essentials/diagnostic-settings.md) 
 
-- [Informazioni sulla registrazione e sui diversi tipi di log in Azure](/azure/azure-monitor/platform/platform-logs-overview)
+- [Informazioni sulla registrazione e sui diversi tipi di log in Azure](../../azure-monitor/essentials/platform-logs-overview.md)
 
 **Responsabilità**: Customer
 
@@ -66,9 +66,9 @@ In alternativa, è possibile abilitare e caricare i dati in Sentinel di Azure o 
 
 - [Come eseguire l'onboarding di Azure Sentinel](../../sentinel/quickstart-onboard.md) 
 
-- [Introduzione alle query di Log Analytics](/azure/azure-monitor/log-query/log-analytics-tutorial)
+- [Introduzione alle query di Log Analytics](../../azure-monitor/logs/log-analytics-tutorial.md)
 
-- [Come eseguire query personalizzate in Monitoraggio di Azure](/azure/azure-monitor/log-query/get-started-queries)
+- [Come eseguire query personalizzate in Monitoraggio di Azure](../../azure-monitor/logs/get-started-queries.md)
 
 **Responsabilità**: Condiviso
 
@@ -82,7 +82,7 @@ In alternativa, è possibile abilitare e caricare i dati in Sentinel di Azure o 
 
 - [Come gestire gli avvisi nel centro sicurezza di Azure](../../security-center/security-center-managing-and-responding-alerts.md) 
 
-- [Come inviare un avviso sui dati del log Log Analytics](/azure/azure-monitor/learn/tutorial-response)
+- [Come inviare un avviso sui dati del log Log Analytics](../../azure-monitor/alerts/tutorial-response.md)
 
 **Responsabilità**: Customer
 
@@ -119,7 +119,7 @@ Inoltre, per tenere traccia degli account amministrativi dedicati, è possibile 
 
 È anche possibile abilitare l'accesso just-in-Time usando Azure Active Directory (Azure AD) Privileged Identity Management e Azure Resource Manager.
 
-- [Altre informazioni su Privileged Identity Management](/azure/active-directory/privileged-identity-management/)
+- [Altre informazioni su Privileged Identity Management](../../active-directory/privileged-identity-management/index.yml)
 
 - [Come usare Criteri di Azure](../../governance/policy/tutorials/create-and-manage.md)
 
@@ -205,7 +205,7 @@ Inoltre, per tenere traccia degli account amministrativi dedicati, è possibile 
 
 **Indicazioni**: Azure Active Directory (Azure ad) fornisce i log per individuare gli account obsoleti. Inoltre, utilizzare Azure AD le verifiche di identità e accesso per gestire in modo efficiente l'appartenenza ai gruppi, l'accesso alle applicazioni aziendali e le assegnazioni di ruolo. L'accesso utente può essere esaminato a intervalli regolari per assicurarsi che solo gli utenti corretti abbiano accesso continuo.
 
-- [Informazioni sulla creazione di report Azure AD](/azure/active-directory/reports-monitoring/)
+- [Informazioni sulla creazione di report Azure AD](../../active-directory/reports-monitoring/index.yml)
 
 - [Come usare le verifiche di accesso e delle identità di Azure AD](../../active-directory/governance/access-reviews-overview.md)
 
@@ -223,7 +223,7 @@ Inoltre, per tenere traccia degli account amministrativi dedicati, è possibile 
 
 È possibile semplificare questo processo creando impostazioni di diagnostica per Azure AD account utente e inviando i log di controllo e i log di accesso a un'area di lavoro di Log Analytics. È possibile configurare gli avvisi desiderati nell'area di lavoro Log Analytics.
 
-- [Come integrare i log attività di Azure con monitoraggio di Azure](/azure/active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics)
+- [Come integrare i log attività di Azure con monitoraggio di Azure](../../active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics.md)
 
 **Responsabilità**: Customer
 
@@ -275,7 +275,7 @@ Inoltre, per tenere traccia degli account amministrativi dedicati, è possibile 
 
 **Linee guida**: per la crittografia lato server, Azure Resource Manager supporta le chiavi gestite da Microsoft.
 
-- [Informazioni sulla protezione dei dati in Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-resource-manager-security-controls#data-protection)
+- [Informazioni sulla protezione dei dati in Azure Resource Manager](#data-protection)
 
 **Responsabilità**: Customer
 
@@ -285,7 +285,7 @@ Inoltre, per tenere traccia degli account amministrativi dedicati, è possibile 
 
 **Linee guida**: usare monitoraggio di Azure con il log attività di Azure per creare avvisi quando le modifiche vengono apportate alle risorse di Azure critiche.
 
-- [Come creare avvisi per gli eventi del log attività di Azure](/azure/azure-monitor/platform/alerts-activity-log)
+- [Come creare avvisi per gli eventi del log attività di Azure](../../azure-monitor/alerts/alerts-activity-log.md)
 
 **Responsabilità**: Customer
 
@@ -319,7 +319,7 @@ Sebbene le risorse di Azure classiche possano essere individuate tramite Esplora
 
 **Linee guida**: usare il nome, la descrizione e la categoria dei criteri per organizzare logicamente gli asset in base a una tassonomia.
 
-- [Per altre informazioni sull'assegnazione di tag agli asset, vedere Guida alla decisione relativa alla denominazione delle risorse e all'assegnazione di tag](https://docs.microsoft.com/azure/cloud-adoption-framework/decision-guides/resource-tagging/?toc=/azure/azure-resource-manager/management/toc.json)
+- [Per altre informazioni sull'assegnazione di tag agli asset, vedere Guida alla decisione relativa alla denominazione delle risorse e all'assegnazione di tag](/azure/cloud-adoption-framework/decision-guides/resource-tagging/?toc=%2fazure%2fazure-resource-manager%2fmanagement%2ftoc.json)
 
 **Responsabilità**: Customer
 
@@ -379,7 +379,7 @@ Di seguito sono riportati altri dettagli correlati.
 
 - [Come configurare e gestire Criteri di Azure](../../governance/policy/tutorials/create-and-manage.md)
 
-- [Come negare un tipo di risorsa specifico con Criteri di Azure](https://docs.microsoft.com/azure/governance/policy/samples/built-in-policies#general)
+- [Come negare un tipo di risorsa specifico con Criteri di Azure](../../governance/policy/samples/built-in-policies.md#general)
 
 **Responsabilità**: Customer
 
@@ -463,7 +463,7 @@ Inoltre, in qualità di amministratore, potrebbe essere necessario bloccare una 
 
 - [Come configurare e gestire Criteri di Azure](../../governance/policy/tutorials/create-and-manage.md)
 
-- [Come usare gli alias](https://docs.microsoft.com/azure/governance/policy/concepts/definition-structure#aliases)
+- [Come usare gli alias](../../governance/policy/concepts/definition-structure.md#aliases)
 
 **Responsabilità**: Customer
 
@@ -587,5 +587,5 @@ Implementare Credential scanner per identificare le credenziali all'interno del 
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Vedere [Panoramica di Azure Security Benchmark V2](/azure/security/benchmarks/overview)
-- Altre informazioni su [Baseline di sicurezza di Azure](/azure/security/benchmarks/security-baselines-overview)
+- Vedere [Panoramica di Azure Security Benchmark V2](../../security/benchmarks/overview.md)
+- Altre informazioni su [Baseline di sicurezza di Azure](../../security/benchmarks/security-baselines-overview.md)
