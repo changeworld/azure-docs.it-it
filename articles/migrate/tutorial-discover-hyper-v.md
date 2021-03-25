@@ -7,12 +7,12 @@ ms.manager: abhemraj
 ms.topic: tutorial
 ms.date: 03/10/2021
 ms.custom: mvc
-ms.openlocfilehash: ff83b488a6e3193eee8cb12af7de0a60b42e4c75
-ms.sourcegitcommit: 2c1b93301174fccea00798df08e08872f53f669c
+ms.openlocfilehash: d108774aea2d7ac7773dab06efc977dd9e501eb5
+ms.sourcegitcommit: bed20f85722deec33050e0d8881e465f94c79ac2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/22/2021
-ms.locfileid: "104771397"
+ms.lasthandoff: 03/25/2021
+ms.locfileid: "105108775"
 ---
 # <a name="tutorial-discover-servers-running-on-hyper-v-with-azure-migrate-discovery-and-assessment"></a>Esercitazione: individuazione di server in esecuzione in Hyper-V con Azure Migrate: individuazione e valutazione
 
@@ -101,7 +101,7 @@ Delega credenziali se i dischi server si trovano in condivisioni SMB remote | De
     ```powershell
     C:\>CertUtil -HashFile C:\Users\Administrators\Desktop\ MicrosoftAzureMigrate-Hyper-V.ps1 SHA256
     ```
-3. Dopo aver convalidato l'integrità dello script, eseguire lo script in ogni host Hyper-V con questo comando di PowerShell:
+3. Dopo aver convalidato l'integrità dello script, eseguire lo script in ogni host Hyper-V con questo comando di PowerShell con autorizzazioni elevate:
 
     ```powershell
     PS C:\Users\Administrators\Desktop> MicrosoftAzureMigrate-Hyper-V.ps1

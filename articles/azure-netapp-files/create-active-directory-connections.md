@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-ms.date: 03/19/2021
+ms.date: 03/24/2021
 ms.author: b-juche
-ms.openlocfilehash: add907923cc2284939acd972237fd4ec74ee2d12
-ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
+ms.openlocfilehash: d238b566c1286b9b765fb574cd72ee68ccf4b4a7
+ms.sourcegitcommit: ed7376d919a66edcba3566efdee4bc3351c57eda
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/23/2021
-ms.locfileid: "104864007"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105048375"
 ---
 # <a name="create-and-manage-active-directory-connections-for-azure-netapp-files"></a>Creare e gestire connessioni di Active Directory per Azure NetApp Files
 
@@ -86,6 +86,8 @@ Per diverse funzionalità di Azure NetApp Files è necessario disporre di una co
 * Azure NetApp Files supporta la [firma LDAP](/troubleshoot/windows-server/identity/enable-ldap-signing-in-windows-server), che consente la trasmissione sicura del traffico LDAP tra il servizio Azure NetApp files e i [controller di dominio Active Directory](/windows-server/identity/ad-ds/get-started/virtual-dc/active-directory-domain-services-overview)di destinazione. Se si seguono le linee guida di Microsoft Advisory [ADV190023](https://portal.msrc.microsoft.com/en-us/security-guidance/advisory/ADV190023) per la firma LDAP, è necessario abilitare la funzionalità di firma ldap in Azure NetApp files selezionando la casella **firma LDAP** nella finestra [join Active Directory](#create-an-active-directory-connection) . 
 
     La configurazione dell' [associazione di canale LDAP](https://support.microsoft.com/help/4034879/how-to-add-the-ldapenforcechannelbinding-registry-entry) da sola non ha alcun effetto sul servizio Azure NetApp files. Tuttavia, se si usano sia il binding di canale LDAP che l'LDAP sicuro (ad esempio, LDAPs o `start_tls` ), la creazione del volume SMB avrà esito negativo.
+
+* Per DNS integrato non AD, è necessario aggiungere un record DNS A/PTR per consentire al Azure NetApp Files di funzionare usando un "nome descrittivo". 
 
 ## <a name="decide-which-domain-services-to-use"></a>Decidere quali servizi di dominio usare 
 

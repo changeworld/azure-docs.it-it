@@ -4,12 +4,12 @@ description: Viene descritto come usare la limitazione con le richieste di Azure
 ms.topic: conceptual
 ms.date: 12/15/2020
 ms.custom: seodec18
-ms.openlocfilehash: 181ed1a3059d86f78e40a9949448af77a551efbc
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: c1fd707bf9f13ed88bf9acb5d2ad70d56c453a90
+ms.sourcegitcommit: a8ff4f9f69332eef9c75093fd56a9aae2fe65122
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "97563127"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105024626"
 ---
 # <a name="throttling-resource-manager-requests"></a>Limitazione delle richieste di Resource Manager
 
@@ -58,7 +58,7 @@ Il provider di risorse Microsoft. Network applica i limiti di limitazione seguen
 
 ### <a name="compute-throttling"></a>Limitazione delle richieste di calcolo
 
-Per informazioni sui limiti di limitazione delle operazioni di calcolo, vedere [risoluzione degli errori di limitazione API-calcolo](../../virtual-machines/troubleshooting/troubleshooting-throttling-errors.md).
+Per informazioni sui limiti di limitazione delle operazioni di calcolo, vedere [risoluzione degli errori di limitazione API-calcolo](/troubleshoot/azure/virtual-machines/troubleshooting-throttling-errors).
 
 Per controllare le istanze di macchine virtuali in un set di scalabilità di macchine virtuali, usare le [operazioni dei set di scalabilità di macchine virtuali](/rest/api/compute/virtualmachinescalesetvms). Ad esempio, usare il [set di scalabilità di macchine virtuali VM-list](/rest/api/compute/virtualmachinescalesetvms/list) con i parametri per verificare lo stato di alimentazione delle istanze di macchine virtuali. Questa API riduce il numero di richieste.
 
@@ -98,7 +98,7 @@ Alcuni provider di risorse restituiscono 429 per segnalare un problema temporane
 | x-ms-ratelimit-remaining-tenant-resource-requests |Richieste di tipo di risorsa rimanenti nell'ambito del tenant.<br /><br />Questa intestazione viene aggiunta solo per le richieste a livello di tenant e solo se un sevizio ha superato il limite predefinito. Resource Manager aggiunge questo valore invece delle richieste di lettura o scrittura per il tenant. |
 | x-ms-ratelimit-remaining-tenant-resource-entities-read |Richieste di raccolta di tipo di risorsa rimanenti nell'ambito del tenant.<br /><br />Questa intestazione viene aggiunta solo per le richieste a livello di tenant e solo se un sevizio ha superato il limite predefinito. |
 
-Il provider di risorse può anche restituire intestazioni di risposta con informazioni sulle richieste rimanenti. Per informazioni sulle intestazioni di risposta restituite dal provider di risorse di calcolo, vedere [intestazioni della risposta informativa sulla frequenza delle chiamate](../../virtual-machines/troubleshooting/troubleshooting-throttling-errors.md#call-rate-informational-response-headers).
+Il provider di risorse può anche restituire intestazioni di risposta con informazioni sulle richieste rimanenti. Per informazioni sulle intestazioni di risposta restituite dal provider di risorse di calcolo, vedere [intestazioni della risposta informativa sulla frequenza delle chiamate](/troubleshoot/azure/virtual-machines/troubleshooting-throttling-errors#call-rate-informational-response-headers).
 
 ## <a name="retrieving-the-header-values"></a>Recupero dei valori di intestazione
 

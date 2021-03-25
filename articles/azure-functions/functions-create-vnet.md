@@ -3,12 +3,12 @@ title: Usare endpoint privati per integrare funzioni di Azure con una rete virtu
 description: Questa esercitazione illustra come connettere una funzione a una rete virtuale di Azure e bloccarla usando endpoint privati.
 ms.topic: article
 ms.date: 2/22/2021
-ms.openlocfilehash: 3dd5e700b3081f1c1ef8e4601385c707a5738321
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
+ms.openlocfilehash: e8ca853908b366b99e150f04ced404f42acc7d21
+ms.sourcegitcommit: a8ff4f9f69332eef9c75093fd56a9aae2fe65122
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102630470"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105027415"
 ---
 # <a name="tutorial-integrate-azure-functions-with-an-azure-virtual-network-by-using-private-endpoints"></a>Esercitazione: integrare funzioni di Azure con una rete virtuale di Azure usando endpoint privati
 
@@ -332,7 +332,7 @@ Congratulazioni! La distribuzione dell'app per le funzioni di esempio è stata c
 
 Creare ora l'endpoint privato per bloccare l'app per le funzioni. Questo endpoint privato connette l'app per le funzioni in modo privato e sicuro alla rete virtuale usando un indirizzo IP privato. 
 
-Per ulteriori informazioni, vedere la [documentazione sull'endpoint privato](https://docs.microsoft.com/azure/private-link/private-endpoint-overview).
+Per ulteriori informazioni, vedere la [documentazione sull'endpoint privato](../private-link/private-endpoint-overview.md).
 
 1. Nell'app per le funzioni, nel menu a sinistra, selezionare **rete**.
 

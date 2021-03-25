@@ -1,22 +1,22 @@
 ---
 title: "Avvio rapido: Aggiungere chiamate VoIP a un'app Android con Servizi di comunicazione di Azure"
-description: Questa esercitazione illustra come usare la libreria client Chiamate di Servizi di comunicazione di Azure per Android
+description: In questa esercitazione si apprenderà come usare i servizi di comunicazione di Azure che chiamano SDK per Android
 author: chpalm
 ms.author: mikben
 ms.date: 03/10/2021
 ms.topic: quickstart
 ms.service: azure-communication-services
-ms.openlocfilehash: 094dbd090b5f2d68a9961f2fb9b8b611e486e7bc
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: b68d3a92015a8add2dd97313f9971cf896f8e77e
+ms.sourcegitcommit: bed20f85722deec33050e0d8881e465f94c79ac2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104719605"
+ms.lasthandoff: 03/25/2021
+ms.locfileid: "105108280"
 ---
-Questo argomento di avvio rapido illustra come avviare una chiamata usando la libreria client Chiamate di Servizi di comunicazione di Azure per Android.
+Questa Guida introduttiva illustra come avviare una chiamata usando i servizi di comunicazione di Azure che chiamano SDK per Android.
 
 > [!NOTE]
-> Questo documento usa la versione 1.0.0-beta. 8 della libreria client chiamante.
+> Questo documento usa la versione 1.0.0-beta. 8 dell'SDK chiamante.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -37,7 +37,7 @@ Selezionare il modello di progetto "Empty Activity" (Attività vuota) in "Phone 
 
 :::image type="content" source="../media/android/studio-blank-activity.png" alt-text="Screenshot che mostra l'opzione 'Empty Activity' selezionata nella schermata del modello di progetto.":::
 
-Per la libreria client minima, selezionare "API 26: Android 8.0 (Oreo)" o versione successiva.
+Selezionare l'SDK minimo di "API 26: Android 8,0 (Oreo)" o versione successiva.
 
 :::image type="content" source="../media/android/studio-calling-min-api.png" alt-text="Screenshot che mostra l'opzione 'Empty Activity' selezionata nella schermata 2 del modello di progetto.":::
 
@@ -110,8 +110,8 @@ Per richiedere le autorizzazioni necessarie per effettuare una chiamata, bisogna
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <!--Our calling client library depends on the Apache HTTP client library.
-When targeting Android client library 28+, this library needs to be explicitly referenced.
+        <!--Our Calling SDK depends on the Apache HTTP SDK.
+When targeting Android SDK 28+, this library needs to be explicitly referenced.
 See https://developer.android.com/about/versions/pie/android-9.0-changes-28#apache-p-->
         <uses-library android:name="org.apache.http.legacy" android:required="false"/>
         <activity android:name=".MainActivity">
@@ -260,11 +260,11 @@ private void getAllPermissions() {
 
 ## <a name="object-model"></a>Modello a oggetti
 
-Le classi e le interfacce seguenti gestiscono alcune delle principali funzionalità della libreria client Chiamate di Servizi di comunicazione di Azure:
+Le classi e le interfacce seguenti gestiscono alcune delle principali funzionalità di Azure Communication Services che chiamano SDK:
 
 | Nome                                  | Descrizione                                                  |
 | ------------------------------------- | ------------------------------------------------------------ |
-| CallClient| CallClient è il principale punto di ingresso alla libreria client Chiamate.|
+| CallClient| CallClient è il punto di ingresso principale dell'SDK chiamante.|
 | CallAgent | CallAgent si usa per avviare e gestire le chiamate. |
 | CommunicationUserCredential | CommunicationUserCredential si usa come credenziale del token per creare un'istanza di CallAgent.|
 | CommunicationIdentifier | CommunicationIdentifier viene usato come tipo diverso di partecipante che potrebbe far parte di una chiamata.|

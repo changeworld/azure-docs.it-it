@@ -3,12 +3,12 @@ title: Gestire gli avvisi della console di gestione locale
 description: Usare la console di gestione locale per ottenere una visualizzazione aziendale delle minacce recenti nella rete e comprendere meglio il modo in cui gli utenti dei sensori li gestiscono.
 ms.date: 12/06/2020
 ms.topic: how-to
-ms.openlocfilehash: a99c489c54b2671a463c0c3dad1909c74b4fa203
-ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
+ms.openlocfilehash: 604650f0cb08eac4a3ab1cfd3fdcbf2e7ff0d19e
+ms.sourcegitcommit: bb330af42e70e8419996d3cba4acff49d398b399
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/22/2021
-ms.locfileid: "104781467"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105032141"
 ---
 # <a name="work-with-alerts-on-the-on-premises-management-console"></a>Gestire gli avvisi della console di gestione locale 
 
@@ -242,6 +242,7 @@ Le regole create tramite l'API vengono visualizzate nella finestra **regola di e
 
 :::image type="content" source="media/how-to-work-with-alerts-on-premises-management-console/edit-exclusion-rule-screen.png" alt-text="Screenshot della visualizzazione Modifica regola di esclusione.":::
 
-## <a name="see-also"></a>Vedi anche
+## <a name="next-steps"></a>Passaggi successivi
 
-[Usare gli avvisi sul sensore](how-to-work-with-alerts-on-your-sensor.md)
+[Usare gli avvisi sul sensore](how-to-work-with-alerts-on-your-sensor.md).
+Esaminare il [Defender per gli avvisi del motore](alert-engine-messages.md).

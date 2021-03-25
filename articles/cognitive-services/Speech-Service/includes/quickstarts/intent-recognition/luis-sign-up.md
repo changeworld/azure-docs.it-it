@@ -5,12 +5,12 @@ ms.subservice: speech-service
 ms.topic: include
 ms.date: 01/27/2020
 ms.author: trbye
-ms.openlocfilehash: 42dc7eb1a74bf2e376f834ee3198ad6a492226e9
-ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
+ms.openlocfilehash: ab22ad75b5b49588bbdcedf5fc995ce65fe4e690
+ms.sourcegitcommit: ed7376d919a66edcba3566efdee4bc3351c57eda
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/07/2021
-ms.locfileid: "102444239"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105105304"
 ---
 Per completare l'argomento di avvio rapido sul riconoscimento di finalità, è necessario creare un account e un progetto LUIS usando l'anteprima del portale LUIS. Questo argomento di avvio rapido richiede solo una sottoscrizione di LUIS. *Non* è necessario avere una sottoscrizione del servizio Voce.
 
@@ -18,7 +18,7 @@ Per prima cosa è necessario creare un account e un'app LUIS tramite l'anteprima
 
 Per creare l'app LUIS, seguire queste istruzioni:
 
-* <a href="https://docs.microsoft.com/azure/cognitive-services/luis/luis-get-started-create-app" target="_blank">Guida introduttiva: creare un'app di dominio predefinita </a>
+* <a href="/azure/cognitive-services/luis/luis-get-started-create-app" target="_blank">Guida introduttiva: creare un'app di dominio predefinita </a>
 
 Al termine, saranno necessari quattro elementi:
 

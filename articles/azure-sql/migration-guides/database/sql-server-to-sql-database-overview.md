@@ -1,5 +1,5 @@
 ---
-title: 'SQL Server al database SQL: Panoramica della migrazione'
+title: 'SQL Server al database SQL di Azure: Panoramica della migrazione'
 description: Informazioni sui diversi strumenti e opzioni disponibili per eseguire la migrazione dei database di SQL Server al database SQL di Azure.
 ms.service: sql-database
 ms.subservice: migration-guide
@@ -10,14 +10,14 @@ author: mokabiru
 ms.author: mokabiru
 ms.reviewer: MashaMSFT
 ms.date: 11/06/2020
-ms.openlocfilehash: 733b2375a26b0157f88bc148b52932e2f3e3f2e2
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
+ms.openlocfilehash: ecb9d1e25647e197614817116921140f0d7fbdf4
+ms.sourcegitcommit: a8ff4f9f69332eef9c75093fd56a9aae2fe65122
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102488274"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105024966"
 ---
-# <a name="migration-overview-sql-server-to-sql-database"></a>Panoramica della migrazione: SQL Server al database SQL
+# <a name="migration-overview-sql-server-to-azure-sql-database"></a>Panoramica della migrazione: SQL Server al database SQL di Azure
 [!INCLUDE[appliesto--sqldb](../../includes/appliesto-sqldb.md)]
 
 Informazioni sulle diverse opzioni e considerazioni relative alla migrazione per eseguire la migrazione del SQL Server al database SQL di Azure. 
@@ -30,7 +30,7 @@ Informazioni sulle diverse opzioni e considerazioni relative alla migrazione per
 - Motore di calcolo (Google Cloud Platform-GCP)  
 - SQL cloud per SQL Server (Google Cloud Platform-GCP) 
 
-Per altri scenari, vedere la [Guida alla migrazione del database](https://datamigration.microsoft.com/). 
+Per altre guide alla migrazione, vedere [Migrazione dei database](https://docs.microsoft.com/data-migration). 
 
 ## <a name="overview"></a>Panoramica
 
@@ -58,7 +58,7 @@ Sono disponibili strumenti diversi per diversi carichi di lavoro e preferenze ut
 
 ## <a name="choose-appropriate-target"></a>Scegliere la destinazione appropriata
 
-Prendere in considerazione le linee guida generali che consentono di scegliere il modello di distribuzione e il livello di servizio appropriati per il database SQL di Azure. È possibile scegliere risorse di calcolo e di archiviazione durante la distribuzione e quindi modificarle successivamente usando il  [portale di Azure](../../database/scale-resources.md)  senza incorrere in tempi di inattività per l'applicazione.
+Prendere in considerazione le linee guida generali che consentono di scegliere il modello di distribuzione e il livello di servizio appropriati per il database SQL di Azure. È possibile scegliere risorse di calcolo e di archiviazione durante la distribuzione e quindi [modificarle successivamente usando il portale di Azure](../../database/scale-resources.md) senza incorrere in tempi di inattività per l'applicazione.
 
 
 **Modelli di distribuzione**: comprendere il carico di lavoro dell'applicazione e il modello di utilizzo per scegliere tra un singolo database o un pool elastico. 
@@ -212,7 +212,7 @@ Queste risorse sono state sviluppate come parte del programma Data SQL Ninja, sp
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Per avviare la migrazione del SQL Server al database SQL di Azure, vedere la [Guida alla migrazione da SQL Server a database SQL](sql-server-to-sql-database-guide.md).
+Per avviare la migrazione del SQL Server al database SQL, vedere la [Guida alla migrazione da SQL Server a database SQL di Azure](sql-server-to-sql-database-guide.md).
 
 - Per una matrice di servizi e strumenti di Microsoft e di terze parti disponibili per supportare diversi scenari di migrazione di database e dati, nonché per le attività speciali, vedere [servizio e strumenti per la migrazione dei dati](../../../dms/dms-tools-matrix.md).
 

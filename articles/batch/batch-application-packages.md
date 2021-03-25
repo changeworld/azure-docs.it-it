@@ -2,17 +2,17 @@
 title: Distribuire i pacchetti dell'applicazione nei nodi di calcolo
 description: Usare la funzionalità dei pacchetti dell’applicazione di Azure Batch per gestire facilmente più applicazioni e versioni ed eseguire l'installazione su nodi di calcolo in Batch.
 ms.topic: how-to
-ms.date: 09/24/2020
+ms.date: 03/24/2021
 ms.custom:
 - H1Hack27Feb2017
 - devx-track-csharp
 - contperf-fy21q1
-ms.openlocfilehash: b4c6ab99b0fa93e5fdea4256d6f232cc0fe4218e
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: d0ed5cc47694d6576e6aea46b62dfab8ecb73459
+ms.sourcegitcommit: ed7376d919a66edcba3566efdee4bc3351c57eda
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "97033732"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105045791"
 ---
 # <a name="deploy-applications-to-compute-nodes-with-batch-application-packages"></a>Distribuire le applicazioni nei nodi di calcolo con i pacchetti dell'applicazione Batch
 
@@ -59,6 +59,9 @@ Con i pacchetti dell'applicazione non è necessario che l'attività di avvio del
 ## <a name="upload-and-manage-applications"></a>Caricare e gestire le applicazioni
 
 È possibile usare il [portale di Azure](https://portal.azure.com) o le API Management di Batch per gestire i pacchetti dell'applicazione nell'account Batch. Le sezioni seguenti illustrano come collegare un account di archiviazione e come aggiungere e gestire le applicazioni e i pacchetti dell'applicazione nella portale di Azure.
+
+> [!NOTE]
+> Sebbene sia possibile definire i valori dell'applicazione nella [Microsoft.Batrisorsa ch/batchAccounts](/templates/microsoft.batch/batchaccounts) di un [modello ARM](quick-create-template.md), non è attualmente possibile usare un modello ARM per caricare i pacchetti dell'applicazione da usare nell'account batch. È necessario caricarli nell'account di archiviazione collegato come descritto di [seguito](#add-a-new-application).
 
 ### <a name="link-a-storage-account"></a>Collegare un account di archiviazione
 

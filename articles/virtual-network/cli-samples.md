@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 07/15/2019
 ms.author: kumud
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 539d11205ffead52d7f40526f2c712e8cf8b5cdd
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 97d63598f6a9cca199779e56cc211b9622117301
+ms.sourcegitcommit: ed7376d919a66edcba3566efdee4bc3351c57eda
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "87501441"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105048834"
 ---
 # <a name="azure-cli-samples-for-virtual-network"></a>Esempi dell'interfaccia della riga di comando di Azure per una rete virtuale
 
@@ -35,4 +35,4 @@ La tabella seguente include collegamenti a script Bash con i comandi dell'interf
 | [Filtrare il traffico della VM in ingresso e in uscita](./scripts/virtual-network-cli-sample-filter-network-traffic.md) | Crea una rete virtuale con subnet front-end e back-end. Il traffico di rete in ingresso alla subnet front-end è limitato a HTTP, HTTPS e SSH. Non è consentito il traffico in uscita verso Internet dalla subnet back-end. |
 |[Configurare una rete virtuale dual stack IPv4+IPv6 con un servizio Load Balancer Basic](./scripts/virtual-network-cli-sample-ipv6-dual-stack.md)|Distribuisce una rete virtuale dual stack (IPv4+IPv6) con due macchine virtuali e un Azure Load Balancer Basic con indirizzi IP pubblici IPv4 e IPv6. |
 |[Configurare una rete virtuale dual stack IPv4+IPv6 con un servizio Load Balancer Standard](./scripts/virtual-network-cli-sample-ipv6-dual-stack-standard-load-balancer.md)|Distribuisce una rete virtuale dual stack (IPv4+IPv6) con due macchine virtuali e un servizio Azure Load Balancer Standard con indirizzi IP pubblici IPv4 e IPv6. |
-|[Esercitazione: Creare e testare un gateway NAT - Interfaccia della riga di comando di Azure](../virtual-network/tutorial-create-validate-nat-gateway-cli.md)|Creare e convalidare un gateway NAT usando una macchina virtuale di origine e di destinazione. |
+|[Esercitazione: Creare e testare un gateway NAT - Interfaccia della riga di comando di Azure](./tutorial-create-nat-gateway-cli.md)|Creare e convalidare un gateway NAT usando una macchina virtuale di origine e di destinazione. |

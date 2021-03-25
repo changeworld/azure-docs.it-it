@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: noakup
 ms.author: noakuper
 ms.date: 09/03/2020
-ms.openlocfilehash: 69b5927c73dac14c76b94a4ee5bbb21449f8ec98
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: a6d4c5811c08aa8c4de2eeea5f5f53967c3006b2
+ms.sourcegitcommit: a8ff4f9f69332eef9c75093fd56a9aae2fe65122
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102047453"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105025357"
 ---
 # <a name="using-customer-managed-storage-accounts-in-azure-monitor-log-analytics"></a>Uso di account di archiviazione gestiti dal cliente in Log Analytics di Monitoraggio di Azure
 
@@ -50,7 +50,7 @@ Perché l'account di archiviazione si connetta correttamente al collegamento pri
 * Consentire a monitoraggio di Azure di accedere all'account di archiviazione. Se si sceglie di consentire solo la selezione di reti per l'accesso all'account di archiviazione, è necessario selezionare l'eccezione: "Consenti ai servizi Microsoft attendibili di accedere a questo account di archiviazione".
 ![Immagine dei servizi MS di attendibilità dell'account di archiviazione](./media/private-storage/storage-trust.png)
 * Se l'area di lavoro gestisce anche il traffico da altre reti, è necessario configurare l'account di archiviazione per consentire il traffico in ingresso proveniente dalle reti/Internet pertinenti.
-* Coordinare la versione di TLS tra gli agenti e l'account di archiviazione: è consigliabile inviare i dati a Log Analytics usando TLS 1,2 o versione successiva. Esaminare le [linee guida specifiche della piattaforma](https://docs.microsoft.com/azure/azure-monitor/logs/data-security#sending-data-securely-using-tls-12)e, se necessario, [configurare gli agenti per l'uso di TLS 1,2](https://docs.microsoft.com/azure/azure-monitor/agents/agent-windows#configure-agent-to-use-tls-12). Se per qualche motivo non è possibile, configurare l'account di archiviazione in modo che accetti TLS 1,0.
+* Coordinare la versione di TLS tra gli agenti e l'account di archiviazione: è consigliabile inviare i dati a Log Analytics usando TLS 1,2 o versione successiva. Esaminare le [linee guida specifiche della piattaforma](./data-security.md#sending-data-securely-using-tls-12)e, se necessario, [configurare gli agenti per l'uso di TLS 1,2](../agents/agent-windows.md#configure-agent-to-use-tls-12). Se per qualche motivo non è possibile, configurare l'account di archiviazione in modo che accetti TLS 1,0.
 
 ### <a name="using-a-customer-managed-storage-account-for-cmk-data-encryption"></a>Uso di un account di archiviazione gestito dal cliente per la crittografia dei dati CMK
 Archiviazione di Azure crittografa tutti i dati inattivi in un account di archiviazione. Per impostazione predefinita, USA chiavi gestite da Microsoft (MMK) per crittografare i dati. Tuttavia, archiviazione di Azure consente anche di usare CMK da Azure Key Vault per crittografare i dati di archiviazione. È possibile importare le proprie chiavi in Azure Key Vault oppure è possibile usare le API Azure Key Vault per generare chiavi.

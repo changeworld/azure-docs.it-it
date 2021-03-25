@@ -9,12 +9,12 @@ ms.author: nmurav
 ms.date: 3/23/2021
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: 753bb7a88f8032d6ed9aeac1b1adf4f34d7cec43
-ms.sourcegitcommit: ed7376d919a66edcba3566efdee4bc3351c57eda
+ms.openlocfilehash: 22bf8af89771e57621a0d8851ca31bb750b7cda2
+ms.sourcegitcommit: bed20f85722deec33050e0d8881e465f94c79ac2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/24/2021
-ms.locfileid: "105051351"
+ms.lasthandoff: 03/25/2021
+ms.locfileid: "105108350"
 ---
 # <a name="ensure-high-quality-media-in-azure-communication-services"></a>Verifica i contenuti multimediali di alta qualità nei servizi di comunicazione di Azure
 
@@ -36,7 +36,7 @@ La qualità dei supporti in tempo reale su IP è significativamente influenzata 
 
 Assicurarsi che la rete sia configurata in modo da supportare la larghezza di banda richiesta dalle sessioni multimediali di servizi di comunicazione Azure simultanee e da altre applicazioni aziendali. Il test del percorso di rete end-to-end per i colli di bottiglia della larghezza di banda è fondamentale per la corretta distribuzione della soluzione Servizi di comunicazione multimediale.
 
-Di seguito sono riportati i requisiti di larghezza di banda per le librerie client JavaScript:
+Di seguito sono riportati i requisiti di larghezza di banda per gli SDK JavaScript:
 
 |Larghezza di banda|Scenari|
 |:--|:--|
@@ -47,7 +47,7 @@ Di seguito sono riportati i requisiti di larghezza di banda per le librerie clie
 |500 Kbps|Gruppo di video che chiama 360p a 30 fps|
 |1,2 Mbps|Video di gruppo HD che chiama con risoluzione di HD 720p a 30 fps| 
 
-Di seguito sono riportati i requisiti di larghezza di banda per le librerie client native di Android e iOS:
+Di seguito sono riportati i requisiti di larghezza di banda per gli SDK nativi di Android e iOS:
 
 |Larghezza di banda|Scenari|
 |:--|:--|
@@ -79,7 +79,7 @@ Potrebbe essere necessario ottimizzare ulteriormente se:
 | Attività di ottimizzazione della rete | Dettagli |
 | :-- | :-- |
 | Pianificare la rete | In questa documentazione è possibile trovare i requisiti minimi per la rete per le chiamate. Vedere l' [esempio teams per la pianificazione della rete](https://docs.microsoft.com/microsoftteams/tutorial-network-planner-example) |
-| Risoluzione dei nomi esterna | Assicurarsi che tutti i computer in cui sono in esecuzione le librerie client di servizi di comunicazione Azure possano risolvere le query DNS esterne per individuare i servizi forniti dai servizi di comunicazione di Azure e che i firewall non impediscano l'accesso. Assicurarsi che le librerie client siano in grado di risolvere gli indirizzi *. skype.com, *. microsoft.com, *. azure.net, *. azureedge.net, *. office.com, *. trouter.io  |
+| Risoluzione dei nomi esterna | Assicurarsi che tutti i computer in cui sono in esecuzione gli SDK di servizi di comunicazione di Azure siano in grado di risolvere query DNS esterne per individuare i servizi forniti dai servizi di comunicazione di Azure e che i firewall non impediscano l'accesso. Assicurarsi che gli SDK siano in grado di risolvere gli indirizzi *. skype.com, *. microsoft.com, *. azure.net, *. azureedge.net, *. office.com, *. trouter.io  |
 | Mantieni persistenza sessione | Verificare che il firewall non modifichi le porte o gli indirizzi NAT (Network Address Translation) mappati per UDP
 Convalida dimensioni pool NAT | Convalidare le dimensioni del pool di Network Address Translation (NAT) necessarie per la connettività utente. Quando più utenti e dispositivi accedono ai servizi di comunicazione di Azure tramite [NAT (Network Address Translation) o Pat (Port Address](https://docs.microsoft.com/office365/enterprise/nat-support-with-office-365)Translation), assicurarsi che i dispositivi nascosti dietro ogni indirizzo IP instradabile pubblicamente non superino il numero supportato. Assicurarsi che ai pool NAT siano assegnati indirizzi IP pubblici adeguati per evitare l'esaurimento delle porte. L'esaurimento delle porte contribuirà a utenti e dispositivi interni che non sono in grado di connettersi ai servizi di comunicazione di Azure |
 | Guida al rilevamento e alla prevenzione delle intrusioni | Se l'ambiente dispone di un sistema di rilevamento o di prevenzione delle [intrusioni](https://docs.microsoft.com/azure/network-watcher/network-watcher-intrusion-detection-open-source-tools) (IDS/IPS) distribuito per un ulteriore livello di sicurezza per le connessioni in uscita, consentire tutti gli URL dei servizi di comunicazione di Azure |
@@ -89,10 +89,10 @@ Convalida dimensioni pool NAT | Convalidare le dimensioni del pool di Network Ad
 
 
 
-### <a name="operating-system-and-browsers-for-javascript-client-libraries"></a>Sistema operativo e browser (per le librerie client JavaScript)
+### <a name="operating-system-and-browsers-for-javascript-sdks"></a>Sistema operativo e browser (per gli SDK JavaScript)
 
-Le librerie client Voice/video di servizi di comunicazione di Azure supportano alcuni sistemi operativi e browser.
-Informazioni sui sistemi operativi e i browser supportati dalle librerie client chiamante nella [documentazione concettuale chiamante](https://docs.microsoft.com/azure/communication-services/concepts/voice-video-calling/calling-sdk-features).
+I servizi di comunicazione di Azure SDK per Voice/video supportano alcuni sistemi operativi e browser.
+Informazioni sui sistemi operativi e sui browser supportati dagli SDK di chiamata nella [documentazione concettuale chiamante](https://docs.microsoft.com/azure/communication-services/concepts/voice-video-calling/calling-sdk-features).
 
 ## <a name="next-steps"></a>Passaggi successivi
 
