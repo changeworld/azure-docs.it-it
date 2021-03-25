@@ -5,12 +5,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: seoapr2020
 ms.date: 04/21/2020
-ms.openlocfilehash: f171ab9619f2bcb8ecf15c4bfb3b17146ab5a0ff
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 419b4939c19ee03651a406db44244897e17087f2
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98938948"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104865469"
 ---
 # <a name="azure-storage-overview-in-hdinsight"></a>Panoramica di archiviazione di Azure in HDInsight
 
@@ -24,7 +24,7 @@ Se si sceglie di proteggere l'account di archiviazione con le restrizioni relati
 
 Nel diagramma seguente viene sintetizzata l'architettura HDInsight di Archiviazione di Azure:
 
-![' Archiviazione HDInsight Architecture '](./media/overview-azure-storage/storage-architecture.png "Architettura Archiviazione HDInsight")
+:::image type="content" source="./media/overview-azure-storage/storage-architecture.png" alt-text="Architettura Archiviazione HDInsight" border="false":::
 
 HDInsight offre accesso al file system distribuito collegato localmente ai nodi di calcolo. Il file system è accessibile tramite l'URI completo, ad esempio:
 
@@ -40,7 +40,7 @@ Tenere conto delle considerazioni seguenti quando si usa un account di Archiviaz
 
 * **Contenitori pubblici o BLOB pubblici negli account di archiviazione non connessi a un cluster:** Si dispone dell'autorizzazione di sola lettura per i BLOB nei contenitori.
   
-  > [!NOTE]  
+  > [!NOTE]
   > Un contenitore pubblico consente di ottenere un elenco di tutti i BLOB in esso disponibili, nonché i metadati del contenitore stesso. È possibile accedere a un BLOB pubblico solo se ne conosce l'URL esatto. Per altre informazioni, vedere [Gestire l'accesso in lettura anonimo a contenitori e BLOB](../storage/blobs/anonymous-read-access-configure.md).
 
 * **Contenitori privati negli account di archiviazione non connessi a un cluster:** Non è possibile accedere ai BLOB nei contenitori a meno che non si definisce l'account di archiviazione quando si inviano i processi di WebHCat.

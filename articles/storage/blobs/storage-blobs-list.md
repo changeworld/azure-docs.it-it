@@ -1,26 +1,24 @@
 ---
-title: Elencare i BLOB con .NET - Archiviazione di Azure
-description: Informazioni su come elencare i BLOB in un contenitore nell'account di Archiviazione di Azure usando la libreria client .NET. Gli esempi di codice illustrano come elencare i BLOB in un elenco semplice oppure in modo gerarchico, come se fossero organizzati in directory o cartelle.
+title: Elencare i BLOB con le API di archiviazione di Azure
+description: Informazioni su come elencare i BLOB nell'account di archiviazione usando le librerie client di archiviazione di Azure. Gli esempi di codice illustrano come elencare i BLOB in un elenco semplice oppure in modo gerarchico, come se fossero organizzati in directory o cartelle.
 services: storage
 author: tamram
 ms.service: storage
 ms.topic: how-to
-ms.date: 11/16/2020
+ms.date: 03/24/2021
 ms.author: tamram
 ms.subservice: blobs
 ms.custom: devx-track-csharp
-ms.openlocfilehash: ddd19c90c8c47016497e2c3b00e04595a94e7715
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: ff20b8bd0aab94cadadddbb7a4b7b32b1db1ee85
+ms.sourcegitcommit: ed7376d919a66edcba3566efdee4bc3351c57eda
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "95543069"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105046943"
 ---
-# <a name="list-blobs-with-net"></a>Elencare BLOB con .NET
+# <a name="list-blobs-with-azure-storage-client-libraries"></a>Elencare i BLOB con le librerie client di archiviazione di Azure
 
 Quando si elencano i BLOB tramite il codice, è possibile specificare diverse opzioni per gestire il modo in cui i risultati vengono restituiti dall'Archiviazione di Azure. È possibile specificare il numero di risultati da restituire in ogni set di risultati e quindi recuperare i set successivi. È possibile specificare un prefisso per restituire i BLOB i cui nomi iniziano con tale carattere o stringa. Ed è possibile elencare i BLOB in una struttura elenco semplice o gerarchica. Un elenco gerarchico restituisce i BLOB come se fossero organizzati in cartelle.
-
-Questo articolo illustra come elencare i BLOB usando la [libreria client di Archiviazione di Azure per .NET](/dotnet/api/overview/azure/storage).  
 
 ## <a name="understand-blob-listing-options"></a>Informazioni sulle opzioni per l'elenco di BLOB
 
@@ -45,7 +43,9 @@ Per elencare i BLOB in un contenitore, chiamare uno dei metodi seguenti:
 - [CloudBlobContainer.ListBlobsSegmented](/dotnet/api/microsoft.azure.storage.blob.cloudblobcontainer.listblobssegmented)
 - [CloudBlobContainer.ListBlobsSegmentedAsync](/dotnet/api/microsoft.azure.storage.blob.cloudblobcontainer.listblobssegmentedasync)
 
-Gli overload di questi metodi offrono opzioni aggiuntive per la gestione del modo in cui i BLOB vengono restituiti dall'operazione di elencazione. Le opzioni disponibili sono descritte nelle sezioni seguenti.
+# <a name="python-v12"></a>[Python V12](#tab/python)
+
+- [ContainerClient.list_blobs](/azure/developer/python/sdk/storage/azure-storage-blob/azure.storage.blob.containerclient#list-blobs-name-starts-with-none--include-none----kwargs-)
 
 ---
 
@@ -61,13 +61,25 @@ Per filtrare l'elenco di BLOB, specificare una stringa per il `prefix` parametro
 
 È possibile restituire i metadati dei BLOB con i risultati.
 
-- Se si usa .NET V12 SDK, specificare il valore **dei metadati** per l'enumerazione [BlobTraits](/dotnet/api/azure.storage.blobs.models.blobtraits) .
+# <a name="net-v12"></a>[.NET v12](#tab/dotnet)
 
-- Se si usa .NET V11 SDK, specificare il valore **dei metadati** per l'enumerazione [BlobListingDetails](/dotnet/api/microsoft.azure.storage.blob.bloblistingdetails) . Archiviazione di Azure include i metadati con ogni BLOB restituito, pertanto non è necessario chiamare uno dei metodi **FetchAttributes** in questo contesto per recuperare i metadati dei BLOB.
+Specificare il valore **dei metadati** per l'enumerazione [BlobTraits](/dotnet/api/azure.storage.blobs.models.blobtraits) .
+
+# <a name="net-v11"></a>[.NET v11](#tab/dotnet11)
+
+Specificare il valore **dei metadati** per l'enumerazione [BlobListingDetails](/dotnet/api/microsoft.azure.storage.blob.bloblistingdetails) . Archiviazione di Azure include i metadati con ogni BLOB restituito, pertanto non è necessario chiamare uno dei metodi **FetchAttributes** in questo contesto per recuperare i metadati dei BLOB.
+
+# <a name="python-v12"></a>[Python V12](#tab/python)
+
+Specificare `metadata` per il `include=` parametro quando si chiama [list_blobs](/azure/developer/python/sdk/storage/azure-storage-blob/azure.storage.blob.containerclient#list-blobs-name-starts-with-none--include-none----kwargs-).
+
+---
 
 ### <a name="list-blob-versions-or-snapshots"></a>Elencare le versioni o gli snapshot BLOB
 
-Per elencare le versioni o gli snapshot BLOB con la libreria client di .NET V12, specificare il parametro [BlobStates](/dotnet/api/azure.storage.blobs.models.blobstates) con la **versione** o il campo **snapshot** . Le versioni e gli snapshot sono elencati dal meno recente al più recente. Per altre informazioni sull'elenco delle versioni, vedere [elencare le versioni di BLOB](versioning-enable.md#list-blob-versions).
+- Per elencare le versioni o gli snapshot BLOB con la libreria client di .NET V12, specificare il parametro [BlobStates](/dotnet/api/azure.storage.blobs.models.blobstates) con la **versione** o il campo **snapshot** . Le versioni e gli snapshot sono elencati dal meno recente al più recente. Per altre informazioni sull'elenco delle versioni, vedere [elencare le versioni di BLOB](versioning-enable.md#list-blob-versions).
+
+- Per elencare il numero di snapshot con la libreria client Python V12, specificare `num_snapshots` nel `include=` parametro quando si chiama [list_blobs](/azure/developer/python/sdk/storage/azure-storage-blob/azure.storage.blob.containerclient#list-blobs-name-starts-with-none--include-none----kwargs-).
 
 ### <a name="flat-listing-versus-hierarchical-listing"></a>Confronto tra elenco semplice e gerarchico
 
@@ -135,11 +147,15 @@ private static async Task ListBlobsFlatListingAsync(CloudBlobContainer container
 }
 ```
 
+# <a name="python-v12"></a>[Python V12](#tab/python)
+
+:::code language="python" source="~/azure-storage-snippets/blobs/howto/python/python-v12/list_blobs.py" id="Snippet_ListBlobs":::
+
 ---
 
 L'output è simile al seguente:
 
-```
+```console
 Blob name: FolderA/blob1.txt
 Blob name: FolderA/blob2.txt
 Blob name: FolderA/blob3.txt
@@ -153,7 +169,7 @@ Blob name: FolderA/FolderB/FolderC/blob3.txt
 
 ## <a name="use-a-hierarchical-listing"></a>Usare un elenco gerarchico
 
-Quando si chiama un'operazione di elenco gerarchico, Archiviazione di Azure restituisce le directory virtuali e i BLOB del primo livello della gerarchia. Il [prefisso](/dotnet/api/microsoft.azure.storage.blob.cloudblobdirectory.prefix) proprietà di ogni directory virtuale è impostato in modo che sia possibile passare il prefisso in una chiamata ricorsiva per recuperare la directory successiva.
+Quando si chiama un'operazione di elenco gerarchico, Archiviazione di Azure restituisce le directory virtuali e i BLOB del primo livello della gerarchia.
 
 # <a name="net-v12"></a>[.NET v12](#tab/dotnet)
 
@@ -164,6 +180,8 @@ L'esempio seguente elenca i BLOB nel contenitore specificato usando un elenco ge
 :::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/dotnet-v12/CRUD.cs" id="Snippet_ListBlobsHierarchicalListing":::
 
 # <a name="net-v11"></a>[.NET v11](#tab/dotnet11)
+
+Il [prefisso](/dotnet/api/microsoft.azure.storage.blob.cloudblobdirectory.prefix) proprietà di ogni directory virtuale è impostato in modo che sia possibile passare il prefisso in una chiamata ricorsiva per recuperare la directory successiva.
 
 Per elencare i BLOB in modo gerarchico, impostare il parametro `useFlatBlobListing` del metodo di elenco su **false**.
 
@@ -222,11 +240,19 @@ private static async Task ListBlobsHierarchicalListingAsync(CloudBlobContainer c
 }
 ```
 
+# <a name="python-v12"></a>[Python V12](#tab/python)
+
+Per elencare i BLOB in modo gerarchico, chiamare il metodo [walk_blobs](/azure/developer/python/sdk/storage/azure-storage-blob/azure.storage.blob.containerclient#walk-blobs-name-starts-with-none--include-none--delimiter--------kwargs-) .
+
+L'esempio seguente elenca i BLOB nel contenitore specificato usando un elenco gerarchico, con una dimensione di segmento facoltativa specificata, e scrive il nome del BLOB nella finestra della console.
+
+:::code language="python" source="~/azure-storage-snippets/blobs/howto/python/python-v12/list_blobs.py" id="Snippet_WalkHierarchy":::
+
 ---
 
 L'output è simile al seguente:
 
-```
+```console
 Virtual directory prefix: FolderA/
 Blob name: FolderA/blob1.txt
 Blob name: FolderA/blob2.txt

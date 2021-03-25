@@ -6,12 +6,12 @@ ms.service: signalr
 ms.topic: conceptual
 ms.date: 11/06/2020
 ms.author: yajin1
-ms.openlocfilehash: 8eade7596e36389b1e345dc6f0aab1029dc100e0
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: e26def56fbd03626c3efc660db57012ee1b767ea
+ms.sourcegitcommit: ed7376d919a66edcba3566efdee4bc3351c57eda
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104589167"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105048205"
 ---
 # <a name="troubleshooting-guide-for-azure-signalr-service-common-issues"></a>Guida alla risoluzione dei problemi comuni relativi al servizio Azure SignalR
 
@@ -348,7 +348,7 @@ Per ASP.NET SignalR è stato risolto un problema noto nell'SDK 1.6.0. Aggiornare
 
 ## <a name="thread-pool-starvation"></a>Esaurimento del pool di thread
 
-Se il server è affamato, significa che nessun thread sta lavorando sull'elaborazione dei messaggi. Tutti i thread sono sospesi in un determinato metodo.
+Se il server è affamato, significa che nessun thread sta lavorando sull'elaborazione dei messaggi. Tutti i thread non rispondono in un determinato metodo.
 
 In genere, questo scenario è causato da Async su Sync o da `Task.Result` / `Task.Wait()` nei metodi asincroni.
 

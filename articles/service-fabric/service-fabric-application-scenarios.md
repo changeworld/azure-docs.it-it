@@ -3,12 +3,12 @@ title: Scenari e progettazione di applicazioni
 description: Panoramica delle categorie di applicazioni cloud nell'infrastruttura di servizi. Illustra la progettazione di applicazioni con servizi con e senza stato.
 ms.topic: conceptual
 ms.date: 01/08/2020
-ms.openlocfilehash: 6c3cc931a85b91fc02b8086ca5c2481153691e54
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 7d9459e6e0168657cf8e9062331fec0237f58c70
+ms.sourcegitcommit: ed7376d919a66edcba3566efdee4bc3351c57eda
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "96575670"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105045757"
 ---
 # <a name="service-fabric-application-scenarios"></a>Scenari di applicazione di Service Fabric
 
@@ -68,7 +68,7 @@ Di seguito è riportato un esempio di applicazione che usa i servizi con stato: 
 
 * Inizia a creare servizi con e senza stato con i modelli di programmazione Service Fabric [Reliable Services](service-fabric-reliable-services-quick-start.md) e [Reliable Actors](service-fabric-reliable-actors-get-started.md) .
 * Per istruzioni sulla [creazione di microservizi in Azure](/azure/architecture/microservices/), vedere la centro architetture di Azure.
-* Passare ad [Azure Service Fabric procedure](service-fabric-best-practices-overview.md) consigliate per le applicazioni e i cluster per le linee guida di progettazione delle applicazioni.
+* Passare ad [Azure Service Fabric procedure](./service-fabric-best-practices-security.md) consigliate per le applicazioni e i cluster per le linee guida di progettazione delle applicazioni.
 
 * Vedere anche la pagina relativa alla
   * [Informazioni sui microservizi](service-fabric-overview-microservices.md)

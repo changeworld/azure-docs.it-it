@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: overview
 ms.date: 2/25/2021
-ms.openlocfilehash: 2008e014e9f160b643ed5f591fff81c0b215e24a
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 8f300f214ed36b7a5257b7276364027b91edc746
+ms.sourcegitcommit: ed7376d919a66edcba3566efdee4bc3351c57eda
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102175081"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105048103"
 ---
 # <a name="register-and-scan-teradata-source-preview"></a>Registrare e analizzare un'origine Teradata (anteprima)
 
@@ -25,7 +25,7 @@ L'origine Teradata supporta l'**analisi completa** per estrarre i metadati da un
 ## <a name="prerequisites"></a>Prerequisiti
 
 1.  Configurare il runtime di [integrazione self-hosted](https://www.microsoft.com/download/details.aspx?id=39717)più recente.
-    Per altre informazioni, vedere [creare e configurare un runtime di integrazione self-hosted](https://docs.microsoft.com/azure/data-factory/create-self-hosted-integration-runtime).
+    Per altre informazioni, vedere [creare e configurare un runtime di integrazione self-hosted](../data-factory/create-self-hosted-integration-runtime.md).
 
 2.  Assicurarsi che [JDK 11](https://www.oracle.com/java/technologies/javase-jdk11-downloads.html) sia installato nella macchina virtuale in cui è installato il runtime di integrazione self-hosted.
 
@@ -70,7 +70,7 @@ Nella schermata **Register sources (Teradata)** (Registra origini - Teradata) se
 
 Per creare ed eseguire una nuova analisi, procedere come segue:
 
-1.  Nel centro di gestione fare clic su **Runtime di integrazione**. Assicurasi che sia configurato un runtime di integrazione self-hosted. Se non è configurato, attenersi alla procedura descritta [qui](https://docs.microsoft.com/azure/purview/manage-integration-runtimes) per configurare un runtime di integrazione self-hosted
+1.  Nel centro di gestione fare clic su **Runtime di integrazione**. Assicurasi che sia configurato un runtime di integrazione self-hosted. Se non è configurato, attenersi alla procedura descritta [qui](./manage-integration-runtimes.md) per configurare un runtime di integrazione self-hosted
 
 2.  Passare a **Origini**
 
@@ -90,7 +90,7 @@ Per creare ed eseguire una nuova analisi, procedere come segue:
     -   Specificare un nome utente per la connessione al server di database nel campo di input del nome utente
     -   Archiviare la password del server di database nella chiave privata.
 
-        Per ulteriori informazioni sulle credenziali, vedere il collegamento [qui](https://docs.microsoft.com/azure/purview/manage-credentials)
+        Per ulteriori informazioni sulle credenziali, vedere il collegamento [qui](./manage-credentials.md)
 
 6.  **Schema**: elenco subset di schemi da importare espressi come un elenco separato da punti e virgola. ad esempio, Schema1; Schema2. Se l'elenco è vuoto, verranno importati tutti gli schemi utente. Tutti gli schemi di sistema (ad esempio SysAdmin) e gli oggetti di sistema vengono ignorati per impostazione predefinita. Quando l'elenco è vuoto, vengono importati tutti gli schemi disponibili.
 
