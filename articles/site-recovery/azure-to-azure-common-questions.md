@@ -5,12 +5,12 @@ author: sideeksh
 manager: rochakm
 ms.date: 11/03/2019
 ms.topic: conceptual
-ms.openlocfilehash: d4fa7348df647cf699ebd55dd6415a79454ab5f1
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 5309fd60640c45ade42bab4c5727cf1f0a8d9d70
+ms.sourcegitcommit: a8ff4f9f69332eef9c75093fd56a9aae2fe65122
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "93397951"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105025476"
 ---
 # <a name="common-questions-azure-to-azure-disaster-recovery"></a>Domande frequenti: Ripristino di emergenza da Azure ad Azure
 
@@ -73,7 +73,7 @@ Sì, è possibile replicare le macchine virtuali di Azure in qualsiasi sottoscri
 
 ### <a name="can-i-replicate-vms-in-an-availability-zone-to-another-region"></a>È possibile replicare le macchine virtuali in una zona di disponibilità in un'altra area?
 
-Sì, è possibile replicare le macchine virtuali nelle zone di disponibilità in un'altra area di Azure. La macchina virtuale di destinazione può essere distribuita come una singola istanza, in un set di disponibilità o in una zona di disponibilità, se supportata nell'area di destinazione. 
+Sì, è possibile replicare le macchine virtuali nelle zone di disponibilità in un'altra area di Azure. 
 
 ### <a name="can-i-replicate-non-zone-vms-to-a-zone-within-the-same-region"></a>È possibile replicare macchine virtuali non di zona in una zona all'interno della stessa area? 
 
@@ -81,7 +81,7 @@ Questa operazione non è supportata nel portale. Per eseguire questa operazione,
 
 ### <a name="can-i-replicate-zoned-vms-to-a-different-zone-in-the-same-region"></a>È possibile replicare le macchine virtuali in zone in un'area diversa nella stessa area?
 
-Il supporto per questa operazione è limitato a un paio di aree. [Altre informazioni](azure-to-azure-how-to-enable-zone-to-zone-disaster-recovery.md)
+Il supporto per questa operazione è limitato ad alcune aree. [Altre informazioni](azure-to-azure-how-to-enable-zone-to-zone-disaster-recovery.md)
 
 ### <a name="can-i-exclude-disks-from-replication"></a>È possibile escludere I dischi dalla replica?
 

@@ -9,12 +9,12 @@ ms.service: iot-central
 services: iot-central
 ms.custom: mvc
 manager: philmea
-ms.openlocfilehash: 458c93fd3e13a958137c762a0979af918a70d930
-ms.sourcegitcommit: a8ff4f9f69332eef9c75093fd56a9aae2fe65122
+ms.openlocfilehash: 3132ec8fb3cb123653887d92a2f33788f40564c0
+ms.sourcegitcommit: bb330af42e70e8419996d3cba4acff49d398b399
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 03/24/2021
-ms.locfileid: "105023059"
+ms.locfileid: "105033824"
 ---
 # <a name="extend-azure-iot-central-with-custom-analytics-using-azure-databricks"></a>Estendi IoT Central di Azure con analisi personalizzate con Azure Databricks
 
@@ -117,7 +117,7 @@ Nel sito Web di [Azure IOT Central Application Manager](https://aka.ms/iotcentra
 
     L' **Hub eventi** viene visualizzato come **centralexport**.
 
-    :::image type="content" source="media/howto-create-custom-analytics/data-export-1.png" alt-text="Screenshot che mostra la destinazione di esportazione dei dati":::
+    :::image type="content" source="media/howto-create-custom-analytics/data-export-1.png" alt-text="Screenshot che mostra la destinazione di esportazione dei dati.":::
 
 1. Selezionare **Salva**.
 
@@ -136,7 +136,7 @@ Per creare la definizione di esportazione:
 
 1. Selezionare **Salva**.
 
-    :::image type="content" source="media/howto-create-custom-analytics/data-export-2.png" alt-text="Screenshot che mostra la definizione di esportazione dei dati":::
+    :::image type="content" source="media/howto-create-custom-analytics/data-export-2.png" alt-text="Screenshot che mostra la definizione di esportazione dei dati.":::
 
 Prima di continuare, attendere che lo stato di esportazione sia **integro** nella pagina **esportazione dati** .
 
