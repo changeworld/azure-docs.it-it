@@ -8,12 +8,12 @@ ms.author: gachandw
 ms.reviewer: mimckitt
 ms.date: 10/13/2020
 ms.custom: ''
-ms.openlocfilehash: 4db23982dfaed1447023edb417a3732dac94bdc4
-ms.sourcegitcommit: a8ff4f9f69332eef9c75093fd56a9aae2fe65122
+ms.openlocfilehash: 9cac6cdd8e68af77b611c89e8b62e6f8d8845fd0
+ms.sourcegitcommit: bed20f85722deec33050e0d8881e465f94c79ac2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/24/2021
-ms.locfileid: "105025238"
+ms.lasthandoff: 03/25/2021
+ms.locfileid: "105107517"
 ---
 # <a name="frequently-asked-questions-for-azure-cloud-services-extended-support"></a>Domande frequenti per Servizi cloud di Azure (supporto "Extended")
 Questo articolo descrive le domande frequenti relative ai servizi cloud di Azure (supporto esteso).
@@ -93,7 +93,7 @@ No, le distribuzioni del servizio cloud (supporto esteso) sono associate a un cl
 ### <a name="when-do-i-need-to-migrate"></a>Quando è necessario eseguire la migrazione? 
 La stima del tempo necessario e della migrazione della complessità dipende da un intervallo di variabili. La pianificazione è il passaggio più efficace per comprendere l'ambito di lavoro, i blocchi e la complessità della migrazione.
 
-## <a name="networking"></a>Rete
+## <a name="networking"></a>Rete 
 
 ### <a name="why-cant-i-create-a-deployment-without-virtual-network"></a>Perché non è possibile creare una distribuzione senza rete virtuale?
 Le reti virtuali sono una risorsa obbligatoria per qualsiasi distribuzione in Azure Resource Manager. La distribuzione dei servizi cloud (supporto esteso) deve risiedere all'interno di una rete virtuale. 
@@ -112,6 +112,9 @@ Ai clienti viene addebitato l'uso di indirizzi IP nei servizi cloud (supporto es
 
 ### <a name="can-i-use-a-dns-name-with-cloud-services-extended-support"></a>È possibile usare un nome DNS con servizi cloud (supporto esteso)? 
 Sì. Ai servizi cloud (supporto esteso) può essere assegnato anche un nome DNS. Con Azure Resource Manager, l'etichetta DNS è una proprietà facoltativa dell'indirizzo IP pubblico assegnato al servizio cloud. Il formato del nome DNS per le distribuzioni basate su Azure Resource Manager è `<userlabel>.<region>.cloudapp.azure.com`
+
+### <a name="can-i-update-or-change-the-virtual-network-reference-for-an-existing-cloud-service-extended-support"></a>È possibile aggiornare o modificare il riferimento alla rete virtuale per un servizio cloud esistente (supporto esteso)? 
+No. Il riferimento alla rete virtuale è obbligatorio durante la creazione di un servizio cloud. Per un servizio cloud esistente, il riferimento alla rete virtuale non può essere modificato. Lo spazio degli indirizzi della rete virtuale può essere modificato usando le API di VNet. 
 
 ## <a name="certificates--key-vault"></a>Certificati & Key Vault
 

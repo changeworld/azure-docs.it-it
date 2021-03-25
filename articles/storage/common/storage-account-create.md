@@ -10,12 +10,12 @@ ms.date: 01/11/2021
 ms.author: tamram
 ms.subservice: common
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
-ms.openlocfilehash: b8f5932985f90ce042d7b0df0d01e7c685098670
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 73bef1648b08f5c1e0664ef1da15375bc44149cc
+ms.sourcegitcommit: ed7376d919a66edcba3566efdee4bc3351c57eda
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104576510"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105045349"
 ---
 # <a name="create-a-storage-account"></a>Creare un account di archiviazione
 
@@ -279,7 +279,7 @@ In alternativa, è possibile eliminare il gruppo di risorse, che elimina l'accou
 > [!WARNING]
 > Non è possibile ripristinare un account di archiviazione eliminato, né recuperare gli elementi che conteneva prima dell'eliminazione. Assicurarsi di eseguire il backup di tutti gli elementi da salvare prima di eliminare l'account. Lo stesso vale per tutte le risorse nell'account: dopo aver eliminato un BLOB, una tabella, una coda o un file, non è più possibile recuperarlo.
 >
-> Se si prova a eliminare un account di archiviazione associato a una macchina virtuale di Azure, potrebbe essere visualizzato un errore che informa che l'account di archiviazione è ancora in uso. Per informazioni sulla risoluzione di questo errore, vedere [risolvere gli errori quando si eliminano gli account di archiviazione](../../virtual-machines/troubleshooting/index.yml).
+> Se si prova a eliminare un account di archiviazione associato a una macchina virtuale di Azure, potrebbe essere visualizzato un errore che informa che l'account di archiviazione è ancora in uso. Per informazioni sulla risoluzione di questo errore, vedere [risolvere gli errori quando si eliminano gli account di archiviazione](/troubleshoot/azure/virtual-machines/welcome-virtual-machines).
 
 ## <a name="next-steps"></a>Passaggi successivi
 

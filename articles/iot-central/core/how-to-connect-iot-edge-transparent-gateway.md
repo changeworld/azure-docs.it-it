@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.service: iot-central
 services: iot-central
 ms.custom: device-developer
-ms.openlocfilehash: bdfb5f65106f3f8843b4aa52b752f5e563ab03f0
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 4e88ad58c7baba1c66c30df3f4effdbf11371c18
+ms.sourcegitcommit: ed7376d919a66edcba3566efdee4bc3351c57eda
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102620047"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105045332"
 ---
 # <a name="how-to-connect-devices-through-an-iot-edge-transparent-gateway"></a>Come connettere i dispositivi tramite un gateway trasparente IoT Edge
 
@@ -186,7 +186,7 @@ Il gateway trasparente è ora configurato e pronto per l'avvio dell'invio dei da
 
 ## <a name="provision-a-downstream-device"></a>Effettuare il provisioning di un dispositivo downstream
 
-Attualmente, IoT Edge non è in grado di effettuare automaticamente il provisioning di un dispositivo downstream nell'applicazione IoT Central. I passaggi seguenti illustrano come eseguire il provisioning del `thermostat1` dispositivo. Per completare questi passaggi, è necessario un ambiente con Python 3,5 (o versione successiva) installato e connettività Internet. Il [Azure cloud Shell](https://shell.azure.com/) dispone di Python 3,5 pre-installato:
+Attualmente, IoT Edge non è in grado di effettuare automaticamente il provisioning di un dispositivo downstream nell'applicazione IoT Central. I passaggi seguenti illustrano come eseguire il provisioning del `thermostat1` dispositivo. Per completare questi passaggi, è necessario un ambiente con Python 3,6 (o versione successiva) installato e connettività Internet. Il [Azure cloud Shell](https://shell.azure.com/) dispone di Python 3,7 pre-installato:
 
 1. Eseguire il comando seguente per installare il `azure.iot.device` modulo:
 

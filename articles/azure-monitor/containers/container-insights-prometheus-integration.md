@@ -3,12 +3,12 @@ title: Configurare l'integrazione di Prometeo per Insights | Microsoft Docs
 description: Questo articolo descrive come configurare l'agente di container Insights per rimuovere le metriche da Prometheus con il cluster Kubernetes.
 ms.topic: conceptual
 ms.date: 04/22/2020
-ms.openlocfilehash: 8affeb472b9452e4d234e99e5ea6bb4509770fac
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 149cdc8613d5034989c7660608a29309353cdabe
+ms.sourcegitcommit: bed20f85722deec33050e0d8881e465f94c79ac2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101731732"
+ms.lasthandoff: 03/25/2021
+ms.locfileid: "105109642"
 ---
 # <a name="configure-scraping-of-prometheus-metrics-with-container-insights"></a>Configurare la frammentazione delle metriche Prometeo con informazioni dettagliate sul contenitore
 
@@ -48,7 +48,7 @@ Quando si specifica un URL, le informazioni dettagliate sul contenitore ricavano
 |------|-----|-----------|-------|-------------|
 | A livello di cluster | | | | Specificare uno dei tre metodi seguenti per rimuovere gli endpoint per le metriche. |
 | | `urls` | string | Matrice con valori delimitati da virgole | Endpoint HTTP (indirizzo IP o percorso URL valido specificato). Ad esempio: `urls=[$NODE_IP/metrics]`. ($NODE _IP è un parametro specifico di Insights di contenitore e può essere usato al posto dell'indirizzo IP del nodo. Deve essere tutti in maiuscolo.) |
-| | `kubernetes_services` | string | Matrice con valori delimitati da virgole | Una matrice di servizi Kubernetes per rimuovere le metriche da Kube-state-Metrics. Ad esempio, `kubernetes_services = ["https://metrics-server.kube-system.svc.cluster.local/metrics",http://my-service-dns.my-namespace:9100/metrics]`.|
+| | `kubernetes_services` | string | Matrice con valori delimitati da virgole | Una matrice di servizi Kubernetes per rimuovere le metriche da Kube-state-Metrics. Qui è necessario usare i nomi di dominio completi. Ad esempio, `kubernetes_services = ["https://metrics-server.kube-system.svc.cluster.local/metrics",http://my-service-dns.my-namespace.svc.cluster.local:9100/metrics]`.|
 | | `monitor_kubernetes_pods` | Boolean | true o false | Quando è impostato su `true` nelle impostazioni a livello di cluster, l'agente di container Insights Kubernetes i pod nell'intero cluster per le annotazioni Prometheus seguenti:<br> `prometheus.io/scrape:`<br> `prometheus.io/scheme:`<br> `prometheus.io/path:`<br> `prometheus.io/port:` |
 | | `prometheus.io/scrape` | Boolean | true o false | Consente di rimuovere il pod. `monitor_kubernetes_pods` deve essere impostato su `true`. |
 | | `prometheus.io/scheme` | string | http o https | Il valore predefinito è la rottamazione su HTTP. Se necessario, impostare su `https` . | 

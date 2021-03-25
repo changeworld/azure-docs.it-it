@@ -10,14 +10,14 @@ ms.date: 03/11/2021
 ms.topic: include
 ms.custom: include file
 ms.author: lakshmans
-ms.openlocfilehash: f064e0c3ac00b4ab7aeb23356dd24fd89c91021e
-ms.sourcegitcommit: ed7376d919a66edcba3566efdee4bc3351c57eda
+ms.openlocfilehash: 727e2166bad7f0d8980ffe4fa18c292a206c37d7
+ms.sourcegitcommit: bed20f85722deec33050e0d8881e465f94c79ac2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/24/2021
-ms.locfileid: "105105870"
+ms.lasthandoff: 03/25/2021
+ms.locfileid: "105110354"
 ---
-Introduzione a Servizi di comunicazione di Azure, con l'invio di messaggi SMS tramite la libreria client SMS di Servizi di comunicazione per Python.
+Introduzione ai servizi di comunicazione di Azure tramite i servizi di comunicazione Python SMS SDK per inviare messaggi SMS.
 
 Le procedure illustrate in questa guida di avvio rapido comportano l'addebito di qualche centesimo (USD) o meno nell'account Azure.
 
@@ -62,7 +62,7 @@ except Exception as ex:
 
 ### <a name="install-the-package"></a>Installare il pacchetto
 
-Rimanendo nella directory dell'applicazione, installare il pacchetto della libreria client SMS di Servizi di comunicazione di Azure per Python usando il comando `pip install`.
+Quando si è ancora nella directory dell'applicazione, installare il pacchetto SMS SDK per Azure Communication Services per Python usando il `pip install` comando.
 
 ```console
 pip install azure-communication-sms --pre
@@ -70,7 +70,7 @@ pip install azure-communication-sms --pre
 
 ## <a name="object-model"></a>Modello a oggetti
 
-Le classi e le interfacce seguenti gestiscono alcune delle principali funzionalità della libreria client SMS di Servizi di comunicazione di Azure per Python.
+Le classi e le interfacce seguenti gestiscono alcune delle principali funzionalità di Azure Communication Services SMS SDK per Python.
 
 | Nome                                  | Descrizione                                                  |
 | ------------------------------------- | ------------------------------------------------------------ |
@@ -79,16 +79,14 @@ Le classi e le interfacce seguenti gestiscono alcune delle principali funzionali
 
 ## <a name="authenticate-the-client"></a>Autenticare il client
 
-Creare un'istanza di **SmsClient** con la stringa di connessione. Il codice seguente recupera la stringa di connessione per la risorsa da una variabile di ambiente denominata `COMMUNICATION_SERVICES_CONNECTION_STRING`. Vedere come [gestire la stringa di connessione della risorsa](../../create-communication-resource.md#store-your-connection-string).
+Creare un'istanza di **SmsClient** con la stringa di connessione. Vedere come [gestire la stringa di connessione della risorsa](../../create-communication-resource.md#store-your-connection-string).
 
 ```python
-# This code demonstrates how to fetch your connection string
-# from an environment variable.
-connection_string = os.getenv('COMMUNICATION_SERVICES_CONNECTION_STRING')
-
 # Create the SmsClient object which will be used to send SMS messages
-sms_client = SmsClient.from_connection_string(connection_string)
+sms_client = SmsClient.from_connection_string(<connection_string>)
 ```
+Per semplicità si usano stringhe di connessione in questa Guida introduttiva, ma negli ambienti di produzione è consigliabile usare [identità gestite](../../../quickstarts/managed-identity.md) perché sono più sicure e gestibili su larga scala.
+
 
 ## <a name="send-a-11-sms-message"></a>Invia un messaggio SMS 1:1
 
@@ -107,6 +105,9 @@ sms_responses = sms_client.send(
 ```
 
 È necessario sostituire `<from-phone-number>` con un numero di telefono abilitato per gli SMS associato al servizio di comunicazione e `<to-phone-number>` con il numero di telefono a cui inviare un messaggio. 
+
+> [!WARNING]
+> Si noti che i numeri di telefono devono essere specificati nel formato standard internazionale E.164, (ad esempio: + 12223334444).
 
 ## <a name="send-a-1n-sms-message"></a>Invia un messaggio SMS 1: N
 
@@ -133,9 +134,31 @@ Il parametro `enable_delivery_report` è facoltativo ed è possibile usarlo per 
 Il `tag` parametro è un parametro facoltativo che è possibile usare per configurare l'assegnazione di tag personalizzata.
 
 ## <a name="run-the-code"></a>Eseguire il codice
-
 Eseguire l'applicazione dalla directory dell'applicazione con il comando `python`.
 
 ```console
 python send-sms.py
+```
+
+Lo script Python completo dovrebbe avere un aspetto simile al seguente:
+
+```python
+
+import os
+from azure.communication.sms import SmsClient
+
+try:
+    # Create the SmsClient object which will be used to send SMS messages
+    sms_client = SmsClient.from_connection_string("<connection string>")
+    # calling send() with sms values
+    sms_responses = sms_client.send(
+       from_="<from-phone-number>",
+       to="<to-phone-number>",
+       message="Hello World via SMS",
+       enable_delivery_report=True, # optional property
+       tag="custom-tag") # optional property
+
+except Exception as ex:
+    print('Exception:')
+    print(ex)
 ```

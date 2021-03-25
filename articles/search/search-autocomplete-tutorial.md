@@ -7,18 +7,18 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 11/24/2020
+ms.date: 03/24/2021
 ms.custom: devx-track-js, devx-track-csharp
-ms.openlocfilehash: 25c87971455ed3c5f59c92748794720d61e599e3
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 668b987dd8b367c143a91dc5adb11848321a9d5a
+ms.sourcegitcommit: ed7376d919a66edcba3566efdee4bc3351c57eda
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "96339609"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105044414"
 ---
 # <a name="add-autocomplete-and-suggestions-to-client-apps-using-azure-cognitive-search"></a>Aggiungere il completamento automatico e suggerimenti alle app client usando Azure ricerca cognitiva
 
-Il tipo di ricerca è una tecnica comune per migliorare la produttività delle query avviate dall'utente. In Azure ricerca cognitiva questa esperienza è supportata tramite il *completamento automatico*, che completa un termine o una frase basata sull'input parziale (completando "micro" con "Microsoft"). Una seconda esperienza utente è costituita da *suggerimenti* o da un breve elenco di documenti corrispondenti (che restituiscono titoli di libro con un ID per potersi collegare a una pagina di dettaglio relativa a tale libro). Il completamento automatico e i suggerimenti vengono predicati in base a una corrispondenza nell'indice. Il servizio non offrirà query che restituiscono zero risultati.
+Il tipo di ricerca è una tecnica comune per migliorare la produttività delle query. In Azure ricerca cognitiva questa esperienza è supportata tramite il *completamento automatico*, che completa un termine o una frase basata sull'input parziale (completando "micro" con "Microsoft"). Una seconda esperienza utente è costituita da *suggerimenti* o da un breve elenco di documenti corrispondenti (che restituiscono titoli di libro con un ID per potersi collegare a una pagina di dettaglio relativa a tale libro). Il completamento automatico e i suggerimenti vengono predicati in base a una corrispondenza nell'indice. Il servizio non offrirà query che restituiscono zero risultati.
 
 Per implementare queste esperienze in Azure ricerca cognitiva, sarà necessario:
 
@@ -63,13 +63,16 @@ Seguire questi collegamenti per le pagine di riferimento REST e .NET SDK:
 
 Le risposte per il completamento automatico e i suggerimenti sono quelle che è possibile prevedere per il modello: il [completamento automatico](/rest/api/searchservice/autocomplete#response) restituisce un elenco di termini, i [suggerimenti](/rest/api/searchservice/suggestions#response) restituiscono termini più un ID documento in modo che sia possibile recuperare il documento (usare l'API di [ricerca del documento](/rest/api/searchservice/lookup-document) per recuperare il documento specifico per una pagina di dettaglio).
 
-Le risposte vengono modellate in base ai parametri della richiesta. Per il completamento automatico, impostare [**autocompleteMode**](/rest/api/searchservice/autocomplete#autocomplete-modes) per determinare se il completamento del testo viene eseguito in uno o due termini. Per i suggerimenti, il campo scelto determina il contenuto della risposta.
+Le risposte vengono modellate in base ai parametri della richiesta:
 
-Per i suggerimenti, è necessario affinare ulteriormente la risposta per evitare i duplicati o i risultati non correlati. Per controllare i risultati, includere più parametri nella richiesta. I parametri seguenti si applicano sia a completamento automatico che a suggerimenti, ma sono forse più necessari per i suggerimenti, soprattutto quando un suggerimento include più campi.
++ Per il completamento automatico, impostare [**autocompleteMode**](/rest/api/searchservice/autocomplete#query-parameters) per determinare se il completamento del testo viene eseguito in uno o due termini. 
+
++ Per i suggerimenti, impostare [**$Select**](/rest/api/searchservice/suggestionse#query-parameters) per restituire campi che contengono valori univoci o differenzianti, ad esempio nomi e descrizioni. Evitare i campi che contengono valori duplicati, ad esempio una categoria o una città.
+
+I seguenti parametri aggiuntivi si applicano sia al completamento automatico che ai suggerimenti, ma sono forse più necessari per i suggerimenti, soprattutto quando un suggerimento include più campi.
 
 | Parametro | Utilizzo |
 |-----------|-------|
-| **$select** | Se si dispone di più **sourceFields** in un suggerimento, utilizzare **$SELECT** per scegliere il campo che contribuisce ai valori ( `$select=GameTitle` ). |
 | **searchFields** | Vincolare la query a campi specifici. |
 | **$filter** | Applicare i criteri di corrispondenza nel set di risultati ( `$filter=Category eq 'ActionAdventure'` ). |
 | **$top** | Limitare i risultati a un numero specifico ( `$top=5` ).|

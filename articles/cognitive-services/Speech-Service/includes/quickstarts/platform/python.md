@@ -4,12 +4,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 10/15/2020
 ms.author: trbye
-ms.openlocfilehash: 14048494c6fb3a0bf5b96f2e03824b47c5cc318c
-ms.sourcegitcommit: ed7376d919a66edcba3566efdee4bc3351c57eda
+ms.openlocfilehash: 4f542970db5cf7015df4e0f276fccd8782d7beee
+ms.sourcegitcommit: bed20f85722deec33050e0d8881e465f94c79ac2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/24/2021
-ms.locfileid: "105104726"
+ms.lasthandoff: 03/25/2021
+ms.locfileid: "105152724"
 ---
 Questa guida spiega come installare [Speech SDK](~/articles/cognitive-services/speech-service/speech-sdk.md) per Python. Se si vuole solo il nome del pacchetto per iniziare autonomamente, eseguire `pip install azure-cognitiveservices-speech`.
 
@@ -49,7 +49,7 @@ Questa guida spiega come installare [Speech SDK](~/articles/cognitive-services/s
 > - In RHEL/CentOS 8 seguire le istruzioni riportate in [Come configurare OpenSSL per Linux](~/articles/cognitive-services/speech-service/how-to-configure-openssl-linux.md).
 
 - In Windows è necessaria la versione di [Microsoft Visual C++ Redistributable per Visual Studio 2019](https://support.microsoft.com/help/2977003/the-latest-supported-visual-c-downloads) per la piattaforma in uso. La prima volta che si esegue questa installazione può essere necessario riavviare Windows prima di continuare con questa guida.
-- Infine, è necessario [Python 3.6 +](https://www.python.org/downloads/). Per controllare l'installazione, aprire un prompt dei comandi e digitare il comando `python --version`, quindi controllare il risultato. Se è installato correttamente, si otterrà una risposta come "Python 3.8.8".
+- Infine, sarà necessario [Python 3,6 a 3,9](https://www.python.org/downloads/). Per controllare l'installazione, aprire un prompt dei comandi e digitare il comando `python --version`, quindi controllare il risultato. Se è installato correttamente, si otterrà una risposta come "Python 3.8.8".
 
 ## <a name="install-the-speech-sdk-from-pypi"></a>Installare Speech SDK da PyPI
 

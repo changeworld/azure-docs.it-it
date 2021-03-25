@@ -9,12 +9,12 @@ ms.topic: article
 ms.service: virtual-machines-windows
 ms.collection: windows
 ms.subservice: imaging
-ms.openlocfilehash: 01b253747791fc29abf4434bebfd85865099f9ee
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 69718b219d239ac13e5d932b05a7dd29619adaa3
+ms.sourcegitcommit: ed7376d919a66edcba3566efdee4bc3351c57eda
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103602019"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105045587"
 ---
 # <a name="create-a-windows-virtual-desktop-image-using-azure-vm-image-builder-and-powershell"></a>Creare un'immagine di desktop virtuale Windows usando il generatore di immagini VM di Azure e PowerShell
 
@@ -22,11 +22,11 @@ Questo articolo illustra come creare un'immagine di desktop virtuale Windows con
 
 * Installazione di [FsLogix](https://github.com/DeanCefola/Azure-WVD/blob/master/PowerShell/FSLogixSetup.ps1).
 * Esecuzione di uno [script di ottimizzazione del desktop virtuale Windows](https://github.com/The-Virtual-Desktop-Team/Virtual-Desktop-Optimization-Tool) dal repository della community.
-* Installare [Microsoft teams](https://docs.microsoft.com/azure/virtual-desktop/teams-on-wvd).
-* [Riavvia](https://docs.microsoft.com/azure/virtual-machines/linux/image-builder-json?toc=%2Fazure%2Fvirtual-machines%2Fwindows%2Ftoc.json&bc=%2Fazure%2Fvirtual-machines%2Fwindows%2Fbreadcrumb%2Ftoc.json#windows-restart-customizer)
-* Esegui [Windows Update](https://docs.microsoft.com/azure/virtual-machines/linux/image-builder-json?toc=%2Fazure%2Fvirtual-machines%2Fwindows%2Ftoc.json&bc=%2Fazure%2Fvirtual-machines%2Fwindows%2Fbreadcrumb%2Ftoc.json#windows-update-customizer)
+* Installare [Microsoft teams](../../virtual-desktop/teams-on-wvd.md).
+* [Riavvia](../linux/image-builder-json.md?bc=%2fazure%2fvirtual-machines%2fwindows%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json#windows-restart-customizer)
+* Esegui [Windows Update](../linux/image-builder-json.md?bc=%2fazure%2fvirtual-machines%2fwindows%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json#windows-update-customizer)
 
-Verrà illustrato come automatizzare questa operazione usando il generatore di immagini di macchine virtuali di Azure e distribuire l'immagine in una [raccolta di immagini condivise](https://docs.microsoft.com/azure/virtual-machines/windows/shared-image-galleries), in cui è possibile eseguire la replica in altre aree, controllare la scala e condividere l'immagine all'interno e all'esterno delle organizzazioni.
+Verrà illustrato come automatizzare questa operazione usando il generatore di immagini di macchine virtuali di Azure e distribuire l'immagine in una [raccolta di immagini condivise](../shared-image-galleries.md), in cui è possibile eseguire la replica in altre aree, controllare la scala e condividere l'immagine all'interno e all'esterno delle organizzazioni.
 
 
 Per semplificare la distribuzione di una configurazione di Image Builder, questo esempio usa un modello di Azure Resource Manager con il modello di generatore di immagini annidato all'interno di. Ciò offre altri vantaggi, ad esempio variabili e input di parametri. È anche possibile passare parametri dalla riga di comando.
@@ -73,7 +73,7 @@ Questo articolo è destinato a essere un esercizio di copia e incolla.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-È necessario che siano installati i CmdLet di Azure PowerShell più recenti, vedere [qui](https://docs.microsoft.com/powershell/azure/overview) per i dettagli dell'installazione.
+È necessario che siano installati i CmdLet di Azure PowerShell più recenti, vedere [qui](/powershell/azure/overview) per i dettagli dell'installazione.
 
 ```PowerShell
 # Register for Azure Image Builder Feature
@@ -279,7 +279,7 @@ $getStatus.LastRunStatusMessage
 $getStatus.LastRunStatusRunSubState
 ```
 ## <a name="create-a-vm"></a>Creare una macchina virtuale
-A questo punto, la compilazione è stata completata. è possibile creare una VM dall'immagine, usando gli esempi disponibili [qui](https://docs.microsoft.com/powershell/module/az.compute/new-azvm#examples).
+A questo punto, la compilazione è stata completata. è possibile creare una VM dall'immagine, usando gli esempi disponibili [qui](/powershell/module/az.compute/new-azvm#examples).
 
 ## <a name="clean-up"></a>Eseguire la pulizia
 

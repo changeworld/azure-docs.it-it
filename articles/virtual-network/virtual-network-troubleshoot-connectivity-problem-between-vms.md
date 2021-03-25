@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/30/2018
 ms.author: genli
-ms.openlocfilehash: 6ece3e639e0ef3516696e2a0bad7deeb833433a6
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 5e602f8bbdf6ad92acacac6688326a555a0420b6
+ms.sourcegitcommit: ed7376d919a66edcba3566efdee4bc3351c57eda
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98219199"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105042867"
 ---
 # <a name="troubleshooting-connectivity-problems-between-azure-vms"></a>Risoluzione dei problemi di connettività tra macchine virtuali di Azure
 
@@ -49,7 +49,7 @@ Seguire questa procedura per risolvere il problema. Dopo avere completato ogni p
 
 ### <a name="step-1-check-whether-nic-is-misconfigured"></a>Passaggio 1: Controllare che NIC sia configurato correttamente
 
-Seguire i passaggi illustrati in [Come reimpostare l'interfaccia di rete per la VM Windows Azure](../virtual-machines/troubleshooting/reset-network-interface.md). 
+Seguire i passaggi illustrati in [Come reimpostare l'interfaccia di rete per la VM Windows Azure](/troubleshoot/azure/virtual-machines/reset-network-interface). 
 
 Se il problema si verifica dopo aver modificato l'interfaccia di rete, procedere come segue:
 
@@ -62,8 +62,8 @@ Per altre informazioni, vedere [Aggiungere o rimuovere interfacce di rete da mac
 
 **Macchina virtuale con una sola scheda di rete** 
 
-- [Ridistribuire una VM Windows](../virtual-machines/troubleshooting/redeploy-to-new-node-windows.md)
-- [Ridistribuire una VM Linux](../virtual-machines/troubleshooting/redeploy-to-new-node-linux.md)
+- [Ridistribuire una VM Windows](/troubleshoot/azure/virtual-machines/redeploy-to-new-node-windows)
+- [Ridistribuire una VM Linux](/troubleshoot/azure/virtual-machines/redeploy-to-new-node-linux)
 
 ### <a name="step-2-check-whether-network-traffic-is-blocked-by-nsg-or-udr"></a>Passaggio 2: Controllare se il traffico è bloccato dal gruppo di sicurezza di rete o UDR
 
@@ -107,7 +107,7 @@ Tutte le macchine virtuali create in Azure con il modello di distribuzione class
 
 ### <a name="step-8-try-to-connect-to-a-vm-network-share"></a>Passaggio 8: Provare a connettersi a una condivisione di rete della macchina virtuale
 
-Se non è possibile connettersi a una condivisione di rete della macchina virtuale, il problema potrebbe essere causato dalla mancata disponibilità di alcune schede interfaccia nella macchina virtuale. Per eliminare le schede di interfaccia non disponibili, vedere [Eliminare le schede di interfaccia non disponibili](../virtual-machines/troubleshooting/reset-network-interface.md#delete-the-unavailable-nics)
+Se non è possibile connettersi a una condivisione di rete della macchina virtuale, il problema potrebbe essere causato dalla mancata disponibilità di alcune schede interfaccia nella macchina virtuale. Per eliminare le schede di interfaccia non disponibili, vedere [Eliminare le schede di interfaccia non disponibili](/troubleshoot/azure/virtual-machines/reset-network-interface#delete-the-unavailable-nics)
 
 ### <a name="step-9-check-inter-vnet-connectivity"></a>Passaggio 9: Controllare la connettività tra reti virtuali
 

@@ -3,12 +3,12 @@ title: Panoramica sull'onboarding del partner (griglia di eventi di Azure)
 description: Viene fornita una panoramica su come è possibile caricare come partner di griglia di eventi.
 ms.topic: conceptual
 ms.date: 10/29/2020
-ms.openlocfilehash: 2a2e33395cabd368d5d5d870dd0461e4cbd37e0d
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: d16337eada829a817110abf7842f763972d0718f
+ms.sourcegitcommit: bed20f85722deec33050e0d8881e465f94c79ac2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "93081196"
+ms.lasthandoff: 03/25/2021
+ms.locfileid: "105109340"
 ---
 # <a name="partner-onboarding-overview-azure-event-grid"></a>Panoramica sull'onboarding del partner (griglia di eventi di Azure)
 
@@ -152,7 +152,7 @@ Dopo la pubblicazione nell'endpoint dello spazio dei nomi partner, si riceve una
   * [Swagger](https://github.com/ahamad-MS/azure-rest-api-specs/blob/master/specification/eventgrid/resource-manager/Microsoft.EventGrid/preview/2020-04-01-preview/EventGrid.json)
   * [Modello ARM](/azure/templates/microsoft.eventgrid/allversions)
   * [Schema modello ARM](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2020-04-01-preview/Microsoft.EventGrid.json)
-  * [API REST](/rest/api/eventgrid/version2020-04-01-preview/partnernamespaces)
+  * [API REST](/azure/templates/microsoft.eventgrid/2020-04-01-preview/partnernamespaces)
   * [Estensione dell'interfaccia della riga di comando](/cli/azure/ext/eventgrid/)
 
 ### <a name="sdks"></a>SDK

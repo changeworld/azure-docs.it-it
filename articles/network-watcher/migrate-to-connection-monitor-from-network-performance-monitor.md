@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/07/2021
 ms.author: vinigam
-ms.openlocfilehash: 998b0cb04d465f675423e2472a7ca8c6441b1fed
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 18d0a24de6f0775fdb35799512f9796a323d353a
+ms.sourcegitcommit: ed7376d919a66edcba3566efdee4bc3351c57eda
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103010406"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105045485"
 ---
 # <a name="migrate-to-connection-monitor-from-network-performance-monitor"></a>Esegui la migrazione a monitoraggio connessione da Monitoraggio prestazioni rete
 
@@ -31,7 +31,7 @@ ms.locfileid: "103010406"
 
 La migrazione contribuisce a produrre i risultati seguenti:
 
-* Gli agenti locali e le impostazioni del firewall funzionano così come sono. Non sono necessarie modifiche. Gli agenti di Log Analytics installati nelle macchine virtuali di Azure devono essere sostituiti con l' [estensione del Network Watcher](https://docs.microsoft.com/azure/virtual-machines/extensions/network-watcher-windows).
+* Gli agenti locali e le impostazioni del firewall funzionano così come sono. Non sono necessarie modifiche. Gli agenti di Log Analytics installati nelle macchine virtuali di Azure devono essere sostituiti con l' [estensione del Network Watcher](../virtual-machines/extensions/network-watcher-windows.md).
 * I test esistenti vengono mappati a monitoraggio connessione > gruppo di test > formato di test. Selezionando **modifica**, è possibile visualizzare e modificare le proprietà del nuovo monitoraggio della connessione, scaricare un modello per apportare modifiche e inviare il modello tramite Azure Resource Manager.
 * Gli agenti inviano i dati all'area di lavoro Log Analytics e alle metriche.
 * Monitoraggio dei dati:

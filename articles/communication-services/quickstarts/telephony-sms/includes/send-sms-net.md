@@ -10,14 +10,14 @@ ms.date: 03/11/2021
 ms.topic: include
 ms.custom: include file
 ms.author: peiliu
-ms.openlocfilehash: 96cdeb7c35cd1ccd503f7ce01e1098a6b83884c3
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: caca5f5a05a136248f7453337629fdd2b22f956a
+ms.sourcegitcommit: bed20f85722deec33050e0d8881e465f94c79ac2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103622179"
+ms.lasthandoff: 03/25/2021
+ms.locfileid: "105110356"
 ---
-Introduzione a Servizi di comunicazione di Azure, con l'invio di messaggi SMS tramite la libreria client SMS di Servizi di comunicazione di Azure per C#.
+Per iniziare a usare i servizi di comunicazione di Azure, usare Communication Services C# SMS SDK per inviare messaggi SMS.
 
 Le procedure illustrate in questa guida di avvio rapido comportano l'addebito di qualche centesimo (USD) o meno nell'account Azure.
 
@@ -28,13 +28,13 @@ Le procedure illustrate in questa guida di avvio rapido comportano l'addebito di
 ## <a name="prerequisites"></a>Prerequisiti
 
 - Un account Azure con una sottoscrizione attiva. [Creare un account gratuitamente](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-- La versione più recente della [libreria client .NET Core](https://dotnet.microsoft.com/download/dotnet-core) per il sistema operativo in uso.
-- Una risorsa attiva di Servizi di comunicazione e una stringa di connessione. [Creare una risorsa di Servizi di comunicazione](../../create-communication-resource.md).
+- La versione più recente [.NET Core SDK](https://dotnet.microsoft.com/download/dotnet-core) per il sistema operativo in uso.
+- Una stringa di connessione e una risorsa attiva di Servizi di comunicazione. [Creare una risorsa di Servizi di comunicazione](../../create-communication-resource.md).
 - Un numero di telefono abilitato per gli SMS. [Ottenere un numero di telefono](../get-phone-number.md).
 
 ### <a name="prerequisite-check"></a>Controllo dei prerequisiti
 
-- In una finestra del terminale o di comando eseguire il comando `dotnet` per verificare se la libreria client .NET è installata.
+- In un terminale o una finestra di comando eseguire il `dotnet` comando per verificare che .NET SDK sia installato.
 - Per visualizzare i numeri di telefono associati alla risorsa di Servizi di comunicazione, accedere al [portale di Azure](https://portal.azure.com/), individuare la risorsa di Servizi di comunicazione e aprire la scheda dei **numeri di telefono** nel riquadro di spostamento sinistro.
 
 ## <a name="setting-up"></a>Configurazione
@@ -56,7 +56,7 @@ dotnet build
 
 ### <a name="install-the-package"></a>Installare il pacchetto
 
-Rimanendo nella directory dell'applicazione, installare il pacchetto della libreria client SMS di Servizi di comunicazione di Azure per .NET usando il comando `dotnet add package`.
+Quando si è ancora nella directory dell'applicazione, installare il pacchetto SMS SDK per Azure Communication Services per .NET usando il `dotnet add package` comando.
 
 ```console
 dotnet add package Azure.Communication.Sms --version 1.0.0-beta.4
@@ -77,7 +77,7 @@ using Azure.Communication.Sms;
 
 ## <a name="object-model"></a>Modello a oggetti
 
-Le classi e le interfacce seguenti gestiscono alcune delle principali funzionalità della libreria client SMS di Servizi di comunicazione di Azure per C#.
+Le classi e le interfacce seguenti gestiscono alcune delle principali funzionalità di Azure Communication Services SMS SDK per C#.
 
 | Nome                                       | Descrizione                                                                                                                                                       |
 | ------------------------------------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------- |

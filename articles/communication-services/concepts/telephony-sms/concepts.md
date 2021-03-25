@@ -9,12 +9,12 @@ ms.author: mikben
 ms.date: 03/10/2021
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: c866629677790447d0ed730ae9cc62cb37e338e9
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 0ddc9bfeb0df32614d835e0eaef9da52e917ee91
+ms.sourcegitcommit: bed20f85722deec33050e0d8881e465f94c79ac2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103495505"
+ms.lasthandoff: 03/25/2021
+ms.locfileid: "105108435"
 ---
 # <a name="sms-concepts"></a>Concetti sugli SMS
 
@@ -23,9 +23,9 @@ ms.locfileid: "103495505"
 
 [!INCLUDE [Regional Availability Notice](../../includes/regional-availability-include.md)]
 
-Servizi di comunicazione di Azure consente di inviare e ricevere messaggi di testo SMS usando le librerie client per gli SMS di Servizi di comunicazione. Queste librerie client possono essere usate per supportare gli scenari del servizio clienti, i promemoria degli appuntamenti, l'autenticazione a due fattori e altre esigenze di comunicazione in tempo reale. Gli SMS di Servizi di comunicazione consentono di inviare messaggi in modo affidabile, esponendo al contempo informazioni dettagliate su recapitabilità e percentuale di risposta.
+I servizi di comunicazione di Azure consentono di inviare e ricevere SMS tramite gli SDK SMS di servizi di comunicazione. Questi SDK possono essere usati per supportare gli scenari del servizio clienti, i promemoria degli appuntamenti, l'autenticazione a due fattori e altre esigenze di comunicazione in tempo reale. Gli SMS di Servizi di comunicazione consentono di inviare messaggi in modo affidabile, esponendo al contempo informazioni dettagliate su recapitabilità e percentuale di risposta.
 
-Le funzionalità principali delle librerie client per gli SMS di Servizi di comunicazione di Azure includono:
+Le funzionalità principali degli SDK SMS per i servizi di comunicazione di Azure includono:
 
 -  Esperienza di configurazione **semplice** per l'aggiunta di funzionalità SMS alle applicazioni.
 - Supporto per i messaggi a **velocità elevata** su numeri verdi per i casi d'uso di A2P (da applicazione a persona) negli Stati Uniti.
@@ -46,6 +46,6 @@ Le funzionalità principali delle librerie client per gli SMS di Servizi di comu
 
 I documenti seguenti possono essere interessanti:
 
-- Acquisire familiarità con la [libreria client per gli SMS](../telephony-sms/sdk-features.md)
+- Acquisire familiarità con [SMS SDK](../telephony-sms/sdk-features.md)
 - Ottenere un [numero di telefono](../../quickstarts/telephony-sms/get-phone-number.md) con supporto per gli SMS
 - [Tipi di numeri di telefono in Servizi di comunicazione di Azure](../telephony-sms/plan-solution.md)

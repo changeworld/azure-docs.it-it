@@ -7,14 +7,16 @@ ms.author: pariks
 ms.custom: mvc
 ms.topic: overview
 ms.date: 8/20/2020
-ms.openlocfilehash: 546f29330b76548ea553cfb7e4e31ac35b19cb1c
-ms.sourcegitcommit: bb330af42e70e8419996d3cba4acff49d398b399
+ms.openlocfilehash: 3bfcfee0f5dab2d978eb1856bdc915c270d43ed6
+ms.sourcegitcommit: bed20f85722deec33050e0d8881e465f94c79ac2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/24/2021
-ms.locfileid: "105037547"
+ms.lasthandoff: 03/25/2021
+ms.locfileid: "105109795"
 ---
-# <a name="common-errors"></a>Errori comuni
+# <a name="commonly-encountered-errors-during-or-post-migration-to-azure-database-for-mysql-service"></a>Errori comunemente riscontrati durante o dopo la migrazione al servizio database di Azure per MySQL
+
+[!INCLUDE[applies-to-single-flexible-server](includes/applies-to-single-flexible-server.md)]
 
 Database di Azure per MySQL è un servizio di database completamente gestito basato sulla versione Community di MySQL. L'esperienza MySQL in un ambiente di servizio gestito può risultare diversa rispetto all'esecuzione di MySQL in un ambiente personale. In questo articolo verranno illustrati alcuni degli errori comuni che gli utenti possono rilevare quando eseguono per la prima volta la migrazione o lo sviluppo nel servizio Database di Azure per MySQL.
 
@@ -84,6 +86,14 @@ Questo errore può verificarsi durante l'esecuzione di script CREATE VIEW con is
 
 > [!Tip] 
 > Usare sed o perl per modificare un file dump o uno script SQL per sostituire l'istruzione DEFINER=
+
+#### <a name="error-1227-42000-at-line-18-access-denied-you-need-at-least-one-of-the-super-privileges-for-this-operation"></a>ERRORE 1227 (42000) alla riga 18: accesso negato; per questa operazione è necessario almeno uno dei privilegi SUPERati
+
+Questo errore può verificarsi se si usa il tentativo di importare il file di dump da MySQL server con GTID abilitato nel database di Azure di destinazione per il server MySQL. Mysqldump aggiunge @SESSION.sql_log_bin l'istruzione set @ = 0 a un file dump da un server in cui sono in uso GTIDs, che disabilita la registrazione binaria durante il ricaricamento del file di dump.
+
+**Soluzione**: per risolvere l'errore durante l'importazione, rimuovere o impostare come commento le righe seguenti nel file mysqldump ed eseguire di nuovo l'importazione per assicurarsi che abbia esito positivo. 
+
+IMPOSTA @MYSQLDUMP_TEMP_LOG_BIN = @ @SESSION.SQL_LOG_BIN ; IMPOSTA @ @SESSION.SQL_LOG_BIN = 0; IMPOSTA @ @GLOBAL.GTID_PURGED =''; IMPOSTA @ @SESSION.SQL_LOG_BIN = @MYSQLDUMP_TEMP_LOG_BIN ;
 
 ## <a name="common-connection-errors-for-server-admin-login"></a>Errori di connessione comuni per l'accesso amministratore server
 

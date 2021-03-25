@@ -9,20 +9,20 @@ ms.author: mikben
 ms.date: 09/30/2020
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: e71917d917491037100b4ee666cbeb030b0a4786
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: e05bf1df503a13efc8e4ca30b3341216e01e678e
+ms.sourcegitcommit: bed20f85722deec33050e0d8881e465f94c79ac2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104656142"
+ms.lasthandoff: 03/25/2021
+ms.locfileid: "105110832"
 ---
 # <a name="chat-concepts"></a>Concetti sulle chat 
 
 [!INCLUDE [Public Preview Notice](../../includes/public-preview-include.md)]    
 
-Le librerie client Chat di Servizi di comunicazione di Azure possono essere usate per aggiungere chat di testo in tempo reale alle applicazioni. Questa pagina riepiloga i principali concetti e funzionalità della libreria Chat.    
+Azure Communication Services Chat SDK può essere usato per aggiungere chat di testo in tempo reale alle applicazioni. Questa pagina riepiloga i principali concetti e funzionalità della libreria Chat.    
 
-Per altre informazioni su linguaggi e funzionalità specifici delle librerie client, vedere [Panoramica della libreria client Chat di Servizi di comunicazione](./sdk-features.md).    
+Per ulteriori informazioni su linguaggi e funzionalità SDK specifici, vedere la [Panoramica di Communication Services Chat SDK](./sdk-features.md) .  
 
 ## <a name="chat-overview"></a>Panoramica della chat    
 
@@ -117,7 +117,7 @@ La chat di Servizi di comunicazione condivide i messaggi generati dall'utente e 
 
 ## <a name="real-time-signaling"></a>Segnalazione in tempo reale  
 
-La libreria client Chat per JavaScript include la segnalazione in tempo reale, che consente ai client di restare in ascolto degli aggiornamenti in tempo reale e dei messaggi in arrivo in un thread di chat senza dover eseguire il polling delle API. Gli eventi disponibili includono:
+La chat JavaScript SDK include la segnalazione in tempo reale. che consente ai client di restare in ascolto degli aggiornamenti in tempo reale e dei messaggi in arrivo in un thread di chat senza dover eseguire il polling delle API. Gli eventi disponibili includono:
 
  - `ChatMessageReceived` -Quando un nuovo messaggio viene inviato a un thread di chat. Questo evento non viene inviato per i messaggi di sistema generati automaticamente, descritti nell'argomento precedente.   
  - `ChatMessageEdited` -Quando un messaggio viene modificato in un thread di chat. 
@@ -136,9 +136,9 @@ La libreria client Chat per JavaScript include la segnalazione in tempo reale, c
 La segnalazione in tempo reale consente agli utenti di chattare in tempo reale. I servizi possono usare Griglia di eventi di Azure per sottoscrivere eventi correlati alla chat. Per altre informazioni, vedere [Gestione degli eventi in Servizi di comunicazione di Azure](https://docs.microsoft.com/azure/event-grid/event-schema-communication-services?tabs=event-grid-event-schema).
 
 
-## <a name="using-cognitive-services-with-chat-client-library-to-enable-intelligent-features"></a>Uso di Servizi cognitivi con la libreria client Chat per abilitare le funzionalità intelligenti 
+## <a name="using-cognitive-services-with-chat-sdk-to-enable-intelligent-features"></a>Uso di servizi cognitivi con Chat SDK per abilitare funzionalità intelligenti    
 
-È possibile usare le [API Servizi cognitivi di Azure](../../../cognitive-services/index.yml) con la libreria client Chat per aggiungere funzionalità intelligenti alle applicazioni. Ad esempio, è possibile:  
+È possibile usare le [API cognitive di Azure](../../../cognitive-services/index.yml) con la chat SDK per aggiungere funzionalità intelligenti alle applicazioni. Ad esempio, è possibile: 
 
 - Consentire agli utenti di chattare in lingue diverse.  
 - Consentire a un agente di supporto di classificare in ordine di priorità i ticket rilevando un sentiment negativo in relazione a un problema di un cliente.   
@@ -156,4 +156,4 @@ In questo modo la cronologia dei messaggi conterrà sia i messaggi originali che
 > [Introduzione alle chat](../../quickstarts/chat/get-started.md)    
 
 I documenti seguenti possono essere interessanti:  
-- Acquisire familiarità con la [libreria client Chat](sdk-features.md)
+- Acquisire familiarità con l' [SDK della chat](sdk-features.md)

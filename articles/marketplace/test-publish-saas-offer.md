@@ -7,17 +7,20 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 author: mingshen-ms
 ms.author: mingshen
-ms.date: 03/10/2021
-ms.openlocfilehash: ea647591194dfd6ba0bf818f4ce4d3a2005f0bc4
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
+ms.date: 03/25/2021
+ms.openlocfilehash: aeab671c9283d64f9c1ca37cf184b80b1eca8f35
+ms.sourcegitcommit: ed7376d919a66edcba3566efdee4bc3351c57eda
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102630784"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105045247"
 ---
 # <a name="how-to-test-and-publish-a-saas-offer-to-the-commercial-marketplace"></a>Come testare e pubblicare un'offerta SaaS nel Marketplace commerciale
 
 Questo articolo illustra come usare il centro per i partner per inviare l'offerta SaaS per la pubblicazione, visualizzare l'anteprima dell'offerta, testarla e pubblicarla nel Marketplace commerciale. È necessario avere già creato un'offerta che si desidera pubblicare.
+
+> [!NOTE]
+> È consigliabile creare un'offerta di test e sviluppo (DEV) separata come metodo a basso rischio per eseguire test prima di pubblicare l'offerta di produzione (PROD). Seguire questa procedura per creare e testare l'offerta DEV prima di pubblicare l'offerta (PROD).
 
 ## <a name="submit-your-offer-for-publishing"></a>Invia l'offerta per la pubblicazione
 
@@ -48,7 +51,7 @@ Per visualizzare in anteprima l'offerta, seguire questa procedura.
 
 1. Nella pagina **Panoramica dell'offerta** selezionare un collegamento anteprima nel pulsante **Vai in diretta** .
 
-1. Per convalidare il flusso di acquisto e configurazione end-to-end, acquista l'offerta mentre è in anteprima. Per prima cosa, inviare una notifica a Microsoft con un [ticket di supporto](https://aka.ms/marketplacesupport) per assicurarsi che non venga elaborato alcun addebito.
+1. Per convalidare il flusso di acquisto e di installazione end-to-end, acquistare i piani nell'offerta mentre è in anteprima. Per prima cosa, inviare una notifica a Microsoft con un [ticket di supporto](https://aka.ms/marketplacesupport) per assicurarsi che non venga elaborato alcun addebito.
 
 1. Se l'offerta SaaS supporta la [fatturazione a consumo usando il servizio di misurazione del Marketplace commerciale](./partner-center-portal/saas-metered-billing.md), esaminare e seguire le procedure consigliate di test descritte in dettaglio nelle API per la [fatturazione a consumo del Marketplace](./partner-center-portal/marketplace-metering-service-apis.md#development-and-testing-best-practices).
 
@@ -60,10 +63,10 @@ Per visualizzare in anteprima l'offerta, seguire questa procedura.
 
 ## <a name="publish-your-offer-live"></a>Pubblica l'offerta in tempo reale
 
-Dopo aver completato tutti i test nell'anteprima, selezionare **Go Live** per pubblicare l'offerta in diretta nel Marketplace commerciale.
+Dopo aver completato tutti i test nell'anteprima, selezionare **Go Live** per pubblicare l'offerta in diretta nel Marketplace commerciale. Se l'offerta è già presente nel Marketplace commerciale, gli eventuali aggiornamenti non verranno attivati fino a quando non si seleziona **Go Live**.
 
-   > [!TIP]
-   > Se l'offerta è già presente nel Marketplace commerciale, gli eventuali aggiornamenti non verranno attivati fino a quando non si seleziona **Go Live**.
+> [!IMPORTANT]
+> Non selezionare mai **Live** per un' [offerta di sviluppo/test](create-saas-dev-test-offer.md).
 
 Ora che si è scelto di rendere disponibile l'offerta nel Marketplace commerciale, viene eseguita una serie di controlli di convalida finali per assicurarsi che l'offerta Live sia configurata esattamente come la versione di anteprima dell'offerta. Per informazioni dettagliate su questi controlli di convalida, vedere [fase di pubblicazione](review-publish-offer.md#publish-phase).
 

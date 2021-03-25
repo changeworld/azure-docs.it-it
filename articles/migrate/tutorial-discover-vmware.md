@@ -7,12 +7,12 @@ ms.manager: abhemraj
 ms.topic: tutorial
 ms.date: 03/17/2021
 ms.custom: mvc
-ms.openlocfilehash: d0acf83ddfb0d2a3aff0db0f3d151869bce1c710
-ms.sourcegitcommit: 2c1b93301174fccea00798df08e08872f53f669c
+ms.openlocfilehash: 1a0ad751a216e8da772fd5fdc96a0dc67cb27d01
+ms.sourcegitcommit: bed20f85722deec33050e0d8881e465f94c79ac2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/22/2021
-ms.locfileid: "104771737"
+ms.lasthandoff: 03/25/2021
+ms.locfileid: "105109854"
 ---
 # <a name="tutorial-discover-servers-running-in-vmware-environment-with-azure-migrate-discovery-and-assessment"></a>Esercitazione: individuare i server in esecuzione nell'ambiente VMware con Azure Migrate: individuazione e valutazione
 
@@ -46,12 +46,10 @@ Prima di iniziare questa esercitazione, verificare che siano rispettati i prereq
 **Appliance** | server vCenter necessita di risorse per allocare un server per l'appliance Azure Migrate:<br/><br/> -32 GB di RAM, 8 vCPU e circa 80 GB di spazio di archiviazione su disco.<br/><br/> -Un Commuter virtuale esterno e accesso a Internet nel server appliance, direttamente o tramite un proxy.
 **Server** | Tutte le versioni del sistema operativo Windows e Linux sono supportate per l'individuazione dei metadati di configurazione e delle prestazioni. <br/><br/> Per eseguire l'individuazione delle applicazioni sui server, sono supportate tutte le versioni del sistema operativo Windows e Linux. Vedere [qui](migrate-support-matrix-vmware.md#dependency-analysis-requirements-agentless) per le versioni del sistema operativo supportate per l'analisi delle dipendenze senza agenti.<br/><br/> Per eseguire l'individuazione delle applicazioni installate e l'analisi delle dipendenze senza agenti, è necessario che gli strumenti VMware (successivi a 10.2.0) siano installati e in esecuzione nei server. Per i server Windows deve essere installata la versione 2,0 o successiva di PowerShell.<br/><br/> Per individuare le istanze e i database di SQL Server, fare clic [qui](migrate-support-matrix-vmware.md#requirements-for-discovery-of-sql-server-instances-and-databases) per le versioni ed edizioni supportate di SQL Server, le versioni del sistema operativo Windows supportate e i meccanismi di autenticazione.
 
-> [!Note]
-> L'individuazione e la valutazione di SQL Server istanze e database in esecuzione nell'ambiente VMware sono ora in anteprima. Per provare questa funzionalità, usare [**questo collegamento**](https://aka.ms/AzureMigrate/SQL) per creare un progetto nell'area **Australia orientale**. Se si dispone già di un progetto nell'Australia orientale e si vuole provare questa funzionalità, assicurarsi di aver completato questi [**prerequisiti**](how-to-discover-sql-existing-project.md) nel portale.
-
 ## <a name="prepare-an-azure-user-account"></a>Preparare un account utente Azure
 
 Per creare un progetto e registrare il dispositivo di Azure Migrate, è necessario un account con:
+
 - Autorizzazioni di collaboratore o proprietario per la sottoscrizione di Azure
 - Autorizzazioni per la registrazione di app Azure Active Directory (AAD)
 - Proprietario o collaboratore più autorizzazioni di amministratore di accesso utente per la sottoscrizione di Azure per creare un Key Vault, usato durante la migrazione del server senza agenti
@@ -96,14 +94,13 @@ In vSphere Web Client configurare un account come descritto di seguito:
 3. In **Users** (Users) aggiungere un nuovo utente.
 4. In **New User** (Nuovo utente) digitare i dettagli dell'account. Fare quindi clic su **OK**.
 5. In **Global Permissions** (Autorizzazioni globali) selezionare l'account utente e assegnare all'account il ruolo **Read-only** (Sola lettura). Fare quindi clic su **OK**.
-6.  Se si vuole anche eseguire l'individuazione delle applicazioni installate e dell'analisi delle dipendenze senza agente, passare a **ruoli** > selezionare il ruolo di sola **lettura** e in **privilegi** selezionare **operazioni Guest**. È possibile propagare i privilegi a tutti gli oggetti sotto la server vCenter selezionando la casella di controllo "propagazione ai figli".
+6. Se si vuole anche eseguire l'individuazione delle applicazioni installate e dell'analisi delle dipendenze senza agente, passare a **ruoli** > selezionare il ruolo di sola **lettura** e in **privilegi** selezionare **operazioni Guest**. È possibile propagare i privilegi a tutti gli oggetti sotto la server vCenter selezionando la casella di controllo "propagazione ai figli".
 
     :::image type="content" source="./media/tutorial-discover-vmware/guest-operations.png" alt-text="Casella di controllo per consentire le operazioni guest sul ruolo Read-only":::
 
 
 > [!NOTE]
 > È possibile limitare l'individuazione a specifici data center server vCenter, cluster, una cartella di cluster, host, una cartella di host o singoli server per ambito dell'account di server vCenter. [**Altre informazioni**](set-discovery-scope.md) su come definire l'ambito dell'account utente server vCenter.
-
 
 ### <a name="create-an-account-to-access-servers"></a>Creare un account per accedere ai server
 
@@ -234,7 +231,6 @@ Configurare l'appliance per la prima volta.
 
     :::image type="content" source="./media/tutorial-discover-vmware/appliance-prerequisites.png" alt-text="Pannello 1 in Gestione configurazione Appliance":::
 
-
 ### <a name="register-the-appliance-with-azure-migrate"></a>Registrare l'appliance con Azure Migrate
 
 1. Incollare la **chiave del progetto** copiata dal portale. Se non si dispone della chiave, passare a **Azure migrate: individuazione e valutazione> individua> Gestisci appliance esistenti**, selezionare il nome dell'appliance fornito al momento della generazione della chiave e copiare la chiave corrispondente.
@@ -274,9 +270,6 @@ In **passaggio 3: fornire le credenziali del server per eseguire l'inventario so
 
 :::image type="content" source="./media/tutorial-discover-vmware/appliance-server-credentials-mapping.png" alt-text="Pannello 3 in Gestione configurazione Appliance per i dettagli del server":::
 
-> [!Note]
-> L'individuazione e la valutazione di SQL Server istanze e database in esecuzione nell'ambiente VMware sono ora in anteprima. Per provare questa funzionalità, usare [**questo collegamento**](https://aka.ms/AzureMigrate/SQL) per creare un progetto nell'area **Australia orientale**. Se si dispone già di un progetto nell'Australia orientale e si vuole provare questa funzionalità, assicurarsi di aver completato questi [**prerequisiti**](how-to-discover-sql-existing-project.md) nel portale.
-
 Se si desidera utilizzare queste funzionalità, è possibile specificare le credenziali del server attenendosi alla procedura descritta di seguito. Il dispositivo tenterà di eseguire automaticamente il mapping delle credenziali ai server per eseguire le funzionalità di individuazione.
 
 - È possibile aggiungere le credenziali del server facendo clic sul pulsante **Aggiungi credenziali** . Verrà aperto un modale in cui è possibile scegliere il **tipo di credenziali** dall'elenco a discesa.
@@ -289,6 +282,7 @@ Se si desidera utilizzare queste funzionalità, è possibile specificare le cred
 - È possibile visualizzare lo **stato di convalida** di tutte le credenziali del dominio nella tabella Credentials. Verranno convalidate solo le credenziali di dominio.
 - Se la convalida ha esito negativo, è possibile fare clic su stato **non riuscito** per visualizzare l'errore rilevato e fare clic su riconvalida **credenziali** dopo la correzione del problema per convalidare di nuovo le credenziali di dominio non riuscite.
 
+     :::image type="content" source="./media/tutorial-discover-vmware/add-server-credentials-multiple.png" alt-text="Pannello 3 in Gestione configurazione Appliance per fornire più credenziali":::
 
 ### <a name="start-discovery"></a>Avviare l'individuazione
 

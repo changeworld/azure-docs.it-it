@@ -11,16 +11,16 @@ ms.topic: tutorial
 ms.date: 03/04/2021
 ms.author: lajanuar
 ms.custom: devx-track-python, devx-track-js
-ms.openlocfilehash: c04bac76453d565abb99a971386b9ce0461b88ae
-ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
+ms.openlocfilehash: 6ec951e57b40ae1440f541c02b26e7788b3cf151
+ms.sourcegitcommit: ed7376d919a66edcba3566efdee4bc3351c57eda
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102172080"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105043734"
 ---
 # <a name="tutorial-build-a-flask-app-with-azure-cognitive-services"></a>Esercitazione: Creare un'app Flask con Servizi cognitivi di Azure
 
-Questa esercitazione descrive come creare un'app Web Flask che usa Servizi cognitivi di Azure per tradurre testo, analizzare sentiment e sintetizzare il testo tradotto in voce. Il contenuto riguarda principalmente il codice Python e le route Flask che rendono possibile l'applicazione, ma verranno fornite indicazioni anche sul codice HTML e Javascript per l'assemblaggio dell'app. Se si verificano problemi, segnalarlo tramite il pulsante del feedback qui sotto.
+Questa esercitazione descrive come creare un'app Web Flask che usa Servizi cognitivi di Azure per tradurre testo, analizzare sentiment e sintetizzare il testo tradotto in voce. Il nostro obiettivo è il codice Python e le route Flask che consentono di eseguire l'applicazione. Tuttavia, ci aiuterà a usare il codice HTML e JavaScript che esegue il pull dell'app. Se si verificano problemi, segnalarlo tramite il pulsante del feedback qui sotto.
 
 Contenuto dell'esercitazione:
 
@@ -49,7 +49,7 @@ Per chi vuole approfondire l'argomento dopo questa esercitazione, ecco alcuni co
 
 Ecco il software e le chiavi di sottoscrizione che è necessario avere per questa esercitazione.
 
-* [Python 3.5.2 o versione successiva](https://www.python.org/downloads/)
+* [Python 3,6 o versione successiva](https://www.python.org/downloads/)
 * [Strumenti di Git](https://git-scm.com/downloads)
 * Un IDE o un editor di testo, come [Visual Studio Code](https://code.visualstudio.com/) o [Atom](https://atom.io/)  
 * [Chrome](https://www.google.com/chrome/browser/) o [Firefox](https://www.mozilla.org/firefox)
@@ -249,7 +249,7 @@ Dopo aver visto come funziona una semplice app Flask, procedere come segue:
 * Scrivere codice Python per chiamare Translator e restituire una risposta
 * Creare una route di Flask per chiamare il codice Python
 * Aggiornare il codice HTML con un'area per l'input e la traduzione del testo, un selettore della lingua e un pulsante per la traduzione
-* Scrivere codice Javascript che consente agli utenti di interagire con l'app Flask dal codice HTML
+* Scrivere JavaScript che consente agli utenti di interagire con l'app Flask dal codice HTML
 
 ### <a name="call-the-translator"></a>Chiamare Translator
 
@@ -409,7 +409,7 @@ Aggiornare `index.html`.
    </div>
    ```
 
-Il passaggio successivo consiste nello scrivere codice Javascript. Si tratta del bridge tra l'HTML e la route di Flask.
+Il passaggio successivo consiste nel scrivere codice JavaScript. Si tratta del bridge tra l'HTML e la route di Flask.
 
 ### <a name="create-mainjs"></a>Creare `main.js`.  
 
@@ -482,11 +482,11 @@ In questa sezione verranno eseguite queste operazioni:
 * Scrivere codice Python per chiamare l'API Analisi del testo, che eseguirà l'analisi del sentiment e restituirà una risposta
 * Creare una route di Flask per chiamare il codice Python
 * Aggiornare l'HTML con un'area per i punteggi del sentiment e un pulsante per eseguire l'analisi
-* Scrivere codice Javascript che consente agli utenti di interagire con l'app Flask dal codice HTML
+* Scrivere JavaScript che consente agli utenti di interagire con l'app Flask dal codice HTML
 
 ### <a name="call-the-text-analytics-api"></a>Chiamare l'API Analisi del testo
 
-Scrivere una funzione per chiamare l'API Analisi del testo. Questa funzione accetta quattro argomenti: `input_text`, `input_language`, `output_text` e `output_language`. Viene chiamata ogni volta che un utente preme il pulsante per l'analisi del sentiment nell'app. Con ogni richiesta vengono forniti i dati specificati dall'utente nell'area di testo e con il selettore della lingua, oltre alla lingua rilevata e all'output della traduzione. L'oggetto risposta include i punteggi del sentiment per l'origine e per la traduzione. Nelle sezioni seguenti verrà scritto il codice Javascript per analizzare la risposta e usarla nell'app. Per il momento, chiamare l'API Analisi del testo.
+Scrivere una funzione per chiamare l'API Analisi del testo. Questa funzione accetta quattro argomenti: `input_text`, `input_language`, `output_text` e `output_language`. Viene chiamata ogni volta che un utente preme il pulsante per l'analisi del sentiment nell'app. Con ogni richiesta vengono forniti i dati specificati dall'utente nell'area di testo e con il selettore della lingua, oltre alla lingua rilevata e all'output della traduzione. L'oggetto risposta include i punteggi del sentiment per l'origine e per la traduzione. Nelle sezioni seguenti verranno scritti alcuni JavaScript per analizzare la risposta e usarla nell'app. Per il momento, chiamare l'API Analisi del testo.
 
 1. Creare un file denominato `sentiment.py` nella radice della directory di lavoro.
 2. Aggiungere quindi questo codice a `sentiment.py`.
@@ -651,7 +651,7 @@ In questa sezione verranno eseguite queste operazioni:
 * Scrivere codice Python per convertire il testo in voce con l'API Sintesi vocale
 * Creare una route di Flask per chiamare il codice Python
 * Aggiornare l'HTML con un pulsante per convertire il testo in voce e un elemento per la riproduzione dell'audio
-* Scrivere codice Javascript che consente agli utenti di interagire con l'app Flask
+* Scrivere codice JavaScript che consente agli utenti di interagire con l'app Flask
 
 ### <a name="call-the-text-to-speech-api"></a>Chiamare l'API Sintesi vocale
 

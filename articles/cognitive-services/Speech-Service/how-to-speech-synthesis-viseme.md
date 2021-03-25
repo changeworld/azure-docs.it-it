@@ -12,12 +12,12 @@ ms.date: 03/03/2021
 ms.author: yulili
 ms.custom: references_regions
 zone_pivot_groups: programming-languages-speech-services-nomore-variant
-ms.openlocfilehash: 7a196ff8c80a6f92e1205f5553a54913e281b52b
-ms.sourcegitcommit: a8ff4f9f69332eef9c75093fd56a9aae2fe65122
+ms.openlocfilehash: f74a242db2686eb4571ebbea80b88a75dda205d4
+ms.sourcegitcommit: ed7376d919a66edcba3566efdee4bc3351c57eda
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 03/24/2021
-ms.locfileid: "105025884"
+ms.locfileid: "105044068"
 ---
 # <a name="get-facial-pose-events"></a>Ottenere gli eventi di posa facciali
 
@@ -31,7 +31,7 @@ Non esiste una corrispondenza uno-a-uno tra visemes e fonemi.
 Spesso diversi fonemi corrispondono a un singolo viseme, in quanto diversi fonemi hanno lo stesso aspetto sul viso quando vengono prodotti, ad esempio `s` e `z` .
 Vedere la [tabella di mapping tra visemes e fonemi](#map-phonemes-to-visemes).
 
-Con visemes è possibile creare un assistente per la trasmissione di notizie più naturale e intelligente, un gioco più interattivo e caratteri di Cartoon e video più intuitivi sull'insegnamento della lingua. L'udito è anche in grado di prelevare suoni visivi e contenuto vocale "Lip-Read" che mostra visemes su una faccia animata.
+Con visemes è possibile creare un assistente per la trasmissione di notizie più naturale e intelligente, un gioco più interattivo e caratteri di Cartoon e video più intuitivi sull'insegnamento della lingua. Gli utenti con problemi di udito possono anche prelevare suoni visivi e contenuto vocale "Lip-Read" che mostra visemes su una faccia animata.
 
 ## <a name="get-viseme-events-with-the-speech-sdk"></a>Ottenere gli eventi viseme con l'SDK di riconoscimento vocale
 

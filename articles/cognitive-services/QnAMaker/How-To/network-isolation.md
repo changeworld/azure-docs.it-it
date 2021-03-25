@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: conceptual
 ms.date: 11/09/2020
-ms.openlocfilehash: afb396bc364a2fa2db923fbcbe6bfe1b7aedbc26
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: c2fad19bd84418d41aca1b2e0770eaa3cde488b0
+ms.sourcegitcommit: ed7376d919a66edcba3566efdee4bc3351c57eda
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103467545"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105043360"
 ---
 # <a name="recommended-settings-for-network-isolation"></a>Impostazioni consigliate per l'isolamento rete
 
@@ -60,7 +60,7 @@ Ricerca cognitiva istanza può essere isolata tramite un endpoint privato dopo l
 
 Se il servizio app QnA Maker viene limitato utilizzando una ambiente del servizio app, utilizzare lo stesso VNet per creare una connessione dell'endpoint privato all'istanza di ricerca cognitiva. Creare una nuova voce DNS in VNet per eseguire il mapping dell'endpoint ricerca cognitiva all'indirizzo IP dell'endpoint privato ricerca cognitiva. 
 
-Se non viene usato un ambiente del servizio app per il servizio app QnAMaker, creare prima di tutto una nuova risorsa VNet e quindi creare la connessione all'endpoint privato per l'istanza di ricerca cognitiva. In questo caso, il servizio app di QnA Maker deve [essere integrato con VNet](https://docs.microsoft.com/azure/app-service/web-sites-integrate-with-vnet) per connettersi all'istanza di ricerca cognitiva. 
+Se non viene usato un ambiente del servizio app per il servizio app QnAMaker, creare prima di tutto una nuova risorsa VNet e quindi creare la connessione all'endpoint privato per l'istanza di ricerca cognitiva. In questo caso, il servizio app di QnA Maker deve [essere integrato con VNet](../../../app-service/web-sites-integrate-with-vnet.md) per connettersi all'istanza di ricerca cognitiva. 
 
 #  <a name="qna-maker-managed-preview-release"></a>[QnA Maker - gestito (versione in anteprima)](#tab/v2)
 

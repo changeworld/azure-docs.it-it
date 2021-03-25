@@ -10,18 +10,18 @@ ms.date: 03/10/2021
 ms.topic: include
 ms.custom: include file
 ms.author: mikben
-ms.openlocfilehash: f3da6fd75ac485a3e22a428934928795f1feae28
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 07aa1cb361f5f1853dbf93e5f4e064b1ed14f1de
+ms.sourcegitcommit: bed20f85722deec33050e0d8881e465f94c79ac2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103487931"
+ms.lasthandoff: 03/25/2021
+ms.locfileid: "105152733"
 ---
 [!INCLUDE [Public Preview Notice](../../includes/public-preview-include.md)]
 
-L'**esempio hero di chiamata di gruppo** di Servizi di comunicazione di Azure illustra come usare la libreria client Web Chiamate di Servizi di comunicazione per creare un'esperienza di chiamata di gruppo.
+Il gruppo di servizi di comunicazione di Azure che **chiama l'esempio Hero** illustra come usare i servizi di comunicazione che chiamano l'SDK Web per creare un'esperienza di chiamata di gruppo.
 
-Questa guida di avvio rapido illustra il funzionamento dell'esempio prima che venga eseguito nel computer locale. Si passerà quindi alla distribuzione dell'esempio in Azure tramite le risorse dei Servizi di comunicazione di Azure.
+In questo avvio rapido viene illustrato il funzionamento dell'esempio prima dell'esecuzione sul computer locale. Si passerà quindi alla distribuzione dell'esempio in Azure tramite le risorse dei Servizi di comunicazione di Azure.
 
 ## <a name="download-code"></a>Scaricare il codice
 
@@ -96,7 +96,7 @@ Per pulire e rimuovere una sottoscrizione di Servizi di comunicazione, è possib
 
 Per altre informazioni, vedere gli articoli seguenti:
 
-- Acquisire familiarità con l'[uso della libreria client Chiamate](../../quickstarts/voice-video-calling/calling-client-samples.md)
+- Familiarizzare con [l'uso dell'SDK chiamante](../../quickstarts/voice-video-calling/calling-client-samples.md)
 - Leggere altre informazioni sul [funzionamento delle chiamate](../../concepts/voice-video-calling/about-call-types.md)
 
 ### <a name="additional-reading"></a>Altre letture

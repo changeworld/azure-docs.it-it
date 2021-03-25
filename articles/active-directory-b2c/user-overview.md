@@ -10,12 +10,13 @@ ms.topic: conceptual
 ms.date: 11/05/2019
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: c42b79cb8b92b5f96f31eb58f091ff0ce79b84f5
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.custom: b2c-support
+ms.openlocfilehash: f2473955db5439911280360b169f469b8c93eb93
+ms.sourcegitcommit: ed7376d919a66edcba3566efdee4bc3351c57eda
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "101652131"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105043598"
 ---
 # <a name="overview-of-user-accounts-in-azure-active-directory-b2c"></a>Panoramica degli account utente in Azure Active Directory B2C
 
@@ -36,7 +37,8 @@ La procedura per la creazione di un account aziendale è la stessa per tutti i t
 
 Quando si aggiunge un nuovo account aziendale, è necessario prendere in considerazione le impostazioni di configurazione seguenti:
 
-- **Nome** e **Nome utente** - La proprietà **Nome** contiene il nome e il cognome dell'utente. Il **Nome utente** è l'identificatore che l'utente immette per accedere e include il dominio completo. La parte del nome di dominio del nome utente deve essere il nome di dominio predefinito iniziale *dominio.onmicrosoft.com* o un nome di dominio verificato, non federato, [personalizzato](../active-directory/fundamentals/add-custom-domain.md), ad esempio *contoso.com*.
+- **Nome** e **Nome utente** - La proprietà **Nome** contiene il nome e il cognome dell'utente. Il **Nome utente** è l'identificatore che l'utente immette per accedere e include il dominio completo. La parte del nome di dominio del nome utente deve essere il nome di dominio predefinito iniziale *dominio.onmicrosoft.com* o un nome di dominio verificato, non federato, [personalizzato](../active-directory/fundamentals/add-custom-domain.md), ad esempio *contoso.com*. 
+- **Posta elettronica** : il nuovo utente può accedere anche usando un indirizzo di posta elettronica. Non sono supportati caratteri speciali o caratteri multibyte nel messaggio di posta elettronica, ad esempio i caratteri giapponesi.
 - **Profilo** - L'account è configurato con un profilo di dati utente. È possibile immettere nome, cognome, posizione e nome del reparto. Dopo aver creato l'account, è possibile modificare il profilo.
 - **Gruppi** : usare i gruppi per eseguire attività di gestione, ad esempio l'assegnazione di licenze o autorizzazioni a molti utenti o dispositivi contemporaneamente. È possibile inserire il nuovo account in un [gruppo](../active-directory/fundamentals/active-directory-groups-create-azure-portal.md) esistente del tenant.
 - **Ruolo della directory** - È necessario specificare il livello di accesso dell'account utente alle risorse del tenant. Sono disponibili i seguenti livelli di autorizzazione:

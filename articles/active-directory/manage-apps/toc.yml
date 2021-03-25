@@ -47,7 +47,39 @@
         - name: Esporta segreti e certificati che scadono oltre la data richiesta
           href: ./scripts/powershell-export-apps-with-secrets-beyond-required.md
     - name: Esempi di PowerShell per proxy app
-      href: application-proxy-powershell-samples.md
+      items:
+        - name: Panoramica degli esempi del proxy di app
+          href: application-proxy-powershell-samples.md
+        - name: Elenca le informazioni di base sulle app
+          href: ./scripts/powershell-get-all-app-proxy-apps-basic.md
+        - name: Elenca le informazioni estese sulle app
+          href: ./scripts/powershell-get-all-app-proxy-apps-extended.md
+        - name: Elencare le app per gruppo di connettori
+          href: ./scripts/powershell-get-all-app-proxy-apps-by-connector-group.md
+        - name: Elencare le app con i criteri di durata del token
+          href: ./scripts/powershell-get-all-app-proxy-apps-with-policy.md
+        - name: Elencare i gruppi e i connettori del connettore
+          href: ./scripts/powershell-get-all-connectors.md
+        - name: Spostare le app tra gruppi di connettori
+          href: ./scripts/powershell-move-all-apps-to-connector-group.md
+        - name: Elencare gli utenti e i gruppi assegnati all'app
+          href: ./scripts/powershell-display-users-group-of-app.md
+        - name: Assegnare un utente a un'app
+          href: ./scripts/powershell-assign-user-to-app.md
+        - name: Assegnare un gruppo a un'app
+          href: ./scripts/powershell-assign-group-to-app.md
+        - name: Elencare le app con domini predefiniti
+          href: ./scripts/powershell-get-all-default-domain-apps.md
+        - name: Elencare le app usando la pubblicazione con caratteri jolly
+          href: ./scripts/powershell-get-all-wildcard-apps.md
+        - name: Elencare tutti i domini e i certificati personalizzati
+          href: ./scripts/powershell-get-all-custom-domains-and-certs.md
+        - name: Elenca le app senza certificati
+          href: ./scripts/powershell-get-all-custom-domain-no-cert.md
+        - name: Elencare le app con certificati identici
+          href: ./scripts/powershell-get-custom-domain-identical-cert.md
+        - name: Sostituisci certificati identici
+          href: ./scripts/powershell-get-custom-domain-replace-cert.md
 - name: Concetti
   expanded: true
   items:
