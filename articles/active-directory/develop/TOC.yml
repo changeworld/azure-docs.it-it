@@ -551,6 +551,8 @@
           href: vs-active-directory-error.md
     - name: Rimuovere una registrazione dell'app
       href: quickstart-remove-app.md
+    - name: Ripristinare o rimuovere la registrazione di un'app eliminata
+      href: quickstart-restore-app.md
 - name: Informazioni di riferimento
   items:
     - name: Glossario

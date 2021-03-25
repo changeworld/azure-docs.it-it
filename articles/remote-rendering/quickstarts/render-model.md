@@ -5,12 +5,12 @@ author: florianborn71
 ms.author: flborn
 ms.date: 01/23/2020
 ms.topic: quickstart
-ms.openlocfilehash: 5b3e9c944aece3b3e22ee7a5a6144751725ddf67
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 3f565f456dde1d802a82faffb4a23f7a6e54d950
+ms.sourcegitcommit: bb330af42e70e8419996d3cba4acff49d398b399
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101729964"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105031546"
 ---
 # <a name="quickstart-render-a-model-with-unity"></a>Avvio rapido: Eseguire il rendering di un modello con Unity
 
@@ -37,10 +37,7 @@ Per ottenere l'accesso al servizio Rendering remoto di Azure, è prima di tutto 
   * **Sviluppo per desktop con C++**
   * **Sviluppo per la piattaforma UWP (Universal Windows Platform)**
 * GIT [(download)](https://git-scm.com/downloads)
-* Unity 2019.3.1 [(download)](https://unity3d.com/get-unity/download)
-  * Installare questi moduli in Unity:
-    * **UWP** - Supporto per la compilazione della piattaforma UWP (Universal Windows Platform)
-    * **IL2CPP** - Supporto per la compilazione di Windows (IL2CPP)
+* Unity (vedere [requisiti di sistema](../overview/system-requirements.md#unity) per le versioni supportate)
 
 ## <a name="clone-the-sample-app"></a>Clonare l'app di esempio
 
