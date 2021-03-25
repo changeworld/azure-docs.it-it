@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/21/2020
 ms.author: rdhillon
-ms.openlocfilehash: 9766379807e6d2708fd6935dd2ffbd7660f9988f
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 633d0b9e454fe2906d98624ac2cdbcc9a8b6c7fa
+ms.sourcegitcommit: a8ff4f9f69332eef9c75093fd56a9aae2fe65122
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98216649"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105022263"
 ---
 # <a name="virtual-network-service-endpoint-policies-for-azure-storage"></a>Criteri degli endpoint servizio di rete virtuale per Archiviazione di Azure
 
@@ -109,6 +109,8 @@ Non sono disponibili funzionalità di registrazione centralizzata per i criteri 
   - Assicurarsi che gli account non siano **account di archiviazione classici** con criteri dell'endpoint di servizio nella subnet.
 - Un servizio gestito di Azure ha smesso di funzionare dopo aver applicato i criteri di un endpoint di servizio nella subnet
   - I servizi gestiti non sono attualmente supportati con i criteri dell'endpoint di servizio. *Controllare questo spazio per gli aggiornamenti*.
+- L'accesso agli account di archiviazione gestiti ha smesso di funzionare dopo aver applicato i criteri di un endpoint di servizio nella subnet
+  - Gli account di archiviazione gestiti non sono supportati con i criteri dell'endpoint di servizio. Se configurata, i criteri negherà l'accesso a tutti gli account di archiviazione gestiti, per impostazione predefinita. Se l'applicazione deve accedere agli account di archiviazione gestiti, i criteri endpoint non devono essere usati per questo traffico.
 
 ## <a name="provisioning"></a>Provisioning
 

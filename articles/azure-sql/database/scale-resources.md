@@ -11,12 +11,12 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: wiassaf, sstein
 ms.date: 06/25/2019
-ms.openlocfilehash: 453d7e118b946d60eb3d84c6a66abdbea7db2410
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: ca1a2edec70b13f111ffd89278aa39d1ddea7f67
+ms.sourcegitcommit: bb330af42e70e8419996d3cba4acff49d398b399
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "96499221"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105035643"
 ---
 # <a name="dynamically-scale-database-resources-with-minimal-downtime"></a>Ridimensionare in modo dinamico le risorse di database con tempo di inattività minimo
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -60,6 +60,9 @@ Il Istanza gestita SQL di Azure consente di scalare anche:
 - [SQL istanza gestita](../managed-instance/sql-managed-instance-paas-overview.md) usa la modalità [Vcore](../managed-instance/sql-managed-instance-paas-overview.md#vcore-based-purchasing-model) e consente di definire i core CPU massimi e la quantità massima di spazio di archiviazione allocato per l'istanza. Tutti i database all'interno dell'istanza gestita condividono le risorse allocate all'istanza.
 
 Quando si avvia l'azione di aumento o riduzione delle prestazioni in una qualsiasi delle varianti, il processo del motore di database viene riavviato e spostato in una macchina virtuale diversa, se necessario. Lo sviluppo del processo del motore di database in una nuova macchina virtuale è un **processo online** in cui è possibile continuare a usare il servizio database SQL di Azure esistente mentre il processo è in corso. Una volta che il motore di database di destinazione è stato completamente inizializzato ed è pronto per l'elaborazione delle query, le connessioni verranno [passate dal motore di database di origine a quello di destinazione](single-database-scale.md#impact).
+
+> [!NOTE]
+> Non è consigliabile ridimensionare l'istanza gestita se una transazione a esecuzione prolungata, ad esempio l'importazione di dati, i processi di elaborazione dei dati, la ricompilazione dell'indice e così via, è in esecuzione oppure se si dispone di una connessione attiva sull'istanza. Per evitare che la scalabilità richieda più tempo del solito, è necessario ridimensionare l'istanza al completamento di tutte le operazioni a esecuzione prolungata.
 
 > [!NOTE]
 > È possibile che si verifichi un breve intervallo di connessione al termine del processo di scalabilità verticale/orizzontale. Se è stata implementata la [logica di ripetizione dei tentativi per gli errori temporanei standard](troubleshoot-common-connectivity-issues.md#retry-logic-for-transient-errors), il failover non sarà noto.

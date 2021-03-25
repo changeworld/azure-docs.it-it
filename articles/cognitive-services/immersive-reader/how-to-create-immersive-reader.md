@@ -10,12 +10,12 @@ ms.subservice: immersive-reader
 ms.topic: how-to
 ms.date: 07/22/2019
 ms.author: rwaller
-ms.openlocfilehash: d7a8a598ab2d0c873cf07510cf40a08c22c0f1d4
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 369905ed5ee0ce9a93ec2be879b5e40114b0a380
+ms.sourcegitcommit: ed7376d919a66edcba3566efdee4bc3351c57eda
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102608598"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105048664"
 ---
 # <a name="create-an-immersive-reader-resource-and-configure-azure-active-directory-authentication"></a>Creare una risorsa Reader immersiva e configurare l'autenticazione Azure Active Directory
 
@@ -198,7 +198,7 @@ Lo script è progettato per essere flessibile. In questo modo, si cercherà prim
 ## <a name="next-steps"></a>Passaggi successivi
 
 * Visualizzare l'[esercitazione per Node.js](./quickstarts/client-libraries.md?pivots=programming-language-nodejs) per scoprire quali altre attività è possibile eseguire con Immersive Reader SDK usando Node.js
-* Visualizzare l'[esercitazione per Android](./tutorial-android.md) per scoprire quali altre attività è possibile eseguire con Immersive Reader SDK usando Java o Kotlin per Android
-* Visualizzare l'[esercitazione per iOS](./tutorial-ios.md) per scoprire quali altre attività è possibile eseguire con Immersive Reader SDK usando Swift per iOS
-* Visualizzare l'[esercitazione per Python](./tutorial-python.md) per scoprire quali altre attività è possibile eseguire con Immersive Reader SDK usando Python
+* Visualizzare l'[esercitazione per Android](./how-to-launch-immersive-reader.md) per scoprire quali altre attività è possibile eseguire con Immersive Reader SDK usando Java o Kotlin per Android
+* Visualizzare l'[esercitazione per iOS](./how-to-launch-immersive-reader.md) per scoprire quali altre attività è possibile eseguire con Immersive Reader SDK usando Swift per iOS
+* Visualizzare l'[esercitazione per Python](./how-to-launch-immersive-reader.md) per scoprire quali altre attività è possibile eseguire con Immersive Reader SDK usando Python
 * Esplorare [Immersive Reader SDK](https://github.com/microsoft/immersive-reader-sdk) e le [informazioni di riferimento su Immersive Reader SDK](./reference.md)

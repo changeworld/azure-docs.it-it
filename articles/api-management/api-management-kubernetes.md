@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 12/14/2019
 ms.author: apimpm
-ms.openlocfilehash: 293a47bc3e8499d7eda4e64bb68bc95eb4c85ab0
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 36dfc8c906c52c6822e583db3a08c891306f7e78
+ms.sourcegitcommit: ed7376d919a66edcba3566efdee4bc3351c57eda
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98108399"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105047933"
 ---
 # <a name="use-azure-api-management-with-microservices-deployed-in-azure-kubernetes-service"></a>Usare gestione API di Azure con microservizi distribuiti nel servizio Azure Kubernetes
 
@@ -95,7 +95,7 @@ Per ottenere una chiave di sottoscrizione per l'accesso alle API, è necessaria 
 
 ### <a name="option-3-deploy-apim-inside-the-cluster-vnet"></a>Opzione 3: distribuire Gestione API all'interno del cluster VNet
 
-In alcuni casi, i clienti con vincoli normativi o requisiti di sicurezza severi possono trovare soluzioni opzionali 1 e 2 non valide a causa di endpoint esposti pubblicamente. In altre, il cluster AKS e le applicazioni che usano i microservizi potrebbero risiedere all'interno della stessa VNet, pertanto non esiste alcun motivo per esporre il cluster pubblicamente perché tutto il traffico API rimarrà all'interno della VNet. Per questi scenari, è possibile distribuire Gestione API nel cluster VNet. Il [livello Premium di gestione API](https://aka.ms/apimpricing) supporta la distribuzione di VNet. 
+In alcuni casi, i clienti con vincoli normativi o requisiti di sicurezza severi possono trovare soluzioni opzionali 1 e 2 non valide a causa di endpoint esposti pubblicamente. In altre, il cluster AKS e le applicazioni che usano i microservizi potrebbero risiedere all'interno della stessa VNet, pertanto non esiste alcun motivo per esporre il cluster pubblicamente perché tutto il traffico API rimarrà all'interno della VNet. Per questi scenari, è possibile distribuire Gestione API nel cluster VNet. I [livelli Premium e Developer di gestione API](https://aka.ms/apimpricing) supportano la distribuzione di VNet. 
 
 Sono disponibili due modalità di [distribuzione di gestione API in una VNet](./api-management-using-with-vnet.md) , esterna e interna. 
 

@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 07/18/2019
-ms.openlocfilehash: 56ef6563982c315d34cfeb87070b9ebfa3d27a30
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 49122421f04ee6eef8828ca305cfb235aceee3fb
+ms.sourcegitcommit: bb330af42e70e8419996d3cba4acff49d398b399
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102500428"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105035694"
 ---
 # <a name="log-data-ingestion-time-in-azure-monitor"></a>Tempo di inserimento dei dati di log in Monitoraggio di Azure
 Monitoraggio di Azure è un servizio dati su larga scala che serve migliaia di clienti che inviano terabyte di dati ogni mese a un ritmo crescente. Spesso sono state poste domande sul tempo necessario affinché i dati di log diventino disponibili dopo la raccolta. Questo articolo illustra i diversi fattori che influiscono su questa latenza.
@@ -81,8 +81,8 @@ Il tempo di inserimento può variare a seconda delle risorse e delle circostanze
 | Passaggio | Proprietà o funzione | Commenti |
 |:---|:---|:---|
 | Record creato nell'origine dati | [TimeGenerated](./log-standard-columns.md#timegenerated-and-timestamp) <br>Se l'origine dati non imposta questo valore, verrà impostato sulla stessa ora _TimeReceived. |
-| Record ricevuto dall'endpoint di inserimento di monitoraggio di Azure | [_TimeReceived](./log-standard-columns.md#_timereceived) | |
-| Record archiviato nell'area di lavoro e disponibile per le query | [ingestion_time ()](/azure/kusto/query/ingestiontimefunction) | |
+| Record ricevuto dall'endpoint di inserimento di monitoraggio di Azure | [_TimeReceived](./log-standard-columns.md#_timereceived) | Questo campo non è ottimizzato per l'elaborazione di massa e non deve essere usato per filtrare set di impostazioni di grandi dimensioni. |
+| Record archiviato nell'area di lavoro e disponibile per le query | [ingestion_time ()](/azure/kusto/query/ingestiontimefunction) | È consigliabile usare ingestion_time () se è necessario filtrare solo i record che sono stati inseriti in un determinato intervallo di tempo. In tal caso, è consigliabile aggiungere anche un filtro TimeGenerated con un intervallo più ampio. |
 
 ### <a name="ingestion-latency-delays"></a>Valori della latenza di inserimento
 È possibile misurare la latenza di un record specifico confrontando il risultato della funzione [ingestion_time ()](/azure/kusto/query/ingestiontimefunction) con la proprietà _TimeGenerated_ . Questi dati possono essere usati con varie aggregazioni per individuare il comportamento della latenza di inserimento. Esaminare qualche percentile del tempo di inserimento per ottenere informazioni dettagliate per una grande quantità di dati. 
