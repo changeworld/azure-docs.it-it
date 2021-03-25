@@ -8,12 +8,12 @@ ms.author: maheff
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 03/01/2021
-ms.openlocfilehash: 5a44c40838b7f7fa9ca499ade49317ff9ce828fe
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
+ms.openlocfilehash: 5888a7cc8aa58d1c6edab191e1243ebc60000fd6
+ms.sourcegitcommit: ed7376d919a66edcba3566efdee4bc3351c57eda
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102498898"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105048868"
 ---
 # <a name="how-to-configure-sharepoint-online-indexing-in-cognitive-search-preview"></a>Come configurare l'indicizzazione di SharePoint online in ricerca cognitiva (anteprima)
 
@@ -147,7 +147,7 @@ api-key: [admin key]
 
 ```
 
-Per altre informazioni, vedere [create index (API REST)](https://docs.microsoft.com/rest/api/searchservice/create-index).
+Per altre informazioni, vedere [create index (API REST)](/rest/api/searchservice/create-index).
 
 ### <a name="step-5-create-an-indexer"></a>Passaggio 5: creare un indicizzatore
 Un indicizzatore si connette a un'origine dati con un indice di ricerca di destinazione e pianifica l’automatizzazione dell'aggiornamento dei dati. Dopo aver creato l'indice e l'origine dati, si è pronti per creare l'indicizzatore.
@@ -226,7 +226,7 @@ Content-Type: application/json
 api-key: [admin key]
 ```
 
-Altre informazioni sullo stato dell'indicizzatore sono disponibili qui: [ottenere lo stato dell'indicizzatore](https://docs.microsoft.com/rest/api/searchservice/get-indexer-status).
+Altre informazioni sullo stato dell'indicizzatore sono disponibili qui: [ottenere lo stato dell'indicizzatore](/rest/api/searchservice/get-indexer-status).
 
 ## <a name="updating-the-data-source"></a>Aggiornamento dell'origine dati
 Se non sono presenti aggiornamenti per l'oggetto origine dati, l'indicizzatore può essere eseguito in base a una pianificazione senza alcuna interazione da parte dell'utente. Tuttavia, ogni volta che l'oggetto origine dati ricerca cognitiva di Azure viene aggiornato, sarà necessario eseguire di nuovo l'accesso per consentire l'esecuzione dell'indicizzatore. Se ad esempio si modifica la query dell'origine dati, sarà necessario eseguire di nuovo l'accesso utilizzando `https://microsoft.com/devicelogin` e un nuovo codice.
@@ -241,7 +241,7 @@ Dopo che l'origine dati è stata aggiornata, attenersi alla procedura seguente:
     api-key: [admin key]
     ```
 
-    Altre informazioni sulla richiesta di esecuzione dell'indicizzatore sono disponibili qui: [eseguire l'indicizzatore](https://docs.microsoft.com/rest/api/searchservice/run-indexer).
+    Altre informazioni sulla richiesta di esecuzione dell'indicizzatore sono disponibili qui: [eseguire l'indicizzatore](/rest/api/searchservice/run-indexer).
 
 1.  Verificare lo stato dell'indicizzatore. Se l'ultima esecuzione dell'indicizzatore contiene un errore che indica di passare a `https://microsoft.com/devicelogin` , passare a tale pagina e fornire il nuovo codice. 
 
@@ -251,7 +251,7 @@ Dopo che l'origine dati è stata aggiornata, attenersi alla procedura seguente:
     api-key: [admin key]
     ```
 
-    Altre informazioni sullo stato dell'indicizzatore sono disponibili qui: [ottenere lo stato dell'indicizzatore](https://docs.microsoft.com/rest/api/searchservice/get-indexer-status).
+    Altre informazioni sullo stato dell'indicizzatore sono disponibili qui: [ottenere lo stato dell'indicizzatore](/rest/api/searchservice/get-indexer-status).
 
 1.  Accedi
 
@@ -359,7 +359,7 @@ Per alcuni documenti, Azure ricerca cognitiva non è in grado di determinare il 
 "parameters" : { "configuration" : { "failOnUnprocessableDocument" : false } }
 ```
 
-Azure ricerca cognitiva limita le dimensioni dei documenti indicizzati. Questi limiti sono documentati in [limiti di servizio in Azure ricerca cognitiva](https://docs.microsoft.com/azure/search/search-limits-quotas-capacity). Per impostazione predefinita, i documenti sovradimensionati vengono considerati come errori. Tuttavia, è comunque possibile indicizzare i metadati di archiviazione dei documenti sovradimensionati se si imposta il `indexStorageMetadataOnlyForOversizedDocuments` parametro di configurazione su true:
+Azure ricerca cognitiva limita le dimensioni dei documenti indicizzati. Questi limiti sono documentati in [limiti di servizio in Azure ricerca cognitiva](./search-limits-quotas-capacity.md). Per impostazione predefinita, i documenti sovradimensionati vengono considerati come errori. Tuttavia, è comunque possibile indicizzare i metadati di archiviazione dei documenti sovradimensionati se si imposta il `indexStorageMetadataOnlyForOversizedDocuments` parametro di configurazione su true:
 
 ```http
 "parameters" : { "configuration" : { "indexStorageMetadataOnlyForOversizedDocuments" : true } }

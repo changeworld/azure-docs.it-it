@@ -5,12 +5,12 @@ author: athinanthny
 ms.topic: conceptual
 ms.date: 07/01/2020
 ms.author: atsenthi
-ms.openlocfilehash: 1da70c37c8a6ed93e7abe1b5d329e808c592e43a
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: a0131960d356e4862d1379c308e240e19e76205c
+ms.sourcegitcommit: ed7376d919a66edcba3566efdee4bc3351c57eda
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "86034883"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105048069"
 ---
 # <a name="read-and-update-a-reliable-collections-backup-by-using-backup-explorer"></a>Leggere e aggiornare un backup di raccolte Reliable Collections tramite Esplora backup
 
@@ -45,4 +45,4 @@ NuGet for Backup Explorer (Microsoft. ServiceFabric. ReliableCollectionBackup. P
 ## <a name="next-steps"></a>Passaggi successivi
 
 * Scopri di più sulle [raccolte Reliable Collections in Azure Service Fabric i servizi con stato](service-fabric-reliable-services-reliable-collections.md).
-* Esaminare [Service Fabric procedure consigliate](service-fabric-best-practices-overview.md).
+* Esaminare [Service Fabric procedure consigliate](./service-fabric-best-practices-security.md).
