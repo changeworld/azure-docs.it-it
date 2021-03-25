@@ -4,12 +4,12 @@ ms.service: azure-communication-services
 ms.topic: include
 ms.date: 03/10/2021
 ms.author: mikben
-ms.openlocfilehash: 7fee393b694bf761cf052702a975239d6dff9a9c
-ms.sourcegitcommit: ed7376d919a66edcba3566efdee4bc3351c57eda
+ms.openlocfilehash: 9aaaece7d60ceead80e51bdc2a1bb342d9a4d237
+ms.sourcegitcommit: bed20f85722deec33050e0d8881e465f94c79ac2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/24/2021
-ms.locfileid: "105104329"
+ms.lasthandoff: 03/25/2021
+ms.locfileid: "105107740"
 ---
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -18,12 +18,12 @@ ms.locfileid: "105104329"
 - Un token di accesso utente per abilitare il client chiamante. Per altre informazioni, vedere [creare e gestire i token di accesso](../../access-tokens.md).
 - Facoltativo: completare la Guida introduttiva per [aggiungere la chiamata vocale all'applicazione](../getting-started-with-calling.md).
 
-## <a name="install-the-client-library"></a>Installare la libreria client
+## <a name="install-the-sdk"></a>Installare l'SDK
 
 > [!NOTE]
-> Questo documento usa la versione 1.0.0-beta. 6 della libreria client chiamante.
+> Questo documento usa la versione 1.0.0-beta. 6 dell'SDK chiamante.
 
-Usare il `npm install` comando per installare i servizi di comunicazione di Azure che chiamano e le librerie client comuni per JavaScript.
+Usare il `npm install` comando per installare i servizi di comunicazione di Azure che chiamano e gli SDK comuni per JavaScript.
 Questo documento fa riferimento ai tipi nella versione 1.0.0-beta. 5 della libreria chiamante.
 
 ```console
@@ -34,11 +34,11 @@ npm install @azure/communication-calling --save
 
 ## <a name="object-model"></a>Modello a oggetti
 
-Le classi e le interfacce seguenti gestiscono alcune delle principali funzionalità dei servizi di comunicazione di Azure che chiamano la libreria client:
+Le classi e le interfacce seguenti gestiscono alcune delle principali funzionalità di Azure Communication Services che chiamano SDK:
 
 | Nome                             | Descrizione                                                                                                                                 |
 | ---------------------------------| ------------------------------------------------------------------------------------------------------------------------------------------- |
-| `CallClient`                      | Il punto di ingresso principale della libreria client chiamante.                                                                       |
+| `CallClient`                      | Il punto di ingresso principale dell'SDK chiamante.                                                                       |
 | `CallAgent`                        | Utilizzato per avviare e gestire le chiamate.                                                                                            |
 | `DeviceManager`                    | Usato per gestire i dispositivi multimediali.                                                                                           |
 | `AzureCommunicationTokenCredential` | Implementa l' `CommunicationTokenCredential` interfaccia utilizzata per creare un'istanza di `callAgent` . |
@@ -63,7 +63,7 @@ const deviceManager = await callClient.getDeviceManager()
 
 ## <a name="place-a-call"></a>Effettuare una chiamata
 
-Per creare e avviare una chiamata, usare una delle API in `callAgent` e fornire un utente creato tramite la libreria client di identità dei servizi di comunicazione.
+Per creare e avviare una chiamata, usare una delle API in `callAgent` e fornire un utente creato tramite Communication Services Identity SDK.
 
 La creazione e l'avvio di una chiamata sono sincrone. L'istanza di chiamata consente di sottoscrivere gli eventi di chiamata.
 

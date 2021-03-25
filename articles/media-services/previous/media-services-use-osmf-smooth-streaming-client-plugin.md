@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 3/10/2021
 ms.author: inhenkel
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 70042a5c4c27ec5d163e5f05089ae50b92140c28
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: b0969ffae7963d6a5f9ac249e43750444ab11baa
+ms.sourcegitcommit: bb330af42e70e8419996d3cba4acff49d398b399
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103011256"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105036051"
 ---
 # <a name="how-to-use-the-microsoft-smooth-streaming-plugin-for-the-adobe-open-source-media-framework"></a>Come usare il plug-in Microsoft Smooth Streaming per Adobe Open Source Media Framework
 
@@ -59,7 +59,7 @@ I plug-in OSMF possono essere caricati in modo statico (in fase di compilazione)
 * Caricamento statico: per eseguire il caricamento in modo statico, è necessario un file di libreria statica (SWC). I plug-in statici vengono aggiunti come riferimento ai progetti e vengono uniti all'interno del file di output finale in fase di compilazione.
 * Caricamento dinamico: per eseguire il caricamento dinamico, è necessario un file precompilato (SWF). I plug-in dinamici vengono caricati in fase di esecuzione e non sono inclusi nell'output del progetto. (Output compilato) I plug-in dinamici possono essere caricati tramite i protocolli HTTP e FILE.
 
-Per altre informazioni sul caricamento statico e dinamico, vedere la [pagina ufficiale del plug-in OSMF](http://osmf.org/dev/osmf/OtherPDFs/osmf_plugin_dev_guide.pdf).
+Per altre informazioni sul caricamento statico e dinamico, vedere la [pagina ufficiale del plug-in OSMF](https://www.ibm.com/support/knowledgecenter/SSLTBW_2.3.0/com.ibm.zos.v2r3.izua300/IZUHPINFO_PluginsPlanning.htm).
 
 ### <a name="ss-for-osmf-static-loading"></a>Caricamento statico di Smooth Streaming per OSMF
 Nel frammento di codice seguente viene illustrato come caricare il plug-in Smooth Streaming per OSMF in modo statico e riprodurre un video di base usando la classe MediaFactory di OSMF. Prima di includere il codice di Smooth Streaming per OSMF, verificare che nei riferimenti del progetto sia incluso il plug-in statico "MSAdaptiveStreamingPlugin-v1.0.3-osmf2.0.swc".

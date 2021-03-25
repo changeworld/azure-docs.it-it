@@ -5,12 +5,12 @@ ms.date: 06/10/2019
 ms.topic: conceptual
 hide_comments: true
 hideEdit: true
-ms.openlocfilehash: 38ec7949b5fc04852568e9e69f35f212b1edee5d
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 7f99c37cd9f029c7478d4102bd17c952ffd52f8c
+ms.sourcegitcommit: ed7376d919a66edcba3566efdee4bc3351c57eda
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103201043"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105044278"
 ---
 # <a name="service-fabric-releases"></a>Versioni Service Fabric
 
@@ -72,7 +72,7 @@ Sono stati pubblicati anche aggiornamenti della data di fine del supporto per le
       -  Riduci i costi complessivi (i dischi sono gratuiti e non comportano costi di archiviazione aggiuntivi)
 - Supporto per la dichiarazione di [**certificati dell'endpoint di servizio di applicazioni di Service fabric in base al nome comune dell'oggetto**](./service-fabric-service-manifest-resources.md).
 - [**Supporto per i probe di integrità per i servizi in contenitori**](./probes-codepackage.md): supporto per il meccanismo di probe di Livezza per le applicazioni incluse in contenitori. Il probe di Livenza consente di annunciare la vita dell'applicazione in contenitori e quando non rispondono in modo tempestivo, comporterà un riavvio. 
-- [**Supporto per pacchetti di codice dell'inizializzatore**](./initializer-codepackages.md) per [contenitori](/azure/service-fabric/service-fabric-containers-overview) e applicazioni [eseguibili Guest](/azure/service-fabric/service-fabric-guest-executables-introduction) . Questo consente l'esecuzione di pacchetti di codice (ad esempio contenitori), in un ordine specificato, per eseguire l'inizializzazione del pacchetto del servizio.
+- [**Supporto per pacchetti di codice dell'inizializzatore**](./initializer-codepackages.md) per [contenitori](./service-fabric-containers-overview.md) e applicazioni [eseguibili Guest](./service-fabric-guest-executables-introduction.md) . Questo consente l'esecuzione di pacchetti di codice (ad esempio contenitori), in un ordine specificato, per eseguire l'inizializzazione del pacchetto del servizio.
 - **FabricObserver e ClusterObserver** sono applicazioni senza stato che acquisiscono Service Fabric dati di telemetria correlati a diversi aspetti di un cluster SF. Entrambe queste applicazioni sono pronte per la distribuzione nei cluster di produzione Windows per acquisire dati di telemetria avanzati con supporto implementato per ApplicationInsights, EventSource e LogAnalytics.
     - [**FabricObserver (FO) 2,0**](https://github.com/microsoft/service-fabric-observer): viene eseguito in tutti i nodi, genera eventi di integrità, emette dati di telemetria quando vengono raggiunte le soglie di utilizzo delle risorse configurate. Questa versione contiene diversi miglioramenti per il monitoraggio, la gestione dei dati, i dettagli degli eventi di integrità, i dati di telemetria strutturati.
      - [**ClusterObserver (CO) 1,1**](https://github.com/microsoft/service-fabric-observer/tree/master/ClusterObserver) : viene eseguito in un nodo, acquisisce i dati di telemetria sull'integrità a livello di cluster. In questa versione, ClusterObserver monitora anche lo stato dei nodi e genera dati di telemetria quando il nodo è inattivo/disabilitato/disabilitato per un periodo di tempo superiore a quello specificato dall'utente.

@@ -1,18 +1,18 @@
 ---
 title: Controlli di conformità alle normative di Criteri di Azure per Azure Data Lake Analytics
 description: Elenca i controlli di conformità alle normative di Criteri di Azure per Azure Data Lake Analytics. Queste definizioni di criteri predefinite rappresentano approcci comuni alla gestione della conformità delle risorse di Azure.
-ms.date: 03/17/2021
+ms.date: 03/24/2021
 ms.topic: sample
 author: JasonWHowell
 ms.author: jasonh
 ms.service: data-lake-analytics
 ms.custom: subject-policy-compliancecontrols
-ms.openlocfilehash: a6f077f3fcfeb0bde73c14142262915571502425
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 1611d67c03b6768742a03becd563baac60ebca2a
+ms.sourcegitcommit: bb330af42e70e8419996d3cba4acff49d398b399
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104590595"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105037487"
 ---
 # <a name="azure-policy-regulatory-compliance-controls-for-azure-data-lake-analytics"></a>Controlli di conformità alle normative di Criteri di Azure per Azure Data Lake Analytics
 

@@ -9,12 +9,12 @@ ms.topic: article
 ms.workload: storage-backup-recovery
 ms.date: 01/08/2020
 ms.author: mayg
-ms.openlocfilehash: d2a0444483c382da7c54accf7dca49d097671771
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 8fe21ce5b92d672a2e025e0b45b8cbaea5951a8b
+ms.sourcegitcommit: ed7376d919a66edcba3566efdee4bc3351c57eda
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "92371988"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105043904"
 ---
 # <a name="troubleshoot-errors-when-failing-over-vmware-vm-or-physical-machine-to-azure"></a>Risolvere gli errori durante il failover di un computer fisico o di una macchina virtuale VMware in Azure
 
@@ -78,9 +78,9 @@ Per modificare manualmente il tipo di avvio dei driver per il **sistema operativ
 
 ## <a name="unable-to-connectrdpssh-to-the-failed-over-virtual-machine-due-to-grayed-out-connect-button-on-the-virtual-machine"></a>Impossibile connettersi o stabilire una connessione RDP/SSH alla macchina virtuale con failover perché il pulsante di connessione è disabilitato nella macchina virtuale
 
-Per istruzioni dettagliate sulla risoluzione dei problemi relativi a RDP, vedere la documentazione [qui](../virtual-machines/troubleshooting/troubleshoot-rdp-connection.md).
+Per istruzioni dettagliate sulla risoluzione dei problemi relativi a RDP, vedere la documentazione [qui](/troubleshoot/azure/virtual-machines/troubleshoot-rdp-connection).
 
-Per istruzioni dettagliate sulla risoluzione dei problemi relativi a SSH, vedere la documentazione [qui](../virtual-machines/troubleshooting/troubleshoot-ssh-connection.md).
+Per istruzioni dettagliate sulla risoluzione dei problemi relativi a SSH, vedere la documentazione [qui](/troubleshoot/azure/virtual-machines/troubleshoot-ssh-connection).
 
 Se su una macchina virtuale in cui è stato eseguito il failover, il pulsante **Connetti** risulta disabilitato e non si è connessi ad Azure tramite una connessione di Ciclo di lavorazione espresso o VPN da sito a sito, allora:
 
@@ -94,7 +94,7 @@ Se su una macchina virtuale in cui è stato eseguito il failover, il pulsante **
 
 ## <a name="unable-to-connectrdpssh---vm-connect-button-available"></a>La connessione a RDP/SSH non è riuscita - Pulsante di connessione alla macchina virtuale disponibile
 
-Se su una macchina virtuale in cui è stato eseguito il failover, il pulsante **Connetti** risulta disponibile (non disabilitato) controllare la **Diagnostica di avvio** nella macchina virtuale e verificare la presenza di errori come indicato in [questo articolo](../virtual-machines/troubleshooting/boot-diagnostics.md).
+Se su una macchina virtuale in cui è stato eseguito il failover, il pulsante **Connetti** risulta disponibile (non disabilitato) controllare la **Diagnostica di avvio** nella macchina virtuale e verificare la presenza di errori come indicato in [questo articolo](/troubleshoot/azure/virtual-machines/boot-diagnostics).
 
 1. Se la macchina virtuale non si è avviata, provare a effettuare il failover a un punto di ripristino meno recente.
 2. Se l'applicazione all'interno della macchina virtuale non si avvia, provare a effettuare il failover a un punto di ripristino coerente con l'app.
@@ -182,7 +182,7 @@ Per risolvere il problema:
 
 
 ## <a name="next-steps"></a>Passaggi successivi
-- Risoluzione problemi [di connessione RDP a una macchina virtuale Windows](../virtual-machines/troubleshooting/troubleshoot-rdp-connection.md)
-- Risoluzione problemi [di connessione SSH a una macchina virtuale Linux](../virtual-machines/troubleshooting/detailed-troubleshoot-ssh-connection.md)
+- Risoluzione problemi [di connessione RDP a una macchina virtuale Windows](/troubleshoot/azure/virtual-machines/troubleshoot-rdp-connection)
+- Risoluzione problemi [di connessione SSH a una macchina virtuale Linux](/troubleshoot/azure/virtual-machines/detailed-troubleshoot-ssh-connection)
 
 Per ottenere ulteriore assistenza, pubblicare una query nella [pagina delle domande di Domande e risposte Microsoft relativa a Site Recovery](/answers/topics/azure-site-recovery.html) oppure lasciare un commento alla fine di questo documento. È disponibile una community attiva in grado di offrire supporto.

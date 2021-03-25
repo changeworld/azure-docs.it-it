@@ -10,13 +10,13 @@ ms.topic: conceptual
 author: aamalvea
 ms.author: aamalvea
 ms.reviewer: sstein
-ms.date: 1/21/2021
-ms.openlocfilehash: d38ac9731959cf9a23052753b09c9e7819846705
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.date: 3/23/2021
+ms.openlocfilehash: eedbc46ee5feb0aa6f6a26c3f5b3c67ac8ca0a5e
+ms.sourcegitcommit: ed7376d919a66edcba3566efdee4bc3351c57eda
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "101664118"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105044261"
 ---
 # <a name="plan-for-azure-maintenance-events-in-azure-sql-database-and-azure-sql-managed-instance"></a>Pianificare gli eventi di manutenzione di Azure nel database SQL di Azure e in Azure SQL Istanza gestita
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -27,11 +27,11 @@ Informazioni su come prepararsi per gli eventi di manutenzione pianificata nel d
 
 Per garantire la sicurezza, la conformità, la stabilità e l'esecuzione degli aggiornamenti del database SQL di Azure e di Azure SQL Istanza gestita Services, i componenti del servizio vengono eseguiti quasi continuamente. Grazie all'architettura del servizio moderna e affidabile e a tecnologie innovative come l'applicazione di [patch a caldo](https://aka.ms/azuresqlhotpatching), la maggior parte degli aggiornamenti è completamente trasparente e non influisca in termini di disponibilità dei servizi. Tuttavia, pochi tipi di aggiornamenti causano brevi interruzioni del servizio e richiedono un trattamento speciale. 
 
-Per ogni database, il database SQL di Azure e Azure SQL Istanza gestita gestiscono un quorum di repliche di database in cui una replica è la replica primaria. In ogni momento, una replica primaria deve essere la manutenzione in linea e almeno una replica secondaria deve essere integra. Durante la manutenzione pianificata, i membri del quorum del database passeranno offline uno alla volta, in quanto sono presenti una replica primaria pronta a rispondere e almeno una replica secondaria online per evitare tempi di inattività del client. Quando la replica primaria deve essere portata offline, si verifica un processo di riconfigurazione/failover in cui una replica secondaria diventa la nuova replica primaria.  
+Per ogni database, il database SQL di Azure e Azure SQL Istanza gestita gestiscono un quorum di repliche di database in cui una replica è la replica primaria. In ogni momento, una replica primaria deve essere la manutenzione in linea e almeno una replica secondaria deve essere integra. Durante la manutenzione pianificata, i membri del quorum del database passeranno offline uno alla volta, in quanto sono presenti una replica primaria pronta a rispondere e almeno una replica secondaria online per evitare tempi di inattività del client. Quando la replica primaria deve essere portata offline, verrà eseguito un processo di riconfigurazione in cui una replica secondaria diventerà il nuovo database primario.  
 
 ## <a name="what-to-expect-during-a-planned-maintenance-event"></a>Esecuzione di un evento di manutenzione pianificata
 
-L'evento di manutenzione può produrre failover singoli o multipli, a seconda della costellazione delle repliche primarie e secondarie all'inizio dell'evento di manutenzione. In media, si verificano i failover 1,7 per ogni evento di manutenzione pianificata. Le riconfigurazioni e i failover vengono in genere completati entro 30 secondi. La media è di otto secondi. Se è già connesso, l'applicazione deve riconnettersi alla nuova replica primaria del database. Se viene tentata una nuova connessione mentre il database è in fase di riconfigurazione prima che la nuova replica primaria sia online, viene ricevuto l'errore 40613 (database non disponibile): *"il database ' {DatabaseName}' nel server ' {ServerName}' non è attualmente disponibile. Ripetere la connessione in un secondo momento. "* Se nel database è presente una query con esecuzione prolungata, la query verrà interrotta durante una riconfigurazione e sarà necessario riavviarla.
+L'evento di manutenzione può produrre riconfigurazioni singole o multiple, a seconda della costellazione delle repliche primarie e secondarie all'inizio dell'evento di manutenzione. In media, si verificano riconfigurazioni 1,7 per ogni evento di manutenzione pianificata. Le riconfigurazioni vengono in genere completate entro 30 secondi. La media è di otto secondi. Se è già connesso, l'applicazione deve riconnettersi alla nuova replica primaria del database. Se viene tentata una nuova connessione mentre il database è in fase di riconfigurazione prima che la nuova replica primaria sia online, viene ricevuto l'errore 40613 (database non disponibile): *"il database ' {DatabaseName}' nel server ' {ServerName}' non è attualmente disponibile. Ripetere la connessione in un secondo momento. "* Se nel database è presente una query con esecuzione prolungata, la query verrà interrotta durante una riconfigurazione e sarà necessario riavviarla.
 
 ## <a name="how-to-simulate-a-planned-maintenance-event"></a>Come simulare un evento di manutenzione pianificata
 
@@ -39,7 +39,7 @@ Assicurarsi che l'applicazione client sia resiliente agli eventi di manutenzione
 
 ## <a name="retry-logic"></a>Logica di retry
 
-Qualsiasi applicazione di produzione client che si connette a un servizio di database cloud dovrebbe implementare un'efficace [logica di ripetizione dei tentativi](troubleshoot-common-connectivity-issues.md#retry-logic-for-transient-errors) di connessione. Ciò consentirà di rendere i failover trasparenti agli utenti finali o almeno ridurre al minimo gli effetti negativi.
+Qualsiasi applicazione di produzione client che si connette a un servizio di database cloud dovrebbe implementare un'efficace [logica di ripetizione dei tentativi](troubleshoot-common-connectivity-issues.md#retry-logic-for-transient-errors) di connessione. Ciò consentirà di rendere le riconfigurazioni trasparenti agli utenti finali o almeno ridurre al minimo gli effetti negativi.
 
 ## <a name="resource-health"></a>Resource Health
 

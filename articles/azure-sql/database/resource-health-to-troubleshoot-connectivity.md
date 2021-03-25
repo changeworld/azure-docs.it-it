@@ -10,13 +10,13 @@ ms.topic: conceptual
 author: aamalvea
 ms.author: aamalvea
 ms.reviewer: wiassaf, sstein
-ms.date: 02/26/2019
-ms.openlocfilehash: 1a74a2f44ac9b03e39e9fea48a3428b82111a48c
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.date: 03/24/2021
+ms.openlocfilehash: 4434c796a41126444b8785440427123e88e0b528
+ms.sourcegitcommit: bed20f85722deec33050e0d8881e465f94c79ac2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103472005"
+ms.lasthandoff: 03/25/2021
+ms.locfileid: "105107789"
 ---
 # <a name="use-resource-health-to-troubleshoot-connectivity-for-azure-sql-database-and-azure-sql-managed-instance"></a>Usare Integrità risorse per risolvere i problemi di connettività per il database SQL di Azure e Azure SQL Istanza gestita
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -76,5 +76,5 @@ Le riconfigurazioni sono considerate condizioni temporanee e sono previste di ta
 - Altre informazioni sulla [logica di ripetizione dei tentativi per gli errori temporanei](troubleshoot-common-connectivity-issues.md#retry-logic-for-transient-errors).
 - [Risolvere i problemi, diagnosticare ed evitare errori di connessione SQL](troubleshoot-common-connectivity-issues.md).
 - Altre informazioni sulla [configurazione degli avvisi integrità risorse](../../service-health/resource-health-alert-arm-template-guide.md).
-- Ottenere una panoramica del [integrità risorse](../../application-gateway/resource-health-overview.md).
+- Ottenere una panoramica del [integrità risorse](../../service-health/resource-health-overview.md).
 - Esaminare [integrità risorse domande frequenti](../../service-health/resource-health-faq.md).

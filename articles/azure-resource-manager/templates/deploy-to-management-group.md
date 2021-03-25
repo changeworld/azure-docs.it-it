@@ -3,12 +3,12 @@ title: Distribuire le risorse al gruppo di gestione
 description: Viene descritto come distribuire le risorse nell'ambito del gruppo di gestione in un modello di Azure Resource Manager.
 ms.topic: conceptual
 ms.date: 03/18/2021
-ms.openlocfilehash: 603b7e32e6f4e1181a8ef2df67382b5e21ed6715
-ms.sourcegitcommit: a67b972d655a5a2d5e909faa2ea0911912f6a828
+ms.openlocfilehash: dc7418d9e93fb50590c5e2502b3a3ffb3847273f
+ms.sourcegitcommit: ed7376d919a66edcba3566efdee4bc3351c57eda
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/23/2021
-ms.locfileid: "104889808"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105043309"
 ---
 # <a name="management-group-deployments-with-arm-templates"></a>Distribuzioni del gruppo di gestione con i modelli ARM
 
@@ -25,7 +25,7 @@ Per i progetti di Azure, usare:
 * [blueprintAssignments](/azure/templates/microsoft.blueprint/blueprintassignments)
 * [versioni](/azure/templates/microsoft.blueprint/blueprints/versions)
 
-Per i criteri di Azure, usare:
+Per criteri di Azure, usare:
 
 * [policyAssignments](/azure/templates/microsoft.authorization/policyassignments)
 * [policyDefinitions](/azure/templates/microsoft.authorization/policydefinitions)

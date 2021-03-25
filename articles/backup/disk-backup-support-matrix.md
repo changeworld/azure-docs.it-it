@@ -4,25 +4,20 @@ description: Fornisce un riepilogo delle impostazioni di supporto e delle limita
 ms.topic: conceptual
 ms.date: 01/07/2021
 ms.custom: references_regions
-ms.openlocfilehash: 922bd532275cdd6b09df83b0e9d36fdec1da0b47
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 38c35824118979c900dacd9c103ae8f9ec11ad65
+ms.sourcegitcommit: bed20f85722deec33050e0d8881e465f94c79ac2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101707218"
+ms.lasthandoff: 03/25/2021
+ms.locfileid: "105107279"
 ---
-# <a name="azure-disk-backup-support-matrix-in-preview"></a>Matrice di supporto di backup su disco di Azure (in anteprima)
-
->[!IMPORTANT]
->Il backup su disco di Azure è in anteprima senza un contratto di servizio e non è consigliato per i carichi di lavoro di produzione. Per altre informazioni, vedere [Condizioni supplementari per l'utilizzo delle anteprime di Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
->
->[Compilare questo modulo](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR1vE8L51DIpDmziRt_893LVUNFlEWFJBN09PTDhEMjVHS05UWFkxUlUzUS4u) per iscriversi all'anteprima.
+# <a name="azure-disk-backup-support-matrix"></a>Matrice di supporto per il backup di dischi di Azure
 
 È possibile usare [backup di Azure](./backup-overview.md) per proteggere i dischi di Azure. Questo articolo riepiloga la disponibilità delle aree, gli scenari supportati e le limitazioni.
 
 ## <a name="supported-regions"></a>Aree supportate
 
-Il backup su disco di Azure è disponibile in anteprima nelle aree seguenti: Stati Uniti occidentali, Stati Uniti centro-occidentali, Stati Uniti orientali, Canada centrale, Regno Unito occidentale, Svizzera settentrionale, Svizzera occidentale, Australia centrale, Australia centrale 2, Corea centrale, Corea meridionale, Giappone occidentale, Asia orientale, Emirati Arabi Uniti settentrionali, Brasile meridionale, India centrale. 
+Il backup su disco di Azure è disponibile nelle aree seguenti: Stati Uniti occidentali, Stati Uniti occidentali 2, Stati Uniti centro-occidentali, Stati Uniti orientali, Stati Uniti orientali, Stati Uniti centrali, Stati Uniti centro-meridionali, Stati Uniti centro-settentrionali, Canada centrale, Brasile meridionale, Sudafrica settentrionale, Regno Unito meridionale, Regno Unito occidentale, Europa occidentale, Germania centro-occidentale Svizzera occidentale Svizzera settentrionale Europa settentrionale , Australia orientale, Corea centrale, Corea meridionale, Giappone orientale, Giappone occidentale, Asia orientale, Asia sudorientale, India centrale. 
 
 Quando diventano disponibili, verranno annunciate altre aree.
 

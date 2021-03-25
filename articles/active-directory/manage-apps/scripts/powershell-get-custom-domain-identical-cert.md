@@ -11,14 +11,14 @@ ms.topic: sample
 ms.date: 12/05/2019
 ms.author: kenwith
 ms.reviewer: japere
-ms.openlocfilehash: a04b66b4b3e1901a0c8ecaf2c47dec21b94fe0ee
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
+ms.openlocfilehash: a45333b9df2e75e443ed40568943c03c703799f3
+ms.sourcegitcommit: ed7376d919a66edcba3566efdee4bc3351c57eda
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102548933"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105044108"
 ---
-# <a name="get-all-azure-ad-proxy-application-apps-that-are-published-with-the-identical-certificate"></a>Recuperare tutte le app di Azure AD Application Proxy pubblicate con lo stesso certificato
+# <a name="get-all-application-proxy-apps-that-are-published-with-the-identical-certificate"></a>Ottenere tutte le app proxy di applicazione pubblicate con il certificato identico
 
 Questo script di esempio di PowerShell elenca tutte le applicazioni di Azure Active Directory (Azure AD) Application Proxy pubblicate con lo stesso certificato.
 
