@@ -3,12 +3,12 @@ title: Usare un'immagine gestita per creare un pool di immagini personalizzato
 description: Creare un pool di immagini personalizzate di batch da un'immagine gestita per eseguire il provisioning dei nodi di calcolo con il software e i dati dell'applicazione.
 ms.topic: conceptual
 ms.date: 11/18/2020
-ms.openlocfilehash: 0a357a1d8a22341297f3bee73fb0867fb03f374f
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 9baa65c0f1c1844ea10e3d5b4f0b48924912d233
+ms.sourcegitcommit: a8ff4f9f69332eef9c75093fd56a9aae2fe65122
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "94916577"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105023878"
 ---
 # <a name="use-a-managed-image-to-create-a-custom-image-pool"></a>Usare un'immagine gestita per creare un pool di immagini personalizzato
 
@@ -43,7 +43,7 @@ Per dimensionare i pool di Batch in modo affidabile con un'immagine gestita, si 
 Se si crea una nuova macchina virtuale per l'immagine, usare un'immagine produttore di Azure Marketplace supportata da Batch come immagine di base per l'immagine gestita. Solo le immagini produttore possono essere usate come immagine di base. Per ottenere un elenco completo di riferimenti a immagini di Azure Marketplace supportate da Azure Batch, vedere l'operazione [List node agent SKUs](/java/api/com.microsoft.azure.batch.protocol.accounts.listnodeagentskus).
 
 > [!NOTE]
-> È possibile usare un'immagine di terze parti che dispone di licenza aggiuntiva e di condizioni di acquisto come immagine di base. Per informazioni su queste immagini del Marketplace, vedere il materiale sussidiario per le macchine virtuali [Linux](../virtual-machines/linux/cli-ps-findimage.md#deploy-an-image-with-marketplace-terms) o [Windows](../virtual-machines/windows/cli-ps-findimage.md#deploy-an-image-with-marketplace-terms).
+> È possibile usare un'immagine di terze parti che dispone di licenza aggiuntiva e di condizioni di acquisto come immagine di base. Per informazioni su queste immagini del Marketplace, vedere le linee guida per le macchine virtuali [Linux](../virtual-machines/linux/cli-ps-findimage.md#check-the-purchase-plan-information) o [Windows](../virtual-machines/windows/cli-ps-findimage.md#view-purchase-plan-properties).
 
 - Assicurarsi che la macchina virtuale venga creata con un disco gestito. Questa è l'impostazione di archiviazione predefinita quando si crea una macchina virtuale.
 - Non installare le estensioni di Azure, ad esempio l'estensione Script personalizzato, nella macchina virtuale. Se l'immagine contiene un'estensione preinstallata, Azure può incontrare alcuni problemi durante la distribuzione del pool di Batch.

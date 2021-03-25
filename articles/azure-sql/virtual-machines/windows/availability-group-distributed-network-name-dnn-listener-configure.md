@@ -15,12 +15,12 @@ ms.workload: iaas-sql-server
 ms.date: 10/07/2020
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: 7c3950b1aeae2b4e90b1ae4acfb9439c2cb159ca
-ms.sourcegitcommit: a8ff4f9f69332eef9c75093fd56a9aae2fe65122
+ms.openlocfilehash: bf5c4c39ea8f5705cc9788fdcf2cddd01dcb4087
+ms.sourcegitcommit: bb330af42e70e8419996d3cba4acff49d398b399
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 03/24/2021
-ms.locfileid: "105026003"
+ms.locfileid: "105034708"
 ---
 # <a name="configure-a-dnn-listener-for-an-availability-group"></a>Configurare un listener DNN per un gruppo di disponibilità
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -145,7 +145,7 @@ SELECT * FROM SYS.AVAILABILITY_GROUP_LISTENERS
 
 ## <a name="update-connection-string"></a>Aggiornare la stringa di connessione
 
-Aggiornare le stringhe di connessione per le applicazioni in modo che si connettano al listener DNN. Per garantire una connettività rapida al failover, aggiungere `MultiSubnetFailover=True` alla stringa di connessione se il client SQL lo supporta.
+Aggiornare le stringhe di connessione per le applicazioni in modo che si connettano al listener DNN. Le stringhe di connessione per i listener DNN devono fornire il numero di porta DNN. Per garantire una connettività rapida al failover, aggiungere `MultiSubnetFailover=True` alla stringa di connessione se il client SQL lo supporta.
 
 ## <a name="test-failover"></a>Failover di test
 

@@ -6,16 +6,16 @@ ms.author: rajosh
 ms.manager: abhemraj
 ms.topic: conceptual
 ms.date: 05/27/2020
-ms.openlocfilehash: 7d756b53247206ab4dd4f955c954e6bd105afa1d
-ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
+ms.openlocfilehash: 16c3b59bcfa14cc02f13dadd726e0380d934598b
+ms.sourcegitcommit: a8ff4f9f69332eef9c75093fd56a9aae2fe65122
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/22/2021
-ms.locfileid: "104778492"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105023810"
 ---
 # <a name="assessment-overview-migrate-to-azure-vms"></a>Panoramica della valutazione (migrazione a Macchine virtuali di Azure)
 
-Questo articolo fornisce una panoramica delle valutazioni nella [Azure migrate: strumento di individuazione e valutazione del server](migrate-services-overview.md) . Lo strumento può valutare i server locali nell'ambiente VMware virtuale e Hyper-V e i server fisici per la migrazione ad Azure.
+Questo articolo fornisce una panoramica delle valutazioni nella [Azure migrate: strumento di individuazione e valutazione](migrate-services-overview.md#azure-migrate-discovery-and-assessment-tool) . Lo strumento può valutare i server locali nell'ambiente VMware virtuale e Hyper-V e i server fisici per la migrazione ad Azure.
 
 ## <a name="whats-an-assessment"></a>Che cos'è una valutazione?
 

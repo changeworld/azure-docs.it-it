@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 01/11/2021
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: a1ee632e3aaae7b858ab43b45f6e72aff8d1fb77
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 5e0125f14570e917b228c5f713e636335755581d
+ms.sourcegitcommit: a8ff4f9f69332eef9c75093fd56a9aae2fe65122
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "100361766"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105024269"
 ---
 # <a name="azure-active-directory-b2c-isv-partners"></a>Partner ISV Azure Active Directory B2C
 
@@ -26,12 +26,6 @@ Microsoft ISV partner Network estende le funzionalità della soluzione per facil
 >Il [sito della community di Azure Active Directory B2C su GitHub](https://azure-ad-b2c.github.io/azureadb2ccommunity.io/) fornisce anche criteri personalizzati di esempio dalla community.
 
 ## <a name="identity-verification-and-proofing"></a>Verifica dell'identità e correzione
-
-Con Azure AD B2C partner, i clienti possono abilitare la verifica dell'identità e la correzione degli utenti finali prima di consentire l'accesso o la registrazione dell'account. La verifica e la verifica dell'identità consentono di controllare il documento, le informazioni basate sulle informazioni e la loro esperienza.
-
-Un diagramma dell'architettura di alto livello illustra il flusso.
-
-![Diagramma che mostra il flusso di prova dell'identità](./media/partner-gallery/third-party-identity-proofing.png)
 
 Partner Microsoft con i seguenti ISV per la verifica dell'identità e la correzione.
 
