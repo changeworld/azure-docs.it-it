@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 02/10/2021
 ms.author: gasinh
 ms.subservice: B2C
-ms.openlocfilehash: cf441108c9fd0ae87f265604f6f0706d92516746
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 8b725b7fcde8ad24934d74d3ce849260312d2f5f
+ms.sourcegitcommit: ed7376d919a66edcba3566efdee4bc3351c57eda
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "101646555"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105043615"
 ---
 # <a name="tutorial-configure-microsoft-dynamics-365-fraud-protection-with-azure-active-directory-b2c"></a>Esercitazione: configurare Microsoft Dynamics 365 Fraud Protection con Azure Active Directory B2C
 
@@ -102,8 +102,8 @@ Configurare le impostazioni dell'applicazione nel [servizio app in Azure](../app
 | :-------- | :------------| :-----------|
 |FraudProtectionSettings: InstanceId | Configurazione di Microsoft DFP |     |
 |FraudProtectionSettings:DeviceFingerprintingCustomerId | ID cliente per le impronte digitali dei dispositivi Microsoft |     |
-| FraudProtectionSettings:ApiBaseUrl |  URL di base del portale di Microsoft DFP   | Rimuovere '-int ' per chiamare invece l'API di produzione
-|  TokenProviderConfig: risorsa | https://api.dfp.dynamics-int.com |   Rimuovere '-int ' per chiamare invece l'API di produzione  |
+| FraudProtectionSettings:ApiBaseUrl |  URL di base del portale di Microsoft DFP   | Rimuovere '-int ' per chiamare invece l'API di produzione|
+|  TokenProviderConfig: risorsa  |     | Rimuovere '-int ' per chiamare invece l'API di produzione|
 |   TokenProviderConfig: ClientID       |Il commerciante della protezione illecito Azure AD ID app client      |       |
 | TokenProviderConfig: Authority | https://login.microsoftonline.com/<directory_ID> | Il commerciante della protezione illecito Azure AD autorità tenant |
 | TokenProviderConfig: CertificateThumbprint * | Identificazione personale del certificato da usare per l'autenticazione nell'app client Merchant Azure AD |

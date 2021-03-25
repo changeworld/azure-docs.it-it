@@ -4,12 +4,12 @@ ms.service: azure-communication-services
 ms.topic: include
 ms.date: 03/10/2021
 ms.author: mikben
-ms.openlocfilehash: 8d4e573cefd595669d9cb2cf9a7b83595eea7971
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 40d9f03526e5232c0a7b33f64ff35a8501702609
+ms.sourcegitcommit: bed20f85722deec33050e0d8881e465f94c79ac2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103622336"
+ms.lasthandoff: 03/25/2021
+ms.locfileid: "105107739"
 ---
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -23,9 +23,8 @@ ms.locfileid: "103622336"
 ### <a name="install-the-package"></a>Installare il pacchetto
 
 > [!NOTE]
-> Questo documento usa la versione 1.0.0-beta. 8 della libreria client chiamante.
+> Questo documento usa la versione 1.0.0-beta. 8 dell'SDK chiamante.
 
-<!-- TODO: update with instructions on how to download, install and add package to project -->
 Individuare build.gradle a livello di progetto e assicurarsi di aggiungere `mavenCentral()` all'elenco dei repository in `buildscript` e `allprojects`
 ```groovy
 buildscript {
@@ -59,11 +58,11 @@ dependencies {
 
 ## <a name="object-model"></a>Modello a oggetti
 
-Le classi e le interfacce seguenti gestiscono alcune delle principali funzionalità della libreria client Chiamate di Servizi di comunicazione di Azure:
+Le classi e le interfacce seguenti gestiscono alcune delle principali funzionalità di Azure Communication Services che chiamano SDK:
 
 | Nome                                  | Descrizione                                                  |
 | ------------------------------------- | ------------------------------------------------------------ |
-| CallClient| CallClient è il principale punto di ingresso alla libreria client Chiamate.|
+| CallClient| CallClient è il punto di ingresso principale dell'SDK chiamante.|
 | CallAgent | CallAgent si usa per avviare e gestire le chiamate. |
 | CommunicationTokenCredential | CommunicationTokenCredential viene usato come credenziale del token per creare un'istanza di CallAgent.|
 | CommunicationIdentifier | CommunicationIdentifier viene usato come tipo diverso di partecipante che potrebbe far parte di una chiamata.|
@@ -224,10 +223,10 @@ Un set di autorizzazioni è necessario per l'applicazione Android per poter rice
 
 Per eseguire la registrazione per le notifiche push, l'applicazione deve chiamare `registerPushNotification()` su un'istanza di *CallAgent* con un token di registrazione del dispositivo.
 
-Per ottenere il token di registrazione del dispositivo, aggiungere la libreria client Firebase al file *Build. Gradle* del modulo dell'applicazione aggiungendo le righe seguenti nella `dependencies` sezione, se non è già presente:
+Per ottenere il token di registrazione del dispositivo, aggiungere Firebase SDK al file *Build. Gradle* del modulo dell'applicazione aggiungendo le seguenti righe nella `dependencies` sezione, se non è già presente:
 
 ```
-    // Add the client library for Firebase Cloud Messaging
+    // Add the SDK for Firebase Cloud Messaging
     implementation 'com.google.firebase:firebase-core:16.0.8'
     implementation 'com.google.firebase:firebase-messaging:20.2.4'
 ```
@@ -244,7 +243,7 @@ Aggiungere il plug-in seguente all'inizio del file, se non è già presente:
 apply plugin: 'com.google.gms.google-services'
 ```
 
-Selezionare *Sincronizza ora* nella barra degli strumenti. Aggiungere il frammento di codice seguente per ottenere il token di registrazione del dispositivo generato dalla libreria client di messaggistica cloud Firebase per l'istanza dell'applicazione client, assicurarsi di aggiungere le importazioni seguenti all'intestazione dell'attività principale per l'istanza. È necessario che il frammento recuperi il token:
+Selezionare *Sincronizza ora* nella barra degli strumenti. Aggiungere il frammento di codice seguente per ottenere il token di registrazione del dispositivo generato da Firebase Cloud Messaging SDK per l'istanza dell'applicazione client, assicurarsi di aggiungere le importazioni seguenti all'intestazione dell'attività principale per l'istanza. È necessario che il frammento recuperi il token:
 
 ```
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -272,7 +271,7 @@ Aggiungere questo frammento di codice per recuperare il token:
                     }
                 });
 ```
-Registrare il token di registrazione del dispositivo con la libreria client dei servizi chiamante per le notifiche push delle chiamate in ingresso:
+Registrare il token di registrazione del dispositivo con l'SDK di servizi chiamante per le notifiche push delle chiamate in ingresso:
 
 ```java
 String deviceRegistrationToken = "<Device Token from previous section>";
@@ -288,7 +287,7 @@ catch(Exception e) {
 
 Per ricevere le notifiche push delle chiamate in ingresso, chiamare *handlePushNotification ()* su un'istanza di *CallAgent* con un payload.
 
-Per ottenere il payload da Firebase Cloud Messaging, iniziare creando un nuovo servizio (file > nuovo servizio > servizio >) che estende la classe della libreria client Firebase *FirebaseMessagingService* ed eseguire l'override del `onMessageReceived` metodo. Questo metodo è il gestore eventi chiamato quando Firebase Cloud Messaging recapita la notifica push all'applicazione.
+Per ottenere il payload da Firebase Cloud Messaging, iniziare creando un nuovo servizio (file > nuovo servizio > servizio >) che estende la classe *FirebaseMessagingService* Firebase SDK ed eseguire l'override del `onMessageReceived` metodo. Questo metodo è il gestore eventi chiamato quando Firebase Cloud Messaging recapita la notifica push all'applicazione.
 
 ```java
 public class MyFirebaseMessagingService extends FirebaseMessagingService {
@@ -318,7 +317,7 @@ Aggiungere la definizione del servizio seguente al `AndroidManifest.xml` file, a
         </service>
 ```
 
-- Una volta recuperato, il payload può essere passato alla libreria client dei *servizi di comunicazione* per essere analizzato in un oggetto *IncomingCallInformation* interno che verrà gestito chiamando il metodo *HandlePushNotification* su un'istanza di *CallAgent* . Un' `CallAgent` istanza viene creata chiamando il `createCallAgent(...)` Metodo sulla `CallClient` classe.
+- Una volta recuperato, il payload può essere passato a *Communication Services* SDK per essere analizzato in un oggetto *IncomingCallInformation* interno che verrà gestito chiamando il metodo *HandlePushNotification* su un'istanza di *CallAgent* . Un' `CallAgent` istanza viene creata chiamando il `createCallAgent(...)` Metodo sulla `CallClient` classe.
 
 ```java
 try {

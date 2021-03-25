@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: article
-ms.date: 10/28/2020
+ms.date: 03/24/2021
 ms.author: alkohli
-ms.openlocfilehash: f00be43d023d912d4b0b6e825dfe9d3e0ca2d250
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: a2cc0707c344c3ca537795666a3f60f648026596
+ms.sourcegitcommit: ed7376d919a66edcba3566efdee4bc3351c57eda
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "96467825"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105043768"
 ---
 # <a name="use-the-local-web-ui-to-manage-wireless-connectivity-on-your-azure-stack-edge-mini-r"></a>Usare l'interfaccia utente Web locale per gestire la connettività wireless sul mini R Azure Stack Edge
 
@@ -55,6 +55,8 @@ Eseguire i passaggi seguenti nell'interfaccia utente locale del dispositivo per 
     ![Impostazioni di rete (Wi-Fi porta) nell'interfaccia utente Web locale - 1](./media/azure-stack-edge-mini-r-deploy-configure-network-compute-web-proxy/add-wifi-profile-1.png)
     
     Un profilo di rete wireless contiene il SSID (nome di rete), il codice password e le informazioni di sicurezza necessari per potersi connettere a una rete wireless. È possibile ottenere il profilo Wi-Fi per il proprio ambiente dall'amministratore di rete.
+
+    Per informazioni sulla preparazione dei profili di Wi-Fi, vedere [usare profili Wi-Fi con i dispositivi Mini R Azure stack Edge](azure-stack-edge-mini-r-use-wifi-profiles.md).
 
     ![Impostazioni di rete (Wi-Fi porta) nell'interfaccia utente Web locale - 2](./media/azure-stack-edge-mini-r-deploy-configure-network-compute-web-proxy/add-wifi-profile-2.png)
 

@@ -8,19 +8,19 @@ ms.date: 03/10/2021
 ms.topic: quickstart
 ms.service: azure-communication-services
 zone_pivot_groups: acs-plat-web-ios-android
-ms.openlocfilehash: 0886e3955ba58a5a8edbf3cd72b1065b1000b5b3
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: eca80f6353240755a0670fcfa4ca9875107b0d47
+ms.sourcegitcommit: bed20f85722deec33050e0d8881e465f94c79ac2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "104598792"
+ms.lasthandoff: 03/25/2021
+ms.locfileid: "105108283"
 ---
 # <a name="quickstart-add-voice-calling-to-your-app"></a>Avvio rapido: Aggiungere chiamate vocali all'app
 
 [!INCLUDE [Public Preview Notice](../../includes/public-preview-include.md)]
 
 
-Introduzione a Servizi di comunicazione di Azure, con l'aggiunta di chiamate vocali e video all'app tramite la libreria client Chiamate di Servizi di comunicazione.
+Per iniziare a usare i servizi di comunicazione di Azure, è possibile usare i servizi di comunicazione che chiamano l'SDK per aggiungere chiamate vocali e video all'app.
 
 [!INCLUDE [Emergency Calling Notice](../../includes/emergency-calling-notice-include.md)]
 
@@ -45,5 +45,5 @@ Per pulire e rimuovere una sottoscrizione di Servizi di comunicazione, è possib
 Per altre informazioni, vedere gli articoli seguenti:
 
 - Consultare l'[esempio hero per le chiamate](../../samples/calling-hero-sample.md)
-- Leggere informazioni sulle [funzionalità della libreria client Chiamate](./calling-client-samples.md)
+- Informazioni sulla [chiamata di funzionalità SDK](./calling-client-samples.md)
 - Leggere altre informazioni sul [funzionamento delle chiamate](../../concepts/voice-video-calling/about-call-types.md)

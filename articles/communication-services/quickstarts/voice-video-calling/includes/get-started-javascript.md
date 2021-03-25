@@ -1,22 +1,23 @@
 ---
 title: "Avvio rapido: Aggiungere chiamate VoIP a un'app Web con Servizi di comunicazione di Azure"
-description: Questa esercitazione illustra come usare la libreria client Chiamate di Servizi di comunicazione di Azure per JavaScript
+description: Questa esercitazione illustra come usare i servizi di comunicazione di Azure che chiamano l'SDK per JavaScript
 author: ddematheu
 ms.author: nimag
 ms.date: 03/10/2021
 ms.topic: quickstart
 ms.service: azure-communication-services
-ms.openlocfilehash: 8dc59250e3c00d161446e7361db0c085e12ab4cf
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 0c70e01aa4f27e40a2de5cddf329cae9ffe261bc
+ms.sourcegitcommit: bed20f85722deec33050e0d8881e465f94c79ac2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104598809"
+ms.lasthandoff: 03/25/2021
+ms.locfileid: "105108282"
 ---
-Questa guida di avvio rapido illustra come avviare una chiamata con la libreria client Chiamate di Servizi di comunicazione di Azure per JavaScript.
+Questa Guida introduttiva illustra come avviare una chiamata usando i servizi di comunicazione di Azure che chiamano SDK per JavaScript.
 
 > [!NOTE]
-> Questo documento usa la versione 1.0.0-beta. 6 della libreria client chiamante.
+> Questo documento usa la versione 1.0.0-beta. 10 dell'SDK chiamante.
+
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -74,11 +75,11 @@ const hangUpButton = document.getElementById("hang-up-button");
 
 ## <a name="object-model"></a>Modello a oggetti
 
-Le classi e le interfacce seguenti gestiscono alcune delle principali funzionalità della libreria client Chiamate di Servizi di comunicazione di Azure:
+Le classi e le interfacce seguenti gestiscono alcune delle principali funzionalità di Azure Communication Services che chiamano SDK:
 
 | Nome                             | Descrizione                                                                                                                                 |
 | ---------------------------------| ------------------------------------------------------------------------------------------------------------------------------------------- |
-| CallClient                       | CallClient è il principale punto di ingresso alla libreria client Chiamate.                                                                       |
+| CallClient                       | CallClient è il punto di ingresso principale dell'SDK chiamante.                                                                       |
 | CallAgent                        | CallAgent si usa per avviare e gestire le chiamate.                                                                                            |
 | AzureCommunicationTokenCredential | La classe AzureCommunicationTokenCredential implementa l'interfaccia CommunicationTokenCredential utilizzata per creare un'istanza di CallAgent. |
 

@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/03/2021
 ms.author: bagol
-ms.openlocfilehash: 26124f8f650e1006244b4871e26962d417d90fd4
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: fc1246d079760fd86513840aebbffa34d192f8ed
+ms.sourcegitcommit: ed7376d919a66edcba3566efdee4bc3351c57eda
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102054821"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105044176"
 ---
 # <a name="manage-access-to-azure-sentinel-data-by-resource"></a>Gestire l'accesso ai dati di Sentinel di Azure per risorsa
 
@@ -36,7 +36,7 @@ Quando gli utenti hanno accesso ai dati di Sentinel di Azure tramite le risorse 
 
 - **Tramite monitoraggio di Azure**. Utilizzare questo metodo quando si desidera creare query che si estendono su più risorse e/o gruppi di risorse. Quando si passa a log e cartelle di lavoro in monitoraggio di Azure, definire l'ambito per uno o più gruppi di risorse o risorse specifiche.
 
-Abilita il controllo degli accessi in base al contesto delle risorse in monitoraggio di Azure Per altre informazioni, vedere [gestire l'accesso ai dati di log e alle aree di lavoro in monitoraggio di Azure](/azure/azure-monitor/logs/manage-access).
+Abilita il controllo degli accessi in base al contesto delle risorse in monitoraggio di Azure Per altre informazioni, vedere [gestire l'accesso ai dati di log e alle aree di lavoro in monitoraggio di Azure](../azure-monitor/logs/manage-access.md).
 
 > [!NOTE]
 > Se i dati non sono una risorsa di Azure, ad esempio i dati syslog, CEF o AAD oppure i dati raccolti da un agente di raccolta personalizzato, è necessario configurare manualmente l'ID risorsa usato per identificare i dati e abilitare l'accesso.
@@ -66,7 +66,7 @@ Nell'elenco seguente vengono descritti gli scenari in cui altre soluzioni per l'
 |---------|---------|
 |**Una filiale ha un team SoC che richiede un'esperienza completa di Sentinel per Azure**.     |  In questo caso, utilizzare un'architettura a più aree di lavoro per separare le autorizzazioni per i dati. <br><br>Per altre informazioni, vedere: <br>- [Estendi Azure Sentinel tra aree di lavoro e tenant](extend-sentinel-across-workspaces-tenants.md)<br>    - [Lavorare con gli eventi imprevisti in molte aree di lavoro contemporaneamente](multiple-workspace-view.md)          |
 |**Si vuole fornire l'accesso a un tipo specifico di evento**.     |  Fornire ad esempio un amministratore di Windows con accesso agli eventi di sicurezza di Windows in tutti i sistemi. <br><br>In questi casi, utilizzare il controllo degli accessi in base al ruolo di [tabella](https://techcommunity.microsoft.com/t5/azure-sentinel/table-level-rbac-in-azure-sentinel/ba-p/965043) per definire le autorizzazioni per ogni tabella.       |
-| **Limitare l'accesso a un livello più granulare, non basato sulla risorsa, oppure solo a un subset dei campi in un evento**   |   Ad esempio, potrebbe essere necessario limitare l'accesso ai log di Office 365 in base alla filiale di un utente. <br><br>In questo caso, fornire l'accesso ai dati tramite l'integrazione incorporata con [Power BI Dashboard e report](/azure/azure-monitor/platform/powerbi).      |
+| **Limitare l'accesso a un livello più granulare, non basato sulla risorsa, oppure solo a un subset dei campi in un evento**   |   Ad esempio, potrebbe essere necessario limitare l'accesso ai log di Office 365 in base alla filiale di un utente. <br><br>In questo caso, fornire l'accesso ai dati tramite l'integrazione incorporata con [Power BI Dashboard e report](../azure-monitor/visualize/powerbi.md).      |
 | | |
 
 ## <a name="explicitly-configure-resource-context-rbac"></a>Configura esplicitamente il controllo degli accessi in base al contesto
@@ -77,11 +77,11 @@ Ad esempio, i dati nell'area di lavoro di Azure Sentinel che non sono risorse di
 
 **Per configurare esplicitamente** il controllo degli accessi in base al contesto delle risorse:
 
-1. Assicurarsi di aver abilitato il controllo degli accessi in base al [contesto delle risorse](/azure/azure-monitor/platform/manage-access) in monitoraggio di Azure. 
+1. Assicurarsi di aver abilitato il controllo degli accessi in base al [contesto delle risorse](../azure-monitor/logs/manage-access.md) in monitoraggio di Azure. 
 
-1. [Creare un gruppo di risorse](/azure/azure-resource-manager/management/manage-resource-groups-portal) per ogni team di utenti che deve accedere alle risorse senza l'intero ambiente Sentinel di Azure.
+1. [Creare un gruppo di risorse](../azure-resource-manager/management/manage-resource-groups-portal.md) per ogni team di utenti che deve accedere alle risorse senza l'intero ambiente Sentinel di Azure.
 
-    Assegnare le [autorizzazioni di lettura log](/azure/azure-monitor/platform/manage-access#resource-permissions) per ogni membro del team.
+    Assegnare le [autorizzazioni di lettura log](../azure-monitor/logs/manage-access.md#resource-permissions) per ogni membro del team.
 
 1. Assegnare le risorse ai gruppi del team di risorse creati e contrassegnare gli eventi con gli ID di risorsa pertinenti.
 
@@ -110,7 +110,7 @@ Se si dispone di più team, assicurarsi di disporre di VM di invio di log separa
 La separazione delle macchine virtuali, ad esempio, garantisce che gli eventi syslog che appartengono al team A vengano raccolti usando la macchina virtuale dell'agente di raccolta A.
 
 > [!TIP]
-> - Quando si usa una macchina virtuale locale o un'altra macchina virtuale cloud, ad esempio AWS, come server d'invio, assicurarsi che disponga di un ID risorsa implementando [Azure Arc](/azure/azure-arc/servers/overview).
+> - Quando si usa una macchina virtuale locale o un'altra macchina virtuale cloud, ad esempio AWS, come server d'invio, assicurarsi che disponga di un ID risorsa implementando [Azure Arc](../azure-arc/servers/overview.md).
 > - Per ridimensionare l'ambiente di macchina virtuale per l'invio del log, provare a creare un [set di scalabilità di macchine virtuali](https://techcommunity.microsoft.com/t5/azure-sentinel/scaling-up-syslog-cef-collection/ba-p/1185854) per raccogliere i log CEF e sylog.
 
 
@@ -145,7 +145,7 @@ Il codice seguente, ad esempio, Mostra un file di configurazione logstash di ese
 >
 ### <a name="resource-ids-with-the-log-analytics-api-collection"></a>ID di risorsa con la raccolta di API Log Analytics
 
-Quando si esegue la raccolta usando l'API dell'agente di raccolta [dati log Analytics](/azure/azure-monitor/platform/data-collector-api), è possibile assegnare agli eventi con un ID risorsa usando l'intestazione della richiesta HTTP [*x-ms-AzureResourceId*](/azure/azure-monitor/platform/data-collector-api#request-headers) .
+Quando si esegue la raccolta usando l'API dell'agente di raccolta [dati log Analytics](../azure-monitor/logs/data-collector-api.md), è possibile assegnare agli eventi con un ID risorsa usando l'intestazione della richiesta HTTP [*x-ms-AzureResourceId*](../azure-monitor/logs/data-collector-api.md#request-headers) .
 
 Se si usa il controllo degli accessi in base al contesto delle risorse e si vuole che gli eventi raccolti dall'API siano disponibili per utenti specifici, usare l'ID risorsa del gruppo di risorse [creato per gli utenti](#explicitly-configure-resource-context-rbac).
 

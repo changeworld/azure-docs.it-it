@@ -8,13 +8,13 @@ ms.topic: how-to
 author: stevestein
 ms.author: sstein
 ms.reviewer: ''
-ms.date: 03/04/2021
-ms.openlocfilehash: 210f0c52a2b27492bfa2181473043df3537157d2
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.date: 03/23/2021
+ms.openlocfilehash: 8688458d85084f3d3dab4678fa91ed827a337739
+ms.sourcegitcommit: ed7376d919a66edcba3566efdee4bc3351c57eda
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102183200"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105047352"
 ---
 # <a name="configure-maintenance-window-preview"></a>Configura finestra di manutenzione (anteprima)
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -27,7 +27,7 @@ La finestra di manutenzione *predefinita del sistema* è la 17 alle 8 al giorno 
 La possibilità di passare a una finestra di manutenzione diversa non è disponibile per ogni livello di servizio o in ogni area. Per informazioni dettagliate sulla disponibilità, vedere [disponibilità della finestra di manutenzione](maintenance-window.md#availability).
 
 > [!Important]
-> La configurazione della finestra di manutenzione è un'operazione asincrona a esecuzione prolungata, simile alla modifica del livello di servizio della risorsa SQL di Azure. La risorsa è disponibile durante l'operazione, ad eccezione di un breve failover che si verifica alla fine dell'operazione e in genere dura fino a 8 secondi anche in caso di transazioni a esecuzione prolungata interrotte. Per ridurre al minimo l'effetto del failover, è necessario eseguire l'operazione al di fuori delle ore di punta.
+> La configurazione della finestra di manutenzione è un'operazione asincrona a esecuzione prolungata, simile alla modifica del livello di servizio della risorsa SQL di Azure. La risorsa è disponibile durante l'operazione, tranne una breve riconfigurazione che si verifica alla fine dell'operazione e in genere dura fino a 8 secondi anche in caso di transazioni a esecuzione prolungata interrotte. Per ridurre al minimo l'effetto della riconfigurazione, è necessario eseguire l'operazione al di fuori delle ore di punta.
 
 ## <a name="configure-maintenance-window-during-database-creation"></a>Configura finestra di manutenzione durante la creazione del database 
 
@@ -257,7 +257,7 @@ Nell'esempio seguente viene creata una nuova istanza gestita e viene impostata l
 ## <a name="configure-maintenance-window-for-existing-databases"></a>Configura la finestra di manutenzione per i database esistenti
 
 
-Quando si applica una selezione della finestra di manutenzione a un database, è possibile che in alcuni casi venga rilevato un breve failover (alcuni secondi), in quanto Azure applica le modifiche necessarie.
+Quando si applica una selezione della finestra di manutenzione a un database, in alcuni casi è possibile che si verifichi una breve riconfigurazione (alcuni secondi), in quanto Azure applica le modifiche necessarie.
 
 # <a name="portal"></a>[Portale](#tab/azure-portal)
 
