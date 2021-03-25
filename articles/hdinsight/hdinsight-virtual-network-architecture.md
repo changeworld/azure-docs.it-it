@@ -4,12 +4,12 @@ description: Informazioni sulle risorse disponibili quando si crea un cluster HD
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 04/14/2020
-ms.openlocfilehash: d5b8bdf5577642290cee7250e0f21f8a69dfd248
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 43640a9de91b6b44a236090ff029a49313ee0247
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98931159"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104871674"
 ---
 # <a name="azure-hdinsight-virtual-network-architecture"></a>Architettura della rete virtuale di HDInsight
 
@@ -43,7 +43,7 @@ Se è necessario solo il nome host, usare solo la prima parte del nome di domini
 
 Il diagramma seguente illustra il posizionamento dei nodi HDInsight e delle risorse di rete in Azure.
 
-![Diagramma delle entità HDInsight create nella VNET personalizzata di Azure](./media/hdinsight-virtual-network-architecture/hdinsight-vnet-diagram.png)
+:::image type="content" source="./media/hdinsight-virtual-network-architecture/hdinsight-vnet-diagram.png" alt-text="Diagramma delle entità HDInsight create nella VNET personalizzata di Azure" border="false":::
 
 Le risorse predefinite in una rete virtuale di Azure includono i tipi di nodo del cluster indicati nella tabella precedente. E i dispositivi di rete che supportano la comunicazione tra la rete virtuale e le reti esterne.
 

@@ -5,12 +5,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 12/18/2019
-ms.openlocfilehash: 417819cad3bc2ee258381426dfcee7c800b69d42
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: fb57992c8e26560061faf68443c4993801f9713d
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98929167"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104871572"
 ---
 # <a name="deploy-and-manage-apache-storm-topologies-on-azure-hdinsight"></a>Distribuire e gestire le topologie Apache Storm su Azure HDInsight
 
@@ -43,7 +43,7 @@ In questo documento sono illustrati i concetti di gestione e monitoraggio delle 
 
 1. Nella finestra **Configura nuovo progetto** immettere un **nome di progetto** e passare a o creare un **percorso** in cui salvare il nuovo progetto. Quindi selezionare **Crea**
 
-    ![Configurare la finestra del nuovo progetto, Visual Studio](./media/apache-storm-deploy-monitor-topology-linux/apache-storm-sample1.png)
+    :::image type="content" source="./media/apache-storm-deploy-monitor-topology-linux/apache-storm-sample1.png" alt-text="Configurare la finestra del nuovo progetto, Visual Studio" border="true":::
 
 1. Da **Esplora server**, fare clic con il pulsante destro del mouse su **Azure** e scegliere **Connetti a Microsoft Azure sottoscrizione...** e completare il processo di accesso.
 
@@ -83,7 +83,7 @@ In questo documento sono illustrati i concetti di gestione e monitoraggio delle 
 
 Quando si invia una topologia con Visual Studio, viene visualizzata la finestra **visualizzazione topologie Storm** . Per visualizzare informazioni sulla topologia in esecuzione, selezionarla dall'elenco.
 
-![Topologia di monitoraggio, finestra visualizzazione topologie Storm, Visual Studio](./media/apache-storm-deploy-monitor-topology-linux/visual-studio-monitor.png)
+:::image type="content" source="./media/apache-storm-deploy-monitor-topology-linux/visual-studio-monitor.png" alt-text="Topologia di monitoraggio, finestra visualizzazione topologie Storm, Visual Studio" border="true":::
 
 > [!NOTE]  
 > È inoltre possibile visualizzare le **topologie Storm** da **Esplora Server**. Espandere **Azure**  >  **HDInsight**, fare clic con il pulsante destro del mouse su un cluster Storm in HDInsight e quindi selezionare **Visualizza topologie Storm**.
@@ -179,7 +179,7 @@ Nella pagina principale dell'interfaccia utente di Storm sono disponibili le inf
 
 La pagina principale dell'interfaccia utente di Storm ha un aspetto simile a questa pagina Web:
 
-![Pagina principale, interfaccia utente di Storm, topologie di Apache Storm, Azure](./media/apache-storm-deploy-monitor-topology-linux/apache-storm-web-ui-main-page.png)
+:::image type="content" source="./media/apache-storm-deploy-monitor-topology-linux/apache-storm-web-ui-main-page.png" alt-text="Pagina principale, interfaccia utente di Storm, topologie di Apache Storm, Azure" border="true":::
 
 #### <a name="topology-summary"></a>Topology summary
 
@@ -198,7 +198,7 @@ Se si seleziona un collegamento nella sezione **Topology summary** , verranno vi
 
 La pagina di riepilogo della topologia Storm è simile a questa pagina Web:
 
-![Pagina di riepilogo della topologia, interfaccia utente di Storm, Apache Storm, Azure](./media/apache-storm-deploy-monitor-topology-linux/apache-storm-web-ui-topology-summary.png)
+:::image type="content" source="./media/apache-storm-deploy-monitor-topology-linux/apache-storm-web-ui-topology-summary.png" alt-text="Pagina di riepilogo della topologia, interfaccia utente di Storm, Apache Storm, Azure" border="true":::
 
 Nella sezione **azioni topologia** è possibile selezionare i pulsanti seguenti per eseguire un'azione:
 
@@ -229,7 +229,7 @@ Se si seleziona un elemento nella sezione **Spouts** o **Bolts**, verranno visua
 
 La pagina di riepilogo di Storm Bolt è simile a questa pagina Web:
 
-![Pagina Riepilogo Bolt, interfaccia utente di Storm, Apache Storm, Azure](./media/apache-storm-deploy-monitor-topology-linux/apache-storm-web-ui-bolt-summary.png)
+:::image type="content" source="./media/apache-storm-deploy-monitor-topology-linux/apache-storm-web-ui-bolt-summary.png" alt-text="Pagina Riepilogo Bolt, interfaccia utente di Storm, Apache Storm, Azure" border="true":::
 
 ## <a name="monitor-and-manage-the-topology-using-the-rest-api"></a>Monitorare e gestire la topologia tramite l'API REST
 

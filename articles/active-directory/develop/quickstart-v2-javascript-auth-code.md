@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 07/17/2020
 ms.author: hahamil
 ms.custom: aaddev, scenarios:getting-started, languages:JavaScript, devx-track-js
-ms.openlocfilehash: dcb82e6cc50a2ff3291d5a900ec9367d69dcdde6
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 1e99e8ff25d895ba2248ddd1ba2520e9f14871a7
+ms.sourcegitcommit: a8ff4f9f69332eef9c75093fd56a9aae2fe65122
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103224912"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105022807"
 ---
 # <a name="quickstart-sign-in-users-and-get-an-access-token-in-a-javascript-spa-using-the-auth-code-flow-with-pkce"></a>Guida introduttiva: accedere agli utenti e ottenere un token di accesso in una SPA JavaScript usando il flusso del codice di autenticazione con PKCE 
 
@@ -25,7 +25,7 @@ In questa Guida introduttiva viene scaricato ed eseguito un esempio di codice ch
 
 Per un'illustrazione, vedere [Funzionamento dell'esempio](#how-the-sample-works).
 
-In questa guida introduttiva viene usato MSAL.js 2.0 con il flusso del codice di autorizzazione. Per una guida introduttiva simile che usi MSAL.js 1.0 con il flusso implicito, vedere [Guida introduttiva: Consentire l'accesso degli utenti nelle applicazioni a pagina singola JavaScript](./quickstart-v2-javascript.md).
+Questa Guida introduttiva usa MSAL.js V2 con il flusso del codice di autorizzazione. Per una guida introduttiva simile che usa MSAL.js V1 con il flusso implicito, vedere [Guida introduttiva: accedere agli utenti nelle app a singola pagina di JavaScript](./quickstart-v2-javascript.md).
 
 ## <a name="prerequisites"></a>Prerequisiti
 

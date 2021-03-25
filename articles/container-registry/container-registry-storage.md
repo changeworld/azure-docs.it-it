@@ -1,15 +1,15 @@
 ---
 title: Archiviazione immagini del contenitore
 description: Informazioni dettagliate su come archiviare le immagini del contenitore e altri elementi in Azure Container Registry, inclusi sicurezza, ridondanza e capacità.
-ms.topic: article
-ms.date: 03/03/2021
+ms.topic: conceptual
+ms.date: 03/24/2021
 ms.custom: references_regions
-ms.openlocfilehash: ec4328b44d5493b8d765fa30c548adc3d747d446
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: a9c8ec877ddb17603e82b763223278a2e5e36714
+ms.sourcegitcommit: ed7376d919a66edcba3566efdee4bc3351c57eda
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102183268"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105047746"
 ---
 # <a name="container-image-storage-in-azure-container-registry"></a>Archiviazione immagini del contenitore in Registro Azure Container
 
@@ -21,11 +21,9 @@ Tutte le immagini del contenitore e altri elementi nel registro di sistema vengo
 
 ## <a name="regional-storage"></a>Archiviazione a livello di area
 
-Azure Container Registry archivia i dati nell'area in cui viene creato il registro di sistema, per consentire ai clienti di soddisfare i requisiti di residenza e conformità dei dati.
+Azure Container Registry archivia i dati nell'area in cui viene creato il registro di sistema, per consentire ai clienti di soddisfare i requisiti di residenza e conformità dei dati. In tutte le aree, ad eccezione del Brasile meridionale e dell'Asia sudorientale, Azure può archiviare anche i dati del registro di sistema in un'area abbinata nella stessa area geografica. Nelle aree del Brasile meridionale e sudorientale, i dati del registro di sistema sono sempre limitati all'area, per soddisfare i requisiti di residenza dei dati per tali aree.
 
-Per aiutarti a prevenire le interruzioni del Data Center, alcune aree offrono [ridondanza della zona](zone-redundancy.md), in cui i dati vengono replicati in più data center in una determinata area.
-
-I clienti che desiderano archiviare i dati in più aree per ottenere prestazioni migliori tra aree geografiche diverse o che vogliono avere resilienza in caso di interruzione a livello di area devono abilitare la [replica geografica](container-registry-geo-replication.md).
+Se si verifica un'interruzione a livello di area, i dati del registro di sistema potrebbero non essere più disponibili e non vengono recuperati automaticamente I clienti che desiderano archiviare i dati del registro di sistema in più aree per ottenere prestazioni migliori tra aree geografiche diverse o che vogliono avere resilienza in caso di interruzione a livello di area devono abilitare la [replica geografica](container-registry-geo-replication.md).
 
 ## <a name="geo-replication"></a>Replica geografica
 
@@ -33,7 +31,7 @@ Per gli scenari che richiedono una garanzia a disponibilità elevata, è consigl
 
 ## <a name="zone-redundancy"></a>Ridondanza della zona
 
-Per creare un registro contenitori di Azure resiliente e a disponibilità elevata, abilitare facoltativamente la [ridondanza della zona](zone-redundancy.md) in aree di Azure selezionate. Una funzionalità del livello di servizio Premium, la ridondanza della zona usa le [zone di disponibilità](../availability-zones/az-overview.md) di Azure per replicare il registro di sistema in almeno tre zone separate in ogni area abilitata. Combinare la replica geografica e la ridondanza della zona per migliorare l'affidabilità e le prestazioni di un registro. 
+Per semplificare la creazione di un registro contenitori di Azure resiliente e a disponibilità elevata, abilitare facoltativamente la [ridondanza della zona](zone-redundancy.md) in aree di Azure selezionate. Una funzionalità del livello di servizio Premium, la ridondanza della zona usa le [zone di disponibilità](../availability-zones/az-overview.md) di Azure per replicare il registro di sistema in almeno tre zone separate in ogni area abilitata. Combinare la replica geografica e la ridondanza della zona per migliorare l'affidabilità e le prestazioni di un registro. 
 
 ## <a name="scalable-storage"></a>Archiviazione scalabile:
 

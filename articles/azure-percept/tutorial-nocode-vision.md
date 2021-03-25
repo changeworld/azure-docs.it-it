@@ -7,12 +7,12 @@ ms.service: azure-percept
 ms.topic: tutorial
 ms.date: 02/10/2021
 ms.custom: template-tutorial
-ms.openlocfilehash: e661dbbe31e7624cba0a3d5421b81de16d0a5363
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 49e5db729dab7abaa440b1adf6a61e9e52a1efbc
+ms.sourcegitcommit: a8ff4f9f69332eef9c75093fd56a9aae2fe65122
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104608198"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105023130"
 ---
 # <a name="create-a-no-code-vision-solution-in-azure-percept-studio"></a>Creare una soluzione per la visione senza codice in Azure Percept Studio
 
@@ -106,7 +106,7 @@ Prima di eseguire il training del modello, aggiungere etichette alle immagini.
 
 1. Sul lato sinistro della pagina **visione personalizzata** fare clic su senza **tag** sotto **tag** per visualizzare le immagini appena raccolte nel passaggio precedente. Selezionare una o più immagini senza tag.
 
-1. Nella finestra **Dettagli immagine** fare clic sull'immagine per iniziare l'assegnazione di tag. Se è stato selezionato rilevamento oggetti come tipo di progetto, è necessario anche creare un [rettangolo](https://docs.microsoft.com/azure/cognitive-services/custom-vision-service/get-started-build-detector#upload-and-tag-images) di selezione intorno a oggetti specifici che si desidera contrassegnare. Modificare il rettangolo di delimitazione in base alle esigenze. Digitare il tag oggetto e fare clic su **+** per applicare il tag. Se, ad esempio, si crea una soluzione per la visione che invia una notifica quando è necessario eseguire il riapprovvigionamento di uno scaffale del negozio, aggiungere il tag "scaffale vuoto" alle immagini degli scaffali vuoti e aggiungere il tag "shelf completo" alle immagini degli scaffali completamente archiviati. Ripetere per tutte le immagini senza tag.
+1. Nella finestra **Dettagli immagine** fare clic sull'immagine per iniziare l'assegnazione di tag. Se è stato selezionato rilevamento oggetti come tipo di progetto, è necessario anche creare un [rettangolo](../cognitive-services/custom-vision-service/get-started-build-detector.md#upload-and-tag-images) di selezione intorno a oggetti specifici che si desidera contrassegnare. Modificare il rettangolo di delimitazione in base alle esigenze. Digitare il tag oggetto e fare clic su **+** per applicare il tag. Se, ad esempio, si crea una soluzione per la visione che invia una notifica quando è necessario eseguire il riapprovvigionamento di uno scaffale del negozio, aggiungere il tag "scaffale vuoto" alle immagini degli scaffali vuoti e aggiungere il tag "shelf completo" alle immagini degli scaffali completamente archiviati. Ripetere per tutte le immagini senza tag.
 
     :::image type="content" source="./media/tutorial-nocode-vision/image-tagging.png" alt-text="Schermata di Tag Image in Visione personalizzata.":::
 
@@ -116,7 +116,7 @@ Prima di eseguire il training del modello, aggiungere etichette alle immagini.
 
     :::image type="content" source="./media/tutorial-nocode-vision/train-model.png" alt-text="Selezione dell'immagine di training con il pulsante Train evidenziato.":::
 
-1. Al termine del training, nella schermata vengono visualizzate le prestazioni del modello. Per ulteriori informazioni sulla valutazione di questi risultati, consultare la [documentazione relativa alla valutazione del modello](https://docs.microsoft.com/azure/cognitive-services/custom-vision-service/get-started-build-detector#evaluate-the-detector). Dopo il training, è anche possibile [testare il modello](https://docs.microsoft.com/azure/cognitive-services/custom-vision-service/test-your-model) su immagini aggiuntive e ripetere il training in modo necessario. Ogni volta che si esegue il training del modello, questo verrà salvato come nuova iterazione. Per ulteriori informazioni su come migliorare le prestazioni del modello, fare riferimento alla [documentazione visione personalizzata](https://docs.microsoft.com/azure/cognitive-services/custom-vision-service/getting-started-improving-your-classifier) .
+1. Al termine del training, nella schermata vengono visualizzate le prestazioni del modello. Per ulteriori informazioni sulla valutazione di questi risultati, consultare la [documentazione relativa alla valutazione del modello](../cognitive-services/custom-vision-service/get-started-build-detector.md#evaluate-the-detector). Dopo il training, è anche possibile [testare il modello](../cognitive-services/custom-vision-service/test-your-model.md) su immagini aggiuntive e ripetere il training in modo necessario. Ogni volta che si esegue il training del modello, questo verrà salvato come nuova iterazione. Per ulteriori informazioni su come migliorare le prestazioni del modello, fare riferimento alla [documentazione visione personalizzata](../cognitive-services/custom-vision-service/getting-started-improving-your-classifier.md) .
 
     :::image type="content" source="./media/tutorial-nocode-vision/iteration.png" alt-text="Risultati del training del modello.":::
 
@@ -143,7 +143,7 @@ Dopo la chiusura di questa finestra, è possibile tornare indietro e modificare 
 
 ## <a name="improve-your-model-by-setting-up-retraining"></a>Migliorare il modello impostando la ripetizione del training
 
-Dopo aver eseguito il training del modello e averlo distribuito al dispositivo, è possibile migliorare le prestazioni del modello impostando i parametri di ripetizione del training per acquisire più dati di training. Questa funzionalità viene usata per migliorare le prestazioni di un modello sottoposto a training offrendo la possibilità di acquisire immagini in base a un intervallo di probabilità. Ad esempio, è possibile impostare il dispositivo in modo che acquisisca solo le immagini di training quando la probabilità è bassa. Di seguito sono riportate alcune [indicazioni aggiuntive](https://docs.microsoft.com/azure/cognitive-services/custom-vision-service/getting-started-improving-your-classifier) sull'aggiunta di altre immagini e sul bilanciamento dei dati di training.
+Dopo aver eseguito il training del modello e averlo distribuito al dispositivo, è possibile migliorare le prestazioni del modello impostando i parametri di ripetizione del training per acquisire più dati di training. Questa funzionalità viene usata per migliorare le prestazioni di un modello sottoposto a training offrendo la possibilità di acquisire immagini in base a un intervallo di probabilità. Ad esempio, è possibile impostare il dispositivo in modo che acquisisca solo le immagini di training quando la probabilità è bassa. Di seguito sono riportate alcune [indicazioni aggiuntive](../cognitive-services/custom-vision-service/getting-started-improving-your-classifier.md) sull'aggiunta di altre immagini e sul bilanciamento dei dati di training.
 
 1. Per configurare la ripetizione del training, tornare al **progetto**, quindi al **Riepilogo del progetto**
 1. Nella scheda **acquisizione immagine** selezionare **acquisizione automatica immagini** e **configurare la** ripetizione del training.

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/22/2020
 ms.author: memildin
-ms.openlocfilehash: b858903b87dc6c4cc1f7c40338c09bf5b8204b3d
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 834df2387d037c19672e3287970300f4e84ca34b
+ms.sourcegitcommit: ed7376d919a66edcba3566efdee4bc3351c57eda
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102176536"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105047984"
 ---
 # <a name="file-integrity-monitoring-in-azure-security-center"></a>Monitoraggio dell'integrità dei file nel centro sicurezza di Azure
 Informazioni su come configurare il monitoraggio dell'integrità dei file nel centro sicurezza di Azure usando questa procedura dettagliata.
@@ -31,7 +31,7 @@ Informazioni su come configurare il monitoraggio dell'integrità dei file nel ce
 |Stato della versione:|Disponibilità generale (GA)|
 |Prezzi:|Richiede [Azure Defender per i server](defender-for-servers-introduction.md).<br>Il monitoraggio dell'integrità dei file carica i dati nell'area di lavoro Log Analytics. Si applicano costi in base alla quantità di dati caricati. Per altre informazioni, vedere [Prezzi di Log Analytics](https://azure.microsoft.com/pricing/details/log-analytics/).|
 |Autorizzazioni e ruoli obbligatori:|Il **proprietario dell'area di lavoro** può abilitare/disabilitare FIM (per altre informazioni, vedere [ruoli di Azure per log Analytics](/services-hub/health/azure-roles#azure-roles)).<br>Il **lettore** può visualizzare i risultati.|
-|Cloud:|![Sì](./media/icons/yes-icon.png) Cloud commerciali<br>![Sì ](./media/icons/yes-icon.png) nazionale/sovrano (US gov, Cina gov, altri gov)<br>Supportato solo nelle aree in cui è disponibile la soluzione di rilevamento modifiche di automazione di Azure.<br>![Sì ](./media/icons/yes-icon.png) dispositivi abilitati per [Azure Arc](https://docs.microsoft.com/azure/azure-arc/servers/overview) .<br>Vedere [aree supportate per l'area di lavoro log Analytics collegata](../automation/how-to/region-mappings.md).<br>[Altre informazioni sul rilevamento delle modifiche](../automation/change-tracking/overview.md).|
+|Cloud:|![Sì](./media/icons/yes-icon.png) Cloud commerciali<br>![Sì ](./media/icons/yes-icon.png) nazionale/sovrano (US gov, Cina gov, altri gov)<br>Supportato solo nelle aree in cui è disponibile la soluzione di rilevamento modifiche di automazione di Azure.<br>![Sì ](./media/icons/yes-icon.png) dispositivi abilitati per [Azure Arc](../azure-arc/servers/overview.md) .<br>Vedere [aree supportate per l'area di lavoro log Analytics collegata](../automation/how-to/region-mappings.md).<br>[Altre informazioni sul rilevamento delle modifiche](../automation/change-tracking/overview.md).|
 |||
 
 ## <a name="what-is-fim-in-security-center"></a>Cos'è il monitoraggio dell'integrità dei file nel Centro sicurezza?

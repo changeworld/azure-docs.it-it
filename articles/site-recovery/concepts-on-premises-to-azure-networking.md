@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 10/13/2019
 ms.author: harshacs
-ms.openlocfilehash: 123a68885346062b9e8a53b8d5066204b6b20f5e
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 4b88ed44632aa255837d8fb499782e11c716d443
+ms.sourcegitcommit: ed7376d919a66edcba3566efdee4bc3351c57eda
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "89568779"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105048188"
 ---
 # <a name="connect-to-azure-vms-after-failover-from-on-premises"></a>Connettersi alle macchine virtuali di Azure dopo il failover da locale 
 
@@ -62,7 +62,7 @@ Dopo il failover, eseguire le operazioni seguenti nelle macchine virtuali di Azu
 
 1. Per connettersi alla macchina virtuale tramite Internet, assegnare alla macchina virtuale un indirizzo IP pubblico. Per la macchina virtuale di Azure non è possibile usare lo stesso indirizzo IP pubblico usato in precedenza per il computer locale. [Scopri di più](../virtual-network/virtual-network-public-ip-address.md)
 2. Verificare che le regole del gruppo di sicurezza di rete nella macchina virtuale consentano le connessioni in ingresso alla porta RDP o SSH.
-3. Controllare la [diagnostica di avvio](../virtual-machines/troubleshooting/boot-diagnostics.md#enable-boot-diagnostics-on-existing-virtual-machine) per visualizzare la macchina virtuale.
+3. Controllare la [diagnostica di avvio](/troubleshoot/azure/virtual-machines/boot-diagnostics#enable-boot-diagnostics-on-existing-virtual-machine) per visualizzare la macchina virtuale.
 
 
 > [!NOTE]

@@ -9,12 +9,12 @@ ms.subservice: management
 ms.date: 03/10/2020
 ms.reviewer: mimckitt
 ms.custom: mimckitt, devx-track-azurecli
-ms.openlocfilehash: bd16f0ef330d1d4a33dd796af0ec3e94dda5acfc
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 45c52e141ed2d93f89c9d7c1426a9d7cbbbd47f5
+ms.sourcegitcommit: a8ff4f9f69332eef9c75093fd56a9aae2fe65122
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98684594"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105023929"
 ---
 # <a name="modify-a-virtual-machine-scale-set"></a>Modificare un set di scalabilità di macchine virtuali
 
@@ -350,7 +350,7 @@ Alcune proprietà possono essere modificate, con eccezioni che dipendono dal val
 
 - **singlePlacementGroup**: se singlePlacementGroup ha valore true, può essere impostata su false. Se invece singlePlacementGroup ha valore false, **non può** essere impostata su true.
 - **subnet**: la subnet di un set di scalabilità può essere modificata purché la subnet originale e la nuova subnet facciano parte della stessa rete virtuale.
-- **imageReferenceSku** : lo SKU di riferimento per le immagini può essere aggiornato per le [distribuzioni Linux](../virtual-machines/linux/endorsed-distros.md)approvate, le immagini di Windows Server/client e le immagini senza [informazioni sul piano](../virtual-machines/linux/cli-ps-findimage.md#view-plan-properties). 
+- **imageReferenceSku** : lo SKU di riferimento per le immagini può essere aggiornato per le [distribuzioni Linux](../virtual-machines/linux/endorsed-distros.md)approvate, le immagini di Windows Server/client e le immagini senza [informazioni sul piano](../virtual-machines/linux/cli-ps-findimage.md#check-the-purchase-plan-information). 
 
 ### <a name="properties-that-require-deallocation-to-change"></a>Proprietà che richiedono la deallocazione per poter essere modificate
 Alcune proprietà possono essere modificate su determinati valori solo dopo la deallocazione delle macchine virtuali del set di scalabilità. Queste proprietà includono:
@@ -417,7 +417,7 @@ In alternativa è possibile modificare l'immagine usata dal set di scalabilità.
 ### <a name="update-the-load-balancer-for-your-scale-set"></a>Aggiornare il bilanciamento del carico del set di scalabilità
 Supponiamo di avere un set di scalabilità con un servizio Azure Load Balancer e di voler sostituire tale servizio con un gateway applicazione di Azure. Le proprietà del servizio di bilanciamento del carico e del gateway applicazione di un set di scalabilità fanno parte di un elenco, quindi è possibile usare i comandi per rimuovere o aggiungere elementi di elenco invece di modificare le proprietà direttamente:
 
-- Azure Powershell:
+- Azure PowerShell:
 
     ```powershell
     # Get the current model of the scale set and store it in a local PowerShell object named $vmss

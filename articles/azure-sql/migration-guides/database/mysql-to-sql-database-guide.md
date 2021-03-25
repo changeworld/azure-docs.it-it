@@ -9,26 +9,27 @@ ms.topic: conceptual
 author: MashaMSFT
 ms.author: mathoma
 ms.date: 03/19/2021
-ms.openlocfilehash: ff7b2115b396bf42cdeffa9c58bffb1802e980d1
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
+ms.openlocfilehash: 14b2c1f98ae977548edb635b8a8a7a956b3f2dd7
+ms.sourcegitcommit: a8ff4f9f69332eef9c75093fd56a9aae2fe65122
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "104721886"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105023776"
 ---
 # <a name="migration-guide--mysql-to-azure-sql-database"></a>Guida alla migrazione: MySQL per il database SQL di Azure
 [!INCLUDE[appliesto-sqldb-sqlmi](../../includes/appliesto-sqldb.md)]
 
 Questa guida illustra come eseguire la migrazione del database MySQL al database SQL di Azure usando SQL Server Migration Assistant per MySQL (SSMA per MySQL). 
 
-Per altre guide alla migrazione, vedere [Migrazione dei database](https://datamigration.microsoft.com/). 
+Per altre guide alla migrazione, vedere [Migrazione dei database](https://docs.microsoft.com/data-migration). 
 
 ## <a name="prerequisites"></a>Prerequisiti
 
 Per eseguire la migrazione del database MySQL al database SQL di Azure, è necessario quanto segue:
 
-- Verificare che l'ambiente di origine sia supportato. Attualmente sono supportati MySQL 5,6 e 5,7. 
-- [SQL Server Migration Assistant per MySQL](https://www.microsoft.com/download/confirmation.aspx?id=54257)
+- Per verificare che l'ambiente di origine sia supportato. Attualmente sono supportati MySQL 5,6 e 5,7. 
+- [SQL Server Migration Assistant per MySQL](https://www.microsoft.com/download/details.aspx?id=54257)
+- Connettività e autorizzazioni sufficienti per accedere sia all'origine che alla destinazione. 
 
 
 ## <a name="pre-migration"></a>Pre-migrazione 
@@ -37,32 +38,29 @@ Una volta soddisfatti i prerequisiti, si è pronti per individuare la topologia 
 
 ### <a name="assess"></a>Valutare 
 
-Usando [SQL Server Migration Assistant per MySQL](https://www.microsoft.com/download/confirmation.aspx?id=54257), è possibile esaminare i dati e gli oggetti di database e valutare i database per la migrazione.
+Usare SQL Server Migration Assistant (SSMA) per MySQL per esaminare i dati e gli oggetti di database e valutare i database per la migrazione. 
 
-Per creare una valutazione, seguire questa procedura.
+Per creare una valutazione, seguire questa procedura: 
 
-1. Aprire SQL Server Migration Assistant per MySQL. 
-1. Selezionare **file** dal menu, quindi scegliere **nuovo progetto**. Specificare il nome del progetto, un percorso in cui salvare il progetto. Scegliere il **database SQL di Azure** come destinazione della migrazione. 
+1. Aprire [SQL Server Migration Assistant per MySQL](https://www.microsoft.com/download/details.aspx?id=54257). 
+1. Selezionare **file** dal menu, quindi scegliere **nuovo progetto**. 
+1. Specificare il nome del progetto, un percorso in cui salvare il progetto. Scegliere il **database SQL di Azure** come destinazione della migrazione. Selezionare **OK**:
 
    ![Nuovo progetto](./media/mysql-to-sql-database-guide/new-project.png)
 
-1. Scegliere **Connetti a MySQL** e specificare i dettagli della connessione per connettere il server MySQL. 
+1. Scegliere **Connetti a MySQL** e specificare i dettagli della connessione per connettere il server MySQL:
 
    ![Connettersi a MySQL](./media/mysql-to-sql-database-guide/connect-to-mysql.png)
 
-1. Fare clic con il pulsante destro del mouse sullo schema MySQL in **MySQL Metadata Explorer** e scegliere **Crea report**. In alternativa, è possibile selezionare **Crea report** dalla barra di spostamento in alto a linee. 
+1. Fare clic con il pulsante destro del mouse sullo schema MySQL in **MySQL Metadata Explorer** e scegliere **Crea report**. In alternativa, è possibile selezionare **Crea report** dalla barra di spostamento in alto a linee:
 
    ![Creazione di report](./media/mysql-to-sql-database-guide/create-report.png)
 
-1. Esaminare il report HTML per le statistiche di conversione, nonché gli errori e gli avvisi. Analizzarlo per comprendere le soluzioni e i problemi di conversione. 
-
-   È inoltre possibile accedere a questo report dalla cartella SSMA Projects come selezionato nella prima schermata. Dall'esempio precedente, individuare il file di report.xml da:
+1. Leggere il report HTML per esaminare le statistiche di conversione e gli eventuali errori o avvisi. È anche possibile aprire il report in Excel per ottenere un inventario degli oggetti MySQL e il lavoro richiesto per eseguire le conversioni dello schema. La posizione predefinita del report è la cartella report all'interno di SSMAProjects.
  
-   `drive:\Users\<username>\Documents\SSMAProjects\MySQLMigration\report\report_2016_11_12T02_47_55\`
+   ad esempio `drive:\Users\<username>\Documents\SSMAProjects\MySQLMigration\report\report_2016_11_12T02_47_55\`
  
-   e aprirlo in Excel per ottenere un inventario degli oggetti MySQL e lo sforzo necessario per eseguire le conversioni dello schema.
-
-    ![Report di conversione](./media/mysql-to-sql-database-guide/conversion-report.png)
+   ![Report di conversione](./media/mysql-to-sql-database-guide/conversion-report.png)
 
 ### <a name="validate-data-types"></a>Convalidare i tipi di dati
 
@@ -70,7 +68,7 @@ Convalidare i mapping dei tipi di dati predefiniti e modificarli in base ai requ
 
 1. Selezionare **Tools** (Strumenti) dal menu. 
 1. Selezionare **Project Settings** (Impostazioni progetto). 
-1. Selezionare la scheda **Type mappings** (Mapping tipi). 
+1. Selezionare la scheda **mapping dei tipi** :
 
    ![Mapping dei tipi](./media/mysql-to-sql-database-guide/type-mappings.png)
 
@@ -81,23 +79,29 @@ Convalidare i mapping dei tipi di dati predefiniti e modificarli in base ai requ
 Per convertire lo schema, seguire questa procedura: 
 
 1. Opzionale Per convertire le query dinamiche o ad hoc, fare clic con il pulsante destro del mouse sul nodo e scegliere **Aggiungi istruzione**. 
-1. Scegliere **Connetti a database SQL di Azure** dalla barra di spostamento in alto a linee e specificare i dettagli della connessione. È possibile scegliere di connettersi a un database esistente o specificare un nuovo nome, nel qual caso verrà creato un database nel server di destinazione.
+1. Selezionare **Connetti a database SQL di Azure**. 
+    1. Immettere i dettagli della connessione per connettere il database nel database SQL di Azure.
+    1. Scegliere il database SQL di destinazione dall'elenco a discesa o specificare un nuovo nome, nel qual caso verrà creato un database nel server di destinazione. 
+    1. Fornire i dettagli di autenticazione. 
+    1. Selezionare **Connetti**:
 
    ![Connetti a SQL](./media/mysql-to-sql-database-guide/connect-to-sqldb.png)
  
-1. Fare clic con il pulsante destro del mouse sullo schema e scegliere **Converti schema**. 
+1. Fare clic con il pulsante destro del mouse sullo schema e scegliere **Converti schema**. In alternativa, è possibile scegliere **Converti schema** dalla barra di spostamento della riga superiore dopo aver scelto il database:
 
    ![Converti schema](./media/mysql-to-sql-database-guide/convert-schema.png)
 
-1. Al termine della conversione dello schema, confrontare il codice convertito con il codice originale per identificare i potenziali problemi. 
+1. Al termine della conversione, confrontare ed esaminare gli oggetti convertiti con gli oggetti originali per identificare i potenziali problemi e risolverli in base alle indicazioni:
 
-   Confrontare gli oggetti convertiti con quelli originali: 
+   ![Gli oggetti convertiti possono essere confrontati con l'origine](./media/mysql-to-sql-database-guide/table-comparison.png)
 
-   ![ Confrontare ed esaminare l'oggetto ](./media/mysql-to-sql-database-guide/table-comparison.png)
+   Confrontare il testo Transact-SQL convertito con il codice originale ed esaminare le indicazioni:
 
-   Confrontare le routine convertite con le procedure originali: 
+   ![Le query convertite possono essere confrontate con il codice sorgente](./media/mysql-to-sql-database-guide/procedure-comparison.png)
 
-   ![Confrontare e verificare il codice oggetto](./media/mysql-to-sql-database-guide/procedure-comparison.png)
+1. Selezionare **Verifica risultati** nel riquadro Output ed esaminare gli errori nel riquadro **Elenco errori** . 
+1. Salvare il progetto in locale per un esercizio di correzione dello schema offline. Scegliere **Salva progetto** dal menu **File**. In questo modo è possibile valutare gli schemi di origine e di destinazione offline ed eseguire la correzione prima di poter pubblicare lo schema nel database SQL.
+
 
 
 ## <a name="migrate"></a>Migrazione 
@@ -106,7 +110,7 @@ Dopo aver completato la valutazione dei database e corretto eventuali discrepanz
 
 Per pubblicare lo schema ed eseguire la migrazione dei dati, attenersi alla procedura seguente: 
 
-1. Fare clic con il pulsante destro del mouse sul database da **Esplora metadati del database SQL di Azure** e scegliere **Sincronizza con database**. Questa azione pubblica lo schema MySQL nel database SQL di Azure.
+1. Pubblicare lo schema: fare clic con il pulsante destro del mouse sul database da **Esplora metadati del database SQL di Azure** e scegliere **Sincronizza con database**. Questa azione pubblica lo schema MySQL nel database SQL di Azure:
 
    ![Sincronizza con database](./media/mysql-to-sql-database-guide/synchronize-database.png)
 
@@ -114,7 +118,7 @@ Per pubblicare lo schema ed eseguire la migrazione dei dati, attenersi alla proc
 
    ![Sincronizzare con la revisione del database](./media/mysql-to-sql-database-guide/synchronize-database-review.png)
 
-1. Fare clic con il pulsante destro del mouse sullo schema MySQL da **MySQL Metadata Explorer** e scegliere **Migrate data**. In alternativa, è possibile selezionare **migrare i dati** dall'esplorazione della riga superiore. 
+1. Migrare i dati: fare clic con il pulsante destro del mouse sul database o sull'oggetto di cui si vuole eseguire la migrazione in **MySQL Metadata Explorer** e scegliere **Migrate data**. In alternativa, è possibile selezionare **migrare i dati** dalla barra di spostamento in alto a linea. Per eseguire la migrazione dei dati per un intero database, selezionare la casella di controllo accanto al nome del database. Per eseguire la migrazione dei dati da singole tabelle, espandere il database, espandere tabelle, quindi selezionare la casella di controllo accanto alla tabella. Per omettere i dati dalle singole tabelle, deselezionare la casella di controllo:
 
    ![Eseguire la migrazione dei dati](./media/mysql-to-sql-database-guide/migrate-data.png)
 
@@ -122,7 +126,7 @@ Per pubblicare lo schema ed eseguire la migrazione dei dati, attenersi alla proc
 
    ![Report di migrazione dati](./media/mysql-to-sql-database-guide/data-migration-report.png)
 
-1.  Convalidare la migrazione esaminando i dati e lo schema nel database SQL di Azure usando SQL Server Management Studio (SSMS).
+1. Connettersi al database SQL di Azure usando [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms) e convalidare la migrazione riesaminando i dati e lo schema:
 
     ![Convalida in SSMA](./media/mysql-to-sql-database-guide/validate-in-ssms.png)
 

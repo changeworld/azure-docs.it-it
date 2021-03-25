@@ -9,14 +9,14 @@ author: deepakpalled
 ms.author: dpalled
 manager: cshankar
 ms.date: 10/02/2020
-ms.openlocfilehash: 0ce9575f078058c821ffffe1b9fe45eed5a4ad94
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 22411e5a80f555a3ead05d39466a7a175923d9bc
+ms.sourcegitcommit: ed7376d919a66edcba3566efdee4bc3351c57eda
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101724175"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105104040"
 ---
-* Dopo aver selezionato la piattaforma appropriata nel passaggio 4 di configurare le impostazioni della [piattaforma](https://docs.microsoft.com/azure/active-directory/develop/quickstart-register-app#configure-platform-settings) , configurare gli **URI di reindirizzamento** e i token di **accesso** nel pannello laterale a destra dell'interfaccia utente.
+* Dopo aver selezionato la piattaforma appropriata nel passaggio 4 di configurare le impostazioni della [piattaforma](../articles/active-directory/develop/quickstart-register-app.md#configure-platform-settings) , configurare gli **URI di reindirizzamento** e i token di **accesso** nel pannello laterale a destra dell'interfaccia utente.
 
     * È necessario che quanto specificato per **URI di reindirizzamento** corrisponda all'indirizzo fornito dalla richiesta di autenticazione:
 
@@ -41,4 +41,4 @@ ms.locfileid: "101724175"
 
     [![Specificare il tipo di autorizzazione API richiesto dall'app](media/time-series-insights-aad-registration/active-directory-app-permission-grant.png)](media/time-series-insights-aad-registration/active-directory-app-permission-grant.png#lightbox)
 
-* [Aggiungere le credenziali](https://docs.microsoft.com/azure/active-directory/develop/quickstart-register-app#add-credentials) se l'applicazione chiamerà le API dell'ambiente in modo autonomo. Le credenziali consentono all'applicazione di eseguire l'autenticazione in modo autonomo, senza richiedere alcuna interazione utente in fase di esecuzione.
+* [Aggiungere le credenziali](../articles/active-directory/develop/quickstart-register-app.md#add-credentials) se l'applicazione chiamerà le API dell'ambiente in modo autonomo. Le credenziali consentono all'applicazione di eseguire l'autenticazione in modo autonomo, senza richiedere alcuna interazione utente in fase di esecuzione.
