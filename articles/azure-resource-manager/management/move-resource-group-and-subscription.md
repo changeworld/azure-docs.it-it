@@ -2,14 +2,14 @@
 title: Spostare le risorse in una nuova sottoscrizione o in un nuovo gruppo di risorse
 description: Usare Azure Resource Manager per spostare risorse a un nuovo gruppo di risorse o a una nuova sottoscrizione.
 ms.topic: conceptual
-ms.date: 09/15/2020
+ms.date: 03/23/2021
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 1dd8877324b7eb0aac3ac12e3eeadb7c75b7795e
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 31710354d39c5c74fcbd3ce1bfb2917d79dfd670
+ms.sourcegitcommit: bed20f85722deec33050e0d8881e465f94c79ac2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104670206"
+ms.lasthandoff: 03/25/2021
+ms.locfileid: "105108639"
 ---
 # <a name="move-resources-to-a-new-resource-group-or-subscription"></a>Spostare le risorse in un nuovo gruppo di risorse o una nuova sottoscrizione
 
@@ -18,6 +18,12 @@ Questo articolo illustra come spostare le risorse di Azure in un'altra sottoscri
 Durante l'operazione di spostamento il gruppo di origine e quello di destinazione sono bloccati. Le operazioni di scrittura ed eliminazione sono bloccate nei gruppi di risorse fino al completamento dello spostamento. Questo blocco significa che non è possibile aggiungere, aggiornare o eliminare le risorse nei gruppi di risorse. Non significa che le risorse sono bloccate. Se, ad esempio, si sposta un server logico SQL di Azure e i relativi database in un nuovo gruppo di risorse o una nuova sottoscrizione, le applicazioni che utilizzano i database non si verificano alcun tempo di inattività. Possono comunque leggere e scrivere nei database. Il blocco può durare per un massimo di quattro ore, ma la maggior parte degli spostamenti viene completata in tempi molto inferiori.
 
 Lo spostamento di una risorsa comporta solo il suo spostamento in un nuovo gruppo di risorse o una nuova sottoscrizione. Non modifica il percorso della risorsa.
+
+## <a name="changed-resource-id"></a>ID risorsa modificato
+
+Quando si sposta una risorsa, viene modificato l'ID della risorsa. Il formato standard per un ID risorsa è `/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}` . Quando si sposta una risorsa in un nuovo gruppo di risorse o una nuova sottoscrizione, si modificano uno o più valori in tale percorso.
+
+Se si usa l'ID risorsa in qualsiasi punto, sarà necessario modificare tale valore. Ad esempio, se nel portale è presente un [dashboard personalizzato](../../azure-portal/quickstart-portal-dashboard-azure-cli.md) che fa riferimento a un ID di risorsa, sarà necessario aggiornare tale valore. Cercare gli script o i modelli che devono essere aggiornati per il nuovo ID risorsa.
 
 ## <a name="checklist-before-moving-resources"></a>Controllo prima di spostare le risorse
 
@@ -36,7 +42,7 @@ Prima di spostare una risorsa, è necessario eseguire alcuni passi importanti. L
    * [Linee guida per lo spostamento delle macchine virtuali](./move-limitations/virtual-machines-move-limitations.md)
    * Per spostare una sottoscrizione di Azure in un nuovo gruppo di gestione, vedere [spostare le sottoscrizioni](../../governance/management-groups/manage.md#move-subscriptions).
 
-1. Se si sposta una risorsa che dispone di un ruolo di Azure assegnato direttamente alla risorsa (o a una risorsa figlio), l'assegnazione di ruolo non viene spostata e diventa orfana. Dopo lo spostamento, è necessario ricreare l'assegnazione di ruolo. Infine, l'assegnazione di ruolo orfana verrà rimossa automaticamente, ma è consigliabile rimuovere l'assegnazione di ruolo prima di spostare la risorsa.
+1. Se si sposta una risorsa che dispone di un ruolo di Azure assegnato direttamente alla risorsa (o a una risorsa figlio), l'assegnazione di ruolo non viene spostata e diventa orfana. Dopo lo spostamento, è necessario ricreare l'assegnazione di ruolo. Infine, l'assegnazione di ruolo orfana viene rimossa automaticamente, ma è consigliabile rimuovere l'assegnazione di ruolo prima dello spostamento.
 
     Per informazioni su come gestire le assegnazioni di ruolo, vedere [elencare le assegnazioni di ruolo di Azure](../../role-based-access-control/role-assignments-list-portal.md#list-role-assignments-at-a-scope) e assegnare i ruoli di [Azure](../../role-based-access-control/role-assignments-portal.md).
 
@@ -260,7 +266,7 @@ Lo stato di una risorsa è un'operazione complessa con diverse fasi. Può implic
 
 **Domanda: perché il gruppo di risorse è bloccato per quattro ore durante lo spostamento delle risorse?**
 
-Per il completamento di una richiesta di spostamento è consentito un massimo di quattro ore. Per evitare modifiche alle risorse spostate, i gruppi di risorse di origine e di destinazione sono bloccati per la durata dello spostamento di risorse.
+Per il completamento di una richiesta di spostamento è consentito un massimo di quattro ore. Per evitare modifiche alle risorse spostate, i gruppi di risorse di origine e di destinazione vengono bloccati durante lo spostamento delle risorse.
 
 In una richiesta di spostamento sono presenti due fasi. Nella prima fase, la risorsa viene spostata. Nella seconda fase, le notifiche vengono inviate ad altri provider di risorse che dipendono dalla risorsa spostata. Un gruppo di risorse può essere bloccato per le intere quattro ore quando un provider di risorse non riesce in entrambe le fasi. Durante il tempo consentito, Gestione risorse ritenta il passaggio non riuscito.
 

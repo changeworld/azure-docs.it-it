@@ -1,19 +1,19 @@
 ---
 title: Gestire le regole del firewall-interfaccia della riga di comando di Azure-database di Azure per MySQL-server flessibile
 description: Creare e gestire le regole del firewall per database di Azure per MySQL-server flessibile usando la riga di comando di Azure CLI.
-author: ambhatna
-ms.author: ambhatna
+author: savjani
+ms.author: pariks
 ms.service: mysql
 ms.devlang: azurecli
 ms.topic: how-to
 ms.date: 9/21/2020
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 84fdd3045d5a1d44ff611134d88fc9793ee203de
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 4c699b00ebbecdbee985babe47c036cce6e0cb4b
+ms.sourcegitcommit: bed20f85722deec33050e0d8881e465f94c79ac2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "92545073"
+ms.lasthandoff: 03/25/2021
+ms.locfileid: "105109965"
 ---
 # <a name="create-and-manage-azure-database-for-mysql---flexible-server-firewall-rules-using-the-azure-cli"></a>Creare e gestire database di Azure per MySQL: regole flessibili del firewall del server usando l'interfaccia della riga di comando di Azure
 
