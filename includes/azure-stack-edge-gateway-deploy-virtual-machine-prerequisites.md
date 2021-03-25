@@ -4,14 +4,14 @@ ms.service: databox
 ms.topic: include
 ms.date: 01/15/2021
 ms.author: alkohli
-ms.openlocfilehash: 71d5a910e36762d096763c4f45a13cbdad47414d
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: e459ea1e9d8d7d51a62ba3ed1d2de8815a1b4222
+ms.sourcegitcommit: ed7376d919a66edcba3566efdee4bc3351c57eda
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101730626"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105103989"
 ---
-Prima di poter distribuire le macchine virtuali nel dispositivo Azure Stack Edge, è necessario configurare il client per la connessione al dispositivo tramite Azure Resource Manager Azure PowerShell. Per istruzioni dettagliate, vedere [connettersi a Azure Resource Manager sul dispositivo Azure stack Edge](../articles/databox-online/azure-stack-edge-j-series-connect-resource-manager.md).
+Prima di poter distribuire le macchine virtuali nel dispositivo Azure Stack Edge, è necessario configurare il client per la connessione al dispositivo tramite Azure Resource Manager Azure PowerShell. Per istruzioni dettagliate, vedere [connettersi a Azure Resource Manager sul dispositivo Azure stack Edge](../articles/databox-online/azure-stack-edge-gpu-connect-resource-manager.md).
 
 Assicurarsi di poter usare la procedura seguente per accedere al dispositivo dal client. Questa configurazione è già stata eseguita quando si è connessi a Azure Resource Manager e ora si sta verificando che la configurazione sia stata completata correttamente. 
 
@@ -38,5 +38,3 @@ Assicurarsi di poter usare la procedura seguente per accedere al dispositivo dal
 
     > [!NOTE]
     > Se si stanno creando macchine virtuali GPU, selezionare un'interfaccia di rete connessa a Internet. In questo modo è possibile installare un'estensione GPU nel dispositivo.
-
-

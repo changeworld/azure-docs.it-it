@@ -4,12 +4,12 @@ description: I pool di immagini personalizzati sono un modo efficiente per confi
 ms.topic: conceptual
 ms.date: 03/04/2021
 ms.custom: devx-track-python, devx-track-azurecli
-ms.openlocfilehash: 8623c47952540717ae50538fd7b0282c9c8629bb
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: a9ff30f52ae19e3d6a7bc58ca81eabeb91d21146
+ms.sourcegitcommit: a8ff4f9f69332eef9c75093fd56a9aae2fe65122
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102124245"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105024065"
 ---
 # <a name="use-the-shared-image-gallery-to-create-a-custom-image-pool"></a>Usare la raccolta di immagini condivise per creare un pool di immagini personalizzato
 
@@ -67,7 +67,7 @@ I passaggi seguenti illustrano come preparare una macchina virtuale, acquisire u
 Se si crea una nuova macchina virtuale per l'immagine, usare un'immagine produttore di Azure Marketplace supportata da Batch come immagine di base per l'immagine gestita. Solo le immagini produttore possono essere usate come immagine di base. Per ottenere un elenco completo di riferimenti a immagini di Azure Marketplace supportate da Azure Batch, vedere l'operazione [List node agent SKUs](/java/api/com.microsoft.azure.batch.protocol.accounts.listnodeagentskus).
 
 > [!NOTE]
-> È possibile usare un'immagine di terze parti che dispone di licenza aggiuntiva e di condizioni di acquisto come immagine di base. Per informazioni su queste immagini del Marketplace, vedere il materiale sussidiario per le macchine virtuali [Linux](../virtual-machines/linux/cli-ps-findimage.md#deploy-an-image-with-marketplace-terms) o [Windows](../virtual-machines/windows/cli-ps-findimage.md#deploy-an-image-with-marketplace-terms).
+> È possibile usare un'immagine di terze parti che dispone di licenza aggiuntiva e di condizioni di acquisto come immagine di base. Per informazioni su queste immagini del Marketplace, vedere le linee guida per le macchine virtuali [Linux](../virtual-machines/linux/cli-ps-findimage.md#check-the-purchase-plan-information) o [Windows](../virtual-machines/windows/cli-ps-findimage.md#view-purchase-plan-properties).
 
 Per la creazione di macchine virtuali, seguire queste linee guida:
 

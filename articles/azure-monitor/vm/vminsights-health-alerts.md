@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 11/10/2020
-ms.openlocfilehash: 1b5fd10b3e0bd84aa7d34a918f4f2376130d2e45
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 9c4b15fa2a8be32aa7397ae425f28f1deaac6b71
+ms.sourcegitcommit: a8ff4f9f69332eef9c75093fd56a9aae2fe65122
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102052263"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105024609"
 ---
 # <a name="vm-insights-guest-health-alerts-preview"></a>Avvisi di integrità Guest di VM Insights (anteprima)
 L'integrità Guest di VM Insights consente di visualizzare l'integrità di una macchina virtuale in base a quanto definito da un set di misurazioni delle prestazioni campionate a intervalli regolari. È possibile creare un avviso quando una macchina virtuale o un monitoraggio viene modificato in uno stato non integro. È possibile visualizzare e gestire questi avvisi con [quelli creati dalle regole di avviso in monitoraggio di Azure](../alerts/alerts-overview.md) e scegliere di ricevere notifiche in modo proattivo quando viene creato un nuovo avviso.
@@ -35,7 +35,7 @@ Viene creato un [avviso di Azure](../alerts/alerts-overview.md) per ogni macchin
 Se un avviso si trova già nello stato **attivato** quando viene modificato lo stato della macchina virtuale, non verrà creato un secondo avviso, ma la gravità dello stesso avviso verrà modificata in base allo stato della macchina virtuale. Se, ad esempio, la macchina virtuale diventa uno stato **critico** quando **un avviso** era già nello stato **attivato** , la gravità dell'avviso verrà modificata in **Sev1**. Se la macchina virtuale passa a uno stato di **avviso** quando un avviso **Sev1** è già stato **attivato** , il livello di gravità dell'avviso verrà modificato in **Sev2**. Se la macchina virtuale torna a uno stato **integro** , l'avviso verrà risolto con la gravità modificata in **Sev4**.
 
 ## <a name="viewing-alerts"></a>Visualizzazione degli avvisi
-Visualizzare gli avvisi creati dall'integrità Guest di VM Insights con altri [avvisi nell'portale di Azure](../platform/alerts-overview.md#alerts-experience). È possibile selezionare **avvisi** dal menu **monitoraggio di Azure** per visualizzare gli avvisi per tutte le risorse monitorate oppure selezionare **avvisi** dal menu di una macchina virtuale per visualizzare gli avvisi solo per tale macchina virtuale.
+Visualizzare gli avvisi creati dall'integrità Guest di VM Insights con altri [avvisi nell'portale di Azure](../alerts/alerts-overview.md#alerts-experience). È possibile selezionare **avvisi** dal menu **monitoraggio di Azure** per visualizzare gli avvisi per tutte le risorse monitorate oppure selezionare **avvisi** dal menu di una macchina virtuale per visualizzare gli avvisi solo per tale macchina virtuale.
 
 ## <a name="alert-properties"></a>Proprietà avviso
 

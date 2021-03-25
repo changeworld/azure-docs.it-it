@@ -5,12 +5,12 @@ ms.service: hdinsight
 ms.topic: tutorial
 ms.custom: hdinsightactive, devx-track-azurecli
 ms.date: 04/15/2020
-ms.openlocfilehash: 7d026d93ebe6f6a0bd9afbd277294d58d7a2a69b
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 32c331b10fcc73b5449588595370f8f69ef9893c
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98932049"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104872048"
 ---
 # <a name="tutorial-create-an-end-to-end-data-pipeline-to-derive-sales-insights-in-azure-hdinsight"></a>Esercitazione: Creare una pipeline di dati end-to-end per derivare le informazioni dettagliate di vendita in Azure HDInsight
 
@@ -18,7 +18,7 @@ In questa esercitazione verrà creata una pipeline di dati end-to-end che esegue
 
 Questa pipeline di dati combina i dati da vari archivi, rimuove i dati indesiderati, aggiunge i nuovi dati e li ricarica nello spazio di archiviazione per la visualizzazione di informazioni dettagliate aziendali. Per altre informazioni sulle pipeline ETL, vedere [Estrarre, trasformare e caricare (ETL) su larga scala](./hadoop/apache-hadoop-etl-at-scale.md).
 
-![Architettura ETL](./media/hdinsight-sales-insights-etl/architecture.png)
+:::image type="content" source="./media/hdinsight-sales-insights-etl/architecture.png" alt-text="Architettura ETL" border="false":::
 
 Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) prima di iniziare.
 

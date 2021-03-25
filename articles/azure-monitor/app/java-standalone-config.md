@@ -6,12 +6,12 @@ ms.date: 11/04/2020
 author: MS-jgol
 ms.custom: devx-track-java
 ms.author: jgol
-ms.openlocfilehash: e58d69634712a9cc640ba9e4785a7bf1effaf88c
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 91ad5a6d95c634300db83d66df8f0407b4544cde
+ms.sourcegitcommit: a8ff4f9f69332eef9c75093fd56a9aae2fe65122
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103224657"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105024167"
 ---
 # <a name="configuration-options---azure-monitor-application-insights-for-java"></a>Opzioni di configurazione-Application Insights di monitoraggio di Azure per Java
 
@@ -122,6 +122,17 @@ Di seguito è riportato un esempio di come impostare il campionamento per acquis
 > [!NOTE]
 > Come percentuale di campionamento, sceglierne una vicina a 100/N dove N è un numero intero. Il campionamento attualmente non supporta altri valori.
 
+## <a name="sampling-overrides-preview"></a>Override di campionamento (anteprima)
+
+Questa funzionalità è in anteprima, a partire da 3.0.3-BETA. 2.
+
+Le sostituzioni di campionamento consentono di eseguire l'override della [percentuale di campionamento predefinita](#sampling), ad esempio:
+* Impostare la percentuale di campionamento su 0 (o un valore minimo) per i controlli di integrità rumorosi.
+* Impostare la percentuale di campionamento su 0 (o un valore minimo) per le chiamate di dipendenza rumorose.
+* Impostare la percentuale di campionamento su 100 per un tipo di richiesta importante, ad esempio `/login` , anche se il campionamento predefinito è configurato su un valore inferiore.
+
+Per ulteriori informazioni, vedere la documentazione relativa alle [sostituzioni di campionamento](./java-standalone-sampling-overrides.md) .
+
 ## <a name="jmx-metrics"></a>Metriche JMX
 
 Se si vuole raccogliere alcune metriche JMX aggiuntive:
@@ -176,9 +187,13 @@ Questa funzionalità è in anteprima.
 Consente di configurare le regole che verranno applicate ai dati di telemetria relativi a richieste, dipendenze e tracce, ad esempio:
  * Maschera dati sensibili
  * Aggiungere dimensioni personalizzate in modo condizionale
- * Aggiornare il nome della telemetria usato per l'aggregazione e la visualizzazione
+ * Aggiornare il nome dell'intervallo, usato per aggregare dati di telemetria simili nel portale di Azure.
+ * Rilasciare attributi span specifici per controllare i costi di inserimento.
 
 Per altre informazioni, vedere la documentazione del [processore di telemetria](./java-standalone-telemetry-processors.md) .
+
+> [!NOTE]
+> Se si sta cercando di eliminare intervalli specifici (interi) per il controllo del costo di inserimento, vedere [override del campionamento](./java-standalone-sampling-overrides.md).
 
 ## <a name="auto-collected-logging"></a>Registrazione automatica
 
