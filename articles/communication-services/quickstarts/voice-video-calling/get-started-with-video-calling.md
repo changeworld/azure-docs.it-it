@@ -7,12 +7,12 @@ ms.author: mikben
 ms.date: 03/10/2021
 ms.topic: quickstart
 ms.service: azure-communication-services
-ms.openlocfilehash: 82f4d9028fa94d4df0ff089fda213d64e13d56ec
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 28813a23b91f75f88e844b9e6b36d6ba0771569a
+ms.sourcegitcommit: ed7376d919a66edcba3566efdee4bc3351c57eda
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103487871"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105048086"
 ---
 # <a name="quickstart-add-11-video-calling-to-your-app-javascript"></a>Guida introduttiva: aggiungere la chiamata a 1:1 video all'app (JavaScript)
 
@@ -23,8 +23,8 @@ Trovare il codice finalizzato per questa Guida introduttiva su [GitHub](https://
 ## <a name="prerequisites"></a>Prerequisiti
 - Ottenere un account Azure con una sottoscrizione attiva. [Creare un account gratuitamente](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - [Node.js](https://nodejs.org/en/) Versioni LTS attive e manutenzione LTS (8.11.1 e 10.14.1)
-- Creare una risorsa Active Communication Services. [Creare una risorsa di Servizi di comunicazione](https://docs.microsoft.com/azure/communication-services/quickstarts/create-communication-resource?tabs=windows&pivots=platform-azp).
-- Creare un token di accesso utente per creare un'istanza del client di chiamata. [Informazioni su come creare e gestire i token di accesso utente](https://docs.microsoft.com/azure/communication-services/quickstarts/access-tokens?pivots=programming-language-csharp).
+- Creare una risorsa Active Communication Services. [Creare una risorsa di Servizi di comunicazione](../create-communication-resource.md?pivots=platform-azp&tabs=windows).
+- Creare un token di accesso utente per creare un'istanza del client di chiamata. [Informazioni su come creare e gestire i token di accesso utente](../access-tokens.md?pivots=programming-language-csharp).
 
 ## <a name="setting-up"></a>Configurazione
 ### <a name="create-a-new-nodejs-application"></a>Creare una nuova applicazione Node.js
@@ -330,10 +330,10 @@ Aprire il browser e passare a http://localhost:8080/. Dovrebbe essere visualizza
 È possibile scaricare l'app di esempio da [GitHub](https://github.com/Azure-Samples/communication-services-javascript-quickstarts/tree/main/add-1-on-1-video-calling).
 
 ## <a name="clean-up-resources"></a>Pulire le risorse
-Per pulire e rimuovere una sottoscrizione di Servizi di comunicazione, è possibile eliminare la risorsa o il gruppo di risorse. Eliminando il gruppo di risorse vengono eliminate anche tutte le altre risorse associate. Vedere altre informazioni sulla [pulizia delle risorse](https://docs.microsoft.com/azure/communication-services/quickstarts/create-communication-resource?tabs=windows&pivots=platform-azp#clean-up-resources).
+Per pulire e rimuovere una sottoscrizione di Servizi di comunicazione, è possibile eliminare la risorsa o il gruppo di risorse. Eliminando il gruppo di risorse vengono eliminate anche tutte le altre risorse associate. Vedere altre informazioni sulla [pulizia delle risorse](../create-communication-resource.md?pivots=platform-azp&tabs=windows#clean-up-resources).
 
 ## <a name="next-steps"></a>Passaggi successivi
 Per altre informazioni, vedere gli articoli seguenti:
-- Vedere l' [esempio di chiamata Web](https://docs.microsoft.com/azure/communication-services/samples/web-calling-sample)
-- Leggere informazioni sulle [funzionalità della libreria client Chiamate](https://docs.microsoft.com/azure/communication-services/quickstarts/voice-video-calling/calling-client-samples?pivots=platform-web)
-- Leggere altre informazioni sul [funzionamento delle chiamate](https://docs.microsoft.com/azure/communication-services/concepts/voice-video-calling/about-call-types)
+- Vedere l' [esempio di chiamata Web](../../samples/web-calling-sample.md)
+- Leggere informazioni sulle [funzionalità della libreria client Chiamate](./calling-client-samples.md?pivots=platform-web)
+- Leggere altre informazioni sul [funzionamento delle chiamate](../../concepts/voice-video-calling/about-call-types.md)

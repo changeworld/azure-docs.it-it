@@ -9,13 +9,13 @@ ms.reviewer: jrasnick
 ms.service: synapse-analytics
 ms.subservice: sql
 ms.topic: tutorial
-ms.date: 03/18/2020
-ms.openlocfilehash: f03fa84c02c4b3894efe069289b0ecbb9e90dfdb
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.date: 03/24/2021
+ms.openlocfilehash: a1f15330a912c8a8a93fe1f74e88ef8d117441c2
+ms.sourcegitcommit: ed7376d919a66edcba3566efdee4bc3351c57eda
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104654629"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105047899"
 ---
 # <a name="analyze-data-with-dedicated-sql-pools"></a>Analizzare i dati con pool SQL dedicati
 
@@ -112,9 +112,6 @@ Un pool SQL dedicato utilizza risorse fatturabili finché è attivo. È possibil
     Questa query mostra come le distanze totali e la distanza media delle corse sono correlate al numero di passeggeri.
 1. Nella finestra dei risultati dello script SQL modificare la **Vista** impostandola su **Grafico** per visualizzare i risultati come un grafico a linee.
     
-    > [!NOTE]
-    > Un pool SQL dedicato (in precedenza SQL Data Wharehose) abilitato per l'area di lavoro può essere identificato tramite la descrizione comando nell'hub Dati.
-
 ## <a name="next-steps"></a>Passaggi successivi
 
 > [!div class="nextstepaction"]

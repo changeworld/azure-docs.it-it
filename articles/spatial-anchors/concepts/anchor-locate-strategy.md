@@ -8,18 +8,18 @@ ms.author: pamistel
 ms.date: 02/11/2021
 ms.topic: conceptual
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: 43273ccd7c882bbac6cbc68d359db4ecb100800e
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
+ms.openlocfilehash: 13aa12be5a336363bbe3bcbf3e3fb354a8fa3074
+ms.sourcegitcommit: ed7376d919a66edcba3566efdee4bc3351c57eda
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102617404"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105048477"
 ---
 # <a name="understanding-the-anchorlocatecriteria-class"></a>Informazioni sulla classe AnchorLocateCriteria
 In questo articolo vengono illustrate le diverse opzioni che è possibile usare quando si eseguono query su un ancoraggio. Si passerà alla classe AnchorLocateCriteria, alle opzioni e alle combinazioni di opzioni valide.
 
 ## <a name="anchor-locate-criteria"></a>Individuare i criteri di ancoraggio
-La [classe AnchorLocateCriteria](https://docs.microsoft.com/dotnet/api/microsoft.azure.spatialanchors.anchorlocatecriteria) consente di eseguire query sul servizio per gli ancoraggi creati in precedenza. Un oggetto AnchorLocateCriteria può essere usato per Watcher in qualsiasi momento. Ogni oggetto AnchorLocateCriteria deve includere **esattamente una** delle proprietà seguenti: [identificatori](#identifiers), [NearAnchor](#nearanchor)o [NearDevice](#neardevice). Se lo si desidera, è possibile impostare proprietà aggiuntive, ad esempio [strategie](#strategy), [BypassCache](#bypasscache)e [RequestedCategories](#requestedcategories) . 
+La [classe AnchorLocateCriteria](/dotnet/api/microsoft.azure.spatialanchors.anchorlocatecriteria) consente di eseguire query sul servizio per gli ancoraggi creati in precedenza. Un oggetto AnchorLocateCriteria può essere usato per Watcher in qualsiasi momento. Ogni oggetto AnchorLocateCriteria deve includere **esattamente una** delle proprietà seguenti: [identificatori](#identifiers), [NearAnchor](#nearanchor)o [NearDevice](#neardevice). Se lo si desidera, è possibile impostare proprietà aggiuntive, ad esempio [strategie](#strategy), [BypassCache](#bypasscache)e [RequestedCategories](#requestedcategories) . 
 
 ### <a name="properties"></a>Proprietà
 Definire **esattamente una** delle proprietà seguenti nel Watcher:
@@ -37,7 +37,7 @@ Questa proprietà viene specificata utilizzando un oggetto NearAnchorCriteria.
 #### <a name="neardevice"></a>NearDevice
 *Valore predefinito: non impostato*
 
-Usando NearDevice, è possibile specificare che AnchorLocateCriteria limita il set di ancoraggi richiesti a quelli vicini alla posizione fisica del dispositivo. Tutti i sensori abilitati verranno usati per individuare gli ancoraggi intorno al dispositivo. Per avere la possibilità di trovare ancoraggi, è necessario configurare SensorCapabilities per consentire l'accesso alla sessione a tutti i sensori appropriati. Per altre informazioni sulla configurazione e l'uso di questa proprietà, vedere [rilocalizzazione grossolana-ancoraggi spaziali di Azure | Microsoft docs](https://docs.microsoft.com/azure/spatial-anchors/concepts/coarse-reloc) e *come creare e individuare ancoraggi usando la rilocalizzazione grossolana* in [C#](https://docs.microsoft.com/azure/spatial-anchors/how-tos/set-up-coarse-reloc-unity), [Objective-C](https://docs.microsoft.com/azure/spatial-anchors/how-tos/set-up-coarse-reloc-unity), [Swift](https://docs.microsoft.com/azure/spatial-anchors/how-tos/set-up-coarse-reloc-swift), [java](https://docs.microsoft.com/azure/spatial-anchors/how-tos/set-up-coarse-reloc-java), [c++/NDK](https://docs.microsoft.com/azure/spatial-anchors/how-tos/set-up-coarse-reloc-cpp-ndk), [c++/WinRT](https://docs.microsoft.com/azure/spatial-anchors/how-tos/set-up-coarse-reloc-cpp-winrt).
+Usando NearDevice, è possibile specificare che AnchorLocateCriteria limita il set di ancoraggi richiesti a quelli vicini alla posizione fisica del dispositivo. Tutti i sensori abilitati verranno usati per individuare gli ancoraggi intorno al dispositivo. Per avere la possibilità di trovare ancoraggi, è necessario configurare SensorCapabilities per consentire l'accesso alla sessione a tutti i sensori appropriati. Per altre informazioni sulla configurazione e l'uso di questa proprietà, vedere [rilocalizzazione grossolana-ancoraggi spaziali di Azure | Microsoft docs](./coarse-reloc.md) e *come creare e individuare ancoraggi usando la rilocalizzazione grossolana* in [C#](../how-tos/set-up-coarse-reloc-unity.md), [Objective-C](../how-tos/set-up-coarse-reloc-unity.md), [Swift](../how-tos/set-up-coarse-reloc-swift.md), [java](../how-tos/set-up-coarse-reloc-java.md), [c++/NDK](../how-tos/set-up-coarse-reloc-cpp-ndk.md), [c++/WinRT](../how-tos/set-up-coarse-reloc-cpp-winrt.md).
 Questa proprietà viene specificata utilizzando un oggetto NearDeviceCriteria.
 
 ### <a name="additional-properties"></a>Proprietà aggiuntive
@@ -66,7 +66,7 @@ Valore enum LocateStrategy | Descrizione
 ---------------|------------
 AnyStrategy | Questa strategia consente al sistema di usare combinazioni di strategie VisualInformation e Relationship per trovare ancoraggi. 
 VisualInformation|Questa strategia tenta di trovare ancoraggi mediante la corrispondenza tra le informazioni visive dell'ambiente corrente e quelle del footprint visivo dell'ancoraggio. Il footprint visivo di un ancoraggio si riferisce alle informazioni visive attualmente associate all'ancoraggio. Queste informazioni visive vengono in genere raccolte ma non esclusivamente durante la creazione dell'ancoraggio. Attualmente questa strategia è consentita solo in combinazione con le proprietà NearDevice o Identifiers.
-Relationship|Questa strategia tenta di trovare ancoraggi usando [ancoraggi connessi](https://docs.microsoft.com/azure/spatial-anchors/concepts/anchor-relationships-way-finding#connect-anchors)esistenti. Attualmente questa strategia è consentita solo in combinazione con le proprietà NearAnchor o Identifiers. Quando viene usato con la proprietà identifiers, è necessario che nella stessa sessione l'utente abbia individuato in precedenza uno o più ancoraggi con relazioni connesse già stabilite con le relazioni di ancoraggio i cui ID sono specificati nella matrice Identifiers. 
+Relationship|Questa strategia tenta di trovare ancoraggi usando [ancoraggi connessi](./anchor-relationships-way-finding.md#connect-anchors)esistenti. Attualmente questa strategia è consentita solo in combinazione con le proprietà NearAnchor o Identifiers. Quando viene usato con la proprietà identifiers, è necessario che nella stessa sessione l'utente abbia individuato in precedenza uno o più ancoraggi con relazioni connesse già stabilite con le relazioni di ancoraggio i cui ID sono specificati nella matrice Identifiers. 
 
 
 ### <a name="valid-combinations-of-locatestrategy-and-anchorlocatecriteria-properties"></a>Combinazioni valide di proprietà LocateStrategy e AnchorLocateCriteria 
@@ -86,4 +86,4 @@ NearDevice  | &check;    |   | &check;
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Per altri esempi di uso della classe AnchorLocateCriteria, vedere [come creare e individuare ancoraggi usando ancoraggi spaziali di Azure](https://docs.microsoft.com/azure/spatial-anchors/create-locate-anchors-overview) .
+Per altri esempi di uso della classe AnchorLocateCriteria, vedere [come creare e individuare ancoraggi usando ancoraggi spaziali di Azure](../create-locate-anchors-overview.md) .
