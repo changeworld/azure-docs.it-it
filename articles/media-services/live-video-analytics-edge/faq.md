@@ -3,12 +3,12 @@ title: Domande frequenti sull'analisi dei video in tempo reale su IoT Edge-Azure
 description: Questo articolo risponde alle domande frequenti sull'analisi dei video in tempo reale su IoT Edge.
 ms.topic: conceptual
 ms.date: 12/01/2020
-ms.openlocfilehash: 72a07a1a509aebcd7ba4048d0c84e913481c978e
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 661b6155ce2d95e2111a1fa338fd5df438e61e7d
+ms.sourcegitcommit: bb330af42e70e8419996d3cba4acff49d398b399
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101702250"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105032797"
 ---
 # <a name="live-video-analytics-on-iot-edge-faq"></a>Domande frequenti sull'analisi dei video in tempo reale su IoT Edge
 
@@ -129,7 +129,7 @@ Le soluzioni variano a seconda del protocollo di comunicazione usato dal server 
    
 *Usare il protocollo gRPC*: 
 
-* Con il modulo di analisi video Live 1,0, quando si usa un protocollo gRPC (Remote Procedure Call) generico, l'unico modo per farlo è se il server gRPC espone diversi modelli di intelligenza artificiale tramite porte diverse. In [questo esempio di codice](https://raw.githubusercontent.com/Azure/live-video-analytics/master/MediaGraph/topologies/grpcExtension/topology.json), una singola porta, 44000, espone tutti i modelli Yolo. In teoria, il server gRPC Yolo potrebbe essere riscritto per esporre alcuni modelli sulla porta 44000 e altri sulla porta 45000. 
+* Con il modulo di analisi video Live 1,0, quando si usa un protocollo gRPC (Remote Procedure Call) generico, l'unico modo per farlo è se il server gRPC espone diversi modelli di intelligenza artificiale tramite porte diverse. In [questo esempio di codice](https://github.com/Azure/live-video-analytics/blob/master/MediaGraph/topologies/grpcExtensionOpenVINO/2.0/topology.json), una singola porta, 44000, espone tutti i modelli Yolo. In teoria, il server gRPC Yolo potrebbe essere riscritto per esporre alcuni modelli sulla porta 44000 e altri sulla porta 45000. 
 
 * Con il modulo di analisi video Live 2,0, viene aggiunta una nuova proprietà al nodo dell'estensione gRPC. Questa proprietà, **extensionConfiguration**, è una stringa facoltativa che può essere usata come parte del contratto gRPC. Quando si dispone di più modelli di intelligenza artificiale inclusi in un singolo server di inferenza, non è necessario esporre un nodo per ogni modello di intelligenza artificiale. Per un'istanza di Graph, il provider di estensioni può invece definire come selezionare i diversi modelli di intelligenza artificiale usando la proprietà **extensionConfiguration** . Durante l'esecuzione, analisi video live passa questa stringa al server di inferenza, che può usarla per richiamare il modello di intelligenza artificiale desiderato. 
 

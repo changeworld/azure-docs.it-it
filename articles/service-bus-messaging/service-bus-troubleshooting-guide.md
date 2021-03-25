@@ -3,12 +3,12 @@ title: Guida alla risoluzione dei problemi del bus di servizio di Azure | Micros
 description: Informazioni sui suggerimenti e consigli per la risoluzione dei problemi che si possono verificare quando si usa il bus di servizio di Azure.
 ms.topic: article
 ms.date: 03/03/2021
-ms.openlocfilehash: 7de39e5a3a7b6cbb8e5fa504f073023853e18366
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: b44587747a59acb3c0124c0a76b63de68d6d8ae7
+ms.sourcegitcommit: bb330af42e70e8419996d3cba4acff49d398b399
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102179698"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105031291"
 ---
 # <a name="troubleshooting-guide-for-azure-service-bus"></a>Guida alla risoluzione dei problemi del bus di servizio di Azure
 Questo articolo fornisce suggerimenti e consigli per la risoluzione dei problemi che possono verificarsi quando si usa il bus di servizio di Azure. 
@@ -52,7 +52,7 @@ I passaggi seguenti possono essere utili per la risoluzione dei problemi di conn
     ```
     È possibile utilizzare comandi equivalenti se si utilizzano altri strumenti, ad esempio `tnc` , `ping` e così via. 
 - Ottenere una traccia di rete se i passaggi precedenti non sono utili e analizzarli tramite strumenti come [Wireshark](https://www.wireshark.org/). Se necessario, contattare [supporto tecnico Microsoft](https://support.microsoft.com/) . 
-- Per trovare gli indirizzi IP giusti da aggiungere all'elenco Consenti per le connessioni, vedere [quali indirizzi IP è necessario aggiungere all'elenco Consenti](service-bus-faq.md#what-ip-addresses-do-i-need-to-add-to-allow-list). 
+- Per trovare gli indirizzi IP appropriati da aggiungere a Allow per le connessioni, vedere [quali indirizzi IP è necessario aggiungere a Allow](service-bus-faq.md#what-ip-addresses-do-i-need-to-add-to-allow-list). 
 
 
 ## <a name="issues-that-may-occur-with-service-upgradesrestarts"></a>Problemi che possono verificarsi con gli aggiornamenti o i riavvii del servizio
@@ -98,6 +98,25 @@ Quando si tenta di inviare più di 1000 messaggi usando la stessa connessione de
 
 ### <a name="resolution"></a>Soluzione
 Aprire una nuova connessione allo spazio dei nomi del bus di servizio per inviare altri messaggi.
+
+## <a name="adding-virtual-network-rule-using-powershell-fails"></a>L'aggiunta di una regola della rete virtuale con PowerShell non riesce
+
+### <a name="symptoms"></a>Sintomi
+Sono state configurate due subnet da una singola rete virtuale in una regola della rete virtuale. Quando si tenta di rimuovere una subnet usando il cmdlet [Remove-AzServiceBusVirtualNetworkRule](/powershell/module/az.servicebus/remove-azservicebusvirtualnetworkrule) , la subnet non viene rimossa dalla regola della rete virtuale. 
+
+```azurepowershell-interactive
+Remove-AzServiceBusVirtualNetworkRule -ResourceGroupName $resourceGroupName -Namespace $serviceBusName -SubnetId $subnetId
+```
+
+### <a name="cause"></a>Causa
+L'ID Azure Resource Manager specificato per la subnet potrebbe non essere valido. Questo problema può verificarsi quando la rete virtuale si trova in un gruppo di risorse diverso da quello che ha lo spazio dei nomi del bus di servizio. Se non si specifica in modo esplicito il gruppo di risorse della rete virtuale, il comando CLI costruisce l'ID Azure Resource Manager usando il gruppo di risorse dello spazio dei nomi del bus di servizio. Non è quindi possibile rimuovere la subnet dalla regola di rete. 
+
+### <a name="resolution"></a>Soluzione
+Specificare l'ID Azure Resource Manager completo della subnet che include il nome del gruppo di risorse che contiene la rete virtuale. Ad esempio:
+
+```azurepowershell-interactive
+Remove-AzServiceBusVirtualNetworkRule -ResourceGroupName myRG -Namespace myNamespace -SubnetId "/subscriptions/SubscriptionId/resourcegroups/ResourceGroup/myOtherRG/providers/Microsoft.Network/virtualNetworks/myVNet/subnets/mySubnet"
+```
 
 ## <a name="next-steps"></a>Passaggi successivi
 Vedere gli articoli seguenti: 

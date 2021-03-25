@@ -5,14 +5,14 @@ author: markjbrown
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: conceptual
-ms.date: 10/14/2020
+ms.date: 03/24/2021
 ms.author: mjbrown
-ms.openlocfilehash: 52fa5957cdbc3ae73ebc4b36e04582741199414a
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 7163658024d150a7c5d75c3b3ac0b6b6b29cd3cb
+ms.sourcegitcommit: bb330af42e70e8419996d3cba4acff49d398b399
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "93340601"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105037309"
 ---
 # <a name="azure-resource-manager-templates-for-azure-cosmos-db"></a>Modelli di Azure Resource Manager per Azure Cosmos DB
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -27,6 +27,7 @@ L'articolo contiene solo esempi di modelli di Azure Resource Manager per account
 |[Creare un account, un database e un contenitore Azure Cosmos con l'archivio analitico](manage-with-templates.md#create-analytical-store) | Questo modello consente di creare un account API (SQL) Core in un'area con un contenitore configurato con la funzione di durata TTL dei dati analitici abilitata e l'opzione per usare la velocità effettiva manuale o a scalabilità automatica. |
 |[Creare un account, un database e un contenitore Azure Cosmos con velocità effettiva standard (manuale)](manage-with-templates.md#create-manual) | Questo modello consente di creare un account API Core (SQL) in due aree, un database e un contenitore con velocità effettiva standard. |
 |[Creare un account, un database e un contenitore Azure Cosmos con una stored procedure, un trigger e una funzione definita dall'utente](manage-with-templates.md#create-sproc) | Questo modello consente di creare un account API Core (SQL) in due aree con una stored procedure, un trigger e una funzione definita dall'utente per un contenitore. |
+|[Creare un account Azure Cosmos con Azure AD identità, le definizioni dei ruoli e l'assegnazione di ruolo](manage-with-templates.md#create-rbac) | Questo modello consente di creare un account API principale (SQL) con Azure AD identità, le definizioni dei ruoli e l'assegnazione di ruolo in un'entità servizio. |
 |[Creare un endpoint privato per un account Azure Cosmos esistente](how-to-configure-private-endpoints.md#create-a-private-endpoint-by-using-a-resource-manager-template) |  Questo modello consente di creare un endpoint privato per un account API Core (SQL) Azure Cosmos DB esistente in una rete virtuale esistente. |
 |[Creare un account Azure Cosmos per il livello gratuito](manage-with-templates.md#free-tier) |  Questo modello consente di creare un account API Core (SQL) Azure Cosmos DB per il livello gratuito. |
 
