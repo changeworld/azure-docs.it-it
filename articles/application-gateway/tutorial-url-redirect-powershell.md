@@ -4,15 +4,15 @@ description: Informazioni su come creare un gateway applicazione con traffico re
 services: application-gateway
 author: vhorne
 ms.service: application-gateway
-ms.date: 03/19/2020
+ms.date: 03/24/2021
 ms.author: victorh
 ms.topic: how-to
-ms.openlocfilehash: a9606bfe8b4719ed4ab3c51fc177f331b754f7a1
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 61a47f691d453218f06a5db4ad433b4760ebe265
+ms.sourcegitcommit: bb330af42e70e8419996d3cba4acff49d398b399
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "93397058"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105038381"
 ---
 # <a name="create-an-application-gateway-with-url-path-based-redirection-using-azure-powershell"></a>Creare un gateway applicazione con reindirizzamento basato su percorsi URL usando Azure PowerShell
 
@@ -392,6 +392,8 @@ Set-AzApplicationGateway -ApplicationGateway $appgw
 
 In questo esempio si creano tre set di scalabilità di macchine virtuali che supportano i tre pool back-end creati. I set di scalabilità creati sono denominati *myvmss1*, *myvmss2* e *myvmss3*. Ogni set di scalabilità contiene due istanze di macchina virtuale in cui si installa IIS. Il set di scalabilità viene assegnato al pool back-end quando si configurano le impostazioni IP.
 
+Sostituire \<username> e \<password> con i propri valori prima di eseguire lo script.
+
 ```azurepowershell-interactive
 $vnet = Get-AzVirtualNetwork `
   -ResourceGroupName myResourceGroupAG `
@@ -447,8 +449,8 @@ for ($i=1; $i -le 3; $i++)
     -OsDiskCreateOption FromImage
 
   Set-AzVmssOsProfile $vmssConfig `
-    -AdminUsername azureuser `
-    -AdminPassword "Azure123456!" `
+    -AdminUsername <username> `
+    -AdminPassword "<password>" `
     -ComputerNamePrefix myvmss$i
 
   Add-AzVmssNetworkInterfaceConfiguration `
