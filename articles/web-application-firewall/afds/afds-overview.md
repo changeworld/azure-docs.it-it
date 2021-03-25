@@ -7,12 +7,12 @@ ms.service: web-application-firewall
 ms.topic: conceptual
 ms.date: 05/22/2020
 ms.author: victorh
-ms.openlocfilehash: 66ca039a449e355e47563b689f5f44cced164fea
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 0e3073c491b251a1dbb505d4656de9c6a1e0ac7f
+ms.sourcegitcommit: ed7376d919a66edcba3566efdee4bc3351c57eda
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101724150"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105048494"
 ---
 # <a name="azure-web-application-firewall-on-azure-front-door"></a>Web Application Firewall di Azure in Frontdoor di Azure
 
@@ -24,7 +24,7 @@ WAF respinge eventuali attacchi dannosi in prossimità delle origini di attacco,
 
 ![Web Application Firewall di Azure](../media/overview/wafoverview.png)
 
-Il front-end [di Azure introduce due nuovi SKU in anteprima](https://docs.microsoft.com/azure/frontdoor/standard-premium/overview), ovvero lo SKU di front-end standard e front door Premium. WAF è integrato in modo nativo con lo SKU di front door Premium con funzionalità complete. Per lo SKU standard della porta anteriore, sono supportate solo [le regole personalizzate](https://docs.microsoft.com/azure/web-application-firewall/afds/afds-overview#custom-authored-rules) .
+Il front-end [di Azure introduce due nuovi SKU in anteprima](../../frontdoor/standard-premium/overview.md), ovvero lo SKU di front-end standard e front door Premium. WAF è integrato in modo nativo con lo SKU di front door Premium con funzionalità complete. Per lo SKU standard della porta anteriore, sono supportate solo [le regole personalizzate](#custom-authored-rules) .
 
 ## <a name="waf-policy-and-rules"></a>Regole e criteri di WAF
 

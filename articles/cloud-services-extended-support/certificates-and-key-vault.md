@@ -8,12 +8,12 @@ ms.author: gachandw
 ms.reviewer: mimckitt
 ms.date: 10/13/2020
 ms.custom: ''
-ms.openlocfilehash: 7357703af41afc913ef63dff6ecae3d230c9eca0
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 4d771e77fcca05b090e5d47d70ae93ece8f79e3e
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104583293"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104865704"
 ---
 # <a name="use-certificates-with-azure-cloud-services-extended-support"></a>Usare i certificati con servizi cloud di Azure (supporto esteso)
 
@@ -27,9 +27,8 @@ Key Vault viene utilizzato per archiviare i certificati associati ai servizi clo
 
     :::image type="content" source="media/certs-and-key-vault-1.png" alt-text="Immagine mostra la selezione dei criteri di accesso nel pannello dell'insieme di credenziali delle chiavi.":::
 
-3. Verificare che i criteri di accesso includano le proprietà seguenti:
+3. Verificare che i criteri di accesso includano la proprietà seguente:
     - **Abilitare l'accesso alle macchine virtuali di Azure per la distribuzione**
-    - **Abilitare l'accesso alla Azure Resource Manager per la distribuzione dei modelli** 
 
     :::image type="content" source="media/certs-and-key-vault-2.png" alt-text="Image Mostra la finestra criteri di accesso nella portale di Azure.":::
  
@@ -50,6 +49,9 @@ Key Vault viene utilizzato per archiviare i certificati associati ai servizi clo
     ```json
     <Certificate name="<your cert name>" thumbprint="<thumbprint in key vault" thumbprintAlgorithm="sha1" /> 
     ```
+6.  Per la distribuzione tramite il modello ARM, è possibile trovare certificateUrl passando al certificato nell'insieme di credenziali delle chiavi identificato come identificatore del segreto
+
+    :::image type="content" source="media/certs-and-key-vault-6.png" alt-text="Immagine mostra il campo identificatore segreto nell'insieme di credenziali delle chiavi.":::
 
 ## <a name="next-steps"></a>Passaggi successivi 
 - Esaminare i [prerequisiti di distribuzione](deploy-prerequisite.md) per i servizi cloud (supporto esteso).

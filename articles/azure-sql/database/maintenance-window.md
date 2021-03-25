@@ -9,13 +9,13 @@ author: WilliamDAssafMSFT
 ms.author: wiassaf
 ms.reviewer: sstein
 ms.custom: references_regions
-ms.date: 03/11/2021
-ms.openlocfilehash: bd91c29ca97c2096c4d8f3df19dbb9eab306b8e7
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.date: 03/23/2021
+ms.openlocfilehash: 9c1e5af065e70cf7ec7b7c3b09fc9e3376858481
+ms.sourcegitcommit: ed7376d919a66edcba3566efdee4bc3351c57eda
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103149750"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105047253"
 ---
 # <a name="maintenance-window-preview"></a>Finestra di manutenzione (anteprima)
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -27,14 +27,14 @@ La funzionalità finestra di manutenzione consente di configurare la pianificazi
 
 ## <a name="overview"></a>Panoramica
 
-Azure esegue periodicamente la [manutenzione pianificata](planned-maintenance.md) delle risorse del database SQL e dell'istanza gestita di SQL. Durante l'evento di manutenzione SQL di Azure, i database sono completamente disponibili, ma possono essere soggetti a failover brevi entro i rispettivi contratti di disponibilità per il [database SQL](https://azure.microsoft.com/support/legal/sla/sql-database) e l' [istanza gestita di SQL](https://azure.microsoft.com/support/legal/sla/azure-sql-sql-managed-instance), perché in alcuni casi è necessaria la riconfigurazione delle risorse.
+Azure esegue periodicamente la [manutenzione pianificata](planned-maintenance.md) delle risorse del database SQL e dell'istanza gestita di SQL. Durante l'evento di manutenzione SQL di Azure, i database sono completamente disponibili, ma possono essere soggetti a riconfigurazioni brevi nei rispettivi contratti di disponibilità per il [database SQL](https://azure.microsoft.com/support/legal/sla/sql-database) e l' [istanza gestita di SQL](https://azure.microsoft.com/support/legal/sla/azure-sql-sql-managed-instance).
 
-La finestra di manutenzione è destinata ai carichi di lavoro di produzione che non sono resilienti ai failover di database o di istanza e non possono assorbire brevi interruzioni della connessione causati da eventi di manutenzione pianificata. Scegliendo una finestra di manutenzione preferita, è possibile ridurre al minimo l'effetto della manutenzione pianificata, perché si verifica al di fuori del picco orario di ufficio. I carichi di lavoro resilienti e i carichi di lavoro non di produzione possono basarsi sui criteri di manutenzione predefiniti di SQL Azure.
+La finestra di manutenzione è destinata ai carichi di lavoro di produzione che non sono resilienti per le riconfigurazioni di database o istanze e non possono assorbire brevi interruzioni di connessione causate da eventi di manutenzione pianificata. Scegliendo una finestra di manutenzione preferita, è possibile ridurre al minimo l'effetto della manutenzione pianificata, perché si verifica al di fuori del picco orario di ufficio. I carichi di lavoro resilienti e i carichi di lavoro non di produzione possono basarsi sui criteri di manutenzione predefiniti di SQL Azure.
 
 La finestra di manutenzione può essere configurata durante la creazione o per le risorse esistenti di Azure SQL. Può essere configurato usando il portale di Azure, PowerShell, l'interfaccia della riga di comando o l'API di Azure.
 
 > [!Important]
-> La configurazione della finestra di manutenzione è un'operazione asincrona a esecuzione prolungata, simile alla modifica del livello di servizio della risorsa SQL di Azure. La risorsa è disponibile durante l'operazione, ad eccezione di un breve failover che si verifica alla fine dell'operazione e in genere dura fino a 8 secondi anche in caso di transazioni a esecuzione prolungata interrotte. Per ridurre al minimo l'effetto del failover, è necessario eseguire l'operazione al di fuori delle ore di punta.
+> La configurazione della finestra di manutenzione è un'operazione asincrona a esecuzione prolungata, simile alla modifica del livello di servizio della risorsa SQL di Azure. La risorsa è disponibile durante l'operazione, tranne una breve riconfigurazione che si verifica alla fine dell'operazione e in genere dura fino a 8 secondi anche in caso di transazioni a esecuzione prolungata interrotte. Per ridurre al minimo l'effetto della riconfigurazione, è necessario eseguire l'operazione al di fuori delle ore di punta.
 
 ### <a name="gain-more-predictability-with-maintenance-window"></a>Ottenere maggiore prevedibilità con la finestra di manutenzione
 
@@ -98,7 +98,7 @@ La scelta di una finestra di manutenzione diversa da quella predefinita è attua
 
 Per ottenere il massimo vantaggio dalle finestre di manutenzione, assicurarsi che le applicazioni client utilizzino i criteri di connessione di reindirizzamento. Reindirizzamento è il criterio di connessione consigliato, in cui i client stabiliscono connessioni direttamente al nodo che ospita il database, causando una riduzione della latenza e una maggiore velocità effettiva.  
 
-* Nel database SQL di Azure tutte le connessioni che usano il criterio di connessione proxy possono essere interessate sia dalla finestra di manutenzione scelta che dalla finestra di manutenzione del nodo del gateway. Tuttavia, le connessioni client che utilizzano i criteri di connessione di reindirizzamento consigliati non sono interessate da un failover di manutenzione del nodo del gateway. 
+* Nel database SQL di Azure tutte le connessioni che usano il criterio di connessione proxy possono essere interessate sia dalla finestra di manutenzione scelta che dalla finestra di manutenzione del nodo del gateway. Tuttavia, le connessioni client che usano i criteri di connessione di reindirizzamento consigliate non sono interessate dalla riconfigurazione della manutenzione di un nodo del gateway. 
 
 * Nell'istanza gestita di SQL di Azure, i nodi del gateway sono ospitati [all'interno del cluster virtuale](../../azure-sql/managed-instance/connectivity-architecture-overview.md#virtual-cluster-connectivity-architecture) e hanno la stessa finestra di manutenzione dell'istanza gestita, ma è comunque consigliabile usare i criteri di connessione di reindirizzamento per ridurre al minimo il numero di rotture durante l'evento di manutenzione.
 
@@ -115,7 +115,7 @@ Tutte le istanze ospitate in un cluster virtuale condividono la finestra di manu
 La durata prevista della configurazione della finestra di manutenzione nell'istanza gestita può essere calcolata usando [la durata stimata delle operazioni di gestione delle istanze](/azure/azure-sql/managed-instance/management-operations-overview#duration).
 
 > [!Important]
-> Un breve failover si verifica al termine dell'operazione di manutenzione e in genere dura fino a 8 secondi anche in caso di transazioni con esecuzione prolungata interrotte. Per ridurre al minimo l'effetto del failover è necessario pianificare l'operazione al di fuori delle ore di punta.
+> Una breve riconfigurazione si verifica alla fine dell'operazione di manutenzione e in genere dura fino a 8 secondi anche in caso di transazioni con esecuzione prolungata interrotte. Per ridurre al minimo l'effetto della riconfigurazione è necessario pianificare l'operazione al di fuori delle ore di punta.
 
 ### <a name="ip-address-space-requirements"></a>Requisiti dello spazio degli indirizzi IP
 Ogni nuovo cluster virtuale nella subnet richiede indirizzi IP aggiuntivi in base all' [allocazione di indirizzi IP del cluster virtuale](/azure/azure-sql/managed-instance/vnet-subnet-determine-size#determine-subnet-size). La modifica della finestra di manutenzione per l'istanza gestita esistente richiede anche una [capacità IP aggiuntiva temporanea](/azure/azure-sql/managed-instance/vnet-subnet-determine-size#address-requirements-for-update-scenarios) come nello scenario vcore di ridimensionamento per il livello di servizio corrispondente.
@@ -129,7 +129,7 @@ La configurazione e la modifica della finestra di manutenzione causano la modifi
 ## <a name="next-steps"></a>Passaggi successivi
 
 * [Notifiche avanzate](advance-notifications.md)
-* [Configura finestra di manutenzione](maintenance-window-configure.md)
+* [Configurare la finestre di manutenzione](maintenance-window-configure.md)
 
 ## <a name="learn-more"></a>Altre informazioni
 

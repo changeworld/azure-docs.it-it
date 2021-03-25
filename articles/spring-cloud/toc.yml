@@ -77,20 +77,30 @@
           href: 'https://code.visualstudio.com/docs/java/java-spring-cloud'
         - name: Distribuire Azure Spring Cloud con Azure PowerShell
           href: how-to-deploy-powershell.md
-    - name: Configurare
+    - name: Gestione
       items:
         - name: 'Avviare, arrestare ed eliminare un''app'
           href: how-to-start-stop-delete.md
         - name: Usare l'archiviazione permanente
           href: how-to-persistent-storage.md
+        - name: Identificare gli indirizzi IP pubblici in uscita
+          href: how-to-outbound-public-ip.md
     - name: Scalabilità
       items:
         - name: Dimensionare manualmente un'app
           href: how-to-scale-manual.md
         - name: Dimensionare automaticamente un'app
           href: how-to-setup-autoscale.md
-        - name: Identificare gli indirizzi IP pubblici in uscita
-          href: how-to-outbound-public-ip.md
+    - name: Integrare
+      items:
+        - name: Associare un'app ad Azure CosmosDB
+          href: how-to-bind-cosmos.md
+        - name: Associare un'app alla cache di Azure per Redis
+          href: how-to-bind-redis.md
+        - name: Associare un'app ad Azure MySQL
+          href: how-to-bind-mysql.md
+        - name: Eseguire l'integrazione con le soluzioni di bilanciamento del carico di Azure
+          href: how-to-integrate-azure-load-balancers.md
     - name: Monitorare
       items:
         - name: Traccia distribuita e Application Insights
@@ -123,16 +133,6 @@
           href: how-to-enable-system-assigned-managed-identity.md
         - name: Creare ruoli e autorizzazioni
           href: how-to-permissions.md
-    - name: Integrare
-      items:
-        - name: Associare un'app ad Azure CosmosDB
-          href: how-to-bind-cosmos.md
-        - name: Associare un'app alla cache di Azure per Redis
-          href: how-to-bind-redis.md
-        - name: Associare un'app ad Azure MySQL
-          href: how-to-bind-mysql.md
-        - name: Eseguire l'integrazione con le soluzioni di bilanciamento del carico di Azure
-          href: how-to-integrate-azure-load-balancers.md
     - name: Automatizzare
       items:
         - name: CI/CD con DevOps di Azure

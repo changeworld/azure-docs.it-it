@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 03/23/2020
 ms.author: trbye
 ms.custom: devx-track-js, devx-track-csharp
-ms.openlocfilehash: ffa8528da454fd29c937a2d49accdda617fe62dd
-ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
+ms.openlocfilehash: aa5e499df976c08fef8f0b81eff1e189eebb5503
+ms.sourcegitcommit: a8ff4f9f69332eef9c75093fd56a9aae2fe65122
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/23/2021
-ms.locfileid: "104869022"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105026309"
 ---
 # <a name="improve-synthesis-with-speech-synthesis-markup-language-ssml"></a>Migliorare la sintesi con SSML (Speech Synthesis Markup Language)
 
@@ -876,7 +876,7 @@ Gli elementi segnalibro non vengono letti.
 L'elemento Bookmark può essere usato per fare riferimento a una posizione specifica nella sequenza di testo o di tag.
 
 > [!NOTE]
-> `bookmark` l'elemento funziona solo per la `en-US-AriaNeural` voce nell'area Stati Uniti occidentali ( `westus` ) per il momento.
+> `bookmark` per il momento l'elemento funziona solo per la `en-US-AriaNeural` voce nell'area Stati Uniti occidentali 2 ( `westus2` ).
 
 **Sintassi**
 

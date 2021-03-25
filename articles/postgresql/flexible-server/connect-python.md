@@ -8,12 +8,12 @@ ms.custom: mvc
 ms.devlang: python
 ms.topic: quickstart
 ms.date: 09/22/2020
-ms.openlocfilehash: 89dc36a9b1b1fee9ad10d55945c7fc17bf72f476
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 2bcf467eea9186cc57fb4c6c3d8964632b8fec03
+ms.sourcegitcommit: ed7376d919a66edcba3566efdee4bc3351c57eda
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "90945029"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105047712"
 ---
 # <a name="quickstart-use-python-to-connect-and-query-data-in-azure-database-for-postgresql---flexible-server"></a>Avvio rapido: Usare Python per connettersi ai dati ed eseguire query nel server flessibile di Database di Azure per PostgreSQL
 
@@ -28,7 +28,7 @@ Questo articolo presuppone che si abbia familiarità con lo sviluppo con Python,
 
 * Un account Azure con una sottoscrizione attiva. [Creare un account gratuitamente](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
 * Un server flessibile di Database di Azure per PostgreSQL. Per creare un server flessibile, vedere [Creare un server flessibile di Database di Azure per PostgreSQL tramite il portale di Azure](./quickstart-create-server-portal.md).
-* [Python](https://www.python.org/downloads/) 2.7.9 o 3.4 o versioni successive.
+* [Python](https://www.python.org/downloads/) 2,7 o 3.6 +.
 * Versione più recente del programma di installazione del pacchetto [pip](https://pip.pypa.io/en/stable/installing/).
 
 ## <a name="preparing-your-client-workstation"></a>Preparazione della workstation client

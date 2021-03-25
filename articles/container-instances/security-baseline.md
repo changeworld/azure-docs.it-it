@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 02/17/2021
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 07eaa9fd9add14f136d68c50bca15807ef4037ed
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 1ab927c973c6a5de6f3f3f8d88c504ec572b7148
+ms.sourcegitcommit: ed7376d919a66edcba3566efdee4bc3351c57eda
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101738090"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105047593"
 ---
 # <a name="azure-security-baseline-for-container-instances"></a>Baseline della sicurezza di Azure per le istanze di contenitore
 
@@ -68,7 +68,7 @@ Controllare l'accesso alla rete in uscita da una subnet delegata alle istanze di
 
 È possibile usare il Centro sicurezza di Azure accesso alla rete just-in-time per configurare gruppi per limitare l'esposizione degli endpoint agli indirizzi IP approvati per un periodo di tempo limitato. Usare inoltre la protezione avanzata della rete adattiva del Centro sicurezza di Azure per consigliare configurazioni NSG che limitano le porte e gli indirizzi IP di origine in base al traffico effettivo e all'Intelligence per le minacce.
 
-- [Come configurare la protezione DDoS](/azure/virtual-network/manage-ddos-protection)
+- [Come configurare la protezione DDoS](../ddos-protection/manage-ddos-protection.md)
 
 - [Come distribuire il firewall di Azure](../firewall/tutorial-firewall-deploy-portal.md)
 
@@ -124,7 +124,7 @@ Distribuire la soluzione firewall scelta a ogni limite di rete dell'organizzazio
 
 **Linee guida**: se si usa un registro privato basato su cloud come registro contenitori di Azure con istanze di contenitore di Azure, per le risorse che richiedono l'accesso al registro contenitori, usare i tag del servizio di rete virtuale per il servizio container Registry di Azure per definire i controlli di accesso alla rete nei gruppi di sicurezza di rete o nel firewall di Azure. È possibile usare tag di servizio invece di indirizzi IP specifici nella creazione di regole di sicurezza. Specificando il nome del tag di servizio "AzureContainerRegistry" nel campo di origine o di destinazione appropriato di una regola, è possibile consentire o negare il traffico per il servizio corrispondente. I prefissi di indirizzo inclusi nel tag di servizio sono gestiti da Microsoft, che lo aggiorna automaticamente in caso di modifica degli indirizzi.
 
-- [Consentire l'accesso in base ai tag del servizio](https://docs.microsoft.com/azure/container-registry/container-registry-firewall-access-rules#allow-access-by-service-tag)
+- [Consentire l'accesso in base ai tag del servizio](../container-registry/container-registry-firewall-access-rules.md#allow-access-by-service-tag)
 
 **Responsabilità**: Customer
 
@@ -160,9 +160,9 @@ Usare gli alias di criteri di Azure negli spazi dei nomi **Microsoft. ContainerR
 
 **Linee guida**: usare il log attività di Azure per monitorare le configurazioni delle risorse di rete e rilevare le modifiche per le risorse di rete correlate ai registri dei contenitori. In Monitoraggio di Azure creare avvisi che si attiveranno quando vengono apportate modifiche alle risorse di rete critiche.
 
-- [Come visualizzare e recuperare gli eventi del log attività di Azure](/azure/azure-monitor/platform/activity-log#view-the-activity-log)
+- [Come visualizzare e recuperare gli eventi del log attività di Azure](../azure-monitor/essentials/activity-log.md#view-the-activity-log)
 
-- [Come creare avvisi in Monitoraggio di Azure](/azure/azure-monitor/platform/alerts-activity-log)
+- [Come creare avvisi in Monitoraggio di Azure](../azure-monitor/alerts/alerts-activity-log.md)
 
 **Responsabilità**: Customer
 
@@ -196,7 +196,7 @@ Usare gli alias di criteri di Azure negli spazi dei nomi **Microsoft. ContainerR
 
 **Linee guida**: in monitoraggio di Azure impostare il periodo di conservazione dell'area di lavoro log Analytics in base alle normative di conformità dell'organizzazione. Usare gli account di archiviazione di Azure per l'archiviazione/memorizzazione a lungo termine.
 
-- [Come impostare i parametri di conservazione dei log per aree di lavoro Log Analytics](/azure/azure-monitor/platform/manage-cost-storage#change-the-data-retention-period)
+- [Come impostare i parametri di conservazione dei log per aree di lavoro Log Analytics](../azure-monitor/logs/manage-cost-storage.md#change-the-data-retention-period)
 
 **Responsabilità**: Customer
 
@@ -206,9 +206,9 @@ Usare gli alias di criteri di Azure negli spazi dei nomi **Microsoft. ContainerR
 
 **Linee guida**: analizzare e monitorare i log delle istanze di contenitore di Azure per un comportamento anomalo ed esaminare regolarmente i risultati. Usare l'area di lavoro Log Analytics di monitoraggio di Azure per esaminare i log ed eseguire query sui dati di log.
 
-- [Informazioni sull'area di lavoro Log Analytics](/azure/azure-monitor/log-query/log-analytics-tutorial)
+- [Informazioni sull'area di lavoro Log Analytics](../azure-monitor/logs/log-analytics-tutorial.md)
 
-- [Come eseguire query personalizzate in Monitoraggio di Azure](/azure/azure-monitor/log-query/get-started-queries)
+- [Come eseguire query personalizzate in Monitoraggio di Azure](../azure-monitor/logs/get-started-queries.md)
 
 - [Come creare un gruppo di contenitori e log di query abilitati per il log](container-instances-log-analytics.md)
 
@@ -222,7 +222,7 @@ Usare gli alias di criteri di Azure negli spazi dei nomi **Microsoft. ContainerR
 
 - [Log di Azure Container Registry per la valutazione diagnostica e il controllo](../container-registry/container-registry-diagnostics-audit-logs.md)
 
-- [Come inviare un avviso sui dati del log di log Analytics](/azure/azure-monitor/learn/tutorial-response)
+- [Come inviare un avviso sui dati del log di log Analytics](../azure-monitor/alerts/tutorial-response.md)
 
 **Responsabilità**: Customer
 
@@ -254,11 +254,11 @@ Usare gli alias di criteri di Azure negli spazi dei nomi **Microsoft. ContainerR
 
 Se si usa un registro privato basato su cloud come registro contenitori di Azure con istanze di contenitore di Azure, per ogni registro contenitori di Azure, verificare se l'account amministratore predefinito è abilitato o disabilitato. Disabilitare l'account quando non è in uso.
 
-- [Come ottenere un ruolo della directory in Azure AD con PowerShell](https://docs.microsoft.com/powershell/module/azuread/get-azureaddirectoryrole?view=azureadps-2.0&amp;preserve-view=true)
+- [Come ottenere un ruolo della directory in Azure AD con PowerShell](/powershell/module/azuread/get-azureaddirectoryrole?amp;preserve-view=true&view=azureadps-2.0)
 
-- [Come ottenere i membri di un ruolo della directory in Azure AD con PowerShell](https://docs.microsoft.com/powershell/module/azuread/get-azureaddirectoryrolemember?view=azureadps-2.0&amp;preserve-view=true)
+- [Come ottenere i membri di un ruolo della directory in Azure AD con PowerShell](/powershell/module/azuread/get-azureaddirectoryrolemember?amp;preserve-view=true&view=azureadps-2.0)
 
-- [Account amministratore di Azure Container Registry](https://docs.microsoft.com/azure/container-registry/container-registry-authentication#admin-account)
+- [Account amministratore di Azure Container Registry](../container-registry/container-registry-authentication.md#admin-account)
 
 **Responsabilità**: Customer
 
@@ -270,7 +270,7 @@ Se si usa un registro privato basato su cloud come registro contenitori di Azure
 
 Se si usa un registro privato basato su cloud come registro contenitori di Azure con istanze di contenitore di Azure, se l'account amministratore predefinito di un registro contenitori di Azure è abilitato, le password complesse vengono create automaticamente e devono essere ruotate. Disabilitare l'account quando non è in uso.
 
-- [Account amministratore di Azure Container Registry](https://docs.microsoft.com/azure/container-registry/container-registry-authentication#admin-account)
+- [Account amministratore di Azure Container Registry](../container-registry/container-registry-authentication.md#admin-account)
 
 **Responsabilità**: Customer
 
@@ -284,7 +284,7 @@ Se si usa un registro privato basato su cloud come registro contenitori di Azure
 
 - [Informazioni sull'identità e sull'accesso del Centro sicurezza di Azure](../security-center/security-center-identity-access.md)
 
-- [Account amministratore di Azure Container Registry](https://docs.microsoft.com/azure/container-registry/container-registry-authentication#admin-account)
+- [Account amministratore di Azure Container Registry](../container-registry/container-registry-authentication.md#admin-account)
 
 **Responsabilità**: Customer
 
@@ -298,7 +298,7 @@ Se si usa un registro privato basato su cloud come registro contenitori di Azure
 
 - [Informazioni su SSO con Azure AD](../active-directory/manage-apps/what-is-single-sign-on.md)
 
-- [Accesso singolo a un registro contenitori](https://docs.microsoft.com/azure/container-registry/container-registry-authentication#individual-login-with-azure-ad)
+- [Accesso singolo a un registro contenitori](../container-registry/container-registry-authentication.md#individual-login-with-azure-ad)
 
 **Responsabilità**: Customer
 
@@ -364,7 +364,7 @@ Se si usa un registro privato basato su cloud come registro contenitori di Azure
 
 **Indicazioni**: Azure Active Directory (Azure ad) fornisce i log per individuare gli account obsoleti. Usare inoltre le verifiche di accesso alle identità di Azure per gestire in modo efficiente l'appartenenza ai gruppi, l'accesso alle applicazioni aziendali e le assegnazioni di ruolo. È possibile verificare regolarmente l'accesso degli utenti per assicurarsi che solo le persone appropriate dispongano di accesso continuo.
 
-- [Informazioni sulla creazione di report Azure AD](/azure/active-directory/reports-monitoring/)
+- [Informazioni sulla creazione di report Azure AD](../active-directory/reports-monitoring/index.yml)
 
 - [Come usare le verifiche di accesso alle identità di Azure](../active-directory/governance/access-reviews-overview.md)
 
@@ -378,7 +378,7 @@ Se si usa un registro privato basato su cloud come registro contenitori di Azure
 
 È possibile semplificare questo processo creando impostazioni di diagnostica per Azure AD account utente e inviando i log di controllo e i log di accesso a un'area di lavoro di Log Analytics. È possibile configurare gli avvisi desiderati nell'area di lavoro di Log Analytics.
 
-- [Come integrare i log attività di Azure in Monitoraggio di Azure](/azure/active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics)
+- [Come integrare i log attività di Azure in Monitoraggio di Azure](../active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics.md)
 
 **Responsabilità**: Customer
 
@@ -400,7 +400,7 @@ Se si usa un registro privato basato su cloud come registro contenitori di Azure
 
 **Linee guida**: non disponibile; Customer Lockbox attualmente non supportati per le istanze di contenitore di Azure.
 
-- [Elenco dei servizi Customer Lockbox supportati](https://docs.microsoft.com/azure/security/fundamentals/customer-lockbox-overview#supported-services-and-scenarios-in-general-availability)
+- [Elenco dei servizi Customer Lockbox supportati](../security/fundamentals/customer-lockbox-overview.md#supported-services-and-scenarios-in-general-availability)
 
 **Responsabilità**: Customer
 
@@ -468,7 +468,7 @@ Per la piattaforma sottostante gestita da Microsoft, Microsoft considera tutti i
 
 Seguire le raccomandazioni del Centro sicurezza di Azure per la crittografia dei dati inattivi e la crittografia in transito, ove applicabile.
 
-- [Informazioni sulla crittografia in transito con Azure](https://docs.microsoft.com/azure/security/fundamentals/encryption-overview#encryption-of-data-in-transit)
+- [Informazioni sulla crittografia in transito con Azure](../security/fundamentals/encryption-overview.md#encryption-of-data-in-transit)
 
 **Responsabilità**: Condiviso
 
@@ -518,7 +518,7 @@ Per la piattaforma sottostante gestita da Microsoft, Microsoft considera tutti i
 
 - [Informazioni sulla crittografia dei dati inattivi in Azure](../security/fundamentals/encryption-atrest.md)
 
-- [Chiavi gestite dal cliente in Azure Container Registry](https://aka.ms/acr/cmk)
+- [Chiavi gestite dal cliente in Azure Container Registry](../container-registry/container-registry-customer-managed-keys.md)
 
 **Responsabilità**: Customer
 
@@ -544,7 +544,7 @@ Per la piattaforma sottostante gestita da Microsoft, Microsoft considera tutti i
 
 - [Suggerimenti sulla sicurezza per il monitoraggio e l'analisi dei contenitori per istanze di contenitore di Azure](container-instances-image-security.md)
 
-- [Integrazione del Container Registry di Azure con il Centro sicurezza](/azure/security-center/azure-container-registry-integration)
+- [Integrazione del Container Registry di Azure con il Centro sicurezza](../security-center/defender-for-container-registries-introduction.md)
 
 **Responsabilità**: Customer
 
@@ -604,7 +604,7 @@ Sebbene le risorse di Azure (versione classica) possano essere individuate trami
 
 - [Come creare query con Azure Resource Graph](../governance/resource-graph/first-query-portal.md)
 
-- [Come visualizzare le sottoscrizioni di Azure](https://docs.microsoft.com/powershell/module/az.accounts/get-azsubscription?view=azps-4.8.0&amp;preserve-view=true)
+- [Come visualizzare le sottoscrizioni di Azure](/powershell/module/az.accounts/get-azsubscription?amp;preserve-view=true&view=azps-4.8.0)
 
 - [Informazioni sul controllo degli accessi in base al ruolo di Azure](../role-based-access-control/overview.md)
 
@@ -666,9 +666,9 @@ Usare Azure Resource Graph per eseguire query e individuare le risorse all'inter
 
 - [Log di Azure Container Registry per la valutazione diagnostica e il controllo](../container-registry/container-registry-diagnostics-audit-logs.md)
 
-- [Informazioni sull'area di lavoro Log Analytics](/azure/azure-monitor/log-query/log-analytics-tutorial)
+- [Informazioni sull'area di lavoro Log Analytics](../azure-monitor/logs/log-analytics-tutorial.md)
 
-- [Come eseguire query personalizzate in Monitoraggio di Azure](/azure/azure-monitor/log-query/get-started-queries)
+- [Come eseguire query personalizzate in Monitoraggio di Azure](../azure-monitor/logs/get-started-queries.md)
 
 **Responsabilità**: Customer
 
@@ -700,7 +700,7 @@ Usare Azure Resource Graph per eseguire query e individuare le risorse all'inter
 
 - [Come configurare e gestire Criteri di Azure](../governance/policy/tutorials/create-and-manage.md)
 
-- [Come negare un tipo di risorsa specifico con Criteri di Azure](https://docs.microsoft.com/azure/governance/policy/samples/built-in-policies#general)
+- [Come negare un tipo di risorsa specifico con Criteri di Azure](../governance/policy/samples/built-in-policies.md#general)
 
 **Responsabilità**: Customer
 
@@ -728,7 +728,7 @@ Usare Azure Resource Graph per eseguire query e individuare le risorse all'inter
 
 **Linee guida**: usare configurazioni specifiche del sistema operativo o risorse di terze parti per limitare la capacità degli utenti di eseguire script nelle risorse di calcolo di Azure.
 
-- [Ad esempio, come controllare l'esecuzione di script di PowerShell negli ambienti Windows](https://docs.microsoft.com/powershell/module/microsoft.powershell.security/set-executionpolicy?view=powershell-7&amp;preserve-view=true)
+- [Ad esempio, come controllare l'esecuzione di script di PowerShell negli ambienti Windows](/powershell/module/microsoft.powershell.security/set-executionpolicy?amp;preserve-view=true&view=powershell-7)
 
 **Responsabilità**: Customer
 
@@ -802,9 +802,9 @@ Se si usa un registro privato basato su cloud come Azure Container Registry (ACR
 
 **Linee guida**: se si usano definizioni di criteri di Azure personalizzate, usare Azure Repos per archiviare e gestire il codice in modo sicuro.
 
-- [Come archiviare il codice in Azure DevOps](https://docs.microsoft.com/azure/devops/repos/git/gitworkflow?view=azure-devops&amp;preserve-view=true)
+- [Come archiviare il codice in Azure DevOps](/azure/devops/repos/git/gitworkflow?amp;preserve-view=true&view=azure-devops)
 
-- [Documentazione di Azure Repos](https://docs.microsoft.com/azure/devops/repos/?view=azure-devops&amp;preserve-view=true)
+- [Documentazione di Azure Repos](/azure/devops/repos/?amp;preserve-view=true&view=azure-devops)
 
 **Responsabilità**: Customer
 
@@ -964,7 +964,7 @@ Eseguire il backup delle chiavi gestite dal cliente in Azure Key Vault usando gl
 
 - [Importare immagini del contenitore in un registro contenitori](../container-registry/container-registry-import-images.md)
 
-- [Come eseguire il backup di chiavi di Key Vault](https://docs.microsoft.com/powershell/module/az.keyvault/backup-azkeyvaultkey?view=azps-4.8.0&amp;preserve-view=true)
+- [Come eseguire il backup di chiavi di Key Vault](/powershell/module/az.keyvault/backup-azkeyvaultkey?amp;preserve-view=true&view=azps-4.8.0)
 
 - [Crittografia dei dati di distribuzione con istanze di contenitore](container-instances-encrypt-data.md)
 
@@ -976,7 +976,7 @@ Eseguire il backup delle chiavi gestite dal cliente in Azure Key Vault usando gl
 
 **Indicazioni**: ripristino del test di backup delle chiavi gestite dal cliente in Azure Key Vault tramite gli SDK o gli strumenti da riga di comando di Azure.
 
-- [Come ripristinare chiavi di Azure Key Vault in Azure](https://docs.microsoft.com/powershell/module/az.keyvault/restore-azkeyvaultkey?view=azps-4.8.0&amp;preserve-view=true)
+- [Come ripristinare chiavi di Azure Key Vault in Azure](/powershell/module/az.keyvault/restore-azkeyvaultkey?amp;preserve-view=true&view=azps-4.8.0)
 
 **Responsabilità**: Customer
 
@@ -1020,7 +1020,7 @@ Inoltre, contrassegnare le sottoscrizioni usando i tag e creare un sistema di de
 
 - [Avvisi di sicurezza nel Centro sicurezza di Azure](../security-center/security-center-alerts-overview.md) 
 
-- [Usare tag per organizzare le risorse di Azure](/azure/azure-resource-manager/resource-group-using-tags)
+- [Usare tag per organizzare le risorse di Azure](../azure-resource-manager/management/tag-resources.md)
 
 **Responsabilità**: Customer
 
@@ -1086,5 +1086,5 @@ Inoltre, contrassegnare le sottoscrizioni usando i tag e creare un sistema di de
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Vedere [Panoramica di Azure Security Benchmark V2](/azure/security/benchmarks/overview)
-- Altre informazioni su [Baseline di sicurezza di Azure](/azure/security/benchmarks/security-baselines-overview)
+- Vedere [Panoramica di Azure Security Benchmark V2](../security/benchmarks/overview.md)
+- Altre informazioni su [Baseline di sicurezza di Azure](../security/benchmarks/security-baselines-overview.md)

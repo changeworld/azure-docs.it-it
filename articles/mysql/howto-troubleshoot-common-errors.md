@@ -7,12 +7,12 @@ ms.author: pariks
 ms.custom: mvc
 ms.topic: overview
 ms.date: 8/20/2020
-ms.openlocfilehash: ca75416a66bcf2c90028c7f1dc11fbe23a9a9bd9
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 546f29330b76548ea553cfb7e4e31ac35b19cb1c
+ms.sourcegitcommit: bb330af42e70e8419996d3cba4acff49d398b399
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98631368"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105037547"
 ---
 # <a name="common-errors"></a>Errori comuni
 
@@ -48,7 +48,7 @@ BEGIN
 END;
 ```
 
-**Soluzione**:  Per risolvere l'errore, impostare log_bin_trust_function_creators su 1 dal pannello [Parametri del server](howto-server-parameters.md) nel portale, eseguire le istruzioni DDL o importare lo schema per creare gli oggetti specifici e ripristinare il valore precedente del parametro log_bin_trust_function_creators dopo la creazione.
+**Soluzione**: per risolvere l'errore, impostare log_bin_trust_function_creators su 1 dal pannello [parametri del server](howto-server-parameters.md) nel portale, eseguire le istruzioni DDL o importare lo schema per creare gli oggetti desiderati. Per evitare l'errore in futuro, è possibile continuare a mantenere log_bin_trust_function_creators a 1 per il server. Si consiglia di impostare log_bin_trust_function_creators come il rischio di sicurezza evidenziato nella [documentazione della community di MySQL](https://dev.mysql.com/doc/refman/5.7/en/replication-options-binary-log.html#sysvar_log_bin_trust_function_creators) è minimo nel servizio database di Azure per MySQL perché il log del cestino non è esposto ad alcuna minaccia.
 
 #### <a name="error-1227-42000-at-line-101-access-denied-you-need-at-least-one-of-the-super-privileges-for-this-operation-operation-failed-with-exitcode-1"></a>ERRORE 1227 (42000) alla riga 101: Access denied; you need (at least one of) the SUPER privilege(s) for this operation. Operation failed with exitcode 1 (Accesso negato. L'operazione richiede almeno uno dei privilegi SUPER. L'operazione non è riuscita con codice 1)
 

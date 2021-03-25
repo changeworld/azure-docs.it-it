@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 03/16/2021
 ms.author: rosouz
 ms.custom: seo-nov-2020
-ms.openlocfilehash: bca4eb7f5f266a639916c0f8e520f025d259c39b
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 9a8ecf65426dfe92b84582ff98b567ea400c9209
+ms.sourcegitcommit: a8ff4f9f69332eef9c75093fd56a9aae2fe65122
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104577360"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105027178"
 ---
 # <a name="what-is-azure-cosmos-db-analytical-store"></a>Che cos'è Azure Cosmos DB archivio analitico?
 [!INCLUDE[appliesto-sql-mongodb-api](includes/appliesto-sql-mongodb-api.md)]
@@ -110,9 +110,10 @@ I vincoli seguenti sono applicabili ai dati operativi in Azure Cosmos DB quando 
 
 * Attualmente non sono supportati i nomi delle colonne di Azure per la lettura delle sinapsi di Azure che contengono spazi vuoti (spazi vuoti).
 
-* Si prevede un comportamento diverso rispetto ai `NULL` valori:
-  * I pool Spark in sinapsi di Azure leggeranno questi valori come 0 (zero).
-  * I pool SQL senza server in sinapsi di Azure leggeranno questi valori come `NULL` .
+* Si prevede un comportamento diverso rispetto ai `null` valori espliciti:
+  * I pool Spark in sinapsi di Azure leggeranno questi valori come `0` (zero).
+  * I pool SQL senza server in sinapsi di Azure leggeranno questi valori come `NULL` se il primo documento della raccolta avesse, per la stessa proprietà, un valore con un tipo di dati diverso da `integer` .
+  * I pool SQL senza server in Azure sinapsi leggeranno questi valori come `0` (zero) se il primo documento della raccolta ha, per la stessa proprietà, un valore che è un `integer` .
 
 * Si prevede un comportamento diverso rispetto alle colonne mancanti:
   * I pool Spark in sinapsi di Azure rappresenteranno queste colonne come `undefined` .
@@ -144,6 +145,11 @@ La rappresentazione dello schema ben definita crea una semplice rappresentazione
 
 > [!NOTE]
 > Se il Azure Cosmos DB archivio analitico segue la rappresentazione dello schema ben definita e la specifica precedente viene violata da determinati elementi, tali elementi non verranno inclusi nell'archivio analitico.
+
+* Si prevede un comportamento diverso rispetto ai tipi diversi in uno schema ben definito:
+  * I pool Spark in sinapsi di Azure rappresenteranno questi valori come `undefined` .
+  * I pool SQL senza server in sinapsi di Azure rappresenteranno questi valori come `NULL` .
+
 
 **Rappresentazione dello schema con fedeltà completa**
 

@@ -5,12 +5,12 @@ ms.service: hdinsight
 ms.topic: overview
 ms.custom: hdinsightactive,hdiseo17may2017,seoapr2020
 ms.date: 04/20/2020
-ms.openlocfilehash: a2bca34f683df27c97b131d57c6c3278f7cb175e
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 867f042332457ebc5fdd6b1f10ce7fb636309ba8
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98928903"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104865333"
 ---
 # <a name="what-is-apache-storm-on-azure-hdinsight"></a>Che cos'è Apache Storm in Azure HDInsight?
 
@@ -42,7 +42,7 @@ Per iniziare a usare Storm, vedere [Creare e monitorare una topologia Apache Sto
 
 Storm esegue topologie al posto dei processi [Apache Hadoop MapReduce](https://hadoop.apache.org/docs/r1.2.1/mapred_tutorial.html) con cui l'utente ha familiarità. Le topologie Storm sono costituite da più componenti disposti in un grafo aciclico diretto (DAG). I componenti del grafo scambiano flussi di dati. Ogni componente utilizza uno o più flussi di dati e, facoltativamente, trasmette uno o più flussi. Il diagramma seguente illustra il flusso dei dati tra i componenti in una topologia di conteggio parole di base:
 
-![Esempio di disposizione dei componenti in una topologia Storm](./media/apache-storm-overview/example-apache-storm-topology-diagram.png)
+:::image type="content" source="./media/apache-storm-overview/example-apache-storm-topology-diagram.png" alt-text="Esempio di disposizione dei componenti in una topologia Storm" border="false":::
 
 * I componenti spout inseriscono i dati in una topologia trasmettendo uno o più flussi nella topologia stessa.
 
@@ -56,7 +56,7 @@ Il nodo Nimbus offre funzionalità analoghe a quelle di Apache Hadoop JobTracker
 
 La configurazione predefinita per i cluster Apache Storm prevede un solo nodo Nimbus. Storm in HDInsight prevede invece due nodi Nimbus. In caso di errore del nodo primario, il cluster Storm passa a quello secondario mentre il nodo primario viene ripristinato. Il diagramma seguente illustra la configurazione del flusso di attività per Storm in HDInsight:
 
-![Diagramma di Nimbus, Zookeeper e Supervisor](./media/apache-storm-overview/storm-diagram-nimbus.png)
+:::image type="content" source="./media/apache-storm-overview/storm-diagram-nimbus.png" alt-text="Diagramma di Nimbus, Zookeeper e Supervisor" border="false":::
 
 ## <a name="ease-of-use"></a>Semplicità d'uso
 

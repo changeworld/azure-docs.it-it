@@ -9,12 +9,12 @@ ms.subservice: forms-recognizer
 ms.topic: include
 ms.date: 03/15/2021
 ms.author: lajanuar
-ms.openlocfilehash: d93567620dab17d82878548286ddb43413162814
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
+ms.openlocfilehash: e0769f77bffaab0e04b492b19a5ea131cec64f06
+ms.sourcegitcommit: ed7376d919a66edcba3566efdee4bc3351c57eda
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "104761176"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105104674"
 ---
 <!-- markdownlint-disable MD001 -->
 <!-- markdownlint-disable MD024 -->
@@ -26,7 +26,7 @@ ms.locfileid: "104761176"
 ## <a name="prerequisites"></a>Prerequisiti
 
 * [cURL](https://curl.haxx.se/windows/) installato.
-* [PowerShell versione 6.0 +](https://docs.microsoft.com/powershell/scripting/install/installing-powershell-core-on-windows)o un'applicazione della riga di comando simile.
+* [PowerShell versione 6.0 +](/powershell/scripting/install/installing-powershell-core-on-windows)o un'applicazione della riga di comando simile.
 * Sottoscrizione di Azure: [creare un account gratuito](https://azure.microsoft.com/free/cognitive-services/)
 * Un BLOB di Archiviazione di Azure contenente un set di dati di training. Consultare [Compilare un training set per un modello personalizzato](../../build-training-data-set.md) per suggerimenti e opzioni per la creazione di un set di dati di training. Per questo argomento di avvio rapido, è possibile usare i file inclusi nella cartella **Train** del [set di dati di esempio](https://go.microsoft.com/fwlink/?linkid=2090451) (scaricare ed estrarre *sample_data.zip*).
 * Dopo aver creato la sottoscrizione di Azure, <a href="https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesFormRecognizer"  title="creare una risorsa di Riconoscimento modulo"  target="_blank">creare una risorsa di Riconoscimento modulo </a> nel portale di Azure per ottenere la chiave e l'endpoint. Al termine della distribuzione, fare clic su **Vai alla risorsa**.
