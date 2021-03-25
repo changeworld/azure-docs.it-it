@@ -3,12 +3,12 @@ title: Novità Note sulla versione - Griglia di eventi di Azure
 description: Informazioni sulle novità di Griglia di eventi di Azure, tra cui le note sulla versione più aggiornate, i problemi noti, le correzioni di bug, le funzionalità deprecate e le modifiche imminenti.
 ms.topic: overview
 ms.date: 07/23/2020
-ms.openlocfilehash: 7528cef7007704bbf434f16622707da8920eec2b
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: da0b26e4f163f428e6955a37636ceb19bb34abc5
+ms.sourcegitcommit: bed20f85722deec33050e0d8881e465f94c79ac2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "96350008"
+ms.lasthandoff: 03/25/2021
+ms.locfileid: "105107534"
 ---
 # <a name="whats-new-in-azure-event-grid"></a>Novità di Griglia di eventi di Azure
 
@@ -73,14 +73,14 @@ Griglia di eventi di Azure viene regolarmente migliorato. Per stare al passo con
 - Questa release corrisponde alla versione `2019-06-01` dell'API.
 - Aggiunge supporto per le nuove funzionalità seguenti:
     * [Domini](event-domains.md)
-    * Paginazione e filtro di ricerca per operazioni dell'elenco di risorse. Per un esempio, vedere [Argomento - Elenco in base a sottoscrizione](/rest/api/eventgrid/version2020-04-01-preview/topics/listbysubscription).
+    * Paginazione e filtro di ricerca per operazioni dell'elenco di risorse. Per un esempio, vedere [Argomento - Elenco in base a sottoscrizione](/rest/api/eventgrid/version2020-10-15-preview/partnernamespaces/listbysubscription).
     * [Coda del bus di servizio come destinazione](handler-service-bus.md)
     * [Filtro avanzato](event-filtering.md#advanced-filtering)
 
 ## <a name="410-preview-2019-03"></a>4.1.0-preview (2019-03)
 - Questa release corrisponde alla versione 2019-02-01-preview dell'API.
 - Aggiunge supporto per le nuove funzionalità seguenti:
-    * Paginazione e filtro di ricerca per operazioni dell'elenco di risorse. Per un esempio, vedere [Argomento - Elenco in base a sottoscrizione](/rest/api/eventgrid/version2020-04-01-preview/topics/listbysubscription).
+    * Paginazione e filtro di ricerca per operazioni dell'elenco di risorse. Per un esempio, vedere [Argomento - Elenco in base a sottoscrizione](/rest/api/eventgrid/version2020-10-15-preview/partnernamespaces/listbysubscription).
     * [Creazione/Eliminazione manuale degli argomenti del dominio](how-to-event-domains.md)
     * [Coda del bus di servizio come destinazione](handler-service-bus.md)
 

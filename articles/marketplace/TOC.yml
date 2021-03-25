@@ -258,9 +258,11 @@
               href: create-new-saas-offer-technical.md
             - name: Creare piani
               href: create-new-saas-offer-plans.md
+            - name: Creare un'offerta di test
+              href: create-saas-dev-test-offer.md
             - name: Testare e pubblicare un'offerta SaaS
               href: test-publish-saas-offer.md
-        - name: Commercializzare l'offerta SaaS
+        - name: Vendi l'offerta SaaS
           href: create-new-saas-offer-marketing.md
     - name: Rivedere e pubblicare le offerte
       href: review-publish-offer.md

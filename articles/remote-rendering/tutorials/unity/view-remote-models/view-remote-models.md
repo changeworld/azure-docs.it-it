@@ -6,12 +6,12 @@ ms.author: flborn
 ms.date: 06/15/2020
 ms.topic: tutorial
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 3370aac242fb47a133a5f7d6dc9b3444c65e3691
-ms.sourcegitcommit: 87a6587e1a0e242c2cfbbc51103e19ec47b49910
+ms.openlocfilehash: dd3596dd7b2cd01e80d9cf4db9bbc179048e7fcf
+ms.sourcegitcommit: bb330af42e70e8419996d3cba4acff49d398b399
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/16/2021
-ms.locfileid: "103573116"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105035966"
 ---
 # <a name="tutorial-viewing-a-remotely-rendered-model"></a>Esercitazione: Visualizzazione di un modello di cui è stato eseguito il rendering in remoto
 
@@ -33,10 +33,7 @@ Per eseguire questa esercitazione, è necessario avere:
 * Windows SDK 10.0.18362.0 [(download)](https://developer.microsoft.com/windows/downloads/windows-10-sdk)
 * L'ultima versione di Visual Studio 2019 [(download)](https://visualstudio.microsoft.com/vs/older-downloads/)
 * GIT [(download)](https://git-scm.com/downloads)
-* Unity, la versione più recente 2019.3, è consigliabile usare l'hub Unity [(scarica)](https://unity3d.com/get-unity/download)
-  * Installare questi moduli in Unity:
-    * **UWP** - Supporto per la compilazione della piattaforma UWP (Universal Windows Platform)
-    * **IL2CPP** - Supporto per la compilazione di Windows (IL2CPP)
+* Unity (vedere [requisiti di sistema](../../../overview/system-requirements.md#unity) per le versioni supportate)
 * Conoscenza intermedia di Unity e del linguaggio C# (ad esempio, creazione di script e oggetti, uso di prefab, configurazione di eventi di Unity e così via)
 
 ## <a name="provision-an-azure-remote-rendering-arr-instance"></a>Effettuare il provisioning di un'istanza di Rendering remoto di Azure

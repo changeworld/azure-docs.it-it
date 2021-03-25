@@ -9,25 +9,27 @@ ms.topic: conceptual
 author: MashaMSFT
 ms.author: mathoma
 ms.date: 03/19/2021
-ms.openlocfilehash: e323b1c15d78da4e8c1a82ae8848df7f59b0dd87
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 99e0fd3665a0269710a9b0994a1340745f77236f
+ms.sourcegitcommit: a8ff4f9f69332eef9c75093fd56a9aae2fe65122
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104657274"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105027313"
 ---
 # <a name="migration-guide-access-to-azure-sql-database"></a>Guida alla migrazione: accesso al database SQL di Azure
 
 Questa guida alla migrazione illustra come eseguire la migrazione dei database di Microsoft Access al database SQL di Azure usando il SQL Server Migration Assistant per l'accesso.
 
-Per altre guide alla migrazione, vedere [Migrazione dei database](https://datamigration.microsoft.com/). 
+Per altre guide alla migrazione, vedere [Migrazione dei database](https://docs.microsoft.com/data-migration). 
 
 ## <a name="prerequisites"></a>Prerequisiti
 
 Per eseguire la migrazione del database di Access al database SQL di Azure, è necessario quanto segue:
 
-- Verificare che l'ambiente di origine sia supportato. 
+- Per verificare che l'ambiente di origine sia supportato. 
 - [SQL Server Migration Assistant per l'accesso](https://www.microsoft.com/download/details.aspx?id=54255). 
+- Connettività e autorizzazioni sufficienti per accedere sia all'origine che alla destinazione. 
+
 
 ## <a name="pre-migration"></a>Pre-migrazione
 
@@ -36,24 +38,27 @@ Una volta soddisfatti i prerequisiti, si è pronti per individuare la topologia 
 
 ### <a name="assess"></a>Valutare 
 
-Creare una valutazione usando [SQL Server Migration Assistant per l'accesso](https://www.microsoft.com/download/details.aspx?id=54255). 
+Utilizzare SQL Server Migration Assistant (SSMA) per l'accesso per esaminare i dati e gli oggetti di database e valutare i database per la migrazione. 
 
 Per creare una valutazione, seguire questa procedura: 
 
-1. Aprire SQL Server Migration Assistant per l'accesso. 
-1. Selezionare **File** e quindi scegliere **Nuovo progetto**. Consente di specificare un nome per il progetto di migrazione. 
+1. Aprire [SQL Server Migration Assistant per l'accesso](https://www.microsoft.com/download/details.aspx?id=54255). 
+1. Selezionare **File** e quindi scegliere **Nuovo progetto**. 
+1. Specificare un nome di progetto, un percorso in cui salvare il progetto e quindi selezionare database SQL di Azure come destinazione della migrazione dall'elenco a discesa. Selezionare **OK**:
 
    ![Scegli nuovo progetto](./media/access-to-sql-database-guide/new-project.png)
 
-1. Selezionare **Aggiungi database** e scegliere i database da aggiungere al nuovo progetto. 
+1. Selezionare **Aggiungi database** e scegliere i database da aggiungere al nuovo progetto:
 
    ![Scegliere Aggiungi database](./media/access-to-sql-database-guide/add-databases.png)
 
-1. In **Esplora metadati di Access** fare clic con il pulsante destro del mouse sul database, quindi scegliere **Crea report**. 
+1. In **Esplora metadati di Access** fare clic con il pulsante destro del mouse sul database, quindi scegliere **Crea report**. In alternativa, è possibile scegliere **Crea report** dalla barra di spostamento dopo aver selezionato lo schema:
 
    ![Fare clic con il pulsante destro del mouse sul database e scegliere Crea report](./media/access-to-sql-database-guide/create-report.png)
 
-1. Esaminare la valutazione di esempio. Ad esempio: 
+1. Leggere il report HTML per esaminare le statistiche di conversione e gli eventuali errori o avvisi. È inoltre possibile aprire il report in Excel per ottenere un inventario degli oggetti di accesso e lo sforzo necessario per eseguire le conversioni dello schema. Il percorso predefinito per il report si trova nella cartella report in SSMAProjects
+
+   ad esempio `drive:\<username>\Documents\SSMAProjects\MyAccessMigration\report\report_<date>`
 
    ![Esaminare la valutazione dei report di esempio](./media/access-to-sql-database-guide/sample-assessment.png)
 
@@ -63,7 +68,7 @@ Convalidare i mapping dei tipi di dati predefiniti e modificarli in base ai requ
 
 1. Selezionare **Tools** (Strumenti) dal menu. 
 1. Selezionare **Project Settings** (Impostazioni progetto). 
-1. Selezionare la scheda **Type mappings** (Mapping tipi). 
+1. Selezionare la scheda **mapping dei tipi** :
 
    ![Mapping dei tipi](./media/access-to-sql-database-guide/type-mappings.png)
 
@@ -74,37 +79,43 @@ Convalidare i mapping dei tipi di dati predefiniti e modificarli in base ai requ
 
 Per convertire gli oggetti di database, attenersi alla seguente procedura: 
 
-1. Selezionare **Connetti al database SQL di Azure** e specificare i dettagli della connessione.
+1. Selezionare **Connetti a database SQL di Azure**. 
+    1. Immettere i dettagli della connessione per connettere il database nel database SQL di Azure.
+    1. Scegliere il database SQL di destinazione dall'elenco a discesa o specificare un nuovo nome, nel qual caso verrà creato un database nel server di destinazione. 
+    1. Fornire i dettagli di autenticazione. 
+    1. Selezionare **Connetti**:
 
    ![Connettersi al database SQL di Azure](./media/access-to-sql-database-guide/connect-to-sqldb.png)
 
-1. Fare clic con il pulsante destro del mouse sul database in **Accedi a Esplora metadati** e scegliere **Converti schema**. In alternativa, è possibile scegliere **Converti schema** dalla barra di spostamento superiore dopo aver selezionato il database.
+1. Fare clic con il pulsante destro del mouse sul database in **Accedi a Esplora metadati** e scegliere **Converti schema**. In alternativa, è possibile scegliere **Converti schema** dalla barra di spostamento superiore dopo aver selezionato il database:
 
    ![Fare clic con il pulsante destro del mouse sul database e scegliere Converti schema](./media/access-to-sql-database-guide/convert-schema.png)
+   
 
-   Confrontare le query convertite con le query originali: 
-
-   ![Le query convertite possono essere confrontate con il codice sorgente](./media/access-to-sql-database-guide/query-comparison.png)
-
-   Confrontare gli oggetti convertiti con quelli originali: 
+1. Al termine della conversione, confrontare ed esaminare gli oggetti convertiti con gli oggetti originali per identificare i potenziali problemi e risolverli in base alle indicazioni:
 
    ![Gli oggetti convertiti possono essere confrontati con l'origine](./media/access-to-sql-database-guide/table-comparison.png)
+
+   Confrontare il testo Transact-SQL convertito con il codice originale ed esaminare le indicazioni:
+
+   ![Le query convertite possono essere confrontate con il codice sorgente](./media/access-to-sql-database-guide/query-comparison.png)
 
 1. Opzionale Per convertire un singolo oggetto, fare clic con il pulsante destro del mouse sull'oggetto e scegliere **Converti schema**. Gli oggetti convertiti vengono visualizzati in grassetto in **Esplora metadati di accesso**: 
 
    ![Gli oggetti in grassetto in Esplora metadati sono stati convertiti](./media/access-to-sql-database-guide/converted-items.png)
  
 1. Selezionare **Verifica risultati** nel riquadro Output ed esaminare gli errori nel riquadro **Elenco errori** . 
+1. Salvare il progetto in locale per un esercizio di correzione dello schema offline. Scegliere **Salva progetto** dal menu **File**. In questo modo è possibile valutare gli schemi di origine e di destinazione offline ed eseguire la correzione prima di poter pubblicare lo schema nel database SQL.
 
 
 ## <a name="migrate"></a>Migrazione
 
 Dopo aver completato la valutazione dei database e corretto eventuali discrepanze, il passaggio successivo consiste nell'eseguire il processo di migrazione. La migrazione dei dati è un'operazione di caricamento bulk che sposta le righe di dati nel database SQL di Azure nelle transazioni. Il numero di righe da caricare nel database SQL di Azure in ogni transazione viene configurato nelle impostazioni del progetto.
 
-Per eseguire la migrazione dei dati usando SSMA per l'accesso, seguire questa procedura: 
+Per pubblicare lo schema ed eseguire la migrazione dei dati usando SSMA per l'accesso, seguire questa procedura: 
 
 1. Se non è già stato fatto, selezionare **Connetti al database SQL di Azure** e specificare i dettagli della connessione. 
-1. Fare clic con il pulsante destro del mouse sul database da **Esplora metadati del database SQL di Azure** e scegliere **Sincronizza con database**. Questa azione pubblica lo schema MySQL nel database SQL di Azure.
+1. Pubblicare lo schema: fare clic con il pulsante destro del mouse sul database da **Esplora metadati del database SQL di Azure** e scegliere **Sincronizza con database**. Questa azione pubblica lo schema MySQL nel database SQL di Azure:
 
    ![Sincronizza con database](./media/access-to-sql-database-guide/synchronize-with-database.png)
 
@@ -112,17 +123,15 @@ Per eseguire la migrazione dei dati usando SSMA per l'accesso, seguire questa pr
 
    ![Esaminare la sincronizzazione con il database](./media/access-to-sql-database-guide/synchronize-with-database-review.png)
 
-1. Utilizzare **Esplora metadati di Access** per selezionare le caselle di controllo accanto agli elementi di cui si desidera eseguire la migrazione. Se si desidera eseguire la migrazione dell'intero database, selezionare la casella accanto al database. 
-1. Fare clic con il pulsante destro del mouse sul database o sull'oggetto di cui si desidera eseguire la migrazione e scegliere **Migrate data**. 
-   Per eseguire la migrazione dei dati per un intero database, selezionare la casella di controllo accanto al nome del database. Per eseguire la migrazione dei dati da singole tabelle, espandere il database, espandere tabelle, quindi selezionare la casella di controllo accanto alla tabella. Per omettere i dati dalle singole tabelle, deselezionare la casella di controllo.
+1. Migrare i dati: fare clic con il pulsante destro del mouse sul database o sull'oggetto di cui si vuole eseguire la migrazione in **Esplora metadati di Access** e scegliere **Migrate data**. In alternativa, è possibile selezionare **migrare i dati** dalla barra di spostamento in alto a linea. Per eseguire la migrazione dei dati per un intero database, selezionare la casella di controllo accanto al nome del database. Per eseguire la migrazione dei dati da singole tabelle, espandere il database, espandere tabelle, quindi selezionare la casella di controllo accanto alla tabella. Per omettere i dati dalle singole tabelle, deselezionare la casella di controllo:
 
     ![Migrazione dei dati](./media/access-to-sql-database-guide/migrate-data.png)
 
-    Esaminare i dati migrati: 
+1. Al termine della migrazione, visualizzare il **report di migrazione dei dati**:  
 
     ![Esegui migrazione Revisione dati](./media/access-to-sql-database-guide/migrate-data-review.png)
 
-1. Connettersi al database SQL di Azure usando [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms) e convalidare la migrazione riesaminando i dati e lo schema.
+1. Connettersi al database SQL di Azure usando [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms) e convalidare la migrazione riesaminando i dati e lo schema:
 
    ![Convalida in SSMA](./media/access-to-sql-database-guide/validate-data.png)
 

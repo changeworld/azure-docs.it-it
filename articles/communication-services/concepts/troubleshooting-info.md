@@ -8,12 +8,12 @@ ms.author: manoskow
 ms.date: 03/10/2021
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: daa89380894a57e58191edd95303a2160846da04
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 80db53a5ed8d2edc90bc847578d5df4d603cc437
+ms.sourcegitcommit: bed20f85722deec33050e0d8881e465f94c79ac2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103492694"
+ms.lasthandoff: 03/25/2021
+ms.locfileid: "105107228"
 ---
 # <a name="troubleshooting-in-azure-communication-services"></a>Risoluzione dei problemi in Servizi di comunicazione di Azure
 
@@ -33,11 +33,11 @@ Per poter risolvere determinati tipi di problemi, è possibile che vengano richi
 
 ## <a name="access-your-ms-cv-id"></a>Accedere all'ID MS-CV
 
-È possibile accedere all'ID MS-CV configurando la diagnostica nell'istanza dell'oggetto `clientOptions` durante l'inizializzazione delle librerie client. La diagnostica può essere configurata per tutte le librerie client di Azure, incluse le chiamate chat, Identity e VoIP.
+Per accedere all'ID MS-CV è possibile configurare la diagnostica nell' `clientOptions` istanza dell'oggetto durante l'inizializzazione degli SDK. È possibile configurare la diagnostica per uno degli SDK di Azure, incluse le chiamate chat, Identity e VoIP.
 
 ### <a name="client-options-example"></a>Esempio di opzioni client
 
-I frammenti di codice seguenti illustrano la configurazione della diagnostica. Quando si usano le librerie client con la diagnostica abilitata, i dettagli di diagnostica vengono emessi nel listener di eventi configurato:
+I frammenti di codice seguenti illustrano la configurazione della diagnostica. Quando si usano gli SDK con la diagnostica abilitata, i dettagli di diagnostica vengono emessi nel listener di eventi configurato:
 
 # <a name="c"></a>[C#](#tab/csharp)
 ```
@@ -79,7 +79,7 @@ chat_client = ChatClient(
 
 ## <a name="access-your-call-id"></a>Accedere all'ID chiamata
 
-Quando si compila una richiesta di supporto relativa a problemi delle chiamate nel portale di Azure, potrebbe essere chiesto di fornire l'ID della chiamata in questione. Questo ID è accessibile tramite la libreria client per le chiamate:
+Quando si compila una richiesta di supporto relativa a problemi delle chiamate nel portale di Azure, potrebbe essere chiesto di fornire l'ID della chiamata in questione. È possibile accedervi tramite l'SDK chiamante:
 
 # <a name="javascript"></a>[JavaScript](#tab/javascript)
 ```javascript
@@ -127,7 +127,7 @@ console.log(result); // your message ID will be in the result
 
 # <a name="javascript"></a>[JavaScript](#tab/javascript)
 
-Il codice seguente può essere usato per configurare `AzureLogger` in modo da restituire i registri alla console usando la libreria client JavaScript:
+Il codice seguente può essere usato per configurare `AzureLogger` per l'output dei log nella console usando JavaScript SDK:
 
 ```javascript
 import { AzureLogger } from '@azure/logger';
@@ -157,16 +157,16 @@ In Android Studio passare a Device File Explorer selezionando View > Tool Window
 
 ---
 
-## <a name="calling-client-library-error-codes"></a>Codici errore della libreria client per le chiamate
+## <a name="calling-sdk-error-codes"></a>Chiamata ai codici di errore dell'SDK
 
-La libreria client per le chiamate di Servizi di comunicazione di Azure usa i codici errore seguenti per facilitare la risoluzione dei problemi relativi alle chiamate. Questi codici di errore vengono esposti tramite la proprietà `call.callEndReason` al termine di una chiamata.
+Azure Communication Services che chiama SDK usa i codici di errore seguenti per semplificare la risoluzione dei problemi relativi alla chiamata. Questi codici di errore vengono esposti tramite la proprietà `call.callEndReason` al termine di una chiamata.
 
 | Codice di errore | Descrizione | Azione da eseguire |
 | -------- | ---------------| ---------------|
 | 403 | Accesso negato/Errore di autenticazione. | Verificare che il token di Servizi di comunicazione sia valido e non scaduto. |
 | 404 | Chiamata non trovata. | Verificare che il numero che si sta chiamando (o la chiamata a cui ci si sta aggiungendo) esista. |
 | 408 | Timeout del controller di chiamata. | Si è verificato il timeout del controller di chiamata durante l'attesa dei messaggi di protocollo dagli endpoint utente. Verificare che i client siano connessi e disponibili. |
-| 410 | Errore dello stack multimediale locale o dell'infrastruttura multimediale. | Assicurarsi di usare la libreria client più recente in un ambiente supportato. |
+| 410 | Errore dello stack multimediale locale o dell'infrastruttura multimediale. | Assicurarsi di usare l'SDK più recente in un ambiente supportato. |
 | 430 | Non è possibile recapitare messaggi all'applicazione client. | Verificare che l'applicazione client sia in esecuzione e disponibile. |
 | 480 | Endpoint client remoto non registrato. | Assicurarsi che l'endpoint remoto sia disponibile. |
 | 481 | Non è stato possibile gestire la chiamata in ingresso. | Inviare una richiesta di supporto tramite il portale di Azure. |

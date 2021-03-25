@@ -8,12 +8,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 03/05/2020
 ms.author: aahi
-ms.openlocfilehash: db303d1e7bd5a9cb7b8441f0a5da634a13113066
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: 5d5aaf84482dae6786ac7fd9f9ee837efca71b34
+ms.sourcegitcommit: ed7376d919a66edcba3566efdee4bc3351c57eda
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98948599"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105105895"
 ---
 La libreria client di Ricerca Web Bing facilita l'integrazione di Ricerca Web Bing nell'applicazione Python. In questa guida introduttiva si apprenderà come inviare una richiesta, ricevere una risposta JSON e filtrare e analizzare i risultati.
 
@@ -21,9 +21,9 @@ Per vedere il codice subito, in GitHub sono disponibili esempi per le [librerie 
 
 
 ## <a name="prerequisites"></a>Prerequisiti
-L'SDK di Ricerca Web Bing è compatibile con Python 2.7, 3.3, 3.4, 3.5 e 3.6. Per questa guida introduttiva è consigliabile usare un ambiente virtuale.
+Il Ricerca Web Bing SDK è compatibile con Python 2,7 o 3.6 +. Per questa guida introduttiva è consigliabile usare un ambiente virtuale.
 
-* Python 2.7, 3.3, 3.4, 3.5 o 3.6
+* Python 2,7 o 3.6 +
 * [virtualenv](https://docs.python.org/3/tutorial/venv.html) per Python 2.7
 * [venv](https://pypi.python.org/pypi/virtualenv) per Python 3.x
 

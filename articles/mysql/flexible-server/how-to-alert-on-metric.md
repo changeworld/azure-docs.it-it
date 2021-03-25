@@ -1,17 +1,17 @@
 ---
 title: Configurare gli avvisi delle metriche-portale di Azure-database di Azure per MySQL-server flessibile
 description: Questo articolo descrive come configurare e accedere agli avvisi delle metriche per il server flessibile database di Azure per MySQL dalla portale di Azure.
-author: ambhatna
-ms.author: ambhatna
+author: savjani
+ms.author: pariks
 ms.service: mysql
 ms.topic: how-to
 ms.date: 9/21/2020
-ms.openlocfilehash: 632aae766e6fd1328dc6e0135a88a942d7ad0910
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: be52bbe58f6c2ff6ee21703860e8d8e00ec30072
+ms.sourcegitcommit: bed20f85722deec33050e0d8881e465f94c79ac2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "100595789"
+ms.lasthandoff: 03/25/2021
+ms.locfileid: "105110152"
 ---
 # <a name="use-the-azure-portal-to-set-up-alerts-on-metrics-for-azure-database-for-mysql---flexible-server"></a>Usare il portale di Azure per configurare gli avvisi relativi alle metriche per database di Azure per MySQL-server flessibili 
 

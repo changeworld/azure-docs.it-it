@@ -11,14 +11,14 @@ ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.topic: article
-ms.date: 11/04/2019
+ms.date: 03/22/2021
 ms.author: apimpm
-ms.openlocfilehash: 2d3f382635e9a8b8a562f7a7f60f256d68b90b8f
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 743a7e7d34457405aa4be42b196dc994506c6587
+ms.sourcegitcommit: bb330af42e70e8419996d3cba4acff49d398b399
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "91363206"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105035804"
 ---
 # <a name="authorize-developer-accounts-by-using-azure-active-directory-in-azure-api-management"></a>Autorizzare gli account per sviluppatori usando Azure Active Directory in Gestione API di Azure
 
@@ -47,7 +47,15 @@ Questo articolo illustra come abilitare l'accesso al portale per sviluppatori pe
     Nel riquadro vengono visualizzati i controlli che consentono di immettere altre informazioni necessarie, tra cui **ID client** e **Segreto client**. Per altre informazioni su questi controlli, vedere più avanti in questo articolo.
 9. Prendere nota del contenuto dell'URL di **Reindirizzamento**.
     
-   ![Passaggi per l'aggiunta di un provider di identità nel portale di Azure](./media/api-management-howto-aad/api-management-with-aad001.png)  
+
+    :::image type="content" source="media/api-management-howto-aad/api-management-with-aad001.png" alt-text="Aggiungi provider di identità in portale di Azure":::
+    > [!NOTE]
+    > Sono disponibili due URL di reindirizzamento:<br/>
+    > **REINDIRIZZA URL** : punta all'ultimo portale per sviluppatori di gestione API.<br/>
+    > **URL di reindirizzamento (portale deprecato)** : indica il portale per sviluppatori deprecato di gestione API.
+    >
+    > Si consiglia di usare l'URL di reindirizzamento più recente del portale per sviluppatori.
+   
 10. Nel browser aprire una scheda diversa. 
 11. Passare al [Registrazioni app portale di Azure](https://go.microsoft.com/fwlink/?linkid=2083908) per registrare un'App in Active Directory.
 12. In **Gestisci** selezionare **Registrazioni app**.
