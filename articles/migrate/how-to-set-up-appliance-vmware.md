@@ -6,12 +6,12 @@ ms.author: vibansa
 ms.manager: abhemraj
 ms.topic: how-to
 ms.date: 04/16/2020
-ms.openlocfilehash: 64be28838abb5d5021f0a8cefc0eed2c2516498b
-ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
+ms.openlocfilehash: c2ffa85ed6cb007dd766d4517a86783d21d4913e
+ms.sourcegitcommit: bed20f85722deec33050e0d8881e465f94c79ac2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/23/2021
-ms.locfileid: "104865231"
+ms.lasthandoff: 03/25/2021
+ms.locfileid: "105110509"
 ---
 # <a name="set-up-an-appliance-for-servers-in-vmware-environment"></a>Configurare un'appliance per i server in ambiente VMware
 
@@ -29,6 +29,7 @@ Dopo aver creato l'appliance, verificare che sia in grado di connettersi a Azure
 ## <a name="deploy-with-ova"></a>Distribuire con OVA
 
 Per configurare l'appliance con un modello OVA:
+
 1. Specificare un nome per il dispositivo e generare una chiave del progetto nel portale.
 1. Scaricare un file modello OVA e importarlo nel server vCenter. Verificare che gli OVA siano protetti.
 1. Creare la macchina virtuale dell'appliance dal file OVA e verificare che sia in grado di connettersi a Azure Migrate.
@@ -38,9 +39,9 @@ Per configurare l'appliance con un modello OVA:
 
 1. In server degli **obiettivi di migrazione**  >    >  **Azure migrate: individuazione e valutazione** selezionare **individua**.
 2. In **individua server**  >  **i server sono virtualizzati?** selezionare **Sì, con VMware vSphere Hypervisor**.
-3. In **1: genera chiave progetto** specificare un nome per il dispositivo Azure migrate che si configurerà per l'individuazione dei server nell'ambiente VMware. Il nome deve essere alfanumerico con un massimo di 14 caratteri.
+3. In **1: genera chiave progetto** specificare un nome per il dispositivo Azure migrate che si configurerà per l'individuazione dei server nell'ambiente VMware. Il nome deve essere costituito da un massimo di 14 caratteri alfanumerici.
 1. Fare clic su **Genera chiave** per avviare la creazione delle risorse di Azure necessarie. Non chiudere la pagina di individuazione durante la creazione delle risorse.
-1. Una volta completata la creazione delle risorse di Azure, viene generata una **chiave del progetto** .
+1. Una volta completata la creazione delle risorse di Azure, viene generata una chiave di progetto * *.
 1. Copiare la chiave perché sarà necessaria per completare la registrazione dell'appliance durante la configurazione.
 
 ### <a name="2-download-the-ova-template"></a>2. scaricare il modello OVA
@@ -101,7 +102,7 @@ Configurare l'appliance per la prima volta.
 1. Accettare le **condizioni di licenza** e leggere le informazioni di terze parti.
 1. In Configuration Manager > **configurare i prerequisiti**, procedere come segue:
    - **Connettività**: il dispositivo verifica che il server disponga di accesso a Internet. Se il server usa un proxy:
-     - Fare clic su **Configura proxy** per specificare l'indirizzo proxy nel formato `http://ProxyIPAddress` o nella `http://ProxyFQDN` porta di ascolto.
+     - Fare clic sul **proxy di installazione** per specificare l'indirizzo proxy nel formato o nella porta di `http://ProxyIPAddress` `http://ProxyFQDN` ascolto.
      - Se il proxy richiede l'autenticazione, specificare le credenziali.
      - È supportato solo il proxy HTTP.
      - Se sono stati aggiunti dettagli del proxy o sono stati disabilitati il proxy e/o l'autenticazione, fare clic su **Save** (Salva) per attivare di nuovo il controllo della connettività.
@@ -123,7 +124,7 @@ Configurare l'appliance per la prima volta.
     :::image type="content" source="./media/tutorial-discover-vmware/device-code.png" alt-text="Finestra modale con il codice del dispositivo":::
 
 1. Fare clic su **Copy code & Login** (Copia il codice e accedi) per copiare il codice del dispositivo e aprire una richiesta di accesso ad Azure in una nuova scheda del browser. Se l'opzione non è visualizzata, verificare di aver disabilitato il blocco popup nel browser.
-1. Nella nuova scheda incollare il codice del dispositivo e accedere usando il nome utente e la password di Azure.
+1. Nella scheda nuovo incollare il codice del dispositivo e accedere usando il nome utente e la password di Azure.
    
    L'accesso con un PIN non è supportato.
 3. Se si chiude la scheda per errore senza eseguire l'accesso, è necessario aggiornare la scheda del browser di gestione configurazione dell'appliance per abilitare di nuovo il pulsante di accesso.
@@ -144,13 +145,13 @@ L'appliance deve connettersi a server vCenter per individuare i dati relativi al
     - Per definire l'ambito dell'individuazione di oggetti VMware specifici (server vCenter Data Center, cluster, una cartella di cluster, host, una cartella di host o singoli server), vedere le istruzioni in [questo articolo](set-discovery-scope.md) per limitare l'account usato da Azure migrate.
 1. In **passaggio 2:** specificare i dettagli della server vCenter fare clic su **Aggiungi origine individuazione** per selezionare il nome descrittivo per le credenziali dall'elenco a discesa, specificare l' **indirizzo IP/FQDN** del server vCenter. È possibile lasciare l'impostazione predefinita per **Porta** (443) o specificare una porta personalizzata sulla quale sarà in ascolto il server vCenter e fare clic su **Salva**.
 1. Quando si fa clic su **Salva**, il dispositivo tenterà di convalidare la connessione al server vCenter con le credenziali specificate e indicherà lo **stato di convalida** nella tabella rispetto al server vCenter indirizzo IP/FQDN.
-1. È possibile **riconvalidare** la connettività al server vCenter in qualsiasi momento prima di avviare l'individuazione.
+1. È possibile **rivalidare** la connettività a server vCenter in qualsiasi momento prima di avviare l'individuazione.
 
-    :::image type="content" source="./media/tutorial-discover-vmware/appliance-manage-sources.png" alt-text="Pannello 3 in Gestione configurazione Appliance per server vCenter dettagli":::
+    :::image type="content" source="./media/tutorial-discover-vmware/appliance-manage-sources.png" alt-text="Pannello di gestione configurazione Appliance per server vCenter dettagli":::
 
 ### <a name="provide-server-credentials"></a>Fornire le credenziali del server
 
-In **passaggio 3: fornire le credenziali del server per eseguire l'inventario software, l'analisi delle dipendenze senza agenti e l'individuazione di istanze e database di SQL Server**, è possibile scegliere di fornire più credenziali del server o se non si desidera utilizzare queste funzionalità, è possibile scegliere di ignorare il passaggio e procedere con server vCenter individuazione. È possibile modificare le finalità in un secondo momento.
+In **passaggio 3: fornire le credenziali del server per eseguire l'inventario software, l'analisi delle dipendenze senza agenti e l'individuazione di istanze e database di SQL Server**, è possibile scegliere di fornire più credenziali del server o se non si desidera utilizzare queste funzionalità, è possibile scegliere di ignorare il passaggio e procedere con server vCenter individuazione. È possibile modificare l'intento in qualsiasi momento in un secondo momento.
 
 :::image type="content" source="./media/tutorial-discover-vmware/appliance-server-credentials-mapping.png" alt-text="Pannello 3 in Gestione configurazione Appliance per i dettagli del server":::
 
@@ -166,7 +167,7 @@ Se si desidera utilizzare queste funzionalità, è possibile fornire le credenzi
 - Quando si fa clic su **Salva** o **Aggiungi altro**, l'appliance convalida le credenziali del dominio con la Active Directory del dominio per la relativa autenticità. Questa operazione viene eseguita per evitare i blocchi degli account quando l'Appliance esegue più iterazioni per eseguire il mapping delle credenziali ai rispettivi server.
 - È possibile visualizzare lo **stato di convalida** di tutte le credenziali del dominio nella tabella Credentials. Verranno convalidate solo le credenziali di dominio.
 - Se la convalida ha esito negativo, è possibile fare clic su stato **non riuscito** per visualizzare l'errore rilevato e fare clic su riconvalida **credenziali** dopo la correzione del problema per convalidare di nuovo le credenziali di dominio non riuscite.
-
+    :::image type="content" source="./media/tutorial-discover-vmware/add-server-credentials-multiple.png" alt-text="Pannello 3 in Gestione configurazione Appliance per fornire più credenziali":::
 
 ### <a name="start-discovery"></a>Avviare l'individuazione
 
@@ -176,6 +177,7 @@ Se si desidera utilizzare queste funzionalità, è possibile fornire le credenzi
 1. Durante l'inventario software, le credenziali dei server aggiunti verranno iterate sui server e convalidate per l'analisi delle dipendenze senza agenti. È possibile abilitare l'analisi delle dipendenze senza agenti per i server dal portale. È possibile selezionare solo i server in cui è stata eseguita la convalida per abilitare l'analisi delle dipendenze senza agenti.
 
 L'individuazione funziona come segue:
+
 - Sono necessari circa 15 minuti per visualizzare l'inventario dei server individuati nel portale.
 - L'individuazione delle applicazioni installate può richiedere del tempo. La durata dipende dal numero di server individuati. Per i server 500, la visualizzazione dell'inventario individuato nel portale di Azure Migrate richiede circa un'ora.
 - Al termine dell'individuazione dei server, è possibile abilitare l'analisi delle dipendenze senza agenti nei server dal portale.

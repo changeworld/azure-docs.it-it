@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/03/2021
 ms.author: bagol
-ms.openlocfilehash: a8ea32d84da521c8a1af926c6cb5e26bc2738de2
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: a02be0938b1ab925fb0343351ce1c414cc59c615
+ms.sourcegitcommit: ed7376d919a66edcba3566efdee4bc3351c57eda
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102054757"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105044839"
 ---
 # <a name="audit-azure-sentinel-queries-and-activities"></a>Controllare le query e le attività di Azure Sentinel
 
@@ -132,7 +132,7 @@ Ad esempio, la tabella seguente elenca le operazioni selezionate trovate nei log
 |Aggiornamento delle impostazioni    |Microsoft. SecurityInsights/Settings|
 | | |
 
-Per altre informazioni, vedere [schema degli eventi del log attività di Azure](/azure/azure-monitor/essentials/activity-log-schema).
+Per altre informazioni, vedere [schema degli eventi del log attività di Azure](../azure-monitor/essentials/activity-log-schema.md).
 
 
 ## <a name="auditing-with-laquerylogs"></a>Controllo con LAQueryLogs
@@ -157,7 +157,7 @@ I dati di LAQueryLogs includono informazioni quali:
 
 1. Per impostazione predefinita, la tabella **LAQueryLogs** non è abilitata nell'area di lavoro log Analytics. Per usare i dati di **LAQueryLogs** durante il controllo in Azure Sentinel, abilitare prima di tutto il **LAQueryLogs** nell'area **impostazioni di diagnostica** dell'area di log Analytics.
 
-    Per altre informazioni, vedere [Audit queries in log di monitoraggio di Azure](/azure/azure-monitor/logs/query-audit).
+    Per altre informazioni, vedere [Audit queries in log di monitoraggio di Azure](../azure-monitor/logs/query-audit.md).
 
 
 1. Eseguire quindi una query sui dati usando KQL, come qualsiasi altra tabella.

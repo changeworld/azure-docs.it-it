@@ -8,12 +8,12 @@ ms.service: data-lake-store
 ms.topic: conceptual
 ms.date: 03/26/2018
 ms.author: yagupta
-ms.openlocfilehash: f924cb7462f7f8c9939ec261b7ef200ceb8ea70b
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 51c9f924c6fe3ac6db86d60e26749d35bc4ab733
+ms.sourcegitcommit: bed20f85722deec33050e0d8881e465f94c79ac2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "92109154"
+ms.lasthandoff: 03/25/2021
+ms.locfileid: "105108945"
 ---
 # <a name="encryption-of-data-in-azure-data-lake-storage-gen1"></a>Crittografia dei dati in Azure Data Lake Storage Gen1
 
@@ -135,4 +135,4 @@ Tenere presente che, se si usano le opzioni predefinite per la crittografia, i d
 Questa operazione richiederà meno di due minuti e non sono previsti tempi di inattività a causa della rotazione della chiave. Al termine dell'operazione, sarà in uso la nuova versione della chiave.
 
 > [!IMPORTANT]
-> Al termine dell'operazione di rotazione delle chiavi, la versione precedente della chiave non viene più usata attivamente per la crittografia dei dati.  In rari casi di errori imprevisti che interessano anche le copie ridondanti dei dati, è tuttavia possibile che i dati vengano ripristinati da un backup che usa ancora la chiave precedente. Per assicurare che i dati siano accessibili in tali circostanze rare, mantenere una copia della versione precedente della chiave di crittografia. Per procedure consigliate per la pianificazione del ripristino di emergenza, vedere [Linee guida per il ripristino di emergenza in Data Lake Storage Gen1](data-lake-store-disaster-recovery-guidance.md).
+> Al termine dell'operazione di rotazione della chiave, la versione precedente della chiave non viene più usata attivamente per la crittografia dei nuovi dati. Potrebbero tuttavia verificarsi casi in cui l'accesso ai dati meno recenti potrebbe richiedere la chiave precedente. Per consentire la lettura di tali dati meno recenti, non eliminare la chiave precedente

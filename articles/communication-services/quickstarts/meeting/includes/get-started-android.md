@@ -6,12 +6,12 @@ ms.author: palatter
 ms.date: 01/25/2021
 ms.topic: quickstart
 ms.service: azure-communication-services
-ms.openlocfilehash: e9069b5d43044ef0d0341717a12fcce7c4a72dc7
-ms.sourcegitcommit: ba3a4d58a17021a922f763095ddc3cf768b11336
+ms.openlocfilehash: 5ac4c53550468d33e9ed533303749d29e772d766
+ms.sourcegitcommit: bed20f85722deec33050e0d8881e465f94c79ac2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/23/2021
-ms.locfileid: "104804005"
+ms.lasthandoff: 03/25/2021
+ms.locfileid: "105108477"
 ---
 In questa Guida introduttiva si apprenderà come partecipare a una riunione di team con i team di servizi di comunicazione di Azure incorporare la libreria per Android.
 
@@ -34,7 +34,7 @@ Selezionare il modello di progetto "Empty Activity" (Attività vuota) in "Phone 
 
 :::image type="content" source="../media/android/studio-blank-activity.png" alt-text="Screenshot che mostra l'opzione 'Empty Activity' selezionata nella schermata del modello di progetto.":::
 
-Assegnare un nome al progetto `TeamsEmbedAndroidGettingStarted` , impostare la lingua su Java e selezionare la libreria client minima di "API 21: Android 5,0 (Lollipop)" o versione successiva.
+Assegnare un nome al progetto `TeamsEmbedAndroidGettingStarted` , impostare lingua su Java e selezionare SDK minimo di "API 21: Android 5,0 (Lollipop)" o versione successiva.
 
 :::image type="content" source="../media/android/studio-calling-min-api.png" alt-text="Screenshot che mostra l'opzione 'Empty Activity' selezionata nella schermata 2 del modello di progetto.":::
 
@@ -299,7 +299,7 @@ public String fetchToken() {
 ## <a name="get-the-teams-meeting-link"></a>Ottenere il collegamento alla riunione di Teams
 
 Il collegamento alla riunione di Teams può essere recuperato usando le API Graph. Questa operazione è descritta in dettaglio nella [documentazione di Graph](/graph/api/onlinemeeting-createorget?tabs=http&view=graph-rest-beta&preserve-view=true).
-I servizi di comunicazione che chiamano la libreria client accettano un collegamento completo per la riunione dei team. Questo collegamento viene restituito come parte della risorsa `onlineMeeting`, accessibile nella [proprietà `joinWebUrl`](/graph/api/resources/onlinemeeting?view=graph-rest-beta&preserve-view=true). È anche possibile ottenere le informazioni sulla riunione necessarie dall'URL di **Partecipa alla riunione** nell'invito alla riunione di Teams stesso.
+L'SDK per le chiamate di Servizi di comunicazione accetta un collegamento alla riunione di Teams completo. Questo collegamento viene restituito come parte della risorsa `onlineMeeting`, accessibile nella [proprietà `joinWebUrl`](/graph/api/resources/onlinemeeting?view=graph-rest-beta&preserve-view=true). È anche possibile ottenere le informazioni sulla riunione necessarie dall'URL di **Partecipa alla riunione** nell'invito alla riunione di Teams stesso.
 
 ## <a name="start-a-meeting-using-the-meeting-client"></a>Avviare una riunione usando il client di riunione
 

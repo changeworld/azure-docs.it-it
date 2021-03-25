@@ -6,12 +6,12 @@ ms.service: cache
 ms.topic: conceptual
 ms.date: 02/08/2021
 ms.author: yegu
-ms.openlocfilehash: fe777c3aa7b314dc56a42cc64712d18281a6ea7d
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 3fe3131263d3cf1984eae1692854d8d6bcd2746a
+ms.sourcegitcommit: bed20f85722deec33050e0d8881e465f94c79ac2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102121168"
+ms.lasthandoff: 03/25/2021
+ms.locfileid: "105109489"
 ---
 # <a name="configure-active-geo-replication-for-enterprise-azure-cache-for-redis-instances-preview"></a>Configurare la replica geografica attiva per le istanze di cache di Azure aziendale per le istanze di redis (anteprima)
 
@@ -26,9 +26,11 @@ La replica geografica attiva raggruppa due o più cache di Azure aziendale per l
 >
 >
 
-1. Nella nuova interfaccia utente di creazione **della cache Redis** fare clic su **Configura** per configurare la **replica geografica attiva** nella scheda **Avanzate** .
+1. Nella scheda **Avanzate** della nuova interfaccia utente per la creazione **della cache Redis** selezionare **Enterprise** for **clustering Policy**.
 
     ![Configurare la replica geografica attiva](./media/cache-how-to-active-geo-replication/cache-active-geo-replication-not-configured.png)
+
+1. Fare clic su **Configura** per configurare la **replica geografica attiva**.
 
 1. Consente di creare un nuovo gruppo di replica, per una prima istanza di cache, oppure di selezionarne uno esistente nell'elenco.
 
@@ -38,7 +40,7 @@ La replica geografica attiva raggruppa due o più cache di Azure aziendale per l
 
     ![Replica geografica attiva configurata](./media/cache-how-to-active-geo-replication/cache-active-geo-replication-configured.png)
 
-1. Ripetere i passaggi precedenti per ogni istanza della cache aggiuntiva nel gruppo di replica geografica.
+1. Attendere che la prima cache venga creata correttamente. Ripetere i passaggi precedenti per ogni istanza della cache aggiuntiva nel gruppo di replica geografica.
 
 ## <a name="remove-from-an-active-geo-replication-group"></a>Rimuovere da un gruppo di replica geografica attivo
 

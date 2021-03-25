@@ -1,18 +1,18 @@
 ---
 title: 'Avvio rapido: Connettersi usando PHP - Server flessibile di Database di Azure per MySQL'
 description: Questo argomento di avvio rapido fornisce diversi esempi di codice PHP che è possibile usare per connettersi ai dati ed eseguire query dal server flessibile di Database di Azure per MySQL.
-author: ambhatna
-ms.author: ambhatna
+author: savjani
+ms.author: pariks
 ms.service: mysql
 ms.custom: mvc
 ms.topic: quickstart
 ms.date: 9/21/2020
-ms.openlocfilehash: dc6b069e3c7686ec6964dab890e503aa193cf6fe
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: baba4d373d4a79ab0c339aac00bb9ab48de9262b
+ms.sourcegitcommit: bed20f85722deec33050e0d8881e465f94c79ac2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "92545107"
+ms.lasthandoff: 03/25/2021
+ms.locfileid: "105109608"
 ---
 # <a name="quickstart-use-php-to-connect-and-query-data-in-azure-database-for-mysql---flexible-server"></a>Avvio rapido: Usare PHP per connettersi ai dati ed eseguire query nel server flessibile di Database di Azure per MySQL
 

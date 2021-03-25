@@ -1,7 +1,7 @@
 ---
 title: Avviare, monitorare e annullare le esecuzioni di training in Python
 titleSuffix: Azure Machine Learning
-description: Informazioni su come avviare, stato e gestire l'esperimento di Machine Learning con il Azure Machine Learning Python SDK.
+description: Informazioni su come avviare, monitorare e tenere traccia dell'esperimento di Machine Learning con il Azure Machine Learning Python SDK.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -12,24 +12,24 @@ ms.reviewer: nibaccam
 ms.date: 03/04/2021
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python, devx-track-azurecli
-ms.openlocfilehash: 977498abb17fe592cef344f407a662d3b79749b7
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 26880fd6e3688dd95cc9f16072a35d5c4ce7c31e
+ms.sourcegitcommit: bed20f85722deec33050e0d8881e465f94c79ac2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102634789"
+ms.lasthandoff: 03/25/2021
+ms.locfileid: "105110271"
 ---
-# <a name="start-monitor-and-track-runs"></a>Avviare, monitorare e tenere traccia delle esecuzioni 
+# <a name="start-monitor-and-track-run-history"></a>Avviare, monitorare e tenere traccia della cronologia di esecuzione 
 
-Il [Azure Machine Learning SDK per Python](/python/api/overview/azure/ml/intro), l'interfaccia della riga di comando di [Machine Learning](reference-azure-machine-learning-cli.md)e [Azure Machine Learning Studio](https://ml.azure.com) offre diversi metodi per monitorare, organizzare e gestire le esecuzioni per il training e la sperimentazione.
+[SDK Azure Machine Learning per Python](/python/api/overview/azure/ml/intro), [Machine Learning CLI](reference-azure-machine-learning-cli.md)e [Azure Machine Learning Studio](https://ml.azure.com) forniscono diversi metodi per monitorare, organizzare e tenere traccia delle esecuzioni per la formazione e la sperimentazione. La cronologia di esecuzione di ML è una parte importante di un processo di sviluppo di ML spiegabile e ripetibile.
 
-Questo articolo illustra alcuni esempi delle attività seguenti:
+Questo articolo illustra come eseguire le attività seguenti:
 
 * Monitorare le prestazioni di esecuzione.
 * Monitorare lo stato di esecuzione tramite notifica tramite posta elettronica.
 * Esecuzioni di tag e di ricerca.
 * Aggiungere una descrizione dell'esecuzione. 
-* Eseguire la ricerca. 
+* Eseguire la ricerca sulla cronologia di esecuzione. 
 * Esecuzioni annullate o non riuscite.
 * Crea esecuzioni figlio.
  
@@ -103,7 +103,7 @@ Sono necessari gli elementi seguenti:
     
         Per altre informazioni, vedere [az ml folder attach](/cli/azure/ext/azure-cli-ml/ml/folder?preserve-view=true&view=azure-cli-latest#ext-azure-cli-ml-az-ml-folder-attach).
     
-    2. Per avviare l'esecuzione, usare il comando seguente. Quando si usa questo comando, specificare il nome del file runconfig (il testo prima di \*.runconfig se si sta esaminando il file system) rispetto al parametro -c.
+    2. Per avviare l'esecuzione, usare il comando seguente. Quando si usa questo comando, specificare il nome del file runconfig (il testo prima di \* . runconfig se si sta osservando la file System) rispetto al parametro-c.
     
         ```azurecli-interactive
         az ml run submit-script -c sklearn -e testexperiment train.py
@@ -134,7 +134,7 @@ Sono necessari gli elementi seguenti:
         print(notebook_run.get_status())
         ```
     
-    * Per ottenere l'ID esecuzione, il tempo di esecuzione e altri dettagli sull'esecuzione, usare il [`get_details()`](/python/api/azureml-core/azureml.core.workspace.workspace#get-details--) metodo.
+    * Per ottenere l'ID esecuzione, il tempo di esecuzione e altri dettagli sull'esecuzione, utilizzare il [`get_details()`](/python/api/azureml-core/azureml.core.workspace.workspace#get-details--) metodo.
     
         ```python
         print(notebook_run.get_details())
@@ -225,7 +225,7 @@ Sono necessari gli elementi seguenti:
 
 Una descrizione dell'esecuzione può essere aggiunta a un'esecuzione per fornire più contesto e informazioni all'esecuzione. È anche possibile eseguire una ricerca in base a queste descrizioni dall'elenco esecuzioni e aggiungere la descrizione dell'esecuzione come colonna nell'elenco esecuzioni. 
 
-Passare alla pagina dei **Dettagli** dell'esecuzione e selezionare l'icona di modifica o matita per aggiungere, modificare o eliminare descrizioni per l'esecuzione. Per salvare in modo permanente le modifiche apportate all'elenco esecuzioni, salvare le modifiche apportate alla visualizzazione personalizzata esistente o a una nuova visualizzazione personalizzata. Il formato Markdown è supportato per le descrizioni di esecuzione che consentono di incorporare le immagini e deep linking come illustrato di seguito.
+Passare alla pagina dei **Dettagli** dell'esecuzione e selezionare l'icona di modifica o di matita per aggiungere, modificare o eliminare descrizioni per l'esecuzione. Per salvare in modo permanente le modifiche apportate all'elenco esecuzioni, salvare le modifiche apportate alla visualizzazione personalizzata esistente o a una nuova visualizzazione personalizzata. Il formato Markdown è supportato per le descrizioni di esecuzione, che consente di incorporare le immagini e deep linking come illustrato di seguito.
 
 :::image type="content" source="media/how-to-manage-runs/run-description.gif" alt-text="Screenshot: creare una descrizione dell'esecuzione"::: 
 
@@ -405,9 +405,9 @@ Per creare molte esecuzioni figlio in modo efficiente, utilizzare il [`create_ch
 
 Le esecuzioni figlio possono essere inviate anche da un'esecuzione padre. In questo modo è possibile creare gerarchie di esecuzioni padre e figlio. Non è possibile creare un'esecuzione figlio senza padre: anche se l'esecuzione padre non esegue alcuna operazione ma avvia le esecuzioni figlio, è comunque necessario creare la gerarchia. Gli Stati di tutte le esecuzioni sono indipendenti: un elemento padre può trovarsi nello `"Completed"` stato di esito positivo anche se una o più esecuzioni figlio sono state annullate o non riuscite.  
 
-È possibile che l'esecuzione del figlio usi una configurazione di esecuzione diversa da quella dell'esecuzione padre. Ad esempio, è possibile usare una configurazione meno potente basata sulla CPU per l'elemento padre, usando le configurazioni basate su GPU per gli elementi figlio. Un altro desiderio comune è passare ogni elemento figlio e dati diversi. Per personalizzare un'esecuzione figlio, creare un `ScriptRunConfig` oggetto per l'esecuzione figlio. Il codice seguente esegue le operazioni seguenti:
+È possibile che l'esecuzione del figlio usi una configurazione di esecuzione diversa da quella dell'esecuzione padre. Ad esempio, è possibile usare una configurazione meno potente basata sulla CPU per l'elemento padre, usando le configurazioni basate su GPU per gli elementi figlio. Un altro desiderio comune è passare tutti i dati e gli argomenti diversi figlio. Per personalizzare un'esecuzione figlio, creare un `ScriptRunConfig` oggetto per l'esecuzione figlio. Il codice seguente:
 
-- Recuperare una risorsa di calcolo denominata `"gpu-cluster"` dall'area di lavoro `ws`
+- Recupera una risorsa di calcolo denominata `"gpu-cluster"` dall'area di lavoro `ws`
 - Scorre i diversi valori di argomento da passare agli `ScriptRunConfig` oggetti figlio
 - Crea e invia una nuova esecuzione figlio, usando la risorsa di calcolo personalizzata e l'argomento
 - Blocca fino al completamento di tutte le esecuzioni figlio
@@ -455,7 +455,7 @@ print(parent_run.get_children())
 
 ### <a name="log-to-parent-or-root-run"></a>Registra nell'elemento padre o nell'esecuzione radice
 
-È possibile usare il `Run.parent` campo per accedere all'esecuzione che ha avviato l'esecuzione figlio corrente. Un caso d'uso comune è quando si desidera consolidare i risultati dei log in un'unica posizione. Si noti che le esecuzioni figlio vengono eseguite in modo asincrono e non esiste alcuna garanzia di ordinamento o sincronizzazione oltre la possibilità che l'elemento padre attenda il completamento delle esecuzioni figlio.
+È possibile usare il `Run.parent` campo per accedere all'esecuzione che ha avviato l'esecuzione figlio corrente. Un caso d'uso comune per l'uso di `Run.parent` consiste nel combinare i risultati dei log in un'unica posizione. Si noti che le esecuzioni figlio vengono eseguite in modo asincrono e non esiste alcuna garanzia di ordinamento o sincronizzazione oltre la possibilità che l'elemento padre attenda il completamento delle esecuzioni figlio.
 
 ```python
 # in child (or even grandchild) run

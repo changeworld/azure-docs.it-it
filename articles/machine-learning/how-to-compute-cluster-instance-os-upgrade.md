@@ -11,18 +11,18 @@ ms.subservice: core
 ms.date: 03/03/2021
 ms.topic: conceptual
 ms.custom: how-to
-ms.openlocfilehash: 5f853c19015a70d596c32532a9c280c785b4597b
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 710a860b1ed87f176b6f42b4963dad17acb323b1
+ms.sourcegitcommit: ac035293291c3d2962cee270b33fca3628432fac
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104609549"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "104954055"
 ---
 # <a name="upgrade-compute-instance-and-compute-cluster-host-os"></a>Aggiornare l'istanza di calcolo e il sistema operativo host del cluster di calcolo
 
 Azure Machine Learning __cluster di calcolo__ e l' __istanza di calcolo__ sono un'infrastruttura di calcolo gestita. In qualità di servizio gestito, Microsoft gestisce il sistema operativo host e i pacchetti e le versioni software installati.
 
-Il sistema operativo host per il cluster di calcolo e l'istanza di calcolo è stato Ubuntu 16,04 LTS. Il **30 aprile 2021**, Ubuntu sta terminando il supporto per 16,04. A partire dal __15 marzo 2021__, Microsoft aggiornerà automaticamente il sistema operativo host a Ubuntu 18,04 LTS. L'aggiornamento a 18,04 garantirà aggiornamenti della sicurezza e supporto continui dalla community Ubuntu. Per ulteriori informazioni sul supporto di Ubuntu finale per 16,04, vedere il [Blog della versione di Ubuntu](https://wiki.ubuntu.com/Releases).
+Il sistema operativo host per il cluster di calcolo e l'istanza di calcolo è stato Ubuntu 16,04 LTS. Il **30 aprile 2021**, Ubuntu sta terminando il supporto per 16,04. A partire dal __15 marzo 2021__, Microsoft aggiornerà automaticamente il sistema operativo host a Ubuntu 18,04 LTS. L'aggiornamento a 18,04 garantirà aggiornamenti della sicurezza e supporto continui dalla community Ubuntu. Questo aggiornamento verrà implementato tra le aree di Azure e sarà disponibile in tutte le aree entro il __09 aprile 2021__. Per ulteriori informazioni sul supporto di Ubuntu finale per 16,04, vedere il [Blog della versione di Ubuntu](https://wiki.ubuntu.com/Releases).
 
 > [!TIP]
 > * Il sistema operativo host non è la versione del sistema operativo che è possibile specificare per un [ambiente](how-to-use-environments.md) durante il training o la distribuzione di un modello. Gli ambienti vengono eseguiti all'interno di Docker. Docker è in esecuzione nel sistema operativo host.
@@ -30,11 +30,11 @@ Il sistema operativo host per il cluster di calcolo e l'istanza di calcolo è st
 > * Quando si usa un'istanza di calcolo Azure Machine Learning basata su Ubuntu 18,04, la versione predefinita di Python è _python 3,8_.
 ## <a name="creating-new-resources"></a>Creazione di nuove risorse
 
-Il cluster di calcolo o le istanze di calcolo create dopo il __15 marzo 2021__ usano Ubuntu 18,04 LTS come sistema operativo host per impostazione predefinita. Non è possibile selezionare un sistema operativo host diverso.
+Il cluster di calcolo o le istanze di calcolo create dopo il __09 aprile 2021__ usano Ubuntu 18,04 LTS come sistema operativo host per impostazione predefinita. Non è possibile selezionare un sistema operativo host diverso.
 
 ## <a name="upgrade-existing-resources"></a>Aggiornare le risorse esistenti
 
-Se sono già stati creati cluster di calcolo o istanze di calcolo prima del __15 marzo 2021__, è necessario intervenire per aggiornare il sistema operativo host a Ubuntu 18,04:
+Se sono già stati creati cluster di calcolo o istanze di calcolo prima del __15 marzo 2021__, è necessario intervenire per aggiornare il sistema operativo host a Ubuntu 18,04. A seconda dell'area a cui si accede Azure Machine Learning, è consigliabile eseguire queste azioni dopo il __09 aprile 2021__ per assicurarsi che le modifiche siano state implementate in tutte le aree:
 
 * __Azure Machine Learning cluster di calcolo__:
 

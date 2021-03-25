@@ -9,12 +9,12 @@ ms.author: mikben
 ms.date: 03/10/2021
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: cc8e0edd1109162f0b426be31eb875ba8465d091
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 8f7bfd63d858fb409286268c318c9f66474e3d53
+ms.sourcegitcommit: bed20f85722deec33050e0d8881e465f94c79ac2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103490773"
+ms.lasthandoff: 03/25/2021
+ms.locfileid: "105110917"
 ---
 # <a name="call-flow-basics"></a>Nozioni di base sul flusso di chiamate
 
@@ -26,7 +26,7 @@ La sezione seguente offre una panoramica dei flussi di chiamate in Servizi di co
 
 Quando si stabilisce una chiamata peer-to-peer o di gruppo, vengono usati due protocolli: HTTP (REST) per la segnalazione e SRTP per i file multimediali.
 
-La segnalazione tra le librerie client o tra le librerie client e i controller di segnalazione di Servizi di comunicazione viene gestita con il protocollo HTTP REST (TLS). Per il traffico multimediale in tempo reale (RTP), è preferibile il protocollo UDP (User Datagram Protocol). Se l'uso del protocollo UDP è impedito dal firewall, la libreria client userà il protocollo TCP (Transmission Control Protocol) per i file multimediali.
+La segnalazione tra gli SDK o tra SDK e i controller di segnalazione dei servizi di comunicazione viene gestita con il protocollo HTTP REST (TLS). Per il traffico multimediale in tempo reale (RTP), è preferibile il protocollo UDP (User Datagram Protocol). Se l'uso di UDP è impedito dal firewall, l'SDK userà il Transmission Control Protocol (TCP) per i supporti.
 
 Di seguito vengono descritti i protocolli multimediali e di segnalazione in diversi scenari.
 
@@ -34,21 +34,21 @@ Di seguito vengono descritti i protocolli multimediali e di segnalazione in dive
 
 ### <a name="case-1-voip-where-a-direct-connection-between-two-devices-is-possible"></a>Caso 1: VoIP in cui è possibile una connessione diretta tra due dispositivi
 
-Nelle chiamate video o VoIP uno-a-uno, il traffico preferisce il percorso più diretto. "Percorso diretto" significa che se due librerie client possono raggiungersi direttamente, stabiliranno una connessione diretta. Questo scenario si verifica, in genere, quando due librerie client si trovano nella stessa subnet (ad esempio, in una subnet 192.168.1.0/24) o quando i dispositivi si trovano in subnet che possono vedersi reciprocamente (le librerie client nella subnet 10.10.0.0/16 e 192.168.1.0/24 possono raggiungersi a vicenda).
+Nelle chiamate video o VoIP uno-a-uno, il traffico preferisce il percorso più diretto. "Percorso diretto" significa che se due SDK possono raggiungere l'uno all'altro direttamente, stabiliranno una connessione diretta. Questo è in genere possibile quando due SDK si trovano nella stessa subnet (ad esempio, in una subnet 192.168.1.0/24) o due quando i dispositivi si trovano in subnet che possono vedersi reciprocamente (gli SDK nella subnet 10.10.0.0/16 e 192.168.1.0/24 possono raggiungere l'uno dall'altro).
 
 :::image type="content" source="./media/call-flows/about-voice-case-1.png" alt-text="Diagramma che illustra una chiamata VoIP diretta tra gli utenti e Servizi di comunicazione.":::
 
 ### <a name="case-2-voip-where-a-direct-connection-between-devices-is-not-possible-but-where-connection-between-nat-devices-is-possible"></a>Caso 2: VoIP in cui non è possibile una connessione diretta tra i dispositivi, ma è possibile una connessione tra dispositivi NAT
 
-Se due dispositivi si trovano in subnet che non possono raggiungersi reciprocamente (ad esempio, Giorgia lavora da un bar e Davide lavora dal proprio ufficio), ma la connessione tra i dispositivi NAT è possibile, le librerie client sul lato client stabiliranno la connettività tramite dispositivi NAT.
+Se due dispositivi si trovano in subnet che non possono raggiungere reciprocamente (ad esempio, Alice lavora da un bar e Bob lavora dal proprio ufficio), ma la connessione tra i dispositivi NAT è possibile, gli SDK lato client stabiliranno la connettività tramite dispositivi NAT.
 
-Per Giorgia, sarà il NAT del bar e per Davide sarà il NAT dell'ufficio. Il dispositivo di Giorgia invierà l'indirizzo esterno del NAT e il dispositivo di Davide eseguirà la stessa operazione. Le librerie client apprendono gli indirizzi esterni da un servizio STUN (Session Traversal Utilities for NAT) che Servizi di comunicazione di Azure fornisce gratuitamente. La logica che gestisce l'handshake tra Giorgia e Davide è integrata nelle librerie client fornite da Servizi di comunicazione di Azure. Non è necessaria alcuna configurazione aggiuntiva.
+Per Giorgia, sarà il NAT del bar e per Davide sarà il NAT dell'ufficio. Il dispositivo di Giorgia invierà l'indirizzo esterno del NAT e il dispositivo di Davide eseguirà la stessa operazione. Gli SDK apprendere gli indirizzi esterni da un servizio STUN (utilità di attraversamento della sessione per NAT) che i servizi di comunicazione di Azure forniscono gratuitamente. La logica che gestisce l'handshake tra Alice e Bob è incorporata all'interno degli SDK forniti da servizi di comunicazione di Azure. Non è necessaria alcuna configurazione aggiuntiva.
 
 :::image type="content" source="./media/call-flows/about-voice-case-2.png" alt-text="Diagramma che illustra una chiamata VoIP che usa una connessione STUN.":::
 
 ### <a name="case-3-voip-where-neither-a-direct-nor-nat-connection-is-possible"></a>Caso 3: VoIP in cui non è possibile una connessione diretta né NAT
 
-Se uno o entrambi i dispositivi client sono protetti da un NAT simmetrico, è necessario un servizio cloud separato per inoltrare il file multimediale tra le due librerie client. Questo servizio viene chiamato TURN (Traversal Using Relays around NAT) e viene fornito da Servizi di comunicazione. La libreria client per le chiamate di Servizi di comunicazione usa automaticamente i servizi TURN in base alle condizioni di rete rilevate. L'uso del servizio TURN di Microsoft viene addebitato separatamente.
+Se uno o entrambi i dispositivi client sono protetti da un NAT simmetrico, è necessario un servizio cloud separato per inoltrare il supporto tra i due SDK. Questo servizio viene chiamato TURN (Traversal Using Relays around NAT) e viene fornito da Servizi di comunicazione. I servizi di comunicazione che chiamano SDK utilizzano automaticamente TURN Services in base alle condizioni di rete rilevate. L'uso del servizio TURN di Microsoft viene addebitato separatamente.
 
 :::image type="content" source="./media/call-flows/about-voice-case-3.png" alt-text="Diagramma che illustra una chiamata VoIP che usa una connessione TURN.":::
 
@@ -72,15 +72,15 @@ Il protocollo RTP (Real-Time Protocol) predefinito per le chiamate di gruppo è 
 
 :::image type="content" source="./media/call-flows/about-voice-group-calls.png" alt-text="Diagramma che illustra il flusso del processo multimediale UDP in Servizi di comunicazione.":::
 
-Se la libreria client non può usare UDP per i file multimediali a causa di restrizioni del firewall, verrà effettuato un tentativo con il protocollo TCP (Transmission Control Protocol). Si noti che il componente del processore di contenuti multimediali richiede UDP, quindi, in questo caso, il servizio TURN di Servizi di comunicazione verrà aggiunto alla chiamata di gruppo per convertire TCP in UDP. In questo caso, i costi di TURN verranno addebitati, a meno che le funzionalità di TURN non vengano disabilitate manualmente.
+Se l'SDK non è in grado di utilizzare UDP per supporti a causa di restrizioni del firewall, verrà effettuato un tentativo di utilizzare il Transmission Control Protocol (TCP). Si noti che il componente del processore di contenuti multimediali richiede UDP, quindi, in questo caso, il servizio TURN di Servizi di comunicazione verrà aggiunto alla chiamata di gruppo per convertire TCP in UDP. In questo caso, i costi di TURN verranno addebitati, a meno che le funzionalità di TURN non vengano disabilitate manualmente.
 
 :::image type="content" source="./media/call-flows/about-voice-group-calls-2.png" alt-text="Diagramma che illustra il flusso del processo multimediale TCP in Servizi di comunicazione.":::
 
-### <a name="case-5-communication-services-client-library-and-microsoft-teams-in-a-scheduled-teams-meeting"></a>Caso 5: libreria client dei servizi di comunicazione e team Microsoft in una riunione di Team pianificati
+### <a name="case-5-communication-services-sdk-and-microsoft-teams-in-a-scheduled-teams-meeting"></a>Caso 5: Communication Services SDK e Microsoft teams in un team pianificato riunione
 
 Segnalazione dei flussi attraverso il controller di segnalazione. Flussi multimediali tramite il processore di contenuti multimediali. Il controller di segnalazione e il processore di contenuti multimediali sono condivisi tra i servizi di comunicazione e i team Microsoft.
 
-:::image type="content" source="./media/call-flows/teams-communication-services-meeting.png" alt-text="Diagramma che illustra la libreria client dei servizi di comunicazione e il client teams in una riunione di team pianificata.":::
+:::image type="content" source="./media/call-flows/teams-communication-services-meeting.png" alt-text="Diagramma che illustra l'SDK di servizi di comunicazione e il client teams in una riunione di Team pianificati.":::
 
 
 

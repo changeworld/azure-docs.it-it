@@ -8,12 +8,12 @@ ms.author: rifox
 ms.date: 03/10/2021
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: c21d8696c0c4edd743aab6cbe7866d27ce46a314
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 5805734a9253962d672a4236a5650e9de8b37f0a
+ms.sourcegitcommit: ed7376d919a66edcba3566efdee4bc3351c57eda
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103492609"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105044295"
 ---
 # <a name="tutorial-sign-and-make-requests-with-postman"></a>Esercitazione: firmare e creare richieste con il post
 In questa esercitazione verrà configurata e usata l'opzione postazione per effettuare una richiesta per i servizi di comunicazione di Azure (ACS) tramite HTTP. Al termine di questa esercitazione, è stato inviato un messaggio SMS usando ACS e l'agente di pubblicazione e sarà possibile usare il post per esplorare altre API all'interno di ACS.
@@ -68,7 +68,7 @@ Immettere questi valori nella colonna "valore iniziale" della schermata variabil
 
 ### <a name="creating-a-pre-request-script"></a>Creazione di uno script di pre-richiesta
 
-Il passaggio successivo consiste nel creare uno script di pre-richiesta all'interno di un post. Uno script di pre-richiesta è uno script che viene eseguito prima di ogni richiesta in post e può modificare o modificare i parametri di richiesta per conto dell'utente. Questa operazione verrà usata per firmare le richieste HTTP in modo che possano essere autorizzate dai servizi ACS. Per ulteriori informazioni sui requisiti di firma, è possibile [leggere la guida sull'autenticazione](https://docs.microsoft.com/rest/api/communication/authentication).
+Il passaggio successivo consiste nel creare uno script di pre-richiesta all'interno di un post. Uno script di pre-richiesta è uno script che viene eseguito prima di ogni richiesta in post e può modificare o modificare i parametri di richiesta per conto dell'utente. Questa operazione verrà usata per firmare le richieste HTTP in modo che possano essere autorizzate dai servizi ACS. Per ulteriori informazioni sui requisiti di firma, è possibile [leggere la guida sull'autenticazione](/rest/api/communication/authentication).
 
 Questo script verrà creato all'interno della raccolta, in modo che venga eseguito in qualsiasi richiesta all'interno della raccolta. A tale scopo, nella scheda raccolta fare clic sulla sottoscheda "script pre-richiesta".
 
@@ -186,7 +186,7 @@ Ora che tutti gli elementi sono configurati, è possibile creare una richiesta A
 
 :::image type="content" source="media/postman/create-request.png" alt-text="Pulsante più del post.":::
 
-Verrà creata una nuova scheda per la richiesta nell'ambito del post. Con la creazione è necessario configurarla. Verrà inviata una richiesta per l'API di invio SMS. Assicurarsi quindi di fare riferimento alla documentazione relativa a [questa API per ottenere assistenza](https://docs.microsoft.com/rest/api/communication/sms/send). Configurare la richiesta di post.
+Verrà creata una nuova scheda per la richiesta nell'ambito del post. Con la creazione è necessario configurarla. Verrà inviata una richiesta per l'API di invio SMS. Assicurarsi quindi di fare riferimento alla documentazione relativa a [questa API per ottenere assistenza](/rest/api/communication/sms/send). Configurare la richiesta di post.
 
 Per iniziare, impostare il tipo di richiesta su `POST` e immettere `{{endpoint}}/sms?api-version=2021-03-07` nel campo URL richiesta. Questo URL usa la variabile creata in precedenza `endpoint` per inviarla automaticamente alla risorsa ACS.
 
@@ -238,8 +238,8 @@ Il telefono cellulare, che possiede il numero specificato nel valore "a", dovreb
 ## <a name="next-steps"></a>Passaggi successivi
 
 > [!div class="nextstepaction"]
-> [Esplora le API ACS](https://docs.microsoft.com/rest/api/communication/) 
->  [Altre informazioni sull'autenticazione](https://docs.microsoft.com/rest/api/communication/authentication) 
+> [Esplora le API ACS](/rest/api/communication/) 
+>  [Altre informazioni sull'autenticazione](/rest/api/communication/authentication) 
 >  [Scopri di più su postazione](https://learning.postman.com/)
 
 Potrebbe inoltre essere necessario:

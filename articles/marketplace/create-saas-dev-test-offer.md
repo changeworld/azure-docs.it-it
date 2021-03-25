@@ -8,12 +8,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 ms.date: 03/25/2021
-ms.openlocfilehash: 58649e9a864e64ab5781cff3b663e190dac50cb6
-ms.sourcegitcommit: ed7376d919a66edcba3566efdee4bc3351c57eda
+ms.openlocfilehash: dbf284305aa3201faeb77668af4198bafbf578b5
+ms.sourcegitcommit: bed20f85722deec33050e0d8881e465f94c79ac2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/24/2021
-ms.locfileid: "105050663"
+ms.lasthandoff: 03/25/2021
+ms.locfileid: "105110543"
 ---
 # <a name="create-a-test-offer"></a>Creare un'offerta di test
 
@@ -80,7 +80,7 @@ Usare l'offerta DEV per sperimentare i modelli di determinazione prezzi. Dopo av
 L'offerta DEV deve avere piani con prezzi zero o molto bassi nei piani. L'offerta PROD avrà i prezzi che si desidera addebitare ai clienti.
 
 > [!NOTE]
-> Informazioni che l'utente deve notare anche se skimmingPurchases in anteprima verranno elaborate sia per le offerte di sviluppo che per quelle di produzione. Se un'offerta ha un prezzo di $100/mo, la tua azienda verrà addebitata $100. In tal caso, è possibile aprire un [ticket di supporto](support.md) e verranno rilasciati i pagamenti per l'importo totale (e non verrà addebitata alcuna tariffa dell'Agenzia).
+> Gli acquisti effettuati in anteprima verranno elaborati per le offerte di sviluppo e PROD. Se un'offerta ha un prezzo di $100/mo, la tua azienda verrà addebitata $100. In tal caso, è possibile aprire un [ticket di supporto](support.md) e verranno rilasciati i pagamenti per l'importo totale (e non verrà addebitata alcuna tariffa dell'Agenzia).
 
 #### <a name="pricing-model"></a>Modello di prezzi
 

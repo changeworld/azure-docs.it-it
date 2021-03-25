@@ -11,13 +11,14 @@ ms.topic: how-to
 ms.date: 12/16/2020
 ms.author: mimart
 ms.subservice: B2C
+ms.custom: b2c-support
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: 29dd67e9e6e15aaafec0cc47d89da32cbf369938
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: fbcdef0002a227d5319fc01e625146480e4c99fc
+ms.sourcegitcommit: ed7376d919a66edcba3566efdee4bc3351c57eda
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "97618821"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105043751"
 ---
 # <a name="set-up-a-sign-up-and-sign-in-flow-in-azure-active-directory-b2c"></a>Configurare un flusso di iscrizione e accesso in Azure Active Directory B2C
 
@@ -66,6 +67,7 @@ Il flusso utente di iscrizione e accesso consente di gestire le esperienze di is
     ![Pagina di selezione di attributi e attestazioni utente con tre attestazioni selezionate](./media/add-sign-up-and-sign-in-policy/signup-signin-attributes.png)
 
 1. Fare clic su **Crea** per aggiungere il flusso utente. Viene automaticamente aggiunto al nome il prefisso *B2C_1*.
+2. Seguire i passaggi per [gestire il flusso per "password dimenticata?"](add-password-reset-policy.md?pivots=b2c-user-flow.md#self-service-password-reset-recommended) all'interno dei criteri di iscrizione o di accesso.
 
 ### <a name="test-the-user-flow"></a>Testare il flusso utente
 
@@ -73,7 +75,7 @@ Il flusso utente di iscrizione e accesso consente di gestire le esperienze di is
 1. Per **Applicazione** selezionare l'applicazione Web denominata *webapp1* che è stata registrata in precedenza. L'**URL di risposta** dovrebbe mostrare `https://jwt.ms`.
 1. Fare clic su **Esegui il flusso utente**, quindi selezionare **Iscriversi adesso**.
 
-    ![Pagina Esegui il flusso utente nel portale con il pulsante Esegui il flusso utente evidenziato](./media/add-sign-up-and-sign-in-policy/signup-signin-run-now.PNG)
+    ![Pagina Esegui il flusso utente nel portale con il pulsante Esegui il flusso utente evidenziato](./media/add-sign-up-and-sign-in-policy/signup-signin-run-now.png)
 
 1. Immettere un indirizzo di posta elettronica valido, fare clic su **Invia codice di verifica**, immettere il codice di verifica ricevuto e quindi selezionare **Verifica codice**.
 1. Immettere una nuova password e confermarla.

@@ -5,12 +5,12 @@ services: automation
 ms.subservice: shared-capabilities
 ms.date: 02/01/2021
 ms.topic: conceptual
-ms.openlocfilehash: ae3329401a138bc0566ea93a8fbf2071fd44f02c
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
+ms.openlocfilehash: 57dfc388dcba926706a695c93d2afa1956432be8
+ms.sourcegitcommit: ac035293291c3d2962cee270b33fca3628432fac
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102503420"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "104953936"
 ---
 # <a name="manage-modules-in-azure-automation"></a>Gestire i moduli in Automazione di Azure
 
@@ -142,10 +142,10 @@ L'importazione di un modulo Az nell'account di Automazione non comporta automati
 
 * Quando un runbook richiama un cmdlet da un modulo.
 * Quando un runbook importa il modulo in modo esplicito con il cmdlet [Import-Module](/powershell/module/microsoft.powershell.core/import-module).
-* Quando un Runbook importa il modulo in modo esplicito con l'istruzione [using Module](https://docs.microsoft.com/powershell/module/microsoft.powershell.core/about/about_using#module-syntax) . L'istruzione using è supportata a partire da Windows PowerShell 5,0 e supporta le classi e l'importazione di tipi enum.
+* Quando un Runbook importa il modulo in modo esplicito con l'istruzione [using Module](/powershell/module/microsoft.powershell.core/about/about_using#module-syntax) . L'istruzione using è supportata a partire da Windows PowerShell 5,0 e supporta le classi e l'importazione di tipi enum.
 * Quando un runbook importa un altro modulo dipendente.
 
-È possibile importare i moduli Az nel portale di Azure. Ricordarsi di importare solo i moduli Az necessari, non l'intero modulo Az.Automation. [Az.Accounts](https://www.powershellgallery.com/packages/Az.Accounts/1.1.0) è una dipendenza per gli altri moduli Az, quindi assicurarsi di importare questo modulo prima di qualsiasi altro.
+È possibile importare i moduli AZ nell'account di automazione dalla portale di Azure. Ricordarsi di importare solo i moduli AZ necessari, non ogni modulo AZ disponibile. [Az.Accounts](https://www.powershellgallery.com/packages/Az.Accounts/1.1.0) è una dipendenza per gli altri moduli Az, quindi assicurarsi di importare questo modulo prima di qualsiasi altro.
 
 1. Dall'account di Automazione selezionare **Moduli** in **Risorse condivise**.
 2. Selezionare **Esplora raccolta**.  

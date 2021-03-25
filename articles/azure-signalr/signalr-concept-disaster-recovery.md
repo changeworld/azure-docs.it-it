@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.custom: devx-track-csharp
 ms.date: 03/01/2019
 ms.author: kenchen
-ms.openlocfilehash: b1cb48d1ae858dbcd0df80780b4c3cee3deac75b
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 996fa53aa105c0bcc27db7134c25d6d00e542a78
+ms.sourcegitcommit: bed20f85722deec33050e0d8881e465f94c79ac2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "90976491"
+ms.lasthandoff: 03/25/2021
+ms.locfileid: "105110288"
 ---
 # <a name="resiliency-and-disaster-recovery-in-azure-signalr-service"></a>Resilienza e ripristino di emergenza nel servizio Azure SignalR
 
@@ -44,13 +44,16 @@ Di seguito è riportato un diagramma che illustra tale topologia:
 
 ![Il diagramma mostra due aree ognuna con un server app e un servizio SignalR, in cui ogni server è associato al servizio SignalR nella propria area come primario e con il servizio nell'altra area come secondario.](media/signalr-concept-disaster-recovery/topology.png)
 
-## <a name="configure-app-servers-with-multiple-signalr-service-instances"></a>Configurare i server app con più istanze del servizio SignalR
+## <a name="configure-multiple-signalr-service-instances"></a>Configurare più istanze del servizio SignalR
 
-Dopo aver creato il servizio SignalR e i server app in ogni area, è possibile configurare i server app per la connessione a tutte le istanze del servizio SignalR.
+Sono supportate più istanze del servizio SignalR in entrambi i server app e funzioni di Azure.
 
+Dopo aver creato il servizio SignalR e i server applicazioni/funzioni di Azure in ogni area, è possibile configurare i server app o funzioni di Azure per la connessione a tutte le istanze del servizio SignalR.
+
+### <a name="configure-on-app-servers"></a>Configurare nei server applicazioni
 Questa operazione può essere eseguita in due modi.
 
-### <a name="through-config"></a>Tramite configurazione
+#### <a name="through-config"></a>Tramite configurazione
 
 Si dovrebbe già essere in grado di impostare la stringa di connessione del servizio SignalR tramite le variabili di ambiente/impostazioni app/Web. cofig in una voce di configurazione denominata `Azure:SignalR:ConnectionString` .
 Se sono presenti più endpoint, si possono impostare in più voci di configurazione, ognuna con il formato seguente:
@@ -62,7 +65,7 @@ Azure:SignalR:ConnectionString:<name>:<role>
 Nell'esempio, `<name>` è il nome dell'endpoint e `<role>` è il relativo ruolo (primario o secondario).
 Il nome è facoltativo, ma sarà utile se si vuole personalizzare ulteriormente il comportamento di routing tra più endpoint.
 
-### <a name="through-code"></a>Tramite codice
+#### <a name="through-code"></a>Tramite codice
 
 Se si preferisce archiviare le stringhe di connessione in un altro punto, è anche possibile leggerle nel codice e usarle come parametri quando si chiama `AddAzureSignalR()` (in ASP.NET Core) o `MapAzureSignalR()` (in ASP.NET).
 
@@ -93,6 +96,9 @@ app.MapAzureSignalR(GetType().FullName, hub,  options => options.Endpoints = new
 
 1. Se è presente almeno un'istanza primaria online, restituire un'istanza in linea primaria casuale.
 2. Se tutte le istanze primarie sono inattive, restituire un'istanza in linea secondaria casuale.
+
+### <a name="configure-on-azure-functions"></a>Configurare in funzioni di Azure
+Vedere [questo articolo](https://github.com/Azure/azure-functions-signalrservice-extension/blob/dev/docs/sharding.md#configuration-method).
 
 ## <a name="failover-sequence-and-best-practice"></a>Sequenza di failover e procedure consigliate
 
@@ -137,3 +143,5 @@ Sarà necessario gestire questi casi sul lato client in modo che siano trasparen
 Questo articolo ha illustrato come configurare l'applicazione per ottenere la resilienza per il servizio SignalR. Per altre informazioni dettagliate sulla connessione client/server e il routing di connessione nel servizio SignalR, vedere [questo articolo](signalr-concept-internals.md) relativo agli elementi interni del servizio SignalR.
 
 Per scenari di ridimensionamento, ad esempio il partizionamento orizzontale, che usano più istanze insieme per gestire un numero elevato di connessioni, vedere [come ridimensionare più istanze](signalr-howto-scale-multi-instances.md).
+
+Per informazioni dettagliate su come configurare funzioni di Azure con più istanze del servizio SignalR, vedere la pagina relativa al [supporto di più istanze del servizio SignalR di Azure in funzioni di Azure](https://github.com/Azure/azure-functions-signalrservice-extension/blob/dev/docs/sharding.md).

@@ -3,19 +3,19 @@ title: Pianificare una distribuzione di Azure Service Fabric cluster
 description: Informazioni sulla pianificazione e la preparazione per la distribuzione di un cluster Service Fabric di produzione in Azure.
 ms.topic: conceptual
 ms.date: 03/20/2019
-ms.openlocfilehash: 9de59811397eb47809c6d71f608e43beae5bfadb
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 82521487b9a3e9438784e010a32cf6df8e7be2ef
+ms.sourcegitcommit: ed7376d919a66edcba3566efdee4bc3351c57eda
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "97109624"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105046318"
 ---
 # <a name="plan-and-prepare-for-a-cluster-deployment"></a>Pianificare e preparare la distribuzione di un cluster
 
 La pianificazione e la preparazione per la distribuzione di un cluster di produzione è molto importante.  Esistono molti fattori da considerare.  Questo articolo illustra i passaggi per preparare la distribuzione del cluster.
 
 ## <a name="read-the-best-practices-information"></a>Leggi le informazioni sulle procedure consigliate
-Per gestire correttamente le applicazioni e i cluster di Azure Service Fabric, è consigliabile eseguire alcune operazioni per ottimizzare l'affidabilità dell'ambiente di produzione.  Per altre informazioni, vedere [Service Fabric procedure consigliate per le applicazioni e i cluster](service-fabric-best-practices-overview.md).
+Per gestire correttamente le applicazioni e i cluster di Azure Service Fabric, è consigliabile eseguire alcune operazioni per ottimizzare l'affidabilità dell'ambiente di produzione.  Per altre informazioni, vedere [Service Fabric procedure consigliate per le applicazioni e i cluster](./service-fabric-best-practices-security.md).
 
 ## <a name="select-the-os-for-the-cluster"></a>Selezionare il sistema operativo per il cluster
 Service Fabric permette di creare cluster di Service Fabric in qualsiasi VM o computer con Windows Server o Linux in esecuzione.  Prima di distribuire il cluster, è necessario scegliere il sistema operativo: Windows o Linux.  Ogni nodo (macchina virtuale) del cluster esegue lo stesso sistema operativo, non è possibile combinare macchine virtuali Windows e Linux nello stesso cluster.
@@ -117,7 +117,7 @@ Una parte fondamentale della distribuzione a disponibilità elevata consiste nel
 L'applicazione e il cluster sono pronti ad accettare il traffico della produzione? Prima di distribuire il cluster nell'ambiente di produzione, eseguire l' [elenco di controllo della conformità alla produzione](service-fabric-production-readiness-checklist.md). Per garantire la corretta esecuzione dell'applicazione e del cluster, usare gli elementi in questo elenco di controllo. Si consiglia vivamente di disattivare tutti questi elementi prima di passare all'ambiente di produzione.
 
 ## <a name="next-steps"></a>Passaggi successivi
-* [Creare un cluster Service Fabric che esegue Windows](service-fabric-best-practices-overview.md)
+* [Creare un cluster Service Fabric che esegue Windows](./service-fabric-best-practices-security.md)
 * [Creare un cluster Service Fabric che esegue Linux](service-fabric-tutorial-create-vnet-and-linux-cluster.md)
 
 [placementconstraints]: service-fabric-cluster-resource-manager-cluster-description.md#node-properties-and-placement-constraints

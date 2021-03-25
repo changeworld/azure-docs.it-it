@@ -7,12 +7,12 @@ ms.author: alkarche
 ms.date: 9/15/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 2fd0d9d2b6e80d54bdd45b7a13fab7bfa33841c9
-ms.sourcegitcommit: a67b972d655a5a2d5e909faa2ea0911912f6a828
+ms.openlocfilehash: de16932f1f77e569302b222fe2948de3046fabd6
+ms.sourcegitcommit: ac035293291c3d2962cee270b33fca3628432fac
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/23/2021
-ms.locfileid: "104889468"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "104950595"
 ---
 # <a name="ingest-iot-hub-telemetry-into-azure-digital-twins"></a>Inserire dati di telemetria dell'hub Internet in dispositivi gemelli digitali di Azure
 
@@ -39,7 +39,7 @@ Questa procedura illustra come inviare messaggi dall'hub degli Internet ai dispo
 
 Ogni volta che un evento di telemetria della temperatura viene inviato dal dispositivo termostato, una funzione elabora i dati di telemetria e la proprietà *temperature* del gemello digitale dovrebbe aggiornare. Questo scenario è illustrato in un diagramma seguente:
 
-:::image type="content" source="media/how-to-ingest-iot-hub-data/events.png" alt-text="Diagramma che mostra un diagramma di flusso. Nel grafico, un dispositivo hub di Internet delle cose invia i dati di telemetria della temperatura attraverso l'hub Internet a una funzione in Azure, che aggiorna una proprietà di temperatura in un gemello in dispositivi gemelli digitali di Azure." border="false":::
+:::image type="content" source="media/how-to-ingest-iot-hub-data/events.png" alt-text="Diagramma del dispositivo dell'hub delle cose che invia dati di telemetria della temperatura tramite l'hub Internet a una funzione in Azure, che aggiorna una proprietà di temperatura in un gemello in Azure Digital gemelli." border="false":::
 
 ## <a name="add-a-model-and-twin"></a>Aggiungere un modello e un gemello
 
@@ -47,14 +47,7 @@ In questa sezione si configurerà un dispositivo [gemello digitale](concepts-twi
 
 Per creare un dispositivo gemello, è necessario innanzitutto caricare il [modello](concepts-models.md) del termostato nell'istanza, che descrive le proprietà di un termostato e verrà usato in un secondo momento per creare il dispositivo gemello. 
 
-Il modello ha un aspetto simile al seguente:
-:::code language="json" source="~/digital-twins-docs-samples/models/Thermostat.json":::
-
-Per **caricare il modello nell'istanza dei dispositivi gemelli**, eseguire il comando dell'interfaccia della riga di comando di Azure seguente, che consente di caricare il modello precedente come JSON inline. È possibile eseguire il comando in [Azure cloud Shell](/cloud-shell/overview.md) nel browser o nel computer se l'interfaccia della riga di comando è [installata localmente](/cli/azure/install-azure-cli).
-
-```azurecli-interactive
-az dt model create --models '{  "@id": "dtmi:contosocom:DigitalTwins:Thermostat;1",  "@type": "Interface",  "@context": "dtmi:dtdl:context;2",  "contents": [    {      "@type": "Property",      "name": "Temperature",      "schema": "double"    }  ]}' -n {digital_twins_instance_name}
-```
+[!INCLUDE [digital-twins-thermostat-model-upload.md](../../includes/digital-twins-thermostat-model-upload.md)]
 
 Sarà quindi necessario **creare un gemello usando questo modello**. Usare il comando seguente per creare un gemello del termostato denominato **thermostat67** e impostare 0,0 come valore di temperatura iniziale.
 
@@ -62,13 +55,8 @@ Sarà quindi necessario **creare un gemello usando questo modello**. Usare il co
 az dt twin create --dtmi "dtmi:contosocom:DigitalTwins:Thermostat;1" --twin-id thermostat67 --properties '{"Temperature": 0.0,}' --dt-name {digital_twins_instance_name}
 ```
 
->[!NOTE]
-> Se si usa Cloud Shell nell'ambiente PowerShell, potrebbe essere necessario eseguire l'escape dei caratteri di virgoletta nei campi JSON inline affinché i relativi valori vengano analizzati correttamente. Ecco i comandi per caricare il modello e creare il gemello con questa modifica:
->
-> Modello di caricamento:
-> ```azurecli-interactive
-> az dt model create --models '{  \"@id\": \"dtmi:contosocom:DigitalTwins:Thermostat;1\",  \"@type\": \"Interface\",  \"@context\": \"dtmi:dtdl:context;2\",  \"contents\": [    {      \"@type\": \"Property\",      \"name\": \"Temperature\",      \"schema\": \"double\"    }  ]}' -n {digital_twins_instance_name}
-> ```
+> [!Note]
+> Se si usa Cloud Shell nell'ambiente PowerShell, potrebbe essere necessario eseguire l'escape dei caratteri di virgoletta nei campi JSON inline affinché i relativi valori vengano analizzati correttamente. Ecco il comando per creare il gemello con questa modifica:
 >
 > Creazione di un dispositivo gemello:
 > ```azurecli-interactive
@@ -117,7 +105,7 @@ Salvare il codice della funzione.
 
 #### <a name="step-3-publish-the-function-app-to-azure"></a>Passaggio 3: pubblicare l'app per le funzioni in Azure
 
-Pubblicare il progetto in un'app per le funzioni in Azure.
+Pubblicare il progetto con la funzione *IoTHubtoTwins. cs* in un'app per le funzioni in Azure.
 
 Per istruzioni su come eseguire questa operazione, vedere la sezione [**pubblicare l'app per le funzioni in Azure**](how-to-create-azure-function.md#publish-the-function-app-to-azure) dell'articolo *procedura: configurare una funzione per l'elaborazione dei dati* .
 

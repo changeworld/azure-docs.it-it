@@ -1,17 +1,17 @@
 ---
 title: Panoramica della rete-server flessibile per database di Azure per MySQL
 description: Informazioni sulle opzioni di connettività e rete nell'opzione di distribuzione flessibile del server per database di Azure per MySQL
-author: ambhatna
-ms.author: ambhatna
+author: savjani
+ms.author: pariks
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 9/23/2020
-ms.openlocfilehash: a8e2d77ff3c7cb2e4352b21cd87d630331e28660
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: ec835073a1fe447490f6965fe41478319a47f503
+ms.sourcegitcommit: bed20f85722deec33050e0d8881e465f94c79ac2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "96906149"
+ms.lasthandoff: 03/25/2021
+ms.locfileid: "105106837"
 ---
 # <a name="connectivity-and-networking-concepts-for-azure-database-for-mysql---flexible-server-preview"></a>Connettività e concetti di rete per database di Azure per MySQL-server flessibile (anteprima)
 
@@ -29,9 +29,9 @@ Sono disponibili due opzioni di rete per il server flessibile del database di Az
 * **Accesso privato (integrazione rete virtuale)** : è possibile distribuire il server flessibile nella [rete virtuale di Azure](../../virtual-network/virtual-networks-overview.md). Le reti virtuali di Azure forniscono comunicazioni private e sicure. Le risorse di una rete virtuale possono comunicare tramite indirizzi IP privati.
 
    Scegliere l'opzione di integrazione rete virtuale per ottenere le funzionalità seguenti:
-   * Connettersi al server flessibile da risorse di Azure nella stessa rete virtuale usando indirizzi IP privati
+   * Connettersi dalle risorse di Azure nella stessa rete virtuale o in una [rete virtuale con peering](../../virtual-network/virtual-network-peering-overview.md) al server flessibile
    * Usare VPN o ExpressRoute per connettersi al server flessibile da risorse non di Azure
-   * Il server flessibile non ha un endpoint pubblico
+   * Nessun endpoint pubblico
 
 * **Accesso pubblico (indirizzi IP consentiti)** : è possibile accedere al server flessibile tramite un endpoint pubblico. L'endpoint pubblico è un indirizzo DNS risolvibile pubblicamente. L'espressione "indirizzi IP consentiti" si riferisce a un intervallo di indirizzi IP a cui si sceglie di concedere l'autorizzazione per l'accesso al server. Queste autorizzazioni si definiscono **regole del firewall**. 
 
@@ -57,13 +57,32 @@ Di seguito sono riportati alcuni concetti con cui si ha familiarità con l'uso d
 
     La rete virtuale deve trovarsi nella stessa area di Azure del server flessibile.
 
-
 * **Subnet delegata** : una rete virtuale contiene subnet (sottoreti). Le subnet consentono di segmentare la rete virtuale in spazi di indirizzi più piccoli. Le risorse di Azure vengono distribuite in subnet specifiche all'interno di una rete virtuale. 
 
    Il server MySQL flessibile deve trovarsi in una subnet **delegata** solo per l'uso di MySQL flexible server. Con questa delega solo i server flessibili di Database di Azure per MySQL possono usare tale subnet. Gli altri tipi di risorsa di Azure non possono trovarsi nella subnet delegata. Si delega una subnet assegnando la relativa proprietà di delega come Microsoft. DBforMySQL/flexibleServers.
 
 * **Gruppi di sicurezza di rete (NSG)** Le regole di sicurezza nei gruppi di sicurezza di rete consentono di filtrare il tipo di traffico di rete che può fluire in entrata e in uscita dalle subnet della rete virtuale e dalle interfacce di rete. Per ulteriori informazioni, vedere la [Panoramica del gruppo di sicurezza di rete](../../virtual-network/network-security-groups-overview.md) .
 
+* **Peering di rete virtuale** Il peering di rete virtuale consente di connettere facilmente due o più reti virtuali in Azure. Le reti virtuali con peering vengono visualizzate come una a scopo di connettività. Il traffico tra le macchine virtuali nelle reti virtuali con peering usa l'infrastruttura backbone di Microsoft. Il traffico tra l'applicazione client e il server flessibile nelle reti virtuali con peering viene instradato solo attraverso la rete privata di Microsoft ed è isolato solo per tale rete.
+
+Il server flessibile supporta il peering di rete virtuale nella stessa area di Azure. Il peering di reti virtuali tra aree **non è supportato**. Per ulteriori informazioni, esaminare i [concetti relativi al peering di rete virtuale](../../virtual-network/virtual-network-peering-overview.md) .
+
+### <a name="connecting-from-peered-vnets-in-same-azure-region"></a>Connessione da reti virtuali con peering nella stessa area di Azure
+Se l'applicazione client che tenta di connettersi a un server flessibile si trova nella rete virtuale con peering, potrebbe non essere in grado di connettersi usando il server nomeserver flessibile perché non è possibile risolvere il nome DNS per il server flessibile da VNet con peering. Sono disponibili due opzioni per risolvere il problema:
+* Usa indirizzo IP privato (scelta consigliata per uno scenario di sviluppo/test): questa opzione può essere usata a scopo di sviluppo o test. È possibile usare nslookup per eseguire la ricerca inversa dell'indirizzo IP privato per il ServerName flessibile (nome di dominio completo) e usare l'indirizzo IP privato per la connessione dall'applicazione client. L'utilizzo dell'indirizzo IP privato per la connessione al server flessibile non è consigliato per l'uso in produzione, in quanto può essere modificato durante un evento pianificato o non pianificato.
+* USA zona DNS privato (scelta consigliata per la produzione): questa opzione è adatta ai fini della produzione. Si esegue il provisioning di una [zona DNS privata](../../dns/private-dns-getstarted-portal.md) e la si collega alla rete virtuale client. Nella zona DNS privata è possibile aggiungere un [record a](../../dns/dns-zones-records.md#record-types) per il server flessibile usando il relativo indirizzo IP privato. È quindi possibile usare il record a per connettersi dall'applicazione client nella rete virtuale con peering a un server flessibile.
+
+### <a name="connecting-from-on-premises-to-flexible-server-in-virtual-network-using-expressroute-or-vpn"></a>Connessione da un server locale a un server flessibile nella rete virtuale tramite ExpressRoute o VPN
+Per i carichi di lavoro che richiedono l'accesso al server flessibile nella rete virtuale dalla rete locale, è necessario che [ExpressRoute](/azure/architecture/reference-architectures/hybrid-networking/expressroute/) o [VPN](/azure/architecture/reference-architectures/hybrid-networking/vpn/) e la rete virtuale siano [connesse al sito locale](/azure/architecture/reference-architectures/hybrid-networking/). Con questa configurazione, sarà necessario un server di un server di un server di gestione per risolvere il nomeserver flessibile se si desidera connettersi dall'applicazione client, ad esempio MySQL Workbench, in esecuzione in una rete virtuale locale. Questo server d'inoltre DNS è responsabile della risoluzione di tutte le query DNS tramite un server di un server d'invio al servizio DNS fornito da Azure [168.63.129.16](../../virtual-network/what-is-ip-address-168-63-129-16.md).
+
+Per configurare correttamente, sono necessarie le risorse seguenti:
+
+- Rete locale
+- Server flessibile MySQL con provisioning con accesso privato (integrazione VNet)
+- Rete virtuale [connessa a locale](/azure/architecture/reference-architectures/hybrid-networking/)
+- Usare [168.63.129.16](../../virtual-network/what-is-ip-address-168-63-129-16.md) del server di distribuzione DNS distribuito in Azure
+
+È quindi possibile usare il nomeserver flessibile (FQDN) per connettersi dall'applicazione client nella rete virtuale con peering o nella rete locale al server flessibile.
 
 ### <a name="unsupported-virtual-network-scenarios"></a>Scenari di rete virtuale non supportati
 * Endpoint pubblico (o IP pubblico o DNS): un server flessibile distribuito in una rete virtuale non può avere un endpoint pubblico
@@ -119,11 +138,10 @@ Esempio
 * Laddove possibile, evitare di usare `hostname = 10.0.0.4` (un indirizzo privato) o `hostname = 40.2.45.67` (un IP pubblico)
 
 
-
 ## <a name="tls-and-ssl"></a>TLS e SSL
 Il server flessibile database di Azure per MySQL supporta la connessione delle applicazioni client al servizio MySQL usando Transport Layer Security (TLS). TLS è un protocollo standard del settore che garantisce connessioni di rete crittografate tra il server di database e le applicazioni client. TLS è un protocollo aggiornato di Secure Sockets Layer (SSL).
 
-Il server flessibile database di Azure per MySQL supporta solo connessioni crittografate con Transport Layer Security (TLS 1,2). Tutte le connessioni in ingresso con TLS 1,0 e TLS 1,1 verranno negate. Non è possibile disabilitare o modificare la versione di TLS per la connessione al server flessibile di database di Azure per MySQL.
+Il server flessibile database di Azure per MySQL supporta solo connessioni crittografate con Transport Layer Security (TLS 1,2). Tutte le connessioni in ingresso con TLS 1.0 e TLS 1.1 verranno rifiutate. Non è possibile disabilitare o modificare la versione di TLS per la connessione al server flessibile di database di Azure per MySQL. Per ulteriori informazioni, vedere la pagina relativa alla modalità di [connessione tramite SSL/TLS](how-to-connect-tls-ssl.md) . 
 
 
 ## <a name="next-steps"></a>Passaggi successivi

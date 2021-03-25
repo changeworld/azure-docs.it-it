@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 06/10/2020
 author: mingshen-ms
 ms.author: mingshen
-ms.openlocfilehash: 39a0830806d2d9c7358d175cae703e9c81c45b02
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: e7bcfe1afc063d89bc6a5339bf62521cd644b8ca
+ms.sourcegitcommit: ed7376d919a66edcba3566efdee4bc3351c57eda
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "93130018"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105048341"
 ---
 # <a name="register-a-saas-application"></a>Registrare un'applicazione SaaS
 
@@ -48,7 +48,7 @@ Qualsiasi applicazione che vuole usare le funzionalità di Azure AD deve prima e
 Il **Azure ad ID app** è associato all'ID editore, quindi assicurarsi che lo stesso *ID app* venga usato in tutte le offerte.
 
 >[!Note]
->Se un server di pubblicazione dispone di due account diversi nel centro per i partner, è necessario usare due diversi ID app Azure AD.  Ogni account partner nel centro per i partner deve usare un ID app univoco Azure AD per tutte le offerte SaaS pubblicate tramite questo account.
+>Se il server di pubblicazione dispone di due o più account diversi nel centro per i partner, è possibile usare i dettagli di registrazione dell'app Azure AD in un solo account. Con lo stesso ID tenant, la coppia ID app per un'offerta con un account di Publisher diverso non è supportata.
 
 ## <a name="how-to-get-the-publishers-authorization-token"></a>Come ottenere il token di autorizzazione dell'editore
 
