@@ -8,12 +8,12 @@ author: tcare
 ms.author: tcare
 description: Questo articolo fornisce una panoramica concettuale di un flusso di lavoro CI/CD con GitOps
 keywords: GitOps, Kubernetes, K8s, Azure, Helm, Arc, AKS, Azure Kubernetes Service, contenitori, CI, CD, Azure DevOps
-ms.openlocfilehash: a51a9f2b32f1088cec390dc4d74300a38f37b160
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 47633ed5bec1a07c878983d0e93e03149d8967ba
+ms.sourcegitcommit: a8ff4f9f69332eef9c75093fd56a9aae2fe65122
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102121780"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105025867"
 ---
 # <a name="cicd-workflow-using-gitops---azure-arc-enabled-kubernetes"></a>Flusso di lavoro CI/CD con GitOps-Azure Arc Enabled Kubernetes
 
@@ -30,7 +30,7 @@ Si consideri un'applicazione distribuita in uno o più ambienti Kubernetes.
 ### <a name="application-repo"></a>Repository dell'applicazione
 Il repository dell'applicazione contiene il codice dell'applicazione su cui lavorano gli sviluppatori durante il ciclo interno. I modelli di distribuzione dell'applicazione risiedono in questo repository in un formato generico, ad esempio Helm o Kustomize. I valori specifici dell'ambiente non vengono archiviati. Le modifiche apportate a questo repository richiamano una pipeline pull o CI che avvia il processo di distribuzione.
 ### <a name="container-registry"></a>Registro contenitori
-Il registro contenitori include tutte le immagini di prima e di terze parti usate negli ambienti Kubernetes. Contrassegnare le immagini dell'applicazione di terze parti con tag leggibili e il commit Git usati per compilare l'immagine. Memorizza nella cache immagini di terze parti per sicurezza, velocità e resilienza. Impostare un piano per i test tempestivi e l'integrazione degli aggiornamenti della sicurezza. Per ulteriori informazioni, vedere la guida relativa all' [utilizzo e alla manutenzione del contenuto pubblico di ACR](https://docs.microsoft.com/azure/container-registry/tasks-consume-public-content) per un esempio.
+Il registro contenitori include tutte le immagini di prima e di terze parti usate negli ambienti Kubernetes. Contrassegnare le immagini dell'applicazione di terze parti con tag leggibili e il commit Git usati per compilare l'immagine. Memorizza nella cache immagini di terze parti per sicurezza, velocità e resilienza. Impostare un piano per i test tempestivi e l'integrazione degli aggiornamenti della sicurezza. Per ulteriori informazioni, vedere la guida relativa all' [utilizzo e alla manutenzione del contenuto pubblico di ACR](../../container-registry/tasks-consume-public-content.md) per un esempio.
 ### <a name="pr-pipeline"></a>Pipeline PR
 Le richieste pull al repository dell'applicazione vengono gestite in modo corretto per l'esecuzione della pipeline di richiesta pull. Questa pipeline esegue le attività di controllo di qualità di base, ad esempio le operazioni di pelucchi e unit test sul codice dell'applicazione. La pipeline verifica l'applicazione e non i modelli Dockerfile e Helm usati per la distribuzione in un ambiente Kubernetes. Le immagini Docker devono essere compilate e testate, ma non inserite. Tenere la durata della pipeline relativamente breve per consentire l'iterazione rapida.
 ### <a name="ci-pipeline"></a>Pipeline CI

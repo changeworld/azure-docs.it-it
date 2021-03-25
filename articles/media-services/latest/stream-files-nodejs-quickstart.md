@@ -11,12 +11,12 @@ ms.workload: media
 ms.topic: tutorial
 ms.date: 02/17/2021
 ms.author: inhenkel
-ms.openlocfilehash: b7efa37747e6d116b4cf26b4cf54377037f22cdd
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: a431060be380952940bdb99c65abc7a9740091de
+ms.sourcegitcommit: bb330af42e70e8419996d3cba4acff49d398b399
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102212757"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105038159"
 ---
 # <a name="how-to-encode-and-stream-video-files-with-nodejs"></a>Come codificare ed eseguire lo streaming di file video con Node.JS
 
@@ -71,7 +71,7 @@ L'esempio esegue le azioni seguenti:
 
 ## <a name="run-the-sample"></a>Eseguire l'esempio
 
-1. L'applicazione Scarica i file codificati. Creare una cartella in cui si desidera che i file di output vengano aggiornati e aggiornare il valore della variabile **CartellaOutput** nel file [index. TS](https://github.com/Azure-Samples/media-services-v3-node-tutorials/blob/master/AMSv3Samples/StreamFilesSample/index.js#L59) . Per impostazione predefinita, è impostato su "Temp".
+1. L'applicazione Scarica i file codificati. Creare una cartella in cui si desidera che i file di output vengano aggiornati e aggiornare il valore della variabile **CartellaOutput** nel file [index. TS](https://github.com/Azure-Samples/media-services-v3-node-tutorials/blob/main/AMSv3Samples/StreamFilesSample/index.ts#L59) . Per impostazione predefinita, è impostato su "Temp".
 1. Aprire un **prompt dei comandi** e passare alla directory dell'esempio.
 1. Modificare la directory nella cartella AMSv3Samples
 

@@ -1,5 +1,5 @@
 ---
-title: Regole di valutazione per la migrazione da SQL Server a SQL Istanza gestita
+title: Regole di valutazione per SQL Server alla migrazione di Istanza gestita SQL di Azure
 description: Regole di valutazione per identificare i problemi relativi all'istanza di SQL Server di origine che devono essere risolti prima di eseguire la migrazione al Istanza gestita SQL di Azure.
 ms.service: sql-managed-instance
 ms.subservice: migration-guide
@@ -10,14 +10,14 @@ author: MashaMSFT
 ms.author: mathoma
 ms.reviewer: MashaMSFT
 ms.date: 12/15/2020
-ms.openlocfilehash: 760a6496ff297ae6328810589f780b430d55b18a
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: fc8959d44fbacd90916a045d23db4bee872c4670
+ms.sourcegitcommit: a8ff4f9f69332eef9c75093fd56a9aae2fe65122
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102054728"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105026037"
 ---
-# <a name="assessment-rules-for-sql-server-to-sql-managed-instance-migration"></a>Regole di valutazione per la migrazione da SQL Server a SQL Istanza gestita
+# <a name="assessment-rules-for-sql-server-to--azure-sql-managed-instance-migration"></a>Regole di valutazione per SQL Server alla migrazione di Istanza gestita SQL di Azure
 [!INCLUDE[appliesto--sqldb](../../includes/appliesto-sqldb.md)]
 
 Gli strumenti di migrazione convalidano l'istanza di SQL Server di origine eseguendo una serie di regole di valutazione per identificare i problemi che devono essere risolti prima di eseguire la migrazione del database di SQL Server in Istanza gestita SQL di Azure. 

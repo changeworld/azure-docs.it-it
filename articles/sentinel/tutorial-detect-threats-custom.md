@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/10/2021
 ms.author: yelevin
-ms.openlocfilehash: 6f0a94daef8c5db820a17fe8cb50eda616bcf260
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 70b56e70ec0e6f511142c48cc89720c054807a5c
+ms.sourcegitcommit: ed7376d919a66edcba3566efdee4bc3351c57eda
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102453936"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105042799"
 ---
 # <a name="tutorial-create-custom-analytics-rules-to-detect-threats"></a>Esercitazione: creare regole di analisi personalizzate per rilevare le minacce
 
@@ -64,7 +64,7 @@ Nella scheda **impostare la logica della regola** è possibile scrivere una quer
 
    :::image type="content" source="media/tutorial-detect-threats-custom/set-rule-logic-tab-1-new.png" alt-text="Configurare la logica e le impostazioni della regola di query" lightbox="media/tutorial-detect-threats-custom/set-rule-logic-tab-all-1-new.png":::
 
-- Ecco un'altra query di esempio, che avvisa l'utente quando viene creato un numero anomalo di risorse nell' [attività di Azure](../azure-monitor/platform/activity-log.md).
+- Ecco un'altra query di esempio, che avvisa l'utente quando viene creato un numero anomalo di risorse nell' [attività di Azure](../azure-monitor/essentials/activity-log.md).
 
     ```kusto
     AzureActivity

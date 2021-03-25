@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 03/15/2021
-ms.openlocfilehash: ac37a6de4197d5e7cae20d2bde759b98fe474047
-ms.sourcegitcommit: a67b972d655a5a2d5e909faa2ea0911912f6a828
+ms.openlocfilehash: e8dd887d151eb553131048f232940555dbef324b
+ms.sourcegitcommit: a8ff4f9f69332eef9c75093fd56a9aae2fe65122
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/23/2021
-ms.locfileid: "104889621"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105025034"
 ---
 # <a name="enable-sql-insights-preview"></a>Abilita SQL Insights (anteprima)
 Questo articolo descrive come abilitare [SQL Insights](sql-insights-overview.md) per monitorare le distribuzioni SQL. Il monitoraggio viene eseguito da una macchina virtuale di Azure che effettua una connessione alle distribuzioni SQL e usa le viste a gestione dinamica (DMV) per raccogliere i dati di monitoraggio. È possibile controllare quali set di dati vengono raccolti e la frequenza della raccolta usando un profilo di monitoraggio.
@@ -40,7 +40,7 @@ Verificare che l'utente sia stato creato.
 :::image type="content" source="media/sql-insights-enable/telegraf-user-database-verify.png" alt-text="Verificare lo script utente Telegraf." lightbox="media/sql-insights-enable/telegraf-user-database-verify.png":::
 
 ### <a name="azure-sql-managed-instance"></a>Istanza gestita di SQL di Azure
-Accedere al Istanza gestita SQL di Azure e usare [SSMS](../../azure-sql/database/connect-query-ssms.md) o uno strumento simile per eseguire lo script seguente per creare l'utente di monitoraggio con le autorizzazioni necessarie. Sostituire *utente* con un nome utente e *mystrongpassword* con una password.
+Accedere al Istanza gestita SQL di Azure e usare [SQL Server Management Studio](../../azure-sql/database/connect-query-ssms.md) o uno strumento simile per eseguire lo script seguente per creare l'utente di monitoraggio con le autorizzazioni necessarie. Sostituire *utente* con un nome utente e *mystrongpassword* con una password.
 
  
 ```
@@ -85,7 +85,7 @@ Per le macchine virtuali di Azure sono previsti i requisiti seguenti.
 > [!NOTE]
 > Le dimensioni della macchina virtuale Standard_B2s (2 CPU, 4 GiB di memoria) supporteranno fino a 100 stringhe di connessione. Non è consigliabile allocare più di 100 connessioni a una singola macchina virtuale.
 
-Le macchine virtuali devono essere posizionate nella stessa VNET dei sistemi SQL in modo che possano creare connessioni di rete per raccogliere i dati di monitoraggio. Se si usa la macchina virtuale di monitoraggio per monitorare SQL in esecuzione in macchine virtuali di Azure o come Istanza gestita di Azure, considerare la possibilità di collocare la macchina virtuale di monitoraggio in un gruppo di sicurezza delle applicazioni o nella stessa rete virtuale delle risorse in modo da non dover fornire un endpoint di rete pubblico per il monitoraggio di SQL Server. 
+A seconda delle impostazioni di rete delle risorse SQL, potrebbe essere necessario inserire le macchine virtuali nella stessa rete virtuale delle risorse SQL, in modo che possano stabilire connessioni di rete per raccogliere i dati di monitoraggio.  
 
 ## <a name="configure-network-settings"></a>Configurare le impostazioni di rete
 Ogni tipo di SQL offre metodi che consentono alla macchina virtuale di monitoraggio di accedere in modo sicuro a SQL.  Le sezioni seguenti illustrano le opzioni basate sul tipo di SQL.
@@ -100,8 +100,6 @@ Per l'accesso tramite l'endpoint pubblico, è necessario aggiungere una regola n
 
 :::image type="content" source="media/sql-insights-enable/firewall-settings.png" alt-text="Impostazioni del firewall." lightbox="media/sql-insights-enable/firewall-settings.png":::
 
-> [!NOTE]
-> SQL Insights attualmente non supporta l'endpoint privato di Azure per il database SQL di Azure.  È consigliabile usare i [tag di servizio](https://docs.microsoft.com/azure/virtual-network/service-tags-overview) nel gruppo di sicurezza di rete o nelle impostazioni del firewall di rete virtuale supportate dall'agente di monitoraggio di [Azure](https://docs.microsoft.com/azure/azure-monitor/agents/azure-monitor-agent-overview#networking).
 
 ### <a name="azure-sql-managed-instances"></a>Istanze gestite di SQL di Azure 
 
@@ -213,12 +211,16 @@ Per monitorare un database secondario leggibile, includere il valore chiave `App
 
 
 
-## <a name="profile-created"></a>Profilo creato 
-Selezionare **Aggiungi macchina virtuale di monitoraggio** per configurare la macchina virtuale per la raccolta di dati dalle distribuzioni SQL. Non tornare alla scheda **Panoramica** .  In pochi minuti la colonna stato dovrebbe cambiare per indicare "raccolta". verranno visualizzati i dati per i sistemi scelti per il monitoraggio.
+## <a name="monitoring-profile-created"></a>Profilo di monitoraggio creato 
+
+Selezionare **Aggiungi macchina virtuale di monitoraggio** per configurare la macchina virtuale per la raccolta di dati dalle risorse SQL. Non tornare alla scheda **Panoramica** .  In pochi minuti la colonna stato dovrebbe cambiare in "raccolta", verranno visualizzati i dati per le risorse SQL che si è scelto di monitorare.
 
 Se i dati non vengono visualizzati, vedere [risoluzione dei problemi relativi a SQL Insights](sql-insights-troubleshoot.md) per identificare il problema. 
 
 :::image type="content" source="media/sql-insights-enable/profile-created.png" alt-text="Profilo creato" lightbox="media/sql-insights-enable/profile-created.png":::
+
+> [!NOTE]
+> Se è necessario aggiornare il profilo di monitoraggio o le stringhe di connessione nelle VM di monitoraggio, è possibile farlo tramite la scheda **Gestione profilo** di SQL Insights.  Una volta salvati gli aggiornamenti, le modifiche verranno applicate in circa 5 minuti.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

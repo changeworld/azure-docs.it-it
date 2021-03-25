@@ -287,7 +287,7 @@
               href: storage-blob-container-properties-metadata.md
         - name: Creare e gestire gli account di accesso
           items:
-            - name: Elencare i BLOB (.NET)
+            - name: Elencare i BLOB (SDK)
               href: storage-blobs-list.md
             - name: Gestire proprietà e metadati dei BLOB (.NET)
               href: storage-blob-properties-metadata.md

@@ -16,12 +16,12 @@ ms.date: 04/16/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c320c8497506a0269e65cd79e18aea1972354729
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 349aef1bb9382eec19d9ad9c7f6d4579c82b62de
+ms.sourcegitcommit: ed7376d919a66edcba3566efdee4bc3351c57eda
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104589523"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105043938"
 ---
 # <a name="azure-active-directory-seamless-single-sign-on-quickstart"></a>Azure Active Directory Single Sign-on facile: avvio rapido
 
@@ -43,7 +43,7 @@ Accertarsi di aver soddisfatto i prerequisiti seguenti:
     >Le versioni 1.1.557.0, 1.1.558.0, 1.1.561.0 e 1.1.614.0 di Azure AD Connect presentano un problema correlato alla sincronizzazione dell'hash delle password. Se _non_ si prevede di usare la sincronizzazione dell'hash delle password in combinazione con l'autenticazione pass-through, leggere le [note sulla versione Azure ad Connect](./reference-connect-version-history.md) per altre informazioni.
     
     >[!NOTE]
-    >Se si dispone di un proxy HTTP in uscita, assicurarsi che l'URL, autologon.microsoftazuread-sso.com, sia incluso nell'elenco elementi consentiti. È necessario specificare questo URL in modo esplicito perché il carattere jolly potrebbe non essere accettato. 
+    >Se si dispone di un proxy HTTP in uscita, assicurarsi che l'URL, autologon.microsoftazuread-sso.com, sia presente nell'elenco degli indirizzi consentiti. È necessario specificare questo URL in modo esplicito perché il carattere jolly potrebbe non essere accettato. 
 
 * **Usare una topologia di Azure AD Connect supportata**: assicurarsi di usare una delle topologie supportate di Azure AD Connect descritte [qui](plan-connect-topologies.md).
 

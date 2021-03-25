@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2021
 ms.author: mnayak
-ms.openlocfilehash: 1fcc918e5b4b54a415fed0f38d210aeeaa62c008
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 00e0d1afa2aa035fe27e73dae60e291ea53bd6b8
+ms.sourcegitcommit: ed7376d919a66edcba3566efdee4bc3351c57eda
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101679791"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105042850"
 ---
 # <a name="what-is-routing-preference-unmetered"></a>Informazioni sulle preferenze di routing non a consumo
 
@@ -45,4 +45,4 @@ Configurare quindi la preferenza di routing per le risorse e impostare il tipo d
 
 * [Configurare la preferenza di routing per una macchina virtuale con Azure PowerShell](configure-routing-preference-virtual-machine-powershell.md)
 * [Configurare la preferenza di routing per una macchina virtuale con l'interfaccia della riga di comando di Azure](configure-routing-preference-virtual-machine-cli.md)
-* [Configurare la preferenza di routing per l'account di archiviazione](/azure/storage/common/network-routing-preference)
+* [Configurare la preferenza di routing per l'account di archiviazione](../storage/common/network-routing-preference.md)

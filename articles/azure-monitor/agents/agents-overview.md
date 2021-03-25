@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 01/12/2021
-ms.openlocfilehash: a2f6023b86b96266be8e625fd5b0d6625500e3fc
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
+ms.openlocfilehash: 4d1dd358c03d051be4be5733d9e729d1d7ef5b0c
+ms.sourcegitcommit: a8ff4f9f69332eef9c75093fd56a9aae2fe65122
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102551471"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105026173"
 ---
 # <a name="overview-of-azure-monitor-agents"></a>Panoramica degli agenti di monitoraggio di Azure
 
@@ -97,7 +97,7 @@ Usare l'estensione diagnostica di Azure se è necessario:
 - Inviare i dati ad archiviazione di Azure per l'archiviazione o analizzarli con strumenti come [Azure Storage Explorer](../../vs-azure-tools-storage-manage-with-storage-explorer.md).
 - Inviare dati alle [metriche di monitoraggio di Azure](../essentials/data-platform-metrics.md) per analizzarli con [Esplora metriche](../essentials/metrics-getting-started.md) e per sfruttare i vantaggi offerti dalle funzionalità, ad esempio gli [avvisi delle metriche](../alerts/alerts-metric-overview.md) near Real Time e la [scalabilità](../autoscale/autoscale-overview.md) automatica (solo Windows).
 - Inviare dati a strumenti di terze parti usando [Hub eventi di Azure](./diagnostics-extension-stream-event-hubs.md).
-- Raccogliere la [diagnostica di avvio](../../virtual-machines/troubleshooting/boot-diagnostics.md) per esaminare i problemi di avvio della macchina virtuale.
+- Raccogliere la [diagnostica di avvio](/troubleshoot/azure/virtual-machines/boot-diagnostics) per esaminare i problemi di avvio della macchina virtuale.
 
 Le limitazioni dell'estensione diagnostica di Azure includono:
 

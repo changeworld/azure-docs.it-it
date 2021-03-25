@@ -3,18 +3,18 @@ title: 'Esercitazione: Creare e gestire dati esportati da Gestione costi di Azur
 description: Questo articolo descrive come creare e gestire dati esportati di Gestione costi di Azure per poterli usare in sistemi esterni.
 author: bandersmsft
 ms.author: banders
-ms.date: 12/7/2020
+ms.date: 03/24/2020
 ms.topic: tutorial
 ms.service: cost-management-billing
 ms.subservice: cost-management
 ms.reviewer: adwise
 ms.custom: seodec18, devx-track-azurepowershell
-ms.openlocfilehash: e3c1fa071cd23b871f754e89d6f17eb2cc44b394
-ms.sourcegitcommit: cc13f3fc9b8d309986409276b48ffb77953f4458
-ms.translationtype: HT
+ms.openlocfilehash: a386b214c4372c9d8de729a8b6bed4aac9edd9f3
+ms.sourcegitcommit: ed7376d919a66edcba3566efdee4bc3351c57eda
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/14/2020
-ms.locfileid: "97400353"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105043462"
 ---
 # <a name="tutorial-create-and-manage-exported-data"></a>Esercitazione: Creare e gestire dati esportati
 
@@ -80,6 +80,8 @@ La nuova esportazione verrà visualizzata nell'elenco di esportazioni. Per impos
 Inizialmente, possono essere necessarie 12-24 ore prima che l'esportazione venga eseguita. Tuttavia, può essere necessario più tempo prima che i dati vengano visualizzati nei file esportati.
 
 ### <a name="azure-cli"></a>[Interfaccia della riga di comando di Azure](#tab/azure-cli)
+
+Quando si crea un'esportazione a livello di codice, è necessario registrare manualmente il `Microsoft.CostManagementExports` provider di risorse con la sottoscrizione in cui risiede l'account di archiviazione. La registrazione viene eseguita automaticamente quando si crea l'esportazione usando il portale di Azure. Per altre informazioni su come registrare i provider di risorse, vedere [registrare il provider di risorse](../../azure-resource-manager/management/resource-providers-and-types.md#register-resource-provider).
 
 Per iniziare, preparare l'ambiente per l'interfaccia della riga di comando di Azure:
 
@@ -148,6 +150,8 @@ az costmanagement export delete --name DemoExport --scope "subscriptions/0000000
 ```
 
 ### <a name="azure-powershell"></a>[Azure PowerShell](#tab/azure-powershell)
+
+Quando si crea un'esportazione a livello di codice, è necessario registrare manualmente il `Microsoft.CostManagementExports` provider di risorse con la sottoscrizione in cui risiede l'account di archiviazione. La registrazione viene eseguita automaticamente quando si crea l'esportazione usando il portale di Azure. Per altre informazioni su come registrare i provider di risorse, vedere [registrare il provider di risorse](../../azure-resource-manager/management/resource-providers-and-types.md#register-resource-provider).
 
 Per iniziare, preparare l'ambiente per Azure PowerShell:
 

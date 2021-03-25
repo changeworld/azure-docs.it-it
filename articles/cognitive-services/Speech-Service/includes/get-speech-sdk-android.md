@@ -4,12 +4,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 03/27/2020
 ms.author: trbye
-ms.openlocfilehash: f07eb0ab252144d1e0953a1a227dfbadb152c422
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 7d503893b1f8814c333e5683343851cc1da2e076
+ms.sourcegitcommit: ed7376d919a66edcba3566efdee4bc3351c57eda
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102434507"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105043239"
 ---
 :::row:::
     :::column span="3":::
@@ -31,7 +31,7 @@ ms.locfileid: "102434507"
 
 :::row:::
     :::column span="3":::
-        Xamarin.Android espone la versione completa di Android SDK per gli sviluppatori .NET. Creare app Android completamente native con C# o F# in Visual Studio. Per altre informazioni, vedere <a href="https://docs.microsoft.com/xamarin/android/" target="_blank">Novell. Android </a>
+        Xamarin.Android espone la versione completa di Android SDK per gli sviluppatori .NET. Creare app Android completamente native con C# o F# in Visual Studio. Per altre informazioni, vedere <a href="/xamarin/android/" target="_blank">Novell. Android </a>
     :::column-end:::
     :::column:::
         <br>

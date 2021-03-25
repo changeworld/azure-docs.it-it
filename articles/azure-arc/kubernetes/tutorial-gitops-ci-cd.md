@@ -7,12 +7,12 @@ ms.service: azure-arc
 ms.topic: tutorial
 ms.date: 03/03/2021
 ms.custom: template-tutorial
-ms.openlocfilehash: 72caca47cde960eb7298ec2cf0c6994755cb3159
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: f720cc196f4034d29ec1d628e28d3534b10f3e41
+ms.sourcegitcommit: a8ff4f9f69332eef9c75093fd56a9aae2fe65122
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102121610"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105025816"
 ---
 # <a name="tutorial-implement-cicd-with-gitops-using-azure-arc-enabled-kubernetes-clusters"></a>Esercitazione: implementare CI/CD con GitOps usando cluster Kubernetes abilitati per Azure Arc
 
@@ -37,12 +37,12 @@ Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://a
 Questa esercitazione presuppone una certa familiarità con DevOps, Azure Repos e pipeline di Azure e l'interfaccia della riga di comando di Azure.
 
 * Accedere [Azure DevOps Services](https://dev.azure.com/).
-* Completare l' [esercitazione precedente](https://docs.microsoft.com/azure/azure-arc/kubernetes/tutorial-use-gitops-connected-cluster) per informazioni su come distribuire GitOps per l'ambiente ci/CD.
-* Comprendere i [vantaggi e l'architettura](https://docs.microsoft.com/azure/azure-arc/kubernetes/conceptual-configurations) di questa funzionalità.
+* Completare l' [esercitazione precedente](./tutorial-use-gitops-connected-cluster.md) per informazioni su come distribuire GitOps per l'ambiente ci/CD.
+* Comprendere i [vantaggi e l'architettura](./conceptual-configurations.md) di questa funzionalità.
 * Verificare di avere:
-  * Un [cluster Kubernetes abilitato per Azure Arc](https://docs.microsoft.com/azure/azure-arc/kubernetes/quickstart-connect-cluster#connect-an-existing-kubernetes-cluster) denominato **Arc-CICD-cluster**.
-  * Un Container Registry di Azure connesso (ACR) con l' [integrazione AKS](https://docs.microsoft.com/azure/aks/cluster-container-registry-integration) o [l'autenticazione del cluster non AKS](https://docs.microsoft.com/azure/container-registry/container-registry-auth-kubernetes).
-  * Autorizzazioni "compilazione amministratore" e "amministratore progetto" per [Azure Repos](https://docs.microsoft.com/azure/devops/repos/get-started/what-is-repos) e [Azure Pipelines](https://docs.microsoft.com/azure/devops/pipelines/get-started/pipelines-get-started).
+  * Un [cluster Kubernetes abilitato per Azure Arc](./quickstart-connect-cluster.md#connect-an-existing-kubernetes-cluster) denominato **Arc-CICD-cluster**.
+  * Un Container Registry di Azure connesso (ACR) con l' [integrazione AKS](../../aks/cluster-container-registry-integration.md) o [l'autenticazione del cluster non AKS](../../container-registry/container-registry-auth-kubernetes.md).
+  * Autorizzazioni "compilazione amministratore" e "amministratore progetto" per [Azure Repos](/azure/devops/repos/get-started/what-is-repos) e [Azure Pipelines](/azure/devops/pipelines/get-started/pipelines-get-started).
 * Installare le seguenti estensioni dell'interfaccia della riga di comando di Azure Arc abilitate per Kubernetes di versioni >= 1.0.0:
 
   ```azurecli
@@ -67,7 +67,7 @@ Importare un [repository dell'applicazione](https://docs.microsoft.com/azure/azu
    * URL: https://github.com/Azure/arc-cicd-demo-gitops
    * Funziona come base per le risorse cluster che ospitano l'app Azure vote.
 
-Altre informazioni sull' [importazione di repository git](https://docs.microsoft.com/azure/devops/repos/git/import-git-repository).
+Altre informazioni sull' [importazione di repository git](/azure/devops/repos/git/import-git-repository).
 
 >[!NOTE]
 > L'importazione e l'utilizzo di due repository distinti per le applicazioni e i repository GitOps possono migliorare la sicurezza e la semplicità. Le autorizzazioni e la visibilità dei repository GitOps e delle applicazioni possono essere ottimizzate singolarmente.
@@ -86,7 +86,7 @@ La connessione GitOps creata verrà automaticamente:
 Il flusso di lavoro CI/CD popola la directory del manifesto con manifesti aggiuntivi per distribuire l'app.
 
 
-1. [Creare una nuova connessione GitOps](https://docs.microsoft.com/azure/azure-arc/kubernetes/tutorial-use-gitops-connected-cluster) al repository **Arc-CICD-demo-GitOps** appena importato in Azure Repos.
+1. [Creare una nuova connessione GitOps](./tutorial-use-gitops-connected-cluster.md) al repository **Arc-CICD-demo-GitOps** appena importato in Azure Repos.
 
    ```azurecli
    az k8sconfiguration create \
@@ -172,7 +172,7 @@ kubectl create secret docker-registry <secret-name> \
 ## <a name="create-environment-variable-groups"></a>Creare gruppi di variabili di ambiente
 
 ### <a name="app-repo-variable-group"></a>Gruppo di variabili del repository app
-[Creare un gruppo di variabili](https://docs.microsoft.com/azure/devops/pipelines/library/variable-groups) denominato **AZ-vote-app-dev**. Impostare i valori seguenti:
+[Creare un gruppo di variabili](/azure/devops/pipelines/library/variable-groups) denominato **AZ-vote-app-dev**. Impostare i valori seguenti:
 
 | Variabile | valore |
 | -------- | ----- |
@@ -182,13 +182,13 @@ kubectl create secret docker-registry <secret-name> \
 | ENVIRONMENT_NAME | Sviluppo |
 | MANIFESTS_BRANCH | `master` |
 | MANIFESTS_REPO | Stringa di connessione git per il repository GitOps |
-| Token di accesso personali | [Token Pat creato](https://docs.microsoft.com/azure/devops/organizations/accounts/use-personal-access-tokens-to-authenticate?#create-a-pat) con autorizzazioni di lettura/scrittura per l'origine. Salvarlo per usarlo in seguito durante la creazione del `stage` gruppo di variabili. |
+| Token di accesso personali | [Token Pat creato](/azure/devops/organizations/accounts/use-personal-access-tokens-to-authenticate#create-a-pat) con autorizzazioni di lettura/scrittura per l'origine. Salvarlo per usarlo in seguito durante la creazione del `stage` gruppo di variabili. |
 | SRC_FOLDER | `azure-vote` | 
 | TARGET_CLUSTER | `arc-cicd-cluster` |
 | TARGET_NAMESPACE | `dev` |
 
 > [!IMPORTANT]
-> Contrassegnare PAT come tipo di segreto. Nelle applicazioni, prendere in considerazione il collegamento di segreti da un insieme di credenziali delle chiavi di [Azure](https://docs.microsoft.com/azure/devops/pipelines/library/variable-groups#link-secrets-from-an-azure-key-vault).
+> Contrassegnare PAT come tipo di segreto. Nelle applicazioni, prendere in considerazione il collegamento di segreti da un insieme di credenziali delle chiavi di [Azure](/azure/devops/pipelines/library/variable-groups#link-secrets-from-an-azure-key-vault).
 >
 ### <a name="stage-environment-variable-group"></a>Gruppo di variabili di ambiente della fase
 
@@ -255,7 +255,7 @@ Se l'ambiente di sviluppo rivela un'interruzioni dopo la distribuzione, mantener
 1. Fornire i responsabili approvazione e un messaggio facoltativo.
 1. Selezionare di nuovo **Crea** per completare l'aggiunta del controllo di approvazione manuale.
 
-Per altri dettagli, vedere l'esercitazione [definire l'approvazione e i controlli](https://docs.microsoft.com/azure/devops/pipelines/process/approvals) .
+Per altri dettagli, vedere l'esercitazione [definire l'approvazione e i controlli](/azure/devops/pipelines/process/approvals) .
 
 Alla successiva esecuzione della pipeline CD, la pipeline verrà sospesa dopo la creazione della richiesta pull GitOps. Verificare che la modifica sia stata sincronizzata correttamente e che la funzionalità di base sia passata. Approvare il controllo dalla pipeline per consentire al flusso di modifiche di passare all'ambiente successivo.
 
@@ -291,7 +291,7 @@ Gli errori rilevati durante l'esecuzione della pipeline vengono visualizzati nel
 Al termine dell'esecuzione della pipeline, sarà garantita la qualità del codice dell'applicazione e del modello che lo distribuirà. È ora possibile approvare e completare la richiesta pull. L'CI verrà nuovamente eseguito, rigenerando i modelli e i manifesti prima di attivare la pipeline CD.
 
 > [!TIP]
-> In un ambiente reale, non dimenticare di impostare i criteri per i rami per assicurarsi che la richiesta pull superi i controlli di qualità. Per altre informazioni, vedere l'articolo [su come impostare i criteri](https://docs.microsoft.com/azure/devops/repos/git/branch-policies) per i rami.
+> In un ambiente reale, non dimenticare di impostare i criteri per i rami per assicurarsi che la richiesta pull superi i controlli di qualità. Per altre informazioni, vedere l'articolo [su come impostare i criteri](/azure/devops/repos/git/branch-policies) per i rami.
 
 ## <a name="cd-process-approvals"></a>Approvazioni del processo CD
 
