@@ -1,19 +1,19 @@
 ---
 title: "Guida introduttiva: aggiungere una riunione ai team da un'app Web"
-description: In questa esercitazione si apprenderà come partecipare a una riunione dei team usando i servizi di comunicazione di Azure che chiamano la libreria client per JavaScript
+description: In questa esercitazione si apprenderà come partecipare a una riunione dei team usando i servizi di comunicazione di Azure che chiamano SDK per JavaScript
 author: chpalm
 ms.author: mikben
 ms.date: 03/10/2021
 ms.topic: quickstart
 ms.service: azure-communication-services
-ms.openlocfilehash: 43f6241f0da0ecc9c68cf60e9f1a0482509374f3
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 4b6cf48c577bb6f22f497007c4b1c1b57ab6f187
+ms.sourcegitcommit: bed20f85722deec33050e0d8881e465f94c79ac2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103487998"
+ms.lasthandoff: 03/25/2021
+ms.locfileid: "105108190"
 ---
-In questa Guida introduttiva si apprenderà come partecipare a una riunione di Team usando i servizi di comunicazione di Azure che chiamano la libreria client per JavaScript.
+In questa Guida introduttiva si apprenderà come partecipare a una riunione di Team usando i servizi di comunicazione di Azure che chiamano SDK per JavaScript.
 
 ## <a name="prerequisites"></a>Prerequisiti
 

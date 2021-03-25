@@ -147,6 +147,8 @@
       href: /azure/templates/microsoft.netapp/allversions
     - name: Azure Application Consistent Snapshot Tool (AzAcSnap)
       items:
+        - name: Note sulla versione di AzAcSnap
+          href: azacsnap-release-notes.md
         - name: Introduzione ad AzAcSnap
           href: azacsnap-get-started.md
         - name: Installare AzAcSnap

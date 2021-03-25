@@ -4,12 +4,12 @@ ms.service: azure-communication-services
 ms.topic: include
 ms.date: 03/10/2021
 ms.author: mikben
-ms.openlocfilehash: 33212f14faa0e7c201c13474af981790c01284f3
-ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
+ms.openlocfilehash: 4a493d5f0d34cd4621d55c0371036c03e267c466
+ms.sourcegitcommit: bed20f85722deec33050e0d8881e465f94c79ac2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/16/2021
-ms.locfileid: "104598782"
+ms.lasthandoff: 03/25/2021
+ms.locfileid: "105108281"
 ---
 ## <a name="setting-up"></a>Configurazione
 
@@ -29,7 +29,7 @@ npm init -y
 
 ### <a name="install-the-package"></a>Installare il pacchetto
 
-Usare il comando `npm install` per installare la libreria client Chiamate di Servizi di comunicazione di Azure per JavaScript.
+Usare il `npm install` comando per installare i servizi di comunicazione di Azure che chiamano SDK per JavaScript.
 
 ```console
 npm install @azure/communication-common --save

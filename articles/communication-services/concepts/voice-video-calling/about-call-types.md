@@ -9,19 +9,19 @@ ms.author: mikben
 ms.date: 03/10/2021
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: eea54be9d159c6aacbbc24e2fe8edf874f8e2d83
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 4ecc7033007361e27908e0881b80091ac660398e
+ms.sourcegitcommit: bed20f85722deec33050e0d8881e465f94c79ac2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103492337"
+ms.lasthandoff: 03/25/2021
+ms.locfileid: "105108392"
 ---
 # <a name="voice-and-video-concepts"></a>Concetti relativi alle chiamate vocali e video
 
 [!INCLUDE [Public Preview Notice](../../includes/public-preview-include.md)]
 
 
-È possibile usare Servizi di comunicazione di Azure per effettuare e ricevere chiamate uno-a-uno, oltre che chiamate vocali e videochiamate di gruppo. Le chiamate possono essere effettuate verso altri dispositivi connessi a Internet e verso telefoni tradizionali. È possibile usare le librerie client JavaScript, Android o iOS di Servizi di comunicazione per creare applicazioni che consentano agli utenti di comunicare tra loro in conversazioni private o di gruppo. Servizi di comunicazione di Azure supporta le chiamate da e verso servizi o bot.
+È possibile usare Servizi di comunicazione di Azure per effettuare e ricevere chiamate uno-a-uno, oltre che chiamate vocali e videochiamate di gruppo. Le chiamate possono essere effettuate verso altri dispositivi connessi a Internet e verso telefoni tradizionali. È possibile usare gli SDK JavaScript, Android o iOS di servizi di comunicazione per compilare applicazioni che consentono agli utenti di comunicare tra loro in conversazioni private o in discussioni di gruppo. Servizi di comunicazione di Azure supporta le chiamate da e verso servizi o bot.
 
 ## <a name="call-types-in-azure-communication-services"></a>Tipi di chiamata in Servizi di comunicazione di Azure
 
@@ -37,7 +37,7 @@ Ogni volta che gli utenti interagiscono con un numero di telefono tradizionale, 
 
 ### <a name="one-to-one-call"></a>Chiamata uno-a-uno
 
-Una chiamata uno-a-uno in Servizi di comunicazione di Azure avviene quando uno degli utenti si connette a un altro utente usando una delle librerie client. La chiamata può essere effettuata tramite VoIP o PSTN.
+Una chiamata uno-a-uno nei servizi di comunicazione di Azure si verifica quando uno degli utenti si connette a un altro utente usando uno degli SDK. La chiamata può essere effettuata tramite VoIP o PSTN.
 
 ### <a name="group-call"></a>Chiamata di gruppo
 
@@ -61,4 +61,4 @@ Durante l'anteprima è possibile usare l'ID di gruppo per partecipare alla stess
 Per altre informazioni, vedere gli articoli seguenti:
 - Acquisire familiarità con i [flussi di chiamate](../call-flows.md) generali
 - [Tipi di numero di telefono](../telephony-sms/plan-solution.md)
-- Vedere le informazioni relative alle [funzionalità delle librerie client per le chiamate](../voice-video-calling/calling-sdk-features.md)
+- Informazioni sulle [funzionalità dell'SDK chiamante](../voice-video-calling/calling-sdk-features.md)

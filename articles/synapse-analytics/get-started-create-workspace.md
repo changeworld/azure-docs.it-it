@@ -10,12 +10,12 @@ ms.service: synapse-analytics
 ms.subservice: workspace
 ms.topic: tutorial
 ms.date: 03/17/2021
-ms.openlocfilehash: ee8a192bcfe20c77e47ee9c89dfc3286a979e358
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
+ms.openlocfilehash: 695ad1463bb207e9dd61d7b0147adbe15b44df37
+ms.sourcegitcommit: bed20f85722deec33050e0d8881e465f94c79ac2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "104722294"
+ms.lasthandoff: 03/25/2021
+ms.locfileid: "105108061"
 ---
 # <a name="creating-a-synapse-workspace"></a>Creazione di un'area di lavoro di Synapse
 
@@ -33,24 +33,22 @@ Per completare questa esercitazione, è necessario avere accesso a un gruppo di 
 1. Selezionare **Aggiungi** per creare un'area di lavoro.
 
 ## <a name="basics-tab--project-details"></a>Scheda nozioni di base > dettagli progetto
-1. Scheda **nozioni di base** , in **Dettagli progetto**, compilare i campi seguenti:
-      1. **Sottoscrizione** : selezionare una sottoscrizione.
-      2. **Gruppo di risorse** : usare qualsiasi gruppo di risorse.
-      3. **Gruppo di risorse** : lasciare vuoto questo campo.
+Compilare i campi seguenti:
+    1. **Sottoscrizione** : selezionare una sottoscrizione.
+    1. **Gruppo di risorse** : usare qualsiasi gruppo di risorse.
+    1. **Gruppo di risorse** : lasciare vuoto questo campo.
 
 
 ## <a name="basics-tab--workspace-details"></a>Scheda nozioni di base > dettagli dell'area di lavoro
-1. Nella scheda informazioni di **base** , in **Dettagli area di lavoro**, compilare i campi seguenti:
-      1. **Nome area di lavoro** : selezionare un nome univoco globale. In questa esercitazione si userà **myworkspace**.
-      1. **Area** : selezionare qualsiasi area.
-      1. **Selezionare Data Lake Storage generazione 2**
-        1. Fare clic sul pulsante per **da sottoscrizione**.
-        1. Per **nome account**, fare clic su **Crea nuovo** e denominare il nuovo account di archiviazione **contosolake** o simile perché questo nome deve essere univoco.
-        1. Per **nome file System**, fare clic su **Crea nuovo** e denominarlo **utenti**. Verrà creato un contenitore di archiviazione denominato **Users**. L'area di lavoro userà questo account di archiviazione come account di archiviazione "primario" per le tabelle Spark e i log delle applicazioni Spark.
-        1. Selezionare "assegnare a me il ruolo Collaboratore dati BLOB di archiviazione nella casella account Data Lake Storage Gen2". 
+Compilare i campi seguenti: 1. **Nome area di lavoro** : selezionare un nome univoco globale. In questa esercitazione si userà **myworkspace**.
+1. **Area** : selezionare qualsiasi area.
+1. **Selezionare Data Lake storage generazione 2** 1. Fare clic sul pulsante per **da sottoscrizione**.
+1. Per **nome account**, fare clic su **Crea nuovo** e denominare il nuovo account di archiviazione **contosolake** o simile perché questo nome deve essere univoco.
+1. Per **nome file System**, fare clic su **Crea nuovo** e denominarlo **utenti**. Verrà creato un contenitore di archiviazione denominato **Users**. L'area di lavoro userà questo account di archiviazione come account di archiviazione "primario" per le tabelle Spark e i log delle applicazioni Spark.
+1. Selezionare "assegnare a me il ruolo Collaboratore dati BLOB di archiviazione nella casella account Data Lake Storage Gen2". 
 
-### <a name="completing-the-process"></a>Completamento del processo
-5. Selezionare **Rivedi e crea** > **Crea**. L'area di lavoro sarò pronta entro pochi minuti.
+## <a name="completing-the-process"></a>Completamento del processo
+Selezionare **Rivedi e crea** > **Crea**. L'area di lavoro sarò pronta entro pochi minuti.
 
 > [!NOTE]
 > Per abilitare funzionalità dell'area di lavoro da un pool SQL dedicato (in precedenza SQL Data Warehouse), vedere [Come abilitare un'area di lavoro per il pool SQL dedicato (in precedenza SQL Data Warehouse)](./sql-data-warehouse/workspace-connected-create.md).

@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 03/23/2021
-ms.openlocfilehash: d38dc7b2bf56ba91fcf77ebdb81836c8c398a52d
-ms.sourcegitcommit: a8ff4f9f69332eef9c75093fd56a9aae2fe65122
+ms.openlocfilehash: a3cd68b610b0e0db05f60450009bc83a80c3037b
+ms.sourcegitcommit: bed20f85722deec33050e0d8881e465f94c79ac2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/24/2021
-ms.locfileid: "105023852"
+ms.lasthandoff: 03/25/2021
+ms.locfileid: "105107602"
 ---
 # <a name="resource-limits-for-single-databases-using-the-vcore-purchasing-model"></a>Limiti di risorse per i database singoli usando il modello di acquisto vCore
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -77,7 +77,7 @@ Il [livello di calcolo senza server](serverless-tier-overview.md) è attualmente
 |Tipo di archiviazione|Unità SSD remota|Unità SSD remota|Unità SSD remota|Unità SSD remota|
 |Latenza di I/O (approssimativa)|5-7 ms (scrittura)<br>5-10 ms (lettura)|5-7 ms (scrittura)<br>5-10 ms (lettura)|5-7 ms (scrittura)<br>5-10 ms (lettura)|5-7 ms (scrittura)<br>5-10 ms (lettura)|
 |Numero massimo di IOPS dati *|3200|3840|4480|5120|
-|Velocità massima log (MBps)|36|36|36|36|
+|Velocità massima log (MBps)|45|50|50|50|
 |Numero massimo di ruoli di lavoro simultanei (richieste)|750|900|1050|1200|
 |Numero massimo di sessioni simultanee|30.000|30.000|30.000|30.000|
 |Numero di repliche|1|1|1|1|
@@ -103,7 +103,7 @@ Il [livello di calcolo senza server](serverless-tier-overview.md) è attualmente
 |Tipo di archiviazione|Unità SSD remota|Unità SSD remota|Unità SSD remota|Unità SSD remota|Unità SSD remota|
 |Latenza di I/O (approssimativa)|5-7 ms (scrittura)<br>5-10 ms (lettura)|5-7 ms (scrittura)<br>5-10 ms (lettura)|5-7 ms (scrittura)<br>5-10 ms (lettura)|5-7 ms (scrittura)<br>5-10 ms (lettura)|5-7 ms (scrittura)<br>5-10 ms (lettura)|
 |Numero massimo di IOPS dati *|5760|6400|7680|10240|12800|
-|Velocità massima log (MBps)|36|36|36|36|36|
+|Velocità massima log (MBps)|50|50|50|50|50|
 |Numero massimo di ruoli di lavoro simultanei (richieste)|1350|1500|1800|2400|3000|
 |Numero massimo di sessioni simultanee|30.000|30.000|30.000|30.000|30.000|
 |Numero di repliche|1|1|1|1|1|
@@ -246,7 +246,7 @@ Il [livello di calcolo senza server](serverless-tier-overview.md) è attualmente
 |Dimensioni massime del log (TB)|Nessuna limitazione |Nessuna limitazione |Nessuna limitazione |Nessuna limitazione |
 |Dimensioni massime dati TempDB (GB)|64|128|192|256|
 |Tipo di archiviazione| [Nota 1](#notes) |[Nota 1](#notes)|[Nota 1](#notes) |[Nota 1](#notes) |
-|Numero massimo di IOPS SSD locali *|8000 |16000 |24000 |32000 |
+|Numero massimo di IOPS SSD locali *|14000|28000|42000|44800|
 |Velocità massima log (MBps)|100 |100 |100 |100 |
 |Latenza di I/O (approssimativa)|[Nota 2](#notes)|[Nota 2](#notes)|[Nota 2](#notes)|[Nota 2](#notes)|
 |Numero massimo di ruoli di lavoro simultanei (richieste)|160|320|480|640|
@@ -308,7 +308,7 @@ Il [livello di calcolo senza server](serverless-tier-overview.md) è attualmente
 |Tipo di archiviazione|Unità SSD remota|Unità SSD remota|Unità SSD remota|Unità SSD remota|Unità SSD remota|Unità SSD remota|
 |Latenza di I/O (approssimativa)|5-7 ms (scrittura)<br>5-10 ms (lettura)|5-7 ms (scrittura)<br>5-10 ms (lettura)|5-7 ms (scrittura)<br>5-10 ms (lettura)|5-7 ms (scrittura)<br>5-10 ms (lettura)|5-7 ms (scrittura)<br>5-10 ms (lettura)|5-7 ms (scrittura)<br>5-10 ms (lettura)
 |Numero massimo di IOPS dati *|2240|2560|2880|3200|5120|7680|
-|Velocità massima log (MBps)|31.5|36|36|36|36|36|
+|Velocità massima log (MBps)|31.5|36|40.5|45|50|50|
 |Numero massimo di ruoli di lavoro simultanei (richieste)|1400|1600|1800|2000|3200|4800|
 |Numero massimo di sessioni simultanee|30.000|30.000|30.000|30.000|30.000|30.000|
 |Numero di repliche|1|1|1|1|1|1|
@@ -335,7 +335,7 @@ Il [livello di calcolo senza server](serverless-tier-overview.md) è attualmente
 |Tipo di archiviazione|Unità SSD remota|Unità SSD remota|Unità SSD remota|Unità SSD remota|Unità SSD remota|Unità SSD remota|Unità SSD remota|
 |Latenza di I/O (approssimativa)|5-7 ms (scrittura)<br>5-10 ms (lettura)|5-7 ms (scrittura)<br>5-10 ms (lettura)|5-7 ms (scrittura)<br>5-10 ms (lettura)|5-7 ms (scrittura)<br>5-10 ms (lettura)|5-7 ms (scrittura)<br>5-10 ms (lettura)|5-7 ms (scrittura)<br>5-10 ms (lettura)|5-7 ms (scrittura)<br>5-10 ms (lettura)|
 |Numero massimo di IOPS dati *|640|1280|1920|2560|3200|3840|4480|
-|Velocità massima log (MBps)|9|18|27|36|36|36|36|
+|Velocità massima log (MBps)|9|18|27|36|45|50|50|
 |Numero massimo di ruoli di lavoro simultanei (richieste)|200|400|600|800|1000|1200|1400|
 |Numero massimo di sessioni simultanee|30.000|30.000|30.000|30.000|30.000|30.000|30.000|
 |Numero di repliche|1|1|1|1|1|1|1|
@@ -360,7 +360,7 @@ Il [livello di calcolo senza server](serverless-tier-overview.md) è attualmente
 |Tipo di archiviazione|Unità SSD remota|Unità SSD remota|Unità SSD remota|Unità SSD remota|Unità SSD remota|Unità SSD remota|Unità SSD remota|
 |Latenza di I/O (approssimativa)|5-7 ms (scrittura)<br>5-10 ms (lettura)|5-7 ms (scrittura)<br>5-10 ms (lettura)|5-7 ms (scrittura)<br>5-10 ms (lettura)|5-7 ms (scrittura)<br>5-10 ms (lettura)|5-7 ms (scrittura)<br>5-10 ms (lettura)|5-7 ms (scrittura)<br>5-10 ms (lettura)|5-7 ms (scrittura)<br>5-10 ms (lettura)|
 |Numero massimo di IOPS dati *|5120|5760|6400|7680|10240|12800|12800|
-|Velocità massima log (MBps)|36|36|36|36|36|36|36|
+|Velocità massima log (MBps)|50|50|50|50|50|50|50|
 |Numero massimo di ruoli di lavoro simultanei (richieste)|1600|1800|2000|2400|3200|4000|8000|
 |Numero massimo di sessioni simultanee|30.000|30.000|30.000|30.000|30.000|30.000|30.000|
 |Numero di repliche|1|1|1|1|1|1|1|
@@ -387,7 +387,7 @@ Il [livello di calcolo senza server](serverless-tier-overview.md) è attualmente
 |Tipo di archiviazione|Unità SSD remota|Unità SSD remota|Unità SSD remota|Unità SSD remota|Unità SSD remota|
 |Latenza di I/O (approssimativa)|5-7 ms (scrittura)<br>5-10 ms (lettura)|5-7 ms (scrittura)<br>5-10 ms (lettura)|5-7 ms (scrittura)<br>5-10 ms (lettura)|5-7 ms (scrittura)<br>5-10 ms (lettura)|5-7 ms (scrittura)<br>5-10 ms (lettura)|
 |Numero massimo di IOPS dati *|2560|3200|3840|4480|5120|
-|Velocità massima log (MBps)|36|36|36|36|36|
+|Velocità massima log (MBps)|36|45|50|50|50|
 |Numero massimo di ruoli di lavoro simultanei (richieste)|400|500|600|700|800|
 |Numero massimo di accessi simultanei|800|1000|1200|1400|1600|
 |Numero massimo di sessioni simultanee|30.000|30.000|30.000|30.000|30.000|
@@ -413,7 +413,7 @@ Il [livello di calcolo senza server](serverless-tier-overview.md) è attualmente
 |Tipo di archiviazione|Unità SSD remota|Unità SSD remota|Unità SSD remota|Unità SSD remota|Unità SSD remota|Unità SSD remota|
 |Latenza di I/O (approssimativa)|5-7 ms (scrittura)<br>5-10 ms (lettura)|5-7 ms (scrittura)<br>5-10 ms (lettura)|5-7 ms (scrittura)<br>5-10 ms (lettura)|5-7 ms (scrittura)<br>5-10 ms (lettura)|5-7 ms (scrittura)<br>5-10 ms (lettura)|5-7 ms (scrittura)<br>5-10 ms (lettura)|
 |Numero massimo di IOPS dati *|5760|6400|7680|10240|11520|12800|
-|Velocità massima log (MBps)|36|36|36|36|36|36|
+|Velocità massima log (MBps)|50|50|50|50|50|50|
 |Numero massimo di ruoli di lavoro simultanei (richieste)|900|1000|1200|1600|1800|3600|
 |Numero massimo di accessi simultanei|1800|2000|2400|3200|3600|7200|
 |Numero massimo di sessioni simultanee|30.000|30.000|30.000|30.000|30.000|30.000|
@@ -635,7 +635,7 @@ Il [livello di calcolo senza server](serverless-tier-overview.md) è attualmente
 |Dimensioni massime dati TempDB (GB)|64|128|192|256|
 |Tipo di archiviazione|SSD locale|SSD locale|SSD locale|SSD locale|
 |Latenza di I/O (approssimativa)|1-2 ms (scrittura)<br>1-2 ms (lettura)|1-2 ms (scrittura)<br>1-2 ms (lettura)|1-2 ms (scrittura)<br>1-2 ms (lettura)|1-2 ms (scrittura)<br>1-2 ms (lettura)|
-|Numero massimo di IOPS dati *|14000|28000|42000|56000|
+|Numero massimo di IOPS dati *|14000|28000|42000|44800|
 |Velocità massima log (MBps)|24|48|72|96|
 |Numero massimo di ruoli di lavoro simultanei (richieste)|200|400|600|800|
 |Numero massimo di accessi simultanei|200|400|600|800|

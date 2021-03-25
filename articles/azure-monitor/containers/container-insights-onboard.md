@@ -3,12 +3,12 @@ title: Abilitare informazioni dettagliate sul contenitore | Microsoft Docs
 description: Questo articolo descrive come abilitare e configurare le informazioni dettagliate sul contenitore in modo che sia possibile comprendere il modo in cui il contenitore sta eseguendo e quali sono stati identificati i problemi relativi alle prestazioni.
 ms.topic: conceptual
 ms.date: 06/30/2020
-ms.openlocfilehash: 58797221fa3380e4f7533a710e2f8dc658cb676c
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 01246a728f204ed9cb43eee392c637b495208aaf
+ms.sourcegitcommit: bed20f85722deec33050e0d8881e465f94c79ac2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101708357"
+ms.lasthandoff: 03/25/2021
+ms.locfileid: "105109353"
 ---
 # <a name="enable-container-insights"></a>Abilita informazioni dettagliate sul contenitore
 
@@ -64,6 +64,7 @@ Prima di iniziare, verificare che siano soddisfatti i requisiti seguenti:
 - Per visualizzare i dati di monitoraggio, è necessario avere [*log Analytics ruolo Reader*](../logs/manage-access.md#manage-access-using-azure-permissions) nell'area di lavoro log Analytics, configurato con informazioni dettagliate sul contenitore.
 
 - Le metriche Prometeo non vengono raccolte per impostazione predefinita. Prima di [configurare l'agente](container-insights-prometheus-integration.md) per raccogliere le metriche, è importante esaminare la [documentazione di Prometeo](https://prometheus.io/) per comprendere quali dati possono essere frammentati e quali metodi sono supportati.
+- Un cluster AKS può essere collegato a un'area di lavoro Log Analytics in una sottoscrizione di Azure diversa nello stesso tenant di Azure AD. Questa operazione non può essere eseguita con il portale di Azure, ma può essere eseguita con l'interfaccia della riga di comando di Azure o con Gestione risorse modello.
 
 ## <a name="supported-configurations"></a>Configurazioni supportate
 

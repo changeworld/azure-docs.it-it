@@ -8,18 +8,18 @@ ms.date: 01/25/2021
 ms.topic: quickstart
 ms.service: azure-communication-services
 zone_pivot_groups: acs-plat-ios-android
-ms.openlocfilehash: 0de4bb6424fe8fa87d1e6e8628dcfc394c6369c8
-ms.sourcegitcommit: ba3a4d58a17021a922f763095ddc3cf768b11336
+ms.openlocfilehash: 5f173411726283b86cad7706d10743ef62943e46
+ms.sourcegitcommit: bed20f85722deec33050e0d8881e465f94c79ac2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/23/2021
-ms.locfileid: "104804011"
+ms.lasthandoff: 03/25/2021
+ms.locfileid: "105108478"
 ---
 # <a name="quickstart-add-joining-a-teams-meeting-to-your-app"></a>Guida introduttiva: aggiungere un join a teams meeting all'app
 
 [!INCLUDE [Public Preview Notice](../../includes/public-preview-include.md)]
 
-Introduzione ai servizi di comunicazione di Azure tramite i team di servizi di comunicazione incorporare la libreria client per aggiungere riunioni ai team all'app. 
+Per iniziare a usare i servizi di comunicazione di Azure, è possibile usare i team di Communication Services per incorporare l'SDK per aggiungere riunioni ai team all'app. 
 
 [!INCLUDE [Emergency Calling Notice](../../includes/emergency-calling-notice-include.md)]
 

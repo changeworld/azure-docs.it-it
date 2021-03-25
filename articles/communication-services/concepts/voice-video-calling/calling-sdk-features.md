@@ -1,7 +1,7 @@
 ---
-title: Panoramica della libreria client per le chiamate di Servizi di comunicazione di Azure
+title: Panoramica di Azure Communication Services che chiama SDK
 titleSuffix: An Azure Communication Services concept document
-description: Fornisce una panoramica della libreria client per le chiamate.
+description: Viene fornita una panoramica dell'SDK chiamante.
 author: mikben
 manager: jken
 services: azure-communication-services
@@ -9,25 +9,25 @@ ms.author: mikben
 ms.date: 03/10/2021
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: e154e43f9e9378d6cccd23e2e5892f2a8ccf9a1e
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 39331cb83b233f6b91344e6e299ed81f187fe9d9
+ms.sourcegitcommit: bed20f85722deec33050e0d8881e465f94c79ac2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104598882"
+ms.lasthandoff: 03/25/2021
+ms.locfileid: "105108394"
 ---
-# <a name="calling-client-library-overview"></a>Panoramica della libreria client per le chiamate
+# <a name="calling-sdk-overview"></a>Panoramica dell'SDK chiamante
 
 [!INCLUDE [Public Preview Notice](../../includes/public-preview-include.md)]
 
 
-Sono disponibili due famiglie separate di librerie client per le chiamate: per i *client* e per i *servizi*. Le librerie client attualmente disponibili sono destinate all'esperienza degli utenti finali: siti Web e app native.
+Sono disponibili due famiglie separate di chiamate ad SDK per *client* e *servizi.* Gli SDK attualmente disponibili sono destinati all'esperienza degli utenti finali: siti Web e app native.
 
-Le librerie client del servizio non sono ancora disponibili e forniscono l'accesso ai piani dati vocali e video non elaborati, adatti per l'integrazione con i bot e altri servizi.
+Gli SDK del servizio non sono ancora disponibili e forniscono l'accesso ai piani dati vocali e video non elaborati, adatti per l'integrazione con i bot e altri servizi.
 
-## <a name="calling-client-library-capabilities"></a>Funzionalità della libreria client per le chiamate
+## <a name="calling-sdk-capabilities"></a>Chiamata di funzionalità SDK
 
-L'elenco seguente presenta il set di funzionalità attualmente disponibili nelle librerie client per le chiamate di Servizi di comunicazione di Azure.
+L'elenco seguente presenta il set di funzionalità attualmente disponibili nei servizi di comunicazione di Azure che chiamano gli SDK.
 
 | Gruppo di funzionalità | Funzionalità                                                                                                          | JS  | Java (Android) | Objective-C (iOS)
 | ----------------- | ------------------------------------------------------------------------------------------------------------------- | ---  | -------------- | -------------
@@ -74,7 +74,7 @@ L'elenco seguente presenta il set di funzionalità attualmente disponibili nelle
 
 
 
-## <a name="javascript-calling-client-library-support-by-os-and-browser"></a>Browser e sistemi operativi supportati dalla libreria client per le chiamate JavaScript
+## <a name="javascript-calling-sdk-support-by-os-and-browser"></a>JavaScript che chiama il supporto SDK dal sistema operativo e dal browser
 
 La tabella seguente rappresenta il set di browser supportati attualmente disponibili. Sono supportate le ultime tre versioni del browser, se non diversamente specificato.
 
@@ -115,8 +115,8 @@ Ad esempio, questo iframe consente l'accesso sia alla fotocamera che al microfon
 <iframe allow="camera *; microphone *">
 ```
 
-## <a name="calling-client-library-streaming-support"></a>Supporto streaming per la libreria client per le chiamate
-La libreria client per le chiamate di Servizi di comunicazione supporta le configurazioni di streaming seguenti:
+## <a name="calling-sdk-streaming-support"></a>Chiamata del supporto di streaming SDK
+Il servizio Communication Services chiamante SDK supporta le configurazioni di flusso seguenti:
 
 |           |Web | Android/iOS|
 |-----------|----|------------|

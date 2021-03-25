@@ -1,19 +1,19 @@
 ---
 title: "Guida introduttiva: aggiungere una riunione ai team da un'app iOS"
-description: In questa esercitazione si apprenderà come partecipare a una riunione dei team usando i servizi di comunicazione di Azure che chiamano la libreria client per iOS
+description: In questa esercitazione si apprenderà come partecipare a una riunione dei team usando i servizi di comunicazione di Azure che chiamano SDK per iOS
 author: chpalm
 ms.author: mikben
 ms.date: 03/10/2021
 ms.topic: quickstart
 ms.service: azure-communication-services
-ms.openlocfilehash: 68f1abb5335386634874d9696738a8e552ebbe9c
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 8ff85dc5571f549027e208409db3f4e80c68b205
+ms.sourcegitcommit: bed20f85722deec33050e0d8881e465f94c79ac2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103487997"
+ms.lasthandoff: 03/25/2021
+ms.locfileid: "105108188"
 ---
-In questa Guida introduttiva si apprenderà come partecipare a una riunione dei team usando i servizi di comunicazione di Azure che chiamano la libreria client per iOS.
+In questa Guida introduttiva si apprenderà come partecipare a una riunione di Team usando i servizi di comunicazione di Azure che chiamano SDK per iOS.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -178,7 +178,7 @@ struct ContentView_Previews: PreviewProvider {
 ## <a name="get-the-teams-meeting-link"></a>Ottenere il collegamento alla riunione di Teams
 
 Il collegamento alla riunione di Teams può essere recuperato usando le API Graph. Questa operazione è descritta in dettaglio nella [documentazione di Graph](/graph/api/onlinemeeting-createorget?tabs=http&view=graph-rest-beta).
-I servizi di comunicazione che chiamano la libreria client accettano un collegamento completo per la riunione dei team. Questo collegamento viene restituito come parte della `onlineMeeting` risorsa, accessibile nella [ `joinWebUrl` proprietà](/graph/api/resources/onlinemeeting?view=graph-rest-beta). È anche possibile ottenere le informazioni sulla riunione richieste dall'URL della riunione di **join** nell'invito stesso alla riunione dei team.
+L'SDK per le chiamate di Servizi di comunicazione accetta un collegamento alla riunione di Teams completo. Questo collegamento viene restituito come parte della `onlineMeeting` risorsa, accessibile nella [ `joinWebUrl` proprietà](/graph/api/resources/onlinemeeting?view=graph-rest-beta). È anche possibile ottenere le informazioni sulla riunione richieste dall'URL della riunione di **join** nell'invito stesso alla riunione dei team.
 
 ## <a name="launch-the-app-and-join-teams-meeting"></a>Avviare l'app e partecipare alla riunione dei team
 

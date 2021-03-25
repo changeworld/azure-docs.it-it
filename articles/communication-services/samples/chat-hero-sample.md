@@ -9,12 +9,12 @@ ms.author: dademath
 ms.date: 03/10/2021
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: 0eb396935b42b040ab9f152a4965922664deb451
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: b5960238893ae1e4dc307db98f9dc73889a2fa5b
+ms.sourcegitcommit: bed20f85722deec33050e0d8881e465f94c79ac2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103487829"
+ms.lasthandoff: 03/25/2021
+ms.locfileid: "105108894"
 ---
 # <a name="get-started-with-the-group-chat-hero-sample"></a>Introduzione al banner della chat di gruppo di esempio
 
@@ -30,7 +30,7 @@ ms.locfileid: "103487829"
 > [Questo esempio è disponibile su GitHub.](https://github.com/Azure-Samples/communication-services-web-chat-hero)
 
 
-Il **banner della chat di gruppo di esempio** dei Servizi di comunicazione di Azure illustra come usare la libreria client Web della chat dei Servizi di comunicazione per creare un'esperienza di chiamata di gruppo.
+L' **esempio chat Hero del gruppo** di servizi di comunicazione di Azure illustra come è possibile usare l'SDK di chat Web di Communication Services per creare un'esperienza di chiamata di gruppo.
 
 In questo avvio rapido viene illustrato il funzionamento dell'esempio prima dell'esecuzione sul computer locale. Si passerà quindi alla distribuzione dell'esempio in Azure tramite le risorse dei Servizi di comunicazione di Azure.
 
@@ -111,7 +111,7 @@ Per pulire e rimuovere una sottoscrizione di Servizi di comunicazione, è possib
 Per altre informazioni, vedere gli articoli seguenti:
 
 - Informazioni sui [concetti relativi alla chat](../concepts/chat/concepts.md)
-- Acquisire familiarità con la [libreria client della chat](../concepts/chat/sdk-features.md)
+- Acquisire familiarità con l' [SDK di chat](../concepts/chat/sdk-features.md)
 - Esaminare l'esempio di [app Contoso Med](https://github.com/Azure-Samples/communication-services-contoso-med-app)
 
 ## <a name="additional-reading"></a>Altre letture

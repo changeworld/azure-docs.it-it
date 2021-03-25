@@ -7,16 +7,18 @@ author: viv-liu
 ms.author: viviali
 ms.date: 10/4/2019
 ms.topic: conceptual
-ms.openlocfilehash: 191b57b08ba04844824dd5cf26875c21e494c5ef
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: dd67a4f1a005abc7319723efcc3f2944b18c4f5f
+ms.sourcegitcommit: bed20f85722deec33050e0d8881e465f94c79ac2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "92123338"
+ms.lasthandoff: 03/25/2021
+ms.locfileid: "105109234"
 ---
 # <a name="visualize-and-analyze-your-azure-iot-central-data-in-a-power-bi-dashboard"></a>Visualizzare e analizzare i dati di Azure IoT Central in un dashboard di Power BI
 
 *Questo argomento si applica agli amministratori e agli sviluppatori di soluzioni.*
+
+[!Note] Questa soluzione USA le [funzionalità legacy di esportazione dei dati](./howto-export-data-legacy.md). Rimanere sintonizzati per informazioni aggiuntive aggiornate su come connettersi a Power BI usando l'esportazione dei dati più recente.
 
 :::image type="content" source="media/howto-connect-powerbi/iot-continuous-data-export.png" alt-text="Pipeline della soluzione Power BI":::
 
@@ -27,7 +29,7 @@ Usa la soluzione Power BI per Azure IoT Central V3 per creare un dashboard di Po
 - Filtrare i dati inviati da dispositivi specifici
 - Visualizzare i dati di telemetria più recenti in una tabella
 
-Questa soluzione configura una pipeline che legge i dati dall'account di archiviazione BLOB di Azure per l' [esportazione dei dati continua](./howto-export-data.md) . La pipeline usa funzioni di Azure, Azure Data Factory e il database SQL di Azure per elaborare e trasformare i dati. è possibile visualizzare e analizzare i dati in un report di Power BI scaricato come file PBIX. Tutte le risorse vengono create nella sottoscrizione di Azure, in modo che sia possibile personalizzare ogni componente in base alle esigenze.
+Questa soluzione configura una pipeline che legge i dati dall'account di archiviazione BLOB di Azure per l' [esportazione dei dati continua](./howto-export-data-legacy.md) . La pipeline usa funzioni di Azure, Azure Data Factory e il database SQL di Azure per elaborare e trasformare i dati. è possibile visualizzare e analizzare i dati in un report di Power BI scaricato come file PBIX. Tutte le risorse vengono create nella sottoscrizione di Azure, in modo che sia possibile personalizzare ogni componente in base alle esigenze.
 
 ## <a name="prerequisites"></a>Prerequisiti
 

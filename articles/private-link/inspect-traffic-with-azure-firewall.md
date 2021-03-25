@@ -8,12 +8,12 @@ ms.service: private-link
 ms.topic: how-to
 ms.date: 09/02/2020
 ms.author: allensu
-ms.openlocfilehash: 3ed349616ae6456913c19bb073f6e9ea28e7d549
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 4fe43ec7661cfad25c48819183742c3f33951d92
+ms.sourcegitcommit: bed20f85722deec33050e0d8881e465f94c79ac2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "100575132"
+ms.lasthandoff: 03/25/2021
+ms.locfileid: "105108146"
 ---
 # <a name="use-azure-firewall-to-inspect-traffic-destined-to-a-private-endpoint"></a>Usare il firewall di Azure per controllare il traffico destinato a un endpoint privato
 
@@ -25,8 +25,8 @@ Potrebbe essere necessario controllare o bloccare il traffico dai client ai serv
 
 Si applicano le limitazioni seguenti:
 
-* I gruppi di sicurezza di rete (gruppi) non si applicano agli endpoint privati
-* Le route definite dall'utente (UDR) non si applicano agli endpoint privati
+* I gruppi di sicurezza di rete (NSG) vengono ignorati dal traffico proveniente dagli endpoint privati
+* Le route definite dall'utente (UDR) vengono ignorate dal traffico proveniente dagli endpoint privati
 * È possibile collegare una singola tabella di route a una subnet
 * Una tabella di route supporta fino a 400 Route
 
@@ -35,7 +35,8 @@ Il firewall di Azure filtra il traffico usando uno dei seguenti:
 * [FQDN nelle regole di rete](../firewall/fqdn-filtering-network-rules.md) per i protocolli TCP e UDP
 * [FQDN nelle regole dell'applicazione](../firewall/features.md#application-fqdn-filtering-rules) per http, HTTPS e MSSQL. 
 
-La maggior parte dei servizi esposti tramite endpoint privati usa HTTPS. Quando si usa SQL di Azure, è consigliabile usare le regole dell'applicazione rispetto alle regole di rete.
+> [!IMPORTANT] 
+> L'uso delle regole dell'applicazione rispetto alle regole di rete è consigliato quando si esamina il traffico destinato a endpoint privati per mantenere la simmetria del flusso. Se vengono usate le regole di rete o un appliance virtuale di rete anziché il firewall di Azure, SNAT deve essere configurato per il traffico destinato agli endpoint privati.
 
 > [!NOTE]
 > Il filtro FQDN di SQL è supportato solo in modalità [proxy](../azure-sql/database/connectivity-architecture.md#connection-policy) (porta 1433). La modalità **proxy** può comportare una latenza maggiore rispetto al *Reindirizzamento*. Se si vuole continuare a usare la modalità di reindirizzamento, che è l'impostazione predefinita per i client che si connettono all'interno di Azure, è possibile filtrare l'accesso usando FQDN nelle regole di rete del firewall.
@@ -46,12 +47,9 @@ La maggior parte dei servizi esposti tramite endpoint privati usa HTTPS. Quando 
 
 Questo scenario è l'architettura più espandibile per connettersi privatamente a più servizi di Azure usando endpoint privati. Viene creata una route che punta allo spazio degli indirizzi di rete in cui vengono distribuiti gli endpoint privati. Questa configurazione riduce il sovraccarico amministrativo e impedisce l'esecuzione fino al limite di 400 Route.
 
-Le connessioni da una rete virtuale client al firewall di Azure in una rete virtuale dell'hub verranno addebitate se viene effettuato il peering delle reti virtuali.
+Le connessioni da una rete virtuale client al firewall di Azure in una rete virtuale dell'hub verranno addebitate se viene effettuato il peering delle reti virtuali. Le connessioni da un firewall di Azure in una rete virtuale dell'hub a endpoint privati in una rete virtuale con peering non vengono addebitate.
 
 Per ulteriori informazioni sugli addebiti relativi alle connessioni con reti virtuali con peering, vedere la sezione Domande frequenti della pagina dei [prezzi](https://azure.microsoft.com/pricing/details/private-link/) .
-
->[!NOTE]
-> Questo scenario può essere implementato usando le regole di rete di terze parti o del firewall di Azure anziché le regole dell'applicazione.
 
 ## <a name="scenario-2-hub-and-spoke-architecture---shared-virtual-network-for-private-endpoints-and-virtual-machines"></a>Scenario 2: architettura Hub e spoke-rete virtuale condivisa per endpoint privati e macchine virtuali
 
@@ -69,21 +67,15 @@ Il sovraccarico amministrativo associato alla manutenzione della tabella di rout
 
 A seconda dell'architettura complessiva, è possibile eseguire il limite di 400 Route. Quando possibile, è consigliabile usare lo scenario 1.
 
-Le connessioni da una rete virtuale client al firewall di Azure in una rete virtuale dell'hub verranno addebitate se viene effettuato il peering delle reti virtuali.
+Le connessioni da una rete virtuale client al firewall di Azure in una rete virtuale dell'hub verranno addebitate se viene effettuato il peering delle reti virtuali. Le connessioni da un firewall di Azure in una rete virtuale dell'hub a endpoint privati in una rete virtuale con peering non vengono addebitate.
 
 Per ulteriori informazioni sugli addebiti relativi alle connessioni con reti virtuali con peering, vedere la sezione Domande frequenti della pagina dei [prezzi](https://azure.microsoft.com/pricing/details/private-link/) .
-
->[!NOTE]
-> Questo scenario può essere implementato usando le regole di rete di terze parti o del firewall di Azure anziché le regole dell'applicazione.
 
 ## <a name="scenario-3-single-virtual-network"></a>Scenario 3: rete virtuale singola
 
 :::image type="content" source="./media/inspect-traffic-using-azure-firewall/single-vnet.png" alt-text="Rete virtuale singola" border="true":::
 
-Esistono alcune limitazioni all'implementazione: una migrazione a un'architettura Hub e spoke non è possibile. Si applicano le stesse considerazioni dello scenario 2. In questo scenario, gli addebiti per il peering di rete virtuale non sono applicabili.
-
->[!NOTE]
-> Se si vuole implementare questo scenario usando un appliance virtuale di rete di terze parti o un firewall di Azure, le regole di rete anziché le regole dell'applicazione sono necessarie per SNAT il traffico destinato agli endpoint privati. In caso contrario, la comunicazione tra le macchine virtuali e gli endpoint privati avrà esito negativo.
+Usare questo modello quando non è possibile eseguire una migrazione a un'architettura hub-spoke. Si applicano le stesse considerazioni dello scenario 2. In questo scenario, gli addebiti per il peering di rete virtuale non sono applicabili.
 
 ## <a name="scenario-4-on-premises-traffic-to-private-endpoints"></a>Scenario 4: traffico locale verso endpoint privati
 
@@ -97,9 +89,6 @@ Questa architettura può essere implementata se è stata configurata la connetti
 Se i requisiti di sicurezza richiedono il routing del traffico client ai servizi esposti tramite endpoint privati tramite un'appliance di sicurezza, distribuire questo scenario.
 
 Si applicano le stesse considerazioni illustrate nello scenario 2. In questo scenario non sono previsti addebiti per il peering di rete virtuale. Per altre informazioni su come configurare i server DNS per consentire ai carichi di lavoro locali di accedere a endpoint privati, vedere [carichi di lavoro locali tramite un server di un server di un server di server](./private-endpoint-dns.md#on-premises-workloads-using-a-dns-forwarder).
-
->[!NOTE]
-> Se si vuole implementare questo scenario usando un appliance virtuale di rete di terze parti o un firewall di Azure, le regole di rete anziché le regole dell'applicazione sono necessarie per SNAT il traffico destinato agli endpoint privati. In caso contrario, la comunicazione tra le macchine virtuali e gli endpoint privati avrà esito negativo.
 
 ## <a name="prerequisites"></a>Prerequisiti
 

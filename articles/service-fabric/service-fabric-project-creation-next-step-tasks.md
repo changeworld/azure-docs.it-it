@@ -4,12 +4,12 @@ description: Informazioni sul progetto di applicazione appena creato in Visual S
 ms.topic: conceptual
 ms.date: 12/21/2020
 ms.custom: contperf-fy21q2
-ms.openlocfilehash: 59c8eb0737d2cef1c4b1df34d673b74944fef4e1
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 4d162918644727d4c79ad606f1ed34816f543d81
+ms.sourcegitcommit: ed7376d919a66edcba3566efdee4bc3351c57eda
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "97760436"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105044380"
 ---
 # <a name="your-service-fabric-application-and-next-steps"></a>Applicazione dell'infrastruttura di servizi e fasi successive
 L'applicazione Service Fabric di Azure è stata creata. Questo articolo include una serie di risorse, altre informazioni che potrebbero essere interessate e potenziali [passaggi successivi](#next-steps).
@@ -59,7 +59,7 @@ L'applicazione può contenere informazioni riservate, ad esempio le stringhe di 
 Analogamente ad altre piattaforme, un'applicazione su Service Fabric in genere passa attraverso le fasi seguenti: progettazione, sviluppo, test, distribuzione, aggiornamento, manutenzione e rimozione. [Questo articolo](service-fabric-application-lifecycle.md) fornisce una panoramica delle API e il modo in cui vengono usate dai diversi ruoli nelle fasi del ciclo di vita dell'applicazione Service Fabric.
 
 ## <a name="learn-about-best-practices"></a>Informazioni sulle procedure consigliate
-Service Fabric include una serie di articoli che descrivono le [procedure consigliate](./service-fabric-best-practices-overview.md). Usare queste informazioni per garantire la corretta esecuzione del cluster e dell'applicazione.
+Service Fabric include una serie di articoli che descrivono le [procedure consigliate](./service-fabric-best-practices-security.md). Usare queste informazioni per garantire la corretta esecuzione del cluster e dell'applicazione.
 Gli argomenti trattati includono:
 * [Sicurezza](./service-fabric-best-practices-security.md)
 * [Funzionalità di rete](./service-fabric-best-practices-networking.md)
