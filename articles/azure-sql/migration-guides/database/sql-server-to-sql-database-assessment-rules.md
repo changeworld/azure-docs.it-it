@@ -1,5 +1,5 @@
 ---
-title: Regole di valutazione per SQL Server alla migrazione del database SQL
+title: Regole di valutazione per SQL Server alla migrazione del database SQL di Azure
 description: Regole di valutazione per identificare i problemi relativi all'istanza di SQL Server di origine che devono essere risolti prima di eseguire la migrazione al database SQL di Azure.
 ms.service: sql-database
 ms.subservice: migration-guide
@@ -10,14 +10,14 @@ author: MashaMSFT
 ms.author: mathoma
 ms.reviewer: MashaMSFT
 ms.date: 12/15/2020
-ms.openlocfilehash: bf825572226bf5d7432fd3ad825f2f3a13355c53
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: c407b62b5f0308fbb6d9ff7223a3554ca09592db
+ms.sourcegitcommit: a8ff4f9f69332eef9c75093fd56a9aae2fe65122
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102054731"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105027211"
 ---
-# <a name="assessment-rules-for-sql-server-to-sql-database-migration"></a>Regole di valutazione per SQL Server alla migrazione del database SQL
+# <a name="assessment-rules-for-sql-server-to-azure-sql-database-migration"></a>Regole di valutazione per SQL Server alla migrazione del database SQL di Azure
 [!INCLUDE[appliesto--sqldb](../../includes/appliesto-sqldb.md)]
 
 Gli strumenti di migrazione convalidano l'istanza di SQL Server di origine eseguendo una serie di regole di valutazione per identificare i problemi che devono essere risolti prima di eseguire la migrazione del database di SQL Server al database SQL di Azure. 

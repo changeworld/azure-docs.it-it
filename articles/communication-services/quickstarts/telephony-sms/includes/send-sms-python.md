@@ -10,12 +10,12 @@ ms.date: 03/11/2021
 ms.topic: include
 ms.custom: include file
 ms.author: lakshmans
-ms.openlocfilehash: b975b129f4384c09006a22b1ab124b1906a869d3
-ms.sourcegitcommit: ba3a4d58a17021a922f763095ddc3cf768b11336
+ms.openlocfilehash: f064e0c3ac00b4ab7aeb23356dd24fd89c91021e
+ms.sourcegitcommit: ed7376d919a66edcba3566efdee4bc3351c57eda
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/23/2021
-ms.locfileid: "104803242"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105105870"
 ---
 Introduzione a Servizi di comunicazione di Azure, con l'invio di messaggi SMS tramite la libreria client SMS di Servizi di comunicazione per Python.
 
@@ -99,7 +99,7 @@ Per inviare un messaggio SMS a un singolo destinatario, chiamare il ```send``` m
 # calling send() with sms values
 sms_responses = sms_client.send(
     from_="<from-phone-number>",
-    to="<to-phone-number>,
+    to="<to-phone-number>",
     message="Hello World via SMS",
     enable_delivery_report=True, # optional property
     tag="custom-tag") # optional property
