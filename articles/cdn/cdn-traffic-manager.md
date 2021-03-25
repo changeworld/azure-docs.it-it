@@ -9,12 +9,12 @@ ms.topic: how-to
 ms.date: 10/08/2020
 ms.author: allensu
 ms.custom: ''
-ms.openlocfilehash: d2d3bd43a0f17167e855d7e678a96cd79fe42237
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: a003becba0bc1e42d8fe0c0c5b199402a430a8e1
+ms.sourcegitcommit: bb330af42e70e8419996d3cba4acff49d398b399
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "92777742"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105034759"
 ---
 # <a name="failover-across-multiple-endpoints-with-azure-traffic-manager"></a>Failover tra più endpoint con gestione traffico di Azure
 
@@ -94,7 +94,10 @@ Dopo aver configurato i profili della rete CDN e di gestione traffico, attenersi
     > [!NOTE]
     > Se il dominio è attualmente attivo e non può essere interrotto, eseguire questo passaggio in un secondo momento. Prima di aggiornare il DNS del dominio personalizzato a Gestione traffico, verificare che gli endpoint della rete CDN e i domini di Gestione traffico siano attivi.
     >
-
+   
+    > [!NOTE]
+    > Per implemeting, questo failover di scenari è necessario che entrambi gli endpoint siano in profili diversi e che i diversi profili siano da un provider di rete CDN diverso per evitare conflitti di nomi di dominio.
+    > 
 
 2.  Dal profilo della rete CDN di Azure selezionare il primo endpoint della rete CDN (Akamai). Selezionare **Aggiungi dominio personalizzato** e input **cdndemo101.dustydogpetcare.online**. Verificare che il segno di spunta per convalidare il dominio personalizzato sia verde. 
 

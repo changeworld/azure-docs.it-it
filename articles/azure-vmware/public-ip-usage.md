@@ -3,12 +3,12 @@ title: Come usare la funzionalità IP pubblico nella soluzione VMware di Azure
 description: Questo articolo illustra come usare la funzionalità IP pubblico nella rete WAN virtuale di Azure.
 ms.topic: how-to
 ms.date: 02/04/2021
-ms.openlocfilehash: 640f359ed8934048bffd7f58b36e8a3eef71c2f1
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 794e24e531d464adf58d5a06b5a411ada18c4a60
+ms.sourcegitcommit: a8ff4f9f69332eef9c75093fd56a9aae2fe65122
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "99581381"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105023657"
 ---
 # <a name="how-to-use-the-public-ip-functionality-in-azure-vmware-solution"></a>Come usare la funzionalità IP pubblico nella soluzione VMware di Azure
 
@@ -47,6 +47,9 @@ Il server Web riceve la richiesta e risponde con le informazioni o la pagina ric
 
 ## <a name="test-case"></a>Test case
 In questo scenario, il server Web IIS verrà pubblicato su Internet. Usare la funzionalità IP pubblico della soluzione VMware di Azure per pubblicare il sito Web in un indirizzo IP pubblico.  Si configureranno anche le regole NAT nel firewall e si accederà alla risorsa della soluzione VMware di Azure (VM con un server Web) con IP pubblico.
+
+>[!TIP]
+>Per abilitare il traffico in uscita, è necessario impostare la configurazione di sicurezza > il traffico Internet al **firewall di Azure**.
 
 ## <a name="deploy-virtual-wan"></a>Distribuire una rete WAN virtuale
 
@@ -152,7 +155,7 @@ Una volta distribuiti tutti i componenti, è possibile visualizzarli nel gruppo 
 
 ## <a name="limitations"></a>Limitazioni
 
-È possibile avere 100 indirizzi IP pubblici per ogni SDDCs.
+È possibile avere 100 indirizzi IP pubblici per ogni cloud privato.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

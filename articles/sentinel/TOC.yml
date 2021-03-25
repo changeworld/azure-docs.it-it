@@ -320,7 +320,7 @@
         - name: Riferimento rapido per il linguaggio di query di Kusto
           href: /azure/data-explorer/kql-quick-reference
         - name: Ottimizzazioni delle query del log di monitoraggio di Azure
-          href: /azure/azure-monitor/logs/query-optimization
+          href: ../azure-monitor/logs/query-optimization.md
     - name: Arricchimenti tramite UEBA
       href: ueba-enrichments.md
     - name: Mapping dei campi di log CEF

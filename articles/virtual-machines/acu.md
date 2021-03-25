@@ -9,12 +9,12 @@ ms.workload: infrastructure-services
 ms.date: 02/03/2020
 ms.author: mimckitt
 ms.reviewer: davberg
-ms.openlocfilehash: ae37771cd9e48f450ae538174b9bed9cfa866f9d
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: fae915df037b2a279dfdb87ee6734055c422a1e2
+ms.sourcegitcommit: a8ff4f9f69332eef9c75093fd56a9aae2fe65122
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102565530"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105024813"
 ---
 # <a name="azure-compute-unit-acu"></a>Unità di calcolo di Azure
 
@@ -25,6 +25,8 @@ Il concetto di unità di calcolo di Azure offre un modo per confrontare le prest
 **Le unità ACU usano la tecnologia AMD® Boost per aumentare la frequenza della CPU e offrire un miglioramento delle prestazioni.  L'entità del miglioramento delle prestazioni può variare in base alle dimensioni della macchina virtuale, al carico di lavoro e agli altri carichi di lavoro in esecuzione sullo stesso host.
 
 ***Con hyperthreading e in grado di eseguire la virtualizzazione annidata
+
+Tecnologia multithreading simultanea AMD
 
 > [!IMPORTANT]
 > L'unità ACU costituisce solo un'indicazione di riferimento. I risultati possono variare in base al carico di lavoro.
@@ -45,7 +47,7 @@ Il concetto di unità di calcolo di Azure offre un modo per confrontare le prest
 | [DS1_v2 - DS15_v2](dv2-dsv2-series.md) |210 - 250* | 1:1 |
 | [D_v3](dv3-dsv3-series.md) |160 - 190* | 2:1\*\*\* |
 | [Ds_v3](dv3-dsv3-series.md) |160 - 190* | 2:1\*\*\* |
-| [Dav4](dav4-dasv4-series.md) |230-260 * * | 2:1 |
+| [Dav4](dav4-dasv4-series.md) |230-260 * * | 2:1\*\*\*\* |
 | [Dasv4](dav4-dasv4-series.md) |230-260 * * | 2:1 |
 | [DV4](dv4-dsv4-series.md) | 195 - 210 | 2:1\*\*\* |
 | [Dsv4](dv4-dsv4-series.md) | 195 - 210 | 2:1\*\*\* |
@@ -53,7 +55,7 @@ Il concetto di unità di calcolo di Azure offre un modo per confrontare le prest
 | [Ddsv4](ddv4-ddsv4-series.md) | 195-210 * | 2:1\*\*\* |
 | [E_v3](ev3-esv3-series.md) |160 - 190* | 2:1\*\*\*|
 | [Es_v3](ev3-esv3-series.md) |160 - 190* | 2:1\*\*\* |
-| [Eav4](eav4-easv4-series.md) |230-260 * * | 2:1 |
+| [Eav4](eav4-easv4-series.md) |230-260 * * | 2:1\*\*\*\* |
 | [Easv4](eav4-easv4-series.md) | 230-260 * * | 2:1 |
 | [Ev4](ev4-esv4-series.md) | 195 - 210 | 2:1\*\*\* |
 | [Esv4](ev4-esv4-series.md) | 195 - 210 | 2:1\*\*\* |
@@ -68,7 +70,7 @@ Il concetto di unità di calcolo di Azure offre un modo per confrontare le prest
 | [HB](hb-series.md) |199-216 * * | 1:1 |
 | [HC](hc-series.md) |297-315 * | 1:1 |
 | [L4s - L32s](sizes-previous-gen.md) |180 - 240* | 1:1 |
-| [L8s_v2 - L80s_v2](lsv2-series.md) |150 - 175** | 2:1 |
+| [L8s_v2 - L80s_v2](lsv2-series.md) |150 - 175** | 2:1\*\*\*\* |
 | [M](m-series.md) | 160-180 | 2:1\*\*\* |
 | [NVv4](nvv4-series.md) |230-260 * * | 2:1 |
 

@@ -12,12 +12,12 @@ ms.date: 05/19/2020
 ms.author: trbye
 zone_pivot_groups: programming-languages-speech-services-nomore-variant
 ms.custom: devx-track-js, devx-track-csharp
-ms.openlocfilehash: e62333f241cf24620773314fb7aa4846af651eaf
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: b558d4b3be64f82775eb9caf2f3ea8c5a8f95c6d
+ms.sourcegitcommit: a8ff4f9f69332eef9c75093fd56a9aae2fe65122
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98185870"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105025221"
 ---
 # <a name="automatic-language-detection-for-speech-to-text"></a>Rilevamento automatico della lingua per il riconoscimento vocale
 
@@ -30,7 +30,7 @@ In questo articolo si apprenderà come usare `AutoDetectSourceLanguageConfig` pe
 
 ## <a name="automatic-language-detection-with-the-speech-sdk"></a>Rilevamento automatico della lingua con l'SDK di riconoscimento vocale
 
-Il rilevamento automatico della lingua dispone attualmente di un limite lato servizi di quattro lingue per rilevamento. Tenere presente questa limitazione quando si costruisce l' `AudoDetectSourceLanguageConfig` oggetto. Negli esempi seguenti verrà creato un oggetto, che `AutoDetectSourceLanguageConfig` verrà quindi usato per costruire un oggetto `SpeechRecognizer` .
+Il rilevamento automatico della lingua dispone attualmente di un limite lato servizi di quattro lingue per rilevamento. Tenere presente questa limitazione quando si costruisce l' `AutoDetectSourceLanguageConfig` oggetto. Negli esempi seguenti verrà creato un oggetto, che `AutoDetectSourceLanguageConfig` verrà quindi usato per costruire un oggetto `SpeechRecognizer` .
 
 > [!TIP]
 > È anche possibile specificare un modello personalizzato da usare quando si esegue il riconoscimento vocale in un testo. Per altre informazioni, vedere [usare un modello personalizzato per il rilevamento automatico della lingua](#use-a-custom-model-for-automatic-language-detection).
