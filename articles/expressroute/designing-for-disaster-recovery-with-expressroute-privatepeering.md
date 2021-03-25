@@ -5,20 +5,20 @@ services: expressroute
 author: duongau
 ms.service: expressroute
 ms.topic: article
-ms.date: 05/25/2019
+ms.date: 03/22/2021
 ms.author: duau
-ms.openlocfilehash: 2a5730cd75ccb76d25897e9109555113f7355c2f
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 8b1691dc7358c03b924d710684ecd73841b4832d
+ms.sourcegitcommit: ed7376d919a66edcba3566efdee4bc3351c57eda
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "92202414"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105044601"
 ---
 # <a name="designing-for-disaster-recovery-with-expressroute-private-peering"></a>Progettazione per il ripristino di emergenza con peering privato ExpressRoute
 
 ExpressRoute è progettato per garantire un'elevata disponibilità per la connettività di rete privata di livello vettore alle risorse Microsoft. In altre parole, non esiste un singolo punto di errore nel percorso ExpressRoute all'interno della rete Microsoft. Per considerazioni sulla progettazione per ottimizzare la disponibilità di un circuito ExpressRoute, vedere [progettazione per la disponibilità elevata con ExpressRoute][HA].
 
-Tuttavia, prendendo in considerazione l'Adagio più comune di *Murphy, in* questo articolo, in questo articolo ci concentreremo sulle soluzioni che vanno oltre gli errori che possono essere risolti usando un unico circuito ExpressRoute. In altre parole, in questo articolo vengono esaminate le considerazioni sull'architettura di rete per la creazione di una connettività di rete back-end affidabile per il ripristino di emergenza usando circuiti ExpressRoute con ridondanza geografica.
+Tuttavia, prendendo in considerazione l'Adagio più comune di *Murphy, in* questo articolo, in questo articolo ci concentreremo sulle soluzioni che vanno oltre gli errori che possono essere risolti usando un unico circuito ExpressRoute. Verranno esaminate le considerazioni sull'architettura di rete per la creazione di una connettività di rete back-end affidabile per il ripristino di emergenza tramite circuiti ExpressRoute con ridondanza geografica.
 
 >[!NOTE]
 >I concetti descritti in questo articolo si applicano ugualmente quando viene creato un circuito ExpressRoute in WAN virtuale o al di fuori di esso.
@@ -26,9 +26,9 @@ Tuttavia, prendendo in considerazione l'Adagio più comune di *Murphy, in* quest
 
 ## <a name="need-for-redundant-connectivity-solution"></a>Necessità di una soluzione di connettività ridondante
 
-Sono disponibili possibilità e istanze in cui un intero servizio a livello di area (ovvero Microsoft, provider di servizi di rete, cliente o altri provider di servizi cloud) viene ridotto. La causa principale di questo effetto sul servizio a livello di area è la calamità naturale. Per la continuità aziendale e per le applicazioni mission-critical è quindi importante pianificare il ripristino di emergenza.   
+Sono disponibili possibilità e istanze in cui un intero servizio a livello di area (ovvero Microsoft, provider di servizi di rete, cliente o altri provider di servizi cloud) viene ridotto. La causa principale di questo effetto sul servizio a livello di area è la calamità naturale. Per questo motivo, per la continuità aziendale e per le applicazioni mission-critical è importante pianificare il ripristino di emergenza.   
 
-Indipendentemente dal fatto che si eseguano applicazioni mission-critical in un'area di Azure o in locale o in qualsiasi altra posizione, è possibile usare un'altra area di Azure come sito di failover. Gli articoli seguenti illustrano il ripristino di emergenza dalle applicazioni e dalle prospettive di accesso front-end:
+Indipendentemente dall'esecuzione delle applicazioni mission-critical in un'area di Azure o in locale o in qualsiasi altra posizione, è possibile usare un'altra area di Azure come sito di failover. Gli articoli seguenti illustrano il ripristino di emergenza dalle applicazioni e dalle prospettive di accesso front-end:
 
 - [Ripristino di emergenza di livello aziendale][Enterprise DR]
 - [Ripristino di emergenza per piccole e medie imprese con Azure Site Recovery][SMB DR]
@@ -37,9 +37,19 @@ Se si fa affidamento sulla connettività ExpressRoute tra la rete locale e Micro
 
 ## <a name="challenges-of-using-multiple-expressroute-circuits"></a>Problemi relativi all'uso di più circuiti ExpressRoute
 
-Quando si esegue l'interconnessione dello stesso set di reti utilizzando più di una connessione, si introducono percorsi paralleli tra le reti. I percorsi paralleli, quando non progettati correttamente, possono causare il routing asimmetrico. Se sono presenti entità con stato (ad esempio, NAT, firewall) nel percorso, il routing asimmetrico potrebbe bloccare il flusso del traffico.  In genere, tramite il percorso di peering privato di ExpressRoute non si arriveranno entità con stato, ad esempio NAT o firewall. Pertanto, il routing asimmetrico sul peering privato ExpressRoute non blocca necessariamente il flusso del traffico.
+Quando si esegue l'interconnessione dello stesso set di reti utilizzando più di una connessione, si introducono percorsi paralleli tra le reti. I percorsi paralleli, quando non progettati correttamente, possono causare il routing asimmetrico. Se sono presenti entità con stato (ad esempio, NAT, firewall) nel percorso, il routing asimmetrico potrebbe bloccare il flusso del traffico.  In genere, tramite il percorso di peering privato di ExpressRoute non si arriveranno entità con stato, ad esempio NAT o firewall. Per questo motivo, il routing asimmetrico sul peering privato di ExpressRoute non blocca necessariamente il flusso del traffico.
  
-Tuttavia, se si esegue il bilanciamento del carico del traffico tra percorsi paralleli con ridondanza geografica, indipendentemente dal fatto che si disponga o meno di entità con stato, si verificheranno prestazioni di rete incoerenti. Questo articolo illustra come risolvere questi problemi.
+Tuttavia, se si esegue il bilanciamento del carico del traffico tra percorsi paralleli con ridondanza geografica, indipendentemente dal fatto che si disponga o meno di entità con stato, si verificheranno prestazioni di rete incoerenti. Questi percorsi paralleli con ridondanza geografica possono essere tramite lo stesso metro o un metro diverso presente nella pagina [provider per località](expressroute-locations-providers.md#partners) . 
+
+### <a name="same-metro"></a>Stessa metro
+
+Quando si usa lo stesso metro, è consigliabile usare la posizione secondaria per il secondo percorso per la configurazione. Un esempio dello stesso metro è *Amsterdam* e *Amsterdam2*. Il vantaggio di selezionare lo stesso metro è quando si verifica il failover dell'applicazione, la latenza end-to-end tra le applicazioni locali e Microsoft rimane invariata. Tuttavia, se si verifica un'emergenza naturale, è possibile che la connettività per entrambi i percorsi non sia più disponibile. 
+
+### <a name="different-metros"></a>Metro differenti
+
+Quando si usano diversi metro per circuiti SKU standard, la località secondaria deve trovarsi nella stessa [area geografica](expressroute-locations-providers.md#locations). Per scegliere una località all'esterno dell'area geografica, è necessario usare lo SKU Premium per entrambi i circuiti nei percorsi paralleli. Il vantaggio di questa configurazione è costituito dalle probabilità che un'emergenza naturale causi un'interruzione a entrambi i collegamenti sia molto inferiore, ma con il costo di un aumento della latenza end-to-end.
+
+Questo articolo illustra come risolvere i problemi che possono verificarsi durante la configurazione di percorsi con ridondanza geografica.
 
 ## <a name="small-to-medium-on-premises-network-considerations"></a>Considerazioni sulla rete locale da piccole a medie
 
@@ -100,13 +110,13 @@ Usando una qualsiasi delle tecniche, se si influisce su Azure per preferire uno 
 
 ## <a name="large-distributed-enterprise-network"></a>Rete aziendale distribuita di grandi dimensioni
 
-Quando si dispone di una rete aziendale distribuita di grandi dimensioni, è probabile che siano presenti più circuiti ExpressRoute. In questa sezione viene illustrato come progettare il ripristino di emergenza usando i circuiti ExpressRoute Active-Active, senza che siano necessari circuiti stand-by aggiuntivi. 
+Quando si dispone di una rete aziendale distribuita di grandi dimensioni, è probabile che siano presenti più circuiti ExpressRoute. In questa sezione viene illustrato come progettare il ripristino di emergenza usando i circuiti ExpressRoute attivi e attivi, senza che sia necessario un altro circuito stand-by. 
 
 Si prenda in considerazione l'esempio illustrato nella figura seguente. Nell'esempio Contoso dispone di due percorsi locali connessi a due distribuzioni di Contoso IaaS in due diverse aree di Azure tramite circuiti ExpressRoute in due diverse località di peering. 
 
 [![6]][6]
 
-Il modo in cui si progetta il ripristino di emergenza influisca sulla modalità di indirizzamento del traffico tra le aree geografiche tra le località (regione1/region2 e Location2/location1). Consideriamo due diverse architetture di emergenza che indirizzano in modo diverso il traffico tra le aree geografiche.
+Il modo in cui l'architettura del ripristino di emergenza influisca sulla modalità di indirizzamento del traffico tra più aree (regione1/region2 a Location2/location1). Consideriamo due diverse architetture di emergenza che indirizzano in modo diverso il traffico tra le aree geografiche.
 
 ### <a name="scenario-1"></a>Scenario 1
 

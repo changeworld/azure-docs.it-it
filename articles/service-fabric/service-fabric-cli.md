@@ -5,12 +5,12 @@ author: jeffj6123
 ms.topic: conceptual
 ms.date: 5/19/2020
 ms.author: jejarry
-ms.openlocfilehash: a1b0598f34fe894e078dc647149cff4ac74e1fea
-ms.sourcegitcommit: ba3a4d58a17021a922f763095ddc3cf768b11336
+ms.openlocfilehash: ff322cb3633616e9004bc8fa25b048b6f1263008
+ms.sourcegitcommit: ed7376d919a66edcba3566efdee4bc3351c57eda
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/23/2021
-ms.locfileid: "104802149"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105046335"
 ---
 # <a name="azure-service-fabric-cli"></a>Interfaccia della riga di comando di Azure Service Fabric
 
@@ -58,11 +58,11 @@ Per altre informazioni sulle versioni dell'interfaccia della riga di comando di 
 
 Per Windows 10, Windows Server 2016 e Windows Server 2012 R2 usare le istruzioni di installazione standard ufficiali. Il programma di installazione di Python installa anche pip per impostazione predefinita.
 
-1. Passare alla [pagina di download di Python](https://www.python.org/downloads/) ufficiale e scaricare la versione più recente di Python 3.7.
+1. Andare alla pagina di [download di Python](https://www.python.org/downloads/)ufficiale e scaricare la versione più recente di Python 3. x.
 
 2. Avviare il programma di installazione.
 
-3. Nella parte inferiore del prompt selezionare **Add Python 3.7 to PATH** (Aggiungi Python 3.7 a PATH).
+3. Nella parte inferiore del prompt selezionare **Aggiungi Python 3. x a percorso**.
 
 4. Selezionare **Install Now** (Installa) e completare l'installazione.
 
@@ -118,8 +118,8 @@ sudo pip3 install sfctl
 Per installare l'interfaccia della riga di comando di Service Fabric su Red Hat, eseguire questi comandi:
 
 ```bash
-sudo yum install -y python34
-sudo yum install python34-setuptools
+sudo yum install -y python38
+sudo yum install python38-setuptools
 sudo easy_install-3.4 pip
 sudo pip3 install sfctl
 ```
@@ -135,7 +135,7 @@ Per MacOS è consigliabile usare la [gestione pacchetti HomeBrew](https://brew.s
 /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 ```
 
-Dal terminale installare quindi Python 3.7, pip e l'interfaccia della riga di comando di Service Fabric eseguendo i comandi seguenti:
+Quindi, dal terminale, installare la versione più recente di Python 3. x, PIP e l'interfaccia della riga di comando di Service Fabric eseguendo i comandi seguenti:
 
 ```bash
 brew install python3

@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 3/10/2021
 ms.author: inhenkel
 ms.custom: devx-track-csharp
-ms.openlocfilehash: b0969ffae7963d6a5f9ac249e43750444ab11baa
-ms.sourcegitcommit: bb330af42e70e8419996d3cba4acff49d398b399
+ms.openlocfilehash: e41e33b5f30cd861ae8715e0ad7f6694f8854198
+ms.sourcegitcommit: ed7376d919a66edcba3566efdee4bc3351c57eda
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 03/24/2021
-ms.locfileid: "105036051"
+ms.locfileid: "105046930"
 ---
 # <a name="how-to-use-the-microsoft-smooth-streaming-plugin-for-the-adobe-open-source-media-framework"></a>Come usare il plug-in Microsoft Smooth Streaming per Adobe Open Source Media Framework
 
@@ -34,7 +34,7 @@ In Smooth Streaming per OSMF sono incluse due versioni di plug-in:
 * Plug-in Static Smooth Streaming per OSMF (con estensione swc)
 * Plug-in Dynamic Smooth Streaming per OSMF (con estensione swf)
 
-In questo documento si presuppone che il lettore abbia una conoscenza generale del funzionamento dei plug-in OSMF e OSMF. Per ulteriori informazioni su OSMF, consultare la documentazione sul [sito ufficiale di OSMF](http://osmf.org/).
+In questo documento si presuppone che il lettore abbia una conoscenza generale del funzionamento dei plug-in OSMF e OSMF. Per ulteriori informazioni su OSMF, consultare la documentazione sul sito ufficiale di OSMF.
 
 ### <a name="smooth-streaming-plugin-for-osmf-20"></a>Plug-in Smooth Streaming per OSMF 2.0
 Il plug-in supporta il caricamento e la riproduzione di contenuto Smooth Streaming su richiesta con le funzionalità seguenti:
@@ -62,7 +62,7 @@ I plug-in OSMF possono essere caricati in modo statico (in fase di compilazione)
 Per altre informazioni sul caricamento statico e dinamico, vedere la [pagina ufficiale del plug-in OSMF](https://www.ibm.com/support/knowledgecenter/SSLTBW_2.3.0/com.ibm.zos.v2r3.izua300/IZUHPINFO_PluginsPlanning.htm).
 
 ### <a name="ss-for-osmf-static-loading"></a>Caricamento statico di Smooth Streaming per OSMF
-Nel frammento di codice seguente viene illustrato come caricare il plug-in Smooth Streaming per OSMF in modo statico e riprodurre un video di base usando la classe MediaFactory di OSMF. Prima di includere il codice di Smooth Streaming per OSMF, verificare che nei riferimenti del progetto sia incluso il plug-in statico "MSAdaptiveStreamingPlugin-v1.0.3-osmf2.0.swc".
+Nel frammento di codice seguente viene illustrato come caricare il plug-in Smooth Streaming per OSMF in modo statico e riprodurre un video di base usando la classe MediaFactory di OSMF. Prima di includere il codice di Smooth Streaming per OSMF, verificare che nei riferimenti del progetto sia incluso il plug-in statico "MSAdaptiveStreamingPlugin-v1.0.3-osmf2.0.swc". 
 
 ```csharp
 package 
@@ -337,7 +337,7 @@ package
 ## <a name="strobe-media--playback-with-the-ss-odmf-dynamic-plugin"></a>Strobe Media Playback con plug-in dinamico SS per OSMF
 Il plug-in dinamico Smooth Streaming per OSMF è compatibile con [Strobe Media Playback (SMP)](https://sourceforge.net/adobe/smp/home/Strobe%20Media%20Playback/). È possibile utilizzare il plug-in SS per OSMF per aggiungere la riproduzione di contenuti Smooth Streaming a SMP. A questo scopo, copiare il plug-in "MSAdaptiveStreamingPlugin-v1.0.3-osmf2.0.swf" in un server Web per il caricamento tramite HTTP attenendosi alla procedura seguente:
 
-1. Passare alla [pagina di installazione di Strobe Media Playback](http://osmf.org/dev/2.0gm/setup.html). 
+1. Passare alla [pagina di installazione di Strobe Media Playback](http://www.koopman.me/bob3/setup.html). 
 2. Impostare src su un'origine Smooth Streaming, ad esempio http: \/ /devplatem.vo.msecnd.NET/Sintel/Sintel_H264.ISM/manifest 
 3. Apportare le modifiche di configurazione desiderate e fare clic su Preview and Update.
    
@@ -394,7 +394,7 @@ Il plug-in dinamico Smooth Streaming per OSMF è compatibile con [Strobe Media P
 2. Salvare la pagina HTML e pubblicarla in un server Web. Passare alla pagina Web pubblicata usando un browser Internet compatibile con Flash&reg; Player, ad esempio Internet Explorer, Chrome, Firefox e così via.
 3. Riprodurre il contenuto Smooth Streaming in Adobe&reg; Flash&reg; Player.
 
-Per ulteriori informazioni sullo sviluppo generale per OSMF, consultare la [pagina ufficiale per lo sviluppo di OSMF](http://osmf.org/resources.html).
+Per ulteriori informazioni sullo sviluppo generale per OSMF, consultare la [pagina ufficiale per lo sviluppo di OSMF](https://www.adobe.com/devnet/video/articles1/osmf_overview.html).
 
 ## <a name="media-services-learning-paths"></a>Percorsi di apprendimento di Servizi multimediali
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]

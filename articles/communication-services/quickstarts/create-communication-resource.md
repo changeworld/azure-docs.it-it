@@ -10,21 +10,21 @@ ms.date: 03/10/2021
 ms.topic: overview
 ms.service: azure-communication-services
 zone_pivot_groups: acs-plat-azp-net
-ms.openlocfilehash: ffb40d7fb45f43349004fc4d18e7582aa3521185
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 91383ecba119959213804e0432f612c3f1ff636c
+ms.sourcegitcommit: bed20f85722deec33050e0d8881e465f94c79ac2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103495889"
+ms.lasthandoff: 03/25/2021
+ms.locfileid: "105110892"
 ---
 # <a name="quickstart-create-and-manage-communication-services-resources"></a>Avvio rapido: Creare e gestire le risorse di Servizi di comunicazione
 
 [!INCLUDE [Public Preview Notice](../includes/public-preview-include.md)]
 
-Per iniziare a usare Servizi di comunicazione di Azure, effettuare il provisioning della prima risorsa di Servizi di comunicazione. È possibile eseguire il provisioning delle risorse dei servizi di comunicazione tramite il [portale di Azure](https://portal.azure.com) o con la libreria client di gestione .NET. La libreria client di gestione e la portale di Azure consentono di creare, configurare, aggiornare ed eliminare le risorse e l'interfaccia con [Azure Resource Manager](../../azure-resource-manager/management/overview.md), il servizio di distribuzione e gestione di Azure. Tutte le funzionalità disponibili nelle librerie client sono presenti nel portale di Azure. 
+Per iniziare a usare Servizi di comunicazione di Azure, effettuare il provisioning della prima risorsa di Servizi di comunicazione. È possibile eseguire il provisioning delle risorse dei servizi di comunicazione tramite il [portale di Azure](https://portal.azure.com) o con .NET Management SDK. Management SDK e il portale di Azure consentono di creare, configurare, aggiornare ed eliminare le risorse e l'interfaccia con [Azure Resource Manager](../../azure-resource-manager/management/overview.md), il servizio di distribuzione e gestione di Azure. Tutte le funzionalità disponibili negli SDK sono disponibili nella portale di Azure. 
 
 
-Per iniziare a usare Servizi di comunicazione di Azure, effettuare il provisioning della prima risorsa di Servizi di comunicazione. È possibile eseguire il provisioning delle risorse dei servizi di comunicazione tramite il [portale di Azure](https://portal.azure.com) o con la libreria client di gestione .NET. La libreria client di gestione e la portale di Azure consentono di creare, configurare, aggiornare ed eliminare le risorse e l'interfaccia con [Azure Resource Manager](../../azure-resource-manager/management/overview.md), il servizio di distribuzione e gestione di Azure. Tutte le funzionalità disponibili nelle librerie client sono presenti nel portale di Azure.
+Per iniziare a usare Servizi di comunicazione di Azure, effettuare il provisioning della prima risorsa di Servizi di comunicazione. È possibile eseguire il provisioning delle risorse dei servizi di comunicazione tramite il [portale di Azure](https://portal.azure.com) o con .NET Management SDK. Management SDK e il portale di Azure consentono di creare, configurare, aggiornare ed eliminare le risorse e l'interfaccia con [Azure Resource Manager](../../azure-resource-manager/management/overview.md), il servizio di distribuzione e gestione di Azure. Tutte le funzionalità disponibili negli SDK sono disponibili nella portale di Azure.
 
 > [!WARNING]
 > Si noti che mentre i servizi di comunicazione sono disponibili in più aree geografiche, per ottenere un numero di telefono, la risorsa deve avere un percorso dati impostato su "US". Si noti anche che durante l'anteprima pubblica non è possibile trasferire le risorse di comunicazione a una sottoscrizione diversa.
@@ -43,9 +43,9 @@ Per iniziare a usare Servizi di comunicazione di Azure, effettuare il provisioni
 
 ## <a name="access-your-connection-strings-and-service-endpoints"></a>Accedere alle stringhe di connessione e agli endpoint di servizio
 
-Le stringhe di connessione consentono alle librerie client di Servizi di comunicazione di eseguire la connessione e l'autenticazione ad Azure. È possibile accedere alle stringhe di connessione e agli endpoint di servizio di Servizi di comunicazione dal portale di Azure o a livello di codice con le API di Azure Resource Manager.
+Le stringhe di connessione consentono agli SDK di servizi di comunicazione di connettersi ed eseguire l'autenticazione ad Azure. È possibile accedere alle stringhe di connessione e agli endpoint di servizio di Servizi di comunicazione dal portale di Azure o a livello di codice con le API di Azure Resource Manager.
 
-Dopo aver eseguito l'accesso alla risorsa di Servizi di comunicazione, selezionare **Chiavi** dal menu di spostamento e copiare i valori di **Stringa di connessione** o **Endpoint** per l'utilizzo da parte delle librerie client di Servizi di comunicazione. Si noti che è possibile accedere alle chiavi primaria e secondaria. Questo può essere utile negli scenari in cui si vuole fornire l'accesso temporaneo alle risorse di Servizi di comunicazione a un ambiente di terze parti o di gestione temporanea.
+Dopo aver spostato la risorsa servizi di comunicazione, selezionare **chiavi** dal menu di navigazione e copiare i valori di **stringa di connessione** o di **endpoint** per l'utilizzo da parte degli SDK di Communication Services. Si noti che è possibile accedere alle chiavi primaria e secondaria. Questo può essere utile negli scenari in cui si vuole fornire l'accesso temporaneo alle risorse di Servizi di comunicazione a un ambiente di terze parti o di gestione temporanea.
 
 :::image type="content" source="./media/key.png" alt-text="Screenshot della pagina Chiave di Servizi di comunicazione.":::
 
@@ -59,7 +59,7 @@ az communication list-key --name "<communicationName>" --resource-group "<resour
 
 ## <a name="store-your-connection-string"></a>Archiviare la stringa di connessione
 
-Le librerie client di Servizi di comunicazione usano le stringhe di connessione per autorizzare le richieste effettuate a Servizi di comunicazione. Sono disponibili diverse opzioni per l'archiviazione della stringa di connessione:
+Gli SDK di servizi di comunicazione usano le stringhe di connessione per autorizzare le richieste effettuate ai servizi di comunicazione. Sono disponibili diverse opzioni per l'archiviazione della stringa di connessione:
 
 * Un'applicazione in esecuzione sul desktop o in un dispositivo può archiviare la stringa di connessione in un file **app.config** o in un file **web.config**. Aggiungere la stringa di connessione alla sezione **AppSettings** in tali file.
 * Un'applicazione in esecuzione in un'istanza di Servizio app di Azure può archiviare la stringa di connessione nelle [impostazioni dell'applicazione di Servizio app](../../app-service/configure-common.md). Aggiungere la stringa di connessione alla sezione **Stringhe di connessione** della scheda Impostazioni applicazione nel portale.

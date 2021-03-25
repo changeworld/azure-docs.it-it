@@ -6,12 +6,12 @@ manager: nitinme
 ms.author: lajanuar
 author: laujan
 ms.date: 03/05/2021
-ms.openlocfilehash: 21df853d9b1c7250e9a6eea37a68835a180f610d
-ms.sourcegitcommit: 2c1b93301174fccea00798df08e08872f53f669c
+ms.openlocfilehash: 70c8bce840bca6f2e99b29dc32f5e71bbad8d379
+ms.sourcegitcommit: ed7376d919a66edcba3566efdee4bc3351c57eda
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/22/2021
-ms.locfileid: "104773046"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105047236"
 ---
 # <a name="get-started-with-document-translation-preview"></a>Introduzione alla conversione di documenti (anteprima)
 
@@ -272,7 +272,7 @@ Le intestazioni seguenti sono incluse in ogni richiesta dell'API di conversione 
 
 > [!IMPORTANT]
 >
-> Per gli esempi di codice riportati di seguito, è necessario impostare come hardcoded la chiave e l'endpoint, se indicati; Ricordarsi di rimuovere la chiave dal codice al termine dell'operazione senza pubblicarla.  Vedere [sicurezza dei servizi cognitivi di Azure](/azure/cognitive-services/cognitive-services-security?tabs=command-line%2Ccsharp) per informazioni su come archiviare in modo sicuro le credenziali e accedervi.
+> Per gli esempi di codice riportati di seguito, è necessario impostare come hardcoded la chiave e l'endpoint, se indicati; Ricordarsi di rimuovere la chiave dal codice al termine dell'operazione senza pubblicarla.  Vedere [sicurezza dei servizi cognitivi di Azure](../../cognitive-services-security.md?tabs=command-line%2ccsharp) per informazioni su come archiviare in modo sicuro le credenziali e accedervi.
 >
 > Potrebbe essere necessario aggiornare i campi seguenti, a seconda dell'operazione:
 >>>

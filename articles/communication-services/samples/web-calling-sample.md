@@ -9,16 +9,16 @@ ms.author: mariusu
 ms.date: 03/10/2021
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: 824fd19e8acfed75ab3d64048a00f579b70286d2
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 0f456581e14f17b0ea3ebbd54d0768d419e800b3
+ms.sourcegitcommit: bed20f85722deec33050e0d8881e465f94c79ac2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103496236"
+ms.lasthandoff: 03/25/2021
+ms.locfileid: "105110645"
 ---
 # <a name="get-started-with-the-web-calling-sample"></a>Introduzione all'esempio di chiamata Web
 
-L'esempio di chiamata Web è un'applicazione Web che funge da procedura dettagliata per le varie funzionalità fornite dalla libreria client per le chiamate Web di Servizi di comunicazione.
+L'esempio Web Calling è un'applicazione Web che funge da procedura dettagliata per le varie funzionalità offerte dall'SDK per la chiamata Web di servizi di comunicazione.
 
 Questo esempio è stato creato per gli sviluppatori e offre un modo molto semplice per iniziare a familiarizzare con Servizi di comunicazione. La sua interfaccia utente è suddivisa in più sezioni, ognuna con un pulsante "Show code" (Mostra codice) che consente di copiare il codice direttamente dal browser nell'applicazione di Servizi di comunicazione.
 
@@ -51,7 +51,7 @@ A questo punto è possibile iniziare a effettuare chiamate usando la risorsa di 
 
 ## <a name="placing-and-receiving-calls"></a>Esecuzione e ricezione di chiamate
 
-L'SDK per le chiamate Web di Servizi di comunicazione consente di effettuare chiamate **1:1**, **1: N** e **di gruppo**.
+L'SDK per la chiamata Web di servizi di comunicazione consente **1:1**, **1: N** e il **gruppo** chiamante.
 
 Per le chiamate in uscita 1:1 o 1: N è possibile specificare più identità utente di Servizi di comunicazione da chiamare usando valori separati da virgole. È anche possibile specificare numeri di telefono tradizionali (PSTN) da chiamare usando valori separati da virgole.
 
@@ -86,7 +86,7 @@ Questo esempio fornisce anche frammenti di codice per le funzionalità seguenti:
 
 Per altre informazioni, vedere gli articoli seguenti:
 
-- Acquisire familiarità con l'[uso della libreria client Chiamate](../quickstarts/voice-video-calling/calling-client-samples.md)
+- Familiarizzare con [l'uso dell'SDK chiamante](../quickstarts/voice-video-calling/calling-client-samples.md)
 - Leggere altre informazioni sul [funzionamento delle chiamate](../concepts/voice-video-calling/about-call-types.md)
 - Vedere la [documentazione di riferimento sulle API](/javascript/api/azure-communication-services/@azure/communication-calling/)
 - Esaminare l'esempio di [app Contoso Med](https://github.com/Azure-Samples/communication-services-contoso-med-app)

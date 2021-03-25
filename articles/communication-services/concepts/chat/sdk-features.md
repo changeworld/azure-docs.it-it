@@ -1,7 +1,7 @@
 ---
-title: Panoramica della libreria client di chat per Servizi di comunicazione di Azure
+title: Panoramica di Chat SDK per i servizi di comunicazione di Azure
 titleSuffix: An Azure Communication Services concept document
-description: Informazioni sulla libreria client di chat di Servizi di comunicazione di Azure.
+description: Informazioni su Azure Communication Services Chat SDK.
 author: mikben
 manager: jken
 services: azure-communication-services
@@ -9,22 +9,22 @@ ms.author: mikben
 ms.date: 09/30/2020
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: 705bd926c2ac6f414464254969b5c511c88891f0
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: b275c3af2e92dc5af677120b5082751d19676b2e
+ms.sourcegitcommit: bed20f85722deec33050e0d8881e465f94c79ac2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104656108"
+ms.lasthandoff: 03/25/2021
+ms.locfileid: "105110815"
 ---
-# <a name="chat-client-library-overview"></a>Panoramica della libreria client di chat  
+# <a name="chat-sdk-overview"></a>Panoramica di Chat SDK 
 
 [!INCLUDE [Public Preview Notice](../../includes/public-preview-include.md)]    
 
-Le librerie client di chat di Servizi di comunicazione di Azure possono essere usate per aggiungere chat in tempo reale ed elaborate alle applicazioni.
+Azure Communication Services Chat SDK può essere usato per aggiungere chat avanzate e in tempo reale alle applicazioni.
     
-## <a name="chat-client-library-capabilities"></a>Funzionalità della libreria client di chat 
+## <a name="chat-sdk-capabilities"></a>Funzionalità di Chat SDK    
 
-Nell'elenco seguente viene presentato il set di funzionalità attualmente disponibili nelle librerie client di chat di Servizi di comunicazione.  
+Nell'elenco seguente viene presentato il set di funzionalità attualmente disponibili negli SDK di chat di Communication Services.  
 
 | Gruppo di funzionalità | Funzionalità | JavaScript  | Java | .NET | Python | iOS | Android |
 |-----------------|-------------------|---|-----|----|-----|----|----|
@@ -51,13 +51,13 @@ Nell'elenco seguente viene presentato il set di funzionalità attualmente dispon
 
 * * Il pacchetto di segnalazione proprietario viene implementato utilizzando i socket Web. Verrà eseguito il fallback al polling lungo se i socket Web non sono supportati.  
 
-## <a name="javascript-chat-client-library-support-by-os-and-browser"></a>Supporto della libreria client di chat JavaScript per sistema operativo e browser 
+## <a name="javascript-chat-sdk-support-by-os-and-browser"></a>Supporto JavaScript Chat SDK per sistema operativo e browser    
 
 La tabella seguente rappresenta il set di versioni e browser supportati attualmente disponibili.
     
 |                                  | Windows          | macOS          | Ubuntu | Linux  | Android | iOS    | Sistema operativo per iPad|
 |--------------------------------|----------------|--------------|-------|------|------|------|-------|
-| **Libreria client di chat** | Firefox *, Chrome*, nuovo Edge | Firefox *, Chrome*, Safari * | Chrome*  | Chrome* | Chrome* | Safari | Safari |
+| **SDK Chat** | Firefox *, Chrome*, nuovo Edge | Firefox *, Chrome*, Safari * | Chrome*  | Chrome* | Chrome* | Safari | Safari |
 
 * Si noti che la versione più recente è supportata in aggiunta alle due versioni precedenti.<br/>   
 
