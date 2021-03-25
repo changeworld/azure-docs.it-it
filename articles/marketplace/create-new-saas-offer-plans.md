@@ -8,12 +8,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 ms.date: 09/02/2020
-ms.openlocfilehash: 238ef9ec80b01470e28535d0eb42dbb3a377b005
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: fb1514c146dcd352451597e6182c6d99ed8836d6
+ms.sourcegitcommit: ed7376d919a66edcba3566efdee4bc3351c57eda
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "96746438"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105044720"
 ---
 # <a name="how-to-create-plans-for-your-saas-offer"></a>Come creare piani per l'offerta SaaS
 
@@ -149,6 +149,10 @@ Le azioni disponibili nella colonna **azione** della scheda **panoramica piano**
 
 - Se lo stato del piano è **bozza**, il collegamento nella colonna **azione** indicherà **Elimina bozza**.
 - Se lo stato del piano è **Live**, il collegamento nella colonna **azione** sarà **Stop sell Plan** o **Sync private audience**. Il collegamento per i **destinatari privati della sincronizzazione** pubblicherà solo le modifiche apportate ai destinatari privati, senza pubblicare altri aggiornamenti che potrebbero essere stati apportati all'offerta.
+
+## <a name="before-you-publish-your-offer"></a>Prima di pubblicare l'offerta
+
+Se non è già stato fatto, creare un'offerta di sviluppo e test (DEV) per testare l'offerta prima di pubblicare l'offerta di produzione in tempo reale. Per altre informazioni, vedere [creare un'offerta di sviluppo e test](create-saas-dev-test-offer.md).
 
 ## <a name="next-steps"></a>Passaggi successivi
 

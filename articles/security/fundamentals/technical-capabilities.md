@@ -11,12 +11,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/04/2021
 ms.author: terrylan
-ms.openlocfilehash: 00a44bd0a6176270e70eca030fcfada46effe3a5
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 54be25317717bcf98b9e296d5c9ed59643cd334e
+ms.sourcegitcommit: ed7376d919a66edcba3566efdee4bc3351c57eda
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101735778"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105044754"
 ---
 # <a name="azure-security-technical-capabilities"></a>Funzionalità tecniche per la sicurezza di Azure
 Questo articolo fornisce un'introduzione ai servizi di sicurezza in Azure che consentono di proteggere i dati, le risorse e le applicazioni nel cloud e di soddisfare le esigenze di sicurezza dell'azienda.
@@ -278,7 +278,7 @@ Il [tunneling forzato](https://www.petri.com/azure-forced-tunneling) è un mecca
 
 Azure supporta la connettività con collegamento WAN dedicato alla rete locale e una rete virtuale di Azure con [ExpressRoute](../../expressroute/expressroute-introduction.md). Il collegamento tra Azure e il sito dell'utente si avvale di una connessione dedicata che non usa la rete Internet pubblica. Se l'applicazione Azure è in esecuzione in più data center, è possibile usare [Gestione traffico di Azure](../../traffic-manager/traffic-manager-overview.md) per indirizzare le richieste degli utenti in modo intelligente tra le istanze dell'applicazione. È anche possibile instradare il traffico ai servizi non in esecuzione in Azure, se sono accessibili da Internet.
 
-Azure supporta anche la connettività privata e sicura per le risorse di PaaS, ad esempio archiviazione di Azure e database SQL, dalla rete virtuale di Azure con [collegamento privato](https://docs.microsoft.com/azure/private-link/private-link-overview)di Azure. Viene eseguito il mapping della risorsa PaaS a un [endpoint privato](https://docs.microsoft.com/azure/private-link/private-endpoint-overview) nella rete virtuale. Il collegamento tra endpoint privato nella rete virtuale e la risorsa PaaS usa la rete backbone Microsoft e non passa attraverso la rete Internet pubblica. L'esposizione del servizio sulla rete Internet pubblica non è più necessaria. È anche possibile usare il collegamento privato di Azure per accedere ai servizi partner e di proprietà del cliente ospitati in Azure nella rete virtuale.  Il collegamento privato di Azure consente inoltre di creare un servizio di [collegamento privato](https://docs.microsoft.com/azure/private-link/private-link-service-overview) nella rete virtuale e di distribuirlo ai clienti privatamente nelle reti virtuali. Collegamento privato di Azure offre un'esperienza coerente di configurazione e utilizzo per i servizi PaaS di Azure, i servizi di proprietà dei clienti e quelli condivisi dei partner.
+Azure supporta anche la connettività privata e sicura per le risorse di PaaS, ad esempio archiviazione di Azure e database SQL, dalla rete virtuale di Azure con [collegamento privato](../../private-link/private-link-overview.md)di Azure. Viene eseguito il mapping della risorsa PaaS a un [endpoint privato](../../private-link/private-endpoint-overview.md) nella rete virtuale. Il collegamento tra endpoint privato nella rete virtuale e la risorsa PaaS usa la rete backbone Microsoft e non passa attraverso la rete Internet pubblica. L'esposizione del servizio sulla rete Internet pubblica non è più necessaria. È anche possibile usare il collegamento privato di Azure per accedere ai servizi partner e di proprietà del cliente ospitati in Azure nella rete virtuale.  Il collegamento privato di Azure consente inoltre di creare un servizio di [collegamento privato](../../private-link/private-link-service-overview.md) nella rete virtuale e di distribuirlo ai clienti privatamente nelle reti virtuali. Collegamento privato di Azure offre un'esperienza coerente di configurazione e utilizzo per i servizi PaaS di Azure, i servizi di proprietà dei clienti e quelli condivisi dei partner.
 
 ## <a name="virtual-machine-security"></a>Sicurezza delle macchine virtuali
 

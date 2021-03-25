@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 02/12/2020
 ms.author: wellsi
-ms.openlocfilehash: 1b2418b248e995b0f64eec82ccb477b15583c81e
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 37bbc8c7c2b81c22ffd8704e655805cc63cd9d45
+ms.sourcegitcommit: ed7376d919a66edcba3566efdee4bc3351c57eda
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103562332"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105044992"
 ---
 # <a name="release-notes-speech-devices-sdk"></a>Note sulla versione: SDK per dispositivi vocali
 
@@ -25,7 +25,7 @@ L'elenco nelle sezioni seguenti è modificato nelle versioni più recenti.
 
 - Aggiornato al nuovo Microsoft audio stack (MAS) con beamforming e riduzione del rumore ottimizzate per la sintesi vocale.
 - Riduzione della dimensione binaria di un importo pari al 70% a seconda della destinazione.
-- Supporto per l' [audio di Azure Percept](https://docs.microsoft.com/azure/azure-percept/overview-azure-percept-audio) con [rilascio binario](https://aka.ms/sdsdk-download-APAudio).
+- Supporto per l' [audio di Azure Percept](../../azure-percept/overview-azure-percept-audio.md) con [rilascio binario](https://aka.ms/sdsdk-download-APAudio).
 - Aggiornamento del componente [SDK vocale](./speech-sdk.md) alla versione 1.15.0. Per altre informazioni, vedere le relative [Note sulla versione](./releasenotes.md).
 
 ## <a name="speech-devices-sdk-1110"></a>1.11.0 SDK per dispositivi vocali:
