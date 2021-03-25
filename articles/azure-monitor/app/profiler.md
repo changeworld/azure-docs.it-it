@@ -6,12 +6,12 @@ author: cweining
 ms.author: cweining
 ms.date: 08/06/2018
 ms.reviewer: mbullwin
-ms.openlocfilehash: 2a5ba6cb0778e0c013f150d787d694b23f0497bd
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: a53db9deb07863010c792943c71eb0af5d845af8
+ms.sourcegitcommit: a8ff4f9f69332eef9c75093fd56a9aae2fe65122
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102218010"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105026506"
 ---
 # <a name="profile-live-azure-app-service-apps-with-application-insights"></a>Profilare le app di Servizio app di Azure attive con Application Insights
 
@@ -58,7 +58,7 @@ Ecco le impostazioni necessarie per abilitare Profiler:
 
 ## <a name="enable-profiler-for-other-clouds"></a>Abilitare Profiler per altri cloud
 
-Attualmente le uniche aree che richiedono modifiche all'endpoint sono [Azure per enti pubblici](https://docs.microsoft.com/azure/azure-government/compare-azure-government-global-azure#application-insights) e [Azure Cina](https://docs.microsoft.com/azure/china/resources-developer-guide).
+Attualmente le uniche aree che richiedono modifiche all'endpoint sono [Azure per enti pubblici](../../azure-government/compare-azure-government-global-azure.md#application-insights) e [Azure Cina](/azure/china/resources-developer-guide).
 
 |Impostazione app    | Cloud per enti pubblici degli Stati Uniti | Cloud per la Cina |   
 |---------------|---------------------|-------------|
@@ -83,4 +83,3 @@ Per arrestare o riavviare Profiler per un'istanza di un'app singola, nella barra
 [Enablement UI]: ./media/profiler/Enablement_UI.png
 [profiler-app-setting]:./media/profiler/profiler-app-setting.png
 [disable-profiler-webjob]: ./media/profiler/disable-profiler-webjob.png
-

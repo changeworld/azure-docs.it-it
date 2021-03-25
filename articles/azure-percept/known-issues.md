@@ -6,12 +6,12 @@ ms.author: v-elqu
 ms.service: azure-percept
 ms.topic: reference
 ms.date: 03/03/2021
-ms.openlocfilehash: a04e53c8444a01bc42f3ce71393fc842f3419e74
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: a3f44f3d0cdf024bca12b0023891f21175f52b47
+ms.sourcegitcommit: a8ff4f9f69332eef9c75093fd56a9aae2fe65122
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102193476"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105026939"
 ---
 # <a name="known-issues"></a>Problemi noti
 
@@ -30,7 +30,7 @@ Se si verifica uno di questi problemi, non è necessario aprire un bug. Se si ve
 | Aggiornamento dei dispositivi | È possibile che gli utenti ottengano un messaggio di errore durante l'aggiornamento, anche se ha avuto esito positivo. | Verificare che il dispositivo sia aggiornato passando al dispositivo gemello per il dispositivo nell'hub Internet. Questo problema viene risolto dopo il primo aggiornamento. |
 | Aggiornamento dei dispositivi | È possibile che gli utenti perdano le impostazioni di connessione Wi-Fi dopo il primo aggiornamento. | Eseguire un'esperienza di onboarding dopo l'aggiornamento per configurare la connessione Wi-Fi. Questo problema viene risolto dopo il primo aggiornamento. |
 | Aggiornamento dei dispositivi | Dopo l'esecuzione di un aggiornamento OTA, gli utenti non possono più accedere tramite SSH usando gli account utente creati in precedenza e non è possibile creare nuovi utenti SSH tramite l'esperienza di onboarding. Questo problema interessa i sistemi che eseguono aggiornamenti OTA dalle seguenti versioni di immagine preinstallate: 2020.110.114.105 e 2020.109.101.105. | Per ripristinare i profili utente, seguire questa procedura dopo l'aggiornamento OTA: <br> Connettersi tramite [SSH alla DevKit](./how-to-ssh-into-percept-dk.md) usando "root" come nome utente. Se è stato disabilitato l'accesso utente "root" SSH tramite l'esperienza di onboarding, è necessario riabilitarlo. Eseguire questo comando dopo la connessione: <br> ```mkdir -p /var/custom-configs/home; chmod 755 /var/custom-configs/home``` <br> Per ripristinare i dati della Home page dell'utente precedente, eseguire il comando seguente: <br> ```mkdir -p /tmp/prev-rootfs && mount /dev/mmcblk0p3 /tmp/prev-rootfs && [ ! -L /tmp/prev-rootfs/home ] && cp -a /tmp/prev-rootfs/home/* /var/custom-configs/home/. && echo "User home migrated!"; umount /tmp/prev-rootfs``` |
-| Aggiornamento dei dispositivi | Dopo l'esecuzione di un aggiornamento OTA, i gruppi di aggiornamento andranno perduti. | Aggiornare il tag del dispositivo seguendo [queste istruzioni](https://docs.microsoft.com/azure/azure-percept/how-to-update-over-the-air#create-a-device-update-group). |
+| Aggiornamento dei dispositivi | Dopo l'esecuzione di un aggiornamento OTA, i gruppi di aggiornamento andranno perduti. | Aggiornare il tag del dispositivo seguendo [queste istruzioni](./how-to-update-over-the-air.md#create-a-device-update-group). |
 | Programma di installazione di Dev Tools Pack | L'installazione facoltativa di caffe potrebbe non riuscire se Docker non viene eseguito correttamente nel sistema. | Assicurarsi che Docker sia installato e in esecuzione, quindi riprovare l'installazione di caffe. |
 | Programma di installazione di Dev Tools Pack | L'installazione CUDA facoltativa non riesce nei sistemi incompatibili. | Verificare la compatibilità del sistema con CUDA prima di eseguire il programma di installazione. |
 | Docker, rete, IoT Edge | Se la rete interna USA 172. x.x. x, i contenitori Docker non riusciranno a connettersi al dispositivo perimetrale. | Aggiungere una sezione bip speciale al daemon.js/etc/Docker/nel file come segue: `{    "bip": "192.168.168.1/24"}` |

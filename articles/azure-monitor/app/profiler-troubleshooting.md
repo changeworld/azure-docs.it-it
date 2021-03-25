@@ -6,12 +6,12 @@ author: cweining
 ms.author: cweining
 ms.date: 08/06/2018
 ms.reviewer: mbullwin
-ms.openlocfilehash: 622a83c6d91bf2a30c2844e3279d6fd4b89d429f
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 2c80362c3407f1404c6657997de89c2741264909
+ms.sourcegitcommit: a8ff4f9f69332eef9c75093fd56a9aae2fe65122
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102213794"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105026556"
 ---
 # <a name="troubleshoot-problems-enabling-or-viewing-application-insights-profiler"></a>Risolvere i problemi di abilitazione o visualizzazione di Application Insights Profiler
 
@@ -19,7 +19,7 @@ ms.locfileid: "102213794"
 
 ### <a name="make-sure-youre-using-the-appropriate-profiler-endpoint"></a>Assicurarsi di usare l'endpoint del profiler appropriato
 
-Attualmente le uniche aree che richiedono modifiche all'endpoint sono [Azure per enti pubblici](https://docs.microsoft.com/azure/azure-government/compare-azure-government-global-azure#application-insights) e [Azure Cina](https://docs.microsoft.com/azure/china/resources-developer-guide).
+Attualmente le uniche aree che richiedono modifiche all'endpoint sono [Azure per enti pubblici](../../azure-government/compare-azure-government-global-azure.md#application-insights) e [Azure Cina](/azure/china/resources-developer-guide).
 
 |Impostazione app    | Cloud per enti pubblici degli Stati Uniti | Cloud per la Cina |   
 |---------------|---------------------|-------------|

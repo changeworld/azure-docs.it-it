@@ -6,13 +6,13 @@ ms.author: csugunan
 ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
-ms.date: 03/08/2021
-ms.openlocfilehash: 8812806e535e8e34ca07fdb13e6223bfa0c91d6b
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.date: 03/24/2021
+ms.openlocfilehash: c9f2a21a1183637ec4648868cccd6f343b003f0c
+ms.sourcegitcommit: a8ff4f9f69332eef9c75093fd56a9aae2fe65122
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102449612"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105026624"
 ---
 # <a name="how-to-connect-azure-data-factory-and-azure-purview"></a>Come connettersi Azure Data Factory e Azure
 
@@ -147,6 +147,11 @@ Attualmente, se si usano le funzionalità dell'attività di copia seguenti, la d
 - Opzione di individuazione partizione di origine per archivi basati su file.
 - Copiare i dati nel sink basato su file con l'impostazione del numero massimo di righe per ogni file.
 - Aggiungere altre colonne durante la copia.
+
+In aggiunta alla derivazione, lo schema di asset di dati (visualizzato nella scheda dello schema asset->) viene segnalato per i connettori seguenti:
+
+- File CSV e parquet in BLOB di Azure, archiviazione file di Azure, ADLS Gen1, ADLS Gen2 e Amazon S3
+- Azure Esplora dati, database SQL di Azure, Azure SQL Istanza gestita, Azure sinapsi Analytics, SQL Server, Teradata
 
 ### <a name="data-factory-data-flow-support"></a>Supporto del flusso di dati Data Factory
 

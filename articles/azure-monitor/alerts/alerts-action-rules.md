@@ -3,16 +3,16 @@ title: Regole di azione per gli avvisi di monitoraggio di Azure
 description: Informazioni sulle regole di azione in monitoraggio di Azure e su come configurarle e gestirle.
 ms.topic: conceptual
 ms.date: 03/15/2021
-ms.openlocfilehash: f70d798270ad82193f7ae5935d34f8f418d35e05
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 12e7cf8e72c5423b4a2edd6ea2a0f4537e328b08
+ms.sourcegitcommit: bb330af42e70e8419996d3cba4acff49d398b399
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103471683"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105036782"
 ---
 # <a name="action-rules-preview"></a>Regole di azione (anteprima)
 
-Le regole di azione consentono di definire o escludere azioni in qualsiasi ambito Azure Resource Manager (sottoscrizione di Azure, gruppo di risorse o risorsa di destinazione). Hanno diversi filtri che consentono di limitare il subset specifico di istanze di avviso su cui si vuole agire.
+Le regole di azione consentono di aggiungere o escludere i gruppi di azioni negli avvisi attivati. Una singola regola può coprire diversi ambiti di risorse di destinazione, ad esempio, qualsiasi avviso su una risorsa specifica, ad esempio una macchina virtuale specifica, o qualsiasi avviso generato per qualsiasi risorsa in una sottoscrizione. Facoltativamente, è possibile aggiungere diversi filtri per controllare quali avvisi sono coperti da una regola e definire una pianificazione, ad esempio per attivarli solo fuori dall'orario di ufficio o durante una finestra di manutenzione pianificata.
 
 > [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE4rBZ2]
 
@@ -31,7 +31,7 @@ Sebbene le regole di avviso consentano di definire il gruppo di azioni che viene
 Le regole di azione consentono di semplificare questo processo. Definendo azioni su larga scala, un gruppo di azioni può essere attivato per qualsiasi avviso generato nell'ambito configurato. Nell'esempio precedente, il team può definire una regola di azione in **ContosoRG** che attiverà lo stesso gruppo di azione per tutti gli avvisi generati al suo interno.
 
 > [!NOTE]
-> Le regole di azione attualmente non si applicano agli avvisi di integrità del servizio di Azure.
+> Le regole di azione non si applicano agli avvisi di integrità del servizio di Azure.
 
 ## <a name="configuring-an-action-rule"></a>Configurazione di una regola di azione
 
@@ -308,7 +308,7 @@ Nella [pagina elenco avvisi](./alerts-managing-alert-instances.md)è possibile s
 
 L'eliminazione ha sempre la precedenza sullo stesso ambito.
 
-### <a name="what-happens-if-i-have-a-resource-thats-monitored-in-two-separate-action-rules-do-i-get-one-or-two-notifications-for-example-vm2-in-the-following-scenario"></a>Cosa accade se si dispone di una risorsa che viene monitorata in due regole di azione separate? Sono state ricevute una o due notifiche? Ad esempio, **VM2** nello scenario seguente:
+### <a name="what-happens-if-i-have-a-resource-that-is-covered-by-two-action-rules-do-i-get-one-or-two-notifications-for-example-vm2-in-the-following-scenario"></a>Cosa accade se si dispone di una risorsa coperta da due regole di azione? Sono state ricevute una o due notifiche? Ad esempio, **VM2** nello scenario seguente:
 
    `action rule AR1 defined for VM1 and VM2 with action group AG1`
 
