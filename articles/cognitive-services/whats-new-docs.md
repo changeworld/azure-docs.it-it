@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.author: erhopf
 ms.service: cognitive-services
 ms.date: 03/08/2021
-ms.openlocfilehash: b5893ab7c616c30d4febf957c21da56caf7c9673
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
+ms.openlocfilehash: 4334166f435612370e7e0b7b380814fe85075f78
+ms.sourcegitcommit: ed7376d919a66edcba3566efdee4bc3351c57eda
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102631371"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105046624"
 ---
 # <a name="cognitive-services-docs-whats-new-for-february-1-2021---february-28-2021"></a>Documentazione di servizi cognitivi: novità del 1 ° febbraio 2021-28 febbraio 2021
 
@@ -28,25 +28,25 @@ Benvenuti alle novità dei documenti di servizi cognitivi dal 1 ° febbraio 2021
 
 ### <a name="new-articles"></a>Nuovi articoli
 
-- [Domande frequenti sui contenitori di servizi cognitivi di Azure](/azure/cognitive-services/containers/container-faq)
+- [Domande frequenti sui contenitori di servizi cognitivi di Azure](./containers/container-faq.yml)
 
 ### <a name="updated-articles"></a>Articoli aggiornati
 
-- [Tag di immagine del contenitore di servizi cognitivi di Azure e note sulla versione](/azure/cognitive-services/containers/container-image-tags)
+- [Tag di immagine del contenitore di servizi cognitivi di Azure e note sulla versione](./containers/container-image-tags.md)
 
 ## <a name="form-recognizer"></a>Riconoscimento modulo
 
 ### <a name="updated-articles"></a>Articoli aggiornati
 
-- [Distribuire lo strumento di etichettatura di esempio](/azure/cognitive-services/form-recognizer/deploy-label-tool)
-- [Informazioni su Riconoscimento modulo](/azure/cognitive-services/form-recognizer/overview)
-- [Eseguire il training di un modello di Riconoscimento modulo con le etichette usando lo strumento di etichettatura campioni](/azure/cognitive-services/form-recognizer/quickstarts/label-tool)
+- [Distribuire lo strumento di etichettatura di esempio](./form-recognizer/deploy-label-tool.md)
+- [Informazioni su Riconoscimento modulo](./form-recognizer/overview.md)
+- [Eseguire il training di un modello di Riconoscimento modulo con le etichette usando lo strumento di etichettatura campioni](./form-recognizer/quickstarts/label-tool.md)
 
 ## <a name="text-analytics"></a>Analisi del testo
 
 ### <a name="updated-articles"></a>Articoli aggiornati
 
-- [Supporto del linguaggio API Analisi del testo V3](/azure/cognitive-services/text-analytics/language-support)
-- [Come chiamare l'API REST Analisi del testo](/azure/cognitive-services/text-analytics/how-tos/text-analytics-how-to-call-api)
+- [Supporto del linguaggio API Analisi del testo V3](./text-analytics/language-support.md)
+- [Come chiamare l'API REST Analisi del testo](./text-analytics/how-tos/text-analytics-how-to-call-api.md)
 
 [!INCLUDE [Service specific updates](./includes/service-specific-updates.md)]

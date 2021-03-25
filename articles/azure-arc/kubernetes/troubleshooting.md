@@ -8,12 +8,12 @@ author: mlearned
 ms.author: mlearned
 description: Risoluzione dei problemi comuni relativi ai cluster Kubernetes con abilitazione di Arc.
 keywords: Kubernetes, Arc, Azure, contenitori
-ms.openlocfilehash: e1f4e84f16c6b584f1ffbd918a86c251f47efcca
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 992ea75c48b2630032e1314610986fbc610eec7b
+ms.sourcegitcommit: a8ff4f9f69332eef9c75093fd56a9aae2fe65122
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101654001"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105025782"
 ---
 # <a name="azure-arc-enabled-kubernetes-troubleshooting"></a>Risoluzione dei problemi di Kubernetes abilitato per Azure Arc
 
@@ -46,7 +46,7 @@ REVISION: 5
 TEST SUITE: None
 ```
 
-Se la versione Helm non è stata trovata o è mancante, provare [a connettere di nuovo il cluster ad Azure Arc](./connect-cluster.md) .
+Se la versione Helm non è stata trovata o è mancante, provare [a connettere di nuovo il cluster ad Azure Arc](./quickstart-connect-cluster.md) .
 
 Se la versione Helm è presente con `STATUS: deployed` , verificare lo stato degli agenti utilizzando `kubectl` :
 

@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: TomSh
-ms.openlocfilehash: 7d71820db3d58931f2fcd8d18441534ad36183c2
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: ab54243eb7109965941cf60edd9358133550c7d3
+ms.sourcegitcommit: ed7376d919a66edcba3566efdee4bc3351c57eda
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101711995"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105046641"
 ---
 # <a name="azure-operational-security"></a>Sicurezza operativa di Azure
 ## <a name="introduction"></a>Introduzione
@@ -165,7 +165,7 @@ Il Centro sicurezza di Azure raccoglie copie temporanee dei file di dump di arre
 
 ## <a name="azure-monitor"></a>Monitoraggio di Azure
 
-La soluzione sicurezza e controllo di [monitoraggio di Azure](../../security-center/security-center-monitoring.md) consente di monitorare attivamente tutte le risorse, che consentono di ridurre al minimo l'effetto degli eventi imprevisti della sicurezza. I log di monitoraggio di Azure Sicurezza e controllo hanno domini di sicurezza che possono essere usati per il monitoraggio delle risorse. I domini di sicurezza consentono di accedere rapidamente alle opzioni per il monitoraggio della sicurezza. Verranno analizzati in modo più approfondito i domini seguenti:
+La soluzione sicurezza e controllo di [monitoraggio di Azure](../../security-center/security-center-remediate-recommendations.md) consente di monitorare attivamente tutte le risorse, che consentono di ridurre al minimo l'effetto degli eventi imprevisti della sicurezza. I log di monitoraggio di Azure Sicurezza e controllo hanno domini di sicurezza che possono essere usati per il monitoraggio delle risorse. I domini di sicurezza consentono di accedere rapidamente alle opzioni per il monitoraggio della sicurezza. Verranno analizzati in modo più approfondito i domini seguenti:
 
 -   Valutazione di software dannoso
 -   Valutazione aggiornamenti

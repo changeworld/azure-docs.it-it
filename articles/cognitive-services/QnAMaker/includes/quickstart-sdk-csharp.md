@@ -3,12 +3,12 @@ title: 'Avvio rapido: Libreria client di QnA Maker per .NET'
 description: Questo argomento di avvio rapido illustra come usare la libreria client di QnA Maker per .NET. Seguire questi passaggi per installare il pacchetto e provare il codice di esempio per le attività di base.  QnA Maker consente di sviluppare un servizio di domande e risposte a partire dal contenuto semistrutturato, ad esempio documenti con domande frequenti, URL e manuali di prodotti.
 ms.topic: quickstart
 ms.date: 06/18/2020
-ms.openlocfilehash: 0f1e779fea0fe4f3f3a88b91091d11442e2f958b
-ms.sourcegitcommit: 2c1b93301174fccea00798df08e08872f53f669c
+ms.openlocfilehash: 86c4f5c0633a2e547071cbf102d34e385391570e
+ms.sourcegitcommit: bb330af42e70e8419996d3cba4acff49d398b399
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/22/2021
-ms.locfileid: "104803290"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105104600"
 ---
 # <a name="qna-maker-ga-stable-release"></a>[QnA Maker - disponibilità generale (versione stabile)](#tab/version-1)
 
@@ -145,7 +145,7 @@ Si usano la chiave di sottoscrizione e la chiave di creazione e modifica. Per ul
 
 - Il formato del valore di QNA_MAKER_ENDPOINT è `https://YOUR-RESOURCE-NAME.cognitiveservices.azure.com`. Passare alla risorsa QnA Maker nella portale di Azure e fare clic su **chiavi ed endpoint** per individuare la chiave di creazione (sottoscrizione) e QnA Maker endpoint.
 
- ![Endpoint di runtime QnA Maker](../media/keys-endpoint.png)
+ ![QnA Maker endpoint di creazione](../media/keys-endpoint.png)
 
 - Il formato del valore di QNA_MAKER_RUNTIME_ENDPOINT è `https://YOUR-RESOURCE-NAME.azurewebsites.net`.  
       
@@ -162,7 +162,7 @@ Si usano la chiave di sottoscrizione e la chiave di creazione e modifica. Per ul
 
 - Il formato del valore di QNA_MAKER_ENDPOINT è `https://YOUR-RESOURCE-NAME.cognitiveservices.azure.com`. Passare alla risorsa QnA Maker nella portale di Azure e fare clic su **chiavi ed endpoint** per individuare la chiave di creazione (sottoscrizione) e QnA Maker endpoint.
 
- ![Endpoint di runtime QnA Maker](../media/keys-endpoint.png)
+ ![QnA Maker endpoint di creazione](../media/keys-endpoint.png)
 
 - Per la produzione, è consigliabile usare un modo sicuro per archiviare e accedere alle credenziali, Ad esempio, [Azure Key Vault](../../../key-vault/general/overview.md) fornisce una risorsa di archiviazione sicura per le chiavi.
 

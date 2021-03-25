@@ -8,12 +8,12 @@ ms.author: gachandw
 ms.reviewer: mimckitt
 ms.date: 10/13/2020
 ms.custom: ''
-ms.openlocfilehash: 3338f7b6bd418cea2bfdbbcd40692b9342f48cfa
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 4db23982dfaed1447023edb417a3732dac94bdc4
+ms.sourcegitcommit: a8ff4f9f69332eef9c75093fd56a9aae2fe65122
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98744568"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105025238"
 ---
 # <a name="frequently-asked-questions-for-azure-cloud-services-extended-support"></a>Domande frequenti per Servizi cloud di Azure (supporto "Extended")
 Questo articolo descrive le domande frequenti relative ai servizi cloud di Azure (supporto esteso).
@@ -82,6 +82,8 @@ I file di modello e di parametri vengono usati solo per l'automazione della dist
 ### <a name="how-does-my-application-code-change-on-cloud-services-extended-support"></a>Come cambia il codice dell'applicazione nei servizi cloud (supporto esteso)
 Non sono necessarie modifiche per il codice dell'applicazione in pacchetto in cspkg. Le applicazioni esistenti continueranno a funzionare come prima. 
 
+### <a name="does-cloud-services-extended-support-allow-ctp-package-format"></a>Servizi cloud (supporto esteso) consente il formato di pacchetto CTP?
+Il formato del pacchetto CTP non è supportato in servizi cloud (supporto esteso). Tuttavia, consente un limite di dimensioni del pacchetto maggiore di 800 MB
 
 ## <a name="migration"></a>Migrazione
 

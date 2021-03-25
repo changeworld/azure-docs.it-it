@@ -1,5 +1,5 @@
 ---
-title: 'Guida alla migrazione da DB2 a SQL Istanza gestita:'
+title: 'Guida alla migrazione di DB2 ad Azure SQL Istanza gestita:'
 description: Questa guida illustra come eseguire la migrazione dei database DB2 in Azure SQL Istanza gestita usando SQL Server Migration Assistant per DB2.
 ms.service: sql-managed-instance
 ms.subservice: migration-guide
@@ -10,27 +10,29 @@ author: mokabiru
 ms.author: mokabiru
 ms.reviewer: MashaMSFT
 ms.date: 11/06/2020
-ms.openlocfilehash: 9ad838b8c5f54d3ecdd5c8ce56b197cdb6cec1ba
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 7ac3518e0d27be6b6a18790b9fcbdbce0f6f8fef
+ms.sourcegitcommit: a8ff4f9f69332eef9c75093fd56a9aae2fe65122
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103563862"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105025051"
 ---
-# <a name="migration-guide-db2-to-sql-managed-instance"></a>Guida alla migrazione: da DB2 a SQL Istanza gestita
+# <a name="migration-guide-db2-to-azure-sql-managed-instance"></a>Guida alla migrazione: DB2 per Azure SQL Istanza gestita
 [!INCLUDE[appliesto-sqldb-sqlmi](../../includes/appliesto-sqlmi.md)]
 
 Questa guida illustra come eseguire la migrazione dei database DB2 in Azure SQL Istanza gestita usando la SQL Server Migration Assistant per DB2. 
 
-Per altri scenari, vedere la [Guida alla migrazione del database](https://datamigration.microsoft.com/).
+Per altre guide alla migrazione, vedere [Migrazione dei database](https://docs.microsoft.com/data-migration). 
 
 ## <a name="prerequisites"></a>Prerequisiti 
 
 Per eseguire la migrazione del database DB2 a SQL Istanza gestita, è necessario:
 
-- Verificare che l'ambiente di origine sia supportato.
-- Scaricare [SQL Server Migration Assistant (SSMA) per DB2](https://www.microsoft.com/download/details.aspx?id=54254).
-- un [istanza gestita SQL di Azure](../../database/single-database-create-quickstart.md)di destinazione.
+- per verificare che l' [ambiente di origine sia supportato](/sql/ssma/db2/installing-ssma-for-db2-client-db2tosql#prerequisites).
+- per scaricare [SQL Server Migration Assistant (SSMA) per DB2](https://www.microsoft.com/download/details.aspx?id=54254).
+- un [istanza gestita SQL di Azure](../../managed-instance/instance-create-quickstart.md)di destinazione.
+- Connettività e autorizzazioni sufficienti per accedere sia all'origine che alla destinazione. 
+
 
 
 ## <a name="pre-migration"></a>Pre-migrazione
@@ -39,29 +41,31 @@ Una volta soddisfatti i prerequisiti, si è pronti per individuare la topologia 
 
 ### <a name="assess-and-convert"></a>Valutazione e conversione
 
+
+
 Creare una valutazione usando SQL Server Migration Assistant (SSMA). 
 
 Per creare una valutazione, seguire questa procedura:
 
 1. Aprire SQL Server Migration Assistant (SSMA) per DB2. 
 1. Selezionare **File** e quindi scegliere **Nuovo progetto**. 
-1. Specificare un nome di progetto, un percorso per salvare il progetto e quindi selezionare Azure SQL Istanza gestita come destinazione della migrazione dall'elenco a discesa. Selezionare **OK**. 
+1. Specificare un nome di progetto, un percorso per salvare il progetto e quindi selezionare Azure SQL Istanza gestita come destinazione della migrazione dall'elenco a discesa. Selezionare **OK**:
 
    :::image type="content" source="media/db2-to-managed-instance-guide/new-project.png" alt-text="Specificare i dettagli del progetto e selezionare OK per salvare.":::
 
 
-1. Immettere i valori per i dettagli della connessione DB2 nella finestra di dialogo **Connect to DB2** (Connetti a DB2). 
+1. Immettere i valori per i dettagli della connessione DB2 nella finestra di dialogo **Connetti a DB2** :
 
    :::image type="content" source="media/db2-to-managed-instance-guide/connect-to-db2.png" alt-text="Connettersi all'istanza di DB2":::
 
 
-1. Fare clic con il pulsante destro del mouse sullo schema DB2 di cui si vuole eseguire la migrazione e quindi scegliere **Create report** (Crea report). Verrà generato un report HTML. In alternativa, è possibile scegliere **Create report** (Crea report) dalla barra di spostamento dopo aver selezionato lo schema. 
+1. Fare clic con il pulsante destro del mouse sullo schema DB2 di cui si desidera eseguire la migrazione, quindi scegliere **Crea report**. Verrà generato un report HTML. In alternativa, è possibile scegliere **Crea report** dalla barra di spostamento dopo aver selezionato lo schema:
 
    :::image type="content" source="media/db2-to-managed-instance-guide/create-report.png" alt-text="Fare clic con il pulsante destro del mouse sullo schema e scegliere Create report (Crea report)":::
 
-1. Leggere il report HTML per esaminare le statistiche di conversione e gli eventuali errori o avvisi. È anche possibile aprire il report in Excel per ottenere un inventario degli oggetti DB2 e dell'impegno necessario per eseguire le conversioni dello schema. La posizione predefinita del report è la cartella report all'interno di SSMAProjects.
+1. Leggere il report HTML per esaminare le statistiche di conversione e gli eventuali errori o avvisi. È inoltre possibile aprire il report in Excel per ottenere un inventario degli oggetti DB2 e lo sforzo necessario per eseguire le conversioni dello schema. La posizione predefinita del report è la cartella report all'interno di SSMAProjects.
 
-   Ad esempio: `drive:\<username>\Documents\SSMAProjects\MyDB2Migration\report\report_<date>`. 
+   Ad esempio: `drive:\<username>\Documents\SSMAProjects\MyDb2Migration\report\report_<date>`. 
 
    :::image type="content" source="media/db2-to-managed-instance-guide/report.png" alt-text="Esaminare il report per identificare eventuali errori o avvisi":::
 
@@ -72,7 +76,7 @@ Convalidare i mapping dei tipi di dati predefiniti e modificarli in base ai requ
 
 1. Selezionare **Tools** (Strumenti) dal menu. 
 1. Selezionare **Project Settings** (Impostazioni progetto). 
-1. Selezionare la scheda **Type mappings** (Mapping tipi). 
+1. Selezionare la scheda **mapping dei tipi** :
 
    :::image type="content" source="media/db2-to-managed-instance-guide/type-mapping.png" alt-text="Selezionare lo schema e quindi la scheda dei mapping dei tipi":::
 
@@ -83,23 +87,25 @@ Convalidare i mapping dei tipi di dati predefiniti e modificarli in base ai requ
 Per convertire lo schema, seguire questa procedura:
 
 1. (Facoltativo) Aggiungere query dinamiche o ad hoc alle istruzioni. Fare clic con il pulsante destro del mouse sul nodo e quindi scegliere **Add statements** (Aggiungi istruzioni). 
-1. Selezionare **Connetti a database SQL di Azure**. 
-    1. Immettere i dettagli della connessione per connettersi al Istanza gestita SQL di Azure.  
-    1. Scegliere il database di destinazione dall'elenco a discesa. 
-    1. Selezionare **Connetti**. 
+1. Selezionare **Connetti a istanza gestita SQL di Azure**. 
+    1. Immettere i dettagli della connessione per connettersi al Istanza gestita SQL di Azure. 
+    1. Scegliere il database di destinazione dall'elenco a discesa o specificare un nuovo nome, nel qual caso verrà creato un database nel server di destinazione. 
+    1. Fornire i dettagli di autenticazione. 
+    1. Selezionare **Connetti**:
 
    :::image type="content" source="media/db2-to-managed-instance-guide/connect-to-sql-managed-instance.png" alt-text="Specificare i dettagli per la connessione a SQL Server":::
 
 
-1. Fare clic con il pulsante destro del mouse sullo schema e scegliere **Convert Schema** (Converti schema). In alternativa, è possibile scegliere **Convert Schema** (Converti schema) dalla barra di spostamento superiore dopo aver selezionato lo schema. 
+1. Fare clic con il pulsante destro del mouse sullo schema e scegliere **Convert Schema** (Converti schema). In alternativa, è possibile scegliere **Converti schema** dalla barra di spostamento superiore dopo aver selezionato lo schema:
 
    :::image type="content" source="media/db2-to-managed-instance-guide/convert-schema.png" alt-text="Fare clic con il pulsante destro del mouse sullo schema e scegliere Convert Schema (Converti schema)":::
 
-1. Al termine della conversione, confrontare ed esaminare la struttura dello schema per identificare i potenziali problemi e risolverli in base alle raccomandazioni. 
+1. Al termine della conversione, confrontare ed esaminare la struttura dello schema per identificare i potenziali problemi e risolverli in base alle indicazioni:
 
    :::image type="content" source="media/db2-to-managed-instance-guide/compare-review-schema-structure.png" alt-text="Confrontare ed esaminare la struttura dello schema per identificare i potenziali problemi e risolverli in base alle raccomandazioni.":::
 
-1. Salvare il progetto in locale per un esercizio di correzione dello schema offline. Scegliere **Salva progetto** dal menu **File**. 
+1. Selezionare **Verifica risultati** nel riquadro Output ed esaminare gli errori nel riquadro **Elenco errori** . 
+1. Salvare il progetto in locale per un esercizio di correzione dello schema offline. Scegliere **Salva progetto** dal menu **File**. In questo modo è possibile valutare gli schemi di origine e di destinazione offline ed eseguire la correzione prima di poter pubblicare lo schema in SQL Istanza gestita.
 
 
 ## <a name="migrate"></a>Migrazione
@@ -108,20 +114,20 @@ Dopo aver completato la valutazione dei database e corretto eventuali discrepanz
 
 Per pubblicare lo schema ed eseguire la migrazione dei dati, seguire questa procedura:
 
-1. Pubblicare lo schema: fare clic con il pulsante destro del mouse sul database nel nodo **database** in **Esplora metadati di SQL istanza gestita di Azure** e scegliere **Sincronizza con database**.
+1. Pubblicare lo schema: fare clic con il pulsante destro del mouse sul database nel nodo **database** in **Esplora metadati di SQL istanza gestita di Azure** e scegliere **Sincronizza con database**:
 
    :::image type="content" source="media/db2-to-managed-instance-guide/synchronize-with-database.png" alt-text="Fare clic con il pulsante destro del mouse sul database e scegliere Synchronize with Database (Sincronizza con il database)":::
 
-1. Eseguire la migrazione dei dati: Fare clic con il pulsante destro del mouse sullo schema in **DB2 Metadata Explorer** e scegliere **Migrate Data** (Esegui migrazione dati). 
+1. Migrare i dati: fare clic con il pulsante destro del mouse sul database o sull'oggetto di cui si vuole eseguire la migrazione in **Esplora metadati DB2** e scegliere **Migrate data**. In alternativa, è possibile selezionare **migrare i dati** dalla barra di spostamento in alto a linea. Per eseguire la migrazione dei dati per un intero database, selezionare la casella di controllo accanto al nome del database. Per eseguire la migrazione dei dati da singole tabelle, espandere il database, espandere tabelle, quindi selezionare la casella di controllo accanto alla tabella. Per omettere i dati dalle singole tabelle, deselezionare la casella di controllo:
 
    :::image type="content" source="media/db2-to-managed-instance-guide/migrate-data.png" alt-text="Fare clic con il pulsante destro del mouse sullo schema e scegliere Migrate Data (Esegui migrazione dati)":::
 
 1. Specificare i dettagli della connessione per DB2 e SQL Istanza gestita. 
-1. Visualizzare il **report di migrazione dei dati**. 
+1. Al termine della migrazione, visualizzare il **report di migrazione dei dati**:  
 
    :::image type="content" source="media/db2-to-managed-instance-guide/data-migration-report.png" alt-text="Esaminare il report di migrazione dei dati":::
 
-1. Connettersi a SQL Istanza gestita utilizzando SQL Server Management Studio e convalidare la migrazione riesaminando i dati e lo schema. 
+1. Connettersi al Istanza gestita SQL di Azure usando [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms) e convalidare la migrazione riesaminando i dati e lo schema:
 
    :::image type="content" source="media/db2-to-managed-instance-guide/compare-schema-in-ssms.png" alt-text="Confrontare lo schema in SSMS":::
 
@@ -158,9 +164,9 @@ Per ulteriore assistenza, vedere le risorse seguenti, che sono state sviluppate 
 |Asset  |Descrizione  |
 |---------|---------|
 |[Strumento e modello di valutazione dei carichi di lavoro dei dati](https://github.com/Microsoft/DataMigrationTeam/tree/master/Data%20Workload%20Assessment%20Model%20and%20Tool)| Questo strumento indica le piattaforme di destinazione "più idonee" suggerite, la preparazione per il cloud e il livello di correzione di applicazioni/database per un determinato carico di lavoro. Offre funzionalità semplici e accessibili con un solo clic per l'esecuzione di calcoli e la generazione di report, che consentono di accelerare le valutazioni in ambienti estesi grazie a un processo decisionale automatizzato e uniforme per la piattaforma di destinazione.|
-|[Pacchetto di individuazione e valutazione degli asset di dati DB2 zOS](https://github.com/Microsoft/DataMigrationTeam/tree/master/DB2%20zOS%20Data%20Assets%20Discovery%20and%20Assessment%20Package)|Dopo aver eseguito lo script SQL in un database, è possibile esportare i risultati in un file nel file system. Sono supportati diversi formati di file, incluso il formato CSV, in modo che sia possibile acquisire i risultati in strumenti esterni come i fogli di calcolo. Questo metodo può essere utile se si vogliono condividere facilmente i risultati con i team che non hanno installato il workbench.|
-|[Script e artefatti di inventario per IBM DB2 LUW](https://github.com/Microsoft/DataMigrationTeam/tree/master/IBM%20DB2%20LUW%20Inventory%20Scripts%20and%20Artifacts)|Questa risorsa include una query SQL per le tabelle di sistema IBM DB2 LUW versione 11.1 e fornisce un conteggio degli oggetti in base al tipo di schema e di oggetto, una stima approssimativa dei dati non elaborati in ogni schema e le dimensioni delle tabelle in ogni schema, con risultati archiviati in formato CSV.|
-|[Guida all'installazione di DB2 LUW pureScale in Azure](https://github.com/Microsoft/DataMigrationTeam/blob/master/Whitepapers/DB2%20PureScale%20on%20Azure.pdf)|Questa guida funge da punto di partenza per un piano di implementazione di DB2. I requisiti varieranno da azienda ad azienda, ma lo stesso modello di base vale per tutte. Questo modello di architettura può essere usato anche per le applicazioni OLAP in Azure.|
+|[Pacchetto di individuazione e valutazione degli asset di dati DB2 zOS](https://github.com/microsoft/DataMigrationTeam/tree/master/DB2%20zOS%20Data%20Assets%20Discovery%20and%20Assessment%20Package)|Dopo aver eseguito lo script SQL in un database, è possibile esportare i risultati in un file nel file system. Sono supportati diversi formati di file, incluso il formato CSV, in modo che sia possibile acquisire i risultati in strumenti esterni come i fogli di calcolo. Questo metodo può essere utile se si vogliono condividere facilmente i risultati con i team che non hanno installato il workbench.|
+|[Script e artefatti di inventario per IBM DB2 LUW](https://github.com/Microsoft/DataMigrationTeam/tree/master/IBM%20Db2%20LUW%20Inventory%20Scripts%20and%20Artifacts)|Questa risorsa include una query SQL che raggiunge le tabelle di sistema IBM DB2 LUW versione 11,1 e fornisce un conteggio degli oggetti in base al tipo di schema e di oggetto, una stima approssimativa dei dati non elaborati in ogni schema e il dimensionamento delle tabelle in ogni schema, con i risultati archiviati in formato CSV.|
+|[Guida all'installazione di DB2 LUW pure scale in Azure](https://github.com/Microsoft/DataMigrationTeam/blob/master/Whitepapers/Db2%20PureScale%20on%20Azure.pdf)|Questa guida funge da punto di partenza per un piano di implementazione DB2. I requisiti varieranno da azienda ad azienda, ma lo stesso modello di base vale per tutte. Questo modello di architettura può essere usato anche per le applicazioni OLAP in Azure.|
 
 Queste risorse sono state sviluppate come parte del programma Data SQL Ninja, sponsorizzato dal team di progettazione Azure Data Group. Obiettivo principale del programma Data SQL Ninja è rendere disponibili opportunità per velocizzare progetti di modernizzazione complessi e la migrazione delle piattaforme dati alla piattaforma dati di Microsoft Azure. Se si ritiene che l'organizzazione possa essere interessata a partecipare al programma Data SQL Ninja, contattare il team dell'account per richiedere l'invio di una candidatura.
 

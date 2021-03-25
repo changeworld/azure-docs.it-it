@@ -3,17 +3,17 @@ title: Allocare i costi di Azure
 description: Questo articolo illustra come creare regole di allocazione per distribuire i costi di sottoscrizioni, gruppi di risorse o tag a terzi.
 author: bandersmsft
 ms.author: banders
-ms.date: 08/11/2020
+ms.date: 03/23/2021
 ms.topic: how-to
 ms.service: cost-management-billing
 ms.subservice: cost-management
 ms.reviewer: benshy
-ms.openlocfilehash: 51baa26cf78846bd0a719b8b86056e2ea8176155
-ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
-ms.translationtype: HT
+ms.openlocfilehash: 414ce626d76c9b7a7d073d6cbfa5a5f4446c3073
+ms.sourcegitcommit: a8ff4f9f69332eef9c75093fd56a9aae2fe65122
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92131089"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105025527"
 ---
 # <a name="create-and-manage-azure-cost-allocation-rules-preview"></a>Creare e gestire le regole di allocazione dei costi di Azure (anteprima)
 
@@ -58,7 +58,7 @@ Quando si distribuiscono i costi in base a risorse di calcolo, di archiviazione 
 
 Quando si distribuiscono i costi in proporzione al costo totale, la percentuale proporzionale viene assegnata in base alla somma o al costo totale delle destinazioni selezionate per il mese di fatturazione corrente.
 
-:::image type="content" source="./media/allocate-costs/cost-distribution.png" alt-text="Esempio che mostra la creazione di un nome di regola" lightbox="./media/allocate-costs/cost-distribution.png" :::
+:::image type="content" source="./media/allocate-costs/cost-distribution.png" alt-text="Esempio che mostra la percentuale di allocazione" lightbox="./media/allocate-costs/cost-distribution.png" :::
 
 Una volta impostate, le percentuali precompilate definite sono fisse. Vengono usate per tutte le allocazioni in corso. Le percentuali cambiano solo quando la regola viene aggiornata manualmente.
 
@@ -84,7 +84,7 @@ Quando la regola di allocazione dei costi è attiva, i costi delle origini selez
 
 È possibile visualizzare l'impatto della regola di allocazione nell'analisi dei costi. Passare a [Sottoscrizioni](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade) nel portale di Azure. Selezionare una sottoscrizione nell'elenco di destinazioni di una regola di allocazione dei costi attiva. Selezionare quindi **Analisi dei costi** nel menu. In Analisi dei costi selezionare **Raggruppa per** e quindi **Allocazione dei costi**. La visualizzazione risultante mostra una suddivisione dei costi generata in base alla sottoscrizione. Vengono visualizzati anche i costi allocati alla sottoscrizione, come illustrato nell'immagine seguente.
 
-:::image type="content" source="./media/allocate-costs/cost-breakdown.png" alt-text="Esempio che mostra la creazione di un nome di regola" lightbox="./media/allocate-costs/cost-breakdown.png" :::
+:::image type="content" source="./media/allocate-costs/cost-breakdown.png" alt-text="Esempio che mostra la ripartizione dei costi" lightbox="./media/allocate-costs/cost-breakdown.png" :::
 
 ### <a name="view-cost-allocation-for-a-resource-group"></a>Visualizzare l'allocazione dei costi per un gruppo di risorse
 
@@ -94,7 +94,12 @@ Usare un processo simile per verificare l'impatto di una regola di allocazione d
 
 Nel portale di Azure passare a **Gestione dei costi e fatturazione** > **Gestione costi** > **Analisi dei costi**. In Analisi dei costi selezionare **Aggiungi filtro**. Selezionare **Tag**, scegliere la chiave e i valori dei tag a cui sono stati allocati costi.
 
-:::image type="content" source="./media/allocate-costs/tagged-costs.png" alt-text="Esempio che mostra la creazione di un nome di regola" lightbox="./media/allocate-costs/tagged-costs.png" :::
+:::image type="content" source="./media/allocate-costs/tagged-costs.png" alt-text="Esempio che mostra i costi per gli elementi con tag" lightbox="./media/allocate-costs/tagged-costs.png" :::
+
+Ecco un video che illustra come creare una regola di allocazione dei costi.
+
+>[!VIDEO https://www.youtube.com/embed/nYzIIs2mx9Q]
+
 
 ## <a name="edit-an-existing-cost-allocation-rule"></a>Modificare una regola di allocazione dei costi esistente
 

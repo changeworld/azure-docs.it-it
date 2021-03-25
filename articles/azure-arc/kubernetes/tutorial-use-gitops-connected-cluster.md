@@ -7,12 +7,12 @@ ms.service: azure-arc
 ms.topic: tutorial
 ms.date: 03/02/2021
 ms.custom: template-tutorial
-ms.openlocfilehash: 64299bd05e82cf6f5452cde3f3da5622eff25e56
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 1459d4a0f15595c6f658d73fcb9cb533023f0eb8
+ms.sourcegitcommit: a8ff4f9f69332eef9c75093fd56a9aae2fe65122
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102121474"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105025718"
 ---
 # <a name="tutorial-deploy-configurations-using-gitops-on-an-azure-arc-enabled-kubernetes-cluster"></a>Esercitazione: distribuire le configurazioni con GitOps in un cluster Kubernetes abilitato per Azure Arc 
 
@@ -141,7 +141,7 @@ Analogamente alle chiavi private, è possibile fornire il contenuto del known_ho
 >[!NOTE]
 >* Helm operator Chart versione 1.2.0 + supporta l'autenticazione privata HTTPS della versione Helm.
 >* La versione Helm HTTPS non è supportata per i cluster gestiti da AKS.
->* Se è necessario Flux per accedere al repository git tramite il proxy, sarà necessario aggiornare gli agenti di Azure Arc con le impostazioni del proxy. Per ulteriori informazioni, vedere la pagina relativa alla [connessione tramite un server proxy in uscita](./connect-cluster.md#connect-using-an-outbound-proxy-server).
+>* Se è necessario Flux per accedere al repository git tramite il proxy, sarà necessario aggiornare gli agenti di Azure Arc con le impostazioni del proxy. Per ulteriori informazioni, vedere la pagina relativa alla [connessione tramite un server proxy in uscita](./quickstart-connect-cluster.md#connect-using-an-outbound-proxy-server).
 
 
 ## <a name="additional-parameters"></a>Parametri aggiuntivi
