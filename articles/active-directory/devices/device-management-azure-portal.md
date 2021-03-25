@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: devices
 ms.topic: how-to
-ms.date: 09/16/2020
+ms.date: 03/23/2021
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: hafowler
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4269ba32a22538eeba35ba484fae0c98cd219b7c
-ms.sourcegitcommit: ac035293291c3d2962cee270b33fca3628432fac
+ms.openlocfilehash: 18b43a99eb561cbfa340e0b3f318782bef2ca17c
+ms.sourcegitcommit: a8ff4f9f69332eef9c75093fd56a9aae2fe65122
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 03/24/2021
-ms.locfileid: "104952780"
+ms.locfileid: "105023436"
 ---
 # <a name="manage-device-identities-using-the-azure-portal"></a>Gestire le identità dei dispositivi usando il portale di Azure
 
@@ -33,6 +33,7 @@ La pagina **tutti i dispositivi** consente di:
 - Configurare le impostazioni di identità del dispositivo.
 - Abilitare o disabilitare Enterprise State Roaming.
 - Esaminare i log di controllo relativi al dispositivo
+- Scarica dispositivi (anteprima)
 
 [![Visualizzazione tutti i dispositivi nella portale di Azure](./media/device-management-azure-portal/all-devices-azure-portal.png)](./media/device-management-azure-portal/all-devices-azure-portal.png#lightbox)
 
@@ -144,6 +145,14 @@ Per abilitare la funzionalità di filtro anteprima nella visualizzazione **tutti
 1. Selezionare il banner che afferma, **provare i nuovi miglioramenti del filtro dei dispositivi. Fare clic per abilitare l'anteprima.**
 
 Sarà ora possibile **aggiungere filtri** alla visualizzazione **tutti i dispositivi** .
+
+### <a name="download-devices-preview"></a>Scarica dispositivi (anteprima)
+
+Gli amministratori di dispositivi cloud, gli amministratori di Intune e gli amministratori globali possono usare l'opzione **Scarica dispositivi (anteprima)** per esportare un file CSV di dispositivi in base a qualsiasi filtro applicato. Se all'elenco non viene applicato alcun filtro, tutti i dispositivi verranno esportati. Un'esportazione può essere eseguita per un periodo di tempo massimo di un'ora a seconda del 
+
+L'elenco esportato include gli attributi di identità dei dispositivi seguenti:
+
+`accountEnabled, approximateLastLogonTimeStamp, deviceOSType, deviceOSVersion, deviceTrustType, dirSyncEnabled, displayName, isCompliant, isManaged, lastDirSyncTime, objectId, profileType, registeredOwners, systemLabels, registrationTime, mdmDisplayName`
 
 ## <a name="configure-device-settings"></a>Configura impostazioni dispositivo
 

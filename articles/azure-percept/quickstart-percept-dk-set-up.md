@@ -7,12 +7,12 @@ ms.service: azure-percept
 ms.topic: quickstart
 ms.date: 03/17/2021
 ms.custom: template-quickstart
-ms.openlocfilehash: 9567ec2458a01825568cb853728f71db10228ee3
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 8cecd1b57395fa51fd95c824e88885d9c3ae3f09
+ms.sourcegitcommit: a8ff4f9f69332eef9c75093fd56a9aae2fe65122
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104608277"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105023300"
 ---
 # <a name="set-up-your-azure-percept-dk-and-deploy-your-first-ai-model"></a>Configurare Azure Percept DK e distribuire il primo modello di intelligenza artificiale
 
@@ -30,7 +30,7 @@ Se si verificano problemi durante questo processo, vedere la [Guida alla risoluz
 - Azure Percept DK (Dev Kit).
 - Un computer host basato su Windows, Linux o OS X con funzionalità Wi-Fi e un Web browser.
 - Un account Azure con una sottoscrizione attiva. [Crea gratuitamente un account.](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
-- L'account Azure deve avere il ruolo **proprietario** o **collaboratore** nella sottoscrizione. Attenersi alla procedura seguente per verificare il ruolo dell'account Azure. Per altre informazioni sulle definizioni dei ruoli di Azure, vedere la [documentazione relativa al controllo degli accessi in base al ruolo di Azure](https://docs.microsoft.com/azure/role-based-access-control/rbac-and-directory-admin-roles#azure-roles).
+- L'account Azure deve avere il ruolo **proprietario** o **collaboratore** nella sottoscrizione. Attenersi alla procedura seguente per verificare il ruolo dell'account Azure. Per altre informazioni sulle definizioni dei ruoli di Azure, vedere la [documentazione relativa al controllo degli accessi in base al ruolo di Azure](../role-based-access-control/rbac-and-directory-admin-roles.md#azure-roles).
 
     > [!CAUTION]
     > Se si hanno più account Azure, il browser può memorizzare nella cache le credenziali di un altro account. Per evitare confusione, è consigliabile chiudere tutte le finestre del browser inutilizzate e accedere al [portale di Azure](https://portal.azure.com/) prima di iniziare l'installazione. Per ulteriori informazioni su come verificare di avere eseguito l'accesso con l'account corretto, vedere la [Guida alla risoluzione dei problemi dell'installazione](./how-to-troubleshoot-setup.md) .
@@ -43,7 +43,7 @@ Per verificare se l'account Azure è un "proprietario" o "collaboratore" all'int
 
 1. Fare clic sull'icona delle **sottoscrizioni** (sembra un tasto giallo).
 
-1. Selezionare la sottoscrizione dall'elenco. Se la sottoscrizione non viene visualizzata, verificare di aver eseguito l'accesso con l'account Azure corretto. Se si desidera creare una nuova sottoscrizione, attenersi alla [seguente procedura](https://docs.microsoft.com/azure/cost-management-billing/manage/create-subscription).
+1. Selezionare la sottoscrizione dall'elenco. Se la sottoscrizione non viene visualizzata, verificare di aver eseguito l'accesso con l'account Azure corretto. Se si desidera creare una nuova sottoscrizione, attenersi alla [seguente procedura](../cost-management-billing/manage/create-subscription.md).
 
 1. Selezionare **controllo di accesso (IAM)** dal menu sottoscrizione.
 1. Fare clic su **Visualizza accesso personale**.

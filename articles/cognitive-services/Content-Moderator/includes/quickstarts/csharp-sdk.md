@@ -11,12 +11,12 @@ ms.topic: include
 ms.date: 09/15/2020
 ms.author: pafarley
 ms.custom: devx-track-dotnet, cog-serv-seo-aug-2020
-ms.openlocfilehash: 061cc025f4bda4176cd213ecf1c15a815890371f
-ms.sourcegitcommit: a8ff4f9f69332eef9c75093fd56a9aae2fe65122
+ms.openlocfilehash: bdf49f16b003c25da9fe8972a3fb7e3837d62819
+ms.sourcegitcommit: bb330af42e70e8419996d3cba4acff49d398b399
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 03/24/2021
-ms.locfileid: "105027939"
+ms.locfileid: "105104490"
 ---
 Introduzione alla libreria client di Azure Content Moderator per .NET. Seguire questi passaggi per installare il pacchetto NuGet e provare il codice di esempio per le attività di base. 
 
@@ -290,10 +290,6 @@ Se si vuole pulire e rimuovere una sottoscrizione a Servizi cognitivi, è possib
 
 * [Portale](../../../cognitive-services-apis-create-account.md#clean-up-resources)
 * [Interfaccia della riga di comando di Azure](../../../cognitive-services-apis-create-account-cli.md#clean-up-resources)
-
-## <a name="source-code"></a>Codice sorgente
-
-* Il codice sorgente per questo esempio è disponibile su [GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/dotnet/ContentModerator/Program.cs).
 
 ## <a name="next-steps"></a>Passaggi successivi
 

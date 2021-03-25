@@ -10,12 +10,12 @@ author: julieMSFT
 ms.author: jrasnick
 ms.reviewer: jrasnick
 ms.date: 03/10/2021
-ms.openlocfilehash: aa32083d48c868435ce77114f3a036b8bec47201
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 8a76a637c4862032b100308d8b02bced76af38fe
+ms.sourcegitcommit: a8ff4f9f69332eef9c75093fd56a9aae2fe65122
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104609559"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105023402"
 ---
 # <a name="migrating-a-data-warehouse-to-a-dedicated-sql-pool-in-azure-synapse-analytics"></a>Migrazione di un data warehouse a un pool SQL dedicato in Azure sinapsi Analytics 
 Le sezioni seguenti forniscono una panoramica degli elementi necessari per la migrazione di una soluzione di data warehouse esistente al pool SQL dedicato di Azure sinapsi Analytics.
@@ -96,8 +96,7 @@ Per ulteriori informazioni sul completamento di questo scenario di migrazione, v
 | [Recupero delle dimensioni delle tabelle nel pool SQL dedicato di Azure sinapsi Analytics](https://github.com/Microsoft/DataMigrationTeam/blob/master/Whitepapers/Getting%20table%20sizes%20in%20SQL%20DW.pdf) | Una delle attività principali che un progettista deve eseguire è quello di ottenere le metriche relative a un nuovo ambiente post-migrazione: raccolta dei tempi di caricamento da locale al cloud, raccolta dei tempi di caricamento di base e così via. Di queste attività, uno dei più importanti consiste nel determinare le dimensioni di archiviazione in SQL Data Warehouse rispetto alla piattaforma corrente del cliente. |
 | [Utilità per spostare gli account di accesso SQL Server locali in Azure sinapsi Analytics](https://github.com/Microsoft/DataMigrationTeam/tree/master/IP%20and%20Scripts/MoveLogins) | Uno script di PowerShell che crea uno script di comando T-SQL per ricreare gli account di accesso e selezionare gli utenti del database da un SQL Server locale a un servizio PaaS di Azure SQL. Lo strumento consente il mapping automatico degli account di Windows AD per Azure AD account oppure può eseguire ricerche UPN per ogni account di accesso con le Active Directory Windows locali. Lo strumento, facoltativamente, consente di spostare anche SQL Server account di accesso nativi. I ruoli server e database personalizzati sono inclusi nello script, nonché l'appartenenza al ruolo e le autorizzazioni utente e ruolo del database. I database indipendenti non sono ancora supportati e viene creato uno script solo un subset delle autorizzazioni di SQL Server possibili. ovvero la concessione delle autorizzazioni with Grant non è supportata (alberi delle autorizzazioni complessi). Ulteriori informazioni sono disponibili nel documento di supporto e lo script include commenti per una maggiore facilità di comprensione. |
 
-> [!NOTE]
-> Queste risorse sono state sviluppate come parte del programma Data Migration Jumpstart (DM Jumpstart), sponsorizzato dal team di progettazione del gruppo di dati di Azure. La carta di base di DM JumpStart è quella di sbloccare e accelerare la modernizzazione complessa e competere con le opportunità di migrazione della piattaforma dati alla piattaforma dati di Microsoft Azure. Se si ritiene che la propria organizzazione sia interessata a partecipare al programma DM JumpStart, contattare il team dell'account e richiedere l'invio di una candidatura.
+Queste risorse sono state sviluppate come parte del programma Data SQL Ninja, sponsorizzato dal team di progettazione Azure Data Group. Obiettivo principale del programma Data SQL Ninja è rendere disponibili opportunità per velocizzare progetti di modernizzazione complessi e la migrazione delle piattaforme dati alla piattaforma dati di Microsoft Azure. Se si ritiene che l'organizzazione possa essere interessata a partecipare al programma Data SQL Ninja, contattare il team dell'account per richiedere l'invio di una candidatura.
 
 ## <a name="videos"></a>Video
 - Osservare il modo in cui [Walgreens ha migrato il sistema di inventario delle vendite al dettaglio](https://www.youtube.com/watch?v=86dhd8N1lH4) con informazioni su 100 TB di dati da Netezza ad Azure sinapsi Analytics (in precedenza SQL DW) in fase di record. 

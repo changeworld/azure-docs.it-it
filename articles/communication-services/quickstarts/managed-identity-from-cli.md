@@ -9,12 +9,12 @@ ms.topic: how-to
 ms.date: 03/10/2021
 ms.author: jbeauregardb
 ms.reviewer: mikben
-ms.openlocfilehash: e708536395807fc74dc5bfd73836e050832cca39
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: b49ee61f3ee4ea8e8a177bca6aa566a07b7ef113
+ms.sourcegitcommit: ed7376d919a66edcba3566efdee4bc3351c57eda
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103493340"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105044737"
 ---
 # <a name="authorize-access-with-managed-identity-to-your-communication-resource-in-your-development-environment"></a>Autorizzare l'accesso con identità gestita alla risorsa di comunicazione nell'ambiente di sviluppo
 
@@ -24,7 +24,7 @@ Un vantaggio della libreria client di Azure Identity è che consente di usare lo
 
 ## <a name="prerequisites"></a>Prerequisiti
 
- - Interfaccia della riga di comando di Azure. [Guida all'installazione](https://docs.microsoft.com/cli/azure/install-azure-cli)
+ - Interfaccia della riga di comando di Azure. [Guida all'installazione](/cli/azure/install-azure-cli)
  - Un account Azure con una sottoscrizione attiva. [Crea gratuitamente un account](https://azure.microsoft.com/free)
 
 ## <a name="setting-up"></a>Configurazione

@@ -6,12 +6,12 @@ ms.author: rajosh
 ms.manager: abhemraj
 ms.topic: conceptual
 ms.date: 06/09/2020
-ms.openlocfilehash: f9fe4109d2b21f7c44ba340db53dc24311652441
-ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
+ms.openlocfilehash: 0701ff53202d53131ceac8ceabb148fb5ff4f2b2
+ms.sourcegitcommit: a8ff4f9f69332eef9c75093fd56a9aae2fe65122
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/22/2021
-ms.locfileid: "104782351"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105025153"
 ---
 # <a name="discovery-assessment-and-dependency-analysis---common-questions"></a>Individuazione, valutazione e analisi delle dipendenze-domande comuni
 
@@ -85,6 +85,9 @@ La classificazione di attendibilità viene calcolata per le valutazioni basate s
 - Per le valutazioni di VM e AVS di Azure, sono stati creati pochi server dopo l'avvio dell'individuazione. Ad esempio, se si sta creando una valutazione per la cronologia delle prestazioni dell'ultimo mese, ma sono stati creati pochi server nell'ambiente solo una settimana fa. In questo caso, i dati sulle prestazioni per i nuovi server non saranno disponibili per l'intera durata e la classificazione di attendibilità sarà bassa. [Scopri di più](./concepts-assessment-calculation.md#confidence-ratings-performance-based)
 
 - Per le valutazioni di Azure SQL, alcuni database o istanze di SQL sono stati creati dopo l'avvio dell'individuazione. Se, ad esempio, si sta creando una valutazione per la cronologia delle prestazioni dell'ultimo mese, ma nell'ambiente sono state create alcune istanze o database SQL solo una settimana fa. In questo caso, i dati sulle prestazioni per i nuovi server non saranno disponibili per l'intera durata e la classificazione di attendibilità sarà bassa. [Scopri di più](./concepts-azure-sql-assessment-calculation.md#confidence-ratings)
+
+## <a name="i-want-to-try-out-the-new-azure-sql-assessment"></a>Si vuole provare la nuova valutazione SQL di Azure
+L'individuazione e la valutazione di SQL Server istanze e database in esecuzione nell'ambiente VMware sono ora in anteprima. Introduzione a [questa esercitazione](tutorial-discover-vmware.md). Per provare questa funzionalità in un progetto esistente, assicurarsi di aver completato i [prerequisiti](how-to-discover-sql-existing-project.md) descritti in questo articolo.
 
 ## <a name="i-cant-see-some-servers-when-i-am-creating-an-azure-sql-assessment"></a>Durante la creazione di una valutazione di Azure SQL, non è possibile visualizzare alcuni server
 
