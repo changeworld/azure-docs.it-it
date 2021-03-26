@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: cpendle
 ms.custom: codepen, devx-track-js
-ms.openlocfilehash: 0af327f624d0fed648012ce1d12bacabca688cec
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: f798b4a7964eba112ed9948b2db4f6d5c3edd1e3
+ms.sourcegitcommit: 73d80a95e28618f5dfd719647ff37a8ab157a668
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102044188"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105608358"
 ---
 # <a name="clustering-point-data"></a>Clustering dei dati dei punti
 
@@ -26,7 +26,7 @@ Quando si visualizzano molti punti dati sulla mappa, questi possono sovrapporsi 
 
 ## <a name="enabling-clustering-on-a-data-source"></a>Abilitazione del clustering su un'origine dati
 
-Abilitare il clustering nella classe `DataSource` impostando l'opzione `cluster` su true. Impostare questa impostazione `clusterRadius` per selezionare i punti vicini e combinarli in un cluster. Il valore di `clusterRadius` è indicato in pixel. Consente `clusterMaxZoom` di specificare un livello di zoom in cui disabilitare la logica di clustering. Di seguito è riportato un esempio che illustra come abilitare il clustering in un'origine dati.
+Abilitare il clustering nella `DataSource` classe impostando l' `cluster` opzione su `true` . Impostare questa impostazione `clusterRadius` per selezionare i punti vicini e combinarli in un cluster. Il valore di `clusterRadius` è indicato in pixel. Consente `clusterMaxZoom` di specificare un livello di zoom in cui disabilitare la logica di clustering. Di seguito è riportato un esempio che illustra come abilitare il clustering in un'origine dati.
 
 ```javascript
 //Create a data source and enable clustering.

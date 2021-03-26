@@ -1,17 +1,17 @@
 ---
 title: Opzioni di calcolo e archiviazione-database di Azure per PostgreSQL-server flessibile
 description: Questo articolo descrive le opzioni di calcolo e archiviazione nel database di Azure per PostgreSQL-server flessibile.
-author: lfittl-msft
-ms.author: lufittl
+author: sunilagarwal
+ms.author: sunila
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 02/19/2021
-ms.openlocfilehash: 6bcfbc19cbaa078373d6857bdac74eaf86eca104
-ms.sourcegitcommit: ed7376d919a66edcba3566efdee4bc3351c57eda
+ms.openlocfilehash: 93a439c814b6bac630c5231f46d7a022a131687c
+ms.sourcegitcommit: 73d80a95e28618f5dfd719647ff37a8ab157a668
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/24/2021
-ms.locfileid: "105048052"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105608171"
 ---
 # <a name="compute-and-storage-options-in-azure-database-for-postgresql---flexible-server"></a>Opzioni di calcolo e archiviazione nel database di Azure per PostgreSQL-server flessibile
 

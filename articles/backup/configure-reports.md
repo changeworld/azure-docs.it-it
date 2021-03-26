@@ -3,12 +3,12 @@ title: Configurare report di Backup di Azure
 description: Configurare e visualizzare i report di Backup di Azure usando Log Analytics e le cartelle di lavoro di Azure
 ms.topic: conceptual
 ms.date: 02/10/2020
-ms.openlocfilehash: e9f3d9dfa33e71d827a338258001f2b52af62b06
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 0720af0848aa8263587dfd9573d205abf73303d4
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102509370"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105562325"
 ---
 # <a name="configure-azure-backup-reports"></a>Configurare report di Backup di Azure
 
@@ -148,7 +148,7 @@ Sono disponibili due tipi di visualizzazioni di conformità dei criteri:
 
 * **Conformità dei criteri in base al periodo di tempo**: utilizzando questa visualizzazione, è possibile identificare il numero di elementi con almeno un backup riuscito in un determinato giorno e il numero di backup non riusciti in quel giorno. È possibile fare clic su una riga per visualizzare i dettagli di tutti i processi di backup che sono stati attivati nel giorno selezionato. Si noti che se si aumenta l'intervallo di tempo a un valore maggiore, ad esempio gli ultimi 60 giorni, viene eseguito il rendering della griglia nella visualizzazione settimanale e viene visualizzato il conteggio di tutti gli elementi per i quali è stato eseguito almeno un backup completato ogni giorno della settimana specificata. Analogamente, è disponibile una visualizzazione mensile per intervalli di tempo maggiori.
 
-Nel caso di elementi sottoposti a backup settimanale, questa griglia consente di identificare tutti gli elementi per i quali è stato eseguito almeno un backup nella settimana specificata. Per un intervallo di tempo maggiore, ad esempio gli ultimi 120 giorni, viene eseguito il rendering della griglia nella visualizzazione mensile e viene visualizzato il conteggio di tutti gli elementi per i quali è stato eseguito almeno un backup completato in ogni settimana del mese specificato. Per informazioni dettagliate sulle visualizzazioni giornaliere, settimanali e mensili, vedere [convenzioni usate nei report di backup](https://docs.microsoft.com/azure/backup/configure-reports#conventions-used-in-backup-reports) .
+Nel caso di elementi sottoposti a backup settimanale, questa griglia consente di identificare tutti gli elementi per i quali è stato eseguito almeno un backup nella settimana specificata. Per un intervallo di tempo maggiore, ad esempio gli ultimi 120 giorni, viene eseguito il rendering della griglia nella visualizzazione mensile e viene visualizzato il conteggio di tutti gli elementi per i quali è stato eseguito almeno un backup completato in ogni settimana del mese specificato. Per informazioni dettagliate sulle visualizzazioni giornaliere, settimanali e mensili, vedere [convenzioni usate nei report di backup](#conventions-used-in-backup-reports) .
 
 ![Conformità dei criteri per periodo di tempo](./media/backup-azure-configure-backup-reports/policy-adherence-by-time-period.png)
 
@@ -166,7 +166,7 @@ Una volta creata l'app per la logica, è necessario autorizzare le connessioni a
 
 I report di backup usano [funzioni di sistema nei log di monitoraggio di Azure](backup-reports-system-functions.md). Queste funzioni operano sui dati nelle tabelle di backup di Azure non elaborate in LA e restituiscono dati formattati che consentono di recuperare facilmente le informazioni di tutte le entità correlate al backup, usando query semplici. 
 
-Per creare cartelle di lavoro di creazione di report personalizzate utilizzando i report di backup come base, è possibile passare a report di backup, fare clic su **modifica** nella parte superiore del report e visualizzare/modificare le query utilizzate nei report. Per ulteriori informazioni su come creare report personalizzati, fare riferimento alla [documentazione di cartelle di lavoro di Azure](https://docs.microsoft.com/azure/azure-monitor/visualize/workbooks-overview) . 
+Per creare cartelle di lavoro di creazione di report personalizzate utilizzando i report di backup come base, è possibile passare a report di backup, fare clic su **modifica** nella parte superiore del report e visualizzare/modificare le query utilizzate nei report. Per ulteriori informazioni su come creare report personalizzati, fare riferimento alla [documentazione di cartelle di lavoro di Azure](../azure-monitor/visualize/workbooks-overview.md) . 
 
 ## <a name="export-to-excel"></a>Eseguire l'esportazione in Excel
 

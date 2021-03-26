@@ -9,12 +9,12 @@ ms.author: grhuynh
 ms.service: genomics
 ms.topic: troubleshooting
 ms.date: 12/07/2017
-ms.openlocfilehash: e8806bc4f761214e6740a22093b7e18030fdf881
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 40fff49aa3ed46417cdd9a6190f928707e41accb
+ms.sourcegitcommit: 73d80a95e28618f5dfd719647ff37a8ab157a668
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "96018325"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105608613"
 ---
 # <a name="microsoft-genomics-common-questions"></a>Genomica di Microsoft: Domande comuni
 
@@ -59,11 +59,15 @@ Sono necessarie due chiavi di accesso nel caso in cui si desideri aggiornare (ri
 ## <a name="do-you-save-my-storage-account-keys"></a>Le chiavi dell'account di archiviazione vengono salvate?
 La chiave dell'account di archiviazione viene utilizzata per creare token di accesso a breve termine per permettere al servizio Genomica di Microsoft di leggere i file di input e scrivere i file di output. La durata predefinita dei token è di 48 ore. La durata del token può essere modificata con l'opzione `-sas/--sas-duration` del comando di invio; il valore è espresso in ore.
 
+## <a name="does-microsoft-genomics-store-customer-data"></a>Genomica di Microsoft archivia i dati dei clienti?
+
+No. Genomica di Microsoft non archivia i dati dei clienti.
+
 ## <a name="what-genome-references-can-i-use"></a>Quali rierimenti del genoma è possibile usare?
 
 Sono supportati questi riferimenti:
 
- |Informazioni di riferimento              | Valore di `-pa/--process-args` |
+ |Riferimento              | Valore di `-pa/--process-args` |
  |:-------------         |:-------------                 |
  |b37                    | `R=b37m1`                     |
  |hg38                   | `R=hg38m1`                    |      

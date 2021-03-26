@@ -12,12 +12,12 @@ ms.reviewer: douglasl
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 03/05/2021
-ms.openlocfilehash: 2744d51b6d68ed494050be10a9f0e4d1f59cdc49
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: a426ee39ba3c0f50b9a6c1fb9c7de1ef8e7291b2
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102204066"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105566354"
 ---
 # <a name="configure-azure-ssis-integration-runtime-for-business-continuity-and-disaster-recovery-bcdr"></a>Configurare il runtime di integrazione SSIS di Azure per la continuità aziendale e il ripristino di emergenza (BCDR) 
 
@@ -25,7 +25,7 @@ ms.locfileid: "102204066"
 
 Il database SQL di Azure/Istanza gestita e SQL Server Integration Services (SSIS) in Azure Data Factory (ADF) può essere combinato come soluzione PaaS (all-Platform as a Service) consigliata per la migrazione SQL Server. È possibile distribuire i progetti SSIS nel database del catalogo SSIS (SSISDB) ospitato da database SQL di Azure/Istanza gestita ed eseguire i pacchetti SSIS in Azure SSIS Integration Runtime (IR) in ADF.
 
-Per la continuità aziendale e il ripristino di emergenza (BCDR), il database SQL di Azure/Istanza gestita può essere configurato con un [gruppo di failover/replica geografica](https://docs.microsoft.com/azure/azure-sql/database/auto-failover-group-overview), in cui SSISDB in un'area di Azure primaria con accesso in lettura/scrittura (ruolo primario) verrà replicato continuamente in un'area secondaria con accesso in sola lettura (ruolo secondario). Quando si verifica un'emergenza nell'area primaria, viene attivato un failover, in cui il SSISDBs primario e secondario effettuerà lo swapping dei ruoli.
+Per la continuità aziendale e il ripristino di emergenza (BCDR), il database SQL di Azure/Istanza gestita può essere configurato con un [gruppo di failover/replica geografica](../azure-sql/database/auto-failover-group-overview.md), in cui SSISDB in un'area di Azure primaria con accesso in lettura/scrittura (ruolo primario) verrà replicato continuamente in un'area secondaria con accesso in sola lettura (ruolo secondario). Quando si verifica un'emergenza nell'area primaria, viene attivato un failover, in cui il SSISDBs primario e secondario effettuerà lo swapping dei ruoli.
 
 Per BCDR, è anche possibile configurare una coppia di runtime di integrazione SSIS di Azure con due standby che funziona in sincronia con il database SQL di Azure/Istanza gestita gruppo di failover. Ciò consente di avere una coppia di esecuzione di Azure-SSIS IRs che in qualsiasi momento, solo una può accedere al database SSISDB primario per recuperare ed eseguire i pacchetti, nonché scrivere i log di esecuzione del pacchetto (ruolo primario), mentre l'altro può eseguire la stessa operazione solo per i pacchetti distribuiti altrove, ad esempio in File di Azure (ruolo secondario). Quando si verifica il failover di SSISDB, il fisco di Azure-SSIS primario e secondario eseguirà anche lo swapping dei ruoli e, se entrambi sono in esecuzione, si verificherà un tempo di inattività quasi nullo.
 
@@ -39,7 +39,7 @@ Per configurare una coppia di Azure-SSIS IR a doppio standby sincronizzata con i
 
    Quando [si sceglie di usare SSISDB](./tutorial-deploy-ssis-packages-azure.md#creating-ssisdb) nella pagina **impostazioni di distribuzione** del riquadro di installazione di **Integration Runtime** , selezionare anche la casella di controllo Usa la coppia di Azure-SSIS Integration Runtime a **doppio standby con failover SSISDB** . Per **nome coppia doppio standby** immettere un nome per identificare la coppia di Azure-SSIS primaria e secondaria. Quando si completa la creazione del Azure-SSIS IR primario, quest'ultima verrà avviata e collegata a un SSISDB primario che verrà creato per conto dell'utente con accesso in lettura/scrittura. Se è stato appena riconfigurato, è necessario riavviarlo.
 
-1. Con portale di Azure è possibile verificare se il database SSISDB primario è stato creato nella pagina **Panoramica** del server di database SQL di Azure primario. Una volta creato, è possibile [creare un gruppo di failover per i server del database SQL di Azure primario e secondario e aggiungere SSISDB alla](https://docs.microsoft.com/azure/azure-sql/database/failover-group-add-single-database-tutorial?tabs=azure-portal#2---create-the-failover-group) pagina dei **gruppi di failover** . Una volta creato il gruppo di failover, è possibile verificare se il database SSISDB primario è stato replicato in uno secondario con accesso in sola lettura nella pagina **Panoramica** del server di database SQL di Azure secondario.
+1. Con portale di Azure è possibile verificare se il database SSISDB primario è stato creato nella pagina **Panoramica** del server di database SQL di Azure primario. Una volta creato, è possibile [creare un gruppo di failover per i server del database SQL di Azure primario e secondario e aggiungere SSISDB alla](../azure-sql/database/failover-group-add-single-database-tutorial.md?tabs=azure-portal#2---create-the-failover-group) pagina dei **gruppi di failover** . Una volta creato il gruppo di failover, è possibile verificare se il database SSISDB primario è stato replicato in uno secondario con accesso in sola lettura nella pagina **Panoramica** del server di database SQL di Azure secondario.
 
 1. Con l'interfaccia utente di portale di Azure/ADF è possibile creare un'altra Azure-SSIS IR con il server di database SQL di Azure secondario per ospitare SSISDB nell'area secondaria. Si tratta del Azure-SSIS IR secondario. Per BCDR completi, assicurarsi che tutte le risorse da cui dipende siano create anche nell'area secondaria, ad esempio archiviazione di Azure per archiviare script/file di installazione personalizzati, ADF per l'orchestrazione/pianificazione delle esecuzioni dei pacchetti e così via.
 
@@ -51,13 +51,13 @@ Per configurare una coppia di Azure-SSIS IR a doppio standby sincronizzata con i
 
 1. Se si [USA ADF per l'orchestrazione o la pianificazione delle esecuzioni dei pacchetti](./how-to-invoke-ssis-package-ssis-activity.md), assicurarsi che tutte le pipeline di ADF pertinenti con le attività Esegui pacchetto SSIS e i trigger associati vengano copiate nel file ADF secondario con i trigger inizialmente disabilitati. Quando si verifica il failover di SSISDB, è necessario abilitarli.
 
-1. È possibile [eseguire il test del gruppo di failover del database SQL di Azure](https://docs.microsoft.com/azure/azure-sql/database/failover-group-add-single-database-tutorial?tabs=azure-portal#3---test-failover) e controllare [Azure-SSIS IR pagina di monitoraggio nel portale di](./monitor-integration-runtime.md#monitor-the-azure-ssis-integration-runtime-in-azure-portal) Azure Data Factory, se l'IRS Azure-SSIS primaria e secondaria hanno ruoli scambiati. 
+1. È possibile [eseguire il test del gruppo di failover del database SQL di Azure](../azure-sql/database/failover-group-add-single-database-tutorial.md?tabs=azure-portal#3---test-failover) e controllare [Azure-SSIS IR pagina di monitoraggio nel portale di](./monitor-integration-runtime.md#monitor-the-azure-ssis-integration-runtime-in-azure-portal) Azure Data Factory, se l'IRS Azure-SSIS primaria e secondaria hanno ruoli scambiati. 
 
 ## <a name="configure-a-dual-standby-azure-ssis-ir-pair-with-azure-sql-managed-instance-failover-group"></a>Configurare una coppia di Azure-SSIS IR a doppio standby con il gruppo di failover di SQL Istanza gestita di Azure
 
 Per configurare una coppia di Azure-SSIS IR a doppio standby sincronizzata con il gruppo di failover di SQL Istanza gestita di Azure, completare i passaggi seguenti.
 
-1. Con portale di Azure è possibile [creare un gruppo di failover per le istanze gestite di SQL Azure primarie e secondarie](https://docs.microsoft.com/azure/azure-sql/managed-instance/failover-group-add-instance-tutorial?tabs=azure-portal) nella pagina **gruppi di failover** del istanza gestita SQL di Azure primario.
+1. Con portale di Azure è possibile [creare un gruppo di failover per le istanze gestite di SQL Azure primarie e secondarie](../azure-sql/managed-instance/failover-group-add-instance-tutorial.md?tabs=azure-portal) nella pagina **gruppi di failover** del istanza gestita SQL di Azure primario.
 
 1. Con l'interfaccia utente di portale di Azure/ADF è possibile creare un nuovo Azure-SSIS IR con il Istanza gestita primario di Azure SQL per ospitare SSISDB nell'area primaria. Se si dispone di un Azure-SSIS IR già collegato a SSISDB ospitato dal Istanza gestita SQL di Azure primario ed è ancora in esecuzione, è necessario prima arrestarlo per riconfigurarlo. Si tratta del Azure-SSIS IR primario.
 
@@ -112,7 +112,7 @@ Per configurare una coppia di Azure-SSIS IR a doppio standby sincronizzata con i
 
 1. Se si [USA ADF per l'orchestrazione o la pianificazione delle esecuzioni dei pacchetti](./how-to-invoke-ssis-package-ssis-activity.md), assicurarsi che tutte le pipeline di ADF pertinenti con le attività Esegui pacchetto SSIS e i trigger associati vengano copiate nel file ADF secondario con i trigger inizialmente disabilitati. Quando si verifica il failover di SSISDB, è necessario abilitarli.
 
-1. È possibile [testare il gruppo di failover di SQL istanza gestita di Azure](https://docs.microsoft.com/azure/azure-sql/managed-instance/failover-group-add-instance-tutorial?tabs=azure-portal#test-failover) e controllare [Azure-SSIS IR pagina di monitoraggio nel portale di](./monitor-integration-runtime.md#monitor-the-azure-ssis-integration-runtime-in-azure-portal) Azure Data Factory, se l'IRS Azure-SSIS primaria e secondaria hanno ruoli scambiati. 
+1. È possibile [testare il gruppo di failover di SQL istanza gestita di Azure](../azure-sql/managed-instance/failover-group-add-instance-tutorial.md?tabs=azure-portal#test-failover) e controllare [Azure-SSIS IR pagina di monitoraggio nel portale di](./monitor-integration-runtime.md#monitor-the-azure-ssis-integration-runtime-in-azure-portal) Azure Data Factory, se l'IRS Azure-SSIS primaria e secondaria hanno ruoli scambiati. 
 
 ## <a name="attach-a-new-azure-ssis-ir-to-existing-ssisdb-hosted-by-azure-sql-databasemanaged-instance"></a>Alleghi un nuovo Azure-SSIS IR a SSISDB esistente ospitato dal database SQL di Azure/Istanza gestita
 

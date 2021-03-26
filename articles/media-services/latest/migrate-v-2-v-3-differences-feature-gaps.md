@@ -9,14 +9,14 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.tgt_pltfrm: multiple
 ms.workload: media
-ms.date: 1/14/2020
+ms.date: 03/25/2021
 ms.author: inhenkel
-ms.openlocfilehash: f77a41a172bc868ad056d74d018b50f734286f0f
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 07e43bdb0969c26120231013cc0c0354e6968ceb
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101702454"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105567951"
 ---
 # <a name="feature-gaps-between-azure-media-services-v2-and-v3"></a>Gap delle funzionalità tra servizi multimediali di Azure V2 e V3
 
@@ -48,6 +48,6 @@ L'API V3 presenta i gap di funzionalità seguenti con l'API v2. Alcune delle fun
 
 - La crittografia di archiviazione lato client per la protezione degli asset inattivi è stata rimossa nell'API V3 e sostituita dalla crittografia del servizio di archiviazione per i dati inattivi. Le API V3 continuano a funzionare con asset crittografati di archiviazione esistenti, ma non ne consentono la creazione di nuove.
 
-## <a name="next-steps"></a>Passaggi successivi
+## <a name="terminology-and-entity-changes"></a>Terminologia e modifiche alle entità
 
-[!INCLUDE [migration guide next steps](./includes/migration-guide-next-steps.md)]
+Per altre modifiche all'API, vedere [terminologia e](migrate-v-2-v-3-differences-terminology.md) modifiche alle entità.

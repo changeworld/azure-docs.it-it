@@ -10,12 +10,12 @@ author: mokabiru
 ms.author: mokabiru
 ms.reviewer: MashaMSFT
 ms.date: 02/18/2020
-ms.openlocfilehash: 1c187ae83ce87c9d4d8da4aa1a5dc38163261b52
-ms.sourcegitcommit: a8ff4f9f69332eef9c75093fd56a9aae2fe65122
+ms.openlocfilehash: 529bc5468c74ac9d50f64decad29fd070a7bda83
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/24/2021
-ms.locfileid: "105024898"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105566932"
 ---
 # <a name="migration-overview-sql-server-to-azure-sql-managed-instance"></a>Panoramica della migrazione: SQL Server ad Azure SQL Istanza gestita
 [!INCLUDE[appliesto--sqlmi](../../includes/appliesto-sqlmi.md)]
@@ -90,7 +90,7 @@ La tabella seguente elenca gli strumenti di migrazione consigliati:
 
 |Tecnologia | Descrizione|
 |---------|---------|
-| [Azure Migrate](/azure/migrate/how-to-create-azure-sql-assessment) | Azure Migrate per Azure SQL ti permette di individuare e valutare le tue proprietà SQL per la scalabilità quando si usa VMware, fornendo consigli per la distribuzione di Azure SQL, dimensioni di destinazione e stime mensili. | 
+| [Azure Migrate](../../../migrate/how-to-create-azure-sql-assessment.md) | Azure Migrate per Azure SQL ti permette di individuare e valutare le tue proprietà SQL per la scalabilità quando si usa VMware, fornendo consigli per la distribuzione di Azure SQL, dimensioni di destinazione e stime mensili. | 
 |[Servizio Migrazione del database di Azure (DMS)](../../../dms/tutorial-sql-server-to-managed-instance.md)  | Servizio di Azure di terze parti che supporta la migrazione in modalità offline per le applicazioni che possono permettersi tempi di inattività durante il processo di migrazione. A differenza della migrazione continua in modalità online, la migrazione in modalità offline esegue un ripristino unico di un backup completo del database dall'origine alla destinazione. | 
 |[Backup e ripristino nativi](../../managed-instance/restore-sample-database-quickstart.md) | SQL Istanza gestita supporta il ripristino dei backup di database SQL Server nativi (file con estensione bak), rendendola l'opzione di migrazione più semplice per i clienti che possono fornire backup completi del database nell'archiviazione di Azure. Anche i backup completi e differenziali sono supportati e documentati nella [sezione asset di migrazione](#migration-assets) più avanti in questo articolo.| 
 |[Servizio di riproduzione log (con ridondanza locale)](../../managed-instance/log-replay-service-migrate.md) | Si tratta di un servizio cloud abilitato per Istanza gestita basato sulla tecnologia SQL Server log shipping, rendendola un'opzione di migrazione per i clienti che possono fornire backup completi, differenziali e di log del database in archiviazione di Azure. CON ridondanza locale viene usato per ripristinare i file di backup dall'archiviazione BLOB di Azure a SQL Istanza gestita.| 
@@ -212,7 +212,7 @@ SELECT * FROM sys.table_types WHERE is_memory_optimized=1
 SELECT * FROM sys.sql_modules WHERE uses_native_compilation=1
 ```
 
-Per altre informazioni sulle tecnologie in memoria, vedere [ottimizzare le prestazioni usando le tecnologie in memoria nel database SQL di Azure e in Azure sql istanza gestita](https://docs.microsoft.com/azure/azure-sql/in-memory-oltp-overview)
+Per altre informazioni sulle tecnologie in memoria, vedere [ottimizzare le prestazioni usando le tecnologie in memoria nel database SQL di Azure e in Azure sql istanza gestita](../../in-memory-oltp-overview.md)
 
 ## <a name="leverage-advanced-features"></a>Sfruttare le funzionalità avanzate 
 

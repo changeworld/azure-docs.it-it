@@ -6,12 +6,12 @@ ms.service: data-factory
 ms.topic: troubleshooting
 ms.date: 02/24/2021
 ms.author: lle
-ms.openlocfilehash: fa410441203c50d96c0de1d9188fb73b6fd4d577
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 5e94ea989002d3d3c6d0e96123d5b8ddb5f078c3
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101706150"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105568036"
 ---
 # <a name="troubleshoot-azure-data-factory-security-and-access-control-issues"></a>Risolvere i problemi di Azure Data Factory sicurezza e controllo di accesso
 
@@ -182,7 +182,7 @@ Ad esempio: il sink di archiviazione BLOB di Azure usa Azure IR (Public, non Man
 
 #### <a name="cause"></a>Causa
 
-ADF può continuare a usare il runtime di integrazione VNet gestito, ma è possibile che si verifichi questo errore perché l'endpoint pubblico per l'archiviazione BLOB di Azure in VNet gestiti non è affidabile in base al risultato del test e l'archiviazione BLOB di Azure e Azure Data Lake Gen2 non sono supportati per la connessione tramite un endpoint pubblico dalla rete virtuale gestita di ADF in base alla [rete virtuale gestita & endpoint privati](https://docs.microsoft.com/azure/data-factory/managed-virtual-network-private-endpoint#outbound-communications-through-public-endpoint-from-adf-managed-virtual-network)gestiti.
+ADF può continuare a usare il runtime di integrazione VNet gestito, ma è possibile che si verifichi questo errore perché l'endpoint pubblico per l'archiviazione BLOB di Azure in VNet gestiti non è affidabile in base al risultato del test e l'archiviazione BLOB di Azure e Azure Data Lake Gen2 non sono supportati per la connessione tramite un endpoint pubblico dalla rete virtuale gestita di ADF in base alla [rete virtuale gestita & endpoint privati](./managed-virtual-network-private-endpoint.md#outbound-communications-through-public-endpoint-from-adf-managed-virtual-network)gestiti.
 
 #### <a name="solution"></a>Soluzione
 

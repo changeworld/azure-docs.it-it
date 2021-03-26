@@ -8,12 +8,12 @@ ms.service: synapse-analytics
 ms.topic: tutorial
 ms.subservice: spark
 ms.date: 10/16/2020
-ms.openlocfilehash: d125bca5ed67476897eec7cd32a586776d8b1ea8
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 15b67c969cb0464256caed58a2e7388eb7a76b9c
+ms.sourcegitcommit: 73d80a95e28618f5dfd719647ff37a8ab157a668
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102176621"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105608771"
 ---
 # <a name="tutorial-create-apache-spark-job-definition-in-synapse-studio"></a>Esercitazione: Creare una definizione di processo Apache Spark in Synapse Studio
 
@@ -23,10 +23,13 @@ Questa esercitazione illustra le attività seguenti:
 > [!div class="checklist"]
 >
 > - Creare una definizione di processo Apache Spark per PySpark (Python)
-> - Creare una definizione di processo Apache Spark per Spark (Scala)
-> - Creare una definizione di processo Apache Spark per .NET Spark(C#/F#)
+> - Creare una definizione del processo di Apache Spark per Spark (scala)
+> - Creare una definizione del processo di Apache Spark per .NET Spark (C#/F #)
+> - Creare una definizione di processo importando un file JSON
+> - Esportazione di un file di definizione del processo di Apache Spark in locale
 > - Inviare una definizione di processo Apache Spark come processo batch
 > - Aggiungere una definizione di processo Apache Spark a una pipeline
+
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -36,6 +39,7 @@ Prima di iniziare l'esercitazione, verificare che siano soddisfatti i requisiti 
 * Un pool di Apache Spark serverless.
 * Account di archiviazione Azure Data Lake Storage Gen2. È necessario essere il **collaboratore dati BLOB di archiviazione** del file System ADLS Gen2 che si vuole usare. Se non lo si è, è necessario aggiungere l'autorizzazione manualmente.
 * Se non si vuole usare l'account di archiviazione predefinito dell'area di lavoro, collegare l'account di archiviazione di ADLS Gen2 richiesto in Synapse Studio. 
+
 
 ## <a name="create-an-apache-spark-job-definition-for-pyspark-python"></a>Creare una definizione di processo Apache Spark per PySpark (Python)
 
@@ -160,6 +164,57 @@ In questa sezione viene creata una definizione di processo Apache Spark per .NET
 
       ![Pubblicazione della definizione per DotNet](./media/apache-spark-job-definitions/publish-dotnet-definition.png)
 
+## <a name="create-apache-spark-job-definition-by-importing-a-json-file"></a>Creare Apache Spark definizione del processo importando un file JSON
+
+ È possibile importare un file JSON locale esistente nell'area di lavoro di Azure sinapsi dal menu **azioni** (...) del Apache Spark Esplora definizioni processi per creare una nuova definizione di processo Apache Spark.
+
+ ![Crea definizione di importazione](./media/apache-spark-job-definitions/create-import-definition.png)
+
+ 
+ La definizione del processo Spark è completamente compatibile con l'API Livio. È possibile aggiungere altri parametri per altre proprietà di Livio [(Livio docs-REST API (Apache.org)](https://livy.incubator.apache.org/docs/latest/rest-api.html) nel file JSON locale. È anche possibile specificare i parametri relativi alla configurazione di Spark nella proprietà config, come illustrato di seguito. Quindi, è possibile importare nuovamente il file JSON per creare una nuova definizione del processo di Apache Spark per il processo batch. Esempio di JSON per l'importazione di definizioni Spark:
+ 
+```Scala
+   {
+  "targetBigDataPool": {
+    "referenceName": "socdemolarge",
+    "type": "BigDataPoolReference"
+  },
+  "requiredSparkVersion": "2.3",
+  "language": "scala",
+  "jobProperties": {
+    "name": "robinSparkDefinitiontest",
+    "file": "adl://socdemo-c14.azuredatalakestore.net/users/robinyao/wordcount.jar",
+    "className": "WordCount",
+    "args": [
+      "adl://socdemo-c14.azuredatalakestore.net/users/robinyao/shakespeare.txt"
+    ],
+    "jars": [],
+    "files": [],
+    "conf": {
+      "spark.dynamicAllocation.enabled": "false",
+      "spark.dynamicAllocation.minExecutors": "2",
+      "spark.dynamicAllocation.maxExecutors": "2"
+    },
+    "numExecutors": 2,
+    "executorCores": 8,
+    "executorMemory": "24g",
+    "driverCores": 8,
+    "driverMemory": "24g"
+  }
+}
+
+```
+
+![altre proprietà di Livio](./media/apache-spark-job-definitions/other-livy-properties.png)
+
+## <a name="export-an-existing-apache-spark-job-definition-file"></a>Esportare un file di definizione del processo di Apache Spark esistente
+
+ È possibile esportare i file di definizione del processo di Apache Spark esistente nel menu locale da **azioni** (...) di Esplora file. È possibile aggiornare ulteriormente il file JSON per ulteriori proprietà di Livio e importarlo di nuovo per creare una nuova definizione del processo, se necessario.
+
+ ![Crea definizione di esportazione](./media/apache-spark-job-definitions/create-export-definition.png)
+
+ ![creazione della definizione di esportazione 2](./media/apache-spark-job-definitions/create-export-definition-2.png)
+
 ## <a name="submit-an-apache-spark-job-definition-as-a-batch-job"></a>Inviare una definizione di processo Apache Spark come processo batch
 
 Dopo aver creato una definizione di processo Apache Spark, è possibile inviarla a un pool di Apache Spark. Assicurarsi di essere il **collaboratore dati BLOB di archiviazione** del ADLS Gen2 file System che si vuole usare. Se non lo si è, è necessario aggiungere l'autorizzazione manualmente.
@@ -202,6 +257,7 @@ In questa sezione viene aggiunta una definizione di processo Apache Spark a una 
      ![Aggiunta a pipeline1](./media/apache-spark-job-definitions/add-to-pipeline01.png)
 
      ![Aggiunta a pipeline2](./media/apache-spark-job-definitions/add-to-pipeline02.png)
+
 
 ## <a name="next-steps"></a>Passaggi successivi
 

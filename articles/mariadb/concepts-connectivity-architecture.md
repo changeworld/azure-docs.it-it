@@ -6,12 +6,12 @@ ms.author: bahusse
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 2/11/2021
-ms.openlocfilehash: 50aaae9e71ac9de366ee4db1981e633491094946
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: f2ea671a6d44d12b3b37d5d06fa9405b7c589cdf
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103199964"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105559418"
 ---
 # <a name="connectivity-architecture-in-azure-database-for-mariadb"></a>Architettura di connettività nel database di Azure per MariaDB
 Questo articolo illustra l'architettura di connettività del database di Azure per MariaDB e il modo in cui il traffico viene indirizzato al database di Azure per l'istanza di MariaDB dai client all'interno e all'esterno di Azure.
@@ -111,7 +111,7 @@ Verranno rimosse solo le autorizzazioni per i nodi del gateway. Quando gli utent
 ### <a name="how-can-you-validate-if-your-connections-are-going-to-old-gateway-nodes-or-new-gateway-nodes"></a>Come è possibile verificare se le connessioni passano ai nodi del gateway obsoleti o ai nuovi nodi del gateway?
 Eseguire il ping del nome di dominio completo del server, ad esempio  ``ping xxx.mariadb.database.azure.com`` . Se l'indirizzo IP restituito è uno degli indirizzi IP elencati in indirizzi IP del gateway (rimozione delle autorizzazioni) nel documento precedente, significa che la connessione sta attraversando il gateway precedente. Contrariamente, se l'indirizzo IP restituito è uno degli indirizzi IP elencati in indirizzi IP del gateway, significa che la connessione sta attraversando il nuovo gateway.
 
-È anche possibile eseguire il test tramite [PSPing](https://docs.microsoft.com/sysinternals/downloads/psping) o TCPPing del server di database dall'applicazione client con la porta 3306 e verificare che l'indirizzo IP restituito non sia uno degli indirizzi IP di rimozione delle autorizzazioni
+È anche possibile eseguire il test tramite [PSPing](/sysinternals/downloads/psping) o TCPPing del server di database dall'applicazione client con la porta 3306 e verificare che l'indirizzo IP restituito non sia uno degli indirizzi IP di rimozione delle autorizzazioni
 
 ### <a name="how-do-i-know-when-the-maintenance-is-over-and-will-i-get-another-notification-when-old-ip-addresses-are-decommissioned"></a>Ricerca per categorie sa quando la manutenzione è stata superata e si riceve un'altra notifica quando gli indirizzi IP precedenti vengono ritirati?
 Si riceverà un messaggio di posta elettronica per informare l'utente quando avvierà il lavoro di manutenzione. La manutenzione può richiedere fino a un mese, a seconda del numero di server di cui è necessario eseguire la migrazione in aree di al. Preparare il client per la connessione al server di database usando il nome di dominio completo o usando il nuovo indirizzo IP della tabella precedente. 

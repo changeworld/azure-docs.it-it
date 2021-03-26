@@ -7,20 +7,22 @@ manager: femila
 ms.service: media-services
 ms.topic: conceptual
 ms.workload: media
-ms.date: 1/14/2021
+ms.date: 03/25/2021
 ms.author: inhenkel
-ms.openlocfilehash: 640b9b40295ae9b9aea865f7b6159da6ff4a3251
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: feb2c83ee7edc3ab22b7b8031e6eb07ef65f9908
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98898308"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105558942"
 ---
 # <a name="media-services-migration-code-sample-comparison"></a>Confronto degli esempi di codice di migrazione di servizi multimediali
 
 ![logo della Guida alla migrazione](./media/migration-guide/azure-media-services-logo-migration-guide.svg)
 
 <hr color="#5ea0ef" size="10">
+
+## <a name="compare-the-sdks"></a>Confrontare gli SDK
 
 È possibile usare alcuni esempi di codice per confrontare il modo in cui vengono eseguite le operazioni tra gli SDK.
 
@@ -34,7 +36,3 @@ La tabella seguente è un elenco di esempi per il confronto tra V2 e V3 per gli 
 |Inviare un processo|[Esempio .NET v2](https://github.com/Azure-Samples/media-services-dotnet-dynamic-encryption-with-aes/blob/master/DynamicEncryptionWithAES/DynamicEncryptionWithAES/Program.cs#L146)|[Esempio .NET v3](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/blob/master/AMSV3Tutorials/UploadEncodeAndStreamFiles/Program.cs#L298)<br/><br/>Mostra come creare una trasformazione e quindi inviare un processo.|
 |Pubblicare un asset con crittografia AES |1. crea `ContentKeyAuthorizationPolicyOption`<br/>2. crea `ContentKeyAuthorizationPolicy`<br/>3. creazione `AssetDeliveryPolicy`<br/>4. creazione `Asset` e caricamento di contenuto o invio `Job` e utilizzo `OutputAsset`<br/>5. associa `AssetDeliveryPolicy` a `Asset`<br/>6. creazione `ContentKey`<br/>7. Connetti `ContentKey` a `Asset`<br/>8. creazione `AccessPolicy`<br/>9. creazione `Locator`<br/><br/>[Esempio .NET v2](https://github.com/Azure-Samples/media-services-dotnet-dynamic-encryption-with-aes/blob/master/DynamicEncryptionWithAES/DynamicEncryptionWithAES/Program.cs#L64)|1. crea `ContentKeyPolicy`<br/>2. crea `Asset`<br/>3. caricare il contenuto o usare `Asset` come `JobOutput`<br/>4. creazione `StreamingLocator`<br/><br/>[Esempio .NET v3](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/blob/master/AMSV3Tutorials/EncryptWithAES/Program.cs#L105)|
 |Ottenere i dettagli del processo e gestire i processi |[Gestire i processi con V2](../previous/media-services-dotnet-manage-entities.md#get-a-job-reference) |[Gestire i processi con V3](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/blob/master/AMSV3Tutorials/UploadEncodeAndStreamFiles/Program.cs#L546)|
-
-## <a name="next-steps"></a>Passaggi successivi
-
-[!INCLUDE [migration guide next steps](./includes/migration-guide-next-steps.md)]

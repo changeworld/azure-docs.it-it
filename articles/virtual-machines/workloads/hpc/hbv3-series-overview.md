@@ -1,5 +1,5 @@
 ---
-title: Panoramica delle VM serie modello HBV3-macchine virtuali di Azure | Microsoft Docs
+title: Panoramica della VM serie modello HBV3, architettura, topologia-macchine virtuali di Azure | Microsoft Docs
 description: Informazioni sulle dimensioni delle macchine virtuali della serie modello HBV3 in Azure.
 services: virtual-machines
 author: vermagit
@@ -8,33 +8,90 @@ ms.service: virtual-machines
 ms.subservice: workloads
 ms.workload: infrastructure-services
 ms.topic: article
-ms.date: 03/12/2021
+ms.date: 03/25/2021
 ms.author: amverma
 ms.reviewer: cynthn
-ms.openlocfilehash: d1abd03f517f9e0b13a2994418cbae5cfbe22454
-ms.sourcegitcommit: ba3a4d58a17021a922f763095ddc3cf768b11336
+ms.openlocfilehash: f78420a65cd9c2402266eb9ba973eabe758d7ee5
+ms.sourcegitcommit: 73d80a95e28618f5dfd719647ff37a8ab157a668
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/23/2021
-ms.locfileid: "104801868"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105608243"
 ---
 # <a name="hbv3-series-virtual-machine-overview"></a>Panoramica delle macchine virtuali serie modello HBV3 
 
 Un server della [serie modello HBV3](../../hbv3-series.md) include 2 * 64-core CPU 7V13 EPYC per un totale di 128 core fisici "Zen3". Il multithreading simultaneo (SMT) è disabilitato in modello HBV3. Questi 128 core sono divisi in 16 sezioni (8 per socket), ciascuna delle quali contiene 8 core del processore con accesso uniforme a una cache L3 di 32 MB. I server Azure modello HBV3 eseguono anche le seguenti impostazioni del BIOS AMD:
 
 ```bash
-Nodes per Socket =2
+Nodes per Socket (NPS) = 2
 L3 as NUMA = Disabled
+NUMA domains within VM OS = 4
+C-states = Enabled
 ```
 
 Di conseguenza, il server viene avviato con 4 domini NUMA (2 per socket) ciascuno 32-core di dimensioni. Ogni NUMA ha accesso diretto a 4 canali di DRAM fisico che operano a 3200 MT/s.
 
-Per consentire il funzionamento dell'hypervisor di Azure senza interferire con la macchina virtuale, si riservano 8 core fisici per ogni server. 
+Per consentire il funzionamento dell'hypervisor di Azure senza interferire con la macchina virtuale, si riservano 8 core fisici per ogni server.
 
-Si noti che le dimensioni della VM Core vincolati riducono solo il numero di core fisici esposti alla macchina virtuale. Tutte le risorse globali condivise (RAM, larghezza di banda della memoria, cache L3, connettività GMI e xGMI, InfiniBand, rete Ethernet di Azure, unità SSD locale) rimanere costanti. Questo consente a un cliente di scegliere le dimensioni della macchina virtuale più adattate a un determinato set di carico di lavoro o alle esigenze di licenza software.
+## <a name="vm-topology"></a>Topologia VM
 
-Il diagramma seguente illustra la separazione dei core riservati per l'hypervisor di Azure (giallo) e la VM della serie modello HBV3 (verde).
-![Separazione dei core riservati per la macchina virtuale di Azure hypervisor e serie modello HBV3](./media/architecture/hbv3-segregation-cores.png)
+Nel diagramma seguente viene illustrata la topologia del server. Questi 8 core host hypervisor sono riservati (giallo) simmetricamente tra entrambi i socket della CPU, prendendo i primi 2 core da specifici matrici di core complessi (CCD) in ogni dominio NUMA, con i core rimanenti per la macchina virtuale della serie modello HBV3 (verde).
+
+![Topologia del server della serie modello HBV3](./media/architecture/hbv3/hbv3-topology-server.png)
+
+Si noti che il limite del CCD non è equivalente a un limite NUMA. In modello HBV3 un gruppo di quattro CCD consecutivi (4) viene configurato come dominio NUMA, sia a livello di server host che all'interno di una macchina virtuale guest. Quindi, tutte le dimensioni delle VM modello HBV3 espongono 4 domini NUMA che verranno visualizzati in un sistema operativo e in un'applicazione come illustrato di seguito, 4 domini NUMA uniformi, ognuno con un numero diverso di core a seconda delle dimensioni specifiche della [macchina virtuale modello HBV3](../../hbv3-series.md).
+
+![Topologia della macchina virtuale della serie modello HBV3](./media/architecture/hbv3/hbv3-topology-vm.png)
+
+Ogni dimensione della macchina virtuale modello HBV3 è simile in layout fisico, funzionalità e prestazioni di una CPU diversa dalla serie AMD EPYC 7003, come indicato di seguito:
+
+| Dimensioni macchina virtuale serie modello HBV3             | Domini NUMA | Core per dominio NUMA  | Somiglianza con AMD EPYC         |
+|---------------------------------|--------------|------------------------|----------------------------------|
+Standard_HB120rs_v3               | 4            | 30                     | EPYC dual socket 7713            |
+Standard_HB120r 96s_v3            | 4            | 24                     | EPYC dual socket 7643            |
+Standard_HB120r 64s_v3            | 4            | 16                     | EPYC dual socket 7543            |
+Standard_HB120r 32s_v3            | 4            | 8                      | EPYC dual socket 7313            |
+Standard_HB120r 16s_v3            | 4            | 4                      | 72F3 EPYC dual socket            |
+
+> [!NOTE]
+> Le dimensioni della VM Core vincolati riducono solo il numero di core fisici esposti alla macchina virtuale. Tutte le risorse globali condivise (RAM, larghezza di banda della memoria, cache L3, connettività GMI e xGMI, InfiniBand, rete Ethernet di Azure, unità SSD locale) rimanere costanti. Questo consente a un cliente di scegliere le dimensioni della macchina virtuale più adattate a un determinato set di carico di lavoro o alle esigenze di licenza software.
+
+Il mapping NUMA virtuale di ogni dimensione della VM modello HBV3 viene mappato alla topologia NUMA fisica sottostante. Non esiste alcuna astrazione potenzialmente fuorviante della topologia hardware. 
+
+La topologia esatta per le varie [dimensioni della macchina virtuale modello HBV3](../../hbv3-series.md) viene visualizzata come segue usando l'output di [lstopo](https://linux.die.net/man/1/lstopo):
+```bash
+lstopo-no-graphics --no-io --no-legend --of txt
+```
+<br>
+<details>
+<summary>Fare clic per visualizzare l'output di lstopo per Standard_HB120rs_v3</summary>
+
+![output di lstopo per modello HBV3-120 VM](./media/architecture/hbv3/hbv3-120-lstopo.png)
+</details>
+
+<details>
+<summary>Fare clic per visualizzare l'output di lstopo per Standard_HB120rs-96_v3</summary>
+
+![output lstopo per modello HBV3-96 VM](./media/architecture/hbv3/hbv3-96-lstopo.png)
+</details>
+
+<details>
+<summary>Fare clic per visualizzare l'output di lstopo per Standard_HB120rs-64_v3</summary>
+
+![output di lstopo per la macchina virtuale modello HBV3-64](./media/architecture/hbv3/hbv3-64-lstopo.png)
+</details>
+
+<details>
+<summary>Fare clic per visualizzare l'output di lstopo per Standard_HB120rs-32_v3</summary>
+
+![output di lstopo per la VM modello HBV3-32](./media/architecture/hbv3/hbv3-32-lstopo.png)
+</details>
+
+<details>
+<summary>Fare clic per visualizzare l'output di lstopo per Standard_HB120rs-16_v3</summary>
+
+![output di lstopo per la macchina virtuale modello HBV3-16](./media/architecture/hbv3/hbv3-16-lstopo.png)
+</details>
 
 ## <a name="infiniband-networking"></a>Rete InfiniBand
 Le macchine virtuali modello HBV3 includono anche schede di rete NVIDIA Mellanox HDR InfiniBand (ConnectX-6) che funzionano fino a 200 Gigabit al secondo. La scheda di interfaccia di rete viene passata alla macchina virtuale tramite SRIOV, consentendo al traffico di rete di ignorare l'hypervisor. Di conseguenza, i clienti caricano i driver Mellanox OFED standard in macchine virtuali modello HBV3 come un ambiente bare metal.

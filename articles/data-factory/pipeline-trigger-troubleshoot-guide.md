@@ -7,12 +7,12 @@ ms.date: 03/13/2021
 ms.topic: troubleshooting
 ms.author: susabat
 ms.reviewer: susabat
-ms.openlocfilehash: f5039e5a49da202b2dbfa20e56639365ed597c79
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 72f2a5eec25b9acc2aedd7b006fe3380141781c8
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103461998"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105563413"
 ---
 # <a name="troubleshoot-pipeline-orchestration-and-triggers-in-azure-data-factory"></a>Risolvere i problemi di orchestrazione e trigger della pipeline in Azure Data Factory
 
@@ -95,7 +95,7 @@ Azure Data Factory valuta il risultato di tutte le attività a livello foglia. I
 
 * Implementare i controlli a livello di attività attenendosi [alla gestione degli errori e degli errori della pipeline](https://techcommunity.microsoft.com/t5/azure-data-factory/understanding-pipeline-failures-and-error-handling/ba-p/1630459).
 * Usare app per la logica di Azure per monitorare le pipeline a intervalli regolari dopo le [query in base alla Factory](/rest/api/datafactory/pipelineruns/querybyfactory).
-* [Monitorare visivamente la pipeline](https://docs.microsoft.com/azure/data-factory/monitor-visually)
+* [Monitorare visivamente la pipeline](./monitor-visually.md)
 
 ### <a name="how-to-monitor-pipeline-failures-in-regular-intervals"></a>Come monitorare gli errori della pipeline a intervalli regolari
 
@@ -105,7 +105,7 @@ Potrebbe essere necessario monitorare le pipeline di Data Factory non riuscite, 
 
 **Risoluzione**
 * È possibile configurare un'app per la logica di Azure per eseguire una query su tutte le pipeline non riuscite ogni 5 minuti, come descritto in [query by Factory](/rest/api/datafactory/pipelineruns/querybyfactory). Quindi, è possibile segnalare eventi imprevisti al sistema di ticket.
-* [Monitorare visivamente la pipeline](https://docs.microsoft.com/azure/data-factory/monitor-visually)
+* [Monitorare visivamente la pipeline](./monitor-visually.md)
 
 ### <a name="degree-of-parallelism--increase-does-not-result-in-higher-throughput"></a>L'aumento del grado di parallelismo non comporta una velocità effettiva più elevata
 
@@ -146,8 +146,8 @@ Questo problema può verificarsi se non è stata implementata una funzionalità 
 
 **Risoluzione**
 
-* Se l'avvio di ciascuna attività di copia richiede fino a 2 minuti e il problema si verifica principalmente in un join della rete virtuale, e non in Azure IR, potrebbe trattarsi di un problema di prestazioni della copia. Per esaminare le procedure di risoluzione dei problemi, passare a [copia miglioramento delle prestazioni.](https://docs.microsoft.com/azure/data-factory/copy-activity-performance-troubleshooting)
-* È possibile utilizzare la funzionalità di durata (TTL) per ridurre il tempo di avvio del cluster per le attività del flusso di dati. Verificare [Integration runtime del flusso di dati.](https://docs.microsoft.com/azure/data-factory/control-flow-execute-data-flow-activity#data-flow-integration-runtime)
+* Se l'avvio di ciascuna attività di copia richiede fino a 2 minuti e il problema si verifica principalmente in un join della rete virtuale, e non in Azure IR, potrebbe trattarsi di un problema di prestazioni della copia. Per esaminare le procedure di risoluzione dei problemi, passare a [copia miglioramento delle prestazioni.](./copy-activity-performance-troubleshooting.md)
+* È possibile utilizzare la funzionalità di durata (TTL) per ridurre il tempo di avvio del cluster per le attività del flusso di dati. Verificare [Integration runtime del flusso di dati.](./control-flow-execute-data-flow-activity.md#data-flow-integration-runtime)
 
  ### <a name="hitting-capacity-issues-in-shirself-hosted-integration-runtime"></a>Raggiungimento di problemi di capacità in un Integration Runtime self-hosted
  
@@ -157,7 +157,7 @@ Questo problema può verificarsi se non è stata eseguita la scalabilità vertic
 
 **Risoluzione**
 
-* Se si verifica un problema di capacità da un problema di capacità, aggiornare la macchina virtuale per aumentare il nodo per bilanciare le attività. Se viene visualizzato un messaggio di errore relativo a un errore o a un errore generale del runtime di integrazione self-hosted o a problemi di connettività IR indipendenti, che possono generare una coda lunga, vedere [risolvere i problemi del runtime di integrazione self-hosted.](https://docs.microsoft.com/azure/data-factory/self-hosted-integration-runtime-troubleshoot-guide)
+* Se si verifica un problema di capacità da un problema di capacità, aggiornare la macchina virtuale per aumentare il nodo per bilanciare le attività. Se viene visualizzato un messaggio di errore relativo a un errore o a un errore generale del runtime di integrazione self-hosted o a problemi di connettività IR indipendenti, che possono generare una coda lunga, vedere [risolvere i problemi del runtime di integrazione self-hosted.](./self-hosted-integration-runtime-troubleshoot-guide.md)
 
 ### <a name="error-messages-due-to-long-queues-for-adf-copy-and-data-flow"></a>Messaggi di errore causati da code lunghe per la copia e il flusso di dati di ADF
 
@@ -166,10 +166,10 @@ Questo problema può verificarsi se non è stata eseguita la scalabilità vertic
 I messaggi di errore relativi alle code lunghe possono essere visualizzati per diversi motivi. 
 
 **Risoluzione**
-* Se si riceve un messaggio di errore da un'origine o da una destinazione tramite connettori, che può generare una coda estesa, passare alla [Guida alla risoluzione dei problemi del connettore.](https://docs.microsoft.com/azure/data-factory/connector-troubleshoot-guide)
-* Se viene visualizzato un messaggio di errore relativo al mapping del flusso di dati, che può generare una coda estesa, passare alla [Guida alla risoluzione dei problemi di flussi di dati.](https://docs.microsoft.com/azure/data-factory/data-flow-troubleshoot-guide)
-* Se viene visualizzato un messaggio di errore relativo ad altre attività, ad esempio databricks, attività personalizzate o HDI, che può generare una coda estesa, passare alla [Guida alla risoluzione dei problemi delle attività.](https://docs.microsoft.com/azure/data-factory/data-factory-troubleshoot-guide)
-* Se viene visualizzato un messaggio di errore relativo all'esecuzione di pacchetti SSIS, che può generare una coda lunga, passare alla [Guida alla risoluzione dei problemi di esecuzione del pacchetto Azure-SSIS](https://docs.microsoft.com/azure/data-factory/ssis-integration-runtime-ssis-activity-faq) e alla [Guida alla risoluzione dei problemi di gestione di Integration Runtime.](https://docs.microsoft.com/azure/data-factory/ssis-integration-runtime-management-troubleshoot)
+* Se si riceve un messaggio di errore da un'origine o da una destinazione tramite connettori, che può generare una coda estesa, passare alla [Guida alla risoluzione dei problemi del connettore.](./connector-troubleshoot-guide.md)
+* Se viene visualizzato un messaggio di errore relativo al mapping del flusso di dati, che può generare una coda estesa, passare alla [Guida alla risoluzione dei problemi di flussi di dati.](./data-flow-troubleshoot-guide.md)
+* Se viene visualizzato un messaggio di errore relativo ad altre attività, ad esempio databricks, attività personalizzate o HDI, che può generare una coda estesa, passare alla [Guida alla risoluzione dei problemi delle attività.](./data-factory-troubleshoot-guide.md)
+* Se viene visualizzato un messaggio di errore relativo all'esecuzione di pacchetti SSIS, che può generare una coda lunga, passare alla [Guida alla risoluzione dei problemi di esecuzione del pacchetto Azure-SSIS](./ssis-integration-runtime-ssis-activity-faq.md) e alla [Guida alla risoluzione dei problemi di gestione di Integration Runtime.](./ssis-integration-runtime-management-troubleshoot.md)
 
 
 ## <a name="next-steps"></a>Passaggi successivi

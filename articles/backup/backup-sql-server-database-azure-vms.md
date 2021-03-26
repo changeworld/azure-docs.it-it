@@ -1,16 +1,16 @@
 ---
-title: Eseguire il backup di database SQL Server in macchine virtuali di Azure
-description: Questo articolo illustra come eseguire il backup di database di SQL Server in macchine virtuali di Azure con Backup di Azure.
+title: Eseguire il backup di più macchine virtuali di SQL Server dall'insieme di credenziali
+description: Questo articolo illustra come eseguire il backup di database di SQL Server in macchine virtuali di Azure con backup di Azure dall'insieme di credenziali di servizi di ripristino
 ms.topic: conceptual
 ms.date: 09/11/2019
-ms.openlocfilehash: 4cfd8233b9a696b5b4b1981eefa81aa9723f6431
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 798dc81012ad968c3ecc287717240513a08a1349
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86538987"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "105567212"
 ---
-# <a name="back-up-sql-server-databases-in-azure-vms"></a>Eseguire il backup di database SQL Server in macchine virtuali di Azure
+# <a name="back-up-multiple-sql-server-vms-from-the-recovery-services-vault"></a>Eseguire il backup di più macchine virtuali SQL Server dall'insieme di credenziali di servizi di ripristino
 
 I database di SQL Server sono carichi di lavoro critici che richiedono un obiettivo del punto di ripristino (RPO) basso e la conservazione a lungo termine. È possibile eseguire il backup di database SQL Server in esecuzione nelle macchine virtuali (VM) di Azure usando [Backup di Azure](backup-overview.md).
 
@@ -35,8 +35,9 @@ Prima di eseguire il backup di un database di SQL Server, verificare i criteri s
 1. Identificare o creare un [insieme di credenziali di Servizi di ripristino](backup-sql-server-database-azure-vms.md#create-a-recovery-services-vault) nella stessa area e nella stessa sottoscrizione della macchina virtuale che ospita l'istanza di SQL Server.
 1. Verificare che la macchina virtuale abbia [connettività di rete](backup-sql-server-database-azure-vms.md#establish-network-connectivity).
 1. Assicurarsi che i database di SQL Server seguano le [linee guida per la denominazione dei database per Backup di Azure](#database-naming-guidelines-for-azure-backup).
-1. Verificare che la lunghezza combinata del nome della macchina virtuale SQL Server e il nome del gruppo di risorse non superi 84 caratteri per le VM Azure Resource Manager (ARM) (o i caratteri 77 per le macchine virtuali classiche). Questa limitazione è dovuta al fatto che alcuni caratteri sono riservati dal servizio.
+1. Verificare che la lunghezza combinata del nome della macchina virtuale SQL Server e il nome del gruppo di risorse non superi 84 caratteri per le VM Azure Resource Manager (o i caratteri 77 per le macchine virtuali classiche). Questa limitazione è dovuta al fatto che alcuni caratteri sono riservati dal servizio.
 1. Verificare che non siano abilitate altre soluzioni di backup per il database. Disabilitare tutti gli altri backup di SQL Server prima di effettuare il backup del database.
+1. Quando si usa SQL Server 2008 R2 o SQL Server 2012, è possibile che si sia verificata la presenza di un problema di fuso orario per il backup, come descritto [qui](https://support.microsoft.com/help/2697983/kb2697983-fix-an-incorrect-value-is-stored-in-the-time-zone-column-of). Assicurarsi di disporre degli aggiornamenti cumulativi più recenti per evitare il problema relativo al fuso orario descritto in precedenza. Se l'applicazione degli aggiornamenti all'istanza di SQL Server nella macchina virtuale di Azure non è fattibile, disabilitare l'ora legale (DST) per il fuso orario della macchina virtuale.
 
 > [!NOTE]
 > È possibile abilitare Backup di Azure per una VM di Azure e per un database SQL Server in esecuzione nella VM senza conflitto.
@@ -63,7 +64,7 @@ Gli endpoint privati consentono di connettersi in modo sicuro dai server all'int
 
 #### <a name="nsg-tags"></a>Tag NSG
 
-Se si usano gruppi di sicurezza di rete (NSG), usare il tag del servizio *AzureBackup* per consentire l'accesso in uscita a Backup di Azure. Oltre al tag di Backup di Azure, è necessario consentire la connettività per l'autenticazione e il trasferimento dei dati creando [regole NSG](../virtual-network/security-overview.md#service-tags) simili per *Azure AD* e *Archiviazione di Azure*.  I passaggi seguenti descrivono il processo di creazione di una regola per il tag di Backup di Azure:
+Se si usano gruppi di sicurezza di rete (NSG), usare il tag del servizio *AzureBackup* per consentire l'accesso in uscita a Backup di Azure. Oltre al tag di Backup di Azure, è necessario consentire la connettività per l'autenticazione e il trasferimento dei dati creando [regole NSG](../virtual-network/network-security-groups-overview.md#service-tags) simili per Azure AD (*AzureActiveDirectory*) e Archiviazione di Azure (*Storage*).  I passaggi seguenti descrivono il processo di creazione di una regola per il tag di Backup di Azure:
 
 1. In **Tutti i servizi**, passare a **Gruppi di sicurezza di rete** e selezionare il gruppo di sicurezza di rete.
 
@@ -71,7 +72,7 @@ Se si usano gruppi di sicurezza di rete (NSG), usare il tag del servizio *AzureB
 
 1. Selezionare **Aggiungi**. Immettere tutti i dettagli necessari per la creazione di una nuova regola, come descritto nelle [impostazioni delle regole di sicurezza](../virtual-network/manage-network-security-group.md#security-rule-settings). Assicurarsi che l'opzione **Destinazione** sia impostata su *Tag del servizio* e che l'opzione **Tag del servizio di destinazione** sia impostata su *AzureBackup*.
 
-1. Fare clic su **Aggiungi** per salvare la regola di sicurezza in uscita appena creata.
+1. Selezionare **Aggiungi** per salvare la regola di sicurezza in uscita appena creata.
 
 È possibile creare in modo analogo le regole di sicurezza NSG in uscita NSG per Archiviazione di Azure e Azure AD.
 
@@ -87,11 +88,11 @@ Se si decide di consentire l'accesso agli IP del servizio, fare riferimento agli
 
 È anche possibile usare gli FQDN seguenti per consentire l'accesso ai servizi richiesti dai server:
 
-| Service    | Nomi di dominio a cui accedere                             |
-| -------------- | ------------------------------------------------------------ |
-| Backup di Azure  | `*.backup.windowsazure.com`                             |
-| Archiviazione di Azure | `*.blob.core.windows.net` <br><br> `*.queue.core.windows.net` |
-| Azure AD      | Consentire l'accesso ai nomi di dominio completo (FQDN) nelle sezioni 56 e 59 come indicato in [questo articolo](/office365/enterprise/urls-and-ip-address-ranges#microsoft-365-common-and-office-online) |
+| Service    | Nomi di dominio a cui accedere                             | Porte
+| -------------- | ------------------------------------------------------------ | ---
+| Backup di Azure  | `*.backup.windowsazure.com`                             | 443
+| Archiviazione di Azure | `*.blob.core.windows.net` <br><br> `*.queue.core.windows.net` | 443
+| Azure AD      | Consentire l'accesso ai nomi di dominio completo (FQDN) nelle sezioni 56 e 59 come indicato in [questo articolo](/office365/enterprise/urls-and-ip-address-ranges#microsoft-365-common-and-office-online) | Come applicabile
 
 #### <a name="use-an-http-proxy-server-to-route-traffic"></a>Usare un server proxy HTTP per instradare il traffico
 
@@ -110,7 +111,7 @@ Evitare di usare gli elementi seguenti nei nomi di database:
 L'alias per i caratteri non supportati è disponibile, ma è consigliabile evitare tali caratteri. Per altre informazioni, vedere [Informazioni sul modello di dati del servizio tabelle](/rest/api/storageservices/understanding-the-table-service-data-model).
 
 >[!NOTE]
->L'operazione **Configurare protezione** per i database con caratteri speciali come "+" o "&" nel nome non è supportata. È possibile modificare il nome del database o abilitare la **protezione automatica** che può proteggere correttamente questi database.
+>L'operazione di **configurazione della protezione** per i database con caratteri speciali come "+" o "&" nel nome non è supportata. È possibile modificare il nome del database o abilitare la **protezione automatica** che può proteggere correttamente questi database.
 
 [!INCLUDE [How to create a Recovery Services vault](../../includes/backup-create-rs-vault.md)]
 
@@ -161,7 +162,7 @@ Come individuare i database in esecuzione in una macchina virtuale:
 
    ![Selezionare Configurare il backup](./media/backup-azure-sql-database/backup-goal-configure-backup.png)
 
-1. Fare clic su **Aggiungi risorse** per visualizzare tutti i gruppi di disponibilità registrati e le istanze di SQL Server autonome.
+1. Selezionare **Aggiungi risorse** per visualizzare tutti i gruppi di disponibilità registrati e le istanze di SQL Server autonome.
 
     ![Selezionare Aggiungi risorse](./media/backup-azure-sql-database/add-resources.png)
 
@@ -189,7 +190,7 @@ Come individuare i database in esecuzione in una macchina virtuale:
 
      ![Selezionare il criterio di backup](./media/backup-azure-sql-database/select-backup-policy.png)
 
-1. Fare clic su **Abilita backup** per inviare l'operazione di configurazione della **protezione** e tenere traccia dello stato di avanzamento della configurazione nell'area **notifiche** del portale.
+1. Selezionare **Abilita backup** per inviare l'operazione di configurazione della **protezione** e tenere traccia dello stato di avanzamento della configurazione nell'area **notifiche** del portale.
 
    ![Verificare lo stato della configurazione](./media/backup-azure-sql-database/track-configuration-progress.png)
 
@@ -214,7 +215,7 @@ Per creare un criterio di backup:
 
     ![Immettere il nome dei criteri](./media/backup-azure-sql-database/policy-name.png)
 
-1. Per modificare le impostazioni predefinite, fare clic sul collegamento **modifica** corrispondente a **backup completo**.
+1. Selezionare il collegamento **modifica** corrispondente a **backup completo** per modificare le impostazioni predefinite.
 
    * Selezionare una **frequenza di backup**. Scegliere **Giornaliero** o **Settimanale**.
    * Per **Giornaliero**, scegliere l'ora e il fuso orario per l'inizio del processo di backup. Se si sceglie di eseguire backup completi giornalieri, non è possibile creare backup differenziali.
@@ -231,7 +232,7 @@ Per creare un criterio di backup:
        ![Impostazione dell'intervallo di conservazione](./media/backup-azure-sql-database/retention-range-interval.png)
 
 1. Selezionare **OK** per accettare l'impostazione per i backup completi.
-1. Per modificare le impostazioni predefinite, fare clic sul collegamento **modifica** corrispondente a **backup differenziale**.
+1. Selezionare il collegamento **modifica** corrispondente a **backup differenziale** per modificare le impostazioni predefinite.
 
     * Nel **criterio Backup differenziale** selezionare **Abilita** per accedere alle opzioni di frequenza e conservazione.
     * È possibile attivare solo un backup differenziale al giorno. Un backup differenziale non può essere attivato nello stesso giorno di un backup completo.
@@ -240,11 +241,11 @@ Per creare un criterio di backup:
 
       ![Criteri di backup differenziale](./media/backup-azure-sql-database/differential-backup-policy.png)
 
-1. Per modificare le impostazioni predefinite, fare clic sul collegamento **modifica** corrispondente a **backup del log**.
+1. Selezionare il collegamento **modifica** corrispondente a **backup del log** per modificare le impostazioni predefinite
 
     * In **Backup del log** selezionare **Abilita** e quindi impostare le opzioni di frequenza e conservazione.
     * I backup del log possono verificarsi ogni 15 minuti ed essere conservati per un massimo di 35 giorni.
-    * Se il database è nel [modello di recupero con registrazione minima](/sql/relational-databases/backup-restore/recovery-models-sql-server?view=sql-server-ver15), la pianificazione del backup del log per il database verrà sospesa, quindi non verrà attivato alcun backup del log.
+    * Se il database è nel [modello di recupero con registrazione minima](/sql/relational-databases/backup-restore/recovery-models-sql-server), la pianificazione del backup del log per il database verrà sospesa, quindi non verrà attivato alcun backup del log.
     * Se il modello di recupero del database viene modificato da **completo** a **semplice**, i backup del log verranno sospesi entro 24 ore dalla modifica del modello di recupero. Analogamente, se il modello di recupero viene modificato da **Simple**, è ora possibile supportare i backup del log per il database. le pianificazioni dei backup del log verranno abilitate entro 24 ore dalla modifica del modello di recupero.
 
       ![Criteri di backup del log](./media/backup-azure-sql-database/log-backup-policy.png)
@@ -254,7 +255,7 @@ Per creare un criterio di backup:
 1. Dopo aver completato le modifiche ai criteri di backup, selezionare **OK**.
 
 > [!NOTE]
-> Ogni backup del log viene concatenato al backup completo precedente per formare una catena di recupero. Questo backup completo verrà mantenuto fino alla scadenza della conservazione dell'ultimo backup del log. Questo potrebbe significare che il backup completo viene mantenuto per un periodo aggiuntivo per assicurarsi che tutti i log possano essere ripristinati. Si supponga che l'utente disponga di log di un backup completo settimanale, giornaliero differenziale e ogni 2 ore. Vengono tutti conservati per 30 giorni. Tuttavia, l'intero settimanale può essere effettivamente pulito/eliminato solo dopo che è disponibile il backup completo successivo, ad esempio dopo 30 + 7 giorni. Supponiamo che venga effettuato un backup completo settimanale il 16 novembre. In base ai criteri di conservazione, deve essere mantenuto fino al 16 dicembre. L'ultimo backup del log per questa versione completa si verifica prima del successivo completo in programma, il 22 novembre. Questo log è disponibile fino al 22 dicembre e fino a quel momento non sarà possibile eliminare il backup completo del 16 novembre. Il backup completo del 16 novembre, quindi, viene mantenuto fino al 22 dicembre.
+> Ogni backup del log viene concatenato al backup completo precedente per formare una catena di recupero. Questo backup completo verrà mantenuto fino alla scadenza della conservazione dell'ultimo backup del log. Questo potrebbe significare che il backup completo viene mantenuto per un periodo aggiuntivo per assicurarsi che tutti i log possano essere ripristinati. Si supponga di avere un backup completo settimanale, un backup giornaliero differenziale e un log di 2 ore. Vengono tutti conservati per 30 giorni. Tuttavia, la versione settimanale completa può essere effettivamente eliminata o eliminata solo dopo i successivi backup completi, ovvero dopo 30 + 7 giorni. Ad esempio, un backup completo settimanale si verifica il 16 novembre. In base ai criteri di conservazione, deve essere mantenuto fino al 16 dicembre. L'ultimo backup del log per questa versione completa si verifica prima del successivo completo in programma, il 22 novembre. Questo log è disponibile fino al 22 dicembre e fino a quel momento non sarà possibile eliminare il backup completo del 16 novembre. Il backup completo del 16 novembre, quindi, viene mantenuto fino al 22 dicembre.
 
 ## <a name="enable-auto-protection"></a>Abilitare la protezione automatica  
 

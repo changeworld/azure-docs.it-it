@@ -10,14 +10,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 12/07/2018
-ms.author: mbaldwin
-ms.openlocfilehash: ede1af4625d06af4e280eda86d09ae1db3dfdfd1
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.date: 03/25/2021
+ms.author: keithp
+ms.openlocfilehash: 8437d12075a148a3e8062f62e195bc019d89a85b
+ms.sourcegitcommit: 73d80a95e28618f5dfd719647ff37a8ab157a668
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "70881036"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105606964"
 ---
 # <a name="azure-dedicated-hsm-physical-security"></a>Sicurezza fisica di HSM dedicato di Azure
 
@@ -25,7 +25,7 @@ HSM dedicato di Azure consente di soddisfare requisiti di sicurezza avanzati per
 
 ## <a name="security-through-procurement"></a>Sicurezza tramite approvvigionamento
 
-Microsoft segue un processo di approvvigionamento sicuro. Gestisce la catena di custodia e verifica che lo specifico dispositivo ordinato e spedito sia quello consegnato nei data center. I dispositivi sono in buste di plastica a prova di manomissione. Vengono conservati in un'area di deposito protetta finché non vengono messi in funzione nella sala dati del data center.  Il rack che contengono i dispositivi HSM sono considerati ad alto impatto aziendale (High Business Impact, HBI). I dispositivi sono fissati e sottoposti a videosorveglianza costante dalla parte frontale e posteriore.
+Microsoft segue un processo di approvvigionamento sicuro. Gestisce la catena di custodia e verifica che lo specifico dispositivo ordinato e spedito sia quello consegnato nei data center. I dispositivi si trovano in contenitori e contenitori di plastica per gli eventi di manomissione serializzati. Vengono conservati in un'area di deposito protetta finché non vengono messi in funzione nella sala dati del data center.  Il rack che contengono i dispositivi HSM sono considerati ad alto impatto aziendale (High Business Impact, HBI). I dispositivi sono fissati e sottoposti a videosorveglianza costante dalla parte frontale e posteriore.
 
 ## <a name="security-through-deployment"></a>Sicurezza tramite la distribuzione
 
@@ -49,7 +49,7 @@ Se un tecnico Microsoft deve accedere al rack usato dai dispositivi HSM (ad esem
 
 ## <a name="logical-level-security-considerations"></a>Considerazioni sulla sicurezza a livello logico
 
-Il provisioning dei moduli di protezione hardware viene effettuato in una rete virtuale creata dal cliente. Si tratta dello spazio di indirizzo IP privato del cliente.  Questa configurazione offre un utile isolamento a livello di rete logica e garantisce l'accesso esclusivo al cliente. Ciò implica che tutti i controlli di sicurezza a livello logico sono responsabilità del cliente.
+Viene eseguito il provisioning di HSM in una rete virtuale creata dal cliente nello spazio di indirizzi IP privato del cliente.  Questa configurazione offre un utile isolamento a livello di rete logica e garantisce l'accesso esclusivo al cliente. Ciò implica che tutti i controlli di sicurezza a livello logico sono responsabilità del cliente.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

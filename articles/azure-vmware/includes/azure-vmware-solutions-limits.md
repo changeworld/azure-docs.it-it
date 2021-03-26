@@ -2,13 +2,13 @@
 title: Limiti della soluzione VMware di Azure
 description: Limitazioni della soluzione VMware di Azure.
 ms.topic: include
-ms.date: 03/16/2021
-ms.openlocfilehash: 0e2359d951f5348b69e95ab7fa046981b2b7b32d
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.date: 03/24/2021
+ms.openlocfilehash: 997a5ae96ff30226d055b7b966b128d7ec0ae5bd
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103622343"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105582858"
 ---
 <!-- Used in /azure/azure-resource-manager/management/azure-subscription-service-limits.md -->
 
@@ -19,7 +19,7 @@ La tabella seguente descrive i limiti massimi per la soluzione VMware di Azure.
 | Cluster per cloud privato | 12 |
 | Numero minimo di nodi per cluster | 3 |
 | Numero massimo di nodi per cluster | 16 |
-| Nodi per cloud privato | 64 |
+| Nodi per cloud privato | 96 |
 | vCenter per cloud privato | 1  |
 | Associazioni di siti HCX | 3 con Advanced Edition, 10 con Enterprise Edition |
 | AVS ExpressRoute max collegato SDDCs | 4 |

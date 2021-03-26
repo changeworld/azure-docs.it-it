@@ -12,12 +12,12 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.reviewer: ''
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 774c78cbb09d2e5e60dfc0cafc0082b25e9b1b45
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 248d5e163eb046edd130d69307a1c553d434b92d
+ms.sourcegitcommit: 73d80a95e28618f5dfd719647ff37a8ab157a668
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103603103"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105604669"
 ---
 # <a name="selective-password-hash-synchronization-configuration-for-azure-ad-connect"></a>Configurazione della sincronizzazione dell'hash delle password selettiva per Azure AD Connect
 
@@ -36,6 +36,9 @@ Per ridurre il lavoro di amministrazione della configurazione, è necessario con
 
 > [!Important]
 > Con entrambe le opzioni di configurazione scelte, una sincronizzazione iniziale obbligatoria (sincronizzazione completa) per applicare le modifiche, verrà eseguita automaticamente al successivo ciclo di sincronizzazione.
+
+> [!Important]
+> La configurazione della sincronizzazione dell'hash delle password selettiva influenza direttamente il writeback delle password. Le modifiche della password o le reimpostazioni della password avviate in Azure Active Directory eseguono il writeback nella Active Directory locale solo se l'utente rientra nell'ambito della sincronizzazione dell'hash delle password. 
 
 ### <a name="the-admindescription-attribute"></a>Attributo adminDescription
 Entrambi gli scenari si basano sull'impostazione dell'attributo adminDescription degli utenti su un valore specifico.  Ciò consente di applicare le regole ed è ciò che rende il lavoro di pH selettivo.
@@ -134,6 +137,9 @@ Una volta completate tutte le configurazioni, è necessario modificare l'attribu
    
   ![Modificare l'attributo](media/how-to-connect-selective-password-hash-synchronization/exclude-11.png)
 
+È anche possibile usare il comando di PowerShell seguente per modificare l'attributo **adminDescription** di un utente:
+
+```Set-ADUser myuser -Replace @{adminDescription="PHSFiltered"}```
 
 ## <a name="excluded-users-is-larger-than-included-users"></a>Utenti esclusi maggiori di quelli inclusi
 Nella sezione seguente viene descritto come abilitare la sincronizzazione dell'hash delle password selettiva quando il numero di utenti da **escludere** è **maggiore** del numero di utenti da **includere**.
@@ -202,7 +208,9 @@ Una volta completate tutte le configurazioni, è necessario modificare l'attribu
 
   ![Modifica attributi](media/how-to-connect-selective-password-hash-synchronization/include-11.png)
  
- 
+ È anche possibile usare il comando di PowerShell seguente per modificare l'attributo **adminDescription** di un utente:
+
+ ```Set-ADUser myuser -Replace @{adminDescription="PHSIncluded"}``` 
 
 ## <a name="next-steps"></a>Passaggi successivi
 - [Informazioni sulla sincronizzazione dell'hash delle password](whatis-phs.md)

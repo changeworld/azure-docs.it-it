@@ -6,22 +6,22 @@ ms.author: andbrown
 ms.date: 2/11/2021
 ms.topic: how-to
 ms.service: iot-hub-device-update
-ms.openlocfilehash: 15f76488790249f7e301d4474772c500c8829b77
-ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
+ms.openlocfilehash: 3644f26f989fec05ee76afd9f930c31b25234c7f
+ms.sourcegitcommit: 73d80a95e28618f5dfd719647ff37a8ab157a668
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 03/26/2021
-ms.locfileid: "105565640"
+ms.locfileid: "105608528"
 ---
 # <a name="import-new-update"></a>Importa nuovo aggiornamento
 Informazioni su come importare un nuovo aggiornamento nell'aggiornamento del dispositivo per l'hub Internet. Se non è già stato fatto, assicurarsi di acquisire familiarità con i concetti di base dell' [importazione](import-concepts.md).
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-* [Accesso a un hub Internet delle cose con l'aggiornamento del dispositivo per l'hub](create-device-update-account.md)Internet. Si consiglia di usare un livello S1 (standard) o superiore per l'hub Internet. 
+* [Accesso a un hub Internet delle cose con l'aggiornamento del dispositivo per l'hub](create-device-update-account.md)Internet. 
 * Viene eseguito il provisioning di un dispositivo o di un simulatore per l'aggiornamento del dispositivo all'interno dell'hub.
    * Se si usa un dispositivo reale, è necessario un file di immagine di aggiornamento per l'aggiornamento dell'immagine o un [file manifesto apt](device-update-apt-manifest.md) per l'aggiornamento del pacchetto.
-* [PowerShell 5](/powershell/scripting/install/installing-powershell) o versione successiva.
+* [PowerShell 5](/powershell/scripting/install/installing-powershell) o versione successiva (include le installazioni di Linux, MacOS e Windows)
 * Browser supportati:
   * [Microsoft Edge](https://www.microsoft.com/edge)
   * Google Chrome

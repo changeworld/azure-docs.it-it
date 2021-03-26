@@ -7,12 +7,12 @@ ms.author: jingwang
 author: linda33wj
 ms.custom: seo-lt-2019
 ms.date: 03/17/2021
-ms.openlocfilehash: ec24fa1bde21c70aa95fc33c92048aebc9f6659c
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: f2db75fdcd4519b5ba0869bf4ef89c8323435539
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104597386"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105565980"
 ---
 # <a name="copy-data-from-and-to-dynamics-365-common-data-servicemicrosoft-dataverse-or-dynamics-crm-by-using-azure-data-factory"></a>Copiare dati da e in Dynamics 365 (Common Data Service/Microsoft dataverse) o Dynamics CRM usando Azure Data Factory
 
@@ -370,7 +370,7 @@ La combinazione ottimale di **writeBatchSize** e **parallelCopies** dipende dall
 
 Per recuperare i dati dalle visualizzazioni Dynamics, è necessario ottenere la query salvata della vista e usare la query per ottenere i dati.
 
-Sono disponibili due entità che archiviano diversi tipi di visualizzazione: "query salvata" Archivia la vista di sistema e la visualizzazione utente "query utente". Per ottenere le informazioni delle visualizzazioni, vedere la query un'FetchXML seguente e sostituire "ENTITÀDESTINAZIONE" con `savedquery` o `userquery` . Ogni tipo di entità dispone di attributi più disponibili che è possibile aggiungere alla query in base alle esigenze. Altre informazioni sull'entità [query salvata](https://docs.microsoft.com/dynamics365/customer-engagement/web-api/savedquery) e sull' [entità UserQuery](https://docs.microsoft.com/dynamics365/customer-engagement/web-api/userquery).
+Sono disponibili due entità che archiviano diversi tipi di visualizzazione: "query salvata" Archivia la vista di sistema e la visualizzazione utente "query utente". Per ottenere le informazioni delle visualizzazioni, vedere la query un'FetchXML seguente e sostituire "ENTITÀDESTINAZIONE" con `savedquery` o `userquery` . Ogni tipo di entità dispone di attributi più disponibili che è possibile aggiungere alla query in base alle esigenze. Altre informazioni sull'entità [query salvata](/dynamics365/customer-engagement/web-api/savedquery) e sull' [entità UserQuery](/dynamics365/customer-engagement/web-api/userquery).
 
 ```xml
 <fetch top="5000" >

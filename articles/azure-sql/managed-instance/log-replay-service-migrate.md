@@ -9,19 +9,19 @@ author: danimir
 ms.author: danil
 ms.reviewer: sstein
 ms.date: 03/01/2021
-ms.openlocfilehash: 0bc00aea67fa2f71599ee62e657e1ca1b0627681
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 1b2a3f018b16258622b817648cb00e230313bf49
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102199850"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105564518"
 ---
 # <a name="migrate-databases-from-sql-server-to-sql-managed-instance-by-using-log-replay-service-preview"></a>Eseguire la migrazione dei database da SQL Server a SQL Istanza gestita utilizzando il servizio di riproduzione log (anteprima)
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
 
 Questo articolo illustra come configurare manualmente la migrazione del database da SQL Server 2008-2019 ad Azure SQL Istanza gestita tramite il servizio di riproduzione log (con ridondanza locale), attualmente disponibile in anteprima pubblica. CON ridondanza locale è un servizio cloud abilitato per SQL Istanza gestita ed è basato sulla tecnologia di SQL Server log shipping. 
 
-Il [servizio migrazione del database di Azure](/azure/dms/tutorial-sql-server-to-managed-instance) e con ridondanza locale usano la stessa tecnologia di migrazione sottostante e le stesse API. Rilasciando con ridondanza locale, è possibile abilitare migrazioni personalizzate complesse e architetture ibride tra SQL Server locali e SQL Istanza gestita.
+Il [servizio migrazione del database di Azure](../../dms/tutorial-sql-server-to-managed-instance.md) e con ridondanza locale usano la stessa tecnologia di migrazione sottostante e le stesse API. Rilasciando con ridondanza locale, è possibile abilitare migrazioni personalizzate complesse e architetture ibride tra SQL Server locali e SQL Istanza gestita.
 
 ## <a name="when-to-use-log-replay-service"></a>Quando utilizzare il servizio di riproduzione log
 
@@ -66,7 +66,7 @@ Dopo l'arresto di con ridondanza locale, tramite il completamento automatico o m
     
 | Operazione | Dettagli |
 | :----------------------------- | :------------------------- |
-| **1. copiare i backup del database da SQL Server nell'archivio BLOB**. | Copiare i backup completi, differenziali e del log da SQL Server a un contenitore di archiviazione BLOB usando [Azcopy](/azure/storage/common/storage-use-azcopy-v10) o [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/). <br /><br />Usare qualsiasi nome file. CON ridondanza locale non richiede una convenzione di denominazione dei file specifica.<br /><br />Per eseguire la migrazione di diversi database, è necessaria una cartella separata per ogni database. |
+| **1. copiare i backup del database da SQL Server nell'archivio BLOB**. | Copiare i backup completi, differenziali e del log da SQL Server a un contenitore di archiviazione BLOB usando [Azcopy](../../storage/common/storage-use-azcopy-v10.md) o [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/). <br /><br />Usare qualsiasi nome file. CON ridondanza locale non richiede una convenzione di denominazione dei file specifica.<br /><br />Per eseguire la migrazione di diversi database, è necessaria una cartella separata per ogni database. |
 | **2. avviare con ridondanza locale nel cloud**. | È possibile riavviare il servizio con una scelta di cmdlet: PowerShell ([Start-azsqlinstancedatabaselogreplay](/powershell/module/az.sql/start-azsqlinstancedatabaselogreplay)) o l'interfaccia della riga di comando di Azure ([cmdlet di az_sql_midb_log_replay_start](/cli/azure/sql/midb/log-replay#az_sql_midb_log_replay_start)). <br /><br /> Avviare con ridondanza locale separatamente per ogni database che punta a una cartella di backup nell'archivio BLOB. <br /><br /> Una volta avviato, il servizio eseguirà i backup dal contenitore di archiviazione BLOB e avvierà il ripristino in SQL Istanza gestita.<br /><br /> Se con ridondanza locale è stato avviato in modalità continua, dopo il ripristino di tutti i backup caricati inizialmente, il servizio osserverà eventuali nuovi file caricati nella cartella. Il servizio applicherà continuamente i log in base alla catena del numero di sequenza del file di log (LSN) finché non verrà arrestato. |
 | **2,1. monitorare lo stato dell'operazione**. | È possibile monitorare lo stato di avanzamento dell'operazione di ripristino con una scelta di cmdlet: PowerShell ([Get-azsqlinstancedatabaselogreplay](/powershell/module/az.sql/get-azsqlinstancedatabaselogreplay)) o l'interfaccia della riga di comando di Azure ([cmdlet di az_sql_midb_log_replay_show](/cli/azure/sql/midb/log-replay#az_sql_midb_log_replay_show)). |
 | **2,2. arrestare l'operazione, se necessario**. | Se è necessario arrestare il processo di migrazione, è possibile scegliere i cmdlet: PowerShell ([Stop-azsqlinstancedatabaselogreplay](/powershell/module/az.sql/stop-azsqlinstancedatabaselogreplay)) o l'interfaccia della riga di comando di Azure ([az_sql_midb_log_replay_stop](/cli/azure/sql/midb/log-replay#az_sql_midb_log_replay_stop)). <br /><br /> L'arresto dell'operazione eliminerà il database di cui si sta eseguendo il ripristino in SQL Istanza gestita. Dopo l'arresto di un'operazione, non è possibile riprendere con ridondanza locale per un database. È necessario riavviare il processo di migrazione da zero. |
@@ -164,7 +164,7 @@ L'archivio BLOB di Azure viene usato come risorsa di archiviazione intermedia pe
 
 Per eseguire la migrazione di database a un'istanza gestita tramite con ridondanza locale, è possibile usare gli approcci seguenti per caricare i backup nell'archiviazione BLOB:
 - Uso di SQL Server funzionalità [di backup nativo in URL](/sql/relational-databases/backup-restore/sql-server-backup-to-url)
-- Uso di [Azcopy](/azure/storage/common/storage-use-azcopy-v10) o [Azure Storage Explorer](https://azure.microsoft.com/en-us/features/storage-explorer) per caricare i backup in un contenitore BLOB
+- Uso di [Azcopy](../../storage/common/storage-use-azcopy-v10.md) o [Azure Storage Explorer](https://azure.microsoft.com/en-us/features/storage-explorer) per caricare i backup in un contenitore BLOB
 - Utilizzo di Storage Explorer nel portale di Azure
 
 ### <a name="make-backups-from-sql-server-directly-to-blob-storage"></a>Eseguire backup da SQL Server direttamente nell'archiviazione BLOB

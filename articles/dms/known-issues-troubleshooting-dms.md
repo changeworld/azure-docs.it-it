@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.custom: seo-lt-2019
 ms.topic: troubleshooting
 ms.date: 02/20/2020
-ms.openlocfilehash: f4baca7f261aa7544b54992a5e1ddf620794774f
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 785567685b77183df0f212897b923d911ac045f6
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "94962281"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105567308"
 ---
 # <a name="troubleshoot-common-azure-database-migration-service-issues-and-errors"></a>Risolvere i problemi e gli errori comuni del servizio migrazione del database di Azure
 
@@ -102,7 +102,7 @@ Quando si cerca di connettersi all'origine nella procedura guidata del progetto 
 
 | Causa         | Soluzione    |
 | ------------- | ------------- |
-| Quando si usa [ExpressRoute](https://azure.microsoft.com/services/expressroute/), il servizio migrazione del database di Azure [richiede](./tutorial-sql-server-azure-sql-online.md) il provisioning di tre endpoint di servizio nella subnet della rete virtuale associata al servizio:<br> --Endpoint del bus di servizio<br> --Endpoint di archiviazione<br> --Endpoint database di destinazione (ad esempio, endpoint SQL, endpoint Cosmos DB)<br><br><br><br><br> | [Abilitare](./tutorial-sql-server-azure-sql-online.md) gli endpoint di servizio necessari per la connettività ExpressRoute tra l'origine e il servizio migrazione del database di Azure. <br><br><br><br><br><br><br><br> |
+| Quando si usa [ExpressRoute](https://azure.microsoft.com/services/expressroute/), il servizio migrazione del database di Azure [richiede](./tutorial-sql-server-to-azure-sql.md) il provisioning di tre endpoint di servizio nella subnet della rete virtuale associata al servizio:<br> --Endpoint del bus di servizio<br> --Endpoint di archiviazione<br> --Endpoint database di destinazione (ad esempio, endpoint SQL, endpoint Cosmos DB)<br><br><br><br><br> | [Abilitare](./tutorial-sql-server-to-azure-sql.md) gli endpoint di servizio necessari per la connettività ExpressRoute tra l'origine e il servizio migrazione del database di Azure. <br><br><br><br><br><br><br><br> |
 
 ## <a name="lock-wait-timeout-error-when-migrating-a-mysql-database-to-azure-db-for-mysql"></a>Errore di timeout di attesa blocco durante la migrazione di un database MySQL nel database di Azure per MySQL
 
@@ -126,7 +126,7 @@ Quando si tenta di connettere il servizio migrazione del database di Azure a SQL
 
 ## <a name="additional-known-issues"></a>Problemi noti aggiuntivi
 
-* [Problemi noti/limitazioni della migrazione con migrazioni online al database SQL di Azure](./known-issues-azure-sql-online.md)
+* [Problemi noti/limitazioni della migrazione con migrazioni online al database SQL di Azure](./index.yml)
 * [Problemi noti/limitazioni della migrazione con migrazioni online al database di Azure per MySQL](./known-issues-azure-mysql-online.md)
 * [Problemi noti/limitazioni della migrazione con migrazioni online al database di Azure per PostgreSQL](./known-issues-azure-postgresql-online.md)
 

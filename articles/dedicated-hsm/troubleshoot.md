@@ -11,29 +11,29 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
 ms.custom: mvc, seodec18
-ms.date: 12/07/2018
-ms.author: mbaldwin
-ms.openlocfilehash: 42bfa52721160a469db2aa0507dadfa85ff41389
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.date: 03/25/2021
+ms.author: keithp
+ms.openlocfilehash: 11118c9bd745480dc88380e718a9ab348ab1a3e3
+ms.sourcegitcommit: 73d80a95e28618f5dfd719647ff37a8ab157a668
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "97508272"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105606947"
 ---
 # <a name="troubleshooting-the-azure-dedicated-hsm-service"></a>Risoluzione dei problemi relativi al servizio HSM dedicato di Azure
 
-Il servizio HSM dedicato di Azure prevede due aspetti distinti. In primo luogo, la registrazione e la distribuzione in Azure dei dispositivi HSM con i relativi componenti di rete sottostanti. In secondo luogo, la configurazione dei dispositivi HSM in preparazione per l'uso o l'integrazione con un carico di lavoro o un'applicazione specifica. Anche se i dispositivi HSM di Thales Luna Network in Azure sono gli stessi di quelli che si acquistano direttamente da Thales, il fatto che si tratti di una risorsa in Azure impone alcune considerazioni specifiche. Queste considerazioni e le risultanti informazioni dettagliate o procedura consigliata per la risoluzione dei problemi sono documentate in questo articolo per assicurare ampia visibilità e accesso a informazioni critiche. Quando il servizio è in uso, le informazioni definitive sono disponibili tramite richieste di supporto inviate direttamente a Microsoft o a Thales. 
+Il servizio HSM dedicato di Azure prevede due aspetti distinti. In primo luogo, la registrazione e la distribuzione in Azure dei dispositivi HSM con i relativi componenti di rete sottostanti. In secondo luogo, la configurazione dei dispositivi HSM in preparazione per l'uso o l'integrazione con un carico di lavoro o un'applicazione specifica. Sebbene i dispositivi del modulo di protezione [hardware di Thales Luna 7](https://cpl.thalesgroup.com/encryption/hardware-security-modules/network-hsms) siano gli stessi in Azure che si acquistano direttamente da Thales, il fatto che si tratta di una risorsa in Azure crea alcune considerazioni specifiche. Queste considerazioni e le risultanti informazioni dettagliate o procedura consigliata per la risoluzione dei problemi sono documentate in questo articolo per assicurare ampia visibilità e accesso a informazioni critiche. Quando il servizio è in uso, le informazioni definitive sono disponibili tramite richieste di supporto inviate direttamente a Microsoft o a Thales. 
 
 > [!NOTE]
 > Si noti che prima di eseguire qualsiasi configurazione in un dispositivo HSM appena distribuito, è consigliabile aggiornarlo con le patch pertinenti. Una patch necessaria specifica è [KB0019789](https://supportportal.gemalto.com/csm?id=kb_article_view&sys_kb_id=19a81c8bdb9a1fc8d298728dae96197d&sysparm_article=KB0019789), disponibile nel portale di supporto di Thales, che risolve un problema che si verifica quando il sistema non risponde più durante il riavvio.
 
 ## <a name="hsm-registration"></a>Registrazione di HSM
 
-Il servizio HSM dedicato non è liberamente disponibile per l'uso, perché implica la distribuzione di risorse hardware nel cloud ed è quindi una risorsa importante che è necessario proteggere. Pertanto, è previsto un processo di inserimento nell'elenco elementi consentiti tramite posta elettronica usando l'indirizzo HSMrequest@microsoft.com. 
+Il servizio HSM dedicato non è liberamente disponibile per l'uso, perché implica la distribuzione di risorse hardware nel cloud ed è quindi una risorsa importante che è necessario proteggere. Viene quindi usato un processo allowlisiting tramite posta elettronica usando HSMrequest@microsoft.com . 
 
 ### <a name="getting-access-to-dedicated-hsm"></a>Ottenere l'accesso al servizio HSM dedicato
 
-Se si ritiene che il servizio HSM dedicato soddisfi i propri requisiti di archiviazione delle chiavi, inviare un messaggio di posta elettronica a HSMrequest@microsoft.com per richiedere l'accesso. Descrivere l'applicazione, le aree in cui distribuire gli HSM e la quantità desiderata. Se si collabora con un rappresentante Microsoft, ad esempio un Account Executive o un Cloud Solution Architect, includere questa persona in qualsiasi richiesta.
+Per prima cosa, è necessario sapere quali casi di utilizzo non possono essere risolti da [Azure Key Vault](https://docs.microsoft.com/en-us/azure/key-vault/general/overview) o da [HSM gestito di Azure](https://docs.microsoft.com/en-us/azure/key-vault/managed-hsm/overview). Se si ritiene che il modulo di protezione hardware dedicato rientri nei requisiti di archiviazione delle chiavi, inviare un messaggio di posta elettronica HSMrequest@microsoft.com per richiedere l'accesso. Delineare l'applicazione e i casi d'uso, le aree di cui si vuole HSM e il volume di HSM che si sta cercando. Se si collabora con un rappresentante Microsoft, ad esempio un Account Executive o un Cloud Solution Architect, includere questa persona in qualsiasi richiesta.
 
 ## <a name="hsm-provisioning"></a>Provisioning di HSM
 
@@ -56,7 +56,7 @@ Il modello di Resource Manager standard fornito per la distribuzione include ris
 
 ### <a name="hsm-deployment-using-terraform"></a>Distribuzione di HSM tramite Terraform
 
-Alcuni clienti hanno usato Terraform come ambiente di automazione invece dei modelli di Resource Manager forniti durante la registrazione a questo servizio. Gli HSM non possono essere distribuiti in questo modo, a differenza delle risorse di rete dipendenti. Terraform include un modulo per chiamare un modello di Resource Manager minimo che esegue solo la distribuzione di HSM.  In questa situazione è necessario prestare attenzione per assicurarsi che le risorse di rete, ad esempio il gateway ExpressRoute necessario, vengano completamente distribuite prima di distribuire gli HSM. Il comando seguente dell'interfaccia della riga di comando può essere usato per verificare se la distribuzione e l'integrazione sono state completate come previsto. Sostituire i segnaposto tra parentesi uncinate con i nomi specifici. Il risultato previsto è che provisioningState risulta "Succeeded"
+Alcuni clienti hanno usato Terraform come ambiente di automazione invece dei modelli di Resource Manager forniti durante la registrazione a questo servizio. Gli HSM non possono essere distribuiti in questo modo, a differenza delle risorse di rete dipendenti. La bonifica ha un modulo per richiamare un modello ARM minimo che ha solo la distribuzione del modulo di protezione hardware.  In questa situazione è necessario prestare attenzione per assicurarsi che le risorse di rete, ad esempio il gateway ExpressRoute necessario, vengano completamente distribuite prima di distribuire gli HSM. Il comando seguente dell'interfaccia della riga di comando può essere usato per verificare se la distribuzione e l'integrazione sono state completate come previsto. Sostituire i segnaposto tra parentesi uncinate con i nomi specifici. Il risultato previsto è che provisioningState risulta "Succeeded"
 
 ```azurecli
 az resource show --ids /subscriptions/<subid>/resourceGroups/<myresourcegroup>/providers/Microsoft.Network/virtualNetworkGateways/<myergateway>
@@ -66,10 +66,10 @@ az resource show --ids /subscriptions/<subid>/resourceGroups/<myresourcegroup>/p
 Le distribuzioni possono non riuscire se si superano 2 HSM per stamp e 4 per area. Per evitare questa situazione, assicurarsi di aver eliminato le risorse delle distribuzioni precedentemente non riuscite prima di eseguire di nuovo la distribuzione. Per verificare le risorse, vedere la sezione "Come vengono visualizzati gli HSM" di seguito. Se si ritiene che sia necessario superare questa quota, che viene definita essenzialmente come salvaguardia, inviare un messaggio di posta elettronica a HSMrequest@microsoft.com con i dettagli.
 
 ### <a name="deployment-failure-based-on-capacity"></a>Errore di distribuzione in base alla capacità
-Quando per uno specifico stamp o per un'area viene effettuato il provisioning di quasi tutti gli HSM disponibili, possono verificarsi errori di distribuzione. Per ogni stamp sono disponibili 11 HSM per i clienti, ovvero 22 per area, oltre a 3 dispositivi di riserva e uno di test. Se si ritiene di aver raggiunto un limite, inviare un messaggio di posta elettronica a HSMrequest@microsoft.com per informazioni sul livello di riempimento di stamp specifici.
+Quando per uno specifico stamp o per un'area viene effettuato il provisioning di quasi tutti gli HSM disponibili, possono verificarsi errori di distribuzione. Per ogni timbro sono disponibili 12 HSM per i clienti, che significa 24 per area. Sono disponibili anche 2 Ricambi e 1 dispositivo di test in ogni timbro. Se si ritiene di aver raggiunto un limite, inviare un messaggio di posta elettronica a HSMrequest@microsoft.com per informazioni sul livello di riempimento di stamp specifici.
 
 ###  <a name="how-do-i-see-hsms-when-provisioned"></a>Come vengono visualizzati gli HSM dopo il provisioning?
-Dato che il servizio HSM dedicato è inserito nell'elenco elementi consentiti, nel portale di Azure viene considerato di tipo nascosto. Per visualizzare le risorse HSM, è necessario selezionare la casella di controllo "Mostra tipi nascosti" come illustrato di seguito. La risorsa scheda di interfaccia di rete segue sempre l'HSM e consente di trovare l'indirizzo IP dell'HSM prima di usare SSH per la connessione.
+Poiché il modulo di protezione hardware dedicato è un servizio allowlisted, viene considerato un "tipo nascosto" nel portale di Azure. Per visualizzare le risorse HSM, è necessario selezionare la casella di controllo "Mostra tipi nascosti" come illustrato di seguito. La risorsa scheda di interfaccia di rete segue sempre l'HSM e consente di trovare l'indirizzo IP dell'HSM prima di usare SSH per la connessione.
 
 ![Screenshot con la casella di controllo Mostra tipi nascosti evidenziata](./media/troubleshoot/hsm-provisioned.png)
 
@@ -112,7 +112,7 @@ Se si specificano credenziali non corrette per gli HSM, possono verificarsi cons
 Di seguito vengono descritte situazioni in cui gli errori di configurazione sono comuni o hanno un impatto da considerare:
 
 ### <a name="hsm-documentation-and-software"></a>Documentazione e software per HSM
-Il software e la documentazione per i dispositivi HSM Thales SafeNet Luna 7 non sono disponibili presso Microsoft e devono essere scaricati direttamente da Thales. Per la registrazione è necessario usare l'ID cliente di Thales ricevuto durante il processo di registrazione. I dispositivi forniti da Microsoft hanno la versione del software 7.2 e la versione del firmware 7.0.3. All'inizio del 2020 Thales ha reso pubblica la documentazione, che è reperibile [qui](https://thalesdocs.com/gphsm/luna/7.2/docs/network/Content/Home_network.htm).  
+Il software e la documentazione per i dispositivi del modulo di protezione [hardware Thales Luna 7](https://cpl.thalesgroup.com/encryption/hardware-security-modules/network-hsms) non sono disponibili da Microsoft e devono essere scaricati direttamente da Thales. Per la registrazione è necessario usare l'ID cliente di Thales ricevuto durante il processo di registrazione. I dispositivi forniti da Microsoft hanno la versione del software 7.2 e la versione del firmware 7.0.3. All'inizio del 2020 Thales ha reso pubblica la documentazione, che è reperibile [qui](https://thalesdocs.com/gphsm/luna/7.2/docs/network/Content/Home_network.htm).  
 
 ### <a name="hsm-networking-configuration"></a>Configurazione di rete per HSM
 
@@ -120,7 +120,7 @@ Prestare attenzione quando si configura la rete all'interno dell'HSM.  L'HSM pre
 
 ### <a name="hsm-device-reboot"></a>Riavvio dei dispositivi HSM
 
-Per alcune modifiche di configurazione è necessario che il dispositivo HSM venga spento e riacceso o riavviato. I test svolti da Microsoft sul modulo di protezione hardware in Azure hanno rilevato che in alcuni casi il riavvio potrebbe smettere di rispondere. L'implicazione è che risulta necessario creare una richiesta di supporto nel portale di Azure chiedendo un riavvio a freddo, che potrebbe richiedere fino a 48 ore, considerando che si tratta di un processo manuale eseguito in un data center di Azure.  Per evitare questa situazione, assicurarsi di aver distribuito la patch di riavvio disponibile direttamente presso Thales. Per informazioni sulla patch consigliata per un problema che si verifica quando il sistema non risponde più durante il riavvio, vedere l'articolo [KB0019789](https://supportportal.gemalto.com/csm?sys_kb_id=d66911e2db4ffbc0d298728dae9619b0&id=kb_article_view&sysparm_rank=1&sysparm_tsqueryId=d568c35bdb9a4850d6b31f3b4b96199e&sysparm_article=KB0019789) nei download dell'HSM Thales Luna Network 7.2. Nota: per il download è necessario aver effettuato la registrazione nel portale di supporto di Thales.
+Per alcune modifiche di configurazione è necessario che il dispositivo HSM venga spento e riacceso o riavviato. I test svolti da Microsoft sul modulo di protezione hardware in Azure hanno rilevato che in alcuni casi il riavvio potrebbe smettere di rispondere. L'implicazione è che risulta necessario creare una richiesta di supporto nel portale di Azure chiedendo un riavvio a freddo, che potrebbe richiedere fino a 48 ore, considerando che si tratta di un processo manuale eseguito in un data center di Azure.  Per evitare questa situazione, assicurarsi di aver distribuito la patch di riavvio disponibile direttamente presso Thales. Vedere [KB0019789](https://supportportal.gemalto.com/csm?sys_kb_id=d66911e2db4ffbc0d298728dae9619b0&id=kb_article_view&sysparm_rank=1&sysparm_tsqueryId=d568c35bdb9a4850d6b31f3b4b96199e&sysparm_article=KB0019789) nei download del modulo di protezione hardware Thales Luna 7 7,2 per una patch consigliata per un problema per cui il sistema smette di rispondere durante il riavvio (Nota: è necessario aver effettuato la registrazione nel [portale di supporto clienti di Thales](https://supportportal.thalesgroup.com/csm) per il download).
 
 ### <a name="ntls-certificates-out-of-sync"></a>Certificati NTLS non sincronizzati
 Un client potrebbe perdere la connettività a un HSM quando un certificato scade o è stato sovrascritto tramite aggiornamenti della configurazione. La configurazione client dello scambio di certificati dovrà essere riapplicata per ogni HSM.

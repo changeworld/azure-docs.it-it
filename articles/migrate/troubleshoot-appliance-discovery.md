@@ -6,12 +6,12 @@ ms.author: vivikram
 ms.manager: abhemraj
 ms.topic: troubleshooting
 ms.date: 01/02/2020
-ms.openlocfilehash: c952fe33b434aac972be6a1eb03b63698eb64fc6
-ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
+ms.openlocfilehash: 995914fab0e7112327ebf6ab8e32fb67181f481e
+ms.sourcegitcommit: 73d80a95e28618f5dfd719647ff37a8ab157a668
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/22/2021
-ms.locfileid: "104782317"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105608919"
 ---
 # <a name="troubleshoot-the-azure-migrate-appliance-and-discovery"></a>Risolvere i problemi relativi a Azure Migrate Appliance e all'individuazione
 
@@ -260,6 +260,34 @@ I tipici errori di individuazione delle app sono riepilogati nella tabella.
 | 10007: Impossibile elaborare i metadati individuati. | Si è verificato un errore durante il tentativo di deserializzare JSON. | Contattare supporto tecnico Microsoft per una risoluzione. |
 | 10008: non è possibile creare un file nel server. | Il problema può verificarsi a causa di un errore interno. | Contattare supporto tecnico Microsoft per una risoluzione. |
 | 10009: Impossibile scrivere i metadati individuati in un file nel server. | Il problema può verificarsi a causa di un errore interno. | Contattare supporto tecnico Microsoft per una risoluzione. |
+
+## <a name="common-sql-server-instances-and-database-discovery-errors"></a>Istanze di SQL Server comuni e errori di individuazione del database
+
+Azure Migrate supporta l'individuazione di istanze di SQL Server e database in esecuzione in computer locali, usando Azure Migrate: individuazione e valutazione. L'individuazione SQL è attualmente supportata solo per VMware. Per iniziare, vedere l'esercitazione sull' [individuazione](tutorial-discover-vmware.md) .
+
+I tipici errori di individuazione SQL sono riepilogati nella tabella.
+
+| **Error (Errore) (Error (Errore)e)** | **Causa** | **Azione** |
+|--|--|--|
+|30000: le credenziali associate a questo SQL Server non funzionano.|Le credenziali associate manualmente non sono valide o le credenziali associate automaticamente non possono più accedere all'SQL Server.|Aggiungere le credenziali per SQL Server nel dispositivo e attendere il successivo ciclo di individuazione SQL o forzare l'aggiornamento.|
+|30001: non è possibile connettersi al SQL Server dal dispositivo.|1. il dispositivo non ha la linea di rete per SQL Server.<br/>2. connessione di blocco del firewall tra SQL Server e appliance.|1. rendere SQL Server raggiungibile dal dispositivo.<br/>2. consentire le connessioni in ingresso dal dispositivo alla SQL Server.|
+|30003: il certificato non è attendibile.|Nel computer in cui è in esecuzione SQL Server non è installato un certificato attendibile.|Configurare un certificato attendibile nel server. [Scopri di più](https://go.microsoft.com/fwlink/?linkid=2153616)|
+|30004: autorizzazioni insufficienti.|Questo errore può verificarsi a causa della mancanza di autorizzazioni necessarie per l'analisi di SQL Server istanze. |Concedere il ruolo sysadmin all'account o alle credenziali fornite nell'appliance per individuare SQL Server istanze e i database. [Scopri di più](https://go.microsoft.com/fwlink/?linkid=2153511)|
+|30005: l'accesso SQL Server non è riuscito a connettersi a causa di un problema con il database master predefinito.|Il database non è valido oppure l'account di accesso non dispone dell'autorizzazione CONNECT per il database.|Utilizzare ALTER LOGIN per impostare il database predefinito su database master.<br/>Concedere il ruolo sysadmin all'account o alle credenziali fornite nell'appliance per individuare SQL Server istanze e i database. [Scopri di più](https://go.microsoft.com/fwlink/?linkid=2153615)|
+|30006: non è possibile usare SQL Server account di accesso con l'autenticazione di Windows.|1. l'account di accesso può essere un account di accesso SQL Server ma il server accetta solo l'autenticazione di Windows.<br/>2. si sta tentando di connettersi utilizzando l'autenticazione SQL Server, ma l'account di accesso utilizzato non esiste nel SQL Server.<br/>3. l'account di accesso può utilizzare l'autenticazione di Windows, ma l'account di accesso è un'entità di Windows non riconosciuta. Un'entità di Windows non riconosciuta indica che l'account di accesso non può essere verificato da Windows. La causa potrebbe essere la provenienza dell'account di accesso di Windows da un dominio non attendibile.|Se si sta tentando di eseguire la connessione utilizzando l'autenticazione di SQL Server, verificare che SQL Server sia configurato in modalità di autenticazione mista e che SQL Server account di accesso esista.<br/>Se si sta tentando di effettuare la connessione mediante l'autenticazione di Windows, verificare di essere connessi al dominio corretto. [Scopri di più](https://go.microsoft.com/fwlink/?linkid=2153421)|
+|30007: la password è scaduta.|la password dell'account è scaduta.|È possibile che la password di accesso SQL Server sia scaduta, impostare nuovamente la password e/o estendere la data di scadenza della password. [Scopri di più](https://go.microsoft.com/fwlink/?linkid=2153419)|
+|30008: è necessario modificare la password.|è necessario modificare la password dell'account.|Modificare la password delle credenziali fornite per l'individuazione SQL Server. [Scopri di più](https://go.microsoft.com/fwlink/?linkid=2153318)|
+|30009: si è verificato un errore interno.|Si è verificato un errore interno durante l'individuazione di SQL Server istanze e database. |Se il problema persiste, contattare il supporto tecnico Microsoft.|
+|30010: non sono stati trovati database.|Impossibile trovare database dall'istanza del server selezionata.|Concedere il ruolo sysadmin all'account o alle credenziali fornite nell'appliance per l'individuazione dei database SQL.|
+|30011: si è verificato un errore interno durante la valutazione di un'istanza o di un database SQL.|Si è verificato un errore interno durante l'esecuzione della valutazione.|Se il problema persiste, contattare il supporto tecnico Microsoft.|
+|30012: connessione SQL non riuscita.|1. la connessione è stata rifiutata dal firewall sul server.<br/>2. il servizio di SQL Server Browser (sqlbrowser) non è stato avviato.<br/>3. SQL Server non ha risposto alla richiesta del client perché il server probabilmente non è stato avviato.<br/>4. il client di SQL Server non è in grado di connettersi al server. Questo errore potrebbe verificarsi poiché il server non è configurato per l'accettazione di connessioni remote.<br/>5. il client di SQL Server non è in grado di connettersi al server. L'errore potrebbe verificarsi poiché il client non è in grado di risolvere il nome del server oppure il nome del server non è corretto.<br/>6. i protocolli TCP o named pipe non sono abilitati.<br/>7. il nome dell'istanza di SQL Server specificato non è valido.|Per risolvere il problema di connettività, usare [questa](https://go.microsoft.com/fwlink/?linkid=2153317) guida per l'utente interattivo. Attendere 24 ore dopo aver seguito la guida per i dati da aggiornare nel servizio. Se il problema persiste, contattare il supporto tecnico Microsoft.|
+|30013: si è verificato un errore durante il tentativo di stabilire una connessione all'istanza di SQL Server.|1. non è possibile risolvere il nome del SQL Server dal dispositivo.<br/>2. SQL Server non consente le connessioni remote.|Se è possibile eseguire il ping di SQL Server dal dispositivo, attendere 24 ore per verificare se il problema si risolve automaticamente. In caso contrario, contattare il supporto tecnico Microsoft. [Scopri di più](https://go.microsoft.com/fwlink/?linkid=2153316)|
+|30014: il nome utente o la password non è valida.| Questo errore può verificarsi a causa di un errore di autenticazione che comporta una password o un nome utente non valido.|Specificare una credenziale con un nome utente e una password validi. [Scopri di più](https://go.microsoft.com/fwlink/?linkid=2153315)|
+|30015: si è verificato un errore interno durante l'individuazione dell'istanza di SQL.|Si è verificato un errore interno durante l'individuazione dell'istanza di SQL.|Se il problema persiste, contattare il supporto tecnico Microsoft.|
+|30016: la connessione all'istanza '% instance;' non è riuscita a causa di un timeout.| Questo problema può verificarsi se il firewall del server rifiuta la connessione.|Verificare che il firewall nel SQL Server sia configurato per accettare le connessioni. Se l'errore si mantiene, contattare il supporto tecnico Microsoft. [Scopri di più](https://go.microsoft.com/fwlink/?linkid=2153611)|
+|30017: si è verificato un errore interno.|Eccezione non gestita.|Se il problema persiste, contattare il supporto tecnico Microsoft.|
+|30018: si è verificato un errore interno.|Si è verificato un errore interno durante la raccolta dei dati, ad esempio le dimensioni del database temporaneo, le dimensioni del file e così via dell'istanza SQL.|Attendere 24 ore e contattare il supporto tecnico Microsoft se il problema persiste.|
+|30019: si è verificato un errore interno.|Si è verificato un errore interno durante la raccolta delle metriche delle prestazioni, ad esempio l'utilizzo della memoria e così via, di un database o di un'istanza.|Attendere 24 ore e contattare il supporto tecnico Microsoft se il problema persiste.|
 
 ## <a name="next-steps"></a>Passaggi successivi
 

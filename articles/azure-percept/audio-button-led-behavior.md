@@ -1,44 +1,43 @@
 ---
 title: Comportamento del pulsante e del LED audio di Azure Percept
 description: Altre informazioni sul pulsante e sugli stati dei LED di Azure Percept audio
-author: elqu20
-ms.author: v-elqu
+author: mimcco
+ms.author: mimcco
 ms.service: azure-percept
 ms.topic: conceptual
-ms.date: 02/18/2021
-ms.custom: template-concept
-ms.openlocfilehash: 1d956e33a84b5509c16400c8f5f8e813d116411a
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.date: 03/25/2021
+ms.openlocfilehash: fa919acb527084d19ab88b2e7895d4e6ab0b72d3
+ms.sourcegitcommit: 73d80a95e28618f5dfd719647ff37a8ab157a668
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102095749"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105609072"
 ---
 # <a name="azure-percept-audio-button-and-led-behavior"></a>Comportamento del pulsante e del LED audio di Azure Percept
 
-Vedere le linee guida seguenti per informazioni sul pulsante e sugli stati dei LED dell'audio di Azure Percept.
+Per informazioni sul pulsante e sugli stati dei LED del dispositivo audio Azure Percept, vedere le indicazioni seguenti.
 
 ## <a name="button-behavior"></a>Comportamento dei pulsanti
 
-È possibile usare i pulsanti per controllare il comportamento del dispositivo.
+Usare i pulsanti per controllare il comportamento del dispositivo.
 
-|Stato pulsante|  Comportamento|
+|Stato pulsante|Comportamento|
 |------------|----------|
-|Disattiva audio|  Premere per disattivare/disattivare la matrice MIC. L'evento Button viene attivato dalla versione quando viene premuto.|
-|PTT/PTS|   Premere PTT per ignorare lo stato di individuazione delle parole chiave e attivare lo stato di ascolto del comando. Premere di nuovo per arrestare il dialogo attivo dell'agente e ripristinare lo stato di individuazione delle parole chiave. L'evento Button viene attivato dalla versione quando viene premuto. PTS funziona solo quando viene premuto il pulsante mentre l'agente sta parlando, non quando l'agente è in ascolto o nel pensiero.|
+|Disattiva audio|Premere per disattivare/disattivare la matrice MIC. L'evento Button viene attivato dalla versione quando viene premuto.|
+|PTT/PTS|Premere PTT per ignorare lo stato di individuazione delle parole chiave e attivare lo stato di ascolto del comando. Premere di nuovo per arrestare il dialogo attivo dell'agente e ripristinare lo stato di individuazione delle parole chiave. L'evento Button viene attivato dalla versione quando viene premuto. La funzione PTS funziona solo quando si preme il pulsante mentre l'agente sta parlando, non quando l'agente è in ascolto o nel pensiero.|
 
 ## <a name="led-behavior"></a>Comportamento del LED
 
-È possibile usare gli indicatori LED per comprendere lo stato in cui si trova il dispositivo.
+Usare gli indicatori LED per comprendere lo stato in cui si trova il dispositivo.
 
-|LED|   Stato del LED|  Stato SoM Ear|
-|---|------------|----------------| 
-|L02|   1x bianco, statico on |Accendere |
-|L02|   1x bianco, 0,5 Hz lampeggianti|  Autenticazione in corso |
-|L01 & L02 & L03|   3x blu, statico on|     In attesa di una parola chiave|
-|L01 & L02 & L03|   Matrice LED lampeggiante, 20fps | In ascolto o in conversazione|
-|L01 & L02 & L03|   LED Array Racing, 20fps|    Pensare|
-|L01 & L02 & L03|   3x rosso, statico | Disattiva audio|
+|LED|Stato del LED|Stato SoM Ear|
+|---|------------|----------------|
+|L02|1x bianco, statico on|Accendere |
+|L02|1x bianco, 0,5 Hz lampeggianti|Autenticazione in corso |
+|L01 & L02 & L03|3x blu, statico on|In attesa di una parola chiave|
+|L01 & L02 & L03|Matrice LED lampeggiante, 20fps |In ascolto o in conversazione|
+|L01 & L02 & L03|LED Array Racing, 20fps|Pensare|
+|L01 & L02 & L03|3x rosso, statico |Disattiva audio|
 
 ## <a name="next-steps"></a>Passaggi successivi
 

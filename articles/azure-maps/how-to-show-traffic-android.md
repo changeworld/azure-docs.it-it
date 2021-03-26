@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: cpendle
 zone_pivot_groups: azure-maps-android
-ms.openlocfilehash: 36b3666f12b48468467e76f4c281d58d8018478c
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: aabe246c343537a42c33d3eaad0bfae3989022fe
+ms.sourcegitcommit: 73d80a95e28618f5dfd719647ff37a8ab157a668
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102098537"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105604516"
 ---
 # <a name="show-traffic-data-on-the-map-android-sdk"></a>Mostra i dati sul traffico sulla mappa (Android SDK)
 
@@ -63,7 +63,7 @@ map.setTraffic(
 
 ::: zone-end
 
-Lo screenshot seguente mostra il codice precedente che rende le informazioni sul traffico in tempo reale sulla mappa.
+Lo screenshot seguente mostra il codice precedente che esegue il rendering delle informazioni sul traffico in tempo reale sulla mappa.
 
 ![Mappa che mostra le informazioni sul traffico in tempo reale](media/how-to-show-traffic-android/android-show-traffic.png)
 
@@ -179,7 +179,7 @@ map.events.add(OnFeatureClick { features: List<Feature>? ->
 
 ::: zone-end
 
-Lo screenshot seguente mostra il codice precedente che rende le informazioni sul traffico in tempo reale sulla mappa con un messaggio di avviso popup che Visualizza i dettagli dell'evento imprevisto.
+Lo screenshot seguente mostra il codice precedente che esegue il rendering delle informazioni sul traffico in tempo reale sulla mappa con un messaggio di avviso popup che Visualizza i dettagli dell'evento imprevisto.
 
 ![Mappa che mostra le informazioni sul traffico in tempo reale con un messaggio popup che Visualizza i dettagli dell'evento](media/how-to-show-traffic-android/android-traffic-details.png)
 

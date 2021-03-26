@@ -3,16 +3,16 @@ title: Protocollo di estensione HTTP - Azure
 description: Questo articolo illustra come usare il protocollo di estensione HTTP per inviare messaggi tra il modulo Analisi video live e il modulo di intelligenza artificiale o visione artificiale.
 ms.topic: overview
 ms.date: 09/14/2020
-ms.openlocfilehash: c3a9b5b70467479fdb9b1473a1f6738eaa8a7e1b
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 54b25894c60a39de9c0ec00cdc4982f691bf1ee3
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102455891"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105565742"
 ---
 # <a name="http-extension-protocol"></a>Protocollo di estensione HTTP
 
-Analisi video live in IoT Edge consente di estendere le funzionalità di elaborazione del grafo multimediale tramite un [nodo di estensione del grafo](/azure/media-services/live-video-analytics-edge/media-graph-extension-concept). Se si usa il processore di estensione HTTP come nodo di estensione, la comunicazione tra il modulo di Analisi video live e il modulo di intelligenza artificiale o visione artificiale avviene tramite HTTP.
+Analisi video live in IoT Edge consente di estendere le funzionalità di elaborazione del grafo multimediale tramite un [nodo di estensione del grafo](./media-graph-extension-concept.md). Se si usa il processore di estensione HTTP come nodo di estensione, la comunicazione tra il modulo di Analisi video live e il modulo di intelligenza artificiale o visione artificiale avviene tramite HTTP.
 
 Questo articolo illustra come usare il protocollo di estensione HTTP per inviare messaggi tra il modulo Analisi video live e il modulo di intelligenza artificiale o visione artificiale. 
 
@@ -87,11 +87,11 @@ Date: Fri, 17 Apr 2020 04:44:01 GMT
 }
 ```
 
-Per la restituzione delle risposte è vivamente consigliato l'uso di documenti JSON validi conformi allo schema prestabilito definito in base al [modello a oggetti dello schema dei metadati di inferenza](/azure/media-services/live-video-analytics-edge/inference-metadata-schema). In questo modo si garantisce una migliore interoperabilità con altri componenti e con possibili funzionalità future aggiunte al modulo Analisi video live.
+Per la restituzione delle risposte è vivamente consigliato l'uso di documenti JSON validi conformi allo schema prestabilito definito in base al [modello a oggetti dello schema dei metadati di inferenza](./inference-metadata-schema.md). In questo modo si garantisce una migliore interoperabilità con altri componenti e con possibili funzionalità future aggiunte al modulo Analisi video live.
 
 Se il modulo restituisce una risposta in cui il tipo di contenuto non è "application/json", Analisi video live codifica il messaggio come contenuto in formato Base64 e lo serializza come payload JSON opaco.
 
-Se il modulo restituisce una risposta con tipo di contenuto "application/json", ma lo schema JSON non è conforme allo schema dei metadati di inferenza descritto di seguito, il payload del messaggio verrà inoltrato tramite la pipeline, ma l'interoperabilità risulterà ridotta. Per informazioni dettagliate e aggiornate sullo schema dei metadati di inferenza, vedere [questo articolo](/azure/media-services/live-video-analytics-edge/inference-metadata-schema).
+Se il modulo restituisce una risposta con tipo di contenuto "application/json", ma lo schema JSON non è conforme allo schema dei metadati di inferenza descritto di seguito, il payload del messaggio verrà inoltrato tramite la pipeline, ma l'interoperabilità risulterà ridotta. Per informazioni dettagliate e aggiornate sullo schema dei metadati di inferenza, vedere [questo articolo](./inference-metadata-schema.md).
 
 > [!NOTE]
 > Se il modulo non produce alcun risultato, deve restituire il codice di stato HTTP 204 (Nessun contenuto) con un corpo della risposta vuoto. Analisi video live interpreterà il risultato come vuoto e non inoltrerà l'evento tramite la pipeline.

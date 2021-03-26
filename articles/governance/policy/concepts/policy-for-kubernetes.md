@@ -3,12 +3,12 @@ title: Informazioni su criteri di Azure per Kubernetes
 description: Informazioni su come il servizio Criteri di Azure usa Rego e Open Policy Agent per gestire i cluster che eseguono Kubernetes in Azure o in locale.
 ms.date: 03/22/2021
 ms.topic: conceptual
-ms.openlocfilehash: 60ffcfac688eb40f47efefb74f79d27a2cb82446
-ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
+ms.openlocfilehash: 4a6ca7fb5086401cab58d4bfb6a412089c11ef05
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/23/2021
-ms.locfileid: "104868155"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105564306"
 ---
 # <a name="understand-azure-policy-for-kubernetes-clusters"></a>Informazioni su Criteri di Azure per i cluster Kubernetes
 
@@ -61,7 +61,7 @@ Le limitazioni generali seguenti si applicano al componente aggiuntivo di criter
 
 Le limitazioni seguenti si applicano solo al componente aggiuntivo criteri di Azure per AKS:
 
-- Non è possibile abilitare entrambi i [criteri di sicurezza AKS Pod](../../../aks/use-pod-security-policies.md) e il componente aggiuntivo criteri di Azure per AKS. Per altre informazioni, vedere la pagina relativa al [limite di sicurezza di AKS Pod](../../../aks/use-pod-security-on-azure-policy.md#limitations).
+- Non è possibile abilitare entrambi i [criteri di sicurezza AKS Pod](../../../aks/use-pod-security-policies.md) e il componente aggiuntivo criteri di Azure per AKS. Per altre informazioni, vedere la pagina relativa al [limite di sicurezza di AKS Pod](../../../aks/use-azure-policy.md).
 - Spazi dei nomi esclusi automaticamente dal componente aggiuntivo criteri di Azure per la valutazione: _Kube-System_, _Gatekeeper-System_ e _AKS-periscopio_.
 
 ## <a name="recommendations"></a>Consigli
@@ -201,7 +201,7 @@ Prima di installare il componente aggiuntivo Criteri di Azure o di abilitare le 
 
 1. Installare [Helm 3](https://v3.helm.sh/docs/intro/install/).
 
-1. Connettere il cluster Kubernetes con abilitazione di Azure Arc. Per altre informazioni, vedere [Connettere un cluster Kubernetes abilitato per Azure Arc (anteprima)](../../../azure-arc/kubernetes/connect-cluster.md).
+1. Connettere il cluster Kubernetes con abilitazione di Azure Arc. Per altre informazioni, vedere [Connettere un cluster Kubernetes abilitato per Azure Arc (anteprima)](../../../azure-arc/kubernetes/quickstart-connect-cluster.md).
 
 1. Ottenere l'ID risorsa di Azure completo del cluster Kubernetes con abilitazione di Azure Arc.
 
