@@ -1,14 +1,14 @@
 ---
 title: Informazioni su criteri di Azure per Kubernetes
 description: Informazioni su come il servizio Criteri di Azure usa Rego e Open Policy Agent per gestire i cluster che eseguono Kubernetes in Azure o in locale.
-ms.date: 12/01/2020
+ms.date: 03/22/2021
 ms.topic: conceptual
-ms.openlocfilehash: 0aaf610cd5712ee195ed2a4108cf9e5ca9c65183
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 60ffcfac688eb40f47efefb74f79d27a2cb82446
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "100577093"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104868155"
 ---
 # <a name="understand-azure-policy-for-kubernetes-clusters"></a>Informazioni su Criteri di Azure per i cluster Kubernetes
 
@@ -68,7 +68,7 @@ Le limitazioni seguenti si applicano solo al componente aggiuntivo criteri di Az
 
 Di seguito sono riportate indicazioni generali per l'uso del componente aggiuntivo criteri di Azure:
 
-- Il componente aggiuntivo di criteri di Azure richiede tre componenti Gatekeeper per eseguire: 1 audit pod e 2 repliche Pod del webhook. Questi componenti utilizzano un numero maggiore di risorse, in quanto il numero di risorse Kubernetes e le assegnazioni di criteri aumentano nel cluster, che richiede operazioni di controllo e imposizione.
+- Il componente aggiuntivo di criteri di Azure richiede l'esecuzione di tre componenti Gatekeeper: 1 audit pod e 2 repliche Pod del webhook. Questi componenti utilizzano più risorse, in quanto il numero di risorse Kubernetes e le assegnazioni di criteri aumentano nel cluster, che richiede operazioni di controllo e imposizione.
 
   - Per meno di 500 pod in un singolo cluster con un massimo di 20 vincoli: 2 vCPU e 350 MB di memoria per ogni componente.
   - Per più di 500 pod in un singolo cluster con un massimo di 40 vincoli: 3 vCPU e 600 MB di memoria per ogni componente.
@@ -85,7 +85,7 @@ La raccomandazione seguente si applica solo ad AKS e al componente aggiuntivo cr
 
 ## <a name="install-azure-policy-add-on-for-aks"></a>Installare il componente aggiuntivo Criteri di Azure per il servizio Azure Kubernetes
 
-Prima di installare il componente aggiuntivo Criteri di Azure o di abilitare le funzionalità del servizio, la sottoscrizione deve abilitare i provider di risorse **Microsoft.ContainerService** e **Microsoft.PolicyInsights**.
+Prima di installare il componente aggiuntivo criteri di Azure o abilitare le funzionalità del servizio, la sottoscrizione deve abilitare i provider di risorse **Microsoft. PolicyInsights** .
 
 1. È necessaria l'interfaccia della riga di comando di Azure versione 2.12.0 o successiva installata e configurata. Eseguire `az --version` per trovare la versione. Se è necessario eseguire l'installazione o l'aggiornamento, vedere [Installare l'interfaccia della riga di comando di Azure](/cli/azure/install-azure-cli).
 
@@ -93,15 +93,12 @@ Prima di installare il componente aggiuntivo Criteri di Azure o di abilitare le 
 
    - Portale di Azure:
 
-     Registrare i provider di risorse **Microsoft.ContainerService** e **Microsoft.PolicyInsights**. Per le procedure, vedere [Provider e tipi di risorse](../../../azure-resource-manager/management/resource-providers-and-types.md#azure-portal).
+     Registrare i provider di risorse **Microsoft. PolicyInsights** . Per le procedure, vedere [Provider e tipi di risorse](../../../azure-resource-manager/management/resource-providers-and-types.md#azure-portal).
 
    - Interfaccia della riga di comando di Azure:
 
      ```azurecli-interactive
      # Log in first with az login if you're not using Cloud Shell
-
-     # Provider register: Register the Azure Kubernetes Service provider
-     az provider register --namespace Microsoft.ContainerService
 
      # Provider register: Register the Azure Policy provider
      az provider register --namespace Microsoft.PolicyInsights
@@ -446,8 +443,7 @@ Altre considerazioni:
 
 ## <a name="logging"></a>Registrazione
 
-In quanto controller/contenitori Kubernetes, i pod _azure-policy_ e _gatekeeper_ conservano i log nel cluster Kubernetes. I log possono essere esposti nella pagina **Informazioni dettagliate** del cluster Kubernetes.
-Per altre informazioni, vedere [Monitorare le prestazioni del cluster Kubernetes con Monitoraggio di Azure per i contenitori](../../../azure-monitor/containers/container-insights-analyze.md).
+Come controller/contenitore Kubernetes, i registri di _Azure-Policy_ e _Gatekeeper_ mantengono i registri nel cluster Kubernetes. I log possono essere esposti nella pagina **Informazioni dettagliate** del cluster Kubernetes. Per altre informazioni, vedere [Monitorare le prestazioni del cluster Kubernetes con Monitoraggio di Azure per i contenitori](../../../azure-monitor/containers/container-insights-analyze.md).
 
 Per visualizzare i log del componente aggiuntivo, usare `kubectl`:
 

@@ -1,9 +1,7 @@
 ---
 # <a name="mandatory-fields-see-more-on-akamsskyeyemeta"></a>Campi obbligatori. Scopri di più su aka.ms/skyeye/meta.
-title: trasformazioni e processi in servizi multimediali: Descrizione di servizi multimediali di Azure: informazioni su come creare una trasformazione per descrivere le regole per l'elaborazione dei video in servizi multimediali di Azure.
-Servizi: Media-Services documentationcenter:'' Author: IngridAtMicrosoft Manager: FEMila Editor:''
-
-ms. Service: Media-Services ms. workload: ms. Topic: Conceptual ms. Date: 03/17/2021 ms. Author: inhenkel
+title: trasformazioni e processi in servizi multimediali: Descrizione di servizi multimediali di Azure: le trasformazioni descrivono le regole per l'elaborazione dei video in servizi multimediali di Azure.
+Servizi: Media-Services Author: IngridAtMicrosoft Manager: FEMila ms. Service: Media-Services ms. Topic: Conceptual ms. Date: 03/22/2021 ms. Author: inhenkel
 ---
 
 # <a name="transforms-and-jobs-in-media-services"></a>Trasformazioni e processi in servizi multimediali
@@ -90,12 +88,6 @@ Il diagramma seguente mostra l'oggetto **processo** e gli oggetti a cui fa rifer
 Fare clic sull'immagine per visualizzarla a schermo intero.  
 
 [![Diagramma che mostra l'oggetto processo e gli oggetti a cui fa riferimento, incluse le relazioni di derivazione delle classi tra gli oggetti.](./media/api-diagrams/job-small.png)](./media/api-diagrams/job-large.png#lightbox)
-
-## <a name="configure-media-reserved-units"></a>Configurare Media Reserved Units
-
-Per i processi di analisi audio e analisi dei video attivati da Media Services V3 o Video Indexer, è consigliabile effettuare il provisioning dell'account con 10 media reserved Unit S3 (MRU). Se sono necessarie più di 10 MRU S3, aprire un ticket di supporto dal [portale di Azure](https://portal.azure.com/).
-
-Per informazioni dettagliate, vedere [Ridimensionamento dell'elaborazione di contenuti multimediali con l'interfaccia della riga di comando](media-reserved-units-cli-how-to.md).
 
 ## <a name="ask-questions-give-feedback-get-updates"></a>Porre domande, fornire feedback, ottenere aggiornamenti
 

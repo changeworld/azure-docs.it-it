@@ -5,12 +5,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 11/27/2019
-ms.openlocfilehash: 3e54991f6afd2ace19bf7b70e57bda6f551f7780
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 4512c9d9fdb66713ba24fbf30278e5d5dbb2ae23
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98943174"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104863752"
 ---
 # <a name="run-apache-hive-queries-using-the-data-lake-tools-for-visual-studio"></a>Eseguire query Apache Hive usando gli strumenti Data Lake per Visual Studio
 
@@ -49,11 +49,11 @@ Le query ad hoc possono essere eseguite in modalità **batch** o **interattiva**
 
 5. Selezionare **Esegui**. Per impostazione predefinita, la modalità di esecuzione è **interattiva**.
 
-    ![Eseguire query hive interattive, Visual Studio](./media/apache-hadoop-use-hive-visual-studio/vs-execute-hive-query.png)
+    :::image type="content" source="./media/apache-hadoop-use-hive-visual-studio/vs-execute-hive-query.png" alt-text="Eseguire query hive interattive, Visual Studio" border="true":::
 
 6. Per eseguire la stessa query in modalità **batch** , impostare l'elenco a discesa da **interattivo** a **batch**. Il pulsante di esecuzione passa da **Execute** a **Submit**.
 
-    ![Inviare query hive batch, Visual Studio](./media/apache-hadoop-use-hive-visual-studio/visual-studio-batch-query.png)
+    :::image type="content" source="./media/apache-hadoop-use-hive-visual-studio/visual-studio-batch-query.png" alt-text="Inviare query hive batch, Visual Studio" border="true":::
 
     L'editor Hive supporta IntelliSense. Strumenti Data Lake per Visual Studio supporta il caricamento di metadati remoti quando si modifica lo script Hive. Se, ad esempio, si digita `SELECT * FROM` , IntelliSense elenca tutti i nomi di tabella suggeriti. Quando si specifica un nome di tabella, IntelliSense elenca i nomi delle colonne. Gli strumenti supportano la maggior parte delle funzioni definite dall'utente predefinite, delle sottoquery e delle istruzioni DML Hive. IntelliSense suggerisce solo i metadati del cluster selezionato nella barra degli strumenti HDInsight.
 
@@ -61,7 +61,7 @@ Le query ad hoc possono essere eseguite in modalità **batch** o **interattiva**
 
 8. Se è stata selezionata l'opzione di invio avanzato, configurare **nome processo**, **argomenti**, **configurazioni aggiuntive** e **directory stato** nella finestra di dialogo **Invia script** . Selezionare **Invia**.
 
-    ![Finestra di dialogo Invia script, query hive Hadoop di HDInsight](./media/apache-hadoop-use-hive-visual-studio/vs-tools-submit-jobs-advanced.png)
+    :::image type="content" source="./media/apache-hadoop-use-hive-visual-studio/vs-tools-submit-jobs-advanced.png" alt-text="Finestra di dialogo Invia script, query hive Hadoop di HDInsight" border="true":::
 
 ### <a name="create-a-hive-application"></a>Creare un'applicazione Hive
 
@@ -109,7 +109,7 @@ Per eseguire una query hive creando un'applicazione hive, seguire questa procedu
 
    Verrà visualizzata una finestra di **riepilogo del processo Hive** con informazioni relative al processo in esecuzione. Usare il collegamento **Aggiorna** per aggiornare le informazioni del processo finché il campo **Stato processo** non viene impostato su **Completato**.
 
-   ![Riepilogo del processo hive completato, applicazione hive, Visual Studio](./media/apache-hadoop-use-hive-visual-studio/hdinsight-job-summary.png)
+   :::image type="content" source="./media/apache-hadoop-use-hive-visual-studio/hdinsight-job-summary.png" alt-text="Riepilogo del processo hive completato, applicazione hive, Visual Studio" border="true":::
 
 7. Selezionare **output processo** per visualizzare l'output del processo. Mostra `[ERROR] 3`, ovvero il valore restituito dalla query.
 

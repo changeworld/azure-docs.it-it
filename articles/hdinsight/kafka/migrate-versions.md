@@ -4,12 +4,12 @@ description: Informazioni su come eseguire la migrazione di carichi di lavoro Ap
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 12/18/2019
-ms.openlocfilehash: 3967a5d96c35e4bac88dcd9a6c1fa95b78a6b2b1
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: e15ebb13aee0e5dd814688ae77edaded667d54ac
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98939114"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104864126"
 ---
 # <a name="migrate-apache-kafka-workloads-to-azure-hdinsight-40"></a>Eseguire la migrazione di carichi di lavoro Apache Kafka ad Azure HDInsight 4,0
 
@@ -24,7 +24,7 @@ HDInsight 3,6 supporta due versioni di Kafka: 1.0.0 e 1.1.0. HDInsight 4,0 suppo
 * **Eseguire HDInsight nella versione più recente, mantenere la versione di Kafka**: eseguire la migrazione di un'applicazione HDInsight 3,6 e Kafka 1.1.0 a HDInsight 4,0 con Kafka 1.1.0 (percorso C riportato di seguito).
 * **Eseguire Kafka in una versione più recente, mantenere la versione di HDInsight**: eseguire la migrazione di un'applicazione Kafka 1.0.0 a 1.1.0 e rimanere in HDInsight 3,6 (percorso a seguito). Si noti che questa opzione richiede comunque la distribuzione di un nuovo cluster. L'aggiornamento della versione Kafka in un cluster esistente non è supportato. Dopo aver creato un cluster con la versione desiderata, migrare i client Kafka per l'uso del nuovo cluster.
 
-![Percorsi di aggiornamento per Apache Kafka su 3,6](./media/upgrade-threesix-to-four/apache-kafka-upgrade-path.png)
+:::image type="content" source="./media/upgrade-threesix-to-four/apache-kafka-upgrade-path.png" alt-text="Percorsi di aggiornamento per Apache Kafka su 3,6" border="false":::
 
 ## <a name="apache-kafka-versions"></a>Versioni Apache Kafka
 
@@ -53,7 +53,7 @@ Per un elenco completo degli aggiornamenti, vedere [Note sulla versione di Apach
 
 I nuovi broker Kafka supportano i client meno recenti. [Kip-35-il recupero della versione del protocollo](https://cwiki.apache.org/confluence/display/KAFKA/KIP-35+-+Retrieving+protocol+version) ha introdotto un meccanismo per determinare in modo dinamico le funzionalità di un broker Kafka e di [Kip-97: i criteri di compatibilità RPC del client migliorato](https://cwiki.apache.org/confluence/display/KAFKA/KIP-97%3A+Improved+Kafka+Client+RPC+Compatibility+Policy) hanno introdotto nuovi criteri di compatibilità e garanzie per il client Java. In precedenza, un client Kafka doveva interagire con un broker della stessa versione o di una versione più recente. Ora le versioni più recenti dei client Java e di altri client che supportano KIP-35, ad esempio, `librdkafka` possono eseguire il fallback ai tipi di richieste precedenti o generare errori appropriati se la funzionalità non è disponibile.
 
-![Aggiornare la compatibilità del client Kafka](./media/upgrade-threesix-to-four/apache-kafka-client-compatibility.png)
+:::image type="content" source="./media/upgrade-threesix-to-four/apache-kafka-client-compatibility.png" alt-text="Aggiornare la compatibilità del client Kafka" border="false":::
 
 Si noti che non significa che il client supporta i broker meno recenti.  Per ulteriori informazioni, vedere [Compatibility Matrix](https://cwiki.apache.org/confluence/display/KAFKA/Compatibility+Matrix).
 
@@ -61,21 +61,21 @@ Si noti che non significa che il client supporta i broker meno recenti.  Per ult
 
 Le linee guida per la migrazione seguenti presuppongono un cluster Apache Kafka 1.0.0 o 1.1.0 distribuito in HDInsight 3,6 in una singola rete virtuale. Il Broker esistente presenta alcuni argomenti e viene usato attivamente da Producer e consumer.
 
-![Ambiente presunto Kafka attuale](./media/upgrade-threesix-to-four/apache-kafka-presumed-environment.png)
+:::image type="content" source="./media/upgrade-threesix-to-four/apache-kafka-presumed-environment.png" alt-text="Ambiente presunto Kafka attuale" border="false":::
 
 Per completare la migrazione, attenersi alla procedura seguente:
 
 1. **Distribuire un nuovo cluster HDInsight 4,0 e i client per il test.** Distribuire un nuovo cluster HDInsight 4,0 Kafka. Se è possibile selezionare più versioni del cluster Kafka, è consigliabile selezionare la versione più recente. Dopo la distribuzione, impostare alcuni parametri in base alle esigenze e creare un argomento con lo stesso nome dell'ambiente esistente. Inoltre, impostare TLS e la crittografia Bring your own key (BYOK) in base alle esigenze. Verificare quindi se funziona correttamente con il nuovo cluster.
 
-    ![Distribuire nuovi cluster HDInsight 4,0](./media/upgrade-threesix-to-four/deploy-new-hdinsight-clusters.png)
+    :::image type="content" source="./media/upgrade-threesix-to-four/deploy-new-hdinsight-clusters.png" alt-text="Distribuire nuovi cluster HDInsight 4,0" border="false":::
 
 1. **Cambiare il cluster per l'applicazione Producer e attendere che tutti i dati della coda vengano utilizzati dai consumer correnti.** Quando il nuovo cluster HDInsight 4,0 Kafka è pronto, passare la destinazione Producer esistente al nuovo cluster. Lasciarlo invariato finché l'app consumer esistente non ha usato tutti i dati del cluster esistente.
 
-    ![Scambia cluster per app Producer](./media/upgrade-threesix-to-four/switch-cluster-producer-app.png)
+    :::image type="content" source="./media/upgrade-threesix-to-four/switch-cluster-producer-app.png" alt-text="Scambia cluster per app Producer" border="false":::
 
 1. **Cambiare il cluster nell'applicazione consumer.** Dopo aver confermato che l'applicazione consumer esistente ha terminato l'utilizzo di tutti i dati dal cluster esistente, passare la connessione al nuovo cluster.
 
-    ![Passa a cluster nell'app consumer](./media/upgrade-threesix-to-four/switch-cluster-consumer-app.png)
+    :::image type="content" source="./media/upgrade-threesix-to-four/switch-cluster-consumer-app.png" alt-text="Passa a cluster nell'app consumer" border="false":::
 
 1. **Rimuovere il cluster precedente e testare le applicazioni in base alle esigenze.** Una volta che il Commuter è stato completato e funziona correttamente, rimuovere il vecchio cluster HDInsight 3,6 Kafka e i producer e i consumer usati nel test, in base alle esigenze.
 

@@ -3,12 +3,12 @@ title: Cluster di failover di Windows Server in Azure rete VSAN soluzione VMware
 description: Configurare Windows Server failover cluster (WSFC) in una soluzione VMware di Azure e sfruttare le soluzioni che richiedono la funzionalità WSFC.
 ms.topic: how-to
 ms.date: 03/09/2021
-ms.openlocfilehash: d667eef00fcad0e3f5243c6ab580e2e8371c6793
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
+ms.openlocfilehash: 8cb2fdd8d519c665840390a41c95121218750a95
+ms.sourcegitcommit: a8ff4f9f69332eef9c75093fd56a9aae2fe65122
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102518994"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105025969"
 ---
 # <a name="windows-server-failover-cluster-on-azure-vmware-solution-vsan-with-native-shared-disks"></a>Cluster di failover di Windows Server in Azure rete VSAN soluzione VMware con dischi condivisi nativi
 
@@ -49,10 +49,10 @@ Il diagramma seguente illustra l'architettura dei nodi virtuali WSFC in un cloud
 
 Attualmente sono supportate le configurazioni seguenti:
 
-- Microsoft Windows Server 2012 o versione successiva.
-- Fino a cinque nodi del clustering di failover per cluster.
-- Fino a quattro schede PVSCSI per macchina virtuale.
-- Fino a 64 dischi per scheda PVSCSI.
+- Microsoft Windows Server 2012 o versione successiva
+- Fino a cinque nodi del clustering di failover per cluster
+- Fino a quattro schede PVSCSI per macchina virtuale
+- Fino a 64 dischi per scheda PVSCSI
 
 ## <a name="virtual-machine-configuration-requirements"></a>Requisiti di configurazione della macchina virtuale
 

@@ -5,20 +5,20 @@ ms.author: askaur
 ms.date: 03/10/2021
 ms.topic: quickstart
 ms.service: azure-communication-services
-ms.openlocfilehash: dd183e9088f24aa8b94955bc8ed2a68b4a7eb27c
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 773bca81694534346019e30e9d55190af6f51e74
+ms.sourcegitcommit: bed20f85722deec33050e0d8881e465f94c79ac2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103496177"
+ms.lasthandoff: 03/25/2021
+ms.locfileid: "105106795"
 ---
 ## <a name="joining-the-meeting-chat"></a>Partecipare alla chat meeting 
 
-Una volta abilitata l'interoperabilità dei team, un utente di servizi di comunicazione può partecipare alla chiamata del team come utente esterno utilizzando la libreria client chiamante. Partecipando alla chiamata, l'utente viene aggiunto anche come partecipante alla chat, dove può inviare e ricevere messaggi con altri utenti che partecipano alla chiamata. L'utente non ha però accesso ai messaggi della chat inviati prima che venisse aggiunto alla chiamata. Per partecipare alla riunione e iniziare la chat, è possibile seguire i passaggi successivi.
+Una volta abilitata l'interoperabilità dei team, un utente di servizi di comunicazione può partecipare alla chiamata del team come utente esterno utilizzando l'SDK chiamante. Partecipando alla chiamata, l'utente viene aggiunto anche come partecipante alla chat, dove può inviare e ricevere messaggi con altri utenti che partecipano alla chiamata. L'utente non ha però accesso ai messaggi della chat inviati prima che venisse aggiunto alla chiamata. Per partecipare alla riunione e iniziare la chat, è possibile seguire i passaggi successivi.
 
 ## <a name="install-the-chat-packages"></a>Installare i pacchetti di chat
 
-Usare il `npm install` comando per installare le librerie client di servizi di comunicazione necessarie per JavaScript.
+Usare il `npm install` comando per installare gli SDK di servizi di comunicazione necessari per JavaScript.
 
 ```console
 npm install @azure/communication-common --save

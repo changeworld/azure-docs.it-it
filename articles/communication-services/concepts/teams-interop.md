@@ -9,12 +9,12 @@ ms.author: chpalm
 ms.date: 03/10/2021
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: b7d992961fc165ce643bd0d6aba4d8a9bda1d38e
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 8b641ec37d134303ae6b31c092cd3c50811477a7
+ms.sourcegitcommit: bed20f85722deec33050e0d8881e465f94c79ac2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103495590"
+ms.lasthandoff: 03/25/2021
+ms.locfileid: "105108418"
 ---
 # <a name="teams-interoperability"></a>Interoperabilità di Teams
 
@@ -29,7 +29,7 @@ L'interoperabilità del team consente di creare applicazioni personalizzate che 
 1. I dettagli della riunione sono condivisi con utenti esterni tramite l'applicazione personalizzata.
    * **Utilizzo di API Graph** L'applicazione Servizi di comunicazione personalizzata usa le API Microsoft Graph per accedere ai dettagli della riunione da condividere. 
    * **Utilizzo di altre opzioni** Il collegamento alla riunione, ad esempio, può essere copiato dal calendario in Microsoft teams.
-1. Gli utenti esterni usano l'applicazione personalizzata per partecipare alla riunione dei team (tramite le librerie client per la chiamata e la chat dei servizi di comunicazione)
+1. Gli utenti esterni usano l'applicazione personalizzata per partecipare alla riunione dei team (tramite gli SDK per la chiamata e la chat dei servizi di comunicazione)
 
 L'architettura generale per questo caso d'uso è simile alla seguente: 
 
@@ -37,7 +37,7 @@ L'architettura generale per questo caso d'uso è simile alla seguente:
 
 Sebbene alcuni team soddisfino le funzionalità, ad esempio la modalità di generazione, la modalità insieme e le chat room, saranno disponibili solo per gli utenti del team, l'applicazione personalizzata avrà accesso alle funzionalità di base audio, video, chat e condivisione dello schermo della riunione. La chat della riunione sarà accessibile all'utente dell'applicazione personalizzata mentre si trova nella chiamata. Non saranno in grado di inviare o ricevere messaggi prima di partecipare o dopo aver lasciato la chiamata. 
 
-Quando un utente di Servizi di comunicazione partecipa alla riunione di Teams, agli utenti di Teams verrà mostrato il nome visualizzato fornito tramite la libreria client Chiamata. L'utente di Servizi di comunicazione verrà altrimenti trattato come un utente anonimo in Teams.  Per l'applicazione personalizzata è necessario considerare l'autenticazione degli utenti e altre misure di sicurezza, in modo da proteggere le riunioni di Teams. Tenere presenti le implicazioni per la sicurezza derivanti dalla partecipazione di utenti anonimi alle riunioni e seguire la [guida alla sicurezza di Teams](/microsoftteams/teams-security-guide#addressing-threats-to-teams-meetings) per configurare le funzionalità disponibili per utenti anonimi.
+Quando un utente di servizi di comunicazione partecipa alla riunione dei team, il nome visualizzato fornito tramite l'SDK chiamante verrà visualizzato agli utenti del team. L'utente di Servizi di comunicazione verrà altrimenti trattato come un utente anonimo in Teams.  Per l'applicazione personalizzata è necessario considerare l'autenticazione degli utenti e altre misure di sicurezza, in modo da proteggere le riunioni di Teams. Tenere presenti le implicazioni per la sicurezza derivanti dalla partecipazione di utenti anonimi alle riunioni e seguire la [guida alla sicurezza di Teams](/microsoftteams/teams-security-guide#addressing-threats-to-teams-meetings) per configurare le funzionalità disponibili per utenti anonimi.
 
 L'interoperabilità tra i team di servizi di comunicazione è attualmente in anteprima privata. Se disponibile a livello generale, gli utenti di servizi di comunicazione verranno considerati come "utenti di accesso esterno". Scopri di più sull'accesso esterno in [Call, chat e collabora con persone esterne all'organizzazione in Microsoft teams](/microsoftteams/communicate-with-users-from-other-organizations).
 

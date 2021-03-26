@@ -9,13 +9,13 @@ ms.reviewer: jrasnick
 ms.service: synapse-analytics
 ms.subservice: spark
 ms.topic: tutorial
-ms.date: 12/31/2020
-ms.openlocfilehash: 8559bd0a354a64872e58d014d1027ed971773b60
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.date: 03/24/2021
+ms.openlocfilehash: 0becbbdb68f75072e10a51f5a2eae95291b9ed77
+ms.sourcegitcommit: bed20f85722deec33050e0d8881e465f94c79ac2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104655343"
+ms.lasthandoff: 03/25/2021
+ms.locfileid: "105108333"
 ---
 # <a name="analyze-with-apache-spark"></a>Analizzare dati con Apache Spark
 
@@ -37,9 +37,10 @@ Un pool Spark senza server è un modo per indicare come un utente desidera lavor
 ## <a name="analyze-nyc-taxi-data-in-blob-storage-using-spark"></a>Analizzare i dati del set di dati NYC Taxi nell'archiviazione BLOB con Spark
 
 1. In sinapsi Studio passare all'hub **sviluppo**
-2. Creare un newnNotebook con la lingua predefinita impostata su **PySpark (Python)**.
+2. Creare un nuovo notebook con la lingua predefinita impostata su **PySpark (Python)**.
 3. Creare una nuova cella di codice e incollare il codice seguente in tale cella.
-    ```
+    ```py
+    %%pyspark
     from azureml.opendatasets import NycTlcYellow
 
     data = NycTlcYellow()
@@ -62,6 +63,7 @@ I dati sono disponibili tramite il frame di **dati denominato data**. Caricarli 
 1. Aggiungere un nuovo al notebook e quindi immettere il codice seguente:
 
     ```py
+    spark.sql("CREATE DATABASE IF NOT EXISTS nyctaxi")
     df.write.mode("overwrite").saveAsTable("nyctaxi.trip")
     ```
 ## <a name="analyze-the-nyc-taxi-data-using-spark-and-notebooks"></a>Analizzare i dati dell'esempio NYC Taxi con Spark e notebook
@@ -76,16 +78,16 @@ I dati sono disponibili tramite il frame di **dati denominato data**. Caricarli 
    ```
 
 1. Eseguire la cella per visualizzare i dati dei taxi di NYC caricati nel database **nyctaxi** Spark.
-1. Creare una nuova cella di codice e immettere il codice seguente. Eseguire quindi la cella per eseguire la stessa analisi eseguita in precedenza con il pool SQL dedicato **SQLPOOL1**. Questo codice salva e Visualizza i risultati dell'analisi in una tabella denominata **nyctaxi. passengercountstats**.
+1. Creare una nuova cella di codice e immettere il codice seguente. Questi dati vengono analizzati e i risultati vengono salvati in una tabella denominata **nyctaxi. passengercountstats**.
 
    ```py
    %%pyspark
    df = spark.sql("""
       SELECT PassengerCount,
-          SUM(TripDistanceMiles) as SumTripDistance,
-          AVG(TripDistanceMiles) as AvgTripDistance
+          SUM(TripDistance) as SumTripDistance,
+          AVG(TripDistance) as AvgTripDistance
       FROM nyctaxi.trip
-      WHERE TripDistanceMiles > 0 AND PassengerCount > 0
+      WHERE TripDistance > 0 AND PassengerCount > 0
       GROUP BY PassengerCount
       ORDER BY PassengerCount
    """) 

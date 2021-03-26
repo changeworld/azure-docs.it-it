@@ -2,13 +2,13 @@
 title: Introduzione
 description: Informazioni sulle funzionalità e i vantaggi della soluzione Azure VMware per distribuire e gestire i carichi di lavoro basati su VMware in Azure.
 ms.topic: overview
-ms.date: 11/11/2020
-ms.openlocfilehash: 255d3599385c60d3b13f4769796ced41a1177311
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.date: 03/24/2021
+ms.openlocfilehash: a75c04cf6b51068ef9867e3f9438b2820da703fe
+ms.sourcegitcommit: ed7376d919a66edcba3566efdee4bc3351c57eda
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "100579288"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105048817"
 ---
 # <a name="what-is-azure-vmware-solution"></a>Che cos'è la soluzione Azure VMware?
 
@@ -19,6 +19,11 @@ La soluzione Azure VMware è una soluzione approvata da VMware con convalide e t
 Il diagramma mostra l'adiacenza tra cloud privati e reti virtuali in Azure, servizi di Azure e ambienti locali. L'accesso di rete da cloud privati a servizi di Azure o reti virtuali offre l'integrazione basata su contratti di servizio degli endpoint servizio di Azure. Copertura globale ExpressRoute connette l'ambiente locale al cloud privato della soluzione Azure VMware. 
 
 ![Immagine dell'adiacenza del cloud privato della soluzione Azure VMware ad Azure e all'ambiente locale](./media/adjacency-overview-drawing-final.png)
+
+## <a name="customer-communication"></a>Comunicazione con i clienti
+Problemi relativi al servizio, manutenzione pianificata, avvisi di integrità, notifiche di avvisi di sicurezza vengono pubblicate tramite l' **integrità del servizio** nel portale di Azure. È possibile eseguire azioni tempestive quando si configurano gli avvisi del log attività per queste notifiche. Per altre informazioni, vedere [creare avvisi di integrità del servizio usando il portale di Azure](../service-health/alerts-activity-log-service-notifications-portal.md#create-service-health-alert-using-azure-portal).
+
+:::image type="content" source="media/service-health.png" alt-text="Screenshot delle notifiche sull'integrità del servizio":::
 
 ## <a name="hosts-clusters-and-private-clouds"></a>Host, cluster e cloud privati
 

@@ -5,12 +5,12 @@ description: Questo articolo descrive i due livelli di crittografia disponibili 
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 08/10/2020
-ms.openlocfilehash: 58b3d892ea24430a9d951a5a0230282f6c4fd584
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 3d4f9e3be02a64efa058ea1f84a3e261cb6166fc
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "99988610"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104867118"
 ---
 # <a name="azure-hdinsight-double-encryption-for-data-at-rest"></a>Crittografia doppia di Azure HDInsight per dati inattivi
 
@@ -76,25 +76,25 @@ In HDInsight è supportato solo Azure Key Vault. Se si ha un proprio insieme di 
 
 1. Dal nuovo insieme di credenziali delle chiavi passare a **Impostazioni**  >  **chiavi**  >  **+ genera/importa**.
 
-    ![Generare una nuova chiave in Azure Key Vault](./media/disk-encryption/create-new-key.png "Generare una nuova chiave in Azure Key Vault")
+    :::image type="content" source="./media/disk-encryption/create-new-key.png" alt-text="Generare una nuova chiave in Azure Key Vault":::
 
 1. Specificare un nome e quindi selezionare **Crea**. Mantenere il **tipo di chiave** predefinito di **RSA**.
 
-    ![genera il nome della chiave](./media/disk-encryption/create-key.png "Genera nome chiave")
+    :::image type="content" source="./media/disk-encryption/create-key.png" alt-text="genera il nome della chiave":::
 
 1. Quando si torna alla pagina **chiavi** , selezionare la chiave creata.
 
-    ![Elenco chiavi Key Vault](./media/disk-encryption/key-vault-key-list.png)
+    :::image type="content" source="./media/disk-encryption/key-vault-key-list.png" alt-text="Elenco chiavi Key Vault":::
 
 1. Selezionare la versione per aprire la pagina della **versione della chiave** . Quando si usa una chiave personalizzata per la crittografia del cluster HDInsight, è necessario specificare l'URI della chiave. Copiare l'**identificatore di chiave** e salvarlo in qualunque posizione fino a quando non si è pronti per creare il cluster.
 
-    ![ottenere l'identificatore di chiave](./media/disk-encryption/get-key-identifier.png)
+    :::image type="content" source="./media/disk-encryption/get-key-identifier.png" alt-text="ottenere l'identificatore di chiave":::
 
 ### <a name="create-access-policy"></a>Crea criteri di accesso
 
 1. Dal nuovo insieme di credenziali delle chiavi passare a **Impostazioni** criteri di  >  **accesso** e  >  **Aggiungi criteri di accesso**.
 
-    ![Creare il nuovo criterio di accesso di Azure Key Vault](./media/disk-encryption/key-vault-access-policy.png)
+    :::image type="content" source="./media/disk-encryption/key-vault-access-policy.png" alt-text="Creare il nuovo criterio di accesso di Azure Key Vault":::
 
 1. Nella pagina **Aggiungi criteri di accesso** specificare le informazioni seguenti:
 
@@ -104,13 +104,13 @@ In HDInsight è supportato solo Azure Key Vault. Se si ha un proprio insieme di 
     |Autorizzazioni segreto|Selezionare **Get**, **set** ed **Delete**.|
     |Selezionare un'entità|Selezionare l'identità gestita assegnata dall'utente creata in precedenza.|
 
-    ![Impostare Selezionare un'entità per il criterio di accesso di Azure Key Vault](./media/disk-encryption/azure-portal-add-access-policy.png)
+    :::image type="content" source="./media/disk-encryption/azure-portal-add-access-policy.png" alt-text="Impostare Selezionare un'entità per il criterio di accesso di Azure Key Vault":::
 
 1. Selezionare **Aggiungi**.
 
 1. Selezionare **Salva**.
 
-    ![Salva i criteri di accesso Azure Key Vault](./media/disk-encryption/add-key-vault-access-policy-save.png)
+    :::image type="content" source="./media/disk-encryption/add-key-vault-access-policy-save.png" alt-text="Salva i criteri di accesso Azure Key Vault":::
 
 ### <a name="create-cluster-with-customer-managed-key-disk-encryption"></a>Creare un cluster con crittografia del disco della chiave gestita dal cliente
 
@@ -129,7 +129,7 @@ Durante la creazione del cluster, è possibile usare una chiave con versione o u
 
 È anche necessario assegnare l'identità gestita al cluster.
 
-![Crea nuovo cluster](./media/disk-encryption/create-cluster-portal.png)
+:::image type="content" source="./media/disk-encryption/create-cluster-portal.png" alt-text="Crea nuovo cluster":::
 
 #### <a name="using-azure-cli"></a>Utilizzare l'interfaccia della riga di comando di Azure
 
@@ -367,7 +367,7 @@ Il contenuto del modello di gestione delle risorse `azuredeploy.json` :
 
 Per ruotare la chiave, è necessario l'URI dell'insieme di credenziali delle chiavi di base. Al termine, passare alla sezione proprietà del cluster HDInsight nel portale e fare clic su **cambia chiave** in **URL chiave di crittografia del disco**. Immettere l'URL della nuova chiave e inviare per ruotare la chiave.
 
-![ruotare la chiave di crittografia del disco](./media/disk-encryption/change-key.png)
+:::image type="content" source="./media/disk-encryption/change-key.png" alt-text="ruotare la chiave di crittografia del disco":::
 
 #### <a name="using-azure-cli"></a>Utilizzare l'interfaccia della riga di comando di Azure
 
@@ -400,7 +400,7 @@ No, tutti i dischi gestiti e i dischi delle risorse vengono crittografati con la
 
 Se il cluster perde l'accesso alla chiave, gli avvisi vengono visualizzati nel portale di Apache Ambari. In questo stato, l'operazione di **modifica della chiave** avrà esito negativo. Una volta ripristinato l'accesso alla chiave, gli avvisi di Ambari verranno abbandonati e le operazioni come la rotazione delle chiavi possono essere eseguite correttamente.
 
-![avviso di Ambari di accesso alla chiave](./media/disk-encryption/ambari-alert.png)
+:::image type="content" source="./media/disk-encryption/ambari-alert.png" alt-text="avviso di Ambari di accesso alla chiave":::
 
 **Come è possibile recuperare il cluster se le chiavi vengono eliminate?**
 
