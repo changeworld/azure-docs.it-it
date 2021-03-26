@@ -8,12 +8,12 @@ ms.subservice: qna-maker
 ms.topic: include
 ms.date: 09/04/2020
 ms.author: v-jawe
-ms.openlocfilehash: 6460c8c6d9ffb868d7ac6640c19608f2c10e4d4b
-ms.sourcegitcommit: bb330af42e70e8419996d3cba4acff49d398b399
+ms.openlocfilehash: 755e4fcb9d5b9f1711bc615a29489037ea377d43
+ms.sourcegitcommit: 73d80a95e28618f5dfd719647ff37a8ab157a668
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/24/2021
-ms.locfileid: "105104103"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105609428"
 ---
 # <a name="qna-maker-ga-stable-release"></a>[QnA Maker - disponibilità generale (versione stabile)](#tab/version-1)
 
@@ -93,14 +93,15 @@ Creare le variabili per l'endpoint e la chiave di Azure della risorsa.
 
 # <a name="qna-maker-ga-stable-release"></a>[QnA Maker - disponibilità generale (versione stabile)](#tab/version-1)
 
-> [!IMPORTANT]
-> Passare al portale di Azure e individuare la chiave e l'endpoint per la risorsa QnA Maker creata nei prerequisiti. Si trovano nella pagina **Chiave ed endpoint** della risorsa, in **Gestione risorse**.
+- Si usano la chiave di sottoscrizione e la chiave di creazione e modifica. Per ulteriori informazioni sulla creazione di una chiave, seguire le [chiavi in QnA Maker](../concepts/azure-resources.md?tabs=v1#keys-in-qna-maker).
 
-- Il formato del valore di QNA_MAKER_ENDPOINT è `https://YOUR-RESOURCE-NAME.cognitiveservices.azure.com`. Passare alla risorsa QnA Maker nella portale di Azure e fare clic su **chiavi ed endpoint** per individuare la chiave di creazione (sottoscrizione) e QnA Maker endpoint.
+- Il formato del valore di QNA_MAKER_ENDPOINT è `https://YOUR-RESOURCE-NAME.cognitiveservices.azure.com`. Passare alla portale di Azure e trovare la risorsa QnA Maker creata nei prerequisiti. Fare clic su **chiavi ed endpoint** pagina, in **Gestione risorse** per individuare la chiave di creazione (sottoscrizione) e QnA Maker endpoint.
 
  ![QnA Maker endpoint di creazione](../media/keys-endpoint.png)
- 
-- Il formato del valore di QNA_MAKER_RUNTIME_ENDPOINT è `https://YOUR-RESOURCE-NAME.azurewebsites.net`.
+
+- Il formato del valore di QNA_MAKER_RUNTIME_ENDPOINT è `https://YOUR-RESOURCE-NAME.azurewebsites.net`. Passare alla portale di Azure e trovare la risorsa QnA Maker creata nei prerequisiti. Fare clic sulla pagina **Esporta modello** in **automazione** per individuare l'endpoint di Runtime.
+
+ ![Endpoint di runtime QnA Maker](../media/runtime-endpoint.png)
    
 - Per la produzione, è consigliabile usare un modo sicuro per archiviare e accedere alle credenziali, Ad esempio, [Azure Key Vault](../../../key-vault/general/overview.md) fornisce una risorsa di archiviazione sicura per le chiavi.
 
@@ -108,10 +109,9 @@ Creare le variabili per l'endpoint e la chiave di Azure della risorsa.
 
 # <a name="qna-maker-managed-preview-release"></a>[QnA Maker - gestito (versione in anteprima)](#tab/version-2)
 
-> [!IMPORTANT]
-> Passare al portale di Azure e individuare la chiave e l'endpoint per la risorsa QnA Maker creata nei prerequisiti. Si trovano nella pagina **Chiave ed endpoint** della risorsa, in **Gestione risorse**.
+- Si usano la chiave di sottoscrizione e la chiave di creazione e modifica. Per ulteriori informazioni sulla creazione di una chiave, seguire le [chiavi in QnA Maker](../concepts/azure-resources.md?tabs=v2#keys-in-qna-maker).
 
-- Il formato del valore di QNA_MAKER_ENDPOINT è `https://YOUR-RESOURCE-NAME.cognitiveservices.azure.com`.  Passare alla risorsa QnA Maker nella portale di Azure e fare clic su **chiavi ed endpoint** per individuare la chiave di creazione (sottoscrizione) e QnA Maker endpoint.
+- Il formato del valore di QNA_MAKER_ENDPOINT è `https://YOUR-RESOURCE-NAME.cognitiveservices.azure.com`. Passare alla portale di Azure e trovare la risorsa QnA Maker creata nei prerequisiti. Fare clic su **chiavi ed endpoint** pagina, in **Gestione risorse** per individuare la chiave di creazione (sottoscrizione) e QnA Maker endpoint.
 
  ![QnA Maker endpoint di creazione](../media/keys-endpoint.png)
  

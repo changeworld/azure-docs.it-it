@@ -3,40 +3,34 @@ title: Monitorare Batch con Azure Application Insights
 description: Informazioni su come instrumentare un'applicazione .NET di Azure Batch con la libreria di Azure Application Insights.
 ms.topic: how-to
 ms.custom: devx-track-csharp
-ms.date: 04/05/2018
-ms.openlocfilehash: 9decb99c3de798df43dedc2441208066d18e3a13
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.date: 03/25/2021
+ms.openlocfilehash: 251f02f145e8f450b1528bf8676cffdc61a6f051
+ms.sourcegitcommit: 73d80a95e28618f5dfd719647ff37a8ab157a668
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104605784"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105607882"
 ---
 # <a name="monitor-and-debug-an-azure-batch-net-application-with-application-insights"></a>Monitorare ed eseguire il debug di un'applicazione .NET di Azure Batch con Application Insights
 
 [Application Insights](../azure-monitor/app/app-insights-overview.md) offre agli sviluppatori un modo elegante e potente per monitorare ed eseguire il debug delle applicazioni distribuite nei servizi di Azure. Usare Application Insights per monitorare i contatori delle prestazioni e le eccezioni, nonché per instrumentare il codice con metriche e funzionalità di traccia personalizzate. L'integrazione di Application Insights con l'applicazione Azure Batch consente di ottenere informazioni dettagliate sui comportamenti e di analizzare i problemi in tempo quasi reale.
 
-Questo articolo illustra come aggiungere e configurare la libreria di Application Insights nella soluzione .NET di Azure Batch e instrumentare il codice dell'applicazione. Vengono inoltre presentati i modi per monitorare l'applicazione tramite il portale di Azure e creare dashboard personalizzati. Per informazioni sul supporto di Application Insights in altri linguaggi, vedere la [documentazione relativa a linguaggi, piattaforme e integrazioni](../azure-monitor/app/platforms.md).
+Questo articolo illustra come aggiungere e configurare la libreria di Application Insights nella soluzione .NET di Azure Batch e instrumentare il codice dell'applicazione. Vengono inoltre presentati i modi per monitorare l'applicazione tramite il portale di Azure e creare dashboard personalizzati. Per Application Insights supporto in altre lingue, vedere la [documentazione relativa a linguaggi, piattaforme e integrazioni](../azure-monitor/app/platforms.md).
 
-In [GitHub](https://github.com/Azure/azure-batch-samples/tree/master/CSharp/ArticleProjects/ApplicationInsights) è disponibile una soluzione C# di esempio con codice per seguire questo articolo. Questo esempio aggiunge codice di strumentazione di Application Insights all'esempio [TopNWords](https://github.com/Azure/azure-batch-samples/tree/master/CSharp/TopNWords). Se non si ha familiarità con tale esempio, provare prima di tutto a compilare ed eseguire TopNWords. In questo modo sarà possibile comprendere un flusso di lavoro semplice di Batch per l'elaborazione di un set di BLOB di input in parallelo su più nodi di calcolo. 
+In [GitHub](https://github.com/Azure/azure-batch-samples/tree/master/CSharp/ArticleProjects/ApplicationInsights) è disponibile una soluzione C# di esempio con codice per seguire questo articolo. Questo esempio aggiunge codice di strumentazione di Application Insights all'esempio [TopNWords](https://github.com/Azure/azure-batch-samples/tree/master/CSharp/TopNWords). Se non si ha familiarità con tale esempio, provare prima di tutto a compilare ed eseguire TopNWords. In questo modo sarà possibile comprendere un flusso di lavoro semplice di Batch per l'elaborazione di un set di BLOB di input in parallelo su più nodi di calcolo.
 
 > [!TIP]
-> In alternativa, configurare la soluzione Batch per visualizzare i dati di Application Insights, ad esempio i contatori delle prestazioni delle macchine virtuali in Batch Explorer. [Batch Explorer](https://github.com/Azure/BatchExplorer) è uno strumento client autonomo, gratuito e ricco di funzionalità che consente di creare, eseguire il debug e monitorare le applicazioni di Azure Batch. È possibile scaricare un [pacchetto di installazione](https://azure.github.io/BatchExplorer/) per Mac, Linux o Windows. Vedere il [repository di informazioni dettagliate su Batch](https://github.com/Azure/batch-insights) per azioni rapide per abilitare i dati di Application Insights in Batch Explorer. 
->
+> In alternativa, configurare la soluzione Batch per visualizzare i dati di Application Insights, ad esempio i contatori delle prestazioni delle macchine virtuali in Batch Explorer. [Batch Explorer](https://github.com/Azure/BatchExplorer) è uno strumento client autonomo, gratuito e ricco di funzionalità che consente di creare, eseguire il debug e monitorare le applicazioni di Azure Batch. È possibile scaricare un [pacchetto di installazione](https://azure.github.io/BatchExplorer/) per Mac, Linux o Windows. Vedere il [repository di informazioni dettagliate su Batch](https://github.com/Azure/batch-insights) per azioni rapide per abilitare i dati di Application Insights in Batch Explorer.
 
 ## <a name="prerequisites"></a>Prerequisiti
-* [Visual Studio 2017 o versioni successive](https://www.visualstudio.com/vs)
 
-* [Un account Batch e un account di archiviazione collegato](batch-account-create-portal.md)
-
-* [Una risorsa di Application Insights](../azure-monitor/app/create-new-resource.md )
-  
-   * Usare il portale di Azure per creare una *risorsa* di Application Insights. Selezionare il **tipo di applicazione** *Generale*.
-
-   * Copiare la [chiave di strumentazione](../azure-monitor/app/create-new-resource.md#copy-the-instrumentation-key) dal portale. Sarà necessaria più avanti in questo articolo.
+- [Visual Studio 2017 o versioni successive](https://www.visualstudio.com/vs)
+- [Un account Batch e un account di archiviazione collegato](batch-account-create-portal.md)
+- [Risorsa Application Insights](../azure-monitor/app/create-new-resource.md). Usare il portale di Azure per creare una *risorsa* di Application Insights. Selezionare il **tipo di applicazione** *Generale*.
+- Copiare la [chiave di strumentazione](../azure-monitor/app/create-new-resource.md#copy-the-instrumentation-key) dal portale di Azure. Questo valore sarà necessario in seguito.
   
   > [!NOTE]
-  > Potrebbe essere registrato un [addebito](https://azure.microsoft.com/pricing/details/application-insights/) per i dati archiviati in Application Insights. Tali dati includono i dati di diagnostica e monitoraggio descritti in questo articolo.
-  > 
+  > È possibile che vengano [addebitati](https://azure.microsoft.com/pricing/details/application-insights/) i dati archiviati in Application Insights. Tali dati includono i dati di diagnostica e monitoraggio descritti in questo articolo.
 
 ## <a name="add-application-insights-to-your-project"></a>Aggiunta di Application Insights al progetto
 
@@ -45,6 +39,7 @@ Per il progetto sono necessari il pacchetto NuGet **Microsoft.ApplicationInsight
 ```powershell
 Install-Package Microsoft.ApplicationInsights.WindowsServer
 ```
+
 Aggiungere un riferimento ad Application Insights nell'applicazione .NET tramite lo spazio dei nomi **Microsoft.ApplicationInsights**.
 
 ## <a name="instrument-your-code"></a>Instrumentare il codice
@@ -54,14 +49,16 @@ Per instrumentare il codice, la soluzione deve creare un [TelemetryClient](/dotn
 ```xml
 <InstrumentationKey>YOUR-IKEY-GOES-HERE</InstrumentationKey>
 ```
+
 Aggiungere la chiave di strumentazione anche al file TopNWords.cs.
 
 L'esempio in TopNWords.cs usa le [chiamate di strumentazione](../azure-monitor/app/api-custom-events-metrics.md) seguenti dall'API Application Insights:
-* `TrackMetric()` - Tiene traccia del tempo medio richiesto per il download del file di testo richiesto dal nodo di calcolo.
-* `TrackTrace()` - Aggiunge le chiamate di debug al codice.
-* `TrackEvent()` - Tiene traccia degli eventi interessanti da acquisire.
 
-Questo esempio esclude intenzionalmente la gestione delle eccezioni. Application Insights segnala invece automaticamente le eccezioni non gestite, con un miglioramento notevole dell'esperienza di debug. 
+- `TrackMetric()` - Tiene traccia del tempo medio richiesto per il download del file di testo richiesto dal nodo di calcolo.
+- `TrackTrace()` - Aggiunge le chiamate di debug al codice.
+- `TrackEvent()` - Tiene traccia degli eventi interessanti da acquisire.
+
+Questo esempio esclude intenzionalmente la gestione delle eccezioni. Application Insights segnala invece automaticamente le eccezioni non gestite, con un miglioramento notevole dell'esperienza di debug.
 
 Il frammento di codice seguente illustra come usare questi metodi.
 
@@ -118,7 +115,8 @@ public void CountWords(string blobName, int numTopN, string storageAccountName, 
 ```
 
 ### <a name="azure-batch-telemetry-initializer-helper"></a>Helper dell'inizializzatore di telemetria di Azure Batch
-Quando si segnalano i dati di telemetria per un determinato server e un'istanza, Application Insights usa il ruolo di macchina virtuale di Azure e il nome della macchina virtuale per i valori predefiniti. Nel contesto di Azure Batch, l'esempio mostra come usare invece il nome del pool e il nome del nodo di calcolo. Usare un [inizializzatore di telemetria](../azure-monitor/app/api-filtering-sampling.md#add-properties) per sostituire i valori predefiniti. 
+
+Quando si segnalano i dati di telemetria per un determinato server e un'istanza, Application Insights usa il ruolo di macchina virtuale di Azure e il nome della macchina virtuale per i valori predefiniti. Nel contesto di Azure Batch, l'esempio mostra come usare invece il nome del pool e il nome del nodo di calcolo. Usare un [inizializzatore di telemetria](../azure-monitor/app/api-filtering-sampling.md#add-properties) per sostituire i valori predefiniti.
 
 ```csharp
 using Microsoft.ApplicationInsights.Channel;
@@ -173,7 +171,7 @@ Per abilitare l'inizializzatore di telemetria, il file Applicationinsights.confi
 <TelemetryInitializers>
     <Add Type="Microsoft.Azure.Batch.Samples.TelemetryInitializer.AzureBatchNodeTelemetryInitializer, Microsoft.Azure.Batch.Samples.TelemetryInitializer"/>
 </TelemetryInitializers>
-``` 
+```
 
 ## <a name="update-the-job-and-tasks-to-include-application-insights-binaries"></a>Aggiornare il processo e le attività per includere i file binari di Application Insights
 
@@ -200,6 +198,7 @@ private static readonly List<string> AIFilesToUpload = new List<string>()
 ```
 
 Successivamente, creare i file di gestione temporanea usati dall'attività.
+
 ```csharp
 ...
 // create file staging objects that represent the executable and its dependent assembly to run as the task.
@@ -219,6 +218,7 @@ foreach (string aiFile in AIFilesToUpload)
 Il metodo `FileToStage` è una funzione helper nell'esempio di codice che consente di caricare facilmente un file dal disco locale in un BLOB di Archiviazione di Azure. Ogni file viene in seguito scaricato in un nodo di calcolo e un'attività vi fa riferimento.
 
 Infine, aggiungere le attività al processo e includere i file binari di Application Insights necessari.
+
 ```csharp
 ...
 // initialize a collection to hold the tasks that will be submitted in their entirety
@@ -260,7 +260,7 @@ Dopo aver configurato il processo e le attività per usare Application Insights,
 
 Per visualizzare i log di traccia nella risorsa di Application Insights, fare clic su **Live Stream**. Lo screenshot seguente mostra come visualizzare i dati in tempo reale provenienti dai nodi di calcolo nel pool, ad esempio l'utilizzo della CPU per ogni nodo di calcolo.
 
-![Dati dei nodi di calcolo per Live Stream](./media/monitor-application-insights/applicationinsightslivestream.png)
+![Screenshot dei dati del nodo di calcolo del flusso live.](./media/monitor-application-insights/applicationinsightslivestream.png)
 
 ### <a name="view-trace-logs"></a>Visualizzare i log di traccia
 
@@ -268,30 +268,30 @@ Per visualizzare i log di traccia nella risorsa di Application Insights, fare cl
 
 Lo screenshot seguente mostra come registrare una singola traccia per un'attività e poi sottoporla a query per scopi di debug.
 
-![Immagine dei log di traccia](./media/monitor-application-insights/tracelogsfortask.png)
+![Screenshot che mostra i log per una singola traccia.](./media/monitor-application-insights/tracelogsfortask.png)
 
 ### <a name="view-unhandled-exceptions"></a>Visualizzare le eccezioni non gestite
 
-Lo screenshot seguente mostra come vengono registrate le eccezioni generate dall'applicazione in Application Insights. In questo caso, entro pochi secondi da quando l'applicazione genera l'eccezione, è possibile analizzare un'eccezione specifica e diagnosticare il problema.
+Application Insights registra le eccezioni generate dall'applicazione. In questo caso, entro pochi secondi da quando l'applicazione genera l'eccezione, è possibile analizzare un'eccezione specifica e diagnosticare il problema.
 
-![Eccezioni non gestite](./media/monitor-application-insights/exception.png)
+![Screenshot che mostra le eccezioni non gestite.](./media/monitor-application-insights/exception.png)
 
 ### <a name="measure-blob-download-time"></a>Misurare i tempi di download dei BLOB
 
 Anche le metriche personalizzate sono uno strumento prezioso nel portale. Ad esempio, è possibile visualizzare il tempo medio impiegato per scaricare il file di testo richiesto per l'elaborazione da ogni nodo di calcolo.
 
 Per creare un grafico di esempio:
+
 1. Nella risorsa di Application Insights fare clic su **Esplora metriche** > **Aggiungi grafico**.
-2. Fare clic su **Modifica** nel grafico aggiunto.
-2. Aggiornare i dettagli del grafico come segue:
-   * Impostare **Tipo di grafico** su **Griglia**.
-   * Impostare **Aggregazione** su **Media**.
-   * Impostare **Raggruppa per** su **NodeId**.
-   * In **Metriche** selezionare **Personalizzato** > **Blob download in seconds** (Download BLOB in secondi).
-   * Modificare la visualizzazione della **Tavolozza dei colori** in base alle preferenze. 
+1. Fare clic su **Modifica** nel grafico aggiunto.
+1. Aggiornare i dettagli del grafico come segue:
+   - Impostare **Tipo di grafico** su **Griglia**.
+   - Impostare **Aggregazione** su **Media**.
+   - Impostare **Raggruppa per** su **NodeId**.
+   - In **Metriche** selezionare **Personalizzato** > **Blob download in seconds** (Download BLOB in secondi).
+   - Modificare la visualizzazione della **Tavolozza dei colori** in base alle preferenze.
 
-![Tempi di download dei BLOB per ogni nodo](./media/monitor-application-insights/blobdownloadtime.png)
-
+![Screenshot di un grafico che mostra i tempi di download dei BLOB per ogni nodo.](./media/monitor-application-insights/blobdownloadtime.png)
 
 ## <a name="monitor-compute-nodes-continuously"></a>Monitoraggio continuo dei nodi di calcolo
 
@@ -327,16 +327,12 @@ pool.StartTask = new StartTask()
 
 > [!TIP]
 > Per aumentare la gestibilità della soluzione, è possibile aggregare l'assembly in un [pacchetto di applicazione](./batch-application-packages.md). Quindi, per distribuire automaticamente il pacchetto dell'applicazione nei pool, aggiungere un riferimento al pacchetto dell'applicazione nella configurazione del pool.
->
 
-## <a name="throttle-and-sample-data"></a>Limitazione e dati di esempio 
+## <a name="throttle-and-sample-data"></a>Limitazione e dati di esempio
 
 Tenendo conto del fatto che le applicazioni di Azure Batch in esecuzione in ambiente di produzione sono per natura su larga scala, potrebbe essere utile limitare la quantità di dati raccolti da Application Insights per gestire i costi. Vedere [Campionamento in Application Insights](../azure-monitor/app/sampling.md) per informazioni su alcuni meccanismi per ottenere questo risultato.
 
-
 ## <a name="next-steps"></a>Passaggi successivi
-* Altre informazioni su [Application Insights](../azure-monitor/app/app-insights-overview.md).
 
-* Per informazioni sul supporto di Application Insights in altri linguaggi, vedere la [documentazione relativa a linguaggi, piattaforme e integrazioni](../azure-monitor/app/platforms.md).
-
-
+- Altre informazioni su [Application Insights](../azure-monitor/app/app-insights-overview.md).
+- Per Application Insights supporto in altre lingue, vedere la [documentazione relativa a linguaggi, piattaforme e integrazioni](../azure-monitor/app/platforms.md).

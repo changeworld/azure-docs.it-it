@@ -1,5 +1,5 @@
 ---
-title: Configurare l'interfaccia di passaggio dei messaggi per HPC-macchine virtuali di Azure | Microsoft Docs
+title: Configurare MPI (Message Passing Interface) per HPC-macchine virtuali di Azure | Microsoft Docs
 description: Informazioni su come configurare MPI per HPC in Azure.
 author: vermagit
 ms.service: virtual-machines
@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 03/18/2021
 ms.author: amverma
 ms.reviewer: cynthn
-ms.openlocfilehash: 8f071dfe817d15b745575fbfb70ff662a643db70
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
+ms.openlocfilehash: 66de34c43ab1b3a6b4245f77196793bf9ad8530c
+ms.sourcegitcommit: 73d80a95e28618f5dfd719647ff37a8ab157a668
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "104721363"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105606641"
 ---
 # <a name="set-up-message-passing-interface-for-hpc"></a>Configurare l'interfaccia di passaggio dei messaggi per HPC
 
@@ -64,6 +64,11 @@ Eseguire HPC-X
 ```bash
 ${HPCX_PATH}mpirun -np 2 --map-by ppr:2:node -x UCX_TLS=rc ${HPCX_PATH}/ompi/tests/osu-micro-benchmarks-5.3.2/osu_latency
 ```
+
+### <a name="optimizing-mpi-collectives"></a>Ottimizzazione di collettivi MPI
+
+Le primitive di comunicazione collettiva MPI offrono un metodo flessibile e portatile per implementare operazioni di comunicazione del gruppo. Sono ampiamente usati in varie applicazioni scientifiche parallele e hanno un impatto significativo sulle prestazioni complessive dell'applicazione. Vedere l' [articolo TechCommunity](https://techcommunity.microsoft.com/t5/azure-compute/optimizing-mpi-collective-communication-using-hpc-x-on-azurehpc/ba-p/1356740) per informazioni dettagliate sui parametri di configurazione per ottimizzare le prestazioni di comunicazione collettiva usando HPC-X e la libreria HCOLL per la comunicazione collettiva.
+
 > [!NOTE] 
 > Con HPC-X 2.7.4 +, potrebbe essere necessario passare in modo esplicito LD_LIBRARY_PATH se la versione UCX in MOFED e in HPC-X è diversa.
 

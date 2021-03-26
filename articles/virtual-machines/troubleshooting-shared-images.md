@@ -9,12 +9,12 @@ ms.workload: infrastructure
 ms.date: 10/27/2020
 ms.author: olayemio
 ms.reviewer: cynthn
-ms.openlocfilehash: d80caf767d923ce2539ca254a8312371155a3104
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 015fa201fe1c31dde2e30c2fe689ac13452b1b01
+ms.sourcegitcommit: 73d80a95e28618f5dfd719647ff37a8ab157a668
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102553732"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105607593"
 ---
 # <a name="troubleshoot-shared-image-galleries-in-azure"></a>Risolvere i problemi delle raccolte di immagini condivise in Azure
 
@@ -52,7 +52,7 @@ Se si verificano problemi durante l'esecuzione di operazioni su raccolte di imma
 **Motivo**: si è tentato di eliminare una raccolta che contiene almeno una definizione di immagine esistente. Una raccolta deve essere vuota prima di poter essere eliminata.  
 **Soluzione temporanea**: eliminare tutte le definizioni di immagine nella raccolta e quindi procedere con l'eliminazione della raccolta. Se la definizione dell'immagine contiene versioni di immagini, è necessario eliminare le versioni delle immagini prima di eliminare le definizioni di immagine.
 
-**Messaggio**: *il nome della raccolta ' <galleryname \> ' non è univoco nella sottoscrizione ' <subscriptionId> '. Selezionare un altro nome per la raccolta.*  
+**Messaggio**: *il nome della raccolta ' <galleryname \> ' non è univoco nella sottoscrizione ' <subscriptionID> '. Selezionare un altro nome per la raccolta.*  
 **Motivo**: si ha una raccolta esistente con lo stesso nome e si è tentato di creare un'altra raccolta con lo stesso nome.  
 **Soluzione alternativa**: scegliere un nome diverso per la raccolta.
 
@@ -127,7 +127,7 @@ Se si verificano problemi durante l'esecuzione di operazioni su raccolte di imma
 **Motivo**: si è tentato di eliminare una definizione di immagine che contiene le versioni dell'immagine. Prima di poter eliminare la definizione di un'immagine, è necessario che sia vuota.  
 **Soluzione temporanea**: eliminare tutte le versioni dell'immagine all'interno della definizione dell'immagine e quindi procedere con l'eliminazione della definizione dell'immagine.
 
-**Message**: *Impossibile associare il parametro <proprietà \> . Non è possibile convertire il valore <valore \> nel tipo <PropertyType \> . Impossibile associare il nome dell'identificatore <valore \> a un nome di enumeratore valido. Specificare uno dei seguenti nomi di enumeratore e riprovare: <choice1 \> , <choice2 \> ,...*  
+**Message**: *Impossibile associare il parametro <proprietà \> . Non è possibile convertire il valore <valore \> nel tipo <PropertyType \> . Impossibile associare il nome dell'identificatore <valore \> a un nome di enumeratore valido. Specificare uno dei seguenti nomi di enumeratore e riprovare: <Choice \_ 1 \> , <Choice \_ 2 \> ,...*  
 **Motivo**: la proprietà ha un elenco limitato di valori possibili e <valore \> non è uno di essi.  
 **Soluzione alternativa**: scegliere uno dei possibili valori di <Choice \> .
 
@@ -185,7 +185,7 @@ Se si verificano problemi durante l'esecuzione di operazioni su raccolte di imma
 **Motivo**: quando si crea una versione dell'immagine usando un elenco di dischi e/o snapshot del disco, due o più dischi o snapshot del disco hanno lo stesso ID risorsa.  
 **Soluzione alternativa**: rimuovere o modificare gli ID di origine disco duplicati.
 
-**Messaggio**: l' *id di proprietà <ResourceId \> nel percorso ' properties. storageProfile. <diskImages \> . Source.ID ' non è valido. È previsto un ID risorsa completo che inizia con '/subscriptions/{subscriptionId}' o '/providers/{resourceProviderNamespace}/'.*  
+**Messaggio**: l' *id di proprietà <ResourceId \> nel percorso ' properties. storageProfile. <diskImages \> . Source.ID ' non è valido. Si prevede un ID di risorsa completo che inizia con '/subscriptions/ <subscriptionID> ' o '/providers/ <resourceProviderNamespace> /'.*  
 **Motivo**: il valore del <ResourceId non \> è formattato correttamente.  
 **Soluzione alternativa**: verificare che l'ID risorsa sia corretto.
 
@@ -303,7 +303,7 @@ Se si verificano problemi durante l'esecuzione di operazioni su raccolte di imma
 **Motivo**: la definizione dell'immagine usata per distribuire la macchina virtuale non contiene alcuna versione di immagine inclusa nella versione più recente.  
 **Soluzione temporanea**: verificare che sia presente almeno una versione dell'immagine con ' Escludi dall'ultima ' impostata su false. 
 
-**Messaggio**: *il client dispone dell'autorizzazione per eseguire l'azione ' Microsoft. Compute/Galleries/images/Versions/Read ' nell'ambito <ResourceId \> , tuttavia il tenant corrente <tenantId1 \> non è autorizzato ad accedere alla sottoscrizione collegata <subscriptionId2 \> .*  
+**Messaggio**: *il client dispone dell'autorizzazione per eseguire l'azione ' Microsoft. Compute/Galleries/images/Versions/Read ' nell'ambito <ResourceId \> , tuttavia il tenant corrente <tenantID \> non è autorizzato ad accedere alla sottoscrizione collegata <subscriptionID \> .*  
 **Motivo**: la macchina virtuale o il set di scalabilità è stato creato tramite un'immagine sig in un altro tenant. Si è tentato di apportare una modifica alla macchina virtuale o al set di scalabilità, ma non si è autorizzati ad accedere alla sottoscrizione che possiede l'immagine.  
 **Soluzione temporanea**: contattare il proprietario della sottoscrizione della versione dell'immagine per concedere l'accesso in lettura alla versione dell'immagine.
 
@@ -327,12 +327,17 @@ Se si verificano problemi durante l'esecuzione di operazioni su raccolte di imma
 **Causa**: l'immagine di origine corrente per il set di scalabilità è un'immagine di origine generalizzata, ma è in fase di aggiornamento con un'immagine di origine specializzata. L'immagine di origine corrente e la nuova immagine di origine per un set di scalabilità devono essere dello stesso stato.  
 **Soluzione alternativa**: per aggiornare il set di scalabilità, usare una versione di immagine generalizzata.
 
-**Messaggio**: il *set di crittografia dischi <diskEncryptionSetId \> nella raccolta immagini condivise <VersionId \> appartiene alla sottoscrizione <subscriptionId1 \> e non può essere usato con la risorsa ' \> ' nella sottoscrizione <subscriptionId2*  
+**Messaggio**: il *set di crittografia dischi <diskEncryptionSetID \> nella raccolta immagini condivise <VersionId \> appartiene alla sottoscrizione <subscriptionID \_ 1 \> e non può essere usato con la risorsa '' nella sottoscrizione <subscriptionID \_ 2 \>*  
 **Motivo**: il set di crittografia del disco usato per crittografare la versione dell'immagine si trova in una sottoscrizione diversa rispetto alla sottoscrizione per ospitare la versione dell'immagine.  
 **Soluzione alternativa**: usare la stessa sottoscrizione per la versione dell'immagine e la crittografia del disco impostate.
 
 **Messaggio**: *la creazione della macchina virtuale o del set di scalabilità di macchine virtuali richiede molto tempo.*  
 **Soluzione temporanea**: verificare che il **OSType** della versione dell'immagine che si sta tentando di creare la VM o il set di scalabilità di macchine virtuali abbia lo stesso **OSType** dell'origine usato per creare la versione dell'immagine. 
+
+**Messaggio**: *la risorsa con ID <vmID \> ha un piano diverso [' { \" Name \" : \" <name> \" , \" Publisher \" : \" <publisher> \" , \" Product \" : \" <product> \" , \" promotionCode \" : \" <promotionCode> \" }'] rispetto al piano dell'immagine della raccolta padre [' null '].*  
+**Motivo**: la definizione dell'immagine padre per la versione dell'immagine in fase di distribuzione non dispone di informazioni sul piano di acquisto.  
+**Soluzione temporanea**: creare una definizione di immagine con gli stessi dettagli del piano di acquisto dal messaggio di errore e creare la versione dell'immagine nella definizione dell'immagine.
+
 
 ## <a name="creating-a-disk-from-an-image-version"></a>Creazione di un disco da una versione di immagine ##
 

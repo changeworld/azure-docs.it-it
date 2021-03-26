@@ -8,12 +8,12 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 03/11/2021
-ms.openlocfilehash: 52509dbf529076eaa0af73ea48db9a7f3fd10241
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 2363afc4c84ee7606410ceecd6819c12d0333dbb
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104584517"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105563294"
 ---
 # <a name="transform-data-using-mapping-data-flows"></a>Trasformare i dati con i flussi di dati per mapping
 
@@ -24,7 +24,7 @@ Se non si ha familiarità con Azure Data Factory, vedere [Introduzione ad Azure 
 In questa esercitazione si userà l'interfaccia utente di Azure Data Factory per creare una pipeline che copia e trasforma i dati da Azure Data Lake Storage un'origine Gen2 (ADLS) a un sink ADLS Gen2 usando il flusso di dati di mapping. Il modello di configurazione in questa esercitazione può essere espanso quando si trasformano i dati utilizzando il flusso di dati di mapping
 
  >[!NOTE]
-   >Questa esercitazione è destinata al mapping di flussi di dati in generale. I flussi di dati sono disponibili in pipeline Azure Data Factory e sinapsi. Se non si ha familiarità con i flussi di dati nelle pipeline di Azure sinapsi, seguire il [flusso di dati con le pipeline di Azure sinapsi](https://docs.microsoft.com/azure/synapse-analytics/concepts-data-flow-overview) 
+   >Questa esercitazione è destinata al mapping di flussi di dati in generale. I flussi di dati sono disponibili in pipeline Azure Data Factory e sinapsi. Se non si ha familiarità con i flussi di dati nelle pipeline di Azure sinapsi, seguire il [flusso di dati con le pipeline di Azure sinapsi](../synapse-analytics/concepts-data-flow-overview.md) 
    
 In questa esercitazione vengono completati i passaggi seguenti:
 

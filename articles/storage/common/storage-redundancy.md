@@ -6,15 +6,15 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: conceptual
-ms.date: 03/02/2021
+ms.date: 03/05/2021
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: 7ecf3d23f745d9281008433eee471c14c7afe337
-ms.sourcegitcommit: ba3a4d58a17021a922f763095ddc3cf768b11336
+ms.openlocfilehash: d01e125ef3e905191d76c9f4888e790958211dff
+ms.sourcegitcommit: 73d80a95e28618f5dfd719647ff37a8ab157a668
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/23/2021
-ms.locfileid: "104802200"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105607321"
 ---
 # <a name="azure-storage-redundancy"></a>Ridondanza di Archiviazione di Azure
 
@@ -73,9 +73,9 @@ La tabella seguente illustra i tipi di account di archiviazione che supportano l
 
 | Tipo di account di archiviazione | Aree supportate | Servizi supportati |
 |--|--|--|
-| Utilizzo generico v2<sup>1</sup> | Asia sudorientale<br /> Australia orientale<br /> Europa settentrionale<br />  Europa occidentale<br /> Francia centrale<br /> Giappone orientale<br /> Sudafrica settentrionale<br /> Regno Unito meridionale<br /> Stati Uniti centrali<br /> Stati Uniti orientali<br /> Stati Uniti orientali 2<br /> Stati Uniti occidentali 2 | BLOB in blocchi<br /> BLOB di pagine<sup>2</sup><br /> Condivisioni file (standard)<br /> Tabelle<br /> Code<br /> |
-| BlockBlobStorage<sup>1</sup> | Asia sudorientale<br /> Australia orientale<br /> Europa settentrionale<br /> Europa occidentale<br /> Francia centrale <br /> Giappone orientale<br /> Regno Unito meridionale <br /> Stati Uniti orientali <br /> Stati Uniti orientali 2 <br /> Stati Uniti occidentali 2| Solo BLOB in blocchi Premium |
-| FileStorage | Asia sudorientale<br /> Australia orientale<br /> Europa settentrionale<br /> Europa occidentale<br /> Francia centrale <br /> Giappone orientale<br /> Regno Unito meridionale <br /> Stati Uniti orientali <br /> Stati Uniti orientali 2 <br /> Stati Uniti occidentali 2 | Solo condivisioni file Premium |
+| Utilizzo generico v2<sup>1</sup> | Africa Sudafrica settentrionale<br /> (Asia Pacifico) Asia orientale<br /> (Asia Pacifico) Asia sudorientale<br /> (Asia Pacifico) Australia orientale<br /> (Asia Pacifico) India centrale<br /> (Asia Pacifico) Giappone orientale<br /> (Asia Pacifico) Corea centrale<br /> Canada Canada centrale<br /> Europa Europa settentrionale<br /> Europa Europa occidentale<br /> Europa Francia centrale<br /> Europa Germania centro-occidentale<br /> Europa Norvegia orientale<br /> Europa Svizzera settentrionale<br /> Europa Regno Unito meridionale<br /> (Medio Oriente) Emirati Arabi Uniti settentrionali<br /> (America del Sud) Brasile meridionale<br /> NOI Stati Uniti centrali<br /> (Stati Uniti) Stati Uniti orientali<br /> NOI Stati Uniti orientali 2<br /> (Stati Uniti) Stati Uniti centro-settentrionali<br />NOI Stati Uniti centro-meridionali<br /> NOI Stati Uniti occidentali<br /> NOI Stati Uniti occidentali 2 | BLOB in blocchi<br /> BLOB di pagine<sup>2</sup><br /> Condivisioni file (standard)<br /> Tabelle<br /> Code<br /> |
+| BlockBlobStorage<sup>1</sup> | Africa Sudafrica settentrionale<br /> (Asia Pacifico) Asia orientale<br /> (Asia Pacifico) Asia sudorientale<br /> (Asia Pacifico) Australia orientale<br /> (Asia Pacifico) India centrale<br /> (Asia Pacifico) Giappone orientale<br /> (Asia Pacifico) Corea centrale<br /> Canada Canada centrale<br /> Europa Europa settentrionale<br /> Europa Europa occidentale<br /> Europa Francia centrale<br /> Europa Germania centro-occidentale<br /> Europa Norvegia orientale<br /> Europa Svizzera settentrionale<br /> Europa Regno Unito meridionale<br /> (Medio Oriente) Emirati Arabi Uniti settentrionali<br /> (America del Sud) Brasile meridionale<br /> NOI Stati Uniti centrali<br /> (Stati Uniti) Stati Uniti orientali<br /> NOI Stati Uniti orientali 2<br /> (Stati Uniti) Stati Uniti centro-settentrionali<br />NOI Stati Uniti centro-meridionali<br /> NOI Stati Uniti occidentali<br /> NOI Stati Uniti occidentali 2 | Solo BLOB in blocchi Premium |
+| FileStorage | Africa Sudafrica settentrionale<br /> (Asia Pacifico) Asia orientale<br /> (Asia Pacifico) Asia sudorientale<br /> (Asia Pacifico) Australia orientale<br /> (Asia Pacifico) India centrale<br /> (Asia Pacifico) Giappone orientale<br /> (Asia Pacifico) Corea centrale<br /> Canada Canada centrale<br /> Europa Europa settentrionale<br /> Europa Europa occidentale<br /> Europa Francia centrale<br /> Europa Germania centro-occidentale<br /> Europa Norvegia orientale<br /> Europa Svizzera settentrionale<br /> Europa Regno Unito meridionale<br /> (Medio Oriente) Emirati Arabi Uniti settentrionali<br /> (America del Sud) Brasile meridionale<br /> NOI Stati Uniti centrali<br /> (Stati Uniti) Stati Uniti orientali<br /> NOI Stati Uniti orientali 2<br /> (Stati Uniti) Stati Uniti centro-settentrionali<br />NOI Stati Uniti centro-meridionali<br /> NOI Stati Uniti occidentali<br /> NOI Stati Uniti occidentali 2 | Solo condivisioni file Premium |
 
 <sup>1</sup> Il livello di archiviazione non è attualmente supportato per gli account ZRS.<br />
 <sup>2</sup> Gli account di archiviazione contenenti i dischi gestiti di Azure per le macchine virtuali usano sempre con l'archiviazione con ridondanza locale. I dischi non gestiti di Azure devono usare anche l'archiviazione con ridondanza locale. È possibile creare un account di archiviazione per i dischi non gestiti di Azure che usa l'archiviazione con ridondanza geografica, ma non è consigliabile a causa di possibili problemi di coerenza della replica geografica asincrona. Né i dischi gestiti e né quelli non gestiti supportano ZRS o GZRS. Per altre informazioni sui dischi gestiti, vedere [Prezzi per i dischi gestiti di Azure](https://azure.microsoft.com/pricing/details/managed-disks/).
@@ -127,15 +127,30 @@ Solo gli account di archiviazione per utilizzo generico v2 supportano l'archivia
 
 L'archiviazione con ridondanza geografica della zona e l'archiviazione con ridondanza geografica della zona e accesso in lettura sono supportati nelle aree seguenti:
 
-- Asia sudorientale
-- Europa settentrionale
-- Europa occidentale
-- Giappone orientale
-- Regno Unito meridionale
-- Stati Uniti centrali
-- Stati Uniti orientali
-- Stati Uniti orientali 2
-- Stati Uniti occidentali 2
+- Africa Sudafrica settentrionale
+- (Asia Pacifico) Asia orientale
+- (Asia Pacifico) Asia sudorientale
+- (Asia Pacifico) Australia orientale
+- (Asia Pacifico) India centrale
+- (Asia Pacifico) Giappone orientale
+- (Asia Pacifico) Corea centrale
+- Canada Canada centrale
+- Europa Europa settentrionale
+- Europa Europa occidentale
+- Europa Francia centrale
+- Europa Germania centro-occidentale
+- Europa Norvegia orientale
+- Europa Svizzera settentrionale
+- Europa Regno Unito meridionale
+- (Medio Oriente) Emirati Arabi Uniti settentrionali
+- (America del Sud) Brasile meridionale
+- NOI Stati Uniti centrali
+- (Stati Uniti) Stati Uniti orientali
+- NOI Stati Uniti orientali 2
+- (Stati Uniti) Stati Uniti centro-settentrionali
+- NOI Stati Uniti centro-meridionali
+- NOI Stati Uniti occidentali
+- NOI Stati Uniti occidentali 2
 
 Per informazioni sui prezzi, vedere i dettagli sui prezzi per i [BLOB](https://azure.microsoft.com/pricing/details/storage/blobs), i [file](https://azure.microsoft.com/pricing/details/storage/files/), le [code](https://azure.microsoft.com/pricing/details/storage/queues/) e le [tabelle](https://azure.microsoft.com/pricing/details/storage/tables/).
 

@@ -6,12 +6,12 @@ ms.author: mikben
 ms.date: 03/10/2021
 ms.topic: quickstart
 ms.service: azure-communication-services
-ms.openlocfilehash: 5d3a282d108d197ea0c5c616e9ee84fb7b952026
-ms.sourcegitcommit: bed20f85722deec33050e0d8881e465f94c79ac2
+ms.openlocfilehash: 536b9a9a0d1a7b48841938eef44d181d22b87bf4
+ms.sourcegitcommit: 73d80a95e28618f5dfd719647ff37a8ab157a668
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/25/2021
-ms.locfileid: "105108284"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105609464"
 ---
 Questa Guida introduttiva illustra come avviare una chiamata usando i servizi di comunicazione di Azure che chiamano SDK per iOS.
 
@@ -38,7 +38,7 @@ In Xcode creare un nuovo progetto iOS e selezionare il modello **Single View App
 ### <a name="install-the-package-and-dependencies-with-cocoapods"></a>Installare il pacchetto e le dipendenze con CocoaPods
 
 1. Per creare un Podfile per l'applicazione, aprire il terminale e passare alla cartella del progetto ed eseguire ```pod init```
-3. Aggiungere il codice seguente a Podfile e salvare:
+3. Aggiungere il codice seguente a Podfile e salvare (assicurarsi che "target" corrisponda al nome del progetto):
 
    ```
    platform :ios, '13.0'

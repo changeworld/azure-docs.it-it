@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8ff9fe969c90a2bb4aa9f954b984f511fb490ba3
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 8c8024a2083d09fcbd53a37f0d391c4589748eea
+ms.sourcegitcommit: 73d80a95e28618f5dfd719647ff37a8ab157a668
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104579145"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105605077"
 ---
 # <a name="conditional-access-cloud-apps-or-actions"></a>Accesso condizionale: App o azioni cloud
 
@@ -31,7 +31,7 @@ Le app cloud o le azioni sono un segnale chiave in un criterio di accesso condiz
 
 Molte delle applicazioni cloud Microsoft esistenti sono incluse nell'elenco selezionabile di applicazioni. 
 
-Gli amministratori possono assegnare un criterio di accesso condizionale alle seguenti applicazioni cloud di Microsoft. Alcune app come Office 365 e gestione Microsoft Azure includono più app o servizi figlio correlati. L'elenco riportato di seguito non è esaustivo ed è soggetto a modifiche.
+Gli amministratori possono assegnare un criterio di accesso condizionale alle seguenti applicazioni cloud di Microsoft. Alcune app come Office 365 e gestione Microsoft Azure includono più app o servizi figlio correlati. Si aggiungono continuamente altre app, pertanto l'elenco seguente non è esaustivo ed è soggetto a modifiche.
 
 - [Office 365](#office-365)
 - Azure Analysis Services
@@ -66,6 +66,8 @@ Gli amministratori possono assegnare un criterio di accesso condizionale alle se
 - Skype for Business Online
 - Rete privata virtuale (VPN)
 - Windows Defender ATP
+
+Le applicazioni disponibili per l'accesso condizionale sono passate attraverso un processo di onboarding e di convalida. Non sono incluse tutte le app Microsoft, poiché molte sono servizi back-end e non hanno lo scopo di applicare i criteri direttamente ad essi. Se si sta cercando un'applicazione mancante, è possibile contattare il team di applicazioni specifico oppure effettuare una richiesta in [UserVoice](https://feedback.azure.com/forums/169401-azure-active-directory?category_id=167259).
 
 ### <a name="office-365"></a>Office 365
 

@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: cpendle
 zone_pivot_groups: azure-maps-android
-ms.openlocfilehash: aef8fbacf8302fb5dd4b5fe28afc615c6bf56090
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 9dcb5b84faa47b7307ce8441003e8591d7c2757b
+ms.sourcegitcommit: 73d80a95e28618f5dfd719647ff37a8ab157a668
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102100985"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105604788"
 ---
 # <a name="set-map-style-android-sdk"></a>Impostare lo stile della mappa (Android SDK)
 
@@ -83,7 +83,7 @@ Lo screenshot seguente mostra il codice precedente che visualizza una mappa con 
 
 ## <a name="setting-the-map-camera"></a>Impostazione della fotocamera della mappa
 
-La fotocamera mappa controlla la parte della mappa visualizzata nella mappa. La fotocamera può trovarsi nel layout a livello di codice. Quando viene impostato nel codice, sono disponibili due metodi principali per impostare la posizione della mappa; usare Center e zoom oppure passare un rettangolo di delimitazione. Nel codice seguente viene illustrato come impostare tutte le opzioni opzionali della fotocamera quando si utilizzano `center` e `zoom` .
+La fotocamera mappa controlla quale parte del mondo viene visualizzata nel viewport mappa. La fotocamera può trovarsi nel layout a livello di codice. Quando viene impostato nel codice, sono disponibili due metodi principali per impostare la posizione della mappa; usare Center e zoom oppure passare un rettangolo di delimitazione. Nel codice seguente viene illustrato come impostare tutte le opzioni opzionali della fotocamera quando si utilizzano `center` e `zoom` .
 
 ::: zone pivot="programming-language-java-android"
 
@@ -104,7 +104,7 @@ map.setCamera(
     //The minimum zoom level the map will zoom-out to when animating from one location to another on the map.
     minZoom(10),
     
-    //The maximium zoom level the map will zoom-in to when animating from one location to another on the map.
+    //The maximum zoom level the map will zoom-in to when animating from one location to another on the map.
     maxZoom(14)
 );
 ```
@@ -130,7 +130,7 @@ map.setCamera(
     //The minimum zoom level the map will zoom-out to when animating from one location to another on the map.
     minZoom(10),
     
-    //The maximium zoom level the map will zoom-in to when animating from one location to another on the map.
+    //The maximum zoom level the map will zoom-in to when animating from one location to another on the map.
     maxZoom(14)
 )
 ```
@@ -162,7 +162,7 @@ map.setCamera(
     //Amount of pixel buffer around the bounding box to provide extra space around the bounding box.
     padding(20),
 
-    //The maximium zoom level the map will zoom-in to when animating from one location to another on the map.
+    //The maximum zoom level the map will zoom-in to when animating from one location to another on the map.
     maxZoom(14)
 );
 ```
@@ -192,14 +192,14 @@ map.setCamera(
     //Amount of pixel buffer around the bounding box to provide extra space around the bounding box.
     padding(20),
 
-    //The maximium zoom level the map will zoom-in to when animating from one location to another on the map.
+    //The maximum zoom level the map will zoom-in to when animating from one location to another on the map.
     maxZoom(14)
 )
 ```
 
 ::: zone-end
 
-Si noti che le proporzioni di un rettangolo di delimitazione potrebbero non essere uguali a quelle della mappa, in quanto tale mappa mostrerà spesso l'area del riquadro delimitatore, ma sarà spesso solo verticalmente o orizzontalmente.
+Le proporzioni di un rettangolo di delimitazione potrebbero non essere uguali a quelle della mappa, in quanto tale mappa mostrerà spesso l'area del riquadro delimitatore, ma sarà spesso solo verticalmente o orizzontalmente.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

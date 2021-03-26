@@ -5,14 +5,14 @@ author: mimcco
 ms.author: mimcco
 ms.service: azure-percept
 ms.topic: how-to
-ms.date: 02/18/2021
+ms.date: 03/25/2021
 ms.custom: template-how-to
-ms.openlocfilehash: f34013bdb14481bfe872a9b3c4234d603bc2d7ec
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: c4fc7d7564ecd30326fbec832639b2a81d55e6d5
+ms.sourcegitcommit: 73d80a95e28618f5dfd719647ff37a8ab157a668
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102635570"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105605655"
 ---
 # <a name="azure-percept-audio-and-speech-module-troubleshooting"></a>Risoluzione dei problemi del modulo audio e vocale di Azure Percept
 
@@ -20,7 +20,9 @@ Usare le linee guida seguenti per risolvere i problemi dell'applicazione Voice A
 
 ## <a name="collecting-speech-module-logs"></a>Raccolta dei log del modulo vocale
 
-Per eseguire questi comandi, [connettersi al punto di accesso Wi-Fi di Azure PERCEPT dk e connettersi a dev kit tramite SSH](./how-to-ssh-into-percept-dk.md) e immettere i comandi nel terminale SSH.
+Per eseguire questi comandi, connettersi tramite [SSH a Dev Kit](./how-to-ssh-into-percept-dk.md) e immettere i comandi nel prompt client SSH.
+
+Raccogli log del modulo vocale:
 
 ```console
 sudo iotedge logs azureearspeechclientmodule
@@ -32,17 +34,23 @@ Per reindirizzare l'output a un file con estensione txt per un'ulteriore analisi
 sudo [command] > [file name].txt
 ```
 
+Modificare le autorizzazioni del file. txt in modo che sia possibile copiarlo:
+
+```console
+sudo chmod 666 [file name].txt
+```
+
 Dopo il reindirizzamento dell'output a un file con estensione txt, copiare il file nel PC host tramite SCP:
 
 ```console
 scp [remote username]@[IP address]:[remote file path]/[file name].txt [local host file path]
 ```
 
-[percorso file host locale] indica il percorso nel computer host in cui si desidera copiare il file con estensione txt. [nomeutente remoto] è il nome utente SSH scelto durante l' [esperienza di onboarding](./quickstart-percept-dk-set-up.md). Se non è stato configurato un accesso SSH durante l'esperienza di onboarding di Azure Percept DK, il nome utente remoto è root.
+[percorso file host locale] indica il percorso nel computer host in cui si desidera copiare il file con estensione txt. [nomeutente remoto] è il nome utente SSH scelto durante l' [installazione](./quickstart-percept-dk-set-up.md).
 
 ## <a name="checking-runtime-status-of-the-speech-module"></a>Controllo dello stato di runtime del modulo vocale
 
-Verificare che lo stato di runtime di **azureearspeechclientmodule** sia indicato come **in esecuzione**. Per individuare lo stato di runtime dei moduli del dispositivo, aprire il [portale di Azure](https://portal.azure.com/) e passare a **tutte le risorse**  ->  **\<your IoT hub>**  ->  **IOT Edge**  ->  **\<your device ID>** . Fare clic sulla scheda **moduli** per visualizzare lo stato di runtime di tutti i moduli installati.
+Verificare che lo stato di runtime di **azureearspeechclientmodule** sia indicato come **in esecuzione**. Per individuare lo stato di runtime dei moduli del dispositivo, aprire il [portale di Azure](https://portal.azure.com/) e passare a **tutte le risorse**  ->  **[your hub Internet]**  ->  **IOT Edge**  ->  **[ID dispositivo]**. Fare clic sulla scheda **moduli** per visualizzare lo stato di runtime di tutti i moduli installati.
 
 :::image type="content" source="./media/troubleshoot-audio-accessory-speech-module/over-the-air-iot-edge-device-page.png" alt-text="Pagina dispositivo perimetrale nell'portale di Azure.":::
 
@@ -50,10 +58,10 @@ Se lo stato di runtime di **azureearspeechclientmodule** non è elencato come **
 
 ## <a name="understanding-ear-som-led-indicators"></a>Informazioni sugli indicatori LED per ear SoM
 
-È possibile usare gli indicatori LED per comprendere lo stato in cui si trova il dispositivo. L'inizializzazione completa del modulo dopo l' *accensione* richiede in genere circa 2 minuti. Quando si esegue la procedura di inizializzazione, verrà visualizzato quanto segue:
+È possibile usare gli indicatori LED per comprendere lo stato in cui si trova il dispositivo. L'inizializzazione completa del modulo dopo l'accensione del dispositivo richiede in genere circa 2 minuti. Quando si esegue la procedura di inizializzazione, verrà visualizzato quanto segue:
 
-1. LED bianco al centro: il dispositivo è acceso.
-2. 1 centro bianco lampeggiante-l'autenticazione è in corso.
+1. LED del centro bianco acceso (statico): il dispositivo è acceso.
+2. LED del centro bianco acceso (lampeggiante): l'autenticazione è in corso.
 3. Quando il dispositivo viene autenticato e pronto per l'uso, tutti e tre i LED cambieranno in blu.
 
 |LED|Stato del LED|Stato SoM Ear|

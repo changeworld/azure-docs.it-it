@@ -1,14 +1,14 @@
 ---
 title: Panoramica dell'agente computer connesso
 description: Questo articolo fornisce una panoramica dettagliata dell'agente server abilitati per Azure Arc, che supporta il monitoraggio di macchine virtuali ospitate in ambienti ibridi.
-ms.date: 03/15/2021
+ms.date: 03/25/2021
 ms.topic: conceptual
-ms.openlocfilehash: 1fd863ccacc7768401e35254a98c7bb494b3d358
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 2db1758240dca448409af9f4ec00c01d684c920a
+ms.sourcegitcommit: 73d80a95e28618f5dfd719647ff37a8ab157a668
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103470490"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105609233"
 ---
 # <a name="overview-of-azure-arc-enabled-servers-agent"></a>Panoramica dell'agente di server abilitati per Azure Arc
 
@@ -18,6 +18,8 @@ Azure Arc Enabled Servers Connected Machine Agent consente di gestire i computer
 >A partire dalla versione generale di Azure Arc Enabled Servers nel 2020 settembre, tutte le versioni non definitive dell'agente del computer connesso di Azure (gli agenti con versioni inferiori a 1,0) verranno **deprecate** entro il **2 febbraio 2021**.  Questo intervallo di tempo consente di eseguire l'aggiornamento alla versione 1,0 o successiva prima che gli agenti pre-rilasciati non siano più in grado di comunicare con il servizio server abilitati per Azure Arc.
 
 ## <a name="agent-component-details"></a>Dettagli del componente agente
+
+:::image type="content" source="media/agent-overview/connected-machine-agent.png" alt-text="Panoramica dell'agente di server abilitati per Arc." border="false":::
 
 Il pacchetto agente computer connesso di Azure contiene diversi componenti logici, che vengono aggregati insieme.
 

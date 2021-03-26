@@ -13,12 +13,12 @@ ms.author: baselden
 ms.reviewer: ajburnle
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bab8e8c6dfb944e496c636d53217e63175be9fbc
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 297c0a53fb2ab4ee0b2c5291cabf5a63c8841664
+ms.sourcegitcommit: 73d80a95e28618f5dfd719647ff37a8ab157a668
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104587849"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105604703"
 ---
 # <a name="securing-service-principals"></a>Protezione delle entità servizio
 
@@ -96,6 +96,7 @@ Per ulteriori informazioni [, vedere Get-AzureADServicePrincipal](/powershell/mo
 Per valutare la sicurezza delle entità servizio, assicurarsi di valutare i privilegi e l'archiviazione delle credenziali.
 
 Attenuare potenziali problemi usando le informazioni seguenti.
+
 |Problematiche | Soluzioni di prevenzione|
 | - | - |
 | Rilevare l'utente che ha acconsentito a un'app multi-tenant e rilevare le concessioni di consenso illecito a un'app multi-tenant | Eseguire il comando PowerShell seguente per trovare le app multi-tenant.<br>`Get-AzureADServicePrincipal -All:$true ? {$_.Tags -eq WindowsAzureActiveDirectoryIntegratedApp"}`<br>Disabilitare il consenso dell'utente. <br>Consenti autorizzazione utente da autori verificati, per le autorizzazioni selezionate (scelta consigliata) <br> Usare l'accesso condizionale per bloccare le entità servizio da percorsi non attendibili. Configurarli nel contesto utente e i relativi token devono essere usati per attivare l'entità servizio.|

@@ -7,12 +7,12 @@ ms.topic: include
 ms.date: 03/14/2019
 ms.author: glenga
 ms.custom: include file
-ms.openlocfilehash: 54ce9438f768e347e306432a1874ab1816a1ae95
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: d1b2cbefe64add5048d4e3c7946277b1461a5434
+ms.sourcegitcommit: 73d80a95e28618f5dfd719647ff37a8ab157a668
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104719902"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105607091"
 ---
 Impostazioni di configurazione per [Funzioni permanenti](../articles/azure-functions/durable/durable-functions-overview.md).
 
@@ -121,7 +121,7 @@ I nomi degli hub attività devono iniziare con una lettera e contenere solo lett
 |eventGridPublishRetryInterval|5 minuti|Intervallo fra i tentativi di pubblicazione in Griglia di eventi nel formato *hh:mm:ss*.|
 |eventGridPublishEventTypes||Elenco dei tipi di evento da pubblicare in Griglia di eventi. Se non è specificato, verranno pubblicati tutti i tipi di evento. I valori consentiti includono `Started`, `Completed`, `Failed`, `Terminated`.|
 |useAppLease|true|Se è impostato su `true`, le app richiederanno l'acquisizione di un lease di BLOB a livello di app prima di elaborare i messaggi dell'hub attività. Per altre informazioni vedere la documentazione su [ripristino di emergenza e distribuzione geografica](../articles/azure-functions/durable/durable-functions-disaster-recovery-geo-distribution.md). Disponibile a partire dalla versione v2.3.0.
-|useLegacyPartitionManagement|true|Se è impostato su `false`, usa un algoritmo di gestione delle partizioni che riduce la possibilità di eseguire funzioni duplicate quando si aumenta il numero di istanze.  Disponibile a partire dalla versione v2.3.0. In una versione futura il valore predefinito verrà modificato in `false`.|
+|useLegacyPartitionManagement|false|Se è impostato su `false`, usa un algoritmo di gestione delle partizioni che riduce la possibilità di eseguire funzioni duplicate quando si aumenta il numero di istanze.  Disponibile a partire dalla versione v2.3.0.|
 |useGracefulShutdown|false|(Anteprima) Abilita l'arresto in modalità normale per ridurre la possibilità di arresti dell'host che non riescono a completare le esecuzioni di funzioni in-process.|
 
 Molte di queste impostazioni vengono usate per ottimizzare le prestazioni. Per altre informazioni, vedere [Prestazioni e scalabilità](../articles/azure-functions/durable/durable-functions-perf-and-scale.md).

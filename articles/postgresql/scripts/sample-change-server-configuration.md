@@ -1,19 +1,19 @@
 ---
 title: Script dell'interfaccia della riga di comando di Azure - Modificare le configurazioni del server (PostgreSQL)
 description: Questo script dell'interfaccia della riga di comando di esempio elenca tutte le opzioni di configurazione server disponibili e aggiorna il valore di una delle opzioni.
-author: lfittl-msft
-ms.author: lufittl
+author: sunilagarwal
+ms.author: sunila
 ms.service: postgresql
 ms.devlang: azurecli
 ms.topic: sample
 ms.custom: mvc, devx-track-azurecli
 ms.date: 02/28/2018
-ms.openlocfilehash: 313c3a59c1b47b4cc6ee6a38e46e85a2343bfb31
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 1c3433c1f96dc32d91f1c07882f231202383e1c3
+ms.sourcegitcommit: 73d80a95e28618f5dfd719647ff37a8ab157a668
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "94660526"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105607355"
 ---
 # <a name="list-and-update-configurations-of-an-azure-database-for-postgresql-server-using-azure-cli"></a>Elencare e aggiornare le configurazioni di un server di Database di Azure per PostgreSQL tramite l'interfaccia della riga di comando di Azure
 Questo script dell'interfaccia della riga di comando di esempio elenca tutti i parametri di configurazione disponibili, nonché i relativi valori consentiti per un server di Database di Azure per PostgreSQL e imposta *log_retention_days* su un valore diverso da quello predefinito.

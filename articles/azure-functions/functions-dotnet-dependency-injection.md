@@ -4,15 +4,15 @@ description: Informazioni su come usare l'inserimento di dipendenze per la regis
 author: ggailey777
 ms.topic: conceptual
 ms.custom: devx-track-csharp
-ms.date: 01/27/2021
+ms.date: 03/24/2021
 ms.author: glenga
 ms.reviewer: jehollan
-ms.openlocfilehash: 66e2cd22f4bcb95be65d6d04345dcac622436a04
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 32cd2760eadc94466cdf55883611c78ac0cf24e6
+ms.sourcegitcommit: 73d80a95e28618f5dfd719647ff37a8ab157a668
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98955089"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105608120"
 ---
 # <a name="use-dependency-injection-in-net-azure-functions"></a>Usare l'inserimento di dipendenze in Funzioni di Azure .NET
 
@@ -21,6 +21,11 @@ Funzioni di Azure supporta lo schema progettuale di software per l'inserimento d
 - L'inserimento di dipendenze in Funzioni di Azure si basa sulle funzionalità di inserimento dipendenze .NET Core. È consigliabile acquisire familiarità con l'[inserimento di dipendenze .NET Core](/aspnet/core/fundamentals/dependency-injection). Esistono differenze nel modo in cui viene eseguito l'override delle dipendenze e nel modo in cui i valori di configurazione vengono letti con Funzioni di Azure nel piano a consumo.
 
 - Il supporto per l'inserimento di dipendenze inizia a partire da Funzioni di Azure 2.x.
+
+- I modelli di inserimento delle dipendenze variano a seconda che le funzioni C# vengano eseguite [in-process](functions-dotnet-class-library.md) o [out-of-process](dotnet-isolated-process-guide.md).  
+
+> [!IMPORTANT]
+> Le indicazioni fornite in questo articolo si applicano solo alle [funzioni della libreria di classi C#](functions-dotnet-class-library.md), che vengono eseguite in-process con il Runtime. Questo modello di inserimento delle dipendenze personalizzato non si applica alle [funzioni .NET isolate](dotnet-isolated-process-guide.md), che consentono di eseguire le funzioni .NET 5,0 out-of-process. Il modello di processo isolato .NET si basa su normali modelli di inserimento delle dipendenze ASP.NET Core. Per altre informazioni, vedere [inserimento delle dipendenze](dotnet-isolated-process-guide.md#dependency-injection) nella Guida al processo isolato .NET.
 
 ## <a name="prerequisites"></a>Prerequisiti
 

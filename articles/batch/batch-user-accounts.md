@@ -2,21 +2,22 @@
 title: Eseguire attività con account utente
 description: Informazioni sui tipi di account utente e su come configurarli.
 ms.topic: how-to
-ms.date: 08/20/2020
+ms.date: 03/25/2021
 ms.custom: seodec18
-ms.openlocfilehash: cce374e7d7ffb513bed882b048ea54bcbad81b0b
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: b19e0c10834b3c5215d14c6c5ae20caaacb4bc64
+ms.sourcegitcommit: 73d80a95e28618f5dfd719647ff37a8ab157a668
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "88719360"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105606607"
 ---
 # <a name="run-tasks-under-user-accounts-in-batch"></a>Eseguire attività con account utente in Batch
 
 > [!NOTE]
 > Gli account utente descritti in questo articolo sono diversi dagli account utente usati per la Remote Desktop Protocol (RDP) o Secure Shell (SSH), per motivi di sicurezza.
 >
-> Per connettersi a un nodo che esegue la configurazione della macchina virtuale Linux tramite SSH, vedere [Installare e configurare Desktop remoto per connettersi a una VM Linux di Azure](../virtual-machines/linux/use-remote-desktop.md). Per connettersi ai nodi che eseguono Windows tramite RDP, vedere [Come connettersi e accedere a una macchina virtuale di Azure che esegue Windows](../virtual-machines/windows/connect-logon.md).<br /><br />
+> Per connettersi a un nodo che esegue la configurazione della macchina virtuale Linux tramite SSH, vedere [installare e configurare xrdp per l'uso di desktop remoto con Ubuntu](../virtual-machines/linux/use-remote-desktop.md). Per connettersi ai nodi che eseguono Windows tramite RDP, vedere [come connettersi e accedere a una macchina virtuale di Azure che esegue Windows](../virtual-machines/windows/connect-logon.md).
+>
 > Per connettersi a un nodo che esegue la configurazione del servizio cloud tramite RDP, vedere [Impostare una connessione Desktop remoto per un ruolo nei servizi cloud di Azure](../cloud-services/cloud-services-role-enable-remote-desktop-new-portal.md).
 
 In Azure Batch un'attività viene sempre eseguita con un account utente. Per impostazione predefinita, le attività vengono eseguite con account utente standard, senza le autorizzazioni di amministratore Per determinati scenari, potrebbe essere necessario configurare l'account utente con cui si desidera eseguire un'attività. Questo articolo illustra i tipi di account utente e come configurarli per lo scenario.
@@ -30,7 +31,7 @@ Azure Batch offre due tipi di account utente per l'esecuzione di attività:
 - **Account utente non anonimi.** È possibile specificare uno o più account utente non anonimi per un pool al momento della creazione del pool stesso. Ogni account utente viene creato in ogni nodo del pool. Oltre al nome, specificare la password dell'account utente, il livello di elevazione dei privilegi e, per i pool Linux, la chiave privata SSH. Quando si aggiunge un'attività, è possibile specificare l'account utente non anonimo con cui eseguirla.
 
 > [!IMPORTANT]
-> Nella versione 2017-01-01.4.0 del servizio Batch è stata introdotta una modifica significativa che richiede l'aggiornamento del codice per chiamare tale versione. Se si esegue la migrazione di codice da una versione precedente di Batch, si noti che la proprietà **runElevated** non è più supportata nelle librerie client API REST o Batch. Per specificare il livello di elevazione dei privilegi, usare la nuova proprietà **userIdentity** di un'attività. Vedere [aggiornare il codice alla libreria client batch più recente](#update-your-code-to-the-latest-batch-client-library) per linee guida rapide per l'aggiornamento del codice batch se si usa una delle librerie client.
+> Il servizio batch versione 2017-01-01.4.0 ha introdotto una modifica di rilievo che richiede l'aggiornamento del codice per chiamare tale versione o successiva. Per linee guida rapide per l'aggiornamento del codice batch da una versione precedente, vedere [aggiornare il codice alla libreria client batch più recente](#update-your-code-to-the-latest-batch-client-library) .
 
 ## <a name="user-account-access-to-files-and-directories"></a>Accesso degli account utente a file e directory
 
@@ -77,6 +78,7 @@ I frammenti di codice seguente illustrano come configurare la specifica di utent
 ```csharp
 task.UserIdentity = new UserIdentity(new AutoUserSpecification(elevationLevel: ElevationLevel.Admin, scope: AutoUserScope.Task));
 ```
+
 #### <a name="batch-java"></a>Batch Java
 
 ```java
@@ -278,7 +280,7 @@ task.UserIdentity = new UserIdentity(AdminUserAccountName);
 
 ## <a name="update-your-code-to-the-latest-batch-client-library"></a>Aggiornare il codice in base alla libreria client Batch più recente
 
-Nella versione 2017-01-01.4.0 del servizio Batch è stata introdotta una modifica significativa, ovvero la proprietà **runElevated** disponibile nelle versioni precedenti è stata sostituita con la proprietà **userIdentity**. Le tabelle seguenti illustrano una semplice corrispondenza che consente di aggiornare il codice dalle versioni precedenti delle librerie client.
+Il servizio batch versione 2017-01-01.4.0 ha introdotto una modifica di rilievo, sostituendo la proprietà **runElevated** disponibile nelle versioni precedenti con la proprietà **UserIdentity** . Le tabelle seguenti illustrano una semplice corrispondenza che consente di aggiornare il codice dalle versioni precedenti delle librerie client.
 
 ### <a name="batch-net"></a>Batch .NET
 

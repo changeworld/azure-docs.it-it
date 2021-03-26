@@ -7,24 +7,24 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 11/24/2020
+ms.date: 03/26/2021
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 748ad9fdab781ba03135f026ab846099fe50c51f
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 6bf5e53d9f4a867c146cb01376fcd28d2797819c
+ms.sourcegitcommit: 73d80a95e28618f5dfd719647ff37a8ab157a668
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104604407"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105606216"
 ---
 # <a name="create-a-suggester-to-enable-autocomplete-and-suggested-results-in-a-query"></a>Creare un suggerimento per abilitare il completamento automatico e i risultati suggeriti in una query
 
-In Azure ricerca cognitiva "Search-As-You-Type" viene abilitato tramite un *Suggerimento*. Un suggerimento è una struttura di dati interna costituita da una raccolta di campi. I campi vengono sottoposti a token aggiuntivi, generando sequenze di prefisso per supportare le corrispondenze in termini parziali.
+In Azure ricerca cognitiva, typeahead o "Search-As-You-Type" è abilitato tramite un *Suggerimento*. Un suggerimento è una struttura di dati interna costituita da una raccolta di campi. I campi vengono sottoposti a token aggiuntivi, generando sequenze di prefisso per supportare le corrispondenze in termini parziali. Ad esempio, un suggeritore che include un campo City avrà combinazioni di prefisso "Sea", "Seat", "Seatt" e "Seattl" per il termine "Seattle".
 
-Se, ad esempio, un suggeritore include un campo City, verranno create combinazioni di prefisso derivanti di "Sea", "Seat", "Seatt" e "Seattl" per il termine "Seattle". I prefissi vengono archiviati in indici invertiti, uno per ogni campo specificato in una raccolta di campi del suggerimento.
+Le corrispondenze in termini parziali possono essere una query con completamento automatico o una corrispondenza consigliata. Lo stesso suggerimento supporta entrambe le esperienze.
 
 ## <a name="typeahead-experiences-in-cognitive-search"></a>Esperienza typeahead in ricerca cognitiva
 
-Un suggerimento supporta due esperienze: *completamento automatico*, che completa un input parziale per una query di termini interi, e *suggerimenti* che invitano clic su una corrispondenza specifica. Il completamento automatico genera una query. I suggerimenti producono un documento corrispondente.
+Typeahead può essere *completato* in modo automatico, che completa un input parziale per una query con un termine intero, oppure *suggerimenti* che invitiamo a fare clic su una corrispondenza specifica. Il completamento automatico genera una query. I suggerimenti producono un documento corrispondente.
 
 La schermata seguente illustra come [creare la prima app in C#](tutorial-csharp-type-ahead-and-suggestions.md) . Il completamento automatico prevede un termine potenziale, terminando "TW" con "in". I suggerimenti sono i risultati della ricerca minima, dove un campo come il nome dell'hotel rappresenta un documento di ricerca di un hotel corrispondente dall'indice. Per i suggerimenti, è possibile esporre qualsiasi campo che fornisca informazioni descrittive.
 
@@ -40,11 +40,11 @@ Il supporto per la ricerca in base al tipo è abilitato per ogni singolo campo p
 
 ## <a name="how-to-create-a-suggester"></a>Come creare un suggerimento
 
-Per creare un componente di suggerimento, aggiungerne uno a una [definizione di indice](/rest/api/searchservice/create-index). Un suggerimento riceve un nome e una raccolta di campi in cui è abilitata l'esperienza typeahead. e [impostare ciascuna proprietà](#property-reference). Il momento migliore per creare un suggerimento è quando si definisce anche il campo che lo utilizzerà.
+Per creare un componente di suggerimento, aggiungerne uno a una [definizione di indice](/rest/api/searchservice/create-index). Un suggerimento accetta un nome e una raccolta di campi in cui è abilitata l'esperienza typeahead. Il momento migliore per creare un suggerimento è quando si definisce anche il campo che lo utilizzerà.
 
 + Utilizzare solo i campi stringa.
 
-+ Se il campo stringa fa parte di un tipo complesso (ad esempio, un campo città all'interno di Address), includere l'elemento padre nel campo: `"Address/City"` (REST e C# e Python) o `["Address"]["City"]` (JavaScript).
++ Se il campo stringa fa parte di un tipo complesso (ad esempio, un campo città all'interno di Address), includere l'elemento padre nel percorso del campo: `"Address/City"` (REST e C# e Python) o `["Address"]["City"]` (JavaScript).
 
 + Usare l'analizzatore Lucene standard predefinito ( `"analyzer": null` ) o un [analizzatore del linguaggio](index-add-language-analyzers.md) (ad esempio, `"analyzer": "en.Microsoft"` ) nel campo.
 
@@ -58,7 +58,7 @@ Il completamento automatico offre vantaggi da un pool di campi più ampio da cui
 
 I suggerimenti, d'altra parte, producono risultati migliori quando la scelta del campo è selettiva. Tenere presente che il suggerimento è un proxy per un documento di ricerca, in modo da volere i campi che rappresentano meglio un singolo risultato. Nomi, titoli o altri campi univoci che distinguono tra più corrispondenze funzionano meglio. Se i campi sono costituiti da valori ripetitivi, i suggerimenti sono costituiti da risultati identici e un utente non saprà quale fare clic.
 
-Per soddisfare entrambe le esperienze di ricerca in quanto si digita, aggiungere tutti i campi necessari per il completamento automatico, ma usare **$Select**, **$Top**, **$Filter** e **searchFields** per controllare i risultati per i suggerimenti.
+Per soddisfare entrambe le esperienze di ricerca in quanto si digita, aggiungere tutti i campi necessari per il completamento automatico, ma usare "$select", "$top", "$filter" e "searchFields" per controllare i risultati per i suggerimenti.
 
 ### <a name="choose-analyzers"></a>Scegli analizzatori
 
@@ -142,9 +142,9 @@ private static void CreateIndex(string indexName, SearchIndexClient indexClient)
 
 |Proprietà      |Descrizione      |
 |--------------|-----------------|
-|`name`        | Specificato nella definizione del suggerimento, ma anche chiamato su una richiesta di completamento automatico o di suggerimenti. |
-|`sourceFields`| Specificato nella definizione del suggerimento. Si tratta di un elenco di uno o più campi nell'indice che sono l'origine del contenuto per i suggerimenti. I campi devono essere di tipo `Edm.String` e `Collection(Edm.String)` . Se un analizzatore viene specificato nel campo, deve essere un analizzatore lessicale denominato da [questo elenco](/dotnet/api/azure.search.documents.indexes.models.lexicalanalyzername) (non un analizzatore personalizzato).<p/> Come procedura consigliata, specificare solo i campi che si prestano a una risposta prevista e appropriata, indipendentemente dal fatto che si tratti di una stringa completata in una barra di ricerca o in un elenco a discesa.<p/>Il nome di un hotel è un buon candidato perché ha una precisione. I campi dettagliati come descrizioni e commenti sono troppo densi. Analogamente, i campi ripetitivi, ad esempio categorie e tag, sono meno efficaci. Gli esempi includono "Category" per dimostrare che è possibile includere più campi. |
-|`searchMode`  | Parametro solo REST, ma anche visibile nel portale. Questo parametro non è disponibile in .NET SDK. Indica la strategia utilizzata per la ricerca di frasi candidate. L'unica modalità attualmente supportata è `analyzingInfixMatching` , che attualmente corrisponde all'inizio di un termine.|
+| name        | Specificato nella definizione del suggerimento, ma anche chiamato su una richiesta di completamento automatico o di suggerimenti. |
+| sourceFields | Specificato nella definizione del suggerimento. Si tratta di un elenco di uno o più campi nell'indice che sono l'origine del contenuto per i suggerimenti. I campi devono essere di tipo `Edm.String` e `Collection(Edm.String)` . Se un analizzatore viene specificato nel campo, deve essere un analizzatore lessicale denominato da [questo elenco](/dotnet/api/azure.search.documents.indexes.models.lexicalanalyzername) (non un analizzatore personalizzato). </br></br>Come procedura consigliata, specificare solo i campi che si prestano a una risposta prevista e appropriata, indipendentemente dal fatto che si tratti di una stringa completata in una barra di ricerca o in un elenco a discesa. </br></br>Il nome di un hotel è un buon candidato perché ha una precisione. I campi dettagliati come descrizioni e commenti sono troppo densi. Analogamente, i campi ripetitivi, ad esempio categorie e tag, sono meno efficaci. Gli esempi includono "Category" per dimostrare che è possibile includere più campi. |
+| searchMode  | Parametro solo REST, ma anche visibile nel portale. Questo parametro non è disponibile in .NET SDK. Indica la strategia utilizzata per la ricerca di frasi candidate. L'unica modalità attualmente supportata è `analyzingInfixMatching` , che attualmente corrisponde all'inizio di un termine.|
 
 <a name="how-to-use-a-suggester"></a>
 
@@ -157,9 +157,9 @@ In una query viene utilizzato un suggerimento. Dopo aver creato un suggerimento,
 + [Metodo SuggestAsync](/dotnet/api/azure.search.documents.searchclient.suggestasync)
 + [Metodo AutocompleteAsync](/dotnet/api/azure.search.documents.searchclient.autocompleteasync)
 
-In un'applicazione di ricerca, il codice client deve usare una libreria come il [completamento automatico dell'interfaccia utente jQuery](https://jqueryui.com/autocomplete/) per raccogliere la query parziale e fornire la corrispondenza. Per altre informazioni su questa attività, vedere [aggiungere il completamento automatico o i risultati suggeriti al codice client](search-autocomplete-tutorial.md).
+In un'applicazione di ricerca, il codice client deve usare una libreria come il [completamento automatico dell'interfaccia utente jQuery](https://jqueryui.com/autocomplete/) per raccogliere la query parziale e fornire la corrispondenza. Per altre informazioni su questa attività, vedere [aggiungere il completamento automatico o i risultati suggeriti al codice client](search-add-autocomplete-suggestions.md).
 
-L'utilizzo delle API è illustrato nella chiamata seguente all'API REST di completamento automatico. Questo esempio presenta due considerazioni. In primo luogo, come per tutte le query, l'operazione viene eseguita rispetto alla raccolta Documents di un indice e la query include un parametro di **ricerca** , che in questo caso fornisce la query parziale. In secondo luogo, è necessario aggiungere **suggesterName** alla richiesta. Se un suggerimento non è definito nell'indice, una chiamata al completamento automatico o ai suggerimenti avrà esito negativo.
+L'utilizzo delle API è illustrato nella chiamata seguente all'API REST di completamento automatico. Questo esempio presenta due considerazioni. In primo luogo, come per tutte le query, l'operazione viene eseguita sulla raccolta Documents di un indice e la query include un parametro "Search", che in questo caso fornisce la query parziale. In secondo luogo, è necessario aggiungere "suggesterName" alla richiesta. Se un suggerimento non è definito nell'indice, una chiamata al completamento automatico o ai suggerimenti avrà esito negativo.
 
 ```http
 POST /indexes/myxboxgames/docs/autocomplete?search&api-version=2020-06-30
@@ -178,4 +178,4 @@ POST /indexes/myxboxgames/docs/autocomplete?search&api-version=2020-06-30
 Per ulteriori informazioni sulla formulazione delle richieste, è consigliabile usare l'articolo seguente.
 
 > [!div class="nextstepaction"]
-> [Aggiungere il completamento automatico e suggerimenti al codice client](search-autocomplete-tutorial.md)
+> [Aggiungere il completamento automatico e suggerimenti al codice client](search-add-autocomplete-suggestions.md)

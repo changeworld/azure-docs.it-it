@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 03/03/2021
-ms.openlocfilehash: c088625528190ad116676fbb51cec9f8de4b1578
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 21012848ba3624df6110eaea182beccc4646d234
+ms.sourcegitcommit: 73d80a95e28618f5dfd719647ff37a8ab157a668
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104600803"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105609276"
 ---
 # <a name="querying-in-azure-cognitive-search"></a>Esecuzione di query in Azure ricerca cognitiva
 
@@ -77,7 +77,7 @@ Se si prevede un uso intensivo di operatori booleani, che è più probabile negl
 
 ## <a name="autocomplete-and-suggested-queries"></a>Completamento automatico e query suggerite
 
-[I risultati di completamento automatico o suggerito](search-autocomplete-tutorial.md) sono alternative a **`search`** che attivano richieste di query successive basate su input di stringa parziali (dopo ogni carattere) in un'esperienza di ricerca in base al tipo. È possibile usare **`autocomplete`** il **`suggestions`** parametro e insieme o separatamente, come descritto in [questa esercitazione](tutorial-csharp-type-ahead-and-suggestions.md), ma non è possibile usarli con **`search`** . I termini completati e le query suggerite sono derivati dai contenuti degli indici. Il motore non restituirà mai una stringa o un suggerimento inesistente nell'indice. Per altre informazioni, vedere [completamento automatico (API REST)](/rest/api/searchservice/autocomplete) e [Suggerimenti (API REST)](/rest/api/searchservice/suggestions).
+[I risultati di completamento automatico o suggerito](search-add-autocomplete-suggestions.md) sono alternative a **`search`** che attivano richieste di query successive basate su input di stringa parziali (dopo ogni carattere) in un'esperienza di ricerca in base al tipo. È possibile usare **`autocomplete`** il **`suggestions`** parametro e insieme o separatamente, come descritto in [questa esercitazione](tutorial-csharp-type-ahead-and-suggestions.md), ma non è possibile usarli con **`search`** . I termini completati e le query suggerite sono derivati dai contenuti degli indici. Il motore non restituirà mai una stringa o un suggerimento inesistente nell'indice. Per altre informazioni, vedere [completamento automatico (API REST)](/rest/api/searchservice/autocomplete) e [Suggerimenti (API REST)](/rest/api/searchservice/suggestions).
 
 ## <a name="filter-search"></a>Filtra ricerca
 

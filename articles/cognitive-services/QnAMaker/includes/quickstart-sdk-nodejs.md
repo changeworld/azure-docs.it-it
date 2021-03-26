@@ -4,12 +4,12 @@ description: Questo argomento di avvio rapido illustra come usare la libreria cl
 ms.topic: quickstart
 ms.date: 06/18/2020
 ms.custom: devx-track-js
-ms.openlocfilehash: 0737d0550df6d8dd2e3bb61bb71188479d87363e
-ms.sourcegitcommit: bb330af42e70e8419996d3cba4acff49d398b399
+ms.openlocfilehash: 0d0522be53ec9b1008f18725308c91a19ee24156
+ms.sourcegitcommit: 73d80a95e28618f5dfd719647ff37a8ab157a668
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/24/2021
-ms.locfileid: "105104775"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105609414"
 ---
 # <a name="qna-maker-ga-stable-release"></a>[QnA Maker - disponibilità generale (versione stabile)](#tab/version-1)
 
@@ -122,14 +122,15 @@ Creare una variabile per la chiave di Azure della risorsa e il nome della risors
 
 # <a name="qna-maker-ga-stable-release"></a>[QnA Maker - disponibilità generale (versione stabile)](#tab/version-1)
 
-> [!IMPORTANT]
-> Passare al portale di Azure e individuare la chiave e l'endpoint per la risorsa QnA Maker creata nei prerequisiti. Si trovano nella pagina **Chiave ed endpoint** della risorsa, in **Gestione risorse**.
+- Si usano la chiave di sottoscrizione e la chiave di creazione e modifica. Per ulteriori informazioni sulla creazione di una chiave, seguire le [chiavi in QnA Maker](../concepts/azure-resources.md?tabs=v1#keys-in-qna-maker).
 
-- Il formato del valore di QNA_MAKER_ENDPOINT è `https://YOUR-RESOURCE-NAME.cognitiveservices.azure.com`. Passare alla risorsa QnA Maker nella portale di Azure e fare clic su **chiavi ed endpoint** per individuare la chiave di creazione (sottoscrizione) e QnA Maker endpoint.
+- Il formato del valore di QNA_MAKER_ENDPOINT è `https://YOUR-RESOURCE-NAME.cognitiveservices.azure.com`. Passare alla portale di Azure e trovare la risorsa QnA Maker creata nei prerequisiti. Fare clic su **chiavi ed endpoint** pagina, in **Gestione risorse** per individuare la chiave di creazione (sottoscrizione) e QnA Maker endpoint.
 
  ![QnA Maker endpoint di creazione](../media/keys-endpoint.png)
- 
-- Il formato del valore di QNA_MAKER_RUNTIME_ENDPOINT è `https://YOUR-RESOURCE-NAME.azurewebsites.net`. 
+
+- Il formato del valore di QNA_MAKER_RUNTIME_ENDPOINT è `https://YOUR-RESOURCE-NAME.azurewebsites.net`. Passare alla portale di Azure e trovare la risorsa QnA Maker creata nei prerequisiti. Fare clic sulla pagina **Esporta modello** in **automazione** per individuare l'endpoint di Runtime.
+
+ ![Endpoint di runtime QnA Maker](../media/runtime-endpoint.png)
    
 - Per la produzione, è consigliabile usare un modo sicuro per archiviare e accedere alle credenziali, Ad esempio, [Azure Key Vault](../../../key-vault/general/overview.md) fornisce una risorsa di archiviazione sicura per le chiavi.
 
@@ -137,10 +138,9 @@ Creare una variabile per la chiave di Azure della risorsa e il nome della risors
 
 # <a name="qna-maker-managed-preview-release"></a>[QnA Maker - gestito (versione in anteprima)](#tab/version-2)
 
-> [!IMPORTANT]
-> Passare al portale di Azure e individuare la chiave e l'endpoint per la risorsa QnA Maker creata nei prerequisiti. Si trovano nella pagina **Chiave ed endpoint** della risorsa, in **Gestione risorse**.
+- Si usano la chiave di sottoscrizione e la chiave di creazione e modifica. Per ulteriori informazioni sulla creazione di una chiave, seguire le [chiavi in QnA Maker](../concepts/azure-resources.md?tabs=v2#keys-in-qna-maker).
 
-- Il formato del valore di QNA_MAKER_ENDPOINT è `https://YOUR-RESOURCE-NAME.cognitiveservices.azure.com`. Passare alla risorsa QnA Maker nella portale di Azure e fare clic su **chiavi ed endpoint** per individuare la chiave di creazione (sottoscrizione) e QnA Maker endpoint.
+- Il formato del valore di QNA_MAKER_ENDPOINT è `https://YOUR-RESOURCE-NAME.cognitiveservices.azure.com`. Passare alla portale di Azure e trovare la risorsa QnA Maker creata nei prerequisiti. Fare clic su **chiavi ed endpoint** pagina, in **Gestione risorse** per individuare la chiave di creazione (sottoscrizione) e QnA Maker endpoint.
 
  ![QnA Maker endpoint di creazione](../media/keys-endpoint.png)
  

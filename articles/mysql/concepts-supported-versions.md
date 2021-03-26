@@ -6,21 +6,31 @@ ms.author: pariks
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 6/3/2020
-ms.openlocfilehash: 8b85307f01a11366a2147c947f26658f548932e8
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 314462517ba4e63694266b5e49231cb8536f3635
+ms.sourcegitcommit: 73d80a95e28618f5dfd719647ff37a8ab157a668
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103467715"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105604728"
 ---
 # <a name="supported-azure-database-for-mysql-server-versions"></a>Versioni supportate del Database di Azure per il server MySQL
 
 Database di Azure per MySQL è stato sviluppato da [MySQL Community Edition](https://www.mysql.com/products/community/), usando il motore di archiviazione InnoDB. Il servizio supporta tutte le versioni principali correnti supportate dalla community, ovvero MySQL 5,6, 5,7 e 8,0. MySQL usa lo schema di denominazione X. Y. Z dove X è la versione principale, Y è la versione secondaria e Z è il rilascio della correzione di bug. Per altre informazioni sullo schema, vedere la [documentazione di MySQL](https://dev.mysql.com/doc/refman/5.7/en/which-version.html).
 
-> [!NOTE]
-> Nell'opzione di distribuzione a server singolo viene usato un gateway per reindirizzare le connessioni alle istanze del server. Dopo che è stata stabilita la connessione, il client MySQL visualizza la versione di MySQL impostata nel gateway e non la versione effettiva in esecuzione nell'istanza del server MySQL. Per determinare la versione dell'istanza del server MySQL, usare il comando `SELECT VERSION();` dal prompt di MySQL.
 
-Database di Azure per MySQL supporta attualmente le versioni principali e secondarie seguenti di MySQL:
+
+## <a name="connect-to-a-gateway-node-that-is-running-a-specific-mysql-version"></a>Connettersi a un nodo del gateway che esegue una specifica versione di MySQL
+
+Nell'opzione di distribuzione a server singolo viene usato un gateway per reindirizzare le connessioni alle istanze del server. Dopo che è stata stabilita la connessione, il client MySQL visualizza la versione di MySQL impostata nel gateway e non la versione effettiva in esecuzione nell'istanza del server MySQL. Per determinare la versione dell'istanza del server MySQL, usare il comando `SELECT VERSION();` dal prompt di MySQL. Esaminare l' [architettura di connettività](https://docs.microsoft.com/azure/mysql/concepts-connectivity-architecture#connectivity-architecture) per altre informazioni sui gateway nell'architettura del servizio database di Azure per MySQL.
+
+Poiché database di Azure per MySQL supporta la versione principale v 5.6, v 5.7 e v 8.0, la porta predefinita 3306 per la connessione al database di Azure per MySQL esegue MySQL client versione 5,6 (meno comune denominatore) per supportare le connessioni ai server di tutte e 3 le versioni principali supportate. Tuttavia, se l'applicazione è in grado di connettersi a una versione principale specifica, ad indicare v 5.7 o v 8.0, è possibile modificare la porta nella stringa di connessione del server.
+
+Nel servizio database di Azure per MySQL, i nodi gateway sono in ascolto sulla porta 3308 per i client v 5.7 e sulla porta 3309 per i client v 8.0. In altre parole, se si desidera connettersi al client del gateway v 5.7, è necessario utilizzare il nome completo del server e la porta 3308 per connettersi al server dall'applicazione client. Analogamente, se si desidera connettersi al client del gateway v 8.0, è possibile utilizzare il nome completo del server e la porta 3309 per connettersi al server. Per maggiore chiarezza, vedere l'esempio seguente.
+
+:::image type="content" source="./media/concepts-supported-versions/concepts-supported-versions-gateway.png" alt-text="Esempio di connessione tramite diverse versioni di MySQL del gateway":::
+
+
+## <a name="azure-database-for-mysql-currently-supports-the-following-major-and-minor-versions-of-mysql"></a>Database di Azure per MySQL supporta attualmente le versioni principali e secondarie seguenti di MySQL:
 
 
 | Versione | Server unico <br/> Versione secondaria corrente |Server flessibile (anteprima) <br/> Versione secondaria corrente  |

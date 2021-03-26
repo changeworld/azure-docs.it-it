@@ -1,19 +1,19 @@
 ---
 title: Configurare i parametri-database di Azure per PostgreSQL-server singolo
 description: Questo articolo descrive come configurare i parametri Postgres nel database di Azure per PostgreSQL-server singolo usando l'interfaccia della riga di comando di Azure.
-author: lfittl-msft
-ms.author: lufittl
+author: sunilagarwal
+ms.author: sunila
 ms.service: postgresql
 ms.devlang: azurecli
 ms.topic: how-to
 ms.date: 06/19/2019
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 4231f348f99073406fcb6a5bef9bf0f84cacf2eb
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: cadf21423ac7eb997db5bb42005ee307d9813331
+ms.sourcegitcommit: 73d80a95e28618f5dfd719647ff37a8ab157a668
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "96005572"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105604193"
 ---
 # <a name="customize-server-configuration-parameters-for-azure-database-for-postgresql---single-server-using-azure-cli"></a>Personalizzare i parametri di configurazione del server per database di Azure per PostgreSQL-server singolo con l'interfaccia della riga di comando
 È possibile elencare, visualizzare e aggiornare i parametri di configurazione per un server PostgreSQL di Azure usando l'interfaccia della riga di comando di Azure. Un subset delle configurazioni del motore viene esposto a livello di server e può essere modificato. 

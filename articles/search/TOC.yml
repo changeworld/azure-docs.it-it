@@ -343,7 +343,7 @@
             - name: Creare uno strumento suggerimenti
               href: index-add-suggesters.md
             - name: Aggiungere il completamento automatico e i suggerimenti
-              href: search-autocomplete-tutorial.md
+              href: search-add-autocomplete-suggestions.md
         - name: Paging e conteggi
           href: search-pagination-page-layout.md
         - name: Informazioni di riferimento sulla sintassi

@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 03/18/2021
 ms.author: oliversc
 ms.custom: seodec18
-ms.openlocfilehash: d3d10eb496899287e93a96f0cbb06dedf83c601d
-ms.sourcegitcommit: ed7376d919a66edcba3566efdee4bc3351c57eda
+ms.openlocfilehash: 86a656630f6c41e2cf6682d0160cce345d1f564d
+ms.sourcegitcommit: 73d80a95e28618f5dfd719647ff37a8ab157a668
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/24/2021
-ms.locfileid: "105048630"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105606624"
 ---
 # <a name="speech-service-release-notes"></a>Note sulla versione del Servizio di riconoscimento vocale
 
@@ -711,13 +711,13 @@ Si tratta di una versione di correzione di bug che interessa solo l'SDK nativo/g
 **Correzioni di bug**
 
 - Correggere FromSubscription consente quando viene usato con la trascrizione delle conversazioni.
-- Correzione di un bug nell'individuazione di parole chiave per gli assistenti vocali.
+- Correzione del bug nel riconoscimento delle parole chiave per gli assistenti vocali.
 
 ## <a name="speech-sdk-150-2019-may-release"></a>Speech SDK 1.5.0:2019-versione di maggio
 
 **Nuove funzionalità**
 
-- L'individuazione delle parole chiave (KWS) è ora disponibile per Windows e Linux. La funzionalità KWS potrebbe funzionare con qualsiasi tipo di microfono, il supporto ufficiale di KWS, tuttavia, è attualmente limitato agli array di microfoni presenti nell'hardware Kinect DK di Azure o nell'SDK per i dispositivi vocali.
+- Il riconoscimento delle parole chiave è ora disponibile per Windows e Linux. Questa funzionalità potrebbe funzionare con qualsiasi tipo di microfono, ma il supporto ufficiale è attualmente limitato agli array di microfoni presenti nell'hardware Kinect DK di Azure o nell'SDK per i dispositivi vocali.
 - La funzionalità hint per la frase è disponibile tramite l'SDK. Per altre informazioni, vedere [qui](./get-started-speech-to-text.md).
 - La funzionalità di trascrizione delle conversazioni è disponibile tramite l'SDK. Vedere [qui](./conversation-transcription.md).
 - Aggiunta del supporto per gli assistenti vocali tramite il canale di riconoscimento vocale diretto.

@@ -11,14 +11,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 12/10/2020
+ms.date: 03/25/2021
 ms.author: keithp
-ms.openlocfilehash: 1f349931fb479be3b3ba936b3d0a665427357f29
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: f6705b5f72aaa8f990aaf3b1daa33697b690d1f1
+ms.sourcegitcommit: 73d80a95e28618f5dfd719647ff37a8ab157a668
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "97369039"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105608885"
 ---
 # <a name="frequently-asked-questions-faq"></a>Domande frequenti
 
@@ -32,11 +32,11 @@ Un modulo di protezione hardware (HSM) è un dispositivo di elaborazione fisico 
 
 ### <a name="q-what-is-the-azure-dedicated-hsm-offering"></a>D: che cos'è l'offerta HSM dedicata di Azure?
 
-HSM dedicato di Azure è un servizio basato su cloud che fornisce moduli di protezione hardware ospitati in data center di Azure connessi direttamente alla rete virtuale dei clienti. Questi HSM sono appliance di rete dedicate (Thales Network Luna HSM 7). Vengono distribuiti direttamente nello spazio di indirizzi IP privato del cliente e Microsoft non ha alcun accesso alla funzionalità di crittografia dei moduli di protezione hardware. Solo il cliente ha il controllo amministrativo e crittografico completo sui dispositivi. I clienti sono responsabili della gestione del dispositivo e possono ottenere log attività completi direttamente dai propri dispositivi. I moduli di protezione hardware dedicati consentono ai clienti di rispettare i requisiti di conformità e normativi, tra cui FIPS 140-2 Livello 3, HIPAA, PCI-DSS, eIDAS e molti altri.
+HSM dedicato di Azure è un servizio basato su cloud che fornisce moduli di protezione hardware ospitati in data center di Azure connessi direttamente alla rete virtuale dei clienti. Questi HSM sono appliance di rete del modulo di protezione [hardware Thales Luna 7](https://cpl.thalesgroup.com/encryption/hardware-security-modules/network-hsms) dedicati. Vengono distribuiti direttamente nello spazio di indirizzi IP privato del cliente e Microsoft non ha alcun accesso alla funzionalità di crittografia dei moduli di protezione hardware. Solo il cliente ha il controllo amministrativo e crittografico completo sui dispositivi. I clienti sono responsabili della gestione del dispositivo e possono ottenere log attività completi direttamente dai propri dispositivi. I moduli di protezione hardware dedicati consentono ai clienti di rispettare i requisiti di conformità e normativi, tra cui FIPS 140-2 Livello 3, HIPAA, PCI-DSS, eIDAS e molti altri.
 
 ### <a name="q-what-hardware-is-used-for-dedicated-hsm"></a>D: quale hardware viene usato per il modulo HSM dedicato?
 
-Microsoft ha collaborato con Thales per fornire il servizio HSM dedicato di Azure. Il dispositivo specifico usato è il modulo di protezione [hardware di rete Thales 7](https://cpl.thalesgroup.com/encryption/hardware-security-modules/network-hsms). Questo dispositivo non solo fornisce firmware convalidato FIPS 140-2 Livello 3, ma offre anche bassa latenza, prestazioni elevate e capacità elevata tramite 10 partizioni. 
+Microsoft ha collaborato con Thales per fornire il servizio HSM dedicato di Azure. Il dispositivo specifico usato è il [modello di modulo di protezione hardware Thales Luna 7 A790](https://cpl.thalesgroup.com/encryption/hardware-security-modules/network-hsms). Questo dispositivo non solo fornisce il firmware [FIPS 140-2 di livello 3](https://csrc.nist.gov/publications/detail/fips/140/2/final) convalidato, ma offre anche una bassa latenza, prestazioni elevate e capacità elevata tramite 10 partizioni. 
 
 ### <a name="q-what-is-an-hsm-used-for"></a>D: Per cosa viene usato un modulo di protezione hardware?
 
@@ -48,7 +48,7 @@ I clienti possono effettuare il provisioning di moduli di protezione hardware in
 
 ### <a name="q-what-software-is-provided-with-the-dedicated-hsm-service"></a>D: Quale software viene fornito con il servizio HSM dedicato?
 
-Thales fornisce tutto il software per il dispositivo HSM una volta eseguito il provisioning da Microsoft. Il software è disponibile nel [portale di supporto clienti di Thales](https://supportportal.gemalto.com/csm/). È necessario che i clienti che usano il servizio HSM dedicato siano registrati per il supporto di Thales e dispongano di un ID cliente che consenta l'accesso e il download del software pertinente. Il software client supportato è la versione 7,2, che è compatibile con la versione del firmware FIPS 140-2 di livello 3 convalidata 7.0.3. 
+Thales fornisce tutto il software per il dispositivo HSM una volta eseguito il provisioning da Microsoft. Il software è disponibile nel [portale di supporto clienti di Thales](https://supportportal.thalesgroup.com/csm). È necessario che i clienti che usano il servizio HSM dedicato siano registrati per il supporto di Thales e dispongano di un ID cliente che consenta l'accesso e il download del software pertinente. Il software client supportato è la versione 7,2, che è compatibile con la versione del firmware FIPS 140-2 di livello 3 convalidata 7.0.3. 
 
 ### <a name="q-what-extra-costs-may-be-incurred-with-dedicated-hsm-service"></a>D: quali costi aggiuntivi possono essere sostenuti con il servizio HSM dedicato?
 
@@ -63,11 +63,11 @@ Attualmente il servizio HSM dedicato di Azure fornisce solo moduli di protezione
 
 ### <a name="q-will-azure-dedicated-hsm-host-my-hsms-for-me"></a>D: il modulo di protezione hardware dedicato di Azure ospita HSM per me?
 
-Microsoft offre solo il modulo di protezione hardware di rete Thales 7 tramite il servizio HSM dedicato e non può ospitare alcun dispositivo fornito dal cliente.
+Microsoft offre solo il modello di modulo di protezione hardware Thales Luna 7 A790 tramite il servizio HSM dedicato e non può ospitare alcun dispositivo fornito dal cliente.
 
 ### <a name="q-does-azure-dedicated-hsm-support-payment-pineft-features"></a>D: il modulo di protezione hardware dedicato di Azure supporta le funzionalità di pagamento (PIN/EFT)?
 
-Il servizio HSM dedicato di Azure usa i dispositivi network Luna HSM 7 di Thales. Questi dispositivi non supportano funzionalità specifiche del modulo di protezione hardware (ad esempio PIN o EFT) o certificazioni. Se si vuole che il servizio HSM dedicato di Azure supporti il HSM di pagamento in futuro, inviare il feedback al rappresentante dell'account Microsoft.
+Il servizio HSM dedicato di Azure usa Thales Luna 7 HSM. Questi dispositivi non supportano funzionalità specifiche del modulo di protezione hardware (ad esempio PIN o EFT) o certificazioni. Se si vuole che il servizio HSM dedicato di Azure supporti il HSM di pagamento in futuro, inviare il feedback al rappresentante dell'account Microsoft.
 
 ### <a name="q-which-azure-regions-is-dedicated-hsm-available-in"></a>D: in quali aree di Azure è disponibile un modulo di protezione hardware dedicato?
 
@@ -101,7 +101,7 @@ A partire dalla fine del 2019 marzo, il modulo di protezione hardware dedicato �
 
 ### <a name="q-how-does-my-application-connect-to-a-dedicated-hsm"></a>D: In che modo l'applicazione si connette al servizio HSM dedicato?
 
-Per eseguire operazioni di crittografia dalle applicazioni, si usa l'SDK o il software client HSM fornito da Thales. Il software è disponibile nel [portale di supporto clienti di Thales](https://supportportal.gemalto.com/csm/). È necessario che i clienti che usano il servizio HSM dedicato siano registrati per il supporto di Thales e dispongano di un ID cliente che consenta l'accesso e il download del software pertinente.
+Per eseguire operazioni di crittografia dalle applicazioni, si usa l'SDK o il software client HSM fornito da Thales. Il software è disponibile nel [portale di supporto clienti di Thales](https://supportportal.thalesgroup.com/csm). È necessario che i clienti che usano il servizio HSM dedicato siano registrati per il supporto di Thales e dispongano di un ID cliente che consenta l'accesso e il download del software pertinente.
 
 ### <a name="q-can-an-application-connect-to-dedicated-hsm-from-a-different-vnet-in-or-across-regions"></a>D: Un'applicazione può connettersi al servizio HSM dedicato da una rete virtuale diversa all'interno di una stessa area o tra aree diverse?
 
@@ -117,7 +117,7 @@ No. I moduli di protezione hardware dedicati di Azure sono accessibili solo dall
 
 ### <a name="q-can-i-import-keys-from-an-existing-on-premises-hsm-to-dedicated-hsm"></a>D: È possibile importare chiavi da un modulo di protezione hardware locale esistente a HSM dedicato?
 
-Sì, se si ha una rete Thales locale di HSM Esistono vari metodi. Vedere la documentazione del modulo di protezione [hardware Thales](https://thalesdocs.com/gphsm/luna/7.2/docs/network/Content/Home_network.htm).
+Sì, se si dispone dell'istanza locale di Thales Luna 7 HSM. Esistono vari metodi. Vedere la documentazione del modulo di protezione [hardware Thales](https://thalesdocs.com/gphsm/luna/7.2/docs/network/Content/Home_network.htm).
 
 ### <a name="q-what-operating-systems-are-supported-by-dedicated-hsm-client-software"></a>D: Quali sono i sistemi operativi supportati dal software client HSM dedicato?
 
@@ -130,7 +130,7 @@ Per ottenere la disponibilità elevata, è necessario impostare la configurazion
 
 ### <a name="q-what-authentication-mechanisms-are-supported-by-dedicated-hsm"></a>D: Quali meccanismi di autenticazione sono supportati dal servizio HSM dedicato?
 
-HSM dedicato di Azure usa appliance SafeNet Network HSM 7 (modello A790), che supportano l'autenticazione basata su password.
+Il modulo HSM dedicato di Azure usa i dispositivi [A790 di Thales Luna 7](https://cpl.thalesgroup.com/encryption/hardware-security-modules/network-hsms) e supportano l'autenticazione basata su password.
 
 ### <a name="q-what-sdks-apis-client-software-is-available-to-use-with-dedicated-hsm"></a>D: Quali SDK, API e software client sono disponibili per l'uso con HSM dedicato?
 
@@ -207,7 +207,7 @@ Sì. La configurazione e la configurazione della disponibilità elevata vengono 
 
 ### <a name="q-can-i-add-hsms-from-my-on-premises-network-to-a-high-availability-group-with-azure-dedicated-hsm"></a>D: è possibile aggiungere HSM dalla rete locale a un gruppo di disponibilità elevata con il modulo di protezione hardware dedicato di Azure?
 
-Sì. I moduli devono soddisfare i requisiti di disponibilità elevata per SafeNet Luna Network HSM 7.
+Sì. Devono soddisfare i requisiti di disponibilità elevata per [Thales Luna 7 HSM](https://cpl.thalesgroup.com/encryption/hardware-security-modules/network-hsms)
 
 ### <a name="q-can-i-add-luna-56-hsms-from-on-premises-networks-to-a-high-availability-group-with-azure-dedicated-hsm"></a>D: è possibile aggiungere luna 5/6 HSM dalle reti locali a un gruppo di disponibilità elevata con il modulo di protezione hardware dedicato di Azure?
 
@@ -229,7 +229,7 @@ I data center di Azure dispongono di controlli di sicurezza fisici e procedurali
 
 ### <a name="q-what-happens-if-there-is-a-security-breach-or-hardware-tampering-event"></a>D: Cosa accade se si verifica un evento di violazione della sicurezza o di manomissione dell'hardware?
 
-Il servizio HSM dedicato usa le appliance di Thales Network Luna HSM 7. Queste appliance supportano il rilevamento di manomissioni fisiche e logiche. Se si verificasse un evento di manomissione, i moduli di protezione hardware verrebbero automaticamente impostati su zero.
+Il servizio HSM dedicato utilizza appliance del modulo di protezione hardware [Thales Luna 7](https://cpl.thalesgroup.com/encryption/hardware-security-modules/network-hsms) . Questi dispositivi supportano il rilevamento delle manomissioni fisiche e logiche. Se si verificasse un evento di manomissione, i moduli di protezione hardware verrebbero automaticamente impostati su zero.
 
 ### <a name="q-how-do-i-ensure-that-keys-in-my-dedicated-hsms-are-not-lost-due-to-error-or-a-malicious-insider-attack"></a>D: Come ci si può assicurare che le chiavi in HSM dedicato non vadano perse a causa di un errore o un attacco dannoso dall'interno?
 
@@ -239,7 +239,7 @@ Il servizio HSM dedicato usa le appliance di Thales Network Luna HSM 7. Queste a
 
 Il supporto è fornito da Microsoft e Thales.  Se si riscontra un problema relativo all'hardware o all'accesso alla rete, generare una richiesta di supporto con Microsoft e in caso di problemi con la configurazione HSM, il software e lo sviluppo di applicazioni generano una richiesta di supporto con Thales. Se si verifica un problema non determinato, generare una richiesta di supporto con Microsoft, quindi è possibile impegnare Thales come richiesto. 
 
-### <a name="q-how-do-i-get-the-client-software-documentation-and-access-to-integration-guidance-for-the-thales-network-luna-hsm-7"></a>D: Ricerca per categorie ottenere il software client, la documentazione e l'accesso alle linee guida per l'integrazione di Thales Network Luna HSM 7?
+### <a name="q-how-do-i-get-the-client-software-documentation-and-access-to-integration-guidance-for-the-thales-luna-7-hsm"></a>D: Ricerca per categorie ottenere il software client, la documentazione e l'accesso alle linee guida per l'integrazione per il modulo di protezione hardware Thales Luna 7?
 
 Dopo la registrazione per il servizio, verrà fornito un ID cliente Thales che consente la registrazione nel portale di supporto clienti di Thales. Questo consentirà l'accesso a tutto il software e la documentazione, oltre ad abilitare le richieste di supporto direttamente con Thales.
 
@@ -255,11 +255,11 @@ Il modulo di protezione hardware dispone di un'opzione di riavvio dalla riga di 
 
 ### <a name="q-is-it-safe-to-store-encryption-keys-for-my-most-important-data-in-dedicated-hsm"></a>D: È sicuro archiviare le chiavi di crittografia per i dati più importanti in HSM dedicato?
 
-Sì, il modulo HSM dedicato effettua il provisioning di Thales Network Luna HSM 7 appliance che usano FIPS 140-2 livello 3 convalidato HSM. 
+Sì, il modulo HSM dedicato esegue il provisioning di Thales Luna 7 HSM con [FIPS 140-2 livello 3](https://csrc.nist.gov/publications/detail/fips/140/2/final) convalidato. 
 
 ### <a name="q-what-cryptographic-keys-and-algorithms-are-supported-by-dedicated-hsm"></a>D: Quali chiavi di crittografia e algoritmi sono supportati da HSM dedicato?
 
-Il servizio HSM dedicato provisioning di Thales Network Luna HSM 7 Appliance. Queste supportano un'ampia gamma di tipi di algoritmi e chiavi di crittografia, incluso il supporto completo di Suite B
+Il servizio HSM dedicato effettua il provisioning delle appliance di Thales Luna 7 HSM. Queste supportano un'ampia gamma di tipi di algoritmi e chiavi di crittografia, incluso il supporto completo di Suite B
 
 * Asimmetrica:
   * RSA
@@ -283,11 +283,11 @@ Il servizio HSM dedicato provisioning di Thales Network Luna HSM 7 Appliance. Qu
 
 ### <a name="q-is-dedicated-hsm-fips-140-2-level-3-validated"></a>D: HSM dedicato è convalidato FIPS 140-2 Livello 3?
 
-Sì. Il servizio HSM dedicato effettua il provisioning di Thales Network Luna HSM 7 appliance che usano FIPS 140-2 livello 3 convalidato HSM.
+Sì. Il servizio HSM dedicato esegue il provisioning di [Thales Luna 7 HSM modello A790](https://cpl.thalesgroup.com/encryption/hardware-security-modules/network-hsms) appliance [FIPS 140-2 livello 3](https://csrc.nist.gov/publications/detail/fips/140/2/final) convalidato.
 
 ### <a name="q-what-do-i-need-to-do-to-make-sure-i-operate-dedicated-hsm-in-fips-140-2-level-3-validated-mode"></a>D: Cosa occorre fare per assicurarsi di usare HSM dedicato in modalità convalidata FIPS 140-2 Livello 3?
 
-Il servizio HSM dedicato effettua il provisioning di Thales Network Luna HSM 7 Appliance. Queste appliance usano moduli di protezione hardware convalidati in base agli standard FIPS 140-2 Livello 3. La configurazione predefinita distribuita, il sistema operativo e il firmware sono anch'essi convalidati FIPS. Non è richiesta alcuna azione per la conformità a FIPS 140-2 Livello 3.
+Il servizio HSM dedicato effettua il provisioning dei dispositivi HSM Luna 7 di Thales. Questi dispositivi sono HSM convalidati FIPS 140-2 di livello 3. La configurazione predefinita distribuita, il sistema operativo e il firmware sono anch'essi convalidati FIPS. Non è richiesta alcuna azione per la conformità a FIPS 140-2 Livello 3.
 
 ### <a name="q-how-does-a-customer-ensure-that-when-an-hsm-is-deprovisioned-all-the-key-material-is-wiped-out"></a>D: in che modo un cliente garantisce che quando viene effettuato il deprovisioning di un modulo di protezione hardware viene cancellato tutto il materiale della chiave?
 
@@ -297,7 +297,7 @@ Prima di richiedere il deprovisioning, un cliente deve avere azzerato il HSM usa
 
 ### <a name="q-how-many-cryptographic-operations-are-supported-per-second-with-dedicated-hsm"></a>D: Quante operazioni di crittografia al secondo sono supportate con HSM dedicato?
 
-Provisioning del modulo di protezione hardware dedicato Thales Network Luna HSM 7 HSM. Ecco un riepilogo delle prestazioni massime per alcune operazioni: 
+Il modulo HSM dedicato provisioning di Thales Luna 7 HSM. Ecco un riepilogo delle prestazioni massime per alcune operazioni: 
 
 * RSA-2048: 10.000 transazioni al secondo
 * ECC P256: 20.000 transazioni al secondo
@@ -305,7 +305,7 @@ Provisioning del modulo di protezione hardware dedicato Thales Network Luna HSM 
 
 ### <a name="q-how-many-partitions-can-be-created-in-dedicated-hsm"></a>D: Quante partizioni è possibile creare in HSM dedicato?
 
-Il modello SafeNet Luna HSM 7 A790 usato include una licenza per 10 partizioni nel costo del servizio. Il dispositivo ha un limite di 100 partizioni e l'aggiunta di partizioni fino a questo limite comporta costi aggiuntivi di licenza e richiede l'installazione di un nuovo file di licenza nel dispositivo.
+Il [modello di modulo di protezione hardware Thales Luna 7 A790](https://cpl.thalesgroup.com/encryption/hardware-security-modules/network-hsms) usato include una licenza per 10 partizioni nel costo del servizio. Il dispositivo ha un limite di 100 partizioni e l'aggiunta di partizioni fino a questo limite comporta costi aggiuntivi di licenza e richiede l'installazione di un nuovo file di licenza nel dispositivo.
 
 ### <a name="q-how-many-keys-can-be-supported-in-dedicated-hsm"></a>D: Quante chiavi possono essere supportate in HSM dedicato?
 

@@ -8,12 +8,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 03/25/2021
-ms.openlocfilehash: b1bb749400cfb1e289a0a335275f4654d37145e9
-ms.sourcegitcommit: ed7376d919a66edcba3566efdee4bc3351c57eda
+ms.openlocfilehash: 2f12f33bf6108784b2eec252fb12d03eebd2a45c
+ms.sourcegitcommit: 73d80a95e28618f5dfd719647ff37a8ab157a668
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/24/2021
-ms.locfileid: "105046505"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105604940"
 ---
 # <a name="how-to-plan-a-saas-offer-for-the-commercial-marketplace"></a>Come pianificare un'offerta SaaS per il Marketplace commerciale
 
@@ -37,9 +37,9 @@ La tabella seguente mostra le opzioni di elenco per le offerte SaaS nel Marketpl
 
 Per ulteriori informazioni su queste opzioni di elenco, vedere la pagina relativa alle [funzionalità di transacting del Marketplace commerciale](marketplace-commercial-transaction-capabilities-and-considerations.md).
 
-Dopo la pubblicazione dell'offerta, l'opzione relativa all'elenco scelto per l'offerta viene visualizzata come pulsante nell'angolo in alto a sinistra della pagina di presentazione dell'offerta. Ad esempio, la schermata seguente mostra una pagina di presentazione dell'offerta in Azure Marketplace con i pulsanti **Get it now** e **test drive** .
+Dopo la pubblicazione dell'offerta, l'opzione relativa all'elenco scelto per l'offerta viene visualizzata come pulsante nell'angolo in alto a sinistra della pagina di presentazione dell'offerta. Ad esempio, la schermata seguente mostra una pagina di presentazione dell'offerta in Azure Marketplace con il pulsante **Get it Now (Ottieni ora** ).
 
-![Viene illustrato un elenco di offerte nel negozio online.](./media/listing-options.png)
+![Viene illustrato un elenco di offerte nel negozio online.](./media/saas/listing-options-saas-full.png)
 
 ## <a name="technical-requirements"></a>Requisiti tecnici
 
@@ -138,7 +138,7 @@ Se si sceglie di utilizzare il contratto standard, si ha la possibilità di aggi
 
 Quando si [Crea una nuova offerta SaaS](create-new-saas-offer.md) nel centro per i partner, si immetteranno testo, immagini, video facoltativi e altri dettagli nella pagina di presentazione dell' **offerta** . Si tratta delle informazioni che i clienti visualizzeranno quando scoprono l'inserzione dell'offerta nel Marketplace commerciale, come illustrato nell'esempio seguente.
 
-:::image type="content" source="./media/example-saas-1.png" alt-text="Viene illustrato come viene visualizzata questa offerta in Microsoft AppSource.":::
+:::image type="content" source="./media/saas/example-saas-1.png" alt-text="Viene illustrato come viene visualizzata questa offerta in Microsoft AppSource.":::
 
 **Descrizioni di chiamata**
 

@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 03/30/2020
 ms.author: ajburnle
 ms.custom: include file
-ms.openlocfilehash: 61858a478ead93b3709bb3e05c26335c9acbc24d
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 1bbc549a9ba457d5f515df25d6fdce0c2ede6f2e
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98698128"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105582862"
 ---
 ## <a name="for-users-in-your-directory"></a>Per gli utenti nella directory
 
@@ -27,7 +27,7 @@ Seguire questa procedura se si desidera consentire agli utenti della directory d
 
 1. Selezionare una delle opzioni seguenti:
 
-    |  |  |
+    |  | Descrizione |
     | --- | --- |
     | **Utenti e gruppi specifici** | Scegliere questa opzione se si desidera che solo gli utenti e i gruppi nella directory specificata siano in grado di richiedere questo pacchetto di accesso. |
     | **Tutti i membri (esclusi i guest)** | Scegliere questa opzione se si desidera che tutti gli utenti membro della directory siano in grado di richiedere questo pacchetto di accesso. Questa opzione non include gli utenti guest che potrebbero essere stati invitati nella directory. |
@@ -62,7 +62,7 @@ Se si desidera consentire agli utenti non inclusi nella directory di richiedere 
 
 1. Selezionare una delle opzioni seguenti:
 
-    |  |  |
+    |  | Descrizione |
     | --- | --- |
     | **Organizzazioni connesse specifiche** | Scegliere questa opzione se si desidera effettuare una selezione da un elenco di organizzazioni che l'amministratore ha aggiunto in precedenza. Tutti gli utenti delle organizzazioni selezionate possono richiedere questo pacchetto di accesso. |
     | **Tutte le organizzazioni connesse** | Scegliere questa opzione se tutti gli utenti di tutte le organizzazioni connesse possono richiedere questo pacchetto di accesso. |

@@ -5,15 +5,15 @@ author: vermagit
 ms.service: virtual-machines
 ms.subservice: hpc
 ms.topic: article
-ms.date: 03/18/2021
+ms.date: 03/25/2021
 ms.author: amverma
 ms.reviewer: cynthn
-ms.openlocfilehash: 65a06a60b502b0e189ebe8a5e203553494f5d128
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
+ms.openlocfilehash: 4ab2c599bea4b2e3e682755a80a2ee348e4de7ef
+ms.sourcegitcommit: 73d80a95e28618f5dfd719647ff37a8ab157a668
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "104721292"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105606777"
 ---
 # <a name="scaling-hpc-applications"></a>Ridimensionamento di applicazioni HPC
 
@@ -43,6 +43,9 @@ I suggerimenti seguenti si applicano per ottimizzare l'efficienza, le prestazion
    ```bash
    Max Connections = (processes per node) x (number of nodes per job) x (number of nodes per job) 
    ```
+
+## <a name="adaptive-routing"></a>Routing adattivo
+Adaptive routing (AR) consente alle macchine virtuali di Azure che eseguono EDR e HDR InfiniBand di rilevare automaticamente ed evitare la congestione della rete selezionando dinamicamente percorsi di rete più ottimali. Di conseguenza, AR offre una maggiore latenza e larghezza di banda nella rete InfiniBand, che a sua volta determina una maggiore efficienza di prestazioni e scalabilità. Per altri dettagli, vedere l'articolo relativo a [TechCommunity](https://techcommunity.microsoft.com/t5/azure-compute/adaptive-routing-on-azure-hpc/ba-p/1205217).
 
 ## <a name="process-pinning"></a>Blocco processo
 
