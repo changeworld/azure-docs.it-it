@@ -9,12 +9,12 @@ ms.author: mikben
 ms.date: 03/10/2021
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: 240bdaee9073ab18e175e2911ac1c23ae49b3d7e
-ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
+ms.openlocfilehash: 31b8e2e9a8e69fd730edb2c826005104f5f82bdc
+ms.sourcegitcommit: 73d80a95e28618f5dfd719647ff37a8ab157a668
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 03/26/2021
-ms.locfileid: "105562410"
+ms.locfileid: "105609191"
 ---
 # <a name="calling-sdk-overview"></a>Panoramica dell'SDK chiamante
 
@@ -72,17 +72,17 @@ L'elenco seguente presenta il set di funzionalità attualmente disponibili nei s
 |                   | Imposta/Aggiorna modalità di ridimensionamento                                                                                           | ✔️   | ✔️            | ✔️ 
 |                   | Rendering del flusso video remoto                                                                                          | ✔️   | ✔️            | ✔️
 
-## <a name="calling-client-library-streaming-support"></a>Supporto streaming per la libreria client per le chiamate
-I servizi di comunicazione che chiamano la libreria client supportano le configurazioni di flusso seguenti:
+## <a name="calling-sdk-streaming-support"></a>Chiamata del supporto di streaming SDK
+Il servizio Communication Services chiamante SDK supporta le configurazioni di flusso seguenti:
 
 | Limite          |Web | Android/iOS|
 |-----------|----|------------|
 |**Numero di flussi in uscita che possono essere inviati contemporaneamente** |1 video + 1 condivisione dello schermo | 1 video + 1 condivisione dello schermo|
 |**Numero di flussi in entrata di cui è possibile eseguire il rendering simultaneamente** |1 video + 1 condivisione dello schermo| 6 video + 1 condivisione dello schermo |
 
-## <a name="calling-client-library-timeouts"></a>Chiamata dei timeout della libreria client
+## <a name="calling-sdk-timeouts"></a>Timeout della chiamata di SDK
 
-I timeout seguenti si applicano ai servizi di comunicazione che chiamano le librerie client:
+I timeout seguenti si applicano ai servizi di comunicazione che chiamano gli SDK:
 
 | Azione           | Timeout in secondi |
 | -------------- | ---------- |
