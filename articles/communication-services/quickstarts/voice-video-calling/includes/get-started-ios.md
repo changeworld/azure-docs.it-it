@@ -1,22 +1,22 @@
 ---
 title: "Avvio rapido: Aggiungere chiamate a un'app iOS con Servizi di comunicazione di Azure"
-description: Questa guida di avvio rapido illustra come usare la libreria client Chiamate di Servizi di comunicazione di Azure per iOS.
+description: Questa Guida introduttiva illustra come usare i servizi di comunicazione di Azure che chiamano SDK per iOS.
 author: chpalm
 ms.author: mikben
 ms.date: 03/10/2021
 ms.topic: quickstart
 ms.service: azure-communication-services
-ms.openlocfilehash: 6cdd38f1e849efc416d62f22bd85ed7efb2e6349
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 5d3a282d108d197ea0c5c616e9ee84fb7b952026
+ms.sourcegitcommit: bed20f85722deec33050e0d8881e465f94c79ac2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104719790"
+ms.lasthandoff: 03/25/2021
+ms.locfileid: "105108284"
 ---
-In questo argomento di avvio rapido si apprenderà come avviare una chiamata usando la libreria client Chiamate di Servizi di comunicazione di Azure per iOS.
+Questa Guida introduttiva illustra come avviare una chiamata usando i servizi di comunicazione di Azure che chiamano SDK per iOS.
 
 > [!NOTE]
-> Questo documento usa la versione 1.0.0-beta. 8 della libreria client chiamante.
+> Questo documento usa la versione 1.0.0-beta. 8 dell'SDK chiamante.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -119,11 +119,11 @@ struct ContentView: View {
 
 ## <a name="object-model"></a>Modello a oggetti
 
-Le classi e le interfacce seguenti gestiscono alcune delle principali funzionalità della libreria client Chiamate di Servizi di comunicazione di Azure:
+Le classi e le interfacce seguenti gestiscono alcune delle principali funzionalità di Azure Communication Services che chiamano SDK:
 
 | Nome                                  | Descrizione                                                  |
 | ------------------------------------- | ------------------------------------------------------------ |
-| CallClient | CallClient è il principale punto di ingresso alla libreria client Chiamate.|
+| CallClient | CallClient è il punto di ingresso principale dell'SDK chiamante.|
 | CallAgent | CallAgent si usa per avviare e gestire le chiamate. |
 | CommunicationTokenCredential | CommunicationTokenCredential viene usato come credenziale del token per creare un'istanza di CallAgent.| 
 | CommunicationUserIdentifier | CommunicationUserIdentifier viene usato per rappresentare l'identità dell'utente che può essere una delle seguenti: CommunicationUserIdentifier/PhoneNumberIdentifier/CallingApplication. |

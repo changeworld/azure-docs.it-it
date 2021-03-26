@@ -26,7 +26,7 @@
 - name: Esercitazioni
   items:
     - name: Connettere in modo sicuro dispositivi IoT al cloud
-      href: /learn/paths/securely-connect-iot-devices/
+      href: /learn/paths/securely-connect-iot-devices/?wt.mc_id=iothub_connect_docs_tutorials
 - name: Concetti
   items:
     - name: Opzioni di connessione per gli sviluppatori di dispositivi

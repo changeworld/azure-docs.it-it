@@ -5,12 +5,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: seoapr2020, devx-track-python
 ms.date: 04/29/2020
-ms.openlocfilehash: 8fbbe137ece7aac2dd2196c5ebec435e118297ad
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: c3f912b4f4c2e78c44425f489927cee185b3d312
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98929821"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104868716"
 ---
 # <a name="safely-manage-python-environment-on-azure-hdinsight-using-script-action"></a>Gestire in modo sicuro l'ambiente Python in Azure HDInsight con azione script
 
@@ -104,7 +104,7 @@ Il cluster HDInsight dipende dall'ambiente Python incorporato, sia Python 2.7 ch
 
     1. Aprire l'interfaccia utente di Ambari e passare alla pagina Spark2, scheda Configurazione.
 
-        ![Modificare la configurazione di Spark e Livy tramite Ambari](./media/apache-spark-python-package-installation/ambari-spark-and-livy-config.png)
+        :::image type="content" source="./media/apache-spark-python-package-installation/ambari-spark-and-livy-config.png" alt-text="Modificare la configurazione di Spark e Livy tramite Ambari" border="true":::
 
     2. Espandere Advanced livy2-env, quindi aggiungere le istruzioni seguenti in basso. Se l'ambiente virtuale è stato installato con un prefisso diverso, modificare il percorso di conseguenza.
 
@@ -113,7 +113,7 @@ Il cluster HDInsight dipende dall'ambiente Python incorporato, sia Python 2.7 ch
         export PYSPARK_DRIVER_PYTHON=/usr/bin/anaconda/envs/py35new/bin/python
         ```
 
-        ![Modificare la configurazione di Livy tramite Ambari](./media/apache-spark-python-package-installation/ambari-livy-config.png)
+        :::image type="content" source="./media/apache-spark-python-package-installation/ambari-livy-config.png" alt-text="Modificare la configurazione di Livy tramite Ambari" border="true":::
 
     3. Espandere Advanced spark2-env e sostituire l'istruzione di esportazione PYSPARK_PYTHON esistente in basso. Se l'ambiente virtuale è stato installato con un prefisso diverso, modificare il percorso di conseguenza.
 
@@ -121,11 +121,11 @@ Il cluster HDInsight dipende dall'ambiente Python incorporato, sia Python 2.7 ch
         export PYSPARK_PYTHON=${PYSPARK_PYTHON:-/usr/bin/anaconda/envs/py35new/bin/python}
         ```
 
-        ![Modificare la configurazione di Spark tramite Ambari](./media/apache-spark-python-package-installation/ambari-spark-config.png)
+        :::image type="content" source="./media/apache-spark-python-package-installation/ambari-spark-config.png" alt-text="Modificare la configurazione di Spark tramite Ambari" border="true":::
 
     4. Salvare le modifiche e riavviare i servizi interessati. Queste modifiche richiedono il riavvio del servizio Spark2. L'interfaccia utente di Ambari mostrerà un promemoria per indicare la necessità di un riavvio; fare quindi clic su Riavvia per riavviare tutti i servizi interessati.
 
-        ![Riavviare i servizi](./media/apache-spark-python-package-installation/ambari-restart-services.png)
+        :::image type="content" source="./media/apache-spark-python-package-installation/ambari-restart-services.png" alt-text="Riavviare i servizi" border="true":::
 
     5. Impostare due proprietà sulla sessione di Spark per assicurarsi che il processo punti alla configurazione Spark aggiornata: `spark.yarn.appMasterEnv.PYSPARK_PYTHON` e `spark.yarn.appMasterEnv.PYSPARK_DRIVER_PYTHON` . 
 
@@ -153,7 +153,7 @@ Il cluster HDInsight dipende dall'ambiente Python incorporato, sia Python 2.7 ch
 
     Per confermare l'ambiente Python in Jupyter Notebook, eseguire il codice seguente:
 
-    ![Controllare la versione di Python in Jupyter Notebook](./media/apache-spark-python-package-installation/check-python-version-in-jupyter.png)
+    :::image type="content" source="./media/apache-spark-python-package-installation/check-python-version-in-jupyter.png" alt-text="Controllare la versione di Python in Jupyter Notebook" border="true":::
 
 ## <a name="known-issue"></a>Problema noto
 

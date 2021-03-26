@@ -4,12 +4,12 @@ description: Informazioni su come esplorare le procedure consigliate per l'esecu
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 04/01/2020
-ms.openlocfilehash: 63484d882d8ccd387257c6f246c2048a09c77bc8
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 549eab1547b75eb9461b23df2c157290943b4ed9
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98933115"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104869787"
 ---
 # <a name="gateway-deep-dive-and-best-practices-for-apache-hive-in-azure-hdinsight"></a>Approfondimenti sul gateway e procedure consigliate per Apache Hive in Azure HDInsight
 
@@ -21,7 +21,7 @@ Il gateway HDInsight è l'unica parte di un cluster HDInsight accessibile pubbli
 
 Il diagramma seguente fornisce un'illustrazione approssimativa del modo in cui il gateway fornisce un'astrazione davanti a tutte le diverse possibilità di risoluzione host all'interno di HDInsight.
 
-![Diagramma di risoluzione host](./media/gateway-best-practices/host-resolution-diagram.png "Diagramma di risoluzione host")
+:::image type="content" source="./media/gateway-best-practices/host-resolution-diagram.png " alt-text="Diagramma di risoluzione host" border="true":::
 
 ## <a name="motivation"></a>Motivazione
 
@@ -39,7 +39,7 @@ Il calo delle prestazioni del gateway per le query di grandi dimensioni è dovut
 
 Il diagramma seguente illustra i passaggi necessari in una query SELECT.
 
-![Diagramma risultati](./media/gateway-best-practices/result-retrieval-diagram.png "Diagramma risultati")
+:::image type="content" source="./media/gateway-best-practices/result-retrieval-diagram.png " alt-text="Diagramma risultati" border="true":::
 
 Apache Hive è un'astrazione relazionale basata su un file system compatibile con HDFS. Questa astrazione significa che le istruzioni **Select** in hive corrispondono a operazioni di **lettura** nel file System. Le operazioni di **lettura** vengono convertite nello schema appropriato prima di essere segnalate all'utente. La latenza di questo processo aumenta con le dimensioni dei dati e gli hop totali necessari per raggiungere l'utente finale.
 

@@ -8,12 +8,12 @@ ms.author: rifox
 ms.date: 03/10/2021
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: 204a7ff77b4dd32ef62e1a06c66d50d7b30fcfc4
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: e403fb8bcd25d1274eda287bc62465bacdb9b613
+ms.sourcegitcommit: ed7376d919a66edcba3566efdee4bc3351c57eda
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103496134"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105045468"
 ---
 # <a name="help-and-support-options-for-azure-communication-services"></a>Opzioni di guida e supporto per i servizi di comunicazione di Azure
 
@@ -24,9 +24,9 @@ Con Azure sono disponibili numerose [Opzioni e piani di supporto](https://azure.
 
 ## <a name="post-a-question-to-microsoft-qa"></a>Inviare una domanda a Microsoft Q&A
 
-Per risposte rapide e affidabili al prodotto o alle domande tecniche che potrebbero essere disponibili sui servizi di comunicazione di Azure da tecnici Microsoft, MVP (Most Valuable Professional) o dalla nostra community, contattaci con [Microsoft Q&a](https://docs.microsoft.com/answers/products/azure). 
+Per risposte rapide e affidabili al prodotto o alle domande tecniche che potrebbero essere disponibili sui servizi di comunicazione di Azure da tecnici Microsoft, MVP (Most Valuable Professional) o dalla nostra community, contattaci con [Microsoft Q&a](/answers/products/azure). 
 
-Se non si riesce a trovare una risposta al problema eseguendo una ricerca, è possibile inviare una nuova domanda a Microsoft Q&A. Quando si crea una domanda, assicurarsi di usare il [tag servizi di comunicazione di Azure](https://docs.microsoft.com/answers/topics/azure-communication-services.html).
+Se non si riesce a trovare una risposta al problema eseguendo una ricerca, è possibile inviare una nuova domanda a Microsoft Q&A. Quando si crea una domanda, assicurarsi di usare il [tag servizi di comunicazione di Azure](/answers/topics/azure-communication-services.html).
 
 ## <a name="post-a-question-on-stack-overflow"></a>Pubblicare una domanda su Stack Overflow
 

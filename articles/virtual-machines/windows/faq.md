@@ -8,12 +8,12 @@ ms.workload: infrastructure-services
 ms.topic: conceptual
 ms.date: 05/08/2019
 ms.author: cynthn
-ms.openlocfilehash: 0de25b29dc1e930956c01f342ca2614d1a9082ca
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 2dc94ea904da128be01decf36e2d36dc9510c2a5
+ms.sourcegitcommit: ed7376d919a66edcba3566efdee4bc3351c57eda
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102557506"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105043881"
 ---
 # <a name="frequently-asked-question-about-windows-virtual-machines"></a>Domande frequenti sulle Macchine virtuali Windows
 Questo articolo analizza alcune delle domande più comuni sulle macchine virtuali Windows create in Azure mediante il modello di distribuzione di Gestione risorse. Per la versione di Linux di questo argomento, vedere [domande frequenti su macchine virtuali Linux](../linux/faq.md).
@@ -33,7 +33,7 @@ Gli account di archiviazione di Azure offrono inoltre spazio di archiviazione pe
 ## <a name="how-can-i-access-my-virtual-machine"></a>Come si accede alla macchina virtuale?
 Stabilire una connessione remota mediante la Connessione desktop remoto (RDP) per una VM Windows. Per istruzioni, vedere [come connettersi e accedere a una macchina virtuale di Azure che esegue Windows](connect-logon.md). Sono supportate al massimo due connessioni simultanee, a meno che il server non sia configurato come host sessione Servizi Desktop remoto.  
 
-Se si verificano problemi con Desktop remoto, vedere [risolvere i problemi relativi alle connessioni Desktop remoto a una macchina virtuale di Azure basata su Windows](../troubleshooting/troubleshoot-rdp-connection.md?toc=/azure/virtual-machines/windows/toc.json). 
+Se si verificano problemi con Desktop remoto, vedere [risolvere i problemi relativi alle connessioni Desktop remoto a una macchina virtuale di Azure basata su Windows](/troubleshoot/azure/virtual-machines/troubleshoot-rdp-connection?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). 
 
 Se si ha familiarità con Hyper-V, è possibile che si stia cercando uno strumento simile a VMConnect. Azure non offre uno strumento simile perché l'accesso alla console a una macchina virtuale non è supportato.
 

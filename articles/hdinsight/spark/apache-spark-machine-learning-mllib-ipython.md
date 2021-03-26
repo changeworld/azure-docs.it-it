@@ -5,12 +5,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive,hdiseo17may2017,seoapr2020, devx-track-python
 ms.date: 04/27/2020
-ms.openlocfilehash: d2054058bb00b0801aa1c3694c73b6a2edb46c80
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 224ebae58a5688f81d1b64b4a9c81d5abd8a9690
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98930038"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104868852"
 ---
 # <a name="use-apache-spark-mllib-to-build-a-machine-learning-application-and-analyze-a-dataset"></a>Usare MLlib Apache Spark per compilare un'applicazione di Machine Learning e analizzare un set di dati
 
@@ -175,7 +175,7 @@ Ora si determinerà il contenuto del set di dati.
 
     L'output è il seguente:
 
-    ![Output della query SQL](./media/apache-spark-machine-learning-mllib-ipython/spark-machine-learning-query-output.png "Output della query SQL")
+    :::image type="content" source="./media/apache-spark-machine-learning-mllib-ipython/spark-machine-learning-query-output.png " alt-text="Output della query SQL" border="true":::
 
 3. È anche possibile creare un tracciato tramite Matplotlib, una libreria che consente di creare visualizzazioni di dati. Poiché il tracciato deve essere creato dal frame di dati **countResultsdf** conservato in locale, il frammento di codice deve iniziare con `%%local`. Questa azione garantisce che il codice venga eseguito localmente nel server Jupyter.
 
@@ -348,7 +348,7 @@ model = pipeline.fit(labeledData)
 
     Dovrebbe venire visualizzato l'output seguente:
 
-    ![Output dell'applicazione di Machine Learning Spark: percentuali dei grafici a torta di ispezioni non riuscite.](./media/apache-spark-machine-learning-mllib-ipython/spark-machine-learning-result-output-2.png "Output del risultato di Machine Learning Spark")
+    :::image type="content" source="./media/apache-spark-machine-learning-mllib-ipython/spark-machine-learning-result-output-2.png " alt-text="Output dell'applicazione di Machine Learning Spark: percentuali dei grafici a torta di ispezioni non riuscite." border="true":::
 
     In questo grafico un risultato positivo indica il controllo degli alimenti non superato, mentre un risultato negativo indica un controllo superato.
 

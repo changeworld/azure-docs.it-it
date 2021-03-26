@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 04/04/2019
 ms.topic: troubleshooting
-ms.openlocfilehash: ff2ef8970afa21c0218da20a5b79ea2fb782dd5c
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: f6d2696a68643f87de0fcaf2e723da9365d9953e
+ms.sourcegitcommit: ac035293291c3d2962cee270b33fca3628432fac
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "99053585"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "104953851"
 ---
 # <a name="troubleshoot-startstop-vms-during-off-hours-issues"></a>Risolvere i problemi relativi ad Avvio/Arresto di macchine virtuali durante gli orari di minore attività
 
@@ -149,7 +149,7 @@ Esaminare l'elenco seguente per le possibili risoluzioni:
   ```
 
 * Per avviare e arrestare macchine virtuali, l'account RunAs per l'account di Automazione deve avere le autorizzazioni appropriate sulla macchina virtuale. Per informazioni su come controllare le autorizzazioni su una risorsa, vedere [Avvio rapido - Visualizzare i ruoli assegnati a un utente tramite il portale di Azure](../../role-based-access-control/check-access.md). È necessario specificare l'ID applicazione dell'entità servizio usata dall'account RunAs. È possibile recuperare questo valore passando all'account di Automazione nel portale di Azure. Selezionare **Account RunAs** in **Impostazioni account** e selezionare l'account RunAs appropriato.
-* Se la macchina virtuale mostra un problema di avvio o deallocazione, potrebbe essere dovuto a un problema nella macchina virtuale stessa. Tra gli esempi rientrano un aggiornamento che viene applicato quando la macchina virtuale tenta di arrestarsi, un servizio che si blocca e altro ancora. Passare alla risorsa macchina virtuale e verificare se nei **log attività** sono presenti errori. Si può anche provare ad accedere alla macchina virtuale per verificare se sono presenti errori nei log eventi. Per altre informazioni sulla risoluzione dei problemi della VM, vedere la [risoluzione dei problemi relativi alle macchine virtuali di Azure](../../virtual-machines/troubleshooting/index.yml).
+* Se la macchina virtuale mostra un problema di avvio o deallocazione, potrebbe essere dovuto a un problema nella macchina virtuale stessa. Tra gli esempi rientrano un aggiornamento che viene applicato quando la macchina virtuale tenta di arrestarsi, un servizio che si blocca e altro ancora. Passare alla risorsa macchina virtuale e verificare se nei **log attività** sono presenti errori. Si può anche provare ad accedere alla macchina virtuale per verificare se sono presenti errori nei log eventi. Per altre informazioni sulla risoluzione dei problemi della VM, vedere la [risoluzione dei problemi relativi alle macchine virtuali di Azure](/troubleshoot/azure/virtual-machines/welcome-virtual-machines).
 * Cercare eventuali errori nei [flussi di processo](../automation-runbook-execution.md#job-statuses). Nel portale passare all'account di Automazione e selezionare **Processi** in **Automazione processi**.
 
 ## <a name="scenario-my-custom-runbook-fails-to-start-or-stop-my-vms"></a><a name="custom-runbook"></a>Scenario: Il runbook personalizzato non riesce ad avviare o arrestare le macchine virtuali

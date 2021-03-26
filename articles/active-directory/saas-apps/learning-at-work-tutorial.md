@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 02/25/2021
 ms.author: jeedes
-ms.openlocfilehash: bd7203aa9c9efe3b4eeefbda6043720c2bbaa066
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 13327beb5c40a1b00aedd754cb6d02dbca585f8c
+ms.sourcegitcommit: ac035293291c3d2962cee270b33fca3628432fac
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102449476"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "104953358"
 ---
 # <a name="tutorial-integrate-learning-at-work-with-azure-active-directory"></a>Esercitazione: integrare Learning at Work con Azure Active Directory
 
@@ -136,8 +136,8 @@ In questa sezione viene testata la configurazione dell'accesso Single Sign-On di
 
 * Passare a Learning at Work URL Sign-on direttamente e avviare il flusso di accesso da qui.
 
-* È possibile usare App personali Microsoft. Quando si fa clic sul riquadro Learning at work in app personali, questo verrà reindirizzato a Learning at Work URL Sign-on. Per altre informazioni su App personali, vedere l'[introduzione ad App personali](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+* È possibile usare App personali Microsoft. Quando si fa clic sul riquadro Learning at work in app personali, questo verrà reindirizzato a Learning at Work URL Sign-on. Per altre informazioni su App personali, vedere l'[introduzione ad App personali](../user-help/my-apps-portal-end-user-access.md).
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Una volta configurata l'apprendimento al lavoro, è possibile applicare il controllo della sessione, che protegge exfiltration e infiltrando i dati sensibili dell'organizzazione in tempo reale. Il controllo sessione costituisce un'estensione dell'accesso condizionale. [Informazioni su come applicare il controllo sessione con Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
+Una volta configurata l'apprendimento al lavoro, è possibile applicare il controllo della sessione, che protegge exfiltration e infiltrando i dati sensibili dell'organizzazione in tempo reale. Il controllo sessione costituisce un'estensione dell'accesso condizionale. [Informazioni su come applicare il controllo sessione con Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).

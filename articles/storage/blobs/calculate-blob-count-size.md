@@ -8,12 +8,12 @@ ms.date: 03/10/2021
 ms.service: storage
 ms.subservice: blobs
 ms.topic: how-to
-ms.openlocfilehash: 92e5b00cd655677cdc3096bc2142dfe1b704adf2
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
+ms.openlocfilehash: d1aa91ea0f698e609e786d87a0072e6a07c143a3
+ms.sourcegitcommit: ed7376d919a66edcba3566efdee4bc3351c57eda
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102638166"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105047318"
 ---
 # <a name="calculate-blob-count-and-total-size-per-container-using-azure-storage-inventory"></a>Calcolare il numero di BLOB e le dimensioni totali per ogni contenitore usando l'inventario di archiviazione di Azure
 
@@ -43,7 +43,7 @@ Quando si dispone di un report di inventario da analizzare, concedere a se stess
 
 ## <a name="create-an-azure-synapse-workspace"></a>Creare un'area di lavoro di Azure Synapse
 
-Successivamente, [creare un'area di lavoro di Azure sinapsi](/azure/synapse-analytics/get-started-create-workspace) in cui verrà eseguita una query SQL per segnalare i risultati dell'inventario.
+Successivamente, [creare un'area di lavoro di Azure sinapsi](../../synapse-analytics/get-started-create-workspace.md) in cui verrà eseguita una query SQL per segnalare i risultati dell'inventario.
 
 ## <a name="create-the-sql-query"></a>Creare la query SQL
 
@@ -58,7 +58,7 @@ Dopo aver creato l'area di lavoro di Azure sinapsi, seguire questa procedura.
 
 ## <a name="run-the-sql-query"></a>Eseguire la query SQL
 
-1. Aggiungere la query SQL seguente nell'area di lavoro di Azure sinapsi per [leggere il file di inventario CSV](/azure/synapse-analytics/sql/query-single-csv-file#read-a-csv-file).
+1. Aggiungere la query SQL seguente nell'area di lavoro di Azure sinapsi per [leggere il file di inventario CSV](../../synapse-analytics/sql/query-single-csv-file.md#read-a-csv-file).
 
     Per il `bulk` parametro, utilizzare l'URL del file CSV del report di inventario che si desidera analizzare.
 

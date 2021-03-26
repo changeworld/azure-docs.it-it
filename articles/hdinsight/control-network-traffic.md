@@ -4,12 +4,12 @@ description: Informazioni sulle tecniche per controllare il traffico in ingresso
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 09/02/2020
-ms.openlocfilehash: 0cbda0b533a64e627bfeef9589ab95c4163ae73e
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 66b078e8dfa1daa100978f04283e9bba7158bddf
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98943370"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104867033"
 ---
 # <a name="control-network-traffic-in-azure-hdinsight"></a>Controllare il traffico di rete in Azure HDInsight
 
@@ -21,7 +21,7 @@ Il traffico di rete nelle reti virtuali di Azure può essere controllato usando 
 
 Come servizio gestito, HDInsight richiede l'accesso senza restrizioni ai servizi di gestione e integrità di HDinsight sia per il traffico in ingresso che per quello in uscita dalla rete virtuale. Quando si usano i gruppi di sicurezza di rete è necessario assicurarsi che questi servizi possano ancora comunicare con il cluster HDInsight.
 
-![Diagramma delle entità HDInsight create nella VNET personalizzata di Azure](./media/control-network-traffic/hdinsight-vnet-diagram.png)
+:::image type="content" source="./media/control-network-traffic/hdinsight-vnet-diagram.png" alt-text="Diagramma delle entità HDInsight create nella VNET personalizzata di Azure" border="false":::
 
 ## <a name="hdinsight-with-network-security-groups"></a>HDInsight con i gruppi di sicurezza di rete
 

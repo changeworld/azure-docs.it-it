@@ -3,12 +3,12 @@ title: Funzioni modello-data
 description: Descrive le funzioni da usare in un modello di Azure Resource Manager (modello ARM) per lavorare con le date.
 ms.topic: conceptual
 ms.date: 11/18/2020
-ms.openlocfilehash: 58d865f109ecca2629b89eeb55e554743824c195
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: abff5b86ad1e10042596b11f613cdb594e307209
+ms.sourcegitcommit: a67b972d655a5a2d5e909faa2ea0911912f6a828
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "96920496"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104889927"
 ---
 # <a name="date-functions-for-arm-templates"></a>Funzioni di data per i modelli ARM
 
@@ -287,7 +287,7 @@ Nell'esempio seguente viene illustrato come utilizzare un valore della funzione 
   "resources": [
     {
       "type": "Microsoft.Resources/resourceGroups",
-      "apiVersion": "2018-05-01",
+      "apiVersion": "2020-10-01",
       "name": "[parameters('rgName')]",
       "location": "westeurope",
       "tags": {
@@ -311,7 +311,7 @@ Nell'esempio seguente viene illustrato come utilizzare un valore della funzione 
 param utcShort string = utcNow('d')
 param rgName string
 
-resource myRg 'Microsoft.Resources/resourceGroups@2018-05-01' = {
+resource myRg 'Microsoft.Resources/resourceGroups@2020-10-01' = {
   name: rgName
   location: 'westeurope'
   tags: {
