@@ -1,14 +1,14 @@
 ---
 title: Indice degli esempi di progetto
 description: Indice di esempi di conformità e standard per la distribuzione di ambienti, criteri ed elementi di base di Cloud Adoptions Framework con Azure Blueprints.
-ms.date: 03/11/2021
+ms.date: 03/24/2021
 ms.topic: sample
-ms.openlocfilehash: 06dc65ca601c938f6610df3ed22b4ea0f3826208
-ms.sourcegitcommit: ba3a4d58a17021a922f763095ddc3cf768b11336
+ms.openlocfilehash: 1758c684dca93089c69c1a06ed77b60a09f6579c
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/23/2021
-ms.locfileid: "104799463"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105558041"
 ---
 # <a name="azure-blueprints-samples"></a>Esempi di Azure Blueprints
 
@@ -24,6 +24,7 @@ La tabella seguente include collegamenti a esempi per Azure Blueprints. Ogni ese
 | [Canada Federal PBMM](./canada-federal-pbmm/index.md) | Fornisce misure di tutela per la conformità a Canada Federal Protected B, Medium Integrity, Medium Availability (PBMM). |
 | [1.3.0 di base di Microsoft Azure CIS per le fondamenta v](./cis-azure-1-3-0.md)| Fornisce un set di criteri per garantire la conformità con i consigli di 1.3.0 di base di CIS Microsoft Azure Foundations benchmark v. |
 | [CIS Microsoft Azure Foundations Benchmark v1.1.0](./cis-azure-1-1-0.md)| Fornisce un set di criteri che consentono di conformarsi alle raccomandazioni di base di CIS Microsoft Azure Foundations benchmark v 1.1.0. |
+| [Livello CMMC 3](./cmmc-l3.md)| Fornisce Guardrails per la conformità con CMMC livello 3. |
 | [DoD Impact Level 4](./dod-impact-level-4/index.md) | Fornisce un set di criteri per garantire la conformità a DoD Impact Level 4. |
 | [DoD Impact Level 5](./dod-impact-level-5/index.md) | Fornisce un set di criteri per garantire la conformità a DoD Impact Level 5. |
 | [FedRAMP Moderate](./fedramp-m/index.md) | Fornisce un set di criteri per garantire la conformità a FedRAMP Moderate. |

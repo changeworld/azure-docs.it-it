@@ -3,12 +3,12 @@ title: 'Avvio rapido: Creare un progetto con PowerShell'
 description: In questo argomento di avvio rapido viene usato Azure Blueprints per creare, definire e distribuire artefatti con PowerShell.
 ms.date: 01/27/2021
 ms.topic: quickstart
-ms.openlocfilehash: 65d573d0aec7d5f292bc985483e1f12c350ae03a
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 002ba6fcf20b10bcc44fb486a85bc24bfdd12ae3
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98918280"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105559027"
 ---
 # <a name="quickstart-define-and-assign-an-azure-blueprint-with-powershell"></a>Avvio rapido: Definire e assegnare un progetto Azure Blueprint con PowerShell
 
@@ -307,7 +307,7 @@ Il valore per `{BlueprintVersion}` è una stringa di lettere, numeri e trattini 
 
 Dopo aver pubblicato un progetto usando PowerShell, è possibile assegnarlo a una sottoscrizione. Assegnare il progetto creato a una delle sottoscrizioni nella gerarchia dei gruppi di gestione. Se il progetto viene salvato in una sottoscrizione, può essere assegnato solo a tale sottoscrizione. Il parametro **Blueprint** specifica il progetto da assegnare. Per specificare i parametri relativi a nome, posizione, identità, blocco e progetto, usare i parametri di PowerShell corrispondenti nel cmdlet `New-AzBlueprintAssignment` o specificarli nel file JSON di parametri **AssignmentFile**.
 
-1. Eseguire la distribuzione del progetto assegnandolo a una sottoscrizione. Poiché i parametri **contributors** e **owners** richiedono una matrice di elementi objectId delle entità cui concedere l'assegnazione di ruolo, usare l'[API Graph di Azure Active Directory](../../active-directory/develop/active-directory-graph-api.md) per raccogliere gli elementi objectId da usare in **AssignmentFile** per i propri utenti, gruppi o entità servizio.
+1. Eseguire la distribuzione del progetto assegnandolo a una sottoscrizione. Poiché i parametri **contributors** e **owners** richiedono una matrice di elementi objectId delle entità cui concedere l'assegnazione di ruolo, usare l'[API Graph di Azure Active Directory](/graph/migrate-azure-ad-graph-planning-checklist) per raccogliere gli elementi objectId da usare in **AssignmentFile** per i propri utenti, gruppi o entità servizio.
 
    - File JSON - blueprintAssignment.json
 

@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 02/17/2021
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 0a05a4692bb4a09213532ed29b2501f6b8056857
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 63b99cdeb7606798caa1b1d997dbb9f609c033b0
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101721991"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105562189"
 ---
 # <a name="azure-security-baseline-for-azure-data-box"></a>Baseline della sicurezza di Azure per Azure Data Box
 
@@ -88,7 +88,7 @@ Per informazioni su come Azure Data Box viene eseguito il mapping completo al be
 
 - [Come configurare RBAC di Azure per le cartelle di lavoro](../sentinel/quickstart-get-visibility.md)
 
-- [Informazioni su come configurare il controllo di accesso nell'ordine](https://docs.microsoft.com/azure/databox/data-box-logs#set-up-access-control-on-the-order)
+- [Informazioni su come configurare il controllo di accesso nell'ordine](./data-box-logs.md#set-up-access-control-on-the-order)
 
 **Responsabilità**: Customer
 
@@ -172,7 +172,7 @@ Materiale sussidiario **: Azure Active Directory**(Azure ad) fornisce log che co
 
 Per il dispositivo Data Box, questa operazione non è supportata in tempo reale. È possibile esaminare i log alla fine del processo.
 
-- [Informazioni sulla creazione di report Azure AD](/azure/active-directory/reports-monitoring/)
+- [Informazioni sulla creazione di report Azure AD](../active-directory/reports-monitoring/index.yml)
 
 - [Come usare le verifiche di accesso alle identità di Azure](../active-directory/governance/access-reviews-overview.md)
 
@@ -190,7 +190,7 @@ Per il dispositivo Data Box, questa operazione non è supportata in tempo reale.
 
 I log del servizio Azure Data Box non vengono scritti nell'area di lavoro Log Analytics.
 
-- [Come integrare i log attività di Azure in Monitoraggio di Azure](/azure/active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics)
+- [Come integrare i log attività di Azure in Monitoraggio di Azure](../active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics.md)
 
 - [Come caricare dati in Azure Sentinel](../sentinel/quickstart-onboard.md)
 
@@ -216,7 +216,7 @@ I log del servizio Azure Data Box non vengono scritti nell'area di lavoro Log An
 
 **Linee guida**: presto disponibile; Customer Lockbox non è ancora supportata per Azure Data Box. 
 
-- [Elenco dei servizi Customer Lockbox supportati](https://docs.microsoft.com/azure/security/fundamentals/customer-lockbox-overview#supported-services-and-scenarios-in-general-availability)
+- [Elenco dei servizi Customer Lockbox supportati](../security/fundamentals/customer-lockbox-overview.md#supported-services-and-scenarios-in-general-availability)
 
 **Responsabilità**: Customer
 
@@ -254,7 +254,7 @@ I log del servizio Azure Data Box non vengono scritti nell'area di lavoro Log An
 
 - [Informazioni su come iniziare a usare Azure Data Box](data-box-quickstart-portal.md)
 
-- [Informazioni su come configurare il controllo di accesso](https://docs.microsoft.com/azure/databox/data-box-logs#set-up-access-control-on-the-order)
+- [Informazioni su come configurare il controllo di accesso](./data-box-logs.md#set-up-access-control-on-the-order)
 
 **Responsabilità**: Customer
 
@@ -281,7 +281,7 @@ Inoltre, Azure Data Box protegge la chiave di sblocco del dispositivo (nota anch
 
 **Linee guida**: usare monitoraggio di Azure con il log attività di Azure per creare avvisi quando si verificano modifiche per Azure Data Box e altre risorse critiche o correlate.
 
-- [Come creare avvisi per gli eventi del log attività di Azure](/azure/azure-monitor/platform/alerts-activity-log)
+- [Come creare avvisi per gli eventi del log attività di Azure](../azure-monitor/alerts/alerts-activity-log.md)
 
 **Responsabilità**: Customer
 
@@ -459,5 +459,5 @@ Contrassegnare anche chiaramente le sottoscrizioni, ad esempio di produzione o n
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Vedere [Panoramica di Azure Security Benchmark V2](/azure/security/benchmarks/overview)
-- Altre informazioni su [Baseline di sicurezza di Azure](/azure/security/benchmarks/security-baselines-overview)
+- Vedere [Panoramica di Azure Security Benchmark V2](../security/benchmarks/overview.md)
+- Altre informazioni su [Baseline di sicurezza di Azure](../security/benchmarks/security-baselines-overview.md)

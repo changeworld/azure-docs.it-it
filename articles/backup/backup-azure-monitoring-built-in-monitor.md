@@ -4,12 +4,12 @@ description: Questo articolo illustra le funzionalità di monitoraggio e notific
 ms.topic: conceptual
 ms.date: 03/05/2019
 ms.assetid: 86ebeb03-f5fa-4794-8a5f-aa5cbbf68a81
-ms.openlocfilehash: 2273b66be88cb22a15d0779ed2918ba3d94da1ce
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 83ed5af00bb61d7a8929e710b52e60c33c0f479b
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101713372"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105559214"
 ---
 # <a name="monitoring-azure-backup-workloads"></a>Monitoraggio dei carichi di lavoro di backup di Azure
 
@@ -130,7 +130,7 @@ Questa funzionalità è attualmente disponibile per i database di Azure per il s
 - Errore di backup (per ottenere avvisi per un errore di backup, è necessario registrare il flag AFEC denominato **EnableAzureBackupJobFailureAlertsToAzureMonitor** tramite il portale di anteprima)
 - Ripristino non riuscito (per ottenere avvisi per un errore di ripristino, è necessario registrare il flag AFEC denominato **EnableAzureBackupJobFailureAlertsToAzureMonitor** tramite il portale di anteprima)
 
-Per altre informazioni sugli avvisi di monitoraggio di Azure, vedere [Panoramica degli avvisi in Azure](https://docs.microsoft.com/azure/azure-monitor/alerts/alerts-overview).
+Per altre informazioni sugli avvisi di monitoraggio di Azure, vedere [Panoramica degli avvisi in Azure](../azure-monitor/alerts/alerts-overview.md).
 
 ## <a name="next-steps"></a>Passaggi successivi
 

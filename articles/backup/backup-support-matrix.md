@@ -4,12 +4,12 @@ description: Informazioni riepilogative su impostazioni e limiti del supporto pe
 ms.topic: conceptual
 ms.date: 02/17/2019
 ms.custom: references_regions
-ms.openlocfilehash: 655a90ebc3164f076c333760beffcef5acefcd91
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 2877b0085f31f39849e04678d5e0ddd65e3888e2
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103225548"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105564467"
 ---
 # <a name="support-matrix-for-azure-backup"></a>Matrice di supporto per Backup di Azure
 
@@ -40,7 +40,7 @@ Nella tabella seguente vengono descritte le funzioni dell'insieme di credenziali
 **Spostamento dei dati tra insiemi di credenziali** | Lo spostamento di dati sottoposti a backup tra insiemi di credenziali non è supportato.
 **Modifica del tipo di archiviazione dell'insieme di credenziali** | È possibile modificare il tipo di replica di archiviazione (archiviazione con ridondanza geografica o archiviazione con ridondanza locale) per un insieme di credenziali prima che vengano archiviati i backup. Dopo l'avvio dei backup nell'insieme di credenziali, il tipo di replica non può essere modificato.
 **Archiviazione con ridondanza della zona (ZRS)** | Disponibile nelle aree Regno Unito meridionale (UKS) e South Asia orientale (SEA).
-**Endpoint privati** | Per informazioni sui requisiti per la creazione di endpoint privati per un insieme di credenziali di servizi di ripristino, vedere [questa sezione](https://docs.microsoft.com/azure/backup/private-endpoints#before-you-start) .  
+**Endpoint privati** | Per informazioni sui requisiti per la creazione di endpoint privati per un insieme di credenziali di servizi di ripristino, vedere [questa sezione](./private-endpoints.md#before-you-start) .  
 
 ## <a name="on-premises-backup-support"></a>Supporto del backup in locale
 

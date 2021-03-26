@@ -11,12 +11,12 @@ ms.workload: na
 ms.topic: article
 ms.date: 03/17/2021
 ms.author: inhenkel
-ms.openlocfilehash: 9e5a6737d2e37392efd305910ff5370adc84940f
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 9fe49f44e157708c3083e2c73757988877fbfcb5
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104596740"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105563464"
 ---
 # <a name="azure-media-services-v3-release-notes"></a>Note sulla versione di Servizi multimediali v3
 
@@ -88,7 +88,7 @@ La versione 3 fornisce:
 
 #### <a name="action-required"></a>Azione richiesta
 
-Per ridurre al minimo le problematiche dei carichi di lavoro, vedere la [Guida alla migrazione](https://go.microsoft.com/fwlink/?linkid=2149150&clcid=0x409) per eseguire la transizione del codice dall'API versione 2 e SDK all'API versione 3 e all'SDK prima del 29 febbraio 2024.
+Per ridurre al minimo le problematiche dei carichi di lavoro, vedere la [Guida alla migrazione](./migrate-v-2-v-3-migration-introduction.md) per eseguire la transizione del codice dall'API versione 2 e SDK all'API versione 3 e all'SDK prima del 29 febbraio 2024.
 **Dopo il 29 febbraio 2024**, servizi multimediali di Azure non accetterà più traffico sull'API REST della versione 2, l'API di gestione degli account ARM versione 2015-10-01 o dagli SDK client .NET versione 2. Sono inclusi tutti gli SDK client open source di terze parti che possono chiamare l'API della versione 2.  
 
 Vedere l'annuncio ufficiale sugli [aggiornamenti di Azure](https://azure.microsoft.com/updates/update-your-azure-media-services-rest-api-and-sdks-to-v3-by-29-february-2024/).
@@ -134,7 +134,7 @@ Vedere gli esempi più recenti nel repository dell'hub git **[Media-Services-V3-
 
 Gli eventi live supportano ora una modalità di fatturazione a costi ridotti per "stand-by". In questo modo, i clienti possono pre-allocare eventi live a un costo inferiore per la creazione di "Hot pool". I clienti possono quindi usare gli eventi Live in standby per eseguire la transizione allo stato di esecuzione più velocemente rispetto all'avvio a freddo durante la creazione.  In questo modo si riduce il tempo necessario per l'avvio significativo del canale e viene consentita l'allocazione rapida del pool caldo di computer in esecuzione in modalità di prezzo inferiore.
 Vedi i dettagli più recenti sui prezzi [qui](https://azure.microsoft.com/pricing/details/media-services).
-Per ulteriori informazioni sullo stato di StandBy e sugli altri Stati degli eventi live, vedere l'articolo relativo [agli Stati degli eventi live e alla fatturazione.](https://docs.microsoft.com/azure/media-services/latest/live-event-states-billing)
+Per ulteriori informazioni sullo stato di StandBy e sugli altri Stati degli eventi live, vedere l'articolo relativo [agli Stati degli eventi live e alla fatturazione.](./live-event-states-billing.md)
 
 ## <a name="december-2020"></a>Dicembre 2020
 

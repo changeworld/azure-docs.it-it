@@ -10,12 +10,12 @@ author: lobrien
 ms.date: 02/26/2021
 ms.topic: conceptual
 ms.custom: how-to, contperf-fy20q4, devx-track-python, data4ml
-ms.openlocfilehash: a4d1d1c4f4d6354d0206bf598a0622112dc99453
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
+ms.openlocfilehash: 0c4f1fbc0ed27dbf3b7347e0e4c12f1926ac1377
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102518705"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105566252"
 ---
 # <a name="moving-data-into-and-between-ml-pipeline-steps-python"></a>Spostamento di dati in e tra i passaggi della pipeline ML (Python)
 
@@ -245,7 +245,7 @@ step1_output_ds = step1_output_data.register_on_complete(name='processed_data',
 Azure non elimina automaticamente i dati intermedi scritti con `OutputFileDatasetConfig` . Per evitare addebiti per l'archiviazione di grandi quantità di dati non necessari, è necessario:
 
 * Eliminare a livello di codice i dati intermedi alla fine dell'esecuzione di una pipeline, quando non è più necessario
-* Usare l'archiviazione BLOB con criteri di archiviazione a breve termine per i dati intermedi. vedere [ottimizzare i costi automatizzando i livelli di accesso all'archivio BLOB di Azure](https://docs.microsoft.com/azure/storage/blobs/storage-lifecycle-management-concepts?tabs=azure-portal). 
+* Usare l'archiviazione BLOB con criteri di archiviazione a breve termine per i dati intermedi. vedere [ottimizzare i costi automatizzando i livelli di accesso all'archivio BLOB di Azure](../storage/blobs/storage-lifecycle-management-concepts.md?tabs=azure-portal). 
 * Esaminare regolarmente ed eliminare dati non più necessari
 
 Per ulteriori informazioni, vedere [pianificazione e gestione dei costi per Azure Machine Learning](concept-plan-manage-cost.md).

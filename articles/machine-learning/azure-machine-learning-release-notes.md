@@ -9,12 +9,12 @@ ms.topic: reference
 ms.author: larryfr
 author: BlackMist
 ms.date: 02/18/2021
-ms.openlocfilehash: 04ed2e76797474a65d5c7c669066926225c1c1f9
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: a21411e4d1ee30e4f79687bfc07a53575497ca1f
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103471752"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105562223"
 ---
 # <a name="azure-machine-learning-release-notes"></a>Note sulla versione di Azure Machine Learning
 
@@ -56,9 +56,9 @@ __Feed RSS__: è possibile ricevere una notifica quando questa pagina viene aggi
 ## <a name="2021-02-28"></a>2021-02-28
 ### <a name="azure-machine-learning-studio-notebooks-experience-february-update"></a>Esperienza di Azure Machine Learning Studio notebook (aggiornamento di febbraio)
 + **Nuove funzionalità**
-  + [Terminale nativo (GA)](https://docs.microsoft.com/azure/machine-learning/how-to-access-terminal). Gli utenti possono ora accedere a un terminale integrato e all'operazione git tramite il terminale integrato.
+  + [Terminale nativo (GA)](./how-to-access-terminal.md). Gli utenti possono ora accedere a un terminale integrato e all'operazione git tramite il terminale integrato.
   + [Frammenti di codice notebook (anteprima)](https://azure.github.io/azureml-web/docs/vs-code-snippets/snippets). Gli estratti di codice comuni di Azure ML sono ora disponibili a portata di mano. Passare al pannello frammenti di codice, accessibile tramite la barra degli strumenti o attivare il menu frammenti di codice in-code con CTRL + barra spaziatrice.  
-  + [Tasti di scelta rapida](https://docs.microsoft.com/azure/machine-learning/how-to-run-jupyter-notebooks#shortcut-keys). Parità completa con tasti di scelta rapida disponibili in Jupyter. 
+  + [Tasti di scelta rapida](./how-to-run-jupyter-notebooks.md#useful-keyboard-shortcuts). Parità completa con tasti di scelta rapida disponibili in Jupyter. 
   + Indica i parametri della cella. Mostra gli utenti quali celle di un notebook sono celle di parametri e possono eseguire notebook con parametri tramite [Papermill](https://github.com/nteract/papermill) nell'istanza di calcolo.
   + Gestione sessioni terminal e kernel: gli utenti saranno in grado di gestire tutti i kernel e le sessioni terminal in esecuzione sul proprio calcolo.
   + Pulsante condivisione. Gli utenti possono ora condividere qualsiasi file in Esplora file del notebook facendo clic con il pulsante destro del mouse sul file e usando il pulsante Condividi.
@@ -68,7 +68,7 @@ __Feed RSS__: è possibile ricevere una notifica quando questa pagina viene aggi
   + Tempi di caricamento delle pagine migliorati
   + prestazioni migliorate 
   + Maggiore velocità e affidabilità del kernel
-  + Aggiunta della rotellina di rotazione per mostrare lo stato di avanzamento di tutte [le operazioni di istanza di calcolo](https://docs.microsoft.com/azure/machine-learning/how-to-run-jupyter-notebooks#status-indicators)in corso.
+  + Aggiunta della rotellina di rotazione per mostrare lo stato di avanzamento di tutte [le operazioni di istanza di calcolo](./how-to-run-jupyter-notebooks.md#status-indicators)in corso.
   + Fare clic con il pulsante destro del mouse in Esplora file. Se si fa clic con il pulsante destro del mouse su un file, verranno aperte le operazioni 
 
 
@@ -79,7 +79,7 @@ __Feed RSS__: è possibile ricevere una notifica quando questa pagina viene aggi
   + **azureml-core**
     + [Funzionalità sperimentale] Aggiungere il supporto per collegare l'area di lavoro sinapsi in AML come servizio collegato
     + [Funzionalità sperimentale] Aggiungere il supporto per alleghi il pool di Spark di sinapsi in AML come calcolo
-    + [Funzionalità sperimentale] Aggiunta del supporto per l'accesso ai dati basato su identità. Gli utenti possono registrare i set di dati o i DataSet senza fornire le credenziali. In tal caso, per l'autenticazione verrà usato il token AAD dell'utente o l'identità gestita della destinazione di calcolo. Fare clic [qui](https://aka.ms/data-access) per altre informazioni.
+    + [Funzionalità sperimentale] Aggiunta del supporto per l'accesso ai dati basato su identità. Gli utenti possono registrare i set di dati o i DataSet senza fornire le credenziali. In tal caso, per l'autenticazione verrà usato il token AAD dell'utente o l'identità gestita della destinazione di calcolo. Fare clic [qui](./how-to-identity-based-data-access.md) per altre informazioni.
   + **azureml-pipeline-steps**
     + [Funzionalità sperimentale] Aggiungere il supporto per [SynapseSparkStep](/python/api/azureml-pipeline-steps/azureml.pipeline.steps.synapsesparkstep)
   + **azureml-synapse**

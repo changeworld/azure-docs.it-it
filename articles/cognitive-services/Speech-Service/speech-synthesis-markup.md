@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 03/23/2020
 ms.author: trbye
 ms.custom: devx-track-js, devx-track-csharp
-ms.openlocfilehash: e78d98454ab374866f6fa18ec26a66837f749bfa
-ms.sourcegitcommit: ed7376d919a66edcba3566efdee4bc3351c57eda
+ms.openlocfilehash: b0a96443e1f8596c48882bbdd92b9bb4b910beff
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/24/2021
-ms.locfileid: "105046301"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105567985"
 ---
 # <a name="improve-synthesis-with-speech-synthesis-markup-language-ssml"></a>Migliorare la sintesi con SSML (Speech Synthesis Markup Language)
 
@@ -254,6 +254,7 @@ Usare questa tabella per determinare quali stili di pronuncia sono supportati pe
 |-------------------------|---------------------------|-------------------------------------------------------------|
 | `en-US-AriaNeural`      | `style="newscast-formal"` | Esprime un tono formale, sicuro e autorevole per la distribuzione di notizie |
 |                         | `style="newscast-casual"` | Esprime un tono versatile e informale per la distribuzione di notizie generali        |
+|                         | `style="narration-professional"` | Esprimere un tono obiettivo professionale per la lettura del contenuto        |
 |                         | `style="customerservice"` | Esprime un tono descrittivo e utile per il supporto tecnico  |
 |                         | `style="chat"`            | Esprime un tono informale e rilassato                         |
 |                         | `style="cheerful"`        | Esprime un tono positivo e allegro                         |

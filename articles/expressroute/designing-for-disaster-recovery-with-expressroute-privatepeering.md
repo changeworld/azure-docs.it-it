@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: article
 ms.date: 03/22/2021
 ms.author: duau
-ms.openlocfilehash: 8b1691dc7358c03b924d710684ecd73841b4832d
-ms.sourcegitcommit: ed7376d919a66edcba3566efdee4bc3351c57eda
+ms.openlocfilehash: 3da044057784763df8d071af6c101f7baffbefc6
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/24/2021
-ms.locfileid: "105044601"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105562308"
 ---
 # <a name="designing-for-disaster-recovery-with-expressroute-private-peering"></a>Progettazione per il ripristino di emergenza con peering privato ExpressRoute
 
@@ -43,11 +43,11 @@ Tuttavia, se si esegue il bilanciamento del carico del traffico tra percorsi par
 
 ### <a name="same-metro"></a>Stessa metro
 
-Quando si usa lo stesso metro, è consigliabile usare la posizione secondaria per il secondo percorso per la configurazione. Un esempio dello stesso metro è *Amsterdam* e *Amsterdam2*. Il vantaggio di selezionare lo stesso metro è quando si verifica il failover dell'applicazione, la latenza end-to-end tra le applicazioni locali e Microsoft rimane invariata. Tuttavia, se si verifica un'emergenza naturale, è possibile che la connettività per entrambi i percorsi non sia più disponibile. 
+[Molti metro](expressroute-locations-providers.md#global-commercial-azure) hanno due posizioni ExpressRoute. Un esempio è *Amsterdam* e *Amsterdam2*. Quando si progetta la ridondanza, è possibile creare due percorsi paralleli in Azure con entrambe le posizioni nella stessa metropolitana. Il vantaggio di questa progettazione è quando si verifica il failover dell'applicazione, la latenza end-to-end tra le applicazioni locali e Microsoft rimane approssimativamente la stessa. Tuttavia, se si verifica un'emergenza naturale, ad esempio un terremoto, la connettività per entrambi i percorsi potrebbe non essere più disponibile.
 
 ### <a name="different-metros"></a>Metro differenti
 
-Quando si usano diversi metro per circuiti SKU standard, la località secondaria deve trovarsi nella stessa [area geografica](expressroute-locations-providers.md#locations). Per scegliere una località all'esterno dell'area geografica, è necessario usare lo SKU Premium per entrambi i circuiti nei percorsi paralleli. Il vantaggio di questa configurazione è costituito dalle probabilità che un'emergenza naturale causi un'interruzione a entrambi i collegamenti sia molto inferiore, ma con il costo di un aumento della latenza end-to-end.
+Quando si usano diversi metro per la ridondanza, la località secondaria deve trovarsi nella stessa [area geografica](expressroute-locations-providers.md#locations). Per scegliere una località all'esterno dell'area geografica, è necessario usare lo SKU Premium per entrambi i circuiti nei percorsi paralleli. Il vantaggio di questa configurazione è costituito dalle probabilità che un'emergenza naturale causi un'interruzione a entrambi i collegamenti sia molto inferiore, ma con il costo di un aumento della latenza end-to-end.
 
 Questo articolo illustra come risolvere i problemi che possono verificarsi durante la configurazione di percorsi con ridondanza geografica.
 

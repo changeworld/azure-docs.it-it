@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: conceptual
 ms.date: 10/21/2020
 ms.author: alkohli
-ms.openlocfilehash: 887aaf32592c74a5884916bc7ad63d79544fb554
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 7deba32eb9d0e098b75f98cc81fac2c01b8bb7f8
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "99575856"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105567254"
 ---
 # <a name="azure-stack-edge-blob-storage-requirements"></a>Requisiti per l'archiviazione BLOB Azure Stack Edge
 
@@ -70,7 +70,7 @@ Per installare il client PHP tramite Composer:
 
 ## <a name="endpoint-declaration"></a>Dichiarazione dell'endpoint
 
-In Azure Stack Edge BLOB Storage SDK, il suffisso dell'endpoint, `<device serial number>.microsoftdatabox.com` identifica il dominio Azure stack Edge. Per altre informazioni sull'endpoint del servizio BLOB, vedere [trasferire i dati tramite gli account di archiviazione con la GPU Pro Azure stack Edge](azure-stack-edge-j-series-deploy-add-storage-accounts.md).
+In Azure Stack Edge BLOB Storage SDK, il suffisso dell'endpoint, `<device serial number>.microsoftdatabox.com` identifica il dominio Azure stack Edge. Per altre informazioni sull'endpoint del servizio BLOB, vedere [trasferire i dati tramite gli account di archiviazione con la GPU Pro Azure stack Edge](./azure-stack-edge-gpu-deploy-add-storage-accounts.md).
 
 
 ## <a name="examples"></a>Esempio

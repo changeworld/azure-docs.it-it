@@ -12,12 +12,12 @@ ms.reviewer: nibaccam
 ms.date: 03/04/2021
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python, devx-track-azurecli
-ms.openlocfilehash: 26880fd6e3688dd95cc9f16072a35d5c4ce7c31e
-ms.sourcegitcommit: bed20f85722deec33050e0d8881e465f94c79ac2
+ms.openlocfilehash: f148a5b267edd3fc1dd33ef17d5ad01005b4a903
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/25/2021
-ms.locfileid: "105110271"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105566286"
 ---
 # <a name="start-monitor-and-track-run-history"></a>Avviare, monitorare e tenere traccia della cronologia di esecuzione 
 
@@ -211,7 +211,7 @@ Sono necessari gli elementi seguenti:
     1. In **Dettagli destinazione** selezionare l' **area di lavoro Invia a log Analytics**  e specificare la **sottoscrizione** e l' **area di lavoro log Analytics**. 
 
     > [!NOTE]
-    > L' **area di lavoro di azure log Analytics** è un tipo diverso di risorsa di Azure rispetto all' **area di lavoro del servizio Azure Machine Learning**. Se nell'elenco non sono disponibili opzioni, è possibile [creare un'area di lavoro log Analytics](https://docs.microsoft.com/azure/azure-monitor/logs/quick-create-workspace). 
+    > L' **area di lavoro di azure log Analytics** è un tipo diverso di risorsa di Azure rispetto all' **area di lavoro del servizio Azure Machine Learning**. Se nell'elenco non sono disponibili opzioni, è possibile [creare un'area di lavoro log Analytics](../azure-monitor/logs/quick-create-workspace.md). 
     
     ![Dove salvare la notifica tramite posta elettronica](./media/how-to-manage-runs/log-location.png)
 
@@ -219,7 +219,7 @@ Sono necessari gli elementi seguenti:
 
     ![Nuova regola di avviso](./media/how-to-manage-runs/new-alert-rule.png)
 
-1. Vedere [come creare e gestire gli avvisi del log con monitoraggio di Azure](https://docs.microsoft.com/azure/azure-monitor/alerts/alerts-log).
+1. Vedere [come creare e gestire gli avvisi del log con monitoraggio di Azure](../azure-monitor/alerts/alerts-log.md).
 
 ## <a name="run-description"></a>Descrizione esecuzione 
 

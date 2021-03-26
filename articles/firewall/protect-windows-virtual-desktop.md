@@ -7,12 +7,12 @@ services: firewall
 ms.topic: how-to
 ms.date: 05/06/2020
 ms.author: victorh
-ms.openlocfilehash: ad4f42d0e33f6d70c75abfcd1daab4f5aa9a515f
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: d5320f44aa5d922cea852ab09e5141fad277e2b0
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "94654984"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105566027"
 ---
 # <a name="use-azure-firewall-to-protect-window-virtual-desktop-deployments"></a>Usare Firewall di Azure per proteggere le distribuzioni di Desktop virtuale Windows
 
@@ -54,7 +54,7 @@ Per il corretto funzionamento delle macchine virtuali di Azure create per deskto
 - Creare una raccolta di regole di rete aggiungere le regole seguenti:
 
    - Consenti DNS: consente il traffico dall'aggiunta di un indirizzo IP privato a * per le porte TCP e UDP 53.
-   - Consenti KMS: consente il traffico dalle macchine virtuali di desktop virtuali Windows alla porta TCP 1688 del servizio di attivazione Windows. Per ulteriori informazioni sugli indirizzi IP di destinazione, vedere [errore di attivazione di Windows nello scenario di tunneling forzato](../virtual-machines/troubleshooting/custom-routes-enable-kms-activation.md#solution).
+   - Consenti KMS: consente il traffico dalle macchine virtuali di desktop virtuali Windows alla porta TCP 1688 del servizio di attivazione Windows. Per ulteriori informazioni sugli indirizzi IP di destinazione, vedere [errore di attivazione di Windows nello scenario di tunneling forzato](/troubleshoot/azure/virtual-machines/custom-routes-enable-kms-activation#solution).
 
 > [!NOTE]
 > Alcune distribuzioni potrebbero non avere bisogno di regole DNS, ad esempio Azure Active Directory controller di dominio che inviano query DNS a DNS di Azure in 168.63.129.16.

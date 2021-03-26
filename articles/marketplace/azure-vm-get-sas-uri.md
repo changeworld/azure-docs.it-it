@@ -7,17 +7,17 @@ ms.topic: how-to
 author: iqshahmicrosoft
 ms.author: krsh
 ms.date: 03/10/2021
-ms.openlocfilehash: b8f5fbc076859be9f5ff5a215f92811d543ed7e4
-ms.sourcegitcommit: ba3a4d58a17021a922f763095ddc3cf768b11336
+ms.openlocfilehash: 21ccafe3e15f902e35657a9aa31516bbaeb3b4c8
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/23/2021
-ms.locfileid: "104800109"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105558007"
 ---
 # <a name="how-to-generate-a-sas-uri-for-a-vm-image"></a>Come generare un URI di firma di accesso condiviso per un'immagine di macchina virtuale
 
 > [!NOTE]
-> Non è necessario un URI di firma di accesso condiviso per pubblicare la macchina virtuale. È possibile condividere semplicemente un'immagine in parter Center. Vedere [creare una macchina virtuale usando una base approvata](https://docs.microsoft.com/azure/marketplace/azure-vm-create-using-approved-base) o [creare una macchina virtuale usando](https://docs.microsoft.com/azure/marketplace/azure-vm-create-using-own-image) le istruzioni per l'immagine.
+> Non è necessario un URI di firma di accesso condiviso per pubblicare la macchina virtuale. È possibile condividere semplicemente un'immagine in parter Center. Vedere [creare una macchina virtuale usando una base approvata](./azure-vm-create-using-approved-base.md) o [creare una macchina virtuale usando](./azure-vm-create-using-own-image.md) le istruzioni per l'immagine.
 
 I requisiti per la generazione di URI SAS per i VHD sono i seguenti:
 

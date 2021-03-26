@@ -3,16 +3,16 @@ title: Protocollo di estensione gRPC - Azure
 description: Questo articolo illustra come usare il protocollo di estensione gRPC per inviare messaggi tra il modulo Analisi video live e un'estensione personalizzata di intelligenza artificiale o visione artificiale.
 ms.topic: overview
 ms.date: 09/14/2020
-ms.openlocfilehash: f7b5be859702199b07dfa0d6a43a09ca8ff0c42f
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
+ms.openlocfilehash: 8d153b472e54b221b60a2b584043ffaf68e8ff82
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102455857"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105565810"
 ---
 # <a name="grpc-extension-protocol"></a>Protocollo di estensione gRPC
 
-Analisi video live in IoT Edge consente di estendere le funzionalità di elaborazione del grafo multimediale tramite un [nodo di estensione del grafo](/azure/media-services/live-video-analytics-edge/media-graph-extension-concept). Se si usa il processore di estensione gRPC come nodo di estensione, la comunicazione tra il modulo di Analisi video live e il modulo di intelligenza artificiale o visione artificiale avviene tramite il protocollo strutturato a elevate prestazioni basato su gRPC.
+Analisi video live in IoT Edge consente di estendere le funzionalità di elaborazione del grafo multimediale tramite un [nodo di estensione del grafo](./media-graph-extension-concept.md). Se si usa il processore di estensione gRPC come nodo di estensione, la comunicazione tra il modulo di Analisi video live e il modulo di intelligenza artificiale o visione artificiale avviene tramite il protocollo strutturato a elevate prestazioni basato su gRPC.
 
 Questo articolo illustra come usare il protocollo di estensione gRPC per inviare messaggi tra il modulo Analisi video live e un'estensione personalizzata di intelligenza artificiale o visione artificiale.
 
@@ -25,7 +25,7 @@ Una sessione gRPC è una singola connessione dal client gRPC al server gRPC sull
 
 In una singola sessione: il client invia un descrittore di flusso multimediale seguito da fotogrammi video al server come messaggio [protobuf](https://github.com/Azure/live-video-analytics/tree/master/contracts/grpc) nella sessione di streaming gRPC. Il server convalida il descrittore di flussi, analizza il fotogramma video e restituisce i risultati delle inferenze come messaggio protobuf. 
 
-Per la restituzione delle risposte è vivamente consigliato l'uso di documenti JSON validi conformi allo schema prestabilito definito in base al [modello a oggetti dello schema dei metadati di inferenza](/azure/media-services/live-video-analytics-edge/inference-metadata-schema). In questo modo si garantisce una migliore interoperabilità con altri componenti e con possibili funzionalità future aggiunte al modulo Analisi video live.
+Per la restituzione delle risposte è vivamente consigliato l'uso di documenti JSON validi conformi allo schema prestabilito definito in base al [modello a oggetti dello schema dei metadati di inferenza](./inference-metadata-schema.md). In questo modo si garantisce una migliore interoperabilità con altri componenti e con possibili funzionalità future aggiunte al modulo Analisi video live.
 
 ![Contratto dell'estensione gRPC](./media/grpc-extension-protocol/grpc.png)
 

@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 03/10/2021
 ms.author: inhenkel
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 019f0bc98de45fa1fe6f9b8c72ef74beb50ea2c2
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 801d810a82e4e484ca1ab30c5c6d510860dbab6b
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103017359"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105566014"
 ---
 # <a name="azure-media-services-release-notes"></a>Note sulla versione di Servizi multimediali di Azure
 
@@ -64,7 +64,7 @@ La versione 3 fornisce:
 
 #### <a name="action-required"></a>Azione richiesta:
 
-Per ridurre al minimo le problematiche dei carichi di lavoro, vedere la [Guida alla migrazione](https://go.microsoft.com/fwlink/?linkid=2149150&clcid=0x409) per eseguire la transizione del codice dall'API versione 2 e SDK all'API versione 3 e all'SDK prima del 29 febbraio 2024.
+Per ridurre al minimo le problematiche dei carichi di lavoro, vedere la [Guida alla migrazione](../latest/migrate-v-2-v-3-migration-introduction.md) per eseguire la transizione del codice dall'API versione 2 e SDK all'API versione 3 e all'SDK prima del 29 febbraio 2024.
 **Dopo il 29 febbraio 2024**, servizi multimediali di Azure non accetterà più traffico sull'API REST della versione 2, l'API di gestione degli account ARM versione 2015-10-01 o dagli SDK client .NET versione 2. Sono inclusi tutti gli SDK client open source di terze parti che possono chiamare l'API della versione 2.  
 
 Vedere l'annuncio ufficiale sugli [aggiornamenti di Azure](https://azure.microsoft.com/updates/update-your-azure-media-services-rest-api-and-sdks-to-v3-by-29-february-2024/).
