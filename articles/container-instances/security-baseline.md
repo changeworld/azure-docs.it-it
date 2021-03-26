@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 02/17/2021
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 1ab927c973c6a5de6f3f3f8d88c504ec572b7148
-ms.sourcegitcommit: ed7376d919a66edcba3566efdee4bc3351c57eda
+ms.openlocfilehash: f63fc7ae28d80707149046637cf39c60a45748fd
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/24/2021
-ms.locfileid: "105047593"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105566575"
 ---
 # <a name="azure-security-baseline-for-container-instances"></a>Baseline della sicurezza di Azure per le istanze di contenitore
 
@@ -32,7 +32,7 @@ Per informazioni sul modo in cui le istanze del contenitore sono completamente m
 
 Controllare l'accesso alla rete in uscita da una subnet delegata alle istanze di contenitore di Azure usando il firewall di Azure. 
 
-- [Distribuire le istanze di contenitore in una rete virtuale di Azure](/azure/container-instances/container-instance-vnet)
+- [Distribuire le istanze di contenitore in una rete virtuale di Azure](/azure/container-instances/container-instances-vnet)
 
 - [Come distribuire e configurare il firewall di Azure](../firewall/tutorial-firewall-deploy-portal.md)
 

@@ -7,12 +7,12 @@ ms.service: static-web-apps
 ms.topic: overview
 ms.date: 05/08/2020
 ms.author: cshoe
-ms.openlocfilehash: 9cd5136d69e4b14aa50a96d20f3187ce88db6e96
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: f4e900c8bcdcb5febec39421e098b19ad10b8b00
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "92320483"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105558891"
 ---
 # <a name="what-is-azure-static-web-apps-preview"></a>Che cos'è App Web statiche di Azure (anteprima)?
 
@@ -24,7 +24,7 @@ Il flusso di lavoro di App Web statiche di Azure è personalizzato in base al fl
 
 Quando si crea una risorsa di App Web statiche di Azure, Azure configura un flusso di lavoro di GitHub Actions nel repository del codice sorgente dell'app che monitora un ramo scelto dall'utente. Ogni volta che si esegue il push di commit o si accettano richieste pull nel ramo monitorato, l'azione di GitHub Actions compila e distribuisce automaticamente l'app e la relativa API in Azure.
 
-Per la compilazione delle app Web statiche si usano in genere librerie e framework come Angular, React, Svelte, Vue o Blazor. Queste app includono asset HTML, CSS, JavaScript e immagine che costituiscono l'applicazione. Con un server Web tradizionale, questi asset vengono gestiti da un unico server unitamente a tutti gli endpoint API necessari.
+Le app Web statiche vengono in genere create usando librerie e Framework come angolari, React, svelte, VME o blazer, in cui il rendering lato server non è necessario. Queste app includono asset HTML, CSS, JavaScript e immagine che costituiscono l'applicazione. Con un server Web tradizionale, questi asset vengono gestiti da un unico server unitamente a tutti gli endpoint API necessari.
 
 Con App Web statiche gli asset statici vengono separati da un server Web tradizionale e sono gestiti da punti distribuiti geograficamente in tutto il mondo. Grazie a questa distribuzione la gestione dei file risulta molto più rapida quanto più sono fisicamente vicini agli utenti finali. Per ospitare gli endpoint dell'API si usa inoltre un'[architettura serverless](../azure-functions/functions-overview.md), che consente di evitare l'uso di un server back-end completo.
 

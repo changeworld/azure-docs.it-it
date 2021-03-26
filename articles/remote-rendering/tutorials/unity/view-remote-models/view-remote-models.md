@@ -6,12 +6,12 @@ ms.author: flborn
 ms.date: 06/15/2020
 ms.topic: tutorial
 ms.custom: devx-track-csharp
-ms.openlocfilehash: dd3596dd7b2cd01e80d9cf4db9bbc179048e7fcf
-ms.sourcegitcommit: bb330af42e70e8419996d3cba4acff49d398b399
+ms.openlocfilehash: b98f5253cc60edc8949c06a645d81849dff2de7c
+ms.sourcegitcommit: 44edde1ae2ff6c157432eee85829e28740c6950d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/24/2021
-ms.locfileid: "105035966"
+ms.lasthandoff: 03/25/2021
+ms.locfileid: "105543687"
 ---
 # <a name="tutorial-viewing-a-remotely-rendered-model"></a>Esercitazione: Visualizzazione di un modello di cui è stato eseguito il rendering in remoto
 
@@ -753,7 +753,7 @@ Questo codice esegue i passaggi seguenti:
 1. Crea un'[entità remota](../../../concepts/entities.md).
 1. Crea un GameObject locale per rappresentare l'entità remota.
 1. Configura il GameObject locale per sincronizzare il relativo stato (ovvero la trasformazione) con ogni fotogramma dell'entità remota.
-1. Imposta un nome e aggiunge [**WorldAnchor**](https://docs.unity3d.com/ScriptReference/XR.WSA.WorldAnchor.html) per facilitare la stabilizzazione.
+1. Imposta un nome e aggiunge [**WorldAnchor**](https://docs.unity3d.com/550/Documentation/ScriptReference/VR.WSA.WorldAnchor.html) per facilitare la stabilizzazione.
 1. Carica i dati del modello da Archiviazione BLOB nell'entità remota.
 1. Restituisce l'entità padre per riferimento futuro.
 

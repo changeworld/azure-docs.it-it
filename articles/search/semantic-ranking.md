@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 03/22/2021
-ms.openlocfilehash: c3a0a8bd5805757b92e3f5b046335c8883b4ba72
-ms.sourcegitcommit: a67b972d655a5a2d5e909faa2ea0911912f6a828
+ms.openlocfilehash: bf311eb2b2d0ff7a9c17380d2e384bc05c6f05f3
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/23/2021
-ms.locfileid: "104888924"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105562036"
 ---
 # <a name="semantic-ranking-in-azure-cognitive-search"></a>Classificazione semantica in Azure ricerca cognitiva
 
@@ -24,32 +24,34 @@ La classificazione semantica è un'estensione della pipeline di esecuzione delle
 
 La classificazione semantica è a elevato utilizzo di risorse e tempo. Per completare l'elaborazione entro la latenza prevista di un'operazione di query, gli input per la gerarchia semantica vengono consolidati e ridotti, in modo che il riepilogo sottostante e i passaggi di riclassificazione possano essere completati nel minor tempo possibile.
 
-## <a name="preparation-for-semantic-ranking"></a>Preparazione per la classificazione semantica
+## <a name="pre-processing"></a>Pre-elaborazione
 
-Prima di assegnare un punteggio alla pertinenza, il contenuto deve essere ridotto a un numero di input che possono essere gestiti in modo efficiente dal Ranker semantico. La riduzione del contenuto include la seguente sequenza di passaggi.
+Prima di assegnare un punteggio alla pertinenza, il contenuto deve essere ridotto a un numero gestibile di input che possono essere gestiti in modo efficiente dal Ranker semantico.
 
-1. La riduzione del contenuto inizia usando il set di risultati iniziale restituito dall' [algoritmo di classificazione di somiglianza](index-ranking-similarity.md) predefinito usato per la ricerca di parole chiave. I risultati della ricerca possono includere fino a 1.000 corrispondenze, ma la classificazione semantica elaborerà solo i primi 50. 
+1. Innanzitutto, la riduzione del contenuto inizia con il set di risultati iniziale restituito dall' [algoritmo di classificazione di somiglianza](index-ranking-similarity.md) predefinito usato per la ricerca di parole chiave. Per ogni query specificata, i risultati potrebbero essere costituiti da una manciata di documenti, fino al limite massimo di 1.000. Poiché l'elaborazione di un numero elevato di corrispondenze richiederebbe troppo tempo, solo i primi 50 di stato della classificazione semantica.
 
-   Data la query, i risultati iniziali potrebbero essere molto inferiori a 50, a seconda del numero di corrispondenze trovate. Indipendentemente dal numero di documenti, il set di risultati iniziale è il corpus del documento per la classificazione semantica.
+   Indipendentemente dal numero di documenti, se uno o 50, il set di risultati iniziale stabilisce la prima iterazione del corpus del documento per la classificazione semantica.
 
-1. Nel corpus del documento, il contenuto di ogni campo in "searchFields" viene estratto e combinato in una stringa estesa.
+1. Successivamente, in tutto il corpus, il contenuto di ogni campo in "searchFields" viene estratto e combinato in una stringa di lunghezza.
 
-1. Tutte le stringhe eccessivamente lunghe vengono tagliate per garantire che la lunghezza complessiva soddisfi i requisiti di input del passaggio di riepilogo. Questo esercizio di taglio è il motivo per cui è importante posizionare prima i campi concisi in "searchFields", per assicurarsi che siano inclusi nella stringa. Se si dispone di documenti di grandi dimensioni con campi con un numero elevato di testo, qualsiasi elemento dopo il limite massimo viene ignorato.
+1. Dopo il consolidamento delle stringhe, le stringhe eccessivamente lunghe vengono rimosse per garantire che la lunghezza complessiva soddisfi i requisiti di input del passaggio di riepilogo.
+
+   Questo esercizio di taglio è il motivo per cui è importante posizionare prima i campi concisi in "searchFields", per assicurarsi che siano inclusi nella stringa. Se si dispone di documenti di grandi dimensioni con campi con un numero elevato di testo, qualsiasi elemento dopo il limite massimo viene ignorato.
 
 Ogni documento è ora rappresentato da un'unica stringa long.
 
 > [!NOTE]
-> Gli input dei parametri per i modelli sono token, non caratteri o parole. La suddivisione in token è determinata in parte dall'assegnazione dell'analizzatore nei campi disponibili per la ricerca. Per informazioni dettagliate sulla modalità di suddivisione in token delle stringhe, è possibile esaminare l'output del token di un analizzatore usando l' [API REST dell'analizzatore di test](/rest/api/searchservice/test-analyzer).
+> La stringa è costituita da token, non da caratteri o parole. La suddivisione in token è determinata in parte dall'assegnazione dell'analizzatore nei campi disponibili per la ricerca. Se si usa un analizzatore specializzato, ad esempio nGram o EdgeNGram, potrebbe essere necessario escludere tale campo da searchFields. Per informazioni dettagliate sulla modalità di suddivisione in token delle stringhe, è possibile esaminare l'output del token di un analizzatore usando l' [API REST dell'analizzatore di test](/rest/api/searchservice/test-analyzer).
 
-## <a name="summarization"></a>Riepilogo
+## <a name="extraction"></a>Estrazione
 
-Al termine della riduzione delle stringhe, è ora possibile passare gli input ridotti attraverso i modelli di rappresentazione del linguaggio e comprensione della lettura del computer per determinare quali frasi e frasi riepilogano meglio il documento rispetto alla query.
+Al termine della riduzione delle stringhe, è ora possibile passare gli input ridotti attraverso i modelli di rappresentazione del linguaggio e comprensione della lettura del computer per determinare quali frasi e frasi riepilogano meglio il documento rispetto alla query. Questa fase estrae il contenuto dalla stringa che verrà spostata in avanti nel rango semantico.
 
-Gli input per il riepilogo sono le stringhe lunghe ottenute per ogni documento della fase di preparazione. Da un input specificato, il modello di riepilogo trova un passaggio che meglio rappresenta il documento corrispondente. Questo passaggio costituisce anche una [didascalia semantica](semantic-how-to-query-request.md) per il documento. Ogni didascalia è disponibile in testo normale, con le evidenziazioni e è minore di 200 parole per documento.
+Gli input per il riepilogo sono le stringhe lunghe ottenute per ogni documento della fase di preparazione. Da ogni stringa, il modello di riepilogo trova un passaggio che rappresenta il più rappresentativo. Questo passaggio costituisce anche una [didascalia semantica](semantic-how-to-query-request.md) per il documento. Ogni didascalia è disponibile in una versione in testo normale e in una versione di evidenziazione e spesso è inferiore a 200 parole per documento.
 
 Verrà restituita una [risposta semantica](semantic-answers.md) anche se è stato specificato il parametro "Answers", se la query è stata rappresentata come una domanda e se è possibile trovare un passaggio nella stringa long che probabilmente fornirà una risposta alla domanda.
 
-## <a name="scoring-and-ranking"></a>Assegnazione di punteggi e classificazione
+## <a name="semantic-ranking"></a>Classificazione semantica
 
 1. Le didascalie vengono valutate per rilevanza concettuale e semantica rispetto alla query fornita.
 

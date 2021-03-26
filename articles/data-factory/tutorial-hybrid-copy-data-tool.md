@@ -6,13 +6,13 @@ author: nabhishek
 ms.service: data-factory
 ms.topic: tutorial
 ms.custom: seo-lt-2019
-ms.date: 02/18/2021
-ms.openlocfilehash: 43097b520297ff17350620faff3da884dcbd2073
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.date: 03/26/2021
+ms.openlocfilehash: 70905d23b61ee9fee319bae41aeb421d808fa4d0
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104606719"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105566762"
 ---
 # <a name="copy-data-from-a-sql-server-database-to-azure-blob-storage-by-using-the-copy-data-tool"></a>Copiare dati da un database di SQL Server all'archiviazione BLOB di Azure con lo strumento Copia dati
 > [!div class="op_single_selector" title1="Selezionare uSelezionare la versione del servizio di Azure Data Factory in uso:"]
@@ -87,21 +87,6 @@ In questa esercitazione si usano il nome e la chiave dell'account di archiviazio
 
 
 1. Nelle caselle **Nome account di archiviazione** e **key1** copiare i valori e incollarli nel Blocco note o in un altro editor per usarli in seguito nell'esercitazione.
-
-#### <a name="create-the-adftutorial-container"></a>Creare il contenitore adftutorial
-In questa sezione si crea un contenitore BLOB denominato **adftutorial** nell'archivio BLOB.
-
-1. Nella finestra **Account di archiviazione** passare a **Panoramica** e quindi selezionare **BLOB**.
-
-1. Nella finestra **BLOB** selezionare **+ Contenitore**.
-
-1. Nella finestra **Nuovo contenitore** immettere **adftutorial** nella casella **Nome** e fare clic su **OK**.
-
-1. Selezionare **adftutorial** nell'elenco di contenitori.
-
-
-1. Tenere aperta la finestra **Contenitore** per **adftutorial**. Verrà usata per verificare l'output alla fine di questa esercitazione. Data Factory crea automaticamente la cartella di output in questo contenitore, quindi non è necessario crearne uno.
-
 
 ## <a name="create-a-data-factory"></a>Creare una data factory
 

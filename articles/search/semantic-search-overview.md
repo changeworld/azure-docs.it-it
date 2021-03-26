@@ -9,12 +9,12 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 03/18/2021
 ms.custom: references_regions
-ms.openlocfilehash: 7e3bfa9d91929530ae53c87ceabf639a16a5a0e6
-ms.sourcegitcommit: a67b972d655a5a2d5e909faa2ea0911912f6a828
+ms.openlocfilehash: b5b33007f71cfc2a29005ce84f1fedba90dd1bf1
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/23/2021
-ms.locfileid: "104888907"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105561968"
 ---
 # <a name="semantic-search-in-azure-cognitive-search"></a>Ricerca semantica in Azure ricerca cognitiva
 
@@ -44,7 +44,7 @@ La ricerca semantica migliora la precisione e richiama l'aggiunta delle funziona
 
 ### <a name="order-of-operations"></a>Ordine delle operazioni
 
-I componenti della ricerca semantica estendono la pipeline di esecuzione di query esistente in entrambe le direzioni. Se si Abilita la correzione ortografica, il correttore [ortografico corregge i](speller-how-to-add.md) digitazioni all'inizio prima che i termini della query raggiungano il motore di ricerca.
+I componenti della ricerca semantica estendono la pipeline di esecuzione di query esistente in entrambe le direzioni. Se si Abilita la correzione ortografica, il correttore [ortografico corregge gli](speller-how-to-add.md) errori di digitazione all'inizio della query, prima che termini raggiungano il motore di ricerca.
 
 :::image type="content" source="media/semantic-search-overview/semantic-workflow.png" alt-text="Componenti semantici nell'esecuzione di query" border="true":::
 

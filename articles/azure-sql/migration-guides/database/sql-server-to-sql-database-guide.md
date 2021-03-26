@@ -10,12 +10,12 @@ author: mokabiru
 ms.author: mokabiru
 ms.reviewer: MashaMSFT
 ms.date: 03/19/2021
-ms.openlocfilehash: ce155015373a096595dc61d75c876633e2e4f00a
-ms.sourcegitcommit: a8ff4f9f69332eef9c75093fd56a9aae2fe65122
+ms.openlocfilehash: e2de694a153276dcace1070d35af44dec1056e03
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/24/2021
-ms.locfileid: "105027194"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105564926"
 ---
 # <a name="migration-guide-sql-server-to-azure-sql-database"></a>Guida alla migrazione: SQL Server al database SQL di Azure
 [!INCLUDE[appliesto--sqldb](../../includes/appliesto-sqldb.md)]
@@ -152,7 +152,7 @@ Quando si usano opzioni di migrazione che replicano/sincronizzano continuamente 
 Dopo aver verificato che i dati sono uguali sia nell'origine che nella destinazione, è possibile cutover dall'origine all'ambiente di destinazione. È importante pianificare il processo cutover con i team aziendali o dell'applicazione per garantire che l'interruzione minima durante cutover non influisca sulla continuità aziendale. 
 
 > [!IMPORTANT]
-> Per informazioni dettagliate sui passaggi specifici associati all'esecuzione di un cutover come parte delle migrazioni con DMS, vedere [esecuzione della migrazione cutover](../../../dms/tutorial-sql-server-azure-sql-online.md#perform-migration-cutover).
+> Per informazioni dettagliate sui passaggi specifici associati all'esecuzione di un cutover come parte delle migrazioni con DMS, vedere [esecuzione della migrazione cutover](../../../dms/tutorial-sql-server-to-azure-sql.md).
 
 ## <a name="migration-recommendations"></a>Raccomandazioni per la migrazione
 

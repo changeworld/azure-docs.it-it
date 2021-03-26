@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 03/12/2020
-ms.openlocfilehash: 874df4301165aaf253dd0f4316adee7ab9ce7ce5
-ms.sourcegitcommit: ba3a4d58a17021a922f763095ddc3cf768b11336
+ms.openlocfilehash: 695aa760d554946883f72692f0bed1babad933b1
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/23/2021
-ms.locfileid: "104798851"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105568801"
 ---
 # <a name="create-interactive-reports-vm-insights-with-workbooks"></a>Creazione di report interattivi VM Insights con cartelle di lavoro
 
@@ -103,13 +103,13 @@ In ogni sezione sono disponibili impostazioni avanzate, accessibili tramite l' !
 
 ![Screenshot della finestra di dialogo Impostazioni avanzate nella sezione cartella di lavoro macchine virtuali di monitoraggio di Azure. Viene evidenziata l'icona che apre la finestra di dialogo.](media/vminsights-workbooks/007-settings-expanded.png)
 
-|         |          |
+| Impostazione | Descrizione |
 | ---------------- |:-----|
-| **Imposta larghezza personalizzata per l'elemento**    | Rende una dimensione arbitraria di un elemento, in modo da poter adattare molti elementi a una singola riga consentendo di organizzare meglio i grafici e le tabelle in report interattivi avanzati.  |
-| **Imposta la visibilità condizionata per questo elemento** | Specificare per nascondere i passaggi in base a un parametro in modalità lettura. |
-| **Quando è selezionato un elemento del grafico, esporta un parametro**| Consenti a una riga selezionata della griglia o del grafico di fare in modo che i passaggi successivi modifichino i valori o diventino visibili.  |
-| **Mostra query quando non viene modificata** | Consente di visualizzare la query sopra il grafico o la tabella anche in modalità lettura.
-| **Mostra il pulsante Apri in Analisi quando non è attiva la modalità di modifica** | Aggiunge l'icona di analisi blu all'angolo destro del grafico per consentire l'accesso con un solo clic.|
+| Imposta larghezza personalizzata per l'elemento    | Rende una dimensione arbitraria di un elemento, in modo da poter adattare molti elementi a una singola riga consentendo di organizzare meglio i grafici e le tabelle in report interattivi avanzati.  |
+| Imposta la visibilità condizionata per questo elemento | Specificare per nascondere i passaggi in base a un parametro in modalità lettura. |
+| Quando è selezionato un elemento del grafico, esporta un parametro| Consenti a una riga selezionata della griglia o del grafico di fare in modo che i passaggi successivi modifichino i valori o diventino visibili.  |
+| Mostra query quando non viene modificata | Consente di visualizzare la query sopra il grafico o la tabella anche in modalità lettura.
+| Mostra il pulsante Apri in Analisi quando non è attiva la modalità di modifica | Aggiunge l'icona di analisi blu all'angolo destro del grafico per consentire l'accesso con un solo clic.|
 
 La maggior parte di queste impostazioni è piuttosto intuitiva, ma per comprendere **Quando è selezionato un elemento del grafico, esporta un parametro** è consigliabile esaminare una cartella di lavoro che usa questa funzionalità.
 
@@ -152,12 +152,12 @@ I parametri sono lineari. Iniziano dalla parte superiore della cartella di lavor
  
 Sono disponibili quattro tipi diversi di parametri, attualmente supportati:
 
-|                  |      |
+| Parametro | Descrizione |
 | ---------------- |:-----|
-| **Text**    | Consente all'utente di modificare una casella di testo ed è possibile specificare facoltativamente una query per inserire il valore predefinito. |
-| **Elenco a discesa** | Consente all'utente di scegliere un set di valori. |
-| **Selezione intervallo di tempo**| Consente all'utente di scegliere tra un set predefinito di valori di intervallo di tempo o di scegliere un intervallo di tempo personalizzato.|
-| **Selezione risorse** | Consente all'utente di scegliere tra le risorse selezionate per la cartella di lavoro.|
+| Testo    | Consente all'utente di modificare una casella di testo ed è possibile specificare facoltativamente una query per inserire il valore predefinito. |
+| Elenco a discesa | Consente all'utente di scegliere un set di valori. |
+| Selezione intervallo di tempo| Consente all'utente di scegliere tra un set predefinito di valori di intervallo di tempo o di scegliere un intervallo di tempo personalizzato.|
+| Selezione risorse | Consente all'utente di scegliere tra le risorse selezionate per la cartella di lavoro.|
 
 ### <a name="using-a-text-parameter"></a>Uso di un parametro di testo
 

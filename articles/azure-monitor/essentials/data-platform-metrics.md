@@ -9,12 +9,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/26/2019
 ms.author: bwren
-ms.openlocfilehash: 8ecfd74a4d486a83add490501c2f7af4a4003b85
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 68e947a6e13ba5195815fe966ec69ec6a2f4b8e1
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101700975"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105562971"
 ---
 # <a name="azure-monitor-metrics-overview"></a>Panoramica delle metriche di monitoraggio di Azure
 Le metriche di monitoraggio di Azure sono una funzionalità di monitoraggio di Azure che raccoglie dati numerici dalle [risorse monitorate](../monitor-reference.md) in un database di serie temporali. Le metriche sono valori numerici raccolti a intervalli regolari e descrivono alcuni aspetti di un sistema in un determinato momento. Le metriche in Monitoraggio di Azure sono elementi leggeri e in grado di supportare scenari near real-time, rendendole particolarmente utili per la generazione di avvisi e il rilevamento rapido dei problemi. È possibile analizzarli in modo interattivo con Esplora metriche, ricevere notifiche in modo proattivo con un avviso quando un valore supera una soglia o visualizzarli in una cartella di lavoro o in un dashboard.
@@ -27,7 +27,7 @@ Le metriche di monitoraggio di Azure sono una funzionalità di monitoraggio di A
 ## <a name="what-can-you-do-with-azure-monitor-metrics"></a>Che cosa è possibile fare con le metriche di Monitoraggio di Azure?
 La tabella seguente elenca i diversi modi in cui è possibile usare le metriche in monitoraggio di Azure.
 
-|  |  |
+|  | Descrizione |
 |:---|:---|
 | **Analisi** | Usare [Esplora metriche](metrics-charts.md) per analizzare le metriche raccolte in un grafico e confrontare le metriche di diverse risorse. |
 | **Avviso** | Configurazione di una [regola di avviso per la metrica](../alerts/alerts-metric.md) che invia una notifica o esegue un'[operazione automatica](../alerts/action-groups.md) quando il valore della metrica supera una soglia. |

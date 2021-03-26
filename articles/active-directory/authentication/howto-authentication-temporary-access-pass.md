@@ -7,23 +7,23 @@ ms.subservice: authentication
 ms.topic: conceptual
 ms.date: 03/18/2021
 ms.author: justinha
-author: inbarckms
+author: justinha
 manager: daveba
 ms.reviewer: inbarckms
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 44b80b9c6847cfdc8402cb3b4983f15873e367d3
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 0805ac84318a4fee98c30127ac80c0dac2b96309
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104579383"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105558262"
 ---
 # <a name="configure-temporary-access-pass-in-azure-ad-to-register-passwordless-authentication-methods-preview"></a>Configurare il passaggio di accesso temporaneo in Azure AD per registrare i metodi di autenticazione con password (anteprima)
 
 I metodi di autenticazione senza password, ad esempio FIDO2 e l'accesso tramite telefono senza password tramite l'app Microsoft Authenticator, consentono agli utenti di accedere in modo sicuro senza una password. Gli utenti possono bootstrap i metodi con password in uno dei due modi seguenti:
 
-- Uso di metodi di autenticazione a più fattori Azure AD esistenti 
-- Uso di un passaggio di accesso temporaneo 
+- Uso di metodi di Multi-Factor Authentication Azure AD esistenti 
+- Uso di un passaggio di accesso temporaneo (TAP) 
 
 Un passaggio di accesso temporaneo è un codice di accesso limitato al tempo emesso da un amministratore che soddisfa i requisiti di autenticazione avanzata e può essere usato per l'onboarding di altri metodi di autenticazione, inclusi quelli con password. Un passaggio di accesso temporaneo rende più semplice il ripristino quando un utente perde o dimentica il fattore di autenticazione forte, ad esempio una chiave di sicurezza FIDO2 o un'app Microsoft Authenticator, ma deve accedere per registrare nuovi metodi di autenticazione avanzata.
 
@@ -49,13 +49,13 @@ Per configurare i criteri del metodo di autenticazione pass di accesso temporane
    Il valore predefinito e l'intervallo di valori consentiti sono descritti nella tabella seguente.
 
 
-   | Impostazione          | Valori predefiniti | Valori consentiti               | Commenti                                                                                                                                                                                                                                                                 |   |
-   |------------------|----------------|------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---|
-    Durata minima | 1 ora         | 10 – 43200 minuti (30 giorni) | Numero minimo di minuti per cui il passaggio di accesso temporaneo è valido.                                                                                                                                                                                                                         |   |
-   | Durata massima | 24 ore       | 10 – 43200 minuti (30 giorni) | Numero massimo di minuti per cui il passaggio di accesso temporaneo è valido.                                                                                                                                                                                                                         |   |
-   | Durata predefinita | 1 ora         | 10 – 43200 minuti (30 giorni) | I valori predefiniti possono essere sostituiti dai singoli passaggi, entro la durata minima e massima configurata dal criterio                                                                                                                                                |   |
-   | Uso monouso     | Falso          | True/false                 | Quando il criterio è impostato su false, i passaggi nel tenant possono essere utilizzati una o più volte durante la relativa validità (durata massima). Applicando monouso nei criteri di passaggio di accesso temporaneo, tutti i passaggi creati nel tenant verranno creati come monouso. |   |
-   | Length           | 8              | 8-48 caratteri              | Definisce la lunghezza del codice di accesso.                                                                                                                                                                                                                                      |   |
+   | Impostazione | Valori predefiniti | Valori consentiti | Commenti |
+   |---|---|---|---|
+   | Durata minima | 1 ora | 10 – 43200 minuti (30 giorni) | Numero minimo di minuti per cui il passaggio di accesso temporaneo è valido. |
+   | Durata massima | 24 ore | 10 – 43200 minuti (30 giorni) | Numero massimo di minuti per cui il passaggio di accesso temporaneo è valido. |
+   | Durata predefinita | 1 ora | 10 – 43200 minuti (30 giorni) | I valori predefiniti possono essere sostituiti dai singoli passaggi, entro la durata minima e massima configurata dal criterio. |
+   | Uso monouso | Falso | True/false | Quando il criterio è impostato su false, i passaggi nel tenant possono essere utilizzati una o più volte durante la relativa validità (durata massima). Applicando monouso nei criteri di passaggio di accesso temporaneo, tutti i passaggi creati nel tenant verranno creati come monouso. |
+   | Length | 8 | 8-48 caratteri | Definisce la lunghezza del codice di accesso. |
 
 ## <a name="create-a-temporary-access-pass-in-the-azure-ad-portal"></a>Creare un passaggio di accesso temporaneo nel portale Azure AD
 

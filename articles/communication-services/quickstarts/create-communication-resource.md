@@ -10,12 +10,12 @@ ms.date: 03/10/2021
 ms.topic: overview
 ms.service: azure-communication-services
 zone_pivot_groups: acs-plat-azp-net
-ms.openlocfilehash: 91383ecba119959213804e0432f612c3f1ff636c
-ms.sourcegitcommit: bed20f85722deec33050e0d8881e465f94c79ac2
+ms.openlocfilehash: a1bdb1b8ac1f545933a92e78fd13b745606f1da3
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/25/2021
-ms.locfileid: "105110892"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105563779"
 ---
 # <a name="quickstart-create-and-manage-communication-services-resources"></a>Avvio rapido: Creare e gestire le risorse di Servizi di comunicazione
 
@@ -49,12 +49,25 @@ Dopo aver spostato la risorsa servizi di comunicazione, selezionare **chiavi** d
 
 :::image type="content" source="./media/key.png" alt-text="Screenshot della pagina Chiave di Servizi di comunicazione.":::
 
-È anche possibile accedere alle informazioni chiave usando l'interfaccia della riga di comando di Azure:
+È anche possibile accedere alle informazioni chiave usando l'interfaccia della riga di comando di Azure, ad esempio il gruppo di risorse o le chiavi per una risorsa specifica. 
 
+Installare l'interfaccia della riga di comando di [Azure](https://docs.microsoft.com/cli/azure/install-azure-cli-windows?tabs=azure-cli) e usare il comando seguente per accedere. È necessario fornire le credenziali per connettersi con il proprio account Azure.
+```azurecli
+az login
+```
+
+A questo punto è possibile accedere a informazioni importanti sulle risorse.
 ```azurecli
 az communication list --resource-group "<resourceGroup>"
 
 az communication list-key --name "<communicationName>" --resource-group "<resourceGroup>"
+```
+
+Se si vuole selezionare una sottoscrizione specifica, è anche possibile specificare il ```--subscription``` flag e fornire l'ID sottoscrizione.
+```
+az communication list --resource-group  "resourceGroup>"  --subscription "<subscriptionID>"
+
+az communication list-key --name "<communicationName>" --resource-group "resourceGroup>" --subscription "<subscriptionID>"
 ```
 
 ## <a name="store-your-connection-string"></a>Archiviare la stringa di connessione

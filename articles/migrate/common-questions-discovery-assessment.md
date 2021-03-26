@@ -6,12 +6,12 @@ ms.author: rajosh
 ms.manager: abhemraj
 ms.topic: conceptual
 ms.date: 06/09/2020
-ms.openlocfilehash: 0701ff53202d53131ceac8ceabb148fb5ff4f2b2
-ms.sourcegitcommit: a8ff4f9f69332eef9c75093fd56a9aae2fe65122
+ms.openlocfilehash: 629459d22b18b326307b45bb512d16622808b533
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/24/2021
-ms.locfileid: "105025153"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105562631"
 ---
 # <a name="discovery-assessment-and-dependency-analysis---common-questions"></a>Individuazione, valutazione e analisi delle dipendenze-domande comuni
 
@@ -143,7 +143,7 @@ Se l'istanza è pronta sia per il database che per l'istanza gestita di Azure SQ
 Questo può verificarsi quando lo stato del tipo di distribuzione di destinazione scelto nelle proprietà della valutazione è **Consigliato** e l'istanza di SQL non è pronta per Database SQL di Azure e Istanza gestita di SQL di Azure. È consigliabile creare una valutazione in Azure Migrate con il tipo di valutazione **Macchina virtuale di Azure** per determinare se il server in cui è in esecuzione l'istanza è pronto per eseguire la migrazione a una macchina virtuale di Azure.
 È consigliabile creare una valutazione in Azure Migrate con tipo di valutazione come **macchina virtuale di Azure** per determinare se il server in cui è in esecuzione l'istanza è pronto per la migrazione a una macchina virtuale di Azure:
 - Le valutazioni delle VM di Azure in Azure Migrate sono attualmente incentrate su Lift-a-Shift e non prenderanno in considerazione le metriche delle prestazioni specifiche per l'esecuzione di istanze e database SQL nella macchina virtuale di Azure. 
-- Quando si esegue una valutazione della macchina virtuale di Azure in un server, le dimensioni consigliate e le stime dei costi faranno riferimento a tutte le istanze in esecuzione nel server e sarà possibile eseguire la migrazione a una macchina virtuale di Azure tramite lo strumento di migrazione del server. Prima di eseguire la migrazione, [esaminare le linee guida sulle prestazioni](https://docs.microsoft.com/azure/azure-sql/virtual-machines/windows/performance-guidelines-best-practices) per SQL Server nelle macchine virtuali di Azure.
+- Quando si esegue una valutazione della macchina virtuale di Azure in un server, le dimensioni consigliate e le stime dei costi faranno riferimento a tutte le istanze in esecuzione nel server e sarà possibile eseguire la migrazione a una macchina virtuale di Azure tramite lo strumento di migrazione del server. Prima di eseguire la migrazione, [esaminare le linee guida sulle prestazioni](../azure-sql/virtual-machines/windows/performance-guidelines-best-practices.md) per SQL Server nelle macchine virtuali di Azure.
 
 ## <a name="i-cant-see-some-databases-in-my-assessment-even-though-the-instance-is-part-of-the-assessment"></a>Non è possibile visualizzare alcuni database nella valutazione anche se l'istanza fa parte della valutazione
 
@@ -151,7 +151,7 @@ La valutazione di Azure SQL include solo database il cui stato è Online. Nel ca
 
 ## <a name="i-want-to-compare-costs-for-running-my-sql-instances-on-azure-vm-vs-azure-sql-databaseazure-sql-managed-instance"></a>Vorrei confrontare i costi per l'esecuzione delle istanze di SQL in una VM di Azure rispetto al database SQL di Azure/Azure SQL Istanza gestita
 
-È possibile creare una valutazione con il tipo **Macchina virtuale di Azure** nello stesso gruppo usato nella valutazione di **Azure SQL**. È quindi possibile confrontare i due report affiancati. Tuttavia, le valutazioni delle macchine virtuali di Azure in Azure Migrate sono attualmente in fase di trasferimento in modalità lift-and-shift e non prenderanno in considerazione le metriche delle prestazioni specifiche per l'esecuzione di database e istanze di SQL nella macchina virtuale di Azure. Quando si esegue una valutazione della macchina virtuale di Azure in un server, le dimensioni consigliate e le stime dei costi faranno riferimento a tutte le istanze in esecuzione nel server e sarà possibile eseguire la migrazione a una macchina virtuale di Azure tramite lo strumento di migrazione del server. Prima di eseguire la migrazione, [esaminare le linee guida sulle prestazioni](https://docs.microsoft.com/azure/azure-sql/virtual-machines/windows/performance-guidelines-best-practices) per SQL Server nelle macchine virtuali di Azure.
+È possibile creare una valutazione con il tipo **Macchina virtuale di Azure** nello stesso gruppo usato nella valutazione di **Azure SQL**. È quindi possibile confrontare i due report affiancati. Tuttavia, le valutazioni delle macchine virtuali di Azure in Azure Migrate sono attualmente in fase di trasferimento in modalità lift-and-shift e non prenderanno in considerazione le metriche delle prestazioni specifiche per l'esecuzione di database e istanze di SQL nella macchina virtuale di Azure. Quando si esegue una valutazione della macchina virtuale di Azure in un server, le dimensioni consigliate e le stime dei costi faranno riferimento a tutte le istanze in esecuzione nel server e sarà possibile eseguire la migrazione a una macchina virtuale di Azure tramite lo strumento di migrazione del server. Prima di eseguire la migrazione, [esaminare le linee guida sulle prestazioni](../azure-sql/virtual-machines/windows/performance-guidelines-best-practices.md) per SQL Server nelle macchine virtuali di Azure.
 
 ## <a name="the-storage-cost-in-my-azure-sql-assessment-is-zero"></a>Il costo di archiviazione nella valutazione SQL di Azure è zero
 Per il Istanza gestita SQL di Azure, non è stato aggiunto alcun costo di archiviazione per la prima archiviazione da 32 GB/istanza/mese e viene aggiunto un costo di archiviazione aggiuntivo per l'archiviazione con incrementi di 32 GB. [Altre informazioni](https://azure.microsoft.com/pricing/details/azure-sql/sql-managed-instance/single/)

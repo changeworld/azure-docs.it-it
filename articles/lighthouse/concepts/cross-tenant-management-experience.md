@@ -3,12 +3,12 @@ title: Esperienze di gestione tra tenant
 description: La gestione risorse delegate di Azure consente un'esperienza di gestione tra tenant.
 ms.date: 03/23/2021
 ms.topic: conceptual
-ms.openlocfilehash: ba3cee2ecd7efcbb33c19d7ed159083e843c84a8
-ms.sourcegitcommit: ac035293291c3d2962cee270b33fca3628432fac
+ms.openlocfilehash: a774eb08989e8fc45a117d83d81a5b510e8202b4
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/24/2021
-ms.locfileid: "104952117"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105559911"
 ---
 # <a name="cross-tenant-management-experiences"></a>Esperienze di gestione tra tenant
 
@@ -56,8 +56,8 @@ La maggior parte delle attività e dei servizi può essere eseguita nelle risors
   - Assicurarsi che lo stesso set di criteri venga applicato tra gli ambienti ibridi dei clienti
   - Usare il Centro sicurezza di Azure per monitorare la conformità tra gli ambienti ibridi dei clienti
 - Gestire cluster Kubernetes ibridi su larga scala: [Azure Arc abilitato Kubernetes (anteprima)](../../azure-arc/kubernetes/overview.md):
-  - [Gestire i cluster Kubernetes connessi](../../azure-arc/kubernetes/connect-cluster.md) a sottoscrizioni delegate e/o gruppi di risorse in Azure
-  - [Usare GitOps](../../azure-arc/kubernetes/use-gitops-connected-cluster.md) per i cluster connessi
+  - [Gestire i cluster Kubernetes connessi](../../azure-arc/kubernetes/quickstart-connect-cluster.md) a sottoscrizioni delegate e/o gruppi di risorse in Azure
+  - [Usare GitOps](../../azure-arc/kubernetes/tutorial-use-gitops-connected-cluster.md) per i cluster connessi
   - Applicare i criteri tra i cluster connessi
 
 [Automazione di Azure](../../automation/index.yml):

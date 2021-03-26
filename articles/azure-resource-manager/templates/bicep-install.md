@@ -3,12 +3,12 @@ title: Configurare gli ambienti di sviluppo e distribuzione di bicipiti
 description: Come configurare gli ambienti di sviluppo e distribuzione bicipite
 ms.topic: conceptual
 ms.date: 03/17/2021
-ms.openlocfilehash: d665a863affdec2009fc208f76b85a7f25de451d
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 7cd3721aca83488de61494a94826bfcd0b6acc26
+ms.sourcegitcommit: 44edde1ae2ff6c157432eee85829e28740c6950d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104594394"
+ms.lasthandoff: 03/25/2021
+ms.locfileid: "105543738"
 ---
 # <a name="setup-bicep-development-and-deployment-environment"></a>Configurare l'ambiente di sviluppo e distribuzione bicipite
 
@@ -31,7 +31,7 @@ Per ottenere la migliore esperienza di creazione del bicipite, sono necessari du
 - [Installare l'interfaccia della riga di comando di Azure in macOS](/cli/azure/install-azure-cli-macos)
 
 > [!NOTE]
-> Attualmente, sia l'interfaccia della riga di comando di Azure che la Azure PowerShell possono distribuire solo file bicipiti locali. Per altre informazioni sulla distribuzione di file bicipite usando l'interfaccia della riga di comando di Azure, vedere [deploy-CLI](/deploy-cli.md#deploy-remote-template). Per altre informazioni sulla distribuzione di file bicipite usando Azure PowerShell, vedere [deploy-PowerShell](/deploy-powershell.md#deploy-remote-template).
+> Attualmente, sia l'interfaccia della riga di comando di Azure che la Azure PowerShell possono distribuire solo file bicipiti locali. Per altre informazioni sulla distribuzione di file bicipite usando l'interfaccia della riga di comando di Azure, vedere [deploy-CLI](./deploy-cli.md#deploy-remote-template). Per altre informazioni sulla distribuzione di file bicipite usando Azure PowerShell, vedere [deploy-PowerShell]( ./deploy-powershell.md#deploy-remote-template).
 
 Dopo l'installazione della versione supportata di Azure PowerShell o dell'interfaccia della riga di comando di Azure, è possibile distribuire un file bicipite con:
 

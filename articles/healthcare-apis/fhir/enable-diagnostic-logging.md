@@ -9,12 +9,12 @@ ms.reviewer: dseven
 ms.author: cavoeg
 author: zxue
 ms.date: 03/03/2021
-ms.openlocfilehash: d8f7a2b2f31fb192147c1950866cff77064a3671
-ms.sourcegitcommit: 225e4b45844e845bc41d5c043587a61e6b6ce5ae
+ms.openlocfilehash: a884dac90273e98868fed6bfe1cbed23b939d286
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/11/2021
-ms.locfileid: "103019159"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105557701"
 ---
 # <a name="enable-diagnostic-logging-in-azure-api-for-fhir"></a>Abilitare la registrazione diagnostica nell'API di Azure per FHIR
 
@@ -42,7 +42,7 @@ In questo articolo si apprenderà come abilitare la registrazione diagnostica ne
     2. **Trasmettere a hub eventi** per l'inserimento da parte di un servizio di terze parti o di una soluzione analitica personalizzata. Prima di poter configurare questo passaggio, è necessario creare uno spazio dei nomi dell'hub eventi e un criterio dell'hub eventi.
     3. **Trasmettere all'area di lavoro log Analytics** in monitoraggio di Azure. Prima di poter selezionare questa opzione, è necessario creare l'area di lavoro log Analytics.
 
-6. Selezionare **AuditLogs** e/o **AllMetrics**. Le metriche includono il nome del servizio, la disponibilità, le dimensioni dei dati, la latenza totale, le richieste totali, gli errori totali e il timestamp. È possibile trovare altre informazioni sulle [metriche supportate](https://docs.microsoft.com/azure/azure-monitor/essentials/metrics-supported#microsofthealthcareapisservices). 
+6. Selezionare **AuditLogs** e/o **AllMetrics**. Le metriche includono il nome del servizio, la disponibilità, le dimensioni dei dati, la latenza totale, le richieste totali, gli errori totali e il timestamp. È possibile trovare altre informazioni sulle [metriche supportate](../../azure-monitor/essentials/metrics-supported.md#microsofthealthcareapisservices). 
 
    :::image type="content" source="media/diagnostic-logging/fhir-diagnostic-setting.png" alt-text="Impostazioni di diagnostica di Azure FHIR. Selezionare AuditLogs e/o AllMetrics." lightbox="media/diagnostic-logging/fhir-diagnostic-setting.png":::
 

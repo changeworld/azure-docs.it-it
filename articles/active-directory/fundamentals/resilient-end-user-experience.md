@@ -13,12 +13,12 @@ ms.reviewer: ''
 ms.date: 11/30/2020
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f6896a812ec173994a1299a28ff2e99a0f351391
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: b47a4a79fd423806693e86aef1edd132d844069e
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98724442"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105557905"
 ---
 # <a name="resilient-end-user-experience"></a>Esperienza utente finale resiliente
 
@@ -62,7 +62,7 @@ Nell'ambito del processo di registrazione del provider di identità esterno, inc
 
 ## <a name="availability-of-multi-factor-authentication"></a>Disponibilità di autenticazione a più fattori
 
-Quando si usa un [servizio telefonico per multi-factor authentication](../../active-directory-b2c/phone-authentication.md), assicurarsi di prendere in considerazione un provider di servizi alternativo. Il servizio telco locale o il provider di servizi telefonici può compromettere l'utilizzo del servizio.
+Quando si usa un [servizio telefonico per multi-factor authentication](../../active-directory-b2c/phone-authentication-user-flows.md), assicurarsi di prendere in considerazione un provider di servizi alternativo. Il servizio telco locale o il provider di servizi telefonici può compromettere l'utilizzo del servizio.
 
 ### <a name="how-to-choose-an-alternate-mfa"></a>Come scegliere un'autenticazione a più fattori alternativa  
 

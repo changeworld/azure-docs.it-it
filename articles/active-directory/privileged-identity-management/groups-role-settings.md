@@ -15,12 +15,12 @@ ms.date: 07/27/2020
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: abb7f93437cd45914d3824e9f557241ba0d71162
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 2cfb09f383d8425a644d3e2e87d190b350f5f41a
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "94835391"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105564637"
 ---
 # <a name="configure-privileged-access-group-settings-preview-in-privileged-identity-management"></a>Configurare le impostazioni del gruppo di accesso con privilegi (anteprima) in Privileged Identity Management
 
@@ -75,14 +75,14 @@ Quando si configurano le impostazioni per un ruolo è possibile scegliere tra du
 
 È possibile scegliere una delle opzioni di durata di assegnazione **idonee** seguenti:
 
-| | |
+| | Descrizione |
 | --- | --- |
 | **Allow permanent eligible assignment (Consenti assegnazione idonea permanente)** | Gli amministratori delle risorse possono assegnare un'assegnazione idonea permanente. |
 | **Scadenza assegnazione idonea dopo** | Gli amministratori delle risorse possono richiedere che per tutte le assegnazioni idonee venga specificata una data di inizio e fine. |
 
 L'utente può scegliere una delle opzioni di durata dell'assegnazione **attiva**:
 
-| | |
+| | Descrizione |
 | --- | --- |
 | **Allow permanent active assignment (Consenti assegnazione attiva permanente)** | Gli amministratori delle risorse possono assegnare un'assegnazione attiva permanente. |
 | **Scadenza dell'assegnazione attiva dopo** | Gli amministratori delle risorse possono richiedere che per tutte le assegnazioni attive venga specificata una data di inizio e fine. |

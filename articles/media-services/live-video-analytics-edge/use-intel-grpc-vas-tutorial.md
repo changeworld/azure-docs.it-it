@@ -6,12 +6,12 @@ ms.date: 02/04/2021
 ms.service: media-services
 ms.author: faneerde
 author: fvneerden
-ms.openlocfilehash: 20a22d11973f5bb01e2c1345538d5d94ce311dc7
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 07a7daf6363f0e528f84635ed6713ac462f89ca5
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103465760"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105562852"
 ---
 # <a name="tutorial-analyze-live-video-by-using-intel-openvino-dl-streamer--edge-ai-extension"></a>Esercitazione: analizzare video in tempo reale usando Intel OpenVINO™ DL Streamer-Edge per intelligenza artificiale 
 
@@ -66,7 +66,7 @@ In questa esercitazione si apprenderà come:
 
 Il modulo di estensione di OpenVINO™ DL Streamer-Edge per intelligenza artificiale è un microservizio basato sul servizio di analisi video di Intel, che fornisce le pipeline di analisi video compilate con OpenVINO™ DL Streamer. Gli sviluppatori possono inviare fotogrammi video decodificati al modulo di estensione AI che esegue il rilevamento, la classificazione o il rilevamento e restituisce i risultati. Il modulo di estensione AI espone le API di gRPC compatibili con le piattaforme di analisi video, ad esempio analisi video in tempo reale su IoT Edge da Microsoft. 
 
-Per creare soluzioni di analisi video live complesse e a prestazioni elevate, il modulo Analisi video live in IoT Edge dovrà essere associato a un potente motore di inferenza che possa sfruttare la scalabilità a livello perimetrale. In questa esercitazione le richieste di inferenza vengono inviate all' [estensione Intel OpenVINO™ DL Streamer-Edge per intelligenza artificiale](https://aka.ms/lva-intel-openvino-dl-streamer), un modulo perimetrale progettato per funzionare con analisi video in tempo reale su IOT Edge. 
+Per creare soluzioni di analisi video live complesse e a prestazioni elevate, il modulo Analisi video live in IoT Edge dovrà essere associato a un potente motore di inferenza che possa sfruttare la scalabilità a livello perimetrale. In questa esercitazione le richieste di inferenza vengono inviate all' [estensione Intel OpenVINO™ DL Streamer-Edge per intelligenza artificiale](), un modulo perimetrale progettato per funzionare con analisi video in tempo reale su IOT Edge. 
 
 Nella versione iniziale di questo server di inferenza è possibile accedere ai [modelli](https://github.com/intel/video-analytics-serving/tree/master/samples/lva_ai_extension#edge-ai-extension-module-options) seguenti:
 

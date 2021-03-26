@@ -6,12 +6,12 @@ ms.author: anvar
 ms.manager: bsiva
 ms.topic: troubleshooting
 ms.date: 08/17/2020
-ms.openlocfilehash: 33e2bf641b75a5dd360498478f1ea70c7614fb38
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 5487e51ad73ab903e7b61de266e2c28d282a56c1
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98071375"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105568659"
 ---
 # <a name="troubleshooting-replication-issues-in-agentless-vmware-vm-migration"></a>Risoluzione dei problemi di replica nella migrazione di macchine virtuali VMware senza agente
 
@@ -292,7 +292,7 @@ Questo problema si verifica quando server vCenter gli agenti di gestione smetton
 
 ### <a name="error-message-an-internal-error-occurred-snapshot-disk-size-invalid"></a>Messaggio di errore: si è verificato un errore interno. [Dimensioni del disco snapshot non valide]
 
-Si tratta di un problema noto di VMware in cui le dimensioni del disco indicate dallo snapshot diventeranno zero. Seguire la risoluzione fornita in [VMware KB](https://go.microsoft.com/fwlink/?linkid=2138972).
+Si tratta di un problema noto di VMware in cui le dimensioni del disco indicate dallo snapshot diventeranno zero. Seguire la risoluzione fornita in [VMware KB](https://kb.vmware.com/s/).
 
 ### <a name="error-message-an-internal-error-occurred-memory-allocation-failed-out-of-memory"></a>Messaggio di errore: si è verificato un errore interno. [Allocazione di memoria non riuscita. Memoria insufficiente.]
 

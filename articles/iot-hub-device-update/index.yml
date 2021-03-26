@@ -11,12 +11,12 @@ metadata:
   ms.author: philmea
   manager: philmea
   ms.date: 2/17/2021
-  ms.openlocfilehash: 2b47f8b51cf4150659c1d5b8ed1dc145997252ef
-  ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+  ms.openlocfilehash: 76678a5695fdffd5325543a28398e867ab3ab6f5
+  ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
   ms.translationtype: MT
   ms.contentlocale: it-IT
-  ms.lasthandoff: 03/02/2021
-  ms.locfileid: "101665784"
+  ms.lasthandoff: 03/26/2021
+  ms.locfileid: "105560387"
 landingContent:
 - title: Informazioni sull'aggiornamento del dispositivo
   linkLists:
@@ -24,6 +24,18 @@ landingContent:
     links:
     - text: Che cos'è l'aggiornamento dei dispositivi per l'hub Internet?
       url: understand-device-update.md
+- title: Altre informazioni
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: Creazione di un account di aggiornamento del dispositivo
+      url: create-device-update-account.md
+    - text: Importazione di un aggiornamento
+      url: import-update.md
+    - text: Creazione di un gruppo di aggiornamento
+      url: create-update-group.md
+    - text: Distribuire un aggiornamento
+      url: deploy-update.md
   - linkListType: concept
     links:
     - text: Modalità di utilizzo dell'aggiornamento dispositivo Plug and Play
@@ -36,41 +48,19 @@ landingContent:
       url: import-concepts.md
     - text: Informazioni sui gruppi di aggiornamento del dispositivo
       url: device-update-groups.md
-- title: Esplora con le esercitazioni
-  linkLists:
-  - linkListType: tutorial
-    links:
-    - text: Aggiornamento del dispositivo in Raspberry Pi
-      url: device-update-raspberry-pi.md
-  - linkListType: tutorial
-    links:
-    - text: Aggiornamento del dispositivo in un simulatore
-      url: device-update-simulator.md
-  - linkListType: tutorial
-    links:
-    - text: Aggiornamento del dispositivo nell'agente di pacchetti di Ubuntu server 18,04 x64
-      url: device-update-ubuntu-agent.md
-- title: Informazioni su come aggiornare i dispositivi
-  linkLists:
-  - linkListType: how-to-guide
-    links:
-    - text: Creazione di un account di aggiornamento del dispositivo
-      url: create-device-update-account.md
-  - linkListType: how-to-guide
-    links:
-    - text: Importazione di un aggiornamento
-      url: import-update.md
-  - linkListType: how-to-guide
-    links:
-    - text: Creazione di un gruppo di aggiornamento
-      url: create-update-group.md
-  - linkListType: how-to-guide
-    links:
-    - text: Distribuire un aggiornamento
-      url: deploy-update.md
 - title: Guida per sviluppatori
   linkLists:
   - linkListType: how-to-guide
     links:
     - text: Compila, Esegui e modifica agente di aggiornamento dispositivi
       url: device-update-agent-provisioning.md
+- title: Introduzione
+  linkLists:
+  - linkListType: tutorial
+    links:
+    - text: Aggiornamento del dispositivo in un simulatore
+      url: device-update-simulator.md
+    - text: Aggiornamento del dispositivo in Raspberry Pi
+      url: device-update-raspberry-pi.md
+    - text: Aggiornamento del dispositivo nell'agente di pacchetti di Ubuntu server 18,04 x64
+      url: device-update-ubuntu-agent.md

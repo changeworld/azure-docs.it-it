@@ -7,14 +7,14 @@ manager: femila
 ms.service: media-services
 ms.topic: conceptual
 ms.workload: media
-ms.date: 03/17/2021
+ms.date: 03/25/2021
 ms.author: inhenkel
-ms.openlocfilehash: 915fdcb059d9e7bf9e1853040b90b82a0457652e
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: bf66723f878f8b277d71577c068afdad56708ad6
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104598406"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105563272"
 ---
 # <a name="encoding-scenario-based-migration-guidance"></a>Guida alla migrazione basata su scenari di codifica
 
@@ -143,7 +143,3 @@ Per i clienti che usano il processore Indexer V1 nell'API v2, è necessario crea
 ## <a name="samples"></a>Esempi
 
 È anche possibile [confrontare il codice V2 e V3 negli esempi di codice](migrate-v-2-v-3-migration-samples.md).
-
-## <a name="next-steps"></a>Passaggi successivi
-
-[!INCLUDE [migration guide next steps](./includes/migration-guide-next-steps.md)]

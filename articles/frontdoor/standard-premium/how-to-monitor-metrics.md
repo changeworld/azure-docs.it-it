@@ -8,12 +8,12 @@ ms.service: frontdoor
 ms.topic: how-to
 ms.date: 02/18/2021
 ms.author: yuajia
-ms.openlocfilehash: bb10fb337972db2696960b530f2d7538bd36a2fb
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 72388eb8006ff1b9628db5066dc63e6a0811f3d5
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101099390"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105557327"
 ---
 # <a name="real-time-monitoring-in-azure-front-door-standardpremium"></a>Monitoraggio in tempo reale in Azure front door standard/Premium
 
@@ -22,11 +22,11 @@ ms.locfileid: "101099390"
 
 Azure front door standard/Premium è integrato con monitoraggio di Azure ed è dotato di 11 metriche che consentono di monitorare lo standard/Premium di Azure front door in tempo reale per tenere traccia, risolvere i problemi ed eseguire il debug dei problemi.  
 
-Misure standard/Premium di Azure front door e invia le metriche in intervalli di 60 secondi. Le metriche possono richiedere fino a 3 minuti per essere visualizzate nel portale. Le metriche possono essere visualizzate in grafici o griglia di propria scelta e sono accessibili tramite il portale, PowerShell, l'interfaccia della riga di comando e l'API. Per altre informazioni, vedere [metriche di monitoraggio di Azure](../../azure-monitor/platform/data-platform-metrics.md).  
+Misure standard/Premium di Azure front door e invia le metriche in intervalli di 60 secondi. Le metriche possono richiedere fino a 3 minuti per essere visualizzate nel portale. Le metriche possono essere visualizzate in grafici o griglia di propria scelta e sono accessibili tramite il portale, PowerShell, l'interfaccia della riga di comando e l'API. Per altre informazioni, vedere [metriche di monitoraggio di Azure](../../azure-monitor/essentials/data-platform-metrics.md).  
 
 Le metriche predefinite sono gratuite. È possibile abilitare metriche aggiuntive per un costo aggiuntivo. 
 
-È possibile configurare gli avvisi per ogni metrica, ad esempio una soglia per 4XXErrorRate o 5XXErrorRate. Quando la percentuale di errori supera la soglia, viene attivato un avviso come configurato. Per altre informazioni, vedere [Creare, visualizzare e gestire gli avvisi delle metriche con Monitoraggio di Azure](../../azure-monitor/platform/alerts-metric.md). 
+È possibile configurare gli avvisi per ogni metrica, ad esempio una soglia per 4XXErrorRate o 5XXErrorRate. Quando la percentuale di errori supera la soglia, viene attivato un avviso come configurato. Per altre informazioni, vedere [Creare, visualizzare e gestire gli avvisi delle metriche con Monitoraggio di Azure](../../azure-monitor/alerts/alerts-metric.md). 
 
 > [!IMPORTANT]
 > Azure front door standard/Premium (anteprima) è attualmente disponibile in anteprima pubblica.
@@ -75,7 +75,7 @@ Le metriche predefinite sono gratuite. È possibile abilitare metriche aggiuntiv
 
 1. Selezionare **nuova regola di avviso** per le metriche elencate nella sezione metrica.
 
-L'avviso verrà addebitato in base al monitoraggio di Azure. Per altre informazioni sugli avvisi, vedere [avvisi di monitoraggio di Azure](../../azure-monitor/platform/alerts-overview.md).
+L'avviso verrà addebitato in base al monitoraggio di Azure. Per altre informazioni sugli avvisi, vedere [avvisi di monitoraggio di Azure](../../azure-monitor/alerts/alerts-overview.md).
 
 ## <a name="next-steps"></a>Passaggi successivi
 

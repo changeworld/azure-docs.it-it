@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 03/24/2021
 ms.author: thweiss
-ms.openlocfilehash: ec12deb5a7c77674026b849585552fd873aee5c1
-ms.sourcegitcommit: ed7376d919a66edcba3566efdee4bc3351c57eda
+ms.openlocfilehash: f8028d69e376e2b71549be52267e2f6cbdb1f8ce
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/24/2021
-ms.locfileid: "105045995"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105568648"
 ---
 # <a name="configure-role-based-access-control-with-azure-active-directory-for-your-azure-cosmos-db-account-preview"></a>Configurare il controllo degli accessi in base al ruolo con Azure Active Directory per l'account Azure Cosmos DB (anteprima)
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -323,9 +323,9 @@ Per usare la Azure Cosmos DB RBAC nell'applicazione, è necessario aggiornare la
 
 Il modo in cui si crea un' `TokenCredential` istanza esula dall'ambito di questo articolo. Esistono diversi modi per creare un'istanza di questo tipo, a seconda del tipo di identità di AAD che si vuole usare (entità utente, entità servizio, gruppo e così via). In particolare, l' `TokenCredential` istanza deve essere risolta nell'identità (ID entità) a cui sono stati assegnati i ruoli. È possibile trovare esempi di creazione di una `TokenCredential` classe:
 
-- [in .NET](https://docs.microsoft.com/dotnet/api/overview/azure/identity-readme#credential-classes)
-- [in Java](https://docs.microsoft.com/java/api/overview/azure/identity-readme#credential-classes)
-- [in JavaScript](https://docs.microsoft.com/javascript/api/overview/azure/identity-readme#credential-classes)
+- [in .NET](/dotnet/api/overview/azure/identity-readme#credential-classes)
+- [in Java](/java/api/overview/azure/identity-readme#credential-classes)
+- [in JavaScript](/javascript/api/overview/azure/identity-readme#credential-classes)
 
 Gli esempi seguenti usano un'entità servizio con un' `ClientSecretCredential` istanza di.
 

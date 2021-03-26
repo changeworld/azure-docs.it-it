@@ -9,12 +9,12 @@ ms.topic: overview
 ms.custom: sqldbrb=1, fasttrack-edit
 ms.reviewer: vanto
 ms.date: 03/09/2020
-ms.openlocfilehash: 506982a22fd53dfb4f8f3d94735c11fc491469eb
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 0ce8e45f301ac0fd84f7d5d27d81b63103768f89
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102097279"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105567713"
 ---
 # <a name="azure-private-link-for-azure-sql-database-and-azure-synapse-analytics"></a>Collegamento privato di Azure per database SQL di Azure e Azure Synapse Analytics
 [!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]
@@ -62,7 +62,7 @@ I client possono connettersi all'endpoint privato dalla stessa rete virtuale, da
 
  ![Diagramma delle opzioni di connettività][1]
 
-Inoltre, i servizi che non sono in esecuzione direttamente nella rete virtuale ma sono integrati con esso, ad esempio app Web del servizio app o funzioni, possono anche ottenere la connettività privata al database. Per altre informazioni su questo caso di utilizzo specifico, vedere la pagina relativa all' [app Web con connettività privata allo scenario di architettura del database SQL di Azure](https://docs.microsoft.com/azure/architecture/example-scenario/private-web-app/private-web-app) .
+Inoltre, i servizi che non sono in esecuzione direttamente nella rete virtuale ma sono integrati con esso, ad esempio app Web del servizio app o funzioni, possono anche ottenere la connettività privata al database. Per altre informazioni su questo caso di utilizzo specifico, vedere la pagina relativa all' [app Web con connettività privata allo scenario di architettura del database SQL di Azure](/azure/architecture/example-scenario/private-web-app/private-web-app) .
 
 ## <a name="test-connectivity-to-sql-database-from-an-azure-vm-in-same-virtual-network"></a>Testare la connettività al database SQL da una macchina virtuale di Azure nella stessa rete virtuale
 
@@ -185,7 +185,7 @@ PolyBase e l'istruzione COPY vengono in genere usati per caricare i dati in Azur
 
 - Per una panoramica della sicurezza del Database SQL di Azure vedere [Protezione del Database SQL](security-overview.md)
 - Per una panoramica della connettività del database SQL di Azure, vedere [Architettura della connettività di SQL di Azure](connectivity-architecture.md).
-- Potrebbe essere interessante anche l' [app Web con connettività privata allo scenario di architettura del database SQL di Azure](https://docs.microsoft.com/azure/architecture/example-scenario/private-web-app/private-web-app) , che connette un'applicazione Web all'esterno della rete virtuale all'endpoint privato di un database.
+- Potrebbe essere interessante anche l' [app Web con connettività privata allo scenario di architettura del database SQL di Azure](/azure/architecture/example-scenario/private-web-app/private-web-app) , che connette un'applicazione Web all'esterno della rete virtuale all'endpoint privato di un database.
 
 <!--Image references-->
 [1]: media/quickstart-create-single-database/pe-connect-overview.png

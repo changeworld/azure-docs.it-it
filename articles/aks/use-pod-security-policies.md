@@ -4,12 +4,12 @@ description: Informazioni su come controllare l'ammissione di pod usando PodSecu
 services: container-service
 ms.topic: article
 ms.date: 02/12/2021
-ms.openlocfilehash: cb317e5e0d1f558121e675f569bad37811768ca6
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: cf520f4b0dc2f51e6431d65ef178b6635d7fd857
+ms.sourcegitcommit: 44edde1ae2ff6c157432eee85829e28740c6950d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102180310"
+ms.lasthandoff: 03/25/2021
+ms.locfileid: "105544248"
 ---
 # <a name="preview---secure-your-cluster-using-pod-security-policies-in-azure-kubernetes-service-aks"></a>Anteprima-proteggere il cluster usando i criteri di sicurezza pod in Azure Kubernetes Service (AKS)
 
@@ -21,7 +21,7 @@ ms.locfileid: "102180310"
 > È consigliabile iniziare a testare gli scenari con criteri di Azure per AKS, che offre criteri predefiniti per proteggere i pod e le iniziative predefinite che vengono mappate ai criteri di sicurezza pod. Per eseguire la migrazione dai criteri di sicurezza Pod, è necessario eseguire le azioni seguenti in un cluster.
 > 
 > 1. [Disabilitare i criteri di sicurezza Pod](#clean-up-resources) nel cluster
-> 1. Abilitare il [componente aggiuntivo criteri di Azure][kubernetes-policy-reference]
+> 1. Abilitare il [componente aggiuntivo criteri di Azure][azure-policy-add-on]
 > 1. Abilitare i criteri di Azure desiderati dai [criteri predefiniti disponibili][policy-samples]
 > 1. Esaminare [le modifiche del comportamento tra i criteri di sicurezza pod e i criteri di Azure](#behavior-changes-between-pod-security-policy-and-azure-policy)
 
@@ -462,7 +462,6 @@ Per altre informazioni sulla limitazione del traffico di rete Pod, vedere [prote
 [kubectl-logs]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#logs
 [terms-of-use]: https://azure.microsoft.com/support/legal/preview-supplemental-terms/
 [kubernetes-policy-reference]: https://kubernetes.io/docs/concepts/policy/pod-security-policy/#policy-reference
-
 <!-- LINKS - internal -->
 [aks-quickstart-cli]: kubernetes-walkthrough.md
 [aks-quickstart-portal]: kubernetes-walkthrough-portal.md
@@ -479,3 +478,4 @@ Per altre informazioni sulla limitazione del traffico di rete Pod, vedere [prote
 [az-extension-add]: /cli/azure/extension#az-extension-add
 [az-extension-update]: /cli/azure/extension#az-extension-update
 [policy-samples]: ./policy-reference.md#microsoftcontainerservice
+[azure-policy-add-on]: ../governance/policy/concepts/policy-for-kubernetes.md

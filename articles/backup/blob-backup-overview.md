@@ -3,12 +3,12 @@ title: Panoramica del backup operativo per i BLOB di Azure
 description: Informazioni sul backup operativo per i BLOB di Azure (in anteprima).
 ms.topic: conceptual
 ms.date: 02/16/2021
-ms.openlocfilehash: b10191c8a01d3cc7a92dee8ca9bf59a506497a60
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 1f6bc98b92a2af4b05cae766a2186f2970b7133c
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101745098"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105558755"
 ---
 # <a name="overview-of-operational-backup-for-azure-blobs-in-preview"></a>Panoramica del backup operativo per i BLOB di Azure (in anteprima)
 
@@ -22,7 +22,7 @@ Il backup operativo dei BLOB è una soluzione di **backup locale** . Quindi, i d
 
 Il backup operativo usa le funzionalità della piattaforma BLOB per proteggere i dati e consentire il ripristino quando necessario:
 
-- **Ripristino temporizzato**: il [ripristino temporizzato del BLOB](https://docs.microsoft.com/azure/storage/blobs/point-in-time-restore-overview) consente il ripristino dei dati BLOB in uno stato precedente. Questo, a sua volta, usa l' **eliminazione** temporanea, il **feed delle modifiche** e il controllo delle **versioni dei BLOB** per conservare i dati per la durata specificata. Il backup operativo si occupa dell'abilitazione del ripristino temporizzato e delle funzionalità sottostanti per garantire la conservazione dei dati per la durata specificata.
+- **Ripristino temporizzato**: il [ripristino temporizzato del BLOB](../storage/blobs/point-in-time-restore-overview.md) consente il ripristino dei dati BLOB in uno stato precedente. Questo, a sua volta, usa l' **eliminazione** temporanea, il **feed delle modifiche** e il controllo delle **versioni dei BLOB** per conservare i dati per la durata specificata. Il backup operativo si occupa dell'abilitazione del ripristino temporizzato e delle funzionalità sottostanti per garantire la conservazione dei dati per la durata specificata.
 
 - **Delete Lock**: Delete Lock impedisce l'eliminazione accidentale dell'account di archiviazione o da parte di utenti non autorizzati. Il backup operativo quando configurato consente anche di applicare automaticamente un blocco di eliminazione per ridurre le possibilità di perdita di dati a causa dell'eliminazione dell'account di archiviazione.
 
@@ -63,9 +63,9 @@ Il backup operativo offre la possibilità di ripristinare tutti i BLOB in blocch
 
 Quando si usa il backup operativo per i BLOB, non verrà addebitato alcun costo di gestione o di istanza. Si otterranno tuttavia gli addebiti seguenti:
 
-- I ripristini vengono eseguiti tramite il ripristino temporizzato del BLOB e attirano gli addebiti in base alla quantità di dati elaborati. Per altre informazioni, vedere [prezzi di ripristino temporizzato](https://docs.microsoft.com/azure/storage/blobs/point-in-time-restore-overview#pricing-and-billing).
+- I ripristini vengono eseguiti tramite il ripristino temporizzato del BLOB e attirano gli addebiti in base alla quantità di dati elaborati. Per altre informazioni, vedere [prezzi di ripristino temporizzato](../storage/blobs/point-in-time-restore-overview.md#pricing-and-billing).
 
-- Conservazione dei dati a causa dell' [eliminazione temporanea per i BLOB](https://docs.microsoft.com/azure/storage/blobs/soft-delete-blob-overview), del supporto del feed delle [modifiche nell'archiviazione BLOB di Azure e del controllo delle](https://docs.microsoft.com/azure/storage/blobs/storage-blob-change-feed) [versioni dei BLOB](https://docs.microsoft.com/azure/storage/blobs/versioning-overview).
+- Conservazione dei dati a causa dell' [eliminazione temporanea per i BLOB](../storage/blobs/soft-delete-blob-overview.md), del supporto del feed delle [modifiche nell'archiviazione BLOB di Azure e del controllo delle](../storage/blobs/storage-blob-change-feed.md) [versioni dei BLOB](../storage/blobs/versioning-overview.md).
 
 ## <a name="next-steps"></a>Passaggi successivi
 

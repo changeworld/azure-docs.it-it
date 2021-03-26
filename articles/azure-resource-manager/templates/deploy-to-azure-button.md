@@ -2,13 +2,13 @@
 title: Pulsante Deploy to Azure per la distribuzione in Azure
 description: Usare il pulsante per distribuire modelli di Azure Resource Manager da un repository GitHub.
 ms.topic: conceptual
-ms.date: 11/10/2020
-ms.openlocfilehash: abe59f377474540e9209691df8b1d1a7b806c26d
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.date: 03/25/2021
+ms.openlocfilehash: e25d49571347bb5ed27dbd52bb60c68cbeb4360d
+ms.sourcegitcommit: 44edde1ae2ff6c157432eee85829e28740c6950d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98028744"
+ms.lasthandoff: 03/25/2021
+ms.locfileid: "105543780"
 ---
 # <a name="use-a-deployment-button-to-deploy-templates-from-github-repository"></a>Usare un pulsante di distribuzione per distribuire i modelli dal repository GitHub
 
@@ -76,7 +76,7 @@ https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.github
 
 Si dispone dell'URL completo per il collegamento.
 
-In genere, il modello viene ospitato in un repository pubblico. Se si usa un repository privato, è necessario includere un token per accedere al contenuto non elaborato del modello. Il token generato da GitHub è valido solo per un breve periodo di tempo. È necessario aggiornare spesso il collegamento.
+[!INCLUDE [Deploy templates in private GitHub repo](../../../includes/resource-manager-private-github-repo-templates.md)]
 
 Se si usa [git con Azure Repos](/azure/devops/repos/git/) invece di un repository GitHub, è comunque possibile usare il pulsante **Distribuisci in Azure** . Verificare che il repository sia pubblico. Usare l' [operazione Items](/rest/api/azure/devops/git/items/get) per ottenere il modello. La richiesta deve avere il formato seguente:
 

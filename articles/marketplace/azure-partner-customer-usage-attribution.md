@@ -8,12 +8,12 @@ author: cpercy737
 ms.author: camper
 ms.date: 03/22/2021
 ms.custom: devx-track-terraform
-ms.openlocfilehash: ed7f27b0b8fde902f4ae9b65b9f6b4ada78f79c6
-ms.sourcegitcommit: ba3a4d58a17021a922f763095ddc3cf768b11336
+ms.openlocfilehash: 53edd3ec9a8d30d0c25f994db4a8b6f0199c2169
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/23/2021
-ms.locfileid: "104799191"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105558415"
 ---
 # <a name="azure-customer-usage-attribution"></a>Attribuzione dell'utilizzo dei clienti di Azure
 
@@ -34,7 +34,7 @@ Esistono casi d'uso secondari per l'attribuzione dell'utilizzo dei clienti all'e
 
 ## <a name="commercial-marketplace-azure-apps"></a>Marketplace commerciale app di Azure
 
-Il monitoraggio dell'utilizzo di Azure da parte delle app di Azure pubblicate sul Marketplace commerciale è in gran parte automatico. Quando si carica un modello di Gestione risorse come parte della [configurazione tecnica del piano dell'app Azure del Marketplace](https://docs.microsoft.com/azure/marketplace/create-new-azure-apps-offer-solution#define-the-technical-configuration), il centro per i partner aggiunge un ID di rilevamento leggibile da Azure Resource Manager.
+Il monitoraggio dell'utilizzo di Azure da parte delle app di Azure pubblicate sul Marketplace commerciale è in gran parte automatico. Quando si carica un modello di Gestione risorse come parte della [configurazione tecnica del piano dell'app Azure del Marketplace](./create-new-azure-apps-offer-solution.md#define-the-technical-configuration), il centro per i partner aggiunge un ID di rilevamento leggibile da Azure Resource Manager.
 
 Se si usano Azure Resource Manager API, sarà necessario aggiungere l'ID di traccia in base alle [istruzioni](#use-resource-manager-apis) riportate di seguito per passarlo alla Azure Resource Manager mentre il codice distribuisce le risorse. Questo ID è visibile nel centro per i partner nella pagina di configurazione tecnica del piano. 
 

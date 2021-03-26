@@ -6,22 +6,22 @@ ms.author: valls
 ms.date: 2/14/2021
 ms.topic: conceptual
 ms.service: iot-hub-device-update
-ms.openlocfilehash: 227488f165aaad2f204c647eed17467a4ef561a1
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 0283a84650abaadd454b4f5bca83d1473e443fb8
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "101663405"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105561815"
 ---
 # <a name="device-update-for-iot-hub-and-iot-plug-and-play"></a>Aggiornamento del dispositivo per l'hub e l'Plug and Play Internet
 
-L'aggiornamento del dispositivo per l'hub Internet delle cose USA [plug and Play](https://docs.microsoft.com/azure/iot-pnp/) per individuare e gestire i dispositivi che sono in grado di aggiornare gli aggiornamenti. Il servizio di aggiornamento del dispositivo invierà e riceverà le proprietà e i messaggi da e verso i dispositivi usando le interfacce PnP. Per l'aggiornamento del dispositivo per l'hub Internet è necessario che i dispositivi Internet implementino le interfacce e l'ID di modello seguenti, come descritto di seguito.
+L'aggiornamento del dispositivo per l'hub Internet delle cose USA [plug and Play](../iot-pnp/index.yml) per individuare e gestire i dispositivi che sono in grado di aggiornare gli aggiornamenti. Il servizio di aggiornamento del dispositivo invierà e riceverà le proprietà e i messaggi da e verso i dispositivi usando le interfacce PnP. Per l'aggiornamento del dispositivo per l'hub Internet è necessario che i dispositivi Internet implementino le interfacce e l'ID di modello seguenti, come descritto di seguito.
 
 ## <a name="adu-core-interface"></a>Interfaccia di base di ADU
 
 L'interfaccia ' ADUCoreInterface ' viene usata per inviare le azioni di aggiornamento e i metadati ai dispositivi e ricevere lo stato di aggiornamento dai dispositivi. L'interfaccia ' ADU Core ' è divisa in due proprietà dell'oggetto.
 
-Quando si implementa questa interfaccia, il nome del componente previsto nel modello è **"azureDeviceUpdateAgent"** . [Altre informazioni sui componenti PnP di Azure](https://docs.microsoft.com/azure/iot-pnp/concepts-components)
+Quando si implementa questa interfaccia, il nome del componente previsto nel modello è **"azureDeviceUpdateAgent"** . [Altre informazioni sui componenti PnP di Azure](../iot-pnp/concepts-components.md)
 
 ### <a name="agent-metadata"></a>Metadati agente
 
@@ -81,9 +81,9 @@ I metadati del servizio contengono i campi usati dai servizi di aggiornamento de
 
 ## <a name="device-information-interface"></a>Interfaccia informazioni sul dispositivo
 
-L'interfaccia informazioni sul dispositivo è un concetto usato all'interno dell' [architettura plug and Play](https://docs.microsoft.com/azure/iot-pnp/overview-iot-plug-and-play). Contiene le proprietà da dispositivo a cloud che forniscono informazioni sull'hardware e sul sistema operativo del dispositivo. L'aggiornamento del dispositivo per l'hub Internet usa le proprietà DeviceInformation. Manufacturer e DeviceInformation. Model per la telemetria e la diagnostica. Per ulteriori informazioni sull'interfaccia informazioni sul dispositivo, vedere questo [esempio](https://devicemodels.azure.com/dtmi/azure/devicemanagement/deviceinformation-1.json).
+L'interfaccia informazioni sul dispositivo è un concetto usato all'interno dell' [architettura plug and Play](../iot-pnp/overview-iot-plug-and-play.md). Contiene le proprietà da dispositivo a cloud che forniscono informazioni sull'hardware e sul sistema operativo del dispositivo. L'aggiornamento del dispositivo per l'hub Internet usa le proprietà DeviceInformation. Manufacturer e DeviceInformation. Model per la telemetria e la diagnostica. Per ulteriori informazioni sull'interfaccia informazioni sul dispositivo, vedere questo [esempio](https://devicemodels.azure.com/dtmi/azure/devicemanagement/deviceinformation-1.json).
 
-Il nome del componente previsto nel modello è **DeviceInformation** quando si implementa questa interfaccia. [Informazioni sui componenti PnP di Azure](https://docs.microsoft.com/azure/iot-pnp/concepts-components)
+Il nome del componente previsto nel modello è **DeviceInformation** quando si implementa questa interfaccia. [Informazioni sui componenti PnP di Azure](../iot-pnp/concepts-components.md)
 
 |Nome|Tipo|SCHEMA|Direzione|Descrizione|Esempio|
 |----|----|------|---------|-----------|-----------|
@@ -98,6 +98,6 @@ Il nome del componente previsto nel modello è **DeviceInformation** quando si i
 
 ## <a name="model-id"></a>ID modello 
 
-ID modello è il modo in cui i dispositivi intelligenti annunciano le proprie funzionalità alle applicazioni Azure Internet con i plug-in e Play.To altre informazioni su come creare Smart Device per annunciare le proprie capacità alle Plug and Play applicazioni Azure Internet per gli [sviluppatori](https://docs.microsoft.com/azure/iot-pnp/concepts-developer-guide-device-c)di dispositivi.
+ID modello è il modo in cui i dispositivi intelligenti annunciano le proprie funzionalità alle applicazioni Azure Internet con i plug-in e Play.To altre informazioni su come creare Smart Device per annunciare le proprie capacità alle Plug and Play applicazioni Azure Internet per gli [sviluppatori](../iot-pnp/concepts-developer-guide-device.md)di dispositivi.
 
-Per l'aggiornamento del dispositivo per l'hub Internet è necessario che il numero di Plug and Play sia Smart Device annunciare un ID modello con un valore **"dtmi: AzureDeviceUpdate; 1"** come parte della connessione del dispositivo. [Informazioni su come annunciare un ID modello](https://docs.microsoft.com/azure/iot-pnp/concepts-developer-guide-device-c#model-id-announcement).
+Per l'aggiornamento del dispositivo per l'hub Internet è necessario che il numero di Plug and Play sia Smart Device annunciare un ID modello con un valore **"dtmi: AzureDeviceUpdate; 1"** come parte della connessione del dispositivo. [Informazioni su come annunciare un ID modello](../iot-pnp/concepts-developer-guide-device.md#model-id-announcement).

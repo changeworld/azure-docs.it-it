@@ -6,12 +6,12 @@ ms.author: anvar
 ms.manager: bsiva
 ms.topic: conceptual
 ms.date: 06/08/2020
-ms.openlocfilehash: 40fcdae9a94b2b48eb4c665f4e0c9c3e58962f4b
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 4fb2ea534954ae6c64d0da2d992ce8b1c8a62c0c
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104576782"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105557565"
 ---
 # <a name="support-matrix-for-vmware-migration"></a>Matrice di supporto per la migrazione di VMware
 
@@ -68,7 +68,7 @@ La tabella riepiloga i requisiti di migrazione senza agenti per le macchine virt
 **IPv6** | Non supportata.
 **Disco di destinazione** | È possibile eseguire la migrazione delle macchine virtuali solo a Managed Disks (standard HDD, SSD standard, unità SSD Premium) in Azure.
 **Replica simultanea** | Fino a 300 la replica simultanea di VM per server vCenter con 1 Appliance. Fino a 500 la replica simultanea di VM per server vCenter quando viene distribuita un' [appliance di scalabilità orizzontale](./how-to-scale-out-for-migration.md) aggiuntiva. 
-**Installazione automatica dell'agente di macchine virtuali di Azure (agente Windows e Linux)** | Supportato per Windows Server 2008 R2 e versioni successive. <br/> Supportato per RHEL6, RHEL7, CentOS7, Ubuntu 14,04, Ubuntu 16,04, Ubuntu 18.04. Esaminare l'elenco dei [pacchetti necessari](https://docs.microsoft.com/azure/virtual-machines/extensions/agent-linux#requirements)per questi sistemi operativi Linux.
+**Installazione automatica dell'agente di macchine virtuali di Azure (agente Windows e Linux)** | Supportato per Windows Server 2008 R2 e versioni successive. <br/> Supportato per RHEL6, RHEL7, CentOS7, Ubuntu 14,04, Ubuntu 16,04, Ubuntu 18.04. Esaminare l'elenco dei [pacchetti necessari](../virtual-machines/extensions/agent-linux.md#requirements)per questi sistemi operativi Linux.
 
 > [!TIP]
 >  Usando il portale di Azure sarà possibile selezionare fino a 10 macchine virtuali alla volta per configurare la replica. Per replicare più macchine virtuali, è possibile usare il portale e aggiungere le macchine virtuali da replicare in più batch di 10 VM oppure usare l'interfaccia Azure Migrate PowerShell per configurare la replica. Assicurarsi di non configurare la replica simultanea su un numero di VM superiore al numero massimo supportato per le repliche simultanee.

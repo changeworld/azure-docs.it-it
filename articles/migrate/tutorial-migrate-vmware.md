@@ -7,12 +7,12 @@ ms.manager: bsiva
 ms.topic: tutorial
 ms.date: 06/09/2020
 ms.custom: mvc
-ms.openlocfilehash: 0dcb750871eeae504ddb3d4e3851c834bcad125c
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: a1d745c95b89efefabbd0b83061f9dcd9fe13911
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104604543"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105567119"
 ---
 # <a name="migrate-vmware-vms-to-azure-agentless"></a>Eseguire la migrazione di VM VMware ad Azure (senza agente)
 
@@ -91,7 +91,7 @@ Per abilitare la replica, procedere come descritto di seguito:
     - Doppia crittografia con chiavi gestite dalla piattaforma e chiavi gestite dal cliente
 
    > [!NOTE]
-   > Per replicare le macchine virtuali con la chiave gestita dal cliente, è necessario [creare un set di crittografia dischi](https://go.microsoft.com/fwlink/?linkid=2151800) nel gruppo di risorse di destinazione. Un oggetto set di crittografia dischi consente eseguire il mapping di Managed Disks a un Key Vault che contiene la chiave gestita dal cliente da usare per la crittografia del servizio di archiviazione.
+   > Per replicare le macchine virtuali con la chiave gestita dal cliente, è necessario [creare un set di crittografia dischi](../virtual-machines/disks-enable-customer-managed-keys-portal.md#set-up-your-disk-encryption-set) nel gruppo di risorse di destinazione. Un oggetto set di crittografia dischi consente eseguire il mapping di Managed Disks a un Key Vault che contiene la chiave gestita dal cliente da usare per la crittografia del servizio di archiviazione.
   
 10. In **Vantaggio Azure Hybrid**:
 
@@ -189,7 +189,7 @@ Dopo aver verificato che la migrazione di test funzioni nel modo previsto, è po
 ## <a name="complete-the-migration"></a>Completare la migrazione
 
 1. Al termine della migrazione fare clic con il pulsante destro del mouse sulla macchina virtuale e scegliere **Arresta replica**. La replica della macchina virtuale locale verrà arrestata e verrà eseguita la pulizia delle informazioni sullo stato della replica della VM.
-2. Durante la migrazione si installa automaticamente l'agente VM per le macchine virtuali Windows e Linux. Esaminare i [requisiti](https://docs.microsoft.com/azure/virtual-machines/extensions/agent-linux#requirements) dell'agente Linux di VM di Azure nei computer migrati se il computer dispone di un sistema operativo Linux per assicurarsi che l'installazione dell'agente VM Linux sia stata eseguita correttamente. 
+2. Durante la migrazione si installa automaticamente l'agente VM per le macchine virtuali Windows e Linux. Esaminare i [requisiti](../virtual-machines/extensions/agent-linux.md#requirements) dell'agente Linux di VM di Azure nei computer migrati se il computer dispone di un sistema operativo Linux per assicurarsi che l'installazione dell'agente VM Linux sia stata eseguita correttamente. 
 3. Apportare nell'app le eventuali modifiche post-migrazione necessarie, come l'aggiornamento delle stringhe di connessione del database e delle configurazioni dei server Web.
 4. Eseguire i test di accettazione della migrazione e dell'applicazione finale sull'applicazione migrata ora in esecuzione in Azure.
 5. Trasferire il traffico all'istanza della VM di Azure di cui è stata eseguita la migrazione.

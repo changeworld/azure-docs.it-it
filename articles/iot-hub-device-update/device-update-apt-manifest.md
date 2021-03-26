@@ -6,12 +6,12 @@ ms.author: vimeht
 ms.date: 2/17/2021
 ms.topic: conceptual
 ms.service: iot-hub-device-update
-ms.openlocfilehash: 0b68b78499aa3bf0d84d8bd0fa5ab55d1f969113
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 878748fcfc9b096e340b53c06969962af99f603f
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101679589"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105561169"
 ---
 # <a name="device-update-apt-manifest"></a>Manifesto APT aggiornamento dispositivo
 
@@ -103,7 +103,7 @@ Se la versione viene omessa, verrà installata la versione disponibile più rece
 > Gestione pacchetti APT ignora i requisiti di controllo delle versioni forniti da un pacchetto quando i pacchetti dipendenti da installare vengono risolti automaticamente. A meno che non vengano concesse versioni esplicite di pacchetti dipendenti, utilizzeranno la versione più recente anche se il pacchetto stesso può specificare un requisito rigoroso (=) in una determinata versione. Questa risoluzione automatica può causare errori relativi a una dipendenza non soddisfatta. [Altre informazioni](https://unix.stackexchange.com/questions/350192/apt-get-not-properly-resolving-a-dependency-on-a-fixed-version-in-a-debian-ubunt)
 
 Se si sta aggiornando una versione specifica del daemon di sicurezza di Azure IoT Edge, è necessario includere la versione desiderata del `iotedge` pacchetto e il relativo `libiothsm-std` pacchetto dipendente nel manifesto apt.
-[Altre informazioni](https://docs.microsoft.com/azure/iot-edge/how-to-update-iot-edge#update-the-security-daemon)
+[Altre informazioni](../iot-edge/how-to-update-iot-edge.md#update-the-security-daemon)
 
 > [!NOTE]
 > Un manifesto apt può essere usato per aggiornare l'agente di aggiornamento del dispositivo e le relative dipendenze. Elencare il nome dell'agente di aggiornamento del dispositivo e la versione desiderata nel manifesto apt, come per qualsiasi altro pacchetto. Questo manifesto apt può quindi essere importato e distribuito tramite l'aggiornamento del dispositivo per la pipeline dell'hub Internet. 
@@ -202,4 +202,3 @@ Questo aggiornamento include il pacchetto foo e include anche il pacchetto a bar
 
 > [!div class="nextstepaction"]
 > [Importa nuovo aggiornamento](import-update.md)
-

@@ -1,41 +1,43 @@
 ---
-title: Librerie client e API REST per i servizi di comunicazione di Azure
+title: SDK e API REST per i servizi di comunicazione di Azure
 titleSuffix: An Azure Communication Services concept document
 description: Altre informazioni sugli SDK di servizi di comunicazione Azure e sulle API REST.
 author: mikben
 manager: jken
 services: azure-communication-services
 ms.author: mikben
-ms.date: 03/10/2021
+ms.date: 03/25/2021
 ms.topic: conceptual
 ms.service: azure-communication-services
-ms.openlocfilehash: effd7658bbfe7359e1f99f9452857824c2c45c2f
-ms.sourcegitcommit: bed20f85722deec33050e0d8881e465f94c79ac2
+ms.openlocfilehash: b5115355133bdcf33825a05d4baa16408cb3fccd
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/25/2021
-ms.locfileid: "105107891"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105562444"
 ---
-# <a name="client-libraries-and-rest-apis"></a>Librerie client e API REST
+# <a name="sdks-and-rest-apis"></a>SDK e API REST
 
-[!INCLUDE [Public Preview Notice](../includes/public-preview-include.md)]
+Le funzionalità dei servizi di comunicazione di Azure sono organizzate concettualmente in sei aree. La maggior parte delle aree dispone di librerie client completamente open source programmate in base alle API REST pubblicate che è possibile usare direttamente su Internet. La libreria client chiamante utilizza interfacce di rete proprietarie ed è attualmente closed-source. Gli esempi e i dettagli più tecnici per gli SDK sono pubblicati nel [repository GitHub dei servizi di comunicazione di Azure](https://github.com/Azure/communication).
+
+## <a name="rest-apis"></a>API REST
+Le API di servizi di comunicazione sono documentate insieme ad altre API REST di Azure in [docs.Microsoft.com](/rest/api/azure/). In questa documentazione viene illustrato come strutturare i messaggi HTTP e vengono fornite informazioni aggiuntive per l'uso di post. Questa documentazione è disponibile anche in formato spavalderia su [GitHub](https://github.com/Azure/azure-rest-api-specs).
 
 
-Le funzionalità dei servizi di comunicazione di Azure sono organizzate concettualmente in sei aree. Alcune aree hanno SDK completamente open source. L'SDK chiamante usa interfacce di rete proprietarie ed è attualmente closed-source e la libreria di chat include una dipendenza di origine chiusa. Gli esempi e i dettagli tecnici aggiuntivi per gli SDK sono pubblicati nel [repository GitHub dei servizi di comunicazione di Azure](https://github.com/Azure/communication).
+## <a name="sdks"></a>SDK
 
-## <a name="client-libraries"></a>Librerie client
+| Assembly | Spazi dei nomi| Protocolli | Funzionalità |
+|------------------------|-------------------------------------|---------------------------------|--------------------------------------------------------------------------------------------|
+| Azure Resource Manager | Azure. ResourceManager. Communication | [REST](https://docs.microsoft.com/rest/api/communication/communicationservice)| Provisioning e gestione delle risorse di servizi di comunicazione|
+| Comuni | Azure. Communication. Common| REST | Fornisce tipi di base per altre librerie client |
+| Identità | Azure. Communication. Identity| [REST](https://docs.microsoft.com/rest/api/communication/communicationidentity)| Gestire gli utenti, i token di accesso|
+| Numeri di telefono _(beta)_| Azure. Communication. PhoneNumbers| [REST](https://docs.microsoft.com/rest/api/communication/phonenumberadministration)| Acquisisci e Gestisci i numeri di telefono |
+| Chat | Azure. Communication. chat| [Rest](https://docs.microsoft.com/rest/api/communication/) con segnalazione proprietaria | Aggiungere chat basate su testo in tempo reale alle applicazioni |
+| SMS| Azure. Communication. SMS | [REST](https://docs.microsoft.com/rest/api/communication/sms)| Inviare e ricevere messaggi SMS|
+| Chiamata| Azure. Communication. Calling | Trasporto proprietario | USA funzionalità per la comunicazione di dati in tempo reale, video, condivisione dello schermo e altro |
 
-| Assembly               | Protocolli             |Apri rispetto a origine chiusa| Spazi dei nomi                          | Funzionalità                                                      |
-| ---------------------- | --------------------- | ---|-------------------------- | --------------------------------------------------------------------------- |
-| Azure Resource Manager | REST | Apri            | Azure. ResourceManager. Communication | Provisioning e gestione delle risorse di servizi di comunicazione             |
-| Comuni                 | REST | Apri               | Azure. Communication. Common          | Fornisce tipi di base per altri SDK |
-| Identità         | REST | Apri               | Azure. Communication. Identity  | Gestire gli utenti, i token di accesso |
-| Numeri di telefono         | REST | Apri               | Azure. Communication. PhoneNumbers  | Gestione dei numeri di telefono |
-| Chat                   | REST con segnalazione proprietaria | Apri con pacchetto di segnalazione origine chiuso    | Azure. Communication. chat            | Aggiungere chat basate su testo in tempo reale alle applicazioni  |
-| SMS                    | REST | Apri              | Azure. Communication. SMS             | Inviare e ricevere messaggi SMS |
-| Chiamata                | Trasporto proprietario | Chiusa |Azure. Communication. Calling         | Sfrutta le funzionalità di comunicazione, video, condivisione dello schermo e altre funzionalità di comunicazione dati in tempo reale          |
+Le librerie client Azure Resource Manager, Identity e SMS sono incentrate sull'integrazione del servizio e in molti casi si verificano problemi di sicurezza se si integrano queste funzioni nelle applicazioni dell'utente finale. Le librerie client comuni e di chat sono adatte per le applicazioni client e di servizio. La libreria client chiamante è progettata per le applicazioni client. Una libreria client incentrata sugli scenari di servizio è in fase di sviluppo.
 
-Si noti che gli SDK Azure Resource Manager, Identity e SMS sono incentrati sull'integrazione del servizio e in molti casi si verificano problemi di sicurezza se si integrano queste funzioni nelle applicazioni dell'utente finale. Gli SDK comuni e chat sono adatti per le applicazioni client e di servizio. L'SDK chiamante è progettato per le applicazioni client. Un SDK incentrato sugli scenari del servizio è in fase di sviluppo.
 
 ### <a name="languages-and-publishing-locations"></a>Linguaggi e percorsi di pubblicazione
 
@@ -52,20 +54,27 @@ I percorsi di pubblicazione per i singoli pacchetti SDK sono descritti in dettag
 | Chiamata        | [npm](https://www.npmjs.com/package/@azure/communication-calling)         | -      | -      | -     | [GitHub](https://github.com/Azure/Communication/releases)     | [Maven](https://search.maven.org/artifact/com.azure.android/azure-communication-calling/)            | -                              |
 | Documentazione di riferimento     | [docs](https://azure.github.io/azure-sdk-for-js/communication.html)         | [docs](https://azure.github.io/azure-sdk-for-net/communication.html)      | -      | [docs](http://azure.github.io/azure-sdk-for-java/communication.html)     | [docs](/objectivec/communication-services/calling/)      | [docs](/java/api/com.azure.communication.calling)            | -                              |
 
-## <a name="rest-apis"></a>API REST
 
-Le API di servizi di comunicazione sono documentate insieme ad altre API REST di Azure in [docs.Microsoft.com](/rest/api/azure/). In questa documentazione viene illustrato come strutturare i messaggi HTTP e vengono fornite informazioni aggiuntive per l'uso di post. Questa documentazione è disponibile anche in formato spavalderia su [GitHub](https://github.com/Azure/azure-rest-api-specs).
+## <a name="rest-api-throttles"></a>Limitazioni dell'API REST
+Alcune API REST e i corrispondenti metodi SDK hanno limiti di limitazione che è necessario tenere presenti. Il superamento di questi limiti di limitazione attiverà una  `429 - Too Many Requests` risposta di errore. Questi limiti possono essere aumentati tramite [una richiesta al supporto tecnico di Azure](https://docs.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request).
 
-## <a name="additional-support-details"></a>Ulteriori dettagli sul supporto
+| API                                                                                                                          | Limitazione            |
+|------------------------------------------------------------------------------------------------------------------------------|---------------------|
+| [Tutte le API del piano di numero di telefono di ricerca](https://docs.microsoft.com/rest/api/communication/phonenumberadministration)         | 4 richieste/giorno      |
+| [Piano di acquisto di numeri di telefono](https://docs.microsoft.com/rest/api/communication/phonenumberadministration/purchasesearch) | 1 richiesta/giorno       |
+| [Invia SMS](https://docs.microsoft.com/rest/api/communication/sms/send)                                                       | 200 richieste al minuto |
 
-### <a name="ios-and-android-support-details"></a>dettagli del supporto per iOS e Android
+
+## <a name="sdk-platform-support-details"></a>Dettagli del supporto della piattaforma SDK
+
+### <a name="ios-and-android"></a>iOS e Android 
 
 - I servizi di comunicazione iOS SDK hanno come destinazione iOS versione 13 + e Xcode 11 +.
 - Android Java SDK destinazione API Android livello 21 + e Android Studio 4.0 +
 
-### <a name="net-support-details"></a>Dettagli del supporto .NET
+### <a name="net"></a>.NET 
 
-Fatta eccezione per chiamare, i pacchetti di servizi di comunicazione sono destinati .NET Standard 2,0, che supporta le piattaforme elencate di seguito.
+Ad eccezione della chiamata, i pacchetti di servizi di comunicazione sono destinati .NET Standard 2,0, che supporta le piattaforme elencate di seguito.
 
 Supporto tramite .NET Framework 4.6.1
 - Windows 10, 8,1, 8 e 7
@@ -82,21 +91,6 @@ Supporto tramite .NET Core 2,0:
 - Novell iOS 10,14
 - Novell Mac 3,8
 
-## <a name="calling-sdk-timeouts"></a>Timeout della chiamata di SDK
-
-I timeout seguenti si applicano ai servizi di comunicazione che chiamano gli SDK:
-
-| Azione           | Timeout in secondi |
-| -------------- | ---------- |
-| Riconnessione/rimozione del partecipante | 120 |
-| Aggiungere o rimuovere una nuova modalità da una chiamata (avvio/arresto di video o condivisione dello schermo) | 40 |
-| Timeout dell'operazione di trasferimento chiamate | 60 |
-| 1:1 timeout di definizione della chiamata | 85 |
-| Timeout stabilimento chiamata gruppo | 85 |
-| Timeout di definizione della chiamata PSTN | 115 |
-| Alza di livello la chiamata 1:1 al timeout di una chiamata di gruppo | 115 |
-
-
 ## <a name="api-stability-expectations"></a>Aspettative di stabilità dell'API
 
 > [!IMPORTANT]
@@ -111,7 +105,7 @@ In futuro si potrebbero ritirare le versioni degli SDK di servizi di comunicazio
 
 **La versione V24 dell'API REST SMS è stata integrata nell'applicazione. Azure Communication releases V25.**
 
-Si otterrà un avviso di 3 anni prima che queste API smettano di funzionare e vengano forzate a eseguire l'aggiornamento a V25. Questo aggiornamento potrebbe richiedere una modifica del codice.
+Si otterrà un avviso di tre anni prima che queste API smettano di funzionare e che siano forzate a eseguire l'aggiornamento a V25. Questo aggiornamento potrebbe richiedere una modifica del codice.
 
 **La versione v 2.02 dell'SDK chiamante è stata integrata nell'applicazione. Azure Communication releases v 2.05.**
 

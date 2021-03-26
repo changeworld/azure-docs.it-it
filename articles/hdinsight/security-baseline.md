@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 02/17/2021
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: bf2360bda55735aa8ef4258da5ae47f673f4d71b
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: c5ffdecf768be0962950bb3691dbb11fb0e70120
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101738923"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105565011"
 ---
 # <a name="azure-security-baseline-for-hdinsight"></a>Baseline della sicurezza di Azure per HDInsight
 
@@ -58,9 +58,9 @@ Per ridurre il rischio di perdita di dati tramite exfiltration, limitare il traf
 
 **Linee guida**: per le protezioni da attacchi DDoS, abilitare la protezione standard DDoS di Azure nella rete virtuale in cui è distribuita la HDInsight di Azure. Usare il Centro sicurezza di Azure Integrated Threat Intelligence per negare le comunicazioni con indirizzi IP Internet dannosi noti o non usati.
 
-- [Come configurare la protezione DDoS](/azure/virtual-network/manage-ddos-protection)
+- [Come configurare la protezione DDoS](../ddos-protection/manage-ddos-protection.md)
 
-- [Informazioni sull'intelligence sulle minacce integrata nel Centro sicurezza di Azure](/azure/security-center/security-center-alerts-service-layer)
+- [Informazioni sull'intelligence sulle minacce integrata nel Centro sicurezza di Azure](../security-center/azure-defender.md)
 
 **Responsabilità**: Customer
 
@@ -100,7 +100,7 @@ Per ridurre il rischio di perdita di dati tramite exfiltration, limitare il traf
 
 **Linee guida**: usare i tag del servizio di rete virtuale per definire i controlli di accesso alla rete nei gruppi di sicurezza di rete (NSG) collegati alla subnet in cui è distribuito il cluster Azure HDInsight. È possibile usare tag di servizio invece di indirizzi IP specifici nella creazione di regole di sicurezza. Se si specifica il nome del tag di servizio (ad esempio ApiManagement) nel campo di origine o di destinazione appropriato di una regola, è possibile consentire o negare il traffico per il servizio corrispondente. I prefissi di indirizzo inclusi nel tag di servizio sono gestiti da Microsoft, che lo aggiorna automaticamente in caso di modifica degli indirizzi.
 
-- [Comprendere e usare i tag di servizio per Azure HDInsight](/azure/virtual-network/security-overview#service-tags)
+- [Comprendere e usare i tag di servizio per Azure HDInsight](../virtual-network/network-security-groups-overview.md#service-tags)
 
 **Responsabilità**: Customer
 
@@ -130,7 +130,7 @@ Usare una delle definizioni di criteri di Azure predefinite correlate all'assegn
 
 È possibile usare Azure PowerShell o l'interfaccia della riga di comando di Azure per cercare o eseguire azioni sulle risorse in base ai tag.
 
-- [Come creare e usare i tag](/azure/azure-resource-manager/resource-group-using-tags)
+- [Come creare e usare i tag](../azure-resource-manager/management/tag-resources.md)
 
 - [Come creare una rete virtuale](../virtual-network/quick-create-portal.md)
 
@@ -144,9 +144,9 @@ Usare una delle definizioni di criteri di Azure predefinite correlate all'assegn
 
 **Linee guida**: usare il log attività di Azure per monitorare le configurazioni delle risorse di rete e rilevare le modifiche per le risorse di rete correlate alle distribuzioni HDInsight di Azure. In Monitoraggio di Azure creare avvisi che si attiveranno quando vengono apportate modifiche alle risorse di rete critiche.
 
-- [Come visualizzare e recuperare gli eventi del log attività di Azure](/azure/azure-monitor/platform/activity-log-view)
+- [Come visualizzare e recuperare gli eventi del log attività di Azure](../azure-monitor/essentials/activity-log.md#view-the-activity-log)
 
-- [Come creare avvisi in Monitoraggio di Azure](/azure/azure-monitor/platform/alerts-activity-log)
+- [Come creare avvisi in Monitoraggio di Azure](../azure-monitor/alerts/alerts-activity-log.md)
 
 **Responsabilità**: Customer
 
@@ -186,7 +186,7 @@ Usare una delle definizioni di criteri di Azure predefinite correlate all'assegn
 
 - [Come eseguire l'onboarding di un cluster HDInsight di Azure in monitoraggio di Azure](hdinsight-hadoop-oms-log-analytics-tutorial.md)
 
-- [Come configurare il periodo di conservazione dell'area di lavoro Log Analytics](/azure/azure-monitor/platform/manage-cost-storage)
+- [Come configurare il periodo di conservazione dell'area di lavoro Log Analytics](../azure-monitor/logs/manage-cost-storage.md)
 
 **Responsabilità**: Customer
 
@@ -198,7 +198,7 @@ Usare una delle definizioni di criteri di Azure predefinite correlate all'assegn
 
 - [Come eseguire l'onboarding di un cluster HDInsight di Azure in monitoraggio di Azure](hdinsight-hadoop-oms-log-analytics-tutorial.md)
 
-- [Come configurare il periodo di conservazione dell'area di lavoro Log Analytics](/azure/azure-monitor/platform/manage-cost-storage)
+- [Come configurare il periodo di conservazione dell'area di lavoro Log Analytics](../azure-monitor/logs/manage-cost-storage.md)
 
 **Responsabilità**: Customer
 
@@ -220,7 +220,7 @@ Usare una delle definizioni di criteri di Azure predefinite correlate all'assegn
 
 - [Come gestire gli avvisi nel centro sicurezza di Azure](../security-center/security-center-managing-and-responding-alerts.md)
 
-- [Come inviare un avviso sui dati del log di log Analytics](/azure/azure-monitor/learn/tutorial-response)
+- [Come inviare un avviso sui dati del log di log Analytics](../azure-monitor/alerts/tutorial-response.md)
 
 **Responsabilità**: Customer
 
@@ -230,7 +230,7 @@ Usare una delle definizioni di criteri di Azure predefinite correlate all'assegn
 
 **Linee guida**: Azure HDInsight viene fornita con clamscan preinstallato e abilitato per le immagini del nodo del cluster, tuttavia è necessario gestire il software e aggregare/monitorare manualmente i log prodotti da clamscan.
 
-- [Informazioni su clamscan](https://docs.microsoft.com/azure/hdinsight/hdinsight-faq#security-and-certificates)
+- [Informazioni su clamscan](./hdinsight-faq.md#security-and-certificates)
 
 **Responsabilità**: Customer
 
@@ -300,7 +300,7 @@ Inoltre, è possibile usare le raccomandazioni sulla gestione delle identità e 
 
 **Linee guida**: usare Azure HDInsight ID Broker per accedere ai cluster Enterprise Security Package (ESP) usando l'autenticazione a più fattori, senza fornire alcuna password. Se è già stato effettuato l'accesso ad altri servizi di Azure, ad esempio la portale di Azure, è possibile accedere al cluster Azure HDInsight con un'esperienza di Single Sign-On (SSO).
 
-- [Come abilitare Azure HDInsight ID Broker](https://docs.microsoft.com/azure/hdinsight/domain-joined/identity-broker#enable-hdinsight-id-broker)
+- [Come abilitare Azure HDInsight ID Broker](./domain-joined/identity-broker.md#enable-hdinsight-id-broker)
 
 **Responsabilità**: Customer
 
@@ -334,7 +334,7 @@ Inoltre, è possibile usare le raccomandazioni sulla gestione delle identità e 
 
 **Linee guida**: i cluster HDInsight di Azure con il Enterprise Security Package configurato possono essere connessi a un dominio in modo che gli utenti del dominio possano usare le proprie credenziali di dominio per l'autenticazione. È possibile utilizzare i report di sicurezza Azure Active Directory (Azure AD) per la generazione di log e avvisi quando si verificano attività sospette o non sicure nell'ambiente Azure AD. Usare il Centro sicurezza di Azure per monitorare l'identità e le attività di accesso.
 
-- [Come identificare gli utenti di Azure AD contrassegnati per le attività rischiose](/azure/active-directory/reports-monitoring/concept-user-at-risk)
+- [Come identificare gli utenti di Azure AD contrassegnati per le attività rischiose](../active-directory/identity-protection/overview-identity-protection.md)
 
 - [Come monitorare l'identità degli utenti e l'attività di accesso nel centro sicurezza di Azure](../security-center/security-center-identity-access.md)
 
@@ -392,7 +392,7 @@ I cluster HDInsight di Azure con Enterprise Security Package (ESP) configurati p
 
 **Linee guida**: i cluster Azure HDInsight con Enterprise Security Package (ESP) configurati possono essere connessi a un dominio in modo che gli utenti del dominio possano usare le proprie credenziali di dominio per l'autenticazione con i cluster. Usare Azure Active Directory (Azure AD) rilevamento del rischio e la funzionalità di protezione delle identità per configurare risposte automatiche per rilevare azioni sospette correlate alle identità utente. Inoltre, è possibile inserire dati in Sentinel di Azure per un'analisi più approfondita.
 
-- [Come visualizzare gli accessi a rischio per Azure AD](/azure/active-directory/reports-monitoring/concept-risky-sign-ins)
+- [Come visualizzare gli accessi a rischio per Azure AD](../active-directory/identity-protection/overview-identity-protection.md)
 
 - [Come configurare e abilitare i criteri di rischio di Identity Protection](../active-directory/identity-protection/howto-identity-protection-configure-risk-policies.md)
 
@@ -404,7 +404,7 @@ I cluster HDInsight di Azure con Enterprise Security Package (ESP) configurati p
 
 **Linee guida**: non disponibile; Customer Lockbox non ancora supportata per Azure HDInsight.
 
-- [Elenco dei servizi Customer Lockbox supportati](https://docs.microsoft.com/azure/security/fundamentals/customer-lockbox-overview#supported-services-and-scenarios-in-general-availability)
+- [Elenco dei servizi Customer Lockbox supportati](../security/fundamentals/customer-lockbox-overview.md#supported-services-and-scenarios-in-general-availability)
 
 **Responsabilità**: Customer
 
@@ -418,7 +418,7 @@ I cluster HDInsight di Azure con Enterprise Security Package (ESP) configurati p
 
 **Indicazioni**: usare i tag sulle risorse correlate alle distribuzioni HDInsight di Azure per semplificare il monitoraggio delle risorse di Azure che archiviano o elaborano informazioni riservate.
 
-- [Come creare e usare i tag](/azure/azure-resource-manager/resource-group-using-tags)
+- [Come creare e usare i tag](../azure-resource-manager/management/tag-resources.md)
 
 **Responsabilità**: Customer
 
@@ -432,7 +432,7 @@ I cluster HDInsight di Azure con Enterprise Security Package (ESP) configurati p
 
 - [Come proteggere Azure Data Lake Storage](../data-lake-store/data-lake-store-security-overview.md)
 
-- [Come proteggere gli account di archiviazione di Azure](/azure/storage/common/storage-security-guide)
+- [Come proteggere gli account di archiviazione di Azure](../storage/blobs/security-recommendations.md)
 
 **Responsabilità**: Customer
 
@@ -506,13 +506,13 @@ Per la piattaforma sottostante gestita da Microsoft, Microsoft considera tutti i
 
 **Linee guida**: se si usa il database SQL di Azure per archiviare i metadati di Apache hive e Apache oozie, assicurarsi che i dati SQL rimangano sempre crittografati. Per gli account di archiviazione di Azure e Data Lake Storage (Gen1 o Gen2), è consigliabile consentire a Microsoft di gestire le chiavi di crittografia, ma è possibile gestire le proprie chiavi.
 
-- [Come gestire le chiavi di crittografia per gli account di archiviazione di Azure](/azure/storage/common/storage-encryption-keys-portal)
+- [Come gestire le chiavi di crittografia per gli account di archiviazione di Azure](../storage/common/customer-managed-keys-configure-key-vault.md)
 
 - [Come creare Azure Data Lake Storage usando chiavi di crittografia gestite dal cliente](../data-lake-store/data-lake-store-get-started-portal.md)
 
-- [Informazioni sulla crittografia per il database SQL di Azure](/azure/sql-database/sql-database-technical-overview#data-encryption)
+- [Informazioni sulla crittografia per il database SQL di Azure](../azure-sql/database/sql-database-paas-overview.md#data-encryption)
 
-- [Come configurare Transparent Data Encryption per il database SQL usando chiavi gestite dal cliente](https://docs.microsoft.com/azure/sql-database/transparent-data-encryption-azure-sql?tabs=azure-portal)
+- [Come configurare Transparent Data Encryption per il database SQL usando chiavi gestite dal cliente](../azure-sql/database/transparent-data-encryption-tde-overview.md?tabs=azure-portal)
 
 **Responsabilità**: Condiviso
 
@@ -522,7 +522,7 @@ Per la piattaforma sottostante gestita da Microsoft, Microsoft considera tutti i
 
 **Linee guida**: configurare le impostazioni di diagnostica per gli account di archiviazione di Azure associati ai cluster HDInsight di Azure per monitorare e registrare tutte le operazioni CRUD sui dati del cluster. Abilitare il controllo per tutti gli account di archiviazione o gli archivi di Data Lake associati al cluster HDInsight di Azure.
 
-- [Come abilitare la registrazione o il controllo aggiuntivo per un account di archiviazione di Azure](/azure/storage/common/storage-monitor-storage-account)
+- [Come abilitare la registrazione o il controllo aggiuntivo per un account di archiviazione di Azure](../storage/common/manage-storage-analytics-logs.md)
 
 - [Come abilitare la registrazione o il controllo aggiuntivi per Azure Data Lake Storage](../data-lake-analytics/data-lake-analytics-diagnostic-logs.md)
 
@@ -614,7 +614,7 @@ Sebbene le risorse di Azure classiche possano essere individuate tramite Azure R
 
 **Indicazioni**: applicare i tag alle risorse di Azure che contengono metadati per organizzarle in modo logico in categorie in una tassonomia.
 
-- [Come creare e usare i tag](/azure/azure-resource-manager/resource-group-using-tags)
+- [Come creare e usare i tag](../azure-resource-manager/management/tag-resources.md)
 
 **Responsabilità**: Customer
 
@@ -624,11 +624,11 @@ Sebbene le risorse di Azure classiche possano essere individuate tramite Azure R
 
 **Indicazioni**: usare l'assegnazione di tag, i gruppi di gestione e le sottoscrizioni separate, laddove appropriato, per organizzare e tenere traccia degli asset. Riconciliare l'inventario a intervalli regolari e assicurarsi che le risorse non autorizzate vengano eliminate in modo tempestivo dalla sottoscrizione.
 
-- [Come creare sottoscrizioni di Azure aggiuntive](/azure/billing/billing-create-subscription)
+- [Come creare sottoscrizioni di Azure aggiuntive](../cost-management-billing/manage/create-subscription.md)
 
-- [Come creare gruppi di gestione](/azure/governance/management-groups/create)
+- [Come creare gruppi di gestione](../governance/management-groups/create-management-group-portal.md)
 
-- [Come creare e usare i tag](/azure/azure-resource-manager/resource-group-using-tags)
+- [Come creare e usare i tag](../azure-resource-manager/management/tag-resources.md)
 
 **Responsabilità**: Customer
 
@@ -697,7 +697,7 @@ Per altre informazioni, vedere i riferimenti seguenti:
 
 - [Come configurare e gestire Criteri di Azure](../governance/policy/tutorials/create-and-manage.md)
 
-- [Come negare un tipo di risorsa specifico con Criteri di Azure](https://docs.microsoft.com/azure/governance/policy/samples/built-in-policies#general)
+- [Come negare un tipo di risorsa specifico con Criteri di Azure](../governance/policy/samples/built-in-policies.md#general)
 
 **Responsabilità**: Customer
 
@@ -823,9 +823,9 @@ Tutti i dischi gestiti in Azure HDInsight sono protetti con Azure crittografia d
 
 Key Vault possono anche essere usati con le distribuzioni HDInsight di Azure per gestire le chiavi per l'archiviazione del cluster (account di archiviazione di Azure e Azure Data Lake Storage)
 
-- [Come importare la propria chiave per Apache Kafka in Azure HDInsight](/azure/hdinsight/kafka/apache-kafka-byok)
+- [Come importare la propria chiave per Apache Kafka in Azure HDInsight](./disk-encryption.md)
 
-- [Come gestire le chiavi di crittografia per gli account di archiviazione di Azure](/azure/storage/common/storage-encryption-keys-portal)
+- [Come gestire le chiavi di crittografia per gli account di archiviazione di Azure](../storage/common/customer-managed-keys-configure-key-vault.md)
 
 **Responsabilità**: Customer
 
@@ -859,7 +859,7 @@ Key Vault possono anche essere usati con le distribuzioni HDInsight di Azure per
 
 **Linee guida**: Azure HDInsight viene fornita con clamscan preinstallato e abilitato per le immagini del nodo del cluster, tuttavia è necessario gestire il software e aggregare/monitorare manualmente i log prodotti da clamscan.
 
-- [Informazioni su clamscan per Azure HDInsight](https://docs.microsoft.com/azure/hdinsight/hdinsight-faq#security-and-certificates)
+- [Informazioni su clamscan per Azure HDInsight](./hdinsight-faq.md#security-and-certificates)
 
 **Responsabilità**: Customer
 
@@ -881,7 +881,7 @@ Eseguire la pre-analisi di tutti i file caricati in tutte le risorse di Azure co
 
 **Linee guida**: Azure HDInsight viene fornita con clamscan pre-installato e abilitato per le immagini del nodo del cluster. Clamscan eseguirà automaticamente gli aggiornamenti del motore e delle definizioni, tuttavia l'aggregazione e la gestione dei log dovranno essere eseguite manualmente.
 
-- [Informazioni su clamscan per Azure HDInsight](https://docs.microsoft.com/azure/hdinsight/hdinsight-faq#security-and-certificates)
+- [Informazioni su clamscan per Azure HDInsight](./hdinsight-faq.md#security-and-certificates)
 
 **Responsabilità**: Customer
 
@@ -897,7 +897,7 @@ Eseguire la pre-analisi di tutti i file caricati in tutte le risorse di Azure co
 
 - [Come configurare la ridondanza di archiviazione per gli account di archiviazione di Azure](../storage/common/storage-redundancy.md)
 
-- [Come configurare la ridondanza per il database SQL di Azure](/azure/sql-database/sql-database-active-geo-replication)
+- [Come configurare la ridondanza per il database SQL di Azure](../azure-sql/database/active-geo-replication-overview.md)
 
 **Responsabilità**: Customer
 
@@ -921,7 +921,7 @@ Eseguire la pre-analisi di tutti i file caricati in tutte le risorse di Azure co
 
 **Linee guida**: se Azure Key Vault viene usato con la distribuzione di Azure HDInsight, testare il ripristino delle chiavi gestite dal cliente sottoposte a backup.
 
-- [Come importare la propria chiave per Apache Kafka in Azure HDInsight](/azure/hdinsight/kafka/apache-kafka-byok)
+- [Come importare la propria chiave per Apache Kafka in Azure HDInsight](./disk-encryption.md)
 
 - [Come ripristinare le chiavi di Key Vault in Azure](/powershell/module/az.keyvault/restore-azkeyvaultkey)
 
@@ -933,7 +933,7 @@ Eseguire la pre-analisi di tutti i file caricati in tutte le risorse di Azure co
 
 **Linee guida**: se Azure Key Vault viene usato con la distribuzione di Azure HDInsight, abilitare l'eliminazione temporanea in Key Vault per proteggere le chiavi da eliminazioni accidentali o dannose.
 
-- [Come abilitare l'eliminazione temporanea Azure Key Vault](/azure/key-vault/key-vault-ovw-soft-delete)
+- [Come abilitare l'eliminazione temporanea Azure Key Vault](../key-vault/general/soft-delete-overview.md)
 
 **Responsabilità**: Customer
 
@@ -1025,5 +1025,5 @@ Eseguire la pre-analisi di tutti i file caricati in tutte le risorse di Azure co
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Vedere [Panoramica di Azure Security Benchmark V2](/azure/security/benchmarks/overview)
-- Altre informazioni su [Baseline di sicurezza di Azure](/azure/security/benchmarks/security-baselines-overview)
+- Vedere [Panoramica di Azure Security Benchmark V2](../security/benchmarks/overview.md)
+- Altre informazioni su [Baseline di sicurezza di Azure](../security/benchmarks/security-baselines-overview.md)

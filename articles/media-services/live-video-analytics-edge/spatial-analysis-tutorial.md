@@ -3,12 +3,12 @@ title: Analizzare il video live con Visione artificiale per Analisi spaziale - A
 description: Questa esercitazione illustra come usare Analisi video live con la funzionalità di intelligenza artificiale Analisi spaziale di Visione artificiale in Servizi cognitivi di Azure per analizzare un feed di video live da una fotocamera IP simulata.
 ms.topic: tutorial
 ms.date: 09/08/2020
-ms.openlocfilehash: b20cdb9bbc64f9adc49cfbde4ff80576b149dbcd
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 1c3fd411e60cabb504f01bece62d497ddeea31d8
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101698757"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105561016"
 ---
 # <a name="analyze-live-video-with-computer-vision-for-spatial-analysis-preview"></a>Analizzare il video live con Visione artificiale per Analisi spaziale (anteprima)
 
@@ -56,7 +56,7 @@ Il diagramma mostra il flusso dei segnali in questa esercitazione. Un [modulo Ed
 
 Il nodo MediaGraphCognitiveServicesVisionExtension svolge il ruolo di proxy. Converte i fotogrammi video nel tipo di immagine specificato. Inoltra quindi l'immagine tramite **memoria condivisa** a un altro modulo Edge che esegue operazioni di intelligenza artificiale protetto da un endpoint gRPC. In questo esempio il modulo Edge è il modulo spatial-analysis. Il nodo del processore MediaGraphCognitiveServicesVisionExtension esegue due operazioni:
 
-* Raccoglie i risultati e pubblica gli eventi nel nodo [sink dell'hub IoT](media-graph-concept.md#iot-hub-message-sink). Il nodo invia quindi gli eventi all'[hub di IoT Edge](../../iot-edge/iot-edge-glossary.md#iot-edge-hub). 
+* Raccoglie i risultati e pubblica gli eventi nel nodo [sink dell'hub IoT](media-graph-concept.md#iot-hub-message-sink). Il nodo invia quindi gli eventi all'[hub di IoT Edge](../../iot-fundamentals/iot-glossary.md#iot-edge-hub). 
 * Acquisisce anche un clip video di 30 secondi dall'origine RTSP usando un [processore di controllo del segnale](media-graph-concept.md#signal-gate-processor) e lo archivia come asset di Servizi multimediali.
 
 ## <a name="create-the-computer-vision-resource"></a>Creare la risorsa di Visione artificiale

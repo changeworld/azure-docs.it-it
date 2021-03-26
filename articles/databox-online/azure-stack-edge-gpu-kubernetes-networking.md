@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: conceptual
 ms.date: 02/21/2021
 ms.author: alkohli
-ms.openlocfilehash: 1a0fc569b7d552101c1e0bd1a065b2a91ebfa3c4
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 139eeaa83629f3ef51f8eda414622f7da54dfab4
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102439613"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105560251"
 ---
 # <a name="kubernetes-networking-in-your-azure-stack-edge-pro-gpu-device"></a>Rete Kubernetes nel dispositivo GPU Pro Azure Stack Edge
 
@@ -86,4 +86,4 @@ Per configurare la rete Kubernetes in Azure Stack Edge Pro, vedere:
 
 - [Esporre un'applicazione senza stato esternamente nel Azure stack Edge Pro tramite IOT Edge](azure-stack-edge-gpu-deploy-stateless-application-iot-edge-module.md).
 
-- [Esporre un'applicazione senza stato esternamente all'Azure stack Edge Pro tramite kuebctl](azure-stack-edge-j-series-deploy-stateless-application-kubernetes.md).
+- [Esporre un'applicazione senza stato esternamente all'Azure stack Edge Pro tramite kuebctl](./azure-stack-edge-gpu-deploy-stateless-application-kubernetes.md).

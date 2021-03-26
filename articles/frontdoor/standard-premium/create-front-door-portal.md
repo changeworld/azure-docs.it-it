@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/18/2021
 ms.author: duau
-ms.openlocfilehash: 18956948a32a79c1435bf4fc1554b09480c9010c
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 175fb82a5fdf300915f89c3d8cdc238638a742e1
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "101100871"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105565130"
 ---
 # <a name="quickstart-create-an-azure-front-door-standardpremium-profile---azure-portal"></a>Guida introduttiva: creare un profilo standard/Premium di Azure front door-portale di Azure
 
@@ -58,7 +58,7 @@ Un account Azure con una sottoscrizione attiva. [Creare un account gratuitamente
     | **Nome endpoint** | Immettere un nome univoco globale per l'endpoint. |
     | **Tipo di origine** | Selezionare il tipo di risorsa per l'origine. In questo esempio si seleziona un servizio app come origine con collegamento privato abilitato. |
     | **Nome host di origine** | Immettere il nome host per l'origine. |
-    | **Abilita collegamento privato** | Se si vuole avere una connessione privata tra il front-end di Azure e l'origine. Per altri dettagli, fare riferimento alle [linee guida per il collegamento privato](concept-private-link.md) e [abilitare il collegamento privato](how-to-enable-private-link.md).
+    | **Abilita collegamento privato** | Se si vuole avere una connessione privata tra il front-end di Azure e l'origine. Per altri dettagli, fare riferimento alle [linee guida per il collegamento privato](concept-private-link.md) e [abilitare il collegamento privato](./how-to-enable-private-link-web-app.md).
     | **Memorizzazione nella cache** | Selezionare la casella di controllo se si desidera memorizzare nella cache il contenuto più vicino agli utenti a livello globale usando i pop Edge e la rete Microsoft di Azure front door. |
     | **Criteri di WAF** | Selezionare **Crea nuovo** o selezionare un criterio WAF esistente nell'elenco a discesa se si vuole abilitare questa funzionalità. |
 

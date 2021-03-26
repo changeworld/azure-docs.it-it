@@ -7,13 +7,13 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 03/02/2021
-ms.openlocfilehash: 596113f9fcb7326010090e67b3a52ca03faa25d0
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.date: 03/25/2021
+ms.openlocfilehash: 2d3d1669dda4cbed1da7954558e99166faec5613
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102041978"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105563736"
 ---
 # <a name="preview-features-in-azure-cognitive-search"></a>Funzionalità in anteprima in Azure ricerca cognitiva
 
@@ -23,13 +23,13 @@ Le funzionalità di anteprima che passano alla disponibilità generale vengono r
 
 |Funzionalità&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  | Category | Descrizione | Disponibilità  |
 |---------|------------------|-------------|---------------|
-| [**Ricerca semantica**](semantic-search-overview.md) | Pertinenza (Punteggio) | Un algoritmo di classificazione semantico, un tipo di query e una risposta alla query. | [API REST di ricerca 2020-06-30-Preview](/rest/api/searchservice/) |
-| [**correttore ortografico**](cognitive-search-aml-skill.md) | Query | Correzione ortografica facoltativa sugli input dei termini di query per query semplici, complete e semantiche. | [API REST di ricerca 2020-06-30-Preview](/rest/api/searchservice/) |
-| [**Indicizzatore di SharePoint Online**](search-howto-index-sharepoint-online.md) | Origine dati dell'indicizzatore | Nuova origine dati per l'indicizzazione basata su indicizzatore del contenuto di SharePoint. | [API REST di ricerca 2020-06-30-Preview](/rest/api/searchservice/) |
+| [**Ricerca semantica**](semantic-search-overview.md) | Pertinenza (Punteggio) | Classificazione semantica di risultati, didascalie e risposte. | [Ricerca API REST 2020-06-30-anteprima](/rest/api/searchservice/preview-api/search-documents) e Esplora ricerche (portale). |
+| [**correttore ortografico**](cognitive-search-aml-skill.md) | Query | Correzione ortografica facoltativa sugli input dei termini di query per query semplici, complete e semantiche. | [API REST di ricerca 2020-06-30-Preview](/rest/api/searchservice/preview-api/search-documents) |
+| [**Indicizzatore di SharePoint Online**](search-howto-index-sharepoint-online.md) | Origine dati dell'indicizzatore | Nuova origine dati per l'indicizzazione basata su indicizzatore del contenuto di SharePoint. | [API REST di ricerca 2020-06-30-Preview](/rest/api/searchservice/preview-api/create-indexer) |
 | [**Azure Machine Learning (AML) Skill**](cognitive-search-aml-skill.md) | Arricchimento con intelligenza artificiale| Un nuovo tipo di competenze per integrare un endpoint di inferenza da Azure Machine Learning. Introduzione a [questa esercitazione](cognitive-search-tutorial-aml-custom-skill.md). | Usare l' [API REST di ricerca 2020-06-30-Preview](/rest/api/searchservice/) o 2019-05-06-Preview. Disponibile anche nel portale, in progettazione di competenze, supponendo che ricerca cognitiva e i servizi di Azure ML siano distribuiti nella stessa sottoscrizione. |
 | [**parametro featuresMode**](/rest/api/searchservice/preview-api/search-documents#query-parameters) | Pertinenza (Punteggio) | Espansione del Punteggio di pertinenza per includere i dettagli: Punteggio di somiglianza per campo, frequenza del termine per campo e numero di token univoci corrispondenti. È possibile utilizzare questi punti dati nelle soluzioni di assegnazione dei [punteggi personalizzate](https://github.com/Azure-Samples/search-ranking-tutorial). | Aggiungere questo parametro di query usando i [documenti di ricerca (REST)](/rest/api/searchservice/preview-api/search-documents) con API-Version = 2020-06 -30-preview o 2019-05-06-Preview. |
 | [**Sessioni di debug**](cognitive-search-debug-session.md) | Portale, arricchimento AI (competenze) | Editor di competenze in-Session utilizzato per analizzare e risolvere i problemi relativi a un insieme di competenze. Le correzioni applicate durante una sessione di debug possono essere salvate in un skillt nel servizio. | Solo portale, usando i collegamenti a metà pagina nella pagina Panoramica per aprire una sessione di debug. |
-| [**Eliminazione temporanea BLOB nativi**](search-howto-index-changed-deleted-blobs.md) | Indicizzatori, BLOB di Azure| L'indicizzatore di archiviazione BLOB di Azure in Azure ricerca cognitiva riconoscerà i BLOB in uno stato di eliminazione temporanea e rimuoverà il documento di ricerca corrispondente durante l'indicizzazione. | Aggiungere questa impostazione di configurazione usando [Crea indicizzatore (REST)](/rest/api/searchservice/create-indexer) con API-Version = 2020-06 -30-Preview o API-Version = 2019-05-06-Preview. |
+| [**Eliminazione temporanea BLOB nativi**](search-howto-index-changed-deleted-blobs.md) | Indicizzatori, BLOB di Azure| L'indicizzatore di archiviazione BLOB di Azure in Azure ricerca cognitiva riconoscerà i BLOB in uno stato di eliminazione temporanea e rimuoverà il documento di ricerca corrispondente durante l'indicizzazione. | Aggiungere questa impostazione di configurazione usando [Crea indicizzatore (REST)](/rest/api/searchservice/preview-api/create-indexer) con API-Version = 2020-06 -30-Preview o API-Version = 2019-05-06-Preview. |
 | [**Abilità ricerca entità personalizzata**](cognitive-search-skill-custom-entity-lookup.md ) | Arricchimento AI (competenze) | Abilità cognitiva che cerca il testo da un elenco personalizzato di parole e frasi definito dall'utente. Con questo elenco vengono etichettati tutti i documenti con entità corrispondenti. La competenza supporta anche un grado di corrispondenza fuzzy che può essere applicato per trovare corrispondenze simili ma non proprio esatte. | Fare riferimento a questa esperienza di anteprima usando l'editor di competenze nel portale o creare un insieme di [competenze (REST)](/rest/api/searchservice/create-skillset) con API-Version = 2020-06 -30-Preview o API-Version = 2019-05-06-Preview. |
 | [**Abilità rilevamento informazioni personali**](cognitive-search-skill-pii-detection.md) | Arricchimento AI (competenze) | Abilità cognitiva usata durante l'indicizzazione che estrae informazioni personali da un testo di input e ti offre la possibilità di mascherarle da tale testo in diversi modi. | Fare riferimento a questa esperienza di anteprima usando l'editor di competenze nel portale o creare un insieme di [competenze (REST)](/rest/api/searchservice/create-skillset) con API-Version = 2020-06 -30-Preview o API-Version = 2019-05-06-Preview. |
 | [**Arricchimento incrementale**](cognitive-search-incremental-indexing-conceptual.md) | Configurazione dell'indicizzatore| Aggiunge la memorizzazione nella cache a una pipeline di arricchimento, consentendo di riutilizzare l'output esistente se una modifica di destinazione, ad esempio un aggiornamento a un oggetto di competenze o a un altro oggetto, non modifica il contenuto. La memorizzazione nella cache si applica solo ai documenti arricchiti prodotti da un skillt.| Aggiungere questa impostazione di configurazione usando [Crea indicizzatore (REST)](/rest/api/searchservice/create-indexer) con API-Version = 2020-06 -30-Preview o API-Version = 2019-05-06-Preview. |

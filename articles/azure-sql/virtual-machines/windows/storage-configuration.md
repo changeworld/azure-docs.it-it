@@ -1,5 +1,5 @@
 ---
-title: Configurazione dell'archiviazione per le VM di SQL Server | Documentazione Microsoft
+title: Configurare l'archiviazione per le macchine virtuali SQL Server | Microsoft Docs
 description: Questo argomento descrive in che modo Azure configura l'archiviazione per le macchine virtuali SQL Server durante il provisioning (Azure Resource Manager modello di distribuzione). Viene inoltre spiegato come è possibile configurare l'archiviazione per le VM di SQL Server esistenti.
 services: virtual-machines-windows
 documentationcenter: na
@@ -13,27 +13,26 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 12/26/2019
 ms.author: mathoma
-ms.openlocfilehash: d713faf7062f82110be5fa8378faca368b9bb7a2
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 982bd9239c5e95c9b7af09b5f54c5a09067ca7c6
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "97356717"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105565426"
 ---
-# <a name="storage-configuration-for-sql-server-vms"></a>Configurazione dell'archiviazione per le VM di SQL Server
+# <a name="configure-storage-for-sql-server-vms"></a>Configurare l'archiviazione per le macchine virtuali SQL Server
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
 
-Quando si configura un SQL Server immagine di macchina virtuale (VM) in Azure, il portale di Azure consente di automatizzare la configurazione dell'archiviazione. ovvero collegare l'archiviazione alla VM, renderla disponibile per SQL Server e ottimizzarla in base alle specifiche esigenze a livello di prestazioni.
+Questo articolo illustra come configurare l'archiviazione per la SQL Server in macchine virtuali (VM) di Azure.
 
-Questo argomento illustra come viene configurata l'archiviazione da Azure per le VM di SQL Server, sia durante il provisioning che per le VM esistenti. Questa configurazione è basata sulle [procedure consigliate per le prestazioni](performance-guidelines-best-practices.md) per le VM virtuali di Azure che eseguono SQL Server.
+SQL Server le macchine virtuali distribuite tramite immagini del Marketplace seguono automaticamente le [procedure consigliate](performance-guidelines-best-practices-storage.md) per l'archiviazione predefinite che possono essere modificate durante la distribuzione. Alcune di queste impostazioni di configurazione possono essere modificate dopo la distribuzione. 
 
-[!INCLUDE [learn-about-deployment-models](../../../../includes/learn-about-deployment-models-rm-include.md)]
 
 ## <a name="prerequisites"></a>Prerequisiti
 
 Per usare le impostazioni di configurazione automatica dell'archiviazione, la macchina virtuale deve avere le caratteristiche seguenti:
 
-* Provisioning eseguito con un' [immagine della raccolta di SQL Server](sql-server-on-azure-vm-iaas-what-is-overview.md#payasyougo).
+* Con provisioning con un' [immagine della raccolta SQL Server](sql-server-on-azure-vm-iaas-what-is-overview.md#payasyougo) o registrata con l' [estensione SQL IaaS]().
 * Uso del [modello di distribuzione Azure Resource Manager](../../../azure-resource-manager/management/deployment-models.md).
 * Uso di [unità SSD Premium](../../../virtual-machines/disks-types.md).
 
@@ -47,7 +46,9 @@ Quando si esegue il provisioning di una VM di Azure usando un'immagine della rac
 
 ![Screenshot che evidenzia la scheda Impostazioni SQL Server e l'opzione modifica configurazione.](./media/storage-configuration/sql-vm-storage-configuration-provisioning.png)
 
-Selezionare il tipo di carico di lavoro per cui si distribuisce SQL Server in **Ottimizzazione dell'archiviazione**. Con l'opzione di ottimizzazione **Generale**, per impostazione predefinita si otterrà un solo disco dati con max 5000 operazioni di I/O al secondo e si userà la stessa unità per i dati, il log delle transazioni e l'archiviazione TempDB. Se si seleziona **Elaborazione transazionale** o **Data warehousing**, viene creato un disco separato per i dati, un disco separato per il log delle transazioni e viene usata l'unità SSD locale per TempDB. Non esistono differenze in termini di archiviazione tra l'**elaborazione transazionale** e il **data warehousing**, ma cambiano la [configurazione di striping e i flag di traccia](#workload-optimization-settings). Se si sceglie l'archiviazione Premium, la memorizzazione nella cache viene impostata su *ReadOnly* per l'unità dati e su *None* per l'unità log in base alle [procedure consigliate per le prestazioni delle VM di SQL Server](performance-guidelines-best-practices.md). 
+Selezionare il tipo di carico di lavoro per cui si distribuisce SQL Server in **Ottimizzazione dell'archiviazione**. Con l'opzione di ottimizzazione **Generale**, per impostazione predefinita si otterrà un solo disco dati con max 5000 operazioni di I/O al secondo e si userà la stessa unità per i dati, il log delle transazioni e l'archiviazione TempDB. 
+
+Se si seleziona **Elaborazione transazionale** o **Data warehousing**, viene creato un disco separato per i dati, un disco separato per il log delle transazioni e viene usata l'unità SSD locale per TempDB. Non esistono differenze in termini di archiviazione tra l'**elaborazione transazionale** e il **data warehousing**, ma cambiano la [configurazione di striping e i flag di traccia](#workload-optimization-settings). Se si sceglie l'archiviazione Premium, la memorizzazione nella cache viene impostata su *ReadOnly* per l'unità dati e su *None* per l'unità log in base alle [procedure consigliate per le prestazioni delle VM di SQL Server](performance-guidelines-best-practices.md). 
 
 ![Configurazione dell'archiviazione per le VM di SQL Server durante il provisioning](./media/storage-configuration/sql-vm-storage-configuration.png)
 
@@ -74,7 +75,7 @@ A seconda delle scelte effettuate, Azure esegue le seguenti attività di configu
 * Associa il pool di archiviazione a una nuova unità nella macchina virtuale.
 * Ottimizza la nuova unità in base al tipo di carico di lavoro specificato (data warehousing, elaborazione transazionale o generale).
 
-Per ulteriori dettagli su come vengono configurate le impostazioni dell'archiviazione da Azure, vedere la [sezione Configurazione dell'archiviazione](#storage-configuration). Per istruzioni complete su come creare una VM di SQL Server nel portale di Azure, vedere l'[esercitazione sul provisioning](../../../azure-sql/virtual-machines/windows/create-sql-vm-portal.md).
+Per istruzioni complete su come creare una VM di SQL Server nel portale di Azure, vedere l'[esercitazione sul provisioning](../../../azure-sql/virtual-machines/windows/create-sql-vm-portal.md).
 
 ### <a name="resource-manager-templates"></a>Modelli di Gestione risorse
 
@@ -111,7 +112,7 @@ Per modificare le impostazioni di archiviazione, selezionare **Configura** in **
 ![Configurare l'archiviazione per le VM di SQL Server esistenti](./media/storage-configuration/sql-vm-storage-extend-drive.png)
 
 
-## <a name="storage-configuration"></a>Configurazione dell'archiviazione
+## <a name="automated-changes"></a>Modifiche automatiche
 
 Questa sezione fornisce un riferimento per le modifiche di configurazione dell'archiviazione eseguite automaticamente da Azure durante SQL Server provisioning o configurazione della macchina virtuale nel portale di Azure.
 
@@ -137,7 +138,7 @@ Azure usa le impostazioni seguenti per creare il pool di archiviazione nelle VM 
 <sup>1</sup> Dopo aver creato il pool di archiviazione non è possibile modificare il numero di colonne nel pool.
 
 
-## <a name="workload-optimization-settings"></a>Impostazioni di ottimizzazione del carico di lavoro
+### <a name="workload-optimization-settings"></a>Impostazioni di ottimizzazione del carico di lavoro
 
 La tabella seguente descrive le tre opzioni disponibili per il tipo di carico di lavoro e le ottimizzazioni corrispondenti:
 
@@ -149,6 +150,78 @@ La tabella seguente descrive le tre opzioni disponibili per il tipo di carico di
 
 > [!NOTE]
 > È possibile specificare il tipo di carico di lavoro solo quando si effettua il provisioning di una macchina virtuale SQL Server selezionandolo nel passaggio configurazione archiviazione.
+
+## <a name="enable-caching"></a>Abilitazione della memorizzazione nella cache. 
+
+Modificare i criteri di memorizzazione nella cache a livello di disco. Questa operazione può essere eseguita usando il portale di Azure, [PowerShell](/powershell/module/az.compute/set-azvmdatadisk)o l' [interfaccia](/cli/azure/vm/disk)della riga di comando di Azure. 
+
+Per modificare i criteri di memorizzazione nella cache nella portale di Azure, attenersi alla procedura seguente:
+
+1. Arrestare il servizio SQL Server. 
+1. Accedere al [portale di Azure](https://portal.azure.com). 
+1. Passare alla macchina virtuale, selezionare **dischi** in **Impostazioni**. 
+   
+   ![Screenshot che illustra il pannello configurazione del disco della macchina virtuale nella portale di Azure.](./media/storage-configuration/disk-in-portal.png)
+
+1. Scegliere i criteri di memorizzazione nella cache appropriati per il disco dall'elenco a discesa. 
+
+   ![Screenshot che mostra la configurazione dei criteri di memorizzazione nella cache del disco nel portale di Azure.](./media/storage-configuration/azure-disk-config.png)
+
+1. Al termine della modifica, riavviare la macchina virtuale SQL Server e avviare il servizio di SQL Server. 
+
+
+## <a name="enable-write-accelerator"></a>Abilitare l'acceleratore di scrittura
+
+L'accelerazione di scrittura è una funzionalità del disco disponibile solo per le macchine virtuali (VM) della serie M. Lo scopo dell'accelerazione di scrittura è quello di migliorare la latenza di I/O delle Scritture nell'archiviazione Premium di Azure quando è necessaria una latenza di I/O a singola cifra a causa di carichi di lavoro OLTP di importanza strategica per volumi elevati o ambienti data warehouse. 
+
+Arrestare tutte le attività di SQL Server e arrestare il servizio SQL Server prima di apportare modifiche ai criteri di accelerazione della scrittura. 
+
+Se i dischi sono con striping, abilitare l'accelerazione di scrittura per ogni disco singolarmente e la macchina virtuale di Azure deve essere arrestata prima di apportare qualsiasi modifica. 
+
+Per abilitare l'accelerazione della scrittura usando il portale di Azure, attenersi alla procedura seguente:
+
+1. Arrestare il servizio SQL Server. Se i dischi sono con striping, arrestare la macchina virtuale. 
+1. Accedere al [portale di Azure](https://portal.azure.com). 
+1. Passare alla macchina virtuale, selezionare **dischi** in **Impostazioni**. 
+   
+   ![Screenshot che illustra il pannello configurazione del disco della macchina virtuale nella portale di Azure.](./media/storage-configuration/disk-in-portal.png)
+
+1. Scegliere l'opzione cache con **acceleratore di scrittura** per il disco dall'elenco a discesa. 
+
+   ![Screenshot che mostra i criteri della cache dell'acceleratore di scrittura.](./media/storage-configuration/write-accelerator.png)
+
+1. Una volta applicata la modifica, avviare la macchina virtuale e il servizio SQL Server. 
+
+## <a name="disk-striping"></a>Striping del disco
+
+Per una maggiore velocità effettiva, è possibile aggiungere altri dischi dati e usare lo striping del disco. Per determinare il numero di dischi dati, analizzare la velocità effettiva e la larghezza di banda necessaria per i file di dati SQL Server, inclusi il log e tempdb. I limiti di velocità effettiva e larghezza di banda variano in base alle dimensioni della VM Per altre informazioni, vedere [dimensioni della macchina virtuale](../../../virtual-machines/sizes.md)
+
+
+* Per Windows 8 e Windows Server 2012 o versioni successive, usare [Spazi di archiviazione](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/hh831739(v=ws.11)) applicando le indicazioni seguenti:
+
+  1. Impostare interfoliazione (dimensioni stripe) su 64 KB (65.536 byte) per evitare l'effetto sulle prestazioni a causa del mancato allineamento delle partizioni. Questo valore deve essere impostato con PowerShell.
+
+  2. Impostare il numero di colonne sul numero di dischi fisici. Usare PowerShell (e non l'interfaccia utente di Server Manager) per configurare più di 8 dischi.
+
+Ad esempio, il seguente PowerShell crea un nuovo pool di archiviazione con le dimensioni di interfoliazione a 64 KB e il numero di colonne uguale alla quantità di disco fisico nel pool di archiviazione:
+
+  ```powershell
+  $PhysicalDisks = Get-PhysicalDisk | Where-Object {$_.FriendlyName -like "*2" -or $_.FriendlyName -like "*3"}
+  
+  New-StoragePool -FriendlyName "DataFiles" -StorageSubsystemFriendlyName "Storage Spaces*" `
+      -PhysicalDisks $PhysicalDisks | New- VirtualDisk -FriendlyName "DataFiles" `
+      -Interleave 65536 -NumberOfColumns $PhysicalDisks .Count -ResiliencySettingName simple `
+      –UseMaximumSize |Initialize-Disk -PartitionStyle GPT -PassThru |New-Partition -AssignDriveLetter `
+      -UseMaximumSize |Format-Volume -FileSystem NTFS -NewFileSystemLabel "DataDisks" `
+      -AllocationUnitSize 65536 -Confirm:$false 
+  ```
+
+  * Per Windows 2008 R2 o versioni precedenti, è possibile usare i dischi dinamici (volumi con striping del sistema operativo) e la dimensione di striping è sempre di 64 KB. Questa opzione è deprecata a partire da Windows 8 e Windows Server 2012. Per informazioni, vedere l'informativa di supporto relativa al [passaggio dal servizio dischi virtuali all'API di gestione archiviazione di Windows](https://docs.microsoft.com/windows/win32/w8cookbook/vds-is-transitioning-to-wmiv2-based-windows-storage-management-api).
+ 
+  * Se si usa [Spazi di archiviazione diretta (S2D)](https://docs.microsoft.com/windows-server/storage/storage-spaces/storage-spaces-direct-in-vm) con [Istanze del cluster di failover di SQL Server](https://docs.microsoft.com/azure/azure-sql/virtual-machines/windows/failover-cluster-instance-storage-spaces-direct-manually-configure), è necessario configurare un singolo pool. Anche se si possono creare volumi diversi nel pool singolo, tutti condivideranno le stesse caratteristiche, ad esempio gli stessi criteri di memorizzazione nella cache.
+ 
+  * Determinare il numero di dischi associati al pool di archiviazione dell'utente in base alle aspettative di carico. Tenere presente che le diverse dimensioni di macchine virtuali consentono diversi numeri di dischi dati associati. Per ulteriori informazioni, vedere [dimensioni per le macchine virtuali](../../../virtual-machines/sizes.md?toc=/azure/virtual-machines/windows/toc.json).
+
 
 ## <a name="next-steps"></a>Passaggi successivi
 

@@ -5,16 +5,16 @@ author: rashi-ms
 ms.author: rajosh
 ms.topic: conceptual
 ms.date: 02/07/2021
-ms.openlocfilehash: 2bb68c8c183e3de132bc7cf4504714a260ea2683
-ms.sourcegitcommit: a8ff4f9f69332eef9c75093fd56a9aae2fe65122
+ms.openlocfilehash: c2e739a45c7915c957ca89e5b01b98afa945d03e
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/24/2021
-ms.locfileid: "105025119"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105557191"
 ---
 # <a name="assessment-overview-migrate-to-azure-sql"></a>Panoramica della valutazione (migrazione a SQL di Azure)
 
-Questo articolo fornisce una panoramica delle valutazioni per la migrazione di istanze di SQL Server locali da un ambiente VMware a database SQL di Azure o a istanze gestite usando lo [strumento Azure migrate: Discovery and Assessment](https://docs.microsoft.com/azure/migrate/migrate-services-overview#azure-migrate-discovery-and-assessment-tool).
+Questo articolo fornisce una panoramica delle valutazioni per la migrazione di istanze di SQL Server locali da un ambiente VMware a database SQL di Azure o a istanze gestite usando lo [strumento Azure migrate: Discovery and Assessment](./migrate-services-overview.md#azure-migrate-discovery-and-assessment-tool).
 
 ## <a name="whats-an-assessment"></a>Che cos'è una valutazione?
 Una valutazione con lo strumento di individuazione e valutazione è uno snapshot temporizzato dei dati e misura la conformità e stima l'effetto della migrazione dei server locali in Azure.
@@ -80,7 +80,7 @@ Ecco cosa è incluso nelle proprietà di valutazione di SQL Azure:
 **Utilizzo percentile** | L'utilizzo percentile specifica il valore percentile dell'esempio di prestazioni utilizzato per rightsizing.
 **Fattore di comfort** | Buffer utilizzato durante la valutazione. In questo modo vengono rilevati problemi come l'utilizzo stagionale, la cronologia delle prestazioni brevi e probabilmente aumenti nell'utilizzo futuro.<br/><br/> Ad esempio, un'istanza di 10 core con utilizzo del 20% normalmente produce un'istanza a due core. Con un fattore di comfort di 2,0, il risultato è invece un'istanza a quattro core.
 **Programma offerta/licenza** | [Offerta di Azure](https://azure.microsoft.com/support/legal/offer-details/) in cui si è iscritti. Attualmente è possibile scegliere solo da sviluppo/test con pagamento in base al consumo e con pagamento in base al consumo. Si noti che è possibile usufruire di uno sconto aggiuntivo applicando la capacità riservata e Vantaggio Azure Hybrid sull'offerta con pagamento in base al consumo.
-**Livello di servizio** | L'opzione del livello di servizio più appropriata per soddisfare le esigenze aziendali per la migrazione al database SQL di Azure e/o Istanza gestita SQL di Azure:<br/><br/>**Consigliato** se si desidera che Azure migrate consigli il livello di servizio più adatto per i server. Può trattarsi di un utilizzo generico o di un business critical. <br/><br/> **Per utilizzo generico** Se si vuole una configurazione SQL di Azure progettata per carichi di lavoro orientati al budget. [Altre informazioni](https://docs.microsoft.com/azure/azure-sql/database/service-tier-general-purpose) <br/><br/> **Business critical** Se si vuole una configurazione SQL di Azure progettata per carichi di lavoro a bassa latenza con resilienza elevata a errori e failover rapidi. [Altre informazioni](https://docs.microsoft.com/azure/azure-sql/database/service-tier-business-critical)
+**Livello di servizio** | L'opzione del livello di servizio più appropriata per soddisfare le esigenze aziendali per la migrazione al database SQL di Azure e/o Istanza gestita SQL di Azure:<br/><br/>**Consigliato** se si desidera che Azure migrate consigli il livello di servizio più adatto per i server. Può trattarsi di un utilizzo generico o di un business critical. <br/><br/> **Per utilizzo generico** Se si vuole una configurazione SQL di Azure progettata per carichi di lavoro orientati al budget. [Altre informazioni](../azure-sql/database/service-tier-general-purpose.md) <br/><br/> **Business critical** Se si vuole una configurazione SQL di Azure progettata per carichi di lavoro a bassa latenza con resilienza elevata a errori e failover rapidi. [Altre informazioni](../azure-sql/database/service-tier-business-critical.md)
 **Valuta** | Valuta di fatturazione per l'account.
 **Sconto (%)** | Tutti gli sconti specifici della sottoscrizione ricevuti dall'offerta di Azure. L'impostazione predefinita è 0%.
 **Vantaggio Azure Hybrid** | Specifica se si dispone già di una licenza di SQL Server. <br/><br/> In tal caso, è possibile applicare la Vantaggio Azure Hybrid quando si impostano le licenze in Azure con il software SQL Server Assurance attivo.
@@ -124,7 +124,7 @@ Se si seleziona il tipo di distribuzione di destinazione come **consigliato** ne
 Se l'istanza di SQL non è pronta per il database SQL di Azure e Istanza gestita SQL di Azure, il tipo di distribuzione consigliato è contrassegnato come *potenzialmente pronto per la VM di Azure*.
 - Per determinare se il server in cui è in esecuzione l'istanza è pronto per la migrazione a una macchina virtuale di Azure, è consigliabile creare una valutazione in Azure Migrate con tipo di valutazione "VM di Azure". Tenere presente quanto segue:
     - Le valutazioni delle VM di Azure in Azure Migrate sono attualmente in fase di Lift-and-Shift e non prendono in considerazione le metriche delle prestazioni specifiche per l'esecuzione di istanze e database SQL nella macchina virtuale di Azure. 
-    - Quando si esegue una valutazione della macchina virtuale di Azure in un server, le dimensioni consigliate e le stime dei costi faranno riferimento a tutte le istanze in esecuzione nel server e sarà possibile eseguire la migrazione a una macchina virtuale di Azure tramite lo strumento di migrazione del server. Prima di eseguire la migrazione, [esaminare le linee guida sulle prestazioni](https://docs.microsoft.com/azure/azure-sql/virtual-machines/windows/performance-guidelines-best-practices) per SQL Server nelle macchine virtuali di Azure.
+    - Quando si esegue una valutazione della macchina virtuale di Azure in un server, le dimensioni consigliate e le stime dei costi faranno riferimento a tutte le istanze in esecuzione nel server e sarà possibile eseguire la migrazione a una macchina virtuale di Azure tramite lo strumento di migrazione del server. Prima di eseguire la migrazione, [esaminare le linee guida sulle prestazioni](../azure-sql/virtual-machines/windows/performance-guidelines-best-practices.md) per SQL Server nelle macchine virtuali di Azure.
 
 
 ## <a name="calculate-sizing"></a>Calcolare il dimensionamento

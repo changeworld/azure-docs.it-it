@@ -3,12 +3,12 @@ title: Concetto di grafico multimediale-Azure
 description: Un grafico multimediale consente di definire la posizione in cui devono essere acquisiti i supporti, la modalità di elaborazione e la posizione in cui devono essere recapitati i risultati. Questo articolo fornisce una descrizione dettagliata del concetto di grafico multimediale.
 ms.topic: conceptual
 ms.date: 05/01/2020
-ms.openlocfilehash: 6f23e7db8cecb46106a63fdecdb6ba04dbd99682
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: ad23acbbbdd0c15e92e471ee22a229470a8a3a75
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "97401101"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105557667"
 ---
 # <a name="media-graph"></a>Grafico multimediale
 
@@ -74,7 +74,7 @@ Un nodo di origine RTSP consente di inserire supporti da un server [RTSP](https:
 
 #### <a name="iot-hub-message-source"></a>Origine messaggio dell'hub Internet 
 
-Analogamente ad altri [moduli IOT Edge](../../iot-edge/iot-edge-glossary.md#iot-edge-module), analisi video in tempo reale sul modulo IOT Edge può ricevere messaggi tramite l' [Hub IOT Edge](../../iot-edge/iot-edge-glossary.md#iot-edge-hub). Questi messaggi possono essere inviati da altri moduli o da app in esecuzione sul dispositivo perimetrale o dal cloud. Questi messaggi vengono recapitati (indirizzati) a un [input denominato](../../iot-edge/module-composition.md#sink) nel modulo. Un nodo di origine del messaggio dell'hub Internet consente a tali messaggi di raggiungere un grafico multimediale. Questi messaggi o segnali possono quindi essere usati internamente nel grafico multimediale, in genere per attivare i cancelli dei segnali (vedere le [porte del segnale](#signal-gate-processor) di seguito). 
+Analogamente ad altri [moduli IOT Edge](../../iot-fundamentals/iot-glossary.md#iot-edge), analisi video in tempo reale sul modulo IOT Edge può ricevere messaggi tramite l' [Hub IOT Edge](../../iot-fundamentals/iot-glossary.md#iot-edge-hub). Questi messaggi possono essere inviati da altri moduli o da app in esecuzione sul dispositivo perimetrale o dal cloud. Questi messaggi vengono recapitati (indirizzati) a un [input denominato](../../iot-edge/module-composition.md#sink) nel modulo. Un nodo di origine del messaggio dell'hub Internet consente a tali messaggi di raggiungere un grafico multimediale. Questi messaggi o segnali possono quindi essere usati internamente nel grafico multimediale, in genere per attivare i cancelli dei segnali (vedere le [porte del segnale](#signal-gate-processor) di seguito). 
 
 Ad esempio, è possibile avere un modulo IoT Edge che genera un messaggio quando viene aperta una porta. Il messaggio da tale modulo può essere instradato a IoT Edge Hub, da dove può essere indirizzato all'origine dei messaggi dell'hub Internet di un grafico multimediale. All'interno del grafico multimediale, l'origine del messaggio dell'hub Internet è in grado di passare l'evento a un processore di Gate del segnale, che può quindi attivare la registrazione del video da un'origine RTSP in un file. 
 

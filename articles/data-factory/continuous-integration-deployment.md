@@ -7,12 +7,12 @@ ms.author: weetok
 ms.reviewer: jburchel
 ms.topic: conceptual
 ms.date: 03/11/2021
-ms.openlocfilehash: aa2c5801e61fb73219934c5d38e894520c41ab26
-ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
+ms.openlocfilehash: 24aa3bc455bf716c074526d707594bd3b4170619
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/22/2021
-ms.locfileid: "104784034"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105564178"
 ---
 # <a name="continuous-integration-and-delivery-in-azure-data-factory"></a>Integrazione e recapito continui in Azure Data Factory
 
@@ -335,7 +335,7 @@ Di seguito è riportata una spiegazione del modo in cui viene costruito il model
 * Sebbene la personalizzazione specifica del tipo sia disponibile per i set di dati, è possibile fornire la configurazione senza avere esplicitamente una configurazione a livello di \*. Nell'esempio precedente, vengono parametrizzate tutte le proprietà del set di dati in `typeProperties`.
 
 > [!NOTE]
-> Gli **avvisi e le matrici di Azure** se configurati per una pipeline non sono attualmente supportati come parametri per le distribuzioni ARM. Per riapplicare gli avvisi e le matrici nel nuovo ambiente, seguire [Data Factory monitoraggio, avvisi e matrici.](https://docs.microsoft.com/azure/data-factory/monitor-using-azure-monitor#data-factory-metrics)
+> Gli **avvisi e le matrici di Azure** se configurati per una pipeline non sono attualmente supportati come parametri per le distribuzioni ARM. Per riapplicare gli avvisi e le matrici nel nuovo ambiente, seguire [Data Factory monitoraggio, avvisi e matrici.](./monitor-using-azure-monitor.md#data-factory-metrics)
 > 
 
 ### <a name="default-parameterization-template"></a>Modello di parametrizzazione predefinito

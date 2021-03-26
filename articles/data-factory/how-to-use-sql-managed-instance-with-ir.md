@@ -6,12 +6,12 @@ ms.author: chugu
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 4/15/2020
-ms.openlocfilehash: 62bd5d2e70d3a66998907305fecee4dcc87cdb23
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 190def0e6e2f77d330d2307753dc9e9d53c55dd7
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102451728"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105564144"
 ---
 # <a name="use-azure-sql-managed-instance-with-sql-server-integration-services-ssis-in-azure-data-factory"></a>Usare Istanza gestita SQL di Azure con SQL Server Integration Services (SSIS) in Azure Data Factory
 
@@ -39,7 +39,7 @@ ms.locfileid: "102451728"
             - All'interno della stessa rete virtuale dell'istanza gestita, con una **subnet diversa**.
             - All'interno di una rete virtuale diversa da quella dell'istanza gestita, tramite il peering di rete virtuale (che è limitato alla stessa area a causa dei vincoli di peering VNet globali) o una connessione dalla rete virtuale alla rete virtuale.
 
-            Per altre informazioni sulla connettività di SQL Istanza gestita, vedere [connettere l'applicazione al istanza gestita SQL di Azure](/azure/sql-database/sql-database-managed-instance-connect-app).
+            Per altre informazioni sulla connettività di SQL Istanza gestita, vedere [connettere l'applicazione al istanza gestita SQL di Azure](../azure-sql/managed-instance/connect-application-instance.md).
 
         1. [Configurare la rete virtuale](#configure-virtual-network).
 

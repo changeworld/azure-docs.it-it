@@ -3,34 +3,34 @@ title: Funzioni di sistema nei log di monitoraggio di Azure
 description: Scrivere query personalizzate nei log di monitoraggio di Azure usando le funzioni di sistema
 ms.topic: conceptual
 ms.date: 03/01/2021
-ms.openlocfilehash: 1d26adfd2bd1a3fc1506a334b4b661b66172192d
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: acb45e6ad0250a1f8d10377fdd509e40051f25b9
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102510550"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105564909"
 ---
 # <a name="system-functions-on-azure-monitor-logs"></a>Funzioni di sistema nei log di monitoraggio di Azure
 
 Backup di Azure fornisce un set di funzioni, denominate funzioni di sistema o funzioni di soluzione, che sono disponibili per impostazione predefinita nelle aree di lavoro di Log Analytics (LA).
  
-Queste funzioni operano sui dati nelle [tabelle di backup di Azure non elaborate](https://docs.microsoft.com/azure/backup/backup-azure-reports-data-model) in la e restituiscono dati formattati che consentono di recuperare facilmente le informazioni di tutte le entità correlate al backup, usando query semplici. Gli utenti possono passare parametri a queste funzioni per filtrare i dati restituiti da queste funzioni. 
+Queste funzioni operano sui dati nelle [tabelle di backup di Azure non elaborate](./backup-azure-reports-data-model.md) in la e restituiscono dati formattati che consentono di recuperare facilmente le informazioni di tutte le entità correlate al backup, usando query semplici. Gli utenti possono passare parametri a queste funzioni per filtrare i dati restituiti da queste funzioni. 
 
 È consigliabile usare funzioni di sistema per eseguire query sui dati di backup nelle aree di lavoro di per LA creazione di report personalizzati, in quanto forniscono diversi vantaggi, come descritto nella sezione seguente.
 
 ## <a name="benefits-of-using-system-functions"></a>Vantaggi dell'utilizzo delle funzioni di sistema
 
-* **Query più semplici**: l'utilizzo di funzioni consente di ridurre il numero di join necessari nelle query. Per impostazione predefinita, le funzioni restituiscono schemi "flat", che incorporano tutte le informazioni relative all'entità (istanza di backup, processo, insieme di credenziali e così via) su cui viene eseguita una query. Se, ad esempio, è necessario ottenere un elenco di processi di backup riusciti tramite il nome dell'elemento di backup e il contenitore associato, una semplice chiamata alla funzione **_AzureBackup_getJobs ()** fornirà tutte queste informazioni per ogni processo. D'altra parte, l'esecuzione diretta di query sulle tabelle non elaborate richiederebbe l'esecuzione di più join tra le tabelle [AddonAzureBackupJobs](https://docs.microsoft.com/azure/backup/backup-azure-reports-data-model#addonazurebackupjobs) e [CoreAzureBackup](https://docs.microsoft.com/azure/backup/backup-azure-reports-data-model#coreazurebackup) .
+* **Query più semplici**: l'utilizzo di funzioni consente di ridurre il numero di join necessari nelle query. Per impostazione predefinita, le funzioni restituiscono schemi "flat", che incorporano tutte le informazioni relative all'entità (istanza di backup, processo, insieme di credenziali e così via) su cui viene eseguita una query. Se, ad esempio, è necessario ottenere un elenco di processi di backup riusciti tramite il nome dell'elemento di backup e il contenitore associato, una semplice chiamata alla funzione **_AzureBackup_getJobs ()** fornirà tutte queste informazioni per ogni processo. D'altra parte, l'esecuzione diretta di query sulle tabelle non elaborate richiederebbe l'esecuzione di più join tra le tabelle [AddonAzureBackupJobs](./backup-azure-reports-data-model.md#addonazurebackupjobs) e [CoreAzureBackup](./backup-azure-reports-data-model.md#coreazurebackup) .
 
-* **Transizione più liscia dall'evento di diagnostica legacy**: l'uso di funzioni di sistema consente di eseguire la transizione senza problemi dall' [evento di diagnostica legacy](https://docs.microsoft.com/azure/backup/backup-azure-diagnostic-events#legacy-event) (AzureBackupReport in modalità AzureDiagnostics) agli [eventi specifici della risorsa](https://docs.microsoft.com/azure/backup/backup-azure-diagnostic-events#diagnostics-events-available-for-azure-backup-users). Tutte le funzioni di sistema fornite da backup di Azure consentono di specificare un parametro che consente di scegliere se la funzione deve eseguire query sui dati solo dalle tabelle specifiche delle risorse o eseguire query sui dati della tabella legacy e delle tabelle specifiche delle risorse (con la deduplicazione dei record).
+* **Transizione più liscia dall'evento di diagnostica legacy**: l'uso di funzioni di sistema consente di eseguire la transizione senza problemi dall' [evento di diagnostica legacy](./backup-azure-diagnostic-events.md#legacy-event) (AzureBackupReport in modalità AzureDiagnostics) agli [eventi specifici della risorsa](./backup-azure-diagnostic-events.md#diagnostics-events-available-for-azure-backup-users). Tutte le funzioni di sistema fornite da backup di Azure consentono di specificare un parametro che consente di scegliere se la funzione deve eseguire query sui dati solo dalle tabelle specifiche delle risorse o eseguire query sui dati della tabella legacy e delle tabelle specifiche delle risorse (con la deduplicazione dei record).
     * Se è stata eseguita correttamente la migrazione alle tabelle specifiche delle risorse, è possibile scegliere di escludere la tabella legacy dalla quale viene eseguita una query tramite la funzione.
     * Se si è attualmente in fase di migrazione e si dispone di alcuni dati nelle tabelle legacy richieste per l'analisi, è possibile scegliere di includere la tabella legacy. Quando la transizione è completa e non sono più necessari dati della tabella legacy, è possibile aggiornare semplicemente il valore del parametro passato alla funzione nelle query, per escludere la tabella legacy.
-    * Se si sta ancora usando solo la tabella legacy, le funzioni funzioneranno comunque se si sceglie di includere la tabella legacy tramite lo stesso parametro. Tuttavia, si consiglia di [passare alle tabelle specifiche delle risorse](https://docs.microsoft.com/azure/backup/backup-azure-diagnostic-events#steps-to-move-to-new-diagnostics-settings-for-a-log-analytics-workspace) al più presto.
+    * Se si sta ancora usando solo la tabella legacy, le funzioni funzioneranno comunque se si sceglie di includere la tabella legacy tramite lo stesso parametro. Tuttavia, si consiglia di [passare alle tabelle specifiche delle risorse](./backup-azure-diagnostic-events.md#steps-to-move-to-new-diagnostics-settings-for-a-log-analytics-workspace) al più presto.
 
 * **Riduzione della possibilità di interruzioni delle query personalizzate**: se il servizio backup di Azure introduce miglioramenti allo schema delle tabelle la sottostante per supportare scenari di Reporting futuri, la definizione delle funzioni verrà aggiornata anche per tenere in considerazione le modifiche dello schema. Pertanto, se si utilizzano le funzioni di sistema per la creazione di query personalizzate, le query non verranno arrestate, anche in caso di modifiche nello schema sottostante delle tabelle.
 
 > [!NOTE]
-> Le funzioni di sistema vengono gestite da Microsoft e le relative definizioni non possono essere modificate dagli utenti. Se sono necessarie funzioni modificabili, è possibile creare [funzioni salvate](https://docs.microsoft.com/azure/azure-monitor/logs/functions) in la.
+> Le funzioni di sistema vengono gestite da Microsoft e le relative definizioni non possono essere modificate dagli utenti. Se sono necessarie funzioni modificabili, è possibile creare [funzioni salvate](../azure-monitor/logs/functions.md) in la.
 
 ## <a name="types-of-system-functions-offered-by-azure-backup"></a>Tipi di funzioni di sistema offerte da backup di Azure
 
@@ -390,4 +390,4 @@ Di seguito sono riportate alcune query di esempio che consentono di iniziare a u
     ````
 
 ## <a name="next-steps"></a>Passaggi successivi
-[Altre informazioni sui report di backup](https://docs.microsoft.com/azure/backup/configure-reports)
+[Altre informazioni sui report di backup](./configure-reports.md)

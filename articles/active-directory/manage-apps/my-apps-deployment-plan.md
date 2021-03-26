@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 02/29/2020
 ms.author: kenwith
 ms.reviewer: baselden
-ms.openlocfilehash: f63a8fd05e1a6ed5e41eeb64aa852ff01db295af
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 5184639d8c34be705aeeb691f1cf38486f850673
+ms.sourcegitcommit: 44edde1ae2ff6c157432eee85829e28740c6950d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "101645468"
+ms.lasthandoff: 03/25/2021
+ms.locfileid: "105543959"
 ---
 # <a name="plan-azure-active-directory-my-apps-configuration"></a>Pianificare Azure Active Directory la configurazione delle app personali
 
@@ -74,31 +74,19 @@ Gli amministratori possono configurare:
 
 ## <a name="plan-consent-configuration"></a>Pianificare la configurazione del consenso
 
-Sono disponibili due tipi di consenso: il consenso dell'utente e il consenso per le app che accedono ai dati.
-
-![Screenshot della configurazione del consenso](./media/my-apps-deployment-plan/my-apps-consent.png)
-
 ### <a name="user-consent-for-applications"></a>Consenso dell'utente per le applicazioni 
 
-Gli utenti o gli amministratori devono acconsentire alle condizioni per l'utilizzo e ai criteri di privacy di un'applicazione. È necessario decidere se gli utenti o solo gli amministratori possono concedere il consenso alle applicazioni. **Se le regole business sono consentite, si consiglia di usare il consenso dell'amministratore per mantenere il controllo delle applicazioni nel tenant**.
+Prima che un utente possa accedere a un'applicazione e l'applicazione possa accedere ai dati dell'organizzazione, un utente o un amministratore deve concedere le autorizzazioni dell'applicazione. È possibile specificare se il consenso dell'utente è consentito e in quali condizioni. **Microsoft consiglia di consentire solo il consenso dell'utente per le applicazioni da autori verificati.**
 
-Per utilizzare il consenso dell'amministratore, è necessario essere un amministratore globale dell'organizzazione e che le applicazioni siano:
-
-* Registrato nell'organizzazione.
-
-* Registrato in un'altra organizzazione Azure AD e precedentemente consentito da almeno un utente.
-
-Se si desidera consentire agli utenti di fornire il consenso, è necessario decidere se si desidera autorizzare le app o solo in circostanze specifiche.
-
-Per altre informazioni, vedere [configurare il modo in cui gli utenti finali acconsentono a un'applicazione in Azure Active Directory.](../manage-apps/configure-user-consent.md)
+Per altre informazioni, vedere [configurare il modo in cui gli utenti finali accettano le applicazioni](../manage-apps/configure-user-consent.md)
 
 ### <a name="group-owner-consent-for-apps-accessing-data"></a>Consenso del proprietario del gruppo per le app che accedono ai dati
 
-Determinare se i proprietari dei gruppi di sicurezza Azure AD o M365 sono in grado di concedere il consenso alle applicazioni per accedere ai dati per i gruppi di cui sono proprietari. È possibile non consentire, consentire tutti i proprietari del gruppo o consentire solo un subset di proprietari del gruppo.
+I proprietari di gruppi e team possono autorizzare le applicazioni, ad esempio le applicazioni pubblicate da fornitori di terze parti, ad accedere ai dati dell'organizzazione associati a un gruppo. Per altre informazioni, vedere il [consenso specifico per le risorse in Microsoft teams](https://docs.microsoft.com/microsoftteams/resource-specific-consent) . 
+
+È possibile specificare se si vuole abilitare o disabilitare questa funzionalità.
 
 Per altre informazioni, vedere [configurare le autorizzazioni di consenso del gruppo](../manage-apps/configure-user-consent-groups.md).
-
-Configurare quindi le [impostazioni di consenso dell'utente e del proprietario del gruppo](https://portal.azure.com/) nella portale di Azure.
 
 ### <a name="plan-communications"></a>Pianificare le comunicazioni
 

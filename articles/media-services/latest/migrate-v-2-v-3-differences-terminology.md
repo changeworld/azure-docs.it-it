@@ -9,14 +9,14 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.tgt_pltfrm: multiple
 ms.workload: media
-ms.date: 1/14/2020
+ms.date: 03/25/2021
 ms.author: inhenkel
-ms.openlocfilehash: 6f677c8753f09e146d300186e19217568952b417
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 5c1fbaf9be4cb128f0e4390a8c97c6f0b9330ce2
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101705399"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105559877"
 ---
 # <a name="terminology-and-entity-changes-between-media-services-v2-and-v3"></a>Terminologia e modifiche di entità tra servizi multimediali V2 e V3
 
@@ -90,7 +90,3 @@ Esaminare le convenzioni di denominazione applicate alle risorse di servizi mult
 | Modalità standby eventi Live <!--new row --> | Nessuna modalità standby per la versione V2. | La modalità standby è una nuova funzionalità V3 che consente di gestire i pool di eventi attivi. I clienti possono ora avviare un evento Live in modalità stand-by a costi ridotti prima di passare allo stato Running. In questo modo è possibile migliorare l'ora di inizio del canale e ridurre i costi per i pool di lavoro più veloci. |
 | Fatturazione eventi in tempo reale <!--new row --> | <!-- empty-->| La fatturazione di eventi live si basa su contatori di canale Live. |
 | Output Live <!--new row --> | È stato necessario avviare i programmi dopo la creazione. | Gli output live iniziano al momento della creazione e terminano quando vengono eliminati. |
-
-## <a name="next-steps"></a>Passaggi successivi
-
-[!INCLUDE [migration guide next steps](./includes/migration-guide-next-steps.md)]

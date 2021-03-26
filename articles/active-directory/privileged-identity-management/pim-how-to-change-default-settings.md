@@ -14,12 +14,12 @@ ms.date: 02/28/2020
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 06eb7e8d1be2e58fd6cf87167a585a2ffeee0d7f
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 676fdf264cb930069425a330c3da9cd753bf8e0a
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "97708484"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105567034"
 ---
 # <a name="configure-azure-ad-role-settings-in-privileged-identity-management"></a>Configurare le impostazioni del ruolo Azure AD in Privileged Identity Management
 
@@ -64,14 +64,14 @@ Quando si configurano le impostazioni per un ruolo è possibile scegliere tra du
 
 È possibile scegliere una delle opzioni di durata di assegnazione **idonee** seguenti:
 
-| | |
+| | Descrizione |
 | --- | --- |
 | **Allow permanent eligible assignment (Consenti assegnazione idonea permanente)** | Gli amministratori globali e gli amministratori dei ruoli con privilegi possono assegnare un'assegnazione idonea permanente. |
 | **Scadenza assegnazione idonea dopo** | Gli amministratori globali e gli amministratori dei ruoli con privilegi possono richiedere che tutte le assegnazioni idonee dispongano di una data di inizio e di fine specificata. |
 
 L'utente può scegliere una delle opzioni di durata dell'assegnazione **attiva**:
 
-| | |
+| | Descrizione |
 | --- | --- |
 | **Allow permanent active assignment (Consenti assegnazione attiva permanente)** | Gli amministratori globali e gli amministratori dei ruoli con privilegi possono assegnare un'assegnazione attiva permanente. |
 | **Scadenza dell'assegnazione attiva dopo** | Gli amministratori globali e gli amministratori dei ruoli con privilegi possono richiedere che tutte le assegnazioni attive abbiano una data di inizio e di fine specificata. |

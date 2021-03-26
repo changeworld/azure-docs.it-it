@@ -3,12 +3,12 @@ title: Inviare i report di backup di Azure
 description: Creazione di attività automatiche per ricevere report periodici tramite posta elettronica
 ms.topic: conceptual
 ms.date: 03/01/2021
-ms.openlocfilehash: 8c18d4c7a3c7a9ba343296961fa9a44614366405
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
+ms.openlocfilehash: d3ec76fa1a23657578979e65c0e54bb428722244
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102510511"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105561339"
 ---
 # <a name="email-azure-backup-reports"></a>Inviare i report di backup di Azure
 
@@ -30,7 +30,7 @@ Per configurare le attività di posta elettronica tramite i report di backup, se
 
 ## <a name="authorize-connections-to-azure-monitor-logs-and-office-365"></a>Autorizzare le connessioni ai log di monitoraggio di Azure e Office 365
 
-L'app per la logica usa il connettore [azuremonitorlogs](https://docs.microsoft.com/connectors/azuremonitorlogs/) per eseguire una query sulle aree di lavoro della la e usa il connettore [Outlook di Office365](https://docs.microsoft.com/connectors/office365connector/) per inviare messaggi di posta elettronica. Sarà necessario eseguire un'autorizzazione unica per questi due connettori. 
+L'app per la logica usa il connettore [azuremonitorlogs](/connectors/azuremonitorlogs/) per eseguire una query sulle aree di lavoro della la e usa il connettore [Outlook di Office365](/connectors/office365connector/) per inviare messaggi di posta elettronica. Sarà necessario eseguire un'autorizzazione unica per questi due connettori. 
  
 Per eseguire l'autorizzazione, attenersi alla procedura seguente:
 
@@ -79,4 +79,4 @@ Per risolvere il problema:
 Se i problemi permangono, contattare il supporto tecnico Microsoft.
 
 ## <a name="next-steps"></a>Passaggi successivi
-[Altre informazioni sui report di backup](https://docs.microsoft.com/azure/backup/configure-reports)
+[Altre informazioni sui report di backup](./configure-reports.md)
