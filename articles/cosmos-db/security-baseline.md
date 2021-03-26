@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 02/17/2021
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 5f9cf6dba0a1e670e3a27cb3546de9237466e7ce
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: dead43f2e9f2e8913bcebde43d543b8df8d33ced
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "101659427"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105565674"
 ---
 # <a name="azure-security-baseline-for-azure-cosmos-db"></a>Baseline della sicurezza di Azure per Azure Cosmos DB
 
@@ -44,7 +44,7 @@ Per informazioni su come Azure Cosmos DB viene eseguito il mapping completo al b
 
 **Responsabilità**: Customer
 
-**Monitoraggio del Centro sicurezza di Azure**: il [benchmark di sicurezza di Azure](/home/mbaldwin/docs/asb/azure-docs-pr/articles/governance/policy/samples/azure-security-benchmark.md) è l'iniziativa di criteri predefinita per il Centro sicurezza ed è la base per le [raccomandazioni del Centro sicurezza](/home/mbaldwin/docs/asb/azure-docs-pr/articles/security-center/security-center-recommendations.md). Le definizioni di criteri di Azure correlate a questo controllo sono abilitate automaticamente dal centro sicurezza. Gli avvisi correlati a questo controllo possono richiedere un piano di [Azure Defender](/home/mbaldwin/docs/asb/azure-docs-pr/articles/security-center/azure-defender.md) per i servizi correlati.
+**Monitoraggio del Centro sicurezza di Azure**: il [benchmark di sicurezza di Azure](/azure/governance/policy/samples/azure-security-benchmark) è l'iniziativa di criteri predefinita per il Centro sicurezza ed è la base per le [raccomandazioni del Centro sicurezza](/azure/security-center/security-center-recommendations). Le definizioni di criteri di Azure correlate a questo controllo sono abilitate automaticamente dal centro sicurezza. Gli avvisi correlati a questo controllo possono richiedere un piano di [Azure Defender](/azure/security-center/azure-defender) per i servizi correlati.
 
 **Definizioni predefinite di criteri di Azure-Microsoft.DocumentDB**:
 
@@ -84,9 +84,9 @@ Abilitare protezione DDoS standard nelle reti virtuali associate alle istanze di
 
 - [Come configurare Azure Cosmos DB Advanced Threat Protection](cosmos-db-advanced-threat-protection.md)
 
-- [Come configurare la protezione DDoS](/azure/virtual-network/manage-ddos-protection)
+- [Come configurare la protezione DDoS](../ddos-protection/manage-ddos-protection.md)
 
-- [Informazioni sull'intelligence sulle minacce integrata nel Centro sicurezza di Azure](/azure/security-center/security-center-alerts-service-layer)
+- [Informazioni sull'intelligence sulle minacce integrata nel Centro sicurezza di Azure](../security-center/azure-defender.md)
 
 **Responsabilità**: Customer
 
@@ -146,7 +146,7 @@ Abilitare protezione DDoS standard nelle reti virtuali associate alle istanze di
 
 **Indicazioni**: usare i tag per le risorse di rete associate alla distribuzione Azure Cosmos DB per organizzarli in modo logico in una tassonomia.
 
-- [Come creare e usare i tag](/azure/azure-resource-manager/resource-group-using-tags)
+- [Come creare e usare i tag](../azure-resource-manager/management/tag-resources.md)
 
 **Responsabilità**: Customer
 
@@ -156,9 +156,9 @@ Abilitare protezione DDoS standard nelle reti virtuali associate alle istanze di
 
 **Linee guida**: usare il log attività di Azure per monitorare le configurazioni delle risorse di rete e rilevare le modifiche per le risorse di rete correlate alle istanze di Azure Cosmos DB. In Monitoraggio di Azure creare avvisi che si attiveranno quando vengono apportate modifiche alle risorse di rete critiche. 
 
-- [Come visualizzare e recuperare gli eventi del log attività di Azure](/azure/azure-monitor/platform/activity-log-view)
+- [Come visualizzare e recuperare gli eventi del log attività di Azure](../azure-monitor/essentials/activity-log.md#view-the-activity-log)
 
-- [Come creare avvisi in Monitoraggio di Azure](/azure/azure-monitor/platform/alerts-activity-log)
+- [Come creare avvisi in Monitoraggio di Azure](../azure-monitor/alerts/alerts-activity-log.md)
 
 **Responsabilità**: Customer
 
@@ -172,7 +172,7 @@ Abilitare protezione DDoS standard nelle reti virtuali associate alle istanze di
 
 **Linee guida**: inserire i log tramite monitoraggio di Azure per aggregare i dati di sicurezza generati da Azure Cosmos DB. In monitoraggio di Azure usare le aree di lavoro Log Analytics per eseguire query ed eseguire analisi e usare gli account di archiviazione per l'archiviazione a lungo termine/archivio. In alternativa, è possibile caricare i dati in Sentinel di Azure o in un evento di sicurezza e gestione degli eventi di terze parti (SIEM). 
 
-- [Come abilitare i log di diagnostica per Azure Cosmos DB](/azure/cosmos-db/logging)
+- [Come abilitare i log di diagnostica per Azure Cosmos DB](./monitor-cosmos-db.md)
 
 - [Come eseguire l'onboarding di Azure Sentinel](../sentinel/quickstart-onboard.md)
 
@@ -186,9 +186,9 @@ Abilitare protezione DDoS standard nelle reti virtuali associate alle istanze di
 
 È anche possibile abilitare le impostazioni di diagnostica del log attività di Azure e inviare tali log alla stessa area di lavoro Log Analytics usata per Azure Cosmos DB log.
 
-- [Come abilitare le impostazioni di diagnostica per Azure Cosmos DB](/azure/cosmos-db/logging)
+- [Come abilitare le impostazioni di diagnostica per Azure Cosmos DB](./monitor-cosmos-db.md)
 
-- [Come abilitare le impostazioni di diagnostica per il log attività di Azure](/azure/azure-monitor/platform/diagnostic-settings-legacy)
+- [Come abilitare le impostazioni di diagnostica per il log attività di Azure](../azure-monitor/essentials/activity-log.md)
 
 **Responsabilità**: Customer
 
@@ -198,7 +198,7 @@ Abilitare protezione DDoS standard nelle reti virtuali associate alle istanze di
 
 **Linee guida**: in monitoraggio di Azure impostare il periodo di conservazione dei log per le aree di lavoro log Analytics associate alle istanze di Azure Cosmos DB in base alle normative di conformità dell'organizzazione.
 
-- [Come impostare i parametri di conservazione dei log](/azure/azure-monitor/platform/manage-cost-storage#change-the-data-retention-period)
+- [Come impostare i parametri di conservazione dei log](../azure-monitor/logs/manage-cost-storage.md#change-the-data-retention-period)
 
 **Responsabilità**: Customer
 
@@ -222,11 +222,11 @@ Abilitare protezione DDoS standard nelle reti virtuali associate alle istanze di
 
 È anche possibile caricare l'area di lavoro di Log Analytics in Sentinel di Azure, perché fornisce una soluzione di risposta automatica per l'orchestrazione della sicurezza (SOAR). In questo modo è possibile creare playbook (soluzioni automatizzate) e usarli per risolvere i problemi di sicurezza. Inoltre, è possibile creare avvisi di log personalizzati nell'area di lavoro di Log Analytics usando monitoraggio di Azure.
 
-- [Elenco di avvisi di protezione dalle minacce per Azure Cosmos DB](https://docs.microsoft.com/azure/security-center/alerts-reference#alerts-azurecosmos)
+- [Elenco di avvisi di protezione dalle minacce per Azure Cosmos DB](../security-center/alerts-reference.md#alerts-azurecosmos)
 
 - [Come eseguire l'onboarding di Azure Sentinel](../sentinel/quickstart-onboard.md)
 
-- [Creare, visualizzare e gestire gli avvisi del log tramite Monitoraggio di Azure](/azure/azure-monitor/platform/alerts-log)
+- [Creare, visualizzare e gestire gli avvisi del log tramite Monitoraggio di Azure](../azure-monitor/alerts/alerts-log.md)
 
 **Responsabilità**: Customer
 
@@ -248,13 +248,13 @@ Inoltre, alcune azioni in Azure Cosmos DB possono essere controllate con Azure A
 
 - [Informazioni sul controllo degli accessi in base al ruolo in Azure Cosmos DB](role-based-access-control.md)
 
-- [Creare ruoli personalizzati usando azioni Azure Cosmos DB (spazio dei nomi Microsoft.DocumentDB)](https://docs.microsoft.com/azure/role-based-access-control/resource-provider-operations#microsoftdocumentdb)
+- [Creare ruoli personalizzati usando azioni Azure Cosmos DB (spazio dei nomi Microsoft.DocumentDB)](../role-based-access-control/resource-provider-operations.md#microsoftdocumentdb)
 
 - [Creazione di un nuovo ruolo in Azure AD](../role-based-access-control/custom-roles.md)
 
-- [Come ottenere un ruolo della directory in Azure AD con PowerShell](https://docs.microsoft.com/powershell/module/azuread/get-azureaddirectoryrole?view=azureadps-2.0&amp;preserve-view=true)
+- [Come ottenere un ruolo della directory in Azure AD con PowerShell](/powershell/module/azuread/get-azureaddirectoryrole?preserve-view=true&view=azureadps-2.0)
 
-- [Come ottenere i membri di un ruolo della directory in Azure AD con PowerShell](https://docs.microsoft.com/powershell/module/azuread/get-azureaddirectoryrolemember?view=azureadps-2.0&amp;preserve-view=true)
+- [Come ottenere i membri di un ruolo della directory in Azure AD con PowerShell](/powershell/module/azuread/get-azureaddirectoryrolemember?preserve-view=true&view=azureadps-2.0)
 
 - [Limitare l'accesso utente solo alle operazioni sui dati](how-to-restrict-user-data.md)
 
@@ -268,7 +268,7 @@ Inoltre, alcune azioni in Azure Cosmos DB possono essere controllate con Azure A
 
 - [Informazioni sull'accesso sicuro ai dati in Azure Cosmos DB](secure-access-to-data.md)
 
-- [Come rigenerare le chiavi di Azure Cosmos DB](https://docs.microsoft.com/azure/cosmos-db/manage-with-powershell#regenerate-keys)
+- [Come rigenerare le chiavi di Azure Cosmos DB](./manage-with-powershell.md#regenerate-keys)
 
 - [Come accedere alle chiavi a livello di codice tramite Azure AD](certificate-based-authentication.md)
 
@@ -330,7 +330,7 @@ Usare i rilevamenti dei rischi di Azure AD per visualizzare gli avvisi e i repor
 
 - [Come distribuire Privileged Identity Management (PIM)](../active-directory/privileged-identity-management/pim-deployment-plan.md)
 
-- [Informazioni sui rilevamenti di rischi di Azure AD](/azure/active-directory/reports-monitoring/concept-risk-events)
+- [Informazioni sui rilevamenti di rischi di Azure AD](../active-directory/identity-protection/overview-identity-protection.md)
 
 **Responsabilità**: Customer
 
@@ -352,7 +352,7 @@ Usare i rilevamenti dei rischi di Azure AD per visualizzare gli avvisi e i repor
 
 - [Come creare e configurare un'istanza di Azure AD](../active-directory-domain-services/tutorial-create-instance.md)
 
-- [Come configurare e gestire l'autenticazione Azure AD con SQL di Azure](/azure/sql-database/sql-database-aad-authentication-configure)
+- [Come configurare e gestire l'autenticazione Azure AD con SQL di Azure](../azure-sql/database/authentication-aad-configure.md)
 
 **Responsabilità**: Customer
 
@@ -384,7 +384,7 @@ Usare i rilevamenti dei rischi di Azure AD per visualizzare gli avvisi e i repor
 
 È anche possibile usare la funzionalità di protezione delle identità e rilevamento del rischio Azure Active Directory (Azure AD) per configurare risposte automatiche per rilevare azioni sospette correlate alle identità utente. Inoltre, è possibile inserire i log in Sentinel di Azure per un'analisi più approfondita.
 
-- [Come visualizzare gli accessi a rischio per Azure AD](/azure/active-directory/reports-monitoring/concept-risky-sign-ins)
+- [Come visualizzare gli accessi a rischio per Azure AD](../active-directory/identity-protection/overview-identity-protection.md)
 
 - [Come configurare e abilitare i criteri di rischio di Identity Protection](../active-directory/identity-protection/howto-identity-protection-configure-risk-policies.md)
 
@@ -402,7 +402,7 @@ Usare i rilevamenti dei rischi di Azure AD per visualizzare gli avvisi e i repor
 
 **Indicazioni**: usare i tag per semplificare il rilevamento di istanze di Azure Cosmos DB che archiviano o elaborano informazioni riservate.
 
-- [Come creare e usare i tag](/azure/azure-resource-manager/resource-group-using-tags)
+- [Come creare e usare i tag](../azure-resource-manager/management/tag-resources.md)
 
 **Responsabilità**: Customer
 
@@ -412,11 +412,11 @@ Usare i rilevamenti dei rischi di Azure AD per visualizzare gli avvisi e i repor
 
 **Indicazioni**: implementare sottoscrizioni e/o gruppi di gestione distinti per lo sviluppo, il test e la produzione. Azure Cosmos DB le istanze sono separate da rete virtuale/subnet, contrassegnate in modo appropriato e protette in un gruppo di sicurezza di rete (NSG) o in un firewall di Azure. Azure Cosmos DB istanze che archiviano dati sensibili devono essere isolate. Con il collegamento privato di Azure è possibile connettersi a un account dell'istanza di Azure Cosmos DB tramite un endpoint privato. L'endpoint privato è un set di indirizzi IP privati in una subnet all'interno della rete virtuale. È quindi possibile limitare l'accesso agli indirizzi IP privati selezionati. 
 
-- [Come creare sottoscrizioni di Azure aggiuntive](/azure/billing/billing-create-subscription)
+- [Come creare sottoscrizioni di Azure aggiuntive](../cost-management-billing/manage/create-subscription.md)
 
-- [Come creare gruppi di gestione](/azure/governance/management-groups/create)
+- [Come creare gruppi di gestione](../governance/management-groups/create-management-group-portal.md)
 
-- [Come creare e usare i tag](/azure/azure-resource-manager/resource-group-using-tags)
+- [Come creare e usare i tag](../azure-resource-manager/management/tag-resources.md)
 
 - [Come configurare un endpoint privato per Azure Cosmos DB](how-to-configure-private-endpoints.md)
 
@@ -450,7 +450,7 @@ Inoltre, quando si usano le macchine virtuali per accedere alle istanze di Azure
 
 Per la piattaforma sottostante gestita da Microsoft, Microsoft considera tutti i contenuti dei clienti come sensibili e si impegna per difendersi dalla perdita di dati e dall'esposizione dei clienti. Per garantire che i dati dei clienti in Azure rimangano protetti, Microsoft ha implementato e applica un gruppo di controlli e funzionalità affidabili per la protezione dei dati.
 
-- [Indicizzare i dati Azure Cosmos DB con ricerca cognitiva di Azure](https://docs.microsoft.com/azure/search/search-howto-index-cosmosdb?toc=/azure/cosmos-db/toc.json&amp;bc=/azure/cosmos-db/breadcrumb/toc.json)
+- [Indicizzare i dati Azure Cosmos DB con ricerca cognitiva di Azure](../search/search-howto-index-cosmosdb.md?bc=%2fazure%2fcosmos-db%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fcosmos-db%2ftoc.json)
 
 - [Informazioni sulla protezione dei dati dei clienti in Azure](../security/fundamentals/protection-customer-data.md)
 
@@ -476,7 +476,7 @@ Per impostazione predefinita, Microsoft gestisce le chiavi usate per crittografa
 
 - [Informazioni sulla crittografia dei inattivi con Azure Cosmos DB](database-encryption-at-rest.md)
 
-- [Informazioni sulla gestione delle chiavi per la crittografia dei inattivi con Azure Cosmos DB](/azure/cosmos-db/cosmos-db-security-controls)
+- [Informazioni sulla gestione delle chiavi per la crittografia dei inattivi con Azure Cosmos DB]()
 
 - [Come configurare le chiavi gestite dal cliente per l'account Azure Cosmos DB](how-to-setup-cmk.md)
 
@@ -488,9 +488,9 @@ Per impostazione predefinita, Microsoft gestisce le chiavi usate per crittografa
 
 **Linee guida**: usare monitoraggio di Azure con il log attività di Azure per creare avvisi per le modifiche apportate alle istanze di produzione di Azure Cosmos DB.
 
-- [Come creare avvisi per gli eventi del log attività di Azure](/azure/azure-monitor/platform/alerts-activity-log)
+- [Come creare avvisi per gli eventi del log attività di Azure](../azure-monitor/alerts/alerts-activity-log.md)
 
-- [Come creare avvisi per gli eventi del log attività di Azure](/azure/azure-monitor/platform/alerts-activity-log)
+- [Come creare avvisi per gli eventi del log attività di Azure](../azure-monitor/alerts/alerts-activity-log.md)
 
 **Responsabilità**: Customer
 
@@ -506,7 +506,7 @@ Per impostazione predefinita, Microsoft gestisce le chiavi usate per crittografa
 
 Microsoft esegue l'applicazione di patch al sistema e la gestione delle vulnerabilità sugli host sottostanti che supportano le istanze di Azure Cosmos DB. Per garantire che i dati dei clienti in Azure rimangano protetti, Microsoft ha implementato e applica un gruppo di controlli e funzionalità affidabili per la protezione dei dati.
 
-- [Funzionalità supportate disponibili nel Centro sicurezza di Azure](https://docs.microsoft.com/azure/security-center/security-center-services?tabs=features-windows)
+- [Funzionalità supportate disponibili nel Centro sicurezza di Azure](../security-center/security-center-services.md?tabs=features-windows)
 
 **Responsabilità**: Condiviso
 
@@ -524,7 +524,7 @@ Sebbene le risorse di Azure (versione classica) possano essere individuate trami
 
 - [Come creare query con Azure Resource Graph](../governance/resource-graph/first-query-portal.md)
 
-- [Come visualizzare le sottoscrizioni di Azure](https://docs.microsoft.com/powershell/module/az.accounts/get-azsubscription?view=azps-4.8.0&amp;preserve-view=true)
+- [Come visualizzare le sottoscrizioni di Azure](/powershell/module/az.accounts/get-azsubscription?preserve-view=true&view=azps-4.8.0)
 
 - [Informazioni sul controllo degli accessi in base al ruolo di Azure](../role-based-access-control/overview.md)
 
@@ -536,9 +536,9 @@ Sebbene le risorse di Azure (versione classica) possano essere individuate trami
 
 **Linee guida**: applicare tag alle istanze di Azure Cosmos DB e alle risorse correlate con i metadati per organizzarle in modo logico in una tassonomia.
 
-- [Come creare e usare i tag](/azure/azure-resource-manager/resource-group-using-tags)
+- [Come creare e usare i tag](../azure-resource-manager/management/tag-resources.md)
 
-- [Quali Azure Cosmos DB le risorse supportano i tag](https://docs.microsoft.com/azure/azure-resource-manager/management/tag-support#microsoftdocumentdb)
+- [Quali Azure Cosmos DB le risorse supportano i tag](../azure-resource-manager/management/tag-support.md#microsoftdocumentdb)
 
 **Responsabilità**: Customer
 
@@ -548,11 +548,11 @@ Sebbene le risorse di Azure (versione classica) possano essere individuate trami
 
 **Linee guida**: usare l'assegnazione di tag, i gruppi di gestione e le sottoscrizioni separate, laddove appropriato, per organizzare e tenere traccia degli asset, incluse, a titolo esemplificativo, Azure Cosmos DB risorse. Riconciliare l'inventario a intervalli regolari e assicurarsi che le risorse non autorizzate vengano eliminate in modo tempestivo dalla sottoscrizione.
 
-- [Come creare sottoscrizioni di Azure aggiuntive](/azure/billing/billing-create-subscription)
+- [Come creare sottoscrizioni di Azure aggiuntive](../cost-management-billing/manage/create-subscription.md)
 
-- [Come creare gruppi di gestione](/azure/governance/management-groups/create)
+- [Come creare gruppi di gestione](../governance/management-groups/create-management-group-portal.md)
 
-- [Come creare e usare i tag](/azure/azure-resource-manager/resource-group-using-tags)
+- [Come creare e usare i tag](../azure-resource-manager/management/tag-resources.md)
 
 **Responsabilità**: Customer
 
@@ -584,7 +584,7 @@ Usare anche il grafico risorse di Azure per eseguire query e individuare le riso
 
 - [Come configurare e gestire Criteri di Azure](../governance/policy/tutorials/create-and-manage.md)
 
-- [Come negare un tipo di risorsa specifico con Criteri di Azure](https://docs.microsoft.com/azure/governance/policy/samples/built-in-policies#general)
+- [Come negare un tipo di risorsa specifico con Criteri di Azure](../governance/policy/samples/built-in-policies.md#general)
 
 **Responsabilità**: Customer
 
@@ -610,7 +610,7 @@ Usare anche il grafico risorse di Azure per eseguire query e individuare le riso
 - Distribuisci Advanced Threat Protection per gli account Cosmos DB
 - I database Cosmos DB devono usare un endpoint servizio di rete virtuale
 
-- [Come visualizzare gli alias dei criteri di Azure disponibili](https://docs.microsoft.com/powershell/module/az.resources/get-azpolicyalias?view=azps-4.8.0&amp;preserve-view=true)
+- [Come visualizzare gli alias dei criteri di Azure disponibili](/powershell/module/az.resources/get-azpolicyalias?preserve-view=true&view=azps-4.8.0)
 
 - [Come configurare e gestire Criteri di Azure](../governance/policy/tutorials/create-and-manage.md)
 
@@ -668,7 +668,7 @@ Usare anche il grafico risorse di Azure per eseguire query e individuare le riso
 
 - [Come eseguire l'integrazione con le identità gestite di Azure](../azure-app-configuration/howto-integrate-azure-managed-service-identity.md)
 
-- [Come creare una Key Vault](/azure/key-vault/quick-create-portal)
+- [Come creare una Key Vault](../key-vault/secrets/quick-create-portal.md)
 
 - [Come eseguire l'autenticazione a Key Vault](../key-vault/general/authentication.md)
 
@@ -728,7 +728,7 @@ Se si usa Key Vault per archiviare le credenziali per le istanze del Cosmos DB, 
 
 - [Informazioni sui backup automatici Azure Cosmos DB](online-backup-and-restore.md)
 
-- [Come ripristinare i dati in Azure Cosmos DB](/azure/cosmos-db/how-to-backup-and-restore)
+- [Come ripristinare i dati in Azure Cosmos DB](./online-backup-and-restore.md)
 
 - [Come eseguire il backup di chiavi di Key Vault](/powershell/module/azurerm.keyvault/backup-azurekeyvaultkey)
 
@@ -744,9 +744,9 @@ Testare il ripristino dei segreti archiviati in Azure Key Vault tramite PowerShe
 
 - [Informazioni sui backup automatici Azure Cosmos DB](online-backup-and-restore.md)
 
-- [Come ripristinare i dati in Azure Cosmos DB](/azure/cosmos-db/how-to-backup-and-restore)
+- [Come ripristinare i dati in Azure Cosmos DB](./online-backup-and-restore.md)
 
-- [Come ripristinare Azure Key Vault segreti](https://docs.microsoft.com/powershell/module/az.keyvault/restore-azkeyvaultkey?view=azps-4.8.0&amp;preserve-view=true)
+- [Come ripristinare Azure Key Vault segreti](/powershell/module/az.keyvault/restore-azkeyvaultkey?preserve-view=true&view=azps-4.8.0)
 
 **Responsabilità**: Condiviso
 
@@ -760,7 +760,7 @@ Abilitare l'eliminazione temporanea in Key Vault per proteggere le chiavi da eli
 
 - [Informazioni sulla crittografia dei dati in Azure Cosmos DB](database-encryption-at-rest.md)
 
-- [Come abilitare l'eliminazione temporanea in Key Vault](https://docs.microsoft.com/azure/storage/blobs/storage-blob-soft-delete?tabs=azure-portal)
+- [Come abilitare l'eliminazione temporanea in Key Vault](../storage/blobs/soft-delete-blob-overview.md?tabs=azure-portal)
 
 **Responsabilità**: Condiviso
 
@@ -856,5 +856,5 @@ Contrassegnare anche chiaramente le sottoscrizioni, ad esempio di produzione o n
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Vedere [Panoramica di Azure Security Benchmark V2](/azure/security/benchmarks/overview)
-- Altre informazioni su [Baseline di sicurezza di Azure](/azure/security/benchmarks/security-baselines-overview)
+- Vedere [Panoramica di Azure Security Benchmark V2](../security/benchmarks/overview.md)
+- Altre informazioni su [Baseline di sicurezza di Azure](../security/benchmarks/security-baselines-overview.md)

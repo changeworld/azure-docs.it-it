@@ -8,12 +8,12 @@ ms.author: gachandw
 ms.reviewer: mimckitt
 ms.date: 10/13/2020
 ms.custom: ''
-ms.openlocfilehash: 6d54216d8992b5bb233c79919284f96b24385651
-ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
+ms.openlocfilehash: 6cb4abd536cc0d4177df424ac6a774e4e2e328d7
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/23/2021
-ms.locfileid: "104865588"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105564756"
 ---
 # <a name="deploy-a-cloud-service-extended-support-using-arm-templates"></a>Distribuire un servizio cloud (supporto esteso) usando i modelli ARM
 
@@ -29,15 +29,15 @@ Questa esercitazione illustra come creare una distribuzione del servizio cloud (
 
 1. Esaminare i [prerequisiti di distribuzione](deploy-prerequisite.md) per i servizi cloud (supporto esteso) e creare le risorse associate.
 
-2. Creare un nuovo gruppo di risorse usando il [portale di Azure](/azure/azure-resource-manager/management/manage-resource-groups-portal) o [PowerShell](/azure/azure-resource-manager/management/manage-resource-groups-powershell). Questo passaggio è facoltativo se si usa un gruppo di risorse esistente.
+2. Creare un nuovo gruppo di risorse usando il [portale di Azure](../azure-resource-manager/management/manage-resource-groups-portal.md) o [PowerShell](../azure-resource-manager/management/manage-resource-groups-powershell.md). Questo passaggio è facoltativo se si usa un gruppo di risorse esistente.
  
-3. Creare un nuovo account di archiviazione usando il [portale di Azure](/azure/storage/common/storage-account-create?tabs=azure-portal) o [PowerShell](/azure/storage/common/storage-account-create?tabs=azure-powershell). Questo passaggio è facoltativo se si usa un account di archiviazione esistente.
+3. Creare un nuovo account di archiviazione usando il [portale di Azure](../storage/common/storage-account-create.md?tabs=azure-portal) o [PowerShell](../storage/common/storage-account-create.md?tabs=azure-powershell). Questo passaggio è facoltativo se si usa un account di archiviazione esistente.
 
-4. Caricare i file di definizione del servizio (. csdef) e di configurazione del servizio (. cscfg) nell'account di archiviazione usando il [portale di Azure](/azure/storage/blobs/storage-quickstart-blobs-portal#upload-a-block-blob), [AzCopy](/azure/storage/common/storage-use-azcopy-blobs-upload?toc=/azure/storage/blobs/toc.json) o [PowerShell](/azure/storage/blobs/storage-quickstart-blobs-powershell#upload-blobs-to-the-container). Ottenere gli URI SAS di entrambi i file da aggiungere al modello ARM più avanti in questa esercitazione.
+4. Caricare i file di definizione del servizio (. csdef) e di configurazione del servizio (. cscfg) nell'account di archiviazione usando il [portale di Azure](../storage/blobs/storage-quickstart-blobs-portal.md#upload-a-block-blob), [AzCopy](../storage/common/storage-use-azcopy-blobs-upload.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) o [PowerShell](../storage/blobs/storage-quickstart-blobs-powershell.md#upload-blobs-to-the-container). Ottenere gli URI SAS di entrambi i file da aggiungere al modello ARM più avanti in questa esercitazione.
 
 5. Opzionale Creare un insieme di credenziali delle chiavi e caricare i certificati.
 
-    -  I certificati possono essere collegati ai servizi cloud per consentire la comunicazione sicura da e verso il servizio. Per usare i certificati, le relative identificazioni personali devono essere specificate nel file di configurazione del servizio (con estensione cscfg) e caricate in un insieme di credenziali delle chiavi. È possibile creare un insieme di credenziali delle chiavi tramite il [portale di Azure](/azure/key-vault/general/quick-create-portal) o [PowerShell](/azure/key-vault/general/quick-create-powershell).
+    -  I certificati possono essere collegati ai servizi cloud per consentire la comunicazione sicura da e verso il servizio. Per usare i certificati, le relative identificazioni personali devono essere specificate nel file di configurazione del servizio (con estensione cscfg) e caricate in un insieme di credenziali delle chiavi. È possibile creare un insieme di credenziali delle chiavi tramite il [portale di Azure](../key-vault/general/quick-create-portal.md) o [PowerShell](../key-vault/general/quick-create-powershell.md).
     - L'insieme di credenziali delle chiavi associato deve trovarsi nella stessa area e nella stessa sottoscrizione del servizio cloud.
     - L'insieme di credenziali delle chiavi associato per deve essere abilitato per le autorizzazioni appropriate, in modo che la risorsa servizi cloud (supporto esteso) possa recuperare i certificati da Key Vault. Per ulteriori informazioni, vedere [certificati e Key Vault](certificates-and-key-vault.md)
     - È necessario fare riferimento all'insieme di credenziali delle chiavi nella sezione OsProfile del modello ARM illustrato nei passaggi seguenti.

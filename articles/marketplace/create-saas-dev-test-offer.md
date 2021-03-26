@@ -8,12 +8,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 ms.date: 03/25/2021
-ms.openlocfilehash: dbf284305aa3201faeb77668af4198bafbf578b5
-ms.sourcegitcommit: bed20f85722deec33050e0d8881e465f94c79ac2
+ms.openlocfilehash: 893d38d7dcf2ef0910bc46d3e9bfd168c2a89162
+ms.sourcegitcommit: 44edde1ae2ff6c157432eee85829e28740c6950d
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 03/25/2021
-ms.locfileid: "105110543"
+ms.locfileid: "105543364"
 ---
 # <a name="create-a-test-offer"></a>Creare un'offerta di test
 
@@ -27,7 +27,7 @@ Le sezioni seguenti descrivono le differenze di configurazione tra le offerte sv
 
 Si consiglia di usare lo stesso alias nella casella **alias** di entrambe le offerte, ma aggiungere "_Test" all'alias dell'offerta dev. Se, ad esempio, l'alias dell'offerta PROD è "contososolution", l'alias dell'offerta DEV dovrebbe essere "contososolution_test". In questo modo, è possibile identificare facilmente l'offerta di sviluppo dall'offerta di produzione.
 
-Nella sezione **Customer Leads** usare e tabella di Azure o un ambiente di test CRM per l'offerta dev. Usare il sistema di gestione dei lead previsto per l'offerta PROD.
+Nella sezione **Customer Leads** usare una tabella di Azure o un ambiente di test CRM per l'offerta dev. Usare il sistema di gestione dei lead previsto per l'offerta PROD.
 
 ## <a name="properties-page"></a>Pagina Proprietà
 
@@ -39,7 +39,7 @@ Configurare questa pagina in entrambe le offerte per sviluppo e PROD.
 
 ## <a name="preview-audience"></a>Destinatari dell'anteprima
 
-Nell'offerta DEV includere il nome dell'entità utente Azure Active Directory (AAD) o l'indirizzo di posta elettronica account Microsoft (MSA) di sviluppatori e tester, incluso. Si noti che il nome dell'entità utente di un utente in AAD può essere diverso dall'indirizzo di posta elettronica dell'utente. Non funzionerà, ad esempio, ma funzionerà jane.doe@contoso.com janedoe@contoso.com . Si tratta degli utenti che avranno accesso all'offerta DEV quando si condivide il collegamento di **Anteprima** durante la fase di sviluppo e test.
+Nell'offerta DEV, includere i nomi dell'entità utente Azure Active Directory (AAD) o gli indirizzi di posta elettronica account Microsoft (MSA) degli sviluppatori e dei tester, incluso. Il nome dell'entità utente di un utente in AAD può essere diverso dall'indirizzo di posta elettronica dell'utente. Ad esempio, jane.doe@contoso.com non funzionerà, ma janedoe@contoso.com lo utilizzerà. Gli utenti designati avranno accesso all'offerta DEV quando si condivide il collegamento di **Anteprima** durante la fase di sviluppo e test.
 
 Nell'offerta di produzione, includere il Azure AD nome dell'entità utente o l'indirizzo di posta elettronica dell'account Microsoft degli utenti che convalideranno l'offerta prima di selezionare il **pulsante Go Live** per pubblicare l'offerta in tempo reale.
 
@@ -77,10 +77,10 @@ Selezionare gli stessi mercati per le offerte sviluppo e PROD.
 
 Usare l'offerta DEV per sperimentare i modelli di determinazione prezzi. Dopo aver verificato il modello di determinazione dei prezzi o i modelli più adatti, verranno creati i piani nell'offerta PROD con i modelli di prezzi e i prezzi desiderati.
 
-L'offerta DEV deve avere piani con prezzi zero o molto bassi nei piani. L'offerta PROD avrà i prezzi che si desidera addebitare ai clienti.
+L'offerta DEV deve avere piani con prezzi zero o bassi nei piani. L'offerta PROD avrà i prezzi che si desidera addebitare ai clienti.
 
-> [!NOTE]
-> Gli acquisti effettuati in anteprima verranno elaborati per le offerte di sviluppo e PROD. Se un'offerta ha un prezzo di $100/mo, la tua azienda verrà addebitata $100. In tal caso, è possibile aprire un [ticket di supporto](support.md) e verranno rilasciati i pagamenti per l'importo totale (e non verrà addebitata alcuna tariffa dell'Agenzia).
+> [!IMPORTANT]
+> Gli acquisti effettuati in anteprima verranno elaborati per le offerte di sviluppo e PROD. Se un'offerta ha un prezzo di $100/mo, la tua azienda verrà addebitata $100. In tal caso, è possibile aprire un [ticket di supporto](support.md) e verranno rilasciati i pagamenti per l'importo totale (e non verrà addebitata alcuna tariffa per il servizio di archiviazione).
 
 #### <a name="pricing-model"></a>Modello di prezzi
 
@@ -97,7 +97,7 @@ Per ridurre i costi per il test dei modelli di prezzo, incluse le dimensioni di 
 | $50,00 e versioni successive | Utilizzare questo intervallo di prezzi per testare i pagamenti. Per informazioni sulla pianificazione dei pagamenti, vedere [pianificazioni dei pagamenti e processi](/partner-center/payout-policy-details). |
 |||
 
-Per evitare di addebitare un costo di elaborazione per il test, aprire un [ticket di supporto](support.md).
+Per evitare di addebitare una tariffa del servizio di archiviazione per il test, aprire un [ticket di supporto](support.md).
 
 #### <a name="free-trial"></a>Versione di prova gratuita
 

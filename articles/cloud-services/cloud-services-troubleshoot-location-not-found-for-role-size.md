@@ -7,12 +7,12 @@ ms.author: v-mibufo
 ms.service: cloud-services
 ms.topic: troubleshooting
 ms.date: 02/22/2021
-ms.openlocfilehash: b11aedb52be3c263c781c2ac68d1d5197ba4def2
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 3d1a1135db0421d89d4c6c9f278c86e02cb5cb32
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101745718"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105558959"
 ---
 # <a name="troubleshoot-locationnotfoundforrolesize-when-deploying-a-cloud-service-classic-to-azure"></a>Risolvere i problemi di LocationNotFoundForRoleSize durante la distribuzione di un servizio cloud (versione classica) in Azure
 
@@ -47,7 +47,7 @@ In questo scenario, è necessario selezionare un'area o uno SKU diverso per dist
 
 ### <a name="list-skus-in-region-using-azure-cli"></a>Elencare SKU nell'area usando l'interfaccia della riga di comando
 
-È possibile usare il comando [AZ VM list-SKUS](https://docs.microsoft.com/cli/azure/vm.html#az_vm_list_skus) .
+È possibile usare il comando [AZ VM list-SKUS](/cli/azure/vm.html#az_vm_list_skus) .
 
 - Usare il `--location` parametro per filtrare l'output in base alla posizione in uso.
 - Usare il parametro `--size` per eseguire la ricerca in base a un nome parziale delle dimensioni.
@@ -63,7 +63,7 @@ In questo scenario, è necessario selezionare un'area o uno SKU diverso per dist
 
 #### <a name="list-skus-in-region-using-powershell"></a>Elencare gli SKU nell'area usando PowerShell
 
-È possibile usare il comando [Get-AzComputeResourceSku](https://docs.microsoft.com/powershell/module/az.compute/get-azcomputeresourcesku) .
+È possibile usare il comando [Get-AzComputeResourceSku](/powershell/module/az.compute/get-azcomputeresourcesku) .
 
 - Filtrare i risultati in base all'area.
 - Per questo comando, è necessaria la versione più recente di PowerShell.
@@ -91,7 +91,7 @@ Get-AzComputeResourceSku | where {$_.Locations.Contains("centralus") -and $_.Res
 
 #### <a name="list-skus-in-region-using-rest-api"></a>Elencare gli SKU nell'area usando l'API REST
 
-È possibile usare l'operazione [SKU di risorsa-elenco](https://docs.microsoft.com/rest/api/compute/resourceskus/list) . Le aree e gli SKU disponibili vengono restituiti nel formato seguente:
+È possibile usare l'operazione [SKU di risorsa-elenco](/rest/api/compute/resourceskus/list) . Le aree e gli SKU disponibili vengono restituiti nel formato seguente:
 
 ```json
 {

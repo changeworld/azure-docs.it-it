@@ -7,12 +7,12 @@ manager: bsiva
 ms.topic: tutorial
 ms.date: 3/2/2021
 ms.author: rahugup
-ms.openlocfilehash: 422a911c2c0bb6aa1252ebb649368b61aa350b6e
-ms.sourcegitcommit: a8ff4f9f69332eef9c75093fd56a9aae2fe65122
+ms.openlocfilehash: 464e2450b4d4dea9fc650ad8869af4215d3db1a7
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/24/2021
-ms.locfileid: "105025578"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105561798"
 ---
 # <a name="aspnet-app-containerization-and-migration-to-azure-kubernetes-service"></a>ASP.NET di contenitori e migrazione di app al servizio Azure Kubernetes
 
@@ -60,7 +60,7 @@ Prima di iniziare questa esercitazione, è necessario:
 **Requisito** | **Dettagli**
 --- | ---
 **Identificare un computer per installare lo strumento** | Un computer Windows per installare ed eseguire lo strumento di Azure Migrate: app container. Il computer Windows potrebbe essere un sistema operativo server (Windows Server 2016 o versione successiva) o client (Windows 10), ovvero lo strumento può essere eseguito anche sul desktop. <br/><br/> Il computer Windows che esegue lo strumento deve disporre della connettività di rete per i server o le macchine virtuali che ospitano le applicazioni ASP.NET di cui eseguire la containerizzazione.<br/><br/> Verificare che nel computer Windows in cui è in esecuzione lo strumento di Azure Migrate: app container per archiviare gli elementi dell'applicazione siano disponibili 6 GB di spazio. <br/><br/> Il computer Windows deve disporre di accesso a Internet, diretto o tramite un proxy. <br/> <br/>Installare lo strumento Microsoft Distribuzione Web nel computer che esegue lo strumento di supporto per la gestione dei contenitori delle app e il server applicazioni, se non è già installato. È possibile scaricare lo strumento da [qui](https://aka.ms/webdeploy3.6)
-**Server applicazioni** | Abilitare la comunicazione remota di PowerShell nei server applicazioni: accedere al server applicazioni e seguire [queste](https://docs.microsoft.com/powershell/module/microsoft.powershell.core/enable-psremoting) istruzioni per attivare la comunicazione remota di PowerShell. <br/><br/> Se il server applicazioni esegue Windows Server 2008 R2, assicurarsi che PowerShell 5,1 sia installato nel server applicazioni. Seguire le istruzioni riportate [qui](https://docs.microsoft.com/powershell/scripting/windows-powershell/wmf/setup/install-configure) per scaricare e installare PowerShell 5,1 nel server applicazioni. <br/><br/> Installare lo strumento Microsoft Distribuzione Web nel computer che esegue lo strumento di supporto per la gestione dei contenitori delle app e il server applicazioni, se non è già installato. È possibile scaricare lo strumento da [qui](https://aka.ms/webdeploy3.6)
+**Server applicazioni** | Abilitare la comunicazione remota di PowerShell nei server applicazioni: accedere al server applicazioni e seguire [queste](/powershell/module/microsoft.powershell.core/enable-psremoting) istruzioni per attivare la comunicazione remota di PowerShell. <br/><br/> Se il server applicazioni esegue Windows Server 2008 R2, assicurarsi che PowerShell 5,1 sia installato nel server applicazioni. Seguire le istruzioni riportate [qui](/powershell/scripting/windows-powershell/wmf/setup/install-configure) per scaricare e installare PowerShell 5,1 nel server applicazioni. <br/><br/> Installare lo strumento Microsoft Distribuzione Web nel computer che esegue lo strumento di supporto per la gestione dei contenitori delle app e il server applicazioni, se non è già installato. È possibile scaricare lo strumento da [qui](https://aka.ms/webdeploy3.6)
 **Applicazione ASP.NET** | Lo strumento attualmente supporta <br/><br/> -ASP.NET applicazioni che usano Microsoft .NET Framework 3,5 o versione successiva.<br/> -Server applicazioni che eseguono Windows Server 2008 R2 o versione successiva (i server applicazioni devono eseguire PowerShell versione 5,1). <br/> -Applicazioni in esecuzione in Internet Information Services (IIS) 7,5 o versione successiva. <br/><br/> Lo strumento non supporta attualmente <br/><br/> -Applicazioni che richiedono l'autenticazione di Windows (AKS non supporta attualmente gMSA). <br/> -Applicazioni che dipendono da altri servizi di Windows ospitati all'esterno di IIS.
 
 
@@ -180,7 +180,7 @@ Parametrizzazione la configurazione lo rende disponibile come parametro della fa
 
 ### <a name="externalize-file-system-dependencies"></a>Dipendenze file system Externalize
 
- È possibile aggiungere altre cartelle utilizzate dall'applicazione. Specificare se devono far parte dell'immagine del contenitore o devono essere esternalizzate tramite volumi permanenti nella condivisione file di Azure. L'uso di volumi permanenti funziona perfettamente per le applicazioni con stato che archiviano lo stato all'esterno del contenitore o che contengono altro contenuto statico archiviato nel file system. [Scopri di più](https://docs.microsoft.com/azure/aks/concepts-storage)
+ È possibile aggiungere altre cartelle utilizzate dall'applicazione. Specificare se devono far parte dell'immagine del contenitore o devono essere esternalizzate tramite volumi permanenti nella condivisione file di Azure. L'uso di volumi permanenti funziona perfettamente per le applicazioni con stato che archiviano lo stato all'esterno del contenitore o che contengono altro contenuto statico archiviato nel file system. [Scopri di più](../aks/concepts-storage.md)
 
 1. Fare clic su **modifica** in cartelle app per esaminare le cartelle dell'applicazione rilevate. Le cartelle dell'applicazione rilevate sono state identificate come elementi obbligatori necessari per l'applicazione e verranno copiati nell'immagine del contenitore.
 
@@ -195,7 +195,7 @@ Parametrizzazione la configurazione lo rende disponibile come parametro della fa
 ## <a name="build-container-image"></a>Compilare l'immagine del contenitore
 
 
-1. **Selezionare container Registry di Azure**: usare l'elenco a discesa per selezionare una [container Registry di Azure](https://docs.microsoft.com/azure/container-registry/) che verrà usata per compilare e archiviare le immagini del contenitore per le app. È possibile usare un Container Registry di Azure esistente o scegliere di crearne uno nuovo usando l'opzione Crea nuovo registro di sistema.
+1. **Selezionare container Registry di Azure**: usare l'elenco a discesa per selezionare una [container Registry di Azure](../container-registry/index.yml) che verrà usata per compilare e archiviare le immagini del contenitore per le app. È possibile usare un Container Registry di Azure esistente o scegliere di crearne uno nuovo usando l'opzione Crea nuovo registro di sistema.
 
     ![Screenshot per la selezione di app ACR.](./media/tutorial-containerize-apps-aks/build-aspnet-app.png)
 

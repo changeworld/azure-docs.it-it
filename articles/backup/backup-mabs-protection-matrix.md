@@ -3,12 +3,12 @@ title: Matrice di protezione MAB (server di Backup di Azure) v3 UR1
 description: Questo articolo offre una matrice di supporto che elenca tutti i carichi di lavoro, i tipi di dati e le installazioni che vengono protetti dal server di Backup di Azure.
 ms.date: 03/19/2020
 ms.topic: conceptual
-ms.openlocfilehash: d8f2a38db468ec57cdc0a4f0813fe7ae8e341d52
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: cfdd227135a2124e22a604bad4bd41594a38fb37
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102609771"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105561271"
 ---
 # <a name="mabs-azure-backup-server-v3-ur1-protection-matrix"></a>Matrice di protezione MAB (server di Backup di Azure) v3 UR1
 
@@ -127,7 +127,7 @@ Server di Backup di Azure possibile proteggere i carichi di lavoro del cluster c
   * File Server
   * Hyper-V
 
-  Questi carichi di lavoro possono essere eseguiti in un singolo server o in una configurazione cluster. Per proteggere un carico di lavoro che non si trova in un dominio trusted, vedere [preparare i computer in gruppi di lavoro e domini non attendibili](https://docs.microsoft.com/system-center/dpm/prepare-environment-for-dpm) per informazioni dettagliate sugli elementi supportati e sull'autenticazione necessaria.
+  Questi carichi di lavoro possono essere eseguiti in un singolo server o in una configurazione cluster. Per proteggere un carico di lavoro che non si trova in un dominio trusted, vedere [preparare i computer in gruppi di lavoro e domini non attendibili](/system-center/dpm/prepare-environment-for-dpm) per informazioni dettagliate sugli elementi supportati e sull'autenticazione necessaria.
 
 ## <a name="unsupported-data-types"></a>Tipi di dati non supportati
 

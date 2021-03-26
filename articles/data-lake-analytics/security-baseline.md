@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 02/17/2021
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 33196af2f3544733715ece501cceec0366d2a47c
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 7569f98b1a721ecc9bd8e41a7d55cfbb80a2bc88
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101716254"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105564620"
 ---
 # <a name="azure-security-baseline-for-data-lake-analytics"></a>Baseline della sicurezza di Azure per Data Lake Analytics
 
@@ -64,9 +64,9 @@ In alternativa, è possibile abilitare e caricare i dati in Sentinel di Azure o 
 
 - [Come eseguire l'onboarding di Azure Sentinel](../sentinel/quickstart-onboard.md) 
 
-- [Come raccogliere i log e le metriche della piattaforma con monitoraggio di Azure](/azure/azure-monitor/platform/diagnostic-settings) 
+- [Come raccogliere i log e le metriche della piattaforma con monitoraggio di Azure](../azure-monitor/essentials/diagnostic-settings.md) 
 
-- [Come raccogliere i log degli host interni della macchina virtuale di Azure con monitoraggio di Azure](/azure/azure-monitor/learn/quick-collect-azurevm) 
+- [Come raccogliere i log degli host interni della macchina virtuale di Azure con monitoraggio di Azure](../azure-monitor/vm/quick-collect-azurevm.md) 
 
 - [Come iniziare a usare Monitoraggio di Azure e l'integrazione SIEM di terze parti](https://azure.microsoft.com/blog/use-azure-monitor-to-integrate-with-siem-tools)
 
@@ -78,13 +78,13 @@ In alternativa, è possibile abilitare e caricare i dati in Sentinel di Azure o 
 
 **Linee guida**: abilitare le impostazioni di diagnostica per data Lake Analytics per accedere ai log di controllo e richieste. Sono inclusi dati come origine evento, data, utente, timestamp e altri elementi utili. 
 
-- [Come raccogliere i log e le metriche della piattaforma con monitoraggio di Azure](/azure/azure-monitor/platform/diagnostic-settings) 
+- [Come raccogliere i log e le metriche della piattaforma con monitoraggio di Azure](../azure-monitor/essentials/diagnostic-settings.md) 
 
-- [Informazioni sulla registrazione e sui diversi tipi di log in Azure](/azure/azure-monitor/platform/platform-logs-overview)
+- [Informazioni sulla registrazione e sui diversi tipi di log in Azure](../azure-monitor/essentials/platform-logs-overview.md)
 
 **Responsabilità**: Customer
 
-**Monitoraggio del Centro sicurezza di Azure**: il [benchmark di sicurezza di Azure](/home/mbaldwin/docs/asb/azure-docs-pr/articles/governance/policy/samples/azure-security-benchmark.md) è l'iniziativa di criteri predefinita per il Centro sicurezza ed è la base per le [raccomandazioni del Centro sicurezza](/home/mbaldwin/docs/asb/azure-docs-pr/articles/security-center/security-center-recommendations.md). Le definizioni di criteri di Azure correlate a questo controllo sono abilitate automaticamente dal centro sicurezza. Gli avvisi correlati a questo controllo possono richiedere un piano di [Azure Defender](/home/mbaldwin/docs/asb/azure-docs-pr/articles/security-center/azure-defender.md) per i servizi correlati.
+**Monitoraggio del Centro sicurezza di Azure**: il [benchmark di sicurezza di Azure](/azure/governance/policy/samples/azure-security-benchmark) è l'iniziativa di criteri predefinita per il Centro sicurezza ed è la base per le [raccomandazioni del Centro sicurezza](/azure/security-center/security-center-recommendations). Le definizioni di criteri di Azure correlate a questo controllo sono abilitate automaticamente dal centro sicurezza. Gli avvisi correlati a questo controllo possono richiedere un piano di [Azure Defender](/azure/security-center/azure-defender) per i servizi correlati.
 
 **Definizioni predefinite di criteri di Azure-Microsoft. analisi data Lake**:
 
@@ -94,9 +94,9 @@ In alternativa, è possibile abilitare e caricare i dati in Sentinel di Azure o 
 
 **Linee guida**: in monitoraggio di Azure impostare il periodo di conservazione dell'area di lavoro log Analytics in base alle normative di conformità dell'organizzazione. Usare gli account di archiviazione di Azure per l'archiviazione a lungo termine e di archiviazione.
 
-- [Modificare il periodo di conservazione dei dati in Log Analytics](/azure/azure-monitor/platform/manage-cost-storage#change-the-data-retention-period) 
+- [Modificare il periodo di conservazione dei dati in Log Analytics](../azure-monitor/logs/manage-cost-storage.md#change-the-data-retention-period) 
 
-- [Come configurare i criteri di conservazione per i log dell'account di archiviazione di Azure](/azure/storage/common/storage-monitor-storage-account#configure-logging)
+- [Come configurare i criteri di conservazione per i log dell'account di archiviazione di Azure](../storage/common/manage-storage-analytics-logs.md#configure-logging)
 
 **Responsabilità**: Customer
 
@@ -108,9 +108,9 @@ In alternativa, è possibile abilitare e caricare i dati in Sentinel di Azure o 
 
 - [Come eseguire l'onboarding di Azure Sentinel](../sentinel/quickstart-onboard.md)
 
-- [Per ulteriori informazioni sull'area di lavoro Log Analytics](/azure/azure-monitor/log-query/log-analytics-tutorial)
+- [Per ulteriori informazioni sull'area di lavoro Log Analytics](../azure-monitor/logs/log-analytics-tutorial.md)
 
-- [Come eseguire query personalizzate in Monitoraggio di Azure](/azure/azure-monitor/log-query/get-started-queries)
+- [Come eseguire query personalizzate in Monitoraggio di Azure](../azure-monitor/logs/get-started-queries.md)
 
 **Responsabilità**: Customer
 
@@ -122,7 +122,7 @@ In alternativa, è possibile abilitare e caricare i dati in Sentinel di Azure o 
 
 - [Come eseguire l'onboarding di Azure Sentinel](../sentinel/quickstart-onboard.md)
 
-- [Come inviare un avviso sui dati del log di log Analytics](/azure/azure-monitor/learn/tutorial-response)  
+- [Come inviare un avviso sui dati del log di log Analytics](../azure-monitor/alerts/tutorial-response.md)  
 
 - [Accesso ai log di diagnostica per Azure Data Lake Analytics](data-lake-analytics-diagnostic-logs.md)
 
@@ -162,7 +162,7 @@ In alternativa, è possibile abilitare e caricare i dati in Sentinel di Azure o 
 
 È anche possibile abilitare l'accesso just-in-Time usando Azure Active Directory (Azure AD) Privileged Identity Management e Azure Resource Manager.
 
-- [Altre informazioni su Privileged Identity Management](/azure/active-directory/privileged-identity-management/)
+- [Altre informazioni su Privileged Identity Management](../active-directory/privileged-identity-management/index.yml)
 
 **Responsabilità**: Customer
 
@@ -240,7 +240,7 @@ In alternativa, è possibile abilitare e caricare i dati in Sentinel di Azure o 
 
 **Indicazioni**: Azure Active Directory (Azure ad) fornisce i log per individuare gli account obsoleti. Inoltre, utilizzare Azure AD le verifiche di identità e accesso per gestire in modo efficiente l'appartenenza ai gruppi, l'accesso alle applicazioni aziendali e le assegnazioni di ruolo. L'accesso utente può essere esaminato a intervalli regolari per assicurarsi che solo gli utenti corretti abbiano accesso continuo.
 
-- [Informazioni sulla creazione di report Azure AD](/azure/active-directory/reports-monitoring/)
+- [Informazioni sulla creazione di report Azure AD](../active-directory/reports-monitoring/index.yml)
 
 - [Come usare le verifiche di accesso e delle identità di Azure AD](../active-directory/governance/access-reviews-overview.md)
 
@@ -252,7 +252,7 @@ In alternativa, è possibile abilitare e caricare i dati in Sentinel di Azure o 
 
 **Linee guida**: abilitare le impostazioni di diagnostica per Data Lake Analytics e Azure Active Directory (Azure ad), inviando tutti i log a un'area di lavoro log Analytics. Configurare gli avvisi desiderati, ad esempio i tentativi di accesso ai segreti disabilitati, all'interno Log Analytics.
 
-- [Integrare log di Azure AD con i log di monitoraggio di Azure](/azure/active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics)
+- [Integrare log di Azure AD con i log di monitoraggio di Azure](../active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics.md)
 
 **Responsabilità**: Customer
 
@@ -296,7 +296,7 @@ In alternativa, è possibile abilitare e caricare i dati in Sentinel di Azure o 
 
 - [Come creare e usare i tag](../azure-resource-manager/management/tag-resources.md)
 
-- [Gestire il controllo degli accessi in base al ruolo di Azure](https://docs.microsoft.com/azure/data-lake-analytics/data-lake-analytics-manage-use-portal#manage-azure-role-based-access-control)
+- [Gestire il controllo degli accessi in base al ruolo di Azure](./data-lake-analytics-manage-use-portal.md#manage-azure-role-based-access-control)
 
 - [Regole del firewall](/rest/api/datalakeanalytics/firewallrules)
 
@@ -344,7 +344,7 @@ Per la piattaforma sottostante gestita da Microsoft, Microsoft considera tutti i
 
 **Linee guida**: usare il controllo degli accessi in base al ruolo di Azure (RBAC di Azure) per controllare la modalità di interazione degli utenti con il servizio.
 
-- [Gestisci RBAC di Azure](https://docs.microsoft.com/azure/data-lake-analytics/data-lake-analytics-manage-use-portal#manage-azure-role-based-access-control)
+- [Gestisci RBAC di Azure](./data-lake-analytics-manage-use-portal.md#manage-azure-role-based-access-control)
 
 **Responsabilità**: Customer
 
@@ -364,7 +364,7 @@ Per la piattaforma sottostante gestita da Microsoft, Microsoft considera tutti i
 
 **Linee guida**: usare monitoraggio di Azure con il log attività di Azure per creare avvisi per le modifiche apportate alle istanze di produzione di Azure Data Lake Analytics risorse.
 
-- [Come creare avvisi per gli eventi del log attività di Azure](/azure/azure-monitor/platform/alerts-activity-log)
+- [Come creare avvisi per gli eventi del log attività di Azure](../azure-monitor/alerts/alerts-activity-log.md)
 
 **Responsabilità**: Customer
 
@@ -477,7 +477,7 @@ Sono disponibili informazioni aggiuntive nei collegamenti a cui si fa riferiment
 
 - [Come configurare e gestire Criteri di Azure](../governance/policy/tutorials/create-and-manage.md)
 
-- [Come negare un tipo di risorsa specifico con Criteri di Azure](https://docs.microsoft.com/azure/governance/policy/samples/built-in-policies#general)
+- [Come negare un tipo di risorsa specifico con Criteri di Azure](../governance/policy/samples/built-in-policies.md#general)
 
 **Responsabilità**: Customer
 
@@ -713,5 +713,5 @@ Contrassegnare anche chiaramente le sottoscrizioni, ad esempio di produzione o n
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Vedere [Panoramica di Azure Security Benchmark V2](/azure/security/benchmarks/overview)
-- Altre informazioni su [Baseline di sicurezza di Azure](/azure/security/benchmarks/security-baselines-overview)
+- Vedere [Panoramica di Azure Security Benchmark V2](../security/benchmarks/overview.md)
+- Altre informazioni su [Baseline di sicurezza di Azure](../security/benchmarks/security-baselines-overview.md)

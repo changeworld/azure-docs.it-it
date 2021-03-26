@@ -11,12 +11,12 @@ ms.topic: reference
 ms.date: 03/04/2021
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: b69492dc41786a677043df5e77c9d12aa26893f6
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 929463e346311d58da5ac75b28c774bcfe258f08
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102119774"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105557531"
 ---
 # <a name="about-claim-resolvers-in-azure-active-directory-b2c-custom-policies"></a>Informazioni sui resolver di attestazioni nei criteri personalizzati in Azure Active Directory B2C
 
@@ -72,12 +72,12 @@ Le sezioni seguenti elencano i resolver di attestazioni disponibili.
 | {OIDC:LoginHint} |  Parametro di stringa di query `login_hint`. | someone@contoso.com |
 | {OIDC:MaxAge} | Oggetto `max_age`. | N/D |
 | {OIDC:Nonce} |Parametro di stringa di query `Nonce`. | defaultNonce |
-| {OIDC: password}| La password dell'utente del [flusso di credenziali password del proprietario della risorsa](ropc-custom.md) .| Password1| 
+| {OIDC: password}| La password dell'utente del [flusso di credenziali password del proprietario della risorsa](add-ropc-policy.md) .| Password1| 
 | {OIDC:Prompt} | Parametro di stringa di query `prompt`. | login |
 | {OIDC: RedirectUri} |Parametro di stringa di query `redirect_uri`. | https://jwt.ms |
 | {OIDC:Resource} |Parametro di stringa di query `resource`. | N/D |
 | {OIDC: ambito} |Parametro di stringa di query `scope`. | openid |
-| {OIDC: nomeutente}| Il nome utente del [flusso di credenziali della password del proprietario della risorsa](ropc-custom.md) .| emily@contoso.com| 
+| {OIDC: nomeutente}| Il nome utente del [flusso di credenziali della password del proprietario della risorsa](add-ropc-policy.md) .| emily@contoso.com| 
 
 ### <a name="context"></a>Context
 

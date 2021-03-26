@@ -12,6 +12,8 @@
       href: device-update-simulator.md
     - name: 'Aggiornamento del pacchetto in Ubuntu server 18,04 x64'
       href: device-update-ubuntu-agent.md
+    - name: Esercitazione sull'aggiornamento del dispositivo per l'hub Azure Internet per il sistema operativo in tempo reale di Azure
+      href: device-update-azure-real-time-operating-system.md
 - name: Concetti
   items:
     - name: Istanza e account di aggiornamento del dispositivo

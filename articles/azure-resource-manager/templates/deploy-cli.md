@@ -2,13 +2,13 @@
 title: Distribuire le risorse con l'interfaccia della riga di comando di Azure
 description: Usare Azure Resource Manager e l'interfaccia della riga di comando di Azure per distribuire le risorse in Azure. Le risorse sono definite in un modello di Gestione risorse o in un file bicipite.
 ms.topic: conceptual
-ms.date: 03/04/2021
-ms.openlocfilehash: 1fc3397409634f29690af05ca2a85e67c30b6d89
-ms.sourcegitcommit: ac035293291c3d2962cee270b33fca3628432fac
+ms.date: 03/25/2021
+ms.openlocfilehash: b19dc6cc292306cc796f8c1d8f93b358a079d83b
+ms.sourcegitcommit: 44edde1ae2ff6c157432eee85829e28740c6950d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/24/2021
-ms.locfileid: "104954973"
+ms.lasthandoff: 03/25/2021
+ms.locfileid: "105544435"
 ---
 # <a name="deploy-resources-with-arm-templates-and-azure-cli"></a>Distribuire le risorse con i modelli di Azure Resource Manager e l'interfaccia della riga di comando di Azure
 
@@ -88,6 +88,8 @@ Per il completamento della distribuzione sarà necessario attendere alcuni minut
 > Attualmente l'interfaccia della riga di comando di Azure non supporta la distribuzione di file bicipiti. Usare l'interfaccia della riga di comando di [bicipite](./bicep-install.md#development-environment) per compilare il file bicipite in un modello JSON e quindi caricare il file JSON nel percorso remoto.
 
 Anziché archiviare i modelli ARM nel computer locale, è preferibile archiviarli in una posizione esterna. ad esempio in un repository di controllo del codice sorgente come GitHub. È possibile, in alternativa, archiviarli in un account di archiviazione di Azure per consentire l'accesso condiviso nell'organizzazione.
+
+[!INCLUDE [Deploy templates in private GitHub repo](../../../includes/resource-manager-private-github-repo-templates.md)]
 
 Se si esegue la distribuzione in un gruppo di risorse che non esiste, creare il gruppo di risorse. Il nome del gruppo di risorse può contenere solo caratteri alfanumerici, punti, caratteri di sottolineatura, trattini e parentesi. Può contenere fino a 90 caratteri. Il nome non può terminare con un punto.
 

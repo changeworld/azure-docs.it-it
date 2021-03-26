@@ -1062,18 +1062,26 @@
                   href: virtual-machines/windows/azure-storage-sql-server-backup-restore-use.md
                 - name: Gruppo di disponibilità
                   href: virtual-machines/windows/availability-group-overview.md
-                - name: Istanza del cluster di failover
+                - name: Istanza del cluster di failover (FCI)
                   href: virtual-machines/windows/failover-cluster-instance-overview.md
             - name: Procedure consigliate
               items:
-                - name: Prestazioni
-                  href: virtual-machines/windows/performance-guidelines-best-practices.md
                 - name: Sicurezza
                   href: virtual-machines/windows/security-considerations-best-practices.md
                 - name: Configurazione del cluster
                   href: virtual-machines/windows/hadr-cluster-best-practices.md
                 - name: Modelli di applicazione
                   href: virtual-machines/windows/application-patterns-development-strategies.md
+                - name: Prestazioni
+                  items:
+                    - name: Elenco di controllo rapido
+                      href: virtual-machines/windows/performance-guidelines-best-practices-checklist.md
+                    - name: Dimensioni macchina virtuale
+                      href: virtual-machines/windows/performance-guidelines-best-practices-vm-size.md
+                    - name: Archiviazione
+                      href: virtual-machines/windows/performance-guidelines-best-practices-storage.md
+                    - name: Raccogli Baseline
+                      href: virtual-machines/windows/performance-guidelines-best-practices-collect-baseline.md
             - name: Gestione
               items:
                 - name: Estensione SQL Server IaaS Agent

@@ -11,12 +11,12 @@ author: danimir
 ms.author: danil
 ms.reviewer: wiassaf, sstein
 ms.date: 03/03/2021
-ms.openlocfilehash: d60810c291984e0f57df1968f69678de8179273c
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 1362d8c1f15b64b9d76b28fd354cdae8919504b0
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102042522"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105558279"
 ---
 # <a name="enable-automatic-tuning-in-the-azure-portal-to-monitor-queries-and-improve-workload-performance"></a>Abilitare l'ottimizzazione automatica nel portale di Azure per monitorare le query e migliorare le prestazioni del carico di lavoro
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -120,7 +120,7 @@ In caso di messaggi di errore che la gestione automatica delle raccomandazioni �
 - Query Store interrotto l'esecuzione perché ha utilizzato lo spazio di archiviazione allocato.
 
 Per risolvere il problema, è possibile prendere in considerazione i passaggi seguenti:
-- Pulire il Query Store o modificare il periodo di conservazione dei dati in "auto" con T-SQL. Vedere come [configurare i criteri di conservazione e acquisizione consigliati per query Store](/azure/azure-sql/database/query-performance-insight-use#recommended-retention-and-capture-policy).
+- Pulire il Query Store o modificare il periodo di conservazione dei dati in "auto" con T-SQL. Vedere come [configurare i criteri di conservazione e acquisizione consigliati per query Store](./query-performance-insight-use.md#recommended-retention-and-capture-policy).
 - Usare SQL Server Management Studio (SSMS) e seguire questa procedura:
   - Connettersi al database SQL di Azure
   - Fare clic con il pulsante destro del mouse sul database

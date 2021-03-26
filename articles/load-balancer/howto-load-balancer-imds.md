@@ -8,12 +8,12 @@ ms.service: load-balancer
 ms.topic: how-to
 ms.date: 02/12/2021
 ms.author: allensu
-ms.openlocfilehash: 9ec217cefb05929ed6f5c7395df5e68891e823ac
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 95d0e1ceb9e05ce58f388c3f88dc98b2cf6a0cc5
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101739781"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105559588"
 ---
 # <a name="retrieve-load-balancer-metadata-using-the-azure-instance-metadata-service-imds"></a>Recuperare i metadati del servizio di bilanciamento del carico usando il servizio metadati dell'istanza di Azure (IMDS)
 
@@ -30,7 +30,7 @@ ms.locfileid: "101739781"
 Invoke-RestMethod -Headers @{"Metadata"="true"} -Method GET -NoProxy -Uri "http://169.254.169.254:80/metadata/loadbalancer?api-version=2020-10-01" | ConvertTo-Json
 ```
 > [!NOTE]
-> Il parametro-NoProxy è stato introdotto in PowerShell 6,0. Se si usa una versione precedente di PowerShell, rimuovere-NoProxy nel corpo della richiesta e assicurarsi che non si stia usando un proxy durante il recupero delle informazioni IMDS. Fare clic [qui](https://docs.microsoft.com/azure/virtual-machines/windows/instance-metadata-service?tabs=windows#proxies) per altre informazioni.
+> Il parametro-NoProxy è stato introdotto in PowerShell 6,0. Se si usa una versione precedente di PowerShell, rimuovere-NoProxy nel corpo della richiesta e assicurarsi che non si stia usando un proxy durante il recupero delle informazioni IMDS. Fare clic [qui](../virtual-machines/windows/instance-metadata-service.md?tabs=windows#proxies) per altre informazioni.
 > 
 ### <a name="linux"></a>[Linux](#tab/linux/)
 
@@ -89,4 +89,3 @@ Altre informazioni sul [servizio metadati dell'istanza di Azure](../virtual-mach
 [Recuperare tutti i metadati per un'istanza](../virtual-machines/windows/instance-metadata-service.md?tabs=windows#access-azure-instance-metadata-service)
 
 [Distribuire un servizio di bilanciamento del carico standard](quickstart-load-balancer-standard-public-portal.md)
-

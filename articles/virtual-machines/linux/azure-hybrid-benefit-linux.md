@@ -4,7 +4,7 @@ description: Informazioni su come Vantaggio Azure Hybrid possibile risparmiare s
 services: virtual-machines
 documentationcenter: ''
 author: mathapli
-manager: westonh
+manager: rochakm
 ms.service: virtual-machines
 ms.subservice: azure-hybrid-benefit
 ms.collection: linux
@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 09/22/2020
 ms.author: mathapli
-ms.openlocfilehash: 17b2e260f9a90ddda6e246058cefb1bec8b1ac5e
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 73747222b9131fa85ae6ac01c9dedd5b0bbe1d63
+ms.sourcegitcommit: 44edde1ae2ff6c157432eee85829e28740c6950d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101695482"
+ms.lasthandoff: 03/25/2021
+ms.locfileid: "105543407"
 ---
 # <a name="how-azure-hybrid-benefit-applies-for-linux-virtual-machines"></a>Come si applica Vantaggio Azure Hybrid per le macchine virtuali Linux
 
@@ -39,7 +39,7 @@ Dopo aver abilitato il vantaggio per la macchina virtuale RHEL o SLES, non verr�
 
 Vantaggio Azure Hybrid è disponibile per tutte le immagini RHEL e SLES PAYG di Azure Marketplace. Il vantaggio non è ancora disponibile per immagini RHEL o SLES BYOS o immagini personalizzate di Azure Marketplace.
 
-Le istanze riservate, le istanze host dedicate di Azure e i vantaggi ibridi SQL non sono idonee per Vantaggio Azure Hybrid se si usa già il vantaggio con le VM Linux.
+Le istanze dell'host dedicato di Azure e i vantaggi ibridi SQL non sono idonei per Vantaggio Azure Hybrid se si usa già il vantaggio con le VM Linux.
 
 ## <a name="get-started"></a>Introduzione
 
@@ -90,11 +90,8 @@ Per iniziare a usare il vantaggio per SUSE:
 1. Passare all'opzione di **configurazione** a sinistra. Viene visualizzata la sezione licenze. Per abilitare la conversione vantaggio Azure Hybrid, selezionare il pulsante di opzione "Sì" e selezionare la casella di controllo di conferma.
 ![Pannello di configurazione di vantaggio Azure Hybrid dopo la creazione](./media/azure-hybrid-benefit/create-configuration-blade.png)
 
-
 >[!NOTE]
 > Se è stato creato uno **snapshot personalizzato** o un'immagine **condivisa (SIG)** di un'immagine di RHEL o SLES PAYG Marketplace, è possibile usare l'interfaccia della riga di comando di Azure solo per abilitare vantaggio Azure Hybrid. Questo è il limite noto e attualmente non è disponibile alcuna sequenza temporale per fornire questa funzionalità anche al portale di Azure.
-
-
 
 ## <a name="enable-and-disable-the-benefit-in-the-azure-cli"></a>Abilitare e disabilitare il vantaggio nell'interfaccia della riga di comando di Azure
 
@@ -179,6 +176,15 @@ Per altre informazioni sulla conformità delle sottoscrizioni di Red Hat, sugli 
 
 Per usare Vantaggio Azure Hybrid per le VM SLES e per informazioni sul passaggio da SLES PAYG a BYOS o dal passaggio da SLES BYOS a PAYG, vedere [SUSE Linux Enterprise e vantaggio Azure Hybrid](https://www.suse.com/c/suse-linux-enterprise-and-azure-hybrid-benefit/). 
 
+## <a name="azure-hybrid-benefit-on-reserved-instances-is-in-preview"></a>Vantaggio Azure Hybrid nelle istanze riservate è in anteprima
+
+Le prenotazioni di Azure (istanze di macchine virtuali riservate di Azure) consentono di risparmiare denaro eseguendo un commit a piani di un anno o di tre anni per più prodotti. Altre informazioni sulle [istanze riservate](https://docs.microsoft.com/azure/cost-management-billing/reservations/save-compute-costs-reservations)sono disponibili qui. Il Vantaggio Azure Hybrid è disponibile in anteprima per l' [istanza di macchina virtuale riservata (RIS)](https://review.docs.microsoft.com/azure/cost-management-billing/reservations/save-compute-costs-reservations#charges-covered-by-reservation). Ciò significa che se sono stati acquistati costi di calcolo a una tariffa scontata usando il servizio di riservatezza, è possibile applicare il vantaggio vantaggio Azure Hybrid ai costi di licenza per RHEL e SUSE. I passaggi per applicare il vantaggio vantaggio Azure Hybrid per un'istanza di RI rimangono identici a quelli di una normale macchina virtuale.
+![VANTAGGIO Azure Hybrid per RIs](./media/azure-hybrid-benefit/reserved-instances.png)
+
+>[!NOTE]
+>Se sono già state acquistate prenotazioni per RHEL o SUSE PAYG software in Azure Marketplace, attendere il completamento del periodo di prenotazione prima di usare il Vantaggio Azure Hybrid.
+
+
 ## <a name="frequently-asked-questions"></a>Domande frequenti
 *D: è possibile usare un tipo di licenza `RHEL_BYOS` con un'immagine SLES o viceversa?*
 
@@ -206,11 +212,11 @@ R: sì. È possibile usare il tipo di licenza di `RHEL_BYOS` per le VM RHEL e `S
 
 *D: è possibile usare Vantaggio Azure Hybrid nei set di scalabilità di macchine virtuali per RHEL e SLES?*
 
-R: No, non è possibile. I set di scalabilità di macchine virtuali non sono attualmente inclusi nell'ambito di Vantaggio Azure Hybrid per RHEL e SLES.
+R: Sì, Vantaggio Azure Hybrid nei set di scalabilità di macchine virtuali per RHEL e SLES è in anteprima. [Per altre informazioni su questo vantaggio e su come usarlo](https://docs.microsoft.com/azure/virtual-machine-scale-sets/azure-hybrid-benefit-linux-vmss), vedere qui. 
 
 *D: è possibile usare Vantaggio Azure Hybrid in istanze riservate per RHEL e SLES?*
 
-R: No, non è possibile. Le istanze riservate non sono attualmente nell'ambito di Vantaggio Azure Hybrid per RHEL e SLES.
+R: Sì, Vantaggio Azure Hybrid nell'istanza riservata per RHEL e SLES è in anteprima. [Per altre informazioni su questo vantaggio e su come usarlo](#azure-hybrid-benefit-on-reserved-instances-is-in-preview), vedere qui.
 
 *D: è possibile usare Vantaggio Azure Hybrid in una macchina virtuale distribuita per SQL Server su immagini RHEL?*
 

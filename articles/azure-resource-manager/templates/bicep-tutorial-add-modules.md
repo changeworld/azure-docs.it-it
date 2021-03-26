@@ -2,15 +2,15 @@
 title: Esercitazione-aggiungere moduli al file di Azure Resource Manager bicipite
 description: Usare i moduli per incapsulare i dettagli complessi della dichiarazione di risorse non elaborate.
 author: mumian
-ms.date: 03/10/2021
+ms.date: 03/25/2021
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 6efd9c230df49c83adc17361082af85b0ef9edc5
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
+ms.openlocfilehash: 8c7ab1038cbe62d6f15faf56796193df12b38546
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102633139"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105568767"
 ---
 # <a name="tutorial-add-modules-to-azure-resource-manager-bicep-file"></a>Esercitazione: aggiungere moduli al file bicipite Azure Resource Manager
 
@@ -128,4 +128,4 @@ Questa introduzione alla distribuzione dei file bicipite in Azure è stata compl
 La serie di esercitazioni successiva illustra in modo più dettagliato la distribuzione dei modelli.
 
 > [!div class="nextstepaction"]
-> [Aggiungere moduli](./bicep-tutorial-add-modules.md)
+> [Distribuire un modello locale](./deployment-tutorial-local-template.md)

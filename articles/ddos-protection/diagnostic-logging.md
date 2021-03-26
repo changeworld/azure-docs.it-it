@@ -3,7 +3,7 @@ title: Report standard di protezione DDoS di Azure e log di flusso
 description: Informazioni su come configurare i report e i log dei flussi.
 services: ddos-protection
 documentationcenter: na
-author: yitoh
+author: aletheatoh
 ms.service: ddos-protection
 ms.devlang: na
 ms.topic: article
@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 12/28/2020
 ms.author: yitoh
-ms.openlocfilehash: cc5b3b85d6d13fda532da0993fa7f733126b8eae
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 7f8e3df927b74cff7e4dc8bf1456600740c07088
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "100591869"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105567679"
 ---
 # <a name="view-and-configure-ddos-diagnostic-logging"></a>Visualizzare e configurare la registrazione diagnostica DDoS
 
@@ -130,7 +130,7 @@ La tabella seguente elenca i nomi dei campi e le descrizioni:
 
 Questo [modello](https://aka.ms/ddosdiaglogs) crea una definizione di criteri di Azure per abilitare automaticamente la registrazione diagnostica in tutti i registri IP pubblici in un ambito definito.
 
-[![Distribuzione in Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2FAzure-Network-Security%2Fmaster%2FAzure%2520DDoS%2520Protection%2FEnable%2520Diagnostic%2520Logging%2FAzure%2520Policy%2FDDoSLogs.json)
+[![Distribuzione in Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2FAzure-Network-Security%2Fmaster%2FAzure%20DDoS%20Protection%2FPolicy%20-%20DDOS%20Enable%20Diagnostic%20Logging%2FAzure%20Policy%2FDDoSLogs.json)
 
 ## <a name="view-log-data-in-workbooks"></a>Visualizzazione dei dati di log nelle cartelle di lavoro
 
@@ -144,7 +144,7 @@ Questo [modello](https://aka.ms/ddosdiaglogs) crea una definizione di criteri di
 
 È possibile usare [questo modello di Azure Resource Manager (ARM)](https://aka.ms/ddosworkbook) per distribuire una cartella di lavoro di analisi di attacco. Questa cartella di lavoro consente di visualizzare i dati di attacco in diversi pannelli filtrabili per comprendere facilmente il contenuto. 
 
-[![Distribuzione in Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2FAzure-Network-Security%2Fmaster%2FAzure%2520DDoS%2520Protection%2FAzure%2520DDoS%2520Protection%2520Workbook%2FAzureDDoSWorkbook_ARM.json)
+[![Distribuzione in Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2FAzure-Network-Security%2Fmaster%2FAzure%20DDoS%20Protection%2FWorkbook%20-%20Azure%20DDOS%20monitor%20workbook%2FAzureDDoSWorkbook_ARM.json)
 
 ![Cartella di lavoro protezione DDoS](./media/ddos-attack-telemetry/ddos-attack-analytics-workbook.png)
 

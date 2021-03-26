@@ -3,12 +3,12 @@ title: Endpoint privati
 description: Informazioni sul processo di creazione di endpoint privati per backup di Azure e sugli scenari in cui l'uso di endpoint privati consente di mantenere la sicurezza delle risorse.
 ms.topic: conceptual
 ms.date: 05/07/2020
-ms.openlocfilehash: 7423157abbc0833394af055f5e31f724caa10b46
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 1775ec2c337dba0a618f9e7d186af9ed11a0e303
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103224708"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105559384"
 ---
 # <a name="private-endpoints-for-azure-backup"></a>Endpoint privati per backup di Azure
 
@@ -24,7 +24,7 @@ Questo articolo aiuta a comprendere il processo di creazione di endpoint privati
 - Una connessione a un endpoint privato per il backup usa un totale di 11 indirizzi IP privati nella subnet, inclusi quelli usati da backup di Azure per l'archiviazione. Questo numero può essere maggiore (fino a 25) per determinate aree di Azure. Si consiglia quindi di avere un numero sufficiente di indirizzi IP privati disponibili quando si tenta di creare endpoint privati per il backup.
 - Mentre un insieme di credenziali di servizi di ripristino viene usato da (entrambi) backup di Azure e Azure Site Recovery, questo articolo illustra l'uso degli endpoint privati solo per il backup di Azure.
 - Azure Active Directory attualmente non supporta endpoint privati. Gli indirizzi IP e i nomi di dominio completi necessari per il funzionamento di Azure Active Directory in un'area dovranno quindi consentire l'accesso in uscita dalla rete protetta durante l'esecuzione del backup dei database in macchine virtuali di Azure e di backup con l'agente MARS. È anche possibile usare i tag NSG e i tag del firewall di Azure per consentire l'accesso ai Azure AD, come applicabile.
-- Le reti virtuali con criteri di rete non sono supportate per gli endpoint privati. Prima di continuare, è necessario [disabilitare i criteri di rete](https://docs.microsoft.com/azure/private-link/disable-private-endpoint-network-policy) .
+- Le reti virtuali con criteri di rete non sono supportate per gli endpoint privati. Prima di continuare, è necessario [disabilitare i criteri di rete](../private-link/disable-private-endpoint-network-policy.md) .
 - È necessario registrare di nuovo il provider di risorse di servizi di ripristino con la sottoscrizione, se è stato registrato prima del 1 2020 maggio. Per registrare di nuovo il provider, passare alla sottoscrizione nel portale di Azure, passare a provider di **risorse** nella barra di spostamento a sinistra, quindi selezionare **Microsoft. RecoveryServices** e selezionare **Re-Register**.
 - Il [ripristino tra aree](backup-create-rs-vault.md#set-cross-region-restore) per SQL e i backup di database SAP Hana non sono supportati se l'insieme di credenziali ha endpoint privati abilitati.
 - Quando si sposta un insieme di credenziali di servizi di ripristino che usa già endpoint privati in un nuovo tenant, è necessario aggiornare l'insieme di credenziali di servizi di ripristino per ricreare e riconfigurare l'identità gestita dell'insieme di credenziali e creare nuovi endpoint privati in base alle esigenze (che dovrebbero trovarsi nel nuovo tenant). Se questa operazione non viene eseguita, le operazioni di backup e ripristino inizieranno a non riuscire. Inoltre, le autorizzazioni di controllo degli accessi in base al ruolo impostate nella sottoscrizione dovranno essere riconfigurate.
@@ -299,7 +299,7 @@ Tuttavia, se si rimuovono endpoint privati per l'insieme di credenziali dopo la 
 
 ## <a name="deleting-private-endpoints"></a>Eliminazione di EndPoint privati
 
-Vedere [questa sezione](https://docs.microsoft.com/rest/api/virtualnetwork/privateendpoints/delete) per informazioni su come eliminare gli endpoint privati.
+Vedere [questa sezione](/rest/api/virtualnetwork/privateendpoints/delete) per informazioni su come eliminare gli endpoint privati.
 
 ## <a name="additional-topics"></a>Argomenti aggiuntivi
 

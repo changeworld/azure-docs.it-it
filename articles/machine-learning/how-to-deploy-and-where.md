@@ -8,16 +8,16 @@ ms.subservice: core
 ms.author: gopalv
 author: gvashishtha
 ms.reviewer: larryfr
-ms.date: 01/13/2021
+ms.date: 03/25/2021
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python, deploy, devx-track-azurecli
 adobe-target: true
-ms.openlocfilehash: ed397e9f8db721a6baa641fc958af0dda570ce57
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 4d2aa4d43fbc8cf9040702afb1877e0271b2eab2
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103561941"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105568291"
 ---
 # <a name="deploy-machine-learning-models-to-azure"></a>Distribuire modelli di Machine Learning in Azure
 
@@ -195,11 +195,50 @@ Una configurazione di inferenza minima può essere scritta come segue:
 ```json
 {
     "entryScript": "score.py",
-    "sourceDirectory": "./working_dir"
+    "sourceDirectory": "./working_dir",
+    "environment": {
+    "docker": {
+        "arguments": [],
+        "baseDockerfile": null,
+        "baseImage": "mcr.microsoft.com/azureml/base:intelmpi2018.3-ubuntu16.04",
+        "enabled": false,
+        "sharedVolumes": true,
+        "shmSize": null
+    },
+    "environmentVariables": {
+        "EXAMPLE_ENV_VAR": "EXAMPLE_VALUE"
+    },
+    "name": "my-deploy-env",
+    "python": {
+        "baseCondaEnvironment": null,
+        "condaDependencies": {
+            "channels": [
+                "conda-forge",
+                "pytorch"
+            ],
+            "dependencies": [
+                "python=3.6.2",
+                "torchvision"
+                {
+                    "pip": [
+                        "azureml-defaults",
+                        "azureml-telemetry",
+                        "scikit-learn==0.22.1",
+                        "inference-schema[numpy-support]"
+                    ]
+                }
+            ],
+            "name": "project_environment"
+        },
+        "condaDependenciesFile": null,
+        "interpreterPath": "python",
+        "userManagedDependencies": false
+    },
+    "version": "1"
 }
 ```
 
-Questo specifica che la distribuzione di Machine Learning userà il file `score.py` nella `./working_dir` Directory per elaborare le richieste in ingresso.
+Questo specifica che la distribuzione di Machine Learning userà il file `score.py` nella `./working_dir` Directory per elaborare le richieste in ingresso e che userà l'immagine Docker con i pacchetti Python specificati nell' `project_environment` ambiente.
 
 Per una descrizione più approfondita delle configurazioni di inferenza, [vedere questo articolo](./reference-azure-machine-learning-cli.md#inference-configuration-schema) . 
 
@@ -290,7 +329,7 @@ az ml model deploy -m mymodel:1 --ic inferenceconfig.json --dc deploymentconfig.
 Se si preferisce non registrare il modello, è possibile passare il parametro "sourceDirectory" nella inferenceconfig.jssu per specificare una directory locale da cui distribuire il modello.
 
 ```azurecli-interactive
-az ml model deploy --ic inferenceconfig.json --dc deploymentconfig.json
+az ml model deploy --ic inferenceconfig.json --dc deploymentconfig.json --name my_deploy
 ```
 
 # <a name="python"></a>[Python](#tab/python)

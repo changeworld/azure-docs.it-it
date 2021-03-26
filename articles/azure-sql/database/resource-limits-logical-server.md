@@ -10,42 +10,42 @@ ms.topic: reference
 author: stevestein
 ms.author: sstein
 ms.reviewer: sashan,moslake,josack
-ms.date: 02/02/2021
-ms.openlocfilehash: 34613633b6b27fc3387e6a9fa63caf4a194ba963
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.date: 03/25/2021
+ms.openlocfilehash: 5e95bc50a74413389bd2583beb90128b3fd0810a
+ms.sourcegitcommit: 44edde1ae2ff6c157432eee85829e28740c6950d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101691230"
+ms.lasthandoff: 03/25/2021
+ms.locfileid: "105543517"
 ---
 # <a name="resource-limits-for-azure-sql-database-and-azure-synapse-analytics-servers"></a>Limiti delle risorse per il database SQL di Azure e i server di analisi di Azure sinapsi
 [!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]
 
-Questo articolo fornisce una panoramica dei limiti delle risorse per il server logico usato dal database SQL di Azure e da Azure sinapsi Analytics. Fornisce informazioni su ciò che accade quando i limiti delle risorse vengono raggiunti o superati e descrive i meccanismi di governance delle risorse usati per applicare questi limiti.
+Questo articolo fornisce una panoramica dei limiti delle risorse per il [server logico](logical-servers.md) usato dal database SQL di Azure e da Azure sinapsi Analytics. Fornisce informazioni su ciò che accade quando i limiti delle risorse vengono raggiunti o superati e descrive i meccanismi di governance delle risorse usati per applicare questi limiti.
 
 > [!NOTE]
-> Per i limiti di Istanza gestita SQL di Azure, vedere [limiti delle risorse del database SQL per le istanze gestite](../managed-instance/resource-limits.md).
+> Per i limiti di Istanza gestita SQL di Azure, vedere [limiti delle risorse per le istanze gestite](../managed-instance/resource-limits.md).
 
 ## <a name="maximum-resource-limits"></a>Limiti massimi delle risorse
 
 | Risorsa | Limite |
 | :--- | :--- |
-| Database per server | 5000 |
-| Numero predefinito di server per sottoscrizione in ogni area | 20 |
-| Numero massimo di server per sottoscrizione in ogni area | 200 |  
-| Quota DTU/eDTU per server | 54.000 |  
-| Quota vCore per server/istanza | 540 |
-| N. max pool per server | Limitato dal numero di DTU o vCore. Se ad esempio ogni pool è da 1000 DTU, un server può supportare 54 pool.|
+| Database per ogni server logico | 5000 |
+| Numero predefinito di server logici per sottoscrizione in un'area | 20 |
+| Numero massimo di server logici per sottoscrizione in un'area | 200 |  
+| Quota DTU/eDTU per server logico | 54.000 |  
+| quota vCore per server logico | 540 |
+| Numero massimo di pool per server logico | Limitato dal numero di DTU o vCore. Se ad esempio ogni pool è da 1000 DTU, un server può supportare 54 pool.|
 |||
 
 > [!IMPORTANT]
-> Poiché il numero di database si avvicina al limite per ogni server, può verificarsi quanto segue:
+> Poiché il numero di database si avvicina al limite per ogni server logico, può verificarsi quanto segue:
 >
-> - Latenza in aumento nelle query in esecuzione nel database master.  Ciò include le visualizzazioni delle statistiche di utilizzo delle risorse, ad esempio sys.resource_stats.
+> - Latenza in aumento nelle query in esecuzione nel database master.  Sono incluse le visualizzazioni delle statistiche di utilizzo delle risorse, ad esempio `sys.resource_stats` .
 > - Latenza in aumento nelle operazioni di gestione e nel portale di esecuzione del rendering dei punti di visualizzazione che coinvolgono l'enumerazione dei database nel server.
 
 > [!NOTE]
-> Per ottenere più quote DTU/eDTU, vCore quota o più server rispetto alla quantità predefinita, inviare una nuova richiesta di supporto nella portale di Azure. Per altre informazioni, vedere [Request quota increases for Azure SQL Database](quota-increase-request.md) (Richiedere aumenti di quota per il database SQL di Azure).
+> Per ottenere più quote DTU/eDTU, quota vCore o più server logici rispetto alla quantità predefinita, inviare una nuova richiesta di supporto nella portale di Azure. Per altre informazioni, vedere [Request quota increases for Azure SQL Database](quota-increase-request.md) (Richiedere aumenti di quota per il database SQL di Azure).
 
 ### <a name="storage-size"></a>Dimensioni dello spazio di archiviazione
 

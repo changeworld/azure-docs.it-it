@@ -8,12 +8,12 @@ ms.date: 07/27/2020
 ms.author: normesta
 ms.subservice: common
 ms.reviewer: dineshm
-ms.openlocfilehash: 244012f0945f467fe79e95d652ba22e3b62a1b7a
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 9c699cd865746bf430193eba38ec6fa79575692e
+ms.sourcegitcommit: 44edde1ae2ff6c157432eee85829e28740c6950d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "100596938"
+ms.lasthandoff: 03/25/2021
+ms.locfileid: "105543449"
 ---
 # <a name="configure-optimize-and-troubleshoot-azcopy"></a>Configurare, ottimizzare e risolvere i problemi di AzCopy
 
@@ -103,14 +103,16 @@ Prima di impostare questa variabile, è consigliabile eseguire un test di benchm
 
 ### <a name="optimize-memory-use"></a>Ottimizzazione dell'utilizzo della memoria
 
-Impostare la `AZCOPY_BUFFER_GB` variabile di ambiente per specificare la quantità massima di memoria di sistema che si desidera venga utilizzata da AzCopy durante il download e il caricamento di file.
-Esprimere questo valore in gigabyte (GB).
+Impostare la `AZCOPY_BUFFER_GB` variabile di ambiente per specificare la quantità massima di memoria di sistema che si desidera venga utilizzata da AzCopy per il buffering durante il download e il caricamento di file. Esprimere questo valore in gigabyte (GB).
 
 | Sistema operativo | Comando  |
 |--------|-----------|
 | **Windows** | `set AZCOPY_BUFFER_GB=<value>` |
 | **Linux** | `export AZCOPY_BUFFER_GB=<value>` |
 | **macOS** | `export AZCOPY_BUFFER_GB=<value>` |
+
+> [!NOTE]
+> Il rilevamento dei processi comporta sempre un sovraccarico aggiuntivo nell'utilizzo della memoria. La quantità varia in base al numero di trasferimenti in un processo. I buffer sono il componente più grande per l'utilizzo della memoria. È possibile controllare l'overhead utilizzando `AZCOPY_BUFFER_GB` per soddisfare approssimativamente i requisiti, ma non è disponibile alcun flag per limitare rigorosamente l'utilizzo complessivo della memoria.
 
 ### <a name="optimize-file-synchronization"></a>Ottimizza sincronizzazione file
 

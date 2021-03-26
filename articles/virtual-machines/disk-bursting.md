@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: virtual-machines
 ms.subservice: disks
 ms.custom: references_regions
-ms.openlocfilehash: 4024d2b1357f3dda8216e9ebdd2055b28b064d33
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 9758b026ef205e6608f7fc4110219dc5f267369e
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101677476"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105568716"
 ---
 # <a name="managed-disk-bursting"></a>Bursting del disco gestito
 [!INCLUDE [managed-disks-bursting](../../includes/managed-disks-bursting.md)]
@@ -27,10 +27,10 @@ Inoltre, il [livello di prestazioni dei dischi gestiti può essere modificato](d
 
 |  |Picchi basati sul credito  |Espansione su richiesta  |Modifica del livello di prestazioni  |
 |---------|---------|---------|---------|
-| Scenari|Ideale per la scalabilità a breve termine (30 minuti o meno).|Ideale per la scalabilità a breve termine (non limitato all'ora).|Ideale se il carico di lavoro viene eseguito in modo continuativo in un impeto.|
-|Costo     |Gratuito         |Il costo è variabile. per informazioni dettagliate, vedere la sezione relativa alla [fatturazione](#billing) .        |Il costo di ogni livello di prestazioni è fisso, vedere [Managed disks prezzi](https://azure.microsoft.com/pricing/details/managed-disks/) per i dettagli.         |
-|Disponibilità     |Disponibile solo per le unità SSD Premium 512 GiB e le dimensioni inferiori.         |Disponibile solo per unità SSD Premium di dimensioni superiori a 512 GiB.         |Disponibile per tutte le dimensioni SSD Premium.         |
-|Abilitazione     |Abilitata per impostazione predefinita nei dischi idonei.         |Deve essere abilitato dall'utente.         |L'utente deve modificare manualmente il livello.         |
+| **Scenari**|Ideale per la scalabilità a breve termine (30 minuti o meno).|Ideale per la scalabilità a breve termine (non limitato all'ora).|Ideale se il carico di lavoro viene eseguito in modo continuativo in un impeto.|
+|**Costi**     |Gratuito         |Il costo è variabile. per informazioni dettagliate, vedere la sezione relativa alla [fatturazione](#billing) .        |Il costo di ogni livello di prestazioni è fisso, vedere [Managed disks prezzi](https://azure.microsoft.com/pricing/details/managed-disks/) per i dettagli.         |
+|**Disponibilità**     |Disponibile solo per le unità SSD Premium 512 GiB e le dimensioni inferiori.         |Disponibile solo per unità SSD Premium di dimensioni superiori a 512 GiB.         |Disponibile per tutte le dimensioni SSD Premium.         |
+|**Abilitazione**     |Abilitata per impostazione predefinita nei dischi idonei.         |Deve essere abilitato dall'utente.         |L'utente deve modificare manualmente il livello.         |
 
 ## <a name="common-scenarios"></a>Scenari comuni
 Gli scenari seguenti possono trarre molto vantaggio dall'espansione:

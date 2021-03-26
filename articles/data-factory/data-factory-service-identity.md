@@ -4,14 +4,14 @@ description: Informazioni sull'identità gestita per Azure Data Factory.
 author: linda33wj
 ms.service: data-factory
 ms.topic: conceptual
-ms.date: 03/23/2021
+ms.date: 03/25/2021
 ms.author: jingwang
-ms.openlocfilehash: 89da1a22bb3fd0eff22a7bed7ed70b72f220fbf9
-ms.sourcegitcommit: a67b972d655a5a2d5e909faa2ea0911912f6a828
+ms.openlocfilehash: 65512f8e46b5545929a798392ac5f19ddeab39ed
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/23/2021
-ms.locfileid: "104888992"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105562461"
 ---
 # <a name="managed-identity-for-data-factory"></a>Identità gestita per Data Factory
 
@@ -28,8 +28,7 @@ Quando si crea una data factory, è possibile creare un'identità gestita insiem
 L'identità gestita per Data Factory avvantaggia le funzionalità seguenti:
 
 - [Archiviare le credenziali in Azure Key Vault](store-credentials-in-key-vault.md), nel qual caso data factory identità gestita viene utilizzata per l'autenticazione di Azure Key Vault.
-- Connettori tra cui [archiviazione BLOB di Azure](connector-azure-blob-storage.md), [Azure Data Lake storage Gen1](connector-azure-data-lake-store.md), [Azure Data Lake storage Gen2](connector-azure-data-lake-storage.md), [database SQL di Azure](connector-azure-sql-database.md)e [Azure sinapsi Analytics](connector-azure-sql-data-warehouse.md).
-- [Attività Web](control-flow-web-activity.md).
+- Accedi ad archivi dati o calcola usando l'autenticazione di identità gestita, tra cui archiviazione BLOB di Azure, Azure Esplora dati, Azure Data Lake Storage Gen1, Azure Data Lake Storage Gen2, database SQL di Azure, Istanza gestita SQL di Azure, analisi delle sinapsi di Azure, REST, attività di databricks, attività Web e altro ancora. Per informazioni dettagliate, vedere gli articoli relativi al connettore e alle attività.
 
 ## <a name="generate-managed-identity"></a>Genera identità gestita
 
@@ -157,11 +156,10 @@ client.Factories.CreateOrUpdate(resourceGroup, dataFactoryName, dataFactory);
 
 - ID oggetto identità gestita
 - Tenant di identità gestita
-- ID applicazione identità gestita
 
 Le informazioni sull'identità gestita vengono visualizzate anche quando si crea un servizio collegato, che supporta l'autenticazione di identità gestita, ad esempio BLOB di Azure, Azure Data Lake Storage, Azure Key Vault e così via.
 
-Quando si concede l'autorizzazione, usare l'ID oggetto o il nome del data factory (come nome identità gestita) per trovare questa identità.
+Quando si concede l'autorizzazione, nella scheda controllo di accesso (IAM) della risorsa di Azure-> Aggiungi assegnazione ruolo-> assegnare l'accesso a-> selezionare Data Factory in identità gestita assegnata dal sistema-> selezionare per nome della Factory; in generale, è possibile usare l'ID oggetto o il nome del data factory (come nome identità gestita) per trovare questa identità. Se è necessario ottenere l'ID applicazione dell'identità gestita, è possibile usare PowerShell.
 
 ### <a name="retrieve-managed-identity-using-powershell"></a>Recuperare l'identità gestita con PowerShell
 

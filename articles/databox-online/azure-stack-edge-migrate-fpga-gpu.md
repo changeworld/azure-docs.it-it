@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: tutorial
 ms.date: 03/11/2021
 ms.author: alkohli
-ms.openlocfilehash: 24d6528a105d593d1cb4c9c66d981c8787f85633
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 430e34a1ca631be00ef46170affd4b56c79894a9
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103573278"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105566405"
 ---
 # <a name="migrate-workloads-from-an-azure-stack-edge-pro-fpga-to-an-azure-stack-edge-pro-gpu"></a>Eseguire la migrazione di carichi di lavoro da un FPGA Azure Stack Edge Pro a una GPU Pro Azure Stack Edge
 
@@ -173,7 +173,7 @@ Per ripristinare i dati dalle condivisioni locali, attenersi alla procedura segu
 
 1. [Configurare il calcolo nel dispositivo](azure-stack-edge-gpu-deploy-configure-compute.md).
 1. Aggiungere tutte le condivisioni locali nel dispositivo di destinazione. Vedere i passaggi dettagliati in [aggiungere una condivisione locale](azure-stack-edge-gpu-manage-shares.md#add-a-local-share).
-1. L'accesso alle condivisioni SMB nel dispositivo di origine utilizzerà gli indirizzi IP, mentre nel dispositivo di destinazione verrà usato il nome del dispositivo. Vedere [connettersi a una condivisione SMB su una GPU Pro Azure stack Edge](azure-stack-edge-j-series-deploy-add-shares.md#connect-to-an-smb-share). Per connettersi alle condivisioni NFS sul dispositivo di destinazione, è necessario usare i nuovi indirizzi IP associati al dispositivo. Vedere [connettersi a una condivisione NFS sulla GPU di Azure stack Edge Pro](azure-stack-edge-j-series-deploy-add-shares.md#connect-to-an-nfs-share). 
+1. L'accesso alle condivisioni SMB nel dispositivo di origine utilizzerà gli indirizzi IP, mentre nel dispositivo di destinazione verrà usato il nome del dispositivo. Vedere [connettersi a una condivisione SMB su una GPU Pro Azure stack Edge](./azure-stack-edge-gpu-deploy-add-shares.md#connect-to-an-smb-share). Per connettersi alle condivisioni NFS sul dispositivo di destinazione, è necessario usare i nuovi indirizzi IP associati al dispositivo. Vedere [connettersi a una condivisione NFS sulla GPU di Azure stack Edge Pro](./azure-stack-edge-gpu-deploy-add-shares.md#connect-to-an-nfs-share). 
 
     Se i dati della condivisione sono stati copiati in un server intermedio tramite SMB o NFS, è possibile copiare i dati dal server intermedio alle condivisioni sul dispositivo di destinazione. Se il dispositivo di origine e quello di destinazione sono *online*, è anche possibile copiare i dati direttamente dal dispositivo di origine.
 

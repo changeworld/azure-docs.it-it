@@ -4,12 +4,12 @@ description: Informazioni su come usare Visione personalizzata di Azure per crea
 ms.topic: tutorial
 ms.date: 09/08/2020
 zone_pivot_groups: ams-lva-edge-programming-languages
-ms.openlocfilehash: e6b911ad555c4ce10a9576861e1c2e650e63cd94
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 1abf123883a89bb41909e8aa67aedfadffc3d37e
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101698808"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105561203"
 ---
 # <a name="tutorial-analyze-live-video-with-live-video-analytics-on-iot-edge-and-azure-custom-vision"></a>Esercitazione: Analizzare video live con Analisi video live in IoT Edge e Visione personalizzata di Azure
 
@@ -77,7 +77,7 @@ In questa esercitazione si userà Analisi video live in IoT Edge per rilevare il
 
 Il diagramma mostra il flusso dei segnali in questa esercitazione. Un [modulo Edge](https://github.com/Azure/live-video-analytics/tree/master/utilities/rtspsim-live555) simula una videocamera IP che ospita un server RTSP (Real-Time Streaming Protocol). Un nodo di [origine RTSP](media-graph-concept.md#rtsp-source) estrae il feed video da questo server e invia i fotogrammi video al nodo del [processore di estensioni HTTP](media-graph-concept.md#http-extension-processor).
 
-Il nodo di estensioni HTTP svolge il ruolo di proxy.  Campiona i fotogrammi video in ingresso impostati tramite il campo `samplingOptions` e li converte inoltre nel tipo di immagine specificato. Quindi inoltra l'immagine su REST a un altro modulo Edge che esegue un modello di intelligenza artificiale dietro un endpoint HTTP. In questo esempio, il modulo Edge è il modello di rilevamento del camion giocattolo creato tramite Visione personalizzata. Il nodo del processore di estensioni HTTP raccoglie i risultati del rilevamento e pubblica gli eventi nel nodo [sink dell'hub IoT di Azure](media-graph-concept.md#iot-hub-message-sink). Il nodo invia quindi gli eventi all'[hub di IoT Edge](../../iot-edge/iot-edge-glossary.md#iot-edge-hub).
+Il nodo di estensioni HTTP svolge il ruolo di proxy.  Campiona i fotogrammi video in ingresso impostati tramite il campo `samplingOptions` e li converte inoltre nel tipo di immagine specificato. Quindi inoltra l'immagine su REST a un altro modulo Edge che esegue un modello di intelligenza artificiale dietro un endpoint HTTP. In questo esempio, il modulo Edge è il modello di rilevamento del camion giocattolo creato tramite Visione personalizzata. Il nodo del processore di estensioni HTTP raccoglie i risultati del rilevamento e pubblica gli eventi nel nodo [sink dell'hub IoT di Azure](media-graph-concept.md#iot-hub-message-sink). Il nodo invia quindi gli eventi all'[hub di IoT Edge](../../iot-fundamentals/iot-glossary.md#iot-edge-hub).
 
 ## <a name="build-and-deploy-a-custom-vision-toy-detection-model"></a>Creare e distribuire un modello di rilevamento del giocattolo di Visione personalizzata 
 

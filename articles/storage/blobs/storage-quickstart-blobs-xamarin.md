@@ -8,12 +8,12 @@ ms.service: storage
 ms.subservice: blobs
 ms.topic: quickstart
 ms.custom: devx-track-csharp
-ms.openlocfilehash: dab938a526aa89f6fe5a014e10869bd8da8b475d
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 5d7b512601d066000f1f64bf99d1fd4be3532b7a
+ms.sourcegitcommit: 44edde1ae2ff6c157432eee85829e28740c6950d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98802357"
+ms.lasthandoff: 03/25/2021
+ms.locfileid: "105544129"
 ---
 # <a name="quickstart-azure-blob-storage-client-library-v12-with-xamarin"></a>Guida introduttiva: libreria client di archiviazione BLOB di Azure V12 con Novell
 
@@ -196,7 +196,7 @@ async void List_Clicked(object sender, EventArgs e)
 
 ### <a name="download-blobs"></a>Scaricare BLOB
 
-Scaricare il BLOB creato in precedenza chiamando il metodo [DownloadAsync](/dotnet/api/azure.storage.blobs.specialized.blobbaseclient.downloadasync). Il codice di esempio copia la rappresentazione `Stream` del BLOB prima in un oggetto `MemoryStream` e poi in un oggetto `StreamReader` in modo che sia possibile visualizzare il testo.
+Scaricare il blob creato in precedenza chiamando il metodo [DownloadToAsync](/dotnet/api/azure.storage.blobs.specialized.blobbaseclient.downloadtoasync) . Il codice di esempio copia la rappresentazione `Stream` del BLOB prima in un oggetto `MemoryStream` e poi in un oggetto `StreamReader` in modo che sia possibile visualizzare il testo.
 
 Aggiungere questo codice al file *MainPage.xaml.cs*:
 

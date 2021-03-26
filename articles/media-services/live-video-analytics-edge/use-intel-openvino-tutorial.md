@@ -4,12 +4,12 @@ description: In questa esercitazione si userà un server di modelli di intellige
 ms.topic: tutorial
 ms.date: 09/08/2020
 titleSuffix: Azure
-ms.openlocfilehash: 68b5b7561cc31e156a745bcfb07e3203de10d425
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 5751184493fffeeaf647507e9e9b00834f63ab5e
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101702216"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105557259"
 ---
 # <a name="tutorial-analyze-live-video-by-using-openvino-model-server--ai-extension-from-intel"></a>Esercitazione: Analizzare video live con l'estensione per intelligenza artificiale OpenVINO™ Model Server di Intel 
 
@@ -51,7 +51,7 @@ In questa guida di avvio rapido si userà Analisi video live in IoT Edge insieme
 
 Il diagramma mostra il flusso dei segnali in questo argomento di avvio rapido. Un [modulo Edge](https://github.com/Azure/live-video-analytics/tree/master/utilities/rtspsim-live555) simula una videocamera IP che ospita un server RTSP (Real-Time Streaming Protocol). Un nodo di [origine RTSP](media-graph-concept.md#rtsp-source) estrae il feed video da questo server e invia i fotogrammi video al nodo del [processore di estensioni HTTP](media-graph-concept.md#http-extension-processor). 
 
-Il nodo di estensioni HTTP svolge il ruolo di proxy. Campiona i fotogrammi video in ingresso impostati dal campo `samplingOptions` e li converte anche nel tipo di immagine specificato. Inoltra quindi l'immagine tramite REST a un altro modulo Edge che esegue modelli di intelligenza artificiale dietro un endpoint HTTP. In questo esempio, il modulo Edge è l'estensione per intelligenza artificiale OpenVINO™ Model Server di Intel. Il nodo del processore di estensioni HTTP raccoglie i risultati del rilevamento e pubblica gli eventi nel nodo [sink dell'hub IoT](media-graph-concept.md#iot-hub-message-sink). Il nodo invia quindi gli eventi all'[hub di IoT Edge](../../iot-edge/iot-edge-glossary.md#iot-edge-hub).
+Il nodo di estensioni HTTP svolge il ruolo di proxy. Campiona i fotogrammi video in ingresso impostati dal campo `samplingOptions` e li converte anche nel tipo di immagine specificato. Inoltra quindi l'immagine tramite REST a un altro modulo Edge che esegue modelli di intelligenza artificiale dietro un endpoint HTTP. In questo esempio, il modulo Edge è l'estensione per intelligenza artificiale OpenVINO™ Model Server di Intel. Il nodo del processore di estensioni HTTP raccoglie i risultati del rilevamento e pubblica gli eventi nel nodo [sink dell'hub IoT](media-graph-concept.md#iot-hub-message-sink). Il nodo invia quindi gli eventi all'[hub di IoT Edge](../../iot-fundamentals/iot-glossary.md#iot-edge-hub).
 
 In questa esercitazione si apprenderà come:
 

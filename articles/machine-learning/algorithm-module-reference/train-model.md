@@ -9,12 +9,12 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 03/10/2021
-ms.openlocfilehash: 77927472dae6c8e7e6fddacf9088b479636edd37
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 41b327e793c6b35a2b2aeae825c493a484d84fb4
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103224333"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105562767"
 ---
 # <a name="train-model-module"></a>Modulo Train Model
 
@@ -71,7 +71,7 @@ In Azure Machine Learning la creazione e l'uso di un modello di apprendimento au
 
 L'interpretazione dei modelli consente di comprendere il modello ML e di presentare la base sottostante per il processo decisionale in modo comprensibile per gli utenti.
 
-Il modulo **Train Model** attualmente supporta l' [uso del pacchetto di interpretazione per spiegare i modelli ml](https://docs.microsoft.com/azure/machine-learning/how-to-machine-learning-interpretability-aml#generate-feature-importance-values-via-remote-runs). Sono supportati gli algoritmi predefiniti seguenti:
+Il modulo **Train Model** attualmente supporta l' [uso del pacchetto di interpretazione per spiegare i modelli ml](../how-to-machine-learning-interpretability-aml.md#generate-feature-importance-values-via-remote-runs). Sono supportati gli algoritmi predefiniti seguenti:
 
 - Linear Regression
 - Regressione rete neurale
@@ -87,7 +87,7 @@ Al termine dell'esecuzione della pipeline, è possibile visitare la scheda **spi
 
 ![Screenshot che illustra i grafici di spiegazione del modello](./media/module/train-model-explanations-tab.gif)
 
-Per altre informazioni sull'uso di spiegazioni del modello in Azure Machine Learning, vedere l'articolo sulle procedure per [interpretare i modelli ml](https://docs.microsoft.com/azure/machine-learning/how-to-machine-learning-interpretability-aml#generate-feature-importance-values-via-remote-runs).
+Per altre informazioni sull'uso di spiegazioni del modello in Azure Machine Learning, vedere l'articolo sulle procedure per [interpretare i modelli ml](../how-to-machine-learning-interpretability-aml.md#generate-feature-importance-values-via-remote-runs).
 
 ## <a name="results"></a>Risultati
 
@@ -101,4 +101,4 @@ Dopo il training del modello:
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Vedere il [set di moduli disponibili](module-reference.md) per Azure Machine Learning. 
+Vedere il [set di moduli disponibili](module-reference.md) per Azure Machine Learning.

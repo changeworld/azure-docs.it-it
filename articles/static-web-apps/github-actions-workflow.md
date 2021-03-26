@@ -7,12 +7,12 @@ ms.service: static-web-apps
 ms.topic: conceptual
 ms.date: 02/05/2021
 ms.author: cshoe
-ms.openlocfilehash: 57c83a94925e94088085efacf1192416f63e6383
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: d561c72bb1c6e6e67de7698d7b21901fcf8d1f7c
+ms.sourcegitcommit: 44edde1ae2ff6c157432eee85829e28740c6950d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103232036"
+ms.lasthandoff: 03/25/2021
+ms.locfileid: "105544418"
 ---
 # <a name="github-actions-workflows-for-azure-static-web-apps-preview"></a>Flussi di lavoro di GitHub Actions per App Web statiche di Azure (anteprima)
 
@@ -136,11 +136,7 @@ with:
     ###### End of Repository/Build Configurations ######
 ```
 
-| Proprietà | Descrizione | Obbligatoria |
-|---|---|---|
-| `app_location` | Percorso del codice dell'applicazione.<br><br>Ad esempio, immettere `/` se il codice sorgente dell'applicazione si trova nella radice del repository o `/app` se il codice dell'applicazione si trova in una directory denominata `app`. | Sì |
-| `api_location` | Percorso del codice di Funzioni di Azure.<br><br>Ad esempio, immettere `/api` se il codice dell'app si trova in una cartella denominata `api`. Se nella cartella non viene rilevata alcuna app di funzioni di Azure, la compilazione non riesce, il flusso di lavoro presuppone che non si desideri un'API. | No |
-| `output_location` | Percorso della directory di output di compilazione relativa ad `app_location`.<br><br>Se ad esempio il codice sorgente dell'applicazione si trova in `/app` e lo script di compilazione esegue l'output dei file nella cartella `/app/build`, impostare `build` come valore di `output_location`. | No |
+[!INCLUDE [static-web-apps-folder-structure](../../includes/static-web-apps-folder-structure.md)]
 
 I valori `repo_token`, `action` e `azure_static_web_apps_api_token` sono impostati automaticamente da App Web statiche di Azure e non devono essere modificati manualmente.
 

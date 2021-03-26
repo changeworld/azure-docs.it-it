@@ -6,18 +6,18 @@ ms.author: valls
 ms.date: 2/12/2021
 ms.topic: conceptual
 ms.service: iot-hub-device-update
-ms.openlocfilehash: e932238849baf267983fb3ca1ebb082db169d9fd
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: efe5d0171463668bda19a0d0445fc67f3734aaee
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101679599"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105561237"
 ---
 # <a name="device-update-for-iot-hub-agent-overview"></a>Panoramica dell'agente dell'hub IoT di Aggiornamento dispositivi
 
 L'agente di aggiornamento del dispositivo è costituito da due livelli concettuali:
 
-* Il livello di interfaccia si basa sul [plug and Play di Azure Internet (PNP)](https://docs.microsoft.com/azure/iot-pnp/overview-iot-plug-and-play) che consente il flusso della messaggistica tra l'agente di aggiornamento del dispositivo e i servizi di aggiornamento dei dispositivi.
+* Il livello di interfaccia si basa sul [plug and Play di Azure Internet (PNP)](../iot-pnp/overview-iot-plug-and-play.md) che consente il flusso della messaggistica tra l'agente di aggiornamento del dispositivo e i servizi di aggiornamento dei dispositivi.
 * Il livello piattaforma è responsabile delle azioni di aggiornamento di alto livello di download, installazione e applicazione che possono essere una piattaforma o un dispositivo specifico.
 
 :::image type="content" source="media/understand-device-update/client-agent-reference-implementations.png" alt-text="Implementazioni degli agenti." lightbox="media/understand-device-update/client-agent-reference-implementations.png":::
@@ -72,8 +72,7 @@ Il gestore di aggiornamento APT elabora un manifesto di aggiornamento specifico 
 
 ## <a name="self-update-device-update-agent"></a>Aggiornamento automatico dell'agente di aggiornamento del dispositivo
 
-L'agente di aggiornamento del dispositivo e le relative dipendenze possono essere aggiornati tramite l'aggiornamento del dispositivo per la pipeline dell'hub Internet. Se si usa un aggiornamento basato su immagine, includere la versione più recente dell'agente di aggiornamento dispositivi nella nuova immagine. Se si usa un aggiornamento basato su pacchetti, includere l'agente di aggiornamento del dispositivo e la versione desiderata nel manifesto APT come qualsiasi altro pacchetto. [Altre](device-update-apt-manifest.md) informazioni sul manifesto apt. È possibile controllare la versione installata dell'agente di aggiornamento del dispositivo e l'agente di ottimizzazione recapito nella sezione proprietà del dispositivo del dispositivo Internet del [dispositivo](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-device-twins). [Altre informazioni sulle proprietà del dispositivo sono disponibili nell'interfaccia di base di adu](device-update-plug-and-play.md#device-properties).
+L'agente di aggiornamento del dispositivo e le relative dipendenze possono essere aggiornati tramite l'aggiornamento del dispositivo per la pipeline dell'hub Internet. Se si usa un aggiornamento basato su immagine, includere la versione più recente dell'agente di aggiornamento dispositivi nella nuova immagine. Se si usa un aggiornamento basato su pacchetti, includere l'agente di aggiornamento del dispositivo e la versione desiderata nel manifesto APT come qualsiasi altro pacchetto. [Altre](device-update-apt-manifest.md) informazioni sul manifesto apt. È possibile controllare la versione installata dell'agente di aggiornamento del dispositivo e l'agente di ottimizzazione recapito nella sezione proprietà del dispositivo del dispositivo Internet del [dispositivo](../iot-hub/iot-hub-devguide-device-twins.md). [Altre informazioni sulle proprietà del dispositivo sono disponibili nell'interfaccia di base di adu](device-update-plug-and-play.md#device-properties).
 
 ## <a name="next-steps"></a>Passaggi successivi
 [Informazioni sul file di configurazione dell'agente di aggiornamento del dispositivo](device-update-configuration-file.md)
-

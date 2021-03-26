@@ -9,12 +9,12 @@ ms.workload: identity
 ms.author: mimart
 author: msmimart
 manager: CelesteDG
-ms.openlocfilehash: 00be0a18984f1ad3eacf86a2cf3477d8b0d9065f
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
+ms.openlocfilehash: 3fcc4f01d926f5c624adabd51e6215e0106af1fa
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102454618"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105557871"
 ---
 # <a name="azure-active-directory-b2c-whats-new"></a>Azure Active Directory B2C: novità
 
@@ -73,7 +73,7 @@ Introduzione alle novità di Azure Active Directory B2C documentazione. Questo a
 
 ### <a name="new-articles"></a>Nuovi articoli
 
-- [Creare un flusso utente in Azure Active Directory B2C](create-user-flow.md)
+- [Creare un flusso utente in Azure Active Directory B2C](add-sign-up-and-sign-in-policy.md)
 - [Configurare l'iscrizione e l'accesso tramite telefono per i flussi utente (anteprima)](phone-authentication-user-flows.md)
 
 ### <a name="updated-articles"></a>Articoli aggiornati
@@ -114,7 +114,7 @@ Introduzione alle novità di Azure Active Directory B2C documentazione. Questo a
 ### <a name="updated-articles"></a>Articoli aggiornati
 - [Impostare gli URL di reindirizzamento su b2clogin.com per Azure Active Directory B2C](b2clogin.md)
 - [Definire un profilo tecnico di OpenID Connect in un Azure Active Directory B2C criteri personalizzati](openid-connect-technical-profile.md)
-- [Configurare l'iscrizione e l'accesso tramite telefono con criteri personalizzati in Azure AD B2C](phone-authentication.md)
+- [Configurare l'iscrizione e l'accesso tramite telefono con criteri personalizzati in Azure AD B2C](phone-authentication-user-flows.md)
 
 
 ## <a name="august-2020"></a>Agosto 2020

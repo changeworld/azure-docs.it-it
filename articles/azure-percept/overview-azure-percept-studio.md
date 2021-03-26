@@ -1,18 +1,18 @@
 ---
 title: Panoramica di Azure Percept Studio
 description: Scopri di più su Azure Percept Studio
-author: elqu20
-ms.author: v-elqu
+author: mimcco
+ms.author: mimcco
 ms.service: azure-percept
 ms.topic: conceptual
 ms.date: 03/23/2021
 ms.custom: template-concept
-ms.openlocfilehash: 8aae976e94ebbef22a86e19f00bfe6248338c4d0
-ms.sourcegitcommit: ac035293291c3d2962cee270b33fca3628432fac
+ms.openlocfilehash: e6f9641179a9c2490dcb65316a80b4ba7fd4b639
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/24/2021
-ms.locfileid: "104953673"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105567696"
 ---
 # <a name="azure-percept-studio-overview"></a>Panoramica di Azure Percept Studio
 
@@ -23,6 +23,8 @@ In studio è possibile visualizzare i dispositivi perimetrali idonei per l'intel
 I flussi di lavoro in Azure Percept Studio integrano molti servizi di intelligenza artificiale e di Azure, ad esempio Azure Internet Hub, Visione personalizzata, speech studio e Azure ML, quindi è possibile usare questi servizi per creare una soluzione end-to-end senza una significativa conoscenza preesistente. Se si ha già familiarità con questi servizi di Azure, è anche possibile connettersi e modificare le risorse esistenti dei servizi di Azure all'esterno di Azure Percept Studio.
 
 Indipendentemente dal fatto che l'utente sia un modello di intelligenza artificiale avanzato e uno sviluppatore di soluzioni, lavorare su un prototipo o spostarsi in una soluzione di produzione, Azure Percept Studio consente di accedere ai flussi di lavoro che è possibile usare per ridurre l'attrito della creazione di soluzioni di intelligenza artificiale perimetrali.
+
+## <a name="video-walkthrough"></a>Procedura dettagliata video
 
 </br>
 

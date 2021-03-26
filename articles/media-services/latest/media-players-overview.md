@@ -6,12 +6,12 @@ ms.author: inhenkel
 ms.service: media-services
 ms.topic: overview
 ms.date: 3/08/2021
-ms.openlocfilehash: 1a1d415b374818d9a51c87e78e7ac422fa374bc5
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
+ms.openlocfilehash: 47ef56a770ca9965cef3e50630be4b69342a038d
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102509595"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105559860"
 ---
 # <a name="media-players-for-media-services"></a>Lettori multimediali per servizi multimediali
 
@@ -21,7 +21,7 @@ Con servizi multimediali è possibile usare diversi Media Player.
 
 Azure Media Player è un lettore video per un'ampia gamma di browser e dispositivi. Azure Media Player usa standard di settore come HTML5, MSE (Media Source Extensions) ed EME (Encrypted Media Extensions) per fornire un'esperienza completa di streaming adattivo. Quando questi standard non sono disponibili in un dispositivo o in un browser, Azure Media Player usa flash e Silverlight come tecnologia di fallback. Indipendentemente dalla tecnologia di riproduzione usata, gli sviluppatori hanno un'interfaccia JavaScript unificata per accedere alle API. I contenuti serviti da servizi multimediali di Azure possono essere riprodotti in un'ampia gamma di dispositivi e browser senza sforzi aggiuntivi.
 
-Vedere la [documentazione Azure Media Player](https://docs.microsoft.com/azure/media-services/azure-media-player/azure-media-player-overview).
+Vedere la [documentazione Azure Media Player](../azure-media-player/azure-media-player-overview.md).
 
 ## <a name="shaka"></a>Shaka
 

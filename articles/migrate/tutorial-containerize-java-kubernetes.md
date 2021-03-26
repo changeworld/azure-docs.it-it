@@ -7,12 +7,12 @@ manager: bsiva
 ms.topic: tutorial
 ms.date: 3/2/2021
 ms.author: rahugup
-ms.openlocfilehash: ea7cdfbd30cf698cecbb14a1d70916764ad3247a
-ms.sourcegitcommit: a8ff4f9f69332eef9c75093fd56a9aae2fe65122
+ms.openlocfilehash: 2c1a0ee78e866a12105eca77653b1063943d06db
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/24/2021
-ms.locfileid: "105023113"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105561067"
 ---
 # <a name="java-web-app-containerization-and-migration-to-azure-kubernetes-service"></a>Contenitori e migrazione di app Web Java al servizio Azure Kubernetes
 
@@ -59,7 +59,7 @@ Prima di iniziare questa esercitazione, è necessario:
 
 **Requisito** | **Dettagli**
 --- | ---
-**Identificare un computer per installare lo strumento** | Un computer Windows per installare ed eseguire lo strumento di Azure Migrate: app container. Il computer Windows potrebbe essere un sistema operativo server (Windows Server 2016 o versione successiva) o client (Windows 10), ovvero lo strumento può essere eseguito anche sul desktop. <br/><br/> Il computer Windows che esegue lo strumento deve disporre della connettività di rete per i server o le macchine virtuali che ospitano le applicazioni ASP.NET di cui eseguire la containerizzazione.<br/><br/> Verificare che nel computer Windows in cui è in esecuzione lo strumento di Azure Migrate: app container per archiviare gli elementi dell'applicazione siano disponibili 6 GB di spazio. <br/><br/> Il computer Windows deve disporre di accesso a Internet, diretto o tramite un proxy. <br/> <br/>Installare lo strumento Microsoft Distribuzione Web nel computer che esegue lo strumento di supporto per la gestione dei contenitori delle app e il server applicazioni, se non è già installato. È possibile scaricare lo strumento da [qui](https://aka.ms/webdeploy3.6)
+**Identificare un computer per installare lo strumento** | Un computer Windows per installare ed eseguire lo strumento di Azure Migrate: app container. Il computer Windows potrebbe essere un sistema operativo server (Windows Server 2016 o versione successiva) o client (Windows 10), ovvero lo strumento può essere eseguito anche sul desktop. <br/><br/> Il computer Windows che esegue lo strumento deve disporre della connettività di rete per i server o le macchine virtuali che ospitano le applicazioni Web Java da includere nel contenitore.<br/><br/> Verificare che nel computer Windows in cui è in esecuzione lo strumento di Azure Migrate: app container per archiviare gli elementi dell'applicazione siano disponibili 6 GB di spazio. <br/><br/> Il computer Windows deve disporre di accesso a Internet, diretto o tramite un proxy.
 **Server applicazioni** | -Abilitare la connessione Secure Shell (SSH) sulla porta 22 sui server che eseguono le applicazioni Java per il contenitore. <br/>
 **Applicazione Web Java** | Lo strumento attualmente supporta <br/><br/> -Applicazioni in esecuzione su Tomcat 8 o versioni successive.<br/> -Server applicazioni su Ubuntu Linux 16.04/18.04/20.04, Debian 7/8, CentOS 6/7, Red Hat Enterprise Linux 5/6/7. <br/> -Applicazioni che usano Java versione 7 o successive.  <br/><br/> Lo strumento non supporta attualmente <br/><br/> -Server applicazioni che eseguono più istanze Tomcat <br/>  
 
@@ -178,7 +178,7 @@ Parametrizzazione la configurazione lo rende disponibile come parametro della fa
 
 ### <a name="externalize-file-system-dependencies"></a>Dipendenze file system Externalize
 
- È possibile aggiungere altre cartelle utilizzate dall'applicazione. Specificare se devono far parte dell'immagine del contenitore o devono essere esternalizzate tramite volumi permanenti nella condivisione file di Azure. L'uso di volumi permanenti funziona perfettamente per le applicazioni con stato che archiviano lo stato all'esterno del contenitore o che contengono altro contenuto statico archiviato nel file system. [Scopri di più](https://docs.microsoft.com/azure/aks/concepts-storage)
+ È possibile aggiungere altre cartelle utilizzate dall'applicazione. Specificare se devono far parte dell'immagine del contenitore o devono essere esternalizzate tramite volumi permanenti nella condivisione file di Azure. L'uso di volumi permanenti funziona perfettamente per le applicazioni con stato che archiviano lo stato all'esterno del contenitore o che contengono altro contenuto statico archiviato nel file system. [Scopri di più](../aks/concepts-storage.md)
 
 1. Fare clic su **modifica** in cartelle app per esaminare le cartelle dell'applicazione rilevate. Le cartelle dell'applicazione rilevate sono state identificate come elementi obbligatori necessari per l'applicazione e verranno copiati nell'immagine del contenitore.
 
@@ -194,7 +194,7 @@ Parametrizzazione la configurazione lo rende disponibile come parametro della fa
 ## <a name="build-container-image"></a>Compilare l'immagine del contenitore
 
 
-1. **Selezionare container Registry di Azure**: usare l'elenco a discesa per selezionare una [container Registry di Azure](https://docs.microsoft.com/azure/container-registry/) che verrà usata per compilare e archiviare le immagini del contenitore per le app. È possibile usare un Container Registry di Azure esistente o scegliere di crearne uno nuovo usando l'opzione Crea nuovo registro di sistema.
+1. **Selezionare container Registry di Azure**: usare l'elenco a discesa per selezionare una [container Registry di Azure](../container-registry/index.yml) che verrà usata per compilare e archiviare le immagini del contenitore per le app. È possibile usare un Container Registry di Azure esistente o scegliere di crearne uno nuovo usando l'opzione Crea nuovo registro di sistema.
 
     ![Screenshot per la selezione di app ACR.](./media/tutorial-containerize-apps-aks/build-java-app.png)
 

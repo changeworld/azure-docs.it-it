@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: how-to
 ms.date: 02/22/2021
 ms.author: alkohli
-ms.openlocfilehash: 28988af0c1b3b5e4e5ce359abb617a66af816d69
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 90925f30e84ec3c06e715669ebd982c823dfaf5a
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102439817"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105568325"
 ---
 # <a name="deploy-vms-on-your-azure-stack-edge-device-via-azure-powershell"></a>Distribuire macchine virtuali nel dispositivo Azure Stack Edge tramite Azure PowerShell
 
@@ -127,7 +127,7 @@ New-AzureRmStorageAccount -Name <Storage account name> -ResourceGroupName <Resou
 ```
 
 > [!NOTE]
-> Con Azure Resource Manager è possibile creare solo account di archiviazione locali, ad esempio l'archiviazione con ridondanza locale (standard o Premium). Per creare account di archiviazione a livelli, vedere [esercitazione: trasferire i dati tramite gli account di archiviazione con Azure stack Edge Pro con GPU](azure-stack-edge-j-series-deploy-add-storage-accounts.md).
+> Con Azure Resource Manager è possibile creare solo account di archiviazione locali, ad esempio l'archiviazione con ridondanza locale (standard o Premium). Per creare account di archiviazione a livelli, vedere [esercitazione: trasferire i dati tramite gli account di archiviazione con Azure stack Edge Pro con GPU](./azure-stack-edge-gpu-deploy-add-storage-accounts.md).
 
 Di seguito è riportato un esempio di output:
 
@@ -179,7 +179,7 @@ key2 gd34TcaDzDgsY9JtDNMUgLDOItUU0Qur3CBo6Q...
 
 ## <a name="add-the-blob-uri-to-the-host-file"></a>Aggiungere l'URI del BLOB al file host
 
-È già stato aggiunto l'URI del BLOB nel file degli host per il client usato per connettersi all'archiviazione BLOB di Azure in "passaggio 5: modificare il file host per la risoluzione dei nomi di endpoint" di [distribuire macchine virtuali nel dispositivo Azure stack Edge tramite Azure PowerShell](azure-stack-edge-j-series-connect-resource-manager.md#step-5-modify-host-file-for-endpoint-name-resolution). Questa voce è stata usata per aggiungere l'URI del BLOB:
+È già stato aggiunto l'URI del BLOB nel file degli host per il client usato per connettersi all'archiviazione BLOB di Azure in "passaggio 5: modificare il file host per la risoluzione dei nomi di endpoint" di [distribuire macchine virtuali nel dispositivo Azure stack Edge tramite Azure PowerShell](./azure-stack-edge-gpu-connect-resource-manager.md#step-5-modify-host-file-for-endpoint-name-resolution). Questa voce è stata usata per aggiungere l'URI del BLOB:
 
 \<Azure consistent network services VIP \>\<storage name\>. blob. \<appliance name\> .\<dnsdomain\>
 

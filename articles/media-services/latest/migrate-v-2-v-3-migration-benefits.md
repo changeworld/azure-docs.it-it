@@ -7,14 +7,14 @@ manager: femila
 ms.service: media-services
 ms.topic: conceptual
 ms.workload: media
-ms.date: 1/14/2020
+ms.date: 03/25/2021
 ms.author: inhenkel
-ms.openlocfilehash: b6d51e05598f60de0e9c8fb85472b7c14bba990e
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 114635722a0a131fc146eb2ab69984effb211a88
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104598389"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105559758"
 ---
 # <a name="step-1---understand-the-benefits-of-migrating-to-media-services-api-v3"></a>Passaggio 1: informazioni sui vantaggi della migrazione all'API di servizi multimediali V3
 
@@ -23,6 +23,8 @@ ms.locfileid: "104598389"
 <hr color="#5ea0ef" size="10">
 
 ![passaggi della migrazione 2](./media/migration-guide/steps-1.svg)
+
+## <a name="use-the-latest-api"></a>Usare l'API più recente
 
 Si consiglia di iniziare a usare la versione 2020-05-01 dell'API servizi multimediali di Azure V3 ora per ottenere i vantaggi perché le nuove funzionalità, le funzionalità e le ottimizzazioni delle prestazioni sono disponibili solo nell'API V3 corrente.
 
@@ -60,7 +62,3 @@ Sono stati apportati miglioramenti significativi a servizi multimediali con v3.
 | **Monitoring** | |
 | Supporto per le notifiche di [Azure EventGrid](monitoring/reacting-to-media-services-events.md) | Le notifiche EventGrid sono più ricche di funzionalità. Sono disponibili più tipi di notifiche, il supporto più ampio di SDK per la ricezione delle notifiche nella propria applicazione e più servizi di Azure esistenti che possono fungere da gestori di eventi. |
 | [Supporto e integrazione di monitoraggio di Azure nella portale di Azure](monitoring/monitor-events-portal-how-to.md) | Ciò consente ai clienti di visualizzare l'utilizzo delle quote di account di servizi multimediali, le statistiche in tempo reale degli endpoint di streaming e le statistiche di inserimento e archiviazione per gli eventi live. I clienti possono ora impostare gli avvisi ed eseguire le azioni necessarie in base ai dati delle metriche in tempo reale. |
-
-## <a name="next-steps"></a>Passaggi successivi
-
-[!INCLUDE [migration guide next steps](./includes/migration-guide-next-steps.md)]

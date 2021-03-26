@@ -9,12 +9,12 @@ ms.topic: how-to
 ms.date: 02/22/2021
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to configure compute on Azure Stack Edge Pro device so I can use it to transform the data before sending it to Azure.
-ms.openlocfilehash: 6054e7e79acaa6abf304508221c63143b9d14a45
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: c11a89d91693075ca54c0689223dcf2af06df521
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102436533"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105568512"
 ---
 # <a name="deploy-vms-on-your-azure-stack-edge-pro-gpu-device-via-the-azure-portal"></a>Distribuire le VM sul dispositivo GPU Azure Stack Edge Pro tramite il portale di Azure
 
@@ -52,7 +52,7 @@ Il riepilogo di alto livello del flusso di lavoro di distribuzione è il seguent
 
 Prima di iniziare a creare e gestire le macchine virtuali nel dispositivo tramite il portale di Azure, assicurarsi che:
 
-1. Sono state completate le impostazioni di rete nel dispositivo Azure Stack Edge Pro, come descritto in [passaggio 1: configurare Azure stack dispositivo Edge Pro](azure-stack-edge-j-series-connect-resource-manager.md#step-1-configure-azure-stack-edge-pro-device).
+1. Sono state completate le impostazioni di rete nel dispositivo Azure Stack Edge Pro, come descritto in [passaggio 1: configurare Azure stack dispositivo Edge Pro](./azure-stack-edge-gpu-connect-resource-manager.md#step-1-configure-azure-stack-edge-pro-device).
 
     1. È stata abilitata un'interfaccia di rete per il calcolo. L'indirizzo IP di questa interfaccia di rete viene usato per creare uno switch virtuale per la distribuzione della VM. Nell'interfaccia utente locale del dispositivo passare a **calcolo**. Selezionare l'interfaccia di rete che si userà per creare uno switch virtuale.
 

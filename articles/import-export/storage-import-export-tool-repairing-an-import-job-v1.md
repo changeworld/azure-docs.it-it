@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 01/19/2021
 ms.author: alkohli
 ms.subservice: common
-ms.openlocfilehash: af6234a81e8f79424cc3b1ec4178a175d9ff0146
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: b0eeb73ffb5436284f4f23cef943db0a3307a2b2
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98706456"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105564569"
 ---
 # <a name="repairing-an-import-job"></a>Riparazione di un processo di importazione
 Il servizio Importazione/Esportazione di Microsoft Azure potrebbe non riuscire a copiare alcuni file o parti di file nel servizio BLOB di Windows Azure. I motivi includono:  
@@ -30,7 +30,7 @@ Il servizio Importazione/Esportazione di Microsoft Azure potrebbe non riuscire a
 
 È possibile specificare i parametri seguenti con **RepairImport**: 
   
-|||  
+| Parametro | Descrizione |  
 |-|-|  
 |**/r:**<fileripristino\>|**Obbligatoria.** Percorso del file di ripristino che tiene traccia dell'avanzamento del ripristino e consente di riprendere un ripristino interrotto. Ogni unità deve contenere un solo file di ripristino. Quando si avvia un ripristino per una determinata unità, passare il percorso di un file di ripristino che non esiste ancora. Per riprendere un ripristino interrotto, è consigliabile inserire il nome di un file di ripristino esistente. Specificare sempre il file di ripristino corrispondente all'unità di destinazione.|  
 |**/LogDir:**<LogDirectory\>|**Facoltativo.** Directory dei log. in cui vengono scritti file di log dettagliati. Se non è specificata alcuna directory dei log, viene usata la directory corrente.|  

@@ -1,18 +1,18 @@
 ---
 title: Panoramica di Azure Percept
 description: Scopri di più sulla piattaforma Azure Percept
-author: elqu20
-ms.author: v-elqu
+author: mimcco
+ms.author: mimcco
 ms.service: azure-percept
 ms.topic: overview
 ms.date: 03/23/2021
 ms.custom: template-overview
-ms.openlocfilehash: 12ca7dff7d106941cc8947d9d3040bcefefde00a
-ms.sourcegitcommit: ac035293291c3d2962cee270b33fca3628432fac
+ms.openlocfilehash: 09ee8346b62f868be3811ebfb6b3dc36ff9d0f83
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/24/2021
-ms.locfileid: "104953594"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105567662"
 ---
 # <a name="introduction-to-azure-percept"></a>Introduzione ad Azure Percept
 
@@ -28,21 +28,21 @@ Le difficoltà di integrazione che si verificano quando si tenta di distribuire 
 
 I componenti principali di Azure Percept sono:
 
-1. [Azure Percept DK.](./overview-azure-percept-dk.md)
+- [Azure Percept DK.](./overview-azure-percept-dk.md)
 
     - Un kit di sviluppo sufficientemente flessibile per supportare un'ampia gamma di scenari di creazione di prototipi per i generatori di dispositivi, i generatori di soluzioni e i clienti.
 
         > [!div class="nextstepaction"]
         > [Acquista ora](https://go.microsoft.com/fwlink/p/?LinkId=2155270)
 
-1. Servizi e flussi di lavoro che accelerano lo sviluppo di soluzioni e modelli di intelligenza artificiale Edge.
+- Servizi e flussi di lavoro che accelerano lo sviluppo di soluzioni e modelli di intelligenza artificiale Edge.
 
     - Flussi di lavoro di sviluppo e modelli predefiniti accessibili da [Azure Percept Studio](https://go.microsoft.com/fwlink/?linkid=2135819).
     - Servizi per lo sviluppo di modelli.
     - Servizi di gestione dei dispositivi per la scalabilità.
     - Protezione end-to-end.
 
-1. Programmi di certificazione e progettazione di riferimento hardware per intelligenza artificiale.
+- Programmi di certificazione e progettazione di riferimento hardware per intelligenza artificiale.
 
     - Fornisce all'ecosistema degli sviluppatori hardware i modelli e le procedure consigliate per lo sviluppo di hardware di intelligenza artificiale perimetrale che può essere integrato facilmente con i servizi di intelligenza artificiale e di Azure.
 

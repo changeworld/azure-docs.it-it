@@ -4,12 +4,12 @@ description: Questo articolo illustra come risolvere gli errori riscontrati con 
 ms.reviewer: srinathv
 ms.topic: troubleshooting
 ms.date: 08/30/2019
-ms.openlocfilehash: 2cda13ea089ac08dff7c1ba5ca93ba56ab3c23cf
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 2d09081533cdb2de5ee97cb000e9844b41a85ac3
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "97831551"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105559367"
 ---
 # <a name="troubleshooting-backup-failures-on-azure-virtual-machines"></a>Risoluzione degli errori di backup nelle macchine virtuali di Azure
 
@@ -139,7 +139,7 @@ Per verificare, passare a ***sistema e Visualizzatore eventi registri applicazio
 
 Soluzione:
 
-* Verificare la possibilità di distribuire il carico tra i dischi delle macchine virtuali. Ciò ridurrà il carico sui singoli dischi. È possibile [controllare la limitazione IOPS abilitando la metrica di diagnostica a livello di archiviazione](../virtual-machines/troubleshooting/performance-diagnostics.md#install-and-run-performance-diagnostics-on-your-vm).
+* Verificare la possibilità di distribuire il carico tra i dischi delle macchine virtuali. Ciò ridurrà il carico sui singoli dischi. È possibile [controllare la limitazione IOPS abilitando la metrica di diagnostica a livello di archiviazione](/troubleshoot/azure/virtual-machines/performance-diagnostics#install-and-run-performance-diagnostics-on-your-vm).
 * Modificare i criteri di backup per eseguire i backup durante gli orari di minore traffico, quando il carico della VM è il più basso.
 * Aggiornare i dischi di Azure per supportare IOPs più elevati. [Per altre informazioni, vedi qui](../virtual-machines/disks-types.md)
 
@@ -371,12 +371,12 @@ L'agente di VM è in genere già presente nelle VM create dalla raccolta di Azur
 #### <a name="windows-vms---set-up-the-agent"></a>Macchine virtuali Windows: configurare l'agente
 
 * Scaricare e installare il file [MSI per l'agente](https://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409). Per completare l'installazione è necessario disporre dei privilegi di amministratore.
-* Per le macchine virtuali create con il modello di distribuzione classica, [aggiornare le proprietà della macchina virtuale](../virtual-machines/troubleshooting/install-vm-agent-offline.md#use-the-provisionguestagent-property-for-classic-vms) per indicare che l'agente è stato installato. Questo passaggio non è necessario per le macchine virtuali di Azure Resource Manager.
+* Per le macchine virtuali create con il modello di distribuzione classica, [aggiornare le proprietà della macchina virtuale](/troubleshoot/azure/virtual-machines/install-vm-agent-offline#use-the-provisionguestagent-property-for-classic-vms) per indicare che l'agente è stato installato. Questo passaggio non è necessario per le macchine virtuali di Azure Resource Manager.
 
 #### <a name="linux-vms---set-up-the-agent"></a>VM Linux: configurare l'agente
 
 * Installare la versione più recente dell'agente dal repository di distribuzione. Per informazioni dettagliate sul nome del pacchetto, vedere il [repository dell'agente Linux](https://github.com/Azure/WALinuxAgent).
-* Per le macchine virtuali create con il modello di distribuzione classica, [aggiornare le proprietà della macchina virtuale](../virtual-machines/troubleshooting/install-vm-agent-offline.md#use-the-provisionguestagent-property-for-classic-vms) e verificare che l'agente sia installato. Questo passaggio non è necessario per le macchine virtuali di Resource Manager.
+* Per le macchine virtuali create con il modello di distribuzione classica, [aggiornare le proprietà della macchina virtuale](/troubleshoot/azure/virtual-machines/install-vm-agent-offline#use-the-provisionguestagent-property-for-classic-vms) e verificare che l'agente sia installato. Questo passaggio non è necessario per le macchine virtuali di Resource Manager.
 
 ### <a name="update-the-vm-agent"></a>Aggiornare l'agente di macchine virtuali
 

@@ -13,12 +13,12 @@ ms.author: baselden
 ms.reviewer: ajburnle
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4584b0a605bd63c1f71082014d3c0622ca7d2c37
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 16cd14aa447fb56af4cd9dd809696aecdc0c47a5
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104587832"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105557837"
 ---
 # <a name="securing-managed-identities"></a>Protezione delle identità gestite
 
@@ -38,7 +38,7 @@ Le identità gestite sono particolarmente utilizzate per le comunicazioni tra i 
 
 Un sistema di origine richiede l'accesso a un servizio di destinazione. Qualsiasi risorsa di Azure può essere un sistema di origine. Ad esempio, una macchina virtuale di Azure, un'istanza di funzione di Azure e le istanze dei servizi app Azure supportano le identità gestite.
 
-[!VIDEO https://www.youtube.com/embed/5lqayO_oeEo]
+   > [!VIDEO https://www.youtube.com/embed/5lqayO_oeEo]
 
 ### <a name="how-authentication-and-authorization-work"></a>Funzionamento dell'autenticazione e dell'autorizzazione
 
@@ -86,7 +86,7 @@ Esistono diversi modi in cui è possibile trovare identità gestite:
 
 ### <a name="using-the-azure-portal"></a>Uso del portale di Azure
 
-1. In Azure AD selezionare applicazione aziendale.
+1. In Azure Active Directory selezionare applicazioni aziendali.
 
 2. Selezionare il filtro per "identità gestite" 
 
@@ -120,7 +120,7 @@ A tale scopo, è possibile enumerare i membri dei gruppi con privilegi elevati c
 
 ## <a name="move-to-managed-identities"></a>Passa a identità gestite
 
-Se si usa un'entità servizio o un account utente Azure AD, valutare se è possibile usare un oggetto gestito per eliminare la necessità di proteggere, ruotare e gestire le credenziali. 
+Se si usa un'entità servizio o un account utente Azure AD, valutare se è possibile usare invece un'identità gestita per eliminare la necessità di proteggere, ruotare e gestire le credenziali. 
 
 ## <a name="next-steps"></a>Passaggi successivi
 

@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 03/03/2021
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to prepare the portal to deploy Azure Stack Edge Pro so I can use it to transfer data to Azure.
-ms.openlocfilehash: b108e757ed9fe9ab7038cae4240f0f749ac19675
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: a58146c2c8121f3f0e3b564caafbb09396d39672
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102036045"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105568542"
 ---
 # <a name="tutorial-prepare-to-deploy-azure-stack-edge-pro-with-gpu"></a>Esercitazione: Preparare la distribuzione di Azure Stack Edge Pro con GPU 
 
@@ -47,8 +47,8 @@ Per la distribuzione di Azure Stack Edge Pro, è prima di tutto necessario prepa
 |**[6. Configurare le impostazioni di sicurezza per Azure Stack Edge Pro](azure-stack-edge-gpu-deploy-configure-certificates.md)** |Configurare i certificati per il dispositivo. Usare i certificati generati dal dispositivo o caricare i certificati personali.   |
 |**[7. Attivare Azure Stack Edge Pro](azure-stack-edge-gpu-deploy-activate.md)** |Usare la chiave di attivazione dal servizio per attivare il dispositivo. Il dispositivo è pronto per la configurazione di condivisioni SMB o NFS o per la connessione tramite REST. |
 |**[8. Configurare il ruolo di calcolo](azure-stack-edge-gpu-deploy-configure-compute.md)** |Configurare il ruolo di calcolo nel dispositivo. Viene creato anche un cluster Kubernetes. |
-|**[9A. Trasferire dati con condivisioni di Edge](azure-stack-edge-j-series-deploy-add-shares.md)** |Aggiungere condivisioni e connettersi alle condivisioni da SMB o NFS. |
-|**[9B. Trasferire dati con account di archiviazione di Edge](azure-stack-edge-j-series-deploy-add-storage-accounts.md)** |Aggiungere gli account di archiviazione e connettersi all'archiviazione BLOB tramite le API REST. |
+|**[9A. Trasferire dati con condivisioni di Edge](./azure-stack-edge-gpu-deploy-add-shares.md)** |Aggiungere condivisioni e connettersi alle condivisioni da SMB o NFS. |
+|**[9B. Trasferire dati con account di archiviazione di Edge](./azure-stack-edge-gpu-deploy-add-storage-accounts.md)** |Aggiungere gli account di archiviazione e connettersi all'archiviazione BLOB tramite le API REST. |
 
 
 È ora possibile iniziare a raccogliere informazioni relative alla configurazione del software per il dispositivo Azure Stack Edge Pro.

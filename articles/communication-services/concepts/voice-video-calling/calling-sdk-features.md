@@ -9,12 +9,12 @@ ms.author: mikben
 ms.date: 03/10/2021
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: 39331cb83b233f6b91344e6e299ed81f187fe9d9
-ms.sourcegitcommit: bed20f85722deec33050e0d8881e465f94c79ac2
+ms.openlocfilehash: 240bdaee9073ab18e175e2911ac1c23ae49b3d7e
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/25/2021
-ms.locfileid: "105108394"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105562410"
 ---
 # <a name="calling-sdk-overview"></a>Panoramica dell'SDK chiamante
 
@@ -72,13 +72,33 @@ L'elenco seguente presenta il set di funzionalità attualmente disponibili nei s
 |                   | Imposta/Aggiorna modalità di ridimensionamento                                                                                           | ✔️   | ✔️            | ✔️ 
 |                   | Rendering del flusso video remoto                                                                                          | ✔️   | ✔️            | ✔️
 
+## <a name="calling-client-library-streaming-support"></a>Supporto streaming per la libreria client per le chiamate
+I servizi di comunicazione che chiamano la libreria client supportano le configurazioni di flusso seguenti:
 
+| Limite          |Web | Android/iOS|
+|-----------|----|------------|
+|**Numero di flussi in uscita che possono essere inviati contemporaneamente** |1 video + 1 condivisione dello schermo | 1 video + 1 condivisione dello schermo|
+|**Numero di flussi in entrata di cui è possibile eseguire il rendering simultaneamente** |1 video + 1 condivisione dello schermo| 6 video + 1 condivisione dello schermo |
+
+## <a name="calling-client-library-timeouts"></a>Chiamata dei timeout della libreria client
+
+I timeout seguenti si applicano ai servizi di comunicazione che chiamano le librerie client:
+
+| Azione           | Timeout in secondi |
+| -------------- | ---------- |
+| Riconnessione/rimozione del partecipante | 120 |
+| Aggiungere o rimuovere una nuova modalità da una chiamata (avvio/arresto di video o condivisione dello schermo) | 40 |
+| Timeout dell'operazione di trasferimento chiamate | 60 |
+| 1:1 timeout di definizione della chiamata | 85 |
+| Timeout stabilimento chiamata gruppo | 85 |
+| Timeout di definizione della chiamata PSTN | 115 |
+| Alza di livello la chiamata 1:1 al timeout di una chiamata di gruppo | 115 |
 
 ## <a name="javascript-calling-sdk-support-by-os-and-browser"></a>JavaScript che chiama il supporto SDK dal sistema operativo e dal browser
 
 La tabella seguente rappresenta il set di browser supportati attualmente disponibili. Sono supportate le ultime tre versioni del browser, se non diversamente specificato.
 
-|                                  | Chrome | Safari  | Bordo (cromo) | 
+| Piattaforma                         | Chrome | Safari  | Bordo (cromo) | 
 | -------------------------------- | -------| ------  | --------------  |
 | Android                          |  ✔️    | ❌     | ❌             |
 | iOS                              |  ❌    | ✔️**** | ❌             |
@@ -114,15 +134,6 @@ Ad esempio, questo iframe consente l'accesso sia alla fotocamera che al microfon
 ```html
 <iframe allow="camera *; microphone *">
 ```
-
-## <a name="calling-sdk-streaming-support"></a>Chiamata del supporto di streaming SDK
-Il servizio Communication Services chiamante SDK supporta le configurazioni di flusso seguenti:
-
-|           |Web | Android/iOS|
-|-----------|----|------------|
-|**Numero di flussi in uscita che possono essere inviati contemporaneamente** |1 video o una condivisione schermo | 1 video + 1 condivisione dello schermo|
-|**Numero di flussi in entrata di cui è possibile eseguire il rendering simultaneamente** |1 video o una condivisione schermo| 6 video + 1 condivisione dello schermo |
-
 
 ## <a name="next-steps"></a>Passaggi successivi
 

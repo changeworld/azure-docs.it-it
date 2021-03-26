@@ -2,13 +2,13 @@
 title: Collegare i modelli per la distribuzione
 description: Viene descritto come usare i modelli collegati in un modello di Azure Resource Manager (modello ARM) per creare una soluzione di modello modulare. Mostra come passare i valori dei parametri, specificare un file di parametri e gli URL creati in modo dinamico.
 ms.topic: conceptual
-ms.date: 01/26/2021
-ms.openlocfilehash: 6076cbae43e420ac354b5c9d7d101a9c541c078d
-ms.sourcegitcommit: a67b972d655a5a2d5e909faa2ea0911912f6a828
+ms.date: 03/25/2021
+ms.openlocfilehash: 981e9f10e118012911108d634fbb8bdb9524cb88
+ms.sourcegitcommit: 44edde1ae2ff6c157432eee85829e28740c6950d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/23/2021
-ms.locfileid: "104889179"
+ms.lasthandoff: 03/25/2021
+ms.locfileid: "105543976"
 ---
 # <a name="using-linked-and-nested-templates-when-deploying-azure-resources"></a>Uso di modelli collegati e annidati nella distribuzione di risorse di Azure
 
@@ -444,6 +444,8 @@ Quando si fa riferimento a un modello collegato, il valore di `uri` non può ess
 Se si sta eseguendo il collegamento a un modello in GitHub, usare l'URL non elaborato. Il formato del collegamento è: `https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/get-started-with-templates/quickstart-template/azuredeploy.json` . Per ottenere il collegamento non elaborato, selezionare **RAW**.
 
 :::image type="content" source="./media/linked-templates/select-raw.png" alt-text="Seleziona URL non elaborato":::
+
+[!INCLUDE [Deploy templates in private GitHub repo](../../../includes/resource-manager-private-github-repo-templates.md)]
 
 ### <a name="parameters-for-linked-template"></a>Parametri per il modello collegato
 

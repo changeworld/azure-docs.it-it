@@ -9,12 +9,12 @@ author: GithubMirek
 ms.author: mireks
 ms.reviewer: vanto
 ms.date: 08/14/2020
-ms.openlocfilehash: 5764a8df862610fc076ce2810fcc0d4bf8dbda3c
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: dec29dc92f70a3f02f3fb598659aa86477fb59bf
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "99094557"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105558245"
 ---
 # <a name="directory-readers-role-in-azure-active-directory-for-azure-sql"></a>Ruolo con autorizzazioni di lettura nella directory in Azure Active Directory per Azure SQL
 
@@ -25,7 +25,7 @@ ms.locfileid: "99094557"
 
 Azure Active Directory (Azure AD) ha introdotto l' [uso di gruppi cloud per gestire le assegnazioni di ruolo in Azure Active Directory (anteprima)](../../active-directory/roles/groups-concept.md). In questo modo è possibile assegnare i ruoli Azure AD ai gruppi.
 
-Quando si Abilita un' [identità gestita](../../active-directory/managed-identities-azure-resources/overview.md#managed-identity-types) per il database SQL di Azure, azure SQL istanza gestita o Azure sinapsi Analytics, il ruolo [**readers**](../../active-directory/roles/permissions-reference.md#directory-readers) di Azure ad directory deve essere assegnato all'identità per consentire l'accesso in lettura al [Azure ad API Graph](../../active-directory/develop/active-directory-graph-api.md). L'identità gestita del database SQL e della sinapsi di Azure viene definita identità del server. L'identità gestita di SQL Istanza gestita viene definita identità dell'istanza gestita e viene assegnata automaticamente quando viene creata l'istanza. Per altre informazioni sull'assegnazione di un'identità server al database SQL o a una sinapsi di Azure, vedere [abilitare le entità servizio per la creazione di Azure ad utenti](authentication-aad-service-principal.md#enable-service-principals-to-create-azure-ad-users).
+Quando si Abilita un' [identità gestita](../../active-directory/managed-identities-azure-resources/overview.md#managed-identity-types) per il database SQL di Azure, azure SQL istanza gestita o Azure sinapsi Analytics, il ruolo [**readers**](../../active-directory/roles/permissions-reference.md#directory-readers) di Azure ad directory deve essere assegnato all'identità per consentire l'accesso in lettura al [Azure ad API Graph](/graph/migrate-azure-ad-graph-planning-checklist). L'identità gestita del database SQL e della sinapsi di Azure viene definita identità del server. L'identità gestita di SQL Istanza gestita viene definita identità dell'istanza gestita e viene assegnata automaticamente quando viene creata l'istanza. Per altre informazioni sull'assegnazione di un'identità server al database SQL o a una sinapsi di Azure, vedere [abilitare le entità servizio per la creazione di Azure ad utenti](authentication-aad-service-principal.md#enable-service-principals-to-create-azure-ad-users).
 
 Il ruolo **Readers directory** è necessario per:
 

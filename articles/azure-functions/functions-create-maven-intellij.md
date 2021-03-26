@@ -1,17 +1,17 @@
 ---
 title: Creare una funzione Java in funzioni di Azure usando IntelliJ
 description: Informazioni su come usare IntelliJ per creare una semplice funzione Java attivata da HTTP, che viene quindi pubblicata per l'esecuzione in un ambiente senza server in Azure.
-author: jeffhollan
+author: yucwan
 ms.topic: how-to
 ms.date: 07/01/2018
-ms.author: jehollan
+ms.author: yucwan
 ms.custom: mvc, devcenter, devx-track-java
-ms.openlocfilehash: 1edfbca2f2a16aeebc1244b298426dc46d72c6d5
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 45fb62b446e6b589dc0cb9287a8aebe7f4e699b1
+ms.sourcegitcommit: 44edde1ae2ff6c157432eee85829e28740c6950d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101708816"
+ms.lasthandoff: 03/25/2021
+ms.locfileid: "105543644"
 ---
 # <a name="create-your-first-java-function-in-azure-using-intellij"></a>Creare la prima funzione Java in Azure con IntelliJ
 
@@ -104,17 +104,9 @@ In questa sezione si userà Azure Toolkit for IntelliJ per creare un progetto lo
 
     ![Distribuire il progetto in Azure](media/functions-create-first-java-intellij/deploy-functions-to-azure.png)
 
-1. Se non sono ancora disponibili app per le funzioni, fare clic su *No available function, click to create a new one* (Nessuna funzione disponibile, fare clic per crearne una).
+1. Se non si dispone ancora di app per le funzioni, fare clic sulla *+* riga della *funzione* . Digitare il nome dell'app per le funzioni e scegliere la piattaforma appropriata. qui è possibile accettare semplicemente il valore predefinito. Fare clic su *OK* e la nuova app per le funzioni appena creata verrà selezionata automaticamente. Fare clic su *Run* (Esegui) per distribuire le funzioni.
 
     ![Crea app per le funzioni in Azure](media/functions-create-first-java-intellij/deploy-functions-create-app.png)
-
-1. Digitare il nome dell'app per le funzioni e scegliere sottoscrizione/piattaforma/gruppo di risorse/piano di servizio app appropriato. qui è anche possibile creare un gruppo di risorse/piano di servizio app. Quindi, tenere invariate le impostazioni dell'app, fare clic su *OK* e attendere alcuni minuti per la creazione della nuova app per le funzioni. Al termine, l'indicatore di stato Dopo *Creating New Function App* (Creazione della nuova app per le funzioni in corso) scompare.
-
-    ![Distribuire l'app per le funzioni nella creazione guidata dell'app di Azure](media/functions-create-first-java-intellij/deploy-functions-create-app-wizard.png)
-
-1. Selezionare l'app per le funzioni in cui eseguire la distribuzione. La nuova app per le funzioni appena creata verrà selezionata automaticamente. Fare clic su *Run* (Esegui) per distribuire le funzioni.
-
-    ![Screenshot mostra la finestra di dialogo Distribuisci funzioni di Azure.](media/functions-create-first-java-intellij/deploy-functions-run.png)
 
     ![Distribuisci app per le funzioni in log di Azure](media/functions-create-first-java-intellij/deploy-functions-log.png)
 

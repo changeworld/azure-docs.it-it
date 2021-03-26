@@ -3,12 +3,12 @@ title: Monitoraggio e registrazione-Azure
 description: Questo articolo fornisce una panoramica del monitoraggio e della registrazione di analisi video in tempo reale su IoT Edge.
 ms.topic: reference
 ms.date: 04/27/2020
-ms.openlocfilehash: e81b1e98fb30bb8876c78c8c911585f5448db8f2
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 08b2f5cce80581d71ce73e97ab30900aa8957c77
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101730244"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105564484"
 ---
 # <a name="monitoring-and-logging"></a>Monitoraggio e registrazione
 
@@ -312,7 +312,7 @@ Seguire questa procedura per abilitare la raccolta di metriche dall'analisi vide
    In questo caso, nella portale di Azure passare all'hub Internet e selezionare **metriche** nel riquadro sinistro. Verranno visualizzate le metriche.
 
 ### <a name="log-analytics-metrics-collection"></a>Raccolta di metriche Log Analytics
-Usando l' [endpoint Prometheus](https://prometheus.io/docs/practices/naming/) insieme a [log Analytics](https://docs.microsoft.com/azure/azure-monitor/log-query/log-analytics-tutorial), è possibile generare e [monitorare le metriche](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-supported) , ad esempio CPUPercent, MemoryUsedPercent e così via.   
+Usando l' [endpoint Prometheus](https://prometheus.io/docs/practices/naming/) insieme a [log Analytics](../../azure-monitor/logs/log-analytics-tutorial.md), è possibile generare e [monitorare le metriche](../../azure-monitor/essentials/metrics-supported.md) , ad esempio CPUPercent, MemoryUsedPercent e così via.   
 
 > [!NOTE]
 > La configurazione seguente non raccoglie i log, **ma solo le metriche**. È possibile estendere il modulo dell'agente di raccolta per raccogliere e caricare anche i log.

@@ -6,12 +6,12 @@ ms.author: vimeht
 ms.date: 2/11/2021
 ms.topic: conceptual
 ms.service: iot-hub-device-update
-ms.openlocfilehash: 07310a5b6f275d4a35a3649c22aeea68045dde8b
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: ca55b1df347b47a6eb82557658d59a3de666b703
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101662843"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105558398"
 ---
 # <a name="azure-role-based-access-control-rbac-and-device-update"></a>Controllo degli accessi in base al ruolo di Azure (RBAC) e aggiornamento del dispositivo
 
@@ -39,7 +39,7 @@ L'aggiornamento del dispositivo usa anche Azure AD per l'autenticazione per pubb
 
 ### <a name="create-client-azure-ad-app"></a>Creare App Azure AD client
 
-Per integrare un'applicazione o un servizio con Azure AD, [registrare prima](https://docs.microsoft.com/azure/active-directory/develop/quickstart-register-app) un'applicazione con Azure ad. L'installazione dell'applicazione client varia a seconda del flusso di autorizzazione utilizzato.  La configurazione seguente è consigliata quando si usano le API REST per l'aggiornamento del dispositivo.
+Per integrare un'applicazione o un servizio con Azure AD, [registrare prima](../active-directory/develop/quickstart-register-app.md) un'applicazione con Azure ad. L'installazione dell'applicazione client varia a seconda del flusso di autorizzazione utilizzato.  La configurazione seguente è consigliata quando si usano le API REST per l'aggiornamento del dispositivo.
 
 * Impostare l'autenticazione client:' URI di reindirizzamento per il client nativo o Web '.
 * Impostare le autorizzazioni per l'API: l'aggiornamento del dispositivo per l'hub Internet viene esposto:

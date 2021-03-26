@@ -6,21 +6,21 @@ ms.topic: conceptual
 author: milismsft
 ms.author: adrianmi
 ms.date: 09/21/2020
-ms.openlocfilehash: 23f85fa69224d78d748e6fc94436fd08fa6d971f
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 442fa1c76d4667a54f1c13b411b1c052c9a5b134
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104586013"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105566643"
 ---
 # <a name="azure-cosmos-db-emulator---release-notes-and-download-information"></a>Emulatore Azure Cosmos DB - Note sulla versione e informazioni per il download
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
 
-Questo articolo include le note sulla versione dell'emulatore Azure Cosmos DB con un elenco di aggiornamenti delle funzionalità apportati in ogni versione. Inoltre, include la versione più recente dell'emulatore disponibile per il download.
+Questo articolo include le note sulla versione dell'emulatore Azure Cosmos DB con un elenco di aggiornamenti delle funzionalità apportati in ogni versione. Elenca inoltre la versione più recente dell'emulatore da scaricare e usare.
 
-## <a name="download"></a>Download
+## <a name="download"></a>Scarica
 
-| |Collegamenti |
+| | Collegamento |
 |---------|---------|
 |**Download MSI**|[Area download Microsoft](https://aka.ms/cosmosdb-emulator)|
 |**Operazioni preliminari**|[Sviluppare in locale con l'emulatore Azure Cosmos DB](local-emulator.md)|
