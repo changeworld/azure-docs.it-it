@@ -9,12 +9,12 @@ ms.author: mikben
 ms.date: 03/10/2021
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: fc5da3f4ac5bf9a08e16a931d54dfbf6a2fb9f48
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: ad88a7a6c91128bb863eeb51cc7f26c8d71b9eed
+ms.sourcegitcommit: bed20f85722deec33050e0d8881e465f94c79ac2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103495794"
+ms.lasthandoff: 03/25/2021
+ms.locfileid: "105107908"
 ---
 # <a name="pricing-scenarios"></a>Scenari relativi ai prezzi
 
@@ -25,7 +25,7 @@ I prezzi per Servizi di comunicazione di Azure sono in genere basati su un model
 
 ## <a name="voicevideo-calling-and-screen-sharing"></a>Chiamate vocali/video e condivisione dello schermo
 
-Servizi di comunicazione di Azure consente l'aggiunta di chiamate vocali/video e della condivisione dello schermo alle applicazioni. È possibile incorporare l'esperienza nelle applicazioni usando le librerie client JavaScript, Objective-C (Apple), Java (Android) o .NET. Vedere l'[elenco completo delle librerie client disponibili](./sdk-options.md).
+Servizi di comunicazione di Azure consente l'aggiunta di chiamate vocali/video e della condivisione dello schermo alle applicazioni. Puoi incorporare l'esperienza nelle tue applicazioni usando JavaScript, Objective-C (Apple), Java (Android) o .NET SDK. Vedere l' [elenco completo degli SDK disponibili](./sdk-options.md).
 
 ### <a name="pricing"></a>Prezzi
 
@@ -33,9 +33,9 @@ I servizi di chiamata e condivisione dello schermo vengono addebitati al costo d
 
 Per ogni partecipante alla chiamata verrà conteggiato in fattura il numero di minuti di connessione alla chiamata. Questo criterio vale indipendentemente dal fatto che l'utente effettui una chiamata video, una chiamata vocale o la condivisione dello schermo.
 
-### <a name="pricing-example-group-audiovideo-call-using-js-and-ios-client-libraries"></a>Esempio di prezzi: chiamata vocale/video di gruppo tramite le librerie client JS e iOS
+### <a name="pricing-example-group-audiovideo-call-using-js-and-ios-sdks"></a>Esempio di prezzi: raggruppare la chiamata audio/video usando gli SDK JS e iOS
 
-Alice ha effettuato una chiamata di gruppo con i colleghi Bob e Charlie. Alice e Bob hanno usato le librerie client JS, mentre Charlie ha usato le librerie client iOS.
+Alice ha effettuato una chiamata di gruppo con i colleghi Bob e Charlie. Alice e Bob hanno usato gli SDK JS, Charlie iOS SDK.
 
 - La chiamata è durata complessivamente 60 minuti.
 - Alice e Bob hanno partecipato all'intera chiamata. Alice ha attivato il video per cinque minuti e ha condiviso lo schermo per 23 minuti. Bob ha tenuto il video attivo per l'intera chiamata (60 minuti) e ha condiviso lo schermo per 12 minuti.
@@ -48,9 +48,9 @@ Alice ha effettuato una chiamata di gruppo con i colleghi Bob e Charlie. Alice e
 
 **Costo totale della chiamata di gruppo**: 0,48 USD + 0,172 USD = 0,652 USD
 
-### <a name="pricing-example-a-user-of-the-communication-services-js-client-library-joins-a-scheduled-microsoft-teams-meeting"></a>Esempio di prezzi: un utente della libreria client di Communication Services JS partecipa a una riunione pianificata Microsoft Teams
+### <a name="pricing-example-a-user-of-the-communication-services-javascript-sdk-joins-a-scheduled-microsoft-teams-meeting"></a>Esempio di prezzi: un utente di Communication Services JavaScript SDK partecipa a una riunione pianificata Microsoft Teams
 
-Alice è una riunione del dottore con il suo paziente, Bob. Alice si unirà alla visita dell'applicazione desktop teams. Bob riceverà un collegamento per partecipare usando il sito Web del provider sanitario, che si connette alla riunione usando la libreria client JS di Communication Services. Bob userà il suo telefono cellulare per partecipare alla riunione usando un browser Web (iPhone con Safari). La chat sarà disponibile durante la visita virtuale.
+Alice è una riunione del dottore con il suo paziente, Bob. Alice si unirà alla visita dell'applicazione desktop teams. Bob riceverà un collegamento per partecipare usando il sito Web del provider sanitario, che si connette alla riunione usando l'SDK JavaScript di Communication Services. Bob userà il suo telefono cellulare per partecipare alla riunione usando un browser Web (iPhone con Safari). La chat sarà disponibile durante la visita virtuale.
 
 - La chiamata dura un totale di 30 minuti.
 - Alice e Bob partecipano all'intera chiamata. Alice accende il video cinque minuti dopo l'avvio della chiamata e condivide lo schermo per 13 minuti. Bob ha il video su per l'intera chiamata.
@@ -67,13 +67,13 @@ Alice è una riunione del dottore con il suo paziente, Bob. Alice si unirà alla
 * La partecipazione di Alice è coperta dalla licenza dei team. Con la fattura di Azure verranno visualizzati i minuti e i messaggi di chat che i team hanno avuto con gli utenti di servizi di comunicazione per praticità, ma i minuti e i messaggi originati dal client dei team non costeranno.
 
 **Costo totale per la visita**:
-- Aggiunta dell'utente tramite la libreria client JS di Communication Services: $0,12 + $0,0024 = $0,1224
+- Aggiunta dell'utente tramite l'SDK JavaScript di Communication Services: $0,12 + $0,0024 = $0,1224
 - Aggiunta di un utente all'applicazione desktop teams: $0 (coperta dalla licenza Teams)
 
 
 ## <a name="chat"></a>Chat
 
-Con servizi di comunicazione è possibile migliorare l'applicazione con la possibilità di inviare e ricevere messaggi di chat tra due o più utenti. Le librerie client di chat sono disponibili per JavaScript, .NET, Python e Java. Vedere [questa pagina per informazioni sulle librerie client](./sdk-options.md).
+Con servizi di comunicazione è possibile migliorare l'applicazione con la possibilità di inviare e ricevere messaggi di chat tra due o più utenti. Gli SDK di chat sono disponibili per JavaScript, .NET, Python e Java. Per [informazioni sugli SDK](./sdk-options.md) , fare riferimento a questa pagina
 
 ### <a name="price"></a>Prezzo
 

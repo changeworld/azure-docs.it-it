@@ -1,14 +1,14 @@
 ---
-ms.openlocfilehash: 3626ca4cc3e7377f1c6778bc77e5e48ef0dcad0c
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 3ec650f82b95cdfabc923e92325959c63f2846de
+ms.sourcegitcommit: bed20f85722deec33050e0d8881e465f94c79ac2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103439180"
+ms.lasthandoff: 03/25/2021
+ms.locfileid: "105110745"
 ---
 ## <a name="add-managed-identity-to-your-communication-services-solution-js"></a>Aggiungere l'identità gestita alla soluzione di comunicazione dei servizi (JS)
 
-### <a name="install-the-client-library-packages"></a>Installare i pacchetti della libreria client
+### <a name="install-the-sdk-packages"></a>Installare i pacchetti SDK
 
 ```console
 npm install @azure/communication-identity
@@ -17,9 +17,9 @@ npm install @azure/communication-sms
 npm install @azure/identity
 ```
 
-### <a name="use-the-client-library-packages"></a>Usare i pacchetti della libreria client
+### <a name="use-the-sdk-packages"></a>Usare i pacchetti SDK
 
-Aggiungere le `import` direttive seguenti al codice per usare le librerie di identità di Azure e client di archiviazione di Azure.
+Aggiungere le `import` direttive seguenti al codice per usare l'identità di Azure e gli SDK di archiviazione di Azure.
 
 ```typescript
 import { DefaultAzureCredential } from "@azure/identity";

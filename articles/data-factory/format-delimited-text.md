@@ -4,14 +4,14 @@ description: In questo argomento viene descritto come gestire il formato testo d
 author: linda33wj
 ms.service: data-factory
 ms.topic: conceptual
-ms.date: 12/07/2020
+ms.date: 03/23/2021
 ms.author: jingwang
-ms.openlocfilehash: 5b6367d2765277493ea34a4f7a23cae4b24c4dc4
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: daf3691b48f7bf12e9ef51de7d4253dad9dbd2b1
+ms.sourcegitcommit: a8ff4f9f69332eef9c75093fd56a9aae2fe65122
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "100386595"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105026871"
 ---
 # <a name="delimited-text-format-in-azure-data-factory"></a>Formato testo delimitato in Azure Data Factory
 
@@ -183,8 +183,10 @@ Nella tabella seguente sono elencate le proprietà supportate da un sink di test
 | Nome | Descrizione | Obbligatoria | Valori consentiti | Proprietà script flusso di dati |
 | ---- | ----------- | -------- | -------------- | ---------------- |
 | Cancella la cartella | Se la cartella di destinazione viene cancellata prima della scrittura | no | `true` o `false` | truncate |
-| Opzione nome file | Formato di denominazione dei dati scritti. Per impostazione predefinita, un file per partizione è nel formato `part-#####-tid-<guid>` | no | Modello: stringa <br> Per partizione: stringa [] <br> Come dati in column: String <br> Output in un singolo file: `['<fileName>']`  | filePattern <br> partitionFileNames <br> rowUrlColumn <br> partitionFileNames |
+| Opzione nome file | Formato di denominazione dei dati scritti. Per impostazione predefinita, un file per partizione è nel formato `part-#####-tid-<guid>` | no | Modello: stringa <br> Per partizione: stringa [] <br> Nome file come dati colonna: stringa <br> Output in un singolo file: `['<fileName>']` <br> Nome cartella come dati colonna: stringa | filePattern <br> partitionFileNames <br> rowUrlColumn <br> partitionFileNames <br> rowFolderUrlColumn |
 | Virgolette tutte | Racchiudere tutti i valori tra virgolette | no | `true` o `false` | quoteAll |
+
+rowFolderUrlColumn:
 
 ### <a name="sink-example"></a>Esempio di sink
 

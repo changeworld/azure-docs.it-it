@@ -1,35 +1,35 @@
 ---
 title: Notifica di manutenzione pianificata-database di Azure per MySQL-server singolo
 description: Questo articolo descrive la funzionalità di notifica di manutenzione pianificata nel database di Azure per MySQL-server singolo
-author: ambhatna
-ms.author: ambhatna
+author: savjani
+ms.author: pariks
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 10/21/2020
-ms.openlocfilehash: ff197f8add65782a594d64661ffecdaced4598c2
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: c6d1bfbf1592da3a5e632eb875221225630aed3f
+ms.sourcegitcommit: bed20f85722deec33050e0d8881e465f94c79ac2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "94919625"
+ms.lasthandoff: 03/25/2021
+ms.locfileid: "105108673"
 ---
 # <a name="planned-maintenance-notification-in-azure-database-for-mysql---single-server"></a>Notifica di manutenzione pianificata nel database di Azure per MySQL-server singolo
 
 Informazioni su come prepararsi per gli eventi di manutenzione pianificata nel database di Azure per MySQL.
 
-## <a name="what-is-a-planned-maintenance"></a>Che cos'è una manutenzione pianificata?
+## <a name="what-is-a-planned-maintenance"></a>Che cos'è la manutenzione pianificata?
 
 Il servizio database di Azure per MySQL esegue l'applicazione automatica delle patch dell'hardware, del sistema operativo e del motore di database sottostanti. La patch include le nuove funzionalità del servizio, la sicurezza e gli aggiornamenti software. Per il motore di MySQL gli aggiornamenti della versione secondaria sono automatici e sono inclusi come parte del ciclo di applicazione delle patch. Non è richiesto alcun intervento da parte dell'utente o alcuna impostazione di configurazione per l'applicazione di patch. La patch viene testata estensivamente e implementata con procedure di distribuzione sicure.
 
 Una manutenzione pianificata è una finestra di manutenzione quando questi aggiornamenti del servizio vengono distribuiti nei server in una determinata area di Azure. Durante la manutenzione pianificata, viene creato un evento di notifica per informare i clienti riguardo a quando l'aggiornamento del servizio viene distribuito nell'area di Azure che ospita i server. La durata minima tra due operazioni di manutenzione pianificata è di 30 giorni. Si riceve una notifica della finestra di manutenzione successiva 72 ore prima.
 
-## <a name="planned-maintenance---duration-and-customer-impact"></a>Manutenzione pianificata-durata e conseguenze per i clienti
+## <a name="planned-maintenance---duration-and-customer-impact"></a>Manutenzione pianificata: durata e conseguenze per i clienti
 
-Una manutenzione pianificata per una determinata area di Azure è in genere prevista per l'esecuzione di 15 ore. La finestra include anche il tempo del buffer per eseguire un piano di rollback, se necessario. Durante la manutenzione pianificata, possono essere presenti riavvii o failover del server di database, che potrebbero causare una breve indisponibilità dei server di database per gli utenti finali. I server di database di Azure per MySQL sono in esecuzione in contenitori, quindi i riavvii del server di database sono in genere rapidi e si prevede di essere completati 60-120 in genere in L'intero evento di manutenzione pianificata che include tutti i riavvii del server viene monitorato attentamente dal team di progettazione. Il tempo di failover del server dipende dal tempo di recupero del database. in questo modo, il database può essere connesso più a lungo se si dispone di un'attività transazionale intensa sul server al momento del failover. Per evitare tempi di riavvio più lunghi, è consigliabile evitare transazioni con esecuzione prolungata (caricamenti bulk) durante gli eventi di manutenzione pianificata.
+La durata prevista per l'esecuzione della manutenzione pianificata per una determinata area di Azure è generalmente di 15 ore. La finestra include anche il tempo del buffer per eseguire un piano di rollback, se necessario. Durante la manutenzione pianificata, possono essere presenti riavvii o failover del server di database, che potrebbero causare una breve indisponibilità dei server di database per gli utenti finali. I server di database di Azure per MySQL sono in esecuzione in contenitori, quindi i riavvii del server di database sono in genere rapidi e si prevede di essere completati 60-120 in genere in L'intero evento di manutenzione pianificata che include tutti i riavvii del server viene monitorato attentamente dal team di progettazione. Il tempo di failover del server dipende dal tempo di recupero del database. in questo modo, il database può essere connesso più a lungo se si dispone di un'attività transazionale intensa sul server al momento del failover. Per evitare tempi di riavvio più lunghi, è consigliabile evitare transazioni con esecuzione prolungata (caricamenti bulk) durante gli eventi di manutenzione pianificata.
 
 In breve, mentre l'evento di manutenzione pianificata viene eseguito per 15 ore, l'effetto del singolo server dura generalmente 60 secondi, a seconda dell'attività transazionale sul server. Una notifica viene inviata 72 ore di calendario prima dell'avvio della manutenzione pianificata e ne è in corso un'altra durante la manutenzione per una determinata area.
 
-## <a name="how-can-i-get-notified-of-planned-maintenance"></a>Come è possibile ricevere una notifica per la manutenzione pianificata?
+## <a name="how-can-i-get-notified-of-planned-maintenance"></a>Quali sono le modalità di ricezione delle notifiche relative alla manutenzione pianificata?
 
 È possibile utilizzare la funzionalità notifiche di manutenzione pianificata per ricevere avvisi per un evento di manutenzione pianificata imminente. Si riceverà la notifica sulle ore di calendario di manutenzione imminente di 72 prima dell'evento e di un'altra, mentre la manutenzione è in corso per una determinata area.
 
@@ -67,7 +67,7 @@ Per i passaggi dettagliati su come creare gli **avvisi di integrità del servizi
 
 La manutenzione è necessaria per mantenere il server protetto, stabile e aggiornato. L'evento di manutenzione pianificata non può essere annullato o posticipato. Quando la notifica viene inviata a una determinata area di Azure, non è possibile apportare modifiche alla pianificazione dell'applicazione di patch per i singoli server di tale area. La patch viene implementata per l'intera area in una sola volta. Database di Azure per MySQL: il servizio server singolo è progettato per un'applicazione cloud nativa che non richiede un controllo granulare o una personalizzazione del servizio. Se si vuole avere la possibilità di pianificare la manutenzione per i server, è consigliabile prendere in considerazione [server flessibili](./flexible-server/overview.md).
 
-## <a name="are-all-the-azure-regions-patched-at-the-same-time"></a>Tutte le aree di Azure sono state applicate allo stesso tempo?
+## <a name="are-all-the-azure-regions-patched-at-the-same-time"></a>A tutte le aree di Azure sono state applicate patch contemporaneamente?
 
 No, viene applicata una patch per tutte le aree di Azure durante le tempistiche della finestra per la distribuzione. La finestra di distribuzione saggia in genere si estende dalle 17:00 alle 8.00 all'ora locale del giorno successivo, in una determinata area di Azure. Le aree di Azure con associazione geografica vengono applicate in diversi giorni. Per la disponibilità elevata e la continuità aziendale dei server di database, è consigliabile sfruttare le [repliche di lettura tra più aree](./concepts-read-replicas.md#cross-region-replication) .
 

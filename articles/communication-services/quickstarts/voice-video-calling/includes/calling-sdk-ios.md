@@ -4,12 +4,12 @@ ms.service: azure-communication-services
 ms.topic: include
 ms.date: 03/10/2021
 ms.author: mikben
-ms.openlocfilehash: e9c889dcffe42fde244f8a35ce42032e84d78fff
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: d36bf92a1b1bdef4e45b22b934728b3e8c46c3da
+ms.sourcegitcommit: bed20f85722deec33050e0d8881e465f94c79ac2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103488109"
+ms.lasthandoff: 03/25/2021
+ms.locfileid: "105107737"
 ---
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -23,7 +23,7 @@ ms.locfileid: "103488109"
 ### <a name="creating-the-xcode-project"></a>Creazione del progetto Xcode
 
 > [!NOTE]
-> Questo documento usa la versione 1.0.0-beta. 8 della libreria client chiamante.
+> Questo documento usa la versione 1.0.0-beta. 8 dell'SDK chiamante.
 
 In Xcode creare un nuovo progetto iOS e selezionare il modello **Single View Application**. Questa Guida introduttiva usa il [Framework SwiftUI](https://developer.apple.com/xcode/swiftui/), quindi è necessario impostare la **lingua** su **Swift** e l' **interfaccia utente** su **SwiftUI**. Non verranno creati unit test o test dell'interfaccia utente durante questa Guida introduttiva. È possibile deselezionare Includi **unit test** e deselezionare **Includi test dell'interfaccia utente**.
 
@@ -68,12 +68,12 @@ import AVFoundation
 
 ## <a name="object-model"></a>Modello a oggetti
 
-Le classi e le interfacce seguenti gestiscono alcune delle principali funzionalità dei servizi di comunicazione di Azure che chiamano la libreria client per iOS.
+Le classi e le interfacce seguenti gestiscono alcune delle principali funzionalità dei servizi di comunicazione di Azure che chiamano SDK per iOS.
 
 
 | Nome                                  | Descrizione                                                  |
 | ------------------------------------- | ------------------------------------------------------------ |
-| CallClient | CallClient è il principale punto di ingresso alla libreria client Chiamate.|
+| CallClient | CallClient è il punto di ingresso principale dell'SDK chiamante.|
 | CallAgent | CallAgent si usa per avviare e gestire le chiamate. |
 | CommunicationTokenCredential | CommunicationTokenCredential viene usato come credenziale del token per creare un'istanza di CallAgent.| 
 | CommunicationIdentifier | CommunicationIdentifier viene usato per rappresentare l'identità dell'utente che può essere una delle seguenti: CommunicationUserIdentifier/PhoneNumberIdentifier/CallingApplication. |
@@ -131,7 +131,7 @@ callClient?.createCallAgent(userCredential: userCredential!,
 
 ## <a name="place-an-outgoing-call"></a>Inserire una chiamata in uscita
 
-Per creare e avviare una chiamata, è necessario chiamare una delle API in `CallAgent` e fornire l'identità dei servizi di comunicazione di un utente di cui è stato effettuato il provisioning tramite la libreria client di gestione dei servizi di comunicazione.
+Per creare e avviare una chiamata, è necessario chiamare una delle API in `CallAgent` e fornire l'identità dei servizi di comunicazione di un utente di cui è stato effettuato il provisioning tramite Communication Services Management SDK.
 
 La creazione e l'avvio di una chiamata sono sincrone. Si riceverà un'istanza di chiamata che consente di sottoscrivere tutti gli eventi della chiamata.
 

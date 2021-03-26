@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jlu
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 562c90dcc4f802290b0ed8b4d544fce9d526fa10
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 9a2c83fc0f4776e1ded2c8c12cb990ab227f048b
+ms.sourcegitcommit: bed20f85722deec33050e0d8881e465f94c79ac2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "99524669"
+ms.lasthandoff: 03/25/2021
+ms.locfileid: "105109013"
 ---
 # <a name="continuous-access-evaluation"></a>Valutazione continua dell'accesso
 
@@ -52,6 +52,9 @@ La valutazione dell'accesso continuo viene implementata abilitando i servizi, ad
 
 Questo processo consente lo scenario in cui gli utenti perdono l'accesso ai file, alla posta elettronica, al calendario o alle attività di SharePoint Online, nonché ai team di Microsoft 365 app client entro pochi minuti da uno di questi eventi critici. 
 
+> [!NOTE] 
+> I team non supportano ancora gli eventi di rischio utente.
+
 ### <a name="conditional-access-policy-evaluation-preview"></a>Valutazione dei criteri di accesso condizionale (anteprima)
 
 Exchange e SharePoint sono in grado di sincronizzare i criteri di accesso condizionale chiave in modo che possano essere valutati all'interno del servizio stesso.
@@ -59,11 +62,11 @@ Exchange e SharePoint sono in grado di sincronizzare i criteri di accesso condiz
 Questo processo Abilita lo scenario in cui gli utenti perdono l'accesso ai file dell'organizzazione, alla posta elettronica, al calendario o alle attività da Microsoft 365 app client o SharePoint Online immediatamente dopo le modifiche del percorso di rete.
 
 > [!NOTE]
-> Non tutte le combinazioni di provider di risorse e app sono supportate. Vedere la tabella seguente. Office fa riferimento a Word, Excel e PowerPoint
+> Non tutte le combinazioni di provider di risorse e app sono supportate. Vedere la tabella seguente. Office fa riferimento a Word, Excel e PowerPoint.
 
 | | Outlook Web | Outlook Win32 | Outlook iOS | Outlook Android | Outlook Mac |
 | :--- | :---: | :---: | :---: | :---: | :---: |
-| **SharePoint Online** | Supportato | Supportato | Non supportato | Non supportato | Supportato |
+| **SharePoint Online** | Supportato | Supportato | Supportato | Supportato | Supportato |
 | **Exchange Online** | Supportato | Supportato | Supportato | Supportato | Supportato |
 
 | | App Web di Office | App di Office Win32 | Office per iOS | Office per Android | Office per Mac |
@@ -71,23 +74,20 @@ Questo processo Abilita lo scenario in cui gli utenti perdono l'accesso ai file 
 | **SharePoint Online** | Non supportato | Supportato | Supportato | Supportato | Supportato |
 | **Exchange Online** | Non supportato | Supportato | Supportato | Supportato | Supportato |
 
+| | OneDrive Web | Win32 OneDrive | OneDrive iOS | OneDrive Android | Mac OneDrive |
+| :--- | :---: | :---: | :---: | :---: | :---: |
+| **SharePoint Online** | Supportato | Supportato | Supportato | Supportato | Supportato |
+
 ### <a name="client-side-claim-challenge"></a>Richiesta di attestazione lato client
 
 Prima della valutazione dell'accesso continuo, i client tentavano sempre di riprodurre il token di accesso dalla cache, purché non fosse scaduto. Con CAE, viene introdotto un nuovo caso che un provider di risorse può rifiutare un token anche quando non è scaduto. Per informare i client di ignorare la cache anche se i token memorizzati nella cache non sono scaduti, viene introdotto un meccanismo denominato **Claim Challenge** per indicare che il token è stato rifiutato ed è necessario emettere un nuovo token di accesso Azure ad. CAE richiede un aggiornamento del client per comprendere la richiesta di attestazione. La versione più recente delle seguenti applicazioni supporta la richiesta di attestazione:
 
-- Finestre di Outlook
-- Outlook iOS
-- Outlook Android
-- Outlook Mac
-- Outlook Web App
-- Team per Windows (solo per le risorse team)
-- Teams iOS (solo per la risorsa Teams)
-- Teams Android (solo per la risorsa Teams)
-- Mac Teams (solo per la risorsa Teams)
-- Word/Excel/PowerPoint per Windows
-- Word/Excel/PowerPoint per iOS
-- Word/Excel/PowerPoint per Android
-- Word/Excel/PowerPoint per Mac
+| | Web | Win32 | iOS | Android | Mac |
+| :--- | :---: | :---: | :---: | :---: | :---: |
+| **Outlook** | Supportato | Supportato | Supportato | Supportato | Supportato |
+| **Teams** | Supportato | Supportato | Supportato | Supportato | Supportato |
+| **Office** | Non supportato | Supportato | Supportato | Supportato | Supportato |
+| **OneDrive** | Supportato | Supportato | Supportato | Supportato | Supportato |
 
 ### <a name="token-lifetime"></a>Durata dei token
 
@@ -165,9 +165,9 @@ Per una spiegazione dei canali di Office Update, vedere [Panoramica dei canali d
 
 ### <a name="policy-change-timing"></a>Temporizzazione delle modifiche dei criteri
 
-A causa del potenziale ritardo di replica tra Azure AD e i provider di risorse, le modifiche ai criteri apportate dagli amministratori potrebbero richiedere fino a 2 ore per essere effettive per Exchange Online.
+Le modifiche dei criteri apportate dagli amministratori possono richiedere fino a un giorno per essere effettive. È stata eseguita una certa ottimizzazione per ridurre il ritardo a due ore. Tuttavia, non copre ancora tutti gli scenari. 
 
-Esempio: l'amministratore aggiunge un criterio per impedire a un intervallo di indirizzi IP di accedere alla posta elettronica alle 11:00 AM, un utente che proviene da tale intervallo di indirizzi IP prima di poter continuare ad accedere alla posta elettronica fino a 1:00 PM.
+Se si verifica un'emergenza ed è necessario applicare i criteri aggiornati immediatamente a determinati utenti, è necessario usare questo [comando di PowerShell](/powershell/module/azuread/revoke-azureaduserallrefreshtoken?view=azureadps-2.0) o "Revoke Session" nella pagina del profilo utente per revocare la sessione degli utenti, assicurandosi che i criteri aggiornati verranno applicati immediatamente.
 
 ### <a name="coauthoring-in-office-apps"></a>Creazione di una coautorizzazione nelle app di Office
 
