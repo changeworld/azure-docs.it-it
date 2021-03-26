@@ -4,12 +4,12 @@ description: Ripristinare una macchina virtuale di Azure da un punto di ripristi
 ms.reviewer: geg
 ms.topic: conceptual
 ms.date: 08/02/2020
-ms.openlocfilehash: 506c764250347bfccc3f80dcb055f1203583748c
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 83681d2bb3622857fb9141a3cec79d92d278a814
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103016526"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105568750"
 ---
 # <a name="how-to-restore-azure-vm-data-in-azure-portal"></a>Come ripristinare i dati delle macchine virtuali di Azure in portale di Azure
 
@@ -249,10 +249,10 @@ Dopo il ripristino di una macchina virtuale, è necessario tenere presente alcun
 - Le estensioni presenti durante la configurazione del backup vengono installate, ma non abilitate. Se si verifica un problema, reinstallare le estensioni.
 - Se la macchina virtuale sottoposta a backup era associata a un indirizzo IP statico, la macchina virtuale ripristinata avrà un indirizzo IP dinamico per evitare conflitti. È possibile [aggiungere un indirizzo IP statico alla macchina virtuale ripristinata](/powershell/module/az.network/set-aznetworkinterfaceipconfig#description).
 - Una macchina virtuale ripristinata non ha un set di disponibilità. Se si usa l'opzione Ripristina disco, è possibile [specificare un set di disponibilità](../virtual-machines/windows/tutorial-availability-sets.md) quando si crea una macchina virtuale dal disco usando il modello fornito o PowerShell.
-- Se si usa una distribuzione Linux basata su cloud-init, ad esempio Ubuntu, per motivi di sicurezza la password verrà bloccata dopo il ripristino. Per [reimpostare la password](../virtual-machines/troubleshooting/reset-password.md) nella VM ripristinata, usare l'estensione VMAccess. È consigliabile usare chiavi SSH in queste distribuzioni in modo da non dover reimpostare la password dopo il ripristino.
+- Se si usa una distribuzione Linux basata su cloud-init, ad esempio Ubuntu, per motivi di sicurezza la password verrà bloccata dopo il ripristino. Per [reimpostare la password](/troubleshoot/azure/virtual-machines/reset-password) nella VM ripristinata, usare l'estensione VMAccess. È consigliabile usare chiavi SSH in queste distribuzioni in modo da non dover reimpostare la password dopo il ripristino.
 - Se non si riesce ad accedere a una macchina virtuale dopo il ripristino perché la macchina virtuale ha una relazione interrotta con il controller di dominio, attenersi alla procedura seguente per visualizzare la macchina virtuale:
   - Alleghi il disco del sistema operativo come disco dati a una macchina virtuale ripristinata.
-  - Installare manualmente l'agente VM se è stato rilevato che l'agente di Azure non risponde seguendo questo [collegamento](../virtual-machines/troubleshooting/install-vm-agent-offline.md).
+  - Installare manualmente l'agente VM se è stato rilevato che l'agente di Azure non risponde seguendo questo [collegamento](/troubleshoot/azure/virtual-machines/install-vm-agent-offline).
   - Abilitare l'accesso alla console seriale nella macchina virtuale per consentire l'accesso dalla riga di comando alla macchina virtuale
 
   ```cmd

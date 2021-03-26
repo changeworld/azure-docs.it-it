@@ -3,12 +3,12 @@ title: Distribuire Analisi video live in Azure Stack Edge
 description: Questo articolo elenca i passaggi che consentono di distribuire analisi video in tempo reale sul Azure Stack Edge.
 ms.topic: how-to
 ms.date: 09/09/2020
-ms.openlocfilehash: d49167890009d58b21c3678cb89f608bad665abd
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: b5be85e93b81f5cf50284533f21e688384558494
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101730270"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105561152"
 ---
 # <a name="deploy-live-video-analytics-on-azure-stack-edge"></a>Distribuire Analisi video live in Azure Stack Edge
 
@@ -236,7 +236,7 @@ Seguire queste istruzioni per connettersi all'hub IoT usando l'estensione Azure 
 
 * **Accesso all'API Kubernetes (kubectl)**
 
-    * Seguire la documentazione per configurare il computer per [l'accesso al cluster Kubernetes](https://docs.microsoft.com/azure/databox-online/azure-stack-edge-gpu-create-kubernetes-cluster).
+    * Seguire la documentazione per configurare il computer per [l'accesso al cluster Kubernetes](../../databox-online/azure-stack-edge-gpu-create-kubernetes-cluster.md).
     * Tutti i moduli IoT Edge distribuiti utilizzano lo `iotedge` spazio dei nomi. Assicurarsi di includerlo quando si usa kubectl.  
 
 * **Log dei moduli**

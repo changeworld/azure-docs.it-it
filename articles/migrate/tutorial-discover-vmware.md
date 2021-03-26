@@ -7,12 +7,12 @@ ms.manager: abhemraj
 ms.topic: tutorial
 ms.date: 03/17/2021
 ms.custom: mvc
-ms.openlocfilehash: 1a0ad751a216e8da772fd5fdc96a0dc67cb27d01
-ms.sourcegitcommit: bed20f85722deec33050e0d8881e465f94c79ac2
+ms.openlocfilehash: 9f433815838cc4d8dd41f3b95fc1bd6fe0acc955
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/25/2021
-ms.locfileid: "105109854"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105562733"
 ---
 # <a name="tutorial-discover-servers-running-in-vmware-environment-with-azure-migrate-discovery-and-assessment"></a>Esercitazione: individuare i server in esecuzione nell'ambiente VMware con Azure Migrate: individuazione e valutazione
 
@@ -106,7 +106,7 @@ In vSphere Web Client configurare un account come descritto di seguito:
 
 È necessario disporre di un account utente con i privilegi necessari sui server per eseguire l'individuazione delle applicazioni installate, l'analisi delle dipendenze senza agenti e l'individuazione di SQL Server istanze e database. È possibile specificare l'account utente in Gestione configurazione Appliance. Il dispositivo non installa agenti nei server.
 
-1. Per i server Windows, creare un account (locale o di dominio) con autorizzazioni amministrative sui server. Per individuare SQL Server istanze e i database, è necessario che l'account Windows o SQL Server sia un membro del ruolo del server sysadmin. [Altre informazioni](https://docs.microsoft.com/sql/relational-databases/security/authentication-access/server-level-roles) su come assegnare il ruolo necessario all'account utente.
+1. Per i server Windows, creare un account (locale o di dominio) con autorizzazioni amministrative sui server. Per individuare SQL Server istanze e i database, è necessario che l'account Windows o SQL Server sia un membro del ruolo del server sysadmin. [Altre informazioni](/sql/relational-databases/security/authentication-access/server-level-roles) su come assegnare il ruolo necessario all'account utente.
 2. Per i server Linux, creare un account con privilegi radice. In alternativa, è possibile creare un account con queste autorizzazioni per i file/bin/netstat e/bin/ls: CAP_DAC_READ_SEARCH e CAP_SYS_PTRACE.
 
 > [!NOTE]
@@ -292,8 +292,8 @@ Se si desidera utilizzare queste funzionalità, è possibile specificare le cred
 1. Durante l'inventario software, le credenziali dei server aggiunti verranno iterate sui server e convalidate per l'analisi delle dipendenze senza agenti. È possibile abilitare l'analisi delle dipendenze senza agenti per i server dal portale. È possibile selezionare solo i server in cui è stata eseguita la convalida per abilitare l'analisi delle dipendenze senza agenti.
 
 > [!Note]
->Azure Migrate crittografa la comunicazione tra le istanze Azure Migrate Appliance e SQL Server di origine (con la proprietà Crittografa connessione impostata su TRUE). Queste connessioni vengono crittografate con [**TrustServerCertificate**](https://docs.microsoft.com/dotnet/api/system.data.sqlclient.sqlconnectionstringbuilder.trustservercertificate) (impostato su true); il livello trasporto userà SSL per crittografare il canale e ignorare la catena di certificati per convalidare l'attendibilità. Il server appliance deve essere configurato in modo da [**considerare attendibile l'autorità radice del certificato**](https://docs.microsoft.com/sql/database-engine/configure-windows/enable-encrypted-connections-to-the-database-engine).<br/>
-Se al momento dell'avvio non è stato eseguito il provisioning di alcun certificato sul server, SQL Server genera un certificato autofirmato che viene utilizzato per crittografare i pacchetti di accesso. [**Scopri di più**](https://docs.microsoft.com/sql/database-engine/configure-windows/enable-encrypted-connections-to-the-database-engine).
+>Azure Migrate crittografa la comunicazione tra le istanze Azure Migrate Appliance e SQL Server di origine (con la proprietà Crittografa connessione impostata su TRUE). Queste connessioni vengono crittografate con [**TrustServerCertificate**](/dotnet/api/system.data.sqlclient.sqlconnectionstringbuilder.trustservercertificate) (impostato su true); il livello trasporto userà SSL per crittografare il canale e ignorare la catena di certificati per convalidare l'attendibilità. Il server appliance deve essere configurato in modo da [**considerare attendibile l'autorità radice del certificato**](/sql/database-engine/configure-windows/enable-encrypted-connections-to-the-database-engine).<br/>
+Se al momento dell'avvio non è stato eseguito il provisioning di alcun certificato sul server, SQL Server genera un certificato autofirmato che viene utilizzato per crittografare i pacchetti di accesso. [**Scopri di più**](/sql/database-engine/configure-windows/enable-encrypted-connections-to-the-database-engine).
 
 L'individuazione funziona come segue:
 
