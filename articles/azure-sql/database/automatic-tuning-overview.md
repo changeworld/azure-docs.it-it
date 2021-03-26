@@ -10,13 +10,13 @@ ms.topic: conceptual
 author: danimir
 ms.author: danil
 ms.reviewer: wiassaf, sstein
-ms.date: 03/30/2020
-ms.openlocfilehash: 4204254754307f8310d5ccfda19400de57381075
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.date: 03/23/2021
+ms.openlocfilehash: 6bd8d6001fcd3bfa487259aa219ff771f26a8a94
+ms.sourcegitcommit: ac035293291c3d2962cee270b33fca3628432fac
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "96500870"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "104951284"
 ---
 # <a name="automatic-tuning-in-azure-sql-database-and-azure-sql-managed-instance"></a>Ottimizzazione automatica nel database SQL di Azure e Istanza gestita SQL di Azure
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -54,8 +54,8 @@ Per una panoramica del funzionamento dell'ottimizzazione automatica e per gli sc
 
 ## <a name="enable-automatic-tuning"></a>Abilitare l'ottimizzazione automatica
 
-- È possibile [abilitare l'ottimizzazione automatica per il database SQL di Azure nel portale di Azure](automatic-tuning-enable.md) o tramite l'istruzione T-SQL [ALTER database](/sql/t-sql/statements/alter-database-transact-sql-set-options?view=azuresqldb-current) .
-- Per abilitare l'ottimizzazione automatica per Istanza gestita SQL di Azure, è possibile usare l'istruzione T-SQL [ALTER database](/sql/t-sql/statements/alter-database-transact-sql-set-options?view=azuresqldb-mi-current) .
+- È possibile [abilitare l'ottimizzazione automatica per il database SQL di Azure nel portale di Azure](automatic-tuning-enable.md) o tramite l'istruzione T-SQL [ALTER database](/sql/t-sql/statements/alter-database-transact-sql-set-options?view=azuresqldb-current&preserve-view=true) .
+- Per abilitare l'ottimizzazione automatica per Istanza gestita SQL di Azure, è possibile usare l'istruzione T-SQL [ALTER database](/sql/t-sql/statements/alter-database-transact-sql-set-options?view=azuresqldb-mi-current&preserve-view=true) .
 
 ## <a name="automatic-tuning-options"></a>Opzioni di ottimizzazione automatica
 
@@ -64,7 +64,7 @@ Le opzioni di ottimizzazione automatica disponibili nel database SQL di Azure e 
 | Opzione di ottimizzazione automatica | Supporto dei database singoli e in pool | Supporto del database dell'istanza |
 | :----------------------------- | ----- | ----- |
 | **Create index** : identifica gli indici che possono migliorare le prestazioni del carico di lavoro, crea gli indici e verifica automaticamente che le prestazioni delle query siano migliorate. | Sì | No |
-| **Drop index** : identifica gli indici ridondanti e duplicati al giorno, tranne gli indici univoci e gli indici che non sono stati usati per molto tempo (>90 giorni). Si noti che questa opzione non è compatibile con le applicazioni che usano cambi di partizione e hint di indice. L'eliminazione degli indici inutilizzati non è supportata per i livelli di servizio Premium e business critical. | Sì | No |
+| **Drop index** : Elimina gli indici inutilizzati (negli ultimi 90 giorni) e gli indici duplicati. Gli indici univoci, inclusi gli indici che supportano i vincoli PRIMARY KEY e Unique, non vengono mai eliminati. Questa opzione può essere disabilitata automaticamente quando nel carico di lavoro sono presenti query con hint di indice oppure quando il carico di lavoro esegue il cambio di partizione. Nei livelli di servizio Premium e business critical, questa opzione non eliminerà mai gli indici inutilizzati, ma eliminerà eventuali indici duplicati. | Sì | No |
 | **Forza ultimo piano valido** (correzione automatica del piano): identifica le query SQL di Azure usando un piano di esecuzione più lento rispetto al piano migliore precedente e le query che usano l'ultimo piano valido noto anziché il piano regressione. | Sì | Sì |
 
 ### <a name="automatic-tuning-for-sql-database"></a>Ottimizzazione automatica per il database SQL
@@ -90,7 +90,7 @@ Per informazioni sulla creazione di notifiche di posta elettronica per le indica
 
 ### <a name="automatic-tuning-for-azure-sql-managed-instance"></a>Ottimizzazione automatica per Istanza gestita SQL di Azure
 
-L'ottimizzazione automatica per SQL Istanza gestita supporta solo **la forza ultimo piano valido**. Per ulteriori informazioni sulla configurazione delle opzioni di ottimizzazione automatica tramite T-SQL, vedere la pagina relativa all' [ottimizzazione automatica introduce la correzione](https://azure.microsoft.com/blog/automatic-tuning-introduces-automatic-plan-correction-and-t-sql-management/) automatica dei piani e la [correzione automatica dei piani](/sql/relational-databases/automatic-tuning/automatic-tuning?view=sql-server-ver15#automatic-plan-correction).
+L'ottimizzazione automatica per SQL Istanza gestita supporta solo **la forza ultimo piano valido**. Per ulteriori informazioni sulla configurazione delle opzioni di ottimizzazione automatica tramite T-SQL, vedere la pagina relativa all' [ottimizzazione automatica introduce la correzione](https://azure.microsoft.com/blog/automatic-tuning-introduces-automatic-plan-correction-and-t-sql-management/) automatica dei piani e la [correzione automatica dei piani](/sql/relational-databases/automatic-tuning/automatic-tuning#automatic-plan-correction).
 
 ## <a name="next-steps"></a>Passaggi successivi
 
