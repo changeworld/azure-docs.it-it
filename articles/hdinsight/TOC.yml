@@ -190,6 +190,8 @@
                   href: ./optimize-hive-ambari.md
                 - name: Ottimizzare Apache Pig
                   href: ./optimize-pig-ambari.md
+            - name: Trovare i nomi host dei nodi del cluster
+              href: ./find-host-name.md
             - name: Riavviare i nodi del cluster
               href: ./cluster-reboot-vm.md
             - name: Usare l'API REST Apache Ambari

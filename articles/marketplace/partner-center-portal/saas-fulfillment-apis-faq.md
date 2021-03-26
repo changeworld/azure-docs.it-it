@@ -4,15 +4,15 @@ description: Informazioni sui requisiti di integrazione per Microsoft Commercial
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 07/11/2019
+ms.date: 03/19/2021
 author: mingshen-ms
 ms.author: mingshen
-ms.openlocfilehash: 4c5d8b438764fa9aa3838b2225c63d412afc519b
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 760e7210d054e44dfec6d6a6e480baecd04d6807
+ms.sourcegitcommit: ed7376d919a66edcba3566efdee4bc3351c57eda
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "88606801"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105044125"
 ---
 # <a name="common-questions-about-saas-fulfillment-apis"></a>Domande frequenti sulle API di evasione SaaS
 
@@ -40,7 +40,10 @@ Quando si sottoscrive l'offerta SaaS, l'utente ha accettato di pagare il consumo
 
 Dopo la sottoscrizione a un'offerta, l'utente di Azure può individuare e gestire tutte le offerte in Azure. Per impostazione predefinita, lo stato di una nuova offerta SaaS sottoscritta viene visualizzato come **provisioning, evasione in sospeso**. In questo stato, all'utente di Azure verrà richiesta un'azione per **configurare l'account**, per passare all'esperienza di gestione delle sottoscrizioni SaaS nell'portale di Azure.
 
-Quando l'utente seleziona **Configura account**, viene reindirizzato al sito Web del servizio SaaS. Il server di pubblicazione ha configurato l'URL al momento della pubblicazione dell'offerta. Questa pagina è indicata come pagina di destinazione dell'editore. Gli utenti di Azure possono accedere alla pagina di destinazione SaaS in base alle credenziali di AAD esistenti in Azure.
+Quando l'utente seleziona **Configura account**, viene reindirizzato al sito Web del servizio SaaS. Il server di pubblicazione ha configurato l'URL al momento della pubblicazione dell'offerta. Questa pagina è indicata come pagina di destinazione dell'editore. Gli utenti di Azure possono accedere alla pagina di destinazione SaaS in base alle credenziali di Azure Active Directory (Azure AD) esistenti in Azure.
+
+> [!IMPORTANT]
+> È necessario accedere all'utente che effettua l'acquisto usando Azure Active Directory, Single Sign-on (Azure AD SSO) come indicato dal [criterio](/legal/marketplace/certification-policies?context=/azure/marketplace/context/context). La `mail` proprietà nella risorsa utente recuperata dall'API Microsoft Graph fornisce le informazioni di contatto per il caso di Azure ad e `userPrincipalName` per MSA. È possibile che il campo "posta elettronica" sia vuoto per Azure AD e che l'utente non abbia registrato un messaggio di posta elettronica. In tal caso, è consigliabile individuarlo e richiedere un messaggio di posta elettronica di contatto. Questa è l'unica possibilità di ricevere un messaggio di posta elettronica di contatto per raggiungere un cliente durante o dopo il processo di onboarding del cliente.
 
 Quando l'utente di Azure viene reindirizzato alla pagina di destinazione, viene aggiunto un token all'URL della query. Questo token è di breve durata e è valido per un periodo di tempo di 24 ore. È quindi possibile rilevare la presenza di questo token e chiamare l'API Microsoft per ottenere un contesto associato al token.
 

@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 02/19/2021
 author: tfitzmac
 ms.author: tomfitz
-ms.openlocfilehash: 1a76f79f31d1f4518c069afb7fccbad5bd22d4e2
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 04aef540bc134e5ec307be6a232ce47f0923e528
+ms.sourcegitcommit: ed7376d919a66edcba3566efdee4bc3351c57eda
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101745295"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105046352"
 ---
 # <a name="manage-the-datadog-resource"></a>Gestire la risorsa Datadog
 
@@ -61,7 +61,7 @@ Per visualizzare l'elenco delle risorse che emettono log in Datadog, selezionare
 I **log di colonna in Datadog** indicano se la risorsa sta inviando log a Datadog. Se la risorsa non invia log, questo campo indica perché i log non vengono inviati a Datadog. I motivi possibili sono:
 
 - La risorsa non supporta l'invio di log. È possibile configurare solo i tipi di risorse con le categorie del log di monitoraggio per inviare i log a Datadog.
-- È stato raggiunto il limite di cinque impostazioni di diagnostica. Ogni risorsa di Azure può avere un massimo di cinque impostazioni di diagnostica. Per altre informazioni, vedere [impostazioni di diagnostica](../../azure-monitor/platform/diagnostic-settings.md).
+- È stato raggiunto il limite di cinque impostazioni di diagnostica. Ogni risorsa di Azure può avere un massimo di cinque impostazioni di diagnostica. Per altre informazioni, vedere [impostazioni di diagnostica](../../azure-monitor/essentials/diagnostic-settings.md).
 - Errore. La risorsa è configurata in modo da inviare i log a Datadog, ma è bloccata da un errore.
 - Log non configurati. Solo le risorse di Azure con i tag di risorse appropriati sono configurate per l'invio di log a Datadog.
 - Area non supportata. La risorsa di Azure si trova in un'area che attualmente non supporta l'invio di log a Datadog.

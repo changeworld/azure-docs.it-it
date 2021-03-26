@@ -5,12 +5,12 @@ services: automation
 ms.subservice: shared-capabilities
 ms.date: 03/10/2021
 ms.topic: conceptual
-ms.openlocfilehash: e41e9af418b08210f5f0f40de9951d03711dc8e7
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
+ms.openlocfilehash: c3d1dfc5d6ea16a128f5f3bc1129f5f50bc9cb61
+ms.sourcegitcommit: ac035293291c3d2962cee270b33fca3628432fac
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102616117"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "104954674"
 ---
 # <a name="management-of-azure-automation-data"></a>Gestione dei dati di Automazione di Azure
 
@@ -56,7 +56,7 @@ La tabella seguente riepiloga i criteri di conservazione per diverse risorse.
 | Report sul nodo |Un report sul nodo viene rimosso definitivamente 90 giorni dopo la generazione di un nuovo report per quel nodo. |
 | Runbook |Una Runbook viene rimossa definitivamente 30 giorni dopo l'eliminazione della risorsa da parte di un utente o 30 giorni dopo l'eliminazione dell'account che include la risorsa<sup>1</sup>. |
 
-<sup>1</sup> Il Runbook può essere recuperato entro la finestra di 30 giorni inviando una richiesta di supporto tecnico di Azure con supporto Microsoft Azure. Accedere al [sito del supporto tecnico di Azure](/support/options) e selezionare **Invia una richiesta di supporto**.
+<sup>1</sup> Il Runbook può essere recuperato entro la finestra di 30 giorni inviando una richiesta di supporto tecnico di Azure con supporto Microsoft Azure. Accedere al [sito del supporto tecnico di Azure](https://azure.microsoft.com/support/options/) e selezionare **Invia una richiesta di supporto**.
 
 ## <a name="data-backup"></a>Backup dei dati
 

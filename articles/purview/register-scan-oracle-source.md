@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: overview
 ms.date: 2/25/2021
-ms.openlocfilehash: 37f6a779e7dd83a6aa61de9850ad3b49b57393f9
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 76aadd667691e12c61e0e5e13c13ca0241a9f0ce
+ms.sourcegitcommit: ed7376d919a66edcba3566efdee4bc3351c57eda
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103010450"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105045502"
 ---
 # <a name="register-and-scan-oracle-source-preview"></a>Registrare e analizzare l'origine Oracle (anteprima)
 
@@ -25,7 +25,7 @@ L'origine Oracle supporta l' **analisi completa** per estrarre i metadati da un 
 ## <a name="prerequisites"></a>Prerequisiti
 
 1.  Configurare il runtime di [integrazione self-hosted](https://www.microsoft.com/download/details.aspx?id=39717)più recente.
-    Per altre informazioni, vedere [creare e configurare un runtime di integrazione self-hosted](https://docs.microsoft.com/azure/data-factory/create-self-hosted-integration-runtime).
+    Per altre informazioni, vedere [creare e configurare un runtime di integrazione self-hosted](../data-factory/create-self-hosted-integration-runtime.md).
 
 2.  Assicurarsi che [JDK 11](https://www.oracle.com/java/technologies/javase-jdk11-downloads.html) sia installato nella macchina virtuale in cui è installato il runtime di integrazione self-hosted.
 
@@ -105,7 +105,7 @@ Nella schermata **registra origini (Oracle)** eseguire le operazioni seguenti:
 
 Per creare ed eseguire una nuova analisi, procedere come segue:
 
-1.  Nel centro di gestione fare clic su Runtime di integrazione. Assicurasi che sia configurato un runtime di integrazione self-hosted. Se non è configurato, attenersi alla procedura descritta di [seguito](https://docs.microsoft.com/azure/purview/manage-integration-runtimes) per creare un runtime di integrazione self-hosted.
+1.  Nel centro di gestione fare clic su Runtime di integrazione. Assicurasi che sia configurato un runtime di integrazione self-hosted. Se non è configurato, attenersi alla procedura descritta di [seguito](./manage-integration-runtimes.md) per creare un runtime di integrazione self-hosted.
 
 2.  Passare a **origini**.
 

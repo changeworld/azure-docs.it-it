@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 03/16/2021
 ms.author: rosouz
 ms.custom: seo-nov-2020
-ms.openlocfilehash: 9a8ecf65426dfe92b84582ff98b567ea400c9209
-ms.sourcegitcommit: a8ff4f9f69332eef9c75093fd56a9aae2fe65122
+ms.openlocfilehash: 450514541a90a01ea6b70f77491f116adb404887
+ms.sourcegitcommit: ed7376d919a66edcba3566efdee4bc3351c57eda
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 03/24/2021
-ms.locfileid: "105027178"
+ms.locfileid: "105046213"
 ---
 # <a name="what-is-azure-cosmos-db-analytical-store"></a>Che cos'è Azure Cosmos DB archivio analitico?
 [!INCLUDE[appliesto-sql-mongodb-api](includes/appliesto-sql-mongodb-api.md)]
@@ -112,8 +112,8 @@ I vincoli seguenti sono applicabili ai dati operativi in Azure Cosmos DB quando 
 
 * Si prevede un comportamento diverso rispetto ai `null` valori espliciti:
   * I pool Spark in sinapsi di Azure leggeranno questi valori come `0` (zero).
-  * I pool SQL senza server in sinapsi di Azure leggeranno questi valori come `NULL` se il primo documento della raccolta avesse, per la stessa proprietà, un valore con un tipo di dati diverso da `integer` .
-  * I pool SQL senza server in Azure sinapsi leggeranno questi valori come `0` (zero) se il primo documento della raccolta ha, per la stessa proprietà, un valore che è un `integer` .
+  * I pool SQL senza server in sinapsi di Azure leggeranno questi valori come `NULL` se il primo documento della raccolta avesse, per la stessa proprietà, un valore con un tipo di dati `non-numeric` .
+  * I pool SQL senza server in Azure sinapsi leggeranno questi valori come `0` (zero) se il primo documento della raccolta ha, per la stessa proprietà, un valore con un `numeric` tipo di dati.
 
 * Si prevede un comportamento diverso rispetto alle colonne mancanti:
   * I pool Spark in sinapsi di Azure rappresenteranno queste colonne come `undefined` .

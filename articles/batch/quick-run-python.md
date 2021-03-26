@@ -7,12 +7,12 @@ ms.custom:
 - seo-python-october2019
 - mvc
 - devx-track-python
-ms.openlocfilehash: e3792a88104c359b014a7a12cf6e48e690c2a865
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: e213ec7aee7172bb5ebb49097ad9fd09f9106255
+ms.sourcegitcommit: ed7376d919a66edcba3566efdee4bc3351c57eda
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "88511015"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105046811"
 ---
 # <a name="quickstart-use-python-api-to-run-an-azure-batch-job"></a>Guida introduttiva: Usare l'API Python per eseguire un processo di Azure Batch
 
@@ -28,7 +28,7 @@ Completando questo argomento di avvio rapido si apprenderanno i concetti di base
 
 - Un account Batch e un account di archiviazione di Azure collegato. Per creare questi account, vedere le guide introduttive di Batch usando il [portale di Azure](quick-create-portal.md) o l'[interfaccia della riga di comando di Azure](quick-create-cli.md).
 
-- [Python](https://python.org/downloads) versione 2.7, 3.3 o successiva, con la gestione pacchetti [pip](https://pip.pypa.io/en/stable/installing/)
+- [Python](https://python.org/downloads) versione 2,7 o 3,6, incluso Gestione pacchetti [PIP](https://pip.pypa.io/en/stable/installing/)
 
 ## <a name="sign-in-to-azure"></a>Accedere ad Azure
 

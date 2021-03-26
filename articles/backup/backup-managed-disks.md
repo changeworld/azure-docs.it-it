@@ -3,19 +3,14 @@ title: Eseguire il backup di Azure Managed Disks
 description: Informazioni su come eseguire il backup di Azure Managed Disks dalla portale di Azure.
 ms.topic: conceptual
 ms.date: 01/07/2021
-ms.openlocfilehash: ca86550c4dec4b51c60d9ecdef124e38783a3764
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: e234495eb483d6d0cc6ca556ca418138c61a99f5
+ms.sourcegitcommit: bed20f85722deec33050e0d8881e465f94c79ac2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98738153"
+ms.lasthandoff: 03/25/2021
+ms.locfileid: "105110628"
 ---
-# <a name="back-up-azure-managed-disks-in-preview"></a>Eseguire il backup di Managed Disks di Azure (in anteprima)
-
->[!IMPORTANT]
->Il backup su disco di Azure è in anteprima senza un contratto di servizio e non è consigliato per i carichi di lavoro di produzione. Per altre informazioni, vedere [Condizioni supplementari per l'utilizzo delle anteprime di Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Per la disponibilità delle aree, vedere la [matrice di supporto](disk-backup-support-matrix.md).
->
->[Compilare questo modulo](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR1vE8L51DIpDmziRt_893LVUNFlEWFJBN09PTDhEMjVHS05UWFkxUlUzUS4u) per iscriversi all'anteprima.
+# <a name="back-up-azure-managed-disks"></a>Eseguire il backup di Azure Managed Disks
 
 Questo articolo illustra come eseguire il backup di [Azure Managed disk](../virtual-machines/managed-disks-overview.md) dal portale di Azure.
 
