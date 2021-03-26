@@ -3,14 +3,14 @@ title: Esecuzione di runbook in Automazione di Azure
 description: Questo articolo fornisce una panoramica dell'elaborazione di manuali operativi in automazione di Azure.
 services: automation
 ms.subservice: process-automation
-ms.date: 10/06/2020
+ms.date: 03/23/2021
 ms.topic: conceptual
-ms.openlocfilehash: ca28d5829689dca46bbf3a94ce7c1591c20cf7b0
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 165c9ea721bec7fc7a1657f5dde5c19d9e254e20
+ms.sourcegitcommit: ac035293291c3d2962cee270b33fca3628432fac
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "100586040"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "104954344"
 ---
 # <a name="runbook-execution-in-azure-automation"></a>Esecuzione di runbook in Automazione di Azure
 
@@ -34,7 +34,8 @@ Il diagramma seguente mostra il ciclo di vita di un processo del runbook per i [
 
 I runbook in Automazione di Azure possono essere eseguiti in una sandbox di Azure o in un [ruolo di lavoro ibrido per runbook](automation-hybrid-runbook-worker.md). 
 
-Quando i runbook vengono progettati per l'autenticazione e l'esecuzione nelle risorse di Azure, vengono eseguiti in una sandbox di Azure, ovvero in un ambiente condiviso che può essere usato da più processi. I processi che usano la stessa sandbox sono vincolati dalle limitazioni di risorse della sandbox. L'ambiente sandbox di Azure non supporta le operazioni interattive. Impedisce l'accesso a tutti i server COM esterni. Richiede anche l'uso di file MOF locali per i runbook che effettuano chiamate Win32.
+Quando i runbook vengono progettati per l'autenticazione e l'esecuzione nelle risorse di Azure, vengono eseguiti in una sandbox di Azure, ovvero in un ambiente condiviso che può essere usato da più processi. I processi che usano la stessa sandbox sono vincolati dalle limitazioni di risorse della sandbox. L'ambiente sandbox di Azure non supporta le operazioni interattive. Impedisce l'accesso a tutti i server COM out-of-process e non supporta l'esecuzione di [chiamate WMI](/windows/win32/wmisdk/wmi-architecture) al provider Win32 nella Runbook.  Questi scenari sono supportati solo eseguendo Runbook in un ruolo di lavoro ibrido per Runbook di Windows.
+
 
 È anche possibile usare un [ruolo di lavoro ibrido per runbook](automation-hybrid-runbook-worker.md) per eseguire i runbook direttamente nel computer che ospita il ruolo e nelle risorse locali dell'ambiente. Automazione di Azure archivia e gestisce i runbook, poi li distribuisce a uno o più computer assegnati.
 

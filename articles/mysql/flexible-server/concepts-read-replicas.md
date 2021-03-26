@@ -1,17 +1,17 @@
 ---
 title: Leggere repliche-database di Azure per MySQL-server flessibile
 description: 'Informazioni sulle repliche di lettura nel database di Azure per MySQL server flessibile: creazione di repliche, connessione alle repliche, monitoraggio della replica e arresto della replica in corso.'
-author: ambhatna
-ms.author: ambhatna
+author: savjani
+ms.author: pariks
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 01/14/2021
-ms.openlocfilehash: fa7cc9b9a09bfd2bc503640272b5e7ac3a0a7b58
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: e51b9667e3bb20a6bd463d3286888085a927f2c0
+ms.sourcegitcommit: bed20f85722deec33050e0d8881e465f94c79ac2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98251302"
+ms.lasthandoff: 03/25/2021
+ms.locfileid: "105109659"
 ---
 # <a name="read-replicas-in-azure-database-for-mysql---flexible-server"></a>Leggere le repliche nel database di Azure per MySQL-server flessibile
 

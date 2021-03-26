@@ -131,6 +131,8 @@
       href: core/concepts-architecture.md
     - name: Guida per sviluppatori di dispositivi
       href: core/overview-iot-central-developer.md
+    - name: Guida al generatore di soluzioni
+      href: core/overview-iot-central-solution-builder.md
     - name: Guida dell'amministratore
       href: core/overview-iot-central-admin.md
     - name: Guida dell'operatore

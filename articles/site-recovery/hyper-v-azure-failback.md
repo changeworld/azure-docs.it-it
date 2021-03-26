@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 09/12/2019
 ms.author: ramamill
-ms.openlocfilehash: a31a28728dd0521262bd0518cc49a385f4314302
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 96c3dce17ab78e08b28bb41c0100e51a72a666e7
+ms.sourcegitcommit: bed20f85722deec33050e0d8881e465f94c79ac2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "87416231"
+ms.lasthandoff: 03/25/2021
+ms.locfileid: "105110254"
 ---
 # <a name="run-a-failback-for-hyper-v-vms"></a>Eseguire il failback per le macchine virtuali Hyper-V
 
@@ -26,7 +26,7 @@ Questo articolo descrive come eseguire il failback di macchine virtuali di Azure
 ## <a name="before-you-start"></a>Prima di iniziare
 
 1. [Esaminare i tipi di failback](failover-failback-overview.md#hyper-v-reprotectionfailback) che è possibile usare: il ripristino nel percorso originale e il ripristino in un percorso alternativo.
-2. Verificare che le macchine virtuali di Azure utilizzino un account di archiviazione e non i dischi gestiti. Il failback delle VM Hyper-V replicate con Managed Disks non è supportato.
+2. Verificare che le macchine virtuali di Azure utilizzino un account di archiviazione e non i dischi gestiti. Il failback di macchine virtuali Hyper-V, che hanno eseguito il failover in computer di Azure con Managed disks, non è supportato.
 3. Verificare che l'host Hyper-V locale (o il server System Center VMM se si usa con Site Recovery) sia in esecuzione e connesso ad Azure. 
 4. Verificare che il failover e il commit siano completi per le macchine virtuali. Non è necessario configurare componenti di Site Recovery specifici per il failback di macchine virtuali Hyper-V da Azure.
 5. Il tempo necessario per completare la sincronizzazione dei dati e avviare la macchina virtuale locale dipende da diversi fattori. Per velocizzare il download dei dati, è possibile configurare l'agente di servizi di ripristino di Microsoft per usare più thread per parallelizzare il download. [Altre informazioni](https://support.microsoft.com/help/3056159/how-to-manage-on-premises-to-azure-protection-network-bandwidth-usage)

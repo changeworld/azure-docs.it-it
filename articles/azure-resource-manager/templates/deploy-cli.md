@@ -3,12 +3,12 @@ title: Distribuire le risorse con l'interfaccia della riga di comando di Azure
 description: Usare Azure Resource Manager e l'interfaccia della riga di comando di Azure per distribuire le risorse in Azure. Le risorse sono definite in un modello di Gestione risorse o in un file bicipite.
 ms.topic: conceptual
 ms.date: 03/04/2021
-ms.openlocfilehash: d0c48a5cf05d6cec495a7a96e181910a0849a1ac
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
+ms.openlocfilehash: 1fc3397409634f29690af05ca2a85e67c30b6d89
+ms.sourcegitcommit: ac035293291c3d2962cee270b33fca3628432fac
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102521697"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "104954973"
 ---
 # <a name="deploy-resources-with-arm-templates-and-azure-cli"></a>Distribuire le risorse con i modelli di Azure Resource Manager e l'interfaccia della riga di comando di Azure
 
@@ -85,7 +85,7 @@ Per il completamento della distribuzione sarà necessario attendere alcuni minut
 ## <a name="deploy-remote-template"></a>Distribuisci modello remoto
 
 > [!NOTE]
-> Attualmente l'interfaccia della riga di comando di Azure non supporta la distribuzione di file bicipiti. Per distribuire un file bicipite remoto, usare l'interfaccia della riga di comando per compilare prima il file bicipite in un modello JSON.
+> Attualmente l'interfaccia della riga di comando di Azure non supporta la distribuzione di file bicipiti. Usare l'interfaccia della riga di comando di [bicipite](./bicep-install.md#development-environment) per compilare il file bicipite in un modello JSON e quindi caricare il file JSON nel percorso remoto.
 
 Anziché archiviare i modelli ARM nel computer locale, è preferibile archiviarli in una posizione esterna. ad esempio in un repository di controllo del codice sorgente come GitHub. È possibile, in alternativa, archiviarli in un account di archiviazione di Azure per consentire l'accesso condiviso nell'organizzazione.
 

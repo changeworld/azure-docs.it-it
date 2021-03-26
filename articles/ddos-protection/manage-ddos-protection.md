@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/17/2019
 ms.author: kumud
-ms.openlocfilehash: 336eeee7d522647d11f55a65dc9dc4e65e8b7d47
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: d0b2ccc0bf5d38e9a72bf780875d3b6f29733189
+ms.sourcegitcommit: a8ff4f9f69332eef9c75093fd56a9aae2fe65122
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "100535238"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105026752"
 ---
 # <a name="quickstart-create-and-configure-azure-ddos-protection-standard"></a>Guida introduttiva: creare e configurare la protezione DDoS di Azure standard
 
@@ -112,7 +112,7 @@ In **risorse protette** è possibile visualizzare le reti virtuali e gli indiriz
 Per disabilitare la protezione DDoS per una rete virtuale: 
 
 1. Immettere il nome della rete virtuale per la quale si vuole disabilitare la protezione DDoS standard nella casella **Cerca risorse, servizi e documentazione** nella parte superiore del portale. Quando il nome della rete virtuale viene visualizzato nei risultati della ricerca, selezionarlo.
-2. Selezionare **in protezione DDoS standard**, selezionare **Disabilita**.
+2. In **protezione DDoS standard** selezionare **Disabilita**.
 
 Se si vuole eliminare un piano di protezione DDoS, è necessario innanzitutto annullare l'associazione di tutte le reti virtuali. 
 

@@ -1,15 +1,15 @@
 ---
 title: Dettagli di conformità alle normative per 1.3.0 di base di CIS Microsoft Azure Foundation
 description: Dettagli del 1.3.0 di base di riferimento per la conformità alle normative di Microsoft Azure CIS. Ogni controllo viene mappato a una o più definizioni di Criteri di Azure che assistono nella valutazione.
-ms.date: 03/17/2021
+ms.date: 03/24/2021
 ms.topic: sample
 ms.custom: generated
-ms.openlocfilehash: 9c268e1146b61656ec3a98153c9bd9060075c93d
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: e359ae66e8dc34032e365af360020844ec8f66b8
+ms.sourcegitcommit: bb330af42e70e8419996d3cba4acff49d398b399
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104604730"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105032481"
 ---
 # <a name="details-of-the-cis-microsoft-azure-foundations-benchmark-130-regulatory-compliance-built-in-initiative"></a>Dettagli del 1.3.0 di base di riferimento per la conformità alle normative di Microsoft Azure CIS
 
@@ -217,7 +217,7 @@ Quindi, trovare e selezionare il **sid Microsoft Azure Foundations benchmark 1.3
 
 |Nome<br /><sub>(Portale di Azure)</sub> |Descrizione |Effetto/i |Versione<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
-|[SQL Server deve conservare i dati di controllo per almeno 90 giorni](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F89099bee-89e0-4b26-a5f4-165451757743) |Per finalità di analisi degli eventi imprevisti, è consigliabile impostare la conservazione dei dati per i dati di controllo di SQL Server su almeno 90 giorni. Verificare che le regole di conservazione necessarie per le aree in cui si opera siano rispettate. Questa operazione è talvolta necessaria per la conformità agli standard normativi. |AuditIfNotExists, Disabled |[2.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/SQL/SqlServerAuditingRetentionDays_Audit.json) |
+|[I server SQL con controllo per la destinazione dell'account di archiviazione devono essere configurati con una conservazione di 90 giorni o superiore](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F89099bee-89e0-4b26-a5f4-165451757743) |Per finalità di analisi degli eventi imprevisti, è consigliabile impostare la conservazione dei dati per il controllo del SQL Server per la destinazione dell'account di archiviazione su almeno 90 giorni. Verificare di soddisfare le regole di conservazione necessarie per le aree in cui si opera. Questa operazione è talvolta necessaria per la conformità agli standard normativi. |AuditIfNotExists, Disabled |[3.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/SQL/SqlServerAuditingRetentionDays_Audit.json) |
 
 ### <a name="ensure-that-advanced-threat-protection-atp-on-a-sql-server-is-set-to-enabled"></a>Assicurarsi che Advanced Threat Protection (ATP) in un server SQL sia impostato su' Enabled '
 

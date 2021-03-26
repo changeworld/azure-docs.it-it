@@ -4,16 +4,16 @@ description: Comprendere la pianificazione di una distribuzione di File di Azure
 author: roygara
 ms.service: storage
 ms.topic: conceptual
-ms.date: 09/15/2020
+ms.date: 03/23/2021
 ms.author: rogarana
 ms.subservice: files
 ms.custom: references_regions
-ms.openlocfilehash: 8a96b44a280e0aea15a6d0843f02f4ed16f8fcf4
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 267b68fbdae6d894acc3222a8d74a8e15e865dbc
+ms.sourcegitcommit: a8ff4f9f69332eef9c75093fd56a9aae2fe65122
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98879848"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105023521"
 ---
 # <a name="planning-for-an-azure-files-deployment"></a>Pianificazione per la distribuzione dei file di Azure
 [File di Azure](storage-files-introduction.md) può essere distribuito in due modi principali: montando direttamente le condivisioni file di Azure senza server o memorizzando nella cache le condivisioni file di Azure in locale usando sincronizzazione file di Azure. L'opzione di distribuzione scelta cambia gli elementi che è necessario prendere in considerazione durante la pianificazione della distribuzione. 
@@ -65,7 +65,7 @@ Sebbene dal punto di vista tecnico, è molto più semplice montare le condivisio
 
 - **Tunneling di rete con ExpressRoute, da sito a sito o VPN da punto a sito**: il tunneling in una rete virtuale consente l'accesso alle condivisioni file di Azure dall'ambiente locale, anche se la porta 445 è bloccata.
 - **Endpoint privati**: gli endpoint privati assegnano all'account di archiviazione un indirizzo IP dedicato dallo spazio degli indirizzi della rete virtuale. Questo consente il tunneling di rete senza la necessità di aprire reti locali fino a tutti gli intervalli di indirizzi IP di proprietà dei cluster di archiviazione di Azure. 
-- **Inoltri DNS**: configurare il DNS locale per risolvere il nome dell'account di archiviazione, ad esempio `storageaccount.file.core.windows.net` per le aree del cloud pubblico, per risolvere l'indirizzo IP degli endpoint privati.
+- **Inoltri DNS**: configurare il DNS locale per risolvere il nome dell'account di archiviazione ( `storageaccount.file.core.windows.net` per le aree del cloud pubblico) per risolvere l'indirizzo IP degli endpoint privati.
 
 Per pianificare la rete associata alla distribuzione di una condivisione file di Azure, vedere [file di Azure considerazioni sulla rete](storage-files-networking-overview.md).
 
@@ -94,7 +94,7 @@ File di Azure offre un approccio a più livelli per garantire che i dati vengano
 ### <a name="soft-delete"></a>Eliminazione temporanea
 L'eliminazione temporanea per le condivisioni file (anteprima) è un'impostazione a livello di account di archiviazione che consente di ripristinare la condivisione file quando viene accidentalmente eliminata. Quando viene eliminata, una condivisione file passa a uno stato di eliminazione temporanea anziché essere cancellata definitivamente. È possibile configurare la quantità di tempo durante il quale i dati eliminati temporaneamente sono ripristinabili prima che vengano eliminati definitivamente ed eliminare la condivisione in qualsiasi momento durante questo periodo di conservazione. 
 
-È consigliabile attivare l'eliminazione temporanea per la maggior parte delle condivisioni file. Se si dispone di un flusso di lavoro in cui l'eliminazione della condivisione è comune e prevista, è possibile che si disponga di un periodo di conservazione molto breve o che l'eliminazione temporanea non sia abilitata.
+È consigliabile attivare l'eliminazione temporanea per la maggior parte delle condivisioni file. Se si dispone di un flusso di lavoro in cui l'eliminazione della condivisione è comune e prevista, è possibile che si decida di avere un periodo di conservazione breve o che l'eliminazione temporanea non sia abilitata.
 
 Per altre informazioni sull'eliminazione temporanea, vedere [impedire l'eliminazione accidentale di dati](./storage-files-prevent-file-share-deletion.md).
 
@@ -107,10 +107,10 @@ Per altre informazioni sull'eliminazione temporanea, vedere [impedire l'eliminaz
 
 Per ulteriori informazioni sul backup, vedere [informazioni sul backup di condivisioni file di Azure](../../backup/azure-file-share-backup-overview.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json).
 
-### <a name="advanced-threat-protection-for-azure-files-preview"></a>Advanced Threat Protection per File di Azure (anteprima)
-Advanced Threat Protection (ATP) per archiviazione di Azure offre un ulteriore livello di intelligence per la sicurezza che fornisce avvisi quando rileva attività anomale nell'account di archiviazione, ad esempio tentativi insoliti di accedere all'account di archiviazione. ATP esegue anche l'analisi della reputazione di hash malware e avvisa su malware noto. È possibile configurare ATP a livello di sottoscrizione o di account di archiviazione tramite il Centro sicurezza di Azure. 
+### <a name="azure-defender-for-azure-files"></a>Azure Defender per File di Azure 
+Azure Defender per archiviazione di Azure (in precedenza Advanced Threat Protection per archiviazione di Azure) fornisce un ulteriore livello di intelligence per la sicurezza che fornisce avvisi quando rileva attività anomale nell'account di archiviazione, ad esempio tentativi di accesso insoliti. Esegue anche l'analisi della reputazione di hash di malware e avvisi su malware noto. È possibile configurare Azure Defender a livello di sottoscrizione o di account di archiviazione tramite il Centro sicurezza di Azure. 
 
-Per altre informazioni, vedere [Advanced Threat Protection per archiviazione di Azure](../common/azure-defender-storage-configure.md).
+Per altre informazioni, vedere [Introduzione ad Azure Defender per l'archiviazione](../../security-center/defender-for-storage-introduction.md).
 
 ## <a name="storage-tiers"></a>Livelli di archiviazione
 [!INCLUDE [storage-files-tiers-overview](../../../includes/storage-files-tiers-overview.md)]

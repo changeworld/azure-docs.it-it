@@ -10,12 +10,12 @@ ms.date: 03/10/2021
 ms.topic: include
 ms.custom: include file
 ms.author: mikben
-ms.openlocfilehash: 127031479d7ef414298d3096ebef814df1fe9a18
-ms.sourcegitcommit: a8ff4f9f69332eef9c75093fd56a9aae2fe65122
+ms.openlocfilehash: 7e4ffb800a65a9a1e436e50921e9c7f76f02b571
+ms.sourcegitcommit: bed20f85722deec33050e0d8881e465f94c79ac2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/24/2021
-ms.locfileid: "105027920"
+ms.lasthandoff: 03/25/2021
+ms.locfileid: "105107042"
 ---
 ## <a name="prerequisites"></a>Prerequisiti
 Prima di iniziare, assicurarsi di:
@@ -43,7 +43,7 @@ dotnet build
 
 ### <a name="install-the-package"></a>Installare il pacchetto
 
-Installare la libreria client di chat per la comunicazione di Azure per .NET
+Installare Azure Communication Chat SDK per .NET
 
 ```PowerShell
 dotnet add package Azure.Communication.Chat --version 1.0.0-beta.5
@@ -51,7 +51,7 @@ dotnet add package Azure.Communication.Chat --version 1.0.0-beta.5
 
 ## <a name="object-model"></a>Modello a oggetti
 
-Le classi seguenti gestiscono alcune delle principali funzionalità della libreria client di chat di Servizi di comunicazione di Azure per C#.
+Le classi seguenti gestiscono alcune delle principali funzionalità di Azure Communication Services Chat SDK per C#.
 
 | Nome                                  | Descrizione                                                  |
 | ------------------------------------- | ------------------------------------------------------------ |
@@ -60,7 +60,7 @@ Le classi seguenti gestiscono alcune delle principali funzionalità della librer
 
 ## <a name="create-a-chat-client"></a>Creare un client di chat
 
-Per creare un client di chat, è necessario usare l'endpoint di servizi di comunicazione e il token di accesso generato nell'ambito dei passaggi dei prerequisiti. È necessario usare la `CommunicationIdentityClient` classe dalla libreria client di identità per creare un utente ed emettere un token da passare al client di chat.
+Per creare un client di chat, è necessario usare l'endpoint di servizi di comunicazione e il token di accesso generato nell'ambito dei passaggi dei prerequisiti. È necessario usare la `CommunicationIdentityClient` classe di Identity SDK per creare un utente ed emettere un token da passare al client di chat.
 
 Vedere altre informazioni sui [token di accesso utente](../../access-tokens.md).
 

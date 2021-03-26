@@ -4,16 +4,16 @@ description: Informazioni su come abilitare la funzionalità di eliminazione tem
 author: roygara
 ms.service: storage
 ms.topic: how-to
-ms.date: 12/01/2020
+ms.date: 03/23/2021
 ms.author: rogarana
 ms.subservice: files
 services: storage
-ms.openlocfilehash: 77381700f4257006b50e56ab7ffc037ef99d297c
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 13e6668337b82ea4be86eadcbc6f7797a72771c6
+ms.sourcegitcommit: a8ff4f9f69332eef9c75093fd56a9aae2fe65122
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102218554"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105023484"
 ---
 # <a name="enable-soft-delete-on-azure-file-shares"></a>Abilitare l'eliminazione temporanea in condivisioni file di Azure
 
@@ -26,16 +26,16 @@ Le sezioni seguenti illustrano come abilitare e usare l'eliminazione temporanea 
 ## <a name="getting-started"></a>Introduzione
 
 1. Accedere al [portale di Azure](https://portal.azure.com/).
-1. Passare all'account di archiviazione e selezionare **Eliminazione temporanea** in **Servizio file**.
-1. Per **Eliminazione temporanea della condivisione file**, selezionare **Abilitata**.
+1. Passare all'account di archiviazione e selezionare **condivisioni file** in **servizio file**.
+1. Selezionare **abilitato** per l' **eliminazione temporanea per tutte le condivisioni file**.
 1. Selezionare **Periodo di conservazione della condivisione file in giorni** e immettere una scelta numerica.
 1. Selezionare **Salva** per confermare le impostazioni di conservazione dei dati.
 
-:::image type="content" source="media/storage-how-to-recover-deleted-account/enable-soft-delete-files.png" alt-text="Screenshot del riquadro impostazioni di eliminazione temporanea dell'account di archiviazione. Evidenziando la sezione relativa alle condivisioni, abilitare l'opzione di attivazione, impostare un periodo di conservazione e salvarlo. Questa operazione consentirà l'eliminazione temporanea per tutte le condivisioni file nell'account di archiviazione.":::
+:::image type="content" source="media/storage-how-to-recover-deleted-account/enable-soft-delete-files.png" alt-text="Screenshot del riquadro impostazioni di eliminazione temporanea dell'account di archiviazione. Evidenziando la sezione relativa all'eliminazione temporanea delle condivisioni file, abilitare l'opzione Attiva/disattivazione, impostare un periodo di memorizzazione e salvarlo. Questa operazione consentirà l'eliminazione temporanea per tutte le condivisioni file nell'account di archiviazione.":::
 
 # <a name="azure-cli"></a>[Interfaccia della riga di comando di Azure](#tab/azure-cli)
 
-I cmdlet per l'eliminazione temporanea sono disponibili nella versione 2.1.3 e successive del [modulo dell'interfaccia](/cli/azure/install-azure-cli)della riga di comando di Azure.
+I cmdlet per l'eliminazione temporanea sono disponibili nella versione 2.1.3 e successive del [modulo dell'interfaccia](/cli/azure/install-azure-cli?view=azure-cli-latest)della riga di comando di Azure.
 
 ## <a name="getting-started-with-cli"></a>Introduzione all'interfaccia della riga di comando
 
@@ -125,12 +125,12 @@ Restore-AzRmStorageShare -ResourceGroupName $rgname -StorageAccountName $account
 
 ## <a name="disable-soft-delete"></a>Disabilitare l'eliminazione temporanea
 
-Per interrompere l'uso dell'eliminazione temporanea o eliminare definitivamente una condivisione file, procedere come segue:
+Se si vuole interrompere l'uso dell'eliminazione temporanea, seguire queste istruzioni. Per eliminare definitivamente una condivisione file che è stata eliminata temporaneamente, è necessario annullarne l'eliminazione, disabilitare l'eliminazione temporanea ed eliminarla nuovamente. 
 
 # <a name="portal"></a>[Portale](#tab/azure-portal)
 
-1. Passare all'account di archiviazione e selezionare **Eliminazione temporanea** in **Impostazioni**.
-1. In **Condivisioni file**, selezionare **Disabilitata** per **Eliminazione temporanea per le condivisioni file**.
+1. Passare all'account di archiviazione e selezionare **condivisioni file** in **servizio file**.
+1. Selezionare **disabled** for **soft delete per tutte le condivisioni file**.
 1. Selezionare **Salva** per confermare le impostazioni di conservazione dei dati.
 
     :::image type="content" source="media/storage-how-to-recover-deleted-account/disable-soft-delete-files.png" alt-text="Se si disabilita l'eliminazione temporanea, sarà possibile eliminare immediatamente e definitivamente tutte le condivisioni file nell'account di archiviazione.":::

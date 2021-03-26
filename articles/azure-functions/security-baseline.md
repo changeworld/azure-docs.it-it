@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 02/17/2021
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 4fd53067309f83b284da25040f9f6534936cead9
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 8f19e25e01e0c5fcdb5b2aa4db29ebe29fd7b5e3
+ms.sourcegitcommit: a8ff4f9f69332eef9c75093fd56a9aae2fe65122
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101704636"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105025391"
 ---
 # <a name="azure-security-baseline-for-azure-functions"></a>Baseline della sicurezza di Azure per funzioni di Azure
 
@@ -72,7 +72,7 @@ Assicurarsi inoltre che il debug remoto sia stato disabilitato per le funzioni d
 
 Prendere in considerazione la distribuzione di Web Application Firewall (WAF) di Azure come parte della configurazione di rete per un ulteriore controllo del traffico in ingresso. Abilitare l'impostazione di diagnostica per WAF e inserire i log in un account di archiviazione, un hub eventi o un'area di lavoro Log Analytics. 
 
-- [Come proteggere gli endpoint di funzioni di Azure nell'ambiente di produzione](https://docs.microsoft.com/azure/azure-functions/functions-bindings-http-webhook-trigger?tabs=csharp#secure-an-http-endpoint-in-production)
+- [Come proteggere gli endpoint di funzioni di Azure nell'ambiente di produzione](./functions-bindings-http-webhook-trigger.md?tabs=csharp#secure-an-http-endpoint-in-production)
 
 - [Come distribuire Azure WAF](../web-application-firewall/ag/create-waf-policy-ag.md)
 
@@ -132,7 +132,7 @@ In alternativa, esistono più opzioni del Marketplace come il Web Application Fi
 
 - [Uso di endpoint privati per funzioni di Azure](../app-service/networking/private-endpoint.md)
 
-- [Informazioni su Barracuda WAF Cloud Service](https://docs.microsoft.com/azure/app-service/environment/app-service-app-service-environment-web-application-firewall#configuring-your-barracuda-waf-cloud-service)
+- [Informazioni su Barracuda WAF Cloud Service](../app-service/environment/app-service-app-service-environment-web-application-firewall.md#configuring-your-barracuda-waf-cloud-service)
 
 **Responsabilità**: Customer
 
@@ -208,9 +208,9 @@ Usare una delle definizioni di criteri di Azure predefinite correlate all'assegn
 
 **Linee guida**: usare il log attività di Azure per monitorare le configurazioni delle risorse di rete e rilevare le modifiche per le impostazioni di rete e le risorse correlate alle distribuzioni di funzioni di Azure. Creare avvisi in monitoraggio di Azure che si attiveranno quando si verificano modifiche alle impostazioni o alle risorse di rete critiche. 
 
-- [Come visualizzare e recuperare gli eventi del log attività di Azure](/azure/azure-monitor/platform/activity-log#view-the-activity-log)
+- [Come visualizzare e recuperare gli eventi del log attività di Azure](../azure-monitor/essentials/activity-log.md#view-the-activity-log)
 
-- [Come creare avvisi in Monitoraggio di Azure](/azure/azure-monitor/platform/alerts-activity-log)
+- [Come creare avvisi in Monitoraggio di Azure](../azure-monitor/alerts/alerts-activity-log.md)
 
 **Responsabilità**: Customer
 
@@ -230,7 +230,7 @@ Se nell'app per le funzioni è incorporata la registrazione di sicurezza/control
 
 Facoltativamente, è possibile abilitare e caricare i dati in Sentinel di Azure o in una soluzione di gestione degli eventi e delle informazioni di sistema di terze parti. 
 
-- [Come abilitare le impostazioni di diagnostica per il log attività di Azure](/azure/azure-monitor/platform/activity-log)
+- [Come abilitare le impostazioni di diagnostica per il log attività di Azure](../azure-monitor/essentials/activity-log.md)
 
 - [Come configurare funzioni di Azure con applicazione Azure Insights](functions-monitoring.md)
 
@@ -248,7 +248,7 @@ Facoltativamente, è possibile abilitare e caricare i dati in Sentinel di Azure 
 
 Se nell'app per le funzioni è incorporata la registrazione di sicurezza/controllo personalizzata, abilitare l'impostazione di diagnostica "FunctionAppLogs" e inviare i log a un'area di lavoro Log Analytics, a hub eventi di Azure o a un account di archiviazione di Azure per l'archiviazione. 
 
-- [Come abilitare le impostazioni di diagnostica per il log attività di Azure](/azure/azure-monitor/platform/activity-log)
+- [Come abilitare le impostazioni di diagnostica per il log attività di Azure](../azure-monitor/essentials/activity-log.md)
 
 - [Come abilitare le impostazioni di diagnostica (log generati dall'utente) per funzioni di Azure](functions-monitor-log-analytics.md)
 
@@ -272,7 +272,7 @@ Se nell'app per le funzioni è incorporata la registrazione di sicurezza/control
 
 **Linee guida**: in monitoraggio di Azure impostare il periodo di conservazione del log per le aree di lavoro log Analytics associate alle app per le funzioni in base alle normative di conformità dell'organizzazione.
 
-- [Come impostare i parametri di conservazione dei log](/azure/azure-monitor/platform/manage-cost-storage#change-the-data-retention-period)
+- [Come impostare i parametri di conservazione dei log](../azure-monitor/logs/manage-cost-storage.md#change-the-data-retention-period)
 
 **Responsabilità**: Customer
 
@@ -288,7 +288,7 @@ Se nell'app per le funzioni è incorporata la registrazione di sicurezza/control
 
 Facoltativamente, è possibile abilitare e caricare i dati in Sentinel di Azure o in una soluzione di gestione degli eventi e delle informazioni di sistema di terze parti.
 
-- [Come abilitare le impostazioni di diagnostica per il log attività di Azure](/azure/azure-monitor/platform/activity-log)
+- [Come abilitare le impostazioni di diagnostica per il log attività di Azure](../azure-monitor/essentials/activity-log.md)
 
 - [Come abilitare le impostazioni di diagnostica per funzioni di Azure](functions-monitor-log-analytics.md)
 
@@ -308,11 +308,11 @@ Abilitare Application Insights per le app per le funzioni per raccogliere dati d
 
 Facoltativamente, è possibile abilitare e caricare i dati in Sentinel di Azure o in una soluzione di gestione degli eventi e delle informazioni di sistema di terze parti.
 
-- [Come abilitare le impostazioni di diagnostica per il log attività di Azure](/azure/azure-monitor/platform/activity-log)
+- [Come abilitare le impostazioni di diagnostica per il log attività di Azure](../azure-monitor/essentials/activity-log.md)
 
 - [Come abilitare le impostazioni di diagnostica per funzioni di Azure](functions-monitor-log-analytics.md)
 
-- [Come abilitare Application Insights per funzioni di Azure](https://docs.microsoft.com/azure/azure-functions/configure-monitoring#enable-application-insights-integration)
+- [Come abilitare Application Insights per funzioni di Azure](./configure-monitoring.md#enable-application-insights-integration)
 
 **Responsabilità**: Customer
 
@@ -326,9 +326,9 @@ Facoltativamente, è possibile abilitare e caricare i dati in Sentinel di Azure 
 
 **Linee guida**: Azure Active Directory (Azure ad) include ruoli predefiniti che devono essere assegnati in modo esplicito e possono essere sottoposte a query. Usare il modulo Azure AD PowerShell per eseguire query ad hoc per individuare gli account che sono membri di gruppi amministrativi.
 
-- [Come ottenere un ruolo della directory in Azure AD con PowerShell](https://docs.microsoft.com/powershell/module/azuread/get-azureaddirectoryrole?view=azureadps-2.0&amp;preserve-view=true)
+- [Come ottenere un ruolo della directory in Azure AD con PowerShell](/powershell/module/azuread/get-azureaddirectoryrole?preserve-view=true&view=azureadps-2.0)
 
-- [Come ottenere i membri di un ruolo della directory in Azure AD con PowerShell](https://docs.microsoft.com/powershell/module/azuread/get-azureaddirectoryrolemember?view=azureadps-2.0&amp;preserve-view=true)
+- [Come ottenere i membri di un ruolo della directory in Azure AD con PowerShell](/powershell/module/azuread/get-azureaddirectoryrolemember?preserve-view=true&view=azureadps-2.0)
 
 **Responsabilità**: Customer
 
@@ -342,9 +342,9 @@ L'accesso al piano dati può essere controllato tramite diversi mezzi, incluse l
 
 Sono disponibili più metodi di distribuzione per le app per le funzioni, alcune delle quali possono sfruttare un set di credenziali generate. Esaminare i metodi di distribuzione che verranno usati per l'applicazione.
 
-- [Proteggere un endpoint HTTP](https://docs.microsoft.com/azure/azure-functions/functions-bindings-http-webhook-trigger?tabs=csharp#secure-an-http-endpoint-in-production)
+- [Proteggere un endpoint HTTP](./functions-bindings-http-webhook-trigger.md?tabs=csharp#secure-an-http-endpoint-in-production)
 
-- [Come ottenere e rigenerare le chiavi di autorizzazione](https://docs.microsoft.com/azure/azure-functions/functions-bindings-http-webhook-trigger?tabs=csharp#obtaining-keys)
+- [Come ottenere e rigenerare le chiavi di autorizzazione](./functions-bindings-http-webhook-trigger.md?tabs=csharp#obtaining-keys)
 
 - [Tecnologie di distribuzione in funzioni di Azure](functions-deployment-technologies.md)
 
@@ -378,7 +378,7 @@ Ulteriori informazioni sono disponibili in collegamenti a cui si fa riferimento.
 
 **Linee guida**: laddove possibile, usare Azure Active Directory (Azure ad) SSO anziché configurare singole credenziali autonome per l'accesso ai dati all'app per le funzioni. Usare le raccomandazioni sulla gestione delle identità e dell'accesso del Centro sicurezza di Azure. Implementare Single Sign-On per le app per le funzioni usando la funzionalità di autenticazione/autorizzazione del servizio app.
 
-- [Informazioni sull'autenticazione e l'autorizzazione in funzioni di Azure](https://docs.microsoft.com/azure/app-service/overview-authentication-authorization#identity-providers)
+- [Informazioni sull'autenticazione e l'autorizzazione in funzioni di Azure](../app-service/overview-authentication-authorization.md#identity-providers)
 
 - [Informazioni su SSO con Azure AD](../active-directory/manage-apps/what-is-single-sign-on.md)
 
@@ -450,7 +450,7 @@ Inoltre, usare i rilevamenti di rischi di Azure AD per visualizzare gli avvisi e
 
 Materiale sussidiario **: Azure Active Directory**(Azure ad) fornisce log che consentono di individuare gli account obsoleti. Usare inoltre le verifiche di accesso alle identità di Azure per gestire in modo efficiente l'appartenenza ai gruppi, l'accesso alle applicazioni aziendali e le assegnazioni di ruolo. È possibile verificare regolarmente l'accesso degli utenti per assicurarsi che solo le persone appropriate dispongano di accesso continuo.
 
-- [Informazioni sulla creazione di report Azure AD](/azure/active-directory/reports-monitoring/)
+- [Informazioni sulla creazione di report Azure AD](../active-directory/reports-monitoring/index.yml)
 
 - [Come usare le verifiche di accesso alle identità di Azure](../active-directory/governance/access-reviews-overview.md)
 
@@ -468,7 +468,7 @@ Materiale sussidiario **: Azure Active Directory**(Azure ad) fornisce log che co
 
 - [Come configurare l'app per le funzioni per l'uso di Azure AD account di accesso](../app-service/configure-authentication-provider-aad.md)
 
-- [Come integrare i log attività di Azure in Monitoraggio di Azure](/azure/active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics)
+- [Come integrare i log attività di Azure in Monitoraggio di Azure](../active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics.md)
 
 - [Come caricare dati in Azure Sentinel](../sentinel/quickstart-onboard.md)
 
@@ -532,7 +532,7 @@ Materiale sussidiario **: Azure Active Directory**(Azure ad) fornisce log che co
 
 **Indicazioni**: nella portale di Azure per le app per le funzioni, in "funzionalità piattaforma: rete: SSL", abilitare l'impostazione "solo HTTPS" e impostare la versione minima di TLS su 1,2.
 
-- [Richiedi HTTPS nelle app per le funzioni](https://docs.microsoft.com/azure/azure-functions/security-concepts#require-https)
+- [Richiedi HTTPS nelle app per le funzioni](./security-concepts.md#require-https)
 
 **Responsabilità**: Customer
 
@@ -592,7 +592,7 @@ Microsoft gestisce l'infrastruttura sottostante per funzioni di Azure e ha imple
 
 **Linee guida**: usare monitoraggio di Azure con il log attività di Azure per creare avvisi per le modifiche apportate alle app per le funzioni di produzione e ad altre risorse critiche o correlate.
 
-- [Come creare avvisi per gli eventi del log attività di Azure](/azure/azure-monitor/platform/alerts-activity-log)
+- [Come creare avvisi per gli eventi del log attività di Azure](../azure-monitor/alerts/alerts-activity-log.md)
 
 **Responsabilità**: Customer
 
@@ -608,7 +608,7 @@ Microsoft gestisce l'infrastruttura sottostante per funzioni di Azure e ha imple
 
 Inoltre, seguire le raccomandazioni del Centro sicurezza di Azure per proteggere le app per le funzioni.
 
-- [Come aggiungere la convalida della sicurezza continua alla pipeline CI/CD](https://docs.microsoft.com/azure/devops/migrate/security-validation-cicd-pipeline?view=azure-devops&amp;preserve-view=true)
+- [Come aggiungere la convalida della sicurezza continua alla pipeline CI/CD](/azure/devops/migrate/security-validation-cicd-pipeline?preserve-view=true&view=azure-devops)
 
 - [Come implementare le raccomandazioni per la valutazione della vulnerabilità del Centro sicurezza di Azure](../security-center/deploy-vulnerability-assessment-vm.md)
 
@@ -638,7 +638,7 @@ Sebbene le risorse di Azure (versione classica) possano essere individuate trami
 
 - [Come creare query con Azure Resource Graph](../governance/resource-graph/first-query-portal.md)
 
-- [Come visualizzare le sottoscrizioni di Azure](https://docs.microsoft.com/powershell/module/az.accounts/get-azsubscription?view=azps-4.8.0&amp;preserve-view=true)
+- [Come visualizzare le sottoscrizioni di Azure](/powershell/module/az.accounts/get-azsubscription?preserve-view=true&view=azps-4.8.0)
 
 - [Informazioni sul controllo degli accessi in base al ruolo di Azure](../role-based-access-control/overview.md)
 
@@ -712,7 +712,7 @@ Ulteriori informazioni sono disponibili in collegamenti a cui si fa riferimento.
 
 - [Come configurare e gestire Criteri di Azure](../governance/policy/tutorials/create-and-manage.md)
 
-- [Come negare un tipo di risorsa specifico con Criteri di Azure](https://docs.microsoft.com/azure/governance/policy/samples/built-in-policies#general)
+- [Come negare un tipo di risorsa specifico con Criteri di Azure](../governance/policy/samples/built-in-policies.md#general)
 
 **Responsabilità**: Customer
 
@@ -744,7 +744,7 @@ Ulteriori informazioni sono disponibili in collegamenti a cui si fa riferimento.
 
 Ulteriori informazioni sono disponibili in collegamenti a cui si fa riferimento.
 
-- [Come visualizzare gli alias di Criteri di Azure disponibili](https://docs.microsoft.com/powershell/module/az.resources/get-azpolicyalias?view=azps-4.8.0&amp;preserve-view=true)
+- [Come visualizzare gli alias di Criteri di Azure disponibili](/powershell/module/az.resources/get-azpolicyalias?preserve-view=true&view=azps-4.8.0)
 
 - [Come configurare e gestire Criteri di Azure](../governance/policy/tutorials/create-and-manage.md)
 
@@ -772,9 +772,9 @@ Ulteriori informazioni sono disponibili in collegamenti a cui si fa riferimento.
 
 - [Criteri di progettazione come flussi di lavoro di codice](../governance/policy/concepts/policy-as-code.md)
 
-- [Come archiviare il codice in Azure DevOps](https://docs.microsoft.com/azure/devops/repos/git/gitworkflow?view=azure-devops&amp;preserve-view=true)
+- [Come archiviare il codice in Azure DevOps](/azure/devops/repos/git/gitworkflow?preserve-view=true&view=azure-devops)
 
-- [Documentazione di Azure Repos](https://docs.microsoft.com/azure/devops/repos/?view=azure-devops&amp;preserve-view=true)
+- [Documentazione di Azure Repos](/azure/devops/repos/?preserve-view=true&view=azure-devops)
 
 **Responsabilità**: Customer
 
@@ -854,11 +854,11 @@ Usare anche una soluzione di controllo del codice sorgente, ad esempio Azure Rep
 
 - [Eseguire il backup dell'app in Azure](../app-service/manage-backup.md)
 
-- [Informazioni sulla disponibilità dei dati in Azure DevOps](https://docs.microsoft.com/azure/devops/organizations/security/data-protection?view=azure-devops#data-availability&amp;preserve-view=true)
+- [Informazioni sulla disponibilità dei dati in Azure DevOps](/azure/devops/organizations/security/data-protection?preserve-view=true&view=azure-devops#data-availability)
 
-- [Come archiviare il codice in Azure DevOps](https://docs.microsoft.com/azure/devops/repos/git/gitworkflow?view=azure-devops&amp;preserve-view=true)
+- [Come archiviare il codice in Azure DevOps](/azure/devops/repos/git/gitworkflow?preserve-view=true&view=azure-devops)
 
-- [Documentazione di Azure Repos](https://docs.microsoft.com/azure/devops/repos/?view=azure-devops&amp;preserve-view=true)
+- [Documentazione di Azure Repos](/azure/devops/repos/?preserve-view=true&view=azure-devops)
 
 **Responsabilità**: Customer
 
@@ -874,11 +874,11 @@ Usare anche una soluzione di controllo del codice sorgente, ad esempio Azure Rep
 
 - [Come eseguire il backup di chiavi di Key Vault](/powershell/module/azurerm.keyvault/backup-azurekeyvaultkey)
 
-- [Informazioni sulla disponibilità dei dati in Azure DevOps](https://docs.microsoft.com/azure/devops/organizations/security/data-protection?view=azure-devops#data-availability&amp;preserve-view=true)
+- [Informazioni sulla disponibilità dei dati in Azure DevOps](/azure/devops/organizations/security/data-protection?preserve-view=true&view=azure-devops#data-availability)
 
-- [Come archiviare il codice in Azure DevOps](https://docs.microsoft.com/azure/devops/repos/git/gitworkflow?view=azure-devops&amp;preserve-view=true)
+- [Come archiviare il codice in Azure DevOps](/azure/devops/repos/git/gitworkflow?preserve-view=true&view=azure-devops)
 
-- [Documentazione di Azure Repos](https://docs.microsoft.com/azure/devops/repos/?view=azure-devops&amp;preserve-view=true)
+- [Documentazione di Azure Repos](/azure/devops/repos/?preserve-view=true&view=azure-devops)
 
 **Responsabilità**: Customer
 
@@ -892,7 +892,7 @@ Usare anche una soluzione di controllo del codice sorgente, ad esempio Azure Rep
 
 - [Ripristinare un'app in Azure da uno snapshot](../app-service/app-service-web-restore-snapshots.md)
 
-- [Come ripristinare le chiavi di Key Vault in Azure](https://docs.microsoft.com/powershell/module/az.keyvault/restore-azkeyvaultkey?view=azps-4.8.0&amp;preserve-view=true)
+- [Come ripristinare le chiavi di Key Vault in Azure](/powershell/module/az.keyvault/restore-azkeyvaultkey?preserve-view=true&view=azps-4.8.0)
 
 **Responsabilità**: Customer
 
@@ -1002,5 +1002,5 @@ Contrassegnare anche chiaramente le sottoscrizioni, ad esempio di produzione o n
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Vedere [Panoramica di Azure Security Benchmark V2](/azure/security/benchmarks/overview)
-- Altre informazioni su [Baseline di sicurezza di Azure](/azure/security/benchmarks/security-baselines-overview)
+- Vedere [Panoramica di Azure Security Benchmark V2](../security/benchmarks/overview.md)
+- Altre informazioni su [Baseline di sicurezza di Azure](../security/benchmarks/security-baselines-overview.md)

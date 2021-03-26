@@ -5,12 +5,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive,hdiseo17may2017,seoapr2020
 ms.date: 04/20/2020
-ms.openlocfilehash: d23b376384262c208fed70306e62634592d0b46b
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 6073000f2f14f835e2bfbd91b41619101c36b10f
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98946764"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104866846"
 ---
 # <a name="query-apache-hive-through-the-jdbc-driver-in-hdinsight"></a>Eseguire una query Apache Hive tramite il driver JDBC in HDInsight
 
@@ -38,7 +38,7 @@ Sostituire `CLUSTERNAME` con il nome del cluster HDInsight.
 
 In alternativa, è possibile ottenere la connessione tramite l' **interfaccia utente di Ambari > configurazioni > Hive > avanzate**.
 
-![Ottenere la stringa di connessione JDBC tramite Ambari](./media/apache-hadoop-connect-hive-jdbc-driver/hdinsight-get-connection-string-through-ambari.png)
+:::image type="content" source="./media/apache-hadoop-connect-hive-jdbc-driver/hdinsight-get-connection-string-through-ambari.png" alt-text="Ottenere la stringa di connessione JDBC tramite Ambari" border="true":::
 
 ### <a name="host-name-in-connection-string"></a>Nome host nella stringa di connessione
 
@@ -74,11 +74,11 @@ SQuirreL SQL è un client JDBC che può essere usato per eseguire in modalità r
 
 3. Avviare l'applicazione SQuirreL SQL. Nella parte sinistra della finestra selezionare **Drivers** (Driver).
 
-    ![Scheda Drivers sul lato sinistro della finestra](./media/apache-hadoop-connect-hive-jdbc-driver/hdinsight-squirreldrivers.png)
+    :::image type="content" source="./media/apache-hadoop-connect-hive-jdbc-driver/hdinsight-squirreldrivers.png" alt-text="Scheda Drivers sul lato sinistro della finestra" border="true":::
 
 4. Nella parte superiore della finestra di dialogo **Drivers** (Driver) selezionare l'icona **+** per creare un driver.
 
-    ![Icona dei driver dell'applicazione SQL SQuirreL](./media/apache-hadoop-connect-hive-jdbc-driver/hdinsight-driversicons.png)
+    :::image type="content" source="./media/apache-hadoop-connect-hive-jdbc-driver/hdinsight-driversicons.png" alt-text="Icona dei driver dell'applicazione SQL SQuirreL" border="true":::
 
 5. Nella finestra di dialogo di aggiunta del driver aggiungere le informazioni seguenti:
 
@@ -89,13 +89,13 @@ SQuirreL SQL è un client JDBC che può essere usato per eseguire in modalità r
     |Percorso di classe aggiuntivo|Usare il pulsante **Aggiungi** per aggiungere tutti i file jar scaricati in precedenza.|
     |Nome della classe|org. Apache. hive. JDBC. HiveDriver|
 
-   ![finestra di dialogo Aggiungi driver con parametri](./media/apache-hadoop-connect-hive-jdbc-driver/hdinsight-add-driver.png)
+   :::image type="content" source="./media/apache-hadoop-connect-hive-jdbc-driver/hdinsight-add-driver.png" alt-text="finestra di dialogo Aggiungi driver con parametri" border="true":::
 
    Selezionare **OK** per salvare le impostazioni.
 
 6. Nella parte sinistra della finestra di SQL SQuirreL selezionare **Aliases** (Alias). Quindi selezionare l' **+** icona per creare un alias di connessione.
 
-    ![Finestra di dialogo ' scoiattolo SQL Aggiungi nuovo alias '](./media/apache-hadoop-connect-hive-jdbc-driver/hdinsight-new-aliases.png)
+    :::image type="content" source="./media/apache-hadoop-connect-hive-jdbc-driver/hdinsight-new-aliases.png" alt-text="Finestra di dialogo ' scoiattolo SQL Aggiungi nuovo alias '" border="true":::
 
 7. Usare i valori seguenti per la finestra di dialogo **Aggiungi alias** :
 
@@ -107,7 +107,7 @@ SQuirreL SQL è un client JDBC che può essere usato per eseguire in modalità r
     |Nome utente|nome dell'account di accesso per il cluster HDInsight. Il valore predefinito è **admin**.|
     |Password|password per l'account di accesso del cluster.|
 
-    ![finestra di dialogo Aggiungi alias con parametri](./media/apache-hadoop-connect-hive-jdbc-driver/hdinsight-addalias-dialog.png)
+    :::image type="content" source="./media/apache-hadoop-connect-hive-jdbc-driver/hdinsight-addalias-dialog.png" alt-text="finestra di dialogo Aggiungi alias con parametri" border="true":::
 
     > [!IMPORTANT]
     > Usare il pulsante **Test** per verificare il funzionamento della connessione. Quando viene visualizzata la finestra di dialogo **Connect to: Hive on HDInsight** (Connetti a: Hive in HDInsight), selezionare **Connect** (Connetti) per eseguire il test. Se il test ha esito positivo, verrà visualizzata la finestra di dialogo **Connection successful** (Connessione riuscita). Se si verifica un errore, vedere [Risoluzione dei problemi](#troubleshooting).
@@ -116,7 +116,7 @@ SQuirreL SQL è un client JDBC che può essere usato per eseguire in modalità r
 
 8. Nell'elenco a discesa **Connect to** (Connetti a) nella parte superiore di SQL SQuirreL selezionare **Hive on HDInsight** (Hive in HDInsight). Quando richiesto, selezionare **Connect** (Connetti).
 
-    ![finestra di dialogo di connessione con parametri](./media/apache-hadoop-connect-hive-jdbc-driver/hdinsight-connect-dialog.png)
+    :::image type="content" source="./media/apache-hadoop-connect-hive-jdbc-driver/hdinsight-connect-dialog.png" alt-text="finestra di dialogo di connessione con parametri" border="true":::
 
 9. Una volta stabilita la connessione, immettere la query seguente nella finestra di dialogo query SQL e quindi selezionare l'icona **Esegui** (persona in esecuzione). Nell'area dei risultati dovrebbero comparire i risultati della query.
 
@@ -124,7 +124,7 @@ SQuirreL SQL è un client JDBC che può essere usato per eseguire in modalità r
     select * from hivesampletable limit 10;
     ```
 
-    ![finestra della query sql, con i risultati](./media/apache-hadoop-connect-hive-jdbc-driver/hdinsight-sqlquery-dialog.png)
+    :::image type="content" source="./media/apache-hadoop-connect-hive-jdbc-driver/hdinsight-sqlquery-dialog.png" alt-text="finestra della query sql, con i risultati" border="true":::
 
 ## <a name="connect-from-an-example-java-application"></a>Connettersi da un'applicazione Java di esempio
 
