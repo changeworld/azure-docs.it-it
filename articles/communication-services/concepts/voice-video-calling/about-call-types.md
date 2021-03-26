@@ -6,15 +6,15 @@ author: mikben
 manager: jken
 services: azure-communication-services
 ms.author: mikben
-ms.date: 03/10/2021
+ms.date: 03/25/2021
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: 4ecc7033007361e27908e0881b80091ac660398e
-ms.sourcegitcommit: bed20f85722deec33050e0d8881e465f94c79ac2
+ms.openlocfilehash: 6ec616047a99465bace0b401f659765e4399634b
+ms.sourcegitcommit: 73d80a95e28618f5dfd719647ff37a8ab157a668
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/25/2021
-ms.locfileid: "105108392"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105604567"
 ---
 # <a name="voice-and-video-concepts"></a>Concetti relativi alle chiamate vocali e video
 
@@ -44,14 +44,10 @@ Una chiamata uno-a-uno nei servizi di comunicazione di Azure si verifica quando 
 Una chiamata di gruppo in Servizi di comunicazione di Azure avviene quando tre o più partecipanti si connettono tra loro. In una chiamata di gruppo può essere presente una qualsiasi combinazione di utenti connessi tramite VoIP e PSTN. È possibile convertire una chiamata uno-a-uno in una di gruppo aggiungendo alla chiamata altri partecipanti. Uno dei partecipanti può essere costituito da un bot.
 
 ### <a name="supported-video-standards"></a>Standard video supportati
-È supportato lo standard H.264 (MPEG-4)
+È supportato H. 264 (MPEG-4).
 
 ### <a name="video-quality"></a>Qualità video
 Per gli SDK nativi (iOS, Android) è supportato il formato fino a Full HD 1080p. Per l'SDK Web (JS) è supportato il formato Standard HD 720p. La qualità dipende dalla larghezza di banda disponibile.
-
-### <a name="rooms-concept"></a>Concetto di sale
-Le sale costituiscono un set di API e SDK che consentono di aggiungere facilmente elementi audio, video, condivisione dello schermo, interazioni PSTN e SMS nel sito Web o nell'applicazione nativa.
-Durante l'anteprima è possibile usare l'ID di gruppo per partecipare alla stessa conversazione. È possibile creare tutti gli ID gruppo necessari e separare gli utenti in base alle "sale". Con il tempo vengono introdotti altri controlli attorno alle "sale".
 
 ## <a name="next-steps"></a>Passaggi successivi
 

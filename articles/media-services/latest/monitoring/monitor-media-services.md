@@ -6,13 +6,14 @@ ms.author: inhenkel
 manager: femilia
 ms.topic: how-to
 ms.service: media-services
+ms.custom: subject-monitoring
 ms.date: 03/17/2021
-ms.openlocfilehash: 783d9e1b4ab86f6580cf3418a0676921aef2db6a
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 90ca92dc19c588d0b19adf009301cf844e0cdbde
+ms.sourcegitcommit: 73d80a95e28618f5dfd719647ff37a8ab157a668
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104598202"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105609047"
 ---
 # <a name="monitor-media-services"></a>Monitorare servizi multimediali
 
@@ -37,9 +38,9 @@ robb@microsoft.com -->
 
 ## <a name="what-is-azure-monitor"></a>Informazioni su Monitoraggio di Azure
 
-Servizi multimediali consente di creare dati di monitoraggio tramite [monitoraggio di Azure](https://docs.microsoft.com/azure/azure-monitor/overview), un servizio di monitoraggio completo dello stack in Azure che offre un set completo di funzionalità per il monitoraggio delle risorse di Azure, oltre alle risorse in altri cloud e in locale.
+Servizi multimediali consente di creare dati di monitoraggio tramite [monitoraggio di Azure](../../../azure-monitor/overview.md), un servizio di monitoraggio completo dello stack in Azure che offre un set completo di funzionalità per il monitoraggio delle risorse di Azure, oltre alle risorse in altri cloud e in locale.
 
-Per iniziare, leggere l'articolo [monitoraggio delle risorse di Azure con monitoraggio di Azure](https://docs.microsoft.com/azure/azure-monitor/insights/monitor-azure-resource), che descrive i concetti seguenti:
+Per iniziare, leggere l'articolo [monitoraggio delle risorse di Azure con monitoraggio di Azure](../../../azure-monitor/essentials/monitor-azure-resource.md), che descrive i concetti seguenti:
 
 - Informazioni su Monitoraggio di Azure
 - Costi associati al monitoraggio
@@ -49,7 +50,7 @@ Per iniziare, leggere l'articolo [monitoraggio delle risorse di Azure con monito
 
 ## <a name="monitoring-data"></a>Dati di monitoraggio
 
-Servizi multimediali raccoglie gli stessi tipi di dati di monitoraggio delle altre risorse di Azure descritte in [monitoraggio dei dati dalle risorse di Azure](https://docs.microsoft.com/azure/azure-monitor/insights/monitor-azure-resource#monitoring-data-from-Azure-resources).
+Servizi multimediali raccoglie gli stessi tipi di dati di monitoraggio delle altre risorse di Azure descritte in [monitoraggio dei dati dalle risorse di Azure](../../../azure-monitor/essentials/monitor-azure-resource.md#monitoring-data).
 
 Tutti i dati raccolti da Monitoraggio di Azure rientrano in uno di due tipi fondamentali: metriche e log. Con questi due tipi è possibile:
 
@@ -69,13 +70,13 @@ Le *metriche della piattaforma* e il *log attività* vengono raccolti e archivia
 
 I *log delle risorse* **non** vengono raccolti e archiviati fino a quando non si crea un'impostazione di diagnostica e la si instrada a una o più posizioni.
 
-Vedere l'articolo [creare un'impostazione di diagnostica per raccogliere i log e le metriche della piattaforma in Azure](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostic-settings) per il processo dettagliato di creazione di un'impostazione di diagnostica usando il portale di Azure, l'interfaccia della riga di comando o PowerShell.
+Vedere l'articolo [creare un'impostazione di diagnostica per raccogliere i log e le metriche della piattaforma in Azure](../../../azure-monitor/essentials/diagnostic-settings.md) per il processo dettagliato di creazione di un'impostazione di diagnostica usando il portale di Azure, l'interfaccia della riga di comando o PowerShell.
 
 Quando si crea un'impostazione di diagnostica, è necessario specificare le categorie di log da raccogliere. Le categorie per servizi multimediali sono elencate in [informazioni di riferimento sui dati di monitoraggio di servizi multimediali](monitor-media-services-data-reference.md).
 
 ## <a name="analyzing-metrics"></a>Analisi delle metriche
 
-È possibile analizzare le metriche per servizi multimediali con le metriche di altri servizi di Azure usando Esplora metriche aprendo le **metriche** dal menu **monitoraggio di Azure** . Per informazioni dettagliate sull'uso di questo strumento, vedere [Introduzione a Esplora metriche di Azure](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-getting-started).
+È possibile analizzare le metriche per servizi multimediali con le metriche di altri servizi di Azure usando Esplora metriche aprendo le **metriche** dal menu **monitoraggio di Azure** . Per informazioni dettagliate sull'uso di questo strumento, vedere [Introduzione a Esplora metriche di Azure](../../../azure-monitor/essentials/metrics-getting-started.md).
 
 Per un elenco delle metriche raccolte per servizi multimediali, vedere informazioni di [riferimento sui dati di servizi multimediali di monitoraggio](monitor-media-services-data-reference.md).
 
@@ -83,11 +84,11 @@ Per un elenco delle metriche raccolte per servizi multimediali, vedere informazi
 
 I dati nei log di monitoraggio di Azure vengono archiviati in tabelle in cui ogni tabella dispone di un proprio set di proprietà univoche.  
 
-Tutti i log delle risorse in monitoraggio di Azure hanno gli stessi campi seguiti dai campi specifici del servizio. Lo schema comune è illustrato nello schema del [log delle risorse di monitoraggio di Azure](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostic-logs-schema#top-level-resource-logs-schema).
+Tutti i log delle risorse in monitoraggio di Azure hanno gli stessi campi seguiti dai campi specifici del servizio. Lo schema comune è illustrato nello schema del [log delle risorse di monitoraggio di Azure](../../../azure-monitor/essentials/resource-logs-schema.md#top-level-common-schema).
 
 Lo schema per i log delle risorse di servizi multimediali si trova nel [monitoraggio di riferimento ai dati di servizi multimediali](monitor-media-services-data-reference.md).
 
-Il [log attività](https://docs.microsoft.com/azure/azure-monitor/platform/activity-log) è un log di piattaforma in Azure che fornisce informazioni approfondite sugli eventi a livello di sottoscrizione. È possibile visualizzarlo in modo indipendente o instradarlo ai log di monitoraggio di Azure, in cui è possibile eseguire query molto più complesse usando Log Analytics.
+Il [log attività](../../../azure-monitor/essentials/activity-log.md) è un log di piattaforma in Azure che fornisce informazioni approfondite sugli eventi a livello di sottoscrizione. È possibile visualizzarlo in modo indipendente o instradarlo ai log di monitoraggio di Azure, in cui è possibile eseguire query molto più complesse usando Log Analytics.
 
 Per un elenco dei tipi di log delle risorse raccolti per servizi multimediali, vedere [informazioni di riferimento sui dati di servizi multimediali di monitoraggio](monitor-media-services-data-reference.md).
 
@@ -102,7 +103,7 @@ Di seguito sono riportate alcune informazioni che è possibile esaminare con i l
 
 ## <a name="alerts"></a>Avvisi
 
-Gli avvisi di monitoraggio di Azure notificano in modo proattivo quando vengono rilevate condizioni importanti nei dati di monitoraggio. Consentono di identificare e risolvere i problemi nel sistema prima che i clienti li notino. È possibile impostare avvisi su [metriche](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-metric-overview), [log](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-unified-log)e [log attività](https://docs.microsoft.com/azure/azure-monitor/platform/activity-log-alerts).
+Gli avvisi di monitoraggio di Azure notificano in modo proattivo quando vengono rilevate condizioni importanti nei dati di monitoraggio. Consentono di identificare e risolvere i problemi nel sistema prima che i clienti li notino. È possibile impostare avvisi su [metriche](../../../azure-monitor/alerts/alerts-metric-overview.md), [log](../../../azure-monitor/alerts/alerts-unified-log.md)e [log attività](../../../azure-monitor/alerts/activity-log-alerts.md).
 
 Le metriche di servizi multimediali vengono raccolte a intervalli regolari indipendentemente dal fatto che il valore venga modificato. Sono utili per gli avvisi perché possono essere campionati di frequente. Un avviso può essere generato rapidamente con una logica relativamente semplice.
 

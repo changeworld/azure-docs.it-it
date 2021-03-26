@@ -10,12 +10,12 @@ ms.author: wiassaf
 ms.reviewer: sstein
 ms.custom: references_regions
 ms.date: 03/23/2021
-ms.openlocfilehash: 9c1e5af065e70cf7ec7b7c3b09fc9e3376858481
-ms.sourcegitcommit: ed7376d919a66edcba3566efdee4bc3351c57eda
+ms.openlocfilehash: 9d7ab0498673ad7006087b66575eea9371b96d11
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/24/2021
-ms.locfileid: "105047253"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105565901"
 ---
 # <a name="maintenance-window-preview"></a>Finestra di manutenzione (anteprima)
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -55,7 +55,7 @@ Una volta effettuata la selezione della finestra di manutenzione e la configuraz
 La configurazione e l'uso della finestra di manutenzione sono gratuite per tutti i [tipi di offerta](https://azure.microsoft.com/support/legal/offer-details/)idonei: con pagamento in base al consumo, provider di soluzioni cloud (CSP), Microsoft contratto Enterprise o contratto per i clienti Microsoft.
 
 > [!Note]
-> Per offerta di Azure si intende il tipo di sottoscrizione di Azure di cui si dispone. Ad esempio, una sottoscrizione con [tariffe con pagamento in base](https://azure.microsoft.com/offers/ms-azr-0003p/)al consumo, [Azure in Open](https://azure.microsoft.com/offers/ms-azr-0111p/)e [Visual Studio Enterprise](https://azure.microsoft.com/offers/ms-azr-0063p/) sono tutte offerte di Azure. Ogni offerta o piano presenta termini e vantaggi diversi. L'offerta o il piano viene visualizzato nella panoramica della sottoscrizione. Per altre informazioni sul passaggio della sottoscrizione a un'offerta diversa, vedere [modificare la sottoscrizione di Azure in un'offerta diversa](/azure/cost-management-billing/manage/switch-azure-offer).
+> Per offerta di Azure si intende il tipo di sottoscrizione di Azure di cui si dispone. Ad esempio, una sottoscrizione con [tariffe con pagamento in base](https://azure.microsoft.com/offers/ms-azr-0003p/)al consumo, [Azure in Open](https://azure.microsoft.com/offers/ms-azr-0111p/)e [Visual Studio Enterprise](https://azure.microsoft.com/offers/ms-azr-0063p/) sono tutte offerte di Azure. Ogni offerta o piano presenta termini e vantaggi diversi. L'offerta o il piano viene visualizzato nella panoramica della sottoscrizione. Per altre informazioni sul passaggio della sottoscrizione a un'offerta diversa, vedere [modificare la sottoscrizione di Azure in un'offerta diversa](../../cost-management-billing/manage/switch-azure-offer.md).
 
 ## <a name="advance-notifications"></a>Notifiche avanzate
 
@@ -108,17 +108,17 @@ Per altre informazioni sui criteri di connessione client nell'istanza gestita di
 
 ## <a name="considerations-for-azure-sql-managed-instance"></a>Considerazioni sull'istanza gestita di SQL di Azure
 
-Istanza gestita di SQL di Azure è costituita da componenti del servizio ospitati in un set dedicato di macchine virtuali isolate che vengono eseguite all'interno della subnet della rete virtuale del cliente. Queste macchine virtuali formano [i cluster virtuali](/azure/azure-sql/managed-instance/connectivity-architecture-overview#high-level-connectivity-architecture) che possono ospitare più istanze gestite. La finestra di manutenzione configurata nelle istanze di una subnet può influenzare il numero di cluster virtuali all'interno della subnet e la distribuzione delle istanze tra cluster virtuali. Questo potrebbe richiedere una considerazione di pochi effetti.
+Istanza gestita di SQL di Azure è costituita da componenti del servizio ospitati in un set dedicato di macchine virtuali isolate che vengono eseguite all'interno della subnet della rete virtuale del cliente. Queste macchine virtuali formano [i cluster virtuali](../managed-instance/connectivity-architecture-overview.md#high-level-connectivity-architecture) che possono ospitare più istanze gestite. La finestra di manutenzione configurata nelle istanze di una subnet può influenzare il numero di cluster virtuali all'interno della subnet e la distribuzione delle istanze tra cluster virtuali. Questo potrebbe richiedere una considerazione di pochi effetti.
 
 ### <a name="maintenance-window-configuration-is-long-running-operation"></a>La configurazione della finestra di manutenzione è un'operazione di lunga durata 
 Tutte le istanze ospitate in un cluster virtuale condividono la finestra di manutenzione. Per impostazione predefinita, tutte le istanze gestite sono ospitate nel cluster virtuale con la finestra di manutenzione predefinita. Specificando un'altra finestra di manutenzione per l'istanza gestita durante la creazione o successivamente, il servizio deve essere inserito in un cluster virtuale con la finestra di manutenzione corrispondente. Se nella subnet non è presente un cluster virtuale di questo tipo, è necessario crearne uno nuovo per adattarlo all'istanza. Per ospitare un'istanza aggiuntiva nel cluster virtuale esistente, potrebbe essere necessario ridimensionare il cluster. Entrambe le operazioni contribuiscono alla durata della configurazione della finestra di manutenzione per un'istanza gestita.
-La durata prevista della configurazione della finestra di manutenzione nell'istanza gestita può essere calcolata usando [la durata stimata delle operazioni di gestione delle istanze](/azure/azure-sql/managed-instance/management-operations-overview#duration).
+La durata prevista della configurazione della finestra di manutenzione nell'istanza gestita può essere calcolata usando [la durata stimata delle operazioni di gestione delle istanze](../managed-instance/management-operations-overview.md#duration).
 
 > [!Important]
 > Una breve riconfigurazione si verifica alla fine dell'operazione di manutenzione e in genere dura fino a 8 secondi anche in caso di transazioni con esecuzione prolungata interrotte. Per ridurre al minimo l'effetto della riconfigurazione è necessario pianificare l'operazione al di fuori delle ore di punta.
 
 ### <a name="ip-address-space-requirements"></a>Requisiti dello spazio degli indirizzi IP
-Ogni nuovo cluster virtuale nella subnet richiede indirizzi IP aggiuntivi in base all' [allocazione di indirizzi IP del cluster virtuale](/azure/azure-sql/managed-instance/vnet-subnet-determine-size#determine-subnet-size). La modifica della finestra di manutenzione per l'istanza gestita esistente richiede anche una [capacità IP aggiuntiva temporanea](/azure/azure-sql/managed-instance/vnet-subnet-determine-size#address-requirements-for-update-scenarios) come nello scenario vcore di ridimensionamento per il livello di servizio corrispondente.
+Ogni nuovo cluster virtuale nella subnet richiede indirizzi IP aggiuntivi in base all' [allocazione di indirizzi IP del cluster virtuale](../managed-instance/vnet-subnet-determine-size.md#determine-subnet-size). La modifica della finestra di manutenzione per l'istanza gestita esistente richiede anche una [capacità IP aggiuntiva temporanea](../managed-instance/vnet-subnet-determine-size.md#address-requirements-for-update-scenarios) come nello scenario vcore di ridimensionamento per il livello di servizio corrispondente.
 
 ### <a name="ip-address-change"></a>Modifica degli indirizzi IP
 La configurazione e la modifica della finestra di manutenzione causano la modifica dell'indirizzo IP dell'istanza, all'interno dell'intervallo di indirizzi IP della subnet.
@@ -137,8 +137,3 @@ La configurazione e la modifica della finestra di manutenzione causano la modifi
 * [Database SQL di Azure](sql-database-paas-overview.md) 
 * [Istanza gestita di SQL](../managed-instance/sql-managed-instance-paas-overview.md)
 * [Pianificare gli eventi di manutenzione di Azure nel database SQL di Azure e nell'istanza gestita di SQL di Azure](planned-maintenance.md)
-
-
-
-
-

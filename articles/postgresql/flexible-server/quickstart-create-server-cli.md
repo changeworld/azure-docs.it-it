@@ -1,19 +1,19 @@
 ---
 title: 'Avvio rapido: Creare un server - Interfaccia della riga di comando di Azure - Database di Azure per PostgreSQL - Server flessibile'
 description: Questo argomento di avvio rapido illustra come usare l'interfaccia della riga di comando di Azure per creare un server flessibile di Database di Azure per PostgreSQL in un gruppo di risorse di Azure.
-author: lfittl-msft
-ms.author: lufittl
+author: sunilagarwal
+ms.author: sunila
 ms.service: postgresql
 ms.devlang: azurecli
 ms.topic: quickstart
 ms.date: 9/22/2020
 ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: d43fab43b05ccfd88308390f58ba48ff9111b295
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 49c98905d99e5895dd0d2aa7e6a06e7a3605897e
+ms.sourcegitcommit: 73d80a95e28618f5dfd719647ff37a8ab157a668
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "94842822"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105606131"
 ---
 # <a name="quickstart-create-an-azure-database-for-postgresql-flexible-server-using-azure-cli"></a>Avvio rapido: Creare un server flessibile di Database di Azure per PostgreSQL tramite l'interfaccia della riga di comando di Azure
 

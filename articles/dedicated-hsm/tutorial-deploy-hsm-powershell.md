@@ -11,14 +11,14 @@ ms.topic: tutorial
 ms.custom: mvc, seodec18, devx-track-azurepowershell
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/14/2020
-ms.author: mbaldwin
-ms.openlocfilehash: 52b62e463edc51b3d93d7af69623a88abd9cc6be
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.date: 03/25/2021
+ms.author: keithp
+ms.openlocfilehash: 5ed5ac90f446f74c54488f6d0cf23adbd63a3e1e
+ms.sourcegitcommit: 73d80a95e28618f5dfd719647ff37a8ab157a668
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98108603"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105606879"
 ---
 # <a name="tutorial--deploying-hsms-into-an-existing-virtual-network-using-powershell"></a>Esercitazione: Distribuzione di moduli di protezione hardware in una rete virtuale esistente con PowerShell
 
@@ -68,7 +68,7 @@ Prima di procedere ulteriormente, è necessario che il comando restituisca lo st
 
 ### <a name="creating-hsm-resources"></a>Creazione delle risorse HSM
 
-Viene effettuato il provisioning di un dispositivo HSM nella rete virtuale di un cliente. Di conseguenza è necessaria una subnet. Per la comunicazione tra rete virtuale e dispositivo fisico, il modulo di protezione hardware dipende da un gateway ExpressRoute. È infine necessaria una macchina virtuale per accedere al dispositivo HSM usando il software client Gemalto. Queste risorse sono state raccolte in un file di modello, con il corrispondente file di parametri, per facilitare l'uso. Per ottenere i file, contattare direttamente Microsoft all'indirizzo HSMrequest@Microsoft.com.
+Viene effettuato il provisioning di un dispositivo HSM nella rete virtuale di un cliente. Di conseguenza è necessaria una subnet. Una dipendenza per il modulo di protezione hardware per consentire la comunicazione tra la rete virtuale e il dispositivo fisico è un gateway ExpressRoute e infine è necessaria una macchina virtuale per accedere al dispositivo HSM usando il software client di Thales. Queste risorse sono state raccolte in un file di modello, con il corrispondente file di parametri, per facilitare l'uso. Per ottenere i file, contattare direttamente Microsoft all'indirizzo HSMrequest@Microsoft.com.
 
 Dopo aver ottenuto i file, è necessario modificare il file di parametri per inserire i nomi preferiti per le risorse. A tale scopo, modificare le righe con "value": "".
 
@@ -235,14 +235,14 @@ L'output sarà simile all'immagine seguente:
 
 ![Screenshot che mostra l'output del comando hsm show.](media/tutorial-deploy-hsm-powershell/output.png)
 
-A questo punto, sono state allocate tutte le risorse per una distribuzione a disponibilità elevata con due moduli di protezione hardware e sono stati convalidati l'accesso e lo stato operativo. Qualsiasi ulteriore configurazione o test prevede operazioni aggiuntive con il dispositivo HSM stesso. A tale scopo, seguire le istruzioni riportate nel capitolo 7 della guida all'amministrazione di Gemalto Luna Network HSM 7 per inizializzare il modulo di protezione hardware e creare partizioni. Tutta la documentazione e il software sono scaricabili direttamente da Gemalto dopo aver effettuato la registrazione nel portale di supporto tecnico di Gemalto e aver acquisito un ID cliente. Per ottenere tutti i componenti necessari, scaricare la versione 7.2 del software client.
+A questo punto, sono state allocate tutte le risorse per una distribuzione a disponibilità elevata con due moduli di protezione hardware e sono stati convalidati l'accesso e lo stato operativo. Qualsiasi ulteriore configurazione o test prevede operazioni aggiuntive con il dispositivo HSM stesso. A tale proposito, seguire le istruzioni nella Guida dell'amministrazione del modulo di protezione hardware Thales Luna 7 del capitolo 7 per inizializzare il modulo HSM e creare partizioni. Tutta la documentazione e il software sono disponibili direttamente da Thales per il download dopo la registrazione nel [portale di supporto clienti Thales](https://supportportal.thalesgroup.com/csm) e con un ID cliente. Per ottenere tutti i componenti necessari, scaricare la versione 7.2 del software client.
 
 ## <a name="delete-or-clean-up-resources"></a>Eliminazione o pulizia delle risorse
 
 Se il dispositivo HSM non è più necessario, può essere eliminato come risorsa e tornare a far parte del pool libero. In questo caso, la fonte di preoccupazione è ovviamente costituita dagli eventuali dati sensibili dei clienti presenti nel dispositivo. Il modo migliore per azzerare un dispositivo consiste nell'usare tre volte una password errata per l'amministratore del modulo di protezione hardware. Si noti che non si tratta dell'amministratore dell'appliance ma dell'amministratore effettivo del modulo di protezione hardware. Come misura di sicurezza per proteggere il materiale della chiave, non è possibile eliminare il dispositivo come una risorsa di Azure finché si trova nello stato azzerato.
 
 > [!NOTE]
-> In caso di problemi con la configurazione del dispositivo Gemalto, contattare il [supporto tecnico di Gemalto](https://safenet.gemalto.com/technical-support/).
+> In caso di problemi con la configurazione del dispositivo Thales, contattare il [supporto tecnico di Thales](https://supportportal.thalesgroup.com/csm).
 
 Se si vuole rimuovere solo la risorsa modulo di protezione hardware in Azure, è possibile usare il comando seguente sostituendo le variabili "$" con parametri univoci:
 

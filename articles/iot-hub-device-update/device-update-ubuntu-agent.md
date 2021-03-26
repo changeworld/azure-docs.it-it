@@ -6,12 +6,12 @@ ms.author: vimeht
 ms.date: 2/16/2021
 ms.topic: tutorial
 ms.service: iot-hub-device-update
-ms.openlocfilehash: f7e12567269304b33a98ff1eb9727cfdf0afbdc4
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 9468b3b53e0f7c435bf84b6ef99eb1e0f85d0c8e
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103418641"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105560268"
 ---
 # <a name="device-update-for-azure-iot-hub-tutorial-using-the-package-agent-on-ubuntu-server-1804-x64"></a>Esercitazione 18,04 sull'aggiornamento del dispositivo per l'hub di Azure
 
@@ -32,13 +32,9 @@ In questa esercitazione si apprenderà come:
 > * Distribuire un aggiornamento del pacchetto
 > * Monitorare la distribuzione degli aggiornamenti
 
-Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) prima di iniziare.
-
 ## <a name="prerequisites"></a>Prerequisiti
 
-* Accesso a un hub. Si consiglia di usare un livello S1 (standard) o superiore.
-* Un'istanza di aggiornamento del dispositivo e un account collegati all'hub Internet delle cose.
-  * Seguire la guida per [creare e collegare un account di aggiornamento del dispositivo,](create-device-update-account.md) se non è stato fatto in precedenza.
+* Se non è già stato fatto, creare un' [istanza e un account di aggiornamento del dispositivo](create-device-update-account.md), inclusa la configurazione di un hub.
 * [Stringa di connessione per un dispositivo IOT Edge](../iot-edge/how-to-register-device.md?view=iotedge-2020-11&preserve-view=true#view-registered-devices-and-retrieve-connection-strings).
 
 ## <a name="prepare-a-device"></a>Preparare un dispositivo

@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: nabhishek
 ms.author: abnarain
 ms.date: 05/08/2019
-ms.openlocfilehash: 71e02ea1265a81da7dd2e85549f6d1390a46311a
-ms.sourcegitcommit: ac035293291c3d2962cee270b33fca3628432fac
+ms.openlocfilehash: 2aa7afebede3759221674c48dd66256e740575a3
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/24/2021
-ms.locfileid: "104952236"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105565946"
 ---
 # <a name="compute-environments-supported-by-azure-data-factory"></a>Ambienti di calcolo supportati da Azure Data Factory
 
@@ -21,7 +21,7 @@ Questo articolo spiega i diversi ambienti di calcolo che è possibile utilizzare
 
 La seguente tabella presenta un elenco degli ambienti di calcolo supportati da Data Factory e le attività eseguibili in tali ambienti. 
 
-| Ambiente di calcolo                                          | attività                                                   |
+| Ambiente di calcolo                                          | Attività                                                   |
 | ------------------------------------------------------------ | ------------------------------------------------------------ |
 | [Cluster HDInsight su richiesta](#azure-hdinsight-on-demand-linked-service) o [il proprio cluster HDInsight](#azure-hdinsight-linked-service) | [Hive](transform-data-using-hadoop-hive.md), [Pig](transform-data-using-hadoop-pig.md), [Spark](transform-data-using-spark.md), [MapReduce](transform-data-using-hadoop-map-reduce.md), [Streaming di Hadoop](transform-data-using-hadoop-streaming.md) |
 | [Azure Batch](#azure-batch-linked-service)                   | [Impostazione personalizzata](transform-data-using-dotnet-custom-activity.md)     |
@@ -436,6 +436,7 @@ Si crea un servizio collegato di Azure Machine Learning per collegare un'area di
 ```
 
 ### <a name="properties"></a>Proprietà
+
 | Proprietà               | Descrizione                              | Obbligatoria                                 |
 | ---------------------- | ---------------------------------------- | ---------------------------------------- |
 | Type                   | La proprietà type deve essere impostata su: **AzureMLService**. | Sì                                      |

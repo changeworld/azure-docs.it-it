@@ -63,6 +63,54 @@ Uso consigliato |Consigliato per la maggior parte dei casi di streaming.|Uso pro
 
 <sup>1</sup> usato direttamente sull'endpoint di streaming quando la rete CDN non è abilitata nell'endpoint.<br/>
 
+### <a name="versions"></a>Versioni
+
+|Tipo|StreamingEndpointVersion|ScaleUnits|Rete CDN|Fatturazione|
+|--------------|----------|-----------------|-----------------|-----------------|
+|Classic|1.0|0|N/D|Gratuito|
+|Endpoint di streaming standard (anteprima)|2.0|0|Sì|Paid|
+|Unità di streaming Premium|1.0|>0|Sì|Paid|
+|Unità di streaming Premium|2.0|>0|Sì|Paid|
+
+### <a name="features"></a>Funzionalità
+
+Funzionalità|Standard|Premium
+---|---|---
+Velocità effettiva |Fino a 600 Mbps e possono fornire una velocità effettiva molto più elevata quando si usa una rete CDN.|200 Mbps per unità di streaming (SU). Può fornire una velocità effettiva molto più elevata quando viene usata una rete CDN.
+Rete CDN|Rete CDN di Azure, rete CDN di terze parti o nessuna rete CDN.|Rete CDN di Azure, rete CDN di terze parti o nessuna rete CDN.
+Fatturazione con ripartizione proporzionale| Ogni giorno|Ogni giorno
+Crittografia dinamica|Sì|Sì
+creazione dinamica dei pacchetti|Sì|Sì
+Scalabilità|Scalabilità automatica fino alla velocità effettiva di destinazione.|Unità di streaming aggiuntive.
+Filtro IP/G20/host personalizzato <sup>1</sup>|Sì|Sì
+Download progressivo|Sì|Sì
+Uso consigliato |Consigliato per la maggior parte dei casi di streaming.|Uso professionale. 
+
+<sup>1</sup> usato direttamente sull'endpoint di streaming quando la rete CDN non è abilitata nell'endpoint.<br/>
+
+Per informazioni sul contratto di contratto, vedere [prezzi e contratto di contratto](https://azure.microsoft.com/pricing/details/media-services/).
+
+## <a name="migration-between-types"></a>Migrazione tra le tipologie
+
+Da | A | Azione
+---|---|---
+Classico|Standard|È necessario fornire il consenso esplicito
+Classic|Premium| Scalabilità (unità di streaming aggiuntive)
+Standard/Premium|Classic|Non disponibile (se la versione dell'endpoint di streaming è 1.0. È consentito modificare la tipologia classica impostando Scaleunits su "0")
+Standard (con/senza la rete CDN)|Premium con le stesse configurazioni|Consentito nello stato **avviato**. (tramite il Portale di Azure)
+Premium (con/senza la rete CDN)|Standard con le stesse configurazioni|Consentito nello stato **avvio** (tramite il Portale di Azure)
+Standard (con/senza la rete CDN)|Premium con diverse configurazioni|Consentito nello stato **interrotto** (tramite il Portale di Azure). Non consentito nello stato di esecuzione.
+Premium (con/senza la rete CDN)|Standard con diverse configurazioni|Consentito nello stato **interrotto** (tramite il Portale di Azure). Non consentito nello stato di esecuzione.
+Versione 1.0 con SU >=1 con la rete CDN|Standard/Premium con nessuna rete CDN|Consentito nello stato **interrotto**. Non consentito nello stato **avviato**.
+Versione 1.0 con SU >=1 con la rete CDN|Standard con/senza la rete CDN|Consentito nello stato **interrotto**. Non consentito nello stato **avviato**. Verrà eliminata la rete CDN della versione 1.0 e ne verrà creata e avviata una nuova.
+Versione 1.0 con SU >=1 con la rete CDN|Premium con/senza la rete CDN|Consentito nello stato **interrotto**. Non consentito nello stato **avviato**. Verrà eliminata la rete CDN della tipologia classica e ne verrà creata e avviata una nuova.
+
+
+
+
+
+
+
 ## <a name="streaming-endpoint-properties"></a>Proprietà dell'endpoint di streaming
 
 Questa sezione fornisce informazioni dettagliate su alcune delle proprietà dell'endpoint di streaming. Per esempi di come creare un nuovo endpoint di streaming e per le descrizioni di tutte le proprietà, vedere [Streaming Endpoint](/rest/api/media/streamingendpoints/create) (Endpoint di streaming).
@@ -83,7 +131,7 @@ Questa sezione fornisce informazioni dettagliate su alcune delle proprietà dell
 - `crossSiteAccessPolicies`: Usato per specificare i criteri di accesso tra siti per diversi client. Per altre informazioni, vedere [Cross-domain policy file specification](https://www.adobe.com/devnet/articles/crossdomain_policy_file_spec.html) (Specifica dei file di criteri tra domini) e [Making a Service Available Across Domain Boundaries](/previous-versions/azure/azure-services/gg185950(v=azure.100))(Disponibilità di un servizio tra confini di dominio). Le impostazioni si applicano solo ai Smooth Streaming.
 - `customHostNames`: Usato per configurare un endpoint di streaming in modo da accettare il traffico indirizzato a un nome host personalizzato. Questa proprietà è valida per gli endpoint di streaming standard e Premium e può essere impostata quando `cdnEnabled` : false.
 
-    La proprietà del nome di dominio deve essere confermata da servizi multimediali. Servizi multimediali verifica la proprietà del nome di dominio richiedendo un `CName` record contenente l'ID dell'account di servizi multimediali come componente da aggiungere al dominio in uso. Ad esempio, per usare "sports.contoso.com" come nome host personalizzato per l'endpoint di streaming, è necessario configurare un record per `<accountId>.contoso.com` che punti a uno dei nomi dell'host di verifica di Servizi multimediali. Il nome dell'host di verifica è costituito da \<mediaservices-dns-zone> verifydns.
+    La proprietà del nome di dominio deve essere confermata da servizi multimediali. Servizi multimediali verifica la proprietà del nome di dominio richiedendo un `CName` record contenente l'ID dell'account di servizi multimediali come componente da aggiungere al dominio in uso. Ad esempio, per usare "sports.contoso.com" come nome host personalizzato per l'endpoint di streaming, è necessario configurare un record per `<accountId>.contoso.com` che punti a uno dei nomi dell'host di verifica di Servizi multimediali. Il nome dell'host di verifica è costituito da `\<mediaservices-dns-zone>` verifydns.
 
     Di seguito sono riportate le zone DNS previste da usare nel record di verifica per diverse aree di Azure.
   

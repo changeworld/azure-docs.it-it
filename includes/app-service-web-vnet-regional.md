@@ -4,12 +4,12 @@ ms.service: app-service-web
 ms.topic: include
 ms.date: 10/21/2020
 ms.author: ccompy
-ms.openlocfilehash: 7796b94609a9be05fdb72900d0725747440f8042
-ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
+ms.openlocfilehash: 821746856cb37781c8f6a2e58659ce7db43e1479
+ms.sourcegitcommit: 73d80a95e28618f5dfd719647ff37a8ab157a668
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 03/26/2021
-ms.locfileid: "105582632"
+ms.locfileid: "105609513"
 ---
 L'uso dell'integrazione VNet a livello di area consente all'app di accedere a:
 
@@ -74,7 +74,7 @@ La funzionalità è completamente supportata per le app Windows e Linux, inclusi
 
 ### <a name="service-endpoints"></a>Endpoint di servizio
 
-L'integrazione VNet a livello di area consente di usare gli endpoint di servizio. I passaggi di base per poter accedere a un servizio dall'app tramite gli endpoint di servizio sono i seguenti:
+L'integrazione VNet a livello di area consente di raggiungere i servizi di Azure protetti con gli endpoint di servizio. Per accedere a un servizio protetto con endpoint di servizio, è necessario eseguire le operazioni seguenti:
 
 1. Configurare l'integrazione di VNet a livello di area con l'app Web per connettersi a una subnet specifica per l'integrazione.
 1. Passare al servizio di destinazione e configurare gli endpoint di servizio nella subnet di integrazione.
@@ -101,9 +101,6 @@ Quando l'app si integra con la VNet, USA lo stesso server DNS con cui è configu
 1. `WEBSITE_VNET_ROUTE_ALL` con valore `1`
 
 Queste impostazioni inviano tutte le chiamate in uscita dall'app in VNet e consentono all'app di accedere a una zona privata di DNS di Azure. Con queste impostazioni, l'app può usare il servizio DNS di Azure eseguendo una query sulla zona privata DNS a livello di ruolo di lavoro.  
-
-> [!NOTE]
-> Il tentativo di aggiungere un dominio personalizzato a un'app Web con una zona DNS privata non è possibile con il integrazione rete virtuale. La convalida del dominio personalizzato viene eseguita a livello di controller, non a livello di ruolo di lavoro, che impedisce la visualizzazione dei record DNS. Per usare un dominio personalizzato da una zona DNS privata, è necessario ignorare la convalida usando un [gateway applicazione](../articles/app-service/networking/app-gateway-with-service-endpoints.md) o [ILB ambiente del servizio app](../articles/app-service/environment/create-ilb-ase.md).
 
 ### <a name="private-endpoints"></a>Endpoint privati
 

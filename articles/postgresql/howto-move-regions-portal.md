@@ -1,18 +1,18 @@
 ---
 title: Spostare aree di Azure-portale di Azure-database di Azure per PostgreSQL-server singolo
 description: Spostare un database di Azure per il server PostgreSQL da un'area di Azure a un'altra usando una replica di lettura e il portale di Azure.
-author: lfittl-msft
-ms.author: lufittl
+author: sunilagarwal
+ms.author: sunila
 ms.service: postgresql
 ms.topic: how-to
 ms.custom: subject-moving-resources
 ms.date: 06/29/2020
-ms.openlocfilehash: d237d5709f8d2bb47de3e89b0b7103b195376e11
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 204815d36baf9fe6e7fe8c0e194ac7acc14f72e4
+ms.sourcegitcommit: 73d80a95e28618f5dfd719647ff37a8ab157a668
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "92489745"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105606471"
 ---
 # <a name="move-an-azure-database-for-azure-database-for-postgresql---single-server-to-another-region-by-using-the-azure-portal"></a>Spostare un database di Azure per database di Azure per PostgreSQL-server singolo in un'altra area usando il portale di Azure
 

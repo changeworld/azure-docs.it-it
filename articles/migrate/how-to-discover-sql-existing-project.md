@@ -6,12 +6,12 @@ ms.author: vivikram
 ms.manager: abhemraj
 ms.topic: how-to
 ms.date: 03/23/2021
-ms.openlocfilehash: 8caac0a111c3a1bdd88e0d5f43a4629ad4221496
-ms.sourcegitcommit: a67b972d655a5a2d5e909faa2ea0911912f6a828
+ms.openlocfilehash: 2de60880b511e43ffb2949a15fec2cf2a94f62fa
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/23/2021
-ms.locfileid: "104888941"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105567153"
 ---
 # <a name="discover-sql-server-instances-in-an-existing-project"></a>Individuare le istanze di SQL Server in un progetto esistente 
 
@@ -41,7 +41,7 @@ L'individuazione SQL Server istanze e i database in esecuzione in computer local
     - Verificare che i servizi in esecuzione nell'appliance siano aggiornati alle versioni più recenti. A tale scopo, avviare Gestione configurazione Appliance dal server appliance e selezionare Visualizza servizi Appliance dal pannello prerequisiti di installazione.
         - Il dispositivo e i relativi componenti vengono aggiornati automaticamente :::image type="content" source="./media/how-to-discover-sql-existing-project/appliance-services-version.png" alt-text="controllare la versione dell'appliance":::
     - Nel pannello Manage credentials and Discovery Sources di gestione configurazione Appliance aggiungere il dominio o SQL Server credenziali di autenticazione con accesso sysadmin sull'istanza SQL Server e sui database da individuare.
-    È possibile sfruttare la funzionalità automatica di mapping delle credenziali dell'appliance oppure eseguire manualmente il mapping delle credenziali al rispettivo server come indicato [qui](/azure/migrate/tutorial-discover-vmware#start-continuous-discovery).
+    È possibile sfruttare la funzionalità automatica di mapping delle credenziali dell'appliance oppure eseguire manualmente il mapping delle credenziali al rispettivo server come indicato [qui](./tutorial-discover-vmware.md#start-continuous-discovery).
 
     Alcuni punti da notare:
     - Verificare che l'inventario software sia già abilitato o fornire credenziali di dominio o non di dominio per abilitare lo stesso. Per individuare le istanze di SQL Server, è necessario eseguire l'inventario software.

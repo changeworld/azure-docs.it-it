@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/26/2017
 ms.author: aldomel
-ms.openlocfilehash: 512694d75bace40f33e346d28289f62e2adb04b8
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: bd46a09653f4d479ed0a09b73868d938aff1b825
+ms.sourcegitcommit: 73d80a95e28618f5dfd719647ff37a8ab157a668
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98221015"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105605213"
 ---
 # <a name="virtual-network-traffic-routing"></a>Routing del traffico di rete virtuale
 
@@ -96,6 +96,36 @@ Le route personalizzate vengono create con route [definite dall'utente](#user-de
 
 Non è possibile specificare **Peering di rete virtuale** o **VirtualNetworkServiceEndpoint** come tipo di hop successivo nelle route definite dall'utente. Le route con tipi di hop successivi **Peering di rete virtuale** o **VirtualNetworkServiceEndpoint** vengono create da Azure solo quando si configura un peering di rete virtuale oppure un endpoint di servizio.
 
+### <a name="service-tags-for-user-defined-routes-public-preview"></a>Tag del servizio per le route definite dall'utente (anteprima pubblica)
+
+È ora possibile specificare un [tag di servizio](service-tags-overview.md) come prefisso dell'indirizzo per una route definita dall'utente anziché un intervallo IP esplicito. Un tag di servizio rappresenta un gruppo di prefissi di indirizzi IP da un determinato servizio di Azure. Microsoft gestisce i prefissi di indirizzo inclusi nel tag del servizio e aggiorna automaticamente il tag di servizio in base alla modifica degli indirizzi, riducendo al minimo la complessità degli aggiornamenti frequenti alle route definite dall'utente e riducendo il numero di route che è necessario creare. È attualmente possibile creare 25 o meno route con tag di servizio in ogni tabella di route. </br>
+
+
+#### <a name="exact-match"></a>Corrispondenza esatta
+Quando esiste una corrispondenza esatta con prefisso tra una route con un prefisso IP esplicito e una route con un tag di servizio, la preferenza viene assegnata alla route con il prefisso esplicito. Quando più route con tag di servizio hanno prefissi IP corrispondenti, le route verranno valutate nell'ordine seguente: 
+
+   1. Tag a livello di area (ad esempio Storage. Eastus, AppService. AustraliaCentral)
+   2. Tag di primo livello (ad esempio Archiviazione, AppService)
+   3. Tag internazionali di AzureCloud (ad esempio AzureCloud. canadacentral, AzureCloud. eastasia)
+   4. Tag AzureCloud </br></br>
+
+Per usare questa funzionalità, specificare un nome di tag di servizio per il parametro del prefisso dell'indirizzo nei comandi della tabella di route. Ad esempio, in PowerShell è possibile creare una nuova route per indirizzare il traffico inviato a un prefisso IP di archiviazione di Azure a un'appliance virtuale usando: </br>
+
+```azurepowershell-interactive
+New-AzRouteConfig -Name "StorageRoute" -AddressPrefix “Storage” -NextHopType "VirtualAppliance" -NextHopIpAddress "10.0.100.4"
+```
+
+Lo stesso comando per l'interfaccia della riga di comando sarà: </br>
+
+```azurecli-interactive
+az network route-table route create -g MyResourceGroup --route-table-name MyRouteTable -n StorageRoute --address-prefix Storage --next-hop-type VirtualAppliance --next-hop-ip-address 10.0.100.4
+```
+</br>
+
+
+> [!NOTE] 
+> Durante l'anteprima pubblica, esistono diverse limitazioni. La funzionalità non è attualmente supportata nel portale di Azure ed è disponibile solo tramite PowerShell e l'interfaccia della riga di comando. Non è disponibile alcun supporto per l'uso con i contenitori. 
+
 ## <a name="next-hop-types-across-azure-tools"></a>Tipi di hop successivi tra gli strumenti di Azure
 
 Il nome visualizzato e a cui si fa riferimento per i tipi di hop successivi è diverso tra il portale di Azure e gli strumenti da riga di comando e tra i modelli di distribuzione Azure Resource Manager e classica. La tabella seguente elenca i nomi usati per fare riferimento a ogni tipo di hop successivo nei diversi strumenti e [modelli di distribuzione](../azure-resource-manager/management/deployment-models.md?toc=%2fazure%2fvirtual-network%2ftoc.json):
@@ -109,6 +139,8 @@ Il nome visualizzato e a cui si fa riferimento per i tipi di hop successivi è d
 |nessuno                            |nessuno                                            |Null (non disponibile nell'interfaccia della riga di comando classica in modalità asm)|
 |Peering di rete virtuale         |Peering reti virtuali                                    |Non applicabile|
 |Endpoint servizio di rete virtuale|VirtualNetworkServiceEndpoint                   |Non applicabile|
+
+
 
 ### <a name="border-gateway-protocol"></a>Border Gateway Protocol
 

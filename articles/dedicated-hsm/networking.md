@@ -10,14 +10,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 12/06/2018
-ms.author: mbaldwin
-ms.openlocfilehash: 3764b261b491c660da16d7989be20742fead1fbf
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.date: 03/25/2021
+ms.author: keithp
+ms.openlocfilehash: 5365ba8c4fbc07c487dd40cfcdc9d566990c493c
+ms.sourcegitcommit: 73d80a95e28618f5dfd719647ff37a8ab157a668
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "91359155"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105607048"
 ---
 # <a name="azure-dedicated-hsm-networking"></a>Reti con HSM dedicato di Azure
 
@@ -84,6 +84,60 @@ Per le applicazioni distribuite a livello globale o per gli scenari di failover 
 > Al momento il peering di rete virtuale globale in scenari di connettività fra aree non è disponibile con HSM dedicato e al suo posto si deve usare un gateway VPN. 
 
 ![Il diagramma mostra due aree connesse da due gateway V P N. Ogni area contiene reti virtuali con peering.](media/networking/global-vnet.png)
+
+## <a name="networking-restrictions"></a>Restrizioni di rete
+> [!NOTE]
+> Un vincolo del servizio HSM dedicato che usa la delega della subnet è soggetto a restrizioni che devono essere prese in considerazione quando si progetta l'architettura di rete di destinazione per una distribuzione HSM. L'uso della delega della subnet significa che gruppi, UdR e il peering VNet globale non sono supportati per il modulo di protezione hardware dedicato. Le sezioni seguenti forniscono supporto per le tecniche alternative per ottenere lo stesso risultato o un risultato simile per queste funzionalità. 
+
+La scheda di interfaccia di rete HSM che risiede nel modulo di protezione hardware dedicato VNet non può usare i gruppi di sicurezza di rete o le route definite dall'utente. Ciò significa che non è possibile impostare i criteri di negazione predefiniti dal punto di vista del modulo di protezione hardware dedicato VNet e che altri segmenti di rete devono essere allowlisted per accedere al servizio HSM dedicato. 
+
+L'aggiunta della soluzione proxy appliance virtuale di rete (NVA) consente anche di posizionare logicamente un firewall dell'appliance virtuale di rete nell'hub transito/rete perimetrale davanti alla scheda di interfaccia di rete del modulo di protezione hardware, fornendo in tal modo l'alternativa necessaria a gruppi e UdR.
+
+### <a name="solution-architecture"></a>Architettura della soluzione
+Questa progettazione di rete richiede gli elementi seguenti:
+1.  Un hub di transito o rete perimetrale VNet con un livello proxy di appliance virtuale di rete. Idealmente sono presenti due o più appliance virtuali. 
+2.  Un circuito ExpressRoute con un peering privato abilitato e una connessione all'hub di transito VNet.
+3.  Peering VNet tra l'hub di transito VNet e il modulo di protezione hardware dedicato VNet.
+4.  È possibile distribuire un firewall dell'appliance virtuale di rete o un firewall di Azure per offrire servizi DMZ nell'hub come opzione. 
+5.  È possibile eseguire il peering di reti virtuali di carico di lavoro aggiuntivo per l'hub VNet. Il client Gemalto può accedere al servizio HSM dedicato tramite l'hub VNet.
+
+![Il diagramma mostra un hub DMZ VNet con un livello proxy di appliance virtuale di rete per NSG e UDR soluzione alternativa](media/networking/network-architecture.png)
+
+Poiché l'aggiunta della soluzione proxy per l'appliance virtuale di rete consente anche un firewall dell'appliance virtuale di rete nell'hub transito/rete perimetrale da posizionare logicamente davanti alla scheda di interfaccia di rete HSM, fornendo i criteri di negazione predefiniti necessari. In questo esempio, verrà usato il firewall di Azure per questo scopo e sono necessari gli elementi seguenti:
+1. Un firewall di Azure distribuito nella subnet "AzureFirewallSubnet" nell'hub DMZ VNet
+2. Una tabella di routing con una UDR che indirizza il traffico verso l'endpoint privato di Azure ILB al firewall di Azure. Questa tabella di routing verrà applicata a GatewaySubnet in cui risiede il gateway virtuale ExpressRoute del cliente
+3. Regole di sicurezza di rete all'interno di AzureFirewall per consentire l'invio tra un intervallo di origine attendibile e l'endpoint privato di Azure IBL in ascolto sulla porta TCP 1792. Questa logica di sicurezza aggiungerà il criterio "default deny" necessario per il servizio HSM dedicato. Ciò significa che nel servizio HSM dedicato saranno consentiti solo gli intervalli IP di origine attendibili. Tutti gli altri intervalli verranno eliminati.  
+4. Una tabella di routing con una UDR che indirizza il traffico verso l'ambiente locale nel firewall di Azure. Questa tabella di routing verrà applicata alla subnet del proxy di appliance virtuale di dispositivo. 
+5. Un NSG applicato alla subnet dell'appliance virtuale di rete del proxy per considerare attendibile solo l'intervallo di subnet del firewall di Azure come origine e consentire solo l'inoltro all'indirizzo IP della NIC del modulo di protezione hardware sulla porta TCP 1792. 
+
+> [!NOTE]
+> Poiché il livello proxy di appliance virtuale di rete SNAT l'indirizzo IP del client mentre viene trasmesso alla scheda di interfaccia di rete HSM, non sono richiesti UdR tra le VNet HSM e l'hub DMZ VNet.  
+
+### <a name="alternative-to-udrs"></a>Alternativa a UdR
+La soluzione di livello Appliance precedente indicata sopra funziona come alternativa a UdR. Ci sono alcuni aspetti importanti da tenere presenti.
+1.  La conversione degli indirizzi di rete deve essere configurata in appliance virtuale di rete per consentire il routing del traffico restituito correttamente.
+2. I clienti devono disabilitare la configurazione dell'indirizzo IP client-check in luna HSM per usare VNA per NAT. I comandi seguenti servce come esempio.
+```
+Disable:
+[hsm01] lunash:>ntls ipcheck disable
+NTLS client source IP validation disabled
+Command Result : 0 (Success)
+
+Show:
+[hsm01] lunash:>ntls ipcheck show
+NTLS client source IP validation : Disable
+Command Result : 0 (Success)
+```
+3.  Distribuire UdR per il traffico in ingresso nel livello NVA. 
+4. Per quanto riguarda la progettazione, le subnet HSM non avvierà una richiesta di connessione in uscita al livello piattaforma.
+
+### <a name="alternative-to-using-global-vnet-peering"></a>Alternativa all'uso di Peering reti virtuali globali
+Esistono due architetture che è possibile usare come alternativa al peering VNet globale.
+1.  Usare la [connessione gateway VPN da VNET a VNET](https://docs.microsoft.com/en-us/azure/vpn-gateway/vpn-gateway-howto-vnet-vnet-resource-manager-portal) 
+2.  Connettere HSM VNET a un altro VNET con un circuito ER. Questa operazione è ottimale quando è necessario un percorso locale diretto o VNET VPN. 
+
+#### <a name="hsm-with-direct-express-route-connectivity"></a>HSM con connettività Direct Express Route
+![Diagramma che mostra HSM con connessione diretta a Express Route](media/networking/expressroute-connectivity.png)
 
 ## <a name="next-steps"></a>Passaggi successivi
 

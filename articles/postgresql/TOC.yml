@@ -126,14 +126,14 @@
           href: concepts-supported-versions.md
         - name: Estensioni di PostgreSQL
           href: concepts-extensions.md
+        - name: Limiti
+          href: concepts-limits.md
         - name: Informazioni sui piani tariffari
           items:
             - name: Piani tariffari
               href: concepts-pricing-tiers.md
             - name: Pagare in anticipo la capacità riservata
               href: concept-reserved-pricing.md
-            - name: Limiti
-              href: concepts-limits.md
         - name: Sicurezza
           items:
             - name: Panoramica della sicurezza

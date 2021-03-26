@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 03/08/2021
 ms.author: mimckitt
 ms.reviewer: cynthn
-ms.openlocfilehash: af371a8f7da5ef32e95d4096b69c5d52ce3e3700
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
+ms.openlocfilehash: 9342e0c39b558cf8b6ff5773d623ce55062f9ab5
+ms.sourcegitcommit: 73d80a95e28618f5dfd719647ff37a8ab157a668
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102510530"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105607474"
 ---
 # <a name="understand-vm-reboots---maintenance-vs-downtime"></a>Informazioni sui riavvii delle VM-manutenzione e tempi di inattività
 Esistono tre scenari che possono comportare l'insorgere di macchine virtuali in Azure: manutenzione dell'hardware non pianificata, tempo di inattività imprevisto e manutenzione pianificata.
@@ -34,7 +34,7 @@ Per ridurre le conseguenze dei tempi di inattività causati da uno o più di que
 
 * Usare [zone di disponibilità](../availability-zones/az-overview.md) per la protezione da errori Data Center
 * Configurare più macchine virtuali in un [set di disponibilità](availability-set-overview.md) per la ridondanza
-* Usare [gli eventi pianificati per Linux](/linux/scheduled-events.md) o [gli eventi pianificati per Windows](/windows/scheduled-events.md) per rispondere in modo proattivo agli eventi che INFLUISCAno sulle macchine virtuali
+* Usare [gli eventi pianificati per Linux](/azure/virtual-machines/linux/scheduled-events) o [gli eventi pianificati per Windows](/azure/virtual-machines/windows/scheduled-events) per rispondere in modo proattivo agli eventi che INFLUISCAno sulle macchine virtuali
 * Configurare ogni livello dell'applicazione in set di disponibilità separati
 * Combinare un servizio di [bilanciamento del carico](../load-balancer/load-balancer-overview.md) con le zone o i set di disponibilità
 

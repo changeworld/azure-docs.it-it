@@ -6,13 +6,13 @@ ms.author: timlt
 ms.service: iot-develop
 ms.devlang: node
 ms.topic: quickstart
-ms.date: 01/11/2021
-ms.openlocfilehash: 97fcff4706d6da968c93426f85569fed9af95aac
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.date: 03/25/2021
+ms.openlocfilehash: 047700be674dfab997b5c87f7446c19fdea9e0eb
+ms.sourcegitcommit: 73d80a95e28618f5dfd719647ff37a8ab157a668
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102197810"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105605961"
 ---
 # <a name="quickstart-send-telemetry-from-a-device-to-an-iot-hub-nodejs"></a>Guida introduttiva: inviare dati di telemetria da un dispositivo a un hub Internet (Node.js)
 
@@ -36,7 +36,7 @@ Questa Guida introduttiva illustra un flusso di lavoro di sviluppo di applicazio
 ## <a name="use-the-nodejs-sdk-to-send-messages"></a>Usare Node.js SDK per inviare messaggi
 In questa sezione si userà l'SDK Node.js per inviare messaggi dal dispositivo simulato all'hub Internet. 
 
-1. Aprire una nuova finestra del terminale. Questo terminale verrà usato per installare il Node.js SDK e utilizzare Node.js codice di esempio. Sono ora presenti due terminali aperti: quello appena aperto per lavorare con Node.js e la shell dell'interfaccia della riga di comando usata nelle sezioni precedenti per immettere i comandi dell'interfaccia della riga di comando di Azure. 
+1. Aprire una nuova finestra del terminale. Questo terminale verrà usato per installare il Node.js SDK e utilizzare Node.js codice di esempio. Sono ora presenti due terminali aperti: quello appena aperto per lavorare con Node.js e la shell dell'interfaccia della riga di comando usata nelle sezioni precedenti per immettere i comandi dell'interfaccia della riga di comando di Azure.
 
 1. Copiare gli [esempi di dispositivi Node.js SDK di Azure](https://github.com/Azure/azure-iot-sdk-node/tree/master/device/samples) Internet nel computer locale:
 
@@ -44,142 +44,79 @@ In questa sezione si userà l'SDK Node.js per inviare messaggi dal dispositivo s
     git clone https://github.com/Azure/azure-iot-sdk-node
     ```
 
-1. Passare alla directory *Azure-Internet e-SDK-node/Device/Samples* :
+1. Passare alla directory Azure-Internet-Internet- *SDK-node/Device/Samples/PNP* :
 
     ```console
-    cd azure-iot-sdk-node/device/samples
+    cd azure-iot-sdk-node/device/samples/pnp
     ```
+
 1. Installare Azure Node.js SDK e le dipendenze necessarie:
 
     ```console
     npm install
     ```
+
     Questo comando installa le dipendenze appropriate come specificato nella *package.jssu* file nella directory degli esempi del dispositivo.
 
-1. Impostare la stringa di connessione del dispositivo come variabile di ambiente denominata `DEVICE_CONNECTION_STRING` . Il valore stringa da usare è la stringa ottenuta nella sezione precedente dopo aver creato il dispositivo Node.js simulato. 
+1. Impostare entrambe le seguenti variabili di ambiente per consentire al dispositivo simulato di connettersi ad Azure.
+    * Impostare una variabile di ambiente denominata `IOTHUB_DEVICE_CONNECTION_STRING` . Per il valore della variabile, usare la stringa di connessione del dispositivo salvata nella sezione precedente.
+    * Impostare una variabile di ambiente denominata `IOTHUB_DEVICE_SECURITY_TYPE` . Per la variabile, utilizzare il valore stringa letterale `connectionString` .
 
     **Windows (cmd)**
 
     ```console
-    set DEVICE_CONNECTION_STRING=<your connection string here>
+    set IOTHUB_DEVICE_CONNECTION_STRING=<your connection string here>
+    ```
+    ```console
+    set IOTHUB_DEVICE_SECURITY_TYPE=connectionString
     ```
 
     > [!NOTE]
-    > Per Windows CMD non sono presenti virgolette che racchiudono la stringa di connessione.
+    > Per Windows CMD non sono presenti virgolette che racchiudono i valori di stringa per ogni variabile.
 
-    **Linux (bash)**
+    **PowerShell**
 
-    ```bash
-    export DEVICE_CONNECTION_STRING="<your connection string here>"
+    ```azurepowershell
+    $env:IOTHUB_DEVICE_CONNECTION_STRING='<your connection string here>'
+    ```
+    ```azurepowershell
+    $env:IOTHUB_DEVICE_SECURITY_TYPE='connectionString'
     ```
 
+    **Bash (Linux o Windows)**
+
+    ```bash
+    export IOTHUB_DEVICE_CONNECTION_STRING="<your connection string here>"
+    ```
+    ```bash
+    export IOTHUB_DEVICE_SECURITY_TYPE="connectionString"
+    ```
 1. Nella shell dell'interfaccia della riga di comando aperta, eseguire il comando [AZ Internet Hub monitor-Events](/cli/azure/ext/azure-iot/iot/hub#ext-azure-iot-az-iot-hub-monitor-events) per avviare il monitoraggio degli eventi nel dispositivo Internet delle cose.  I messaggi di evento verranno stampati nel terminale all'arrivo.
 
     ```azurecli
     az iot hub monitor-events --output table --hub-name {YourIoTHubName}
     ```
 
-1. Nel terminale Node.js eseguire il codice per il file di esempio installato *simple_sample_device.js* . Questo codice consente di accedere al dispositivo dell'Internet delle cose simulate e invia un messaggio all'hub.
+1. Nel terminale Node.js eseguire il codice per il file di esempio installato *simple_thermostat.js* . Questo codice consente di accedere al dispositivo dell'Internet delle cose simulate e invia un messaggio all'hub.
 
     Per eseguire l'esempio Node.js dal terminale:
     ```console
-    node ./simple_sample_device.js
+    node ./simple_thermostat.js
     ```
-
-    Facoltativamente, è possibile eseguire il codice Node.js dall'esempio nell'IDE JavaScript:
-    ```javascript
-    'use strict';
-
-    const Protocol = require('azure-iot-device-mqtt').Mqtt;
-    // Uncomment one of these transports and then change it in fromConnectionString to test other transports
-    // const Protocol = require('azure-iot-device-amqp').AmqpWs;
-    // const Protocol = require('azure-iot-device-http').Http;
-    // const Protocol = require('azure-iot-device-amqp').Amqp;
-    // const Protocol = require('azure-iot-device-mqtt').MqttWs;
-    const Client = require('azure-iot-device').Client;
-    const Message = require('azure-iot-device').Message;
-
-    // String containing Hostname, Device Id & Device Key in the following formats:
-    //  "HostName=<iothub_host_name>;DeviceId=<device_id>;SharedAccessKey=<device_key>"
-    const deviceConnectionString = process.env.DEVICE_CONNECTION_STRING;
-    let sendInterval;
-
-    function disconnectHandler () {
-    clearInterval(sendInterval);
-    client.open().catch((err) => {
-        console.error(err.message);
-    });
-    }
-
-    // The AMQP and HTTP transports have the notion of completing, rejecting or abandoning the message.
-    // For example, this is only functional in AMQP and HTTP:
-    // client.complete(msg, printResultFor('completed'));
-    // If using MQTT calls to complete, reject, or abandon are no-ops.
-    // When completing a message, the service that sent the C2D message is notified that the message has been processed.
-    // When rejecting a message, the service that sent the C2D message is notified that the message won't be processed by the device. the method to use is client.reject(msg, callback).
-    // When abandoning the message, IoT Hub will immediately try to resend it. The method to use is client.abandon(msg, callback).
-    // MQTT is simpler: it accepts the message by default, and doesn't support rejecting or abandoning a message.
-    function messageHandler (msg) {
-    console.log('Id: ' + msg.messageId + ' Body: ' + msg.data);
-    client.complete(msg, printResultFor('completed'));
-    }
-
-    function generateMessage () {
-    const windSpeed = 10 + (Math.random() * 4); // range: [10, 14]
-    const temperature = 20 + (Math.random() * 10); // range: [20, 30]
-    const humidity = 60 + (Math.random() * 20); // range: [60, 80]
-    const data = JSON.stringify({ deviceId: 'myFirstDevice', windSpeed: windSpeed, temperature: temperature, humidity: humidity });
-    const message = new Message(data);
-    message.properties.add('temperatureAlert', (temperature > 28) ? 'true' : 'false');
-    return message;
-    }
-
-    function errorCallback (err) {
-    console.error(err.message);
-    }
-
-    function connectCallback () {
-    console.log('Client connected');
-    // Create a message and send it to the IoT Hub every two seconds
-    sendInterval = setInterval(() => {
-        const message = generateMessage();
-        console.log('Sending message: ' + message.getData());
-        client.sendEvent(message, printResultFor('send'));
-    }, 2000);
-
-    }
-
-    // fromConnectionString must specify a transport constructor, coming from any transport package.
-    let client = Client.fromConnectionString(deviceConnectionString, Protocol);
-
-    client.on('connect', connectCallback);
-    client.on('error', errorCallback);
-    client.on('disconnect', disconnectHandler);
-    client.on('message', messageHandler);
-
-    client.open()
-    .catch(err => {
-    console.error('Could not connect: ' + err.message);
-    });
-
-    // Helper function to print results in the console
-    function printResultFor(op) {
-    return function printResult(err, res) {
-        if (err) console.log(op + ' error: ' + err.toString());
-        if (res) console.log(op + ' status: ' + res.constructor.name);
-    };
-    }
-    ```
+    > [!NOTE]
+    > Questo esempio di codice USA Azure Internet Plug and Play, che consente di integrare Smart Device nelle soluzioni senza alcuna configurazione manuale.  Per impostazione predefinita, la maggior parte degli esempi in questa documentazione USA Plug and Play. Per altre informazioni sui vantaggi di PnP e sui casi in cui è possibile usarli o meno, vedere [che cos'è plug and Play?](../iot-pnp/overview-iot-plug-and-play.md)
 
 Poiché il codice di Node.js Invia un messaggio di telemetria simulato dal dispositivo all'hub Internet, il messaggio viene visualizzato nella shell dell'interfaccia della riga di comando che esegue il monitoraggio degli eventi:
 
 ```output
+Starting event monitor, use ctrl-c to stop...
 event:
   component: ''
-  interface: ''
+  interface: dtmi:com:example:Thermostat;1
   module: ''
-  origin: <your device name>
-  payload: '{"deviceId":"myFirstDevice","windSpeed":11.853592092144627,"temperature":22.62484121157508,"humidity":66.17960805575937}'
+  origin: <your device ID>
+  payload:
+    temperature: 36.87027777131555
 ```
 
 Il dispositivo è ora connesso in modo sicuro e invia dati di telemetria all'hub Azure.

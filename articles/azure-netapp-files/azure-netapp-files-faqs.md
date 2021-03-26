@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/25/2021
 ms.author: b-juche
-ms.openlocfilehash: f7d1e3bebf2fbdea3075d97e3829e38a3930909b
-ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
+ms.openlocfilehash: 3ca4938d8666fd60ebac9e75bb2da1780e0914d3
+ms.sourcegitcommit: 73d80a95e28618f5dfd719647ff37a8ab157a668
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 03/26/2021
-ms.locfileid: "105566133"
+ms.locfileid: "105608001"
 ---
 # <a name="faqs-about-azure-netapp-files"></a>Domande frequenti sulla Azure NetApp Files
 
@@ -208,9 +208,9 @@ No. Azure NetApp Files non è supportato da Azure Storage Explorer.
 
 ### <a name="how-do-i-determine-if-a-directory-is-approaching-the-limit-size"></a>Ricerca per categorie determinare se una directory si avvicina alla dimensione del limite?
 
-È possibile usare il `stat` comando da un client per verificare se una directory sta per raggiungere il limite di dimensioni massime per i metadati della directory (320 MB).
+È possibile usare il `stat` comando da un client per verificare se una directory sta per raggiungere il limite di dimensioni massime per i metadati della directory (320 MB).   
 
-Per una directory di 320 MB, il numero di blocchi è 655360 e ogni dimensione del blocco è 512 byte.  Ovvero 320x1024x1024/512.  
+Per una directory da 320 MB, il numero di blocchi è 655360 e ogni dimensione del blocco è 512 byte.  Ovvero 320x1024x1024/512.  Questo numero si traduce in un massimo di 4 milioni file per una directory di 320 MB. Tuttavia, il numero effettivo di file massimi potrebbe essere inferiore, a seconda di fattori quali il numero di file che contengono caratteri non ASCII nella directory. Di conseguenza, è necessario usare il `stat` comando come indicato di seguito per determinare se la directory sta per raggiungere il limite.  
 
 Esempi:
 

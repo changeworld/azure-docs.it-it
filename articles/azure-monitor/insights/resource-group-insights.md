@@ -6,12 +6,12 @@ author: NumberByColors
 ms.author: daviste
 ms.date: 09/19/2018
 ms.reviewer: mbullwin
-ms.openlocfilehash: ab2c56b5e5cfc3dcb7411db27e7faabb2589be6c
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: bfe197befc781548dc41ff389f2d9558af7a8aae
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101704328"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105567403"
 ---
 # <a name="monitor-resource-groups-with-azure-monitor-preview"></a>Monitorare i gruppi di risorse con Monitoraggio di Azure (anteprima)
 
@@ -43,7 +43,7 @@ Per impostazione predefinita, le risorse sono raggruppate per livello di app e t
 
 Nella pagina delle informazioni dettagliate sul gruppo di risorse sono disponibili diversi altri strumenti per la diagnostica dei problemi.
 
-   |         |          |
+   | Strumento | Descrizione |
    | ---------------- |:-----|
    | [**Avvisi**](../alerts/alerts-overview.md)      |  Consente di visualizzare, creare e gestire gli avvisi. |
    | [**Metriche**](../data-platform.md) | Consente di visualizzare ed esplorare i dati in base alle metriche.    |

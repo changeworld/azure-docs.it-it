@@ -10,16 +10,16 @@ ms.subservice: metrics-advisor
 ms.topic: conceptual
 ms.date: 10/12/2020
 ms.author: mbullwin
-ms.openlocfilehash: c4d1d23da5fd9678cc5b9477ddeed0daf4f5ac36
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 4fd01256d94fbcb18fe8437be00c84e49d98f7d0
+ms.sourcegitcommit: 73d80a95e28618f5dfd719647ff37a8ab157a668
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "96348620"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105606148"
 ---
 # <a name="add-data-feeds-from-different-data-sources-to-metrics-advisor"></a>Aggiungere feed di dati da origini dati diverse a metrica Advisor
 
-Usare questo articolo per trovare le impostazioni e i requisiti per la connessione di diversi tipi di origini dati a metrica Advisor. Per informazioni sui concetti chiave per l'uso dei dati con la metrica Advisor, vedere come caricare i [dati](how-tos/onboard-your-data.md) . 
+Usare questo articolo per trovare le impostazioni e i requisiti per la connessione di diversi tipi di origini dati a metrica Advisor. Per informazioni sui concetti chiave per l'uso dei dati con la metrica Advisor, vedere come caricare i [dati](how-tos/onboard-your-data.md) . \
 
 ## <a name="supported-authentication-types"></a>Tipi di autenticazione supportati
 
@@ -51,7 +51,7 @@ Usare questo articolo per trovare le impostazioni e i requisiti per la connessio
 |[**MySQL**](#mysql) | Basic |
 |[**PostgreSQL**](#pgsql)| Basic|
 
-Creare un' **entità Credential** e usarla per l'autenticazione alle origini dati. Le sezioni seguenti specificano i parametri richiesti da per l'autenticazione di *base* . 
+Creare un'entità Credential * * e usarla per l'autenticazione nelle origini dati. Le sezioni seguenti specificano i parametri richiesti da per l'autenticazione di *base* . 
 
 ## <a name="span-idappinsightsazure-application-insightsspan"></a><span id="appinsights">Azure Application Insights</span>
 
@@ -159,7 +159,7 @@ Creare un' **entità Credential** e usarla per l'autenticazione alle origini dat
   * `%h` è l'ora formattata come `HH`
   * `%M` è il minuto formattato come `mm`
 
-Attualmente metrica Advisor supporta lo schema dei dati nei file JSON come segue. Ad esempio:
+Attualmente metrica Advisor supporta lo schema dei dati nei file JSON come indicato di seguito. Ad esempio:
 
 ``` JSON
 [
@@ -212,15 +212,14 @@ The timestamp field must match one of these two formats:
 
 ## <a name="span-idtableazure-table-storagespan"></a><span id="table">Archiviazione tabelle di Azure</span>
 
-* **Stringa di connessione**: per informazioni su come recuperare la stringa di connessione dall'archiviazione tabelle di Azure, vedere [visualizzare e copiare una stringa](../../storage/common/storage-account-keys-manage.md?tabs=azure-portal&toc=%2fazure%2fstorage%2ftables%2ftoc.json#view-account-access-keys) di connessione.
+* **Stringa di connessione**: creare un URL di firma di accesso condiviso (SAS) e compilare qui. Il modo più semplice per generare un URL di firma di accesso condiviso consiste nell'usare il portale di Azure. Utilizzando la portale di Azure, è possibile spostarsi graficamente. Per creare un URL di firma di accesso condiviso tramite il portale di Azure, passare prima all'account di archiviazione a cui si vuole accedere nella sezione Impostazioni, quindi fare clic su firma di accesso condiviso. Controllare almeno le caselle di controllo "Table" e "Object", quindi fare clic sul pulsante genera SAS e stringa di connessione. L'URL di firma di accesso condiviso del servizio tabelle è quello che è necessario copiare e compilare nella casella di testo nell'area di lavoro di Advisor di metrica.
 
 * **Nome tabella**: specificare una tabella in base a cui eseguire una query. Si trova nell'istanza dell'account di archiviazione di Azure. Fare clic su **tabelle** nella sezione **servizio tabelle** .
 
-* **Query** di È possibile usare `@StartTime` nella query. `@StartTime` viene sostituito con una stringa di formato AAAA-MM-GGThh: mm: SS nello script.
+* **Query** di È possibile usare `@StartTime` nella query. `@StartTime` viene sostituito con una stringa di formato AAAA-MM-GGThh: mm: SS nello script. Suggerimento: usare Azure Storage Explorer per creare una query con un intervallo di tempo specifico e assicurarsi che venga eseguita bene, quindi eseguire la sostituzione.
 
     ``` mssql
-    let StartDateTime = datetime(@StartTime); let EndDateTime = StartDateTime + 1d; 
-    SampleTable | where Timestamp >= StartDateTime and Timestamp < EndDateTime | project Timestamp, Market, RPM
+    date ge datetime'@StartTime' and date lt datetime'@EndTime'
     ```
 
 ## <a name="span-ideselasticsearchspan"></a><span id="es">Elasticsearch</span>
@@ -232,7 +231,7 @@ The timestamp field must match one of these two formats:
 
 ## <a name="span-idhttphttp-requestspan"></a><span id="http">Richiesta HTTP</span>
 
-* **URL della richiesta**: un URL http che può restituire JSON. Sono supportati i segnaposto% Y,% m,% d,% h,% M:% Y = anno nel formato aaaa,% m = mese nel formato MM,% d = giorno nel formato gg,% h = ora in formato HH,% M = minuto nel formato mm. Ad esempio: `http://microsoft.com/ProjectA/%Y/%m/X_%Y-%m-%d-%h-%M`.
+* **URL della richiesta**: URL http che può restituire JSON. Sono supportati i segnaposto% Y,% m,% d,% h,% M:% Y = anno nel formato aaaa,% m = mese nel formato MM,% d = giorno nel formato gg,% h = ora in formato HH,% M = minuto nel formato mm. Ad esempio: `http://microsoft.com/ProjectA/%Y/%m/X_%Y-%m-%d-%h-%M`.
 * **Metodo http request**: usare Get o post.
 * **Intestazione della richiesta**: è possibile aggiungere l'autenticazione di base. 
 * **Payload della richiesta**: è supportato solo il payload JSON. Il segnaposto @StartTime è supportato nel payload. La risposta deve essere nel formato JSON seguente: [{"timestamp": "2018-01-01T00:00:00Z", "Market": "en-US", "count": 11, "Revenue": 1.23}, {"timestamp": "2018-01-01T00:00:00Z", "Market": "zh-CN", "count": 22, "Revenue": 4,56}]. (ad esempio, quando i dati del 2020-06-21T00:00:00Z viene inserito, @StartTime = 2020-06-21T00:00:00.0000000 + 00:00)

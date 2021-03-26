@@ -4,12 +4,12 @@ ms.service: azure-communication-services
 ms.topic: include
 ms.date: 03/10/2021
 ms.author: mikben
-ms.openlocfilehash: 9aaaece7d60ceead80e51bdc2a1bb342d9a4d237
-ms.sourcegitcommit: bed20f85722deec33050e0d8881e465f94c79ac2
+ms.openlocfilehash: af5ec07a8fb2db0bd4b9b8f1af556ef54199400d
+ms.sourcegitcommit: 73d80a95e28618f5dfd719647ff37a8ab157a668
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/25/2021
-ms.locfileid: "105107740"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105609440"
 ---
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -123,6 +123,12 @@ const call = callAgent.startCall(['acsUserId'], placeCallOptions);
 Quando la chiamata si connette, avvia automaticamente l'invio di un flusso video dalla fotocamera selezionata all'altro partecipante. Questo vale anche per le `Call.Accept()` Opzioni video e `CallAgent.join()` video.
 
 ### <a name="join-a-group-call"></a>Partecipare a una chiamata di gruppo
+
+> [!NOTE]
+> Il `groupId` parametro è considerato metadati di sistema e può essere usato da Microsoft per le operazioni necessarie per eseguire il sistema. Non includere i dati personali nel `groupId` valore. Microsoft non considera questo parametro come dati personali e il suo contenuto può essere visibile ai dipendenti Microsoft o archiviato a lungo termine.
+>
+> Il `groupId` parametro richiede che i dati siano in formato GUID. Si consiglia di usare GUID generati casualmente che non sono considerati dati personali nei sistemi.
+>
 
 Per avviare una nuova chiamata di gruppo o partecipare a una chiamata di gruppo in corso, usare il `join` metodo e passare un oggetto con una `groupId` Proprietà. Il `groupId` valore deve essere un GUID.
 

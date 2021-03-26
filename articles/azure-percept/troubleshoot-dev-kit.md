@@ -5,25 +5,22 @@ author: mimcco
 ms.author: mimcco
 ms.service: azure-percept
 ms.topic: how-to
-ms.date: 02/18/2021
+ms.date: 03/25/2021
 ms.custom: template-how-to
-ms.openlocfilehash: 313ea98da0426af945dfdea00d33440ab2955cc7
-ms.sourcegitcommit: a8ff4f9f69332eef9c75093fd56a9aae2fe65122
+ms.openlocfilehash: c9c62ec07873272b956877ec51d8765ae0bbd100
+ms.sourcegitcommit: 73d80a95e28618f5dfd719647ff37a8ab157a668
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/24/2021
-ms.locfileid: "105023079"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105605638"
 ---
-# <a name="azure-percept-dk-dev-kit-troubleshooting"></a>Risoluzione dei problemi di Azure Percept DK (Dev Kit)
+# <a name="azure-percept-dk-troubleshooting"></a>Risoluzione dei problemi di Azure Percept DK
 
 Per suggerimenti generali sulla risoluzione dei problemi relativi ad Azure Percept DK, vedere le linee guida riportate di seguito.
 
 ## <a name="general-troubleshooting-commands"></a>Comandi generali per la risoluzione dei problemi
 
-Per eseguire questi comandi, 
-1. Connettersi al [Wi-Fi AP del kit di sviluppo](./quickstart-percept-dk-set-up.md)
-1. [SSH in dev Kit](./how-to-ssh-into-percept-dk.md)
-1. Immettere i comandi nel terminale SSH
+Per eseguire questi comandi, connettersi tramite [SSH a Dev Kit](./how-to-ssh-into-percept-dk.md) e immettere i comandi nel prompt client SSH.
 
 Per reindirizzare l'output a un file con estensione txt per un'ulteriore analisi, usare la sintassi seguente:
 
@@ -43,7 +40,7 @@ Dopo il reindirizzamento dell'output a un file con estensione txt, copiare il fi
 scp [remote username]@[IP address]:[remote file path]/[file name].txt [local host file path]
 ```
 
-```[local host file path]``` si riferisce al percorso nel computer host in cui si desidera copiare il file con estensione txt. ```[remote username]``` nome utente SSH scelto durante l' [installazione](./quickstart-percept-dk-set-up.md). Se durante la configurazione guidata non è stato configurato un account di accesso SSH, il nome utente remoto sarà ```root``` .
+```[local host file path]``` si riferisce al percorso nel computer host in cui si desidera copiare il file con estensione txt. ```[remote username]``` nome utente SSH scelto durante l' [installazione](./quickstart-percept-dk-set-up.md).
 
 Per ulteriori informazioni sui comandi di Azure IoT Edge, vedere la [documentazione relativa alla risoluzione dei problemi del dispositivo Azure IOT Edge](../iot-edge/troubleshoot.md).
 
@@ -88,11 +85,11 @@ sudo journalctl -u hostapd.service -u wpa_supplicant.service -u ztpd.service -u 
 |```sudo docker image prune``` |[Rimuove tutte le immagini in sospeso](https://docs.docker.com/engine/reference/commandline/image_prune/) |
 |```sudo watch docker ps``` <br> ```watch ifconfig [interface]``` |verificare lo stato di download del contenitore Docker |
 
-## <a name="usb-updating"></a>Aggiornamento USB
+## <a name="usb-updates"></a>Aggiornamenti USB
 
 |Errore:                                    |Soluzione:                                               |
 |------------------------------------------|--------------------------------------------------------|
-|LIBUSB_ERROR_XXX durante flash USB tramite UUU |Questo errore è il risultato di un errore di connessione USB durante l'aggiornamento di UUU. Se il cavo USB non è connesso correttamente alle porte USB del PC o a PE-10X, si verificherà un errore di questo modulo. Provare a scollegare e ricollegare entrambe le estremità del cavo USB e scuotere il cavo per garantire una connessione protetta. Questo risolve quasi sempre il problema. |
+|LIBUSB_ERROR_XXX durante flash USB tramite UUU |Questo errore è il risultato di un errore di connessione USB durante l'aggiornamento di UUU. Se il cavo USB non è connesso correttamente alle porte USB del PC o alla lavagna del vettore Percept DK, si verificherà un errore di questo modulo. Provare a scollegare e riconnettere entrambe le estremità del cavo USB e scuotere il cavo per garantire una connessione protetta. Questo risolve quasi sempre il problema. |
 
 ## <a name="azure-percept-dk-carrier-board-led-states"></a>Stati del LED della lavagna del vettore di Azure Percept DK
 

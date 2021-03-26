@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 04/03/2020
 ms.author: trbye
-ms.openlocfilehash: afba973570d75eace8cae8d1ed6ed470db21ef0e
-ms.sourcegitcommit: ed7376d919a66edcba3566efdee4bc3351c57eda
+ms.openlocfilehash: 65e55d8e9d81f4045dde29c943f034ed0a24bf4c
+ms.sourcegitcommit: 73d80a95e28618f5dfd719647ff37a8ab157a668
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/24/2021
-ms.locfileid: "105043258"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105608086"
 ---
 # <a name="about-the-speech-sdk"></a>Informazioni su Speech SDK
 
@@ -67,17 +67,17 @@ Il supporto dell' **Assistente vocale** è disponibile nelle piattaforme seguent
   - Java/Windows & Linux & macOS & Android (Speech Devices SDK)
   - Go
 
-#### <a name="keyword-spotting"></a>Individuazione di parole chiave
+#### <a name="keyword-recognition"></a>Riconoscimento parole chiave
 
-Il concetto di [individuazione delle parole chiave](./custom-keyword-basics.md) è supportato nell'SDK di riconoscimento vocale. L'individuazione di parole chiave è l'azione di identificazione di una parola chiave in sintesi vocale, seguita da un'azione dopo aver ascoltato la parola chiave. Ad esempio, "Hey Cortana" attiverà Cortana Assistant.
+Il concetto di [riconoscimento delle parole chiave](./custom-keyword-basics.md) è supportato nell'SDK di riconoscimento vocale. Il riconoscimento delle parole chiave è l'operazione di identificazione di una parola chiave in sintesi vocale, seguita da un'azione dopo aver ascoltato la parola chiave. Ad esempio, "Hey Cortana" attiverà Cortana Assistant.
 
-L' **individuazione delle parole chiave (KWS)** è disponibile nelle piattaforme seguenti:
+Il **riconoscimento delle parole chiave** è disponibile nelle piattaforme seguenti:
 
   - C++/Windows & Linux
   - C#/Windows & Linux
   - Python/Windows & Linux
   - Java/Windows & Linux & Android (Speech Devices SDK)
-  - La funzionalità di individuazione delle parole chiave (KWS) può funzionare con qualsiasi tipo di microfono, il supporto ufficiale di KWS, tuttavia, è attualmente limitato agli array di microfoni presenti nell'hardware Kinect DK di Azure o all'SDK per dispositivi vocali
+  - La funzionalità di riconoscimento delle parole chiave può funzionare con qualsiasi tipo di microfono, il supporto ufficiale per il riconoscimento delle parole chiave, tuttavia, è attualmente limitato agli array di microfoni trovati nell'hardware di Azure Kinect DK o nell'SDK per i dispositivi vocali
 
 ### <a name="meeting-scenarios"></a>Scenari di riunione
 

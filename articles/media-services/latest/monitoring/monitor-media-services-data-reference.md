@@ -6,17 +6,18 @@ ms.author: inhenkel
 manager: femila
 ms.topic: reference
 ms.service: media-services
+ms.custom: subject-monitoring
 ms.date: 03/17/2021
-ms.openlocfilehash: 866b2faf473f06fc3f85cdb434d6555504a7f6a8
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 66fce608515d16c5418ddd18e00319a3cbf088f7
+ms.sourcegitcommit: 73d80a95e28618f5dfd719647ff37a8ab157a668
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104598185"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105609089"
 ---
 # <a name="monitoring-media-services-data-reference"></a>Riferimento ai dati di monitoraggio di servizi multimediali
 
-Questo articolo illustra i dati utili per il monitoraggio di servizi multimediali. Per altre informazioni su tutte le metriche della piattaforma supportate in monitoraggio di Azure, vedere [metriche supportate con monitoraggio di Azure](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-supported).
+Questo articolo illustra i dati utili per il monitoraggio di servizi multimediali. Per altre informazioni su tutte le metriche della piattaforma supportate in monitoraggio di Azure, vedere [metriche supportate con monitoraggio di Azure](../../../azure-monitor/essentials/metrics-supported.md).
 
 ## <a name="media-services-metrics"></a>Metriche di servizi multimediali
 
@@ -59,7 +60,7 @@ Sono supportate le metriche seguenti per gli [endpoint di streaming](/rest/api/m
 
 ## <a name="metric-dimensions"></a>Dimensioni metrica
 
-Per altre informazioni sulle dimensioni della metrica, vedere [metriche multidimensionali](https://docs.microsoft.com/azure/azure-monitor/platform/data-platform-metrics#multi-dimensional-metrics).
+Per altre informazioni sulle dimensioni della metrica, vedere [metriche multidimensionali](../../../azure-monitor/essentials/data-platform-metrics.md#multi-dimensional-metrics).
 
 <!--**PLACEHOLDER** for dimensions table.-->
 
@@ -67,7 +68,7 @@ Per altre informazioni sulle dimensioni della metrica, vedere [metriche multidim
 
 ## <a name="media-services-diagnostic-logs"></a>Log di diagnostica di servizi multimediali
 
-I log di diagnostica forniscono dati avanzati e frequenti sul funzionamento di una risorsa di Azure. Per ulteriori informazioni, vedere [come raccogliere e utilizzare i dati di log dalle risorse di Azure](https://docs.microsoft.com/azure/azure-monitor/essentials/platform-logs-overview.md).
+I log di diagnostica forniscono dati avanzati e frequenti sul funzionamento di una risorsa di Azure. Per ulteriori informazioni, vedere [come raccogliere e utilizzare i dati di log dalle risorse di Azure](../../../azure-monitor/essentials/platform-logs-overview.md).
 
 Servizi multimediali supporta i log di diagnostica seguenti:
 
@@ -81,7 +82,7 @@ Servizi multimediali supporta i log di diagnostica seguenti:
 
 ## <a name="schemas"></a>Schemi
 
-Per una descrizione dettagliata dello schema dei log di diagnostica di primo livello, vedere [servizi, schemi e categorie supportati per i log di diagnostica di Azure](https://docs.microsoft.com/azure/azure-monitor/essentials/resource-logs-schema.md).
+Per una descrizione dettagliata dello schema dei log di diagnostica di primo livello, vedere [servizi, schemi e categorie supportati per i log di diagnostica di Azure](../../../azure-monitor/essentials/resource-logs-schema.md).
 
 ## <a name="key-delivery-log-schema-properties"></a>Proprietà dello schema del log di distribuzione delle chiavi
 

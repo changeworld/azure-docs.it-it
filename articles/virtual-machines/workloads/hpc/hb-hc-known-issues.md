@@ -5,15 +5,15 @@ author: vermagit
 ms.service: virtual-machines
 ms.subservice: hpc
 ms.topic: article
-ms.date: 03/18/2021
+ms.date: 03/25/2021
 ms.author: amverma
 ms.reviewer: cynthn
-ms.openlocfilehash: 297bc24c570298dddf10a101a0c0c528bddecc10
-ms.sourcegitcommit: a67b972d655a5a2d5e909faa2ea0911912f6a828
+ms.openlocfilehash: d8c3a2d961cc5b6fd719b77dae07b6e46c3d8b65
+ms.sourcegitcommit: 73d80a95e28618f5dfd719647ff37a8ab157a668
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/23/2021
-ms.locfileid: "104889825"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105604839"
 ---
 # <a name="known-issues-with-h-series-and-n-series-vms"></a>Problemi noti delle VM serie H e serie N
 
@@ -24,9 +24,18 @@ In Ubuntu-18,04, il OFED Mellanox ha mostrato l'incompatibilità con i kernel ve
 La soluzione temporanea consiste nell'usare l'immagine **canonica: UbuntuServer: 18_04-LTS-Gen2:18.04.202101290** Marketplace o versioni precedenti e non aggiornare il kernel.
 Questo problema dovrebbe essere risolto con un MOFED più recente (TBD).
 
-## <a name="known-issues-on-hbv3"></a>Problemi noti relativi a modello HBV3
-- Attualmente, InfiniBand è supportato solo nella VM 120-Core (Standard_HB120rs_v3).
-- Attualmente la rete accelerata di Azure non è supportata in tutte le aree della serie modello HBV3.
+## <a name="mpi-qp-creation-errors"></a>Errori di creazione QP MPI
+Se durante l'esecuzione di carichi di lavoro MPI si verificano errori di creazione di InfiniBand QP, come illustrato di seguito, è consigliabile riavviare la macchina virtuale e ritentare il carico di lavoro. Questo problema verrà risolto in futuro.
+
+```bash
+ib_mlx5_dv.c:150  UCX  ERROR mlx5dv_devx_obj_create(QP) failed, syndrome 0: Invalid argument
+```
+
+È possibile verificare i valori del numero massimo di coppie di coda quando il problema viene osservato come indicato di seguito.
+```bash
+[user@azurehpc-vm ~]$ ibv_devinfo -vv | grep qp
+max_qp: 4096
+```
 
 ## <a name="accelerated-networking-on-hb-hc-hbv2-and-ndv2"></a>Rete accelerata su HB, HC, HBv2 e NDv2
 

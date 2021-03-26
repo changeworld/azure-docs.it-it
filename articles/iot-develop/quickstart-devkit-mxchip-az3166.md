@@ -7,17 +7,19 @@ ms.service: iot-develop
 ms.devlang: c
 ms.topic: quickstart
 ms.date: 03/17/2021
-ms.openlocfilehash: 4926aa40831056556060cbf564022fa7f5e3aa7a
-ms.sourcegitcommit: ac035293291c3d2962cee270b33fca3628432fac
+ms.openlocfilehash: 367f527180a310f2cbc74b1ccdc1102e1e53d1cf
+ms.sourcegitcommit: 73d80a95e28618f5dfd719647ff37a8ab157a668
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/24/2021
-ms.locfileid: "104962896"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105605986"
 ---
 # <a name="quickstart-connect-an-mxchip-az3166-devkit-to-iot-central"></a>Guida introduttiva: connettere MXCHIP AZ3166 DevKit a IoT Central
 
 **Si applica a**: [sviluppo di dispositivi incorporati](about-iot-develop.md#embedded-device-development)<br>
 **Tempo di completamento totale**: 30 minuti
+
+[![Esplora il codice](media/common/browse-github-code.png)](https://github.com/azure-rtos/getting-started/tree/master/MXChip/AZ3166)
 
 In questa esercitazione si userà Azure RTO per connettere un MXCHIP AZ3166 DevKit (in seguito, MXCHIP DevKit) ad Azure. L'articolo fa parte della serie [Introduzione allo sviluppo di dispositivi embedded Azure](quickstart-device-development.md). La serie introduce gli sviluppatori di dispositivi ad Azure RTO e Mostra come connettere diversi kit di valutazione del dispositivo ad Azure.
 
@@ -26,9 +28,6 @@ Verranno completate le attività seguenti:
 * Installare un set di strumenti di sviluppo incorporati per la programmazione di un DevKit di MXCHIP in C
 * Compilare un'immagine e inserirla nel DevKit MXCHIP
 * Usare IoT Central di Azure per creare componenti cloud, visualizzare proprietà, visualizzare i dati di telemetria del dispositivo e chiamare comandi diretti
-
-> [!NOTE]
-> Se si preferisce solo visualizzare il codice e non completare questo articolo, vedere l'esempio in [connettere un AZ3166 MXCHIP ad Azure](https://github.com/azure-rtos/getting-started/tree/master/MXChip/AZ3166). Se si intende completare questo articolo, è possibile clonare il repository GitHub in un passaggio successivo.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
