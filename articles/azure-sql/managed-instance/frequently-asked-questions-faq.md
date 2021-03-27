@@ -12,12 +12,12 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: sstein
 ms.date: 09/21/2020
-ms.openlocfilehash: 42e263a47c6c771d2b1fef6586468cfc5a698e28
-ms.sourcegitcommit: ed7376d919a66edcba3566efdee4bc3351c57eda
+ms.openlocfilehash: 9faaf79958443c252a8d913fbd7448389c610e09
+ms.sourcegitcommit: a9ce1da049c019c86063acf442bb13f5a0dde213
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/24/2021
-ms.locfileid: "105047916"
+ms.lasthandoff: 03/27/2021
+ms.locfileid: "105628578"
 ---
 # <a name="azure-sql-managed-instance-frequently-asked-questions-faq"></a>Domande frequenti su Istanza gestita di SQL di Azure
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -135,7 +135,7 @@ Istanza gestita offre gli stessi livelli di prestazioni per calcolo e dimensioni
 
 Un'opzione consiste nell' [esportare un database in BacPac](../database/database-export.md) e quindi [importare il file BACPAC](../database/database-import.md). Si tratta dell'approccio consigliato se il database è inferiore a 100 GB.
 
-La [replica transazionale](replication-two-instances-and-sql-server-configure-tutorial.md?view=sql-server-2017&preserve-view=true) può essere utilizzata se tutte le tabelle del database includono chiavi *primarie* e nel database non sono presenti oggetti OLTP in memoria.
+La [replica transazionale](replication-two-instances-and-sql-server-configure-tutorial.md) può essere utilizzata se tutte le tabelle del database includono chiavi *primarie* e nel database non sono presenti oggetti OLTP in memoria.
 
 Non è possibile ripristinare i backup nativi di COPY_ONLY eseguiti dall'istanza gestita per SQL Server perché l'istanza gestita ha una versione del database superiore rispetto a SQL Server. Per informazioni dettagliate, vedere [backup di sola copia](/sql/relational-databases/backup-restore/copy-only-backups-sql-server?preserve-view=true&view=sql-server-ver15).
 
@@ -171,7 +171,7 @@ Vedere le [cause principali delle differenze di prestazioni tra istanza gestita 
 
 Per ottimizzare le prestazioni dell'istanza gestita, è possibile:
 - [Ottimizzazione automatica](../database/automatic-tuning-overview.md) che fornisce prestazioni di picco e carichi di lavoro stabili tramite l'ottimizzazione delle prestazioni continua basata su intelligenza artificiale e machine learning.
--   [OLTP in memoria](../in-memory-oltp-overview.md) che migliora la velocità effettiva e la latenza sui carichi di lavoro di elaborazione transazionale e offre informazioni aziendali più veloci. 
+-    [OLTP in memoria](../in-memory-oltp-overview.md) che migliora la velocità effettiva e la latenza sui carichi di lavoro di elaborazione transazionale e offre informazioni aziendali più veloci. 
 
 Per ottimizzare ulteriormente le prestazioni, è consigliabile applicare alcune delle *procedure consigliate* per l' [ottimizzazione dell'applicazione e del database](../database/performance-guidance.md#tune-your-database).
 Se il carico di lavoro è costituito da molte piccole transazioni, provare [a cambiare il tipo di connessione dal proxy alla modalità di reindirizzamento per una](connection-types-overview.md#changing-connection-type) latenza più bassa e una velocità effettiva più elevata
@@ -263,9 +263,9 @@ Sì. Dopo il provisioning di un Istanza gestita è possibile impostare NSG che c
 **È possibile impostare l'appliance virtuale di dispositivo o il firewall locale per filtrare il traffico di gestione in uscita in base ai nomi di dominio completi?**
 
 No. Questa operazione non è supportata per diversi motivi:
--   Il routing del traffico che rappresenta la risposta alla richiesta di gestione in ingresso è asimmetrico e non può funzionare.
--   Il routing del traffico che passa all'archiviazione potrebbe essere influenzato da vincoli di velocità effettiva e latenza, in modo che non sia possibile fornire la qualità e la disponibilità dei servizi previsti.
--   In base all'esperienza, queste configurazioni sono soggette a errori e non sono supportate.
+-    Il routing del traffico che rappresenta la risposta alla richiesta di gestione in ingresso è asimmetrico e non può funzionare.
+-    Il routing del traffico che passa all'archiviazione potrebbe essere influenzato da vincoli di velocità effettiva e latenza, in modo che non sia possibile fornire la qualità e la disponibilità dei servizi previsti.
+-    In base all'esperienza, queste configurazioni sono soggette a errori e non sono supportate.
 
 **È possibile impostare l'appliance virtuale di sistema o il firewall per il traffico non di gestione in uscita?**
 
@@ -416,9 +416,9 @@ SQL Istanza gestita offre un [modello di acquisto basato su vCore](sql-managed-i
 **Quali vantaggi in termini di costi sono disponibili per Istanza gestita SQL?**
 
 È possibile risparmiare sui costi con i vantaggi SQL di Azure nei modi seguenti:
--   Ottimizza gli investimenti esistenti in licenze locali e Risparmia fino al 55% con [vantaggio Azure Hybrid](../azure-hybrid-benefit.md?tabs=azure-powershell). 
--   Esegui il commit di una prenotazione per le risorse di calcolo e Risparmia fino al 33% con il [vantaggio dell'istanza riservata](../database/reserved-capacity-overview.md). Combina questo vantaggio con il vantaggio Azure Hybrid per risparmiare fino al 82%. 
--   Risparmia fino al 55% rispetto ai prezzi di listino con il [vantaggio prezzi di sviluppo/test di Azure](https://azure.microsoft.com/pricing/dev-test/) che offre tariffe scontate per i tuoi carichi di lavoro di sviluppo e test in corso.
+-    Ottimizza gli investimenti esistenti in licenze locali e Risparmia fino al 55% con [vantaggio Azure Hybrid](../azure-hybrid-benefit.md?tabs=azure-powershell). 
+-    Esegui il commit di una prenotazione per le risorse di calcolo e Risparmia fino al 33% con il [vantaggio dell'istanza riservata](../database/reserved-capacity-overview.md). Combina questo vantaggio con il vantaggio Azure Hybrid per risparmiare fino al 82%. 
+-    Risparmia fino al 55% rispetto ai prezzi di listino con il [vantaggio prezzi di sviluppo/test di Azure](https://azure.microsoft.com/pricing/dev-test/) che offre tariffe scontate per i tuoi carichi di lavoro di sviluppo e test in corso.
 
 **Chi è idoneo per il vantaggio dell'istanza riservata?**
 

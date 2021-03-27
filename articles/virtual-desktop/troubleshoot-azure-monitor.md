@@ -3,15 +3,15 @@ title: Risolvere i problemi di monitoraggio desktop virtuale di Windows-Azure
 description: Come risolvere i problemi relativi a monitoraggio di Azure per desktop virtuale di Windows.
 author: Heidilohr
 ms.topic: troubleshooting
-ms.date: 12/01/2020
+ms.date: 03/25/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: c335c1cf7e5319b812345714dbdc6b87ddc4e81b
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: a07d7536d3d71b121c1dde761d8c290b8be01fe7
+ms.sourcegitcommit: a9ce1da049c019c86063acf442bb13f5a0dde213
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101709173"
+ms.lasthandoff: 03/27/2021
+ms.locfileid: "105628459"
 ---
 # <a name="troubleshoot-azure-monitor-for-windows-virtual-desktop-preview"></a>Risolvere i problemi di monitoraggio di Azure per desktop virtuale Windows (anteprima)
 
@@ -25,28 +25,26 @@ Questo articolo presenta i problemi noti e le soluzioni per i problemi comuni in
 Se la cartella di lavoro di configurazione non funziona correttamente per automatizzare l'installazione, è possibile usare queste risorse per configurare manualmente l'ambiente:
 
 - Per abilitare manualmente la diagnostica o accedere all'area di lavoro Log Analytics, vedere [inviare diagnostica desktop virtuali Windows a log Analytics](diagnostics-log-analytics.md).
-- Per installare manualmente l'estensione Log Analytics in un host, vedere [log Analytics estensione macchina virtuale per Windows](../virtual-machines/extensions/oms-windows.md).
+- Per installare manualmente l'estensione Log Analytics in un host sessione, vedere [log Analytics estensione macchina virtuale per Windows](../virtual-machines/extensions/oms-windows.md).
 - Per configurare una nuova area di lavoro Log Analytics, vedere [creare un'area di lavoro log Analytics nel portale di Azure](../azure-monitor/logs/quick-create-workspace.md).
-- Per aggiungere o rimuovere i contatori delle prestazioni, vedere [configurazione dei contatori delle prestazioni](../azure-monitor/agents/data-sources-performance-counters.md).
-- Per configurare gli eventi per un'area di lavoro Log Analytics, vedere [raccogliere origini dati del registro eventi di Windows con log Analytics Agent](../azure-monitor/agents/data-sources-windows-events.md).
+- Per aggiungere, rimuovere o modificare i contatori delle prestazioni, vedere [configurazione dei contatori delle prestazioni](../azure-monitor/agents/data-sources-performance-counters.md).
+- Per configurare i registri eventi di Windows per un'area di lavoro Log Analytics, vedere [raccogliere origini dati del registro eventi di Windows con log Analytics Agent](../azure-monitor/agents/data-sources-windows-events.md).
 
 ## <a name="my-data-isnt-displaying-properly"></a>I dati non vengono visualizzati correttamente
 
-Se i dati non vengono visualizzati correttamente, controllare la configurazione, le autorizzazioni e verificare che gli indirizzi IP necessari siano sbloccati. 
+Se i dati non vengono visualizzati correttamente, controllare le soluzioni comuni seguenti:
 
-- Assicurarsi prima di tutto che siano stati compilati tutti i campi nella cartella di lavoro di configurazione, come descritto in [usare monitoraggio di Azure per desktop virtuale Windows per monitorare la distribuzione](azure-monitor.md). Se mancano contatori o eventi, i dati associati non verranno visualizzati nel portale di Azure.
-
+- Per prima cosa, verificare di aver configurato correttamente con la cartella di lavoro di configurazione, come descritto in [usare monitoraggio di Azure per desktop virtuale Windows per monitorare la distribuzione](azure-monitor.md). Se mancano contatori o eventi, i dati associati non verranno visualizzati nel portale di Azure.
 - Controllare le autorizzazioni di accesso & contattare i proprietari delle risorse per richiedere autorizzazioni mancanti. chiunque Monitoring desktop virtuale di Windows richiede le autorizzazioni seguenti:
-
     - Accesso in lettura alle sottoscrizioni di Azure che contengono le risorse del desktop virtuale Windows
     - Accesso in lettura ai gruppi di risorse della sottoscrizione che contengono gli host sessione desktop virtuale Windows 
-    - Accesso in lettura all'area di lavoro Log Analytics
-
-- Potrebbe essere necessario aprire le porte in uscita nel firewall del server per consentire a monitoraggio di Azure di inviare dati al portale. vedere [porte in uscita](../azure-monitor/app/ip-addresses.md). 
-
+    - Accesso in lettura a qualsiasi area di lavoro Log Analytics in uso
+- Potrebbe essere necessario aprire le porte in uscita nel firewall del server per consentire a monitoraggio di Azure e Log Analytics di inviare dati al portale. Per informazioni su come eseguire questa operazione, vedere gli articoli seguenti:
+      - [Porte in uscita di monitoraggio di Azure](../azure-monitor/app/ip-addresses.md)
+      - [Log Analytics i requisiti del firewall](../azure-monitor/agents/log-analytics-agent.md#firewall-requirements). 
 - Non vengono visualizzati dati dalle attività recenti? Potrebbe essere necessario attendere 15 minuti e aggiornare il feed. Monitoraggio di Azure prevede un periodo di latenza di 15 minuti per il popolamento dei dati di log. Per altre informazioni, vedere [tempo di inserimento dei dati di log in monitoraggio di Azure](../azure-monitor/logs/data-ingestion-time.md).
 
-Se non sono presenti informazioni ma i dati non sono ancora visualizzati correttamente, potrebbe essersi verificato un problema nella query o nelle origini dati. Esaminare i problemi noti e le limitazioni. 
+Se non sono presenti informazioni ma i dati non sono ancora visualizzati correttamente, potrebbe essersi verificato un problema nella query o nelle origini dati. Esaminare i [problemi noti e le limitazioni](#known-issues-and-limitations). 
 
 ## <a name="i-want-to-customize-azure-monitor-for-windows-virtual-desktop"></a>Si vuole personalizzare monitoraggio di Azure per desktop virtuale Windows
 
@@ -60,7 +58,7 @@ Per altre informazioni sui termini di dati, vedere il [Glossario monitoraggio di
 
 ## <a name="the-data-i-need-isnt-available"></a>I dati necessari non sono disponibili
 
-Se si desidera monitorare più contatori delle prestazioni o eventi, è possibile consentirne l'invio all'area di lavoro Log Analytics e monitorarli nella diagnostica host: browser host. 
+Se si desidera monitorare più contatori delle prestazioni o registri eventi di Windows, è possibile abilitarli per inviare informazioni di diagnostica all'area di lavoro di Log Analytics e monitorarli in **diagnostica host: browser host**. 
 
 - Per aggiungere contatori delle prestazioni, vedere [configurazione dei contatori delle prestazioni](../azure-monitor/agents/data-sources-performance-counters.md#configuring-performance-counters)
 - Per aggiungere eventi di Windows, vedere [configurazione dei registri eventi di Windows](../azure-monitor/agents/data-sources-windows-events.md#configuring-windows-event-logs)
@@ -68,26 +66,19 @@ Se si desidera monitorare più contatori delle prestazioni o eventi, è possibil
 Non è possibile trovare un punto dati per facilitare la diagnosi di un problema? Invia commenti e suggerimenti
 
 - Per informazioni su come lasciare commenti, vedere [panoramica sulla risoluzione dei problemi, commenti e suggerimenti e supporto per desktop virtuale di Windows](troubleshoot-set-up-overview.md).
-- È anche possibile lasciare commenti e suggerimenti per desktop virtuale Windows nell' [Hub di feedback per desktop virtuale Windows](https://support.microsoft.com/help/4021566/windows-10-send-feedback-to-microsoft-with-feedback-hub-app) o nel [Forum UserVoice](https://windowsvirtualdesktop.uservoice.com/forums/921118-general).
+- È anche possibile lasciare feedback per Desktop virtuale Windows nell'[hub di commenti e suggerimenti per Desktop virtuale Windows](https://support.microsoft.com/help/4021566/windows-10-send-feedback-to-microsoft-with-feedback-hub-app).
 
 ## <a name="known-issues-and-limitations"></a>Limitazioni e problemi noti
 
-Si tratta di problemi e limitazioni a cui si è attualmente consapevoli e che si sta risolvendo:
+Di seguito sono riportati i problemi e le limitazioni che sono consapevoli e che è necessario risolvere:
 
 - È possibile monitorare un solo pool di host alla volta. 
-
 - Per salvare le impostazioni preferite, è necessario salvare un modello personalizzato della cartella di lavoro. I modelli personalizzati non adotteranno automaticamente gli aggiornamenti dal gruppo di prodotti.
-
-- Alcuni messaggi di errore non vengono formulati in modo intuitivo e non tutti i messaggi di errore sono descritti nella documentazione di.
-
+- Quando si caricano le selezioni, nella cartella di lavoro di configurazione a volte vengono visualizzati errori di "query non riuscita". Aggiornare la query, immettere nuovamente la selezione, se necessario, e l'errore dovrebbe risolversi automaticamente. 
+- Alcuni messaggi di errore non sono formulati in modo intuitivo e non tutti i messaggi di errore sono descritti nella documentazione.
 - Il contatore delle prestazioni Total Sessions può superare le sessioni con un numero ridotto e il totale delle sessioni potrebbe sembrare superiore al limite massimo delle sessioni.
-
-- Il numero di sessioni disponibili non riflette i criteri di scalabilità nel pool host. 
-    
-- Sebbene sia raro, un evento di completamento della connessione può essere mancante e questo può influito su alcuni oggetti visivi come le connessioni nel tempo e sullo stato di connessione dell'utente.  
-    
-- La cartella di lavoro configurazione supporta solo la configurazione di host all'interno della stessa area del gruppo di risorse. 
-
+- Il numero di sessioni disponibili non riflette i criteri di scalabilità nel pool host.   
+- Si verificano tempi di connessione inaspettati o contraddizioni? Sebbene sia raro, un evento di completamento della connessione può essere mancante e può influito su alcuni oggetti visivi e metriche.
 - Il tempo per la connessione include il tempo impiegato dagli utenti per immettere le proprie credenziali. Questo è correlato all'esperienza, ma in alcuni casi può mostrare picchi falsi. 
     
 

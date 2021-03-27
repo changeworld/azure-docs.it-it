@@ -4,12 +4,12 @@ description: Fornisce un riepilogo delle impostazioni di supporto e delle limita
 ms.topic: conceptual
 ms.date: 01/07/2021
 ms.custom: references_regions
-ms.openlocfilehash: 38c35824118979c900dacd9c103ae8f9ec11ad65
-ms.sourcegitcommit: bed20f85722deec33050e0d8881e465f94c79ac2
+ms.openlocfilehash: 88ec26837cc8f69c1e84c77ea6b57ce16e462e0a
+ms.sourcegitcommit: c94e282a08fcaa36c4e498771b6004f0bfe8fb70
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/25/2021
-ms.locfileid: "105107279"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105612858"
 ---
 # <a name="azure-disk-backup-support-matrix"></a>Matrice di supporto per il backup di dischi di Azure
 
@@ -51,7 +51,7 @@ Quando diventano disponibili, verranno annunciate altre aree.
 
 - Attualmente, l'esperienza portale di Azure per configurare il backup dei dischi è limitata a un massimo di 20 dischi dalla stessa sottoscrizione.
 
-- Attualmente (durante l'anteprima), l'uso di PowerShell e dell'interfaccia della riga di comando di Azure per configurare il backup e il ripristino dei dischi non è supportato.
+- Il backup su disco di Azure supporta PowerShell. Attualmente l'interfaccia della riga di comando di Azure non è supportata
 
 - Quando si configura il backup, il disco selezionato per il backup e il gruppo di risorse snapshot in cui devono essere archiviati gli snapshot devono far parte della stessa sottoscrizione. Non è possibile creare uno snapshot incrementale per un disco specifico al di fuori della sottoscrizione del disco. Altre informazioni sugli [snapshot incrementali](../virtual-machines/disks-incremental-snapshots.md#restrictions) per il disco gestito. Per altre informazioni su come scegliere un gruppo di risorse snapshot, vedere  [configurare il backup](backup-managed-disks.md#configure-backup).
 
@@ -61,7 +61,7 @@ Quando diventano disponibili, verranno annunciate altre aree.
 
 - Il supporto dei [collegamenti privati](../virtual-machines/disks-enable-private-links-for-import-export-portal.md) per Managed disks consente di limitare l'esportazione e l'importazione di dischi gestiti in modo che si verifichino solo all'interno della rete virtuale di Azure. Il backup su disco di Azure supporta il backup di dischi con endpoint privati abilitati. Questa operazione non include i dati o gli snapshot di backup accessibili tramite l'endpoint privato.
 
-- Durante l'anteprima, non è possibile disabilitare il backup, quindi l'opzione **Interrompi backup e Mantieni i dati di backup** non è supportata. È possibile eliminare un'istanza di backup che non solo arresterà il backup ma eliminerà anche tutti i dati di backup.
+- È possibile eliminare un'istanza di backup che arresterà il backup ed eliminerà anche tutti i dati di backup. Attualmente, non è possibile disabilitare un backup perché l'opzione **Interrompi backup e Mantieni i dati di backup** non è supportata.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

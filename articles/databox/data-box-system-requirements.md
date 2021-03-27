@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: article
-ms.date: 02/22/2021
+ms.date: 03/25/2021
 ms.author: alkohli
-ms.openlocfilehash: 85a0ce20f1d8e5a7e943efc088c19a8ad1912fc1
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 7f999dbf7a4e0262e36181a98560931d32d3296b
+ms.sourcegitcommit: c94e282a08fcaa36c4e498771b6004f0bfe8fb70
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101706036"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105612501"
 ---
 # <a name="azure-data-box-system-requirements"></a>Requisiti di sistema di Azure Data Box
 
@@ -39,7 +39,7 @@ I requisiti software includono i sistemi operativi supportati, i protocolli di t
 [!INCLUDE [data-box-supported-file-systems-clients](../../includes/data-box-supported-file-systems-clients.md)]
 
 > [!IMPORTANT] 
-> La connessione a condivisioni di Data Box non è supportata tramite REST per gli ordini di esportazione. 
+> La connessione a condivisioni di Data Box non è supportata tramite REST per gli ordini di esportazione.
 
 ### <a name="supported-storage-accounts"></a>Account di archiviazione supportati
 

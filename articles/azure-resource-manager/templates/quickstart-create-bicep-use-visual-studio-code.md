@@ -2,19 +2,21 @@
 title: Crea file bicipite-Visual Studio Code
 description: Usare Visual Studio Code e l'estensione bicipite per i file bicipite per la distribuzione delle risorse di Azure
 author: mumian
-ms.date: 03/02/2021
+ms.date: 03/26/2021
 ms.topic: quickstart
 ms.author: jgao
-ms.openlocfilehash: a5b5533cd87c417d03db960c477392c24fa59f8a
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
+ms.openlocfilehash: 4d1064351ddfacdebfa67fd9b2f517f592de3a7c
+ms.sourcegitcommit: c94e282a08fcaa36c4e498771b6004f0bfe8fb70
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102504151"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105612908"
 ---
 # <a name="quickstart-create-bicep-files-with-visual-studio-code"></a>Guida introduttiva: creare file bicipite con Visual Studio Code
 
 L'estensione bicipite per Visual Studio Code fornisce il supporto del linguaggio e il completamento automatico delle risorse. Questi strumenti consentono di creare e convalidare i file [bicipite](./bicep-overview.md) . In questa Guida introduttiva si userà l'estensione per creare un file bicipite da zero. In questo modo si verificano le funzionalità di estensione, ad esempio la convalida e i completamenti.
+
+[!INCLUDE [Bicep preview](../../../includes/resource-manager-bicep-preview.md)]
 
 Per completare questa Guida introduttiva, è necessario [Visual Studio Code](https://code.visualstudio.com/), con l' [estensione bicipit](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-bicep) installata. È necessario anche l'interfaccia della riga di comando di [Azure](/cli/azure/) più recente o il [modulo Azure PowerShell](/powershell/azure/new-azureps-module-az) più recente installato e autenticato.
 

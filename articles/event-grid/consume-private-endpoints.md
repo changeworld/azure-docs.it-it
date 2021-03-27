@@ -3,12 +3,12 @@ title: Recapitare gli eventi tramite il servizio di collegamento privato
 description: Questo articolo descrive come ovviare alla limitazione di non poter recapitare gli eventi usando il servizio di collegamento privato.
 ms.topic: how-to
 ms.date: 02/12/2021
-ms.openlocfilehash: 7ca15a76d56d9cdcdee741b661981b80c914d0e9
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
+ms.openlocfilehash: 9df78e1cc7734ba9e455ed686286658006f9445e
+ms.sourcegitcommit: a9ce1da049c019c86063acf442bb13f5a0dde213
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "104722328"
+ms.lasthandoff: 03/27/2021
+ms.locfileid: "105629292"
 ---
 # <a name="deliver-events-using-private-link-service"></a>Recapitare gli eventi tramite il servizio di collegamento privato
 Attualmente non è possibile recapitare gli eventi usando [endpoint privati](../private-link/private-endpoint-overview.md). In altre condizioni, non è previsto alcun supporto se si dispone di requisiti di isolamento di rete rigorosi in cui il traffico degli eventi recapitati non deve lasciare lo spazio IP privato. 
@@ -27,7 +27,7 @@ Con questa configurazione, il traffico passa attraverso l'IP pubblico/Internet d
 ## <a name="deliver-events-to-event-hubs-using-managed-identity"></a>Recapitare gli eventi a hub eventi usando l'identità gestita
 Per recapitare gli eventi a hub eventi nello spazio dei nomi di hub eventi usando l'identità gestita, seguire questa procedura:
 
-1. [Abilitare l'identità assegnata dal sistema per un argomento o un dominio](managed-service-identity.md#create-a-custom-topic-or-domain-with-an-identity). 
+1. Abilitare l'identità assegnata dal sistema: [argomenti di sistema](enable-identity-system-topics.md), [argomenti personalizzati e domini](enable-identity-custom-topics-domains.md).  
 1. [Aggiungere l'identità al ruolo di **mittente dei dati di hub eventi di Azure** nello spazio dei nomi di hub eventi](../event-hubs/authenticate-managed-identity.md#to-assign-azure-roles-using-the-azure-portal).
 1. [Abilitare l'impostazione **Consenti a servizi Microsoft attendibili di ignorare questo firewall** sullo spazio dei nomi di hub eventi](../event-hubs/event-hubs-service-endpoints.md#trusted-microsoft-services). 
 1. [Configurare la sottoscrizione di eventi](managed-service-identity.md#create-event-subscriptions-that-use-an-identity) che usa un hub eventi come endpoint per usare l'identità assegnata dal sistema.
@@ -35,16 +35,16 @@ Per recapitare gli eventi a hub eventi nello spazio dei nomi di hub eventi usand
 ## <a name="deliver-events-to-service-bus-using-managed-identity"></a>Recapitare gli eventi al bus di servizio usando l'identità gestita
 Per recapitare gli eventi alle code o agli argomenti del bus di servizio nello spazio dei nomi del bus di servizio usando l'identità gestita, seguire questa procedura:
 
-1. [Abilitare l'identità assegnata dal sistema per un argomento o un dominio](managed-service-identity.md#create-a-custom-topic-or-domain-with-an-identity). 
-1. Aggiungere l'identità al ruolo [mittente dati del bus di servizio di Azure](/service-bus-messaging/service-bus-managed-service-identity#azure-built-in-roles-for-azure-service-bus) nello spazio dei nomi del bus di servizio
+1. Abilitare l'identità assegnata dal sistema: [argomenti di sistema](enable-identity-system-topics.md), [argomenti personalizzati e domini](enable-identity-custom-topics-domains.md). 
+1. [Aggiungere l'identità al ruolo **mittente dati del bus di servizio di Azure**](/service-bus-messaging/service-bus-managed-service-identity#azure-built-in-roles-for-azure-service-bus) nello spazio dei nomi del bus di servizio
 1. [Abilitare l'impostazione **Consenti a servizi Microsoft attendibili di ignorare questo firewall** sullo spazio dei nomi del bus di servizio](../service-bus-messaging/service-bus-service-endpoints.md#trusted-microsoft-services). 
-1. [Configurare la sottoscrizione di eventi](managed-service-identity.md#create-event-subscriptions-that-use-an-identity) che usa una coda o un argomento del bus di servizio come endpoint per usare l'identità assegnata dal sistema.
+1. [Configurare la sottoscrizione di eventi](managed-service-identity.md) che usa una coda o un argomento del bus di servizio come endpoint per usare l'identità assegnata dal sistema.
 
 ## <a name="deliver-events-to-storage"></a>Recapitare gli eventi all'archiviazione 
 Per recapitare gli eventi alle code di archiviazione usando l'identità gestita, seguire questa procedura:
 
-1. [Abilitare l'identità assegnata dal sistema per un argomento o un dominio](managed-service-identity.md#create-a-custom-topic-or-domain-with-an-identity).
-1. Aggiungere l'identità al ruolo [mittente del messaggio dati della coda di archiviazione](../storage/common/storage-auth-aad-rbac-portal.md) nella coda di archiviazione di Azure.
+1. Abilitare l'identità assegnata dal sistema: [argomenti di sistema](enable-identity-system-topics.md), [argomenti personalizzati e domini](enable-identity-custom-topics-domains.md). 
+1. [Aggiungere l'identità al ruolo **mittente del messaggio dati della coda di archiviazione**](../storage/common/storage-auth-aad-rbac-portal.md) nella coda di archiviazione di Azure.
 1. [Configurare la sottoscrizione di eventi](managed-service-identity.md#create-event-subscriptions-that-use-an-identity) che usa una coda o un argomento del bus di servizio come endpoint per usare l'identità assegnata dal sistema.
 
 

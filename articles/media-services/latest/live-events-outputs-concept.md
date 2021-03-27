@@ -13,12 +13,12 @@ ms.devlang: ne
 ms.topic: conceptual
 ms.date: 10/23/2020
 ms.author: inhenkel
-ms.openlocfilehash: a66532856263d31e9070bc99f297ae105ca48312
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
+ms.openlocfilehash: 1ef49b66e6bba7c829abd35f6c8cc4169a2c14a0
+ms.sourcegitcommit: a9ce1da049c019c86063acf442bb13f5a0dde213
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102454788"
+ms.lasthandoff: 03/27/2021
+ms.locfileid: "105625297"
 ---
 # <a name="live-events-and-live-outputs-in-media-services"></a>Eventi live e output live in Servizi multimediali
 
@@ -117,47 +117,68 @@ Vedere anche [convenzioni di denominazione degli endpoint di streaming](streamin
 Una volta creato l'evento Live, è possibile ottenere gli URL di inserimento da fornire al codificatore locale. Questi URL vengono usati dal codificatore live per inserire un flusso live. Per altre informazioni, vedere [Codificatori di streaming live consigliati](recommended-on-premises-live-encoders.md).
 
 >[!NOTE]
-> A partire dalla versione dell'API 2020-05-01, gli URL di Vanity sono noti come nomi host statici
+> A partire dalla versione dell'API 2020-05-01, gli URL "Vanity" sono noti come nomi host statici (useStaticHostname: true)
 
-È possibile usare URL di non reindirizzamento a microsito o URL di reindirizzamento a microsito.
 
 > [!NOTE]
-> Per un URL di inserimento predittivo, impostare la modalità di "reindirizzamento a microsito".
+> Affinché un URL di inserimento sia statico e prevedibile per l'uso in una configurazione del codificatore hardware, impostare la proprietà **useStaticHostname** su true e impostare la proprietà **ACCESSTOKEN** sullo stesso GUID a ogni creazione. 
 
-* URL di non reindirizzamento a microsito
+### <a name="example-liveevent-and-liveeventinput-configuration-settings-for-a-static-non-random-ingest-rtmp-url"></a>Esempio di impostazioni di configurazione Live e LiveEventInput per un URL RTMP di inserimento statico (non casuale).
 
-    L'URL non-Vanity è la modalità predefinita in servizi multimediali V3. È possibile ottenere rapidamente l'evento Live, ma l'URL di inserimento è noto solo quando l'evento Live viene avviato. L'URL viene modificato se si arresta o si avvia l'evento Live. Non-Vanity è utile negli scenari in cui un utente finale vuole eseguire lo streaming usando un'app in cui l'app vuole ottenere un evento live al più presto e avere un URL di inserimento dinamico non è un problema.
+```csharp
+             LiveEvent liveEvent = new LiveEvent(
+                    location: mediaService.Location,
+                    description: "Sample LiveEvent from .NET SDK sample",
+                    // Set useStaticHostname to true to make the ingest and preview URL host name the same. 
+                    // This can slow things down a bit. 
+                    useStaticHostname: true,
+
+                    // 1) Set up the input settings for the Live event...
+                    input: new LiveEventInput(
+                        streamingProtocol: LiveEventInputProtocol.RTMP,  // options are RTMP or Smooth Streaming ingest format.
+                                                                         // This sets a static access token for use on the ingest path. 
+                                                                         // Combining this with useStaticHostname:true will give you the same ingest URL on every creation.
+                                                                         // This is helpful when you only want to enter the URL into a single encoder one time for this Live Event name
+                        accessToken: "acf7b6ef-8a37-425f-b8fc-51c2d6a5a86a",  // Use this value when you want to make sure the ingest URL is static and always the same. If omitted, the service will generate a random GUID value.
+                        accessControl: liveEventInputAccess, // controls the IP restriction for the source encoder.
+                        keyFrameIntervalDuration: "PT2S" // Set this to match the ingest encoder's settings
+                    ),
+```
+
+* Nome host non statico
+
+    Un nome host non statico è la modalità predefinita in servizi multimediali V3 quando si crea un **Live**. È possibile ottenere un evento Live allocato leggermente più rapidamente, ma l'URL di inserimento necessario per l'hardware o il software di codifica live sarà casuale. L'URL viene modificato se si arresta o si avvia l'evento Live. I nomi host non statici sono utili solo negli scenari in cui un utente finale vuole eseguire lo streaming usando un'app che deve ottenere un evento live molto rapidamente e avere un URL di inserimento dinamico non è un problema.
 
     Se un'app client non deve pre-generare un URL di inserimento prima della creazione dell'evento Live, consentire a servizi multimediali di generare automaticamente il token di accesso per l'evento Live.
 
-* URL di reindirizzamento a microsito
+* Nomi host statici 
 
-    La modalità Vanity è preferibile ai broadcaster multimediali di grandi dimensioni che usano codificatori broadcast hardware e non vogliono riconfigurare i codificatori quando avviano l'evento Live. Questi broadcast vogliono un URL di inserimento predittivo che non cambia nel tempo.
+    La modalità nome host statico è preferibile alla maggior parte degli operatori che desiderano preconfigurare il software o l'hardware di codifica live con un URL di inserimento RTMP che non cambia mai durante la creazione o l'arresto o l'avvio di un evento Live specifico. Questi operatori desiderano un URL di inserimento RTMP predittivo che non cambia nel tempo. Questa funzionalità è utile anche quando è necessario eseguire il push di un URL di inserimento RTMP statico nelle impostazioni di configurazione di un dispositivo di codifica hardware come BlackMagic Atem Mini Pro o strumenti di produzione e codifica hardware analoghi. 
 
     > [!NOTE]
-    > Nell'portale di Azure l'URL di Vanity è denominato "*prefisso nome host statico*".
+    > Nell'portale di Azure l'URL del nome host statico è denominato "*prefisso nome host statico*".
 
     Per specificare questa modalità nell'API, impostare `useStaticHostName` su `true` al momento della creazione (il valore predefinito è `false` ). Quando `useStaticHostname` è impostato su true, `hostnamePrefix` specifica la prima parte del nome host assegnato all'anteprima dell'evento Live e gli endpoint di inserimento. Il nome host finale è una combinazione di questo prefisso, il nome dell'account di servizi multimediali e un breve codice per i servizi multimediali di Azure data center.
 
     Per evitare un token casuale nell'URL, è anche necessario passare il proprio token di accesso ( `LiveEventInput.accessToken` ) al momento della creazione.  Il token di accesso deve essere una stringa GUID valida (con o senza trattini). Una volta impostata la modalità, non è possibile aggiornarla.
 
-    Il token di accesso deve essere univoco nel data center. Se l'app deve usare un URL di Vanity, è consigliabile creare sempre una nuova istanza GUID per il token di accesso, anziché riusare un GUID esistente.
+    Il token di accesso deve essere univoco nell'area di Azure e nell'account di servizi multimediali. Se l'app deve usare un URL di inserimento del nome host statico, è consigliabile creare sempre un'istanza del GUID aggiornata da usare con una combinazione specifica di area, account di servizi multimediali ed evento Live.
 
-    Usare le API seguenti per abilitare l'URL di Vanity e impostare il token di accesso su un GUID valido (ad esempio, `"accessToken": "1fce2e4b-fb15-4718-8adc-68c6eb4c26a7"` ).  
+    Usare le API seguenti per abilitare l'URL del nome host statico e impostare il token di accesso su un GUID valido (ad esempio, `"accessToken": "1fce2e4b-fb15-4718-8adc-68c6eb4c26a7"` ).  
 
-    |Linguaggio|Abilita URL Vanity|Impostare il token di accesso|
+    |Linguaggio|Abilita URL nome host statico|Impostare il token di accesso|
     |---|---|---|
-    |REST|[Properties. vanityUrl](/rest/api/media/liveevents/create#liveevent)|[LiveEventInput. accessToken](/rest/api/media/liveevents/create#liveeventinput)|
-    |CLI|[--Vanity-URL](/cli/azure/ams/live-event#az-ams-live-event-create)|[--Access-token](/cli/azure/ams/live-event#optional-parameters)|
-    |.NET|[Live. VanityUrl](/dotnet/api/microsoft.azure.management.media.models.liveevent#Microsoft_Azure_Management_Media_Models_LiveEvent_VanityUrl)|[LiveEventInput. AccessToken](/dotnet/api/microsoft.azure.management.media.models.liveeventinput.accesstoken#Microsoft_Azure_Management_Media_Models_LiveEventInput_AccessToken)|
+    |REST|[Properties. useStaticHostname](/rest/api/media/liveevents/create#liveevent)|[LiveEventInput.useStaticHostname](/rest/api/media/liveevents/create#liveeventinput)|
+    |CLI|[--Use-static-hostname](/cli/azure/ams/live-event#az-ams-live-event-create)|[--Access-token](/cli/azure/ams/live-event#optional-parameters)|
+    |.NET|[Live. useStaticHostname](/dotnet/api/microsoft.azure.management.media.models.liveevent.usestatichostname?view=azure-dotnet#Microsoft_Azure_Management_Media_Models_LiveEvent_UseStaticHostname)|[LiveEventInput. AccessToken](/dotnet/api/microsoft.azure.management.media.models.liveeventinput.accesstoken#Microsoft_Azure_Management_Media_Models_LiveEventInput_AccessToken)|
 
 ### <a name="live-ingest-url-naming-rules"></a>Regole di denominazione degli URL di inserimento live
 
 * La stringa *casuale* sottostante è un numero esadecimale a 128 bit (costituito da 32 caratteri 0-9 a-f).
-* il *token di accesso*: la stringa GUID valida impostata quando si usa la modalità Vanity. Ad esempio: `"1fce2e4b-fb15-4718-8adc-68c6eb4c26a7"`.
+* il *token di accesso*: la stringa GUID valida impostata quando si usa l'impostazione del nome host statico. Ad esempio: `"1fce2e4b-fb15-4718-8adc-68c6eb4c26a7"`.
 * *Nome flusso*: indica il nome del flusso per una connessione specifica. Il valore del nome del flusso viene in genere aggiunto dal codificatore Live usato. È possibile configurare il codificatore Live in modo che usi qualsiasi nome per descrivere la connessione, ad esempio: "video1_audio1", "video2_audio1", "Stream".
 
-#### <a name="non-vanity-url"></a>URL di non reindirizzamento a microsito
+#### <a name="non-static-hostname-ingest-url"></a>URL di inserimento nome host non statico
 
 ##### <a name="rtmp"></a>RTMP
 
@@ -171,7 +192,7 @@ Una volta creato l'evento Live, è possibile ottenere gli URL di inserimento da 
 `http://<random 128bit hex string>.channel.media.azure.net/<auto-generated access token>/ingest.isml/streams(<stream name>)`<br/>
 `https://<random 128bit hex string>.channel.media.azure.net/<auto-generated access token>/ingest.isml/streams(<stream name>)`<br/>
 
-#### <a name="vanity-url"></a>URL di reindirizzamento a microsito
+#### <a name="static-hostname-ingest-url"></a>URL di inserimento nome host statico
 
 Nei percorsi seguenti, `<live-event-name>` indica il nome assegnato all'evento o il nome personalizzato usato per la creazione dell'evento Live.
 

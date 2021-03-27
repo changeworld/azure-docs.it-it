@@ -9,12 +9,12 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 03/24/2021
 ms.custom: devx-track-js, devx-track-csharp
-ms.openlocfilehash: a46c7f35e30b2dda7b4800ed553447cef5bb5d33
-ms.sourcegitcommit: 73d80a95e28618f5dfd719647ff37a8ab157a668
+ms.openlocfilehash: 6bc45bb6eec9dbf46e039dd1e2c32197820bb09d
+ms.sourcegitcommit: a9ce1da049c019c86063acf442bb13f5a0dde213
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/26/2021
-ms.locfileid: "105609354"
+ms.lasthandoff: 03/27/2021
+ms.locfileid: "105626708"
 ---
 # <a name="add-autocomplete-and-suggestions-to-client-apps-using-azure-cognitive-search"></a>Aggiungere il completamento automatico e suggerimenti alle app client usando Azure ricerca cognitiva
 
@@ -81,13 +81,15 @@ I seguenti parametri aggiuntivi si applicano sia al completamento automatico che
 
 Il riempimento automatico di un termine di query o l'eliminazione di un elenco di collegamenti corrispondenti richiede il codice di interazione dell'utente, in genere JavaScript, che può utilizzare richieste provenienti da origini esterne, ad esempio query di completamento automatico o suggerimenti su un indice cognitivo di ricerca di Azure.
 
-Sebbene sia possibile scrivere questo codice in modo nativo, è molto più semplice usare le funzioni della libreria JavaScript esistente. In questo articolo vengono citati due, uno per i suggerimenti e un altro per il completamento automatico. 
+Sebbene sia possibile scrivere questo codice in modo nativo, è molto più semplice utilizzare le funzioni della libreria JavaScript esistente, ad esempio uno dei seguenti. 
 
 + Il [widget completamento automatico (interfaccia utente jQuery)](https://jqueryui.com/autocomplete/) viene visualizzato nel frammento di codice del suggerimento. È possibile creare una casella di ricerca e quindi farvi riferimento in una funzione JavaScript che usa il widget completamento automatico. Le proprietà del widget impostano l'origine (funzione di completamento automatico o suggerimenti), la lunghezza minima dei caratteri di input prima che venga eseguita l'azione e il posizionamento.
 
 + Il [plug-in di completamento automatico XDSoft](https://xdsoft.net/jqplugins/autocomplete/) viene visualizzato nel frammento di codice di completamento automatico.
 
-Queste librerie vengono usate per compilare la casella di ricerca che supporta i suggerimenti e il completamento automatico. Gli input raccolti nella casella di ricerca sono abbinati ai suggerimenti e alle azioni di completamento automatico.
++ i [suggerimenti](https://www.npmjs.com/package/suggestions) vengono visualizzati nell' [esercitazione su JavaScript](tutorial-javascript-overview.md) e nell'esempio di codice.
+
+Usare queste librerie nel client per creare una casella di ricerca che supporti i suggerimenti e il completamento automatico. Gli input raccolti nella casella di ricerca possono essere abbinati con suggerimenti e azioni di completamento automatico nel servizio di ricerca.
 
 ## <a name="suggestions"></a>Suggerimenti
 
@@ -247,7 +249,7 @@ La funzione Autocomplete accetta l'input del termine di ricerca. Il metodo crea 
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Segui questi collegamenti per istruzioni end-to-end o codice che dimostrano entrambe le esperienze di ricerca in base al tipo. Nell'esempio vengono illustrate le implementazioni ibride di suggerimenti e il completamento automatico insieme.
+Segui questi collegamenti per istruzioni end-to-end o codice che dimostrano entrambe le esperienze di ricerca in base al tipo. Nell'esempio viene illustrata l'implementazione ibrida di suggerimenti e il completamento automatico insieme.
 
-+ [Esercitazione: creare la prima app in C# (lezione 3)](tutorial-csharp-type-ahead-and-suggestions.md)
-+ [Esempio di codice C#: Azure-Search-DotNet-Samples/create-First-app/3-Add-typeahead/](https://github.com/Azure-Samples/azure-search-dotnet-samples/tree/master/create-first-app/v10/3-add-typeahead)
++ [Aggiungi ricerca a un sito Web (JavaScript)](tutorial-javascript-search-query-integration.md#azure-function-suggestions-from-the-catalog) usa un pacchetto di suggerimenti open source per il completamento a breve termine nell'app client.
++ [Esercitazione: creare la prima app in c# (lezione 3)](tutorial-csharp-type-ahead-and-suggestions.md) con l'  [esempio di codice c# associato: Azure-Search-DotNet-Samples/create-First-app/3-Add-typeahead/](https://github.com/Azure-Samples/azure-search-dotnet-samples/tree/master/create-first-app/v10/3-add-typeahead) dimostrazione del supporto nativo per typeahead.

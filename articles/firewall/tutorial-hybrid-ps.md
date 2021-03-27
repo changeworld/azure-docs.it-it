@@ -5,15 +5,15 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: how-to
-ms.date: 08/28/2020
+ms.date: 03/26/2021
 ms.author: victorh
 customer intent: As an administrator, I want to control network access from an on-premises network to an Azure virtual network.
-ms.openlocfilehash: e60c829831bde3b454ab180d1a39ec46cb346963
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: db60c26ed50dae3b4b28a6c44d152a921eb96a69
+ms.sourcegitcommit: a9ce1da049c019c86063acf442bb13f5a0dde213
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "94658639"
+ms.lasthandoff: 03/27/2021
+ms.locfileid: "105627558"
 ---
 # <a name="deploy-and-configure-azure-firewall-in-a-hybrid-network-using-azure-powershell"></a>Distribuire e configurare Firewall di Azure in una rete ibrida con Azure PowerShell
 
@@ -61,9 +61,9 @@ Per il corretto funzionamento di questo scenario devono essere soddisfatti tre r
 Vedere la sezione [creare le route](#create-the-routes) in questo articolo per vedere come vengono create queste route.
 
 >[!NOTE]
->Connettività diretta al Firewall di Azure. Se AzureFirewallSubnet apprende una route predefinita alla rete locale tramite BGP è necessario sostituirla con una route UDR 0.0.0.0/0 con il valore **NextHopType** impostato come **Internet** per mantenere connettività diretta a Internet.
+>Connettività diretta al Firewall di Azure. Se il AzureFirewallSubnet apprende una route predefinita per la rete locale tramite BGP, è necessario configurare il firewall di Azure in modalità di tunneling forzato. Se si tratta di un firewall di Azure esistente, che non può essere riconfigurato in modalità di tunneling forzato, è consigliabile aggiungere un UDR 0.0.0.0/0 in AzureFirewallSubnet con il valore **NextHopType** impostato su **Internet** per mantenere la connettività Internet diretta.
 >
->È possibile configurare Firewall di Azure per supportare il tunneling forzato. Per altre informazioni, vedere [Tunneling forzato di Firewall di Azure](forced-tunneling.md).
+>Per altre informazioni, vedere [Tunneling forzato di Firewall di Azure](forced-tunneling.md).
 
 >[!NOTE]
 >Il traffico tra reti virtuali direttamente con peering viene instradato direttamente anche se una route definita dall'utente punta al firewall di Azure come gateway predefinito. Per inviare il traffico da subnet a subnet al firewall in questo scenario, una route definita dall'utente deve contenere il prefisso di rete subnet di destinazione in modo esplicito su entrambe le subnet.

@@ -3,12 +3,12 @@ title: Recapito di Griglia di eventi di Azure e nuovi tentativi
 description: Viene descritto in che modo Griglia di eventi di Azure recapita gli eventi e come gestisce i messaggi non recapitati.
 ms.topic: conceptual
 ms.date: 10/29/2020
-ms.openlocfilehash: 3c4ed6ec2c9eae4dbcf70a831e3e7f70a28a57a0
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: e7fa627464ddb85ebded3ae99229b7fe8dd3fde3
+ms.sourcegitcommit: a9ce1da049c019c86063acf442bb13f5a0dde213
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98247370"
+ms.lasthandoff: 03/27/2021
+ms.locfileid: "105629275"
 ---
 # <a name="event-grid-message-delivery-and-retry"></a>Recapito di messaggi di Griglia di eventi e nuovi tentativi
 
@@ -109,7 +109,7 @@ Se viene soddisfatta una delle condizioni, l'evento viene eliminato o non recapi
 
 Griglia di eventi invia un evento nel percorso dell'evento non recapitato quando ha eseguito tutti i tentativi di ripetizione. Se griglia di eventi riceve un codice di risposta 400 (richiesta non valida) o 413 (entità richiesta troppo grande), pianifica immediatamente l'evento per i messaggi non recapitabili. Questi codici di risposta indicano che recapito dell'evento non avrà mai esito positivo.
 
-La scadenza della durata (TTL) viene controllata solo al successivo tentativo di recapito pianificato. Pertanto, anche se la durata (TTL) scade prima del successivo tentativo di recapito pianificato, la scadenza dell'evento viene verificata solo al momento del successivo recapito e successivamente a un messaggio non recapitabile. 
+La scadenza della durata (TTL) viene controllata solo al successivo tentativo di recapito pianificato. Quindi, anche se la durata (TTL) scade prima del successivo tentativo di recapito pianificato, la scadenza dell'evento viene verificata solo al momento del successivo recapito e successivamente a un messaggio non recapitabile. 
 
 Tra l'ultimo tentativo di recapitare un evento e il momento in cui questo viene recapitato alla posizione dei messaggi non recapitabili, trascorre un intervallo di cinque minuti. Tale intervallo è volto a ridurre il numero di operazioni nell'archiviazione BLOB. Se la posizione dei messaggi non recapitabili non è disponibile per quattro ore, l'evento viene eliminato.
 
@@ -288,6 +288,15 @@ Tutti gli altri codici non inclusi nel set precedente (200-204) vengono consider
 | 503 - Servizio non disponibile | Riprovare dopo 30 secondi o più |
 | Tutti gli altri | Riprovare dopo 10 secondi o più |
 
+## <a name="delivery-with-custom-headers"></a>Recapito con intestazioni personalizzate
+Le sottoscrizioni di eventi consentono di impostare intestazioni HTTP incluse in eventi recapitati. Questa funzionalità consente di impostare intestazioni personalizzate richieste da una destinazione. È possibile impostare un massimo di 10 intestazioni quando si crea una sottoscrizione di eventi. Ogni valore di intestazione non deve essere maggiore di 4.096 byte (4K). È possibile impostare intestazioni personalizzate per gli eventi che vengono recapitati alle destinazioni seguenti:
+
+- Webhook
+- Argomenti e code del bus di servizio di Azure
+- Hub eventi di Azure
+- Inoltrare connessioni ibride
+
+Per altre informazioni, vedere [recapito con intestazioni personalizzate](delivery-properties.md). 
 
 ## <a name="next-steps"></a>Passaggi successivi
 

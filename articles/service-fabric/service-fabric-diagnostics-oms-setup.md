@@ -1,16 +1,14 @@
 ---
 title: Configurare il monitoraggio con i log di monitoraggio di Azure
 description: Informazioni su come configurare i log di monitoraggio di Azure per la visualizzazione e l'analisi degli eventi per monitorare i cluster di Azure Service Fabric.
-author: srrengar
 ms.topic: conceptual
 ms.date: 02/20/2019
-ms.author: srrengar
-ms.openlocfilehash: ba62ac80b2f8d318d0d13e81e88cc63a8d893a2b
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 79dbc38f9d177bc3decf11673a68ce434f9a83bc
+ms.sourcegitcommit: a9ce1da049c019c86063acf442bb13f5a0dde213
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "100570354"
+ms.lasthandoff: 03/27/2021
+ms.locfileid: "105625960"
 ---
 # <a name="set-up-azure-monitor-logs-for-a-cluster"></a>Configurare i log di monitoraggio di Azure per un cluster
 

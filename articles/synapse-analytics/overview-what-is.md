@@ -9,17 +9,18 @@ ms.subservice: overview
 ms.date: 03/24/2021
 ms.author: saveenr
 ms.reviewer: jrasnick
-ms.openlocfilehash: a7dcd630b0d5987c796ebb5a02657af9130221e6
-ms.sourcegitcommit: ed7376d919a66edcba3566efdee4bc3351c57eda
+ms.openlocfilehash: 78b31cb32e3df9b0d8e198d8c2122e492e609283
+ms.sourcegitcommit: a9ce1da049c019c86063acf442bb13f5a0dde213
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/24/2021
-ms.locfileid: "105045621"
+ms.lasthandoff: 03/27/2021
+ms.locfileid: "105625815"
 ---
 # <a name="what-is-azure-synapse-analytics"></a>Che cos'è Azure Synapse Analytics?
 
 **Azure sinapsi** è un servizio di analisi aziendale che accelera il time-to-Insight nei data warehouse e nei sistemi Big Data. In pratica raggruppa il meglio delle tecnologie **SQL** usate nel data warehousing aziendale, le tecnologie **Spark** usate per Big Data e le **pipeline** per l'integrazione dei dati e le operazioni ETL/ELT, oltre a essere pienamente integrato con altri servizi di Azure, come **Power BI**, **CosmosDB** e **AzureML**.
 
+![Diagramma dell'architettura di analisi delle sinapsi di Azure.](./media/overview-what-is/synapse-architecture.png)
 
 ## <a name="industry-leading-sql"></a>SQL leader di settore
 
@@ -66,7 +67,7 @@ Azure Synapse offre alle aziende una singola soluzione per gestire le risorse di
 
 **Sinapsi Studio** è l'esperienza utente che unisce tutti gli elementi per gli ingegneri dei dati. Consente di eseguire tutte le attività necessarie per creare una soluzione analitica completa.
 
-* Attività tecnico dati principali in un'unica posizione: inserimento, esplorazione, preparazione, orchestrazione, visualizzazione
+* Principali attività di progettazione dei dati in un'unica posizione: inserimento, esplorazione, preparazione, orchestrazione, visualizzazione
 * Produttività leader nel settore per la scrittura di codice SQL o Spark: creazione, debug e ottimizzazione delle prestazioni
 * Integrazione con il processo Enterprise CI/CD
 

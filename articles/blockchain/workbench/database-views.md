@@ -4,16 +4,16 @@ description: Panoramica delle viste del database SQL di Azure blockchain Workben
 ms.date: 09/05/2019
 ms.topic: article
 ms.reviewer: mmercuri
-ms.openlocfilehash: e715bd2297c1e051ae92b15d73c945c9e80c3d94
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 6c7fba590c9c8951e1862c28cb24dbde52c8da8d
+ms.sourcegitcommit: a9ce1da049c019c86063acf442bb13f5a0dde213
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "87003322"
+ms.lasthandoff: 03/27/2021
+ms.locfileid: "105625535"
 ---
 # <a name="azure-blockchain-workbench-database-views"></a>Viste di database di Azure blockchain Workbench
 
-Azure blockchain Workbench Preview recapita i dati da Ledger distribuiti a un database di database SQL non *concatenato* . Il database fuori catena consente di usare SQL e gli strumenti esistenti, ad esempio [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms?view=sql-server-2017), per interagire con i dati blockchain.
+Azure blockchain Workbench Preview recapita i dati da Ledger distribuiti a un database di database SQL non *concatenato* . Il database fuori catena consente di usare SQL e gli strumenti esistenti, ad esempio [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms), per interagire con i dati blockchain.
 
 Azure Blockchain Workbench offre un set di viste di database che forniscono accesso a dati utili quando si eseguono le query. Queste viste sono notevolmente denormalizzate per permettere di iniziare rapidamente a creare report e analisi e utilizzare in altri modi i dati delle blockchain con gli strumenti esistenti, senza dover formare di nuovo il personale che si occupa dei database.
 
@@ -298,7 +298,7 @@ Questa visualizzazione fornisce informazioni dettagliate sui membri del consorzi
 
 ## <a name="vwworkflow"></a>vwWorkflow
 
-Questa vista rappresenta informazioni dettagliate sui metadati del flusso di lavoro di base, insieme alle funzioni e ai parametri del flusso di lavoro. Progettato per la creazione di report, contiene inoltre i metadati relativi all'applicazione associata al flusso di lavoro. Questa vista contiene dati di più tabelle sottostanti per semplificare la creazione di report sui flussi di lavoro. Per ogni flusso di lavoro, questa vista contiene i dati seguenti:
+Questa vista rappresenta i metadati principali del flusso di lavoro, nonché le funzioni e i parametri del flusso di lavoro. Progettato per la creazione di report, contiene inoltre i metadati relativi all'applicazione associata al flusso di lavoro. Questa vista contiene dati di più tabelle sottostanti per semplificare la creazione di report sui flussi di lavoro. Per ogni flusso di lavoro, questa vista contiene i dati seguenti:
 
 -   Definizione dell'applicazione associata
 -   Definizione del flusso di lavoro associato
@@ -325,7 +325,7 @@ Questa vista rappresenta informazioni dettagliate sui metadati del flusso di lav
 
 ## <a name="vwworkflowfunction"></a>vwWorkflowFunction
 
-Questa vista rappresenta informazioni dettagliate sui metadati del flusso di lavoro di base, insieme alle funzioni e ai parametri del flusso di lavoro. Progettato per la creazione di report, contiene inoltre i metadati relativi all'applicazione associata al flusso di lavoro. Questa vista contiene dati di più tabelle sottostanti per semplificare la creazione di report sui flussi di lavoro. Per ogni funzione del flusso di lavoro, questa vista contiene i dati seguenti:
+Questa vista rappresenta i metadati principali del flusso di lavoro, nonché le funzioni e i parametri del flusso di lavoro. Progettato per la creazione di report, contiene inoltre i metadati relativi all'applicazione associata al flusso di lavoro. Questa vista contiene dati di più tabelle sottostanti per semplificare la creazione di report sui flussi di lavoro. Per ogni funzione del flusso di lavoro, questa vista contiene i dati seguenti:
 
 -   Definizione dell'applicazione associata
 -   Definizione del flusso di lavoro associato

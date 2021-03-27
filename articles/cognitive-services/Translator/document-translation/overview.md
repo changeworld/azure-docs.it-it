@@ -6,12 +6,12 @@ manager: nitinme
 ms.author: lajanuar
 author: laujan
 ms.date: 02/11/2021
-ms.openlocfilehash: 692033e323880db1699d7265a991775d41b05f7f
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: f84dc66828f2ebf13316b3348fd93933a2223b5a
+ms.sourcegitcommit: c94e282a08fcaa36c4e498771b6004f0bfe8fb70
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104656006"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105612280"
 ---
 # <a name="what-is-document-translation-preview"></a>Che cos'è la traduzione di documenti (anteprima)?
 
@@ -52,7 +52,7 @@ I tipi di file di documento seguenti sono supportati dalla conversione dei docum
 |Microsoft Outlook|msg|Un messaggio di posta elettronica creato o salvato in Microsoft Outlook.|
 |Microsoft PowerPoint|pptx| Un file di presentazione usato per visualizzare il contenuto in un formato di presentazione.|
 |Microsoft Word|docx| File di documento di testo.|
-|SCHEDA/valori delimitati da tabulazioni|. TSV/. Tab| un file di dati non elaborati delimitati da tabulazioni utilizzato dai programmi di fogli di calcolo.|
+|SCHEDA/valori delimitati da tabulazioni|. TSV/. Tab| Un file di dati non elaborati delimitati da tabulazioni utilizzato dai programmi di fogli di calcolo.|
 |Testo|.txt| Documento di testo non formattato.|
 |Scambio di memoria di traduzione|. TMX|Uno standard XML aperto usato per lo scambio di dati di memoria di traduzione (TM) creati dalle applicazioni di localizzazione e di traduzione tramite computer.|
 
@@ -63,7 +63,7 @@ I seguenti tipi di file di glossario sono supportati dalla conversione dei docum
 | Tipo file| Estensione file|Descrizione|
 |---|---|--|
 |Formato del file di interscambio di localizzazione|XLF. , XLIFF| Formato di documento parallelo, esportazione di sistemi di memoria di traduzione. Le lingue usate vengono definite all'interno del file.|
-|SCHEDA/valori delimitati da tabulazioni|. TSV/. Tab| un file di dati non elaborati delimitati da tabulazioni utilizzato dai programmi di fogli di calcolo.|
+|SCHEDA/valori delimitati da tabulazioni|. TSV/. Tab| Un file di dati non elaborati delimitati da tabulazioni utilizzato dai programmi di fogli di calcolo.|
 
 ## <a name="next-steps"></a>Passaggi successivi
 

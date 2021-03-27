@@ -2,143 +2,30 @@
 title: Recapito di eventi, identità del servizio gestito e collegamento privato
 description: Questo articolo descrive come abilitare l'identità del servizio gestito per un argomento di Griglia di eventi di Azure e per usarla per inviare eventi alle destinazioni supportate.
 ms.topic: how-to
-ms.date: 01/28/2021
-ms.openlocfilehash: 3e643465db7cc918499ca962c4697cb61cb4b594
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.date: 03/25/2021
+ms.openlocfilehash: 76f10b4627dc9578b1e616a868eab03431b59b69
+ms.sourcegitcommit: a9ce1da049c019c86063acf442bb13f5a0dde213
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "100007772"
+ms.lasthandoff: 03/27/2021
+ms.locfileid: "105625278"
 ---
 # <a name="event-delivery-with-a-managed-identity"></a>Recapito di eventi con un'identità gestita
-Questo articolo descrive come abilitare un' [identità del servizio gestito](../active-directory/managed-identities-azure-resources/overview.md) per gli argomenti o i domini personalizzati di griglia di eventi di Azure. Usare l'identità per inviare eventi a destinazioni supportate, ad esempio code e argomenti del bus di servizio, Hub eventi e account di archiviazione.
-
-Di seguito sono elencati i passaggi illustrati nel dettaglio in questo articolo:
-1. Creare un argomento o un dominio personalizzato con un'identità assegnata dal sistema oppure aggiornare un argomento o un dominio personalizzato esistente per abilitare l'identità. 
-1. Aggiungere l'identità a un ruolo appropriato, ad esempio il mittente dei dati del bus di servizio, nella destinazione, ad esempio una coda del bus di servizio.
-1. Quando si creano sottoscrizioni di eventi, abilitare l'utilizzo dell'identità per recapitare gli eventi alla destinazione. 
-
-> [!NOTE]
-> Attualmente non è possibile recapitare gli eventi usando [endpoint privati](../private-link/private-endpoint-overview.md). Per ulteriori informazioni, vedere la sezione [endpoint privati](#private-endpoints) alla fine di questo articolo. 
-
-## <a name="create-a-custom-topic-or-domain-with-an-identity"></a>Creare un argomento o un dominio personalizzato con un'identità
-Per prima cosa si vedrà creare un argomento o un dominio con un'identità gestita dal sistema.
-
-### <a name="use-the-azure-portal"></a>Usare il portale di Azure
-È possibile abilitare l'identità assegnata dal sistema per un argomento o un dominio personalizzato durante la creazione nel portale di Azure. Nell'immagine seguente viene illustrato come abilitare un'identità gestita dal sistema per un argomento personalizzato. In pratica, selezionare l'opzione **Abilita identità assegnata dal sistema** nella pagina **Avanzate** della procedura guidata di creazione dell'argomento. Questa opzione verrà visualizzata nella pagina **Avanzate** della creazione guidata dominio. 
-
-![Abilitare l'identità durante la creazione di un argomento personalizzato](./media/managed-service-identity/create-topic-identity.png)
-
-### <a name="use-the-azure-cli"></a>Utilizzare l’interfaccia della riga di comando di Azure
-È anche possibile usare l'interfaccia della riga di comando di Azure per creare un argomento o un dominio personalizzato con un'identità assegnata dal sistema. Usare il comando `az eventgrid topic create` con il parametro `--identity` impostato su `systemassigned`. Se non si specifica un valore per questo parametro, viene usato il valore predefinito `noidentity`. 
-
-```azurecli-interactive
-# create a custom topic with a system-assigned identity
-az eventgrid topic create -g <RESOURCE GROUP NAME> --name <TOPIC NAME> -l <LOCATION>  --identity systemassigned
-```
-
-Analogamente, è possibile usare il comando `az eventgrid domain create` per creare un dominio con un'identità gestita dal sistema.
-
-## <a name="enable-an-identity-for-an-existing-custom-topic-or-domain"></a>Abilitare un'identità per un argomento o un dominio personalizzato esistente
-Nella sezione precedente è stato illustrato come abilitare un'identità gestita dal sistema durante la creazione di un argomento personalizzato o di un dominio. In questa sezione viene illustrato come abilitare un'identità gestita dal sistema per un argomento o un dominio personalizzato esistente. 
-
-### <a name="use-the-azure-portal"></a>Usare il portale di Azure
-La procedura seguente illustra come abilitare l'identità gestita dal sistema per un argomento personalizzato. I passaggi per l'abilitazione di un'identità per un dominio sono simili. 
-
-1. Accedere al [portale di Azure](https://portal.azure.com).
-2. Cercare gli **argomenti di griglia di eventi** nella barra di ricerca nella parte superiore.
-3. Selezionare l' **argomento personalizzato** per il quale si desidera abilitare l'identità gestita. 
-4. Passare alla scheda **Identità**. 
-5. Attivare l'opzione per **abilitare l'identità** . 
-1. Selezionare **Salva** sulla barra degli strumenti per salvare l'impostazione. 
-
-    :::image type="content" source="./media/managed-service-identity/identity-existing-topic.png" alt-text="Pagina identità per un argomento personalizzato"::: 
-
-È possibile utilizzare passaggi simili per abilitare un'identità per un dominio di griglia di eventi.
-
-### <a name="use-the-azure-cli"></a>Utilizzare l’interfaccia della riga di comando di Azure
-Usare il `az eventgrid topic update` comando con `--identity` impostato su `systemassigned` per abilitare l'identità assegnata dal sistema per un argomento personalizzato esistente. Se si vuole disabilitare l'identità, specificare il valore `noidentity`. 
-
-```azurecli-interactive
-# Update the topic to assign a system-assigned identity. 
-az eventgrid topic update -g $rg --name $topicname --identity systemassigned --sku basic 
-```
-
-Il comando per l'aggiornamento di un dominio esistente è simile (`az eventgrid domain update`).
-
-## <a name="supported-destinations-and-azure-roles"></a>Destinazioni e ruoli di Azure supportati
-Dopo aver abilitato l'identità per il dominio o l'argomento personalizzato di griglia di eventi, Azure crea automaticamente un'identità in Azure Active Directory. Aggiungere questa identità ai ruoli appropriati di Azure in modo che l'argomento o il dominio personalizzato possa inviare gli eventi alle destinazioni supportate. Ad esempio, aggiungere l'identità al ruolo di **mittente dei dati di hub eventi di Azure** per uno spazio dei nomi di hub eventi di Azure in modo che l'argomento personalizzato di griglia di eventi possa inviare eventi a hub eventi in tale spazio dei nomi. 
-
-Griglia di eventi di Azure supporta attualmente gli argomenti personalizzati o i domini configurati con un'identità gestita assegnata dal sistema per l'invio di eventi alle destinazioni seguenti. Questa tabella fornisce anche i ruoli in cui deve trovarsi l'identità, in modo che l'argomento personalizzato possa trasmettere gli eventi.
-
-| Destination | Ruolo di Azure | 
-| ----------- | --------- | 
-| Code e argomenti del bus di servizio | [Mittente dei dati del bus di servizio di Azure](../service-bus-messaging/authenticate-application.md#azure-built-in-roles-for-azure-service-bus) |
-| Hub eventi di Azure | [Mittente dei dati di Hub eventi di Azure](../event-hubs/authorize-access-azure-active-directory.md#azure-built-in-roles-for-azure-event-hubs) | 
-| Archiviazione BLOB di Azure | [Collaboratore ai dati del BLOB di archiviazione](../storage/common/storage-auth-aad-rbac-portal.md#azure-roles-for-blobs-and-queues) |
-| Archiviazione code di Azure |[Mittente dei messaggi sui dati della coda di archiviazione](../storage/common/storage-auth-aad-rbac-portal.md#azure-roles-for-blobs-and-queues) | 
-
-## <a name="add-an-identity-to-azure-roles-on-destinations"></a>Aggiungere un'identità ai ruoli di Azure nelle destinazioni
-Questa sezione descrive come aggiungere l'identità per un argomento o dominio personalizzato a un ruolo di Azure. 
-
-### <a name="use-the-azure-portal"></a>Usare il portale di Azure
-È possibile utilizzare il portale di Azure per assegnare l'identità personalizzata o di dominio a un ruolo appropriato, in modo che l'argomento o il dominio personalizzato possano inviare eventi alla destinazione. 
-
-L'esempio seguente aggiunge un'identità gestita per un argomento personalizzato di griglia di eventi denominato **msitesttopic** al ruolo di **mittente dei dati del bus di servizio di Azure** per uno spazio dei nomi del bus di servizio che contiene una risorsa della coda o dell'argomento. Quando si aggiunge al ruolo a livello di spazio dei nomi, l'argomento personalizzato di griglia di eventi può inviare gli eventi a tutte le entità all'interno dello spazio dei nomi. 
-
-1. Passare allo **spazio dei nomi del bus di servizio** nel [portale di Azure](https://portal.azure.com). 
-1. Selezionare **controllo di accesso** nel riquadro sinistro. 
-1. Nella sezione **Aggiungi un'assegnazione di ruolo** selezionare **Aggiungi**. 
-1. Nella pagina **Aggiungi un'assegnazione di ruolo** seguire questa procedura:
-    1. Selezionare il ruolo. In questo caso: **Mittente dei dati del bus di servizio di Azure**. 
-    1. Selezionare l' **identità** per il dominio o l'argomento personalizzato di griglia di eventi. 
-    1. Selezionare **Save (Salva** ) per salvare la configurazione.
-
-Per aggiungere un'identità agli altri ruoli specificati nella tabella, sarà necessario seguire una procedura simile. 
-
-### <a name="use-the-azure-cli"></a>Utilizzare l’interfaccia della riga di comando di Azure
-L'esempio in questa sezione illustra come usare l'interfaccia della riga di comando di Azure per aggiungere un'identità a un ruolo di Azure. I comandi di esempio sono per gli argomenti personalizzati di griglia di eventi. ma sono simili a quelli per i domini di Griglia di eventi. 
-
-#### <a name="get-the-principal-id-for-the-custom-topics-system-identity"></a>Ottenere l'ID entità per l'identità di sistema dell'argomento personalizzato 
-Per prima cosa, ottenere l'ID entità dell'identità gestita dal sistema dell'argomento personalizzato e assegnare l'identità ai ruoli appropriati.
-
-```azurecli-interactive
-topic_pid=$(az ad sp list --display-name "$<TOPIC NAME>" --query [].objectId -o tsv)
-```
-
-#### <a name="create-a-role-assignment-for-event-hubs-at-various-scopes"></a>Creare un'assegnazione di ruolo per Hub eventi in diversi ambiti 
-L'esempio di interfaccia della riga di comando seguente illustra come aggiungere l'identità di un argomento personalizzato al ruolo di **mittente dei dati di hub eventi di Azure** a livello di spazio dei nomi o a livello di hub eventi. Se si crea l'assegnazione di ruolo a livello di spazio dei nomi, l'argomento personalizzato può inviare gli eventi a tutti gli hub eventi in tale spazio dei nomi. Se si crea un'assegnazione di ruolo a livello di hub eventi, l'argomento personalizzato può inviare gli eventi solo a tale hub eventi specifico. 
+Questo articolo descrive come usare un' [identità del servizio gestito](../active-directory/managed-identities-azure-resources/overview.md) per un argomento di sistema di griglia di eventi di Azure, un argomento personalizzato o un dominio. Usare l'identità per inviare eventi a destinazioni supportate, ad esempio code e argomenti del bus di servizio, Hub eventi e account di archiviazione.
 
 
-```azurecli-interactive
-role="Azure Event Hubs Data Sender" 
-namespaceresourceid=$(az eventhubs namespace show -n $<EVENT HUBS NAMESPACE NAME> -g <RESOURCE GROUP of EVENT HUB> --query "{I:id}" -o tsv) 
-eventhubresourceid=$(az eventhubs eventhub show -n <EVENT HUB NAME> --namespace-name <EVENT HUBS NAMESPACE NAME> -g <RESOURCE GROUP of EVENT HUB> --query "{I:id}" -o tsv) 
 
-# create role assignment for the whole namespace 
-az role assignment create --role "$role" --assignee "$topic_pid" --scope "$namespaceresourceid" 
+## <a name="prerequisites"></a>Prerequisiti
+1. Assegnare un'identità assegnata dal sistema a un argomento di sistema, un argomento personalizzato o un dominio. 
+    - Per argomenti e domini personalizzati, vedere [abilitare l'identità gestita per gli argomenti e i domini personalizzati](enable-identity-custom-topics-domains.md). 
+    - Per gli argomenti di sistema, vedere [abilitare l'identità gestita per gli argomenti di sistema](enable-identity-system-topics.md)
+1. Aggiungere l'identità a un ruolo appropriato, ad esempio il mittente dei dati del bus di servizio, nella destinazione, ad esempio una coda del bus di servizio. Per i passaggi dettagliati, vedere [aggiungere identità ai ruoli di Azure nelle destinazioni](add-identity-roles.md)
 
-# create role assignment scoped to just one event hub inside the namespace 
-az role assignment create --role "$role" --assignee "$topic_pid" --scope "$eventhubresourceid" 
-```
-
-#### <a name="create-a-role-assignment-for-a-service-bus-topic-at-various-scopes"></a>Creare un'assegnazione di ruolo per un argomento del bus di servizio in vari ambiti 
-L'esempio di interfaccia della riga di comando seguente illustra come aggiungere l'identità di un argomento personalizzato di griglia di eventi al ruolo di **mittente dei dati del bus di servizio di Azure** a livello di spazio dei nomi o di argomento del bus di servizio. Se si crea l'assegnazione di ruolo a livello di spazio dei nomi, l'argomento di griglia di eventi può inviare eventi a tutte le entità (code o argomenti del bus di servizio) all'interno di tale spazio dei nomi. Se si crea un'assegnazione di ruolo a livello di coda o argomento del bus di servizio, l'argomento personalizzato di griglia di eventi può inviare eventi solo alla coda o all'argomento del bus di servizio specifico. 
-
-```azurecli-interactive
-role="Azure Service Bus Data Sender" 
-namespaceresourceid=$(az servicebus namespace show -n $RG\SB -g "$RG" --query "{I:id}" -o tsv 
-sbustopicresourceid=$(az servicebus topic show -n topic1 --namespace-name $RG\SB -g "$RG" --query "{I:id}" -o tsv) 
-
-# create role assignment for the whole namespace 
-az role assignment create --role "$role" --assignee "$topic_pid" --scope "$namespaceresourceid" 
-
-# create role assignment scoped to just one hub inside the namespace 
-az role assignment create --role "$role" --assignee "$topic_pid" --scope "$sbustopicresourceid" 
-```
+    > [!NOTE]
+    > Attualmente non è possibile recapitare gli eventi usando [endpoint privati](../private-link/private-endpoint-overview.md). Per ulteriori informazioni, vedere la sezione [endpoint privati](#private-endpoints) alla fine di questo articolo. 
 
 ## <a name="create-event-subscriptions-that-use-an-identity"></a>Creare sottoscrizioni di eventi che usano un'identità
-Quando si dispone di un argomento personalizzato di griglia di eventi o di un dominio con un'identità gestita dal sistema e l'identità è stata aggiunta al ruolo appropriato nella destinazione, si è pronti per creare sottoscrizioni che utilizzano l'identità. 
+Quando si dispone di un argomento personalizzato di griglia di eventi o di un dominio o un argomento di sistema con un'identità gestita dal sistema e l'identità è stata aggiunta al ruolo appropriato nella destinazione, si è pronti per creare sottoscrizioni che utilizzano l'identità. 
 
 ### <a name="use-the-azure-portal"></a>Usare il portale di Azure
 Quando si crea una sottoscrizione di eventi, viene visualizzata un'opzione per abilitare l'utilizzo di un'identità assegnata dal sistema per un endpoint nella sezione **Dettagli endpoint** . 
@@ -291,4 +178,4 @@ Con questa configurazione, il traffico passa attraverso l'IP pubblico/Internet d
 
 
 ## <a name="next-steps"></a>Passaggi successivi
-Per altre informazioni sulle identità del servizio gestito, vedere [Informazioni sulle identità gestite per le risorse di Azure](../active-directory/managed-identities-azure-resources/overview.md). 
+Per informazioni sulle identità gestite, vedere [che cosa sono le identità gestite per le risorse di Azure](../active-directory/managed-identities-azure-resources/overview.md).

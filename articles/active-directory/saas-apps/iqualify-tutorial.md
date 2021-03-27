@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 03/14/2019
 ms.author: jeedes
-ms.openlocfilehash: f2baeaf72bb77dfe9247380b8b26f3860cbfd5b0
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: bdd68a4f0dafd3b336bf5a3fb34399d725c9ff5c
+ms.sourcegitcommit: a9ce1da049c019c86063acf442bb13f5a0dde213
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "95999162"
+ms.lasthandoff: 03/27/2021
+ms.locfileid: "105626113"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-iqualify-lms"></a>Esercitazione: Integrazione di Azure Active Directory con iQualify LMS
 
@@ -88,44 +88,41 @@ Per configurare l'accesso Single Sign-On di Azure AD con iQualify LMS, seguire q
 
 1. Nella pagina di integrazione dell'applicazione **iQualify LMS** del [portale di Azure](https://portal.azure.com/) selezionare **Single Sign-On**.
 
-    ![Collegamento Configura accesso Single Sign-On](common/select-sso.png)
+   ![Collegamento Configura accesso Single Sign-On](common/select-sso.png)
 
 2. Nella finestra di dialogo **Selezionare un metodo di accesso Single Sign-On** selezionare la modalità **SAML/WS-Fed** per abilitare il Single Sign-On.
 
-    ![Selezione della modalità Single Sign-On](common/select-saml-option.png)
+   ![Selezione della modalità Single Sign-On](common/select-saml-option.png)
 
 3. Nella pagina **Configura l'accesso Single Sign-On con SAML** fare clic sull'icona **Modifica** per aprire la finestra di dialogo **Configurazione SAML di base**.
 
-    ![Modificare la configurazione SAML di base](common/edit-urls.png)
+   ![Modificare la configurazione SAML di base](common/edit-urls.png)
 
 4. Nella sezione **Configurazione SAML di base** seguire questa procedura se si vuole configurare l'applicazione in modalità avviata da **IDP**:
 
-    ![Screenshot che mostra la sezione Configurazione SAML di base in cui è possibile immettere l'identificatore e l'URL di risposta prima di selezionare Salva.](common/idp-intiated.png)
+   ![Screenshot che mostra la sezione Configurazione SAML di base in cui è possibile immettere l'identificatore e l'URL di risposta prima di selezionare Salva.](common/idp-intiated.png)
+   
+   1. Nella casella di testo **Identificatore** digitare un URL nel formato seguente:
 
-    a. Nella casella di testo **Identificatore** digitare un URL nel formato seguente:
-    | |
-    |--|--|
-    | Ambiente di produzione: `https://<yourorg>.iqualify.com/`|
-    | Ambiente di test: `https://<yourorg>.iqualify.io`|
+      * Ambiente di produzione: `https://<yourorg>.iqualify.com/`
+      * Ambiente di test: `https://<yourorg>.iqualify.io`
 
-    b. Nella casella di testo **URL di risposta** digitare un URL nel formato seguente:
-    | |
-    |--|--|
-    | Ambiente di produzione: `https://<yourorg>.iqualify.com/auth/saml2/callback` |
-    | Ambiente di test: `https://<yourorg>.iqualify.io/auth/saml2/callback` |
+   2. Nella casella di testo **URL di risposta** digitare un URL nel formato seguente:
+
+      * Ambiente di produzione: `https://<yourorg>.iqualify.com/auth/saml2/callback` 
+      * Ambiente di test: `https://<yourorg>.iqualify.io/auth/saml2/callback`
 
 5. Fare clic su **Impostare URL aggiuntivi** e seguire questa procedura se si vuole configurare l'applicazione in modalità avviata da **SP**:
 
-    ![Screenshot che mostra l'opzione Impostare URL aggiuntivi che consente di immettere un URL di accesso.](common/metadata-upload-additional-signon.png)
+   ![Screenshot che mostra l'opzione Impostare URL aggiuntivi che consente di immettere un URL di accesso.](common/metadata-upload-additional-signon.png)
 
-    Nella casella di testo **URL accesso** digitare un URL nel formato seguente:
-    | |
-    |--|--|
-    | Ambiente di produzione: `https://<yourorg>.iqualify.com/login` |
-    | Ambiente di test: `https://<yourorg>.iqualify.io/login` |
+   Nella casella di testo **URL accesso** digitare un URL nel formato seguente:
 
-    > [!NOTE]
-    > Poiché questi non sono i valori reali, aggiornarli con l'identificatore, l'URL di risposta e l'URL di accesso effettivi. Per ottenere questi valori, contattare il [team di supporto clienti di iQualify LMS](https://www.iqualify.com/). È anche possibile fare riferimento ai modelli mostrati nella sezione **Configurazione SAML di base** del portale di Azure.
+      * Ambiente di produzione: `https://<yourorg>.iqualify.com/login`
+      * Ambiente di test: `https://<yourorg>.iqualify.io/login`
+
+   > [!NOTE]
+   > Poiché questi non sono i valori reali, aggiornarli con l'identificatore, l'URL di risposta e l'URL di accesso effettivi. Per ottenere questi valori, contattare il [team di supporto clienti di iQualify LMS](https://www.iqualify.com/). È anche possibile fare riferimento ai modelli mostrati nella sezione **Configurazione SAML di base** del portale di Azure.
 
 6. L'applicazione iQualify LMS prevede un formato specifico per le asserzioni SAML. È quindi necessario aggiungere mapping di attributi personalizzati alla configurazione degli attributi del token SAML. Lo screenshot seguente mostra l'elenco degli attributi predefiniti. Fare clic su **Modifica** per aprire la finestra di dialogo **Attributi utente**.
 

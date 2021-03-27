@@ -6,12 +6,12 @@ ms.author: sunila
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 09/22/2020
-ms.openlocfilehash: e3b04563b0da3255c63208b73c9ecdbd62ff0cf7
-ms.sourcegitcommit: 73d80a95e28618f5dfd719647ff37a8ab157a668
+ms.openlocfilehash: 60edbcf97b43747246e84517cc65bb0dca4ff546
+ms.sourcegitcommit: a9ce1da049c019c86063acf442bb13f5a0dde213
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/26/2021
-ms.locfileid: "105609294"
+ms.lasthandoff: 03/27/2021
+ms.locfileid: "105626844"
 ---
 # <a name="servers---azure-database-for-postgresql---flexible-server"></a>Server-database di Azure per PostgreSQL-server flessibile
 
@@ -42,8 +42,8 @@ In un database di Azure per il server PostgreSQL è possibile creare uno o più 
 
 Gli elementi seguenti contribuiscono a garantire un accesso sicuro al database:
 
-|||
-|:--|:--|
+| Concetto di sicurezza | Descrizione |
+| :-- | :-- |
 | **Autenticazione e autorizzazione** | Il database di Azure per il server PostgreSQL supporta l'autenticazione nativa a PostgreSQL. È possibile connettersi ed eseguire l'autenticazione al server con l'account amministratore del server. |
 | **Protocollo** | Il servizio supporta un protocollo basato su messaggi usato da PostgreSQLL. |
 | **TCP/IP** | Il protocollo è supportato su TCP/IP e sui socket di dominio Unix. |

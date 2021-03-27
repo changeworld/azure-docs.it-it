@@ -6,12 +6,12 @@ ms.author: anvar
 ms.manager: bsiva
 ms.topic: how-to
 ms.date: 03/02/2021
-ms.openlocfilehash: 634eb2d22e3fa570ac9412d4fb8afd917b5c2eaa
-ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
+ms.openlocfilehash: 5ca821cb4f85deb77595e4a9029cc10298dbb884
+ms.sourcegitcommit: c94e282a08fcaa36c4e498771b6004f0bfe8fb70
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 03/26/2021
-ms.locfileid: "105564008"
+ms.locfileid: "105611974"
 ---
 # <a name="scale-agentless-migration-of-vmware-virtual-machines-to-azure"></a>Ridimensionare la migrazione senza agenti di macchine virtuali VMware in Azure
 
@@ -43,7 +43,7 @@ Per informazioni su come eseguire la procedura precedente, vedere l'esercitazion
 
 Per aggiungere un'appliance con scalabilità orizzontale, attenersi alla procedura indicata di seguito:
 
-1. Fare clic su **individua** perché  >  **i computer sono virtualizzati?** 
+1. Fare clic su **individua** se  >  **i computer sono virtualizzati?** 
 1. Selezionare **Sì con VMware vSphere hypervisor.**
 1. Nel passaggio successivo selezionare replica senza agenti.
 1. Selezionare **scalabilità orizzontale di un dispositivo primario esistente** nel menu Seleziona il tipo di appliance.
@@ -68,8 +68,8 @@ In **scarica Azure migrate Appliance** fare clic su  **download**. È necessario
 > 1. Apri prompt dei comandi come amministratore
 > 2. Eseguire il comando seguente per generare l'hash per il file compresso:
     - ```C:\>CertUtil -HashFile <file_location> [Hashing Algorithm]```
-    - Esempio di utilizzo per il cloud pubblico: ```C:\>CertUtil -HashFile C:\Users\administrator\Desktop\AzureMigrateInstaller.zip SHA256 ```
-> 3. Scaricare la versione più recente del programma di installazione del dispositivo con scalabilità orizzontale dal portale se il valore hash calcolato non corrisponde a questa stringa: e9c9a1fe4f3ebae81008328e8f3a7933d78ff835ecd871d1b17f367621ce3c74
+    - Esempio di utilizzo per il cloud pubblico: ```C:\>Get-FileHash -Path .\AzureMigrateInstaller-VMware-Public-Scaleout.zip -Algorithm SHA256 ```
+> 3. Scaricare la versione più recente del programma di installazione del dispositivo con scalabilità orizzontale dal portale se il valore hash calcolato non corrisponde a questa stringa: 1E6B6E3EE8B2A800818B925F5DA67EF7874DAD87E32847120B32F3E21F5960F9
 
 ### <a name="3-run-the-azure-migrate-installer-script"></a>3. eseguire lo script del programma di installazione Azure Migrate
 Lo script del programma di installazione esegue le operazioni seguenti:
@@ -108,7 +108,7 @@ Prima di iniziare, assicurarsi che [questi endpoint di Azure](migrate-appliance.
 - Accettare le **condizioni di licenza** e leggere le informazioni di terze parti.
 - In Configuration Manager > **configurare i prerequisiti**, procedere come segue:
    - **Connettività**: il dispositivo verifica che il server disponga di accesso a Internet. Se il server usa un proxy:
-     1. Fare clic su **Set up proxy** (Configura proxy) per specificare l'indirizzo proxy (nel formato http://ProxyIPAddress o http://ProxyFQDN) e la porta di ascolto.
+     1. Fare clic sul **proxy di installazione** per specificare l'indirizzo del proxy, nel formato o nella porta di http://ProxyIPAddress http://ProxyFQDN) ascolto.
      2. Se il proxy richiede l'autenticazione, specificare le credenziali.
      3. È supportato solo il proxy HTTP.
      4. Se sono stati aggiunti dettagli del proxy o sono stati disabilitati il proxy e/o l'autenticazione, fare clic su **Save** (Salva) per attivare di nuovo il controllo della connettività.
@@ -124,7 +124,7 @@ Prima di iniziare, assicurarsi che [questi endpoint di Azure](migrate-appliance.
 :::image type="content" source="./media/tutorial-discover-vmware/device-code.png" alt-text="Finestra modale con il codice del dispositivo":::
 
 1. Fare clic su **Copy code & Login** (Copia il codice e accedi) per copiare il codice del dispositivo e aprire una richiesta di accesso ad Azure in una nuova scheda del browser. Se l'opzione non è visualizzata, verificare di aver disabilitato il blocco popup nel browser.
-1. Nella nuova scheda incollare il codice del dispositivo e accedere usando il nome utente e la password di Azure.
+1. Nella scheda nuovo incollare il codice del dispositivo e accedere usando il nome utente e la password di Azure.
    
    L'accesso con un PIN non è supportato.
 3. Se si chiude la scheda per errore senza eseguire l'accesso, è necessario aggiornare la scheda del browser di gestione configurazione dell'appliance per abilitare di nuovo il pulsante di accesso.
@@ -150,7 +150,7 @@ Per completare la registrazione del dispositivo con scalabilità orizzontale, fa
 Una volta che i file sono stati importati correttamente, la registrazione del dispositivo con scalabilità orizzontale verrà completata e verrà visualizzato il timestamp dell'ultima importazione completata correttamente. È anche possibile visualizzare i dettagli della registrazione facendo clic su **Visualizza dettagli**.
 :::image type="content" source="./media/how-to-scale-out-for-migration/import-success.png" alt-text="Screenshot mostra la registrazione dell'appliance con scalabilità orizzontale con Azure Migrate progetto.":::
 
-A questo punto è necessario rivalidare che l'appliance con scalabilità orizzontale sia in grado di connettersi al server vCenter. Fare clic su **riconvalida** per convalidare server vCenter connettività dal dispositivo con scalabilità orizzontale.
+A questo punto, è necessario rivalidare che l'appliance con scalabilità orizzontale sia in grado di connettersi al server vCenter. Fare clic su **riconvalida** per convalidare server vCenter connettività dal dispositivo con scalabilità orizzontale.
 :::image type="content" source="./media/how-to-scale-out-for-migration/view-sources.png" alt-text="Screenshot mostra le credenziali di visualizzazione e le origini di individuazione da convalidare.":::
 
 > [!IMPORTANT]

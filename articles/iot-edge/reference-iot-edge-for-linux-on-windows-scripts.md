@@ -9,12 +9,12 @@ ms.topic: reference
 ms.service: iot-edge
 services: iot-edge
 monikerRange: =iotedge-2018-06
-ms.openlocfilehash: 5286362369e0c4881cdf0c56bc13d1d340056be1
-ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
+ms.openlocfilehash: 41827c5db58f3d4755fb34e46067357cd0255676
+ms.sourcegitcommit: c94e282a08fcaa36c4e498771b6004f0bfe8fb70
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 03/26/2021
-ms.locfileid: "105562512"
+ms.locfileid: "105612773"
 ---
 # <a name="powershell-scripts-for-iot-edge-for-linux-on-windows"></a>Script di PowerShell per IoT Edge per Linux in Windows
 
@@ -46,12 +46,15 @@ Il comando **deploy-eFlow** è il metodo di distribuzione principale. Il comando
 | vmSizeDefintion | Non più di 30 caratteri | Definizione del numero di core e della RAM disponibile per la macchina virtuale. **Valore predefinito**: Standard_K8S_v1. |
 | vmDiskSize | Da 8 GB a 256 GB | Dimensioni massime del disco rigido virtuale a espansione dinamica. **Valore predefinito**: 16 GB. |
 | vmUser | Non più di 30 caratteri | Nome utente per l'accesso alla macchina virtuale. |
-| vnetType | **Trasparente** o **ICS** | Tipo di Commuter virtuale. **Valore predefinito**: Transparent. |
+| vnetType | **Trasparente** o **ICS** | Tipo di Commuter virtuale. **Valore predefinito**: Transparent. Transparent fa riferimento a un commutire esterno, mentre ICS fa riferimento a un Commuter interno. |
 | vnetName | Non più di 64 caratteri | Nome del Commuter virtuale. **Valore predefinito**: External. |
 | enableVtpm | nessuno | **Parametro switch**. Creare la macchina virtuale con TPM abilitato o disabilitato. |
 | mobyPackageVersion | Non più di 30 caratteri |  Versione del pacchetto Moby da verificare o installare nella macchina virtuale.  **Valore predefinito:** 19.03.11. |
 | iotedgePackageVersion | Non più di 30 caratteri | Versione del pacchetto di IoT Edge da verificare o installare nella macchina virtuale. **Valore predefinito:** 1.1.0. |
 | installPackages | nessuno | **Parametro switch**. Quando questa opzione è attivata, lo script tenterà di installare i pacchetti Moby e IoT Edge anziché verificare solo che i pacchetti siano presenti. |
+
+>[!NOTE]
+>Per impostazione predefinita, se il processo non riesce a trovare un comportatore esterno con il nome, eseguirà la `External` ricerca di qualsiasi comportatore esterno esistente tramite il quale ottenere un indirizzo IP. Se non è disponibile alcun commute esterno, verrà cercata un'opzione interna. Se non è disponibile alcun comportatore interno, tenterà di creare l'opzione predefinita tramite cui ottenere un indirizzo IP.
 
 ## <a name="verify-eflowvm"></a>Verify-EflowVm
 

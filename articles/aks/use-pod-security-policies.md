@@ -3,27 +3,20 @@ title: Usare i criteri di sicurezza pod in Azure Kubernetes Service (AKS)
 description: Informazioni su come controllare l'ammissione di pod usando PodSecurityPolicy in Azure Kubernetes Service (AKS)
 services: container-service
 ms.topic: article
-ms.date: 02/12/2021
-ms.openlocfilehash: cf520f4b0dc2f51e6431d65ef178b6635d7fd857
-ms.sourcegitcommit: 44edde1ae2ff6c157432eee85829e28740c6950d
+ms.date: 03/25/2021
+ms.openlocfilehash: d95cdb51136511bdd8529c829c3f680d19e14ba9
+ms.sourcegitcommit: c94e282a08fcaa36c4e498771b6004f0bfe8fb70
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/25/2021
-ms.locfileid: "105544248"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105611770"
 ---
 # <a name="preview---secure-your-cluster-using-pod-security-policies-in-azure-kubernetes-service-aks"></a>Anteprima-proteggere il cluster usando i criteri di sicurezza pod in Azure Kubernetes Service (AKS)
 
 > [!WARNING]
-> **La funzionalità descritta in questo documento Pod Security Policy (anteprima) è impostata per la deprecazione e non sarà più disponibile dopo il 30 giugno 2021** a favore di criteri di [Azure per AKS](use-azure-policy.md). La data di deprecazione è stata estesa dalla data precedente del 15 ottobre 2020.
+> **La funzionalità descritta in questo documento, i criteri di sicurezza pod (anteprima), inizierà la deprecazione con Kubernetes versione 1,21, con la relativa rimozione nella versione 1,25.** Poiché Kubernetes si avvicina a questa attività cardine, la community di Kubernetes si impegna a documentare le alternative valide. L'annuncio di deprecazione precedente è stato eseguito nel momento in cui non era disponibile un'opzione valida per i clienti. Ora che la community di Kubernetes sta lavorando su un'alternativa, non è più necessario richiedere la deprecazione prima di Kubernetes.
 >
 > Dopo la deprecazione di Criteri di sicurezza dei pod (anteprima), sarà necessario disabilitare la funzionalità in eventuali cluster esistenti che usano la funzionalità deprecata per eseguire aggiornamenti futuri del cluster e mantenere il supporto tecnico di Azure.
->
-> È consigliabile iniziare a testare gli scenari con criteri di Azure per AKS, che offre criteri predefiniti per proteggere i pod e le iniziative predefinite che vengono mappate ai criteri di sicurezza pod. Per eseguire la migrazione dai criteri di sicurezza Pod, è necessario eseguire le azioni seguenti in un cluster.
-> 
-> 1. [Disabilitare i criteri di sicurezza Pod](#clean-up-resources) nel cluster
-> 1. Abilitare il [componente aggiuntivo criteri di Azure][azure-policy-add-on]
-> 1. Abilitare i criteri di Azure desiderati dai [criteri predefiniti disponibili][policy-samples]
-> 1. Esaminare [le modifiche del comportamento tra i criteri di sicurezza pod e i criteri di Azure](#behavior-changes-between-pod-security-policy-and-azure-policy)
 
 Per migliorare la sicurezza del cluster AKS, è possibile limitare i pod che è possibile pianificare. I pod che richiedono risorse non consentite non possono essere eseguiti nel cluster AKS. Questo accesso viene definito usando i criteri di sicurezza pod. Questo articolo illustra come usare i criteri di sicurezza di pod per limitare la distribuzione di pod in AKS.
 

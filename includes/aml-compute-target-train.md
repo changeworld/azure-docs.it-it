@@ -9,12 +9,12 @@ manager: cgronlund
 ms.custom: include file
 ms.topic: include
 ms.date: 09/17/2020
-ms.openlocfilehash: 7c89527218e34bea0819a1e2446441216cde45ae
-ms.sourcegitcommit: bb330af42e70e8419996d3cba4acff49d398b399
+ms.openlocfilehash: 3eb5ea468a234aea228539c2390ab6cae9352948
+ms.sourcegitcommit: a9ce1da049c019c86063acf442bb13f5a0dde213
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/24/2021
-ms.locfileid: "105105822"
+ms.lasthandoff: 03/27/2021
+ms.locfileid: "105629966"
 ---
 **Le destinazioni di calcolo possono essere riutilizzate per più processi di training**. Ad esempio, dopo aver collegato una macchina virtuale remota all'area di lavoro, è possibile riutilizzarla per più processi. Per le pipeline di Machine Learning, usare il [passaggio della pipeline](/python/api/azureml-pipeline-steps/azureml.pipeline.steps) appropriato per ogni destinazione di calcolo.
 
@@ -32,4 +32,4 @@ Per la maggior parte dei processi, è possibile usare qualsiasi risorsa seguente
 |[Azure Batch](../articles/machine-learning/how-to-attach-compute-targets.md#azbatch) | &nbsp; | Sì | &nbsp; |
 
 > [!TIP]
-> L'istanza di calcolo ha un disco del sistema operativo da 120 GB. Se lo spazio su disco è insufficiente, deselezionare spazio sufficiente prima di tentare di arrestare o riavviare l'istanza di calcolo.
+> L'istanza di calcolo ha un disco del sistema operativo da 120 GB. Se lo spazio su disco è esaurito, [usare il terminale](../articles/machine-learning/how-to-access-terminal.md) per cancellare almeno 1-2 GB prima di [arrestare o riavviare](../articles/machine-learning/how-to-create-manage-compute-instance.md#manage) l'istanza di calcolo.

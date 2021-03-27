@@ -8,13 +8,13 @@
       href: bicep-overview.md
 - name: Avvi rapidi
   items:
-    - name: Creare modelli - Portale
-      href: quickstart-create-templates-use-the-portal.md
-    - name: Creare modelli - Visual Studio Code
+    - name: Creare modelli JSON-VS Code
       href: quickstart-create-templates-use-visual-studio-code.md
-    - name: Crea VS Code bicipite
+    - name: Creazione di modelli bicipite-VS Code
       href: quickstart-create-bicep-use-visual-studio-code.md
-    - name: Creare e distribuire le specifiche dei modelli
+    - name: Creare modelli JSON-portale
+      href: quickstart-create-templates-use-the-portal.md
+    - name: Creare specifiche del modello
       href: quickstart-create-template-specs.md
 - name: Esercitazioni
   items:
@@ -43,24 +43,34 @@
     - name: Bicipite per principianti
       items:
         - name: 1 - Creare il primo modello
+          displayName: Bicep
           href: bicep-tutorial-create-first-bicep.md
         - name: 2-aggiungere parametri
+          displayName: Bicep
           href: bicep-tutorial-add-parameters.md
         - name: 3-aggiungere funzioni di modello
+          displayName: Bicep
           href: bicep-tutorial-add-functions.md
         - name: 4-aggiungere variabili
+          displayName: Bicep
           href: bicep-tutorial-add-variables.md
         - name: 5-aggiungere output
+          displayName: Bicep
           href: bicep-tutorial-add-outputs.md
         - name: 6-usare il modello esportato
+          displayName: Bicep
           href: bicep-tutorial-export-template.md
         - name: 7-usare il modello di avvio rapido
+          displayName: Bicep
           href: bicep-tutorial-quickstart-template.md
         - name: 8-aggiungere tag
+          displayName: Bicep
           href: bicep-tutorial-add-tags.md
         - name: 9-usare un file di parametri
+          displayName: Bicep
           href: bicep-tutorial-use-parameter-file.md
         - name: 10-aggiungere moduli
+          displayName: Bicep
           href: bicep-tutorial-add-modules.md
     - name: Distribuzione
       items:

@@ -2,15 +2,15 @@
 title: Moduli bicipite
 description: Viene descritto come definire e utilizzare un modulo e come utilizzare gli ambiti del modulo.
 ms.topic: conceptual
-ms.date: 03/17/2021
-ms.openlocfilehash: 2edeb5c96f771867f964963b2d27768291ae2d4a
-ms.sourcegitcommit: a67b972d655a5a2d5e909faa2ea0911912f6a828
+ms.date: 03/25/2021
+ms.openlocfilehash: 7a680e8aa0fa4d5ef9cac7f9e7ba07a3aa4ee1e2
+ms.sourcegitcommit: c94e282a08fcaa36c4e498771b6004f0bfe8fb70
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/23/2021
-ms.locfileid: "104889706"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105611736"
 ---
-# <a name="use-bicep-modules"></a>Usare i moduli bicipite
+# <a name="use-bicep-modules-preview"></a>Usare i moduli bicipite (anteprima)
 
 Il bicipite consente di suddividere una soluzione complessa in moduli. Un modulo bicipite è un set di una o più risorse da distribuire insieme. I moduli astraggono i dettagli complessi della dichiarazione di risorse non elaborate, che può migliorare la leggibilità. È possibile riutilizzare questi moduli e condividerli con altri utenti. In combinazione con le [specifiche del modello](./template-specs.md), viene creata una soluzione per la modularità e il riutilizzo del codice. Per un'esercitazione, vedere [esercitazione: aggiungere moduli bicipite](./bicep-tutorial-add-modules.md).
 
