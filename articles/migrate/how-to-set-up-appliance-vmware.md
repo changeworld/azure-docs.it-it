@@ -6,12 +6,12 @@ ms.author: vibansa
 ms.manager: abhemraj
 ms.topic: how-to
 ms.date: 04/16/2020
-ms.openlocfilehash: c2ffa85ed6cb007dd766d4517a86783d21d4913e
-ms.sourcegitcommit: bed20f85722deec33050e0d8881e465f94c79ac2
+ms.openlocfilehash: 685d7f0a0aaab2f38967e0eb6c32c3fb4067dbe3
+ms.sourcegitcommit: c94e282a08fcaa36c4e498771b6004f0bfe8fb70
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/25/2021
-ms.locfileid: "105110509"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105612824"
 ---
 # <a name="set-up-an-appliance-for-servers-in-vmware-environment"></a>Configurare un'appliance per i server in ambiente VMware
 
@@ -67,7 +67,6 @@ Prima di distribuire il file OVA, verificarne la sicurezza:
         --- | --- | ---
         VMware (11,9 GB) | [Versione più recente](https://go.microsoft.com/fwlink/?linkid=2140333) | e9c9a1fe4f3ebae81008328e8f3a7933d78ff835ecd871d1b17f367621ce3c74
 
-
 ### <a name="3-create-the-appliance-server"></a>3. creare il server appliance
 
 Importare il file scaricato e creare un server in ambiente VMware
@@ -81,11 +80,9 @@ Importare il file scaricato e creare un server in ambiente VMware
 8. In **mapping di rete** specificare la rete a cui si connetterà il server. La rete richiede la connettività Internet per inviare i metadati a Azure Migrate.
 9. Rivedere e confermare le impostazioni e quindi fare clic su **Finish** (Fine).
 
-
 ### <a name="verify-appliance-access-to-azure"></a>Verificare l'accesso dell'appliance ad Azure
 
 Verificare che il server del dispositivo sia in grado di connettersi agli URL di Azure per i cloud [pubblici](migrate-appliance.md#public-cloud-urls) e [governativi](migrate-appliance.md#government-cloud-urls) .
-
 
 ### <a name="4-configure-the-appliance"></a>4. configurare l'appliance
 
@@ -114,7 +111,6 @@ Configurare l'appliance per la prima volta.
 1. Se lo si desidera, è possibile **rieseguire i prerequisiti** in qualsiasi momento durante la configurazione dell'appliance per verificare se l'appliance soddisfa tutti i prerequisiti.
 
     :::image type="content" source="./media/tutorial-discover-vmware/appliance-prerequisites.png" alt-text="Pannello 1 in Gestione configurazione Appliance":::
-
 
 ## <a name="register-the-appliance-with-azure-migrate"></a>Registrare l'appliance con Azure Migrate
 

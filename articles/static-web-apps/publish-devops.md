@@ -7,12 +7,12 @@ ms.service: static-web-apps
 ms.topic: tutorial
 ms.date: 03/23/2021
 ms.author: apedward
-ms.openlocfilehash: af359734ff5bfe90dedbb7f8389aecdc6e056654
-ms.sourcegitcommit: 44edde1ae2ff6c157432eee85829e28740c6950d
+ms.openlocfilehash: 701f999427d743c18f5dbcadb00cf303f97a8f53
+ms.sourcegitcommit: a9ce1da049c019c86063acf442bb13f5a0dde213
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/25/2021
-ms.locfileid: "105543560"
+ms.lasthandoff: 03/27/2021
+ms.locfileid: "105627290"
 ---
 # <a name="tutorial-publish-azure-static-web-apps-with-azure-devops"></a>Esercitazione: pubblicare app Web statiche di Azure con Azure DevOps
 
@@ -36,35 +36,13 @@ In questa esercitazione si apprenderà come:
 
 1. Passare al repository di Azure DevOps.
 
-1. Usare un repository esistente o _importare un repository_ come illustrato di seguito.
+1. Selezionare **Importa** per avviare l'importazione di un'applicazione di esempio.
   
     :::image type="content" source="media/publish-devops/devops-repo.png" alt-text="Repository DevOps":::
 
-1. Creare un nuovo file per l'app Web front-end.
+1. In **Clone URL** immettere `https://github.com/staticwebdev/vanilla-api.git` .
 
-1. Copiare e incollare il markup HTML seguente nel nuovo file:
-
-    ```html
-    <!DOCTYPE html>
-    <html lang="en">
-  
-    <head>
-      <meta charset="UTF-8">
-      <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <link rel="stylesheet" href="styles.css">
-      <title>Hello World!</title>
-    </head>
-  
-    <body>
-      <main>
-        <h1>Hello World!</h1>
-      </main>
-    </body>
-  
-    </html>
-    ```
-
-1. Salvare il file.
+1. Selezionare **Importa**.
 
 ## <a name="create-a-static-web-app"></a>Creare un'app Web statica
 
@@ -85,7 +63,9 @@ In questa esercitazione si apprenderà come:
 
     :::image type="content" source="media/publish-devops/create-resource.png" alt-text="Dettagli distribuzione-altro":::
 
-1. Una volta completata la distribuzione, selezionare **Gestisci token di distribuzione**.
+1. Una volta completata la distribuzione, passare alla nuova risorsa app Web statiche.
+
+1. Selezionare **Gestisci token di distribuzione**.
 
 1. Copiare il **token di distribuzione** e incollarlo in un editor di testo per usarlo in un'altra schermata.
 
@@ -96,16 +76,17 @@ In questa esercitazione si apprenderà come:
 
 ## <a name="create-the-pipeline-task-in-azure-devops"></a>Creare l'attività pipeline in Azure DevOps
 
-1. Passare al progetto Azure DevOps creato in precedenza.
+1. Passare al repository Azure DevOps creato in precedenza.
 
-2. Creare una nuova **pipeline di compilazione** e selezionare **Configura compilazione**.
+1. Selezionare **Configura compilazione**.
 
     :::image type="content" source="media/publish-devops/azdo-build.png" alt-text="Pipeline di compilazione":::
 
-3. Copiare e incollare il codice YAML seguente nella pipeline.
+1. Nella schermata *Configura pipeline* selezionare **Starter pipeline**.
 
-    > [!NOTE]
-    > I valori immessi per _app_location_,_api_location_ e _output_location_ dovranno essere modificati per l'app.  
+    :::image type="content" source="media/publish-devops/configure-pipeline.png" alt-text="Configura pipeline":::
+
+1. Copiare e incollare il codice YAML seguente nella pipeline.
 
     ```yaml
     trigger:
@@ -117,40 +98,47 @@ In questa esercitazione si apprenderà come:
     steps:
       - task: AzureStaticWebApp@0
         inputs:
-          app_location: frontend 
-          api_location: api
-          output_location: build
+          app_location: "/" 
+          api_location: "api"
+          output_location: ""
         env:
           azure_static_web_apps_api_token: $(deployment_token)
     ```
 
-    Configurare gli input dell'app Web statica di Azure in base alla struttura di cartelle dell'applicazione.
+    > [!NOTE]
+    > Se non si usa l'app di esempio, i valori per `app_location` , `api_location` e `output_location` devono essere modificati in modo da corrispondere ai valori nell'applicazione.
 
     [!INCLUDE [static-web-apps-folder-structure](../../includes/static-web-apps-folder-structure.md)]
 
     Il `azure_static_web_apps_api_token` valore è gestito autonomamente e configurato manualmente.
 
-4. Selezionare le **variabili**.
+1. Selezionare le **variabili**.
 
-5. Consente di creare una nuova variabile.
+1. Consente di creare una nuova variabile.
 
-6. Assegnare un nome alla variabile **deployment_token** (che corrisponde al nome nel flusso di lavoro).
+1. Assegnare un nome alla variabile **deployment_token** (che corrisponde al nome nel flusso di lavoro).
 
-7. Copiare il token di distribuzione incollato in precedenza in un editor di testo.
+1. Copiare il token di distribuzione incollato in precedenza in un editor di testo.
 
-8. Incollare il token di distribuzione nella casella _valore_ .
+1. Incollare il token di distribuzione nella casella _valore_ .
 
     :::image type="content" source="media/publish-devops/variable-token.png" alt-text="Token variabile":::
 
-9. Selezionare **OK**.
+1. Selezionare **Mantieni segreto valore**.
 
-10. Selezionare **Save (Salva) ed eseguire** la pipeline.
+1. Selezionare **OK**.
+
+1. Selezionare **Save (Salva** ) per tornare alla pipeline YAML.
+
+1. Selezionare **Save ed Run** per aprire la finestra di dialogo _Salva ed Esegui_ .
 
     :::image type="content" source="media/publish-devops/save-and-run.png" alt-text="Pipeline":::
 
-11. Una volta completata la distribuzione, passare alla **Panoramica** delle app Web statiche di Azure, che include collegamenti alla configurazione della distribuzione.
+1. Selezionare **Save ed Run** per eseguire la pipeline.
 
-12. Selezionare l' **URL** per visualizzare il sito Web appena distribuito. Si noti che il collegamento di _origine_ ora punta al ramo e alla località del repository Azure DevOps.
+1. Una volta completata la distribuzione, passare alla **Panoramica** delle app Web statiche di Azure, che include collegamenti alla configurazione della distribuzione. Si noti che il collegamento di _origine_ ora punta al ramo e alla località del repository Azure DevOps.
+
+1. Selezionare l' **URL** per visualizzare il sito Web appena distribuito.
 
     :::image type="content" source="media/publish-devops/deployment-location.png" alt-text="Percorso di distribuzione":::
 

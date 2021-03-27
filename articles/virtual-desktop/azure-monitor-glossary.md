@@ -5,15 +5,15 @@ services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: conceptual
-ms.date: 12/01/2020
+ms.date: 3/25/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 29c49ceb3647964030f53c94276e831dc0f648c7
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 7b824bc13bc4f553d22358b69237173effb51594
+ms.sourcegitcommit: a9ce1da049c019c86063acf442bb13f5a0dde213
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "100576627"
+ms.lasthandoff: 03/27/2021
+ms.locfileid: "105627133"
 ---
 # <a name="azure-monitor-for-windows-virtual-desktop-preview-glossary"></a>Glossario di monitoraggio di Azure per desktop virtuale Windows (anteprima)
 
@@ -24,7 +24,7 @@ Questo articolo elenca e descrive brevemente i termini e i concetti chiave relat
 
 ## <a name="alerts"></a>Avvisi
 
-Qualsiasi avviso di monitoraggio di Azure attivo configurato nella sottoscrizione e classificato come [gravità 1](#severity-1-alerts) verrà visualizzato nella pagina panoramica. Per informazioni su come configurare gli avvisi, vedere [rispondere agli eventi con gli avvisi di monitoraggio di Azure](../azure-monitor/alerts/tutorial-response.md).
+Qualsiasi avviso di monitoraggio di Azure attivo configurato nella sottoscrizione e classificato come [gravità 0](#severity-0-alerts) verrà visualizzato nella pagina panoramica. Per informazioni su come configurare gli avvisi, vedere [rispondere agli eventi con gli avvisi di monitoraggio di Azure](../azure-monitor/alerts/tutorial-response.md).
 
 ## <a name="available-sessions"></a>Sessioni disponibili
 
@@ -40,7 +40,7 @@ Numero totale di utenti che hanno avviato una sessione nelle ultime 24 ore.
 
 ## <a name="daily-alerts"></a>Avvisi giornalieri
 
-Numero totale di [avvisi di gravità 1](#severity-1-alerts) attivati nelle ultime 24 ore.
+Numero totale di avvisi attivati ogni giorno.
 
 ## <a name="daily-connections-and-reconnections"></a>Connessioni e riconnessioni giornaliere
 
@@ -78,7 +78,7 @@ Ogni problema di diagnostica o errore include un messaggio che spiega cosa è su
 
 ## <a name="input-delay"></a>Ritardo di input
 
-"Ritardo di input" in monitoraggio di Azure per desktop virtuale Windows indica il contatore delle prestazioni di ritardo input per processo per ogni sessione. Nella pagina prestazioni host in <> aka.ms/azmonwvdi, questo contatore delle prestazioni è configurato per l'invio di un report al servizio una volta ogni 30 secondi. Questi intervalli di 30 secondi sono denominati "Samples" e segnalano il caso peggiore in tale finestra. I valori mediano e P95 riflettono la mediana e il 95 ° percentile in tutti gli esempi.
+"Ritardo di input" in monitoraggio di Azure per desktop virtuale Windows indica il contatore delle prestazioni di ritardo input per processo per ogni sessione. Nella pagina prestazioni host in [aka.ms/azmonwvdi](https://portal.azure.com/#blade/Microsoft_Azure_WVD/WvdManagerMenuBlade/workbooks), questo contatore delle prestazioni è configurato per l'invio di un report al servizio una volta ogni 30 secondi. Questi intervalli di 30 secondi sono denominati "Samples" e segnalano il caso peggiore in tale finestra. I valori mediano e P95 riflettono la mediana e il 95 ° percentile in tutti gli esempi.
 
 In **input Delay by host** è possibile selezionare una riga Host sessione per filtrare tutti gli altri oggetti visivi nella pagina in tale host. È anche possibile selezionare un nome di processo per filtrare il ritardo di input medio nel grafico del tempo.
 
@@ -114,16 +114,11 @@ La tabella seguente elenca i contatori delle prestazioni e gli intervalli di tem
 |PhysicalDisk ( \* ) \\ Media letture disco/sec|30 secondi|
 |PhysicalDisk ( \* ) \\ media sec/trasferimento disco|30 secondi|
 |PhysicalDisk ( \* ) \\ Media scritture disco/sec|30 secondi|
-|Elabora ( \* ) \\ % tempo processore|20 secondi|
-|Elabora ( \* ) \\ % tempo utente|30 secondi|
-|Process ( \* ) \\ conteggio thread|30 secondi|
-|Operazioni di \* scrittura i/o processo () \\ /sec|30 secondi|
-|Operazioni di \* lettura i/o processo () \\ /sec|30 secondi|
 |Informazioni processore (_Total) \\ % tempo processore|30 secondi|
 |Sessioni attive di Servizi terminal ( \* ) \\|60 secondi|
 |\*Sessioni inattive di Servizi terminal () \\|60 secondi|
 |Totale sessioni Servizi terminal ( \* ) \\|60 secondi|
-|\*Ritardo input utente per processo ( \* ) \\ numero massimo input dela|30 secondi|
+|\*Ritardo input massimo input utente per processo ( \* ) \\|30 secondi|
 |\*Ritardo input utente per sessione ( \* )- \\ ritardo input massimo|30 secondi|
 |\*RTT TCP corrente rete () RemoteFX \\|30 secondi|
 |RemoteFX rete ( \* ) \\ larghezza di banda UDP corrente|30 secondi|
@@ -149,13 +144,13 @@ Se si nota che un problema di connessione si estende su più host, utenti, risor
 
 ## <a name="round-trip-time-rtt"></a>Tempo di round trip (RTT)
 
-Il tempo di round trip (RTT) è una stima del tempo di round trip della connessione tra la posizione dell'utente finale e l'area di Azure della macchina virtuale. Per vedere quali percorsi hanno la massima latenza, cercare la posizione desiderata nello [strumento di stima dell'esperienza desktop virtuale di Windows](https://azure.microsoft.com/services/virtual-desktop/assessment/).
+Il tempo di round trip (RTT) è una stima del tempo di round trip della connessione tra la posizione dell'utente finale e l'area di Azure dell'host sessione. Per vedere quali percorsi hanno la massima latenza, cercare la posizione desiderata nello [strumento di stima dell'esperienza desktop virtuale di Windows](https://azure.microsoft.com/services/virtual-desktop/assessment/).
 
 ## <a name="session-history"></a>Cronologia delle sessioni
 
 L'elemento **Sessions** Mostra lo stato di tutte le sessioni connesse e disconnesse. Le **sessioni inattive** mostrano solo le sessioni disconnesse.
 
-## <a name="severity-1-alerts"></a>Avvisi gravità 1
+## <a name="severity-0-alerts"></a>Avvisi di gravità 0
 
 Gli elementi più urgenti che è necessario gestire immediatamente. Se non si affrontano questi problemi, è possibile che la distribuzione del desktop virtuale di Windows smetta di funzionare.
 
@@ -171,11 +166,11 @@ Nella pagina report utente è possibile visualizzare la cronologia delle conness
 
 Questo è il numero di utenti in ogni core della macchina virtuale. Il monitoraggio del numero massimo di utenti per core nel tempo può aiutare a identificare se l'ambiente viene eseguito in modo coerente a un numero elevato, minimo o fluttuante di utenti per core. Conoscere il numero di utenti attivi consentirà di eseguire in modo efficiente le risorse e la scalabilità dell'ambiente.
 
-## <a name="windows-events"></a>Eventi Windows
+## <a name="windows-event-logs"></a>Registri eventi di Windows
 
 I registri eventi di Windows sono origini dati raccolte da agenti Log Analytics in macchine virtuali Windows. È possibile raccogliere eventi da log standard come il sistema e l'applicazione, nonché i log personalizzati creati dalle applicazioni che è necessario monitorare.
 
-La tabella seguente elenca gli eventi di Windows necessari per il desktop virtuale Windows per il monitoraggio di Azure:
+La tabella seguente elenca i registri eventi di Windows necessari per il monitoraggio di Azure per desktop virtuale Windows:
 
 |Nome evento|Tipo di evento|
 |---|---|
@@ -186,7 +181,7 @@ La tabella seguente elenca gli eventi di Windows necessari per il desktop virtua
 | Microsoft-FSLogix-Apps/operativo|Errore, avviso e informazioni|
 |Microsoft-FSLogix-app/amministratore|Errore, avviso e informazioni|
 
-Per ulteriori informazioni sugli eventi di Windows, vedere [proprietà di record eventi di Windows](../azure-monitor/agents/data-sources-windows-events.md).
+Per ulteriori informazioni sui registri eventi di Windows, vedere [proprietà di record eventi di Windows](../azure-monitor/agents/data-sources-windows-events.md#configuring-windows-event-logs).
 
 ## <a name="next-steps"></a>Passaggi successivi
 
@@ -203,4 +198,4 @@ Per assistenza o domande, consultare le risorse della community:
    
 - Per informazioni su come lasciare commenti, vedere [panoramica sulla risoluzione dei problemi, commenti e suggerimenti e supporto per desktop virtuale di Windows](troubleshoot-set-up-overview.md#report-issues).
 
-- È anche possibile lasciare commenti e suggerimenti per desktop virtuale Windows nell' [Hub di feedback per desktop virtuale Windows](https://support.microsoft.com/help/4021566/windows-10-send-feedback-to-microsoft-with-feedback-hub-app) o nel [Forum UserVoice](https://windowsvirtualdesktop.uservoice.com/forums/921118-general).
+- È anche possibile lasciare commenti e suggerimenti per desktop virtuale Windows nell' [Hub feedback del desktop virtuale Windows](https://support.microsoft.com/help/4021566/windows-10-send-feedback-to-microsoft-with-feedback-hub-app)

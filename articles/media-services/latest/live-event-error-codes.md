@@ -11,14 +11,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: error-reference
-ms.date: 02/12/2020
+ms.date: 03/26/2021
 ms.author: inhenkel
-ms.openlocfilehash: 5463f1d8376cbe1a6e81d17c1f95a84e67f3b418
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 7c30649fe3486f812569cb51f609356a6cbfd58f
+ms.sourcegitcommit: a9ce1da049c019c86063acf442bb13f5a0dde213
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104581083"
+ms.lasthandoff: 03/27/2021
+ms.locfileid: "105627541"
 ---
 # <a name="media-services-live-event-error-codes"></a>Codici di errore dell'evento live di servizi multimediali
 
@@ -83,7 +83,8 @@ Quando si esegue la sottoscrizione agli eventi di [griglia di eventi](../../even
 >| Descrizione|Il codificatore invia i dati troppo velocemente. |
 >| Soluzione suggerita|Questo errore si verifica quando il codificatore estrae un ampio set di frammenti in un breve periodo di tempo.  Questo può verificarsi in teoria quando il codificatore non è in grado di effettuare il push dei dati a causa di un problema di rete e il genera dati quando la rete è disponibile. Individuare il motivo del log del codificatore o del registro di sistema. |
 >|**Codici di errore sconosciuti** |
->| Descrizione| Questi codici di errore possono variare da errori di memoria a voci duplicate nella mappa di hash. |
+>| Descrizione| Questi codici di errore possono variare da errori di memoria a voci duplicate nella mappa di hash. Questo problema può verificarsi quando il codificatore invia un set di frammenti di grandi dimensioni in un breve periodo di tempo.  Questa situazione può verificarsi anche quando il codificatore non è riuscito a eseguire il push dei dati a causa di un problema di rete e quindi invia tutti i frammenti ritardati contemporaneamente quando la rete diventa disponibile. |
+>|Soluzione suggerita| Controllare i log del codificatore.|
 
 ## <a name="other-error-codes"></a>Altri codici di errore
 
@@ -95,13 +96,13 @@ Quando si esegue la sottoscrizione agli eventi di [griglia di eventi](../../even
 >|Soluzione suggerita| Nessuna.||
 >|**MPI_SYSTEM_MAINTENANCE** ||Sì|
 >| Descrizione|Il codificatore è stato interrotto a causa dell'aggiornamento del servizio o della manutenzione del sistema. ||
->|Soluzione suggerita|Verificare che il codificatore consenta "connessione automatica". Si tratta della funzionalità del codificatore per ripristinare la disconnessione della sessione imprevista. ||
+>|Soluzione suggerita|Verificare che il codificatore consenta la connessione automatica. Consente al codificatore di riconnettersi all'endpoint evento Live ridondante che non è in manutenzione. ||
 >|**MPE_BAD_URL_SYNTAX** ||Sì|
 >| Descrizione|L'URL di inserimento non è formattato correttamente. ||
 >|Soluzione suggerita|Verificare che l'URL di inserimento sia formattato correttamente. Per RTMP, dovrebbe essere `rtmp[s]://hostname:port/live/GUID_APPID/streamname` ||
 >|**MPE_CLIENT_TERMINATED_SESSION** ||Sì|
 >| Descrizione|Il codificatore ha disconnesso la sessione.  ||
->|Soluzione suggerita|Questo errore non è stato. Questo è il caso in cui il codificatore ha avviato la disconnessione, inclusa la disconnessione normale. Se si tratta di una disconnessione imprevista, controllare il log del codificatore o il registro di sistema. |
+>|Soluzione suggerita|Questo errore non è stato. Disconnessione avviata dal codificatore, inclusa la disconnessione normale. Se si tratta di una disconnessione imprevista, controllare i log del codificatore. |
 >|**MPE_INGEST_BITRATE_NOT_MATCH** ||No|
 >| Descrizione|La velocità dei dati in ingresso non corrisponde alla velocità in bit prevista. ||
 >|Soluzione suggerita|Si tratta di un avviso che si verifica quando la velocità dei dati in ingresso è troppo lenta o veloce. Controllare il log del codificatore o il registro di sistema.||

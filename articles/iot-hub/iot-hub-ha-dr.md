@@ -7,12 +7,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 03/17/2020
 ms.author: philmea
-ms.openlocfilehash: c665e30ed9b284f7c93cf8588b710c9f22457a0a
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 9d2ffac813456398c02066c978c37bdb09501aeb
+ms.sourcegitcommit: a9ce1da049c019c86063acf442bb13f5a0dde213
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "92151665"
+ms.lasthandoff: 03/27/2021
+ms.locfileid: "105628986"
 ---
 # <a name="iot-hub-high-availability-and-disaster-recovery"></a>Disponibilità elevata e ripristino di emergenza dell'hub IoT
 
@@ -64,7 +64,7 @@ Una volta completata l'operazione di failover per l'Hub IoT, tutte le operazioni
 >
 > - Se si usa funzioni di Azure o analisi di flusso di Azure per connettere l'endpoint degli eventi predefiniti, potrebbe essere necessario eseguire un **riavvio**. Questo è dovuto al fatto che durante il failover gli offset precedenti non sono più validi.
 >
-> - Quando si esegue il routing alla risorsa di archiviazione, è consigliabile elencare i BLOB o i file e quindi scorrerli per assicurarsi che tutti i BLOB o i file vengano letti senza creare presupposti della partizione. È possibile che l'intervallo di partizioni venga modificato durante un failover manuale o avviato da Microsoft. È possibile usare l' [API List Blobs](/rest/api/storageservices/list-blobs) per enumerare l'elenco di BLOB o [elencare ADLS Gen2 API](/rest/api/storageservices/datalakestoragegen2/path/list) per l'elenco di file. Per altre informazioni, vedere [archiviazione di Azure come endpoint di routing](iot-hub-devguide-messages-d2c.md#azure-storage-as-a-routing-endpoint).
+> - Quando si esegue il routing alla risorsa di archiviazione, è consigliabile elencare i BLOB o i file e quindi scorrerli per assicurarsi che tutti i BLOB o i file vengano letti senza creare presupposti della partizione. È possibile che l'intervallo di partizioni venga modificato durante un failover manuale o avviato da Microsoft. È possibile usare l' [API List Blobs](/rest/api/storageservices/list-blobs) per enumerare l'elenco di BLOB o [elencare ADLS Gen2 API](/rest/api/storageservices/datalakestoragegen2/filesystem/listpaths) per l'elenco di file. Per altre informazioni, vedere [archiviazione di Azure come endpoint di routing](iot-hub-devguide-messages-d2c.md#azure-storage-as-a-routing-endpoint).
 
 ## <a name="microsoft-initiated-failover"></a>Failover avviato da Microsoft
 

@@ -6,13 +6,13 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: include
 author: mingshen-ms
 ms.author: krsh
-ms.date: 10/20/2020
-ms.openlocfilehash: c60d2a9b13cce9251ff0f730081a9d677206770d
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.date: 03/25/2021
+ms.openlocfilehash: 8898a762e8a1e7a2d5c104f99d12032c676a5ca4
+ms.sourcegitcommit: a9ce1da049c019c86063acf442bb13f5a0dde213
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102630129"
+ms.lasthandoff: 03/27/2021
+ms.locfileid: "105630128"
 ---
 ## <a name="generalize-the-image"></a>Generalizzare l'immagine
 
@@ -52,7 +52,9 @@ Quando la macchina virtuale è pronta, è possibile acquisirla in una raccolta d
 8. Selezionare **Review + create (Revisione e creazione)** per rivedere le scelte effettuate.
 9. Una volta superata la convalida, selezionare **Crea**.
 
-Per la pubblicazione, l'account del server di pubblicazione deve disporre di un accesso proprietario al SIG. Per concedere l'accesso:
+La sottoscrizione di Azure contenente il SIG deve trovarsi nello stesso tenant dell'account di pubblicazione per poter eseguire la pubblicazione. Inoltre, l'account del server di pubblicazione deve disporre di un accesso proprietario al SIG. 
+
+Per concedere l'accesso:
 
 1. Passare alla raccolta di immagini condivise.
 2. Selezionare **controllo di accesso** (IAM) nel pannello di sinistra.

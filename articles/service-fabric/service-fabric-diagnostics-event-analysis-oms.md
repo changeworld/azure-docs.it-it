@@ -1,16 +1,14 @@
 ---
 title: Analisi degli eventi di Azure Service Fabric con i log di monitoraggio di Azure
 description: Informazioni sulla visualizzazione e l'analisi degli eventi usando i log di monitoraggio di Azure per il monitoraggio e la diagnostica dei cluster di Azure Service Fabric.
-author: srrengar
 ms.topic: conceptual
 ms.date: 02/21/2019
-ms.author: srrengar
-ms.openlocfilehash: 678e96c9b5611cd6d72abd7c4582691b55ffe479
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: f1e22213c857b400cc36c51cefb90e2379352893
+ms.sourcegitcommit: a9ce1da049c019c86063acf442bb13f5a0dde213
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "100581538"
+ms.lasthandoff: 03/27/2021
+ms.locfileid: "105628969"
 ---
 # <a name="event-analysis-and-visualization-with-azure-monitor-logs"></a>Analisi e visualizzazione di eventi con i log di monitoraggio di Azure
  I log di Monitoraggio di Azure raccolgono e analizzano i dati telemetrici delle applicazioni e dei servizi ospitati nel cloud e forniscono gli strumenti di analisi per sfruttarne al meglio la disponibilità e le prestazioni. Questo articolo illustra come eseguire query nei log di monitoraggio di Azure per ottenere informazioni dettagliate e risolvere i problemi che si verificano nel cluster. Vengono affrontate le seguenti domande comuni:

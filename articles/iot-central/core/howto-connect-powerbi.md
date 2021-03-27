@@ -7,18 +7,19 @@ author: viv-liu
 ms.author: viviali
 ms.date: 10/4/2019
 ms.topic: conceptual
-ms.openlocfilehash: dd67a4f1a005abc7319723efcc3f2944b18c4f5f
-ms.sourcegitcommit: bed20f85722deec33050e0d8881e465f94c79ac2
+ms.openlocfilehash: ea4a47f1ba3eac39820e839a10330840f57afe42
+ms.sourcegitcommit: a9ce1da049c019c86063acf442bb13f5a0dde213
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/25/2021
-ms.locfileid: "105109234"
+ms.lasthandoff: 03/27/2021
+ms.locfileid: "105629071"
 ---
 # <a name="visualize-and-analyze-your-azure-iot-central-data-in-a-power-bi-dashboard"></a>Visualizzare e analizzare i dati di Azure IoT Central in un dashboard di Power BI
 
 *Questo argomento si applica agli amministratori e agli sviluppatori di soluzioni.*
 
-[!Note] Questa soluzione USA le [funzionalità legacy di esportazione dei dati](./howto-export-data-legacy.md). Rimanere sintonizzati per informazioni aggiuntive aggiornate su come connettersi a Power BI usando l'esportazione dei dati più recente.
+> [!Note] 
+> Questa soluzione USA le [funzionalità legacy di esportazione dei dati](./howto-export-data-legacy.md). Rimanere sintonizzati per informazioni aggiuntive aggiornate su come connettersi a Power BI usando l'esportazione dei dati più recente.
 
 :::image type="content" source="media/howto-connect-powerbi/iot-continuous-data-export.png" alt-text="Pipeline della soluzione Power BI":::
 
@@ -29,7 +30,7 @@ Usa la soluzione Power BI per Azure IoT Central V3 per creare un dashboard di Po
 - Filtrare i dati inviati da dispositivi specifici
 - Visualizzare i dati di telemetria più recenti in una tabella
 
-Questa soluzione configura una pipeline che legge i dati dall'account di archiviazione BLOB di Azure per l' [esportazione dei dati continua](./howto-export-data-legacy.md) . La pipeline usa funzioni di Azure, Azure Data Factory e il database SQL di Azure per elaborare e trasformare i dati. è possibile visualizzare e analizzare i dati in un report di Power BI scaricato come file PBIX. Tutte le risorse vengono create nella sottoscrizione di Azure, in modo che sia possibile personalizzare ogni componente in base alle esigenze.
+Questa soluzione configura una pipeline che legge i dati dall'account di archiviazione BLOB di Azure per l' [esportazione dei dati legacy](./howto-export-data-legacy.md) . La pipeline usa funzioni di Azure, Azure Data Factory e il database SQL di Azure per elaborare e trasformare i dati. è possibile visualizzare e analizzare i dati in un report di Power BI scaricato come file PBIX. Tutte le risorse vengono create nella sottoscrizione di Azure, in modo che sia possibile personalizzare ogni componente in base alle esigenze.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -38,7 +39,7 @@ Per completare la procedura descritta in questa guida pratica, è necessaria una
 Per configurare la soluzione sono necessarie le risorse seguenti:
 
 - Applicazione IoT Central versione 3. Per informazioni su come controllare la versione dell'applicazione, vedere [informazioni sull'applicazione](./howto-get-app-info.md). Per informazioni su come creare un'applicazione IoT Central, vedere [creare un'applicazione Azure IOT Central](./quick-deploy-iot-central.md).
-- Esportazione continua dei dati configurata per esportare dati di telemetria, dispositivi e modelli di dispositivo nell'archivio BLOB di Azure. Per altre informazioni, vedere [come esportare i dati dell'Internet delle cose nelle destinazioni in Azure](howto-export-data.md).
+- Esportazione continua legacy dei dati, configurata per esportare dati di telemetria, dispositivi e modelli di dispositivo nell'archivio BLOB di Azure. Per altre informazioni, vedere la [documentazione relativa all'esportazione di dati legacy](howto-export-data-legacy.md).
   - Assicurarsi che solo l'applicazione IoT Central stia esportando i dati nel contenitore BLOB.
   - I [dispositivi devono inviare messaggi con codifica JSON](../../iot-hub/iot-hub-devguide-messages-d2c.md). I dispositivi devono specificare `contentType:application/JSON` e `contentEncoding:utf-8` o o `contentEncoding:utf-16` `contentEncoding:utf-32` nelle proprietà del sistema del messaggio.
 - Power BI Desktop (versione più recente). Vedere [Power bi downloads](https://powerbi.microsoft.com/downloads/).

@@ -10,12 +10,12 @@ ms.date: 10/19/2020
 ms.author: ruxu
 ms.reviewer: ''
 ms.custom: devx-track-python
-ms.openlocfilehash: d5ff3fb988a7e907308ccccc8d0900d45a0601c0
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: c5dfd442bb52a5b1d319bd0a40b656d549134e7e
+ms.sourcegitcommit: c94e282a08fcaa36c4e498771b6004f0bfe8fb70
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101671594"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105612326"
 ---
 # <a name="create-develop-and-maintain-synapse-studio-notebooks-in-azure-synapse-analytics"></a>Creare, sviluppare e gestire notebook di sinapsi studio in Azure sinapsi Analytics
 
@@ -41,9 +41,6 @@ Il team sinapsi ha portato il nuovo componente notebooks in sinapsi Studio per o
 |%% HTML| Non supportato |&#9745;|
 |Trascinare e rilasciare per spostare una cella| Non supportato |&#9745;|
 |Output di visualizzazione permanente ()|&#9745;| Non disponibile |
-|Annulla tutto| &#9745;| Non disponibile|
-|Esegui tutte le celle sopra|&#9745;| Non disponibile |
-|Esegui tutte le celle sotto|&#9745;| Non disponibile |
 |Formattare la cella di testo con i pulsanti della barra degli strumenti|&#9745;| Non disponibile |
 |Annulla operazione cella| &#9745;| Non disponibile |
 
@@ -273,28 +270,38 @@ Selezionare il pulsante **Esegui tutto** per eseguire tutte le celle del noteboo
    ![run-all-cells](./media/apache-spark-development-using-notebooks/synapse-run-all.png)
 
 
-# <a name="classical-notebook"></a>[Notebook classico](#tab/classical)
-
 ### <a name="run-all-cells-above-or-below"></a>Eseguire tutte le celle al di sopra o al di sotto
+
+# <a name="classical-notebook"></a>[Notebook classico](#tab/classical)
 
 Selezionare i puntini di sospensione **(...)** all'estrema destra per accedere al menu aggiuntivo delle azioni sulle celle. Selezionare quindi **Esegui celle sopra** per eseguire tutte le celle sopra quella corrente in sequenza. Selezionare **Esegui celle sotto** per eseguire tutte le celle sotto quella corrente in sequenza.
 
    ![run-cells-above-or-below](./media/apache-spark-development-using-notebooks/synapse-run-cells-above-or-below.png)
 
+# <a name="preview-notebook"></a>[Anteprima notebook](#tab/preview)
+
+Espandere l'elenco a discesa dal pulsante **Esegui tutto** , quindi selezionare **Esegui celle sopra** per eseguire tutte le celle sopra l'oggetto corrente in sequenza. Selezionare **Esegui celle sotto** per eseguire tutte le celle sotto quella corrente in sequenza.
+
+   ![Azure-notebook-Run-cells-sopra o sotto](./media/apache-spark-development-using-notebooks/synapse-aznb-run-cells-above-or-below.png)
+
+---
 
 ### <a name="cancel-all-running-cells"></a>Annulla tutte le celle in esecuzione
+
+# <a name="classical-notebook"></a>[Notebook classico](#tab/classical)
 Selezionare il pulsante **Annulla tutto** per annullare le celle o le celle in attesa nella coda. 
    ![Annulla-tutte le celle](./media/apache-spark-development-using-notebooks/synapse-cancel-all.png) 
 
 # <a name="preview-notebook"></a>[Anteprima notebook](#tab/preview)
 
-Annulla tutte le celle in esecuzione non è ancora disponibile per l'esperienza di anteprima del notebook. 
+Selezionare il pulsante **Annulla tutto** per annullare le celle o le celle in attesa nella coda. 
+   ![Azure-notebook-Cancel-all-cells](./media/apache-spark-development-using-notebooks/synapse-aznb-cancel-all.png) 
 
 ---
 
 
 
-### <a name="reference-notebook"></a>Notebook di riferimento
+### <a name="notebook-reference"></a>Informazioni di riferimento sul notebook
 
 # <a name="classical-notebook"></a>[Notebook classico](#tab/classical)
 
@@ -305,6 +312,11 @@ Non supportata.
 È possibile usare ```%run <notebook path>``` il comando Magic per fare riferimento a un altro notebook nel contesto del notebook corrente. Tutte le variabili definite nel notebook di riferimento sono disponibili nel notebook corrente. ```%run``` il comando Magic supporta le chiamate annidate ma non supporta le chiamate ricorsive. Se la profondità dell'istruzione è maggiore di cinque, verrà generata un'eccezione. ```%run``` il comando attualmente supporta solo per passare un percorso del notebook come parametro. 
 
 Esempio: ``` %run /path/notebookA ```.
+
+> [!NOTE]
+> Il riferimento al notebook non è supportato nella pipeline sinapsi.
+>
+>
 
 ---
 
@@ -346,7 +358,10 @@ Il numero di attività per ogni processo o fase consente di identificare il live
     }
 }
 ```
-
+> [!NOTE]
+> La configurazione della sessione Spark comando Magic non è supportata nella pipeline sinapsi.
+>
+>
 
 ## <a name="bring-data-to-a-notebook"></a>Importare i dati in un notebook
 
@@ -420,6 +435,11 @@ Nelle proprietà del notebook è possibile specificare se includere l'output del
 ## <a name="magic-commands"></a>Comandi magic
 Nei notebook di Azure sinapsi studio è possibile usare i comandi Magic Jupyter noti. Esaminare l'elenco seguente come i comandi Magic disponibili correnti. Inviaci [i tuoi casi d'uso su GitHub](https://github.com/MicrosoftDocs/azure-docs/issues/new) per poter continuare a sviluppare più comandi magici per soddisfare le tue esigenze.
 
+> [!NOTE]
+> Nella pipeline sinapsi sono supportati solo i seguenti comandi Magic:%% pyspark,%% Spark,%% CSharp,%% SQL. 
+>
+>
+
 # <a name="classical-notebook"></a>[Notebook classico](#tab/classical)
 
 Comandi magic disponibili per le righe: [%lsmagic](https://ipython.readthedocs.io/en/stable/interactive/magics.html#magic-lsmagic), [%time](https://ipython.readthedocs.io/en/stable/interactive/magics.html#magic-time), [%timeit](https://ipython.readthedocs.io/en/stable/interactive/magics.html#magic-timeit)
@@ -430,7 +450,7 @@ Funzionalità magiche disponibili per le celle: [%% tempo](https://ipython.readt
 
 # <a name="preview-notebook"></a>[Anteprima notebook](#tab/preview)
 
-Le magie della riga disponibili sono: [% lsmagic](https://ipython.readthedocs.io/en/stable/interactive/magics.html#magic-lsmagic), [% Time](https://ipython.readthedocs.io/en/stable/interactive/magics.html#magic-time), [% timeit](https://ipython.readthedocs.io/en/stable/interactive/magics.html#magic-timeit), [% History](https://ipython.readthedocs.io/en/stable/interactive/magics.html#magic-history), [% Run](#reference-notebook), [% Load](https://ipython.readthedocs.io/en/stable/interactive/magics.html#magic-load)
+Le magie della riga disponibili sono: [% lsmagic](https://ipython.readthedocs.io/en/stable/interactive/magics.html#magic-lsmagic), [% Time](https://ipython.readthedocs.io/en/stable/interactive/magics.html#magic-time), [% timeit](https://ipython.readthedocs.io/en/stable/interactive/magics.html#magic-timeit), [% History](https://ipython.readthedocs.io/en/stable/interactive/magics.html#magic-history), [% Run](#notebook-reference), [% Load](https://ipython.readthedocs.io/en/stable/interactive/magics.html#magic-load)
 
 Funzionalità magiche disponibili per le celle: [%% tempo](https://ipython.readthedocs.io/en/stable/interactive/magics.html#magic-time), [%% timeit](https://ipython.readthedocs.io/en/stable/interactive/magics.html#magic-timeit), [%% Capture](https://ipython.readthedocs.io/en/stable/interactive/magics.html#cellmagic-capture), [%% WriteFile](https://ipython.readthedocs.io/en/stable/interactive/magics.html#cellmagic-writefile), [%% SQL](#use-multiple-languages), [%% pyspark](#use-multiple-languages), [%% Spark](#use-multiple-languages), [%% CSharp](#use-multiple-languages), [%% HTML](https://ipython.readthedocs.io/en/stable/interactive/magics.html#cellmagic-html), [%% Configure](#spark-session-config-magic-command)
 

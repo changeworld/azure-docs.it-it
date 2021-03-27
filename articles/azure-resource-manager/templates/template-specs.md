@@ -2,15 +2,15 @@
 title: Creare e distribuire le specifiche dei modelli
 description: Viene descritto come creare specifiche di modello e condividerle con altri utenti nell'organizzazione.
 ms.topic: conceptual
-ms.date: 03/02/2021
+ms.date: 03/26/2021
 ms.author: tomfitz
 author: tfitzmac
-ms.openlocfilehash: 76573e4415dffb2212dd025ed486d834446d3851
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 2f4aec6d9fa07edf36dea68a23ba12eb5f72d308
+ms.sourcegitcommit: a9ce1da049c019c86063acf442bb13f5a0dde213
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102043899"
+ms.lasthandoff: 03/27/2021
+ms.locfileid: "105626085"
 ---
 # <a name="azure-resource-manager-template-specs-preview"></a>Specifiche del modello di Azure Resource Manager (anteprima)
 
@@ -25,9 +25,16 @@ Per distribuire la specifica del modello, si usano strumenti standard di Azure c
 
 ## <a name="why-use-template-specs"></a>Perché usare le specifiche del modello?
 
-Se i modelli sono attualmente presenti in un repository GitHub o in un account di archiviazione, si verificano diverse esigenze durante il tentativo di condividere e usare i modelli. Per la distribuzione da parte di un utente, il modello deve essere locale o l'URL del modello deve essere accessibile pubblicamente. Per aggirare questa limitazione, è possibile condividere copie del modello con gli utenti che devono distribuirlo o aprire l'accesso al repository o all'account di archiviazione. Quando gli utenti possiedono copie locali di un modello, queste copie possono divergere dal modello originale. Quando si rende accessibile pubblicamente un repository o un account di archiviazione, è possibile consentire agli utenti non intenzionati di accedere al modello.
+Le specifiche dei modelli offrono i vantaggi seguenti:
 
-Il vantaggio di usare le specifiche dei modelli è che è possibile creare modelli canonici e condividerli con i team dell'organizzazione. Le specifiche dei modelli sono sicure perché sono disponibili per Azure Resource Manager per la distribuzione, ma non sono accessibili agli utenti senza autorizzazione RBAC di Azure. Gli utenti devono solo accedere in lettura alla specifica del modello per distribuire il modello, in modo da poter condividere il modello senza consentire ad altri utenti di modificarlo.
+* Usare i modelli ARM standard per la specifica del modello.
+* È possibile gestire l'accesso tramite il controllo degli accessi in base al ruolo di Azure anziché i token SAS
+* Gli utenti possono distribuire la specifica del modello senza avere accesso in scrittura al modello.
+* È possibile integrare la specifica del modello nel processo di distribuzione esistente, ad esempio lo script di PowerShell o la pipeline DevOps.
+
+Le specifiche dei modelli consentono di creare modelli canonici e condividerli con i team dell'organizzazione. Le specifiche del modello sono sicure perché sono disponibili per Azure Resource Manager per la distribuzione, ma non sono accessibili agli utenti senza l'autorizzazione corretta. Gli utenti devono solo accedere in lettura alla specifica del modello per distribuire il modello, in modo da poter condividere il modello senza consentire ad altri utenti di modificarlo.
+
+Se i modelli sono attualmente presenti in un repository GitHub o in un account di archiviazione, si verificano diverse esigenze durante il tentativo di condividere e usare i modelli. Per distribuire il modello, è necessario rendere il modello accessibile pubblicamente o gestire l'accesso con token SAS. Per ovviare a questa limitazione, è possibile che gli utenti creino copie locali, che alla fine si divergeranno dal modello originale. Le specifiche del modello semplificano la condivisione di modelli.
 
 I modelli inclusi in una specifica del modello devono essere verificati dagli amministratori dell'organizzazione per seguire i requisiti e le linee guida dell'organizzazione.
 

@@ -13,12 +13,12 @@ ms.topic: how-to
 ms.custom: mvc, seodec18
 ms.date: 03/25/2021
 ms.author: keithp
-ms.openlocfilehash: 11118c9bd745480dc88380e718a9ab348ab1a3e3
-ms.sourcegitcommit: 73d80a95e28618f5dfd719647ff37a8ab157a668
+ms.openlocfilehash: 0791f2e8d5119c2087286a24cf83b4259ee9e7af
+ms.sourcegitcommit: c94e282a08fcaa36c4e498771b6004f0bfe8fb70
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 03/26/2021
-ms.locfileid: "105606947"
+ms.locfileid: "105611651"
 ---
 # <a name="troubleshooting-the-azure-dedicated-hsm-service"></a>Risoluzione dei problemi relativi al servizio HSM dedicato di Azure
 
@@ -33,7 +33,7 @@ Il servizio HSM dedicato non è liberamente disponibile per l'uso, perché impli
 
 ### <a name="getting-access-to-dedicated-hsm"></a>Ottenere l'accesso al servizio HSM dedicato
 
-Per prima cosa, è necessario sapere quali casi di utilizzo non possono essere risolti da [Azure Key Vault](https://docs.microsoft.com/en-us/azure/key-vault/general/overview) o da [HSM gestito di Azure](https://docs.microsoft.com/en-us/azure/key-vault/managed-hsm/overview). Se si ritiene che il modulo di protezione hardware dedicato rientri nei requisiti di archiviazione delle chiavi, inviare un messaggio di posta elettronica HSMrequest@microsoft.com per richiedere l'accesso. Delineare l'applicazione e i casi d'uso, le aree di cui si vuole HSM e il volume di HSM che si sta cercando. Se si collabora con un rappresentante Microsoft, ad esempio un Account Executive o un Cloud Solution Architect, includere questa persona in qualsiasi richiesta.
+Per prima cosa, è necessario sapere quali casi di utilizzo non possono essere risolti da [Azure Key Vault](https://docs.microsoft.com/azure/key-vault/general/overview) o da [HSM gestito di Azure](https://docs.microsoft.com/azure/key-vault/managed-hsm/overview). Se si ritiene che il modulo di protezione hardware dedicato rientri nei requisiti di archiviazione delle chiavi, inviare un messaggio di posta elettronica HSMrequest@microsoft.com per richiedere l'accesso. Delineare l'applicazione e i casi d'uso, le aree di cui si vuole HSM e il volume di HSM che si sta cercando. Se si collabora con un rappresentante Microsoft, ad esempio un Account Executive o un Cloud Solution Architect, includere questa persona in qualsiasi richiesta.
 
 ## <a name="hsm-provisioning"></a>Provisioning di HSM
 

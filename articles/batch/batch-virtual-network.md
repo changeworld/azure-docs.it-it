@@ -2,14 +2,14 @@
 title: Effettuare il provisioning di un pool in una rete virtuale
 description: Come creare un pool di Batch in una rete virtuale di Azure in modo che i nodi di calcolo possano comunicare in modo sicuro con altre macchine virtuali nella rete, ad esempio un file server.
 ms.topic: how-to
-ms.date: 03/15/2021
+ms.date: 03/26/2021
 ms.custom: seodec18
-ms.openlocfilehash: d6e5de75164e098fc95f6c086d9f98a652dcee4a
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 7213637e89cfccd1352861002c47a696d942d30f
+ms.sourcegitcommit: a9ce1da049c019c86063acf442bb13f5a0dde213
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103561915"
+ms.lasthandoff: 03/27/2021
+ms.locfileid: "105629309"
 ---
 # <a name="create-an-azure-batch-pool-in-a-virtual-network"></a>Creare un pool di Azure Batch in una rete virtuale
 
@@ -56,6 +56,8 @@ Per assicurarsi che i nodi del pool funzionino in una VNet in cui è abilitato i
 - Il servizio batch deve comunicare con i nodi per la pianificazione delle attività. Per abilitare questa comunicazione, aggiungere una UDR per ogni indirizzo IP usando il servizio Batch nell'area in cui è presente l'account Batch. Per ottenere l'elenco degli indirizzi IP del servizio batch, vedere [tag di servizio in locale](../virtual-network/service-tags-overview.md).
 
 - Verificare che il traffico in uscita verso archiviazione di Azure (in particolare, gli URL con formato `<account>.table.core.windows.net` , `<account>.queue.core.windows.net` e `<account>.blob.core.windows.net` ) non siano bloccati dalla rete locale.
+
+- Se si usano i montaggi di file virtuali, verificare i [requisiti di rete](virtual-file-mount.md#networking-requirements) e assicurarsi che non sia bloccato il traffico necessario.
 
 Quando si aggiunge una UDR, definire la route per ogni prefisso dell'indirizzo IP di Batch correlato e impostare **Tipo hop successivo** su **Internet**.
 

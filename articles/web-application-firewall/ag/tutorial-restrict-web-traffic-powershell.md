@@ -5,15 +5,15 @@ description: Informazioni su come limitare il traffico Web con Web Application F
 services: web-application-firewall
 author: vhorne
 ms.service: web-application-firewall
-ms.date: 08/31/2020
+ms.date: 03/26/2021
 ms.author: victorh
 ms.topic: how-to
-ms.openlocfilehash: 3956c06a0120ad28599c47279b60e6f5dd30204e
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: cc111f6fe1c50af5be9686100b19209fe7f3d119
+ms.sourcegitcommit: a9ce1da049c019c86063acf442bb13f5a0dde213
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102174513"
+ms.lasthandoff: 03/27/2021
+ms.locfileid: "105626181"
 ---
 # <a name="enable-web-application-firewall-using-azure-powershell"></a>Abilitare Web Application Firewall con Azure PowerShell
 
@@ -43,7 +43,8 @@ Se si sceglie di installare e usare PowerShell in locale, per questo articolo è
 Un gruppo di risorse è un contenitore logico in cui le risorse di Azure vengono distribuite e gestite. Creare un gruppo di risorse di Azure usando [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup).  
 
 ```azurepowershell-interactive
-New-AzResourceGroup -Name myResourceGroupAG -Location eastus
+$location = "eastus"
+$rgname = New-AzResourceGroup -Name myResourceGroupAG -Location $location
 ```
 
 ## <a name="create-network-resources"></a>Creare risorse di rete 
@@ -153,9 +154,12 @@ $sku = New-AzApplicationGatewaySku `
   -Tier WAF_v2 `
   -Capacity 2
 
-$policySetting = New-AzApplicationGatewayFirewallPolicySetting -Mode Prevention -State Enabled -MaxRequestBodySizeInKb 100 -MaxFileUploadInMb 256
+$policySetting = New-AzApplicationGatewayFirewallPolicySetting `
+   -Mode Prevention -State Enabled `
+   -MaxRequestBodySizeInKb 100 -MaxFileUploadInMb 256
 
-$wafPolicy = New-AzApplicationGatewayFirewallPolicy -Name wafpolicyNew -ResourceGroup $rgname -Location $location -PolicySetting $PolicySetting
+$wafPolicy = New-AzApplicationGatewayFirewallPolicy -Name wafpolicyNew -ResourceGroup myResourceGroupAG `
+   -Location $location -PolicySetting $PolicySetting
 
 $appgw = New-AzApplicationGateway `
   -Name myAppGateway `
@@ -174,7 +178,9 @@ $appgw = New-AzApplicationGateway `
 
 ## <a name="create-a-virtual-machine-scale-set"></a>Creare un set di scalabilità di macchine virtuali
 
-In questo esempio viene creato un set di scalabilità di macchine virtuali per fornire i server per il pool back-end nel gateway applicazione. Il set di scalabilità viene assegnato al pool back-end quando si configurano le impostazioni IP.
+In questo esempio viene creato un set di scalabilità di macchine virtuali per fornire i server per il pool back-end nel gateway applicazione. Il set di scalabilità viene assegnato al pool back-end quando si configurano le impostazioni IP. 
+
+Sostituire *\<username>* e *\<password>* con i valori prima di eseguire questo script.
 
 ```azurepowershell-interactive
 $vnet = Get-AzVirtualNetwork `
@@ -191,7 +197,7 @@ $backendPool = Get-AzApplicationGatewayBackendAddressPool `
 
 $ipConfig = New-AzVmssIpConfig `
   -Name myVmssIPConfig `
-  -SubnetId $vnet.Subnets[1].Id `
+  -SubnetId $vnet.Subnets[0].Id `
   -ApplicationGatewayBackendAddressPoolsId $backendPool.Id
 
 $vmssConfig = New-AzVmssConfig `
@@ -208,8 +214,8 @@ Set-AzVmssStorageProfile $vmssConfig `
   -OsDiskCreateOption FromImage
 
 Set-AzVmssOsProfile $vmssConfig `
-  -AdminUsername azureuser `
-  -AdminPassword "Azure123456!" `
+  -AdminUsername <username> `
+  -AdminPassword "<password>" `
   -ComputerNamePrefix myvmss
 
 Add-AzVmssNetworkInterfaceConfiguration `
@@ -303,4 +309,4 @@ Remove-AzResourceGroup -Name myResourceGroupAG
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-[Personalizzare le regole di Web Application Firewall](application-gateway-customize-waf-rules-portal.md)
+- [Personalizzare le regole di Web Application Firewall](application-gateway-customize-waf-rules-portal.md)

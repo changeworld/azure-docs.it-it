@@ -5,14 +5,14 @@ services: attestation
 author: msmbaldwin
 ms.service: attestation
 ms.topic: overview
-ms.date: 08/31/2020
+ms.date: 03/26/2021
 ms.author: mbaldwin
-ms.openlocfilehash: 92080f119567d185ca6a5bccf0e89d8d10213f3b
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 8ff2e73a8557c6b1761c852ac58a46037a122ddb
+ms.sourcegitcommit: a9ce1da049c019c86063acf442bb13f5a0dde213
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101732310"
+ms.lasthandoff: 03/27/2021
+ms.locfileid: "105628527"
 ---
 # <a name="quickstart-create-a-private-endpoint-using-azure-powershell"></a>Avvio rapido: Creare un endpoint privato con Azure PowerShell
 
@@ -21,7 +21,7 @@ Introduzione al collegamento privato di Azure, che consente di connettersi in mo
 In questa guida di avvio rapido si creerà un endpoint privato per Attestazione di Azure e si distribuirà una macchina virtuale per testare la connessione privata.  
 
 > [!NOTE]
-> L'implementazione corrente include solo l'opzione di approvazione automatica. La sottoscrizione deve essere elencata come bianca per poter procedere con la creazione dell'endpoint privato. Rivolgersi al team del servizio o inviare una richiesta di supporto tecnico di Azure nella [pagina del supporto tecnico di Azure](https://azure.microsoft.com/support/options/) prima di procedere con i passaggi seguenti.
+> L'implementazione corrente include solo l'opzione di approvazione automatica. La sottoscrizione deve essere aggiunta a un elenco Consenti per poter procedere con la creazione dell'endpoint privato. Rivolgersi al team del servizio o inviare una richiesta di supporto tecnico di Azure nella [pagina del supporto tecnico di Azure](https://azure.microsoft.com/support/options/) prima di procedere con i passaggi seguenti.
 
 ## <a name="prerequisites"></a>Prerequisiti
 

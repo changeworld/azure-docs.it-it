@@ -2,24 +2,19 @@
 title: Elencare le definizioni dei ruoli di Azure-RBAC di Azure
 description: Informazioni su come elencare i ruoli predefiniti e personalizzati di Azure usando portale di Azure, Azure PowerShell, l'interfaccia della riga di comando di Azure o l'API REST.
 services: active-directory
-documentationcenter: ''
 author: rolyon
 manager: mtillman
-ms.assetid: 8078f366-a2c4-4fbb-a44b-fc39fd89df81
 ms.service: role-based-access-control
-ms.devlang: na
 ms.topic: how-to
-ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 06/17/2020
+ms.date: 03/26/2021
 ms.author: rolyon
-ms.reviewer: bagovind
-ms.openlocfilehash: 3c9018322c9e5075ff59024f9d791e7431035e3d
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: f354e3bb7fc0f7ced17d43acacf29c726ce1329c
+ms.sourcegitcommit: a9ce1da049c019c86063acf442bb13f5a0dde213
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "100555951"
+ms.lasthandoff: 03/27/2021
+ms.locfileid: "105629157"
 ---
 # <a name="list-azure-role-definitions"></a>Elencare le definizioni dei ruoli di Azure
 
@@ -33,6 +28,10 @@ Per visualizzare l'elenco dei ruoli di amministratore per Azure Active Directory
 
 Attenersi alla seguente procedura per elencare tutti i ruoli nel portale di Azure.
 
+Se si è interessati a visualizzare un'esperienza dei ruoli aggiornata, vedere la scheda **ruoli (anteprima)** , che è attualmente disponibile in anteprima pubblica. Nella scheda **ruoli (anteprima)** viene visualizzato lo stesso elenco di ruoli della scheda **ruoli** con alcune funzionalità aggiuntive. È possibile usare una delle due schede ruoli per lavorare con i ruoli. Tuttavia, se si creano o si eliminano ruoli personalizzati, potrebbe essere necessario aggiornare manualmente la pagina per visualizzare le modifiche più recenti.
+
+#### <a name="roles"></a>[Ruoli](#tab/roles/)
+
 1. Nella portale di Azure fare clic su **tutti i servizi** e quindi selezionare un ambito. È possibile ad esempio selezionare **Gruppi di gestione**, **Sottoscrizioni**, **Gruppi di risorse** o una risorsa.
 
 1. Fare clic sulla risorsa specifica.
@@ -43,7 +42,29 @@ Attenersi alla seguente procedura per elencare tutti i ruoli nel portale di Azur
 
    È possibile visualizzare il numero di utenti e gruppi assegnati a ogni ruolo nell'ambito corrente.
 
-   ![Elenco dei ruoli](./media/role-definitions-list/roles-list.png)
+   ![Elenco dei ruoli](./media/role-definitions-list/roles-list-current.png)
+
+#### <a name="roles-preview"></a>[Ruoli (anteprima)](#tab/roles-preview/)
+
+1. Nella portale di Azure fare clic su **tutti i servizi** e quindi selezionare un ambito. È possibile ad esempio selezionare **Gruppi di gestione**, **Sottoscrizioni**, **Gruppi di risorse** o una risorsa.
+
+1. Fare clic sulla risorsa specifica.
+
+1. Fare clic su **Controllo di accesso (IAM)**.
+
+1. Fare clic sulla scheda **ruoli (anteprima)** per visualizzare un elenco di tutti i ruoli predefiniti e personalizzati.
+
+   ![Elenco dei ruoli con esperienza di anteprima](./media/role-definitions-list/roles-list.png)
+
+1. Per visualizzare le autorizzazioni per un particolare ruolo, fare clic sul collegamento **Visualizza** nella colonna **Dettagli** .
+
+    Viene visualizzato un riquadro autorizzazioni.
+
+1. Fare clic sulla scheda **autorizzazioni** per visualizzare e cercare le autorizzazioni per il ruolo selezionato.
+
+   ![Autorizzazioni per i ruoli con esperienza anteprima](./media/role-definitions-list/role-permissions.png)
+
+---
 
 ## <a name="azure-powershell"></a>Azure PowerShell
 

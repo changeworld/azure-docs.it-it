@@ -144,7 +144,7 @@
               href: event-schema-azure-signalr.md
             - name: Sottoscrizioni Azure
               href: event-schema-subscriptions.md
-            - name: Cache Redis di Azure
+            - name: Cache di Azure per Redis
               href: event-schema-azure-cache.md
     - name: Eventi partner
       items:
@@ -188,6 +188,8 @@
           href: delivery-and-retry.md
         - name: Recapito eventi webhook
           href: webhook-event-delivery.md
+        - name: Proprietà recapito
+          href: delivery-properties.md
     - name: Ripristino di emergenza
       items:
         - name: Ripristino di emergenza geografico
@@ -271,7 +273,15 @@
         - name: Pubblicare eventi in sicurezza tramite un collegamento privato
           href: configure-private-endpoints.md
         - name: Recapitare gli eventi usando l'identità gestita
-          href: managed-service-identity.md
+          items:
+            - name: Abilitare l'identità gestita per un argomento o un dominio personalizzato
+              href: enable-identity-custom-topics-domains.md
+            - name: Abilitare l'identità gestita per un argomento di sistema
+              href: enable-identity-system-topics.md
+            - name: Aggiungere identità ai ruoli di Azure nelle destinazioni
+              href: add-identity-roles.md
+            - name: Creare sottoscrizioni di eventi che usano un'identità
+              href: managed-service-identity.md
         - name: Recapitare gli eventi in modo sicuro tramite un collegamento privato
           href: consume-private-endpoints.md
         - name: Configurare il firewall IP

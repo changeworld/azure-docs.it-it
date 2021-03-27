@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: forms-recognizer
 ms.topic: conceptual
-ms.date: 03/15/2021
+ms.date: 03/25/2021
 ms.author: lajanuar
-ms.openlocfilehash: 235e868952bb742b082492e2e388170a921c1929
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 74ced2ecadb5ccfe5cdb7966550e469ae4f8ab31
+ms.sourcegitcommit: c94e282a08fcaa36c4e498771b6004f0bfe8fb70
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103467879"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105612263"
 ---
 # <a name="form-recognizer-custom-models"></a>Modelli personalizzati del riconoscimento form
 
@@ -63,5 +63,7 @@ In qualsiasi momento, è possibile visualizzare un elenco di tutti i modelli per
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Per altre informazioni, vedere la documentazione di **[riferimento dell'API Recognizer form](https://westcentralus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-3/operations/5ed8c9843c2794cbb1a96291)** .
+Per altre informazioni sulla libreria client del modulo Recognizer, vedere la documentazione di riferimento per le API.
+> [!div class="nextstepaction"]
+> [Informazioni di riferimento sull'API riconoscimento form](https://westcentralus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-3/operations/5ed8c9843c2794cbb1a96291)
 >

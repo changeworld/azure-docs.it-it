@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: how-to
 ms.date: 03/25/2021
 ms.author: alkohli
-ms.openlocfilehash: 8bb858bc29ac18d110f2679c3681fd4d27b72baa
-ms.sourcegitcommit: 73d80a95e28618f5dfd719647ff37a8ab157a668
+ms.openlocfilehash: ac5ed0e5941c6251d632d029fe4c9f80bbcf12df
+ms.sourcegitcommit: c94e282a08fcaa36c4e498771b6004f0bfe8fb70
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 03/26/2021
-ms.locfileid: "105607694"
+ms.locfileid: "105612552"
 ---
 # <a name="update-your-azure-stack-edge-pro-gpu"></a>Aggiornare la GPU di Azure Stack Edge Pro 
 
@@ -112,7 +112,7 @@ Si consiglia di installare gli aggiornamenti tramite il portale di Azure. Il dis
 
 8. Verrà visualizzato un banner di notifica che indica che gli aggiornamenti del dispositivo sono disponibili. Selezionare questo banner per avviare l'aggiornamento del software Kubernetes nel dispositivo. 
 
-    ![Versione del software dopo l'aggiornamento 13](./media/azure-stack-edge-gpu-install-update/portal-update-13.png) 
+    ![Versione del software dopo l'aggiornamento 13a](./media/azure-stack-edge-gpu-install-update/portal-update-13.png) 
 
 
     ![Versione del software dopo l'aggiornamento 14](./media/azure-stack-edge-gpu-install-update/portal-update-14-a.png) 

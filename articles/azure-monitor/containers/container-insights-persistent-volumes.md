@@ -3,12 +3,12 @@ title: Configurare il monitoraggio PV con informazioni dettagliate sul contenito
 description: Questo articolo descrive come configurare il monitoraggio dei cluster Kubernetes con volumi permanenti con informazioni dettagliate sul contenitore.
 ms.topic: conceptual
 ms.date: 03/03/2021
-ms.openlocfilehash: 16c87177a8911a7b88284606f54f7bf6e0e0daa3
-ms.sourcegitcommit: a8ff4f9f69332eef9c75093fd56a9aae2fe65122
+ms.openlocfilehash: 7c6ddd62bf06d313987289e444962378cea43fc8
+ms.sourcegitcommit: a9ce1da049c019c86063acf442bb13f5a0dde213
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/24/2021
-ms.locfileid: "105026105"
+ms.lasthandoff: 03/27/2021
+ms.locfileid: "105627898"
 ---
 # <a name="configure-pv-monitoring-with-container-insights"></a>Configurare il monitoraggio PV con informazioni dettagliate sul contenitore
 
@@ -17,7 +17,9 @@ A partire dalla versione dell'agente *ciprod10052020*, monitoraggio di Azure per
 
 Il contenitore Insights avvia automaticamente il monitoraggio dell'utilizzo fotovoltaico raccogliendo le metriche seguenti a intervalli di 60 secondi e archiviarle nella tabella **InsightMetrics** .
 
-| Nome metrica | Dimensione metrica (tag) | Descrizione metrica | | `pvUsedBytes`| podUID, podName, pvcName, pvcNamespace, capacityBytes, clusterId, clustername | Spazio utilizzato in byte per un volume permanente specifico con un'attestazione utilizzata da un pod specifico. `capacityBytes` viene ripiegata come dimensione nel campo tag per ridurre i costi di inserimento dei dati e per semplificare le query. |
+| Nome metrica | Dimensione metrica (tag) | Descrizione metrica |
+|-----|-----------|----------|
+| `pvUsedBytes`| podUID, podName, pvcName, pvcNamespace, capacityBytes, clusterId, clustername| Spazio utilizzato in byte per un volume permanente specifico con un'attestazione utilizzata da un pod specifico. `capacityBytes` viene ripiegata come dimensione nel campo tag per ridurre i costi di inserimento dei dati e per semplificare le query.|
 
 Altre informazioni sulla configurazione di metriche PV raccolte sono disponibili [qui](./container-insights-agent-config.md).
 
@@ -27,7 +29,7 @@ Monitoraggio di Azure per i contenitori avvia automaticamente il monitoraggio PV
 
 |Dati |origine dati| Tipo di dati| Campi|
 |-----|-----------|----------|-------|
-|Inventario dei volumi permanenti in un cluster Kubernetes |API Kube |`KubePVInventory` | PVName, PVCapacityBytes, PVCName, PVCNamespace, PVStatus, PVAccessModes, PVType, PVTypeInfo, PVStorageClassName, PVCreationTimestamp, TimeGenerated, ClusterId, clustername, _ResourceId |
+|Inventario dei volumi permanenti in un cluster Kubernetes |API Kube |`KubePVInventory` |    PVName, PVCapacityBytes, PVCName, PVCNamespace, PVStatus, PVAccessModes, PVType, PVTypeInfo, PVStorageClassName, PVCreationTimestamp, TimeGenerated, ClusterId, clustername, _ResourceId |
 
 ## <a name="monitor-persistent-volumes"></a>Monitorare i volumi permanenti
 

@@ -7,12 +7,12 @@ ms.topic: tutorial
 ms.date: 03/19/2020
 ms.author: brendm
 ms.custom: devx-track-java, devx-track-azurecli
-ms.openlocfilehash: a0fafad208d97e2a4d24036e226b4044764bccb4
-ms.sourcegitcommit: ed7376d919a66edcba3566efdee4bc3351c57eda
+ms.openlocfilehash: 7aa1982fc880ac5733cc4453808c18956969572f
+ms.sourcegitcommit: a9ce1da049c019c86063acf442bb13f5a0dde213
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/24/2021
-ms.locfileid: "105047083"
+ms.lasthandoff: 03/27/2021
+ms.locfileid: "105627014"
 ---
 # <a name="tutorial-map-an-existing-custom-domain-to-azure-spring-cloud"></a>Esercitazione: eseguire il mapping di un dominio personalizzato esistente al cloud Spring di Azure
 
@@ -27,6 +27,14 @@ I certificati crittografano il traffico Web. Questi certificati TLS/SSL possono 
 * Un nome di dominio con accesso al registro DNS per provider di domini come GoDaddy.
 * Un certificato privato (ossia il certificato autofirmato) da un provider di terze parti. Il certificato deve corrispondere al dominio.
 * Un'istanza distribuita di [Azure Key Vault](../key-vault/general/overview.md)
+
+## <a name="keyvault-private-link-considerations"></a>Considerazioni sui collegamenti privati dell'insieme di credenziali
+
+Gli IP di gestione cloud di Azure Spring non fanno parte dei servizi Microsoft attendibili di Azure. Pertanto, per consentire ad Azure Spring cloud di caricare i certificati da un Key Vault protetto con connessioni a endpoint privati, è necessario aggiungere gli indirizzi IP seguenti al firewall Azure Key Vault:
+
+```
+20.53.123.160 52.143.241.210 40.65.234.114 52.142.20.14 20.54.40.121 40.80.210.49 52.253.84.152 20.49.137.168 40.74.8.134 51.143.48.243
+```
 
 ## <a name="import-certificate"></a>Importare il certificato
 ### <a name="prepare-your-certificate-file-in-pfx-optional"></a>Preparare il file del certificato in formato PFX (facoltativo)

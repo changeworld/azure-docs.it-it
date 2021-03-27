@@ -11,12 +11,12 @@ author: bonova
 ms.author: bonova
 ms.reviewer: ''
 ms.date: 07/11/2019
-ms.openlocfilehash: df0a28c4d2ba78e9b7a6b52e26537540164d28e0
-ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
+ms.openlocfilehash: ccc6acfd27a1430a4f6a31886c06322c5c09e224
+ms.sourcegitcommit: a9ce1da049c019c86063acf442bb13f5a0dde213
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/26/2021
-ms.locfileid: "105564297"
+ms.lasthandoff: 03/27/2021
+ms.locfileid: "105628374"
 ---
 # <a name="sql-server-instance-migration-to-azure-sql-managed-instance"></a>SQL Server la migrazione dell'istanza ad Azure SQL Istanza gestita
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -89,7 +89,7 @@ La linea di base delle prestazioni è un set di parametri, ad esempio utilizzo m
 Di seguito sono elencati alcuni parametri che è necessario misurare nell'istanza di SQL Server:
 
 - [Monitorare l'utilizzo della CPU nell'istanza di SQL Server](https://techcommunity.microsoft.com/t5/Azure-SQL-Database/Monitor-CPU-usage-on-SQL-Server/ba-p/680777#M131) e registrare l'utilizzo medio e massimo della CPU.
-- [Monitorare l'utilizzo della memoria nell'istanza di SQL Server](/sql/relational-databases/performance-monitor/monitor-memory-usage) e determinare la quantità di memoria utilizzata da componenti diversi, ad esempio pool di buffer, cache dei piani, pool di archivio colonne, [OLTP in memoria](/sql/relational-databases/in-memory-oltp/monitor-and-troubleshoot-memory-usage?view=sql-server-2017)e così via. Inoltre, è necessario trovare i valori medi e massimi del contatore delle prestazioni della memoria permanenza presunta delle pagine.
+- [Monitorare l'utilizzo della memoria nell'istanza di SQL Server](/sql/relational-databases/performance-monitor/monitor-memory-usage) e determinare la quantità di memoria utilizzata da componenti diversi, ad esempio pool di buffer, cache dei piani, pool di archivio colonne, [OLTP in memoria](/sql/relational-databases/in-memory-oltp/monitor-and-troubleshoot-memory-usage)e così via. Inoltre, è necessario trovare i valori medi e massimi del contatore delle prestazioni della memoria permanenza presunta delle pagine.
 - Monitorare l'utilizzo di i/o su disco nell'istanza di SQL Server di origine utilizzando [sys.dm_io_virtual_file_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-io-virtual-file-stats-transact-sql) visualizzazione o [contatori delle prestazioni](/sql/relational-databases/performance-monitor/monitor-disk-usage).
 - Monitorare il carico di lavoro e le prestazioni delle query o l'istanza di SQL Server esaminando viste a gestione dinamica o Query Store se si esegue la migrazione da una versione di SQL Server 2016 +. Identificare la durata media e l'utilizzo della CPU delle query più importanti nel carico di lavoro per confrontarle con le query in esecuzione nell'istanza gestita.
 
@@ -100,7 +100,7 @@ Come risultato di questa attività, è necessario aver documentato i valori medi
 
 ## <a name="deploy-to-an-optimally-sized-managed-instance"></a>Eseguire la distribuzione in un'istanza gestita di dimensioni ottimali
 
-Il Istanza gestita SQL è progettato per i carichi di lavoro locali che pianificano il passaggio al cloud. Introduce un [nuovo modello di acquisto](../database/service-tiers-vcore.md) che offre maggiore flessibilità nella selezione del livello appropriato di risorse per i carichi di lavoro. Nell'ambiente locale, si è probabilmente soliti dimensionare i carichi di lavoro usando core fisici o larghezza di banda di I/O. Il modello di acquisto dell'istanza gestita è basato sui core virtuali, o "vCore", con I/O e spazio di archiviazione aggiuntivi disponibili separatamente. Il modello basato su vCore semplifica la comprensione dei requisiti di calcolo nel cloud rispetto alle risorse usate attualmente in locale. Questo nuovo modello consente di dimensionare correttamente l'ambiente di destinazione nel cloud. Alcune linee guida generali che possono essere utili per scegliere il livello di servizio e le caratteristiche corretti sono descritte di seguito:
+Il Istanza gestita SQL è progettato per i carichi di lavoro locali che pianificano il passaggio al cloud. Introduce un [nuovo modello di acquisto](../database/service-tiers-vcore.md) che offre maggiore flessibilità nella selezione del livello appropriato di risorse per i carichi di lavoro. Nell'ambiente locale, si è probabilmente soliti dimensionare i carichi di lavoro usando core fisici o larghezza di banda di I/O. Il modello di acquisto per l'istanza gestita è basato su core virtuali, o su "Vcore", con archiviazione aggiuntiva e i/o disponibili separatamente. Il modello basato su vCore semplifica la comprensione dei requisiti di calcolo nel cloud rispetto alle risorse usate attualmente in locale. Questo nuovo modello consente di dimensionare correttamente l'ambiente di destinazione nel cloud. Alcune linee guida generali che possono essere utili per scegliere il livello di servizio e le caratteristiche corretti sono descritte di seguito:
 
 - In base all'utilizzo della CPU di base, è possibile effettuare il provisioning di un'istanza gestita che corrisponda al numero di core utilizzati in SQL Server, tenendo presente che è possibile che le caratteristiche della CPU debbano essere ridimensionate in modo da corrispondere alle [caratteristiche della macchina virtuale in cui è installata l'istanza gestita](resource-limits.md#hardware-generation-characteristics).
 - In base all'utilizzo della memoria di base, scegliere [il livello di servizio con memoria corrispondente](resource-limits.md#hardware-generation-characteristics). La quantità di memoria non può essere scelta direttamente, quindi è necessario selezionare l'istanza gestita con la quantità di Vcore con memoria corrispondente (ad esempio, 5,1 GB/vCore in quinta generazione).

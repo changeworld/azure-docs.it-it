@@ -11,12 +11,12 @@ ms.author: sgilley
 author: sdgilley
 ms.reviewer: sgilley
 ms.date: 10/02/2020
-ms.openlocfilehash: 6c29bf87c5f0ecaaeb6d608069791431a949c89b
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 2778f52b312e5d2fda7879b834fcd204285b7144
+ms.sourcegitcommit: a9ce1da049c019c86063acf442bb13f5a0dde213
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103009964"
+ms.lasthandoff: 03/27/2021
+ms.locfileid: "105628952"
 ---
 # <a name="create-and-manage-an-azure-machine-learning-compute-instance"></a>Creare e gestire un'istanza di calcolo Azure Machine Learning
 
@@ -127,6 +127,9 @@ Il data scientist può avviare, arrestare e riavviare l'istanza di calcolo. Poss
 
 Avviare, arrestare, riavviare ed eliminare un'istanza di calcolo. Un'istanza di calcolo non viene ridimensionata automaticamente, quindi assicurarsi di arrestare la risorsa per evitare addebiti continui.
 
+> [!TIP]
+> L'istanza di calcolo ha un disco del sistema operativo da 120 GB. Se lo spazio su disco è esaurito, [usare il terminale](how-to-access-terminal.md) per cancellare almeno 1-2 GB prima di arrestare o riavviare l'istanza di calcolo.
+
 # <a name="python"></a>[Python](#tab/python)
 
 Negli esempi seguenti il nome dell'istanza di calcolo è **instance**
@@ -225,6 +228,7 @@ Per ogni istanza di calcolo nell'area di lavoro creata (o creata automaticamente
 * Ottenere informazioni dettagliate su un'istanza di calcolo specifica, ad esempio l'indirizzo IP e l'area.
 
 ---
+
 
 Il controllo degli accessi in base al ruolo di [Azure](../role-based-access-control/overview.md) consente di controllare quali utenti nell'area di lavoro possono creare, eliminare, avviare, arrestare e riavviare un'istanza di calcolo. Tutti gli utenti con il ruolo collaboratore e proprietario dell'area di lavoro possono creare, eliminare, avviare, arrestare e riavviare le istanze di calcolo nell'area di lavoro. Tuttavia, solo l'autore di un'istanza di calcolo specifica o l'utente assegnato se è stato creato per loro conto, può accedere a Jupyter, JupyterLab e RStudio in tale istanza di calcolo. Un'istanza di calcolo è dedicata a un singolo utente che ha accesso alla radice e può eseguire il terminale in tramite Jupyter/JupyterLab/RStudio. L'istanza di calcolo avrà accesso a utente singolo e tutte le azioni useranno l'identità dell'utente per il controllo degli accessi in base al ruolo di Azure e l'attribuzione delle esecuzioni dell'esperimento. L'accesso SSH viene controllato tramite il meccanismo di chiave pubblica/privata.
 

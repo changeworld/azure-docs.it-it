@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 01/20/2021
 ms.author: v-tcassi
 monikerRange: =iotedge-2018-06
-ms.openlocfilehash: 9eeb30d8d3ab0c884472a001149021c4d5cc362c
-ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
+ms.openlocfilehash: 8b549d868aed443e19d639ba6f6df7db20e014b1
+ms.sourcegitcommit: c94e282a08fcaa36c4e498771b6004f0bfe8fb70
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 03/26/2021
-ms.locfileid: "105558721"
+ms.locfileid: "105612119"
 ---
 # <a name="install-and-provision-azure-iot-edge-for-linux-on-a-windows-device-preview"></a>Installare Azure IoT Edge per Linux in un dispositivo Windows ed effettuare il provisioning (anteprima)
 
@@ -117,7 +117,16 @@ Se si vuole eseguire la distribuzione in un dispositivo di destinazione remoto a
 
    ![Selezionare il dispositivo per verificare che sia supportato](./media/how-to-install-iot-edge-on-windows/evaluate-supported-device.png)
 
-1. Accettare le impostazioni predefinite nella scheda **impostazioni 2,2** .
+1. Nella scheda **impostazioni 2,2** esaminare le impostazioni di configurazione della distribuzione. Una volta soddisfatte le impostazioni, fare clic su **Avanti**.
+
+   ![Esaminare le impostazioni di configurazione della distribuzione](./media/how-to-install-iot-edge-on-windows/default-deployment-configuration-settings.png)
+
+   >[!NOTE]
+   >Se si usa una macchina virtuale Windows, è consigliabile usare un'opzione predefinita anziché un commutire esterno per assicurarsi che la macchina virtuale Linux creata nella distribuzione possa ottenere un indirizzo IP.
+   >
+   >L'uso di un'opzione predefinita assegna alla macchina virtuale Linux un indirizzo IP interno. Questo indirizzo IP interno non può essere raggiunto dall'esterno della macchina virtuale Windows, ma può essere connesso localmente durante l'accesso alla macchina virtuale Windows.
+   >
+   >Se si usa Windows Server, tenere presente che Azure IoT Edge per Linux in Windows non supporta automaticamente l'opzione predefinita. Per una macchina virtuale locale di Windows Server, assicurarsi che la macchina virtuale Linux possa ottenere un indirizzo IP tramite il Commuter esterno. Per una macchina virtuale Windows Server in Azure, configurare uno switch interno prima di distribuire IoT Edge per Linux in Windows.
 
 1. Nella scheda **distribuzione 2,3** è possibile controllare lo stato di avanzamento della distribuzione. Il processo completo include il download del pacchetto Azure IoT Edge per Linux in Windows, l'installazione del pacchetto, la configurazione del dispositivo host e la configurazione della macchina virtuale Linux. Il completamento di questo processo potrebbe richiedere diversi minuti. Una distribuzione corretta è illustrata di seguito.
 
@@ -168,7 +177,7 @@ Installare IoT Edge per Linux in Windows sul dispositivo di destinazione, se non
    ```
 
    > [!NOTE]
-   > È possibile eseguire questo comando senza parametri o facoltativamente personalizzare la distribuzione con i parametri. È possibile fare riferimento alle informazioni di [riferimento sugli script IOT Edge per Linux in Windows PowerShell](reference-iot-edge-for-linux-on-windows-scripts.md#deploy-eflow) per visualizzare i relativi significati.
+   > È possibile eseguire questo comando senza parametri o facoltativamente personalizzare la distribuzione con i parametri. È possibile fare riferimento alle informazioni di [riferimento sugli script IOT Edge per Linux in Windows PowerShell](reference-iot-edge-for-linux-on-windows-scripts.md#deploy-eflow) per visualizzare i significati dei parametri e i valori predefiniti.
 
 1. Immettere "Y" per accettare le condizioni di licenza.
 

@@ -7,13 +7,13 @@ ms.reviewer: dannyevers
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 03/25/2021
-ms.openlocfilehash: 2f12f33bf6108784b2eec252fb12d03eebd2a45c
-ms.sourcegitcommit: 73d80a95e28618f5dfd719647ff37a8ab157a668
+ms.date: 03/26/2021
+ms.openlocfilehash: 7d421cf20aa054fb3e1e4877ee610a284eeff7c9
+ms.sourcegitcommit: a9ce1da049c019c86063acf442bb13f5a0dde213
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/26/2021
-ms.locfileid: "105604940"
+ms.lasthandoff: 03/27/2021
+ms.locfileid: "105627056"
 ---
 # <a name="how-to-plan-a-saas-offer-for-the-commercial-marketplace"></a>Come pianificare un'offerta SaaS per il Marketplace commerciale
 
@@ -39,7 +39,7 @@ Per ulteriori informazioni su queste opzioni di elenco, vedere la pagina relativ
 
 Dopo la pubblicazione dell'offerta, l'opzione relativa all'elenco scelto per l'offerta viene visualizzata come pulsante nell'angolo in alto a sinistra della pagina di presentazione dell'offerta. Ad esempio, la schermata seguente mostra una pagina di presentazione dell'offerta in Azure Marketplace con il pulsante **Get it Now (Ottieni ora** ).
 
-![Viene illustrato un elenco di offerte nel negozio online.](./media/saas/listing-options-saas-full.png)
+![Viene illustrato un elenco di offerte nel negozio online.](./media/saas/listing-options-saas.png)
 
 ## <a name="technical-requirements"></a>Requisiti tecnici
 

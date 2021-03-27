@@ -100,7 +100,7 @@ L'operazione ha il corpo seguente, in cui viene creato un evento Live pass-throu
         "language": "en-US"
       }
     ],
-    "vanityUrl": false,
+    "useStaticHostname": false,
     "streamOptions": [
       "Default"
     ]
@@ -161,7 +161,7 @@ PATCH ```https://management.azure.com/subscriptions/:subscriptionId/resourceGrou
         "language": "en-US"
       }
     ],
-    "vanityUrl": false,
+    "useStaticHostname": false,
     "streamOptions": [
       "Default"
     ]
