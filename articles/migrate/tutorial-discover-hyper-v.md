@@ -5,18 +5,18 @@ author: vineetvikram
 ms.author: vivikram
 ms.manager: abhemraj
 ms.topic: tutorial
-ms.date: 03/10/2021
+ms.date: 03/25/2021
 ms.custom: mvc
-ms.openlocfilehash: d108774aea2d7ac7773dab06efc977dd9e501eb5
-ms.sourcegitcommit: bed20f85722deec33050e0d8881e465f94c79ac2
+ms.openlocfilehash: f461778f988fafeacc480e100b00be7d4c165dfb
+ms.sourcegitcommit: c94e282a08fcaa36c4e498771b6004f0bfe8fb70
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/25/2021
-ms.locfileid: "105108775"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105612518"
 ---
 # <a name="tutorial-discover-servers-running-on-hyper-v-with-azure-migrate-discovery-and-assessment"></a>Esercitazione: individuazione di server in esecuzione in Hyper-V con Azure Migrate: individuazione e valutazione
 
-Il percorso di migrazione ad Azure prevede l'individuazione dei carichi di lavoro e dell'inventario locale. 
+Il percorso di migrazione ad Azure prevede l'individuazione dei carichi di lavoro e dell'inventario locale.
 
 Questa esercitazione illustra come individuare i server locali negli host Hyper-V con lo strumento Azure Migrate: Discovery and Assessment, usando un'appliance di Azure Migrate Lightweight. Si distribuisce l'appliance come server nell'host Hyper-V per individuare continuamente i metadati del computer e delle prestazioni.
 
@@ -42,7 +42,7 @@ Prima di iniziare questa esercitazione, verificare che siano rispettati i prereq
 --- | ---
 **Host Hyper-V** | Gli host Hyper-V in cui si trovano i server possono essere autonomi o in un cluster.<br/><br/> L'host deve eseguire Windows Server 2019, Windows Server 2016 o Windows Server 2012 R2.<br/><br/> Verificare che le connessioni in ingresso siano consentite sulla porta WinRM 5985 (HTTP), in modo che l'appliance possa connettersi ai metadati del server di pull e ai dati sulle prestazioni usando una sessione di Common Information Model (CIM).
 **Distribuzione dell'appliance** | L'host Hyper-V necessita di risorse per allocare un server per l'appliance:<br/><br/> -16 GB di RAM, 8 vCPU e circa 80 GB di spazio di archiviazione su disco.<br/><br/> : Un Commuter virtuale esterno e l'accesso a Internet nell'appliance, direttamente o tramite un proxy.
-**Server** | I server possono eseguire qualsiasi sistema operativo Windows o Linux. 
+**Server** | I server possono eseguire qualsiasi sistema operativo Windows o Linux.
 
 ## <a name="prepare-an-azure-user-account"></a>Preparare un account utente Azure
 
@@ -56,7 +56,7 @@ Se è appena stato creato un account Azure gratuito, si è proprietari della pro
 
     ![Casella di ricerca per cercare la sottoscrizione di Azure](./media/tutorial-discover-hyper-v/search-subscription.png)
 
-2. Nella pagina **sottoscrizioni** selezionare la sottoscrizione in cui si desidera creare un progetto. 
+2. Nella pagina **sottoscrizioni** selezionare la sottoscrizione in cui si desidera creare un progetto.
 3. Nella sottoscrizione selezionare **Controllo di accesso (IAM)**  > **Verifica l'accesso**.
 4. In **Verifica l'accesso** cercare l'account utente pertinente.
 5. In **Aggiungi un'assegnazione di ruolo** fare clic su **Aggiungi**.
@@ -176,7 +176,7 @@ Prima di distribuire il file compresso, verificarne la sicurezza.
 
         **Scenario** | **Scaricare** | **SHA256**
         --- | --- | ---
-        Hyper-V (8,91 GB) | [Versione più recente](https://go.microsoft.com/fwlink/?linkid=2140422) |  40aa037987771794428b1c6ebee2614b092e6d69ac56d48a2bbc75eeef86c99a
+        Hyper-V (8,91 GB) | [Versione più recente](https://go.microsoft.com/fwlink/?linkid=2140422) |  79c151588de049cc102f61b910d6136e02324dc8d8a14f47772da351b46d9127
 
     - Per Azure per enti pubblici:
 
@@ -293,5 +293,3 @@ Dopo l'individuazione, è possibile verificare se i server vengono visualizzati 
 
 - [Valutare i server nell'ambiente Hyper-V](tutorial-assess-hyper-v.md) per la migrazione alle macchine virtuali di Azure.
 - [Esaminare i dati](migrate-appliance.md#collected-data---hyper-v) raccolti dall'appliance durante l'individuazione.
-
-

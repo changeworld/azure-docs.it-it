@@ -224,10 +224,18 @@
       items:
         - name: Panoramica
           href: disk-backup-overview.md
-        - name: Backup
-          href: backup-managed-disks.md
-        - name: Restore
-          href: restore-managed-disks.md
+        - name: Dal portale di Azure
+          items:
+            - name: Backup
+              href: backup-managed-disks.md
+            - name: Restore
+              href: restore-managed-disks.md
+        - name: Con PowerShell
+          items:
+            - name: Backup
+              href: backup-managed-disks-ps.md
+            - name: Restore
+              href: restore-managed-disks-ps.md
     - name: Backup BLOB di Azure
       items:
         - name: Panoramica
@@ -422,7 +430,7 @@
               href: backup-azure-arm-userestapi-managejobs.md
         - name: Modelli di Gestione risorse
           href: backup-rm-template-samples.md
-    - name: Security
+    - name: Sicurezza
       items:
         - name: Panoramica
           href: security-overview.md

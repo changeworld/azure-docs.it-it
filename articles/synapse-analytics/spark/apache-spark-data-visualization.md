@@ -9,12 +9,12 @@ ms.service: synapse-analytics
 ms.topic: conceptual
 ms.subservice: spark
 ms.date: 09/13/2020
-ms.openlocfilehash: f11693b34048b11c02668e086561b9a6521a5213
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 7e57cdca1d212e6077d685d95a8f869c12e546a8
+ms.sourcegitcommit: a9ce1da049c019c86063acf442bb13f5a0dde213
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98121526"
+ms.lasthandoff: 03/27/2021
+ms.locfileid: "105627949"
 ---
 # <a name="visualize-data"></a>Visualizzare i dati
 Azure sinapsi è un servizio di analisi integrato che accelera il time-to-Insight, nei data warehouse e nei sistemi di analisi Big Data. La visualizzazione dei dati è un componente chiave per poter ottenere informazioni sui dati. Semplifica la comprensione dei dati di grandi e piccole dimensioni. Rende inoltre più semplice rilevare modelli, tendenze e outlier in gruppi di dati. 
@@ -34,6 +34,7 @@ Per accedere alle opzioni del grafico:
    ![grafici incorporati](./media/apache-spark-development-using-notebooks/synapse-built-in-charts.png#lightbox)
 
 3. È ora possibile personalizzare la visualizzazione specificando i valori seguenti:
+
    | Configurazione | Descrizione |
    |--|--| 
    | Tipo di grafico | La ```display``` funzione supporta un'ampia gamma di tipi di grafico, tra cui grafici a barre, grafici a dispersione, grafici a linee e altro ancora |
@@ -148,6 +149,37 @@ svg
 ## <a name="popular-libraries"></a>Librerie più diffuse
 Per quanto riguarda la visualizzazione dei dati, Python offre più librerie di grafici che includono molte funzionalità diverse. Per impostazione predefinita, ogni pool di Apache Spark in Azure sinapsi Analytics contiene un set di librerie open source curate e diffuse. È anche possibile aggiungere o gestire librerie aggiuntive & versioni usando le funzionalità di gestione della libreria di Azure sinapsi Analytics. 
 
+### <a name="matplotlib"></a>Matplotlib
+È possibile eseguire il rendering di librerie di tracciato standard, ad esempio Matplotlib, usando le funzioni di rendering predefinite per ogni libreria.
+
+Nell'immagine seguente è riportato un esempio di creazione di un grafico a barre con **matplotlib**.
+   ![Esempio di grafico a linee.](./media/apache-spark-data-viz/matplotlib-example.png#lightbox)
+
+Eseguire questo codice di esempio per disegnare l'immagine precedente.
+
+```python
+# Bar chart
+
+import matplotlib.pyplot as plt
+
+x1 = [1, 3, 4, 5, 6, 7, 9]
+y1 = [4, 7, 2, 4, 7, 8, 3]
+
+x2 = [2, 4, 6, 8, 10]
+y2 = [5, 6, 2, 6, 2]
+
+plt.bar(x1, y1, label="Blue Bar", color='b')
+plt.bar(x2, y2, label="Green Bar", color='g')
+plt.plot()
+
+plt.xlabel("bar number")
+plt.ylabel("bar height")
+plt.title("Bar Chart Example")
+plt.legend()
+plt.show()
+```
+
+
 ### <a name="bokeh"></a>Bokeh
 È possibile eseguire il rendering di HTML o di librerie interattive, ad esempio **bokeh**, usando ```displayHTML(df)``` . 
 
@@ -186,41 +218,49 @@ html = file_html(p, CDN, "my plot1")
 displayHTML(html)
 ```
 
-### <a name="matplotlib"></a>Matplotlib
-È possibile eseguire il rendering di librerie di tracciato standard, ad esempio Matplotlib, usando le funzioni di rendering predefinite per ogni libreria.
 
-Nell'immagine seguente è riportato un esempio di creazione di un grafico a barre con **matplotlib**.
-   ![Esempio di grafico a linee.](./media/apache-spark-data-viz/matplotlib-example.png#lightbox)
+### <a name="plotly"></a>Plotly
+È possibile eseguire il rendering di librerie HTML o interattive come **tracciato**, usando **displayHTML ()**.
 
-Eseguire questo codice di esempio per disegnare l'immagine precedente.
+Eseguire il codice di esempio seguente per creare l'immagine seguente.
+
+   ![tracciato-esempio](./media/apache-spark-development-using-notebooks/synapse-plotly-image.png#lightbox)
+
 
 ```python
-# Bar chart
+from urllib.request import urlopen
+import json
+with urlopen('https://raw.githubusercontent.com/plotly/datasets/master/geojson-counties-fips.json') as response:
+    counties = json.load(response)
 
-import matplotlib.pyplot as plt
+import pandas as pd
+df = pd.read_csv("https://raw.githubusercontent.com/plotly/datasets/master/fips-unemp-16.csv",
+                   dtype={"fips": str})
 
-x1 = [1, 3, 4, 5, 6, 7, 9]
-y1 = [4, 7, 2, 4, 7, 8, 3]
+import plotly.express as px
 
-x2 = [2, 4, 6, 8, 10]
-y2 = [5, 6, 2, 6, 2]
+fig = px.choropleth(df, geojson=counties, locations='fips', color='unemp',
+                           color_continuous_scale="Viridis",
+                           range_color=(0, 12),
+                           scope="usa",
+                           labels={'unemp':'unemployment rate'}
+                          )
+fig.update_layout(margin={"r":0,"t":0,"l":0,"b":0})
 
-plt.bar(x1, y1, label="Blue Bar", color='b')
-plt.bar(x2, y2, label="Green Bar", color='g')
-plt.plot()
+# create an html document that embeds the Plotly plot
+h = plotly.offline.plot(fig, output_type='div')
 
-plt.xlabel("bar number")
-plt.ylabel("bar height")
-plt.title("Bar Chart Example")
-plt.legend()
-plt.show()
+# display this html
+displayHTML(h)
 ```
+
 
 ### <a name="additional-libraries"></a>Librerie aggiuntive 
 Oltre a queste librerie, il runtime di Azure sinapsi Analytics include anche il set di librerie seguente che vengono spesso usate per la visualizzazione dei dati:
 - [Matplotlib](https://matplotlib.org/)
 - [Bokeh](https://bokeh.org/)
 - [Seaborn](https://seaborn.pydata.org/) 
+- [Plotly](https://plotly.com/)
 
 È possibile visitare la [documentazione](./spark/../apache-spark-version-support.md) di runtime di Azure sinapsi Analytics per le informazioni più aggiornate sulle librerie e sulle versioni disponibili.
 

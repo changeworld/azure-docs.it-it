@@ -2,23 +2,24 @@
 title: Distribuire un modello - Portale di Azure
 description: Informazioni su come creare il primo modello di Azure Resource Manager con il portale di Azure e distribuirlo.
 author: mumian
-ms.date: 03/09/2021
+ms.date: 03/26/2021
 ms.topic: quickstart
 ms.author: jgao
-ms.openlocfilehash: 20b1bf47ae2fd63e91a11c8cccd1f03cf3464899
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
+ms.custom: contperfq1
+ms.openlocfilehash: 279dde9c4cd7b19086d29d3ba31a32c60a8cdf0b
+ms.sourcegitcommit: c94e282a08fcaa36c4e498771b6004f0bfe8fb70
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102548180"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105612926"
 ---
 # <a name="quickstart-create-and-deploy-arm-templates-by-using-the-azure-portal"></a>Avvio rapido: Creare e distribuire modelli di Resource Manager con il portale di Azure
 
 Informazioni su come generare un modello di Azure Resource Manager con il portale di Azure e come modificarlo e distribuirlo dal portale. I modelli di Resource Manager sono file JSON che definiscono le risorse che è necessario distribuire per la soluzione. Per comprendere i concetti associati alla distribuzione e alla gestione delle soluzioni di Azure, vedere la [panoramica della distribuzione di modelli](overview.md).
 
-![Avvio rapido per i modelli di Resource Manager: diagramma relativo al portale](./media/quickstart-create-templates-use-the-portal/azure-resource-manager-export-deploy-template-portal.png)
-
 Al termine dell'esercitazione si distribuirà un account di archiviazione di Azure. Lo stesso processo può essere usato per distribuire altre risorse di Azure.
+
+![Avvio rapido per i modelli di Resource Manager: diagramma relativo al portale](./media/quickstart-create-templates-use-the-portal/azure-resource-manager-export-deploy-template-portal.png)
 
 Se non si ha una sottoscrizione di Azure, [creare un account gratuito](https://azure.microsoft.com/free/) prima di iniziare.
 

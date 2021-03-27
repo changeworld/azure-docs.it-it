@@ -5,12 +5,12 @@ author: cgillum
 ms.topic: conceptual
 ms.date: 11/03/2019
 ms.author: azfuncdf
-ms.openlocfilehash: 120335a7bce83bc3d4771ea64f665d67c7d1079a
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: d41b06bb0c2b26776f9d9c195c3a713e4dae9f82
+ms.sourcegitcommit: a9ce1da049c019c86063acf442bb13f5a0dde213
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98572800"
+ms.lasthandoff: 03/27/2021
+ms.locfileid: "105626629"
 ---
 # <a name="performance-and-scale-in-durable-functions-azure-functions"></a>Prestazioni e scalabilità in Funzioni permanenti (Funzioni di Azure)
 
@@ -40,7 +40,7 @@ Esiste una coda di elementi di lavoro per ogni hub attività in Funzioni permane
 
 ### <a name="control-queues"></a>Code di controllo
 
-In Funzioni permanenti sono presenti più *code di controllo* per hub attività. Una *coda di controllo* è più complessa della coda di elementi di lavoro. Le code di controllo vengono usate per attivare le funzioni dell'agente di orchestrazione e dell'entità con stato. Poiché le istanze dell'agente di orchestrazione e della funzione di entità sono singleton con stato, non è possibile usare un modello di consumer concorrente per distribuire il carico tra le macchine virtuali. Al contrario, l'agente di orchestrazione e i messaggi di entità sono bilanciati tra le code di controllo. Altre informazioni su questo comportamento sono disponibili nelle sezioni successive.
+In Funzioni permanenti sono presenti più *code di controllo* per hub attività. Una *coda di controllo* è più complessa della coda di elementi di lavoro. Le code di controllo vengono usate per attivare le funzioni dell'agente di orchestrazione e dell'entità con stato. Poiché le istanze dell'agente di orchestrazione e della funzione di entità sono singleton con stato, è importante che ogni orchestrazione o entità venga elaborata da un solo thread di lavoro alla volta. A tale scopo, ogni istanza o entità dell'orchestrazione viene assegnata a una singola coda di controlli. Queste code di controllo sono sottoposte a bilanciamento del carico tra i thread di lavoro per garantire che ogni coda venga elaborata da un solo thread di lavoro alla volta. Altre informazioni su questo comportamento sono disponibili nelle sezioni successive.
 
 Le code di controllo contengono messaggi di diverso tipo relativi al ciclo di vita di orchestrazione. Gli esempi includono i [messaggi di controllo dell'agente di orchestrazione](durable-functions-instance-management.md), i messaggi di *risposta* delle funzioni di attività e i messaggi del timer. In una singola operazione di polling dalla coda di controllo verranno rimossi al massimo 32 messaggi. Tali messaggi contengono dati di payload, nonché altri metadati, ad esempio l'istanza di orchestrazione a cui sono destinati. Se più messaggi rimossi dalla coda sono destinati alla stessa istanza di orchestrazione, verranno elaborati in batch.
 
@@ -56,7 +56,7 @@ Il ritardo massimo di polling può essere configurato tramite la `maxQueuePollin
 ### <a name="orchestration-start-delays"></a>Ritardi di avvio dell'orchestrazione
 Le istanze delle orchestrazioni vengono avviate inserendo un `ExecutionStarted` messaggio in una delle code di controllo dell'hub attività. In determinate condizioni, è possibile osservare ritardi tra più secondi tra il momento in cui un'orchestrazione è pianificata per l'esecuzione e l'avvio dell'esecuzione. Durante questo intervallo di tempo, l'istanza di orchestrazione rimane nello `Pending` stato. Questo ritardo può essere causato da due possibili cause:
 
-1. **Code di controllo con backlog**: se la coda di controllo per l'istanza contiene un numero elevato di messaggi, potrebbe essere necessario tempo prima che il `ExecutionStarted` messaggio venga ricevuto ed elaborato dal runtime. I backlog dei messaggi possono verificarsi quando le orchestrazioni elaborano molti eventi simultaneamente. Gli eventi che passano alla coda di controllo includono eventi di avvio dell'orchestrazione, completamenti di attività, timer durevoli, terminazione ed eventi esterni. Se questo ritardo si verifica in circostanze normali, provare a creare un nuovo hub attività con un numero maggiore di partizioni. La configurazione di più partizioni provocherà la creazione di più code di controllo per la distribuzione del carico da parte del runtime.
+1. **Code di controllo con backlog**: se la coda di controllo per l'istanza contiene un numero elevato di messaggi, potrebbe essere necessario tempo prima che il `ExecutionStarted` messaggio venga ricevuto ed elaborato dal runtime. I backlog dei messaggi possono verificarsi quando le orchestrazioni elaborano molti eventi simultaneamente. Gli eventi che passano alla coda di controllo includono eventi di avvio dell'orchestrazione, completamenti di attività, timer durevoli, terminazione ed eventi esterni. Se questo ritardo si verifica in circostanze normali, provare a creare un nuovo hub attività con un numero maggiore di partizioni. La configurazione di più partizioni provocherà la creazione di più code di controllo per la distribuzione del carico da parte del runtime. Ogni partizione corrisponde a 1:1 con una coda di controllo, con un massimo di 16 partizioni.
 
 2. **Ritardi di polling**: un'altra situazione comune dei ritardi dell'orchestrazione è il [comportamento di polling di back-off descritto in precedenza per le code di controllo](#queue-polling). Tuttavia, questo ritardo è previsto solo quando un'app viene scalata orizzontalmente a due o più istanze. Se è presente una sola istanza dell'app o se l'istanza dell'app che avvia l'orchestrazione è anche la stessa che esegue il polling della coda di controllo di destinazione, non ci sarà un ritardo di polling della coda. Per ridurre i ritardi di polling, è possibile aggiornare il **host.jssulle** impostazioni, come descritto in precedenza.
 
@@ -94,7 +94,12 @@ Se non specificato, come valore predefinito viene usato l'account di archiviazio
 
 ## <a name="orchestrator-scale-out"></a>Scalabilità orizzontale dell'agente di orchestrazione
 
-Le funzioni di attività sono senza stato e vengono scalate orizzontalmente in modo automatico tramite l'aggiunta di macchine virtuali. Le funzioni e le entità dell'agente di orchestrazione, invece, vengono *partizionate* in una o più code di controllo. Il numero di code di controllo viene definito nel file **host.json**. Nell'esempio seguente host.jssu snippet imposta la `durableTask/storageProvider/partitionCount` Proprietà (o `durableTask/partitionCount` in Durable functions 1. x) su `3` .
+Sebbene le funzioni di attività possano essere ampliate orizzontalmente aggiungendo più macchine virtuali in modo elastico, le singole istanze dell'agente di orchestrazione e le entità sono vincolate ad abitare una singola partizione e il numero massimo di partizioni è limitato dall' `partitionCount` impostazione in `host.json` . 
+
+> [!NOTE]
+> In generale, le funzioni dell'agente di orchestrazione devono essere semplici, senza richiedere potenza di calcolo in grande quantità. Non è quindi necessario creare un numero elevato di partizioni di code di controllo per ottenere una velocità effettiva elevata per le orchestrazioni. La maggior parte del lavoro più intenso deve essere eseguita nelle funzioni di attività senza stato, che possono essere scalate orizzontalmente all'infinito.
+
+Il numero di code di controllo viene definito nel file **host.json**. Nell'esempio seguente host.jssu snippet imposta la `durableTask/storageProvider/partitionCount` Proprietà (o `durableTask/partitionCount` in Durable functions 1. x) su `3` . Si noti che vi sono molte code di controllo quante sono le partizioni.
 
 ### <a name="durable-functions-2x"></a>Durable Functions 2.x
 
@@ -124,11 +129,25 @@ Le funzioni di attività sono senza stato e vengono scalate orizzontalmente in m
 
 Un hub attività può essere configurato con un numero di partizioni compreso tra 1 e 16. Se non specificato, il numero di partizioni predefinito è **4**.
 
-Quando si esegue la scalabilità orizzontale in più istanze dell'host di funzioni, in genere su diverse macchine virtuali, ogni istanza acquisisce un blocco su una delle code di controllo. Questi blocchi vengono implementati internamente come lease di archiviazione BLOB e assicurano che un'istanza di orchestrazione o un'entità venga eseguita solo su una singola istanza host alla volta. Se un hub attività è configurato con tre code di controllo, le istanze di orchestrazione e le entità possono essere sottoposte a bilanciamento del carico in un massimo di tre macchine virtuali. È possibile aggiungere altre macchine virtuali per aumentare la capacità per l'esecuzione della funzione di attività.
+Negli scenari con traffico ridotto, l'applicazione verrà ridimensionata, quindi le partizioni verranno gestite da un numero limitato di ruoli di lavoro. Si consideri, ad esempio, il diagramma riportato di seguito.
+
+![Diagramma delle orchestrazioni con scalabilità orizzontale](./media/durable-functions-perf-and-scale/scale-progression-1.png)
+
+Nel diagramma precedente si noterà che gli agenti di orchestrazione da 1 a 6 sono sottoposte a bilanciamento del carico tra le partizioni. Analogamente, le partizioni, come le attività, eseguono il bilanciamento del carico tra i ruoli di lavoro. Le partizioni vengono sottoposte a bilanciamento del carico tra i thread di lavoro indipendentemente dal numero di agenti di orchestrazione che iniziano.
+
+Se si esegue il consumo di funzioni di Azure o i piani Premium elastici o se è stata configurata la scalabilità automatica basata sul carico, più dipendenti verranno allocati in caso di aumento del traffico e il bilanciamento del carico delle partizioni verrà eseguito in tutti i ruoli di lavoro. Se continuiamo a eseguire la scalabilità orizzontale, ogni partizione verrà infine gestita da un singolo thread di lavoro. Le attività, d'altra parte, continueranno a essere sottoposte a bilanciamento del carico tra tutti i thread di lavoro. Questa operazione è illustrata nell'immagine seguente.
+
+![Primo diagramma delle orchestrazioni con scalabilità orizzontale](./media/durable-functions-perf-and-scale/scale-progression-2.png)
+
+Il limite superiore del numero massimo di orchestrazioni _attive_ simultanee in *un determinato momento* è uguale al numero di ruoli di lavoro allocati _all'applicazione per il valore_ `maxConcurrentOrchestratorFunctions` . Questo limite superiore può essere reso più preciso quando le partizioni sono completamente ridimensionate tra i ruoli di lavoro. Una volta completata la scalabilità orizzontale e poiché ogni thread di lavoro disporrà di una sola istanza host di funzioni, il numero massimo di istanze di agente di orchestrazione simultanee _attive_ sarà uguale al numero di partizioni _volte_ al valore `maxConcurrentOrchestratorFunctions` . L'immagine seguente illustra uno scenario con scalabilità orizzontale in cui vengono aggiunti altri agenti di orchestrazione, ma alcuni sono inattivi, visualizzati in grigio.
+
+![Secondo diagramma delle orchestrazioni con scalabilità orizzontale](./media/durable-functions-perf-and-scale/scale-progression-3.png)
+
+Durante la scalabilità orizzontale, i blocchi della coda di controllo possono essere ridistribuiti tra le istanze dell'host di funzioni per garantire che le partizioni siano distribuite uniformemente. Questi blocchi sono implementati internamente come lease di archiviazione BLOB e assicurano che qualsiasi singola istanza di orchestrazione o entità venga eseguita solo su una singola istanza host alla volta. Se un hub attività è configurato con tre partizioni (e pertanto tre code di controllo), le istanze di orchestrazione e le entità possono essere sottoposte a bilanciamento del carico tra tutte e tre le istanze dell'host che ospitano lease. È possibile aggiungere altre macchine virtuali per aumentare la capacità per l'esecuzione della funzione di attività.
 
 Il diagramma seguente illustra l'interazione tra l'host di Funzioni di Azure e le entità di archiviazione in un ambiente con scalabilità orizzontale.
 
-![Diagramma di scalabilità](./media/durable-functions-perf-and-scale/scale-diagram.png)
+![Diagramma di scalabilità](./media/durable-functions-perf-and-scale/scale-interactions-diagram.png)
 
 Come illustrato nel diagramma precedente, tutte le macchine virtuali sono in conflitto per i messaggi presenti nella coda degli elementi di lavoro. Tuttavia, solo tre macchine virtuali possono acquisire i messaggi dalle code di controllo e ogni macchina virtuale blocca una singola coda di controllo.
 

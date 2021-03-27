@@ -7,14 +7,14 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 03/02/2021
+ms.date: 03/26/2021
 ms.custom: references_regions
-ms.openlocfilehash: be72cae8d109bfeccd60e8c821625f75357568e3
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 52ac3ee4ea2f71e285d21c7b6d082e84fa090da1
+ms.sourcegitcommit: a9ce1da049c019c86063acf442bb13f5a0dde213
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103232359"
+ms.lasthandoff: 03/27/2021
+ms.locfileid: "105625909"
 ---
 # <a name="add-spell-check-to-queries-in-cognitive-search"></a>Aggiungere il controllo ortografico alle query in ricerca cognitiva
 
@@ -25,7 +25,7 @@ ms.locfileid: "103232359"
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-+ Un indice di ricerca esistente, che contiene contenuto in lingua inglese
++ Un indice di ricerca esistente, che contiene il contenuto in lingua inglese. Attualmente la correzione ortografica non funziona con i [sinonimi](search-synonyms.md). Evitare di utilizzarla in indici che specificano una mappa di sinonimi in qualsiasi definizione di campo.
 
 + Un client di ricerca per l'invio di query
 

@@ -12,12 +12,12 @@ ms.date: 09/03/2020
 ms.author: marsma
 ms.custom: aaddev, identityplatformtop40, contperf-fy21q1, contperf-fy21q2
 ms.reviewer: aragra, lenalepa, sureshja
-ms.openlocfilehash: 413f0be32b54ee6da39934cf3f8753246fbce924
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: fa5ecd19863e8a37efdf533e68aeaed053c552f8
+ms.sourcegitcommit: a9ce1da049c019c86063acf442bb13f5a0dde213
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104578805"
+ms.lasthandoff: 03/27/2021
+ms.locfileid: "105625680"
 ---
 # <a name="quickstart-register-an-application-with-the-microsoft-identity-platform"></a>Guida introduttiva: Registrare un'applicazione con Microsoft Identity Platform
 
@@ -56,7 +56,10 @@ Per creare la registrazione dell'app, seguire questa procedura:
 
     :::image type="content" source="media/quickstart-register-app/portal-02-app-reg-01.png" alt-text="Screenshot del portale di Azure in un Web browser, che mostra il riquadro registra un'applicazione.":::
 
-Al termine della registrazione, il portale di Azure Visualizza il riquadro **Panoramica** della registrazione dell'app. Viene visualizzato l' **ID dell'applicazione (client)**. Detto anche *ID client*, questo valore identifica in modo univoco l'applicazione nella piattaforma di identità Microsoft.
+Al termine della registrazione, il portale di Azure Visualizza il riquadro **Panoramica** della registrazione dell'app. Viene visualizzato l' **ID dell'applicazione (client)**. Detto anche *ID client*, questo valore identifica in modo univoco l'applicazione nella piattaforma di identità Microsoft. 
+
+> [!IMPORTANT]
+> Per impostazione predefinita, le nuove registrazioni di app sono nascoste agli utenti. Quando si è pronti per consentire agli utenti di visualizzare l'app nella [pagina App personali](../user-help/my-apps-portal-end-user-access.md) , è possibile abilitarla. Per abilitare l'app, nella portale di Azure passare ad **Azure Active Directory**  >  **applicazioni aziendali** e selezionare l'app. Quindi, nella pagina **Proprietà** impostare **visibile per gli utenti** su Sì.
 
 Il codice dell'applicazione o, in genere, una libreria di autenticazione usata nell'applicazione usa anche l'ID client. L'ID viene usato come parte della convalida dei token di sicurezza ricevuti dalla piattaforma di identità.
 

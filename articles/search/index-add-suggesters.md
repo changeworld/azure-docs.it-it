@@ -9,16 +9,16 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 03/26/2021
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 6bf5e53d9f4a867c146cb01376fcd28d2797819c
-ms.sourcegitcommit: 73d80a95e28618f5dfd719647ff37a8ab157a668
+ms.openlocfilehash: a03ca4bcad9bb577db68e2728ff9dbebb5779a7a
+ms.sourcegitcommit: a9ce1da049c019c86063acf442bb13f5a0dde213
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/26/2021
-ms.locfileid: "105606216"
+ms.lasthandoff: 03/27/2021
+ms.locfileid: "105626827"
 ---
 # <a name="create-a-suggester-to-enable-autocomplete-and-suggested-results-in-a-query"></a>Creare un suggerimento per abilitare il completamento automatico e i risultati suggeriti in una query
 
-In Azure ricerca cognitiva, typeahead o "Search-As-You-Type" è abilitato tramite un *Suggerimento*. Un suggerimento è una struttura di dati interna costituita da una raccolta di campi. I campi vengono sottoposti a token aggiuntivi, generando sequenze di prefisso per supportare le corrispondenze in termini parziali. Ad esempio, un suggeritore che include un campo City avrà combinazioni di prefisso "Sea", "Seat", "Seatt" e "Seattl" per il termine "Seattle".
+In Azure ricerca cognitiva, typeahead o "Search-As-You-Type" è abilitato tramite un *Suggerimento*. Un suggerimento fornisce un elenco di campi sottoposti a token aggiuntivi, generando sequenze di prefisso per supportare le corrispondenze in termini parziali. Ad esempio, un suggeritore che include un campo City con un valore per "Seattle" avrà combinazioni di prefisso "Sea", "Seat", "Seatt" e "Seattl" per il supporto di typeahead.
 
 Le corrispondenze in termini parziali possono essere una query con completamento automatico o una corrispondenza consigliata. Lo stesso suggerimento supporta entrambe le esperienze.
 
@@ -171,11 +171,13 @@ POST /indexes/myxboxgames/docs/autocomplete?search&api-version=2020-06-30
 
 ## <a name="sample-code"></a>Codice di esempio
 
-+ [Creare la prima app in C# (lezione 3-aggiungere un esempio di ricerca in base al tipo)](tutorial-csharp-type-ahead-and-suggestions.md) illustra le query suggerite, il completamento automatico e l'esplorazione in base a facet. Questo esempio di codice viene eseguito in un servizio sandbox Azure ricerca cognitiva e usa un indice degli Alberghi precaricato con un suggerimento già creato, quindi è sufficiente premere F5 per eseguire l'applicazione. Non è necessaria alcuna sottoscrizione o accesso.
++ [Aggiungi ricerca a un sito Web (JavaScript)](tutorial-javascript-search-query-integration.md#azure-function-suggestions-from-the-catalog) usa un pacchetto di suggerimenti open source per il completamento a breve termine nell'app client.
+
++ [Creare la prima app in C# (lezione 3-aggiungere un esempio di ricerca in base al tipo)](tutorial-csharp-type-ahead-and-suggestions.md) illustra le query suggerite, il completamento automatico e l'esplorazione in base a facet. Questo codice fornisce il supporto nativo per typeahead invece di usare un widget.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Per ulteriori informazioni sulla formulazione delle richieste, è consigliabile usare l'articolo seguente.
+Altre informazioni sulle richieste \ formulazione.
 
 > [!div class="nextstepaction"]
 > [Aggiungere il completamento automatico e suggerimenti al codice client](search-add-autocomplete-suggestions.md)

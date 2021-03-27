@@ -1,17 +1,15 @@
 ---
 title: Come visualizzare l'integrità aggregata delle entità Service Fabric di Azure
 description: Descrive come eseguire una query dell'integrità aggregata delle entità di Azure Service Fabric, come visualizzarla e come valutarla con query di integrità e query generali.
-author: georgewallace
 ms.topic: conceptual
 ms.date: 2/28/2018
-ms.author: gwallace
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 7127d9906cfe1ba87241bd3810a9567e77bf0391
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 261343537b6d18c98c27c9cc9453d2a64f064216
+ms.sourcegitcommit: a9ce1da049c019c86063acf442bb13f5a0dde213
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98785499"
+ms.lasthandoff: 03/27/2021
+ms.locfileid: "105628068"
 ---
 # <a name="view-service-fabric-health-reports"></a>Come visualizzare i report sull'integrità di Service Fabric
 Azure Service Fabric introduce un [modello di integrità](service-fabric-health-introduction.md) con entità di integrità per le quali i componenti di sistema e i watchdog possono creare report sulle condizioni locali sottoposte a monitoraggio. L' [archivio integrità](service-fabric-health-introduction.md#health-store) aggrega tutti i dati di integrità per determinare se le entità sono integre.

@@ -206,6 +206,8 @@
               href: manage/transfer-subscriptions-subscribers-csp.md
             - name: Annullare la sottoscrizione
               href: manage/cancel-azure-subscription.md
+            - name: Gestire i criteri di sottoscrizione
+              href: manage/manage-azure-subscription-policy.md
         - name: Creare sottoscrizioni a livello di codice
           items:
             - name: Creare sottoscrizioni a livello di codice

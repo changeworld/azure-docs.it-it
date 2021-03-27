@@ -11,12 +11,12 @@ author: WilliamDAssafMSFT
 ms.author: wiassaf
 ms.reviewer: sstein
 ms.date: 02/22/2021
-ms.openlocfilehash: ce8d4bf36524e3e7e7b3b8c974aa189fa000d845
-ms.sourcegitcommit: 2c1b93301174fccea00798df08e08872f53f669c
+ms.openlocfilehash: 5852899175f9cc9f2725b875c6e1ce9fd682768d
+ms.sourcegitcommit: a9ce1da049c019c86063acf442bb13f5a0dde213
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/22/2021
-ms.locfileid: "104773250"
+ms.lasthandoff: 03/27/2021
+ms.locfileid: "105625266"
 ---
 # <a name="scale-single-database-resources-in-azure-sql-database"></a>Ridimensionare le risorse di database singoli nel database SQL di Azure
 
@@ -61,7 +61,10 @@ La latenza stimata per modificare il livello di servizio, ridimensionare le dime
 > Inoltre, per i database standard (S2-S12) e per utilizzo generico, la latenza per lo stato di trasferimento di un database all'interno o all'esterno di un pool elastico o tra pool elastici sarà proporzionale alle dimensioni del database se il database utilizza l'archiviazione di condivisione file Premium ([PFS](../../storage/files/storage-files-introduction.md)).
 >
 > Per determinare se un database utilizza l'archiviazione PFS, eseguire la query seguente nel contesto del database. Se il valore nella colonna AccountType è `PremiumFileStorage` o `PremiumFileStorage-ZRS` , il database utilizza l'archiviazione PFS.
- 
+
+[!NOTE]
+ Per impostazione predefinita, la proprietà con ridondanza della zona rimarrà invariata durante il ridimensionamento dal business critical al livello di per utilizzo generico. La latenza per questo downgrade quando è abilitata la ridondanza della zona e la latenza per passare alla ridondanza della zona per il livello di per utilizzo generico sarà proporzionale alle dimensioni del database.
+
 ```sql
 SELECT s.file_id,
        s.type_desc,

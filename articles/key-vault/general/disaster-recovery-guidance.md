@@ -9,12 +9,12 @@ ms.subservice: general
 ms.topic: tutorial
 ms.date: 08/28/2020
 ms.author: sudbalas
-ms.openlocfilehash: d66fe736936963e601aad7cba7bdaa94f0c3ec3f
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 27184e267bb0472dad6fc9176dfdeee68d5eae58
+ms.sourcegitcommit: c94e282a08fcaa36c4e498771b6004f0bfe8fb70
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "96518448"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105611821"
 ---
 # <a name="azure-key-vault-availability-and-redundancy"></a>Disponibilità e ridondanza dell'insieme di credenziali delle chiavi di Azure
 
@@ -23,7 +23,7 @@ L'insieme di credenziali delle chiavi di Azure dispone di più livelli di ridond
 > [!NOTE]
 > Le informazioni della guida si applicano agli insiemi di credenziali. I pool del modulo di protezione hardware gestito usano un diverso modello di disponibilità elevata e ripristino di emergenza. Per altre informazioni, vedere la [guida al ripristino di emergenza del modulo di protezione hardware gestito](../managed-hsm/disaster-recovery-guide.md) for more information.
 
-I contenuti dell'insieme di credenziali delle chiavi vengono replicati all'interno dell'area e in un'area secondaria distante almeno 250 chilometri, ma all'interno della stessa area geografica per mantenere una durabilità elevata delle chiavi e dei segreti. Per informazioni dettagliate su coppie di aree specifiche, vedere il documento [Aree abbinate di Azure](../../best-practices-availability-paired-regions.md). L'eccezione al modello delle aree abbinate è costituita dal Brasile meridionale, che offre solo l'opzione di mantenere i dati residenti all'interno del Brasile meridionale. L'area Brasile meridionale usa l'archiviazione con ridondanza della zona (ZRS) per replicare i dati tre volte all'interno della singola località/area.   
+I contenuti dell'insieme di credenziali delle chiavi vengono replicati all'interno dell'area e in un'area secondaria distante almeno 250 chilometri, ma all'interno della stessa area geografica per mantenere una durabilità elevata delle chiavi e dei segreti. Per informazioni dettagliate su coppie di aree specifiche, vedere il documento [Aree abbinate di Azure](../../best-practices-availability-paired-regions.md). L'eccezione al modello delle aree abbinate è costituita dal Brasile meridionale, che offre solo l'opzione di mantenere i dati residenti all'interno del Brasile meridionale. L'area Brasile meridionale usa l'archiviazione con ridondanza della zona (ZRS) per replicare i dati tre volte all'interno della singola località/area. Per AKV Premium, vengono usate solo 2 delle 3 aree per replicare i dati dai moduli di protezione hardware.  
 
 Se si verificano errori di singoli componenti del servizio dell'insieme di credenziali delle chiavi, per gestire la richiesta subentrano componenti alternativi all'interno dell'area in modo che non si verifichi alcuna riduzione delle prestazioni delle funzionalità. Non è necessario intraprendere alcuna azione per avviare questo processo, si verifica automaticamente ed è trasparente per l'utente.
 

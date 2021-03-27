@@ -6,12 +6,12 @@ ms.author: vivikram
 ms.manager: abhemraj
 ms.topic: how-to
 ms.date: 03/13/2021
-ms.openlocfilehash: 71fe30212b31e810bfe3e1ba10f80be6b09ad4fc
-ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
+ms.openlocfilehash: 8f0e7ec2566928897d2b84357b599506520e8d95
+ms.sourcegitcommit: c94e282a08fcaa36c4e498771b6004f0bfe8fb70
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/23/2021
-ms.locfileid: "104863684"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105612025"
 ---
 # <a name="set-up-an-appliance-for-servers-on-hyper-v"></a>Configurare un'appliance per i server in Hyper-V
 
@@ -39,7 +39,7 @@ Per configurare l'appliance usando un modello VHD:
 
 1. Negli **obiettivi di migrazione**  >  **Windows, Linux e SQL Server**  >  **Azure migrate: individuazione e valutazione**, selezionare **individua**.
 2. In **individua server**  >  **i server sono virtualizzati?** selezionare **Sì, con Hyper-V**.
-3. In **1: genera chiave progetto** specificare un nome per il dispositivo Azure migrate che verrà configurato per l'individuazione dei server in Hyper-V. il nome deve essere alfanumerico con un massimo di 14 caratteri.
+3. In **1: genera chiave progetto** specificare un nome per il dispositivo Azure migrate che si configurerà per l'individuazione dei server in Hyper-V. Il nome deve essere costituito da un massimo di 14 caratteri alfanumerici.
 1. Fare clic su **Genera chiave** per avviare la creazione delle risorse di Azure necessarie. Non chiudere la pagina Individua server durante la creazione delle risorse.
 1. Una volta completata la creazione delle risorse di Azure, viene generata una **chiave del progetto** .
 1. Copiare la chiave perché sarà necessaria per completare la registrazione dell'appliance durante la configurazione.
@@ -53,7 +53,6 @@ In **2: Scaricare l'appliance di Azure Migrate** selezionare il file VHD e fare 
 
    ![Selezioni per Genera chiave](./media/tutorial-assess-hyper-v/generate-key-hyperv.png)
 
-
 ### <a name="verify-security"></a>Verificare la sicurezza
 
 Prima di distribuire il file compresso, verificarne la sicurezza.
@@ -63,9 +62,7 @@ Prima di distribuire il file compresso, verificarne la sicurezza.
     - ```C:\>CertUtil -HashFile <file_location> [Hashing Algorithm]```
     - Esempio di utilizzo: ```C:\>Get-FileHash -Path ./AzureMigrateAppliance_v3.20.09.25.zip -Algorithm SHA256```
 
-
-
-
+Verificare il valore hash più recente confrontando il risultato del comando precedente con il valore descritto [qui](https://docs.microsoft.com/azure/migrate/tutorial-discover-hyper-v#verify-security)
 
 ## <a name="create-the-appliance"></a>Creare l'appliance
 
@@ -85,7 +82,6 @@ Importare il file scaricato e creare un'appliance.
 5. In **Choose Network (Scegli rete**) specificare il Commuter virtuale che il server utilizzerà. È necessario che il commutatore abbia connettività Internet per inviare dati ad Azure.
 6. In **Riepilogo** rivedere le impostazioni. Fare clic su **Fine**.
 7. Nella console di gestione di Hyper-V selezionare **Macchine virtuali** e avviare la VM.
-
 
 ### <a name="verify-appliance-access-to-azure"></a>Verificare l'accesso dell'appliance ad Azure
 
@@ -128,8 +124,6 @@ Configurare l'appliance per la prima volta.
 1. Dopo aver eseguito l'accesso, tornare nella scheda precedente di gestione configurazione dell'appliance.
 4. Se l'account utente di Azure usato per la registrazione ha le [autorizzazioni](./tutorial-discover-hyper-v.md#prepare-an-azure-user-account) corrette per le risorse di Azure create durante la generazione della chiave, la registrazione dell'appliance verrà avviata.
 1. Al termine della registrazione dell'appliance è possibile visualizzare i dettagli della registrazione facendo clic su **Visualizza dettagli**.
-
-
 
 ### <a name="delegate-credentials-for-smb-vhds"></a>Delegare le credenziali per i dischi rigidi virtuali SMB
 

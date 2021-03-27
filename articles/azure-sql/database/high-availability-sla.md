@@ -12,12 +12,12 @@ author: emlisa
 ms.author: emlisa
 ms.reviewer: sstein, emlisa
 ms.date: 10/28/2020
-ms.openlocfilehash: 1c210eab0332d01fc6514edc790d729172ed2174
-ms.sourcegitcommit: a67b972d655a5a2d5e909faa2ea0911912f6a828
+ms.openlocfilehash: a14f8e0ba3ae5cca75cf6518320023703a6d1700
+ms.sourcegitcommit: a9ce1da049c019c86063acf442bb13f5a0dde213
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/23/2021
-ms.locfileid: "104889060"
+ms.lasthandoff: 03/27/2021
+ms.locfileid: "105626385"
 ---
 # <a name="high-availability-for-azure-sql-database-and-sql-managed-instance"></a>Disponibilità elevata per database SQL di Azure e SQL Istanza gestita
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -48,22 +48,22 @@ Ogni volta che il motore di database o il sistema operativo viene aggiornato o v
 
 ## <a name="general-purpose-service-tier-zone-redundant-availability-preview"></a>Per utilizzo generico disponibilità con ridondanza della zona del livello di servizio (anteprima)
 
-La configurazione con ridondanza della zona per il livello di servizio per utilizzo generico Usa [zone di disponibilità di Azure](../../availability-zones/az-overview.md)   per replicare i database in più posizioni fisiche all'interno di un'area di Azure.Selezionando ridondanza della zona, è possibile fare in modo che i database singoli e i pool elastici nuovi ed esistenti siano resilienti a un set molto più ampio di errori, incluse interruzioni irreversibili del Data Center, senza apportare modifiche alla logica dell'applicazione.
+La configurazione con ridondanza della zona per il livello di servizio per utilizzo generico viene offerta per il calcolo senza server e con provisioning. Questa configurazione USA [zone di disponibilità di Azure](../../availability-zones/az-overview.md)   per replicare i database in più posizioni fisiche all'interno di un'area di Azure.Selezionando la ridondanza della zona, è possibile fare in modo che il serverlesss nuovo ed esistente e i database singoli per utilizzo generico con provisioning e i pool elastici siano resilienti a un set molto più ampio di errori, incluse interruzioni irreversibili del Data Center, senza apportare modifiche alla logica dell'applicazione.
 
 La configurazione con ridondanza della zona per il livello utilizzo generico è costituita da due livelli:  
 
-- Livello dati con stato con i file di database (con estensione MDF/ldf) archiviati in ZRS PFS ( [condivisione file Premium di archiviazione](../../storage/files/storage-how-to-create-file-share.md)con ridondanza della zona. Usando l' [archiviazione con ridondanza della zona](../../storage/common/storage-redundancy.md) i dati e i file di log vengono copiati in modo sincrono in tre zone di disponibilità di Azure isolate fisicamente.
-- Livello di calcolo senza stato che esegue il processo di sqlservr.exe e contiene solo dati temporanei e memorizzati nella cache, ad esempio TempDB, i database modello nell'unità SSD collegata e la cache dei piani, il pool di buffer e il pool columnstore in memoria. Questo nodo senza stato viene gestito da Azure Service Fabric che Inizializza sqlservr.exe, controlla l'integrità del nodo ed esegue il failover in un altro nodo, se necessario. Per i database per utilizzo generico con ridondanza della zona, i nodi con capacità di riserva sono immediatamente disponibili in altri zone di disponibilità per il failover.
+- Livello dati con stato con i file di database (con estensione MDF/ldf) archiviati in ZRS (archiviazione con ridondanza della zona). L'uso di [ZRS](../../storage/common/storage-redundancy.md) i file di dati e di log vengono copiati in modo sincrono in tre zone di disponibilità di Azure isolate fisicamente.
+- Livello di calcolo senza stato che esegue il processo di sqlservr.exe e contiene solo dati temporanei e memorizzati nella cache, ad esempio TempDB, i database modello nell'unità SSD collegata e la cache dei piani, il pool di buffer e il pool columnstore in memoria. Questo nodo senza stato viene gestito da Azure Service Fabric che Inizializza sqlservr.exe, controlla l'integrità del nodo ed esegue il failover in un altro nodo, se necessario. Per i database per utilizzo generico senza server e con provisioning con ridondanza della zona, i nodi con capacità di riserva sono immediatamente disponibili in altri zone di disponibilità per il failover.
 
 La versione con ridondanza della zona dell'architettura a disponibilità elevata per il livello di servizio utilizzo generico è illustrata nel diagramma seguente:
 
 ![Configurazione con ridondanza della zona per utilizzo generico](./media/high-availability-sla/zone-redundant-for-general-purpose.png)
 
 > [!IMPORTANT]
-> La configurazione con ridondanza della zona è disponibile solo quando è selezionato l'hardware di calcolo quinta generazione. Questa funzionalità non è disponibile in SQL Istanza gestita. La configurazione con ridondanza della zona per il livello utilizzo generico è disponibile solo nelle aree seguenti: Stati Uniti orientali, Stati Uniti orientali 2, Stati Uniti occidentali 2, Europa settentrionale, Europa occidentale, Asia sudorientale, Australia orientale, Giappone orientale, Regno Unito meridionale e Francia centrale.
+> La configurazione con ridondanza della zona è disponibile solo quando è selezionato l'hardware di calcolo quinta generazione. Questa funzionalità non è disponibile in SQL Istanza gestita. La configurazione con ridondanza della zona per il livello utilizzo generico senza server e con provisioning è disponibile solo nelle aree seguenti: Stati Uniti orientali, Stati Uniti orientali 2, Stati Uniti occidentali 2, Europa settentrionale, Europa occidentale, Asia sudorientale, Australia orientale, Giappone orientale, Regno Unito meridionale e Francia centrale.
 
 > [!NOTE]
-> Per utilizzo generico database con dimensioni pari a 80 Vcore può comportare un calo delle prestazioni con la configurazione con ridondanza della zona. Inoltre, le operazioni come il backup, il ripristino, la copia del database e la configurazione delle relazioni di ripristino di emergenza geografico possono comportare prestazioni più lente per i singoli database di dimensioni superiori a 1 TB. 
+> Per utilizzo generico database con dimensioni pari a 80 Vcore può comportare un calo delle prestazioni con la configurazione con ridondanza della zona. Inoltre, le operazioni come backup, ripristino, copia del database, configurazione delle relazioni di ripristino di emergenza geografico e downgrade di un database con ridondanza della zona da business critical a per utilizzo generico possono comportare prestazioni più lente per i singoli database di dimensioni superiori a 1 TB. Per ulteriori informazioni, vedere la [documentazione sulla latenza per il ridimensionamento di un database](single-database-scale.md) .
 > 
 > [!NOTE]
 > L'anteprima non è coperta dall'istanza riservata
