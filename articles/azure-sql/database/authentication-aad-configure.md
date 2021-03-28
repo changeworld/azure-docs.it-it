@@ -12,12 +12,12 @@ author: GithubMirek
 ms.author: mireks
 ms.reviewer: vanto, sstein
 ms.date: 08/17/2020
-ms.openlocfilehash: f3c34526fd4005dbbb0be7e763721e125ed7828e
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 9e7b337d4358f9685d683c308d6df9110607207a
+ms.sourcegitcommit: c8b50a8aa8d9596ee3d4f3905bde94c984fc8aa2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103201207"
+ms.lasthandoff: 03/28/2021
+ms.locfileid: "105643425"
 ---
 # <a name="configure-and-manage-azure-ad-authentication-with-azure-sql"></a>Configurare e gestire l'autenticazione di Azure AD con Azure SQL
 
@@ -115,7 +115,7 @@ Per concedere l'autorizzazione di lettura a SQL Istanza gestita Azure AD utilizz
 
     Il processo di modifica dell'amministratore può richiedere alcuni minuti. Al termine del processo, nella casella Amministratore di Active Directory verrà visualizzato il nome del nuovo amministratore.
 
-Dopo aver eseguito il provisioning di un amministratore di Azure AD per il Istanza gestita SQL, è possibile iniziare a creare Azure AD entità server (account di accesso) con la sintassi <a href="/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current">Create Login</a> . Per altre informazioni, vedere [Panoramica di SQL istanza gestita](../managed-instance/sql-managed-instance-paas-overview.md#azure-active-directory-integration).
+Dopo aver eseguito il provisioning di un amministratore di Azure AD per il Istanza gestita SQL, è possibile iniziare a creare Azure AD entità server (account di accesso) con la sintassi [Create Login](/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current&preserve-view=true) . Per altre informazioni, vedere [Panoramica di SQL istanza gestita](../managed-instance/sql-managed-instance-paas-overview.md#azure-active-directory-integration).
 
 > [!TIP]
 > Per rimuovere un amministratore in un secondo momento, nella parte superiore della pagina Amministratore di Active Directory scegliere **Rimuovi amministratore** e quindi **Salva**.
@@ -345,8 +345,8 @@ In tutti i computer client, da cui le applicazioni o gli utenti si connettono al
 - .NET Framework 4,6 o versione successiva da [https://msdn.microsoft.com/library/5a4x27ek.aspx](/dotnet/framework/install/guide-for-developers) .
 - Azure Active Directory libreria di autenticazione per SQL Server (*ADAL.DLL*). Di seguito sono riportati i collegamenti di download per installare la versione più recente di SSMS, ODBC e OLE DB driver che contiene la libreria di *ADAL.DLL* .
   - [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms)
-  - [ODBC Driver 17 for SQL Server](/sql/connect/odbc/download-odbc-driver-for-sql-server?view=sql-server-ver15)
-  - [OLE DB driver 18 per SQL Server](/sql/connect/oledb/download-oledb-driver-for-sql-server?view=sql-server-ver15)
+  - [ODBC Driver 17 for SQL Server](/sql/connect/odbc/download-odbc-driver-for-sql-server?view=sql-server-ver15&preserve-view=true)
+  - [OLE DB driver 18 per SQL Server](/sql/connect/oledb/download-oledb-driver-for-sql-server?view=sql-server-ver15&preserve-view=true)
 
 È possibile soddisfare questi requisiti tramite:
 
@@ -357,7 +357,7 @@ In tutti i computer client, da cui le applicazioni o gli utenti si connettono al
 
 ## <a name="create-contained-users-mapped-to-azure-ad-identities"></a>Creare utenti indipendenti mappati a identità di Azure AD
 
-Poiché SQL Istanza gestita supporta Azure AD entità server (account di accesso), non è necessario utilizzare gli utenti del database indipendente. Le entità di sicurezza del server Azure AD (accessi) consentono di creare gli accessi dagli utenti, dai gruppi o dalle applicazioni di Azure AD. Ciò significa che è possibile eseguire l'autenticazione con il Istanza gestita SQL utilizzando l'account di accesso Azure AD server invece di un utente di database indipendente. Per altre informazioni, vedere [Panoramica di SQL istanza gestita](../managed-instance/sql-managed-instance-paas-overview.md#azure-active-directory-integration). Per la sintassi sulla creazione di entità server (account di accesso) di Azure AD, vedere <a href="/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current">CREATE LOGIN</a>.
+Poiché SQL Istanza gestita supporta Azure AD entità server (account di accesso), non è necessario utilizzare gli utenti del database indipendente. Le entità di sicurezza del server Azure AD (accessi) consentono di creare gli accessi dagli utenti, dai gruppi o dalle applicazioni di Azure AD. Ciò significa che è possibile eseguire l'autenticazione con il Istanza gestita SQL utilizzando l'account di accesso Azure AD server invece di un utente di database indipendente. Per altre informazioni, vedere [Panoramica di SQL istanza gestita](../managed-instance/sql-managed-instance-paas-overview.md#azure-active-directory-integration). Per la sintassi sulla creazione di entità server (account di accesso) di Azure AD, vedere [CREATE LOGIN](/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current&preserve-view=true).
 
 Tuttavia, l'uso di Azure Active Directory autenticazione con il database SQL e la sinapsi di Azure richiede l'uso di utenti di database indipendente in base a un'identità Azure AD. Un utente del database indipendente non dispone di un account di accesso nel database master e viene mappato a un'identità in Azure AD associata al database. L'identità di Azure AD può essere un singolo account utente o un gruppo. Per altre informazioni sugli utenti di database indipendente, vedere [Utenti di database indipendente: rendere portabile un database](/sql/relational-databases/security/contained-database-users-making-your-database-portable).
 

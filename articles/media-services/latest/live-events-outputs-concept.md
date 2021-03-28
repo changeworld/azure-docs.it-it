@@ -13,12 +13,12 @@ ms.devlang: ne
 ms.topic: conceptual
 ms.date: 10/23/2020
 ms.author: inhenkel
-ms.openlocfilehash: 1ef49b66e6bba7c829abd35f6c8cc4169a2c14a0
-ms.sourcegitcommit: a9ce1da049c019c86063acf442bb13f5a0dde213
+ms.openlocfilehash: 0eff5b13a79f64de1863e82a2c9285788accf6fc
+ms.sourcegitcommit: c8b50a8aa8d9596ee3d4f3905bde94c984fc8aa2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2021
-ms.locfileid: "105625297"
+ms.lasthandoff: 03/28/2021
+ms.locfileid: "105641524"
 ---
 # <a name="live-events-and-live-outputs-in-media-services"></a>Eventi live e output live in Servizi multimediali
 
@@ -225,14 +225,6 @@ Una volta che il flusso è stato trasmesso nell'evento Live, è possibile inizia
 
 Per informazioni dettagliate sugli output Live, vedere [uso di un DVR cloud](live-event-cloud-dvr.md).
 
-## <a name="frequently-asked-questions"></a>Domande frequenti
+## <a name="live-event-output-questions"></a>Domande sull'output dell'evento Live
 
-Vedere l'articolo sulle [domande frequenti](frequently-asked-questions.md#live-streaming) .
-
-## <a name="ask-questions-and-get-updates"></a>Porre domande e ottenere gli aggiornamenti
-
-Consultare l'articolo [Community di Servizi multimediali di Azure](media-services-community.md) per esaminare i diversi modi in cui è possibile porre domande, fornire feedback e ottenere aggiornamenti su Servizi multimediali.
-
-## <a name="next-steps"></a>Passaggi successivi
-
-[Esercitazione sullo streaming live](stream-live-tutorial-with-api.md)
+Vedere l'articolo relativo alle [domande sull'output di eventi live](questions-collection.md#live-streaming) .

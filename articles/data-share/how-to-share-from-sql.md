@@ -6,12 +6,12 @@ ms.author: jife
 ms.service: data-share
 ms.topic: how-to
 ms.date: 02/24/2021
-ms.openlocfilehash: f87ad76e9bb1db4d71716bf860d5fee2d413e8e9
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: ef8c1a50cd3568c6cec9bdb053b02e6e14741eb0
+ms.sourcegitcommit: c8b50a8aa8d9596ee3d4f3905bde94c984fc8aa2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101740376"
+ms.lasthandoff: 03/28/2021
+ms.locfileid: "105644675"
 ---
 # <a name="share-and-receive-data-from-azure-sql-database-and-azure-synapse-analytics"></a>Condividere e ricevere i dati da Database SQL di Azure e Azure Synapse Analytics
 
@@ -36,7 +36,20 @@ Quando i dati vengono ricevuti nella tabella SQL e se la tabella di destinazione
 Di seguito è riportato l'elenco di prerequisiti per la condivisione da un'origine SQL. 
 
 #### <a name="prerequisites-for-sharing-from-azure-sql-database-or-azure-synapse-analytics-formerly-azure-sql-dw"></a>Prerequisiti per la condivisione da Database SQL di Azure o Azure Synapse Analytics (in precedenza Azure SQL Data Warehouse)
-Per configurare i prerequisiti, è possibile seguire la [demo dettagliata](https://youtu.be/hIE-TjJD8Dc).
+
+
+Per condividere i dati usando l'autenticazione di Azure Active Directory, di seguito è riportato un elenco di prerequisiti:
+
+* Un'istanza di Database SQL di Azure o di Azure Synapse Analytics (in precedenza Azure SQL Data Warehouse) con tabelle e viste da condividere.
+* Autorizzazione per la scrittura nei database del server SQL, disponibile in *Microsoft.Sql/servers/databases/write*. Questa autorizzazione è presente nel ruolo di **collaboratore**.
+* **Amministratore di Azure Active Directory** SQL Server
+* Accesso al firewall di SQL Server. A tale scopo, seguire questa procedura: 
+    1. Nel portale di Azure passare al server SQL. Selezionare *Firewall e reti virtuali* nel riquadro di spostamento sinistro.
+    1. Fare clic su **Sì** per *Consenti alle risorse e ai servizi di Azure di accedere a questo server*.
+    1. Fare clic su **+ Aggiungi IP client**. L'indirizzo IP client è soggetto a modifiche. Potrebbe essere necessario ripetere questo processo la volta successiva che si condividono i dati SQL dal portale di Azure. È anche possibile aggiungere un intervallo di indirizzi IP.
+    1. Fare clic su **Salva**. 
+
+Per condividere i dati usando l'autenticazione SQL, di seguito è riportato un elenco dei prerequisiti. Per configurare i prerequisiti, è possibile seguire la [demo dettagliata](https://youtu.be/hIE-TjJD8Dc).
 
 * Un'istanza di Database SQL di Azure o di Azure Synapse Analytics (in precedenza Azure SQL Data Warehouse) con tabelle e viste da condividere.
 * Autorizzazione per la scrittura nei database del server SQL, disponibile in *Microsoft.Sql/servers/databases/write*. Questa autorizzazione è presente nel ruolo di **collaboratore**.
@@ -132,7 +145,9 @@ Creare una risorsa di condivisione dati di Azure in un gruppo di risorse di Azur
 
     ![Aggiungere i set di dati](./media/add-datasets.png "Aggiungere i set di dati")    
 
-1. Selezionare l'area di lavoro di SQL Server o sinapsi, fornire le credenziali, se richiesto, e selezionare **Avanti** per passare all'oggetto che si vuole condividere e selezionare "Aggiungi set di DataSet". È possibile selezionare le tabelle e le viste del database SQL di Azure e di Azure sinapsi Analytics (in precedenza Azure SQL DW) oppure le tabelle del pool SQL dedicato ad analisi sinapsi di Azure (area di lavoro). 
+1. Selezionare l'area di lavoro di SQL Server o sinapsi. Se si usa l'autenticazione di AAD e la casella **di controllo Consenti condivisione dati per eseguire lo script SQL "Crea utente" precedente per conto dell'utente** , selezionare la casella di controllo. Se si usa l'autenticazione SQL, fornire le credenziali e seguire i passaggi descritti in Prerequisiti per eseguire lo script nella schermata. In questo modo si ottiene l'autorizzazione per la lettura della risorsa di condivisione dati dal database SQL. 
+
+   Selezionare **Avanti** per passare all'oggetto che si desidera condividere e selezionare "Aggiungi set di impostazioni". È possibile selezionare le tabelle e le viste del database SQL di Azure e di Azure sinapsi Analytics (in precedenza Azure SQL DW) oppure le tabelle del pool SQL dedicato ad analisi sinapsi di Azure (area di lavoro). 
 
     ![Selezionare i set di dati](./media/select-datasets-sql.png "Selezionare i set di dati")    
 
@@ -176,7 +191,18 @@ Se si sceglie di ricevere i dati in archiviazione di Azure, di seguito è riport
 Se si sceglie di ricevere dati in Database SQL di Azure o Azure Synapse Analytics, ecco l'elenco di prerequisiti. 
 
 #### <a name="prerequisites-for-receiving-data-into-azure-sql-database-or-azure-synapse-analytics-formerly-azure-sql-dw"></a>Prerequisiti per la ricezione di dati in Database SQL di Azure o Azure Synapse Analytics (in precedenza Azure SQL Data Warehouse)
-Per configurare i prerequisiti, è possibile seguire la [demo dettagliata](https://youtu.be/aeGISgK1xro).
+
+Per ricevere dati in un server SQL in cui si è **Azure Active Directory amministratore** di SQL Server, di seguito è riportato un elenco di prerequisiti:
+
+* Un'istanza di Database SQL di Azure o di Azure Synapse Analytics (in precedenza SQL Data Warehouse).
+* Autorizzazione per la scrittura nei database del server SQL, disponibile in *Microsoft.Sql/servers/databases/write*. Questa autorizzazione è presente nel ruolo di **collaboratore**.
+* Accesso al firewall di SQL Server. A tale scopo, seguire questa procedura: 
+    1. Nel portale di Azure passare al server SQL. Selezionare *Firewall e reti virtuali* nel riquadro di spostamento sinistro.
+    1. Fare clic su **Sì** per *Consenti alle risorse e ai servizi di Azure di accedere a questo server*.
+    1. Fare clic su **+ Aggiungi IP client**. L'indirizzo IP client è soggetto a modifiche. Potrebbe essere necessario ripetere questo processo la volta successiva che si condividono i dati SQL dal portale di Azure. È anche possibile aggiungere un intervallo di indirizzi IP.
+    1. Fare clic su **Salva**. 
+    
+Per ricevere dati in un server SQL in cui non si è l' **amministratore di Azure Active Directory**, di seguito è riportato un elenco dei prerequisiti. Per configurare i prerequisiti, è possibile seguire la [demo dettagliata](https://youtu.be/aeGISgK1xro).
 
 * Un'istanza di Database SQL di Azure o di Azure Synapse Analytics (in precedenza SQL Data Warehouse).
 * Autorizzazione per la scrittura nei database del server SQL, disponibile in *Microsoft.Sql/servers/databases/write*. Questa autorizzazione è presente nel ruolo di **collaboratore**. 
@@ -264,11 +290,11 @@ Seguire questa procedura per configurare la posizione in cui si desidera ricever
 
    ![Esegui mapping alla destinazione](./media/dataset-map-target.png "Esegui mapping alla destinazione") 
 
-1. Selezionare un archivio dati di destinazione in cui si vogliono inserire i dati. Eventuali tabelle o file di dati nell'archivio dati di destinazione con lo stesso percorso e nome verranno sovrascritti. 
+1. Selezionare un archivio dati di destinazione in cui si vogliono inserire i dati. Eventuali tabelle o file di dati nell'archivio dati di destinazione con lo stesso percorso e nome verranno sovrascritti. Se si ricevono dati in destinazione SQL e viene visualizzata la casella **di controllo Consenti condivisione dati per eseguire lo script SQL ' Crea utente ' per conto mio** , selezionare la casella di controllo. In caso contrario, seguire le istruzioni riportate in Prerequisiti per eseguire lo script visualizzato sullo schermo. In questo modo verrà assegnata l'autorizzazione di scrittura risorsa di condivisione dati al database SQL di destinazione.
 
    ![Account di archiviazione di destinazione](./media/dataset-map-target-sql.png "Archivio dati di destinazione") 
 
-1. Per la condivisione basata su snapshot, se il provider di dati ha creato una pianificazione degli snapshot per fornire aggiornamenti regolari ai dati, è anche possibile abilitare la pianificazione degli snapshot selezionando la scheda **Pianificazione degli snapshot**. Selezionare la casella accanto alla pianificazione degli snapshot e selezionare **+ Abilita**.
+1. Per la condivisione basata su snapshot, se il provider di dati ha creato una pianificazione degli snapshot per fornire aggiornamenti regolari ai dati, è anche possibile abilitare la pianificazione degli snapshot selezionando la scheda **Pianificazione degli snapshot**. Selezionare la casella accanto alla pianificazione degli snapshot e selezionare **+ Abilita**. Si noti che il primo snapshot pianificato viene avviato entro un minuto dall'ora di pianificazione e gli snapshot successivi vengono avviati entro pochi secondi dall'orario pianificato.
 
    ![Abilitare la pianificazione degli snapshot](./media/enable-snapshot-schedule.png "Abilitare la pianificazione degli snapshot")
 

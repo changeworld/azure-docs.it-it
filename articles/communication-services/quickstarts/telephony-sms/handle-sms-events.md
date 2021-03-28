@@ -1,5 +1,5 @@
 ---
-title: Avvio rapido - Gestire gli eventi SMS
+title: 'Guida introduttiva: gestire gli eventi SMS per i report di recapito e i messaggi in ingresso'
 titleSuffix: An Azure Communication Services quickstart
 description: Informazioni su come gestire gli eventi SMS con i Servizi di comunicazione di Azure.
 author: mikben
@@ -9,14 +9,14 @@ ms.author: mikben
 ms.date: 03/10/2021
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: 6db817999b415ebe2c4bb7cb4216ed1e9ad9c325
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 6d16a4d9ecd2e9246933b2543da3b05239ac2f7f
+ms.sourcegitcommit: c8b50a8aa8d9596ee3d4f3905bde94c984fc8aa2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104655989"
+ms.lasthandoff: 03/28/2021
+ms.locfileid: "105644635"
 ---
-# <a name="quickstart-handle-sms-events"></a>Avvio rapido: Gestire gli eventi SMS
+# <a name="quickstart-handle-sms-events-for-delivery-reports-and-inbound-messages"></a>Guida introduttiva: gestire gli eventi SMS per i report di recapito e i messaggi in ingresso
 
 [!INCLUDE [Public Preview Notice](../../includes/public-preview-include.md)]
 
@@ -117,6 +117,7 @@ In questo avvio rapido si è appreso come utilizzare gli eventi SMS. È possibil
 > [Invia SMS](../telephony-sms/send.md)
 
 Può essere utile vedere anche gli articoli seguenti:
+
 
  - [Altre informazioni sui concetti relativi alla gestione degli eventi](../../../event-grid/event-schema-communication-services.md)
  - [Altre informazioni su Griglia di eventi](../../../event-grid/overview.md)

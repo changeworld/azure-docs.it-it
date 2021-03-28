@@ -3,14 +3,14 @@ title: CreateUiDefinition.jssul file per il riquadro del portale
 description: Viene descritto come creare definizioni dell'interfaccia utente per la portale di Azure. Usato durante la definizione di applicazioni gestite di Azure.
 author: tfitzmac
 ms.topic: conceptual
-ms.date: 07/14/2020
+ms.date: 03/26/2021
 ms.author: tomfitz
-ms.openlocfilehash: 327fa1d7eb73d8e65bb4f81c1dff0fe2bec2913b
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 586237c6dd909312780163cf316220d2f3fddd8c
+ms.sourcegitcommit: c8b50a8aa8d9596ee3d4f3905bde94c984fc8aa2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "89319569"
+ms.lasthandoff: 03/28/2021
+ms.locfileid: "105641658"
 ---
 # <a name="createuidefinitionjson-for-azure-managed-applications-create-experience"></a>CreateUiDefinition.json per l'esperienza di creazione di un'applicazione gestita di Azure
 
@@ -63,25 +63,29 @@ La proprietà `config` è facoltativa. Utilizzarlo per eseguire l'override del c
             "constraints": {
                 "validations": [
                     {
-                        "isValid": "[expression for checking]",
-                        "message": "Please select a valid subscription."
+                        "isValid": "[not(contains(subscription().displayName, 'Test'))]",
+                        "message": "Can't use test subscription."
                     },
                     {
-                        "permission": "<Resource Provider>/<Action>",
-                        "message": "Must have correct permission to complete this step."
+                        "permission": "Microsoft.Compute/virtualmachines/write",
+                        "message": "Must have write permission for the virtual machine."
+                    },
+                    {
+                        "permission": "Microsoft.Compute/virtualMachines/extensions/write",
+                        "message": "Must have write permission for the extension."
                     }
                 ]
             },
             "resourceProviders": [
-                "<Resource Provider>"
+                "Microsoft.Compute"
             ]
         },
         "resourceGroup": {
             "constraints": {
                 "validations": [
                     {
-                        "isValid": "[expression for checking]",
-                        "message": "Please select a valid resource group."
+                        "isValid": "[not(contains(resourceGroup().name, 'test'))]",
+                        "message": "Resource group name can't contain 'test'."
                     }
                 ]
             },
@@ -103,11 +107,13 @@ La proprietà `config` è facoltativa. Utilizzarlo per eseguire l'override del c
 },
 ```
 
+Per la `isValid` proprietà, scrivere un'espressione che venga risolta in true o false. Per la `permission` proprietà, specificare una delle [azioni del provider di risorse](../../role-based-access-control/resource-provider-operations.md).
+
 ### <a name="wizard"></a>Procedura guidata
 
 La `isWizard` proprietà consente di richiedere la convalida corretta di ogni passaggio prima di procedere al passaggio successivo. Quando la `isWizard` proprietà non è specificata, il valore predefinito è **false** e la convalida dettagliata non è obbligatoria.
 
-Quando `isWizard` è abilitato, impostare su **true**, la scheda **nozioni di base** è disponibile e tutte le altre schede sono disabilitate. Quando si seleziona il pulsante **Avanti** , l'icona della scheda indica se la convalida di una scheda è stata superata o non riuscita. Dopo che i campi obbligatori della scheda sono stati completati e convalidati, il pulsante **Avanti** consente la navigazione alla scheda successiva. Quando tutte le schede passano la convalida, è possibile passare alla pagina **Verifica e crea** e selezionare il pulsante **Crea** per avviare la distribuzione.
+Quando `isWizard` è abilitato, impostare su **true**, la scheda **nozioni di base** è disponibile e tutte le altre schede sono disabilitate. Quando si seleziona il pulsante **Avanti** , l'icona della scheda indica se la convalida di una scheda è stata superata o non riuscita. Dopo che i campi obbligatori di una scheda sono stati completati e convalidati, il pulsante **Avanti** consente la navigazione alla scheda successiva. Quando tutte le schede passano la convalida, è possibile passare alla pagina **Verifica e crea** e selezionare il pulsante **Crea** per avviare la distribuzione.
 
 :::image type="content" source="./media/create-uidefinition-overview/tab-wizard.png" alt-text="Creazione guidata scheda":::
 
@@ -117,7 +123,7 @@ La configurazione di base consente di personalizzare il passaggio di base.
 
 Per `description` , specificare una stringa abilitata per Markdown che descrive la risorsa. Sono supportati il formato a più righe e i collegamenti.
 
-Gli `subscription` `resourceGroup` elementi e consentono di specificare convalide aggiuntive. La sintassi per specificare le convalide è identica alla [casella di testo](microsoft-common-textbox.md)convalida personalizzata. È anche possibile specificare `permission` convalide per la sottoscrizione o il gruppo di risorse.  
+Gli `subscription` `resourceGroup` elementi e consentono di specificare più convalide. La sintassi per specificare le convalide è identica alla [casella di testo](microsoft-common-textbox.md)convalida personalizzata. È anche possibile specificare `permission` convalide per la sottoscrizione o il gruppo di risorse.  
 
 Il controllo della sottoscrizione accetta un elenco di spazi dei nomi del provider di risorse. Ad esempio, è possibile specificare **Microsoft. Compute**. Viene visualizzato un messaggio di errore quando l'utente seleziona una sottoscrizione che non supporta il provider di risorse. L'errore si verifica quando il provider di risorse non è registrato nella sottoscrizione e l'utente non è autorizzato a registrare il provider di risorse.  
 
@@ -150,7 +156,7 @@ Nell'esempio seguente viene illustrata una casella di testo aggiunta agli elemen
 
 ## <a name="steps"></a>Passaggi
 
-La proprietà Steps contiene zero o più passaggi aggiuntivi da visualizzare dopo le nozioni di base. Ogni passaggio contiene uno o più elementi. Prendere in considerazione l'aggiunta di passaggi per ogni ruolo o livello dell'applicazione in fase di distribuzione. Ad esempio, aggiungere un passaggio per gli input del nodo master e un passaggio per i nodi del ruolo di lavoro in un cluster.
+La proprietà Steps contiene zero o più passaggi da visualizzare dopo le nozioni di base. Ogni passaggio contiene uno o più elementi. Prendere in considerazione l'aggiunta di passaggi per ogni ruolo o livello dell'applicazione in fase di distribuzione. Ad esempio, aggiungere un passaggio per gli input del nodo primario e un passaggio per i nodi del ruolo di lavoro in un cluster.
 
 ```json
 "steps": [

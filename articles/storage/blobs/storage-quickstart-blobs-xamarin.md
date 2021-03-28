@@ -8,12 +8,12 @@ ms.service: storage
 ms.subservice: blobs
 ms.topic: quickstart
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 5d7b512601d066000f1f64bf99d1fd4be3532b7a
-ms.sourcegitcommit: 44edde1ae2ff6c157432eee85829e28740c6950d
+ms.openlocfilehash: c6b502bbc56d6c9521ec736150fbc0046ff78125
+ms.sourcegitcommit: c8b50a8aa8d9596ee3d4f3905bde94c984fc8aa2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/25/2021
-ms.locfileid: "105544129"
+ms.lasthandoff: 03/28/2021
+ms.locfileid: "105642488"
 ---
 # <a name="quickstart-azure-blob-storage-client-library-v12-with-xamarin"></a>Guida introduttiva: libreria client di archiviazione BLOB di Azure V12 con Novell
 
@@ -40,7 +40,7 @@ Collegamenti di riferimento:
 
 * Sottoscrizione di Azure: [creare un account gratuito](https://azure.microsoft.com/free/)
 * Account di archiviazione di Azure: [creare un account di archiviazione](../common/storage-account-create.md)
-* Visual Studio con il [carico di lavoro Sviluppo di applicazioni per dispositivi mobili con .NET](/xamarin/get-started/installation/?pivots=windows) installato o [Visual Studio per Mac](/visualstudio/mac/installation?view=vsmac-2019)
+* Visual Studio con il [carico di lavoro Sviluppo di applicazioni per dispositivi mobili con .NET](/xamarin/get-started/installation/?pivots=windows) installato o [Visual Studio per Mac](/visualstudio/mac/installation?view=vsmac-2019&preserve-view=true)
 
 ## <a name="setting-up"></a>Configurazione
     

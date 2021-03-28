@@ -1,10 +1,10 @@
 ---
-ms.openlocfilehash: ce575a67552c89b17ff4ed9b44ab43a4bd12d67f
-ms.sourcegitcommit: bed20f85722deec33050e0d8881e465f94c79ac2
+ms.openlocfilehash: 417b6099a6b52fecf6f11e1074b346e9a63255c3
+ms.sourcegitcommit: c8b50a8aa8d9596ee3d4f3905bde94c984fc8aa2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/25/2021
-ms.locfileid: "105110746"
+ms.lasthandoff: 03/28/2021
+ms.locfileid: "105645434"
 ---
 ## <a name="add-managed-identity-to-your-communication-services-solution-java"></a>Aggiungere identità gestite alla soluzione Servizi di comunicazione (Java)
 
@@ -47,7 +47,7 @@ import java.io.IOException;
 import java.util.*;
 ```
 
-Gli esempi seguenti usano [DefaultAzureCredential](/java/api/azure.identity.defaultazurecredential). Questa credenziale è adatta per ambienti di produzione e di sviluppo.
+Gli esempi seguenti usano [DefaultAzureCredential](/java/api/com.azure.identity.defaultazurecredential). Questa credenziale è adatta per ambienti di produzione e di sviluppo.
 
 `AZURE_CLIENT_SECRET``AZURE_CLIENT_ID`e le `AZURE_TENANT_ID` variabili di ambiente sono necessarie per creare un `DefaultAzureCredential` oggetto. Per creare un'applicazione registrata nell'ambiente di sviluppo e configurare le variabili di ambiente, vedere [autorizzare l'accesso con l'identità gestita](../managed-identity-from-cli.md).
 

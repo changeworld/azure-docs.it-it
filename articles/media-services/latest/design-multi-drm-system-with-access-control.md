@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 08/31/2020
 ms.author: willzhan
 ms.custom: seodec18
-ms.openlocfilehash: bb43396260e1b914f9f5b9e9ae489e87042a3154
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 057a284f99dd7c3713249b19e8fc39212d9e6003
+ms.sourcegitcommit: c8b50a8aa8d9596ee3d4f3905bde94c984fc8aa2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "101092429"
+ms.lasthandoff: 03/28/2021
+ms.locfileid: "105640278"
 ---
 # <a name="design-of-a-multi-drm-content-protection-system-with-access-control"></a>Progettazione di un sistema di protezione del contenuto con DRM multiplo e controllo di accesso
 
@@ -53,7 +53,7 @@ La tabella seguente riepiloga il supporto del DRM nativo in diverse piattaforme 
 | **Windows 10** | PlayReady | Microsoft Edge/Internet Explorer 11 per PlayReady|
 | **Dispositivi Android (telefoni, tablet, TV)** |Widevine |Chrome per Widevine |
 | **iOS** | FairPlay | Safari per FairPlay (da iOS 11.2) |
-| **macOS** | FairPlay | Safari per FairPlay (da Safari 9 e versioni successive su Mac OS X 10.11 El Capitan e versioni successive)|
+| **macOS** | FairPlay | Safari per FairPlay (a partire da Safari 9 + in macOS X 10.11 + El Capitan)|
 | **tvOS** | FairPlay | |
 
 In base allo stato attuale della distribuzione per ogni DRM, un servizio in genere prevede l'implementazione di 2 o 3 DRM per garantire che tutti i tipi di endpoint vengano indirizzati nel modo migliore.
@@ -357,9 +357,3 @@ La schermata seguente illustra uno scenario che usa una chiave asimmetrica trami
 ![Servizio token di sicurezza personalizzato con una chiave asimmetrica](./media/design-multi-drm-system-with-access-control/media-services-running-sts2.png)
 
 In entrambi i casi precedenti, l'autenticazione utente è la stessa, ovvero viene eseguita tramite Azure AD. L'unica differenza è che i token JWT vengono rilasciati dal servizio token di sicurezza personalizzato invece che da Azure AD. Quando si configura la protezione CENC dinamica, la restrizione del servizio di distribuzione delle licenze specifica il tipo di token JWT, una chiave simmetrica o asimmetrica.
-
-## <a name="next-steps"></a>Passaggi successivi
-
-* [Domande frequenti](frequently-asked-questions.md)
-* [Panoramica della protezione del contenuto](content-protection-overview.md)
-* [Proteggere i contenuti con DRM](protect-with-drm.md)

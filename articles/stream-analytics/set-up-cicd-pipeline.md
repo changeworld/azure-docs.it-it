@@ -7,12 +7,12 @@ ms.author: sujie
 ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 09/10/2020
-ms.openlocfilehash: dbd6a1a0c8643adc4918cc15e214e903dfb1ccb6
-ms.sourcegitcommit: 2c1b93301174fccea00798df08e08872f53f669c
+ms.openlocfilehash: 82a2c3047f851c9fbc273cd13e730572c38b6bcd
+ms.sourcegitcommit: c8b50a8aa8d9596ee3d4f3905bde94c984fc8aa2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/22/2021
-ms.locfileid: "104775936"
+ms.lasthandoff: 03/28/2021
+ms.locfileid: "105640369"
 ---
 # <a name="use-azure-devops-to-create-a-cicd-pipeline-for-a-stream-analytics-job"></a>Usare Azure DevOps per creare una pipeline CI/CD per un processo di analisi di flusso
 
@@ -26,21 +26,21 @@ I passaggi descritti in questo articolo usano un progetto di analisi di flusso V
 
 ## <a name="create-a-build-pipeline"></a>Creare una pipeline di compilazione
 
-In questa sezione viene illustrato come creare una pipeline di compilazione. È possibile fare riferimento a questa [pipeline di compilazione e di test automatica](https://dev.azure.com/ASA-CICD-sample/azure-streamanalytics-cicd-demo/_build) di esempio in Azure DevOps.
+In questa sezione viene illustrato come creare una pipeline di compilazione. 
 
 1. Aprire un Web browser e passare al progetto in Azure DevOps.  
 
-1. In **pipeline** nel menu di spostamento a sinistra selezionare **compilazioni**. Quindi selezionare **nuova pipeline**.
+2. In **pipeline** nel menu di spostamento a sinistra selezionare **compilazioni**. Quindi selezionare **nuova pipeline**.
 
    :::image type="content" source="media/set-up-cicd-pipeline/new-pipeline.png" alt-text="Crea nuova pipeline di Azure":::
 
-1. Selezionare **Usa editor classico** per creare una pipeline senza YAML.
+3. Selezionare **Usa editor classico** per creare una pipeline senza YAML.
 
-1. Selezionare il tipo di origine, il progetto team e il repository. Quindi selezionare **continue (continua**).
+4. Selezionare il tipo di origine, il progetto team e il repository. Quindi selezionare **continue (continua**).
 
    :::image type="content" source="media/set-up-cicd-pipeline/select-repo.png" alt-text="Selezionare il progetto di analisi di flusso di Azure":::
 
-1. Nella pagina **Scegli un modello** selezionare **processo vuoto**.
+5. Nella pagina **Scegli un modello** selezionare **processo vuoto**.
 
 ## <a name="install-npm-package"></a>Installare un pacchetto npm
 
@@ -155,7 +155,7 @@ Il file di riepilogo dei test e i file del modello di Azure Resource Manager si 
 
 ## <a name="release-with-azure-pipelines"></a>Rilascia con Azure Pipelines
 
-In questa sezione viene illustrato come creare una pipeline di rilascio. È possibile fare riferimento a questa [pipeline di versione](https://dev.azure.com/ASA-CICD-sample/azure-streamanalytics-cicd-demo/_release?_a=releases&view=mine&definitionId=2) di esempio in Azure DevOps.
+In questa sezione viene illustrato come creare una pipeline di rilascio. 
 
 Aprire un Web browser e passare al progetto di analisi di flusso di Azure Visual Studio Code.
 

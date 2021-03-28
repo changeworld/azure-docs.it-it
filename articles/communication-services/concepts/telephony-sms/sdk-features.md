@@ -5,21 +5,20 @@ description: Viene fornita una panoramica di SMS SDK e delle relative offerte.
 author: mikben
 manager: jken
 services: azure-communication-services
-ms.author: mikben
-ms.date: 03/10/2021
+ms.author: prakulka
+ms.date: 03/26/2021
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: 25a5befab6ef141b059caaac7b1784d47f2f93cf
-ms.sourcegitcommit: bed20f85722deec33050e0d8881e465f94c79ac2
+ms.openlocfilehash: 2e9f782f0b8fa0be77e70ccdae8849caa4abb81e
+ms.sourcegitcommit: c8b50a8aa8d9596ee3d4f3905bde94c984fc8aa2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/25/2021
-ms.locfileid: "105108112"
+ms.lasthandoff: 03/28/2021
+ms.locfileid: "105643818"
 ---
 # <a name="sms-sdk-overview"></a>Panoramica di SMS SDK
 
 [!INCLUDE [Public Preview Notice](../../includes/public-preview-include.md)]
-
 
 [!INCLUDE [Regional Availability Notice](../../includes/regional-availability-include.md)]
 
@@ -31,15 +30,16 @@ L'elenco seguente presenta il set di funzionalità attualmente disponibili negli
 
 | Gruppo di funzionalità | Funzionalità                                                                            | JS  | Java | .NET | Python |
 | ----------------- | ------------------------------------------------------------------------------------- | --- | ---- | ---- | ------ |
-| Funzionalità principali | Inviare e ricevere messaggi SMS </br> *Emoji Unicode supportate*                        | ✔️   | ✔️    | ✔️    | ✔️      |
-|                   | Ricevere report di recapito per i messaggi inviati                                            | ✔️   | ✔️    | ✔️    | ✔️      |
+| Funzionalità principali | Inviare e ricevere messaggi SMS                                                         | ✔️   | ✔️    | ✔️    | ✔️      |
+|                   | Abilita report recapito per i messaggi inviati                                             | ✔️   | ✔️    | ✔️    | ✔️      |
 |                   | Tutti i set di caratteri (supporto per lingua/Unicode)                                         | ✔️   | ✔️    | ✔️    | ✔️      |
-|                   | Supporto per messaggi lunghi (fino a 2048 caratteri)                                           | ✔️   | ✔️    | ✔️    | ✔️      |
+|                   | Supporto per messaggi lunghi (fino a 2048 byte)                                          | ✔️   | ✔️    | ✔️    | ✔️      |
 |                   | Concatenazione automatica di messaggi lunghi                                                   | ✔️   | ✔️    | ✔️    | ✔️      |
+|                   | Inviare messaggi a più destinatari alla volta                                        | ✔️   | ✔️    | ✔️    | ✔️      |
+|                   | Supporto per idempotenza                                                               | ✔️   | ✔️    | ✔️    | ✔️      |
+|                   | Tag personalizzati per i messaggi.                                                             | ✔️   | ✔️    | ✔️    | ✔️      |
 | Eventi            | Usare Griglia di eventi per configurare i webhook per la ricezione di messaggi in ingresso e report di recapito | ✔️   | ✔️    | ✔️    | ✔️      |
 | Numero di telefono      | Numeri verdi                                                                     | ✔️   | ✔️    | ✔️    | ✔️      |
-| Regolamentazione        | Gestione esplicita                                                                      | ✔️   | ✔️    | ✔️    | ✔️      |
-| Monitoraggio        | Monitorare l'utilizzo dei messaggi inviati e ricevuti                                          | ✔️   | ✔️    | ✔️    | ✔️      |
 | Chiamata PSTN      | Aggiungere funzionalità per chiamate PSTN al numero verde abilitato per SMS                    | ✔️   | ✔️    | ✔️    | ✔️      |
 
 ## <a name="next-steps"></a>Passaggi successivi

@@ -8,12 +8,12 @@ ms.author: chpalm
 ms.date: 03/10/2021
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: 933b5605cf38be90d419673a94e23e4c36f0ef36
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: a52931b69187d18984b9b6938832dafe64111ffe
+ms.sourcegitcommit: c8b50a8aa8d9596ee3d4f3905bde94c984fc8aa2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103495709"
+ms.lasthandoff: 03/28/2021
+ms.locfileid: "105641051"
 ---
 # <a name="region-availability-and-data-residency"></a>Disponibilità a livello di area e residenza dei dati
 
@@ -58,10 +58,12 @@ Servizi di comunicazione di Azure gestisce una directory di numeri di telefono a
 
 ### <a name="chat"></a>Chat
 
-I thread e i messaggi delle chat vengono conservati fino a quando non vengono eliminati in modo esplicito. Un thread completamente inattivo verrà eliminato automaticamente dopo 30 giorni. Usare le [API di chat](/rest/api/communication/chat/chatthread) per ottenere, elencare, aggiornare ed eliminare i messaggi.
+I thread e i messaggi delle chat vengono conservati fino a quando non vengono eliminati in modo esplicito. Un thread completamente inattivo senza partecipanti verrà eliminato automaticamente dopo 30 giorni. Usare le [API di chat](/rest/api/communication/chat/chatthread) per ottenere, elencare, aggiornare ed eliminare i messaggi.
 
 - `Get Thread`
 - `Get Message`
+- `List Messages`
+- `Update Message`
 - `Delete Thread`
 - `Delete Message`
 

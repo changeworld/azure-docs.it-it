@@ -10,12 +10,12 @@ author: GitHubMirek
 ms.author: mireks
 ms.reviewer: vanto
 ms.date: 11/06/2019
-ms.openlocfilehash: 9161bf4f99ddfed479451d2091458ab309aa2c17
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 50544507f9d83c216bb6c18e004c5ce7ad1ca346
+ms.sourcegitcommit: c8b50a8aa8d9596ee3d4f3905bde94c984fc8aa2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "92788622"
+ms.lasthandoff: 03/28/2021
+ms.locfileid: "105639853"
 ---
 # <a name="tutorial-security-in-azure-sql-managed-instance-using-azure-ad-server-principals-logins"></a>Esercitazione: Garantire la sicurezza dell'istanza gestita di SQL di Azure con le entità server (account di accesso) di Azure AD
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -106,7 +106,7 @@ Per esempi relativi alla connessione all'istanza gestita di SQL, vedere gli arti
 
     ![Screenshot della scheda Risultati in Esplora oggetti di SSMS che mostra i parametri name, principal_id, sid, type e type_desc dell'account di accesso appena aggiunto.](./media/aad-security-configure-tutorial/native-login.png)
 
-Per altre informazioni, vedere [CREATE LOGIN](/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current).
+Per altre informazioni, vedere [CREATE LOGIN](/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current&preserve-view=true).
 
 ## <a name="grant-permissions-to-create-logins"></a>Concedere le autorizzazioni per la creazione degli account di accesso
 
@@ -182,7 +182,7 @@ Dopo aver creato l'entità server (account di accesso) di Azure AD e aver conces
     GO
     ```
 
-1. Creare un database nell'istanza gestita usando la sintassi [CREATE DATABASE](/sql/t-sql/statements/create-database-transact-sql?view=azuresqldb-mi-current). Questo database verrà usato per testare gli account di accesso nella sezione successiva.
+1. Creare un database nell'istanza gestita usando la sintassi [CREATE DATABASE](/sql/t-sql/statements/create-database-transact-sql?view=azuresqldb-mi-current&preserve-view=true). Questo database verrà usato per testare gli account di accesso nella sezione successiva.
     1. In **Esplora oggetti** fare clic con il pulsante destro del mouse sul server e scegliere **Nuova query**.
     1. Nella finestra di query usare la sintassi seguente per creare un database denominato **MyMITestDB**.
 
@@ -264,7 +264,7 @@ Per altre informazioni sulla concessione delle autorizzazioni per i database, ve
     > [!IMPORTANT]
     > Quando si crea un utente **USER** da un'entità server (account di accesso) di Azure AD, specificare per user_name lo stesso valore di login_name indicato in **LOGIN**.
 
-    Per altre informazioni, vedere [CREATE USER](/sql/t-sql/statements/create-user-transact-sql?view=azuresqldb-mi-current).
+    Per altre informazioni, vedere [CREATE USER](/sql/t-sql/statements/create-user-transact-sql?view=azuresqldb-mi-current&preserve-view=true).
 
 1. In una nuova finestra di query creare una tabella di test usando il comando T-SQL seguente:
 

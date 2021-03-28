@@ -11,12 +11,12 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, sstein
 ms.date: 06/21/2019
-ms.openlocfilehash: 322ef3b8ca30396bd4772850ff651f7545a21257
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 11c83a6ec364865eb3478112c9f33add22a5c09d
+ms.sourcegitcommit: c8b50a8aa8d9596ee3d4f3905bde94c984fc8aa2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "100580753"
+ms.lasthandoff: 03/28/2021
+ms.locfileid: "105643273"
 ---
 # <a name="restore-your-azure-sql-database-or-failover-to-a-secondary"></a>Ripristinare il database SQL di Azure o eseguire il failover in un database secondario
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -66,7 +66,7 @@ Usare [Get Recoverable Database](/previous-versions/azure/reference/dn800985(v=a
 
 ## <a name="wait-for-service-recovery"></a>Attendere il ripristino del servizio
 
-I team di Azure puntano a ripristinare la disponibilità del servizio quanto più rapidamente possibile, ma questo può richiedere ore o giorni a seconda della causa radice.  Se l'applicazione può tollerare tempi di inattività significativi è possibile attendere semplicemente il completamento del ripristino. In tal caso, non è necessaria alcuna azione da parte dell'utente. È possibile vedere lo stato corrente del servizio nel [dashboard per l'integrità dei servizi di Azure](https://azure.microsoft.com/status/). Dopo il ripristino dell'area, la disponibilità dell'applicazione viene ripristinata.
+I team di Azure puntano a ripristinare la disponibilità del servizio quanto più rapidamente possibile, ma questo può richiedere ore o giorni a seconda della causa radice.  Se l'applicazione può tollerare tempi di inattività significativi è possibile attendere semplicemente il completamento del ripristino. In tal caso, non è necessaria alcuna azione da parte dell'utente. È possibile vedere lo stato corrente del servizio nel [dashboard per l'integrità dei servizi di Azure](https://azure.microsoft.com/status/). Dopo il ripristino dell'area, viene ripristinata la disponibilità dell'applicazione.
 
 ## <a name="fail-over-to-geo-replicated-secondary-server-in-the-failover-group"></a>Eseguire il failover nel server secondario con replica geografica nel gruppo di failover
 
@@ -78,7 +78,7 @@ Per eseguire il failover in un database secondario con replica geografica, segui
 
 - [Failover in un server secondario con replica geografica tramite il portale di Azure](active-geo-replication-configure-portal.md)
 - [Failover nel server secondario tramite PowerShell](scripts/setup-geodr-and-failover-database-powershell.md)
-- [Eseguire il failover su un server secondario tramite Transact-SQL (T-SQL)](/sql/t-sql/statements/alter-database-transact-sql?view=azuresqldb-current#e-failover-to-a-geo-replication-secondary)
+- [Eseguire il failover su un server secondario tramite Transact-SQL (T-SQL)](/sql/t-sql/statements/alter-database-transact-sql?view=azuresqldb-current&preserve-view=true#e-failover-to-a-geo-replication-secondary)
 
 ## <a name="recover-using-geo-restore"></a>Ripristino tramite il ripristino geografico
 

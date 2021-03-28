@@ -6,12 +6,12 @@ ms.author: vimeht
 ms.date: 2/16/2021
 ms.topic: tutorial
 ms.service: iot-hub-device-update
-ms.openlocfilehash: 9468b3b53e0f7c435bf84b6ef99eb1e0f85d0c8e
-ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
+ms.openlocfilehash: ee09928cab6419d799d06de9cf2f69987e42d157
+ms.sourcegitcommit: c8b50a8aa8d9596ee3d4f3905bde94c984fc8aa2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/26/2021
-ms.locfileid: "105560268"
+ms.lasthandoff: 03/28/2021
+ms.locfileid: "105644441"
 ---
 # <a name="device-update-for-azure-iot-hub-tutorial-using-the-package-agent-on-ubuntu-server-1804-x64"></a>Esercitazione 18,04 sull'aggiornamento del dispositivo per l'hub di Azure
 
@@ -44,7 +44,7 @@ Per praticità, in questa esercitazione viene usato un modello di [Azure Resourc
 
 1. Per iniziare, fare clic sul pulsante seguente:
 
-   [![Pulsante Distribuisci in Azure per iotedge-vm-deploy](https://aka.ms/deploytoazurebutton)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fazure%2Fiotedge-vm-deploy%2F1.2.0-rc4%2FedgeDeploy.json)
+   [![Pulsante Distribuisci in Azure per iotedge-vm-deploy](https://aka.ms/deploytoazurebutton)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fazure%2Fiotedge-vm-deploy%2Fdevice-update-tutorial%2FedgeDeploy.json)
 
 1. Nella finestra appena avviata compilare i campi del modulo disponibili:
 
@@ -126,9 +126,9 @@ Leggere le condizioni di licenza prima di utilizzare un pacchetto. L'installazio
 
 1. Passare alle [versioni di aggiornamento del dispositivo](https://github.com/Azure/iot-hub-device-update/releases) in GitHub e fare clic sull'elenco a discesa "asset".
 
-3. Scaricare la facendo `apt-update-import-samples.zip` clic su di essa.
+3. Scaricare la facendo `Edge.package.update.samples.zip` clic su di essa.
 
-5. Estrarre il contenuto della cartella per individuare i vari esempi di aggiornamento e i manifesti di importazione corrispondenti. 
+5. Estrarre il contenuto della cartella per individuare un esempio di aggiornamento e i manifesti di importazione corrispondenti. 
 
 2. In portale di Azure selezionare l'opzione aggiornamenti del dispositivo in gestione automatica dispositivi dalla barra di spostamento a sinistra nell'hub.
 
@@ -136,10 +136,8 @@ Leggere le condizioni di licenza prima di utilizzare un pacchetto. L'installazio
 
 4. Selezionare "+ Importa nuovo aggiornamento".
 
-5. Selezionare l'icona della cartella o la casella di testo in "selezionare un file manifesto di importazione". Viene visualizzata una finestra di dialogo di selezione file. Selezionare il `sample-package-update-1.0.1-importManifest.json` manifesto di importazione dalla cartella scaricata in precedenza. Selezionare quindi l'icona della cartella o la casella di testo in "selezionare uno o più file di aggiornamento". Viene visualizzata una finestra di dialogo di selezione file. Selezionare il `sample-1.0.1-libcurl4-doc-apt-manifest.json` file di aggiornamento del manifesto APT dalla cartella scaricata in precedenza.
-Questo aggiornamento installerà la versione disponibile più recente di `libcurl4-doc package` nel dispositivo.
-
-   In alternativa, è possibile selezionare il file `sample-package-update-2-2.0.1-importManifest.json` manifesto di importazione e il `sample-2.0.1-libcurl4-doc-7.58-apt-manifest.json` file di aggiornamento del manifesto APT dalla cartella scaricata in precedenza. Verrà installata una versione specifica v 7.58.0 del nel `libcurl4-doc package` dispositivo.
+5. Selezionare l'icona della cartella o la casella di testo in "selezionare un file manifesto di importazione". Viene visualizzata una finestra di dialogo di selezione file. Selezionare il `sample-1.0.1-aziot-edge-importManifest.json` manifesto di importazione dalla cartella scaricata in precedenza. Selezionare quindi l'icona della cartella o la casella di testo in "selezionare uno o più file di aggiornamento". Viene visualizzata una finestra di dialogo di selezione file. Selezionare il `sample-1.0.1-aziot-edge-apt-manifest.json` file di aggiornamento del manifesto APT dalla cartella scaricata in precedenza.
+Con questo aggiornamento il `aziot-identity-service` e i pacchetti vengono aggiornati `aziot-edge` alla versione 1.2.0 ~ RC4-1 nel dispositivo.
 
    :::image type="content" source="media/import-update/select-update-files.png" alt-text="Screenshot che mostra la selezione del file di aggiornamento." lightbox="media/import-update/select-update-files.png":::
 
@@ -211,12 +209,6 @@ Questo aggiornamento installerà la versione disponibile più recente di `libcur
 1. Selezionare Aggiorna per visualizzare i dettagli più recenti sullo stato. Continuare questo processo fino a quando lo stato diventa succeeded.
 
 A questo punto è stato completato un aggiornamento end-to-end corretto con l'aggiornamento del dispositivo per l'hub Internet in un dispositivo Ubuntu server 18,04 x64. 
-
-## <a name="bonus-steps"></a>Passaggi bonus
-
-1. Ripetere le sezioni "Importa aggiornamento" e "Distribuisci aggiornamento"
-
-3. Durante il passaggio "importazione dell'aggiornamento" selezionare il `sample-package-update-1.0.2-importManifest.json` file manifesto di importazione e il `sample-1.0.2-libcurl4-doc-remove-apt-manifest.json` file di aggiornamento del manifesto APT dalla cartella scaricata in precedenza. Con questo aggiornamento verrà rimosso il `libcurl4-doc package` computer installato dal dispositivo.
 
 ## <a name="clean-up-resources"></a>Pulire le risorse
 

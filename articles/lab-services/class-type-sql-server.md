@@ -5,18 +5,18 @@ author: emaher
 ms.topic: article
 ms.date: 06/26/2020
 ms.author: enewman
-ms.openlocfilehash: 50f71ee1ce59f5809fe8905c58f0399cf484f11a
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: fb1b9e3458d08b8387c7f3978ff83c097fad2375
+ms.sourcegitcommit: c8b50a8aa8d9596ee3d4f3905bde94c984fc8aa2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "94659710"
+ms.lasthandoff: 03/28/2021
+ms.locfileid: "105644027"
 ---
 # <a name="set-up-a-lab-to-manage-and-develop-with-sql-server"></a>Configurare un Lab per la gestione e lo sviluppo con SQL Server
 
 Questo articolo descrive come configurare un Lab per una classe di sviluppo e gestione SQL Server di base in Azure Lab Services.  I concetti relativi ai database sono uno dei corsi introduttivi che hanno insegnato nella maggior parte dei reparti di informatica dell'Università. Structured Query Language (SQL) è uno standard internazionale.  SQL è il linguaggio standard per la gestione dei database relazionali, tra cui l'aggiunta, l'accesso e la gestione del contenuto in un database.  È più indicato per l'elaborazione rapida, l'affidabilità comprovata, la facilità e la flessibilità di utilizzo.
 
-Questo articolo illustra come configurare un modello di macchina virtuale in un Lab con [Visual Studio 2019](https://visualstudio.microsoft.com/vs/), [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms?view=sql-server-ver15)e [Azure Data Studio](https://github.com/microsoft/azuredatastudio).  Per questo Lab verrà usato un [database di SQL Server](../azure-sql/database/sql-database-paas-overview.md) condiviso per l'intero Lab. Il [database SQL di Azure](../azure-sql/database/sql-database-paas-overview.md) è una piattaforma distribuita come servizio (PaaS) motore di database offerta da Azure.
+Questo articolo illustra come configurare un modello di macchina virtuale in un Lab con [Visual Studio 2019](https://visualstudio.microsoft.com/vs/), [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms)e [Azure Data Studio](https://github.com/microsoft/azuredatastudio).  Per questo Lab verrà usato un [database di SQL Server](../azure-sql/database/sql-database-paas-overview.md) condiviso per l'intero Lab. Il [database SQL di Azure](../azure-sql/database/sql-database-paas-overview.md) è una piattaforma distribuita come servizio (PaaS) motore di database offerta da Azure.
 
 ## <a name="lab-configuration"></a>Configurazione del lab
 
@@ -82,9 +82,9 @@ Ora che il Lab è stato creato, modificare il computer modello con il software n
 
 ## <a name="visual-studio"></a>Visual Studio
 
-L'immagine scelta sopra include [Visual Studio 2019 community](https://visualstudio.microsoft.com/vs/community/).  Tutti i carichi di lavoro e i set di strumenti sono già installati nell'immagine.  Usare il Programma di installazione di Visual Studio per [installare gli strumenti facoltativi](/visualstudio/install/modify-visual-studio?view=vs-2019) eventualmente desiderati.  [Accedere a Visual Studio](/visualstudio/ide/signing-in-to-visual-studio?view=vs-2019#how-to-sign-in-to-visual-studio) per sbloccare la Community Edition.
+L'immagine scelta sopra include [Visual Studio 2019 community](https://visualstudio.microsoft.com/vs/community/).  Tutti i carichi di lavoro e i set di strumenti sono già installati nell'immagine.  Usare il Programma di installazione di Visual Studio per [installare gli strumenti facoltativi](/visualstudio/install/modify-visual-studio?view=vs-2019&preserve-view=true) eventualmente desiderati.  [Accedere a Visual Studio](/visualstudio/ide/signing-in-to-visual-studio?view=vs-2019&preserve-view=true#how-to-sign-in-to-visual-studio) per sbloccare la Community Edition.
 
-Visual Studio include il set di strumenti di **elaborazione e archiviazione dati** , che include SQL Server Data Tools (SSDT).  Per ulteriori informazioni sulle funzionalità di SSDT, vedere [Panoramica di SQL Server Data Tools](/sql/ssdt/sql-server-data-tools?view=sql-server-ver15).  Per verificare che la connessione al SQL Server condiviso per la classe venga completata correttamente, vedere [connettersi a un database e visualizzare gli oggetti esistenti](/sql/ssdt/how-to-connect-to-a-database-and-browse-existing-objects?view=sql-server-ver15). Se richiesto, aggiungere l'indirizzo IP del computer modello all' [elenco dei computer consentiti](../azure-sql/database/firewall-configure.md) in grado di connettersi all'istanza di SQL Server.
+Visual Studio include il set di strumenti di **elaborazione e archiviazione dati** , che include SQL Server Data Tools (SSDT).  Per ulteriori informazioni sulle funzionalità di SSDT, vedere [Panoramica di SQL Server Data Tools](/sql/ssdt/sql-server-data-tools).  Per verificare che la connessione al SQL Server condiviso per la classe venga completata correttamente, vedere [connettersi a un database e visualizzare gli oggetti esistenti](/sql/ssdt/how-to-connect-to-a-database-and-browse-existing-objects). Se richiesto, aggiungere l'indirizzo IP del computer modello all' [elenco dei computer consentiti](../azure-sql/database/firewall-configure.md) in grado di connettersi all'istanza di SQL Server.
 
 Visual Studio supporta diversi carichi di lavoro, inclusi i carichi di lavoro **Web & cloud** e **Desktop & per dispositivi mobili** .  Entrambi i carichi di lavoro supportano SQL Server come origine dati. Per altre informazioni sull'uso di ASP.NET Core per SQL Server, vedere [creare un'app del ASP.NET Core e del database SQL nel servizio app Azure](../app-service/tutorial-dotnetcore-sqldb-app.md) .  Usare la libreria [System. Data. SqlClient](/dotnet/api/system.data.sqlclient) per connettersi a un database SQL da un'app [Novell](/xamarin) .
 
@@ -113,7 +113,7 @@ Ora che Azure Data Studio è stato installato, è necessario configurare la conn
 
 ## <a name="install-sql-server-management-studio"></a>Installare SQL Server Management Studio
 
-[SQL Server Management Studio (SSMS)](/sql/ssms/download-sql-server-management-studio-ssms?view=sql-server-ver15) è un ambiente integrato per la gestione di qualsiasi infrastruttura SQL.  SSMS è uno strumento utilizzato dagli amministratori di database per la distribuzione, il monitoraggio e l'aggiornamento dell'infrastruttura di dati.
+[SQL Server Management Studio (SSMS)](/sql/ssms/download-sql-server-management-studio-ssms) è un ambiente integrato per la gestione di qualsiasi infrastruttura SQL.  SSMS è uno strumento utilizzato dagli amministratori di database per la distribuzione, il monitoraggio e l'aggiornamento dell'infrastruttura di dati.
 
 1. [Scaricare SQL Server Management Studio](https://aka.ms/ssmsfullsetup). Una volta scaricato, avviare il programma di installazione.
 2. Nella pagina di **benvenuto** fare clic su **Installa**.

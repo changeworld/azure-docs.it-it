@@ -8,16 +8,16 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 03/16/2020
+ms.date: 03/26/2021
 ms.author: trbye
-ms.openlocfilehash: c27493748381a3aced92aab41745f352f228c50e
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 903e8db14a2830236ae81a2a3b5416491d03e8c7
+ms.sourcegitcommit: c8b50a8aa8d9596ee3d4f3905bde94c984fc8aa2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "95024994"
+ms.lasthandoff: 03/28/2021
+ms.locfileid: "105643256"
 ---
-# <a name="what-is-conversation-transcription-in-meetings-preview"></a>Che cos'è la trascrizione delle conversazioni nelle riunioni (anteprima)?
+# <a name="what-is-conversation-transcription-preview"></a>Che cos'è la trascrizione delle conversazioni (anteprima)?
 
 La trascrizione delle conversazioni è una soluzione di [sintesi vocale](speech-to-text.md) che combina il riconoscimento vocale, l'identificazione del relatore e l'attribuzione di frasi a ogni altoparlante (anche noto come " _diare_") per fornire la trascrizione in tempo reale e/o asincrona di qualsiasi conversazione. La trascrizione delle conversazioni distingue gli speaker in una conversazione per determinare chi ha detto cosa e quando e rende più semplice per gli sviluppatori l'aggiunta di riconoscimento vocale alle applicazioni che eseguono la messa in funzione del MultiSpeaker.
 

@@ -1,10 +1,10 @@
 ---
-ms.openlocfilehash: 3ec650f82b95cdfabc923e92325959c63f2846de
-ms.sourcegitcommit: bed20f85722deec33050e0d8881e465f94c79ac2
+ms.openlocfilehash: 0f775f97a204bc758e632c92702b93227b47bc15
+ms.sourcegitcommit: c8b50a8aa8d9596ee3d4f3905bde94c984fc8aa2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/25/2021
-ms.locfileid: "105110745"
+ms.lasthandoff: 03/28/2021
+ms.locfileid: "105645376"
 ---
 ## <a name="add-managed-identity-to-your-communication-services-solution-js"></a>Aggiungere l'identità gestita alla soluzione di comunicazione dei servizi (JS)
 
@@ -27,7 +27,7 @@ import { CommunicationIdentityClient, CommunicationUserToken } from "@azure/comm
 import { SmsClient, SmsSendRequest } from "@azure/communication-sms";
 ```
 
-Gli esempi seguenti usano [DefaultAzureCredential](/javascript/api/azure.identity.defaultazurecredential). Questa credenziale è adatta per ambienti di produzione e di sviluppo.
+Gli esempi seguenti usano [DefaultAzureCredential](/javascript/api/@azure/identity/defaultazurecredential). Questa credenziale è adatta per ambienti di produzione e di sviluppo.
 
 Per registrare l'applicazione nell'ambiente di sviluppo e configurare le variabili di ambiente, vedere [autorizzare l'accesso con l'identità gestita](../managed-identity-from-cli.md)  
 

@@ -5,13 +5,13 @@ author: jifems
 ms.author: jife
 ms.service: data-share
 ms.topic: tutorial
-ms.date: 11/12/2020
-ms.openlocfilehash: a225989f0670e9b62b00a35bac719c9357c8a130
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.date: 03/24/2021
+ms.openlocfilehash: ccfda4975b6453ed67edc2640520bc0a76df5709
+ms.sourcegitcommit: c8b50a8aa8d9596ee3d4f3905bde94c984fc8aa2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "96017050"
+ms.lasthandoff: 03/28/2021
+ms.locfileid: "105644882"
 ---
 # <a name="tutorial-accept-and-receive-data-using-azure-data-share"></a>Esercitazione: Accettare e ricevere dati con Condivisione dati di Azure  
 
@@ -42,23 +42,10 @@ Assicurarsi che tutti i prerequisiti siano soddisfatti prima di accettare un inv
 Se si sceglie di ricevere dati in Database SQL di Azure o Azure Synapse Analytics, ecco l'elenco di prerequisiti. 
 
 #### <a name="prerequisites-for-receiving-data-into-azure-sql-database-or-azure-synapse-analytics-formerly-azure-sql-dw"></a>Prerequisiti per la ricezione di dati in Database SQL di Azure o Azure Synapse Analytics (in precedenza Azure SQL Data Warehouse)
-Per configurare i prerequisiti, è possibile seguire la [demo dettagliata](https://youtu.be/aeGISgK1xro).
 
 * Un'istanza di Database SQL di Azure o di Azure Synapse Analytics (in precedenza SQL Data Warehouse).
 * Autorizzazione per la scrittura nei database del server SQL, disponibile in *Microsoft.Sql/servers/databases/write*. Questa autorizzazione è presente nel ruolo di **collaboratore**. 
-* Autorizzazione per l'identità gestita della risorsa Condivisione dati per l'accesso a Database SQL di Azure o ad Azure Synapse Analytics. A tale scopo, seguire questa procedura: 
-    1. Nel portale di Azure passare al server SQL e impostare se stessi come **amministratore di Azure Active Directory**.
-    1. Connettersi all'istanza di Database SQL di Azure/Data Warehouse usando l'[editor di query](../azure-sql/database/connect-query-portal.md#connect-using-azure-active-directory) o SQL Server Management Studio con l'autenticazione di Azure Active Directory. 
-    1. Eseguire lo script seguente per aggiungere l'identità gestita di Condivisione dati come 'db_datareader, db_datawriter, db_ddladmin'. È necessario connettersi usando Active Directory e non l'autenticazione di SQL Server. 
-
-        ```sql
-        create user "<share_acc_name>" from external provider; 
-        exec sp_addrolemember db_datareader, "<share_acc_name>"; 
-        exec sp_addrolemember db_datawriter, "<share_acc_name>"; 
-        exec sp_addrolemember db_ddladmin, "<share_acc_name>";
-        ```      
-        Si noti che *<share_acc_name>* è il nome della risorsa Condivisione dati. Se ancora non si è provveduto a creare una risorsa Condivisione dati, è possibile tornare a questo prerequisito in un secondo momento.         
-
+* **Azure Active Directory amministratore** di SQL Server
 * Accesso al firewall di SQL Server. A tale scopo, seguire questa procedura: 
     1. Nel portale di Azure in SQL Server passare a *Firewall e reti virtuali*
     1. Fare clic su **Sì** per *Consenti alle risorse e ai servizi di Azure di accedere a questo server*.
@@ -92,7 +79,6 @@ Per configurare i prerequisiti, è possibile seguire la [demo dettagliata](https
 
 * Un cluster di Esplora dati di Azure nello stesso data center di Azure del cluster di Esplora dati del provider di dati: Se non si è già provveduto, è possibile creare un [cluster di Esplora dati di Azure](/azure/data-explorer/create-cluster-database-portal). Se non si conosce il data center di Azure del cluster del provider di dati, è possibile creare il cluster in un secondo momento del processo.
 * Autorizzazione per la scrittura nel cluster di Esplora dati di Azure, disponibile in *Microsoft.Kusto/clusters/write*. Questa autorizzazione è presente nel ruolo Collaboratore. 
-* Autorizzazione per aggiungere l'assegnazione di ruolo al cluster di Esplora dati di Azure, disponibile in *Microsoft.Authorization/role assignments/write*. Questa autorizzazione è presente nel ruolo Proprietario. 
 
 ## <a name="sign-in-to-the-azure-portal"></a>Accedere al portale di Azure
 
@@ -175,13 +161,13 @@ Seguire questa procedura per configurare la posizione in cui si desidera ricever
 
    ![Esegui mapping alla destinazione](./media/dataset-map-target.png "Esegui mapping alla destinazione") 
 
-1. Selezionare un tipo di archivio dati di destinazione in cui verranno ospitati i dati. Eventuali tabelle o file di dati nell'archivio dati di destinazione con lo stesso percorso e nome verranno sovrascritti. 
+1. Selezionare un tipo di archivio dati di destinazione in cui verranno ospitati i dati. Eventuali tabelle o file di dati nell'archivio dati di destinazione con lo stesso percorso e nome verranno sovrascritti. Se si ricevono dati nel database SQL di Azure o in Azure sinapsi Analytics (in precedenza Azure SQL DW), selezionare la casella **di controllo Consenti condivisione dati per eseguire lo script di creazione utente precedente per conto dell'utente**.
 
    Per la condivisione sul posto selezionare un archivio dati nella località specificata. La località è il data center di Azure in cui si trova l'archivio dati di origine del provider di dati. Una volta eseguito il mapping del set di dati, è possibile seguire il collegamento nel percorso di destinazione per accedere ai dati.
 
    ![Account di archiviazione di destinazione](./media/dataset-map-target-sql.png "Archiviazione di destinazione") 
 
-1. Per la condivisione basata su snapshot, se il provider di dati ha creato una pianificazione degli snapshot per fornire aggiornamenti regolari ai dati, è anche possibile abilitare la pianificazione degli snapshot selezionando la scheda **Pianificazione degli snapshot**. Selezionare la casella accanto alla pianificazione degli snapshot e selezionare **+ Abilita**.
+1. Per la condivisione basata su snapshot, se il provider di dati ha creato una pianificazione degli snapshot per fornire aggiornamenti regolari ai dati, è anche possibile abilitare la pianificazione degli snapshot selezionando la scheda **Pianificazione degli snapshot**. Selezionare la casella accanto alla pianificazione degli snapshot e selezionare **+ Abilita**. Si noti che il primo snapshot pianificato viene avviato entro un minuto dall'ora di pianificazione e gli snapshot successivi vengono avviati entro pochi secondi dall'orario pianificato.
 
    ![Abilitare la pianificazione degli snapshot](./media/enable-snapshot-schedule.png "Abilitare la pianificazione degli snapshot")
 

@@ -11,14 +11,14 @@ ms.devlang: NA
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/26/2017
+ms.date: 03/26/2021
 ms.author: aldomel
-ms.openlocfilehash: bd46a09653f4d479ed0a09b73868d938aff1b825
-ms.sourcegitcommit: 73d80a95e28618f5dfd719647ff37a8ab157a668
+ms.openlocfilehash: c8d188c7bb7034cda450049c3d4912cc1517dae5
+ms.sourcegitcommit: c8b50a8aa8d9596ee3d4f3905bde94c984fc8aa2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/26/2021
-ms.locfileid: "105605213"
+ms.lasthandoff: 03/28/2021
+ms.locfileid: "105645273"
 ---
 # <a name="virtual-network-traffic-routing"></a>Routing del traffico di rete virtuale
 
@@ -96,10 +96,12 @@ Le route personalizzate vengono create con route [definite dall'utente](#user-de
 
 Non è possibile specificare **Peering di rete virtuale** o **VirtualNetworkServiceEndpoint** come tipo di hop successivo nelle route definite dall'utente. Le route con tipi di hop successivi **Peering di rete virtuale** o **VirtualNetworkServiceEndpoint** vengono create da Azure solo quando si configura un peering di rete virtuale oppure un endpoint di servizio.
 
-### <a name="service-tags-for-user-defined-routes-public-preview"></a>Tag del servizio per le route definite dall'utente (anteprima pubblica)
+### <a name="service-tags-for-user-defined-routes-preview"></a>Tag di servizio per le route definite dall'utente (anteprima)
 
 È ora possibile specificare un [tag di servizio](service-tags-overview.md) come prefisso dell'indirizzo per una route definita dall'utente anziché un intervallo IP esplicito. Un tag di servizio rappresenta un gruppo di prefissi di indirizzi IP da un determinato servizio di Azure. Microsoft gestisce i prefissi di indirizzo inclusi nel tag del servizio e aggiorna automaticamente il tag di servizio in base alla modifica degli indirizzi, riducendo al minimo la complessità degli aggiornamenti frequenti alle route definite dall'utente e riducendo il numero di route che è necessario creare. È attualmente possibile creare 25 o meno route con tag di servizio in ogni tabella di route. </br>
 
+> [!IMPORTANT]
+> I tag di servizio per le route definite dall'utente sono attualmente in anteprima. Questa versione di anteprima viene messa a disposizione senza contratto di servizio e non è consigliata per i carichi di lavoro di produzione. Alcune funzionalità potrebbero non essere supportate o potrebbero presentare funzionalità limitate. Per altre informazioni, vedere [Condizioni supplementari per l'utilizzo delle anteprime di Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 #### <a name="exact-match"></a>Corrispondenza esatta
 Quando esiste una corrispondenza esatta con prefisso tra una route con un prefisso IP esplicito e una route con un tag di servizio, la preferenza viene assegnata alla route con il prefisso esplicito. Quando più route con tag di servizio hanno prefissi IP corrispondenti, le route verranno valutate nell'ordine seguente: 

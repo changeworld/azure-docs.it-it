@@ -3,12 +3,12 @@ title: Configurare un Lab per l'uso di Desktop remoto Gateway in Azure DevTest L
 description: Informazioni su come configurare un Lab in Azure DevTest Labs con Gateway Desktop remoto per garantire l'accesso sicuro alle macchine virtuali del Lab senza dover esporre la porta RDP.
 ms.topic: article
 ms.date: 06/26/2020
-ms.openlocfilehash: dcf5191dea64c3d7bf28b9ce1c616d3d2defb73e
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: b15d4d39199c1a30eae292ece67f4553b656f530
+ms.sourcegitcommit: c8b50a8aa8d9596ee3d4f3905bde94c984fc8aa2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "97695685"
+ms.lasthandoff: 03/28/2021
+ms.locfileid: "105639595"
 ---
 # <a name="configure-your-lab-in-azure-devtest-labs-to-use-a-remote-desktop-gateway"></a>Configurare il Lab in Azure DevTest Labs per l'uso di un Gateway Desktop remoto
 In Azure DevTest Labs, è possibile configurare un Gateway Desktop remoto per il Lab per garantire l'accesso sicuro alle macchine virtuali (VM) Lab senza dover esporre la porta RDP. Il Lab fornisce una posizione centralizzata in cui gli utenti del Lab possono visualizzare e connettersi a tutte le macchine virtuali a cui hanno accesso. Il pulsante **Connetti** nella pagina **macchina virtuale** crea un file RDP specifico del computer che è possibile aprire per connettersi al computer. È possibile personalizzare ulteriormente e proteggere la connessione RDP connettendo il Lab a un Gateway Desktop remoto. 
@@ -36,7 +36,7 @@ Per usare la funzionalità di autenticazione dei token di DevTest Labs, esistono
 ### <a name="requirements-for-remote-desktop-gateway-machines"></a>Requisiti per i computer Gateway Desktop remoto
 - Il certificato TLS/SSL deve essere installato nel computer del gateway per gestire il traffico HTTPS. Il certificato deve corrispondere al nome di dominio completo (FQDN) del servizio di bilanciamento del carico per la farm del gateway o al nome di dominio completo (FQDN) del computer stesso se è presente un solo computer. I certificati TLS/SSL Wild Card non funzionano.  
 - Un certificato di firma installato nei computer gateway. Creare un certificato di firma utilizzando [Create-SigningCertificate.ps1](https://github.com/Azure/azure-devtestlab/blob/master/samples/DevTestLabs/GatewaySample/tools/Create-SigningCertificate.ps1) script.
-- Installare il modulo di [autenticazione collegabile](https://code.msdn.microsoft.com/windowsdesktop/Remote-Desktop-Gateway-517d6273) che supporta l'autenticazione basata su token per Gateway Desktop remoto. Un esempio di tale modulo è `RDGatewayFedAuth.msi` incluso nelle [Immagini System Center Virtual Machine Manager (VMM)](/system-center/vmm/install-console?view=sc-vmm-1807). Per ulteriori informazioni su System Center, vedere la [documentazione di System Center](/system-center/) e [i dettagli relativi ai prezzi](https://www.microsoft.com/cloud-platform/system-center-pricing).  
+- Installare il modulo di [autenticazione collegabile](https://code.msdn.microsoft.com/windowsdesktop/Remote-Desktop-Gateway-517d6273) che supporta l'autenticazione basata su token per Gateway Desktop remoto. Un esempio di tale modulo è `RDGatewayFedAuth.msi` incluso nelle [Immagini System Center Virtual Machine Manager (VMM)](/system-center/vmm/install-console?view=sc-vmm-1807&preserve-view=true). Per ulteriori informazioni su System Center, vedere la [documentazione di System Center](/system-center/) e [i dettagli relativi ai prezzi](https://www.microsoft.com/cloud-platform/system-center-pricing).  
 - Il server gateway è in grado di gestire le richieste effettuate a `https://{gateway-hostname}/api/host/{lab-machine-name}/port/{port-number}` .
 
     Gateway-hostname è il nome di dominio completo del servizio di bilanciamento del carico della farm del gateway o il nome di dominio completo (FQDN) del computer se è presente un solo computer. `{lab-machine-name}`È il nome del computer lab a cui si sta tentando di connettersi e la `{port-number}` porta is su cui verrà effettuata la connessione.  Per impostazione predefinita, questa porta è 3389.  Tuttavia, se la macchina virtuale usa la funzionalità [IP condivisa](devtest-lab-shared-ip.md) in DevTest Labs, la porta sarà diversa.
@@ -105,14 +105,14 @@ Per configurare una soluzione di esempio per la farm di Gateway Desktop remoto, 
 
     ```powershell
     $cer = New-Object System.Security.Cryptography.X509Certificates.X509Certificate;
-    $cer.Import(‘path-to-certificate’);
+    $cer.Import('path-to-certificate');
     $hash = $cer.GetCertHashString()
     ```
 
     Per ottenere la codifica Base64 usando PowerShell, usare il comando seguente.
 
     ```powershell
-    [System.Convert]::ToBase64String([System.IO.File]::ReadAllBytes(‘path-to-certificate’))
+    [System.Convert]::ToBase64String([System.IO.File]::ReadAllBytes('path-to-certificate'))
     ```
 3. Scaricare i file da [https://github.com/Azure/azure-devtestlab/tree/master/samples/DevTestLabs/GatewaySample/arm/gateway](https://github.com/Azure/azure-devtestlab/tree/master/samples/DevTestLabs/GatewaySample/arm/gateway) .
 

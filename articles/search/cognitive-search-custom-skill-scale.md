@@ -8,12 +8,12 @@ ms.author: vikurpad
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 01/28/2021
-ms.openlocfilehash: ccee8537c2543b67c1bb60711737ec761ebc8cbf
-ms.sourcegitcommit: ed7376d919a66edcba3566efdee4bc3351c57eda
+ms.openlocfilehash: 4fdc222fa20aef6639bf6d5d485f7dcf6b6ca535
+ms.sourcegitcommit: c8b50a8aa8d9596ee3d4f3905bde94c984fc8aa2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/24/2021
-ms.locfileid: "105043071"
+ms.lasthandoff: 03/28/2021
+ms.locfileid: "105641143"
 ---
 # <a name="efficiently-scale-out-a-custom-skill"></a>Ridimensionare in modo efficiente un'abilità personalizzata
 
@@ -26,7 +26,7 @@ Le competenze personalizzate sono API Web che implementano un'interfaccia specif
 
 + Esaminare l' [interfaccia skill personalizzata](cognitive-search-custom-skill-interface.md) per un'introduzione all'interfaccia di input/output che deve essere implementata da un'abilità personalizzata.
 
-+ Configurare l'ambiente. È possibile iniziare con [questa esercitazione end-to-end](/python/tutorial-vs-code-serverless-python-01) per configurare la funzione di Azure senza server usando le estensioni Visual Studio Code e Python.
++ Configurare l'ambiente. È possibile iniziare con [questa esercitazione end-to-end](/azure/azure-functions/create-first-function-vs-code-python) per configurare la funzione di Azure senza server usando le estensioni Visual Studio Code e Python.
 
 ## <a name="skillset-configuration"></a>Configurazione delle competenze
 

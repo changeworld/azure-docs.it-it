@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 02/02/2021
 ms.author: timlt
-ms.openlocfilehash: 3f0ec053d806208b4a3c15604714f6bdb87399e7
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
+ms.openlocfilehash: e8fb6985da5046d0a1bad171cbc9742a15baf1af
+ms.sourcegitcommit: c8b50a8aa8d9596ee3d4f3905bde94c984fc8aa2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102613222"
+ms.lasthandoff: 03/28/2021
+ms.locfileid: "105643433"
 ---
 # <a name="storsimple-8000-series-a-hybrid-cloud-storage-solution"></a>Serie 8000 StorSimple: una soluzione di archiviazione cloud ibrida
 
@@ -255,7 +255,7 @@ Di seguito è riportato un elenco di altri software usati con StorSimple per cre
 | Destinazione backup |Veeam |Veeam 9 e versioni successive |[StorSimple come destinazione di backup con Veeam](storsimple-configure-backup-target-veeam.md)|
 | Destinazione backup |Veritas Backup Exec |Backup Exec 16 e versioni successive |[StorSimple come destinazione di backup con Backup Exec](storsimple-configure-backup-target-using-backup-exec.md)|
 | Destinazione backup |Veritas NetBackup |NetBackup 7.7.x e versioni successive  |[StorSimple come destinazione di backup con NetBackup](storsimple-configure-backuptarget-netbackup.md)|
-| Condivisione globale file <br></br> Collaborazione |Talon  |[StorSimple con Talon](https://www.talonstorage.com/products/archive/fast-deployment-azure-storsimple) | |
+| Condivisione globale file <br></br> Collaborazione |Talon  |[StorSimple con Talon](https://www.theinfostride.com/talon-and-microsoft-to-host-azure-storsimple-web-conference-with-capita/) | |
 
 ## <a name="storsimple-terminology"></a>Terminologia di StorSimple
 Prima di distribuire la soluzione Microsoft Azure StorSimple, è consigliabile esaminare i seguenti termini e definizioni.

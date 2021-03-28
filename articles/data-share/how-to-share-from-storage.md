@@ -6,12 +6,12 @@ ms.author: jife
 ms.service: data-share
 ms.topic: how-to
 ms.date: 02/23/2021
-ms.openlocfilehash: dc309e85373193e4f5d431f543ff3e59ea5bebc7
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: c94d6f7d4d06d7dbaa6a2ad54f94575a6cc85d33
+ms.sourcegitcommit: c8b50a8aa8d9596ee3d4f3905bde94c984fc8aa2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101739263"
+ms.lasthandoff: 03/28/2021
+ms.locfileid: "105644663"
 ---
 # <a name="share-and-receive-data-from-azure-blob-storage-and-azure-data-lake-storage"></a>Condividere e ricevere dati da Archiviazione BLOB di Azure e Azure Data Lake Storage
 
@@ -178,7 +178,7 @@ Eseguire la procedura descritta in questa sezione per configurare un percorso pe
 
    ![Screenshot che mostra dove selezionare un account di archiviazione di destinazione.](./media/map-target.png "Archiviazione di destinazione.") 
 
-1. Per la condivisione basata su snapshot, se il provider di dati utilizza una pianificazione snapshot per aggiornare regolarmente i dati, è possibile abilitare la pianificazione dalla scheda **pianificazione snapshot** . Selezionare la casella accanto alla pianificazione dello snapshot. Selezionare quindi **Abilita**.
+1. Per la condivisione basata su snapshot, se il provider di dati utilizza una pianificazione snapshot per aggiornare regolarmente i dati, è possibile abilitare la pianificazione dalla scheda **pianificazione snapshot** . Selezionare la casella accanto alla pianificazione dello snapshot. Selezionare quindi **Abilita**. Si noti che il primo snapshot pianificato viene avviato entro un minuto dall'ora di pianificazione e gli snapshot successivi vengono avviati entro pochi secondi dall'orario pianificato.
 
    ![Screenshot che illustra come abilitare una pianificazione dello snapshot.](./media/enable-snapshot-schedule.png "Abilitare la pianificazione dello snapshot.")
 

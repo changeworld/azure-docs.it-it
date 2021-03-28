@@ -2,25 +2,19 @@
 title: Flusso Widevine Android offline
 description: Questo argomento illustra come configurare l'account di servizi multimediali di Azure V3 per lo streaming offline di contenuto protetto da Widevine.
 services: media-services
-keywords: DASH, DRM, modalità offline Widevine, ExoPlayer, Android
-documentationcenter: ''
 author: willzhan
-manager: steveng
-editor: ''
+manager: femila
 ms.service: media-services
 ms.workload: media
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
-ms.date: 08/31/2020
-ms.author: willzhan
-ms.custom: devx-track-csharp
-ms.openlocfilehash: 4c7adab9c14075e12cf5656f9e798e78ff26ff0b
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.date: 03/25/2021
+ms.author: inhenkel
+ms.openlocfilehash: c19a8dd4f9a4b715b5f81a5a349edbffc2f7dea2
+ms.sourcegitcommit: c8b50a8aa8d9596ee3d4f3905bde94c984fc8aa2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98955208"
+ms.lasthandoff: 03/28/2021
+ms.locfileid: "105640694"
 ---
 # <a name="offline-widevine-streaming-for-android-with-media-services-v3"></a>Streaming Widevine offline per Android con servizi multimediali V3
 
@@ -47,7 +41,7 @@ L'articolo include inoltre le risposte ad alcune domande frequenti relative allo
 > [!NOTE]
 > Il DRM offline viene addebitato solo per l'esecuzione di una singola richiesta di licenza quando si Scarica il contenuto. Eventuali errori non vengono addebitati.
 
-## <a name="prerequisites"></a>Prerequisiti 
+## <a name="prerequisites"></a>Prerequisiti
 
 Prima di implementare la tecnologia DRM offline per Widevine su dispositivi Android, è necessario:
 
@@ -158,14 +152,8 @@ Questa app PWA open source è stata creata in Node.js. Se si vuole ospitare una 
     - Il certificato deve avere una CA attendibile. Non è possibile usare un certificato di sviluppo autofirmato.
     - Il certificato deve inoltre avere un nome comune (CN) corrispondente al nome DNS del server Web o del gateway.
 
-## <a name="faqs"></a>Domande frequenti
+## <a name="more-information"></a>Ulteriori informazioni
 
-Per altre informazioni, vedere [domande frequenti su Widevine](frequently-asked-questions.md#widevine-streaming-for-android).
-
-## <a name="additional-notes"></a>Note aggiuntive
+Per ulteriori informazioni, vedere [Widevine nella raccolta questions](questions-collection.md#widevine-streaming-for-android).
 
 Widevine è un servizio fornito da Google Inc. e soggetto alle condizioni per l'utilizzo e all'informativa sulla privacy di Google Inc.
-
-## <a name="summary"></a>Riepilogo
-
-Questo articolo ha illustrato come implementare la riproduzione in modalità offline per contenuto DASH protetto da Widevine su dispositivi Android.  Sono state inoltre fornite le risposte ad alcune domande frequenti relative allo streaming offline di contenuto protetto da Widevine.

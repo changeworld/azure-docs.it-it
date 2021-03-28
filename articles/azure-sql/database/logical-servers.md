@@ -12,12 +12,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 03/12/2019
-ms.openlocfilehash: e0736e58983d4c28b8f2f4a20241cd36ac84fdfa
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 09e8ef85b6df48b6b442351135d4ae4ed55e9b45
+ms.sourcegitcommit: c8b50a8aa8d9596ee3d4f3905bde94c984fc8aa2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "96445368"
+ms.lasthandoff: 03/28/2021
+ms.locfileid: "105641070"
 ---
 # <a name="what-is-a-logical-sql-server-in-azure-sql-database-and-azure-synapse"></a>Che cos'è un server SQL logico nel database SQL di Azure e in una sinapsi di Azure?
 [!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]
@@ -147,10 +147,10 @@ Per creare e gestire server, database e firewall con Transact-SQL, usare i coman
 
 | Comando | Descrizione |
 | --- | --- |
-|[CREATE DATABASE (database SQL di Azure)](/sql/t-sql/statements/create-database-transact-sql?view=azuresqldb-current) | Crea un nuovo database nel database SQL di Azure. È necessario essere connessi al database master per creare un nuovo database.|
-|[CREATE DATABASE (sinapsi di Azure)](/sql/t-sql/statements/create-database-transact-sql?view=azure-sqldw-latest) | Consente di creare un nuovo database di data warehouse in sinapsi di Azure. È necessario essere connessi al database master per creare un nuovo database.|
-| [ALTER DATABASE (database SQL di Azure)](/sql/t-sql/statements/alter-database-transact-sql?view=azuresqldb-current) |Modifica il database o il pool elastico. |
-|[ALTER DATABASE (Azure sinapsi Analytics)](/sql/t-sql/statements/alter-database-transact-sql?view=sql-server-ver15)|Modifica un database data warehouse in sinapsi di Azure.|
+|[CREATE DATABASE (database SQL di Azure)](/sql/t-sql/statements/create-database-transact-sql?view=azuresqldb-current&preserve-view=true) | Crea un nuovo database nel database SQL di Azure. È necessario essere connessi al database master per creare un nuovo database.|
+|[CREATE DATABASE (sinapsi di Azure)](/sql/t-sql/statements/create-database-transact-sql?view=azure-sqldw-latest&preserve-view=true) | Consente di creare un nuovo database di data warehouse in sinapsi di Azure. È necessario essere connessi al database master per creare un nuovo database.|
+| [ALTER DATABASE (database SQL di Azure)](/sql/t-sql/statements/alter-database-transact-sql?view=azuresqldb-current&preserve-view=true) |Modifica il database o il pool elastico. |
+|[ALTER DATABASE (Azure sinapsi Analytics)](/sql/t-sql/statements/alter-database-transact-sql?view=azure-sqldw-latest&preserve-view=true&tabs=sqlpool)|Modifica un database data warehouse in sinapsi di Azure.|
 |[DROP DATABASE (Transact-SQL)](/sql/t-sql/statements/drop-database-transact-sql)|Questo comando elimina un database.|
 |[sys.database_service_objectives (database SQL di Azure)](/sql/relational-databases/system-catalog-views/sys-database-service-objectives-azure-sql-database)|Restituisce l'edizione (livello di servizio), l'obiettivo di servizio (piano tariffario) e il nome del pool elastico, se presente, per un database. Se si è connessi al database master per un server, in vengono restituite informazioni su tutti i database. Per la sinapsi di Azure, è necessario essere connessi al database master.|
 |[sys.dm_db_resource_stats (Database SQL di Azure)](/sql/relational-databases/system-dynamic-management-views/sys-dm-db-resource-stats-azure-sql-database)| Restituisce il consumo di CPU, IO e memoria per un database nel database SQL di Azure. È presente una riga per ogni 15 secondi, anche se non esiste alcuna attività nel database.|

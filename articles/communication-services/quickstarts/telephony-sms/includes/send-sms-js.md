@@ -10,12 +10,12 @@ ms.date: 03/11/2021
 ms.topic: include
 ms.custom: include file
 ms.author: bertong
-ms.openlocfilehash: b0a173d605da859830e288aebf355117b928090a
-ms.sourcegitcommit: bed20f85722deec33050e0d8881e465f94c79ac2
+ms.openlocfilehash: 8fe8b853fe07af40603950a61c0dd2a1df74d14e
+ms.sourcegitcommit: c8b50a8aa8d9596ee3d4f3905bde94c984fc8aa2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/25/2021
-ms.locfileid: "105110357"
+ms.lasthandoff: 03/28/2021
+ms.locfileid: "105644366"
 ---
 Per iniziare a usare i servizi di comunicazione di Azure, usare il servizio di comunicazione JavaScript SMS SDK per inviare messaggi SMS.
 
@@ -72,15 +72,15 @@ Le classi e le interfacce seguenti gestiscono alcune delle principali funzionali
 | Nome                                  | Descrizione                                                  |
 | ------------------------------------- | ------------------------------------------------------------ |
 | SmsClient | Questa classe è necessaria per tutte le funzionalità SMS. È possibile crearne un'istanza con le informazioni della sottoscrizione e usarla per inviare messaggi SMS. |
-| SmsSendResult               | Questa classe contiene il risultato del servizio SMS.                                          |
-| SmsSendOptions | Questa interfaccia fornisce opzioni per la configurazione della creazione di report di recapito. Se `enableDeliveryReport` è impostato su `true` , verrà generato un evento quando il recapito ha esito positivo. |
 | SmsSendRequest | Questa interfaccia è il modello per la creazione della richiesta SMS, ad esempio configurare i numeri di telefono del mittente e del destinatario e il contenuto dell'SMS. |
+| SmsSendOptions | Questa interfaccia fornisce opzioni per la configurazione della creazione di report di recapito. Se `enableDeliveryReport` è impostato su `true` , verrà generato un evento quando il recapito ha esito positivo. |
+| SmsSendResult               | Questa classe contiene il risultato del servizio SMS.                                          |
 
 ## <a name="authenticate-the-client"></a>Autenticare il client
 
 Importare **SmsClient** dall'SDK e crearne un'istanza con la stringa di connessione. Il codice seguente recupera la stringa di connessione per la risorsa da una variabile di ambiente denominata `COMMUNICATION_SERVICES_CONNECTION_STRING`. Informazioni su come [gestire la stringa di connessione della risorsa](../../create-communication-resource.md#store-your-connection-string).
 
-Aggiungere il codice seguente al file **send-sms.js**:
+Creare e aprire un file denominato **send-sms.js** e aggiungere il codice seguente:
 
 ```javascript
 const { SmsClient } = require('@azure/communication-sms');
@@ -95,7 +95,7 @@ const smsClient = new SmsClient(connectionString);
 
 ## <a name="send-a-1n-sms-message"></a>Invia un messaggio SMS 1: N
 
-Per inviare un messaggio SMS a un elenco di destinatari, chiamare la `send` funzione da SmsClient con un elenco di numeri di telefono dei destinatari (se si desidera inviare un messaggio a un singolo destinatario, includere solo un numero nell'elenco). Aggiungere questo codice alla fine del file **send-sms.js**:
+Per inviare un messaggio SMS a un elenco di destinatari, chiamare la `send` funzione da SmsClient con un elenco di numeri di telefono dei destinatari (se si desidera inviare un messaggio a un singolo destinatario, includere solo un numero nell'elenco). Aggiungere questo codice alla fine del **send-sms.js**:
 
 ```javascript
 async function main() {
@@ -118,7 +118,10 @@ async function main() {
 
 main();
 ```
-È necessario sostituire `<from-phone-number>` con un numero di telefono abilitato per SMS associato alla risorsa di Servizi di comunicazione e `<to-phone-number>` con il numero di telefono a cui si desidera inviare un messaggio.
+È necessario sostituire `<from-phone-number>` con un numero di telefono abilitato per SMS associato alla risorsa servizi di comunicazione `<to-phone-number-1>` e `<to-phone-number-2>` con i numeri di telefono a cui si desidera inviare un messaggio.
+
+> [!WARNING]
+> Si noti che i numeri di telefono devono essere specificati nel formato standard internazionale E.164, (ad esempio: + 14255550123).
 
 ## <a name="send-a-1n-sms-message-with-options"></a>Invia un messaggio SMS 1: N con opzioni
 
@@ -127,12 +130,12 @@ main();
 ```javascript
 
 async function main() {
-  await smsClient.send({
+  const sendResults = await smsClient.send({
     from: "<from-phone-number>",
     to: ["<to-phone-number-1>", "<to-phone-number-2>"],
     message: "Weekly Promotion!"
   }, {
-    //Optional parameter
+    //Optional parameters
     enableDeliveryReport: true,
     tag: "marketing"
   });
@@ -150,6 +153,11 @@ async function main() {
 
 main();
 ```
+
+È necessario sostituire `<from-phone-number>` con un numero di telefono abilitato per SMS associato alla risorsa servizi di comunicazione `<to-phone-number-1>` e `<to-phone-number-2>` con i numeri di telefono a cui si desidera inviare un messaggio.
+
+> [!WARNING]
+> Si noti che i numeri di telefono devono essere specificati nel formato standard internazionale E.164, (ad esempio: + 14255550123).
 
 Il parametro `enableDeliveryReport` è facoltativo ed è possibile usarlo per configurare i report di recapito. È utile per gli scenari in cui si vogliono generare eventi quando vengono recapitati messaggi SMS. Per configurare i report di recapito per i messaggi SMS, vedere la guida di avvio rapido [Gestire gli eventi SMS](../handle-sms-events.md).
 `tag` è un parametro facoltativo che è possibile utilizzare per applicare un tag al report di recapito.

@@ -13,12 +13,12 @@ ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: 4fbb09a2687673ef96252d8bdb0523d0c5f235ae
-ms.sourcegitcommit: 2c1b93301174fccea00798df08e08872f53f669c
+ms.openlocfilehash: ccad323c1834894367cca0ef0d3f98eb1b1b1ec3
+ms.sourcegitcommit: c8b50a8aa8d9596ee3d4f3905bde94c984fc8aa2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/22/2021
-ms.locfileid: "104772026"
+ms.lasthandoff: 03/28/2021
+ms.locfileid: "105639923"
 ---
 # <a name="embedded-sign-in-experience"></a>Esperienza di accesso incorporata
 
@@ -45,7 +45,7 @@ L'elemento inline frame `<iframe>` viene usato per incorporare un documento in u
 Quando si usa iframe, tenere presente quanto segue:
 
 - L'accesso incorporato supporta solo gli account locali. La maggior parte dei provider di identità di social networking (ad esempio Google e Facebook) blocca il rendering delle pagine di accesso in frame inline.
-- Poiché Azure AD B2C cookie di sessione all'interno di un IFRAME sono considerati cookie di terze parti, alcuni browser (ad esempio Safari o Chrome in modalità Incognito) bloccano o cancellano questi cookie, causando un'esperienza utente indesiderata. Per evitare questo problema, assicurarsi che il nome di dominio dell'applicazione e il dominio di Azure AD B2C abbiano la *stessa origine*. Per usare la stessa origine, [abilitare i domini personalizzati](custom-domain.md) per Azure ad B2C tenant, quindi configurare l'app Web con la stessa origine. Ad esempio, un'applicazione ospitata in https://app.contoso.com ha la stessa origine del Azure ad B2C in esecuzione in https://login.contoso.com .
+- Poiché Azure AD B2C cookie di sessione all'interno di un IFRAME sono considerati cookie di terze parti, alcuni browser (ad esempio Safari o Chrome in modalità Incognito) bloccano o cancellano questi cookie, causando un'esperienza utente indesiderata. Per evitare questo problema, assicurarsi che il nome di dominio dell'applicazione e il dominio di Azure AD B2C abbiano la *stessa origine*. Per usare la stessa origine, [abilitare i domini personalizzati](custom-domain.md) per Azure ad B2C tenant, quindi configurare l'app Web con la stessa origine. Ad esempio, un'applicazione ospitata in ' https://app.contoso.com ' ha la stessa origine del Azure ad B2C in esecuzione su' https://login.contoso.com '.
 
 ## <a name="prerequisites"></a>Prerequisiti
 

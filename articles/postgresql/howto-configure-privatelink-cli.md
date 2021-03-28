@@ -7,12 +7,12 @@ ms.service: postgresql
 ms.topic: how-to
 ms.date: 01/09/2020
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: b8aaebdd37f835201ef549e3f97e0c0b657e4fe9
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 3452bfee1e9228926bb687d1b9dc7fb26dfff85a
+ms.sourcegitcommit: c8b50a8aa8d9596ee3d4f3905bde94c984fc8aa2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "96020127"
+ms.lasthandoff: 03/28/2021
+ms.locfileid: "105642170"
 ---
 # <a name="create-and-manage-private-link-for-azure-database-for-postgresql---single-server-using-cli"></a>Creare e gestire un collegamento privato per database di Azure per PostgreSQL-server singolo con l'interfaccia della riga di comando
 
@@ -124,7 +124,7 @@ az network private-dns record-set a add-record --record-set-name myserver --zone
 ```
 
 > [!NOTE] 
-> Il nome di dominio completo nell'impostazione DNS del cliente non viene risolto nell'indirizzo IP privato configurato. Sarà necessario configurare una zona DNS per il nome di dominio completo configurato come illustrato di [seguito](../dns/dns-operations-recordsets-portal.md).
+> L'FQDN nell'impostazione DNS del cliente non si risolve nell'indirizzo IP privato configurato. Sarà necessario configurare una zona DNS per il nome di dominio completo configurato come illustrato di [seguito](../dns/dns-operations-recordsets-portal.md).
 
 > [!NOTE]
 > In alcuni casi, Database di Azure per PostgreSQL e la subnet della rete virtuale sono in sottoscrizioni diverse. In questi casi è necessario garantire le configurazioni seguenti:
@@ -171,7 +171,7 @@ Connettersi alla macchina virtuale *myVm* da Internet come indicato di seguito:
    Address:  10.1.3.4
    ```
 
-3. Testare la connessione del collegamento privato per il server PostgreSQL usando un client disponibile. L'esempio seguente usa [Azure Data Studio](/sql/azure-data-studio/download?view=sql-server-ver15&preserve-view=true) per eseguire l'operazione.
+3. Testare la connessione del collegamento privato per il server PostgreSQL usando un client disponibile. L'esempio seguente usa [Azure Data Studio](/sql/azure-data-studio/download) per eseguire l'operazione.
 
 4. In **nuova connessione** immettere o selezionare queste informazioni:
 

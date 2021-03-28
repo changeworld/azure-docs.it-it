@@ -7,12 +7,12 @@ ms.date: 10/23/2019
 author: cweining
 ms.author: cweining
 ms.reviewer: cweining
-ms.openlocfilehash: b0c26aa95d8c3aba5df164fb0707b4833accd052
-ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
+ms.openlocfilehash: 57a417948d23d40801eb34cf10aab1e6f17037e6
+ms.sourcegitcommit: c8b50a8aa8d9596ee3d4f3905bde94c984fc8aa2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/22/2021
-ms.locfileid: "104786482"
+ms.lasthandoff: 03/28/2021
+ms.locfileid: "105644088"
 ---
 # <a name="debug-snapshots-on-exceptions-in-net-apps"></a>Snapshot di debug per le eccezioni nelle app .NET
 Quando si verifica un'eccezione, è possibile raccogliere automaticamente uno snapshot di debug dall'applicazione Web live. Lo snapshot mostra lo stato del codice sorgente e delle variabili nel momento in cui è stata generata l'eccezione. Il Snapshot Debugger in [applicazione Azure Insights](./app-insights-overview.md) monitora i dati di telemetria delle eccezioni dall'app Web. Raccoglie snapshot per le eccezioni generate più frequentemente in modo che l'utente possa avere le informazioni necessarie per diagnosticare i problemi nell'ambiente di produzione. Includere il [pacchetto NuGet snapshot Collector](https://www.nuget.org/packages/Microsoft.ApplicationInsights.SnapshotCollector) nell'applicazione e, facoltativamente, configurare i parametri di raccolta in [ApplicationInsights.config](./configuration-with-applicationinsights-config.md). Gli snapshot vengono visualizzati nelle [eccezioni](./asp-net-exceptions.md) nel portale di Application Insights.
@@ -124,7 +124,7 @@ Per impostazione predefinita, la versione 15.2 (o successiva) di Visual Studio 2
 Per Calcolo di Azure e altri tipi di calcoli, verificare che i file di simboli si trovino nella stessa cartella della DLL dell'applicazione principale (generalmente `wwwroot/bin`) o che siano disponibili nel percorso corrente.
 
 > [!NOTE]
-> Per ulteriori informazioni sulle diverse opzioni dei simboli disponibili, vedere la [documentazione di Visual Studio](/visualstudio/ide/reference/advanced-build-settings-dialog-box-csharp?view=vs-2019#output
+> Per ulteriori informazioni sulle diverse opzioni dei simboli disponibili, vedere la [documentazione di Visual Studio](/visualstudio/ide/reference/advanced-build-settings-dialog-box-csharp?view=vs-2019&preserve-view=true#output
 ). Per ottenere risultati ottimali, è consigliabile usare "full", "Portable" o "embedded".
 
 ### <a name="optimized-builds"></a>Compilazioni ottimizzate

@@ -13,12 +13,12 @@ author: VanMSFT
 ms.author: vanto
 ms.reviewer: sstein
 ms.date: 03/23/2020
-ms.openlocfilehash: 6383c0fa3aad15da8abaea79136a75732ce9ea01
-ms.sourcegitcommit: 73d80a95e28618f5dfd719647ff37a8ab157a668
+ms.openlocfilehash: a0e9cc9967509eba05bd26f3bad86eefeeb6ca3e
+ms.sourcegitcommit: c8b50a8aa8d9596ee3d4f3905bde94c984fc8aa2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/26/2021
-ms.locfileid: "105605774"
+ms.lasthandoff: 03/28/2021
+ms.locfileid: "105639467"
 ---
 # <a name="authorize-database-access-to-sql-database-sql-managed-instance-and-azure-synapse-analytics"></a>Autorizzare l'accesso al database a database SQL, Istanza gestita di SQL e Azure Synapse Analytics
 [!INCLUDE[appliesto-sqldb-sqlmi-asa](../includes/appliesto-sqldb-sqlmi-asa.md)]
@@ -85,7 +85,7 @@ A questo punto, il server o l'istanza gestita viene configurata per l'accesso so
 
   - Creare un account di accesso SQL aggiuntivo nel database master.
   - Aggiungere l'account di accesso al ruolo predefinito del [server sysadmin](/sql/relational-databases/security/authentication-access/server-level-roles) utilizzando l'istruzione [ALTER Server Role](/sql/t-sql/statements/alter-server-role-transact-sql) . Questo account di accesso avrà autorizzazioni amministrative complete.
-  - In alternativa, creare un [account di accesso Azure ad](authentication-aad-configure.md#provision-azure-ad-admin-sql-managed-instance) usando la sintassi [Create Login](/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current) .
+  - In alternativa, creare un [account di accesso Azure ad](authentication-aad-configure.md#provision-azure-ad-admin-sql-managed-instance) usando la sintassi [Create Login](/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current&preserve-view=true) .
 
 - **Nel database SQL creare account di accesso SQL con autorizzazioni amministrative limitate**
 
@@ -122,9 +122,9 @@ A questo punto, il server o l'istanza gestita viene configurata per l'accesso so
 
 Per esempi che illustrano come creare account di accesso e utenti, vedere:
 
-- [Creare un account di accesso per il database SQL di Azure](/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-current#examples-1)
-- [Creare un account di accesso per Azure SQL Istanza gestita](/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current#examples-2)
-- [Creare l'account di accesso per la sinapsi di Azure](/sql/t-sql/statements/create-login-transact-sql?view=azure-sqldw-latest#examples-3)
+- [Creare un account di accesso per il database SQL di Azure](/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-current&preserve-view=true#examples-1)
+- [Creare un account di accesso per Azure SQL Istanza gestita](/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current&preserve-view=true#examples-2)
+- [Creare l'account di accesso per la sinapsi di Azure](/sql/t-sql/statements/create-login-transact-sql?view=azure-sqldw-latest&preserve-view=true#examples-3)
 - [Creare un utente](/sql/t-sql/statements/create-user-transact-sql#examples)
 - [Creazione di Azure AD utenti indipendenti](authentication-aad-configure.md#create-contained-users-mapped-to-azure-ad-identities)
 

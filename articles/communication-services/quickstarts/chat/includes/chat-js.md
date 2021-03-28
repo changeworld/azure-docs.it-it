@@ -10,12 +10,12 @@ ms.date: 03/10/2021
 ms.topic: include
 ms.custom: include file
 ms.author: mikben
-ms.openlocfilehash: 5af681b6edf8abc8145caf599fc0fb3c4daf5c15
-ms.sourcegitcommit: bed20f85722deec33050e0d8881e465f94c79ac2
+ms.openlocfilehash: 6fe1e092e1db4ad283f9d0096ea431a1e983f87c
+ms.sourcegitcommit: c8b50a8aa8d9596ee3d4f3905bde94c984fc8aa2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/25/2021
-ms.locfileid: "105107040"
+ms.lasthandoff: 03/28/2021
+ms.locfileid: "105645447"
 ---
 ## <a name="prerequisites"></a>Prerequisiti
 Prima di iniziare, assicurarsi di:
@@ -250,7 +250,7 @@ Message sent!, message id:<number>
 
 ## <a name="receive-chat-messages-from-a-chat-thread"></a>Ricevere messaggi di chat da un thread di chat
 
-Con la segnalazione in tempo reale, è possibile sottoscrivere l'ascolto dei nuovi messaggi in arrivo e aggiornare i messaggi correnti in memoria di conseguenza. Servizi di comunicazione Azure supporta un [elenco di eventi che è possibile sottoscrivere](../../../concepts/chat/concepts.md#real-time-signaling).
+Con la segnalazione in tempo reale, è possibile sottoscrivere l'ascolto dei nuovi messaggi in arrivo e aggiornare i messaggi correnti in memoria di conseguenza. Servizi di comunicazione Azure supporta un [elenco di eventi che è possibile sottoscrivere](../../../concepts/chat/concepts.md#real-time-notifications).
 
 ```JavaScript
 // open notifications channel
@@ -286,17 +286,6 @@ Aggiornare la scheda nella console è necessario trovare l'elenco dei messaggi i
 `listMessages` restituisce la versione più recente del messaggio, incluse eventuali modifiche o eliminazioni che si sono verificate nel messaggio usando `updateMessage` e `deleteMessage`.
 Per i messaggi eliminati, `chatMessage.deletedOn` restituisce un valore datetime che indica quando il messaggio è stato eliminato. Per i messaggi modificati, `chatMessage.editedOn` restituisce un valore datetime che indica quando il messaggio è stato modificato. È possibile accedere all'ora originale di creazione del messaggio usando `chatMessage.createdOn` e tale ora può essere usata per ordinare i messaggi.
 
-`listMessages` restituisce tipi diversi di messaggi che possono essere identificati da `chatMessage.type`. Questi tipi sono:
-
-- `Text`: Messaggio di chat normale inviato da un partecipante del thread.
-
-- `ThreadActivity/TopicUpdate`: messaggio di sistema che indica che l'argomento è stato aggiornato.
-
-- `ThreadActivity/AddParticipant`: Messaggio di sistema che indica che uno o più partecipanti sono stati aggiunti al thread di chat.
-
-- `ThreadActivity/RemoveParticipant`: Messaggio di sistema che indica che un partecipante è stato rimosso dal thread di chat.
-
-Per altri dettagli, vedere [Tipi di messaggi](../../../concepts/chat/concepts.md#message-types).
 
 ## <a name="add-a-user-as-a-participant-to-the-chat-thread"></a>Aggiungere un utente come partecipante al thread di chat
 
