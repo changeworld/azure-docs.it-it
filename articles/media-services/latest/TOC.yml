@@ -4,11 +4,12 @@
   items:
     - name: Informazioni su Servizi multimediali
       href: media-services-overview.md
-    - name: Novità di Servizi multimediali
-      displayName: release notes
+    - name: Note sulla versione
       href: release-notes.md
     - name: Conformità di Servizi multimediali
       href: concept-compliance.md
+    - name: Domande frequenti
+      href: frequently-asked-questions.yml
 - name: Avvi rapidi
   items:
     - name: Configurare l'ambiente
@@ -262,9 +263,8 @@
       href: architectures-concept.md
     - name: Risoluzione dei problemi
       items:
-        - name: Domande frequenti
-          displayName: faqs
-          href: frequently-asked-questions.md
+        - name: Raccolta di domande
+          href: questions-collection.md
         - name: Codici di errore
           items:
             - name: Codici di errore degli endpoint di streaming
@@ -346,7 +346,7 @@
           href: how-to-create-copyallbitratenoninterleaved-transform.md
         - name: Copia video senza codifica con REST
           href: how-to-create-copy-video-audio-transform.md
-        - name: Creare processi con .NET
+        - name: Creare processi con l'interfaccia della riga di comando
           href: cli-create-jobs.md
         - name: Creare un input del processo con un file locale e .NET
           displayName: upload

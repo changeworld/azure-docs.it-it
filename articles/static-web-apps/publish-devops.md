@@ -7,12 +7,12 @@ ms.service: static-web-apps
 ms.topic: tutorial
 ms.date: 03/23/2021
 ms.author: apedward
-ms.openlocfilehash: 701f999427d743c18f5dbcadb00cf303f97a8f53
-ms.sourcegitcommit: a9ce1da049c019c86063acf442bb13f5a0dde213
+ms.openlocfilehash: 472cf7b69078b3247c393ff65139bc29e5683a32
+ms.sourcegitcommit: c8b50a8aa8d9596ee3d4f3905bde94c984fc8aa2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2021
-ms.locfileid: "105627290"
+ms.lasthandoff: 03/28/2021
+ms.locfileid: "105639379"
 ---
 # <a name="tutorial-publish-azure-static-web-apps-with-azure-devops"></a>Esercitazione: pubblicare app Web statiche di Azure con Azure DevOps
 
@@ -57,9 +57,6 @@ In questa esercitazione si apprenderà come:
 1. Selezionare **Crea**.
 
 1. In _Dettagli distribuzione_ assicurarsi di selezionare **altro**. In questo modo è possibile usare il codice nel repository di Azure DevOps.
-
-    > [!NOTE]
-    > La funzionalità di selezione di _altri_ è attualmente in fase di implementazione e potrebbe non essere ancora disponibile in tutte le sottoscrizioni di Azure.
 
     :::image type="content" source="media/publish-devops/create-resource.png" alt-text="Dettagli distribuzione-altro":::
 

@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 03/15/2021
+ms.date: 03/27/2021
 ms.author: alexeyo
-ms.openlocfilehash: 78e40250710c133cbed53c05137971247663b0df
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 7fe2942250e165606175392d7749becda0cff23b
+ms.sourcegitcommit: c8b50a8aa8d9596ee3d4f3905bde94c984fc8aa2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103564423"
+ms.lasthandoff: 03/28/2021
+ms.locfileid: "105645115"
 ---
 # <a name="speech-services-quotas-and-limits"></a>Quote e limiti di servizi vocali
 
@@ -39,7 +39,7 @@ Per l'utilizzo con l' [SDK di riconoscimento vocale](speech-sdk.md) e/o l' [API 
 #### <a name="batch-transcription"></a>Trascrizione batch
 | Quota | Gratuito (F0)<sup>1</sup> | Standard (S0) |
 |--|--|--|
-| Limite API REST | La trascrizione batch non è disponibile per F0 | 300 richieste al minuto |
+| Limite [API REST v 2.0 e v 3.0 per sintesi vocale](rest-speech-to-text.md#speech-to-text-rest-api-v30) | La trascrizione batch non è disponibile per F0 | 300 richieste al minuto |
 | Dimensioni massime file di input audio | N/D | 1 GB |
 | Dimensioni massime del BLOB di input (possono contenere più di un file, ad esempio in un archivio zip; assicurarsi di prendere nota del limite delle dimensioni del file) | N/D | 2,5 GB |
 | Dimensioni massime contenitore BLOB | N/D | 5 GB |

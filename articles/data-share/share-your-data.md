@@ -5,13 +5,13 @@ author: jifems
 ms.author: jife
 ms.service: data-share
 ms.topic: tutorial
-ms.date: 11/12/2020
-ms.openlocfilehash: 89c2a725b853b5a2a7578dccc1fd503917e12962
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.date: 03/24/2021
+ms.openlocfilehash: 8e149270d8f98cbf72d3864d238a3d8ddfd61c67
+ms.sourcegitcommit: c8b50a8aa8d9596ee3d4f3905bde94c984fc8aa2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "94659625"
+ms.lasthandoff: 03/28/2021
+ms.locfileid: "105639539"
 ---
 # <a name="tutorial-share-data-using-azure-data-share"></a>Esercitazione: Condividere dati con Condivisione dati di Azure  
 
@@ -42,23 +42,10 @@ In questa esercitazione si apprenderà come:
 Di seguito è riportato l'elenco di prerequisiti per la condivisione da un'origine SQL. 
 
 #### <a name="prerequisites-for-sharing-from-azure-sql-database-or-azure-synapse-analytics-formerly-azure-sql-dw"></a>Prerequisiti per la condivisione da Database SQL di Azure o Azure Synapse Analytics (in precedenza Azure SQL Data Warehouse)
-Per configurare i prerequisiti, è possibile seguire la [demo dettagliata](https://youtu.be/hIE-TjJD8Dc).
 
 * Un'istanza di Database SQL di Azure o di Azure Synapse Analytics (in precedenza Azure SQL Data Warehouse) con tabelle e viste da condividere.
 * Autorizzazione per la scrittura nei database del server SQL, disponibile in *Microsoft.Sql/servers/databases/write*. Questa autorizzazione è presente nel ruolo di **collaboratore**.
-* Autorizzazione per l'identità gestita della risorsa Condivisione dati per l'accesso al database. A tale scopo, seguire questa procedura: 
-    1. Nel portale di Azure passare al server SQL e impostare se stessi come **amministratore di Azure Active Directory**.
-    1. Connettersi all'istanza di Database SQL di Azure/Data Warehouse usando l'[editor di query](../azure-sql/database/connect-query-portal.md#connect-using-azure-active-directory) o SQL Server Management Studio con l'autenticazione di Azure Active Directory. 
-    1. Eseguire lo script seguente per aggiungere l'identità gestita della risorsa Condivisione dati come db_datareader. È necessario connettersi usando Active Directory e non l'autenticazione di SQL Server. 
-    
-        ```sql
-        create user "<share_acct_name>" from external provider;     
-        exec sp_addrolemember db_datareader, "<share_acct_name>"; 
-        ```                   
-       Si noti che *<share_acc_name>* è il nome della risorsa Condivisione dati. Se ancora non si è provveduto a creare una risorsa Condivisione dati, è possibile tornare a questo prerequisito in un secondo momento.  
-
-* Un utente di Database SQL di Azure con accesso **'db_datareader'** per individuare e selezionare le tabelle e/o le viste da condividere. 
-
+* **Azure Active Directory amministratore** di SQL Server
 * Accesso al firewall di SQL Server. A tale scopo, seguire questa procedura: 
     1. Nel portale di Azure passare al server SQL. Selezionare *Firewall e reti virtuali* nel riquadro di spostamento sinistro.
     1. Fare clic su **Sì** per *Consenti alle risorse e ai servizi di Azure di accedere a questo server*.
@@ -90,7 +77,6 @@ Per configurare i prerequisiti, è possibile seguire la [demo dettagliata](https
 ### <a name="share-from-azure-data-explorer"></a>Condividere da Esplora dati di Azure
 * Cluster di Esplora dati di Azure con i database da condividere.
 * Autorizzazione per la scrittura nel cluster di Esplora dati di Azure, disponibile in *Microsoft.Kusto/clusters/write*. Questa autorizzazione è presente nel ruolo di **collaboratore**.
-* Autorizzazione per aggiungere l'assegnazione di ruolo al cluster di Esplora dati di Azure, disponibile in *Microsoft.Authorization/role assignments/write*. Questa autorizzazione è presente nel ruolo di **proprietario**.
 
 ## <a name="sign-in-to-the-azure-portal"></a>Accedere al portale di Azure
 
@@ -186,7 +172,7 @@ Usare questi comandi per creare la risorsa:
 
     ![Aggiungere set di dati alla condivisione](./media/datasets.png "Set di dati")
 
-1. Selezionare il tipo di set di dati da aggiungere. Verrà visualizzato un elenco di tipi di set di dati diverso a seconda del tipo di condivisione (snapshot o sul posto) selezionato nel passaggio precedente. Se la condivisione viene eseguita da un'istanza di Database SQL di Azure o di Azure Synapse Analytics (in precedenza Azure SQL Data Warehouse), verrà chiesto di immettere le credenziali di SQL per elencare le tabelle.
+1. Selezionare il tipo di set di dati da aggiungere. Verrà visualizzato un elenco di tipi di set di dati diverso a seconda del tipo di condivisione (snapshot o sul posto) selezionato nel passaggio precedente. Se si condivide da un database SQL di Azure o da Azure sinapsi Analytics (in precedenza Azure SQL DW), verrà richiesto di specificare il metodo di autenticazione per elencare le tabelle. Selezionare autenticazione di AAD e selezionare la casella **di controllo Consenti condivisione dati per eseguire lo script di creazione utente precedente per conto dell'utente**. 
 
     ![Aggiungere i set di dati](./media/add-datasets.png "Aggiungere i set di dati")    
 

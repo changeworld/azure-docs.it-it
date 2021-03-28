@@ -12,12 +12,12 @@ ms.date: 09/01/2020
 ms.author: trbye
 ms.custom: cog-serv-seo-aug-2020
 keywords: sintesi vocale
-ms.openlocfilehash: e42f81ce0f06b3782972dbf4322f0590763d8704
-ms.sourcegitcommit: a8ff4f9f69332eef9c75093fd56a9aae2fe65122
+ms.openlocfilehash: 45977faec9ab54fed0c1e7054c567b4d18b11f50
+ms.sourcegitcommit: c8b50a8aa8d9596ee3d4f3905bde94c984fc8aa2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/24/2021
-ms.locfileid: "105026326"
+ms.lasthandoff: 03/28/2021
+ms.locfileid: "105645018"
 ---
 # <a name="what-is-text-to-speech"></a>Che cos'è la sintesi vocale?
 
@@ -44,7 +44,7 @@ In questa panoramica vengono illustrati i vantaggi e le funzionalità del serviz
 * Visemes- [visemes](how-to-speech-synthesis-viseme.md) è la chiave che si pone in un discorso osservato, inclusa la posizione dei labbri, la mascella e la lingua durante la produzione di un fonema particolare. Visemes hanno una forte correlazione con voci e fonemi. Usando gli eventi viseme nell'SDK vocale, è possibile generare dati di animazione facciali, che possono essere usati per animare i visi nelle comunicazioni di lettura del labbro, istruzione, intrattenimento e servizio clienti.
 
 > [!NOTE]
-> Per il momento, viseme funziona solo per la `en-US-AriaNeural` voce nell'area Stati Uniti occidentali 2 ( `westus2` ).
+> Viseme funziona solo per `en-US-AriaNeural` Voice per il momento.
 
 ## <a name="get-started"></a>Introduzione
 

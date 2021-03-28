@@ -2,23 +2,18 @@
 title: Panoramica dello streaming live
 description: Questo articolo offre una panoramica dello streaming live con Servizi multimediali di Azure v3.
 services: media-services
-documentationcenter: ''
 author: IngridAtMicrosoft
 manager: femila
-editor: ''
 ms.service: media-services
-ms.workload: media
-ms.tgt_pltfrm: na
-ms.devlang: ne
 ms.topic: conceptual
-ms.date: 08/31/2020
+ms.date: 03/25/2021
 ms.author: inhenkel
-ms.openlocfilehash: b552dcc0e6766316e55e9cdda6e462b2d4abfd2b
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: c82c646e4befef9d409bb8e59a442642913ada22
+ms.sourcegitcommit: c8b50a8aa8d9596ee3d4f3905bde94c984fc8aa2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98955920"
+ms.lasthandoff: 03/28/2021
+ms.locfileid: "105641508"
 ---
 # <a name="live-streaming-with-azure-media-services-v3"></a>Streaming live con Servizi multimediali di Azure v3
 
@@ -123,16 +118,6 @@ L'asset a cui viene archiviata l'output Live, diventa automaticamente un asset s
 - [Stati e fatturazione](live-event-states-billing.md)
 - [Latency](live-event-latency.md)
 
-## <a name="frequently-asked-questions"></a>Domande frequenti
+## <a name="live-streaming-questions"></a>Domande su Live streaming
 
-Vedere l'articolo sulle [domande frequenti](frequently-asked-questions.md#live-streaming) .
-
-## <a name="ask-questions-give-feedback-get-updates"></a>Porre domande, fornire feedback, ottenere aggiornamenti
-
-Consultare l'articolo [Community di Servizi multimediali di Azure](media-services-community.md) per esaminare i diversi modi in cui è possibile porre domande, fornire feedback e ottenere aggiornamenti su Servizi multimediali.
-
-## <a name="next-steps"></a>Passaggi successivi
-
-* [Guida introduttiva allo streaming live](live-events-wirecast-quickstart.md)
-* [Esercitazione sullo streaming live](stream-live-tutorial-with-api.md)
-* [Materiale sussidiario sulla migrazione per aggiornare Servizi multimediali da v2 a v3](migrate-v-2-v-3-migration-introduction.md)
+Vedere l'articolo [domande su Live streaming](questions-collection.md#live-streaming) .

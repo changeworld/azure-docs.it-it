@@ -9,12 +9,12 @@ ms.subservice: faq
 ms.date: 06/30/2020
 ms.reviewer: jushiman
 ms.custom: mimckitt
-ms.openlocfilehash: 3bc259f9ee6cb1e6fd927af82a1740403d3ae7d8
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: fc394550cf5eb28ce3a30af4afcb3deca4223fe3
+ms.sourcegitcommit: c8b50a8aa8d9596ee3d4f3905bde94c984fc8aa2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "100587945"
+ms.lasthandoff: 03/28/2021
+ms.locfileid: "105642446"
 ---
 # <a name="azure-virtual-machine-scale-sets-faqs"></a>Domande frequenti sui set di scalabilità di macchine virtuali di Azure
 
@@ -304,7 +304,7 @@ Se si crea una macchina virtuale e quindi si aggiorna il segreto nell'insieme di
 
 Per distribuire le chiavi pubbliche con estensione cer in un set di scalabilità di macchine virtuali, è possibile generare un file con estensione pfx che contiene solo file con estensione cer. A questo scopo, usare `X509ContentType = Pfx`. Caricare ad esempio il file con estensione cer come oggetto x509Certificate2 in C# o PowerShell, quindi chiamare il metodo.
 
-Per altre informazioni, vedere [Metodo X509Certificate.Export (X509ContentType, String)](/dotnet/api/system.security.cryptography.x509certificates.x509certificate.export?view=netcore-3.1#system_security_cryptography_x509certificates_x509certificate_export_system_security_cryptography_x509certificates_x509contenttype_system_string_).
+Per altre informazioni, vedere [Metodo X509Certificate.Export (X509ContentType, String)](/dotnet/api/system.security.cryptography.x509certificates.x509certificate.export?#system_security_cryptography_x509certificates_x509certificate_export_system_security_cryptography_x509certificates_x509contenttype_system_string_).
 
 ### <a name="how-do-i-pass-in-certificates-as-base64-strings"></a>Ricerca per categorie passano i certificati come stringhe Base64?
 
@@ -515,7 +515,7 @@ Se si hanno due set di scalabilità di macchine virtuali con front-end di Azure 
 
 Gli indirizzi IP vengono selezionati da una subnet specificata.
 
-Il metodo di allocazione degli indirizzi IP del set di scalabilità di macchine virtuali è sempre "dinamico", ma ciò non significa che è possibile modificare questi indirizzi IP. In questo caso, per "dinamico" si intende solo che non è necessario specificare l'indirizzo IP in una richiesta PUT. Specificare il set statico usando la subnet.
+Il metodo di allocazione degli indirizzi IP del set di scalabilità di macchine virtuali è sempre "dinamico", ma ciò non significa che questi indirizzi IP possono cambiare. In questo caso, per "dinamico" si intende solo che non è necessario specificare l'indirizzo IP in una richiesta PUT. Specificare il set statico usando la subnet.
 
 ### <a name="how-do-i-deploy-a-virtual-machine-scale-set-to-an-existing-azure-virtual-network"></a>Come si distribuisce un set di scalabilità di macchine virtuali in una rete virtuale di Azure esistente?
 
@@ -572,7 +572,7 @@ Sì. È possibile aggiungere gli ID risorsa per più pool di indirizzi back-end 
 
 ### <a name="in-what-case-would-i-create-a-virtual-machine-scale-set-with-fewer-than-two-vms"></a>In quale caso è consigliabile creare un set di scalabilità di macchine virtuali con meno di due macchine virtuali?
 
-Un motivo per la creazione di un set di scalabilità di macchine virtuali con meno di due VM può essere relativo all'uso delle proprietà elastiche di un set di scalabilità di macchine virtuali. È ad esempio possibile distribuire un set di scalabilità di macchine virtuali con zero VM per definire l'infrastruttura senza sostenere i costi operativi delle macchine virtuali. Per distribuire le macchine virtuali, aumentare la "capacità" del set di scalabilità di macchine virtuali fino al numero di istanze di produzione.
+Un motivo per la creazione di un set di scalabilità di macchine virtuali con meno di due VM può essere relativo all'uso delle proprietà elastiche di un set di scalabilità di macchine virtuali. È ad esempio possibile distribuire un set di scalabilità di macchine virtuali con zero VM per definire l'infrastruttura senza sostenere i costi operativi delle macchine virtuali. Quindi, quando si è pronti per distribuire le macchine virtuali, aumentare la "capacità" del set di scalabilità di macchine virtuali al numero di istanze di produzione.
 
 È possibile creare un set di scalabilità di macchine virtuali con meno di due VM anche se si è interessati principalmente all'uso di un set di disponibilità con VM discrete, invece che alla disponibilità. I set di scalabilità di macchine virtuali consentono di usare unità di calcolo non differenziate e fungibili. Questa uniformità è un elemento di differenziazione chiave tra set di scalabilità di macchine virtuali e set di disponibilità. Molti carichi di lavoro senza stato non tengono traccia delle singole unità. In caso di riduzione del carico di lavoro, è possibile passare a una sola unità di calcolo e quindi aumentare il numero di unità con l'aumento del carico di lavoro.
 
@@ -700,7 +700,7 @@ Sono presenti gap tra i nomi delle macchine virtuali del set di scalabilità di 
 
 ### <a name="what-is-the-difference-between-deleting-a-vm-in-a-virtual-machine-scale-set-and-deallocating-the-vm-when-should-i-choose-one-over-the-other"></a>Qual è la differenza tra l'eliminazione di una VM in un set di scalabilità di macchine virtuali e la deallocazione della VM? Quando scegliere l'una o l'altra?
 
-La differenza principale tra l'eliminazione di una VM in un set di scalabilità di macchine virtuali e la deallocazione della VM consiste nel fatto che `deallocate` non elimina i dischi rigidi virtuali. L'esecuzione di `stop deallocate` comporta costi di archiviazione. È possibile usare una delle due opzioni per i motivi seguenti:
+La differenza principale tra l'eliminazione di una VM in un set di scalabilità di macchine virtuali e la deallocazione della macchina virtuale è che `deallocate` non elimina i dischi rigidi virtuali (VHD). L'esecuzione di `stop deallocate` comporta costi di archiviazione. È possibile usare una delle due opzioni per i motivi seguenti:
 
 - Non si vogliono più sostenere i costi dei servizi di calcolo, mantenendo tuttavia lo stato dei dischi delle VM.
 - Si vuole avviare un set di VM con una velocità maggiore rispetto all'aumento del numero di istanze di un set di scalabilità di macchine virtuali.

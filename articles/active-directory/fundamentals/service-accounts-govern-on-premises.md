@@ -13,12 +13,12 @@ ms.author: baselden
 ms.reviewer: ajburnle
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 36ad7cf7fe2ca1ddcb592e895014b1d956e55e1b
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
+ms.openlocfilehash: 10ea524620f810e0bf1dddc230716031bbc10e69
+ms.sourcegitcommit: c8b50a8aa8d9596ee3d4f3905bde94c984fc8aa2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102557370"
+ms.lasthandoff: 03/28/2021
+ms.locfileid: "105642377"
 ---
 # <a name="governing-on-premises-service-accounts"></a>Governare gli account di servizio locali
 
@@ -60,7 +60,7 @@ Utilizzare i criteri seguenti durante la creazione di un nuovo account del servi
 
 Usare le impostazioni seguenti con gli account utente usati come account del servizio:
 
-* [**Scadenza dell'account**](/powershell/module/activedirectory/set-adaccountexpiration?view=winserver2012-ps): impostare l'account del servizio in modo che scada automaticamente un set di tempo dopo il periodo di verifica, a meno che non sia stato determinato che dovrebbe continuare
+* [**Scadenza dell'account**](/powershell/module/activedirectory/set-adaccountexpiration?view=winserver2012-ps&preserve-view=true): impostare l'account del servizio in modo che scada automaticamente un set di tempo dopo il periodo di verifica, a meno che non sia stato determinato che dovrebbe continuare
 
 *  **LogonWorkstations**: limitare le autorizzazioni per la posizione in cui l'account del servizio può accedere. Se viene eseguito localmente in un computer e accede solo a risorse in tale computer, limitarlo alla registrazione in qualsiasi altra posizione.
 
@@ -149,7 +149,7 @@ La valutazione dei rischi, una volta eseguita e documentata, potrebbe avere un i
 
 Creare un account del servizio solo dopo aver documentato le informazioni rilevanti nella CMDB ed eseguire una valutazione dei rischi. Le restrizioni degli account devono essere allineate alla valutazione del rischio. Quando pertinente per la valutazione, tenere presenti le restrizioni seguenti:
 
-* [Scadenza dell'account](/powershell/module/activedirectory/set-adaccountexpiration?view=winserver2012-ps)
+* [Scadenza dell'account](/powershell/module/activedirectory/set-adaccountexpiration?view=winserver2012-ps&preserve-view=true)
 
    * Per tutti gli account utente usati come account del servizio, definire una data di fine realistica e definita da usare. Impostare questa opzione con il flag "scadenza account". Per ulteriori informazioni, vedere[ set-ADAccountExpiration](/powershell/module/addsadministration/set-adaccountexpiration). 
 
@@ -193,7 +193,7 @@ Dopo aver rimosso tutte le autorizzazioni, usare questo processo per rimuovere l
 
 3. Eliminare l'account del servizio dopo che il criterio resta disabilitato viene completato. 
 
-   * Per MSAs, è possibile [disinstallarlo](/powershell/module/activedirectory/uninstall-adserviceaccount?view=winserver2012-ps) usando PowerShell o eliminarlo manualmente dal contenitore account del servizio gestito.
+   * Per MSAs, è possibile [disinstallarlo](/powershell/module/activedirectory/uninstall-adserviceaccount?view=winserver2012-ps&preserve-view=true) usando PowerShell o eliminarlo manualmente dal contenitore account del servizio gestito.
 
    * Per gli account computer o utente, è possibile eliminare manualmente l'account da in Active Directory.
 

@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 10/29/2020
-ms.openlocfilehash: b88c7aabe135b8e64869980b806852d92191440b
-ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
+ms.openlocfilehash: 2412d3d2851d1b4d251b50ff3068b7dcafcccee8
+ms.sourcegitcommit: c8b50a8aa8d9596ee3d4f3905bde94c984fc8aa2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/26/2021
-ms.locfileid: "105568682"
+ms.lasthandoff: 03/28/2021
+ms.locfileid: "105642038"
 ---
 # <a name="quickstart-import-a-bacpac-file-to-a-database-in-azure-sql-database-or-azure-sql-managed-instance"></a>Avvio rapido: Importare un file BACPAC in un database in Database SQL di Azure o in Istanza gestita di SQL di Azure
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -48,7 +48,7 @@ Per eseguire la migrazione di un database in un'[istanza gestita di SQL di Azure
 
 1. Selezionare l'account di archiviazione e il contenitore per il file BACPAC e quindi selezionare il file BACPAC da cui eseguire l'importazione.
 
-1. Specificare la nuova dimensione del database (generalmente uguale all'origine) e specificare le credenziali dell'istanza SQL Server di destinazione. Per un elenco di valori possibili per un nuovo database in Database SQL di Azure, vedere [CREATE DATABASE](/sql/t-sql/statements/create-database-transact-sql?view=azuresqldb-current).
+1. Specificare la nuova dimensione del database (generalmente uguale all'origine) e specificare le credenziali dell'istanza SQL Server di destinazione. Per un elenco di valori possibili per un nuovo database in Database SQL di Azure, vedere [CREATE DATABASE](/sql/t-sql/statements/create-database-transact-sql?view=azuresqldb-current&preserve-view=true).
 
    ![Importazione database 2](./media/database-import/sql-server-import-database-settings.png)
 
@@ -89,7 +89,7 @@ sqlpackage.exe /a:Import /sf:testExport.bacpac /tdn:NewDacFX /tsn:apptestserver.
 > Un'[istanza gestita di SQL](../managed-instance/sql-managed-instance-paas-overview.md) non supporta attualmente la migrazione di un database in un database dell'istanza da un file BACPAC tramite Azure PowerShell. Per eseguire l'importazione in un'istanza gestita di SQL, usare SQL Server Management Studio o SQLPackage.
 
 > [!NOTE]
-> Nei computer che elaborano le richieste di importazione ed esportazione inviate tramite il portale o PowerShell deve essere archiviato il file BACPAC, oltre ai file temporanei generati da Data-Tier Application Framework (DacFX). Lo spazio su disco necessario varia notevolmente tra i database con le stesse dimensioni. Potrebbe essere necessario spazio su disco fino a 3 volte la dimensione del database. I computer che eseguono le richieste di importazione ed esportazione hanno solo 450 GB di spazio su disco locale. Di conseguenza, alcune richieste potrebbero non riuscire restituendo l'errore "Lo spazio su disco non è sufficiente". È possibile ovviare a questo problema eseguendo sqlpackage.exe in un computer con spazio su disco locale sufficiente. Se occorre importare o esportare database di dimensioni superiori a 150 GB, usare SqlPackage per evitare questo problema.
+> Nei computer che elaborano le richieste di importazione ed esportazione inviate tramite il portale o PowerShell deve essere archiviato il file BACPAC, oltre ai file temporanei generati da Data-Tier Application Framework (DacFX). Lo spazio su disco necessario varia notevolmente tra i database con le stesse dimensioni. Potrebbe essere necessario spazio su disco fino a 3 volte la dimensione del database. I computer che eseguono le richieste di importazione ed esportazione hanno solo 450 GB di spazio su disco locale. Di conseguenza, alcune richieste potrebbero non riuscire con l'errore "lo spazio su disco non è sufficiente". È possibile ovviare a questo problema eseguendo sqlpackage.exe in un computer con spazio su disco locale sufficiente. Se occorre importare o esportare database di dimensioni superiori a 150 GB, usare SqlPackage per evitare questo problema.
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 

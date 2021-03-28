@@ -10,12 +10,12 @@ ms.date: 03/12/2021
 ms.topic: include
 ms.custom: include file
 ms.author: pvicencio
-ms.openlocfilehash: 4a9deded16de6b0de2ef5f88ffebd813b8e5b8c0
-ms.sourcegitcommit: bed20f85722deec33050e0d8881e465f94c79ac2
+ms.openlocfilehash: 0a59b18fa2c09cff943dbccd2203027cd72e146a
+ms.sourcegitcommit: c8b50a8aa8d9596ee3d4f3905bde94c984fc8aa2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/25/2021
-ms.locfileid: "105110355"
+ms.lasthandoff: 03/28/2021
+ms.locfileid: "105644307"
 ---
 Per iniziare a usare i servizi di comunicazione di Azure, è possibile usare i servizi di comunicazione Java SMS SDK per inviare messaggi SMS.
 
@@ -106,12 +106,12 @@ Le classi e le interfacce seguenti gestiscono alcune delle principali funzionali
 | ---------------------------------------------------------------- | ----------------------------------------------------------------------------------------------- |
 | SmsClientBuilder              | Questa classe crea l'oggetto SmsClient. Specificare l'endpoint, le credenziali e un client HTTP. |
 | SmsClient                    | Questa classe è necessaria per tutte le funzionalità SMS. Viene usata per inviare messaggi SMS.                |
-| SmsSendResult                | Questa classe contiene il risultato del servizio SMS.                                          |
 | SmsSendOptions               | Questa classe fornisce opzioni per l'aggiunta di tag personalizzati e la configurazione della creazione di report di recapito. Se deliveryReportEnabled è impostato su true, verrà generato un evento al completamento del recapito.|                           |
+| SmsSendResult                | Questa classe contiene il risultato del servizio SMS.                                          |
 
 ## <a name="authenticate-the-client"></a>Autenticare il client
 
-Creare un'istanza di `SmsClient` con la stringa di connessione. (Credential è il `Key` dal portale di Azure. Vedere come [gestire la stringa di connessione della risorsa](../../create-communication-resource.md#store-your-connection-string).
+Creare un'istanza di `SmsClient` con la stringa di connessione. (Credential è il `Key` dal portale di Azure. Informazioni su come [gestire la stringa di connessione della risorsa](../../create-communication-resource.md#store-your-connection-string).
 
 Aggiungere al metodo `main` il codice seguente:
 
@@ -160,6 +160,12 @@ System.out.println("Message Id: " + sendResult.getMessageId());
 System.out.println("Recipient Number: " + sendResult.getTo());
 System.out.println("Send Result Successful:" + sendResult.isSuccessful());
 ```
+
+È necessario sostituire `<from-phone-number>` con un numero di telefono abilitato per SMS associato alla risorsa servizi di comunicazione e `<to-phone-number>` con un numero di telefono a cui si desidera inviare un messaggio.
+
+> [!WARNING]
+> Si noti che i numeri di telefono devono essere specificati nel formato standard internazionale E.164, (ad esempio: + 14255550123).
+
 ## <a name="send-a-1n-sms-message-with-options"></a>Invia un messaggio SMS 1: N con opzioni
 Per inviare un messaggio SMS a un elenco di destinatari, chiamare il `send` metodo con un elenco di numeri di telefono del destinatario. È anche possibile passare parametri facoltativi per specificare se il report di recapito deve essere abilitato e impostare tag personalizzati.
 ```java
@@ -181,13 +187,14 @@ for (SmsSendResult result : sendResults) {
 }
 ```
 
-È necessario sostituire `<from-phone-number>` con un numero di telefono abilitato per SMS associato alla risorsa servizi di comunicazione e `<to-phone-number>` con il numero di telefono o un elenco di numeri di telefono a cui si desidera inviare un messaggio.
+È necessario sostituire `<from-phone-number>` con un numero di telefono abilitato per SMS associato alla risorsa servizi di comunicazione e `<to-phone-number-1>` `<to-phone-number-2>` con i numeri di telefono a cui si desidera inviare un messaggio.
 
-## <a name="optional-parameters"></a>Parametri facoltativi
+> [!WARNING]
+> Si noti che i numeri di telefono devono essere specificati nel formato standard internazionale E.164, (ad esempio: + 14255550123).
 
-Il parametro `deliveryReportEnabled` è facoltativo ed è possibile usarlo per configurare i report di recapito. È utile per gli scenari in cui si vogliono generare eventi quando vengono recapitati messaggi SMS. Per configurare i report di recapito per i messaggi SMS, vedere la guida di avvio rapido [Gestire gli eventi SMS](../handle-sms-events.md).
+Il `setDeliveryReportEnabled` metodo viene utilizzato per configurare la creazione di report di recapito. È utile per gli scenari in cui si vogliono generare eventi quando vengono recapitati messaggi SMS. Per configurare i report di recapito per i messaggi SMS, vedere la guida di avvio rapido [Gestire gli eventi SMS](../handle-sms-events.md).
 
-Il `tag` parametro è un parametro facoltativo che è possibile utilizzare per applicare un tag al report di recapito.
+Il `setTag` metodo viene utilizzato per applicare un tag al report di recapito.
 
 ## <a name="run-the-code"></a>Eseguire il codice
 

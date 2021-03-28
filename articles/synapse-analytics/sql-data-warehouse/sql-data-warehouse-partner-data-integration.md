@@ -11,12 +11,12 @@ ms.date: 03/27/2019
 ms.author: procha
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
-ms.openlocfilehash: ba03fe86c126c76faf91a06a96aaea6d1ffeddc0
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 7eecacef7f678001c9d65da540432154305549e2
+ms.sourcegitcommit: c8b50a8aa8d9596ee3d4f3905bde94c984fc8aa2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104594913"
+ms.lasthandoff: 03/28/2021
+ms.locfileid: "105645144"
 ---
 # <a name="azure-synapse-analytics-data-integration-partners"></a>Partner di integrazione dei dati di Azure Synapse Analytics
 
@@ -27,6 +27,7 @@ Per creare la soluzione data warehouse usando il pool SQL dedicato in Azure sina
 | Partner | Descrizione | Collegamento a sito Web/prodotto |
 | ------- | ----------- | -------------------- |
 | ![Ab initio](./media/sql-data-warehouse-partner-data-integration/abinitio-logo.png) |**Ab initio**<br> La piattaforma di progettazione digitale agile di AB Initer consente di risolvere i problemi di elaborazione dei dati e di gestione dei dati più complessi nell'elaborazione aziendale. La piattaforma nativa del cloud di ab initio ti permette di accedere ai dati e usarli ovunque nell'ecosistema aziendale, sia in Azure che in locale, inclusi i dati archiviati nei sistemi legacy. La combinazione di un'interfaccia intuitiva con potenti funzionalità di automazione, qualità dei dati, governance dei dati e metadati attivi consente lo sviluppo rapido e la gestione self-service dei dati, liberando gli analisti per svolgere i propri processi in modo rapido ed efficace. Unisciti alle aziende più grandi del mondo usando ab initio per trasformare Big Data in dati significativi. |[Product page](https://www.abinitio.com/) |
+| ![Aecorsoft](./media/sql-data-warehouse-partner-data-integration/aecorsoft-logo.png) |**Aecorsoft**<br> AecorSoft offre una soluzione software per ELT/ETL veloce, scalabile e in tempo reale per aiutare i clienti SAP a importare dati SAP complessi in Azure sinapsi Analytics e Azure Data Platform. Con la massima conformità alla sicurezza a livello di applicazione SAP, la soluzione AecorSoft è ufficialmente certificata per SAP Premium per l'integrazione con le applicazioni SAP. Le funzionalità esclusive di acquisizione dei dati e delle modifiche Super Delta di AecorSoft consentono agli utenti SAP di trasmettere i dati differenziali dalle tabelle SAP trasparente, pool e cluster in Azure in formato CSV, parquet, avro, ORC o GZIP. Oltre ai dati tabulari SAP, molti altri oggetti SAP con regole di business, ad esempio le query BW e le visualizzazioni CDS S/4HANA sono completamente supportati. |[Pagina del prodotto](https://www.aecorsoft.com/products/dataintegrator)<br>[Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/aecorsoftinc1588038796343.aecorsoftintegrationservice_adf)<br>|
 | ![Alooma](./media/sql-data-warehouse-partner-data-integration/alooma_logo.png) |**Alooma**<br> Alooma è una soluzione di estrazione, trasformazione e caricamento (ETL) che consente ai team di dati di integrare, arricchire e trasmettere dati da diversi silo di dati a un data warehouse di Azure Synapse in tempo reale. |[Pagina del prodotto](https://www.alooma.com/) |
 | ![Alteryx](./media/sql-data-warehouse-partner-data-integration/alteryx_logo.png) |**Alteryx**<br> Alteryx Designer fornisce un flusso di lavoro ripetibile per l'analisi di dati in modalità self-service che genera informazioni più dettagliate in ore e non in settimane come negli approcci tradizionali. Alteryx Designer consente agli analisti di dati di combinare le attività di preparazione e fusione dei dati e l'analisi predittiva, statistica e spaziale, usando la stessa intuitiva interfaccia utente. |[Pagina del prodotto](https://www.alteryx.com/partners/microsoft/)<br>[Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/alteryx.alteryx-designer)<br>|
 | ![Attunity](./media/sql-data-warehouse-partner-data-integration/attunity_logo.png) |**Attunity (CloudBeam)**<br>Attunity CloudBeam offre una soluzione automatizzata per il caricamento dei dati in un data warehouse di Azure Synapse. Semplifica il caricamento in batch e la replica incrementale dei dati da molte origini: SQL Server, Oracle, DB2, Sybase, MySQL e altro ancora. |[Pagina del prodotto](http://www.attunity.com/attunity-cloudbeam-for-azure/)<br>[Azure Marketplace](https://aws.amazon.com/marketplace/pp/Attunity-Attunity-CloudBeam/B00B5PB8IM) <br> |

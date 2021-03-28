@@ -8,16 +8,16 @@ ms.service: active-directory
 ms.subservice: user-help
 ms.workload: identity
 ms.topic: end-user-help
-ms.date: 01/19/2021
+ms.date: 03/26/2021
 ms.author: curtand
 ms.reviewer: kasimpso
 ms.custom: user-help, seo-update-azuread-jan
-ms.openlocfilehash: 6dd9d65ee56bcbf8ca1da72f7d99d4545c5d7fbb
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: e72667ab562a9e12d233f45dc50efc9b70d2141b
+ms.sourcegitcommit: c8b50a8aa8d9596ee3d4f3905bde94c984fc8aa2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "100095002"
+ms.lasthandoff: 03/28/2021
+ms.locfileid: "105642105"
 ---
 # <a name="sign-in-and-start-apps-from-the-my-apps-portal"></a>Eseguire l'accesso e avviare le app dal portale App personali
 
@@ -39,11 +39,12 @@ Se non si ha accesso al portale **app personali** , contattare il supporto tecni
 
 ## <a name="supported-browsers"></a>Browser supportati
 
-È possibile aprire il portale **App personali** dai Web browser seguenti:
+È possibile ottenere il portale **app personali** da uno qualsiasi dei seguenti Web browser. Microsoft consiglia di utilizzare il browser più aggiornato compatibile con il sistema operativo in uso.
 
-- Microsoft Edge (la versione per dispositivi mobili di Edge è attualmente l'unico browser mobile supportato)
-- Google Chrome
-- Mozilla Firefox, versione 26.0 o successiva
+- Microsoft Edge (versione più recente, desktop e dispositivi mobili)
+- Safari (versione più recente, Mac e iOS)
+- Chrome (ultima versione, desktop e dispositivi mobili)
+- Firefox (versione più recente)
 
 È possibile accedere e usare il portale app personali nel computer o dalla versione mobile del browser Microsoft Edge in un dispositivo mobile iOS o Android.
 

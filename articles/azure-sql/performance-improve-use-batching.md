@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: genemi
 ms.date: 01/25/2019
-ms.openlocfilehash: 07334d62cee94be8b5b8dd6188c1d6354c4d584b
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 7f45e7d1515f0d6fc4467b36d95242ef8697c75d
+ms.sourcegitcommit: c8b50a8aa8d9596ee3d4f3905bde94c984fc8aa2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "92792600"
+ms.lasthandoff: 03/28/2021
+ms.locfileid: "105641399"
 ---
 # <a name="how-to-use-batching-to-improve-azure-sql-database-and-azure-sql-managed-instance-application-performance"></a>Come usare l'invio in batch per migliorare le prestazioni delle applicazioni del database SQL di Azure e di Azure SQL Istanza gestita
 [!INCLUDE[appliesto-sqldb-sqlmi](includes/appliesto-sqldb-sqlmi.md)]
@@ -93,7 +93,7 @@ using (SqlConnection connection = new SqlConnection(CloudConfigurationManager.Ge
 }
 ```
 
-Le transazioni vengono in effetti usate in entrambi questi esempi. Nel primo ogni singola chiamata rappresenta una transazione implicita. Nel secondo esempio viene eseguito il wrapping di tutte le chiamate in una transazione esplicita. Secondo la documentazione relativa al [log delle transazioni write-ahead](/sql/relational-databases/sql-server-transaction-log-architecture-and-management-guide?view=sql-server-ver15#WAL), i record del log vengono scaricati su disco al momento del commit della transazione. Si conseguenza, se si includono più chiamate in una transazione, la scrittura nel log delle transazioni può essere ritardata finché non viene eseguito il commit della transazione stessa. In effetti, si abilita l'invio in batch per le operazioni di scrittura nel log delle transazioni del server.
+Le transazioni vengono in effetti usate in entrambi questi esempi. Nel primo ogni singola chiamata rappresenta una transazione implicita. Nel secondo esempio viene eseguito il wrapping di tutte le chiamate in una transazione esplicita. Secondo la documentazione relativa al [log delle transazioni write-ahead](/sql/relational-databases/sql-server-transaction-log-architecture-and-management-guide?view=sql-server-ver15&preserve-view=true#WAL), i record del log vengono scaricati su disco al momento del commit della transazione. Si conseguenza, se si includono più chiamate in una transazione, la scrittura nel log delle transazioni può essere ritardata finché non viene eseguito il commit della transazione stessa. In effetti, si Abilita la suddivisione in batch per le scritture nel log delle transazioni del server.
 
 Nella tabella seguente vengono illustrati alcuni risultati di test ad hoc. I test eseguono le medesime operazioni sequenziali di inserimento con e senza transazioni. Per maggiore chiarezza, il primo set di test è stato eseguito in remoto da un portatile al database in Microsoft Azure. Il secondo set di test è stato eseguito da un servizio cloud e un database entrambi residenti nello stesso data center di Microsoft Azure (Stati Uniti occidentali). La tabella seguente mostra la durata in millisecondi delle operazioni di inserimento sequenziali con e senza transazioni.
 
@@ -191,7 +191,7 @@ SqlCommand cmd = new SqlCommand("sp_InsertRows", connection);
 cmd.CommandType = CommandType.StoredProcedure;
 ```
 
-Nella maggior parte dei casi i parametri con valori di tabella hanno prestazioni equivalenti o superiori rispetto ad altre tecniche di invio in batch. I parametri con valori di tabella sono spesso preferibili perché più flessibili di altre opzioni. Ad esempio, altre tecniche come la copia bulk di SQL consentono solo l'inserimento di nuove righe. Con i parametri con valori di tabella è invece possibile usare la logica della stored procedure per determinare le righe da aggiornare e quelle da inserire. È anche possibile modificare il tipo di tabella perché contenga la colonna "Operation" che indica se la riga specificata deve essere inserita, aggiornata o eliminata.
+Nella maggior parte dei casi i parametri con valori di tabella hanno prestazioni equivalenti o superiori rispetto ad altre tecniche di invio in batch. I parametri con valori di tabella sono spesso preferibili perché più flessibili di altre opzioni. Ad esempio, altre tecniche come la copia bulk di SQL consentono solo l'inserimento di nuove righe. Con i parametri con valori di tabella è invece possibile usare la logica della stored procedure per determinare le righe da aggiornare e quelle da inserire. È inoltre possibile modificare il tipo di tabella in modo che contenga una colonna "Operation" che indica se la riga specificata deve essere inserita, aggiornata o eliminata.
 
 Nella tabella seguente vengono illustrati i risultati dei test ad hoc per l'utilizzo di parametri con valori di tabella in millisecondi.
 
@@ -368,17 +368,17 @@ Se si usa l'esecuzione parallela, provare a controllare il numero massimo di thr
 
 Le indicazioni tipiche relative alle prestazioni dei database influiscono anche sull'invio in batch. Le prestazioni delle operazioni di inserimento, ad esempio, risultano ridotte per le tabelle con chiave primaria di grandi dimensioni o con numerosi indici non cluster.
 
-Se i parametri con valori di tabella usano una stored procedure, è possibile eseguire il comando **SET NOCOUNT ON** all'inizio della routine. Questa istruzione rimuove la restituzione del conteggio delle righe interessate nella routine. Tuttavia, nei test l'uso di **SET NOCOUNT ON** non ha avuto alcun effetto sulle prestazioni o le ha ridotte. La stored procedure usata per i test era semplice, con un singolo comando **INSERT** del parametro con valori di tabella. È possibile che stored procedure più complesse possano trarre vantaggio da questa istruzione. Non si deve tuttavia supporre che l'aggiunta di **SET NOCOUNT ON** alla stored procedure migliori automaticamente le prestazioni. Per comprendere l'effetto, testare la stored procedure con e senza l'istruzione **SET NOCOUNT ON** .
+Se i parametri con valori di tabella usano una stored procedure, è possibile eseguire il comando **SET NOCOUNT ON** all'inizio della routine. Questa istruzione rimuove la restituzione del conteggio delle righe interessate nella routine. Tuttavia, nei test l'uso di **SET NOCOUNT ON** non ha avuto alcun effetto sulle prestazioni o le ha ridotte. La stored procedure usata per i test era semplice, con un singolo comando **INSERT** del parametro con valori di tabella. È possibile che stored procedure più complesse possano trarre vantaggio da questa istruzione. Tuttavia, non presupporre che l'aggiunta di **set NOCOUNT** all'stored procedure migliori automaticamente le prestazioni. Per comprendere l'effetto, testare la stored procedure con e senza l'istruzione **SET NOCOUNT ON** .
 
 ## <a name="batching-scenarios"></a>Scenari di invio in batch
 
-Nelle sezioni seguenti viene descritto come usare parametri con valori di tabella in tre scenari di applicazione. Il primo scenario illustra in che modo interagiscono il buffering e l'invio in batch. Nel secondo scenario le prestazioni vengono migliorate eseguendo operazioni master/dettaglio in una singola chiamata di stored procedure. Lo scenario finale illustra come usare parametri con valori di tabella in un'operazione "UPSERT".
+Nelle sezioni seguenti viene descritto come usare parametri con valori di tabella in tre scenari di applicazione. Il primo scenario illustra in che modo interagiscono il buffering e l'invio in batch. Nel secondo scenario le prestazioni vengono migliorate eseguendo operazioni master/dettaglio in una singola chiamata di stored procedure. Lo scenario finale illustra come usare i parametri con valori di tabella in un'operazione "UPSERT".
 
 ### <a name="buffering"></a>responseBuffering
 
 Sebbene alcuni scenari siano particolarmente adatti all'invio in batch, ne esistono numerosi che potrebbero trarre vantaggio da questo tipo di operazione grazie all'elaborazione ritardata. L'elaborazione ritardata implica tuttavia anche un maggiore rischio che i dati vengano persi in caso di errore imprevisto. È importante comprendere tale rischio e valutarne le conseguenze.
 
-Si consideri ad esempio un'applicazione Web che tiene traccia della cronologia di navigazione di ogni utente. Per ogni richiesta di pagina, l'applicazione potrebbe eseguire una chiamata al database per registrare la visualizzazione della pagina da parte dell'utente. Tuttavia è possibile conseguire livelli maggiori di prestazioni e scalabilità mediante il buffering delle attività di navigazione dell'utente e quindi inviando i dati al database in batch. È possibile attivare l'aggiornamento del database in base al tempo trascorso e/o alle dimensioni del buffer. Ad esempio, una regola potrebbe indicare che il batch deve essere elaborato dopo 20 secondi o quando il buffer raggiunge i 1000 elementi.
+Si consideri ad esempio un'applicazione Web che tiene traccia della cronologia di navigazione di ogni utente. In ogni richiesta di pagina, l'applicazione potrebbe effettuare una chiamata al database per registrare la visualizzazione della pagina dell'utente. Tuttavia, è possibile ottenere prestazioni e scalabilità migliori tramite il buffering delle attività di navigazione degli utenti e quindi inviando i dati al database in batch. È possibile attivare l'aggiornamento del database in base al tempo trascorso e/o alle dimensioni del buffer. Ad esempio, una regola potrebbe indicare che il batch deve essere elaborato dopo 20 secondi o quando il buffer raggiunge i 1000 elementi.
 
 L'esempio di codice seguente usa [Reactive Extensions - Rx](/previous-versions/dotnet/reactive-extensions/hh242985(v=vs.103)) per elaborare eventi memorizzati nel buffer generati da una classe di monitoraggio. Quando il buffer si riempie o si raggiunge un timeout, il batch di dati utente viene inviato al database con un parametro con valori di tabella.
 
@@ -476,7 +476,7 @@ Per usare questa classe di buffering, l'applicazione crea un oggetto statico Nav
 
 ### <a name="master-detail"></a>Master/dettaglio
 
-I parametri con valori di tabella sono utili per gli scenari INSERT semplici. Tuttavia, può risultare più difficile inviare in batch le operazioni di inserimento che includono più tabelle. Lo scenario "master/dettaglio" è un buon esempio. La tabella master identifica l'entità primaria. In una o più tabelle dei dettagli sono archiviati altri dati sull'entità. In questo scenario, le relazioni di chiave esterna applicano la relazione dei dettagli a un'entità master univoca. Si consideri una versione semplificata di una tabella PurchaseOrder e la tabella associata OrderDetail. L'istruzione Transact-SQL seguente crea la tabella PurchaseOrder con quattro colonne: OrderID, OrderDate, CustomerID e Status.
+I parametri con valori di tabella sono utili per gli scenari INSERT semplici. Tuttavia, può risultare più difficile inviare in batch le operazioni di inserimento che includono più tabelle. Lo scenario "master/dettagli" è un esempio valido. La tabella master identifica l'entità primaria. In una o più tabelle dei dettagli sono archiviati altri dati sull'entità. In questo scenario, le relazioni di chiave esterna applicano la relazione dei dettagli a un'entità master univoca. Si consideri una versione semplificata di una tabella PurchaseOrder e la tabella associata OrderDetail. L'istruzione Transact-SQL seguente crea la tabella PurchaseOrder con quattro colonne: OrderID, OrderDate, CustomerID e Status.
 
 ```sql
 CREATE TABLE [dbo].[PurchaseOrder](
@@ -602,7 +602,7 @@ In questo esempio viene spiegato che è possibile eseguire in batch anche operaz
 
 ### <a name="upsert"></a>UPSERT
 
-Un altro scenario di invio in batch prevede l'aggiornamento simultaneo di righe esistenti e l'inserimento di nuove righe. Questa operazione viene talvolta denominata "UPSERT" (aggiornamento + inserimento). Invece di eseguire chiamate separate a INSERT e UPDATE, l'istruzione MERGE è più adatta a questa attività. L'istruzione MERGE può eseguire operazioni di inserimento e aggiornamento in una singola chiamata.
+Un altro scenario di invio in batch prevede l'aggiornamento simultaneo di righe esistenti e l'inserimento di nuove righe. Questa operazione viene a volte definita operazione "UPSERT" (aggiornamento + inserimento). Invece di eseguire chiamate separate a INSERT e UPDATE, l'istruzione MERGE è più adatta a questa attività. L'istruzione MERGE può eseguire operazioni di inserimento e aggiornamento in una singola chiamata.
 
 I parametri con valori di tabella possono essere usati con l'istruzione MERGE per eseguire aggiornamenti e inserimenti. Si consideri ad esempio una tabella Employee semplificata che contiene le colonne seguenti: EmployeeID, FirstName, LastName, SocialSecurityNumber:
 

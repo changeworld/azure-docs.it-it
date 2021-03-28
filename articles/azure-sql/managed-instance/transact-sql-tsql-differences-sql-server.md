@@ -11,12 +11,12 @@ ms.author: jovanpop
 ms.reviewer: sstein, bonova, danil
 ms.date: 3/16/2021
 ms.custom: seoapril2019, sqldbrb=1
-ms.openlocfilehash: 1afd5a0e24e144169280e683321b5843e9766136
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 227b573d3771efd3fd36e6d3d6222696647849f7
+ms.sourcegitcommit: c8b50a8aa8d9596ee3d4f3905bde94c984fc8aa2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103601373"
+ms.lasthandoff: 03/28/2021
+ms.locfileid: "105644912"
 ---
 # <a name="t-sql-differences-between-sql-server--azure-sql-managed-instance"></a>Differenze di T-SQL tra SQL Server & SQL di Azure Istanza gestita
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -139,7 +139,7 @@ Il Istanza gestita SQL non può accedere ai file, pertanto non è possibile crea
 ### <a name="logins-and-users"></a>Account di accesso e utenti
 
 - Gli account di accesso SQL creati usando `FROM CERTIFICATE` , `FROM ASYMMETRIC KEY` e `FROM SID` sono supportati. Vedere [CREATE LOGIN](/sql/t-sql/statements/create-login-transact-sql).
-- Sono supportate Azure Active Directory (Azure AD) entità server (account di accesso) create con la sintassi [Create Login](/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current) o [Create User FROM login [Azure ad login]](/sql/t-sql/statements/create-user-transact-sql?view=azuresqldb-mi-current) . Questi account di accesso vengono creati a livello di server.
+- Sono supportate Azure Active Directory (Azure AD) entità server (account di accesso) create con la sintassi [Create Login](/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current&preserve-view=true) o [Create User FROM login [Azure ad login]](/sql/t-sql/statements/create-user-transact-sql?view=azuresqldb-mi-current&preserve-view=true) . Questi account di accesso vengono creati a livello di server.
 
     SQL Istanza gestita supporta Azure AD entità di database con la sintassi `CREATE USER [AADUser/AAD group] FROM EXTERNAL PROVIDER` . Questa funzionalità è nota anche come Azure AD utenti del database indipendente.
 
@@ -525,7 +525,7 @@ I database di sistema non vengono replicati nell'istanza secondaria in un gruppo
 ### <a name="tempdb"></a>TEMPDB
 - La dimensione massima del file `tempdb` non può essere maggiore di 24 GB per core in un livello per utilizzo generico. Le dimensioni massime di `tempdb` un livello business critical sono limitate dalle dimensioni di archiviazione di SQL istanza gestita. `Tempdb` le dimensioni del file di log sono limitate a 120 GB nel livello per utilizzo generico. Alcune query potrebbero restituire un errore se hanno bisogno di più di 24 GB per core in `tempdb` o se producono più di 120 GB di dati di log.
 - `Tempdb` viene sempre suddiviso in 12 file di dati: 1 primario, denominato anche master, file di dati e 11 file di dati non primari. Impossibile modificare la struttura dei file e aggiungere nuovi file a `tempdb` . 
-- I [ `tempdb` metadati con ottimizzazione](/sql/relational-databases/databases/tempdb-database?view=sql-server-ver15#memory-optimized-tempdb-metadata)per la memoria, una nuova funzionalità di database in memoria SQL Server 2019, non sono supportati.
+- I [ `tempdb` metadati con ottimizzazione](/sql/relational-databases/databases/tempdb-database?view=sql-server-ver15&preserve-view=true#memory-optimized-tempdb-metadata)per la memoria, una nuova funzionalità di database in memoria SQL Server 2019, non sono supportati.
 - Gli oggetti creati nel database model non possono essere creati automaticamente in `tempdb` dopo un riavvio o un failover perché non `tempdb` Ottiene l'elenco di oggetti iniziale dal database modello. È necessario creare gli oggetti `tempdb` manualmente in seguito a ogni riavvio o failover.
 
 ### <a name="msdb"></a>MSDB
@@ -534,13 +534,13 @@ Gli schemi MSDB seguenti in SQL Istanza gestita devono essere di proprietà dei 
 
 - Ruoli generali
   - TargetServersRole
-- [Ruoli predefiniti del database](/sql/ssms/agent/sql-server-agent-fixed-database-roles?view=sql-server-ver15)
+- [Ruoli predefiniti del database](/sql/ssms/agent/sql-server-agent-fixed-database-roles?view=sql-server-ver15&preserve-view=true)
   - SQLAgentUserRole
   - SQLAgentReaderRole
   - SQLAgentOperatorRole
-- [Ruoli DatabaseMail](/sql/relational-databases/database-mail/database-mail-configuration-objects?view=sql-server-ver15#DBProfile):
+- [Ruoli DatabaseMail](/sql/relational-databases/database-mail/database-mail-configuration-objects?view=sql-server-ver15&preserve-view=true#DBProfile):
   - DatabaseMailUserRole
-- [Ruoli di Integration Services](/sql/integration-services/security/integration-services-roles-ssis-service?view=sql-server-ver15):
+- [Ruoli di Integration Services](/sql/integration-services/security/integration-services-roles-ssis-service?view=sql-server-ver15&preserve-view=true):
   - db_ssisadmin
   - db_ssisltduser
   - db_ssisoperator

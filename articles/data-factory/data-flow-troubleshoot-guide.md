@@ -7,12 +7,12 @@ ms.reviewer: daperlov
 ms.service: data-factory
 ms.topic: troubleshooting
 ms.date: 03/18/2021
-ms.openlocfilehash: a475441a845300d74014924415a4e48ae4de16df
-ms.sourcegitcommit: a9ce1da049c019c86063acf442bb13f5a0dde213
+ms.openlocfilehash: 7678d0fde21cefc950e0ac64a58563425c606298
+ms.sourcegitcommit: c8b50a8aa8d9596ee3d4f3905bde94c984fc8aa2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2021
-ms.locfileid: "105628289"
+ms.lasthandoff: 03/28/2021
+ms.locfileid: "105640227"
 ---
 # <a name="troubleshoot-mapping-data-flows-in-azure-data-factory"></a>Risolvere i problemi relativi al mapping dei flussi di dati in Azure Data Factory
 
@@ -317,24 +317,6 @@ Questo articolo illustra i metodi comuni per la risoluzione dei problemi relativ
 ### <a name="error-code-df-excel-invalidfile"></a>Codice di errore: DF-Excel-InvalidFile
 - **Messaggio**: viene fornito un file di Excel non valido mentre sono supportati solo i file con estensione xlsx e xls.
 
-### <a name="error-code-df-adobeintegration-invalidmaptofilter"></a>Codice di errore: DF-AdobeIntegration-InvalidMapToFilter
-- **Messaggio**: la risorsa personalizzata può avere solo una chiave/ID mappata per filtrare.
-
-### <a name="error-code-df-adobeintegration-invalidpartitionconfiguration"></a>Codice di errore: DF-AdobeIntegration-InvalidPartitionConfiguration
-- **Messaggio**: è supportata una sola partizione. Lo schema della partizione può essere RoundRobin o hash.
-- **Raccomandazione**: in impostazioni AdobeIntegration verificare che siano presenti solo partizioni singole. Lo schema della partizione può essere RoundRobin o hash.
-
-### <a name="error-code-df-adobeintegration-keycolumnmissed"></a>Codice di errore: DF-AdobeIntegration-KeyColumnMissed
-- **Message**: la chiave deve essere specificata per le operazioni non inseribili.
-- **Raccomandazione**: specificare le colonne chiave nelle impostazioni AdobeIntegration per le operazioni non inseribili.
-
-### <a name="error-code-df-adobeintegration-invalidpartitiontype"></a>Codice di errore: DF-AdobeIntegration-InvalidPartitionType
-- **Message**: il tipo di partizione deve essere roundRobin.
-- **Raccomandazione**: verificare che il tipo di partizione sia roundRobin nelle impostazioni di AdobeIntegration.
-
-### <a name="error-code-df-adobeintegration-invalidprivacyregulation"></a>Codice di errore: DF-AdobeIntegration-InvalidPrivacyRegulation
-- **Messaggio**: attualmente è gdpr solo la normativa sulla privacy supportata.
-- **Raccomandazione**: verificare che il regolamento sulla privacy in impostazioni di AdobeIntegration sia **' GDPR '**.
 
 ## <a name="miscellaneous-troubleshooting-tips"></a>Suggerimenti per la risoluzione dei problemi vari
 - **Problema**: si è verificata un'eccezione imprevista ed esecuzione non riuscita.

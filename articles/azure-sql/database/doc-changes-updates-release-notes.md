@@ -11,12 +11,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 03/10/2021
 ms.author: sstein
-ms.openlocfilehash: 0ddd2c96be3513d253537cefd5b9eb83da2b3c12
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 9827a40b2ebc91c17ad7b5457259b8d82565edee
+ms.sourcegitcommit: c8b50a8aa8d9596ee3d4f3905bde94c984fc8aa2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102634839"
+ms.lasthandoff: 03/28/2021
+ms.locfileid: "105640085"
 ---
 # <a name="whats-new-in-azure-sql-database--sql-managed-instance"></a>Novità del database SQL di Azure & SQL Istanza gestita
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -61,12 +61,12 @@ Questa tabella fornisce un confronto rapido per la modifica della terminologia:
 
 | Funzionalità | Dettagli |
 | ---| --- |
-| <a href="/azure/azure-sql/database/elastic-transactions-overview">Transazioni distribuite</a> | Transazioni distribuite tra istanze gestite. |
-| <a href="/azure/sql-database/sql-database-instance-pools">Pool di istanze</a> | Soluzione comoda ed economica per eseguire la migrazione di istanze SQL di dimensioni ridotte nel cloud. |
-| <a href="/en-gb/sql/t-sql/statements/create-login-transact-sql">Entità di sicurezza server (accessi) di Azure AD a livello di istanza</a> | Creare account di accesso a livello di istanza usando un'istruzione <a href="/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current&preserve-view=true">create login from External provider</a> . |
+| [Transazioni distribuite](/azure/azure-sql/database/elastic-transactions-overview) | Transazioni distribuite tra istanze gestite. |
+| [Pool di istanze](/azure/sql-database/sql-database-instance-pools) | Soluzione comoda ed economica per eseguire la migrazione di istanze SQL di dimensioni ridotte nel cloud. |
+| [Entità di sicurezza server (accessi) di Azure AD a livello di istanza](/sql/t-sql/statements/create-login-transact-sql) | Creare account di accesso a livello di istanza usando un'istruzione [create login from External provider](/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current&preserve-view=true) . |
 | [Replica transazionale](../managed-instance/replication-transactional-overview.md) | Replicare le modifiche dalle tabelle in altri database di SQL Istanza gestita, database SQL o SQL Server. In alternativa, aggiornare le tabelle quando alcune righe vengono modificate in altre istanze di SQL Istanza gestita o SQL Server. Per informazioni, vedere [configurare la replica in Azure SQL istanza gestita](../managed-instance/replication-between-two-instances-configure-tutorial.md). |
 | Rilevamento delle minacce |Per informazioni, vedere [configurare il rilevamento delle minacce in Azure SQL istanza gestita](../managed-instance/threat-detection-configure.md).|
-| Conservazione del backup a lungo termine | Per informazioni, vedere [configurare la conservazione del backup a lungo termine in Azure SQL istanza gestita](../managed-instance/long-term-backup-retention-configure.md), attualmente disponibile in anteprima pubblica limitata. | 
+| Conservazione del backup a lungo termine | Per informazioni, vedere [configurare la conservazione del backup a lungo termine in Azure SQL istanza gestita](../managed-instance/long-term-backup-retention-configure.md), attualmente disponibile in anteprima pubblica limitata. |
 
 ---
 

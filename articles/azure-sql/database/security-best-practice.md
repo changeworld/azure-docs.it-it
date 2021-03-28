@@ -10,12 +10,12 @@ ms.author: vanto
 ms.topic: article
 ms.date: 09/21/2020
 ms.reviewer: ''
-ms.openlocfilehash: 1217d3af855e96b6d6a0f403c2ff351a6b957d9a
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 5d83f6585500316515139f937a56889dfc1f8fac
+ms.sourcegitcommit: c8b50a8aa8d9596ee3d4f3905bde94c984fc8aa2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "96459670"
+ms.lasthandoff: 03/28/2021
+ms.locfileid: "105642709"
 ---
 # <a name="playbook-for-addressing-common-security-requirements-with-azure-sql-database-and-azure-sql-managed-instance"></a>PlayBook per soddisfare i requisiti di sicurezza comuni con il database SQL di Azure e Azure SQL Istanza gestita
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -91,7 +91,7 @@ Gestione delle identità centrale offre i vantaggi seguenti:
 - Assegnare i diritti di accesso alle risorse Azure AD entità tramite assegnazione gruppo: creare gruppi di Azure AD, concedere l'accesso ai gruppi e aggiungere singoli membri ai gruppi. Nel database creare utenti del database indipendente che mappano i gruppi di Azure AD. Per assegnare autorizzazioni all'interno del database, inserire gli utenti associati ai gruppi di Azure AD nei ruoli del database con le autorizzazioni appropriate.
   - Vedere gli articoli, [configurare e gestire l'autenticazione Azure Active Directory con SQL](authentication-aad-configure.md) e [usare Azure ad per l'autenticazione con SQL](authentication-aad-overview.md).
   > [!NOTE]
-  > In SQL Istanza gestita è inoltre possibile creare account di accesso che vengono mappati a Azure AD entità nel database master. Vedere [Create Login (Transact-SQL)](/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current).
+  > In SQL Istanza gestita è inoltre possibile creare account di accesso che vengono mappati a Azure AD entità nel database master. Vedere [Create Login (Transact-SQL)](/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current&preserve-view=true).
 
 - L'uso di gruppi di Azure AD semplifica la gestione delle autorizzazioni e il proprietario del gruppo e il proprietario della risorsa può aggiungere/rimuovere membri da e verso il gruppo.
 
@@ -136,7 +136,7 @@ Azure AD Multi-Factor Authentication consente di garantire una maggiore sicurezz
 
 - Usare Azure AD modalità di autenticazione interattiva per il database SQL di Azure e Azure SQL Istanza gestita in cui viene richiesta una password in modo interattivo, seguito da Multi-Factor Authentication:
   - Usare l'autenticazione universale in SSMS. Vedere l'articolo [relativo all'uso dell'autenticazione a più fattori Azure ad con il database SQL di Azure, sql istanza gestita, la sinapsi di Azure (supporto per multi-factor authentication di SSMS)](authentication-mfa-ssms-overview.md).
-  - Usare l'autenticazione interattiva supportata in SQL Server Data Tools (SSDT). Vedere l'articolo [supporto Azure Active Directory in SQL Server Data Tools (SSDT)](/sql/ssdt/azure-active-directory?view=azuresqldb-current).
+  - Usare l'autenticazione interattiva supportata in SQL Server Data Tools (SSDT). Vedere l'articolo [supporto Azure Active Directory in SQL Server Data Tools (SSDT)](/sql/ssdt/azure-active-directory?view=azuresqldb-current&preserve-view=true).
   - Utilizzare altri strumenti SQL che supportano Multi-Factor Authentication.
     - Supporto della procedura guidata di SSMS per il database di esportazione/estrazione/distribuzione  
     - [sqlpackage.exe](/sql/tools/sqlpackage): opzione '/ua '
@@ -196,7 +196,7 @@ Per i casi in cui le password non possono essere evitate, assicurarsi che siano 
 
 - Se non è possibile evitare password o segreti, archiviare le password degli utenti e i segreti dell'applicazione in Azure Key Vault e gestire l'accesso tramite Key Vault criteri di accesso.
 
-- Vari Framework di sviluppo di app possono anche offrire meccanismi specifici del Framework per la protezione dei segreti nell'app. Ad esempio: [ASP.NET Core app](/aspnet/core/security/app-secrets?tabs=windows&view=aspnetcore-2.1).
+- Vari Framework di sviluppo di app possono anche offrire meccanismi specifici del Framework per la protezione dei segreti nell'app. Ad esempio: [ASP.NET Core app](/aspnet/core/security/app-secrets?tabs=windows).
 
 ### <a name="use-sql-authentication-for-legacy-applications"></a>Usare l'autenticazione SQL per le applicazioni legacy
 

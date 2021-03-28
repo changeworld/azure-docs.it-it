@@ -9,12 +9,12 @@ ms.author: mikben
 ms.date: 09/30/2020
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: b275c3af2e92dc5af677120b5082751d19676b2e
-ms.sourcegitcommit: bed20f85722deec33050e0d8881e465f94c79ac2
+ms.openlocfilehash: 02cfb4abc4f553c8f4353d8488390ed45eb3a7e7
+ms.sourcegitcommit: c8b50a8aa8d9596ee3d4f3905bde94c984fc8aa2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/25/2021
-ms.locfileid: "105110815"
+ms.lasthandoff: 03/28/2021
+ms.locfileid: "105642231"
 ---
 # <a name="chat-sdk-overview"></a>Panoramica di Chat SDK 
 
@@ -28,7 +28,7 @@ Nell'elenco seguente viene presentato il set di funzionalità attualmente dispon
 
 | Gruppo di funzionalità | Funzionalità | JavaScript  | Java | .NET | Python | iOS | Android |
 |-----------------|-------------------|---|-----|----|-----|----|----|
-| Funzionalità principali | Creare un thread di chat tra 2 o più utenti (fino a 250 utenti)                                                       | ✔️   | ✔️  | ✔️    | ✔️   |  ✔️    | ✔️   |    
+| Funzionalità principali | Creare un thread di chat tra due o più utenti                                                     | ✔️   | ✔️  | ✔️    | ✔️   |  ✔️    | ✔️   |    
 |                   | Aggiornare l'argomento di un thread di chat                                                                              | ✔️   | ✔️ | ✔️    | ✔️   |  ✔️    | ✔️   |   
 |                   | Aggiunta o rimozione di partecipanti da un thread di chat                                                                           | ✔️   | ✔️  | ✔️    | ✔️  |  ✔️    | ✔️   |  
 |                   | Scegliere se condividere la cronologia dei messaggi di chat con il partecipante aggiunto                                   | ✔️   | ✔️   | ✔️    | ✔️  |  ✔️    | ✔️   | 
@@ -37,16 +37,16 @@ Nell'elenco seguente viene presentato il set di funzionalità attualmente dispon
 |                   | Dato un utente di comunicazione, ottenere l'elenco dei thread di chat di cui l'utente fa parte                                           | ✔️   | ✔️  | ✔️    | ✔️  |  ✔️    | ✔️   |   
 |                   | Ottenere informazioni per un thread di chat specifico                                                                              | ✔️   | ✔️  | ✔️ | ✔️ |  ✔️    | ✔️   |   
 |                   | Inviare e ricevere messaggi in un thread di chat                                                                            | ✔️   | ✔️   | ✔️    | ✔️  |  ✔️    | ✔️   |   
-|                   | Modificare il contenuto di un messaggio inviato                                                                                | ✔️   | ✔️  | ✔️ | ✔️ |  ✔️    | ✔️   |   
-|                   | Eliminare un messaggio                                                                                                       | ✔️   | ✔️  | ✔️ | ✔️ |  ✔️    | ✔️   |   
-|                   | Conferme di lettura per i messaggi che sono stati letti da altri partecipanti in una chat <br/> *Non disponibile quando sono presenti più di 20 partecipanti in un thread di chat*    | ✔️   | ✔️  | ✔️    | ✔️   |  ✔️    | ✔️   |   
-|                   | Ricevere una notifica quando i partecipanti digitano attivamente un messaggio in un thread di chat <br/> *Non disponibile quando sono presenti più di 20 membri in un thread di chat*      | ✔️   | ✔️   | ✔️    | ✔️    |  ✔️    | ✔️   | 
-|                   | Ottenere tutti i messaggi in un thread di chat <br/>                                                                         | ✔️   | ✔️  | ✔️    | ✔️  |  ✔️    | ✔️   |  
+|                   | Aggiornare il contenuto del messaggio inviato                                                                               | ✔️   | ✔️  | ✔️ | ✔️ |  ✔️    | ✔️   |    
+|                   | Eliminare un messaggio inviato in precedenza                                                                                                      | ✔️   | ✔️  | ✔️ | ✔️ |  ✔️    | ✔️   |    
+|                   | Conferme di lettura per i messaggi che sono stati letti da altri partecipanti in una chat                                        | ✔️   | ✔️  | ✔️    | ✔️   |  ✔️    | ✔️   |   
+|                   | Ricevere una notifica quando i partecipanti digitano attivamente un messaggio in un thread di chat                                         | ✔️   | ✔️   | ✔️    | ✔️    |  ✔️    | ✔️   | 
+|                   | Ottenere tutti i messaggi in un thread di chat                                                                        | ✔️   | ✔️  | ✔️    | ✔️  |  ✔️    | ✔️   | 
 |                   | Invia emoji Unicode come parte del contenuto del messaggio                                                                            | ✔️   | ✔️  | ✔️    | ✔️  |  ✔️    | ✔️   |    
-|Segnalazione in tempo reale (abilitata dal pacchetto di segnalazione proprietario * *)|  Sottoscrivere per ottenere gli aggiornamenti in tempo reale per i messaggi in arrivo e altre operazioni nell'app di chat. Per visualizzare un elenco degli aggiornamenti supportati per la segnalazione in tempo reale, vedere [concetti relativi alla chat](concepts.md#real-time-signaling)                                     | ✔️   | ❌    | ❌  | ❌  | ❌  | ❌  |    
-| Supporto griglia di eventi             | Usare l'integrazione con griglia di eventi di Azure e configurare il servizio di comunicazione per eseguire la logica di business in base alle attività di chat o per collegare un servizio di notifica push personalizzato   | ✔️   | ✔️  | ✔️    | ✔️  |  ✔️    | ✔️   |  
-| Monitoraggio        | Usare le metriche delle richieste API emesse nel portale di Azure per compilare dashboard, monitorare l'integrità dell'app di chat e impostare gli avvisi per rilevare le anomalie      | ✔️   | ✔️  | ✔️    | ✔️  |  ✔️    | ✔️   |    
-|                   | Configurare la risorsa di servizi di comunicazione per ricevere i log operativi della chat a scopo di monitoraggio e diagnostica          | ✔️   | ✔️  | ✔️    | ✔️  |  ✔️    | ✔️   |  
+|Notifiche in tempo reale (abilitate dal pacchetto di segnalazione proprietario * *)|  I client di chat possono sottoscrivere per ottenere gli aggiornamenti in tempo reale per i messaggi in arrivo e altre operazioni che si verificano in un thread di chat. Per visualizzare un elenco degli aggiornamenti supportati per le notifiche in tempo reale, vedere [concetti relativi alla chat](concepts.md#real-time-notifications)                                     | ✔️   | ❌    | ❌  | ❌  | ❌  | ❌  | 
+| Integrazione con Griglia di eventi di Azure             | Usare gli eventi di chat disponibili in griglia di eventi di Azure per inserire i servizi di notifica personalizzati o pubblicare l'evento in un webhook per eseguire la logica di business, ad esempio l'aggiornamento dei record CRM al termine di una chat   | ✔️   | ✔️  | ✔️    | ✔️  |  ✔️    | ✔️   |    
+| Creazione di report </br>(Queste informazioni sono disponibili nella scheda monitoraggio per la risorsa di servizi di comunicazione in portale di Azure)      | Informazioni sul traffico API dall'app Chat monitorando le metriche pubblicate in Azure Esplora metriche e impostare gli avvisi per rilevare le anomalie     | ✔️   | ✔️  | ✔️    | ✔️  |  ✔️    | ✔️   |  
+|                   | Monitorare ed eseguire il debug della soluzione Servizi di comunicazione abilitando la registrazione diagnostica per la risorsa    | ✔️   | ✔️  | ✔️    | ✔️  |  ✔️    | ✔️   |   
 
 
 * * Il pacchetto di segnalazione proprietario viene implementato utilizzando i socket Web. Verrà eseguito il fallback al polling lungo se i socket Web non sono supportati.  
@@ -68,3 +68,4 @@ La tabella seguente rappresenta il set di versioni e browser supportati attualme
 
 I documenti seguenti possono essere interessanti:  
 - Acquisire familiarità con i [concetti relativi alle chat](../chat/concepts.md)
+- Informazioni sul funzionamento dei [prezzi](../pricing.md#chat) per la chat

@@ -1,10 +1,10 @@
 ---
-ms.openlocfilehash: b37ebebdb99530ab615a313d9b269b9ce937b7f1
-ms.sourcegitcommit: bed20f85722deec33050e0d8881e465f94c79ac2
+ms.openlocfilehash: cefdf77052e559853cc85d129799e288032186b8
+ms.sourcegitcommit: c8b50a8aa8d9596ee3d4f3905bde94c984fc8aa2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/25/2021
-ms.locfileid: "105110748"
+ms.lasthandoff: 03/28/2021
+ms.locfileid: "105645417"
 ---
 ## <a name="add-managed-identity-to-your-communication-services-solution"></a>Aggiungere identità gestite alla soluzione Servizi di comunicazione
 
@@ -24,7 +24,7 @@ Aggiungere quanto segue `import` al codice per usare l'identità di Azure.
 from azure.identity import DefaultAzureCredential
 ```
 
-Gli esempi seguenti usano [DefaultAzureCredential](/python/api/azure.identity.defaultazurecredential). Questa credenziale è adatta per ambienti di produzione e di sviluppo.
+Gli esempi seguenti usano [DefaultAzureCredential](/python/api/azure-identity/azure.identity.defaultazurecredential). Questa credenziale è adatta per ambienti di produzione e di sviluppo.
 
 Per registrare l'applicazione nell'ambiente di sviluppo e configurare le variabili di ambiente, vedere [autorizzare l'accesso con l'identità gestita](../managed-identity-from-cli.md)
 

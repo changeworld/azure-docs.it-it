@@ -4,12 +4,12 @@ description: Informazioni su come ridimensionare l'app Web Resource, il servizio
 ms.topic: conceptual
 ms.date: 07/07/2017
 ms.subservice: autoscale
-ms.openlocfilehash: 081e06fbd6506c76a068d7207e29efb66502a9dd
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: edc58ed4af3475a45804e3833424bec79d50ff89
+ms.sourcegitcommit: c8b50a8aa8d9596ee3d4f3905bde94c984fc8aa2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101726054"
+ms.lasthandoff: 03/28/2021
+ms.locfileid: "105641556"
 ---
 # <a name="get-started-with-autoscale-in-azure"></a>Introduzione alla scalabilità automatica in Azure
 Questo articolo descrive come configurare l'impostazione di scalabilità automatica per la risorsa nel portale di Microsoft Azure.
@@ -113,6 +113,10 @@ Fare clic sul pulsante **Disabilita scalabilità automatica** nella parte superi
 
 È sempre possibile impostare nuovamente la scalabilità automatica facendo clic su **Abilita scalabilità automatica** e quindi su **Salva**.
 
+### <a name="cool-down-period-effects"></a>Effetti del periodo di raffreddamento
+
+La scalabilità automatica usa un periodo di raffreddamento per impedire il "battito", che è il ripetitivo rapido e verticale delle istanze.  Per altre informazioni, vedere la [procedura di valutazione della scalabilità](autoscale-understanding-settings.md#autoscale-evaluation)automatica.  Altre informazioni utili su come monitorare il motore di scalabilità automatica sono reperibili in [procedure consigliate per la scalabilità](autoscale-best-practices.md#choose-the-thresholds-carefully-for-all-metric-types) automatica e [risoluzione dei problemi di scalabilità](autoscale-troubleshoot.md) automatica rispettivamente. 
+
 ## <a name="route-traffic-to-healthy-instances-app-service"></a>Instradare il traffico a istanze integre (servizio app)
 
 <a id="health-check-path"></a>
@@ -136,6 +140,7 @@ Per altre informazioni sullo spostamento di risorse tra aree e ripristino di eme
 ## <a name="next-steps"></a>Passaggi successivi
 - [Creare un avviso di log attività per monitorare tutte le operazioni del motore di scalabilità automatica della sottoscrizione](https://github.com/Azure/azure-quickstart-templates/tree/master/monitor-autoscale-alert)
 - [Creare un avviso di log attività per monitorare tutte le operazioni di scalabilità automatica in riduzione e in aumento non riuscite per la sottoscrizione](https://github.com/Azure/azure-quickstart-templates/tree/master/monitor-autoscale-failed-alert)
+
 
 <!--Reference-->
 [1]:https://portal.azure.com

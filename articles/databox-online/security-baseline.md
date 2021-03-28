@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 12/18/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: d88284f3b9759ce04af9e44ae591c4796dde4e84
-ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
+ms.openlocfilehash: 335056260ddea0c15db761df109e69333ef474f3
+ms.sourcegitcommit: c8b50a8aa8d9596ee3d4f3905bde94c984fc8aa2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/26/2021
-ms.locfileid: "105565198"
+ms.lasthandoff: 03/28/2021
+ms.locfileid: "105641373"
 ---
 # <a name="azure-security-baseline-for-azure-stack-edge"></a>Baseline della sicurezza di Azure per Azure Stack Edge
 
@@ -298,7 +298,7 @@ Si noti che potrebbero essere necessarie autorizzazioni aggiuntive per ottenere 
 
 **Linee guida**: solo gli utenti autorizzati, ad esempio, "EdgeArmUser" possono accedere alle API del dispositivo Azure stack Edge tramite la Azure Resource Manager locale. Le password degli account utente possono essere gestite solo in portale di Azure. 
 
-- [Impostare la password di Azure Resource Manager](/azure/azure-stack-edge-gpu-set-azure-resource-manager-password)
+- [Impostare la password di Azure Resource Manager](/azure/databox-online/azure-stack-edge-gpu-set-azure-resource-manager-password)
 
 **Monitoraggio del Centro sicurezza di Azure**: attualmente non disponibile
 

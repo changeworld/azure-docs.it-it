@@ -6,12 +6,12 @@ ms.author: valls
 ms.date: 2/11/2021
 ms.topic: tutorial
 ms.service: iot-hub-device-update
-ms.openlocfilehash: 74709d970f624f2d4cefaab77e8466361e4102cc
-ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
+ms.openlocfilehash: b6a9fa3ac85460a46653c171198a2dfea8580f3a
+ms.sourcegitcommit: c8b50a8aa8d9596ee3d4f3905bde94c984fc8aa2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/26/2021
-ms.locfileid: "105563430"
+ms.lasthandoff: 03/28/2021
+ms.locfileid: "105644488"
 ---
 # <a name="device-update-for-azure-iot-hub-tutorial-using-the-raspberry-pi-3-b-reference-image"></a>Esercitazione sull'aggiornamento del dispositivo per l'hub Azure. uso dell'immagine di riferimento di Raspberry Pi 3 B +
 
@@ -73,7 +73,7 @@ Usando lo strumento di lampeggiamento del sistema operativo preferito, installar
    
 L'aggiornamento del dispositivo per il software hub Azure Internet è soggetto alle condizioni di licenza seguenti:
    * [Aggiornamento del dispositivo per la licenza dell'hub Internet](https://github.com/Azure/iot-hub-device-update/blob/main/LICENSE.md)
-   * [Licenza client di ottimizzazione recapito](https://github.com/microsoft/do-client/blob/main/LICENSE.md)
+   * [Licenza client di ottimizzazione recapito](https://github.com/microsoft/do-client/blob/main/LICENSE)
    
 Leggere le condizioni di licenza prima di utilizzare l'agente. L'installazione e l'utilizzo costituiscono l'accettazione di tali condizioni. Se non si accettano le condizioni di licenza, non usare l'aggiornamento del dispositivo per l'agente hub Internet delle cose.
 

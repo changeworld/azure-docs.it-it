@@ -10,16 +10,19 @@ ms.topic: quickstart
 ms.custom: mvc,subject-armqs
 ms.date: 10/14/2020
 ms.author: sebansal
-ms.openlocfilehash: daf6d90ae6b5d95c54e0e83eff4c2d606e7054fe
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 48686fb78dc4295da3bd390d92ae3837cd09a4d0
+ms.sourcegitcommit: c8b50a8aa8d9596ee3d4f3905bde94c984fc8aa2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104585758"
+ms.lasthandoff: 03/28/2021
+ms.locfileid: "105639419"
 ---
-# <a name="quickstart-create-an-azure-key-vault-and-a-key-by-using-arm-template-preview"></a>Avvio rapido: Creare un insieme di credenziali delle chiavi di Azure e una chiave con un modello di Azure Resource Manager (anteprima)
+# <a name="quickstart-create-an-azure-key-vault-and-a-key-by-using-arm-template"></a>Guida introduttiva: creare un insieme di credenziali delle chiavi di Azure e una chiave usando il modello ARM 
 
 [Azure Key Vault](../general/overview.md) è un servizio cloud che offre un archivio sicuro per i segreti, ad esempio le chiavi, le password, i certificati e così via. Questa guida di avvio rapido illustra il processo di distribuzione di un modello di Azure Resource Manager per creare un insieme di credenziali delle chiavi e una chiave.
+
+> [!NOTE]
+> Questa funzionalità non è disponibile per Azure per enti pubblici.
 
 ## <a name="prerequisites"></a>Prerequisiti
 

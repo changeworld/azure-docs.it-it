@@ -9,12 +9,12 @@ ms.service: cost-management-billing
 ms.subservice: cost-management
 ms.reviewer: adwise
 ms.custom: secdec18
-ms.openlocfilehash: 660b5751e3b3cbc632331e99d797af3392a8aea4
-ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
-ms.translationtype: HT
+ms.openlocfilehash: cb54c5f7334120f6cd01ed1704939c5c1a55e7c6
+ms.sourcegitcommit: c8b50a8aa8d9596ee3d4f3905bde94c984fc8aa2
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/05/2020
-ms.locfileid: "91371967"
+ms.lasthandoff: 03/28/2021
+ms.locfileid: "105645285"
 ---
 # <a name="assign-access-to-cost-management-data"></a>Assegnare l’accesso ai dati di Gestione costi
 
@@ -39,9 +39,9 @@ Gestione costi supporta un'ampia gamma di tipi di account di Azure. Per visualiz
 | Account di fatturazione<sup>1</sup> | [https://ea.azure.com](https://ea.azure.com/) | Amministratore aziendale | nessuno | Tutte le sottoscrizioni del Contratto Enterprise |
 | department | [https://ea.azure.com](https://ea.azure.com/) | Amministratore del reparto | **Visualizzazione addebiti addebitata per gli amministratori di reparto** | Tutte le sottoscrizioni che appartengono a un account di registrazione collegato al reparto |
 | Account di registrazione<sup>2</sup> | [https://ea.azure.com](https://ea.azure.com/) | Proprietario dell'account | **Visualizzazione addebiti abilitata per i proprietari dell'account** | Tutte le sottoscrizioni dell'account di registrazione |
-| Gruppo di gestione | [https://portal.azure.com](https://portal.azure.com/) | Lettore Gestione costi (o Lettore) | **Visualizzazione addebiti abilitata per i proprietari dell'account** | Tutte le sottoscrizioni incluse nel gruppo di gestione |
-| Subscription | [https://portal.azure.com](https://portal.azure.com/) | Lettore Gestione costi (o Lettore) | **Visualizzazione addebiti abilitata per i proprietari dell'account** | Tutte le risorse o i gruppi di risorse inclusi nella sottoscrizione |
-| Resource group | [https://portal.azure.com](https://portal.azure.com/) | Lettore Gestione costi (o Lettore) | **Visualizzazione addebiti abilitata per i proprietari dell'account** | Tutte le risorse nel gruppo di risorse |
+| Gruppo di gestione | [https://portal.azure.com](https://portal.azure.com/) | Lettore di gestione costi (o collaboratore) | **Visualizzazione addebiti abilitata per i proprietari dell'account** | Tutte le sottoscrizioni incluse nel gruppo di gestione |
+| Subscription | [https://portal.azure.com](https://portal.azure.com/) | Lettore di gestione costi (o collaboratore) | **Visualizzazione addebiti abilitata per i proprietari dell'account** | Tutte le risorse o i gruppi di risorse inclusi nella sottoscrizione |
+| Resource group | [https://portal.azure.com](https://portal.azure.com/) | Lettore di gestione costi (o collaboratore) | **Visualizzazione addebiti abilitata per i proprietari dell'account** | Tutte le risorse nel gruppo di risorse |
 
 <sup>1</sup> L'account di fatturazione viene anche indicato con il termine Contratto Enterprise o Registrazione.
 
@@ -52,8 +52,8 @@ Gestione costi supporta un'ampia gamma di tipi di account di Azure. Per visualiz
 
 È necessario disporre almeno dell'accesso in lettura a uno o più degli ambiti seguenti per visualizzare i dati dei costi per altre sottoscrizioni di Azure:
 
-- Account Azure
 - Gruppo di gestione
+- Subscription
 - Resource group
 
 Dopo che i partner hanno eseguito l'onboarding dei clienti in un Contratto del cliente Microsoft, sono disponibili vari ambiti. I clienti CSP possono usare le funzionalità di Gestione costi quando sono abilitate dal partner CSP. Per altre informazioni, vedere [Introduzione a Gestione costi di Azure per i partner](get-started-partners.md).

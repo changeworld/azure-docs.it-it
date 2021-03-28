@@ -9,12 +9,12 @@ author: GithubMirek
 ms.author: mireks
 ms.reviewer: vanto
 ms.date: 08/14/2020
-ms.openlocfilehash: dec29dc92f70a3f02f3fb598659aa86477fb59bf
-ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
+ms.openlocfilehash: d764c6b6cff6a0ba23d659d4fda63e21aac9b155
+ms.sourcegitcommit: c8b50a8aa8d9596ee3d4f3905bde94c984fc8aa2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/26/2021
-ms.locfileid: "105558245"
+ms.lasthandoff: 03/28/2021
+ms.locfileid: "105644186"
 ---
 # <a name="directory-readers-role-in-azure-active-directory-for-azure-sql"></a>Ruolo con autorizzazioni di lettura nella directory in Azure Active Directory per Azure SQL
 
@@ -31,7 +31,7 @@ Il ruolo **Readers directory** è necessario per:
 
 - Crea account di accesso Azure AD per SQL Istanza gestita
 - Rappresentare Azure AD utenti in Azure SQL
-- Eseguire la migrazione di SQL Server utenti che utilizzano l'autenticazione di Windows a SQL Istanza gestita con l'autenticazione Azure AD (tramite il comando [ALTER USER (Transact-SQL)](/sql/t-sql/statements/alter-user-transact-sql?view=azuresqldb-mi-current#d-map-the-user-in-the-database-to-an-azure-ad-login-after-migration) )
+- Eseguire la migrazione di SQL Server utenti che utilizzano l'autenticazione di Windows a SQL Istanza gestita con l'autenticazione Azure AD (tramite il comando [ALTER USER (Transact-SQL)](/sql/t-sql/statements/alter-user-transact-sql?view=azuresqldb-mi-current&preserve-view=true#d-map-the-user-in-the-database-to-an-azure-ad-login-after-migration) )
 - Modificare l'amministratore di Azure AD per SQL Istanza gestita
 - Consentire alle [entità servizio (applicazioni)](authentication-aad-service-principal.md) di creare Azure ad utenti in Azure SQL
 

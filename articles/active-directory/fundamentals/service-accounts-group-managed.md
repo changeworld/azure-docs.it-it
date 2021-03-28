@@ -13,12 +13,12 @@ ms.author: baselden
 ms.reviewer: ajburnle
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bd4c1adddbf4b13f8e299bd656443c9aaab1d55b
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: f6f91adf499c62fef56a30c5f2945ba7a90a0b29
+ms.sourcegitcommit: c8b50a8aa8d9596ee3d4f3905bde94c984fc8aa2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "101644828"
+ms.lasthandoff: 03/28/2021
+ms.locfileid: "105640068"
 ---
 # <a name="securing-group-managed-service-accounts"></a>Protezione degli account del servizio gestiti del gruppo
 
@@ -41,7 +41,7 @@ Servizi gestiti offrono una soluzione di gestione delle identità unica con magg
 Usare servizi gestiti come tipo di account preferito per i servizi locali a meno che un servizio, ad esempio il clustering di failover, non lo supporti.
 
 > [!IMPORTANT]
-> È necessario testare il servizio con servizi gestiti prima della distribuzione nell'ambiente di produzione. A tale scopo, configurare un ambiente di testing e assicurarsi che l'applicazione possa usare il gMSA e accedere alle risorse necessarie per l'accesso. Per ulteriori informazioni, vedere [supporto per gli account del servizio gestiti del gruppo](/system-center/scom/support-group-managed-service-accounts?view=sc-om-2019).
+> È necessario testare il servizio con servizi gestiti prima della distribuzione nell'ambiente di produzione. A tale scopo, configurare un ambiente di testing e assicurarsi che l'applicazione possa usare il gMSA e accedere alle risorse necessarie per l'accesso. Per ulteriori informazioni, vedere [supporto per gli account del servizio gestiti del gruppo](/system-center/scom/support-group-managed-service-accounts).
 
 
 Se un servizio non supporta l'uso di servizi gestiti, l'opzione migliore successiva consiste nell'usare un account del servizio gestito autonomo (sMSA). sMSAs offrono le stesse funzionalità di un gMSA, ma sono destinate alla distribuzione solo in un singolo server.
@@ -86,7 +86,7 @@ Get-ADServiceAccount -Filter *
 
 # To filter results to only gMSAs:
 
-Get-ADServiceAccount –Filter * | where $_.ObjectClass -eq "msDS-GroupManagedServiceAccount”}
+Get-ADServiceAccount –Filter * | where $_.ObjectClass -eq "msDS-GroupManagedServiceAccount"}
 ```
 
 ## <a name="manage-gmsas"></a>Gestisci servizi gestiti
