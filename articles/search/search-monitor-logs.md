@@ -8,16 +8,16 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 06/30/2020
-ms.openlocfilehash: e29e20d071e992b941b2f6bd803c8dade044fbfd
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 3c8dd5cd9da2fd1e741635a6471c0662066d147e
+ms.sourcegitcommit: dae6b628a8d57540263a1f2f1cdb10721ed1470d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "100592465"
+ms.lasthandoff: 03/29/2021
+ms.locfileid: "105709940"
 ---
 # <a name="collect-and-analyze-log-data-for-azure-cognitive-search"></a>Raccogliere e analizzare i dati di log per Azure ricerca cognitiva
 
-I log di diagnostica o operativi forniscono informazioni approfondite sulle operazioni dettagliate di Azure ricerca cognitiva e sono utili per il monitoraggio dei processi del servizio e del carico di lavoro. Internamente, alcune informazioni sul sistema esistono nel back-end per un breve periodo di tempo, sufficiente per l'analisi e l'analisi se si segnala un ticket di supporto. Tuttavia, se si desidera la direzione automatica sui dati operativi, è necessario configurare un'impostazione di diagnostica per specificare la posizione in cui vengono raccolte le informazioni di registrazione.
+I log di diagnostica o operativi forniscono informazioni approfondite sulle operazioni dettagliate di Azure ricerca cognitiva e sono utili per il monitoraggio dei processi del servizio e del carico di lavoro. Internamente, Microsoft conserva le informazioni di sistema sul back-end per un breve periodo di tempo (circa 30 giorni), sufficiente per l'analisi e l'analisi, se si segnala un ticket di supporto. Tuttavia, se si desidera la proprietà su dati operativi, è necessario configurare un'impostazione di diagnostica per specificare la posizione in cui vengono raccolte le informazioni di registrazione.
 
 La registrazione diagnostica viene abilitata tramite l'integrazione con [monitoraggio di Azure](../azure-monitor/index.yml). 
 
@@ -76,14 +76,14 @@ Due tabelle contengono log e metriche per ricerca cognitiva di Azure: **AzureDia
 
 1. Immettere la query seguente per restituire un set di risultati tabulare.
 
-   ```
+   ```kusto
    AzureMetrics
-    | project MetricName, Total, Count, Maximum, Minimum, Average
+   | project MetricName, Total, Count, Maximum, Minimum, Average
    ```
 
 1. Ripetere i passaggi precedenti, a partire da **AzureDiagnostics** per restituire tutte le colonne a scopo informativo, seguito da una query più selettiva che estrae informazioni più interessanti.
 
-   ```
+   ```kusto
    AzureDiagnostics
    | project OperationName, resultSignature_d, DurationMs, Query_s, Documents_d, IndexName_s
    | where OperationName == "Query.Search" 
@@ -99,7 +99,7 @@ Se è stata abilitata la registrazione diagnostica, è possibile eseguire una qu
 
 Restituisce un elenco di operazioni e un conteggio di ciascuna di esse.
 
-```
+```kusto
 AzureDiagnostics
 | summarize count() by OperationName
 ```
@@ -108,7 +108,7 @@ AzureDiagnostics
 
 Correlare le richieste di query con le operazioni di indicizzazione ed eseguire il rendering dei punti dati in un grafico temporale per vedere le operazioni in coincidenza.
 
-```
+```kusto
 AzureDiagnostics
 | summarize OperationName, Count=count()
 | where OperationName in ('Query.Search', 'Indexing.Index')

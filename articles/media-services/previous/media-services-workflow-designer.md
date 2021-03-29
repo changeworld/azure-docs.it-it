@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 3/10/2021
 ms.author: anilmur
 ms.reviewer: juliako;johndeu
-ms.openlocfilehash: 8173da37792948e267aae2078fee9f864bf7bdc9
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 744d302afd21e6521fb17bf7bef6e68d21fb8372
+ms.sourcegitcommit: c8b50a8aa8d9596ee3d4f3905bde94c984fc8aa2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103011154"
+ms.lasthandoff: 03/28/2021
+ms.locfileid: "105639391"
 ---
 # <a name="create-advanced-encoding-workflows-with-workflow-designer"></a>Creazione di flussi di lavoro di codifica avanzati con Progettazione flussi di lavoro
 
@@ -45,7 +45,7 @@ Di seguito sono riportati alcuni flussi di lavoro di esempio che è possibile cr
 Dopo aver creato un file del flusso di lavoro, lo strumento può essere caricato come risorsa e può quindi essere usato per la codifica di file multimediali. Per informazioni su come codificare con il **Flusso di lavoro Premium del codificatore multimediale** usando **.NET**, vedere [Codifica avanzata con il flusso di lavoro Premium del codificatore multimediale](media-services-encode-with-premium-workflow.md).
 
 ## <a name="modify-existing-workflows"></a><a id="existing_workflows"></a>Modificare flussi di lavoro esistenti
-Lo strumento di progettazione consente anche di modificare i [flussi di lavoro pubblicati](media-services-workflow-designer.md#existing_workflows) predefiniti. È possibile ottenere i file dei flussi di lavoro predefiniti [qui](https://github.com/Azure/azure-media-services-samples/tree/master/Encoding%20Presets/VoD/MediaEncoderPremiumWorkfows). Nella cartella è presente anche una descrizione dei file.
+Lo strumento di progettazione consente anche di modificare i [flussi di lavoro pubblicati](media-services-workflow-designer.md#existing_workflows) predefiniti. È possibile ottenere i file dei flussi di lavoro predefiniti [qui](https://github.com/MicrosoftDocs/azure-docs/blob/master/articles/media-services/previous/media-services-encode-with-premium-workflow.md). Nella cartella è presente anche una descrizione dei file.
 
 I video seguenti illustrano come usare la finestra di progettazione.
 

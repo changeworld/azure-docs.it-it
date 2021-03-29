@@ -1,24 +1,21 @@
 ---
-title: Usare monitor Windows Virtual Desktop Monitor Preview-Azure
+title: Usare monitoraggio monitoraggio desktop virtuale di Windows-Azure
 description: Come usare monitoraggio di Azure per desktop virtuale di Windows.
 author: Heidilohr
 ms.topic: how-to
-ms.date: 03/25/2020
+ms.date: 03/29/2021
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 1c87763cb2ca482fc8ee15588d7287f0d9275fff
-ms.sourcegitcommit: a9ce1da049c019c86063acf442bb13f5a0dde213
+ms.openlocfilehash: 1b93e0c0d61eaa390eda66da2a583a4f429ddd79
+ms.sourcegitcommit: dae6b628a8d57540263a1f2f1cdb10721ed1470d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2021
-ms.locfileid: "105627167"
+ms.lasthandoff: 03/29/2021
+ms.locfileid: "105709549"
 ---
-# <a name="use-azure-monitor-for-windows-virtual-desktop-to-monitor-your-deployment-preview"></a>Usare monitoraggio di Azure per desktop virtuale Windows per monitorare la distribuzione (anteprima)
+# <a name="use-azure-monitor-for-windows-virtual-desktop-to-monitor-your-deployment"></a>Usare monitoraggio di Azure per desktop virtuale Windows per monitorare la distribuzione
 
->[!IMPORTANT]
->Monitoraggio di Azure per desktop virtuale Windows è attualmente disponibile in anteprima pubblica. Questa versione di anteprima viene messa a disposizione senza contratto di servizio e non è consigliata per i carichi di lavoro di produzione. Alcune funzionalità potrebbero non essere supportate o potrebbero presentare funzionalità limitate. Per altre informazioni, vedere [Condizioni supplementari per l'utilizzo delle anteprime di Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
-
-Monitoraggio di Azure per desktop virtuale Windows (anteprima) è un dashboard basato sulle cartelle di lavoro di monitoraggio di Azure che consente ai professionisti IT di comprendere gli ambienti desktop virtuali Windows. Questo articolo illustra come configurare monitoraggio di Azure per desktop virtuale Windows per monitorare gli ambienti desktop virtuali Windows.
+Monitoraggio di Azure per desktop virtuale di Windows è un dashboard basato sulle cartelle di lavoro di monitoraggio di Azure che consente ai professionisti IT di comprendere gli ambienti desktop virtuali Windows. Questo argomento descrive come configurare monitoraggio di Azure per desktop virtuale Windows per monitorare gli ambienti desktop virtuali Windows.
 
 ## <a name="requirements"></a>Requisiti
 

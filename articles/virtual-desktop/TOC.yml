@@ -210,6 +210,8 @@
       href: security-guide.md
     - name: Supporto di Linux
       href: linux-overview.md
+    - name: Stimare i costi di monitoraggio di Azure
+      href: azure-monitor-costs.md
     - name: Impostazioni supportate del file RDP
       href: /windows-server/remote/remote-desktop-services/clients/rdp-files?context=/azure/virtual-desktop/context/context
     - name: Linee guida per il ridimensionamento delle macchine virtuali

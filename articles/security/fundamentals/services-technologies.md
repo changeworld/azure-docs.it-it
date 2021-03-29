@@ -15,18 +15,18 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 1/29/2019
 ms.author: terrylan
-ms.openlocfilehash: 27443eb9c04c69567b3a1374f11e8b53837040f2
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 5914d5a54606f49f6fbd809a17e2b47375b58dcd
+ms.sourcegitcommit: c8b50a8aa8d9596ee3d4f3905bde94c984fc8aa2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "100585415"
+ms.lasthandoff: 03/28/2021
+ms.locfileid: "105641972"
 ---
 # <a name="security-services-and-technologies-available-on-azure"></a>Servizi e tecnologie per la sicurezza disponibili in Azure
 
-I clienti attuali e futuri di Azure spesso chiedono se è disponibile un elenco di tutte le tecnologie e i servizi relativi alla sicurezza offerti da Azure.
+Nelle nostre discussioni con i clienti di Azure attuali e futuri, viene spesso chiesto di avere un elenco di tutti i servizi e le tecnologie correlati alla sicurezza offerti da Azure.
 
-Queste informazioni sono utili ai fini della valutazione delle opzioni per la scelta del provider di servizi cloud. È stato quindi fornito questo elenco per agevolare il processo.
+Quando si valutano le opzioni del provider di servizi cloud, è utile avere queste informazioni. È stato quindi fornito questo elenco per agevolare il processo.
 
 L'elenco verrà modificato e accresciuto nel corso del tempo, parallelamente ad Azure. Ricordare di controllare regolarmente questa pagina per essere sempre aggiornati sulle tecnologie e i servizi relativi alla sicurezza.
 
@@ -59,8 +59,8 @@ L'elenco verrà modificato e accresciuto nel corso del tempo, parallelamente ad 
 | [Azure&nbsp;SQL&nbsp;Firewall](../../azure-sql/database/firewall-configure.md)|Funzionalità di controllo di accesso di rete che protegge dagli attacchi basati sulla rete al database. |
 |[Crittografia&nbsp;a livello&nbsp;di cella&nbsp;SQL di Azure](/archive/blogs/sqlsecurity/recommendations-for-using-cell-level-encryption-in-azure-sql-database)| Tecnologia di protezione del database che supporta la crittografia a livello granulare.  |
 | [Crittografia della connessione&nbsp;SQL&nbsp;di Azure](../../azure-sql/database/logins-create-manage.md)|Per garantire la sicurezza, il database SQL controlla l'accesso con regole del firewall che limitano la connettività in base all'indirizzo IP, meccanismi di autenticazione che richiedono agli utenti di dimostrare la propria identità e meccanismi di autorizzazione che consentono agli utenti di usufruire solo di azioni e dati specifici. |
-| [Crittografia sempre attiva SQL di Azure](/sql/relational-databases/security/encryption/always-encrypted-database-engine?view=sql-server-2017)|Protegge i dati sensibili, ad esempio i numeri di carta di credito o i numeri di identificazione nazionale, come i codici fiscali, archiviati nei database SQL di Azure o nei database di SQL Server.  |
-| [Transparent Data Encryption&nbsp;SQL di&nbsp;Azure](/sql/relational-databases/security/encryption/transparent-data-encryption-azure-sql?view=azuresqldb-current)| Funzionalità di sicurezza del database che crittografa l'archivio di un intero database. |
+| [Crittografia sempre attiva SQL di Azure](/sql/relational-databases/security/encryption/always-encrypted-database-engine)|Protegge i dati sensibili, ad esempio i numeri di carta di credito o i numeri di identificazione nazionale, come i codici fiscali, archiviati nei database SQL di Azure o nei database di SQL Server.  |
+| [Transparent Data Encryption&nbsp;SQL di&nbsp;Azure](/sql/relational-databases/security/encryption/transparent-data-encryption-azure-sql)| Funzionalità di sicurezza del database che crittografa l'archivio di un intero database. |
 | [Controllo del database SQL di Azure](../../azure-sql/database/auditing-overview.md)|Funzionalità di controllo del database SQL che tiene traccia degli eventi che si verificano nel database e li scrive in un log di controllo nell'account di archiviazione di Azure.  |
 
 

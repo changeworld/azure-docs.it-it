@@ -12,18 +12,18 @@ ms.workload: data-services
 ms.custom: seo-lt-2019
 ms.topic: how-to
 ms.date: 02/20/2020
-ms.openlocfilehash: e6f94c006de8914fe3ae27cdb8ac4d75a0ac49cc
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: e42b5ab2bbdebb2584b38531bd6458a98563ef42
+ms.sourcegitcommit: c8b50a8aa8d9596ee3d4f3905bde94c984fc8aa2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "94962995"
+ms.lasthandoff: 03/28/2021
+ms.locfileid: "105643740"
 ---
 # <a name="redeploy-ssis-packages-to-azure-sql-database-with-azure-database-migration-service"></a>Ridistribuire pacchetti SSIS nel database SQL di Azure con il servizio migrazione del database di Azure
 
 Se si usa SQL Server Integration Services (SSIS) e si vuole eseguire la migrazione di progetti/pacchetti SSIS dal database di origine SSISDB ospitato da SQL Server al database SSISDB di destinazione ospitato dal database SQL di Azure, è possibile ridistribuirli usando la distribuzione guidata Integration Services. È possibile avviare la procedura guidata all'interno di SQL Server Management Studio (SSMS).
 
-Se la versione di SSIS usata è precedente al 2012, prima di ridistribuire progetti/pacchetti SSIS nel modello di distribuzione del progetto, è necessario convertirli con la procedura guidata di conversione del progetto Integration Services, che può essere avviata anche da SSMS. Per altre informazioni, vedere l'articolo [Converting projects to the project deployment model](/sql/integration-services/packages/deploy-integration-services-ssis-projects-and-packages?view=sql-server-2017#convert) (Conversione di progetti nel modello di distribuzione del progetto).
+Se la versione di SSIS usata è precedente al 2012, prima di ridistribuire progetti/pacchetti SSIS nel modello di distribuzione del progetto, è necessario convertirli con la procedura guidata di conversione del progetto Integration Services, che può essere avviata anche da SSMS. Per altre informazioni, vedere l'articolo [Converting projects to the project deployment model](/sql/integration-services/packages/deploy-integration-services-ssis-projects-and-packages#convert) (Conversione di progetti nel modello di distribuzione del progetto).
 
 > [!NOTE]
 > Il servizio migrazione del database di Azure (DMS) attualmente non supporta la migrazione di un'origine SSISDB al database SQL di Azure, ma è possibile ridistribuire i progetti/pacchetti SSIS usando il processo seguente.

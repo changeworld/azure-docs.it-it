@@ -9,12 +9,12 @@ ms.topic: conceptual
 author: MashaMSFT
 ms.author: mathoma
 ms.date: 03/19/2021
-ms.openlocfilehash: 48fe734b382d661f96a86ede181a1258e38120a1
-ms.sourcegitcommit: a9ce1da049c019c86063acf442bb13f5a0dde213
+ms.openlocfilehash: f9fa2426e371ab9fd99e88979cbcbbb34adb00d6
+ms.sourcegitcommit: c8b50a8aa8d9596ee3d4f3905bde94c984fc8aa2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2021
-ms.locfileid: "105626538"
+ms.lasthandoff: 03/28/2021
+ms.locfileid: "105643590"
 ---
 # <a name="migration-guide-access-to-azure-sql-database"></a>Guida alla migrazione: accesso al database SQL di Azure
 
@@ -171,7 +171,7 @@ Per ulteriori informazioni sul completamento di questo scenario di migrazione, v
 | --- | --- |
 | [Strumento e modello di valutazione dei carichi di lavoro dei dati](https://github.com/Microsoft/DataMigrationTeam/tree/master/Data%20Workload%20Assessment%20Model%20and%20Tool) | Fornisce le piattaforme di destinazione "Best Fit" suggerite, la preparazione per il cloud e i livelli di monitoraggio e aggiornamento dell'applicazione/database per i carichi di lavoro specificati. Offre un semplice calcolo con un solo clic e una generazione di report che consente di accelerare le valutazioni di grandi dimensioni fornendo un processo decisionale automatico e uniforme per la piattaforma di destinazione. |
 
-Il team di progettazione di data SQL ha sviluppato questa risorsa. La carta di base del team consente di sbloccare e accelerare la modernizzazione complessa per i progetti di migrazione della piattaforma dati alla piattaforma dati di Microsoft Azure.
+Le risorse sono state sviluppate dal team di progettazione di SQL Data. La carta di base di questo team consente di sbloccare e accelerare la modernizzazione complessa per i progetti di migrazione della piattaforma dati alla piattaforma dati di Microsoft Azure.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

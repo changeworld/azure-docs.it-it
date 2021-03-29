@@ -1,24 +1,21 @@
 ---
-title: Risolvere i problemi di monitoraggio desktop virtuale di Windows-Azure
+title: Risolvere i problemi di monitoraggio del desktop virtuale di Windows-Azure
 description: Come risolvere i problemi relativi a monitoraggio di Azure per desktop virtuale di Windows.
 author: Heidilohr
 ms.topic: troubleshooting
-ms.date: 03/25/2020
+ms.date: 03/29/2021
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: a07d7536d3d71b121c1dde761d8c290b8be01fe7
-ms.sourcegitcommit: a9ce1da049c019c86063acf442bb13f5a0dde213
+ms.openlocfilehash: dda58868432248fe93a9fbc83d1e538dfc9b61ba
+ms.sourcegitcommit: dae6b628a8d57540263a1f2f1cdb10721ed1470d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2021
-ms.locfileid: "105628459"
+ms.lasthandoff: 03/29/2021
+ms.locfileid: "105709447"
 ---
-# <a name="troubleshoot-azure-monitor-for-windows-virtual-desktop-preview"></a>Risolvere i problemi di monitoraggio di Azure per desktop virtuale Windows (anteprima)
+# <a name="troubleshoot-azure-monitor-for-windows-virtual-desktop"></a>Risolvere i problemi di monitoraggio di Azure per desktop virtuale Windows
 
->[!IMPORTANT]
->Monitoraggio di Azure per desktop virtuale Windows è attualmente disponibile in anteprima pubblica. Questa versione di anteprima viene messa a disposizione senza contratto di servizio e non è consigliata per i carichi di lavoro di produzione. Alcune funzionalità potrebbero non essere supportate o potrebbero presentare funzionalità limitate. Per altre informazioni, vedere [Condizioni supplementari per l'utilizzo delle anteprime di Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
-
-Questo articolo presenta i problemi noti e le soluzioni per i problemi comuni in monitoraggio di Azure per desktop virtuale Windows (anteprima).
+Questo articolo presenta i problemi noti e le soluzioni per i problemi comuni in monitoraggio di Azure per desktop virtuale di Windows.
 
 ## <a name="issues-with-configuration-and-setup"></a>Problemi relativi alla configurazione e all'installazione
 

@@ -12,12 +12,12 @@ ms.date: 12/05/2019
 ms.author: kenwith
 ms.reviewer: japere
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: aeff14e1676389eb2204cad45ea7b00d5aa9796b
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
+ms.openlocfilehash: e5189df623325578bb3b579f5c4c3456067986ff
+ms.sourcegitcommit: dae6b628a8d57540263a1f2f1cdb10721ed1470d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102566652"
+ms.lasthandoff: 03/29/2021
+ms.locfileid: "105709481"
 ---
 # <a name="azure-ad-powershell-examples-for-azure-ad-application-proxy"></a>Esempi di Azure AD PowerShell per Azure AD Application Proxy
 
@@ -32,7 +32,7 @@ Per altre informazioni sui cmdlet usati in questi esempi, vedere [Gestione delle
 | [Elenco delle informazioni di base per tutte le app di Application Proxy](scripts/powershell-get-all-app-proxy-apps-basic.md) | Contiene le informazioni di base (AppId, DisplayName, ObjId) su tutte le app di Application Proxy nella directory. |
 | [Elenco di informazioni complete per tutte le app di Application Proxy](scripts/powershell-get-all-app-proxy-apps-extended.md) | Contiene informazioni complete (AppId, DisplayName, ExternalUrl, InternalUrl, ExternalAuthenticationType) su tutte le app di Application Proxy nella directory.  |
 | [Elenco di tutte le app di Application Proxy per gruppo di connettori](scripts/powershell-get-all-app-proxy-apps-by-connector-group.md) | Contiene informazioni su tutte le app di Application Proxy nella directory e sui gruppi di connettori a cui sono assegnate. |
-| [Ottenere tutte le app di Application Proxy con criteri di durata dei token](scripts/powershell-get-all-app-proxy-apps-with-policy.md) | Elenca tutte le app di Application Proxy nella directory con criteri di durata dei token e relativi dettagli. Per questo esempio è necessaria la [versione di anteprima del modulo AzureAD V2 PowerShell per Graph](/powershell/azure/active-directory/install-adv2?view=azureadps-2.0-preview). |
+| [Ottenere tutte le app di Application Proxy con criteri di durata dei token](scripts/powershell-get-all-app-proxy-apps-with-policy.md) | Elenca tutte le app di Application Proxy nella directory con criteri di durata dei token e relativi dettagli. Per questo esempio è necessaria la [versione di anteprima del modulo AzureAD V2 PowerShell per Graph](/powershell/azure/active-directory/install-adv2?view=azureadps-2.0-preview&preserve-view=true). |
 |**Gruppi di connettori**||
 | [Ottenere tutti i gruppi di connettori e i connettori nella directory](scripts/powershell-get-all-connectors.md) | Elenca tutti i gruppi di connettori e i connettori nella directory. |
 | [Spostare tutte le app assegnate a un gruppo di connettori in un altro gruppo di connettori](scripts/powershell-move-all-apps-to-connector-group.md) | Sposta tutte le applicazioni attualmente assegnate a un gruppo di connettori in un gruppo di connettori diverso. |

@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 08/31/2020
 ms.author: inhenkel
 ms.custom: seodec18, devx-track-csharp
-ms.openlocfilehash: 7402172473056f191c2c50fa8aa8bd99d4e948eb
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 880185a33ec16ffc30d6412d3f27a69ce81a7880
+ms.sourcegitcommit: c8b50a8aa8d9596ee3d4f3905bde94c984fc8aa2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "101095929"
+ms.lasthandoff: 03/28/2021
+ms.locfileid: "105642164"
 ---
 # <a name="protect-your-content-with-media-services-dynamic-encryption"></a>Proteggi i tuoi contenuti con la crittografia dinamica di servizi multimediali
 
@@ -265,12 +265,3 @@ Se vengono visualizzati errori che terminano con `_NOT_SPECIFIED_IN_URL` , assic
 ## <a name="ask-questions-give-feedback-get-updates"></a>Porre domande, fornire feedback, ottenere aggiornamenti
 
 Consultare l'articolo [Community di Servizi multimediali di Azure](media-services-community.md) per esaminare i diversi modi in cui è possibile porre domande, fornire feedback e ottenere aggiornamenti su Servizi multimediali.
-
-## <a name="next-steps"></a>Passaggi successivi
-
-* [Proteggere i contenuti con la crittografia AES](protect-with-aes128.md)
-* [Proteggere con DRM](protect-with-drm.md)
-* [Progettare un sistema di protezione dei contenuti con DRM multiplo con controllo di accesso](design-multi-drm-system-with-access-control.md)
-* [Crittografia lato archiviazione](storage-account-concept.md#storage-side-encryption)
-* [Domande frequenti](frequently-asked-questions.md)
-* [Gestore del token Web JSON](/dotnet/framework/security/json-web-token-handler)

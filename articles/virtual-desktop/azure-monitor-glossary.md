@@ -1,24 +1,21 @@
 ---
-title: Monitorare il Glossario di anteprima di desktop virtuale Windows-Azure
+title: Monitorare il Glossario di desktop virtuali Windows-Azure
 description: Un glossario di termini e concetti correlati a monitoraggio di Azure per desktop virtuale di Windows.
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: conceptual
-ms.date: 3/25/2020
+ms.date: 03/29/2021
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 7b824bc13bc4f553d22358b69237173effb51594
-ms.sourcegitcommit: a9ce1da049c019c86063acf442bb13f5a0dde213
+ms.openlocfilehash: 38f34324a0cda518645f8b9231e08bafbd75cca0
+ms.sourcegitcommit: dae6b628a8d57540263a1f2f1cdb10721ed1470d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2021
-ms.locfileid: "105627133"
+ms.lasthandoff: 03/29/2021
+ms.locfileid: "105709532"
 ---
-# <a name="azure-monitor-for-windows-virtual-desktop-preview-glossary"></a>Glossario di monitoraggio di Azure per desktop virtuale Windows (anteprima)
-
->[!IMPORTANT]
->Monitoraggio di Azure per desktop virtuale Windows è attualmente disponibile in anteprima pubblica. Questa versione di anteprima viene messa a disposizione senza contratto di servizio e non è consigliata per i carichi di lavoro di produzione. Alcune funzionalità potrebbero non essere supportate o potrebbero presentare funzionalità limitate. Per altre informazioni, vedere [Condizioni supplementari per l'utilizzo delle anteprime di Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+# <a name="azure-monitor-for-windows-virtual-desktop-glossary"></a>Monitoraggio di Azure per il Glossario di desktop virtuali Windows
 
 Questo articolo elenca e descrive brevemente i termini e i concetti chiave relativi a monitoraggio di Azure per desktop virtuale Windows (anteprima).
 

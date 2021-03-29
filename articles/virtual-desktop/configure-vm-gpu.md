@@ -5,12 +5,12 @@ author: gundarev
 ms.topic: how-to
 ms.date: 05/06/2019
 ms.author: denisgun
-ms.openlocfilehash: c3a23276ce19f6d7b4cf341bac155ec84363fe5f
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: f95b9c1615cc58d9cc0589bad98c7315e571686e
+ms.sourcegitcommit: dae6b628a8d57540263a1f2f1cdb10721ed1470d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "95018342"
+ms.lasthandoff: 03/29/2021
+ms.locfileid: "105709464"
 ---
 # <a name="configure-graphics-processing-unit-gpu-acceleration-for-windows-virtual-desktop"></a>Configura l'accelerazione GPU (Graphics Processing Unit) per Desktop virtuale Windows
 
@@ -23,10 +23,10 @@ Per creare una macchina virtuale di Azure ottimizzata per la GPU, aggiungerla al
 
 ## <a name="select-an-appropriate-gpu-optimized-azure-virtual-machine-size"></a>Selezionare le dimensioni di macchina virtuale di Azure ottimizzate per la GPU appropriate
 
-Selezionare una delle macchine virtuali serie [NV](../virtual-machines/nv-series.md)di Azure, serie [NVv3](../virtual-machines/nvv3-series.md)o [NVv4](../virtual-machines/nvv4-series.md) . Queste soluzioni sono personalizzate per la virtualizzazione di app e desktop e consentono l'accelerazione della GPU per le app e l'interfaccia utente di Windows. La scelta corretta per il pool di host dipende da diversi fattori, tra cui i carichi di lavoro di app specifici, la qualità desiderata dell'esperienza utente e i costi. In generale, le GPU più grandi e più idonee offrono un'esperienza utente migliore a una determinata densità di utenti, mentre le dimensioni delle GPU più piccole e frazionarie consentono un controllo più granulare su costi e qualità.
+Selezionare una delle macchine virtuali serie [NV](../virtual-machines/nv-series.md)di Azure, serie [NVv3](../virtual-machines/nvv3-series.md)o [NVv4](../virtual-machines/nvv4-series.md) . Queste soluzioni sono personalizzate per la virtualizzazione di app e desktop e consentono la maggior parte delle app e l'interfaccia utente di Windows per la GPU accelerata. La scelta corretta per il pool di host dipende da diversi fattori, tra cui i carichi di lavoro di app specifici, la qualità desiderata dell'esperienza utente e i costi. In generale, le GPU più grandi e più idonee offrono un'esperienza utente migliore a una determinata densità di utenti, mentre le dimensioni delle GPU più piccole e frazionarie consentono un controllo più granulare su costi e qualità.
 
 >[!NOTE]
->Le macchine virtuali della serie NC, NCv2, NCv3 e NDv2 di Azure non sono in genere appropriate per gli host sessione desktop virtuale di Windows. Queste macchine virtuali sono personalizzate per strumenti di calcolo o di apprendimento automatico specializzati, ad alte prestazioni, come quelli compilati con NVIDIA CUDA. L'accelerazione generale di app e desktop con GPU NVIDIA richiede la gestione delle licenze NVIDIA GRID; Questa operazione viene fornita da Azure per le dimensioni di VM consigliate, ma deve essere disposta separatamente per le macchine virtuali della serie NC/ND.
+>Le macchine virtuali della serie NC, NCv2, NCv3 e NDv2 di Azure non sono in genere appropriate per gli host sessione desktop virtuale di Windows. Queste macchine virtuali sono personalizzate per strumenti di calcolo o di apprendimento automatico specializzati, ad alte prestazioni, come quelli compilati con NVIDIA CUDA. Non supportano l'accelerazione GPU per la maggior parte delle app o l'interfaccia utente di Windows.
 
 ## <a name="create-a-host-pool-provision-your-virtual-machine-and-configure-an-app-group"></a>Creare un pool di host, effettuare il provisioning della macchina virtuale e configurare un gruppo di app
 
@@ -41,9 +41,10 @@ Desktop virtuale Windows supporta il rendering e la codifica con accelerazione G
 
 ## <a name="install-supported-graphics-drivers-in-your-virtual-machine"></a>Installare i driver grafici supportati nella macchina virtuale
 
-Per sfruttare i vantaggi offerti dalle funzionalità della GPU delle macchine virtuali serie N di Azure in Desktop virtuale Windows, è necessario installare i driver grafici appropriati. Seguire le istruzioni in [Sistemi operativi e driver supportati](../virtual-machines/sizes-gpu.md#supported-operating-systems-and-drivers) per installare i driver dal fornitore di grafica appropriato, manualmente o usando un'estensione della macchina virtuale di Azure.
+Per sfruttare i vantaggi offerti dalle funzionalità della GPU delle macchine virtuali serie N di Azure in Desktop virtuale Windows, è necessario installare i driver grafici appropriati. Per installare i driver, seguire le istruzioni disponibili in [sistemi operativi e driver supportati](../virtual-machines/sizes-gpu.md#supported-operating-systems-and-drivers) . Sono supportati solo i driver distribuiti da Azure.
 
-Per Desktop virtuale Windows sono supportati solo i driver distribuiti da Azure. Per le macchine virtuali della serie NV di Azure con GPU NVIDIA, solo [i driver NVIDIA Grid](../virtual-machines/windows/n-series-driver-setup.md#nvidia-grid-drivers)e non i driver NVIDIA Tesla (CUDA) supportano l'accelerazione GPU per app e desktop di uso generale.
+* Per le macchine virtuali serie NV o NVv3 di Azure, solo i driver NVIDIA GRID e non i driver NVIDIA CUDA supportano l'accelerazione GPU per la maggior parte delle app e l'interfaccia utente di Windows. Se si sceglie di installare i driver manualmente, assicurarsi di installare i driver della griglia. Se si sceglie di installare i driver usando l'estensione VM di Azure, i driver della griglia verranno installati automaticamente per queste dimensioni di VM.
+* Per le macchine virtuali della serie NVv4 di Azure, installare i driver AMD forniti da Azure. È possibile installarli automaticamente usando l'estensione della macchina virtuale di Azure oppure è possibile installarli manualmente.
 
 Dopo l'installazione, è necessario eseguire il riavvio della macchina virtuale. Per verificare che i driver grafici siano stati installati correttamente, usare i passaggi di verifica nelle istruzioni sopra indicate.
 

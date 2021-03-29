@@ -8,16 +8,16 @@ ms.subservice: edge
 ms.topic: how-to
 ms.date: 03/05/2021
 ms.author: alkohli
-ms.openlocfilehash: 6683e39cfa3601b1ae1fbbe02e69e4dc0a54e8e7
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: ff1c7b79a49b0b659056c89af3c61f28b72ebc50
+ms.sourcegitcommit: c8b50a8aa8d9596ee3d4f3905bde94c984fc8aa2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103565020"
+ms.lasthandoff: 03/28/2021
+ms.locfileid: "105645230"
 ---
 # <a name="gpu-sharing-on-your-azure-stack-edge-pro-gpu-device"></a>Condivisione GPU sul dispositivo GPU Azure Stack Edge Pro
 
-GPU (Graphics Processing Unit) è un processore specializzato progettato per accelerare il rendering della grafica. Le GPU possono elaborare più dati contemporaneamente, rendendoli utili per l'apprendimento automatico, la modifica di video e le applicazioni di gioco. Oltre alla CPU per il calcolo per utilizzo generico, i dispositivi GPU di Azure Stack Edge Pro possono contenere una o due GPU NVIDIA Tesla T4 per carichi di lavoro a elevato utilizzo di calcolo, ad esempio l'inferenza accelerata dell'hardware. Per ulteriori informazioni, vedere la pagina relativa alla [GPU Tesla T4 di NVIDIA](https://www.nvidia.com/data-center/tesla-t4/).
+GPU (Graphics Processing Unit) è un processore specializzato progettato per accelerare il rendering della grafica. Le GPU possono elaborare più dati contemporaneamente, rendendoli utili per l'apprendimento automatico, la modifica di video e le applicazioni di gioco. Oltre alla CPU per il calcolo per utilizzo generico, i dispositivi GPU di Azure Stack Edge Pro possono contenere una o due GPU NVIDIA Tesla T4 per carichi di lavoro a elevato utilizzo di calcolo, ad esempio l'inferenza accelerata dell'hardware. Per ulteriori informazioni, vedere la pagina relativa alla [GPU Tesla T4 di NVIDIA](https://www.nvidia.com/en-us/data-center/tesla-t4/).
 
 
 ## <a name="about-gpu-sharing"></a>Informazioni sulla condivisione GPU
