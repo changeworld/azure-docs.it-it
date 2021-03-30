@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 01/06/2017
 ms.author: yegu
 ms.openlocfilehash: ec8d4f5611425734974d07ae6ee7008b10b9b406
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "85833775"
 ---
 # <a name="create-a-web-app-plus-azure-cache-for-redis-using-a-template"></a>Creare un'app Web e Cache Redis di Azure usando un modello
@@ -28,7 +28,7 @@ Per il modello completo, vedere [Web App with Azure Cache for Redis template](ht
 In questo modello, verrà distribuito quanto segue:
 
 * App Web di Azure
-* Cache Redis di Azure
+* Cache di Azure per Redis
 
 Per eseguire automaticamente la distribuzione, fare clic sul pulsante seguente:
 
@@ -54,7 +54,7 @@ Questo modello si serve di variabili per costruire i nomi delle risorse. Tramite
 ## <a name="resources-to-deploy"></a>Risorse da distribuire
 [!INCLUDE [app-service-web-deploy-web-host](../../includes/app-service-web-deploy-web-host.md)]
 
-### <a name="azure-cache-for-redis"></a>Cache Redis di Azure
+### <a name="azure-cache-for-redis"></a>Cache di Azure per Redis
 Crea l'istanza di Cache Redis di Azure che viene usata con l'app Web. Il nome della cache è specificato nella variabile **cacheName** .
 
 Il modello crea la cache nella stessa posizione in cui si trova il gruppo di risorse.
