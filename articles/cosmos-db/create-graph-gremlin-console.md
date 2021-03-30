@@ -8,10 +8,10 @@ ms.topic: quickstart
 ms.date: 07/10/2020
 ms.author: chrande
 ms.openlocfilehash: 20cb4cea52317022aea8a5b9e4b8280f8b88ff85
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "93361512"
 ---
 # <a name="quickstart-create-query-and-traverse-an-azure-cosmos-db-graph-database-using-the-gremlin-console"></a>Avvio rapido: Creare, eseguire query e attraversare un database a grafo di Azure Cosmos DB usando la console Gremlin
