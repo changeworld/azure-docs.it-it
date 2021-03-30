@@ -6,10 +6,10 @@ ms.topic: reference
 ms.date: 1/16/2020
 ms.author: jejarry
 ms.openlocfilehash: fc317345155a6807a20d342e2cefd0701b20f180
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "86257054"
 ---
 # <a name="sfctl"></a>sfctl
@@ -28,7 +28,7 @@ I comandi seguono il modello sostantivo-verbo. Per altre informazioni, vedere So
 | [eventi](service-fabric-sfctl-events.md) | Recuperare gli eventi dall'archivio eventi, se il servizio EventStore è già installato. |
 | [è](service-fabric-sfctl-is.md) | Consente di eseguire query e inviare comandi al servizio di infrastruttura. |
 | [mesh](service-fabric-sfctl-mesh.md) | Consente di eliminare e gestire le applicazioni mesh Service Fabric. |
-| [nodo](service-fabric-sfctl-node.md) | Consente di gestire i nodi che formano un cluster. |
+| [node](service-fabric-sfctl-node.md) | Consente di gestire i nodi che formano un cluster. |
 | [partizione](service-fabric-sfctl-partition.md) | Consente di eseguire una query e gestire partizioni per qualsiasi servizio. |
 | [property](service-fabric-sfctl-property.md) | Consente di archiviare proprietà ed eseguire query su di esse con i nomi di Service Fabric. |
 | [replica](service-fabric-sfctl-replica.md) | Consente di gestire le repliche che appartengono alle partizioni del servizio. |
