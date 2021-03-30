@@ -9,10 +9,10 @@ ms.date: 10/29/2020
 ms.author: cherylmc
 ms.custom: include file
 ms.openlocfilehash: 24d146da7946176c92902698d0f52ae01baf79ee
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "93061624"
 ---
 Se si esegue PowerShell in locale, aprire la console di PowerShell con privilegi elevati e connettersi al proprio account Azure. Il cmdlet *Connect-AzAccount* richiede le credenziali. Dopo l'autenticazione vengono scaricate le impostazioni dell'account, in modo che siano disponibili per Azure PowerShell.

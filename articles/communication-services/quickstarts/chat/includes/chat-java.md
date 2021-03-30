@@ -10,12 +10,12 @@ ms.date: 03/10/2021
 ms.topic: include
 ms.custom: include file
 ms.author: mikben
-ms.openlocfilehash: 3cbed124963fe6e56d6721669d0feedc6e34ffc6
-ms.sourcegitcommit: bed20f85722deec33050e0d8881e465f94c79ac2
+ms.openlocfilehash: 800acddcb3527b9ca16d7fc664c2a3c27b528c25
+ms.sourcegitcommit: 91361cbe8fff7c866ddc4835251dcbbe2621c055
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/25/2021
-ms.locfileid: "105107039"
+ms.lasthandoff: 03/29/2021
+ms.locfileid: "105726685"
 ---
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -56,7 +56,7 @@ Nel file POM fare riferimento al pacchetto `azure-communication-chat` con le API
 <dependency>
     <groupId>com.azure</groupId>
     <artifactId>azure-communication-chat</artifactId>
-    <version>1.0.0-beta.4</version> 
+    <version>1.0.0-beta.7</version> 
 </dependency>
 ```
 
@@ -89,12 +89,17 @@ Altre informazioni sull' [architettura della chat](../../../concepts/chat/concep
 Quando si aggiungono le istruzioni di importazione, assicurarsi di aggiungere solo le importazioni dagli spazi dei nomi com.azure.communication.chat e com.azure.communication.chat.models e non dallo spazio dei nomi com.azure.communication.chat.implementation. Nel file App.java generato tramite Maven, è possibile usare il codice seguente per iniziare:
 
 ```Java
+package com.communication.quickstart;
+
 import com.azure.communication.chat.*;
 import com.azure.communication.chat.models.*;
 import com.azure.communication.common.*;
 import com.azure.core.http.HttpClient;
+import com.azure.core.http.netty.NettyAsyncHttpClientBuilder;
+import com.azure.core.http.rest.PagedIterable;
 
 import java.io.*;
+import java.util.*;
 
 public class App
 {
@@ -126,36 +131,51 @@ public class App
 }
 ```
 
-
 ## <a name="start-a-chat-thread"></a>Avviare un thread di chat
 
 Usare il metodo `createChatThread` per creare un thread di chat.
 `createChatThreadOptions` viene usato per descrivere la richiesta di thread.
 
-- Usare `topic` per specificare un argomento per questa chat. L'argomento può essere aggiornato dopo la creazione del thread di chat usando la funzione `UpdateThread`.
+- Usare il `topic` parametro del costruttore per assegnare un argomento a questa chat. L'argomento può essere aggiornato dopo la creazione del thread di chat mediante la `UpdateThread` funzione.
 - Consente `participants` di elencare i partecipanti al thread da aggiungere al thread. `ChatParticipant` accetta l'utente creato nella guida di avvio rapido [Token di accesso utente](../../access-tokens.md).
 
-La risposta `chatThreadClient` viene utilizzata per eseguire operazioni sul thread di chat creato: aggiunta di partecipanti al thread di chat, invio di un messaggio, eliminazione di un messaggio e così via. Contiene una `chatThreadId` proprietà che rappresenta l'ID univoco del thread di chat. La proprietà è accessibile dal metodo pubblico .getChatThreadId().
+`CreateChatThreadResult` risposta restituita dalla creazione di un thread di chat. Contiene un `getChatThread()` metodo che restituisce l' `ChatThread` oggetto che può essere utilizzato per ottenere il client thread dal quale è possibile ottenere per l' `ChatThreadClient` esecuzione di operazioni sul thread creato: aggiungere partecipanti, inviare messaggi e così via. L' `ChatThread` oggetto contiene inoltre il `getId()` metodo che recupera l'ID univoco del thread.
 
 ```Java
-List<ChatParticipant> participants = new ArrayList<ChatParticipant>();
-
 ChatParticipant firstThreadParticipant = new ChatParticipant()
     .setCommunicationIdentifier(firstUser)
     .setDisplayName("Participant Display Name 1");
-    
+
 ChatParticipant secondThreadParticipant = new ChatParticipant()
     .setCommunicationIdentifier(secondUser)
     .setDisplayName("Participant Display Name 2");
 
-participants.add(firstThreadParticipant);
-participants.add(secondThreadParticipant);
+CreateChatThreadOptions createChatThreadOptions = new CreateChatThreadOptions("Topic")
+    .addParticipant(firstThreadParticipant)
+    .addParticipant(secondThreadParticipant);
 
-CreateChatThreadOptions createChatThreadOptions = new CreateChatThreadOptions()
-    .setTopic("Topic")
-    .setParticipants(participants);
-ChatThreadClient chatThreadClient = chatClient.createChatThread(createChatThreadOptions);
-String chatThreadId = chatThreadClient.getChatThreadId();
+CreateChatThreadResult result = chatClient.createChatThread(createChatThreadOptions);
+String chatThreadId = result.getChatThread().getId();
+```
+
+## <a name="list-chat-threads"></a>Elenca thread chat
+
+Utilizzare il `listChatThreads` metodo per recuperare un elenco di thread di chat esistenti.
+
+```java
+PagedIterable<ChatThreadItem> chatThreads = chatClient.listChatThreads();
+
+chatThreads.forEach(chatThread -> {
+    System.out.printf("ChatThread id is %s.\n", chatThread.getId());
+});
+```
+
+## <a name="get-a-chat-thread-client"></a>Ottenere un client di thread di chat
+
+Il metodo `getChatThreadClient` restituisce un client di thread per un thread già esistente. Può essere usato per eseguire operazioni nel thread creato: aggiungere partecipanti, inviare messaggi e così via. `chatThreadId` ID univoco del thread di chat esistente.
+
+```Java
+ChatThreadClient chatThreadClient = chatClient.getChatThreadClient(chatThreadId);
 ```
 
 ## <a name="send-a-message-to-a-chat-thread"></a>Inviare un messaggio a un thread di chat
@@ -179,84 +199,66 @@ SendChatMessageResult sendChatMessageResult = chatThreadClient.sendMessage(sendC
 String chatMessageId = sendChatMessageResult.getId();
 ```
 
-
-## <a name="get-a-chat-thread-client"></a>Ottenere un client di thread di chat
-
-Il metodo `getChatThreadClient` restituisce un client di thread per un thread già esistente. Può essere usato per eseguire operazioni nel thread creato: aggiungere partecipanti, inviare messaggi e così via. `chatThreadId` ID univoco del thread di chat esistente.
-
-```Java
-String chatThreadId = "Id";
-ChatThread chatThread = chatClient.getChatThread(chatThreadId);
-```
-
 ## <a name="receive-chat-messages-from-a-chat-thread"></a>Ricevere messaggi di chat da un thread di chat
 
 È possibile recuperare i messaggi di chat eseguendo il polling del metodo `listMessages` sul client del thread di chat a intervalli specificati.
 
 ```Java
-chatThreadClient.listMessages().iterableByPage().forEach(resp -> {
-    System.out.printf("Response headers are %s. Url %s  and status code %d %n", resp.getHeaders(),
-        resp.getRequest().getUrl(), resp.getStatusCode());
-    resp.getItems().forEach(message -> {
-        System.out.printf("Message id is %s.", message.getId());
-    });
+chatThreadClient.listMessages().forEach(message -> {
+    System.out.printf("Message id is %s.\n", message.getId());
 });
 ```
 
 `listMessages` restituisce la versione più recente del messaggio, incluse eventuali modifiche o eliminazioni che si sono verificate nel messaggio usando .editMessage() e .deleteMessage(). Per i messaggi eliminati, `chatMessage.getDeletedOn()` restituisce un valore datetime che indica quando il messaggio è stato eliminato. Per i messaggi modificati, `chatMessage.getEditedOn()` restituisce un valore datetime che indica quando il messaggio è stato modificato. È possibile accedere all'ora originale di creazione del messaggio usando `chatMessage.getCreatedOn()` e tale ora può essere usata per ordinare i messaggi.
 
-`listMessages` restituisce tipi diversi di messaggi che possono essere identificati da `chatMessage.getType()`. Questi tipi sono:
+Per altre informazioni sui tipi di messaggio, vedere i [tipi di messaggio](../../../concepts/chat/concepts.md#message-types).
 
-- `text`: Messaggio di chat normale inviato da un partecipante del thread.
+## <a name="send-read-receipt"></a>Invia ricevuta di lettura
 
-- `html`: Messaggio di chat HTML inviato da un partecipante del thread.
+Usare il `sendReadReceipt` metodo per inviare un evento di conferma di lettura a un thread di chat, per conto di un utente.
+`chatMessageId` ID univoco del messaggio di chat letto.
 
-- `topicUpdated`: messaggio di sistema che indica che l'argomento è stato aggiornato.
+```Java
+String chatMessageId = message.getId();
+chatThreadClient.sendReadReceipt(chatMessageId);
+```
 
-- `participantAdded`: Messaggio di sistema che indica che uno o più partecipanti sono stati aggiunti al thread di chat.
+## <a name="list-chat-participants"></a>Elenca i partecipanti alla chat
 
-- `participantRemoved`: Messaggio di sistema che indica che un partecipante è stato rimosso dal thread di chat.
+Utilizzare `listParticipants` per recuperare una raccolta di paging contenente i partecipanti al thread di chat identificato da chatThreadId.
 
-Per altri dettagli, vedere [Tipi di messaggi](../../../concepts/chat/concepts.md#message-types).
+```Java
+PagedIterable<ChatParticipant> chatParticipantsResponse = chatThreadClient.listParticipants();
+chatParticipantsResponse.forEach(chatParticipant -> {
+    System.out.printf("Participant id is %s.\n", ((CommunicationUserIdentifier) chatParticipant.getCommunicationIdentifier()).getId());
+});
+```
 
 ## <a name="add-a-user-as-participant-to-the-chat-thread"></a>Aggiungere un utente come partecipante al thread di chat
 
 Dopo aver creato un thread di chat, è possibile aggiungere e rimuovere utenti. Aggiungendo utenti, si concede loro l'accesso per inviare messaggi al thread di chat e aggiungere o rimuovere altri partecipanti. Per iniziare, sarà necessario ottenere un nuovo token di accesso e un'identità per tale utente. Prima di chiamare il metodo addParticipants, verificare di avere acquisito un nuovo token di accesso e un'identità per tale utente. L'utente dovrà usare il token di accesso per inizializzare il client di chat.
 
-Usare `addParticipants` il metodo per aggiungere partecipanti al thread identificato da ThreadId.
+Usare il `addParticipants` metodo per aggiungere partecipanti al thread.
 
-- Consente `listParticipants` di elencare i partecipanti da aggiungere al thread di chat.
 - `communicationIdentifier`, obbligatorio, è il CommunicationIdentifier creato da CommunicationIdentityClient nella Guida introduttiva del [token di accesso utente](../../access-tokens.md) .
-- `display_name`, facoltativo, è il nome visualizzato per il partecipante del thread.
-- `share_history_time`, facoltativo, è l'ora da cui la cronologia delle chat viene condivisa con il partecipante. Per condividere la cronologia dall'inizio del thread di chat, impostare questa proprietà su qualsiasi data uguale o precedente all'ora di creazione del thread. Per non condividere alcuna cronologia precedente a quando il partecipante è stato aggiunto, impostarlo sulla data corrente. Per condividere una cronologia parziale, impostarla sulla data richiesta.
+- `displayName`, facoltativo, è il nome visualizzato per il partecipante del thread.
+- `shareHistoryTime`, facoltativo, è l'ora da cui la cronologia delle chat viene condivisa con il partecipante. Per condividere la cronologia dall'inizio del thread di chat, impostare questa proprietà su qualsiasi data uguale o precedente all'ora di creazione del thread. Per non condividere alcuna cronologia precedente a quando il partecipante è stato aggiunto, impostarlo sulla data corrente. Per condividere una cronologia parziale, impostarla sulla data richiesta.
 
 ```Java
 List<ChatParticipant> participants = new ArrayList<ChatParticipant>();
 
-ChatParticipant firstThreadParticipant = new ChatParticipant()
-    .setCommunicationIdentifier(identity1)
-    .setDisplayName("Display Name 1");
+ChatParticipant thirdThreadParticipant = new ChatParticipant()
+    .setCommunicationIdentifier(user3)
+    .setDisplayName("Display Name 3");
 
-ChatParticipant secondThreadParticipant = new ChatParticipant()
-    .setCommunicationIdentifier(identity2)
-    .setDisplayName("Display Name 2");
+ChatParticipant fourthThreadParticipant = new ChatParticipant()
+    .setCommunicationIdentifier(user4)
+    .setDisplayName("Display Name 4");
 
-participants.add(firstThreadParticipant);
-participants.add(secondThreadParticipant);
+participants.add(thirdThreadParticipant);
+participants.add(fourthThreadParticipant);
 
-AddChatParticipantsOptions addChatParticipantsOptions = new AddChatParticipantsOptions()
-    .setParticipants(participants);
-chatThreadClient.addParticipants(addChatParticipantsOptions);
-```
-
-## <a name="remove-participant-from-a-chat-thread"></a>Rimuovi partecipante da un thread di chat
-
-Analogamente all'aggiunta di un partecipante a un thread, è possibile rimuovere i partecipanti da un thread di chat. A tale scopo, è necessario tenere traccia delle identità dei partecipanti aggiunti.
-
-Usare `removeParticipant` , dove `identifier` è il CommunicationIdentifier creato.
-
-```Java
-chatThreadClient.removeParticipant(identity);
+chatThreadClient.addParticipants(participants);
 ```
 
 ## <a name="run-the-code"></a>Eseguire il codice

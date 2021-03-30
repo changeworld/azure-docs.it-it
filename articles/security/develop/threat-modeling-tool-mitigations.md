@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 08/17/2017
 ms.author: rodsan
 ms.openlocfilehash: 748d10b994080b667885e5d0d5f4d688269e86ab
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "68728037"
 ---
 # <a name="microsoft-threat-modeling-tool-mitigations"></a>Mitigazioni di Microsoft Threat Modeling Tool
@@ -35,7 +35,7 @@ Le soluzioni di prevenzione di Threat Modeling Tool sono suddivise in base al co
 | Category | Descrizione |
 | -------- | ----------- |
 | **[Controllo e registrazione](threat-modeling-tool-auditing-and-logging.md)** | Chi ha fatto cosa e quando? Controllo e registrazione fanno riferimento al modo in cui l'applicazione registra gli eventi di sicurezza |
-| **[Autenticazione](threat-modeling-tool-authentication.md)** | informazioni sull'utente L'autenticazione è il processo che permette a un'entità di dimostrare l'identità di un'altra entità, in genere mediante l'uso di credenziali, come un nome utente e una password |
+| **[Authentication](threat-modeling-tool-authentication.md)** | informazioni sull'utente L'autenticazione è il processo che permette a un'entità di dimostrare l'identità di un'altra entità, in genere mediante l'uso di credenziali, come un nome utente e una password |
 | **[Autorizzazione](threat-modeling-tool-authorization.md)** | operazioni consentite L'autorizzazione è il modo in cui l'applicazione fornisce controlli sull'accesso per risorse e operazioni |
 | **[Sicurezza della comunicazione](threat-modeling-tool-communication-security.md)** | Con si sta parlando? La protezione delle comunicazioni garantisce che tutte le comunicazioni siano eseguite nel modo più sicuro possibile |
 | **[Gestione della configurazione](threat-modeling-tool-configuration-management.md)** | A nome di chi è eseguita l'applicazione? A quale database si connette? Come viene amministrata l'applicazione? Come vengono protette queste impostazioni? La gestione della configurazione fa riferimento al modo in cui l'applicazione gestisce questi problemi operativi |

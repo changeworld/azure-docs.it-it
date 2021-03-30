@@ -10,10 +10,10 @@ ms.date: 05/23/2018
 ms.author: glenga
 ms.custom: include file
 ms.openlocfilehash: 0276874f1f37533f7b5bd26be8e65204d9fbeb41
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "67608244"
 ---
 Il supporto per questa associazione viene fornito automaticamente in tutti gli ambienti di sviluppo. Non è necessario installare il pacchetto o registrare l'estensione manualmente.
