@@ -5,12 +5,12 @@ ms.topic: include
 ms.date: 03/04/2021
 ms.author: trbye
 ms.custom: devx-track-js
-ms.openlocfilehash: 7649f9c13db1a10bdb48d19f1019ec3b31244f45
-ms.sourcegitcommit: ed7376d919a66edcba3566efdee4bc3351c57eda
+ms.openlocfilehash: 5a8065daca11e5b79f02510f82ab622c8fb1af2d
+ms.sourcegitcommit: 91361cbe8fff7c866ddc4835251dcbbe2621c055
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/24/2021
-ms.locfileid: "105104489"
+ms.lasthandoff: 03/29/2021
+ms.locfileid: "105729764"
 ---
 Una delle principali funzionalità del servizio Voce è la possibilità di riconoscere e trascrivere la voce umana, ovvero di convertire la voce in testo scritto. Questa guida di avvio rapido illustra come usare Speech SDK in app e prodotti per eseguire la conversione della voce in testo scritto di alta qualità.
 
@@ -62,7 +62,7 @@ Il riconoscimento vocale da un microfono **non è supportato in Node.js** ed è 
 
 ## <a name="recognize-from-file"></a>Riconoscimento da file 
 
-Per riconoscere il riconoscimento vocale da un file audio, creare un `AudioConfig` `fromWavFileInput()` oggetto usando il quale accetta un `Buffer` oggetto. Quindi, inizializzare una classe [`SpeechRecognizer`](https://docs.microsoft.com/javascript/api/microsoft-cognitiveservices-speech-sdk/speechrecognizer?view=azure-node-latest), passando la classe `audioConfig` e `speechConfig`.
+Per riconoscere il riconoscimento vocale da un file audio, creare un `AudioConfig` `fromWavFileInput()` oggetto usando il quale accetta un `Buffer` oggetto. Quindi, inizializzare una classe [`SpeechRecognizer`](/javascript/api/microsoft-cognitiveservices-speech-sdk/speechrecognizer), passando la classe `audioConfig` e `speechConfig`.
 
 ```javascript
 const fs = require('fs');
