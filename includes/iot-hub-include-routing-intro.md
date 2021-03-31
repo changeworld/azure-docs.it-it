@@ -9,10 +9,10 @@ ms.date: 03/05/2019
 ms.author: robinsh
 ms.custom: include file
 ms.openlocfilehash: 552a40be0c069d1002ebc7ea4dafe0d6f93a5755
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "85128170"
 ---
 Il [routing dei messaggi](../articles/iot-hub/iot-hub-devguide-messages-d2c.md) consente l'invio dei dati di telemetria dai dispositivi IoT agli endpoint compatibili con Hub eventi predefiniti o agli endpoint personalizzati, ad esempio l'archiviazione BLOB, le code del bus di servizio, gli argomenti del bus di servizio e Hub eventi. Per configurare il routing dei messaggi personalizzato, creare [query di routing](../articles/iot-hub/iot-hub-devguide-routing-query-syntax.md) per personalizzare la route che corrisponde a una determinata condizione. Una volta impostati, i dati in ingresso vengono automaticamente indirizzati agli endpoint dall'hub IoT. Se un messaggio non corrisponde ad alcuna delle query di routing definita, viene indirizzato all'endpoint predefinito.
