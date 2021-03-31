@@ -9,10 +9,10 @@ ms.date: 04/06/2020
 ms.author: rogarana
 ms.custom: include file
 ms.openlocfilehash: 0b185d545e129c941d5df2e8ce86ee684174b666
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "81008343"
 ---
 Per il momento, solo dischi Ultra e SSD Premium possono abilitare i dischi condivisi. Dimensioni del disco diverse possono avere un `maxShares` limite diverso, che non può essere superato quando si imposta il `maxShares` valore. Per le unità SSD Premium, le dimensioni dei dischi che supportano la condivisione dei dischi sono P15 e versioni successive.

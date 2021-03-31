@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 09/22/2020
 ms.custom: devx-track-js
 ms.openlocfilehash: ea4a4a47e91e88c00ca8a4e886d0372a24482907
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "98784309"
 ---
 # <a name="schema-reference-guide-for-trigger-and-action-types-in-azure-logic-apps"></a>Guida di riferimento allo schema per i tipi di trigger e azione in app per la logica di Azure

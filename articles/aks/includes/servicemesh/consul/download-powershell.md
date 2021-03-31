@@ -4,10 +4,10 @@ ms.topic: include
 ms.date: 10/09/2019
 ms.author: pabouwer
 ms.openlocfilehash: 8931ba97cf72891c78e20389be10178dd2c0317a
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "77594263"
 ---
 In una shell basata su PowerShell in Windows, usare `Invoke-WebRequest` per scaricare il rilascio del grafico Helm console e quindi estrarre con `Expand-Archive` come indicato di seguito:
