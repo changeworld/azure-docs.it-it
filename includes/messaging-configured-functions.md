@@ -9,10 +9,10 @@ ms.date: 12/12/2020
 ms.author: spelluru
 ms.custom: include file
 ms.openlocfilehash: 9bc641d680d927c44814f6814ebf6a6dde958c9e
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "98901006"
 ---
 Funzioni di Azure consente di creare attività di replica solo di configurazione che si basano su un punto di ingresso predefinito. Gli [esempi di replica basati sulla configurazione per funzioni di Azure](https://github.com/Azure-Samples/azure-messaging-replication-dotnet/tree/main/functions/config) illustrano come sfruttare gli [Helper predefiniti](https://github.com/Azure-Samples/azure-messaging-replication-dotnet/tree/main/src/Azure.Messaging.Replication) nel codice o evitare di gestire completamente il codice e usare semplicemente la configurazione.
