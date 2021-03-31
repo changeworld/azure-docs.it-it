@@ -17,10 +17,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 59dc94e37dfa1ef8b0b079bf5d78d0504e0cb8c7
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "91313621"
 ---
 # <a name="azure-ad-connect-sync-understanding-declarative-provisioning"></a>Servizio di sincronizzazione Azure AD Connect: Informazioni sul provisioning dichiarativo
@@ -66,7 +66,7 @@ Il modulo dell'ambito supporta le operazioni seguenti.
 | ISBITSET, ISNOTBITSET |Valuta se un determinato bit è impostato. Può essere ad esempio usato per valutare i bit di userAccountControl per vedere se un utente è abilitato o disabilitato. |
 | ISMEMBEROF, ISNOTMEMBEROF |Il valore deve contenere un nome distinto per un gruppo nello spazio connettore. Se l'oggetto è un membro del gruppo specificato, la regola si trova nell'ambito. |
 
-## <a name="join"></a>Join
+## <a name="join"></a>Partecipa
 Il modulo join nella pipeline di sincronizzazione provvede a trovare la relazione tra l'oggetto nell'origine e un oggetto nella destinazione. In una regola in ingresso, questa relazione sarebbe rappresentata da un oggetto in uno spazio connettore che trova una relazione con un oggetto nel metaverse.  
 ![Join tra cs e mv](./media/concept-azure-ad-connect-sync-declarative-provisioning/join1.png)  
  L'obiettivo è verificare se è già presente un oggetto nel metaverse, creato da un altro connettore, con cui eseguire l'associazione. In una foresta di account e risorse, ad esempio, l'utente della foresta di account deve essere unito all'utente della foresta di risorse.

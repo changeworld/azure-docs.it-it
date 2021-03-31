@@ -8,10 +8,10 @@ ms.date: 01/11/2017
 ms.author: stefsch
 ms.custom: seodec18
 ms.openlocfilehash: fe9326ea9ebd5afe981b7ba6c34b1a5d51e084b0
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "88962061"
 ---
 # <a name="how-to-control-inbound-traffic-to-an-app-service-environment"></a>Come controllare il traffico in ingresso a un ambiente del servizio app
@@ -122,7 +122,7 @@ Per trovare la singola coppia di porte usata da ogni indirizzo IP-SSL, passare a
 
 Quando un'app in un ambiente del servizio app è configurata per l'uso di IP-SSL, i clienti esterni non vedranno o devono preoccuparsi del mapping speciale della coppia di porte.  Il traffico verso le app transiterà normalmente all'indirizzo IP SSL configurato.  La conversione alla coppia di porta speciale viene eseguita automaticamente internamente, durante il passaggio finale del traffico di routing alla subnet che contiene l'ambiente del servizio app. 
 
-## <a name="getting-started"></a>Guida introduttiva
+## <a name="getting-started"></a>Introduzione
 Per iniziare a usare gli ambienti del servizio app, vedere [Introduzione a ambiente del servizio app][IntroToAppServiceEnvironment].
 
 Per altre informazioni, vedere [connessione sicura alle risorse back-end da un ambiente del servizio app][SecurelyConnecttoBackend].

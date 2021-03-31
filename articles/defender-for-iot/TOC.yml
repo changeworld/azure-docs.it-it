@@ -181,11 +181,11 @@
               displayName: 'PCAP, metadata, alerts, link, device map,'
             - name: Tipi di avviso e descrizioni
               href: alert-engine-messages.md
-              displayName: 'alert, alerts, description, engine, anomaly, protocol, policy, malware, violation, operational'
-            - name: Gestire gli eventi degli avvisi
+              displayName: 'alert, alerts, description, engine, anomaly, protocol, policy, malware, violation, operational, severity, minor, major, critical, warning, alerts list, security alerts,'
+            - name: Gestione degli eventi di avviso
               href: how-to-manage-the-alert-event.md
               displayName: 'PCAP, acknowledge, learn, mute, policy'
-            - name: Accelerare la risposta agli eventi imprevisti degli avvisi
+            - name: Accelerare i flussi di lavoro degli avvisi
               href: how-to-accelerate-alert-incident-response.md
               displayName: 'custom, alerts, comments, groups'
             - name: Inoltrare le informazioni degli avvisi
