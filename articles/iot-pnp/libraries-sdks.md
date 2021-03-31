@@ -9,10 +9,10 @@ ms.service: iot-pnp
 services: iot-pnp
 ms.custom: mvc
 ms.openlocfilehash: 31e06777a2f2e26f6ef546e60fd0bf4428d272c2
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "102503811"
 ---
 # <a name="microsoft-sdks-for-iot-plug-and-play"></a>Microsoft SDK per Internet delle cose Plug and Play
@@ -21,7 +21,7 @@ Le librerie e gli SDK Plug and Play gli sviluppatori consentono agli sviluppator
 
 ## <a name="device-sdks"></a>SDK del dispositivo
 
-| Linguaggio | Pacchetto | Repository di codice | Esempi | Avvio rapido | Informazioni di riferimento |
+| Linguaggio | Pacchetto | Repository di codice | Esempi | Avvio rapido | Riferimento |
 |---|---|---|---|---|---|
 | C-dispositivo | [1.3.9 vcpkg](https://github.com/Azure/azure-iot-sdk-c/blob/master/doc/setting_up_vcpkg.md) | [GitHub](https://github.com/Azure/azure-iot-sdk-c) | [Esempi](https://github.com/Azure/azure-iot-sdk-c/tree/master/iothub_client/samples/pnp) | [Connettersi all'hub IoT](quickstart-connect-device.md) | [Riferimento](/azure/iot-hub/iot-c-sdk-ref/) |
 | .NET-dispositivo | [1.31.0 NuGet](https://www.nuget.org/packages/Microsoft.Azure.Devices.Client) | [GitHub](https://github.com/Azure/azure-iot-sdk-csharp/tree/master/) | [Esempi](https://github.com/Azure-Samples/azure-iot-samples-csharp/tree/master/iot-hub/Samples/device/PnpDeviceSamples) | [Connettersi all'hub IoT](quickstart-connect-device.md) | [Riferimento](/dotnet/api/microsoft.azure.devices.client) |
@@ -32,7 +32,7 @@ Le librerie e gli SDK Plug and Play gli sviluppatori consentono agli sviluppator
 
 ## <a name="service-sdks"></a>SDK per servizi
 
-| Piattaforma  | Pacchetto | Repository di codice | Esempi | Avvio rapido | Informazioni di riferimento |
+| Piattaforma  | Pacchetto | Repository di codice | Esempi | Avvio rapido | Riferimento |
 |---|---|---|---|---|---|
 | .NET-servizio hub Internet | [1.27.1 NuGet](https://www.nuget.org/packages/Microsoft.Azure.Devices ) | [GitHub](https://github.com/Azure/azure-iot-sdk-csharp) | [Esempi](https://github.com/Azure-Samples/azure-iot-samples-csharp/tree/master/iot-hub/Samples/service/PnpServiceSamples) | N/D | [Riferimento](/dotnet/api/microsoft.azure.devices) |
 | Servizio Hub Java-Internet | [1.26.0 Maven](https://mvnrepository.com/artifact/com.microsoft.azure.sdk.iot/iot-service-client/1.26.0) | [GitHub](https://github.com/Azure/azure-iot-sdk-java) | [Esempi](https://github.com/Azure/azure-iot-sdk-java/tree/master/service/iot-service-samples/pnp-service-sample) | N/D | [Riferimento](/java/api/com.microsoft.azure.sdk.iot.service) |

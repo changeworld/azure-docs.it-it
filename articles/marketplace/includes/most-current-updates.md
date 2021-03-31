@@ -8,10 +8,10 @@ author: emuench
 ms.author: mingshen
 ms.date: 10/09/2020
 ms.openlocfilehash: c6f20d7767021b0f1ed32bf88b3342e200c4b61d
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "92284308"
 ---
 Le immagini di base delle macchine virtuali del sistema operativo devono contenere gli aggiornamenti più recenti fino alla data di pubblicazione. Prima della pubblicazione, assicurarsi di aver aggiornato il sistema operativo e tutti i servizi installati con tutte le patch di sicurezza e manutenzione più recenti.
