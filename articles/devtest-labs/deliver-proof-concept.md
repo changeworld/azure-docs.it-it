@@ -4,10 +4,10 @@ description: Scopri come distribuire un modello di verifica in modo che Azure De
 ms.topic: article
 ms.date: 06/2/2020
 ms.openlocfilehash: 9c28cf9eebd8a39a2edce48e4fb8b96dc7608d80
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "87288020"
 ---
 # <a name="deliver-a-proof-of-concept"></a>Fornire un modello di prova 
@@ -23,7 +23,7 @@ DevTest Labs fornisce inoltre i criteri di Guardrails e dei costi per consentire
 
 Ogni azienda ha requisiti diversi per il modo in cui Azure DevTest Labs possono essere incorporati correttamente nell'ambiente. Questo articolo descrive i passaggi più comuni che le aziende devono completare per garantire un modello di verifica efficace. Un modello di prova è il primo passo verso una distribuzione end-to-end corretta. 
 
-## <a name="getting-started"></a>Guida introduttiva 
+## <a name="getting-started"></a>Introduzione 
 
 Per iniziare a consegnare un modello di prova. È importante dedicare del tempo a conoscere Azure e DevTest Labs.  Di seguito sono riportate alcune risorse iniziali: 
 

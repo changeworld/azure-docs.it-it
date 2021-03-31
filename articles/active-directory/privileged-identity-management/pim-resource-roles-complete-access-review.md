@@ -16,10 +16,10 @@ ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 1601c9fc750df1f8e18bdaa072ede1b5ee164329
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "84743814"
 ---
 # <a name="complete-an-access-review-of-azure-resource-roles-in-privileged-identity-management"></a>Completare una verifica di accesso dei ruoli delle risorse di Azure in Privileged Identity Management
@@ -56,7 +56,7 @@ Tutte le verifiche di accesso hanno una data di fine. Selezionare **Interrompi**
 
 Al termine di una verifica di accesso, selezionare **applica** per implementare il risultato della verifica. Se l'accesso di un utente è stato negato nel corso della verifica, questo passaggio consente di rimuovere la relativa assegnazione di ruolo.  
 
-### <a name="delete"></a>Elimina
+### <a name="delete"></a>Delete
 
 Se la verifica non è più necessaria, eliminarla. Selezionare **Elimina** yo rimuovere la revisione dal servizio Privileged Identity Management.
 
