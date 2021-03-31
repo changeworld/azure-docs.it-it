@@ -9,10 +9,10 @@ ms.date: 12/14/2020
 ms.author: abhishgu
 ms.reviewer: abhishgu
 ms.openlocfilehash: 25972ba2bb30c39838c4822a42af292e8d8b1dba
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "97803630"
 ---
 # <a name="ingest-data-from-apache-kafka-into-azure-cosmos-db-cassandra-api-using-kafka-connect"></a>Inserire i dati da Apache Kafka in Azure Cosmos DB API Cassandra usando Kafka Connect
@@ -134,7 +134,7 @@ Di seguito è riportato un riepilogo degli attributi:
 - `auth.password`: immettere la password
 - `port`: immettere il valore della porta, ovvero `10350` Not `9042` . lasciarlo invariato
 
-**Configurazione SSL**
+**Configurazione di SSL**
 
 Azure Cosmos DB impone la [connettività sicura tramite SSL](database-security.md) e il connettore di connessione Kafka supporta anche SSL.
 
