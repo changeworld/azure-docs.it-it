@@ -8,10 +8,10 @@ ms.date: 06/26/2019
 ms.topic: conceptual
 keywords: Kinect, Azure, Sensor, SDK, profondità, RGB, dispositivo, ricerca, apertura
 ms.openlocfilehash: 67fc93b924d5d663bb43098969c54d1975bd5895
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "85276664"
 ---
 # <a name="find-then-open-the-azure-kinect-device"></a>Individuare e aprire il dispositivo Kinect di Azure

@@ -4,10 +4,10 @@ description: Elenco di eccezioni del bus di servizio emerse da Azure Resource Ma
 ms.topic: article
 ms.date: 06/23/2020
 ms.openlocfilehash: a0b0338da0f002c7b667748ffd2bf5a40c91c580
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "85336974"
 ---
 # <a name="service-bus-resource-manager-exceptions"></a>Eccezioni Gestione risorse del bus di servizio

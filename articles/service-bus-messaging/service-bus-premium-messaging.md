@@ -4,10 +4,10 @@ description: Questo articolo descrive i livelli standard e Premium del bus di se
 ms.topic: conceptual
 ms.date: 02/17/2021
 ms.openlocfilehash: aa08a99009ef3d20e831e214ae5811059817d13c
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "104607552"
 ---
 # <a name="service-bus-premium-and-standard-messaging-tiers"></a>Livelli di messaggistica Standard e Premium del bus di servizio
