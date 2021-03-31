@@ -4,10 +4,10 @@ description: Monitora l'applicazione con applicazione Azure Insights e il rileva
 ms.topic: conceptual
 ms.date: 12/12/2017
 ms.openlocfilehash: 1ed304e903bb50591e61e294b6701f8268f9d8e1
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "87081628"
 ---
 # <a name="application-security-detection-pack-preview"></a>Pacchetto per il rilevamento della sicurezza delle applicazioni (anteprima)
