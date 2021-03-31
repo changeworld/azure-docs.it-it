@@ -18,10 +18,10 @@ ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: a6cbea49fe39c92c8a2fc50e501cb4ef5cff74b1
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "68989689"
 ---
 # <a name="quickstart-download-an-audit-report-using-the-azure-portal"></a>Guida introduttiva: scaricare il report di controllo con il portale di Azure
@@ -43,7 +43,7 @@ In questa guida introduttiva si apprenderà come scaricare un file CSV dei log d
 4. Scegliere **Ultime 24 ore** nell'elenco a discesa del filtro **Intervallo di date** e selezionare **Applica** per visualizzare i log di controllo delle ultime 24 ore. 
 5. Selezionare il pulsante **Download**, selezionare **CSV** come formato file e specificare un nome file per scaricare un file CSV contenente i record filtrati. 
 
-![Report](./media/quickstart-download-audit-report/download-audit-logs.png)
+![Creazione di report](./media/quickstart-download-audit-report/download-audit-logs.png)
 
 ## <a name="next-steps"></a>Passaggi successivi
 
