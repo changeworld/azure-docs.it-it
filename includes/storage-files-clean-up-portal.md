@@ -9,10 +9,10 @@ ms.date: 03/28/2018
 ms.author: wgries
 ms.custom: include file
 ms.openlocfilehash: 842c08ec36730eaab1c37fe61d3855f9e2ddd245
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "91329457"
 ---
 Al termine, è possibile eliminare il gruppo di risorse. In questo modo vengono eliminati anche l'account di archiviazione, la condivisione file di Azure ed eventuali altre risorse distribuite nel gruppo di risorse.
