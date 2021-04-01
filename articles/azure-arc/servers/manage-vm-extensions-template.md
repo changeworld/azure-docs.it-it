@@ -4,10 +4,10 @@ description: Questo articolo descrive come distribuire le estensioni delle macch
 ms.date: 03/01/2021
 ms.topic: conceptual
 ms.openlocfilehash: 88296cd4f410defcaf7db15507ddac42e80cba2d
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "101688264"
 ---
 # <a name="enable-azure-vm-extensions-by-using-arm-template"></a>Abilitare le estensioni di VM di Azure usando il modello ARM

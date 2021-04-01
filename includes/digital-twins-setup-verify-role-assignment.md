@@ -6,10 +6,10 @@ ms.topic: include
 ms.date: 7/22/2020
 ms.author: baanders
 ms.openlocfilehash: b4dfd154ff3fb7af48ef43b0a1dca168c5a93481
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "92489040"
 ---
 Un modo per verificare che l'assegnazione di ruolo sia stata configurata correttamente consiste nel visualizzare le assegnazioni di ruolo per l'istanza di Azure Digital Twins nell' [portale di Azure](https://portal.azure.com). Passare all'istanza di Azure Digital Twins nel portale di Azure (è possibile cercarla nella pagina delle [istanze di Azure Digital Twins](https://portal.azure.com/#blade/HubsExtension/BrowseResource/resourceType/Microsoft.DigitalTwins%2FdigitalTwinsInstances) o cercarne il nome nella barra di ricerca del portale).
