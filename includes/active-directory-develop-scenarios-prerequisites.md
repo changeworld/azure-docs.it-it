@@ -11,10 +11,10 @@ ms.date: 09/25/2020
 ms.author: jmprieur
 ms.custom: include file
 ms.openlocfilehash: 79952ad04df4780e1b30eb9cf5c7a35f49cc34c2
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "91257071"
 ---
 Se non si ha familiarità con la gestione delle identità e degli accessi (IAM) con OAuth 2,0 e OpenID Connect o anche solo per gli elementi IAM nella piattaforma Microsoft Identity, il set di articoli seguente dovrebbe essere elevato nell'elenco di lettura.
