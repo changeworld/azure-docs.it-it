@@ -9,10 +9,10 @@ ms.date: 07/08/2018
 ms.author: rogarana
 ms.custom: include file
 ms.openlocfilehash: b26d4af29a92fb0f14c52e76a7eae1d0073a3aa0
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "96005324"
 ---
 Questo errore può verificarsi quando il servizio Sincronizzazione file di Azure non è accessibile dal server. È possibile risolvere questo errore eseguendo questa procedura:
