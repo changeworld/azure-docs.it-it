@@ -15,7 +15,7 @@ ms.openlocfilehash: 92cd3a9cc82a38cae6a56b7796e22d035979f2d5
 ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "89439851"
 ---
 # <a name="azure-synapse-analytics-data-science-walkthroughs-using-t-sql-and-python-on-azure"></a>Analisi delle sinapsi di Azure data science procedure dettagliate con T-SQL e Python in Azure
