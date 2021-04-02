@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 01/02/2020
 ms.author: apimpm
 ms.openlocfilehash: 6a53cc2b2ec6d46b4bde54af58b4e5542ff6cf79
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "91932635"
 ---
 # <a name="api-import-restrictions-and-known-issues"></a>Problemi noti e limitazioni dell'importazione dell'API
@@ -31,7 +31,7 @@ Quando si importa un'API, è possibile che si verifichino alcune restrizioni o s
 
 Se vengono restituiti errori durante l'importazione del documento OpenAPI, verificare che sia stato prima convalidato. A tale scopo, usare la finestra di progettazione nel portale di Azure (Progettazione - Front End - Editor della specifica OpenAPI) o usare uno strumento di terze parti come <a href="https://editor.swagger.io">Swagger Editor</a>.
 
-### <a name="general"></a><a name="open-api-general"> </a>Generale
+### <a name="general"></a><a name="open-api-general"> </a>Informazioni generali
 
 -   I parametri obbligatori per percorso e query devono avere nomi univoci. In OpenAPI un nome di parametro deve essere univoco solo all'interno di una determinata posizione, ad esempio percorso, query, intestazione. In Gestione API, invece, le operazioni possono essere discriminate in base a parametri sia di percorso che di query, cosa che non è possibile in OpenAPI. Per questo motivo è necessario che i nomi dei parametri siano univoci all'interno dell'intero modello di URL.
 -   `\$ref` i puntatori non possono fare riferimento a file esterni.
@@ -56,7 +56,7 @@ Se vengono restituiti errori durante l'importazione del documento OpenAPI, verif
 
 ## <a name="openapi-import-update-and-export-mechanisms"></a>Meccanismi di importazione, aggiornamento ed esportazione di OpenAPI
 
-### <a name="general"></a><a name="open-import-export-general"> </a>Generale
+### <a name="general"></a><a name="open-import-export-general"> </a>Informazioni generali
 
 -   Le definizioni API esportate dal servizio gestione API sono destinate principalmente alle applicazioni esterne al servizio gestione API che devono chiamare l'API ospitata nel servizio gestione API. Le definizioni API esportate non sono progettate per essere importate di nuovo nello stesso servizio di gestione API o in un altro servizio. Per la gestione della configurazione dell'API defiitions in Immobiliarie/envionments diversi, consultare la documentazione relativa all'uso del servizio gestione API con git. 
 

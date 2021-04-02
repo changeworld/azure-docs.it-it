@@ -4,10 +4,10 @@ description: Informazioni su come gestire gli elenchi di utenti Azure Lab Servic
 ms.topic: article
 ms.date: 10/07/2020
 ms.openlocfilehash: fa8f96a84be5c4c91e0153216e15963ec0e3d6f8
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "91946711"
 ---
 # <a name="manage-lab-services-user-lists-from-teams"></a>Gestire gli elenchi utenti di Lab Services dai team

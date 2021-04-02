@@ -9,10 +9,10 @@ ms.date: 10/22/2020
 ms.author: cherylmc
 ms.custom: include file
 ms.openlocfilehash: 5358bbbca716f5152a943c90cb7a5f735ae12047
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "92479615"
 ---
 1. Nel [portale di Azure](https://portal.azure.com), in **Cerca risorse, servizi e documentazione (G+/)** digitare **gateway di rete locale**. Individuare e selezionare **gateway di rete locale** nei risultati della ricerca di **Marketplace**. Verrà visualizzata la pagina **Crea gateway di rete locale**.
