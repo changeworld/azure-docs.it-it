@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 10/16/2020
 ms.author: larryfr
 ms.openlocfilehash: 25e304daf75b60a7d037640d496ed0972581f13a
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "92204464"
 ---
 Azure consente di inserire _blocchi_ sulle risorse, in modo che non possano essere eliminati o siano di sola lettura. __Il blocco di una risorsa può causare risultati imprevisti.__ Alcune operazioni che non sembrano modificare la risorsa richiedono effettivamente azioni bloccate dal blocco. 

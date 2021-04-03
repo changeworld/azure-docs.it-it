@@ -1,9 +1,9 @@
 ---
 ms.openlocfilehash: df6137e4e00ebd089ef7fb5efa163a513fb30728
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "98061166"
 ---
 Mentre si configurano le risorse per questo argomento di avvio rapido, un breve video su un'area di parcheggio viene copiato nella macchina virtuale Linux di Azure usata come dispositivo IoT Edge. Questo file video verrà usato per simulare un flusso di streaming live per questa esercitazione.
