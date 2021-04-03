@@ -12,10 +12,10 @@ ms.author: sstein
 ms.date: 10/15/2020
 ms.reviewer: ''
 ms.openlocfilehash: 19178359d1eeb935499a01828f7c53b123e17571
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "92793178"
 ---
 # <a name="service-tiers-in-the-dtu-based-purchase-model"></a>Livelli di servizio nel modello di acquisto basato su DTU
@@ -123,7 +123,7 @@ Il carico di lavoro è costituito da nove tipi di transazioni, come illustrato n
 | Operazioni aggiornamento intense |UPDATE, principalmente non in memoria, lettura/scrittura |
 | Operazioni inserimento leggere |INSERT, in memoria, lettura/scrittura |
 | Operazioni inserimento intense |INSERT, principalmente non in memoria, lettura/scrittura |
-| Elimina |DELETE, combinazione in memoria e non in memoria, lettura/scrittura |
+| Delete |DELETE, combinazione in memoria e non in memoria, lettura/scrittura |
 | Operazioni CPU intense |SELECT, in memoria, carico CPU relativamente pesante, sola lettura |
 
 ### <a name="workload-mix"></a>Combinazione di carichi di lavoro
@@ -139,7 +139,7 @@ Le transazioni vengono selezionate casualmente da una distribuzione ponderata co
 | Operazioni aggiornamento intense |3 |
 | Operazioni inserimento leggere |3 |
 | Operazioni inserimento intense |2 |
-| Elimina |2 |
+| Delete |2 |
 | Operazioni CPU intense |10 |
 
 ### <a name="users-and-pacing"></a>Utenti e velocità
