@@ -16,10 +16,10 @@ ms.date: 06/05/2017
 ms.author: alkohli
 ms.custom: ''
 ms.openlocfilehash: 35fa0fc134045585eebd21324352f9b4ff272e87
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "94954240"
 ---
 # <a name="use-storsimple-snapshot-manager-user-interface-to-manage-backup-jobs-and-backup-catalog"></a>Usare l'interfaccia utente di StorSimple Snapshot Manager per gestire i processi di backup e il catalogo di backup
@@ -114,7 +114,7 @@ Nella tabella seguente vengono elencate in ordine alfabetico le azioni di StorSi
 | Configurare un dispositivo |Fare clic con il pulsante destro del mouse sul nodo **Dispositivi**. |Fare clic su **Configura un dispositivo** per configurare uno o più dispositivi per la connessione all'host di Windows. |
 | Crea criterio di backup |Eseguire una delle operazioni seguenti:<ul><li>Fare clic con il pulsante destro del mouse su **Criteri di backup**.</li><li>Fare clic o espandere **Gruppi di volumi** e quindi fare clic con il pulsante destro del mouse su un gruppo di volumi.</li><li>Fare clic o espandere **Catalogo backup** e quindi fare clic con il pulsante destro del mouse su un gruppo di volumi.</li></ul> |Fare clic su **Crea criteri di backup** per configurare un backup pianificato per un gruppo di volumi. |
 | Crea gruppo di volumi |Eseguire una delle operazioni seguenti:<ul><li>Fare clic sul nodo **Volumi** e quindi fare clic con il pulsante destro del mouse su un volume nel riquadro **Risultati**.</li><li>Fare clic con il pulsante destro del mouse sul nodo **Gruppi di volumi**.</li></ul> |Fare clic su **Crea gruppo di volumi** per assegnare i volumi a un gruppo di volumi. |
-| Elimina |Fare clic su un nodo o su un risultato; questa voce viene visualizzata in diversi menu **Azione** e riquadri **Azioni**. |Fare clic su **Elimina** per eliminare il nodo o il risultato selezionato. Quando viene visualizzata la finestra di dialogo di conferma, confermare o annullare l'eliminazione. |
+| Delete |Fare clic su un nodo o su un risultato; questa voce viene visualizzata in diversi menu **Azione** e riquadri **Azioni**. |Fare clic su **Elimina** per eliminare il nodo o il risultato selezionato. Quando viene visualizzata la finestra di dialogo di conferma, confermare o annullare l'eliminazione. |
 | Dettagli |Fare clic sul nodo **Dispositivi**, quindi fare clic con il pulsante destro del mouse su un dispositivo nel riquadro **Risultati**. |Fare clic su **Dettagli** per visualizzare i dettagli di configurazione per un dispositivo. |
 | Modifica |Fare clic su **Criteri di backup** e quindi fare clic con il pulsante destro del mouse su un criterio nel riquadro **Risultati**. |Fare clic su **Modifica** per cambiare la pianificazione del backup per un gruppo di volumi. |
 | Esporta elenco |Fare clic su un nodo o un risultato. Questo elemento viene visualizzato in tutti i menu **Azione** e nei riquadri **Azioni**. |Fare clic su **Esporta elenco** per salvare un elenco in file con valori delimitati da virgole (CSV), È quindi possibile importare questo file in un’applicazione foglio di calcolo per l'analisi. |
