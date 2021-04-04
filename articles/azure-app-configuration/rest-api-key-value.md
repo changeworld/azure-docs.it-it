@@ -7,10 +7,10 @@ ms.service: azure-app-configuration
 ms.topic: reference
 ms.date: 08/17/2020
 ms.openlocfilehash: 95081d6f8c2770d01f7836e08b6851860bf47ba8
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "96932558"
 ---
 # <a name="key-values"></a>Coppie chiave-valore
@@ -24,7 +24,7 @@ Questo articolo si applica alla versione API 1,0.
 - Recupero
 - Elenca più
 - Set
-- Elimina
+- Delete
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -370,7 +370,7 @@ oppure
 HTTP/1.1 412 PreconditionFailed
 ```
 
-## <a name="delete"></a>Elimina
+## <a name="delete"></a>Delete
 
 - Obbligatorio: `{key}` , `{api-version}`
 - Facoltativo: `{label}` (se non è specificato o etichetta = %00, significa che il valore della chiave non è un'etichetta).
