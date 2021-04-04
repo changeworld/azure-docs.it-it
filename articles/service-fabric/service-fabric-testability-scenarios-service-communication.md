@@ -4,10 +4,10 @@ description: Le comunicazioni da servizio a servizio sono un punto di integrazio
 ms.topic: conceptual
 ms.date: 11/02/2017
 ms.openlocfilehash: fbf889422d69d031d777acd80cf3becfb3184568
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "96575925"
 ---
 # <a name="service-fabric-testability-scenarios-service-communication"></a>Scenari di Testabilità di Service Fabric: comunicazione tra servizi
