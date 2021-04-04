@@ -12,10 +12,10 @@ author: MrudulaN
 ms.reviewer: larryfr
 ms.date: 03/05/2020
 ms.openlocfilehash: d8b1c2a5384e479e39d169d368554f16c300a33e
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "98954547"
 ---
 # <a name="deploy-a-model-to-azure-machine-learning-compute-instances"></a>Distribuire un modello per Azure Machine Learning istanze di calcolo
