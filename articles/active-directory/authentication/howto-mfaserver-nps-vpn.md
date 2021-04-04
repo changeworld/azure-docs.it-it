@@ -23,7 +23,7 @@ ms.locfileid: "96742018"
 Azure server Multi-Factor Authentication (server di autenticazione a più fattori di Azure) può essere usato per connettersi facilmente a diverse soluzioni VPN di terze parti. Questo articolo è incentrato sul dispositivo &reg; VPN Cisco ASA, sull'appliance VPN SSL Citrix NetScaler e sul dispositivo VPN Secure Access/Pulse Secure Connect Secure. Sono disponibili guide alla configurazione utili per questi tre dispositivi comuni. Il server di autenticazione a più fattori di Azure può anche essere integrato con la maggior parte dei sistemi che usano RADIUS, LDAP, IIS o l'autenticazione basata sulle attestazioni per AD FS. Altre informazioni sono disponibili in [configurazioni del server](howto-mfaserver-deploy.md#next-steps)di autenticazione a più fattori di Azure.
 
 > [!IMPORTANT]
-> A partire dal 1 ° luglio 2019, Microsoft non offre più il server multi-factor authentication per le nuove distribuzioni. I nuovi clienti che vogliono richiedere l'autenticazione a più fattori durante gli eventi di accesso devono usare Multi-Factor Authentication di Azure AD basati sul cloud.
+> A partire dal 1 ° luglio 2019, Microsoft non offre più il server MFA per le nuove distribuzioni. I nuovi clienti che vogliono richiedere l'autenticazione a più fattori durante gli eventi di accesso devono usare Multi-Factor Authentication di Azure AD basati sul cloud.
 >
 > Per iniziare a usare l'autenticazione a più fattori basata sul cloud, vedere [esercitazione: proteggere gli eventi di accesso utente con Azure AD multi-factor authentication](tutorial-enable-azure-mfa.md).
 >
