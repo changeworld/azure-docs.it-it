@@ -9,10 +9,10 @@ ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
 ms.openlocfilehash: 1c8cfeda008955006f2fbad1df58c8047bd36541
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "97898046"
 ---
 # <a name="cloudsimple-private-cloud-permission-model-of-vmware-vcenter"></a>Modello di autorizzazione del cloud privato CloudSimple di VMware vCenter
@@ -55,7 +55,7 @@ Per concedere a singoli utenti le autorizzazioni per la gestione del cloud priva
 | **Autorizzazioni** | Modifica autorizzazione |
 | **Raccolta contenuto** | Aggiungi elemento di libreria <br> Crea libreria locale <br> Crea libreria sottoscritta <br> Elimina elemento libreria <br> Elimina libreria locale <br> Elimina libreria sottoscritta <br> Scaricare i file <br> Rimuovi elemento libreria <br> Rimuovi libreria sottoscritta <br> Importa archiviazione <br> Informazioni sulla sottoscrizione Probe <br> Lettura archiviazione <br> Elemento della libreria di sincronizzazione <br> Libreria sottoscritta Sync <br> Introspezione del tipo <br> Aggiorna impostazioni di configurazione <br> Aggiornare i file <br> Aggiorna libreria <br> Aggiorna elemento libreria <br> Aggiorna libreria locale <br> Aggiorna libreria sottoscritta <br> Visualizza impostazioni di configurazione |
 | **Operazioni di crittografia** | Aggiungi disco <br> Clone <br> Decrypt <br> Direct Access <br> Encrypt <br> Crittografa nuovo <br> Gestisci KMS <br> Gestire i criteri di crittografia <br> Gestire le chiavi <br> Migrate <br> Ricrypt <br> Registra macchina virtuale <br> Registra host |
-| **gruppo dvPort** | Create <br> Elimina <br> Modifica <br> Operazione sui criteri <br> Operazione di ambito |
+| **gruppo dvPort** | Create <br> Delete <br> Modifica <br> Operazione sui criteri <br> Operazione di ambito |
 | **Datastore** | Alloca spazio <br> Browse Datastore (Sfoglia archivio dati) <br> Configura archivio dati <br> Operazioni sui file di basso livello <br> Spostare l'archivio dati <br> Rimuovi archivio dati <br> Rimuovi file <br> Rinomina archivio dati <br> Aggiornare i file della macchina virtuale <br> Aggiornare i metadati della macchina virtuale |
 | **Agent Manager ESX** | File di configurazione <br> Modifica <br> Visualizzazione |
 | **Estensione** | Registra estensione <br> Annulla registrazione estensione <br> Aggiorna estensione |
@@ -77,7 +77,7 @@ Per concedere a singoli utenti le autorizzazioni per la gestione del cloud priva
 | **Viste di archiviazione** | Configurazione del servizio <br> Visualizzazione |
 | **Attività** | Creare un'attività <br> Aggiorna attività |
 | **Servizio di trasferimento**| Gestione <br> Monitoraggio |
-| **vApp** | Aggiungi macchina virtuale <br> Assegnare il pool di risorse <br> Assegna vApp <br> Clone <br> Create <br> Elimina <br> Esportazione <br> Importa <br> Sposta <br> Spegnimento <br> Accendere <br> Rinominare <br> Sospendi <br> Unregister  <br> Visualizza ambiente OVF <br> configurazione dell'applicazione vApp <br> configurazione dell'istanza di vApp <br> configurazione di vApp managedBy <br> configurazione della risorsa vApp |
+| **vApp** | Aggiungi macchina virtuale <br> Assegnare il pool di risorse <br> Assegna vApp <br> Clone <br> Create <br> Delete <br> Esportazione <br> Importa <br> Sposta <br> Spegnimento <br> Accendere <br> Rinominare <br> Sospendi <br> Unregister  <br> Visualizza ambiente OVF <br> configurazione dell'applicazione vApp <br> configurazione dell'istanza di vApp <br> configurazione di vApp managedBy <br> configurazione della risorsa vApp |
 | **VRMPolicy** | VRMPolicy query <br> Aggiornare VRMPolicy |
 | **Configurazione > macchina virtuale** | Aggiungi disco esistente <br> Aggiungi nuovo disco <br> Aggiungi o Rimuovi dispositivo <br> Avanzato <br> Cambia Conteggio CPU <br> Cambia risorsa <br> Configurare managedBy <br> Rilevamento modifiche disco <br> Lease del disco <br> Visualizzare le impostazioni di connessione <br> Estendi disco virtuale <br> Dispositivo USB host <br> Memoria <br> Modificare le impostazioni del dispositivo <br> Compatibilità tolleranza di errore query <br> Eseguire query sui file di proprietà <br> Dispositivo RAW <br> Ricarica da percorso <br> Rimuovi disco <br> Rinominare <br> Reimposta informazioni Guest <br> Imposta annotazione <br> Impostazioni <br> Selezione host file <br> Imposta/Nascondi elemento padre fork <br> Sblocca macchina virtuale <br> Aggiornare la compatibilità delle macchine virtuali |
 | **Macchine virtuali > operazioni Guest** | Modifica alias operazione Guest <br> Query alias operazione Guest <br> Modifiche alle operazioni Guest <br> Esecuzione del programma operativo guest <br> Query sull'operazione Guest |
@@ -99,7 +99,7 @@ Per concedere a singoli utenti le autorizzazioni per la gestione del cloud priva
 | **Codifica vSphere** | Assegnare o annullare l'assegnazione del tag vSphere <br> Crea tag vSphere <br> Crea categoria di tag vSphere <br> Elimina tag vSphere <br> Elimina categoria di tag vSphere <br> Modifica tag vSphere <br> Modifica categoria di tag vSphere <br> Modificare il campo UsedBy per Category <br> Modificare il campo UsedBy per il tag |
 | **Network** | Assign network |
 | **Risorsa** | Applica suggerimento <br> Assegnare vApp al pool di risorse <br> Assign virtual machine to resource pool <br> Crea pool di risorse <br> Esegui la migrazione della macchina virtuale spenta <br> Esegui la migrazione della macchina virtuale accesa <br> Modificare il pool di risorse <br> Spostare il pool di risorse <br> Query vMotion <br> Rimuovi pool di risorse <br> Rinominare il pool di risorse |
-| **vApp** | Aggiungi macchina virtuale <br> Assegnare il pool di risorse <br> Assegna vApp <br> Clone <br> Create <br> Elimina <br> Esportazione <br> Importa <br> Sposta <br> Spegnimento <br> Accendere <br> Rinominare <br> Sospendi <br> Unregister  <br> Visualizza ambiente OVF <br> configurazione dell'applicazione vApp <br> configurazione dell'istanza di vApp <br> configurazione di vApp managedBy <br> configurazione della risorsa vApp |
+| **vApp** | Aggiungi macchina virtuale <br> Assegnare il pool di risorse <br> Assegna vApp <br> Clone <br> Create <br> Delete <br> Esportazione <br> Importa <br> Sposta <br> Spegnimento <br> Accendere <br> Rinominare <br> Sospendi <br> Unregister  <br> Visualizza ambiente OVF <br> configurazione dell'applicazione vApp <br> configurazione dell'istanza di vApp <br> configurazione di vApp managedBy <br> configurazione della risorsa vApp |
 | **VRMPolicy** | VRMPolicy query <br> Aggiornare VRMPolicy |
 | **Configurazione > macchina virtuale** | Aggiungi disco esistente <br> Aggiungi nuovo disco <br> Aggiungi o Rimuovi dispositivo <br> Avanzato <br> Cambia Conteggio CPU <br> Cambia risorsa <br> Configurare managedBy <br> Rilevamento modifiche disco <br> Lease del disco <br> Visualizzare le impostazioni di connessione <br> Estendi disco virtuale <br> Dispositivo USB host <br> Memoria <br> Modificare le impostazioni del dispositivo <br> Compatibilità tolleranza di errore query <br> Eseguire query sui file di proprietà <br> Dispositivo RAW <br> Ricarica da percorso <br> Rimuovi disco <br> Rinominare <br> Reimposta informazioni Guest <br> Imposta annotazione <br> Impostazioni <br> Selezione host file <br> Imposta/Nascondi elemento padre fork <br> Sblocca macchina virtuale <br> Aggiornare la compatibilità delle macchine virtuali |
 | **Macchine virtuali > operazioni Guest** | Modifica alias operazione Guest <br> Query alias operazione Guest <br> Modifiche alle operazioni Guest <br> Esecuzione del programma operativo guest <br> Query sull'operazione Guest |
@@ -125,7 +125,7 @@ Per concedere a singoli utenti le autorizzazioni per la gestione del cloud priva
 
 | **Categoria** | **Privilegio** |
 |----------|-----------|
-| **gruppo dvPort** | Create <br> Elimina <br> Modifica <br> Operazione sui criteri <br> Operazione di ambito |
+| **gruppo dvPort** | Create <br> Delete <br> Modifica <br> Operazione sui criteri <br> Operazione di ambito |
 | **Network** | Assign network <br> Configurare <br> Sposta rete <br> Rimuovi |
 | **Configurazione > macchina virtuale** | Modificare le impostazioni del dispositivo |
 
