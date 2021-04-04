@@ -6,10 +6,10 @@ ms.author: flborn
 ms.date: 12/11/2019
 ms.topic: conceptual
 ms.openlocfilehash: 1d4ce68bdda5fbc3dfdb7396141289a58dab5bd1
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "92204096"
 ---
 # <a name="create-client-side-performance-traces"></a>Creare tracce di prestazioni lato client
@@ -18,7 +18,7 @@ Esistono molti motivi per cui le prestazioni del rendering remoto di Azure potre
 
 In questo capitolo viene illustrato come identificare i potenziali colli di bottiglia sul lato client tramite *:::no-loc text="performance traces":::* .
 
-## <a name="getting-started"></a>Guida introduttiva
+## <a name="getting-started"></a>Introduzione
 
 Se non si ha familiarità con le funzionalità di Windows :::no-loc text="performance tracing"::: , in questa sezione verranno citati i termini e le applicazioni più importanti per iniziare.
 
