@@ -10,15 +10,15 @@ ms.date: 02/09/2021
 ms.author: tamram
 ms.subservice: blobs
 ms.openlocfilehash: a370a7f04e0e43b96e4a574313c4f24c4990ab6f
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "100390358"
 ---
 # <a name="soft-delete-for-blobs"></a>Eliminazione temporanea per i BLOB
 
-L'eliminazione temporanea per i BLOB impedisce la modifica o l'eliminazione accidentale o errata dei dati. Quando l'eliminazione temporanea per i BLOB è abilitata per un account di archiviazione, i BLOB, le versioni BLOB e gli snapshot nell'account di archiviazione possono essere ripristinati dopo l'eliminazione, entro un periodo di conservazione specificato.
+L'eliminazione temporanea per i BLOB protegge i dati da modifiche o eliminazioni accidentali o erronee. Quando l'eliminazione temporanea per i BLOB è abilitata per un account di archiviazione, i BLOB, le versioni dei BLOB e gli snapshot nell'account di archiviazione possono essere recuperati dopo l'eliminazione, entro il periodo di conservazione specificato.
 
 Se esiste la possibilità che i dati vengano accidentalmente modificati o eliminati da un'applicazione o da un utente con un altro account di archiviazione, Microsoft consiglia di abilitare l'eliminazione temporanea. Per ulteriori informazioni sull'abilitazione dell'eliminazione temporanea, vedere [Enable and Manage soft delete for Blobs](./soft-delete-blob-enable.md).
 
