@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.service: virtual-machines
 ms.subservice: disks
 ms.openlocfilehash: 473e87904742395eca6b7eeba0875cd93789104d
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "91978986"
 ---
 # <a name="upload-a-vhd-to-azure-or-copy-a-managed-disk-to-another-region---azure-cli"></a>Caricare un disco rigido virtuale in Azure o copiare un disco gestito in un'altra area-interfaccia della riga di comando di Azure
@@ -26,7 +26,7 @@ ms.locfileid: "91978986"
 - Se si intende caricare un disco rigido virtuale da locale: un disco rigido virtuale di dimensioni fisse [preparato per Azure](../windows/prepare-for-upload-vhd-image.md), archiviato localmente.
 - In alternativa, un disco gestito in Azure, se si intende eseguire un'azione di copia.
 
-## <a name="getting-started"></a>Guida introduttiva
+## <a name="getting-started"></a>Introduzione
 
 Se si preferisce caricare dischi tramite un'interfaccia utente grafica, è possibile usare Azure Storage Explorer. Per informazioni dettagliate, vedere: [usare Azure Storage Explorer per gestire i dischi gestiti di Azure](../disks-use-storage-explorer-managed-disks.md)
 
