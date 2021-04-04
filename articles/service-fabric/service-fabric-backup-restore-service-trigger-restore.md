@@ -6,10 +6,10 @@ ms.topic: conceptual
 ms.date: 10/30/2018
 ms.author: aagup
 ms.openlocfilehash: 8566d82ef0d91caff47ff17a9cb12fcdc8241884
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "98928021"
 ---
 # <a name="restoring-backup-in-azure-service-fabric"></a>Ripristino del backup in Azure Service Fabric
@@ -53,7 +53,7 @@ Ad esempio, è possibile configurare un servizio in modo che esegua il backup de
 Il ripristino può essere attivato per gli scenari seguenti:
 
 - Ripristino dati in caso di _ripristino di emergenza_.
-- Ripristino dei dati per il _danneggiamento o la perdita_ di dati.
+- Ripristino dati in caso di _danneggiamento o perdita dei dati_.
 
 ### <a name="data-restore-in-the-case-of-disaster-recovery"></a>Ripristino dati in caso di ripristino di emergenza
 
