@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 11/11/2016
 ms.author: alkohli
 ms.openlocfilehash: d806d8a04dc1bd8547808d20c77bfec310f7dd06
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "95992986"
 ---
 # <a name="use-the-storsimple-device-manager-service-to-view-jobs-for-the-storsimple-virtual-array"></a>Usare il servizio Gestione dispositivi StorSimple per visualizzare i processi per l'array virtuale StorSimple

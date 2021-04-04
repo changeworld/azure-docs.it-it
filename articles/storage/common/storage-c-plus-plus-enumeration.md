@@ -9,10 +9,10 @@ ms.subservice: common
 ms.topic: how-to
 ms.reviewer: dineshm
 ms.openlocfilehash: 8c8e2d2ddf6899e62bc95bc1e52c84eccdc3a91e
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "92784099"
 ---
 # <a name="list-azure-storage-resources-in-c"></a>Elenco delle risorse di archiviazione di Azure in C++
@@ -201,4 +201,4 @@ Per ulteriori informazioni sull'archiviazione di Azure e sulla libreria Client p
 * [Come usare l'archiviazione delle code da C++](../queues/storage-c-plus-plus-how-to-use-queues.md)
 * [Documentazione relativa alla libreria Client di archiviazione Azure per API C++.](https://azure.github.io/azure-storage-cpp/)
 * [Blog del team di Archiviazione di Azure](/archive/blogs/windowsazurestorage/)
-* [Documentazione di archiviazione di Azure](https://azure.microsoft.com/documentation/services/storage/)
+* [Documentazione di Archiviazione di Azure](https://azure.microsoft.com/documentation/services/storage/)
