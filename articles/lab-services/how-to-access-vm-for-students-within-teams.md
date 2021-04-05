@@ -4,10 +4,10 @@ description: Informazioni su come accedere a una macchina virtuale (visualizzazi
 ms.topic: article
 ms.date: 10/07/2020
 ms.openlocfilehash: 31195cc7c8b4bc0e579f8aeb9107b14229dd8877
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "92218273"
 ---
 # <a name="access-a-vm-student-view-in-azure-lab-from-teams"></a>Accedere a una macchina virtuale (visualizzazione studente) in Azure Lab dai team
