@@ -9,10 +9,10 @@ ms.date: 12/27/2019
 ms.author: rogarana
 ms.custom: include file
 ms.openlocfilehash: b7c097306ba46d4f0024aecc55994508e2d8a090
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "96011721"
 ---
 Per proteggere i dati presenti nelle condivisioni file di Azure da perdita o danneggiamento, tutte le condivisioni file di Azure archiviano più copie dei file quando vengono scritti. A seconda dei requisiti del carico di lavoro, è possibile selezionare altri livelli di ridondanza. File di Azure supporta attualmente le opzioni di ridondanza dei dati seguenti:

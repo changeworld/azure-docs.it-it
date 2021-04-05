@@ -11,10 +11,10 @@ ms.topic: include
 ms.reviewer: hux
 ms.custom: include file
 ms.openlocfilehash: a369eb7000fb8622a69f4205ffcc232ae9c9d242
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "95545933"
 ---
 Per leggere i dati nel livello archivio, è prima necessario modificare il livello di accesso del BLOB in frequente o sporadico. Questo processo è noto come riattivazione e può richiedere ore per il completamento. Per ottenere prestazioni ottimali di riattivazione, è consigliabile usare dimensioni BLOB di grandi dimensioni La riattivazione simultanea di diversi BLOB di piccole dimensioni, può richiedere altro tempo. Attualmente sono disponibili due priorità di reidratazione, High e standard, che possono essere impostate tramite la proprietà facoltativa *x-ms-reidrato-Priority* in un'operazione di [impostazione del livello BLOB](/rest/api/storageservices/set-blob-tier) o di [copia del BLOB](/rest/api/storageservices/copy-blob) .
