@@ -9,10 +9,10 @@ ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
 ms.openlocfilehash: 090b7711ab061b989eae13113fe7048e8dd875ee
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "97895190"
 ---
 # <a name="manage-your-cloudsimple-private-cloud-virtual-machines-in-azure"></a>Gestire le macchine virtuali del cloud privato CloudSimple in Azure
@@ -27,11 +27,11 @@ I controlli seguenti sono disponibili nella pagina **Panoramica** relativa alla 
 | ------------ | ------------- |
 | Connessione | Connettersi alla macchina virtuale specificata.  |
 | Avvio | Avviare la macchina virtuale specificata.  |
-| Riavvia | Arrestare e quindi accendere la macchina virtuale specificata.  |
+| Riavvio | Arrestare e quindi accendere la macchina virtuale specificata.  |
 | Interrompere | Arrestare la macchina virtuale specifica.  |
 | Acquisizione | Acquisire un'immagine della macchina virtuale specificata in modo che possa essere usata come immagine per creare altre macchine virtuali. Vedere [creare un'immagine gestita di una macchina virtuale generalizzata in Azure](../virtual-machines/windows/capture-image-resource.md).   |
 | Sposta | Passare alla macchina virtuale specificata.  |
-| Elimina | Rimuovere la macchina virtuale specificata.  |
+| Delete | Rimuovere la macchina virtuale specificata.  |
 | Aggiorna | Aggiornare i dati nella visualizzazione.  |
 
 ### <a name="view-performance-information"></a>Visualizzare le informazioni sulle prestazioni

@@ -8,10 +8,10 @@ author: sayantanroy83
 ms.author: sroy
 ms.date: 3/08/2021
 ms.openlocfilehash: fdb2c47781312505a62c5e95d25c9d9364e3b610
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "102584019"
 ---
 # <a name="get-started-with-programmatic-access-to-analytics-data"></a>Introduzione all'accesso programmatico ai dati di analisi
@@ -24,10 +24,10 @@ Questa guida consente di iniziare a eseguire l'accesso a livello di codice ai da
 
 L'API per l'accesso ai report del Marketplace commerciale consente di pianificare i report personalizzati dei dati di analisi in modo asincrono. La funzionalità consente di definire query/modelli di report in base alle proprie esigenze, impostare una pianificazione e ottenere report tempestivi e affidabili a intervalli pianificati.
 
-Il valore chiave dell'accesso a livello di codice dei dati di analisi del Marketplace commerciale è la creazione di report personalizzati e l'integrazione con piattaforme e sistemi BI interni.
+Il valore chiave dell'accesso a livello di codice dei dati di analisi del marketplace commerciale è la creazione di report personalizzati e l'integrazione con piattaforme e sistemi BI interni.
 
 > [!NOTE]
-> I partner dovranno avere risorse di progettazione dedicate per eseguire una sola volta l'onboarding nell'interfaccia API.
+> I partner dovranno avere risorse di progettazione dedicate per eseguire l'onboarding una sola volta nell'interfaccia API.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

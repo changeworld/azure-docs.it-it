@@ -13,10 +13,10 @@ ms.author: urmilano
 ms.reviewer: sstein, bonova, MashaMSFT
 ms.date: 09/03/2020
 ms.openlocfilehash: 342491178d55dacbdc68e6c9042623d381dff898
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "96861545"
 ---
 # <a name="canceling-azure-sql-managed-instance-management-operations"></a>Annullamento delle operazioni di gestione di Istanza gestita SQL di Azure
@@ -44,8 +44,8 @@ Category  |Operazione  |Annullabile  |Durata stimata annullamento  |
 |Aggiornamento |Aumento e riduzione del calcolo (vCore) delle istanze (utilizzo generico) |Sì |Il 90% delle operazioni viene completato in 5 minuti. |
 |Aggiornamento |Aumento e riduzione del calcolo (vCore) delle istanze (business critical) |Sì |Il 90% delle operazioni viene completato in 5 minuti. |
 |Aggiornamento |Modifica del livello di servizio dell'istanza (da utilizzo generico a business critical e viceversa) |Sì |Il 90% delle operazioni viene completato in 5 minuti. |
-|Elimina |Eliminazione di un'istanza |No |  |
-|Elimina |Eliminazione di un cluster virtuale (operazione avviata dall'utente) |No |  |
+|Delete |Eliminazione di un'istanza |No |  |
+|Delete |Eliminazione di un cluster virtuale (operazione avviata dall'utente) |No |  |
 
 ## <a name="cancel-management-operation"></a>Annulla operazione di gestione
 

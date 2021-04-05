@@ -1,5 +1,5 @@
 ---
-title: Accesso a livello di codice alle domande comuni sui dati di analisi
+title: Domande comuni sull'accesso a livello di codice ai dati di analisi
 description: Domande frequenti sull'accesso a livello di codice ai dati di analisi nel centro per i partner per le offerte del Marketplace commerciale.
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
@@ -8,13 +8,13 @@ author: sayantanroy83
 ms.author: sroy
 ms.date: 3/08/2021
 ms.openlocfilehash: 393a718632138f4ffcf26e4875eea9ba3d886897
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "102583972"
 ---
-# <a name="programmatic-access-of-analytics-data-common-questions"></a>Accesso a livello di codice alle domande comuni sui dati di analisi
+# <a name="programmatic-access-of-analytics-data-common-questions"></a>Domande comuni sull'accesso a livello di codice ai dati di analisi
 
 Questo articolo illustra le domande frequenti su come accedere ai dati di analisi a livello di codice nel centro partner per le offerte del Marketplace commerciale.
 
