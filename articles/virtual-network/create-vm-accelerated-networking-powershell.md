@@ -15,10 +15,10 @@ ms.workload: infrastructure
 ms.date: 04/15/2020
 ms.author: gsilva
 ms.openlocfilehash: b0ebb75530858a589c3166e21261e2f737fff50d
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "98919970"
 ---
 # <a name="create-a-windows-vm-with-accelerated-networking-using-azure-powershell"></a>Creare una macchina virtuale Windows con rete accelerata usando Azure PowerShell
@@ -28,7 +28,7 @@ Questa esercitazione illustra come creare una macchina virtuale (VM) Windows con
 > [!NOTE]
 > Per usare la rete accelerata con una macchina virtuale Linux, vedere [creare una VM Linux con rete accelerata](create-vm-accelerated-networking-cli.md).
 
-La funzionalità rete accelerata abilita Single Root I/O Virtualization (SR-IOV) per le VM, migliorandone le prestazioni di rete. Questo percorso a prestazioni elevate ignora l'host dal percorso dei dati, riducendo la latenza, l'instabilità e l'utilizzo della CPU per i carichi di lavoro di rete più complessi sui tipi di VM supportati. Il diagramma seguente illustra il modo in cui due VM comunicano con e senza rete accelerata:
+La funzionalità rete accelerata abilita Single Root I/O Virtualization (SR-IOV) per le VM, migliorandone le prestazioni di rete. Questo percorso a prestazioni elevate esclude l'host dal percorso dati, riducendo così la latenza, l'instabilità e l'utilizzo della CPU e può essere usato con i carichi di lavoro di rete più impegnativi nei tipi di macchina virtuale supportati. Il diagramma seguente illustra il modo in cui due VM comunicano con e senza rete accelerata:
 
 ![Comunicazione tra macchine virtuali di Azure con e senza rete accelerata](./media/create-vm-accelerated-networking/accelerated-networking.png)
 

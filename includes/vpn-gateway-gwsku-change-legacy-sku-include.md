@@ -9,10 +9,10 @@ ms.date: 03/15/2019
 ms.author: cherylmc
 ms.custom: include file
 ms.openlocfilehash: 4c232e1ce183c6935d625b5bc9987a4981865ae4
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "96010783"
 ---
 Se si usa il modello di distribuzione di Resource Manager, è possibile passare ai nuovi SKU del gateway. Quando si passa da uno SKU del gateway legacy a un nuovo SKU, eliminare il gateway VPN esistente e creare un nuovo gateway VPN.

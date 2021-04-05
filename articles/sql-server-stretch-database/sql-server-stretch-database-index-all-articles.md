@@ -14,10 +14,10 @@ ms.author: blazem
 ms.reviewer: jroth
 manager: jroth
 ms.openlocfilehash: 15b4a90a4e082cbe8fc0f2da1a87b6860cfb66a4
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "95024212"
 ---
 # <a name="all-topics-for-azure-sql-server-stretch-database-service"></a>Tutti gli argomenti per il servizio Azure SQL Server Stretch Database
@@ -31,7 +31,7 @@ In questo argomento vengono elencati tutti gli argomenti che si applicano dirett
 |[Panoramica di Stretch Database](/sql/sql-server/stretch-database/stretch-database) |Informazioni su come Stretch Database esegue la migrazione dei dati non attivi in modo trasparente e sicuro al cloud di Microsoft Azure. |
 |[Introduzione all'esecuzione della procedura guidata Abilitare il database per l'estensione](/sql/sql-server/stretch-database/get-started-by-running-the-enable-database-for-stretch-wizard) |Scoprire come configurare un database per Stretch Database eseguendo la procedura guidata Abilitare il database per la funzionalità Stretch. |
 
-## <a name="enable"></a>Abilita
+## <a name="enable"></a>Abilitare
 | Titolo | Descrizione |
 |:--- |:--- |
 |[Abilitare Stretch Database per un database](/sql/sql-server/stretch-database/enable-stretch-database-for-a-database) |Scoprire come configurare un database per Stretch Database. |
