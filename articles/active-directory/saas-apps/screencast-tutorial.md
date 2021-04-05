@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 11/15/2019
 ms.author: jeedes
 ms.openlocfilehash: 2b0c42046df716c8ae65046e5f3314817da0a17e
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "92893779"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-screencast-o-matic"></a>Esercitazione: Integrazione dell'accesso Single Sign-On (SSO) di Azure Active Directory con Screencast-O-Matic

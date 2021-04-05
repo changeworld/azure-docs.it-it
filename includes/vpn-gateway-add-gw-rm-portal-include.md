@@ -9,10 +9,10 @@ ms.date: 10/19/2020
 ms.author: cherylmc
 ms.custom: include file
 ms.openlocfilehash: 6bc8b6cc18f4a4bc41cabf7f8fefe78a5aaf7827
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "94427848"
 ---
 1. Nel [portale di Azure](https://portal.azure.com), in **Cerca risorse, servizi e documentazione (G+/)** digitare **gateway di rete virtuale**. Individuare e selezionare **Gateway di rete virtuale** nei risultati della ricerca.
