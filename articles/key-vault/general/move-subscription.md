@@ -12,10 +12,10 @@ ms.date: 05/05/2020
 ms.author: mbaldwin
 Customer intent: As a key vault administrator, I want to move my vault to another subscription.
 ms.openlocfilehash: a84627b2b426385d21ad72b85780db86e7dd5ee3
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "101096069"
 ---
 # <a name="moving-an-azure-key-vault-to-another-subscription"></a>Spostamento di Azure Key Vault in un'altra sottoscrizione
@@ -37,7 +37,7 @@ ms.locfileid: "101096069"
 
 Per ulteriori informazioni su Azure Key Vault e Azure Active Directory, vedere.
 - [Informazioni su Azure Key Vault](overview.md)
-- [Informazioni Azure Active Directory](../../active-directory/fundamentals/active-directory-whatis.md)
+- [Informazioni su Azure Active Directory](../../active-directory/fundamentals/active-directory-whatis.md)
 - [Come trovare l'ID tenant](../../active-directory/fundamentals/active-directory-how-to-find-tenant.md)
 
 ## <a name="limitations"></a>Limitazioni

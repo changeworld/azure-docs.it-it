@@ -7,10 +7,10 @@ ms.service: postgresql
 ms.topic: conceptual
 ms.date: 09/22/2020
 ms.openlocfilehash: c0d9b6042ae695caa73d926653f237b756bf4971
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "94366724"
 ---
 # <a name="high-availability-concepts-in-azure-database-for-postgresql---flexible-server"></a>Concetti relativi alla disponibilità elevata in database di Azure per PostgreSQL-server flessibile
@@ -97,7 +97,7 @@ Server flessibili configurati con disponibilità elevata, replicare i dati in te
 
 ## <a name="zone-redundant-high-availability---limitations"></a>Disponibilità elevata con ridondanza della zona-limitazioni
 
--   La disponibilità elevata non è supportata con il livello di calcolo in sequenza.
+-   La disponibilità elevata non è supportata con un livello di calcolo con possibilità di burst.
 -   La disponibilità elevata è supportata solo nelle aree in cui sono disponibili più zone.
 -   A causa della replica sincrona in un'altra zona di disponibilità, le applicazioni possono riscontrare una latenza di scrittura e commit elevata.
 
