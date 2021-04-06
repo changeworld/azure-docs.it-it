@@ -10,13 +10,13 @@ ms.devlang: powershell
 ms.topic: conceptual
 ms.date: 02/09/2021
 ms.openlocfilehash: efb5d498c627a6731d2a90623c81eefabd0042a0
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "103462780"
 ---
-# <a name="manage-your-azure-cognitive-search-service-with-powershell"></a>Gestire il servizio ricerca cognitiva di Azure con PowerShell
+# <a name="manage-your-azure-cognitive-search-service-with-powershell"></a>Gestire il servizio Ricerca cognitiva di Azure con PowerShell
 > [!div class="op_single_selector"]
 > * [Portale](search-manage.md)
 > * [PowerShell](search-manage-powershell.md)
@@ -32,9 +32,9 @@ ms.locfileid: "103462780"
 > * [Restituisci informazioni sul servizio](#get-search-service-information)
 > * [Creare o eliminare un servizio](#create-or-delete-a-service)
 > * [Creazione di un servizio con un endpoint privato](#create-a-service-with-a-private-endpoint)
-> * [Rigenera chiavi API di amministrazione](#regenerate-admin-keys)
+> * [Rigenerare le chiavi API di amministrazione](#regenerate-admin-keys)
 > * [Creare o eliminare chiavi API di query](#create-or-delete-query-keys)
-> * [Scalabilità verticale con repliche e partizioni](#scale-replicas-and-partitions)
+> * [Aumentare o ridurre la quantità di repliche e partizioni](#scale-replicas-and-partitions)
 > * [Creare una risorsa di collegamento privato condiviso](#create-a-shared-private-link-resource)
 
 In alcuni casi, vengono poste domande sulle attività *non* presenti nell'elenco precedente. Attualmente, non è possibile usare il modulo **AZ. search** o l'API REST di gestione per modificare il nome, l'area o il livello del server. Le risorse dedicate vengono allocate quando viene creato un servizio. Di conseguenza, la modifica dell'hardware sottostante (tipo di percorso o nodo) richiede un nuovo servizio. Analogamente, non sono disponibili strumenti o API per il trasferimento di contenuto, ad esempio un indice, da un servizio a un altro.

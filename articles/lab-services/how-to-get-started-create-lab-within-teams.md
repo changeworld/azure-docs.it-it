@@ -4,10 +4,10 @@ description: Scopri come iniziare a creare un Lab Azure Lab Services all'interno
 ms.topic: article
 ms.date: 10/08/2020
 ms.openlocfilehash: cc4ad604bdf250cc6e4ba2c50c2f7143c921e906
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "96433972"
 ---
 # <a name="get-started-and-create-a-lab-services-lab-within-teams"></a>Introduzione e creazione di un Lab di Lab Services nei team
