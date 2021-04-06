@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 02/25/2019
 ms.author: vitalyg
 ms.openlocfilehash: fee71f9ebfc69c19adc026fce5cd78b6a8b5240b
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "103490296"
 ---
 # <a name="getting-started-with-azure-metrics-explorer"></a>Introduzione a Esplora metriche di Azure
@@ -45,7 +45,7 @@ Per creare un grafico delle metriche, da una risorsa, un gruppo di risorse, una 
 ## <a name="select-a-time-range"></a>Selezionare un intervallo di tempo
 
 > [!WARNING]
-> [La maggior parte delle metriche in Azure viene archiviata per 93 giorni](../essentials/data-platform-metrics.md#retention-of-metrics). Tuttavia, è possibile eseguire una query su un massimo di 30 giorni di dati su un singolo grafico. Questa limitazione non si applica alle [metriche basate su log](../app/pre-aggregated-metrics-log-metrics.md#log-based-metrics).
+> [La maggior parte delle metriche in Azure viene conservata per 93 giorni](../essentials/data-platform-metrics.md#retention-of-metrics). Tuttavia, è possibile eseguire una query su un massimo di 30 giorni di dati su un singolo grafico. Questa limitazione non si applica alle [metriche basate su log](../app/pre-aggregated-metrics-log-metrics.md#log-based-metrics).
 
 Per impostazione predefinita, il grafico mostra le ultime 24 ore di dati della metrica. Usare il pannello **selezione ora** per modificare l'intervallo di tempo, ingrandire o ridurre il grafico. 
 

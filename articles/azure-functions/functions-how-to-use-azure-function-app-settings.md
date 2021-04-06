@@ -6,10 +6,10 @@ ms.topic: conceptual
 ms.date: 04/13/2020
 ms.custom: cc996988-fb4f-47, devx-track-azurecli
 ms.openlocfilehash: 5080d16a7b14506b24e07e2ee4ba862c645f83a8
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "98875450"
 ---
 # <a name="manage-your-function-app"></a>Gestire l'app per le funzioni 
@@ -280,7 +280,7 @@ Quando le funzioni usano un trigger HTTP, è possibile richiedere innanzitutto l
 ## <a name="next-steps"></a>Passaggi successivi
 
 + [Configurare le impostazioni del servizio app di Azure](../app-service/configure-common.md)
-+ [Distribuzione continua per Funzioni di Azure](functions-continuous-deployment.md)
++ [Distribuzione continua per funzioni di Azure](functions-continuous-deployment.md)
 
 [Interfaccia della riga di comando di Azure]: /cli/azure/
 [Azure portal]: https://portal.azure.com

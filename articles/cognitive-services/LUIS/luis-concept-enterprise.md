@@ -10,10 +10,10 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 07/29/2019
 ms.openlocfilehash: 3f52dc502233cbab42ae5decff70b77c41c38e0e
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "102609686"
 ---
 # <a name="enterprise-strategies-for-a-luis-app"></a>Strategie aziendali per un'app LUIS
@@ -71,7 +71,7 @@ Al massimo un'applicazione di recapito dispone di 500 origini di recapito, equiv
 
 * [SDK del Framework bot](https://github.com/Microsoft/botframework)
 * [Esercitazione sul modello di invio](/azure/bot-service/bot-builder-tutorial-dispatch?tabs=cs)
-* [INTERFACCIA della riga di comando dispatch](https://github.com/Microsoft/botbuilder-tools)
+* [Interfaccia della riga di comando di Dispatch](https://github.com/Microsoft/botbuilder-tools)
 * Esempio di bot modello di invio- [.net](https://github.com/microsoft/BotBuilder-Samples/tree/master/samples/csharp_dotnetcore/14.nlp-with-dispatch) [Node.js](https://github.com/microsoft/BotBuilder-Samples/tree/master/samples/javascript_nodejs/14.nlp-with-dispatch)
 
 ## <a name="next-steps"></a>Passaggi successivi

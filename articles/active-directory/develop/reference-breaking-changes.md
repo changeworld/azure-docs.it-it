@@ -92,7 +92,7 @@ L'errore nei log di accesso sarà AADSTS 50052: InvalidPasswordExceedsMaxLength
 
 Messaggio: `The password entered exceeds the maximum length of 256. Please reach out to your admin to reset the password.`
 
-Correzione:
+Correzione
 
 L'utente non è in grado di eseguire l'accesso perché la password supera la lunghezza massima consentita. È necessario contattare l'amministratore per reimpostare la password. Se SSPR è abilitato per il tenant, è possibile reimpostare la password seguendo il collegamento "password dimenticata".
 
