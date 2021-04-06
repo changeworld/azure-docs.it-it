@@ -5,10 +5,10 @@ ms.topic: troubleshooting
 ms.date: 07/05/2019
 ms.service: backup
 ms.openlocfilehash: 0313394ad149460f82c98c63cab95b922b4a3da2
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "102519606"
 ---
 # <a name="troubleshoot-azure-backup-failure-issues-with-the-agent-or-extension"></a>Risolvere i problemi di Backup di Azure: problemi relativi all'agente o all'estensione
@@ -67,7 +67,7 @@ Backup di Azure usa l'estensione di snapshot VM per eseguire un backup coerente 
 - **Seguire** le procedure consigliate per il backup: esaminare le [procedure consigliate per abilitare il backup delle macchine virtuali di Azure](backup-azure-vms-introduction.md#best-practices).
 - **Esaminare le linee guida per i dischi crittografati**: se si Abilita il backup per le macchine virtuali con dischi crittografati, assicurarsi di avere fornito tutte le autorizzazioni necessarie. Per altre informazioni, vedere [backup e ripristino di macchine virtuali crittografate di Azure](backup-azure-vms-encryption.md).
 
-## <a name="usererrorguestagentstatusunavailable---vm-agent-unable-to-communicate-with-azure-backup"></a><a name="UserErrorGuestAgentStatusUnavailable-vm-agent-unable-to-communicate-with-azure-backup"></a>UserErrorGuestAgentStatusUnavailable: l'agente di macchine virtuali non riesce a comunicare con Backup di Azure
+## <a name="usererrorguestagentstatusunavailable---vm-agent-unable-to-communicate-with-azure-backup"></a><a name="UserErrorGuestAgentStatusUnavailable-vm-agent-unable-to-communicate-with-azure-backup"></a>UserErrorGuestAgentStatusUnavailable-l'agente di macchine virtuali non riesce a comunicare con backup di Azure
 
 **Codice di errore**: UserErrorGuestAgentStatusUnavailable <br>
 **Messaggio di errore**: l'agente di macchine virtuali non riesce a comunicare con backup di Azure<br>
@@ -111,8 +111,8 @@ Questo errore si verifica quando uno degli errori di estensione inserisce la mac
 **Codice di errore**: UserErrorRpCollectionLimitReached <br>
 **Messaggio di errore**: The Restore Point collection max limit has reached (È stato raggiunto il limite massimo di raccolte di punti di ripristino) <br>
 
-- Questo problema può verificarsi se è presente un blocco sul gruppo di risorse del punto di ripristino che impedisce la pulizia automatica dei punti di ripristino.
-- Questo problema può verificarsi anche se vengono attivate più operazioni di backup al giorno. Attualmente si consiglia un solo backup al giorno, perché i punti di ripristino istantaneo vengono conservati per 1-5 giorni per la conservazione dello snapshot configurato e solo 18 il RPs istantaneo può essere associato a una macchina virtuale in un determinato momento. <br>
+- Questo problema può verificarsi se è presente un blocco sul gruppo di risorse dei punti di ripristino che impedisce la pulizia automatica dei punti di ripristino.
+- Questo problema può verificarsi anche se vengono attivate più operazioni di backup al giorno. Attualmente è consigliabile eseguire un solo backup al giorno perché i punti di ripristino immediati vengono conservati per 1-5 giorni, in base alla conservazione degli snapshot configurata, e a una macchina virtuale possono essere associati solo 18 punti di ripristino immediati in qualsiasi momento. <br>
 - Il numero di punti di ripristino tra le raccolte di punti di ripristino e i gruppi di risorse per una macchina virtuale non può superare i 18. Per creare un nuovo punto di ripristino, eliminare i punti di ripristino esistenti.
 
 Azione consigliata:<br>
@@ -130,7 +130,7 @@ Per risolvere il problema, rimuovere il blocco sul gruppo di risorse della macch
 
 Per eseguire un'operazione di backup nelle VM crittografate, è necessario disporre delle autorizzazioni per accedere all'insieme di credenziali delle chiavi. Le autorizzazioni possono essere impostate tramite il [portale di Azure](./backup-azure-vms-encryption.md) o tramite [PowerShell](./backup-azure-vms-automation.md#enable-protection).
 
-## <a name="extensionsnapshotfailednonetwork---snapshot-operation-failed-due-to-no-network-connectivity-on-the-virtual-machine"></a><a name="ExtensionSnapshotFailedNoNetwork-snapshot-operation-failed-due-to-no-network-connectivity-on-the-virtual-machine"></a>ExtensionSnapshotFailedNoNetwork - Operazione di creazione snapshot non riuscita a causa dell'assenza della connettività di rete nella macchina virtuale
+## <a name="extensionsnapshotfailednonetwork---snapshot-operation-failed-due-to-no-network-connectivity-on-the-virtual-machine"></a><a name="ExtensionSnapshotFailedNoNetwork-snapshot-operation-failed-due-to-no-network-connectivity-on-the-virtual-machine"></a>ExtensionSnapshotFailedNoNetwork-operazione di snapshot non riuscita a causa di nessuna connettività di rete nella macchina virtuale
 
 **Codice di errore**: ExtensionSnapshotFailedNoNetwork<br>
 **Messaggio di errore**: Snapshot operation failed due to no network connectivity on the virtual machine (Operazione di creazione snapshot non riuscita a causa dell'assenza della connettività di rete nella macchina virtuale)<br>
@@ -188,7 +188,7 @@ Se l'operazione di backup pianificato richiede più tempo, in conflitto con la c
 ## <a name="usererrorcrpreportedusererror---backup-failed-due-to-an-error-for-details-see-job-error-message-details"></a>UserErrorCrpReportedUserError: il backup non è riuscito a causa di un errore. Per informazioni dettagliate, vedere i dettagli del messaggio di errore del processo
 
 **Codice di errore**: UserErrorCrpReportedUserError <br>
-**Messaggio di errore**: backup non riuscito a causa di un errore. Per informazioni dettagliate, vedere dettagli del messaggio di errore del processo.
+**Messaggio di errore**: backup non riuscito a causa di un errore. Per informazioni dettagliate, vedere i dettagli del messaggio di errore del processo.
 
 Questo errore viene segnalato dalla macchina virtuale IaaS. Per identificare la causa principale del problema, passare alle impostazioni dell'insieme di credenziali di servizi di ripristino. Nella sezione **monitoraggio** selezionare processi di **backup** per filtrare e visualizzare lo stato. Selezionare **errori** per esaminare i dettagli del messaggio di errore sottostante. Eseguire ulteriori azioni in base alle indicazioni contenute nella pagina dei dettagli dell'errore.
 

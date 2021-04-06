@@ -7,10 +7,10 @@ ms.topic: include
 ms.date: 02/10/2021
 ms.author: tamram
 ms.openlocfilehash: 483f5853c321eee4ac6d10543f0e360a0a5e54b9
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "100373752"
 ---
 Prima di assegnare un ruolo di controllo degli accessi in base al ruolo di Azure a un'entità di sicurezza, determinare l'ambito di accesso che deve avere l'entità di sicurezza. In base alle procedure consigliate, è sempre preferibile concedere solo l'ambito più restrittivo possibile. I ruoli di controllo degli accessi in base al ruolo definiti in un ambito più ampio vengono ereditati dalle risorse sottostanti.

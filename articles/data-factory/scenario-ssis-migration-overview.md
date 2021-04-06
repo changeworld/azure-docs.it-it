@@ -7,10 +7,10 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.date: 9/3/2019
 ms.openlocfilehash: 78c488302a874319f79a143e4657d161fe849855
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "100373607"
 ---
 # <a name="migrate-on-premises-ssis-workloads-to-ssis-in-adf"></a>Eseguire la migrazione di carichi di lavoro SSIS locali a SSIS in ADF
@@ -78,7 +78,7 @@ A seconda dei [tipi di archiviazione](#four-storage-types-for-ssis-packages) dei
 ## <a name="additional-resources"></a>Risorse aggiuntive
 
 - [Azure Data Factory](./introduction.md)
-- [Database Migration Assistant](/sql/dma/dma-overview)
+- [Migration Assistant database](/sql/dma/dma-overview)
 - [Lift-and-Shift dei carichi di lavoro SSIS nel cloud](/sql/integration-services/lift-shift/ssis-azure-lift-shift-ssis-packages-overview)
 - [Strumenti DevOps SSIS](/sql/integration-services/devops/ssis-devops-overview)
 - [Eseguire la migrazione di pacchetti SSIS a Istanza gestita di SQL di Azure](../dms/how-to-migrate-ssis-packages-managed-instance.md)
