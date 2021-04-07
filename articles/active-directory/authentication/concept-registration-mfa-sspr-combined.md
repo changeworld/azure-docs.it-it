@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 112ad0714c84cd3be08788b3277f52372f6d0373
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "98938471"
 ---
 # <a name="combined-security-information-registration-for-azure-active-directory-overview"></a>Registrazione di informazioni di sicurezza combinate per Azure Active Directory Panoramica
@@ -51,7 +51,7 @@ Se si vuole forzare una lingua specifica, è possibile aggiungere `?lng=<languag
 
 La registrazione combinata supporta le azioni e i metodi di autenticazione seguenti:
 
-| Metodo | Registrazione | Modifica | Elimina |
+| Metodo | Registrazione | Modifica | Delete |
 | --- | --- | --- | --- |
 | Microsoft Authenticator | Sì (massimo 5) | No | Sì |
 | Altra app di autenticazione | Sì (massimo 5) | No | Sì |
