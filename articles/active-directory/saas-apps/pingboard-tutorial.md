@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 03/25/2019
 ms.author: jeedes
 ms.openlocfilehash: d7b090eb5228a449212ceebd6cd299c5f8860089
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "92520796"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-pingboard"></a>Esercitazione: Integrazione di Azure Active Directory con PingBoard
@@ -214,7 +214,7 @@ L'obiettivo di questa sezione consiste nel creare un utente chiamato Britta Simo
 
     ![Aggiungere un dipendente](./media/pingboard-tutorial/create_testuser_add.png)
 
-3. Nella pagina della finestra di dialogo **"Add Employee"** ("Aggiungi dipendente") eseguire la procedura seguente:
+3. Nella pagina della finestra di dialogo **"Add Employee&quot;** (&quot;Aggiungi dipendente") eseguire la procedura seguente:
 
     ![Invita persone](./media/pingboard-tutorial/create_testuser_name.png)
 
