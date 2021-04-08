@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 12/09/2020
 ms.author: cherylmc
 ms.openlocfilehash: f72a3739fac1e7d6afdafd2676ea6fcefe847b2a
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "101710584"
 ---
 # <a name="vnet-peering-and-azure-bastion-preview"></a>Peering di VNet e Azure Bastion (anteprima)
@@ -37,7 +37,7 @@ Questa figura illustra l'architettura di una distribuzione Bastion di Azure in u
 * Viene distribuito il gruppo di sicurezza di rete centralizzato (NSG).
 * Un indirizzo IP pubblico non è obbligatorio nella macchina virtuale di Azure.
 
-**Passaggi**
+**Passaggi:**
 
 1. Connettersi al portale di Azure usando un browser HTML5.
 2. Assicurarsi di avere accesso in **lettura** alla macchina virtuale di destinazione e al VNet con peering. Verificare inoltre in IAM che l'utente disponga dell'accesso in lettura alle risorse seguenti:

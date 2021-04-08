@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 02/25/2021
 ms.author: jeedes
 ms.openlocfilehash: c58566c628eedd1dbc3d86ae6a142156cbf31211
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "104585197"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-boomi"></a>Esercitazione: Integrazione dell'accesso Single Sign-On (SSO) di Azure Active Directory con Boomi
@@ -155,17 +155,17 @@ In questa sezione si abiliterà B.Simon all'uso dell'accesso Single Sign-On di A
 
     f. Fare clic sul pulsante **Salva** .
 
-### <a name="create-boomi-test-user"></a>Creare un utente test di Boomi
+### <a name="create-boomi-test-user&quot;></a>Creare un utente test di Boomi
 
 Per consentire agli utenti di Azure AD di accedere a Boomi, è necessario effettuarne il provisioning in Boomi. Nel caso di Boomi, il provisioning è un'attività manuale.
 
-### <a name="to-provision-a-user-account-perform-the-following-steps"></a>Per eseguire il provisioning di un account utente, seguire questa procedura:
+### <a name=&quot;to-provision-a-user-account-perform-the-following-steps&quot;></a>Per eseguire il provisioning di un account utente, seguire questa procedura:
 
 1. Accedere al sito aziendale di Boomi come amministratore.
 
 1. Dopo aver effettuato l'accesso, passare a **Gestione utenti** e scegliere **Utenti**.
 
-    ![Screenshot che mostra la pagina User Management con l'opzione Users selezionata.](./media/boomi-tutorial/user.png "Utenti")
+    ![Screenshot che mostra la pagina User Management con l'opzione Users selezionata.](./media/boomi-tutorial/user.png &quot;Utenti")
 
 1. Fare clic sull'icona **+** . Si aprirà la finestra di dialogo **Add/Maintain User Roles** (Aggiungi/Gestisci ruoli utente).
 

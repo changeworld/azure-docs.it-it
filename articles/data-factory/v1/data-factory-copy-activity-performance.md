@@ -8,10 +8,10 @@ ms.date: 05/25/2018
 ms.author: jingwang
 robots: noindex
 ms.openlocfilehash: 9a890719de39a71d8336d39f9932e73f7baccf87
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "100377211"
 ---
 # <a name="copy-activity-performance-and-tuning-guide"></a>Guida alle prestazioni dell'attività di copia e all'ottimizzazione
@@ -408,7 +408,7 @@ In tal caso, la compressione dati bzip2 potrebbe rallentare l'intera pipeline. I
 
 ![Scenario 3](./media/data-factory-copy-activity-performance/scenario-3.png)
 
-## <a name="reference"></a>Informazioni di riferimento
+## <a name="reference"></a>Riferimento
 Di seguito sono riportati alcuni riferimenti sul monitoraggio e l'ottimizzazione delle prestazioni per alcuni degli archivi dati supportati:
 
 * Archiviazione BLOB di Azure: [obiettivi di scalabilità e prestazioni per](../../storage/blobs/scalability-targets.md) l'archiviazione BLOB e l' [elenco di controllo di prestazioni e scalabilità per l'archiviazione BLOB](../../storage/blobs/storage-performance-checklist.md).
