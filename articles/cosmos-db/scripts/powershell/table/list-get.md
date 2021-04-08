@@ -8,10 +8,10 @@ ms.topic: sample
 ms.date: 07/31/2020
 ms.author: mjbrown
 ms.openlocfilehash: 6385a28ff976b206839a86d94f1ea61a9c6f11f1
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "98680149"
 ---
 # <a name="list-and-get-tables-for-azure-cosmos-db---table-api"></a>Elencare e ottenere tabelle per Azure Cosmos DB - API Tabella

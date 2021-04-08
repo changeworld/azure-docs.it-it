@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.date: 11/13/2019
 ms.author: victorh
 ms.openlocfilehash: 67153fa750fee765dcaa1072eec87a2f6169b918
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "93397281"
 ---
 # <a name="create-an-application-gateway-with-http-to-https-redirection-using-the-azure-portal"></a>Creare un gateway applicazione con reindirizzamento da HTTP a HTTPS tramite il portale di Azure
@@ -103,9 +103,9 @@ Per le comunicazioni tra le risorse create è necessaria una rete virtuale. In q
 3. Digitare *myBackendSubnet* come nome della subnet.
 4. Digitare *10.0.2.0/24* come intervallo di indirizzi e quindi selezionare **OK**.
 
-## <a name="add-a-listener-and-redirection-rule"></a>Aggiungere un listener e una regola di reindirizzamento
+## <a name="add-a-listener-and-redirection-rule&quot;></a>Aggiungere un listener e una regola di reindirizzamento
 
-### <a name="add-the-listener"></a>Aggiungere il listener
+### <a name=&quot;add-the-listener&quot;></a>Aggiungere il listener
 
 In primo luogo, aggiungere il listener denominato *myListener* per la porta 80.
 
@@ -115,7 +115,7 @@ In primo luogo, aggiungere il listener denominato *myListener* per la porta 80.
 4. Digitare *httpPort* come nome della nuova porta front-end e *80* per la porta.
 5. Verificare che il protocollo sia impostato su **HTTP**, quindi selezionare **OK**.
 
-### <a name="add-a-routing-rule-with-a-redirection-configuration"></a>Aggiungere una regola di routing con una configurazione di reindirizzamento
+### <a name=&quot;add-a-routing-rule-with-a-redirection-configuration&quot;></a>Aggiungere una regola di routing con una configurazione di reindirizzamento
 
 1. In **myAppGateway** selezionare **regole** e quindi selezionare **+ regola di routing richiesta**.
 2. Per il **nome della regola**, digitare *Rule2*.
@@ -127,7 +127,7 @@ In primo luogo, aggiungere il listener denominato *myListener* per la porta 80.
 8. Per la **stringa di query include** e il **percorso di inclusione** Selezionare *Sì*.
 9. Selezionare **Aggiungi**.
 
-## <a name="create-a-virtual-machine-scale-set"></a>Creare un set di scalabilità di macchine virtuali
+## <a name=&quot;create-a-virtual-machine-scale-set&quot;></a>Creare un set di scalabilità di macchine virtuali
 
 In questo esempio viene creato un set di scalabilità di macchine virtuali per fornire i server per il pool back-end nel gateway applicazione.
 
@@ -147,7 +147,7 @@ In questo esempio viene creato un set di scalabilità di macchine virtuali per f
 14. Assicurarsi che **Subnet** sia impostato su **myBackendSubnet**.
 15. Selezionare **Crea**.
 
-### <a name="associate-the-scale-set-with-the-proper-backend-pool"></a>Associare il set di scalabilità al pool back-end appropriato
+### <a name=&quot;associate-the-scale-set-with-the-proper-backend-pool&quot;></a>Associare il set di scalabilità al pool back-end appropriato
 
 L'interfaccia utente del portale del set di scalabilità di macchine virtuali crea un nuovo pool back-end per il set di scalabilità, ma lo si vuole associare all'appGatewayBackendPool esistente.
 
@@ -164,7 +164,7 @@ L'interfaccia utente del portale del set di scalabilità di macchine virtuali cr
 11. In **Configurazioni dell'interfaccia di rete** selezionare **myvmssNic**.
 12. Selezionare **Salva**.
 
-### <a name="upgrade-the-scale-set"></a>Aggiornare il set di scalabilità
+### <a name=&quot;upgrade-the-scale-set&quot;></a>Aggiornare il set di scalabilità
 
 Infine, è necessario aggiornare il set di scalabilità con queste modifiche.
 
@@ -176,14 +176,14 @@ Infine, è necessario aggiornare il set di scalabilità con queste modifiche.
 6. Selezionare **myAppGatewaymyvmss**, quindi selezionare **Elimina**.
 7. Selezionare **OK** per confermare.
 
-### <a name="install-iis"></a>Installare IIS
+### <a name=&quot;install-iis&quot;></a>Installare IIS
 
 Un modo semplice per installare IIS nel set di scalabilità è usare PowerShell. Dal portale, fare clic sull'icona Cloud Shell e assicurarsi che **PowerShell** sia selezionato.
 
 Incollare il codice seguente nella finestra di PowerShell e premere INVIO.
 
 ```azurepowershell
-$publicSettings = @{ "fileUris" = (,"https://raw.githubusercontent.com/Azure/azure-docs-powershell-samples/master/application-gateway/iis/appgatewayurl.ps1"); 
+$publicSettings = @{ &quot;fileUris&quot; = (,&quot;https://raw.githubusercontent.com/Azure/azure-docs-powershell-samples/master/application-gateway/iis/appgatewayurl.ps1"); 
   "commandToExecute" = "powershell -ExecutionPolicy Unrestricted -File appgatewayurl.ps1" }
 $vmss = Get-AzVmss -ResourceGroupName myResourceGroupAG -VMScaleSetName myvmss
 Add-AzVmssExtension -VirtualMachineScaleSet $vmss `
