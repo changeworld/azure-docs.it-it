@@ -9,10 +9,10 @@ ms.author: terrylan
 manager: rkarlin
 ms.date: 11/10/2020
 ms.openlocfilehash: f4906d4e0590df047bac4ee15cb0e996a59c3d5b
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "96498864"
 ---
 # <a name="measured-boot-and-host-attestation"></a>Attestazione di avvio e host misurata
@@ -57,5 +57,5 @@ Per ulteriori informazioni sulle operazioni da eseguire per garantire l'integrit
 - [Sicurezza del firmware](firmware.md)
 - [Avvio protetto](secure-boot.md)
 - [Progetto Cerberus](project-cerberus.md)
-- [Crittografia di dati inattivi](encryption-atrest.md)
+- [Crittografia inattiva](encryption-atrest.md)
 - [Sicurezza dell'hypervisor](hypervisor.md)
