@@ -9,10 +9,10 @@ ms.date: 12/20/2019
 ms.author: tamram
 ms.custom: include file
 ms.openlocfilehash: aec1faa4de1149f08fb6fbc1cc5bf3aa2ab6becd
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "75371778"
 ---
 Una firma di accesso condiviso consente di concedere l'accesso limitato a contenitori e BLOB nell'account di archiviazione. Quando si crea una firma di accesso condiviso, si specificano i relativi vincoli, incluse le risorse di archiviazione di Azure a cui un client può accedere, le autorizzazioni per tali risorse e il tempo di validità della firma di accesso condiviso.
