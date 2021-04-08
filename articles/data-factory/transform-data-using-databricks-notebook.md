@@ -154,12 +154,12 @@ In questa sezione viene creato un servizio collegato Databricks. Questo servizio
 
           ![Impostare le proprietà del nuovo notebook](media/transform-data-using-databricks-notebook/databricks-notebook-activity-image15.png)
 
-       1. Aggiungere il codice seguente nel notebook "mynotebook" appena creato:
+       1. Aggiungere il codice seguente nel notebook "mynotebook&quot; appena creato:
 
            ```
            # Creating widgets for leveraging parameters, and printing the parameters
 
-           dbutils.widgets.text("input", "","")
+           dbutils.widgets.text(&quot;input&quot;, &quot;&quot;,&quot;")
            y = dbutils.widgets.get("input")
            print ("Param -\'input':")
            print (y)
