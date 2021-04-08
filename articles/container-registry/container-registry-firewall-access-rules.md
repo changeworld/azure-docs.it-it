@@ -4,10 +4,10 @@ description: Configurare le regole per accedere a un registro contenitori di Azu
 ms.topic: article
 ms.date: 05/18/2020
 ms.openlocfilehash: 548d64632c1d726111770dfb49f705d31f5ca714
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "97935989"
 ---
 # <a name="configure-rules-to-access-an-azure-container-registry-behind-a-firewall"></a>Configurare le regole per accedere a un registro contenitori di Azure dietro un firewall
