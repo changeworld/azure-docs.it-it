@@ -4,10 +4,10 @@ description: Per pubblicare Funzioni di Azure, usare le funzionalità di distrib
 ms.topic: conceptual
 ms.date: 08/12/2018
 ms.openlocfilehash: e104661dcdf1f6c6fd6dd5eb1024748980e7931f
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "96018437"
 ---
 # <a name="zip-deployment-for-azure-functions"></a>Distribuzione con file ZIP per Funzioni di Azure
@@ -92,6 +92,6 @@ La distribuzione ZIP si integra con questa funzionalità che può essere attivat
 ## <a name="next-steps"></a>Passaggi successivi
 
 > [!div class="nextstepaction"]
-> [Distribuzione continua per Funzioni di Azure](functions-continuous-deployment.md)
+> [Distribuzione continua per funzioni di Azure](functions-continuous-deployment.md)
 
 [.zip push deployment reference topic]: https://github.com/projectkudu/kudu/wiki/Deploying-from-a-zip-file

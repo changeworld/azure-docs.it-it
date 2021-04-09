@@ -10,10 +10,10 @@ ms.date: 12/11/2020
 ms.author: tamram
 ms.subservice: common
 ms.openlocfilehash: f57cd3361d7888d9d7f747955257d96282274fd6
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "97357347"
 ---
 # <a name="recover-a-deleted-storage-account"></a>consente di ripristinare un account di archiviazione eliminato
@@ -73,5 +73,5 @@ Per ripristinare un account di archiviazione eliminato da un altro account di ar
 
 - [Panoramica dell'account di archiviazione](storage-account-overview.md)
 - [Creare un account di archiviazione](storage-account-create.md)
-- [Eseguire l'aggiornamento a un account di archiviazione per utilizzo generico v2](storage-account-upgrade.md)
+- [Upgrade to a general-purpose v2 storage account](storage-account-upgrade.md) (Eseguire l'aggiornamento alla versione 2 di un account di archiviazione per utilizzo generico)
 - [Spostare un account di archiviazione di Azure in un'altra area](storage-account-move.md)

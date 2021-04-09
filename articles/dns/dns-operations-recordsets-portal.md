@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.date: 10/6/2018
 ms.author: rohink
 ms.openlocfilehash: 22ceba69ecf865d906021068a39a9d273b842ca2
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "94965732"
 ---
 # <a name="manage-dns-records-and-record-sets-by-using-the-azure-portal"></a>Gestire record e set di record DNS con il portale di Azure
@@ -87,13 +87,13 @@ Dopo aver salvato il record, i valori per il set di record nel pannello **Zona D
 3. Verificare che il nome corrisponda al set di record da eliminare, quindi fare clic su **Sì**.
 4. Nel pannello **Zona DNS** è possibile verificare che il set di record non sia più visibile.
 
-## <a name="work-with-ns-and-soa-records"></a>Usare record NS e SOA
+## <a name="work-with-ns-and-soa-records&quot;></a>Usare record NS e SOA
 
 I record NS e SOA creati automaticamente vengono gestiti in modo diverso rispetto ad altri tipi di record.
 
-### <a name="modify-soa-records"></a>Modificare i record SOA
+### <a name=&quot;modify-soa-records&quot;></a>Modificare i record SOA
 
-Non è possibile aggiungere o rimuovere record dal set di record SOA creato automaticamente al vertice della zona (name = "\@"). È tuttavia possibile modificare i parametri all'interno del record SOA, ad eccezione di "Host", e la durata (TTL) del set di record.
+Non è possibile aggiungere o rimuovere record dal set di record SOA creato automaticamente al vertice della zona (name = &quot;\@"). È tuttavia possibile modificare i parametri all'interno del record SOA, ad eccezione di "Host", e la durata (TTL) del set di record.
 
 ### <a name="modify-ns-records-at-the-zone-apex"></a>Modificare i record NS al vertice della zona
 
