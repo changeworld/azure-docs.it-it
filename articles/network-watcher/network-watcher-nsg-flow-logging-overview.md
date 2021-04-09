@@ -13,10 +13,10 @@ ms.workload: infrastructure-services
 ms.date: 01/04/2021
 ms.author: damendo
 ms.openlocfilehash: bc085163b4f738d022ab9771794ec85293de5ed8
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "100521680"
 ---
 # <a name="introduction-to-flow-logging-for-network-security-groups"></a>Introduzione alla registrazione dei flussi per i gruppi di sicurezza di rete
@@ -402,7 +402,7 @@ Talvolta i log non vengono visualizzati perché le macchine virtuali non sono at
 
 **Si desidera automatizzare i log dei flussi dei gruppi di sicurezza di rete**
 
-Il supporto dell'automazione tramite modelli di Azure Resource Manager non è attualmente disponibile per i log dei flussi dei gruppi di sicurezza di rete. Per ulteriori informazioni, leggere l' [annuncio sulle funzionalità](https://azure.microsoft.com/updates/arm-template-support-for-nsg-flow-logs/) .
+Il supporto dell'automazione tramite modelli di Azure Resource Manager non è attualmente disponibile per i log dei flussi dei gruppi di sicurezza di rete. Per altre informazioni, leggere l'[annuncio della funzionalità](https://azure.microsoft.com/updates/arm-template-support-for-nsg-flow-logs/).
 
 ## <a name="faq"></a>Domande frequenti
 

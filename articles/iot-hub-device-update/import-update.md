@@ -6,12 +6,12 @@ ms.author: andbrown
 ms.date: 2/11/2021
 ms.topic: how-to
 ms.service: iot-hub-device-update
-ms.openlocfilehash: 3644f26f989fec05ee76afd9f930c31b25234c7f
-ms.sourcegitcommit: 73d80a95e28618f5dfd719647ff37a8ab157a668
+ms.openlocfilehash: ede0d279b8769f49afcdae1cb9352c1b47fb59b5
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/26/2021
-ms.locfileid: "105608528"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105932404"
 ---
 # <a name="import-new-update"></a>Importa nuovo aggiornamento
 Informazioni su come importare un nuovo aggiornamento nell'aggiornamento del dispositivo per l'hub Internet. Se non è già stato fatto, assicurarsi di acquisire familiarità con i concetti di base dell' [importazione](import-concepts.md).
@@ -35,7 +35,7 @@ Informazioni su come importare un nuovo aggiornamento nell'aggiornamento del dis
 
 2. Creare un file di testo denominato **AduUpdate. psm1** nella directory in cui si trova il file dell'immagine di aggiornamento o il file manifesto apt. Aprire quindi il cmdlet di PowerShell [AduUpdate. psm1](https://github.com/Azure/iot-hub-device-update/tree/main/tools/AduCmdlets) , copiare il contenuto nel file di testo e quindi salvare il file di testo.
 
-3. In PowerShell passare alla directory in cui è stato creato il cmdlet di PowerShell dal passaggio 2. Eseguire quindi:
+3. In PowerShell passare alla directory in cui è stato creato il cmdlet di PowerShell dal passaggio 2. Usare l'opzione copia seguente e quindi incollare in PowerShell per eseguire i comandi:
 
     ```powershell
     Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope Process
@@ -63,7 +63,7 @@ Informazioni su come importare un nuovo aggiornamento nell'aggiornamento del dis
     | aggiornaname | Identificatore di una classe di aggiornamenti. La classe può essere qualsiasi cosa scelta. Si tratta spesso di un nome di dispositivo o modello.
     | updateVersion | Numero di versione che distingue questo aggiornamento da altri che hanno lo stesso provider e lo stesso nome. Non corrisponde a una versione di un singolo componente software nel dispositivo (ma è possibile scegliere).
     | updateType | <ul><li>Specificare `microsoft/swupdate:1` per l'aggiornamento delle immagini</li><li>Specificare `microsoft/apt:1` per l'aggiornamento del pacchetto</li></ul>
-    | installedCriteria | <ul><li>Specificare il valore di SWVersion per il `microsoft/swupdate:1` tipo di aggiornamento</li><li>Specificare il valore consigliato per il `microsoft/apt:1` tipo di aggiornamento.
+    | installedCriteria | <ul><li>Specificare il valore di SWVersion per il `microsoft/swupdate:1` tipo di aggiornamento</li><li>Specificare **nome-versione**, dove _nome_ è il nome del manifesto _apt e la versione è_ la versione del manifesto apt. Ad esempio, contoso-tutto-Edge-1.0.0.0.
     | updateFilePath | Percorso dei file di aggiornamento nel computer
 
 

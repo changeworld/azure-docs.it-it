@@ -6,13 +6,13 @@ author: linda33wj
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 11/24/2020
-ms.openlocfilehash: bdf71276d59dec9a19e29ae7f49cb92a0512c05a
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.date: 03/29/2021
+ms.openlocfilehash: fcf533ad95e2567e62d44d6997752df6f3145ecb
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "100364240"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105726788"
 ---
 # <a name="copy-data-to-and-from-azure-databricks-delta-lake-by-using-azure-data-factory"></a>Copiare dati da e verso Azure Databricks Delta Lake usando Azure Data Factory
 
@@ -42,7 +42,7 @@ Per usare questo connettore Azure Databricks Delta Lake, è necessario configura
 
 Il cluster databricks deve avere accesso all'account BLOB o Azure Data Lake Storage Gen2 di Azure, sia il contenitore di archiviazione/file system usato per l'origine/sink/gestione temporanea e il contenitore/file system in cui si vogliono scrivere le tabelle Delta Lake.
 
-- Per usare **Azure Data Lake storage Gen2**, è possibile configurare un' **entità servizio** o una **chiave di accesso dell'account di archiviazione** nel cluster databricks come parte della configurazione del Apache Spark. Seguire la procedura in [accedere direttamente con l'entità servizio](/azure/databricks/data/data-sources/azure/azure-datalake-gen2#--access-directly-with-service-principal-and-oauth-20) o [accedere direttamente usando la chiave di accesso dell'account di archiviazione](/azure/databricks/data/data-sources/azure/azure-datalake-gen2#--access-directly-using-the-storage-account-access-key).
+- Per usare **Azure Data Lake storage Gen2**, è possibile configurare un' **entità servizio** nel cluster databricks come parte della configurazione del Apache Spark. Seguire i passaggi in [Access direttamente con l'entità servizio](/azure/databricks/data/data-sources/azure/azure-datalake-gen2#--access-directly-with-service-principal-and-oauth-20).
 
 - Per usare l' **archiviazione BLOB di Azure**, è possibile configurare una **chiave di accesso dell'account di archiviazione** o un **token** di firma di accesso condiviso nel cluster databricks come parte della configurazione del Apache Spark. Seguire i passaggi in [accedere all'archiviazione BLOB di Azure con l'API RDD](/azure/databricks/data/data-sources/azure/azure-storage#access-azure-blob-storage-using-the-rdd-api).
 

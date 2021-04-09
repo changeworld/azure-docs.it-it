@@ -10,19 +10,19 @@ ms.author: minxia
 ms.date: 02/27/2020
 ms.topic: conceptual
 ms.custom: how-to
-ms.openlocfilehash: 56b411a490fe1a0c45ea4dd183d88defd61a2fde
-ms.sourcegitcommit: c8b50a8aa8d9596ee3d4f3905bde94c984fc8aa2
+ms.openlocfilehash: f8986ef895c5766d363261ef263851ee96d9c0da
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2021
-ms.locfileid: "105640858"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105727672"
 ---
 # <a name="visualize-experiment-runs-and-metrics-with-tensorboard-and-azure-machine-learning"></a>Visualizzare le esecuzioni e le metriche degli esperimenti con TensorBoard e Azure Machine Learning
 
 
 Questo articolo illustra come visualizzare le esecuzioni e le metriche degli esperimenti in TensorBoard usando [il pacchetto `tensorboard`](/python/api/azureml-tensorboard/) nella versione principale di Azure Machine Learning SDK. Una volta esaminate le esecuzioni degli esperimenti, è possibile ottimizzare e ripetere il training dei modelli di Machine Learning.
 
-[TensorBoard](/python/api/azureml-tensorboard/azureml.tensorboard.tensorboard?view=azure-ml-py) è una famiglia di applicazioni Web che consente di ispezionare e comprendere la struttura e le prestazioni degli esperimenti.
+[TensorBoard](/python/api/azureml-tensorboard/azureml.tensorboard.tensorboard) è una famiglia di applicazioni Web che consente di ispezionare e comprendere la struttura e le prestazioni degli esperimenti.
 
 Il modo in cui avviare TensorBoard con gli esperimenti di Azure Machine Learning varia in base al tipo di esperimento:
 + Se l'esperimento genera in modo nativo i file di log utilizzabili da TensorBoard, ad esempio esperimenti di PyTorch, Chainer e TensorFlow, è possibile [avviare TensorBoard direttamente](#launch-tensorboard) dalla cronologia di esecuzione dell'esperimento. 

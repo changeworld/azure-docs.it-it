@@ -7,12 +7,12 @@ ms.service: security-center
 ms.topic: conceptual
 ms.date: 02/25/2021
 ms.author: memildin
-ms.openlocfilehash: 5824457a9f2ce411a871b5e76802ecf2e2f106c3
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 9d917b3682d3b503743e706e8c952854e86fbc5e
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102099506"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105727043"
 ---
 # <a name="security-alerts-and-incidents-in-azure-security-center"></a>Avvisi ed eventi imprevisti di sicurezza nel centro sicurezza di Azure
 
@@ -73,13 +73,12 @@ Il Centro sicurezza assegna una gravità agli avvisi, in modo da assegnare una p
 > [!NOTE]
 > La gravità degli avvisi viene visualizzata in modo diverso nel portale e nelle versioni dell'API REST precedenti a 01-01-2019. Se si usa una versione precedente dell'API, eseguire l'aggiornamento per un'esperienza coerente, come descritto di seguito.
 
-| Gravità          | Risposta consigliata                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
-|-------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Gravità          | Risposta consigliata      |
+|---|---|
 | **Alta**          | esiste una forte probabilità che la risorsa sia compromessa. È consigliabile controllarla immediatamente. Il Centro sicurezza ha una certezza elevata sia delle finalità dannose che delle conclusioni usate per inviare l'avviso, ad esempio un avviso che rileva l'esecuzione di uno strumento dannoso noto, come Mimikatz, uno strumento comune usato per il furto di credenziali.                                                                                                               |
 | **Media**        | Si tratta probabilmente di un'attività sospetta che può indicare la compromissione di una risorsa. La fiducia del Centro sicurezza nell'analisi o nella conclusione è media e la certezza delle finalità dannose è da media a elevata. Si tratta in genere di rilevamenti basati su anomalie o sull'apprendimento automatico, ad esempio un tentativo di accesso da una posizione anomala.                                                                                                                |
 | **Bassa**           | potrebbe trattarsi di un falso positivo o di un attacco bloccato. Il Centro sicurezza non è sufficientemente sicuro che lo scopo sia dannoso e l'attività potrebbe essere innocente. Ad esempio, log Clear è un'azione che può verificarsi quando un utente malintenzionato tenta di nascondere le proprie tracce, ma in molti casi è un'operazione di routine eseguita dagli amministratori. Il Centro sicurezza non segnala in genere quando sono stati bloccati attacchi, a meno che non si tratti di un caso interessante che è consigliabile esaminare. |
-| **Informativo** | gli avvisi informativi verranno visualizzati solo quando si esegue il drill-down di un evento imprevisto relativo alla sicurezza oppure se si usa l'API REST con un ID avviso specifico. Un evento imprevisto è in genere costituito da un certo numero di avvisi, alcuni dei quali potrebbero apparire in modo autonomo come solo informativo, ma nel contesto degli altri avvisi può essere degno di un aspetto più vicino.                                                                                                                         |  |
-|                   |                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
+| **Informativo** | gli avvisi informativi verranno visualizzati solo quando si esegue il drill-down di un evento imprevisto relativo alla sicurezza oppure se si usa l'API REST con un ID avviso specifico. Un evento imprevisto è in genere costituito da un certo numero di avvisi, alcuni dei quali potrebbero apparire in modo autonomo come solo informativo, ma nel contesto degli altri avvisi può essere degno di un aspetto più vicino.                                                                                                                         |
 
 ## <a name="export-alerts"></a>Esportare gli avvisi
 

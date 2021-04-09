@@ -7,18 +7,18 @@ tags: billing
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: how-to
-ms.date: 08/20/2020
+ms.date: 03/29/2021
 ms.author: banders
-ms.openlocfilehash: df5c5ed74a5e0a63727962fa86d261cfb588a384
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
-ms.translationtype: HT
+ms.openlocfilehash: 47f1a1ed182420852682e908c7cd8b5e094bc085
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88690562"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105932557"
 ---
 # <a name="azure-spending-limit"></a>Limite di spesa di Azure
 
-Il limite di spesa in Azure impedisce spese superiori all'importo del credito. Per tutti i nuovi clienti che eseguono l'iscrizione per un account Azure gratuito o per tipi di sottoscrizioni che includono crediti per più mesi, il limite di spesa è attivato per impostazione predefinita. Il limite di spesa corrisponde all'importo del credito e non può essere modificato. Ad esempio, se è stata effettuata l'iscrizione per un account Azure gratuito, il limite di spesa è pari a $ 200 e non è possibile aumentarlo a $ 500. È tuttavia possibile rimuovere il limite di spesa. Di conseguenza, o non è presente alcun limite oppure è presente un limite pari all'importo del credito. Questo preclude la maggior parte delle tipologie di spesa. Il limite di spesa non è disponibile per le sottoscrizioni con piani di impegno e piani che prevedono prezzi con pagamento in base al consumo. Vedere l'[elenco completo dei tipi di sottoscrizioni di Azure e la disponibilità del limite di spesa](https://azure.microsoft.com/support/legal/offer-details/).
+Il limite di spesa in Azure impedisce spese superiori all'importo del credito. Per tutti i nuovi clienti che eseguono l'iscrizione per un account Azure gratuito o per tipi di sottoscrizioni che includono crediti per più mesi, il limite di spesa è attivato per impostazione predefinita. Il limite di spesa è uguale alla quantità di credito. Non è possibile modificare l'importo del limite di spesa. Ad esempio, se è stata effettuata l'iscrizione per un account Azure gratuito, il limite di spesa è pari a $ 200 e non è possibile aumentarlo a $ 500. È tuttavia possibile rimuovere il limite di spesa. Di conseguenza, o non è presente alcun limite oppure è presente un limite pari all'importo del credito. Questo preclude la maggior parte delle tipologie di spesa. Il limite di spesa non è disponibile per le sottoscrizioni con piani di impegno e piani che prevedono prezzi con pagamento in base al consumo. Vedere l'[elenco completo dei tipi di sottoscrizioni di Azure e la disponibilità del limite di spesa](https://azure.microsoft.com/support/legal/offer-details/).
 
 ## <a name="reaching-a-spending-limit"></a>Raggiungimento di un limite di spesa
 

@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 04/13/2020
 ms.author: erhopf
 ms.openlocfilehash: 6d2ad87f6a8c79f61d62140a1549968cd88d83aa
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "101722314"
 ---
 # <a name="record-voice-samples-to-create-a-custom-voice"></a>Esempi di campioni vocali per la creazione di una voce personalizzata
@@ -163,14 +163,14 @@ Registrare a una qualità monofonica di 44,1 KHz 16 bit (qualità CD) o superior
 
 È consigliabile che persone diverse ricoprano i ruoli di responsabile, tecnico e speaker. Non provare a eseguire tutte le operazioni in modo autonomo. In caso di necessità, una sola persona può ricoprire il ruolo di responsabile e di tecnico.
 
-### <a name="before-the-session"></a>Prima della sessione
+### <a name="before-the-session&quot;></a>Prima della sessione
 
 Per evitare di sprecare tempo in studio, esaminare lo script con lo speaker prima della sessione di registrazione. Sebbene il talento vocale possa acquisire familiarità con il testo, può chiarire la pronuncia di eventuali parole non note.
 
 > [!NOTE]
 > La maggior parte degli studi di registrazione consente di visualizzare in modo elettronico gli script nel banco di registrazione. In questo caso digitare le note direttamente nel documento dello script. È tuttavia opportuno disporre di una copia cartacea per prendere appunti durante la sessione. Anche la maggior parte dei tecnici vuole in genere una copia cartacea. Predisporre anche una terza copia stampata come backup per lo speaker qualora il computer si arresti.
 
-Lo speaker potrebbe chiedere quale parola deve essere enfatizzata in un'espressione ("parola operativa"). Indicare che si desidera una lettura naturale senza particolare enfasi. L'enfasi può essere aggiunta in fase di sintesi vocale, ma non deve far parte della registrazione originale.
+Lo speaker potrebbe chiedere quale parola deve essere enfatizzata in un'espressione (&quot;parola operativa"). Indicare che si desidera una lettura naturale senza particolare enfasi. L'enfasi può essere aggiunta in fase di sintesi vocale, ma non deve far parte della registrazione originale.
 
 Indicare allo speaker di pronunciare distintamente le parole. Ogni parola dello script deve essere pronunciata come è stata scritta. I suoni non devono essere omessi o combinati, come avviene in genere nel linguaggio informale, a *meno che non siano stati scritti in questo modo nello script*.
 
