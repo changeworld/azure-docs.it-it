@@ -6,10 +6,10 @@ ms.topic: include
 ms.date: 01/12/2021
 ms.author: alkohli
 ms.openlocfilehash: 6cabac4c59b09d146c1e42762402043622edb60e
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "98225264"
 ---
 Di seguito sono riportati i limiti relativi alle dimensioni dei dati copiati in un account di archiviazione. Assicurarsi che i dati caricati siano conformi a questi limiti. Per informazioni aggiornate su questi limiti, vedere [obiettivi di scalabilità e prestazioni per l'archiviazione BLOB](../articles/storage/blobs/scalability-targets.md) e [obiettivi di scalabilità e prestazioni file di Azure](../articles/storage/files/storage-files-scale-targets.md).
