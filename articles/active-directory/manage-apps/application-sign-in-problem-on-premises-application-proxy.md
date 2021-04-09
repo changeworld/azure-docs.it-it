@@ -16,10 +16,10 @@ ms.author: kenwith
 ms.reviewer: asteen
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 9a92ce03b4a8ad241a21b29bbff4e7367d656fab
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "99259995"
 ---
 # <a name="problems-signing-in-to-an-on-premises-application-using-the-azure-ad-application-proxy"></a>Problemi durante l'accesso a un'applicazione locale tramite il proxy di applicazione di Azure AD
@@ -56,7 +56,7 @@ I documenti seguenti possono aiutare a risolvere alcuni dei problemi più comuni
 
 ## <a name="im-having-a-problem-with-the-application-proxy-agent-connector"></a>Si è verificato un problema con il connettore dell'agente proxy di applicazione
   I documenti seguenti possono aiutare a risolvere alcuni dei problemi più comuni in questa categoria.
-  * [Problemi di installazione del connettore dell'agente Application Proxy](application-proxy-connector-installation-problem.md)
+  * [Si verificano problemi durante l'installazione del connettore dell'agente proxy dell'applicazione](application-proxy-connector-installation-problem.md)
 
 ## <a name="next-steps"></a>Passaggi successivi
 [Come fornire l'accesso remoto sicuro alle applicazioni locali](application-proxy.md)

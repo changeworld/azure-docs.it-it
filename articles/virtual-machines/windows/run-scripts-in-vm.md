@@ -10,10 +10,10 @@ ms.date: 05/02/2018
 ms.topic: how-to
 manager: carmonm
 ms.openlocfilehash: 24ff0d8089055f83c76156cf5fb163313faf9492
-ms.sourcegitcommit: ed7376d919a66edcba3566efdee4bc3351c57eda
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/24/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "105043479"
 ---
 # <a name="run-scripts-in-your-windows-vm"></a>Eseguire gli script nella macchina virtuale Windows
@@ -70,6 +70,6 @@ Il [console seriale](/troubleshoot/azure/virtual-machines/serial-console-windows
 Altre informazioni sulle diverse funzioni che sono disponibili per eseguire script e comandi all'interno delle macchine virtuali.
 
 * [Estensione di script personalizzati](../extensions/custom-script-windows.md)
-* [Eseguire un comando](run-command.md)
+* [Esegui comando](run-command.md)
 * [Ruolo di lavoro ibrido per runbook](../../automation/automation-hybrid-runbook-worker.md)
 * [console seriale](/troubleshoot/azure/virtual-machines/serial-console-windows)

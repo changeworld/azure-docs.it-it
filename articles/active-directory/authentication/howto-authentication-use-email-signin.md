@@ -11,10 +11,10 @@ author: justinha
 manager: daveba
 ms.reviewer: calui
 ms.openlocfilehash: 4e39d7f15e3ca3c6e241c767a5f881d7170c6379
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "99255968"
 ---
 # <a name="sign-in-to-azure-active-directory-using-email-as-an-alternate-login-id-preview"></a>Accedere a Azure Active Directory usando la posta elettronica come ID di accesso alternativo (anteprima)
@@ -250,7 +250,7 @@ Per completare i passaggi seguenti è necessario disporre delle autorizzazioni d
 6. Aggiungere il gruppo ai criteri di implementazione di gestione temporanea, come illustrato nell'esempio seguente. Sostituire il valore nel parametro *-ID* con il valore restituito per l'ID criterio nel passaggio 4 e sostituire il valore nel parametro *-RefObjectId* con l' *ID* indicato nel passaggio 5. Potrebbe essere necessaria fino a un'ora prima che gli utenti del gruppo possano usare i rispettivi indirizzi proxy per l'accesso.
 
    ```powershell
-   Add-AzureADMSFeatureRolloutPolicyDirectoryObject -Id "ROLLOUT_POLICY_ID" -RefObjectId "GROUP_OBJECT_ID"
+   Add-AzureADMSFeatureRolloutPolicyDirectoryObject -Id "ROLLOUT_POLICY_ID&quot; -RefObjectId &quot;GROUP_OBJECT_ID"
    ```
    
 Per i nuovi membri aggiunti al gruppo, potrebbero essere necessarie fino a 24 ore prima di poter usare i relativi indirizzi proxy per l'accesso.
@@ -260,7 +260,7 @@ Per i nuovi membri aggiunti al gruppo, potrebbero essere necessarie fino a 24 or
 Per rimuovere un gruppo da un criterio di implementazione di gestione temporanea, eseguire il comando seguente:
 
 ```powershell
-Remove-AzureADMSFeatureRolloutPolicyDirectoryObject -Id "ROLLOUT_POLICY_ID" -ObjectId "GROUP_OBJECT_ID" 
+Remove-AzureADMSFeatureRolloutPolicyDirectoryObject -Id "ROLLOUT_POLICY_ID&quot; -ObjectId &quot;GROUP_OBJECT_ID" 
 ```
 
 ### <a name="removing-policies"></a>Rimozione di criteri

@@ -8,10 +8,10 @@ ms.topic: include
 ms.custom: include file
 ms.date: 04/16/2020
 ms.openlocfilehash: b2b405e7f6babf84ef8297310a5a7a34c3f2dc11
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "102623223"
 ---
 Servizi cognitivi offre due servizi di elaborazione del linguaggio naturale, [Language Understanding](../luis/what-is-luis.md) e [QnA Maker](../qnamaker/overview/overview.md), ciascuno con uno scopo diverso. Comprendere quando utilizzare ogni servizio e il modo in cui si complimentano tra loro.
@@ -86,7 +86,7 @@ Implementare le procedure consigliate per ogni servizio:
 
 * [Language Understanding (LUIS)](../luis/what-is-luis.md)
 * [QnA Maker](../qnamaker/overview/overview.md)
-* [INTERFACCIA della riga di comando dispatch](https://github.com/Microsoft/botbuilder-tools/tree/master/packages/Dispatch)
+* [Interfaccia della riga di comando di Dispatch](https://github.com/Microsoft/botbuilder-tools/tree/master/packages/Dispatch)
 * [Esempi di bot Framework](https://github.com/Microsoft/BotBuilder-Samples)
 * [Servizio Azure bot](/azure/bot-service/bot-service-overview-introduction)
 * [Emulatore di Azure bot](https://github.com/Microsoft/BotFramework-Emulator)
