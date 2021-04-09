@@ -9,10 +9,10 @@ ms.service: iot-central
 services: iot-central
 ms.custom: mvc
 ms.openlocfilehash: 72aa8e5e3284e0ee7fbe63e0fb617b9eba03292e
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "100417803"
 ---
 # <a name="iot-central-solution-builder-guide"></a>Guida al generatore di soluzioni IoT Central
@@ -53,7 +53,7 @@ Come generatore di soluzioni, è possibile usare le funzionalità di esportazion
 - [Esportare i dati delle cose nelle destinazioni cloud usando l'esportazione dei dati](howto-export-data.md)
 - [Usare i flussi di lavoro per integrare l'applicazione Azure IoT Central con altri servizi cloud](howto-configure-rules-advanced.md)
 - [Estendere Azure IoT Central con regole personalizzate usando Analisi di flusso, Funzioni di Azure e SendGrid](howto-create-custom-rules.md)
-- [Estendi IoT Central di Azure con analisi personalizzate con Azure Databricks](howto-create-custom-analytics.md)
+- [Estendere Azure IoT Central con analisi personalizzate mediante Azure Databricks](howto-create-custom-analytics.md)
 - [Visualizzare e analizzare i dati di Azure IoT Central in un dashboard di Power BI](howto-connect-powerbi.md)
 
 ## <a name="next-steps"></a>Passaggi successivi

@@ -6,10 +6,10 @@ ms.subservice: language-understanding
 ms.topic: reference
 ms.date: 05/08/2020
 ms.openlocfilehash: 7c65c8272172cab9f5361d16141bf7b229037480
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "98786945"
 ---
 # <a name="language-understanding-glossary-of-common-vocabulary-and-concepts"></a>Glossario per la comprensione del linguaggio con vocabolario e concetti comuni
@@ -99,7 +99,7 @@ Uno [scopo](#intent) è un esempio di classificatore.
 
 Un collaboratore è concettualmente [uguale a quello](#contributor)di un collaboratore. Un collaboratore può accedere quando un proprietario aggiunge l'indirizzo di posta elettronica del collaboratore a un'app che non è controllata con il controllo degli accessi in base al ruolo di Azure (RBAC di Azure). Se si stanno ancora usando collaboratori, è necessario eseguire la migrazione dell'account LUIS e usare le risorse di authoring LUIS per gestire i collaboratori con il controllo degli accessi in base al ruolo di Azure.
 
-## <a name="contributor"></a>Autore di contributi
+## <a name="contributor"></a>Collaboratore
 
 Un collaboratore non è il [proprietario](#owner) dell'app, ma ha le stesse autorizzazioni per aggiungere, modificare ed eliminare gli Intent, le entità, le espressioni. Un collaboratore fornisce il controllo degli accessi in base al ruolo di Azure (RBAC) a un'app LUIS.
 

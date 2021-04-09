@@ -4,10 +4,10 @@ description: Informazioni su come selezionare e distribuire Defender per gli age
 ms.topic: conceptual
 ms.date: 07/23/2019
 ms.openlocfilehash: c71c92ffa79c844f3529265320b46eadd0c158cf
-ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/22/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "104778849"
 ---
 # <a name="select-and-deploy-a-security-agent-on-your-iot-device"></a>Selezionare e distribuire un agente di sicurezza nel dispositivo Internet delle cose

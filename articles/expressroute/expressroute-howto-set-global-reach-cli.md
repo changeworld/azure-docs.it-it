@@ -152,5 +152,5 @@ Al termine di questa operazione, non si avrà più connettività tra le reti loc
 ## <a name="next-steps"></a>Passaggi successivi
 
 * [Altre informazioni su Copertura globale di ExpressRoute](expressroute-global-reach.md)
-* [Verifica della connettività di ExpressRoute](expressroute-troubleshooting-expressroute-overview.md)
+* [Verificare la connettività di ExpressRoute](expressroute-troubleshooting-expressroute-overview.md)
 * [Connettere una rete virtuale a un circuito ExpressRoute](expressroute-howto-linkvnet-arm.md)

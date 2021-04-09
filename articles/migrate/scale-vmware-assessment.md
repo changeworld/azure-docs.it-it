@@ -7,10 +7,10 @@ ms.manager: abhemraj
 ms.topic: how-to
 ms.date: 03/23/2020
 ms.openlocfilehash: 10b8aaeaa25e49140dbf6f31c064c7f823d23e31
-ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/22/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "104778254"
 ---
 # <a name="assess-large-numbers-of-servers-in-vmware-environment-for-migration-to-azure"></a>Valutare un numero elevato di server nell'ambiente VMware per la migrazione ad Azure
@@ -56,7 +56,7 @@ Usare i limiti riepilogati in questa tabella per la pianificazione.
 Tenendo conto di questi limiti, di seguito sono riportate alcune distribuzioni di esempio:
 
 
-**server vCenter** | **Server nel server** | **Consiglio** | **Azione**
+**Server vCenter** | **Server nel server** | **Consiglio** | **Azione**
 ---|---|---|---
 Uno | < 10.000 | Un progetto Azure Migrate.<br/> Un appliance.<br/> Un account vCenter per l'individuazione. | Configurare il dispositivo, connettersi a server vCenter con un account.
 Uno | > 10.000 | Un progetto Azure Migrate.<br/> Più appliance.<br/> Più account vCenter. | Configurare l'appliance per ogni server 10.000.<br/><br/> Configurare gli account vCenter e dividere l'inventario per limitare l'accesso per un account a meno di 10.000 server.<br/> Connettere ogni appliance al server vCenter con un account.<br/> È possibile analizzare le dipendenze tra i server individuati con dispositivi diversi. <br/> <br/> Assicurarsi che non vi sia sovrapposizione tra i server negli account vCenter forniti. Un'individuazione con una sovrapposizione di questo tipo è uno scenario non supportato. Se un server viene individuato da più di un appliance, si verificano duplicati nell'individuazione e nei problemi durante l'abilitazione della replica per il server usando il portale di Azure nella migrazione del server.

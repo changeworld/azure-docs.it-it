@@ -7,10 +7,10 @@ ms.service: cache
 ms.topic: conceptual
 ms.date: 02/08/2021
 ms.openlocfilehash: 0ff11c9601fb55e27d8780185d77c177e9d9201b
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "100584638"
 ---
 # <a name="monitor-azure-cache-for-redis"></a>Monitorare cache di Azure per Redis
@@ -131,8 +131,8 @@ Per configurare le regole di avviso per la cache, scegliere **Regole di avviso**
 
 Per altre informazioni sulla configurazione e sull'uso degli avvisi, vedere [Panoramica degli avvisi](../azure-monitor/alerts/alerts-classic-portal.md).
 
-## <a name="activity-logs"></a>Log attività
-I log attività offrono informazioni dettagliate sulle operazioni eseguite nelle istanze di Cache Redis di Azure. In precedenza erano noti come "log di controllo" o "log operativi". L'uso dei log attività consente di acquisire informazioni dettagliate ("cosa, chi, quando") per tutte le operazioni di scrittura (PUT, POST, DELETE) eseguite sulle istanze di Cache Redis di Azure. 
+## <a name="activity-logs&quot;></a>Log attività
+I log attività offrono informazioni dettagliate sulle operazioni eseguite nelle istanze di Cache Redis di Azure. In precedenza erano noti come &quot;log di controllo&quot; o &quot;log operativi&quot;. L'uso dei log attività consente di acquisire informazioni dettagliate (&quot;cosa, chi, quando") per tutte le operazioni di scrittura (PUT, POST, DELETE) eseguite sulle istanze di Cache Redis di Azure. 
 
 > [!NOTE]
 > I log attività non includono le operazioni di lettura (GET).

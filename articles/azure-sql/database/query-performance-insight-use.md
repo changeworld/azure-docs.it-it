@@ -12,10 +12,10 @@ ms.author: danil
 ms.reviewer: wiassaf, sstein
 ms.date: 1/14/2021
 ms.openlocfilehash: db24f280f66e567572821297cfc9bb9b1e19743b
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "98222344"
 ---
 # <a name="query-performance-insight-for-azure-sql-database"></a>Informazioni dettagliate prestazioni query per il database SQL di Azure
@@ -186,7 +186,7 @@ Per identificare le query con esecuzione prolungata:
    > È consigliabile usare il grafico DTU personalizzato per eseguire un confronto con il grafico delle prestazioni delle query.
    >
 
-## <a name="review-top-queries-per-execution-count"></a>Esaminare le query principali in base al conteggio delle esecuzioni
+## <a name="review-top-queries-per-execution-count&quot;></a>Esaminare le query principali in base al conteggio delle esecuzioni
 
 Un'applicazione utente che usa il database potrebbe rallentare, anche se un numero elevato di esecuzioni potrebbe non influire sul database stesso e l'uso delle risorse è limitato.
 
@@ -194,7 +194,7 @@ In alcuni casi, un conteggio di esecuzioni molto elevato potrebbe causare l'aume
 
 Ad esempio, molti siti Web basati sui dati accedono in maniera massiccia al database per tutte le richieste dell'utente. Sebbene il pool di connessioni contribuisca, l'aumento del traffico di rete e del carico di elaborazione sul server può rallentare le prestazioni. In generale, mantenere i round trip al minimo.
 
-Per identificare le query eseguite di frequente ("Chaty"):
+Per identificare le query eseguite di frequente (&quot;Chaty"):
 
 1. Aprire la scheda **Personalizzato** in Informazioni dettagliate prestazioni query per il database selezionato.
 2. Impostare le metriche su **Conteggio delle esecuzioni**.

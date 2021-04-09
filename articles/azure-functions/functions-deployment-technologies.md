@@ -5,10 +5,10 @@ ms.custom: vs-azure
 ms.topic: conceptual
 ms.date: 04/25/2019
 ms.openlocfilehash: 4a65a00c28a20c9381d3dcc6fd7545137528d5c0
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "98943640"
 ---
 # <a name="deployment-technologies-in-azure-functions"></a>Tecnologie di distribuzione in funzioni di Azure
@@ -218,7 +218,7 @@ Quando si distribuisce l'app per le funzioni in Azure, è possibile eseguire la 
 
 Leggere questi articoli per altre informazioni sulla distribuzione delle app per le funzioni:
 
-+ [Distribuzione continua per Funzioni di Azure](functions-continuous-deployment.md)
++ [Distribuzione continua per funzioni di Azure](functions-continuous-deployment.md)
 + [Recapito continuo tramite Azure DevOps](functions-how-to-azure-devops.md)
 + [Distribuzioni zip per funzioni di Azure](deployment-zip-push.md)
 + [Eseguire Funzioni di Azure da un file di pacchetto](run-functions-from-deployment-package.md)

@@ -7,12 +7,12 @@ ms.author: dademath
 ms.date: 03/10/2021
 ms.topic: quickstart
 ms.service: azure-communication-services
-ms.openlocfilehash: 7356fb90914e948b6a74a478ce1e19722b224346
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 7d6b0d01ec3de1cb4ce91b1c81cd8a0ccd73b1d1
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103488058"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105825799"
 ---
 # <a name="quickstart-get-started-with-ui-framework-composite-components"></a>Guida introduttiva: Introduzione ai componenti compositi di Framework dell'interfaccia utente
 
@@ -47,7 +47,7 @@ Al termine di questo processo, è necessario disporre di un'applicazione complet
 
 ### <a name="install-the-package"></a>Installare il pacchetto
 
-Usare il comando `npm install` per installare la libreria client Chiamate di Servizi di comunicazione di Azure per JavaScript. Spostare il tarball fornito (anteprima privata) nella directory My-App.
+Usare il `npm install` comando per installare i servizi di comunicazione di Azure che chiamano SDK per JavaScript. Spostare il tarball fornito (anteprima privata) nella directory My-App.
 
 ```console
 
@@ -71,7 +71,7 @@ npm run start
 
 ## <a name="object-model"></a>Modello a oggetti
 
-Le classi e le interfacce seguenti gestiscono alcune delle principali funzionalità della libreria client dell'interfaccia utente di servizi di comunicazione di Azure:
+Le classi e le interfacce seguenti gestiscono alcune delle principali funzionalità di Azure Communication Services UI SDK:
 
 | Nome                                  | Descrizione                                                  |
 | ------------------------------------- | ------------------------------------------------------------ |
