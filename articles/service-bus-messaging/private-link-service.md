@@ -3,32 +3,30 @@ title: Integrare il bus di servizio di Azure con il servizio Collegamento privat
 description: Informazioni su come integrare il bus di servizio di Azure con il servizio Collegamento privato di Azure
 author: spelluru
 ms.author: spelluru
-ms.date: 10/07/2020
+ms.date: 03/29/2021
 ms.topic: article
-ms.openlocfilehash: 66de9a4ff65c73264257cb6f7f215fc15820c95f
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 833d7e9fb4d517b71aab5039ae9081407eed84cd
+ms.sourcegitcommit: edc7dc50c4f5550d9776a4c42167a872032a4151
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "94427148"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105960538"
 ---
 # <a name="allow-access-to-azure-service-bus-namespaces-via-private-endpoints"></a>Consentire l'accesso agli spazi dei nomi del bus di servizio di Azure tramite endpoint privati
 Il servizio Collegamento privato di Azure consente di accedere ai servizi di Azure, ad esempio al bus di servizio di Azure, ad Archiviazione di Azure e ad Azure Cosmos DB, e ai servizi di clienti/partner ospitati in Azure tramite un **endpoint privato** nella rete virtuale.
-
-> [!IMPORTANT]
-> Questa funzionalità è supportata con il livello **Premium** del bus di servizio di Azure. Per altre informazioni sul livello Premium, vedere l'articolo [Livelli di messaggistica Premium e Standard del bus di servizio](service-bus-premium-messaging.md).
 
 Un endpoint privato è un'interfaccia di rete che connette privatamente e in modo sicuro a un servizio basato su Collegamento privato di Azure. L'endpoint privato usa un indirizzo IP privato della rete virtuale, introducendo efficacemente il servizio nella rete virtuale. Tutto il traffico verso il servizio può essere instradato tramite l'endpoint privato, quindi non sono necessari gateway, dispositivi NAT, ExpressRoute o connessioni VPN oppure indirizzi IP pubblici. Il traffico tra la rete virtuale e il servizio attraversa la rete backbone Microsoft, impedendone l'esposizione alla rete Internet pubblica. È possibile connettersi a un'istanza di una risorsa di Azure, garantendo il massimo livello di granularità nel controllo di accesso.
 
 Per altre informazioni, vedere [Che cos'è Collegamento privato di Azure?](../private-link/private-link-overview.md).
 
->[!WARNING]
-> L'implementazione di endpoint privati può impedire ad altri servizi di Azure di interagire con il bus di servizio. Come eccezione, è possibile consentire l'accesso alle risorse del bus di servizio da determinati servizi attendibili anche quando gli endpoint privati sono abilitati. Per un elenco di servizi attendibili, vedere [Servizi attendibili](#trusted-microsoft-services).
->
-> I servizi Microsoft seguenti devono essere in una rete virtuale
-> - Servizio app di Azure
-> - Funzioni di Azure
+## <a name="important-points"></a>Punti importanti
+- Questa funzionalità è supportata con il livello **Premium** del bus di servizio di Azure. Per altre informazioni sul livello Premium, vedere l'articolo [Livelli di messaggistica Premium e Standard del bus di servizio](service-bus-premium-messaging.md).
+- L'implementazione di endpoint privati può impedire ad altri servizi di Azure di interagire con il bus di servizio. Come eccezione, è possibile consentire l'accesso alle risorse del bus di servizio da determinati **Servizi attendibili** anche quando gli endpoint privati sono abilitati. Per un elenco di servizi attendibili, vedere [Servizi attendibili](#trusted-microsoft-services).
 
+    I servizi Microsoft seguenti devono essere in una rete virtuale
+    - Servizio app di Azure
+    - Funzioni di Azure
+- Specificare almeno **una regola IP o una regola della rete virtuale** per lo spazio dei nomi per consentire il traffico solo dagli indirizzi IP o dalla subnet specificata di una rete virtuale. Se non sono presenti regole IP e reti virtuali, è possibile accedere allo spazio dei nomi tramite la rete Internet pubblica (usando la chiave di accesso). 
 
 
 ## <a name="add-a-private-endpoint-using-azure-portal"></a>Aggiungere un endpoint privato con il portale di Azure
@@ -51,15 +49,16 @@ Se si ha già uno spazio dei nomi esistente, è possibile creare un endpoint pri
 1. Accedere al [portale di Azure](https://portal.azure.com). 
 2. Nella barra di ricerca digitare **Bus di servizio**.
 3. Selezionare nell'elenco lo **spazio dei nomi** in cui si vuole aggiungere un endpoint privato.
-2. Nel menu a sinistra selezionare opzione di **rete** in **Impostazioni**. 
-
+2. Nel menu a sinistra selezionare opzione di **rete** in **Impostazioni**.     Per impostazione predefinita, è selezionata l'opzione **reti selezionate** .
+ 
     > [!NOTE]
     > Viene visualizzata la scheda **rete** solo per gli spazi dei nomi **Premium** .  
-    
-    Per impostazione predefinita, è selezionata l'opzione **reti selezionate** . Se non si aggiunge almeno una regola del firewall IP o una rete virtuale in questa pagina, è possibile accedere allo spazio dei nomi tramite Internet pubblico (usando la chiave di accesso).
-
+   
     :::image type="content" source="./media/service-bus-ip-filtering/default-networking-page.png" alt-text="Pagina rete-impostazione predefinita" lightbox="./media/service-bus-ip-filtering/default-networking-page.png":::
-    
+
+    > [!WARNING]
+    > Se non si aggiunge almeno una regola del firewall IP o una rete virtuale in questa pagina, è possibile accedere allo spazio dei nomi tramite Internet pubblico (usando la chiave di accesso).
+   
     Se si seleziona l'opzione **tutte le reti** , lo spazio dei nomi del bus di servizio accetta connessioni da qualsiasi indirizzo IP (usando la chiave di accesso). Questa impostazione predefinita equivale a una regola che accetta l'intervallo di indirizzi IP 0.0.0.0/0. 
 
     ![Opzione Firewall - Tutte le reti selezionata](./media/service-bus-ip-filtering/firewall-all-networks-selected.png)

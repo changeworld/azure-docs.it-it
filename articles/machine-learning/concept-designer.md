@@ -11,13 +11,13 @@ author: peterclu
 ms.date: 06/28/2020
 ms.custom: designer
 ms.openlocfilehash: e6738bf944c5a80d0cb54432ade7555ebdcfbd51
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "102503541"
 ---
-# <a name="what-is-azure-machine-learning-designer"></a>Definizione di finestra di progettazione di Azure Machine Learning 
+# <a name="what-is-azure-machine-learning-designer"></a>Che cos'è Azure Machine Learning Designer? 
 
 
 La finestra di progettazione di Azure Machine Learning consente di connettere in modo visivo [set di dati](#datasets) e [moduli](#module) in un pannello Canvas interattivo per creare modelli di Machine Learning. Per informazioni su come iniziare a usare la finestra di progettazione, vedere [Esercitazione: Stimare il prezzo di un'automobile con la finestra di progettazione](tutorial-designer-automobile-price-train-score.md)

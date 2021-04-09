@@ -5,16 +5,15 @@ author: mimckitt
 ms.author: mimckitt
 ms.topic: conceptual
 ms.service: virtual-machine-scale-sets
-ms.subservice: faq
 ms.date: 06/30/2020
 ms.reviewer: jushiman
 ms.custom: mimckitt
-ms.openlocfilehash: fc394550cf5eb28ce3a30af4afcb3deca4223fe3
-ms.sourcegitcommit: c8b50a8aa8d9596ee3d4f3905bde94c984fc8aa2
+ms.openlocfilehash: 2decbf6f65e6d5112f62bff3a00fe1187730e98c
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2021
-ms.locfileid: "105642446"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105933475"
 ---
 # <a name="azure-virtual-machine-scale-sets-faqs"></a>Domande frequenti sui set di scalabilità di macchine virtuali di Azure
 
@@ -332,7 +331,7 @@ I set di scalabilità di macchine virtuali sono un sottile livello API disponibi
 
 Dal punto di vista della conformità, i set di scalabilità di macchine virtuali sono una parte essenziale della piattaforma di calcolo di Azure. Condividono un team, strumenti, processi, metodologia di distribuzione, controlli di sicurezza, compilazione Just-In-Time (JIT), monitoraggio, avvisi e così via con il provider di risorse di calcolo. I set di scalabilità di macchine virtuali sono compatibili con PCI (Payment Card Industry) perché il provider di risorse di calcolo è parte dell'attestazione PCI Data Security Standard (DSS) corrente.
 
-Per ulteriori informazioni, vedere [Microsoft Trust Center](https://www.microsoft.com/TrustCenter/Compliance/PCI).
+Per altre informazioni, vedere il [Centro protezione Microsoft](https://www.microsoft.com/TrustCenter/Compliance/PCI).
 
 ### <a name="does-managed-identities-for-azure-resources-work-with-virtual-machine-scale-sets"></a>Le [identità gestite per le risorse di Azure](../active-directory/managed-identities-azure-resources/overview.md) funzionano con i set di scalabilità di macchine virtuali?
 

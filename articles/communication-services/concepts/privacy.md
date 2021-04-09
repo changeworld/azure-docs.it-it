@@ -8,16 +8,14 @@ ms.author: chpalm
 ms.date: 03/10/2021
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: a52931b69187d18984b9b6938832dafe64111ffe
-ms.sourcegitcommit: c8b50a8aa8d9596ee3d4f3905bde94c984fc8aa2
+ms.openlocfilehash: beb8b81710cf4728259a8eb1df920cd74efce3ce
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2021
-ms.locfileid: "105641051"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105728131"
 ---
 # <a name="region-availability-and-data-residency"></a>Disponibilità a livello di area e residenza dei dati
-
-[!INCLUDE [Public Preview Notice](../includes/public-preview-include.md)]
 
 I Servizi di comunicazione di Azure consentono di aiutare i clienti a soddisfare i requisiti in materia di privacy e dati personali. Gli sviluppatori che usano Servizi di comunicazione con una relazione diretta con gli utenti che usano l'applicazione sono potenzialmente il titolare del trattamento dei dati. Poiché i servizi di comunicazione di Azure archiviano e crittografano i dati inattivi per conto dell'utente, è molto probabile che si tratta di un processore di questi dati. In questa pagina viene riepilogato il modo in cui il servizio conserva i dati e come è possibile identificare, esportare ed eliminare i dati.
 

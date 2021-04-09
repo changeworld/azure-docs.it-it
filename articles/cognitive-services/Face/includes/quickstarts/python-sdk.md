@@ -9,12 +9,12 @@ ms.subservice: face-api
 ms.topic: include
 ms.date: 11/10/2020
 ms.author: pafarley
-ms.openlocfilehash: 7fc1822c219c6c881e3d788f6b0e56675cecc466
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 0939216e1d96e898d7c45b9e7a3ec72453b263d6
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102445015"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105958011"
 ---
 Introduzione al riconoscimento facciale con la libreria client di Viso per Python. Seguire questi passaggi per installare il pacchetto e provare il codice di esempio per le attività di base. Il servizio Viso fornisce l'accesso ad algoritmi avanzati per il rilevamento e il riconoscimento dei visi umani nelle immagini.
 
@@ -22,7 +22,7 @@ Usare la libreria client dell'API Viso per Python per:
 
 * [Rilevare i visi in un'immagine](#detect-faces-in-an-image)
 * [Individuare visi simili](#find-similar-faces)
-* [Creare ed eseguire il training di un gruppo di persone](#create-and-train-a-person-group)
+* [Creare ed eseguire il training di un gruppo](#create-and-train-a-persongroup)
 * [Identificare un viso](#identify-a-face)
 * [Verificare i visi](#verify-faces)
 
@@ -86,7 +86,7 @@ Questi frammenti di codice mostrano come eseguire le attività seguenti con la l
 * [Autenticare il client](#authenticate-the-client)
 * [Rilevare i visi in un'immagine](#detect-faces-in-an-image)
 * [Individuare visi simili](#find-similar-faces)
-* [Creare ed eseguire il training di un gruppo di persone](#create-and-train-a-person-group)
+* [Creare ed eseguire il training di un gruppo](#create-and-train-a-persongroup)
 * [Identificare un viso](#identify-a-face)
 * [Verificare i visi](#verify-faces)
 
@@ -133,7 +133,7 @@ Usare il codice seguente per visualizzare i dettagli delle corrispondenze nella 
 
 [!code-python[](~/cognitive-services-quickstart-code/python/Face/FaceQuickstart.py?name=snippet_findsimilar_print)]
 
-## <a name="create-and-train-a-person-group"></a>Creare ed eseguire il training di un gruppo di persone
+## <a name="create-and-train-a-persongroup"></a>Creare ed eseguire il training di un gruppo
 
 Il codice seguente crea un **PersonGroup** con tre diversi oggetti **Person**. Associa ogni oggetto **Person** a un set di immagini di esempio e quindi esegue il training per essere in grado di riconoscere ogni persona. 
 
@@ -174,7 +174,7 @@ Una volta assegnati i visi, è necessario eseguire il training di **PersonGroup*
 L'operazione di identificazione acquisisce un'immagine di una persona (o di più persone) e cerca di individuare l'identità di ogni viso nell'immagine (ricerca basata su riconoscimento facciale). Confronta ogni viso rilevato con un **PersonGroup**, un database di oggetti **Person** diversi le cui caratteristiche del viso sono note.
 
 > [!IMPORTANT]
-> Prima di eseguire questo esempio occorre eseguire il codice in [Creare ed eseguire il training di un gruppo di persone](#create-and-train-a-person-group).
+> Per eseguire questo esempio, è necessario prima eseguire il codice in [creare ed eseguire il training di un gruppo](#create-and-train-a-persongroup).
 
 ### <a name="get-a-test-image"></a>Ottenere un'immagine di test
 

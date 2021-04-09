@@ -3,12 +3,12 @@ title: Ripristino di emergenza geografico per il bus di servizio di Azure | Micr
 description: Come usare le aree geografiche per il failover e il ripristino di emergenza nel bus di servizio di Azure
 ms.topic: article
 ms.date: 02/10/2021
-ms.openlocfilehash: 3e8050cdaaae7e16a0f5125292df4b89b3690ed3
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 2aa7ed118d0ba179ffff4f72a4d4df787edc9d88
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102035395"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105933756"
 ---
 # <a name="azure-service-bus-geo-disaster-recovery"></a>Ripristino di emergenza geografico per il bus di servizio di Azure
 
@@ -156,7 +156,7 @@ Tenere presente le considerazioni seguenti per questa versione:
 
 4. La sincronizzazione delle entità può richiedere tempo, circa un minuto per 50-100 entità. Anche le sottoscrizioni e le regole contano come entità.
 
-### <a name="availability-zones"></a>Zone di disponibilità
+## <a name="availability-zones"></a>Zone di disponibilità
 
 Lo SKU Premium del bus di servizio supporta le [zone di disponibilità](../availability-zones/az-overview.md) fornendo località con isolamento di errore all'interno della stessa area di Azure. Il bus di servizio gestisce tre copie dell'archivio di messaggistica (1 primario e 2 secondario). Il bus di servizio mantiene sincronizzate tutte e tre le copie per le operazioni di gestione e i dati. Se la copia primaria ha esito negativo, una delle copie secondarie viene promossa al database primario senza tempi di inattività percepiti. Se le applicazioni visualizzano disconnessioni temporanee dal bus di servizio, la logica di ripetizione dei tentativi nell'SDK si riconnetterà automaticamente al bus di servizio. 
 

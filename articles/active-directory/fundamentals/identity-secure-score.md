@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: guptashi
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 23832d9f1205105f1f9711cdf3260b74ee4a9bb1
-ms.sourcegitcommit: ac035293291c3d2962cee270b33fca3628432fac
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/24/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "104952280"
 ---
 # <a name="what-is-the-identity-secure-score-in-azure-active-directory"></a>Informazioni su Identity Secure Score in Azure Active Directory
@@ -107,7 +107,7 @@ Per visualizzare la cronologia dei punteggi, passare al [Centro sicurezza Micros
 Il [Punteggio Microsoft Secure](/office365/securitycompliance/microsoft-secure-score) contiene cinque categorie di controllo e Punteggio distinte:
 
 - Identità
-- Dati
+- Data
 - Dispositivi
 - Infrastruttura
 - App

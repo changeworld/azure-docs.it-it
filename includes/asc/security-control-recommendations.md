@@ -2,15 +2,15 @@
 author: memildin
 ms.service: security-center
 ms.topic: include
-ms.date: 03/14/2021
+ms.date: 03/29/2021
 ms.author: memildin
 ms.custom: generated
-ms.openlocfilehash: 14655abc403248e0ce22d22aeca342032b930fb4
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 635ce116509204726762127210923a408b62ea78
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103467988"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105958265"
 ---
 <table class="tg">
 <thead>
@@ -99,7 +99,7 @@ ms.locfileid: "103467988"
   <tr>
     <td class="tg-lboi"><strong><p style="font-size: 16px">0</p></strong></td>
     <td class="tg-lboi"><strong><p style="font-size: 16px">Abilita Advanced Threat Protection</p></strong>I piani facoltativi di protezione dalle minacce di Azure Defender del Centro sicurezza di Azure forniscono difese complete per l'ambiente. Quando il Centro sicurezza rileva una minaccia in qualsiasi area dell'ambiente, viene generato un avviso. Questi avvisi descrivono i dettagli sulle risorse interessate, le procedure di correzione consigliate e, in alcuni casi, un'opzione per attivare un'app per la logica in risposta.<br>Ogni piano di Azure Defender è un'offerta separata e facoltativa che è possibile abilitare usando la raccomandazione pertinente in questo controllo di sicurezza.<br><a href="/azure/security-center/threat-protection">Scopri di più sulla protezione dalle minacce nel centro sicurezza</a>.</td>
-    <td class="tg-lboi"; width=55%>- Azure Defender per il servizio app deve essere abilitato<br />- Azure Defender per i server del database SQL di Azure deve essere abilitato<br />- È necessario abilitare Azure Defender per i registri contenitori<br />- Azure Defender per Key Vault deve essere abilitato<br />- Azure Defender per Kubernetes deve essere abilitato<br />- Azure Defender per i server deve essere abilitato<br />- Azure Defender per SQL Server nei computer deve essere abilitato<br />- Azure Defender per l'archiviazione deve essere abilitato</td>
+    <td class="tg-lboi"; width=55%>- Per i cluster Kubernetes abilitati per Azure Arc è necessario che sia installata l'estensione di Azure Defender<br />- Azure Defender per il servizio app deve essere abilitato<br />- Azure Defender per i server del database SQL di Azure deve essere abilitato<br />- È necessario abilitare Azure Defender per i registri contenitori<br />- Azure Defender per Key Vault deve essere abilitato<br />- Azure Defender per Kubernetes deve essere abilitato<br />- Azure Defender per i server deve essere abilitato<br />- Azure Defender per SQL Server nei computer deve essere abilitato<br />- Azure Defender per l'archiviazione deve essere abilitato</td>
   </tr>
 </tbody>
 </table>
