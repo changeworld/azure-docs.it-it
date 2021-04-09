@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 12/28/2020
 ms.author: jeedes
 ms.openlocfilehash: c82b00b1f107dc147cbef6a0ca406f2054321216
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "98734878"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-salesforce-sandbox"></a>Esercitazione: Integrazione dell'accesso Single Sign-On (SSO) di Azure Active Directory con Salesforce Sandbox
@@ -211,7 +211,7 @@ In questa sezione si abiliterà B.Simon all'uso dell'accesso Single Sign-On di A
 
 19. Nella pagina **Impostazioni SAML Single Sign-On** i campi vengono popolati automaticamente. Digitare il nome della configurazione (ad esempio, *SPSSOWAAD_Test*) nella casella di testo **Nome** e quindi fare clic su Salva.
 
-    ![Screenshot che mostra la pagina "Single Sign-On Settings" con i campi precompilati (nome di esempio nella casella di testo "Name") e il pulsante "Save" selezionato.](./media/salesforce-sandbox-tutorial/sf-saml-config.png)
+    ![Screenshot che mostra la pagina "Single Sign-On Settings&quot; con i campi precompilati (nome di esempio nella casella di testo &quot;Name") e il pulsante "Save" selezionato.](./media/salesforce-sandbox-tutorial/sf-saml-config.png)
 
 20. Per abilitare il dominio su Salesforce Sandbox, eseguire la procedura seguente:
 

@@ -18,10 +18,10 @@ ms.author: markvi
 ms.reviewer: besiler
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 185638d683699403c304603d968cfe84e32a55b5
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "103574561"
 ---
 # <a name="azure-active-directory-sign-in-activity-reports---preview"></a>Report attività di accesso Azure Active Directory-anteprima
@@ -102,7 +102,7 @@ Nel pannello report accessi è possibile spostarsi tra:
 
 
 
-## <a name="user-sign-ins"></a>Accessi utente
+## <a name="user-sign-ins&quot;></a>Accessi utente
 
 Ogni scheda nel pannello degli accessi Mostra le colonne predefinite seguenti. Alcune schede contengono colonne aggiuntive:
 
@@ -120,7 +120,7 @@ Ogni scheda nel pannello degli accessi Mostra le colonne predefinite seguenti. A
 
 
 
-### <a name="interactive-user-sign-ins"></a>Accessi utente interattivo
+### <a name=&quot;interactive-user-sign-ins&quot;></a>Accessi utente interattivo
 
 
 Gli accessi utente interattivi sono accessi in cui un utente fornisce un fattore di autenticazione per Azure AD o interagisce direttamente con Azure AD o un'app helper, ad esempio l'app Microsoft Authenticator. I fattori forniti dagli utenti includono password, risposte a problemi di autenticazione a più fattori, fattori biometrici o codici a matrice forniti da un utente per Azure AD o a un'app helper.
@@ -155,7 +155,7 @@ Oltre ai campi predefiniti, il report accessi interattivo mostra anche:
 
 È possibile personalizzare la visualizzazione elenco facendo clic su **colonne** nella barra degli strumenti.
 
-![Colonne di accesso utente interattivo](./media/concept-all-sign-ins/columns-interactive.png "Colonne di accesso utente interattivo")
+![Colonne di accesso utente interattivo](./media/concept-all-sign-ins/columns-interactive.png &quot;Colonne di accesso utente interattivo")
 
 
 
@@ -231,7 +231,7 @@ Per semplificare il digest dei dati, vengono raggruppati gli eventi di accesso n
 
 
 
-## <a name="service-principal-sign-ins"></a>Accessi all'entità servizio
+## <a name="service-principal-sign-ins&quot;></a>Accessi all'entità servizio
 
 Diversamente dagli accessi utente interattivi e non interattivi, gli accessi dell'entità servizio non coinvolgono un utente. Sono invece accessi da qualsiasi account non utente, ad esempio app o entità servizio, ad eccezione dell'accesso all'identità gestita, incluso solo nel report degli accessi a identità gestite. In questi accessi l'app o il servizio fornisce le proprie credenziali, ad esempio un certificato o un segreto dell'app per l'autenticazione o l'accesso alle risorse.
 
@@ -264,7 +264,7 @@ Questo report include una visualizzazione elenco predefinita che mostra:
 
 Non è possibile personalizzare i campi visualizzati nel report.
 
-![Colonne disabilitate](./media/concept-all-sign-ins/disabled-columns.png "Colonne disabilitate")
+![Colonne disabilitate](./media/concept-all-sign-ins/disabled-columns.png &quot;Colonne disabilitate")
 
 Per semplificare il digest dei dati nei log di accesso dell'entità servizio, vengono raggruppati gli eventi di accesso dell'entità servizio. Gli accessi dalla stessa entità nelle stesse condizioni vengono aggregati in una singola riga. È possibile espandere la riga per visualizzare tutti i diversi accessi e i rispettivi timestamp diversi. Gli accessi vengono aggregati nel report dell'entità servizio quando i dati seguenti corrispondono:
 

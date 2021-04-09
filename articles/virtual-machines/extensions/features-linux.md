@@ -9,10 +9,10 @@ ms.author: amjads
 ms.collection: linux
 ms.date: 03/30/2018
 ms.openlocfilehash: 8ff7b2940ca9ce3e5dc5913c0e676a32857771e7
-ms.sourcegitcommit: ed7376d919a66edcba3566efdee4bc3351c57eda
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/24/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "105046879"
 ---
 # <a name="virtual-machine-extensions-and-features-for-linux"></a>Estensioni della macchina virtuale e funzionalità per Linux
@@ -400,7 +400,7 @@ az vm extension delete \
 | Nome estensione | Descrizione | Ulteriori informazioni |
 | --- | --- | --- |
 | Estensione script personalizzata per Linux |Eseguire script su una macchina virtuale di Azure. |[Estensione script personalizzata per Linux](custom-script-linux.md) |
-| Estensione dell'accesso alle macchine virtuali |Ripristinare l'accesso a una macchina virtuale di Azure |[Estensione di accesso alla macchina virtuale](https://github.com/Azure/azure-linux-extensions/tree/master/VMAccess) |
+| Estensione dell'accesso alle macchine virtuali |Ripristinare l'accesso a una macchina virtuale di Azure |[Estensione dell'accesso alle macchine virtuali](https://github.com/Azure/azure-linux-extensions/tree/master/VMAccess) |
 | Estensione di Diagnostica di Azure |Gestisce Diagnostica di Azure. |[Estensione di Diagnostica di Azure](https://azure.microsoft.com/blog/windows-azure-virtual-machine-monitoring-with-wad-extension/) |
 | Estensione dell'accesso alla VM di Azure |Gestire gli utenti e le credenziali |[Estensione dell'accesso alla VM per Linux](https://azure.microsoft.com/blog/using-vmaccess-extension-to-reset-login-credentials-for-linux-vm/) |
 
