@@ -16,10 +16,10 @@ ms.date: 4/26/2019
 ms.author: steveesp
 ms.reviewer: kumud, mareat
 ms.openlocfilehash: cb128f9269895f04d1e0dad8e0c8d06c481e86c6
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "100576163"
 ---
 # <a name="virtual-machine-network-bandwidth"></a>Larghezza di banda della rete di macchine virtuali
@@ -69,4 +69,4 @@ La definizione della connessione e i tassi di terminazione possono anche influir
 ## <a name="next-steps"></a>Passaggi successivi
 
 - [Ottimizzare la velocità effettiva di rete per un sistema operativo di macchina virtuale](virtual-network-optimize-network-bandwidth.md)
-- [Testare la velocità effettiva di rete](virtual-network-bandwidth-testing.md) per una macchina virtuale.
+- [Testare la velocità effettiva della rete](virtual-network-bandwidth-testing.md) per una macchina virtuale.
