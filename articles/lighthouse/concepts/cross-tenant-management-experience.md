@@ -1,14 +1,14 @@
 ---
 title: Esperienze di gestione tra tenant
 description: La gestione risorse delegate di Azure consente un'esperienza di gestione tra tenant.
-ms.date: 03/23/2021
+ms.date: 03/29/2021
 ms.topic: conceptual
-ms.openlocfilehash: a774eb08989e8fc45a117d83d81a5b510e8202b4
-ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
+ms.openlocfilehash: 12c4aaa4dda159862344675c802603fcbda2f254
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/26/2021
-ms.locfileid: "105559911"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105934326"
 ---
 # <a name="cross-tenant-management-experiences"></a>Esperienze di gestione tra tenant
 
@@ -77,7 +77,7 @@ La maggior parte delle attività e dei servizi può essere eseguita nelle risors
 
 [Gestione dei costi di Azure e fatturazione](../../cost-management-billing/index.yml):
 
-- Dal tenant di gestione, i partner CSP possono visualizzare, gestire e analizzare i costi di consumo pre-imposte (non inclusi gli acquisti) per i clienti che si trovano nel piano di Azure. Il costo sarà basato sulle tariffe al dettaglio e sull'accesso in base al ruolo di Azure (controllo degli accessi in base al ruolo di Azure) che il partner ha per la sottoscrizione del cliente.
+- Dal tenant di gestione, i partner CSP possono visualizzare, gestire e analizzare i costi di consumo pre-imposte (non inclusi gli acquisti) per i clienti che si trovano nel piano di Azure. Il costo sarà basato sulle tariffe al dettaglio e sull'accesso in base al ruolo di Azure (controllo degli accessi in base al ruolo di Azure) che il partner ha per la sottoscrizione del cliente. Attualmente, è possibile visualizzare i costi di consumo alle tariffe al dettaglio per ogni sottoscrizione di singoli clienti basata sull'accesso RBAC di Azure.
 
 [Azure Key Vault](../../key-vault/general/index.yml):
 

@@ -4,12 +4,12 @@ description: Mostra come applicare i tag per organizzare le risorse Azure per la
 ms.topic: conceptual
 ms.date: 01/04/2021
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: fb93673b643fd13efe9ffea148c5fb1d072f9e05
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 1e755a378fd71ea2763cc3e43477876fa3e8c5d5
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98896224"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105934190"
 ---
 # <a name="use-tags-to-organize-your-azure-resources-and-management-hierarchy"></a>Usare i tag per organizzare le risorse di Azure e la gerarchia di gestione
 
@@ -684,10 +684,10 @@ Il modello seguente aggiunge i tag da un oggetto a un gruppo di risorse o a una 
 
 Per lavorare con i tag tramite l'API REST di Azure, usare:
 
-* [Tag-crea o Aggiorna nell'ambito](/rest/api/resources/tags/createorupdateatscope) (operazione Put)
-* [Tag-aggiornamento nell'ambito](/rest/api/resources/tags/updateatscope) (operazione patch)
-* [Tag-Get nell'ambito](/rest/api/resources/tags/getatscope) (operazione get)
-* [Tag-Delete nell'ambito](/rest/api/resources/tags/deleteatscope) (operazione di eliminazione)
+* [Tag-crea o Aggiorna nell'ambito](/rest/api/resources/resources/tags/createorupdateatscope) (operazione Put)
+* [Tag-aggiornamento nell'ambito](/rest/api/resources/resources/tags/updateatscope) (operazione patch)
+* [Tag-Get nell'ambito](/rest/api/resources/resources/tags/getatscope) (operazione get)
+* [Tag-Delete nell'ambito](/rest/api/resources/resources/tags/deleteatscope) (operazione di eliminazione)
 
 ## <a name="inherit-tags"></a>Eredita Tag
 

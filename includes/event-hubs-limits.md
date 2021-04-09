@@ -1,5 +1,5 @@
 ---
-title: includere la descrizione del file: includere i servizi file: Event-Hub Author: spelluru ms. Service: Event-Hub ms. Topic: include MS. Date: 02/01/2021 ms. Author: spelluru ms. Custom: "include file", "FastTrack-Edit", "Internet", "Event-Hub"
+title: includere la descrizione del file: includere i servizi file: Event-Hub Author: spelluru ms. Service: Event-Hub ms. Topic: include MS. Date: 03/31/2021 ms. Author: spelluru ms. Custom: "include file", "FastTrack-Edit", "Internet", "Event-Hub"
 
 ---
 
@@ -13,13 +13,12 @@ I limiti seguenti sono comuni tra tutti i livelli.
 | Numero di spazi dei nomi di Hub eventi per sottoscrizione |- |100 |
 | Numero di hub eventi per ogni spazio dei nomi | Le successive richieste per la creazione di un nuovo hub eventi vengono rifiutate. |10 |
 | Dimensioni del nome di un hub eventi |- | 256 caratteri |
-| Dimensioni del nome di un gruppo di consumer |- | 256 caratteri |
+| Dimensioni del nome di un gruppo di consumer | Il protocollo Kafka non richiede la creazione di un gruppo di consumer. | <p>Kafka: 256 caratteri</p><p>AMQP: 50 caratteri |
 | Numero di ricevitori non epoch per gruppo consumer |- |5 |
 | Numero di regole di autorizzazione per spazio dei nomi | Le richieste successive di creazione di regole di autorizzazione vengono rifiutate.|12 |
 | Numero di chiamate al metodo GetRuntimeInformation |  - | 50 al secondo | 
 | Numero di reti virtuali (VNet) | - | 128 | 
 | Numero di regole di configurazione IP | - | 128 | 
-
 
 ### <a name="basic-vs-standard-tiers"></a>Livelli Basic e Standard
 La tabella seguente illustra i limiti che possono essere diversi per i livelli Basic e Standard. 

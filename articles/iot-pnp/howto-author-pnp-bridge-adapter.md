@@ -7,12 +7,12 @@ ms.date: 1/20/2021
 ms.topic: how-to
 ms.service: iot-pnp
 services: iot-pnp
-ms.openlocfilehash: 9a7028dfaeb94e87366de7acfa8cebc4c2f4c767
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: ac359e73ae71fd2163fb178caab4a2b5f908a008
+ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98746825"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106057457"
 ---
 # <a name="extend-the-iot-plug-and-play-bridge"></a>Estendi il Bridge Plug and Play
 Il [Bridge](concepts-iot-pnp-bridge.md#iot-plug-and-play-bridge-architecture) Internet delle cose plug and Play consente di connettere i dispositivi esistenti collegati a un gateway all'hub Internet. Si usa il Bridge per eseguire il mapping delle interfacce Plug and Play ai dispositivi collegati. Un'interfaccia Plug and Play di Internet delle cose definisce i dati di telemetria inviati da un dispositivo, le proprietà sincronizzate tra il dispositivo e il cloud e i comandi a cui risponde il dispositivo. È possibile installare e configurare l'applicazione Bridge Open Source nei gateway Windows o Linux. Inoltre, il Bridge può essere eseguito come modulo di runtime Azure IoT Edge.

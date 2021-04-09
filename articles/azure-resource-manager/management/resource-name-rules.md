@@ -3,12 +3,12 @@ title: Restrizioni di denominazione per le risorse
 description: Illustra le regole e le restrizioni di denominazione per le risorse di Azure.
 ms.topic: conceptual
 ms.date: 01/27/2021
-ms.openlocfilehash: 40e17e518baec40d31918d24ab5b61da741f540a
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 20f7b6dc6c49b972b873ae3b275451829dec5c14
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101700474"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105934173"
 ---
 # <a name="naming-rules-and-restrictions-for-azure-resources"></a>Regole di denominazione e restrizioni per le risorse di Azure
 
@@ -599,7 +599,7 @@ Nelle tabelle seguenti il termine alfanumerico fa riferimento a:
 > | Entità | Scope | Length | Caratteri validi |
 > | --- | --- | --- | --- |
 > | deployments | gruppo di risorse | 1-64 | Caratteri alfanumerici, caratteri di sottolineatura, parentesi, trattini e punti. |
-> | resourcegroups | sottoscrizione | 1-90 | Caratteri alfanumerici, caratteri di sottolineatura, parentesi, trattini, punti e caratteri Unicode corrispondenti alla [documentazione regex](/rest/api/resources/resourcegroups/createorupdate).<br><br>Non può terminare con un punto. |
+> | resourcegroups | sottoscrizione | 1-90 | Caratteri alfanumerici, caratteri di sottolineatura, parentesi, trattini, punti e caratteri Unicode corrispondenti alla [documentazione regex](/rest/api/resources/resources/resourcegroups/createorupdate).<br><br>Non può terminare con un punto. |
 > | tagNames | resource | 1-512 | Non è possibile usare:<br>`<>%&\?/` |
 > | tagNames/tagValues | nome tag | 1-256 | Tutti i caratteri. |
 > | templateSpecs | gruppo di risorse | 1-90 | Caratteri alfanumerici, caratteri di sottolineatura, parentesi, trattini e punti. |

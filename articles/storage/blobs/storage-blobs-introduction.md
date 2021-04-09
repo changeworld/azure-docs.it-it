@@ -6,15 +6,15 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: overview
-ms.date: 06/24/2020
+ms.date: 03/27/2021
 ms.author: tamram
 ms.subservice: blobs
-ms.openlocfilehash: b55ea814214397e12e50e7bc5047988394623940
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 6d71fc7931db77f0cf19a4e7ea70731ba19d1f6d
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98703590"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105937312"
 ---
 # <a name="introduction-to-azure-blob-storage"></a>Introduzione all'archiviazione BLOB di Azure
 
@@ -55,7 +55,7 @@ Un contenitore consente di organizzare un set di BLOB, in modo simile a una dire
 
 Archiviazione di Azure supporta tre tipi di BLOB:
 
-- I **BLOB in blocchi** archiviano testo e dati binari. I BLOB in blocchi sono costituiti da blocchi di dati che possono essere gestiti individualmente. I BLOB in blocchi archiviano fino a circa 4,75 TiB di dati. I BLOB in blocchi di dimensioni maggiori sono disponibili in anteprima, con dimensioni fino a circa 190,7 TiB
+- I **BLOB in blocchi** archiviano testo e dati binari. I BLOB in blocchi sono costituiti da blocchi di dati che possono essere gestiti individualmente. I BLOB in blocchi possono archiviare fino a circa 190,7 TiB.
 - **I BLOB di aggiunta** sono costituiti da blocchi, analogamente ai BLOB in blocchi, ma sono ottimizzati per le operazioni di aggiunta. I BLOB di aggiunta sono ideali per scenari come la registrazione di dati delle macchine virtuali.
 - I **BLOB di pagine** archiviano file ad accesso casuale con dimensioni fino a 8 TiB. I BLOB di pagine archiviano i file disco rigido virtuale (VHD) che vengono utilizzati come dischi per macchine virtuali di Azure. Per altre informazioni sui BLOB di pagine, vedere [Panoramica dei BLOB di pagine di Azure](storage-blob-pageblob-overview.md).
 
