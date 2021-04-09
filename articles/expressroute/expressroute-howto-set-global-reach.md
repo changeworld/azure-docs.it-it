@@ -126,5 +126,5 @@ Al termine dell'operazione precedente, non sarà più presente connettività tra
 
 ## <a name="next-steps"></a>Passaggi successivi
 1. [Altre informazioni su Copertura globale di ExpressRoute](expressroute-global-reach.md)
-2. [Verifica della connettività di ExpressRoute](expressroute-troubleshooting-expressroute-overview.md)
+2. [Verificare la connettività di ExpressRoute](expressroute-troubleshooting-expressroute-overview.md)
 3. [Collegare un circuito ExpressRoute a una rete virtuale di Azure](expressroute-howto-linkvnet-arm.md)

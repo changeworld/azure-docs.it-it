@@ -9,10 +9,10 @@ ms.author: terrylan
 manager: rkarlin
 ms.date: 11/10/2020
 ms.openlocfilehash: feb28b1d448d0146046ed789d1389a3a42f344de
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "94557845"
 ---
 # <a name="secure-boot"></a>Avvio protetto
@@ -58,5 +58,5 @@ Per ulteriori informazioni sulle operazioni da eseguire per garantire l'integrit
 - [Sicurezza del firmware](firmware.md)
 - [Attestazione di avvio e host misurata](measured-boot-host-attestation.md)
 - [Progetto Cerberus](project-cerberus.md)
-- [Crittografia di dati inattivi](encryption-atrest.md)
+- [Crittografia inattiva](encryption-atrest.md)
 - [Sicurezza dell'hypervisor](hypervisor.md)

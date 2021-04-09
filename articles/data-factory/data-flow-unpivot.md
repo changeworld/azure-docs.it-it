@@ -48,9 +48,9 @@ Ad esempio, SumCost è il nome della colonna scelto nell'esempio condiviso sopra
 
 ![Immagine che mostra le colonne PO, vendor e Fruit prima e dopo una trasformazione unipivot usando la colonna Fruit come chiave unipivot.](media/data-flow/unpivot3.png)
 
-Impostando la disposizione delle colonne su "Normal", tutte le nuove colonne trasformate tramite UnPivot vengono raggruppate in base a un singolo valore. Impostando la disposizione delle colonne su "laterale" si raggruppano le nuove colonne trasformate tramite UnPivot generate da una colonna esistente.
+Impostando la disposizione delle colonne su "Normal&quot;, tutte le nuove colonne trasformate tramite UnPivot vengono raggruppate in base a un singolo valore. Impostando la disposizione delle colonne su &quot;laterale&quot; si raggruppano le nuove colonne trasformate tramite UnPivot generate da una colonna esistente.
 
-![Screenshot mostra il risultato della trasformazione.](media/data-flow//unpivot7.png "Opzioni UnPivot 5")
+![Screenshot mostra il risultato della trasformazione.](media/data-flow//unpivot7.png &quot;Opzioni UnPivot 5")
 
 Il set di risultati finale dei dati trasformati tramite UnPivot mostra i totali delle colonne, ora trasformati tramite UnPivot in valori di riga separati.
 
