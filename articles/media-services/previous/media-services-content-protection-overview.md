@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/10/2021
 ms.author: inhenkel
-ms.openlocfilehash: edffa2dddd0ec877a4b825a69a76fb158928c89f
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 2922586d586dbbb98ae85fb86f3f76889a75aa6b
+ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103016764"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106067402"
 ---
 # <a name="content-protection-overview"></a>Panoramica della protezione del contenuto
 
@@ -36,7 +36,7 @@ L'immagine seguente illustra il flusso di lavoro di protezione dei contenuti di 
 
 Questo articolo usa una terminologia e illustra concetti importanti per comprendere la protezione dei contenuti con Servizi multimediali. L'articolo include anche collegamenti ad articoli che descrivono come proteggere i contenuti. 
 
-## <a name="dynamic-encryption"></a>Crittografia dinamica
+## <a name="dynamic-encryption&quot;></a>Crittografia dinamica
 
 È possibile usare Servizi multimediali per distribuire i contenuti crittografati dinamicamente con chiave non crittografata AES o con crittografia DRM mediante PlayReady, Widevine o FairPlay. Se il contenuto è crittografato con una chiave non crittografata AES e viene inviato tramite HTTPS, non è chiaro finché non raggiunge il client. 
 
@@ -55,8 +55,8 @@ Per crittografare un asset è necessario associare una chiave simmetrica di crit
 
 Quando un flusso viene richiesto da un lettore, Servizi multimediali usa la chiave specificata per crittografare dinamicamente i contenuti mediante la chiave non crittografata AES o la crittografia DRM. Per decrittografare il flusso, il lettore richiede la chiave dal servizio di distribuzione delle chiavi di Servizi multimediali. Per decidere se l'utente è autorizzato a ottenere la chiave, il servizio valuta i criteri di autorizzazione specificati.
 
-## <a name="aes-128-clear-key-vs-drm"></a>Chiave non crittografata AES-128 e DRM
-I clienti spesso si chiedono se devono usare la crittografia AES o un sistema DRM. La differenza principale tra i due sistemi è che con la crittografia AES la chiave simmetrica viene trasmessa al client in un formato non crittografato ("in chiaro"). Di conseguenza, è possibile visualizzare la chiave usata per crittografare i contenuti in una traccia di rete sul client in testo non crittografato. La crittografia con chiave non crittografata AES-128 è adatta nei casi in cui il visualizzatore è attendibile (ad esempio, la crittografia di video aziendali distribuiti all'interno di un'azienda per essere visualizzati dai dipendenti).
+## <a name=&quot;aes-128-clear-key-vs-drm&quot;></a>Chiave non crittografata AES-128 e DRM
+I clienti spesso si chiedono se devono usare la crittografia AES o un sistema DRM. La differenza principale tra i due sistemi è che con la crittografia AES la chiave simmetrica viene trasmessa al client in un formato non crittografato (&quot;in chiaro"). Di conseguenza, è possibile visualizzare la chiave usata per crittografare i contenuti in una traccia di rete sul client in testo non crittografato. La crittografia con chiave non crittografata AES-128 è adatta nei casi in cui il visualizzatore è attendibile (ad esempio, la crittografia di video aziendali distribuiti all'interno di un'azienda per essere visualizzati dai dipendenti).
 
 PlayReady, Widevine e FairPlay offrono tutti un livello superiore di crittografia rispetto alla crittografia della chiave non crittografata AES-128. La chiave simmetrica viene trasmessa in un formato crittografato. Inoltre, la decrittografia viene gestita in un ambiente sicuro a livello di sistema operativo, più difficilmente attaccabile da un utente malintenzionato. Il DRM è consigliato per i casi d'uso in cui il visualizzatore potrebbe non essere attendibile ed è necessario il massimo livello di sicurezza.
 
@@ -117,7 +117,7 @@ Si applicano le considerazioni seguenti:
 Gli articoli seguenti descrivono i passaggi successivi da eseguire per iniziare a usare la protezione dei contenuti:
 
 * [Proteggere i contenuti con la crittografia di archiviazione](media-services-rest-storage-encryption.md)
-* [Proteggere i contenuti con la crittografia AES](media-services-protect-with-aes128.md)
+* [Proteggere i contenuti con la crittografia AES](media-services-playready-license-template-overview.md)
 * [Proteggi con PlayReady e/o Widevine](media-services-protect-with-playready-widevine.md)
 * [Proteggere con FairPlay](media-services-protect-hls-with-FairPlay.md)
 

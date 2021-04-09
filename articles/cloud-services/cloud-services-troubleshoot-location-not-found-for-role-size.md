@@ -8,10 +8,10 @@ ms.service: cloud-services
 ms.topic: troubleshooting
 ms.date: 02/22/2021
 ms.openlocfilehash: 3d1a1135db0421d89d4c6c9f278c86e02cb5cb32
-ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/26/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "105558959"
 ---
 # <a name="troubleshoot-locationnotfoundforrolesize-when-deploying-a-cloud-service-classic-to-azure"></a>Risolvere i problemi di LocationNotFoundForRoleSize durante la distribuzione di un servizio cloud (versione classica) in Azure
@@ -53,7 +53,7 @@ In questo scenario, è necessario selezionare un'area o uno SKU diverso per dist
 - Usare il parametro `--size` per eseguire la ricerca in base a un nome parziale delle dimensioni.
 - Per ulteriori informazioni, vedere la Guida [risoluzione dell'errore per SKU non disponibile](../azure-resource-manager/templates/error-sku-not-available.md#solution-2---azure-cli) .
 
-    **Ad esempio:**
+    **Per esempio:**
 
     ```azurecli
     az vm list-skus --location southcentralus --size Standard_F --output table
@@ -69,7 +69,7 @@ In questo scenario, è necessario selezionare un'area o uno SKU diverso per dist
 - Per questo comando, è necessaria la versione più recente di PowerShell.
 - Per ulteriori informazioni, vedere la Guida [risoluzione dell'errore per SKU non disponibile](../azure-resource-manager/templates/error-sku-not-available.md#solution-1---powershell) .
 
-**Ad esempio:**
+**Per esempio:**
 
 ```azurepowershell
 Get-AzComputeResourceSku | where {$_.Locations -icontains "centralus"}

@@ -5,21 +5,21 @@ services: front-door
 author: duongau
 ms.service: frontdoor
 ms.topic: conceptual
-ms.date: 02/18/2021
+ms.date: 03/31/2021
 ms.author: yuajia
-ms.openlocfilehash: 8e6ceebc9e92dabe66baeb9aeff0ae9692e2bdad
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: e3e5333b339101676582cec03dbb960148d59b56
+ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101099969"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106067555"
 ---
 # <a name="what-is-a-rule-set-for-azure-front-door-standardpremium-preview"></a>Che cos'è un set di regole per Azure front door standard/Premium (anteprima)?
 
 > [!Note]
 > Questa documentazione è destinata a Azure front door standard/Premium (Preview). Stai cercando informazioni su Azure front door? Visualizza [qui](../front-door-overview.md).
 
-Un set di regole è un motore regole di dominio personalizzato che raggruppa una combinazione di regole in un singolo set che è possibile associare a più route. Il set di regole consente di personalizzare il modo in cui le richieste vengono elaborate al perimetro e il modo in cui le richieste vengono gestite da Azure front door.
+Un set di regole è un motore regole di dominio personalizzato che raggruppa una combinazione di regole in un singolo set. È possibile associare un set di regole a più route. Il set di regole consente di personalizzare la modalità di elaborazione delle richieste al perimetro e il modo in cui le richieste vengono gestite da Azure front door.
 
 > [!IMPORTANT]
 > Azure front door standard/Premium (anteprima) è attualmente disponibile in anteprima pubblica.
@@ -60,16 +60,19 @@ Con il set di regole di front-end di Azure è possibile creare una combinazione 
 
 Per un maggiore limite di quota, vedere [sottoscrizione di Azure e limiti, quote e vincoli dei servizi](../../azure-resource-manager/management/azure-subscription-service-limits.md).
 
-* *Set di regole*: set di regole che vengono associate a una o più [Route](concept-route.md). Ogni configurazione può contenere un massimo di 25 regole. È possibile creare fino a 10 configurazioni.
+* *Set* di regole: set di regole che vengono associate a una o più [Route](concept-route.md).
 
-* *Regola set di regole*: una regola composta da un massimo di 10 condizioni di corrispondenza e 5 azioni. Le regole sono locali rispetto a un set di regole e non possono essere esportate per l'utilizzo tra set di regole. Gli utenti possono creare la stessa regola in più set di regole.
+* Regola *set di regole*: una regola composta da un massimo di 10 condizioni di corrispondenza e 5 azioni. Le regole sono locali rispetto a un set di regole e non possono essere esportate per l'utilizzo tra set di regole. Gli utenti possono creare la stessa regola in più set di regole.
 
-* *Condizione di corrispondenza*: esistono diverse condizioni di corrispondenza che è possibile utilizzare per analizzare le risposte in ingresso. Una regola può contenere fino a 10 condizioni di corrispondenza. Le condizioni di corrispondenza vengono valutate con un operatore **AND**. L' *espressione regolare è supportata nelle condizioni*. Un elenco completo delle condizioni di corrispondenza si trova nella [condizione del set di regole](concept-rule-set-match-conditions.md).
+* *Condizione di corrispondenza*: esistono molte condizioni di corrispondenza che possono essere usate per analizzare le richieste in ingresso. Una regola può contenere fino a 10 condizioni di corrispondenza. Le condizioni di corrispondenza vengono valutate con un operatore **AND**. L' *espressione regolare è supportata nelle condizioni*. Un elenco completo delle condizioni di corrispondenza si trova nelle [condizioni di corrispondenza del set di regole](concept-rule-set-match-conditions.md).
 
 * *Azione*: le azioni determinano il modo in cui AFD gestisce le richieste in ingresso in base alle condizioni di corrispondenza. È possibile modificare i comportamenti di memorizzazione nella cache, modificare le intestazioni di richiesta/risposta, eseguire la riscrittura URL e il reindirizzamento URL. Le *variabili server sono supportate sull'azione*. Una regola può contenere fino a 10 condizioni di corrispondenza. È possibile trovare un elenco completo di azioni per il [set di regole](concept-rule-set-actions.md).
+
+## <a name="arm-template-support"></a>Supporto del modello ARM
+
+I set di regole possono essere configurati tramite Azure Resource Manager modelli. [Vedere un modello di esempio](https://github.com/Azure/azure-quickstart-templates/tree/master/201-front-door-standard-premium-rule-set). È possibile personalizzare il comportamento usando i frammenti di codice JSON o bicipite inclusi negli esempi di documentazione per le [condizioni di corrispondenza e le](concept-rule-set-match-conditions.md) [azioni](concept-rule-set-actions.md).
 
 ## <a name="next-steps"></a>Passaggi successivi
 
 * Informazioni su come [creare uno standard/Premium per la porta anteriore](create-front-door-portal.md).
 * Informazioni su come configurare il primo [set di regole](how-to-configure-rule-set.md).
- 

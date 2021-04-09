@@ -4,7 +4,6 @@ description: Questo argomento di avvio rapido illustra come usare Frontdoor di A
 services: front-door
 author: duongau
 manager: KumudD
-Customer intent: As an IT admin, I want to direct user traffic to ensure high availability of web applications.
 ms.assetid: ''
 ms.service: frontdoor
 ms.devlang: na
@@ -13,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/21/2020
 ms.author: duau
-ms.openlocfilehash: 0b82c11dcd615dfbdcfd70f5f90edd7ba41b4562
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: a64c91910ba65901a6d1374df9633062398a90e4
+ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102201618"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106067656"
 ---
 # <a name="quickstart-create-a-front-door-for-a-highly-available-global-web-application-using-azure-cli"></a>Avvio rapido: Creare un'istanza di Frontdoor per un'applicazione Web globale a disponibilità elevata con l'interfaccia della riga di comando di Azure
 

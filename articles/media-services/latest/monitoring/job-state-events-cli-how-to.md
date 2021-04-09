@@ -12,12 +12,12 @@ ms.topic: how-to
 ms.date: 03/17/2021
 ms.author: inhenkel
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 47d079aa5038a5ef09df30f0561c258bfbf6a9f7
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 967b509ff4832bb8c70c5802699d62f1b209c516
+ms.sourcegitcommit: edc7dc50c4f5550d9776a4c42167a872032a4151
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104609749"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105959654"
 ---
 # <a name="create-and-monitor-media-services-events-with-event-grid-using-the-azure-cli"></a>Creare e monitorare eventi di Servizi multimediali con Griglia di eventi e l'interfaccia della riga di comando di Azure
 
@@ -34,7 +34,7 @@ In questo articolo si userà l'interfaccia della riga di comando di Azure per so
 
     Attualmente, non tutti i comandi dell'[interfaccia della riga di comando di Servizi multimediali v3](/cli/azure/ams) funzionano in Azure Cloud Shell. È consigliabile usare l'interfaccia della riga di comando in locale.
 
-- [Creare un account di Servizi multimediali di Azure](../create-account-howto.md).
+- [Creare un account di Servizi multimediali di Azure](../account-create-how-to.md).
 
     Assicurarsi di ricordare i valori usati per il nome del gruppo di risorse e il nome dell'account di Servizi multimediali.
 
@@ -48,7 +48,7 @@ Prima di sottoscrivere gli eventi per l'account di Servizi multimediali, creare 
 
 1. Per il completamento della distribuzione possono essere necessari alcuni minuti. Dopo il completamento della distribuzione, visualizzare l'app Web per assicurarsi che sia in esecuzione. In un Web browser passare a: `https://<your-site-name>.azurewebsites.net`
 
-Se si passa al sito "Azure Event Grid Viewer" ("Visualizzatore Griglia di eventi di Azure"), è possibile osservare come non contenga ancora alcun evento.
+Se si passa al sito "Azure Event Grid Viewer&quot; (&quot;Visualizzatore Griglia di eventi di Azure"), è possibile osservare come non contenga ancora alcun evento.
    
 [!INCLUDE [event-grid-register-provider-portal.md](../../../../includes/event-grid-register-provider-portal.md)]
 

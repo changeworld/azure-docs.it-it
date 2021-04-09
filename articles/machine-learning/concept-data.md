@@ -12,10 +12,10 @@ ms.author: nibaccam
 ms.date: 08/31/2020
 ms.custom: devx-track-python, data4ml
 ms.openlocfilehash: 601be8409db22162a410d481e6609d378718a7b4
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "102503590"
 ---
 # <a name="secure-data-access-in-azure-machine-learning"></a>Proteggere l'accesso ai dati in Azure Machine Learning
@@ -103,7 +103,7 @@ Con i set di elementi, è possibile eseguire numerose attività di machine learn
 + Eseguire il training di modelli di Machine Learning:
      + [esperimenti di Machine Learning automatici](how-to-use-automated-ml-for-ml-models.md)
      + [finestra di progettazione](tutorial-designer-automobile-price-train-score.md#import-data)
-     + [Notebooks](how-to-train-with-datasets.md)
+     + [Notebook](how-to-train-with-datasets.md)
      + [Pipeline di Azure Machine Learning](./how-to-create-machine-learning-pipelines.md)
 + Accedere ai set di impostazioni per l'assegnazione dei punteggi con l' [inferenza batch](./tutorial-pipeline-batch-scoring-classification.md) nelle [pipeline di Machine Learning](./how-to-create-machine-learning-pipelines.md).
 + Configurare un monitoraggio del set di [dati](#drift) per il rilevamento della deriva.

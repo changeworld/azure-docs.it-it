@@ -2,18 +2,18 @@
 title: Creare un archivio di Configurazione app di Azure con un modello di Azure Resource Manager
 titleSuffix: Azure App Configuration
 description: Informazioni su come creare un archivio di Configurazione app di Azure con un modello di Azure Resource Manager.
-author: ZhijunZhao
-ms.author: zhijzhao
+author: GrantMeStrength
+ms.author: jken
 ms.date: 10/16/2020
-ms.service: azure-resource-manager
+ms.service: azure-app-configuration
 ms.topic: quickstart
 ms.custom: subject-armqs
-ms.openlocfilehash: c35b6d27a5e6d7ffd2a9f76ea201af4a138a77df
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: c5976053e32bcc97e57ef8f74b3249df83d322c4
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99219112"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105933237"
 ---
 # <a name="quickstart-create-an-azure-app-configuration-store-by-using-an-arm-template"></a>Avvio rapido: Creare un archivio di Configurazione app di Azure con un modello di Resource Manager
 
