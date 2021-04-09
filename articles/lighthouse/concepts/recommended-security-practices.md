@@ -4,10 +4,10 @@ description: Quando si usa Azure Lighthouse, è importante prendere in considera
 ms.date: 03/12/2021
 ms.topic: conceptual
 ms.openlocfilehash: 3aa50833b547882506bfad125992bb1c2f4e85bc
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "103419304"
 ---
 # <a name="recommended-security-practices"></a>Procedure di sicurezza consigliate
@@ -39,7 +39,7 @@ Quando si crea la struttura di autorizzazioni, assicurarsi di seguire il princip
 |Architetti     |Gruppo utenti         |\<principalId\>         |Collaboratore         |b24988ac-6180-42a0-ab88-20f7382dd24c  |
 |Valutazione     |Gruppo utenti         |\<principalId\>         |Lettore         |acdd72a7-3385-48ef-bd42-f606fba81ae7  |
 |Specialisti di macchine virtuali     |Gruppo utenti         |\<principalId\>         |Collaboratore macchina virtuale         |9980e02c-c2be-4d73-94e8-173b1dc7cf3c  |
-|Automazione     |Nome dell'entità servizio (SPN)         |\<principalId\>         |Autore di contributi         |b24988ac-6180-42a0-ab88-20f7382dd24c  |
+|Automazione     |Nome dell'entità servizio (SPN)         |\<principalId\>         |Collaboratore         |b24988ac-6180-42a0-ab88-20f7382dd24c  |
 
 Una volta creati questi gruppi, è possibile assegnare gli utenti in base alle esigenze. Aggiungere solo gli utenti che devono avere effettivamente accesso. Controllare regolarmente l'appartenenza ai gruppi e rimuovere gli utenti che non è più appropriato o necessario includere.
 

@@ -7,12 +7,12 @@ ms.author: chpalm
 ms.date: 11/16/2020
 ms.topic: quickstart
 ms.service: azure-communication-services
-ms.openlocfilehash: 99263695aa0842daf59f23cda115dcb5b27b7add
-ms.sourcegitcommit: ba3a4d58a17021a922f763095ddc3cf768b11336
+ms.openlocfilehash: e55cfb1a4dff7bfda2323e68777d6f50514b1608
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/23/2021
-ms.locfileid: "104804063"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105930235"
 ---
 # <a name="teams-embed"></a>Incorporare i team
 
@@ -21,7 +21,7 @@ ms.locfileid: "104804063"
 
 I team incorporati sono una funzionalità di servizi di comunicazione di Azure incentrata sulle interazioni comuni tra le chiamate business-to-consumer e business-to-business. Il nucleo del sistema di incorporamento dei team è la [chiamata a video e voce](../voice-video-calling/calling-sdk-features.md), ma i team incorporano il sistema in base alle primitive chiamanti di Azure per offrire un'esperienza utente completa basata sulle riunioni dei team Microsoft.
 
-I team incorporano le librerie client sono closed source e rendono disponibili tali funzionalità in un formato composito e chiavi in mano. È possibile eliminare i team incorporati nell'area di disegno dell'app e la libreria client genera un'esperienza utente completa. Poiché questa esperienza utente è molto simile alle riunioni dei team Microsoft, è possibile sfruttare i vantaggi offerti da:
+I team incorporano gli SDK sono closed source e rendono disponibili tali funzionalità in un formato composito e chiavi in mano. È possibile eliminare i team incorporati nell'area di disegno dell'app e l'SDK genera un'esperienza utente completa. Poiché questa esperienza utente è molto simile alle riunioni dei team Microsoft, è possibile sfruttare i vantaggi offerti da:
 
 - Riduzione del tempo di sviluppo e della complessità della progettazione
 - Familiarità con l'utente finale con i team

@@ -12,12 +12,12 @@ manager: daveba
 ms.reviewer: jairoc
 ms.collection: M365-identity-device-management
 ms.custom: has-adal-ref
-ms.openlocfilehash: 1eb4194354a07d5b580f07cfe5962785a4e100bd
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 3fd837a4c547b227147752b03b6a7312c733a5ae
+ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104578022"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106057015"
 ---
 # <a name="troubleshooting-hybrid-azure-active-directory-joined-devices"></a>Risoluzione dei problemi relativi a dispositivi aggiunti all'identità ibrida di Azure Active Directory
 
@@ -29,7 +29,7 @@ Questo articolo presuppone che siano stati [configurati dispositivi aggiunti all
 
 - Accesso condizionale basato sul dispositivo
 - [Roaming aziendale delle impostazioni](./enterprise-state-roaming-overview.md)
-- [Windows Hello for business](/windows/security/identity-protection/hello-for-business/hello-identity-verification)
+- [Windows Hello for Business](/windows/security/identity-protection/hello-for-business/hello-identity-verification) (Configurare Windows Hello for Business)
 
 Questo documento fornisce indicazioni sulla risoluzione dei problemi per risolvere potenziali problemi.
 
@@ -370,6 +370,12 @@ Usare i log di Visualizzatore eventi per individuare la fase e il codice ErrorCo
 - **WININET_E_CONNECTION_ABORTED** (0x80072efe/-2147012866)
    - Motivo: la connessione al server è stata interrotta in modo anomalo.
    - Soluzione: riprovare tra qualche minuto o provare a partecipare da un percorso di rete stabile alternativo.
+
+##### <a name="other-errors"></a>Altri errori
+
+- **DSREG_AUTOJOIN_ADCONFIG_READ_FAILED** (0x801c001d/-2145648611)
+   - Motivo: ID evento 220 presente nei registri eventi di registrazione dispositivo utente. Windows non è in grado di accedere all'oggetto computer in Active Directory. Un codice di errore di Windows può essere incluso nell'evento. Per i codici di errore ERROR_NO_SUCH_LOGON_SESSION (1312) e ERROR_NO_SUCH_USER (1317), questi sono correlati ai problemi di replica in AD locale.
+   - Soluzione: risolvere i problemi di replica in AD. I problemi di replica possono essere temporanei e possono andare oltre un certo periodo di tempo.
 
 ##### <a name="federated-join-server-errors"></a>Errori del server join federato
 

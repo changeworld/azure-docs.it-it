@@ -13,12 +13,12 @@ ms.tgt_pltfrm: virtual-network
 ms.workload: infrastructure
 ms.date: 03/16/2021
 ms.author: kumud
-ms.openlocfilehash: f8090ea9c0d307d1bd290c4cf4dac9bfaabf7c4b
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 63ea6821097327498803abc6577f28e595883bc0
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 03/30/2021
-ms.locfileid: "104576322"
+ms.locfileid: "105932931"
 ---
 # <a name="tutorial-route-network-traffic-with-a-route-table-using-the-azure-portal"></a>Esercitazione: Instradare il traffico di rete con una tabella di route usando il portale di Azure
 
@@ -34,7 +34,9 @@ Per impostazione predefinita, Azure instrada il traffico tra tutte le subnet di 
 
 Questa esercitazione usa il [portale di Azure](https://portal.azure.com). È anche possibile usare l'[interfaccia della riga di comando di Azure](tutorial-create-route-table-cli.md) o [Azure PowerShell](tutorial-create-route-table-powershell.md).
 
-Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) prima di iniziare.
+## <a name="prerequisites"></a>Prerequisiti
+
+Prima di iniziare, è necessario un account Azure con una sottoscrizione attiva. Se non si dispone di un account, è possibile [crearne uno gratuitamente](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
 ## <a name="prerequisites"></a>Prerequisiti
 

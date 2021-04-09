@@ -6,13 +6,13 @@ author: kromerm
 ms.reviewer: daperlov
 ms.service: data-factory
 ms.topic: troubleshooting
-ms.date: 03/18/2021
-ms.openlocfilehash: 7678d0fde21cefc950e0ac64a58563425c606298
-ms.sourcegitcommit: c8b50a8aa8d9596ee3d4f3905bde94c984fc8aa2
+ms.date: 03/25/2021
+ms.openlocfilehash: 72ab685b58f7d940fe4d682cacba6212fe80ced8
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2021
-ms.locfileid: "105640227"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105933084"
 ---
 # <a name="troubleshoot-mapping-data-flows-in-azure-data-factory"></a>Risolvere i problemi relativi al mapping dei flussi di dati in Azure Data Factory
 
@@ -341,6 +341,110 @@ Questo articolo illustra i metodi comuni per la risoluzione dei problemi relativ
 1. Verificare lo stato delle connessioni del set di dati. In ogni trasformazione di origine e sink andare al servizio collegato per ogni set di dati in uso e testare le connessioni.
 2. Verificare lo stato delle connessioni di file e tabelle nella finestra di progettazione del flusso di dati. In modalità di debug selezionare **Anteprima dati** nelle trasformazioni di origine per assicurarsi che sia possibile accedere ai dati.
 3. Se tutti gli elementi sono corretti nell'anteprima dei dati, passare alla finestra di progettazione della pipeline e inserire il flusso di dati in un'attività della pipeline. Eseguire il debug della pipeline per un test end-to-end.
+
+### <a name="improvement-on-csvcdm-format-in-data-flow"></a>Miglioramento del formato CSV/CDM nel flusso di dati 
+
+Se si usa il **testo delimitato o la formattazione CDM per il mapping del flusso di dati in Azure Data Factory V2**, è possibile che si verifichino le modifiche del comportamento delle pipeline esistenti a causa del miglioramento del testo/CDM delimitato nel flusso di dati a partire dal **1 ° maggio 2021**. 
+
+È possibile che si verifichino i seguenti problemi prima del miglioramento, ma dopo il miglioramento i problemi sono stati risolti. Leggere il contenuto seguente per determinare se questo miglioramento riguarda l'utente. 
+
+#### <a name="scenario-1-encounter-the-unexpected-row-delimiter-issue"></a>Scenario 1: si verifica il problema di delimitatore di riga imprevisto
+
+ Il problema si verifica se si verificano le condizioni seguenti:
+ - Uso del testo delimitato con l'impostazione su più righe impostato su true o CDM come origine.
+ - La prima riga contiene più di 128 caratteri. 
+ - Il delimitatore di riga nei file di dati non lo è `\n` .
+
+ Prima del miglioramento, il delimitatore di riga predefinito `\n` può essere usato in modo imprevisto per analizzare i file di testo delimitati, perché quando l'impostazione su più righe è impostata su true, invalida l'impostazione del delimitatore di riga e il delimitatore di riga viene rilevato automaticamente in base ai primi 128 caratteri. Se non si riesce a rilevare il delimitatore di riga effettivo, viene eseguito il fallback a `\n` .  
+
+ Dopo il miglioramento, è necessario che venga utilizzato uno dei tre delimitatori di riga, ovvero, `\r` `\n` `\r\n` .
+ 
+ Nell'esempio seguente viene illustrata una modifica del comportamento della pipeline dopo il miglioramento:
+
+ **Esempio**:<br/>
+   Per la colonna seguente:<br/>
+    `C1, C2, {long first row}, C128\r\n `<br/>
+    `V1, V2, {values………………….}, V128\r\n `<br/>
+ 
+   Prima del miglioramento, `\r` viene mantenuto nel valore della colonna. Il risultato della colonna analizzata è:<br/>
+   `C1 C2 {long first row} C128`**`\r`**<br/>
+   `V1 V2 {values………………….} V128`**`\r`**<br/> 
+
+   Dopo il miglioramento, il risultato della colonna analizzata dovrebbe essere:<br/>
+   `C1 C2 {long first row} C128`<br/>
+   `V1 V2 {values………………….} V128`<br/>
+  
+#### <a name="scenario-2-encounter-an-issue-of-incorrectly-reading-column-values-containing-rn"></a>Scenario 2: si verifica un problema durante la lettura non corretta di valori di colonna contenenti ' \r\n '
+
+ Il problema si verifica se si verificano le condizioni seguenti:
+ - Uso del testo delimitato con l'impostazione su più righe impostato su true o CDM come origine. 
+ - Il delimitatore di riga è `\r\n` .
+
+ Prima del miglioramento, durante la lettura del valore della colonna `\r\n` è possibile che l'oggetto in essa venga sostituito in modo errato da `\n` . 
+
+ Dopo il miglioramento, `\r\n` il valore della colonna non verrà sostituito da `\n` .
+
+ Nell'esempio seguente viene illustrata una modifica del comportamento della pipeline dopo il miglioramento:
+ 
+ **Esempio**:<br/>
+  
+ Per la colonna seguente:<br/>
+  **`"A\r\n"`**`, B, C\r\n`<br/>
+
+ Prima del miglioramento, il risultato della colonna analizzata è:<br/>
+  **`A\n`**` B C`<br/>
+
+ Dopo il miglioramento, il risultato della colonna analizzata dovrebbe essere:<br/>
+  **`A\r\n`**` B C`<br/>  
+
+#### <a name="scenario-3-encounter-an-issue-of-incorrectly-writing-column-values-containing-n"></a>Scenario 3: si verifica un problema di scrittura non corretta di valori di colonna contenenti ' \n '
+
+ Il problema si verifica se si verificano le condizioni seguenti:
+ - Uso del testo delimitato come sink.
+ - Il valore della colonna contiene `\n` .
+ - Il delimitatore di riga è impostato su `\r\n`.
+ 
+ Prima del miglioramento, quando si scrive il valore della colonna, `\n` è possibile che venga sostituito erroneamente da `\r\n` . 
+
+ Dopo il miglioramento, `\n` il valore della colonna non verrà sostituito da `\r\n` .
+ 
+ Nell'esempio seguente viene illustrata una modifica del comportamento della pipeline dopo il miglioramento:
+
+ **Esempio**:<br/>
+
+ Per la colonna seguente:<br/>
+ **`A\n`**` B C`<br/>
+
+ Prima del miglioramento, il sink CSV è:<br/>
+  **`"A\r\n"`**`, B, C\r\n` <br/>
+
+ Dopo il miglioramento, il sink CSV deve essere:<br/>
+  **`"A\n"`**`, B, C\r\n`<br/>
+
+#### <a name="scenario-4-encounter-an-issue-of-incorrectly-reading-empty-string-as-null"></a>Scenario 4: si verifica un problema di lettura non corretta di una stringa vuota come NULL
+ 
+ Il problema si verifica se si verificano le condizioni seguenti:
+ - Uso del testo delimitato come origine. 
+ - Il valore NULL è impostato su un valore non vuoto. 
+ - Il valore della colonna è una stringa vuota e non è racchiuso tra virgolette. 
+ 
+ Prima del miglioramento, il valore della colonna della stringa vuota non racchiusa tra virgolette viene letto come NULL. 
+
+ Dopo il miglioramento, la stringa vuota non verrà analizzata come valore NULL. 
+ 
+ Nell'esempio seguente viene illustrata una modifica del comportamento della pipeline dopo il miglioramento:
+
+ **Esempio**:<br/>
+
+ Per la colonna seguente:<br/>
+  `A, ,B, `<br/>
+
+ Prima del miglioramento, il risultato della colonna analizzata è:<br/>
+  `A null B null`<br/>
+
+ Dopo il miglioramento, il risultato della colonna analizzata dovrebbe essere:<br/>
+  `A "" (empty string) B "" (empty string)`<br/>
+
 
 ## <a name="next-steps"></a>Passaggi successivi
 

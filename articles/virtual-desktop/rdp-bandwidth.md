@@ -6,18 +6,19 @@ author: gundarev
 ms.topic: conceptual
 ms.date: 11/16/2020
 ms.author: denisgun
-ms.openlocfilehash: c9ef72241ac62efd8555de59bb52949321364035
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 6fe12c985f5d9a519380d1d9b5a7d6c2820630c6
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96325180"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105932336"
 ---
 # <a name="remote-desktop-protocol-rdp-bandwidth-requirements"></a>Requisiti per la larghezza di banda Remote Desktop Protocol (RDP)
 
 Remote Desktop Protocol (RDP) è una tecnologia sofisticata che usa varie tecniche per perfezionare il recapito della grafica remota del server al dispositivo client. A seconda del caso d'uso, della disponibilità delle risorse di elaborazione e della larghezza di banda di rete, RDP regola dinamicamente i vari parametri per offrire la migliore esperienza utente.
 
-Remote Desktop Protocol multiplexing di più canali virtuali dinamici (DVCs) in un singolo canale di dati inviato attraverso trasporti di rete diversi. Sono disponibili DVCs separate per la grafica remota, l'input, il reindirizzamento dei dispositivi, la stampa e altro. I partner WVD possono anche implementare le estensioni che usano le interfacce DVC.
+Remote Desktop Protocol multiplexing di più canali virtuali dinamici (DVCs) in un singolo canale di dati inviato attraverso trasporti di rete diversi. Sono disponibili DVCs separate per la grafica remota, l'input, il reindirizzamento dei dispositivi, la stampa e altro ancora. I partner desktop virtuali di Windows possono anche usare le estensioni che usano le interfacce DVC.
+
 La quantità di dati inviati tramite RDP dipende dall'attività dell'utente. Ad esempio, un utente può utilizzare contenuti testuali di base per la maggior parte della sessione e utilizzare una larghezza di banda minima, ma quindi generare una stampa di un documento di pagina 200 sulla stampante locale. Questo processo di stampa utilizzerà una notevole quantità di larghezza di banda di rete.
 
 Quando si usa una sessione remota, la larghezza di banda disponibile per la rete influisca significativamente sulla qualità dell'esperienza utente. Diverse applicazioni e risoluzioni di visualizzazione richiedono configurazioni di rete diverse, quindi è essenziale assicurarsi che la configurazione di rete soddisfi le proprie esigenze.
