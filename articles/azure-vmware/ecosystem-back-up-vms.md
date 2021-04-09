@@ -4,10 +4,10 @@ description: Informazioni sulle soluzioni di backup e ripristino iniziali per le
 ms.topic: how-to
 ms.date: 03/17/2021
 ms.openlocfilehash: 368c5f600527ea564eb168cad0e9681ebf0b6fc7
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "104586132"
 ---
 # <a name="backup-solutions-for-azure-vmware-solution-virtual-machines-vms"></a>Soluzioni di backup per macchine virtuali della soluzione VMware di Azure (VM)

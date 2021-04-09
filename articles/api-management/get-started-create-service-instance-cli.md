@@ -8,10 +8,10 @@ ms.custom: ''
 ms.date: 09/10/2020
 ms.author: apimpm
 ms.openlocfilehash: 72d1faac02a21f23d46eb992af1d501bca89e71f
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "101688077"
 ---
 # <a name="quickstart-create-a-new-azure-api-management-service-instance-by-using-the-azure-cli"></a>Guida introduttiva: creare una nuova istanza del servizio gestione API di Azure usando l'interfaccia della riga di comando di Azure

@@ -4,16 +4,16 @@ description: Per creare applicazioni resilienti e a disponibilità elevata in Az
 author: prsandhu
 ms.service: azure
 ms.topic: conceptual
-ms.date: 03/16/2021
+ms.date: 03/30/2021
 ms.author: prsandhu
 ms.reviewer: cynthn
 ms.custom: fasttrack-edit, mvc, references_regions
-ms.openlocfilehash: 5152b0ecf6eebe87031a2165d5d8ba11d99209cf
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: a81f3a3c51ffd0e1e0937c077a07fcbde16f0513
+ms.sourcegitcommit: edc7dc50c4f5550d9776a4c42167a872032a4151
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 03/30/2021
-ms.locfileid: "103601186"
+ms.locfileid: "105961303"
 ---
 # <a name="azure-services-that-support-availability-zones"></a>Servizi di Azure che supportano le zone di disponibilità
 
@@ -50,15 +50,15 @@ Per garantire la continuità aziendale completa in Azure, creare l'architettura 
 | Americhe           | Europa               | Africa              | Asia Pacifico   |
 |--------------------|----------------------|---------------------|----------------|
 |                    |                      |                     |                |
-| Brasile meridionale       | Francia centrale       | Sudafrica settentrionale * | Giappone orientale     |
-| Canada centrale     | Germania centro-occidentale |                     | Asia sud-orientale |
-| Stati Uniti centrali         | Europa settentrionale         |                     | Australia orientale |
-| Stati Uniti orientali            | Regno Unito meridionale             |                     |                |
+| Brasile meridionale       | Francia centrale       | Sudafrica settentrionale * | Australia orientale |
+| Canada centrale     | Germania centro-occidentale |                     | Giappone orientale     |
+| Stati Uniti centrali         | Europa settentrionale         |                     | Corea centrale * |
+| Stati Uniti orientali            | Regno Unito meridionale             |                     | Asia sud-orientale |
 | Stati Uniti orientali 2          | Europa occidentale          |                     |                |
 | Stati Uniti centro-meridionali |                      |                     |                |
-| US Gov Virginia     |                      |                     |                |
+| US Gov Virginia    |                      |                     |                |
 | Stati Uniti occidentali 2        |                      |                     |                |
-
+| Stati Uniti occidentali 3 *       |                      |                     |                |
 
 \* Per ulteriori informazioni sul supporto di zone di disponibilità e dei servizi disponibili in queste aree, contattare il rappresentante Microsoft Sales o Customer rappresentante. Per le aree future che supporteranno zone di disponibilità, vedere [geografie di Azure](https://azure.microsoft.com/en-us/global-infrastructure/geographies/).
 

@@ -6,10 +6,10 @@ ms.topic: how-to
 ms.custom: hdinsightactive,seoapr2020
 ms.date: 01/12/2021
 ms.openlocfilehash: 1b4570b09994f292de2b175396e4b6d1882658d9
-ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/23/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "104866489"
 ---
 # <a name="manage-hdinsight-clusters-by-using-the-apache-ambari-web-ui"></a>Gestire i cluster HDInsight usando l'interfaccia utente Web di Apache Ambari
@@ -160,7 +160,7 @@ La pagina **Hosts** elenca tutti gli host del cluster. Per gestire gli host, seg
     |Disattivare la modalità di manutenzione|Restituisce l'host agli avvisi normali.|
     |Interrompere|Arresta dataNode o NodeManagers nell'host.|
     |Avvio|Avvia dataNode o NodeManagers nell'host.|
-    |Riavvia|Arresta e avvia dataNode o NodeManagers nell'host.|
+    |Riavvio|Arresta e avvia dataNode o NodeManagers nell'host.|
     |Rimozione delle autorizzazioni|Rimuove un host dal cluster. **Non usare questa azione nei cluster HDInsight.**|
     |Ripristinare|Aggiunge un host precedentemente rimosso al cluster. **Non usare questa azione nei cluster HDInsight.**|
 
