@@ -5,10 +5,10 @@ ms.reviewer: srinathv
 ms.topic: troubleshooting
 ms.date: 08/30/2019
 ms.openlocfilehash: 2d09081533cdb2de5ee97cb000e9844b41a85ac3
-ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/26/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "105559367"
 ---
 # <a name="troubleshooting-backup-failures-on-azure-virtual-machines"></a>Risoluzione degli errori di backup nelle macchine virtuali di Azure
@@ -112,7 +112,7 @@ L'operazione di backup non è riuscita a causa di un problema con il servizio di
 Codice errore: ExtensionFailedVssWriterInBadState <br/>
 Messaggio di errore: L'operazione di creazione snapshot non è riuscita perché lo stato di VSS writer non è valido.
 
-Questo errore si verifica perché i writer del servizio Copia Shadow del volume sono in uno stato non valido. Le estensioni di backup di Azure interagiscono con i writer VSS per creare snapshot dei dischi. Per risolvere questo problema, seguire questa procedura:
+Questo errore si verifica perché i writer del servizio Copia Shadow del volume sono in uno stato non valido. Le estensioni di backup di Azure interagiscono con i writer VSS per creare snapshot dei dischi. Per risolvere il problema, seguire questa procedura:
 
 Passaggio 1: Riavviare i writer VSS in uno stato non valido.
 
@@ -148,7 +148,7 @@ Soluzione:
 Codice di errore: ExtensionFailedVssServiceInBadState <br/>
 Messaggio di errore: l'operazione di snapshot non è riuscita a causa di un servizio VSS (copia shadow del volume) in stato non valido.
 
-Questo errore si verifica perché il servizio VSS è in uno stato non valido. Le estensioni di backup di Azure interagiscono con il servizio VSS per creare snapshot dei dischi. Per risolvere questo problema, seguire questa procedura:
+Questo errore si verifica perché il servizio VSS è in uno stato non valido. Le estensioni di backup di Azure interagiscono con il servizio VSS per creare snapshot dei dischi. Per risolvere il problema, seguire questa procedura:
 
 Riavviare il Servizio Copia Shadow del volume.
 

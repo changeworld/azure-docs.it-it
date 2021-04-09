@@ -4,10 +4,10 @@ description: Informazioni su come eseguire la migrazione di un server abilitato 
 ms.date: 02/10/2021
 ms.topic: conceptual
 ms.openlocfilehash: 251a347205d93af715add52db293d8000438df44
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "101650176"
 ---
 # <a name="how-to-migrate-azure-arc-enabled-servers-across-regions"></a>Come eseguire la migrazione di server abilitati per Azure Arc tra aree

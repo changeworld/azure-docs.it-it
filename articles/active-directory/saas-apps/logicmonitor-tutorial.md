@@ -95,7 +95,7 @@ Per abilitare l'accesso Single Sign-On di Azure AD nel portale di Azure, seguire
     ![Copiare gli URL di configurazione](common/copy-configuration-urls.png)
 
 
-### <a name="create-an-azure-ad-test-user"></a>Creare un utente di test di Azure AD
+### <a name="create-an-azure-ad-test-user&quot;></a>Creare un utente di test di Azure AD
 
 In questa sezione verrà creato un utente di test di nome B.Simon nel portale di Azure.
 
@@ -107,7 +107,7 @@ In questa sezione verrà creato un utente di test di nome B.Simon nel portale di
    1. Selezionare la casella di controllo **Mostra password** e quindi prendere nota del valore visualizzato nella casella **Password**.
    1. Fare clic su **Crea**.
 
-### <a name="assign-the-azure-ad-test-user"></a>Assegnare l'utente di test di Azure AD
+### <a name=&quot;assign-the-azure-ad-test-user&quot;></a>Assegnare l'utente di test di Azure AD
 
 In questa sezione si consentirà a B. Simon di usare Azure Single Sign-On concedendo l'accesso a LogicMonitor.
 
@@ -116,16 +116,16 @@ In questa sezione si consentirà a B. Simon di usare Azure Single Sign-On conced
 1. Nella pagina di panoramica dell'app trovare la sezione **Gestione** e selezionare **Utenti e gruppi**.
 1. Selezionare **Aggiungi utente** e quindi **Utenti e gruppi** nella finestra di dialogo **Aggiungi assegnazione**.
 1. Nella finestra di dialogo **Utenti e gruppi** selezionare **B.Simon** dall'elenco degli utenti e quindi fare clic sul pulsante **Seleziona** nella parte inferiore della schermata.
-1. Se si prevede che agli utenti venga assegnato un ruolo, è possibile selezionarlo nell'elenco a discesa **Selezionare un ruolo**. Se per questa app non è stato configurato alcun ruolo, il ruolo selezionato è "Accesso predefinito".
+1. Se si prevede che agli utenti venga assegnato un ruolo, è possibile selezionarlo nell'elenco a discesa **Selezionare un ruolo**. Se per questa app non è stato configurato alcun ruolo, il ruolo selezionato è &quot;Accesso predefinito&quot;.
 1. Nella finestra di dialogo **Aggiungi assegnazione** fare clic sul pulsante **Assegna**.
 
-### <a name="configure-logicmonitor-sso"></a>Configurare LogicMonitor SSO
+### <a name=&quot;configure-logicmonitor-sso&quot;></a>Configurare LogicMonitor SSO
 
 1. Accedere al sito della società **LogicMonitor** come amministratore.
 
 2. Nel menu in alto fare clic su **Impostazioni**.
 
-    ![Impostazioni](./media/logicmonitor-tutorial/ic790052.png "Impostazioni")
+    ![Impostazioni](./media/logicmonitor-tutorial/ic790052.png &quot;Impostazioni")
 
 3. Nel blocco di navigazione sul lato sinistro fare clic su **Single Sign-on**.
 

@@ -4,10 +4,10 @@ description: Elenca tutti gli spazi dei nomi del provider di risorse per Azure R
 ms.topic: conceptual
 ms.date: 03/16/2021
 ms.openlocfilehash: d8239a9305560eb77ac2c714b993373f0d5b16fb
-ms.sourcegitcommit: a8ff4f9f69332eef9c75093fd56a9aae2fe65122
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/24/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "105023011"
 ---
 # <a name="resource-providers-for-azure-services"></a>Provider di risorse per i servizi di Azure
@@ -59,12 +59,12 @@ I provider di risorse contrassegnati con **-registered** sono registrati per imp
 | Microsoft.CognitiveServices | [Servizi cognitivi](../../cognitive-services/index.yml) |
 | Microsoft. Commerce- [registrato](#registration) | core |
 | Microsoft.Compute | [Macchine virtuali](../../virtual-machines/index.yml)<br />[Set di scalabilità di macchine virtuali](../../virtual-machine-scale-sets/index.yml) |
-| Microsoft. consumo- [registrato](#registration) | [Gestione costi](/azure/cost-management/) |
+| Microsoft. consumo- [registrato](#registration) | [Gestione dei costi](/azure/cost-management/) |
 | Microsoft.ContainerInstance | [Istanze di Container](../../container-instances/index.yml) |
 | Microsoft.ContainerRegistry | [Registro Container](../../container-registry/index.yml) |
 | Microsoft.ContainerService | [Servizio Azure Kubernetes](../../aks/index.yml) |
-| Microsoft. CostManagement- [registrato](#registration) | [Gestione costi](/azure/cost-management/) |
-| Microsoft.CostManagementExports | [Gestione costi](/azure/cost-management/) |
+| Microsoft. CostManagement- [registrato](#registration) | [Gestione dei costi](/azure/cost-management/) |
+| Microsoft.CostManagementExports | [Gestione dei costi](/azure/cost-management/) |
 | Microsoft.CustomerLockbox | [Customer Lockbox per Microsoft Azure](../../security/fundamentals/customer-lockbox-overview.md) |
 | Microsoft.CustomProviders | [Provider personalizzati di Azure](../custom-providers/overview.md) |
 | Microsoft.DataBox | [Azure Data Box](../../databox/index.yml) |

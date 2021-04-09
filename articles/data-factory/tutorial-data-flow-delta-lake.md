@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.custom: seo-lt-2021
 ms.date: 02/09/2021
 ms.openlocfilehash: cb8d44353e826df14ed3baab2c4ca66ffed4a569
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "100417664"
 ---
 # <a name="transform-data-in-delta-lake-using-mapping-data-flows"></a>Trasformare i dati in Delta Lake usando i flussi di dati di mapping
@@ -68,11 +68,11 @@ In questo passaggio verrà creata una pipeline che contiene un'attività flusso 
 
     ![Screenshot che mostra dove assegnare un nome al flusso di dati quando si crea un nuovo flusso di dati.](media/tutorial-data-flow/activity2.png)
 
-## <a name="build-transformation-logic-in-the-data-flow-canvas"></a>Logica di trasformazione compilazione nell'area di disegno del flusso di dati
+## <a name="build-transformation-logic-in-the-data-flow-canvas&quot;></a>Logica di trasformazione compilazione nell'area di disegno del flusso di dati
 
 In questa esercitazione si genereranno due flussi di dati. Il primo flusso di dati è un'origine semplice da affondare per generare una nuova versione Delta Lake dal file CSV dei film riportato sopra. Infine, la progettazione del flusso verrà creata di seguito per aggiornare i dati in Delta Lake.
 
-![Flusso finale](media/data-flow/data-flow-tutorial-6.png "Flusso finale")
+![Flusso finale](media/data-flow/data-flow-tutorial-6.png &quot;Flusso finale")
 
 ### <a name="tutorial-objectives"></a>Obiettivi dell'esercitazione
 

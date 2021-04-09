@@ -9,10 +9,10 @@ ms.author: robreed
 ms.date: 05/02/2018
 ms.topic: how-to
 ms.openlocfilehash: 633f4fa6254b2db7a802bb29bffc83b271216d49
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "104601755"
 ---
 # <a name="run-scripts-in-your-linux-vm"></a>Eseguire gli script nella macchina virtuale Linux
@@ -69,6 +69,6 @@ Il [console seriale](/troubleshoot/azure/virtual-machines/serial-console-linux) 
 Altre informazioni sulle diverse funzioni che sono disponibili per eseguire script e comandi all'interno delle macchine virtuali.
 
 * [Estensione di script personalizzati](../extensions/custom-script-linux.md)
-* [Eseguire un comando](run-command.md)
+* [Esegui comando](run-command.md)
 * [Ruolo di lavoro ibrido per runbook](../../automation/automation-hybrid-runbook-worker.md)
 * [console seriale](/troubleshoot/azure/virtual-machines/serial-console-linux)
