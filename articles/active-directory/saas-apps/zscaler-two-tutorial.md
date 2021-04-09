@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 12/18/2020
 ms.author: jeedes
 ms.openlocfilehash: 8c3d76f24cce860538dc3bd5dcf29b59708bdb5d
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "98726248"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-zscaler-two"></a>Esercitazione: Integrazione di Azure Active Directory con Zscaler Two
@@ -200,14 +200,14 @@ In questa sezione si abilita Britta Simon all'uso dell'accesso Single Sign-On di
 
     b. Fare clic su **Attiva**.
 
-## <a name="configuring-proxy-settings"></a>Configurazione delle impostazioni proxy
-### <a name="to-configure-the-proxy-settings-in-internet-explorer"></a>Per configurare le impostazioni proxy in Internet Explorer
+## <a name="configuring-proxy-settings&quot;></a>Configurazione delle impostazioni proxy
+### <a name=&quot;to-configure-the-proxy-settings-in-internet-explorer&quot;></a>Per configurare le impostazioni proxy in Internet Explorer
 
 1. Avviare **Internet Explorer**.
 
 2. Selezionare **Opzioni Internet** dal menu **Strumenti** per aprire la finestra di dialogo **Opzioni Internet**.   
     
-     ![Opzioni Internet](./media/zscaler-two-tutorial/ic769492.png "Opzioni Internet")
+     ![Opzioni Internet](./media/zscaler-two-tutorial/ic769492.png &quot;Opzioni Internet")
 
 3. Fare clic sulla scheda **Connessioni** .   
   

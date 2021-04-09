@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 01/19/2021
 ms.custom: dpalled
 ms.openlocfilehash: 5e8e5367daa532fa0cc36a18cd28b382e7cd8f78
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "98682903"
 ---
 # <a name="model-synchronization-between-azure-digital-twins-and-time-series-insights-gen2"></a>Sincronizzazione dei modelli tra Gemelli digitali di Azure e Time Series Insights Gen2
@@ -82,10 +82,10 @@ Il frammento di codice seguente mostra in che modo l'applicazione client è stat
 
 > [!Note]
 >
-> Questo esempio di frammento di codice presuppone che i lettori abbiano familiarità con la [parte 01](../digital-twins/tutorial-end-to-end.md#set-up-the-sample-function-app) dell'esercitazione e la modifica del codice è stata apportata all'interno della funzione "ProcessHubToDTEvents".
+> Questo esempio di frammento di codice presuppone che i lettori abbiano familiarità con la [parte 01](../digital-twins/tutorial-end-to-end.md#set-up-the-sample-function-app) dell'esercitazione e la modifica del codice è stata apportata all'interno della funzione "ProcessHubToDTEvents&quot;.
 
 ```csharp
-if (propertyPath.Equals("/Flow"))
+if (propertyPath.Equals(&quot;/Flow"))
 {
 //Update the flow value property of the flow meter
 await AdtUtilities.UpdateTwinProperty(client, twinId, "replace",
