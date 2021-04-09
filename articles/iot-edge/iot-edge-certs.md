@@ -10,10 +10,10 @@ ms.service: iot-edge
 services: iot-edge
 ms.custom: mqtt
 ms.openlocfilehash: ffe2f2b7f94d546cdfe393170da2fd2ca6ac0149
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "103490994"
 ---
 # <a name="understand-how-azure-iot-edge-uses-certificates"></a>Informazioni sul modo in cui Azure IoT Edge usa i certificati
@@ -36,16 +36,16 @@ Nella figura seguente viene illustrato l'uso dei certificati di IoT Edge. Tra il
 ![Diagramma tipico delle relazioni tra certificati](./media/iot-edge-certs/edgeCerts-general.png)
 
 <!--1.1-->
-:::moniker range="iotedge-2018-06"
+:::moniker range="iotedge-2018-06&quot;
 
 > [!NOTE]
 > Attualmente, una limitazione in libiothsm impedisce l'utilizzo di certificati che scadono il 1 ° gennaio 2038 o successivo. Questa limitazione si applica al certificato della CA del dispositivo, a tutti i certificati nel bundle di trust e ai certificati ID del dispositivo usati per i metodi di provisioning X. 509.
 
 :::moniker-end
 
-### <a name="certificate-authority"></a>Autorità di certificazione
+### <a name=&quot;certificate-authority&quot;></a>Autorità di certificazione
 
-L'autorità di certificazione, o CA, è un'entità che emette i certificati digitali. Un'autorità di certificazione funge da terze parti attendibili tra il proprietario e il destinatario del certificato. Un certificato digitale fornisce un'attestazione della proprietà di una chiave pubblica al destinatario del certificato. La catena di certificati attendibili funziona generando inizialmente un certificato radice, che rappresenta la base per la relazione di trust di tutti i certificati rilasciati dall'autorità. Successivamente, il proprietario può usare il certificato radice per emettere altri certificati intermedi (certificati "foglia").
+L'autorità di certificazione, o CA, è un'entità che emette i certificati digitali. Un'autorità di certificazione funge da terze parti attendibili tra il proprietario e il destinatario del certificato. Un certificato digitale fornisce un'attestazione della proprietà di una chiave pubblica al destinatario del certificato. La catena di certificati attendibili funziona generando inizialmente un certificato radice, che rappresenta la base per la relazione di trust di tutti i certificati rilasciati dall'autorità. Successivamente, il proprietario può usare il certificato radice per emettere altri certificati intermedi (certificati &quot;foglia").
 
 ### <a name="root-ca-certificate"></a>Certificato CA radice
 

@@ -11,10 +11,10 @@ ms.workload: infrastructure-services
 ms.date: 10/11/2016
 ms.author: duau
 ms.openlocfilehash: e0e2acfb0ec0068dcd08ae660e397f65e039a665
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "98183745"
 ---
 # <a name="point-a-company-internet-domain-to-an-azure-traffic-manager-domain"></a>Impostare un dominio Internet aziendale in modo che punti a un dominio di Gestione traffico di Azure
@@ -32,6 +32,6 @@ Tutte le richieste di traffico a *www \. contoso.com* vengono indirizzate a *con
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* [Metodi di routing di Gestione traffico](traffic-manager-routing-methods.md)
+* [Metodi di routing di gestione traffico](traffic-manager-routing-methods.md)
 * [Gestione traffico: disabilitare, abilitare o eliminare un profilo](./traffic-manager-manage-profiles.md)
 * [Gestione traffico: disabilitare o abilitare un endpoint](./traffic-manager-manage-endpoints.md)

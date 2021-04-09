@@ -224,7 +224,7 @@ Microsoft segue un processo rigoroso che non consente ai tecnici interni di usar
 
 ### <a name="i-cannot-remote-desktop-to-cloud-service-vm--by-using-the-rdp-file-i-get-following-error-an-authentication-error-has-occurred-code-0x80004005"></a>Non è possibile usare desktop remoto con la macchina virtuale del servizio cloud tramite il file RDP. Viene visualizzato l'errore seguente: Si è verificato un errore di autenticazione (codice: 0x80004005)
 
-Questo errore può verificarsi se si usa il file RDP da un computer aggiunto ad Azure Active Directory. Per risolvere questo problema, seguire questa procedura:
+Questo errore può verificarsi se si usa il file RDP da un computer aggiunto ad Azure Active Directory. Per risolvere il problema, seguire questa procedura:
 
 1. Fare clic con il pulsante destro del mouse sul file RDP scaricato e quindi scegliere **Modifica**.
 2. Aggiungere "&#92;" come prefisso prima del nome utente. Ad esempio, usare **.\nomeutente** invece di **nomeutente**.
