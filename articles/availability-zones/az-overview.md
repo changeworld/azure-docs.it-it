@@ -9,10 +9,10 @@ ms.author: prsandhu
 ms.reviewer: cynthn
 ms.custom: fasttrack-edit, mvc
 ms.openlocfilehash: dad8661de55fc90c9f3d3782c402deb519d16536
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "104596009"
 ---
 # <a name="regions-and-availability-zones-in-azure"></a>Aree e zone di disponibilità in Azure
@@ -99,7 +99,7 @@ Come indicato in precedenza, Azure classifica i servizi in tre categorie: fondam
 > | Azure Cosmos DB                        | Automazione                                        | 
 > | Azure Data Lake Storage Gen2           | Servizi di dominio Azure Active Directory            | 
 > | Azure ExpressRoute                     | Azure Bastion                                     | 
-> | IP pubblico di Azure                        | Cache Redis di Azure                             | 
+> | IP pubblico di Azure                        | Cache di Azure per Redis                             | 
 > | Database SQL di Azure                     | Ricerca cognitiva di Azure                            | 
 > | Istanza gestita di SQL di Azure             | Servizi cognitivi di Azure                          | 
 > | Archiviazione su disco                           | Servizi cognitivi di Azure: Visione artificiale         | 
@@ -118,7 +118,7 @@ Come indicato in precedenza, Azure classifica i servizi in tre categorie: fondam
 > | Macchine virtuali: DSv2-Series          | Firewall di Azure                                    | 
 > | Macchine virtuali: DSv3-Series          | Gestione firewall di Azure                            | 
 > | Macchine virtuali: Dv2-Series           | Funzioni di Azure                                   | 
-> | Macchine virtuali: Dv3-Series           | Hub IoT Azure                                     |     
+> | Macchine virtuali: Dv3-Series           | Hub IoT di Azure                                     |     
 > | Macchine virtuali: ESv3-Series          | Servizio Azure Kubernetes                    | 
 > | Macchine virtuali: Ev3-Series           | Azure Machine Learning                            | 
 > | Rete virtuale                        | Monitoraggio di Azure: Application Insights               | 
