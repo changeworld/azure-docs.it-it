@@ -12,10 +12,10 @@ ms.workload: infrastructure-services
 ms.date: 05/08/2017
 ms.author: duau
 ms.openlocfilehash: 3d5a888bf132725ff64c2a128b77f0257f435585
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "98184255"
 ---
 # <a name="add-disable-enable-or-delete-endpoints"></a>Aggiungere, disabilitare, abilitare o eliminare gli endpoint
@@ -76,7 +76,7 @@ La funzionalità App Web nell’Azure App Service offre già funzionalità di ro
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* [Gestire un profilo di Gestione traffico](traffic-manager-manage-profiles.md)
+* [Gestire i profili di gestione traffico](traffic-manager-manage-profiles.md)
 * [Configure routing methods](./traffic-manager-configure-priority-routing-method.md) (Configurare metodi di routing)
 * [Risoluzione dei problemi relativi allo stato Danneggiato di Gestione traffico](traffic-manager-troubleshooting-degraded.md)
 * [Considerazioni sulle prestazioni di gestione traffico](traffic-manager-performance-considerations.md)
