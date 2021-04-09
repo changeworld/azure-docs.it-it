@@ -16,10 +16,10 @@ ms.topic: conceptual
 ms.date: 06/28/2020
 ms.author: yelevin
 ms.openlocfilehash: 77a8e208e463b8ab20d563421d447813b1ce84ee
-ms.sourcegitcommit: 2c1b93301174fccea00798df08e08872f53f669c
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/22/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "104772553"
 ---
 # <a name="permissions-in-azure-sentinel"></a>Autorizzazioni in Azure Sentinel
@@ -36,11 +36,11 @@ Sono disponibili tre ruoli predefiniti Sentinel di Azure.
 
 **Tutti i ruoli predefiniti di Sentinel di Azure concedono l'accesso in lettura ai dati nell'area di lavoro di Azure Sentinel.**
 
-- Il [lettore di Sentinel di Azure](../role-based-access-control/built-in-roles.md#azure-sentinel-reader) può visualizzare dati, eventi imprevisti, cartelle di lavoro e altre risorse di Azure Sentinel.
+- Il [Lettore di Azure Sentinel](../role-based-access-control/built-in-roles.md#azure-sentinel-reader) può esaminare dati, eventi imprevisti, cartelle di lavoro e altre risorse di Azure Sentinel.
 
-- Il [risponditore sentinella di Azure](../role-based-access-control/built-in-roles.md#azure-sentinel-responder) può, oltre a quanto sopra, gestire gli eventi imprevisti (assegna, ignora e così via)
+- La [Persona che risponde di Azure Sentinel](../role-based-access-control/built-in-roles.md#azure-sentinel-responder) può, gestire gli eventi imprevisti (assegnare, ignorare e così via) oltre a quanto descritto sopra.
 
-- Il [collaboratore sentinella di Azure](../role-based-access-control/built-in-roles.md#azure-sentinel-contributor) può, oltre a quanto sopra, creare e modificare cartelle di lavoro, regole di analisi e altre risorse di Azure Sentinel.
+- Il [Collaboratore di Azure Sentinel](../role-based-access-control/built-in-roles.md#azure-sentinel-contributor) può creare e modificare cartelle di lavoro, regole di analisi e altre risorse di Azure Sentinel, oltre a quanto descritto sopra.
 
 - Il [collaboratore di automazione di Sentinel di Azure](../role-based-access-control/built-in-roles.md#azure-sentinel-contributor) consente a Sentinel di Azure di aggiungere PlayBook alle regole di automazione. Non è destinato agli account utente.
 
