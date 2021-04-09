@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 09/03/2020
 ms.author: alzam
 ms.openlocfilehash: eb0291b18952efc643de18e111154ebe58f041af
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "98880085"
 ---
 # <a name="remote-work-using-azure-vpn-gateway-point-to-site"></a>Lavorare in remoto con il gateway VPN di Azure da punto a sito

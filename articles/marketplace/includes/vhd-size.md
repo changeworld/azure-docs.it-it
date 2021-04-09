@@ -8,10 +8,10 @@ author: emuench
 ms.author: mingshen
 ms.date: 10/09/2020
 ms.openlocfilehash: f4e34e850391696506beed9f6f386f85528dff24
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "92284311"
 ---
 Se è stata selezionata una delle VM preconfigurate con un sistema operativo e altri servizi facoltativi, è già stata selezionata una dimensione standard per le VM di Azure. Avviare una soluzione con un sistema operativo preconfigurato è l'approccio consigliato. Tuttavia, se si installa un sistema operativo manualmente, è necessario ridimensionare il disco rigido virtuale primario nell'immagine di macchina virtuale. Verificare che le dimensioni del disco del sistema operativo siano comprese nei limiti per Linux o Windows.

@@ -10,10 +10,10 @@ ms.topic: include
 ms.date: 01/15/2021
 ms.author: aahi
 ms.openlocfilehash: c1ff099dd6dffe06e9707ff23fffd57ae753ab64
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "99500159"
 ---
 La funzionalità NER per Analisi del testo restituisce le categorie di entità generale (non di identificazione) seguenti. ad esempio quando si inviano richieste all' `/entities/recognition/general` endpoint.
