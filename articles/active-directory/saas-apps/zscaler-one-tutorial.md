@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 12/18/2020
 ms.author: jeedes
 ms.openlocfilehash: 3f825e247aff5c8fc53eb8610f33bd8e0b7fce3d
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "98735643"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-zscaler-one"></a>Esercitazione: Integrazione di Azure Active Directory con Zscaler One
@@ -189,14 +189,14 @@ In questa sezione si abiliterà B.Simon all'uso dell'accesso Single Sign-On di A
 
     b. Fare clic su **Attiva**.
 
-## <a name="configuring-proxy-settings"></a>Configurazione delle impostazioni proxy
-### <a name="to-configure-the-proxy-settings-in-internet-explorer"></a>Per configurare le impostazioni proxy in Internet Explorer
+## <a name="configuring-proxy-settings&quot;></a>Configurazione delle impostazioni proxy
+### <a name=&quot;to-configure-the-proxy-settings-in-internet-explorer&quot;></a>Per configurare le impostazioni proxy in Internet Explorer
 
 1. Avviare **Internet Explorer**.
 
 2. Selezionare **Opzioni Internet** dal menu **Strumenti** per aprire la finestra di dialogo **Opzioni Internet**.   
 
-    ![Opzioni Internet](./media/zscaler-one-tutorial/ic769492.png "Opzioni Internet")
+    ![Opzioni Internet](./media/zscaler-one-tutorial/ic769492.png &quot;Opzioni Internet")
 
 3. Fare clic sulla scheda **Connessioni** .   
 

@@ -4,10 +4,10 @@ description: Descrive il linguaggio bicipite per la distribuzione dell'infrastru
 ms.topic: conceptual
 ms.date: 03/23/2021
 ms.openlocfilehash: 74028c682b48a492c2e8f13bef538d1694370cbd
-ms.sourcegitcommit: ac035293291c3d2962cee270b33fca3628432fac
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/24/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "104955908"
 ---
 # <a name="what-is-bicep-preview"></a>Che cos'è il bicipite (anteprima)?
