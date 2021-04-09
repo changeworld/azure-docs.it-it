@@ -147,7 +147,7 @@ I set di dati archiviati nella finestra di progettazione vengono convertiti auto
 1. Nella casella di testo **script r** Digitare o incollare uno script r valido.
 
     > [!NOTE]
-    > Prestare attenzione durante la scrittura dello script. Verificare che non siano presenti errori di sintassi, ad esempio l'uso di variabili non dichiarate o di moduli o funzioni non importati. Prestare particolare attenzione all'elenco dei pacchetti preinstallati alla fine di questo articolo. Per usare i pacchetti non elencati, installarli nello script. Un esempio è `install.packages("zoo",repos = "http://cran.us.r-project.org")`.
+    > Prestare attenzione durante la scrittura dello script. Verificare che non siano presenti errori di sintassi, ad esempio l'uso di variabili non dichiarate o di moduli o funzioni non importati. Prestare particolare attenzione all'elenco dei pacchetti preinstallati alla fine di questo articolo. Per usare i pacchetti non elencati, installarli nello script. Un esempio è `install.packages("zoo&quot;,repos = &quot;http://cran.us.r-project.org")`.
     
     Per iniziare, la casella di testo **script R** viene prepopolata con il codice di esempio, che è possibile modificare o sostituire.
     
