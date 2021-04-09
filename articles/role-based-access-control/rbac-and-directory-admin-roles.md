@@ -15,12 +15,12 @@ ms.date: 01/04/2021
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: it-pro;
-ms.openlocfilehash: 24ff39fba5ce4b484f23595a9f7d718b12faae10
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: c4ab8c9f4e1f9dae8c10e155729c639c089fb77a
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102037269"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105727116"
 ---
 # <a name="classic-subscription-administrator-roles-azure-roles-and-azure-ad-roles"></a>Ruoli di amministratore della sottoscrizione classica, ruoli di Azure e ruoli di Azure AD
 
@@ -115,7 +115,7 @@ A livello generale, i ruoli di Azure controllano le autorizzazioni per gestire l
 | --- | --- |
 | Gestire l'accesso alle risorse di Azure | Gestire l'accesso alle risorse di Azure Active Directory |
 | Supportano i ruoli personalizzati | Supportano i ruoli personalizzati |
-| È possibile specificare l'ambito a più livelli (gruppo di gestione, sottoscrizione, gruppo di risorse, risorsa) | L'ambito è a livello di tenant |
+| È possibile specificare l'ambito a più livelli (gruppo di gestione, sottoscrizione, gruppo di risorse, risorsa) | L' [ambito](../active-directory/roles/custom-overview.md#scope) può essere specificato a livello di tenant (a livello di organizzazione) o a un singolo oggetto, ad esempio un'applicazione specifica. |
 | Le informazioni sui ruoli sono accessibili nel portale di Azure, nell'interfaccia della riga di comando di Azure, in Azure PowerShell, nei modelli di Azure Resource Manager, nell'API REST | Le informazioni sui ruoli sono accessibili nel portale di amministrazione di Azure, nell'interfaccia di amministrazione di Microsoft 365, in Microsoft Graph e in AzureAD PowerShell |
 
 ### <a name="do-azure-roles-and-azure-ad-roles-overlap"></a>I ruoli di Azure e i ruoli di Azure AD si sovrappongono?

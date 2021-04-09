@@ -4,12 +4,12 @@ description: Impedire agli utenti di aggiornare o eliminare le risorse di Azure 
 ms.topic: conceptual
 ms.date: 03/09/2021
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 28c31681b8fbe981cd51db294c91276dfd65d71f
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
+ms.openlocfilehash: 6d989f2077618ce80382b38acc651553cb331d5a
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102619172"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105932761"
 ---
 # <a name="lock-resources-to-prevent-unexpected-changes"></a>Bloccare le risorse per impedire modifiche impreviste
 
@@ -324,7 +324,7 @@ az lock delete --ids $lockid
 
 ### <a name="rest-api"></a>API REST
 
-È possibile bloccare le risorse distribuite tramite l'[API REST per i blocchi di gestione](/rest/api/resources/managementlocks). L'API REST consente di creare ed eliminare i blocchi e recuperare informazioni sui blocchi esistenti.
+È possibile bloccare le risorse distribuite tramite l'[API REST per i blocchi di gestione](/rest/api/resources/managementlocks/managementlocks). L'API REST consente di creare ed eliminare i blocchi e recuperare informazioni sui blocchi esistenti.
 
 Per creare un blocco, eseguire:
 

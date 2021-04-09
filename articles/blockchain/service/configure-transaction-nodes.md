@@ -1,17 +1,17 @@
 ---
-title: Configurare i nodi delle transazioni del servizio blockchain di Azure
+title: Configurare i nodi delle transazioni del servizio Azure Blockchain
 description: Come configurare i nodi delle transazioni del servizio blockchain di Azure
 ms.date: 11/20/2019
 ms.topic: how-to
 ms.reviewer: janders
 ms.openlocfilehash: 0b659fa9f15cd41e9e55de526747d470046cafa4
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "101091258"
 ---
-# <a name="configure-azure-blockchain-service-transaction-nodes"></a>Configurare i nodi delle transazioni del servizio blockchain di Azure
+# <a name="configure-azure-blockchain-service-transaction-nodes"></a>Configurare i nodi delle transazioni del servizio Azure Blockchain
 
 I nodi di transazione vengono usati per inviare le transazioni blockchain al servizio Azure blockchain tramite un endpoint pubblico. Il nodo di transazione predefinito contiene la chiave privata dell'account Ethereum registrato in blockchain e, di conseguenza, non può essere eliminato.
 

@@ -2,17 +2,17 @@
 author: memildin
 ms.service: security-center
 ms.topic: include
-ms.date: 03/14/2021
+ms.date: 03/29/2021
 ms.author: memildin
 ms.custom: generated
-ms.openlocfilehash: fe1b9fc8754ae959abf088526b5d71e0e43c158e
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 164c5e199bcb17dfe7a8ce92b169b26ecd389703
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103466183"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105958343"
 ---
-In questa categoria sono disponibili **64** raccomandazioni.
+In questa categoria sono disponibili **65** raccomandazioni.
 
 |Recommendation |Descrizione |Gravità |
 |---|---|---|
@@ -24,6 +24,7 @@ In questa categoria sono disponibili **64** raccomandazioni.
 |La conservazione dei controlli per i server SQL deve essere impostata su almeno 90 giorni |Controllare i server SQL configurati con un periodo di conservazione di controllo minore di 90 giorni.<br />(criterio correlato: [I server SQL devono essere configurati con un periodo di conservazione di controllo di 90 giorni o superiore.](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2f89099bee-89e0-4b26-a5f4-165451757743)) |Basso |
 |È consigliabile abilitare il controllo in SQL Server |Abilitare il controllo in SQL Server per verificare le attività del database in tutti i database sul server e salvarle in un log di controllo.<br />(criterio correlato: [È consigliabile abilitare il controllo in SQL Server](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2fa6fb4358-5bf4-4ad7-ba82-2cd2f41ce5e9)) |Basso |
 |È consigliabile abilitare il provisioning automatico dell'agente di Log Analytics nella sottoscrizione |Per monitorare le minacce e le vulnerabilità della sicurezza, Centro sicurezza di Azure raccoglie i dati dalle macchine virtuali di Azure. I dati vengono raccolti dall'agente di Log Analytics, precedentemente noto come Microsoft Monitoring Agent (MMA), che esegue la lettura di varie configurazioni relative alla sicurezza e log eventi dalla macchina virtuale e copia i dati nell'area di lavoro Log Analytics per l'analisi. È consigliabile abilitare il provisioning automatico per distribuire automaticamente l'agente in tutte le macchine virtuali di Azure supportate e in tutte le nuove macchine virtuali che vengono create.<br />(Criterio correlato: il [provisioning automatico dell'agente di log Analytics deve essere abilitato nella sottoscrizione](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2f475aae12-b88a-4572-8b36-9b712b2b3a17)) |Basso |
+|Per i cluster Kubernetes abilitati per Azure Arc è necessario che sia installata l'estensione di Azure Defender |L'estensione di Azure Defender per Azure Arc offre protezione dalle minacce per i cluster Kubernetes abilitati per Arc. L'estensione raccoglie i dati da tutti i nodi del piano di controllo (Master) nel cluster e li invia al back-end di Azure Defender per Kubernetes nel cloud per un'ulteriore analisi. Ulteriori informazioni sono disponibili in https://docs.microsoft.com/azure/security-center/defender-for-kubernetes-azure-arc .<br />(Nessun criterio correlato) |Alto |
 |La cache di Azure per Redis deve risiedere all'interno di una rete virtuale |La distribuzione della rete virtuale di Azure offre sicurezza avanzata e isolamento per Cache di Azure per Redis, le subnet, i criteri di controllo di accesso e altre funzionalità per limitare ulteriormente l'accesso. Quando un'istanza di Cache di Azure per Redis viene configurata con una rete virtuale, non è raggiungibile pubblicamente e possono accedervi solo le macchine virtuali e le applicazioni all'interno della rete virtuale.<br />(Criterio correlato: [la cache di Azure per Redis dovrebbe risiedere in una rete virtuale](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2f7d092e0a-7acd-40d2-a975-dca21cae48c4)) |Medio |
 |Per gli account di Azure Cosmos DB devono essere definite regole del firewall |Le regole del firewall devono essere definite negli account Azure Cosmos DB per impedire il traffico proveniente da origini non autorizzate. Gli account per cui è definita almeno una regola IP con il filtro della rete virtuale abilitato vengono ritenuti conformi. Anche gli account che disabilitano l'accesso pubblico vengono ritenuti conformi.<br />(Criterio correlato: gli [account Azure Cosmos DB devono avere regole firewall](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2f862e97cf-49fc-4a5c-9de4-40d4e2e7c8eb)) |Medio |
 |Gli account Azure Cosmos DB devono usare chiavi gestite dal cliente per la crittografia dei dati inattivi |Usare le chiavi gestite dal cliente per gestire la crittografia dei dati inattivi di Azure Cosmos DB. Per impostazione predefinita, i dati inattivi sono crittografati tramite chiavi gestite dal servizio, ma in genere sono richieste chiavi gestite dal cliente per soddisfare gli standard di conformità alle normative. Le chiavi gestite dal cliente consentono di crittografare i dati con una chiave di Azure Key Vault creata dall'utente e di sua proprietà. L'utente dispone del controllo completo e della piena responsabilità in merito al ciclo di vita della chiave, incluse le operazioni di rotazione e gestione. Per altre informazioni sulla crittografia con chiavi gestite dal cliente, vedere https://aka.ms/cosmosdb-cmk.<br />(Criterio correlato: gli [account Azure Cosmos DB devono usare chiavi gestite dal cliente per crittografare i dati](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2f1f905d99-2ab7-462c-a6b0-f709acca6c8f)inattivi) |Alto |

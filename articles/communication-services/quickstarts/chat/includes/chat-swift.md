@@ -10,12 +10,12 @@ ms.date: 03/10/2021
 ms.topic: include
 ms.custom: include file
 ms.author: mikben
-ms.openlocfilehash: ddc43d9a030b85f8a1becd4be2573303207ad345
-ms.sourcegitcommit: bed20f85722deec33050e0d8881e465f94c79ac2
+ms.openlocfilehash: b7bf924ba8514aa8da1d466ea4852f3f9caaf646
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/25/2021
-ms.locfileid: "105107041"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105726654"
 ---
 ## <a name="prerequisites"></a>Prerequisiti
 Prima di iniziare, assicurarsi di:
@@ -275,5 +275,4 @@ Sostituire `<USER ID>` con l'ID utente di servizi di comunicazione del partecipa
 ## <a name="run-the-code"></a>Eseguire il codice
 
 In Xcode premere il pulsante Run (Esegui) per compilare ed eseguire il progetto. Nella console è possibile visualizzare l'output del codice e l'output del logger dal ChatClient.
-
 

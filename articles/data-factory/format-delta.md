@@ -4,14 +4,14 @@ description: Trasformare e spostare i dati da un Delta Lake usando il formato De
 author: djpmsft
 ms.service: data-factory
 ms.topic: conceptual
-ms.date: 12/07/2020
+ms.date: 03/26/2020
 ms.author: daperlov
-ms.openlocfilehash: bb5360a678751b37cf36677fca611b39746621f4
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 74df809f2206a105b405ba184949ef887096ebc2
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "100386493"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105932506"
 ---
 # <a name="delta-format-in-azure-data-factory"></a>Formato Delta in Azure Data Factory
 
@@ -75,6 +75,8 @@ Nella tabella seguente sono elencate le proprietà supportate da un sink Delta. 
 | Livello di compressione | Scegliere se la compressione viene completata il più rapidamente possibile o se il file risultante deve essere compresso in modo ottimale. | obbligatorio se `compressedType` si specifica. | `Optimal` o `Fastest` | compressionLevel |
 | Vacuum | Specificare la soglia di conservazione in ore per le versioni precedenti della tabella. Il valore predefinito è 0 o inferiore a 30 giorni | sì | Integer | vuoto |
 | Update (metodo) | Consente di specificare quali operazioni di aggiornamento sono consentite sul Delta Lake. Per i metodi che non vengono inseriti, è necessaria una trasformazione alter Row precedente per contrassegnare le righe. | sì | `true` o `false` | cancellabile <br> inseribile <br> aggiornabile <br> merge |
+| Scrittura ottimizzata | Ottenere una velocità effettiva più elevata per l'operazione di scrittura tramite l'ottimizzazione della riproduzione casuale interna negli esecutori Spark. Di conseguenza, è possibile notare un minor numero di partizioni e file di dimensioni maggiori | no | `true` o `false` | optimizedWrite: true |
+| Compattazione automatica | Al termine di un'operazione di scrittura, Spark eseguirà automaticamente il ```OPTIMIZE``` comando per riorganizzare i dati, ottenendo così più partizioni, se necessario, per migliorare le prestazioni di lettura in futuro | no | `true` o `false` |   AutoCompact: true |
 
 ### <a name="delta-sink-script-example"></a>Esempio di script di sink Delta
 

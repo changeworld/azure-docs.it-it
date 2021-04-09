@@ -9,12 +9,12 @@ ms.topic: reference
 ms.service: iot-edge
 services: iot-edge
 monikerRange: =iotedge-2018-06
-ms.openlocfilehash: 41827c5db58f3d4755fb34e46067357cd0255676
-ms.sourcegitcommit: c94e282a08fcaa36c4e498771b6004f0bfe8fb70
+ms.openlocfilehash: a24b39107d8f78c049afa230fe678ec92852eeb0
+ms.sourcegitcommit: edc7dc50c4f5550d9776a4c42167a872032a4151
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/26/2021
-ms.locfileid: "105612773"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105959688"
 ---
 # <a name="powershell-scripts-for-iot-edge-for-linux-on-windows"></a>Script di PowerShell per IoT Edge per Linux in Windows
 
@@ -41,7 +41,7 @@ Il comando **deploy-eFlow** è il metodo di distribuzione principale. Il comando
 | registrationId | ID di registrazione di un dispositivo IoT Edge esistente | ID registrazione per il provisioning di un dispositivo IoT Edge (**X509** o **simmetrica**). |
 | identityCertLocVm | Percorso directory; deve trovarsi in una cartella che può essere di proprietà del `iotedge` servizio | Percorso di destinazione assoluto del certificato di identità nella macchina virtuale per il provisioning di un dispositivo IoT Edge (**X509** o **simmetrica**). |
 | identityCertLocWin | Percorso directory | Percorso di origine assoluto del certificato di identità in Windows per il provisioning di un dispositivo IoT Edge (**X509** o **simmetrica**). |
-| identityPkLocVm |  | Percorso directory; deve trovarsi in una cartella che può essere di proprietà del `iotedge` servizio | Percorso di destinazione assoluto della chiave privata di identità nella macchina virtuale per il provisioning di un dispositivo IoT Edge (**X509** o **simmetrica**). |
+| identityPkLocVm | Percorso directory; deve trovarsi in una cartella che può essere di proprietà del `iotedge` servizio | Percorso di destinazione assoluto della chiave privata di identità nella macchina virtuale per il provisioning di un dispositivo IoT Edge (**X509** o **simmetrica**). |
 | identityPkLocWin | Percorso directory | Percorso di origine assoluto della chiave privata di identità in Windows per il provisioning di un dispositivo IoT Edge (**X509** o **simmetrica**). |
 | vmSizeDefintion | Non più di 30 caratteri | Definizione del numero di core e della RAM disponibile per la macchina virtuale. **Valore predefinito**: Standard_K8S_v1. |
 | vmDiskSize | Da 8 GB a 256 GB | Dimensioni massime del disco rigido virtuale a espansione dinamica. **Valore predefinito**: 16 GB. |
@@ -74,7 +74,7 @@ Il comando **provision-EflowVm** aggiunge le informazioni di provisioning per il
 | registrationId | ID di registrazione di un dispositivo IoT Edge esistente | ID registrazione per il provisioning di un dispositivo di IoT Edge (**DPS**). |
 | identityCertLocVm | Percorso directory; deve trovarsi in una cartella che può essere di proprietà del `iotedge` servizio | Percorso di destinazione assoluto del certificato di identità nella macchina virtuale per il provisioning di un dispositivo IoT Edge (**DPS**, **X509**). |
 | identityCertLocWin | Percorso directory | Percorso di origine assoluto del certificato di identità in Windows per il provisioning di un dispositivo IoT Edge (**DPS**, **X509**). |
-| identityPkLocVm |  | Percorso directory; deve trovarsi in una cartella che può essere di proprietà del `iotedge` servizio | Percorso di destinazione assoluto della chiave privata di identità nella macchina virtuale per il provisioning di un dispositivo IoT Edge (**DPS**, **X509**). |
+| identityPkLocVm  | Percorso directory; deve trovarsi in una cartella che può essere di proprietà del `iotedge` servizio | Percorso di destinazione assoluto della chiave privata di identità nella macchina virtuale per il provisioning di un dispositivo IoT Edge (**DPS**, **X509**). |
 | identityPkLocWin | Percorso directory | Percorso di origine assoluto della chiave privata di identità in Windows per il provisioning di un dispositivo IoT Edge (**DPS**, **X509**). |
 
 ## <a name="get-eflowvmname"></a>Get-EflowVmName
