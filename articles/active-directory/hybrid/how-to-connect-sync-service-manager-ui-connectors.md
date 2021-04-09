@@ -18,10 +18,10 @@ ms.author: billmath
 ms.custom: H1Hack27Feb2017
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: d215c2e200308664f24daa28a0054c8f1bcfc09c
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "91319878"
 ---
 # <a name="using-connectors-with-the-azure-ad-connect-sync-service-manager"></a>Uso dei connettori con Sync Service Manager di Azure AD Connect
@@ -45,7 +45,7 @@ La scheda Connettori consente di gestire tutti i sistemi a cui il motore di sinc
 | Aggiorna schema |Aggiorna lo schema memorizzato nella cache. È preferibile usare l'opzione nell'installazione guidata perché aggiorna anche le regole di sincronizzazione. |
 | [Spazio connettore di ricerca](#search-connector-space) |Consente di trovare oggetti e seguire un oggetto e i relativi dati attraverso il sistema. |
 
-### <a name="delete"></a>Elimina
+### <a name="delete"></a>Delete
 L'azione di eliminazione viene usata per due scopi diversi.  
 ![Screenshot che mostra la finestra "Elimina connettore" con il "Elimina solo spazio connettore" selezionato.](./media/how-to-connect-sync-service-manager-ui-connectors/connectordelete.png)
 
