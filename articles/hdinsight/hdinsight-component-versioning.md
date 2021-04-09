@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: deshriva
 ms.author: deshriva
 ms.date: 02/08/2021
-ms.openlocfilehash: 53ca2ac73fdec9d3b39ffc04cbb24aca707a72eb
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: dbd5b507fd4a7b2434158dbdc80584a7fd348732
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103490450"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105726584"
 ---
 # <a name="azure-hdinsight-versions"></a>Versioni di Azure HDInsight
 
@@ -21,12 +21,12 @@ HDInsight aggrega Apache Hadoop componenti dell'ambiente e la piattaforma HDInsi
 
 Questa tabella elenca le versioni di HDInsight disponibili nell'portale di Azure e altri metodi di distribuzione come PowerShell, CLI e .NET SDK.
 
-| Versione HDInsight | Sistema operativo della macchina virtuale | Data di rilascio | Data di scadenza del supporto | Data di ritiro | Disponibilità elevata |
-| --- | --- | --- | --- | --- | --- |
-| [HDInsight 4.0](hdinsight-40-component-versioning.md) |Ubuntu 16.0.4 LTS |24 settembre 2018 | | |Sì |
-| [HDInsight 3.6](hdinsight-36-component-versioning.md) |Ubuntu 16.0.4 LTS |4 aprile 2017      | * 30 giugno 2021 |30 giugno 2021 |Sì |
+| Versione HDInsight | Sistema operativo della macchina virtuale | Data di rilascio| Tipo di supporto | Data di scadenza del supporto | Data di ritiro | Disponibilità elevata |
+| --- | --- | --- | --- | --- | --- | ---|
+| [HDInsight 4.0](hdinsight-40-component-versioning.md) |Ubuntu 16.0.4 LTS |24 settembre 2018 | [Standard](hdinsight-component-versioning.md#support-options-for-hdinsight-versions) | | |Sì |
+| [HDInsight 3.6](hdinsight-36-component-versioning.md) |Ubuntu 16.0.4 LTS |4 aprile 2017      | [Base](hdinsight-component-versioning.md#support-options-for-hdinsight-versions) | Scadenza supporto standard-30 giugno 2021 <br> Scadenza supporto Basic-3 aprile 2022 |4 aprile 2022 |Sì |
 
-* L'intervallo di tempo di supporto per determinati tipi di cluster HDInsight 3,6 verrà esteso. Vedere [versioni del componente HDInsight 3,6](hdinsight-36-component-versioning.md).
+* A partire dal 1 ° luglio 2021 Microsoft offrirà supporto Basic per determinati tipi di cluster HDI 3,6. Vedere [versioni del componente HDInsight 3,6](hdinsight-36-component-versioning.md).
 
 ## <a name="release-notes"></a>Note sulla versione
 
@@ -34,9 +34,13 @@ Per altre note sulla versione relative alle versioni più recenti di HDInsight, 
 
 ## <a name="support-options-for-hdinsight-versions"></a>Opzioni di supporto per le versioni di HDInsight
 
-HDInsight offre supporto standard definito come periodo di tempo in cui una versione di HDInsight è supportata dal servizio supporto tecnico clienti Microsoft.
+Il supporto è definito come periodo di tempo in cui una versione di HDInsight è supportata dal servizio supporto tecnico clienti Microsoft. HDInsight offre due tipi di supporto: 
+- Il **supporto tecnico standard** è un periodo di tempo in cui Microsoft fornisce aggiornamenti e supporto nei cluster HDInsight.  
+    È consigliabile creare soluzioni usando la versione più recente supportata in modo completo. 
+- **Supporto Basic** è un periodo di tempo in cui Microsoft fornirà assistenza limitata al provider di risorse HDInsight. Le immagini HDInsight e i componenti del software open source (OSS) non verranno serviti.   Solo gli aggiornamenti critici della sicurezza verranno corretti nei cluster HDInsight.  
+  Microsoft non promuove la creazione di nuovi cluster o la creazione di soluzioni innovative quando una versione è supporto Basic. Si consiglia di migrare i cluster esistenti alla versione più recente supportata completamente. 
 
-Per **scadenza del supporto** si intende che Microsoft non fornisce più supporto per la versione specifica di HDInsight. Inoltre, questa versione non è più disponibile tramite il portale di Azure per la creazione di cluster.
+Per **scadenza del supporto** si intende che Microsoft non fornisce più supporto per la versione specifica di HDInsight. E potrebbe non essere più disponibile tramite il portale di Azure per la creazione del cluster.
 
 **Ritiro** significa che i cluster esistenti di una versione di HDInsight continuano a essere eseguiti così come sono. Non è possibile creare in alcun modo nuovi cluster di questa versione, neanche tramite l'interfaccia della riga di comando e gli SDK. Le altre funzionalità del piano di controllo, ad esempio la scalabilità manuale e la scalabilità automatica, non funzionano dopo la data di ritiro. Il supporto non è disponibile per le versioni ritirate.
 

@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jlu
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9a2c83fc0f4776e1ded2c8c12cb990ab227f048b
-ms.sourcegitcommit: bed20f85722deec33050e0d8881e465f94c79ac2
+ms.openlocfilehash: 44091cda479f2c0ccbe77bb9989ee2eda4c40f9d
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/25/2021
-ms.locfileid: "105109013"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105727094"
 ---
 # <a name="continuous-access-evaluation"></a>Valutazione continua dell'accesso
 
@@ -167,7 +167,7 @@ Per una spiegazione dei canali di Office Update, vedere [Panoramica dei canali d
 
 Le modifiche dei criteri apportate dagli amministratori possono richiedere fino a un giorno per essere effettive. È stata eseguita una certa ottimizzazione per ridurre il ritardo a due ore. Tuttavia, non copre ancora tutti gli scenari. 
 
-Se si verifica un'emergenza ed è necessario applicare i criteri aggiornati immediatamente a determinati utenti, è necessario usare questo [comando di PowerShell](/powershell/module/azuread/revoke-azureaduserallrefreshtoken?view=azureadps-2.0) o "Revoke Session" nella pagina del profilo utente per revocare la sessione degli utenti, assicurandosi che i criteri aggiornati verranno applicati immediatamente.
+Se si verifica un'emergenza ed è necessario applicare i criteri aggiornati immediatamente a determinati utenti, è necessario usare questo [comando di PowerShell](/powershell/module/azuread/revoke-azureaduserallrefreshtoken) o "Revoke Session" nella pagina del profilo utente per revocare la sessione degli utenti, assicurandosi che i criteri aggiornati verranno applicati immediatamente.
 
 ### <a name="coauthoring-in-office-apps"></a>Creazione di una coautorizzazione nelle app di Office
 
