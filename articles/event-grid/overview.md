@@ -3,12 +3,12 @@ title: Informazioni su Griglia di eventi di Azure
 description: Informazioni su come inviare i dati degli eventi un'origine ai gestori con Griglia di eventi di Azure. Creare applicazioni basate su eventi e integrarle con i servizi di Azure.
 ms.topic: overview
 ms.date: 01/28/2021
-ms.openlocfilehash: e53665c88c3860d37b3512c6498ab626b02a6400
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: a410f56da9e28403fb98d92332e6d67c064bac4d
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "99055136"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105934869"
 ---
 # <a name="what-is-azure-event-grid"></a>Informazioni su Griglia di eventi di Azure
 
@@ -22,7 +22,8 @@ Questo articolo offre una panoramica di Griglia di eventi di Azure. Per iniziare
 
 :::image type="content" source="./media/overview/functional-model.png" alt-text="Modello di Griglia di eventi per origini e gestori" lightbox="./media/overview/functional-model-big.png":::
 
-Questa immagine illustra in che modo Griglia di eventi collega origini e gestori, ma non costituisce un elenco completo delle integrazioni supportate.
+> [!NOTE]
+> Questa immagine illustra in che modo Griglia di eventi collega origini e gestori, ma non costituisce un elenco completo delle integrazioni supportate. Per un elenco di tutte le origini eventi supportate, vedere la sezione seguente. 
 
 ## <a name="event-sources"></a>Origini eventi
 
@@ -38,6 +39,7 @@ Attualmente i servizi di Azure seguenti supportano l'invio degli eventi a Grigli
 - [Azure Machine Learning](event-schema-machine-learning.md)
 - [Mappe di Azure](event-schema-azure-maps.md)
 - [Servizi multimediali di Azure](event-schema-media-services.md)
+- [Criteri di Azure](./event-schema-policy.md)
 - [Gruppi di risorse di Azure](event-schema-resource-groups.md)
 - [Bus di servizio di Azure](event-schema-service-bus.md)
 - [Azure SignalR](event-schema-azure-signalr.md)

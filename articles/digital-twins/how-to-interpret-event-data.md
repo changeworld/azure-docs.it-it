@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 6/23/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: a0f2b971eae5d37e8fb0771e213075289af6c519
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 1901104aa05b4e7ea3a318ee8e886c745f2a6eb4
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98045258"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105936045"
 ---
 # <a name="understand-event-data"></a>Informazioni sui dati degli eventi
 
@@ -23,6 +23,8 @@ Esistono diversi tipi di notifiche che possono essere generate e i messaggi di n
 Questo grafico mostra i diversi tipi di notifica:
 
 [!INCLUDE [digital-twins-notifications.md](../../includes/digital-twins-notifications.md)]
+
+## <a name="notification-structure"></a>Struttura di notifica
 
 In generale, le notifiche sono costituite da due parti: l'intestazione e il corpo. 
 
@@ -87,19 +89,66 @@ Messaggio di notifica del ciclo di vita:
 }
 ```
 
-## <a name="message-format-detail-for-different-event-types"></a>Dettagli del formato del messaggio per diversi tipi di evento
+Le sezioni seguenti illustrano in modo più dettagliato i diversi tipi di notifiche emesse dall'hub e dai dispositivi gemelli digitali di Azure (o altri servizi di Azure. Vengono fornite informazioni sugli elementi che attivano ogni tipo di notifica e sul set di campi inclusi in ogni tipo di corpo della notifica.
 
-Questa sezione illustra in modo più dettagliato i diversi tipi di notifiche emesse dall'hub e dai dispositivi gemelli digitali di Azure o da altri servizi di Azure. Vengono fornite informazioni sugli elementi che attivano ogni tipo di notifica e sul set di campi inclusi in ogni tipo di corpo della notifica.
+## <a name="digital-twin-change-notifications"></a>Notifiche di modifiche del dispositivo gemello digitale
 
-### <a name="digital-twin-life-cycle-notifications"></a>Notifiche del ciclo di vita di dispositivi gemelli digitali
+Quando si aggiorna un dispositivo gemello digitale, vengono attivate le notifiche di modifica dei dispositivi **gemelli digitali** , ad esempio:
+* Quando vengono modificati i valori o i metadati della proprietà.
+* Quando vengono modificati i metadati del componente o del dispositivo digitale. Un esempio di questo scenario è la modifica del modello di un dispositivo gemello digitale.
 
-Tutti i dispositivi [gemelli digitali](concepts-twins-graph.md) emettono notifiche, indipendentemente dal fatto che rappresentino i [dispositivi dell'hub Internet o meno nei dispositivi gemelli digitali di Azure](how-to-ingest-iot-hub-data.md) . Questo è dovuto alle **notifiche del ciclo di vita**, che fanno parte del dispositivo gemello digitale.
+### <a name="properties"></a>Proprietà
 
-Le notifiche del ciclo di vita vengono attivate nei casi seguenti:
+Ecco i campi nel corpo di una notifica di modifica del dispositivo gemello digitale.
+
+| Nome    | Valore |
+| --- | --- |
+| `id` | Identificatore della notifica, ad esempio un UUID o un contatore gestito dal servizio. `source` + `id` univoco per ogni evento distinto |
+| `source` | Nome dell'hub Internet delle cose o dell'istanza di Azure Digital gemelli, ad esempio *MyHub.Azure-Devices.NET* o *mydigitaltwins.westus2.azuredigitaltwins.NET*
+| `specversion` | *1.0*<br>Il messaggio è conforme a questa versione della [specifica CloudEvents](https://github.com/cloudevents/spec). |
+| `type` | `Microsoft.DigitalTwins.Twin.Update` |
+| `datacontenttype` | `application/json` |
+| `subject` | ID del dispositivo gemello digitale |
+| `time` | Timestamp per il momento in cui l'operazione si è verificata nel dispositivo gemello digitale |
+| `traceparent` | Contesto di traccia W3C per l'evento |
+
+### <a name="body-details"></a>Dettagli corpo
+
+Il corpo della `Twin.Update` notifica è un documento di patch JSON contenente l'aggiornamento al dispositivo gemello digitale.
+
+Si immagini ad esempio che un dispositivo gemello digitale è stato aggiornato con la seguente patch.
+
+:::code language="json" source="~/digital-twins-docs-samples/models/patch-component-2.json":::
+
+La notifica corrispondente, se eseguita in modo sincrono dal servizio, ad esempio i gemelli digitali di Azure che aggiornano un dispositivo gemello digitale, avrà un corpo simile al seguente:
+
+```json
+{
+    "modelId": "dtmi:example:com:floor4;2",
+    "patch": [
+      {
+        "value": 40,
+        "path": "/Temperature",
+        "op": "replace"
+      },
+      {
+        "value": 30,
+        "path": "/comp1/prop1",
+        "op": "add"
+      }
+    ]
+  }
+```
+
+## <a name="digital-twin-lifecycle-notifications"></a>Notifiche del ciclo di vita gemello digitale
+
+Tutti i dispositivi [gemelli digitali](concepts-twins-graph.md) emettono notifiche, indipendentemente dal fatto che rappresentino i [dispositivi dell'hub Internet o meno nei dispositivi gemelli digitali di Azure](how-to-ingest-iot-hub-data.md) . Questo è dovuto alle **notifiche del ciclo** di vita, che sono relative al dispositivo gemello digitale.
+
+Le notifiche del ciclo di vita vengono attivate quando:
 * Viene creato un dispositivo gemello digitale
 * Un dispositivo gemello digitale è stato eliminato
 
-#### <a name="properties"></a>Proprietà
+### <a name="properties"></a>Proprietà
 
 Di seguito sono riportati i campi nel corpo di una notifica del ciclo di vita.
 
@@ -114,7 +163,7 @@ Di seguito sono riportati i campi nel corpo di una notifica del ciclo di vita.
 | `time` | Timestamp per il momento in cui l'operazione si è verificata nel dispositivo gemello |
 | `traceparent` | Contesto di traccia W3C per l'evento |
 
-#### <a name="body-details"></a>Dettagli corpo
+### <a name="body-details"></a>Dettagli corpo
 
 Il corpo è il gemello digitale interessato, rappresentato in formato JSON. Lo schema per questo è la risorsa dei dispositivi *gemelli digitali 7,1*.
 
@@ -181,11 +230,11 @@ Ecco un altro esempio di un dispositivo gemello digitale. Questo si basa su un [
 }
 ```
 
-### <a name="digital-twin-relationship-change-notifications"></a>Notifiche di modifica della relazione tra dispositivi gemelli digitali
+## <a name="digital-twin-relationship-change-notifications"></a>Notifiche di modifica della relazione tra dispositivi gemelli digitali
 
 Le **notifiche di modifica delle relazioni** vengono attivate quando viene creata, aggiornata o eliminata una relazione di un dispositivo gemello digitale. 
 
-#### <a name="properties"></a>Proprietà
+### <a name="properties"></a>Proprietà
 
 Ecco i campi nel corpo di una notifica di modifica del bordo.
 
@@ -200,7 +249,7 @@ Ecco i campi nel corpo di una notifica di modifica del bordo.
 | `time` | Timestamp relativo al momento in cui si è verificata l'operazione sulla relazione |
 | `traceparent` | Contesto di traccia W3C per l'evento |
 
-#### <a name="body-details"></a>Dettagli corpo
+### <a name="body-details"></a>Dettagli corpo
 
 Il corpo è il payload di una relazione, anche in formato JSON. USA lo stesso formato di una `GET` richiesta per una relazione tramite l' [API DigitalTwins](/rest/api/digital-twins/dataplane/twins). 
 
@@ -233,55 +282,6 @@ Di seguito è riportato un esempio di una notifica di creazione o eliminazione d
     "$targetId": "device2",
     "connectionType": "WIFI"
 }
-```
-
-### <a name="digital-twin-change-notifications"></a>Notifiche di modifiche del dispositivo gemello digitale
-
-Quando si aggiorna un dispositivo gemello digitale, vengono attivate le notifiche di modifica dei dispositivi **gemelli digitali** , ad esempio:
-* Quando vengono modificati i valori o i metadati della proprietà.
-* Quando vengono modificati i metadati del componente o del dispositivo digitale. Un esempio di questo scenario è la modifica del modello di un dispositivo gemello digitale.
-
-#### <a name="properties"></a>Proprietà
-
-Ecco i campi nel corpo di una notifica di modifica del dispositivo gemello digitale.
-
-| Nome    | Valore |
-| --- | --- |
-| `id` | Identificatore della notifica, ad esempio un UUID o un contatore gestito dal servizio. `source` + `id` univoco per ogni evento distinto |
-| `source` | Nome dell'hub Internet delle cose o dell'istanza di Azure Digital gemelli, ad esempio *MyHub.Azure-Devices.NET* o *mydigitaltwins.westus2.azuredigitaltwins.NET*
-| `specversion` | *1.0*<br>Il messaggio è conforme a questa versione della [specifica CloudEvents](https://github.com/cloudevents/spec). |
-| `type` | `Microsoft.DigitalTwins.Twin.Update` |
-| `datacontenttype` | `application/json` |
-| `subject` | ID del dispositivo gemello digitale |
-| `time` | Timestamp per il momento in cui l'operazione si è verificata nel dispositivo gemello digitale |
-| `traceparent` | Contesto di traccia W3C per l'evento |
-
-#### <a name="body-details"></a>Dettagli corpo
-
-Il corpo della `Twin.Update` notifica è un documento di patch JSON contenente l'aggiornamento al dispositivo gemello digitale.
-
-Si immagini ad esempio che un dispositivo gemello digitale è stato aggiornato con la seguente patch.
-
-:::code language="json" source="~/digital-twins-docs-samples/models/patch-component-2.json":::
-
-La notifica corrispondente, se eseguita in modo sincrono dal servizio, ad esempio i gemelli digitali di Azure che aggiornano un dispositivo gemello digitale, avrà un corpo simile al seguente:
-
-```json
-{
-    "modelId": "dtmi:example:com:floor4;2",
-    "patch": [
-      {
-        "value": 40,
-        "path": "/Temperature",
-        "op": "replace"
-      },
-      {
-        "value": 30,
-        "path": "/comp1/prop1",
-        "op": "add"
-      }
-    ]
-  }
 ```
 
 ## <a name="next-steps"></a>Passaggi successivi

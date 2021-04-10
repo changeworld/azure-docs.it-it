@@ -1,14 +1,14 @@
 ---
 title: Eseguire l'onboarding dei clienti in Azure Lighthouse
 description: Informazioni su come caricare un cliente in Azure Lighthouse, consentendo l'accesso e la gestione delle risorse tramite il proprio tenant mediante la gestione delle risorse delegate di Azure.
-ms.date: 02/16/2021
+ms.date: 03/29/2021
 ms.topic: how-to
-ms.openlocfilehash: 4487dd82b30e14f9db2001dc10f7437a53e745f3
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: c02bbb789ffac262521c2f76c62081a21cd6602c
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "100556107"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105934309"
 ---
 # <a name="onboard-a-customer-to-azure-lighthouse"></a>Eseguire l'onboarding dei clienti in Azure Lighthouse
 
@@ -143,7 +143,7 @@ Il modello scelto dipenderà dal fatto che si esegua l'onboarding di un'intera s
 |Sottoscrizione (quando si usa un'offerta pubblicata in Azure Marketplace)   |[marketplaceDelegatedResourceManagement.json](https://github.com/Azure/Azure-Lighthouse-samples/blob/master/templates/marketplace-delegated-resource-management/marketplaceDelegatedResourceManagement.json)  |[marketplaceDelegatedResourceManagement.parameters.json](https://github.com/Azure/Azure-Lighthouse-samples/blob/master/templates/marketplace-delegated-resource-management/marketplaceDelegatedResourceManagement.parameters.json)    |
 
 > [!TIP]
-> Sebbene non sia possibile caricare un intero gruppo di gestione in una distribuzione, è possibile [distribuire un criterio a livello di gruppo di gestione](https://github.com/Azure/Azure-Lighthouse-samples/tree/master/templates/policy-delegate-management-groups). Il criterio verificherà se ogni sottoscrizione all'interno del gruppo di gestione è stata delegata al tenant di gestione specificato e, in caso contrario, creerà l'assegnazione in base ai valori forniti.
+> Sebbene non sia possibile caricare un intero gruppo di gestione in una distribuzione, è possibile [distribuire un criterio a livello di gruppo di gestione](https://github.com/Azure/Azure-Lighthouse-samples/tree/master/templates/policy-delegate-management-groups). Il criterio usa l' [effetto deployIfNotExists](../../governance/policy/concepts/effects.md#deployifnotexists) per verificare se ogni sottoscrizione all'interno del gruppo di gestione è stata delegata al tenant di gestione specificato e, in caso contrario, creerà l'assegnazione in base ai valori forniti. Sarà quindi possibile accedere a tutte le sottoscrizioni del gruppo di gestione, anche se è necessario utilizzarle come singole sottoscrizioni, anziché eseguire azioni sul gruppo di gestione nel suo complesso.
 
 L'esempio seguente illustra un file **delegatedResourceManagement.parameters.json** modificato che potrà essere usato per eseguire l'onboarding di una sottoscrizione. I file di parametri dei gruppi di risorse (disponibili nella cartella [rg-delegated-resource-management](https://github.com/Azure/Azure-Lighthouse-samples/tree/master/templates/rg-delegated-resource-management)) sono simili, ma includono anche un parametro **rgName** per identificare i gruppi di risorse specifici di cui eseguire l'onboarding.
 

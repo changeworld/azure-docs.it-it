@@ -6,43 +6,46 @@ author: matjazl
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: conceptual
-ms.date: 02/07/2019
+ms.date: 03/16/2021
 ms.author: matjazl
-ms.openlocfilehash: 8021fb3fa9f11ef895569f48a2ae21b3f7adcd36
-ms.sourcegitcommit: 225e4b45844e845bc41d5c043587a61e6b6ce5ae
+ms.openlocfilehash: fbc683c98eb0124e8d879eada276593ca9bf7042
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/11/2021
-ms.locfileid: "103019027"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105934764"
 ---
 # <a name="register-a-confidential-client-application-in-azure-active-directory"></a>Registrare un'applicazione client riservata in Azure Active Directory
 
-In questa esercitazione si apprenderà come registrare un'applicazione client riservata in Azure Active Directory. 
+In questa esercitazione si apprenderà come registrare un'applicazione client riservata in Azure Active Directory (Azure AD).  
 
-La registrazione di un'applicazione client è una rappresentazione Azure Active Directory di un'applicazione che può essere usata per eseguire l'autenticazione per conto di un utente e richiedere l'accesso alle [applicazioni delle risorse](register-resource-azure-ad-client-app.md). Un'applicazione client riservata è un'applicazione che può essere considerata attendibile per contenere un segreto e presentare il segreto quando si richiedono token di accesso. Esempi di applicazioni riservate sono applicazioni lato server.
+La registrazione di un'applicazione client è una rappresentazione Azure AD di un'applicazione che può essere usata per eseguire l'autenticazione per conto di un utente e richiedere l'accesso alle [applicazioni delle risorse](register-resource-azure-ad-client-app.md). Un'applicazione client riservata è un'applicazione che può essere considerata attendibile per contenere un segreto e presentare il segreto quando si richiedono token di accesso. Esempi di applicazioni riservate sono applicazioni lato server. 
 
-Per registrare una nuova applicazione riservata nel portale, seguire questa procedura.
+Per registrare una nuova applicazione client riservata, fare riferimento alla procedura riportata di seguito. 
 
 ## <a name="register-a-new-application"></a>Registrare una nuova applicazione
 
-1. Nella [portale di Azure](https://portal.azure.com)passare a **Azure Active Directory**.
+1. Nel [portale di Azure](https://portal.azure.com) selezionare **Azure Active Directory**.
 
-1. Selezionare **Registrazioni per l'app**.
+1. Selezionare **Registrazioni per l'app**. 
 
     ![portale di Azure. Nuova registrazione dell'app.](media/how-to-aad/portal-aad-new-app-registration.png)
 
 1. Selezionare **Nuova registrazione**.
 
-1. Assegnare all'applicazione un nome visualizzato.
+1. Assegnare all'applicazione un nome visualizzato per l'utente.
 
-1. Fornire un URL di risposta. Questi dettagli possono essere modificati in un secondo momento, ma se si conosce l'URL di risposta dell'applicazione, immetterlo ora.
+1. Per i **tipi di account supportati**, selezionare gli utenti che possono usare l'applicazione o accedere all'API.
+
+1. Opzionale Specificare un **URI di reindirizzamento**. Questi dettagli possono essere modificati in un secondo momento, ma se si conosce l'URL di risposta dell'applicazione, immetterlo ora.
 
     ![Nuova registrazione di app client riservate.](media/how-to-aad/portal-aad-register-new-app-registration-CONF-CLIENT.png)
+
 1. Selezionare **Registra**.
 
 ## <a name="api-permissions"></a>Autorizzazioni delle API
 
-Ora che l'applicazione è stata registrata, è necessario selezionare le autorizzazioni API che l'applicazione deve essere in grado di richiedere per conto degli utenti:
+Ora che l'applicazione è stata registrata, è necessario selezionare le autorizzazioni API richieste dall'applicazione per conto degli utenti.
 
 1. Selezionare **Autorizzazioni API**.
 
@@ -50,7 +53,7 @@ Ora che l'applicazione è stata registrata, è necessario selezionare le autoriz
 
 1. Selezionare **Aggiungi un'autorizzazione**.
 
-    Se si usa l'API di Azure per FHIR, si aggiungerà un'autorizzazione alle API di Azure Healthcare cercando le **API di Azure Healthcare** in **API** usate dall'organizzazione. Questa operazione sarà possibile solo se è già stata [distribuita l'API di Azure per FHIR](fhir-paas-powershell-quickstart.md).
+    Se si usa l'API di Azure per FHIR, si aggiungerà un'autorizzazione per le API di Azure Healthcare cercando l' **API Healthcare di Azure** in API usate dall' **organizzazione**. Il risultato della ricerca dell'API di Azure Healthcare restituirà solo se è già stata [distribuita l'API di Azure per FHIR](fhir-paas-powershell-quickstart.md).
 
     Se si fa riferimento a un'applicazione di risorse diversa, selezionare la [registrazione dell'applicazione della risorsa API FHIR](register-resource-azure-ad-client-app.md) creata in precedenza in **API personali**.
 
@@ -58,24 +61,31 @@ Ora che l'applicazione è stata registrata, è necessario selezionare le autoriz
     :::image type="content" source="media/conf-client-app/confidential-client-org-api.png" alt-text="Client riservato. API dell'organizzazione" lightbox="media/conf-client-app/confidential-app-org-api-expanded.png":::
     
 
-3. Selezionare gli ambiti (autorizzazioni) che l'applicazione riservata deve essere in grado di richiedere per conto di un utente:
+1. Selezionare gli ambiti (autorizzazioni) che l'applicazione client riservata richiederà per conto di un utente. Selezionare **user_impersonation**, quindi selezionare **Aggiungi autorizzazioni**.
 
     :::image type="content" source="media/conf-client-app/confidential-client-add-permission.png" alt-text="Client riservato. Autorizzazioni delegate":::
 
+
 ## <a name="application-secret"></a>Segreto dell'applicazione
 
-1. Selezionare **Certificati e segreti**.
-1. Selezionare **Nuovo segreto client**. 
+1. Selezionare **certificati & segreti**, quindi selezionare **nuovo segreto client**. 
 
     ![Client riservato. Segreto applicazione](media/how-to-aad/portal-aad-register-new-app-registration-CONF-CLIENT-SECRET.png)
 
-2. Fornire una descrizione e la durata del segreto (1 anno, 2 anni o mai).
+1. Immettere una **Descrizione** per il segreto client. Selezionare la scadenza (in 1 anno, in 2 anni o mai), quindi fare clic su **Aggiungi**.
 
-3. Una volta generato, verrà visualizzato nel portale una sola volta. Prendere nota di questo e archiviarlo in modo sicuro.
+   ![Aggiungere un segreto client](media/how-to-aad/add-a-client-secret.png)
 
+1. Dopo aver creato la stringa privata del client, copiarne il **valore** e l' **ID** e archiviarli in un percorso sicuro a scelta.
+
+   :::image type="content" source="media/how-to-aad/client-secret-string-password.png" alt-text="Stringa del segreto client."::: 
+
+> [!NOTE]
+>La stringa del segreto client è visibile solo una volta nel portale di Azure. Quando si esce dalla pagina Web dei certificati & Secrets e quindi si torna alla pagina, la stringa di valore diventa mascherata. È importante creare una copia della stringa privata del client immediatamente dopo la generazione. Se non si dispone di una copia di backup del segreto client, è necessario ripetere i passaggi precedenti per rigenerarla.
+ 
 ## <a name="next-steps"></a>Passaggi successivi
 
-In questo articolo si è appreso come registrare un'applicazione client riservata in Azure Active Directory. A questo punto è possibile accedere al server FHIR usando il postore
+In questo articolo sono stati illustrati i passaggi per la registrazione di un'applicazione client riservata nel Azure AD. Sono stati inoltre illustrati i passaggi per aggiungere le autorizzazioni API all'API di Azure Healthcare. Infine, è stato illustrato come creare un segreto dell'applicazione. Inoltre, è possibile ottenere informazioni su come accedere al server FHIR tramite il post.
  
 >[!div class="nextstepaction"]
 >[Accedere all'API di Azure per FHIR con Postman](access-fhir-postman-tutorial.md)

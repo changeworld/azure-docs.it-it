@@ -6,14 +6,14 @@ ms.subservice: reservations
 author: bandersmsft
 ms.reviewer: yashesvi
 ms.topic: how-to
-ms.date: 02/09/2021
+ms.date: 03/29/2021
 ms.author: banders
-ms.openlocfilehash: 717cf5acb63ee04852ccbb9aae2f7aed2b3c179a
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 1523ca77b06281b84ed57fbc0e2e49ffede85fb4
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100392273"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105934343"
 ---
 # <a name="manage-reservations-for-azure-resources"></a>Gestire le prenotazioni per le risorse di Azure
 
@@ -57,8 +57,8 @@ L'ambito si applica solo a singole sottoscrizioni con pagamento in base al consu
 
 Per impostazione predefinita, le prenotazioni possono essere visualizzate e gestite dagli utenti seguenti:
 
-- L'utente che acquista una prenotazione e l'amministratore account della sottoscrizione di fatturazione usata per acquistare la prenotazione vengono aggiunti all'ordine di prenotazione.
-- Amministratori fatturazione con Contratto Enterprise e Contratto del cliente Microsoft.
+- La persona che ha acquistato la prenotazione e il proprietario dell'account per la sottoscrizione di fatturazione ottengono l'accesso RBAC di Azure all'ordine di prenotazione.
+-  Contratto Enterprise e i collaboratori per la fatturazione del contratto clienti Microsoft possono gestire tutte le prenotazioni da gestione costi + fatturazione > transazioni di prenotazione > selezionare il banner blu.
 
 Per consentire ad altre persone di gestire le prenotazioni sono disponibili due opzioni:
 

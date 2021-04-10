@@ -14,10 +14,10 @@ ms.date: 01/31/2019
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 16608facab27fc18924cf3a5c6da7e35db048f76
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "101675606"
 ---
 # <a name="onboarding-requirements"></a>Requisiti di onboarding
@@ -70,7 +70,7 @@ Per la matrice di compatibilità del sistema operativo e le versioni del firmwar
 - Licenze e componenti di installazione software per le applicazioni SAP che si connettono a SAP HANA e relativi contratti di supporto SAP.
 - Licenze e componenti di installazione software per tutte le applicazioni non SAP usate con ambienti SAP HANA in Azure (istanze Large) e i relativi contratti di supporto.
 
-**Abilità**
+**Competenze**
 
 - Esperienza e conoscenza di IaaS di Azure e dei relativi componenti.
 - Esperienza e conoscenza della distribuzione di un carico di lavoro SAP in Azure.

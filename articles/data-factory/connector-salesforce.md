@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 03/17/2021
 ms.openlocfilehash: 5b49e62330c789d6d5cbe2af2edb28a2c3e1238f
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "104583097"
 ---
 # <a name="copy-data-from-and-to-salesforce-by-using-azure-data-factory"></a>Copiare dati da e in Salesforce usando Azure Data Factory
@@ -153,28 +153,28 @@ Per copiare dati da e in Salesforce, impostare la proprietà type del set di dat
 
 ```json
 {
-    "name": "SalesforceDataset",
-    "properties": {
-        "type": "SalesforceObject",
-        "typeProperties": {
-            "objectApiName": "MyTable__c"
+    "name&quot;: &quot;SalesforceDataset&quot;,
+    &quot;properties&quot;: {
+        &quot;type&quot;: &quot;SalesforceObject&quot;,
+        &quot;typeProperties&quot;: {
+            &quot;objectApiName&quot;: &quot;MyTable__c&quot;
         },
-        "schema": [],
-        "linkedServiceName": {
-            "referenceName": "<Salesforce linked service name>",
-            "type": "LinkedServiceReference"
+        &quot;schema&quot;: [],
+        &quot;linkedServiceName&quot;: {
+            &quot;referenceName&quot;: &quot;<Salesforce linked service name>&quot;,
+            &quot;type&quot;: &quot;LinkedServiceReference&quot;
         }
     }
 }
 ```
 
 >[!NOTE]
->Per compatibilità con le versioni precedenti, quando si copiano dati da Salesforce, l'uso del set di dati di tipo "RelationalTable" precedente continua a funzionare, anche se viene consigliato di passare all'uso del nuovo tipo "SalesforceObject".
+>Per compatibilità con le versioni precedenti, quando si copiano dati da Salesforce, l'uso del set di dati di tipo &quot;RelationalTable&quot; precedente continua a funzionare, anche se viene consigliato di passare all'uso del nuovo tipo &quot;SalesforceObject&quot;.
 
 | Proprietà | Descrizione | Obbligatoria |
 |:--- |:--- |:--- |
 | type | La proprietà type del set di dati deve essere impostata su **RelationalTable**. | Sì |
-| tableName | Nome della tabella in Salesforce. | No (se nell'origine dell'attività è specificato "query") |
+| tableName | Nome della tabella in Salesforce. | No (se nell'origine dell'attività è specificato &quot;query") |
 
 ## <a name="copy-activity-properties"></a>Proprietà dell'attività di copia
 
