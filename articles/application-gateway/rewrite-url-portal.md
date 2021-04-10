@@ -2,24 +2,24 @@
 title: Riscrivere l'URL e la stringa di query con applicazione Azure gateway-portale di Azure
 description: Informazioni su come usare la portale di Azure per configurare un gateway applicazione Azure per riscrivere l'URL e la stringa di query
 services: application-gateway
-author: surajmb
+author: azhar2005
 ms.service: application-gateway
 ms.topic: how-to
-ms.date: 7/16/2020
-ms.author: surmb
-ms.openlocfilehash: ec58c6f97efdbcb91071bcea98bbbc614833246d
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 4/05/2021
+ms.author: azhussai
+ms.openlocfilehash: b8ddc5e57b9ce56d6bce7e220bc840ba0fa43ae2
+ms.sourcegitcommit: 77d7639e83c6d8eb6c2ce805b6130ff9c73e5d29
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92215774"
+ms.lasthandoff: 04/05/2021
+ms.locfileid: "106384758"
 ---
-# <a name="rewrite-url-with-azure-application-gateway---azure-portal-preview"></a>Riscrivere l'URL con applicazione Azure gateway-portale di Azure (anteprima)
+# <a name="rewrite-url-with-azure-application-gateway---azure-portal"></a>Riscrivere l'URL con applicazione Azure gateway-portale di Azure
 
 Questo articolo descrive come usare la portale di Azure per configurare un'istanza di [SKU del gateway applicazione V2](application-gateway-autoscaling-zone-redundant.md) per riscrivere l'URL.
 
 >[!NOTE]
-> La funzionalità di riscrittura URL è in anteprima ed è disponibile solo per Standard_v2 e WAF_v2 SKU del gateway applicazione. Non è consigliato per l'uso nell'ambiente di produzione. Per ulteriori informazioni sulle anteprime, vedere [le condizioni per l'utilizzo qui](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+> La funzionalità di riscrittura URL è disponibile solo per Standard_v2 e WAF_v2 SKU del gateway applicazione. Quando la riscrittura URL è configurata in un gateway abilitato per WAF, la valutazione WAF verrà eseguita sulle intestazioni e sull'URL della richiesta riscritta. [Altre informazioni](rewrite-http-headers-url.md#using-url-rewrite-or-host-header-rewrite-with-web-application-firewall-waf_v2-sku)
 
 Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) prima di iniziare.
 

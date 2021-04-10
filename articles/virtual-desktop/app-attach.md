@@ -5,13 +5,13 @@ author: Heidilohr
 ms.topic: how-to
 ms.date: 12/14/2020
 ms.author: helohr
-manager: lizross
-ms.openlocfilehash: 5e45c51735e0b7ab4b263d3f3047b5848c82439d
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+manager: femila
+ms.openlocfilehash: 224f2e773ecd42dcbdd356531d9ce94636de002f
+ms.sourcegitcommit: 56b0c7923d67f96da21653b4bb37d943c36a81d6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98185768"
+ms.lasthandoff: 04/06/2021
+ms.locfileid: "106448271"
 ---
 # <a name="create-powershell-scripts-for-msix-app-attach-preview"></a>Creare script di PowerShell per la connessione all'app MSIX (anteprima)
 
@@ -27,7 +27,7 @@ Questo argomento descrive come configurare gli script di PowerShell per la conne
 
 ## <a name="install-certificates"></a>Installare i certificati
 
-È necessario installare i certificati in tutti gli host di sessione nel pool host che ospiteranno i punti di APS dai pacchetti di associazione dell'app MSIX.
+È necessario installare i certificati in tutti gli host di sessione nel pool host che ospiteranno le app dai pacchetti di associazione dell'app MSIX.
 
 Se l'app usa un certificato che non è pubblico o è autofirmato, di seguito viene illustrato come installarlo:
 

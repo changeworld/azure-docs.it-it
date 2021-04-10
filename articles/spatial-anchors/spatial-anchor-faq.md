@@ -8,12 +8,12 @@ ms.author: parkerra
 ms.date: 11/20/2020
 ms.topic: overview
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: 01eb0ce83efa54366e027d35d9c3c3bbf86eff7b
-ms.sourcegitcommit: b8eba4e733ace4eb6d33cc2c59456f550218b234
-ms.translationtype: HT
+ms.openlocfilehash: b67dcf038dbe13b8c040f317bb117f3b7a7afdde
+ms.sourcegitcommit: 77d7639e83c6d8eb6c2ce805b6130ff9c73e5d29
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/23/2020
-ms.locfileid: "95487368"
+ms.lasthandoff: 04/05/2021
+ms.locfileid: "106384239"
 ---
 # <a name="frequently-asked-questions-about-azure-spatial-anchors"></a>Domande frequenti su Ancoraggi nello spazio di Azure
 
@@ -80,7 +80,7 @@ Ancoraggi nello spazio di Azure è conforme alle [Condizioni del contratto del s
 
 **D: Sono previste delle limitazioni?**
 
-**R**: Sì, sono previste delle limitazioni.  Non è previsto che venga usato per lo sviluppo e il test di applicazioni tipiche. Per le distribuzioni di produzione, verranno soddisfatte le esigenze dei clienti su larga scala. Per altre informazioni, [contattare Microsoft](mailto:azuremrs@microsoft.com). 
+**R**: Sì, sono previste delle limitazioni.  Non è previsto che venga usato per lo sviluppo e il test di applicazioni tipiche. Per le distribuzioni di produzione, verranno soddisfatte le esigenze dei clienti su larga scala. Per altre informazioni, [contattare Microsoft](mailto:azuremrscontact@microsoft.com).
 
 **D: In quali aree è disponibile Ancoraggi nello spazio di Azure?**
 

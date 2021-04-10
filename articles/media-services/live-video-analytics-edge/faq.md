@@ -3,12 +3,12 @@ title: Domande frequenti sull'analisi dei video in tempo reale su IoT Edge-Azure
 description: Questo articolo risponde alle domande frequenti sull'analisi dei video in tempo reale su IoT Edge.
 ms.topic: conceptual
 ms.date: 12/01/2020
-ms.openlocfilehash: 661b6155ce2d95e2111a1fa338fd5df438e61e7d
-ms.sourcegitcommit: bb330af42e70e8419996d3cba4acff49d398b399
+ms.openlocfilehash: 2e5ec6e3a303bb8d655e666a820cfe67943b4eb6
+ms.sourcegitcommit: 02bc06155692213ef031f049f5dcf4c418e9f509
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/24/2021
-ms.locfileid: "105032797"
+ms.lasthandoff: 04/03/2021
+ms.locfileid: "106275958"
 ---
 # <a name="live-video-analytics-on-iot-edge-faq"></a>Domande frequenti sull'analisi dei video in tempo reale su IoT Edge
 
@@ -57,7 +57,7 @@ No, non è supportata l'individuazione di dispositivi ONVIF (Open Network Video 
 
 **È possibile riprodurre risorse registrate in servizi multimediali di Azure dal perimetro usando tecnologie di streaming come HLS o DASH?**
 
-Sì. È possibile trasmettere in streaming risorse registrate come qualsiasi altro asset in servizi multimediali di Azure. Per eseguire lo streaming del contenuto, è necessario che sia stato creato un endpoint di streaming e che si trovi nello stato in esecuzione. L'uso del processo di creazione del localizzatore di streaming standard ti permette di accedere a un manifesto Apple HTTP Live Streaming (HLS) o Dynamic Adaptive Streaming tramite HTTP (DASH, noto anche come MPEG-DASH) per lo streaming a qualsiasi framework di lettori idoneo. Per altre informazioni sulla creazione e sulla pubblicazione di manifesti HLS o DASH, vedere Creazione [dinamica dei pacchetti](../latest/dynamic-packaging-overview.md).
+Sì. È possibile trasmettere in streaming risorse registrate come qualsiasi altro asset in servizi multimediali di Azure. Per eseguire lo streaming del contenuto, è necessario che sia stato creato un endpoint di streaming e che si trovi nello stato in esecuzione. L'uso del processo di creazione del localizzatore di streaming standard ti permette di accedere a un manifesto Apple HTTP Live Streaming (HLS) o Dynamic Adaptive Streaming tramite HTTP (DASH, noto anche come MPEG-DASH) per lo streaming a qualsiasi framework di lettori idoneo. Per altre informazioni sulla creazione e sulla pubblicazione di manifesti HLS o DASH, vedere Creazione [dinamica dei pacchetti](../latest/encode-dynamic-packaging-concept.md).
 
 **È possibile usare le funzionalità di protezione del contenuto standard e DRM di servizi multimediali in un asset archiviato?**
 
@@ -69,7 +69,7 @@ Sono supportati tutti i lettori standard che supportano HLS compatibile con la v
 
 I giocatori consigliati per i test includono:
 
-* [Azure Media Player](../latest/use-azure-media-player.md)
+* [Azure Media Player](../latest/player-use-azure-media-player-how-to.md)
 * [HLS.js](https://hls-js.netlify.app/demo/)
 * [Video.js](https://videojs.com/)
 * [Dash.js](https://github.com/Dash-Industry-Forum/dash.js/wiki)

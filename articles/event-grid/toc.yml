@@ -136,6 +136,8 @@
               href: event-schema-azure-maps.md
             - name: Servizi multimediali di Azure
               href: event-schema-media-services.md
+            - name: Criteri di Azure
+              href: ./event-schema-policy.md
             - name: Gruppi di risorse di Azure
               href: event-schema-resource-groups.md
             - name: Bus di servizio di Azure

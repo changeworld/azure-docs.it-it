@@ -12,18 +12,18 @@ ms.topic: how-to
 ms.date: 08/31/2020
 ms.author: inhenkel
 ms.custom: devx-track-csharp
-ms.openlocfilehash: fc3ab64a35c24df2af9d90a5ad348f840610d188
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 5ada86e0ce44977789eaa5d6327c0aad2883b47d
+ms.sourcegitcommit: 5fd1f72a96f4f343543072eadd7cdec52e86511e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102635842"
+ms.lasthandoff: 04/01/2021
+ms.locfileid: "106108847"
 ---
 # <a name="create-a-job-with-multiple-transform-outputs"></a>Creare un processo con più output di trasformazione
 
 [!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
 
-In questo argomento viene illustrato come creare una trasformazione con due output di trasformazione. Il primo richiede la codifica dell'input per lo streaming a bitrate adattivo con un set di impostazioni [AdaptiveStreaming](encoding-concept.md#builtinstandardencoderpreset) incorporato. Il secondo richiede l'elaborazione del segnale audio nel video di input con [AudioAnalyzerPreset](analyzing-video-audio-files-concept.md#built-in-presets). Dopo la creazione della trasformazione, è possibile inviare un processo che elaborerà il video in modo appropriato. Poiché in questo esempio si specificano due output di trasformazione, è necessario specificare due output del processo. È possibile scegliere di indirizzare entrambi gli output del processo allo stesso asset (come illustrato di seguito) oppure è possibile fare in modo che i risultati vengano scritti in risorse separate.
+In questo argomento viene illustrato come creare una trasformazione con due output di trasformazione. Il primo richiede la codifica dell'input per lo streaming a bitrate adattivo con un set di impostazioni [AdaptiveStreaming](encode-concept.md#builtinstandardencoderpreset) incorporato. Il secondo richiede l'elaborazione del segnale audio nel video di input con [AudioAnalyzerPreset](analyze-video-audio-files-concept.md#built-in-presets). Dopo la creazione della trasformazione, è possibile inviare un processo che elaborerà il video in modo appropriato. Poiché in questo esempio si specificano due output di trasformazione, è necessario specificare due output del processo. È possibile scegliere di indirizzare entrambi gli output del processo allo stesso asset (come illustrato di seguito) oppure è possibile fare in modo che i risultati vengano scritti in risorse separate.
 
 > [!TIP]
 > Prima di iniziare lo sviluppo, vedere [sviluppo con le API di servizi multimediali V3](media-services-apis-overview.md) (include informazioni sull'accesso alle API, alle convenzioni di denominazione e così via).

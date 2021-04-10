@@ -2,21 +2,20 @@
 title: Get-Metric in monitoraggio di Azure Application Insights
 description: Informazioni su come usare efficacemente la chiamata getmetric () per acquisire metriche pre-aggregate localmente per le applicazioni .NET e .NET Core con monitoraggio di Azure Application Insights
 ms.service: azure-monitor
-ms.subservice: application-insights
 ms.topic: conceptual
 ms.date: 04/28/2020
-ms.openlocfilehash: 0ce2651d5cfcb1578d78982af109a004aaac11f4
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 22baa1ae9554601a72ffdb848b87d99281067967
+ms.sourcegitcommit: 77d7639e83c6d8eb6c2ce805b6130ff9c73e5d29
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101719781"
+ms.lasthandoff: 04/05/2021
+ms.locfileid: "106384290"
 ---
 # <a name="custom-metric-collection-in-net-and-net-core"></a>Raccolta di metriche personalizzate in .NET e .NET Core
 
 Il monitoraggio di Azure Application Insights .NET e gli SDK di .NET Core hanno due metodi diversi per raccogliere le metriche personalizzate, `TrackMetric()` e `GetMetric()` . La differenza principale tra questi due metodi è l'aggregazione locale. `TrackMetric()` manca la pre-aggregazione mentre `GetMetric()` presenta una pre-aggregazione. L'approccio consigliato consiste nell'usare l'aggregazione, pertanto `TrackMetric()` non è più il metodo preferito per la raccolta di metriche personalizzate. Questo articolo illustra l'uso del metodo getmetric () e alcune delle ragioni di base del funzionamento.
 
-## <a name="trackmetric-versus-getmetric"></a>TrackMetric rispetto a getmetric
+## <a name="pre-aggregating-vs-non-pre-aggregating-api"></a>Pre-aggregazione dell'API di vs non pre-aggregazione
 
 `TrackMetric()` Invia dati di telemetria non elaborati che indicano una metrica. Non è efficiente inviare un singolo elemento di telemetria per ogni valore. `TrackMetric()` è anche inefficiente in termini di prestazioni, perché ogni `TrackMetric(item)` passa attraverso la pipeline SDK completa degli inizializzatori e dei processori di telemetria. A differenza `TrackMetric()` `GetMetric()` di, gestisce la pre-aggregazione locale per l'utente e quindi invia solo una metrica di riepilogo aggregata a un intervallo fisso di un minuto. Quindi, se è necessario monitorare attentamente alcune metriche personalizzate al secondo o anche al livello di millisecondo, è possibile eseguire questa operazione, mentre solo il costo del traffico di archiviazione e di rete è sufficiente per il monitoraggio ogni minuto. Questo consente anche di ridurre notevolmente il rischio di limitazione delle richieste poiché il numero totale di elementi di telemetria che devono essere inviati per una metrica aggregata è notevolmente ridotto.
 
@@ -286,7 +285,7 @@ computersSold.TrackValue(100, "Dim1Value1", "Dim2Value3");
 // The above call does not track the metric, and returns false.
 ```
 
-* `seriesCountLimit` numero massimo di serie temporali dei dati che una metrica può contenere. Una volta raggiunto questo limite, le chiamate a `TrackValue()` non verranno rilevate.
+* `seriesCountLimit` numero massimo di serie temporali dei dati che una metrica può contenere. Una volta raggiunto questo limite, le chiamate a che in genere comportano la creazione di `TrackValue()` una nuova serie restituiscono false.
 * `valuesPerDimensionLimit` limita il numero di valori distinct per dimensione in modo analogo.
 * `restrictToUInt32Values` determina se devono essere rilevati solo i valori interi non negativi.
 

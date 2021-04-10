@@ -5,12 +5,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: seoapr2020
 ms.date: 04/17/2020
-ms.openlocfilehash: 297c1d4afca5a1d605a046d69b086a05a9322bc7
-ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
+ms.openlocfilehash: 06990a5bd1d6619f07952e84870a01f5cd5068df
+ms.sourcegitcommit: 77d7639e83c6d8eb6c2ce805b6130ff9c73e5d29
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/23/2021
-ms.locfileid: "104872082"
+ms.lasthandoff: 04/05/2021
+ms.locfileid: "106384426"
 ---
 # <a name="configure-outbound-network-traffic-for-azure-hdinsight-clusters-using-firewall"></a>Configurare il traffico di rete in uscita per i cluster di Azure HDInsight tramite il firewall
 
@@ -32,7 +32,7 @@ Di seguito, un riepilogo dei passaggi da seguire per bloccare i dati in uscita d
 
 1. Creare una subnet.
 1. Creare un firewall.
-1. Aggiungere le regole dell'applicazione al firewall.
+1. Aggiungere regole dell'applicazione al firewall.
 1. Aggiungere le regole di rete al firewall.
 1. Creare una tabella di routing.
 
@@ -76,7 +76,7 @@ Creare una raccolta di regole dell'applicazione che consenta al cluster di invia
     | --- | --- | --- | --- | --- |
     | Rule_2 | * | https:443 | login.windows.net | Consente l'attività di accesso di Windows |
     | Rule_3 | * | https:443 | login.microsoftonline.com | Consente l'attività di accesso di Windows |
-    | Rule_4 | * | https:443,http:80 | storage_account_name.blob.core.windows.net | Sostituire `storage_account_name` con il nome dell'account di archiviazione. Per usare SOLO le connessioni HTTPS, assicurarsi che nell'account di archiviazione sia abilitato ["trasferimento sicuro obbligatorio"](../storage/common/storage-require-secure-transfer.md). Se si usa un endpoint privato per accedere agli account di archiviazione, questo passaggio non è necessario e il traffico di archiviazione non viene inviato al firewall.|
+    | Rule_4 | * | https:443 | storage_account_name.blob.core.windows.net | Sostituire `storage_account_name` con il nome dell'account di archiviazione. Verificare che l'account di archiviazione sia abilitato per il [trasferimento sicuro obbligatorio](../storage/common/storage-require-secure-transfer.md) . Se si usa un endpoint privato per accedere agli account di archiviazione, questo passaggio non è necessario e il traffico di archiviazione non viene inviato al firewall.|
 
    :::image type="content" source="./media/hdinsight-restrict-outbound-traffic/hdinsight-restrict-outbound-traffic-add-app-rule-collection-details.png" alt-text="Titolo: Immetti i dettagli della raccolta regole dell'applicazione":::
 
@@ -84,7 +84,7 @@ Creare una raccolta di regole dell'applicazione che consenta al cluster di invia
 
 ### <a name="configure-the-firewall-with-network-rules"></a>Configurare il firewall con le regole di rete
 
-Creare le regole di rete per configurare correttamente il cluster HDInsight.
+Creare le regole di rete per configurare correttamente il cluster HDInsight. 
 
 1. Proseguendo dal passaggio precedente, passare a **Raccolta regole di rete** >  **+ Aggiungi raccolta regole di rete**.
 
@@ -102,14 +102,14 @@ Creare le regole di rete per configurare correttamente il cluster HDInsight.
 
     | Nome | Protocollo | Indirizzi di origine | Tag di servizio | Porte di destinazione | Note |
     | --- | --- | --- | --- | --- | --- |
-    | Rule_5 | TCP | * | SQL | 1433 | Se si usano i server SQL predefiniti forniti da HDInsight, configurare una regola di rete nella sezione Tag del servizio per SQL che consentirà di registrare e controllare il traffico SQL. a meno che non siano stati configurati endpoint di servizio per SQL Server nella subnet HDInsight, che ignoreranno il firewall. Se si usa SQL Server personalizzato per Ambari, oozie, Ranger e Metastore hive, è sufficiente consentire il traffico ai server SQL personalizzati.|
+    | Rule_5 | TCP | * | SQL | 1433, 11000-11999 | Se si usano i server SQL predefiniti forniti da HDInsight, configurare una regola di rete nella sezione Tag del servizio per SQL che consentirà di registrare e controllare il traffico SQL. a meno che non siano stati configurati endpoint di servizio per SQL Server nella subnet HDInsight, che ignoreranno il firewall. Se si usa SQL Server personalizzato per Ambari, oozie, Ranger e Metastore hive, è sufficiente consentire il traffico ai server SQL personalizzati. Vedere il [database SQL di Azure e l'architettura di connettività di Azure sinapsi Analytics](../azure-sql/database/connectivity-architecture.md) per vedere perché è necessario anche l'intervallo di porte 11000-11999 oltre a 1433. |
     | Rule_6 | TCP | * | Monitoraggio di Azure | * | (Facoltativo) Si consiglia ai clienti che prevedono di usare la funzionalità di scalabilità automatica di aggiungere questa regola. |
     
    :::image type="content" source="./media/hdinsight-restrict-outbound-traffic/hdinsight-restrict-outbound-traffic-add-network-rule-collection.png" alt-text="Titolo: Immetti la raccolta regole dell'applicazione":::
 
 1. Selezionare **Aggiungi**.
 
-### <a name="create-and-configure-a-route-table"></a>Creare e configurare tabelle di route
+### <a name="create-and-configure-a-route-table"></a>Creare e configurare tabelle di route 
 
 Creare una tabella di route con le voci seguenti:
 

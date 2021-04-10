@@ -2,13 +2,13 @@
 title: Crittografia dei dati di backup tramite chiavi gestite dal cliente
 description: Informazioni su come backup di Azure consente di crittografare i dati di backup usando chiavi gestite dal cliente (CMK).
 ms.topic: conceptual
-ms.date: 07/08/2020
-ms.openlocfilehash: 474f4238276f460abde3d600422e309171875a0c
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.date: 04/01/2021
+ms.openlocfilehash: b6cb1a288d0052b39bbeb52ed9fd20e68a6427ed
+ms.sourcegitcommit: d23602c57d797fb89a470288fcf94c63546b1314
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101716738"
+ms.lasthandoff: 04/01/2021
+ms.locfileid: "106167891"
 ---
 # <a name="encryption-of-backup-data-using-customer-managed-keys"></a>Crittografia dei dati di backup tramite chiavi gestite dal cliente
 
@@ -33,7 +33,7 @@ Questo articolo illustra quanto segue:
 
 - Questa funzionalità non è correlata a [crittografia dischi di Azure](../security/fundamentals/azure-disk-encryption-vms-vmss.md), che usa la crittografia basata su Guest dei dischi di una macchina virtuale con BitLocker (per Windows) e DM-Crypt (per Linux)
 
-- L'insieme di credenziali di servizi di ripristino può essere crittografato solo con chiavi archiviate in un Azure Key Vault, che si trova nella **stessa area**. Inoltre, le chiavi devono essere solo **chiavi RSA 2048** e devono essere in stato **abilitato** .
+- L'insieme di credenziali di servizi di ripristino può essere crittografato solo con chiavi archiviate in un Azure Key Vault, che si trova nella **stessa area**. Inoltre, le chiavi devono essere solo **chiavi RSA** e devono essere in stato **abilitato** .
 
 - Lo stato di CMK dell'insieme di credenziali di servizi di ripristino crittografati tra gruppi di risorse e sottoscrizioni
 - Quando si sposta un insieme di credenziali di servizi di ripristino già crittografato con chiavi gestite dal cliente in un nuovo tenant, è necessario aggiornare l'insieme di credenziali di servizi di ripristino per ricreare e riconfigurare l'identità gestita dell'insieme di credenziali e CMK (che deve essere nel nuovo tenant). Se questa operazione non viene eseguita, le operazioni di backup e ripristino inizieranno a non riuscire. Inoltre, le autorizzazioni di controllo degli accessi in base al ruolo impostate nella sottoscrizione dovranno essere riconfigurate.
@@ -42,6 +42,9 @@ Questo articolo illustra quanto segue:
 
     >[!NOTE]
     >Usare AZ Module 5.3.0 o versione successiva per usare le chiavi gestite dal cliente per i backup nell'insieme di credenziali di servizi di ripristino.
+    
+    >[!Warning]
+    >Se si usa PowerShell per la gestione delle chiavi di crittografia per il backup, non è consigliabile aggiornare le chiavi dal portale.<br></br>Se si aggiorna la chiave dal portale, non è possibile usare PowerShell per aggiornare ulteriormente la chiave di crittografia, fino a quando non è disponibile un aggiornamento di PowerShell per supportare il nuovo modello. Tuttavia, è possibile continuare ad aggiornare la chiave dal portale di Azure.
 
 Se non è stato creato e configurato l'insieme di credenziali di servizi di ripristino, è possibile [leggere qui](backup-create-rs-vault.md).
 
@@ -59,22 +62,32 @@ Questa sezione prevede i passaggi seguenti:
 
 È necessario che tutti questi passaggi siano seguiti nell'ordine indicato in precedenza per ottenere i risultati desiderati. Ogni passaggio viene descritto in dettaglio di seguito.
 
-### <a name="enable-managed-identity-for-your-recovery-services-vault"></a>Abilitare l'identità gestita per l'insieme di credenziali di servizi di ripristino
+## <a name="enable-managed-identity-for-your-recovery-services-vault"></a>Abilitare l'identità gestita per l'insieme di credenziali di servizi di ripristino
 
-Backup di Azure usa l'identità gestita assegnata dal sistema per autenticare l'insieme di credenziali di servizi di ripristino per accedere alle chiavi di crittografia archiviate nel Azure Key Vault. Per abilitare l'identità gestita per l'insieme di credenziali di servizi di ripristino, attenersi alla procedura descritta di seguito.
+Backup di Azure Usa identità gestite assegnate dal sistema e identità gestite assegnate dall'utente per autenticare l'insieme di credenziali di servizi di ripristino per accedere alle chiavi di crittografia archiviate nel Azure Key Vault. Per abilitare l'identità gestita per l'insieme di credenziali di servizi di ripristino, attenersi alla procedura descritta di seguito.
 
 >[!NOTE]
 >Una volta abilitata, l'identità gestita **non** deve essere disabilitata (anche temporaneamente). La disabilitazione dell'identità gestita può causare un comportamento incoerente.
+
+### <a name="enable-system-assigned-managed-identity-for-the-vault"></a>Abilitare l'identità gestita assegnata dal sistema per l'insieme di credenziali
 
 **Nel portale:**
 
 1. Passare all'insieme di credenziali dei servizi di ripristino-> **identità**
 
-    ![Impostazioni di identità](./media/encryption-at-rest-with-cmk/managed-identity.png)
+    ![Impostazioni di identità](media/encryption-at-rest-with-cmk/enable-system-assigned-managed-identity-for-vault.png)
 
-1. Modificare lo **stato** **su on** e selezionare **Salva**.
+1. Passare alla scheda **assegnato dal sistema** .
 
-1. Viene generato un ID oggetto, ovvero l'identità gestita assegnata dal sistema dell'insieme di credenziali.
+1. Impostare lo **stato** **su on**.
+
+1. Fare clic su **Salva** per abilitare l'identità per l'insieme di credenziali.
+
+Viene generato un ID oggetto, ovvero l'identità gestita assegnata dal sistema dell'insieme di credenziali.
+
+>[!NOTE]
+>Una volta abilitata, l'identità gestita non deve essere disabilitata (anche temporaneamente). La disabilitazione dell'identità gestita può causare un comportamento incoerente.
+
 
 **Con PowerShell:**
 
@@ -98,7 +111,28 @@ TenantId    : xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
 Type        : SystemAssigned
 ```
 
-### <a name="assign-permissions-to-the-recovery-services-vault-to-access-the-encryption-key-in-the-azure-key-vault"></a>Assegnare le autorizzazioni all'insieme di credenziali dei servizi di ripristino per accedere alla chiave di crittografia nel Azure Key Vault
+### <a name="assign-user-assigned-managed-identity-to-the-vault"></a>Assegnare l'identità gestita assegnata dall'utente all'insieme di credenziali
+
+Per assegnare l'identità gestita assegnata dall'utente per l'insieme di credenziali di servizi di ripristino, seguire questa procedura:
+
+1.  Passare all'insieme di credenziali dei servizi di ripristino-> **identità**
+
+    ![Assegnare l'identità gestita assegnata dall'utente all'insieme di credenziali](media/encryption-at-rest-with-cmk/assign-user-assigned-managed-identity-to-vault.png)
+
+1.  Passare alla scheda **assegnato dall'utente** .
+
+1.  Fare clic su **+ Aggiungi** per aggiungere un'identità gestita assegnata dall'utente.
+
+1.  Nel pannello **Aggiungi identità gestita assegnata dall'utente** visualizzata selezionare la sottoscrizione per l'identità.
+
+1.  Consente di selezionare l'identità dall'elenco. È anche possibile filtrare in base al nome dell'identità o del gruppo di risorse.
+
+1.  Al termine, fare clic su **Aggiungi** per completare l'assegnazione dell'identità.
+
+## <a name="assign-permissions-to-the-recovery-services-vault-to-access-the-encryption-key-in-the-azure-key-vault"></a>Assegnare le autorizzazioni all'insieme di credenziali dei servizi di ripristino per accedere alla chiave di crittografia nel Azure Key Vault
+
+>[!Note]
+>Se si utilizzano identità assegnate dall'utente, è necessario assegnare le stesse autorizzazioni all'identità assegnata dall'utente.
 
 A questo punto è necessario consentire all'insieme di credenziali dei servizi di ripristino di accedere ai Azure Key Vault che contengono la chiave di crittografia. Questa operazione viene eseguita consentendo all'identità gestita dell'insieme di credenziali di servizi di ripristino di accedere al Key Vault.
 
@@ -120,7 +154,7 @@ A questo punto è necessario consentire all'insieme di credenziali dei servizi d
 
 1. Selezionare **Save (Salva** ) per salvare le modifiche apportate ai criteri di accesso del Azure Key Vault.
 
-### <a name="enable-soft-delete-and-purge-protection-on-the-azure-key-vault"></a>Abilitare l'eliminazione temporanea e ripulire la protezione sul Azure Key Vault
+## <a name="enable-soft-delete-and-purge-protection-on-the-azure-key-vault"></a>Abilitare l'eliminazione temporanea e ripulire la protezione sul Azure Key Vault
 
 È necessario **abilitare l'eliminazione temporanea e ripulire la protezione** sul Azure Key Vault in cui è archiviata la chiave di crittografia. Questa operazione può essere eseguita dall'interfaccia utente di Azure Key Vault, come illustrato di seguito. In alternativa, è possibile impostare queste proprietà durante la creazione del Key Vault. Per altre informazioni su queste proprietà Key Vault, vedere [qui](../key-vault/general/soft-delete-overview.md).
 
@@ -160,7 +194,7 @@ A questo punto è necessario consentire all'insieme di credenziali dei servizi d
     Set-AzResource -resourceid $resource.ResourceId -Properties $resource.Properties
     ```
 
-### <a name="assign-encryption-key-to-the-rs-vault"></a>Assegnare la chiave di crittografia all'insieme di credenziali RS
+## <a name="assign-encryption-key-to-the-rs-vault"></a>Assegnare la chiave di crittografia all'insieme di credenziali RS
 
 >[!NOTE]
 > Prima di procedere, verificare quanto segue:
@@ -172,7 +206,7 @@ A questo punto è necessario consentire all'insieme di credenziali dei servizi d
 
 Una volta verificate le precedenti, continuare con la selezione della chiave di crittografia per l'insieme di credenziali.
 
-#### <a name="to-assign-the-key-in-the-portal"></a>Per assegnare la chiave nel portale
+### <a name="to-assign-the-key-in-the-portal"></a>Per assegnare la chiave nel portale
 
 1. Passare all'insieme di credenziali dei servizi di ripristino- **proprietà** >
 
@@ -192,7 +226,7 @@ Una volta verificate le precedenti, continuare con la selezione della chiave di 
     1. Individuare e selezionare la chiave dal Key Vault nel riquadro Selezione chiave.
 
         >[!NOTE]
-        >Quando si specifica la chiave di crittografia tramite il riquadro Selezione chiave, la chiave verrà ruotata automaticamente ogni volta che viene abilitata una nuova versione della chiave.
+        >Quando si specifica la chiave di crittografia tramite il riquadro Selezione chiave, la chiave verrà ruotata automaticamente ogni volta che viene abilitata una nuova versione della chiave. [Altre informazioni](#enabling-auto-rotation-of-encryption-keys) sull'abilitazione della rotazione automatica delle chiavi di crittografia.
 
         ![Selezionare la chiave da Key Vault](./media/encryption-at-rest-with-cmk/key-vault.png)
 
@@ -206,7 +240,7 @@ Una volta verificate le precedenti, continuare con la selezione della chiave di 
 
     ![Log attività](./media/encryption-at-rest-with-cmk/activity-log.png)
 
-#### <a name="to-assign-the-key-with-powershell"></a>Per assegnare la chiave con PowerShell
+### <a name="to-assign-the-key-with-powershell"></a>Per assegnare la chiave con PowerShell
 
 Usare il comando [set-AzRecoveryServicesVaultProperty](/powershell/module/az.recoveryservices/set-azrecoveryservicesvaultproperty) per abilitare la crittografia usando chiavi gestite dal cliente e per assegnare o aggiornare la chiave di crittografia da usare.
 
@@ -249,8 +283,8 @@ Prima di procedere alla configurazione della protezione, è consigliabile assicu
 > Prima di procedere alla configurazione della protezione **, è necessario avere completato** i passaggi seguenti:
 >
 >1. L'insieme di credenziali di backup è stato creato
->1. Abilita l'identità gestita assegnata dal sistema dell'insieme di credenziali di backup
->1. Autorizzazioni assegnate all'insieme di credenziali per il backup per accedere alle chiavi di crittografia dalla Key Vault
+>1. È stata abilitata l'identità gestita assegnata dal sistema dell'insieme di credenziali di servizi di ripristino o un'identità gestita assegnata dall'utente all'insieme di credenziali
+>1. Sono state assegnate le autorizzazioni all'insieme di credenziali per il backup o all'identità gestita assegnata dall'utente per accedere alle chiavi di crittografia dalla Key Vault
 >1. È stata abilitata l'eliminazione temporanea e la protezione per l'Key Vault
 >1. È stata assegnata una chiave di crittografia valida per l'insieme di credenziali di backup
 >
@@ -311,6 +345,44 @@ Quando si esegue un ripristino di file, i dati ripristinati verranno crittografa
 ### <a name="restoring-sap-hanasql-databases-in-azure-vms"></a>Ripristino di database SAP HANA/SQL in macchine virtuali di Azure
 
 Quando si esegue il ripristino da un database SAP HANA/SQL di cui è stato eseguito il backup in esecuzione in una macchina virtuale di Azure, i dati ripristinati verranno crittografati usando la chiave di crittografia usata nel percorso di archiviazione di destinazione. Potrebbe trattarsi di una chiave gestita dal cliente o una chiave gestita dalla piattaforma usata per crittografare i dischi della macchina virtuale.
+
+## <a name="additional-topics"></a>Argomenti aggiuntivi
+
+### <a name="enable-encryption-using-customer-managed-keys-at-vault-creation-in-preview"></a>Abilitare la crittografia usando chiavi gestite dal cliente durante la creazione dell'insieme di credenziali (in anteprima)
+
+>[!NOTE]
+>L'abilitazione della crittografia durante la creazione dell'insieme di credenziali con chiavi gestite dal cliente è in anteprima pubblica limitata e richiede l'elenco delle sottoscrizioni. Per iscriversi all'anteprima, compilare il [modulo](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR0H3_nezt2RNkpBCUTbWEapURDNTVVhGOUxXSVBZMEwxUU5FNDkyQkU4Ny4u) e scrivere all'indirizzo [AskAzureBackupTeam@microsoft.com](mailto:AskAzureBackupTeam@microsoft.com) .
+
+Quando la sottoscrizione è consentita, verrà visualizzata la scheda **crittografia di backup** . In questo modo è possibile abilitare la crittografia nel backup usando chiavi gestite dal cliente durante la creazione di un nuovo insieme di credenziali di servizi di ripristino. Per abilitare la crittografia, seguire questa procedura:
+
+1. Accanto alla scheda **nozioni di base** , nella scheda **crittografia backup** specificare la chiave di crittografia e l'identità da usare per la crittografia.
+
+   ![Abilitare la crittografia a livello di insieme di credenziali](media/encryption-at-rest-with-cmk/enable-encryption-using-cmk-at-vault.png)
+
+
+   >[!NOTE]
+   >Le impostazioni si applicano solo al backup e sono facoltative.
+
+1. Selezionare **Usa chiave gestita dal cliente** come tipo di crittografia.
+
+1. Per specificare la chiave da usare per la crittografia, selezionare l'opzione appropriata.
+
+   È possibile specificare l'URI per la chiave di crittografia oppure sfogliare e selezionare la chiave. Quando si specifica la chiave utilizzando l'opzione **seleziona Key Vault** , la rotazione automatica della chiave di crittografia verrà abilitata automaticamente. [Altre informazioni sulla rotazione automatica](#enabling-auto-rotation-of-encryption-keys). 
+
+1. Specificare l'identità gestita assegnata dall'utente per gestire la crittografia con chiavi gestite dal cliente. Fare clic su **Seleziona** per individuare e selezionare l'identità richiesta.
+
+1. Al termine, procedere con l'aggiunta di tag (facoltativo) e continuare a creare l'insieme di credenziali.
+
+### <a name="enabling-auto-rotation-of-encryption-keys"></a>Abilitazione della rotazione automatica delle chiavi di crittografia
+
+Quando si specifica la chiave gestita dal cliente che deve essere utilizzata per crittografare i backup, utilizzare i metodi seguenti per specificarla:
+
+- Immettere l'URI della chiave
+- Seleziona da Key Vault
+
+L'uso dell'opzione **Seleziona da Key Vault** consente di abilitare la rotazione automatica per la chiave selezionata. In questo modo si elimina l'impegno manuale per l'aggiornamento alla versione successiva. Tuttavia, utilizzando questa opzione:
+- L'aggiornamento della versione della chiave potrebbe richiedere fino a un'ora.
+- Quando viene applicata una nuova versione della chiave, la versione precedente dovrebbe essere disponibile (in stato abilitato) per almeno un processo di backup successivo dopo che l'aggiornamento della chiave è stato applicato.
 
 ## <a name="frequently-asked-questions"></a>Domande frequenti
 

@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jlu
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 44091cda479f2c0ccbe77bb9989ee2eda4c40f9d
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 80ee161944a48135778d12942964a88455ab756e
+ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105727094"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106055774"
 ---
 # <a name="continuous-access-evaluation"></a>Valutazione continua dell'accesso
 
@@ -163,11 +163,11 @@ Se questo scenario è presente nell'ambiente per evitare cicli infiniti, Azure A
 
 Per una spiegazione dei canali di Office Update, vedere [Panoramica dei canali di aggiornamento per le app Microsoft 365](/deployoffice/overview-update-channels). Si consiglia alle organizzazioni di non disabilitare Web Account Manager (WAM).
 
-### <a name="policy-change-timing"></a>Temporizzazione delle modifiche dei criteri
+### <a name="group-membership-and-policy-update-effective-time"></a>Tempo effettivo di appartenenza al gruppo e aggiornamento dei criteri
 
-Le modifiche dei criteri apportate dagli amministratori possono richiedere fino a un giorno per essere effettive. È stata eseguita una certa ottimizzazione per ridurre il ritardo a due ore. Tuttavia, non copre ancora tutti gli scenari. 
+L'appartenenza ai gruppi e l'aggiornamento dei criteri effettuati dagli amministratori possono richiedere fino a un giorno per essere efficaci. È stata eseguita una certa ottimizzazione per gli aggiornamenti dei criteri che riducono il ritardo a due ore. Tuttavia, non copre ancora tutti gli scenari. 
 
-Se si verifica un'emergenza ed è necessario applicare i criteri aggiornati immediatamente a determinati utenti, è necessario usare questo [comando di PowerShell](/powershell/module/azuread/revoke-azureaduserallrefreshtoken) o "Revoke Session" nella pagina del profilo utente per revocare la sessione degli utenti, assicurandosi che i criteri aggiornati verranno applicati immediatamente.
+Se si verifica un'emergenza ed è necessario che i criteri siano aggiornati o che la modifica dell'appartenenza al gruppo venga applicata immediatamente a determinati utenti, è necessario usare questo [comando di PowerShell](/powershell/module/azuread/revoke-azureaduserallrefreshtoken) o "Revoke Session" nella pagina del profilo utente per revocare la sessione degli utenti, assicurandosi che i criteri aggiornati verranno applicati immediatamente.
 
 ### <a name="coauthoring-in-office-apps"></a>Creazione di una coautorizzazione nelle app di Office
 

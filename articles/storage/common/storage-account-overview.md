@@ -6,15 +6,15 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: conceptual
-ms.date: 03/09/2021
+ms.date: 04/02/2021
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: 24d955b0d1c53f57f5927f9e893b6ecd75fb3ca8
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: d7eca7d8f3cd40f4a3961f0ac478fba290be3041
+ms.sourcegitcommit: 02bc06155692213ef031f049f5dcf4c418e9f509
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102561892"
+ms.lasthandoff: 04/03/2021
+ms.locfileid: "106279664"
 ---
 # <a name="storage-account-overview"></a>Panoramica dell'account di archiviazione
 
@@ -175,10 +175,6 @@ La tabella seguente illustra i livelli di accesso disponibili per i BLOB in ogni
 > [!IMPORTANT]
 > La modifica del livello di accesso per un account di archiviazione o un BLOB esistente può comportare costi aggiuntivi. Per ulteriori informazioni, vedere la pagina relativa alla [fatturazione dell'account di archiviazione](#storage-account-billing).
 
-## <a name="encryption"></a>Crittografia
-
-Tutti i dati nell'account di archiviazione vengono crittografati sul lato del servizio. Per altre informazioni sulla crittografia, vedere [Crittografia del servizio di archiviazione di Azure per dati inattivi](storage-service-encryption.md).
-
 ## <a name="storage-account-endpoints"></a>Endpoint dell'account di archiviazione
 
 Un account di archiviazione offre uno spazio dei nomi univoco in Azure per i dati. Tutti gli oggetti archiviati in Archiviazione di Azure hanno un indirizzo che include il nome univoco dell'account. La combinazione del nome dell'account e dell'endpoint di servizio di Archiviazione di Azure costituisce gli endpoint per l'account di archiviazione.
@@ -200,22 +196,17 @@ Costruire l'URL per accedere a un oggetto in un account di archiviazione accodan
 
 È anche possibile configurare l'account di archiviazione per l'uso di un dominio personalizzato per i BLOB. Per altre informazioni, vedere [Configurare un nome di dominio personalizzato per l'account di Archiviazione di Azure](../blobs/storage-custom-domain-name.md).  
 
-## <a name="control-access-to-account-data"></a>Controllare l'accesso ai dati dell'account
+## <a name="migrating-a-storage-account"></a>Migrazione di un account di archiviazione
 
-Per impostazione predefinita, i dati nel proprio account sono accessibili solo all'utente, ovvero al proprietario dell'account. È possibile controllare chi può accedere ai dati e quali autorizzazioni assegnare.
+La tabella seguente riepiloga e punta alle linee guida per lo spostamento, l'aggiornamento o la migrazione di un account di archiviazione:
 
-Ogni richiesta effettuata all'account di archiviazione deve essere autorizzata. Al livello del servizio, la richiesta deve includere un'intestazione di *autorizzazione* valida. In particolare, questa intestazione include tutte le informazioni necessarie per la convalida della richiesta da parte del servizio prima dell'esecuzione.
-
-È possibile concedere l'accesso ai dati nell'account di archiviazione usando uno degli approcci seguenti:
-
-- **Azure Active Directory:** Usare le credenziali di Azure Active Directory (Azure AD) per autenticare un utente, un gruppo o un'altra identità per l'accesso ai dati BLOB e di Accodamento. Se l'autenticazione di un'identità ha esito positivo, Azure AD restituisce un token da usare per l'autorizzazione della richiesta con l'archiviazione BLOB di Azure o con l'archiviazione code. Per altre informazioni, vedere [Autenticare l'accesso ad Archiviazione di Azure tramite Azure Active Directory](storage-auth-aad.md).
-- **Autorizzazione con chiave condivisa:** usare la chiave di accesso dell'account di archiviazione per creare una stringa di connessione usata dall'applicazione in fase di esecuzione per accedere ad Archiviazione di Azure. I valori nella stringa di connessione vengono usati per creare l'intestazione *Autorizzazione* che viene passata ad Archiviazione di Azure. Per altre informazioni, vedere [Configurare le stringhe di connessione di Archiviazione di Azure](storage-configure-connection-string.md).
-- **Firma di accesso condiviso:** Una firma di accesso condiviso è un token che consente l'accesso delegato alle risorse nell'account di archiviazione. Il token SAS incapsula tutte le informazioni necessarie per autorizzare una richiesta ad archiviazione di Azure nell'URL. Quando si crea una firma di accesso condiviso, è possibile specificare le autorizzazioni concesse dalla firma di accesso condiviso a una risorsa e l'intervallo in base al quale sono valide le autorizzazioni. Un token di firma di accesso condiviso può essere firmato con Azure AD credenziali o con chiave condivisa. Per altre informazioni, vedere [concedere l'accesso limitato alle risorse di archiviazione di Azure usando le firme di accesso condiviso (SAS)](storage-sas-overview.md).
-
-> [!NOTE]
-> L'autenticazione degli utenti o delle applicazioni tramite le credenziali di Azure AD offre un livello superiore di sicurezza e facilità d'uso rispetto ad altri metodi di autorizzazione. Mentre con le applicazioni è possibile continuare a usare l'autorizzazione con chiave condivisa, l'uso di Azure AD consente di evitare la necessità di archiviare la chiave di accesso dell'account con il codice. È anche possibile continuare a usare le firme di accesso condiviso per concedere accesso specifico alle risorse dell'account di archiviazione, ma Azure AD offre funzionalità simili senza la necessità di gestire i token di firma di accesso condiviso o di occuparsi della revoca di una di firma di accesso condiviso compromessa.
->
-> Microsoft consiglia di usare Azure AD autorizzazione per le applicazioni di Accodamento e BLOB di archiviazione di Azure, quando possibile.
+| Scenario di migrazione | Dettagli |
+|--|--|
+| Spostare un account di archiviazione in una sottoscrizione diversa | Azure Resource Manager fornisce opzioni per lo trasferimento di una risorsa in una sottoscrizione diversa. Per altre informazioni, vedere [Spostare le risorse in un gruppo di risorse o una sottoscrizione nuovi](../../azure-resource-manager/management/move-resource-group-and-subscription.md). |
+| Spostare un account di archiviazione in un gruppo di risorse diverso | Azure Resource Manager fornisce opzioni per lo stato di trasferimento di una risorsa in un gruppo di risorse diverso. Per altre informazioni, vedere [Spostare le risorse in un gruppo di risorse o una sottoscrizione nuovi](../../azure-resource-manager/management/move-resource-group-and-subscription.md). |
+| Spostare un account di archiviazione in un'area diversa | Per spostare un account di archiviazione, creare una copia dell'account di archiviazione in un'altra area. Spostare quindi i dati in tale account usando AzCopy o un altro strumento di propria scelta. Per altre informazioni, vedere [spostare un account di archiviazione di Azure in un'altra area](storage-account-move.md). |
+| Eseguire l'aggiornamento a un account di archiviazione per utilizzo generico v2 | È possibile aggiornare un account di archiviazione per utilizzo generico V1 o un account di archiviazione BLOB a un account per utilizzo generico V2. Questa azione non può essere annullata. Per altre informazioni, [Eseguire l'aggiornamento alla versione 2 di un account di archiviazione per uso generico](storage-account-upgrade.md). |
+| Eseguire la migrazione di un account di archiviazione classico a Azure Resource Manager | Il modello di distribuzione Azure Resource Manager è superiore al modello di distribuzione classica in termini di funzionalità, scalabilità e sicurezza. Per altre informazioni sulla migrazione di un account di archiviazione classico a Azure Resource Manager, vedere [migrazione degli account di archiviazione](../../virtual-machines/migration-classic-resource-manager-overview.md#migration-of-storage-accounts) in **migrazione supportata dalla piattaforma di risorse IaaS dal modello classico al Azure Resource Manager**. |
 
 ## <a name="copying-data-into-a-storage-account"></a>Copia dei dati in un account di archiviazione
 
@@ -240,6 +231,10 @@ Per altre informazioni sull'API REST di Archiviazione di Azure, vedere [Informaz
 > [!IMPORTANT]
 > I BLOB crittografati con la crittografia lato client archiviano i metadati correlati alla crittografia con il BLOB. Se si copia un BLOB crittografato con la crittografia lato client, verificare che l'operazione di copia mantenga i metadati del BLOB e soprattutto quelli correlati alla crittografia. Se si copia un BLOB senza i metadati di crittografia, il contenuto del BLOB non sarà più recuperabile. Per altre informazioni sui metadati correlati alla crittografia, vedere [Crittografia lato client e Insieme di credenziali chiave Azure per Archiviazione di Microsoft Azure](../common/storage-client-side-encryption.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).
 
+## <a name="encryption"></a>Crittografia
+
+Tutti i dati nell'account di archiviazione vengono crittografati sul lato del servizio. Per altre informazioni sulla crittografia, vedere [Crittografia del servizio di archiviazione di Azure per dati inattivi](storage-service-encryption.md).
+
 ## <a name="storage-account-billing"></a>Fatturazione dell'account di archiviazione
 
 Fatturazione di archiviazione di Azure in base all'utilizzo dell'account di archiviazione. Tutti gli oggetti in un account di archiviazione vengono fatturati insieme come gruppo. I costi di archiviazione vengono calcolati in base ai fattori seguenti:
@@ -260,5 +255,5 @@ La pagina [Prezzi di Archiviazione di Azure](https://azure.microsoft.com/pricing
 
 - [Creare un account di archiviazione](storage-account-create.md)
 - [Creare un account di archiviazione BLOB in blocchi](../blobs/storage-blob-create-account-block-blob.md)
-- [Eseguire l'aggiornamento a un account di archiviazione per utilizzo generico v2](storage-account-upgrade.md)
+- [Upgrade to a general-purpose v2 storage account](storage-account-upgrade.md) (Eseguire l'aggiornamento alla versione 2 di un account di archiviazione per utilizzo generico)
 - [consente di ripristinare un account di archiviazione eliminato](storage-account-recover.md)

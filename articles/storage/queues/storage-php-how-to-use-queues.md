@@ -1,19 +1,19 @@
 ---
 title: Come usare l'archiviazione di Accodamento da PHP-archiviazione di Azure
 description: Informazioni su come usare il servizio di archiviazione di Accodamento di Azure per creare ed eliminare code e per inserire, ottenere ed eliminare messaggi. Gli esempi sono scritti in PHP.
-author: mhopkins-msft
-ms.author: mhopkins
+author: twooley
+ms.author: twooley
 ms.reviewer: dineshm
 ms.date: 01/11/2018
 ms.topic: how-to
 ms.service: storage
 ms.subservice: queues
-ms.openlocfilehash: 69369d81892a10c390aa31a2c46f79fdfa41206d
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 0d559fd52cffe893b3f7d61842982fdc2ecd0a48
+ms.sourcegitcommit: 02bc06155692213ef031f049f5dcf4c418e9f509
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97592025"
+ms.lasthandoff: 04/03/2021
+ms.locfileid: "106275924"
 ---
 # <a name="how-to-use-queue-storage-from-php"></a>Come usare l'archiviazione di Accodamento da PHP
 

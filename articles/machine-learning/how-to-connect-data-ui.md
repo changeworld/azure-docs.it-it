@@ -11,12 +11,12 @@ author: nibaccam
 ms.reviewer: nibaccam
 ms.date: 09/22/2020
 ms.custom: how-to, data4ml
-ms.openlocfilehash: 0e2230bdcf2b2f4358db4a0d600506b711f39c45
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: a0265984c4ae83b8869071017e2fb571a7ff548c
+ms.sourcegitcommit: d40ffda6ef9463bb75835754cabe84e3da24aab5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102508232"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "107027653"
 ---
 # <a name="connect-to-data-with-the-azure-machine-learning-studio"></a>Connettersi ai dati con Azure Machine Learning Studio
 
@@ -69,7 +69,7 @@ Nell'esempio seguente viene illustrato l'aspetto del form quando si crea un **ar
 Dopo aver creato un archivio dati, creare un set di dati per interagire con i dati. I set di dati impacchettano i dati in un oggetto utilizzabile differito per le attività di Machine Learning, ad esempio il training. [Altre informazioni sui set di dati](how-to-create-register-datasets.md).
 
 Sono disponibili due tipi di set di dati, filedataset e TabularDataset. 
-I [filedataset](how-to-create-register-datasets.md#filedataset) creano riferimenti a uno o più file o URL pubblici. Mentre [TabularDatasets](how-to-create-register-datasets.md#tabulardataset) rappresentano i dati in formato tabulare. 
+I [filedataset](how-to-create-register-datasets.md#filedataset) creano riferimenti a uno o più file o URL pubblici. Mentre [TabularDatasets](how-to-create-register-datasets.md#tabulardataset) rappresentano i dati in formato tabulare. È possibile creare TabularDatasets da file con estensione CSV, TSV, parquet e JSON e dai risultati della query SQL.
 
 I passaggi e l'animazione seguenti illustrano come creare un set di dati in [Azure Machine Learning Studio](https://ml.azure.com).
 

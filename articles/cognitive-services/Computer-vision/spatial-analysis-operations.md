@@ -10,12 +10,12 @@ ms.subservice: computer-vision
 ms.topic: conceptual
 ms.date: 01/12/2021
 ms.author: aahi
-ms.openlocfilehash: af220106c415165a0dbe7cda64a31a6068f53164
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: bdcbb38a56e46d01a5580f6d32ef733df8911b67
+ms.sourcegitcommit: 5fd1f72a96f4f343543072eadd7cdec52e86511e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "99981783"
+ms.lasthandoff: 04/01/2021
+ms.locfileid: "106108337"
 ---
 # <a name="spatial-analysis-operations"></a>Operazioni di analisi spaziale
 
@@ -29,6 +29,7 @@ Il contenitore di analisi spaziale implementa le operazioni seguenti:
 | cognitiveservices. Vision. spatialanalysis-personcrossingline | Tiene traccia del momento in cui un utente incrocia una riga designata nel campo di visualizzazione della fotocamera. <br>Genera un evento _personLineEvent_ quando la persona attraversa la riga e fornisce informazioni direzionali. 
 | cognitiveservices. Vision. spatialanalysis-personcrossingpolygon | Genera un evento _personZoneEnterExitEvent_ quando un utente immette o esce dalla zona e fornisce informazioni direzionali con il lato numerato della zona che è stata superata. Emette un _personZoneDwellTimeEvent_ quando l'utente esce dalla zona e fornisce informazioni direzionali, nonché il numero di millisecondi trascorsi dall'utente all'interno della zona. |
 | cognitiveservices. Vision. spatialanalysis-persondistance | Tiene traccia del momento in cui le persone violano una regola di distanza. <br> Emette periodicamente un _personDistanceEvent_ con la posizione di ogni violazione della distanza. |
+| cognitiveservices. Vision. spatialanalysis | Operazione generica che può essere usata per eseguire tutti gli scenari indicati in precedenza. Questa opzione è più utile quando si desidera eseguire più scenari nella stessa fotocamera o utilizzare risorse di sistema, ad esempio GPU, in modo più efficiente. |
 
 Tutte le operazioni sopra elencate sono disponibili anche nella `.debug` versione, che hanno la possibilità di visualizzare i fotogrammi video durante l'elaborazione. Sarà necessario eseguire `xhost +` nel computer host per abilitare la visualizzazione di fotogrammi video ed eventi.
 
@@ -38,6 +39,7 @@ Tutte le operazioni sopra elencate sono disponibili anche nella `.debug` version
 | cognitiveservices. Vision. spatialanalysis-personcrossingline. debug | Tiene traccia del momento in cui un utente incrocia una riga designata nel campo di visualizzazione della fotocamera. <br>Genera un evento _personLineEvent_ quando la persona attraversa la riga e fornisce informazioni direzionali. 
 | cognitiveservices. Vision. spatialanalysis-personcrossingpolygon. debug | Genera un evento _personZoneEnterExitEvent_ quando un utente immette o esce dalla zona e fornisce informazioni direzionali con il lato numerato della zona che è stata superata. Emette un _personZoneDwellTimeEvent_ quando l'utente esce dalla zona e fornisce informazioni direzionali, nonché il numero di millisecondi trascorsi dall'utente all'interno della zona. |
 | cognitiveservices. Vision. spatialanalysis-persondistance. debug | Tiene traccia del momento in cui le persone violano una regola di distanza. <br> Emette periodicamente un _personDistanceEvent_ con la posizione di ogni violazione della distanza. |
+| cognitiveservices. Visio. spatialanalysis. debug | Operazione generica che può essere usata per eseguire tutti gli scenari indicati in precedenza. Questa opzione è più utile quando si desidera eseguire più scenari nella stessa fotocamera o utilizzare risorse di sistema, ad esempio GPU, in modo più efficiente. |
 
 L'analisi spaziale può essere eseguita anche con analisi [video in tempo reale](../../media-services/live-video-analytics-edge/spatial-analysis-tutorial.md) come modulo di intelligenza artificiale video. 
 
@@ -49,6 +51,7 @@ L'analisi spaziale può essere eseguita anche con analisi [video in tempo reale]
 | cognitiveservices. Vision. spatialanalysis-personcrossingline. livevideoanalytics | Tiene traccia del momento in cui un utente incrocia una riga designata nel campo di visualizzazione della fotocamera. <br>Genera un evento _personLineEvent_ quando la persona attraversa la riga e fornisce informazioni direzionali. 
 | cognitiveservices. Vision. spatialanalysis-personcrossingpolygon. livevideoanalytics | Genera un evento _personZoneEnterExitEvent_ quando un utente immette o esce dalla zona e fornisce informazioni direzionali con il lato numerato della zona che è stata superata. Emette un _personZoneDwellTimeEvent_ quando l'utente esce dalla zona e fornisce informazioni direzionali, nonché il numero di millisecondi trascorsi dall'utente all'interno della zona.  |
 | cognitiveservices. Vision. spatialanalysis-persondistance. livevideoanalytics | Tiene traccia del momento in cui le persone violano una regola di distanza. <br> Emette periodicamente un _personDistanceEvent_ con la posizione di ogni violazione della distanza. |
+| cognitiveservices. Vision. spatialanalysis. livevideoanalytics | Operazione generica che può essere usata per eseguire tutti gli scenari indicati in precedenza. Questa opzione è più utile quando si desidera eseguire più scenari nella stessa fotocamera o utilizzare risorse di sistema, ad esempio GPU, in modo più efficiente. |
 
 Le operazioni di analisi video in tempo reale sono disponibili anche nella `.debug` versione (ad esempio, cognitiveservices. Vision. spatialanalysis-PersonCount. livevideoanalytics. debug), che è in grado di visualizzare i fotogrammi video come elaborati. Sarà necessario eseguire `xhost +` nel computer host per abilitare la visualizzazione dei fotogrammi video e degli eventi
 
@@ -65,11 +68,12 @@ Questi sono i parametri richiesti da ognuna di queste operazioni di analisi spaz
 | VIDEO_SOURCE_ID | Nome descrittivo per il dispositivo della fotocamera o il flusso video. Questa operazione verrà restituita con l'output JSON dell'evento.|
 | VIDEO_IS_LIVE| True per i dispositivi della fotocamera; false per i video registrati.|
 | VIDEO_DECODE_GPU_INDEX| GPU da cui decodificare il fotogramma video. Per impostazione predefinita, è 0. Deve corrispondere `gpu_index` a in altre configurazioni del nodo, ad esempio `VICA_NODE_CONFIG` `DETECTOR_NODE_CONFIG` .|
-| INPUT_VIDEO_WIDTH | Spessore del frame/video di input (ad esempio, 1920). Si tratta di un campo facoltativo e se il frame specificato verrà ridimensionato a questa dimensione, ma manterrà comunque le proporzioni.|
-| DETECTOR_NODE_CONFIG | JSON che indica la GPU su cui eseguire il nodo del rilevamento. Deve avere il formato seguente: `"{ \"gpu_index\": 0 }",`|
+| INPUT_VIDEO_WIDTH | Spessore del frame/video di input (ad esempio, 1920). Si tratta di un campo facoltativo e, se specificato, il frame verrà ridimensionato a questa dimensione mantenendo le proporzioni.|
+| DETECTOR_NODE_CONFIG | JSON che indica la GPU su cui eseguire il nodo del rilevamento. Il formato deve essere il seguente: `"{ \"gpu_index\": 0 }",`|
 | SPACEANALYTICS_CONFIG | Configurazione JSON per la zona e la linea, come descritto di seguito.|
 | ENABLE_FACE_MASK_CLASSIFIER | `True` per abilitare il rilevamento di persone che indossano maschere facciali nel flusso video, `False` per disabilitarlo. Per impostazione predefinita, questa opzione è disabilitata. Il rilevamento della maschera viso richiede che il parametro della larghezza del video di input sia 1920 `"INPUT_VIDEO_WIDTH": 1920` . L'attributo viso mask non verrà restituito se gli utenti rilevati non sono rivolti alla fotocamera o sono troppo lontani. Per ulteriori informazioni, fare riferimento alla guida di [posizionamento della fotocamera](spatial-analysis-camera-placement.md) |
 
+### <a name="detector-node-parameter-settings"></a>Impostazioni parametri del nodo di rilevamento
 Questo è un esempio dei parametri di DETECTOR_NODE_CONFIG per tutte le operazioni di analisi spaziale.
 
 ```json
@@ -78,12 +82,9 @@ Questo è un esempio dei parametri di DETECTOR_NODE_CONFIG per tutte le operazio
 "do_calibration": true,
 "enable_recalibration": true,
 "calibration_quality_check_frequency_seconds":86400,
-"calibration_quality_check_sampling_num": 80,
-"calibration_quality_check_sampling_times": 5,
 "calibration_quality_check_sample_collect_frequency_seconds": 300,
 "calibration_quality_check_one_round_sample_collect_num":10,
-"calibration_quality_check_queue_max_size":1000,
-"recalibration_score": 75
+"calibration_quality_check_queue_max_size":1000
 }
 ```
 
@@ -93,15 +94,12 @@ Questo è un esempio dei parametri di DETECTOR_NODE_CONFIG per tutte le operazio
 | `do_calibration` | string | Indica che la taratura è attivata. `do_calibration` deve essere true per il corretto funzionamento di **cognitiveservices. Vision. spatialanalysis-persondistance** . per impostazione predefinita, do_calibration è impostato su true. |
 | `enable_recalibration` | bool | Indica se la ritaratura automatica è attivata. Il valore predefinito è `true`.|
 | `calibration_quality_check_frequency_seconds` | INT | Numero minimo di secondi tra ogni controllo di qualità per determinare se è necessario o meno la ritaratura. Il valore predefinito è `86400` (24 ore). Utilizzato solo quando `enable_recalibration=True` .|
-| `calibration_quality_check_sampling_num` | INT | Numero di campioni di dati archiviati selezionati in modo casuale da utilizzare per la misurazione degli errori di controllo di qualità. Il valore predefinito è `80`. Utilizzato solo quando `enable_recalibration=True` .|
-| `calibration_quality_check_sampling_times` | INT | Numero di volte in cui le misurazioni degli errori verranno eseguite su set diversi di campioni di dati selezionati in modo casuale per ogni controllo di qualità. Il valore predefinito è `5`. Utilizzato solo quando `enable_recalibration=True` .|
 | `calibration_quality_check_sample_collect_frequency_seconds` | INT | Numero minimo di secondi per la raccolta di nuovi campioni di dati per la ritaratura e il controllo della qualità. Il valore predefinito è `300` (5 minuti). Utilizzato solo quando `enable_recalibration=True` .|
 | `calibration_quality_check_one_round_sample_collect_num` | INT | Numero minimo di nuovi campioni di dati da raccogliere per ogni ciclo di raccolta di campioni. Il valore predefinito è `10`. Utilizzato solo quando `enable_recalibration=True` .|
 | `calibration_quality_check_queue_max_size` | INT | Numero massimo di campioni di dati da archiviare quando viene calibrato il modello di fotocamera. Il valore predefinito è `1000`. Utilizzato solo quando `enable_recalibration=True` .|
-| `recalibration_score` | INT | Soglia di qualità massima per iniziare la ritaratura. Il valore predefinito è `75`. Utilizzato solo quando `enable_recalibration=True` . La qualità della taratura viene calcolata in base a una relazione inversa con errore di riproiezione della destinazione dell'immagine. Date le destinazioni rilevate nei frame di immagini 2D, le destinazioni vengono proiettate nello spazio 3D e riproiettate nel frame di immagini 2D usando i parametri di calibrazione della fotocamera esistente. L'errore di riproiezione viene misurato in base alle distanze medie tra le destinazioni rilevate e le destinazioni riproiettate.|
 | `enable_breakpad`| bool | Indica se si desidera abilitare Breakpad, utilizzato per generare i dump di arresto anomalo del sistema per l'utilizzo del debug. È `false` per impostazione predefinita. Se lo si imposta su `true` , è necessario aggiungere anche `"CapAdd": ["SYS_PTRACE"]` nella `HostConfig` parte del contenitore `createOptions` . Per impostazione predefinita, il dump di arresto anomalo del sistema viene caricato nell'app [RealTimePersonTracking](https://appcenter.ms/orgs/Microsoft-Organization/apps/RealTimePersonTracking/crashes/errors?version=&appBuild=&period=last90Days&status=&errorType=all&sortCol=lastError&sortDir=desc) AppCenter. Se si vuole caricare i dump di arresto anomalo del sistema nella propria app AppCenter, è possibile eseguire l'override della variabile di ambiente `RTPT_APPCENTER_APP_SECRET` con il segreto dell'app dell'app.
 
-
+## <a name="spatial-analysis-operations-configuration-and-output"></a>Configurazione e output delle operazioni di analisi spaziale
 ### <a name="zone-configuration-for-cognitiveservicesvisionspatialanalysis-personcount"></a>Configurazione della zona per cognitiveservices. Vision. spatialanalysis-PersonCount
 
  Questo è un esempio di input JSON per il parametro SPACEANALYTICS_CONFIG che configura una zona. Per questa operazione è possibile configurare più zone.
@@ -239,6 +237,7 @@ Questo è un esempio di input JSON per il parametro SPACEANALYTICS_CONFIG che co
         "output_frequency":1,
         "minimum_distance_threshold":6.0,
         "maximum_distance_threshold":35.0,
+        "aggregation_method": "average"
            "threshold": 16.00,
            "focus": "footprint"
             }
@@ -258,9 +257,86 @@ Questo è un esempio di input JSON per il parametro SPACEANALYTICS_CONFIG che co
 | `output_frequency` | INT | Frequenza con cui gli eventi vengono uscita. Quando `output_frequency` = x, ogni evento X è uscita, ad esempio. `output_frequency` = 2 indica che ogni altro evento viene restituito. `output_frequency`È applicabile sia a `event` che a `interval` .|
 | `minimum_distance_threshold` | float| Distanza in metri che attiverà un evento "TooClose" quando le persone sono inferiori a tale distanza.|
 | `maximum_distance_threshold` | float| Distanza in metri che attiverà un evento "TooFar" quando le persone sono più grandi della distanza.|
+| `aggregation_method` | string| Metodo per il risultato persondistance di aggregazione. Il aggregation_method è applicabile sia a `mode` che a `average` .|
 | `focus` | string| Posizione del punto nel riquadro delimitatore della persona utilizzata per calcolare gli eventi. Il valore dello stato attivo può essere `footprint` (il footprint della persona), `bottom_center` (il centro inferiore del rettangolo di delimitazione della persona), `center` ovvero il centro del rettangolo di delimitazione della persona.|
 
-Vedere le linee guida per la [selezione host](spatial-analysis-camera-placement.md) per informazioni sulle configurazioni di zone e linee.
+### <a name="configuration-for-cognitiveservicesvisionspatialanalysis"></a>Configurazione per cognitiveservices. Vision. spatialanalysis
+Questo è un esempio di input JSON per il parametro SPACEANALYTICS_CONFIG che configura una riga e una zona per **cognitiveservices. Visio. spatialanalysis**. È possibile configurare più righe/zone per questa operazione e ogni riga/area può presentare eventi diversi.
+
+ ```
+{
+  "lines": [
+    {
+      "name": "doorcamera",
+      "line": {
+        "start": {
+          "x": 0,
+          "y": 0.5
+        },
+        "end": {
+          "x": 1,
+          "y": 0.5
+        }
+      },
+      "events": [
+        {
+          "type": "linecrossing",
+          "config": {
+            "trigger": "event",
+            "threshold": 16.00,
+            "focus": "footprint"
+          }
+        }
+      ]
+    }
+  ],
+  "zones": [
+    {
+      "name": "lobbycamera",
+      "polygon": [[0.3, 0.3],[0.3, 0.9],[0.6, 0.9],[0.6, 0.3],[0.3, 0.3]],
+      "events": [
+        {
+          "type": "persondistance",
+          "config": {
+            "trigger": "event",
+            "output_frequency": 1,
+            "minimum_distance_threshold": 6.0,
+            "maximum_distance_threshold": 35.0,
+            "threshold": 16.00,
+            "focus": "footprint"
+          }
+        },
+        {
+          "type": "count",
+          "config": {
+            "trigger": "event",
+            "output_frequency": 1,
+            "threshold": 16.00,
+            "focus": "footprint"
+          }
+        },
+        {
+          "type": "zonecrossing",
+          "config": {
+            "threshold": 48.00,
+            "focus": "footprint"
+          }
+        },
+        {
+          "type": "zonedwelltime",
+          "config": {
+            "threshold": 16.00,
+            "focus": "footprint"
+          }
+        }
+      ]
+    }
+  ]
+}
+```
+## <a name="camera-configuration"></a>Configurazione della fotocamera
+
+Per ulteriori informazioni su come configurare le zone e le linee, vedere le linee guida sulla [selezione host](spatial-analysis-camera-placement.md) per la fotocamera.
 
 ## <a name="spatial-analysis-operation-output"></a>Output dell'operazione di analisi spaziale
 
@@ -325,7 +401,7 @@ Esempio di JSON per l'output di un evento da questa operazione.
             },
             "metadata": {
             "attributes": {
-                "face_Mask": 0.99
+                "face_mask": 0.99
             }
         }
         },
@@ -352,7 +428,7 @@ Esempio di JSON per l'output di un evento da questa operazione.
             },
             "metadata":{
             "attributes": {
-                "face_noMask": 0.99
+            "face_nomask": 0.99
             }
             }
     }
@@ -379,8 +455,8 @@ Esempio di JSON per l'output di un evento da questa operazione.
 | `type` | string| Tipo di area|
 | `points` | collection| Punti in alto a sinistra e in basso a destra quando il tipo di area è rettangolo |
 | `confidence` | float| Confidenza degli algoritmi|
-| `face_Mask` | float | Il valore di confidenza dell'attributo con intervallo (0-1) indica che la persona rilevata sta indossando una maschera faccia. |
-| `face_noMask` | float | Il valore di confidenza dell'attributo con intervallo (0-1) indica che la persona rilevata **non** sta indossando una maschera viso |
+| `face_mask` | float | Il valore di confidenza dell'attributo con intervallo (0-1) indica che la persona rilevata sta indossando una maschera faccia. |
+| `face_nomask` | float | Il valore di confidenza dell'attributo con intervallo (0-1) indica che la persona rilevata **non** sta indossando una maschera viso |
 
 | Nome campo SourceInfo | Tipo| Descrizione|
 |---------|---------|---------|
@@ -394,14 +470,6 @@ Esempio di JSON per l'output di un evento da questa operazione.
 | `cameraHeight` | float | Altezza della fotocamera sopra la superficie in piedi. Questa operazione viene dedotta dalla calibrazione automatica. |
 | `focalLength` | float | Lunghezza focale della fotocamera in pixel. Questa operazione viene dedotta dalla calibrazione automatica. |
 | `tiltUpAngle` | float | Angolo di inclinazione della fotocamera verticale. Questa operazione viene dedotta dalla calibrazione automatica.|
-
-| Nome campo SourceInfo | Tipo| Descrizione|
-|---------|---------|---------|
-| `id` | string| Camera ID|
-| `timestamp` | Data| Data UTC di creazione del payload JSON|
-| `width` | INT | Larghezza fotogramma video|
-| `height` | INT | Altezza del fotogramma video|
-| `frameId` | INT | Identificatore frame|
 
 
 ### <a name="json-format-for-cognitiveservicesvisionspatialanalysis-personcrossingline-ai-insights"></a>Formato JSON per cognitiveservices. Vision. spatialanalysis-personcrossingline AI Insights
@@ -452,7 +520,7 @@ Codice JSON di esempio per i rilevamenti restituiti da questa operazione.
             "confidence": 0.9005028605461121,
             "metadata": {
             "attributes": {
-                "face_Mask": 0.99
+                "face_mask": 0.99
             }
         }
         }
@@ -467,7 +535,7 @@ Codice JSON di esempio per i rilevamenti restituiti da questa operazione.
 | `detectionsId` | array| Matrice di dimensioni 1 dell'identificatore univoco del rilevamento della persona che ha attivato l'evento|
 | `properties` | collection| Raccolta di valori|
 | `trackinId` | string| Identificatore univoco della persona rilevata|
-| `status` | string| Direzione delle incrociate di riga, ovverò CrossLeft ' o ' CrossRight '|
+| `status` | string| Direzione delle incrociate di riga, ovverò CrossLeft ' o ' CrossRight '. La direzione è basata sull'immaginazione che si trova in corrispondenza della "parte iniziale" con la "fine" della riga. CrossRight viene attraversato da sinistra a destra. CrossLeft viene attraversato da destra a sinistra.|
 | `zone` | string | Il campo "nome" della riga che è stata superata|
 
 | Nome campo rilevamento | Tipo| Descrizione|
@@ -478,8 +546,8 @@ Codice JSON di esempio per i rilevamenti restituiti da questa operazione.
 | `type` | string| Tipo di area|
 | `points` | collection| Punti in alto a sinistra e in basso a destra quando il tipo di area è rettangolo |
 | `confidence` | float| Confidenza degli algoritmi|
-| `face_Mask` | float | Il valore di confidenza dell'attributo con intervallo (0-1) indica che la persona rilevata sta indossando una maschera faccia. |
-| `face_noMask` | float | Il valore di confidenza dell'attributo con intervallo (0-1) indica che la persona rilevata **non** sta indossando una maschera viso |
+| `face_mask` | float | Il valore di confidenza dell'attributo con intervallo (0-1) indica che la persona rilevata sta indossando una maschera faccia. |
+| `face_nomask` | float | Il valore di confidenza dell'attributo con intervallo (0-1) indica che la persona rilevata **non** sta indossando una maschera viso |
 
 | Nome campo SourceInfo | Tipo| Descrizione|
 |---------|---------|---------|
@@ -542,7 +610,7 @@ Codice JSON di esempio per i rilevamenti restituiti da questa operazione con il 
             "confidence": 0.6267998814582825,
         "metadata": {
         "attributes": {
-        "face_Mask": 0.99
+        "face_mask": 0.99
         }
         }
            
@@ -613,7 +681,7 @@ Codice JSON di esempio per i rilevamenti restituiti da questa operazione con il 
 | `properties` | collection| Raccolta di valori|
 | `trackinId` | string| Identificatore univoco della persona rilevata|
 | `status` | string| Direzione degli incroci del poligono, ovverò Enter ' o ' Exit '|
-| `side` | INT| Il numero di lato del poligono attraversato dall'utente. Ogni lato è un bordo numerato tra i due vertici del poligono che rappresenta la zona. Il bordo tra i primi due vertici del poligono rappresenta il primo lato|
+| `side` | INT| Il numero di lato del poligono attraversato dall'utente. Ogni lato è un bordo numerato tra i due vertici del poligono che rappresenta la zona. Il bordo tra i primi due vertici del poligono rappresenta il primo lato. ' Side ' è vuoto quando l'evento non è associato a un lato specifico a causa dell'occlusione. Ad esempio, si è verificata un'uscita quando una persona scompare ma non è stata rilevata attraversando una parte della zona o si è verificata un'immissione quando una persona è apparsa nella zona ma non è stata visualizzata.|
 | `durationMs` | float | Il numero di millisecondi che rappresenta il tempo impiegato dall'utente nella zona. Questo campo viene fornito quando il tipo di evento è _personZoneDwellTimeEvent_|
 | `zone` | string | Il campo "Name" del poligono che rappresenta la zona attraversata|
 
@@ -625,8 +693,8 @@ Codice JSON di esempio per i rilevamenti restituiti da questa operazione con il 
 | `type` | string| Tipo di area|
 | `points` | collection| Punti in alto a sinistra e in basso a destra quando il tipo di area è rettangolo |
 | `confidence` | float| Confidenza degli algoritmi|
-| `face_Mask` | float | Il valore di confidenza dell'attributo con intervallo (0-1) indica che la persona rilevata sta indossando una maschera faccia. |
-| `face_noMask` | float | Il valore di confidenza dell'attributo con intervallo (0-1) indica che la persona rilevata **non** sta indossando una maschera viso |
+| `face_mask` | float | Il valore di confidenza dell'attributo con intervallo (0-1) indica che la persona rilevata sta indossando una maschera faccia. |
+| `face_nomask` | float | Il valore di confidenza dell'attributo con intervallo (0-1) indica che la persona rilevata **non** sta indossando una maschera viso |
 
 ### <a name="json-format-for-cognitiveservicesvisionspatialanalysis-persondistance-ai-insights"></a>Formato JSON per cognitiveservices. Vision. spatialanalysis-persondistance AI Insights
 
@@ -765,6 +833,9 @@ In this example, l'evento `centerGroundPoint` è `{x: 4, y: 5}`. Ciò significa 
 | `focalLength` | float | Lunghezza focale della fotocamera in pixel. Questa operazione viene dedotta dalla calibrazione automatica. |
 | `tiltUpAngle` | float | Angolo di inclinazione della fotocamera verticale. Questa operazione viene dedotta dalla calibrazione automatica.|
 
+### <a name="json-format-for-cognitiveservicesvisionspatialanalysis-ai-insights"></a>Formato JSON per cognitiveservices. Vision. spatialanalysis AI Insights
+
+L'output di questa operazione dipende da configurato `events` , ad esempio se è `zonecrossing` stato configurato un evento per questa operazione, l'output sarà uguale a `cognitiveservices.vision.spatialanalysis-personcrossingpolygon` .
 
 ## <a name="use-the-output-generated-by-the-container"></a>Usare l'output generato dal contenitore
 

@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 01/21/2021
+ms.date: 04/05/2021
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 67870a458138101f3b8a009f7c96c74991396284
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 0dcb959184e12ffa22ae25443087684123598e47
+ms.sourcegitcommit: 77d7639e83c6d8eb6c2ce805b6130ff9c73e5d29
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98675187"
+ms.lasthandoff: 04/05/2021
+ms.locfileid: "106382463"
 ---
 # <a name="register-a-microsoft-graph-application"></a>Registrare un'applicazione Microsoft Graph
 
@@ -56,31 +56,38 @@ Prima che gli script e le applicazioni possano interagire con l' [api Microsoft 
 1. Selezionare **Registra**.
 1. Registrare l' **ID dell'applicazione (client)** visualizzato nella pagina Panoramica dell'applicazione. Questo valore verrà usato in un passaggio successivo.
 
-### <a name="grant-api-access"></a>Concedere l'accesso all'API
+## <a name="grant-api-access"></a>Concedere l'accesso all'API
 
-A questo punto, concedere le autorizzazioni dell'applicazione registrata per modificare le risorse tenant tramite chiamate all'API Microsoft Graph.
+Per consentire all'applicazione di accedere ai dati in Microsoft Graph, concedere all'applicazione registrata le autorizzazioni appropriate per l' [applicazione](https://docs.microsoft.com/graph/permissions-reference). Le autorizzazioni effettive dell'applicazione sono il livello completo dei privilegi implicati dall'autorizzazione. Per *creare*, *leggere*, *aggiornare* ed *eliminare* ogni utente nel tenant di Azure ad B2C, ad esempio, aggiungere l'autorizzazione **User. ReadWrite. All** . 
+
+> [!NOTE]
+> L'autorizzazione **User. ReadWrite. All** non include la possibilità di aggiornare le password degli account utente. Se l'applicazione deve aggiornare le password degli account utente, [concedere il ruolo di amministratore utente](#optional-grant-user-administrator-role). Quando si concede il ruolo di [amministratore utente](../active-directory/roles/permissions-reference.md#user-administrator) , l' **utente. ReadWrite. All** non è obbligatorio. Il ruolo di amministratore utente include tutti gli elementi necessari per gestire gli utenti.
+
+È possibile concedere all'applicazione più autorizzazioni per l'applicazione. Se, ad esempio, l'applicazione deve anche gestire i gruppi nel tenant di Azure AD B2C, aggiungere anche l'autorizzazione **Group. ReadWrite. All** . 
 
 [!INCLUDE [active-directory-b2c-permissions-directory](../../includes/active-directory-b2c-permissions-directory.md)]
 
-### <a name="create-client-secret"></a>Crea segreto client
 
-[!INCLUDE [active-directory-b2c-client-secret](../../includes/active-directory-b2c-client-secret.md)]
+## <a name="optional-grant-user-administrator-role"></a>Opzionale Concedere il ruolo di amministratore utente
 
-A questo punto si dispone di un'applicazione che dispone dell'autorizzazione per *creare*, *leggere*, *aggiornare* ed *eliminare* gli utenti nel tenant di Azure ad B2C. Passare alla sezione successiva per aggiungere le autorizzazioni di *aggiornamento della password* .
+Se l'applicazione o lo script deve aggiornare le password degli utenti, è necessario assegnare il ruolo di *amministratore utente* all'applicazione. Il ruolo di [amministratore utente](../active-directory/roles/permissions-reference.md#user-administrator) dispone di un set fisso di autorizzazioni concesse all'applicazione. 
 
-## <a name="enable-user-delete-and-password-update"></a>Abilita eliminazione utente e aggiornamento password
-
-L'autorizzazione *per la lettura e la scrittura dei dati della directory* **non** include la possibilità di eliminare gli utenti o aggiornare le password degli account utente.
-
-Se l'applicazione o lo script deve eliminare gli utenti o aggiornare le password, assegnare il ruolo di *amministratore utente* all'applicazione:
+Per aggiungere il ruolo di *amministratore utente* , attenersi alla seguente procedura:
 
 1. Accedere al [portale di Azure](https://portal.azure.com) e usare il filtro **directory + sottoscrizione** per passare al tenant di Azure ad B2C.
 1. Cercare e selezionare **Azure Active Directory B2C**.
 1. In **Gestisci** selezionare **ruoli e amministratori**.
-1. Selezionare il ruolo di **amministratore utente** .
+1. Selezionare il ruolo di **amministratore utente** . 
 1. Selezionare **Aggiungi assegnazioni**.
-1. Nella casella di testo **Seleziona** immettere il nome dell'applicazione registrata in precedenza, ad esempio *managementapp1*. Selezionare l'applicazione quando viene visualizzata nei risultati della ricerca.
+1. Nella casella di testo **Seleziona** immettere il nome o l'ID dell'applicazione registrata in precedenza, ad esempio *managementapp1*. Quando viene visualizzato nei risultati della ricerca, selezionare l'applicazione.
 1. Selezionare **Aggiungi**. Potrebbero essere necessari alcuni minuti per la propagazione completa delle autorizzazioni.
+
+## <a name="create-client-secret"></a>Crea segreto client
+
+L'applicazione richiede un segreto client per dimostrare la propria identità durante la richiesta di un token. Per aggiungere il segreto client, attenersi alla seguente procedura:
+
+[!INCLUDE [active-directory-b2c-client-secret](../../includes/active-directory-b2c-client-secret.md)]
+
 
 ## <a name="next-steps"></a>Passaggi successivi
 

@@ -11,12 +11,12 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: wiassaf, sstein
 ms.date: 1/14/2021
-ms.openlocfilehash: 4d0f5404a64eae99ced0dd797954ba042b50060f
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 039332a8728e5d7e5b605f51f4bb53e6dcbb6381
+ms.sourcegitcommit: 5fd1f72a96f4f343543072eadd7cdec52e86511e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98217227"
+ms.lasthandoff: 04/01/2021
+ms.locfileid: "106109170"
 ---
 # <a name="detectable-types-of-query-performance-bottlenecks-in-azure-sql-database"></a>Tipi rilevabili di colli di bottiglia delle prestazioni delle query nel database SQL di Azure
 [!INCLUDE[appliesto-sqldb-sqlmi](includes/appliesto-sqldb-sqlmi.md)]
@@ -139,7 +139,7 @@ Una ricompilazione (o una nuova compilazione dopo la rimozione della cache) può
 
 - **Progettazione fisica modificata**: ad esempio, gli indici appena creati coprono in modo più efficace i requisiti di una query. I nuovi indici possono essere utilizzati in una nuova compilazione se il Query Optimizer decide che l'utilizzo di tale nuovo indice è più ottimale rispetto all'utilizzo della struttura di dati selezionata originariamente per la prima versione dell'esecuzione della query. Eventuali modifiche fisiche apportate agli oggetti a cui si fa riferimento possono comportare una nuova scelta del piano in fase di compilazione.
 
-- **Differenze** tra le risorse del server: quando un piano in un sistema differisce dal piano in un altro sistema, la disponibilità delle risorse, ad esempio il numero di processori disponibili, può influenzare il piano generato. Ad esempio, se un sistema dispone di più processori, è possibile che venga scelto un piano parallelo.
+- **Differenze** tra le risorse del server: quando un piano in un sistema differisce dal piano in un altro sistema, la disponibilità delle risorse, ad esempio il numero di processori disponibili, può influenzare il piano generato. Ad esempio, se un sistema dispone di più processori, è possibile che venga scelto un piano parallelo. Per altre informazioni sul parallelismo nel database SQL di Azure, vedere [configurare il grado massimo di parallelismo (MAXDOP) nel database SQL di Azure](database/configure-max-degree-of-parallelism.md).
 
 - **Statistiche diverse**: le statistiche associate agli oggetti a cui si fa riferimento potrebbero essere state modificate o potrebbero essere materialmente diverse dalle statistiche del sistema originale. Se le statistiche cambiano e viene eseguita una ricompilazione, il Query Optimizer utilizza le statistiche a partire da quando sono state modificate. Le frequenze e le distribuzioni dei dati delle statistiche rivedute potrebbero essere diverse da quelle della compilazione originale. Queste modifiche vengono usate per creare stime della cardinalità. (Le *stime della cardinalità* sono il numero di righe che dovrebbero essere propagate attraverso l'albero delle query logiche). Le modifiche alle stime della cardinalità possono comportare la scelta di operatori fisici diversi e gli ordini di operazioni associati. Anche le modifiche minime alle statistiche possono generare un piano di esecuzione delle query modificato.
 
@@ -181,6 +181,8 @@ Non è sempre facile identificare una modifica del volume del carico di lavoro c
 
 Usare Intelligent Insights per rilevare gli [aumenti del carico di lavoro](database/intelligent-insights-troubleshoot-performance.md#workload-increase) e pianificare le [regressioni](database/intelligent-insights-troubleshoot-performance.md#plan-regression).
 
+- **Parallelismo**: un parallelismo eccessivo può peggiorare le prestazioni di un carico di lavoro simultaneo eliminando altre query di risorse di CPU e thread di lavoro. Per altre informazioni sul parallelismo nel database SQL di Azure, vedere [configurare il grado massimo di parallelismo (MAXDOP) nel database SQL di Azure](database/configure-max-degree-of-parallelism.md).
+
 ## <a name="waiting-related-problems"></a>Problemi relativi all'attesa
 
 Una volta eliminato un piano non ottimale e i problemi *correlati all'attesa* correlati ai problemi di esecuzione, il problema di prestazioni è in genere che le query sono in attesa di una risorsa. I problemi relativi alle attese potrebbero essere causati da:
@@ -220,6 +222,11 @@ DMV che tengono traccia delle statistiche di attesa e Query Store visualizzano i
 > - [TigerToolbox attese e latch](https://github.com/Microsoft/tigertoolbox/tree/master/Waits-and-Latches)
 > - [Usp_whatsup TigerToolbox](https://github.com/Microsoft/tigertoolbox/tree/master/usp_WhatsUp)
 
+## <a name="see-also"></a>Vedi anche
+
+* [Configurare il grado massimo di parallelismo (MAXDOP) nel database SQL di Azure](database/configure-max-degree-of-parallelism.md)
+* [Comprendere e risolvere i problemi di blocco del database SQL di Azure nel database SQL di Azure](database/understand-resolve-blocking.md)
+
 ## <a name="next-steps"></a>Passaggi successivi
 
-[Panoramica del monitoraggio e dell'ottimizzazione del database SQL](database/monitor-tune-overview.md)
+* [Panoramica del monitoraggio e dell'ottimizzazione del database SQL](database/monitor-tune-overview.md)

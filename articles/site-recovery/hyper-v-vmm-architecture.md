@@ -1,18 +1,15 @@
 ---
 title: 'Architettura: ripristino di emergenza Hyper-V in un sito secondario con Azure Site Recovery'
 description: Questo articolo offre una panoramica dell'architettura per il ripristino di emergenza di macchine virtuali Hyper-V locali in un sito System Center VMM secondario con Azure Site Recovery.
-author: rayne-wiselman
-manager: carmonm
 ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/12/2019
-ms.author: raynew
-ms.openlocfilehash: 703a6afdc12c8a9863ff0f480ec7a577ec31ef77
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: b33e60036108eb92b7b64b4b3ec3bcc47ad1ade1
+ms.sourcegitcommit: d63f15674f74d908f4017176f8eddf0283f3fac8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "87495999"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "106580227"
 ---
 # <a name="architecture---hyper-v-replication-to-a-secondary-site"></a>Architettura per la replica di Hyper-V in un sito secondario
 

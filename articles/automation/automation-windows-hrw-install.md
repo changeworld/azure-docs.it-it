@@ -3,14 +3,14 @@ title: Distribuire un ruolo di lavoro ibrido per runbook Windows in Automazione 
 description: Questo articolo descrive come distribuire un ruolo di lavoro ibrido per Runbook che può essere usato per eseguire manuali operativi in computer basati su Windows nel Data Center locale o nell'ambiente cloud.
 services: automation
 ms.subservice: process-automation
-ms.date: 11/24/2020
+ms.date: 04/02/2021
 ms.topic: conceptual
-ms.openlocfilehash: f6858c7350e6c72a096b2f2bd5f4a4ff606bf023
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 0a28266210fd8b6f0b731b972f00aa3d413c0d0c
+ms.sourcegitcommit: d40ffda6ef9463bb75835754cabe84e3da24aab5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100651358"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "107027738"
 ---
 # <a name="deploy-a-windows-hybrid-runbook-worker"></a>Distribuire un ruolo di lavoro ibrido per runbook di Windows
 
@@ -83,7 +83,32 @@ Per installare e configurare un ruolo di lavoro ibrido per Runbook utente di Win
 
 ## <a name="automated-deployment"></a>Distribuzione automatizzata
 
-Il metodo di distribuzione automatica usa lo script di PowerShell **New-OnPremiseHybridWorker.ps1** per automatizzare e configurare il ruolo di lavoro ibrido per Runbook di Windows. Esegue le operazioni seguenti:
+Esistono due metodi per distribuire automaticamente un ruolo di lavoro ibrido per Runbook. È possibile importare un Runbook dalla raccolta di Runbook nel portale di Azure ed eseguirlo, oppure è possibile scaricare manualmente uno script dall'PowerShell Gallery.
+
+### <a name="importing-a-runbook-from-the-runbook-gallery"></a>Importazione di un Runbook dalla raccolta di Runbook
+
+La procedura di importazione è descritta in dettaglio in [importare manuali operativi da GitHub con il portale di Azure](automation-runbook-gallery.md#import-runbooks-from-github-with-the-azure-portal). Il nome del Runbook da importare è **create Automation Windows HybridWorker**.
+
+Runbook utilizza i seguenti parametri.
+
+| Parametro | Stato | Descrizione |
+| ------- | ----- | ----------- |
+| `Location` | Obbligatorio | Percorso per l'area di lavoro Log Analytics. |
+| `ResourceGroupName` | Obbligatorio | Il gruppo di risorse per l'account di automazione. |
+| `AccountName` | Obbligatorio | Nome dell'account di automazione in cui verrà registrato il ruolo di lavoro ibrido per l'esecuzione. |
+| `CreateLA` | Obbligatorio | Se true, usa il valore di `WorkspaceName` per creare un'area di lavoro log Analytics. Se false, il valore di `WorkspaceName` deve fare riferimento a un'area di lavoro esistente. |
+| `LAlocation` | Facoltativo | Il percorso in cui verrà creata l'area di lavoro Log Analytics o in cui è già presente. |
+| `WorkspaceName` | Facoltativo | Nome dell'area di lavoro Log Analytics da utilizzare. |
+| `CreateVM` | Obbligatorio | Se true, usare il valore di `VMName` come nome di una nuova macchina virtuale. Se false, usare `VMName` per trovare e registrare una macchina virtuale esistente. |
+| `VMName` | Facoltativo | Nome della macchina virtuale creata o registrata, a seconda del valore di `CreateVM` . |
+| `VMImage` | Facoltativo | Nome dell'immagine di macchina virtuale da creare. |
+| `VMlocation` | Facoltativo | Percorso della VM creata o registrata. Se questo percorso non è specificato, viene usato il valore di `LAlocation` . |
+| `RegisterHW` | Obbligatorio | Se true, registrare la macchina virtuale come ruolo di lavoro ibrido. |
+| `WorkerGroupName` | Obbligatorio | Nome del gruppo di lavoro ibrido. |
+
+### <a name="download-a-script-from-the-powershell-gallery"></a>Scaricare uno script dalla PowerShell Gallery
+
+Questo metodo di distribuzione automatica usa lo script di PowerShell **New-OnPremiseHybridWorker.ps1** per automatizzare e configurare il ruolo di lavoro ibrido per Runbook Windows. Esegue le operazioni seguenti:
 
 * Installa i moduli necessari
 * Accede con l'account Azure
@@ -96,7 +121,7 @@ Il metodo di distribuzione automatica usa lo script di PowerShell **New-OnPremis
 
 Eseguire la procedura seguente per installare il ruolo nel computer Windows tramite lo script.
 
-1. Scaricare lo script **New-OnPremiseHybridWorker.ps1** da [PowerShell Gallery](https://www.powershellgallery.com/packages/New-OnPremiseHybridWorker). Dopo aver scaricato lo script, copiarlo o eseguirlo nel computer di destinazione. Durante l'esecuzione lo script **New-OnPremiseHybridWorker.ps1** utilizza i seguenti parametri.
+1. Scaricare lo script **New-OnPremiseHybridWorker.ps1** da [PowerShell Gallery](https://www.powershellgallery.com/packages/New-OnPremiseHybridWorker). Dopo aver scaricato lo script, copiarlo o eseguirlo nel computer di destinazione. Lo script utilizza i seguenti parametri.
 
     | Parametro | Stato | Descrizione |
     | --------- | ------ | ----------- |
@@ -109,9 +134,9 @@ Eseguire la procedura seguente per installare il ruolo nel computer Windows tram
     | `TenantID` | Facoltativo | Identificatore dell'organizzazione tenant associato all'account di automazione. |
     | `WorkspaceName` | Facoltativo | Nome dell'area di lavoro Log Analytics. Se non si dispone di un'area di lavoro Log Analytics, lo script ne crea e configura una. |
 
-2. Aprire un prompt dei comandi di PowerShell con privilegi elevati a 64 bit.
+1. Aprire un prompt dei comandi di PowerShell con privilegi elevati a 64 bit.
 
-3. Al prompt dei comandi di PowerShell passare alla cartella che contiene lo script scaricato. Modificare i valori per i parametri `AutomationAccountName`, `AAResourceGroupName`, `OMSResourceGroupName`, `HybridGroupName`, `SubscriptionID` e `WorkspaceName`. Quindi, eseguire lo script.
+1. Al prompt dei comandi di PowerShell passare alla cartella che contiene lo script scaricato. Modificare i valori per i parametri `AutomationAccountName`, `AAResourceGroupName`, `OMSResourceGroupName`, `HybridGroupName`, `SubscriptionID` e `WorkspaceName`. Quindi, eseguire lo script.
 
     Verrà chiesto di eseguire l'autenticazione con Azure dopo aver eseguito lo script. È necessario accedere con un account membro del ruolo **amministratori della sottoscrizione** e coamministratore della sottoscrizione.
 
@@ -127,9 +152,9 @@ Eseguire la procedura seguente per installare il ruolo nel computer Windows tram
     .\New-OnPremiseHybridWorker.ps1 @NewOnPremiseHybridWorkerParameters
     ```
 
-4. Verrà chiesto di accettare l'installazione di NuGet e di eseguire l'autenticazione con le credenziali di Azure. Se non si dispone della versione più recente di NuGet, è possibile scaricarla dalle [versioni di distribuzione NuGet disponibili](https://www.nuget.org/downloads).
+1. Verrà chiesto di accettare l'installazione di NuGet e di eseguire l'autenticazione con le credenziali di Azure. Se non si dispone della versione più recente di NuGet, è possibile scaricarla dalle [versioni di distribuzione NuGet disponibili](https://www.nuget.org/downloads).
 
-5. Verificare la distribuzione al termine dello script. Dalla pagina dei **gruppi di ruoli di lavoro ibridi per Runbook** nell'account di automazione, nella scheda **gruppo Runbook Worker ibrido utente** vengono visualizzati il nuovo gruppo e il numero di membri. Se si tratta di un gruppo esistente, il numero di membri viene incrementato. È possibile selezionare il gruppo dall'elenco della pagina, dal menu a sinistra scegliere ruoli di **lavoro ibridi** . Nella pagina ruoli di **lavoro ibridi** è possibile visualizzare tutti i membri del gruppo elencati.
+1. Verificare la distribuzione al termine dello script. Dalla pagina dei **gruppi di ruoli di lavoro ibridi per Runbook** nell'account di automazione, nella scheda **gruppo Runbook Worker ibrido utente** vengono visualizzati il nuovo gruppo e il numero di membri. Se si tratta di un gruppo esistente, il numero di membri viene incrementato. È possibile selezionare il gruppo dall'elenco della pagina, dal menu a sinistra scegliere ruoli di **lavoro ibridi** . Nella pagina ruoli di **lavoro ibridi** è possibile visualizzare tutti i membri del gruppo elencati.
 
 ## <a name="manual-deployment"></a>Distribuzione manuale
 
@@ -141,7 +166,7 @@ Per installare e configurare un ruolo di lavoro ibrido per Runbook di Windows, s
     Set-AzOperationalInsightsIntelligencePack -ResourceGroupName <resourceGroupName> -WorkspaceName <workspaceName> -IntelligencePackName "AzureAutomation" -Enabled $true
     ```
 
-2. Distribuire l'agente di Log Analytics nel computer di destinazione.
+1. Distribuire l'agente di Log Analytics nel computer di destinazione.
 
     * Per le macchine virtuali di Azure, installare l'agente di Log Analytics per Windows usando [l'estensione macchina virtuale per Windows](../virtual-machines/extensions/oms-windows.md). L'estensione installa l'agente di Log Analytics in macchine virtuali di Azure e registra le macchine virtuali in un'area di lavoro Log Analytics esistente. È possibile usare un modello di Azure Resource Manager, PowerShell o un criterio di Azure per assegnare i criteri predefiniti [Distribuisci agente log Analytics per VM *Linux* o *Windows*](../governance/policy/samples/built-in-policies.md#monitoring) . Una volta installato l'agente, è possibile aggiungere il computer a un gruppo di ruolo di lavoro ibrido per Runbook nell'account di automazione.
     
@@ -162,7 +187,7 @@ Per installare e configurare un ruolo di lavoro ibrido per Runbook di Windows, s
 
     Si consiglia di installare l'agente di Log Analytics per Windows o Linux usando criteri di Azure.
 
-3. Verificare che l'agente stia inviando report all'area di lavoro
+1. Verificare che l'agente stia inviando report all'area di lavoro
 
     L'agente di Log Analytics per Windows connette i computer a un'area di lavoro Log Analytics di monitoraggio di Azure. Quando si installa l'agente nel computer e lo si connette all'area di lavoro, vengono scaricati automaticamente i componenti necessari per il ruolo di lavoro ibrido per Runbook.
 
@@ -176,9 +201,9 @@ Per installare e configurare un ruolo di lavoro ibrido per Runbook di Windows, s
 
     Nei risultati della ricerca verranno visualizzati i record heartbeat per il computer, a indicare che sono connessi e segnalati al servizio. Per impostazione predefinita, ogni agente trasmette un record di heartbeat all'area di lavoro assegnata. Per completare l'installazione e la configurazione dell'agente, eseguire queste operazioni.
 
-4. Verificare la versione del ruolo di lavoro ibrido per Runbook nel computer che ospita l'agente di Log Analytics, individuare `C:\Program Files\Microsoft Monitoring Agent\Agent\AzureAutomation\` e prendere nota della sottocartella **Version** . Questa cartella verrà visualizzata nel computer alcuni minuti dopo l'abilitazione della soluzione nell'area di lavoro.
+1. Verificare la versione del ruolo di lavoro ibrido per Runbook nel computer che ospita l'agente di Log Analytics, individuare `C:\Program Files\Microsoft Monitoring Agent\Agent\AzureAutomation\` e prendere nota della sottocartella **Version** . Questa cartella verrà visualizzata nel computer alcuni minuti dopo l'abilitazione della soluzione nell'area di lavoro.
 
-5. Installare l'ambiente Runbook e connettersi ad automazione di Azure. Quando si configura un agente per la segnalazione a un'area di lavoro Log Analytics e si importa la soluzione di **automazione** , la soluzione esegue il push del `HybridRegistration` modulo PowerShell. Questo modulo contiene il `Add-HybridRunbookWorker` cmdlet. Usare questo cmdlet per installare l'ambiente Runbook nel computer e registrarlo in automazione di Azure.
+1. Installare l'ambiente Runbook e connettersi ad automazione di Azure. Quando si configura un agente per la segnalazione a un'area di lavoro Log Analytics e si importa la soluzione di **automazione** , la soluzione esegue il push del `HybridRegistration` modulo PowerShell. Questo modulo contiene il `Add-HybridRunbookWorker` cmdlet. Usare questo cmdlet per installare l'ambiente Runbook nel computer e registrarlo in automazione di Azure.
 
     Aprire una sessione di PowerShell in modalità amministratore ed eseguire i comandi seguenti per importare il modulo.
 
@@ -187,7 +212,7 @@ Per installare e configurare un ruolo di lavoro ibrido per Runbook di Windows, s
     Import-Module .\HybridRegistration.psd1
     ```
 
-6. Eseguire il `Add-HybridRunbookWorker` cmdlet specificando i valori per i parametri `Url` , `Key` e `GroupName` .
+1. Eseguire il `Add-HybridRunbookWorker` cmdlet specificando i valori per i parametri `Url` , `Key` e `GroupName` .
 
     ```powershell-interactive
     Add-HybridRunbookWorker –GroupName <String> -Url <Url> -Key <String>
@@ -205,7 +230,7 @@ Per installare e configurare un ruolo di lavoro ibrido per Runbook di Windows, s
 
     * Se necessario, impostare il parametro `Verbose` per ricevere i dettagli sull'installazione.
 
-7. Verificare la distribuzione dopo il completamento del comando. Dalla pagina dei **gruppi di ruoli di lavoro ibridi per Runbook** nell'account di automazione, nella scheda **gruppo Runbook Worker ibrido utente** viene visualizzato il gruppo nuovo o esistente e il numero di membri. Se si tratta di un gruppo esistente, il numero di membri viene incrementato. È possibile selezionare il gruppo dall'elenco della pagina, dal menu a sinistra scegliere ruoli di **lavoro ibridi**. Nella pagina ruoli di **lavoro ibridi** è possibile visualizzare tutti i membri del gruppo elencati.
+1. Verificare la distribuzione dopo il completamento del comando. Dalla pagina dei **gruppi di ruoli di lavoro ibridi per Runbook** nell'account di automazione, nella scheda **gruppo Runbook Worker ibrido utente** viene visualizzato il gruppo nuovo o esistente e il numero di membri. Se si tratta di un gruppo esistente, il numero di membri viene incrementato. È possibile selezionare il gruppo dall'elenco della pagina, dal menu a sinistra scegliere ruoli di **lavoro ibridi**. Nella pagina ruoli di **lavoro ibridi** è possibile visualizzare tutti i membri del gruppo elencati.
 
 ## <a name="install-powershell-modules"></a>Installare i moduli di PowerShell
 
@@ -219,9 +244,9 @@ I moduli installati devono trovarsi in un percorso a cui fa riferimento la varia
 
 1. Nel portale di Azure passare all'account di Automazione.
 
-2. In **Impostazioni Account** selezionare **Chiavi** e prendere nota dei valori di **URL** e **Chiave di accesso primaria**.
+1. In **Impostazioni Account** selezionare **Chiavi** e prendere nota dei valori di **URL** e **Chiave di accesso primaria**.
 
-3. Aprire una sessione di PowerShell in modalità amministratore ed eseguire questo comando con i valori dell'URL e della chiave di accesso primaria. Usare il parametro `Verbose` per un log dettagliato del processo di rimozione. Per rimuovere le macchine non aggiornate dal gruppo di ruoli di lavoro ibridi, usare il parametro facoltativo `machineName`.
+1. Aprire una sessione di PowerShell in modalità amministratore ed eseguire questo comando con i valori dell'URL e della chiave di accesso primaria. Usare il parametro `Verbose` per un log dettagliato del processo di rimozione. Per rimuovere le macchine non aggiornate dal gruppo di ruoli di lavoro ibridi, usare il parametro facoltativo `machineName`.
 
 ```powershell-interactive
 Remove-HybridRunbookWorker -Url <URL> -Key <primaryAccessKey> -MachineName <computerName>
@@ -233,11 +258,11 @@ Per rimuovere un gruppo di ruolo di lavoro ibrido per Runbook, è necessario pri
 
 1. Nel portale di Azure aprire l'account di automazione.
 
-2. Selezionare **Gruppi di ruolo di lavoro ibridi** in **Automazione processi**. Selezionare il gruppo che si vuole eliminare. Viene visualizzata la pagina delle proprietà per quel gruppo.
+1. Selezionare **Gruppi di ruolo di lavoro ibridi** in **Automazione processi**. Selezionare il gruppo che si vuole eliminare. Viene visualizzata la pagina delle proprietà per quel gruppo.
 
    ![Pagina Proprietà](media/automation-hybrid-runbook-worker/automation-hybrid-runbook-worker-group-properties.png)
 
-3. Nella pagina delle proprietà del gruppo selezionato selezionare **Elimina**. Compare un messaggio che chiede di confermare. Selezionare **Sì** se si è certi di voler continuare.
+1. Nella pagina delle proprietà del gruppo selezionato selezionare **Elimina**. Compare un messaggio che chiede di confermare. Selezionare **Sì** se si è certi di voler continuare.
 
    ![Messaggio di conferma](media/automation-hybrid-runbook-worker/automation-hybrid-runbook-worker-confirm-delete.png)
 

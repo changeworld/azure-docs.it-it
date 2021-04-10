@@ -3,15 +3,15 @@ title: Espandi pool di host desktop virtuali Windows (classico) esistente con nu
 description: Come espandere un pool host esistente con nuovi host di sessione in desktop virtuale di Windows (versione classica).
 author: Heidilohr
 ms.topic: how-to
-ms.date: 03/30/2020
+ms.date: 03/31/2021
 ms.author: helohr
-manager: lizross
-ms.openlocfilehash: 61cf28b0f1ebee6a0312ec3f23f22b01c6c4919e
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+manager: femila
+ms.openlocfilehash: f82b831d887f0ebdd659167935f2134583b3bb87
+ms.sourcegitcommit: b0557848d0ad9b74bf293217862525d08fe0fc1d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "88009172"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "106551952"
 ---
 # <a name="expand-an-existing-host-pool-with-new-session-hosts-in-windows-virtual-desktop-classic"></a>Espandere un pool di host esistente con nuovi host sessione in desktop virtuale di Windows (versione classica)
 
@@ -39,7 +39,7 @@ Al momento della creazione delle VM host della sessione e del pool host sono nec
 Le tre sezioni seguenti sono tre metodi che è possibile usare per espandere il pool host. È possibile usare qualsiasi strumento di distribuzione con cui si ha dimestichezza.
 
 >[!NOTE]
->Durante la fase di distribuzione, verranno visualizzati i messaggi di errore per le risorse della macchina virtuale host sessione precedente, se sono attualmente arrestati. Questi errori si verificano perché Azure non può eseguire l'estensione DSC di PowerShell per verificare che le VM host della sessione siano registrate correttamente nel pool host esistente. È possibile ignorare questi errori oppure è possibile evitare gli errori avviando tutte le VM host della sessione nel pool di host esistente prima di avviare il processo di distribuzione.
+>Durante la fase di distribuzione, verranno visualizzati i messaggi di errore per le risorse della macchina virtuale host sessione precedente, se sono attualmente arrestati. Questi errori si verificano perché Azure non può eseguire l'estensione DSC di PowerShell per verificare che le VM host della sessione siano registrate correttamente nel pool host esistente. L'host della sessione il cui nome termina con "-0" deve essere in esecuzione, tuttavia è possibile ignorare questi errori per altri host di sessione oppure è possibile evitare gli errori avviando tutte le macchine virtuali host della sessione nel pool di host esistente prima di avviare il processo di distribuzione.
 
 ## <a name="redeploy-from-azure"></a>Ridistribuire da Azure
 
@@ -96,7 +96,7 @@ Tutti i valori dei parametri in questa sezione devono corrispondere a quanto spe
 1. Selezionare le dimensioni della VM corrispondenti alle VM host della sessione esistente.
 
     >[!NOTE]
-    >Se le dimensioni specifiche della VM che si cercano non vengono visualizzate nel selettore di dimensioni, significa che non ne è stato ancora eseguito l'onboarding nello strumento di Azure Marketplace. Per richiedere le dimensioni della VM, creare una richiesta oppure aggiornarne una esistente nel [forum UserVoice di Desktop virtuale Windows](https://windowsvirtualdesktop.uservoice.com/forums/921118-general).
+    >Se le dimensioni specifiche della VM che si cercano non vengono visualizzate nel selettore di dimensioni, significa che non ne è stato ancora eseguito l'onboarding nello strumento di Azure Marketplace.
 
 2. Personalizzare i parametri *profilo di utilizzo*, *Totale utenti* e *numero di macchine virtuali* per selezionare il numero totale di host di sessione che si desidera includere nel pool host. Se, ad esempio, si espande il pool host da cinque host di sessione a otto, configurare queste opzioni per ottenere 8 macchine virtuali.
 3. Immettere un prefisso per i nomi delle macchine virtuali. Ad esempio, se si immette il nome "prefisso", le macchine virtuali saranno denominate "prefisso-0", "prefisso-1" e così via.

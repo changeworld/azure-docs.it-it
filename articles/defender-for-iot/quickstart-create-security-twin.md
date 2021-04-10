@@ -3,12 +3,12 @@ title: 'Guida introduttiva: Creare un modulo gemello di sicurezza'
 description: In questo argomento di avvio rapido sono disponibili informazioni su come creare un modulo gemello di Defender per IoT per l'uso con Azure Defender per IoT.
 ms.topic: quickstart
 ms.date: 1/21/2021
-ms.openlocfilehash: 2ee88bd23b7d125ef9244f8ff630ee5eb8cdd015
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 27447f00546ab0d01a33b286f4bb1fbc810c260b
+ms.sourcegitcommit: 77d7639e83c6d8eb6c2ce805b6130ff9c73e5d29
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104782674"
+ms.lasthandoff: 04/05/2021
+ms.locfileid: "106384562"
 ---
 # <a name="quickstart-create-an-azureiotsecurity-module-twin"></a>Guida introduttiva: Creare un modulo gemello azureiotsecurity
 
@@ -16,7 +16,7 @@ Questo argomento di avvio rapido spiega come creare singoli moduli gemelli _azur
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-nessuno
+- nessuno
 
 ## <a name="understanding-azureiotsecurity-module-twins"></a>Informazioni sui moduli gemelli azureiotsecurity
 
