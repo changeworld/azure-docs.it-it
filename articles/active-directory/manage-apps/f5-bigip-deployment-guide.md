@@ -12,10 +12,10 @@ ms.date: 10/12/2020
 ms.author: gasinh
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: f962bf131b87f17712186145b8c8b8e6090f7002
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "98730658"
 ---
 # <a name="tutorial-to-deploy-f5-big-ip-virtual-edition-vm-in-azure-iaas-for-secure-hybrid-access"></a>Esercitazione per la distribuzione della VM F5 BIG-IP Virtual Edition in Azure IaaS per l'accesso ibrido sicuro
@@ -105,7 +105,7 @@ Completare le attività seguenti per distribuire BIG-IP VE da [Azure Marketplace
  |Subnet| Stessa subnet interna di Azure delle VM di controller di dominio e IIS oppure crearne una|
  |IP pubblico |  Nessuno|
  |Gruppo di sicurezza di rete NIC| Selezionare nessuno se la subnet di Azure selezionata nei passaggi precedenti è già associata a un gruppo di sicurezza di rete (NSG); in caso contrario selezionare Basic|
- |Accelera la rete| Off |
+ |Accelera la rete| Disattivato |
  |**Bilanciamento del carico**|     |
  |Bilanciamento del carico della macchina virtuale| No|
 
@@ -113,10 +113,10 @@ Completare le attività seguenti per distribuire BIG-IP VE da [Azure Marketplace
 
  |Monitoraggio|    Valore |
  |:---------|:-----|
- |Monitoraggio dettagliato| Off|
+ |Monitoraggio dettagliato| Disattivato|
  |Diagnostica di avvio|Abilitare con l'account di archiviazione personalizzato. Consente la connessione all'interfaccia di Secure Shell BIG-IP (SSH) tramite l'opzione console seriale nell'portale di Azure. Selezionare un account di archiviazione di Azure disponibile|
  |**Identità**|  |
- |Identità gestita assegnata dal sistema|Off|
+ |Identità gestita assegnata dal sistema|Disattivato|
  |Azure Active Directory|BIG-IP non supporta attualmente questa opzione|
  |**Arresto automatico**|    |
  |Abilita arresto automatico| Se si sta eseguendo il test, è consigliabile impostare l'arresto giornaliero di BIG-IP-VM|

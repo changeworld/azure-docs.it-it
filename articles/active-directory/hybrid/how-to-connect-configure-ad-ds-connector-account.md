@@ -13,10 +13,10 @@ ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.custom: devx-track-azurepowershell
 ms.openlocfilehash: 62bfc528886767bc09159ca2a2696c8c9264b307
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "96349940"
 ---
 # <a name="azure-ad-connectconfigure-ad-ds-connector-account-permissions"></a>Azure AD Connect: Configurare le autorizzazioni dell'account del connettore di AD DS 
@@ -92,13 +92,13 @@ Per impostazione predefinita, tutti i cmdlet per impostare le autorizzazioni pro
 
 Le eccezioni per questi parametri comuni sono il cmdlet `Set-ADSyncRestrictedPermissions` usato per impostare le autorizzazioni per l'account del connettore di AD DS stesso e il cmdlet `Set-ADSyncPasswordHashSyncPermissions`, dato che le autorizzazioni necessarie per la sincronizzazione degli hash delle password vengono impostate solo in corrispondenza della radice del dominio, per cui questo cmdlet non include i parametri `-ObjectDN` o `-SkipAdminSdHolders`.
 
-### <a name="determine-your-ad-ds-connector-account"></a>Determinare l'account del connettore di AD DS 
+### <a name="determine-your-ad-ds-connector-account&quot;></a>Determinare l'account del connettore di AD DS 
 Se Azure AD Connect è già installato e si vuole verificare qual è l'account del connettore di AD DS attualmente usato da Azure AD Connect, è possibile eseguire il cmdlet: 
 
 ``` powershell
 Get-ADSyncADConnectorAccount 
 ```
-### <a name="locate-ad-ds-objects-with-permission-inheritance-disabled"></a>Individuare gli oggetti di AD DS con l'ereditarietà delle autorizzazioni disabilitata 
+### <a name=&quot;locate-ad-ds-objects-with-permission-inheritance-disabled&quot;></a>Individuare gli oggetti di AD DS con l'ereditarietà delle autorizzazioni disabilitata 
 Se si vuole verificare se sono presenti oggetti AD DS con l'ereditarietà delle autorizzazioni disabilitata, è possibile eseguire: 
 
 ``` powershell
@@ -110,16 +110,16 @@ Per impostazione predefinita, questo cmdlet cerca solo le unità organizzative c
 Get-ADSyncObjectsWithInheritanceDisabled -SearchBase '<DistinguishedName>' -ObjectClass * 
 ```
  
-### <a name="view-ad-ds-permissions-of-an-object"></a>Visualizzare le autorizzazioni di AD DS di un oggetto 
+### <a name=&quot;view-ad-ds-permissions-of-an-object&quot;></a>Visualizzare le autorizzazioni di AD DS di un oggetto 
 È possibile usare il cmdlet seguente per visualizzare l'elenco delle autorizzazioni attualmente impostate per un oggetto di Active Directory specificandone il nome distinto: 
 
 ``` powershell
 Show-ADSyncADObjectPermissions -ADobjectDN '<DistinguishedName>' 
 ```
 
-## <a name="configure-ad-ds-connector-account-permissions"></a>Configurare le autorizzazioni dell'account del connettore di AD DS 
+## <a name=&quot;configure-ad-ds-connector-account-permissions&quot;></a>Configurare le autorizzazioni dell'account del connettore di AD DS 
  
-### <a name="configure-basic-read-only-permissions"></a>Configurare le autorizzazioni di sola lettura di base 
+### <a name=&quot;configure-basic-read-only-permissions&quot;></a>Configurare le autorizzazioni di sola lettura di base 
 Per impostare le autorizzazioni di sola lettura di base per l'account del connettore di AD DS quando non si usa alcuna funzionalità di Azure AD Connect, eseguire: 
 
 ``` powershell
@@ -148,8 +148,8 @@ Questo cmdlet imposterà le autorizzazioni seguenti:
 |Allow |Account del connettore di AD DS |Leggi tutte le proprietà |Oggetti Contact discendenti| 
 
  
-### <a name="configure-ms-ds-consistency-guid-permissions"></a>Configurare le autorizzazioni MS-DS-Consistency-Guid 
-Per impostare le autorizzazioni per l'account del connettore servizi di dominio Active Directory quando si usa l'attributo ms-DS-coerenza-GUID come ancoraggio di origine (noto anche come opzione "Consenti a Azure di gestire l'ancoraggio di origine"), eseguire: 
+### <a name=&quot;configure-ms-ds-consistency-guid-permissions&quot;></a>Configurare le autorizzazioni MS-DS-Consistency-Guid 
+Per impostare le autorizzazioni per l'account del connettore servizi di dominio Active Directory quando si usa l'attributo ms-DS-coerenza-GUID come ancoraggio di origine (noto anche come opzione &quot;Consenti a Azure di gestire l'ancoraggio di origine"), eseguire: 
 
 ``` powershell
 Set-ADSyncMsDsConsistencyGuidPermissions -ADConnectorAccountName <String> -ADConnectorAccountDomain <String> [-SkipAdminSdHolders] [<CommonParameters>] 

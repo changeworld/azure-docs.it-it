@@ -9,10 +9,10 @@ ms.date: 02/17/2021
 ms.author: spelluru
 ms.custom: include file
 ms.openlocfilehash: ee066ff46f319749469a41e6decf12b35c0ee27e
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "100651945"
 ---
 La tabella seguente include informazioni sulle quote specifiche per la messaggistica del bus di servizio di Azure. Per informazioni sui prezzi e su altre quote del bus di servizio, vedere [Prezzi del bus di servizio](https://azure.microsoft.com/pricing/details/service-bus/).
