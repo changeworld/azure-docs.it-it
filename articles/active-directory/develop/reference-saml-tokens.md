@@ -9,16 +9,16 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: reference
 ms.workload: identity
-ms.date: 09/09/2020
+ms.date: 03/29/2021
 ms.author: kenwith
 ms.reviewer: paulgarn
 ms.custom: aaddev
-ms.openlocfilehash: 9c3132985866a4c245984ef632107c05ca1b3350
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: f636b8ec04d151c855112102421dd2df0ccb6ff8
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96348383"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105932880"
 ---
 # <a name="saml-token-claims-reference"></a>Riferimento alle attestazioni del token SAML
 
@@ -34,7 +34,7 @@ La piattaforma Microsoft Identity genera diversi tipi di token di sicurezza nell
 > |Metodo di autenticazione | `amr` |Identifica la modalità di autenticazione dell'oggetto del token. | `<AuthnContextClassRef>`<br>`http://schemas.microsoft.com/ws/2008/06/identity/claims/authenticationmethod/password`<br>`</AuthnContextClassRef>` |
 > |Nome | `given_name` |Fornisce il nome o il nome "specificato" dell'utente, come impostato nell'oggetto utente di Azure AD. | `<Attribute Name="http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname">`<br>`<AttributeValue>Frank<AttributeValue>`  |
 > |Gruppi | `groups` |Fornisce gli ID oggetto che rappresentano le appartenenze ai gruppi del soggetto. Questi valori sono univoci (vedere ID oggetto) e possono essere usati in modo sicuro per la gestione dell'accesso, ad esempio l'attivazione dell'autorizzazione per accedere a una risorsa. I gruppi inclusi nella relativa attestazione sono configurati in base all'applicazione, tramite la proprietà "groupMembershipClaims" del manifesto dell'applicazione. Il valore null escluderà tutti i gruppi, il valore "SecurityGroup" includerà solo Active Directory le appartenenze ai gruppi di sicurezza e il valore "All" includerà sia i gruppi di sicurezza che Microsoft 365 elenchi di distribuzione. <br><br> **Note**: <br> Se il numero di gruppi in cui è presente l'utente supera il limite (150 per SAML, 200 per JWT), verrà aggiunta un'attestazione per l'eccedenza alle origini delle attestazioni che puntano all'endpoint Graph che contiene l'elenco dei gruppi per l'utente. | `<Attribute Name="http://schemas.microsoft.com/ws/2008/06/identity/claims/groups">`<br>`<AttributeValue>07dd8a60-bf6d-4e17-8844-230b77145381</AttributeValue>` |
-> | Indicatore di eccedenza dei gruppi | `groups:src1` | Per le richieste di token che non hanno una lunghezza limitata ma sono ancora troppo grandi per il token, verrà incluso un collegamento all'elenco dei gruppi completi per l'utente. Per SAML, viene aggiunto come nuova attestazione al posto dell'attestazione `groups`. | `<Attribute Name=" http://schemas.microsoft.com/claims/groups.link">`<br>`<AttributeValue>https://graph.windows.net/{tenantID}/users/{userID}/getMemberObjects<AttributeValue>` |
+> | Indicatore di eccedenza dei gruppi | `groups:src1` | Per le richieste di token che non hanno una lunghezza limitata ma sono ancora troppo grandi per il token, verrà incluso un collegamento all'elenco dei gruppi completi per l'utente. Per SAML, viene aggiunto come nuova attestazione al posto dell'attestazione `groups`. <br><br> **Note**: <br> Il API Graph Azure AD viene sostituito dall'API Microsoft Graph. Per ulteriori informazioni sull'endpoint equivalente, vedere [utente: getMemberObjects](https://docs.microsoft.com/graph/api/user-getmemberobjects). | `<Attribute Name=" http://schemas.microsoft.com/claims/groups.link">`<br>`<AttributeValue>https://graph.windows.net/{tenantID}/users/{userID}/getMemberObjects<AttributeValue>` |
 > |Provider di identità | `idp` |Registra il provider di identità che ha autenticato l'oggetto del token. Questo valore è identico al valore dell'attestazione Autorità di certificazione, a meno che l'account utente non sia in un tenant diverso rispetto all'autorità di certificazione. | `<Attribute Name=" http://schemas.microsoft.com/identity/claims/identityprovider">`<br>`<AttributeValue>https://sts.windows.net/cbb1a5ac-f33b-45fa-9bf5-f37db0fed422/<AttributeValue>` |
 > |IssuedAt | `iat` |Archivia l'ora in cui è stato rilasciato il token. Viene spesso usata per misurare la validità del token. | `<Assertion ID="_d5ec7a9b-8d8f-4b44-8c94-9812612142be" IssueInstant="2014-01-06T20:20:23.085Z" Version="2.0" xmlns="urn:oasis:names:tc:SAML:2.0:assertion">` |
 > |Issuer | `iss` |Identifica il servizio token di sicurezza (STS) che costruisce e restituisce il token. Nel token restituito da Azure AD l'autorità di certificazione è sts.windows.net. Il GUID del valore di attestazione dell'autorità di certificazione è l'ID tenant della directory di Azure AD. L'ID tenant è un identificatore non modificabile e affidabile della directory. | `<Issuer>https://sts.windows.net/cbb1a5ac-f33b-45fa-9bf5-f37db0fed422/</Issuer>` |

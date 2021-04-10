@@ -10,10 +10,10 @@ ms.author: dpalled
 manager: cshankar
 ms.date: 10/02/2020
 ms.openlocfilehash: 22411e5a80f555a3ead05d39466a7a175923d9bc
-ms.sourcegitcommit: ed7376d919a66edcba3566efdee4bc3351c57eda
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/24/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "105104040"
 ---
 * Dopo aver selezionato la piattaforma appropriata nel passaggio 4 di configurare le impostazioni della [piattaforma](../articles/active-directory/develop/quickstart-register-app.md#configure-platform-settings) , configurare gli **URI di reindirizzamento** e i token di **accesso** nel pannello laterale a destra dell'interfaccia utente.

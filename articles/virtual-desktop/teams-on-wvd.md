@@ -6,12 +6,12 @@ ms.topic: how-to
 ms.date: 11/10/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 052d11fe0125de7970fb7d02931edfc7f3c2e4d9
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 46796573e14dfc33d02d4faddd5504f3e8b7ee7b
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98743118"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105935721"
 ---
 # <a name="use-microsoft-teams-on-windows-virtual-desktop"></a>Usare Microsoft teams sul desktop virtuale di Windows
 
@@ -120,7 +120,7 @@ Dopo aver installato il servizio WebSocket e l'app desktop teams, attenersi alla
 
 3. Selezionare la **versione**.
 
-      Se le ottimizzazioni dei supporti sono state caricate, il banner visualizzerà **Wvd media optimized**. Se il banner mostra che i **supporti Wvd non sono connessi**, chiudere l'app teams e riprovare.
+      Se le ottimizzazioni dei supporti sono state caricate, il banner visualizzerà il **supporto per desktop virtuali Windows ottimizzato**. Se il banner Visualizza i **supporti desktop virtuali Windows non connessi**, chiudere l'app teams e riprovare.
 
 4. Selezionare l'immagine del profilo utente e quindi selezionare **Impostazioni**.
 

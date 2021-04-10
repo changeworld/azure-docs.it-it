@@ -12,10 +12,10 @@ ms.date: 03/02/2021
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python, contperf-fy21q1
 ms.openlocfilehash: 38fd5b779c3a8ae71c2e4fafcaf65921b1be3f93
-ms.sourcegitcommit: c8b50a8aa8d9596ee3d4f3905bde94c984fc8aa2
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "105642261"
 ---
 # <a name="create-and-run-machine-learning-pipelines-with-azure-machine-learning-sdk"></a>Creare ed eseguire le pipeline di Machine Learning con Azure Machine Learning SDK
@@ -330,14 +330,14 @@ Quando si esegue una pipeline per la prima volta, Azure Machine Learning:
 
 Per ulteriori informazioni, vedere la Guida di riferimento alla [classe Experiment](/python/api/azureml-core/azureml.core.experiment.experiment) .
 
-## <a name="use-pipeline-parameters-for-arguments-that-change-at-inference-time"></a>Usare i parametri della pipeline per gli argomenti che cambiano in fase di inferenza
+## <a name="use-pipeline-parameters-for-arguments-that-change-at-inference-time&quot;></a>Usare i parametri della pipeline per gli argomenti che cambiano in fase di inferenza
 
 In alcuni casi, gli argomenti per i singoli passaggi all'interno di una pipeline sono correlati al periodo di sviluppo e di formazione: elementi come velocità di training e Momentum o percorsi di dati o file di configurazione. Quando si distribuisce un modello, tuttavia, sarà necessario passare dinamicamente gli argomenti su cui si sta eseguendo l'inferenza, ovvero la query a cui è stato compilato il modello a cui rispondere. È necessario creare questi tipi di parametri della pipeline di argomenti. Per eseguire questa operazione in Python, usare la `azureml.pipeline.core.PipelineParameter` classe, come illustrato nel frammento di codice seguente:
 
 ```python
 from azureml.pipeline.core import PipelineParameter
 
-pipeline_param = PipelineParameter(name="pipeline_arg", default_value="default_val")
+pipeline_param = PipelineParameter(name=&quot;pipeline_arg&quot;, default_value=&quot;default_val")
 train_step = PythonScriptStep(script_name="train.py",
                             arguments=["--param1", pipeline_param],
                             target=compute_target,
