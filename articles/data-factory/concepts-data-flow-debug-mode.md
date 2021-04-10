@@ -37,17 +37,17 @@ Nella maggior parte dei casi, è consigliabile compilare i flussi di dati in mod
 > [!NOTE]
 > Ogni sessione di debug avviata da un utente dall'interfaccia utente del browser ADF è una nuova sessione con il proprio cluster Spark. È possibile utilizzare la visualizzazione monitoraggio per le sessioni di debug sopra indicate per visualizzare e gestire le sessioni di debug per Factory. Viene addebitata ogni ora di esecuzione di ogni sessione di debug, inclusa la durata TTL.
 
-## <a name="cluster-status"></a>Stato del cluster
+## <a name="cluster-status&quot;></a>Stato del cluster
 
 L'indicatore di stato del cluster nella parte superiore dell'area di progettazione viene trasformato in verde quando il cluster è pronto per il debug. Se il cluster è già pronto, l'indicatore verde viene visualizzato quasi immediatamente. Se il cluster non è ancora in esecuzione quando è stata attivata la modalità di debug, il cluster Spark eseguirà un avvio a freddo. L'indicatore verrà ruotato fino a quando l'ambiente non è pronto per il debug interattivo.
 
 Al termine del debug, disattivare lo switch di debug in modo che il cluster Spark possa terminare e non verrà più addebitato l'attività di debug.
 
-## <a name="debug-settings"></a>Impostazioni di debug
+## <a name=&quot;debug-settings&quot;></a>Impostazioni di debug
 
-Una volta attivata la modalità di debug, è possibile modificare il modo in cui un flusso di dati Visualizza in anteprima i dati. È possibile modificare le impostazioni di debug facendo clic su "impostazioni di debug" sulla barra degli strumenti dell'area di disegno flusso di dati. È possibile selezionare il limite di righe o l'origine file da usare per ognuna delle trasformazioni di origine. I limiti delle righe in questa impostazione sono solo per la sessione di debug corrente. È anche possibile selezionare il servizio collegato di gestione temporanea da usare per un'origine di analisi sinapsi di Azure. 
+Una volta attivata la modalità di debug, è possibile modificare il modo in cui un flusso di dati Visualizza in anteprima i dati. È possibile modificare le impostazioni di debug facendo clic su &quot;impostazioni di debug&quot; sulla barra degli strumenti dell'area di disegno flusso di dati. È possibile selezionare il limite di righe o l'origine file da usare per ognuna delle trasformazioni di origine. I limiti delle righe in questa impostazione sono solo per la sessione di debug corrente. È anche possibile selezionare il servizio collegato di gestione temporanea da usare per un'origine di analisi sinapsi di Azure. 
 
-![Impostazioni di debug](media/data-flow/debug-settings.png "Impostazioni di debug")
+![Impostazioni di debug](media/data-flow/debug-settings.png &quot;Impostazioni di debug")
 
 Se sono presenti parametri nel flusso di dati o in uno dei set di dati a cui viene fatto riferimento, è possibile specificare i valori da usare durante il debug selezionando la scheda **parametri** .
 

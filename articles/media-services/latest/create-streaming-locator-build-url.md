@@ -12,12 +12,12 @@ ms.topic: how-to
 ms.date: 08/31/2020
 ms.author: inhenkel
 ms.custom: devx-track-csharp
-ms.openlocfilehash: d2ecfb5a58641938062166bcd7c61a7d91764a3f
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 480b8ef401387863693bc88c3d508ce296636c93
+ms.sourcegitcommit: 5fd1f72a96f4f343543072eadd7cdec52e86511e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101093466"
+ms.lasthandoff: 04/01/2021
+ms.locfileid: "106107597"
 ---
 # <a name="create-a-streaming-locator-and-build-urls"></a>Creare un localizzatore di streaming e gli URL di compilazione
 
@@ -29,7 +29,7 @@ Questo articolo illustra come creare un localizzatore di streaming e creare un U
 
 ## <a name="prerequisite"></a>Prerequisito
 
-Anteprima della creazione [dinamica dei pacchetti](dynamic-packaging-overview.md)
+Anteprima della creazione [dinamica dei pacchetti](encode-dynamic-packaging-concept.md)
 
 ## <a name="java"></a>Java
 
@@ -165,10 +165,10 @@ Vedere l'esempio di codice completo: [EncodingWithMESPredefinedPreset](https://g
 
 ## <a name="see-also"></a>Vedi anche
 
-* [Creare filtri con .NET](filters-dynamic-manifest-dotnet-howto.md)
+* [Creare filtri con .NET](filters-dynamic-manifest-dotnet-how-to.md)
 * [Creare filtri con REST](filters-dynamic-manifest-rest-howto.md)
-* [Creare filtri con l’interfaccia della riga di comando](filters-dynamic-manifest-cli-howto.md)
+* [Creare filtri con l’interfaccia della riga di comando](filters-dynamic-manifest-cli-how-to.md)
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-[Proteggi i tuoi contenuti con DRM](protect-with-drm.md).
+[Proteggi i tuoi contenuti con DRM](drm-protect-with-drm-tutorial.md).

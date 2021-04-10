@@ -4,10 +4,10 @@ description: Defender for Fortinet ha stabilito una partnership tecnologica per 
 ms.date: 1/17/2021
 ms.topic: article
 ms.openlocfilehash: e2119a9e01a4e58cd9d2ca1b9b3384ec9629784c
-ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/22/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "104784017"
 ---
 # <a name="defender-for-iot-and-fortinet-iiot-and-ics-threat-detection--prevention"></a>Defender for Fortinet IIoT e ICS Threat detection & Prevention

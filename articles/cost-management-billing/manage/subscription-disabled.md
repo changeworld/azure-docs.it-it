@@ -8,14 +8,14 @@ tags: billing
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: how-to
-ms.date: 01/19/2021
+ms.date: 03/30/2021
 ms.author: banders
-ms.openlocfilehash: d7b5f1ae6db633bd1af10b1a0de1392c2a1fbcef
-ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
+ms.openlocfilehash: 1c40102f8815cf7299a99d290b7f57b386ede401
+ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98685536"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106055128"
 ---
 # <a name="reactivate-a-disabled-azure-subscription"></a>Riattivare una sottoscrizione di Azure disabilitata
 
@@ -23,7 +23,7 @@ La sottoscrizione di Azure può essere disabilitata perché il credito è scadut
 
 ## <a name="your-credit-is-expired"></a>Il credito è scaduto
 
-Quando si crea un account Azure gratuito, si ottiene una sottoscrizione alla versione di valutazione gratuita, che offre 200 dollari sotto forma di credito di Azure per 30 giorni e 12 mesi di servizi gratuiti. Al termine dei 30 giorni, Azure disabilita la sottoscrizione. La sottoscrizione viene disabilitata per impedire addebiti errati per un utilizzo non coperto dal credito e dai servizi gratuiti inclusi nella sottoscrizione. Per continuare a usare i servizi di Azure, è necessario [aggiornare la sottoscrizione](upgrade-azure-subscription.md). Dopo l'aggiornamento, la sottoscrizione ha ancora accesso ai servizi gratuiti per 12 mesi. Vengono addebitati solo i costi di utilizzo oltre i limiti di quantità di servizi gratuiti.
+Quando ci si iscrive a un account Azure gratuito, si ottiene una sottoscrizione di valutazione gratuita, che fornisce un credito Azure di 200 USD nella valuta di fatturazione per 30 giorni e 12 mesi di servizi gratuiti. Al termine dei 30 giorni, Azure disabilita la sottoscrizione. La sottoscrizione viene disabilitata per impedire addebiti errati per un utilizzo non coperto dal credito e dai servizi gratuiti inclusi nella sottoscrizione. Per continuare a usare i servizi di Azure, è necessario [aggiornare la sottoscrizione](upgrade-azure-subscription.md). Dopo l'aggiornamento, la sottoscrizione ha ancora accesso ai servizi gratuiti per 12 mesi. Vengono addebitati solo i costi di utilizzo oltre i limiti di quantità di servizi gratuiti.
 
 ## <a name="you-reached-your-spending-limit"></a>È stato raggiunto il limite di spesa
 

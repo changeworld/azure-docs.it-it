@@ -211,6 +211,8 @@
               href: database/monitoring-with-dmvs.md
             - name: Identificare e risolvere gli errori bloccanti
               href: database/understand-resolve-blocking.md
+            - name: Configurare il grado massimo di parallelismo (MAXDOP)
+              href: database/configure-max-degree-of-parallelism.md
             - name: Registrare i dati di telemetria di diagnostica
               href: database/metrics-diagnostic-telemetry-logging-streaming-export-configure.md
             - name: OLTP in memoria

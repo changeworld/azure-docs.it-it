@@ -3,17 +3,18 @@ title: Schema dei servizi cloud di Azure (versione classica) def. WorkerRole | M
 description: Il ruolo di lavoro di Azure viene usato per lo sviluppo generalizzato e può eseguire l'elaborazione in background per un ruolo Web. Informazioni sullo schema del ruolo di lavoro di Azure.
 ms.topic: article
 ms.service: cloud-services
+ms.subservice: deployment-files
 ms.date: 10/14/2020
 ms.author: tagore
 author: tanmaygore
 ms.reviewer: mimckitt
 ms.custom: ''
-ms.openlocfilehash: 0871527187a3d678cb2b94bd8dc342cf2abde1ba
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: f8ba321d95cc030d75ff9286c92c57335695790b
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98743135"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105934071"
 ---
 # <a name="azure-cloud-services-classic-definition-workerrole-schema"></a>Schema WorkerRole di definizione di servizi cloud di Azure (versione classica)
 

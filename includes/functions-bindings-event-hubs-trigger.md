@@ -4,12 +4,12 @@ ms.service: azure-functions
 ms.topic: include
 ms.date: 03/05/2019
 ms.author: cshoe
-ms.openlocfilehash: 4bea0f6091c02f80e381217ab7894ec4ad90d0ed
-ms.sourcegitcommit: ed7376d919a66edcba3566efdee4bc3351c57eda
+ms.openlocfilehash: 32f98eb9b98168bdab270ecff07446c31f8d706d
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/24/2021
-ms.locfileid: "105104530"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105729878"
 ---
 Usare il trigger di funzioni per rispondere a un evento inviato a un flusso di eventi di Hub eventi. Per configurare il trigger è necessario avere accesso in lettura all'hub eventi sottostante. Quando la funzione viene attivata, il messaggio passato alla funzione viene tipizzato come stringa.
 
@@ -375,12 +375,12 @@ Nella tabella seguente sono illustrate le proprietà di configurazione dell'asso
 * `string`
 * `byte[]`
 * `POCO`
-* `EventData` -Le proprietà predefinite di EventData vengono fornite nell'oggetto per lo [spazio dei nomi Microsoft. Azure. EventHubs](/dotnet/api/microsoft.azure.eventhubs.eventdata?view=azure-dotnet).
+* `EventData` -Le proprietà predefinite di EventData vengono fornite nell'oggetto per lo [spazio dei nomi Microsoft. Azure. EventHubs](/dotnet/api/microsoft.azure.eventhubs.eventdata).
 
 ### <a name="additional-types"></a>Tipi aggiuntivi 
-Le app che usano la versione 5.0.0 o successiva dell'estensione dell'hub eventi usano il `EventData` tipo in [Azure. Messaging. EventHubs](/dotnet/api/azure.messaging.eventhubs.eventdata?view=azure-dotnet) anziché quello nello [spazio dei nomi Microsoft. Azure. EventHubs](/dotnet/api/microsoft.azure.eventhubs.eventdata?view=azure-dotnet). Questa versione Elimina il supporto per il `Body` tipo legacy a favore dei tipi seguenti:
+Le app che usano la versione 5.0.0 o successiva dell'estensione dell'hub eventi usano il `EventData` tipo in [Azure. Messaging. EventHubs](/dotnet/api/azure.messaging.eventhubs.eventdata) anziché quello nello [spazio dei nomi Microsoft. Azure. EventHubs](/dotnet/api/microsoft.azure.eventhubs.eventdata). Questa versione Elimina il supporto per il `Body` tipo legacy a favore dei tipi seguenti:
 
-- [EventBody](/dotnet/api/azure.messaging.eventhubs.eventdata.eventbody?view=azure-dotnet)
+- [EventBody](/dotnet/api/azure.messaging.eventhubs.eventdata.eventbody)
 
 # <a name="c-script"></a>[Script C#](#tab/csharp-script)
 
@@ -391,12 +391,12 @@ Le app che usano la versione 5.0.0 o successiva dell'estensione dell'hub eventi 
 * `string`
 * `byte[]`
 * `POCO`
-* `EventData` -Le proprietà predefinite di EventData vengono fornite nell'oggetto per lo [spazio dei nomi Microsoft. Azure. EventHubs](/dotnet/api/microsoft.azure.eventhubs.eventdata?view=azure-dotnet).
+* `EventData` -Le proprietà predefinite di EventData vengono fornite nell'oggetto per lo [spazio dei nomi Microsoft. Azure. EventHubs](/dotnet/api/microsoft.azure.eventhubs.eventdata).
 
 ### <a name="additional-types"></a>Tipi aggiuntivi 
-Le app che usano la versione 5.0.0 o successiva dell'estensione dell'hub eventi usano il `EventData` tipo in [Azure. Messaging. EventHubs](/dotnet/api/azure.messaging.eventhubs.eventdata?view=azure-dotnet) anziché quello nello [spazio dei nomi Microsoft. Azure. EventHubs](/dotnet/api/microsoft.azure.eventhubs.eventdata?view=azure-dotnet). Questa versione Elimina il supporto per il `Body` tipo legacy a favore dei tipi seguenti:
+Le app che usano la versione 5.0.0 o successiva dell'estensione dell'hub eventi usano il `EventData` tipo in [Azure. Messaging. EventHubs](/dotnet/api/azure.messaging.eventhubs.eventdata) anziché quello nello [spazio dei nomi Microsoft. Azure. EventHubs](/dotnet/api/microsoft.azure.eventhubs.eventdata). Questa versione Elimina il supporto per il `Body` tipo legacy a favore dei tipi seguenti:
 
-- [EventBody](/dotnet/api/azure.messaging.eventhubs.eventdata.eventbody?view=azure-dotnet)
+- [EventBody](/dotnet/api/azure.messaging.eventhubs.eventdata.eventbody)
 
 # <a name="java"></a>[Java](#tab/java)
 

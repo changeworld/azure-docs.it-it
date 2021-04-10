@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 03/10/2021
 ms.author: inhenkel
 ms.openlocfilehash: f82e0c3f76dba05c3404b11e07c7130119ce0b9d
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "103015659"
 ---
 # <a name="media-encoder-standard-schema"></a>Schema di Media Encoder Standard
@@ -127,7 +127,7 @@ Per impostazione predefinita, se si invia al codificatore un input che contiene 
 
 ### <a name="groups"></a>Gruppi
 
-| Informazioni di riferimento | Descrizione |
+| Riferimento | Descrizione |
 | --- | --- |
 | [AudioGroup](media-services-mes-schema.md#AudioGroup)<br/><br/> minOccurs="0" |Vedere la descrizione di [AudioGroup](media-services-mes-schema.md#AudioGroup) per conoscere il numero di canali, la frequenza di campionamento e la velocità in bit appropriati che è possibile impostare per ogni profilo. |
 
@@ -199,7 +199,7 @@ Se il video di input è stato acquisito con rotazione diversa da zero (ad esempi
 
 ![MESRoation2](./media/media-services-shemas/media-services-mes-roation2.png) 
 
-In alternativa, è possibile usare il flag **PreserveResolutionAfterRotation** e impostarlo su "true" (il valore predefinito è "false"). Se quindi il set di impostazioni ha come valori Width = "100%", Height = "100%" e PreserveResolutionAfterRotation è impostato su "true", un video di input da 1280 pixel di larghezza e 720 pixel di altezza con 90 gradi di rotazione produce un output con zero gradi di rotazione, ma 720 pixel di larghezza e 1280 pixel di altezza. Vedere l'immagine seguente:  
+In alternativa, è possibile usare il flag **PreserveResolutionAfterRotation** e impostarlo su "true&quot; (il valore predefinito è &quot;false"). Se quindi il set di impostazioni ha come valori Width = "100%", Height = "100%" e PreserveResolutionAfterRotation è impostato su "true", un video di input da 1280 pixel di larghezza e 720 pixel di altezza con 90 gradi di rotazione produce un output con zero gradi di rotazione, ma 720 pixel di larghezza e 1280 pixel di altezza. Vedere l'immagine seguente:  
 
 ![MESRoation3](./media/media-services-shemas/media-services-mes-roation3.png) 
 

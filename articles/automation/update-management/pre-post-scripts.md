@@ -5,12 +5,12 @@ services: automation
 ms.subservice: update-management
 ms.date: 03/08/2021
 ms.topic: conceptual
-ms.openlocfilehash: ce60c773626d951062de3cc830b898e3b875f3cb
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 676e5f03c8d0085a4d041662a80c63d385071919
+ms.sourcegitcommit: d23602c57d797fb89a470288fcf94c63546b1314
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "102485538"
+ms.lasthandoff: 04/01/2021
+ms.locfileid: "106166718"
 ---
 # <a name="manage-pre-scripts-and-post-scripts"></a>Gestire pre-script e post-script
 
@@ -147,7 +147,7 @@ Pre-task e post-task vengono eseguiti come runbook e non in modo nativo nelle ma
 * Un account RunAs
 * Un runbook da eseguire
 
-Per interagire con i computer di Azure è necessario usare il cmdlet [Invoke-AzVMRunCommand](/powershell/module/az.compute/invoke-azvmruncommand) per interagire con le VM di Azure. Per un esempio di come eseguire questa operazione, vedere l'esempio di runbook [Gestione aggiornamenti: eseguire uno script con il comando Run](https://github.com/azureautomation/update-management-run-script-with-run-command).
+Per interagire con i computer di Azure è necessario usare il cmdlet [Invoke-AzVMRunCommand](/powershell/module/az.compute/invoke-azvmruncommand) per interagire con le VM di Azure. Per un esempio di come eseguire questa operazione, vedere l'esempio Runbook [Gestione aggiornamenti-Esegui script con il comando Esegui](https://github.com/azureautomation/update-management-run-script-with-run-command).
 
 ### <a name="interact-with-non-azure-machines"></a>Interagire con computer non Azure
 
@@ -158,7 +158,7 @@ Pre-task e post-task vengono eseguiti nel contesto di Azure e non hanno accesso 
 * Un runbook da eseguire in locale
 * Un runbook padre
 
-Per interagire con i computer non Azure viene eseguito un runbook padre nel contesto di Azure. Questo runbook chiama un runbook figlio con il cmdlet [Start-AzAutomationRunbook](/powershell/module/Az.Automation/Start-AzAutomationRunbook). È necessario specificare il `RunOn` parametro e specificare il nome del ruolo di lavoro ibrido per runbook in cui eseguire lo script. Vedere l'esempio di runbook [Gestione aggiornamenti: eseguire lo script in locale](https://github.com/azureautomation/update-management-run-script-locally).
+Per interagire con i computer non Azure viene eseguito un runbook padre nel contesto di Azure. Questo runbook chiama un runbook figlio con il cmdlet [Start-AzAutomationRunbook](/powershell/module/Az.Automation/Start-AzAutomationRunbook). È necessario specificare il `RunOn` parametro e specificare il nome del ruolo di lavoro ibrido per runbook in cui eseguire lo script. Vedere l'esempio Runbook [Gestione aggiornamenti-run script in locale](https://github.com/azureautomation/update-management-run-script-locally).
 
 ## <a name="abort-patch-deployment"></a>Interrompere la distribuzione di patch
 
@@ -238,9 +238,9 @@ Write-Output $context
 #Example: How to create and write to a variable using the pre-script:
 <#
 #Create variable named after this run so it can be retrieved
-New-AzAutomationVariable -ResourceGroupName $ResourceGroup –AutomationAccountName $AutomationAccount –Name $runId -Value "" –Encrypted $false
+New-AzAutomationVariable -ResourceGroupName $ResourceGroup -AutomationAccountName $AutomationAccount -Name $runId -Value "" -Encrypted $false
 #Set value of variable
-Set-AutomationVariable –Name $runId -Value $vmIds
+Set-AutomationVariable -Name $runId -Value $vmIds
 #>
 
 #Example: How to retrieve information from a variable set during the pre-script

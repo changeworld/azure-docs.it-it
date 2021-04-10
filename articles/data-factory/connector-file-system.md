@@ -4,14 +4,14 @@ description: Informazioni su come copiare dati da un file system in archivi dati
 author: linda33wj
 ms.service: data-factory
 ms.topic: conceptual
-ms.date: 03/17/2021
+ms.date: 03/29/2021
 ms.author: jingwang
-ms.openlocfilehash: a7cfcd77c4aeb12e2fca98a3564f34683b41ee21
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: c49b543b13dddf4c4ba7e36196795c6a0d638ae2
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104589005"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105731956"
 ---
 # <a name="copy-data-to-or-from-a-file-system-by-using-azure-data-factory"></a>Copiare dati da e in un file system usando Azure Data Factory
 > [!div class="op_single_selector" title1="Selezionare uSelezionare la versione del servizio di Azure Data Factory in uso:"]
@@ -35,6 +35,9 @@ In particolare, il connettore file system supporta:
 - La copia di file da/in un computer locale o una condivisione file di rete. Per usare una condivisione file di Linux, installare [Samba](https://www.samba.org/) nel server Linux.
 - La copia di file usando l'autenticazione di **Windows**.
 - La copia di file così come sono o l'analisi/generazione di file con i [formati di file supportati e i codec di compressione](supported-file-formats-and-compression-codecs.md).
+
+> [!NOTE]
+> L'unità di rete mappata non è supportata quando si caricano dati da una condivisione file di rete. Usare invece il percorso effettivo, ad esempio. ` \\server\share`
 
 ## <a name="prerequisites"></a>Prerequisiti
 

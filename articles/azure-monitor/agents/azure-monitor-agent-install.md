@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 11/17/2020
-ms.openlocfilehash: b2f91f0036a86151588c8c138dac5421ad54e18e
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: db9ad08f9a939a22e1e0e1cfba0537e6356394ed
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104586421"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105731536"
 ---
 # <a name="install-the-azure-monitor-agent-preview"></a>Installare l'agente di monitoraggio di Azure (anteprima)
 Questo articolo fornisce le diverse opzioni attualmente disponibili per l'installazione dell' [agente di monitoraggio di Azure](azure-monitor-agent-overview.md) sia nelle macchine virtuali di Azure che nei server abilitati per Azure Arc, oltre alle opzioni per creare [associazioni con regole di raccolta dati](data-collection-rule-azure-monitor-agent.md) che definiscono i dati che l'agente deve raccogliere.
@@ -20,6 +20,9 @@ I prerequisiti seguenti sono necessari prima di installare l'agente di monitorag
 
 - L' [identità del sistema gestito](../../active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm.md) deve essere abilitata nelle macchine virtuali di Azure. Questa operazione non è necessaria per i server abilitati per Azure Arc. L'identità del sistema verrà abilitata automaticamente se l'agente viene installato come parte del processo di [creazione e assegnazione di una regola di raccolta dati utilizzando il portale di Azure](#install-with-azure-portal).
 - Il [tag del servizio AzureResourceManager](../../virtual-network/service-tags-overview.md) deve essere abilitato nella rete virtuale per la macchina virtuale.
+
+> [!IMPORTANT]
+> L'agente di monitoraggio di Azure attualmente non supporta i proxy di rete.
 
 ## <a name="virtual-machine-extension-details"></a>Dettagli estensione macchina virtuale
 L'agente di monitoraggio di Azure viene implementato come [estensione della macchina virtuale di Azure](../../virtual-machines/extensions/overview.md) con i dettagli nella tabella seguente. Può essere installato usando uno dei metodi per installare le estensioni delle macchine virtuali, incluse quelle descritte in questo articolo.

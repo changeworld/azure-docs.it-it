@@ -4,12 +4,12 @@ description: Tipi di nodo, durabilità, affidabilità e altri aspetti da conside
 ms.topic: conceptual
 ms.date: 05/21/2020
 ms.author: pepogors
-ms.openlocfilehash: b3361337bb0cf60e47efe198aad7aa8cc20ae7b3
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 9268dfef15d8302eb31cc1b649c7fd713aab6721
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101714936"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105732585"
 ---
 # <a name="service-fabric-cluster-capacity-planning-considerations"></a>Considerazioni sulla pianificazione della capacità del cluster Service Fabric
 
@@ -111,7 +111,7 @@ Seguire questi consigli per la gestione dei tipi di nodo con durabilità Silver 
 * Mantenere un numero minimo di cinque nodi per tutti i set di scalabilità di macchine virtuali con livello di durabilità Gold o Silver abilitato. Se si ridimensiona al di sotto di questa soglia, il cluster immetterà lo stato di errore e sarà necessario eseguire manualmente la pulizia dello stato ( `Remove-ServiceFabricNodeState` ) per i nodi rimossi.
 * Ogni set di scalabilità di macchine virtuali con livello di durabilità Silver o Gold deve essere mappato al proprio tipo di nodo del cluster di Service Fabric. Il mapping di più set di scalabilità di macchine virtuali a un singolo tipo di nodo impedirà il corretto funzionamento del coordinamento tra il cluster di Service Fabric e l'infrastruttura di Azure.
 * Non eliminare istanze di VM casuali. usare sempre la funzionalità di scalabilità del set di scalabilità di macchine virtuali. L'eliminazione di istanze di VM casuali può creare squilibri nell'istanza di macchina virtuale distribuita in domini di [aggiornamento](service-fabric-cluster-resource-manager-cluster-description.md#upgrade-domains) e [domini di errore](service-fabric-cluster-resource-manager-cluster-description.md#fault-domains). Questo squilibrio potrebbe influire negativamente sulla capacità del sistema di bilanciare correttamente il carico tra le istanze del servizio o le repliche del servizio.
-* Se si usa la scalabilità automatica, impostare le regole in modo che le operazioni di ridimensionamento (rimozione di istanze di VM) vengano eseguite solo in un nodo alla volta. La riduzione delle prestazioni di più di un'istanza per volta non è sicura.
+* Se si usa la scalabilità automatica, impostare le regole in modo che le operazioni di ridimensionamento (rimozione di istanze di VM) vengano eseguite solo in un nodo alla volta. Il ridimensionamento in più di un'istanza alla volta non è sicuro.
 * Se si eliminano o deallocano macchine virtuali nel tipo di nodo primario, non ridurre mai il numero di macchine virtuali allocate al di sotto di quanto richiesto dal livello di affidabilità. Queste operazioni verranno bloccate indefinitamente in un set di scalabilità con un livello di durabilità di Silver o Gold.
 
 ### <a name="changing-durability-levels"></a>Modifica dei livelli di durabilità
