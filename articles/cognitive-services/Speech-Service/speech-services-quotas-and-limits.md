@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 03/27/2021
 ms.author: alexeyo
-ms.openlocfilehash: 7fe2942250e165606175392d7749becda0cff23b
-ms.sourcegitcommit: c8b50a8aa8d9596ee3d4f3905bde94c984fc8aa2
+ms.openlocfilehash: 7ef6ed5293ec9ecf49c16f8dfb0b6604942408f0
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2021
-ms.locfileid: "105645115"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105937057"
 ---
 # <a name="speech-services-quotas-and-limits"></a>Quote e limiti di servizi vocali
 
@@ -63,19 +63,19 @@ Per l'utilizzo con l' [SDK di riconoscimento vocale](speech-sdk.md) e/o l' [API 
 ### <a name="text-to-speech-quotas-and-limits-per-speech-resource"></a>Quote e limiti di sintesi vocale per ogni risorsa vocale
 Nella tabella seguente i parametri senza riga "regolabile" **non** sono regolabili per tutti i piani tariffari.
 
-| Quota | Gratuito (F0)<sup>3</sup> | Standard (S0) |
-|--|--|--|
-| **Numero massimo di transazioni al secondo (TPS) per le voci standard e neurali** | 200<sup>4</sup> | 200<sup>4</sup> |  |
-| **Limite di richieste simultanee per la voce personalizzata** |  |  |
-| Valore predefinito | 10 | 10 |
-| Regolabile | N.<sup>5</sup> | Sì<sup>5</sup> |
-| **Quote specifiche di HTTP** |  |
-| Lunghezza massima audio prodotta per richiesta | 10 min | 10 min |
-| Numero massimo di `<voice>` tag DISTINCT in SSML | 50 | 50 |
-| **Quote specifiche di WebSocket** |  |  |
-|Lunghezza massima audio prodotta per turno | 10 min | 10 min |
-|Dimensioni massime del messaggio SSML per turno |64 kB |64 kB |
-| **Limite API REST** | 20 richieste al minuto | 300 richieste al minuto |
+| Quota                                                                          | Gratuito (F0)<sup>3</sup>  | Standard (S0)   |
+|--------------------------------------------------------------------------------|------------------------|-----------------|
+| **Numero massimo di transazioni al secondo (TPS) per le voci standard e neurali** | 200<sup>4</sup>        | 200<sup>4</sup> |
+| **Limite di richieste simultanee per la voce personalizzata**                                  |                        |                 |
+| Valore predefinito                                                                  | 10                     | 10              |
+| Regolabile                                                                     | N.<sup>5</sup>         | Sì<sup>5</sup> |
+| **Quote specifiche di HTTP**                                                       |                        |                 |
+| Lunghezza massima audio prodotta per richiesta                                          | 10 min                 | 10 min          |
+| Numero massimo di `<voice>` tag DISTINCT in SSML                                  | 50                     | 50              |
+| **Quote specifiche di WebSocket**                                                  |                        |                 |
+| Lunghezza massima audio prodotta per turno                                             | 10 min                 | 10 min          |
+| Dimensioni massime del messaggio SSML per turno                                                 | 64 kB                  | 64 kB           |
+| **Limite API REST**                                                             | 20 richieste al minuto | 300 richieste al minuto |
 
 
 <sup>3</sup> per il piano tariffario **gratuito (F0)** , vedere anche le indennità mensile nella [pagina dei prezzi](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/).<br/>

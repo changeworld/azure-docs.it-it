@@ -2,7 +2,6 @@
 title: Risolvere i problemi relativi a RBAC di Azure
 description: Risolvere i problemi relativi al controllo degli accessi in base al ruolo di Azure (RBAC di Azure).
 services: azure-portal
-documentationcenter: na
 author: rolyon
 manager: mtillman
 ms.assetid: df42cca2-02d6-4f3c-9d56-260e1eb7dc44
@@ -11,16 +10,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: troubleshooting
-ms.date: 11/10/2020
+ms.date: 04/06/2021
 ms.author: rolyon
-ms.reviewer: bagovind
 ms.custom: seohack1, devx-track-azurecli
-ms.openlocfilehash: d77468619fcd67887273b2fbd452b37add1e19b0
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: b4a3f7f613f75f2f285437b7ae6f816adf56d999
+ms.sourcegitcommit: d63f15674f74d908f4017176f8eddf0283f3fac8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100555893"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "106580104"
 ---
 # <a name="troubleshoot-azure-rbac"></a>Risolvere i problemi relativi a RBAC di Azure
 
@@ -68,11 +66,16 @@ $ras.Count
     ```azurecli
     az role assignment create --assignee-object-id 11111111-1111-1111-1111-111111111111  --role "Contributor" --scope "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}"
     ```
+
+- Se si crea una nuova entità servizio e si prova ad assegnare subito un ruolo a tale entità, in alcuni casi l'assegnazione di ruolo può avere esito negativo.
+
+    Per far fronte a questo scenario, è necessario impostare la proprietà `principalType` su `ServicePrincipal` quando si crea l'assegnazione di ruolo. È inoltre necessario impostare l'oggetto `apiVersion` dell'assegnazione di ruolo su `2018-09-01-preview` o versione successiva. Per altre informazioni, vedere [assegnare ruoli di Azure a una nuova entità servizio usando l'API REST](role-assignments-rest.md#new-service-principal) o [assegnare ruoli di Azure a una nuova entità servizio usando i modelli di Azure Resource Manager](role-assignments-template.md#new-service-principal)
+
 - Se si tenta di rimuovere l'ultima assegnazione di ruolo proprietario per una sottoscrizione, è possibile che venga visualizzato l'errore "Impossibile eliminare l'ultima assegnazione amministratore RBAC". La rimozione dell'ultima assegnazione di ruolo proprietario per una sottoscrizione non è supportata per evitare l'isolamento della sottoscrizione. Se si vuole annullare la sottoscrizione, vedere [annullare la sottoscrizione di Azure](../cost-management-billing/manage/cancel-azure-subscription.md).
 
 ## <a name="problems-with-custom-roles"></a>Problemi con i ruoli personalizzati
 
-- Per istruzioni su come creare un ruolo personalizzato, vedere le esercitazioni sui ruoli personalizzati usando il [portale di Azure](custom-roles-portal.md) (attualmente in anteprima), [Azure PowerShell](tutorial-custom-role-powershell.md)o l'interfaccia della riga di comando di [Azure](tutorial-custom-role-cli.md).
+- Per istruzioni su come creare un ruolo personalizzato, vedere le esercitazioni sui ruoli personalizzati usando l'interfaccia della riga di comando di [portale di Azure](custom-roles-portal.md), [Azure PowerShell](tutorial-custom-role-powershell.md)o [Azure](tutorial-custom-role-cli.md).
 - Se non è possibile aggiornare un ruolo personalizzato esistente, verificare di avere eseguito l'accesso con un utente a cui è stato assegnato un ruolo con l' `Microsoft.Authorization/roleDefinition/write` autorizzazione, ad esempio [proprietario](built-in-roles.md#owner) o [amministratore accesso utenti](built-in-roles.md#user-access-administrator).
 - Se non è possibile eliminare un ruolo personalizzato e ricevere il messaggio di errore "Sono presenti assegnazioni di ruolo esistenti che fanno riferimento a ruolo (codice: RoleDefinitionHasAssignments)", esistono assegnazioni di ruolo che usano ancora il ruolo personalizzato. Rimuovere le assegnazioni di ruolo e provare di nuovo a eliminare il ruolo personalizzato.
 - Se viene visualizzato il messaggio di errore "Limite di definizioni del ruolo superato. Non è possibile creare più definizioni di ruolo (codice: RoleDefinitionLimitExceeded) "quando si tenta di creare un nuovo ruolo personalizzato, eliminare tutti i ruoli personalizzati che non vengono usati. Azure supporta fino a **5000** ruoli personalizzati in una directory. (Per Azure Germania e Azure Cina 21Vianet, il limite è 2000 ruoli personalizzati).

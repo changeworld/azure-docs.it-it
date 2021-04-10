@@ -1,19 +1,19 @@
 ---
 title: 'Avvio rapido: Connettersi con Python - Database di Azure per PostgreSQL - Server flessibile'
 description: Questo argomento di avvio rapido include diversi esempi di codice Python che è possibile usare per connettersi ai dati ed eseguire query dal server flessibile di Database di Azure per PostgreSQL.
-author: ambhatna
-ms.author: ambhatna
+author: rothja
+ms.author: jroth
 ms.service: postgresql
 ms.custom: mvc
 ms.devlang: python
 ms.topic: quickstart
 ms.date: 09/22/2020
-ms.openlocfilehash: 2bcf467eea9186cc57fb4c6c3d8964632b8fec03
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 948972c1d47e550395a280e62c0491800e716663
+ms.sourcegitcommit: b0557848d0ad9b74bf293217862525d08fe0fc1d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105047712"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "106550643"
 ---
 # <a name="quickstart-use-python-to-connect-and-query-data-in-azure-database-for-postgresql---flexible-server"></a>Avvio rapido: Usare Python per connettersi ai dati ed eseguire query nel server flessibile di Database di Azure per PostgreSQL
 

@@ -4,14 +4,14 @@ description: Elenco delle metriche disponibili per ogni tipo di risorsa con il m
 author: rboucher
 services: azure-monitor
 ms.topic: reference
-ms.date: 02/06/2021
+ms.date: 04/01/2021
 ms.author: robb
-ms.openlocfilehash: 2437ab80a23ffc39c180bcdf72921fdf13768541
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 0854d56930dbc8decfcf8f96a814f082e361de62
+ms.sourcegitcommit: d23602c57d797fb89a470288fcf94c63546b1314
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102033504"
+ms.lasthandoff: 04/01/2021
+ms.locfileid: "106167244"
 ---
 # <a name="supported-metrics-with-azure-monitor"></a>Metriche supportate con il monitoraggio di Azure
 
@@ -55,7 +55,6 @@ Per informazioni aggiuntive importanti, vedere [Panoramica degli agenti di monit
 
 > [!IMPORTANT] 
 > Questo aggiornamento più recente aggiunge una nuova colonna e riordina le metriche in modo che siano alfabetiche. Le informazioni aggiuntive indicano che le tabelle seguenti possono avere una barra di scorrimento orizzontale nella parte inferiore, a seconda della larghezza della finestra del browser. Se si ritiene di non disporre di informazioni, utilizzare la barra di scorrimento per visualizzare l'intera tabella.
-
 ## <a name="microsoftaadiamazureadmetrics"></a>Microsoft. aadiam/azureADMetrics
 
 |Metrica|Esportabile tramite Impostazioni di diagnostica?|Nome visualizzato per la metrica|Unità|Tipo di aggregazione|Descrizione|Dimensioni|
@@ -148,7 +147,6 @@ Per informazioni aggiuntive importanti, vedere [Panoramica degli agenti di monit
 |HttpIncomingRequestDuration|Sì|HttpIncomingRequestDuration|Conteggio|Media|Latenza su una richiesta HTTP.|StatusCode, autenticazione|
 |ThrottledHttpRequestCount|Sì|ThrottledHttpRequestCount|Conteggio|Conteggio|Richieste http limitate.|Nessuna dimensione|
 
-
 ## <a name="microsoftappplatformspring"></a>Microsoft.AppPlatform/Spring
 
 |Metrica|Esportabile tramite Impostazioni di diagnostica?|Nome visualizzato per la metrica|Unità|Tipo di aggregazione|Descrizione|Dimensioni|
@@ -203,7 +201,6 @@ Per informazioni aggiuntive importanti, vedere [Panoramica degli agenti di monit
 |Tomcat. Threads. Current|Sì|Tomcat. Threads. Current|Conteggio|Totale|Conteggio thread correnti Tomcat|Distribuzione, AppName, Pod|
 |Totale richieste|Sì|Totale richieste|Conteggio|Media|Numero totale di richieste nel corso della durata del processo|Distribuzione, AppName, Pod|
 |working-set|Sì|working-set|Conteggio|Media|Quantità di working set utilizzata dal processo (MB)|Distribuzione, AppName, Pod|
-
 
 ## <a name="microsoftautomationautomationaccounts"></a>Microsoft.Automation/automationAccounts
 
@@ -376,8 +373,8 @@ Per informazioni aggiuntive importanti, vedere [Panoramica degli agenti di monit
 
 |Metrica|Esportabile tramite Impostazioni di diagnostica?|Nome visualizzato per la metrica|Unità|Tipo di aggregazione|Descrizione|Dimensioni|
 |---|---|---|---|---|---|---|
-|RequestLatency|Sì|Latenza richieste|Millisecondi|Totale|Tempo impiegato dal server per elaborare la richiesta|Operazione, autenticazione, protocollo|
-|RequestsTraffic|Sì|Richieste di traffico|Percentuale|Conteggio|Numero di richieste effettuate|Operazione, autenticazione, protocollo, StatusCode, StatusCodeClass|
+|RequestLatency|Sì|Latenza richieste|Millisecondi|Totale|Tempo impiegato dal server per elaborare la richiesta|Operazione, autenticazione, protocollo, Datacenter|
+|RequestsTraffic|Sì|Richieste di traffico|Percentuale|Conteggio|Numero di richieste effettuate|Operazione, autenticazione, protocollo, StatusCode, StatusCodeClass, Datacenter|
 
 
 ## <a name="microsoftcacheredis"></a>Microsoft.Cache/redis
@@ -604,7 +601,6 @@ Per informazioni aggiuntive importanti, vedere [Panoramica degli agenti di monit
 |totalkeys|Sì|Totale chiavi|Conteggio|Massimo||Nessuna dimensione|
 |usedmemory|Sì|Memoria utilizzata|Byte|Massimo||Nessuna dimensione|
 |usedmemorypercentage|Sì|Percentuale memoria usata|Percentuale|Massimo||InstanceId|
-|usedmemoryRss|Sì|Memoria utilizzata RSS|Byte|Massimo||InstanceId|
 
 
 ## <a name="microsoftcdncdnwebapplicationfirewallpolicies"></a>Microsoft. CDN/cdnwebapplicationfirewallpolicies
@@ -619,7 +615,7 @@ Per informazioni aggiuntive importanti, vedere [Panoramica degli agenti di monit
 |Metrica|Esportabile tramite Impostazioni di diagnostica?|Nome visualizzato per la metrica|Unità|Tipo di aggregazione|Descrizione|Dimensioni|
 |---|---|---|---|---|---|---|
 |ByteHitRatio|Sì|Percentuale riscontri byte|Percentuale|Media|Rapporto tra i byte totali serviti dalla cache e i byte di risposta totali|Endpoint|
-|OriginHealthPercentage|Sì|Percentuale di integrità di origine|Percentuale|Media|Percentuale di probe di integrità riusciti da AFDX a backend.|Origin, OriginPool|
+|OriginHealthPercentage|Sì|Percentuale di integrità di origine|Percentuale|Media|Percentuale di probe di integrità riusciti da AFDX a backend.|Origin, OriginGroup|
 |OriginLatency|Sì|Latenza di origine|Millisecondi|Media|Tempo calcolato dal momento in cui la richiesta è stata inviata da AFDX Edge al back-end fino a quando AFDX non ha ricevuto l'ultimo byte di risposta dal back-end.|Origin, endpoint|
 |OriginRequestCount|Sì|Conteggio richieste di origine|Conteggio|Totale|Numero di richieste inviate da AFDX all'origine.|HttpStatus, HttpStatusGroup, Origin, endpoint|
 |Percentage4XX|Sì|Percentuale di 4XX|Percentuale|Media|Percentuale di tutte le richieste client per cui il codice di stato della risposta è 4XX|Endpoint, ClientRegion, ClientCountry|
@@ -804,8 +800,8 @@ Per informazioni aggiuntive importanti, vedere [Panoramica degli agenti di monit
 
 |Metrica|Esportabile tramite Impostazioni di diagnostica?|Nome visualizzato per la metrica|Unità|Tipo di aggregazione|Descrizione|Dimensioni|
 |---|---|---|---|---|---|---|
-|Crediti CPU usati|Sì|Crediti CPU usati|Conteggio|Media|Numero totale di crediti usati dalla macchina virtuale|Nessuna dimensione|
-|Crediti CPU rimanenti|Sì|Crediti CPU rimanenti|Conteggio|Media|Numero totale di crediti disponibili per il burst|Nessuna dimensione|
+|Crediti CPU usati|Sì|Crediti CPU usati|Conteggio|Media|Numero totale di crediti utilizzati dalla macchina virtuale. Disponibile solo nelle macchine virtuali di serie B|Nessuna dimensione|
+|Crediti CPU rimanenti|Sì|Crediti CPU rimanenti|Conteggio|Media|Numero totale di crediti disponibili per il numero di picchi. Disponibile solo nelle macchine virtuali di serie B|Nessuna dimensione|
 |Percentuale di utilizzo della larghezza di banda del disco dati|Sì|Percentuale di utilizzo della larghezza di banda del disco dati|Percentuale|Media|Percentuale di larghezza di banda del disco dati utilizzata al minuto|LUN|
 |Percentuale di IOPS del disco dati utilizzata|Sì|Percentuale di IOPS del disco dati utilizzata|Percentuale|Media|Percentuale di I/o su disco dati utilizzati al minuto|LUN|
 |Larghezza di banda massima disco dati|Sì|Larghezza di banda massima disco dati|Conteggio|Media|Numero massimo di byte al secondo, il disco dati di velocità effettiva può ottenere con picchi|LUN|
@@ -859,8 +855,8 @@ Per informazioni aggiuntive importanti, vedere [Panoramica degli agenti di monit
 
 |Metrica|Esportabile tramite Impostazioni di diagnostica?|Nome visualizzato per la metrica|Unità|Tipo di aggregazione|Descrizione|Dimensioni|
 |---|---|---|---|---|---|---|
-|Crediti CPU usati|Sì|Crediti CPU usati|Conteggio|Media|Numero totale di crediti usati dalla macchina virtuale|Nessuna dimensione|
-|Crediti CPU rimanenti|Sì|Crediti CPU rimanenti|Conteggio|Media|Numero totale di crediti disponibili per il burst|Nessuna dimensione|
+|Crediti CPU usati|Sì|Crediti CPU usati|Conteggio|Media|Numero totale di crediti utilizzati dalla macchina virtuale. Disponibile solo nelle macchine virtuali di serie B|Nessuna dimensione|
+|Crediti CPU rimanenti|Sì|Crediti CPU rimanenti|Conteggio|Media|Numero totale di crediti disponibili per il numero di picchi. Disponibile solo nelle macchine virtuali di serie B|Nessuna dimensione|
 |Percentuale di utilizzo della larghezza di banda del disco dati|Sì|Percentuale di utilizzo della larghezza di banda del disco dati|Percentuale|Media|Percentuale di larghezza di banda del disco dati utilizzata al minuto|LUN, VMName|
 |Percentuale di IOPS del disco dati utilizzata|Sì|Percentuale di IOPS del disco dati utilizzata|Percentuale|Media|Percentuale di I/o su disco dati utilizzati al minuto|LUN, VMName|
 |Larghezza di banda massima disco dati|Sì|Larghezza di banda massima disco dati|Conteggio|Media|Numero massimo di byte al secondo, il disco dati di velocità effettiva può ottenere con picchi|LUN, VMName|
@@ -914,8 +910,8 @@ Per informazioni aggiuntive importanti, vedere [Panoramica degli agenti di monit
 
 |Metrica|Esportabile tramite Impostazioni di diagnostica?|Nome visualizzato per la metrica|Unità|Tipo di aggregazione|Descrizione|Dimensioni|
 |---|---|---|---|---|---|---|
-|Crediti CPU usati|Sì|Crediti CPU usati|Conteggio|Media|Numero totale di crediti usati dalla macchina virtuale|Nessuna dimensione|
-|Crediti CPU rimanenti|Sì|Crediti CPU rimanenti|Conteggio|Media|Numero totale di crediti disponibili per il burst|Nessuna dimensione|
+|Crediti CPU usati|Sì|Crediti CPU usati|Conteggio|Media|Numero totale di crediti utilizzati dalla macchina virtuale. Disponibile solo nelle macchine virtuali di serie B|Nessuna dimensione|
+|Crediti CPU rimanenti|Sì|Crediti CPU rimanenti|Conteggio|Media|Numero totale di crediti disponibili per il numero di picchi. Disponibile solo nelle macchine virtuali di serie B|Nessuna dimensione|
 |Percentuale di utilizzo della larghezza di banda del disco dati|Sì|Percentuale di utilizzo della larghezza di banda del disco dati|Percentuale|Media|Percentuale di larghezza di banda del disco dati utilizzata al minuto|LUN|
 |Percentuale di IOPS del disco dati utilizzata|Sì|Percentuale di IOPS del disco dati utilizzata|Percentuale|Media|Percentuale di I/o su disco dati utilizzati al minuto|LUN|
 |Larghezza di banda massima disco dati|Sì|Larghezza di banda massima disco dati|Conteggio|Media|Numero massimo di byte al secondo, il disco dati di velocità effettiva può ottenere con picchi|LUN|
@@ -992,11 +988,25 @@ Per informazioni aggiuntive importanti, vedere [Panoramica degli agenti di monit
 |Metrica|Esportabile tramite Impostazioni di diagnostica?|Nome visualizzato per la metrica|Unità|Tipo di aggregazione|Descrizione|Dimensioni|
 |---|---|---|---|---|---|---|
 |apiserver_current_inflight_requests|No|Richieste in viaggio|Conteggio|Media|Numero massimo di richieste in corso attualmente usate in apiserver per tipo di richiesta nell'ultimo secondo|requestKind|
+|cluster_autoscaler_cluster_safe_to_autoscale|No|Integrità del cluster|Conteggio|Media|Determina se il servizio di scalabilità automatica del cluster eseguirà un'azione sul cluster||
+|cluster_autoscaler_scale_down_in_cooldown|No|Ridimensionare il cooldown|Conteggio|Media|Determina se il ridimensionamento è in fase di ricarica-nessun nodo verrà rimosso durante questo intervallo di tempo||
+|cluster_autoscaler_unneeded_nodes_count|No|Nodi non necessari|Conteggio|Media|Il auotscaler del cluster contrassegna i nodi come candidati per l'eliminazione e viene eliminato||
+|cluster_autoscaler_unschedulable_pods_count|No|Pod non pianificabili|Conteggio|Media|Numero di Pod attualmente non pianificabili nel cluster||
 |kube_node_status_allocatable_cpu_cores|No|Numero totale di core CPU disponibili in un cluster gestito|Conteggio|Media|Numero totale di core CPU disponibili in un cluster gestito||
 |kube_node_status_allocatable_memory_bytes|No|Numero totale di memoria disponibile in un cluster gestito|Byte|Media|Numero totale di memoria disponibile in un cluster gestito||
 |kube_node_status_condition|No|Stati per diverse condizioni dei nodi|Conteggio|Media|Stati per diverse condizioni dei nodi|Condition, status, status2, node|
 |kube_pod_status_phase|No|Numero di pod per fase|Conteggio|Media|Numero di pod per fase|fase, spazio dei nomi, pod|
 |kube_pod_status_ready|No|Numero di pod in stato Pronto|Conteggio|Media|Numero di pod in stato Pronto|spazio dei nomi, Pod, condizione|
+|node_cpu_usage_millicores|Sì|Utilizzo CPU Millicore|Millicore|Media|Misurazione aggregata dell'utilizzo della CPU in millicore nel cluster|nodo, nodepool|
+|node_cpu_usage_percentage|Sì|CPU Usage Percentage (Percentuale di utilizzo CPU)|Percentuale|Media|Utilizzo medio della CPU aggregato misurato in percentuale nel cluster|nodo, nodepool|
+|node_disk_usage_bytes|Sì|Byte utilizzati dal disco|Byte|Media|Spazio su disco utilizzato in byte dal dispositivo|nodo, nodepool, dispositivo|
+|node_disk_usage_percentage|Sì|Percentuale di utilizzo del disco|Percentuale|Media|Spazio su disco utilizzato in percentuale dal dispositivo|nodo, nodepool, dispositivo|
+|node_memory_rss_bytes|Sì|Byte RSS memoria|Byte|Media|Memoria RSS del contenitore utilizzata in byte|nodo, nodepool|
+|node_memory_rss_percentage|Sì|Percentuale RSS memoria|Percentuale|Media|Memoria RSS del contenitore utilizzata nella percentuale|nodo, nodepool|
+|node_memory_working_set_bytes|Sì|Byte working set di memoria|Byte|Media|Memoria del contenitore working set utilizzata in byte|nodo, nodepool|
+|node_memory_working_set_percentage|Sì|Percentuale working set della memoria|Percentuale|Media|Memoria del contenitore working set utilizzata in percentuale|nodo, nodepool|
+|node_network_in_bytes|Sì|Rete in byte|Byte|Media|Byte ricevuti dalla rete|nodo, nodepool|
+|node_network_out_bytes|Sì|Byte di rete in uscita|Byte|Media|Byte trasmessi dalla rete|nodo, nodepool|
 
 
 ## <a name="microsoftcustomprovidersresourceproviders"></a>Microsoft. CustomProviders/resourceproviders
@@ -1199,6 +1209,20 @@ Per informazioni aggiuntive importanti, vedere [Panoramica degli agenti di monit
 |txlogs_storage_used|Sì|Archiviazione log delle transazioni utilizzata|Byte|Media|Archiviazione log delle transazioni utilizzata|Nessuna dimensione|
 |write_iops|Sì|IOPS di scrittura|Conteggio|Media|Numero di operazioni di scrittura I/O su disco dati al secondo|Nessuna dimensione|
 |write_throughput|Sì|Byte velocità effettiva scrittura/sec|Conteggio|Media|Byte scritti al secondo nel disco dati durante il periodo di monitoraggio|Nessuna dimensione|
+
+
+## <a name="microsoftdbforpostgresqlservergroupsv2"></a>Microsoft. DBForPostgreSQL/serverGroupsv2
+
+|Metrica|Esportabile tramite Impostazioni di diagnostica?|Nome visualizzato per la metrica|Unità|Tipo di aggregazione|Descrizione|Dimensioni|
+|---|---|---|---|---|---|---|
+|active_connections|Sì|Connessioni attive|Conteggio|Media|Connessioni attive|ServerName|
+|cpu_percent|Sì|Percentuale CPU|Percentuale|Media|Percentuale CPU|ServerName|
+|iops|Sì|IOPS|Conteggio|Media|Operazioni di i/o al secondo|ServerName|
+|memory_percent|Sì|Percentuale memoria|Percentuale|Media|Percentuale memoria|ServerName|
+|network_bytes_egress|Sì|Rete in uscita|Byte|Totale|Output di rete tra connessioni attive|ServerName|
+|network_bytes_ingress|Sì|Rete in ingresso|Byte|Totale|Input di rete tra connessioni attive|ServerName|
+|storage_percent|Sì|Percentuale di archiviazione|Percentuale|Media|Percentuale di archiviazione|ServerName|
+|storage_used|Sì|Uso archiviazione|Byte|Media|Uso archiviazione|ServerName|
 
 
 ## <a name="microsoftdbforpostgresqlservers"></a>Microsoft.DBforPostgreSQL/servers
@@ -1444,6 +1468,7 @@ Per informazioni aggiuntive importanti, vedere [Panoramica degli agenti di monit
 |CassandraTableUpdate|No|Tabella Cassandra aggiornata|Conteggio|Conteggio|Tabella Cassandra aggiornata|ResourceName, ChildResourceName, |
 |CreateAccount|Sì|Account creato|Conteggio|Conteggio|Account creato|Nessuna dimensione|
 |DataUsage|No|Utilizzo dei dati|Byte|Totale|Utilizzo totale dei dati segnalato a granularità di 5 minuti|CollectionName, DatabaseName, Region|
+|DedicatedGatewayRequests|Sì|DedicatedGatewayRequests|Conteggio|Conteggio|Richieste nel gateway dedicato|DatabaseName, CollectionName, CacheExercised, OperationName, Region|
 |DeleteAccount|Sì|Account eliminato|Conteggio|Conteggio|Account eliminato|Nessuna dimensione|
 |DocumentCount|No|Conteggio documenti|Conteggio|Totale|Numero totale di documenti segnalato a granularità di 5 minuti|CollectionName, DatabaseName, Region|
 |DocumentQuota|No|Quota documenti|Byte|Totale|Quota di archiviazione totale segnalata con granularità di 5 minuti|CollectionName, DatabaseName, Region|
@@ -1679,12 +1704,16 @@ Per informazioni aggiuntive importanti, vedere [Panoramica degli agenti di monit
 |CategorizedGatewayRequests|Sì|Richieste del gateway per categoria|Conteggio|Totale|Numero di richieste del gateway per categoria (1xx/2xx/3xx/4xx/5xx)|HttpStatus|
 |GatewayRequests|Sì|Richieste del gateway|Conteggio|Totale|Numero di richieste del gateway|HttpStatus|
 |KafkaRestProxy.ConsumerRequest.m1_delta|Sì|RequestThroughput consumer proxy REST|Conteggio al secondo|Totale|Numero di richieste del consumer al proxy REST Kafka|Computer, argomento|
+|KafkaRestProxy.ConsumerRequestFail.m1_delta|Sì|Richieste non riuscite del consumer proxy REST|Conteggio al secondo|Totale|Eccezioni della richiesta del consumer|Computer, argomento|
 |KafkaRestProxy.ConsumerRequestTime.p95|Sì|RequestLatency consumer proxy REST|Millisecondi|Media|Latenza dei messaggi in una richiesta del consumer tramite proxy REST Kafka|Computer, argomento|
+|KafkaRestProxy.ConsumerRequestWaitingInQueueTime.p95|Sì|Backlog richiesta consumer proxy REST|Millisecondi|Media|Lunghezza coda proxy REST del consumer|Computer, argomento|
 |KafkaRestProxy.MessagesIn.m1_delta|Sì|MessageThroughput Producer proxy REST|Conteggio al secondo|Totale|Numero di messaggi Producer tramite il proxy REST Kafka|Computer, argomento|
 |KafkaRestProxy.MessagesOut.m1_delta|Sì|MessageThroughput consumer proxy REST|Conteggio al secondo|Totale|Numero di messaggi del consumer tramite proxy REST Kafka|Computer, argomento|
 |KafkaRestProxy.OpenConnections|Sì|Proxy REST ConcurrentConnections|Conteggio|Totale|Numero di connessioni simultanee tramite il proxy REST Kafka|Computer, argomento|
 |KafkaRestProxy.ProducerRequest.m1_delta|Sì|RequestThroughput Producer proxy REST|Conteggio al secondo|Totale|Numero di richieste Producer al proxy REST Kafka|Computer, argomento|
+|KafkaRestProxy.ProducerRequestFail.m1_delta|Sì|Richieste non riuscite del produttore del proxy REST|Conteggio al secondo|Totale|Eccezioni richieste Producer|Computer, argomento|
 |KafkaRestProxy.ProducerRequestTime.p95|Sì|RequestLatency Producer proxy REST|Millisecondi|Media|Latenza dei messaggi in una richiesta di Producer tramite il proxy REST Kafka|Computer, argomento|
+|KafkaRestProxy.ProducerRequestWaitingInQueueTime.p95|Sì|Backlog richieste Producer proxy REST|Millisecondi|Media|Lunghezza coda proxy REST Producer|Computer, argomento|
 |NumActiveWorkers|Sì|Number of Active Workers (Numero di ruoli di lavoro)|Conteggio|Massimo|Number of Active Workers (Numero di ruoli di lavoro)|MetricName|
 
 
@@ -1790,18 +1819,6 @@ Per informazioni aggiuntive importanti, vedere [Panoramica degli agenti di monit
 |dataexport. messages. Filtered|Sì|Messaggi di esportazione dati filtrati|Conteggio|Totale|Numero di messaggi passati attraverso i filtri nell'esportazione dei dati|exportId, exportDisplayName, ID, destinationDisplayName|
 |dataexport. messages. received|Sì|Messaggi di esportazione dei dati ricevuti|Conteggio|Totale|Numero di messaggi in ingresso nell'esportazione dei dati, prima del filtraggio e dell'elaborazione dell'arricchimento|exportId, exportDisplayName, ID, destinationDisplayName|
 |dataexport. messages. written|Sì|Messaggi di esportazione dei dati scritti|Conteggio|Totale|Numero di messaggi scritti in una destinazione|exportId, exportDisplayName, ID, destinationDisplayName|
-
-
-## <a name="microsoftiotspacesgraph"></a>Microsoft.IoTSpaces/Graph
-
-|Metrica|Esportabile tramite Impostazioni di diagnostica?|Nome visualizzato per la metrica|Unità|Tipo di aggregazione|Descrizione|Dimensioni|
-|---|---|---|---|---|---|---|
-|ApiLatency|No|ApiLatency|6|0|Misura la latenza delle richieste API effettuate a Microsoft. IoTSpaces in millisecondi|Nessuna dimensione|
-|FunctionExecutionLatency|No|FunctionExecutionLatency|6|0|Misura la latenza dell'esecuzione della funzione definita dall'utente in millisecondi per Microsoft. IoTSpaces|Nessuna dimensione|
-|MessageEgressFailure|No|MessageEgressFailure|2|3|Cerca una stringa localizzata simile a l'evento di conteggio delle misure non riuscite in Count per Microsoft. IoTSpaces|Nessuna dimensione|
-|MessageEgressLatency|No|MessageEgressLatency|6|0|Consente di misurare la latenza dal dispatcher ad altri endpoint in millisecondi per Microsoft. IoTSpaces|Nessuna dimensione|
-|MessageEgressSuccess|No|MessageEgressSuccess|2|3|Cerca una stringa localizzata simile a il conteggio delle misure completato evento in conteggio per Microsoft. IoTSpaces|Nessuna dimensione|
-|ProcessingLatency|No|ProcessingLatency|6|0|Misura la latenza dal messaggio inserito in un evento inviato in millisecondi per Microsoft. IoTSpaces|Nessuna dimensione|
 
 
 ## <a name="microsoftkeyvaultmanagedhsms"></a>Microsoft. managedhsms
@@ -2021,6 +2038,8 @@ Per informazioni aggiuntive importanti, vedere [Panoramica degli agenti di monit
 |ContentKeyPolicyCount|Sì|Content Key Policy count (Conteggio criteri chiave simmetrica)|Conteggio|Media|Quanti criteri chiave simmetrica sono già stati creati nell'account del servizio multimediale corrente|Nessuna dimensione|
 |ContentKeyPolicyQuota|Sì|Content Key Policy quota (Quota criteri chiave simmetrica)|Conteggio|Media|Numero di criteri di chiave simmetrica consentiti per l'account del servizio multimediale corrente|Nessuna dimensione|
 |ContentKeyPolicyQuotaUsedPercentage|Sì|Content Key Policy quota used percentage (Percentuale usata quota criteri chiave simmetrica)|Percentuale|Media|Percentuale di utilizzo del criterio della chiave simmetrica nell'account del servizio multimediale corrente|Nessuna dimensione|
+|MaxChannelsAndLiveEventsCount|Sì|Quota massima eventi Live|Conteggio|Massimo|Numero massimo di eventi live consentiti nell'account di servizi multimediali corrente|Nessuna dimensione|
+|MaxRunningChannelsAndLiveEventsCount|Sì|Numero massimo di eventi Live in esecuzione|Conteggio|Massimo|Numero massimo di eventi Live in esecuzione consentiti nell'account di servizi multimediali corrente|Nessuna dimensione|
 |RunningChannelsAndLiveEventsCount|Sì|Esecuzione del conteggio eventi in tempo reale|Conteggio|Media|Il numero totale di eventi Live in esecuzione nell'account di servizi multimediali corrente|Nessuna dimensione|
 |StreamingPolicyCount|Sì|Streaming Policy count (Conteggio criteri di streaming)|Conteggio|Media|Quanti criteri di streaming sono già stati creati nell'account del servizio multimediale corrente|Nessuna dimensione|
 |StreamingPolicyQuota|Sì|Streaming Policy quota (Quota criteri di streaming)|Conteggio|Media|Quanti criteri di streaming sono consentiti per l'account del servizio multimediale corrente|Nessuna dimensione|
@@ -2041,9 +2060,9 @@ Per informazioni aggiuntive importanti, vedere [Panoramica degli agenti di monit
 
 |Metrica|Esportabile tramite Impostazioni di diagnostica?|Nome visualizzato per la metrica|Unità|Tipo di aggregazione|Descrizione|Dimensioni|
 |---|---|---|---|---|---|---|
-|CPU|Sì|Utilizzo della CPU|Percentuale|Media|Utilizzo della CPU per gli endpoint di streaming Premium. Questi dati non sono disponibili per gli endpoint di streaming standard.|VmId|
+|CPU|Sì|Utilizzo della CPU|Percentuale|Media|Utilizzo della CPU per gli endpoint di streaming Premium. Questi dati non sono disponibili per gli endpoint di streaming standard.|Nessuna dimensione|
 |Egress|Sì|Egress|Byte|Totale|Quantità di dati in uscita, in byte.|OutputFormat|
-|EgressBandwidth|No|Larghezza di banda in uscita|BitsPerSecond|Media|Larghezza di banda in uscita in bit al secondo.|VmId|
+|EgressBandwidth|No|Larghezza di banda in uscita|BitsPerSecond|Media|Larghezza di banda in uscita in bit al secondo.|Nessuna dimensione|
 |Requests|Sì|Requests|Conteggio|Totale|Richieste a un endpoint di streaming.|OutputFormat, HttpStatusCode, ErrorCode|
 |SuccessE2ELatency|Sì|Success end to end Latency (Latenza end-to-end riuscita)|Millisecondi|Media|Latenza media per le richieste con esito positivo in millisecondi.|OutputFormat|
 
@@ -2086,7 +2105,7 @@ Per informazioni aggiuntive importanti, vedere [Panoramica degli agenti di monit
 |---|---|---|---|---|---|---|
 |AverageReadLatency|Sì|Latenza media in lettura|Millisecondi|Media|Latenza media in millisecondi per ogni operazione di lettura|Nessuna dimensione|
 |AverageWriteLatency|Sì|Latenza media in scrittura|Millisecondi|Media|Latenza media in millisecondi per ogni operazione di scrittura|Nessuna dimensione|
-|CbsVolumeBackupActive|Sì|Backup del volume sospeso|Conteggio|Media|Il criterio di backup è sospeso per il volume? 1 se sì, 0 se no.|Nessuna dimensione|
+|CbsVolumeBackupActive|Sì|Backup del volume sospeso|Conteggio|Media|Il criterio di backup è sospeso per il volume? 0 se sì, 1 se no.|Nessuna dimensione|
 |CbsVolumeLogicalBackupBytes|Sì|Byte di backup del volume|Byte|Media|Totale byte sottoposti a backup per questo volume.|Nessuna dimensione|
 |CbsVolumeOperationComplete|Sì|Operazione di backup del volume completata|Conteggio|Media|L'ultima operazione di backup o ripristino del volume è stata completata correttamente? 1 se sì, 0 se no.|Nessuna dimensione|
 |CbsVolumeOperationTransferredBytes|Sì|Ultimi byte trasferiti del backup del volume|Byte|Media|Totale byte trasferiti per l'ultima operazione di backup o ripristino.|Nessuna dimensione|
@@ -2154,6 +2173,17 @@ Per informazioni aggiuntive importanti, vedere [Panoramica degli agenti di monit
 |Velocità effettiva|No|Velocità effettiva|BitsPerSecond|Media|Velocità effettiva elaborata da questo firewall|Nessuna dimensione|
 
 
+## <a name="microsoftnetworkbastionhosts"></a>Microsoft. Network/bastionHosts
+
+|Metrica|Esportabile tramite Impostazioni di diagnostica?|Nome visualizzato per la metrica|Unità|Tipo di aggregazione|Descrizione|Dimensioni|
+|---|---|---|---|---|---|---|
+|pingmesh|No|Stato di comunicazione Bastion|Conteggio|Media|Lo stato della comunicazione indica 1 se tutte le comunicazioni sono valide e 0 se la relativa condizione è negativa.||
+|sessioni|No|Conteggio delle sessioni|Conteggio|Totale|Numero di sessioni per il Bastion. Visualizzazione in Sum e per istanza.|host|
+|total|Sì|Memoria totale|Conteggio|Media|Statistiche memoria totale.|host|
+|usage_user|No|CPU utilizzata|Conteggio|Media|Statistiche di utilizzo della CPU.|CPU, host|
+|usati|Sì|Memoria utilizzata|Conteggio|Media|Statistiche sull'utilizzo della memoria.|host|
+
+
 ## <a name="microsoftnetworkconnections"></a>Microsoft.Network/connections
 
 |Metrica|Esportabile tramite Impostazioni di diagnostica?|Nome visualizzato per la metrica|Unità|Tipo di aggregazione|Descrizione|Dimensioni|
@@ -2201,10 +2231,10 @@ Per informazioni aggiuntive importanti, vedere [Panoramica degli agenti di monit
 |ErGatewayConnectionBitsOutPerSecond|No|BitsOutPerSecond|BitsPerSecond|Media|Bit in uscita da Azure al secondo|ConnectionName|
 |ExpressRouteGatewayCountOfRoutesAdvertisedToPeer|Sì|Numero di route annunciate al peer (anteprima)|Conteggio|Massimo|Numero di route annunciate a peer by ExpressRouteGateway|roleInstance|
 |ExpressRouteGatewayCountOfRoutesLearnedFromPeer|Sì|Numero di route apprese dal peer (anteprima)|Conteggio|Massimo|Numero di route apprese da peer by ExpressRouteGateway|roleInstance|
-|ExpressRouteGatewayCpuUtilization|Sì|Utilizzo CPU (anteprima)|Conteggio|Media|Utilizzo della CPU del gateway ExpressRoute|roleInstance|
+|ExpressRouteGatewayCpuUtilization|Sì|Uso della CPU|Conteggio|Media|Utilizzo della CPU del gateway ExpressRoute|roleInstance|
 |ExpressRouteGatewayFrequencyOfRoutesChanged|No|Frequenza di modifica delle route (anteprima)|Conteggio|Totale|Frequenza delle route modificate nel gateway ExpressRoute|roleInstance|
 |ExpressRouteGatewayNumberOfVmInVnet|No|Numero di macchine virtuali nella rete virtuale (anteprima)|Conteggio|Massimo|Numero di macchine virtuali nella rete virtuale|Nessuna dimensione|
-|ExpressRouteGatewayPacketsPerSecond|No|Pacchetti al secondo (anteprima)|Conteggio al secondo|Media|Numero di pacchetti del gateway ExpressRoute|roleInstance|
+|ExpressRouteGatewayPacketsPerSecond|No|Pacchetti al secondo|Conteggio al secondo|Media|Numero di pacchetti del gateway ExpressRoute|roleInstance|
 
 
 ## <a name="microsoftnetworkexpressrouteports"></a>Microsoft.Network/expressRoutePorts
@@ -2366,10 +2396,10 @@ Per informazioni aggiuntive importanti, vedere [Panoramica degli agenti di monit
 |AverageBandwidth|Sì|Larghezza di banda S2S gateway|Byte al secondo|Media|Larghezza di banda media da sito a sito per un gateway in byte al secondo|Nessuna dimensione|
 |ExpressRouteGatewayCountOfRoutesAdvertisedToPeer|Sì|Numero di route annunciate al peer (anteprima)|Conteggio|Massimo|Numero di route annunciate a peer by ExpressRouteGateway|roleInstance|
 |ExpressRouteGatewayCountOfRoutesLearnedFromPeer|Sì|Numero di route apprese dal peer (anteprima)|Conteggio|Massimo|Numero di route apprese da peer by ExpressRouteGateway|roleInstance|
-|ExpressRouteGatewayCpuUtilization|Sì|Utilizzo CPU (anteprima)|Conteggio|Media|Utilizzo della CPU del gateway ExpressRoute|roleInstance|
+|ExpressRouteGatewayCpuUtilization|Sì|Uso della CPU|Conteggio|Media|Utilizzo della CPU del gateway ExpressRoute|roleInstance|
 |ExpressRouteGatewayFrequencyOfRoutesChanged|No|Frequenza di modifica delle route (anteprima)|Conteggio|Totale|Frequenza delle route modificate nel gateway ExpressRoute|roleInstance|
 |ExpressRouteGatewayNumberOfVmInVnet|No|Numero di macchine virtuali nella rete virtuale (anteprima)|Conteggio|Massimo|Numero di macchine virtuali nella rete virtuale|Nessuna dimensione|
-|ExpressRouteGatewayPacketsPerSecond|No|Pacchetti al secondo (anteprima)|Conteggio al secondo|Media|Numero di pacchetti del gateway ExpressRoute|roleInstance|
+|ExpressRouteGatewayPacketsPerSecond|No|Pacchetti al secondo|Conteggio al secondo|Media|Numero di pacchetti del gateway ExpressRoute|roleInstance|
 |P2SBandwidth|Sì|Larghezza di banda per connessione da punto a sito gateway|Byte al secondo|Media|Larghezza di banda media per connessione da punto a sito per un gateway in byte al secondo|Nessuna dimensione|
 |P2SConnectionCount|Sì|Numero di connessioni da punto a sito|Conteggio|Massimo|Numero di connessioni da punto a sito di un gateway|Protocollo|
 |TunnelAverageBandwidth|Sì|Larghezza di banda tunnel|Byte al secondo|Media|Larghezza di banda media di un tunnel in byte al secondo|ConnectionName, RemoteIP|
@@ -2379,6 +2409,13 @@ Per informazioni aggiuntive importanti, vedere [Panoramica degli agenti di monit
 |TunnelIngressBytes|Sì|Byte in ingresso tunnel|Byte|Totale|Byte in ingresso di un tunnel|ConnectionName, RemoteIP|
 |TunnelIngressPacketDropTSMismatch|Sì|Eliminazione pacchetti per mancata corrispondenza selettore traffico in ingresso tunnel|Conteggio|Totale|Conteggio delle eliminazioni di pacchetti in ingresso per mancata corrispondenza del selettore traffico di un tunnel|ConnectionName, RemoteIP|
 |TunnelIngressPackets|Sì|Pacchetti in ingresso tunnel|Conteggio|Totale|Conteggio dei pacchetti in ingresso di un tunnel|ConnectionName, RemoteIP|
+|TunnelNatAllocations|No|Allocazioni NAT tunnel|Conteggio|Totale|Numero di allocazioni per una regola NAT in un tunnel|NatRule, connectionName, RemoteIP|
+|TunnelNatedBytes|No|Byte NATe di tunneling|Byte|Totale|Numero di byte che sono NATe in un tunnel da una regola NAT |NatRule, connectionName, RemoteIP|
+|TunnelNatedPackets|No|Pacchetti NATe di tunneling|Conteggio|Totale|Numero di pacchetti che sono stati NATe in un tunnel da una regola NAT|NatRule, connectionName, RemoteIP|
+|TunnelNatFlowCount|No|Flussi NAT tunnel|Conteggio|Totale|Numero di flussi NAT in un tunnel per tipo di flusso e regola NAT|NatRule, connectionName, RemoteIP, FlowType|
+|TunnelNatPacketDrop|No|Gocce di pacchetti NAT tunnel|Conteggio|Totale|Numero di pacchetti NATe in un tunnel eliminato dal tipo di eliminazione e dalla regola NAT|NatRule, connectionName, RemoteIP, DropType|
+|TunnelReverseNatedBytes|No|Byte di NATe inverse di tunnel|Byte|Totale|Numero di byte che sono stati invertiti in un tunnel da una regola NAT|NatRule, connectionName, RemoteIP|
+|TunnelReverseNatedPackets|No|Tunnel invertiti decodificati|Conteggio|Totale|Numero di pacchetti in un tunnel che sono stati invertiti con una regola NAT|NatRule, connectionName, RemoteIP|
 
 
 ## <a name="microsoftnetworkvirtualnetworks"></a>Microsoft.Network/virtualNetworks
@@ -2408,6 +2445,13 @@ Per informazioni aggiuntive importanti, vedere [Panoramica degli agenti di monit
 |TunnelIngressBytes|Sì|Byte in ingresso tunnel|Byte|Totale|Byte in ingresso di un tunnel|ConnectionName, RemoteIP|
 |TunnelIngressPacketDropTSMismatch|Sì|Eliminazione pacchetti per mancata corrispondenza selettore traffico in ingresso tunnel|Conteggio|Totale|Conteggio delle eliminazioni di pacchetti in ingresso per mancata corrispondenza del selettore traffico di un tunnel|ConnectionName, RemoteIP|
 |TunnelIngressPackets|Sì|Pacchetti in ingresso tunnel|Conteggio|Totale|Conteggio dei pacchetti in ingresso di un tunnel|ConnectionName, RemoteIP|
+|TunnelNatAllocations|No|Allocazioni NAT tunnel|Conteggio|Totale|Numero di allocazioni per una regola NAT in un tunnel|NatRule, connectionName, RemoteIP|
+|TunnelNatedBytes|No|Byte NATe di tunneling|Byte|Totale|Numero di byte che sono NATe in un tunnel da una regola NAT |NatRule, connectionName, RemoteIP|
+|TunnelNatedPackets|No|Pacchetti NATe di tunneling|Conteggio|Totale|Numero di pacchetti che sono stati NATe in un tunnel da una regola NAT|NatRule, connectionName, RemoteIP|
+|TunnelNatFlowCount|No|Flussi NAT tunnel|Conteggio|Totale|Numero di flussi NAT in un tunnel per tipo di flusso e regola NAT|NatRule, connectionName, RemoteIP, FlowType|
+|TunnelNatPacketDrop|No|Gocce di pacchetti NAT tunnel|Conteggio|Totale|Numero di pacchetti NATe in un tunnel eliminato dal tipo di eliminazione e dalla regola NAT|NatRule, connectionName, RemoteIP, DropType|
+|TunnelReverseNatedBytes|No|Byte di NATe inverse di tunnel|Byte|Totale|Numero di byte che sono stati invertiti in un tunnel da una regola NAT|NatRule, connectionName, RemoteIP|
+|TunnelReverseNatedPackets|No|Tunnel invertiti decodificati|Conteggio|Totale|Numero di pacchetti in un tunnel che sono stati invertiti con una regola NAT|NatRule, connectionName, RemoteIP|
 
 
 ## <a name="microsoftnotificationhubsnamespacesnotificationhubs"></a>Microsoft.NotificationHubs/Namespaces/NotificationHubs
@@ -2574,16 +2618,6 @@ Per informazioni aggiuntive importanti, vedere [Panoramica degli agenti di monit
 |QueryPoolJobQueueLength|Sì|Lunghezza coda processi nel pool di query (set di DataSet) (Gen1)|Conteggio|Media|Numero dei processi nella coda del pool dei thread di query. Supportato solo per le risorse di Power BI Embedded generazione 1.|Nessuna dimensione|
 
 
-## <a name="microsoftprojectbabylonaccounts"></a>Microsoft. ProjectBabylon/accounts
-
-|Metrica|Esportabile tramite Impostazioni di diagnostica?|Nome visualizzato per la metrica|Unità|Tipo di aggregazione|Descrizione|Dimensioni|
-|---|---|---|---|---|---|---|
-|ScanCancelled|Sì|Analisi annullata|Conteggio|Totale|Indica il numero di analisi annullate.|ResourceId|
-|ScanCompleted|Sì|Analisi completata|Conteggio|Totale|Indica il numero di analisi completate correttamente.|ResourceId|
-|ScanFailed|Sì|Analisi non riuscita|Conteggio|Totale|Indica il numero di analisi non riuscite.|ResourceId|
-|ScanTimeTaken|Sì|Tempo di analisi impiegato|Secondi|Totale|Indica il tempo di analisi totale in secondi.|ResourceId|
-
-
 ## <a name="microsoftpurviewaccounts"></a>Microsoft. competenza/account
 
 |Metrica|Esportabile tramite Impostazioni di diagnostica?|Nome visualizzato per la metrica|Unità|Tipo di aggregazione|Descrizione|Dimensioni|
@@ -2682,6 +2716,15 @@ Per informazioni aggiuntive importanti, vedere [Panoramica degli agenti di monit
 |OutboundTraffic|Sì|Traffico in uscita|Byte|Totale|Traffico in uscita del servizio|Nessuna dimensione|
 |SystemErrors|Sì|Errori di sistema|Percentuale|Massimo|Percentuale di errori di sistema|Nessuna dimensione|
 |UserErrors|Sì|Errori utente|Percentuale|Massimo|Percentuale di errori utente|Nessuna dimensione|
+
+
+## <a name="microsoftsignalrservicewebpubsub"></a>Microsoft. SignalRService/WebPubSub
+
+|Metrica|Esportabile tramite Impostazioni di diagnostica?|Nome visualizzato per la metrica|Unità|Tipo di aggregazione|Descrizione|Dimensioni|
+|---|---|---|---|---|---|---|
+|ConnectionCount|Sì|Numero di connessioni|Conteggio|Massimo|Quantità di connessioni utente.|Nessuna dimensione|
+|InboundTraffic|Sì|Traffico in ingresso|Byte|Totale|Traffico in ingresso del servizio|Nessuna dimensione|
+|OutboundTraffic|Sì|Traffico in uscita|Byte|Totale|Traffico in uscita del servizio|Nessuna dimensione|
 
 
 ## <a name="microsoftsqlmanagedinstances"></a>Microsoft.Sql/managedInstances
@@ -2902,6 +2945,7 @@ Per informazioni aggiuntive importanti, vedere [Panoramica degli agenti di monit
 |---|---|---|---|---|---|---|
 |ServerSyncSessionResult|Sì|Sync Session Result (Risultato sessione di sincronizzazione)|Conteggio|Media|Metrica che registra il valore 1 ogni volta che l'endpoint del server completa correttamente una sessione di sincronizzazione con l'endpoint cloud|SyncGroupName, ServerEndpointName, SyncDirection|
 |StorageSyncBatchTransferredFileBytes|Sì|Byte sincronizzati|Byte|Totale|Dimensioni totali del file trasferiti per le sessioni di sincronizzazione|SyncGroupName, ServerEndpointName, SyncDirection|
+|StorageSyncRecallComputedSuccessRate|Sì|Percentuale di richiami di suddivisione in livelli nel cloud|Percentuale|Media|Percentuale di tutte le richiamate che hanno avuto esito positivo|SyncGroupName, ServerName|
 |StorageSyncRecalledNetworkBytesByApplication|Sì|Cloud tiering recall size by application (Dimensioni richiamo cloud a livelli per applicazione)|Byte|Totale|Dimensioni dei dati richiamati dall'applicazione|SyncGroupName, ServerName, ApplicationName|
 |StorageSyncRecalledTotalNetworkBytes|Sì|Cloud tiering recall size (Dimensioni richiamo cloud a livelli)|Byte|Totale|Dimensione dei dati richiamati|SyncGroupName, ServerName|
 |StorageSyncRecallIOTotalSizeBytes|Sì|Richiamo cloud a livelli|Byte|Totale|Dimensioni totali dei dati richiamati dal server|ServerName|
@@ -2956,6 +3000,7 @@ Per informazioni aggiuntive importanti, vedere [Panoramica degli agenti di monit
 |LateInputEvents|Sì|Ultimi eventi di input|Conteggio|Totale|Ultimi eventi di input|LogicalName, PartitionId|
 |OutputEvents|Sì|Eventi di output|Conteggio|Totale|Eventi di output|LogicalName, PartitionId|
 |OutputWatermarkDelaySeconds|Sì|Ritardo limite|Secondi|Massimo|Ritardo limite|LogicalName, PartitionId|
+|ProcessCPUUsagePercentage|Sì|% Di utilizzo CPU (anteprima)|Percentuale|Massimo|% Di utilizzo CPU (anteprima)|LogicalName, PartitionId|
 |ResourceUtilization|Sì|% utilizzo unità di streaming|Percentuale|Massimo|% utilizzo unità di streaming|LogicalName, PartitionId|
 
 
@@ -3136,7 +3181,7 @@ Per informazioni aggiuntive importanti, vedere [Panoramica degli agenti di monit
 |AverageResponseTime|Sì|Tempo medio di risposta (obsoleto)|Secondi|Media|Tempo medio impiegato dall'app per gestire le richieste, in secondi.|Istanza|
 |BytesReceived|Sì|Dati in entrata|Byte|Totale|Larghezza di banda in entrata utilizzata dall'app, espressa in MiB.|Istanza|
 |BytesSent|Sì|Dati in uscita|Byte|Totale|Larghezza di banda in uscita utilizzata dall'app, espressa in MiB.|Istanza|
-|CpuTime|Sì|Tempo CPU|Secondi|Totale|Quantità di CPU utilizzata dall'app, espressa in secondi. Per ulteriori informazioni su questa metrica. Vedere https://docs.microsoft.com/azure/app-service/web-sites-monitor#cpu-time-vs-cpu-percentage (tempo CPU e percentuale CPU). Non applicabile a funzioni di Azure.|Istanza|
+|CpuTime|Sì|Tempo CPU|Secondi|Totale|Quantità di CPU utilizzata dall'app, espressa in secondi. Per ulteriori informazioni su questa metrica. Non applicabile a funzioni di Azure. Vedere https://aka.ms/website-monitor-cpu-time-vs-cpu-percentage (tempo CPU e percentuale CPU).|Istanza|
 |CurrentAssemblies|Sì|Assembly attuali|Conteggio|Media|Numero corrente di assembly caricati in tutti i domini dell'applicazione di questa applicazione.|Istanza|
 |FileSystemUsage|Sì|Utilizzo del file System|Byte|Media|Percentuale di quota del file System utilizzata dall'app.|Nessuna dimensione|
 |FunctionExecutionCount|Sì|Conteggio delle esecuzioni della funzione|Conteggio|Totale|Conteggio esecuzioni di funzioni. Presente solo per funzioni di Azure.|Istanza|
@@ -3180,7 +3225,7 @@ Per informazioni aggiuntive importanti, vedere [Panoramica degli agenti di monit
 |AverageResponseTime|Sì|Tempo medio di risposta (obsoleto)|Secondi|Media|Tempo medio impiegato dall'app per gestire le richieste, in secondi.|Istanza|
 |BytesReceived|Sì|Dati in entrata|Byte|Totale|Larghezza di banda in entrata utilizzata dall'app, espressa in MiB.|Istanza|
 |BytesSent|Sì|Dati in uscita|Byte|Totale|Larghezza di banda in uscita utilizzata dall'app, espressa in MiB.|Istanza|
-|CpuTime|Sì|Tempo CPU|Secondi|Totale|Quantità di CPU utilizzata dall'app, espressa in secondi. Per ulteriori informazioni su questa metrica. Vedere https://docs.microsoft.com/azure/app-service/web-sites-monitor#cpu-time-vs-cpu-percentage (tempo CPU e percentuale CPU).|Istanza|
+|CpuTime|Sì|Tempo CPU|Secondi|Totale|Quantità di CPU utilizzata dall'app, espressa in secondi. Per ulteriori informazioni su questa metrica. Non applicabile a funzioni di Azure. Vedere https://aka.ms/website-monitor-cpu-time-vs-cpu-percentage (tempo CPU e percentuale CPU).|Istanza|
 |CurrentAssemblies|Sì|Assembly attuali|Conteggio|Media|Numero corrente di assembly caricati in tutti i domini dell'applicazione di questa applicazione.|Istanza|
 |FileSystemUsage|Sì|Utilizzo del file System|Byte|Media|Percentuale di quota del file System utilizzata dall'app.|Nessuna dimensione|
 |FunctionExecutionCount|Sì|Conteggio delle esecuzioni della funzione|Conteggio|Totale|Conteggio delle esecuzioni della funzione|Istanza|
@@ -3224,7 +3269,6 @@ Per informazioni aggiuntive importanti, vedere [Panoramica degli agenti di monit
 |FunctionHits|Sì|FunctionHits|Conteggio|Totale|FunctionHits|Istanza|
 |SiteErrors|Sì|SiteErrors|Conteggio|Totale|SiteErrors|Istanza|
 |SiteHits|Sì|SiteHits|Conteggio|Totale|SiteHits|Istanza|
-
 
 ## <a name="next-steps"></a>Passaggi successivi
 

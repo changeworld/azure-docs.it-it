@@ -5,13 +5,14 @@ author: rboucher
 ms.author: robb
 services: azure-monitor
 ms.topic: conceptual
-ms.date: 01/12/2020
-ms.openlocfilehash: b7e9318ee34836f8fbd2ae7a330134d8174e6a60
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.date: 03/10/2021
+ms.subservice: metrics
+ms.openlocfilehash: 93d30663034c7560550160960af20f0a465d93c6
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102031396"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105936173"
 ---
 # <a name="azure-monitor-metrics-metrics-aggregation-and-display-explained"></a>Spiegazione della metrica di metriche di monitoraggio di Azure per l'aggregazione e la visualizzazione
 
@@ -26,6 +27,7 @@ Quando si aggiunge una metrica a un grafico, Esplora metriche ne seleziona autom
 Per prima cosa è necessario definire alcuni termini:
 
 - **Valore della metrica** : un singolo valore di misurazione raccolto per una risorsa specifica.
+- **Database di serie temporali** : database ottimizzato per l'archiviazione e il recupero di punti dati che contengono tutti un valore e un timestamp corrispondente. 
 - **Periodo di tempo** : periodo di tempo generico.
 - **Intervallo di tempo** : periodo di tempo tra la raccolta di due valori di metrica. 
 - **Intervallo di tempo** : periodo di tempo visualizzato in un grafico. Il valore predefinito tipico è 24 ore. Sono disponibili solo intervalli specifici. 
@@ -33,7 +35,9 @@ Per prima cosa è necessario definire alcuni termini:
 - **Tipo di aggregazione** : tipo di statistica calcolato da più valori di metrica.  
 - **Aggregate** : processo di assunzione di più valori di input e quindi di utilizzo per produrre un singolo valore di output tramite le regole definite dal tipo di aggregazione. Ad esempio, prendendo una media di più valori.  
 
-Le metriche sono una serie di valori di metrica acquisiti a intervalli di tempo regolari. Quando si traccia un grafico, i valori della metrica selezionata vengono aggregati separatamente in base alla granularità temporale (nota anche come granularità temporale). Per selezionare le dimensioni della granularità temporale, è possibile usare il [Pannello di selezione Esplora metriche tempo](../essentials/metrics-getting-started.md#select-a-time-range). Se non si esegue una selezione esplicita, la granularità temporale viene selezionata automaticamente in base all'intervallo di tempo attualmente selezionato. Una volta selezionati, i valori delle metriche acquisiti durante ogni intervallo di granularità dell'ora vengono aggregati e inseriti nel grafico, uno per ogni intervallo.
+## <a name="summary-of-process"></a>Riepilogo del processo
+
+Le metriche sono una serie di valori archiviati con un timestamp. In Azure la maggior parte delle metriche viene archiviata nel database di serie temporali di metriche di Azure. Quando si esegue il tracciato di un grafico, i valori delle metriche selezionate vengono recuperati dal database e quindi aggregati separatamente in base alla granularità temporale scelta (nota anche come granularità temporale). Per selezionare le dimensioni della granularità temporale, è possibile usare il [Pannello di selezione Esplora metriche tempo](../essentials/metrics-getting-started.md#select-a-time-range). Se non si esegue una selezione esplicita, la granularità temporale viene selezionata automaticamente in base all'intervallo di tempo attualmente selezionato. Una volta selezionati, i valori delle metriche acquisiti durante ogni intervallo di granularità dell'ora vengono aggregati e inseriti nel grafico, uno per ogni intervallo.
 
 ## <a name="aggregation-types"></a>Tipi di aggregazione 
 
@@ -82,9 +86,11 @@ Questo comportamento di smussamento è importante quando si inviano questi dati 
 
 ## <a name="how-the-system-collects-metrics"></a>Come il sistema raccoglie le metriche
 
-La raccolta dati varia in base alla metrica. Esistono due tipi di periodi di raccolta.
+La raccolta dati varia in base alla metrica. 
 
 ### <a name="measurement-collection-frequency"></a>Frequenza raccolta misure 
+
+Esistono due tipi di periodi di raccolta.
 
 - **Regolare** : la metrica viene raccolta in un intervallo di tempo coerente che non varia.
 

@@ -1,19 +1,19 @@
 ---
 title: Esempi di interfaccia della riga di comando di Azure per l'archiviazione BLOB | Microsoft Docs
 description: Vedere i collegamenti a esempi dell'interfaccia della riga di comando di Azure da usare con Archiviazione BLOB di Azure, ad esempio per creare un account di archiviazione, eliminare contenitori con un prefisso specifico e altre operazioni ancora.
-author: mhopkins-msft
-ms.author: mhopkins
+author: twooley
+ms.author: twooley
 ms.date: 06/13/2017
 ms.service: storage
 ms.subservice: blobs
 ms.topic: sample
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 79ff7b3d174407da929f201bdce691cecf9b9a89
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 4b18d332132bcaa8b3297179c7992eb9cc2f88d8
+ms.sourcegitcommit: 02bc06155692213ef031f049f5dcf4c418e9f509
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "88035043"
+ms.lasthandoff: 04/03/2021
+ms.locfileid: "106279647"
 ---
 # <a name="azure-cli-samples-for-azure-blob-storage"></a>Esempi di interfaccia della riga di comando di Azure per l'archiviazione BLOB di Azure
 

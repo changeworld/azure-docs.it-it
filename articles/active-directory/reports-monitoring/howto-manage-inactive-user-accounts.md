@@ -17,12 +17,12 @@ ms.date: 01/21/2021
 ms.author: markvi
 ms.reviewer: besiler
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8fb517f8c50ad2c32f23542e60069a0e0a496a2d
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: fb4ebbd0b1715d9de3905060952a35ad42060119
+ms.sourcegitcommit: d23602c57d797fb89a470288fcf94c63546b1314
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98660665"
+ms.lasthandoff: 04/01/2021
+ms.locfileid: "106167550"
 ---
 # <a name="how-to-manage-inactive-user-accounts-in-azure-ad"></a>Procedura: Gestire gli account utente inattivi in Azure AD
 
@@ -47,10 +47,9 @@ Per rilevare gli account inattivi, è possibile valutare la proprietà **lastSig
 
 - **Utenti per data**: In questo scenario viene richiesto un elenco di utenti con una proprietà lastSignInDateTime precedente una data specificata: `https://graph.microsoft.com/beta/users?filter=signInActivity/lastSignInDateTime le 2019-06-01T00:00:00Z`
 
-
-
-
-
+> [!NOTE]
+> Potrebbe essere necessario generare un report dell'ultima data di accesso di tutti gli utenti, se è possibile utilizzare lo scenario seguente.
+> **Data e ora dell'ultimo accesso per tutti gli utenti**: in questo scenario viene richiesto un elenco di tutti gli utenti e l'ultimo lastSignInDateTime per ogni utente: `https://graph.microsoft.com/beta/users?$select=displayName,signInActivity` 
 
 ## <a name="what-you-need-to-know"></a>Informazioni importanti
 

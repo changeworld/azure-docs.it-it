@@ -4,12 +4,12 @@ description: Questo articolo illustra come ripristinare file e cartelle da un pu
 ms.topic: conceptual
 ms.date: 03/12/2020
 ms.custom: references_regions
-ms.openlocfilehash: ed231a4870af7489d48ff54548be380c2cf0799c
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: c2af279ec7e846316a94e58977e7079305ab9b03
+ms.sourcegitcommit: d63f15674f74d908f4017176f8eddf0283f3fac8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104864891"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "106579371"
 ---
 # <a name="recover-files-from-azure-virtual-machine-backup"></a>Ripristinare i file da un backup della macchina virtuale di Azure
 
@@ -133,12 +133,12 @@ Inoltre, assicurarsi di disporre del [computer appropriato per eseguire lo scrip
 
 Se si esegue lo script in un computer con accesso limitato, verificare che sia disponibile l'accesso a:
 
-- `download.microsoft.com`
+- `download.microsoft.com` o `AzureFrontDoor.FirstParty` tag di servizio in NSG
 - URL del servizio di ripristino (nome geografico si riferisce all'area in cui risiede l'insieme di credenziali dei servizi di ripristino)
-  - `https://pod01-rec2.GEO-NAME.backup.windowsazure.com` (Per le aree pubbliche di Azure)
-  - `https://pod01-rec2.GEO-NAME.backup.windowsazure.cn` (per Azure China (21Vianet))
-  - `https://pod01-rec2.GEO-NAME.backup.windowsazure.us` (Per Azure US Gov)
-  - `https://pod01-rec2.GEO-NAME.backup.windowsazure.de` (Per Azure Germania)
+  - `https://pod01-rec2.GEO-NAME.backup.windowsazure.com` (Per le aree pubbliche di Azure) o `AzureBackup` tag del servizio in NSG
+  - `https://pod01-rec2.GEO-NAME.backup.windowsazure.cn` (Per Azure Cina 21Vianet) o `AzureBackup` tag servizio in NSG
+  - `https://pod01-rec2.GEO-NAME.backup.windowsazure.us` (Per il governo degli Stati Uniti di Azure) o `AzureBackup` tag di servizio in NSG
+  - `https://pod01-rec2.GEO-NAME.backup.windowsazure.de` (Per Azure Germania) o `AzureBackup` tag servizio in NSG
 - Porte in uscita 53 (DNS), 443, 3260
 
 > [!NOTE]

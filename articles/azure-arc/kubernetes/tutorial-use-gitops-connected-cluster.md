@@ -7,12 +7,12 @@ ms.service: azure-arc
 ms.topic: tutorial
 ms.date: 03/02/2021
 ms.custom: template-tutorial
-ms.openlocfilehash: 1459d4a0f15595c6f658d73fcb9cb533023f0eb8
-ms.sourcegitcommit: a8ff4f9f69332eef9c75093fd56a9aae2fe65122
+ms.openlocfilehash: 987fb5745b6528eb96b4237f698b3ae371d69287
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/24/2021
-ms.locfileid: "105025718"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105731820"
 ---
 # <a name="tutorial-deploy-configurations-using-gitops-on-an-azure-arc-enabled-kubernetes-cluster"></a>Esercitazione: distribuire le configurazioni con GitOps in un cluster Kubernetes abilitato per Azure Arc 
 
@@ -21,7 +21,7 @@ In questa esercitazione verranno applicate le configurazioni usando GitOps in un
 > [!div class="checklist"]
 > * Creare una configurazione in un cluster Kubernetes abilitato per Azure ARC usando un repository git di esempio.
 > * Verificare che la configurazione sia stata creata correttamente.
-> * Applicare la configurazione creare un repository git privato.
+> * Applicare la configurazione da un repository git privato.
 > * Convalidare la configurazione Kubernetes.
 
 ## <a name="prerequisites"></a>Prerequisiti

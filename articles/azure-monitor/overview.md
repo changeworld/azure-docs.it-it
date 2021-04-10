@@ -5,12 +5,12 @@ ms.topic: overview
 author: bwren
 ms.author: bwren
 ms.date: 11/17/2019
-ms.openlocfilehash: fe8714f38c6a04b311a748f3eb081be82eb86635
-ms.sourcegitcommit: a8ff4f9f69332eef9c75093fd56a9aae2fe65122
+ms.openlocfilehash: afe6e82c3cc9773fbf0c17992fd6894d199d177f
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/24/2021
-ms.locfileid: "105024133"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105937244"
 ---
 # <a name="azure-monitor-overview"></a>Panoramica di Monitoraggio di Azure
 
@@ -60,7 +60,7 @@ Monitoraggio di Azure può raccogliere dati da un'ampia [varietà di origini](mo
 - **Dati di monitoraggio della sottoscrizione di Azure**: dati relativi al funzionamento e alla gestione di una sottoscrizione di Azure e dati relativi all'integrità e al funzionamento di Azure stesso. 
 - **Dati di monitoraggio del tenant di Azure:** i dati relativi al funzionamento dei servizi di Azure a livello di tenant, ad esempio Azure Active Directory.
 
-Non appena si crea una sottoscrizione di Azure e si inizia ad aggiungere risorse quali macchine virtuali e app Web, Monitoraggio di Azure avvia la raccolta dei dati.  I [log attività](essentials/platform-logs-overview.md) registrano quando vengono create o modificate le risorse. Le [metriche](data-platform.md) indicano le prestazioni della risorsa e quali risorse utilizza. 
+Non appena si crea una sottoscrizione di Azure e si inizia ad aggiungere risorse quali macchine virtuali e app Web, Monitoraggio di Azure avvia la raccolta dei dati.  I [log attività](essentials/platform-logs-overview.md) registrano quando vengono create o modificate le risorse. Le [metriche](essentials/data-platform-metrics.md) indicano le prestazioni della risorsa e quali risorse utilizza. 
 
 [Abilitare la diagnostica](essentials/platform-logs-overview.md) per includere nei dati da raccogliere il funzionamento interno delle risorse.  [Aggiungere un agente](agents/agents-overview.md) nelle risorse di calcolo per raccogliere dati di telemetria dai rispettivi sistemi operativi guest. 
 

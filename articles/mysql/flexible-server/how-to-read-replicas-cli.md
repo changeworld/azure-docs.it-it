@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.date: 10/23/2020
 ms.custom: devx-track-azurecli
 ms.openlocfilehash: bc95cd3ab471826538a551687c38d1422e4b7163
-ms.sourcegitcommit: bed20f85722deec33050e0d8881e465f94c79ac2
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/25/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "105108656"
 ---
 # <a name="how-to-create-and-manage-read-replicas-in-azure-database-for-mysql-flexible-server-using-the-azure-cli"></a>Come creare e gestire le repliche di lettura nel database di Azure per il server flessibile MySQL usando l'interfaccia della riga di comando di Azure

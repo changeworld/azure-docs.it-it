@@ -62,9 +62,9 @@
           href: how-to-view-telemetry.md
     - name: Sviluppo di soluzioni di sintesi vocale con Azure Percept DK
       items:
-        - name: Configurare l'Assistente vocale in Azure Percept Studio
-          href: how-to-configure-voice-assistant.md
         - name: Configurare l'Assistente vocale nell'hub Internet
+          href: how-to-configure-voice-assistant.md
+        - name: Configurare l'Assistente vocale in Azure Percept Studio
           href: how-to-manage-voice-assistant.md
     - name: Aggiornare i dispositivi Azure Percept
       items:
@@ -82,7 +82,7 @@
           href: how-to-connect-to-percept-dk-over-serial.md
     - name: Strumenti
       items:
-        - name: Programma di installazione di devtools Pack
+        - name: Programma di installazione di Dev Tools Pack
           href: dev-tools-installer.md
     - name: Risoluzione dei problemi
       items:
