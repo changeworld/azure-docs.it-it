@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 10/06/2019
 ms.author: mbaldwin
 ms.custom: include file, devx-track-azurecli
-ms.openlocfilehash: 4c168738c0396b83412f9ed8c27fe3b2db9918d7
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
+ms.openlocfilehash: 64db4de6628fcd8f3cf160bb2bde1b577219cb10
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102511084"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105729856"
 ---
 La funzionalità Crittografia dischi di Azure può essere abilitata e gestita tramite l'[interfaccia della riga di comando di Azure](/cli/azure) e [Azure PowerShell](/powershell/azure/new-azureps-module-az). A tale scopo, è necessario installare gli strumenti localmente e connettersi alla sottoscrizione di Azure.
 
@@ -61,7 +61,7 @@ Set-AzContext -Subscription -Subscription <SubscriptionId>
 
 L'esecuzione del cmdlet [Get-AzContext](/powershell/module/Az.Accounts/Get-AzContext) verifica la selezione della sottoscrizione corretta.
 
-Per controllare che i cmdlet di Crittografia dischi di Azure siano installati, usare il cmdlet [Get-command](/powershell/module/microsoft.powershell.core/get-command?view=powershell-6):
+Per controllare che i cmdlet di Crittografia dischi di Azure siano installati, usare il cmdlet [Get-command](/powershell/module/microsoft.powershell.core/get-command):
      
 ```powershell
 Get-command *diskencryption*

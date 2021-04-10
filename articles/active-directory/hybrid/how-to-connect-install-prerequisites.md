@@ -16,12 +16,12 @@ ms.date: 02/16/2021
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e758933b80efbf36dc263b7bd7d2d3c45a59a9f8
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 108f81be678eb666b6f79ebbecc93f7bc88dc1d6
+ms.sourcegitcommit: 5fd1f72a96f4f343543072eadd7cdec52e86511e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102426791"
+ms.lasthandoff: 04/01/2021
+ms.locfileid: "106107912"
 ---
 # <a name="prerequisites-for-azure-ad-connect"></a>Prerequisiti di Azure AD Connect
 Questo articolo descrive i prerequisiti e i requisiti hardware per la connessione Azure Active Directory (Azure AD).
@@ -37,7 +37,7 @@ Prima di installare Azure AD Connect, sono necessari alcuni elementi.
 * Un tenant di Azure AD consente, per impostazione predefinita, 50.000 oggetti. Quando si verifica il dominio, il limite aumenta a 300.000 oggetti. Se sono necessari ancora più oggetti in Azure AD, aprire un caso di supporto per aumentare ulteriormente il limite. Se sono necessari più di 500.000 oggetti, è necessaria una licenza, ad esempio Microsoft 365, Azure AD Premium o Enterprise Mobility + Security.
 
 ### <a name="prepare-your-on-premises-data"></a>Preparare i dati locali
-* Usare [IdFix](https://support.office.com/article/Install-and-run-the-Office-365-IdFix-tool-f4bd2439-3e41-4169-99f6-3fabdfa326ac) per identificare gli errori, ad esempio i duplicati e i problemi di formattazione nella directory prima di eseguire la sincronizzazione con Azure AD e Microsoft 365.
+* Usare [IdFix](https://github.com/Microsoft/idfix) per identificare gli errori, ad esempio i duplicati e i problemi di formattazione nella directory prima [di eseguire la sincronizzazione con Azure ad e Microsoft 365](https://support.office.com/article/Install-and-run-the-Office-365-IdFix-tool-f4bd2439-3e41-4169-99f6-3fabdfa326ac).
 * Esaminare le [funzionalità di sincronizzazione facoltative che è possibile abilitare in Azure ad](how-to-connect-syncservice-features.md)e valutare le funzionalità da abilitare.
 
 ### <a name="on-premises-active-directory"></a>Active Directory locale

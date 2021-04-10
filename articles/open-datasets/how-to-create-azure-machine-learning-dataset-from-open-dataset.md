@@ -8,12 +8,12 @@ ms.author: nibaccam
 author: nibaccam
 ms.date: 08/05/2020
 ms.custom: how-to, tracking-python
-ms.openlocfilehash: dd1440cd7bda8d40a81290cd9f633264b9641dc5
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 1ed37ebd798f7ebef59ea48ce7e2084b331d2bba
+ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102502553"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106065413"
 ---
 # <a name="create-azure-machine-learning-datasets-from-azure-open-datasets"></a>Creare set di impostazioni di Azure Machine Learning da Azure Open DataSet
 
@@ -54,7 +54,7 @@ Per questo articolo sono necessari:
     * Lavorare sul proprio ambiente Python e installare l'SDK manualmente con [queste istruzioni](/python/api/overview/azure/ml/install).
 
 > [!NOTE]
-> Alcune classi del set di dati presentano dipendenze dal pacchetto [azureml-dataprep](/python/api/azureml-dataprep/) , che è compatibile solo con Python a 64 bit. Per gli utenti Linux queste classi sono supportate solo nelle distribuzioni seguenti: Red Hat Enterprise Linux (7, 8), Ubuntu (14,04, 16,04, 18,04), Fedora (27, 28), Debian (8, 9) e CentOS (7).
+> Alcune classi del set di dati presentano dipendenze dal pacchetto azureml-dataprep, che è compatibile solo con Python a 64 bit. Per gli utenti Linux queste classi sono supportate solo nelle distribuzioni seguenti: Red Hat Enterprise Linux (7, 8), Ubuntu (14,04, 16,04, 18,04), Fedora (27, 28), Debian (8, 9) e CentOS (7).
 
 ## <a name="create-datasets-with-the-sdk"></a>Creare set di impostazioni con l'SDK
 

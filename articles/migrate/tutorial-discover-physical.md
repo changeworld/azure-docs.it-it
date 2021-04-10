@@ -7,12 +7,12 @@ ms.manager: abhemraj
 ms.topic: tutorial
 ms.date: 03/11/2021
 ms.custom: mvc
-ms.openlocfilehash: 4f6dc61b0e05fcb16a03a1183518069b98aa575f
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 17740763777372a5eaed6941974c120860839279
+ms.sourcegitcommit: 77d7639e83c6d8eb6c2ce805b6130ff9c73e5d29
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104771414"
+ms.lasthandoff: 04/05/2021
+ms.locfileid: "106382710"
 ---
 # <a name="tutorial-discover-physical-servers-with-azure-migrate-discovery-and-assessment"></a>Esercitazione: individuazione di server fisici con Azure Migrate: individuazione e valutazione
 
@@ -80,6 +80,9 @@ Se è appena stato creato un account Azure gratuito, si è proprietari della pro
 Configurare un account utilizzabile dall'appliance per accedere ai server fisici.
 
 - Per i **server Windows**, usare un account di dominio per i server aggiunti a un dominio e un account locale per un server che non fa parte di un dominio. L'account utente deve essere aggiunto a questi gruppi: Utenti Gestione remota, Performance Monitor Users e Performance Log Users.
+    > [!Note]
+    > Per Windows Server 2008 e 2008 R2, assicurarsi che WMF 3,0 sia installato nei server e che l'account di dominio/locale utilizzato per accedere ai server venga aggiunto a questi gruppi: Performance Monitor Users, Performance Log Users e WinRMRemoteWMIUsers.
+
 - Per i **server Linux** è necessario un account radice nei server Linux che si desidera individuare. In alternativa, è possibile impostare un account non radice con le funzionalità necessarie usando i comandi seguenti:
 
 **Comando** | **Scopo**

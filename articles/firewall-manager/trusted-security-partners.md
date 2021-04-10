@@ -5,14 +5,14 @@ author: vhorne
 ms.service: firewall-manager
 services: firewall-manager
 ms.topic: conceptual
-ms.date: 12/01/2020
+ms.date: 03/29/2021
 ms.author: victorh
-ms.openlocfilehash: 923c6b685d20ff68788e7d9cfcb45ebaecb535e3
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: e955c6b760c06ce802dfae0193d34954eab99892
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "96490109"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105731089"
 ---
 # <a name="what-are-security-partner-providers"></a>Che cosa sono i provider del partner di sicurezza?
 
@@ -30,17 +30,22 @@ I partner di sicurezza supportati sono **zScaler**, **[Check Point](check-point-
 
 È possibile usare i partner di sicurezza per filtrare il traffico Internet negli scenari seguenti:
 
-- Da rete virtuale (VNet) a Internet
+- Rete virtuale (VNet) a Internet
 
-   Sfruttare la protezione Internet avanzata in grado di riconoscere l'utente per i carichi di lavoro su cloud in esecuzione in Azure.
+   Usa la protezione Internet avanzata in grado di riconoscere l'utente per i tuoi carichi di lavoro cloud in esecuzione in Azure.
 
 - Da ramo a Internet
 
-   Sfrutta la tua connettività di Azure e la tua distribuzione globale per aggiungere con facilità il filtro NSaaS di terze parti per gli scenari da ramo a Internet. È possibile creare la rete di transito globale e il perimetro di sicurezza usando la rete WAN virtuale di Azure.
+   Usa la tua connettività di Azure e la tua distribuzione globale per aggiungere con facilità un filtro NSaaS di terze parti per gli scenari di Branch in Internet. È possibile creare la rete di transito globale e il perimetro di sicurezza usando la rete WAN virtuale di Azure.
 
 Sono supportati gli scenari indicati di seguito:
-- VNet/ramo a Internet tramite un provider del partner di sicurezza e l'altro traffico (spoke to spoke, spoke to Branch, branch to spoke) tramite il firewall di Azure.
-- VNet/ramo a Internet tramite il provider del partner di sicurezza
+- Due provider di sicurezza nell'hub
+
+   VNet da ramo a Internet tramite un provider di partner per la sicurezza e l'altro traffico (spoke-to-spoke, spoke-to-Branch, da ramo a spoke) tramite il firewall di Azure.
+- Singolo provider nell'hub
+
+   - Tutto il traffico (da spoke a spoke, da spoke a ramo, da ramo a spoke, da VNet/ramo a Internet) protetto dal firewall di Azure
+   - VNet/da ramo a Internet tramite il provider del partner di sicurezza
 
 ## <a name="best-practices-for-internet-traffic-filtering-in-secured-virtual-hubs"></a>Procedure consigliate per il filtraggio del traffico Internet in hub virtuali protetti
 

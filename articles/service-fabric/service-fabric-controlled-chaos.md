@@ -2,21 +2,21 @@
 title: Indurre Chaos nei cluster Service Fabric
 description: Uso delle API del servizio di fault injection e di analisi del cluster per la gestione di Chaos nel cluster.
 ms.topic: conceptual
-ms.date: 02/05/2018
+ms.date: 03/26/2021
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 72b8f7e9e4934b516f843ae8bc9bb7adc1c349ec
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 759e2d1c8d2a326583625fbbbcadb4f4fa950510
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101720511"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105732432"
 ---
 # <a name="induce-controlled-chaos-in-service-fabric-clusters"></a>Eseguire Chaos in ambiente controllato nei cluster di Service Fabric
 I sistemi distribuiti di grandi dimensioni come le infrastrutture cloud sono intrinsecamente inaffidabili. Azure Service Fabric consente agli sviluppatori di scrivere servizi distribuiti affidabili in un'infrastruttura inaffidabile. Per scrivere servizi distribuiti affidabili in un'infrastruttura inaffidabile, gli sviluppatori devono poter testare la stabilità dei servizi quando nell'infrastruttura inaffidabile sottostante si verificano transizioni di stato complesse a causa di errori.
 
 Il [servizio di fault injection e analisi del cluster](./service-fabric-testability-overview.md) (noto anche come servizio di analisi degli errori) offre agli sviluppatori la possibilità di causare errori per testare i servizi. Questi errori simulati mirati, ad esempio il [riavvio di una partizione](/powershell/module/servicefabric/start-servicefabricpartitionrestart), consentono di generare le transizioni di stato più comuni. Gli errori simulati mirati sono tuttavia parziali per definizione e quindi possono non coprire i bug che si verificano solo in sequenze di transizioni di stato difficili da prevedere, lunghe e complesse. Per un test imparziale, è possibile usare Chaos.
 
-Chaos simula errori periodici con interfoliazione, normali e anomali, nel cluster per lunghi periodi di tempo. Un errore normale è costituito da una serie di chiamate API di Service Fabric, ad esempio, il riavvio della replica. Questo errore è normale, poiché si tratta di una chiusura seguita da un'apertura in una replica. La rimozione di una replica e lo spostamento della replica primaria o della replica secondaria sono altri errori normali generati da Chaos. Sono errori anomali le uscite da processi, ad esempio il riavvio di un nodo o di un pacchetto di codice. 
+Chaos simula errori periodici con interfoliazione, normali e anomali, nel cluster per lunghi periodi di tempo. Un errore normale è costituito da una serie di chiamate API di Service Fabric, ad esempio, il riavvio della replica. Questo errore è normale, poiché si tratta di una chiusura seguita da un'apertura in una replica. Rimuovere la replica, spostare la replica primaria, spostare la replica secondaria e spostare l'istanza sono gli altri errori normali usati da Chaos. Sono errori anomali le uscite da processi, ad esempio il riavvio di un nodo o di un pacchetto di codice.
 
 Dopo aver configurato Chaos con la frequenza e la tipologia di errori, è possibile avviarlo attraverso le API C#, PowerShell o REST per iniziare a generare errori nel cluster e nei servizi. È possibile configurare Chaos per l'esecuzione per un periodo di tempo specifico (ad esempio per un'ora), dopo il quale Chaos si arresta automaticamente, oppure è possibile chiamare l'API StopChaos (C#, PowerShell o REST) per arrestarlo in qualsiasi momento.
 
@@ -37,6 +37,7 @@ Chaos induce errori delle categorie seguenti:
 * Riavvio di una replica
 * Spostamento di una replica primaria (configurabile)
 * Spostamento di una replica secondaria (configurabile)
+* Spostare un'istanza
 
 Chaos esegue più iterazioni. Ogni iterazione consiste in errori e convalide cluster per il periodo di tempo specificato. È possibile configurare anche il tempo impiegato per la stabilizzazione del cluster e il completamento della convalida. Se viene rilevato un errore di convalida dei cluster, Chaos genera e mantiene un ValidationFailedEvent con il timestamp UTC e i dettagli dell'errore. Si consideri, ad esempio, un'istanza di Chaos configurata per un'esecuzione della durata di un'ora e con un massimo di tre errori simultanei. Chaos provoca tre errori, per poi convalidare l'integrità del cluster. Ripete il passaggio precedente finché non viene esplicitamente interrotto con l'API StopChaosAsync o dopo un'ora. Se in una qualsiasi iterazione il cluster diventa non integro, ovvero non si stabilizza o non diventa integro entro il tempo definito da MaxClusterStabilizationTimeout, Chaos genera un evento ValidationFailedEvent. Questo evento indica che si è verificato un errore e potrebbe richiedersi un'ulteriore analisi.
 
@@ -56,14 +57,14 @@ Per ottenere gli errori indotti dal Chaos, è possibile usare l'API GetChaosRepo
 > Indipendentemente da quanto è alto il valore di *MaxConcurrentFaults*, Chaos garantisce che in assenza di errori esterni non si verifichi una perdita di quorum o di dati.
 >
 
-* **EnableMoveReplicaFaults**: abilita o disabilita gli errori che causano lo spostamento delle repliche primarie o secondarie. Questi errori sono abilitati per impostazione predefinita.
+* **EnableMoveReplicaFaults**: Abilita o Disabilita gli errori che provocano lo spostamento delle repliche primarie, secondarie o delle istanze. Questi errori sono abilitati per impostazione predefinita.
 * **WaitTimeBetweenIterations**: quantità di tempo di attesa tra due iterazioni. Indica il tempo durante cui Chaos rimane in pausa dopo l'esecuzione di un ciclo di errori e il completamento della convalida dell'integrità del cluster corrispondente. Maggiore è il valore, minore è la frequenza media di inserimento degli errori.
 * **WaitTimeBetweenFaults**: quantità di tempo di attesa tra due errori consecutivi in una singola iterazione. Maggiore è il valore, minore sarà la concorrenza degli errori, ovvero la loro sovrapposizione.
 * **ClusterHealthPolicy**: criteri di integrità del cluster usati per convalidare l'integrità del cluster tra iterazioni di Chaos. Se si verifica un errore di integrità del cluster o un'eccezione imprevista durante l'esecuzione dell'errore, Chaos attende 30 minuti prima del successivo controllo di integrità, per fornire al cluster il tempo di recupero.
 * **Context**: raccolta di coppie chiave-valore di tipo (string, string). La mappa può essere usata per registrare le informazioni sull'esecuzione di Chaos. Non possono esserci più di 100 coppie di questo tipo e ogni stringa (chiave o valore) può essere costituita da un massimo di 4095 caratteri. Questa mappa viene impostata dalla funzione di avvio dell'esecuzione di Chaos per l'archiviazione facoltativa del contesto dell'esecuzione specifica.
 * **ChaosTargetFilter**: questo filtro consente di generare errori Chaos solo in nodi di tipo specifico o solo in alcune istanze dell'applicazione. Se non si usa ChaosTargetFilter, gli errori Chaos interessano tutte le entità del cluster. Se si usa ChaosTargetFilter, gli errori Chaos interessano solo le entità che soddisfano le specifiche di ChaosTargetFilter. NodeTypeInclusionList e ApplicationInclusionList consentono solo la semantica di unione. In altre parole, non è possibile specificare un'intersezione tra NodeTypeInclusionList e ApplicationInclusionList. Non è ad esempio possibile specificare "genera un errore in questa applicazione solo quando si trova in quel tipo di nodo". Dopo che un'entità è stata inclusa in NodeTypeInclusionList o in ApplicationInclusionList, tale entità non può essere esclusa tramite ChaosTargetFilter. Anche se in ApplicationInclusionList non compare applicationX, in alcune iterazioni di Chaos applicationX può presentare un errore, perché si trova per caso in un nodo di tipo nodeTypeY incluso in NodeTypeInclusionList. Se NodeTypeInclusionList e ApplicationInclusionList sono entrambi Null o vuoti, viene generata un'eccezione ArgumentException.
-    * **NodeTypeInclusionList**: elenco di tipi di nodo da includere negli errori Chaos. Tutti i tipi di errore (riavvio di nodo, riavvio di pacchetto di codice, rimozione di replica, riavvio di replica, spostamento di replica primaria e spostamento di replica secondaria) sono abilitati per i nodi di questi tipi di nodo. Se un tipo di nodo (ad esempio NodeTypeX) non compare in NodeTypeInclusionList, gli errori a livello di nodo (ad esempio NodeRestart) non verranno mai abilitati per i nodi di tipo NodeTypeX. Gli errori di pacchetto di codice e di replica, tuttavia, possono comunque essere abilitati per NodeTypeX se un'applicazione in ApplicationInclusionList si trova in un nodo di tipo NodeTypeX. In questo elenco possono essere inclusi al massimo 100 tipi di nodo. Per aumentare questo numero, è necessario un aggiornamento della configurazione di MaxNumberOfNodeTypesInChaosTargetFilter.
-    * **ApplicationInclusionList**: elenco di URI dell'applicazione da includere negli errori Chaos. Tutte le repliche appartenenti ai servizi di queste applicazioni sono soggette a errori di replica (riavvio di replica, rimozione di replica, spostamento di replica primaria, spostamento di replica secondaria) generati da Chaos. Chaos può riavviare un pacchetto di codice solo se quest'ultimo ospita solo repliche di queste applicazioni. Se un'applicazione non compare in questo elenco, può comunque presentare errori in alcune iterazioni di Chaos se l'applicazione finisce per trovarsi in un nodo di un tipo incluso in NodeTypeInclusionList. Se tuttavia applicationX è associata a nodeTypeY tramite vincoli di posizionamento, applicationX non è presente in ApplicationInclusionList e nodeTypeY non è presente in NodeTypeInclusionList, applicationX non presenterà mai errori. In questo elenco possono essere inclusi al massimo 1000 nomi di applicazione. Per aumentare questo numero, è necessario un aggiornamento della configurazione di MaxNumberOfApplicationsInChaosTargetFilter.
+    * **NodeTypeInclusionList**: elenco di tipi di nodo da includere negli errori Chaos. Tutti i tipi di errori (riavvia nodo, riavvia CodePackage, Rimuovi replica, riavvia replica, sposta primario, sposta secondario e sposta istanza) sono abilitati per i nodi di questi tipi di nodo. Se un tipo di nodo (ad esempio NodeTypeX) non compare in NodeTypeInclusionList, gli errori a livello di nodo (ad esempio NodeRestart) non verranno mai abilitati per i nodi di tipo NodeTypeX. Gli errori di pacchetto di codice e di replica, tuttavia, possono comunque essere abilitati per NodeTypeX se un'applicazione in ApplicationInclusionList si trova in un nodo di tipo NodeTypeX. In questo elenco possono essere inclusi al massimo 100 tipi di nodo. Per aumentare questo numero, è necessario un aggiornamento della configurazione di MaxNumberOfNodeTypesInChaosTargetFilter.
+    * **ApplicationInclusionList**: elenco di URI dell'applicazione da includere negli errori Chaos. Tutte le repliche appartenenti ai servizi di queste applicazioni sono suscettibili agli errori di replica (riavvia replica, Rimuovi replica, sposta primaria, sposta secondaria e sposta istanza) da Chaos. Chaos può riavviare un pacchetto di codice solo se quest'ultimo ospita solo repliche di queste applicazioni. Se un'applicazione non compare in questo elenco, può comunque presentare errori in alcune iterazioni di Chaos se l'applicazione finisce per trovarsi in un nodo di un tipo incluso in NodeTypeInclusionList. Se tuttavia applicationX è associata a nodeTypeY tramite vincoli di posizionamento, applicationX non è presente in ApplicationInclusionList e nodeTypeY non è presente in NodeTypeInclusionList, applicationX non presenterà mai errori. In questo elenco possono essere inclusi al massimo 1000 nomi di applicazione. Per aumentare questo numero, è necessario un aggiornamento della configurazione di MaxNumberOfApplicationsInChaosTargetFilter.
 
 ## <a name="how-to-run-chaos"></a>Come eseguire Chaos
 
@@ -137,14 +138,15 @@ class Program
                 MaxPercentUnhealthyNodes = 100
             };
 
-            // All types of faults, restart node, restart code package, restart replica, move primary replica,
-            // and move secondary replica will happen for nodes of type 'FrontEndType'
+            // All types of faults, restart node, restart code package, restart replica, move primary
+            // replica, move secondary replica, and move instance will happen for nodes of type 'FrontEndType'
             var nodetypeInclusionList = new List<string> { "FrontEndType"};
 
             // In addition to the faults included by nodetypeInclusionList,
-            // restart code package, restart replica, move primary replica, move secondary replica faults will
-            // happen for 'fabric:/TestApp2' even if a replica or code package from 'fabric:/TestApp2' is residing
-            // on a node which is not of type included in nodeypeInclusionList.
+            // restart code package, restart replica, move primary replica, move secondary replica,
+            //  and move instance faults will happen for 'fabric:/TestApp2' even if a replica or code
+            // package from 'fabric:/TestApp2' is residing on a node which is not of type included
+            // in nodeypeInclusionList.
             var applicationInclusionList = new List<string> { "fabric:/TestApp2" };
 
             // List of cluster entities to target for Chaos faults.

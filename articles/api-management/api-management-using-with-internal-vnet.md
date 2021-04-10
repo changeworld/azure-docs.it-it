@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 03/09/2021
 ms.author: apimpm
 ms.openlocfilehash: 10154f496d76ce6b9eb19d610fdff8d7a4023c2d
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "102565955"
 ---
 # <a name="using-azure-api-management-service-with-an-internal-virtual-network"></a>Uso del servizio Gestione API di Azure con una rete virtuale interna
@@ -82,7 +82,7 @@ Una volta completata la distribuzione, verranno visualizzati l'indirizzo IP virt
 
 * Aggiornare una distribuzione esistente di un servizio gestione API all'interno di una rete virtuale: usare il cmdlet [Update-AzApiManagementRegion](/powershell/module/az.apimanagement/update-azapimanagementregion) per spostare un servizio gestione API esistente all'interno di una rete virtuale e configurarlo per usare il tipo di rete virtuale interna.
 
-## <a name="dns-configuration"></a><a name="apim-dns-configuration"></a>Configurazione del DNS
+## <a name="dns-configuration"></a><a name="apim-dns-configuration"></a>Configurazione DNS
 Quando si usa Gestione API in modalità di rete virtuale esterna, il servizio DNS è gestito da Azure. Per la modalità di rete virtuale interna, è necessario gestire un proprio DNS. La configurazione di una zona privata di DNS di Azure e il collegamento al servizio di gestione API della rete virtuale in è l'opzione consigliata.  Fare clic [qui](../dns/private-dns-getstarted-portal.md) per informazioni su come configurare una zona privata in DNS di Azure.
 
 > [!NOTE]

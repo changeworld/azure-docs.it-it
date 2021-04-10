@@ -5,17 +5,17 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 03/26/2021
+ms.date: 03/31/2021
 ms.author: justinha
 author: justinha
 manager: daveba
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 45b3d5155befe005a6af68355426883b63a8c410
-ms.sourcegitcommit: c94e282a08fcaa36c4e498771b6004f0bfe8fb70
+ms.openlocfilehash: 44016d81b18e8df7b6e2ed7c14559cf19ac0c07d
+ms.sourcegitcommit: 5fd1f72a96f4f343543072eadd7cdec52e86511e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/26/2021
-ms.locfileid: "105611787"
+ms.lasthandoff: 04/01/2021
+ms.locfileid: "106106637"
 ---
 # <a name="authentication-methods-in-azure-active-directory---oath-tokens"></a>Metodi di autenticazione nei token di Azure Active Directory 
 
@@ -57,7 +57,7 @@ A seconda delle dimensioni del file CSV, potrebbero essere richiesti alcuni minu
 
 Dopo aver risolto eventuali errori, l'amministratore può quindi attivare ogni chiave selezionando **Attiva** per il token da attivare e immettendo l'OTP visualizzato nel token. È possibile attivare un massimo di 200 di token di GIURAmento ogni 5 minuti. 
 
-Gli utenti possono avere una combinazione composta da fino a cinque token hardware OATH o applicazioni di autenticazione, quali l'app Microsoft Authenticator, configurate per l'uso in qualsiasi momento.
+Gli utenti possono avere una combinazione composta da fino a cinque token hardware OATH o applicazioni di autenticazione, quali l'app Microsoft Authenticator, configurate per l'uso in qualsiasi momento. I token del GIURAmento hardware non possono essere assegnati agli utenti guest nel tenant delle risorse.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

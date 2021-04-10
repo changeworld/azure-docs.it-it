@@ -26,8 +26,10 @@
           href: quickstarts/chat/meeting-interop.md
     - name: Telefonia e SMS
       items:
-        - name: Gestire i numeri di telefono
+        - name: Ottenere un numero di telefono
           href: quickstarts/telephony-sms/get-phone-number.md
+        - name: Porta un numero di telefono in Azure
+          href: quickstarts/telephony-sms/port-phone-number.md
         - name: Aggiungere chiamate telefoniche all'app
           href: quickstarts/voice-video-calling/pstn-call.md
         - name: Inviare SMS
@@ -92,6 +94,8 @@
           href: concepts/telephony-sms/messaging-policy.md
     - name: Chiamate vocali e video
       items:
+        - name: Problemi noti
+          href: concepts/known-issues.md
         - name: Panoramica dell'SDK chiamante
           href: concepts/voice-video-calling/calling-sdk-features.md
         - name: Concetti relativi alle chiamate vocali e video
@@ -135,8 +139,6 @@
       href: concepts/notifications.md
     - name: Interoperabilità di Teams
       href: concepts/teams-interop.md
-    - name: Problemi noti
-      href: concepts/known-issues.md
 - name: Esempi
   items:
     - name: Panoramica
@@ -151,6 +153,8 @@
   items:
     - name: Panoramica della documentazione di riferimento
       href: concepts/reference.md
+    - name: Interfaccia della riga di comando di Azure
+      href: /cli/azure/ext/communication/communication
     - name: Documentazione relativa alle API REST
       href: /rest/api/communication/
     - name: Librerie Chiamata
@@ -158,7 +162,7 @@
         - name: Chiamata (JavaScript)
           href: /javascript/api/azure-communication-services/@azure/communication-calling/
         - name: Chiamata (Android/Java)
-          href: /java/api/com.azure.communication.calling
+          href: /java/api/com.azure.android.communication.calling?view=communication-services-java-android
         - name: Chiamata (iOS)
           href: /objectivec/communication-services/calling/
     - name: Librerie Chat

@@ -11,12 +11,12 @@ ms.custom:
 - cli-validate
 - devx-track-python
 - devx-track-azurecli
-ms.openlocfilehash: a9f8fe10c5ffa787a6c170a29188cba21427b602
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 8e9656aa1f850dc9e59ab71b5df605df8dd49269
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102175159"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105732806"
 ---
 # <a name="tutorial-deploy-a-django-web-app-with-postgresql-in-azure-app-service"></a>Esercitazione: Distribuire un'app Web Django con PostgreSQL nel Servizio app di Azure
 
@@ -365,7 +365,7 @@ Problemi? [Segnalarli](https://aka.ms/DjangoCLITutorialHelp).
 In `polls/models.py`individuare la riga che inizia con `choice_text` e impostare il parametro `max_length` su 100:
 
 ```python
-# Find this lie of code and set max_length to 100 instead of 200
+# Find this line of code and set max_length to 100 instead of 200
 choice_text = models.CharField(max_length=100)
 ```
 

@@ -6,12 +6,12 @@ ms.topic: troubleshooting
 ms.date: 03/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 8c6d26de62364b6aca671d1e4283a01c1b78c397
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 1695e7aa0a202a5946f9038049b51c6a8fd45ad5
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "95014833"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105934666"
 ---
 # <a name="tenant-and-host-pool-creation-in-windows-virtual-desktop-classic"></a>Creazione di tenant e pool host in un desktop virtuale di Windows (versione classica)
 
@@ -31,11 +31,11 @@ Per usare l'immagine multisessione Enterprise di Windows 10, passare a Azure Mar
 > [!div class="mx-imgBorder"]
 > ![Screenshot della selezione di Windows 10 Enterprise per desktop virtuali, versione 1809.](../media/AzureMarketPlace.png)
 
-## <a name="creating-windows-virtual-desktop-tenant"></a>Creazione di un tenant desktop virtuale Windows
+## <a name="creating-windows-virtual-desktop-tenant&quot;></a>Creazione di un tenant desktop virtuale Windows
 
 In questa sezione vengono illustrati i potenziali problemi durante la creazione del tenant desktop virtuale di Windows.
 
-### <a name="error-aadsts650052-the-app-needs-access-to-a-service"></a>Errore: AADSTS650052 l'app deve accedere a un servizio.
+### <a name=&quot;error-aadsts650052-the-app-needs-access-to-a-service&quot;></a>Errore: AADSTS650052 l'app deve accedere a un servizio.
 
 Esempio di errore non elaborato:
 
@@ -406,7 +406,7 @@ Se si esegue il modello di Azure Resource Manager di GitHub, fornire i valori pe
 
 ### <a name="error-vmsubnet-not-available-when-configuring-virtual-networks"></a>Errore: elemento vmsubnet non disponibile durante la configurazione delle reti virtuali
 
-**Motivo:** Nel modello WVD Marketplace l'interfaccia utente visualizza solo le subnet con almeno il numero di indirizzi IP disponibili come numero totale di macchine virtuali specificate nel modello. Il numero effettivo di indirizzi IP disponibili nella subnet deve essere uguale al numero di nuove macchine virtuali distribuite, ma non può essere calcolato dall'interfaccia utente corrente.
+**Motivo:** Nel modello del Marketplace per desktop virtuali Windows, l'interfaccia utente visualizza solo le subnet con almeno il numero di indirizzi IP disponibili come numero totale di macchine virtuali specificate nel modello. Il numero effettivo di indirizzi IP disponibili nella subnet deve essere uguale al numero di nuove macchine virtuali distribuite, ma non può essere calcolato dall'interfaccia utente corrente.
 
 **Correzione:** È possibile specificare una subnet con almeno il numero di indirizzi IP disponibili come numero di macchine virtuali da aggiungere senza usare l'interfaccia utente del Marketplace. questa operazione può essere eseguita specificando il nome della subnet nel parametro "**existingSubnetName**" quando si [ridistribuisce una distribuzione esistente](expand-existing-host-pool-2019.md#redeploy-from-azure) o si [distribuisce usando il modello ARM sottostante da GitHub](create-host-pools-arm-template.md#run-the-azure-resource-manager-template-for-provisioning-a-new-host-pool).
 

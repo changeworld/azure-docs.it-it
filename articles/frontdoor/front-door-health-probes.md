@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/28/2020
 ms.author: duau
-ms.openlocfilehash: 4cbeea8ad20d41daff3d4ad086a36df5e988991f
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: dd56740b7153cdbafdfa847a22d34b57f862cdf3
+ms.sourcegitcommit: b0557848d0ad9b74bf293217862525d08fe0fc1d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "91449239"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "106550744"
 ---
 # <a name="health-probes"></a>Probe di integrità
 
@@ -24,6 +24,9 @@ Per determinare l'integrità e la vicinanza di ogni back-end per un ambiente fro
 
 > [!WARNING]
 > Poiché la porta anteriore ha molti ambienti perimetrali a livello globale, il volume del probe di integrità per i backend può essere molto elevato da 25 richieste al minuto fino a 1200 richieste al minuto, a seconda della frequenza di probe di integrità configurata. Con la frequenza Probe predefinita di 30 secondi, il volume probe sul back-end deve essere di circa 200 richieste al minuto.
+
+> [!NOTE]
+> I probe HTTP/HTTPS della porta anteriore vengono inviati con l' `User-Agent` intestazione impostata con il valore: `Edge Health Probes` . 
 
 ## <a name="supported-protocols"></a>Protocolli supportati
 

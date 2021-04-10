@@ -234,6 +234,8 @@
           href: troubleshoot-changed-block-tracking-replication.md
 - name: Informazioni di riferimento
   items:
+    - name: Interfaccia della riga di comando di Azure
+      href: /cli/azure/ext/offazure/offazure
     - name: Azure PowerShell
       href: /powershell/module/az.migrate/
     - name: Criteri di Azure predefiniti

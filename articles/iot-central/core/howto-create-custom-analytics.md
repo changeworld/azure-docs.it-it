@@ -10,13 +10,13 @@ services: iot-central
 ms.custom: mvc
 manager: philmea
 ms.openlocfilehash: 3132ec8fb3cb123653887d92a2f33788f40564c0
-ms.sourcegitcommit: bb330af42e70e8419996d3cba4acff49d398b399
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/24/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "105033824"
 ---
-# <a name="extend-azure-iot-central-with-custom-analytics-using-azure-databricks"></a>Estendi IoT Central di Azure con analisi personalizzate con Azure Databricks
+# <a name="extend-azure-iot-central-with-custom-analytics-using-azure-databricks"></a>Estendere Azure IoT Central con analisi personalizzate mediante Azure Databricks
 
 Questa guida dettagliata illustra come uno sviluppatore di soluzioni, come estendere l'applicazione IoT Central con le analisi e le visualizzazioni personalizzate. Nell'esempio viene usata un'area di lavoro di [Azure Databricks](/azure/azure-databricks/) per analizzare il flusso di dati di telemetria IOT Central e generare visualizzazioni, ad esempio i [tracciati box](https://wikipedia.org/wiki/Box_plot).  
 
@@ -130,7 +130,7 @@ Per creare la definizione di esportazione:
     | Impostazione | Valore |
     | ------- | ----- |
     | Nome esportazione | Esportazione dell'hub eventi |
-    | Abilitato | On |
+    | Abilitato | Attivato |
     | Tipo di dati da esportare | Telemetria |
     | Destinazioni | Selezionare **+ destinazione**, quindi selezionare **Hub eventi di telemetria** |
 
