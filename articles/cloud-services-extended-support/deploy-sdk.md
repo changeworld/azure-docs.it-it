@@ -8,12 +8,12 @@ ms.author: gachandw
 ms.reviewer: mimckitt
 ms.date: 10/13/2020
 ms.custom: ''
-ms.openlocfilehash: b63f42ccc0a9d8d138e38a262db528fd36ea701a
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: d36bae57a9e1609e053326cf7288b5b1bc470cef
+ms.sourcegitcommit: d23602c57d797fb89a470288fcf94c63546b1314
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102123038"
+ms.lasthandoff: 04/01/2021
+ms.locfileid: "106166888"
 ---
 # <a name="deploy-cloud-services-extended-support-by-using-the-azure-sdk"></a>Distribuire servizi cloud (supporto esteso) con Azure SDK
 
@@ -156,7 +156,8 @@ Esaminare i [prerequisiti di distribuzione](deploy-prerequisite.md) per i serviz
     m_NrpClient.VirtualNetworks.CreateOrUpdate(resourceGroupName, “ContosoVNet”, vnet);
     ```
 
-7. Creare un indirizzo IP pubblico e, facoltativamente, impostare la proprietà etichetta DNS dell'indirizzo IP pubblico. Se si usa un indirizzo IP statico, è necessario farvi riferimento come IP riservato nel file di configurazione del servizio.
+7. Creare un indirizzo IP pubblico e impostare la proprietà etichetta DNS dell'indirizzo IP pubblico. Servizi cloud (supporto esteso) supporta solo [Basic] ( https://docs.microsoft.com/azure/virtual-network/public-ip-addresses#basic) indirizzi IP pubblici dello SKU). Gli indirizzi IP pubblici con SKU standard non funzionano con i servizi cloud.
+Se si usa un indirizzo IP statico, è necessario farvi riferimento come IP riservato nel file di configurazione del servizio (con estensione cscfg)
 
     ```csharp
     PublicIPAddress publicIPAddressParams = new PublicIPAddress(name: “ContosIp”) 
@@ -171,7 +172,7 @@ Esaminare i [prerequisiti di distribuzione](deploy-prerequisite.md) per i serviz
     PublicIPAddress publicIpAddress = m_NrpClient.PublicIPAddresses.CreateOrUpdate(resourceGroupName, publicIPAddressName, publicIPAddressParams);
     ```
 
-8. Creare un oggetto profilo di rete e associare un indirizzo IP pubblico al front-end del servizio di bilanciamento del carico creato dalla piattaforma.
+8. Creare un oggetto profilo di rete e associare l'indirizzo IP pubblico al front-end del servizio di bilanciamento del carico. La piattaforma Azure crea automaticamente una risorsa di bilanciamento del carico SKU "classica" nella stessa sottoscrizione della risorsa del servizio cloud. La risorsa del servizio di bilanciamento del carico è una risorsa di sola lettura in ARM. Tutti gli aggiornamenti alla risorsa sono supportati solo tramite i file di distribuzione del servizio cloud (. cscfg &. csdef)
 
     ```csharp
     LoadBalancerFrontendIPConfiguration feipConfiguration = new LoadBalancerFrontendIPConfiguration() 

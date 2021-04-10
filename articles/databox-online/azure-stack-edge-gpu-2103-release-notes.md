@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: article
 ms.date: 03/23/2021
 ms.author: alkohli
-ms.openlocfilehash: 846d4a259f0fcd204bcad6c898efc999c3765fd3
-ms.sourcegitcommit: ac035293291c3d2962cee270b33fca3628432fac
+ms.openlocfilehash: 4d2a345ed49fae2e1d77b3c5da44b305d069874e
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/24/2021
-ms.locfileid: "104962684"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105729457"
 ---
 # <a name="azure-stack-edge-2103-release-notes"></a>Note sulla versione di Azure Stack Edge 2103
 
@@ -98,7 +98,7 @@ Nella tabella seguente viene fornito un riepilogo dei problemi noti rilevati dal
 |**19.**|Kubernetes + aggiornamento |Le versioni precedenti del software, ad esempio le versioni 2008, presentano un problema race condition aggiornamento che causa l'esito negativo dell'aggiornamento con ClusterConnectionException. |L'uso delle compilazioni più recenti dovrebbe contribuire a evitare questo problema. Se si verifica questo problema, la soluzione alternativa consiste nel ritentare l'aggiornamento e dovrebbe funzionare.|
 |**20**|Internet Explorer|Se sono abilitate le funzionalità di sicurezza avanzate, potrebbe non essere possibile accedere alle pagine dell'interfaccia utente Web locale. | Disabilitare la sicurezza avanzata e riavviare il browser.|
 |**21.**|Dashboard di Kubernetes | L'endpoint *https* per il dashboard di Kubernetes con certificato SSL non è supportato. | |
-|**22.**|Kubernetes |Kubernetes non supporta ":" nei nomi delle variabili di ambiente usati dalle applicazioni .NET. Questa operazione è necessaria anche per il funzionamento di griglia di eventi IoT Edge modulo sul dispositivo Azure Stack Edge e su altre applicazioni. Per ulteriori informazioni, vedere la [documentazione di ASP.NET Core](/aspnet/core/fundamentals/configuration/?tabs=basicconfiguration&view=aspnetcore-3.1&preserve-view=true#environment-variables).|Sostituire ":" con il doppio carattere di sottolineatura. Per ulteriori informazioni, vedere la pagina relativa al [problema Kubernetes](https://github.com/kubernetes/kubernetes/issues/53201)|
+|**22.**|Kubernetes |Kubernetes non supporta ":" nei nomi delle variabili di ambiente usati dalle applicazioni .NET. Questa operazione è necessaria anche per il funzionamento di griglia di eventi IoT Edge modulo sul dispositivo Azure Stack Edge e su altre applicazioni. Per ulteriori informazioni, vedere la [documentazione di ASP.NET Core](/aspnet/core/fundamentals/configuration/?tabs=basicconfiguration#environment-variables).|Sostituire ":" con il doppio carattere di sottolineatura. Per ulteriori informazioni, vedere la pagina relativa al [problema Kubernetes](https://github.com/kubernetes/kubernetes/issues/53201)|
 |**23.** |Azure Arc + cluster Kubernetes |Per impostazione predefinita, quando la risorsa `yamls` viene eliminata dal repository git, le risorse corrispondenti non vengono eliminate dal cluster Kubernetes.  |Per consentire l'eliminazione delle risorse quando vengono eliminate dal repository git, impostare `--sync-garbage-collection` in Arc OperatorParams. Per altre informazioni, vedere [eliminare una configurazione](../azure-arc/kubernetes/use-gitops-connected-cluster.md#additional-parameters). |
 |**24.**|NFS |Le applicazioni che usano NFS Share Mounts sul dispositivo per scrivere i dati devono usare la scrittura esclusiva. Che garantisce che le Scritture vengano scritte nel disco.| |
 |**25.**|Configurazione di calcolo |La configurazione di calcolo non riesce nelle configurazioni di rete in cui i gateway o i commutatori o i router rispondono alle richieste ARP (Address Resolution Protocol) per i sistemi che non esistono nella rete.| |

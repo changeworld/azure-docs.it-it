@@ -8,13 +8,13 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: tutorial
-ms.date: 03/26/2020
-ms.openlocfilehash: 77df97eaecc59bc9160bcf63ae5d3904cd79ec79
-ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
+ms.date: 04/02/2021
+ms.openlocfilehash: e518ea83608472753d3463a980aae169b291d4de
+ms.sourcegitcommit: 3f684a803cd0ccd6f0fb1b87744644a45ace750d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102215188"
+ms.lasthandoff: 04/02/2021
+ms.locfileid: "106221297"
 ---
 # <a name="tutorial-train-and-deploy-a-model-from-the-cli"></a>Esercitazione: Eseguire il training e la distribuzione di un modello dall'interfaccia della riga di comando
 
@@ -84,20 +84,6 @@ az login
 Se l'interfaccia della riga di comando può aprire il browser predefinito, eseguirà questa operazione e caricherà una pagina di accesso. In caso contrario, è necessario aprire un browser e seguire le istruzioni nella riga di comando. Le istruzioni prevedono l'individuazione di [https://aka.ms/devicelogin](https://aka.ms/devicelogin) e l'immissione di un codice di autorizzazione.
 
 [!INCLUDE [select-subscription](../../includes/machine-learning-cli-subscription.md)] 
-
-## <a name="install-the-machine-learning-extension"></a>Installare l'estensione Machine Learning
-
-Per installare l'estensione Machine Learning, usare il comando seguente:
-
-```azurecli-interactive
-az extension add -n azure-cli-ml
-```
-
-Se viene restituito un messaggio che indica che l'estensione è già installata, usare il comando seguente per eseguire l'aggiornamento alla versione più recente:
-
-```azurecli-interactive
-az extension update -n azure-cli-ml
-```
 
 ## <a name="create-a-resource-group"></a>Creare un gruppo di risorse
 

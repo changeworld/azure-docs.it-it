@@ -3,18 +3,20 @@ title: Automazione di Azure - Panoramica di Gestione aggiornamenti
 description: Questo articolo fornisce una panoramica della funzionalità Gestione aggiornamenti che implementa gli aggiornamenti per computer Windows e Linux.
 services: automation
 ms.subservice: update-management
-ms.date: 03/19/2021
+ms.date: 04/01/2021
 ms.topic: conceptual
-ms.openlocfilehash: e5deefabd6a37dbfece9f32abdce5d5144681238
-ms.sourcegitcommit: ac035293291c3d2962cee270b33fca3628432fac
+ms.openlocfilehash: 62ae2eab33063416fdd6265b14dd8c30da55e174
+ms.sourcegitcommit: d23602c57d797fb89a470288fcf94c63546b1314
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/24/2021
-ms.locfileid: "104950060"
+ms.lasthandoff: 04/01/2021
+ms.locfileid: "106166701"
 ---
 # <a name="update-management-overview"></a>Panoramica di Gestione aggiornamenti
 
 È possibile usare Gestione aggiornamenti in automazione di Azure per gestire gli aggiornamenti del sistema operativo per le macchine virtuali Windows e Linux in Azure, negli ambienti locali e in altri ambienti cloud. È possibile valutare rapidamente lo stato degli aggiornamenti disponibili in tutti i computer agente e gestire il processo di installazione degli aggiornamenti necessari per i server.
+
+Come provider di servizi, è possibile che siano stati caricati più tenant del cliente nel [Faro di Azure](../../lighthouse/overview.md). Azure Lighthouse consente di eseguire operazioni su larga scala tra più tenant di Azure Active Directory (Azure AD) contemporaneamente, rendendo le attività di gestione come Gestione aggiornamenti più efficienti tra i tenant di cui si è responsabili.
 
 > [!NOTE]
 > Non è possibile usare un computer configurato con Gestione aggiornamenti per l'esecuzione di script personalizzati da Automazione di Azure. Questo computer può eseguire solo lo script di aggiornamento firmato da Microsoft.
@@ -24,7 +26,7 @@ ms.locfileid: "104950060"
 
 Per scaricare e installare automaticamente le patch di *sicurezza* e *critici* disponibili nella macchina virtuale di Azure, vedere applicazione [automatica delle patch Guest](../../virtual-machines/automatic-vm-guest-patching.md) per VM Windows.
 
-Prima di distribuire Gestione aggiornamenti e abilitare i computer per la gestione, verificare di aver compreso le informazioni nelle sezioni riportate di seguito.  
+Prima di distribuire Gestione aggiornamenti e abilitare i computer per la gestione, verificare di aver compreso le informazioni nelle sezioni riportate di seguito.
 
 ## <a name="about-update-management"></a>Informazioni su Gestione aggiornamenti
 
@@ -40,7 +42,7 @@ Il diagramma seguente illustra il modo in cui Gestione aggiornamenti valuta e ap
 
 ![Flusso di lavoro di Gestione aggiornamenti](./media/overview/update-mgmt-updateworkflow.png)
 
-Gestione aggiornamenti può essere usato per distribuire in modo nativo ai computer in più sottoscrizioni nello stesso tenant.
+Gestione aggiornamenti può essere usato per distribuire in modo nativo a computer in più sottoscrizioni nello stesso tenant o tra tenant usando la [gestione delle risorse delegata di Azure](../../lighthouse/concepts/azure-delegated-resource-management.md).
 
 Dopo il rilascio di un pacchetto, la visualizzazione della patch per i computer Linux per la valutazione richiede tra 2 e 3 ore. Per i computer Windows, la visualizzazione della patch per la valutazione dopo il rilascio richiede tra 12 e 15 ore. Quando un computer completa un'analisi per la conformità degli aggiornamenti, l'agente trasmette le informazioni in blocco ai log di monitoraggio di Azure. In un computer Windows l'analisi della conformità viene eseguita ogni 12 ore per impostazione predefinita. Per un computer Linux, l'analisi della conformità viene eseguita ogni ora per impostazione predefinita. Se l'agente di Log Analytics viene riavviato, viene avviata un'analisi della conformità entro 15 minuti.
 
@@ -131,7 +133,7 @@ Le macchine virtuali create dalle immagini di Red Hat Enterprise Linux su richie
 
 ## <a name="permissions"></a>Autorizzazioni
 
-Per creare e gestire le distribuzioni degli aggiornamenti, sono necessarie autorizzazioni specifiche. Per informazioni su queste autorizzazioni, vedere [Controllo degli accessi in base al ruolo - Gestione aggiornamenti](../automation-role-based-access-control.md#update-management-permissions).
+Per creare e gestire le distribuzioni degli aggiornamenti, sono necessarie autorizzazioni specifiche. Per informazioni su queste autorizzazioni, vedere [Gestione aggiornamenti di accesso basato sui ruoli](../automation-role-based-access-control.md#update-management-permissions).
 
 ## <a name="update-management-components"></a>Componenti di Gestione aggiornamenti
 

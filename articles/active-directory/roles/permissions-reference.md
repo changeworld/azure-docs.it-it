@@ -9,17 +9,17 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: roles
 ms.topic: reference
-ms.date: 03/13/2021
+ms.date: 03/29/2021
 ms.author: rolyon
 ms.reviewer: vincesm
 ms.custom: it-pro, fasttrack-edit
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 64f74f3aff1153118c54c83bf526c036a775da40
-ms.sourcegitcommit: ac035293291c3d2962cee270b33fca3628432fac
+ms.openlocfilehash: f467fc739b3120fd43bec4e21e1e336c1cdf186f
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/24/2021
-ms.locfileid: "104955238"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105935414"
 ---
 # <a name="azure-ad-built-in-roles"></a>Ruoli predefiniti di Azure AD
 
@@ -241,7 +241,7 @@ Il ruolo di [amministratore dei criteri di autenticazione](#authentication-polic
 >* Non amministratori come dirigenti, addetti degli uffici legali e dipendenti delle risorse umane che possono avere accesso a dati sensibili o informazioni riservate.
 
 > [!IMPORTANT]
-> Questo ruolo non è attualmente in grado di gestire l'autenticazione a più fattori per utente nel portale di gestione dell'autenticazione a più fattori legacy. Le stesse funzioni possono essere eseguite usando il modulo di PowerShell [set-MsolUser](/powershell/module/msonline/set-msoluser) cmdlet Azure ad.
+> Questo ruolo non è in grado di gestire le impostazioni dell'autenticazione a più fattori nel portale di gestione dell'autenticazione a più fattori legacy o nel Le stesse funzioni possono essere eseguite usando il modulo di PowerShell [set-MsolUser](/powershell/module/msonline/set-msoluser) cmdlet Azure ad.
 
 > [!div class="mx-tableFixed"]
 > | Azioni | Descrizione |
@@ -267,7 +267,7 @@ I ruoli amministratore [autenticazione](#authentication-administrator) e [ammini
 | Amministratore dei criteri di autenticazione | No | No | Sì | Sì | Sì |
 
 > [!IMPORTANT]
-> Questo ruolo non è attualmente in grado di gestire le impostazioni dell'autenticazione a più fattori nel portale di gestione di multi-factor authentication.
+> Questo ruolo non è in grado di gestire le impostazioni dell'autenticazione a più fattori nel portale di gestione dell'autenticazione a più fattori legacy o nel 
 
 > [!div class="mx-tableFixed"]
 > | Azioni | Descrizione |

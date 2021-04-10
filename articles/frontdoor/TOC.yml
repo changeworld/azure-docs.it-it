@@ -49,7 +49,7 @@
     - name: Protezione DDoS
       href: front-door-ddos.md
     - name: Domande frequenti su Front Door
-      href: front-door-faq.md
+      href: front-door-faq.yml
     - name: Filtro geografico
       href: front-door-geo-filtering.md
     - name: Probe di integrità

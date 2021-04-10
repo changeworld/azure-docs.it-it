@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.workload: media
 ms.date: 03/26/2021
 ms.author: inhenkel
-ms.openlocfilehash: 7ef41b76f343d8997feebc4a366deda7ce6a2afa
-ms.sourcegitcommit: c8b50a8aa8d9596ee3d4f3905bde94c984fc8aa2
+ms.openlocfilehash: 9141fb025cb2c7976f88d894768972b10ea3a3d3
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2021
-ms.locfileid: "105644060"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105729406"
 ---
 # <a name="content-protection-scenario-based-migration-guidance"></a>Guida alla migrazione basata sullo scenario di protezione del contenuto
 
@@ -38,11 +38,11 @@ Durante la migrazione all'API V3, si noterà che è necessario accedere ad alcun
 
 Se, ad esempio, in precedenza era presente un asset V2 con ID **"NB: CID: UUID: 8cb39104-122C-496E-9ac5-7f9e2c2547b8"**, si troverà quando si elencano le risorse V2 precedenti tramite l'API V3, il nome sarà ora la parte del GUID alla fine (in questo caso, **"8cb39104-122C-496E-9ac5-7f9e2c2547b8"**).
 
-È possibile eseguire una query su **StreamingLocators** associato agli asset creati nell'API v2 usando il nuovo metodo V3 [ListStreamingLocators](https://docs.microsoft.com/rest/api/media/assets/liststreaminglocators) nell'entità Asset.  Fare riferimento anche alla versione di [ListStreamingLocatorsAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.media.assetsoperationsextensions.liststreaminglocatorsasync?view=azure-dotnet) per l'SDK client .NET
+È possibile eseguire una query su **StreamingLocators** associato agli asset creati nell'API v2 usando il nuovo metodo V3 [ListStreamingLocators](https://docs.microsoft.com/rest/api/media/assets/liststreaminglocators) nell'entità Asset.  Fare riferimento anche alla versione di [ListStreamingLocatorsAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.media.assetsoperationsextensions.liststreaminglocatorsasync?view=azure-dotnet&preserve-view=true) per l'SDK client .NET
 
 I risultati del metodo **ListStreamingLocators** forniranno il **nome** e il **StreamingLocatorId** del localizzatore insieme a **StreamingPolicyName**.
 
-Per trovare il **entità ContentKey mediante** usato in **StreamingLocators** per la protezione del contenuto, è possibile chiamare il metodo [StreamingLocator. ListContentKeysAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.media.streaminglocatorsoperationsextensions.listcontentkeysasync?view=azure-dotnet) .  
+Per trovare il **entità ContentKey mediante** usato in **StreamingLocators** per la protezione del contenuto, è possibile chiamare il metodo [StreamingLocator. ListContentKeysAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.media.streaminglocatorsoperationsextensions.listcontentkeysasync?view=azure-dotnet&preserve-view=true) .  
 
 Per gli **Asset** creati e pubblicati con l'API v2 sono presenti sia un [criterio della chiave](https://docs.microsoft.com/azure/media-services/latest/content-key-policy-concept) simmetrica sia una chiave simmetrica definita nell'API V3, anziché usare un criterio predefinito per la chiave simmetrica nei criteri di [streaming](https://docs.microsoft.com/azure/media-services/latest/streaming-policy-concept).
 
