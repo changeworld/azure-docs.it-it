@@ -4,10 +4,10 @@ description: Questa esercitazione illustra come connettere una funzione a una re
 ms.topic: article
 ms.date: 2/22/2021
 ms.openlocfilehash: e8ca853908b366b99e150f04ced404f42acc7d21
-ms.sourcegitcommit: a8ff4f9f69332eef9c75093fd56a9aae2fe65122
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/24/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "105027415"
 ---
 # <a name="tutorial-integrate-azure-functions-with-an-azure-virtual-network-by-using-private-endpoints"></a>Esercitazione: integrare funzioni di Azure con una rete virtuale di Azure usando endpoint privati

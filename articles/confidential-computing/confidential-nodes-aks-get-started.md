@@ -3,16 +3,17 @@ title: "Avvio rapido: Distribuire un cluster del servizio Azure Kubernetes trami
 description: In questa Guida introduttiva si apprenderà come creare un cluster AKS con nodi riservati e come distribuire un'app Hello World usando l'interfaccia della riga di comando di Azure.
 author: agowdamsft
 ms.service: container-service
+ms.subservice: confidential-computing
 ms.topic: quickstart
 ms.date: 03/18/2020
 ms.author: amgowda
 ms.custom: contentperf-fy21q3
-ms.openlocfilehash: a7566cdb22d62bc46df82a3ef0aa78a748769531
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 73770acefc8a153e4a2f2fde146f9afd4c319cd3
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104657706"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105933135"
 ---
 # <a name="quickstart-deploy-an-azure-kubernetes-service-aks-cluster-with-confidential-computing-nodes-dcsv2-using-azure-cli"></a>Guida introduttiva: distribuire un cluster Azure Kubernetes Service (AKS) con nodi di calcolo riservati (DCsv2) usando l'interfaccia della riga di comando di Azure
 

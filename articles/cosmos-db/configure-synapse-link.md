@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 11/30/2020
 ms.author: rosouz
 ms.custom: references_regions, synapse-cosmos-db
-ms.openlocfilehash: 60b720f3f5d91570e32ecf3d03aa7065f93990c5
-ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
+ms.openlocfilehash: 24886ff3e01e9d9b4c01eabc917ced433599c0fa
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/23/2021
-ms.locfileid: "104868206"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105727128"
 ---
 # <a name="configure-and-use-azure-synapse-link-for-azure-cosmos-db"></a>Configurare e usare Collegamento ad Azure Synapse per Azure Cosmos DB
 [!INCLUDE[appliesto-sql-mongodb-api](includes/appliesto-sql-mongodb-api.md)]
@@ -56,13 +56,13 @@ Il collegamento sinapsi di Azure è disponibile per Azure Cosmos DB contenitori 
 
 I collegamenti seguenti illustrano come abilitare il collegamento sinapsi usando l'interfaccia della riga di comando di Azure:
 
-* [Creare un nuovo account di Azure Cosmos DB con il collegamento sinapsi abilitato](https://docs.microsoft.com/cli/azure/cosmosdb?view=azure-cli-latest#az_cosmosdb_create-optional-parameters&preserve-view=true)
-* [Aggiornare un account di Azure Cosmos DB esistente per abilitare il collegamento sinapsi](https://docs.microsoft.com/cli/azure/cosmosdb?view=azure-cli-latest#az_cosmosdb_update-optional-parameters&preserve-view=true)
+* [Creare un nuovo account di Azure Cosmos DB con il collegamento sinapsi abilitato](/cli/azure/cosmosdb#az_cosmosdb_create-optional-parameters)
+* [Aggiornare un account di Azure Cosmos DB esistente per abilitare il collegamento sinapsi](/cli/azure/cosmosdb#az_cosmosdb_update-optional-parameters)
 
 ### <a name="powershell"></a>PowerShell
 
-* [Creare un nuovo account di Azure Cosmos DB con il collegamento sinapsi abilitato](https://docs.microsoft.com/powershell/module/az.cosmosdb/new-azcosmosdbaccount?view=azps-5.5.0#description&preserve-view=true)
-* [Aggiornare un account di Azure Cosmos DB esistente per abilitare il collegamento sinapsi](https://docs.microsoft.com/powershell/module/az.cosmosdb/update-azcosmosdbaccount?view=azps-5.5.0&preserve-view=true)
+* [Creare un nuovo account di Azure Cosmos DB con il collegamento sinapsi abilitato](/powershell/module/az.cosmosdb/new-azcosmosdbaccount#description)
+* [Aggiornare un account di Azure Cosmos DB esistente per abilitare il collegamento sinapsi](/powershell/module/az.cosmosdb/update-azcosmosdbaccount)
 
 
 I collegamenti seguenti illustrano come abilitare il collegamento sinapsi usando PowerShell:
@@ -179,15 +179,15 @@ except exceptions.CosmosResourceExistsError:
 
 I collegamenti seguenti illustrano come creare contenitori di archiviazione analitici abilitati usando l'interfaccia della riga di comando di Azure:
 
-* [API Azure Cosmos DB per il database Mongo](https://docs.microsoft.com/cli/azure/cosmosdb/mongodb/collection?view=azure-cli-latest#az_cosmosdb_mongodb_collection_create-examples&preserve-view=true)
-* [API SQL Azure Cosmos DB](https://docs.microsoft.com/cli/azure/cosmosdb/sql/container?view=azure-cli-latest#az_cosmosdb_sql_container_create&preserve-view=true)
+* [API Azure Cosmos DB per il database Mongo](/cli/azure/cosmosdb/mongodb/collection#az_cosmosdb_mongodb_collection_create-examples)
+* [API SQL Azure Cosmos DB](/cli/azure/cosmosdb/sql/container#az_cosmosdb_sql_container_create)
 
 ### <a name="powershell"></a>PowerShell
 
 I collegamenti seguenti illustrano come creare contenitori di archiviazione analitici abilitati usando PowerShell:
 
-* [API Azure Cosmos DB per il database Mongo](https://docs.microsoft.com/powershell/module/az.cosmosdb/new-azcosmosdbmongodbcollection?view=azps-5.5.0#description&preserve-view=true)
-* [API SQL Azure Cosmos DB](https://docs.microsoft.com/cli/azure/cosmosdb/sql/container?view=azure-cli-latest#az_cosmosdb_sql_container_create&preserve-view=true)
+* [API Azure Cosmos DB per il database Mongo](/powershell/module/az.cosmosdb/new-azcosmosdbmongodbcollection#description)
+* [API SQL Azure Cosmos DB](/cli/azure/cosmosdb/sql/container#az_cosmosdb_sql_container_create)
 
 
 ## <a name="optional---update-the-analytical-store-time-to-live"></a><a id="update-analytical-ttl"></a> Facoltativo: aggiornare la durata (TTL) dell'archivio analitico
@@ -245,15 +245,15 @@ Attualmente non supportato.
 
 I collegamenti seguenti illustrano come aggiornare il TTL analitico dei contenitori usando l'interfaccia della riga di comando di Azure:
 
-* [API Azure Cosmos DB per il database Mongo](https://docs.microsoft.com/cli/azure/cosmosdb/mongodb/collection?view=azure-cli-latest#az_cosmosdb_mongodb_collection_update&preserve-view=true)
-* [API SQL Azure Cosmos DB](https://docs.microsoft.com/cli/azure/cosmosdb/sql/container?view=azure-cli-latest#az_cosmosdb_sql_container_update&preserve-view=true)
+* [API Azure Cosmos DB per il database Mongo](/cli/azure/cosmosdb/mongodb/collection#az_cosmosdb_mongodb_collection_update)
+* [API SQL Azure Cosmos DB](/cli/azure/cosmosdb/sql/container#az_cosmosdb_sql_container_update)
 
 ### <a name="powershell"></a>PowerShell
 
 I collegamenti seguenti illustrano come aggiornare il TTL analitico dei contenitori usando PowerShell:
 
-* [API Azure Cosmos DB per il database Mongo](https://docs.microsoft.com/powershell/module/az.cosmosdb/update-azcosmosdbmongodbcollection?view=azps-5.5.0&preserve-view=true)
-* [API SQL Azure Cosmos DB](https://docs.microsoft.com/powershell/module/az.cosmosdb/update-azcosmosdbsqlcontainer?view=azps-5.5.0&preserve-view=true)
+* [API Azure Cosmos DB per il database Mongo](/powershell/module/az.cosmosdb/update-azcosmosdbmongodbcollection)
+* [API SQL Azure Cosmos DB](/powershell/module/az.cosmosdb/update-azcosmosdbsqlcontainer)
 
 
 ## <a name="connect-to-a-synapse-workspace"></a><a id="connect-to-cosmos-database"></a> Connettersi a un'area di lavoro di Synapse

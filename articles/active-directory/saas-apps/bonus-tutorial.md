@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 04/14/2019
 ms.author: jeedes
 ms.openlocfilehash: e93d03ac9ec404a18b480a0cd1bfe289944b60d8
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "101689114"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-bonusly"></a>Esercitazione: Integrazione di Azure Active Directory con Bonusly
@@ -197,7 +197,7 @@ In questa sezione Britta Simon viene abilitata per l'uso dell'accesso Single Sig
 
 7. Nella finestra di dialogo **Aggiungi assegnazione** fare clic sul pulsante **Assegna**.
 
-### <a name="create-bonusly-test-user"></a>Creare un utente di test di Bonusly
+### <a name="create-bonusly-test-user&quot;></a>Creare un utente di test di Bonusly
 
 Per consentire agli utenti di Azure AD di accedere a Bonusly, è necessario effettuarne il provisioning in Bonusly. Nel caso di Bonusly, il provisioning è un'attività manuale.
 
@@ -210,7 +210,7 @@ Per consentire agli utenti di Azure AD di accedere a Bonusly, è necessario effe
 
 1. Fare clic su **Impostazioni**.
 
-    ![Impostazioni](./media/bonus-tutorial/ic781041.png "Impostazioni")
+    ![Impostazioni](./media/bonus-tutorial/ic781041.png &quot;Impostazioni")
 
 1. Fare clic sulla scheda **Users and bonuses** .
 

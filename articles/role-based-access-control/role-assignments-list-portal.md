@@ -10,10 +10,10 @@ ms.workload: identity
 ms.date: 12/09/2020
 ms.author: rolyon
 ms.openlocfilehash: 7d53df4159c071c17657e8a8367da605b6a5dc9e
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "100556171"
 ---
 # <a name="list-azure-role-assignments-using-the-azure-portal"></a>Elencare le assegnazioni di ruolo di Azure usando il portale di Azure
@@ -41,7 +41,7 @@ Per visualizzare rapidamente i ruoli assegnati a un utente o a un gruppo in una 
 
 1. Per modificare la sottoscrizione, fare clic sull'elenco **sottoscrizioni** .
 
-## <a name="list-owners-of-a-subscription"></a>Elenca i proprietari di una sottoscrizione
+## <a name="list-owners-of-a-subscription"></a>Elenco dei proprietari di una sottoscrizione
 
 Gli utenti a cui è stato assegnato il ruolo di [proprietario](built-in-roles.md#owner) per una sottoscrizione possono gestire tutti gli elementi nella sottoscrizione. Per elencare i proprietari di una sottoscrizione, seguire questa procedura.
 

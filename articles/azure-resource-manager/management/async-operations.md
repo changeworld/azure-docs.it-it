@@ -4,12 +4,12 @@ description: Viene descritto come tenere traccia delle operazioni asincrone in A
 ms.topic: conceptual
 ms.date: 08/21/2020
 ms.custom: seodec18
-ms.openlocfilehash: e2c5ba137d5277466cf1b382d2b0b1bc02259f00
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: f5823bc8f6c0d5b334a638d4ad350eb2f9ef2b28
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "88723453"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105932744"
 ---
 # <a name="track-asynchronous-azure-operations"></a>Tenere traccia delle operazioni asincrone
 
@@ -123,7 +123,7 @@ Il corpo della risposta contiene lo stato dell'operazione:
 
 ### <a name="deploy-resources-201-with-azure-asyncoperation"></a>Distribuzione delle risorse (201 con Azure-AsyncOperation)
 
-Questo esempio illustra come determinare lo stato dell' [operazione di distribuzione per la distribuzione di risorse](/rest/api/resources/deployments/createorupdate) in Azure. La richiesta iniziale è nel formato seguente:
+Questo esempio illustra come determinare lo stato dell' [operazione di distribuzione per la distribuzione di risorse](/rest/api/resources/resources/deployments/createorupdate) in Azure. La richiesta iniziale è nel formato seguente:
 
 ```HTTP
 PUT

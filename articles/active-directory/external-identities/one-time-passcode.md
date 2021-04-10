@@ -13,10 +13,10 @@ ms.reviewer: mal
 ms.custom: it-pro, seo-update-azuread-jan, seoapril2019
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 7961997c6a6736c154b6217ee3f21682d0c4c3fc
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "101688468"
 ---
 # <a name="email-one-time-passcode-authentication"></a>Autenticazione del codice di accesso monouso tramite posta elettronica
@@ -66,13 +66,13 @@ Al momento dell'invito non è presente alcuna indicazione del fatto che l'utente
 > [!NOTE]
 > Quando un utente riscatta un passcode monouso e in un secondo momento ottiene un account Microsoft, un account di Azure AD o un altro account federato, continuerà a essere autenticato con un passcode monouso. Se si vuole aggiornare il metodo di autenticazione di tale utente, è possibile eliminare l'account utente guest e invitarlo nuovamente.
 
-### <a name="example"></a>Esempio
+### <a name="example&quot;></a>Esempio
 
 Utente guest teri@gmail.com viene invitato a Fabrikam, che non dispone di federazione Google configurata. Teri non dispone di un account Microsoft. Riceverà un passcode monouso per l'autenticazione.
 
-## <a name="disable-email-one-time-passcode"></a>Disabilitare il codice di posta elettronica monouso
+## <a name=&quot;disable-email-one-time-passcode&quot;></a>Disabilitare il codice di posta elettronica monouso
 
-A partire dall'ottobre 2021, la funzionalità di accesso monouso per il codice di posta elettronica verrà attivata per tutti i tenant esistenti e abilitata per impostazione predefinita per i nuovi tenant. In quel momento, Microsoft non supporterà più il riscatto degli inviti mediante la creazione di account Azure AD e tenant non gestiti ("virale" o "just-in-Time") per gli scenari di collaborazione B2B. È in corso l'abilitazione della funzionalità di accesso monouso per la posta elettronica perché fornisce un metodo di autenticazione di fallback semplice per gli utenti guest. Tuttavia, è possibile disabilitare questa funzionalità se si sceglie di non usarla.
+A partire dall'ottobre 2021, la funzionalità di accesso monouso per il codice di posta elettronica verrà attivata per tutti i tenant esistenti e abilitata per impostazione predefinita per i nuovi tenant. In quel momento, Microsoft non supporterà più il riscatto degli inviti mediante la creazione di account Azure AD e tenant non gestiti (&quot;virale&quot; o &quot;just-in-Time") per gli scenari di collaborazione B2B. È in corso l'abilitazione della funzionalità di accesso monouso per la posta elettronica perché fornisce un metodo di autenticazione di fallback semplice per gli utenti guest. Tuttavia, è possibile disabilitare questa funzionalità se si sceglie di non usarla.
 
 > [!NOTE]
 >

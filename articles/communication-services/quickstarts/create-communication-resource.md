@@ -10,16 +10,14 @@ ms.date: 03/10/2021
 ms.topic: overview
 ms.service: azure-communication-services
 zone_pivot_groups: acs-plat-azp-azcli-net-ps
-ms.openlocfilehash: bdfd4dfef57721a24b4c6981ae653ab4f17562fa
-ms.sourcegitcommit: c8b50a8aa8d9596ee3d4f3905bde94c984fc8aa2
+ms.openlocfilehash: aabb8bdf4105702aa623c45bc291770b05b8279e
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2021
-ms.locfileid: "105644737"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105726772"
 ---
 # <a name="quickstart-create-and-manage-communication-services-resources"></a>Avvio rapido: Creare e gestire le risorse di Servizi di comunicazione
-
-[!INCLUDE [Public Preview Notice](../includes/public-preview-include.md)]
 
 Per iniziare a usare Servizi di comunicazione di Azure, effettuare il provisioning della prima risorsa di Servizi di comunicazione. È possibile eseguire il provisioning delle risorse dei servizi di comunicazione tramite il [portale di Azure](https://portal.azure.com) o con .NET Management SDK. Management SDK e il portale di Azure consentono di creare, configurare, aggiornare ed eliminare le risorse e l'interfaccia con [Azure Resource Manager](../../azure-resource-manager/management/overview.md), il servizio di distribuzione e gestione di Azure. Tutte le funzionalità disponibili negli SDK sono disponibili nella portale di Azure. 
 

@@ -4,10 +4,10 @@ description: Far eseguire le funzioni dal runtime di Funzioni di Azure tramite i
 ms.topic: conceptual
 ms.date: 07/15/2019
 ms.openlocfilehash: aad6991d0ddd5c439d03e41adec63837a21db87b
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "104581593"
 ---
 # <a name="run-your-azure-functions-from-a-package-file"></a>Eseguire Funzioni di Azure da un file di pacchetto
@@ -71,6 +71,6 @@ Di seguito viene illustrata un'app per le funzioni configurata per l'esecuzione 
 ## <a name="next-steps"></a>Passaggi successivi
 
 > [!div class="nextstepaction"]
-> [Distribuzione continua per Funzioni di Azure](functions-continuous-deployment.md)
+> [Distribuzione continua per funzioni di Azure](functions-continuous-deployment.md)
 
 [Zip deployment for Azure Functions]: deployment-zip-push.md
