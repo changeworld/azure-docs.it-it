@@ -14,12 +14,12 @@ ms.topic: quickstart
 ms.date: 11/17/2020
 ms.custom: devx-track-java
 ms.author: inhenkel
-ms.openlocfilehash: 769b4bc431040ee4d872fa60270196db96978ed2
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 06923d7c198edc324d85b726cf91694d8cf7e1ca
+ms.sourcegitcommit: edc7dc50c4f5550d9776a4c42167a872032a4151
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "94748183"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105961354"
 ---
 # <a name="connect-to-media-services-v3-api---java"></a>Connettersi alle API di Servizi multimediali v3 - Java
 
@@ -37,7 +37,7 @@ In questo articolo viene usato il Visual Studio Code per sviluppare l'app di ese
    - Apache Maven
    - Java Extension Pack
 - Assicurarsi di impostare le variabili di ambiente `JAVA_HOME` e `PATH`.
-- [Creare un account di Servizi multimediali di Azure](./create-account-howto.md). Assicurarsi di ricordare il nome del gruppo di risorse e quello dell'account di Servizi multimediali.
+- [Creare un account di Servizi multimediali di Azure](./account-create-how-to.md). Assicurarsi di ricordare il nome del gruppo di risorse e quello dell'account di Servizi multimediali.
 - Seguire la procedura descritta nell'argomento [Accedere alle API](./access-api-howto.md). Registrare l'ID sottoscrizione, l'ID applicazione (ID client) e la chiave di autenticazione (segreto), oltre all'ID tenant che sarà necessario in un passaggio successivo.
 
 Vedere anche:

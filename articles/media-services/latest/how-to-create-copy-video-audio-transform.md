@@ -14,12 +14,12 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 11/19/2020
 ms.author: inhenkel
-ms.openlocfilehash: 24dcd64ba14303c4e205ba3da610d04d4ef277d9
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 9a3d9ff9947a97182964f805d0b8da7e3abcad69
+ms.sourcegitcommit: edc7dc50c4f5550d9776a4c42167a872032a4151
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101724575"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105962363"
 ---
 # <a name="create-a-copyvideo-copyaudio-transform"></a>Creare una trasformazione CopyAudio di CopyVideo
 
@@ -29,7 +29,7 @@ Questo articolo illustra come creare una `CopyVideo/CopyAudio` trasformazione.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-Seguire la procedura disponibile in [Creare un account di Servizi multimediali](./create-account-howto.md) per creare l'account e il gruppo di risorse di Servizi multimediali necessari per creare un asset.
+Seguire la procedura disponibile in [Creare un account di Servizi multimediali](./account-create-how-to.md) per creare l'account e il gruppo di risorse di Servizi multimediali necessari per creare un asset.
 
 ## <a name="methods"></a>Metodi
 

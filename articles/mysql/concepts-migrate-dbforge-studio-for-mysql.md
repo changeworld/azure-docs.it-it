@@ -6,12 +6,12 @@ ms.author: pariks
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 03/03/2021
-ms.openlocfilehash: d5d694820c2ffd09868d81693d4f98f839a139d7
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 1c85a07a3d61c80f3871f04c399263a8e210254e
+ms.sourcegitcommit: 6ed3928efe4734513bad388737dd6d27c4c602fd
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104591878"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "107010792"
 ---
 # <a name="connect-to-azure-database-for-mysql-using-dbforge-studio-for-mysql"></a>Connettersi a database di Azure per MySQL usando dbForge Studio per MySQL
 
@@ -78,9 +78,7 @@ In seguito alle attività di migrazione del database, il database *world_x* è s
 dbForge Studio per MySQL include alcuni strumenti che consentono di migrare i database MySQL, i dati e\o degli schemi MySQL in Azure. La scelta della funzionalità dipende dalle esigenze e dai requisiti del progetto. Se è necessario spostare un database in modo selettivo, ovvero eseguire la migrazione di alcune tabelle MySQL in Azure, è preferibile usare la funzionalità schema e confronto dati.
 In questo esempio viene eseguita la migrazione del database *globale* che risiede nel server MySQL in database di Azure per MySQL. La logica alla base del processo di migrazione con lo schema e la funzionalità di confronto dati di dbForge Studio per MySQL consiste nel creare un database vuoto nel database di Azure per MySQL, sincronizzarlo con il database MySQL necessario prima usando lo strumento confronto schema e quindi usando lo strumento di confronto dei dati. In questo modo, gli schemi e i dati MySQL vengono spostati in modo accurato in Azure.
 
-### <a name="connect-to-azure-database-for-mysql-and-create-an-empty-database"></a>Connettersi a database di Azure per MySQL e creare un database vuoto
-
-Connettersi a un database di Azure per MySQL e creare un database vuoto.
+### <a name="step-1-connect-to-azure-database-for-mysql-and-create-an-empty-database"></a>Passaggio 1. Connettersi a database di Azure per MySQL e creare un database vuoto
 
 ### <a name="step-2-schema-synchronization"></a>Passaggio 2: Sincronizzazione dello schema
 

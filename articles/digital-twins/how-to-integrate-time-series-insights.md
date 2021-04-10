@@ -7,12 +7,12 @@ ms.author: alkarche
 ms.date: 1/19/2021
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 608f883304dbc8e1ea8b0127668125ae50ca0b11
-ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
+ms.openlocfilehash: 3bc821f31e0463000c9089e48818249f2c046ede
+ms.sourcegitcommit: 5f482220a6d994c33c7920f4e4d67d2a450f7f08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/26/2021
-ms.locfileid: "105564943"
+ms.lasthandoff: 04/08/2021
+ms.locfileid: "107102996"
 ---
 # <a name="integrate-azure-digital-twins-with-azure-time-series-insights"></a>Integrare i dispositivi gemelli digitali di Azure con Azure Time Series Insights
 
@@ -173,7 +173,7 @@ Si procederà quindi alla configurazione di un'istanza di Time Series Insights p
 
 ## <a name="begin-sending-iot-data-to-azure-digital-twins"></a>Iniziare a inviare i dati dell'Internet di Azure ai dispositivi gemelli digitali
 
-Per iniziare a inviare dati a Time Series Insights, è necessario avviare l'aggiornamento delle proprietà dei dispositivi gemelli digitali nei dispositivi gemelli digitali di Azure con valori di dati modificabili. Usare il comando [AZ DT Twin Update](/cli/azure/ext/azure-iot/dt/twin#ext-azure-iot-az-dt-twin-update) .
+Per iniziare a inviare dati a Time Series Insights, è necessario avviare l'aggiornamento delle proprietà dei dispositivi gemelli digitali nei dispositivi gemelli digitali di Azure con valori di dati modificabili. Usare il comando [AZ DT Twin Update](/cli/azure/dt/twin#az_dt_twin_update) .
 
 Se si usa l'esercitazione end-to-end ([*esercitazione: connettere una soluzione end-to-end*](tutorial-end-to-end.md)) per facilitare la configurazione dell'ambiente, è possibile iniziare a inviare i dati delle cose simulate eseguendo il progetto *DeviceSimulator* dall'esempio. Le istruzioni sono disponibili nella sezione [*configurare ed eseguire la simulazione*](tutorial-end-to-end.md#configure-and-run-the-simulation) dell'esercitazione.
 

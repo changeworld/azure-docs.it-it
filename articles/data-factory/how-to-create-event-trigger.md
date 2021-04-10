@@ -7,12 +7,12 @@ ms.author: chez
 ms.reviewer: jburchel
 ms.topic: conceptual
 ms.date: 03/11/2021
-ms.openlocfilehash: ae8b1eab81e3c898c25a613f552a49c8de64f49d
-ms.sourcegitcommit: a67b972d655a5a2d5e909faa2ea0911912f6a828
+ms.openlocfilehash: d9012c2bb56b7936b627063be2e9c5b7aa33541e
+ms.sourcegitcommit: edc7dc50c4f5550d9776a4c42167a872032a4151
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/23/2021
-ms.locfileid: "104889128"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105962731"
 ---
 # <a name="create-a-trigger-that-runs-a-pipeline-in-response-to-a-storage-event"></a>Creare un trigger per l'esecuzione di una pipeline in risposta a un evento di archiviazione
 
@@ -71,9 +71,12 @@ Questa sezione illustra come creare un trigger di evento di archiviazione all'in
 
 1. Se alla pipeline sono associati parametri, è possibile specificarli nel riquadro di spostamento laterale dei parametri di esecuzione del trigger. Il trigger dell'evento di archiviazione acquisisce il percorso e il nome file del BLOB nelle proprietà `@triggerBody().folderPath` e `@triggerBody().fileName` . Per usare i valori di queste proprietà in una pipeline, è necessario mappare le proprietà per i parametri della pipeline. Dopo il mapping delle proprietà per i parametri, è possibile accedere ai valori acquisiti dal trigger attraverso l'espressione `@pipeline().parameters.parameterName` attraverso la pipeline. Per una spiegazione dettagliata, vedere [metadati del trigger di riferimento nelle pipeline](how-to-use-trigger-parameterization.md)
 
-    :::image type="content" source="media/how-to-create-event-trigger/event-based-trigger-image4.png" alt-text="Screenshot delle proprietà di mapping del trigger dell'evento di archiviazione ai parametri della pipeline.":::
+   :::image type="content" source="media/how-to-create-event-trigger/event-based-trigger-image4.png" alt-text="Screenshot delle proprietà di mapping del trigger dell'evento di archiviazione ai parametri della pipeline.":::
 
-    Nell'esempio precedente, il trigger viene configurato in modo da essere attivato quando viene creato un percorso BLOB che termina con. csv nella cartella Sample _-testing_ nel contenitore _Sample-Data_. Le proprietà **folderPath** e **fileName** acquisiscono il percorso del nuovo BLOB. Ad esempio, quando si aggiunge MoviesDB.csv viene aggiunto al percorso sample-data/event-testing, il valore di `@triggerBody().folderPath` è `sample-data/event-testing` e il valore di `@triggerBody().fileName` è `moviesDB.csv`. Questi valori vengono mappati nell'esempio ai parametri della pipeline `sourceFolder` e `sourceFile` , che possono essere usati in tutta la pipeline come `@pipeline().parameters.sourceFolder` e `@pipeline().parameters.sourceFile` rispettivamente.
+   Nell'esempio precedente, il trigger viene configurato in modo da essere attivato quando viene creato un percorso BLOB che termina con. csv nella cartella Sample _-testing_ nel contenitore _Sample-Data_. Le proprietà **folderPath** e **fileName** acquisiscono il percorso del nuovo BLOB. Ad esempio, quando si aggiunge MoviesDB.csv viene aggiunto al percorso sample-data/event-testing, il valore di `@triggerBody().folderPath` è `sample-data/event-testing` e il valore di `@triggerBody().fileName` è `moviesDB.csv`. Questi valori vengono mappati nell'esempio ai parametri della pipeline `sourceFolder` e `sourceFile` , che possono essere usati in tutta la pipeline come `@pipeline().parameters.sourceFolder` e `@pipeline().parameters.sourceFile` rispettivamente.
+
+   > [!NOTE]
+   > Se si sta creando la pipeline e il trigger in [Azure sinapsi Analytics](/synapse-analytics), è necessario `@trigger().outputs.body.fileName` usare `@trigger().outputs.body.folderPath` e come parametri. Queste due proprietà acquisiscono informazioni sui BLOB. Utilizzare tali proprietà anziché utilizzare `@triggerBody().fileName` e `@triggerBody().folderPath` .
 
 1. Al termine, fare clic su **Fine**.
 

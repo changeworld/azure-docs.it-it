@@ -2,13 +2,13 @@
 title: Creare un cloud privato della soluzione Azure VMware
 description: Procedura per creare un cloud privato della soluzione VMware di Azure usando il portale di Azure.
 ms.topic: include
-ms.date: 02/17/2021
-ms.openlocfilehash: da79881e609f982960468a8f26c98178f972ad43
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 04/07/2021
+ms.openlocfilehash: 6b4e5631d1a4b6c5bf56b01aba12752595ef63b8
+ms.sourcegitcommit: 6ed3928efe4734513bad388737dd6d27c4c602fd
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101725405"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "107073476"
 ---
 <!-- Used in deploy-azure-vmware-solution.md and tutorial-create-private-cloud.md -->
 
@@ -34,7 +34,7 @@ ms.locfileid: "101725405"
 1. Al termine, selezionare **Rivedi e crea**. Nella schermata successiva verificare le informazioni immesse. Se tutte le informazioni sono corrette, selezionare **Crea**.
 
    > [!NOTE]
-   > Questo passaggio richiede circa due ore. 
+   > Questo passaggio richiede circa 3-4 ore. L'aggiunta di un singolo nodo in un cluster esistente/stesso richiede tra 30-45 minuti.
 
 1. Verificare che la distribuzione sia riuscita. Passare al gruppo di risorse creato e selezionare il cloud privato.  Al termine della distribuzione, verrà visualizzato lo stato **Completato**. 
 

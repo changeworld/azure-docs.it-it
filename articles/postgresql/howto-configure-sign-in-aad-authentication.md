@@ -1,17 +1,17 @@
 ---
 title: Usare Azure Active Directory - Database di Azure per PostgreSQL - Server singolo
 description: Informazioni su come configurare Azure Active Directory (AAD) per l'autenticazione con Database di Azure per PostgreSQL - Server singolo
-author: lfittl
-ms.author: lufittl
+author: sunilagarwal
+ms.author: sunila
 ms.service: postgresql
 ms.topic: how-to
 ms.date: 07/23/2020
-ms.openlocfilehash: 178c339f6f47569160a9a748794678c610f35734
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 729879bb472786165b21a47a7baf058294a4db1f
+ms.sourcegitcommit: edc7dc50c4f5550d9776a4c42167a872032a4151
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "87171633"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105961524"
 ---
 # <a name="use-azure-active-directory-for-authentication-with-postgresql"></a>Usare Azure Active Directory per l'autenticazione con PostgreSQL
 

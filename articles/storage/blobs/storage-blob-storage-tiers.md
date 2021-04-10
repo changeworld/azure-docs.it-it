@@ -8,12 +8,12 @@ ms.service: storage
 ms.subservice: blobs
 ms.topic: conceptual
 ms.reviewer: klaasl
-ms.openlocfilehash: 1a1cb8e1676405cbfbb3f4f61c86d8136b688b88
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 0e2f3296eb6d4286bb4ef7081c1459109c40915f
+ms.sourcegitcommit: edc7dc50c4f5550d9776a4c42167a872032a4151
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104656839"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105962306"
 ---
 # <a name="access-tiers-for-azure-blob-storage---hot-cool-and-archive"></a>Livelli di accesso per archiviazione BLOB di Azure-accesso frequente, ad accesso sporadico e archivio
 
@@ -86,7 +86,7 @@ Gli scenari di utilizzo di esempio per il livello di accesso dell'archivio inclu
 - Dati di conformità e di archiviazione che devono essere archiviati da molto tempo e difficilmente accessibili
 
 > [!NOTE]
-> Il livello archivio non è supportato per gli account ZRS, GZRS o RA-GZRS. La migrazione da con ridondanza locale a GRS non è supportata se l'account di archiviazione contiene BLOB nel livello archivio.
+> Il livello archivio non è supportato per gli account ZRS, GZRS o RA-GZRS. La migrazione da con ridondanza locale a GRS è supportata purché nessun BLOB sia stato spostato nel livello archivio mentre l'account è stato impostato su con ridondanza locale. Un account può essere spostato di nuovo in GRS se l'aggiornamento viene eseguito per meno di 30 giorni dal momento in cui l'account è diventato con ridondanza locale e nessun BLOB è stato spostato nel livello archivio mentre l'account è stato impostato su con ridondanza locale.
 
 ## <a name="account-level-tiering"></a>Suddivisione in livelli a livello di account
 

@@ -11,12 +11,12 @@ ms.workload: ''
 ms.topic: article
 ms.date: 03/25/2021
 ms.author: inhenkel
-ms.openlocfilehash: 9c4ffee437e3049f8e480375f0b1373fce09fe77
-ms.sourcegitcommit: c8b50a8aa8d9596ee3d4f3905bde94c984fc8aa2
+ms.openlocfilehash: dc8f8f7ced1c5915c2ea54390685806cfcdd257f
+ms.sourcegitcommit: 02bc06155692213ef031f049f5dcf4c418e9f509
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2021
-ms.locfileid: "105646074"
+ms.lasthandoff: 04/03/2021
+ms.locfileid: "106280310"
 ---
 <!-- NOTE this file is temporary and a placeholder until the FAQ file update is completed. -->
 
@@ -34,7 +34,7 @@ Questo articolo fornisce le risposte alle domande frequenti su servizi multimedi
 - I dati aggiuntivi associati all'account di servizi multimediali, incluse le chiavi di crittografia del contenuto, le chiavi di verifica del token, gli URL JobInputHttp e altri metadati dell'entità, vengono archiviati nell'archivio di proprietà di Microsoft all'interno dell'area selezionata per l'account di servizi multimediali.
     - A causa dei [requisiti di residenza dei dati](https://azure.microsoft.com/global-infrastructure/data-residency/#more-information) in Brasile meridionale e Asia sudorientale, i dati dell'account aggiuntivi vengono archiviati in una modalità con ridondanza della zona ed è contenuto in una singola area. Per l'Asia sudorientale, tutti i dati dell'account aggiuntivi vengono archiviati a Singapore e per il Brasile meridionale, i dati vengono archiviati in Brasile.
     - In aree diverse dall'Asia meridionale e sudorientale, i dati dell'account aggiuntivi possono anche essere archiviati nell'archiviazione di proprietà di Microsoft nell' [area abbinata](../../best-practices-availability-paired-regions.md).
-- Servizi multimediali di Azure è un servizio a livello di area e non fornisce la [disponibilità elevata](media-services-high-availability-encoding.md) o la replica dei dati. I clienti che necessitano di queste funzionalità sono vivamente invitati a creare una soluzione usando gli account di servizi multimediali in più aree.  Un esempio che illustra come creare una soluzione per la disponibilità elevata con il video di servizi multimediali su richiesta è disponibile come guida.
+- Servizi multimediali di Azure è un servizio a livello di area e non fornisce la [disponibilità elevata](architecture-high-availability-encoding-concept.md) o la replica dei dati. I clienti che necessitano di queste funzionalità sono vivamente invitati a creare una soluzione usando gli account di servizi multimediali in più aree.  Un esempio che illustra come creare una soluzione per la disponibilità elevata con il video di servizi multimediali su richiesta è disponibile come guida.
 
 ### <a name="what-are-the-azure-portal-limitations-for-media-services-v3"></a>Quali sono le limitazioni portale di Azure per Media Services V3?
 
@@ -44,15 +44,15 @@ Se il video è stato caricato in precedenza nell'account di Servizi multimediali
 
 ### <a name="what-azure-roles-can-perform-actions-on-azure-media-services-resources"></a>Quali ruoli di Azure possono eseguire azioni sulle risorse di servizi multimediali di Azure? 
 
-Vedere [controllo degli accessi in base al ruolo di Azure (RBAC di Azure) per gli account di servizi multimediali](rbac-overview.md).
+Vedere [controllo degli accessi in base al ruolo di Azure (RBAC di Azure) per gli account di servizi multimediali](security-rbac-concept.md).
 
 ### <a name="how-do-i-stream-to-apple-ios-devices"></a>Ricerca per categorie trasmettere ai dispositivi Apple iOS?
 
-Assicurarsi di avere **(format = m3u8-aapl)** alla fine del percorso (dopo la parte **/manifest** dell'URL) per indicare al server di origine del flusso di restituire http live streaming contenuto (HLS) per l'utilizzo nei dispositivi nativi Apple iOS. Per informazioni dettagliate, vedere [distribuzione di contenuto](dynamic-packaging-overview.md).
+Assicurarsi di avere **(format = m3u8-aapl)** alla fine del percorso (dopo la parte **/manifest** dell'URL) per indicare al server di origine del flusso di restituire http live streaming contenuto (HLS) per l'utilizzo nei dispositivi nativi Apple iOS. Per informazioni dettagliate, vedere [distribuzione di contenuto](encode-dynamic-packaging-concept.md).
 
 ### <a name="what-is-the-recommended-method-to-process-videos"></a>Qual è il metodo consigliato per l'elaborazione dei processi?
 
-Usare [Trasformazioni](/rest/api/media/transforms) per configurare attività comuni relative alla codifica o all'analisi dei video. Ogni trasformazione descrive un recipe o un flusso di lavoro di attività per l'elaborazione dei file video o audio. Un [processo](/rest/api/media/jobs) è la richiesta effettiva a servizi multimediali di applicare la trasformazione a un video di input o a un contenuto audio. Dopo aver creato la trasformazione, è possibile inviare i processi usando le API di servizi multimediali o uno degli SDK pubblicati. Per altre informazioni, vedere [Trasformazioni e processi](transforms-jobs-concept.md).
+Usare [Trasformazioni](/rest/api/media/transforms) per configurare attività comuni relative alla codifica o all'analisi dei video. Ogni trasformazione descrive un recipe o un flusso di lavoro di attività per l'elaborazione dei file video o audio. Un [processo](/rest/api/media/jobs) è la richiesta effettiva a servizi multimediali di applicare la trasformazione a un video di input o a un contenuto audio. Dopo aver creato la trasformazione, è possibile inviare i processi usando le API di servizi multimediali o uno degli SDK pubblicati. Per altre informazioni, vedere [Trasformazioni e processi](transform-jobs-concept.md).
 
 ### <a name="i-uploaded-encoded-and-published-a-video-why-wont-the-video-play-when-i-try-to-stream-it"></a>Ho caricato, codificato e pubblicato un video. Perché il video non viene riprodotto quando si tenta di eseguire lo streaming?
 
@@ -60,7 +60,7 @@ Uno dei motivi più comuni è che non si ha l'endpoint di streaming da cui si st
 
 ### <a name="how-does-pagination-work"></a>Come funziona la paginazione?
 
-Quando si usa la paginazione, è necessario usare sempre il collegamento successivo per enumerare la raccolta e non dipendere da una particolare dimensione della pagina. Per informazioni dettagliate ed esempi, vedere [Filtro, ordinamento, restituzione di più pagine](entities-overview.md).
+Quando si usa la paginazione, è necessario usare sempre il collegamento successivo per enumerare la raccolta e non dipendere da una particolare dimensione della pagina. Per informazioni dettagliate ed esempi, vedere [Filtro, ordinamento, restituzione di più pagine](filter-order-page-entitites-how-to.md).
 
 ### <a name="what-features-are-not-yet-available-in-azure-media-services-v3"></a>Quali funzionalità non sono ancora disponibili in servizi multimediali di Azure V3?
 
@@ -68,7 +68,7 @@ Per informazioni dettagliate, vedere [la guida alla migrazione](migrate-v-2-v-3-
 
 ### <a name="what-is-the-process-of-moving-a-media-services-account-between-subscriptions"></a>Qual è il processo di trasferimento di un account di servizi multimediali tra le sottoscrizioni?  
 
-Per informazioni dettagliate, vedere [trasferimento di un account di servizi multimediali tra sottoscrizioni](media-services-account-concept.md).
+Per informazioni dettagliate, vedere [trasferimento di un account di servizi multimediali tra sottoscrizioni](account-move-account-how-to.md).
 
 ## <a name="live-streaming"></a>Streaming live 
 
@@ -93,7 +93,7 @@ L'applicazione Web deve richiedere all'utente se desidera terminare la trasmissi
 
 La codifica live di Servizi multimediali v3 non supporta ancora l'inserimento di slate immagine o video durante lo streaming live. 
 
-È possibile usare un [codificatore locale live](recommended-on-premises-live-encoders.md) per commutare il video di origine. Molte app offrono la possibilità di cambiare origine, tra cui Telestream Wirecast, Switcher Studio (in iOS) ed OBS Studio (app gratuita).
+È possibile usare un [codificatore locale live](encode-recommended-on-premises-live-encoders.md) per commutare il video di origine. Molte app offrono la possibilità di cambiare origine, tra cui Telestream Wirecast, Switcher Studio (in iOS) ed OBS Studio (app gratuita).
 
 ## <a name="content-protection"></a>Protezione del contenuto
 
@@ -109,7 +109,7 @@ Non è necessario usare un provider di token specifico, ad esempio Azure Active 
 
 Verificare che l'autorità emittente, il gruppo di destinatari e tutte le attestazioni corrispondano esattamente tra gli elementi di JWT e il `ContentKeyPolicyRestriction` valore utilizzato in `ContentKeyPolicy` .
 
-Per altre informazioni, vedere [proteggere il contenuto usando la crittografia dinamica di servizi multimediali](content-protection-overview.md).
+Per altre informazioni, vedere [proteggere il contenuto usando la crittografia dinamica di servizi multimediali](drm-content-protection-concept.md).
 
 ### <a name="how-and-where-did-i-get-a-jwt-token-before-using-it-to-request-a-license-or-key"></a>Come e dove è stato ottenuto un token JWT prima di usarlo per richiedere una licenza o una chiave?
 
@@ -127,8 +127,8 @@ Usare le API di servizi multimediali di Azure per la configurazione del recapito
 
 Per altre informazioni, vedere:
 
-- [Panoramica della protezione del contenuto](content-protection-overview.md)
-- [Progettazione di un sistema di protezione del contenuto con DRM multiplo e controllo di accesso](design-multi-drm-system-with-access-control.md)
+- [Panoramica della protezione del contenuto](drm-content-protection-concept.md)
+- [Progettazione di un sistema di protezione del contenuto con DRM multiplo e controllo di accesso](architecture-design-multi-drm-system.md)
 
 ### <a name="should-i-use-http-or-https"></a>È consigliabile usare HTTP o HTTPS?
 L'applicazione lettore MVC ASP.NET deve supportare quanto segue:
@@ -163,11 +163,11 @@ Spesso i clienti hanno investito in una licenza server farm nel proprio Data Cen
 
 Attualmente, è possibile utilizzare il [portale di Azure](https://portal.azure.com/) per:
 
-* Gestire [eventi live](live-events-outputs-concept.md) in servizi multimediali V3. 
+* Gestire [eventi live](live-event-outputs-concept.md) in servizi multimediali V3. 
 * Visualizzare (non gestire) gli [Asset](assets-concept.md)V3. 
 * [Ottenere informazioni sull'accesso alle API](./access-api-howto.md). 
 
-Per tutte le altre attività di gestione (ad esempio, [trasformazioni e processi](transforms-jobs-concept.md) e [protezione del contenuto](content-protection-overview.md)), usare l' [API REST](/rest/api/media/), l'interfaccia della riga di comando di [Azure](/cli/azure/ams)o uno degli [SDK](media-services-apis-overview.md#sdks)supportati.
+Per tutte le altre attività di gestione (ad esempio, [trasformazioni e processi](transform-jobs-concept.md) e [protezione del contenuto](drm-content-protection-concept.md)), usare l' [API REST](/rest/api/media/), l'interfaccia della riga di comando di [Azure](/cli/azure/ams)o uno degli [SDK](media-services-apis-overview.md#sdks)supportati.
 
 ### <a name="is-there-an-assetfile-concept-in-v3"></a>È presente un concetto AssetFile nella versione v3?
 
@@ -207,7 +207,7 @@ La struttura del file scaricato in un dispositivo iOS è simile a quella illustr
 
 La prima cartella con un nome che termina con un trattino seguito da un numero contiene contenuto video. Il valore numerico corrisponde alla larghezza di banda massima dei rendering video. La seconda cartella con il nome che termina con un trattino seguito da 0 include contenuto audio. La terza cartella denominata `Data` contiene la playlist master del contenuto fps. Infine, boot.xml fornisce una descrizione completa del contenuto della cartella `.movpkg`. 
 
-![Struttura di file offline per l'app di esempio FairPlay iOS](media/offline-fairplay-for-ios/offline-fairplay-file-structure.png)
+![Struttura di file offline per l'app di esempio FairPlay iOS](media/drm-offline-fairplay-for-ios-concept/offline-fairplay-file-structure.png)
 
 Ecco un file di boot.xml di esempio:
 
@@ -253,7 +253,7 @@ In base alla logica di business del servizio token di sicurezza personalizzato, 
 
 #### <a name="what-is-the-mapping-between-the-widevine-and-media-services-drm-security-levels"></a>Qual è il mapping tra i livelli di sicurezza DRM Widevine e servizi multimediali?
 
-"Panoramica dell'architettura DRM Widevine" di Google definisce tre livelli di sicurezza. Tuttavia, la [documentazione di servizi multimediali di Azure nel modello di licenza Widevine](widevine-license-template-overview.md) delinea cinque livelli di sicurezza (requisiti di affidabilità client per la riproduzione). In questa sezione viene illustrato il mapping dei livelli di sicurezza.
+"Panoramica dell'architettura DRM Widevine" di Google definisce tre livelli di sicurezza. Tuttavia, la [documentazione di servizi multimediali di Azure nel modello di licenza Widevine](drm-widevine-license-template-concept.md) delinea cinque livelli di sicurezza (requisiti di affidabilità client per la riproduzione). In questa sezione viene illustrato il mapping dei livelli di sicurezza.
 
 Entrambi i set di livelli di sicurezza sono definiti da Google Widevine. La differenza si trova nel livello di utilizzo: architettura o API. I cinque livelli di sicurezza vengono usati nell'API Widevine. L' `content_key_specs` oggetto, che contiene `security_level` , viene deserializzato e passato al servizio di recapito globale Widevine dal servizio di licenza Widevine di servizi multimediali di Azure. Nella tabella seguente viene illustrato il mapping tra i due set di livelli di sicurezza.
 

@@ -13,12 +13,12 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 08/31/2020
 ms.author: inhenkel
-ms.openlocfilehash: dc6b240a2d97e0b4aa313f858b3965f241dd0b08
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: e7c35e079a6f4bf6c40992debace60e10631a8ba
+ms.sourcegitcommit: edc7dc50c4f5550d9776a4c42167a872032a4151
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98898190"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105962047"
 ---
 # <a name="tutorial-encode-a-remote-file-based-on-url-and-stream-the-video---net"></a>Esercitazione: Codificare un file remoto basato su URL ed eseguire lo streaming del video - .NET
 
@@ -36,7 +36,7 @@ Al termine dell'esercitazione, sarà possibile eseguire lo streaming di un video
 ## <a name="prerequisites"></a>Prerequisiti
 
 - Se Visual Studio non è installato, è possibile scaricare [Visual Studio Community 2017](https://www.visualstudio.com/thank-you-downloading-visual-studio/?sku=Community&rel=15).
-- [Creare un account di Servizi multimediali di Azure](./create-account-howto.md).<br/>Assicurarsi di ricordare i valori usati per il nome del gruppo di risorse e il nome dell'account di Servizi multimediali.
+- [Creare un account di Servizi multimediali di Azure](./account-create-how-to.md).<br/>Assicurarsi di ricordare i valori usati per il nome del gruppo di risorse e il nome dell'account di Servizi multimediali.
 - Seguire la procedura descritta in [Accedere all'API di Servizi multimediali di Azure usando l'interfaccia della riga di comando di Azure](./access-api-howto.md) e salvare le credenziali. Sarà necessario usarle per accedere all'API.
 
 ## <a name="download-and-configure-the-sample"></a>Scaricare e configurare l'esempio

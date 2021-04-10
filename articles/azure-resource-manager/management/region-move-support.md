@@ -6,12 +6,12 @@ ms.service: azure-resource-manager
 ms.topic: reference
 ms.date: 08/25/2020
 ms.author: raynew
-ms.openlocfilehash: 18d4d84462d528b718d784ff6a16ecf990ed0d20
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 9229fca9f98aac4ca628c0bb25c13c9ba1989626
+ms.sourcegitcommit: edc7dc50c4f5550d9776a4c42167a872032a4151
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100094016"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105962595"
 ---
 # <a name="support-for-moving-azure-resources-across-regions"></a>Supporto per lo trasferimento di risorse di Azure tra aree
 
@@ -503,7 +503,7 @@ Passare a uno spazio dei nomi del provider di risorse:
 > | Tipo di risorsa | Spostamento area | 
 > | ------------- | ----------- |
 > | capabilities | No | 
-> | domainnames | Sì | No |
+> | domainnames | No |
 > | quotas | No | 
 > | resourcetypes | No |
 > | validatesubscriptionmoveavailability | No | 
@@ -1061,7 +1061,7 @@ Passare a uno spazio dei nomi del provider di risorse:
 > [!div class="mx-tableFixed"]
 > | Tipo di risorsa | Spostamento area | 
 > | ------------- | ----------- |
-> | account | No. [Altre informazioni](../../azure-monitor/faq.md#how-do-i-move-an-application-insights-resource-to-a-new-region)
+> | account | No. [Altre informazioni](../../azure-monitor/faq.md#how-do-i-move-an-application-insights-resource-to-a-new-region) |
 > | actiongroups |  No | 
 > | activitylogalerts | No | 
 > | alertrules |  No | 
@@ -1073,12 +1073,12 @@ Passare a uno spazio dei nomi del provider di risorse:
 > | diagnosticsettingscategories | No | 
 > | eventcategories | No | 
 > | eventtypes | No | 
-> | extendeddiagnosticsettings | No | |
+> | extendeddiagnosticsettings | No |
 > | guestdiagnosticsettings | No | 
 > | listmigrationdate | No | 
 > | logdefinitions | No | 
 > | logprofiles | No | 
-> | log | No | No |
+> | log | No |
 > | metricalerts | No | 
 > | metricbaselines | No | 
 > | metricbatch | No | 
@@ -1399,7 +1399,8 @@ Passare a uno spazio dei nomi del provider di risorse:
 > | networkwatchers/pingmeshes |  No | 
 > | p2svpngateways | No | 
 > | privatednszones |  No |  
-> | privatednszones/virtualnetworklinks | No |> | privatednszonesinternal | No |
+> | privatednszones/virtualnetworklinks | No |
+> | privatednszonesinternal | No |
 > | privateendpointredirectmaps | No |
 > | privateendpoints | No | 
 > | privatelinkservices | No | 

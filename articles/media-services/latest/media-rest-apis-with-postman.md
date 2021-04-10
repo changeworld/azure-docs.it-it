@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: how-to
 ms.date: 08/31/2020
 ms.author: inhenkel
-ms.openlocfilehash: b0a521ddeee6d93ce809e5e6e85eefa1f01a3f12
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 1266e10f6d8bf69c6e72a236ecde27623ad1cf12
+ms.sourcegitcommit: edc7dc50c4f5550d9776a4c42167a872032a4151
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98953972"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105961728"
 ---
 # <a name="configure-postman-for-media-services-v3-rest-api-calls"></a>Configurare il post per le chiamate all'API REST di servizi multimediali V3
 
@@ -30,7 +30,7 @@ Prima di iniziare lo sviluppo, vedere [sviluppo con le API di servizi multimedia
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-- [Creare un account di Servizi multimediali di Azure](./create-account-howto.md). Assicurarsi di ricordare il nome del gruppo di risorse e il nome dell'account di Servizi multimediali. 
+- [Creare un account di Servizi multimediali di Azure](./account-create-how-to.md). Assicurarsi di ricordare il nome del gruppo di risorse e il nome dell'account di Servizi multimediali. 
 - Ottenere le informazioni necessarie per [accedere alle API](./access-api-howto.md)
 - Installare il client REST di [Postman](https://www.getpostman.com/) per eseguire le API REST mostrate in alcune delle esercitazioni REST di AMS. 
 

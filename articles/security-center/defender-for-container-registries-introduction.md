@@ -3,16 +3,16 @@ title: Azure Defender per registri contenitori - Vantaggi e funzionalità
 description: Informazioni sui vantaggi e sulle funzionalità di Azure Defender per registri contenitori.
 author: memildin
 ms.author: memildin
-ms.date: 9/22/2020
+ms.date: 04/07/2021
 ms.topic: overview
 ms.service: security-center
 manager: rkarlin
-ms.openlocfilehash: ab2ad15da9b1676924197d28e734f6baf59a02ef
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 4840fc27133b1d92cb8aaad80921f9d21901569d
+ms.sourcegitcommit: 6ed3928efe4734513bad388737dd6d27c4c602fd
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102176638"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "107010693"
 ---
 # <a name="introduction-to-azure-defender-for-container-registries"></a>Introduzione ad Azure Defender per registri contenitori
 
@@ -47,7 +47,7 @@ L'analisi di un'immagine viene attivata da tre trigger:
 
 - **Inserimento**: ogni volta che un'immagine viene inserita nel registro, il Centro sicurezza la analizza automaticamente. Per attivare l'analisi di un'immagine, inserirla nel repository.
 
-- **Estrazione recente**: poiché ogni giorno vengono rilevate nuove vulnerabilità, **Azure Defender per registri contenitori** analizza anche qualsiasi immagine estratta negli ultimi 30 giorni. Non sono previsti costi aggiuntivi per la ripetizione dell'analisi. Come accennato in precedenza, i costi vengono addebitati una sola volta per ogni immagine.
+- **Pull di recente** : poiché le nuove vulnerabilità vengono individuate ogni giorno, **Azure Defender per i registri contenitori** analizza anche ogni settimana le immagini che sono state estratte negli ultimi 30 giorni. Non sono previsti costi aggiuntivi per le ripetizioni. come indicato in precedenza, la fatturazione viene addebitata una volta per ogni immagine.
 
 - **Importazione**: Registro Azure Container offre strumenti di importazione per inserire immagini nel registro da Docker Hub, Registro contenitori di Microsoft o un altro registro contenitori di Azure. **Azure Defender per registri contenitori** analizza le immagini supportate importate. Per altre informazioni, vedere [Importare immagini del contenitore in un registro contenitori](../container-registry/container-registry-import-images.md).
  

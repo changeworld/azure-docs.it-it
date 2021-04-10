@@ -1,19 +1,19 @@
 ---
 title: 'Guida introduttiva: Libreria di Archiviazione BLOB di Azure v12 - JavaScript'
 description: In questa guida di avvio rapido verrà illustrato come usare la libreria client di Archiviazione BLOB di Azure versione 12 per JavaScript per creare un contenitore e un BLOB nell'archiviazione (oggetto) BLOB. Verrà successivamente illustrato come scaricare il BLOB nel computer locale e come elencare tutti i BLOB in un contenitore.
-author: mhopkins-msft
-ms.author: mhopkins
+author: twooley
+ms.author: twooley
 ms.date: 09/17/2020
 ms.service: storage
 ms.subservice: blobs
 ms.topic: quickstart
 ms.custom: devx-track-js
-ms.openlocfilehash: 0883fd1546ac3b55ec4211e5048569556858de29
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 6e26a375ebdc97026de09511b0bc0f11fe073e41
+ms.sourcegitcommit: 02bc06155692213ef031f049f5dcf4c418e9f509
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102179919"
+ms.lasthandoff: 04/03/2021
+ms.locfileid: "106280123"
 ---
 # <a name="quickstart-manage-blobs-with-javascript-v12-sdk-in-nodejs"></a>Guida introduttiva: Gestire i BLOB con JavaScript v12 SDK in Node.js
 

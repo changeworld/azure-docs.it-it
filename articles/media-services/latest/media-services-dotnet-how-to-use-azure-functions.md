@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 03/22/2021
 ms.author: inhenkel
 ms.custom: devx-track-csharp
-ms.openlocfilehash: e0bb8ccf3be6038c228034a55cd15cadcebddbb7
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 389ad34bb856675dfabd761507ed07cc722c032a
+ms.sourcegitcommit: edc7dc50c4f5550d9776a4c42167a872032a4151
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 03/30/2021
-ms.locfileid: "105572405"
+ms.locfileid: "105961677"
 ---
 # <a name="develop-azure-functions-with-media-services-v3"></a>Sviluppare funzioni di Azure con servizi multimediali V3
 
@@ -29,7 +29,7 @@ Se si vuole esplorare e distribuire le Funzioni di Azure esistenti che usano i S
 ## <a name="prerequisites"></a>Prerequisiti
 
 - Per poter creare la prima funzione, è necessario avere un account Azure attivo. Se non si possiede già un account Azure, [sono disponibili account gratuiti](https://azure.microsoft.com/free/).
-- Se si intende creare le Funzioni di Azure per eseguire azioni sull'account dei Servizi multimediali di Azure o ascoltare gli eventi inviati dai Servizi multimediali, è necessario creare un account AMS, come descritto [qui](create-account-howto.md).
+- Se si intende creare le Funzioni di Azure per eseguire azioni sull'account dei Servizi multimediali di Azure o ascoltare gli eventi inviati dai Servizi multimediali, è necessario creare un account AMS, come descritto [qui](account-create-how-to.md).
 
 ## <a name="create-a-function-app"></a>Creare un'app per le funzioni
 
