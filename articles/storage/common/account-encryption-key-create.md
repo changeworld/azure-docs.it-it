@@ -6,123 +6,23 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: how-to
-ms.date: 02/05/2020
+ms.date: 03/31/2021
 ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
-ms.openlocfilehash: 8150375eff98374e21d200d98c04158b07f1c243
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: f2bc71100a92d1811d69af31a7a3085af36f60a8
+ms.sourcegitcommit: 9f4510cb67e566d8dad9a7908fd8b58ade9da3b7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92789693"
+ms.lasthandoff: 04/01/2021
+ms.locfileid: "106121932"
 ---
 # <a name="create-an-account-that-supports-customer-managed-keys-for-tables-and-queues"></a>Creazione di un account che supporta chiavi gestite dal cliente per tabelle e code
 
 Archiviazione di Azure crittografa tutti i dati in un account di archiviazione inattivo. Per impostazione predefinita, l'archiviazione delle code e l'archiviazione tabelle usano una chiave con ambito limitato al servizio e gestita da Microsoft. È inoltre possibile scegliere di utilizzare chiavi gestite dal cliente per crittografare i dati della coda o della tabella. Per usare chiavi gestite dal cliente con code e tabelle, è necessario creare prima un account di archiviazione che usi una chiave di crittografia con ambito per l'account anziché per il servizio. Dopo aver creato un account che usa la chiave di crittografia dell'account per i dati della coda e della tabella, è possibile configurare le chiavi gestite dal cliente per l'account di archiviazione.
 
 Questo articolo descrive come creare un account di archiviazione che si basa su una chiave con ambito definito per l'account. Quando l'account viene creato per la prima volta, Microsoft usa la chiave dell'account per crittografare i dati nell'account e Microsoft gestisce la chiave. È quindi possibile configurare le chiavi gestite dal cliente per l'account per sfruttare i vantaggi offerti, inclusa la possibilità di fornire chiavi personalizzate, aggiornare la versione della chiave, ruotare le chiavi e revocare i controlli di accesso.
-
-## <a name="about-the-feature"></a>Informazioni sulla funzionalità
-
-Per creare un account di archiviazione che si basa sulla chiave di crittografia dell'account per l'archiviazione di code e tabelle, è necessario prima registrarsi per usare questa funzionalità con Azure. A causa della capacità limitata, tenere presente che l'approvazione delle richieste di accesso potrebbe richiedere alcuni mesi.
-
-È possibile creare un account di archiviazione che si basa sulla chiave di crittografia dell'account per l'archiviazione delle code e tabelle nelle aree seguenti:
-
-- Stati Uniti orientali
-- Stati Uniti centro-meridionali
-- Stati Uniti occidentali 2  
-
-### <a name="register-to-use-the-account-encryption-key"></a>Eseguire la registrazione per usare la chiave di crittografia dell'account
-
-Per eseguire la registrazione per usare la chiave di crittografia dell'account con l'archiviazione code o tabelle, usare PowerShell o l'interfaccia della riga di comando di Azure
-
-# <a name="powershell"></a>[PowerShell](#tab/powershell)
-
-Per eseguire la registrazione con PowerShell, chiamare il comando [Register-AzProviderFeature](/powershell/module/az.resources/register-azproviderfeature) .
-
-```powershell
-Register-AzProviderFeature -ProviderNamespace Microsoft.Storage `
-    -FeatureName AllowAccountEncryptionKeyForQueues
-Register-AzProviderFeature -ProviderNamespace Microsoft.Storage `
-    -FeatureName AllowAccountEncryptionKeyForTables
-```
-
-# <a name="azure-cli"></a>[Interfaccia della riga di comando di Azure](#tab/azure-cli)
-
-Per eseguire la registrazione con l'interfaccia della riga di comando di Azure, chiamare il comando [AZ feature Register](/cli/azure/feature#az-feature-register) .
-
-```azurecli
-az feature register --namespace Microsoft.Storage \
-    --name AllowAccountEncryptionKeyForQueues
-az feature register --namespace Microsoft.Storage \
-    --name AllowAccountEncryptionKeyForTables
-```
-
-# <a name="template"></a>[Modello](#tab/template)
-
-N/D
-
----
-
-### <a name="check-the-status-of-your-registration"></a>Verificare lo stato della registrazione
-
-Per verificare lo stato della registrazione per la coda o l'archiviazione tabelle, usare PowerShell o l'interfaccia della riga di comando di Azure.
-
-# <a name="powershell"></a>[PowerShell](#tab/powershell)
-
-Per verificare lo stato della registrazione con PowerShell, chiamare il comando [Get-AzProviderFeature](/powershell/module/az.resources/get-azproviderfeature) .
-
-```powershell
-Get-AzProviderFeature -ProviderNamespace Microsoft.Storage `
-    -FeatureName AllowAccountEncryptionKeyForQueues
-Get-AzProviderFeature -ProviderNamespace Microsoft.Storage `
-    -FeatureName AllowAccountEncryptionKeyForTables
-```
-
-# <a name="azure-cli"></a>[Interfaccia della riga di comando di Azure](#tab/azure-cli)
-
-Per verificare lo stato della registrazione con l'interfaccia della riga di comando di Azure, chiamare il comando [AZ feature](/cli/azure/feature#az-feature-show) .
-
-```azurecli
-az feature show --namespace Microsoft.Storage \
-    --name AllowAccountEncryptionKeyForQueues
-az feature show --namespace Microsoft.Storage \
-    --name AllowAccountEncryptionKeyForTables
-```
-
-# <a name="template"></a>[Modello](#tab/template)
-
-N/D
-
----
-
-### <a name="re-register-the-azure-storage-resource-provider"></a>Registrare di nuovo il provider di risorse di archiviazione di Azure
-
-Dopo che la registrazione è stata approvata, è necessario registrare di nuovo il provider di risorse di archiviazione di Azure. Usare PowerShell o l'interfaccia della riga di comando di Azure per registrare nuovamente il provider di risorse.
-
-# <a name="powershell"></a>[PowerShell](#tab/powershell)
-
-Per registrare di nuovo il provider di risorse con PowerShell, chiamare il comando [Register-AzResourceProvider](/powershell/module/az.resources/register-azresourceprovider) .
-
-```powershell
-Register-AzResourceProvider -ProviderNamespace 'Microsoft.Storage'
-```
-
-# <a name="azure-cli"></a>[Interfaccia della riga di comando di Azure](#tab/azure-cli)
-
-Per registrare di nuovo il provider di risorse con l'interfaccia della riga di comando di Azure, chiamare il comando [AZ provider Register](/cli/azure/provider#az-provider-register) .
-
-```azurecli
-az provider register --namespace 'Microsoft.Storage'
-```
-
-# <a name="template"></a>[Modello](#tab/template)
-
-N/D
-
----
 
 ## <a name="create-an-account-that-uses-the-account-encryption-key"></a>Creare un account che usa la chiave di crittografia dell'account
 
@@ -247,6 +147,10 @@ az storage account show /
 N/D
 
 ---
+
+## <a name="pricing-and-billing"></a>Prezzi e fatturazione
+
+Un account di archiviazione creato per usare una chiave di crittografia con ambito per l'account viene fatturato in base alla capacità di archiviazione delle tabelle e alle transazioni con una frequenza diversa da quella di un account che usa la chiave con ambito servizio predefinito. Per informazioni dettagliate, vedere [prezzi di archiviazione tabelle di Azure](https://azure.microsoft.com/pricing/details/storage/tables/).
 
 ## <a name="next-steps"></a>Passaggi successivi
 

@@ -9,10 +9,10 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 ms.date: 12/23/2020
 ms.openlocfilehash: 9b5526af03bdbefeb54633c49bbd43743555f60b
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "100383229"
 ---
 # <a name="how-to-create-plans-for-your-managed-service-offer"></a>Come creare piani per l'offerta di servizio gestito
@@ -84,7 +84,7 @@ In questa sezione viene creato un manifesto con le informazioni di autorizzazion
 Esaminare i [tenant, i ruoli e gli utenti negli scenari di Azure Lighthouse](../lighthouse/concepts/tenants-users-roles.md#best-practices-for-defining-users-and-roles) per comprendere quali ruoli sono supportati e le procedure consigliate per la definizione delle autorizzazioni.
 
 > [!NOTE]
-> Gli utenti e i ruoli nelle voci di autorizzazione verranno applicati a tutti i clienti che attivano il piano. Se si vuole limitare l'accesso a un cliente specifico, è necessario pubblicare un piano privato per l'uso esclusivo.
+> Gli utenti e i ruoli nelle voci di Autorizzazione verranno applicati a ogni cliente che attiva il piano. Se si vuole limitare l'accesso a un cliente specifico, è necessario pubblicare un piano privato per l'uso esclusivo.
 
 ### <a name="manifest"></a>Manifesto
 

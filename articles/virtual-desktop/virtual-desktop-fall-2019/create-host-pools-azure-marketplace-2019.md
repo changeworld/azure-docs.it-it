@@ -3,15 +3,15 @@ title: Pool di host di Desktop virtuale Windows (versione classica) in Azure Mar
 description: Come creare un pool di host di Desktop virtuale Windows (versione classica) tramite Azure Marketplace.
 author: Heidilohr
 ms.topic: how-to
-ms.date: 03/30/2020
+ms.date: 03/31/2021
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 04184a658ae1efd03afd3e920818eb5317bc7553
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: d7e0862bd7519f59602f1e769301614895bd6e09
+ms.sourcegitcommit: 9f4510cb67e566d8dad9a7908fd8b58ade9da3b7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "88008594"
+ms.lasthandoff: 04/01/2021
+ms.locfileid: "106121881"
 ---
 # <a name="tutorial-create-a-host-pool-in-windows-virtual-desktop-classic"></a>Esercitazione: Creare un pool di host in Desktop virtuale Windows (versione classica)
 
@@ -80,10 +80,10 @@ Per la scheda **Configurare le macchine virtuali**:
 1. Accettare i valori predefiniti oppure personalizzare il numero e le dimensioni delle macchine virtuali.
 
     >[!NOTE]
-    >Se le dimensioni specifiche della macchina virtuale desiderate non vengono visualizzate nel selettore di dimensioni, significa che non ne è stato ancora eseguito l'onboarding nello strumento di Azure Marketplace. Per richiedere le dimensioni, creare una richiesta oppure aggiornarne una esistente nel [forum UserVoice di Desktop virtuale Windows](https://windowsvirtualdesktop.uservoice.com/forums/921118-general).
+    >Se le dimensioni specifiche della macchina virtuale desiderate non vengono visualizzate nel selettore di dimensioni, significa che non ne è stato ancora eseguito l'onboarding nello strumento di Azure Marketplace.
 
-1. Immettere un prefisso per i nomi delle macchine virtuali. Ad esempio, se si immette il *prefisso*, le macchine virtuali saranno denominate **prefisso-0**, **prefisso-1** e così via.
-1. Selezionare **Avanti: Impostazioni della macchina virtuale**.
+2. Immettere un prefisso per i nomi delle macchine virtuali. Ad esempio, se si immette il *prefisso*, le macchine virtuali saranno denominate **prefisso-0**, **prefisso-1** e così via.
+3. Selezionare **Avanti: Impostazioni della macchina virtuale**.
 
 ### <a name="virtual-machine-settings"></a>Impostazioni della macchina virtuale
 

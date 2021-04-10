@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.date: 03/08/2021
 ms.author: alkohli
 ms.openlocfilehash: 057f80049b13a265925f2d6f24a008d1e1e04c96
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "102638502"
 ---
 # <a name="manage-compute-on-your-azure-stack-edge-pro-gpu"></a>Gestire le risorse di calcolo sulla GPU Pro Azure Stack Edge
@@ -51,7 +51,7 @@ Eseguire i passaggi seguenti nel portale di Azure per creare un trigger.
 
     - **Trigger pianificato**: specificare la data/ora di inizio e l'intervallo di ripetizione espresso in ore, minuti o secondi. Inoltre, immettere il nome per un argomento. Un argomento fornirà la flessibilità necessaria per indirizzare il trigger a un modulo distribuito nel dispositivo.
 
-        `"route3": "FROM /* WHERE topic = 'topicname' INTO BrokeredEndpoint("modules/modulename/inputs/input1")"` è una stringa di indirizzamento di esempio.
+        `"route3&quot;: &quot;FROM /* WHERE topic = 'topicname' INTO BrokeredEndpoint(&quot;modules/modulename/inputs/input1")"` è una stringa di indirizzamento di esempio.
 
         ![Aggiunta di una condivisione NFS](media/azure-stack-edge-gpu-manage-compute/add-scheduled-trigger.png)
 

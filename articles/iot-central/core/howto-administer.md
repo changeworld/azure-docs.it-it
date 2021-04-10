@@ -9,13 +9,13 @@ ms.service: iot-central
 services: iot-central
 manager: peterpr
 ms.openlocfilehash: 81cd2ca1cb47e6fdfb4858df930b73c1bd10118a
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "101091817"
 ---
-# <a name="change-iot-central-application-settings"></a>Modificare le impostazioni dell'applicazione IoT Central
+# <a name="change-iot-central-application-settings"></a>Modificare le impostazioni applicazione di IoT Central
 
 
 

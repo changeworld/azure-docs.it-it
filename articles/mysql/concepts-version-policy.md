@@ -7,12 +7,12 @@ ms.service: mysql
 ms.topic: conceptual
 ms.date: 11/03/2020
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 8ad79f2f27864b4fbc78b7c104828230ff7f93bc
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 35ed677c3176fb990f752f3204a1ae11bf39896c
+ms.sourcegitcommit: 9f4510cb67e566d8dad9a7908fd8b58ade9da3b7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103465658"
+ms.lasthandoff: 04/01/2021
+ms.locfileid: "106121694"
 ---
 # <a name="azure-database-for-mysql-version-support-policy"></a>Criteri di supporto della versione per database di Azure per MySQL
 
@@ -22,16 +22,19 @@ Questa pagina descrive i criteri di controllo delle versioni di database di Azur
 
 Database di Azure per MySQL è stato sviluppato da [MySQL Community Edition](https://www.mysql.com/products/community/), usando il motore di archiviazione InnoDB. Il servizio supporta tutte le versioni principali correnti supportate dalla community, ovvero MySQL 5,6, 5,7 e 8,0. MySQL usa lo schema di denominazione X. Y. Z dove X è la versione principale, Y è la versione secondaria e Z è il rilascio della correzione di bug. Per altre informazioni sullo schema, vedere la [documentazione di MySQL](https://dev.mysql.com/doc/refman/5.7/en/which-version.html).
 
-> [!NOTE]
-> Nell'opzione di distribuzione a server singolo viene usato un gateway per reindirizzare le connessioni alle istanze del server. Dopo che è stata stabilita la connessione, il client MySQL visualizza la versione di MySQL impostata nel gateway e non la versione effettiva in esecuzione nell'istanza del server MySQL. Per determinare la versione dell'istanza del server MySQL, usare il comando `SELECT VERSION();` dal prompt di MySQL.
-
 Database di Azure per MySQL supporta attualmente le versioni principali e secondarie seguenti di MySQL:
 
-| Versione | Server unico <br/> Versione secondaria corrente |Server flessibile (anteprima) <br/> Versione secondaria corrente  |
+| Versione | [Server singolo](overview.md) <br/> Versione secondaria corrente |[Server flessibile (anteprima)](/../flexible-server/overview.md) <br/> Versione secondaria corrente  |
 |:-------------------|:-------------------------------------------|:---------------------------------------------|
 |MySQL versione 5.6 |  [5.6.47](https://dev.mysql.com/doc/relnotes/mysql/5.6/en/news-5-6-47.html)(ritirata) | Non supportato|
 |MySQL versione 5.7 | [5.7.29](https://dev.mysql.com/doc/relnotes/mysql/5.7/en/news-5-7-29.html) | [5.7.29](https://dev.mysql.com/doc/relnotes/mysql/5.7/en/news-5-7-29.html)|
 |MySQL versione 8,0 | [8.0.15](https://dev.mysql.com/doc/relnotes/mysql/8.0/en/news-8-0-15.html) | [8.0.21](https://dev.mysql.com/doc/relnotes/mysql/8.0/en/news-8-0-21.html)|
+
+> [!NOTE]
+> Nell'opzione di distribuzione a server singolo viene usato un gateway per reindirizzare le connessioni alle istanze del server. Dopo che è stata stabilita la connessione, il client MySQL visualizza la versione di MySQL impostata nel gateway e non la versione effettiva in esecuzione nell'istanza del server MySQL. Per determinare la versione dell'istanza del server MySQL, usare il comando `SELECT VERSION();` dal prompt di MySQL. Se l'applicazione ha la necessità di connettersi a una versione principale specifica, ad esempio v 5.7 o v 8.0, è possibile modificare la porta nella stringa di connessione del server come illustrato nella documentazione [qui.](concepts-supported-versions.md#connect-to-a-gateway-node-that-is-running-a-specific-mysql-version)
+
+> [!IMPORTANT]
+> MySQL v 5.6 è stato ritirato in un singolo server a partire da febbraio 2021. A partire dal 1 ° settembre 2021, non sarà possibile creare nuovi server v 5.6 in database di Azure per MySQL: opzione di distribuzione a server singolo. Sarà tuttavia possibile eseguire recuperi temporizzati e creare repliche di lettura per i server esistenti.
 
 Leggere i criteri di supporto della versione per le versioni ritirate nella [documentazione dei criteri di supporto](concepts-version-policy.md#retired-mysql-engine-versions-not-supported-in-azure-database-for-mysql) delle versioni.
 
@@ -56,7 +59,7 @@ La tabella seguente fornisce i dettagli relativi al ritiro per le versioni princ
 Dopo la data di ritiro per ogni versione del database MySQL, se si continua a eseguire la versione ritirata, tenere presenti le restrizioni seguenti:
 - Poiché la community non rilascerà ulteriori correzioni di bug o correzioni per la sicurezza, il database di Azure per MySQL non patcherà il motore di database ritirato per eventuali bug o problemi di sicurezza o per adottare misure di sicurezza in relazione al motore di database ritirato. Tuttavia, Azure continuerà a eseguire periodicamente interventi di manutenzione e applicazione di patch per l'host, il sistema operativo, i contenitori e tutti gli altri componenti correlati ai servizi.
 - Se è possibile che si verifichi un problema di supporto correlato al database MySQL, potrebbe non essere possibile fornire supporto. In questi casi, sarà necessario aggiornare il database in modo da fornire supporto.
-<!-- - You will not be able to create new database servers for the retired version. However, you will be able to perform point-in-time recoveries and create read replicas for your existing servers. -->
+- Non sarà possibile creare nuovi server di database per la versione ritirata. Sarà tuttavia possibile eseguire recuperi temporizzati e creare repliche di lettura per i server esistenti.
 - Le nuove funzionalità del servizio sviluppate da database di Azure per MySQL possono essere disponibili solo per le versioni del server di database supportate.
 - I contratti di servizio con tempo di attività verranno applicati esclusivamente ai problemi correlati al servizio database di Azure per MySQL e non ai tempi di inattività causati da bug correlati al motore di database.  
 - Nell'evento estremo di una grave minaccia per il servizio causato dalla vulnerabilità del motore di database MySQL identificata nella versione del database ritirata, Azure può scegliere di arrestare il nodo di calcolo del server di database per proteggere il servizio. Verrà richiesto di aggiornare il server prima di portare online il server. Durante il processo di aggiornamento, i dati verranno sempre protetti usando i backup automatici eseguiti sul servizio, che possono essere usati per ripristinare la versione precedente, se necessario. 

@@ -11,10 +11,10 @@ ms.workload: data-services
 ms.topic: how-to
 ms.date: 01/12/2017
 ms.openlocfilehash: 49814d01209b58666c011a6bbd7fe6c328d460f8
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "100518335"
 ---
 # <a name="use-azure-machine-learning-studio-classic-web-service-parameters"></a>Usare i parametri del servizio Web Azure Machine Learning Studio (classico)
@@ -58,11 +58,11 @@ Si supponga ad esempio di disporre di un esperimento con un modulo [Export Data]
    
    ![Icona del parametro del servizio Web](./media/web-service-parameters/icon.png)
    
-   Selezionare "Set as web service parameter".
+   Selezionare "Set as web service parameter&quot;.
    
-   Verrà aggiunta una voce in **Web Service Parameters** nella parte inferiore del riquadro Proprietà con il nome "Path to blob beginning with container". Questo sarà il parametro del servizio Web associato al parametro del modulo [Export Data][writer].
-4. Per rinominare il parametro del servizio Web, fare clic sul nome, digitare "Blob path" e quindi premere **INVIO** . 
-5. Per specificare un valore predefinito per il parametro del servizio Web, fare clic sull'icona a destra del nome, selezionare "Provide default value", immettere un valore (ad esempio, "container1/output1.csv") e quindi premere **INVIO** .
+   Verrà aggiunta una voce in **Web Service Parameters** nella parte inferiore del riquadro Proprietà con il nome &quot;Path to blob beginning with container&quot;. Questo sarà il parametro del servizio Web associato al parametro del modulo [Export Data][writer].
+4. Per rinominare il parametro del servizio Web, fare clic sul nome, digitare &quot;Blob path&quot; e quindi premere **INVIO** . 
+5. Per specificare un valore predefinito per il parametro del servizio Web, fare clic sull'icona a destra del nome, selezionare &quot;Provide default value&quot;, immettere un valore (ad esempio, &quot;container1/output1.csv") e quindi premere **INVIO** .
    
    ![Parametro del servizio Web](./media/web-service-parameters/parameter.png)
 6. Fare clic su **Esegui**. 

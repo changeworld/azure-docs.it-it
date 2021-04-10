@@ -8,10 +8,10 @@ ms.topic: troubleshooting
 ms.author: susabat
 ms.reviewer: susabat
 ms.openlocfilehash: 72f2a5eec25b9acc2aedd7b006fe3380141781c8
-ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/26/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "105563413"
 ---
 # <a name="troubleshoot-pipeline-orchestration-and-triggers-in-azure-data-factory"></a>Risolvere i problemi di orchestrazione e trigger della pipeline in Azure Data Factory
@@ -135,7 +135,7 @@ Fact noti su *foreach*
  **Risoluzione**
  
 * Limite di concorrenza: se la pipeline ha un criterio di concorrenza, verificare che non siano in corso esecuzioni di pipeline obsolete. La concorrenza massima consentita per la pipeline nel Azure Data Factory è 10 pipeline. 
-* Limiti di monitoraggio: passare all'area di disegno di creazione ADF, selezionare la pipeline e determinare se è stata assegnata una proprietà di concorrenza. In caso contrario, passare alla visualizzazione monitoraggio e verificare che non sia presente alcun elemento negli ultimi 45 giorni in corso. Se è in corso un'operazione, è possibile annullarla e avviare la nuova esecuzione della pipeline.
+* Limiti di monitoraggio: passare all'area di disegno di creazione ADF, selezionare la pipeline e determinare se è stata assegnata una proprietà di concorrenza. In tal caso, passare alla vista di Monitoraggio e verificare che ci siano operazioni in corso negli ultimi 45 giorni. Se è in corso un'operazione, è possibile annullarla e avviare la nuova esecuzione della pipeline.
 * Problemi temporanei: è possibile che l'esecuzione sia stata influenzata da un problema di rete temporaneo, da errori delle credenziali, da interruzioni dei servizi e così via.  In tal caso, Azure Data Factory dispone di un processo di ripristino interno che monitora tutte le esecuzioni e le avvia quando si verifica un errore. Questo processo viene eseguito ogni ora, pertanto se l'esecuzione è bloccata per più di un'ora, creare un caso di supporto.
  
 ### <a name="longer-start-up-times-for-activities-in-adf-copy-and-data-flow"></a>Tempi di avvio più lunghi per le attività nella copia e nel flusso di dati di ADF

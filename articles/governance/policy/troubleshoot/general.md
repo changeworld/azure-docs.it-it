@@ -4,10 +4,10 @@ description: Informazioni su come risolvere i problemi relativi alla creazione d
 ms.date: 01/26/2021
 ms.topic: troubleshooting
 ms.openlocfilehash: 6e0e4067f07266bae9c87fd4443d27314cc28c0b
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "100592604"
 ---
 # <a name="troubleshoot-errors-with-using-azure-policy"></a>Risolvere gli errori con l'uso di criteri di Azure

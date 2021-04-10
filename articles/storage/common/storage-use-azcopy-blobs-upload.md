@@ -8,12 +8,12 @@ ms.date: 12/11/2020
 ms.author: normesta
 ms.subservice: common
 ms.reviewer: dineshm
-ms.openlocfilehash: ec88a3c740ceda7ccf352f8f32f94e2cd52d0988
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 7cdc10720b6fa93cf1893d2040fd1c1f3e9e1f02
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "97358759"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105728863"
 ---
 # <a name="upload-files-to-azure-blob-storage-by-using-azcopy-v10"></a>Caricare i file nell'archiviazione BLOB di Azure usando AzCopy V10
 
@@ -37,7 +37,7 @@ Vedere l'articolo [Introduzione a AzCopy](storage-use-azcopy-v10.md) per scarica
 > [!TIP]
 > In questo esempio vengono racchiusi gli argomenti del percorso con virgolette singole (''). Usare le virgolette singole in tutte le shell dei comandi eccetto la shell dei comandi di Windows (cmd.exe). Se si usa una shell dei comandi di Windows (cmd.exe), racchiudere gli argomenti del percorso con virgolette doppie ("") anziché virgolette singole ('').
 
-|    |     |
+| Sintassi/esempio | Codice |
 |--------|-----------|
 | **Sintassi** | `azcopy make 'https://<storage-account-name>.<blob or dfs>.core.windows.net/<container-name>'` |
 | **Esempio** | `azcopy make 'https://mystorageaccount.blob.core.windows.net/mycontainer'` |
@@ -52,7 +52,7 @@ Caricare un file usando il comando [copy di azcopy](storage-ref-azcopy-copy.md) 
 > [!TIP]
 > In questo esempio vengono racchiusi gli argomenti del percorso con virgolette singole (''). Usare le virgolette singole in tutte le shell dei comandi eccetto la shell dei comandi di Windows (cmd.exe). Se si usa una shell dei comandi di Windows (cmd.exe), racchiudere gli argomenti del percorso con virgolette doppie ("") anziché virgolette singole ('').
 
-|    |     |
+| Sintassi/esempio  |  Codice |
 |--------|-----------|
 | **Sintassi** | `azcopy copy '<local-file-path>' 'https://<storage-account-name>.<blob or dfs>.core.windows.net/<container-name>/<blob-name>'` |
 | **Esempio** | `azcopy copy 'C:\myDirectory\myTextFile.txt' 'https://mystorageaccount.blob.core.windows.net/mycontainer/myTextFile.txt'` |
@@ -69,7 +69,7 @@ Questo esempio copia una directory (e tutti i file in tale directory) in un cont
 > [!TIP]
 > In questo esempio vengono racchiusi gli argomenti del percorso con virgolette singole (''). Usare le virgolette singole in tutte le shell dei comandi eccetto la shell dei comandi di Windows (cmd.exe). Se si usa una shell dei comandi di Windows (cmd.exe), racchiudere gli argomenti del percorso con virgolette doppie ("") anziché virgolette singole ('').
 
-|    |     |
+| Sintassi/esempio  |  Codice |
 |--------|-----------|
 | **Sintassi** | `azcopy copy '<local-directory-path>' 'https://<storage-account-name>.<blob or dfs>.core.windows.net/<container-name>' --recursive` |
 | **Esempio** | `azcopy copy 'C:\myDirectory' 'https://mystorageaccount.blob.core.windows.net/mycontainer' --recursive` |
@@ -77,7 +77,7 @@ Questo esempio copia una directory (e tutti i file in tale directory) in un cont
 
 Per eseguire la copia in una directory all'interno del contenitore, è sufficiente specificare il nome della directory nella stringa di comando.
 
-|    |     |
+| Sintassi/esempio  |  Codice |
 |--------|-----------|
 | **Esempio** | `azcopy copy 'C:\myDirectory' 'https://mystorageaccount.blob.core.windows.net/mycontainer/myBlobDirectory' --recursive` |
 | **Esempio** (spazio dei nomi gerarchico) | `azcopy copy 'C:\myDirectory' 'https://mystorageaccount.dfs.core.windows.net/mycontainer/myBlobDirectory' --recursive` |
@@ -91,7 +91,7 @@ Caricare il contenuto di una directory usando il comando [copy di azcopy](storag
 > [!TIP]
 > In questo esempio vengono racchiusi gli argomenti del percorso con virgolette singole (''). Usare le virgolette singole in tutte le shell dei comandi eccetto la shell dei comandi di Windows (cmd.exe). Se si usa una shell dei comandi di Windows (cmd.exe), racchiudere gli argomenti del percorso con virgolette doppie ("") anziché virgolette singole ('').
 
-|    |     |
+| Sintassi/esempio  |  Codice |
 |--------|-----------|
 | **Sintassi** | `azcopy copy '<local-directory-path>\*' 'https://<storage-account-name>.<blob or dfs>.core.windows.net/<container-name>/<directory-path>'` |
 | **Esempio** | `azcopy copy 'C:\myDirectory\*' 'https://mystorageaccount.blob.core.windows.net/mycontainer/myBlobDirectory'` |
@@ -111,7 +111,7 @@ Aggiungere il `--recursive` flag per caricare i file in tutte le sottodirectory.
 
 Usare il comando [azcopy Copy](storage-ref-azcopy-copy.md) con l' `--include-path` opzione. Separare i singoli nomi di file usando un punto e virgola ( `;` ).
 
-|    |     |
+| Sintassi/esempio  |  Codice |
 |--------|-----------|
 | **Sintassi** | `azcopy copy '<local-directory-path>' 'https://<storage-account-name>.<blob or dfs>.core.windows.net/<container-name>' --include-path <semicolon-separated-file-list>` |
 | **Esempio** | `azcopy copy 'C:\myDirectory' 'https://mystorageaccount.blob.core.windows.net/mycontainer' --include-path 'photos;documents\myFile.txt' --recursive` |
@@ -125,7 +125,7 @@ In questo esempio, AzCopy trasferisce la `C:\myDirectory\photos` Directory e il 
 
 Usare il comando [azcopy Copy](storage-ref-azcopy-copy.md) con l' `--include-pattern` opzione. Specificare i nomi parziali che includono i caratteri jolly. Separare i nomi con semicolin ( `;` ). 
 
-|    |     |
+| Sintassi/esempio  |  Codice |
 |--------|-----------|
 | **Sintassi** | `azcopy copy '<local-directory-path>' 'https://<storage-account-name>.<blob or dfs>.core.windows.net/<container-name>' --include-pattern <semicolon-separated-file-list-with-wildcard-characters>` |
 | **Esempio** | `azcopy copy 'C:\myDirectory' 'https://mystorageaccount.blob.core.windows.net/mycontainer' --include-pattern 'myFile*.txt;*.pdf*'` |
@@ -141,7 +141,7 @@ Usare il comando [azcopy Copy](storage-ref-azcopy-copy.md) con l' `--include-bef
 
 Negli esempi seguenti vengono caricati i file che sono stati modificati dopo la data specificata.
 
-|    |     |
+| Sintassi/esempio  |  Codice |
 |--------|-----------|
 | **Sintassi** | `azcopy copy '<local-directory-path>\*' 'https://<storage-account-name>.<blob or dfs>.core.windows.net/<container-or-directory-name>'  --include-after <Date-Time-in-ISO-8601-format>` |
 | **Esempio** | `azcopy copy 'C:\myDirectory\*' 'https://mystorageaccount.blob.core.windows.net/mycontainer/FileDirectory'  --include-after '2020-08-19T15:04:00Z'` |
@@ -164,7 +164,7 @@ Negli esempi seguenti viene illustrato come utilizzare l' `--blob-tags` opzione.
 > [!TIP]
 > In questo esempio vengono racchiusi gli argomenti del percorso con virgolette singole (''). Usare le virgolette singole in tutte le shell dei comandi eccetto la shell dei comandi di Windows (cmd.exe). Se si usa una shell dei comandi di Windows (cmd.exe), racchiudere gli argomenti del percorso con virgolette doppie ("") anziché virgolette singole ('').
 
-|    |     |
+| Sintassi/esempio  |  Codice |
 |--------|-----------|
 | **Caricare un file** | `azcopy copy 'C:\myDirectory\myTextFile.txt' 'https://mystorageaccount.blob.core.windows.net/mycontainer/myTextFile.txt' --blob-tags='my%20tag=my%20tag%20value&my%20second%20tag=my%20second%20tag%20value'` |
 | **Caricare una directory** | `azcopy copy 'C:\myDirectory' 'https://mystorageaccount.blob.core.windows.net/mycontainer' --recursive --blob-tags='my%20tag=my%20tag%20value&my%20second%20tag=my%20second%20tag%20value'`|
