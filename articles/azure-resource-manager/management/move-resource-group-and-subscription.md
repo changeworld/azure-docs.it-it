@@ -4,12 +4,12 @@ description: Usare Azure Resource Manager per spostare risorse a un nuovo gruppo
 ms.topic: conceptual
 ms.date: 03/23/2021
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 31710354d39c5c74fcbd3ce1bfb2917d79dfd670
-ms.sourcegitcommit: bed20f85722deec33050e0d8881e465f94c79ac2
+ms.openlocfilehash: 4f6ecb9ec8269ab8e06a241a395887de77691499
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/25/2021
-ms.locfileid: "105108639"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105934224"
 ---
 # <a name="move-resources-to-a-new-resource-group-or-subscription"></a>Spostare le risorse in un nuovo gruppo di risorse o una nuova sottoscrizione
 
@@ -124,7 +124,7 @@ A scopo illustrativo, è presente una sola risorsa dipendente.
 
 ## <a name="validate-move"></a>Convalidare lo spostamento
 
-L' [operazione Validate Move](/rest/api/resources/resources/validatemoveresources) consente di testare lo scenario di spostamento senza spostare effettivamente le risorse. Utilizzare questa operazione per verificare se lo spostamento avrà esito positivo. La convalida viene chiamata automaticamente quando si invia una richiesta di spostamento. Utilizzare questa operazione solo quando è necessario predeterminare i risultati. Per eseguire questa operazione, è necessario:
+L' [operazione Validate Move](/rest/api/resources/resources/resources/moveresources) consente di testare lo scenario di spostamento senza spostare effettivamente le risorse. Utilizzare questa operazione per verificare se lo spostamento avrà esito positivo. La convalida viene chiamata automaticamente quando si invia una richiesta di spostamento. Utilizzare questa operazione solo quando è necessario predeterminare i risultati. Per eseguire questa operazione, è necessario:
 
 * il nome del gruppo di risorse di origine
 * l'ID risorsa della risorsa del gruppo di risorse di destinazione
@@ -241,7 +241,7 @@ Se viene visualizzato un errore, vedere [risolvere i problemi di trasferimento d
 
 ## <a name="use-rest-api"></a>Usare l'API REST
 
-Per spostare le risorse esistenti in un altro gruppo di risorse o una sottoscrizione, usare l'operazione di [spostamento delle risorse](/rest/api/resources/Resources/MoveResources) .
+Per spostare le risorse esistenti in un altro gruppo di risorse o una sottoscrizione, usare l'operazione di [spostamento delle risorse](/rest/api/resources/resources/resources/moveresources) .
 
 ```HTTP
 POST https://management.azure.com/subscriptions/{source-subscription-id}/resourcegroups/{source-resource-group-name}/moveResources?api-version={api-version}

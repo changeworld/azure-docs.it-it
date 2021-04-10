@@ -7,13 +7,13 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 01/15/2021
-ms.openlocfilehash: d848c1ed1ab9d4cb24dec9423d93ec62ab45633b
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 04/06/2021
+ms.openlocfilehash: b1f742c1de259f6c1c06d9b31a8788699f0b8426
+ms.sourcegitcommit: d63f15674f74d908f4017176f8eddf0283f3fac8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99537222"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "106580028"
 ---
 # <a name="estimate-and-manage-capacity-of-an-azure-cognitive-search-service"></a>Stimare e gestire la capacità di un servizio ricerca cognitiva di Azure
 
@@ -48,17 +48,19 @@ In ricerca cognitiva, la gestione delle partizioni è un dettaglio di implementa
 
 + Anomalie di completamento automatico: le query con completamento automatico, in cui vengono eseguite corrispondenze sui primi caratteri di un termine parzialmente immesso, accettano un parametro fuzzy che perdona le piccole deviazioni nell'ortografia. Per il completamento automatico, la corrispondenza fuzzy è vincolata a termini all'interno della partizione corrente. Se, ad esempio, una partizione contiene "Microsoft" e viene immesso un termine parziale di "micor", il motore di ricerca corrisponderà a "Microsoft" nella partizione, ma non in altre partizioni che contengono le parti rimanenti dell'indice.
 
-## <a name="how-to-evaluate-capacity-requirements"></a>Come valutare i requisiti di capacità
+## <a name="approaching-estimation"></a>Stima vicina
 
-La capacità e i costi per l'esecuzione del servizio sono disponibili. I livelli impongono limiti su due livelli: archiviazione e contenuto (un numero di indici in un servizio, ad esempio). È importante prendere in considerazione entrambi perché il limite raggiunto per primo è il limite effettivo.
+La capacità e i costi per l'esecuzione del servizio sono disponibili. I livelli impongono limiti su due livelli: il contenuto, ad esempio il conteggio degli indici in un servizio e l'archiviazione. È importante prendere in considerazione entrambi perché il limite raggiunto per primo è il limite effettivo.
 
-Le quantità di indici e altri oggetti sono in genere determinate dai requisiti aziendali e di progettazione. È ad esempio possibile disporre di più versioni dello stesso indice per lo sviluppo, il test e la produzione attivi.
+I conteggi degli indici e di altri oggetti sono in genere determinati dai requisiti aziendali e di progettazione. È ad esempio possibile disporre di più versioni dello stesso indice per lo sviluppo, il test e la produzione attivi.
 
 Le esigenze di archiviazione sono determinate dalla dimensione degli indici che si prevede di compilare. Non sono disponibili regole euristiche solide o generali utili per le stime. L'unico modo per determinare le dimensioni di un indice è [crearne uno](search-what-is-an-index.md). La relativa dimensione sarà basata sui dati importati, sull'analisi del testo e sulla configurazione degli indici, ad esempio se si abilitano i suggerimenti, i filtri e l'ordinamento.
 
 Per la ricerca full-text, la struttura dei dati primaria è una struttura di [Indice invertita](https://en.wikipedia.org/wiki/Inverted_index) , che presenta caratteristiche diverse rispetto ai dati di origine. Per un indice invertito, le dimensioni e la complessità sono determinate dal contenuto, non necessariamente dalla quantità di dati da inserire. Un'origine dati di grandi dimensioni con ridondanza elevata può comportare un indice più piccolo rispetto a un set di dati più piccolo che contiene contenuto altamente variabile. Pertanto, è raramente possibile dedurre le dimensioni dell'indice in base alle dimensioni del set di dati originale.
 
-> [!NOTE] 
+Gli attributi dell'indice, ad esempio l'abilitazione di filtri e l'ordinamento, influiranno sui requisiti di archiviazione. Anche l'uso di suggerimenti ha implicazioni di archiviazione. Per ulteriori informazioni, vedere [attributi e dimensioni degli indici](search-what-is-an-index.md#index-size).
+
+> [!NOTE]
 > Anche se la stima delle esigenze future per gli indici e l'archiviazione può sembrare una supposizione, vale la pena. Se la capacità di un livello risulta troppo bassa, è necessario effettuare il provisioning di un nuovo servizio a un livello superiore e quindi [ricaricare gli indici](search-howto-reindex.md). Non è disponibile alcun aggiornamento sul posto di un servizio da un livello a un altro.
 >
 
@@ -87,7 +89,7 @@ Le risorse dedicate possono adattarsi a tempi di elaborazione e campionamento ma
     + Avviare High, a S2 o persino S3, se il test include l'indicizzazione su larga scala e i carichi di query.
     + Iniziare con l'archiviazione ottimizzata, in L1 o L2, se si esegue l'indicizzazione di una grande quantità di dati e il carico di query è relativamente basso, come per un'applicazione aziendale interna.
 
-1. [Generare un indice iniziale](search-what-is-an-index.md) per determinare il modo in cui i dati di origine vengono convertiti in un indice. Questo è l'unico modo per stimare le dimensioni di un indice.
+1. [Generare un indice iniziale](search-what-is-an-index.md) per determinare il modo in cui i dati di origine vengono convertiti in un indice. Questo è l'unico modo per stimare le dimensioni di un indice. 
 
 1. [Monitorare l'archiviazione, i limiti del servizio, il volume di query e la latenza](search-monitor-usage.md) nel portale. Il portale Mostra le query al secondo, le query limitate e la latenza di ricerca. Tutti questi valori possono essere utili per decidere se è stato selezionato il livello corretto.
 
@@ -111,7 +113,7 @@ I livelli ottimizzati per l'archiviazione sono utili per i carichi di lavoro di 
 
 **Contratti di servizio**
 
-Il livello gratuito e le funzionalità di anteprima non forniscono [contratti di servizio (SLA)](https://azure.microsoft.com/support/legal/sla/search/v1_0/). Per tutti i livelli fatturabili, i contratti di servizio diventano effettivi quando viene effettuato il provisioning di una ridondanza sufficiente per il servizio. È necessario disporre di due o più repliche per i contratti di esecuzione di query (lettura). È necessario avere tre o più repliche per i contratti di esecuzione di query e indicizzazione (lettura/scrittura). Il numero di partizioni non influisce sui contratti di contratto.
+Il livello gratuito e le funzionalità di anteprima non sono coperte da [contratti di servizio (SLA)](https://azure.microsoft.com/support/legal/sla/search/v1_0/). Per tutti i livelli fatturabili, i contratti di servizio diventano effettivi quando viene effettuato il provisioning di una ridondanza sufficiente per il servizio. È necessario disporre di due o più repliche per i contratti di esecuzione di query (lettura). È necessario avere tre o più repliche per i contratti di esecuzione di query e indicizzazione (lettura/scrittura). Il numero di partizioni non influisce sui contratti di contratto.
 
 ## <a name="tips-for-capacity-planning"></a>Suggerimenti per la pianificazione della capacità
 
@@ -119,24 +121,30 @@ Il livello gratuito e le funzionalità di anteprima non forniscono [contratti di
 
 + Tenere presente che l'unico svantaggio del provisioning è che potrebbe essere necessario eliminare un servizio se i requisiti effettivi sono maggiori delle stime. Per evitare l'alterazione del servizio, è necessario creare un nuovo servizio a un livello superiore e eseguirlo affiancato fino a quando tutte le app e le richieste non sono destinate al nuovo endpoint.
 
-## <a name="when-to-add-partitions-and-replicas"></a>Quando aggiungere partizioni e repliche
+## <a name="when-to-add-capacity"></a>Quando aggiungere la capacità
 
-Inizialmente, a un servizio viene allocato un livello minimo di risorse costituito da una partizione e una replica.
+Inizialmente, a un servizio viene allocato un livello minimo di risorse costituito da una partizione e una replica. Il [livello scelto](search-sku-tier.md) determina la velocità e le dimensioni della partizione e ogni livello viene ottimizzato in base a un set di caratteristiche che si adattano a diversi scenari. Se si sceglie un livello superiore, potrebbe essere necessario un minor numero di partizioni rispetto a S1. Una delle domande a cui è necessario rispondere attraverso test autoindirizzati consiste nel fatto che una partizione più grande e costosa produce prestazioni migliori rispetto a due partizioni meno economiche in un servizio di cui è stato effettuato il provisioning a un livello inferiore.
 
 Un singolo servizio deve disporre di risorse sufficienti per gestire tutti i carichi di lavoro (indicizzazione e query). Nessuno dei due carichi di lavoro viene eseguito in background. È possibile pianificare l'indicizzazione per i periodi in cui le richieste di query sono naturalmente meno frequenti, ma il servizio non assegna priorità a un'attività rispetto a un'altra. Inoltre, una certa quantità di ridondanza smussa le prestazioni delle query quando i servizi o i nodi vengono aggiornati internamente.
 
-Come regola generale, le applicazioni di ricerca tendono a avere più repliche rispetto alle partizioni, in particolare quando le operazioni del servizio sono distorte per i carichi di lavoro di query. La sezione relativa alla [disponibilità elevata](#HA) spiega perché.
+Di seguito sono riportate alcune linee guida per determinare se aggiungere capacità:
 
-Il [livello scelto](search-sku-tier.md) determina la velocità e le dimensioni della partizione e ogni livello viene ottimizzato in base a un set di caratteristiche che si adattano a diversi scenari. Se si sceglie un livello superiore, potrebbe essere necessario un minor numero di partizioni rispetto a S1. Una delle domande a cui è necessario rispondere attraverso test autoindirizzati consiste nel fatto che una partizione più grande e costosa produce prestazioni migliori rispetto a due partizioni meno economiche in un servizio di cui è stato effettuato il provisioning a un livello inferiore.
++ Soddisfare i criteri di disponibilità elevata per il contratto di servizio
++ La frequenza degli errori HTTP 503 sta aumentando
++ Sono previsti volumi di query di grandi dimensioni
+
+Come regola generale, le applicazioni di ricerca tendono a avere più repliche rispetto alle partizioni, in particolare quando le operazioni del servizio sono distorte per i carichi di lavoro di query. Ogni replica è una copia dell'indice, consentendo al servizio di bilanciare il carico delle richieste rispetto a più copie. Il bilanciamento del carico e la replica di un indice vengono gestiti da Azure ricerca cognitiva ed è possibile modificare il numero di repliche allocate per il servizio in qualsiasi momento. È possibile allocare fino a 12 repliche in un servizio di ricerca Standard e 3 repliche in un servizio di ricerca Basic. L'allocazione delle repliche può essere effettuata dalla [portale di Azure](search-create-service-portal.md) o da una delle opzioni a livello di codice.
 
 Le applicazioni di ricerca che richiedono l'aggiornamento dei dati quasi in tempo reale avranno bisogno in proporzione di più partizioni che repliche. L'aggiunta di partizioni distribuisce le operazioni di lettura/scrittura su un numero più ampio di risorse di calcolo. Offre inoltre più spazio su disco per l'archiviazione di documenti e indici aggiuntivi.
 
-L'esecuzione di query su indici di dimensioni maggiori può richiedere tempi più lunghi. Di conseguenza, si noterà che ogni aumento incrementale delle partizioni richiede un aumento delle repliche proporzionale ma più limitato. La complessità e il volume delle query influiscono sulla rapidità di esecuzione delle stesse.
+Infine, gli indici più grandi importano più tempo per la query. Di conseguenza, si noterà che ogni aumento incrementale delle partizioni richiede un aumento delle repliche proporzionale ma più limitato. La complessità e il volume delle query influiscono sulla rapidità di esecuzione delle stesse.
 
 > [!NOTE]
 > L'aggiunta di più repliche o partizioni aumenta il costo di esecuzione del servizio e può introdurre variazioni minime nel modo in cui vengono ordinati i risultati. Assicurarsi di controllare il [calcolatore dei prezzi](https://azure.microsoft.com/pricing/calculator/) per comprendere le implicazioni di fatturazione dell'aggiunta di altri nodi. Il [grafico seguente](#chart) può essere utile per fare riferimento incrociato al numero di unità di ricerca necessarie per una configurazione specifica. Per ulteriori informazioni sul modo in cui le repliche aggiuntive influiscano sull'elaborazione delle query, vedere [ordinamento dei risultati](search-pagination-page-layout.md#ordering-results).
 
-## <a name="how-to-allocate-replicas-and-partitions"></a>Come allocare repliche e partizioni
+<a name="adjust-capacity"></a>
+
+## <a name="add-or-reduce-replicas-and-partitions"></a>Aggiungere o ridurre le repliche e le partizioni
 
 1. Accedere al [portale di Azure](https://portal.azure.com/) e selezionare il servizio di ricerca.
 
@@ -158,7 +166,7 @@ L'esecuzione di query su indici di dimensioni maggiori può richiedere tempi pi�
 
    :::image type="content" source="media/search-capacity-planning/3-save-confirm.png" alt-text="Salva modifiche" border="true":::
 
-   Il completamento delle modifiche alla capacità può richiedere fino a diverse ore. Non è possibile annullare una volta che il processo è stato avviato e non è disponibile alcun monitoraggio in tempo reale per le modifiche della replica e della partizione. Tuttavia, il messaggio seguente rimane visibile mentre sono in corso le modifiche.
+   Le modifiche alla capacità possono richiedere da 15 minuti fino a diverse ore per il completamento. Non è possibile annullare una volta che il processo è stato avviato e non è disponibile alcun monitoraggio in tempo reale per le modifiche della replica e della partizione. Tuttavia, il messaggio seguente rimane visibile mentre sono in corso le modifiche.
 
    :::image type="content" source="media/search-capacity-planning/4-updating.png" alt-text="Messaggio di stato nel portale" border="true":::
 
@@ -192,31 +200,7 @@ Le unità di ricerca, i prezzi e le capacità sono illustrati in dettaglio nel s
 > Il numero di repliche e partizioni divide equamente per 12 (in particolare 1, 2, 3, 4, 6, 12). Questo perché Azure ricerca cognitiva suddivide ogni indice in 12 partizioni in modo che sia possibile distribuirlo in parti uguali tra tutte le partizioni. Ad esempio, se il servizio ha tre partizioni e si crea un indice, ogni partizione conterrà quattro partizioni dell'indice. La modalità di partizionamento di un indice in Azure ricerca cognitiva è un dettaglio di implementazione, soggetta a modifiche nelle versioni future. Sebbene il numero attualmente sia 12, tale numero potrebbe non essere 12 in futuro.
 >
 
-<a id="HA"></a>
-
-## <a name="high-availability"></a>Disponibilità elevata
-
-Poiché è facile e relativamente veloce eseguire la scalabilità verticale, è consigliabile in genere iniziare con una partizione e una o due repliche e quindi eseguire la scalabilità verticale come vengono compilati i volumi di query. I carichi di lavoro di query vengono eseguiti principalmente nelle repliche. Se è necessaria maggiore velocità effettiva o una disponibilità elevata, probabilmente saranno necessarie repliche aggiuntive.
-
-Le indicazioni generali per la disponibilità elevata sono:
-
-+ Due repliche per la disponibilità elevata di carichi di lavoro di sola lettura, vale a dire query.
-
-+ Tre o più repliche per la disponibilità elevata dei carichi di lavoro di lettura e scrittura, vale a dire query e indicizzazione man mano che singoli documenti vengono aggiunti, aggiornati o eliminati.
-
-I contratti di servizio per Azure ricerca cognitiva sono destinati a operazioni di query e a aggiornamenti degli indici che includono l'aggiunta, l'aggiornamento o l'eliminazione di documenti.
-
-Il livello Basic prevede una partizione e fino a tre repliche. Se si vuole avere la flessibilità necessaria per rispondere immediatamente alle fluttuazioni della richiesta di indicizzazione e velocità effettiva di query, prendere in considerazione uno dei piani Standard.  Se i requisiti di archiviazione aumentano molto più rapidamente rispetto alla velocità effettiva delle query, prendere in considerazione uno dei livelli ottimizzati per l'archiviazione.
-
-## <a name="about-queries-per-second-qps"></a>Informazioni sulle query al secondo (query al secondo)
-
-A causa dell'elevato numero di fattori che influiscono sulle prestazioni delle query, Microsoft non pubblica i numeri query al secondo previsti. Le stime query al secondo devono essere sviluppate in modo indipendente da ogni cliente usando i costrutti del livello di servizio, della configurazione, dell'indice e della query validi per l'applicazione. Le dimensioni e la complessità dell'indice, le dimensioni e la complessità della query e la quantità di traffico sono i fattori principali in base ai quali è possibile determinare il numero di query al secondo. Non è possibile fornire stime significative se questi fattori sono sconosciuti.
-
-Le stime sono più prevedibili se vengono calcolate su servizi in esecuzione su risorse dedicate (livelli Basic e Standard). In questo caso, infatti, è possibile stimare in modo più preciso il numero di query al secondo, poiché si ha il controllo di un numero maggiore di parametri. Per informazioni su come eseguire la stima, vedere [Considerazioni sulle prestazioni e sull'ottimizzazione di Ricerca cognitiva di Azure](search-performance-optimization.md).
-
-Per i livelli Ottimizzato per l'archiviazione (L1 e L2), sono previste una velocità effettiva delle query inferiore e una latenza superiore rispetto ai livelli Standard.
-
 ## <a name="next-steps"></a>Passaggi successivi
 
 > [!div class="nextstepaction"]
-> [Come stimare e gestire i costi](search-sku-manage-costs.md)
+> [Gestire i costi](search-sku-manage-costs.md)

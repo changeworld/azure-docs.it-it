@@ -9,12 +9,12 @@ ms.subservice: forms-recognizer
 ms.topic: include
 ms.date: 03/19/2021
 ms.author: lajanuar
-ms.openlocfilehash: f28fba451a5fbad9efe76e0d6bd39488beebb103
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
+ms.openlocfilehash: e37ff8a003bc10d69fd32794f26acfa8f5326423
+ms.sourcegitcommit: 6ed3928efe4734513bad388737dd6d27c4c602fd
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "104761244"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "107073604"
 ---
 <!-- markdownlint-disable MD001 -->
 <!-- markdownlint-disable MD024 -->
@@ -77,7 +77,7 @@ Creare le variabili per l'endpoint e la chiave di Azure della risorsa.
 
 ## <a name="object-model"></a>Modello a oggetti
 
-Con Riconoscimento modulo è possibile creare due diversi tipi di client. Il primo, `form_recognizer_client`, viene usato per eseguire query sul servizio per riconoscere campi modulo e contenuti. Il secondo, `form_training_client`, viene usato per creare e gestire modelli personalizzati da usare per migliorare il riconoscimento. 
+Con Riconoscimento modulo è possibile creare due diversi tipi di client. Il primo, `form_recognizer_client` viene usato per eseguire una query sul servizio per riconoscere i campi del modulo e il contenuto. Il secondo `form_training_client` viene utilizzato per creare e gestire modelli personalizzati che è possibile utilizzare per migliorare il riconoscimento. 
 
 ### <a name="formrecognizerclient"></a>FormRecognizerClient
 
@@ -139,7 +139,7 @@ Sarà necessario aggiungere riferimenti agli URL per i dati di training e di tes
 * [!INCLUDE [get SAS URL](../../includes/sas-instructions.md)]
   
    :::image type="content" source="../../media/quickstarts/get-sas-url.png" alt-text="Recupero dell'URL di firma di accesso condiviso":::
-* Usare il modulo di esempio e le immagini di ricevute inclusi negli esempi seguenti (disponibili anche in [GitHub](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/formrecognizer/azure-ai-formrecognizer/samples/sample_forms)) oppure usare la procedura precedente per ottenere l'URL di firma di accesso condiviso di un singolo documento nell'archivio BLOB. 
+* Usare il modulo di esempio e le immagini di ricezione inclusi negli esempi seguenti (disponibili anche in [GitHub](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/formrecognizer/azure-ai-formrecognizer/samples/sample_forms) oppure è possibile usare i passaggi precedenti per ottenere l'URL di firma di accesso condiviso di un singolo documento nell'archivio BLOB. 
 
 > [!NOTE]
 > I frammenti di codice di questa guida usano i moduli remoti a cui si accede tramite URL. Se invece si desidera elaborare i documenti del modulo locale, vedere i metodi correlati nella [documentazione di riferimento](/python/api/azure-ai-formrecognizer) e negli [esempi](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/formrecognizer/azure-ai-formrecognizer/samples).

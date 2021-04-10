@@ -11,18 +11,21 @@ ms.subservice: core
 ms.topic: conceptual
 ms.custom: how-to
 ms.date: 01/19/2021
-ms.openlocfilehash: 257fc6544061c2ef9c3fdbfb8c33bc06ed2db6e3
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: fec4eb55f43bd17db5935ab32e5429927c74f5b9
+ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105566336"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106066212"
 ---
 # <a name="run-jupyter-notebooks-in-your-workspace"></a>Eseguire Jupyter notebook nell'area di lavoro
 
 Informazioni su come eseguire i notebook di Jupyter direttamente nell'area di lavoro in Azure Machine Learning Studio. Sebbene sia possibile avviare [Jupyter](https://jupyter.org/) or [JupyterLab](https://jupyterlab.readthedocs.io), è anche possibile modificare ed eseguire i notebook senza uscire dall'area di lavoro.
 
 Per informazioni su come creare e gestire i file, inclusi i notebook, vedere [creare e gestire file nell'area di lavoro](how-to-manage-files.md).
+
+> [!IMPORTANT]
+> Le funzionalità contrassegnate come (anteprima) vengono fornite senza un contratto di servizio e non sono consigliate per i carichi di lavoro di produzione. Alcune funzionalità potrebbero non essere supportate o potrebbero presentare funzionalità limitate. Per altre informazioni, vedere [Condizioni supplementari per l'utilizzo delle anteprime di Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -48,17 +51,27 @@ Usare la modalità messa a fuoco per espandere la visualizzazione corrente in mo
 
     :::image type="content" source="media/how-to-run-jupyter-notebooks/focusmode.gif" alt-text="Attiva/Nascondi modalità messa a fuoco/visualizzazione standard":::
 
-## <a name="use-intellisense"></a>Usare IntelliSense
+## <a name="code-completion-intellisense"></a>Completamento del codice (IntelliSense)
 
 [IntelliSense](https://code.visualstudio.com/docs/editor/intellisense) è un supporto per il completamento del codice che include numerose funzionalità: Elenca membri, informazioni sul parametro, informazioni rapide e completa parola. Queste funzionalità consentono di acquisire altre informazioni sul codice in uso, tengono traccia dei parametri che si digitano e aggiungono le chiamate a proprietà e metodi con poche sequenze di tasti.  
 
-Quando si digita il codice, premere CTRL + barra spaziatrice per attivare IntelliSense.
+### <a name="use-code-snippets-preview"></a>Usare frammenti di codice (anteprima)
+
+Usare **CTRL + barra spaziatrice** per attivare i frammenti di codice IntelliSense.  Scorrere i suggerimenti o iniziare a digitare per trovare il codice che si desidera inserire.  Una volta inserito il codice, scorrere gli argomenti per personalizzare il codice per uso personale.
+
+:::image type="content" source="media/how-to-run-jupyter-notebooks/insert-snippet.gif" alt-text="Inserire un frammento di codice":::
+
+Questi stessi frammenti sono disponibili quando si apre il notebook in VS Code. Per un elenco completo dei frammenti di codice disponibili, vedere [Azure Machine Learning vs code frammenti](https://github.com/Azure/azureml-snippets/blob/main/snippets/snippets.md)di codice.
+
+È possibile esplorare e cercare nell'elenco dei frammenti di codice usando la barra degli strumenti del notebook per aprire il pannello del frammento.
+
+:::image type="content" source="media/how-to-run-jupyter-notebooks/open-snippet-panel.png" alt-text="Strumento pannello Apri frammento nella barra degli strumenti del notebook":::
+
+Dal pannello frammenti è inoltre possibile inviare una richiesta di aggiunta di nuovi frammenti di codice.
+
+:::image type="content" source="media/how-to-run-jupyter-notebooks/propose-new-snippet.png" alt-text="Il pannello snippet consente di proporre un nuovo frammento di codice":::
 
 ## <a name="clean-your-notebook-preview"></a>Pulire il notebook (anteprima)
-
-> [!IMPORTANT]
-> La funzionalità di raccolta è attualmente disponibile in anteprima pubblica.
-> La versione di anteprima viene messa a disposizione senza contratto di servizio e non è consigliata per i carichi di lavoro di produzione. Alcune funzionalità potrebbero non essere supportate o potrebbero presentare funzionalità limitate. Per altre informazioni, vedere [Condizioni supplementari per l'utilizzo delle anteprime di Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 Nel corso della creazione di un notebook, in genere si finisce con le celle usate per l'esplorazione o il debug dei dati. La funzionalità di *raccolta* consente di creare un notebook pulito senza queste celle estranee.
 
@@ -158,7 +171,7 @@ Queste azioni reimposteranno lo stato del notebook e ripristineranno tutte le va
 
 ## <a name="add-new-kernels"></a>Aggiungere nuovi kernel
 
-[Usare il terminale ](how-to-access-terminal.md#add-new-kernels) per creare e aggiungere nuovi kernel all'istanza di calcolo. Il notebook troverà automaticamente tutti i kernel Jupyter installati nell'istanza di calcolo connessa.
+[Usare il terminale](how-to-access-terminal.md#add-new-kernels) per creare e aggiungere nuovi kernel all'istanza di calcolo. Il notebook troverà automaticamente tutti i kernel Jupyter installati nell'istanza di calcolo connessa.
 
 Usare l'elenco a discesa kernel a destra per passare a uno dei kernel installati.  
 

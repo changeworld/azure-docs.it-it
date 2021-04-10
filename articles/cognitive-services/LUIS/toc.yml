@@ -1,62 +1,152 @@
-- name: Documentazione su LUIS
+- name: Documentazione di Language Understanding (LUIS)
   href: index.yml
 - name: Panoramica
   expanded: true
   items:
-    - name: Informazioni su Language Understanding
+    - name: Panoramica del servizio LUIS
       href: what-is-luis.md
+    - name: Lingue supportate
+      href: luis-language-support.md
+    - name: Prezzi
+      href: 'https://azure.microsoft.com/pricing/details/cognitive-services/language-understanding-intelligent-services/'
     - name: Novità
       href: whats-new.md
-- name: Avvi rapidi
+    - name: Domande frequenti su LUIS
+      href: troubleshooting.md
+      displayName: 'Troubleshooting, import'
+- name: Guide introduttive LUIS
   items:
     - name: Compilare app di dominio predefinite
       href: luis-get-started-create-app.md
     - name: Usare il portale LUIS
       items:
-        - name: 1. Creare un'app
+        - name: Creare un'app
           href: get-started-portal-build-app.md
           displayName: 'intent, entity, create app, test, example utterance'
-        - name: 2. Distribuire un'app
+        - name: Distribuire un'app
           href: get-started-portal-deploy-app.md
           displayName: 'assign key, assign resource, add key, add resource, test, deploy, endpoint, query, publish'
     - name: Usare il browser
       href: luis-get-started-get-intent-from-browser.md
     - name: Usare le librerie client e l'API REST
       href: client-libraries-rest-api.md
-- name: Esercitazioni
+- name: Esempi
+  href: 'https://github.com/Azure-Samples/cognitive-services-language-understanding'
+- name: Guide pratiche
   items:
-    - name: Creare un'app scomponibile
+    - name: Accedere al portale LUIS
+      href: sign-in-luis-portal.md
+    - name: Avviare una nuova app
+      href: luis-how-to-start-new-app.md
+      displayName: 'import, export, container'
+    - name: Modello di compilazione
       items:
-        - name: 1. Determinare le intenzioni dell'utente
-          href: tutorial-intents-only.md
-        - name: 2. Estrarre i dati utente
-          href: tutorial-machine-learned-entity.md
-          displayName: 'n-depth, constraint, descriptor, phrase list, entity, feature'
-    - name: Migliorare l'app
+        - name: Aggiungere una finalità
+          href: luis-how-to-add-intents.md
+        - name: Aggiungere un'entità per estrarre i dati
+          href: luis-how-to-add-entities.md
+          displayName: 'roles, import'
+        - name: Usare modelli predefiniti
+          href: howto-add-prebuilt-models.md
+        - name: Applicare un'etichetta a un'entità in un'espressione
+          href: label-entity-example-utterance.md
+        - name: Aggiungere funzionalità
+          displayName: 'synonym, interchange, phrase list, descriptor, feature'
+          href: luis-how-to-add-features.md
+        - name: Ottenere finalità usando l'API REST
+          href: luis-get-started-get-intent-from-rest.md
+        - name: Modificare il modello usando l'API REST
+          href: get-started-get-model-rest-apis.md
+    - name: Integrare l'app
       items:
-        - name: Correggere le stime dubbie
-          href: luis-tutorial-review-endpoint-utterances.md
-        - name: Aggiungere criteri per migliorare le previsioni
-          href: luis-tutorial-pattern.md
-    - name: Uso con un bot
+        - name: Con Controllo ortografico Bing v7
+          href: luis-tutorial-bing-spellcheck.md
+        - name: Con il Servizio riconoscimento vocale
+          href: ../speech-service/how-to-recognize-intents-from-speech-csharp.md?toc=/azure/cognitive-services/luis/toc.json&bc=/azure/cognitive-services/luis/breadcrumb/toc.json
+    - name: Migliorare l'accuratezza della previsione
       items:
-        - name: Con C#
-          href: luis-csharp-tutorial-bf-v4.md
-          displayName: 'bot framework, framework, sdk, abs'
-        - name: Con Node.js
-          displayName: 'bot framework, framework, sdk, abs'
-          href: luis-nodejs-tutorial-bf-v4.md
+        - name: Utilizzo del dashboard
+          displayName: 'dashboard, analytics, charts, data, unclear predictions, incorrect predictions, imbalance, endpoint hits, status, evaluation, accuracy, active version, problematic intents, nearest rival, usage'
+          href: luis-how-to-use-dashboard.md
+        - name: Esaminare le espressioni endpoint
+          displayName: active learning
+          href: luis-how-to-review-endpoint-utterances.md
+        - name: Aggiungere modelli
+          displayName: 'syntax, template, roles'
+          href: luis-how-to-model-intent-pattern.md
+    - name: Esegui il training e il test dell'app
+      items:
+        - name: Eseguire il training dell'app
+          href: luis-how-to-train.md
+          displayName: 'negative sampling, nondeterministic, non-deterministic, UseAllTrainingData'
+        - name: Test interattivi
+          href: luis-interactive-test.md
+        - name: Test in batch
+          href: luis-how-to-batch-test.md
+          displayName: 'import, export'
+    - name: Pubblica
+      href: luis-how-to-publish-app.md
+    - name: Eseguire query sul runtime di previsione
+      href: luis-get-started-get-intent-from-browser.md
+    - name: Migrazione
+      items:
+        - name: Panoramica
+          href: migration.md
+        - name: Eseguire la migrazione da un'entità composita
+          href: migrate-from-composite-entity.md
+        - name: Eseguire la migrazione alla risorsa di creazione
+          href: luis-migration-authoring.md
+        - name: Eseguire la migrazione all'API V3
+          href: luis-migration-api-v3.md
+        - name: Eseguire la migrazione alle API di creazione v3
+          href: luis-migration-authoring-entities.md
+        - name: Eseguire la migrazione alle API di previsione v3
+          href: luis-migration-api-v3.md
+        - name: Eseguire la migrazione all'API V2
+          href: luis-migration-api-v1-to-v2.md
+    - name: Gestire un'app
+      items:
+        - name: Risorse di Azure
+          displayName: 'azure portal, resource, assign key, add key, out of quota, 403, 429, luis portal, key assignment, subscription, authoring, endpoint, prediction'
+          href: luis-how-to-azure-subscription.md
+        - name: Impostazioni di app e versioni
+          href: how-to-application-settings-portal.md
+        - name: Autori e collaboratori
+          displayName: 'access, transfer, AAD, tenant, Azure AD, consent, RBAC, admin, role-based access control, ownership, import'
+          href: luis-how-to-collaborate.md
+        - name: Con versioni
+          href: luis-how-to-manage-versions.md
+          diplayName: 'import, export, container'
+        - name: Con Gestione traffico
+          href: luis-traffic-manager.md
+    - name: Distribuisci LUIS
+      items:
+        - name: Usare i contenitori
+          items:
+            - name: Installare ed eseguire i contenitori
+              displayName: 'docker, container, package, packaged app, swagger, open api, openapi, train, publish, az, acr, cli, tps, core, curl, try it now, import, pull, export to container'
+              href: luis-container-howto.md
+            - name: Configurare i contenitori
+              href: luis-container-configuration.md
+            - name: Usare istanze di contenitore
+              href: ../containers/azure-container-instance-recipe.md
+            - name: Limitazioni dei contenitori
+              href: luis-container-limitations.md
+              displayName: 'phrase list recommendations, multi-language, translator, locale, language, English, Chinese, French, German, Italian, Korean, Portuguese, Spanish, Turkish, Keigo, subculture, dictation, speech, Bing Spell Check, foreign words, Hybrid languages, Tokenization, space, special character, compound words, tokens'
+            - name: Documentazione dei contenitori di Servizi cognitivi
+              href: ../containers/index.yml
 - name: Concetti
   items:
     - name: Intelligenza artificiale
       href: artificial-intelligence.md
     - name: Ciclo di vita di sviluppo
       href: luis-concept-app-iteration.md
+    - name: Procedure consigliate
+      href: luis-concept-best-practices.md
+      displayName: 'phrase list, pattern, intent, utterance, version, do, don''t, example utterances, iteration, cycle, correct, right'
     - name: Pianificare l'app
       displayName: 'simple, composite, prebuilt, list, regex, regular expression'
       href: luis-how-plan-your-app.md
-    - name: Raccolta dati
-      href: data-collection.md
     - name: Modelli di app
       items:
         - name: Tipi
@@ -80,9 +170,6 @@
           href: schema-change-prediction-runtime.md
     - name: Punteggio di previsione
       href: luis-concept-prediction-score.md
-    - name: Procedure consigliate
-      href: luis-concept-best-practices.md
-      displayName: 'phrase list, pattern, intent, utterance, version, do, don''t, example utterances, iteration, cycle, correct, right'
     - name: Migliorare le prestazioni dell'app
       items:
         - name: Esaminare le espressioni endpoint
@@ -93,6 +180,8 @@
           href: luis-concept-test.md
     - name: Gestione dei dati
       items:
+        - name: Raccolta dati
+          href: data-collection.md
         - name: Modifica di dati
           href: luis-concept-data-alteration.md
         - name: Conversione di dati
@@ -105,152 +194,44 @@
     - name: Uso di LUIS e QnA Maker
       href: choose-natural-language-processing-service.md
       displayName: 'nlp, qna maker'
-    - name: Enterprise
-      items:
-        - name: Strategie di progettazione
-          href: luis-concept-enterprise.md
-          displayName: import
+    - name: Strategie di progettazione aziendale
+      href: luis-concept-enterprise.md
+      displayName: import
     - name: Applicazione delle procedure di DevOps con LUIS
       items:
+        - name: Usare DevOps
+          href: luis-how-to-devops-with-github.md
         - name: Strategie di controllo del codice sorgente e gestione rami per LUIS
           href: luis-concept-devops-sourcecontrol.md
         - name: Test per DevOps
           href: luis-concept-devops-testing.md
         - name: Flussi di lavoro CI/CD
           href: luis-concept-devops-automation.md
-- name: Guide pratiche
+- name: Esercitazioni
   items:
-    - name: Accedere al portale LUIS
-      href: sign-in-luis-portal.md
-    - name: Avviare una nuova app
-      href: luis-how-to-start-new-app.md
-      displayName: 'import, export, container'
-    - name: Creare il modello
+    - name: Creare un'app scomponibile
       items:
-        - name: Aggiungere una finalità
-          href: luis-how-to-add-intents.md
-        - name: Aggiungere un'entità per estrarre i dati
-          href: luis-how-to-add-entities.md
-          displayName: 'roles, import'
-        - name: Usare modelli predefiniti
-          href: howto-add-prebuilt-models.md
-        - name: Applicare un'etichetta a un'entità in un'espressione
-          href: label-entity-example-utterance.md
-        - name: Aggiungere funzionalità
-          displayName: 'synonym, interchange, phrase list, descriptor, feature'
-          href: luis-how-to-add-features.md
-        - name: Con API REST
-          items:
-            - name: Compilare app a livello di codice con Node.js
-              href: luis-tutorial-node-import-utterances-csv.md
-    - name: Integrare
+        - name: 1. Determinare le intenzioni dell'utente
+          href: tutorial-intents-only.md
+        - name: 2. Estrarre i dati utente
+          href: tutorial-machine-learned-entity.md
+          displayName: 'n-depth, constraint, descriptor, phrase list, entity, feature'
+    - name: Migliorare l'app
       items:
-        - name: Con Controllo ortografico Bing v7
-          href: luis-tutorial-bing-spellcheck.md
-        - name: Con il Servizio riconoscimento vocale
-          href: ../speech-service/how-to-recognize-intents-from-speech-csharp.md?toc=/azure/cognitive-services/luis/toc.json&bc=/azure/cognitive-services/luis/breadcrumb/toc.json
-    - name: Migliorare l'accuratezza della previsione
+        - name: Correggere le stime dubbie
+          href: luis-tutorial-review-endpoint-utterances.md
+        - name: Aggiungere criteri per migliorare le previsioni
+          href: luis-tutorial-pattern.md
+    - name: Uso con un bot
       items:
-        - name: Utilizzo del dashboard
-          displayName: 'dashboard, analytics, charts, data, unclear predictions, incorrect predictions, imbalance, endpoint hits, status, evaluation, accuracy, active version, problematic intents, nearest rival, usage'
-          href: luis-how-to-use-dashboard.md
-        - name: Esaminare le espressioni endpoint
-          displayName: active learning
-          href: luis-how-to-review-endpoint-utterances.md
-        - name: Aggiungere modelli
-          displayName: 'syntax, template, roles'
-          href: luis-how-to-model-intent-pattern.md
-    - name: Eseguire il training
-      href: luis-how-to-train.md
-      displayName: 'negative sampling, nondeterministic, non-deterministic, UseAllTrainingData'
-    - name: Test
-      items:
-        - name: Test interattivi
-          href: luis-interactive-test.md
-        - name: Test in batch
-          href: luis-how-to-batch-test.md
-          displayName: 'import, export'
-    - name: Pubblica
-      href: luis-how-to-publish-app.md
-    - name: Eseguire query sul runtime di previsione
-      href: luis-get-started-get-intent-from-browser.md
-    - name: Migrazione
-      items:
-        - name: Panoramica
-          href: migration.md
-        - name: Eseguire la migrazione da un'entità composita
-          href: migrate-from-composite-entity.md
-        - name: Eseguire la migrazione alla risorsa di creazione
-          href: luis-migration-authoring.md
-        - name: Eseguire la migrazione all'API V3
-          href: luis-migration-api-v3.md
-    - name: Gestire un'app
-      items:
-        - name: Risorse di Azure
-          displayName: 'azure portal, resource, assign key, add key, out of quota, 403, 429, luis portal, key assignment, subscription, authoring, endpoint, prediction'
-          href: luis-how-to-azure-subscription.md
-        - name: Impostazioni di app e versioni
-          href: how-to-application-settings-portal.md
-        - name: Autori e collaboratori
-          displayName: 'access, transfer, AAD, tenant, Azure AD, consent, RBAC, admin, role-based access control, ownership, import'
-          href: luis-how-to-collaborate.md
-        - name: Con versioni
-          href: luis-how-to-manage-versions.md
-          diplayName: 'import, export, container'
-        - name: Con Gestione traffico
-          href: luis-traffic-manager.md
-    - name: Usare le API
-      items:
-        - name: Per sviluppatori
-          href: developer-reference-resource.md
-        - name: Schema dell'app
-          href: app-schema-definition.md
-        - name: Eseguire la migrazione alle API di creazione v3
-          href: luis-migration-authoring-entities.md
-        - name: Eseguire la migrazione alle API di previsione v3
-          href: luis-migration-api-v3.md
-        - name: Eseguire la migrazione all'API V2
-          href: luis-migration-api-v1-to-v2.md
-    - name: Usare le API REST
-      items:
-        - name: Ottenere la finalità
-          href: luis-get-started-get-intent-from-rest.md
-        - name: Cambiare il modello
-          href: get-started-get-model-rest-apis.md
-    - name: Usare i contenitori
-      items:
-        - name: Installare ed eseguire i contenitori
-          displayName: 'docker, container, package, packaged app, swagger, open api, openapi, train, publish, az, acr, cli, tps, core, curl, try it now, import, pull, export to container'
-          href: luis-container-howto.md
-        - name: Configurare i contenitori
-          href: luis-container-configuration.md
-        - name: Usare istanze di contenitore
-          href: ../containers/azure-container-instance-recipe.md
-        - name: Limitazioni dei contenitori
-          href: luis-container-limitations.md
-          displayName: 'phrase list recommendations, multi-language, translator, locale, language, English, Chinese, French, German, Italian, Korean, Portuguese, Spanish, Turkish, Keigo, subculture, dictation, speech, Bing Spell Check, foreign words, Hybrid languages, Tokenization, space, special character, compound words, tokens'
-        - name: Documentazione dei contenitori di Servizi cognitivi
-          href: ../containers/index.yml
-    - name: Usare DevOps
-      href: luis-how-to-devops-with-github.md
-    - name: Servizi correlati
-      items:
-        - name: Servizio Azure Bot
-          href: 'https://dev.botframework.com/'
-        - name: Bot Builder 4.x SDK in C#
-          href: 'https://github.com/Microsoft/botbuilder-dotnet'
-        - name: QnA Maker
-          href: 'https://qnamaker.ai/'
-        - name: API Riconoscimento vocale Bing
-          href: 'https://azure.microsoft.com/services/cognitive-services/speech/'
-        - name: API Controllo ortografico Bing
-          href: 'https://azure.microsoft.com/services/cognitive-services/spell-check/'
-        - name: Text Analytics
-          href: 'https://azure.microsoft.com/services/cognitive-services/text-analytics/'
-        - name: Recognizers-Text
-          href: 'https://github.com/Microsoft/Recognizers-Text'
-        - name: Chiosco multimediale intelligente
-          href: 'https://github.com/Microsoft/Cognitive-Samples-IntelligentKiosk'
+        - name: Con C#
+          href: luis-csharp-tutorial-bf-v4.md
+          displayName: 'bot framework, framework, sdk, abs'
+        - name: Con Node.js
+          displayName: 'bot framework, framework, sdk, abs'
+          href: luis-nodejs-tutorial-bf-v4.md
+    - name: Compilare app a livello di codice con Node.js
+      href: luis-tutorial-node-import-utterances-csv.md
 - name: Informazioni di riferimento
   items:
     - name: Guida di riferimento per gli sviluppatori
@@ -325,91 +306,86 @@
                   href: 'https://github.com/Azure-Samples/cognitive-services-python-sdk-samples/tree/master/samples/language/luis'
     - name: Privacy dell'utente
       href: luis-user-privacy.md
-    - name: Regioni
+    - name: Aree di creazione e pubblicazione
       href: luis-reference-regions.md
       displayName: 'failover, fail-over, fail over, Europe, EU, Australia, business continuity, bcdr'
     - name: Limiti
       href: luis-limits.md
     - name: Impostazioni di app e versioni
       href: luis-reference-application-settings.md
-    - name: Informazioni di riferimento sulle entità predefinite
+    - name: Riferimento a entità
       items:
-        - name: Entità per impostazioni cultura
-          href: luis-reference-prebuilt-entities.md
-        - name: Entità di età
-          href: luis-reference-prebuilt-age.md
-        - name: Entità di valuta
-          href: luis-reference-prebuilt-currency.md
-        - name: Entità DatetimeV2
-          href: luis-reference-prebuilt-datetimev2.md
-          displayName: timex
-        - name: Entità di dimensione
-          href: luis-reference-prebuilt-dimension.md
-        - name: Entità deprecate
-          href: luis-reference-prebuilt-deprecated.md
-        - name: Entità di posta elettronica
-          href: luis-reference-prebuilt-email.md
-        - name: Entità geographyV2
-          href: luis-reference-prebuilt-geographyV2.md
-        - name: Entità KeyPhrase
-          href: luis-reference-prebuilt-keyphrase.md
-        - name: Entità numero
-          href: luis-reference-prebuilt-number.md
-        - name: Entità ordinale
-          href: luis-reference-prebuilt-ordinal.md
-        - name: Entità ordinale V2
-          href: luis-reference-prebuilt-ordinal-v2.md
-        - name: Entità percentuale
-          href: luis-reference-prebuilt-percentage.md
-        - name: Entità personName
-          href: luis-reference-prebuilt-person.md
-        - name: Entità numero di telefono
-          href: luis-reference-prebuilt-phonenumber.md
-        - name: Entità di temperatura
-          href: luis-reference-prebuilt-temperature.md
-        - name: Entità URL
-          href: luis-reference-prebuilt-url.md
-    - name: Informazioni di riferimento sui domini predefiniti
-      href: luis-reference-prebuilt-domains.md
-      displayName: 'Calendar, Communication,Email,HomeAutomation,Note,Places, RestaurantReservation,ToDo,Utilities,Weather,Web'
-    - name: Informazioni di riferimento sulle entità personalizzate
-      items:
-        - name: Entità di Machine Learning
-          href: reference-entity-machine-learned-entity.md
-        - name: Entità composita
-          href: reference-entity-composite.md
-        - name: Entità elenco
-          href: reference-entity-list.md
-        - name: Entità pattern.any
-          href: reference-entity-pattern-any.md
-        - name: Entità di espressione regolare
-          href: reference-entity-regular-expression.md
-        - name: Entità semplice
-          href: reference-entity-simple.md
+        - name: Predefinita
+          items:
+            - name: Informazioni di riferimento sui domini predefiniti
+              href: luis-reference-prebuilt-domains.md
+            - name: Entità per impostazioni cultura
+              href: luis-reference-prebuilt-entities.md
+            - name: Entità di età
+              href: luis-reference-prebuilt-age.md
+            - name: Entità di valuta
+              href: luis-reference-prebuilt-currency.md
+            - name: Entità DatetimeV2
+              href: luis-reference-prebuilt-datetimev2.md
+              displayName: timex
+            - name: Entità di dimensione
+              href: luis-reference-prebuilt-dimension.md
+            - name: Entità deprecate
+              href: luis-reference-prebuilt-deprecated.md
+            - name: Entità di posta elettronica
+              href: luis-reference-prebuilt-email.md
+            - name: Entità geographyV2
+              href: luis-reference-prebuilt-geographyV2.md
+            - name: Entità KeyPhrase
+              href: luis-reference-prebuilt-keyphrase.md
+            - name: Entità numero
+              href: luis-reference-prebuilt-number.md
+            - name: Entità ordinale
+              href: luis-reference-prebuilt-ordinal.md
+            - name: Entità ordinale V2
+              href: luis-reference-prebuilt-ordinal-v2.md
+            - name: Entità percentuale
+              href: luis-reference-prebuilt-percentage.md
+            - name: Entità personName
+              href: luis-reference-prebuilt-person.md
+            - name: Entità numero di telefono
+              href: luis-reference-prebuilt-phonenumber.md
+            - name: Entità di temperatura
+              href: luis-reference-prebuilt-temperature.md
+            - name: Entità URL
+              href: luis-reference-prebuilt-url.md
+          displayName: 'Calendar, Communication,Email,HomeAutomation,Note,Places, RestaurantReservation,ToDo,Utilities,Weather,Web'
+        - name: Personalizzato
+          items:
+            - name: Entità di Machine Learning
+              href: reference-entity-machine-learned-entity.md
+            - name: Entità composita
+              href: reference-entity-composite.md
+            - name: Entità elenco
+              href: reference-entity-list.md
+            - name: Entità pattern.any
+              href: reference-entity-pattern-any.md
+            - name: Entità di espressione regolare
+              href: reference-entity-regular-expression.md
+            - name: Entità semplice
+              href: reference-entity-simple.md
     - name: Sintassi dei criteri
       href: reference-pattern-syntax.md
     - name: Informazioni di riferimento sui sentiment
       href: luis-reference-prebuilt-sentiment.md
 - name: Risorse
   items:
+    - name: Portale LUIS
+      href: 'https://www.luis.ai'
     - name: Opzioni di supporto tecnico e assistenza
       href: ../cognitive-services-support-options.md?context=/azure/cognitive-services/luis/context/context
-    - name: Esempi di codice
-      href: 'https://github.com/Azure-Samples/cognitive-services-language-understanding'
     - name: Disponibilità a livello di area
       href: 'https://azure.microsoft.com/global-infrastructure/services/?products=cognitive-services'
-    - name: Lingue supportate
-      href: luis-language-support.md
       displayName: 'phrase list recommendations, multi-language, translator, locale, language, English, Chinese, Dutch, French, German, Italian, Japanese, Korean, Portuguese, Spanish, Turkish, Keigo, informal Japanese, subculture, dictation, speech, Bing Spell Check, foreign words, Hybrid languages, Tokenization, space, special character, compound words, tokens'
     - name: Roadmap per Azure
       href: 'https://go.microsoft.com/fwlink/?linkid=2092089'
     - name: Glossario
       href: luis-glossary.md
-    - name: Risoluzione dei problemi
-      href: troubleshooting.md
-      displayName: 'FAQ, import'
-    - name: Prezzi e limiti
-      href: 'https://azure.microsoft.com/pricing/details/cognitive-services/language-understanding-intelligent-services/'
     - name: Conformità
       href: 'https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/'
     - name: Crittografia
@@ -421,5 +397,21 @@
       href: /search/index?search=LUIS
     - name: Blog
       href: 'https://blog.botframework.com/category/luis/'
-- name: Portale LUIS
-  href: 'https://www.luis.ai'
+    - name: Servizi correlati
+      items:
+        - name: Servizio Azure Bot
+          href: 'https://dev.botframework.com/'
+        - name: Bot Builder 4.x SDK in C#
+          href: 'https://github.com/Microsoft/botbuilder-dotnet'
+        - name: QnA Maker
+          href: 'https://qnamaker.ai/'
+        - name: API Riconoscimento vocale Bing
+          href: 'https://azure.microsoft.com/services/cognitive-services/speech/'
+        - name: API Controllo ortografico Bing
+          href: 'https://azure.microsoft.com/services/cognitive-services/spell-check/'
+        - name: Text Analytics
+          href: 'https://azure.microsoft.com/services/cognitive-services/text-analytics/'
+        - name: Recognizers-Text
+          href: 'https://github.com/Microsoft/Recognizers-Text'
+        - name: Chiosco multimediale intelligente
+          href: 'https://github.com/Microsoft/Cognitive-Samples-IntelligentKiosk'
