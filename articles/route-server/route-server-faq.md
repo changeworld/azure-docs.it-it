@@ -5,14 +5,14 @@ services: route-server
 author: duongau
 ms.service: route-server
 ms.topic: article
-ms.date: 03/08/2021
+ms.date: 03/29/2021
 ms.author: duau
-ms.openlocfilehash: 6eed0ed3e936b0e9a534c82a3105c2ed37cab3d5
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
+ms.openlocfilehash: c4c36013f100d2fc5265024432cc01a6622a4024
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102485420"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105932370"
 ---
 # <a name="azure-route-server-preview-faq"></a>Domande frequenti sul server di route di Azure (anteprima)
 
@@ -36,6 +36,9 @@ Il server di route di Azure supporta solo Border Gateway Protocol (BGP). L'appli
 ### <a name="does-azure-route-server-route-data-traffic-between-my-nva-and-my-vms"></a>Il server di routing di Azure instrada il traffico dati tra l'appliance virtuale di dispositivo e le VM?
 
 No. Il server di route di Azure scambia solo le route BGP con l'appliance virtuale di Azure. Il traffico dati passa direttamente dall'appliance virtuale di dispositivo alla VM scelta e direttamente dalla macchina virtuale all'appliance virtuale di dispositivo.
+
+### <a name="does-azure-route-server-store-customer-data"></a>Il server di routing di Azure archivia i dati dei clienti?
+No. Il server di route di Azure scambia solo le route BGP con l'appliance virtuale di rete e quindi le propaga alla rete virtuale.
 
 ### <a name="if-azure-route-server-receives-the-same-route-from-more-than-one-nva-will-it-program-all-copies-of-the-route-but-each-with-a-different-next-hop-to-the-vms-in-the-virtual-network"></a>Se il server di route di Azure riceve la stessa route da più di un appliance virtuale di rete, programma tutte le copie della route (ma ognuna con un hop successivo diverso) per le macchine virtuali nella rete virtuale?
 

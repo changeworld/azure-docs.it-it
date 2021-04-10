@@ -14,10 +14,10 @@ ms.reviewer: ajburnle
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 10ea524620f810e0bf1dddc230716031bbc10e69
-ms.sourcegitcommit: c8b50a8aa8d9596ee3d4f3905bde94c984fc8aa2
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "105642377"
 ---
 # <a name="governing-on-premises-service-accounts"></a>Governare gli account di servizio locali
@@ -84,7 +84,7 @@ Usare il processo seguente per la gestione del ciclo di vita degli account del s
 
 Raccogliere le informazioni aziendali rilevanti per ogni account del servizio. Nella tabella seguente sono riportate le informazioni minime da raccogliere, ma è necessario raccogliere tutti gli elementi necessari per creare il business case per l'esistenza degli account.
 
-| Dati| Dettagli |
+| Data| Dettagli |
 | - | - |
 | Proprietario| Utente o gruppo che è responsabile dell'account del servizio |
 | Scopo| Scopo dell'account del servizio |
@@ -114,7 +114,7 @@ Archiviare le informazioni raccolte in un'applicazione di tipo CMDB. Oltre alle 
 
 Si consideri un account del servizio utilizzato per eseguire un sito Web e disponga dei privilegi per connettersi a uno o più database SQL. Le informazioni archiviate in CMDB per questo account del servizio potrebbero essere:
 
-|Dati | Dettagli|
+|Data | Dettagli|
 | - | - |
 | Proprietario, Vice| John Bloom, Anna Mayers |
 | Scopo| Eseguire la pagina Web HR e connettersi a HR-databases. Può rappresentare l'utente finale durante l'accesso ai database. |

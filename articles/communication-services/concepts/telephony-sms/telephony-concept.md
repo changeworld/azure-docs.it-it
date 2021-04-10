@@ -8,19 +8,20 @@ ms.author: bobazile
 ms.date: 03/10/2021
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: d5e4920dcc422e848266f35c8a59175b5149b924
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 7aebb10fb3855936d930685f1a8eef2588140ad1
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103492745"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105930456"
 ---
 # <a name="telephony-concepts"></a>Concetti relativi alla telefonia
 
-[!INCLUDE [Private Preview Notice](../../includes/private-preview-include.md)]
+[!INCLUDE [Public Preview Notice](../../includes/public-preview-include-phone-numbers.md)]
+
 [!INCLUDE [Regional Availability Notice](../../includes/regional-availability-include.md)]
 
-I servizi di comunicazione di Azure che chiamano le librerie client possono essere usati per aggiungere telefonia e PSTN alle applicazioni. Questa pagina riepiloga i concetti e le funzionalità principali di telefonia. Per ulteriori informazioni su linguaggi e funzionalità specifiche della libreria client, vedere la [libreria chiamante](../../quickstarts/voice-video-calling/calling-client-samples.md) .
+I servizi di comunicazione di Azure che chiamano gli SDK possono essere usati per aggiungere telefonia e PSTN alle applicazioni. Questa pagina riepiloga i concetti e le funzionalità principali di telefonia. Per ulteriori informazioni su linguaggi e funzionalità SDK specifici, vedere la [libreria chiamante](../../quickstarts/voice-video-calling/calling-client-samples.md) .
 
 ## <a name="overview-of-telephony"></a>Panoramica della telefonia
 Ogni volta che gli utenti interagiscono con un numero di telefono tradizionale, le chiamate sono facilitate dalla chiamata vocale PSTN (Public Switched Telephone Network). Per effettuare e ricevere chiamate PSTN, è necessario aggiungere funzionalità di telefonia alla risorsa di Servizi di comunicazione di Azure. In questo caso, per connettere gli utenti, la segnalazione e i flussi multimediali usano una combinazione di tecnologie basate su IP e PSTN. Servizi di comunicazione fornisce due modi discreti per raggiungere la rete PSTN, ovvero la chiamata al cloud di Azure e l'interfaccia SIP.

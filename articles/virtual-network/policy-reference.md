@@ -1,18 +1,18 @@
 ---
 title: Definizioni di criteri predefiniti per Rete virtuale di Azure
 description: Elenco di definizioni di criteri predefiniti di Criteri di Azure per Rete virtuale di Azure. Queste definizioni di criteri predefiniti forniscono approcci comuni alla gestione delle risorse di Azure.
-ms.date: 03/24/2021
+ms.date: 03/31/2021
 ms.topic: reference
 author: KumudD
 ms.author: kumud
 ms.service: virtual-network
 ms.custom: subject-policy-reference
-ms.openlocfilehash: e763a1a8a69c5887f1e05ac314e104492c98be5d
-ms.sourcegitcommit: bb330af42e70e8419996d3cba4acff49d398b399
+ms.openlocfilehash: 591af87cf9e7fc3c1006c203e727800c5ae8cb61
+ms.sourcegitcommit: 99fc6ced979d780f773d73ec01bf651d18e89b93
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/24/2021
-ms.locfileid: "105037666"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106088967"
 ---
 # <a name="azure-policy-built-in-definitions-for-azure-virtual-network"></a>Definizioni predefinite di Criteri di Azure per Rete virtuale di Azure
 

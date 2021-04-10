@@ -10,10 +10,10 @@ ms.date: 10/15/2020
 ms.author: euang
 ms.reviewer: euang
 ms.openlocfilehash: 4471fed7b423fe05147db30afe57f6c845fe640e
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "101670705"
 ---
 # <a name="use-extended-apache-spark-history-server-to-debug-and-diagnose-apache-spark-applications"></a>Usare il server di cronologia Apache Spark esteso per eseguire il debug e la diagnosi delle applicazioni Apache Spark
@@ -42,11 +42,11 @@ Apache Spark server di cronologia è l'interfaccia utente Web per le applicazion
 
     ![Aprire il server cronologia Spark.](./media/apache-spark-history-server/open-spark-history-server.png)
 
-### <a name="open-the-spark-history-server-web-ui-from-data-node"></a>Aprire l'interfaccia utente Web del server cronologia Spark dal nodo dati
+### <a name="open-the-spark-history-server-web-ui-from-data-node&quot;></a>Aprire l'interfaccia utente Web del server cronologia Spark dal nodo dati
 
 1. Dal notebook di Azure sinapsi Studio selezionare **Server cronologia Spark** dalla cella output esecuzione processo o dal pannello stato nella parte inferiore del documento del notebook. Selezionare **Dettagli sessione**.
 
-   ![Avviare il server della cronologia Spark 1](./media/apache-spark-history-server/launch-history-server2.png "Avviare il server cronologia Spark")
+   ![Avviare il server della cronologia Spark 1](./media/apache-spark-history-server/launch-history-server2.png &quot;Avviare il server cronologia Spark")
 
 2. Selezionare **Server cronologia Spark** dal pannello di scorrimento.
 

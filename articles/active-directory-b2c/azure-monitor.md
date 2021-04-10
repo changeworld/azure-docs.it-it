@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.author: mimart
 ms.subservice: B2C
 ms.date: 01/29/2021
-ms.openlocfilehash: bc1dea8121d7986b8394adf6545a0b2c30afb133
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 0231f7f3882218ef88d6151488da6aa23e4cb8e4
+ms.sourcegitcommit: 5fd1f72a96f4f343543072eadd7cdec52e86511e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104580182"
+ms.lasthandoff: 04/01/2021
+ms.locfileid: "106106688"
 ---
 # <a name="monitor-azure-ad-b2c-with-azure-monitor"></a>Monitorare Azure AD B2C con monitoraggio di Azure
 
@@ -46,7 +46,7 @@ Il diagramma seguente illustra i componenti che verranno configurati nella Azure
 
 ![Proiezione del gruppo di risorse](./media/azure-monitor/resource-group-projection.png)
 
-Durante questa distribuzione, si configureranno sia il tenant di Azure AD B2C che Azure AD tenant in cui verrà ospitata l'area di lavoro Log Analytics. All'account Azure AD B2C deve essere assegnato il ruolo di [amministratore globale](../active-directory/roles/permissions-reference.md#limit-use-of-global-administrator) nel tenant di Azure ad B2C. All'account Azure AD usato per eseguire la distribuzione deve essere assegnato il ruolo di [proprietario](../role-based-access-control/built-in-roles.md#owner) nella sottoscrizione di Azure ad. È anche importante verificare di aver eseguito l'accesso alla directory corretta quando si completa ogni passaggio, come descritto.
+Durante questa distribuzione, si configureranno sia il tenant di Azure AD B2C che Azure AD tenant in cui verrà ospitata l'area di lavoro Log Analytics. All'account Azure AD B2C deve essere assegnato il ruolo di [amministratore globale](../active-directory/roles/permissions-reference.md#global-administrator) nel tenant di Azure ad B2C. All'account Azure AD usato per eseguire la distribuzione deve essere assegnato il ruolo di [proprietario](../role-based-access-control/built-in-roles.md#owner) nella sottoscrizione di Azure ad. È anche importante verificare di aver eseguito l'accesso alla directory corretta quando si completa ogni passaggio, come descritto.
 
 ## <a name="1-create-or-choose-resource-group"></a>1. creare o scegliere un gruppo di risorse
 

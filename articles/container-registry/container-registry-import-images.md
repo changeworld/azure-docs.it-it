@@ -3,22 +3,22 @@ title: Importare immagini del contenitore
 description: Importare immagini del contenitore in un registro Azure Container usando le API di Azure, senza bisogno di eseguire comandi di Docker.
 ms.topic: article
 ms.date: 01/15/2021
-ms.openlocfilehash: e6976f854b449f68faedd51878c2f3a7fe75cb0f
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: b481a2b4f0a08f0ccbfd33f7059e5d8e0c04f5f0
+ms.sourcegitcommit: 3f684a803cd0ccd6f0fb1b87744644a45ace750d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "99988241"
+ms.lasthandoff: 04/02/2021
+ms.locfileid: "106221501"
 ---
 # <a name="import-container-images-to-a-container-registry"></a>Importare immagini del contenitore in un registro contenitori
 
 È possibile importare (copiare) facilmente immagini del contenitore in un registro Azure Container senza usare comandi di Docker. Ad esempio, è possibile importare immagini da un registro di sviluppo in un registro di produzione oppure copiare immagini di base da un registro pubblico.
 
-Registro Azure Container supporta alcuni scenari comuni di copia di immagini da un registro esistente:
+Azure Container Registry gestisce diversi scenari comuni per la copia di immagini e altri elementi da un registro esistente:
 
-* Importazione da un registro pubblico
+* Importa immagini da un registro pubblico
 
-* Importa da un altro registro contenitori di Azure, nella stessa sottoscrizione o in una sottoscrizione di Azure o in un tenant diverso
+* Importa le immagini o gli artefatti OCI inclusi i grafici Helm 3 da un altro registro contenitori di Azure, nello stesso o in una sottoscrizione o in un tenant di Azure diverso
 
 * Importazione da un registro contenitori privato non di Azure
 

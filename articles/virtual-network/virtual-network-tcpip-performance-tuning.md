@@ -16,13 +16,13 @@ ms.date: 04/02/2019
 ms.author: rimayber
 ms.reviewer: dgoddard, stegag, steveesp, minale, btalb, prachank
 ms.openlocfilehash: 10fae563f80a4d77e3f4bb1d5ca809a4130b050a
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "102558849"
 ---
-# <a name="tcpip-performance-tuning-for-azure-vms"></a>Ottimizzazione delle prestazioni TCP/IP per macchine virtuali di Azure
+# <a name="tcpip-performance-tuning-for-azure-vms"></a>Ottimizzazione delle prestazioni TCP/IP per le macchine virtuali di Azure
 
 Questo articolo illustra le tecniche di ottimizzazione delle prestazioni TCP/IP comuni e alcune considerazioni da considerare quando vengono usate per le macchine virtuali in esecuzione in Azure. Viene fornita una panoramica di base delle tecniche ed è possibile esplorare le modalità di ottimizzazione.
 
