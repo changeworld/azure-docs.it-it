@@ -7,14 +7,14 @@ ms.reviewer: mikeray
 services: azure-arc
 ms.service: azure-arc
 ms.subservice: azure-arc-data
-ms.date: 03/02/2021
+ms.date: 04/06/2021
 ms.topic: conceptual
-ms.openlocfilehash: 6b4d5c1372a8351f1fe5a6608aff38bf232aabd8
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 2f41034331ed21e194fc2b86c2902c5957333313
+ms.sourcegitcommit: 6ed3928efe4734513bad388737dd6d27c4c602fd
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102121950"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "107010599"
 ---
 # <a name="release-notes---azure-arc-enabled-data-services-preview"></a>Note sulla versione-Azure Arc Enabled Data Services (anteprima)
 
@@ -22,11 +22,48 @@ Questo articolo evidenzia funzionalità, funzionalità e miglioramenti rilasciat
 
 [!INCLUDE [azure-arc-data-preview](../../../includes/azure-arc-data-preview.md)]
 
+## <a name="march-2021"></a>Marzo 2021
+
+La versione di marzo 2021 è stata introdotta il 6 aprile 2021.
+
+Esaminare i limiti di questa versione nei [problemi noti-Azure Arc Enabled Data Services (anteprima)](known-issues.md).
+
+Numero di versione dell'interfaccia della riga di comando di Azure ( `azdata` ): 20.3.2. È possibile installare `azdata` da [Install Azure Data CLI ( `azdata` )](/sql/azdata/install/deploy-install-azdata).
+
+### <a name="data-controller"></a>Controller dati
+
+- Distribuire il controller dati di Azure Arc Enabled Data Services in modalità di connessione diretta dal portale. Iniziare dalla [distribuzione del controller di dati-modalità di connessione diretta-prerequisiti](deploy-data-controller-direct-mode-prerequisites.md).
+
+### <a name="azure-arc-enabled-postgresql-hyperscale"></a>Iperscalabilità PostgreSQL abilitata per Azure Arc
+
+Entrambe le definizioni di risorse personalizzate (CRD) per PostgreSQL sono state consolidate in una singola CRD. Vedere la tabella seguente.
+
+|Versione |CRD |
+|-----|-----|
+|Febbraio 2021 e precedenti| postgresql-11s.arcdata.microsoft.com<br/>postgresql-12s.arcdata.microsoft.com |
+|A partire dal 2021 marzo | postgresqls.arcdata.microsoft.com
+
+Si eliminerà il CRD precedente durante la pulizia delle installazioni precedenti. Vedere [pulitura dalle installazioni precedenti](create-data-controller-using-kubernetes-native-tools.md#cleanup-from-past-installations).
+
+### <a name="azure-arc-enabled-managed-instance"></a>Istanza gestita di Azure Arc abilitata
+
+- A questo punto è possibile ripristinare un database in SQL Istanza gestita con 3 repliche, che verrà automaticamente aggiunto al gruppo di disponibilità. 
+
+- È ora possibile connettersi a un endpoint di sola lettura secondario in istanze gestite da SQL distribuite con 3 repliche. Utilizzare `azdata arc sql endpoint list` per visualizzare l'endpoint della connessione secondaria di sola lettura.
+
+### <a name="known-issues"></a>Problemi noti
+
+- In modalità con connessione diretta, il caricamento di utilizzo, le metriche e i log con `azdata arc dc upload` è attualmente bloccato. L'utilizzo viene caricato automaticamente. Il caricamento per il controller dati creato in modalità connessa indiretta dovrebbe continuare a funzionare.
+- La distribuzione del controller dati in modalità diretta può essere eseguita solo dal portale di Azure e non da strumenti client come azdata, Azure Data Studio o kubectl.
+- La distribuzione del Istanza gestita SQL abilitato per Azure Arc in modalità diretta può essere eseguita solo dal portale di Azure e non da strumenti come azdata, Azure Data Studio o kubectl.
+- La distribuzione di Azure Arc abilitata per la scalabilità PostgeSQL in modalità diretta non è attualmente disponibile.
+- Il caricamento automatico dei dati di utilizzo in modalità di connettività diretta non riuscirà se si usa il proxy tramite `–proxy-cert <path-t-cert-file>` .
+
 ## <a name="february-2021"></a>2021 febbraio
 
 ### <a name="new-capabilities-and-features"></a>Nuove funzionalità e funzionalità
 
-Numero di versione dell'interfaccia della riga di comando di Azure ( `azdata` ): 20.3.1. Scarica all'indirizzo [https://aka.ms/azdata](https://aka.ms/azdata) . È possibile installare `azdata` da [Install Azure Data CLI ( `azdata` )](/sql/azdata/install/deploy-install-azdata).
+Numero di versione dell'interfaccia della riga di comando di Azure ( `azdata` ): 20.3.1. È possibile installare `azdata` da [Install Azure Data CLI ( `azdata` )](/sql/azdata/install/deploy-install-azdata).
 
 Altri aggiornamenti includono:
 
@@ -44,7 +81,7 @@ Per i problemi associati a questa versione, vedere [problemi noti-Azure Arc Enab
 
 ### <a name="new-capabilities-and-features"></a>Nuove funzionalità e funzionalità
 
-Numero di versione dell'interfaccia della riga di comando di Azure ( `azdata` ): 20.3.0. Scarica all'indirizzo [https://aka.ms/azdata](https://aka.ms/azdata) . È possibile installare `azdata` da [Install Azure Data CLI ( `azdata` )](/sql/azdata/install/deploy-install-azdata).
+Numero di versione dell'interfaccia della riga di comando di Azure ( `azdata` ): 20.3.0. È possibile installare `azdata` da [Install Azure Data CLI ( `azdata` )](/sql/azdata/install/deploy-install-azdata).
 
 Altri aggiornamenti includono:
 - Portale localizzato disponibile per 17 nuove lingue
@@ -70,7 +107,7 @@ Altri aggiornamenti includono:
 
 ### <a name="new-capabilities--features"></a>Nuove funzionalità & funzionalità
 
-Numero di versione dell'interfaccia della riga di comando di Azure ( `azdata` ): 20.2.5. Scarica all'indirizzo [https://aka.ms/azdata](https://aka.ms/azdata) .
+Numero di versione dell'interfaccia della riga di comando di Azure ( `azdata` ): 20.2.5. È possibile installare `azdata` da [Install Azure Data CLI ( `azdata` )](/sql/azdata/install/deploy-install-azdata).
 
 Visualizzare gli endpoint per l'iperscalabilità di SQL Istanza gestita e PostgreSQL usando l'interfaccia della riga di comando di Azure ( `azdata` ) con i `azdata arc sql endpoint list` `azdata arc postgres endpoint list` comandi e.
 
@@ -127,16 +164,9 @@ azdata arc dc create --profile-name azure-arc-aks-hci --namespace arc --name arc
 
    :::image type="content" source="media/release-notes/aks-zone-selector.png" alt-text="Deselezionare le caselle di controllo per ogni zona per specificare nessuna.":::
 
-#### <a name="postgresql"></a>PostgreSQL
-
-- L'iperscalabilità di PostgreSQL abilitata per Azure Arc restituisce un messaggio di errore non accurato quando non è possibile eseguire il ripristino fino al punto nel tempo relativo indicato. Se, ad esempio, è stato specificato un punto nel tempo per il ripristino precedente rispetto a quello dei backup, il ripristino avrà esito negativo con un messaggio di errore simile a: errore: (404). Motivo: non trovato. Corpo della risposta HTTP: {"code": 404, "internalStatus": "NOT_FOUND", "Reason": "non è stato possibile ripristinare il backup per il server...}
-Quando si verifica questo problema, riavviare il comando dopo aver indicato un punto nel tempo compreso nell'intervallo di date per cui si dispone di backup. Questo intervallo verrà determinato elencando i backup e esaminando le date in cui sono state eseguite.
-- Il ripristino temporizzato è supportato solo tra gruppi di server. Il server di destinazione di un'operazione di ripristino temporizzato non può essere il server da cui è stato richiesto il backup. Deve essere un gruppo di server diverso. Tuttavia, il ripristino completo è supportato per lo stesso gruppo di server.
-- Quando si esegue un ripristino completo, è necessario un ID di backup. Per impostazione predefinita, se non si indica un ID di backup verrà usato il backup più recente. Questa operazione non funziona in questa versione.
-
 ## <a name="october-2020"></a>Ottobre 2020 
 
-Numero di versione dell'interfaccia della riga di comando di Azure ( `azdata` ): 20.2.3. Scarica all'indirizzo [https://aka.ms/azdata](https://aka.ms/azdata) .
+Numero di versione dell'interfaccia della riga di comando di Azure ( `azdata` ): 20.2.3. È possibile installare `azdata` da [Install Azure Data CLI ( `azdata` )](/sql/azdata/install/deploy-install-azdata).
 
 ### <a name="breaking-changes"></a>Modifiche che causano un'interruzione
 

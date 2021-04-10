@@ -11,13 +11,13 @@ ms.topic: conceptual
 author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, sstein
-ms.date: 12/26/2020
-ms.openlocfilehash: e0b9eea7be97b9b67e75c314c4a1d9e69322e5b5
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.date: 03/26/2021
+ms.openlocfilehash: 4d497adf5229819527608157a7a840d514f4292c
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104594258"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105732347"
 ---
 # <a name="use-auto-failover-groups-to-enable-transparent-and-coordinated-failover-of-multiple-databases"></a>Usare i gruppi di failover automatico per consentire il failover trasparente e coordinato di più database
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -178,6 +178,12 @@ Quando si eseguono operazioni OLTP, usare `<fog-name>.database.windows.net` come
 
 Se è presente un carico di lavoro di sola lettura isolato logicamente che tollera un certo grado di obsolescenza dei dati, è possibile usare il database secondario nell'applicazione. Per sessioni di sola lettura usare `<fog-name>.secondary.database.windows.net` come URL del server per indirizzare automaticamente le connessioni al server secondario. È inoltre consigliabile indicare la finalità di lettura nella stringa di connessione utilizzando `ApplicationIntent=ReadOnly` .
 
+> [!NOTE]
+> Nei livelli di servizio Premium, business critical e iperscalare, il database SQL supporta l'uso di [repliche](read-scale-out.md) di sola lettura per l'offload dei carichi di lavoro di query di sola lettura, usando il `ApplicationIntent=ReadOnly` parametro nella stringa di connessione. Dopo aver configurato un database secondario con replica geografica, sarà possibile usare questa funzionalità per connettersi a una replica di sola lettura nella posizione primaria o nella posizione con replica geografica.
+>
+> - Per connettersi a una replica di sola lettura nella posizione primaria, utilizzare `ApplicationIntent=ReadOnly` e `<fog-name>.database.windows.net` .
+> - Per connettersi a una replica di sola lettura nella posizione secondaria, utilizzare `ApplicationIntent=ReadOnly` e `<fog-name>.secondary.database.windows.net` .
+
 ### <a name="preparing-for-performance-degradation"></a>Preparazione per il calo delle prestazioni
 
 Una tipica applicazione Azure usa più servizi di Azure ed è costituita da più componenti. Il failover automatico del gruppo di failover viene attivato in base allo stato solo dei componenti SQL di Azure. È possibile che altri servizi di Azure nell'area primaria non siano interessati dall'interruzione e che i relativi componenti siano ancora disponibili in tale area. Una volta che i database primari passano all'area di ripristino di emergenza, la latenza tra i componenti dipendenti può aumentare. Per evitare l'effetto di una latenza più elevata sulle prestazioni dell'applicazione, verificare la ridondanza di tutti i componenti dell'applicazione nell'area di ripristino di emergenza e attenersi alle [linee guida](#failover-groups-and-network-security)per la sicurezza di rete.
@@ -267,7 +273,7 @@ Quando si eseguono operazioni OLTP, usare `<fog-name>.zone_id.database.windows.n
 Se è presente un carico di lavoro di sola lettura isolato logicamente che tollera un certo grado di obsolescenza dei dati, è possibile usare il database secondario nell'applicazione. Per connettersi direttamente al database secondario con replica geografica, usare `<fog-name>.secondary.<zone_id>.database.windows.net` come URL del server.
 
 > [!NOTE]
-> Nei livelli di servizio Premium, business critical e iperscalare, il database SQL supporta l'uso di [repliche](read-scale-out.md) di sola lettura per eseguire carichi di lavoro di query di sola lettura usando la capacità di una o più repliche di sola lettura, usando il `ApplicationIntent=ReadOnly` parametro nella stringa di connessione. Dopo aver configurato un database secondario con replica geografica, sarà possibile usare questa funzionalità per connettersi a una replica di sola lettura nella posizione primaria o nella posizione con replica geografica.
+> Nel livello business critical SQL Istanza gestita supporta l'uso di [repliche](read-scale-out.md) di sola lettura per l'offload dei carichi di lavoro di query di sola lettura, usando il `ApplicationIntent=ReadOnly` parametro nella stringa di connessione. Dopo aver configurato un database secondario con replica geografica, sarà possibile usare questa funzionalità per connettersi a una replica di sola lettura nella posizione primaria o nella posizione con replica geografica.
 >
 > - Per connettersi a una replica di sola lettura nella posizione primaria, utilizzare `ApplicationIntent=ReadOnly` e `<fog-name>.<zone_id>.database.windows.net` .
 > - Per connettersi a una replica di sola lettura nella posizione secondaria, utilizzare `ApplicationIntent=ReadOnly` e `<fog-name>.secondary.<zone_id>.database.windows.net` .

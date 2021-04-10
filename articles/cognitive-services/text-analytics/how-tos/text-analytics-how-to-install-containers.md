@@ -9,15 +9,15 @@ ms.custom: seodec18, cog-serv-seo-aug-2020
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: conceptual
-ms.date: 03/02/2021
+ms.date: 03/25/2021
 ms.author: aahi
 keywords: locale, Docker, contenitore, analisi dei sentimenti, elaborazione del linguaggio naturale
-ms.openlocfilehash: ac82781ed4a05fbbca7f5b16edb0b5349dfc400a
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: cc5406cec54defd118ba350ba59b8d7311cff563
+ms.sourcegitcommit: 99fc6ced979d780f773d73ec01bf651d18e89b93
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102432061"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106089729"
 ---
 # <a name="install-and-run-text-analytics-containers"></a>Installare ed eseguire i contenitori di Analisi del testo
 
@@ -49,6 +49,8 @@ Per usare i contenitori di Analisi del testo, è necessario soddisfare i prerequ
 |Risorsa Analisi del testo |Per usare il contenitore, è necessario disporre di:<br><br>Una [risorsa analisi del testo](../../cognitive-services-apis-create-account.md) di Azure con il piano [tariffario](https://azure.microsoft.com/pricing/details/cognitive-services/text-analytics/)gratuito (F0) o standard (S). È necessario ottenere la chiave API e l'URI dell'endpoint associati passando alla pagina **chiave ed endpoint** della risorsa nel portale di Azure. <br><br>**{API_KEY}**: una delle due chiavi di risorsa disponibili. <br><br>**{ENDPOINT_URI}**: l'endpoint per la risorsa. |
 
 [!INCLUDE [Gathering required parameters](../../containers/includes/container-gathering-required-parameters.md)]
+
+Se si usa il Analisi del testo per il contenitore di integrità, il riconoscimento [responsabile di intelligenza artificiale](https://docs.microsoft.com/legal/cognitive-services/text-analytics/transparency-note-health)  (Rai) deve essere presente anche con un valore di `accept` .
 
 ## <a name="the-host-computer"></a>Computer host
 

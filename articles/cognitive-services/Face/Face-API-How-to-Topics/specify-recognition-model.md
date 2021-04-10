@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 03/05/2021
 ms.author: longl
 ms.custom: devx-track-csharp
-ms.openlocfilehash: cd4ed992557a3c333919b63cc36757beb2f70454
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 3d22f2fb0bb550d966cbc5e181882552514513b2
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102433557"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105936581"
 ---
 # <a name="specify-a-face-recognition-model"></a>Specificare un modello di riconoscimento volto
 
@@ -87,7 +87,7 @@ Non sono state apportate modifiche all'API per l' [Identificazione del volto] . 
 
 ## <a name="find-similar-faces-with-specified-model"></a>Trova visi simili con il modello specificato
 
-È anche possibile specificare un modello di riconoscimento per la ricerca di somiglianza. È possibile assegnare la versione del modello con `recognitionModel` quando si crea l'elenco di facet con l'API [facet-create] o [LargeFaceList-create]. Se non si specifica questo parametro, `recognition_01` per impostazione predefinita viene utilizzato il modello. Un elenco di visi utilizzerà sempre il modello di riconoscimento con cui è stato creato e i nuovi visi verranno associati a questo modello quando vengono aggiunti all'elenco; Questa operazione non può essere modificata dopo la creazione. Per visualizzare il modello con cui è stato configurato un elenco di visi, usare l'API [facet-Get] con il parametro _returnRecognitionModel_ impostato su **true**.
+È anche possibile specificare un modello di riconoscimento per la ricerca di somiglianza. È possibile assegnare la versione del modello con `recognitionModel` quando si crea l'oggetto **facet** con l'API [facet-create] o [LargeFaceList-create]. Se non si specifica questo parametro, `recognition_01` per impostazione predefinita viene utilizzato il modello. Un **facet** utilizzerà sempre il modello di riconoscimento con cui è stato creato e i nuovi visi verranno associati a questo modello quando vengono aggiunti all'elenco. Questa operazione non può essere modificata dopo la creazione. Per visualizzare il modello con cui è stato configurato un **facet** , usare l'API [facet-Get] con il parametro _returnRecognitionModel_ impostato su **true**.
 
 Vedere l'esempio di codice seguente per la libreria client .NET.
 
@@ -95,7 +95,7 @@ Vedere l'esempio di codice seguente per la libreria client .NET.
 await faceClient.FaceList.CreateAsync(faceListId, "My face collection", recognitionModel: "recognition_04");
 ```
 
-Questo codice crea un elenco di facet denominato `My face collection` , usando il modello di _recognition_04_ per l'estrazione delle funzionalità. Quando si esegue la ricerca di visi simili a un nuovo facet rilevato, quest'aspetto deve essere stato rilevato ([rilevamento viso]) usando il modello di _recognition_04_ . Come nella sezione precedente, il modello deve essere coerente.
+Questo codice crea un **facet** denominato `My face collection` , usando il modello di _recognition_04_ per l'estrazione delle funzionalità. Quando si esegue la ricerca di visi simili a un nuovo volto rilevato **, quest'aspetto deve** essere stato rilevato ([rilevamento viso]) utilizzando il modello di _recognition_04_ . Come nella sezione precedente, il modello deve essere coerente.
 
 Non sono state apportate modifiche all'API per la [ricerca del volto] . è possibile specificare solo la versione del modello in rilevamento.
 

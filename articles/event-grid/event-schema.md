@@ -3,12 +3,12 @@ title: Schema di eventi di Griglia di eventi di Azure
 description: Descrive le proprietà e lo schema presenti per tutti gli eventi. Gli eventi sono costituiti da un set di cinque proprietà di tipo stringa obbligatorie e un oggetto data obbligatorio.
 ms.topic: reference
 ms.date: 07/07/2020
-ms.openlocfilehash: 7ddc7c78c5a9e5ba2a57b21c45fb9fab65056ee9
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 5ff7b41a45cf467074e18a50be398b2a3c9866a4
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "86105881"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105732160"
 ---
 # <a name="azure-event-grid-event-schema"></a>Schema di eventi di Griglia di eventi di Azure
 
@@ -88,6 +88,7 @@ Tutti gli eventi contengono gli stessi dati di livello principale indicati di se
 
 Per informazioni sulle proprietà nell'oggetto dati, vedere l'origine dell'evento:
 
+* [Criteri di Azure](./event-schema-policy.md)
 * [Sottoscrizioni di Azure (operazioni di gestione)](event-schema-subscriptions.md)
 * [Registro Container](event-schema-container-registry.md)
 * [Archiviazione BLOB](event-schema-blob-storage.md)

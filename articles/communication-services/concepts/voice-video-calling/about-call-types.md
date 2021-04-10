@@ -9,17 +9,14 @@ ms.author: mikben
 ms.date: 03/25/2021
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: 6ec616047a99465bace0b401f659765e4399634b
-ms.sourcegitcommit: 73d80a95e28618f5dfd719647ff37a8ab157a668
+ms.openlocfilehash: 8a25f69019e194650bb6aa2f5b8ae19dd37fbc48
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/26/2021
-ms.locfileid: "105604567"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105729168"
 ---
 # <a name="voice-and-video-concepts"></a>Concetti relativi alle chiamate vocali e video
-
-[!INCLUDE [Public Preview Notice](../../includes/public-preview-include.md)]
-
 
 È possibile usare Servizi di comunicazione di Azure per effettuare e ricevere chiamate uno-a-uno, oltre che chiamate vocali e videochiamate di gruppo. Le chiamate possono essere effettuate verso altri dispositivi connessi a Internet e verso telefoni tradizionali. È possibile usare gli SDK JavaScript, Android o iOS di servizi di comunicazione per compilare applicazioni che consentono agli utenti di comunicare tra loro in conversazioni private o in discussioni di gruppo. Servizi di comunicazione di Azure supporta le chiamate da e verso servizi o bot.
 

@@ -22,7 +22,9 @@
       href: groups-concept.md
     - name: Unità amministrative
       href: administrative-units.md
-    - name: Security
+    - name: Procedure consigliate
+      href: best-practices.md
+    - name: Sicurezza
       items:
         - name: Pianificazione della sicurezza dei ruoli
           href: security-planning.md

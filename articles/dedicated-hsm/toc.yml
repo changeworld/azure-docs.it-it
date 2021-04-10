@@ -36,6 +36,8 @@
       href: troubleshoot.md
 - name: Informazioni di riferimento
   items:
+    - name: Interfaccia della riga di comando di Azure
+      href: /cli/azure/ext/hardware-security-modules/dedicated-hsm
     - name: Azure PowerShell
       href: /powershell/module/Az.DedicatedHsm
 - name: Risorse

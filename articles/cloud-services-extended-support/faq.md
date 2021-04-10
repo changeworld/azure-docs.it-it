@@ -8,12 +8,12 @@ ms.author: gachandw
 ms.reviewer: mimckitt
 ms.date: 10/13/2020
 ms.custom: ''
-ms.openlocfilehash: 9cac6cdd8e68af77b611c89e8b62e6f8d8845fd0
-ms.sourcegitcommit: bed20f85722deec33050e0d8881e465f94c79ac2
+ms.openlocfilehash: 33bafac9247f007978fef568469d643f1a1098df
+ms.sourcegitcommit: 77d7639e83c6d8eb6c2ce805b6130ff9c73e5d29
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/25/2021
-ms.locfileid: "105107517"
+ms.lasthandoff: 04/05/2021
+ms.locfileid: "106383587"
 ---
 # <a name="frequently-asked-questions-for-azure-cloud-services-extended-support"></a>Domande frequenti per Servizi cloud di Azure (supporto "Extended")
 Questo articolo descrive le domande frequenti relative ai servizi cloud di Azure (supporto esteso).
@@ -57,6 +57,9 @@ La distribuzione di servizi cloud (supporto esteso) supporta solo lo stato arres
 
 ### <a name="do-cloud-services-extended-support-deployments-support-scaling-across-clusters-availability-zones-and-regions"></a>Le distribuzioni di servizi cloud (supporto esteso) supportano il ridimensionamento tra cluster, zone di disponibilità e aree?
 Le distribuzioni di servizi cloud (supporto esteso) non possono essere ridimensionate in più cluster, zone di disponibilità e aree. 
+
+### <a name="how-can-i-get-the-deployment-id-for-my-cloud-service-extended-support"></a>Come è possibile ottenere l'ID distribuzione per il servizio cloud (supporto esteso)
+È possibile accedere all'ID di distribuzione, noto come ID privato, usando l'API [CloudServiceInstanceView](https://docs.microsoft.com/rest/api/compute/cloudservices/getinstanceview#cloudserviceinstanceview) . È disponibile anche nella portale di Azure nel pannello ruolo e istanze del servizio cloud (supporto esteso)
 
 ### <a name="are-there-any-pricing-differences-between-cloud-services-classic-and-cloud-services-extended-support"></a>Esistono differenze di prezzo tra i servizi cloud (versione classica) e i servizi cloud (supporto esteso)?
 Servizi cloud (supporto esteso) USA Azure Key Vault e indirizzi IP pubblici di base (ARM).I clienti che richiedono certificati devono usare Azure Key Vault per la gestione dei certificati.[altre](https://azure.microsoft.com/pricing/details/key-vault/) informazioni sui prezzi Azure Key Vault.   Ogni indirizzo IP pubblico per i servizi cloud (supporto esteso) viene addebitato separatamente ([altre](https://azure.microsoft.com/pricing/details/ip-addresses/) informazioni sui prezzi degli indirizzi IP pubblici). 

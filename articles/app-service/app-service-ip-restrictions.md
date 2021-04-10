@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 12/17/2020
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: 4b85397eeda651678fe66c6e78199dd25630dcc4
-ms.sourcegitcommit: a67b972d655a5a2d5e909faa2ea0911912f6a828
+ms.openlocfilehash: 420dade645d1a4ee32bb888aecb76b033d5756e1
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/23/2021
-ms.locfileid: "104889907"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105731301"
 ---
 # <a name="set-up-azure-app-service-access-restrictions"></a>Configurare le restrizioni di accesso al servizio app Azure
 
@@ -178,7 +178,7 @@ Oltre a essere in grado di controllare l'accesso all'app, è possibile limitare 
 ### <a name="restrict-access-to-a-specific-azure-front-door-instance"></a>Limitare l'accesso a un'istanza di Azure front door specifica
 Il traffico dalla porta anteriore di Azure all'applicazione ha origine da un set noto di intervalli di indirizzi IP definiti nel tag del servizio AzureFrontDoor. backend. Usando una regola di restrizione dei tag del servizio, è possibile limitare il traffico solo a originare da Azure front door. Per garantire che il traffico provenga solo da un'istanza specifica, sarà necessario filtrare ulteriormente le richieste in ingresso in base all'intestazione HTTP univoca inviata da Azure front door.
 
-:::image type="content" source="media/app-service-ip-restrictions/access-restrictions-frontdoor.png" alt-text="Screenshot della pagina &quot;restrizioni di accesso&quot; nella portale di Azure, che Mostra come aggiungere una restrizione di Azure front door.":::
+:::image type="content" source="media/app-service-ip-restrictions/access-restrictions-frontdoor.png?v2" alt-text="Screenshot della pagina &quot;restrizioni di accesso&quot; nella portale di Azure, che Mostra come aggiungere una restrizione di Azure front door.":::
 
 Esempio di PowerShell:
 

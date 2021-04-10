@@ -5,14 +5,14 @@ author: vhorne
 ms.service: firewall-manager
 services: firewall-manager
 ms.topic: overview
-ms.date: 03/16/2021
+ms.date: 03/29/2021
 ms.author: victorh
-ms.openlocfilehash: 506799f94676be007cf94320e3958bd305ce85f0
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 6725bea562d3e7841b5ab82acc0a54f91f0488b4
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103573456"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105732925"
 ---
 # <a name="what-is-azure-firewall-manager"></a>Che cos'è Gestione firewall di Azure?
 
@@ -66,7 +66,7 @@ Per altre informazioni sui provider partner di sicurezza, vedere [Che cosa sono 
 
 Questa funzionalità è disponibile solo con distribuzioni di tipo hub virtuale protetto.
 
-È possibile usare provider di terze parti per il filtro del traffico da branch a Internet (B2I), affiancato con Firewall di Azure per il filtro da branch a rete virtuale (B2V), da rete virtuale a rete virtuale (V2V) e da rete virtuale a Internet (V2I). È anche possibile usare provider di terze parti per filtrare il traffico V2I, purché Firewall di Azure non sia necessario per B2V o V2V. 
+È possibile usare provider di terze parti per il filtro del traffico da branch a Internet (B2I), affiancato con Firewall di Azure per il filtro da branch a rete virtuale (B2V), da rete virtuale a rete virtuale (V2V) e da rete virtuale a Internet (V2I). 
 
 ## <a name="region-availability"></a>Aree di disponibilità
 

@@ -7,12 +7,12 @@ ms.author: alkarche
 ms.date: 11/18/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 97fad1b984ad34722a952a31d8245eb68417a2ab
-ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
+ms.openlocfilehash: e6b35031d976a11bdac6f38d74f9e02a0fc83302
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/22/2021
-ms.locfileid: "104779971"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105936309"
 ---
 # <a name="manage-endpoints-and-routes-in-azure-digital-twins-apis-and-cli"></a>Gestire endpoint e route nei dispositivi gemelli digitali di Azure (API e CLI)
 
@@ -158,7 +158,7 @@ Una volta configurato l'endpoint con i messaggi non recapitabili, i messaggi non
 
 I messaggi non recapitabili corrisponderanno allo schema dell'evento originale destinato a essere recapitato all'endpoint originale.
 
-Di seguito è riportato un esempio di messaggio non recapitabile per una notifica di creazione di un dispositivo [gemello](how-to-interpret-event-data.md#digital-twin-life-cycle-notifications):
+Di seguito è riportato un esempio di messaggio non recapitabile per una notifica di creazione di un dispositivo [gemello](how-to-interpret-event-data.md#digital-twin-lifecycle-notifications):
 
 ```json
 {
@@ -239,7 +239,9 @@ Senza filtro, gli endpoint ricevono una serie di eventi da dispositivi gemelli d
 È possibile limitare gli eventi inviati aggiungendo un **filtro** per un endpoint alla route dell'evento.
 
 >[!NOTE]
-> I filtri fanno **distinzione tra maiuscole** e minuscole e devono corrispondere al caso del payload (che potrebbe non corrispondere necessariamente al case del modello).
+> I filtri fanno **distinzione tra maiuscole** e minuscole e devono corrispondere al caso del payload. 
+>
+> Per i filtri di telemetria, ciò significa che la combinazione di maiuscole e minuscole deve corrispondere a quella nei dati di telemetria inviati dal dispositivo, non necessariamente all'involucro definito nel modello del gemello. 
 
 Per aggiungere un filtro, è possibile usare una richiesta PUT su *https://{Your-Azure-Digital-gemells-hostname}/eventRoutes/{Event-route-name}? API-Version = 2020-10-31* con il corpo seguente:
 

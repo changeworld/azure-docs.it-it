@@ -5,10 +5,10 @@ ms.topic: conceptual
 ms.date: 08/06/2020
 ms.custom: devx-track-js
 ms.openlocfilehash: 04cda044b002e226c49f8647d4705d7c0f2a514e
-ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/26/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "105565266"
 ---
 # <a name="application-insights-for-web-pages"></a>Application Insights per pagine Web
@@ -214,7 +214,7 @@ La maggior parte dei campi di configurazione è denominata in modo che sia possi
 | abilitare&#8203;AutoRoute&#8203;rilevamento | Rilevare automaticamente le modifiche del route nelle applicazioni a pagina singola (SPA). Se true, ogni modifica della route invierà una nuova visualizzazione a Application Insights. Anche le modifiche della route hash ( `example.com/foo#bar` ) vengono registrate come nuove visualizzazioni di pagina.| boolean<br/>false |
 | enableRequest&#8203;HeaderTracking | Se true, vengono rilevate le intestazioni della richiesta di recupero & AJAX. | boolean<br/> false |
 | enableResponse&#8203;HeaderTracking | Se true, vengono rilevate le intestazioni di risposta della richiesta di recupero & AJAX. | boolean<br/> false |
-| distributedTracingMode | Imposta la modalità di traccia distribuita. Se è impostata la modalità AI_AND_W3C o W3C, le intestazioni del contesto di traccia W3C (traceparent/tracestate) verranno generate e incluse in tutte le richieste in uscita. AI_AND_W3C viene fornito per la compatibilità con le versioni precedenti di tutti i servizi Application Insights instrumentati. Vedere l'esempio [qui](./correlation.md#enable-w3c-distributed-tracing-support-for-web-apps).| `DistributedTracingModes`oppure<br/>NUMERIC<br/>(A partire da v 2.6.0) `DistributedTracingModes.AI_AND_W3C`<br />(v 2.5.11 o versioni precedenti) `DistributedTracingModes.AI` |
+| distributedTracingMode | Imposta la modalità di traccia distribuita. Se è impostata la modalità AI_AND_W3C o W3C, le intestazioni del contesto di traccia W3C (traceparent/tracestate) verranno generate e incluse in tutte le richieste in uscita. AI_AND_W3C viene fornito per la compatibilità con le versioni precedenti di tutti i servizi Application Insights instrumentati. Vedere l'esempio [qui](./correlation.md#enable-w3c-distributed-tracing-support-for-web-apps).| `DistributedTracingModes`o<br/>NUMERIC<br/>(A partire da v 2.6.0) `DistributedTracingModes.AI_AND_W3C`<br />(v 2.5.11 o versioni precedenti) `DistributedTracingModes.AI` |
 | Abilita&#8203;AjaxErrorStatusText | Se true, includere il testo dei dati degli errori di risposta nell'evento di dipendenza per le richieste AJAX non riuscite. | boolean<br/> false |
 | Abilita&#8203;AjaxPerfTracking |Flag per abilitare la ricerca e l'inclusione della finestra del browser aggiuntiva. intervalli di prestazioni nelle metriche segnalate `ajax` (XHR e fetch). | boolean<br/> false |
 | maxAjaxPerf&#8203;LookupAttempts | Il numero massimo di volte in cui cercare la finestra. tempistiche delle prestazioni (se disponibili), questa operazione è necessaria perché non tutti i browser popolano la finestra. prestazioni prima di segnalare la fine della richiesta XHR e per le richieste di recupero questo viene aggiunto dopo il completamento.| NUMERIC<br/> 3 |

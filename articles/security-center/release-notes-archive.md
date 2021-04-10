@@ -5,14 +5,14 @@ author: memildin
 manager: rkarlin
 ms.service: security-center
 ms.topic: reference
-ms.date: 03/04/2021
+ms.date: 04/04/2021
 ms.author: memildin
-ms.openlocfilehash: 5b3dd9ae4113c3c9fe4b0547f990dc7e912b99f5
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: ecdaf6a8509583cf93857e24fabc059e38d23b67
+ms.sourcegitcommit: 77d7639e83c6d8eb6c2ce805b6130ff9c73e5d29
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105726414"
+ms.lasthandoff: 04/05/2021
+ms.locfileid: "106383457"
 ---
 # <a name="archive-for-whats-new-in-azure-security-center"></a>Archivio delle novità del Centro sicurezza di Azure
 
@@ -24,6 +24,157 @@ Questa pagina illustra quanto segue:
 - Correzioni di bug
 - Funzionalità deprecate
 
+
+## <a name="october-2020"></a>Ottobre 2020
+
+Gli aggiornamenti del mese di ottobre includono quanto segue:
+- [Valutazione delle vulnerabilità per computer locali e multicloud (anteprima)](#vulnerability-assessment-for-on-premise-and-multi-cloud-machines-preview)
+- [Aggiunta una raccomandazione per Firewall di Azure (anteprima)](#azure-firewall-recommendation-added-preview)
+- [Gli intervalli IP autorizzati devono essere definiti nei servizi Kubernetes - Aggiornata la raccomandazione con una correzione rapida](#authorized-ip-ranges-should-be-defined-on-kubernetes-services-recommendation-updated-with-quick-fix)
+- [Il dashboard Conformità con le normative include ora un'opzione per rimuovere gli standard](#regulatory-compliance-dashboard-now-includes-option-to-remove-standards)
+- [Rimossa la tabella Microsoft.Security/securityStatuses da Azure Resource Graph (ARG)](#microsoftsecuritysecuritystatuses-table-removed-from-azure-resource-graph-arg)
+
+### <a name="vulnerability-assessment-for-on-premise-and-multi-cloud-machines-preview"></a>Valutazione delle vulnerabilità per computer locali e multicloud (anteprima)
+
+Lo strumento di analisi integrato per la valutazione delle vulnerabilità di [Azure Defender per i server](defender-for-servers-introduction.md) (con tecnologia Qualys) ora analizza i server con abilitazione di Azure Arc.
+
+Quando Azure Arc viene abilitato in computer non di Azure, il Centro sicurezza offre la possibilità di distribuirvi lo strumento integrato di analisi delle vulnerabilità, manualmente e su larga scala.
+
+Con questo aggiornamento, è possibile sfruttare la potenza di **Azure Defender per i server** per consolidare il programma di gestione delle vulnerabilità in tutti gli asset di Azure e non di Azure.
+
+Funzionalità principali:
+
+- Monitoraggio dello stato di provisioning dello strumento di analisi per la valutazione delle vulnerabilità nei computer Azure Arc
+- Provisioning dell'agente di valutazione delle vulnerabilità nei computer Azure Arc Windows e Linux non protetti (manualmente e su larga scala)
+- Ricezione e analisi delle vulnerabilità rilevate dagli agenti distribuiti (manualmente e su larga scala)
+- Esperienza unificata per macchine virtuali di Azure e computer Azure Arc
+
+[Altre informazioni sulla distribuzione dello strumento di analisi delle vulnerabilità integrato nei computer ibridi](deploy-vulnerability-assessment-vm.md#deploy-the-integrated-scanner-to-your-azure-and-hybrid-machines).
+
+[Altre informazioni sui server con abilitazione di Azure Arc](../azure-arc/servers/index.yml).
+
+
+### <a name="azure-firewall-recommendation-added-preview"></a>Aggiunta una raccomandazione per Firewall di Azure (anteprima)
+
+È stata aggiunta una nuova raccomandazione per proteggere tutte le reti virtuali con Firewall di Azure.
+
+La raccomandazione **È consigliabile che le reti virtuali siano protette da Firewall di Azure** consiglia di limitare l'accesso alle reti virtuali ed evitare potenziali minacce tramite Firewall di Azure.
+
+Altre informazioni su [Firewall di Azure](https://azure.microsoft.com/services/azure-firewall/).
+
+
+### <a name="authorized-ip-ranges-should-be-defined-on-kubernetes-services-recommendation-updated-with-quick-fix"></a>Gli intervalli IP autorizzati devono essere definiti nei servizi Kubernetes - Aggiornata la raccomandazione con una correzione rapida
+
+La raccomandazione **Gli intervalli IP autorizzati devono essere definiti nei servizi Kubernetes** include ora un'opzione per la correzione rapida.
+
+Per altre informazioni su questa e su tutte le altre raccomandazioni del Centro sicurezza, vedere [Raccomandazioni sulla sicurezza: una guida di riferimento](recommendations-reference.md).
+
+:::image type="content" source="./media/release-notes/authorized-ip-ranges-recommendation.png" alt-text="La raccomandazione Gli intervalli IP autorizzati devono essere definiti nei servizi Kubernetes con l'opzione per la correzione rapida":::
+
+
+### <a name="regulatory-compliance-dashboard-now-includes-option-to-remove-standards"></a>Il dashboard Conformità con le normative include ora un'opzione per rimuovere gli standard
+
+Il dashboard Conformità con le normative del Centro sicurezza fornisce informazioni dettagliate sul comportamento di conformità in base a come vengono soddisfatti specifici controlli e requisiti.
+
+Il dashboard include un set predefinito di standard normativi. Se uno degli standard forniti non è pertinente per l'organizzazione, è ora un processo semplice per rimuoverli dall'interfaccia utente per una sottoscrizione. Gli standard possono essere rimossi solo a livello della *sottoscrizione*, non nell'ambito del gruppo di gestione.
+
+Per altre informazioni, vedere [rimuovere uno standard dal dashboard](update-regulatory-compliance-packages.md#remove-a-standard-from-your-dashboard).
+
+
+### <a name="microsoftsecuritysecuritystatuses-table-removed-from-azure-resource-graph-arg"></a>Rimossa la tabella Microsoft.Security/securityStatuses da Azure Resource Graph (ARG)
+
+Azure Resource Graph è un servizio di Azure progettato per offrire un'esplorazione efficiente delle risorse con la possibilità di eseguire query su larga scala in un determinato set di sottoscrizioni in modo da poter controllare l'ambiente efficacemente. 
+
+Per il Centro sicurezza di Azure, è possibile usare Azure Resource Graph e il [linguaggio di query Kusto](/azure/data-explorer/kusto/query/) per eseguire query su un'ampia gamma di dati relativi alla postura di sicurezza. Esempio:
+
+- L'inventario degli asset utilizza Azure Resource Graph
+- È stata documentata una query di esempio di Azure Resource Graph che illustra come [identificare gli account senza l'opzione Multi-Factor Authentication (MFA) abilitata](security-center-identity-access.md#identify-accounts-without-multi-factor-authentication-mfa-enabled)
+
+All'interno di ARG sono disponibili tabelle di dati da usare nelle query.
+
+:::image type="content" source="./media/release-notes/azure-resource-graph-tables.png" alt-text="Azure Resource Graph Explorer e le tabelle disponibili":::
+
+> [!TIP]
+> La documentazione di Azure Resource Graph descrive tutte le tabelle disponibili nella sezione [Tabella di Azure Resource Graph e riferimenti sui tipi di risorsa](../governance/resource-graph/reference/supported-tables-resources.md).
+
+Con questo aggiornamento, la tabella **Microsoft.Security/securityStatuses** è stata rimossa. L'API securityStatuses è ancora disponibile.
+
+La sostituzione dei dati può essere eseguita tramite la tabella Microsoft.Security/Assessments.
+
+La principale differenza tra Microsoft.Security/securityStatuses e Microsoft.Security/Assessments è che mentre la prima mostra l'aggregazione delle valutazioni, la seconda contiene un singolo record per ognuna.
+
+Ad esempio, Microsoft.Security/securityStatuses restituisce un risultato con una matrice di due policyAssessments:
+
+```
+{
+id: "/subscriptions/449bcidd-3470-4804-ab56-2752595 felab/resourceGroups/mico-rg/providers/Microsoft.Network/virtualNetworks/mico-rg-vnet/providers/Microsoft.Security/securityStatuses/mico-rg-vnet",
+name: "mico-rg-vnet",
+type: "Microsoft.Security/securityStatuses",
+properties:  {
+    policyAssessments: [
+        {assessmentKey: "e3deicce-f4dd-3b34-e496-8b5381bazd7e", category: "Networking", policyName: "Azure DDOS Protection Standard should be enabled",...},
+        {assessmentKey: "sefac66a-1ec5-b063-a824-eb28671dc527", category: "Compute", policyName: "",...}
+    ],
+    securitystateByCategory: [{category: "Networking", securityState: "None" }, {category: "Compute",...],
+    name: "GenericResourceHealthProperties",
+    type: "VirtualNetwork",
+    securitystate: "High"
+}
+```
+Mentre Microsoft.Security/Assessments contiene un record per ognuna di queste valutazioni dei criteri, come segue:
+
+```
+{
+type: "Microsoft.Security/assessments",
+id:  "/subscriptions/449bc1dd-3470-4804-ab56-2752595f01ab/resourceGroups/mico-rg/providers/Microsoft. Network/virtualNetworks/mico-rg-vnet/providers/Microsoft.Security/assessments/e3delcce-f4dd-3b34-e496-8b5381ba2d70",
+name: "e3deicce-f4dd-3b34-e496-8b5381ba2d70",
+properties:  {
+    resourceDetails: {Source: "Azure", Id: "/subscriptions/449bc1dd-3470-4804-ab56-2752595f01ab/resourceGroups/mico-rg/providers/Microsoft.Network/virtualNetworks/mico-rg-vnet"...},
+    displayName: "Azure DDOS Protection Standard should be enabled",
+    status: (code: "NotApplicable", cause: "VnetHasNOAppGateways", description: "There are no Application Gateway resources attached to this Virtual Network"...}
+}
+
+{
+type: "Microsoft.Security/assessments",
+id:  "/subscriptions/449bc1dd-3470-4804-ab56-2752595f01ab/resourcegroups/mico-rg/providers/microsoft.network/virtualnetworks/mico-rg-vnet/providers/Microsoft.Security/assessments/80fac66a-1ec5-be63-a824-eb28671dc527",
+name: "8efac66a-1ec5-be63-a824-eb28671dc527",
+properties: {
+    resourceDetails: (Source: "Azure", Id: "/subscriptions/449bc1dd-3470-4804-ab56-2752595f01ab/resourcegroups/mico-rg/providers/microsoft.network/virtualnetworks/mico-rg-vnet"...),
+    displayName: "Audit diagnostic setting",
+    status:  {code: "Unhealthy"}
+}
+```
+
+**Esempio di conversione di una query di Azure Resource Graph esistente usando securityStatuses per usare la tabella Assessments:**
+
+Query che fa riferimento a SecurityStatuses:
+
+```kusto
+SecurityResources 
+| where type == 'microsoft.security/securitystatuses' and properties.type == 'virtualMachine'
+| where name in ({vmnames}) 
+| project name, resourceGroup, policyAssesments = properties.policyAssessments, resourceRegion = location, id, resourceDetails = properties.resourceDetails
+```
+
+Query di sostituzione per la tabella Assessments:
+
+```kusto
+securityresources
+| where type == "microsoft.security/assessments" and id contains "virtualMachine"
+| extend resourceName = extract(@"(?i)/([^/]*)/providers/Microsoft.Security/assessments", 1, id)
+| extend source = tostring(properties.resourceDetails.Source)
+| extend resourceId = trim(" ", tolower(tostring(case(source =~ "azure", properties.resourceDetails.Id,
+source =~ "aws", properties.additionalData.AzureResourceId,
+source =~ "gcp", properties.additionalData.AzureResourceId,
+extract("^(.+)/providers/Microsoft.Security/assessments/.+$",1,id)))))
+| extend resourceGroup = tolower(tostring(split(resourceId, "/")[4]))
+| where resourceName in ({vmnames}) 
+| project resourceName, resourceGroup, resourceRegion = location, id, resourceDetails = properties.additionalData
+```
+
+Per altre informazioni, vedere i collegamenti seguenti:
+- [Come creare query con Azure Resource Graph Explorer](../governance/resource-graph/first-query-portal.md)
+- [Linguaggio di query Kusto (KQL)](/azure/data-explorer/kusto/query/)
 
 
 ## <a name="september-2020"></a>Settembre 2020

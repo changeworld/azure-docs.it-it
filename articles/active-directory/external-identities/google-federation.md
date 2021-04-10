@@ -5,19 +5,19 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: how-to
-ms.date: 03/02/2021
+ms.date: 04/06/2021
 ms.author: mimart
 author: msmimart
 manager: celestedg
 ms.reviewer: mal
 ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d2e9acda136654a0dd654eded7b4c17e560fc0aa
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 0cb3b3fd2010bf4ad1288b767d62d3d76f7b37e3
+ms.sourcegitcommit: b0557848d0ad9b74bf293217862525d08fe0fc1d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105709702"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "106550966"
 ---
 # <a name="add-google-as-an-identity-provider-for-b2b-guest-users"></a>Aggiungere Google come provider di identità per utenti guest B2B
 
@@ -150,7 +150,7 @@ Per prima cosa, creare un nuovo progetto nella console di sviluppatori di Google
    > Usare l'ID client e il segreto client dall'app creata in "passaggio 1: configurare un progetto per sviluppatori Google". Per ulteriori informazioni, vedere [New-AzureADMSIdentityProvider](/powershell/module/azuread/new-azureadmsidentityprovider?view=azureadps-2.0-preview&preserve-view=true). 
  
 ## <a name="how-do-i-remove-google-federation"></a>Come si rimuove la federazione con Google?
-È possibile rimuovere la configurazione della federazione con Google. In tal caso, gli utenti guest di Google che hanno già riscattato l'invito non saranno in grado di eseguire l'accesso. È tuttavia possibile concedere loro nuovamente l'accesso alle risorse eliminandoli dalla directory e invitandoli di nuovo. 
+È possibile rimuovere la configurazione della federazione con Google. In tal caso, gli utenti guest di Google che hanno già riscattato l'invito non saranno in grado di eseguire l'accesso. È tuttavia possibile concedere loro l'accesso alle risorse [reimpostando lo stato di riscatto](reset-redemption-status.md).
  
 **Per eliminare Google Federation nel portale di Azure AD**
 1. Accedere al [portale di Azure](https://portal.azure.com). Nel riquadro sinistro selezionare **Azure Active Directory**. 

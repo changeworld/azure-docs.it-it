@@ -1,19 +1,19 @@
 ---
 title: Gestire le regole del firewall-interfaccia della riga di comando di Azure-database di Azure per PostgreSQL-server flessibile
 description: Creare e gestire le regole del firewall per database di Azure per PostgreSQL-server flessibile usando la riga di comando di Azure.
-author: ambhatna
-ms.author: ambhatna
+author: rothja
+ms.author: jroth
 ms.service: postgresql
 ms.devlang: azurecli
 ms.topic: how-to
 ms.date: 09/22/2020
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 36249694c5a4de8a738853892f827c6d9e1e4aff
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 843ad39d1c09d7c5a2fb7e9b536e300edf58d8e5
+ms.sourcegitcommit: b0557848d0ad9b74bf293217862525d08fe0fc1d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92489473"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "106551122"
 ---
 # <a name="create-and-manage-azure-database-for-postgresql---flexible-server-firewall-rules-using-the-azure-cli"></a>Creare e gestire database di Azure per PostgreSQL: regole flessibili del firewall del server usando l'interfaccia della riga di comando di Azure
 
