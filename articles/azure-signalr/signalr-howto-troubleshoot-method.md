@@ -6,12 +6,12 @@ ms.service: signalr
 ms.topic: conceptual
 ms.date: 11/17/2020
 ms.author: yajin1
-ms.openlocfilehash: 2e22777b747ae24c3e643cbd43bfdb0604d453a2
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: ed8775c6544791571746b0f3784a60ce2af0de7a
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "97707657"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105726975"
 ---
 # <a name="how-to-troubleshoot-connectivity-and-message-delivery-issues"></a>Come risolvere i problemi relativi alla connettività e al recapito dei messaggi
 
@@ -77,7 +77,7 @@ Visualizzazione della traccia di rete sul lato server per individuare il codice 
 
 [Problemi o commenti e suggerimenti sulla risoluzione dei problemi? Informare l'it.](https://aka.ms/asrs/survey/troubleshooting)
 
-### <a name="how-to-add-logs"></a>Come aggiungere log
+### <a name="how-to-add-logs"></a>Come aggiungere i log
 
 I log possono essere utili per diagnosticare i problemi e monitorare lo stato di esecuzione.
 
@@ -108,7 +108,7 @@ L'esperienza di registrazione lato client è esattamente identica a quando si us
 
 ##### <a name="enable-server-side-logging-for-aspnet-core-signalr"></a>Abilitare la registrazione lato server per `ASP.NET Core SignalR`
 
-La registrazione lato server per si `ASP.NET Core SignalR` integra con la `ILogger` [registrazione](/aspnet/core/fundamentals/logging/?tabs=aspnetcore2x&view=aspnetcore-2.1) basata su fornita nel `ASP.NET Core` Framework. È possibile abilitare la registrazione lato server usando `ConfigureLogging` , un esempio di utilizzo come indicato di seguito:
+La registrazione lato server per si `ASP.NET Core SignalR` integra con la `ILogger` [registrazione](/aspnet/core/fundamentals/logging/?tabs=aspnetcore2x&preserve-view=true&view=aspnetcore-2.1) basata su fornita nel `ASP.NET Core` Framework. È possibile abilitare la registrazione lato server usando `ConfigureLogging` , un esempio di utilizzo come indicato di seguito:
 
 ```cs
 .ConfigureLogging((hostingContext, logging) =>

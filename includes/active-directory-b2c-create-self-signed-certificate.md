@@ -6,10 +6,10 @@ ms.topic: include
 ms.date: 01/27/2021
 ms.author: mimart
 ms.openlocfilehash: 41d9962657aa81dbe34a52302d1b68ec655f2893
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "102095290"
 ---
 Se non si dispone già di un certificato, è possibile usare un certificato autofirmato. Un certificato autofirmato è un certificato di sicurezza non firmato da un'autorità di certificazione (CA) e non fornisce le garanzie di sicurezza di un certificato firmato da un'autorità di certificazione. 

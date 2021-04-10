@@ -1,5 +1,5 @@
 ---
-title: "Esercitazione: Moderare immagini di prodotti per l'e-commerce - Content Moderator"
+title: 'Esercitazione: immagini di prodotti di e-commerce moderate-Content Moderator'
 titleSuffix: Azure Cognitive Services
 description: Questa esercitazione illustra come configurare un'applicazione per analizzare e classificare immagini di prodotti con etichette specificate tramite Visione artificiale e Visione personalizzata di Azure. Contrassegnare le immagini inappropriate per l'ulteriore analisi (tramite Azure Content Moderator).
 services: cognitive-services
@@ -11,14 +11,14 @@ ms.topic: tutorial
 ms.date: 01/29/2021
 ms.author: pafarley
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 211f58e26ec89c393bf9f91cc3a05044c6b1e802
-ms.sourcegitcommit: 54e1d4cdff28c2fd88eca949c2190da1b09dca91
+ms.openlocfilehash: e67a9b35291615b87edf918b4146ab8d77a0ae7f
+ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/31/2021
-ms.locfileid: "99221279"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106065144"
 ---
-# <a name="tutorial-moderate-e-commerce-product-images-with-azure-content-moderator"></a>Esercitazione: Moderare immagini di prodotti per l'e-commerce con Azure Content Moderator
+# <a name="tutorial-moderate-e-commerce-product-images-with-azure-content-moderator"></a>Esercitazione: immagini di prodotti di e-commerce moderate con Azure Content Moderator
 
 In questa esercitazione si apprenderà come usare Servizi cognitivi di Azure, tra cui Content Moderator, per classificare e moderare immagini di prodotti per uno scenario di e-commerce. Si utilizzeranno Visione artificiale e Visione personalizzata per applicare tag (etichette) alle immagini e quindi verrà creata una revisione del team, che combina le tecnologie basate su Machine Learning Content Moderator con i team di revisione umana per fornire un sistema di moderazione intelligente.
 
@@ -54,7 +54,7 @@ Creare ora tag personalizzati nello strumento di revisione. Vedere l'articolo [I
 
 ## <a name="create-visual-studio-project"></a>Creare un progetto di Visual Studio
 
-1. In Visual Studio, aprire la finestra di dialogo Nuovo progetto. Espandere **Installato**, quindi **Visual C#** , quindi selezionare **App console (.NET Framework)** .
+1. In Visual Studio, aprire la finestra di dialogo Nuovo progetto. Espandere **Installato**, quindi **Visual C#**, quindi selezionare **App console (.NET Framework)**.
 1. Denominare l'applicazione **EcommerceModeration**, quindi fare clic su **OK**.
 1. Se si aggiunge questo progetto a una soluzione esistente, selezionare il progetto come progetto di avvio singolo.
 
@@ -90,7 +90,7 @@ Il metodo successivo accetta un URL di immagine e le informazioni sulla sottoscr
 
 ## <a name="evaluatecustomvisiontags-method"></a>Metodo EvaluateCustomVisionTags
 
-Successivamente, vedere il metodo **EvaluateCustomVisionTags**, che classifica gli effettivi prodotti, in questo caso bandiere, giocattoli e penne. Seguire le istruzioni nella guida [Come creare un classificatore](../custom-vision-service/getting-started-build-a-classifier.md) per compilare un classificatore di immagini personalizzato per rilevare la presenza di bandiere, giocattoli e penne (o qualunque cosa si scelga per i tag personalizzati) nelle immagini. È possibile usare le immagini incluse nella cartella **sample-images** del [repository GitHub](https://github.com/MicrosoftContentModerator/samples-eCommerceCatalogModeration) per eseguire rapidamente il training di alcune categorie di questo esempio.
+Successivamente, vedere il metodo EvaluateCustomVisionTags&mdash;, che classifica gli effettivi prodotti, in questo caso bandiere, giocattoli e penne. Seguire le istruzioni nella guida [Come creare un classificatore](../custom-vision-service/getting-started-build-a-classifier.md) per compilare un classificatore di immagini personalizzato per rilevare la presenza di bandiere, giocattoli e penne (o qualunque cosa si scelga per i tag personalizzati) nelle immagini. È possibile usare le immagini incluse nella cartella **sample-images** del [repository GitHub](https://github.com/MicrosoftContentModerator/samples-eCommerceCatalogModeration) per eseguire rapidamente il training di alcune categorie di questo esempio.
 
 ![Pagina web di Visione personalizzata con immagini di training di penne, giocattoli e bandiere](images/tutorial-ecommerce-custom-vision.PNG)
 

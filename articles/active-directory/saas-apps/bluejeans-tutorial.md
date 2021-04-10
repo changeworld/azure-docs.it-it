@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 06/09/2020
 ms.author: jeedes
 ms.openlocfilehash: a920abacb0df030f7d38aed11e04a693cfa352a6
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "101686594"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-bluejeans-for-azure-ad"></a>Esercitazione: Integrazione dell'accesso Single Sign-On (SSO) di Azure Active Directory con BlueJeans for Azure AD
@@ -144,13 +144,13 @@ In questa sezione si abiliterà B.Simon all'uso dell'accesso Single Sign-On di A
 1. Se si prevede un valore di ruolo nell'asserzione SAML, nella finestra di dialogo **Selezionare un ruolo** selezionare il ruolo appropriato per l'utente dall'elenco e quindi fare clic sul pulsante **Seleziona** nella parte inferiore della schermata.
 1. Nella finestra di dialogo **Aggiungi assegnazione** fare clic sul pulsante **Assegna**.
 
-## <a name="configure-bluejeans-for-azure-ad-sso"></a>Configurare l'accesso Single Sign-On di BlueJeans for Azure AD
+## <a name="configure-bluejeans-for-azure-ad-sso&quot;></a>Configurare l'accesso Single Sign-On di BlueJeans for Azure AD
 
 1. In un'altra finestra del Web browser accedere al sito aziendale di **BlueJeans for Azure AD** come amministratore.
 
 2. Passare ad **ADMIN \> GROUP SETTINGS \> SECURITY**.
 
-    ![Screenshot che mostra parte di una finestra del browser con la scheda Admin e le opzioni Group Setting e Security selezionate.](./media/bluejeans-tutorial/ic785868.png "Amministrativi")
+    ![Screenshot che mostra parte di una finestra del browser con la scheda Admin e le opzioni Group Setting e Security selezionate.](./media/bluejeans-tutorial/ic785868.png &quot;Amministrativi")
 
 3. Nella sezione **SECURITY** seguire questa procedura:
 

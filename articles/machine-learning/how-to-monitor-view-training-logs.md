@@ -11,12 +11,12 @@ ms.subservice: core
 ms.date: 07/30/2020
 ms.topic: conceptual
 ms.custom: how-to
-ms.openlocfilehash: 47531da9c1e508281a57074df7aa10ffffe78810
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
+ms.openlocfilehash: c258ac62617cb6ac954e0b8c59928225c7f477b1
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102518739"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105935575"
 ---
 # <a name="monitor-and-view-ml-run-logs-and-metrics"></a>Monitorare e visualizzare i log e le metriche per l'esecuzione di ML
 
@@ -110,15 +110,16 @@ Per la singola visualizzazione esperimento, selezionare la scheda **tutti gli es
 
 ![Dettagli dell'esecuzione in Azure Machine Learning Studio](media/how-to-track-experiments/experimentation-tab.gif)
 
-### <a name="view-log-files-for-a-run"></a>Visualizzare i file di log per un'esecuzione 
+### <a name="view-and-download-log-files-for-a-run"></a>Visualizzare e scaricare i file di log per un'esecuzione 
 
 I file di log sono una risorsa essenziale per il debug dei carichi di lavoro di Azure ML. Eseguire il drill-down fino a un'esecuzione specifica per visualizzare i relativi log e output:  
 
 1. Passare alla scheda **esperimenti** .
 1. Selezionare il runID per un'esecuzione specifica.
 1. Selezionare **output e log** nella parte superiore della pagina.
+2. Selezionare **Scarica tutto** per scaricare tutti i log in una cartella zip.
 
-:::image type="content" source="media/how-to-monitor-view-training-logs/view-logs.png" alt-text="Screenshot della sezione dell'output e dei log di un'esecuzione":::
+:::image type="content" source="media/how-to-monitor-view-training-logs/download-logs.png" alt-text="Screenshot della sezione di output e log di un'esecuzione.":::
 
 Le tabelle seguenti illustrano il contenuto dei file di log nelle cartelle che verranno visualizzate in questa sezione.
 
