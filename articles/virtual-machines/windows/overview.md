@@ -9,12 +9,12 @@ ms.topic: overview
 ms.date: 11/14/2019
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 2432cc49d770471979e089a496b9d0351eec26fd
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
+ms.openlocfilehash: 799a7ea6d76df06cea9d3960f43fc78de9bdf5b6
+ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102550332"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106067793"
 ---
 # <a name="windows-virtual-machines-in-azure"></a>Macchine virtuali Windows in Azure
 
@@ -50,7 +50,7 @@ Questa tabella illustra alcuni dei metodi con cui è possibile ottenere un elenc
 | --- | --- |
 | Portale di Azure |Quando si crea una VM, selezionare una località nell'elenco. |
 | Azure PowerShell |Usare il comando [Get-AzLocation](/powershell/module/az.resources/get-azlocation). |
-| API REST |Usare l'operazione [List locations](/rest/api/resources/subscriptions). |
+| API REST |Usare l'operazione [List locations](/rest/api/resources/subscriptions/subscriptions/listlocations). |
 | Interfaccia della riga di comando di Azure |Usare l'operazione [az account list-locations](/cli/azure/account). |
 
 ## <a name="availability"></a>Disponibilità

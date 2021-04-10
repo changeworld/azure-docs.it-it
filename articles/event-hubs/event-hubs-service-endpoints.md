@@ -2,27 +2,26 @@
 title: Endpoint servizio di rete virtuale - Hub eventi di Azure | Microsoft Docs
 description: Questo articolo fornisce informazioni su come aggiungere un endpoint di servizio Microsoft. EventHub a una rete virtuale.
 ms.topic: article
-ms.date: 02/12/2021
-ms.openlocfilehash: 1deef5b8bb4b883ec9c01c50a2a603d254b9caef
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 03/29/2021
+ms.openlocfilehash: f7f0f3ff480018c9bfc5d9c6f34cf7e2935f8d6a
+ms.sourcegitcommit: edc7dc50c4f5550d9776a4c42167a872032a4151
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100556538"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105959960"
 ---
 # <a name="allow-access-to-azure-event-hubs-namespaces-from-specific-virtual-networks"></a>Consentire l'accesso agli spazi dei nomi di hub eventi di Azure da reti virtuali specifiche 
 
-L'integrazione di Hub eventi con gli [endpoint del servizio della rete virtuale][vnet-sep] consente di proteggere l'accesso alle funzionalità di messaggistica da carichi di lavoro come macchine virtuali associate a reti virtuali, con il percorso del traffico di rete protetto a entrambe le estremità. Le reti virtuali sono supportate nei livelli **standard** e **dedicato** di Hub eventi. Il livello **Basic** non è supportato.
+L'integrazione di Hub eventi con gli [endpoint del servizio della rete virtuale][vnet-sep] consente di proteggere l'accesso alle funzionalità di messaggistica da carichi di lavoro come macchine virtuali associate a reti virtuali, con il percorso del traffico di rete protetto a entrambe le estremità. 
 
 Una volta configurata per l'associazione ad almeno un endpoint del servizio subnet della rete virtuale, il rispettivo spazio dei nomi di hub eventi non accetta più il traffico da tutte le subnet autorizzate nelle reti virtuali. Dal punto di vista della rete virtuale, l'associazione di uno spazio dei nomi di Hub eventi a un endpoint del servizio consente di configurare un tunnel di rete isolato dalla subnet della rete virtuale al servizio di messaggistica. 
 
 Il risultato è una relazione privata e isolata tra i carichi di lavoro associati alla subnet e lo spazio dei nomi di Hub eventi corrispondente, nonostante l'indirizzo di rete osservabile dell'endpoint del servizio di messaggistica sia in un intervallo di IP pubblici. Si è verificata un'eccezione a questo comportamento. Per impostazione predefinita, l'abilitazione di un endpoint del servizio Abilita la `denyall` regola nel [firewall IP](event-hubs-ip-filtering.md) associato alla rete virtuale. È possibile aggiungere indirizzi IP specifici nel firewall IP per abilitare l'accesso all'endpoint pubblico dell'hub eventi. 
 
->[!WARNING]
-> Per impostazione predefinita, l'abilitazione delle reti virtuali per lo spazio dei nomi di hub eventi blocca le richieste in ingresso, a meno che le richieste provengano da un servizio che opera da reti virtuali Le richieste che vengono bloccate sono quelle che provengono da altri servizi di Azure, dal portale di Azure, dai servizi di registrazione e metriche e così via. Come eccezione, è possibile consentire l'accesso alle risorse di hub eventi da determinati servizi attendibili anche quando le reti virtuali sono abilitate. Per un elenco di servizi attendibili, vedere [Servizi attendibili](#trusted-microsoft-services).
-
-> [!IMPORTANT]
-> Specificare almeno una regola IP o una regola della rete virtuale per lo spazio dei nomi per consentire il traffico solo dagli indirizzi IP o dalla subnet specificata di una rete virtuale. Se non sono presenti regole IP e reti virtuali, è possibile accedere allo spazio dei nomi tramite la rete Internet pubblica (usando la chiave di accesso).  
+## <a name="important-points"></a>Punti importanti
+- Questa funzionalità è supportata sia per i livelli **standard** che per quelli **dedicati** . Il livello **Basic** non è supportato.
+- Per impostazione predefinita, l'abilitazione delle reti virtuali per lo spazio dei nomi di hub eventi blocca le richieste in ingresso, a meno che le richieste provengano da un servizio che opera da reti virtuali Le richieste che vengono bloccate sono quelle che provengono da altri servizi di Azure, dal portale di Azure, dai servizi di registrazione e metriche e così via. Come eccezione, è possibile consentire l'accesso alle risorse di hub eventi da determinati **Servizi attendibili** anche quando le reti virtuali sono abilitate. Per un elenco di servizi attendibili, vedere [Servizi attendibili](#trusted-microsoft-services).
+- Specificare almeno **una regola IP o una regola della rete virtuale** per lo spazio dei nomi per consentire il traffico solo dagli indirizzi IP o dalla subnet specificata di una rete virtuale. Se non sono presenti regole IP e reti virtuali, è possibile accedere allo spazio dei nomi tramite la rete Internet pubblica (usando la chiave di accesso).  
 
 ## <a name="advanced-security-scenarios-enabled-by-vnet-integration"></a>Scenari di sicurezza avanzati resi possibili dall'integrazione della rete virtuale 
 

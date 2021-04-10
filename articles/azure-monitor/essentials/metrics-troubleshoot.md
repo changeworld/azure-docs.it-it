@@ -6,12 +6,12 @@ services: azure-monitor
 ms.topic: conceptual
 ms.date: 04/23/2019
 ms.author: vitalyg
-ms.openlocfilehash: bc1978f6ed0aa3e38f25fa03fc54ddc7d4efb9c3
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 6acab9618566766b12b4b236c75aa58386100513
+ms.sourcegitcommit: edc7dc50c4f5550d9776a4c42167a872032a4151
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102033334"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105961065"
 ---
 # <a name="troubleshooting-metrics-charts"></a>Risoluzione dei problemi dei grafici delle metriche
 
@@ -41,9 +41,9 @@ Alcune risorse non generano costantemente metriche. Ad esempio, Azure non raccog
 
 ### <a name="you-picked-a-time-range-greater-than-30-days"></a>È stato scelto un intervallo di tempo superiore a 30 giorni
 
-[La maggior parte delle metriche in Azure viene archiviata per 93 giorni](../essentials/data-platform-metrics.md#retention-of-metrics). Tuttavia, è possibile eseguire query solo per un massimo di 30 giorni di dati per ogni singolo grafico. Questa limitazione non si applica alle [metriche basate su log](../app/pre-aggregated-metrics-log-metrics.md#log-based-metrics).
+[La maggior parte delle metriche in Azure viene conservata per 93 giorni](../essentials/data-platform-metrics.md#retention-of-metrics). Tuttavia, è possibile eseguire query solo per un massimo di 30 giorni di dati per ogni singolo grafico. Questa limitazione non si applica alle [metriche basate su log](../app/pre-aggregated-metrics-log-metrics.md#log-based-metrics).
 
-**Soluzione:** Se viene visualizzato un grafico vuoto o il grafico Visualizza solo una parte dei dati della metrica, verificare che la differenza tra le date di inizio e di fine nella selezione ora non superi l'intervallo di 30 giorni.
+**Soluzione:** Se viene visualizzato un grafico vuoto o il grafico Visualizza solo una parte dei dati della metrica, verificare che la differenza tra le date di inizio e di fine nella selezione ora non superi l'intervallo di 30 giorni. Dopo aver selezionato un intervallo di 30 giorni, è possibile eseguire il [panning](metrics-charts.md#pan) del grafico per visualizzare la finestra di conservazione completa.
 
 ### <a name="all-metric-values-were-outside-of-the-locked-y-axis-range"></a>Tutti i valori delle metriche erano al di fuori dell'intervallo bloccato dell'asse y
 
@@ -59,7 +59,7 @@ La raccolta delle metriche del **sistema operativo guest** richiede la configura
 
 ## <a name="error-retrieving-data-message-on-dashboard"></a>Messaggio "errore durante il recupero dei dati" nel dashboard
 
-Questo problema può verificarsi quando il dashboard è stato creato con una metrica deprecata e rimossa da Azure in un secondo momento. Per verificarne il caso, aprire la scheda **metriche** della risorsa e controllare le metriche disponibili nella selezione metrica. Se la metrica non viene visualizzata, allora è stata rimossa da Azure. In genere, quando una metrica è deprecata, è disponibile una nuova metrica migliore che offre una prospettiva simile sull'integrità delle risorse.
+Questo problema può verificarsi quando il dashboard è stato creato con una metrica deprecata e rimossa da Azure in un secondo momento. Per verificare se sia questo il caso, aprire la scheda **Metriche** della risorsa e controllare la metrica disponibile nel selettore di metrica. Se la metrica non viene visualizzata, allora è stata rimossa da Azure. In genere, quando una metrica è deprecata, è disponibile una nuova metrica migliore che offre una prospettiva simile sull'integrità delle risorse.
 
 **Soluzione:** Aggiornare il riquadro con errore selezionando una metrica alternativa per il grafico nel dashboard. È possibile [consultare un elenco di metriche disponibili per i servizi di Azure](./metrics-supported.md).
 

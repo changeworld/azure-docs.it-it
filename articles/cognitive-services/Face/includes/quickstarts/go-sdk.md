@@ -9,12 +9,12 @@ ms.subservice: face-api
 ms.topic: include
 ms.date: 10/26/2020
 ms.author: pafarley
-ms.openlocfilehash: 2c693c9e972cdfc66cce0d52323c113b6006bd97
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: ab3fdd24446448e9c21a1e4867c26c960f814c7a
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102445154"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105957965"
 ---
 Introduzione al riconoscimento facciale con la libreria client di Viso per Go. Seguire questi passaggi per installare il pacchetto e provare il codice di esempio per le attività di base. Il servizio Viso fornisce l'accesso ad algoritmi avanzati per il rilevamento e il riconoscimento dei visi umani nelle immagini.
 
@@ -22,7 +22,7 @@ Installare la libreria client del servizio Viso per Go per:
 
 * [Rilevare i visi in un'immagine](#detect-faces-in-an-image)
 * [Individuare visi simili](#find-similar-faces)
-* [Creare ed eseguire il training di un gruppo di persone](#create-and-train-a-person-group)
+* [Creare ed eseguire il training di un gruppo](#create-and-train-a-persongroup)
 * [Identificare un viso](#identify-a-face)
 
 [Documentazione di riferimento](https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v1.0/face) | [Codice sorgente della libreria](https://github.com/Azure/azure-sdk-for-go/tree/master/services/cognitiveservices/v1.0/face) | [Download dell'SDK](https://github.com/Azure/azure-sdk-for-go)
@@ -106,7 +106,7 @@ Questi esempi di codice illustrano come completare le attività di base usando l
 * [Autenticare il client](#authenticate-the-client)
 * [Rilevare i visi in un'immagine](#detect-faces-in-an-image)
 * [Individuare visi simili](#find-similar-faces)
-* [Creare ed eseguire il training di un gruppo di persone](#create-and-train-a-person-group)
+* [Creare ed eseguire il training di un gruppo](#create-and-train-a-persongroup)
 * [Identificare un viso](#identify-a-face)
 
 ## <a name="authenticate-the-client"></a>Autenticare il client
@@ -161,7 +161,7 @@ Il codice seguente visualizza i dettagli delle corrispondenze nella console.
 [!code-go[](~/cognitive-services-quickstart-code/go/Face/FaceQuickstart.go?name=snippet_similar_print)]
 
 
-## <a name="create-and-train-a-person-group"></a>Creare ed eseguire il training di un gruppo di persone
+## <a name="create-and-train-a-persongroup"></a>Creare ed eseguire il training di un gruppo
 
 Per eseguire i passaggi di questo scenario, è necessario salvare le immagini seguenti nella directory radice del progetto: https://github.com/Azure-Samples/cognitive-services-sample-data-files/tree/master/Face/images.
 
@@ -202,11 +202,11 @@ Una volta assegnati i visi, eseguire il training di **PersonGroup** in modo che 
 L'operazione di identificazione acquisisce un'immagine di una persona (o di più persone) e cerca di individuare l'identità di ogni viso nell'immagine (ricerca basata su riconoscimento facciale). Confronta ogni viso rilevato con un **PersonGroup**, un database di oggetti **Person** diversi le cui caratteristiche del viso sono note.
 
 > [!IMPORTANT]
-> Prima di eseguire questo esempio occorre eseguire il codice in [Creare ed eseguire il training di un gruppo di persone](#create-and-train-a-person-group).
+> Per eseguire questo esempio, è necessario prima eseguire il codice in [creare ed eseguire il training di un gruppo](#create-and-train-a-persongroup).
 
 ### <a name="get-a-test-image"></a>Ottenere un'immagine di test
 
-Il codice seguente cerca nella radice del progetto l'immagine _test-image-person-group.jpg_ e la carica nella memoria del programma. Questa immagine si trova nello stesso repository delle immagini usate in [Creare ed eseguire il training di un gruppo di persone](#create-and-train-a-person-group): https://github.com/Azure-Samples/cognitive-services-sample-data-files/tree/master/Face/images.
+Il codice seguente cerca nella radice del progetto l'immagine _test-image-person-group.jpg_ e la carica nella memoria del programma. È possibile trovare questa immagine nello stesso repository delle immagini usate in [creare ed eseguire il training di un gruppo](#create-and-train-a-persongroup): https://github.com/Azure-Samples/cognitive-services-sample-data-files/tree/master/Face/images .
 
 [!code-go[](~/cognitive-services-quickstart-code/go/Face/FaceQuickstart.go?name=snippet_id_source_get)]
 

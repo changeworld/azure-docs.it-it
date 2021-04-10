@@ -3,12 +3,12 @@ title: 'Concetti: identità e accesso'
 description: Informazioni sui concetti di identità e accesso della soluzione VMware di Azure
 ms.topic: conceptual
 ms.date: 03/22/2021
-ms.openlocfilehash: 7b1880ccdee1d4c3ce25e264c004b1a949134a96
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 1d49ce27ee74621874281a555651c09a73048928
+ms.sourcegitcommit: 5fd1f72a96f4f343543072eadd7cdec52e86511e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105026905"
+ms.lasthandoff: 04/01/2021
+ms.locfileid: "106109816"
 ---
 # <a name="azure-vmware-solution-identity-concepts"></a>Concetti di identità della soluzione VMware di Azure
 
@@ -93,6 +93,9 @@ Per evitare la creazione di ruoli che non possono essere assegnati o eliminati, 
    L'autorizzazione aggiunta viene visualizzata nella sezione **autorizzazioni** per l'oggetto.
 
 ## <a name="nsx-t-manager-access-and-identity"></a>Accesso e identità di gestione NSX-T
+
+>[!NOTE]
+>NSX-T 2,5 è attualmente supportato.
 
 Usare l'account *Administrator* per accedere a NSX-T Manager. Dispone di privilegi completi e consente di creare e gestire gateway di livello 1 (T1), segmenti (commutatori logici) e tutti i servizi. I privilegi consentono di accedere al gateway NSX-T Tier-0 (T0). Una modifica al gateway T0 può comportare un calo delle prestazioni di rete o l'accesso al cloud privato. Aprire una richiesta di supporto nella portale di Azure per richiedere eventuali modifiche al gateway NSX-T T0.
 

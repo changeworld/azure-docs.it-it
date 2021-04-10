@@ -4,10 +4,10 @@ description: Questa guida illustra come usare Defender per la ricerca di informa
 ms.topic: conceptual
 ms.date: 09/04/2020
 ms.openlocfilehash: 32cc8d82a867ead533cbaa6802bffb4494398412
-ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/22/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "104782011"
 ---
 # <a name="investigate-a-suspicious-iot-device"></a>Analizzare un dispositivo IoT sospetto

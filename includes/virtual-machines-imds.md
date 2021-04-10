@@ -9,10 +9,10 @@ ms.author: chhenk
 ms.reviewer: azmetadatadev
 ms.custom: references_regions
 ms.openlocfilehash: 357223751112af03bf797ae9a0e6352a10132ab9
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "103464949"
 ---
 Il servizio metadati dell'istanza di Azure (IMDS) fornisce informazioni sulle istanze di macchine virtuali attualmente in esecuzione. È possibile usarlo per gestire e configurare le macchine virtuali.
@@ -329,7 +329,7 @@ Suddivisione schema:
 
 **Calcolo**
 
-| Dati | Descrizione | Versione introdotta |
+| Data | Descrizione | Versione introdotta |
 |------|-------------|--------------------|
 | `azEnvironment` | Ambiente di Azure in cui è in esecuzione la macchina virtuale | 2018-10-01
 | `customData` | Questa funzionalità è attualmente disabilitata. Questa documentazione verrà aggiornata quando diventerà disponibile | 2019-02-01
@@ -413,7 +413,7 @@ Dati | Descrizione |
 
 **Network**
 
-| Dati | Descrizione | Versione introdotta |
+| Data | Descrizione | Versione introdotta |
 |------|-------------|--------------------|
 | `ipv4.privateIpAddress` | Indirizzo IPv4 locale della macchina virtuale | 2017-04-02
 | `ipv4.publicIpAddress` | Indirizzo IPv4 pubblico della macchina virtuale | 2017-04-02
@@ -933,7 +933,7 @@ Per le macchine virtuali create con il modello di distribuzione classica, solo i
 
 Il documento decodificato contiene i campi seguenti:
 
-| Dati | Descrizione | Versione introdotta |
+| Data | Descrizione | Versione introdotta |
 |------|-------------|--------------------|
 | `licenseType` | Tipo di licenza per [vantaggio Azure Hybrid](https://azure.microsoft.com/pricing/hybrid-benefit). Questa funzionalità è disponibile solo per le macchine virtuali abilitate per vantaggio Azure Hybrid. | 2020-09-01
 | `nonce` | Stringa che può essere fornita facoltativamente con la richiesta. Se non `nonce` è stato specificato alcun parametro, viene utilizzato il timestamp UTC (Coordinated Universal Time) corrente. | 2018-10-01
