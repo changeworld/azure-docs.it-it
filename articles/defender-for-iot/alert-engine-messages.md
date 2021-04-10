@@ -4,19 +4,19 @@ description: Esaminare Defender per le descrizioni degli avvisi.
 author: shhazam-ms
 manager: rkarlin
 ms.author: shhazam
-ms.date: 03/22/2021
+ms.date: 03/29/2021
 ms.topic: how-to
 ms.service: azure
-ms.openlocfilehash: 3c4cc5f7bb9f0c529e603b91ee96c6c1c476f20d
-ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
+ms.openlocfilehash: 42a922dab2237925c2294245e112aab70b4245f0
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/22/2021
-ms.locfileid: "104787545"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105727723"
 ---
-# <a name="defender-for-iot-engine-alerts"></a>Defender per gli avvisi del motore
+# <a name="alert-types-and-descriptions"></a>Tipi di avviso e descrizioni
 
-Questo articolo descrive gli avvisi che possono essere generati dal Defender per i motori di Internet delle cose. Gli avvisi vengono visualizzati nella finestra avvisi, in cui è possibile gestire l'evento di avviso. 
+Questo articolo descrive tutti i tipi di avviso di OPF, che possono essere generati dal Defender per i motori di Internet delle cose. Gli avvisi vengono visualizzati nella finestra avvisi, che consente di gestire l'evento di avviso. 
 
 ## <a name="policy-engine-alerts"></a>Avvisi del motore criteri
 

@@ -4,10 +4,10 @@ description: Descrive la struttura e le proprietà dei modelli di Azure Resource
 ms.topic: conceptual
 ms.date: 03/26/2021
 ms.openlocfilehash: 42b893e25155bb3ebe66e0deac180698446a2c9b
-ms.sourcegitcommit: c94e282a08fcaa36c4e498771b6004f0bfe8fb70
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/26/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "105612178"
 ---
 # <a name="understand-the-structure-and-syntax-of-arm-templates"></a>Comprendere la struttura e la sintassi dei modelli di Resource Manager

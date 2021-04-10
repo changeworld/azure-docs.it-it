@@ -9,10 +9,10 @@ author: likebupt
 ms.author: keli19
 ms.date: 11/29/2017
 ms.openlocfilehash: f824cf6e30ed795ef0fe4468542ae16c801bd61b
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "100516125"
 ---
 # <a name="interpret-model-results-in-azure-machine-learning-studio-classic"></a>Interpretare i risultati dei modelli in Azure Machine Learning Studio (versione classica)
@@ -114,7 +114,7 @@ Per visualizzare i risultati del modulo [Score Model][score-model] come illustra
 
 **Interpretazione dei risultati**
 
-Le 16 colonne di sinistra rappresentano i valori funzione del set di test. Le colonne denominate Scored Probabilities for Class "XX" (Probabilità con punteggio per classe "XX") corrispondono alla colonna Scored Probabilities (Probabilità con punteggio) nella classificazione a due classi. Indicano infatti la probabilità che la voce corrispondente appartenga a una determinata classe. Per la prima voce, ad esempio, è presente 0,003571 probabilità che si tratta di una "A", 0,000451 probabilità che si tratta di una "B" e così via. L'ultima colonna, denominata Scored Labels (Etichette con punteggio), corrisponde alla colonna Scored Labels (Etichette con punteggio) nella classificazione a due classi: seleziona la classe con il valore Scored Probability più elevato come classe stimata per la voce corrispondente. Per la prima voce, ad esempio, l'etichetta con punteggio è "F" poiché la probabilità più grande è "F" (0,916995).
+Le 16 colonne di sinistra rappresentano i valori funzione del set di test. Le colonne denominate Scored Probabilities for Class "XX&quot; (Probabilità con punteggio per classe &quot;XX") corrispondono alla colonna Scored Probabilities (Probabilità con punteggio) nella classificazione a due classi. Indicano infatti la probabilità che la voce corrispondente appartenga a una determinata classe. Per la prima voce, ad esempio, è presente 0,003571 probabilità che si tratta di una "A", 0,000451 probabilità che si tratta di una "B" e così via. L'ultima colonna, denominata Scored Labels (Etichette con punteggio), corrisponde alla colonna Scored Labels (Etichette con punteggio) nella classificazione a due classi: seleziona la classe con il valore Scored Probability più elevato come classe stimata per la voce corrispondente. Per la prima voce, ad esempio, l'etichetta con punteggio è "F" poiché la probabilità più grande è "F" (0,916995).
 
 **Pubblicazione come servizio Web**
 
