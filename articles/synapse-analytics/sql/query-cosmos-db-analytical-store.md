@@ -10,12 +10,12 @@ ms.date: 03/02/2021
 ms.author: jovanpop
 ms.reviewer: jrasnick
 ms.custom: cosmos-db
-ms.openlocfilehash: 10262b168b91370956c9559ba688c72213ba7618
-ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
+ms.openlocfilehash: 64a112fd29ee9e3fbb82d9b54322415569b3ff85
+ms.sourcegitcommit: c3739cb161a6f39a9c3d1666ba5ee946e62a7ac3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/23/2021
-ms.locfileid: "104870994"
+ms.lasthandoff: 04/08/2021
+ms.locfileid: "107209537"
 ---
 # <a name="query-azure-cosmos-db-data-with-a-serverless-sql-pool-in-azure-synapse-link"></a>Eseguire query sui dati di Azure Cosmos DB con un pool SQL senza server nel collegamento sinapsi di Azure
 
@@ -33,22 +33,31 @@ Il pool SQL senza server consente di eseguire query Azure Cosmos DB archiviazion
 
 ### <a name="openrowset-with-key"></a>[OPENROWSET con chiave](#tab/openrowset-key)
 
-Per supportare l'esecuzione di query e l'analisi dei dati in un Azure Cosmos DB archivio analitico, un pool SQL senza server utilizza la `OPENROWSET` sintassi seguente:
+Per supportare l'esecuzione di query e l'analisi dei dati in un archivio analitico Azure Cosmos DB, viene usato un pool SQL senza server. Il pool SQL senza server utilizza la `OPENROWSET` sintassi SQL, pertanto è necessario convertire prima la stringa di connessione del Azure Cosmos DB nel formato seguente:
 
 ```sql
 OPENROWSET( 
        'CosmosDB',
-       '<Azure Cosmos DB connection string>',
+       '<SQL connection string for Azure Cosmos DB>',
        <Container name>
     )  [ < with clause > ] AS alias
 ```
 
-La stringa di connessione Azure Cosmos DB specifica il nome dell'account di Azure Cosmos DB, il nome del database, la chiave master dell'account del database e un nome di area facoltativo per la `OPENROWSET` funzione.
+La stringa di connessione SQL per Azure Cosmos DB specifica il nome dell'account di Azure Cosmos DB, il nome del database, la chiave master dell'account del database e un nome di area facoltativo per la `OPENROWSET` funzione. Alcune di queste informazioni possono essere tratte dalla stringa di connessione Azure Cosmos DB standard.
 
-Il formato della stringa di connessione è il seguente:
+Conversione dal formato della stringa di connessione Azure Cosmos DB standard:
+
+```
+AccountEndpoint=https://<database account name>.documents.azure.com:443/;AccountKey=<database account master key>;
+```
+
+Il formato della stringa di connessione SQL è il seguente:
+
 ```sql
 'account=<database account name>;database=<database name>;region=<region name>;key=<database account master key>'
 ```
+
+L'area è facoltativa. Se omesso, viene usata l'area primaria del contenitore.
 
 Il nome del contenitore Azure Cosmos DB viene specificato senza virgolette nella `OPENROWSET` sintassi. Se il nome del contenitore contiene caratteri speciali, ad esempio un trattino (-), il nome deve essere racchiuso tra parentesi quadre ( `[]` ) nella `OPENROWSET` sintassi.
 
@@ -59,13 +68,14 @@ Il nome del contenitore Azure Cosmos DB viene specificato senza virgolette nella
 ```sql
 OPENROWSET( 
        PROVIDER = 'CosmosDB',
-       CONNECTION = '<Azure Cosmos DB connection string without account key>',
+       CONNECTION = '<SQL connection string for Azure Cosmos DB without account key>',
        OBJECT = '<Container name>',
        [ CREDENTIAL | SERVER_CREDENTIAL ] = '<credential name>'
     )  [ < with clause > ] AS alias
 ```
 
-La stringa di connessione Azure Cosmos DB non contiene la chiave in questo caso. Il formato della stringa di connessione è il seguente:
+In questo caso la stringa di connessione SQL per Azure Cosmos DB non contiene una chiave. Il formato della stringa di connessione è il seguente:
+
 ```sql
 'account=<database account name>;database=<database name>;region=<region name>'
 ```
@@ -165,6 +175,7 @@ Si supponga di aver importato alcuni dati dal set di dati [COVID di ECDC](https:
 Questi documenti JSON flat in Azure Cosmos DB possono essere rappresentati come un set di righe e colonne in sinapsi SQL. La `OPENROWSET` funzione consente di specificare un subset di proprietà che si desidera leggere e i tipi di colonna esatti nella `WITH` clausola:
 
 ### <a name="openrowset-with-key"></a>[OPENROWSET con chiave](#tab/openrowset-key)
+
 ```sql
 SELECT TOP 10 *
 FROM OPENROWSET(
@@ -173,7 +184,9 @@ FROM OPENROWSET(
        Ecdc
     ) with ( date_rep varchar(20), cases bigint, geo_id varchar(6) ) as rows
 ```
+
 ### <a name="openrowset-with-credential"></a>[OPENROWSET con credenziale](#tab/openrowset-credential)
+
 ```sql
 /*  Setup - create server-level or database scoped credential with Azure Cosmos DB account key:
     CREATE CREDENTIAL MyCosmosDbAccountCredential
@@ -186,7 +199,9 @@ FROM OPENROWSET(
       OBJECT = 'Ecdc',
       SERVER_CREDENTIAL = 'MyCosmosDbAccountCredential'
     ) with ( date_rep varchar(20), cases bigint, geo_id varchar(6) ) as rows
+   
 ```
+
 ---
 Il risultato di questa query potrebbe essere simile a quello della tabella seguente:
 
@@ -256,7 +271,7 @@ WITH (  paper_id    varchar(8000),
 Il risultato di questa query potrebbe essere simile a quello della tabella seguente:
 
 | paper_id | title | metadata | authors |
-| --- | --- | --- |
+| --- | --- | --- | --- |
 | bb11206963e831f... | Informazioni supplementari su Eco-epidemi... | `{"title":"Supplementary Informati…` | `[{"first":"Julien","last":"Mélade","suffix":"","af…`| 
 | bb1206963e831f1... | Uso dei sieri di convalescenza in immune-E... | `{"title":"The Use of Convalescent…` | `[{"first":"Antonio","last":"Lavazza","suffix":"", …` |
 | bb378eca9aac649... | Tylosema esculentum (Marama) Tuber e B... | `{"title":"Tylosema esculentum (Ma…` | `[{"first":"Walter","last":"Chingwaru","suffix":"",…` | 

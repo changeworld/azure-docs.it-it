@@ -7,15 +7,15 @@ ms.service: key-vault
 ms.subservice: managed-hsm
 ms.topic: overview
 ms.custom: mvc
-ms.date: 09/15/2020
+ms.date: 04/01/2021
 ms.author: mbaldwin
 author: msmbaldwin
-ms.openlocfilehash: 95feeebf009cae22cf3952df80596c12e75cbe4b
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 605e3f0451cc2029ecc98e42741f30a2d3ef190b
+ms.sourcegitcommit: d23602c57d797fb89a470288fcf94c63546b1314
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "94357573"
+ms.lasthandoff: 04/01/2021
+ms.locfileid: "106167958"
 ---
 # <a name="what-is-azure-key-vault-managed-hsm-preview"></a>Che cos'è il modulo di protezione hardware gestito di Azure Key Vault (anteprima)?
 
@@ -36,6 +36,7 @@ Il modulo di protezione hardware gestito di Azure Key Vault è un servizio cloud
 - **Controllo di accesso isolato**: il modello di controllo degli accessi in base al ruolo locale del modulo di protezione hardware gestito consente agli amministratori designati del cluster di moduli di protezione hardware di avere il controllo completo su tali moduli e nemmeno gli amministratori del gruppo di gestione, della sottoscrizione o del gruppo di risorse possono aggirare questo controllo.
 - **Moduli di protezione hardware convalidati in base agli standard FIPS 140-2 livello 3**: è possibile proteggere i dati e soddisfare i requisiti di conformità con i moduli di protezione hardware convalidati in base agli standard FIPS (Federal Information Protection Standard) 140-2 livello 3. I moduli di protezione hardware gestiti usano schede HSM Marvell LiquidSecurity.
 - **Monitoraggio e controllo**: integrazione completa con Monitoraggio di Azure. È possibile ottenere i log completi di tutte le attività tramite Monitoraggio di Azure e usare Azure Log Analytics per l'analisi e gli avvisi.
+- **Residenza dei dati**: il modulo HSM gestito non archivia/elabora i dati del cliente all'esterno dell'area in cui il cliente distribuisce l'istanza HSM.
 
 ### <a name="integrated-with-azure-and-microsoft-paassaas-services"></a>Integrazione con i servizi PaaS/SaaS di Azure e Microsoft 
 

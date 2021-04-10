@@ -3,12 +3,12 @@ title: 'Esercitazione: Registrazione di video basata su eventi nel cloud e ripro
 description: Questa esercitazione illustra come usare Analisi video live di Azure in Azure IoT Edge per eseguire una registrazione di video basata su eventi nel cloud e riprodurla dal cloud.
 ms.topic: tutorial
 ms.date: 05/27/2020
-ms.openlocfilehash: ea98b4c8981be9fffe7911e4c8402a8f522976f9
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: de1a4d423108ddb18af4f8478c9bac60672d6062
+ms.sourcegitcommit: 02bc06155692213ef031f049f5dcf4c418e9f509
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101702318"
+ms.lasthandoff: 04/03/2021
+ms.locfileid: "106279817"
 ---
 # <a name="tutorial-event-based-video-recording-to-the-cloud-and-playback-from-the-cloud"></a>Esercitazione: Registrazione di video basata su eventi nel cloud e riproduzione dal cloud
 
@@ -426,7 +426,7 @@ Questo evento indica che la registrazione è stata arrestata. La sezione subject
 1. Nella procedura guidata accettare le opzioni predefinite e selezionare **Aggiungi**. Per altre informazioni, vedere [Riproduzione di video](video-playback-concept.md).
 
     > [!TIP]
-    > Assicurarsi che [l'endpoint di streaming sia in esecuzione](../latest/streaming-endpoint-concept.md).
+    > Assicurarsi che [l'endpoint di streaming sia in esecuzione](../latest/stream-streaming-endpoint-concept.md).
 1. Il lettore dovrebbe caricare il video. Selezionare **Riproduci** per visualizzarlo.
 
 > [!NOTE]

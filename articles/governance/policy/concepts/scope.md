@@ -1,20 +1,19 @@
 ---
 title: Comprendere l'ambito nei criteri di Azure
 description: Viene descritto il concetto di ambito in Azure Resource Manager e il modo in cui si applica ai criteri di Azure per controllare quali risorse valutano i criteri di Azure.
-ms.date: 09/22/2020
+ms.date: 03/31/2021
 ms.topic: conceptual
-ms.openlocfilehash: 83eda330a35b007abfa37046a202b14728726849
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: c198d2d2961b6d9e10a3b78481183cba7f7197ca
+ms.sourcegitcommit: d23602c57d797fb89a470288fcf94c63546b1314
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "90984426"
+ms.lasthandoff: 04/01/2021
+ms.locfileid: "106167737"
 ---
 # <a name="understand-scope-in-azure-policy"></a>Comprendere l'ambito nei criteri di Azure
 
-Sono disponibili diverse impostazioni che determinano quali risorse sono in grado di valutare e quali risorse vengono valutate dai criteri di Azure. Il concetto principale di questi controlli è l' _ambito_.
-Per una panoramica di alto livello, vedere [ambito in Azure Resource Manager](../../../azure-resource-manager/management/overview.md#understand-scope).
-Questo articolo illustra l'effetto dell' _ambito_ nei criteri di Azure e le proprietà e gli oggetti correlati.
+Sono disponibili molte impostazioni che determinano quali risorse sono in grado di valutare e quali risorse vengono valutate dai criteri di Azure. Il concetto principale di questi controlli è l' _ambito_. L'ambito nei criteri di Azure si basa sul funzionamento dell'ambito in Azure Resource Manager. Per una panoramica di alto livello, vedere [ambito in Azure Resource Manager](../../../azure-resource-manager/management/overview.md#understand-scope).
+Questo articolo illustra l'importanza dell' _ambito_ nei criteri di Azure e le proprietà e gli oggetti correlati.
 
 ## <a name="definition-location"></a>Posizione della definizione
 

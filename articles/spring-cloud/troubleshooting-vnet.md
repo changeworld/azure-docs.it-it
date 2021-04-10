@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 09/19/2020
 ms.author: brendm
 ms.custom: devx-track-java
-ms.openlocfilehash: b2369a6380c7b74302d32366d0604fca616fc3ed
-ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
+ms.openlocfilehash: a84ed5a6f80b038ced2077fe3c038bd9801ca033
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/23/2021
-ms.locfileid: "104878539"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105732942"
 ---
 # <a name="troubleshooting-azure-spring-cloud-in-virtual-networks"></a>Risoluzione dei problemi relativi al cloud Spring di Azure nelle reti virtuali
 
@@ -38,7 +38,6 @@ Per configurare l'istanza del servizio cloud Spring di Azure usando il modello d
 | Messaggio di errore | Procedura di correzione |
 |------|------|
 | Le risorse create da Azure Spring cloud non sono consentite dai criteri. | Le risorse di rete verranno create quando si distribuisce il cloud Spring di Azure nella propria rete virtuale. Controllare se sono stati definiti [criteri di Azure](../governance/policy/overview.md) per bloccare la creazione. Non è stato possibile creare le risorse. il messaggio di errore è stato trovato. |
-| Le subnet specificate sono associate alle tabelle di route. disassociarle. | Attualmente non è supportata la distribuzione del cloud Spring di Azure nella subnet associata alle tabelle di route esistenti, dissociarle e riprovare. |
 | Il traffico necessario non è allowlisted. | Per assicurarsi che il traffico richiesto sia allowlisted, vedere [responsabilità del cliente per l'esecuzione di Azure Spring cloud in VNET](spring-cloud-vnet-customer-responsibilities.md) . |
 
 ## <a name="my-application-cant-be-registered"></a>Non è possibile registrare l'applicazione
