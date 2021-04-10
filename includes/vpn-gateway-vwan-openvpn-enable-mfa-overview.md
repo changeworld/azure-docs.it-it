@@ -9,10 +9,10 @@ ms.date: 02/14/2020
 ms.author: cherylmc
 ms.custom: include file
 ms.openlocfilehash: 8fba8aa577bcb3b5ef44d57c388a1f1de7494782
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "95995617"
 ---
 Se si desidera che agli utenti venga richiesto un secondo fattore di autenticazione prima di concedere l'accesso, è possibile configurare Azure AD Multi-Factor Authentication (AMF). È possibile configurare l'autenticazione a più fattori per ogni utente oppure è possibile sfruttare l'autenticazione a più fattori tramite [l'accesso condizionale](../articles/active-directory/conditional-access/overview.md).

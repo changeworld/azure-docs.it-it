@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 08/02/2018
 ms.author: kegorman
 ms.openlocfilehash: b180a0f148db5222a288958724ad248acd18b565
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "101673854"
 ---
 # <a name="set-up-oracle-asm-on-an-azure-linux-virtual-machine"></a>Configurare Oracle ASM su una macchina virtuale Linux in Azure  
@@ -476,7 +476,7 @@ Per installare Oracle Grid Infrastructure, completare la procedura seguente:
 
    ![Screenshot della pagina del programma di installazione Create Inventory (Creare l'inventario)](./media/oracle-asm/install08.png)
 
-10. Nella pagina **Root script execution configuration** (Configurazione di esecuzione dello script principale) selezionare la casella di controllo **Automatically run configuration scripts** (Eseguire automaticamente gli script di configurazione). Selezionare quindi l'opzione **Use "root" user credential** (Usa le credenziali dell'utente "root") e immettere la password dell'utente root.
+10. Nella pagina **Root script execution configuration** (Configurazione di esecuzione dello script principale) selezionare la casella di controllo **Automatically run configuration scripts** (Eseguire automaticamente gli script di configurazione). Selezionare quindi l'opzione **Use "root&quot; user credential** (Usa le credenziali dell'utente &quot;root") e immettere la password dell'utente root.
 
     ![Screenshot della pagina del programma di installazione Root script execution configuration (Configurazione di esecuzione dello script principale)](./media/oracle-asm/install09.png)
 

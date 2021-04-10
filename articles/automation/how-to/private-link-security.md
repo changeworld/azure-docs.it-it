@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 12/11/2020
 ms.subservice: ''
 ms.openlocfilehash: f3c9197faaae89e0ffb238f987ee66dafea8abdd
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "100579795"
 ---
 # <a name="use-azure-private-link-to-securely-connect-networks-to-azure-automation"></a>Usare il collegamento privato di Azure per connettere in modo sicuro le reti ad automazione di Azure
@@ -190,7 +190,7 @@ Per configurare le impostazioni DNS per gli endpoint privati si può procedere n
 
 * Usare il server di trasmissione DNS (facoltativo). È possibile usare il server di trasmissione DNS per sostituire la risoluzione DNS per una particolare risorsa di collegamento privato. Se il [server DNS](../../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-that-uses-your-own-dns-server) è ospitato in una rete virtuale, si può creare una regola di invio DNS in modo da usare una zona DNS privato per semplificare la configurazione per tutte le risorse Collegamento privato.
 
-Per altre informazioni, vedere [configurazione DNS dell'endpoint privato di Azure](../../private-link/private-endpoint-dns.md).
+Per altre informazioni, vedere [Configurazione DNS dell'endpoint privato di Azure](../../private-link/private-endpoint-dns.md).
 
 ## <a name="next-steps"></a>Passaggi successivi
 
