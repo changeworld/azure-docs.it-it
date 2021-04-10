@@ -5,10 +5,10 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 05/20/2020
 ms.openlocfilehash: af1894d2f63357006e87fa8e4533f135ecc02f21
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "98944759"
 ---
 # <a name="migrate-apache-spark-21-and-22-workloads-to-23-and-24"></a>Eseguire la migrazione di carichi di lavoro Apache Spark 2.1 e 2.2 a 2.3 e 2.4
