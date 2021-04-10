@@ -7,14 +7,14 @@ manager: carmonm
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/26/2019
+ms.date: 02/20/2021
 ms.author: bwren
-ms.openlocfilehash: 68e947a6e13ba5195815fe966ec69ec6a2f4b8e1
-ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
+ms.openlocfilehash: 3c99002a4f8613ff40a116eeceded4b3bada1c15
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/26/2021
-ms.locfileid: "105562971"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105936156"
 ---
 # <a name="azure-monitor-metrics-overview"></a>Panoramica delle metriche di monitoraggio di Azure
 Le metriche di monitoraggio di Azure sono una funzionalità di monitoraggio di Azure che raccoglie dati numerici dalle [risorse monitorate](../monitor-reference.md) in un database di serie temporali. Le metriche sono valori numerici raccolti a intervalli regolari e descrivono alcuni aspetti di un sistema in un determinato momento. Le metriche in Monitoraggio di Azure sono elementi leggeri e in grado di supportare scenari near real-time, rendendole particolarmente utili per la generazione di avvisi e il rilevamento rapido dei problemi. È possibile analizzarli in modo interattivo con Esplora metriche, ricevere notifiche in modo proattivo con un avviso quando un valore supera una soglia o visualizzarli in una cartella di lavoro o in un dashboard.
@@ -33,7 +33,7 @@ La tabella seguente elenca i diversi modi in cui è possibile usare le metriche 
 | **Avviso** | Configurazione di una [regola di avviso per la metrica](../alerts/alerts-metric.md) che invia una notifica o esegue un'[operazione automatica](../alerts/action-groups.md) quando il valore della metrica supera una soglia. |
 | **Visualizzazione** | Aggiungere un grafico di Esplora metriche in un [dashboard di Azure](../app/tutorial-app-dashboards.md).<br>Creare una[ cartella di lavoro](../visualize/workbooks-overview.md) per combinare più set di dati in un report interattivo. Esportare i risultati di una query in [Grafana](../visualize/grafana-plugin.md) per sfruttarne le capacità di creazione dashboard e combinare i risultati con altre origini dati. |
 | **Automatizzare** |  Uso della [scalabilità automatica](../autoscale/autoscale-overview.md) per aumentare o ridurre le risorse in base a un valore della metrica che supera una soglia. |
-| **Recupero** | Accedere ai valori della metrica da una riga di comando mediante i [cmdlet di PowerShell](/powershell/module/az.applicationinsights)<br>Accedere ai valori della metrica da un'applicazione personalizzata mediante [API REST](./rest-api-walkthrough.md).<br>Accedere ai valori della metrica da una riga di comando mediante l'[interfaccia della riga di comando](/cli/azure/monitor/metrics). |
+| **Recupero** | Accedere ai valori della metrica da una riga di comando mediante i [cmdlet di PowerShell](/powershell/module/az.monitor)<br>Accedere ai valori della metrica da un'applicazione personalizzata mediante [API REST](./rest-api-walkthrough.md).<br>Accedere ai valori della metrica da una riga di comando mediante l'[interfaccia della riga di comando](/cli/azure/monitor/metrics). |
 | **Export** | [Instradare le metriche ai log](./resource-logs.md#send-to-azure-storage) per analizzare i dati delle metriche di Monitoraggio di Azure insieme ai dati dei log di Monitoraggio di Azure e archiviare i valori delle metriche per più di 93 giorni.<br>Trasmettere le metriche a un [hub eventi](./stream-monitoring-data-event-hubs.md) per instradarle a sistemi esterni. |
 | **Archiviazione** | [Archiviare](./platform-logs-overview.md) la cronologia relativa alle prestazioni o all'integrità della risorsa a scopi di conformità, verifica o creazione di report offline. |
 
@@ -104,7 +104,7 @@ Questa metrica può rispondere a domande del tipo "Qual è la velocità effettiv
 Per la maggior parte delle risorse in Azure, le metriche vengono archiviate per 93 giorni. Esistono alcune eccezioni:
 
 **Metriche del sistema operativo guest**
--   **Metriche del sistema operativo guest classiche**. Si tratta di contatori delle prestazioni raccolti dall'[estensione di diagnostica Windows](../agents/diagnostics-extension-overview.md) o dall'[estensione di diagnostica Linux](../../virtual-machines/extensions/diagnostics-linux.md) e indirizzati a un account di archiviazione di Azure. La conservazione di queste metriche è di 14 giorni.
+-   **Metriche del sistema operativo guest classiche**. Si tratta di contatori delle prestazioni raccolti dall'[estensione di diagnostica Windows](../agents/diagnostics-extension-overview.md) o dall'[estensione di diagnostica Linux](../../virtual-machines/extensions/diagnostics-linux.md) e indirizzati a un account di archiviazione di Azure. La conservazione per queste metriche è garantita almeno 14 giorni, anche se non viene scritta alcuna data di scadenza effettiva nell'account di archiviazione. Per motivi di prestazioni, il portale limita la quantità di dati visualizzati in base al volume. Il numero effettivo di giorni recuperati dal portale può pertanto essere superiore a 14 giorni se il volume di dati scritti non è molto grande.  
 -   **Metriche del sistema operativo guest inviate alle metriche di Monitoraggio di Azure**. Si tratta di contatori delle prestazioni raccolti dall'[estensione di diagnostica Windows](../agents/diagnostics-extension-overview.md) e inviati al [sink di dati Monitoraggio di Azure](../agents/diagnostics-extension-overview.md#data-destinations) o tramite l'[agente InfluxData Telegraf](https://www.influxdata.com/time-series-platform/telegraf/) nei computer Linux. La conservazione di queste metriche è di 93 giorni.
 -   **Metriche del sistema operativo guest raccolte dall'agente di Log Analytics**. Si tratta di contatori delle prestazioni raccolti dall'agente di Log Analytics e inviati a un'area di lavoro Log Analytics. La conservazione di queste metriche è di 31 giorni e può essere estesa fino a 2 anni.
 

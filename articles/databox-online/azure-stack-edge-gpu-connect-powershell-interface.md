@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.date: 03/08/2021
 ms.author: alkohli
 ms.openlocfilehash: 580e5aab7b7ac1edcfee58345291afcb9eb0e977
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "103562162"
 ---
 # <a name="manage-an-azure-stack-edge-pro-gpu-device-via-windows-powershell"></a>Gestire un dispositivo GPU Pro Azure Stack Edge tramite Windows PowerShell
@@ -426,7 +426,7 @@ DEBUG 2020-05-14T20:42:14Z: loop process - 0 events, 0.000s
 [10.100.10.10]: PS>
 ```
 
-### <a name="change-memory-processor-limits-for-kubernetes-worker-node"></a>Modifica della memoria, limiti del processore per il nodo del ruolo di lavoro Kubernetes
+### <a name="change-memory-processor-limits-for-kubernetes-worker-node"></a>Modificare la memoria, i limiti del processore per il nodo di lavoro di Kubernetes
 
 Per modificare i limiti di memoria o processore per il nodo del ruolo di lavoro per Kubernetes, seguire questa procedura:
 
@@ -573,7 +573,7 @@ Il controller di gestione battiscopa (BMC) viene usato per monitorare e gestire 
     - Utilizzare questo cmdlet per configurare la configurazione statica per il BMC. È possibile specificare i valori per `IPv4Address` , `IPv4Gateway` e `IPv4SubnetMask` . 
     
         ```powershell
-        Set-HcsNetBmcInterface -IPv4Address "<IPv4 address of the device>" -IPv4Gateway "<IPv4 address of the gateway>" -IPv4SubnetMask "<IPv4 address for the subnet mask>"
+        Set-HcsNetBmcInterface -IPv4Address "<IPv4 address of the device>&quot; -IPv4Gateway &quot;<IPv4 address of the gateway>&quot; -IPv4SubnetMask &quot;<IPv4 address for the subnet mask>"
         ```        
         
         Di seguito è riportato un output di esempio: 

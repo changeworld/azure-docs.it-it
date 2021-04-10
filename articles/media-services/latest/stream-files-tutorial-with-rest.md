@@ -12,18 +12,18 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 03/17/2021
 ms.author: inhenkel
-ms.openlocfilehash: c8f76c74c951de77d5d5c213be3698ec2b175ead
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 139970bb043c745d63f2ef795ae1c8aef4bda0fa
+ms.sourcegitcommit: 5fd1f72a96f4f343543072eadd7cdec52e86511e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104596774"
+ms.lasthandoff: 04/01/2021
+ms.locfileid: "106108116"
 ---
 # <a name="tutorial-encode-a-remote-file-based-on-url-and-stream-the-video---rest"></a>Esercitazione: Codificare un file remoto basato su URL ed eseguire lo streaming del video - REST
 
 [!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
 
-Servizi multimediali di Azure consente di codificare i file multimediali nei formati che possono essere riprodotti in una vasta gamma di browser e dispositivi. Ad esempio, potrebbe essere necessario trasmettere il contenuto nei formati HLS o MPEG DASH di Apple. Prima dello streaming, è consigliabile codificare il file multimediale digitale di alta qualità. Per indicazioni per la codifica, vedere i [concetti correlati alla codifica](encoding-concept.md).
+Servizi multimediali di Azure consente di codificare i file multimediali nei formati che possono essere riprodotti in una vasta gamma di browser e dispositivi. Ad esempio, potrebbe essere necessario trasmettere il contenuto nei formati HLS o MPEG DASH di Apple. Prima dello streaming, è consigliabile codificare il file multimediale digitale di alta qualità. Per indicazioni per la codifica, vedere i [concetti correlati alla codifica](encode-concept.md).
 
 Questa esercitazione illustra come codificare un file basato su un URL ed eseguire lo streaming del video con Servizi multimediali di Azure usando REST. 
 
@@ -44,7 +44,7 @@ Questa esercitazione illustra come:
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-- [Creare un account di Servizi multimediali di Azure](./create-account-howto.md).
+- [Creare un account di Servizi multimediali di Azure](./account-create-how-to.md).
 
     Assicurarsi di ricordare i valori usati per il nome del gruppo di risorse e il nome dell'account di Servizi multimediali.
 
@@ -186,7 +186,7 @@ L'[asset](/rest/api/media/assets) di output archivia il risultato del processo d
 
 Quando si codificano o si elaborano contenuti in Servizi multimediali, è prassi comune configurare le impostazioni di codifica come una serie di istruzioni e quindi inviare un oggetto **Job**, ovvero il processo per applicare tali istruzioni a un video. Inviando nuovi processi per ogni nuovo video, si applicano le istruzioni a tutti i video nella libreria. In Servizi multimediali una serie di istruzioni di questo tipo è definita trasformazione ed è rappresentata dall'oggetto **Transform**. Per altre informazioni, vedere [Trasformazioni e processi](./transforms-jobs-concept.md). L'esempio illustrato in questa esercitazione definisce una serie di istruzioni che codifica il video per eseguirne lo streaming a diversi tipi di dispositivi iOS e Android. 
 
-Quando si crea una nuova istanza dell'oggetto [Transform](/rest/api/media/transforms), è necessario specificare ciò che dovrà generare come output. Il parametro obbligatorio è un oggetto **TransformOutput**. Ogni **TransformOutput** contiene un parametro **Preset**. In **Preset** sono descritte le istruzioni dettagliate delle operazioni di elaborazione di contenuti video e/o audio che devono essere usate per generare l'oggetto **TransformOutput** desiderato. L'esempio descritto in questo articolo è basato su un set di impostazioni predefinito denominato **AdaptiveStreaming**. Il set di impostazioni codifica il video di input in una tabella di coppie velocità in bit-risoluzione generata automaticamente in base alla risoluzione e alla velocità in bit dell'input e genera file ISO MP4 con standard video H.264 e audio AAC corrispondente a ogni coppia velocità in bit-risoluzione. Per informazioni su questo set di impostazioni, vedere [Generazione automatica di una tabella di coppie velocità in bit-risoluzione](autogen-bitrate-ladder.md).
+Quando si crea una nuova istanza dell'oggetto [Transform](/rest/api/media/transforms), è necessario specificare ciò che dovrà generare come output. Il parametro obbligatorio è un oggetto **TransformOutput**. Ogni **TransformOutput** contiene un parametro **Preset**. In **Preset** sono descritte le istruzioni dettagliate delle operazioni di elaborazione di contenuti video e/o audio che devono essere usate per generare l'oggetto **TransformOutput** desiderato. L'esempio descritto in questo articolo è basato su un set di impostazioni predefinito denominato **AdaptiveStreaming**. Il set di impostazioni codifica il video di input in una tabella di coppie velocità in bit-risoluzione generata automaticamente in base alla risoluzione e alla velocità in bit dell'input e genera file ISO MP4 con standard video H.264 e audio AAC corrispondente a ogni coppia velocità in bit-risoluzione. Per informazioni su questo set di impostazioni, vedere [Generazione automatica di una tabella di coppie velocità in bit-risoluzione](encode-autogen-bitrate-ladder.md).
 
 È possibile usare un set di impostazioni predefinito EncoderNamedPreset oppure usare set di impostazioni personalizzati. 
 
@@ -413,4 +413,4 @@ Consultare l'articolo [Community di Servizi multimediali di Azure](media-service
 Dopo aver appreso come eseguire il caricamento, la codifica e lo streaming del video, vedere l'articolo seguente: 
 
 > [!div class="nextstepaction"]
-> [Analizzare i video](analyze-videos-tutorial-with-api.md)
+> [Analizzare i video](analyze-videos-tutorial.md)

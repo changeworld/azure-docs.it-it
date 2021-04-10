@@ -4,16 +4,16 @@ description: Informazioni su come limitare il traffico Web con Web Application F
 services: web-application-firewall
 author: vhorne
 ms.service: web-application-firewall
-ms.date: 08/31/2020
+ms.date: 03/29/2021
 ms.author: victorh
 ms.topic: how-to
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 967d4d4a49809c2b5fa7a344286469bb67eec6cf
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: d53f4b640154e4d7b02115d5043b37f6bb6e89ba
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102217602"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105731140"
 ---
 # <a name="enable-web-application-firewall-using-the-azure-cli"></a>Abilitare Web Application Firewall usando l'interfaccia della riga di comando di Azure
 
@@ -109,13 +109,15 @@ Il processo di creazione del gateway applicazione può richiedere alcuni minuti.
 
 In questo esempio viene creato un set di scalabilità di macchine virtuali che fornisce due server per il pool back-end nel gateway applicazione. Le macchine virtuali nel set di scalabilità sono associate alla subnet *myBackendSubnet*. Per creare il set di scalabilità, è possibile usare [az vmss create](/cli/azure/vmss#az-vmss-create).
 
+Sostituire \<username> e \<password> con i valori prima di eseguire questa operazione.
+
 ```azurecli-interactive
 az vmss create \
   --name myvmss \
   --resource-group myResourceGroupAG \
   --image UbuntuLTS \
-  --admin-username azureuser \
-  --admin-password Azure123456! \
+  --admin-username <username> \
+  --admin-password <password> \
   --instance-count 2 \
   --vnet-name myVNet \
   --subnet myBackendSubnet \

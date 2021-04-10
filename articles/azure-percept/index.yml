@@ -10,12 +10,12 @@ metadata:
   author: mimcco
   ms.author: mimcco
   ms.date: 03/25/2021
-  ms.openlocfilehash: 61e9d784d899cb8f0741f27aee0bdb7031bb37d1
-  ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
+  ms.openlocfilehash: 0cf9e95897554cb51ff6837dec72700124471025
+  ms.sourcegitcommit: 5fd1f72a96f4f343543072eadd7cdec52e86511e
   ms.translationtype: MT
   ms.contentlocale: it-IT
-  ms.lasthandoff: 03/26/2021
-  ms.locfileid: "105562546"
+  ms.lasthandoff: 04/01/2021
+  ms.locfileid: "106107728"
 landingContent:
 - title: Che cos'è Azure Percept?
   linkLists:
@@ -33,13 +33,15 @@ landingContent:
       url: overview-percept-security.md
     - text: integrazione con 80/20
       url: overview-8020-integration.md
+    - text: Modelli di intelligenza artificiale di Azure Percept
+      url: overview-ai-models.md
 - title: Introduzione ad Azure Percept DK
   linkLists:
   - linkListType: quickstart
     links:
     - text: Eseguire l'unboxing e assemblare Azure Percept DK
       url: quickstart-percept-dk-unboxing.md
-    - text: Connettere Azure Percept DK ad Azure e distribuire un modello di intelligenza artificiale per la visione artificiale
+    - text: Connettere Azure Percept DK ad Azure
       url: quickstart-percept-dk-set-up.md
   - linkListType: reference
     links:
@@ -47,8 +49,10 @@ landingContent:
       url: azure-percept-dk-datasheet.md
     - text: Foglio dati sulla visione di Azure Percept
       url: azure-percept-vision-datasheet.md
-    - text: Risoluzione dei problemi
+    - text: Risoluzione dei problemi generali di Azure Percept DK
       url: troubleshoot-dev-kit.md
+    - text: Risoluzione dei problemi di installazione
+      url: how-to-troubleshoot-setup.md
 - title: Introduzione ad Azure Percept audio
   linkLists:
   - linkListType: quickstart
@@ -61,9 +65,9 @@ landingContent:
       url: azure-percept-audio-datasheet.md
     - text: Risoluzione dei problemi audio di Azure Percept
       url: troubleshoot-audio-accessory-speech-module.md
-    - text: LED e pulsante audio di Azure Percept
+    - text: Comportamento del LED e del pulsante audio di Azure Percept
       url: audio-button-led-behavior.md
-- title: Creare un prototipo di intelligenza artificiale per la visione senza codice
+- title: Creazione di una soluzione per la visione senza codice
   linkLists:
   - linkListType: tutorial
     links:
@@ -79,11 +83,11 @@ landingContent:
       url: how-to-capture-images.md
     - text: Visualizzare i dati di telemetria di DevKit
       url: how-to-view-telemetry.md
-  - linkListType: concept
+  - linkListType: reference
     links:
-    - text: Uso delle soluzioni di intelligenza artificiale
-      url: overview-ai-models.md
-- title: Creazione di una soluzione di Assistente vocale senza codice
+    - text: Risoluzione dei problemi della soluzione
+      url: vision-solution-troubleshooting.md
+- title: Creazione di una soluzione di riconoscimento vocale senza codice
   linkLists:
   - linkListType: tutorial
     links:
@@ -91,9 +95,9 @@ landingContent:
       url: tutorial-no-code-speech.md
   - linkListType: how-to-guide
     links:
-    - text: Gestire l'Assistente vocale
+    - text: Configurare l'Assistente vocale in Azure Percept Studio
       url: how-to-manage-voice-assistant.md
-    - text: Configurare l'Assistente vocale usando l'hub Internet
+    - text: Configurare l'Assistente vocale nell'hub Internet
       url: how-to-configure-voice-assistant.md
 - title: Sviluppo avanzato con Azure Percept
   linkLists:
@@ -113,9 +117,9 @@ landingContent:
       url: overview-update-experience.md
   - linkListType: how-to-guide
     links:
-    - text: Configurare gli aggiornamenti in aria
+    - text: Configurare gli aggiornamenti (OTA)
       url: how-to-set-up-over-the-air-updates.md
-    - text: Aggiornamenti all'aria
+    - text: Aggiornare il dispositivo in modalità wireless (OTA)
       url: how-to-update-over-the-air.md
-    - text: Aggiornamento su USB
+    - text: Aggiornare il dispositivo tramite USB
       url: how-to-update-via-usb.md

@@ -10,15 +10,13 @@ ms.date: 9/1/2020
 ms.topic: include
 ms.custom: include file
 ms.author: mikben
-ms.openlocfilehash: f71f394f190c5de1c3d64d02fd6113817ecda1ea
-ms.sourcegitcommit: bed20f85722deec33050e0d8881e465f94c79ac2
-ms.translationtype: MT
+ms.openlocfilehash: e8ef354480c69fa9b0b5407c88209b368485127d
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/25/2021
-ms.locfileid: "105152796"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105729795"
 ---
-[!INCLUDE [Public Preview Notice](../../includes/public-preview-include.md)]
-
 Il gruppo di servizi **di comunicazione di Azure che chiama l'esempio Hero per Android** illustra il modo in cui i servizi di comunicazione che chiamano Android SDK possono essere usati per creare un'esperienza di chiamata di gruppo che include voce e video. In questa Guida introduttiva di esempio si apprenderà come impostare ed eseguire l'esempio. Per il contesto viene fornita una panoramica dell'esempio.
 
 ## <a name="download-code"></a>Scaricare il codice

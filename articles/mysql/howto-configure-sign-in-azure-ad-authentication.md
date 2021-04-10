@@ -6,12 +6,12 @@ ms.author: sunila
 ms.service: mysql
 ms.topic: how-to
 ms.date: 07/23/2020
-ms.openlocfilehash: 808c3589ba5b51b035ccc8165489c4d11203dd66
-ms.sourcegitcommit: c94e282a08fcaa36c4e498771b6004f0bfe8fb70
+ms.openlocfilehash: 492e56e09129f9d47b863624cd72cd508801c143
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/26/2021
-ms.locfileid: "105612229"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105728267"
 ---
 # <a name="use-azure-active-directory-for-authentication-with-mysql"></a>Usare Azure Active Directory per l'autenticazione con MySQL
 
@@ -78,7 +78,6 @@ Esempio (per il cloud pubblico):
 ```azurecli-interactive
 az account get-access-token --resource https://ossrdbms-aad.database.windows.net
 ```
-
 Il valore della risorsa riportato sopra deve essere specificato esattamente come illustrato. Per gli altri cloud, è possibile cercare il valore della risorsa usando:
 
 ```azurecli-interactive
@@ -90,6 +89,13 @@ Per l'interfaccia della riga di comando di Azure versione 2.0.71 e successive, �
 ```azurecli-interactive
 az account get-access-token --resource-type oss-rdbms
 ```
+Usando PowerShell, è possibile usare il comando seguente per acquisire il token di accesso:
+
+```azurepowershell-interactive
+$accessToken = Get-AzAccessToken -ResourceUrl https://ossrdbms-aad.database.windows.net
+$accessToken.Token | out-file C:\temp\MySQLAccessToken.txt
+```
+
 
 Dopo aver completato l'autenticazione, Azure AD restituirà un token di accesso:
 
@@ -105,13 +111,17 @@ Dopo aver completato l'autenticazione, Azure AD restituirà un token di accesso:
 
 Il token è una stringa Base 64 che codifica tutte le informazioni sull'utente autenticato e che è indirizzata al servizio Database di Azure per MySQL.
 
-> [!NOTE]
-> La validità del token di accesso può essere compresa tra 5 e 60 minuti. È consigliabile ottenere il token di accesso appena prima di accedere a Database di Azure per MySQL.
+La validità del token di accesso è qualsiasi tra ***5 minuti e 60 minuti***. È consigliabile ottenere il token di accesso appena prima di accedere a Database di Azure per MySQL. Per visualizzare la validità del token, è possibile usare il comando di PowerShell seguente. 
+
+```azurepowershell-interactive
+$accessToken.ExpiresOn.DateTime
+```
 
 ### <a name="step-3-use-token-as-password-for-logging-in-with-mysql"></a>Passaggio 3: Usare il token come password per l'accesso con MySQL
 
-Durante la connessione è necessario usare il token di accesso come password utente MySQL. Quando si usano client con interfaccia utente grafica come MySQLWorkbench, è possibile usare il metodo precedente per recuperare il token. 
+Durante la connessione è necessario usare il token di accesso come password utente MySQL. Quando si usano client GUI come MySQLWorkbench, è possibile usare il metodo descritto in precedenza per recuperare il token. 
 
+#### <a name="using-mysql-cli"></a>Uso dell'interfaccia della riga di comando MySQL
 Quando si usa l'interfaccia della riga di comando, è possibile usare questa sintassi abbreviata per connettersi: 
 
 **Esempio (Linux/macOS):**
@@ -121,8 +131,15 @@ mysql -h mydb.mysql.database.azure.com \
   --enable-cleartext-plugin \ 
   --password=`az account get-access-token --resource-type oss-rdbms --output tsv --query accessToken`
 ```
+#### <a name="using-mysql-workbench"></a>Uso di MySQL Workbench
+* Avviare MySQL Workbench e fare clic sull'opzione di database, quindi fare clic su "Connetti al database"
+* Nel campo Hostname Immettere il nome FQDN di MySQL, ad esempio. mydb.mysql.database.azure.com
+* Nel campo username (nome utente) immettere il nome dell'amministratore di MySQL Azure Active Directory e aggiungerlo con il nome del server MySQL, non con il nome di dominio completo, ad esempio user@tenant.onmicrosoft.com@mydb
+* Nel campo password fare clic su "Archivia nell'insieme di credenziali" e incollare il token di accesso dal file, ad esempio C:\temp\MySQLAccessToken.txt
+* Fare clic sulla scheda Avanzate e assicurarsi di selezionare "Abilita plug-in di autenticazione non crittografata"
+* Fare clic su OK per connettersi al database
 
-Considerazioni importanti per la connessione:
+#### <a name="important-considerations-when-connecting"></a>Considerazioni importanti per la connessione:
 
 * `user@tenant.onmicrosoft.com` nome dell'utente o del gruppo Azure AD cui si sta tentando di connettersi
 * Aggiungere sempre il nome del server dopo il nome dell'utente o del gruppo di Azure AD (ad esempio `@mydb` )

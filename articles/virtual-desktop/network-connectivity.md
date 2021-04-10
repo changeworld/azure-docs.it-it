@@ -6,12 +6,12 @@ author: gundarev
 ms.topic: conceptual
 ms.date: 11/16/2020
 ms.author: denisgun
-ms.openlocfilehash: e4149864e16196b695d38a8c46ab5af835453412
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 378d341ee867b69fac22f5eb15952d104a7bf19d
+ms.sourcegitcommit: d23602c57d797fb89a470288fcf94c63546b1314
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99221211"
+ms.lasthandoff: 04/01/2021
+ms.locfileid: "106167329"
 ---
 # <a name="understanding-windows-virtual-desktop-network-connectivity"></a>Informazioni sulla connettività di rete per desktop virtuali Windows
 
@@ -50,7 +50,7 @@ Sequenza di connessione client descritta di seguito:
 
 ## <a name="connection-security"></a>Sicurezza delle connessioni
 
-TLS 1,2 viene usato per tutte le connessioni avviate dai client e dagli host di sessione ai componenti dell'infrastruttura desktop virtuale di Windows. Desktop virtuale Windows usa le stesse crittografie TLS 1,2 come [sportello anteriore di Azure](../frontdoor/front-door-faq.md#what-are-the-current-cipher-suites-supported-by-azure-front-door). È importante assicurarsi che entrambi i computer client e gli host di sessione possano usare queste crittografie.
+TLS 1,2 viene usato per tutte le connessioni avviate dai client e dagli host di sessione ai componenti dell'infrastruttura desktop virtuale di Windows. Desktop virtuale Windows usa le stesse crittografie TLS 1,2 come [sportello anteriore di Azure](../frontdoor/front-door-faq.yml#what-are-the-current-cipher-suites-supported-by-azure-front-door-). È importante assicurarsi che entrambi i computer client e gli host di sessione possano usare queste crittografie.
 Per il trasporto con connessione inversa, sia il client che l'host sessione si connettono al gateway desktop virtuale di Windows. Dopo aver stabilito la connessione TCP, il client o l'host sessione convalida il certificato del gateway di desktop virtuale di Windows.
 Dopo aver stabilito il trasporto di base, RDP stabilisce una connessione TLS annidata tra il client e l'host sessione usando i certificati dell'host sessione. Per impostazione predefinita, il certificato usato per la crittografia RDP viene generato automaticamente dal sistema operativo durante la distribuzione. Se lo si desidera, i clienti possono distribuire certificati gestiti centralmente emessi dall'autorità di certificazione globale (Enterprise). Per ulteriori informazioni sulla configurazione dei certificati, vedere la [documentazione di Windows Server](/troubleshoot/windows-server/remote/remote-desktop-listener-certificate-configurations).
 

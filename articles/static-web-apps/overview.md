@@ -5,24 +5,24 @@ services: static-web-apps
 author: craigshoemaker
 ms.service: static-web-apps
 ms.topic: overview
-ms.date: 05/08/2020
+ms.date: 04/01/2021
 ms.author: cshoe
-ms.openlocfilehash: f4e900c8bcdcb5febec39421e098b19ad10b8b00
-ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
+ms.openlocfilehash: e81f0a9e4fc50cf0d80f2905b9328af3c721865c
+ms.sourcegitcommit: d23602c57d797fb89a470288fcf94c63546b1314
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/26/2021
-ms.locfileid: "105558891"
+ms.lasthandoff: 04/01/2021
+ms.locfileid: "106166403"
 ---
 # <a name="what-is-azure-static-web-apps-preview"></a>Che cos'è App Web statiche di Azure (anteprima)?
 
-App Web statiche di Azure è un servizio che consente di compilare e distribuire automaticamente in Azure app Web dello stack completo da un repository GitHub.
+App Web statiche di Azure è un servizio che compila e distribuisce automaticamente app Web di stack completo in Azure da un repository di codice.
 
-:::image type="content" source="media/overview/static-apps-overview.png" alt-text="Panoramica di App Web statiche":::
+:::image type="content" source="media/overview/azure-static-web-apps-overview.png" alt-text="Diagramma di panoramica delle app Web statiche di Azure":::
 
-Il flusso di lavoro di App Web statiche di Azure è personalizzato in base al flusso di lavoro giornaliero di uno sviluppatore. Le app vengono compilate e distribuite sulla base di interazioni GitHub.
+Il flusso di lavoro di App Web statiche di Azure è personalizzato in base al flusso di lavoro giornaliero di uno sviluppatore. Le app vengono compilate e distribuite in base alle modifiche del codice.
 
-Quando si crea una risorsa di App Web statiche di Azure, Azure configura un flusso di lavoro di GitHub Actions nel repository del codice sorgente dell'app che monitora un ramo scelto dall'utente. Ogni volta che si esegue il push di commit o si accettano richieste pull nel ramo monitorato, l'azione di GitHub Actions compila e distribuisce automaticamente l'app e la relativa API in Azure.
+Quando si crea una risorsa di app Web statiche di Azure, Azure interagisce direttamente con GitHub o Azure DevOps per monitorare un ramo di propria scelta. Ogni volta che si esegue il push di commit o si accettano richieste pull nel ramo controllato, viene eseguita automaticamente una compilazione e l'app e l'API vengono distribuite in Azure.
 
 Le app Web statiche vengono in genere create usando librerie e Framework come angolari, React, svelte, VME o blazer, in cui il rendering lato server non è necessario. Queste app includono asset HTML, CSS, JavaScript e immagine che costituiscono l'applicazione. Con un server Web tradizionale, questi asset vengono gestiti da un unico server unitamente a tutti gli endpoint API necessari.
 
@@ -32,7 +32,7 @@ Con App Web statiche gli asset statici vengono separati da un server Web tradizi
 
 - **Hosting Web** per contenuti statici, come HTML, CSS, JavaScript e immagini.
 - Supporto di **API integrato** fornito da Funzioni di Azure.
-- **Integrazione di prima classe di GitHub** in cui le modifiche del repository attivano compilazioni e distribuzioni.
+- L' **integrazione di GitHub e Azure DevOps di primo livello** in cui le modifiche del repository attivano compilazioni e distribuzioni.
 - Contenuto statico **distribuito a livello globale**, per avvicinare il contenuto agli utenti.
 - **Certificati SSL gratuiti**, che vengono rinnovati automaticamente.
 - **Domini personalizzati** per aggiungere personalizzazioni all'app.
