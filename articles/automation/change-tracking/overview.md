@@ -5,12 +5,12 @@ services: automation
 ms.subservice: change-inventory-management
 ms.date: 01/22/2021
 ms.topic: conceptual
-ms.openlocfilehash: e2371f3de8ed73250bca6639e6c749811c5559ad
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: ed29def305bfa33a0a947a331775de89275e5f7f
+ms.sourcegitcommit: 3f684a803cd0ccd6f0fb1b87744644a45ace750d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100572616"
+ms.lasthandoff: 04/02/2021
+ms.locfileid: "106220867"
 ---
 # <a name="change-tracking-and-inventory-overview"></a>Panoramica di Rilevamento modifiche e inventario
 
@@ -40,6 +40,8 @@ I computer connessi all'area di lavoro Log Analytics usano l' [agente log Analyt
 
 > [!NOTE]
 > Rilevamento modifiche e inventario richiedono il collegamento di un'area di lavoro Log Analytics all'account di automazione. Per un elenco completo delle aree supportate, vedere [Mapping dell'area di lavoro di Azure](../how-to/region-mappings.md). I mapping a livello di area non influiscono sulla possibilità di gestire le VM in un'area separata rispetto all'account di Automazione.
+
+Come provider di servizi, è possibile che siano stati caricati più tenant del cliente nel [Faro di Azure](../../lighthouse/overview.md). Azure Lighthouse consente di eseguire operazioni su larga scala tra più tenant di Azure Active Directory (Azure AD) contemporaneamente, rendendo le attività di gestione come Rilevamento modifiche e l'inventario in modo più efficiente tra i tenant di cui si è responsabili. Rilevamento modifiche e l'inventario possono gestire i computer in più sottoscrizioni nello stesso tenant o tra i tenant usando la [gestione delle risorse delegata di Azure](../../lighthouse/concepts/azure-delegated-resource-management.md).
 
 ## <a name="current-limitations"></a>Limitazioni correnti
 

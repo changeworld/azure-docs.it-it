@@ -1,18 +1,18 @@
 ---
 title: Come usare l'archivio oggetti (BLOB) da C++ - Azure | Microsoft Docs
 description: Informazioni su come archiviare i dati non strutturati (BLOB) nel cloud con l'archiviazione BLOB di Azure (oggetto) con C++.
-author: mhopkins-msft
-ms.author: mhopkins
+author: twooley
+ms.author: twooley
 ms.date: 07/16/2020
 ms.service: storage
 ms.subservice: blobs
 ms.topic: how-to
-ms.openlocfilehash: 64069292ea0059216d06bfc41316c2aed7484dd0
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 61c7dca25e90450c695a5137dd2ee900c1282bf0
+ms.sourcegitcommit: 02bc06155692213ef031f049f5dcf4c418e9f509
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96011099"
+ms.lasthandoff: 04/03/2021
+ms.locfileid: "106278049"
 ---
 # <a name="how-to-use-blob-storage-from-c"></a>Come usare l'archivio BLOB da C++
 

@@ -5,15 +5,15 @@ author: martinekuan
 manager: martinekuan
 ms.service: multiple
 ms.topic: conceptual
-ms.date: 03/03/2020
+ms.date: 03/30/2021
 ms.author: martinek
 ms.custom: references_regions
-ms.openlocfilehash: 3310d4a7d86db9dee7d5f71fc9410545817886f3
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 9fda6f913fcb5325c811671cd6476dcbf2413766
+ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97511230"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106058018"
 ---
 # <a name="business-continuity-and-disaster-recovery-bcdr-azure-paired-regions"></a>Continuità aziendale e ripristino di emergenza nelle aree geografiche abbinate di Azure
 
@@ -51,14 +51,15 @@ No. I clienti possono sfruttare i servizi di Azure per progettare un servizio re
 |:--- |:--- |:--- |
 | Asia-Pacific |Asia orientale (Hong Kong) | Asia sudorientale (Singapore) |
 | Australia |Australia orientale |Australia sud-orientale |
-| Australia |Australia centrale |Australia centrale 2 |
+| Australia |Australia centrale |Australia centrale 2 * |
 | Brasile |Brasile meridionale |Stati Uniti centro-meridionali |
+| Brasile |Brasile sudorientale * |Brasile meridionale |
 | Canada |Canada centrale |Canada orientale |
 | Cina |Cina settentrionale |Cina orientale|
 | Cina |Cina settentrionale 2 |Cina orientale 2|
 | Europa |Europa settentrionale (Irlanda) |Europa occidentale (Paesi Bassi) |
-| Francia |Francia centrale|Francia meridionale|
-| Germania |Germania centrale |Germania nord-orientale |
+| Francia |Francia centrale|Francia meridionale*|
+| Germania |Germania centro-occidentale |Germania settentrionale * |
 | India |India centrale |India meridionale |
 | India |India occidentale |India meridionale |
 | Giappone |Giappone orientale |Giappone occidentale |
@@ -67,15 +68,17 @@ No. I clienti possono sfruttare i servizi di Azure per progettare un servizio re
 | America del Nord |Stati Uniti orientali 2 |Stati Uniti centrali |
 | America del Nord |Stati Uniti centro-settentrionali |Stati Uniti centro-meridionali |
 | America del Nord |Stati Uniti occidentali 2 |Stati Uniti centro-occidentali |
-| Norvegia | Norvegia orientale | Norvegia occidentale |
-| Sud Africa | Sudafrica settentrionale |Sudafrica occidentale |
-| Svizzera | Svizzera settentrionale |Svizzera occidentale |
+| Norvegia | Norvegia orientale | Norvegia occidentale * |
+| Sud Africa | Sudafrica settentrionale |Sudafrica occidentale* |
+| Svizzera | Svizzera settentrionale |Svizzera occidentale * |
 | Regno Unito |Regno Unito occidentale |Regno Unito meridionale |
-| Emirati Arabi Uniti | Emirati Arabi Uniti settentrionali | Emirati Arabi Uniti centrali
-| Dipartimento della difesa degli Stati Uniti |US DoD (area orientale) |US DoD (area centrale) |
-| US Gov |US Gov Arizona |US Gov Texas |
-| US Gov |US Gov Iowa |US Gov Virginia |
-| US Gov |US Gov Virginia |US Gov Texas |
+| Emirati Arabi Uniti | Emirati Arabi Uniti settentrionali | Emirati Arabi Uniti centrali* |
+| Dipartimento della difesa degli Stati Uniti |US DoD (area orientale) * |US DoD (area centrale) * |
+| US Gov |US Gov Arizona * |US Gov Texas * |
+| US Gov |US Gov Iowa * |US Gov Virginia * |
+| US Gov |US Gov Virginia * |US Gov Texas * |
+
+(*) Determinate aree sono limitate all'accesso per supportare scenari di clienti specifici, ad esempio il ripristino di emergenza in un paese. Queste aree sono disponibili solo su richiesta [creando una nuova richiesta di supporto nel portale di Azure](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).
 
 > [!Important]
 > - L'India occidentale viene abbinata solo in una direzione. L'area secondaria dell'area India occidentale è India meridionale, mentre l'area secondaria dell'India meridionale è India centrale.

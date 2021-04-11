@@ -3,16 +3,16 @@ title: Configurare l'autenticazione di Google
 description: Informazioni su come configurare l'autenticazione di Google come provider di identità per il servizio app o l'app funzioni di Azure.
 ms.assetid: 2b2f9abf-9120-4aac-ac5b-4a268d9b6e2b
 ms.topic: article
-ms.date: 09/02/2019
+ms.date: 03/29/2021
 ms.custom:
 - seodec18
 - fasttrack-edit
-ms.openlocfilehash: e8a9fbe6072f3628d755ad3ad5aa5a623fc3ab23
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: f6bec32fa928e840569ed95c35a056db91ea9737
+ms.sourcegitcommit: 3ee3045f6106175e59d1bd279130f4933456d5ff
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "80519937"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106077993"
 ---
 # <a name="configure-your-app-service-or-azure-functions-app-to-use-google-login"></a>Configurare il servizio app o l'app funzioni di Azure per usare l'account di accesso di Google
 
@@ -34,21 +34,20 @@ Per completare la procedura descritta in questo argomento, è necessario avere u
 
 ## <a name="add-google-information-to-your-application"></a><a name="secrets"> </a>Aggiungere le informazioni di Google all'applicazione
 
-1. Nel [portale di Azure]passare all'app del servizio app.
-1. Selezionare **Impostazioni** > **Autenticazione/Autorizzazione** e assicurarsi che l'opzione **Autenticazione servizio app** sia impostata su **Sì**.
-1. Selezionare **Google**, quindi incollare i valori di ID app e segreto app ottenuti in precedenza. Abilitare gli ambiti necessari per l'applicazione.
-1. Selezionare **OK**.
+1. Accedere al [portale di Azure] e passare all'app.
+1. Selezionare **autenticazione** nel menu a sinistra. Fare clic su **Aggiungi provider di identità**.
+1. Selezionare **Google** nell'elenco a discesa provider di identità. Incollare i valori di ID app e segreto app ottenuti in precedenza.
 
-   Il servizio app fornisce l'autenticazione ma non limita l'accesso autorizzato al contenuto del sito e alle API. Per altre informazioni, vedere [autorizzare o negare utenti](app-service-authentication-how-to.md#authorize-or-deny-users).
+    Il segreto verrà archiviato come [impostazione dell'applicazione](./configure-common.md#configure-app-settings) con slot-Sticky denominata `GOOGLE_PROVIDER_AUTHENTICATION_SECRET` . È possibile aggiornare tale impostazione in un secondo momento per usare i [riferimenti Key Vault](./app-service-key-vault-references.md) se si vuole gestire il segreto in Azure Key Vault.
 
-1. Opzionale Per limitare l'accesso al sito solo agli utenti autenticati da Google, impostare **azione da eseguire quando la richiesta non è autenticata** su **Google**. Quando si imposta questa funzionalità, l'app richiede che tutte le richieste vengano autenticate. Reindirizza anche tutte le richieste non autenticate a Google per l'autenticazione.
+1. Se questo è il primo provider di identità configurato per l'applicazione, verrà visualizzata anche una sezione **impostazioni di autenticazione del servizio app** . In caso contrario, è possibile passare al passaggio successivo.
+    
+    Queste opzioni determinano il modo in cui l'applicazione risponde alle richieste non autenticate e le selezioni predefinite reindirizza tutte le richieste di accesso con questo nuovo provider. È possibile modificare la personalizzazione di questo comportamento ora oppure modificare le impostazioni in un secondo momento dalla schermata principale di **autenticazione** scegliendo **modifica** accanto a **impostazioni di autenticazione**. Per altre informazioni su queste opzioni, vedere [flusso di autenticazione](overview-authentication-authorization.md#authentication-flow).
 
-    > [!CAUTION]
-    > La limitazione dell'accesso in questo modo si applica a tutte le chiamate all'app, il che potrebbe non essere opportuno per le app dotate di una home page disponibile pubblicamente, come nel caso di molte applicazioni a pagina singola. Per queste applicazioni, potrebbe essere preferibile scegliere **Consenti richieste anonime (nessuna azione)** in modo che l'app possa avviare l'autenticazione manualmente in autonomia. Per altre informazioni, vedere [Flusso di autenticazione](overview-authentication-authorization.md#authentication-flow).
+1. Opzionale Fare clic su **Avanti: ambiti** e aggiungere gli ambiti necessari per l'applicazione. Questi verranno richiesti al momento dell'accesso per i flussi basati sul browser.
+1. Fare clic su **Aggiungi**.
 
-1. Selezionare **Salva**.
-
-È ora possibile usare un account Google per l'autenticazione nell'app.
+È ora possibile usare un account Google per l'autenticazione nell'app. Il provider verrà elencato nella schermata **Authentication** . Da qui è possibile modificare o eliminare questa configurazione del provider.
 
 ## <a name="next-steps"></a><a name="related-content"> </a>Passaggi successivi
 

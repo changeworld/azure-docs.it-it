@@ -3,12 +3,12 @@ title: Modificare le impostazioni di un cluster di Azure Service Fabric
 description: Questo articolo descrive le impostazioni dell'infrastruttura e i criteri di aggiornamento dell'infrastruttura che è possibile personalizzare.
 ms.topic: reference
 ms.date: 08/30/2019
-ms.openlocfilehash: 78d83faea802862d3cd6d1b1a9cf9f1016245065
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 65ae2337ac7dbe4370411a154463a6ddc37f83b2
+ms.sourcegitcommit: 20f8bf22d621a34df5374ddf0cd324d3a762d46d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103232053"
+ms.lasthandoff: 04/09/2021
+ms.locfileid: "107255972"
 ---
 # <a name="customize-service-fabric-cluster-settings"></a>Personalizzare le impostazioni di un cluster di Service Fabric
 Questo articolo illustra le varie impostazioni dell'infrastruttura per il cluster di Service Fabric che è possibile personalizzare. Per i cluster ospitati in Azure, è possibile personalizzare le impostazioni tramite il [portale di Azure](https://portal.azure.com) o con un modello di Azure Resource Manager. Per altre informazioni, vedere [Upgrade the configuration of an Azure cluster](service-fabric-cluster-config-upgrade-azure.md) (Aggiornare la configurazione di un cluster Azure). Per i cluster autonomi è possibile personalizzare le impostazioni aggiornando il file *ClusterConfig.json* ed eseguendo un aggiornamento della configurazione nel cluster. Per altre informazioni, vedere [Aggiornare la configurazione di un cluster autonomo](service-fabric-cluster-config-upgrade-windows-server.md).
@@ -60,6 +60,12 @@ Di seguito è riportato un elenco di impostazioni dell'infrastruttura che è pos
 |SecretEncryptionCertX509StoreName|stringa, il valore consigliato è "My" (nessun valore predefinito) |    Dinamico|    Indica il certificato da usare per la crittografia e la decrittografia del nome credenziali dell'archivio certificati X.509 usato per crittografare e decrittografare le credenziali dell'archivio impiegate dal servizio di backup e ripristino |
 |TargetReplicaSetSize|int, valore predefinito: 0|Statico| TargetReplicaSetSize per BackupRestoreService |
 
+## <a name="centralsecretservice"></a>CentralSecretService
+
+| **Parametro** | **Valori consentiti** | **Criteri di aggiornamento** | **Indicazioni o breve descrizione** |
+| --- | --- | --- | --- |
+|DeployedState |wstring, valore predefinito: L "disabled" |Static |2-fase di rimozione del CSS. |
+
 ## <a name="clustermanager"></a>ClusterManager
 
 | **Parametro** | **Valori consentiti** | **Criteri di aggiornamento** | **Indicazioni o breve descrizione** |
@@ -95,6 +101,7 @@ Di seguito è riportato un elenco di impostazioni dell'infrastruttura che è pos
 
 | **Parametro** | **Valori consentiti** | **Criteri di aggiornamento** | **Indicazioni o breve descrizione** |
 | --- | --- | --- | --- |
+|AllowCreateUpdateMultiInstancePerNodeServices |Bool, valore predefinito: false |Dinamico|Consente la creazione di più istanze senza stato di un servizio per ogni nodo. Questa funzionalità è attualmente in anteprima. |
 |PerfMonitorInterval |Tempo in secondi, valore predefinito: 1 |Dinamico|Specificare l'intervallo di tempo in secondi. Intervallo del monitoraggio delle prestazioni. Con valore 0 o negativo, il monitoraggio è disabilitato. |
 
 ## <a name="defragmentationemptynodedistributionpolicy"></a>DefragmentationEmptyNodeDistributionPolicy
@@ -304,6 +311,7 @@ Di seguito è riportato un elenco di impostazioni dell'infrastruttura che è pos
 | **Parametro** | **Valori consentiti** | **Criteri di aggiornamento** | **Indicazioni o breve descrizione** |
 | --- | --- | --- | --- |
 |EnableApplicationTypeHealthEvaluation |Bool, valore predefinito: false |Statico|Criteri di valutazione dell'integrità del cluster: abilitare il parametro per la valutazione dell'integrità del tipo di applicazione. |
+|EnableNodeTypeHealthEvaluation |Bool, valore predefinito: false |Statico|Criteri di valutazione dell'integrità del cluster: abilitazione della valutazione dell'integrità dei tipi per nodo. |
 |MaxSuggestedNumberOfEntityHealthReports|Int, valore predefinito: 100 |Dinamico|Numero massimo di report sull'integrità che un'entità può avere prima di generare problemi relativi alla logica di segnalazione dell'integrità del watchdog. Ogni entità di integrità deve avere un numero relativamente ridotto di report sull'integrità. Se il conteggio dei report supera questo numero, è possibile che ci siano problemi con l'implementazione del watchdog. Quando viene valutata, un'entità con un numero eccessivo di report viene contrassegnata tramite un rapporto di integrità di avviso. |
 
 ## <a name="healthmanagerclusterhealthpolicy"></a>HealthManager/ClusterHealthPolicy
@@ -349,7 +357,7 @@ Di seguito è riportato un elenco di impostazioni dell'infrastruttura che è pos
 |DisableContainers|bool, valore predefinito: FALSE|Statico|Configurazione per la disabilitazione di contenitori - usata al posto di DisableContainerServiceStartOnContainerActivatorOpen, che è una configurazione deprecata |
 |DisableDockerRequestRetry|bool, valore predefinito: FALSE |Dinamico| Per impostazione predefinita, Service Fabric comunica con DD (Docker Daemon) con un timeout pari a DockerRequestTimeout per ogni richiesta HTTP inviata al daemon. Se DD non risponde entro questo periodo di tempo e l'operazione di più alto livello ha ancora tempo rimanente, Service Fabric invia nuovamente la richiesta.  Con un contenitore Hyper-V, DD richiede talvolta molto più tempo per attivare il contenitore o per disattivarlo. In casi come questo si verifica il timeout della richiesta DD dalla prospettiva di Service Fabric e Service Fabric ritenta l'operazione. Talvolta si ha l'impressione che venga esercitata una maggiore pressione su DD. Questa configurazione consente di disabilitare la ripetizione del tentativo e attendere la risposta di DD. |
 |DnsServerListTwoIps | Bool, valore predefinito: false | Statico | Questi flag aggiungono due volte il server DNS locale per attenuare i problemi di risoluzione intermittenti. |
-| DockerTerminateOnLastHandleClosed | bool, valore predefinito: FALSE | Statico | Per impostazione predefinita, se FabricHost gestisce ' dockerd ' (in base a: SkipDockerProcessManagement = = false), questa impostazione Configura cosa accade quando FabricHost o dockerd si arresta in modo anomalo. `true`Se viene impostato su se uno dei processi arresta tutti i contenitori in esecuzione, verrà interrotto forzatamente da HCS. Se impostato su `false` i contenitori continueranno a essere in esecuzione. Nota: precedente a 8,0 questo comportamento era involontariamente equivalente a `false` . L'impostazione predefinita di `true` qui è ciò che si prevede di eseguire per impostazione predefinita, andando avanti affinché la logica di pulizia risulti efficace al riavvio di questi processi. |
+| DockerTerminateOnLastHandleClosed | bool, valore predefinito: TRUE | Statico | Per impostazione predefinita, se FabricHost gestisce ' dockerd ' (in base a: SkipDockerProcessManagement = = false), questa impostazione Configura cosa accade quando FabricHost o dockerd si arresta in modo anomalo. `true`Se viene impostato su se uno dei processi arresta tutti i contenitori in esecuzione, verrà interrotto forzatamente da HCS. Se impostato su `false` i contenitori continueranno a essere in esecuzione. Nota: precedente a 8,0 questo comportamento era involontariamente equivalente a `false` . L'impostazione predefinita di `true` qui è ciò che si prevede di eseguire per impostazione predefinita, andando avanti affinché la logica di pulizia risulti efficace al riavvio di questi processi. |
 | DoNotInjectLocalDnsServer | bool, valore predefinito: FALSE | Statico | Impedisce al runtime di inserire l'indirizzo IP locale come server DNS per i contenitori. |
 |EnableActivateNoWindow| bool, valore predefinito: FALSE|Dinamico| Il processo attivato viene creato in background senza alcuna console. |
 |EnableContainerServiceDebugMode|bool, valore predefinito: TRUE|Statico|Abilita/disabilita la registrazione per i contenitori Docker.  Solo Windows.|
@@ -552,6 +560,8 @@ Di seguito è riportato un elenco di impostazioni dell'infrastruttura che è pos
 |MovementPerPartitionThrottleCountingInterval | Tempo in secondi, valore predefinito: 600 |Statico| Specificare l'intervallo di tempo in secondi. Indicare la lunghezza dell'intervallo precedente per cui si desidera tenere traccia dei movimenti di replica per ciascuna partizione. Usato insieme a MovementPerPartitionThrottleThreshold. |
 |MovementPerPartitionThrottleThreshold | Uint, valore predefinito: 50 |Dinamico| Non verranno eseguiti spostamenti correlati al bilanciamento per una partizione se il numero di tali spostamenti per le repliche della partizione ha raggiunto o superato MovementPerFailoverUnitThrottleThreshold nell'intervallo precedente indicato in MovementPerPartitionThrottleCountingInterval. |
 |MoveParentToFixAffinityViolation | Bool, valore predefinito: false |Dinamico| Impostazione che determina se le repliche padre possono essere spostate per correggere i vincoli di affinità.|
+|NodeTaggingEnabled | Bool, valore predefinito: false |Dinamico| Se true; La funzionalità NodeTagging verrà abilitata. |
+|NodeTaggingConstraintPriority | Int, valore predefinito: 0 |Dinamico| Priorità configurabile per l'assegnazione di tag del nodo. |
 |PartiallyPlaceServices | Bool, valore predefinito: true |Dinamico| Determina se tutte le repliche servizio nel cluster verranno posizionate in modo "tutto o niente" in caso di nodi appropriati limitati.|
 |PlaceChildWithoutParent | Bool, valore predefinito: true | Dinamico|Impostazione che determina se è possibile posizionare una replica di servizio figlia in caso non sia presente una replica padre. |
 |PlacementConstraintPriority | Int, valore predefinito: 0 | Dinamico|Determina la priorità del vincolo di posizionamento: 0: alta; 1: bassa; numero negativo: ignorare. |
@@ -572,7 +582,7 @@ Di seguito è riportato un elenco di impostazioni dell'infrastruttura che è pos
 |UpgradeDomainConstraintPriority | Int, valore predefinito: 1| Dinamico|Determina la priorità del vincolo di dominio di aggiornamento: 0: alta; 1: bassa; numero negativo: ignorare. |
 |UseMoveCostReports | Bool, valore predefinito: false | Dinamico|Indica al servizio di bilanciamento del carico di ignorare l'elemento di costo della funzione di assegnazione dei punteggio. Comporterà potenzialmente un numero elevato di spostamenti per un posizionamento più bilanciato. |
 |UseSeparateSecondaryLoad | Bool, valore predefinito: true | Dinamico|Impostazione che determina se usare un carico separato per le repliche secondarie. |
-|UseSeparateSecondaryMoveCost | Bool, valore predefinito: false | Dinamico|Impostazione che determina se usare un carico di spostamento separato per le repliche secondarie. |
+|UseSeparateSecondaryMoveCost | Bool, valore predefinito: true | Dinamico|Impostazione che determina se PLB deve utilizzare un costo di spostamento diverso per il database secondario in ogni nodo. Se UseSeparateSecondaryMoveCost è disattivato:-il costo di spostamento riportato per il database secondario in un nodo comporterà il costo di spostamento di overwritting per ogni database secondario (su tutti gli altri nodi) se UseSeparateSecondaryMoveCost è attivato:-il costo di spostamento riportato per il database secondario in un nodo avrà effetto solo sul database secondario (nessun effetto sui database secondari in altri nodi). Se si verifica un arresto anomalo della replica, viene creata una nuova replica con il costo di spostamento predefinito specificato al livello del servizio: se PLB sposta la replica esistente, viene eseguito il costo di spostamento. |
 |ValidatePlacementConstraint | Bool, valore predefinito: true |Dinamico| Specifica se l'espressione PlacementConstraint per un servizio viene convalidata quando viene aggiornato il parametro ServiceDescription di un servizio. |
 |ValidatePrimaryPlacementConstraintOnPromote| Bool, valore predefinito: TRUE |Dinamico|Specifica se l'espressione PlacementConstraint per un servizio viene valutata per le preferenze primarie al failover. |
 |VerboseHealthReportLimit | Int, valore predefinito: 20 | Dinamico|Definisce il numero di posizionamenti non riusciti di una replica prima di inviare un avviso di integrità a riguardo (se è abilitata la creazione di report di integrità dettagliati). |
@@ -767,6 +777,7 @@ Di seguito è riportato un elenco di impostazioni dell'infrastruttura che è pos
 |RecoverServicePartitions |stringa, il valore predefinito è "Admin" |Dinamico| Configurazione di sicurezza per ripristinare partizioni di servizio. |
 |RecoverSystemPartitions |stringa, il valore predefinito è "Admin" |Dinamico| Configurazione di sicurezza per ripristinare partizioni di servizio di sistema. |
 |RemoveNodeDeactivations |stringa, il valore predefinito è "Admin" |Dinamico| Configurazione di sicurezza per annullare la disattivazione di più nodi. |
+|ReportCompletion |wstring, valore predefinito: L "admin" |Dynamic| Configurazione di sicurezza per la segnalazione del completamento. |
 |ReportFabricUpgradeHealth |stringa, il valore predefinito è "Admin" |Dinamico| Configurazione di sicurezza per riprendere gli aggiornamenti del cluster con lo stato di avanzamento corrente. |
 |ReportFault |stringa, il valore predefinito è "Admin" |Dinamico| Configurazione di sicurezza per i report di errori. |
 |ReportHealth |stringa, il valore predefinito è "Admin" |Dinamico| Configurazione di sicurezza per i report di integrità. |

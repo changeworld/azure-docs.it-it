@@ -3,12 +3,12 @@ title: Usare endpoint privati per integrare funzioni di Azure con una rete virtu
 description: Questa esercitazione illustra come connettere una funzione a una rete virtuale di Azure e bloccarla usando endpoint privati.
 ms.topic: article
 ms.date: 2/22/2021
-ms.openlocfilehash: e8ca853908b366b99e150f04ced404f42acc7d21
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: e1ed944250f05f52860c47f6cb61130f50b08e7c
+ms.sourcegitcommit: 3ee3045f6106175e59d1bd279130f4933456d5ff
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105027415"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106078775"
 ---
 # <a name="tutorial-integrate-azure-functions-with-an-azure-virtual-network-by-using-private-endpoints"></a>Esercitazione: integrare funzioni di Azure con una rete virtuale di Azure usando endpoint privati
 
@@ -160,7 +160,7 @@ Creare gli endpoint privati per l'archiviazione File di Azure e l'archiviazione 
     | Impostazione      | Valore consigliato  | Descrizione      |
     | ------------ | ---------------- | ---------------- |
     | **Sottoscrizione** | Sottoscrizione in uso | Sottoscrizione in cui vengono create le risorse. | 
-    | **[Gruppo di risorse](../azure-resource-manager/management/overview.md)**  | myResourceGroup | Scegliere il gruppo di risorse creato con l'app per le funzioni. | |
+    | **[Gruppo di risorse](../azure-resource-manager/management/overview.md)**  | myResourceGroup | Scegliere il gruppo di risorse creato con l'app per le funzioni. |
     | **Nome** | endpoint di file | Nome dell'endpoint privato per i file dall'account di archiviazione. |
     | **[Area](https://azure.microsoft.com/regions/)** | myFunctionRegion | Scegliere l'area in cui è stato creato l'account di archiviazione. |
 

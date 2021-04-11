@@ -12,12 +12,12 @@ ms.date: 01/19/2021
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: b2baff33d9e91e1b5259d79eca0a22535c00f419
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: d9eb28ad19d53df542769a89b839668bbb205e30
+ms.sourcegitcommit: 20f8bf22d621a34df5374ddf0cd324d3a762d46d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100555244"
+ms.lasthandoff: 04/09/2021
+ms.locfileid: "107256107"
 ---
 # <a name="set-up-the-local-account-identity-provider"></a>Configurare il provider di identità dell'account locale
 
@@ -143,7 +143,7 @@ Dopo aver scaricato lo Starter Pack.
 
 1. In ogni file sostituire la stringa `yourtenant` con il nome del tenant del Azure ad B2C. Ad esempio, se il nome del tenant B2C è *contosob2c*, tutte le istanze di `yourtenant.onmicrosoft.com` diventano `contosob2c.onmicrosoft.com` .
 
-1. Completare i passaggi della sezione [aggiungere ID applicazione ai criteri personalizzati](custom-policy-get-started.md#add-application-ids-to-the-custom-policy) di [Introduzione ai criteri personalizzati in Azure Active Directory B2C](custom-policy-get-started.md). Ad esempio, aggiornare `/phone-number-passwordless/` **`Phone_Email_Base.xml`** con gli **ID dell'applicazione (client)** delle due applicazioni registrate quando si completano i prerequisiti, *IdentityExperienceFramework* e *ProxyIdentityExperienceFramework*.
+1. Completare i passaggi della sezione [aggiungere ID applicazione ai criteri personalizzati](tutorial-create-user-flows.md?pivots=b2c-custom-policy#add-application-ids-to-the-custom-policy) di [Introduzione ai criteri personalizzati in Azure Active Directory B2C](tutorial-create-user-flows.md?pivots=b2c-custom-policy). Ad esempio, aggiornare `/phone-number-passwordless/` **`Phone_Email_Base.xml`** con gli **ID dell'applicazione (client)** delle due applicazioni registrate quando si completano i prerequisiti, *IdentityExperienceFramework* e *ProxyIdentityExperienceFramework*.
 1. Caricare i file dei criteri
 
 ::: zone-end

@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 03/10/2021
 ms.author: inhenkel
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 2d942099d0abbdfc4ddfa0276184500166250728
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: d4ed0f075aad09b77a0c50682bad92522f4e5472
+ms.sourcegitcommit: 02bc06155692213ef031f049f5dcf4c418e9f509
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103014962"
+ms.lasthandoff: 04/03/2021
+ms.locfileid: "106280276"
 ---
 # <a name="inserting-ads-on-the-client-side"></a>Inserimento di annunci sul lato client
 
@@ -590,7 +590,7 @@ Questo esempio usa l'elemento VmapSchedulerPlugin per pianificare annunci usando
 ```
 
 ## <a name="implementing-an-ios-video-player-with-ad-support"></a>Implementazione di un lettore video iOS con supporto per gli annunci
-Microsoft Media Platform: Player Framework per iOS contiene una raccolta di applicazioni di esempio che illustrano come implementare un'applicazione per la lettura di video tramite il framework. È possibile scaricare Player Framework e i relativi esempi dalla pagina relativa a [Media Player Framework di Azure](https://github.com/CloudMetal/azure-media-player-framework). La pagina GitHub include un collegamento a un wiki che contiene informazioni aggiuntive su Player Framework e un'introduzione all'esempio di Player: [Azure Media Player wiki](https://github.com/CloudMetal/azure-media-player-framework/wiki/How-to-use-Azure-media-player-framework).
+Microsoft Media Platform: Player Framework per iOS contiene una raccolta di applicazioni di esempio che illustrano come implementare un'applicazione per la lettura di video tramite il framework. È possibile scaricare Player Framework e i relativi esempi dalla pagina relativa a [Media Player Framework di Azure](https://github.com/CloudMetal/azure-media-player-framework). La pagina GitHub include un collegamento a un wiki che contiene informazioni aggiuntive su Player Framework e un'introduzione all'esempio di Player: [Azure Media Player wiki](https://github.com/CloudMetal/azure-media-player-framework/wiki/How-to-player-use-azure-media-player-how-to-framework).
 
 ### <a name="scheduling-ads-with-vmap"></a>Pianificazione di annunci con VMAP
 L'esempio seguente illustra come pianificare gli annunci usando un file VMAP.

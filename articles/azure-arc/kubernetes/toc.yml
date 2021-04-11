@@ -22,30 +22,44 @@
       href: conceptual-agent-architecture.md
     - name: Configurazioni e GitOps
       href: conceptual-configurations.md
-    - name: Flusso di lavoro CI/CD con GitOps
-      href: conceptual-gitops-ci-cd.md
+    - name: Estensioni del cluster
+      href: conceptual-extensions.md
+    - name: Connessione cluster
+      href: conceptual-cluster-connect.md
+    - name: Percorsi personalizzati
+      href: conceptual-custom-locations.md
+    - name: Controllo degli accessi in base al ruolo di Azure
+      href: conceptual-azure-rbac.md
     - name: Domande frequenti
       href: faq.md
+    - name: Flusso di lavoro CI/CD con GitOps
+      href: conceptual-gitops-ci-cd.md
 - name: Guide pratiche
   items:
-    - name: Connessione ad Azure Arc
-      items:
-        - name: Entità servizio di onboarding
-          href: create-onboarding-service-principal.md
-    - name: Gestione
-      items:
-        - name: Aggiornamenti agente
-          href: agent-upgrade.md
+    - name: Connettere il cluster usando un'entità servizio
+      href: create-onboarding-service-principal.md
+    - name: Aggiorna agenti
+      href: agent-upgrade.md
     - name: Scenari
       items:
         - name: Distribuire grafici Helm con GitOps
           href: use-gitops-with-helm.md
         - name: Applicare GitOps con Criteri di Azure
           href: use-azure-policy.md
+        - name: Distribuire e gestire le estensioni del cluster
+          href: extensions.md
         - name: Monitorare con Monitoraggio di Azure per i contenitori
-          href: ../../azure-monitor/containers/container-insights-enable-arc-enabled-clusters.md?toc=%2fazure%2fazure-arc%2fkubernetes%2ftoc.yml
+          href: ../../azure-monitor/containers/container-insights-enable-arc-enabled-clusters.md?toc=/azure/azure-arc/kubernetes/toc.json
+        - name: Applicare la protezione dalle minacce tramite Azure Defender
+          href: ../../security-center/defender-for-kubernetes-azure-arc.md?toc=/azure/azure-arc/kubernetes/toc.json
         - name: Criteri di controllo dell'ammissione con Criteri di Azure
-          href: ../../governance/policy/concepts/policy-for-kubernetes.md?toc=/azure/azure-arc/kubernetes/toc.yml
+          href: ../../governance/policy/concepts/policy-for-kubernetes.md?toc=/azure/azure-arc/kubernetes/toc.json
+        - name: Connetti in modo sicuro al cluster ovunque ti trovi
+          href: cluster-connect.md
+        - name: USA Azure AD RBAC per i controlli delle autorizzazioni
+          href: azure-rbac.md
+        - name: Crea percorsi personalizzati
+          href: custom-locations.md
         - name: Distribuire carichi di lavoro IoT
           href: deploy-azure-iot-edge-workloads.md
     - name: Risoluzione dei problemi

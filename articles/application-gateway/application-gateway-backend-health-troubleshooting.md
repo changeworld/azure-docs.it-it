@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: troubleshooting
 ms.date: 06/09/2020
 ms.author: surmb
-ms.openlocfilehash: 95b74e5fc6c5d2c09ff04b3f14e920ae675ab6e1
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 1373e0eeead805dcd3a439878c9737c46d75bf3b
+ms.sourcegitcommit: 3ee3045f6106175e59d1bd279130f4933456d5ff
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99592756"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106078503"
 ---
 <a name="troubleshoot-backend-health-issues-in-application-gateway"></a>Risolvere i problemi di integrità del back-end nel gateway applicazione
 ==================================================
@@ -176,12 +176,12 @@ Also check whether any NSG/UDR/Firewall is blocking access to the Ip and port of
 
 | **Error (Errore) (Error (Errore)e)** | **Actions** |
 | --- | --- |
-| Mancata corrispondenza del codice di stato del probe: errore 401 ricevuto | Verificare se il server back-end richiede l'autenticazione. I probe del gateway applicazione non possono passare le credenziali per l'autenticazione. Consentire \"HTTP 401\" in una corrispondenza del codice di stato del probe o eseguire una verifica tramite probe in un percorso in cui il server non richiede l'autenticazione. | |
-| Mancata corrispondenza del codice di stato del probe: errore 403 ricevuto | Accesso negato. Controllare se l'accesso al percorso è consentito nel server back-end. | |
-| Mancata corrispondenza del codice di stato del probe: errore 404 ricevuto | Pagina non trovata. Controllare se il percorso del nome host è accessibile nel server back-end. Modificare i parametri del nome host o del percorso in un valore accessibile. | |
-| Mancata corrispondenza del codice di stato del probe: errore 405 ricevuto | Le richieste di probe per il gateway applicazione usano il metodo HTTP GET. Verificare se il server consente questo metodo. | |
-| Mancata corrispondenza del codice di stato del probe: errore 500 ricevuto | Errore interno del server. Verificare l'integrità del server back-end e se i servizi sono in esecuzione. | |
-| Mancata corrispondenza del codice di stato del probe: errore 503 ricevuto | servizio non disponibile. Verificare l'integrità del server back-end e se i servizi sono in esecuzione. | |
+| Mancata corrispondenza del codice di stato del probe: errore 401 ricevuto | Verificare se il server back-end richiede l'autenticazione. I probe del gateway applicazione non possono passare le credenziali per l'autenticazione. Consentire \"HTTP 401\" in una corrispondenza del codice di stato del probe o eseguire una verifica tramite probe in un percorso in cui il server non richiede l'autenticazione. |
+| Mancata corrispondenza del codice di stato del probe: errore 403 ricevuto | Accesso negato. Controllare se l'accesso al percorso è consentito nel server back-end. |
+| Mancata corrispondenza del codice di stato del probe: errore 404 ricevuto | Pagina non trovata. Controllare se il percorso del nome host è accessibile nel server back-end. Modificare i parametri del nome host o del percorso in un valore accessibile. |
+| Mancata corrispondenza del codice di stato del probe: errore 405 ricevuto | Le richieste di probe per il gateway applicazione usano il metodo HTTP GET. Verificare se il server consente questo metodo. |
+| Mancata corrispondenza del codice di stato del probe: errore 500 ricevuto | Errore interno del server. Verificare l'integrità del server back-end e se i servizi sono in esecuzione. |
+| Mancata corrispondenza del codice di stato del probe: errore 503 ricevuto | servizio non disponibile. Verificare l'integrità del server back-end e se i servizi sono in esecuzione. |
 
 In alternativa, se si ritiene che la risposta sia legittima e si vuole che il gateway applicazione accetti altri codici di stato come integri, è possibile creare un probe personalizzato. Questo approccio è utile in situazioni in cui il sito Web back-end richiede l'autenticazione. Poiché le richieste di probe non contengono credenziali utente, non riusciranno e verrà restituito un codice di stato HTTP 401 dal server back-end.
 

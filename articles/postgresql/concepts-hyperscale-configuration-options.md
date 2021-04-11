@@ -6,19 +6,22 @@ ms.author: jonels
 ms.service: postgresql
 ms.subservice: hyperscale-citus
 ms.topic: conceptual
-ms.date: 1/12/2021
-ms.openlocfilehash: 48537483501165d4a978afdbd05560613170d187
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.custom: references_regions
+ms.date: 04/07/2021
+ms.openlocfilehash: ae416c9acd03b3ee239a858aae550fb87293465a
+ms.sourcegitcommit: 6ed3928efe4734513bad388737dd6d27c4c602fd
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98165612"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "107012786"
 ---
 # <a name="azure-database-for-postgresql--hyperscale-citus-configuration-options"></a>Opzioni di configurazione di database di Azure per PostgreSQL – iperscalabilità (CITUS)
 
 ## <a name="compute-and-storage"></a>Calcolo e archiviazione
  
 È possibile selezionare le impostazioni di calcolo e archiviazione in modo indipendente per i nodi del ruolo di lavoro e il nodo coordinatore in un gruppo di server con iperscalabilità (CITUS).  Le risorse di calcolo vengono fornite come vCore, che rappresentano la CPU logica dell'hardware sottostante. Le dimensioni di archiviazione per il provisioning si riferiscono alla capacità disponibile per il coordinatore e i nodi del ruolo di lavoro nel gruppo di server di iperscalabilità (CITUS). L'archiviazione include i file di database, i file temporanei, i log delle transazioni e i log del server postgres.
+
+### <a name="standard-tier"></a>Livello Standard
  
 | Risorsa              | Nodo del ruolo di lavoro           | Nodo coordinatore      |
 |-----------------------|-----------------------|-----------------------|
@@ -42,7 +45,7 @@ La quantità totale di spazio di archiviazione di cui si esegue il provisioning 
 
 | Dimensioni di archiviazione, TiB | Numero massimo di IOPS |
 |-------------------|--------------|
-| 0.5               | 1.536        |
+| 0,5               | 1.536        |
 | 1                 | 3.072        |
 | 2                 | 6.148        |
 
@@ -70,13 +73,46 @@ Per l'intero cluster con iperscalabilità (CITUS), le operazioni di i/o aggregat
 | 19           | 29.184              | 58.368            | 116.812           |
 | 20           | 30.720              | 61.440            | 122.960           |
 
+### <a name="basic-tier-preview"></a>Livello Basic (anteprima)
+
+> [!IMPORTANT]
+> Il livello Basic con iperscalabilità (CITUS) è attualmente in anteprima.  Questa versione di anteprima viene messa a disposizione senza contratto di servizio e non è consigliata per i carichi di lavoro di produzione. Alcune funzionalità potrebbero non essere supportate o potrebbero presentare funzionalità limitate.
+>
+> È possibile visualizzare un elenco completo di altre nuove funzionalità in [Anteprima funzionalità per l'iperscalabilità (CITUS)](hyperscale-preview-features.md).
+
+Il [livello Basic](concepts-hyperscale-tiers.md) con iperscalabilità (CITUS) è un gruppo di server con un solo nodo.  Poiché non esiste una differenza tra il coordinatore e i nodi del ruolo di lavoro, è meno complesso scegliere risorse di calcolo e di archiviazione.
+
+| Risorsa              | Opzioni disponibili     |
+|-----------------------|-----------------------|
+| Calcolo, vcore       | 2, 4, 8               |
+| Memoria per vCore, GiB | 4                     |
+| Dimensioni di archiviazione, GiB     | 128, 256, 512         |
+| Tipo di archiviazione          | Utilizzo generico (SSD) |
+| Operazioni di I/O al secondo                  | Fino a 3 IOPS/GiB      |
+
+La quantità totale di RAM in un singolo nodo di iperscala (CITUS) si basa sul numero selezionato di vcore.
+
+| vCore | GiB RAM |
+|--------|---------|
+| 2      | 8       |
+| 4      | 16      |
+| 8      | 32      |
+
+La quantità totale di spazio di archiviazione di cui si esegue il provisioning definisce anche la capacità di I/O disponibile per il nodo di livello Basic.
+
+| Dimensioni di archiviazione, GiB | Numero massimo di IOPS |
+|-------------------|--------------|
+| 128               | 384          |
+| 256               | 768          |
+| 512               | 1.536        |
+
 ## <a name="regions"></a>Regioni
 I gruppi di server iperscalare (CITUS) sono disponibili nelle aree di Azure seguenti:
 
 * Americhe:
     * Canada centrale
     * Stati Uniti centrali
-    * Stati Uniti orientali
+    * Stati Uniti orientali *
     * Stati Uniti orientali 2
     * Stati Uniti centro-settentrionali
     * Stati Uniti occidentali 2
@@ -90,38 +126,9 @@ I gruppi di server iperscalare (CITUS) sono disponibili nelle aree di Azure segu
     * Regno Unito meridionale
     * Europa occidentale
 
+( \* = supporta le [funzionalità di anteprima](hyperscale-preview-features.md))
+
 Alcune di queste aree potrebbero non essere attivate inizialmente in tutte le sottoscrizioni di Azure. Se si vuole usare un'area dall'elenco precedente e non visualizzarla nella sottoscrizione o se si vuole usare un'area non presente nell'elenco, aprire una [richiesta di supporto](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).
-
-## <a name="limits-and-limitations"></a>Limiti e limitazioni
-
-Nella sezione seguente vengono descritti i limiti di capacità e funzionalità nel servizio di iperscalabilità (CITUS).
-
-### <a name="maximum-connections"></a>Numero massimo di connessioni
-
-Ogni connessione PostgreSQL (anche quelle inattive) USA almeno 10 MB di memoria, quindi è importante limitare le connessioni simultanee. Di seguito sono riportati i limiti che abbiamo scelto di rendere integri i nodi:
-
-* Nodo coordinatore
-   * Numero massimo di connessioni: 300
-   * Numero massimo di connessioni utente: 297
-* Nodo del ruolo di lavoro
-   * Numero massimo di connessioni: 600
-   * Numero massimo di connessioni utente: 597
-
-I tentativi di connessione oltre questi limiti avranno esito negativo e si verificherà un errore. Il sistema riserva tre connessioni per il monitoraggio dei nodi ed è per questo motivo che per le query utente sono disponibili tre connessioni minori rispetto alle connessioni totali.
-
-La creazione di nuove connessioni richiede tempo. Funziona per la maggior parte delle applicazioni, che richiedono numerose connessioni di breve durata. È consigliabile usare una connessione pool, sia per ridurre le transazioni inattive che per riutilizzare le connessioni esistenti. Per altre informazioni, visitare il [post di Blog](https://techcommunity.microsoft.com/t5/azure-database-for-postgresql/not-all-postgres-connection-pooling-is-equal/ba-p/825717).
-
-### <a name="storage-scaling"></a>Ridimensionamento dell'archiviazione
-
-È possibile aumentare le capacità di archiviazione sui nodi coordinatore e di lavoro (aumentate), ma non è possibile ridurle (diminuita).
-
-### <a name="storage-size"></a>Dimensioni dello spazio di archiviazione
-
-Fino a 2 TiB di archiviazione è supportato nei nodi del coordinatore e del ruolo di lavoro. Per le dimensioni del nodo e del cluster, vedere le [Opzioni di archiviazione](#compute-and-storage) e il calcolo IOPS disponibili.
-
-### <a name="database-creation"></a>Creazione del database
-
-Il portale di Azure fornisce le credenziali per la connessione a un gruppo di server di database per iperscala (CITUS), ovvero il `citus` database. La creazione di un altro database non è attualmente consentita e il comando CREATE DATABASE avrà esito negativo con un errore.
 
 ## <a name="pricing"></a>Prezzi
 Per le informazioni più aggiornate sui prezzi, vedere la [pagina dei prezzi](https://azure.microsoft.com/pricing/details/postgresql/).

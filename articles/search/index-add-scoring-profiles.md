@@ -8,12 +8,12 @@ ms.author: ramero
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 05/06/2020
-ms.openlocfilehash: 97797e309c32c6ea996d5ae1901b9a266a683173
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: afe56bb8637c9b2a88bda23944fd5097413fce97
+ms.sourcegitcommit: 3ee3045f6106175e59d1bd279130f4933456d5ff
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "91537634"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106077721"
 ---
 # <a name="add-scoring-profiles-to-an-azure-cognitive-search-index"></a>Aggiungere profili di punteggio a un indice di Ricerca cognitiva di Azure
 
@@ -161,7 +161,7 @@ Un punteggio di ricerca viene calcolato in base alle proprietà statistiche dei 
 
  Il corpo del profilo di punteggio è costituito da campi ponderati e funzioni.  
 
-|||  
+|Proprietà |Descrizione|  
 |-|-|  
 |**Pesi**|Specificare le coppie nome-valore che assegnano un peso relativo a un campo. Nell' [esempio](#bkmk_ex), i campi albumTitle, genre e ArtistName vengono incrementati rispettivamente di 1,5, 5 e 2. Al campo genre viene assegnata una priorità molto più alta rispetto agli altri, perché, se la ricerca viene eseguita su dati abbastanza omogenei (come nel caso di "genre" in `musicstoreindex`), potrebbe essere necessaria una varianza maggiore nei pesi relativi. Ad esempio, in `musicstoreindex` "rock" viene visualizzato sia come genere che nelle descrizioni di genere che usano lo stesso termine. Se si vuole assegnare una priorità maggiore al genere rispetto alla descrizione del genere, il campo genre dovrà avere un peso relativo decisamente maggiore.|  
 |**Funzioni**|Usate quando sono necessari calcoli aggiuntivi per contesti specifici. I valori validi sono `freshness`, `magnitude`, `distance` e `tag`. Ogni funzione dispone di parametri univoci.<br /><br /> -   `freshness` quando si vuole aumentare la priorità in base alla data di creazione più o meno recente di un elemento. Questa funzione può essere usata solo con campi `datetime` (edm.DataTimeOffset). Si noti che l' `boostingDuration` attributo viene usato solo con la `freshness` funzione.<br />-   È consigliabile usare `magnitude` quando si vuole aumentare la priorità in base alla grandezza di un valore numerico. Gli scenari che richiedono questa funzione includono l'aumento della priorità in base a margine di profitto, prezzo massimo, prezzo minimo o conteggio di download. Questa funzione può essere usata solo con i campi di tipo Integer e Double.<br />     Per la funzione `magnitude` è possibile invertire l'intervallo, dal più alto al più basso, se si vuole il modello inverso, ad esempio per aumentare la priorità degli articoli più economici rispetto a quelli più cari. Dato un intervallo di prezzi da €100 a €1, è necessario impostare `boostingRangeStart` su 100 e `boostingRangeEnd` su 1 per aumentare gli elementi con prezzo minore.<br />-   `distance` quando si vuole aumentare la priorità in base alla prossimità o alla posizione geografica. Questa funzione può essere usata solo con campi `Edm.GeographyPoint` .<br />-   `tag` quando si vuole aumentare la priorità in base ai tag in comune tra documenti e query di ricerca. Questa funzione può essere usata solo con campi `Edm.String` e `Collection(Edm.String)`.<br /><br /> **Regole per l'uso delle funzioni**<br /><br /> Tipo della funzione (`freshness`, `magnitude`, `distance`), `tag` deve essere scritto in lettere minuscole.<br /><br /> Le funzioni non possono includere valori Null o vuoti. In particolare, se si include il nome campo, sarà necessario impostare un valore.<br /><br /> Le funzioni possono essere applicate solo ai campi filtrabili. Per altre informazioni sui campi filtrabili, vedere [creare un indice &#40;API REST di Azure ricerca cognitiva&#41;](/rest/api/searchservice/create-index) .<br /><br /> Le funzioni possono essere applicate solo a campi definiti nella raccolta di campi di un indice.|  

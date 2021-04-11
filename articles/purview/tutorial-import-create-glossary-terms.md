@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: tutorial
 ms.date: 12/01/2020
-ms.openlocfilehash: 0ea6fcaff1ec699431da8b67adee68735a8611a8
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 9443c6fbaca16cf075745972a1655a2b4b2ea43c
+ms.sourcegitcommit: 3ee3045f6106175e59d1bd279130f4933456d5ff
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97696071"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106077534"
 ---
 # <a name="tutorial-create-and-import-glossary-terms-in-azure-purview-preview"></a>Esercitazione: Creare e importare termini di glossario in Azure Purview (anteprima)
 
@@ -138,10 +138,10 @@ Nella schermata **New term template** (Nuovo modello di termini) seguire questa 
 
    |Impostazione|Valore consigliato|
    |---------|-----------|
-   |Nome attributo|is sensitive information|
-   |Tipo di campo|elenco a discesa|Single choice|
-   |Mark as required|selezionare questa casella.|
-   |+ Add a choice| Aggiungere due opzioni, "Sì" e "No".|
+   |Nome attributo |is sensitive information|
+   |Tipo di campo | Single choice|
+   |Mark as required | selezionare questa casella.|
+   |+ Add a choice | Aggiungere due opzioni, "Sì" e "No".|
 
    :::image type="content" source="./media/tutorial-import-create-glossary-terms/add-new-attribute.png" alt-text="Aggiungere un nuovo attributo.":::
 

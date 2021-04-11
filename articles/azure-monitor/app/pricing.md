@@ -5,14 +5,14 @@ ms.topic: conceptual
 ms.custom: devx-track-dotnet
 author: DaleKoetke
 ms.author: dalek
-ms.date: 2/7/2021
-ms.reviewer: mbullwin
-ms.openlocfilehash: 1f19366ac8fd7aedadcca0287540262516ad060c
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 3/30/2021
+ms.reviewer: lagayhar
+ms.openlocfilehash: e048e788e674e90a62b15784c590c07e5d36b816
+ms.sourcegitcommit: 3ee3045f6106175e59d1bd279130f4933456d5ff
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101726182"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106078401"
 ---
 # <a name="manage-usage-and-costs-for-application-insights"></a>Gestire l'utilizzo e i costi per Application Insights
 
@@ -25,7 +25,7 @@ Per domande sulla determinazione dei prezzi per Application Insights, è possibi
 
 ## <a name="pricing-model"></a>Modello di prezzi
 
-L'impostazione dei prezzi per [Azure Application Insights][start] è un modello **con pagamento in base al consumo** basato sul volume di dati inserito e, facoltativamente, per la conservazione dei dati più a lungo termine. Ogni risorsa di Application Insights viene addebitata come servizio separato e contribuisce alla fatturazione per la sottoscrizione di Azure. Il volume de dati viene misurato in base alle dimensioni del pacchetto di dati JSON non compresso inviato dall'applicazione ad Application Insights. Non è previsto alcun addebito relativo al volume di dati per l'utilizzo di [Live Metrics Stream](./live-stream.md).
+L'impostazione dei prezzi per [Azure Application Insights][start] è un modello **con pagamento in base al consumo** basato sul volume di dati inserito e, facoltativamente, per la conservazione dei dati più a lungo termine. Ogni risorsa di Application Insights viene addebitata come servizio separato e contribuisce alla fatturazione per la sottoscrizione di Azure. Il volume de dati viene misurato in base alle dimensioni del pacchetto di dati JSON non compresso inviato dall'applicazione ad Application Insights. Il volume dei dati viene misurato in GB (10 ^ 9 byte). Non è previsto alcun addebito relativo al volume di dati per l'utilizzo di [Live Metrics Stream](./live-stream.md).
 
 È prevista una tariffa aggiuntiva per i [test Web in più passi](./availability-multistep.md). I test Web in più passi sono test Web che eseguono una sequenza di azioni. Non è prevista una tariffa separata per i *test del ping* di una singola pagina. I dati di telemetria dei test del ping e dei test in più passi vengono addebitai allo stesso costo di altri dati di telemetria provenienti dall'app.
 
@@ -43,7 +43,10 @@ Esistono due approcci per gestire questa situazione: l'uso del monitoraggio pred
 
 ### <a name="data-collection-when-using-sampling"></a>Raccolta di dati in caso di uso del campionamento
 
-Con il [campionamento adattivo](sampling.md#adaptive-sampling) di ASP.NET SDK, il volume di dati viene regolato automaticamente in modo da rimanere entro una frequenza massima di traffico specificata per il monitoraggio predefinito di Application Insights. Se l'applicazione produce una quantità ridotta di dati di telemetria, ad esempio durante il debug o a causa di un utilizzo ridotto, gli elementi non verranno eliminati dal processore di campionamento, purché il volume sia inferiore al livello di eventi configurati al secondo. Per un'applicazione con volume elevato, con la soglia predefinita di cinque eventi al secondo, il campionamento adattivo limiterà il numero di eventi giornalieri a 432.000. Una dimensione di evento media tipica di 1 KB corrisponde a 13,4 GB di dati di telemetria per ogni mese di 31 giorni per nodo che ospita l'applicazione (poiché il campionamento viene eseguito localmente in ogni nodo). 
+Con il [campionamento adattivo](sampling.md#adaptive-sampling) di ASP.NET SDK, il volume di dati viene regolato automaticamente in modo da rimanere entro una frequenza massima di traffico specificata per il monitoraggio predefinito di Application Insights. Se l'applicazione produce una quantità ridotta di dati di telemetria, ad esempio durante il debug o a causa di un utilizzo ridotto, gli elementi non verranno eliminati dal processore di campionamento, purché il volume sia inferiore al livello di eventi configurati al secondo. Per un'applicazione con volume elevato, con la soglia predefinita di cinque eventi al secondo, il campionamento adattivo limiterà il numero di eventi giornalieri a 432.000. Usando una dimensione di evento Media tipica di 1 KB, corrisponde a 13,4 GB di dati di telemetria per ogni mese di 31 giorni per nodo che ospita l'applicazione, perché il campionamento viene eseguito localmente in ogni nodo.
+
+> [!NOTE]
+> Le dimensioni dei dati del log di monitoraggio di Azure vengono calcolate in GB (1 GB = 10 ^ 9 byte).
 
 Per gli SDK che non supportano il campionamento adattivo, è possibile usare il [campionamento per inserimento](./sampling.md#ingestion-sampling), che esegue il campionamento quando i dati vengono ricevuti da Application Insights in base a una percentuale di dati da conservare, oppure il [campionamento a frequenza fissa per ASP.NET, ASP.NET Core e siti Web Java](sampling.md#fixed-rate-sampling) per ridurre il traffico inviato dal server Web e dai Web browser
 

@@ -7,12 +7,12 @@ ms.service: cache
 ms.custom: devx-track-csharp
 ms.topic: conceptual
 ms.date: 04/22/2018
-ms.openlocfilehash: 6d711b07a10e04dcdf31259f3e53c9687af28e28
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: e7ea409163a6ce28f65799163bd3217d47569751
+ms.sourcegitcommit: 3f684a803cd0ccd6f0fb1b87744644a45ace750d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "95993400"
+ms.lasthandoff: 04/02/2021
+ms.locfileid: "106220590"
 ---
 # <a name="aspnet-output-cache-provider-for-azure-cache-for-redis"></a>Provider di cache di output ASP.NET per la Cache Redis di Azure
 
@@ -65,7 +65,7 @@ Configurare gli attributi con i valori del pannello Cache nel portale di Microso
 | *settingsClassName*<br/>*settingsMethodName* | string<br/>string | *n/a* | *Questi attributi possono essere specificati solo tramite web.config o AppSettings.*<br/><br/>Usare questi attributi per fornire una stringa di connessione. *settingsClassName* deve essere un nome di classe qualificato dall'assembly che contiene il metodo specificato da *settingsMethodName*.<br/><br/>Il metodo specificato da *settingsMethodName* deve essere public, static e void (non accetta parametri), con un tipo restituito **String**. Questo metodo restituisce la stringa di connessione effettiva. |
 | *loggingClassName*<br/>*loggingMethodName* | string<br/>string | *n/a* | *Questi attributi possono essere specificati solo tramite web.config o AppSettings.*<br/><br/>Usare questi attributi per eseguire il debug dell'applicazione fornendo log dalla cache dello stato della sessione/output insieme ai log di StackExchange. Redis. *loggingClassName* deve essere un nome di classe qualificato dall'assembly che contiene il metodo specificato da *loggingMethodName*.<br/><br/>Il metodo specificato da *loggingMethodName* deve essere public, static e void (non accetta parametri), con un tipo restituito **System. io. TextWriter**. |
 | *applicationName* | string | Nome del modulo del processo corrente o "/" | *Solo SessionStateProvider*<br/>*Questo attributo può essere specificato solo tramite web.config o AppSettings.*<br/><br/>Prefisso del nome dell'app da usare nella cache Redis. Il cliente può usare la stessa cache Redis per scopi diversi. Per assicurarsi che le chiavi della sessione non entrino in conflitto, è possibile che il nome dell'applicazione sia preceduto dal prefisso. |
-| *throwOnError* | boolean | true | *Solo SessionStateProvider*<br/>*Questo attributo può essere specificato solo tramite web.config o AppSettings.*<br/><br/>Indica se generare un'eccezione quando si verifica un errore.<br/><br/>Per altre informazioni su *throwOnError*, vedere [Note su *throwOnError*](#notes-on-throwonerror) nella sezione [Note sugli attributi](#attribute-notes) . |>*Microsoft. Web. Redis. RedisSessionStateProvider. LastException*. |
+| *throwOnError* | boolean | true | *Solo SessionStateProvider*<br/>*Questo attributo può essere specificato solo tramite web.config o AppSettings.*<br/><br/>Indica se generare un'eccezione quando si verifica un errore.<br/><br/>Per altre informazioni su *throwOnError*, vedere [Note su *throwOnError*](#notes-on-throwonerror) nella sezione [Note sugli attributi](#attribute-notes) . |
 | *retryTimeoutInMilliseconds* | numero intero positivo | 5000 | *Solo SessionStateProvider*<br/>*Questo attributo può essere specificato solo tramite web.config o AppSettings.*<br/><br/>Durata del tentativo quando un'operazione ha esito negativo. Se questo valore è minore di *operationTimeoutInMilliseconds*, il provider non tenterà di riprovare.<br/><br/>Per altre informazioni su *retryTimeoutInMilliseconds*, vedere [Note su *retryTimeoutInMilliseconds*](#notes-on-retrytimeoutinmilliseconds) nella sezione [Note sugli attributi](#attribute-notes) . |
 | *redisSerializerType* | string | *n/a* | Specifica il nome del tipo completo di assembly di una classe che implementa Microsoft. Web. Redis. ISerializer e che contiene la logica personalizzata per serializzare e deserializzare i valori. Per ulteriori informazioni, vedere [informazioni su *redisSerializerType*](#about-redisserializertype) nella sezione [Note sugli attributi](#attribute-notes) . |
 

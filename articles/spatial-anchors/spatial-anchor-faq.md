@@ -8,12 +8,12 @@ ms.author: parkerra
 ms.date: 11/20/2020
 ms.topic: overview
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: b67dcf038dbe13b8c040f317bb117f3b7a7afdde
-ms.sourcegitcommit: 77d7639e83c6d8eb6c2ce805b6130ff9c73e5d29
+ms.openlocfilehash: fc92543f5954cda9db42e53cab18db1d8f3366c3
+ms.sourcegitcommit: c6a2d9a44a5a2c13abddab932d16c295a7207d6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/05/2021
-ms.locfileid: "106384239"
+ms.lasthandoff: 04/09/2021
+ms.locfileid: "107284205"
 ---
 # <a name="frequently-asked-questions-about-azure-spatial-anchors"></a>Domande frequenti su Ancoraggi nello spazio di Azure
 
@@ -52,6 +52,10 @@ Per altre informazioni, vedere [Panoramica di Ancoraggi nello spazio di Azure](o
 **D: Come vengono archiviati i dati da Ancoraggi nello spazio di Azure?**
 
 **R:** Tutti i dati vengono archiviati crittografati con una chiave di crittografia dei dati gestita da Microsoft e vengono archiviati a livello di area per ogni risorsa.
+
+**D: dove vengono archiviati i dati nei punti di ancoraggio spaziali di Azure?**
+
+**R:** Gli account di ancoraggio spaziali di Azure consentono di specificare l'area in cui verranno archiviati i dati. Microsoft può replicare i dati in altre aree per la resilienza, ma Microsoft non replica né sposta i dati all'esterno dell'area geografica. Questi dati vengono archiviati nell'area geografica in cui è configurato l'account degli ancoraggi spaziali di Azure. Se, ad esempio, l'account viene registrato nell'area Stati Uniti orientali, questi dati vengono archiviati nell'area Stati Uniti orientali, ma possono essere replicati in un'altra area geografica America del Nord per garantire la resilienza.
 
 **D: Quali informazioni su un ambiente vengono trasmesse e archiviate nel servizio quando si usa Ancoraggi nello spazio di Azure? Le immagini dell'ambiente vengono trasmesse e archiviate?**
 

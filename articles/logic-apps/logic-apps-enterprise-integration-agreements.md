@@ -8,12 +8,12 @@ ms.author: divswa
 ms.reviewer: jonfan, estfan, logicappspm
 ms.topic: article
 ms.date: 06/22/2019
-ms.openlocfilehash: c8cbfb619c9eed325161503f705bf5c4c0746265
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: dc084da6ef7f26b9e434acf8985c7077f5eaffe2
+ms.sourcegitcommit: 3ee3045f6106175e59d1bd279130f4933456d5ff
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "95992941"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106078367"
 ---
 # <a name="create-and-manage-trading-partner-agreements-in-azure-logic-apps"></a>Creare e gestire i contratti tra partner commerciali in App per la logica di Azure
 
@@ -60,14 +60,13 @@ Nel menu principale di Azure selezionare **Tutti i servizi**. Nella casella di r
    | Proprietà | Obbligatoria | valore | Descrizione |
    |----------|----------|-------|-------------|
    | **Nome** | Sì | <*nome contratto*> | Nome del contratto |
-   | **Tipo di contratto** | Sì | **AS2**, **X12** o **EDIFACT** | Tipo di protocollo per il contratto. Quando si crea il file del contratto, il contenuto del file deve corrispondere al tipo di contratto. | |  
+   | **Tipo di contratto** | Sì | **AS2**, **X12** o **EDIFACT** | Tipo di protocollo per il contratto. Quando si crea il file del contratto, il contenuto del file deve corrispondere al tipo di contratto. |
    | **Host Partner (Partner host)** | Sì | <*nome-partner-host*> | Il partner host rappresenta l'organizzazione che specifica il contratto |
    | **Host Identity (Identità host)** | Sì | <*host-partner-Identifier*> | Identificatore del partner host |
    | **Guest Partner (Partner guest)** | Sì | <*nome-partner-Guest*> | Il partner guest rappresenta l'organizzazione che intrattiene attività commerciali con il partner host |
    | **identità guest** | Sì | <*Guest-partner-Identifier*> | Identificatore del partner Guest |
    | **Receive Settings (Impostazioni di ricezione)** | Varia | Varia | Queste proprietà specificano il modo in cui il partner host riceve tutti i messaggi in arrivo dal partner Guest nel contratto. Per ulteriori informazioni, vedere il rispettivo tipo di contratto: <p>- [Impostazioni messaggio AS2](../logic-apps/logic-apps-enterprise-integration-as2-message-settings.md) <br>- [Impostazioni messaggi EDIFACT](logic-apps-enterprise-integration-edifact.md) <br>- [Impostazioni messaggio X12](logic-apps-enterprise-integration-x12.md) |
    | **Send Settings (Impostazioni di invio)** | Varia | Varia | Queste proprietà specificano il modo in cui il partner host invia tutti i messaggi in uscita al Partner Guest nel contratto. Per ulteriori informazioni, vedere il rispettivo tipo di contratto: <p>- [Impostazioni messaggio AS2](../logic-apps/logic-apps-enterprise-integration-as2-message-settings.md) <br>- [Impostazioni messaggi EDIFACT](logic-apps-enterprise-integration-edifact.md) <br>- [Impostazioni messaggio X12](logic-apps-enterprise-integration-x12.md) |
-   |||||
 
    > [!IMPORTANT]
    > La risoluzione di un accordo dipende dalla corrispondenza tra questi elementi definiti nel partner e il messaggio in arrivo:

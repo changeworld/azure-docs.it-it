@@ -14,12 +14,12 @@ ms.workload: identity
 ms.date: 06/10/2019
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 92046b3a944a747ce76d2426855eec7b6bc2cd70
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 1e644d81c2a47ec07833010ae93f4dbb0c57474b
+ms.sourcegitcommit: 3ee3045f6106175e59d1bd279130f4933456d5ff
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "84790247"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106077840"
 ---
 # <a name="list-azure-deny-assignments-using-the-azure-portal"></a>Elencare le assegnazioni di Azure Deny usando il portale di Azure
 
@@ -54,7 +54,7 @@ Attenersi alla procedura seguente per elencare le assegnazioni di accesso negato
 
     ![Assegnazioni di rifiuto - Colonne](./media/deny-assignments-portal/deny-assignments-columns.png)
 
-    |  |  |
+    | Colonna | Descrizione  |
     | --- | --- |
     | **Nome** | Il nome dell'assegnazione di rifiuto. |
     | **Tipo di entità** | Utente, gruppo, gruppo definito dal sistema gruppo o entità servizio. |
@@ -79,7 +79,7 @@ Attenersi alla seguente procedura per elencare ulteriori dettagli su un'assegnaz
 
     Il pannello **Utenti** include le due sezioni seguenti.
 
-    |  |  |
+    | Nega impostazione  | Descrizione |
     | --- | --- |
     | **Assegnazione di rifiuto applicabile a**  | Entità di sicurezza a cui si applica l'assegnazione di rifiuto. |
     | **Elementi esclusi dall'assegnazione di rifiuto** | Entità di sicurezza che sono escluse dall'assegnazione di rifiuto. |

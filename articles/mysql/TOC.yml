@@ -7,8 +7,6 @@
       href: overview.md
     - name: Quale opzione di MySQL scegliere?
       href: select-right-deployment-type.md
-    - name: Versioni supportate
-      href: concepts-supported-versions.md
     - name: Criteri di supporto della versione
       href: concepts-version-policy.md
       displayName: version policy
@@ -21,6 +19,8 @@
       items:
         - name: Che cos'è Server singolo?
           href: single-server-overview.md
+        - name: Versioni supportate
+          href: concepts-supported-versions.md
         - name: Piani tariffari
           items:
             - name: Piani tariffari
@@ -395,8 +395,6 @@
       items:
         - name: Che cos'è Server flessibile?
           href: flexible-server/overview.md
-        - name: Versioni supportate
-          href: concepts-supported-versions.md
         - name: Calcolo e archiviazione
           href: flexible-server/concepts-compute-storage.md
     - name: Avvi rapidi
