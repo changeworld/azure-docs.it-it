@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 1/24/2021
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 2ed1b8162c49ccc26cb98dd02897a9c40f809d14
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 01bf9ac6a3bfcb30fb6e6a6f9d56de3f9f516f03
+ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102204381"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106059276"
 ---
 # <a name="choose-cloud-tiering-policies"></a>Scegliere i criteri di suddivisione in livelli cloud
 
@@ -34,8 +34,13 @@ Per gli agenti versione 9 e successive, le dimensioni minime del file per un fil
 |16 KB (16384)               | 32 KB   |
 |32 KB (32768)               | 64 kB   |
 |64 KB (65536)    | 128 KB  |
+|128 KB (131072) | 256 KB |
+|256 KB (262144) | 512 KB |
+|512 KB (524288) | 1 MB |
+|1 MB (1048576) | 2 MB |
+|2 MB (2097152) | 4 MB |
 
-Attualmente sono supportate dimensioni del cluster fino a 64 KB, ma per dimensioni maggiori la suddivisione in livelli cloud non funziona.
+Le dimensioni del cluster fino a 2 MB sono supportate con Sincronizzazione file di Azure agente versione 12, ma per dimensioni maggiori la suddivisione in livelli cloud non funziona.
 
 Tutti i file System usati da Windows, organizzano il disco rigido in base alle dimensioni del cluster, note anche come dimensioni dell'unità di allocazione. Dimensioni del cluster rappresenta la quantità minima di spazio su disco che può essere usata per contenere un file. Quando le dimensioni dei file non vengono riportate a un multiplo pari delle dimensioni del cluster, è necessario usare spazio aggiuntivo per contenere il file fino al multiplo successivo delle dimensioni del cluster.
 

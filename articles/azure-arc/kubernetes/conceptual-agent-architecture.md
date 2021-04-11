@@ -8,12 +8,12 @@ author: shashankbarsin
 ms.author: shasb
 description: Questo articolo fornisce una panoramica dell'architettura degli agenti Kubernetes abilitati per Azure Arc
 keywords: Kubernetes, Arc, Azure, contenitori
-ms.openlocfilehash: ec95efdfef871777e7f53617b057529e301739dd
-ms.sourcegitcommit: ac035293291c3d2962cee270b33fca3628432fac
+ms.openlocfilehash: f59a897e4868d7b16d0a50c28ce2142320992f71
+ms.sourcegitcommit: 56b0c7923d67f96da21653b4bb37d943c36a81d6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/24/2021
-ms.locfileid: "104953069"
+ms.lasthandoff: 04/06/2021
+ms.locfileid: "106442542"
 ---
 # <a name="azure-arc-enabled-kubernetes-agent-architecture"></a>Architettura dell'agente Kubernetes abilitato per Azure Arc
 
@@ -49,7 +49,10 @@ La maggior parte dei data center locali applica regole di rete rigide che impedi
         | `deployment.apps/cluster-metadata-operator` | Raccoglie i metadati del cluster, tra cui la versione del cluster, il numero di nodi e la versione dell'agente Azure Arc. |
         | `deployment.apps/resource-sync-agent` | Sincronizza i metadati del cluster sopra indicati in Azure. |
         | `deployment.apps/flux-logs-agent` | Raccoglie i log degli operatori Flux distribuiti come parte della configurazione del controllo del codice sorgente. |
-    
+        | `deployment.apps/extension-manager` | Installa e gestisce il ciclo di vita dei grafici Helm dell'estensione |  
+        | `deployment.apps/clusterconnect-agent` | Agente proxy inverso che consente la funzionalità di connessione del cluster per fornire l'accesso a `apiserver` del cluster. Si tratta di un componente facoltativo distribuito solo se `cluster-connect` la funzionalità è abilitata nel cluster   |
+        | `deployment.apps/guard` | Server webhook di autenticazione e autorizzazione usato per la funzionalità di AAD RBAC. Si tratta di un componente facoltativo distribuito solo se `azure-rbac` la funzionalità è abilitata nel cluster   |
+
 1. Quando tutti i pod dell'agente Kubernetes abilitati per Azure Arc si trovano nello `Running` stato, verificare che il cluster sia connesso ad Azure Arc. Verrà visualizzato quanto segue:
     * Una risorsa Kubernetes abilitata per Azure Arc in [Azure Resource Manager](../../azure-resource-manager/management/overview.md). Azure tiene traccia di questa risorsa come proiezione del cluster Kubernetes gestito dal cliente, non del cluster Kubernetes effettivo.
     * I metadati del cluster, come la versione Kubernetes, la versione dell'agente e il numero di nodi, vengono visualizzati nella risorsa Kubernetes abilitata per Azure Arc come metadati.

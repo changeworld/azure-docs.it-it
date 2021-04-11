@@ -1,99 +1,45 @@
 ---
-title: Ridimensionare in base alle prestazioni
+title: Disponibilità e continuità
 titleSuffix: Azure Cognitive Search
-description: Informazioni sulle tecniche e sulle procedure consigliate per ottimizzare le prestazioni di Azure ricerca cognitiva e configurare la scalabilità ottimale.
-manager: nitinme
+description: informazioni su come rendere il servizio di ricerca altamente disponibile e resiliente contro interruzioni del periodo o anche errori irreversibili.
 author: LiamCavanagh
 ms.author: liamca
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 02/01/2021
+ms.date: 04/06/2021
 ms.custom: references_regions
-ms.openlocfilehash: 60371888dbc4f0cbc33f1ad1b2a685dbb071c01a
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 493f6759f63f023572f38647076e04425acf9d6a
+ms.sourcegitcommit: d63f15674f74d908f4017176f8eddf0283f3fac8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101670709"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "106581522"
 ---
-# <a name="scale-for-performance-on-azure-cognitive-search"></a>Scalabilità per le prestazioni in Ricerca cognitiva di Azure
+# <a name="availability-and-business-continuity-in-azure-cognitive-search"></a>Disponibilità e continuità aziendale in Azure ricerca cognitiva
 
-Questo articolo descrive le procedure consigliate per gli scenari avanzati con requisiti sofisticati per la scalabilità e la disponibilità.
+In ricerca cognitiva la disponibilità avviene attraverso più repliche, mentre la continuità aziendale e il ripristino di emergenza vengono realizzati tramite più servizi di ricerca. Questo articolo fornisce indicazioni che è possibile usare come punto di partenza per lo sviluppo di una strategia che soddisfi i requisiti aziendali per la disponibilità e le operazioni continue.
 
-## <a name="start-with-baseline-numbers"></a>Inizia con i numeri di base
+<a name="scale-for-availability"></a>
 
-Prima di intraprendere un lavoro di distribuzione più ampio, assicurarsi di conoscere l'aspetto di un carico di query tipico. Le linee guida seguenti consentono di arrivare ai numeri di query di base.
+## <a name="high-availability"></a>Disponibilità elevata
 
-1. Selezione una latenza di destinazione (o la quantità massima di tempo) che una ricerca tipica richiede per il completamento.
+In ricerca cognitiva le repliche sono copie dell'indice. La presenza di più repliche consente ad Azure ricerca cognitiva di eseguire il riavvio e la manutenzione del computer su una replica, mentre l'esecuzione delle query continua su altre repliche. Per altre informazioni sull'aggiunta di repliche, vedere [aggiungere o ridurre le repliche e le partizioni](search-capacity-planning.md#adjust-capacity).
 
-1. Creare e testare un carico di lavoro reale nel servizio di ricerca con un set di dati realistico per misurare questi tassi di latenza.
-
-1. Iniziare con un numero ridotto di query al secondo (query al secondo) e quindi aumentare gradualmente il numero eseguito nel test fino a quando la latenza della query scende sotto la destinazione predefinita. Si tratta di un benchmark importante per la pianificazione della scalabilità man mano che aumenta l'uso dell'applicazione.
-
-1. Se possibile, riusare le connessioni HTTP. Se si usa Azure ricerca cognitiva .NET SDK, questo significa che è necessario riutilizzare un'istanza di o un'istanza di [SearchClient](/dotnet/api/azure.search.documents.searchclient) . Se si usa l'API REST, è necessario riusare un singolo HttpClient.
-
-1. Variare la sostanza delle richieste di query in modo che la ricerca venga eseguita su diverse parti dell'indice. La variazione è importante perché se si eseguono continuamente le stesse richieste di ricerca, la memorizzazione nella cache dei dati inizierà a migliorare le prestazioni rispetto a una serie di query più diverse.
-
-1. Variare la struttura delle richieste di query in modo da ottenere tipi diversi di query. Non tutte le query di ricerca vengono eseguite allo stesso livello. Ad esempio, una ricerca di documenti o un suggerimento di ricerca è in genere più veloce di una query con un numero significativo di facet e filtri. La composizione dei test deve includere diverse query, approssimativamente le stesse proporzioni che ci si aspetterebbe nell'ambiente di produzione.  
-
-Durante la creazione di questi carichi di lavoro di test, è necessario tenere presenti alcune caratteristiche di Azure ricerca cognitiva:
-
-+ È possibile sovraccaricare il servizio effettuando un numero eccessivo di query di ricerca alla volta. In questo caso, vengono visualizzati i codici di risposta HTTP 503. Per evitare un 503 durante i test, iniziare con diversi intervalli di richieste di ricerca per vedere le differenze nei tassi di latenza quando si aggiungono altre richieste di ricerca.
-
-+ Azure ricerca cognitiva non esegue attività di indicizzazione in background. Se il servizio gestisce contemporaneamente i carichi di lavoro di query e di indicizzazione, è necessario prendere in considerazione l'introduzione dei processi di indicizzazione nei test di query o l'esplorazione delle opzioni per l'esecuzione di processi di indicizzazione durante gli orari di minore attività.
-
-> [!Tip]
-> È possibile simulare un carico di query realistico usando gli strumenti di test di carico. Provare [a eseguire il test di carico con Azure DevOps](/azure/devops/test/load-test/get-started-simple-cloud-load-test) o usare una di queste [alternative](/azure/devops/test/load-test/overview#alternatives).
-
-## <a name="scale-for-high-query-volume"></a>Scalabilità per un volume di query elevato
-
-Un servizio viene sovraccaricato quando le query richiedono troppo tempo o quando il servizio inizia a eliminare richieste. In tal caso, è possibile risolvere il problema in uno dei due modi seguenti:
-
-+ **Aggiungere repliche**  
-
-  Ogni replica è una copia dei dati, consentendo al servizio di bilanciare il carico delle richieste rispetto a più copie.  Il bilanciamento del carico e la replica dei dati vengono gestiti da Azure ricerca cognitiva ed è possibile modificare il numero di repliche allocate per il servizio in qualsiasi momento. È possibile allocare fino a 12 repliche in un servizio di ricerca Standard e 3 repliche in un servizio di ricerca Basic. Le repliche possono essere modificate dal [portale di Azure](search-create-service-portal.md) o da [PowerShell](search-manage-powershell.md).
-
-+ **Creare un nuovo servizio a un livello superiore**  
-
-  Azure ricerca cognitiva è disponibile in diversi [livelli, ognuno dei quali](https://azure.microsoft.com/pricing/details/search/) offre diversi livelli di prestazioni. In alcuni casi, è possibile che si disponga di un numero così elevato di query di cui il livello si è in grado di fornire un tempo di indisponibilità sufficiente anche quando le repliche sono al massimo In questo caso, si consiglia di passare a un livello di prestazioni superiore, ad esempio il livello S3 standard, progettato per scenari con un numero elevato di documenti e carichi di lavoro di query estremamente elevati.
-
-## <a name="scale-for-slow-individual-queries"></a>Scalabilità per singole query lente
-
-Un altro motivo per i tassi di latenza elevata è una singola query che richiede troppo tempo per il completamento. In questo caso, l'aggiunta di repliche non è utile. Di seguito sono riportate due possibili opzioni che possono essere utili:
-
-+ **Aumentare le partizioni**
-
-  Una partizione suddivide i dati tra le risorse di elaborazione aggiuntive. Due partizioni suddividono i dati a metà, una terza partizione la suddivide in tre e così via. Un effetto collaterale positivo è che le query più lente a volte vengono eseguite più velocemente grazie al calcolo parallelo. È stata annotata la parallelizzazione su query con selettività bassa, ad esempio query che corrispondono a molti documenti, o facet che forniscono conteggi su un numero elevato di documenti. Poiché è necessario un calcolo significativo per assegnare un punteggio alla pertinenza dei documenti o per conteggiare il numero di documenti, l'aggiunta di partizioni aggiuntive consente di completare più velocemente le query.  
-   
-  Il servizio di ricerca standard e una partizione nel servizio di ricerca di base possono contenere un massimo di 12 partizioni. Le partizioni possono essere modificate dal [portale di Azure](search-create-service-portal.md) o da [PowerShell](search-manage-powershell.md).
-
-+ **Limitare i campi di cardinalità elevata**
-
-  Un campo di cardinalità elevata è costituito da un campo di facet o filtrabile con un numero significativo di valori univoci e, di conseguenza, utilizza risorse significative durante il calcolo dei risultati. Ad esempio, l'impostazione di un campo ID prodotto o descrizione come facet/filtrabile viene conteggiata come alta cardinalità poiché la maggior parte dei valori dal documento al documento sono univoci. Se possibile, limitare il numero di campi a cardinalità elevata.
-
-+ **Aumenta livello di ricerca**  
-
-  Il passaggio a un livello di ricerca cognitiva di Azure superiore può essere un altro modo per migliorare le prestazioni delle query lente. Ogni livello superiore fornisce CPU più veloci e una maggiore quantità di memoria, che hanno un impatto positivo sulle prestazioni delle query.
-
-## <a name="scale-for-availability"></a>Scalabilità per la disponibilità
-
-Le repliche non solo consentono di ridurre la latenza delle query, ma possono anche garantire disponibilità elevata. Con una singola replica, è necessario prevedere un tempo di inattività periodico dovuto al riavvio del server dopo gli aggiornamenti software o per altri interventi di manutenzione. Di conseguenza, è importante considerare se l'applicazione richiede disponibilità elevata di ricerche, ovvero query, e operazioni di scrittura, ovvero eventi indicizzazione. Azure ricerca cognitiva offre opzioni di SLA per tutte le offerte di ricerca a pagamento con i seguenti attributi:
+Per ogni singolo servizio di ricerca, Microsoft garantisce una disponibilità di almeno il 99,9% per le configurazioni che soddisfano i criteri seguenti: 
 
 + Due repliche per la disponibilità elevata di carichi di lavoro di sola lettura, vale a dire query.
 
-+ Tre o più repliche per la disponibilità elevata dei carichi di lavoro di lettura e scrittura (query e indicizzazione)
++ Tre o più repliche per la disponibilità elevata dei carichi di lavoro di lettura e scrittura (query e indicizzazione) 
 
-Per altri dettagli, visitare il [Contratto di servizio ricerca cognitiva di Azure](https://azure.microsoft.com/support/legal/sla/search/v1_0/).
-
-Poiché le repliche sono copie dei dati, la presenza di più repliche consente ad Azure ricerca cognitiva di eseguire riavvii del computer e manutenzione su una replica, mentre l'esecuzione delle query continua su altre repliche. Viceversa, se si eliminano le repliche, si verifica un calo delle prestazioni delle query, presupponendo che tali repliche fossero una risorsa sottoutilizzata.
+Per il livello gratuito non è previsto alcun contratto di licenza. Per altre informazioni, vedere [SLA per Azure ricerca cognitiva](https://azure.microsoft.com/support/legal/sla/search/v1_0/).
 
 <a name="availability-zones"></a>
 
-### <a name="availability-zones"></a>Zone di disponibilità
+## <a name="availability-zones"></a>Zone di disponibilità
 
-[Zone di disponibilità](../availability-zones/az-overview.md) dividere i Data Center di un'area in gruppi di percorsi fisici distinti per fornire disponibilità elevata, all'interno della stessa area. Per ricerca cognitiva, le singole repliche sono le unità per l'assegnazione di zona. Un servizio di ricerca viene eseguito all'interno di un'area; le repliche vengono eseguite in zone diverse.
+[Zone di disponibilità](../availability-zones/az-overview.md) sono una funzionalità della piattaforma Azure che suddivide i Data Center di un'area in gruppi di percorsi fisici distinti per fornire disponibilità elevata, all'interno della stessa area. Se si usa zone di disponibilità per ricerca cognitiva, le singole repliche sono le unità per l'assegnazione di zona. Un servizio di ricerca viene eseguito all'interno di un'area; le repliche vengono eseguite in zone diverse.
 
-È possibile usare zone di disponibilità con ricerca cognitiva di Azure aggiungendo due o più repliche al servizio di ricerca. Ogni replica verrà posizionata in una zona di disponibilità diversa all'interno dell'area. Se si dispone di più repliche rispetto a zone di disponibilità, le repliche verranno distribuite tra zone di disponibilità nel modo più uniforme possibile.
+È possibile usare zone di disponibilità con ricerca cognitiva di Azure aggiungendo due o più repliche al servizio di ricerca. Ogni replica verrà posizionata in una zona di disponibilità diversa all'interno dell'area. Se si dispone di più repliche rispetto a zone di disponibilità, le repliche verranno distribuite tra zone di disponibilità nel modo più uniforme possibile. Non esiste alcuna azione specifica da parte dell'utente, fatta eccezione per la [creazione di un servizio di ricerca](search-create-service-portal.md) in un'area che fornisce zone di disponibilità e quindi per configurare il servizio per l' [uso di più repliche](search-capacity-planning.md#adjust-capacity).
 
 Azure ricerca cognitiva supporta attualmente zone di disponibilità per i servizi di ricerca di livello standard o superiore creati in una delle aree seguenti:
 
@@ -112,21 +58,31 @@ Azure ricerca cognitiva supporta attualmente zone di disponibilità per i serviz
 
 Zone di disponibilità non influiscano sul [contratto di servizio di ricerca cognitiva di Azure](https://azure.microsoft.com/support/legal/sla/search/v1_0/). Sono comunque necessarie tre o più repliche per la disponibilità elevata delle query.
 
-## <a name="scale-for-geo-distributed-workloads-and-geo-redundancy"></a>Scalabilità per carichi di lavoro distribuiti geograficamente e ridondanza geografica
+## <a name="multiple-services-in-separate-geographic-regions"></a>Più servizi in aree geografiche separate
 
-Per i carichi di lavoro distribuiti geograficamente, gli utenti che si trovano lontano dall'host data center avranno tassi di latenza superiori. Una mitigazione consiste nel provisioning di più servizi di ricerca in aree con prossimità più vicina a questi utenti.
+Sebbene la maggior parte dei clienti usi un solo servizio, la ridondanza del servizio potrebbe essere necessaria se i requisiti operativi includono i seguenti elementi:
 
-Azure ricerca cognitiva attualmente non offre un metodo automatizzato per la replica geografica degli indici di ricerca cognitiva di Azure tra le aree, ma sono disponibili alcune tecniche che possono rendere questo processo semplice da implementare e gestire. Queste tecniche vengono illustrate nelle prossime sezioni.
++ [Continuità aziendale e ripristino di emergenza (BCdR)](../best-practices-availability-paired-regions.md) (ricerca cognitiva non fornisce il failover immediato in caso di interruzione).
++ Applicazioni distribuite a livello globale. Se le richieste di query e indicizzazione provengono da tutto il mondo, gli utenti più vicini all'host data center avranno prestazioni più veloci. La creazione di servizi aggiuntivi in aree con prossimità vicina a questi utenti può migliorare le prestazioni di tutti gli utenti.
++ Le [architetture multi-tenant](search-modeling-multitenant-saas-applications.md) talvolta richiedono due o più servizi.
 
-L'obiettivo di un set con distribuzione geografica di servizi di ricerca consiste nel disporre di due o più indici disponibili in due o più aree, in cui un utente viene indirizzato al servizio ricerca cognitiva di Azure che offre la latenza più bassa, come illustrato in questo esempio:
+Se sono necessari altri due servizi di ricerca, la loro creazione in aree diverse può soddisfare i requisiti dell'applicazione per la continuità e il ripristino, oltre a tempi di risposta più rapidi per una base utente globale.
+
+Azure ricerca cognitiva attualmente non fornisce un metodo automatizzato per la replica geografica degli indici di ricerca tra le aree, ma sono disponibili alcune tecniche che possono rendere questo processo semplice da implementare e gestire. Queste tecniche vengono illustrate nelle prossime sezioni.
+
+L'obiettivo di un set con distribuzione geografica di servizi di ricerca consiste nel disporre di due o più indici disponibili in due o più aree, in cui un utente viene indirizzato al servizio ricerca cognitiva di Azure che offre la latenza più bassa:
 
    ![Incrocio dei servizi per area][1]
 
+È possibile implementare questa architettura creando più servizi e progettando una strategia per la sincronizzazione dei dati. Facoltativamente, è possibile includere una risorsa come gestione traffico di Azure per il routing delle richieste. Per altre informazioni, vedere [creare un servizio di ricerca](search-create-service-portal.md).
+
+<a name="data-sync"></a>
+
 ### <a name="keep-data-synchronized-across-multiple-services"></a>Mantieni i dati sincronizzati tra più servizi
 
-Sono disponibili due opzioni per mantenere sincronizzati i servizi di ricerca distribuiti, che possono essere usati con l' [indicizzatore ricerca cognitiva di Azure](search-indexer-overview.md) o l'API push (detta anche [API REST di Azure ricerca cognitiva](/rest/api/searchservice/)).  
+Sono disponibili due opzioni per mantenere sincronizzati due o più servizi di ricerca distribuiti, che includono l'uso dell' [indicizzatore ricerca cognitiva di Azure](search-indexer-overview.md) o l'API push (detta anche [API REST di Azure ricerca cognitiva](/rest/api/searchservice/)). 
 
-### <a name="use-indexers-for-updating-content-on-multiple-services"></a>Usare gli indicizzatori per aggiornare il contenuto su più servizi
+#### <a name="option-1-use-indexers-for-updating-content-on-multiple-services"></a>Opzione 1: usare gli indicizzatori per aggiornare il contenuto su più servizi
 
 Se si usa già l'indicizzatore in un servizio, è possibile configurare un secondo indicizzatore in un secondo servizio per usare lo stesso oggetto origine dati, estraendo i dati dallo stesso percorso. Ogni servizio in ogni area ha un proprio indicizzatore e un indice di destinazione (l'indice di ricerca non è condiviso, il che significa che i dati sono duplicati), ma ogni indicizzatore fa riferimento alla stessa origine dati.
 
@@ -134,15 +90,31 @@ Di seguito è riportato un oggetto visivo di alto livello dell'aspetto dell'arch
 
    ![Singola origine dati con indicizzatore distribuito e combinazioni di servizio][2]
 
-### <a name="use-rest-apis-for-pushing-content-updates-on-multiple-services"></a>Usare le API REST per il push degli aggiornamenti del contenuto su più servizi
+#### <a name="option-2-use-rest-apis-for-pushing-content-updates-on-multiple-services"></a>Opzione 2: usare le API REST per eseguire il push degli aggiornamenti del contenuto su più servizi
 
-Se si usa l'API REST di Azure ricerca cognitiva per eseguire il [push del contenuto nell'indice ricerca cognitiva di Azure](/rest/api/searchservice/update-index), è possibile sincronizzare i vari servizi di ricerca eseguendo il push delle modifiche a tutti i servizi di ricerca ogni volta che è necessario un aggiornamento. Nel codice, assicurarsi di gestire i casi in cui un aggiornamento a un servizio di ricerca ha esito negativo, ma ha esito positivo per altri servizi di ricerca.
+Se si usa l'API REST di Azure ricerca cognitiva per eseguire il [push del contenuto nell'indice di ricerca](tutorial-optimize-indexing-push-api.md), è possibile gestire i vari servizi di ricerca sincronizzando le modifiche apportate a tutti i servizi di ricerca ogni volta che è necessario un aggiornamento. Nel codice, assicurarsi di gestire i casi in cui un aggiornamento a un servizio di ricerca ha esito negativo, ma ha esito positivo per altri servizi di ricerca.
 
-## <a name="leverage-azure-traffic-manager"></a>Sfruttare gestione traffico di Azure
+### <a name="use-azure-traffic-manager-to-coordinate-requests"></a>Usare gestione traffico di Azure per coordinare le richieste
 
 [Gestione traffico di Azure](../traffic-manager/traffic-manager-overview.md) consente di instradare le richieste a più siti Web con localizzazione geografica, supportati da più servizi di ricerca. Un vantaggio di gestione traffico è che può sondare Azure ricerca cognitiva per assicurarsi che sia disponibile e indirizzare gli utenti a servizi di ricerca alternativi in caso di tempi di inattività. Inoltre, se si esegue il routing delle richieste di ricerca tramite siti Web di Azure, gestione traffico di Azure consente di bilanciare il carico dei casi in cui il sito Web è attivo, ma non di Azure ricerca cognitiva. Di seguito è riportato un esempio di un'architettura che usa Gestione traffico.
 
    ![Incrocio dei servizi per area con Gestione traffico centrale][3]
+
+## <a name="disaster-recovery-and-service-outages"></a>Interruzioni di servizio e ripristino di emergenza
+
+Sebbene sia possibile recuperare i dati, Azure ricerca cognitiva non fornisce il failover immediato del servizio in caso di interruzione a livello di cluster o di data center. Se un cluster non funziona nel data center, il team operativo lo rileverà e provvederà a ripristinare il servizio. Si verificheranno tempi di inattività durante il ripristino del servizio ma è possibile richiedere i crediti del servizio per compensarne la non disponibilità in base al [Contratto di servizio (SLA)](https://azure.microsoft.com/support/legal/sla/search/v1_0/). 
+
+Se un servizio continuo è necessario in caso di errori irreversibili che Microsoft non può controllare, è necessario [eseguire il provisioning di un servizio aggiuntivo](search-create-service-portal.md) in un'area diversa e implementare una strategia di replica geografica per garantire che gli indici siano completamente ridondanti in tutti i servizi.
+
+I clienti che usano gli [indicizzatori](search-indexer-overview.md) per compilare e aggiornare gli indici possono gestire il ripristino di emergenza tramite gli indicizzatori specifici per l'area geografica che sfruttando la stessa origine dati. Due servizi in diverse aree, ognuno dei quali esegue un indicizzatore, possono indicizzare la stessa origine dati per ottenere la ridondanza geografica. Se si esegue l'indicizzazione da origini dati anche con ridondanza geografica, tenere presente che gli indicizzatori di Azure ricerca cognitiva possono eseguire solo l'indicizzazione incrementale (Unione di aggiornamenti da documenti nuovi, modificati o eliminati) dalle repliche primarie. In un evento di failover, assicurarsi di puntare di nuovo all'indicizzatore per la nuova replica primaria. 
+
+Se non si usano gli indicizzatori, l'utente userà il codice dell'applicazione per eseguire il push sugli oggetti e i dati per diversi servizi in parallelo. Per altre informazioni, vedere [Mantieni i dati sincronizzati tra più servizi](#data-sync).
+
+## <a name="back-up-and-restore-alternatives"></a>Eseguire il backup e il ripristino delle alternative
+
+Poiché Azure ricerca cognitiva non è una soluzione di archiviazione dati primaria, Microsoft non fornisce un meccanismo formale per il backup e il ripristino self-service. Tuttavia, è possibile usare il codice di esempio **index-backup-restore** in questo [repository di esempio di Azure ricerca cognitiva .NET](https://github.com/Azure-Samples/azure-search-dotnet-samples) per eseguire il backup della definizione dell'indice e dello snapshot in una serie di file JSON e quindi usare questi file per ripristinare l'indice, se necessario. Questo strumento può inoltre spostare gli indici tra i livelli di servizio.
+
+In caso contrario, il codice dell'applicazione utilizzato per creare e popolare un indice è l'opzione di ripristino de facto se si elimina un indice per errore. Per ricompilare un indice, è necessario eliminarlo (supponendo che sia presente), ricreare l'indice nel servizio e ricaricare recuperando i dati dall'archivio dati primario.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

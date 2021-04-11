@@ -24,3 +24,7 @@
           href: ./datadog/manage.md
         - name: Risolvere problemi
           href: ./datadog/troubleshoot.md
+- name: Informazioni di riferimento
+  items:
+    - name: Interfaccia della riga di comando di Azure
+      href: /cli/azure/confluent

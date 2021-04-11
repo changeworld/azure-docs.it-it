@@ -9,17 +9,17 @@ ms.topic: conceptual
 author: MashaMSFT
 ms.author: mathoma
 ms.date: 03/19/2021
-ms.openlocfilehash: 8952e6e1bda8763d403c02dcd5815f1e1c0941e8
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: ba332ed0e949c3c209dc3bd2d72d37187a200eea
+ms.sourcegitcommit: d40ffda6ef9463bb75835754cabe84e3da24aab5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105641868"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "107030135"
 ---
 # <a name="migration-guide-mysql-to-azure-sql-database"></a>Guida alla migrazione: MySQL per il database SQL di Azure
 [!INCLUDE[appliesto-sqldb-sqlmi](../../includes/appliesto-sqldb.md)]
 
-Questa guida illustra come eseguire la migrazione del database MySQL a un database SQL di Azure usando SQL Server Migration Assistant per MySQL (SSMA per MySQL). 
+Questa guida illustra [come eseguire la migrazione](https://azure.microsoft.com/migration/migration-journey) del database MySQL a un database SQL di Azure usando [SQL Server Migration](https://azure.microsoft.com/migration/migration-journey) Assistant per MySQL (SSMA per MySQL). 
 
 Per altre guide alla migrazione, vedere [Guida alla migrazione del database di Azure](https://docs.microsoft.com/data-migration). 
 
@@ -33,7 +33,7 @@ Prima di iniziare la migrazione del database MySQL a un database SQL, eseguire l
 
 ## <a name="pre-migration"></a>Pre-migrazione 
 
-Dopo aver soddisfatto i prerequisiti, si è pronti per individuare la topologia dell'ambiente e valutare la fattibilità della migrazione.
+Dopo aver soddisfatto i prerequisiti, si è pronti per individuare la topologia dell'ambiente e valutare la fattibilità della [migrazione del cloud di Azure](https://azure.microsoft.com/migration).
 
 ### <a name="assess"></a>Valutare 
 
@@ -178,3 +178,6 @@ Le risorse sono state sviluppate dal team di progettazione di SQL Data. La carta
 - Per altre guide alla migrazione, vedere [Guida alla migrazione del database di Azure](https://datamigration.microsoft.com/). 
 
 - Per i video sulla migrazione, vedere [la panoramica del percorso di migrazione e gli strumenti e i servizi consigliati per la migrazione e la valutazione](https://azure.microsoft.com/resources/videos/overview-of-migration-and-recommended-tools-services/).
+
+- Per altre [risorse di migrazione cloud](https://azure.microsoft.com/migration/resources/), vedere soluzioni per la [migrazione](https://azure.microsoft.com/migration)cloud.
+

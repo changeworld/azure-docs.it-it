@@ -6,12 +6,12 @@ services: azure-monitor
 ms.topic: conceptual
 ms.date: 12/19/2019
 ms.author: bwren
-ms.openlocfilehash: 3300b0587cbb6c2193b56c9152af0cb11ea51936
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: f2b22746b7a78349580220f4aa7579876fd21c33
+ms.sourcegitcommit: 3ee3045f6106175e59d1bd279130f4933456d5ff
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102033300"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106074591"
 ---
 # <a name="overview-of-azure-platform-logs"></a>Panoramica dei log della piattaforma di Azure
 I log della piattaforma forniscono informazioni dettagliate di diagnostica e controllo per le risorse di Azure e la piattaforma Azure da cui dipendono. Vengono generati automaticamente anche se è necessario configurare determinati log della piattaforma da inviare a una o più destinazioni da mantenere. Questo articolo fornisce una panoramica dei log della piattaforma, incluse le informazioni fornite e come è possibile configurarle per la raccolta e l'analisi.
@@ -45,8 +45,8 @@ Sono disponibili diverse opzioni per la visualizzazione e l'analisi dei diversi 
 
 | Destination | Descrizione |
 |:---|:---|
-| Area di lavoro Log Analytics | Analizzare i log di tutte le risorse di Azure insieme e sfruttare tutte le funzionalità disponibili per i [log di monitoraggio di Azure](../logs/data-platform-logs.md) , incluse le [query di log](../logs/log-query-overview.md) e gli [avvisi del log](../alerts/alerts-log.md). Aggiungere i risultati di una query di log a un dashboard di Azure o includerlo in una cartella di lavoro come parte di un report interattivo. |  |
-| Hub eventi | Inviare i dati dei log della piattaforma all'esterno di Azure, ad esempio a una piattaforma SIEM o di telemetria personalizzata di terze parti.
+| Area di lavoro Log Analytics | Analizzare i log di tutte le risorse di Azure insieme e sfruttare tutte le funzionalità disponibili per i [log di monitoraggio di Azure](../logs/data-platform-logs.md) , incluse le [query di log](../logs/log-query-overview.md) e gli [avvisi del log](../alerts/alerts-log.md). Aggiungere i risultati di una query di log a un dashboard di Azure o includerlo in una cartella di lavoro come parte di un report interattivo. | 
+| Hub eventi | Inviare i dati dei log della piattaforma all'esterno di Azure, ad esempio a una piattaforma SIEM o di telemetria personalizzata di terze parti. |
 | Archiviazione di Azure | Archiviare i log per il controllo o il backup. |
 
 - Per informazioni dettagliate sulla creazione di un'impostazione di diagnostica per log attività o log delle risorse, vedere [creare impostazioni di diagnostica per inviare i log e le metriche della piattaforma a destinazioni diverse](../essentials/diagnostic-settings.md). 

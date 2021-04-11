@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: cpendle
 ms.custom: ''
-ms.openlocfilehash: 04bbb0465f26e82d247c53e7393c4476b9d36fde
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: d2b80dfa091d6a2b892c8baf8e9c35084c5bee4e
+ms.sourcegitcommit: 3ee3045f6106175e59d1bd279130f4933456d5ff
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100386850"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106076389"
 ---
 # <a name="tutorial-migrate-web-service-from-google-maps"></a>Esercitazione: Eseguire la migrazione di un servizio Web da Google Maps
 
@@ -46,11 +46,11 @@ La tabella seguente illustra le API del servizio Mappe di Azure che forniscono f
 | Geocodifica               | [Ricerca](/rest/api/maps/search)                                   |                         
 | Ricerca luoghi           | [Ricerca](/rest/api/maps/search)                                   |                         
 | Completamento automatico luoghi      | [Ricerca](/rest/api/maps/search)                                   |                         
-| Blocca sulla strada            | Vedere la sezione [Calcolare percorsi e indicazioni](#calculate-routes-and-directions).            
-| Limiti di velocità            | Vedere la sezione [Geocodifica inversa di una coordinata](#reverse-geocode-a-coordinate).                  
+| Blocca sulla strada            | Vedere la sezione [Calcolare percorsi e indicazioni](#calculate-routes-and-directions).  |        
+| Limiti di velocità            | Vedere la sezione [Geocodifica inversa di una coordinata](#reverse-geocode-a-coordinate).         |         
 | Mappa statica              | [Rendering](/rest/api/maps/render/getmapimage)                       |                         
 | Fuso orario               | [Fusi orari](/rest/api/maps/timezone)                              |                         
-| Altitudine               | [Altitudine (anteprima)](/rest/api/maps/elevation)                   |                         |
+| Altitudine               | [Altitudine (anteprima)](/rest/api/maps/elevation)                   | 
 
 Le API dei servizi seguenti non sono attualmente disponibili in Mappe di Azure:
 

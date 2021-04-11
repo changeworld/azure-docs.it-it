@@ -1,18 +1,18 @@
 ---
 title: Controlli di conformità alle normative di Criteri di Azure per Backup di Azure
 description: Elenca i controlli di conformità alle normative di Criteri di Azure disponibili per Backup di Azure. Queste definizioni di criteri predefiniti rappresentano approcci comuni per gestire la conformità delle risorse di Azure.
-ms.date: 03/24/2021
+ms.date: 03/31/2021
 ms.topic: sample
 author: dcurwin
 ms.author: dacurwin
 ms.service: backup
 ms.custom: subject-policy-compliancecontrols
-ms.openlocfilehash: d30dafe0ad0ef44fd2d2f918c9e4e0f797effe1b
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 2e66aae5cb91c530e912c41aa0c99b284575c3d8
+ms.sourcegitcommit: 99fc6ced979d780f773d73ec01bf651d18e89b93
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105035924"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106091898"
 ---
 # <a name="azure-policy-regulatory-compliance-controls-for-azure-backup"></a>Controlli di conformità alle normative di Criteri di Azure per Backup di Azure
 

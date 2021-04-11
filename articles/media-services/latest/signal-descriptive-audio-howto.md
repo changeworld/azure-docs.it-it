@@ -12,12 +12,12 @@ ms.topic: how-to
 ms.custom: devx-track-csharp
 ms.date: 08/31/2020
 ms.author: inhenkel
-ms.openlocfilehash: 01854e7636f53ec1faab157b51cc84f3539582b4
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 00a3fa397bf88520fa4923b6fbe7495c0aa0b8a2
+ms.sourcegitcommit: 02bc06155692213ef031f049f5dcf4c418e9f509
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104596723"
+ms.lasthandoff: 04/03/2021
+ms.locfileid: "106277403"
 ---
 # <a name="signal-descriptive-audio-tracks"></a>Segnala tracce audio descrittive
 
@@ -29,9 +29,9 @@ Questo articolo illustra come codificare un video, caricare un file MP4 solo aud
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-- [Creare un account di Servizi multimediali di Azure](./create-account-howto.md).
+- [Creare un account di Servizi multimediali di Azure](./account-create-how-to.md).
 - Seguire la procedura descritta in [Accedere all'API di Servizi multimediali di Azure usando l'interfaccia della riga di comando di Azure](./access-api-howto.md) e salvare le credenziali. Sarà necessario usarle per accedere all'API.
-- Esaminare la creazione [dinamica dei pacchetti](dynamic-packaging-overview.md).
+- Esaminare la creazione [dinamica dei pacchetti](encode-dynamic-packaging-concept.md).
 - Vedere l'esercitazione [caricare, codificare e trasmettere video](stream-files-tutorial-with-api.md) .
 
 ## <a name="create-an-input-asset-and-upload-a-local-file-into-it"></a>Creare un asset di input e caricare un file locale nell'asset 
@@ -64,7 +64,7 @@ Nel caso di questo articolo, passare il `outputAsset.Name` valore alle `SubmitJo
 
 ## <a name="create-a-transform-and-a-job-that-encodes-the-uploaded-file"></a>Creare una trasformazione e un processo che codifica il file caricato
 
-Quando si codificano o si elaborano contenuti in Servizi multimediali, è prassi comune configurare le impostazioni di codifica come una serie di istruzioni e quindi inviare un oggetto **Job**, ovvero il processo per applicare tali istruzioni a un video. Inviando nuovi processi per ogni nuovo video, si applicano le istruzioni a tutti i video nella libreria. In Servizi multimediali una serie di istruzioni di questo tipo è definita trasformazione ed è rappresentata dall'oggetto **Transform**. Per altre informazioni, vedere [Trasformazioni e processi](./transforms-jobs-concept.md). L'esempio illustrato in questa esercitazione definisce una serie di istruzioni che codifica il video per eseguirne lo streaming a diversi tipi di dispositivi iOS e Android. 
+Quando si codificano o si elaborano contenuti in Servizi multimediali, è prassi comune configurare le impostazioni di codifica come una serie di istruzioni e quindi inviare un oggetto **Job**, ovvero il processo per applicare tali istruzioni a un video. Inviando nuovi processi per ogni nuovo video, si applicano le istruzioni a tutti i video nella libreria. In Servizi multimediali una serie di istruzioni di questo tipo è definita trasformazione ed è rappresentata dall'oggetto **Transform**. Per altre informazioni, vedere [Trasformazioni e processi](./transform-jobs-concept.md). L'esempio illustrato in questa esercitazione definisce una serie di istruzioni che codifica il video per eseguirne lo streaming a diversi tipi di dispositivi iOS e Android. 
 
 Nell'esempio seguente viene creata una trasformazione, se non ne esiste una.
 
@@ -245,4 +245,4 @@ Azure Media Player può essere usato a scopo di test ma non deve essere usato in
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-[Analizzare i video](analyze-videos-tutorial-with-api.md)
+[Analizzare i video](analyze-videos-tutorial.md)

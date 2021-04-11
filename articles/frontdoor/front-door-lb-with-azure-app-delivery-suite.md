@@ -9,14 +9,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/28/2020
+ms.date: 04/06/2021
 ms.author: duau
-ms.openlocfilehash: 50e047325ad17710794b1640715ab1938373fe85
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 0a7e81c57552fdc24262522343a08fdabba71bfd
+ms.sourcegitcommit: b0557848d0ad9b74bf293217862525d08fe0fc1d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96019464"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "106552581"
 ---
 # <a name="load-balancing-with-azures-application-delivery-suite"></a>Bilanciamento del carico con la suite per il recapito di applicazioni di Azure
 
@@ -40,7 +40,7 @@ Quando si combinano i servizi globali e internazionali, l'applicazione trarrà v
 
 ## <a name="global-load-balancing"></a>Bilanciamento del carico globale
 **Gestione traffico** offre il bilanciamento del carico DNS globale. Esamina le richieste DNS in ingresso e risponde con un back-end integro, seguendo i criteri di routing selezionati dal cliente. Le opzioni per i metodi di routing sono le seguenti:
-- * * Il routing delle prestazioni Invia le richieste al back-end più vicino con la latenza minima.
+- Il **routing delle prestazioni** Invia le richieste al back-end più vicino con la latenza minima.
 - Il **routing prioritario** indirizza tutto il traffico a un back-end, con altri back-end come backup.
 - Il **routing round robin ponderato** distribuisce il traffico in base alla ponderazione assegnata a ogni back-end.
 - Il **routing geografico** garantisce che le richieste che vengono originate da aree geografiche specifiche vengano gestite dai backend mappati per tali aree. (Ad esempio, tutte le richieste provenienti dalla Spagna devono essere indirizzate all'area di Azure della Francia centrale)

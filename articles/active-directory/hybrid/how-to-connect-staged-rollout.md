@@ -10,14 +10,14 @@ ms.date: 06/03/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5c7f3de20ea3e86e3b56dc71d698354f7eaf782d
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 67018a2ec6b9239661a7022ad7fb9eeb6c9a5f64
+ms.sourcegitcommit: 77d7639e83c6d8eb6c2ce805b6130ff9c73e5d29
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105709719"
+ms.lasthandoff: 04/05/2021
+ms.locfileid: "106385582"
 ---
-# <a name="migrate-to-cloud-authentication-using-staged-rollout-preview"></a>Eseguire la migrazione all'autenticazione cloud tramite un'implementazione a fasi (anteprima)
+# <a name="migrate-to-cloud-authentication-using-staged-rollout"></a>Eseguire la migrazione all'autenticazione cloud con implementazione a fasi
 
 L'implementazione di gestione temporanea consente di testare in modo selettivo gruppi di utenti con funzionalità di autenticazione cloud come Azure AD Multi-Factor Authentication (multi-factor authentication), l'accesso condizionale, la protezione delle identità per le credenziali perse, la governance delle identità e altre, prima di eseguire il passaggio dei domini.  Questo articolo illustra come eseguire il passaggio. Prima di iniziare l'implementazione a fasi, è tuttavia necessario considerare i possibili effetti in presenza di uno o più delle condizioni seguenti:
     
@@ -79,7 +79,7 @@ Per l'implementazione a fasi non sono supportati gli scenari riportati di seguit
 - Gli amministratori possono implementare l'autenticazione cloud usando i gruppi di sicurezza. Per evitare latenza di sincronizzazione durante l'uso dei gruppi di sicurezza Active Directory locali, è consigliabile usare gruppi di sicurezza cloud. Si applicano le condizioni seguenti:
 
     - È possibile usare un massimo di 10 gruppi per ogni funzionalità, vale a dire 10 gruppi per *sincronizzazione dell'hash delle password*, 10 per *autenticazione pass-through* e 10 per *accesso Single Sign-On facile*.
-    - I gruppi annidati *non sono supportati*. Questo ambito è valido anche per l'anteprima pubblica.
+    - I gruppi annidati *non sono supportati*. 
     - I gruppi dinamici *non sono supportati* per l'implementazione a fasi.
     - Gli oggetti Contact all'interno del gruppo impediscono l'aggiunta del gruppo.
 
@@ -168,19 +168,19 @@ Per implementare una funzionalità specifica (*autenticazione pass-through*, *si
 
 Eseguire le operazioni seguenti:
 
-1. Per accedere all'esperienza utente di anteprima, accedere al [portale di Azure AD](https://aka.ms/stagedrolloutux).
+1. Per accedere all'esperienza utente, accedere al [portale di Azure ad](https://aka.ms/stagedrolloutux).
 
-2. Selezionare il collegamento **Abilita l'implementazione a fasi per l'accesso utente gestito (anteprima)** .
+2. Selezionare il collegamento **Abilita implementazione temporanea per l'accesso utente gestito** .
 
    Ad esempio, se si vuole abilitare l'*opzione A*, scorrere i controlli **Sincronizzazione hash password** e **Accesso Single Sign-On facile** su **On**, come illustrato nelle immagini seguenti.
 
-   ![Pagina di Azure AD Connect](./media/how-to-connect-staged-rollout/sr4.png)
+   
 
-   ![Pagina "Abilita le funzionalità dell'implementazione a fasi (anteprima)"](./media/how-to-connect-staged-rollout/sr5.png)
+  
 
 3. Aggiungere i gruppi alla funzionalità per abilitare l'*autenticazione pass-through* e l'*accesso Single Sign-On facile*. Per evitare un timeout dell'esperienza utente, assicurarsi che i gruppi di sicurezza non contengano inizialmente più di 200 membri.
 
-   ![Pagina "Gestione dei gruppi per Sincronizzazione hash password (anteprima)"](./media/how-to-connect-staged-rollout/sr6.png)
+   
 
    >[!NOTE]
    >I membri di un gruppo vengono automaticamente abilitati per l'implementazione a fasi. I gruppi annidati e dinamici non sono supportati per l'implementazione a fasi.

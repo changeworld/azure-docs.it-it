@@ -5,13 +5,13 @@ author: enkrumah
 ms.author: ebnkruma
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 08/25/2020
-ms.openlocfilehash: a94389a075fd62d80345a21e32f1bc977dfdee87
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 4/7/2021
+ms.openlocfilehash: 07b7715935756293467f2a3004109df9bf679661
+ms.sourcegitcommit: d40ffda6ef9463bb75835754cabe84e3da24aab5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98020061"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "107030002"
 ---
 # <a name="power-bi-output-from-azure-stream-analytics"></a>Power BI output di analisi di flusso di Azure
 
@@ -73,9 +73,10 @@ Double | Double | string | string | Double
 string | string | string | string | string 
 Datetime | string | string |  Datetime | string
 
-## <a name="output-batch-size"></a>Dimensione del batch di output
+## <a name="limitations-and-best-practices"></a>Limitazioni e procedure consigliate
+Attualmente, è possibile chiamare Power BI approssimativamente una volta al secondo. Gli oggetti visivi di streaming supportano pacchetti da 15 KB. Oltre tale limite, gli oggetti visivi di streaming hanno esito negativo, ma il push continua a funzionare. A causa di queste limitazioni, Power BI è più adatto ai casi in cui Analisi di flusso di Azure riduce notevolmente il carico di dati. È consigliabile usare la finestra a cascata o la finestra di salto per assicurarsi che il push di dati avvenga al massimo una volta al secondo e che la query rientri nei requisiti di velocità effettiva.
 
-Per le dimensioni del batch di output, vedere [Power Bi limiti dell'API REST](/power-bi/developer/automation/api-rest-api-limitations).
+Per altre informazioni sulle dimensioni del batch di output, vedere [Power Bi limiti dell'API REST](/power-bi/developer/automation/api-rest-api-limitations).
 
 ## <a name="next-steps"></a>Passaggi successivi
 

@@ -1,0 +1,47 @@
+### YamlMime:Landing
+title: Documentazione di Azure Active Directory credenziali verificabili
+summary: Le credenziali verificabili consentono di creare soluzioni per consentire ai clienti di gestire i propri dati.
+metadata:
+  author: barclayn
+  description: Informazioni su come incorporare le credenziali verificabili nelle soluzioni per consentire ai clienti di controllare le informazioni su se stessi
+  manager: daveba
+  ms.author: barclayn
+  ms.collection: na
+  ms.date: 03/30/2021
+  ms.service: active-directory
+  ms.subservice: na
+  ms.topic: landing-page
+  services: active-directory
+  ms.openlocfilehash: 13eb88e8e8613c913f66185eba751a1fe3c36e1e
+  ms.sourcegitcommit: d23602c57d797fb89a470288fcf94c63546b1314
+  ms.translationtype: MT
+  ms.contentlocale: it-IT
+  ms.lasthandoff: 04/01/2021
+  ms.locfileid: "106175704"
+landingContent:
+- title: Informazioni sulle credenziali verificabili
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Introduzione a Azure Active Directory credenziali verificabili
+      url: decentralized-identifier-overview.md
+  - linkListType: video
+    links:
+    - text: Regolamentare l'accesso alle risorse
+      url: https://www.youtube.com/watch?v=r20hCF9NbTo
+- title: Credenziali verificabili che consentono agli utenti di controllare le informazioni personali
+  linkLists:
+  - linkListType: tutorial
+    links:
+    - text: Introduzione alle credenziali verificabili
+      url: get-started-verifiable-credentials.md
+  - linkListType: concept
+    links:
+    - text: Esempi di comunicazione del servizio emittente
+      url: issuer-openid.md
+- title: Come collegare il fatto
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: Collegare il dominio all'identificatore distribuito
+      url: how-to-dnsbind.md

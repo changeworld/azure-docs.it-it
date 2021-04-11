@@ -10,12 +10,12 @@ ms.date: 03/11/2021
 ms.topic: include
 ms.custom: include file
 ms.author: peiliu
-ms.openlocfilehash: 9282601391195ca3a47f277f05e9aa1ea0b211da
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 5fd209c612f90e3912e244daf60d20edf30a08c6
+ms.sourcegitcommit: 5fd1f72a96f4f343543072eadd7cdec52e86511e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105958395"
+ms.lasthandoff: 04/01/2021
+ms.locfileid: "106113272"
 ---
 Per iniziare a usare i servizi di comunicazione di Azure, usare Communication Services C# SMS SDK per inviare messaggi SMS.
 
@@ -120,7 +120,7 @@ Console.WriteLine($"Sms id: {sendResult.MessageId}");
 Per inviare un messaggio SMS a un elenco di destinatari, chiamare la `Send` `SendAsync` funzione o da SmsClient con un elenco di numeri di telefono del destinatario. È anche possibile passare parametri facoltativi per specificare se il report di recapito deve essere abilitato e impostare tag personalizzati.
 
 ```csharp
-Response<IEnumerable<SmsSendResult>> response = smsClient.Send(
+Response<IReadOnlyList<SmsSendResult>> response = smsClient.Send(
     from: "<from-phone-number>",
     to: new string[] { "<to-phone-number-1>", "<to-phone-number-2>" },
     message: "Weekly Promotion!",

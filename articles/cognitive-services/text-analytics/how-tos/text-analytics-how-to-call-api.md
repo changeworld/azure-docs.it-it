@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 03/01/2021
 ms.author: aahi
 ms.custom: references_regions
-ms.openlocfilehash: 3c6fb1ca23bcc9c57e73bcaf960e0387611fcff3
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 00f9c6510a87770367472c0da6774b94034c6d72
+ms.sourcegitcommit: d40ffda6ef9463bb75835754cabe84e3da24aab5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104599213"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "107029778"
 ---
 # <a name="how-to-call-the-text-analytics-rest-api"></a>Come chiamare l'API REST Analisi del testo
 
@@ -34,6 +34,14 @@ Prima di usare la API Analisi del testo, sarà necessario creare una risorsa di 
 2.  Selezionare l'area che si vuole usare per l'endpoint.  Si noti `/analyze` che gli `/health` endpoint e sono disponibili solo nelle aree seguenti: Stati Uniti occidentali 2, Stati Uniti orientali 2, Stati Uniti centrali, Europa settentrionale ed Europa occidentale.
 
 3.  Creare la risorsa Analisi del testo e passare al pannello "chiavi ed endpoint" nella parte sinistra della pagina. Copiare la chiave da usare in un secondo momento quando si chiamano le API. Questa operazione verrà aggiunta in un secondo momento come valore per l' `Ocp-Apim-Subscription-Key` intestazione.
+
+4. Per controllare il numero di record di testo inviati usando la risorsa Analisi del testo:
+
+    1. Passare alla risorsa Analisi del testo nel portale di Azure. 
+    2. Fare clic su **metriche**, disponibile in **monitoraggio** nel menu di spostamento a sinistra. 
+    3. Selezionare *elaborati record di testo* nella casella a discesa per **metrica**.
+    
+Un record di testo è di 1000 caratteri.
 
 ## <a name="change-your-pricing-tier"></a>Modificare il piano tariffario 
 

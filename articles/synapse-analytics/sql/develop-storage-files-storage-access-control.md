@@ -9,12 +9,12 @@ ms.subservice: sql
 ms.date: 06/11/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick
-ms.openlocfilehash: 545331fdea56aef3d7b9dac8062d4fc2d6891254
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 254f424694df72a290a07369fe910587fadf58d4
+ms.sourcegitcommit: 77d7639e83c6d8eb6c2ce805b6130ff9c73e5d29
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "102501568"
+ms.lasthandoff: 04/05/2021
+ms.locfileid: "106385548"
 ---
 # <a name="control-storage-account-access-for-serverless-sql-pool-in-azure-synapse-analytics"></a>Controllare l'accesso agli account di archiviazione per il pool SQL serverless in Azure Synapse Analytics
 
@@ -36,11 +36,11 @@ Un utente connesso a un pool SQL serverless deve essere autorizzato ad accedere 
 L'**identità utente**, anche nota come "pass-through di Azure AD", è un tipo di autorizzazione per cui per autorizzare l'accesso ai dati viene usata l'identità dell'utente di Azure AD connesso al pool SQL serverless. Prima di accedere ai dati, l'amministratore di Archiviazione di Azure deve concedere le apposite autorizzazioni all'utente di Azure AD. Come indicato nella tabella seguente, il tipo di utente SQL non è supportato.
 
 > [!IMPORTANT]
-> Per accedere ai dati con l'identità utente, è necessario avere il ruolo di proprietario/collaboratore/lettore dei dati dei BLOB di archiviazione.
-> Anche se si è proprietari di un account di archiviazione, è comunque necessario aggiungere se stessi in uno dei ruoli dei dati dei BLOB di archiviazione.
->
-> Per altre informazioni sul controllo di accesso in Azure Data Lake Store Gen2, vedere l'articolo [Controllo di accesso in Azure Data Lake Storage Gen2](../../storage/blobs/data-lake-storage-access-control.md).
->
+> Il token di autenticazione AAD potrebbe essere memorizzato nella cache dalle applicazioni client. Ad esempio, Power bi memorizza nella cache il token AAD e riutilizza lo stesso token per un'ora. Le query runing lunghe potrebbero avere esito negativo se il token scade al centro dell'esecuzione della query. Se si verificano errori di query causati dal token di accesso di AAD che scade al centro della query, provare a passare a [identità gestita](develop-storage-files-storage-access-control.md?tabs=managed-identity#supported-storage-authorization-types) o a [firma di accesso condiviso](develop-storage-files-storage-access-control.md?tabs=shared-access-signature#supported-storage-authorization-types).
+
+Per accedere ai dati con l'identità utente, è necessario avere il ruolo di proprietario/collaboratore/lettore dei dati dei BLOB di archiviazione. In alternativa, è possibile specificare regole ACL con granularità fine per accedere ai file e alle cartelle. Anche se si è proprietari di un account di archiviazione, è comunque necessario aggiungere se stessi in uno dei ruoli dei dati dei BLOB di archiviazione.
+Per altre informazioni sul controllo di accesso in Azure Data Lake Store Gen2, vedere l'articolo [Controllo di accesso in Azure Data Lake Storage Gen2](../../storage/blobs/data-lake-storage-access-control.md).
+
 
 ### <a name="shared-access-signature"></a>[Firma di accesso condiviso](#tab/shared-access-signature)
 
@@ -54,6 +54,10 @@ Per ottenere un token di firma di accesso condiviso, passare a **Portale di Azur
 > Token di firma di accesso condiviso: ?sv=2018-03-28&ss=bfqt&srt=sco&sp=rwdlacup&se=2019-04-18T20:42:12Z&st=2019-04-18T12:42:12Z&spr=https&sig=lQHczNvrk1KoYLCpFdSsMANd0ef9BrIPBNJ3VYEIq78%3D
 
 Per abilitare l'accesso tramite il token di firma di accesso condiviso, è necessario creare una credenziale con ambito database o con ambito server 
+
+
+> [!IMPORTANT]
+> Si Impossibile l'accesso agli account di archiviazione privati con il token SAS. Provare a passare all' [identità gestita](develop-storage-files-storage-access-control.md?tabs=managed-identity#supported-storage-authorization-types) o a [Azure ad autenticazione pass-through](develop-storage-files-storage-access-control.md?tabs=user-identity#supported-storage-authorization-types) per accedere all'archiviazione protetta.
 
 ### <a name="managed-identity"></a>[Identità gestita](#tab/managed-identity)
 

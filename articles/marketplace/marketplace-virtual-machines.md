@@ -8,14 +8,14 @@ ms.topic: conceptual
 author: iqshahmicrosoft
 ms.author: iqshah
 ms.date: 10/19/2020
-ms.openlocfilehash: 9169d691b58ad4a59796123c64f856128a0f8c83
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 0b5d0a8b12ad07c5be3a4cfc0840acc81aa0c395
+ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98879327"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106060734"
 ---
-# <a name="how-to-plan-a-virtual-machine-offer"></a>Come pianificare un'offerta di macchina virtuale
+# <a name="plan-a-virtual-machine-offer"></a>Pianificare un'offerta di macchina virtuale
 
 Questo articolo illustra le diverse opzioni e i requisiti per la pubblicazione di un'offerta di macchina virtuale (VM) nel Marketplace commerciale. Le offerte di macchine virtuali sono offerte transazionali distribuite e fatturate tramite Azure Marketplace.
 
@@ -102,7 +102,7 @@ Nell'esempio seguente viene illustrata un'offerta di macchina virtuale in Azure 
 
 Per ulteriori informazioni, vedere [piani e prezzi per offerte per Marketplace commerciali](plans-pricing.md) e [offerte private nel Marketplace commerciale Microsoft](private-offers.md).
 
-## <a name="test-drives"></a>Test drive
+## <a name="test-drive"></a>Test drive
 
 È possibile scegliere di abilitare un test drive per la macchina virtuale. Le unità di test consentono ai clienti di accedere a un ambiente preconfigurato per un numero fisso di ore. È possibile abilitare le unità di test per qualsiasi opzione di pubblicazione, tuttavia questa funzionalità presenta requisiti aggiuntivi. Per ulteriori informazioni sulle unità di test, vedere [che cos'è un test drive?](what-is-test-drive.md). Per informazioni sulla configurazione di diversi tipi di unità di test, vedere [configurazione tecnica di test drive](test-drive-technical-configuration.md).
 
