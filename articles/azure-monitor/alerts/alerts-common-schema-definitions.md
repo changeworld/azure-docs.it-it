@@ -4,19 +4,19 @@ description: Informazioni sulle definizioni dello schema di avviso comuni per Mo
 author: ofirmanor
 ms.topic: conceptual
 ms.date: 09/22/2020
-ms.openlocfilehash: 02092f5a241824d2a9aef242b544f8900af7ebec
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 709ec2dee1be6930ca7c09de334aede8a76e95f4
+ms.sourcegitcommit: bfa7d6ac93afe5f039d68c0ac389f06257223b42
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102045395"
+ms.lasthandoff: 04/06/2021
+ms.locfileid: "106491713"
 ---
 # <a name="common-alert-schema-definitions"></a>Definizioni dello schema di avviso comune
 
 Questo articolo presenta le [definizioni dello schema di avviso comuni](./alerts-common-schema.md) per Monitoraggio di Azure, incluse quelle per webhook, App per la logica di Azure, Funzioni di Azure e runbook di Automazione di Azure. 
 
 Tutte le istanze di avviso descrivono la risorsa interessata e la relativa causa. Queste istanze sono descritte nello schema comune nelle sezioni seguenti:
-* **Informazioni di base**: Set di campi standardizzati, comune in tutti i tipi di avviso, che descrivono la risorsa interessata dall'avviso, insieme a metadati di avviso comuni aggiuntivi, ad esempio gravità o descrizione. 
+* **Informazioni di base**: Set di campi standardizzati, comune in tutti i tipi di avviso, che descrivono la risorsa interessata dall'avviso, insieme a metadati di avviso comuni aggiuntivi, ad esempio gravità o descrizione. Le definizioni di gravità sono reperibili nella [Panoramica degli avvisi](alerts-overview.md#overview). 
 * **Contesto avviso**: Set di campi che descrive il motivo dell'avviso, con campi che variano in base al tipo di avviso. Un avviso di metrica, ad esempio, include campi come il nome della metrica e il valore della metrica nel contesto dell'avviso, mentre un avviso del log attività contiene informazioni sull'evento che ha generato l'avviso. 
 
 **Payload di avvisi di esempio**

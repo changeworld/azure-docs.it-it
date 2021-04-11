@@ -8,12 +8,12 @@ ms.service: azure-sentinel
 ms.subservice: azure-sentinel
 ms.topic: conceptual
 ms.date: 03/31/2021
-ms.openlocfilehash: e882ae89da2fd081d6b41d3d42e998d3600f0e18
-ms.sourcegitcommit: 9f4510cb67e566d8dad9a7908fd8b58ade9da3b7
+ms.openlocfilehash: 74cd5ce5912e5a656342a43b7c2b165fdf3c32d4
+ms.sourcegitcommit: bfa7d6ac93afe5f039d68c0ac389f06257223b42
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/01/2021
-ms.locfileid: "106120750"
+ms.lasthandoff: 04/06/2021
+ms.locfileid: "106490301"
 ---
 # <a name="whats-new-in-azure-sentinel"></a>Novità di Azure Sentinel
 
@@ -32,6 +32,7 @@ Le funzionalità indicate sono attualmente in anteprima. Le [condizioni aggiunti
 
 ## <a name="march-2021"></a>Marzo 2021
 
+- [Impostazione delle cartelle di lavoro per l'aggiornamento automatico in modalità di visualizzazione](#set-workbooks-to-automatically-refresh-while-in-view-mode)
 - [Nuovi rilevamenti per il firewall di Azure](#new-detections-for-azure-firewall)
 - [Regole di automazione e PlayBook attivati dagli eventi imprevisti](#automation-rules-and-incident-triggered-playbooks) (inclusa la documentazione di tutti i nuovi PlayBook)
 - [Nuovi miglioramenti degli avvisi: mapping di entità migliorato e dettagli personalizzati](#new-alert-enrichments-enhanced-entity-mapping-and-custom-details)
@@ -39,6 +40,20 @@ Le funzionalità indicate sono attualmente in anteprima. Le [condizioni aggiunti
 - [Filtri per gli eventi imprevisti e preferenze di ordinamento ora salvati nella sessione (anteprima pubblica)](#incident-filters-and-sort-preferences-now-saved-in-your-session-public-preview)
 - [Integrazione di Microsoft 365 Defender Incident (anteprima pubblica)](#microsoft-365-defender-incident-integration-public-preview)
 - [Nuovi connettori del servizio Microsoft con criteri di Azure](#new-microsoft-service-connectors-using-azure-policy)
+
+### <a name="set-workbooks-to-automatically-refresh-while-in-view-mode"></a>Impostazione delle cartelle di lavoro per l'aggiornamento automatico in modalità di visualizzazione
+
+Gli utenti di Sentinel di Azure possono ora usare la nuova [capacità di monitoraggio di Azure](https://techcommunity.microsoft.com/t5/azure-monitor/azure-workbooks-set-it-to-auto-refresh/ba-p/2228555) per aggiornare automaticamente i dati della cartella di lavoro durante una sessione di visualizzazione.
+
+In ogni cartella di lavoro o modello di cartella di lavoro selezionare :::image type="icon" source="media/whats-new/auto-refresh-workbook.png" border="false"::: **aggiornamento automatico** per visualizzare le opzioni di intervallo. Selezionare l'opzione che si desidera utilizzare per la sessione di visualizzazione corrente e selezionare **applica**.
+
+- Gli intervalli di aggiornamento supportati sono compresi tra **5 minuti** e **1 giorno**.
+- Per impostazione predefinita, l'aggiornamento automatico è disattivato. Per ottimizzare le prestazioni, l'aggiornamento automatico viene disattivato ogni volta che si chiude una cartella di lavoro e non viene eseguita in background. Riattivare l'aggiornamento automatico in base alle esigenze alla successiva apertura della cartella di lavoro.
+- L'aggiornamento automatico viene sospeso durante la modifica di una cartella di lavoro e gli intervalli di aggiornamento automatico vengono riavviati ogni volta che si passa di nuovo alla modalità di visualizzazione dalla modalità di modifica.
+
+    Gli intervalli vengono riavviati anche se si aggiorna manualmente la cartella di lavoro selezionando il :::image type="icon" source="media/whats-new/manual-refresh-button.png" border="false"::: pulsante **Aggiorna** .
+
+Per altre informazioni, vedere [esercitazione: visualizzare e monitorare i dati](tutorial-monitor-your-data.md) e la [documentazione di monitoraggio di Azure](../azure-monitor/visualize/workbooks-overview.md).
 
 ### <a name="new-detections-for-azure-firewall"></a>Nuovi rilevamenti per il firewall di Azure
 

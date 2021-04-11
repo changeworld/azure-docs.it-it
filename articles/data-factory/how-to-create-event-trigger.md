@@ -7,12 +7,12 @@ ms.author: chez
 ms.reviewer: jburchel
 ms.topic: conceptual
 ms.date: 03/11/2021
-ms.openlocfilehash: d9012c2bb56b7936b627063be2e9c5b7aa33541e
-ms.sourcegitcommit: edc7dc50c4f5550d9776a4c42167a872032a4151
+ms.openlocfilehash: 3021d049a38f1d883518fc7c45aa8ca0a906c2f7
+ms.sourcegitcommit: 3f684a803cd0ccd6f0fb1b87744644a45ace750d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105962731"
+ms.lasthandoff: 04/02/2021
+ms.locfileid: "106221586"
 ---
 # <a name="create-a-trigger-that-runs-a-pipeline-in-response-to-a-storage-event"></a>Creare un trigger per l'esecuzione di una pipeline in risposta a un evento di archiviazione
 
@@ -76,7 +76,7 @@ Questa sezione illustra come creare un trigger di evento di archiviazione all'in
    Nell'esempio precedente, il trigger viene configurato in modo da essere attivato quando viene creato un percorso BLOB che termina con. csv nella cartella Sample _-testing_ nel contenitore _Sample-Data_. Le proprietà **folderPath** e **fileName** acquisiscono il percorso del nuovo BLOB. Ad esempio, quando si aggiunge MoviesDB.csv viene aggiunto al percorso sample-data/event-testing, il valore di `@triggerBody().folderPath` è `sample-data/event-testing` e il valore di `@triggerBody().fileName` è `moviesDB.csv`. Questi valori vengono mappati nell'esempio ai parametri della pipeline `sourceFolder` e `sourceFile` , che possono essere usati in tutta la pipeline come `@pipeline().parameters.sourceFolder` e `@pipeline().parameters.sourceFile` rispettivamente.
 
    > [!NOTE]
-   > Se si sta creando la pipeline e il trigger in [Azure sinapsi Analytics](/synapse-analytics), è necessario `@trigger().outputs.body.fileName` usare `@trigger().outputs.body.folderPath` e come parametri. Queste due proprietà acquisiscono informazioni sui BLOB. Utilizzare tali proprietà anziché utilizzare `@triggerBody().fileName` e `@triggerBody().folderPath` .
+   > Se si sta creando la pipeline e il trigger in [Azure sinapsi Analytics](../synapse-analytics/overview-what-is.md), è necessario `@trigger().outputs.body.fileName` usare `@trigger().outputs.body.folderPath` e come parametri. Queste due proprietà acquisiscono informazioni sui BLOB. Utilizzare tali proprietà anziché utilizzare `@triggerBody().fileName` e `@triggerBody().folderPath` .
 
 1. Al termine, fare clic su **Fine**.
 

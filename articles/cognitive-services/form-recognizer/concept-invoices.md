@@ -10,16 +10,16 @@ ms.subservice: forms-recognizer
 ms.topic: conceptual
 ms.date: 03/15/2021
 ms.author: lajanuar
-ms.openlocfilehash: 46cf34bd40832488985008a645f1da25eb87b9d9
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: a47c4c5bdc90e148916900b1e72bc2a392d2e473
+ms.sourcegitcommit: b8995b7dafe6ee4b8c3c2b0c759b874dff74d96f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103467392"
+ms.lasthandoff: 04/03/2021
+ms.locfileid: "106285332"
 ---
 # <a name="form-recognizer-prebuilt-invoice-model"></a>Modello di fattura precompilato del modulo di riconoscimento
 
-Il sistema di riconoscimento dei moduli di Azure può analizzare ed estrarre le informazioni dalle fatture di vendita usando i modelli di fattura predefiniti. L'API per la fatturazione consente ai clienti di ottenere fatture in diversi formati e restituire dati strutturati per automatizzare l'elaborazione della fattura. Combina le potenti funzionalità di [riconoscimento ottico dei caratteri (OCR)](../computer-vision/concept-recognizing-text.md) con la comprensione dei modelli di apprendimento avanzato per estrarre le informazioni chiave dalle fatture in inglese. Estrae il testo, le tabelle e le informazioni, ad esempio cliente, fornitore, ID fattura, data di scadenza della fattura, totale, importo della fattura, importo dell'imposta, spedizione, fatturazione, elementi e altro ancora. L'API per la fatturazione predefinita è disponibile pubblicamente nel form Recognizer v 2.1 Preview.
+Il sistema di riconoscimento dei moduli di Azure può analizzare ed estrarre le informazioni dalle fatture di vendita usando i modelli di fattura predefiniti. L'API per la fatturazione consente ai clienti di ottenere fatture in diversi formati e restituire dati strutturati per automatizzare l'elaborazione della fattura. Combina le potenti funzionalità di [riconoscimento ottico dei caratteri (OCR)](../computer-vision/overview-ocr.md) con la comprensione dei modelli di apprendimento avanzato per estrarre le informazioni chiave dalle fatture in inglese. Estrae il testo, le tabelle e le informazioni, ad esempio cliente, fornitore, ID fattura, data di scadenza della fattura, totale, importo della fattura, importo dell'imposta, spedizione, fatturazione, elementi e altro ancora. L'API per la fatturazione predefinita è disponibile pubblicamente nel form Recognizer v 2.1 Preview.
 
 ## <a name="what-does-the-invoice-service-do"></a>Che cosa fa il servizio di fatturazione?
 

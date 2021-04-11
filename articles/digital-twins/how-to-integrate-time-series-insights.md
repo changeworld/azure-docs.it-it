@@ -7,12 +7,12 @@ ms.author: alkarche
 ms.date: 1/19/2021
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 3bc821f31e0463000c9089e48818249f2c046ede
-ms.sourcegitcommit: 5f482220a6d994c33c7920f4e4d67d2a450f7f08
+ms.openlocfilehash: 5ac8c5bb68430a1e886a89709d5e256beb8819c8
+ms.sourcegitcommit: 20f8bf22d621a34df5374ddf0cd324d3a762d46d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/08/2021
-ms.locfileid: "107102996"
+ms.lasthandoff: 04/09/2021
+ms.locfileid: "107257280"
 ---
 # <a name="integrate-azure-digital-twins-with-azure-time-series-insights"></a>Integrare i dispositivi gemelli digitali di Azure con Azure Time Series Insights
 
@@ -40,7 +40,7 @@ Si collegherà Time Series Insights ai dispositivi gemelli digitali di Azure tra
 
 ## <a name="create-a-route-and-filter-to-twin-update-notifications"></a>Creare una route e filtrare gli eventi per le notifiche di aggiornamento dei gemelli
 
-Le istanze dei dispositivi gemelli digitali di Azure possono generare [eventi di aggiornamento gemelli](how-to-interpret-event-data.md) ogni volta che viene aggiornato lo stato di un dispositivo In questa sezione verrà creata una [**Route di eventi**](concepts-route-events.md) di Azure Digital gemelli che indirizza gli eventi di aggiornamento a [Hub eventi](../event-hubs/event-hubs-about.md) di Azure per l'ulteriore elaborazione.
+Le istanze dei dispositivi gemelli digitali di Azure possono generare [eventi di modifica gemelli](concepts-event-notifications.md#digital-twin-change-notifications) ogni volta che viene aggiornato lo stato di un dispositivo In questa sezione verrà creata una [**Route di eventi**](concepts-route-events.md) di Azure Digital gemelli che indirizza gli eventi di aggiornamento a [Hub eventi](../event-hubs/event-hubs-about.md) di Azure per l'ulteriore elaborazione.
 
 Esercitazione sui gemelli digitali di Azure [*: connettere una soluzione end-to-end*](./tutorial-end-to-end.md) illustra uno scenario in cui viene usato un termometro per aggiornare un attributo di temperatura in un dispositivo gemello digitale che rappresenta una stanza. Questo modello si basa sugli aggiornamenti dei dispositivi gemelli anziché sull'invio di dati di telemetria da un dispositivo Internet delle cose, che offre la flessibilità necessaria per modificare l'origine dati sottostante senza dover aggiornare la logica del Time Series Insights.
 

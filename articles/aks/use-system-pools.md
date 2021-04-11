@@ -6,12 +6,12 @@ ms.topic: article
 ms.date: 06/18/2020
 ms.author: mlearned
 ms.custom: fasttrack-edit, devx-track-azurecli
-ms.openlocfilehash: 9c53cb53517c4696a1bb47c2cb72335979d58d3a
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: c3c65d3a7316d431c57d9fb75775e271bf9f34ca
+ms.sourcegitcommit: 3f684a803cd0ccd6f0fb1b87744644a45ace750d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102178831"
+ms.lasthandoff: 04/02/2021
+ms.locfileid: "106223269"
 ---
 # <a name="manage-system-node-pools-in-azure-kubernetes-service-aks"></a>Gestire i pool di nodi di sistema in Azure Kubernetes Service (AKS)
 
@@ -43,7 +43,8 @@ I pool di nodi di sistema presentano le restrizioni seguenti:
 * I pool di sistema osType devono essere Linux.
 * I pool di nodi utente osType possono essere Linux o Windows.
 * I pool di sistema devono contenere almeno un nodo e i pool di nodi utente possono contenere zero o più nodi.
-* I pool di nodi di sistema richiedono uno SKU di VM di almeno 2 vCPU e 4 GB di memoria.
+* I pool di nodi di sistema richiedono uno SKU di VM di almeno 2 vCPU e 4 GB di memoria. Tuttavia, non è consigliabile usare una macchina virtuale a impulsi (serie B).
+* È consigliabile usare almeno due nodi 4 vCPU, ad esempio Standard_DS4_v2, in particolare per i cluster di grandi dimensioni (più repliche Pod CoreDNS, 3-4 + componenti aggiuntivi e così via).
 * I pool di nodi di sistema devono supportare almeno 30 POD come descritto dalla [formula valore minimo e massimo per i pod][maximum-pods].
 * I pool di nodi spot richiedono pool di nodi utente.
 * L'aggiunta di un pool di nodi di sistema aggiuntivo o la modifica del pool di nodi in un pool di nodi di sistema *non* sposterà automaticamente i pod di sistema. I pod di sistema possono continuare a essere eseguiti nello stesso pool di nodi anche se vengono modificati in un pool di nodi utente. Se si elimina o si ridimensiona un pool di nodi che esegue i pod di sistema che in precedenza era un pool di nodi di sistema, i pod di sistema vengono ridistribuiti con la pianificazione preferita nel nuovo pool di nodi di sistema.

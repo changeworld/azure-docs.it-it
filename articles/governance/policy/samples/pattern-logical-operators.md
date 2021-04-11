@@ -1,14 +1,14 @@
 ---
 title: 'Criterio: Operatori logici in una definizione di criteri'
 description: Questo modello di Criteri di Azure fornisce un esempio di come usare gli operatori logici in una definizione di criteri.
-ms.date: 08/17/2020
+ms.date: 03/31/2021
 ms.topic: sample
-ms.openlocfilehash: 3f644cdbfc45b06d1ad5db8e7727c0fa69742f00
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: feb9e50b0c73c19027b747cf0f95fa1cb6fbd47c
+ms.sourcegitcommit: 99fc6ced979d780f773d73ec01bf651d18e89b93
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "88545591"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106093351"
 ---
 # <a name="azure-policy-pattern-logical-operators"></a>Modello di Criteri di Azure: operatori logici
 
@@ -16,7 +16,7 @@ Una definizione di criteri può contenere diverse istruzioni condizionali. Potre
 
 ## <a name="sample-1-one-logical-operator"></a>Esempio 1. Un unico operatore logico
 
-Questa definizione di criteri valuta gli account CosmosDB per verificare se sono configurati i failover automatici e più percorsi di scrittura. Se non lo sono, viene attivato l'effetto [audit](../concepts/effects.md#audit) che crea una voce di log quando la risorsa non conforme viene creata o aggiornata.
+Questa definizione di criteri valuta gli account [Azure Cosmos DB](../../../cosmos-db/introduction.md) per verificare se sono configurati failover automatici e più percorsi di scrittura. Se non lo sono, viene attivato l'effetto [audit](../concepts/effects.md#audit) che crea una voce di log quando la risorsa non conforme viene creata o aggiornata.
 
 :::code language="json" source="~/policy-templates/patterns/pattern-logical-operators-1.json":::
 
@@ -41,7 +41,7 @@ Anche questo blocco **policyRule.if** include un singolo operatore **allOf**, ma
 
 ## <a name="sample-3-combining-logical-operators"></a>Esempio 3: Combinazione di operatori logici
 
-Questa definizione dei criteri valuta gli account Java Spring per verificare se la traccia non è abilitata o se la traccia non si trova in uno stato di esito positivo.
+Questa definizione di criteri valuta [Spring](/azure/developer/java/spring-framework) negli account Azure per verificare se la traccia non è abilitata o se la traccia non è in uno stato di esito positivo.
 
 :::code language="json" source="~/policy-templates/patterns/pattern-logical-operators-3.json":::
 

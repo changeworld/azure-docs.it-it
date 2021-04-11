@@ -7,18 +7,18 @@ ms.author: alkarche
 ms.date: 11/18/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: e6b35031d976a11bdac6f38d74f9e02a0fc83302
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: c7efebaf23bd8e897243f6ee12b23d3821a4c033
+ms.sourcegitcommit: 20f8bf22d621a34df5374ddf0cd324d3a762d46d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105936309"
+ms.lasthandoff: 04/09/2021
+ms.locfileid: "107257331"
 ---
 # <a name="manage-endpoints-and-routes-in-azure-digital-twins-apis-and-cli"></a>Gestire endpoint e route nei dispositivi gemelli digitali di Azure (API e CLI)
 
 [!INCLUDE [digital-twins-route-selector.md](../../includes/digital-twins-route-selector.md)]
 
-Nei dispositivi gemelli digitali di Azure è possibile instradare le [notifiche degli eventi](how-to-interpret-event-data.md) ai servizi downstream o alle risorse di calcolo connesse. Questa operazione viene eseguita configurando prima di tutto gli **endpoint** che possono ricevere gli eventi. È quindi possibile creare  [**Route di eventi**](concepts-route-events.md) che specificano gli eventi generati dai dispositivi gemelli digitali di Azure che vengono recapitati a quali endpoint.
+Nei dispositivi gemelli digitali di Azure è possibile instradare le [notifiche degli eventi](concepts-event-notifications.md) ai servizi downstream o alle risorse di calcolo connesse. Questa operazione viene eseguita configurando prima di tutto gli **endpoint** che possono ricevere gli eventi. È quindi possibile creare  [**Route di eventi**](concepts-route-events.md) che specificano gli eventi generati dai dispositivi gemelli digitali di Azure che vengono recapitati a quali endpoint.
 
 Questo articolo illustra il processo di creazione di endpoint e route con le [API REST](/rest/api/azure-digitaltwins/), [.NET (C#) SDK](/dotnet/api/overview/azure/digitaltwins/client)e l'interfaccia della riga di comando di [Azure Digital gemelli](how-to-use-cli.md).
 
@@ -48,7 +48,7 @@ Questa sezione illustra come creare questi endpoint usando l'interfaccia della r
 
 ### <a name="create-the-endpoint"></a>Creare l'endpoint
 
-Dopo aver creato le risorse dell'endpoint, è possibile usarle per un endpoint di Azure Digital gemelli. Gli esempi seguenti illustrano come creare endpoint usando il comando [AZ DT endpoint create](/cli/azure/ext/azure-iot/dt/endpoint/create) per l'interfaccia della riga di comando di [Azure Digital gemelli](how-to-use-cli.md). Sostituire i segnaposto nei comandi con i dettagli delle proprie risorse.
+Dopo aver creato le risorse dell'endpoint, è possibile usarle per un endpoint di Azure Digital gemelli. Gli esempi seguenti illustrano come creare endpoint usando il comando [AZ DT endpoint create](/cli/azure/dt/endpoint/create) per l'interfaccia della riga di comando di [Azure Digital gemelli](how-to-use-cli.md). Sostituire i segnaposto nei comandi con i dettagli delle proprie risorse.
 
 Per creare un endpoint di griglia di eventi:
 
@@ -119,7 +119,7 @@ Attenersi alla procedura seguente per configurare queste risorse di archiviazion
     
 #### <a name="create-the-dead-letter-endpoint"></a>Creare l'endpoint dei messaggi non recapitabili
 
-Per creare un endpoint con messaggi non recapitabili abilitati, aggiungere il seguente parametro del messaggio non recapitabile al comando [AZ DT endpoint create](/cli/azure/ext/azure-iot/dt/endpoint/create) per l'interfaccia della riga di comando di [Azure Digital gemelli](how-to-use-cli.md).
+Per creare un endpoint con messaggi non recapitabili abilitati, aggiungere il seguente parametro del messaggio non recapitabile al comando [AZ DT endpoint create](/cli/azure/dt/endpoint/create) per l'interfaccia della riga di comando di [Azure Digital gemelli](how-to-use-cli.md).
 
 Il valore del parametro è l'URI di firma di accesso condiviso dei messaggi non **recapitabili** costituito dal nome dell'account di archiviazione, dal nome del contenitore e dal token SAS raccolti nella [sezione precedente](#set-up-storage-resources). Questo parametro crea l'endpoint con l'autenticazione basata su chiavi.
 
@@ -158,7 +158,7 @@ Una volta configurato l'endpoint con i messaggi non recapitabili, i messaggi non
 
 I messaggi non recapitabili corrisponderanno allo schema dell'evento originale destinato a essere recapitato all'endpoint originale.
 
-Di seguito è riportato un esempio di messaggio non recapitabile per una notifica di creazione di un dispositivo [gemello](how-to-interpret-event-data.md#digital-twin-lifecycle-notifications):
+Di seguito è riportato un esempio di messaggio non recapitabile per una notifica di creazione di un dispositivo [gemello](concepts-event-notifications.md#digital-twin-lifecycle-notifications):
 
 ```json
 {
@@ -204,7 +204,7 @@ Se non è presente alcun nome di route, nessun messaggio viene instradato all'es
 
 Una route deve consentire la selezione di più notifiche e tipi di evento. 
 
-È possibile creare route di eventi con le API del [piano dati **EventRoutes**](/rest/api/digital-twins/dataplane/eventroutes) di Azure Digital gemelli o i [comandi **AZ DT Route** CLI](/cli/azure/ext/azure-iot/dt/route). Il resto di questa sezione illustra il processo di creazione.
+È possibile creare route di eventi con le API del [piano dati **EventRoutes**](/rest/api/digital-twins/dataplane/eventroutes) di Azure Digital gemelli o i [comandi **AZ DT Route** CLI](/cli/azure/dt/route). Il resto di questa sezione illustra il processo di creazione.
 
 ### <a name="create-routes-with-the-apis-and-c-sdk"></a>Creare route con le API e C# SDK
 
@@ -225,7 +225,7 @@ Il metodo di esempio seguente mostra come creare, elencare ed eliminare una rout
 
 ### <a name="create-routes-with-the-cli"></a>Creare route con l'interfaccia della riga di comando
 
-Le route possono essere gestite anche usando i comandi [AZ DT Route](/cli/azure/ext/azure-iot/dt/route) per l'interfaccia della riga di comando di Azure Digital gemelli. 
+Le route possono essere gestite anche usando i comandi [AZ DT Route](/cli/azure/dt/route) per l'interfaccia della riga di comando di Azure Digital gemelli. 
 
 Per altre informazioni sull'uso dell'interfaccia della riga di comando e sui comandi disponibili, vedere [*procedura: usare l'interfaccia della riga di comando di Azure Digital gemelli*](how-to-use-cli.md).
 
@@ -256,4 +256,4 @@ Ecco i filtri di route supportati. Usare i dettagli nella colonna *Filtra schema
 ## <a name="next-steps"></a>Passaggi successivi
 
 Per informazioni sui diversi tipi di messaggi di evento che è possibile ricevere, vedere:
-* [*Procedura: interpretare i dati degli eventi*](how-to-interpret-event-data.md)
+* [*Concetti: notifiche degli eventi*](concepts-event-notifications.md)

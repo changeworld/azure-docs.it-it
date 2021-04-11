@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 09/08/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 30348d7ca12ded2d1f4b0522a7cabeadf0553a07
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 37ff3300935e90304754b5f2b375df0adecdaefa
+ms.sourcegitcommit: 20f8bf22d621a34df5374ddf0cd324d3a762d46d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "94953356"
+ms.lasthandoff: 04/09/2021
+ms.locfileid: "107256243"
 ---
 # <a name="overview-of-policy-keys-in-azure-active-directory-b2c"></a>Panoramica delle chiavi dei criteri in Azure Active Directory B2C
 
@@ -28,7 +28,7 @@ Azure Active Directory B2C (Azure AD B2C) archivia i segreti e i certificati sot
  Questo articolo descrive le informazioni necessarie sulle chiavi dei criteri usate da Azure AD B2C.
 
 > [!NOTE]
-> Attualmente, la configurazione delle chiavi dei criteri è limitata solo ai [criteri personalizzati](./custom-policy-get-started.md) .
+> Attualmente, la configurazione delle chiavi dei criteri è limitata solo ai [criteri personalizzati](./user-flow-overview.md) .
 
 È possibile configurare segreti e certificati per stabilire una relazione di trust tra i servizi nel portale di Azure nel menu **chiavi dei criteri** . Le chiavi possono essere simmetriche o asimmetriche. La crittografia *simmetrica* o la crittografia a chiave privata è il punto in cui viene usato un segreto condiviso per crittografare e decrittografare i dati. La crittografia *asimmetrica* o la crittografia a chiave pubblica è un sistema crittografico che usa coppie di chiavi, costituite da chiavi pubbliche condivise con l'applicazione relying party e chiavi private note solo Azure ad B2C.
 

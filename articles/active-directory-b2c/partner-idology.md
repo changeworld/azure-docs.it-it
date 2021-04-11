@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 06/08/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 2b6001932b6f53a60eda76b6136611a10011391a
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: df0fcaf7987e30f9c2599346aaef5fcabb4f04e9
+ms.sourcegitcommit: 20f8bf22d621a34df5374ddf0cd324d3a762d46d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96928682"
+ms.lasthandoff: 04/09/2021
+ms.locfileid: "107256651"
 ---
 # <a name="tutorial-for-configuring-idology-with-azure-active-directory-b2c"></a>Esercitazione per la configurazione di IDology con Azure Active Directory B2C 
 
@@ -93,7 +93,7 @@ Il criterio di esempio utilizza questi nomi di chiave:
 
 ### <a name="part-4---configure-the-azure-ad-b2c-policy"></a>Parte 4: configurare i criteri di Azure AD B2C
 
-1. Seguire questo [documento](custom-policy-get-started.md?tabs=applications#custom-policy-starter-pack) per scaricare lo [Starter Pack le LocalAccounts](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack/tree/master/LocalAccounts) e configurare i criteri per il tenant Azure ad B2C. Seguire le istruzioni fino a completare la sezione **testare i criteri personalizzati** .
+1. Seguire questo [documento](tutorial-create-user-flows.md?pivots=b2c-custom-policy#custom-policy-starter-pack) per scaricare lo [Starter Pack le LocalAccounts](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack/tree/master/LocalAccounts) e configurare i criteri per il tenant Azure ad B2C. Seguire le istruzioni fino a completare la sezione **testare i criteri personalizzati** .
 
 2. Scaricare i due criteri di esempio [qui](https://github.com/azure-ad-b2c/partner-integrations/tree/master/samples/IDology/policy).
 
@@ -145,4 +145,4 @@ Per ulteriori informazioni, vedere gli articoli seguenti:
 
 - [Criteri personalizzati in AAD B2C](custom-policy-overview.md)
 
-- [Introduzione ai criteri personalizzati in Azure AD B2C](custom-policy-get-started.md?tabs=applications)
+- [Introduzione ai criteri personalizzati in Azure AD B2C](tutorial-create-user-flows.md?pivots=b2c-custom-policy)

@@ -6,14 +6,14 @@ author: matjazl
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: conceptual
-ms.date: 03/16/2021
+ms.date: 04/08/2021
 ms.author: matjazl
-ms.openlocfilehash: fbc683c98eb0124e8d879eada276593ca9bf7042
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: c10b27d375e2bfb8c64130eceb416a633241cf68
+ms.sourcegitcommit: c6a2d9a44a5a2c13abddab932d16c295a7207d6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105934764"
+ms.lasthandoff: 04/09/2021
+ms.locfileid: "107284435"
 ---
 # <a name="register-a-confidential-client-application-in-azure-active-directory"></a>Registrare un'applicazione client riservata in Azure Active Directory
 
@@ -29,7 +29,7 @@ Per registrare una nuova applicazione client riservata, fare riferimento alla pr
 
 1. Selezionare **Registrazioni per l'app**. 
 
-    ![portale di Azure. Nuova registrazione dell'app.](media/how-to-aad/portal-aad-new-app-registration.png)
+    :::image type="content" source="media/how-to-aad/portal-aad-new-app-registration.png" alt-text="portale di Azure. Nuova registrazione dell'app.":::
 
 1. Selezionare **Nuova registrazione**.
 
@@ -39,7 +39,7 @@ Per registrare una nuova applicazione client riservata, fare riferimento alla pr
 
 1. Opzionale Specificare un **URI di reindirizzamento**. Questi dettagli possono essere modificati in un secondo momento, ma se si conosce l'URL di risposta dell'applicazione, immetterlo ora.
 
-    ![Nuova registrazione di app client riservate.](media/how-to-aad/portal-aad-register-new-app-registration-CONF-CLIENT.png)
+    :::image type="content" source="media/how-to-aad/portal-aad-register-new-app-registration-CONF-CLIENT.png" alt-text="Nuova registrazione di app client riservate.":::
 
 1. Selezionare **Registra**.
 
@@ -49,7 +49,7 @@ Ora che l'applicazione è stata registrata, è necessario selezionare le autoriz
 
 1. Selezionare **Autorizzazioni API**.
 
-    ![Client riservato. Autorizzazioni delle API](media/how-to-aad/portal-aad-register-new-app-registration-CONF-CLIENT-API-Permissions.png)
+    :::image type="content" source="media/how-to-aad/portal-aad-register-new-app-registration-CONF-CLIENT-API-Permissions.png" alt-text="Client riservato. Autorizzazioni API.":::
 
 1. Selezionare **Aggiungi un'autorizzazione**.
 
@@ -70,11 +70,11 @@ Ora che l'applicazione è stata registrata, è necessario selezionare le autoriz
 
 1. Selezionare **certificati & segreti**, quindi selezionare **nuovo segreto client**. 
 
-    ![Client riservato. Segreto applicazione](media/how-to-aad/portal-aad-register-new-app-registration-CONF-CLIENT-SECRET.png)
+    :::image type="content" source="media/how-to-aad/portal-aad-register-new-app-registration-CONF-CLIENT-SECRET.png" alt-text="Client riservato. Segreto dell'applicazione.":::
 
-1. Immettere una **Descrizione** per il segreto client. Selezionare la scadenza (in 1 anno, in 2 anni o mai), quindi fare clic su **Aggiungi**.
+1. Immettere una **Descrizione** per il segreto client. Selezionare il menu a discesa **scadenza** per scegliere un intervallo di tempo di scadenza, quindi fare clic su **Aggiungi**.
 
-   ![Aggiungere un segreto client](media/how-to-aad/add-a-client-secret.png)
+   :::image type="content" source="media/how-to-aad/add-a-client-secret.png" alt-text="Aggiungere un segreto client.":::
 
 1. Dopo aver creato la stringa privata del client, copiarne il **valore** e l' **ID** e archiviarli in un percorso sicuro a scelta.
 

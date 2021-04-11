@@ -5,13 +5,13 @@ author: abhijitpai
 ms.author: abpai
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 03/22/2021
-ms.openlocfilehash: f33490e273104105502ecc8f4f255c354a2d2f3b
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.date: 04/07/2021
+ms.openlocfilehash: f6416a688c7f1c94d7d8a90b0531b1ccd684ee29
+ms.sourcegitcommit: d40ffda6ef9463bb75835754cabe84e3da24aab5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104800024"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "107031104"
 ---
 # <a name="azure-cosmos-db-service-quotas"></a>Quote del servizio Azure Cosmos DB
 
@@ -31,7 +31,7 @@ Dopo aver creato un account Azure Cosmos nella propria sottoscrizione, è possib
 | --- | --- |
 | Numero massimo di UR per ogni contenitore ([modalità di provisioning con velocità effettiva dedicata](account-databases-containers-items.md#azure-cosmos-containers)) | 1\.000.000 per impostazione predefinita. È possibile aumentarlo [presentando un ticket di supporto di Azure](create-support-request-quota-increase.md) |
 | Numero massimo di UR per ogni database ([modalità di provisioning con velocità effettiva condivisa](account-databases-containers-items.md#azure-cosmos-containers)) | 1\.000.000 per impostazione predefinita. È possibile aumentarlo [presentando un ticket di supporto di Azure](create-support-request-quota-increase.md) |
-| Numero massimo di ur per partizione (logica) | 10,000 |
+| Numero massimo di ur per partizione (logica & fisica) | 10,000 |
 | Archiviazione massima in tutti gli elementi per ogni partizione (logica) | 20 GB |
 | Numero massimo di chiavi di partizione (logica) distinte | Nessuna limitazione |
 | Dimensione massima di archiviazione per ogni contenitore | Nessuna limitazione |

@@ -10,12 +10,12 @@ ms.subservice: computer-vision
 ms.topic: conceptual
 ms.date: 01/12/2021
 ms.author: aahi
-ms.openlocfilehash: 87076febd4597556fd2b28245f47442308cd6e6c
-ms.sourcegitcommit: 5fd1f72a96f4f343543072eadd7cdec52e86511e
+ms.openlocfilehash: d257a77940b460bf8be64e3f8376353a859365f7
+ms.sourcegitcommit: b8995b7dafe6ee4b8c3c2b0c759b874dff74d96f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/01/2021
-ms.locfileid: "106108362"
+ms.lasthandoff: 04/03/2021
+ms.locfileid: "106284720"
 ---
 # <a name="install-and-run-the-spatial-analysis-container-preview"></a>Installare ed eseguire il contenitore di analisi spaziale (anteprima)
 
@@ -547,8 +547,8 @@ Una volta completata la distribuzione e il contenitore è in esecuzione, il **co
 
 Se si desidera iniziare a utilizzare l'output generato dal contenitore, vedere gli articoli seguenti:
 
-*   Usare l'SDK di hub eventi di Azure per il linguaggio di programmazione scelto per connettersi all'endpoint dell'hub Azure Internet e ricevere gli eventi. Per altre informazioni, vedere [leggere i messaggi da dispositivo a cloud dall'endpoint predefinito](../../iot-hub/iot-hub-devguide-messages-read-builtin.md) . 
-*   Configurare il routing dei messaggi nell'hub di Azure per l'invio degli eventi ad altri endpoint oppure salvare gli eventi nell'archiviazione BLOB di Azure e così via. Per ulteriori informazioni, vedere [routing dei messaggi dell'hub](../../iot-hub/iot-hub-devguide-messages-d2c.md) Internet. 
+*    Usare l'SDK di hub eventi di Azure per il linguaggio di programmazione scelto per connettersi all'endpoint dell'hub Azure Internet e ricevere gli eventi. Per altre informazioni, vedere [leggere i messaggi da dispositivo a cloud dall'endpoint predefinito](../../iot-hub/iot-hub-devguide-messages-read-builtin.md) . 
+*    Configurare il routing dei messaggi nell'hub di Azure per l'invio degli eventi ad altri endpoint oppure salvare gli eventi nell'archiviazione BLOB di Azure e così via. Per ulteriori informazioni, vedere [routing dei messaggi dell'hub](../../iot-hub/iot-hub-devguide-messages-d2c.md) Internet. 
 
 ## <a name="running-spatial-analysis-with-a-recorded-video-file"></a>Esecuzione dell'analisi spaziale con un file video registrato
 

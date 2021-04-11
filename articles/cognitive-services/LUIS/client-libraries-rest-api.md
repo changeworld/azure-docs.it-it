@@ -2,7 +2,7 @@
 title: 'Avvio rapido: Librerie client e API REST di Language Understanding (LUIS) SDK'
 description: Creare un'app LUIS ed eseguire query con le librerie client e l'API REST di LUIS SDK.
 ms.topic: quickstart
-ms.date: 12/09/2020
+ms.date: 03/29/2021
 ms.service: cognitive-services
 ms.author: aahi
 manager: nitinme
@@ -11,12 +11,12 @@ author: aahill
 keywords: Azure, intelligenza artificiale, ia, elaborazione del linguaggio naturale, nlp, LUIS, azure luis, natural language understanding, chatbot di ia, strumento di creazione di chatbot, comprensione del linguaggio naturale
 ms.custom: devx-track-python, devx-track-js, devx-track-csharp, cog-serv-seo-aug-2020
 zone_pivot_groups: programming-languages-set-luis
-ms.openlocfilehash: 7ff5844cf9f1bce45df438fc00e24da28c438b05
-ms.sourcegitcommit: dea56e0dd919ad4250dde03c11d5406530c21c28
-ms.translationtype: HT
+ms.openlocfilehash: ca45266ce4b8ca784c3d54aafb80a66efaf2a1da
+ms.sourcegitcommit: 02bc06155692213ef031f049f5dcf4c418e9f509
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96941528"
+ms.lasthandoff: 04/03/2021
+ms.locfileid: "106278916"
 ---
 # <a name="quickstart-language-understanding-luis-client-libraries-and-rest-api"></a>Avvio rapido: Librerie client e API REST di Language Understanding (LUIS)
 
@@ -61,9 +61,5 @@ Altri errori: se viene ricevuto un errore non incluso nell'elenco precedente, se
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* [Che cos'è l'API Language Understanding (LUIS)?](what-is-luis.md)
-* [Novità](whats-new.md)
-* [Finalità](luis-concept-intent.md), [entità](luis-concept-entity-types.md), [espressioni di esempio](luis-concept-utterance.md) ed [entità predefinite](luis-reference-prebuilt-entities.md)
-* Il codice sorgente per questo esempio è disponibile su [GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code).
-* Comprensione del linguaggio naturale: [comprensione del linguaggio naturale (NLU, Natural Language Understanding) ed elaborazione del linguaggio naturale (NLP, Natural Language Processing)](artificial-intelligence.md)
-* Bot: [chatbot di IA](luis-csharp-tutorial-bf-v4.md "Esercitazione sullo strumento di creazione di chatbot")
+> [!div class="nextstepaction"]
+> [Sviluppo di app iterative per LUIS](./luis-concept-app-iteration.md)

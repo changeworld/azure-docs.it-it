@@ -9,12 +9,12 @@ ms.subservice: verifiable-credentials
 ms.topic: how-to
 ms.date: 04/01/2021
 ms.author: barclayn
-ms.openlocfilehash: 1894ffb7ca75a283e3a74d17c3e73de51fc46d8d
-ms.sourcegitcommit: d23602c57d797fb89a470288fcf94c63546b1314
+ms.openlocfilehash: 1e8bb59c09622a39dad680940ff34e643ee0cc3b
+ms.sourcegitcommit: 3f684a803cd0ccd6f0fb1b87744644a45ace750d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/01/2021
-ms.locfileid: "106170251"
+ms.lasthandoff: 04/02/2021
+ms.locfileid: "106222742"
 ---
 # <a name="how-to-create-a-free-azure-active-directory-developer-tenant"></a>Come creare un tenant di Azure Active Directory Developer gratuito
 
@@ -32,15 +32,15 @@ Ci sono due semplici modi per creare un Azure Active Directory gratuito con una 
 
 Se si decide di iscriversi al programma gratuito Microsoft 365 Developer, è necessario seguire alcuni semplici passaggi:
 
-1. Fai clic sul pulsante Partecipa ora sullo schermo
+1. Fai clic sul pulsante **partecipa ora** sullo schermo.
 
 2. Accedere con un nuovo account Microsoft o usare un account esistente (lavoro) già esistente.
 
-3. Nella pagina di iscrizione selezionare l'area geografica, immettere il nome della società e accettare i termini e le condizioni del programma prima di fare clic su Avanti.
+3. Nella pagina di iscrizione selezionare l'area geografica, immettere il nome della società e accettare i termini e le condizioni del programma prima di fare clic su **Avanti**.
 
-4. Fare clic su Configura sottoscrizione. Specificare l'area in cui si vuole creare il nuovo tenant, creare un nome utente, un dominio e immettere una password. Verrà creato un nuovo tenant e il primo amministratore del tenant
+4. Fare clic su **Configura sottoscrizione**. Specificare l'area in cui si vuole creare il nuovo tenant, creare un nome utente, un dominio e immettere una password. Verrà creato un nuovo tenant e il primo amministratore del tenant.
 
-5. Immettere le informazioni di sicurezza necessarie per proteggere l'account amministratore del nuovo tenant. Verrà impostata l'autenticazione a più fattori per l'account
+5. Immettere le informazioni di sicurezza necessarie per proteggere l'account amministratore del nuovo tenant. Verrà impostata l'autenticazione a più fattori per l'account.
 
 
 A questo punto, è stato creato un tenant con 25 licenze utente E5. Le licenze E5 includono Azure AD licenze P2. Facoltativamente, è possibile aggiungere pacchetti di dati di esempio a utenti, gruppi, posta e SharePoint per eseguire il test nell'ambiente di sviluppo. Per il servizio di emissione delle credenziali verificabili, non sono necessarie.

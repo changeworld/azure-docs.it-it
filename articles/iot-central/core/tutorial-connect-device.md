@@ -11,18 +11,18 @@ ms.custom:
 - mqtt
 - device-developer
 zone_pivot_groups: programming-languages-set-twenty-six
-ms.openlocfilehash: 8f1b5eabe235d107b48dc7b2db5b6d4b1188a3fa
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: bbf94b6e000d5c082debd6a0d41a8d62b8b3f26e
+ms.sourcegitcommit: bfa7d6ac93afe5f039d68c0ac389f06257223b42
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99833967"
+ms.lasthandoff: 04/06/2021
+ms.locfileid: "106491101"
 ---
 # <a name="tutorial-create-and-connect-a-client-application-to-your-azure-iot-central-application"></a>Esercitazione: Creare e connettere un'applicazione client all'applicazione Azure IoT Central
 
 *Le informazioni di questo articolo sono destinate a generatori di soluzioni e sviluppatori di dispositivi.*
 
-Questa esercitazione illustra agli sviluppatori di dispositivi come connettere un'applicazione client all'applicazione Azure IoT Central. L'applicazione simula il comportamento di un dispositivo termostato. Quando l'applicazione si connette a IoT Central, invia l'ID modello del modello del dispositivo termostato. IoT Central usa l'ID modello per recuperare il modello di dispositivo e creare un modello di dispositivo per l'utente. È possibile aggiungere personalizzazioni e visualizzazioni al modello di dispositivo per consentire a un operatore di interagire con un dispositivo.
+Questa esercitazione illustra agli sviluppatori di dispositivi come connettere un'applicazione client all'applicazione Azure IoT Central. L'applicazione simula il comportamento di un dispositivo controller di temperatura. Quando l'applicazione si connette a IoT Central, invia l'ID modello del modello di dispositivo del controller di temperatura. IoT Central usa l'ID modello per recuperare il modello di dispositivo e creare un modello di dispositivo per l'utente. È possibile aggiungere personalizzazioni e visualizzazioni al modello di dispositivo per consentire a un operatore di interagire con un dispositivo.
 
 In questa esercitazione verranno illustrate le procedure per:
 
@@ -70,7 +70,7 @@ Gli sviluppatori di dispositivi possono usare la visualizzazione **Dati non elab
 
 :::image type="content" source="media/tutorial-connect-device/raw-data.png" alt-text="Visualizzazione dati non elaborati":::
 
-In questa visualizzazione è possibile selezionare le colonne da visualizzare e impostare un intervallo di tempo da visualizzare. La colonna **Dati senza modello** contiene i dati del dispositivo che non corrispondono ad alcuna definizione di proprietà o di telemetria nel modello di dispositivo.
+In questa visualizzazione è possibile selezionare le colonne da visualizzare e impostare un intervallo di tempo da visualizzare. La colonna di **dati non modellata** Mostra i dati del dispositivo che non corrispondono ad alcuna definizione di proprietà o di telemetria nel modello di dispositivo.
 
 ## <a name="clean-up-resources"></a>Pulire le risorse
 

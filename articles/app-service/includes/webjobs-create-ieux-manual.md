@@ -5,12 +5,12 @@ ms.topic: include
 ms.date: 10/16/2018
 ms.title: include
 ROBOTS: NOINDEX,NOFOLLOW
-ms.openlocfilehash: 5687fb99c27b8b2141e0a2a817327cfbb124951a
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 40e9e2b0e7437566a132f2402d3bed01b284d11a
+ms.sourcegitcommit: 3ee3045f6106175e59d1bd279130f4933456d5ff
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "102109036"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106081011"
 ---
 ## <a name="create-a-manually-triggered-webjob"></a><a name="CreateOnDemand"></a> Creare un processo Web attivato manualmente
 
@@ -33,7 +33,7 @@ ms.locfileid: "102109036"
    | <abbr title="Nome univoco nell'app del servizio app. Deve iniziare con una lettera o un numero e non può contenere caratteri speciali diversi da `-` e `_` .">Nome</abbr> | myTriggeredWebJob | 
     | <abbr title="File *ZIP* che contiene il file eseguibile o il file di script e gli eventuali file di supporto necessari per eseguire il programma o lo script.">Caricamento file</abbr> | ConsoleApp.zip |
     | <abbr title="I tipi includono Continuous, attivato.">Tipo</abbr> | Attivato | 
-    | <abbr title="I tipi includono scheduled o Manual">Trigger</a> | Manuale | |
+    | <abbr title="I tipi includono scheduled o Manual">Trigger</a> | Manuale | 
 
 4. Fare clic su **OK**. 
 

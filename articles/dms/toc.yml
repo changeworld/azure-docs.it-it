@@ -37,7 +37,7 @@
   items:
     - name: Eseguire la migrazione di SQL Server
       items:
-        - name: nel database SQL di Azure
+        - name: a Database SQL di Azure
           href: tutorial-sql-server-to-azure-sql.md
         - name: a Istanza gestita di SQL di Azure (offline)
           href: tutorial-sql-server-to-managed-instance.md
@@ -93,6 +93,10 @@
           href: how-to-migrate-ssis-packages.md
         - name: Istanza gestita di SQL di Azure
           href: how-to-migrate-ssis-packages-managed-instance.md
+- name: Informazioni di riferimento
+  items:
+    - name: Interfaccia della riga di comando di Azure
+      href: /cli/azure/dms
 - name: Risorse
   items:
     - name: Domande frequenti

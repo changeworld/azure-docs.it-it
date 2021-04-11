@@ -8,18 +8,21 @@ ms.service: application-gateway
 ms.topic: how-to
 ms.date: 11/14/2019
 ms.author: victorh
-ms.openlocfilehash: cb0f9ef64cb8032c02f2ccd4b42028103b6d3ec6
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: ed81ca2c8f409b7f6c4a6f30f9bf75e594c6c208
+ms.sourcegitcommit: 3f684a803cd0ccd6f0fb1b87744644a45ace750d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "93397927"
+ms.lasthandoff: 04/02/2021
+ms.locfileid: "106221705"
 ---
 # <a name="configure-tls-policy-versions-and-cipher-suites-on-application-gateway"></a>Configurare le versioni dei criteri TLS e i pacchetti di crittografia nel gateway applicazione
 
 Informazioni su come configurare le versioni dei criteri TLS/SSL e i pacchetti di crittografia nel gateway applicazione. È possibile scegliere da un elenco di criteri predefiniti che contengono diverse configurazioni di versioni di criteri TLS e pacchetti di crittografia abilitati. È anche possibile definire [criteri TLS personalizzati](#configure-a-custom-tls-policy) in base alle proprie esigenze.
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
+> [!NOTE]
+> È consigliabile usare TLS 1,2 come versione minima del protocollo TLS per una maggiore sicurezza nel gateway applicazione. 
 
 ## <a name="get-available-tls-options"></a>Ottenere le opzioni TLS disponibili
 
@@ -217,4 +220,6 @@ $SetGW = Set-AzApplicationGateway -ApplicationGateway $AppGW
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Per informazioni su come reindirizzare il traffico HTTP a un endpoint HTTPS, vedere [Panoramica del reindirizzamento nel gateway applicazione](./redirect-overview.md).
+Per informazioni su come reindirizzare il traffico HTTP a un endpoint HTTPS, vedere [Panoramica del reindirizzamento nel gateway applicazione](./redirect-overview.md). 
+
+Vedere Configurazione dei criteri SSL specifici del listener in [impostazione dei criteri specifici del listener SSL tramite il portale](./application-gateway-configure-listener-specific-ssl-policy.md)
