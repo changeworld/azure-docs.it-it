@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/07/2020
 ms.author: allensu
-ms.openlocfilehash: 0d02b46345af13770f77a7dac452127a665e01fd
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 9b555d7972e88df85e08dbcb1737231755c21361
+ms.sourcegitcommit: 56b0c7923d67f96da21653b4bb37d943c36a81d6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "94696745"
+ms.lasthandoff: 04/06/2021
+ms.locfileid: "106448849"
 ---
 # <a name="load-balancer-tcp-reset-and-idle-timeout"></a>Reimpostazione Load Balancer TCP e timeout di inattività
 
@@ -58,7 +58,6 @@ La connessione TCP keep-alive è adatta per gli scenari non vincolati alla durat
 ## <a name="limitations"></a>Limitazioni
 
 - Il ripristino TCP viene inviato solo durante la connessione TCP nello stato stabilito.
-- La reimpostazione TCP non viene inviata per i bilanciamento del carico interni con le porte a disponibilità elevata configurate.
 - Il timeout di inattività TCP non influisce sulle regole di bilanciamento del carico sul protocollo UDP.
 
 ## <a name="next-steps"></a>Passaggi successivi

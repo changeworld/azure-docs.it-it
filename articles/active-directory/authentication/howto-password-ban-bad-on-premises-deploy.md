@@ -11,12 +11,12 @@ author: justinha
 manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c8cae19bd07e1cc87a0aaa25e47cf5f431d566ba
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 5134c0eeaf3ebd1467b35cf825aa64bd1b445bd5
+ms.sourcegitcommit: 6ed3928efe4734513bad388737dd6d27c4c602fd
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101653814"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "107010580"
 ---
 # <a name="plan-and-deploy-on-premises-azure-active-directory-password-protection"></a>Pianificare e distribuire la protezione Azure Active Directory password locale
 
@@ -88,7 +88,7 @@ Si applicano i requisiti di base seguenti:
 * Il servizio di distribuzione delle chiavi deve essere abilitato in tutti i controller di dominio che eseguono Windows Server 2012 e versioni successive. Per impostazione predefinita, questo servizio viene abilitato tramite l'avvio manuale del trigger.
 
 * La connettività di rete deve esistere tra almeno un controller di dominio in ogni dominio e almeno un server che ospita il servizio proxy per la protezione Azure AD password. Questa connettività deve consentire al controller di dominio di accedere alla porta di mapping degli endpoint RPC 135 e alla porta del server RPC nel servizio proxy.
-    * Per impostazione predefinita, la porta del server RPC è una porta RPC dinamica, ma può essere configurata per l' [utilizzo di una porta statica](#static).
+    * Per impostazione predefinita, la porta del server RPC è una porta RPC dinamica dall'intervallo (49152-65535), ma può essere configurata per l' [utilizzo di una porta statica](#static).
 * Tutti i computer in cui verrà installato il servizio proxy Azure AD password protection dovranno avere accesso di rete agli endpoint seguenti:
 
     |**Endpoint**|**Scopo**|

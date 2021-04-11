@@ -9,10 +9,10 @@ ms.date: 04/27/2020
 ms.author: albecker1
 ms.custom: include file
 ms.openlocfilehash: 0f85f2770b98507618d5cbfdec1b55f397c7f514
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "101750797"
 ---
 Azure offre la possibilità di aumentare le prestazioni di IOPS e MB/s di archiviazione su disco. questa operazione è detta espansione per le macchine virtuali (VM) e i dischi. È possibile sfruttare in modo efficace le macchine virtuali e il potenziamento del disco per ottenere prestazioni migliori per le macchine virtuali e i dischi.

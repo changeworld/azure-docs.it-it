@@ -7,13 +7,13 @@ ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 03/29/2021
 ms.author: helohr
-manager: lizross
-ms.openlocfilehash: 38f34324a0cda518645f8b9231e08bafbd75cca0
-ms.sourcegitcommit: dae6b628a8d57540263a1f2f1cdb10721ed1470d
+manager: femila
+ms.openlocfilehash: 8ed4c2cffffca79ea545358b8ad639118e87e013
+ms.sourcegitcommit: 56b0c7923d67f96da21653b4bb37d943c36a81d6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "105709532"
+ms.lasthandoff: 04/06/2021
+ms.locfileid: "106448203"
 ---
 # <a name="azure-monitor-for-windows-virtual-desktop-glossary"></a>Monitoraggio di Azure per il Glossario di desktop virtuali Windows
 
@@ -182,10 +182,10 @@ Per ulteriori informazioni sui registri eventi di Windows, vedere [proprietà di
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Per iniziare a usare monitoraggio di Azure per desktop virtuale di Windows, vedere questi articoli:
+- Per iniziare, vedere [usare monitoraggio di Azure per desktop virtuale Windows per monitorare la distribuzione](azure-monitor.md).
+- Per stimare, misurare e gestire i costi di archiviazione dei dati, vedere [stimare i costi di monitoraggio di Azure](azure-monitor-costs.md).
+- Se si verifica un problema, consultare la [Guida alla risoluzione dei](troubleshoot-azure-monitor.md) problemi per informazioni e problemi noti.
 
-- [Usare monitoraggio di Azure per desktop virtuale Windows per monitorare la distribuzione](azure-monitor.md)
-- [Monitoraggio di Azure per la risoluzione dei problemi relativi al desktop virtuale Windows](troubleshoot-azure-monitor.md)
 
 È anche possibile configurare Azure Advisor per capire come risolvere o impedire problemi comuni. Per altre informazioni, vedere [usare Azure Advisor con desktop virtuale di Windows](azure-advisor.md).
 

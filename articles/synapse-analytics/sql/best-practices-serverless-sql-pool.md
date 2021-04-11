@@ -10,18 +10,27 @@ ms.subservice: sql
 ms.date: 05/01/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick
-ms.openlocfilehash: a47982012dcaa2eabda93c93508b23f30525812d
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: dcd48354372a196ea903c335e5e22caf20e25996
+ms.sourcegitcommit: 3f684a803cd0ccd6f0fb1b87744644a45ace750d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104720390"
+ms.lasthandoff: 04/02/2021
+ms.locfileid: "106219655"
 ---
 # <a name="best-practices-for-serverless-sql-pool-in-azure-synapse-analytics"></a>Procedure consigliate per il pool SQL senza server in Azure sinapsi Analytics
 
 In questo articolo è presente una raccolta di procedure consigliate per l'uso di un pool SQL senza server. Il pool SQL senza server è una risorsa in Azure sinapsi Analytics.
 
 Il pool SQL senza server consente di eseguire query sui file negli account di archiviazione di Azure. Non include funzionalità di archiviazione o inserimento in locale. Tutti i file di destinazione della query sono quindi esterni al pool SQL senza server. Tutte le operazioni correlate alla lettura di file dall'archiviazione possono avere un impatto sulle prestazioni delle query.
+
+Alcune linee guida generiche sono:
+- Assicurarsi che le applicazioni client siano collocate con il pool SQL senza server.
+  - Se si usano applicazioni client all'esterno di Azure (ad esempio Power BI Desktop, SSMS, ADS), assicurarsi di usare il pool senza server in una determinata area vicina al computer client.
+- Verificare che la risorsa di archiviazione (Azure Data Lake, Cosmos DB) e il pool SQL senza server si trovino nella stessa area.
+- Provare ad [ottimizzare il layout di archiviazione](#prepare-files-for-querying) usando il partizionamento e mantenere i file nell'intervallo compreso tra 100 MB e 10 GB.
+- Se si sta restituendo un numero elevato di risultati, assicurarsi di usare SSMS o ADS e non sinapsi Studio. Sinapsi studio è uno strumento Web non progettato per set di risultati di grandi dimensioni. 
+- Se si filtrano i risultati in base alla colonna stringa, provare a utilizzare alcune `BIN2_UTF8` regole di confronto.
+- Provare a memorizzare nella cache i risultati sul lato client usando Power BI modalità di importazione o Azure Analysis Services e aggiornarli periodicamente. I pool SQL senza server non sono in grado di offrire un'esperienza interattiva in modalità di query diretta Power BI se si utilizzano query complesse o si elabora una grande quantità di dati.
 
 ## <a name="client-applications-and-network-connections"></a>Applicazioni client e connessioni di rete
 
@@ -66,7 +75,11 @@ Se possibile, preparare i file per migliorare le prestazioni:
 
 ### <a name="colocate-your-cosmosdb-analytical-storage-and-serverless-sql-pool"></a>Percorso di archiviazione analitica CosmosDB e del pool SQL senza server
 
-Assicurarsi che l'archiviazione analitica di CosmosDB sia posizionata nella stessa area dell'area di lavoro sinapsi. Le query tra aree possono provocare latenze enormi.
+Assicurarsi che l'archiviazione analitica di CosmosDB sia posizionata nella stessa area dell'area di lavoro sinapsi. Le query tra aree possono provocare latenze enormi. Usare la proprietà Region nella stringa di connessione per specificare in modo esplicito l'area in cui si trova l'archivio analitico (vedere [eseguire query CosmosDb usando un pool SQL senza server](query-cosmos-db-analytical-store.md#overview)):
+
+```
+'account=<database account name>;database=<database name>;region=<region name>'
+```
 
 ## <a name="csv-optimizations"></a>Ottimizzazioni CSV
 

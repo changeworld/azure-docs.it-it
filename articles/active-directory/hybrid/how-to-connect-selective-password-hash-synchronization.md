@@ -12,12 +12,12 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.reviewer: ''
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 248d5e163eb046edd130d69307a1c553d434b92d
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 5a73f4eba9581965470b95111e6dda1d8014e4cb
+ms.sourcegitcommit: d23602c57d797fb89a470288fcf94c63546b1314
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105604669"
+ms.lasthandoff: 04/01/2021
+ms.locfileid: "106167499"
 ---
 # <a name="selective-password-hash-synchronization-configuration-for-azure-ad-connect"></a>Configurazione della sincronizzazione dell'hash delle password selettiva per Azure AD Connect
 
@@ -83,7 +83,7 @@ Nella sezione **seguente viene descritto** come abilitare la sincronizzazione de
 - Impostare il valore dell'attributo in Active Directory definito come attributo di ambito per gli utenti che si desidera consentire nella sincronizzazione dell'hash delle password. 
 
 >[!Important]
->I passaggi forniti per configurare la sincronizzazione dell'hash delle password selettiva avranno effetto solo sugli oggetti utente con l'attributo **adminDescription** popolato in Active Directory con il valore di **PHSFiltered**.
+>La procedura per configurare la sincronizzazione dell'hash delle password selettiva influirà solo sugli oggetti utente che hanno l'attributo **adminDescription** popolato in Active Directory con il valore di **PHSFiltered**.
 Se questo attributo non è popolato o se il valore è diverso da **PHSFiltered** , queste regole non verranno applicate agli oggetti utente.
 
 
@@ -95,7 +95,7 @@ Se questo attributo non è popolato o se il valore è diverso da **PHSFiltered**
      ![Seleziona regola](media/how-to-connect-selective-password-hash-synchronization/exclude-2.png)
  3. La prima regola Disabilita la sincronizzazione degli hash delle password. Fornire il nome seguente alla nuova regola personalizzata: **in from ad-User AccountEnabled-Filter users from pH**.
  Modificare il valore di precedenza in un numero minore di 100 (ad esempio, **90** o a seconda del valore più basso disponibile nell'ambiente).
- Verificare che le caselle di controllo **Abilita sincronizzazione password** e **disabilitato** siano deselezionate e c.
+ Verificare che le caselle di controllo **Abilita sincronizzazione password** e **disabilitato** siano deselezionate.
  Fare clic su **Avanti**.
   ![Modifica in ingresso](media/how-to-connect-selective-password-hash-synchronization/exclude-3.png)
  4. In **filtro ambito** fare clic su **Aggiungi clausola**.
@@ -155,7 +155,7 @@ Di seguito è riportato un riepilogo delle azioni che verranno eseguite nei pass
 - Impostare il valore dell'attributo in Active Directory definito come attributo di ambito per gli utenti che si desidera consentire nella sincronizzazione dell'hash delle password. 
 
 >[!Important]
->I passaggi forniti per configurare la sincronizzazione dell'hash delle password selettiva avranno effetto solo sugli oggetti utente con l'attributo **adminDescription** popolato in Active Directory con il valore di **PHSIncluded**.
+>La procedura per configurare la sincronizzazione dell'hash delle password selettiva influirà solo sugli oggetti utente che hanno l'attributo **adminDescription** popolato in Active Directory con il valore di **PHSIncluded**.
 Se questo attributo non è popolato o se il valore è diverso da **PHSIncluded** , queste regole non verranno applicate agli oggetti utente.
 
 

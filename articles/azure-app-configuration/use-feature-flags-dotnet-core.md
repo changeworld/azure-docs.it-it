@@ -13,12 +13,12 @@ ms.topic: tutorial
 ms.date: 09/17/2020
 ms.author: alkemper
 ms.custom: devx-track-csharp, mvc
-ms.openlocfilehash: 327bc687c466a30d4f92810e48dc08f822f752ec
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 4d54e1ff07b250b5595d2f8aee5f022bd2359721
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101726428"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105729508"
 ---
 # <a name="tutorial-use-feature-flags-in-an-aspnet-core-app"></a>Esercitazione: Usare i flag di funzionalità in un'app ASP.NET Core
 
@@ -218,7 +218,7 @@ Per convenzione, la sezione `FeatureManagement` di questo documento JSON viene u
 
 ## <a name="use-dependency-injection-to-access-ifeaturemanager"></a>Usare l'inserimento di dipendenze per accedere a IFeatureManager 
 
-Per alcune operazioni, ad esempio il controllo manuale dei valori dei flag di funzionalità, è necessario ottenere un'istanza di [IFeatureManager](/dotnet/api/microsoft.featuremanagement.ifeaturemanager?view=azure-dotnet-preview). In ASP.NET Core MVC è possibile accedere a gestione funzionalità `IFeatureManager` tramite l'inserimento di dipendenze. Nell'esempio seguente viene aggiunto un argomento di tipo `IFeatureManager` alla firma del costruttore per un controller. Il runtime risolve automaticamente il riferimento e fornisce un dell'interfaccia quando viene chiamato il costruttore. Se si usa un modello di applicazione in cui il controller dispone già di uno o più argomenti di inserimento delle dipendenze nel costruttore, ad esempio `ILogger` , è possibile aggiungere solo `IFeatureManager` come argomento aggiuntivo:
+Per alcune operazioni, ad esempio il controllo manuale dei valori dei flag di funzionalità, è necessario ottenere un'istanza di [IFeatureManager](/dotnet/api/microsoft.featuremanagement.ifeaturemanager?preserve-view=true&view=azure-dotnet-preview). In ASP.NET Core MVC è possibile accedere a gestione funzionalità `IFeatureManager` tramite l'inserimento di dipendenze. Nell'esempio seguente viene aggiunto un argomento di tipo `IFeatureManager` alla firma del costruttore per un controller. Il runtime risolve automaticamente il riferimento e fornisce un dell'interfaccia quando viene chiamato il costruttore. Se si usa un modello di applicazione in cui il controller dispone già di uno o più argomenti di inserimento delle dipendenze nel costruttore, ad esempio `ILogger` , è possibile aggiungere solo `IFeatureManager` come argomento aggiuntivo:
 
 ### <a name="net-5x"></a>[.NET 5. x](#tab/core5x)
     
@@ -322,7 +322,7 @@ public IActionResult Index()
 }
 ```
 
-Quando un controller o un'azione MVC è bloccata perché il flag della funzionalità di controllo è *disattivato*, viene chiamata un'interfaccia [IDisabledFeaturesHandler](/dotnet/api/microsoft.featuremanagement.mvc.idisabledfeatureshandler?view=azure-dotnet-preview) registrata. L'interfaccia `IDisabledFeaturesHandler` predefinita restituisce un codice di stato 404 al client senza alcun corpo della risposta.
+Quando un controller o un'azione MVC è bloccata perché il flag della funzionalità di controllo è *disattivato*, viene chiamata un'interfaccia [IDisabledFeaturesHandler](/dotnet/api/microsoft.featuremanagement.mvc.idisabledfeatureshandler?preserve-view=true&view=azure-dotnet-preview) registrata. L'interfaccia `IDisabledFeaturesHandler` predefinita restituisce un codice di stato 404 al client senza alcun corpo della risposta.
 
 ## <a name="mvc-views"></a>Viste MVC
 

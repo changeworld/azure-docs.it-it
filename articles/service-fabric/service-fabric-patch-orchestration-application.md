@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 2/01/2019
 ms.author: atsenthi
-ms.openlocfilehash: e51b247f8c1a5a9ed8f6ec8e24363015afb2f7de
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: e94b809513bda8edc7a51baf79ec05a2c9c77489
+ms.sourcegitcommit: 56b0c7923d67f96da21653b4bb37d943c36a81d6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102614412"
+ms.lasthandoff: 04/06/2021
+ms.locfileid: "106448555"
 ---
 # <a name="patch-the-windows-operating-system-in-your-service-fabric-cluster"></a>Applicare patch al sistema operativo Windows nel cluster di Service Fabric
 
@@ -222,7 +222,7 @@ Per scaricare il pacchetto dell'applicazione, passare alla [pagina della version
 | WUOperationTimeOutInMinutes | Int <br>(Valore predefinito: *90*)                   | Specifica il timeout per qualsiasi operazione di Windows Update (ricerca, download o installazione). L'operazione viene interrotta se non viene completata entro il timeout specificato.       |
 | WURescheduleCount     | Int <br> (Valore predefinito: *5*)                  | Il numero massimo di volte in cui il servizio Ripianifica l'aggiornamento di Windows se un'operazione ha esito negativo in modo permanente.          |
 | WURescheduleTimeInMinutes | Int <br>(Valore predefinito: *30*) | Intervallo in base al quale il servizio Ripianifica gli aggiornamenti di Windows in caso di errore permanente. |
-| WUFrequency           | Stringa con valori delimitati da virgole (valore predefinito: *settimanale, mercoledì, 7:00:00*)     | Frequenza di installazione degli aggiornamenti di Windows. Il formato e i valori possibili sono: <br>-Monthly, GG, HH: MM: SS (esempio: *mensile, 5, 12:22:32*). I valori consentiti per il campo _GG_ (giorno) sono numeri compresi tra 1 e 28 e _l'ultimo_. <br>-Weekly, Day, HH: MM: SS (esempio: *Weekly, Tuesday, 12:22:32*)  <br>-Daily, HH: MM: SS (ad esempio: *Daily, 12:22:32*)  <br>-Settimana, giorno, HH: MM: SS (esempio: *2, venerdì, 21:00:00* indica 9:00 PM UTC il venerdì della seconda settimana di ogni mese) <br>- *None* indica che non è necessario eseguire gli aggiornamenti di Windows.  <br><br> Gli orari sono in formato UTC.|
+| WUFrequency           | Stringa con valori delimitati da virgole (valore predefinito: *settimanale, mercoledì, 7:00:00*)     | Frequenza di installazione degli aggiornamenti di Windows. Il formato e i valori possibili sono: <br>-Monthly, GG, HH: MM: SS (esempio: *mensile, 5, 12:22:32*). I valori consentiti per il campo _GG_ (giorno) sono numeri compresi tra 1 e 28 e _l'ultimo_. <br>-Weekly, Day, HH: MM: SS (esempio: *Weekly, Tuesday, 12:22:32*)  <br>-Daily, HH: MM: SS (ad esempio: *Daily, 12:22:32*)  <br>-MonthlyByWeekAndDay, week, Day, HH: MM: SS (ad esempio: *MonthlyByWeekAndDay, 2, Friday, 21:00:00* indica 9:00 PM UTC il venerdì della seconda settimana di ogni mese) <br>- *None* indica che non è necessario eseguire gli aggiornamenti di Windows.  <br><br> Gli orari sono in formato UTC.|
 | AcceptWindowsUpdateEula | Boolean <br>(Valore predefinito: *true*) | Impostando questo flag, l'applicazione accetta il contratto di licenza dell'utente finale per Windows Update per conto del proprietario della macchina.              |
 
 > [!TIP]

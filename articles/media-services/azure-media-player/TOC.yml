@@ -2,10 +2,8 @@
   items:
     - name: Panoramica di Azure Media Player
       href: azure-media-player-overview.md
-    - name: Note sulla versione
-      href: azure-media-player-release-notes.md
     - name: Log delle modifiche
-      href: azure-media-player-changelog.md
+      href: 'https://amp.azure.net/libs/amp/latest/docs/changelog.html'
 - name: Avvi rapidi
   items:
     - name: Avvio rapido su Azure Media Player
@@ -41,7 +39,7 @@
 - name: Informazioni di riferimento
   items:
     - name: API
-      href: /javascript/api/azuremediaplayer/
+      href: 'https://amp.azure.net/libs/amp/latest/docs/index.html'
     - name: Metodi API
       href: azure-media-player-api-methods.md
     - name: Opzioni

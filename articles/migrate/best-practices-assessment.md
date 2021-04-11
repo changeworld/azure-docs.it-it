@@ -6,12 +6,12 @@ ms.author: rajosh
 ms.manager: abhemraj
 ms.topic: conceptual
 ms.date: 11/19/2019
-ms.openlocfilehash: 1bf844dafe450e90213db2e447bb5392064eb245
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: fac488ba1881b6b79139eaf2468237e546737177
+ms.sourcegitcommit: 3ee3045f6106175e59d1bd279130f4933456d5ff
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104786771"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106077331"
 ---
 # <a name="best-practices-for-creating-assessments"></a>Procedure consigliate per la creazione di valutazioni
 
@@ -27,6 +27,8 @@ Valutazioni create con Azure Migrate: lo strumento di individuazione e valutazio
 **SQL di Azure** | Valutazioni per la migrazione dei server SQL locali dall'ambiente VMware al database SQL di Azure o al Istanza gestita SQL di Azure. [Altre informazioni](concepts-azure-sql-assessment-calculation.md)
 **Soluzione Azure VMware** | Valutazioni per la migrazione dei server locali nella [soluzione Azure VMware](../azure-vmware/introduction.md). <br/><br/> È possibile valutare le [macchine virtuali VMware](how-to-set-up-appliance-vmware.md) locali per la migrazione alla soluzione Azure VMware usando questo tipo di valutazione. [Altre informazioni](concepts-azure-vmware-solution-assessment-calculation.md)
 
+> [!NOTE]
+> Se il numero di macchine virtuali di Azure o di valutazione AVS non è corretto nello strumento di individuazione e valutazione, fare clic sul numero totale di valutazioni per passare a tutte le valutazioni e ricalcolare la VM di Azure o le valutazioni AVS. Lo strumento di individuazione e valutazione indicherà quindi il numero corretto per tale tipo di valutazione. 
 
 ### <a name="sizing-criteria"></a>Criteri di dimensionamento
 Opzioni relative ai criteri di ridimensionamento nelle valutazioni Azure Migrate:

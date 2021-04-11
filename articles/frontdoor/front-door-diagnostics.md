@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/23/2020
 ms.author: yuajia
-ms.openlocfilehash: 58db217ca173acbe0356596de916216c4ab7f241
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: a972123604cafbfc4c6753c1fe3ad21147b53b2d
+ms.sourcegitcommit: b0557848d0ad9b74bf293217862525d08fe0fc1d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101715548"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "106550660"
 ---
 # <a name="monitoring-metrics-and-logs-in-azure-front-door"></a>Monitoraggio di metriche e log in front-end di Azure
 
@@ -71,7 +71,7 @@ Per configurare i log di diagnostica per la porta anteriore:
 
 3. Selezionare **Attiva diagnostica**. Archiviare i log di diagnostica insieme alle metriche in un account di archiviazione, trasmetterli a un hub eventi o inviarli ai log di monitoraggio di Azure.
 
-La porta anteriore fornisce attualmente log di diagnostica (in batch ogni ora). I log di diagnostica forniscono singole richieste API a ogni voce con lo schema seguente:
+La porta anteriore fornisce attualmente log di diagnostica. I log di diagnostica forniscono singole richieste API a ogni voce con lo schema seguente:
 
 | Proprietà  | Descrizione |
 | ------------- | ------------- |

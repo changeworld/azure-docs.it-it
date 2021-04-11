@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 02/23/2021
 ms.author: deanwe
 ms.custom: references_regions
-ms.openlocfilehash: 1d3b2174df5dd83852ce120ec6693ae187a3e795
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 973bd1ac121513a297574bbb37d1663b5a18c345
+ms.sourcegitcommit: 02bc06155692213ef031f049f5dcf4c418e9f509
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101643539"
+ms.lasthandoff: 04/03/2021
+ms.locfileid: "106276910"
 ---
 # <a name="azure-automanage-for-virtual-machines"></a>Gestione automatici di Azure per le macchine virtuali
 
@@ -70,6 +70,8 @@ Se si Abilita automanage con un nuovo account automanage:
 Se si Abilita automanage con un account di gestione autogestito esistente:
 * Ruolo **collaboratore** per il gruppo di risorse contenente le macchine virtuali
 
+All'account di automanage verranno concesse le autorizzazioni **collaboratore** e **collaboratore criteri risorse** per eseguire azioni sui computer gestiti in modo autogestito.
+
 > [!NOTE]
 > Se si vuole usare automanage in una macchina virtuale connessa a un'area di lavoro in una sottoscrizione diversa, è necessario disporre delle autorizzazioni descritte in precedenza in ogni sottoscrizione.
 
@@ -94,6 +96,19 @@ Se è la prima volta che si Abilita la gestione automatica per la macchina virtu
 
 L'unica volta in cui potrebbe essere necessario interagire con questa macchina virtuale per gestire questi servizi si trova nel caso in cui si sia tentato di correggere la macchina virtuale, ma non è stato possibile eseguire questa operazione. Se la macchina virtuale è stata risolta correttamente, verrà ripristinata la conformità senza avvisare dell'utente. Per informazioni dettagliate, vedere [lo stato delle macchine virtuali](#status-of-vms).
 
+## <a name="enabling-automanage-for-vms-using-azure-policy"></a>Abilitazione della gestione autogestita per le macchine virtuali con criteri di Azure
+È anche possibile abilitare la gestione automatica nelle VM su larga scala usando i criteri predefiniti di Azure. Il criterio ha un effetto DeployIfNotExists, il che significa che tutte le macchine virtuali idonee presenti nell'ambito del criterio verranno automaticamente caricate in modo da gestire automaticamente le procedure consigliate per la macchina virtuale.
+
+Un collegamento diretto al criterio è disponibile [qui](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F270610db-8c04-438a-a739-e8e6745b22d3).
+
+### <a name="how-to-apply-the-policy"></a>Come applicare il criterio
+1. Fare clic sul pulsante **assign (assegna** ) quando si visualizza la definizione dei criteri
+1. Selezionare l'ambito a cui si desidera applicare i criteri (può essere un gruppo di gestione, una sottoscrizione o un gruppo di risorse)
+1. In **parametri**, specificare i parametri per l'account automanage, il profilo di configurazione e l'effetto (l'effetto dovrebbe in genere essere DeployIfNotExists)
+    1. Se non si dispone di un account di automanage, sarà necessario [crearne uno](#create-an-automanage-account).
+1. In **monitoraggio e aggiornamento** selezionare la casella di controllo "fare clic su un'attività di monitoraggio e aggiornamento". In questo modo verrà eseguito l'onboarding per la gestione.
+1. Fare clic su **Verifica + crea** e verificare che tutte le impostazioni abbiano un aspetto positivo.
+1. Fare clic su **Crea**.
 
 ## <a name="environment-configuration"></a>Configurazione dell'ambiente
 
@@ -142,6 +157,43 @@ Se si Abilita automanage con un account di gestione automanage esistente, è nec
 > [!NOTE]
 > Quando si disabilitano le procedure consigliate per la gestione dei problemi, le autorizzazioni dell'account di gestione gestita per tutte le sottoscrizioni associate rimarranno. Rimuovere manualmente le autorizzazioni andando alla pagina IAM della sottoscrizione o eliminare l'account di gestione. Non è possibile eliminare l'account di automanage se è ancora in grado di gestire qualsiasi computer.
 
+### <a name="create-an-automanage-account"></a>Creare un account di gestione autogestita
+È possibile creare un account di automanage usando il portale o un modello ARM.
+
+#### <a name="portal"></a>Portale
+1. Passare al pannello **automanage** nel portale
+1. Fare clic su **Abilita nel computer esistente**
+1. In **Avanzate** fare clic su "crea un nuovo account".
+1. Compilare i campi obbligatori e fare clic su **Crea**
+
+#### <a name="arm-template"></a>Modello ARM
+Salvare il modello ARM seguente come `azuredeploy.json` ed eseguire il comando seguente: `az deployment group create --resource-group <resource group name> --template-file azuredeploy.json`
+
+```json
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "automanageAccountName": {
+            "type": "String"
+        },
+        "location": {
+            "type": "String"
+        }
+    },
+    "resources": [
+        {
+            "apiVersion": "2020-06-30-preview",
+            "type": "Microsoft.Automanage/accounts",
+            "name": "[parameters('automanageAccountName')]",
+            "location": "[parameters('location')]",
+            "identity": {
+                "type": "SystemAssigned"
+            }
+        }
+    ]
+}
+```
 
 ## <a name="status-of-vms"></a>Stato delle macchine virtuali
 

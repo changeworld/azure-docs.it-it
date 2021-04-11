@@ -7,12 +7,12 @@ ms.subservice: cosmosdb-sql
 ms.topic: how-to
 ms.date: 3/18/2019
 ms.author: mjbrown
-ms.openlocfilehash: 0f08ca84597b08b9a236b7bfb0fc9c849423a752
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 5cd90e994e620960e0d974ef7609a67f8a5eb58b
+ms.sourcegitcommit: 56b0c7923d67f96da21653b4bb37d943c36a81d6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "93335892"
+ms.lasthandoff: 04/06/2021
+ms.locfileid: "106448543"
 ---
 # <a name="query-an-azure-cosmos-container"></a>Eseguire una query su un contenitore in Azure Cosmos
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -26,19 +26,19 @@ Quando si esegue una query sui dati dei contenitori, se per la query è stato sp
 Si consideri, ad esempio, la query seguente con un filtro di uguaglianza su `DeviceId` . Se si esegue questa query su un contenitore partizionato in `DeviceId` , questa query verrà filtrata in un'unica partizione fisica.
 
 ```sql
-    SELECT * FROM c WHERE c.DeviceId = 'XMS-0001'
+SELECT * FROM c WHERE c.DeviceId = 'XMS-0001'
 ```
 
 Come per l'esempio precedente, la query verrà filtrata anche in una singola partizione. L'aggiunta del filtro aggiuntivo in `Location` non cambia:
 
 ```sql
-    SELECT * FROM c WHERE c.DeviceId = 'XMS-0001' AND c.Location = 'Seattle'
+SELECT * FROM c WHERE c.DeviceId = 'XMS-0001' AND c.Location = 'Seattle'
 ```
 
 Di seguito è illustrata una query con un filtro di intervallo sulla chiave di partizione e non verrà definito come ambito di una singola partizione fisica. Per essere una query nel partizionamento, è necessario che la query disponga di un filtro di uguaglianza che includa la chiave di partizione:
 
 ```sql
-    SELECT * FROM c WHERE c.DeviceId > 'XMS-0001'
+SELECT * FROM c WHERE c.DeviceId > 'XMS-0001'
 ```
 
 ## <a name="cross-partition-query"></a>Query tra partizioni
@@ -46,7 +46,7 @@ Di seguito è illustrata una query con un filtro di intervallo sulla chiave di p
 La query seguente non dispone di un filtro per la chiave di partizione ( `DeviceId` ). Pertanto, è necessario che la ventola venga eseguita su tutte le partizioni fisiche in cui viene eseguita sull'indice di ogni partizione:
 
 ```sql
-    SELECT * FROM c WHERE c.Location = 'Seattle`
+SELECT * FROM c WHERE c.Location = 'Seattle`
 ```
 
 Ogni partizione fisica dispone di un proprio indice. Pertanto, quando si esegue una query tra partizioni in un contenitore, si esegue effettivamente una query *per* partizione fisica. Azure Cosmos DB aggrega automaticamente i risultati in partizioni fisiche diverse.

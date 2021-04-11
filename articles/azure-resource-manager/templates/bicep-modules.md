@@ -2,17 +2,19 @@
 title: Moduli bicipite
 description: Viene descritto come definire e utilizzare un modulo e come utilizzare gli ambiti del modulo.
 ms.topic: conceptual
-ms.date: 03/25/2021
-ms.openlocfilehash: 7a680e8aa0fa4d5ef9cac7f9e7ba07a3aa4ee1e2
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.date: 03/30/2021
+ms.openlocfilehash: 6c325bbbe265e13241119761373985ca4552b158
+ms.sourcegitcommit: f5448fe5b24c67e24aea769e1ab438a465dfe037
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 03/30/2021
-ms.locfileid: "105611736"
+ms.locfileid: "105967881"
 ---
 # <a name="use-bicep-modules-preview"></a>Usare i moduli bicipite (anteprima)
 
-Il bicipite consente di suddividere una soluzione complessa in moduli. Un modulo bicipite è un set di una o più risorse da distribuire insieme. I moduli astraggono i dettagli complessi della dichiarazione di risorse non elaborate, che può migliorare la leggibilità. È possibile riutilizzare questi moduli e condividerli con altri utenti. In combinazione con le [specifiche del modello](./template-specs.md), viene creata una soluzione per la modularità e il riutilizzo del codice. Per un'esercitazione, vedere [esercitazione: aggiungere moduli bicipite](./bicep-tutorial-add-modules.md).
+Il bicipite consente di suddividere una soluzione complessa in moduli. Un modulo bicipite è un set di una o più risorse da distribuire insieme. I moduli astraggono i dettagli complessi della dichiarazione di risorse non elaborate, che può migliorare la leggibilità. È possibile riutilizzare questi moduli e condividerli con altri utenti. In combinazione con le [specifiche del modello](./template-specs.md), viene creata una soluzione per la modularità e il riutilizzo del codice. I moduli bicipite vengono traspilati in un modello ARM singolo con [modelli annidati](./linked-templates.md#nested-template) per la distribuzione. In bicipite, [_dependsOn_](./template-syntax.md#resources) viene gestito automaticamente.
+
+Per un'esercitazione, vedere [esercitazione: aggiungere moduli bicipite](./bicep-tutorial-add-modules.md).
 
 ## <a name="define-modules"></a>Definire i moduli
 

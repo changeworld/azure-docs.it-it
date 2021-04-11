@@ -6,17 +6,17 @@ ms.date: 03/22/2021
 author: trask
 ms.custom: devx-track-java
 ms.author: trstalna
-ms.openlocfilehash: 17979bd548ca0d7b704ebdeb4d060bf35973b319
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 7602392b78f53e5b896e92058836fca60de39d64
+ms.sourcegitcommit: 56b0c7923d67f96da21653b4bb37d943c36a81d6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105024147"
+ms.lasthandoff: 04/06/2021
+ms.locfileid: "106448883"
 ---
 # <a name="sampling-overrides-preview---azure-monitor-application-insights-for-java"></a>Override del campionamento (anteprima)-Application Insights di monitoraggio di Azure per Java
 
 > [!NOTE]
-> La funzionalità di override del campionamento è in anteprima, a partire da 3.0.3-BETA. 2.
+> La funzionalità di override del campionamento è in anteprima, a partire da 3.0.3.
 
 Le sostituzioni di campionamento consentono di eseguire l'override della [percentuale di campionamento predefinita](./java-standalone-config.md#sampling), ad esempio:
  * Impostare la percentuale di campionamento su 0 (o un valore minimo) per i controlli di integrità rumorosi.
@@ -81,7 +81,7 @@ Se nessun override di campionamento corrisponde a:
 * Se si tratta del primo intervallo nella traccia, viene utilizzata la [percentuale di campionamento predefinita](./java-standalone-config.md#sampling) .
 * Se non si tratta del primo intervallo della traccia, viene utilizzata la decisione di campionamento padre.
 
-> [!IMPORTANT]
+> [!WARNING]
 > Quando si è deciso di non raccogliere un intervallo, non verranno raccolti anche tutti gli intervalli downstream, anche se sono presenti sostituzioni di campionamento che corrispondono all'intervallo downstream.
 > Questo comportamento è necessario perché, in caso contrario, si verificheranno tracce interrotte, con intervalli downstream raccolti ma con un elemento padre di intervalli non raccolti.
 

@@ -8,17 +8,17 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 03/15/2021
+ms.date: 04/05/2021
 ms.author: mimart
 ms.subservice: B2C
 ms.custom: fasttrack-edit
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: 09cfdd026105a34db976118f38b011e2c4578a24
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: fea39388b6b4387dfc4fe95d1cdfb3e523a8089c
+ms.sourcegitcommit: 77d7639e83c6d8eb6c2ce805b6130ff9c73e5d29
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103470782"
+ms.lasthandoff: 04/05/2021
+ms.locfileid: "106382437"
 ---
 # <a name="options-for-registering-a-saml-application-in-azure-ad-b2c"></a>Opzioni per la registrazione di un'applicazione SAML in Azure AD B2C
 
@@ -34,7 +34,86 @@ Questo articolo descrive le opzioni di configurazione disponibili quando si conn
 
 ::: zone pivot="b2c-custom-policy"
 
-## <a name="encrypted-saml-assertions"></a>Asserzioni SAML crittografate
+
+## <a name="saml-response-signature"></a>Firma della risposta SAML
+
+È possibile specificare un certificato da usare per firmare i messaggi SAML. Il messaggio è l' `<samlp:Response>` elemento all'interno della risposta SAML inviato all'applicazione.
+
+Se non si dispone già di una chiave dei criteri, [crearne una](saml-service-provider.md#create-a-policy-key). Configurare quindi l' `SamlMessageSigning` elemento dei metadati nel profilo tecnico dell'emittente del token SAML. `StorageReferenceId`Deve fare riferimento al nome della chiave del criterio.
+
+```xml
+<ClaimsProvider>
+  <DisplayName>Token Issuer</DisplayName>
+  <TechnicalProfiles>
+    <!-- SAML Token Issuer technical profile -->
+    <TechnicalProfile Id="Saml2AssertionIssuer">
+      <DisplayName>Token Issuer</DisplayName>
+      <Protocol Name="SAML2"/>
+      <OutputTokenFormat>SAML2</OutputTokenFormat>
+        ...
+      <CryptographicKeys>
+        <Key Id="SamlMessageSigning" StorageReferenceId="B2C_1A_SamlMessageCert"/>
+        ...
+      </CryptographicKeys>
+    ...
+    </TechnicalProfile>
+```
+
+### <a name="saml-response-signature-algorithm"></a>Algoritmo di firma della risposta SAML
+
+È possibile configurare l'algoritmo di firma usato per firmare l'asserzione SAML. I possibili valori sono `Sha256`, `Sha384`, `Sha512` o `Sha1`. Verificare che il profilo tecnico e l'applicazione usino lo stesso algoritmo di firma. Usare solo l'algoritmo supportato dal certificato.
+
+Configurare l'algoritmo di firma utilizzando la `XmlSignatureAlgorithm` chiave dei metadati all'interno dell'elemento dei metadati relying party.
+
+```xml
+<RelyingParty>
+  <DefaultUserJourney ReferenceId="SignUpOrSignIn" />
+  <TechnicalProfile Id="PolicyProfile">
+    <DisplayName>PolicyProfile</DisplayName>
+    <Protocol Name="SAML2"/>
+    <Metadata>
+      <Item Key="XmlSignatureAlgorithm">Sha256</Item>
+    </Metadata>
+   ..
+  </TechnicalProfile>
+</RelyingParty>
+```
+
+## <a name="saml-assertions-signature"></a>Firma asserzioni SAML
+
+Quando l'applicazione prevede che la sezione asserzione SAML venga firmata, assicurarsi che il provider di servizi SAML abbia impostato `WantAssertionsSigned` su `true` . Se è impostato su `false` o non esiste, la sezione dell'asserzione non sarà Sign. Nell'esempio seguente vengono illustrati i metadati del provider di servizi SAML con `WantAssertionsSigned` impostato su `true` .
+
+```xml
+<EntityDescriptor ID="id123456789" entityID="https://samltestapp2.azurewebsites.net" validUntil="2099-12-31T23:59:59Z" xmlns="urn:oasis:names:tc:SAML:2.0:metadata">
+  <SPSSODescriptor  WantAssertionsSigned="true" AuthnRequestsSigned="false" protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol">
+  ...
+  </SPSSODescriptor>
+</EntityDescriptor>
+```  
+
+### <a name="saml-assertions-signature-certificate"></a>Certificato di firma asserzioni SAML
+
+Il criterio deve specificare un certificato da usare per firmare la sezione delle asserzioni SAML della risposta SAML. Se non si dispone già di una chiave dei criteri, [crearne una](saml-service-provider.md#create-a-policy-key). Configurare quindi l' `SamlAssertionSigning` elemento dei metadati nel profilo tecnico dell'emittente del token SAML. `StorageReferenceId`Deve fare riferimento al nome della chiave del criterio.
+
+```xml
+<ClaimsProvider>
+  <DisplayName>Token Issuer</DisplayName>
+  <TechnicalProfiles>
+    <!-- SAML Token Issuer technical profile -->
+    <TechnicalProfile Id="Saml2AssertionIssuer">
+      <DisplayName>Token Issuer</DisplayName>
+      <Protocol Name="SAML2"/>
+      <OutputTokenFormat>SAML2</OutputTokenFormat>
+        ...
+      <CryptographicKeys>
+        <Key Id="SamlAssertionSigning" StorageReferenceId="B2C_1A_SamlMessageCert"/>
+        ...
+      </CryptographicKeys>
+    ...
+    </TechnicalProfile>
+```
+
+## <a name="saml-assertions-encryption"></a>Crittografia asserzioni SAML
 
 Quando l'applicazione prevede che le asserzioni SAML siano in formato crittografato, è necessario assicurarsi che la crittografia sia abilitata nei criteri di Azure AD B2C.
 
@@ -158,26 +237,6 @@ Sono disponibili criteri di esempio completi che è possibile usare per il test 
 1. Aggiornare `TenantId` in modo che corrisponda al nome del tenant, ad esempio *contoso.b2clogin.com*.
 1. Mantieni il nome dei criteri *B2C_1A_signup_signin_saml*.
 
-## <a name="saml-response-signature-algorithm"></a>Algoritmo di firma della risposta SAML
-
-È possibile configurare l'algoritmo di firma usato per firmare l'asserzione SAML. I possibili valori sono `Sha256`, `Sha384`, `Sha512` o `Sha1`. Verificare che il profilo tecnico e l'applicazione usino lo stesso algoritmo di firma. Usare solo l'algoritmo supportato dal certificato.
-
-Configurare l'algoritmo di firma utilizzando la `XmlSignatureAlgorithm` chiave dei metadati all'interno dell'elemento dei metadati relying party.
-
-```xml
-<RelyingParty>
-  <DefaultUserJourney ReferenceId="SignUpOrSignIn" />
-  <TechnicalProfile Id="PolicyProfile">
-    <DisplayName>PolicyProfile</DisplayName>
-    <Protocol Name="SAML2"/>
-    <Metadata>
-      <Item Key="XmlSignatureAlgorithm">Sha256</Item>
-    </Metadata>
-   ..
-  </TechnicalProfile>
-</RelyingParty>
-```
-
 ## <a name="saml-response-lifetime"></a>Durata risposta SAML
 
 È possibile configurare il periodo di tempo per cui la risposta SAML rimane valida. Impostare la durata usando l' `TokenLifeTimeInSeconds` elemento dei metadati all'interno del profilo tecnico dell'emittente del token SAML. Questo valore indica il numero di secondi che possono trascorrere dal `NotBefore` timestamp calcolato al momento del rilascio del token. La durata predefinita è 300 secondi (5 minuti).
@@ -279,9 +338,9 @@ Esempio:
 
 È possibile gestire la sessione tra Azure AD B2C e l'applicazione SAML relying party usando l' `UseTechnicalProfileForSessionManagement` elemento e [SamlSSOSessionProvider](custom-policy-reference-sso.md#samlssosessionprovider).
 
-## <a name="force-users-to-re-authenticate"></a>Forza la ripetizione dell'autenticazione degli utenti 
+## <a name="force-users-to-reauthenticate"></a>Forzare l'autenticazione degli utenti 
 
-Per forzare la ripetizione dell'autenticazione degli utenti, l'applicazione può includere l' `ForceAuthn` attributo nella richiesta di autenticazione SAML. L' `ForceAuthn` attributo è un valore booleano. Quando è impostato su true, la sessione utenti verrà invalidata in Azure AD B2C e l'utente dovrà eseguire di nuovo l'autenticazione. La richiesta di autenticazione SAML seguente illustra come impostare l' `ForceAuthn` attributo su true. 
+Per forzare l'autenticazione degli utenti, l'applicazione può includere l' `ForceAuthn` attributo nella richiesta di autenticazione SAML. L' `ForceAuthn` attributo è un valore booleano. Quando è impostato su true, la sessione degli utenti verrà invalidata in Azure AD B2C e l'utente dovrà eseguire nuovamente l'autenticazione. La richiesta di autenticazione SAML seguente illustra come impostare l' `ForceAuthn` attributo su true. 
 
 
 ```xml
@@ -290,6 +349,28 @@ Per forzare la ripetizione dell'autenticazione degli utenti, l'applicazione può
        ForceAuthn="true" ...>
     ...
 </samlp:AuthnRequest>
+```
+
+## <a name="sign-the-azure-ad-b2c-idp-saml-metadata"></a>Firmare i metadati SAML di Azure AD B2C IdP
+
+È possibile indicare Azure AD B2C di firmare il documento di metadati IdP SAML, se richiesto dall'applicazione. Se non si dispone già di una chiave dei criteri, [crearne una](saml-service-provider.md#create-a-policy-key). Configurare quindi l' `MetadataSigning` elemento dei metadati nel profilo tecnico dell'emittente del token SAML. `StorageReferenceId`Deve fare riferimento al nome della chiave del criterio.
+
+```xml
+<ClaimsProvider>
+  <DisplayName>Token Issuer</DisplayName>
+  <TechnicalProfiles>
+    <!-- SAML Token Issuer technical profile -->
+    <TechnicalProfile Id="Saml2AssertionIssuer">
+      <DisplayName>Token Issuer</DisplayName>
+      <Protocol Name="SAML2"/>
+      <OutputTokenFormat>SAML2</OutputTokenFormat>
+        ...
+      <CryptographicKeys>
+        <Key Id="MetadataSigning" StorageReferenceId="B2C_1A_SamlMetadataCert"/>
+        ...
+      </CryptographicKeys>
+    ...
+    </TechnicalProfile>
 ```
 
 ## <a name="debug-the-saml-protocol"></a>Eseguire il debug del protocollo SAML

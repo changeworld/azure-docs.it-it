@@ -3,15 +3,15 @@ title: Procedura dettagliata Azure Advisor desktop virtuale di Windows-Azure
 description: Come risolvere Azure Advisor consigli per desktop virtuale di Windows.
 author: Heidilohr
 ms.topic: conceptual
-ms.date: 08/28/2020
+ms.date: 03/31/2021
 ms.author: helohr
-manager: lizross
-ms.openlocfilehash: 760e0212d2d863e6b869c23c2e523a0e056a28ed
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+manager: femila
+ms.openlocfilehash: 666f882dec6c00b9fe5421485afded1fbd57d961
+ms.sourcegitcommit: 56b0c7923d67f96da21653b4bb37d943c36a81d6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "90033031"
+ms.lasthandoff: 04/06/2021
+ms.locfileid: "106448305"
 ---
 # <a name="how-to-resolve-azure-advisor-recommendations"></a>Come risolvere Azure Advisor consigli
 
@@ -72,10 +72,6 @@ Questa raccomandazione viene visualizzata sotto eccellenza operativa.
 È necessario sbloccare URL specifici per assicurarsi che la macchina virtuale (VM) funzioni correttamente. È possibile visualizzare l'elenco in [elenco indirizzi attendibili](safe-url-list.md). Se gli URL non sono sbloccati, la macchina virtuale non funzionerà correttamente.
 
 Per risolvere il problema, assicurarsi di sbloccare tutti gli URL nell' [elenco degli URL sicuri](safe-url-list.md). È possibile utilizzare tag di servizio o tag FQDN anche per sbloccare URL.
-
-## <a name="propose-new-recommendations"></a>Suggerisci nuove raccomandazioni
-
-È possibile contribuire a migliorare Azure Advisor inviando idee per le raccomandazioni. La raccomandazione potrebbe aiutare un altro utente a trovare un posto difficile. Per inviare un suggerimento, visitare il [Forum UserVoice](https://windowsvirtualdesktop.uservoice.com/forums/930847-azure-advisor-recommendations) e compilare il modulo di invio. Quando si compila il modulo, assicurarsi di fornire il maggior dettaglio possibile.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

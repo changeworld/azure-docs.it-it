@@ -10,12 +10,12 @@ ms.workload: infrastructure-services
 ms.topic: troubleshooting
 ms.date: 09/02/2020
 ms.author: genli
-ms.openlocfilehash: a177fc7e17dc91a0d57fa6dee87b80921d7fd8f5
-ms.sourcegitcommit: ed7376d919a66edcba3566efdee4bc3351c57eda
+ms.openlocfilehash: 573f97c7f592186173b13ea592d151ee291b8249
+ms.sourcegitcommit: f5448fe5b24c67e24aea769e1ab438a465dfe037
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/24/2021
-ms.locfileid: "105043581"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105967966"
 ---
 # <a name="prepare-a-windows-vhd-or-vhdx-to-upload-to-azure"></a>Preparare un disco rigido virtuale Windows o VHDX prima del caricamento in Azure
 
@@ -113,6 +113,10 @@ Al termine dell'analisi SFC, installare gli aggiornamenti di Windows e riavviare
    Set-ItemProperty -Path 'HKLM:\SYSTEM\CurrentControlSet\Control\Session Manager\Environment' -Name TEMP -Value "%SystemRoot%\TEMP" -Type ExpandString -Force
    Set-ItemProperty -Path 'HKLM:\SYSTEM\CurrentControlSet\Control\Session Manager\Environment' -Name TMP -Value "%SystemRoot%\TEMP" -Type ExpandString -Force
    ```
+1. Per le macchine virtuali con sistemi operativi legacy (Windows Server 2012 R2 o Windows 8.1 e versioni precedenti), verificare che siano installati i servizi componenti di integrazione Hyper-V più recenti. Per ulteriori informazioni, vedere [aggiornamento dei componenti di integrazione Hyper-V per la macchina virtuale Windows](https://support.microsoft.com/topic/hyper-v-integration-components-update-for-windows-virtual-machines-8a74ffad-576e-d5a0-5a2f-d6fb2594f990).
+
+> [!NOTE]
+> In uno scenario in cui le macchine virtuali devono essere configurate con una soluzione di ripristino di emergenza tra il server VMware locale e Azure, non è possibile usare i servizi dei componenti di integrazione di Hyper-V. In tal caso, contattare il supporto VMware per eseguire la migrazione della macchina virtuale in Azure e fare in modo che si trovi in un server VMware.
 
 ## <a name="check-the-windows-services"></a>Verificare i servizi di Windows
 
@@ -266,6 +270,8 @@ Assicurarsi che la macchina virtuale sia integra, sicura e accessibile tramite R
 1. Configurare le impostazioni dei dati di configurazione di avvio.
 
    ```powershell
+   cmd
+
    bcdedit.exe /set "{bootmgr}" integrityservices enable
    bcdedit.exe /set "{default}" device partition=C:
    bcdedit.exe /set "{default}" integrityservices enable
@@ -279,6 +285,8 @@ Assicurarsi che la macchina virtuale sia integra, sicura e accessibile tramite R
    bcdedit.exe /set "{bootmgr}" bootems yes
    bcdedit.exe /ems "{current}" ON
    bcdedit.exe /emssettings EMSPORT:1 EMSBAUDRATE:115200
+
+   exit
    ```
 
 1. Il log dump può essere utile per la risoluzione dei problemi di arresto anomalo di Windows. Abilitare la raccolta dei log di dump:
@@ -351,6 +359,10 @@ Assicurarsi che la macchina virtuale sia integra, sicura e accessibile tramite R
 1. Disinstallare qualsiasi altro software o driver di terze parti correlato a componenti fisici o qualsiasi altra tecnologia di virtualizzazione.
 
 ### <a name="install-windows-updates"></a>Installare aggiornamenti di Windows
+
+> [!NOTE]
+> Per evitare un riavvio accidentale durante il provisioning della macchina virtuale, è consigliabile completare tutte le installazioni di Windows Update e verificare che non sia presente alcun riavvio in sospeso. Un modo per eseguire questa operazione consiste nell'installare tutti gli aggiornamenti di Windows e riavviare la macchina virtuale prima di eseguire la migrazione ad Azure. </br><br>
+>Se è necessario anche effettuare una generalizzazione del sistema operativo (Sysprep), è necessario aggiornare Windows e riavviare la macchina virtuale prima di eseguire il comando Sysprep.
 
 Idealmente, è consigliabile lasciare aggiornato il computer al *livello di patch*, se ciò non è possibile, verificare che siano installati i seguenti aggiornamenti. Per ottenere gli aggiornamenti più recenti, vedere le pagine relative alla cronologia di Windows Update: [Windows 10 e Windows server 2019](https://support.microsoft.com/help/4000825), [Windows 8.1 e Windows Server 2012 R2](https://support.microsoft.com/help/4009470) e [Windows 7 SP1 e Windows Server 2008 R2 SP1](https://support.microsoft.com/help/4009469).
 

@@ -7,12 +7,12 @@ ms.service: bastion
 ms.topic: tutorial
 ms.date: 02/12/2021
 ms.author: cherylmc
-ms.openlocfilehash: 60b49e5b6e103a85d79cf8495f2743b22e434c96
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 3b365e347802824e855797afb8c68e5249bf0adb
+ms.sourcegitcommit: d63f15674f74d908f4017176f8eddf0283f3fac8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100586802"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "106579633"
 ---
 # <a name="tutorial-configure-bastion-and-connect-to-a-windows-vm-through-a-browser"></a>Esercitazione: Configurare Bastion e connettersi a una VM Windows tramite un browser
 
@@ -37,6 +37,10 @@ Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://a
 
 * Porte: per connettersi alla VM Windows, devono essere aperte le porte seguenti nella VM:
   * Porte in ingresso: RDP (3389)
+
+ >[!NOTE]
+ >L'uso di Azure Bastion con le zone DNS privato di Azure non è attualmente supportato. Prima di iniziare, assicurarsi che la rete virtuale in cui si intende distribuire la risorsa Bastion non sia collegata a una zona DNS privata.
+ >
 
 ## <a name="sign-in-to-the-azure-portal"></a>Accedere al portale di Azure
 
