@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c25504e3313234ac6b6f80a6e00c77fce28b1400
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 41bdf5251881fa9307a3cd4d214081845e967900
+ms.sourcegitcommit: c3739cb161a6f39a9c3d1666ba5ee946e62a7ac3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102174530"
+ms.lasthandoff: 04/08/2021
+ms.locfileid: "107209520"
 ---
 # <a name="dynamic-membership-rules-for-groups-in-azure-active-directory"></a>Regole di appartenenza dinamica per i gruppi in Azure Active Directory
 
@@ -52,19 +52,19 @@ Per altre istruzioni dettagliate, vedere [Creare o aggiornare un gruppo dinamico
 
 ![Aggiungere la regola di appartenenza per un gruppo dinamico](./media/groups-dynamic-membership/update-dynamic-group-rule.png)
 
-### <a name="rule-syntax-for-a-single-expression"></a>Sintassi della regola per una singola espressione
+### <a name="rule-syntax-for-a-single-expression&quot;></a>Sintassi della regola per una singola espressione
 
 Una singola espressione è la forma più semplice per una regola di appartenenza e include solo le tre parti indicate in precedenza. Una regola con una singola espressione è simile a quanto segue: `Property Operator Value`, dove la sintassi per la proprietà è il nome di oggetto.proprietà.
 
 Di seguito è riportato un esempio di regola di appartenenza strutturata correttamente con una singola espressione:
 
 ```
-user.department -eq "Sales"
+user.department -eq &quot;Sales&quot;
 ```
 
-Per una singola espressione le parentesi sono facoltative. La lunghezza totale del corpo della regola di appartenenza non può superare i 2048 caratteri.
+Per una singola espressione le parentesi sono facoltative. La lunghezza totale del corpo della regola di appartenenza non può superare i 3072 caratteri.
 
-## <a name="constructing-the-body-of-a-membership-rule"></a>Creazione del corpo di una regola di appartenenza
+## <a name=&quot;constructing-the-body-of-a-membership-rule&quot;></a>Creazione del corpo di una regola di appartenenza
 
 Una regola di appartenenza che popola automaticamente un gruppo con utenti o dispositivi è un'espressione binaria che restituisce un risultato true o false. Le tre parti di una regola semplice sono:
 
@@ -74,7 +74,7 @@ Una regola di appartenenza che popola automaticamente un gruppo con utenti o dis
 
 L'ordine delle parti in un'espressione è importante per evitare gli errori di sintassi.
 
-## <a name="supported-properties"></a>Proprietà supportate
+## <a name=&quot;supported-properties&quot;></a>Proprietà supportate
 
 Ci sono tre tipi di proprietà che è possibile usare per costruire una regola di appartenenza.
 
@@ -84,18 +84,18 @@ Ci sono tre tipi di proprietà che è possibile usare per costruire una regola d
 
 Di seguito sono elencate le proprietà utente che è possibile usare per creare una singola espressione.
 
-### <a name="properties-of-type-boolean"></a>Proprietà di tipo boolean
+### <a name=&quot;properties-of-type-boolean&quot;></a>Proprietà di tipo boolean
 
 | Proprietà | Valori consentiti | Uso |
 | --- | --- | --- |
 | accountEnabled |true false |user.accountEnabled -eq true |
 | dirSyncEnabled |true false |user.dirSyncEnabled -eq true |
 
-### <a name="properties-of-type-string"></a>Proprietà di tipo stringa
+### <a name=&quot;properties-of-type-string&quot;></a>Proprietà di tipo stringa
 
 | Proprietà | Valori consentiti | Uso |
 | --- | --- | --- |
-| city |Qualsiasi valore di stringa o *null* |(user.city -eq "valore") |
+| city |Qualsiasi valore di stringa o *null* |(user.city -eq &quot;valore") |
 | country |Qualsiasi valore di stringa o *null* |(user.country -eq "valore") |
 | companyName | Qualsiasi valore di stringa o *null* | (user.companyName -eq "value") |
 | department |Qualsiasi valore di stringa o *null* |(user.department -eq "valore") |
