@@ -6,12 +6,12 @@ services: azure-monitor
 ms.topic: conceptual
 ms.date: 01/22/2019
 ms.author: vitalyg
-ms.openlocfilehash: a8a4f84db140ca442371cb71886bebf9214d3e43
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 444185dc41532bfa55c271e2f0027eb8b71de42f
+ms.sourcegitcommit: edc7dc50c4f5550d9776a4c42167a872032a4151
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 03/30/2021
-ms.locfileid: "105026539"
+ms.locfileid: "105959908"
 ---
 # <a name="advanced-features-of-the-azure-metrics-explorer"></a>Funzionalità avanzate di Esplora metriche di Azure
 
@@ -79,11 +79,28 @@ Per creare un altro grafico che utilizza una metrica diversa, selezionare **Aggi
 
 Per riordinare o eliminare più grafici, selezionare il pulsante con i puntini di sospensione (**..**.) per aprire il menu grafico. Quindi scegliere **Sposta su**, **Sposta giù** o **Elimina**.
 
-## <a name="aggregation"></a>Aggregazione
+## <a name="time-range-controls"></a>Controlli intervallo di tempo
+
+Oltre a modificare l'intervallo di tempo utilizzando il [Pannello selezione ora](metrics-getting-started.md#select-a-time-range), è inoltre possibile eseguire il panning e lo zoom utilizzando i controlli nell'area del grafico.
+### <a name="pan"></a>Dettaglio
+
+Per eseguire il panning, fare clic sulle frecce a sinistra e a destra sul bordo del grafico.  Questa operazione sposterà l'intervallo di tempo selezionato avanti e indietro di una metà dell'intervallo di tempo del grafico.  Se, ad esempio, si visualizzano le ultime 24 ore, facendo clic sulla freccia a sinistra, l'intervallo di tempo passerà a un giorno e da una metà a 12 ore fa.
+
+La maggior parte delle metriche supporta 93 giorni di conservazione, ma consente solo di visualizzare 30 giorni alla volta.  Utilizzando i controlli Pan, si esaminano gli ultimi 30 giorni e quindi si riportano comodamente 15 giorni alla volta per visualizzare il resto del periodo di conservazione.
+
+![Gif animata che mostra i controlli Pan a sinistra e a destra.](./media/metrics-charts/metrics-pan-controls.gif)
+
+### <a name="zoom"></a>Zoom
+
+È possibile fare clic e trascinare il grafico per ingrandire una sezione di un grafico.  Con lo zoom, l'intervallo di tempo del grafico verrà aggiornato in modo da estendersi alla selezione e verrà selezionato un intervallo di tempo più piccolo se il tempo di granularità è impostato su "automatico".  Il nuovo intervallo di tempo si applica a tutti i grafici nelle metriche.
+
+![Gif animata che mostra la funzionalità di zoom della metrica.](./media/metrics-charts/metrics-zoom-control.gif)
+
+## <a name="aggregation&quot;></a>Aggregazione
 
 Quando si aggiunge una metrica a un grafico, Esplora metriche applica automaticamente un'aggregazione predefinita. Il valore predefinito è opportuno negli scenari di base. È tuttavia possibile usare un'aggregazione diversa per ottenere informazioni più dettagliate sulla metrica. 
 
-Prima di utilizzare aggregazioni diverse in un grafico, è necessario comprendere il modo in cui vengono gestite da Esplora metriche. Le metriche sono una serie di misurazioni (o "valori metrici") acquisite in un periodo di tempo. Quando si traccia un grafico, i valori della metrica selezionata vengono aggregati separatamente nell'intervallo di *tempo*. 
+Prima di utilizzare aggregazioni diverse in un grafico, è necessario comprendere il modo in cui vengono gestite da Esplora metriche. Le metriche sono una serie di misurazioni (o &quot;valori metrici") acquisite in un periodo di tempo. Quando si traccia un grafico, i valori della metrica selezionata vengono aggregati separatamente nell'intervallo di *tempo*. 
 
 Per selezionare le dimensioni dell'intervallo di tempo, usare il pannello di selezione dell' [ora](./metrics-getting-started.md#select-a-time-range)di Esplora metriche. Se non si seleziona esplicitamente la granularità temporale, per impostazione predefinita viene usato l'intervallo di tempo attualmente selezionato. Dopo aver determinato l'intervallo di tempo, i valori delle metriche acquisiti durante ogni intervallo di tempo vengono aggregati nel grafico, un punto dati per ogni intervallo di tempo.
 

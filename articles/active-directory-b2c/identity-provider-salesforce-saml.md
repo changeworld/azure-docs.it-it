@@ -13,12 +13,12 @@ ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: e740fdb9cd232892dadfe98c4d739759be66bf55
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: cf2f0cdf8b7c540e569067d68374eef55d3479fe
+ms.sourcegitcommit: d40ffda6ef9463bb75835754cabe84e3da24aab5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103488721"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "107028197"
 ---
 # <a name="set-up-sign-in-with-a-salesforce-saml-provider-by-using-saml-protocol-in-azure-active-directory-b2c"></a>Configurare l'accesso con un provider SAML di Salesforce usando il protocollo SAML in Azure Active Directory B2C
 
@@ -202,7 +202,7 @@ Per consentire agli utenti di accedere con un account Salesforce, è necessario 
 ## <a name="test-your-custom-policy"></a>Testare i criteri personalizzati
 
 1. Selezionare, ad esempio, i criteri di relying party `B2C_1A_signup_signin` .
-1. Per **applicazione** selezionare un'applicazione Web [registrata in precedenza](troubleshoot-custom-policies.md#troubleshoot-the-runtime). L'**URL di risposta** dovrebbe mostrare `https://jwt.ms`.
+1. Per **applicazione** selezionare un'applicazione Web [registrata in precedenza](tutorial-register-applications.md). L'**URL di risposta** dovrebbe mostrare `https://jwt.ms`.
 1. Selezionare il pulsante **Esegui adesso** .
 1. Dalla pagina di iscrizione o accesso selezionare **Salesforce** per accedere con l'account Salesforce.
 

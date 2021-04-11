@@ -1,16 +1,16 @@
 ---
-title: Caricare e gestire sensori e sottoscrizioni nel portale di Defender per le cose
+title: Gestire i sensori e le sottoscrizioni nel portale di Defender per le cose
 description: Informazioni su come eseguire l'onboarding, visualizzare e gestire i sensori in Defender per il portale.
 ms.date: 2/18/2021
 ms.topic: how-to
-ms.openlocfilehash: 5c529a5679e8b3d4879b003fa3d168e911f9b518
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 5b4c8b3d10fe88816e07eb775b2bf3827d578b17
+ms.sourcegitcommit: 77d7639e83c6d8eb6c2ce805b6130ff9c73e5d29
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104781824"
+ms.lasthandoff: 04/05/2021
+ms.locfileid: "106383049"
 ---
-# <a name="onboard-and-manage-sensors-and-subscriptions-in-the-defender-for-iot-portal"></a>Caricare e gestire sensori e sottoscrizioni nel portale di Defender per le cose
+# <a name="manage-sensors-and-subscriptions-in-the-defender-for-iot-portal"></a>Gestire i sensori e le sottoscrizioni nel portale di Defender per le cose
 
 Questo articolo descrive come eseguire l'onboarding, visualizzare e gestire i sensori nel [portale Defender for](https://portal.azure.com/#blade/Microsoft_Azure_IoT_Defender/IoTDefenderDashboard/Getting_Started)Internet.
 
@@ -137,6 +137,6 @@ Per offboard una sottoscrizione:
 
 L'ambiente locale non è interessato, ma è necessario disinstallare il sensore dall'ambiente locale oppure riassegnare il sensore a un'altra sottoscrizione, in modo da impedire che i dati correlati vengano propagati alla console di gestione locale. 
 
-## <a name="see-also"></a>Vedi anche
+## <a name="next-steps"></a>Passaggi successivi
 
 [Attivare e configurare il sensore](how-to-activate-and-set-up-your-sensor.md)

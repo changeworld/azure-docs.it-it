@@ -10,12 +10,12 @@ ms.topic: tutorial
 ms.date: 10/01/2020
 ms.author: mbaldwin
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 13ead70f278f12866dbe00b53c487aebcc43304f
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 40094c00a4b896756c5c0e51116e0ae33ae2a096
+ms.sourcegitcommit: d63f15674f74d908f4017176f8eddf0283f3fac8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101742637"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "106580734"
 ---
 # <a name="configure-azure-key-vault-firewalls-and-virtual-networks"></a>Configurare reti virtuali e firewall di Azure Key Vault
 
@@ -29,13 +29,14 @@ Questa sezione descrive i vari modi in cui è possibile configurare il firewall 
 
 ### <a name="key-vault-firewall-disabled-default"></a>Firewall Key Vault disabilitato (impostazione predefinita)
 
-Per impostazione predefinita, quando si crea un nuovo insieme di credenziali delle chiavi, il firewall di Azure Key Vault è disabilitato. Tutte le applicazioni e i servizi di Azure possono accedere e inviare richieste all'insieme di credenziali delle chiavi. Si noti che questa configurazione non significa che qualsiasi utente sarà in grado di eseguire operazioni nell'insieme di credenziali delle chiavi. L'insieme di credenziali delle chiavi applica comunque restrizioni su segreti, chiavi e certificati archiviati al suo interno richiedendo l'autenticazione di Azure Active Directory e le autorizzazioni dei criteri di accesso. Per capire in maggior dettaglio l'autenticazione dell'insieme di credenziali delle chiavi, vedere il documento di informazioni di base [qui](./authentication-fundamentals.md).
+Per impostazione predefinita, quando si crea un nuovo insieme di credenziali delle chiavi, il firewall di Azure Key Vault è disabilitato. Tutte le applicazioni e i servizi di Azure possono accedere e inviare richieste all'insieme di credenziali delle chiavi. Si noti che questa configurazione non significa che qualsiasi utente sarà in grado di eseguire operazioni nell'insieme di credenziali delle chiavi. L'insieme di credenziali delle chiavi applica comunque restrizioni su segreti, chiavi e certificati archiviati al suo interno richiedendo l'autenticazione di Azure Active Directory e le autorizzazioni dei criteri di accesso. Per capire in maggior dettaglio l'autenticazione dell'insieme di credenziali delle chiavi, vedere il documento di informazioni di base [qui](./authentication-fundamentals.md). Per altre informazioni, vedere [Accedere ad Azure Key Vault protetto da firewall](./access-behind-firewall.md).
 
 ### <a name="key-vault-firewall-enabled-trusted-services-only"></a>Firewall di Key Vault abilitato (solo servizi attendibili)
 
-Quando si abilita il firewall di Key Vault, viene offerta l'opzione 'Consentire ai servizi Microsoft attendibili di ignorare il firewall?' L'elenco dei servizi attendibili non copre ogni singolo servizio di Azure. Ad esempio, Azure DevOps non è presente nell'elenco dei servizi attendibili. **Ciò non implica che i servizi non inclusi nell'elenco non siano considerati attendibili o sicuri.** L'elenco di servizi attendibili include i servizi per cui Microsoft controlla tutto il codice eseguito al loro interno. Poiché gli utenti possono scrivere codice personalizzato nei servizi di Azure, ad esempio Azure DevOps, Microsoft non offre la possibilità di creare un'approvazione generale per il servizio. Inoltre, il semplice fatto che un servizio sia incluso nell'elenco di servizi attendibili non significa che sia consentito per tutti gli scenari.
+Quando si abilita il firewall di Key Vault, viene offerta l'opzione 'Consentire ai servizi Microsoft attendibili di ignorare il firewall?' L'elenco dei servizi attendibili non copre ogni singolo servizio di Azure. Ad esempio, Azure DevOps non è presente nell'elenco dei servizi attendibili. **Ciò non implica che i servizi non inclusi nell'elenco non siano considerati attendibili o sicuri.** L'elenco di servizi attendibili include i servizi per cui Microsoft controlla tutto il codice eseguito al loro interno. Poiché gli utenti possono scrivere codice personalizzato nei servizi di Azure, ad esempio Azure DevOps, Microsoft non offre la possibilità di creare un'approvazione generale per il servizio. Inoltre, il semplice fatto che un servizio sia incluso nell'elenco di servizi attendibili non significa che sia consentito per tutti gli scenari. 
 
 Per determinare se un servizio che si prova a usare è incluso nell'elenco di servizi attendibili, vedere [questo documento](./overview-vnet-service-endpoints.md#trusted-services).
+Per istruzioni, seguire le istruzioni riportate qui per il portale, l'interfaccia della riga di comando di [Azure e PowerShell](https://docs.microsoft.com/azure/key-vault/general/network-security#use-the-azure-portal)
 
 ### <a name="key-vault-firewall-enabled-ipv4-addresses-and-ranges---static-ips"></a>Firewall di Key Vault abilitato (indirizzi e intervalli IPv4 - IP statici)
 

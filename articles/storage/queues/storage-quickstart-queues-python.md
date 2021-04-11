@@ -1,19 +1,19 @@
 ---
 title: 'Avvio rapido: Libreria client di Archiviazione code di Azure v12 - Python'
 description: Informazioni su come usare la libreria client di Archiviazione code di Azure v12 per Python per creare una coda e aggiungervi messaggi, oltre che su come leggere ed eliminare i messaggi dalla coda. e come eliminare una coda.
-author: mhopkins-msft
-ms.author: mhopkins
+author: twooley
+ms.author: twooley
 ms.date: 12/10/2019
 ms.topic: quickstart
 ms.service: storage
 ms.subservice: queues
 ms.custom: devx-track-python
-ms.openlocfilehash: b4c25ceb2e7b3f224dccdd7d24d86389100c8a2e
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 1881af372c1f4e1c5cbb4ea7be0ede4c96bbf4ee
+ms.sourcegitcommit: 02bc06155692213ef031f049f5dcf4c418e9f509
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104801911"
+ms.lasthandoff: 04/03/2021
+ms.locfileid: "106276145"
 ---
 # <a name="quickstart-azure-queue-storage-client-library-v12-for-python"></a>Avvio rapido: Libreria client di archiviazione code di Azure v12 per Python
 

@@ -6,12 +6,12 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 04/30/2020
-ms.openlocfilehash: 77190b85da08d09cf05a02dcc5787f0c24229948
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 9d4aac17ca823f4eaa0f52ab260b1daca3f52f94
+ms.sourcegitcommit: 5fd1f72a96f4f343543072eadd7cdec52e86511e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "100618976"
+ms.lasthandoff: 04/01/2021
+ms.locfileid: "106109748"
 ---
 # <a name="programmatically-manage-workbooks"></a>Gestire le cartelle di lavoro a livello di codice
 
@@ -99,19 +99,19 @@ Ci sono due tipi di risorse di cartelle di lavoro che è possibile gestire a liv
 
 ### <a name="galleries"></a>Raccolte
 
-| Raccolta                                        | Tipo di risorsa                                      | Tipo di cartella di lavoro |
-| :--------------------------------------------- |:---------------------------------------------------|:--------------|
-| Cartelle di lavoro in Monitoraggio di Azure                     | `Azure Monitor`                                    | `workbook`    |
-| Informazioni dettagliate macchina virtuale in Monitoraggio di Azure                   | `Azure Monitor`                                    | `vm-insights` |
-| Cartelle di lavoro in Area di lavoro Log Analytics           | `microsoft.operationalinsights/workspaces`         | `workbook`    |
-| Cartelle di lavoro in Application Insights              | `microsoft.insights/component`                     | `workbook`    |
-| Guide alla risoluzione dei problemi in Application Insights | `microsoft.insights/component`                     | `tsg`         |
-| Utilizzo in Application Insights                  | `microsoft.insights/component`                     | `usage`       |
-| Cartelle di lavoro in Servizio Kubernetes                | `Microsoft.ContainerService/managedClusters`       | `workbook`    |
-| Cartelle di lavoro in Gruppi di risorse                   | `microsoft.resources/subscriptions/resourcegroups` | `workbook`    |
-| Cartelle di lavoro in Azure Active Directory            | `microsoft.aadiam/tenant`                          | `workbook`    |
-| Informazioni dettagliate macchina virtuale in Macchine virtuali                | `microsoft.compute/virtualmachines`                | `insights`    |
-| Informazioni dettagliate macchina virtuale in Set di scalabilità di macchine virtuali      | `microsoft.compute/virtualmachinescalesets`        | `insights`    |
+| Raccolta                                        | Tipo di risorsa                                       | Tipo di cartella di lavoro |
+|:-----------------------------------------------|:----------------------------------------------------|:--------------|
+| Cartelle di lavoro in Monitoraggio di Azure                     | `Azure Monitor`                                     | `workbook`    |
+| Informazioni dettagliate macchina virtuale in Monitoraggio di Azure                   | `Azure Monitor`                                     | `vm-insights` |
+| Cartelle di lavoro in Area di lavoro Log Analytics           | `microsoft.operationalinsights/workspaces`          | `workbook`    |
+| Cartelle di lavoro in Application Insights              | `microsoft.insights/components`                     | `workbook`    |
+| Guide alla risoluzione dei problemi in Application Insights | `microsoft.insights/components`                     | `tsg`         |
+| Utilizzo in Application Insights                  | `microsoft.insights/components`                     | `usage`       |
+| Cartelle di lavoro in Servizio Kubernetes                | `Microsoft.ContainerService/managedClusters`        | `workbook`    |
+| Cartelle di lavoro in Gruppi di risorse                   | `microsoft.resources/subscriptions/resourcegroups`  | `workbook`    |
+| Cartelle di lavoro in Azure Active Directory            | `microsoft.aadiam/tenant`                           | `workbook`    |
+| Informazioni dettagliate macchina virtuale in Macchine virtuali                | `microsoft.compute/virtualmachines`                 | `insights`    |
+| Informazioni dettagliate macchina virtuale in Set di scalabilità di macchine virtuali      | `microsoft.compute/virtualmachinescalesets`         | `insights`    |
 
 ## <a name="azure-resource-manager-template-for-deploying-a-workbook-instance"></a>Modello di Azure Resource Manager per la distribuzione di un'istanza di cartella di lavoro
 

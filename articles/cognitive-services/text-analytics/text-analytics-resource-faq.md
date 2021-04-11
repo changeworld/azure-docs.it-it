@@ -8,18 +8,22 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: conceptual
-ms.date: 01/05/2021
+ms.date: 03/29/2021
 ms.author: aahi
-ms.openlocfilehash: 9a4e179767cc38169cd794f4cd629604bdcdaab0
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: c38b7c33cfe787ba933ca1fc4961080eaa4ada61
+ms.sourcegitcommit: 02bc06155692213ef031f049f5dcf4c418e9f509
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "97955043"
+ms.lasthandoff: 04/03/2021
+ms.locfileid: "106276060"
 ---
 # <a name="frequently-asked-questions-faq-about-the-text-analytics-api"></a>Domande frequenti sull'API Analisi del testo
 
  Trovare le risposte alle domande frequenti su concetti, codice e scenari correlati alla API Analisi del testo in Servizi cognitivi di Azure.
+
+## <a name="what-is-the-maximum-size-and-number-of-requests-i-can-make-to-the-api"></a>Quali sono le dimensioni massime e il numero di richieste che è possibile apportare all'API?
+
+Per informazioni sulle dimensioni e sul numero di richieste che è possibile inviare al minuto e al secondo, vedere l'articolo relativo ai [limiti dei dati](concepts/data-limits.md) .
 
 ## <a name="can-text-analytics-identify-sarcasm"></a>Analisi del testo può identificare il sarcasmo?
 

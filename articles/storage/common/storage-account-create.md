@@ -11,10 +11,10 @@ ms.author: tamram
 ms.subservice: common
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
 ms.openlocfilehash: 73bef1648b08f5c1e0664ef1da15375bc44149cc
-ms.sourcegitcommit: ed7376d919a66edcba3566efdee4bc3351c57eda
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/24/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "105045349"
 ---
 # <a name="create-a-storage-account"></a>Creare un account di archiviazione
@@ -284,6 +284,6 @@ In alternativa, è possibile eliminare il gruppo di risorse, che elimina l'accou
 ## <a name="next-steps"></a>Passaggi successivi
 
 - [Panoramica dell'account di archiviazione](storage-account-overview.md)
-- [Eseguire l'aggiornamento a un account di archiviazione per utilizzo generico v2](storage-account-upgrade.md)
+- [Upgrade to a general-purpose v2 storage account](storage-account-upgrade.md) (Eseguire l'aggiornamento alla versione 2 di un account di archiviazione per utilizzo generico)
 - [Spostare un account di archiviazione di Azure in un'altra area](storage-account-move.md)
 - [consente di ripristinare un account di archiviazione eliminato](storage-account-recover.md)

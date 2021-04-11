@@ -6,14 +6,14 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: overview
-ms.date: 03/12/2021
+ms.date: 04/07/2021
 ms.custom: references_regions
-ms.openlocfilehash: b9ae576a2d0ab8aee00be5b755c348806b412bef
-ms.sourcegitcommit: 5fd1f72a96f4f343543072eadd7cdec52e86511e
+ms.openlocfilehash: 8db1a671904233098610a9ba55ce260e6214c38c
+ms.sourcegitcommit: d40ffda6ef9463bb75835754cabe84e3da24aab5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/01/2021
-ms.locfileid: "106108490"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "107028503"
 ---
 # <a name="whats-new-in-azure-cognitive-search"></a>Novità di Ricerca cognitiva di Azure
 
@@ -26,9 +26,8 @@ Ecco cosa c'è di nuovo nel servizio. Aggiungere un segnalibro a questa pagina p
 | [Ricerca semantica](semantic-search-overview.md) | Raccolta di funzionalità correlate a query che consentono di migliorare significativamente la pertinenza dei risultati della ricerca tramite modifiche minime a una richiesta di query. </br></br>La [classificazione semantica](semantic-ranking.md) calcola i punteggi di pertinenza usando il significato semantico alla base delle parole e del contenuto. </br></br>Le [didascalie semantiche](semantic-how-to-query-request.md) restituiscono i passaggi pertinenti dal documento che meglio riepilogano il documento, con evidenziazioni sui termini o le frasi più importanti. </br></br>Le [risposte semantiche](semantic-answers.md) restituiscono passaggi chiave, estratti da un documento di ricerca, formulati come risposta diretta a una query simile a una domanda. | Anteprima pubblica ([per richiesta](https://aka.ms/SemanticSearchPreviewSignup)). </br></br>Usare [Cerca documenti (REST)](/rest/api/searchservice/preview-api/search-documents) API-Version = 2020-06 -30-Preview o [esplora ricerche](search-explorer.md) in portale di Azure. </br></br>Si applicano le restrizioni relative a aree e livelli. |
 | [Termini di query del controllo ortografico](speller-how-to-add.md) | Prima che i termini di query raggiungano il motore di ricerca, è possibile verificare la presenza di errori di ortografia. L' `speller` opzione funziona con qualsiasi tipo di query (semplice, completo o semantico). |  Anteprima pubblica, solo REST, API-Version = 2020-06 -30-Preview|
 | [Indicizzatore di SharePoint Online](search-howto-index-sharepoint-online.md) | Questo indicizzatore si connette a un sito di SharePoint online in modo che sia possibile indicizzare il contenuto da una raccolta documenti. | Anteprima pubblica, solo REST, API-Version = 2020-06 -30-Preview |
-| [Normalizzatori](search-normalizers.md) | I normalizzatori forniscono la pre-elaborazione del testo semplice come la combinazione di maiuscole e minuscole, la rimozione degli accenti, asciifolding e così via, senza dover eseguire l'intera catena| Anteprima pubblica, solo REST, API-Version = 2020-06 -30-Preview |
-[**Abilità ricerca entità personalizzata**](cognitive-search-skill-custom-entity-lookup.md ) |  Abilità cognitiva che cerca il testo da un elenco personalizzato di parole e frasi definito dall'utente. Con questo elenco vengono etichettati tutti i documenti con entità corrispondenti. La competenza supporta anche un grado di corrispondenza fuzzy che può essere applicato per trovare corrispondenze simili ma non proprio esatte. | Disponibile a livello generale. |
-|
+| [Normalizzatori](search-normalizers.md) | I normalizzatori forniscono la pre-elaborazione del testo semplice, ovvero la combinazione di maiuscole e minuscole, la rimozione di accenti e la riduzione ASCII senza richiamare la catena di analisi full-text| Anteprima pubblica, solo REST, API-Version = 2020-06 -30-Preview |
+| [Abilità ricerca entità personalizzata](cognitive-search-skill-custom-entity-lookup.md ) |  Abilità cognitiva che cerca il testo da un elenco personalizzato di parole e frasi definito dall'utente. Con questo elenco vengono etichettati tutti i documenti con entità corrispondenti. La competenza supporta anche un grado di corrispondenza fuzzy che può essere applicato per trovare corrispondenze simili ma non proprio esatte. | Disponibile a livello generale. |
 
 ## <a name="february-2021"></a>2021 febbraio
 

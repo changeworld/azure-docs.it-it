@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 09/15/2020
-ms.openlocfilehash: cba248d3f254c9bb97c66ff7a3d39275b4b912c4
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 75f9080b43333168802a72e60751eec2a765c6d4
+ms.sourcegitcommit: d63f15674f74d908f4017176f8eddf0283f3fac8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102616078"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "106580810"
 ---
 # <a name="copy-activity-performance-and-scalability-guide"></a>Guida a prestazioni e scalabilità dell'attività di copia
 
@@ -62,7 +62,10 @@ Questo utilizzo completo significa che è possibile stimare la velocità effetti
 * Archivio dati di destinazione
 * Larghezza di banda di rete tra gli archivi dati di origine e di destinazione
 
-La tabella seguente calcola la durata della copia. La durata è basata sulle dimensioni dei dati e sul limite della larghezza di banda di rete/archivio dati per l'ambiente.
+La tabella seguente illustra il calcolo della durata dello spostamento dei dati. La durata in ogni cella viene calcolata in base a una determinata rete e alla larghezza di banda di archiviazione dati e a una determinata dimensione del payload di dati.
+
+> [!NOTE]
+> La durata indicata di seguito è concepita per rappresentare prestazioni ottenibili in una soluzione di integrazione dati end-to-end implementata tramite ADF, utilizzando una o più tecniche di ottimizzazione delle prestazioni descritte in [copia funzionalità di ottimizzazione delle prestazioni](#copy-performance-optimization-features), incluso l'utilizzo di foreach per partizionare e generare più attività di copia simultanee. Per ottimizzare le prestazioni di copia per il set di dati e la configurazione di sistema specifici, è consigliabile seguire i passaggi illustrati nella [procedura di ottimizzazione delle prestazioni](#performance-tuning-steps) . È necessario usare i numeri ottenuti nei test di ottimizzazione delle prestazioni per la pianificazione della distribuzione di produzione, la pianificazione della capacità e la proiezione della fatturazione.
 
 &nbsp;
 

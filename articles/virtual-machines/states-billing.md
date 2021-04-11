@@ -10,10 +10,10 @@ ms.date: 03/8/2021
 ms.author: mimckitt
 ms.reviewer: cynthn
 ms.openlocfilehash: c206cba3b23a0bf41ce32481980aa466e869bcde
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "104596298"
 ---
 # <a name="states-and-billing-of-azure-virtual-machines"></a>Stati e fatturazione di macchine virtuali di Azure
@@ -63,7 +63,7 @@ Uno stato di provisioning è lo stato di un'operazione del piano di controllo av
 |---|---|---|---|
 | Crea | Creazione della macchina virtuale. | Avvio in corso | Non fatturato * | 
 | Aggiornamento | Aggiorna il modello per una macchina virtuale esistente. Alcune modifiche non del modello a una macchina virtuale, ad esempio avvio e riavvio, rientrano nello stato di aggiornamento. | In esecuzione | Fatturato | 
-| Elimina | Eliminazione della macchina virtuale. | Deallocazione | Non fatturato * |
+| Delete | Eliminazione della macchina virtuale. | Deallocazione | Non fatturato * |
 | Deallocare | La macchina virtuale viene arrestata e rimossa completamente dall'host sottostante. La deallocazione di una macchina virtuale è considerata un aggiornamento e visualizza stati di provisioning simili all'aggiornamento. | Deallocazione | Non fatturato * | 
 
 &#42; alcune risorse di Azure, ad esempio i [dischi](https://azure.microsoft.com/pricing/details/managed-disks) e la [rete](https://azure.microsoft.com/pricing/details/bandwidth/) continueranno a comportare addebiti.

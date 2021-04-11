@@ -1,21 +1,22 @@
 ---
 title: Controlli di conformità alle normative di Criteri di Azure per il servizio Azure Kubernetes
 description: Elenca i controlli di conformità alle normative di Criteri di Azure disponibili per il servizio Azure Kubernetes. Queste definizioni di criteri predefinite rappresentano approcci comuni per gestire la conformità delle risorse di Azure.
-ms.date: 03/24/2021
+ms.date: 03/31/2021
 ms.topic: sample
 ms.service: container-service
 ms.custom: subject-policy-compliancecontrols
-ms.openlocfilehash: 8e71781306eab03bdefb336655bc96c0b8ad5000
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: d4b36638caf1365f387f0c2644726706b3793c2f
+ms.sourcegitcommit: 5f482220a6d994c33c7920f4e4d67d2a450f7f08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105036893"
+ms.lasthandoff: 04/08/2021
+ms.locfileid: "107104933"
 ---
 # <a name="azure-policy-regulatory-compliance-controls-for-azure-kubernetes-service-aks"></a>Controlli di conformità alle normative di Criteri di Azure per il servizio Azure Kubernetes
 
-La [conformità alle normative di Criteri di Azure](../governance/policy/concepts/regulatory-compliance.md) fornisce definizioni di iniziative gestite e create da Microsoft, note come _definizioni predefinite_, per i **domini di conformità** e i **controlli di sicurezza** correlati a diversi standard di conformità. Questa pagina elenca i **domini di conformità** e i **controlli di sicurezza** per il servizio Azure Kubernetes.
-È possibile assegnare le definizioni predefinite singolarmente per un **controllo di sicurezza** per rendere le risorse di Azure conformi allo standard specifico.
+La [conformità alle normative in criteri di Azure](../governance/policy/concepts/regulatory-compliance.md) fornisce le definizioni di iniziativa (*built-* in) create e gestite da Microsoft, per i domini di conformità e i controlli di sicurezza correlati a diversi standard di conformità. Questa pagina elenca i controlli di sicurezza e i domini di conformità di Azure Kubernetes Service (AKS).
+
+È possibile assegnare singolarmente i criteri predefiniti per un **controllo di sicurezza** in modo da rendere le risorse di Azure conformi allo specifico standard.
 
 [!INCLUDE [azure-policy-compliancecontrols-introwarning](../../includes/policy/standards/intro-warning.md)]
 

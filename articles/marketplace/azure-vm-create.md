@@ -7,12 +7,12 @@ ms.topic: how-to
 author: mingshen-ms
 ms.author: mingshen
 ms.date: 03/10/2021
-ms.openlocfilehash: ffc09daa15e742ca2b5b8a2fa9323e33fe317c60
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 827e4d883fd9e80ae84845d620cc4ca00816f56e
+ms.sourcegitcommit: b0557848d0ad9b74bf293217862525d08fe0fc1d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103200399"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "106551315"
 ---
 # <a name="how-to-create-a-virtual-machine-offer-on-azure-marketplace"></a>Come creare un'offerta di macchina virtuale in Azure Marketplace
 
@@ -58,20 +58,7 @@ Per abilitare una test drive, selezionare la casella di controllo **Abilita una 
 
 ## <a name="configure-customer-leads-management"></a>Configurare la gestione dei lead dei clienti
 
-Quando si pubblica un'offerta nel Marketplace commerciale con il centro per i partner, connetterla al sistema CRM (Customer Relationship Management). per ricevere le informazioni di contatto del cliente non appena questo esprime interesse o usa il prodotto. La connessione a un CRM è necessaria se si vuole abilitare una test drive (vedere la sezione precedente). In caso contrario, la connessione a tale sistema è facoltativa.
-
-1. In **Lead cliente** selezionare il collegamento **Connetti** .
-1. Nella finestra di dialogo **Dettagli connessione** selezionare una destinazione principale.
-1. Completare i campi visualizzati. Per i passaggi dettagliati, vedere gli articoli seguenti:
-
-   - [Configurare l'offerta per inviare lead alla tabella di Azure](./partner-center-portal/commercial-marketplace-lead-management-instructions-azure-table.md#configure-your-offer-to-send-leads-to-the-azure-table)
-   - [Configurare l'offerta per inviare lead a dynamics 365 Customer Engagement](./partner-center-portal/commercial-marketplace-lead-management-instructions-dynamics.md#configure-your-offer-to-send-leads-to-dynamics-365-customer-engagement) (in precedenza Dynamics CRM online)
-   - [Configurare l'offerta per inviare lead all'endpoint HTTPS](./partner-center-portal/commercial-marketplace-lead-management-instructions-https.md#configure-your-offer-to-send-leads-to-the-https-endpoint)
-   - [Configurare l'offerta per inviare lead a Marketo](./partner-center-portal/commercial-marketplace-lead-management-instructions-marketo.md#configure-your-offer-to-send-leads-to-marketo)
-   - [Configurare l'offerta per inviare lead a Salesforce](./partner-center-portal/commercial-marketplace-lead-management-instructions-salesforce.md#configure-your-offer-to-send-leads-to-salesforce)
-
-1. Per convalidare la configurazione specificata, selezionare il collegamento **convalida** .
-1. Selezionare **Connetti**.
+[!INCLUDE [Customer leads](includes/customer-leads.md)] 
 
 Selezionare **Salva bozza** prima di continuare con la scheda successiva nel menu di navigazione a sinistra, **Proprietà**.
 

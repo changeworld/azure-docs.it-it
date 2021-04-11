@@ -4,10 +4,10 @@ description: Informazioni sugli eventi e i log a livello piattaforma usati per i
 ms.topic: conceptual
 ms.date: 11/21/2018
 ms.openlocfilehash: f9104c390ab4115c626beb4759c6b6952d691ca9
-ms.sourcegitcommit: a9ce1da049c019c86063acf442bb13f5a0dde213
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "105626521"
 ---
 # <a name="monitoring-the-cluster"></a>Monitoraggio del cluster

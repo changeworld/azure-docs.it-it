@@ -8,15 +8,15 @@ ms.service: active-directory
 ms.subservice: app-provisioning
 ms.workload: identity
 ms.topic: reference
-ms.date: 08/05/2020
+ms.date: 04/07/2021
 ms.author: kenwith
 ms.reviewer: arvinh
-ms.openlocfilehash: d13629b4cb05995b9652e862f769a0ffcae30a8c
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 268931715500631ac2d10feacebff1d5c65931bf
+ms.sourcegitcommit: d40ffda6ef9463bb75835754cabe84e3da24aab5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99256899"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "107028792"
 ---
 # <a name="known-issues-and-resolutions-with-scim-20-protocol-compliance-of-the-azure-ad-user-provisioning-service"></a>Problemi noti e risolti con la conformità al protocollo SCIM 2.0 del servizio di provisioning utenti di Azure AD
 
@@ -51,7 +51,7 @@ Usare i flag seguenti nell'URL del tenant dell'applicazione per modificare il co
 :::image type="content" source="media/application-provisioning-config-problem-scim-compatibility/scim-flags.jpg" alt-text="SCIM contrassegna il comportamento successivo.":::
 
 * Usare l'URL seguente per aggiornare il comportamento della PATCH e assicurare la conformità di SCIM (ad esempio, Active come booleana e le rimozioni di appartenenza a gruppi appropriate). Questo comportamento è attualmente disponibile solo quando si usa il flag, ma diventerà il comportamento predefinito nei prossimi mesi. Si noti che questo flag di anteprima attualmente non funziona con il provisioning su richiesta. 
-  * **URL (conforme a SCIM):** AzureAdScimPatch062020
+  * **URL (conforme a SCIM):** aadOptscim062020
   * **Riferimenti RFC SCIM:** 
     * https://tools.ietf.org/html/rfc7644#section-3.5.2
   * **Comportamento**

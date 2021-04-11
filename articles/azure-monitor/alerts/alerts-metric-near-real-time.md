@@ -5,13 +5,13 @@ author: harelbr
 ms.author: harelbr
 services: monitoring
 ms.topic: conceptual
-ms.date: 03/11/2021
-ms.openlocfilehash: efc1438fdc539af278ebff1f292c5fa0a91b7b91
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 04/08/2021
+ms.openlocfilehash: 24298734a46b8339a2a8818692641b4c10812294
+ms.sourcegitcommit: 5f482220a6d994c33c7920f4e4d67d2a450f7f08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103016101"
+ms.lasthandoff: 04/08/2021
+ms.locfileid: "107104882"
 ---
 # <a name="supported-resources-for-metric-alerts-in-azure-monitor"></a>Risorse supportate per gli avvisi delle metriche in Monitoraggio di Azure
 
@@ -29,15 +29,16 @@ Ecco l'elenco completo delle origini delle metriche di monitoraggio di Azure sup
 
 |Tipo di risorsa  |Dimensioni supportate |Avvisi per più risorse| Metriche disponibili|
 |---------|---------|-----|----------|
-|Microsoft. Aadiam/azureADMetrics | Sì | No | |
+|Microsoft. Aadiam/azureADMetrics | Sì | No | [Azure AD](../essentials/metrics-supported.md#microsoftaadiamazureadmetrics) |
 |Microsoft.ApiManagement/service | Sì | No | [Gestione API](../essentials/metrics-supported.md#microsoftapimanagementservice) |
 |Microsoft.AppConfiguration/configurationStores |Sì | No | [Configurazione app](../essentials/metrics-supported.md#microsoftappconfigurationconfigurationstores) |
-|Microsoft.AppPlatform/Spring | Sì | No | [Azure Spring Cloud](../essentials/metrics-supported.md#microsoftappplatformspring) |
+|Microsoft. AppPlatform/Spring | Sì | No | [Azure Spring Cloud](../essentials/metrics-supported.md#microsoftappplatformspring) |
 |Microsoft.Automation/automationAccounts | Sì| No | [Account di Automazione](../essentials/metrics-supported.md#microsoftautomationautomationaccounts) |
 |Microsoft. AVS/privateClouds | No | No | [Soluzione Azure VMware](../essentials/metrics-supported.md#microsoftavsprivateclouds) |
 |Microsoft.Batch/batchAccounts | Sì | No | [Account Batch](../essentials/metrics-supported.md#microsoftbatchbatchaccounts) |
 |Microsoft. BotService/botServices | Sì | No | [Servizi Bot](../essentials/metrics-supported.md#microsoftbotservicebotservices) |
-|Microsoft.Cache/Redis | Sì | Sì | [Cache Redis di Azure](../essentials/metrics-supported.md#microsoftcacheredis) |
+|Microsoft.Cache/redis | Sì | Sì | [Cache Redis di Azure](../essentials/metrics-supported.md#microsoftcacheredis) |
+|Microsoft. Rete CDN/profili | Sì | No | [Profili di rete CDN](../essentials/metrics-supported.md#microsoftcdnprofiles) |
 |Microsoft.ClassicCompute/domainNames/slots/roles | No | No | [Servizi cloud classici](../essentials/metrics-supported.md#microsoftclassiccomputedomainnamesslotsroles) |
 |Microsoft.ClassicCompute/virtualMachines | No | No | [Macchine virtuali classiche](../essentials/metrics-supported.md#microsoftclassiccomputevirtualmachines) |
 |Microsoft.ClassicStorage/storageAccounts | Sì | No | [Account di archiviazione (versione classica)](../essentials/metrics-supported.md#microsoftclassicstoragestorageaccounts) |

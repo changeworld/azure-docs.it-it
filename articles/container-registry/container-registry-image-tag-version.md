@@ -5,16 +5,16 @@ author: stevelasker
 ms.topic: article
 ms.date: 07/10/2019
 ms.author: stevelas
-ms.openlocfilehash: b483317960409fe1fbea181706f12375606fe659
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 9dfd29f2265e599f3cc7c412b81c3b7b93af40db
+ms.sourcegitcommit: 5fd1f72a96f4f343543072eadd7cdec52e86511e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "75445747"
+ms.lasthandoff: 04/01/2021
+ms.locfileid: "106109714"
 ---
 # <a name="recommendations-for-tagging-and-versioning-container-images"></a>Suggerimenti per l'assegnazione di tag e il controllo delle versioni delle immagini del contenitore
 
-Quando si esegue il push delle immagini del contenitore in un registro contenitori e quindi la si distribuisce, è necessaria una strategia per l'assegnazione di tag alle immagini e il controllo delle versioni. Questo articolo illustra due approcci e ognuno si integra durante il ciclo di vita del contenitore:
+Quando si esegue il push delle immagini del contenitore in un registro contenitori e quindi si distribuisce, è necessaria una strategia per l'assegnazione di tag e il controllo delle versioni delle immagini. Questo articolo illustra due approcci e ognuno si integra durante il ciclo di vita del contenitore:
 
 * **Tag stabili** -Tag riutilizzabili, ad esempio, per indicare una versione principale o secondaria, ad esempio *mycontainerimage: 1.0*.
 * **Tag univoci** : un tag diverso per ogni immagine di cui si esegue il push in un registro, ad esempio *mycontainerimage: abc123*.
