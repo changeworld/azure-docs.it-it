@@ -6,12 +6,12 @@ ms.author: inhenkel
 ms.service: media-services
 ms.topic: conceptual
 ms.date: 1/28/2020
-ms.openlocfilehash: f2ea960d28bcdcbf586570933ac00dccae18e46a
-ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
+ms.openlocfilehash: bc7b1a0742e79c3c84bf533e75467b5def2706b4
+ms.sourcegitcommit: 02bc06155692213ef031f049f5dcf4c418e9f509
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106067997"
+ms.lasthandoff: 04/03/2021
+ms.locfileid: "106277726"
 ---
 # <a name="bring-your-own-key-customer-managed-keys-with-media-services"></a>Bring your own key (chiavi gestite dal cliente) con servizi multimediali
 
@@ -46,8 +46,8 @@ Servizi multimediali supporta automaticamente la crittografia doppia. Per i dati
 
 ## <a name="tutorials"></a>Esercitazioni
 
-- [Usare chiavi gestite dal cliente o BYOK nel portale di Azure con Servizi multimediali](tutorial-byok-portal.md)
-- [Usare chiavi gestite dal cliente o BYOK con l'API REST di servizi multimediali](tutorial-byok-postman.md).
+- [Usare chiavi gestite dal cliente o BYOK nel portale di Azure con Servizi multimediali](security-customer-managed-keys-portal-tutorial.md)
+- [Usare chiavi gestite dal cliente o BYOK con l'API REST di servizi multimediali](security-customer-managed-keys-rest-postman-tutorial.md).
 
 ## <a name="next-steps"></a>Passaggi successivi
 

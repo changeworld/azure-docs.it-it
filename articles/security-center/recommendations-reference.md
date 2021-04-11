@@ -4,15 +4,15 @@ description: Questo articolo elenca le raccomandazioni sulla sicurezza del Centr
 author: memildin
 ms.service: security-center
 ms.topic: reference
-ms.date: 03/22/2021
+ms.date: 04/06/2021
 ms.author: memildin
 ms.custom: generated
-ms.openlocfilehash: 2d9f76bd3c6ad0060a90f52abba1c7378b310e67
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: a44a5e4e715238c42e51e65dfe16d4f70dfcf54d
+ms.sourcegitcommit: c2a41648315a95aa6340e67e600a52801af69ec7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104801483"
+ms.lasthandoff: 04/06/2021
+ms.locfileid: "106504814"
 ---
 # <a name="security-recommendations---a-reference-guide"></a>Raccomandazioni sulla sicurezza: una guida di riferimento
 
@@ -58,12 +58,15 @@ Il Punteggio sicuro si basa sul numero di raccomandazioni del Centro sicurezza c
 
 ## <a name="deprecated-recommendations"></a>Raccomandazioni rimosse
 
-|Recommendation|Descrizione e criteri correlati|Gravità|Correzione rapida abilitata? ([Altre informazioni](security-center-remediate-recommendations.md#quick-fix-remediation))|Tipo di risorsa|
-|----|----|----|----|----|
-|**L'accesso ai Servizi app deve essere limitato**|Limitare l'accesso a Servizi app modificando la configurazione di rete per negare il traffico in ingresso da intervalli troppo ampi.<br>(Criterio correlato: [Anteprima]: l'accesso ai Servizi app deve essere limitato)|Alto|N|Servizio app|
-|**È consigliabile applicare la protezione avanzata alle regole per le applicazioni Web nei gruppi di sicurezza di rete IaaS**|Rafforzare il gruppo di sicurezza di rete (NSG) delle macchine virtuali che eseguono applicazioni Web, con regole NSG che sono eccessivamente permissive per quanto concerne le porte dell'applicazione Web.<br>(Criterio correlato: le regole per i gruppi di sicurezza di rete delle applicazioni Web in IaaS devono essere rafforzate)|Alto|N|Macchina virtuale|
-|**I criteri di sicurezza pod devono essere definiti per ridurre il vettore di attacco rimuovendo i privilegi delle applicazioni non necessari (Anteprima)**|Consente di definire i criteri di sicurezza pod per ridurre il vettore di attacco rimuovendo i privilegi delle applicazioni non necessari. È consigliabile configurare i criteri di sicurezza pod per consentire ai pod di accedere solo alle risorse per cui sono autorizzati.<br>(Criterio correlato: [Anteprima]: i criteri di sicurezza pod devono essere definiti nei servizi Kubernetes)|Media|N|Calcolo delle risorse (contenitori)|
-|**Install Azure Security Center for IoT security module to get more visibility into your IoT devices (Installare il modulo di protezione del Centro sicurezza di Azure per IoT per ottenere maggiore visibilità nei dispositivi IoT)**|Installare il modulo di protezione del Centro sicurezza di Azure per IoT per ottenere maggiore visibilità nei dispositivi IoT.|Basso|N|Dispositivo IoT|
+|Recommendation|Descrizione e criteri correlati|Gravità|
+|----|----|----|
+|L'accesso ai Servizi app deve essere limitato|Limitare l'accesso a Servizi app modificando la configurazione di rete per negare il traffico in ingresso da intervalli troppo ampi.<br>(Criterio correlato: [Anteprima]: l'accesso ai Servizi app deve essere limitato)|Alto|
+|È consigliabile applicare la protezione avanzata alle regole per le applicazioni Web nei gruppi di sicurezza di rete IaaS|Rafforzare il gruppo di sicurezza di rete (NSG) delle macchine virtuali che eseguono applicazioni Web, con regole NSG che sono eccessivamente permissive per quanto concerne le porte dell'applicazione Web.<br>(Criterio correlato: le regole per i gruppi di sicurezza di rete delle applicazioni Web in IaaS devono essere rafforzate)|Alto|
+|I criteri di sicurezza pod devono essere definiti per ridurre il vettore di attacco rimuovendo i privilegi delle applicazioni non necessari (Anteprima)|Consente di definire i criteri di sicurezza pod per ridurre il vettore di attacco rimuovendo i privilegi delle applicazioni non necessari. È consigliabile configurare i criteri di sicurezza pod per consentire ai pod di accedere solo alle risorse per cui sono autorizzati.<br>(Criterio correlato: [Anteprima]: i criteri di sicurezza pod devono essere definiti nei servizi Kubernetes)|Media|
+|Install Azure Security Center for IoT security module to get more visibility into your IoT devices (Installare il modulo di protezione del Centro sicurezza di Azure per IoT per ottenere maggiore visibilità nei dispositivi IoT)|Installare il modulo di protezione del Centro sicurezza di Azure per IoT per ottenere maggiore visibilità nei dispositivi IoT.|Basso|
+|È consigliabile riavviare i computer per applicare gli aggiornamenti del sistema|Riavviare i computer per applicare gli aggiornamenti del sistema e proteggere i computer dalle vulnerabilità. (Criterio correlato: gli aggiornamenti di sistema devono essere installati nelle macchine)|Medio|
+| È necessario installare l'agente di monitoraggio nei computer|Questa azione installa un agente di monitoraggio nelle macchine virtuali selezionate. Selezionare un'area di lavoro a cui l'agente deve inviare report. (Nessun criterio correlato)|Alto|
+||||
 
 ## <a name="next-steps"></a>Passaggi successivi
 

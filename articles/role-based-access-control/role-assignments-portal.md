@@ -10,12 +10,12 @@ ms.workload: identity
 ms.date: 02/15/2021
 ms.author: rolyon
 ms.custom: contperf-fy21q3-portal
-ms.openlocfilehash: e25bbe4e1a96e4efaaa13732aea571d26d4b006e
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 6b159d9ca7d8d7739d623bb3a48752b4d03e24bc
+ms.sourcegitcommit: 77d7639e83c6d8eb6c2ce805b6130ff9c73e5d29
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100555283"
+ms.lasthandoff: 04/05/2021
+ms.locfileid: "106385965"
 ---
 # <a name="assign-azure-roles-using-the-azure-portal"></a>Assegnare i ruoli di Azure usando il portale di Azure
 
@@ -66,7 +66,7 @@ Il **controllo di accesso (IAM)** è la pagina che in genere si usa per assegnar
 
     Viene visualizzato il riquadro Aggiungi assegnazione di ruolo.
 
-   ![Riquadro Aggiungi assegnazione di ruolo](./media/shared/add-role-assignment.png)
+   ![Pagina Aggiungi assegnazione ruolo](../../includes/role-based-access-control/media/add-role-assignment-page.png)
 
 ## <a name="step-3-select-the-appropriate-role"></a>Passaggio 3: selezionare il ruolo appropriato
 

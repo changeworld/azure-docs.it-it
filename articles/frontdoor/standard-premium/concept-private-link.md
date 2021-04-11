@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 02/18/2021
 ms.author: tyao
 ms.custom: references_regions
-ms.openlocfilehash: 88c000c96e632f970db075fafb13ea5eb4bbddfc
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: c927682231bab1fc92f198c56a2f6aeff2f4c516
+ms.sourcegitcommit: b0557848d0ad9b74bf293217862525d08fe0fc1d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104799936"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "106553533"
 ---
 # <a name="secure-your-origin-with-private-link-in-azure-front-door-standardpremium-preview"></a>Proteggi la tua origine con un collegamento privato in Azure front door standard/Premium (anteprima)
 
@@ -43,7 +43,7 @@ Quando si Abilita il collegamento privato alla propria origine nella configurazi
 
 ## <a name="limitations"></a>Limitazioni
 
-Gli endpoint privati di Azure front door sono disponibili nelle aree seguenti durante l'anteprima pubblica: Stati Uniti orientali, Stati Uniti occidentali e Stati Uniti centro-meridionali.
+Gli endpoint privati di Azure front door sono disponibili nelle aree seguenti durante l'anteprima pubblica: Stati Uniti orientali, Stati Uniti occidentali, Stati Uniti centro-meridionali e Regno Unito meridionale.
 
 Per la migliore latenza, è consigliabile selezionare sempre un'area di Azure più vicina all'origine quando si sceglie di abilitare l'endpoint di collegamento privato front door.
 

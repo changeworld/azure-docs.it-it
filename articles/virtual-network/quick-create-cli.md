@@ -3,18 +3,17 @@ title: 'Creare una rete virtuale: guida introduttiva - Interfaccia della riga di
 titlesuffix: Azure Virtual Network
 description: In questa guida introduttiva si apprenderà a creare una rete virtuale usando l'interfaccia della riga di comando di Azure. Una rete virtuale consente alle risorse di Azure di comunicare tra loro e con Internet.
 author: KumudD
-Customer intent: I want to create a virtual network so that virtual machines can communicate with privately with each other and with the internet.
 ms.service: virtual-network
 ms.topic: quickstart
 ms.date: 03/06/2021
 ms.author: kumud
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 3f4cd0a09c64c8c89116bf3a7dec40bae9f05f71
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 0795404c2dc5377d60896863f6a088c4b2ffd1ad
+ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102199068"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106060806"
 ---
 # <a name="quickstart-create-a-virtual-network-using-the-azure-cli"></a>Avvio rapido: Creare una rete virtuale usando l'interfaccia della riga di comando di Azure
 

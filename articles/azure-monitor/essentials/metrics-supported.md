@@ -6,12 +6,12 @@ services: azure-monitor
 ms.topic: reference
 ms.date: 04/01/2021
 ms.author: robb
-ms.openlocfilehash: 0854d56930dbc8decfcf8f96a814f082e361de62
-ms.sourcegitcommit: d23602c57d797fb89a470288fcf94c63546b1314
+ms.openlocfilehash: 6f664450d5450782d9a01d75abfb5a96b3e0bba6
+ms.sourcegitcommit: 3f684a803cd0ccd6f0fb1b87744644a45ace750d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/01/2021
-ms.locfileid: "106167244"
+ms.lasthandoff: 04/02/2021
+ms.locfileid: "106221195"
 ---
 # <a name="supported-metrics-with-azure-monitor"></a>Metriche supportate con il monitoraggio di Azure
 
@@ -1734,9 +1734,6 @@ Per informazioni aggiuntive importanti, vedere [Panoramica degli agenti di monit
 |IoTConnectorMeasurementIngestionLatencyMs|Sì|Latenza media delle fasi del gruppo|Millisecondi|Media|Periodo che intercorre tra il momento in cui il connettore Internet ha ricevuto i dati del dispositivo e il momento in cui i dati vengono elaborati dalla fase di conversione FHIR.|Operazione, ConnectorName|
 |IoTConnectorNormalizedEvent|Sì|Numero di messaggi normalizzati|Conteggio|Sum|Numero totale di valori normalizzati con mapping restituiti dalla fase di normalizzazione del connettore Azure per FHIR.|Operazione, ConnectorName|
 |IoTConnectorTotalErrors|Sì|Numero totale errori|Conteggio|Sum|Il numero totale di errori registrati dal connettore Azure per FHIR|Nome, operazione, ErrorType, ErrorSeverity, Connettorename|
-|ServiceApiErrors|Sì|Errori del servizio|Conteggio|Sum|Numero totale di errori interni del server generati dal servizio.|Protocollo, autenticazione, operazione, ResourceType, StatusCode, StatusCodeClass, StatusCodeText|
-|ServiceApiLatency|Sì|Latenza servizio|Millisecondi|Media|Latenza di risposta del servizio.|Protocollo, autenticazione, operazione, ResourceType, StatusCode, StatusCodeClass, StatusCodeText|
-|ServiceApiRequests|Sì|Service Requests|Conteggio|Sum|Numero totale di richieste ricevute dal servizio.|Protocollo, autenticazione, operazione, ResourceType, StatusCode, StatusCodeClass, StatusCodeText|
 |TotalErrors|Sì|Totale errori|Conteggio|Sum|Numero totale di errori interni del server rilevati dal servizio.|Protocollo, StatusCode, StatusCodeClass, StatusCodeText|
 |TotalLatency|Sì|Latenza totale|Millisecondi|Media|Latenza di risposta del servizio.|Protocollo|
 |TotalRequests|Sì|Totale richieste|Conteggio|Sum|Numero totale di richieste ricevute dal servizio.|Protocollo|

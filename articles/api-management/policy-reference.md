@@ -1,18 +1,18 @@
 ---
 title: Definizioni di criteri predefiniti per Gestione API di Azure
 description: Elenco di definizioni di criteri predefiniti di Criteri di Azure per Gestione API di Azure. Queste definizioni di criteri predefiniti forniscono gli approcci alla gestione delle risorse di Azure.
-ms.date: 03/24/2021
+ms.date: 03/31/2021
 author: georgewallace
 ms.author: gwallace
 ms.service: api-management
 ms.topic: reference
 ms.custom: subject-policy-reference
-ms.openlocfilehash: a4d8fdb59e8427b2a515a650487752a9b6265b7e
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 0956ccd28909b985c86666712330d19bfaa88a43
+ms.sourcegitcommit: 99fc6ced979d780f773d73ec01bf651d18e89b93
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105035380"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106095876"
 ---
 # <a name="azure-policy-built-in-policy-definitions-for-azure-api-management"></a>Definizioni di criteri predefiniti di Criteri di Azure per Gestione API di Azure
 

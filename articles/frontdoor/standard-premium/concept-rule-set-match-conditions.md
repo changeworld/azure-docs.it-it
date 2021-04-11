@@ -5,14 +5,14 @@ services: frontdoor
 author: duongau
 ms.service: frontdoor
 ms.topic: conceptual
-ms.date: 03/24/2021
+ms.date: 03/31/2021
 ms.author: yuajia
-ms.openlocfilehash: 039effb885463c1c53085535a6980601be890340
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 9e8defa9e929d21f210c48ffbd3b22e44195c17d
+ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105561518"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106061622"
 ---
 # <a name="azure-front-door-standardpremium-preview-rule-set-match-conditions"></a>Condizioni di corrispondenza del set di regole standard/Premium (anteprima) di Azure front door
 
@@ -685,7 +685,7 @@ In questo esempio si corrispondono a tutte le richieste in cui la richiesta usa 
 
 ## <a name="request-url"></a><a name="RequestUrl"></a> URL della richiesta
 
-Identifica le richieste che corrispondono all'URL specificato. Viene valutato l'intero URL. È possibile specificare più valori per la corrispondenza, che verranno combinati usando la logica o.
+Identifica le richieste che corrispondono all'URL specificato. Viene valutato l'intero URL, inclusi il protocollo e la stringa di query, ma non il frammento. È possibile specificare più valori per la corrispondenza, che verranno combinati usando la logica o.
 
 > [!TIP]
 > Quando si usa questa condizione della regola, assicurarsi di includere il protocollo. Ad esempio, usare `https://www.contoso.com` anziché semplicemente `www.contoso.com` .
@@ -790,10 +790,6 @@ Le espressioni regolari non supportano le operazioni seguenti:
 * `\K`Inizio della direttiva di reimpostazione delle corrispondenze.
 * Callout e codice incorporato.
 * Raggruppamento atomico e quantificatori possessivi.
-
-## <a name="arm-template-support"></a>Supporto del modello ARM
-
-I set di regole possono essere configurati tramite Azure Resource Manager modelli. [Vedere un modello di esempio](https://github.com/Azure/azure-quickstart-templates/tree/master/201-front-door-standard-premium-rule-set). È possibile aggiungere condizioni di corrispondenza usando i frammenti di codice JSON o bicipite inclusi negli esempi precedenti.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
