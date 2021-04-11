@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/27/2018
 ms.author: sideeksh
-ms.openlocfilehash: 569af28f5773d843f49dd9c8143b45e308ae142e
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 675190bee674c745494c2378712afa89bd43cbe4
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "87420414"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105727876"
 ---
 # <a name="run-a-dr-drill-for-hyper-v-vms-to-a-secondary-site"></a>Eseguire un'esercitazione sul ripristino di emergenza per macchine virtuali Hyper-V in un sito secondario
 
@@ -43,11 +43,11 @@ Eseguire un failover di test dal server primario al sito secondario. Se si desid
 
 Quando si esegue un failover di test, viene chiesto di selezionare le impostazioni di rete per le macchine di replica di test, come riepilogato nella tabella.
 
-| **Opzione** | **Dettagli** | |
-| --- | --- | --- |
-| **Nessuno** | La macchina virtuale di test viene creata nello stesso host in cui è presente la macchina virtuale di replica. Non viene aggiunta al cloud e non è connessa ad alcuna rete.<br/><br/> Dopo essere stata creata, la macchina può essere connessa a una rete VM.| |
-| **Usa esistente** | La macchina virtuale di test viene creata nello stesso host in cui è presente la macchina virtuale di replica. Non viene aggiunta al cloud.<br/><br/>Creare una rete VM isolata dalla rete di produzione.<br/><br/>Se si vuole usare una rete basata su VLAN, è consigliabile creare a questo scopo in VMM una rete logica separata non usata in produzione. Questa rete logica viene usata per creare reti VM per i failover di test.<br/><br/>La rete logica deve essere associata ad almeno una delle schede di rete di tutti i server Hyper-V che ospitano macchine virtuali.<br/><br/>Per le reti logiche VLAN i siti di rete che vengono aggiunti alla rete logica devono essere isolati.<br/><br/>Se si usa una rete logica basata su Virtualizzazione rete Windows, Azure Site Recovery crea automaticamente reti VM isolate. | |
-| **Crea una rete** | Viene creata automaticamente una rete di test temporanea in base all'impostazione specificata in **Rete logica** e ai siti di rete correlati.<br/><br/> Il failover controlla che le macchine virtuali vengano create.<br/><br/> Usare questa opzione se un piano di ripristino uza più reti VM.<br/><br/> Se si utilizzano reti di virtualizzazione rete Windows, è possibile utilizzare questa opzione per creare automaticamente reti VM con le stesse impostazioni (subnet e pool di indirizzi IP) specificate nella rete della macchina virtuale di replica. Queste reti VM vengono eliminate automaticamente al termine del failover di test.<br/><br/> La macchina virtuale di test viene creata nello stesso host in cui è presente la macchina virtuale di replica. Non viene aggiunta al cloud.|
+| **Opzione** | **Dettagli** |
+| --- | --- |
+| **Nessuno** | La macchina virtuale di test viene creata nello stesso host in cui è presente la macchina virtuale di replica. Non viene aggiunto al cloud e non è connesso ad alcuna rete.<br/><br/> Dopo essere stata creata, la macchina può essere connessa a una rete VM.|
+| **Usa esistente** | La macchina virtuale di test viene creata nello stesso host in cui è presente la macchina virtuale di replica. Non viene aggiunto al cloud.<br/><br/>Creare una rete VM isolata dalla rete di produzione.<br/><br/>Se si vuole usare una rete basata su VLAN, è consigliabile creare a questo scopo in VMM una rete logica separata non usata in produzione. Questa rete logica viene usata per creare reti VM per i failover di test.<br/><br/>La rete logica deve essere associata ad almeno una delle schede di rete di tutti i server Hyper-V che ospitano macchine virtuali.<br/><br/>Per le reti logiche VLAN i siti di rete che vengono aggiunti alla rete logica devono essere isolati.<br/><br/>Se si usa una rete logica basata su virtualizzazione rete Windows, Azure Site Recovery crea automaticamente reti VM isolate. |
+| **Crea una rete** | Viene creata automaticamente una rete di test temporanea in base all'impostazione specificata in **Rete logica** e ai siti di rete correlati.<br/><br/> Il failover controlla che le macchine virtuali vengano create.<br/><br/> Usare questa opzione se un piano di ripristino uza più reti VM.<br/><br/> Se si utilizzano reti di virtualizzazione rete Windows, è possibile utilizzare questa opzione per creare automaticamente reti VM con le stesse impostazioni (subnet e pool di indirizzi IP) specificate nella rete della macchina virtuale di replica. Queste reti VM vengono eliminate automaticamente al termine del failover di test.<br/><br/> La macchina virtuale di test viene creata nello stesso host in cui è presente la macchina virtuale di replica. Non viene aggiunto al cloud.|
 
 ### <a name="best-practices"></a>Procedure consigliate
 
@@ -87,7 +87,7 @@ Se una rete VM è configurata in VMM con virtualizzazione rete Windows, tenere p
 Se si desidera semplicemente verificare che una macchina virtuale possa eseguire il failover, è possibile eseguire un failover di test senza un'infrastruttura. Se si desidera eseguire un'esercitazione sul ripristino di emergenza completa per testare il failover dell'applicazione, è necessario preparare l'infrastruttura nel sito secondario:
 
 - Se si esegue un failover di test usando una rete esistente, preparare Active Directory, DHCP e DNS in tale rete.
-- Se si esegue un failover di test con l'opzione per creare automaticamente una rete VM, è necessario aggiungere risorse di infrastruttura alla rete creata automaticamente prima di eseguire il failover di test. In un piano di ripristino è possibile facilitare le operazioni aggiungendo un passaggio manuale prima di Group-1 nel piano di ripristino che si intende utilizzare per il failover di test. Quindi prima di effettuare il failover di test aggiungere risorse di infrastruttura alla rete creata automaticamente.
+- Se si esegue un failover di test con l'opzione per creare automaticamente una rete VM, è necessario aggiungere risorse di infrastruttura alla rete creata automaticamente prima di eseguire il failover di test. In un piano di ripristino, è possibile semplificare questa operazione aggiungendo un passaggio manuale prima di Group-1 nel piano di ripristino che verrà usato per il failover di test. Quindi prima di effettuare il failover di test aggiungere risorse di infrastruttura alla rete creata automaticamente.
 
 
 ### <a name="prepare-dhcp"></a>Preparare DHCP
@@ -100,7 +100,7 @@ Per eseguire un failover di test per testare l'applicazione, è necessaria una c
 ### <a name="prepare-dns"></a>Preparare DNS
 Preparare un server DNS per il failover di test come segue:
 
-* **DHCP**: se le macchine virtuali usano DHCP, l'indirizzo IP del DNS di test deve essere aggiornato nel server DHCP di test. Se si utilizza un tipo di rete di virtualizzazione rete Windows, il server VMM funge da server DHCP. Pertanto, l'indirizzo IP del DNS deve essere aggiornato nella rete di failover di test. In questo caso le macchine virtuali effettuano la registrazione nel relativo server DNS.
+* **DHCP**: se le macchine virtuali usano DHCP, l'indirizzo IP del DNS di test deve essere aggiornato nel server DHCP di test. Se si usa un tipo di rete di virtualizzazione rete Windows, il server VMM funge da server DHCP. Pertanto, l'indirizzo IP del DNS deve essere aggiornato nella rete di failover di test. In questo caso le macchine virtuali effettuano la registrazione nel relativo server DNS.
 * **Indirizzo statico**: se le macchine virtuali usano un indirizzo IP statico, l'indirizzo IP del server DNS di test deve essere aggiornato nella rete di failover di test. Può essere necessario aggiornare il DNS con l'indirizzo IP delle macchine virtuali di test. A tale scopo, è possibile utilizzare lo script di esempio riportato di seguito:
 
   ```powershell

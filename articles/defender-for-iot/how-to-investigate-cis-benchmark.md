@@ -4,10 +4,10 @@ description: Eseguire analisi di base e avanzate basate sulle raccomandazioni di
 ms.date: 1/21/2021
 ms.topic: how-to
 ms.openlocfilehash: 01ca6e1fecddff9800872a3e5495a5cac578a74f
-ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/22/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "104782028"
 ---
 # <a name="investigate-os-baseline-based-on-cis-benchmark-recommendation"></a>Esaminare la baseline del sistema operativo (in base al benchmark CIS) 

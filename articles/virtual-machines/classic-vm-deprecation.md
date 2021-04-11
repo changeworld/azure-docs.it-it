@@ -10,13 +10,13 @@ ms.topic: conceptual
 ms.date: 02/10/2020
 ms.author: tagore
 ms.openlocfilehash: 2fb710bab03d595d6e54bc8dd8fbda38c57123e7
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "101668191"
 ---
-# <a name="migrate-your-iaas-resources-to-azure-resource-manager-by-march-1-2023"></a>Eseguire la migrazione delle risorse IaaS a Azure Resource Manager entro il 1 ° marzo 2023 
+# <a name="migrate-your-iaas-resources-to-azure-resource-manager-by-march-1-2023"></a>Eseguire la migrazione delle risorse IaaS in Azure Resource Manager entro il 1° marzo 2023 
 
 In 2014 è stata avviata l'infrastruttura distribuita come servizio (IaaS) in [Azure Resource Manager](https://azure.microsoft.com/features/resource-manager/). Sono state migliorate le funzionalità da sempre. Poiché Azure Resource Manager ora ha funzionalità complete di IaaS e altri miglioramenti, è stata deprecata la gestione di macchine virtuali (VM) IaaS tramite [Azure Service Manager](./migration-classic-resource-manager-faq.md#what-is-azure-service-manager-and-what-does-it-mean-by-classic) (ASM) il 28 febbraio 2020. Questa funzionalità verrà ritirata completamente il 1° marzo 2023. 
 
@@ -46,7 +46,7 @@ Questo *ritiro non influisce sui* servizi e le funzionalità di Azure seguenti:
 
 - Se la società o l'organizzazione ha collaborato con Microsoft o collabora con i rappresentanti Microsoft (ad esempio Cloud Solution Architects (CSAs) o Technical Account Manager (TAM), collaborare con loro per risorse aggiuntive per la migrazione.
 
-## <a name="what-actions-should-i-take"></a>Quali azioni è necessario eseguire? 
+## <a name="what-actions-should-i-take"></a>Quali azioni devono essere intraprese? 
 
 Inizia a pianificare la migrazione a Azure Resource Manager oggi stesso. 
 

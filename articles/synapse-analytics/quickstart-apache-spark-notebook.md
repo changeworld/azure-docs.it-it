@@ -10,10 +10,10 @@ ms.subservice: spark
 ms.topic: quickstart
 ms.date: 10/16/2020
 ms.openlocfilehash: 060c78621b82f4698d4596383cd155d85d483d8e
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "101669491"
 ---
 # <a name="quickstart-create-a-serverless-apache-spark-pool-in-azure-synapse-analytics-using-web-tools"></a>Avvio rapido: Creare un pool di Apache Spark serverless in Azure Synapse Analytics con gli strumenti Web
@@ -82,9 +82,9 @@ Un notebook è un ambiente interattivo che supporta diversi linguaggi di program
 
     Se si usa lo strumento di esplorazione dell'archiviazione, è possibile vedere l'effetto delle due diverse modalità di scrittura di un file usate in precedenza. Quando non viene specificato un file system viene usato quello predefinito, in questo caso `default>user>trusted-service-user>demo_df`. I dati vengono salvati nel percorso del file system specificato.
 
-    Si noti che nelle operazioni di scrittura nei formati "csv" e "parquet" viene creata una directory con molti file partizionati.
+    Si noti che nelle operazioni di scrittura nei formati "csv&quot; e &quot;parquet&quot; viene creata una directory con molti file partizionati.
 
-    ![Visualizzazione dell'output nello strumento di esplorazione dell'archiviazione](./media/quickstart-apache-spark-notebook/spark-get-started-default-storage.png "Visualizzazione dell'output nello strumento di esplorazione dell'archiviazione")
+    ![Visualizzazione dell'output nello strumento di esplorazione dell'archiviazione](./media/quickstart-apache-spark-notebook/spark-get-started-default-storage.png &quot;Visualizzazione dell'output nello strumento di esplorazione dell'archiviazione")
 
     ![Screenshot con il percorso default > demodata > demo_df evidenziato.](./media/quickstart-apache-spark-notebook/spark-get-started-default-storage2.png "Visualizzazione dell'output nello strumento di esplorazione dell'archiviazione")
 

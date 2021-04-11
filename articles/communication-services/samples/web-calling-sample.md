@@ -9,12 +9,12 @@ ms.author: mariusu
 ms.date: 03/10/2021
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: 0f456581e14f17b0ea3ebbd54d0768d419e800b3
-ms.sourcegitcommit: bed20f85722deec33050e0d8881e465f94c79ac2
+ms.openlocfilehash: 7d9e2f02eadec9fac93f14a0fe137c72a35224be
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/25/2021
-ms.locfileid: "105110645"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105727910"
 ---
 # <a name="get-started-with-the-web-calling-sample"></a>Introduzione all'esempio di chiamata Web
 
@@ -23,9 +23,6 @@ L'esempio Web Calling è un'applicazione Web che funge da procedura dettagliata 
 Questo esempio è stato creato per gli sviluppatori e offre un modo molto semplice per iniziare a familiarizzare con Servizi di comunicazione. La sua interfaccia utente è suddivisa in più sezioni, ognuna con un pulsante "Show code" (Mostra codice) che consente di copiare il codice direttamente dal browser nell'applicazione di Servizi di comunicazione.
 
 ## <a name="get-started-with-the-web-calling-sample"></a>Introduzione all'esempio di chiamata Web
-
-[!INCLUDE [Public Preview Notice](../includes/public-preview-include.md)]
-
 
 > [!IMPORTANT]
 > [Questo esempio è disponibile su GitHub](https://github.com/Azure-Samples/communication-services-web-calling-tutorial/).

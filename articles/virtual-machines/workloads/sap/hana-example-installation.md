@@ -14,10 +14,10 @@ ms.date: 09/10/2018
 ms.author: hermannd
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 59ea41254c16f32f19a67e7811177a4667a85e7d
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "101666706"
 ---
 # <a name="install-hana-on-sap-hana-on-azure-large-instances"></a>Installare HANA in SAP HANA di Azure (istanze Large)
@@ -132,5 +132,5 @@ A questo punto l'istanza di SAP HANA dovrebbe essere attiva e pronta all'uso. Do
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- [Disponibilità elevata e ripristino di emergenza di SAP HANA (istanze Large) in Azure](hana-overview-high-availability-disaster-recovery.md)
+- [SAP HANA in istanze Large disponibilità elevata e ripristino di emergenza in Azure](hana-overview-high-availability-disaster-recovery.md)
 

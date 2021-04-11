@@ -2,15 +2,15 @@
 author: DCtheGeek
 ms.service: azure-policy
 ms.topic: include
-ms.date: 03/24/2021
+ms.date: 03/31/2021
 ms.author: dacoulte
 ms.custom: generated
-ms.openlocfilehash: 4b67952565ae7d5e8a05661fba2129177072007c
-ms.sourcegitcommit: bb330af42e70e8419996d3cba4acff49d398b399
+ms.openlocfilehash: a6522eb54980cb28f08ce91e29a6a18943d49040
+ms.sourcegitcommit: 99fc6ced979d780f773d73ec01bf651d18e89b93
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/24/2021
-ms.locfileid: "105033392"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106089010"
 ---
 |Nome<br /><sub>(Portale di Azure)</sub> |Descrizione |Effetto/i |Versione<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -36,6 +36,7 @@ ms.locfileid: "105033392"
 |[L'accesso SSH da Internet deve essere bloccato](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F2c89a2e5-7285-40fe-afe0-ae8654b92fab) |Questo criterio controlla le regole di sicurezza di rete che consentono l'accesso SSH da Internet |Audit, Disabled |[2.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Network/NetworkSecurityGroup_SSHAccess_Audit.json) |
 |[Gli account di archiviazione devono usare un endpoint servizio di rete virtuale](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F60d21c4f-21a3-4d94-85f4-b924e6aeeda4) |Questo criterio controlla gli account di archiviazione che non sono configurati per usare un endpoint servizio di rete virtuale. |Audit, Disabled |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Network/VirtualNetworkServiceEndpoint_StorageAccount_Audit.json) |
 |[Le macchine virtuali devono essere connesse a una rete virtuale approvata](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fd416745a-506c-48b6-8ab1-83cb814bcaa3) |Questo criterio controlla le macchine virtuali connesse a una rete virtuale non approvata. |Audit, Deny, Disabled |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Network/ApprovedVirtualNetwork_Audit.json) |
+|[Le reti virtuali devono essere protette da protezione DDoS di Azure standard](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F94de2ad3-e0c1-4caf-ad78-5d47bbc83d3d) |Proteggi le tue reti virtuali da attacchi volumetrici e di protocollo con protezione DDoS di Azure standard. Per altre informazioni, vedere [https://aka.ms/ddosprotectiondocs](https://aka.ms/ddosprotectiondocs). |Modifica, controllo, disabilitazione |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Network/VirtualNetworkDdosStandard_Audit.json) |
 |[Le reti virtuali devono usare il gateway di rete virtuale specificato](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Ff1776c76-f58c-4245-a8d0-2b207198dc8b) |Questo criterio controlla le reti virtuali per verificare che la route predefinita punti al gateway di rete virtuale specificato. |AuditIfNotExists, Disabled |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Network/VirtualNetwork_ApprovedVirtualNetworkGateway_AuditIfNotExists.json) |
 |[Web Application Firewall (WAF) deve essere abilitato per il gateway applicazione](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F564feb30-bf6a-4854-b4bb-0d2d2d1e6c66) |Distribuire Azure Web Application Firewall (WAF) davanti ad applicazioni Web pubbliche per un'ulteriore ispezione del traffico in ingresso. Web Application Firewall (WAF) fornisce protezione centralizzata delle applicazioni Web dagli exploit e dalle vulnerabilità più comuni, ad esempio attacchi SQL injection, scripting intersito, esecuzioni file locali e remote. È inoltre possibile limitare l'accesso alle applicazioni Web in base a paesi, intervalli di indirizzi IP e altri parametri HTTP/HTTPS, tramite le regole personalizzate. |Audit, Deny, Disabled |[1.0.1](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Network/WAF_AppGatewayEnabled_Audit.json) |
 |[Il Web Application Firewall (WAF) deve essere abilitato per il servizio Azure front door Service](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F055aa869-bc98-4af8-bafc-23f1ab6ffe2c) |Distribuire Azure Web Application Firewall (WAF) davanti ad applicazioni Web pubbliche per un'ulteriore ispezione del traffico in ingresso. Web Application Firewall (WAF) fornisce protezione centralizzata delle applicazioni Web dagli exploit e dalle vulnerabilità più comuni, ad esempio attacchi SQL injection, scripting intersito, esecuzioni file locali e remote. È inoltre possibile limitare l'accesso alle applicazioni Web in base a paesi, intervalli di indirizzi IP e altri parametri HTTP/HTTPS, tramite le regole personalizzate. |Audit, Deny, Disabled |[1.0.1](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Network/WAF_AFD_Enabled_Audit.json) |
