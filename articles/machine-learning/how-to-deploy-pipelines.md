@@ -12,10 +12,10 @@ ms.date: 8/25/2020
 ms.topic: conceptual
 ms.custom: how-to, contperf-fy21q1
 ms.openlocfilehash: efedb21a1ec1ed53a8c6bfadf337d23a89c04383
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "102520177"
 ---
 # <a name="publish-and-track-machine-learning-pipelines"></a>Pubblicare e monitorare le pipeline di Machine Learning
@@ -350,13 +350,13 @@ response = requests.post(rest_endpoint,
 
 1. Consente di selezionare una pipeline specifica per l'esecuzione, l'utilizzo o la verifica dei risultati delle esecuzioni precedenti dell'endpoint della pipeline.
 
-## <a name="disable-a-published-pipeline"></a>Disabilitare una pipeline pubblicata
+## <a name="disable-a-published-pipeline&quot;></a>Disabilitare una pipeline pubblicata
 
 Per nascondere una pipeline dall'elenco di pipeline pubblicate, è possibile disabilitarla, in studio o nell'SDK:
 
 ```python
 # Get the pipeline by using its ID from Azure Machine Learning studio
-p = PublishedPipeline.get(ws, id="068f4885-7088-424b-8ce2-eeb9ba5381a6")
+p = PublishedPipeline.get(ws, id=&quot;068f4885-7088-424b-8ce2-eeb9ba5381a6")
 p.disable()
 ```
 

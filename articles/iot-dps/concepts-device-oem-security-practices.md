@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-dps
 ms.custom: iot-p0-scenario, iot-devices-deviceOEM
 ms.reviewer: nberdy
-ms.openlocfilehash: 788738082cbf9995fb2f7282bc3f574903275528
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: dad46e21b35225855d787c367d112362fc95a463
+ms.sourcegitcommit: 6ed3928efe4734513bad388737dd6d27c4c602fd
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "90527208"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "107010542"
 ---
 # <a name="security-practices-for-azure-iot-device-manufacturers"></a>Procedure di sicurezza per i produttori di dispositivi Azure Internet
 Poiché più produttori rilasciano i dispositivi Internet, è utile identificare le linee guida relative alle procedure comuni. Questo articolo riepiloga le procedure consigliate per la sicurezza da prendere in considerazione quando si producono dispositivi per l'uso con il servizio Device provisioning (DPS) di Azure.  
@@ -177,7 +177,7 @@ A questo punto del processo, installare il client DPS insieme all'ambito ID e al
     > Se si usa un modulo TPM Software, è possibile installarlo ora.  Estrarre il EK_pub nello stesso momento.
 
 #### <a name="step-4-device-is-packaged-and-sent-to-the-warehouse"></a>Passaggio 4: il dispositivo è incluso nel pacchetto e inviato al magazzino
-Un dispositivo può trovarsi in un magazzino per 6-12 mesi prima di essere distribuito. 
+Un dispositivo può a volte rimanere in un magazzino per un massimo di un anno prima della distribuzione e del provisioning con DPS.  Se un dispositivo si trova in un magazzino per un lungo periodo di tempo prima della distribuzione, potrebbe essere necessario aggiornare il firmware, il software o le credenziali scadute per i clienti che distribuiscono il dispositivo.
 
 #### <a name="step-5-device-is-installed-into-the-location"></a>Passaggio 5: il dispositivo viene installato nel percorso
 Quando il dispositivo raggiunge la posizione finale, viene eseguito il provisioning automatizzato con DPS.

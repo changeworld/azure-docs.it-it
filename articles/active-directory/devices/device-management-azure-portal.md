@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: hafowler
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 18b43a99eb561cbfa340e0b3f318782bef2ca17c
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 11182b8331f218b970d867764f575ba5b7854d62
+ms.sourcegitcommit: b0557848d0ad9b74bf293217862525d08fe0fc1d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105023436"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "106550694"
 ---
 # <a name="manage-device-identities-using-the-azure-portal"></a>Gestire le identità dei dispositivi usando il portale di Azure
 
@@ -66,7 +66,7 @@ Entrambe le opzioni consentono agli amministratori di:
 > [!TIP]
 > - I dispositivi Windows 10 aggiunti ad Azure AD ibrido non hanno un proprietario. Se si sta cercando un dispositivo in base al proprietario e non è stato trovato, eseguire una ricerca in base all'ID del dispositivo.
 >
-> - Se viene visualizzato un dispositivo "Azure AD ibrido aggiunto" con uno stato "in sospeso" nella colonna registrata, significa che il dispositivo è stato sincronizzato da Azure AD connettersi ed è in attesa di completare la registrazione dal client. Ulteriori informazioni su come [pianificare l'implementazione di Azure ad ibrido join](hybrid-azuread-join-plan.md). Ulteriori informazioni sono disponibili nell'articolo [domande frequenti sui dispositivi](faq.md).
+> - Se viene visualizzato un dispositivo "Azure AD ibrido aggiunto" con uno stato "in sospeso" nella colonna registrata, significa che il dispositivo è stato sincronizzato da Azure AD connettersi ed è in attesa di completare la registrazione dal client. Ulteriori informazioni su come [pianificare l'implementazione di Azure ad ibrido join](hybrid-azuread-join-plan.md). Ulteriori informazioni sono disponibili nell'articolo [domande frequenti sui dispositivi](faq.yml).
 >
 > - Per alcuni dispositivi iOS, i nomi dei dispositivi contenenti apostrofi possono usare caratteri potenzialmente diversi, simili ad apostrofi. Quindi, la ricerca di tali dispositivi è un po' complicata. se non vengono visualizzati correttamente i risultati della ricerca, assicurarsi che la stringa di ricerca contenga il carattere apostrofo corrispondente.
 

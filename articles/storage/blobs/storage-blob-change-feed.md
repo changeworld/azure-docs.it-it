@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.service: storage
 ms.subservice: blobs
 ms.reviewer: sadodd
-ms.openlocfilehash: 43aa86504d265927cb94e4333f86bb9cc9d2e2ea
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 1366f24ec3bd35ec23d5bf0879fced367c9f6a45
+ms.sourcegitcommit: b0557848d0ad9b74bf293217862525d08fe0fc1d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101095563"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "106552437"
 ---
 # <a name="change-feed-support-in-azure-blob-storage"></a>Supporto del feed delle modifiche nell'archiviazione BLOB di Azure
 
@@ -67,14 +67,11 @@ Ecco alcuni aspetti da tenere presenti quando si Abilita il feed delle modifiche
 Abilitare il feed delle modifiche nell'account di archiviazione usando portale di Azure:
 
 1. Selezionare l'account di archiviazione nel [portale di Azure](https://portal.azure.com/).
+1. Passare all'opzione **protezione dati** in **servizio BLOB**.
+1. In **rilevamento** selezionare **Attiva feed modifiche BLOB**.
+1. Scegliere il pulsante **Salva** per confermare le impostazioni di protezione dati.
 
-2. Passare all'opzione **Protezione dati** in **Servizio BLOB**.
-
-3. Fare clic su **abilitato** in **feed modifiche BLOB**.
-
-4. Scegliere il pulsante **Salva** per confermare le impostazioni di **protezione dati** .
-
-    ![Screenshot che mostra le impostazioni di protezione dati.](media/soft-delete-blob-enable/storage-blob-soft-delete-portal-configuration.png)
+    :::image type="content" source="media/storage-blob-change-feed/change-feed-enable-portal.png" alt-text="Screenshot che illustra come abilitare il feed delle modifiche in portale di Azure":::
 
 ### <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 

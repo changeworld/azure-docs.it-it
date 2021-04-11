@@ -10,16 +10,16 @@ ms.date: 03/05/2021
 ms.author: tamram
 ms.subservice: blobs
 ms.custom: references_regions
-ms.openlocfilehash: 54e703b096ea4e3572a6fc00aa6b7b2b99c4bcad
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: af9d520bab3ff49b30672717414fbd651c915dd4
+ms.sourcegitcommit: b0557848d0ad9b74bf293217862525d08fe0fc1d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104800745"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "106552378"
 ---
 # <a name="soft-delete-for-containers-preview"></a>Eliminazione temporanea per i contenitori (anteprima)
 
-L'eliminazione temporanea per i contenitori (anteprima) impedisce che i dati vengano eliminati accidentalmente o intenzionalmente. Quando l'eliminazione temporanea dei contenitori è abilitata per un account di archiviazione, qualsiasi contenitore eliminato e il relativo contenuto vengono conservati in Archiviazione di Azure per il periodo specificato. Durante il periodo di conservazione è possibile ripristinare i contenitori eliminati in precedenza. Il ripristino di un contenitore ripristina tutti i BLOB che erano all'interno del contenitore al momento dell'eliminazione.
+L'eliminazione temporanea per i contenitori (anteprima) impedisce che i dati vengano eliminati accidentalmente o intenzionalmente. Quando l'eliminazione temporanea del contenitore è abilitata per un account di archiviazione, un contenitore eliminato e il relativo contenuto vengono conservati in archiviazione di Azure per il periodo specificato. Durante il periodo di conservazione è possibile ripristinare i contenitori eliminati in precedenza. Il ripristino di un contenitore ripristina tutti i BLOB che erano all'interno del contenitore al momento dell'eliminazione.
 
 Per la protezione end-to-end per i dati BLOB, Microsoft consiglia di abilitare le funzionalità di protezione dei dati seguenti:
 
@@ -37,7 +37,7 @@ Quando si Abilita l'eliminazione temporanea del contenitore, è possibile specif
 Quando si ripristina un contenitore, vengono ripristinati anche i BLOB del contenitore e tutte le versioni di BLOB. Tuttavia, è possibile usare l'eliminazione temporanea del contenitore solo per ripristinare i BLOB se il contenitore è stato eliminato. Per ripristinare un BLOB eliminato quando il contenitore padre non è stato eliminato, è necessario usare l'eliminazione temporanea o il controllo delle versioni dei BLOB.
 
 > [!WARNING]
-> L'eliminazione temporanea del contenitore consente di ripristinare solo i contenitori interi e i BLOB che contengono al momento dell'eliminazione. Non è possibile ripristinare un BLOB eliminato all'interno di un contenitore usando l'eliminazione temporanea del contenitore.
+> L'eliminazione temporanea del contenitore consente di ripristinare solo i contenitori interi e il relativo contenuto al momento dell'eliminazione. Non è possibile ripristinare un BLOB eliminato all'interno di un contenitore usando l'eliminazione temporanea del contenitore. Microsoft consiglia inoltre di abilitare l'eliminazione temporanea BLOB e il controllo delle versioni BLOB per proteggere i singoli BLOB in un contenitore.
 
 Il diagramma seguente mostra come è possibile ripristinare un contenitore eliminato quando è abilitata l'eliminazione temporanea del contenitore:
 
@@ -50,7 +50,7 @@ Una volta scaduto il periodo di conservazione, il contenitore viene eliminato de
 La disabilitazione dell'eliminazione temporanea del contenitore non comporta l'eliminazione permanente di contenitori che in precedenza sono stati eliminati temporaneamente. Eventuali contenitori eliminati temporaneamente verranno eliminati definitivamente alla scadenza del periodo di memorizzazione che era attivo al momento dell'eliminazione del contenitore.
 
 > [!IMPORTANT]
-> L'eliminazione temporanea del contenitore non protegge dall'eliminazione di un account di archiviazione, ma solo dall'eliminazione di contenitori in tale account. Per proteggere un account di archiviazione dall'eliminazione, configurare un blocco sulla risorsa dell'account di archiviazione. Per altre informazioni sul blocco di Azure Resource Manager risorse, vedere [bloccare le risorse per impedire modifiche impreviste](../../azure-resource-manager/management/lock-resources.md).
+> L'eliminazione temporanea del contenitore non protegge dall'eliminazione di un account di archiviazione. Protegge solo dall'eliminazione di contenitori in tale account. Per proteggere un account di archiviazione dall'eliminazione, configurare un blocco sulla risorsa dell'account di archiviazione. Per altre informazioni sul blocco di un account di archiviazione, vedere [applicare un blocco Azure Resource Manager a un account di archiviazione](../common/lock-account-resource.md).
 
 ## <a name="about-the-preview"></a>Informazioni sulla versione di anteprima
 

@@ -12,12 +12,12 @@ ms.date: 11/13/2018
 ms.author: baselden
 ms.reviewer: plenzke
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 683367251c220abe36660d61463bce9e5a0c52f9
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: c37c672f8784052424e058837d31bc1d22fcfc57
+ms.sourcegitcommit: b0557848d0ad9b74bf293217862525d08fe0fc1d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100577768"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "106552615"
 ---
 # <a name="plan-an-azure-active-directory-reporting-and-monitoring-deployment"></a>Pianificare un Azure Active Directory la distribuzione di report e monitoraggio
 
@@ -47,7 +47,7 @@ Con Azure AD monitoraggio, è possibile indirizzare i log a:
 * Hub eventi di Azure in cui è possibile eseguire l'integrazione con gli strumenti SIEM esistenti, ad esempio Splunk, Sumologic o QRadar.
 
 > [!NOTE]
-Di recente abbiamo iniziato a usare il termine log di monitoraggio di Azure anziché Log Analytics. I dati di log vengono comunque archiviati in un'area di lavoro Log Analytics e vengano ancora raccolti e analizzati dallo stesso servizio Log Analytics. Si sta procedendo a un aggiornamento della terminologia per riflettere meglio il ruolo dei [log in Monitoraggio di Azure](../../azure-monitor/data-platform.md). Per informazioni dettagliate, vedere [Modifiche della terminologia di Monitoraggio di Azure](../../azure-monitor/terminology.md).
+> Di recente abbiamo iniziato a usare il termine log di monitoraggio di Azure anziché Log Analytics. I dati di log vengono comunque archiviati in un'area di lavoro Log Analytics e vengano ancora raccolti e analizzati dallo stesso servizio Log Analytics. Si sta procedendo a un aggiornamento della terminologia per riflettere meglio il ruolo dei [log in Monitoraggio di Azure](../../azure-monitor/data-platform.md). Per informazioni dettagliate, vedere [Modifiche della terminologia di Monitoraggio di Azure](../../azure-monitor/terminology.md).
 
 [Altre informazioni sui criteri di conservazione dei report](./reference-reports-data-retention.md).
 

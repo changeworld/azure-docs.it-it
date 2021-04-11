@@ -132,8 +132,6 @@
           href: custom-translator/training-and-model.md
         - name: Punteggio BLEU
           href: custom-translator/what-is-bleu-score.md
-        - name: Crittografia
-          href: encrypt-data-at-rest.md
 - name: Traduzione documenti
   items:
     - name: Che cos'è la traduzione di documenti?
@@ -146,8 +144,6 @@
           href: document-translation/create-sas-tokens.md
     - name: Riferimento
       items:
-        - name: API REST per la conversione di documenti
-          href: /rest/api/cognitiveservices/translator/documenttranslation
         - name: Ottenere i formati di documento
           href: document-translation/reference/get-document-formats.md
         - name: Ottieni formati Glossario
@@ -170,5 +166,9 @@
       href: ../cognitive-services-support-options.md?context=/azure/cognitive-services/translator/context/context
     - name: Conformità
       href: 'https://azure.microsoft.com/en-us/support/legal/cognitive-services-compliance-and-privacy'
+    - name: Crittografia
+      href: encrypt-data-at-rest.md
     - name: Esempi di codice in GitHub
       href: 'https://aka.ms/TranslatorGitHub'
+    - name: Privacy e cookie
+      href: 'https://privacy.microsoft.com/en-US/privacystatement'

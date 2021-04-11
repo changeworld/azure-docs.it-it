@@ -4,16 +4,44 @@ description: Descrive i passaggi di risoluzione dei problemi che è possibile es
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 09/08/2020
-ms.openlocfilehash: d8b37569ebaa8e75be601a1efd65a23a61aeaa75
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.date: 02/25/2021
+ms.openlocfilehash: 834c70e02ab25fa6dcadb5f6c997be09aaf5e353
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102051940"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105932778"
 ---
 # <a name="troubleshoot-vm-insights-guest-health-preview"></a>Risolvere i problemi di integrità Guest di VM Insights (anteprima)
 Questo articolo descrive i passaggi di risoluzione dei problemi che è possibile eseguire quando si verificano problemi con l'integrità di VM Insights.
+
+
+## <a name="upgrade-available-message-is-still-displayed-after-upgrading-guest-health"></a>Il messaggio aggiornamento disponibile viene comunque visualizzato dopo l'aggiornamento dell'integrità Guest 
+
+- Verificare che la macchina virtuale sia in esecuzione in Azure globale. I server abilitati per Arc non sono ancora supportati.
+- Verificare che l'area della macchina virtuale e la versione del sistema operativo siano supportate come descritto in [abilitare monitoraggio di Azure per le macchine virtuali integrità Guest (anteprima)](vminsights-health-enable.md).
+- Verificare che l'estensione di integrità Guest sia stata installata correttamente con il codice di uscita 0.
+- Verificare che l'estensione agente monitoraggio di Azure sia installata correttamente.
+- Verificare che l'identità gestita assegnata dal sistema sia abilitata per la macchina virtuale.
+- Verificare che non siano state specificate identità gestite assegnate dall'utente per la macchina virtuale.
+- Verificare se le macchine virtuali Windows sono in *inglese (Stati Uniti*). La localizzazione non è attualmente supportata dall'agente di monitoraggio di Azure.
+- Verificare che la macchina virtuale non usi il proxy di rete. L'agente di monitoraggio di Azure attualmente non supporta i proxy.
+- Verificare che l'agente dell'estensione di integrità sia stato avviato senza errori. Se l'agente non può essere avviato, lo stato dell'agente potrebbe essere danneggiato. Eliminare il contenuto della cartella di stato dell'agente e riavviare l'agente.
+  - Per Linux: daemon è *vmGuestHealthAgent*. La cartella di stato è */var/opt/vmGuestHealthAgent/**
+  - Per Windows: il servizio è *Agente integrità Guest della macchina virtuale*. La cartella stato _è \\ * %ProgramData%\Microsoft\VMGuestHealthAgent_.
+- Verificare che l'agente di monitoraggio di Azure disponga della connettività di rete. 
+  - Dalla macchina virtuale, provare a eseguire il ping _<region> . handler.Control.monitor.Azure.com_. Ad esempio, per una macchina virtuale in westeurope, provare a eseguire il ping di _westeurope.handler.Control.monitor.Azure.com:443_.
+- Verificare che la macchina virtuale disponga di un'associazione a una regola di raccolta dati nella stessa area dell'area di lavoro Log Analytics.
+  -  Vedere **creare una regola di raccolta dati (DCR)** in [abilitare l'integrità Guest di monitoraggio di Azure per le macchine virtuali (anteprima)](vminsights-health-enable.md) per assicurarsi che la struttura di DCR sia corretta. Prestare particolare attenzione alla presenza della sezione dell'origine dati *PerformanceCounters* configurata per eseguire il campionamento di tre contatori e la presenza della sezione *inputDataSources* nella configurazione dell'estensione di integrità per inviare i contatori all'estensione.
+-  Verificare la presenza di errori di estensione di integrità Guest nella macchina virtuale.
+   -  Per Linux: controllare i log in _/var/log/Azure/Microsoft.Azure.monitor.VirtualMachines.GuestHealthLinuxAgent/*. log_.
+   -  Per Windows: controllare i log in _C:\WindowsAzure\Logs\Plugins\Microsoft.Azure.monitor.VirtualMachines.GuestHealthWindowsAgent \{ Extension Version} \* . log_.
+-  Controllare la macchina virtuale per gli errori dell'agente di monitoraggio di Azure.
+   -  Per Linux: controllare i log in _/var/log/MDSD. *_.
+   -  Per Windows: controllare i log in _C:\WindowsAzure\Resources \* {vmName}. AMADataStore_.
+ 
+
+
 
 ## <a name="error-message-that-no-data-is-available"></a>Messaggio di errore che indica che non sono disponibili dati 
 
@@ -44,6 +72,15 @@ Verificare che la regola di raccolta dati che specifica l'estensione di integrit
 Questo errore indica che il provider di risorse **Microsoft. WorkloadMonitor** non è stato registrato nella sottoscrizione. Per informazioni dettagliate sulla registrazione del provider di risorse, vedere [provider e tipi di risorse di Azure](../../azure-resource-manager/management/resource-providers-and-types.md#register-resource-provider) . 
 
 ![Richiesta non valida](media/vminsights-health-troubleshoot/bad-request.png)
+
+## <a name="health-shows-as-unknown-after-guest-health-is-enabled"></a>Lo stato di integrità viene visualizzato come "sconosciuto" dopo l'abilitazione dell'integrità Guest.
+
+### <a name="verify-that-performance-counters-on-windows-nodes-are-working-correctly"></a>Verificare che i contatori delle prestazioni nei nodi Windows funzionino correttamente 
+L'integrità Guest si basa sull'agente che è in grado di raccogliere i contatori delle prestazioni dal nodo. il set di base delle librerie dei contatori delle prestazioni potrebbe essere danneggiato e potrebbe essere necessario ricompilarlo. Per ricompilare i contatori delle prestazioni, seguire le istruzioni riportate in [ricompilare manualmente i valori delle librerie dei contatori](/troubleshoot/windows-server/performance/rebuild-performance-counter-library-values)
+
+
+
+
 
 ## <a name="next-steps"></a>Passaggi successivi
 

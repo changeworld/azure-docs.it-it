@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 12/04/2020
 ms.author: duau
-ms.openlocfilehash: 7f40b48473c04238d504288307039948fcacf90a
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 5989f91233448c04d50ba1c69a06851b91426a03
+ms.sourcegitcommit: d23602c57d797fb89a470288fcf94c63546b1314
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97511145"
+ms.lasthandoff: 04/01/2021
+ms.locfileid: "106167805"
 ---
 # <a name="protocol-support-for-http-headers-in-azure-front-door"></a>Supporto del protocollo per le intestazioni HTTP nella porta anteriore di Azure
 Questo articolo illustra il protocollo supportato da front-end con parti del percorso di chiamata (vedere l'immagine). Le sezioni seguenti forniscono altre informazioni sulle intestazioni HTTP supportate dalla porta anteriore.
@@ -40,7 +40,7 @@ La porta anteriore include le intestazioni per una richiesta in ingresso, a meno
 | X-Azure-SocketIP |  *X-Azure-SocketIP: 127.0.0.1* </br> Rappresenta l'indirizzo IP del socket associato alla connessione TCP da cui ha origine la richiesta corrente. L'indirizzo IP del client di una richiesta potrebbe non essere uguale all'indirizzo IP del socket perché può essere sovrascritto arbitrariamente da un utente.|
 | X-Azure-Ref | *X-Azure-Ref: 0zxV + XAAAAABKMMOjBv2NT4TY6SQVjC0zV1NURURHRTA2MTkANDM3YzgyY2QtMzYwYS00YTU0LTk0YzMtNWZmNzA3NjQ3Nzgz* </br> Stringa di riferimento univoca che identifica una richiesta servita dalla porta anteriore. Viene usato per la ricerca nei log di accesso e per la risoluzione dei problemi.|
 | X-Azure-RequestChain | *X-Azure-RequestChain: hop = 1* </br> Un'intestazione usata dalla porta anteriore per rilevare i cicli di richiesta e gli utenti non devono assumere una dipendenza. |
-| X-Azure-FDID | *X-Azure-FDID: 55ce4ed1-4B06-4bf1-B40E-4638452104da* <br/> Una stringa di riferimento che identifica la richiesta proviene da una risorsa front door specifica. Il valore può essere visualizzato nell'portale di Azure o recuperato tramite l'API di gestione. È possibile usare questa intestazione in combinazione con ACL IP per bloccare l'endpoint in modo da accettare solo le richieste provenienti da una risorsa front door specifica. Per [altri dettagli](front-door-faq.md#how-do-i-lock-down-the-access-to-my-backend-to-only-azure-front-door) , vedere le domande frequenti |
+| X-Azure-FDID | *X-Azure-FDID: 55ce4ed1-4B06-4bf1-B40E-4638452104da* <br/> Una stringa di riferimento che identifica la richiesta proviene da una risorsa front door specifica. Il valore può essere visualizzato nell'portale di Azure o recuperato tramite l'API di gestione. È possibile usare questa intestazione in combinazione con ACL IP per bloccare l'endpoint in modo da accettare solo le richieste provenienti da una risorsa front door specifica. Per [altri dettagli](front-door-faq.yml#how-do-i-lock-down-the-access-to-my-backend-to-only-azure-front-door-) , vedere le domande frequenti |
 | X-Forwarded-For | *X-Inoltred-per: 127.0.0.1* </br> Il campo di intestazione HTTP X-inoltro-for (XFF) identifica spesso l'indirizzo IP di origine di un client che si connette a un server Web tramite un proxy HTTP o un servizio di bilanciamento del carico. Se è presente un'intestazione XFF esistente, la porta anteriore aggiunge l'indirizzo IP del socket client o aggiunge l'intestazione XFF con l'indirizzo IP del socket client. |
 | X-Forwarded-Host | *X-Inoltred-host: contoso.azurefd.net* </br> Il campo dell'intestazione HTTP X-Inoltred-host è un metodo comune usato per identificare l'host originale richiesto dal client nell'intestazione della richiesta HTTP dell'host. Questo è dovuto al fatto che il nome host da sportello anteriore potrebbe differire per il server back-end che gestisce la richiesta. |
 | X-Forwarded-Proto | *X-Inoltred-proto: http* </br> Il campo di intestazione HTTP X-Inoltred-proto viene spesso usato per identificare il protocollo di origine di una richiesta HTTP. La porta anteriore basata sulla configurazione potrebbe comunicare con il back-end tramite HTTPS. Questo vale anche se la richiesta al proxy inverso è HTTP. |

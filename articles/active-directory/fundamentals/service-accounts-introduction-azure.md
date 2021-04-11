@@ -13,12 +13,12 @@ ms.author: baselden
 ms.reviewer: ajburnle
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 27353e6086085aadae622e007a38f97e15cbcb7f
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: d657f1df14b083631227cb7c19f64b65be8801d0
+ms.sourcegitcommit: 6ed3928efe4734513bad388737dd6d27c4c602fd
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104587866"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "107010466"
 ---
 # <a name="introduction-to-securing-azure-service-accounts"></a>Introduzione alla protezione degli account dei servizi di Azure
 
@@ -26,7 +26,7 @@ Esistono tre tipi di account del servizio nativi da Azure Active Directory: iden
 
 ## <a name="types-of-azure-active-directory-service-accounts"></a>Tipi di account del servizio Azure Active Directory
 
-Per i servizi ospitati in Azure, è consigliabile usare un'identità gestita, se possibile, e un'entità servizio in caso contrario. Non è possibile usare le identità gestite per i servizi ospitati all'esterno di Azure. In tal caso, è consigliabile un'entità servizio. Se è possibile usare un'identità gestita o un'entità servizio, eseguire questa operazione. Si consiglia di non usare un account utente Azure Active Directory come entità servizio. Per un riepilogo, vedere la tabella seguente.
+Per i servizi ospitati in Azure, è consigliabile usare un'identità gestita, se possibile, e un'entità servizio in caso contrario. Non è possibile usare le identità gestite per i servizi ospitati all'esterno di Azure. In tal caso, è consigliabile un'entità servizio. Se è possibile usare un'identità gestita o un'entità servizio, eseguire questa operazione. Si consiglia di non utilizzare un account utente Azure Active Directory come account del servizio. Per un riepilogo, vedere la tabella seguente.
  
 
 | Hosting del servizio| Identità gestita| Entità servizio| Account utente Azure |
@@ -54,7 +54,7 @@ Un'entità servizio è la rappresentazione locale di un oggetto applicazione in 
 
 Esistono due meccanismi per l'autenticazione tramite entità servizio: i certificati client e i segreti client. I certificati sono più sicuri: usare i certificati client, se possibile. A differenza dei segreti client, i certificati client non possono essere incorporati accidentalmente nel codice.
 
-Per informazioni sulla protezione delle entità servizio, vedere protezione delle entità servizio.
+Per informazioni sulla protezione delle entità servizio, vedere [protezione delle entità servizio](service-accounts-principal.md).
 
  
 ## <a name="next-steps"></a>Passaggi successivi

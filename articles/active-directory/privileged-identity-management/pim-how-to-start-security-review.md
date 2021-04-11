@@ -10,22 +10,29 @@ ms.service: active-directory
 ms.topic: how-to
 ms.workload: identity
 ms.subservice: pim
-ms.date: 3/16/2021
+ms.date: 4/05/2021
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 310122177d4bd1603f5f498aa2a51620eeda4a20
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 2aba8d9de5e068cd98675f67cb26b0eac8d1ad6d
+ms.sourcegitcommit: b0557848d0ad9b74bf293217862525d08fe0fc1d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104592797"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "106552827"
 ---
 # <a name="create-an-access-review-of-azure-ad-roles-in-privileged-identity-management"></a>Creare una verifica di accesso dei ruoli Azure AD in Privileged Identity Management
 
 Per ridurre i rischi associati alle assegnazioni di ruolo obsolete, è necessario esaminare periodicamente l'accesso. È possibile usare Azure AD Privileged Identity Management (PIM) per creare verifiche di accesso per i ruoli Azure AD con privilegi. È anche possibile configurare le verifiche di accesso periodiche che vengono eseguite automaticamente.
 
 Questo articolo descrive come creare una o più verifiche di accesso per i ruoli di Azure AD con privilegi.
+
+## <a name="prerequisite-license"></a>Licenza per prerequisiti
+
+[!INCLUDE [Azure AD Premium P2 license](../../../includes/active-directory-p2-license.md)]. Per ulteriori informazioni sulle licenze per PIM, vedere la sezione relativa ai [requisiti di licenza per l'utilizzo di Privileged Identity Management](subscription-requirements.md).
+
+> [!Note]
+>  Attualmente, è possibile definire l'ambito di una verifica di accesso alle entità servizio con accesso a Azure AD e ai ruoli delle risorse di Azure (anteprima) con un'edizione Azure Active Directory Premium P2 attiva nel tenant. Il modello di licenza per le entità servizio verrà finalizzato per la disponibilità generale di questa funzionalità e potrebbero essere necessarie licenze aggiuntive.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -35,9 +42,11 @@ Questo articolo descrive come creare una o più verifiche di accesso per i ruoli
 
 1. Accedere a [portale di Azure](https://portal.azure.com/) con un utente membro del ruolo di amministratore dei ruoli con privilegi.
 
-1. Aprire **Azure ad Privileged Identity Management**.
-
-1. Selezionare **Azure ad ruoli**.
+1. Seleziona **governance identità**
+ 
+1. Selezionare **ruoli Azure ad** in **Azure ad Privileged Identity Management**.
+ 
+1. Selezionare di nuovo **ruoli di Azure ad** in **Gestisci**.
 
 1. In Gestisci selezionare verifiche di accesso e quindi fare clic **su** **nuovo**.
 
@@ -57,9 +66,11 @@ Fare clic su **Nuova** per creare una nuova verifica di accesso.
 
 1. Usare l'impostazione **Fine** per specificare come terminare la serie di verifiche di accesso ricorrenti. La serie può terminare in tre modi: può essere eseguita in modo continuo per avviare le verifiche per un periodo illimitato o fino a una data specifica oppure terminare dopo che è stato completato un numero definito di occorrenze. Un utente con ruolo Amministratore utente o Amministratore globale può interrompere la serie dopo la creazione modificando la data in **Impostazioni**, in modo che termini in tale data.
 
-1. Nella sezione **Utenti** selezionare uno o più ruoli di cui si desidera verificare l'appartenenza.
+1. Nella sezione **ambito utenti** selezionare l'ambito della verifica. Per esaminare gli utenti e i gruppi con accesso al ruolo Azure AD, selezionare **utenti e gruppi** oppure selezionare **(anteprima) entità servizio** per esaminare gli account del computer con accesso al ruolo Azure ad.
 
     ![Ambito degli utenti per verificare l'appartenenza ai ruoli di](./media/pim-how-to-start-security-review/users.png)
+
+1. In **Verifica appartenenza a ruoli** selezionare i ruoli di Azure ad con privilegi da rivedere. 
 
     > [!NOTE]
     > - I ruoli selezionati qui includono sia i [ruoli permanenti che idonei](../privileged-identity-management/pim-how-to-add-role-to-user.md).
@@ -77,9 +88,9 @@ Fare clic su **Nuova** per creare una nuova verifica di accesso.
 
     ![Elenco dei revisori degli utenti o membri selezionati (autonomo)](./media/pim-how-to-start-security-review/reviewers.png)
 
-    - **Utenti selezionati**: usare questa opzione quando non è noto chi abbia bisogno dell'accesso. Con questa opzione è possibile assegnare l'esecuzione della revisione a un proprietario delle risorse o a un gestore del gruppo.
-    - **Membri (autonomo)** : usare questa opzione per fare in modo che gli utenti verifichino le proprie assegnazioni di ruolo. Quando questa opzione è selezionata, i gruppi assegnati al ruolo non faranno parte della verifica.
-    - **Manager** : usare questa opzione per fare in modo che il responsabile dell'utente riveda l'assegnazione di ruolo. Quando si seleziona Manager, sarà anche possibile specificare un revisore di fallback. Ai revisori di fallback viene richiesto di esaminare un utente quando l'utente non dispone di un responsabile specificato nella directory. I gruppi assegnati al ruolo verranno esaminati dal revisore del fallback se ne viene selezionato uno. 
+    - **Utenti selezionati** : usare questa opzione per designare un utente specifico per completare la verifica. Questa opzione è disponibile indipendentemente dall'ambito della revisione e i revisori selezionati possono esaminare gli utenti, i gruppi e le entità servizio. 
+    - **Membri (autonomo)** : usare questa opzione per fare in modo che gli utenti verifichino le proprie assegnazioni di ruolo. Quando questa opzione è selezionata, i gruppi assegnati al ruolo non faranno parte della verifica. Questa opzione è disponibile solo se l'ambito della revisione è limitato a **utenti e gruppi**.
+    - **Manager** : usare questa opzione per fare in modo che il responsabile dell'utente riveda l'assegnazione di ruolo. Questa opzione è disponibile solo se l'ambito della revisione è limitato a **utenti e gruppi**. Quando si seleziona Manager, sarà anche possibile specificare un revisore di fallback. Ai revisori di fallback viene richiesto di esaminare un utente quando l'utente non dispone di un responsabile specificato nella directory. I gruppi assegnati al ruolo verranno esaminati dal revisore del fallback se ne viene selezionato uno. 
 
 ### <a name="upon-completion-settings"></a>Impostazioni al completamento
 

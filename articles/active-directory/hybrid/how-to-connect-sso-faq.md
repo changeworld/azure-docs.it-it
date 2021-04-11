@@ -16,12 +16,12 @@ ms.date: 10/07/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2dac4b461d4506015f0ef374eae37f67c445791d
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 52b450ecc8aff379dbdb8d58f9b7609cf730ad27
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98107872"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105731667"
 ---
 # <a name="azure-active-directory-seamless-single-sign-on-frequently-asked-questions"></a>Accesso Single Sign-On facile di Azure Active Directory: Domande frequenti
 
@@ -126,7 +126,7 @@ Seguire questa procedura nel server locale in cui si esegue Azure AD Connect:
 
    Al termine della procedura guidata, l'accesso Single Sign-On facile è disabilitato nel tenant. Verrà tuttavia visualizzato un messaggio con il testo seguente:
 
-   "L'accesso Single Sign-On è ora disabilitato, ma è necessario eseguire altri passaggi manuali per completare la pulizia. Altre informazioni"
+   "L'accesso Single Sign-On è ora disabilitato, ma è necessario eseguire altri passaggi manuali per completare la pulizia. [Altre informazioni](tshoot-connect-sso.md#step-3-disable-seamless-sso-for-each-active-directory-forest-where-youve-set-up-the-feature)"
 
    Per completare il processo di eliminazione, seguire i passaggi 2 e 3 nel server locale in cui si esegue Azure AD Connect.
 
