@@ -13,8 +13,6 @@
   items:
     - name: Portale
       items:
-        - name: Creare un servizio
-          href: search-create-service-portal.md
         - name: Creare un indice
           href: search-get-started-portal.md
         - name: Creare un'app demo
@@ -138,20 +136,30 @@
           href: security-baseline.md
 - name: Guide pratiche
   items:
-    - name: Pianificazione
+    - name: Gestione
       items:
         - name: Scegliere un livello
           href: search-sku-tier.md
-        - name: Stimare e gestire la capacità
+        - name: Pianificare la capacità
           href: search-capacity-planning.md
-        - name: Stimare i costi
-          href: search-sku-manage-costs.md
+        - name: Creare un servizio
+          href: search-create-service-portal.md
         - name: Limiti del servizio
           href: search-limits-quotas-capacity.md
-        - name: Ridimensionare in base alle prestazioni
+        - name: Gestire i costi
+          href: search-sku-manage-costs.md
+        - name: Disponibilità e ripristino
           href: search-performance-optimization.md
-        - name: Architettura multitenant
+        - name: Multi-tenancy
           href: search-modeling-multitenant-saas-applications.md
+        - name: Gestire nel portale
+          href: search-manage.md
+        - name: Gestire con PowerShell
+          href: search-manage-powershell.md
+        - name: Gestire con l'interfaccia della riga di comando di Azure
+          href: search-manage-azure-cli.md
+        - name: Spostare il servizio tra aree
+          href: search-howto-move-across-regions.md
     - name: Sviluppo
       items:
         - name: Versioni dell'API
@@ -208,7 +216,7 @@
           href: index-add-language-analyzers.md
         - name: Aggiungere un analizzatore personalizzato
           href: index-add-custom-analyzers.md
-    - name: Dati
+    - name: Data
       items:
         - name: Panoramica dell'importazione dei dati
           href: search-what-is-data-import.md
@@ -276,6 +284,10 @@
           href: search-howto-connecting-azure-sql-mi-to-azure-search-using-indexers.md
         - name: VM di SQL Server di Azure
           href: search-howto-connecting-azure-sql-iaas-to-azure-search-using-indexers.md
+        - name: Risolvere i problemi dell'indicizzatore
+          href: search-indexer-troubleshooting.md
+        - name: Risolvere gli errori e gli avvisi dell'indicizzatore
+          href: cognitive-search-common-errors-warnings.md
     - name: Set di competenze
       items:
         - name: Collegare una risorsa Servizi cognitivi
@@ -376,8 +388,28 @@
           href: semantic-ranking.md
         - name: Profili di punteggio
           href: index-add-scoring-profiles.md
+    - name: Prestazioni e monitoraggio
+      items:
+        - name: Analisi delle prestazioni
+          href: search-performance-analysis.md
+        - name: Suggerimenti per migliorare le prestazioni
+          href: search-performance-tips.md
+        - name: Registrazione diagnostica
+          href: search-monitor-logs.md
+        - name: Visualizzare i log di diagnostica
+          href: search-monitor-logs-powerbi.md
+        - name: Panoramica del monitoraggio
+          href: search-monitor-usage.md
+        - name: Monitorare le query
+          href: search-monitor-queries.md
+        - name: Monitorare l'indicizzazione basata su indicizzatore
+          href: search-howto-monitor-indexers.md
+        - name: Monitorare le interazioni lato client
+          href: search-traffic-analytics.md
     - name: Sicurezza
       items:
+        - name: Diritti di amministratore
+          href: search-security-rbac.md
         - name: Crittografia dei dati
           items:
             - name: Chiavi gestite dal cliente
@@ -406,38 +438,6 @@
               href: search-security-trimming-for-azure-search.md
             - name: Filtrare in base alle identità degli utenti
               href: search-security-trimming-for-azure-search-with-aad.md
-    - name: Gestione
-      items:
-        - name: Portale
-          href: search-manage.md
-        - name: PowerShell
-          href: search-manage-powershell.md
-        - name: Interfaccia della riga di comando di Azure
-          href: search-manage-azure-cli.md
-        - name: Spostare il servizio tra aree
-          href: search-howto-move-across-regions.md
-        - name: Accesso amministratore in base al ruolo
-          href: search-security-rbac.md
-    - name: Monitorare
-      items:
-        - name: Panoramica
-          href: search-monitor-usage.md
-        - name: Registrazione diagnostica
-          href: search-monitor-logs.md
-        - name: Visualizzare i log di diagnostica
-          href: search-monitor-logs-powerbi.md
-        - name: Monitorare l'attività di query
-          href: search-monitor-queries.md
-        - name: Monitorare gli indicizzatori
-          href: search-howto-monitor-indexers.md
-        - name: Analisi del traffico di ricerca
-          href: search-traffic-analytics.md
-    - name: Risolvere problemi
-      items:
-        - name: Problemi relativi all'indicizzatore
-          href: search-indexer-troubleshooting.md
-        - name: Errori e avvisi dell'indicizzatore
-          href: cognitive-search-common-errors-warnings.md
 - name: Informazioni di riferimento
   items:
     - name: Interfaccia della riga di comando di Azure

@@ -15,12 +15,12 @@ ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0a4ba5a9211cdb89f6ac5a92a315378e58f5d08a
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 34ac4a3b7f55c42711e4bc33c75bba964b49c65e
+ms.sourcegitcommit: b0557848d0ad9b74bf293217862525d08fe0fc1d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105709515"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "106551629"
 ---
 # <a name="configure-the-expiration-policy-for-microsoft-365-groups"></a>Configurare i criteri di scadenza per i gruppi di Microsoft 365
 
@@ -91,6 +91,7 @@ Per ulteriori informazioni sulle autorizzazioni per ripristinare un gruppo elimi
 > - Quando si configura per la prima volta la scadenza, tutti i gruppi antecedenti all'intervallo di scadenza vengono impostati su 35 giorni fino alla scadenza, a meno che il gruppo non venga rinnovato automaticamente o il proprietario lo rinnovi.
 > - Quando un gruppo dinamico viene eliminato e ripristinato, viene considerato come un nuovo gruppo e popolato nuovamente in base alla regola. Questo processo può richiedere fino a 24 ore.
 > - Le notifiche di scadenza per i gruppi usati nei team vengono visualizzate nel feed dei proprietari dei team.
+> - Quando si Abilita la scadenza per i gruppi selezionati, è possibile aggiungere all'elenco fino a 500 gruppi. Se è necessario aggiungere più di 500 gruppi, è possibile abilitare la scadenza per tutti i gruppi. In questo scenario, la limitazione del gruppo 500 non è applicabile.
 
 ## <a name="email-notifications"></a>Notifiche di posta elettronica
 

@@ -10,12 +10,12 @@ ms.date: 09/09/2020
 ms.author: normesta
 ms.subservice: data-lake-storage-gen2
 ms.reviewer: ereilebr
-ms.openlocfilehash: 2eda67e377a3b61e696e732b916d788c00a18eae
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: ca4fe1410c18357a1fab10cc9c971cf3a81542fd
+ms.sourcegitcommit: edc7dc50c4f5550d9776a4c42167a872032a4151
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "95908779"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105963258"
 ---
 # <a name="query-acceleration-sql-language-reference"></a>Informazioni di riferimento sul linguaggio SQL di accelerazione query
 
@@ -122,8 +122,8 @@ Il linguaggio SQL per l'accelerazione delle query supporta le seguenti funzioni 
 |[UPPER](/sql/t-sql/functions/upper-transact-sql)    |Restituisce un'espressione di caratteri con dati di tipo carattere minuscoli convertiti in maiuscolo.|
 |[SUBSTRING](/sql/t-sql/functions/substring-transact-sql)    |Restituisce parte di un'espressione di tipo carattere, binario, testo o immagine in SQL Server.|
 |[TRIM](/sql/t-sql/functions/trim-transact-sql)    |Rimuove il carattere spazio (32) o altri caratteri specificati dall'inizio e dalla fine di una stringa.|
-|LEADING    |Descrizione|
-|TRAILING    |Descrizione|
+|LEADING    |Rimuove il carattere spazio (32) o altri caratteri specificati dall'inizio di una stringa.|
+|TRAILING    |Rimuove il carattere di spazio (32) o altri caratteri specificati dalla fine di una stringa.|
 
 Ecco alcuni esempi:
 

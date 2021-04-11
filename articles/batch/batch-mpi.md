@@ -3,12 +3,12 @@ title: Usare attività a istanze multiple per eseguire applicazioni MPI
 description: Informazioni su come eseguire applicazioni MPI (Message Passing Interface) usando il tipo di attività a istanze multiple in Azure Batch.
 ms.topic: how-to
 ms.date: 03/25/2021
-ms.openlocfilehash: 51fc580e0bb31e0e975c53b44887a5889a784eea
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 02764f8dd8a6bb3e4224b8b44fe78ab7e15ba85d
+ms.sourcegitcommit: 3f684a803cd0ccd6f0fb1b87744644a45ace750d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105605672"
+ms.lasthandoff: 04/02/2021
+ms.locfileid: "106219850"
 ---
 # <a name="use-multi-instance-tasks-to-run-message-passing-interface-mpi-applications-in-batch"></a>Usare le attività a istanze multiple per eseguire applicazioni MPI (Message Passing Interface) in Batch
 
@@ -21,7 +21,7 @@ Le attività a istanze multiple permettono di eseguire un'attività di Azure Bat
 
 In Batch ogni attività viene in genere eseguita in un singolo nodo di calcolo, si inviano più attività a un processo e il servizio Batch pianifica l'esecuzione di ogni attività in un nodo. Tuttavia, configurando le **impostazioni per istanze multiple**, si indica a Batch invece di creare un'attività primaria e svariate sottoattività per che quindi sono eseguite su più nodi.
 
-:::image type="content" source="media/batch-mpi/batch_mpi_01.png" alt-text="Diagramma che mostra una panoramica delle impostazioni di istanze diverse.":::
+:::image type="content" source="media/batch-mpi/batch-mpi-01.png" alt-text="Diagramma che mostra una panoramica delle impostazioni di istanze diverse.":::
 
 Quando si invia a un processo un'attività con impostazioni per istanze multiple, Batch esegue diversi passaggi relativi esclusivamente alle attività a istanze multiple:
 

@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 01/07/2021
 ms.author: trbye
 ms.custom: references_regions
-ms.openlocfilehash: 3446de7592c10fd9c0905097a77314192688719d
-ms.sourcegitcommit: b0557848d0ad9b74bf293217862525d08fe0fc1d
+ms.openlocfilehash: 9be9e9b4c5153776bd78675cdc0c9da8c0506f75
+ms.sourcegitcommit: 5f482220a6d994c33c7920f4e4d67d2a450f7f08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/07/2021
-ms.locfileid: "106554009"
+ms.lasthandoff: 04/08/2021
+ms.locfileid: "107106769"
 ---
 # <a name="language-and-voice-support-for-the-speech-service"></a>Lingue e voci supportate per il servizio Voce
 
@@ -59,7 +59,7 @@ https://cris.ai -> Click on Adaptation Data -> scroll down to section "Pronuncia
 | Croato (Croazia)                 | `hr-HR` | Testo                                   |                           |
 | Ceco (Repubblica Ceca)             | `cs-CZ` | Testo                                   |                           |
 | Danese (Danimarca)                   | `da-DK` | Testo                                   | Sì                          |
-| Olandese (Paesi Bassi)                | `nl-NL` | Audio (20201015)<br>Testo                                   |    Sì                       |
+| Olandese (Paesi Bassi)                | `nl-NL` | Audio (20201015)<br>Testo<br>Pronuncia|    Sì                       |
 | Inglese (Australia)                | `en-AU` | Audio (20201019)<br>Testo                 | Sì                          |
 | Inglese (Canada)                   | `en-CA` | Audio (20201019)<br>Testo                 | Sì                          |
 | Inglese (Ghana)                    | `en-GH` | Testo                                   |                           |
@@ -78,10 +78,10 @@ https://cris.ai -> Click on Adaptation Data -> scroll down to section "Pronuncia
 | Estone (Estonia)                  | `et-EE` | Testo                                   |                           |
 | Filippino (Filippine)             | `fil-PH`| Testo                                   |                           |
 | Finlandese (Finlandia)                  | `fi-FI` | Testo                                   |     Sì                      |
-| Francese (Canada)                    | `fr-CA` | Audio (20201015)<br>Testo                 |     Sì                      |
+| Francese (Canada)                    | `fr-CA` | Audio (20201015)<br>Testo<br>Pronuncia|     Sì                      |
 | Francese (Francia)                    | `fr-FR` | Audio (20201015)<br>Testo<br>Pronuncia|      Sì                     |
-| Francese (Svizzera)               | `fr-CH` | Testo                                   |                           |
-| Tedesco (Austria)                   | `de-AT` | Testo                                   |                           |
+| Francese (Svizzera)               | `fr-CH` | Testo<br>Pronuncia                  |                           |
+| Tedesco (Austria)                   | `de-AT` | Testo<br>Pronuncia                  |                           |
 | Tedesco (Germania)                   | `de-DE` | Audio (20190701, 20200619, 20201127)<br>Testo<br>Pronuncia|  Sì                         |
 | Greco (Grecia)                     | `el-GR` | Testo                                   |                           |
 | Gujarati (India)                  | `gu-IN` | Testo                                   |                           |
@@ -100,33 +100,33 @@ https://cris.ai -> Click on Adaptation Data -> scroll down to section "Pronuncia
 | Norvegese (Bokmål, Norvegia)         | `nb-NO` | Testo                                   |     Sì                      |
 | Polacco (Polonia)                    | `pl-PL` | Testo                                   |       Sì                    |
 | Portoghese (Brasile)                | `pt-BR` | Audio (20190620, 20201015)<br>Testo<br>Pronuncia|          Sì                 |
-| Portoghese (Portogallo)              | `pt-PT` | Testo                                   |             Sì              |
+| Portoghese (Portogallo)              | `pt-PT` | Testo<br>Pronuncia                  |             Sì              |
 | Romeno (Romania)                 | `ro-RO` | Testo                                   |                           |
 | Russo (Russia)                   | `ru-RU` | Audio (20200907)<br>Testo                 |                Sì           |
 | Slovacco (Slovacchia)                  | `sk-SK` | Testo                                   |                           |
 | Sloveno (Slovenia)               | `sl-SI` | Testo                                   |                           |
-| Spagnolo (Argentina)                | `es-AR` | Testo                                   |                           |
-| Spagnolo (Bolivia)                  | `es-BO` | Testo                                   |                           |
-| Spagnolo (Cile)                    | `es-CL` | Testo                                   |                           |
-| Spagnolo (Colombia)                 | `es-CO` | Testo                                   |                           |
-| Spagnolo (Costa Rica)               | `es-CR` | Testo                                   |                           |
-| Spagnolo (Cuba)                     | `es-CU` | Testo                                   |                           |
-| Spagnolo (Repubblica dominicana)       | `es-DO` | Testo                                   |                           |
-| Spagnolo (Ecuador)                  | `es-EC` | Testo                                   |                           |
-| Spagnolo (El Salvador)              | `es-SV` | Testo                                   |                           |
+| Spagnolo (Argentina)                | `es-AR` | Testo<br>Pronuncia                  |                           |
+| Spagnolo (Bolivia)                  | `es-BO` | Testo<br>Pronuncia                  |                           |
+| Spagnolo (Cile)                    | `es-CL` | Testo<br>Pronuncia                  |                           |
+| Spagnolo (Colombia)                 | `es-CO` | Testo<br>Pronuncia                  |                           |
+| Spagnolo (Costa Rica)               | `es-CR` | Testo<br>Pronuncia                  |                           |
+| Spagnolo (Cuba)                     | `es-CU` | Testo<br>Pronuncia                  |                           |
+| Spagnolo (Repubblica dominicana)       | `es-DO` | Testo<br>Pronuncia                  |                           |
+| Spagnolo (Ecuador)                  | `es-EC` | Testo<br>Pronuncia                  |                           |
+| Spagnolo (El Salvador)              | `es-SV` | Testo<br>Pronuncia                  |                           |
 | Spagnolo (Guinea Equatoriale)        | `es-GQ` | Testo                                   |                           |
-| Spagnolo (Guatemala)                | `es-GT` | Testo                                   |                           |
-| Spagnolo (Honduras)                 | `es-HN` | Testo                                   |                           |
-| Spagnolo (Messico)                   | `es-MX` | Audio (20200907)<br>Testo                 |    Sì                       |
-| Spagnolo (Nicaragua)                | `es-NI` | Testo                                   |                           |
-| Spagnolo (Panama)                   | `es-PA` | Testo                                   |                           |
-| Spagnolo (Paraguay)                 | `es-PY` | Testo                                   |                           |
-| Spagnolo (Perù)                     | `es-PE` | Testo                                   |                           |
-| Spagnolo (Puerto Rico)              | `es-PR` | Testo                                   |                           |
-| Spagnolo (Spagna)                    | `es-ES` | Audio (20201015)<br>Testo                 |  Sì                         |
-| Spagnolo (Uruguay)                  | `es-UY` | Testo                                   |                           |
-| Spagnolo (Stati Uniti)                      | `es-US` | Testo                                   |                           |
-| Spagnolo (Venezuela)                | `es-VE` | Testo                                   |                           |
+| Spagnolo (Guatemala)                | `es-GT` | Testo<br>Pronuncia                  |                           |
+| Spagnolo (Honduras)                 | `es-HN` | Testo<br>Pronuncia                  |                           |
+| Spagnolo (Messico)                   | `es-MX` | Audio (20200907)<br>Testo<br>Pronuncia|    Sì                       |
+| Spagnolo (Nicaragua)                | `es-NI` | Testo<br>Pronuncia                  |                           |
+| Spagnolo (Panama)                   | `es-PA` | Testo<br>Pronuncia                  |                           |
+| Spagnolo (Paraguay)                 | `es-PY` | Testo<br>Pronuncia                  |                           |
+| Spagnolo (Perù)                     | `es-PE` | Testo<br>Pronuncia                  |                           |
+| Spagnolo (Puerto Rico)              | `es-PR` | Testo<br>Pronuncia                  |                           |
+| Spagnolo (Spagna)                    | `es-ES` | Audio (20201015)<br>Testo<br>Pronuncia|  Sì                         |
+| Spagnolo (Uruguay)                  | `es-UY` | Testo<br>Pronuncia                  |                           |
+| Spagnolo (Stati Uniti)                      | `es-US` | Testo<br>Pronuncia                  |                           |
+| Spagnolo (Venezuela)                | `es-VE` | Testo<br>Pronuncia                  |                           |
 | Svedese (Svezia)                   | `sv-SE` | Testo                                   |   Sì                        |
 | Tamil (India)                      | `ta-IN` | Testo                                   |                           |
 | Telugu (India)                     | `te-IN` | Testo                                   |                           |
@@ -283,10 +283,10 @@ Le voci neurali possono essere usate per rendere più naturali e coinvolgenti le
 | Thai (Thailandia) | `th-TH` | Male | `th-TH-NiwatNeural` | Generale |
 | Turco (Turchia) | `tr-TR` | Female | `tr-TR-EmelNeural` | Generale |
 | Turco (Turchia) | `tr-TR` | Male | `tr-TR-AhmetNeural` | Generale |
-| Ucraino (Ucraina) | `uk-UA` | Female | `en-ZA-LeahNeural` <sup>Nuova</sup> | Generale | 
-| Ucraino (Ucraina) | `uk-UA` | Male | `en-ZA-LukeNeural` <sup>Nuova</sup> | Generale | 
-| Urdu (Pakistan) | `ur-PK` | Female | `uk-UA-PolinaNeural` <sup>Nuova</sup> | Generale | 
-| Urdu (Pakistan) | `ur-PK` | Male | `uk-UA-OstapNeural` <sup>Nuova</sup> | Generale | 
+| Ucraino (Ucraina) | `uk-UA` | Female | `uk-UA-PolinaNeural` <sup>Nuova</sup> | Generale | 
+| Ucraino (Ucraina) | `uk-UA` | Male | `uk-UA-OstapNeural` <sup>Nuova</sup> | Generale | 
+| Urdu (Pakistan) | `ur-PK` | Female | `ur-PK-UzmaNeural` <sup>Nuova</sup>  | Generale | 
+| Urdu (Pakistan) | `ur-PK` | Male | `ur-PK-AsadNeural` <sup>Nuova</sup> | Generale | 
 | Vietnamita (Vietnam) | `vi-VN` | Female | `vi-VN-HoaiMyNeural` | Generale |
 | Vietnamita (Vietnam) | `vi-VN` | Male | `vi-VN-NamMinhNeural` | Generale |
 | Gallese (Regno Unito) | `cy-GB` | Female | `cy-GB-NiaNeural` <sup>Nuova</sup> | Generale | 

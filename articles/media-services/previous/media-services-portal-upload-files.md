@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/10/2021
 ms.author: inhenkel
-ms.openlocfilehash: c2dc193d65ff1c85837477c0a8fd345f11d59bcd
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: a0e4b7e759e27dafb1d847dc5d7ce464b440e98c
+ms.sourcegitcommit: edc7dc50c4f5550d9776a4c42167a872032a4151
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103009750"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105960674"
 ---
 # <a name="upload-files-to-a-media-services-account-in-the-azure-portal"></a>Caricare file in un account Servizi multimediali nel portale di Azure
 
@@ -32,7 +32,7 @@ ms.locfileid: "103009750"
 > 
 
 > [!NOTE]
-> Non saranno aggiunte nuove caratteristiche o funzionalità a Servizi multimediali v2. Per informazioni aggiornate sui file di caricamento con il portale, vedere [usare il portale per caricare, codificare e trasmettere in flusso il contenuto](../latest/manage-assets-quickstart.md).<br/>Vedere anche: [servizi multimediali V3](../latest/index.yml). Vedere anche le [indicazioni sulla migrazione dalla versione 2 alla versione 3](../latest/migrate-v-2-v-3-migration-introduction.md)
+> Non saranno aggiunte nuove caratteristiche o funzionalità a Servizi multimediali v2. Per informazioni aggiornate sui file di caricamento con il portale, vedere [usare il portale per caricare, codificare e trasmettere in flusso il contenuto](../latest/asset-create-asset-upload-portal-quickstart.md).<br/>Vedere anche: [servizi multimediali V3](../latest/index.yml). Vedere anche le [indicazioni sulla migrazione dalla versione 2 alla versione 3](../latest/migrate-v-2-v-3-migration-introduction.md)
 
 In Servizi multimediali di Azure è possibile caricare i file digitali in un asset. L'asset può contenere video, audio, immagini, raccolte di anteprime, tracce di testo e file di sottotitoli codificati, oltre ai metadati relativi a questi file. Dopo aver caricato i file, i contenuti vengono archiviati in modo sicuro nel cloud per altre operazioni di elaborazione e streaming.
 

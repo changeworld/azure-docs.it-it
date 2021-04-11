@@ -8,10 +8,10 @@ author: linda33wj
 ms.custom: seo-lt-2019
 ms.date: 03/17/2021
 ms.openlocfilehash: eae085a73e8f43813aa3f02fa910c7931f10f36c
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "104597415"
 ---
 # <a name="copy-and-transform-data-in-azure-sql-managed-instance-by-using-azure-data-factory"></a>Copiare e trasformare i dati in Istanza gestita SQL di Azure usando Azure Data Factory
@@ -42,7 +42,7 @@ Per l'attività di copia, questo connettore del database SQL di Azure supporta l
 
 Per accedere all' [endpoint pubblico](../azure-sql/managed-instance/public-endpoint-overview.md)di SQL istanza gestita, è possibile usare una Azure Data Factory runtime di integrazione di Azure gestito. Assicurarsi di abilitare l'endpoint pubblico e consentire anche il traffico dell'endpoint pubblico nel gruppo di sicurezza di rete in modo che Azure Data Factory possa connettersi al database. Per ulteriori informazioni, vedere le [linee guida](../azure-sql/managed-instance/public-endpoint-configure.md).
 
-Per accedere all'endpoint privato di SQL Istanza gestita, configurare un [runtime di integrazione self-hosted](create-self-hosted-integration-runtime.md) in grado di accedere al database. Se si esegue il provisioning del runtime di integrazione self-hosted nella stessa rete virtuale dell'istanza gestita, verificare che il computer del runtime di integrazione si trovi in una subnet diversa da quella dell'istanza gestita. Se si effettua il provisioning del runtime di integrazione self-hosted in una rete virtuale diversa da quella dell'istanza gestita, è possibile usare un peering di rete virtuale o una rete virtuale per la connessione di rete virtuale. Per altre informazioni, vedere [Connettere l'applicazione a Istanza gestita di SQL di Azure](../azure-sql/managed-instance/connect-application-instance.md).
+Per accedere all'endpoint privato di SQL Istanza gestita, configurare un [runtime di integrazione self-hosted](create-self-hosted-integration-runtime.md) in grado di accedere al database. Se si effettua il provisioning del runtime di integrazione self-hosted nella stessa rete virtuale dell'istanza gestita, verificare che il computer del runtime di integrazione si trovi in una subnet diversa da quella dell'istanza gestita. Se si effettua il provisioning del runtime di integrazione self-hosted in una rete virtuale diversa da quella dell'istanza gestita, è consigliabile usare un peering di rete virtuale o stabilire una connessione tra reti virtuali. Per altre informazioni, vedere [Connettere l'applicazione a Istanza gestita di SQL di Azure](../azure-sql/managed-instance/connect-application-instance.md).
 
 ## <a name="get-started"></a>Introduzione
 

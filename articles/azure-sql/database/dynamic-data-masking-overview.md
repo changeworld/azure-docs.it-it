@@ -12,12 +12,12 @@ ms.author: datrigan
 ms.reviewer: vanto
 ms.date: 01/25/2021
 tags: azure-synpase
-ms.openlocfilehash: b10b00e724324779eb753bfefccce77a5eb2a39d
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: ccc648f06cad46b490ac73fe777066c9de2ff2b9
+ms.sourcegitcommit: b0557848d0ad9b74bf293217862525d08fe0fc1d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98918078"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "106551646"
 ---
 # <a name="dynamic-data-masking"></a>Maschera dati dinamica 
 [!INCLUDE[appliesto-sqldb-sqlmi-asa](../includes/appliesto-sqldb-sqlmi-asa.md)]
@@ -72,13 +72,13 @@ Il motore di raccomandazioni DDM evidenzia determinati campi del database come p
 
 ### <a name="data-masking-policies"></a>Criteri di maschera dati
 
-- [Crea o aggiorna](/rest/api/sql/datamaskingpolicies/createorupdate): crea o aggiorna un criterio di maschera dati del database.
-- [Get](/rest/api/sql/datamaskingpolicies/get): ottiene un criterio di maschera dati del database. 
+- [Crea o aggiorna](/rest/api/sql/2014-04-01/datamaskingpolicies/createorupdate): crea o aggiorna un criterio di maschera dati del database.
+- [Get](/rest/api/sql/2014-04-01/datamaskingpolicies/get): ottiene un criterio di maschera dati del database. 
 
 ### <a name="data-masking-rules"></a>Regole per la maschera dati
 
-- [Crea o aggiorna](/rest/api/sql/datamaskingrules/createorupdate): crea o aggiorna una regola di maschera dati del database.
-- [List by database](/rest/api/sql/datamaskingrules/listbydatabase): ottiene un elenco di regole di maschera dati del database.
+- [Crea o aggiorna](/rest/api/sql/2014-04-01/datamaskingrules/createorupdate): crea o aggiorna una regola di maschera dati del database.
+- [List by database](/rest/api/sql/2014-04-01/datamaskingrules/listbydatabase): ottiene un elenco di regole di maschera dati del database.
 
 ## <a name="permissions"></a>Autorizzazioni
 

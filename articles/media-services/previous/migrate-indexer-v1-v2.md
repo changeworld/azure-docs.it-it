@@ -13,23 +13,23 @@ ms.devlang: na
 ms.topic: article
 ms.date: 3/10/2021
 ms.author: inhenkel
-ms.openlocfilehash: eb4f662a4b34d748da0e97da9b64a386be3f5c49
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 2b1960aa2d08a189e04aea8906c10e761dc1c57a
+ms.sourcegitcommit: edc7dc50c4f5550d9776a4c42167a872032a4151
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 03/30/2021
-ms.locfileid: "103016424"
+ms.locfileid: "105962646"
 ---
 # <a name="migrate-from-media-indexer-and-media-indexer-2-to-video-indexer"></a>Eseguire la migrazione da Media Indexer e Media Indexer 2 a Video Indexer
 
 [!INCLUDE [media services api v2 logo](./includes/v2-hr.md)]
 
 > [!IMPORTANT]
-> Si consiglia ai clienti di eseguire la migrazione dall'indicizzatore V1 e dall'indicizzatore V2 a usando la [modalità Basic di servizi multimediali V3 AudioAnalyzerPreset](../latest/analyzing-video-audio-files-concept.md). Il processore di contenuti multimediali [Azure Media Indexer](media-services-index-content.md) e i processori di [Azure Media Indexer 2 Preview](./legacy-components.md) sono in fase di ritiro. Per le date di ritiro, vedere questo argomento relativo ai [componenti legacy](legacy-components.md).
+> Si consiglia ai clienti di eseguire la migrazione dall'indicizzatore V1 e dall'indicizzatore V2 a usando la [modalità Basic di servizi multimediali V3 AudioAnalyzerPreset](../latest/analyze-video-audio-files-concept.md). Il processore di contenuti multimediali [Azure Media Indexer](media-services-index-content.md) e i processori di [Azure Media Indexer 2 Preview](./legacy-components.md) sono in fase di ritiro. Per le date di ritiro, vedere questo argomento relativo ai [componenti legacy](legacy-components.md).
 
 Servizi multimediali di Azure Video Indexer si basa su Analisi Servizi multimediali di Azure, ricerca cognitiva di Azure, servizi cognitivi, ad esempio il API Viso, Microsoft Translator, il API Visione artificiale e il servizio Riconoscimento vocale personalizzato. Consente di estrarre informazioni dettagliate dai video tramite i modelli audio e video di Video Indexer. Per informazioni sugli scenari in cui è possibile usare Video Indexer, sulle funzionalità offerte e su come iniziare, vedere [video Indexer modelli video e audio](../video-indexer/video-indexer-overview.md). 
 
-È possibile estrarre informazioni dettagliate dai file video e audio usando i [set di impostazioni di Azure Media Services V3 Analyzer](../latest/analyzing-video-audio-files-concept.md) o direttamente usando le [API video Indexer](https://api-portal.videoindexer.ai/). Attualmente esiste una sovrapposizione tra le funzionalità offerte dalle API Video Indexer e le API di servizi multimediali V3.
+È possibile estrarre informazioni dettagliate dai file video e audio usando i [set di impostazioni di Azure Media Services V3 Analyzer](../latest/analyze-video-audio-files-concept.md) o direttamente usando le [API video Indexer](https://api-portal.videoindexer.ai/). Attualmente esiste una sovrapposizione tra le funzionalità offerte dalle API Video Indexer e le API di servizi multimediali V3.
 
 > [!NOTE]
 > Per comprendere le differenze tra i set di impostazioni Video Indexer vs. Media Services Analyzer, vedere il [documento di confronto](../video-indexer/compare-video-indexer-with-media-services-presets.md).
@@ -49,7 +49,7 @@ La sezione seguente illustra i collegamenti pertinenti: [come è possibile inizi
 
 ## <a name="getting-started-with-media-services-v3-apis"></a>Introduzione alle API di servizi multimediali V3
 
-L'API di servizi multimediali di Azure v3 consente di estrarre informazioni dettagliate dai file audio e video tramite i [set di impostazioni di Azure Media Services V3 Analyzer](../latest/analyzing-video-audio-files-concept.md).
+L'API di servizi multimediali di Azure v3 consente di estrarre informazioni dettagliate dai file audio e video tramite i [set di impostazioni di Azure Media Services V3 Analyzer](../latest/analyze-video-audio-files-concept.md).
 
 **AudioAnalyzerPreset** consente di estrarre informazioni dettagliate sui contenuti audio da un file audio o video. L'output include un file VTT o TTML per la trascrizione audio e un file JSON (con tutte le informazioni aggiuntive sull'audio). Le informazioni dettagliate includono parole chiave, indicizzazione del parlante e analisi dei sentimenti vocali. AudioAnalyzerPreset supporta anche il rilevamento della lingua per lingue specifiche. Per informazioni dettagliate, vedere [trasformazioni](/rest/api/media/transforms/createorupdate#audioanalyzerpreset).
 
@@ -57,7 +57,7 @@ L'API di servizi multimediali di Azure v3 consente di estrarre informazioni dett
 
 Per un'introduzione, vedere:
 
-* [Esercitazione](../latest/analyze-videos-tutorial-with-api.md)
+* [Esercitazione](../latest/analyze-videos-tutorial.md)
 * Esempi di AudioAnalyzerPreset: [Java SDK](https://github.com/Azure-Samples/media-services-v3-java/tree/master/AudioAnalytics/AudioAnalyzer) o [.NET SDK](https://github.com/Azure-Samples/media-services-v3-dotnet/tree/master/AudioAnalytics/AudioAnalyzer)
 * Esempi di VideoAnalyzerPreset: [Java SDK](https://github.com/Azure-Samples/media-services-v3-java/tree/master/VideoAnalytics/VideoAnalyzer) o [.NET SDK](https://github.com/Azure-Samples/media-services-v3-dotnet/tree/master/VideoAnalytics/VideoAnalyzer)
 

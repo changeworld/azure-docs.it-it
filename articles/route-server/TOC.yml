@@ -12,6 +12,8 @@
       href: quickstart-configure-route-server-powershell.md
     - name: Configurare un server di route-CLI
       href: quickstart-configure-route-server-cli.md
+    - name: Configurare un server di route-modello ARM
+      href: quickstart-configure-template.md
   expanded: true
 - name: Concetti
   items:

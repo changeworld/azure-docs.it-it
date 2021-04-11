@@ -556,6 +556,9 @@
             - name: Trasformare i dati
               displayName: pipeline
               href: how-to-designer-transform-data.md
+            - name: Usare i parametri della pipeline
+              displayName: 'designer, pipeline parameters'
+              href: how-to-use-pipeline-parameter.md
             - name: Ripetere il training usando le pipeline pubblicate
               displayName: 'retrain, designer, published pipeline'
               href: how-to-retrain-designer.md
@@ -621,6 +624,8 @@
     - name: Ambienti dedicati
       displayName: 'environments, curated environments'
       href: resource-curated-environments.md
+    - name: Interfaccia della riga di comando di Azure
+      href: /cli/azure/ext/azure-cli-ml/ml
 - name: Risorse
   items:
     - name: Note sulla versione

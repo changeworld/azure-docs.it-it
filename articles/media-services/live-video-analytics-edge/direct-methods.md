@@ -3,12 +3,12 @@ title: Usare i metodi diretti in analisi video in tempo reale su IoT Edge-Azure
 description: Analisi video in tempo reale su IoT Edge espone diversi metodi diretti. I metodi diretti sono basati sulle convenzioni descritte in questo argomento.
 ms.topic: conceptual
 ms.date: 04/27/2020
-ms.openlocfilehash: 8b5c16dc72beed4ec757e48461a2fc194c113f8d
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 56fbf565af45a9b3877ff8d6c48a56713ddc3da6
+ms.sourcegitcommit: 3ee3045f6106175e59d1bd279130f4933456d5ff
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97656241"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106076990"
 ---
 # <a name="direct-methods"></a>Metodi diretti
 
@@ -381,7 +381,7 @@ Aspetti principali:
 | Errori di convalida del grafo | 400 | GraphValidationError |
 | Errori di convalida del modulo | 400 | ModuleValidationError |
 | Errori di convalida delle risorse | 409 | ResourceValidationError |
-| Errori server generici | Intervallo 500 |  |  |
+| Errori server generici | Intervallo 500 |  | 
 
 ### <a name="graphinstancedelete"></a>GraphInstanceDelete
 

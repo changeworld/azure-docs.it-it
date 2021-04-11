@@ -3,12 +3,12 @@ title: Argomenti di sistema in griglia di eventi di Azure
 description: Descrive gli argomenti di sistema in griglia di eventi di Azure.
 ms.topic: conceptual
 ms.date: 09/24/2020
-ms.openlocfilehash: b1fbecb1e372602f9c252d43d2a1f93524ef1846
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: ca59dd6bb99b9b7d06f0622e8c0cb4e4234e21ff
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "99052966"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105733044"
 ---
 # <a name="system-topics-in-azure-event-grid"></a>Argomenti di sistema in griglia di eventi di Azure
 Un argomento di sistema in griglia di eventi rappresenta uno o più eventi pubblicati da servizi di Azure, ad esempio archiviazione di Azure e hub eventi di Azure. Un argomento di sistema, ad esempio, può rappresentare **tutti gli eventi BLOB** o solo gli eventi BLOB **creati** e BLOB **eliminati** per un **account di archiviazione specifico**. In questo esempio, quando un BLOB viene caricato nell'account di archiviazione, il servizio di archiviazione di Azure pubblica un evento **BLOB creato** nell'argomento sistema in griglia di eventi, che quindi trasmette l'evento ai [sottoscrittori](event-handlers.md) dell'argomento che ricevono ed elaborano l'evento. 
@@ -30,6 +30,7 @@ Di seguito è riportato l'elenco corrente dei servizi di Azure che supportano la
 - [Azure Machine Learning](event-schema-machine-learning.md)
 - [Mappe di Azure](event-schema-azure-maps.md)
 - [Servizi multimediali di Azure](event-schema-media-services.md)
+- [Criteri di Azure](./event-schema-policy.md)
 - [Gruppi di risorse di Azure](event-schema-resource-groups.md)
 - [Bus di servizio di Azure](event-schema-service-bus.md)
 - [Azure SignalR](event-schema-azure-signalr.md)

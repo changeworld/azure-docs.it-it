@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jairoc
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2611a29ffcfdeb805934eacc54181515ec44f38c
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: fbf936370b401a76479c7679499103d083e0752a
+ms.sourcegitcommit: b0557848d0ad9b74bf293217862525d08fe0fc1d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104578040"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "106551748"
 ---
 # <a name="troubleshooting-hybrid-azure-active-directory-joined-down-level-devices"></a>Risoluzione dei problemi relativi a dispositivi di livello inferiore aggiunti all'identità ibrida di Azure Active Directory 
 
@@ -106,4 +106,4 @@ Se il dispositivo non è stato aggiunto a Azure AD in modalità ibrida, è possi
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Per altre informazioni, vedere le [domande frequenti sulla gestione dei dispositivi](faq.md)  
+Per altre informazioni, vedere le [domande frequenti sulla gestione dei dispositivi](faq.yml)  

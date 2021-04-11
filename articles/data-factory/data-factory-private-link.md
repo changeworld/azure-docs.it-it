@@ -7,12 +7,12 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 09/01/2020
-ms.openlocfilehash: 9e4d686f582a202dbc543620c7bf73dc4e7adb22
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: d572509b3b2b3a0fc69f207d005984ee07ce34a4
+ms.sourcegitcommit: 3ee3045f6106175e59d1bd279130f4933456d5ff
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100389179"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106076820"
 ---
 # <a name="azure-private-link-for-azure-data-factory"></a>Collegamento privato di Azure per Azure Data Factory
 
@@ -54,7 +54,7 @@ L'abilitazione del servizio di collegamento privato per ognuno dei canali di com
    - Le comunicazioni del comando tra il runtime di integrazione self-hosted e il servizio Azure Data Factory possono essere eseguite in modo sicuro in un ambiente di rete privata. Il traffico tra il runtime di integrazione self-hosted e il servizio di Azure Data Factory passa attraverso il collegamento privato. 
 - **Attualmente non supportata**:
    - La creazione interattiva che usa un runtime di integrazione self-hosted, ad esempio test connection, browse Folder List e Table list, Get schema e Preview data, passa attraverso un collegamento privato.
-   - La nuova versione del runtime di integrazione self-hosted può essere scaricata automaticamente dall'area download Microsoft se si Abilita l'aggiornamento automatico.
+   - La nuova versione del runtime di integrazione self-hosted che può essere scaricata automaticamente dall'area download Microsoft se si Abilita l'aggiornamento automatico non è supportata in questo momento.
 
    > [!NOTE]
    > Per le funzionalità che non sono attualmente supportate, è comunque necessario configurare il dominio e la porta indicati in precedenza nella rete virtuale o nel firewall aziendale. 

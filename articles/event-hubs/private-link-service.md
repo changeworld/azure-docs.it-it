@@ -3,12 +3,12 @@ title: Integrare Hub eventi di Azure con il servizio Collegamento privato di Azu
 description: Informazioni su come integrare Hub eventi di Azure con il servizio Collegamento privato di Azure
 ms.date: 08/22/2020
 ms.topic: article
-ms.openlocfilehash: 996779e103dae2d2d950f447d2ac72667fc9e754
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: f5c01788044f3c3a5d875a24172e7222ff195f81
+ms.sourcegitcommit: edc7dc50c4f5550d9776a4c42167a872032a4151
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "94427752"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105960844"
 ---
 # <a name="allow-access-to-azure-event-hubs-namespaces-via-private-endpoints"></a>Consentire l'accesso agli spazi dei nomi di hub eventi di Azure tramite endpoint privati 
 Il servizio Collegamento privato di Azure consente di accedere ai servizi di Azure, ad esempio Hub eventi di Azure, Archiviazione di Azure e Azure Cosmos DB, e ai servizi di clienti/partner ospitati in Azure tramite un **endpoint privato** nella rete virtuale.
@@ -17,11 +17,10 @@ Un endpoint privato è un'interfaccia di rete che connette privatamente e in mod
 
 Per altre informazioni, vedere [Che cos'è Collegamento privato di Azure?](../private-link/private-link-overview.md).
 
-> [!WARNING]
-> L'abilitazione di endpoint privati può impedire ad altri servizi di Azure di interagire con Hub eventi.  Le richieste che vengono bloccate sono quelle che provengono da altri servizi di Azure, dal portale di Azure, dai servizi di registrazione e metriche e così via. Come eccezione, è possibile consentire l'accesso alle risorse di hub eventi da determinati servizi attendibili anche quando gli endpoint privati sono abilitati. Per un elenco di servizi attendibili, vedere [Servizi attendibili](#trusted-microsoft-services).
-
->[!NOTE]
-> Questa funzionalità è supportata sia per i livelli **standard** che per quelli **dedicati** . Il livello **Basic** non è supportato.
+## <a name="important-points"></a>Punti importanti
+- Questa funzionalità è supportata sia per i livelli **standard** che per quelli **dedicati** . Il livello **Basic** non è supportato.
+- L'abilitazione di endpoint privati può impedire ad altri servizi di Azure di interagire con Hub eventi.  Le richieste che vengono bloccate sono quelle che provengono da altri servizi di Azure, dal portale di Azure, dai servizi di registrazione e metriche e così via. Come eccezione, è possibile consentire l'accesso alle risorse di hub eventi da determinati **Servizi attendibili** anche quando gli endpoint privati sono abilitati. Per un elenco di servizi attendibili, vedere [Servizi attendibili](#trusted-microsoft-services).
+- Specificare almeno **una regola IP o una regola della rete virtuale** per lo spazio dei nomi per consentire il traffico solo dagli indirizzi IP o dalla subnet specificata di una rete virtuale. Se non sono presenti regole IP e reti virtuali, è possibile accedere allo spazio dei nomi tramite la rete Internet pubblica (usando la chiave di accesso). 
 
 ## <a name="add-a-private-endpoint-using-azure-portal"></a>Aggiungere un endpoint privato con il portale di Azure
 
@@ -51,8 +50,8 @@ Se si ha già uno spazio dei nomi di Hub eventi, è possibile creare una conness
 
     :::image type="content" source="./media/private-link-service/selected-networks-page.png" alt-text="Scheda reti-opzione reti selezionate" lightbox="./media/private-link-service/selected-networks-page.png":::    
 
-    > [!NOTE]
-    > Per impostazione predefinita, è selezionata l'opzione **reti selezionate** . Se non si specifica una regola del firewall IP o si aggiunge una rete virtuale, è possibile accedere allo spazio dei nomi tramite Internet pubblico. 
+    > [!WARNING]
+    > Per impostazione predefinita, è selezionata l'opzione **reti selezionate** . Se non si specifica una regola del firewall IP o si aggiunge una rete virtuale, è possibile accedere allo spazio dei nomi tramite Internet pubblico (usando la chiave di accesso). 
 1. Selezionare la scheda **Connessioni endpoint privato** nella parte superiore della pagina. 
 1. Selezionare il pulsante **+ Endpoint privato** nella parte superiore della pagina.
 

@@ -7,15 +7,15 @@ ms.service: machine-learning
 ms.subservice: core
 ms.author: keli19
 author: likebupt
-ms.date: 02/05/2020
+ms.date: 02/05/2021
 ms.topic: conceptual
 ms.custom: how-to, designer
-ms.openlocfilehash: dda47d3ff561d4d57045dbb28f8c411e193086d5
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 34d0d31296214355b85c52e4564e9bf6658b2005
+ms.sourcegitcommit: edc7dc50c4f5550d9776a4c42167a872032a4151
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 03/30/2021
-ms.locfileid: "101657381"
+ms.locfileid: "105962935"
 ---
 # <a name="run-batch-predictions-using-azure-machine-learning-designer"></a>Eseguire stime batch tramite la finestra di progettazione di Azure Machine Learning
 
@@ -164,4 +164,5 @@ Sostituire quindi manualmente il modulo **TD-** Module nella pipeline di inferen
 ## <a name="next-steps"></a>Passaggi successivi
 
 Seguire l'[esercitazione](tutorial-designer-automobile-price-train-score.md) relativa alla finestra di progettazione per eseguire il training e la distribuzione di un modello di regressione.
-''
+
+Per informazioni su come pubblicare ed eseguire una pipeline pubblicata con SDK, vedere [questo articolo](how-to-deploy-pipelines.md).

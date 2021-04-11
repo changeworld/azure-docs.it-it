@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.custom: seo-lt-2019
 ms.topic: tutorial
 ms.date: 08/04/2020
-ms.openlocfilehash: 4ee3e9e7d2aa0247011415b43517147fd421902a
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 5585eb210b54dfa016d25c430256508e1b0b9f61
+ms.sourcegitcommit: 3ee3045f6106175e59d1bd279130f4933456d5ff
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101094931"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106076888"
 ---
 # <a name="tutorial-migrate-sql-server-to-an-azure-sql-managed-instance-online-using-dms"></a>Esercitazione: Eseguire la migrazione online di SQL Server a Istanza gestita di SQL di Azure con Servizio Migrazione del database
 
@@ -209,7 +209,7 @@ Dopo aver creato un'istanza del servizio, individuarlo nel portale di Azure, apr
 
 1. Nella schermata **Configura le impostazioni di migrazione** specificare i dettagli seguenti:
 
-    | | |
+    | Parametro | Descrizione |
     |--------|---------|
     |**Condivisione del percorso di rete SMB** | Condivisione di rete SMB locale o condivisione file di Azure contenente i file di backup completo del database e i file di backup del log delle transazioni, che possono essere usati da Servizio Migrazione del database di Azure per la migrazione. L'account del servizio che esegue l'istanza di SQL Server di origine deve avere privilegi di lettura/scrittura per questa condivisione di rete. Specificare l'FQDN o l'indirizzo IP del server nella condivisione di rete, ad esempio '\\\nomeserver.nomedominio.com\cartellabackup' o '\\\indirizzoIP\cartellabackup'. Per migliorare le prestazioni, è consigliabile usare una cartella separata per ogni database di cui eseguire la migrazione. Per specificare il percorso di condivisione file a livello di database, usare l'opzione **Impostazioni avanzate**. Se si verificano problemi di connessione alla condivisione SMB, vedere [condivisione SMB](known-issues-azure-sql-db-managed-instance-online.md#smb-file-share-connectivity). |
     |**Nome utente** | Verificare che l'utente di Windows abbia i privilegi di controllo completo sulla condivisione di rete fornita in precedenza. Servizio Migrazione del database di Azure rappresenterà le credenziali utente necessarie per caricare i file di backup nel contenitore di archiviazione di Azure per l'operazione di ripristino. Se si usa la condivisione file di Azure, usare il nome dell'account di archiviazione con il prefisso AZURE\ come nome utente. |

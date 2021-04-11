@@ -8,12 +8,12 @@ ms.date: 02/23/2021
 ms.author: prsandhu
 ms.reviewer: cynthn
 ms.custom: fasttrack-edit, mvc
-ms.openlocfilehash: dad8661de55fc90c9f3d3782c402deb519d16536
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 44ff938d0990a1a7794140a82c0e9222bb69a5d7
+ms.sourcegitcommit: 77d7639e83c6d8eb6c2ce805b6130ff9c73e5d29
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104596009"
+ms.lasthandoff: 04/05/2021
+ms.locfileid: "106384256"
 ---
 # <a name="regions-and-availability-zones-in-azure"></a>Aree e zone di disponibilità in Azure
 
@@ -87,8 +87,8 @@ Se un'offerta di servizio non è disponibile in un'area specifica, è possibile 
 Come indicato in precedenza, Azure classifica i servizi in tre categorie: fondamentale, mainstream e specializzato. Le categorie di servizio vengono assegnate a livello generale. Spesso i servizi avviano il ciclo di vita come servizio specializzato e gli aumenti di richiesta e utilizzo possono essere promossi al mainstream o alla base. La tabella seguente elenca la categoria per i servizi come base, mainstream. Per la tabella è necessario tenere presente quanto segue:
 
 - Alcuni servizi non sono a livello di area. Per informazioni e un elenco di servizi non regionali, vedere [prodotti disponibili in base all'area](https://azure.microsoft.com/global-infrastructure/services/).
-- Non sono elencate le generazioni precedenti di servizi o macchine virtuali. Per ulteriori informazioni, vedere la documentazione relativa alle [generazioni precedenti di dimensioni di macchine virtuali](../virtual-machines/sizes-previous-gen.md)
-- . Ai servizi non viene assegnata una categoria fino alla disponibilità generale (GA). Per informazioni e per un elenco dei servizi in anteprima, vedere [prodotti disponibili in base all'area](https://azure.microsoft.com/global-infrastructure/services/). 
+- Non sono elencate le generazioni precedenti di servizi o macchine virtuali. Per ulteriori informazioni, vedere la documentazione relativa alle [generazioni precedenti di dimensioni di macchine virtuali](../virtual-machines/sizes-previous-gen.md).
+- Ai servizi non viene assegnata una categoria fino alla disponibilità generale (GA). Per informazioni e per un elenco dei servizi in anteprima, vedere [prodotti disponibili in base all'area](https://azure.microsoft.com/global-infrastructure/services/). 
 
 > [!div class="mx-tableFixed"]
 > | Fondamentale                           | Mainstream                                        | 

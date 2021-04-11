@@ -9,12 +9,12 @@ ms.date: 03/29/2021
 ms.reviewer: andalmia
 ms.author: banders
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
-ms.openlocfilehash: 8857582e29da03785427c59277c605b0b4d6c6b7
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 3275fe0a72b70038cf834436e8290b9c55643414
+ms.sourcegitcommit: edc7dc50c4f5550d9776a4c42167a872032a4151
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 03/30/2021
-ms.locfileid: "105932574"
+ms.locfileid: "105963292"
 ---
 # <a name="programmatically-create-azure-enterprise-agreement-subscriptions-with-the-latest-apis"></a>Creare sottoscrizioni con contratto Enterprise di Azure a livello di codice con le API più recenti
 
@@ -31,7 +31,8 @@ Quando si crea una sottoscrizione di Azure a livello di codice, tale sottoscrizi
 Per creare una sottoscrizione, è necessario avere un ruolo Proprietario o un account di registrazione. È possibile ottenere il ruolo in due modi:
 
 * L'amministratore dell'organizzazione della registrazione può [configurare l'utente come proprietario dell'account](https://ea.azure.com/helpdocs/addNewAccount) (accesso obbligatorio), in modo che diventi un proprietario dell'account di registrazione.
-* Un proprietario esistente dell'account di registrazione può [concedere l'accesso](/rest/api/billing/2019-10-01-preview/enrollmentaccountroleassignments/put). Analogamente, per usare un'entità servizio per creare la sottoscrizione con Contratto Enterprise, è necessario [concedere a tale entità servizio la possibilità di creare sottoscrizioni](/rest/api/billing/2019-10-01-preview/enrollmentaccountroleassignments/put). 
+* Un proprietario esistente dell'account di registrazione può [concedere l'accesso](/rest/api/billing/2019-10-01-preview/enrollmentaccountroleassignments/put). Analogamente, per usare un'entità servizio per creare la sottoscrizione con Contratto Enterprise, è necessario [concedere a tale entità servizio la possibilità di creare sottoscrizioni](/rest/api/billing/2019-10-01-preview/enrollmentaccountroleassignments/put).  
+    Se si usa un nome SPN per creare sottoscrizioni, usare il valore ObjectId della registrazione dell'applicazione Azure AD come l'ObjectId dell'entità servizio usando [Azure Active Directory PowerShell](/powershell/module/azuread/get-azureadserviceprincipal?view=azureadps-2.0) o l'interfaccia della riga di comando di [Azure](/cli/azure/ad/sp?view=azure-cli-latest#az_ad_sp_list).
   > [!NOTE]
   > Assicurarsi di usare la versione corretta dell'API per concedere le autorizzazioni di proprietario dell'account di registrazione. Per questo articolo e per le API documentate, usare l'API [2019-10-01-preview](/rest/api/billing/2019-10-01-preview/enrollmentaccountroleassignments/put). Se si esegue la migrazione per usare le API più recenti, è necessario concedere nuovamente l'autorizzazione di proprietario usando [2019-10-01-preview](/rest/api/billing/2019-10-01-preview/enrollmentaccountroleassignments/put). La configurazione precedente eseguita con la [versione 2015-07-01](grant-access-to-create-subscription.md) non viene convertita automaticamente per l'uso con le API più recenti.
 

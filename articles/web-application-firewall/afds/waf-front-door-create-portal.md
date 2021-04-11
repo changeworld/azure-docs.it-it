@@ -5,14 +5,14 @@ author: vhorne
 ms.service: web-application-firewall
 services: web-application-firewall
 ms.topic: tutorial
-ms.date: 02/18/2021
+ms.date: 03/31/2021
 ms.author: victorh
-ms.openlocfilehash: 8b1d1007e817bafe3d75f0f0d7c3fc6eb5470854
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: e7b4544530dc9c0c894ae7a0f2b1d2830f895928
+ms.sourcegitcommit: 9f4510cb67e566d8dad9a7908fd8b58ade9da3b7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101729471"
+ms.lasthandoff: 04/01/2021
+ms.locfileid: "106122257"
 ---
 # <a name="tutorial-create-a-web-application-firewall-policy-on-azure-front-door-using-the-azure-portal"></a>Esercitazione: Creare un criterio di web application firewall in Frontdoor di Azure usando il portale di Azure
 
@@ -27,32 +27,39 @@ In questa esercitazione verranno illustrate le procedure per:
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-Creare un profilo Frontdoor seguendo le istruzioni descritte nell'articolo [Avvio rapido: Creare un profilo Frontdoor](../../frontdoor/quickstart-create-front-door.md). 
+Creare una [porta anteriore](../../frontdoor/quickstart-create-front-door.md) o un profilo [Standard/Premium per la porta anteriore](../../frontdoor/standard-premium/create-front-door-portal.md) . 
 
 ## <a name="create-a-web-application-firewall-policy"></a>Creare un criterio di web application firewall
 
 Come prima cosa, creare un criterio WAF di base con il set di regole predefinite gestito usando il portale. 
 
-1. Nella parte superiore sinistra della schermata selezionare **Crea una risorsa**, cercare **WAF**, selezionare **Web application firewall (anteprima)** e infine selezionare **Crea**.
-2. Nella scheda **Generale** della pagina **Crea un criterio WAF** immettere o selezionare le informazioni seguenti, accettare le impostazioni predefinite per le opzioni rimanenti e quindi selezionare **Rivedi e crea**:
+1. Nella parte superiore sinistra della schermata selezionare **Crea una risorsa** > cercare **WAF** > selezionare **Web Application Firewall (WAF)** > selezionare **Crea**.
+
+1. Nella scheda **Generale** della pagina **Crea un criterio WAF** immettere o selezionare le informazioni seguenti, accettare le impostazioni predefinite per le opzioni rimanenti e quindi selezionare **Rivedi e crea**:
 
     | Impostazione                 | Valore                                              |
     | ---                     | ---                                                |
-    | Subscription            |Selezionare il nome della sottoscrizione di Frontdoor.|
-    | Resource group          |Selezionare il nome del gruppo di risorse di Frontdoor.|
-    | Nome criteri             |Immettere un nome univoco per il criterio WAF.|
+    | Criteri per              | Selezionare **WAF globale (porta anteriore)**. |
+    | SKU sportello anteriore          | Selezionare uno SKU Basic, standard e Premium. |
+    | Subscription            | Selezionare il nome della sottoscrizione di Frontdoor.|
+    | Resource group          | Selezionare il nome del gruppo di risorse di Frontdoor.|
+    | Nome criteri             | Immettere un nome univoco per il criterio WAF.|
+    | Stato criteri            | Imposta come **abilitato**. | 
 
-   :::image type="content" source="../media/waf-front-door-create-portal/basic.png" alt-text="Screenshot della pagina di creazione di un criterio WAF, con il pulsante Rivedi e crea e le caselle di riepilogo relative a sottoscrizione, gruppo di risorse e nome del criterio." border="false":::
+   :::image type="content" source="../media/waf-front-door-create-portal/basic.png" alt-text="Screenshot della pagina di creazione di un criterio WAF, con il pulsante Rivedi e crea e le caselle di riepilogo relative a sottoscrizione, gruppo di risorse e nome del criterio.":::
 
-3. Nella scheda **Associazione** della pagina **Crea un criterio WAF** selezionare **Aggiungi host front-end**, immettere le impostazioni seguenti e quindi selezionare **Aggiungi**:
+1. Nella scheda **associazione** della pagina **creare un criterio WAF** Selezionare **+ associa un profilo di sportello anteriore**, immettere le impostazioni seguenti e quindi selezionare **Aggiungi**:
 
-    | Impostazione                 | valore                                              |
+    | Impostazione                 | Valore                                              |
     | ---                     | ---                                                |
-    | Frontdoor              | Selezionare il nome del profilo Frontdoor.|
-    | Host front-end           | Selezionare il nome dell'host Frontdoor, quindi selezionare **Aggiungi**.|
+    | Profilo sportello anteriore              | Selezionare il nome del profilo Frontdoor. |
+    | Domains          | Selezionare i domini a cui si vuole associare il criterio WAF, quindi selezionare **Aggiungi**. |
+
+    :::image type="content" source="../media/waf-front-door-create-portal/associate-profile.png" alt-text="Screenshot della pagina associa un profilo di sportello anteriore.":::
     
     > [!NOTE]
-    > Se l'host front-end è associato a un criterio WAF, appare disattivato. Occorre prima rimuovere l'host front-end dal criterio associato e quindi riassociare l'host front-end a un nuovo criterio WAF.
+    > Se il dominio è associato a un criterio WAF, viene visualizzato come grigio. È necessario prima rimuovere il dominio dal criterio associato, quindi riassociarlo a un nuovo criterio WAF.
+
 1. Selezionare **Rivedi e crea** e quindi **Crea**.
 
 ## <a name="configure-web-application-firewall-rules-optional"></a>Configurare le regole di web application firewall (facoltativo)
@@ -62,21 +69,25 @@ Come prima cosa, creare un criterio WAF di base con il set di regole predefinite
 Quando si crea un criterio WAF, per impostazione predefinita questo è in modalità **Rilevamento**. In modalità **Rilevamento** WAF non blocca alcuna richiesta e le richieste che soddisfano le regole WAF vengono registrate nei log di WAF.
 Per vedere WAF in azione, è possibile cambiare le impostazioni della modalità da **Rilevamento** a **Prevenzione**. In modalità **Prevenzione** le richieste che soddisfano le regole definite nel set di regole predefinite vengono bloccate e registrate nei log WAF.
 
- :::image type="content" source="../media/waf-front-door-create-portal/policy.png" alt-text="Screenshot della sezione di impostazioni del criterio. L'interruttore Modalità è impostato su Prevenzione." border="false":::
+ :::image type="content" source="../media/waf-front-door-create-portal/policy.png" alt-text="Screenshot della sezione di impostazioni del criterio. L'interruttore Modalità è impostato su Prevenzione.":::
 
 ### <a name="custom-rules"></a>Regole personalizzate
 
-È possibile creare una regola personalizzata selezionando **Aggiungi regola personalizzata** nella sezione **Regole personalizzate**. Viene avviata la pagina di configurazione delle regole personalizzate. Di seguito è riportato un esempio di configurazione di una regola personalizzata per bloccare una richiesta se la stringa di query contiene **blockme**.
+È possibile creare una regola personalizzata selezionando **Aggiungi regola personalizzata** nella sezione **Regole personalizzate**. Viene avviata la pagina di configurazione delle regole personalizzate. 
 
-:::image type="content" source="../media/waf-front-door-create-portal/customquerystring2.png" alt-text="Screenshot della pagina di configurazione di regole personalizzate, che mostra l'impostazione per una regola che verifica se la variabile QueryString contiene il valore blockme." border="false":::
+:::image type="content" source="../media/waf-front-door-create-portal/custom-rules.png" alt-text="Screenshot della pagina delle regole personalizzate.":::
+
+Di seguito è riportato un esempio di configurazione di una regola personalizzata per bloccare una richiesta se la stringa di query contiene **blockme**.
+
+:::image type="content" source="../media/waf-front-door-create-portal/customquerystring2.png" alt-text="Screenshot della pagina di configurazione di regole personalizzate, che mostra l'impostazione per una regola che verifica se la variabile QueryString contiene il valore blockme.":::
 
 ### <a name="default-rule-set-drs"></a>Set di regole predefinite
 
 Il set di regole predefinite gestito da Azure è abilitato per impostazione predefinita. La versione predefinita corrente è DefaultRuleSet_1.0. Da **regole gestite** di WAF, **assegnare**, il set di regole di Microsoft_DefaultRuleSet_1 1 disponibile di recente è disponibile nell'elenco a discesa.
 
-Per disabilitare una singola regola in un gruppo di regole, espandere le regole all'interno di tale gruppo, selezionare la **casella di controllo** davanti al numero della regola e quindi selezionare **Disabilita** nella scheda visualizzata sopra. Per cambiare i tipi di azioni per le singole regole all'interno del set di regole, selezionare la casella di controllo davanti al numero della regola, quindi selezionare la scheda **Modifica azione**.
+Per disabilitare una singola regola, selezionare la **casella di controllo** davanti al numero della regola e selezionare **Disabilita** nella parte superiore della pagina. Per modificare i tipi di azioni per le singole regole all'interno del set di regole, selezionare la casella di controllo davanti al numero della regola, quindi selezionare l' **azione modifica** nella parte superiore della pagina.
 
- :::image type="content" source="../media/waf-front-door-create-portal/managed2.png" alt-text="Screenshot della pagina Regole gestite che mostra un set di regole, gruppi di regole, regole e i pulsanti Abilita, Disabilita e Modifica azione. Una regola è selezionata." border="false":::
+:::image type="content" source="../media/waf-front-door-create-portal/managed-rules.png" alt-text="Screenshot della pagina Regole gestite che mostra un set di regole, i gruppi di regole, le regole e i pulsanti Abilita, Disabilita e modifica azione." lightbox="../media/waf-front-door-create-portal/managed-rules-expanded.png":::
 
 ## <a name="clean-up-resources"></a>Pulire le risorse
 
@@ -85,4 +96,5 @@ Quando non sono più necessari, rimuovere il gruppo di risorse e tutte le risors
 ## <a name="next-steps"></a>Passaggi successivi
 
 > [!div class="nextstepaction"]
-> [Altre informazioni su Frontdoor di Azure](../../frontdoor/front-door-overview.md)
+> [Altre informazioni su Azure front door](../../frontdoor/front-door-overview.md) 
+>  [Scopri di più su Azure front door standard/Premium](../../frontdoor/standard-premium/overview.md)

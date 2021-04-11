@@ -1,5 +1,5 @@
 ---
-title: Che cos'è Azure Cosmos DB archivio analitico?
+title: Che cos'è l'archivio analitico di Azure Cosmos DB?
 description: Informazioni sull'archivio transazionale (basato su righe) e sull'archivio analitico (basato su colonne) di Azure Cosmos DB. Vantaggi dell'archivio analitico, impatto sulle prestazioni per carichi di lavoro su larga scala e sincronizzazione automatica dei dati dall'archivio transazionale all'archivio analitico
 author: Rodrigossz
 ms.service: cosmos-db
@@ -8,10 +8,10 @@ ms.date: 03/16/2021
 ms.author: rosouz
 ms.custom: seo-nov-2020
 ms.openlocfilehash: 450514541a90a01ea6b70f77491f116adb404887
-ms.sourcegitcommit: ed7376d919a66edcba3566efdee4bc3351c57eda
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/24/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "105046213"
 ---
 # <a name="what-is-azure-cosmos-db-analytical-store"></a>Che cos'è Azure Cosmos DB archivio analitico?
